@@ -923,14 +923,14 @@ define dso_local i32 @fed_mgr_init(ptr noundef %0) #0 {
 
 43:                                               ; preds = %42
   store i32 0, ptr %2, align 4
-  br label %284
+  br label %290
 
 44:                                               ; preds = %31
   %45 = call zeroext i1 @slurm_with_slurmdbd()
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %44
-  br label %273
+  br label %279
 
 47:                                               ; preds = %44
   br label %48
@@ -1066,7 +1066,7 @@ define dso_local i32 @fed_mgr_init(ptr noundef %0) #0 {
   call void @_spawn_threads()
   %109 = load i16, ptr @running_cache, align 2
   %110 = icmp ne i16 %109, 0
-  br i1 %110, label %111, label %134
+  br i1 %110, label %111, label %135
 
 111:                                              ; preds = %108
   br label %112
@@ -1090,335 +1090,341 @@ define dso_local i32 @fed_mgr_init(ptr noundef %0) #0 {
   br label %119
 
 119:                                              ; preds = %118
-  %120 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195), align 8
-  %121 = call ptr @_state_load(ptr noundef %120)
-  store ptr %121, ptr %8, align 8
-  %122 = load ptr, ptr %8, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %133, label %124
+  %120 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195
+  %121 = load ptr, ptr %120, align 8
+  %122 = call ptr @_state_load(ptr noundef %121)
+  store ptr %122, ptr %8, align 8
+  %123 = load ptr, ptr %8, align 8
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %134, label %125
 
-124:                                              ; preds = %119
-  br label %125
-
-125:                                              ; preds = %124
+125:                                              ; preds = %119
   br label %126
 
 126:                                              ; preds = %125
-  %127 = call i32 @get_log_level()
-  %128 = icmp sge i32 %127, 6
-  br i1 %128, label %129, label %130
+  br label %127
 
-129:                                              ; preds = %126
+127:                                              ; preds = %126
+  %128 = call i32 @get_log_level()
+  %129 = icmp sge i32 %128, 6
+  br i1 %129, label %130, label %131
+
+130:                                              ; preds = %127
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.7)
-  br label %130
-
-130:                                              ; preds = %129, %126
   br label %131
 
-131:                                              ; preds = %130
+131:                                              ; preds = %130, %127
   br label %132
 
 132:                                              ; preds = %131
+  br label %133
+
+133:                                              ; preds = %132
   store i32 0, ptr %4, align 4
-  br label %273
+  br label %279
 
-133:                                              ; preds = %119
-  br label %190
+134:                                              ; preds = %119
+  br label %195
 
-134:                                              ; preds = %108
-  %135 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195), align 8
-  %136 = call ptr @_state_load(ptr noundef %135)
-  store ptr %136, ptr %9, align 8
-  %137 = load ptr, ptr %9, align 8
-  %138 = icmp ne ptr %137, null
-  br i1 %138, label %139, label %145
+135:                                              ; preds = %108
+  %136 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195
+  %137 = load ptr, ptr %136, align 8
+  %138 = call ptr @_state_load(ptr noundef %137)
+  store ptr %138, ptr %9, align 8
+  %139 = load ptr, ptr %9, align 8
+  %140 = icmp ne ptr %139, null
+  br i1 %140, label %141, label %148
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %9, align 8
-  %141 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %140, i32 0, i32 2
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %144 = call ptr @list_find_first(ptr noundef %142, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %143)
-  store ptr %144, ptr %10, align 8
-  br label %145
+141:                                              ; preds = %135
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %142, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %146 = load ptr, ptr %145, align 8
+  %147 = call ptr @list_find_first(ptr noundef %144, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %146)
+  store ptr %147, ptr %10, align 8
+  br label %148
 
-145:                                              ; preds = %139, %134
+148:                                              ; preds = %141, %135
   call void @slurmdb_init_federation_cond(ptr noundef %6, i1 noundef zeroext false)
-  %146 = call ptr @list_create(ptr noundef null)
-  %147 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
-  store ptr %146, ptr %147, align 8
-  %148 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  call void @list_append(ptr noundef %149, ptr noundef %150)
-  %151 = load ptr, ptr %3, align 8
-  %152 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %153 = call ptr @acct_storage_g_get_federations(ptr noundef %151, i32 noundef %152, ptr noundef %6)
-  store ptr %153, ptr %7, align 8
-  br label %154
+  %149 = call ptr @list_create(ptr noundef null)
+  %150 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
+  store ptr %149, ptr %150, align 8
+  %151 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %154 = load ptr, ptr %153, align 8
+  call void @list_append(ptr noundef %152, ptr noundef %154)
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %157 = load i32, ptr %156, align 8
+  %158 = call ptr @acct_storage_g_get_federations(ptr noundef %155, i32 noundef %157, ptr noundef %6)
+  store ptr %158, ptr %7, align 8
+  br label %159
 
-154:                                              ; preds = %145
-  %155 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp ne ptr %156, null
-  br i1 %157, label %158, label %161
+159:                                              ; preds = %148
+  %160 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %163, label %166
 
-158:                                              ; preds = %154
-  %159 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
-  %160 = load ptr, ptr %159, align 8
-  call void @list_destroy(ptr noundef %160)
-  br label %161
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
+  %165 = load ptr, ptr %164, align 8
+  call void @list_destroy(ptr noundef %165)
+  br label %166
 
-161:                                              ; preds = %158, %154
-  %162 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
-  store ptr null, ptr %162, align 8
-  br label %163
+166:                                              ; preds = %163, %159
+  %167 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %6, i32 0, i32 0
+  store ptr null, ptr %167, align 8
+  br label %168
 
-163:                                              ; preds = %161
-  %164 = load ptr, ptr %7, align 8
-  %165 = icmp ne ptr %164, null
-  br i1 %165, label %168, label %166
-
-166:                                              ; preds = %163
-  %167 = call i32 (ptr, ...) @error(ptr noundef @.str.8)
-  store i32 -1, ptr %4, align 4
-  br label %273
-
-168:                                              ; preds = %163
+168:                                              ; preds = %166
   %169 = load ptr, ptr %7, align 8
-  %170 = call i32 @list_count(ptr noundef %169)
-  %171 = icmp eq i32 %170, 1
-  br i1 %171, label %172, label %175
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %173, label %171
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %7, align 8
-  %174 = call ptr @list_pop(ptr noundef %173)
-  store ptr %174, ptr %8, align 8
-  br label %182
-
-175:                                              ; preds = %168
-  %176 = load ptr, ptr %7, align 8
-  %177 = call i32 @list_count(ptr noundef %176)
-  %178 = icmp sgt i32 %177, 1
-  br i1 %178, label %179, label %181
-
-179:                                              ; preds = %175
-  %180 = call i32 (ptr, ...) @error(ptr noundef @.str.9)
+171:                                              ; preds = %168
+  %172 = call i32 (ptr, ...) @error(ptr noundef @.str.8)
   store i32 -1, ptr %4, align 4
-  br label %181
+  br label %279
 
-181:                                              ; preds = %179, %175
-  br label %182
+173:                                              ; preds = %168
+  %174 = load ptr, ptr %7, align 8
+  %175 = call i32 @list_count(ptr noundef %174)
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %177, label %180
 
-182:                                              ; preds = %181, %172
-  br label %183
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %7, align 8
+  %179 = call ptr @list_pop(ptr noundef %178)
+  store ptr %179, ptr %8, align 8
+  br label %187
 
-183:                                              ; preds = %182
-  %184 = load ptr, ptr %7, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %188
+180:                                              ; preds = %173
+  %181 = load ptr, ptr %7, align 8
+  %182 = call i32 @list_count(ptr noundef %181)
+  %183 = icmp sgt i32 %182, 1
+  br i1 %183, label %184, label %186
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %7, align 8
-  call void @list_destroy(ptr noundef %187)
+184:                                              ; preds = %180
+  %185 = call i32 (ptr, ...) @error(ptr noundef @.str.9)
+  store i32 -1, ptr %4, align 4
+  br label %186
+
+186:                                              ; preds = %184, %180
+  br label %187
+
+187:                                              ; preds = %186, %177
   br label %188
 
-188:                                              ; preds = %186, %183
+188:                                              ; preds = %187
+  %189 = load ptr, ptr %7, align 8
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %191, label %193
+
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %7, align 8
+  call void @list_destroy(ptr noundef %192)
+  br label %193
+
+193:                                              ; preds = %191, %188
   store ptr null, ptr %7, align 8
-  br label %189
+  br label %194
 
-189:                                              ; preds = %188
-  br label %190
+194:                                              ; preds = %193
+  br label %195
 
-190:                                              ; preds = %189, %133
-  %191 = load ptr, ptr %8, align 8
-  %192 = icmp ne ptr %191, null
-  br i1 %192, label %193, label %254
+195:                                              ; preds = %194, %134
+  %196 = load ptr, ptr %8, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %198, label %260
 
-193:                                              ; preds = %190
+198:                                              ; preds = %195
   store ptr null, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 @__const.fed_mgr_init.fedr_jobw_lock, i64 20, i1 false)
-  %194 = load ptr, ptr %8, align 8
-  %195 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %194, i32 0, i32 2
-  %196 = load ptr, ptr %195, align 8
-  %197 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %198 = call ptr @list_find_first(ptr noundef %196, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %197)
-  store ptr %198, ptr %17, align 8
-  %199 = icmp ne ptr %198, null
-  br i1 %199, label %200, label %250
+  %199 = load ptr, ptr %8, align 8
+  %200 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %199, i32 0, i32 2
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %203 = load ptr, ptr %202, align 8
+  %204 = call ptr @list_find_first(ptr noundef %201, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %203)
+  store ptr %204, ptr %17, align 8
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %256
 
-200:                                              ; preds = %193
-  %201 = load ptr, ptr %8, align 8
-  %202 = load ptr, ptr %17, align 8
-  call void @_join_federation(ptr noundef %201, ptr noundef %202, ptr noundef %5)
+206:                                              ; preds = %198
+  %207 = load ptr, ptr %8, align 8
+  %208 = load ptr, ptr %17, align 8
+  call void @_join_federation(ptr noundef %207, ptr noundef %208, ptr noundef %5)
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %18)
-  %203 = load ptr, ptr %9, align 8
-  %204 = icmp ne ptr %203, null
-  br i1 %204, label %205, label %213
-
-205:                                              ; preds = %200
-  %206 = load ptr, ptr %10, align 8
-  %207 = icmp ne ptr %206, null
-  br i1 %207, label %208, label %213
-
-208:                                              ; preds = %205
-  %209 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %209 = load ptr, ptr %9, align 8
   %210 = icmp ne ptr %209, null
-  br i1 %210, label %211, label %213
+  br i1 %210, label %211, label %219
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %9, align 8
-  call void @_handle_removed_clusters(ptr noundef %212, ptr noundef %5)
-  br label %213
+211:                                              ; preds = %206
+  %212 = load ptr, ptr %10, align 8
+  %213 = icmp ne ptr %212, null
+  br i1 %213, label %214, label %219
 
-213:                                              ; preds = %211, %208, %205, %200
-  %214 = load ptr, ptr @job_list, align 8
-  %215 = call ptr @list_iterator_create(ptr noundef %214)
-  store ptr %215, ptr %20, align 8
-  br label %216
+214:                                              ; preds = %211
+  %215 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %216 = icmp ne ptr %215, null
+  br i1 %216, label %217, label %219
 
-216:                                              ; preds = %247, %213
-  %217 = load ptr, ptr %20, align 8
-  %218 = call ptr @list_next(ptr noundef %217)
-  store ptr %218, ptr %19, align 8
-  %219 = icmp ne ptr %218, null
-  br i1 %219, label %220, label %248
+217:                                              ; preds = %214
+  %218 = load ptr, ptr %9, align 8
+  call void @_handle_removed_clusters(ptr noundef %218, ptr noundef %5)
+  br label %219
 
-220:                                              ; preds = %216
-  %221 = load ptr, ptr %19, align 8
-  %222 = getelementptr inbounds %struct.job_record, ptr %221, i32 0, i32 30
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp ne ptr %223, null
-  br i1 %224, label %225, label %247
+219:                                              ; preds = %217, %214, %211, %206
+  %220 = load ptr, ptr @job_list, align 8
+  %221 = call ptr @list_iterator_create(ptr noundef %220)
+  store ptr %221, ptr %20, align 8
+  br label %222
 
-225:                                              ; preds = %220
-  %226 = load ptr, ptr %19, align 8
-  %227 = getelementptr inbounds %struct.job_record, ptr %226, i32 0, i32 30
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds %struct.job_details_t, ptr %228, i32 0, i32 19
-  %230 = load ptr, ptr %229, align 8
-  %231 = icmp ne ptr %230, null
-  br i1 %231, label %232, label %247
+222:                                              ; preds = %253, %219
+  %223 = load ptr, ptr %20, align 8
+  %224 = call ptr @list_next(ptr noundef %223)
+  store ptr %224, ptr %19, align 8
+  %225 = icmp ne ptr %224, null
+  br i1 %225, label %226, label %254
 
-232:                                              ; preds = %225
-  %233 = load ptr, ptr %19, align 8
-  %234 = getelementptr inbounds %struct.job_record, ptr %233, i32 0, i32 30
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.job_details_t, ptr %235, i32 0, i32 18
-  %237 = load ptr, ptr %236, align 8
-  %238 = call i32 @list_count(ptr noundef %237)
-  %239 = icmp ne i32 %238, 0
-  br i1 %239, label %240, label %247
+226:                                              ; preds = %222
+  %227 = load ptr, ptr %19, align 8
+  %228 = getelementptr inbounds %struct.job_record, ptr %227, i32 0, i32 30
+  %229 = load ptr, ptr %228, align 8
+  %230 = icmp ne ptr %229, null
+  br i1 %230, label %231, label %253
 
-240:                                              ; preds = %232
-  %241 = load ptr, ptr %19, align 8
-  %242 = call i32 @fed_mgr_submit_remote_dependencies(ptr noundef %241, i1 noundef zeroext false, i1 noundef zeroext false)
-  %243 = icmp ne i32 %242, 0
-  br i1 %243, label %244, label %247
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %19, align 8
+  %233 = getelementptr inbounds %struct.job_record, ptr %232, i32 0, i32 30
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds %struct.job_details_t, ptr %234, i32 0, i32 19
+  %236 = load ptr, ptr %235, align 8
+  %237 = icmp ne ptr %236, null
+  br i1 %237, label %238, label %253
 
-244:                                              ; preds = %240
-  %245 = load ptr, ptr %19, align 8
-  %246 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.fed_mgr_init, ptr noundef %245)
-  br label %247
+238:                                              ; preds = %231
+  %239 = load ptr, ptr %19, align 8
+  %240 = getelementptr inbounds %struct.job_record, ptr %239, i32 0, i32 30
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds %struct.job_details_t, ptr %241, i32 0, i32 18
+  %243 = load ptr, ptr %242, align 8
+  %244 = call i32 @list_count(ptr noundef %243)
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %253
 
-247:                                              ; preds = %244, %240, %232, %225, %220
-  br label %216, !llvm.loop !9
+246:                                              ; preds = %238
+  %247 = load ptr, ptr %19, align 8
+  %248 = call i32 @fed_mgr_submit_remote_dependencies(ptr noundef %247, i1 noundef zeroext false, i1 noundef zeroext false)
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %253
 
-248:                                              ; preds = %216
-  %249 = load ptr, ptr %20, align 8
-  call void @list_iterator_destroy(ptr noundef %249)
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %19, align 8
+  %252 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.fed_mgr_init, ptr noundef %251)
+  br label %253
+
+253:                                              ; preds = %250, %246, %238, %231, %226
+  br label %222, !llvm.loop !9
+
+254:                                              ; preds = %222
+  %255 = load ptr, ptr %20, align 8
+  call void @list_iterator_destroy(ptr noundef %255)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %18)
-  br label %253
+  br label %259
 
-250:                                              ; preds = %193
-  %251 = load ptr, ptr %8, align 8
-  call void @slurmdb_destroy_federation_rec(ptr noundef %251)
-  %252 = call i32 (ptr, ...) @error(ptr noundef @.str.11)
+256:                                              ; preds = %198
+  %257 = load ptr, ptr %8, align 8
+  call void @slurmdb_destroy_federation_rec(ptr noundef %257)
+  %258 = call i32 (ptr, ...) @error(ptr noundef @.str.11)
   store i32 -1, ptr %4, align 4
-  br label %253
+  br label %259
 
-253:                                              ; preds = %250, %248
-  br label %271
+259:                                              ; preds = %256, %254
+  br label %277
 
-254:                                              ; preds = %190
-  %255 = load ptr, ptr %9, align 8
-  %256 = icmp ne ptr %255, null
-  br i1 %256, label %257, label %270
+260:                                              ; preds = %195
+  %261 = load ptr, ptr %9, align 8
+  %262 = icmp ne ptr %261, null
+  br i1 %262, label %263, label %276
 
-257:                                              ; preds = %254
-  %258 = load ptr, ptr %10, align 8
-  %259 = icmp ne ptr %258, null
-  br i1 %259, label %260, label %270
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %10, align 8
+  %265 = icmp ne ptr %264, null
+  br i1 %265, label %266, label %276
 
-260:                                              ; preds = %257
+266:                                              ; preds = %263
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 @__const.fed_mgr_init.fedw_jobw_lock, i64 20, i1 false)
-  br label %261
-
-261:                                              ; preds = %260
-  br label %262
-
-262:                                              ; preds = %261
-  %263 = call i32 @get_log_level()
-  %264 = icmp sge i32 %263, 3
-  br i1 %264, label %265, label %266
-
-265:                                              ; preds = %262
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.12)
-  br label %266
-
-266:                                              ; preds = %265, %262
   br label %267
 
 267:                                              ; preds = %266
   br label %268
 
 268:                                              ; preds = %267
-  call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %21)
-  %269 = load ptr, ptr %10, align 8
-  store ptr %269, ptr @fed_mgr_cluster_rec, align 8
-  call void @_cleanup_removed_origin_jobs()
-  store ptr null, ptr @fed_mgr_cluster_rec, align 8
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %21)
-  br label %270
+  %269 = call i32 @get_log_level()
+  %270 = icmp sge i32 %269, 3
+  br i1 %270, label %271, label %272
 
-270:                                              ; preds = %268, %257, %254
-  br label %271
+271:                                              ; preds = %268
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.12)
+  br label %272
 
-271:                                              ; preds = %270, %253
-  %272 = load ptr, ptr %9, align 8
-  call void @slurmdb_destroy_federation_rec(ptr noundef %272)
+272:                                              ; preds = %271, %268
   br label %273
 
-273:                                              ; preds = %271, %166, %132, %46
-  call void @_add_missing_fed_job_info()
-  store i8 1, ptr @inited, align 1
+273:                                              ; preds = %272
   br label %274
 
 274:                                              ; preds = %273
-  %275 = call i32 @pthread_mutex_unlock(ptr noundef @init_mutex) #8
-  store i32 %275, ptr %22, align 4
-  %276 = load i32, ptr %22, align 4
-  %277 = icmp ne i32 %276, 0
-  br i1 %277, label %278, label %281
+  call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %21)
+  %275 = load ptr, ptr %10, align 8
+  store ptr %275, ptr @fed_mgr_cluster_rec, align 8
+  call void @_cleanup_removed_origin_jobs()
+  store ptr null, ptr @fed_mgr_cluster_rec, align 8
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %21)
+  br label %276
 
-278:                                              ; preds = %274
-  %279 = load i32, ptr %22, align 4
-  %280 = call ptr @__errno_location() #9
-  store i32 %279, ptr %280, align 4
+276:                                              ; preds = %274, %263, %260
+  br label %277
+
+277:                                              ; preds = %276, %259
+  %278 = load ptr, ptr %9, align 8
+  call void @slurmdb_destroy_federation_rec(ptr noundef %278)
+  br label %279
+
+279:                                              ; preds = %277, %171, %133, %46
+  call void @_add_missing_fed_job_info()
+  store i8 1, ptr @inited, align 1
+  br label %280
+
+280:                                              ; preds = %279
+  %281 = call i32 @pthread_mutex_unlock(ptr noundef @init_mutex) #8
+  store i32 %281, ptr %22, align 4
+  %282 = load i32, ptr %22, align 4
+  %283 = icmp ne i32 %282, 0
+  br i1 %283, label %284, label %287
+
+284:                                              ; preds = %280
+  %285 = load i32, ptr %22, align 4
+  %286 = call ptr @__errno_location() #9
+  store i32 %285, ptr %286, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2946, ptr noundef @__func__.fed_mgr_init) #10
   unreachable
 
-281:                                              ; preds = %274
-  br label %282
+287:                                              ; preds = %280
+  br label %288
 
-282:                                              ; preds = %281
-  %283 = load i32, ptr %4, align 4
-  store i32 %283, ptr %2, align 4
-  br label %284
+288:                                              ; preds = %287
+  %289 = load i32, ptr %4, align 4
+  store i32 %289, ptr %2, align 4
+  br label %290
 
-284:                                              ; preds = %282, %43
-  %285 = load i32, ptr %2, align 4
-  ret i32 %285
+290:                                              ; preds = %288, %43
+  %291 = load i32, ptr %2, align 4
+  ret i32 %291
 }
 
 declare zeroext i1 @slurm_with_slurmdbd() #1
@@ -3120,7 +3126,7 @@ define internal void @_cleanup_removed_origin_jobs() #0 {
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %0
-  br label %177
+  br label %178
 
 15:                                               ; preds = %0
   %16 = load ptr, ptr @fed_mgr_cluster_rec, align 8
@@ -3314,84 +3320,85 @@ define internal void @_cleanup_removed_origin_jobs() #0 {
   call void @list_iterator_destroy(ptr noundef %140)
   %141 = load ptr, ptr @remote_dep_job_list, align 8
   %142 = icmp ne ptr %141, null
-  br i1 %142, label %143, label %177
+  br i1 %142, label %143, label %178
 
 143:                                              ; preds = %139
   br label %144
 
 144:                                              ; preds = %143
-  %145 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %146 = and i64 %145, 281474976710656
-  %147 = icmp ne i64 %146, 0
-  br i1 %147, label %148, label %155
+  %145 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %146 = load i64, ptr %145, align 8
+  %147 = and i64 %146, 281474976710656
+  %148 = icmp ne i64 %147, 0
+  br i1 %148, label %149, label %156
 
-148:                                              ; preds = %144
-  br label %149
+149:                                              ; preds = %144
+  br label %150
 
-149:                                              ; preds = %148
-  %150 = call i32 @get_log_level()
-  %151 = icmp sge i32 %150, 4
-  br i1 %151, label %152, label %153
+150:                                              ; preds = %149
+  %151 = call i32 @get_log_level()
+  %152 = icmp sge i32 %151, 4
+  br i1 %152, label %153, label %154
 
-152:                                              ; preds = %149
+153:                                              ; preds = %150
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.171, ptr noundef @__func__._cleanup_removed_origin_jobs)
-  br label %153
-
-153:                                              ; preds = %152, %149
   br label %154
 
-154:                                              ; preds = %153
+154:                                              ; preds = %153, %150
   br label %155
 
-155:                                              ; preds = %154, %144
+155:                                              ; preds = %154
   br label %156
 
-156:                                              ; preds = %155
+156:                                              ; preds = %155, %144
   br label %157
 
 157:                                              ; preds = %156
-  %158 = call i32 @pthread_mutex_lock(ptr noundef @dep_job_list_mutex) #8
-  store i32 %158, ptr %9, align 4
-  %159 = load i32, ptr %9, align 4
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %161, label %164
+  br label %158
 
-161:                                              ; preds = %157
-  %162 = load i32, ptr %9, align 4
-  %163 = call ptr @__errno_location() #9
-  store i32 %162, ptr %163, align 4
+158:                                              ; preds = %157
+  %159 = call i32 @pthread_mutex_lock(ptr noundef @dep_job_list_mutex) #8
+  store i32 %159, ptr %9, align 4
+  %160 = load i32, ptr %9, align 4
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %162, label %165
+
+162:                                              ; preds = %158
+  %163 = load i32, ptr %9, align 4
+  %164 = call ptr @__errno_location() #9
+  store i32 %163, ptr %164, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 1500, ptr noundef @__func__._cleanup_removed_origin_jobs) #10
   unreachable
 
-164:                                              ; preds = %157
-  br label %165
+165:                                              ; preds = %158
+  br label %166
 
-165:                                              ; preds = %164
-  %166 = load ptr, ptr @remote_dep_job_list, align 8
-  %167 = call i32 @list_flush(ptr noundef %166)
-  br label %168
+166:                                              ; preds = %165
+  %167 = load ptr, ptr @remote_dep_job_list, align 8
+  %168 = call i32 @list_flush(ptr noundef %167)
+  br label %169
 
-168:                                              ; preds = %165
-  %169 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
-  store i32 %169, ptr %10, align 4
-  %170 = load i32, ptr %10, align 4
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %175
+169:                                              ; preds = %166
+  %170 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
+  store i32 %170, ptr %10, align 4
+  %171 = load i32, ptr %10, align 4
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %176
 
-172:                                              ; preds = %168
-  %173 = load i32, ptr %10, align 4
-  %174 = call ptr @__errno_location() #9
-  store i32 %173, ptr %174, align 4
+173:                                              ; preds = %169
+  %174 = load i32, ptr %10, align 4
+  %175 = call ptr @__errno_location() #9
+  store i32 %174, ptr %175, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 1502, ptr noundef @__func__._cleanup_removed_origin_jobs) #10
   unreachable
 
-175:                                              ; preds = %168
-  br label %176
-
-176:                                              ; preds = %175
+176:                                              ; preds = %169
   br label %177
 
-177:                                              ; preds = %176, %139, %14
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177, %139, %14
   ret void
 }
 
@@ -3796,51 +3803,52 @@ define internal void @_leave_federation() #0 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  br label %23
+  br label %24
 
 4:                                                ; preds = %0
   br label %5
 
 5:                                                ; preds = %4
-  %6 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %7 = and i64 %6, 281474976710656
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %19
+  %6 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %7 = load i64, ptr %6, align 8
+  %8 = and i64 %7, 281474976710656
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %20
 
-9:                                                ; preds = %5
-  br label %10
+10:                                               ; preds = %5
+  br label %11
 
-10:                                               ; preds = %9
-  %11 = call i32 @get_log_level()
-  %12 = icmp sge i32 %11, 4
-  br i1 %12, label %13, label %17
+11:                                               ; preds = %10
+  %12 = call i32 @get_log_level()
+  %13 = icmp sge i32 %12, 4
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %15 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.173, ptr noundef %16)
-  br label %17
-
-17:                                               ; preds = %13, %10
+14:                                               ; preds = %11
+  %15 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %16 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.173, ptr noundef %17)
   br label %18
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14, %11
   br label %19
 
-19:                                               ; preds = %18, %5
+19:                                               ; preds = %18
   br label %20
 
-20:                                               ; preds = %19
-  %21 = call i32 @_close_sibling_conns()
+20:                                               ; preds = %19, %5
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = call i32 @_close_sibling_conns()
   call void @_remove_job_watch_thread()
-  %22 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  call void @slurmdb_destroy_federation_rec(ptr noundef %22)
+  %23 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  call void @slurmdb_destroy_federation_rec(ptr noundef %23)
   store ptr null, ptr @fed_mgr_fed_rec, align 8
   store ptr null, ptr @fed_mgr_cluster_rec, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %20, %3
+24:                                               ; preds = %21, %3
   ret void
 }
 
@@ -3880,7 +3888,7 @@ define dso_local i32 @fed_mgr_update_feds(ptr noundef %0) #0 {
 
 20:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %158
+  br label %162
 
 21:                                               ; preds = %1
   br label %22
@@ -3929,7 +3937,7 @@ define dso_local i32 @fed_mgr_update_feds(ptr noundef %0) #0 {
 
 42:                                               ; preds = %41
   store i32 0, ptr %2, align 4
-  br label %158
+  br label %162
 
 43:                                               ; preds = %30
   br label %44
@@ -3975,210 +3983,214 @@ define dso_local i32 @fed_mgr_update_feds(ptr noundef %0) #0 {
   br label %62
 
 62:                                               ; preds = %61
-  %63 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %64 = and i64 %63, 281474976710656
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %73
+  %63 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 281474976710656
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %74
 
-66:                                               ; preds = %62
-  br label %67
+67:                                               ; preds = %62
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = call i32 @get_log_level()
-  %69 = icmp sge i32 %68, 4
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %67
+  %69 = call i32 @get_log_level()
+  %70 = icmp sge i32 %69, 4
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.15)
-  br label %71
-
-71:                                               ; preds = %70, %67
   br label %72
 
-72:                                               ; preds = %71
+72:                                               ; preds = %71, %68
   br label %73
 
-73:                                               ; preds = %72, %62
+73:                                               ; preds = %72
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %6, align 8
-  br label %78
+74:                                               ; preds = %73, %62
+  br label %75
 
-78:                                               ; preds = %126, %74
-  %79 = load ptr, ptr %6, align 8
-  %80 = call ptr @list_pop(ptr noundef %79)
-  store ptr %80, ptr %7, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %128
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %6, align 8
+  br label %79
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp ne ptr %85, null
-  br i1 %86, label %87, label %126
+79:                                               ; preds = %129, %75
+  %80 = load ptr, ptr %6, align 8
+  %81 = call ptr @list_pop(ptr noundef %80)
+  store ptr %81, ptr %7, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %131
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %88, i32 0, i32 2
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %92 = call ptr @list_find_first(ptr noundef %90, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %91)
-  store ptr %92, ptr %8, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %126
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %129
 
-94:                                               ; preds = %87
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %89, i32 0, i32 2
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr @list_find_first(ptr noundef %91, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %93)
+  store ptr %94, ptr %8, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %129
+
+96:                                               ; preds = %88
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
-  %95 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %99
+  %97 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %101
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %7, align 8
-  call void @_handle_removed_clusters(ptr noundef %98, ptr noundef %5)
-  br label %99
-
-99:                                               ; preds = %97, %94
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
+99:                                               ; preds = %96
   %100 = load ptr, ptr %7, align 8
-  %101 = load ptr, ptr %8, align 8
-  call void @_join_federation(ptr noundef %100, ptr noundef %101, ptr noundef %4)
-  %102 = load i64, ptr %4, align 8
-  %103 = icmp ne i64 %102, 0
-  br i1 %103, label %107, label %104
+  call void @_handle_removed_clusters(ptr noundef %100, ptr noundef %5)
+  br label %101
 
-104:                                              ; preds = %99
-  %105 = load i64, ptr %5, align 8
-  %106 = icmp ne i64 %105, 0
-  br i1 %106, label %107, label %125
+101:                                              ; preds = %99, %96
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %8, align 8
+  call void @_join_federation(ptr noundef %102, ptr noundef %103, ptr noundef %4)
+  %104 = load i64, ptr %4, align 8
+  %105 = icmp ne i64 %104, 0
+  br i1 %105, label %109, label %106
 
-107:                                              ; preds = %104, %99
+106:                                              ; preds = %101
+  %107 = load i64, ptr %5, align 8
+  %108 = icmp ne i64 %107, 0
+  br i1 %108, label %109, label %128
+
+109:                                              ; preds = %106, %101
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
-  br label %108
+  br label %110
 
-108:                                              ; preds = %107
-  %109 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %110 = and i64 %109, 9007199254740992
-  %111 = icmp ne i64 %110, 0
-  br i1 %111, label %112, label %121
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %112 = load i64, ptr %111, align 8
+  %113 = and i64 %112, 9007199254740992
+  %114 = icmp ne i64 %113, 0
+  br i1 %114, label %115, label %124
 
-112:                                              ; preds = %108
-  br label %113
+115:                                              ; preds = %110
+  br label %116
 
-113:                                              ; preds = %112
-  %114 = call i32 @get_log_level()
-  %115 = icmp sge i32 %114, 4
-  br i1 %115, label %116, label %119
+116:                                              ; preds = %115
+  %117 = call i32 @get_log_level()
+  %118 = icmp sge i32 %117, 4
+  br i1 %118, label %119, label %122
 
-116:                                              ; preds = %113
-  %117 = load i64, ptr %4, align 8
-  %118 = load i64, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef @__func__.fed_mgr_update_feds, i64 noundef %117, i64 noundef %118)
-  br label %119
-
-119:                                              ; preds = %116, %113
-  br label %120
-
-120:                                              ; preds = %119
-  br label %121
-
-121:                                              ; preds = %120, %108
+119:                                              ; preds = %116
+  %120 = load i64, ptr %4, align 8
+  %121 = load i64, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef @__func__.fed_mgr_update_feds, i64 noundef %120, i64 noundef %121)
   br label %122
 
-122:                                              ; preds = %121
-  %123 = load i64, ptr %4, align 8
-  %124 = load i64, ptr %5, align 8
-  call void @_handle_dependencies_for_modified_fed(i64 noundef %123, i64 noundef %124)
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
+122:                                              ; preds = %119, %116
+  br label %123
+
+123:                                              ; preds = %122
+  br label %124
+
+124:                                              ; preds = %123, %110
   br label %125
 
-125:                                              ; preds = %122, %104
+125:                                              ; preds = %124
+  %126 = load i64, ptr %4, align 8
+  %127 = load i64, ptr %5, align 8
+  call void @_handle_dependencies_for_modified_fed(i64 noundef %126, i64 noundef %127)
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %9)
   br label %128
 
-126:                                              ; preds = %87, %82
-  %127 = load ptr, ptr %7, align 8
-  call void @slurmdb_destroy_federation_rec(ptr noundef %127)
-  br label %78, !llvm.loop !16
+128:                                              ; preds = %125, %106
+  br label %131
 
-128:                                              ; preds = %125, %78
-  %129 = load ptr, ptr %7, align 8
-  %130 = icmp ne ptr %129, null
-  br i1 %130, label %148, label %131
+129:                                              ; preds = %88, %83
+  %130 = load ptr, ptr %7, align 8
+  call void @slurmdb_destroy_federation_rec(ptr noundef %130)
+  br label %79, !llvm.loop !16
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr @fed_mgr_fed_rec, align 8
+131:                                              ; preds = %128, %79
+  %132 = load ptr, ptr %7, align 8
   %133 = icmp ne ptr %132, null
-  br i1 %133, label %134, label %148
+  br i1 %133, label %152, label %134
 
 134:                                              ; preds = %131
-  br label %135
+  %135 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %152
 
-135:                                              ; preds = %134
-  %136 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %137 = and i64 %136, 281474976710656
-  %138 = icmp ne i64 %137, 0
-  br i1 %138, label %139, label %146
+137:                                              ; preds = %134
+  br label %138
 
-139:                                              ; preds = %135
-  br label %140
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %140 = load i64, ptr %139, align 8
+  %141 = and i64 %140, 281474976710656
+  %142 = icmp ne i64 %141, 0
+  br i1 %142, label %143, label %150
 
-140:                                              ; preds = %139
-  %141 = call i32 @get_log_level()
-  %142 = icmp sge i32 %141, 4
-  br i1 %142, label %143, label %144
-
-143:                                              ; preds = %140
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.17)
+143:                                              ; preds = %138
   br label %144
 
-144:                                              ; preds = %143, %140
-  br label %145
+144:                                              ; preds = %143
+  %145 = call i32 @get_log_level()
+  %146 = icmp sge i32 %145, 4
+  br i1 %146, label %147, label %148
 
-145:                                              ; preds = %144
-  br label %146
+147:                                              ; preds = %144
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.17)
+  br label %148
 
-146:                                              ; preds = %145, %135
-  br label %147
+148:                                              ; preds = %147, %144
+  br label %149
 
-147:                                              ; preds = %146
+149:                                              ; preds = %148
+  br label %150
+
+150:                                              ; preds = %149, %138
+  br label %151
+
+151:                                              ; preds = %150
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %10)
   call void @_cleanup_removed_origin_jobs()
   call void @_leave_federation()
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %10)
-  br label %148
+  br label %152
 
-148:                                              ; preds = %147, %131, %128
-  br label %149
+152:                                              ; preds = %151, %134, %131
+  br label %153
 
-149:                                              ; preds = %148
-  %150 = call i32 @pthread_mutex_unlock(ptr noundef @update_mutex) #8
-  store i32 %150, ptr %15, align 4
-  %151 = load i32, ptr %15, align 4
-  %152 = icmp ne i32 %151, 0
-  br i1 %152, label %153, label %156
+153:                                              ; preds = %152
+  %154 = call i32 @pthread_mutex_unlock(ptr noundef @update_mutex) #8
+  store i32 %154, ptr %15, align 4
+  %155 = load i32, ptr %15, align 4
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %157, label %160
 
-153:                                              ; preds = %149
-  %154 = load i32, ptr %15, align 4
-  %155 = call ptr @__errno_location() #9
-  store i32 %154, ptr %155, align 4
+157:                                              ; preds = %153
+  %158 = load i32, ptr %15, align 4
+  %159 = call ptr @__errno_location() #9
+  store i32 %158, ptr %159, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 3094, ptr noundef @__func__.fed_mgr_update_feds) #10
   unreachable
 
-156:                                              ; preds = %149
-  br label %157
+160:                                              ; preds = %153
+  br label %161
 
-157:                                              ; preds = %156
+161:                                              ; preds = %160
   store i32 0, ptr %2, align 4
-  br label %158
+  br label %162
 
-158:                                              ; preds = %157, %42, %20
-  %159 = load i32, ptr %2, align 4
-  ret i32 %159
+162:                                              ; preds = %161, %42, %20
+  %163 = load i32, ptr %2, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4860,114 +4872,117 @@ define dso_local i32 @fed_mgr_add_sibling_conn(ptr noundef %0, ptr noundef %1) #
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %7)
   %8 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %24, label %10
+  br i1 %9, label %25, label %10
 
 10:                                               ; preds = %2
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %7)
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %12 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.25, ptr noundef %11)
-  %13 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %13, align 8
-  br label %14
-
-14:                                               ; preds = %10
+  %11 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.25, ptr noundef %12)
+  %14 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %14, align 8
   br label %15
 
-15:                                               ; preds = %14
-  %16 = call i32 @get_log_level()
-  %17 = icmp sge i32 %16, 5
-  br i1 %17, label %18, label %21
+15:                                               ; preds = %10
+  br label %16
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %19, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %20)
-  br label %21
+16:                                               ; preds = %15
+  %17 = call i32 @get_log_level()
+  %18 = icmp sge i32 %17, 5
+  br i1 %18, label %19, label %22
 
-21:                                               ; preds = %18, %15
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %20, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %21)
   br label %22
 
-22:                                               ; preds = %21
+22:                                               ; preds = %19, %16
   br label %23
 
 23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
   store i32 -1, ptr %3, align 4
-  br label %72
+  br label %75
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %34, label %27
+25:                                               ; preds = %2
+  %26 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %36, label %28
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %7)
-  %28 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %29 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.27, ptr noundef %28)
-  %30 = load ptr, ptr %5, align 8
-  store ptr %29, ptr %30, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %32)
+  %29 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.27, ptr noundef %30)
+  %32 = load ptr, ptr %5, align 8
+  store ptr %31, ptr %32, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %34)
   store i32 -1, ptr %3, align 4
-  br label %72
+  br label %75
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %35, i32 0, i32 6
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @fed_mgr_get_cluster_by_name(ptr noundef %37)
-  store ptr %38, ptr %6, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %53, label %40
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr @fed_mgr_get_cluster_by_name(ptr noundef %39)
+  store ptr %40, ptr %6, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %56, label %42
 
-40:                                               ; preds = %34
+42:                                               ; preds = %36
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %7)
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %41, i32 0, i32 6
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %45 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %46 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %45, i32 0, i32 0
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %43, i32 0, i32 6
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.28, ptr noundef %43, ptr noundef %44, ptr noundef %47)
-  %49 = load ptr, ptr %5, align 8
-  store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %51)
+  %48 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %49 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.28, ptr noundef %45, ptr noundef %47, ptr noundef %50)
+  %52 = load ptr, ptr %5, align 8
+  store ptr %51, ptr %52, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.fed_mgr_add_sibling_conn, ptr noundef %54)
   store i32 -1, ptr %3, align 4
-  br label %72
+  br label %75
 
-53:                                               ; preds = %34
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %54, i32 0, i32 5
-  store ptr @_persist_callback_fini, ptr %55, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %56, i32 0, i32 10
-  %58 = load i16, ptr %57, align 8
-  %59 = zext i16 %58 to i64
-  %60 = or i64 %59, 4
-  %61 = trunc i64 %60 to i16
-  store i16 %61, ptr %57, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %63, i32 0, i32 8
-  %65 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %64, i32 0, i32 3
-  store ptr %62, ptr %65, align 8
-  %66 = load ptr, ptr %4, align 8
-  %67 = load ptr, ptr %4, align 8
-  call void @slurm_persist_conn_recv_thread_init(ptr noundef %66, i32 noundef -1, ptr noundef %67)
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %68, i32 0, i32 11
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @_q_send_job_sync(ptr noundef %70)
+56:                                               ; preds = %36
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %57, i32 0, i32 5
+  store ptr @_persist_callback_fini, ptr %58, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %59, i32 0, i32 10
+  %61 = load i16, ptr %60, align 8
+  %62 = zext i16 %61 to i64
+  %63 = or i64 %62, 4
+  %64 = trunc i64 %63 to i16
+  store i16 %64, ptr %60, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %66, i32 0, i32 8
+  %68 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %67, i32 0, i32 3
+  store ptr %65, ptr %68, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = load ptr, ptr %4, align 8
+  call void @slurm_persist_conn_recv_thread_init(ptr noundef %69, i32 noundef -1, ptr noundef %70)
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %71, i32 0, i32 11
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i32 @_q_send_job_sync(ptr noundef %73)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %7)
   store i32 0, ptr %3, align 4
-  br label %72
+  br label %75
 
-72:                                               ; preds = %53, %40, %27, %23
-  %73 = load i32, ptr %3, align 4
-  ret i32 %73
+75:                                               ; preds = %56, %42, %28, %24
+  %76 = load i32, ptr %3, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4995,7 +5010,7 @@ define internal void @_persist_callback_fini(ptr noundef %0) #0 {
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11, %1
-  br label %100
+  br label %101
 
 18:                                               ; preds = %11
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
@@ -5005,7 +5020,7 @@ define internal void @_persist_callback_fini(ptr noundef %0) #0 {
 
 21:                                               ; preds = %18
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  br label %100
+  br label %101
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %3, align 8
@@ -5042,7 +5057,7 @@ define internal void @_persist_callback_fini(ptr noundef %0) #0 {
 
 39:                                               ; preds = %38
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  br label %100
+  br label %101
 
 40:                                               ; preds = %22
   br label %41
@@ -5078,85 +5093,86 @@ define internal void @_persist_callback_fini(ptr noundef %0) #0 {
   store ptr %58, ptr %3, align 8
   %59 = load ptr, ptr %3, align 8
   %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %82
+  br i1 %60, label %61, label %83
 
 61:                                               ; preds = %51
   br label %62
 
 62:                                               ; preds = %61
-  %63 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %64 = and i64 %63, 281474976710656
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %76
+  %63 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 281474976710656
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %77
 
-66:                                               ; preds = %62
-  br label %67
+67:                                               ; preds = %62
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = call i32 @get_log_level()
-  %69 = icmp sge i32 %68, 4
-  br i1 %69, label %70, label %74
+68:                                               ; preds = %67
+  %69 = call i32 @get_log_level()
+  %70 = icmp sge i32 %69, 4
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %71, i32 0, i32 11
-  %73 = load ptr, ptr %72, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.186, ptr noundef %73)
-  br label %74
-
-74:                                               ; preds = %70, %67
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %72, i32 0, i32 11
+  %74 = load ptr, ptr %73, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.186, ptr noundef %74)
   br label %75
 
-75:                                               ; preds = %74
+75:                                               ; preds = %71, %68
   br label %76
 
-76:                                               ; preds = %75, %62
+76:                                               ; preds = %75
   br label %77
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %3, align 8
-  call void @slurm_persist_conn_destroy(ptr noundef %78)
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %79, i32 0, i32 8
-  %81 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %80, i32 0, i32 4
-  store ptr null, ptr %81, align 8
-  br label %82
+77:                                               ; preds = %76, %62
+  br label %78
 
-82:                                               ; preds = %77, %51
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %83, i32 0, i32 8
-  %85 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %84, i32 0, i32 6
-  store i8 0, ptr %85, align 4
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %86, i32 0, i32 8
-  %88 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %87, i32 0, i32 7
-  store i8 0, ptr %88, align 1
-  br label %89
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %3, align 8
+  call void @slurm_persist_conn_destroy(ptr noundef %79)
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %80, i32 0, i32 8
+  %82 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %81, i32 0, i32 4
+  store ptr null, ptr %82, align 8
+  br label %83
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %90, i32 0, i32 10
-  %92 = call i32 @pthread_mutex_unlock(ptr noundef %91) #8
-  store i32 %92, ptr %7, align 4
-  %93 = load i32, ptr %7, align 4
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %95, label %98
+83:                                               ; preds = %78, %51
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %84, i32 0, i32 8
+  %86 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %85, i32 0, i32 6
+  store i8 0, ptr %86, align 4
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %87, i32 0, i32 8
+  %89 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %88, i32 0, i32 7
+  store i8 0, ptr %89, align 1
+  br label %90
 
-95:                                               ; preds = %89
-  %96 = load i32, ptr %7, align 4
-  %97 = call ptr @__errno_location() #9
-  store i32 %96, ptr %97, align 4
+90:                                               ; preds = %83
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %91, i32 0, i32 10
+  %93 = call i32 @pthread_mutex_unlock(ptr noundef %92) #8
+  store i32 %93, ptr %7, align 4
+  %94 = load i32, ptr %7, align 4
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %90
+  %97 = load i32, ptr %7, align 4
+  %98 = call ptr @__errno_location() #9
+  store i32 %97, ptr %98, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 872, ptr noundef @__func__._persist_callback_fini) #10
   unreachable
 
-98:                                               ; preds = %89
-  br label %99
-
-99:                                               ; preds = %98
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
+99:                                               ; preds = %90
   br label %100
 
-100:                                              ; preds = %99, %39, %21, %17
+100:                                              ; preds = %99
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
+  br label %101
+
+101:                                              ; preds = %100, %39, %21, %17
   ret void
 }
 
@@ -7102,7 +7118,7 @@ define dso_local i32 @fed_mgr_job_lock(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %111
+  br label %112
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @fed_mgr_cluster_rec, align 8
@@ -7113,173 +7129,174 @@ define dso_local i32 @fed_mgr_job_lock(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %13
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %20 = and i64 %19, 281474976710656
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %31
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 281474976710656
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %18
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = call i32 @get_log_level()
-  %25 = icmp sge i32 %24, 4
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %23
+  %25 = call i32 @get_log_level()
+  %26 = icmp sge i32 %25, 4
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i32, ptr %6, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.39, ptr noundef %27, i32 noundef %28)
-  br label %29
-
-29:                                               ; preds = %26, %23
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %3, align 8
+  %29 = load i32, ptr %6, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.39, ptr noundef %28, i32 noundef %29)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %27, %24
   br label %31
 
-31:                                               ; preds = %30, %18
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load i32, ptr %5, align 4
-  %34 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %35 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %34, i32 0, i32 8
-  %36 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp ne i32 %33, %37
-  br i1 %38, label %39, label %104
+32:                                               ; preds = %31, %18
+  br label %33
 
-39:                                               ; preds = %32
+33:                                               ; preds = %32
+  %34 = load i32, ptr %5, align 4
+  %35 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %36 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %35, i32 0, i32 8
+  %37 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %34, %38
+  br i1 %39, label %40, label %105
+
+40:                                               ; preds = %33
   store ptr null, ptr %7, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %40)
-  store ptr %41, ptr %8, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %54, label %43
+  %41 = load i32, ptr %5, align 4
+  %42 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %41)
+  store ptr %42, ptr %8, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %55, label %44
 
-43:                                               ; preds = %39
-  br label %44
-
-44:                                               ; preds = %43
+44:                                               ; preds = %40
   br label %45
 
 45:                                               ; preds = %44
-  %46 = call i32 @get_log_level()
-  %47 = icmp sge i32 %46, 3
-  br i1 %47, label %48, label %51
+  br label %46
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %3, align 8
-  %50 = load i32, ptr %5, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %49, i32 noundef %50)
-  br label %51
+46:                                               ; preds = %45
+  %47 = call i32 @get_log_level()
+  %48 = icmp sge i32 %47, 3
+  br i1 %48, label %49, label %52
 
-51:                                               ; preds = %48, %45
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr %5, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %50, i32 noundef %51)
   br label %52
 
-52:                                               ; preds = %51
+52:                                               ; preds = %49, %46
   br label %53
 
 53:                                               ; preds = %52
-  br label %59
+  br label %54
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %55, i32 0, i32 8
-  %57 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %56, i32 0, i32 4
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %7, align 8
-  br label %59
+54:                                               ; preds = %53
+  br label %60
 
-59:                                               ; preds = %54, %53
-  %60 = load ptr, ptr @acct_db_conn, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %76
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %56, i32 0, i32 8
+  %58 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %57, i32 0, i32 4
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %7, align 8
+  br label %60
 
-62:                                               ; preds = %59
-  %63 = call i32 @_slurmdbd_conn_active()
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %76
+60:                                               ; preds = %55, %54
+  %61 = load ptr, ptr @acct_db_conn, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %77
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %7, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
+63:                                               ; preds = %60
+  %64 = call i32 @_slurmdbd_conn_active()
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %77
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %69, i32 0, i32 9
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %76
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %7, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
 
-73:                                               ; preds = %68, %65
-  %74 = load ptr, ptr %3, align 8
-  %75 = call i32 @_job_lock_all_sibs(ptr noundef %74)
-  store i32 %75, ptr %4, align 4
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %70, i32 0, i32 9
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %77
+
+74:                                               ; preds = %69, %66
+  %75 = load ptr, ptr %3, align 8
+  %76 = call i32 @_job_lock_all_sibs(ptr noundef %75)
+  store i32 %76, ptr %4, align 4
+  br label %89
+
+77:                                               ; preds = %69, %63, %60
+  %78 = load ptr, ptr %8, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %87
+
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %8, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %struct.job_record, ptr %82, i32 0, i32 53
+  %84 = load i32, ptr %83, align 8
+  %85 = load i32, ptr %6, align 4
+  %86 = call i32 @_persist_fed_job_lock(ptr noundef %81, i32 noundef %84, i32 noundef %85)
+  store i32 %86, ptr %4, align 4
   br label %88
 
-76:                                               ; preds = %68, %62, %59
-  %77 = load ptr, ptr %8, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %86
-
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %8, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.job_record, ptr %81, i32 0, i32 53
-  %83 = load i32, ptr %82, align 8
-  %84 = load i32, ptr %6, align 4
-  %85 = call i32 @_persist_fed_job_lock(ptr noundef %80, i32 noundef %83, i32 noundef %84)
-  store i32 %85, ptr %4, align 4
-  br label %87
-
-86:                                               ; preds = %76
+87:                                               ; preds = %77
   store i32 -1, ptr %4, align 4
-  br label %87
-
-87:                                               ; preds = %86, %79
   br label %88
 
-88:                                               ; preds = %87, %73
-  %89 = load i32, ptr %4, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %102, label %91
+88:                                               ; preds = %87, %80
+  br label %89
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %6, align 4
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.job_record, ptr %93, i32 0, i32 39
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.job_fed_details_t, ptr %95, i32 0, i32 0
-  store i32 %92, ptr %96, align 8
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.job_record, ptr %97, i32 0, i32 53
-  %99 = load i32, ptr %98, align 8
-  %100 = load i32, ptr %6, align 4
-  %101 = call i32 @fed_mgr_job_lock_set(i32 noundef %99, i32 noundef %100)
-  br label %102
+89:                                               ; preds = %88, %74
+  %90 = load i32, ptr %4, align 4
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %103, label %92
 
-102:                                              ; preds = %91, %88
-  %103 = load i32, ptr %4, align 4
-  store i32 %103, ptr %2, align 4
-  br label %111
+92:                                               ; preds = %89
+  %93 = load i32, ptr %6, align 4
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds %struct.job_record, ptr %94, i32 0, i32 39
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds %struct.job_fed_details_t, ptr %96, i32 0, i32 0
+  store i32 %93, ptr %97, align 8
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds %struct.job_record, ptr %98, i32 0, i32 53
+  %100 = load i32, ptr %99, align 8
+  %101 = load i32, ptr %6, align 4
+  %102 = call i32 @fed_mgr_job_lock_set(i32 noundef %100, i32 noundef %101)
+  br label %103
 
-104:                                              ; preds = %32
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.job_record, ptr %105, i32 0, i32 53
-  %107 = load i32, ptr %106, align 8
-  %108 = load i32, ptr %6, align 4
-  %109 = call i32 @fed_mgr_job_lock_set(i32 noundef %107, i32 noundef %108)
-  store i32 %109, ptr %4, align 4
-  %110 = load i32, ptr %4, align 4
-  store i32 %110, ptr %2, align 4
-  br label %111
+103:                                              ; preds = %92, %89
+  %104 = load i32, ptr %4, align 4
+  store i32 %104, ptr %2, align 4
+  br label %112
 
-111:                                              ; preds = %104, %102, %12
-  %112 = load i32, ptr %2, align 4
-  ret i32 %112
+105:                                              ; preds = %33
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds %struct.job_record, ptr %106, i32 0, i32 53
+  %108 = load i32, ptr %107, align 8
+  %109 = load i32, ptr %6, align 4
+  %110 = call i32 @fed_mgr_job_lock_set(i32 noundef %108, i32 noundef %109)
+  store i32 %110, ptr %4, align 4
+  %111 = load i32, ptr %4, align 4
+  store i32 %111, ptr %2, align 4
+  br label %112
+
+112:                                              ; preds = %105, %103, %12
+  %113 = load i32, ptr %2, align 4
+  ret i32 %113
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7533,209 +7550,213 @@ define dso_local i32 @fed_mgr_job_lock_set(i32 noundef %0, i32 noundef %1) #0 {
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %20 = and i64 %19, 281474976710656
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %31
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 281474976710656
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %18
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = call i32 @get_log_level()
-  %25 = icmp sge i32 %24, 4
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %23
+  %25 = call i32 @get_log_level()
+  %26 = icmp sge i32 %25, 4
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %3, align 4
-  %28 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.41, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %27, i32 noundef %28)
-  br label %29
-
-29:                                               ; preds = %26, %23
+27:                                               ; preds = %24
+  %28 = load i32, ptr %3, align 4
+  %29 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.41, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %28, i32 noundef %29)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %27, %24
   br label %31
 
-31:                                               ; preds = %30, %18
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load i32, ptr %3, align 4
-  %34 = call ptr @_find_fed_job_info(i32 noundef %33)
-  store ptr %34, ptr %6, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %39, label %36
+32:                                               ; preds = %31, %18
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %3, align 4
-  %38 = call i32 (ptr, ...) @error(ptr noundef @.str.29, i32 noundef %37)
+33:                                               ; preds = %32
+  %34 = load i32, ptr %3, align 4
+  %35 = call ptr @_find_fed_job_info(i32 noundef %34)
+  store ptr %35, ptr %6, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %40, label %37
+
+37:                                               ; preds = %33
+  %38 = load i32, ptr %3, align 4
+  %39 = call i32 (ptr, ...) @error(ptr noundef @.str.29, i32 noundef %38)
   store i32 -1, ptr %5, align 4
-  br label %108
+  br label %112
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %6, align 8
-  %41 = call zeroext i1 @_job_has_pending_updates(ptr noundef %40)
-  br i1 %41, label %42, label %58
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %6, align 8
+  %42 = call zeroext i1 @_job_has_pending_updates(ptr noundef %41)
+  br i1 %42, label %43, label %60
 
-42:                                               ; preds = %39
-  br label %43
+43:                                               ; preds = %40
+  br label %44
 
-43:                                               ; preds = %42
-  %44 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %45 = and i64 %44, 281474976710656
-  %46 = icmp ne i64 %45, 0
-  br i1 %46, label %47, label %56
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 281474976710656
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %58
 
-47:                                               ; preds = %43
-  br label %48
+49:                                               ; preds = %44
+  br label %50
 
-48:                                               ; preds = %47
-  %49 = call i32 @get_log_level()
-  %50 = icmp sge i32 %49, 4
-  br i1 %50, label %51, label %54
+50:                                               ; preds = %49
+  %51 = call i32 @get_log_level()
+  %52 = icmp sge i32 %51, 4
+  br i1 %52, label %53, label %56
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %4, align 4
-  %53 = load i32, ptr %3, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.42, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %52, i32 noundef %53)
-  br label %54
-
-54:                                               ; preds = %51, %48
-  br label %55
-
-55:                                               ; preds = %54
+53:                                               ; preds = %50
+  %54 = load i32, ptr %4, align 4
+  %55 = load i32, ptr %3, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.42, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %54, i32 noundef %55)
   br label %56
 
-56:                                               ; preds = %55, %43
+56:                                               ; preds = %53, %50
   br label %57
 
 57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57, %44
+  br label %59
+
+59:                                               ; preds = %58
   store i32 -1, ptr %5, align 4
-  br label %107
+  br label %111
 
-58:                                               ; preds = %39
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.fed_job_info_t, ptr %59, i32 0, i32 0
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %87
+60:                                               ; preds = %40
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct.fed_job_info_t, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %90
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.fed_job_info_t, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = load i32, ptr %4, align 4
-  %68 = icmp ne i32 %66, %67
-  br i1 %68, label %69, label %87
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct.fed_job_info_t, ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 8
+  %69 = load i32, ptr %4, align 4
+  %70 = icmp ne i32 %68, %69
+  br i1 %70, label %71, label %90
 
-69:                                               ; preds = %63
-  br label %70
+71:                                               ; preds = %65
+  br label %72
 
-70:                                               ; preds = %69
-  %71 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %72 = and i64 %71, 281474976710656
-  %73 = icmp ne i64 %72, 0
-  br i1 %73, label %74, label %85
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, 281474976710656
+  %76 = icmp ne i64 %75, 0
+  br i1 %76, label %77, label %88
 
-74:                                               ; preds = %70
-  br label %75
+77:                                               ; preds = %72
+  br label %78
 
-75:                                               ; preds = %74
-  %76 = call i32 @get_log_level()
-  %77 = icmp sge i32 %76, 4
-  br i1 %77, label %78, label %83
+78:                                               ; preds = %77
+  %79 = call i32 @get_log_level()
+  %80 = icmp sge i32 %79, 4
+  br i1 %80, label %81, label %86
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %3, align 4
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct.fed_job_info_t, ptr %80, i32 0, i32 0
-  %82 = load i32, ptr %81, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.43, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %79, i32 noundef %82)
-  br label %83
-
-83:                                               ; preds = %78, %75
-  br label %84
-
-84:                                               ; preds = %83
-  br label %85
-
-85:                                               ; preds = %84, %70
+81:                                               ; preds = %78
+  %82 = load i32, ptr %3, align 4
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.fed_job_info_t, ptr %83, i32 0, i32 0
+  %85 = load i32, ptr %84, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.43, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %82, i32 noundef %85)
   br label %86
 
-86:                                               ; preds = %85
-  store i32 -1, ptr %5, align 4
-  br label %106
+86:                                               ; preds = %81, %78
+  br label %87
 
-87:                                               ; preds = %63, %58
+87:                                               ; preds = %86
   br label %88
 
-88:                                               ; preds = %87
-  %89 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %90 = and i64 %89, 281474976710656
-  %91 = icmp ne i64 %90, 0
-  br i1 %91, label %92, label %101
+88:                                               ; preds = %87, %72
+  br label %89
 
-92:                                               ; preds = %88
-  br label %93
+89:                                               ; preds = %88
+  store i32 -1, ptr %5, align 4
+  br label %110
 
-93:                                               ; preds = %92
-  %94 = call i32 @get_log_level()
-  %95 = icmp sge i32 %94, 4
-  br i1 %95, label %96, label %99
+90:                                               ; preds = %65, %60
+  br label %91
 
-96:                                               ; preds = %93
-  %97 = load i32, ptr %3, align 4
-  %98 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.44, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %97, i32 noundef %98)
-  br label %99
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %93 = load i64, ptr %92, align 8
+  %94 = and i64 %93, 281474976710656
+  %95 = icmp ne i64 %94, 0
+  br i1 %95, label %96, label %105
 
-99:                                               ; preds = %96, %93
-  br label %100
+96:                                               ; preds = %91
+  br label %97
 
-100:                                              ; preds = %99
-  br label %101
+97:                                               ; preds = %96
+  %98 = call i32 @get_log_level()
+  %99 = icmp sge i32 %98, 4
+  br i1 %99, label %100, label %103
 
-101:                                              ; preds = %100, %88
-  br label %102
+100:                                              ; preds = %97
+  %101 = load i32, ptr %3, align 4
+  %102 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.44, ptr noundef @__func__.fed_mgr_job_lock_set, i32 noundef %101, i32 noundef %102)
+  br label %103
 
-102:                                              ; preds = %101
-  %103 = load i32, ptr %4, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.fed_job_info_t, ptr %104, i32 0, i32 0
-  store i32 %103, ptr %105, align 8
+103:                                              ; preds = %100, %97
+  br label %104
+
+104:                                              ; preds = %103
+  br label %105
+
+105:                                              ; preds = %104, %91
   br label %106
 
-106:                                              ; preds = %102, %86
-  br label %107
+106:                                              ; preds = %105
+  %107 = load i32, ptr %4, align 4
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds %struct.fed_job_info_t, ptr %108, i32 0, i32 0
+  store i32 %107, ptr %109, align 8
+  br label %110
 
-107:                                              ; preds = %106, %57
-  br label %108
+110:                                              ; preds = %106, %89
+  br label %111
 
-108:                                              ; preds = %107, %36
-  br label %109
+111:                                              ; preds = %110, %59
+  br label %112
 
-109:                                              ; preds = %108
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %110, ptr %8, align 4
-  %111 = load i32, ptr %8, align 4
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %116
+112:                                              ; preds = %111, %37
+  br label %113
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %8, align 4
-  %115 = call ptr @__errno_location() #9
-  store i32 %114, ptr %115, align 4
+113:                                              ; preds = %112
+  %114 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %114, ptr %8, align 4
+  %115 = load i32, ptr %8, align 4
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %120
+
+117:                                              ; preds = %113
+  %118 = load i32, ptr %8, align 4
+  %119 = call ptr @__errno_location() #9
+  store i32 %118, ptr %119, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 4635, ptr noundef @__func__.fed_mgr_job_lock_set) #10
   unreachable
 
-116:                                              ; preds = %109
-  br label %117
+120:                                              ; preds = %113
+  br label %121
 
-117:                                              ; preds = %116
-  %118 = load i32, ptr %5, align 4
-  ret i32 %118
+121:                                              ; preds = %120
+  %122 = load i32, ptr %5, align 4
+  ret i32 %122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7750,10 +7771,10 @@ define internal zeroext i1 @_job_has_pending_updates(ptr noundef %0) #0 {
   store i32 1, ptr %4, align 4
   br label %7
 
-7:                                                ; preds = %91, %1
+7:                                                ; preds = %93, %1
   %8 = load i32, ptr %4, align 4
   %9 = icmp sle i32 %8, 63
-  br i1 %9, label %10, label %94
+  br i1 %9, label %10, label %96
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %3, align 8
@@ -7763,7 +7784,7 @@ define internal zeroext i1 @_job_has_pending_updates(ptr noundef %0) #0 {
   %15 = getelementptr inbounds [64 x i32], ptr %12, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %90
+  br i1 %17, label %18, label %92
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %3, align 8
@@ -7775,128 +7796,130 @@ define internal zeroext i1 @_job_has_pending_updates(ptr noundef %0) #0 {
   %25 = load i64, ptr %5, align 8
   %26 = sub nsw i64 %25, 60
   %27 = icmp sgt i64 %24, %26
-  br i1 %27, label %28, label %52
+  br i1 %27, label %28, label %53
 
 28:                                               ; preds = %18
   br label %29
 
 29:                                               ; preds = %28
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %31 = and i64 %30, 281474976710656
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %50
+  %30 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 281474976710656
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %51
 
-33:                                               ; preds = %29
-  br label %34
+34:                                               ; preds = %29
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = call i32 @get_log_level()
-  %36 = icmp sge i32 %35, 4
-  br i1 %36, label %37, label %48
+35:                                               ; preds = %34
+  %36 = call i32 @get_log_level()
+  %37 = icmp sge i32 %36, 4
+  br i1 %37, label %38, label %49
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.fed_job_info_t, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.fed_job_info_t, ptr %41, i32 0, i32 4
-  %43 = load i32, ptr %4, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [64 x i32], ptr %42, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.192, i32 noundef %40, i32 noundef %46, i32 noundef %47)
-  br label %48
-
-48:                                               ; preds = %37, %34
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds %struct.fed_job_info_t, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds %struct.fed_job_info_t, ptr %42, i32 0, i32 4
+  %44 = load i32, ptr %4, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [64 x i32], ptr %43, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.192, i32 noundef %41, i32 noundef %47, i32 noundef %48)
   br label %49
 
-49:                                               ; preds = %48
+49:                                               ; preds = %38, %35
   br label %50
 
-50:                                               ; preds = %49, %29
+50:                                               ; preds = %49
   br label %51
 
-51:                                               ; preds = %50
+51:                                               ; preds = %50, %29
+  br label %52
+
+52:                                               ; preds = %51
   store i1 true, ptr %2, align 1
-  br label %95
+  br label %97
 
-52:                                               ; preds = %18
-  br label %53
+53:                                               ; preds = %18
+  br label %54
 
-53:                                               ; preds = %52
-  %54 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %55 = and i64 %54, 281474976710656
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %82
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, 281474976710656
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %84
 
-57:                                               ; preds = %53
-  br label %58
+59:                                               ; preds = %54
+  br label %60
 
-58:                                               ; preds = %57
-  %59 = call i32 @get_log_level()
-  %60 = icmp sge i32 %59, 4
-  br i1 %60, label %61, label %80
+60:                                               ; preds = %59
+  %61 = call i32 @get_log_level()
+  %62 = icmp sge i32 %61, 4
+  br i1 %62, label %63, label %82
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.fed_job_info_t, ptr %62, i32 0, i32 1
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.fed_job_info_t, ptr %65, i32 0, i32 4
-  %67 = load i32, ptr %4, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [64 x i32], ptr %66, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %71 = load i32, ptr %4, align 4
-  %72 = load i64, ptr %5, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.fed_job_info_t, ptr %73, i32 0, i32 5
-  %75 = load i32, ptr %4, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [64 x i64], ptr %74, i64 0, i64 %76
-  %78 = load i64, ptr %77, align 8
-  %79 = sub nsw i64 %72, %78
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.193, i32 noundef %64, i32 noundef %70, i32 noundef %71, i64 noundef %79)
-  br label %80
-
-80:                                               ; preds = %61, %58
-  br label %81
-
-81:                                               ; preds = %80
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds %struct.fed_job_info_t, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds %struct.fed_job_info_t, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %4, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [64 x i32], ptr %68, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %4, align 4
+  %74 = load i64, ptr %5, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.fed_job_info_t, ptr %75, i32 0, i32 5
+  %77 = load i32, ptr %4, align 4
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds [64 x i64], ptr %76, i64 0, i64 %78
+  %80 = load i64, ptr %79, align 8
+  %81 = sub nsw i64 %74, %80
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.193, i32 noundef %66, i32 noundef %72, i32 noundef %73, i64 noundef %81)
   br label %82
 
-82:                                               ; preds = %81, %53
+82:                                               ; preds = %63, %60
   br label %83
 
 83:                                               ; preds = %82
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.fed_job_info_t, ptr %84, i32 0, i32 4
-  %86 = load i32, ptr %4, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [64 x i32], ptr %85, i64 0, i64 %87
-  store i32 0, ptr %88, align 4
-  br label %89
+  br label %84
 
-89:                                               ; preds = %83
-  br label %90
+84:                                               ; preds = %83, %54
+  br label %85
 
-90:                                               ; preds = %89, %10
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds %struct.fed_job_info_t, ptr %86, i32 0, i32 4
+  %88 = load i32, ptr %4, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds [64 x i32], ptr %87, i64 0, i64 %89
+  store i32 0, ptr %90, align 4
   br label %91
 
-91:                                               ; preds = %90
-  %92 = load i32, ptr %4, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %4, align 4
+91:                                               ; preds = %85
+  br label %92
+
+92:                                               ; preds = %91, %10
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i32, ptr %4, align 4
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %4, align 4
   br label %7, !llvm.loop !26
 
-94:                                               ; preds = %7
+96:                                               ; preds = %7
   store i1 false, ptr %2, align 1
-  br label %95
+  br label %97
 
-95:                                               ; preds = %94, %51
-  %96 = load i1, ptr %2, align 1
-  ret i1 %96
+97:                                               ; preds = %96, %52
+  %98 = load i1, ptr %2, align 1
+  ret i1 %98
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8008,133 +8031,135 @@ define dso_local i32 @fed_mgr_job_lock_unset(i32 noundef %0, i32 noundef %1) #0 
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %20 = and i64 %19, 281474976710656
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %31
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 281474976710656
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %18
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = call i32 @get_log_level()
-  %25 = icmp sge i32 %24, 4
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %23
+  %25 = call i32 @get_log_level()
+  %26 = icmp sge i32 %25, 4
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %3, align 4
-  %28 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.45, ptr noundef @__func__.fed_mgr_job_lock_unset, i32 noundef %27, i32 noundef %28)
-  br label %29
-
-29:                                               ; preds = %26, %23
+27:                                               ; preds = %24
+  %28 = load i32, ptr %3, align 4
+  %29 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.45, ptr noundef @__func__.fed_mgr_job_lock_unset, i32 noundef %28, i32 noundef %29)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %27, %24
   br label %31
 
-31:                                               ; preds = %30, %18
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load i32, ptr %3, align 4
-  %34 = call ptr @_find_fed_job_info(i32 noundef %33)
-  store ptr %34, ptr %6, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %39, label %36
+32:                                               ; preds = %31, %18
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %3, align 4
-  %38 = call i32 (ptr, ...) @error(ptr noundef @.str.29, i32 noundef %37)
+33:                                               ; preds = %32
+  %34 = load i32, ptr %3, align 4
+  %35 = call ptr @_find_fed_job_info(i32 noundef %34)
+  store ptr %35, ptr %6, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %40, label %37
+
+37:                                               ; preds = %33
+  %38 = load i32, ptr %3, align 4
+  %39 = call i32 (ptr, ...) @error(ptr noundef @.str.29, i32 noundef %38)
   store i32 -1, ptr %5, align 4
-  br label %73
+  br label %75
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.fed_job_info_t, ptr %40, i32 0, i32 0
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %54
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds %struct.fed_job_info_t, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %55
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.fed_job_info_t, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = load i32, ptr %4, align 4
-  %49 = icmp ne i32 %47, %48
-  br i1 %49, label %50, label %54
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds %struct.fed_job_info_t, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8
+  %49 = load i32, ptr %4, align 4
+  %50 = icmp ne i32 %48, %49
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %44
-  %51 = load i32, ptr %3, align 4
-  %52 = load i32, ptr %4, align 4
-  %53 = call i32 (ptr, ...) @error(ptr noundef @.str.46, i32 noundef %51, i32 noundef %52)
+51:                                               ; preds = %45
+  %52 = load i32, ptr %3, align 4
+  %53 = load i32, ptr %4, align 4
+  %54 = call i32 (ptr, ...) @error(ptr noundef @.str.46, i32 noundef %52, i32 noundef %53)
   store i32 -1, ptr %5, align 4
-  br label %72
+  br label %74
 
-54:                                               ; preds = %44, %39
-  br label %55
+55:                                               ; preds = %45, %40
+  br label %56
 
-55:                                               ; preds = %54
-  %56 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %57 = and i64 %56, 281474976710656
-  %58 = icmp ne i64 %57, 0
-  br i1 %58, label %59, label %68
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 281474976710656
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %70
 
-59:                                               ; preds = %55
-  br label %60
+61:                                               ; preds = %56
+  br label %62
 
-60:                                               ; preds = %59
-  %61 = call i32 @get_log_level()
-  %62 = icmp sge i32 %61, 4
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %61
+  %63 = call i32 @get_log_level()
+  %64 = icmp sge i32 %63, 4
+  br i1 %64, label %65, label %68
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr %3, align 4
-  %65 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.47, ptr noundef @__func__.fed_mgr_job_lock_unset, i32 noundef %64, i32 noundef %65)
-  br label %66
-
-66:                                               ; preds = %63, %60
-  br label %67
-
-67:                                               ; preds = %66
+65:                                               ; preds = %62
+  %66 = load i32, ptr %3, align 4
+  %67 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.47, ptr noundef @__func__.fed_mgr_job_lock_unset, i32 noundef %66, i32 noundef %67)
   br label %68
 
-68:                                               ; preds = %67, %55
+68:                                               ; preds = %65, %62
   br label %69
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.fed_job_info_t, ptr %70, i32 0, i32 0
-  store i32 0, ptr %71, align 8
-  br label %72
+  br label %70
 
-72:                                               ; preds = %69, %50
-  br label %73
+70:                                               ; preds = %69, %56
+  br label %71
 
-73:                                               ; preds = %72, %36
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct.fed_job_info_t, ptr %72, i32 0, i32 0
+  store i32 0, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %73
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %75, ptr %8, align 4
-  %76 = load i32, ptr %8, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %81
+74:                                               ; preds = %71, %51
+  br label %75
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %8, align 4
-  %80 = call ptr @__errno_location() #9
-  store i32 %79, ptr %80, align 4
+75:                                               ; preds = %74, %37
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %77, ptr %8, align 4
+  %78 = load i32, ptr %8, align 4
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %83
+
+80:                                               ; preds = %76
+  %81 = load i32, ptr %8, align 4
+  %82 = call ptr @__errno_location() #9
+  store i32 %81, ptr %82, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 4697, ptr noundef @__func__.fed_mgr_job_lock_unset) #10
   unreachable
 
-81:                                               ; preds = %74
-  br label %82
+83:                                               ; preds = %76
+  br label %84
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %5, align 4
-  ret i32 %83
+84:                                               ; preds = %83
+  %85 = load i32, ptr %5, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8156,7 +8181,7 @@ define dso_local i32 @fed_mgr_job_unlock(ptr noundef %0) #0 {
 
 13:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %112
+  br label %113
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @fed_mgr_cluster_rec, align 8
@@ -8167,163 +8192,164 @@ define dso_local i32 @fed_mgr_job_unlock(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %14
-  %20 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %21 = and i64 %20, 281474976710656
-  %22 = icmp ne i64 %21, 0
-  br i1 %22, label %23, label %32
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, 281474976710656
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %33
 
-23:                                               ; preds = %19
-  br label %24
+24:                                               ; preds = %19
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = call i32 @get_log_level()
-  %26 = icmp sge i32 %25, 4
-  br i1 %26, label %27, label %30
+25:                                               ; preds = %24
+  %26 = call i32 @get_log_level()
+  %27 = icmp sge i32 %26, 4
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i32, ptr %6, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.48, ptr noundef %28, i32 noundef %29)
-  br label %30
-
-30:                                               ; preds = %27, %24
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i32, ptr %6, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.48, ptr noundef %29, i32 noundef %30)
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %28, %25
   br label %32
 
-32:                                               ; preds = %31, %19
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load i32, ptr %5, align 4
-  %35 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %36 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %35, i32 0, i32 8
-  %37 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp ne i32 %34, %38
-  br i1 %39, label %40, label %105
+33:                                               ; preds = %32, %19
+  br label %34
 
-40:                                               ; preds = %33
+34:                                               ; preds = %33
+  %35 = load i32, ptr %5, align 4
+  %36 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %37 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %36, i32 0, i32 8
+  %38 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp ne i32 %35, %39
+  br i1 %40, label %41, label %106
+
+41:                                               ; preds = %34
   store ptr null, ptr %7, align 8
-  %41 = load i32, ptr %5, align 4
-  %42 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %41)
-  store ptr %42, ptr %8, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %55, label %44
+  %42 = load i32, ptr %5, align 4
+  %43 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %42)
+  store ptr %43, ptr %8, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %56, label %45
 
-44:                                               ; preds = %40
-  br label %45
-
-45:                                               ; preds = %44
+45:                                               ; preds = %41
   br label %46
 
 46:                                               ; preds = %45
-  %47 = call i32 @get_log_level()
-  %48 = icmp sge i32 %47, 3
-  br i1 %48, label %49, label %52
+  br label %47
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %3, align 8
-  %51 = load i32, ptr %5, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %50, i32 noundef %51)
-  br label %52
+47:                                               ; preds = %46
+  %48 = call i32 @get_log_level()
+  %49 = icmp sge i32 %48, 3
+  br i1 %49, label %50, label %53
 
-52:                                               ; preds = %49, %46
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %3, align 8
+  %52 = load i32, ptr %5, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %51, i32 noundef %52)
   br label %53
 
-53:                                               ; preds = %52
+53:                                               ; preds = %50, %47
   br label %54
 
 54:                                               ; preds = %53
-  br label %60
+  br label %55
 
-55:                                               ; preds = %40
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %56, i32 0, i32 8
-  %58 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %7, align 8
-  br label %60
+55:                                               ; preds = %54
+  br label %61
 
-60:                                               ; preds = %55, %54
-  %61 = load ptr, ptr %7, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %68
+56:                                               ; preds = %41
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %57, i32 0, i32 8
+  %59 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %58, i32 0, i32 4
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %7, align 8
+  br label %61
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %64, i32 0, i32 9
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %83
+61:                                               ; preds = %56, %55
+  %62 = load ptr, ptr %7, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %69
 
-68:                                               ; preds = %63, %60
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.job_record, ptr %69, i32 0, i32 39
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.job_fed_details_t, ptr %71, i32 0, i32 4
-  %73 = load i64, ptr %72, align 8
-  %74 = load i32, ptr %5, align 4
-  %75 = sub i32 %74, 1
-  %76 = zext i32 %75 to i64
-  %77 = shl i64 1, %76
-  %78 = xor i64 %77, -1
-  %79 = and i64 %73, %78
-  store i64 %79, ptr %9, align 8
-  %80 = load ptr, ptr %3, align 8
-  %81 = load i64, ptr %9, align 8
-  %82 = call i32 @_job_unlock_spec_sibs(ptr noundef %80, i64 noundef %81)
-  store i32 %82, ptr %4, align 4
-  br label %90
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %65, i32 0, i32 9
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %69, label %84
 
-83:                                               ; preds = %63
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.job_record, ptr %85, i32 0, i32 53
-  %87 = load i32, ptr %86, align 8
-  %88 = load i32, ptr %6, align 4
-  %89 = call i32 @_persist_fed_job_unlock(ptr noundef %84, i32 noundef %87, i32 noundef %88)
-  store i32 %89, ptr %4, align 4
-  br label %90
+69:                                               ; preds = %64, %61
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct.job_record, ptr %70, i32 0, i32 39
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.job_fed_details_t, ptr %72, i32 0, i32 4
+  %74 = load i64, ptr %73, align 8
+  %75 = load i32, ptr %5, align 4
+  %76 = sub i32 %75, 1
+  %77 = zext i32 %76 to i64
+  %78 = shl i64 1, %77
+  %79 = xor i64 %78, -1
+  %80 = and i64 %74, %79
+  store i64 %80, ptr %9, align 8
+  %81 = load ptr, ptr %3, align 8
+  %82 = load i64, ptr %9, align 8
+  %83 = call i32 @_job_unlock_spec_sibs(ptr noundef %81, i64 noundef %82)
+  store i32 %83, ptr %4, align 4
+  br label %91
 
-90:                                               ; preds = %83, %68
-  %91 = load i32, ptr %4, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %103, label %93
+84:                                               ; preds = %64
+  %85 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds %struct.job_record, ptr %86, i32 0, i32 53
+  %88 = load i32, ptr %87, align 8
+  %89 = load i32, ptr %6, align 4
+  %90 = call i32 @_persist_fed_job_unlock(ptr noundef %85, i32 noundef %88, i32 noundef %89)
+  store i32 %90, ptr %4, align 4
+  br label %91
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.job_record, ptr %94, i32 0, i32 39
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.job_fed_details_t, ptr %96, i32 0, i32 0
-  store i32 0, ptr %97, align 8
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.job_record, ptr %98, i32 0, i32 53
-  %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr %6, align 4
-  %102 = call i32 @fed_mgr_job_lock_unset(i32 noundef %100, i32 noundef %101)
-  br label %103
+91:                                               ; preds = %84, %69
+  %92 = load i32, ptr %4, align 4
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %104, label %94
 
-103:                                              ; preds = %93, %90
-  %104 = load i32, ptr %4, align 4
-  store i32 %104, ptr %2, align 4
-  br label %112
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds %struct.job_record, ptr %95, i32 0, i32 39
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.job_fed_details_t, ptr %97, i32 0, i32 0
+  store i32 0, ptr %98, align 8
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds %struct.job_record, ptr %99, i32 0, i32 53
+  %101 = load i32, ptr %100, align 8
+  %102 = load i32, ptr %6, align 4
+  %103 = call i32 @fed_mgr_job_lock_unset(i32 noundef %101, i32 noundef %102)
+  br label %104
 
-105:                                              ; preds = %33
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.job_record, ptr %106, i32 0, i32 53
-  %108 = load i32, ptr %107, align 8
-  %109 = load i32, ptr %6, align 4
-  %110 = call i32 @fed_mgr_job_lock_unset(i32 noundef %108, i32 noundef %109)
-  store i32 %110, ptr %4, align 4
-  %111 = load i32, ptr %4, align 4
-  store i32 %111, ptr %2, align 4
-  br label %112
+104:                                              ; preds = %94, %91
+  %105 = load i32, ptr %4, align 4
+  store i32 %105, ptr %2, align 4
+  br label %113
 
-112:                                              ; preds = %105, %103, %13
-  %113 = load i32, ptr %2, align 4
-  ret i32 %113
+106:                                              ; preds = %34
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds %struct.job_record, ptr %107, i32 0, i32 53
+  %109 = load i32, ptr %108, align 8
+  %110 = load i32, ptr %6, align 4
+  %111 = call i32 @fed_mgr_job_lock_unset(i32 noundef %109, i32 noundef %110)
+  store i32 %111, ptr %4, align 4
+  %112 = load i32, ptr %4, align 4
+  store i32 %112, ptr %2, align 4
+  br label %113
+
+113:                                              ; preds = %106, %104, %13
+  %114 = load i32, ptr %2, align 4
+  ret i32 %114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8448,7 +8474,7 @@ define dso_local i32 @fed_mgr_job_start(ptr noundef %0, i64 noundef %1) #0 {
 
 18:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %195
+  br label %196
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr @fed_mgr_cluster_rec, align 8
@@ -8459,293 +8485,294 @@ define dso_local i32 @fed_mgr_job_start(ptr noundef %0, i64 noundef %1) #0 {
   br label %24
 
 24:                                               ; preds = %19
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %26 = and i64 %25, 281474976710656
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %37
+  %25 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 281474976710656
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %24
-  br label %29
+29:                                               ; preds = %24
+  br label %30
 
-29:                                               ; preds = %28
-  %30 = call i32 @get_log_level()
-  %31 = icmp sge i32 %30, 4
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %29
+  %31 = call i32 @get_log_level()
+  %32 = icmp sge i32 %31, 4
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i32, ptr %8, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.49, ptr noundef %33, i32 noundef %34)
-  br label %35
-
-35:                                               ; preds = %32, %29
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i32, ptr %8, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.49, ptr noundef %34, i32 noundef %35)
   br label %36
 
-36:                                               ; preds = %35
+36:                                               ; preds = %33, %30
   br label %37
 
-37:                                               ; preds = %36, %24
+37:                                               ; preds = %36
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr %7, align 4
-  %40 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %41 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %40, i32 0, i32 8
-  %42 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ne i32 %39, %43
-  br i1 %44, label %45, label %129
+38:                                               ; preds = %37, %24
+  br label %39
 
-45:                                               ; preds = %38
+39:                                               ; preds = %38
+  %40 = load i32, ptr %7, align 4
+  %41 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %42 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %41, i32 0, i32 8
+  %43 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ne i32 %40, %44
+  br i1 %45, label %46, label %130
+
+46:                                               ; preds = %39
   store ptr null, ptr %10, align 8
-  %46 = load i32, ptr %7, align 4
-  %47 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %46)
-  store ptr %47, ptr %11, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %60, label %49
+  %47 = load i32, ptr %7, align 4
+  %48 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %47)
+  store ptr %48, ptr %11, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %61, label %50
 
-49:                                               ; preds = %45
-  br label %50
-
-50:                                               ; preds = %49
+50:                                               ; preds = %46
   br label %51
 
 51:                                               ; preds = %50
-  %52 = call i32 @get_log_level()
-  %53 = icmp sge i32 %52, 3
-  br i1 %53, label %54, label %57
+  br label %52
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %4, align 8
-  %56 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %55, i32 noundef %56)
-  br label %57
+52:                                               ; preds = %51
+  %53 = call i32 @get_log_level()
+  %54 = icmp sge i32 %53, 3
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %54, %51
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %4, align 8
+  %57 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %56, i32 noundef %57)
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %55, %52
   br label %59
 
 59:                                               ; preds = %58
-  br label %65
+  br label %60
 
-60:                                               ; preds = %45
-  %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %61, i32 0, i32 8
-  %63 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %62, i32 0, i32 4
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %10, align 8
-  br label %65
+60:                                               ; preds = %59
+  br label %66
 
-65:                                               ; preds = %60, %59
-  %66 = load ptr, ptr %10, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
+61:                                               ; preds = %46
+  %62 = load ptr, ptr %11, align 8
+  %63 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %62, i32 0, i32 8
+  %64 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %63, i32 0, i32 4
+  %65 = load ptr, ptr %64, align 8
+  store ptr %65, ptr %10, align 8
+  br label %66
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %69, i32 0, i32 9
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %104
+66:                                               ; preds = %61, %60
+  %67 = load ptr, ptr %10, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
 
-73:                                               ; preds = %68, %65
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.job_record, ptr %74, i32 0, i32 39
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.job_fed_details_t, ptr %76, i32 0, i32 4
-  %78 = load i64, ptr %77, align 8
-  store i64 %78, ptr %12, align 8
-  %79 = load i32, ptr %7, align 4
-  %80 = sub i32 %79, 1
-  %81 = zext i32 %80 to i64
-  %82 = shl i64 1, %81
-  %83 = xor i64 %82, -1
-  %84 = load i64, ptr %12, align 8
-  %85 = and i64 %84, %83
-  store i64 %85, ptr %12, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = sub i32 %86, 1
-  %88 = zext i32 %87 to i64
-  %89 = shl i64 1, %88
-  %90 = xor i64 %89, -1
-  %91 = load i64, ptr %12, align 8
-  %92 = and i64 %91, %90
-  store i64 %92, ptr %12, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.job_record, ptr %93, i32 0, i32 53
-  %95 = load i32, ptr %94, align 8
-  %96 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %97 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %96, i32 0, i32 8
-  %98 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = load i64, ptr %12, align 8
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.job_record, ptr %101, i32 0, i32 120
-  %103 = load i64, ptr %102, align 8
-  call void @_revoke_sibling_jobs(i32 noundef %95, i32 noundef %99, i64 noundef %100, i64 noundef %103)
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %70, i32 0, i32 9
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %105
+
+74:                                               ; preds = %69, %66
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.job_record, ptr %75, i32 0, i32 39
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct.job_fed_details_t, ptr %77, i32 0, i32 4
+  %79 = load i64, ptr %78, align 8
+  store i64 %79, ptr %12, align 8
+  %80 = load i32, ptr %7, align 4
+  %81 = sub i32 %80, 1
+  %82 = zext i32 %81 to i64
+  %83 = shl i64 1, %82
+  %84 = xor i64 %83, -1
+  %85 = load i64, ptr %12, align 8
+  %86 = and i64 %85, %84
+  store i64 %86, ptr %12, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = sub i32 %87, 1
+  %89 = zext i32 %88 to i64
+  %90 = shl i64 1, %89
+  %91 = xor i64 %90, -1
+  %92 = load i64, ptr %12, align 8
+  %93 = and i64 %92, %91
+  store i64 %93, ptr %12, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds %struct.job_record, ptr %94, i32 0, i32 53
+  %96 = load i32, ptr %95, align 8
+  %97 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %98 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %97, i32 0, i32 8
+  %99 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  %101 = load i64, ptr %12, align 8
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %struct.job_record, ptr %102, i32 0, i32 120
+  %104 = load i64, ptr %103, align 8
+  call void @_revoke_sibling_jobs(i32 noundef %96, i32 noundef %100, i64 noundef %101, i64 noundef %104)
   store i32 0, ptr %6, align 4
-  br label %114
+  br label %115
 
-104:                                              ; preds = %68
-  %105 = load ptr, ptr %11, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.job_record, ptr %106, i32 0, i32 53
-  %108 = load i32, ptr %107, align 8
-  %109 = load i32, ptr %8, align 4
-  %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds %struct.job_record, ptr %110, i32 0, i32 120
-  %112 = load i64, ptr %111, align 8
-  %113 = call i32 @_persist_fed_job_start(ptr noundef %105, i32 noundef %108, i32 noundef %109, i64 noundef %112)
-  store i32 %113, ptr %6, align 4
-  br label %114
+105:                                              ; preds = %69
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %4, align 8
+  %108 = getelementptr inbounds %struct.job_record, ptr %107, i32 0, i32 53
+  %109 = load i32, ptr %108, align 8
+  %110 = load i32, ptr %8, align 4
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.job_record, ptr %111, i32 0, i32 120
+  %113 = load i64, ptr %112, align 8
+  %114 = call i32 @_persist_fed_job_start(ptr noundef %106, i32 noundef %109, i32 noundef %110, i64 noundef %113)
+  store i32 %114, ptr %6, align 4
+  br label %115
 
-114:                                              ; preds = %104, %73
-  %115 = load i32, ptr %6, align 4
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %127, label %117
+115:                                              ; preds = %105, %74
+  %116 = load i32, ptr %6, align 4
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %128, label %118
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr %8, align 4
-  %119 = sub i32 %118, 1
-  %120 = zext i32 %119 to i64
-  %121 = shl i64 1, %120
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds %struct.job_record, ptr %122, i32 0, i32 39
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.job_fed_details_t, ptr %124, i32 0, i32 2
-  store i64 %121, ptr %125, align 8
-  %126 = load ptr, ptr %4, align 8
-  call void @update_job_fed_details(ptr noundef %126)
-  br label %127
+118:                                              ; preds = %115
+  %119 = load i32, ptr %8, align 4
+  %120 = sub i32 %119, 1
+  %121 = zext i32 %120 to i64
+  %122 = shl i64 1, %121
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds %struct.job_record, ptr %123, i32 0, i32 39
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds %struct.job_fed_details_t, ptr %125, i32 0, i32 2
+  store i64 %122, ptr %126, align 8
+  %127 = load ptr, ptr %4, align 8
+  call void @update_job_fed_details(ptr noundef %127)
+  br label %128
 
-127:                                              ; preds = %117, %114
-  %128 = load i32, ptr %6, align 4
-  store i32 %128, ptr %3, align 4
-  br label %195
+128:                                              ; preds = %118, %115
+  %129 = load i32, ptr %6, align 4
+  store i32 %129, ptr %3, align 4
+  br label %196
 
-129:                                              ; preds = %38
-  br label %130
+130:                                              ; preds = %39
+  br label %131
 
-130:                                              ; preds = %129
-  %131 = call i32 @pthread_mutex_lock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %131, ptr %13, align 4
-  %132 = load i32, ptr %13, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %137
+131:                                              ; preds = %130
+  %132 = call i32 @pthread_mutex_lock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %132, ptr %13, align 4
+  %133 = load i32, ptr %13, align 4
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %138
 
-134:                                              ; preds = %130
-  %135 = load i32, ptr %13, align 4
-  %136 = call ptr @__errno_location() #9
-  store i32 %135, ptr %136, align 4
+135:                                              ; preds = %131
+  %136 = load i32, ptr %13, align 4
+  %137 = call ptr @__errno_location() #9
+  store i32 %136, ptr %137, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 4820, ptr noundef @__func__.fed_mgr_job_start) #10
   unreachable
 
-137:                                              ; preds = %130
-  br label %138
+138:                                              ; preds = %131
+  br label %139
 
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds %struct.job_record, ptr %139, i32 0, i32 53
-  %141 = load i32, ptr %140, align 8
-  %142 = call ptr @_find_fed_job_info(i32 noundef %141)
-  store ptr %142, ptr %9, align 8
-  %143 = icmp ne ptr %142, null
-  br i1 %143, label %147, label %144
+139:                                              ; preds = %138
+  %140 = load ptr, ptr %4, align 8
+  %141 = getelementptr inbounds %struct.job_record, ptr %140, i32 0, i32 53
+  %142 = load i32, ptr %141, align 8
+  %143 = call ptr @_find_fed_job_info(i32 noundef %142)
+  store ptr %143, ptr %9, align 8
+  %144 = icmp ne ptr %143, null
+  br i1 %144, label %148, label %145
 
-144:                                              ; preds = %138
-  %145 = load ptr, ptr %4, align 8
-  %146 = call i32 (ptr, ...) @error(ptr noundef @.str.50, ptr noundef %145)
+145:                                              ; preds = %139
+  %146 = load ptr, ptr %4, align 8
+  %147 = call i32 (ptr, ...) @error(ptr noundef @.str.50, ptr noundef %146)
+  store i32 -1, ptr %6, align 4
+  br label %178
+
+148:                                              ; preds = %139
+  %149 = load ptr, ptr %9, align 8
+  %150 = getelementptr inbounds %struct.fed_job_info_t, ptr %149, i32 0, i32 0
+  %151 = load i32, ptr %150, align 8
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %159, label %153
+
+153:                                              ; preds = %148
+  %154 = load ptr, ptr %9, align 8
+  %155 = getelementptr inbounds %struct.fed_job_info_t, ptr %154, i32 0, i32 1
+  %156 = load i32, ptr %155, align 4
+  %157 = load i32, ptr %8, align 4
+  %158 = call i32 (ptr, ...) @error(ptr noundef @.str.51, i32 noundef %156, i32 noundef %157)
   store i32 -1, ptr %6, align 4
   br label %177
 
-147:                                              ; preds = %138
-  %148 = load ptr, ptr %9, align 8
-  %149 = getelementptr inbounds %struct.fed_job_info_t, ptr %148, i32 0, i32 0
-  %150 = load i32, ptr %149, align 8
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %158, label %152
+159:                                              ; preds = %148
+  %160 = load ptr, ptr %9, align 8
+  %161 = getelementptr inbounds %struct.fed_job_info_t, ptr %160, i32 0, i32 0
+  %162 = load i32, ptr %161, align 8
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %176
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %9, align 8
-  %154 = getelementptr inbounds %struct.fed_job_info_t, ptr %153, i32 0, i32 1
-  %155 = load i32, ptr %154, align 4
-  %156 = load i32, ptr %8, align 4
-  %157 = call i32 (ptr, ...) @error(ptr noundef @.str.51, i32 noundef %155, i32 noundef %156)
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds %struct.fed_job_info_t, ptr %165, i32 0, i32 0
+  %167 = load i32, ptr %166, align 8
+  %168 = load i32, ptr %8, align 4
+  %169 = icmp ne i32 %167, %168
+  br i1 %169, label %170, label %176
+
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %9, align 8
+  %172 = getelementptr inbounds %struct.fed_job_info_t, ptr %171, i32 0, i32 1
+  %173 = load i32, ptr %172, align 4
+  %174 = load i32, ptr %8, align 4
+  %175 = call i32 (ptr, ...) @error(ptr noundef @.str.52, i32 noundef %173, i32 noundef %174)
   store i32 -1, ptr %6, align 4
   br label %176
 
-158:                                              ; preds = %147
-  %159 = load ptr, ptr %9, align 8
-  %160 = getelementptr inbounds %struct.fed_job_info_t, ptr %159, i32 0, i32 0
-  %161 = load i32, ptr %160, align 8
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %175
-
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds %struct.fed_job_info_t, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 8
-  %167 = load i32, ptr %8, align 4
-  %168 = icmp ne i32 %166, %167
-  br i1 %168, label %169, label %175
-
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %9, align 8
-  %171 = getelementptr inbounds %struct.fed_job_info_t, ptr %170, i32 0, i32 1
-  %172 = load i32, ptr %171, align 4
-  %173 = load i32, ptr %8, align 4
-  %174 = call i32 (ptr, ...) @error(ptr noundef @.str.52, i32 noundef %172, i32 noundef %173)
-  store i32 -1, ptr %6, align 4
-  br label %175
-
-175:                                              ; preds = %169, %163, %158
-  br label %176
-
-176:                                              ; preds = %175, %152
+176:                                              ; preds = %170, %164, %159
   br label %177
 
-177:                                              ; preds = %176, %144
-  %178 = load i32, ptr %6, align 4
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %184, label %180
+177:                                              ; preds = %176, %153
+  br label %178
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr %9, align 8
-  %182 = load ptr, ptr %4, align 8
-  %183 = load i64, ptr %5, align 8
-  call void @_fed_job_start_revoke(ptr noundef %181, ptr noundef %182, i64 noundef %183)
-  br label %184
+178:                                              ; preds = %177, %145
+  %179 = load i32, ptr %6, align 4
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %185, label %181
 
-184:                                              ; preds = %180, %177
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %9, align 8
+  %183 = load ptr, ptr %4, align 8
+  %184 = load i64, ptr %5, align 8
+  call void @_fed_job_start_revoke(ptr noundef %182, ptr noundef %183, i64 noundef %184)
   br label %185
 
-185:                                              ; preds = %184
-  %186 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %186, ptr %14, align 4
-  %187 = load i32, ptr %14, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %192
+185:                                              ; preds = %181, %178
+  br label %186
 
-189:                                              ; preds = %185
-  %190 = load i32, ptr %14, align 4
-  %191 = call ptr @__errno_location() #9
-  store i32 %190, ptr %191, align 4
+186:                                              ; preds = %185
+  %187 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %187, ptr %14, align 4
+  %188 = load i32, ptr %14, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %193
+
+190:                                              ; preds = %186
+  %191 = load i32, ptr %14, align 4
+  %192 = call ptr @__errno_location() #9
+  store i32 %191, ptr %192, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 4839, ptr noundef @__func__.fed_mgr_job_start) #10
   unreachable
 
-192:                                              ; preds = %185
-  br label %193
+193:                                              ; preds = %186
+  br label %194
 
-193:                                              ; preds = %192
-  %194 = load i32, ptr %6, align 4
-  store i32 %194, ptr %3, align 4
-  br label %195
+194:                                              ; preds = %193
+  %195 = load i32, ptr %6, align 4
+  store i32 %195, ptr %3, align 4
+  br label %196
 
-195:                                              ; preds = %193, %127, %18
-  %196 = load i32, ptr %3, align 4
-  ret i32 %196
+196:                                              ; preds = %194, %128, %18
+  %197 = load i32, ptr %3, align 4
+  ret i32 %197
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8927,53 +8954,54 @@ define internal void @_fed_job_start_revoke(ptr noundef %0, ptr noundef %1, i64 
   %40 = xor i64 %39, -1
   %41 = and i64 %35, %40
   %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %67
+  br i1 %42, label %43, label %68
 
 43:                                               ; preds = %3
   br label %44
 
 44:                                               ; preds = %43
-  %45 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %46 = and i64 %45, 281474976710656
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %59
+  %45 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 281474976710656
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %60
 
-48:                                               ; preds = %44
-  br label %49
+49:                                               ; preds = %44
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = call i32 @get_log_level()
-  %51 = icmp sge i32 %50, 4
-  br i1 %51, label %52, label %57
+50:                                               ; preds = %49
+  %51 = call i32 @get_log_level()
+  %52 = icmp sge i32 %51, 4
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %5, align 8
-  %54 = load i32, ptr %7, align 4
-  %55 = load i64, ptr %8, align 8
-  %56 = load i64, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.195, ptr noundef @__func__._fed_job_start_revoke, ptr noundef %53, i32 noundef %54, i64 noundef %55, i64 noundef %56)
-  br label %57
-
-57:                                               ; preds = %52, %49
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %7, align 4
+  %56 = load i64, ptr %8, align 8
+  %57 = load i64, ptr %9, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.195, ptr noundef @__func__._fed_job_start_revoke, ptr noundef %54, i32 noundef %55, i64 noundef %56, i64 noundef %57)
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %53, %50
   br label %59
 
-59:                                               ; preds = %58, %44
+59:                                               ; preds = %58
   br label %60
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.job_record, ptr %61, i32 0, i32 53
-  %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr %7, align 4
-  %65 = load i64, ptr %8, align 8
-  %66 = load i64, ptr %6, align 8
-  call void @_revoke_sibling_jobs(i32 noundef %63, i32 noundef %64, i64 noundef %65, i64 noundef %66)
-  br label %67
+60:                                               ; preds = %59, %44
+  br label %61
 
-67:                                               ; preds = %60, %3
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %struct.job_record, ptr %62, i32 0, i32 53
+  %64 = load i32, ptr %63, align 8
+  %65 = load i32, ptr %7, align 4
+  %66 = load i64, ptr %8, align 8
+  %67 = load i64, ptr %6, align 8
+  call void @_revoke_sibling_jobs(i32 noundef %64, i32 noundef %65, i64 noundef %66, i64 noundef %67)
+  br label %68
+
+68:                                               ; preds = %61, %3
   ret void
 }
 
@@ -8997,7 +9025,7 @@ define dso_local i32 @fed_mgr_job_complete(ptr noundef %0, i32 noundef %1, i64 n
 
 15:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %89
+  br label %90
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %5, align 8
@@ -9007,124 +9035,125 @@ define dso_local i32 @fed_mgr_job_complete(ptr noundef %0, i32 noundef %1, i64 n
 
 20:                                               ; preds = %16
   store i32 0, ptr %4, align 4
-  br label %89
+  br label %90
 
 21:                                               ; preds = %16
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %24 = and i64 %23, 281474976710656
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %38
+  %23 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 281474976710656
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %39
 
-26:                                               ; preds = %22
-  br label %27
+27:                                               ; preds = %22
+  br label %28
 
-27:                                               ; preds = %26
-  %28 = call i32 @get_log_level()
-  %29 = icmp sge i32 %28, 4
-  br i1 %29, label %30, label %36
+28:                                               ; preds = %27
+  %29 = call i32 @get_log_level()
+  %30 = icmp sge i32 %29, 4
+  br i1 %30, label %31, label %37
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %33 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %32, i32 0, i32 8
-  %34 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %34, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.53, ptr noundef %31, i32 noundef %35)
-  br label %36
-
-36:                                               ; preds = %30, %27
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %34 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %33, i32 0, i32 8
+  %35 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.53, ptr noundef %32, i32 noundef %36)
   br label %37
 
-37:                                               ; preds = %36
+37:                                               ; preds = %31, %28
   br label %38
 
-38:                                               ; preds = %37, %22
+38:                                               ; preds = %37
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr %8, align 4
-  %41 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %42 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %41, i32 0, i32 8
-  %43 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %40, %44
-  br i1 %45, label %46, label %62
+39:                                               ; preds = %38, %22
+  br label %40
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.job_record, ptr %47, i32 0, i32 53
-  %49 = load i32, ptr %48, align 8
-  %50 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %51 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %50, i32 0, i32 8
-  %52 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %51, i32 0, i32 1
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.job_record, ptr %54, i32 0, i32 39
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.job_fed_details_t, ptr %56, i32 0, i32 2
-  %58 = load i64, ptr %57, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.job_record, ptr %59, i32 0, i32 120
-  %61 = load i64, ptr %60, align 8
-  call void @_revoke_sibling_jobs(i32 noundef %49, i32 noundef %53, i64 noundef %58, i64 noundef %61)
+40:                                               ; preds = %39
+  %41 = load i32, ptr %8, align 4
+  %42 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %43 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %42, i32 0, i32 8
+  %44 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp eq i32 %41, %45
+  br i1 %46, label %47, label %63
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds %struct.job_record, ptr %48, i32 0, i32 53
+  %50 = load i32, ptr %49, align 8
+  %51 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %52 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %51, i32 0, i32 8
+  %53 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds %struct.job_record, ptr %55, i32 0, i32 39
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.job_fed_details_t, ptr %57, i32 0, i32 2
+  %59 = load i64, ptr %58, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds %struct.job_record, ptr %60, i32 0, i32 120
+  %62 = load i64, ptr %61, align 8
+  call void @_revoke_sibling_jobs(i32 noundef %50, i32 noundef %54, i64 noundef %59, i64 noundef %62)
   store i32 0, ptr %4, align 4
-  br label %89
+  br label %90
 
-62:                                               ; preds = %39
-  %63 = load i32, ptr %8, align 4
-  %64 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %63)
-  store ptr %64, ptr %9, align 8
-  %65 = load ptr, ptr %9, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %78, label %67
+63:                                               ; preds = %40
+  %64 = load i32, ptr %8, align 4
+  %65 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %64)
+  store ptr %65, ptr %9, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %79, label %68
 
-67:                                               ; preds = %62
-  br label %68
-
-68:                                               ; preds = %67
+68:                                               ; preds = %63
   br label %69
 
 69:                                               ; preds = %68
-  %70 = call i32 @get_log_level()
-  %71 = icmp sge i32 %70, 3
-  br i1 %71, label %72, label %75
+  br label %70
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %8, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %73, i32 noundef %74)
-  br label %75
+70:                                               ; preds = %69
+  %71 = call i32 @get_log_level()
+  %72 = icmp sge i32 %71, 3
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %72, %69
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %5, align 8
+  %75 = load i32, ptr %8, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.40, ptr noundef %74, i32 noundef %75)
   br label %76
 
-76:                                               ; preds = %75
+76:                                               ; preds = %73, %70
   br label %77
 
 77:                                               ; preds = %76
+  br label %78
+
+78:                                               ; preds = %77
   store i32 -1, ptr %4, align 4
-  br label %89
+  br label %90
 
-78:                                               ; preds = %62
-  %79 = load ptr, ptr %9, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.job_record, ptr %80, i32 0, i32 53
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.job_record, ptr %83, i32 0, i32 60
-  %85 = load i32, ptr %84, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = load i64, ptr %7, align 8
-  %88 = call i32 @_persist_fed_job_revoke(ptr noundef %79, i32 noundef %82, i32 noundef %85, i32 noundef %86, i64 noundef %87)
-  store i32 %88, ptr %4, align 4
-  br label %89
+79:                                               ; preds = %63
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds %struct.job_record, ptr %81, i32 0, i32 53
+  %83 = load i32, ptr %82, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds %struct.job_record, ptr %84, i32 0, i32 60
+  %86 = load i32, ptr %85, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = load i64, ptr %7, align 8
+  %89 = call i32 @_persist_fed_job_revoke(ptr noundef %80, i32 noundef %83, i32 noundef %86, i32 noundef %87, i64 noundef %88)
+  store i32 %89, ptr %4, align 4
+  br label %90
 
-89:                                               ; preds = %78, %77, %46, %20, %15
-  %90 = load i32, ptr %4, align 4
-  ret i32 %90
+90:                                               ; preds = %79, %78, %47, %20, %15
+  %91 = load i32, ptr %4, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9220,7 +9249,7 @@ define dso_local i32 @fed_mgr_job_revoke_sibs(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %47
+  br label %48
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %4, align 4
@@ -9233,60 +9262,61 @@ define dso_local i32 @fed_mgr_job_revoke_sibs(ptr noundef %0) #0 {
 
 18:                                               ; preds = %11
   store i32 0, ptr %2, align 4
-  br label %47
+  br label %48
 
 19:                                               ; preds = %11
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %22 = and i64 %21, 281474976710656
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %32
+  %21 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 281474976710656
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %20
-  br label %25
+25:                                               ; preds = %20
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = call i32 @get_log_level()
-  %27 = icmp sge i32 %26, 4
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %25
+  %27 = call i32 @get_log_level()
+  %28 = icmp sge i32 %27, 4
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.54, ptr noundef %29)
-  br label %30
-
-30:                                               ; preds = %28, %25
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.54, ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %29, %26
   br label %32
 
-32:                                               ; preds = %31, %20
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.job_record, ptr %34, i32 0, i32 53
-  %36 = load i32, ptr %35, align 8
-  %37 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %38 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %37, i32 0, i32 8
-  %39 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.job_record, ptr %41, i32 0, i32 39
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.job_fed_details_t, ptr %43, i32 0, i32 2
-  %45 = load i64, ptr %44, align 8
-  %46 = load i64, ptr %5, align 8
-  call void @_revoke_sibling_jobs(i32 noundef %36, i32 noundef %40, i64 noundef %45, i64 noundef %46)
-  store i32 0, ptr %2, align 4
-  br label %47
+33:                                               ; preds = %32, %20
+  br label %34
 
-47:                                               ; preds = %33, %18, %10
-  %48 = load i32, ptr %2, align 4
-  ret i32 %48
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.job_record, ptr %35, i32 0, i32 53
+  %37 = load i32, ptr %36, align 8
+  %38 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %39 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %38, i32 0, i32 8
+  %40 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds %struct.job_record, ptr %42, i32 0, i32 39
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct.job_fed_details_t, ptr %44, i32 0, i32 2
+  %46 = load i64, ptr %45, align 8
+  %47 = load i64, ptr %5, align 8
+  call void @_revoke_sibling_jobs(i32 noundef %37, i32 noundef %41, i64 noundef %46, i64 noundef %47)
+  store i32 0, ptr %2, align 4
+  br label %48
+
+48:                                               ; preds = %34, %18, %10
+  %49 = load i32, ptr %2, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9324,7 +9354,7 @@ define dso_local i32 @fed_mgr_job_revoke(ptr noundef %0, i1 noundef zeroext %1, 
 
 27:                                               ; preds = %20
   store i32 0, ptr %6, align 4
-  br label %133
+  br label %134
 
 28:                                               ; preds = %20, %5
   %29 = load ptr, ptr %7, align 8
@@ -9334,187 +9364,188 @@ define dso_local i32 @fed_mgr_job_revoke(ptr noundef %0, i1 noundef zeroext %1, 
 
 32:                                               ; preds = %28
   store i32 0, ptr %6, align 4
-  br label %133
+  br label %134
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %36 = and i64 %35, 281474976710656
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %49
+  %35 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 281474976710656
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %50
 
-38:                                               ; preds = %34
-  br label %39
+39:                                               ; preds = %34
+  br label %40
 
-39:                                               ; preds = %38
-  %40 = call i32 @get_log_level()
-  %41 = icmp sge i32 %40, 4
-  br i1 %41, label %42, label %47
+40:                                               ; preds = %39
+  %41 = call i32 @get_log_level()
+  %42 = icmp sge i32 %41, 4
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i8, ptr %8, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = select i1 %45, ptr @.str.56, ptr @.str.57
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.55, ptr noundef %43, ptr noundef %46)
-  br label %47
-
-47:                                               ; preds = %42, %39
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i8, ptr %8, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = select i1 %46, ptr @.str.56, ptr @.str.57
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.55, ptr noundef %44, ptr noundef %47)
   br label %48
 
-48:                                               ; preds = %47
+48:                                               ; preds = %43, %40
   br label %49
 
-49:                                               ; preds = %48, %34
+49:                                               ; preds = %48
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %10, align 4
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct.job_record, ptr %52, i32 0, i32 35
-  store i32 %51, ptr %53, align 4
-  %54 = load ptr, ptr %7, align 8
-  %55 = call zeroext i1 @job_hold_requeue(ptr noundef %54)
-  br i1 %55, label %56, label %58
+50:                                               ; preds = %49, %34
+  br label %51
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %7, align 8
-  call void @batch_requeue_fini(ptr noundef %57)
+51:                                               ; preds = %50
+  %52 = load i32, ptr %10, align 4
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds %struct.job_record, ptr %53, i32 0, i32 35
+  store i32 %52, ptr %54, align 4
+  %55 = load ptr, ptr %7, align 8
+  %56 = call zeroext i1 @job_hold_requeue(ptr noundef %55)
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %7, align 8
+  call void @batch_requeue_fini(ptr noundef %58)
   store i32 0, ptr %6, align 4
-  br label %133
+  br label %134
 
-58:                                               ; preds = %50
-  %59 = load i8, ptr %8, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %61, label %72
+59:                                               ; preds = %51
+  %60 = load i8, ptr %8, align 1
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %73
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %9, align 4
-  %63 = icmp ugt i32 %62, 2
-  br i1 %63, label %64, label %68
+62:                                               ; preds = %59
+  %63 = load i32, ptr %9, align 4
+  %64 = icmp ugt i32 %63, 2
+  br i1 %64, label %65, label %69
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %9, align 4
-  %66 = load i32, ptr %13, align 4
-  %67 = or i32 %66, %65
-  store i32 %67, ptr %13, align 4
-  br label %71
-
-68:                                               ; preds = %61
-  %69 = load i32, ptr %13, align 4
-  %70 = or i32 %69, 4
-  store i32 %70, ptr %13, align 4
-  br label %71
-
-71:                                               ; preds = %68, %64
+65:                                               ; preds = %62
+  %66 = load i32, ptr %9, align 4
+  %67 = load i32, ptr %13, align 4
+  %68 = or i32 %67, %66
+  store i32 %68, ptr %13, align 4
   br label %72
 
-72:                                               ; preds = %71, %58
-  %73 = load ptr, ptr %7, align 8
-  %74 = load i32, ptr %13, align 4
-  call void @job_state_set(ptr noundef %73, i32 noundef %74)
-  %75 = load i64, ptr %11, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.job_record, ptr %76, i32 0, i32 120
-  store i64 %75, ptr %77, align 8
-  %78 = load i64, ptr %11, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct.job_record, ptr %79, i32 0, i32 32
-  store i64 %78, ptr %80, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct.job_record, ptr %81, i32 0, i32 122
-  store i32 0, ptr %82, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.job_record, ptr %83, i32 0, i32 121
-  call void @slurm_xfree(ptr noundef %84)
-  %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct.job_record, ptr %85, i32 0, i32 26
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp ne i64 %87, 0
-  br i1 %88, label %122, label %89
+69:                                               ; preds = %62
+  %70 = load i32, ptr %13, align 4
+  %71 = or i32 %70, 4
+  store i32 %71, ptr %13, align 4
+  br label %72
 
-89:                                               ; preds = %72
-  %90 = load i32, ptr %12, align 4
-  %91 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %92 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %91, i32 0, i32 8
-  %93 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %92, i32 0, i32 1
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp ne i32 %90, %94
-  br i1 %95, label %96, label %122
+72:                                               ; preds = %69, %65
+  br label %73
 
-96:                                               ; preds = %89
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds %struct.job_record, ptr %97, i32 0, i32 60
-  %99 = load i32, ptr %98, align 8
-  %100 = and i32 %99, 255
-  %101 = icmp ugt i32 %100, 2
-  br i1 %101, label %102, label %106
+73:                                               ; preds = %72, %59
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %13, align 4
+  call void @job_state_set(ptr noundef %74, i32 noundef %75)
+  %76 = load i64, ptr %11, align 8
+  %77 = load ptr, ptr %7, align 8
+  %78 = getelementptr inbounds %struct.job_record, ptr %77, i32 0, i32 120
+  store i64 %76, ptr %78, align 8
+  %79 = load i64, ptr %11, align 8
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds %struct.job_record, ptr %80, i32 0, i32 32
+  store i64 %79, ptr %81, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds %struct.job_record, ptr %82, i32 0, i32 122
+  store i32 0, ptr %83, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.job_record, ptr %84, i32 0, i32 121
+  call void @slurm_xfree(ptr noundef %85)
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds %struct.job_record, ptr %86, i32 0, i32 26
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp ne i64 %88, 0
+  br i1 %89, label %123, label %90
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr @acct_db_conn, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = call i32 @jobacct_storage_g_job_start(ptr noundef %103, ptr noundef %104)
-  br label %121
+90:                                               ; preds = %73
+  %91 = load i32, ptr %12, align 4
+  %92 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %93 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %92, i32 0, i32 8
+  %94 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %91, %95
+  br i1 %96, label %97, label %123
 
-106:                                              ; preds = %96
-  br label %107
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds %struct.job_record, ptr %98, i32 0, i32 60
+  %100 = load i32, ptr %99, align 8
+  %101 = and i32 %100, 255
+  %102 = icmp ugt i32 %101, 2
+  br i1 %102, label %103, label %107
 
-107:                                              ; preds = %106
+103:                                              ; preds = %97
+  %104 = load ptr, ptr @acct_db_conn, align 8
+  %105 = load ptr, ptr %7, align 8
+  %106 = call i32 @jobacct_storage_g_job_start(ptr noundef %104, ptr noundef %105)
+  br label %122
+
+107:                                              ; preds = %97
   br label %108
 
 108:                                              ; preds = %107
-  %109 = call i32 @get_log_level()
-  %110 = icmp sge i32 %109, 3
-  br i1 %110, label %111, label %118
+  br label %109
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %7, align 8
-  %113 = load i32, ptr %12, align 4
-  %114 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %115 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %114, i32 0, i32 8
-  %116 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %115, i32 0, i32 1
-  %117 = load i32, ptr %116, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.58, ptr noundef @__func__.fed_mgr_job_revoke, ptr noundef %112, i32 noundef %113, i32 noundef %117)
-  br label %118
+109:                                              ; preds = %108
+  %110 = call i32 @get_log_level()
+  %111 = icmp sge i32 %110, 3
+  br i1 %111, label %112, label %119
 
-118:                                              ; preds = %111, %108
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %7, align 8
+  %114 = load i32, ptr %12, align 4
+  %115 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %116 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %115, i32 0, i32 8
+  %117 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %116, i32 0, i32 1
+  %118 = load i32, ptr %117, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.58, ptr noundef @__func__.fed_mgr_job_revoke, ptr noundef %113, i32 noundef %114, i32 noundef %118)
   br label %119
 
-119:                                              ; preds = %118
+119:                                              ; preds = %112, %109
   br label %120
 
 120:                                              ; preds = %119
   br label %121
 
-121:                                              ; preds = %120, %102
+121:                                              ; preds = %120
   br label %122
 
-122:                                              ; preds = %121, %89, %72
-  %123 = load ptr, ptr %7, align 8
-  call void @job_completion_logger(ptr noundef %123, i1 noundef zeroext false)
-  %124 = load i32, ptr %12, align 4
-  %125 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %126 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %125, i32 0, i32 8
-  %127 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %126, i32 0, i32 1
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp eq i32 %124, %128
-  br i1 %129, label %130, label %131
+122:                                              ; preds = %121, %103
+  br label %123
 
-130:                                              ; preds = %122
+123:                                              ; preds = %122, %90, %73
+  %124 = load ptr, ptr %7, align 8
+  call void @job_completion_logger(ptr noundef %124, i1 noundef zeroext false)
+  %125 = load i32, ptr %12, align 4
+  %126 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %127 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %126, i32 0, i32 8
+  %128 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %127, i32 0, i32 1
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp eq i32 %125, %129
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %123
   store i32 0, ptr %6, align 4
-  br label %133
+  br label %134
 
-131:                                              ; preds = %122
-  %132 = load ptr, ptr %7, align 8
-  call void @unlink_job_record(ptr noundef %132)
+132:                                              ; preds = %123
+  %133 = load ptr, ptr %7, align 8
+  call void @unlink_job_record(ptr noundef %133)
   store i32 0, ptr %6, align 4
-  br label %133
+  br label %134
 
-133:                                              ; preds = %131, %130, %56, %32, %27
-  %134 = load i32, ptr %6, align 4
-  ret i32 %134
+134:                                              ; preds = %132, %131, %57, %32, %27
+  %135 = load i32, ptr %6, align 4
+  ret i32 %135
 }
 
 declare zeroext i1 @job_hold_requeue(ptr noundef) #1
@@ -9632,7 +9663,7 @@ define dso_local i32 @fed_mgr_job_requeue_test(ptr noundef %0, i32 noundef %1) #
 
 12:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %119
 
 13:                                               ; preds = %2
   %14 = load i32, ptr %6, align 4
@@ -9641,7 +9672,7 @@ define dso_local i32 @fed_mgr_job_requeue_test(ptr noundef %0, i32 noundef %1) #
   %17 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %17, align 8
   %19 = icmp ne i32 %14, %18
-  br i1 %19, label %20, label %51
+  br i1 %19, label %20, label %52
 
 20:                                               ; preds = %13
   %21 = load i32, ptr %6, align 4
@@ -9655,162 +9686,164 @@ define dso_local i32 @fed_mgr_job_requeue_test(ptr noundef %0, i32 noundef %1) #
   %26 = load i32, ptr %6, align 4
   %27 = call i32 (ptr, ...) @error(ptr noundef @.str.40, ptr noundef %25, i32 noundef %26)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
 28:                                               ; preds = %20
   br label %29
 
 29:                                               ; preds = %28
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %31 = and i64 %30, 281474976710656
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %42
+  %30 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 281474976710656
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %43
 
-33:                                               ; preds = %29
-  br label %34
+34:                                               ; preds = %29
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = call i32 @get_log_level()
-  %36 = icmp sge i32 %35, 4
-  br i1 %36, label %37, label %40
+35:                                               ; preds = %34
+  %36 = call i32 @get_log_level()
+  %37 = icmp sge i32 %36, 4
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %4, align 8
-  %39 = load i32, ptr %6, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.62, ptr noundef %38, i32 noundef %39)
-  br label %40
-
-40:                                               ; preds = %37, %34
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %6, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.62, ptr noundef %39, i32 noundef %40)
   br label %41
 
-41:                                               ; preds = %40
+41:                                               ; preds = %38, %35
   br label %42
 
-42:                                               ; preds = %41, %29
+42:                                               ; preds = %41
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %7, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.job_record, ptr %45, i32 0, i32 53
-  %47 = load i32, ptr %46, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = call i32 @_persist_fed_job_requeue(ptr noundef %44, i32 noundef %47, i32 noundef %48)
-  %50 = load ptr, ptr %4, align 8
-  call void @job_state_set_flag(ptr noundef %50, i32 noundef 1048576)
+43:                                               ; preds = %42, %29
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.job_record, ptr %46, i32 0, i32 53
+  %48 = load i32, ptr %47, align 8
+  %49 = load i32, ptr %5, align 4
+  %50 = call i32 @_persist_fed_job_requeue(ptr noundef %45, i32 noundef %48, i32 noundef %49)
+  %51 = load ptr, ptr %4, align 8
+  call void @job_state_set_flag(ptr noundef %51, i32 noundef 1048576)
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %119
 
-51:                                               ; preds = %13
-  br label %52
+52:                                               ; preds = %13
+  br label %53
 
-52:                                               ; preds = %51
-  %53 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %54 = and i64 %53, 281474976710656
-  %55 = icmp ne i64 %54, 0
-  br i1 %55, label %56, label %68
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 281474976710656
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %70
 
-56:                                               ; preds = %52
-  br label %57
+58:                                               ; preds = %53
+  br label %59
 
-57:                                               ; preds = %56
-  %58 = call i32 @get_log_level()
-  %59 = icmp sge i32 %58, 4
-  br i1 %59, label %60, label %66
+59:                                               ; preds = %58
+  %60 = call i32 @get_log_level()
+  %61 = icmp sge i32 %60, 4
+  br i1 %61, label %62, label %68
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %4, align 8
-  %62 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %63 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %62, i32 0, i32 8
-  %64 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.63, ptr noundef %61, i32 noundef %65)
-  br label %66
-
-66:                                               ; preds = %60, %57
-  br label %67
-
-67:                                               ; preds = %66
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %65 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %64, i32 0, i32 8
+  %66 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %65, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.63, ptr noundef %63, i32 noundef %67)
   br label %68
 
-68:                                               ; preds = %67, %52
+68:                                               ; preds = %62, %59
   br label %69
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.job_record, ptr %70, i32 0, i32 60
-  %72 = load i32, ptr %71, align 8
-  %73 = and i32 %72, 255
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %76
+  br label %70
 
-75:                                               ; preds = %69
+70:                                               ; preds = %69, %53
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %struct.job_record, ptr %72, i32 0, i32 60
+  %74 = load i32, ptr %73, align 8
+  %75 = and i32 %74, 255
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %71
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %119
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.job_record, ptr %77, i32 0, i32 60
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, 255
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %116
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.job_record, ptr %79, i32 0, i32 60
+  %81 = load i32, ptr %80, align 8
+  %82 = and i32 %81, 255
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %118
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.job_record, ptr %83, i32 0, i32 60
-  %85 = load i32, ptr %84, align 8
-  %86 = zext i32 %85 to i64
-  %87 = and i64 %86, 524288
-  %88 = icmp ne i64 %87, 0
-  br i1 %88, label %89, label %116
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %4, align 8
+  %86 = getelementptr inbounds %struct.job_record, ptr %85, i32 0, i32 60
+  %87 = load i32, ptr %86, align 8
+  %88 = zext i32 %87 to i64
+  %89 = and i64 %88, 524288
+  %90 = icmp ne i64 %89, 0
+  br i1 %90, label %91, label %118
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.job_record, ptr %90, i32 0, i32 39
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.job_fed_details_t, ptr %92, i32 0, i32 0
-  %94 = load i32, ptr %93, align 8
-  %95 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %94)
-  store ptr %95, ptr %8, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %105, label %97
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.job_record, ptr %92, i32 0, i32 39
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.job_fed_details_t, ptr %94, i32 0, i32 0
+  %96 = load i32, ptr %95, align 8
+  %97 = call ptr @fed_mgr_get_cluster_by_id(i32 noundef %96)
+  store ptr %97, ptr %8, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %107, label %99
 
-97:                                               ; preds = %89
-  %98 = load ptr, ptr %4, align 8
-  %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds %struct.job_record, ptr %99, i32 0, i32 39
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.job_fed_details_t, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = call i32 (ptr, ...) @error(ptr noundef @.str.64, ptr noundef %98, i32 noundef %103)
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %4, align 8
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds %struct.job_record, ptr %101, i32 0, i32 39
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %struct.job_fed_details_t, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 8
+  %106 = call i32 (ptr, ...) @error(ptr noundef @.str.64, ptr noundef %100, i32 noundef %105)
   store i32 -1, ptr %3, align 4
+  br label %119
+
+107:                                              ; preds = %91
+  %108 = load ptr, ptr %8, align 8
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.job_record, ptr %109, i32 0, i32 53
+  %111 = load i32, ptr %110, align 8
+  %112 = call i32 @_persist_fed_job_cancel(ptr noundef %108, i32 noundef %111, i16 noundef zeroext 9, i16 noundef zeroext 16, i32 noundef 0)
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %117
+
+114:                                              ; preds = %107
+  %115 = load ptr, ptr %4, align 8
+  %116 = call i32 (ptr, ...) @error(ptr noundef @.str.65, ptr noundef %115)
   br label %117
 
-105:                                              ; preds = %89
-  %106 = load ptr, ptr %8, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.job_record, ptr %107, i32 0, i32 53
-  %109 = load i32, ptr %108, align 8
-  %110 = call i32 @_persist_fed_job_cancel(ptr noundef %106, i32 noundef %109, i16 noundef zeroext 9, i16 noundef zeroext 16, i32 noundef 0)
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %115
+117:                                              ; preds = %114, %107
+  br label %118
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr %4, align 8
-  %114 = call i32 (ptr, ...) @error(ptr noundef @.str.65, ptr noundef %113)
-  br label %115
-
-115:                                              ; preds = %112, %105
-  br label %116
-
-116:                                              ; preds = %115, %82, %76
+118:                                              ; preds = %117, %84, %78
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %119
 
-117:                                              ; preds = %116, %97, %75, %43, %24, %12
-  %118 = load i32, ptr %3, align 4
-  ret i32 %118
+119:                                              ; preds = %118, %99, %77, %44, %24, %12
+  %120 = load i32, ptr %3, align 4
+  ret i32 %120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10024,247 +10057,248 @@ define dso_local i32 @fed_mgr_job_requeue(ptr noundef %0) #0 {
 
 14:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
 15:                                               ; preds = %1
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %18 = and i64 %17, 281474976710656
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %28
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 281474976710656
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %29
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %16
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @get_log_level()
-  %23 = icmp sge i32 %22, 4
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %21
+  %23 = call i32 @get_log_level()
+  %24 = icmp sge i32 %23, 4
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.66, ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %24, %21
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.66, ptr noundef %26)
   br label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %25, %22
   br label %28
 
-28:                                               ; preds = %27, %16
+28:                                               ; preds = %27
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.job_record, ptr %30, i32 0, i32 39
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.job_fed_details_t, ptr %32, i32 0, i32 2
-  store i64 0, ptr %33, align 8
-  br label %34
+29:                                               ; preds = %28, %16
+  br label %30
 
-34:                                               ; preds = %29
-  %35 = call i32 @pthread_mutex_lock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %35, ptr %8, align 4
-  %36 = load i32, ptr %8, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %41
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds %struct.job_record, ptr %31, i32 0, i32 39
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.job_fed_details_t, ptr %33, i32 0, i32 2
+  store i64 0, ptr %34, align 8
+  br label %35
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %8, align 4
-  %40 = call ptr @__errno_location() #9
-  store i32 %39, ptr %40, align 4
+35:                                               ; preds = %30
+  %36 = call i32 @pthread_mutex_lock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %36, ptr %8, align 4
+  %37 = load i32, ptr %8, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = load i32, ptr %8, align 4
+  %41 = call ptr @__errno_location() #9
+  store i32 %40, ptr %41, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 5129, ptr noundef @__func__.fed_mgr_job_requeue) #10
   unreachable
 
-41:                                               ; preds = %34
-  br label %42
+42:                                               ; preds = %35
+  br label %43
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.job_record, ptr %43, i32 0, i32 53
-  %45 = load i32, ptr %44, align 8
-  %46 = call ptr @_find_fed_job_info(i32 noundef %45)
-  store ptr %46, ptr %7, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %51, label %48
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds %struct.job_record, ptr %44, i32 0, i32 53
+  %46 = load i32, ptr %45, align 8
+  %47 = call ptr @_find_fed_job_info(i32 noundef %46)
+  store ptr %47, ptr %7, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %52, label %49
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %3, align 8
-  %50 = call i32 (ptr, ...) @error(ptr noundef @.str.67, ptr noundef @__func__.fed_mgr_job_requeue, ptr noundef %49)
-  br label %51
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %3, align 8
+  %51 = call i32 (ptr, ...) @error(ptr noundef @.str.67, ptr noundef @__func__.fed_mgr_job_requeue, ptr noundef %50)
+  br label %52
 
-51:                                               ; preds = %48, %42
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.job_record, ptr %52, i32 0, i32 96
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %78
+52:                                               ; preds = %49, %43
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds %struct.job_record, ptr %53, i32 0, i32 96
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %79
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %3, align 8
-  call void @job_state_unset_flag(ptr noundef %57, i32 noundef 1048576)
+57:                                               ; preds = %52
   %58 = load ptr, ptr %3, align 8
-  call void @update_job_fed_details(ptr noundef %58)
+  call void @job_state_unset_flag(ptr noundef %58, i32 noundef 1048576)
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.job_record, ptr %59, i32 0, i32 39
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.job_fed_details_t, ptr %61, i32 0, i32 0
-  store i32 0, ptr %62, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %68
+  call void @update_job_fed_details(ptr noundef %59)
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds %struct.job_record, ptr %60, i32 0, i32 39
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.job_fed_details_t, ptr %62, i32 0, i32 0
+  store i32 0, ptr %63, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %56
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct.fed_job_info_t, ptr %66, i32 0, i32 0
-  store i32 0, ptr %67, align 8
-  br label %68
-
-68:                                               ; preds = %65, %56
+66:                                               ; preds = %57
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds %struct.fed_job_info_t, ptr %67, i32 0, i32 0
+  store i32 0, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %68
-  %70 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %70, ptr %9, align 4
-  %71 = load i32, ptr %9, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+69:                                               ; preds = %66, %57
+  br label %70
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %9, align 4
-  %75 = call ptr @__errno_location() #9
-  store i32 %74, ptr %75, align 4
+70:                                               ; preds = %69
+  %71 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %71, ptr %9, align 4
+  %72 = load i32, ptr %9, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
+
+74:                                               ; preds = %70
+  %75 = load i32, ptr %9, align 4
+  %76 = call ptr @__errno_location() #9
+  store i32 %75, ptr %76, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 5146, ptr noundef @__func__.fed_mgr_job_requeue) #10
   unreachable
 
-76:                                               ; preds = %69
-  br label %77
+77:                                               ; preds = %70
+  br label %78
 
-77:                                               ; preds = %76
+78:                                               ; preds = %77
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-78:                                               ; preds = %51
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.job_record, ptr %79, i32 0, i32 30
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.job_details_t, ptr %81, i32 0, i32 7
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 @_validate_cluster_features(ptr noundef %83, ptr noundef %6)
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.job_record, ptr %85, i32 0, i32 19
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i64, ptr %6, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.job_record, ptr %89, i32 0, i32 9
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp ne ptr %91, null
-  %93 = select i1 %92, i32 1, i32 0
-  %94 = icmp ne i32 %93, 0
-  %95 = call i64 @_get_viable_sibs(ptr noundef %87, i64 noundef %88, i1 noundef zeroext %94, ptr noundef null)
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.job_record, ptr %96, i32 0, i32 39
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.job_fed_details_t, ptr %98, i32 0, i32 4
-  store i64 %95, ptr %99, align 8
-  %100 = load ptr, ptr %3, align 8
+79:                                               ; preds = %52
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds %struct.job_record, ptr %80, i32 0, i32 30
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct.job_details_t, ptr %82, i32 0, i32 7
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @_validate_cluster_features(ptr noundef %84, ptr noundef %6)
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds %struct.job_record, ptr %86, i32 0, i32 19
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i64, ptr %6, align 8
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds %struct.job_record, ptr %90, i32 0, i32 9
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp ne ptr %92, null
+  %94 = select i1 %93, i32 1, i32 0
+  %95 = icmp ne i32 %94, 0
+  %96 = call i64 @_get_viable_sibs(ptr noundef %88, i64 noundef %89, i1 noundef zeroext %95, ptr noundef null)
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds %struct.job_record, ptr %97, i32 0, i32 39
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.job_fed_details_t, ptr %99, i32 0, i32 4
+  store i64 %96, ptr %100, align 8
   %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.job_record, ptr %101, i32 0, i32 39
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.job_fed_details_t, ptr %103, i32 0, i32 4
-  %105 = load i64, ptr %104, align 8
-  %106 = call i32 @_prepare_submit_siblings(ptr noundef %100, i64 noundef %105)
-  %107 = load ptr, ptr %3, align 8
-  call void @job_state_unset_flag(ptr noundef %107, i32 noundef 1048576)
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds %struct.job_record, ptr %102, i32 0, i32 39
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.job_fed_details_t, ptr %104, i32 0, i32 4
+  %106 = load i64, ptr %105, align 8
+  %107 = call i32 @_prepare_submit_siblings(ptr noundef %101, i64 noundef %106)
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.job_record, ptr %108, i32 0, i32 39
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.job_fed_details_t, ptr %110, i32 0, i32 4
-  %112 = load i64, ptr %111, align 8
-  %113 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %114 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %113, i32 0, i32 8
-  %115 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %114, i32 0, i32 1
-  %116 = load i32, ptr %115, align 8
-  %117 = sub i32 %116, 1
-  %118 = zext i32 %117 to i64
-  %119 = shl i64 1, %118
-  %120 = and i64 %112, %119
-  %121 = icmp ne i64 %120, 0
-  br i1 %121, label %124, label %122
+  call void @job_state_unset_flag(ptr noundef %108, i32 noundef 1048576)
+  %109 = load ptr, ptr %3, align 8
+  %110 = getelementptr inbounds %struct.job_record, ptr %109, i32 0, i32 39
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct.job_fed_details_t, ptr %111, i32 0, i32 4
+  %113 = load i64, ptr %112, align 8
+  %114 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %115 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %114, i32 0, i32 8
+  %116 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %115, i32 0, i32 1
+  %117 = load i32, ptr %116, align 8
+  %118 = sub i32 %117, 1
+  %119 = zext i32 %118 to i64
+  %120 = shl i64 1, %119
+  %121 = and i64 %113, %120
+  %122 = icmp ne i64 %121, 0
+  br i1 %122, label %125, label %123
 
-122:                                              ; preds = %78
-  %123 = load ptr, ptr %3, align 8
-  call void @job_state_set_flag(ptr noundef %123, i32 noundef 524288)
-  br label %126
+123:                                              ; preds = %79
+  %124 = load ptr, ptr %3, align 8
+  call void @job_state_set_flag(ptr noundef %124, i32 noundef 524288)
+  br label %127
 
-124:                                              ; preds = %78
-  %125 = load ptr, ptr %3, align 8
-  call void @job_state_unset_flag(ptr noundef %125, i32 noundef 524288)
-  br label %126
+125:                                              ; preds = %79
+  %126 = load ptr, ptr %3, align 8
+  call void @job_state_unset_flag(ptr noundef %126, i32 noundef 524288)
+  br label %127
 
-126:                                              ; preds = %124, %122
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.job_record, ptr %127, i32 0, i32 39
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %struct.job_fed_details_t, ptr %129, i32 0, i32 0
-  store i32 0, ptr %130, align 8
-  %131 = load ptr, ptr %7, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %150
+127:                                              ; preds = %125, %123
+  %128 = load ptr, ptr %3, align 8
+  %129 = getelementptr inbounds %struct.job_record, ptr %128, i32 0, i32 39
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds %struct.job_fed_details_t, ptr %130, i32 0, i32 0
+  store i32 0, ptr %131, align 8
+  %132 = load ptr, ptr %7, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %151
 
-133:                                              ; preds = %126
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds %struct.fed_job_info_t, ptr %134, i32 0, i32 0
-  store i32 0, ptr %135, align 8
-  %136 = load ptr, ptr %3, align 8
-  %137 = getelementptr inbounds %struct.job_record, ptr %136, i32 0, i32 39
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct.job_fed_details_t, ptr %138, i32 0, i32 4
-  %140 = load i64, ptr %139, align 8
-  %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct.fed_job_info_t, ptr %141, i32 0, i32 3
-  store i64 %140, ptr %142, align 8
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.job_record, ptr %143, i32 0, i32 39
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %struct.job_fed_details_t, ptr %145, i32 0, i32 2
-  %147 = load i64, ptr %146, align 8
-  %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct.fed_job_info_t, ptr %148, i32 0, i32 2
-  store i64 %147, ptr %149, align 8
-  br label %150
-
-150:                                              ; preds = %133, %126
+134:                                              ; preds = %127
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds %struct.fed_job_info_t, ptr %135, i32 0, i32 0
+  store i32 0, ptr %136, align 8
+  %137 = load ptr, ptr %3, align 8
+  %138 = getelementptr inbounds %struct.job_record, ptr %137, i32 0, i32 39
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds %struct.job_fed_details_t, ptr %139, i32 0, i32 4
+  %141 = load i64, ptr %140, align 8
+  %142 = load ptr, ptr %7, align 8
+  %143 = getelementptr inbounds %struct.fed_job_info_t, ptr %142, i32 0, i32 3
+  store i64 %141, ptr %143, align 8
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds %struct.job_record, ptr %144, i32 0, i32 39
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds %struct.job_fed_details_t, ptr %146, i32 0, i32 2
+  %148 = load i64, ptr %147, align 8
+  %149 = load ptr, ptr %7, align 8
+  %150 = getelementptr inbounds %struct.fed_job_info_t, ptr %149, i32 0, i32 2
+  store i64 %148, ptr %150, align 8
   br label %151
 
-151:                                              ; preds = %150
-  %152 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
-  store i32 %152, ptr %10, align 4
-  %153 = load i32, ptr %10, align 4
-  %154 = icmp ne i32 %153, 0
-  br i1 %154, label %155, label %158
+151:                                              ; preds = %134, %127
+  br label %152
 
-155:                                              ; preds = %151
-  %156 = load i32, ptr %10, align 4
-  %157 = call ptr @__errno_location() #9
-  store i32 %156, ptr %157, align 4
+152:                                              ; preds = %151
+  %153 = call i32 @pthread_mutex_unlock(ptr noundef @fed_job_list_mutex) #8
+  store i32 %153, ptr %10, align 4
+  %154 = load i32, ptr %10, align 4
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %159
+
+156:                                              ; preds = %152
+  %157 = load i32, ptr %10, align 4
+  %158 = call ptr @__errno_location() #9
+  store i32 %157, ptr %158, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 5182, ptr noundef @__func__.fed_mgr_job_requeue) #10
   unreachable
 
-158:                                              ; preds = %151
-  br label %159
+159:                                              ; preds = %152
+  br label %160
 
-159:                                              ; preds = %158
-  %160 = load i32, ptr %4, align 4
-  store i32 %160, ptr %2, align 4
-  br label %161
+160:                                              ; preds = %159
+  %161 = load i32, ptr %4, align 4
+  store i32 %161, ptr %2, align 4
+  br label %162
 
-161:                                              ; preds = %159, %77, %14
-  %162 = load i32, ptr %2, align 4
-  ret i32 %162
+162:                                              ; preds = %160, %78, %14
+  %163 = load i32, ptr %2, align 4
+  ret i32 %163
 }
 
 declare void @job_state_unset_flag(ptr noundef, i32 noundef) #1
@@ -10288,199 +10322,200 @@ define internal i32 @_prepare_submit_siblings(ptr noundef %0, i64 noundef %1) #0
 
 13:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %134
+  br label %135
 
 14:                                               ; preds = %2
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %17 = and i64 %16, 281474976710656
-  %18 = icmp ne i64 %17, 0
-  br i1 %18, label %19, label %27
+  %16 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, 281474976710656
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %15
-  br label %20
+20:                                               ; preds = %15
+  br label %21
 
-20:                                               ; preds = %19
-  %21 = call i32 @get_log_level()
-  %22 = icmp sge i32 %21, 4
-  br i1 %22, label %23, label %25
+21:                                               ; preds = %20
+  %22 = call i32 @get_log_level()
+  %23 = icmp sge i32 %22, 4
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.196, ptr noundef %24)
-  br label %25
-
-25:                                               ; preds = %23, %20
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.196, ptr noundef %25)
   br label %26
 
-26:                                               ; preds = %25
+26:                                               ; preds = %24, %21
   br label %27
 
-27:                                               ; preds = %26, %15
+27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %4, align 8
-  %30 = call ptr @copy_job_record_to_job_desc(ptr noundef %29)
-  store ptr %30, ptr %8, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %33, label %32
+28:                                               ; preds = %27, %15
+  br label %29
 
-32:                                               ; preds = %28
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8
+  %31 = call ptr @copy_job_record_to_job_desc(ptr noundef %30)
+  store ptr %31, ptr %8, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
+
+33:                                               ; preds = %29
   store i32 -1, ptr %3, align 4
-  br label %134
+  br label %135
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.job_descriptor, ptr %34, i32 0, i32 12
-  %36 = load i64, ptr %35, align 8
-  %37 = and i64 %36, 33554432
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %42
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.job_descriptor, ptr %35, i32 0, i32 12
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %37, 33554432
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.job_descriptor, ptr %40, i32 0, i32 0
-  call void @slurm_xfree(ptr noundef %41)
-  br label %42
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.job_descriptor, ptr %41, i32 0, i32 0
+  call void @slurm_xfree(ptr noundef %42)
+  br label %43
 
-42:                                               ; preds = %39, %33
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.job_descriptor, ptr %43, i32 0, i32 12
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 67108864
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %51
+43:                                               ; preds = %40, %34
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct.job_descriptor, ptr %44, i32 0, i32 12
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 67108864
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.job_descriptor, ptr %49, i32 0, i32 64
-  call void @slurm_xfree(ptr noundef %50)
-  br label %51
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds %struct.job_descriptor, ptr %50, i32 0, i32 64
+  call void @slurm_xfree(ptr noundef %51)
+  br label %52
 
-51:                                               ; preds = %48, %42
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.job_descriptor, ptr %52, i32 0, i32 12
-  %54 = load i64, ptr %53, align 8
-  %55 = and i64 %54, 134217728
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %60
+52:                                               ; preds = %49, %43
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.job_descriptor, ptr %53, i32 0, i32 12
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 134217728
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.job_descriptor, ptr %58, i32 0, i32 70
-  call void @slurm_xfree(ptr noundef %59)
-  br label %60
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds %struct.job_descriptor, ptr %59, i32 0, i32 70
+  call void @slurm_xfree(ptr noundef %60)
+  br label %61
 
-60:                                               ; preds = %57, %51
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.job_descriptor, ptr %61, i32 0, i32 12
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, 268435456
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %69
+61:                                               ; preds = %58, %52
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.job_descriptor, ptr %62, i32 0, i32 12
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 268435456
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %70
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.job_descriptor, ptr %67, i32 0, i32 126
-  call void @slurm_xfree(ptr noundef %68)
-  br label %69
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds %struct.job_descriptor, ptr %68, i32 0, i32 126
+  call void @slurm_xfree(ptr noundef %69)
+  br label %70
 
-69:                                               ; preds = %66, %60
+70:                                               ; preds = %67, %61
   call void @slurm_msg_t_init(ptr noundef %9)
-  %70 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  store i16 4001, ptr %70, align 4
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
-  store ptr %71, ptr %72, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i64, ptr %5, align 8
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.job_record, ptr %75, i32 0, i32 119
-  %77 = load i16, ptr %76, align 4
-  %78 = call i32 @_submit_sibling_jobs(ptr noundef %73, ptr noundef %9, i1 noundef zeroext false, i64 noundef %74, i16 noundef zeroext %77)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %82
+  %71 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  store i16 4001, ptr %71, align 4
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
+  store ptr %72, ptr %73, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i64, ptr %5, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds %struct.job_record, ptr %76, i32 0, i32 119
+  %78 = load i16, ptr %77, align 4
+  %79 = call i32 @_submit_sibling_jobs(ptr noundef %74, ptr noundef %9, i1 noundef zeroext false, i64 noundef %75, i16 noundef zeroext %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %69
-  %81 = call i32 (ptr, ...) @error(ptr noundef @.str.197)
-  br label %82
+81:                                               ; preds = %70
+  %82 = call i32 (ptr, ...) @error(ptr noundef @.str.197)
+  br label %83
 
-82:                                               ; preds = %80, %69
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.job_descriptor, ptr %83, i32 0, i32 39
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %87 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %86, i32 0, i32 8
-  %88 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 8
-  %90 = sub i32 %89, 1
-  %91 = zext i32 %90 to i64
-  %92 = shl i64 1, %91
-  %93 = and i64 %85, %92
-  %94 = icmp ne i64 %93, 0
-  br i1 %94, label %95, label %107
+83:                                               ; preds = %81, %70
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds %struct.job_descriptor, ptr %84, i32 0, i32 39
+  %86 = load i64, ptr %85, align 8
+  %87 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %87, i32 0, i32 8
+  %89 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  %91 = sub i32 %90, 1
+  %92 = zext i32 %91 to i64
+  %93 = shl i64 1, %92
+  %94 = and i64 %86, %93
+  %95 = icmp ne i64 %94, 0
+  br i1 %95, label %96, label %108
 
-95:                                               ; preds = %82
-  %96 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %97 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %96, i32 0, i32 8
-  %98 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = sub i32 %99, 1
-  %101 = zext i32 %100 to i64
-  %102 = shl i64 1, %101
-  %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds %struct.job_descriptor, ptr %103, i32 0, i32 38
-  %105 = load i64, ptr %104, align 8
-  %106 = or i64 %105, %102
-  store i64 %106, ptr %104, align 8
-  br label %107
+96:                                               ; preds = %83
+  %97 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %98 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %97, i32 0, i32 8
+  %99 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  %101 = sub i32 %100, 1
+  %102 = zext i32 %101 to i64
+  %103 = shl i64 1, %102
+  %104 = load ptr, ptr %8, align 8
+  %105 = getelementptr inbounds %struct.job_descriptor, ptr %104, i32 0, i32 38
+  %106 = load i64, ptr %105, align 8
+  %107 = or i64 %106, %103
+  store i64 %107, ptr %105, align 8
+  br label %108
 
-107:                                              ; preds = %95, %82
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.job_descriptor, ptr %108, i32 0, i32 38
-  %110 = load i64, ptr %109, align 8
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct.job_record, ptr %111, i32 0, i32 39
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.job_fed_details_t, ptr %113, i32 0, i32 2
-  %115 = load i64, ptr %114, align 8
-  %116 = or i64 %115, %110
-  store i64 %116, ptr %114, align 8
-  %117 = load ptr, ptr %4, align 8
-  call void @update_job_fed_details(ptr noundef %117)
-  %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds %struct.job_descriptor, ptr %118, i32 0, i32 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %131
+108:                                              ; preds = %96, %83
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds %struct.job_descriptor, ptr %109, i32 0, i32 38
+  %111 = load i64, ptr %110, align 8
+  %112 = load ptr, ptr %4, align 8
+  %113 = getelementptr inbounds %struct.job_record, ptr %112, i32 0, i32 39
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %struct.job_fed_details_t, ptr %114, i32 0, i32 2
+  %116 = load i64, ptr %115, align 8
+  %117 = or i64 %116, %111
+  store i64 %117, ptr %115, align 8
+  %118 = load ptr, ptr %4, align 8
+  call void @update_job_fed_details(ptr noundef %118)
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds %struct.job_descriptor, ptr %119, i32 0, i32 32
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %123, label %132
 
-122:                                              ; preds = %107
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.job_descriptor, ptr %123, i32 0, i32 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds ptr, ptr %125, i64 0
-  call void @slurm_xfree(ptr noundef %126)
-  %127 = load ptr, ptr %8, align 8
-  %128 = getelementptr inbounds %struct.job_descriptor, ptr %127, i32 0, i32 32
-  call void @slurm_xfree(ptr noundef %128)
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.job_descriptor, ptr %129, i32 0, i32 34
-  store i32 0, ptr %130, align 4
-  br label %131
+123:                                              ; preds = %108
+  %124 = load ptr, ptr %8, align 8
+  %125 = getelementptr inbounds %struct.job_descriptor, ptr %124, i32 0, i32 32
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds ptr, ptr %126, i64 0
+  call void @slurm_xfree(ptr noundef %127)
+  %128 = load ptr, ptr %8, align 8
+  %129 = getelementptr inbounds %struct.job_descriptor, ptr %128, i32 0, i32 32
+  call void @slurm_xfree(ptr noundef %129)
+  %130 = load ptr, ptr %8, align 8
+  %131 = getelementptr inbounds %struct.job_descriptor, ptr %130, i32 0, i32 34
+  store i32 0, ptr %131, align 4
+  br label %132
 
-131:                                              ; preds = %122, %107
-  %132 = load ptr, ptr %8, align 8
-  call void @slurm_free_job_desc_msg(ptr noundef %132)
-  %133 = load i32, ptr %6, align 4
-  store i32 %133, ptr %3, align 4
-  br label %134
+132:                                              ; preds = %123, %108
+  %133 = load ptr, ptr %8, align 8
+  call void @slurm_free_job_desc_msg(ptr noundef %133)
+  %134 = load i32, ptr %6, align 4
+  store i32 %134, ptr %3, align 4
+  br label %135
 
-134:                                              ; preds = %131, %32, %13
-  %135 = load i32, ptr %3, align 4
-  ret i32 %135
+135:                                              ; preds = %132, %33, %13
+  %136 = load i32, ptr %3, align 4
+  ret i32 %136
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10505,53 +10540,54 @@ define dso_local i32 @fed_mgr_job_cancel(ptr noundef %0, i16 noundef zeroext %1,
 
 17:                                               ; preds = %5
   store i32 0, ptr %6, align 4
-  br label %40
+  br label %41
 
 18:                                               ; preds = %5
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %21 = and i64 %20, 281474976710656
-  %22 = icmp ne i64 %21, 0
-  br i1 %22, label %23, label %31
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, 281474976710656
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %32
 
-23:                                               ; preds = %19
-  br label %24
+24:                                               ; preds = %19
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = call i32 @get_log_level()
-  %26 = icmp sge i32 %25, 4
-  br i1 %26, label %27, label %29
+25:                                               ; preds = %24
+  %26 = call i32 @get_log_level()
+  %27 = icmp sge i32 %26, 4
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.68, ptr noundef %28)
-  br label %29
-
-29:                                               ; preds = %27, %24
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.68, ptr noundef %29)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %28, %25
   br label %31
 
-31:                                               ; preds = %30, %19
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i16, ptr %8, align 2
-  %35 = load i16, ptr %9, align 2
-  %36 = load i32, ptr %10, align 4
-  %37 = load i8, ptr %11, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = call i32 @_cancel_sibling_jobs(ptr noundef %33, i16 noundef zeroext %34, i16 noundef zeroext %35, i32 noundef %36, i1 noundef zeroext %38)
-  store i32 0, ptr %6, align 4
-  br label %40
+32:                                               ; preds = %31, %19
+  br label %33
 
-40:                                               ; preds = %32, %17
-  %41 = load i32, ptr %6, align 4
-  ret i32 %41
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i16, ptr %8, align 2
+  %36 = load i16, ptr %9, align 2
+  %37 = load i32, ptr %10, align 4
+  %38 = load i8, ptr %11, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = call i32 @_cancel_sibling_jobs(ptr noundef %34, i16 noundef zeroext %35, i16 noundef zeroext %36, i32 noundef %37, i1 noundef zeroext %39)
+  store i32 0, ptr %6, align 4
+  br label %41
+
+41:                                               ; preds = %33, %17
+  %42 = load i32, ptr %6, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11715,120 +11751,121 @@ define dso_local i32 @fed_mgr_q_update_origin_dep_msg(ptr noundef %0) #0 {
   br label %11
 
 11:                                               ; preds = %1
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %13 = and i64 %12, 281474976710656
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %29
+  %12 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 281474976710656
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %30
 
-15:                                               ; preds = %11
-  br label %16
+16:                                               ; preds = %11
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = call i32 @get_log_level()
-  %18 = icmp sge i32 %17, 4
-  br i1 %18, label %19, label %27
+17:                                               ; preds = %16
+  %18 = call i32 @get_log_level()
+  %19 = icmp sge i32 %18, 4
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.slurm_msg, ptr %20, i32 0, i32 15
-  %22 = load i16, ptr %21, align 4
-  %23 = call ptr @rpc_num2string(i16 noundef zeroext %22)
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.78, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg, ptr noundef %23, i32 noundef %26)
-  br label %27
-
-27:                                               ; preds = %19, %16
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.slurm_msg, ptr %21, i32 0, i32 15
+  %23 = load i16, ptr %22, align 4
+  %24 = call ptr @rpc_num2string(i16 noundef zeroext %23)
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.78, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg, ptr noundef %24, i32 noundef %27)
   br label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %20, %17
   br label %29
 
-29:                                               ; preds = %28, %11
+29:                                               ; preds = %28
   br label %30
 
-30:                                               ; preds = %29
-  %31 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 6029, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg)
-  store ptr %31, ptr %3, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %35, i32 0, i32 0
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %40, i32 0, i32 1
-  store i32 %39, ptr %41, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %42, i32 0, i32 0
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr @origin_dep_update_list, align 8
-  %45 = load ptr, ptr %3, align 8
-  call void @list_append(ptr noundef %44, ptr noundef %45)
-  br label %46
+30:                                               ; preds = %29, %11
+  br label %31
 
-46:                                               ; preds = %30
-  %47 = call i32 @pthread_mutex_lock(ptr noundef @origin_dep_update_mutex) #8
-  store i32 %47, ptr %5, align 4
-  %48 = load i32, ptr %5, align 4
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %53
+31:                                               ; preds = %30
+  %32 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 6029, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg)
+  store ptr %32, ptr %3, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %41, i32 0, i32 1
+  store i32 %40, ptr %42, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %43, i32 0, i32 0
+  store ptr null, ptr %44, align 8
+  %45 = load ptr, ptr @origin_dep_update_list, align 8
+  %46 = load ptr, ptr %3, align 8
+  call void @list_append(ptr noundef %45, ptr noundef %46)
+  br label %47
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %5, align 4
-  %52 = call ptr @__errno_location() #9
-  store i32 %51, ptr %52, align 4
+47:                                               ; preds = %31
+  %48 = call i32 @pthread_mutex_lock(ptr noundef @origin_dep_update_mutex) #8
+  store i32 %48, ptr %5, align 4
+  %49 = load i32, ptr %5, align 4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %54
+
+51:                                               ; preds = %47
+  %52 = load i32, ptr %5, align 4
+  %53 = call ptr @__errno_location() #9
+  store i32 %52, ptr %53, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 6039, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg) #10
   unreachable
 
-53:                                               ; preds = %46
-  br label %54
-
-54:                                               ; preds = %53
+54:                                               ; preds = %47
   br label %55
 
 55:                                               ; preds = %54
-  %56 = call i32 @pthread_cond_broadcast(ptr noundef @origin_dep_cond) #8
-  store i32 %56, ptr %6, align 4
-  %57 = load i32, ptr %6, align 4
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %63
+  br label %56
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %6, align 4
-  %61 = call ptr @__errno_location() #9
-  store i32 %60, ptr %61, align 4
-  %62 = call i32 (ptr, ...) @error(ptr noundef @.str.79, ptr noundef @.str, i32 noundef 6040, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg)
-  br label %63
+56:                                               ; preds = %55
+  %57 = call i32 @pthread_cond_broadcast(ptr noundef @origin_dep_cond) #8
+  store i32 %57, ptr %6, align 4
+  %58 = load i32, ptr %6, align 4
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %64
 
-63:                                               ; preds = %59, %55
+60:                                               ; preds = %56
+  %61 = load i32, ptr %6, align 4
+  %62 = call ptr @__errno_location() #9
+  store i32 %61, ptr %62, align 4
+  %63 = call i32 (ptr, ...) @error(ptr noundef @.str.79, ptr noundef @.str, i32 noundef 6040, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg)
   br label %64
 
-64:                                               ; preds = %63
+64:                                               ; preds = %60, %56
   br label %65
 
 65:                                               ; preds = %64
-  %66 = call i32 @pthread_mutex_unlock(ptr noundef @origin_dep_update_mutex) #8
-  store i32 %66, ptr %7, align 4
-  %67 = load i32, ptr %7, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %72
+  br label %66
 
-69:                                               ; preds = %65
-  %70 = load i32, ptr %7, align 4
-  %71 = call ptr @__errno_location() #9
-  store i32 %70, ptr %71, align 4
+66:                                               ; preds = %65
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef @origin_dep_update_mutex) #8
+  store i32 %67, ptr %7, align 4
+  %68 = load i32, ptr %7, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %73
+
+70:                                               ; preds = %66
+  %71 = load i32, ptr %7, align 4
+  %72 = call ptr @__errno_location() #9
+  store i32 %71, ptr %72, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 6041, ptr noundef @__func__.fed_mgr_q_update_origin_dep_msg) #10
   unreachable
 
-72:                                               ; preds = %65
-  br label %73
+73:                                               ; preds = %66
+  br label %74
 
-73:                                               ; preds = %72
+74:                                               ; preds = %73
   ret i32 0
 }
 
@@ -11851,155 +11888,156 @@ define dso_local i32 @fed_mgr_q_dep_msg(ptr noundef %0) #0 {
   br label %11
 
 11:                                               ; preds = %1
-  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %13 = and i64 %12, 281474976710656
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %29
+  %12 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 281474976710656
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %30
 
-15:                                               ; preds = %11
-  br label %16
+16:                                               ; preds = %11
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = call i32 @get_log_level()
-  %18 = icmp sge i32 %17, 4
-  br i1 %18, label %19, label %27
+17:                                               ; preds = %16
+  %18 = call i32 @get_log_level()
+  %19 = icmp sge i32 %18, 4
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.slurm_msg, ptr %20, i32 0, i32 15
-  %22 = load i16, ptr %21, align 4
-  %23 = call ptr @rpc_num2string(i16 noundef zeroext %22)
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dep_msg_t, ptr %24, i32 0, i32 4
-  %26 = load i32, ptr %25, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.78, ptr noundef @__func__.fed_mgr_q_dep_msg, ptr noundef %23, i32 noundef %26)
-  br label %27
-
-27:                                               ; preds = %19, %16
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.slurm_msg, ptr %21, i32 0, i32 15
+  %23 = load i16, ptr %22, align 4
+  %24 = call ptr @rpc_num2string(i16 noundef zeroext %23)
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %struct.dep_msg_t, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.78, ptr noundef @__func__.fed_mgr_q_dep_msg, ptr noundef %24, i32 noundef %27)
   br label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %20, %17
   br label %29
 
-29:                                               ; preds = %28, %11
+29:                                               ; preds = %28
   br label %30
 
-30:                                               ; preds = %29
-  %31 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 6055, ptr noundef @__func__.fed_mgr_q_dep_msg)
-  store ptr %31, ptr %3, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.dep_msg_t, ptr %32, i32 0, i32 4
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.dep_msg_t, ptr %35, i32 0, i32 4
-  store i32 %34, ptr %36, align 4
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.dep_msg_t, ptr %37, i32 0, i32 5
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.dep_msg_t, ptr %40, i32 0, i32 5
-  store ptr %39, ptr %41, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.dep_msg_t, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.dep_msg_t, ptr %45, i32 0, i32 2
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.dep_msg_t, ptr %47, i32 0, i32 5
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.dep_msg_t, ptr %49, i32 0, i32 2
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.dep_msg_t, ptr %51, i32 0, i32 1
-  %53 = load i32, ptr %52, align 4
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.dep_msg_t, ptr %54, i32 0, i32 1
-  store i32 %53, ptr %55, align 4
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.dep_msg_t, ptr %56, i32 0, i32 0
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.dep_msg_t, ptr %59, i32 0, i32 0
-  store i32 %58, ptr %60, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.dep_msg_t, ptr %61, i32 0, i32 3
-  %63 = load i8, ptr %62, align 8
-  %64 = trunc i8 %63 to i1
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.dep_msg_t, ptr %65, i32 0, i32 3
-  %67 = zext i1 %64 to i8
-  store i8 %67, ptr %66, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.dep_msg_t, ptr %68, i32 0, i32 6
-  %70 = load i32, ptr %69, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.dep_msg_t, ptr %71, i32 0, i32 6
-  store i32 %70, ptr %72, align 8
-  %73 = load ptr, ptr @remote_dep_recv_list, align 8
-  %74 = load ptr, ptr %3, align 8
-  call void @list_append(ptr noundef %73, ptr noundef %74)
-  br label %75
+30:                                               ; preds = %29, %11
+  br label %31
 
-75:                                               ; preds = %30
-  %76 = call i32 @pthread_mutex_lock(ptr noundef @remote_dep_recv_mutex) #8
-  store i32 %76, ptr %5, align 4
-  %77 = load i32, ptr %5, align 4
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %82
+31:                                               ; preds = %30
+  %32 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 6055, ptr noundef @__func__.fed_mgr_q_dep_msg)
+  store ptr %32, ptr %3, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.dep_msg_t, ptr %33, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.dep_msg_t, ptr %36, i32 0, i32 4
+  store i32 %35, ptr %37, align 4
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.dep_msg_t, ptr %38, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct.dep_msg_t, ptr %41, i32 0, i32 5
+  store ptr %40, ptr %42, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.dep_msg_t, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.dep_msg_t, ptr %46, i32 0, i32 2
+  store ptr %45, ptr %47, align 8
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.dep_msg_t, ptr %48, i32 0, i32 5
+  store ptr null, ptr %49, align 8
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %struct.dep_msg_t, ptr %50, i32 0, i32 2
+  store ptr null, ptr %51, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %struct.dep_msg_t, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct.dep_msg_t, ptr %55, i32 0, i32 1
+  store i32 %54, ptr %56, align 4
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %struct.dep_msg_t, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds %struct.dep_msg_t, ptr %60, i32 0, i32 0
+  store i32 %59, ptr %61, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds %struct.dep_msg_t, ptr %62, i32 0, i32 3
+  %64 = load i8, ptr %63, align 8
+  %65 = trunc i8 %64 to i1
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds %struct.dep_msg_t, ptr %66, i32 0, i32 3
+  %68 = zext i1 %65 to i8
+  store i8 %68, ptr %67, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds %struct.dep_msg_t, ptr %69, i32 0, i32 6
+  %71 = load i32, ptr %70, align 8
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.dep_msg_t, ptr %72, i32 0, i32 6
+  store i32 %71, ptr %73, align 8
+  %74 = load ptr, ptr @remote_dep_recv_list, align 8
+  %75 = load ptr, ptr %3, align 8
+  call void @list_append(ptr noundef %74, ptr noundef %75)
+  br label %76
 
-79:                                               ; preds = %75
-  %80 = load i32, ptr %5, align 4
-  %81 = call ptr @__errno_location() #9
-  store i32 %80, ptr %81, align 4
+76:                                               ; preds = %31
+  %77 = call i32 @pthread_mutex_lock(ptr noundef @remote_dep_recv_mutex) #8
+  store i32 %77, ptr %5, align 4
+  %78 = load i32, ptr %5, align 4
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %83
+
+80:                                               ; preds = %76
+  %81 = load i32, ptr %5, align 4
+  %82 = call ptr @__errno_location() #9
+  store i32 %81, ptr %82, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 6068, ptr noundef @__func__.fed_mgr_q_dep_msg) #10
   unreachable
 
-82:                                               ; preds = %75
-  br label %83
-
-83:                                               ; preds = %82
+83:                                               ; preds = %76
   br label %84
 
 84:                                               ; preds = %83
-  %85 = call i32 @pthread_cond_broadcast(ptr noundef @remote_dep_cond) #8
-  store i32 %85, ptr %6, align 4
-  %86 = load i32, ptr %6, align 4
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %92
+  br label %85
 
-88:                                               ; preds = %84
-  %89 = load i32, ptr %6, align 4
-  %90 = call ptr @__errno_location() #9
-  store i32 %89, ptr %90, align 4
-  %91 = call i32 (ptr, ...) @error(ptr noundef @.str.79, ptr noundef @.str, i32 noundef 6069, ptr noundef @__func__.fed_mgr_q_dep_msg)
-  br label %92
+85:                                               ; preds = %84
+  %86 = call i32 @pthread_cond_broadcast(ptr noundef @remote_dep_cond) #8
+  store i32 %86, ptr %6, align 4
+  %87 = load i32, ptr %6, align 4
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %93
 
-92:                                               ; preds = %88, %84
+89:                                               ; preds = %85
+  %90 = load i32, ptr %6, align 4
+  %91 = call ptr @__errno_location() #9
+  store i32 %90, ptr %91, align 4
+  %92 = call i32 (ptr, ...) @error(ptr noundef @.str.79, ptr noundef @.str, i32 noundef 6069, ptr noundef @__func__.fed_mgr_q_dep_msg)
   br label %93
 
-93:                                               ; preds = %92
+93:                                               ; preds = %89, %85
   br label %94
 
 94:                                               ; preds = %93
-  %95 = call i32 @pthread_mutex_unlock(ptr noundef @remote_dep_recv_mutex) #8
-  store i32 %95, ptr %7, align 4
-  %96 = load i32, ptr %7, align 4
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %101
+  br label %95
 
-98:                                               ; preds = %94
-  %99 = load i32, ptr %7, align 4
-  %100 = call ptr @__errno_location() #9
-  store i32 %99, ptr %100, align 4
+95:                                               ; preds = %94
+  %96 = call i32 @pthread_mutex_unlock(ptr noundef @remote_dep_recv_mutex) #8
+  store i32 %96, ptr %7, align 4
+  %97 = load i32, ptr %7, align 4
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %102
+
+99:                                               ; preds = %95
+  %100 = load i32, ptr %7, align 4
+  %101 = call ptr @__errno_location() #9
+  store i32 %100, ptr %101, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 6070, ptr noundef @__func__.fed_mgr_q_dep_msg) #10
   unreachable
 
-101:                                              ; preds = %94
-  br label %102
+102:                                              ; preds = %95
+  br label %103
 
-102:                                              ; preds = %101
+103:                                              ; preds = %102
   ret i32 0
 }
 
@@ -12017,117 +12055,118 @@ define dso_local i32 @fed_mgr_q_sib_msg(ptr noundef %0, i32 noundef %1) #0 {
   br label %9
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %11 = and i64 %10, 281474976710656
-  %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %25
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 281474976710656
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %26
 
-13:                                               ; preds = %9
-  br label %14
+14:                                               ; preds = %9
+  br label %15
 
-14:                                               ; preds = %13
-  %15 = call i32 @get_log_level()
-  %16 = icmp sge i32 %15, 4
-  br i1 %16, label %17, label %23
+15:                                               ; preds = %14
+  %16 = call i32 @get_log_level()
+  %17 = icmp sge i32 %16, 4
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.sib_msg_t, ptr %18, i32 0, i32 14
-  %20 = load i16, ptr %19, align 4
-  %21 = zext i16 %20 to i32
-  %22 = call ptr @_job_update_type_str(i32 noundef %21)
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.80, ptr noundef @__func__.fed_mgr_q_sib_msg, ptr noundef %22)
-  br label %23
-
-23:                                               ; preds = %17, %14
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds %struct.sib_msg_t, ptr %19, i32 0, i32 14
+  %21 = load i16, ptr %20, align 4
+  %22 = zext i16 %21 to i32
+  %23 = call ptr @_job_update_type_str(i32 noundef %22)
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.80, ptr noundef @__func__.fed_mgr_q_sib_msg, ptr noundef %23)
   br label %24
 
-24:                                               ; preds = %23
+24:                                               ; preds = %18, %15
   br label %25
 
-25:                                               ; preds = %24, %9
+25:                                               ; preds = %24
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.sib_msg_t, ptr %27, i32 0, i32 14
-  %29 = load i16, ptr %28, align 4
-  %30 = zext i16 %29 to i32
-  switch i32 %30, label %63 [
-    i32 1, label %31
-    i32 2, label %35
-    i32 4, label %38
-    i32 5, label %42
-    i32 6, label %44
-    i32 7, label %47
-    i32 8, label %50
-    i32 9, label %53
-    i32 10, label %56
-    i32 11, label %60
+26:                                               ; preds = %25, %9
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct.sib_msg_t, ptr %28, i32 0, i32 14
+  %30 = load i16, ptr %29, align 4
+  %31 = zext i16 %30 to i32
+  switch i32 %31, label %64 [
+    i32 1, label %32
+    i32 2, label %36
+    i32 4, label %39
+    i32 5, label %43
+    i32 6, label %45
+    i32 7, label %48
+    i32 8, label %51
+    i32 9, label %54
+    i32 10, label %57
+    i32 11, label %61
   ]
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %3, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = call i32 @_q_sib_job_cancel(ptr noundef %32, i32 noundef %33)
-  br label %69
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  %35 = call i32 @_q_sib_job_cancel(ptr noundef %33, i32 noundef %34)
+  br label %70
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %3, align 8
-  %37 = call i32 @_q_sib_job_complete(ptr noundef %36)
-  br label %69
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %3, align 8
+  %38 = call i32 @_q_sib_job_complete(ptr noundef %37)
+  br label %70
 
-38:                                               ; preds = %26
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i32, ptr %4, align 4
-  %41 = call i32 @_q_sib_job_requeue(ptr noundef %39, i32 noundef %40)
-  br label %69
+39:                                               ; preds = %27
+  %40 = load ptr, ptr %3, align 8
+  %41 = load i32, ptr %4, align 4
+  %42 = call i32 @_q_sib_job_requeue(ptr noundef %40, i32 noundef %41)
+  br label %70
 
-42:                                               ; preds = %26
-  %43 = load ptr, ptr %3, align 8
-  call void @_q_sib_job_start(ptr noundef %43)
-  br label %69
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %3, align 8
+  call void @_q_sib_job_start(ptr noundef %44)
+  br label %70
 
-44:                                               ; preds = %26
-  %45 = load ptr, ptr %3, align 8
-  %46 = call i32 @_q_sib_job_submission(ptr noundef %45, i1 noundef zeroext false)
-  br label %69
+45:                                               ; preds = %27
+  %46 = load ptr, ptr %3, align 8
+  %47 = call i32 @_q_sib_job_submission(ptr noundef %46, i1 noundef zeroext false)
+  br label %70
 
-47:                                               ; preds = %26
-  %48 = load ptr, ptr %3, align 8
-  %49 = call i32 @_q_sib_job_submission(ptr noundef %48, i1 noundef zeroext true)
-  br label %69
+48:                                               ; preds = %27
+  %49 = load ptr, ptr %3, align 8
+  %50 = call i32 @_q_sib_job_submission(ptr noundef %49, i1 noundef zeroext true)
+  br label %70
 
-50:                                               ; preds = %26
-  %51 = load ptr, ptr %3, align 8
-  %52 = call i32 @_q_sib_submit_response(ptr noundef %51)
-  br label %69
+51:                                               ; preds = %27
+  %52 = load ptr, ptr %3, align 8
+  %53 = call i32 @_q_sib_submit_response(ptr noundef %52)
+  br label %70
 
-53:                                               ; preds = %26
-  %54 = load ptr, ptr %3, align 8
-  %55 = call i32 @_q_sib_job_sync(ptr noundef %54)
-  br label %69
+54:                                               ; preds = %27
+  %55 = load ptr, ptr %3, align 8
+  %56 = call i32 @_q_sib_job_sync(ptr noundef %55)
+  br label %70
 
-56:                                               ; preds = %26
-  %57 = load ptr, ptr %3, align 8
-  %58 = load i32, ptr %4, align 4
-  %59 = call i32 @_q_sib_job_update(ptr noundef %57, i32 noundef %58)
-  br label %69
+57:                                               ; preds = %27
+  %58 = load ptr, ptr %3, align 8
+  %59 = load i32, ptr %4, align 4
+  %60 = call i32 @_q_sib_job_update(ptr noundef %58, i32 noundef %59)
+  br label %70
 
-60:                                               ; preds = %26
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 @_q_sib_job_update_response(ptr noundef %61)
-  br label %69
+61:                                               ; preds = %27
+  %62 = load ptr, ptr %3, align 8
+  %63 = call i32 @_q_sib_job_update_response(ptr noundef %62)
+  br label %70
 
-63:                                               ; preds = %26
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.sib_msg_t, ptr %64, i32 0, i32 14
-  %66 = load i16, ptr %65, align 4
-  %67 = zext i16 %66 to i32
-  %68 = call i32 (ptr, ...) @error(ptr noundef @.str.81, ptr noundef @__func__.fed_mgr_q_sib_msg, i32 noundef %67)
-  br label %69
+64:                                               ; preds = %27
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.sib_msg_t, ptr %65, i32 0, i32 14
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i32
+  %69 = call i32 (ptr, ...) @error(ptr noundef @.str.81, ptr noundef @__func__.fed_mgr_q_sib_msg, i32 noundef %68)
+  br label %70
 
-69:                                               ; preds = %63, %60, %56, %53, %50, %47, %44, %42, %38, %35, %31
+70:                                               ; preds = %64, %61, %57, %54, %51, %48, %45, %43, %39, %36, %32
   ret i32 0
 }
 
@@ -12542,84 +12581,85 @@ define internal i32 @_q_sib_submit_response(ptr noundef %0) #0 {
   store ptr %8, ptr %4, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %58
+  br i1 %10, label %11, label %59
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %struct.sib_msg_t, ptr %12, i32 0, i32 10
   %14 = load i32, ptr %13, align 4
   %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %58
+  br i1 %15, label %16, label %59
 
 16:                                               ; preds = %11
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %19 = and i64 %18, 281474976710656
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %39
+  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %19, 281474976710656
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %40
 
-21:                                               ; preds = %17
-  br label %22
+22:                                               ; preds = %17
+  br label %23
 
-22:                                               ; preds = %21
-  %23 = call i32 @get_log_level()
-  %24 = icmp sge i32 %23, 4
-  br i1 %24, label %25, label %37
+23:                                               ; preds = %22
+  %24 = call i32 @get_log_level()
+  %25 = icmp sge i32 %24, 4
+  br i1 %25, label %26, label %38
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.slurm_msg, ptr %26, i32 0, i32 10
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %28, i32 0, i32 6
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.sib_msg_t, ptr %31, i32 0, i32 8
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.sib_msg_t, ptr %34, i32 0, i32 10
-  %36 = load i32, ptr %35, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.213, ptr noundef @__func__._q_sib_submit_response, ptr noundef %30, i32 noundef %33, i32 noundef %36)
-  br label %37
-
-37:                                               ; preds = %25, %22
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.slurm_msg, ptr %27, i32 0, i32 10
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %struct.sib_msg_t, ptr %32, i32 0, i32 8
+  %34 = load i32, ptr %33, align 4
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.sib_msg_t, ptr %35, i32 0, i32 10
+  %37 = load i32, ptr %36, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.213, ptr noundef @__func__._q_sib_submit_response, ptr noundef %31, i32 noundef %34, i32 noundef %37)
   br label %38
 
-38:                                               ; preds = %37
+38:                                               ; preds = %26, %23
   br label %39
 
-39:                                               ; preds = %38, %17
+39:                                               ; preds = %38
   br label %40
 
-40:                                               ; preds = %39
-  %41 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 5869, ptr noundef @__func__._q_sib_submit_response)
-  store ptr %41, ptr %5, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.sib_msg_t, ptr %42, i32 0, i32 8
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %45, i32 0, i32 2
-  store i32 %44, ptr %46, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %47, i32 0, i32 15
-  store i32 3, ptr %48, align 4
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.slurm_msg, ptr %49, i32 0, i32 10
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %51, i32 0, i32 6
-  %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @xstrdup(ptr noundef %53)
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %55, i32 0, i32 10
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %5, align 8
-  call void @_append_job_update(ptr noundef %57)
-  br label %58
+40:                                               ; preds = %39, %17
+  br label %41
 
-58:                                               ; preds = %40, %11, %1
-  %59 = load i32, ptr %3, align 4
-  ret i32 %59
+41:                                               ; preds = %40
+  %42 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 5869, ptr noundef @__func__._q_sib_submit_response)
+  store ptr %42, ptr %5, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.sib_msg_t, ptr %43, i32 0, i32 8
+  %45 = load i32, ptr %44, align 4
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %46, i32 0, i32 2
+  store i32 %45, ptr %47, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %48, i32 0, i32 15
+  store i32 3, ptr %49, align 4
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds %struct.slurm_msg, ptr %50, i32 0, i32 10
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %52, i32 0, i32 6
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr @xstrdup(ptr noundef %54)
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %56, i32 0, i32 10
+  store ptr %55, ptr %57, align 8
+  %58 = load ptr, ptr %5, align 8
+  call void @_append_job_update(ptr noundef %58)
+  br label %59
+
+59:                                               ; preds = %41, %11, %1
+  %60 = load i32, ptr %3, align 4
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12909,7 +12949,7 @@ define dso_local void @fed_mgr_test_remote_dependencies() #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15, %12, %0
-  br label %141
+  br label %145
 
 19:                                               ; preds = %15
   br label %20
@@ -12937,12 +12977,12 @@ define dso_local void @fed_mgr_test_remote_dependencies() #0 {
   store ptr %30, ptr %5, align 8
   br label %31
 
-31:                                               ; preds = %130, %59, %28
+31:                                               ; preds = %134, %60, %28
   %32 = load ptr, ptr %5, align 8
   %33 = call ptr @list_next(ptr noundef %32)
   store ptr %33, ptr %4, align 8
   %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %131
+  br i1 %34, label %35, label %135
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %4, align 8
@@ -12955,210 +12995,214 @@ define dso_local void @fed_mgr_test_remote_dependencies() #0 {
   store ptr %41, ptr %6, align 8
   %42 = load ptr, ptr %6, align 8
   %43 = icmp ne ptr %42, null
-  br i1 %43, label %62, label %44
+  br i1 %43, label %63, label %44
 
 44:                                               ; preds = %35
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %47 = and i64 %46, 281474976710656
-  %48 = icmp ne i64 %47, 0
-  br i1 %48, label %49, label %58
+  %46 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, 281474976710656
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %50, label %59
 
-49:                                               ; preds = %45
-  br label %50
+50:                                               ; preds = %45
+  br label %51
 
-50:                                               ; preds = %49
-  %51 = call i32 @get_log_level()
-  %52 = icmp sge i32 %51, 4
-  br i1 %52, label %53, label %56
+51:                                               ; preds = %50
+  %52 = call i32 @get_log_level()
+  %53 = icmp sge i32 %52, 4
+  br i1 %53, label %54, label %57
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %2, align 4
-  %55 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.83, ptr noundef @__func__.fed_mgr_test_remote_dependencies, i32 noundef %54, ptr noundef %55)
-  br label %56
-
-56:                                               ; preds = %53, %50
+54:                                               ; preds = %51
+  %55 = load i32, ptr %2, align 4
+  %56 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.83, ptr noundef @__func__.fed_mgr_test_remote_dependencies, i32 noundef %55, ptr noundef %56)
   br label %57
 
-57:                                               ; preds = %56
+57:                                               ; preds = %54, %51
   br label %58
 
-58:                                               ; preds = %57, %45
+58:                                               ; preds = %57
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %5, align 8
-  %61 = call i32 @list_delete_item(ptr noundef %60)
+59:                                               ; preds = %58, %45
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %5, align 8
+  %62 = call i32 @list_delete_item(ptr noundef %61)
   br label %31, !llvm.loop !32
 
-62:                                               ; preds = %35
-  %63 = load ptr, ptr %4, align 8
-  %64 = call i32 @test_job_dependency(ptr noundef %63, ptr noundef %3)
-  store i32 %64, ptr %1, align 4
-  %65 = load i32, ptr %1, align 4
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %88
+63:                                               ; preds = %35
+  %64 = load ptr, ptr %4, align 8
+  %65 = call i32 @test_job_dependency(ptr noundef %64, ptr noundef %3)
+  store i32 %65, ptr %1, align 4
+  %66 = load i32, ptr %1, align 4
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %68, label %90
 
-67:                                               ; preds = %62
-  %68 = load i8, ptr %3, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %87
+68:                                               ; preds = %63
+  %69 = load i8, ptr %3, align 1
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %89
 
-70:                                               ; preds = %67
-  br label %71
+71:                                               ; preds = %68
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %73 = and i64 %72, 281474976710656
-  %74 = icmp ne i64 %73, 0
-  br i1 %74, label %75, label %83
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, 281474976710656
+  %76 = icmp ne i64 %75, 0
+  br i1 %76, label %77, label %85
 
-75:                                               ; preds = %71
-  br label %76
+77:                                               ; preds = %72
+  br label %78
 
-76:                                               ; preds = %75
-  %77 = call i32 @get_log_level()
-  %78 = icmp sge i32 %77, 4
-  br i1 %78, label %79, label %81
+78:                                               ; preds = %77
+  %79 = call i32 @get_log_level()
+  %80 = icmp sge i32 %79, 4
+  br i1 %80, label %81, label %83
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.84, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %80)
-  br label %81
-
-81:                                               ; preds = %79, %76
-  br label %82
-
-82:                                               ; preds = %81
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.84, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %82)
   br label %83
 
-83:                                               ; preds = %82, %71
+83:                                               ; preds = %81, %78
   br label %84
 
 84:                                               ; preds = %83
-  %85 = load ptr, ptr %4, align 8
-  %86 = load ptr, ptr %6, align 8
-  call void @_update_origin_job_dep(ptr noundef %85, ptr noundef %86)
-  br label %87
+  br label %85
 
-87:                                               ; preds = %84, %67
-  br label %130
+85:                                               ; preds = %84, %72
+  br label %86
 
-88:                                               ; preds = %62
-  %89 = load i32, ptr %1, align 4
-  %90 = icmp eq i32 %89, 2
-  br i1 %90, label %91, label %110
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr %6, align 8
+  call void @_update_origin_job_dep(ptr noundef %87, ptr noundef %88)
+  br label %89
 
-91:                                               ; preds = %88
-  br label %92
+89:                                               ; preds = %86, %68
+  br label %134
 
-92:                                               ; preds = %91
-  %93 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %94 = and i64 %93, 281474976710656
-  %95 = icmp ne i64 %94, 0
-  br i1 %95, label %96, label %104
+90:                                               ; preds = %63
+  %91 = load i32, ptr %1, align 4
+  %92 = icmp eq i32 %91, 2
+  br i1 %92, label %93, label %113
 
-96:                                               ; preds = %92
-  br label %97
+93:                                               ; preds = %90
+  br label %94
 
-97:                                               ; preds = %96
-  %98 = call i32 @get_log_level()
-  %99 = icmp sge i32 %98, 4
-  br i1 %99, label %100, label %102
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %96 = load i64, ptr %95, align 8
+  %97 = and i64 %96, 281474976710656
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %107
 
-100:                                              ; preds = %97
-  %101 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.85, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %101)
-  br label %102
+99:                                               ; preds = %94
+  br label %100
 
-102:                                              ; preds = %100, %97
-  br label %103
+100:                                              ; preds = %99
+  %101 = call i32 @get_log_level()
+  %102 = icmp sge i32 %101, 4
+  br i1 %102, label %103, label %105
 
-103:                                              ; preds = %102
-  br label %104
-
-104:                                              ; preds = %103, %92
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.85, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %104)
   br label %105
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %4, align 8
-  %107 = load ptr, ptr %6, align 8
-  call void @_update_origin_job_dep(ptr noundef %106, ptr noundef %107)
-  %108 = load ptr, ptr %5, align 8
-  %109 = call i32 @list_delete_item(ptr noundef %108)
-  br label %129
+105:                                              ; preds = %103, %100
+  br label %106
 
-110:                                              ; preds = %88
-  br label %111
+106:                                              ; preds = %105
+  br label %107
 
-111:                                              ; preds = %110
-  %112 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %113 = and i64 %112, 281474976710656
-  %114 = icmp ne i64 %113, 0
-  br i1 %114, label %115, label %123
+107:                                              ; preds = %106, %94
+  br label %108
 
-115:                                              ; preds = %111
-  br label %116
-
-116:                                              ; preds = %115
-  %117 = call i32 @get_log_level()
-  %118 = icmp sge i32 %117, 4
-  br i1 %118, label %119, label %121
-
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.86, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %120)
-  br label %121
-
-121:                                              ; preds = %119, %116
-  br label %122
-
-122:                                              ; preds = %121
-  br label %123
-
-123:                                              ; preds = %122, %111
-  br label %124
-
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %4, align 8
-  %126 = load ptr, ptr %6, align 8
-  call void @_update_origin_job_dep(ptr noundef %125, ptr noundef %126)
-  %127 = load ptr, ptr %5, align 8
-  %128 = call i32 @list_delete_item(ptr noundef %127)
-  br label %129
-
-129:                                              ; preds = %124, %105
-  br label %130
-
-130:                                              ; preds = %129, %87
-  br label %31, !llvm.loop !32
-
-131:                                              ; preds = %31
-  %132 = load ptr, ptr %5, align 8
-  call void @list_iterator_destroy(ptr noundef %132)
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %4, align 8
+  %110 = load ptr, ptr %6, align 8
+  call void @_update_origin_job_dep(ptr noundef %109, ptr noundef %110)
+  %111 = load ptr, ptr %5, align 8
+  %112 = call i32 @list_delete_item(ptr noundef %111)
   br label %133
 
-133:                                              ; preds = %131
-  %134 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
-  store i32 %134, ptr %8, align 4
-  %135 = load i32, ptr %8, align 4
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %140
+113:                                              ; preds = %90
+  br label %114
 
-137:                                              ; preds = %133
-  %138 = load i32, ptr %8, align 4
-  %139 = call ptr @__errno_location() #9
-  store i32 %138, ptr %139, align 4
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %116 = load i64, ptr %115, align 8
+  %117 = and i64 %116, 281474976710656
+  %118 = icmp ne i64 %117, 0
+  br i1 %118, label %119, label %127
+
+119:                                              ; preds = %114
+  br label %120
+
+120:                                              ; preds = %119
+  %121 = call i32 @get_log_level()
+  %122 = icmp sge i32 %121, 4
+  br i1 %122, label %123, label %125
+
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.86, ptr noundef @__func__.fed_mgr_test_remote_dependencies, ptr noundef %124)
+  br label %125
+
+125:                                              ; preds = %123, %120
+  br label %126
+
+126:                                              ; preds = %125
+  br label %127
+
+127:                                              ; preds = %126, %114
+  br label %128
+
+128:                                              ; preds = %127
+  %129 = load ptr, ptr %4, align 8
+  %130 = load ptr, ptr %6, align 8
+  call void @_update_origin_job_dep(ptr noundef %129, ptr noundef %130)
+  %131 = load ptr, ptr %5, align 8
+  %132 = call i32 @list_delete_item(ptr noundef %131)
+  br label %133
+
+133:                                              ; preds = %128, %108
+  br label %134
+
+134:                                              ; preds = %133, %89
+  br label %31, !llvm.loop !32
+
+135:                                              ; preds = %31
+  %136 = load ptr, ptr %5, align 8
+  call void @list_iterator_destroy(ptr noundef %136)
+  br label %137
+
+137:                                              ; preds = %135
+  %138 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
+  store i32 %138, ptr %8, align 4
+  %139 = load i32, ptr %8, align 4
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %144
+
+141:                                              ; preds = %137
+  %142 = load i32, ptr %8, align 4
+  %143 = call ptr @__errno_location() #9
+  store i32 %142, ptr %143, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 6205, ptr noundef @__func__.fed_mgr_test_remote_dependencies) #10
   unreachable
 
-140:                                              ; preds = %133
-  br label %141
+144:                                              ; preds = %137
+  br label %145
 
-141:                                              ; preds = %140, %18
+145:                                              ; preds = %144, %18
   ret void
 }
 
@@ -13277,679 +13321,683 @@ define internal ptr @_agent_thread(ptr noundef %0) #0 {
 26:                                               ; preds = %24, %1
   br label %27
 
-27:                                               ; preds = %343, %84, %26
-  %28 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %29 = icmp ne i64 %28, 0
-  %30 = xor i1 %29, true
-  br i1 %30, label %31, label %345
+27:                                               ; preds = %347, %87, %26
+  %28 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp ne i64 %29, 0
+  %31 = xor i1 %30, true
+  br i1 %31, label %32, label %349
 
-31:                                               ; preds = %27
-  br label %32
+32:                                               ; preds = %27
+  br label %33
 
-32:                                               ; preds = %31
-  %33 = call i32 @pthread_mutex_lock(ptr noundef @agent_mutex) #8
-  store i32 %33, ptr %16, align 4
-  %34 = load i32, ptr %16, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %39
+33:                                               ; preds = %32
+  %34 = call i32 @pthread_mutex_lock(ptr noundef @agent_mutex) #8
+  store i32 %34, ptr %16, align 4
+  %35 = load i32, ptr %16, align 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %16, align 4
-  %38 = call ptr @__errno_location() #9
-  store i32 %37, ptr %38, align 4
+37:                                               ; preds = %33
+  %38 = load i32, ptr %16, align 4
+  %39 = call ptr @__errno_location() #9
+  store i32 %38, ptr %39, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2584, ptr noundef @__func__._agent_thread) #10
   unreachable
 
-39:                                               ; preds = %32
-  br label %40
+40:                                               ; preds = %33
+  br label %41
 
-40:                                               ; preds = %39
-  %41 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %63, label %43
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %65, label %45
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr @agent_queue_size, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %63, label %46
+45:                                               ; preds = %41
+  %46 = load i32, ptr @agent_queue_size, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %65, label %48
 
-46:                                               ; preds = %43
-  %47 = call i64 @time(ptr noundef null) #8
-  %48 = add nsw i64 %47, 2
-  %49 = getelementptr inbounds %struct.timespec, ptr %4, i32 0, i32 0
-  store i64 %48, ptr %49, align 8
-  br label %50
+48:                                               ; preds = %45
+  %49 = call i64 @time(ptr noundef null) #8
+  %50 = add nsw i64 %49, 2
+  %51 = getelementptr inbounds %struct.timespec, ptr %4, i32 0, i32 0
+  store i64 %50, ptr %51, align 8
+  br label %52
 
-50:                                               ; preds = %46
-  %51 = call i32 @pthread_cond_timedwait(ptr noundef @agent_cond, ptr noundef @agent_mutex, ptr noundef %4)
-  store i32 %51, ptr %17, align 4
-  %52 = load i32, ptr %17, align 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %61
+52:                                               ; preds = %48
+  %53 = call i32 @pthread_cond_timedwait(ptr noundef @agent_cond, ptr noundef @agent_mutex, ptr noundef %4)
+  store i32 %53, ptr %17, align 4
+  %54 = load i32, ptr %17, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %63
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %17, align 4
-  %56 = icmp ne i32 %55, 110
-  br i1 %56, label %57, label %61
+56:                                               ; preds = %52
+  %57 = load i32, ptr %17, align 4
+  %58 = icmp ne i32 %57, 110
+  br i1 %58, label %59, label %63
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %17, align 4
-  %59 = call ptr @__errno_location() #9
-  store i32 %58, ptr %59, align 4
-  %60 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2587, ptr noundef @__func__._agent_thread)
-  br label %61
-
-61:                                               ; preds = %57, %54, %50
-  br label %62
-
-62:                                               ; preds = %61
+59:                                               ; preds = %56
+  %60 = load i32, ptr %17, align 4
+  %61 = call ptr @__errno_location() #9
+  store i32 %60, ptr %61, align 4
+  %62 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2587, ptr noundef @__func__._agent_thread)
   br label %63
 
-63:                                               ; preds = %62, %43, %40
-  store i32 0, ptr @agent_queue_size, align 4
+63:                                               ; preds = %59, %56, %52
   br label %64
 
 64:                                               ; preds = %63
-  %65 = call i32 @pthread_mutex_unlock(ptr noundef @agent_mutex) #8
-  store i32 %65, ptr %18, align 4
-  %66 = load i32, ptr %18, align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %71
+  br label %65
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %18, align 4
-  %70 = call ptr @__errno_location() #9
-  store i32 %69, ptr %70, align 4
+65:                                               ; preds = %64, %45, %41
+  store i32 0, ptr @agent_queue_size, align 4
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef @agent_mutex) #8
+  store i32 %67, ptr %18, align 4
+  %68 = load i32, ptr %18, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %73
+
+70:                                               ; preds = %66
+  %71 = load i32, ptr %18, align 4
+  %72 = call ptr @__errno_location() #9
+  store i32 %71, ptr %72, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2590, ptr noundef @__func__._agent_thread) #10
   unreachable
 
-71:                                               ; preds = %64
-  br label %72
+73:                                               ; preds = %66
+  br label %74
 
-72:                                               ; preds = %71
-  %73 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %74 = icmp ne i64 %73, 0
-  br i1 %74, label %75, label %76
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp ne i64 %76, 0
+  br i1 %77, label %78, label %79
 
-75:                                               ; preds = %72
-  br label %345
+78:                                               ; preds = %74
+  br label %349
 
-76:                                               ; preds = %72
+79:                                               ; preds = %74
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %15)
-  %77 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %84
-
-79:                                               ; preds = %76
   %80 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %81 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %85, label %84
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %87
 
-84:                                               ; preds = %79, %76
+82:                                               ; preds = %79
+  %83 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %84 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %83, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %88, label %87
+
+87:                                               ; preds = %82, %79
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %15)
   br label %27, !llvm.loop !33
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %87 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @list_iterator_create(ptr noundef %88)
-  store ptr %89, ptr %5, align 8
-  br label %90
+88:                                               ; preds = %82
+  %89 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %90 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %89, i32 0, i32 2
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr @list_iterator_create(ptr noundef %91)
+  store ptr %92, ptr %5, align 8
+  br label %93
 
-90:                                               ; preds = %342, %197, %111, %85
-  %91 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %92 = icmp ne i64 %91, 0
-  br i1 %92, label %97, label %93
+93:                                               ; preds = %346, %201, %115, %88
+  %94 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %95 = load i64, ptr %94, align 8
+  %96 = icmp ne i64 %95, 0
+  br i1 %96, label %101, label %97
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %5, align 8
-  %95 = call ptr @list_next(ptr noundef %94)
-  store ptr %95, ptr %3, align 8
-  %96 = icmp ne ptr %95, null
-  br label %97
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %5, align 8
+  %99 = call ptr @list_next(ptr noundef %98)
+  store ptr %99, ptr %3, align 8
+  %100 = icmp ne ptr %99, null
+  br label %101
 
-97:                                               ; preds = %93, %90
-  %98 = phi i1 [ false, %90 ], [ %96, %93 ]
-  br i1 %98, label %99, label %343
+101:                                              ; preds = %97, %93
+  %102 = phi i1 [ false, %93 ], [ %100, %97 ]
+  br i1 %102, label %103, label %347
 
-99:                                               ; preds = %97
-  %100 = call i64 @time(ptr noundef null) #8
-  store i64 %100, ptr %19, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %101, i32 0, i32 15
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %111, label %105
+103:                                              ; preds = %101
+  %104 = call i64 @time(ptr noundef null) #8
+  store i64 %104, ptr %19, align 8
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %105, i32 0, i32 15
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %115, label %109
 
-105:                                              ; preds = %99
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %106, i32 0, i32 15
-  %108 = load ptr, ptr %107, align 8
-  %109 = call i32 @list_count(ptr noundef %108)
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %112
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %110, i32 0, i32 15
+  %112 = load ptr, ptr %111, align 8
+  %113 = call i32 @list_count(ptr noundef %112)
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %116
 
-111:                                              ; preds = %105, %99
-  br label %90, !llvm.loop !34
+115:                                              ; preds = %109, %103
+  br label %93, !llvm.loop !34
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  store ptr null, ptr %113, align 8
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %114, i32 0, i32 15
-  %116 = load ptr, ptr %115, align 8
-  %117 = call ptr @list_iterator_create(ptr noundef %116)
-  store ptr %117, ptr %6, align 8
-  br label %118
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  store ptr null, ptr %117, align 8
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %118, i32 0, i32 15
+  %120 = load ptr, ptr %119, align 8
+  %121 = call ptr @list_iterator_create(ptr noundef %120)
+  store ptr %121, ptr %6, align 8
+  br label %122
 
-118:                                              ; preds = %191, %133, %112
-  %119 = load ptr, ptr %6, align 8
-  %120 = call ptr @list_next(ptr noundef %119)
-  store ptr %120, ptr %7, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %192
+122:                                              ; preds = %195, %137, %116
+  %123 = load ptr, ptr %6, align 8
+  %124 = call ptr @list_next(ptr noundef %123)
+  store ptr %124, ptr %7, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %196
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.agent_queue_t, ptr %123, i32 0, i32 2
-  %125 = load i64, ptr %124, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.agent_queue_t, ptr %126, i32 0, i32 3
-  %128 = load i32, ptr %127, align 8
-  %129 = sext i32 %128 to i64
-  %130 = add nsw i64 %125, %129
-  %131 = load i64, ptr %19, align 8
-  %132 = icmp sge i64 %130, %131
-  br i1 %132, label %133, label %134
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.agent_queue_t, ptr %127, i32 0, i32 2
+  %129 = load i64, ptr %128, align 8
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds %struct.agent_queue_t, ptr %130, i32 0, i32 3
+  %132 = load i32, ptr %131, align 8
+  %133 = sext i32 %132 to i64
+  %134 = add nsw i64 %129, %133
+  %135 = load i64, ptr %19, align 8
+  %136 = icmp sge i64 %134, %135
+  br i1 %136, label %137, label %138
 
-133:                                              ; preds = %122
-  br label %118, !llvm.loop !35
+137:                                              ; preds = %126
+  br label %122, !llvm.loop !35
 
-134:                                              ; preds = %122
-  %135 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp ne ptr %136, null
-  br i1 %137, label %141, label %138
+138:                                              ; preds = %126
+  %139 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %145, label %142
 
-138:                                              ; preds = %134
-  %139 = call ptr @list_create(ptr noundef null)
-  %140 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  store ptr %139, ptr %140, align 8
-  br label %141
+142:                                              ; preds = %138
+  %143 = call ptr @list_create(ptr noundef null)
+  %144 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  store ptr %143, ptr %144, align 8
+  br label %145
 
-141:                                              ; preds = %138, %134
-  %142 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds %struct.agent_queue_t, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  call void @list_append(ptr noundef %143, ptr noundef %146)
-  %147 = load i64, ptr %19, align 8
+145:                                              ; preds = %142, %138
+  %146 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct.agent_queue_t, ptr %148, i32 0, i32 2
-  store i64 %147, ptr %149, align 8
-  %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct.agent_queue_t, ptr %150, i32 0, i32 3
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, 128
-  br i1 %153, label %154, label %177
+  %149 = getelementptr inbounds %struct.agent_queue_t, ptr %148, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8
+  call void @list_append(ptr noundef %147, ptr noundef %150)
+  %151 = load i64, ptr %19, align 8
+  %152 = load ptr, ptr %7, align 8
+  %153 = getelementptr inbounds %struct.agent_queue_t, ptr %152, i32 0, i32 2
+  store i64 %151, ptr %153, align 8
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds %struct.agent_queue_t, ptr %154, i32 0, i32 3
+  %156 = load i32, ptr %155, align 8
+  %157 = icmp eq i32 %156, 128
+  br i1 %157, label %158, label %181
 
-154:                                              ; preds = %141
-  br label %155
+158:                                              ; preds = %145
+  br label %159
 
-155:                                              ; preds = %154
-  br label %156
+159:                                              ; preds = %158
+  br label %160
 
-156:                                              ; preds = %155
-  %157 = call i32 @get_log_level()
-  %158 = icmp sge i32 %157, 3
-  br i1 %158, label %159, label %170
+160:                                              ; preds = %159
+  %161 = call i32 @get_log_level()
+  %162 = icmp sge i32 %161, 3
+  br i1 %162, label %163, label %174
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.agent_queue_t, ptr %160, i32 0, i32 4
-  %162 = load i16, ptr %161, align 4
-  %163 = call ptr @rpc_num2string(i16 noundef zeroext %162)
+163:                                              ; preds = %160
   %164 = load ptr, ptr %7, align 8
-  %165 = getelementptr inbounds %struct.agent_queue_t, ptr %164, i32 0, i32 1
-  %166 = load i32, ptr %165, align 8
-  %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %167, i32 0, i32 11
-  %169 = load ptr, ptr %168, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.95, ptr noundef @__func__._agent_thread, ptr noundef %163, i32 noundef %166, ptr noundef %169)
-  br label %170
+  %165 = getelementptr inbounds %struct.agent_queue_t, ptr %164, i32 0, i32 4
+  %166 = load i16, ptr %165, align 4
+  %167 = call ptr @rpc_num2string(i16 noundef zeroext %166)
+  %168 = load ptr, ptr %7, align 8
+  %169 = getelementptr inbounds %struct.agent_queue_t, ptr %168, i32 0, i32 1
+  %170 = load i32, ptr %169, align 8
+  %171 = load ptr, ptr %3, align 8
+  %172 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %171, i32 0, i32 11
+  %173 = load ptr, ptr %172, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.95, ptr noundef @__func__._agent_thread, ptr noundef %167, i32 noundef %170, ptr noundef %173)
+  br label %174
 
-170:                                              ; preds = %159, %156
-  br label %171
+174:                                              ; preds = %163, %160
+  br label %175
 
-171:                                              ; preds = %170
-  br label %172
+175:                                              ; preds = %174
+  br label %176
 
-172:                                              ; preds = %171
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds %struct.agent_queue_t, ptr %173, i32 0, i32 3
-  %175 = load i32, ptr %174, align 8
-  %176 = mul nsw i32 %175, 2
-  store i32 %176, ptr %174, align 8
-  br label %191
+176:                                              ; preds = %175
+  %177 = load ptr, ptr %7, align 8
+  %178 = getelementptr inbounds %struct.agent_queue_t, ptr %177, i32 0, i32 3
+  %179 = load i32, ptr %178, align 8
+  %180 = mul nsw i32 %179, 2
+  store i32 %180, ptr %178, align 8
+  br label %195
 
-177:                                              ; preds = %141
-  %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds %struct.agent_queue_t, ptr %178, i32 0, i32 3
-  %180 = load i32, ptr %179, align 8
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %182, label %187
+181:                                              ; preds = %145
+  %182 = load ptr, ptr %7, align 8
+  %183 = getelementptr inbounds %struct.agent_queue_t, ptr %182, i32 0, i32 3
+  %184 = load i32, ptr %183, align 8
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %186, label %191
 
-182:                                              ; preds = %177
-  %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds %struct.agent_queue_t, ptr %183, i32 0, i32 3
-  %185 = load i32, ptr %184, align 8
-  %186 = mul nsw i32 %185, 2
-  store i32 %186, ptr %184, align 8
-  br label %190
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds %struct.agent_queue_t, ptr %187, i32 0, i32 3
+  %189 = load i32, ptr %188, align 8
+  %190 = mul nsw i32 %189, 2
+  store i32 %190, ptr %188, align 8
+  br label %194
 
-187:                                              ; preds = %177
-  %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds %struct.agent_queue_t, ptr %188, i32 0, i32 3
-  store i32 2, ptr %189, align 8
-  br label %190
+191:                                              ; preds = %181
+  %192 = load ptr, ptr %7, align 8
+  %193 = getelementptr inbounds %struct.agent_queue_t, ptr %192, i32 0, i32 3
+  store i32 2, ptr %193, align 8
+  br label %194
 
-190:                                              ; preds = %187, %182
-  br label %191
+194:                                              ; preds = %191, %186
+  br label %195
 
-191:                                              ; preds = %190, %172
-  br label %118, !llvm.loop !35
+195:                                              ; preds = %194, %176
+  br label %122, !llvm.loop !35
 
-192:                                              ; preds = %118
-  %193 = load ptr, ptr %6, align 8
-  call void @list_iterator_destroy(ptr noundef %193)
-  %194 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  %195 = load ptr, ptr %194, align 8
-  %196 = icmp ne ptr %195, null
-  br i1 %196, label %198, label %197
+196:                                              ; preds = %122
+  %197 = load ptr, ptr %6, align 8
+  call void @list_iterator_destroy(ptr noundef %197)
+  %198 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr %199, null
+  br i1 %200, label %202, label %201
 
-197:                                              ; preds = %192
-  br label %90, !llvm.loop !34
+201:                                              ; preds = %196
+  br label %93, !llvm.loop !34
 
-198:                                              ; preds = %192
+202:                                              ; preds = %196
   call void @slurm_msg_t_init(ptr noundef %8)
-  %199 = getelementptr inbounds %struct.slurm_msg, ptr %8, i32 0, i32 15
-  store i16 4500, ptr %199, align 4
-  %200 = getelementptr inbounds %struct.slurm_msg, ptr %8, i32 0, i32 12
-  store ptr %10, ptr %200, align 8
-  %201 = load ptr, ptr %3, align 8
-  %202 = call i32 @_send_recv_msg(ptr noundef %201, ptr noundef %8, ptr noundef %9, i1 noundef zeroext false)
-  store i32 %202, ptr %12, align 4
-  %203 = load i32, ptr %12, align 4
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %205, label %257
+  %203 = getelementptr inbounds %struct.slurm_msg, ptr %8, i32 0, i32 15
+  store i16 4500, ptr %203, align 4
+  %204 = getelementptr inbounds %struct.slurm_msg, ptr %8, i32 0, i32 12
+  store ptr %10, ptr %204, align 8
+  %205 = load ptr, ptr %3, align 8
+  %206 = call i32 @_send_recv_msg(ptr noundef %205, ptr noundef %8, ptr noundef %9, i1 noundef zeroext false)
+  store i32 %206, ptr %12, align 4
+  %207 = load i32, ptr %12, align 4
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %209, label %261
 
-205:                                              ; preds = %198
-  %206 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %207 = load i16, ptr %206, align 4
-  %208 = zext i16 %207 to i32
-  %209 = icmp eq i32 %208, 4501
-  br i1 %209, label %210, label %257
+209:                                              ; preds = %202
+  %210 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %211 = load i16, ptr %210, align 4
+  %212 = zext i16 %211 to i32
+  %213 = icmp eq i32 %212, 4501
+  br i1 %213, label %214, label %261
 
-210:                                              ; preds = %205
+214:                                              ; preds = %209
   store i32 0, ptr %13, align 4
-  %211 = call ptr @_parse_resp_ctld_mult(ptr noundef %9)
-  store ptr %211, ptr %11, align 8
-  %212 = load ptr, ptr %11, align 8
-  %213 = call i64 @bit_size(ptr noundef %212)
-  %214 = trunc i64 %213 to i32
-  store i32 %214, ptr %14, align 4
-  %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %215, i32 0, i32 15
-  %217 = load ptr, ptr %216, align 8
-  %218 = call ptr @list_iterator_create(ptr noundef %217)
-  store ptr %218, ptr %6, align 8
-  br label %219
+  %215 = call ptr @_parse_resp_ctld_mult(ptr noundef %9)
+  store ptr %215, ptr %11, align 8
+  %216 = load ptr, ptr %11, align 8
+  %217 = call i64 @bit_size(ptr noundef %216)
+  %218 = trunc i64 %217 to i32
+  store i32 %218, ptr %14, align 4
+  %219 = load ptr, ptr %3, align 8
+  %220 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %219, i32 0, i32 15
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @list_iterator_create(ptr noundef %221)
+  store ptr %222, ptr %6, align 8
+  br label %223
 
-219:                                              ; preds = %248, %229, %210
-  %220 = load ptr, ptr %6, align 8
-  %221 = call ptr @list_next(ptr noundef %220)
-  store ptr %221, ptr %7, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %249
+223:                                              ; preds = %252, %233, %214
+  %224 = load ptr, ptr %6, align 8
+  %225 = call ptr @list_next(ptr noundef %224)
+  store ptr %225, ptr %7, align 8
+  %226 = icmp ne ptr %225, null
+  br i1 %226, label %227, label %253
 
-223:                                              ; preds = %219
-  %224 = load ptr, ptr %7, align 8
-  %225 = getelementptr inbounds %struct.agent_queue_t, ptr %224, i32 0, i32 2
-  %226 = load i64, ptr %225, align 8
-  %227 = load i64, ptr %19, align 8
-  %228 = icmp ne i64 %226, %227
-  br i1 %228, label %229, label %230
+227:                                              ; preds = %223
+  %228 = load ptr, ptr %7, align 8
+  %229 = getelementptr inbounds %struct.agent_queue_t, ptr %228, i32 0, i32 2
+  %230 = load i64, ptr %229, align 8
+  %231 = load i64, ptr %19, align 8
+  %232 = icmp ne i64 %230, %231
+  br i1 %232, label %233, label %234
 
-229:                                              ; preds = %223
-  br label %219, !llvm.loop !36
+233:                                              ; preds = %227
+  br label %223, !llvm.loop !36
 
-230:                                              ; preds = %223
-  %231 = load i32, ptr %13, align 4
-  %232 = load i32, ptr %14, align 4
-  %233 = icmp sge i32 %231, %232
-  br i1 %233, label %234, label %238
-
-234:                                              ; preds = %230
+234:                                              ; preds = %227
   %235 = load i32, ptr %13, align 4
   %236 = load i32, ptr %14, align 4
-  %237 = call i32 (ptr, ...) @error(ptr noundef @.str.96, ptr noundef @__func__._agent_thread, i32 noundef %235, i32 noundef %236)
-  br label %249
+  %237 = icmp sge i32 %235, %236
+  br i1 %237, label %238, label %242
 
-238:                                              ; preds = %230
-  %239 = load ptr, ptr %11, align 8
-  %240 = load i32, ptr %13, align 4
-  %241 = add nsw i32 %240, 1
-  store i32 %241, ptr %13, align 4
-  %242 = sext i32 %240 to i64
-  %243 = call i32 @bit_test(ptr noundef %239, i64 noundef %242)
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %248
+238:                                              ; preds = %234
+  %239 = load i32, ptr %13, align 4
+  %240 = load i32, ptr %14, align 4
+  %241 = call i32 (ptr, ...) @error(ptr noundef @.str.96, ptr noundef @__func__._agent_thread, i32 noundef %239, i32 noundef %240)
+  br label %253
 
-245:                                              ; preds = %238
-  %246 = load ptr, ptr %6, align 8
-  %247 = call i32 @list_delete_item(ptr noundef %246)
-  br label %248
+242:                                              ; preds = %234
+  %243 = load ptr, ptr %11, align 8
+  %244 = load i32, ptr %13, align 4
+  %245 = add nsw i32 %244, 1
+  store i32 %245, ptr %13, align 4
+  %246 = sext i32 %244 to i64
+  %247 = call i32 @bit_test(ptr noundef %243, i64 noundef %246)
+  %248 = icmp ne i32 %247, 0
+  br i1 %248, label %249, label %252
 
-248:                                              ; preds = %245, %238
-  br label %219, !llvm.loop !36
-
-249:                                              ; preds = %234, %219
+249:                                              ; preds = %242
   %250 = load ptr, ptr %6, align 8
-  call void @list_iterator_destroy(ptr noundef %250)
-  br label %251
+  %251 = call i32 @list_delete_item(ptr noundef %250)
+  br label %252
 
-251:                                              ; preds = %249
-  %252 = load ptr, ptr %11, align 8
-  %253 = icmp ne ptr %252, null
-  br i1 %253, label %254, label %255
+252:                                              ; preds = %249, %242
+  br label %223, !llvm.loop !36
 
-254:                                              ; preds = %251
-  call void @slurm_bit_free(ptr noundef %11)
+253:                                              ; preds = %238, %223
+  %254 = load ptr, ptr %6, align 8
+  call void @list_iterator_destroy(ptr noundef %254)
   br label %255
 
-255:                                              ; preds = %254, %251
+255:                                              ; preds = %253
+  %256 = load ptr, ptr %11, align 8
+  %257 = icmp ne ptr %256, null
+  br i1 %257, label %258, label %259
+
+258:                                              ; preds = %255
+  call void @slurm_bit_free(ptr noundef %11)
+  br label %259
+
+259:                                              ; preds = %258, %255
   store ptr null, ptr %11, align 8
-  br label %256
+  br label %260
 
-256:                                              ; preds = %255
-  br label %326
+260:                                              ; preds = %259
+  br label %330
 
-257:                                              ; preds = %205, %198
-  %258 = load i32, ptr %12, align 4
-  %259 = icmp ne i32 %258, 0
-  br i1 %259, label %260, label %279
+261:                                              ; preds = %209, %202
+  %262 = load i32, ptr %12, align 4
+  %263 = icmp ne i32 %262, 0
+  br i1 %263, label %264, label %283
 
-260:                                              ; preds = %257
-  %261 = load ptr, ptr %3, align 8
-  %262 = call zeroext i1 @_comm_fail_log(ptr noundef %261)
-  br i1 %262, label %263, label %267
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %3, align 8
+  %266 = call zeroext i1 @_comm_fail_log(ptr noundef %265)
+  br i1 %266, label %267, label %271
 
-263:                                              ; preds = %260
-  %264 = load i32, ptr %12, align 4
-  %265 = call ptr @slurm_strerror(i32 noundef %264)
-  %266 = call i32 (ptr, ...) @error(ptr noundef @.str.97, ptr noundef @__func__._agent_thread, ptr noundef %265)
-  br label %278
+267:                                              ; preds = %264
+  %268 = load i32, ptr %12, align 4
+  %269 = call ptr @slurm_strerror(i32 noundef %268)
+  %270 = call i32 (ptr, ...) @error(ptr noundef @.str.97, ptr noundef @__func__._agent_thread, ptr noundef %269)
+  br label %282
 
-267:                                              ; preds = %260
-  br label %268
+271:                                              ; preds = %264
+  br label %272
 
-268:                                              ; preds = %267
-  br label %269
+272:                                              ; preds = %271
+  br label %273
 
-269:                                              ; preds = %268
-  %270 = call i32 @get_log_level()
-  %271 = icmp sge i32 %270, 5
-  br i1 %271, label %272, label %275
+273:                                              ; preds = %272
+  %274 = call i32 @get_log_level()
+  %275 = icmp sge i32 %274, 5
+  br i1 %275, label %276, label %279
 
-272:                                              ; preds = %269
-  %273 = load i32, ptr %12, align 4
-  %274 = call ptr @slurm_strerror(i32 noundef %273)
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.97, ptr noundef @__func__._agent_thread, ptr noundef %274)
-  br label %275
+276:                                              ; preds = %273
+  %277 = load i32, ptr %12, align 4
+  %278 = call ptr @slurm_strerror(i32 noundef %277)
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.97, ptr noundef @__func__._agent_thread, ptr noundef %278)
+  br label %279
 
-275:                                              ; preds = %272, %269
-  br label %276
+279:                                              ; preds = %276, %273
+  br label %280
 
-276:                                              ; preds = %275
-  br label %277
+280:                                              ; preds = %279
+  br label %281
 
-277:                                              ; preds = %276
-  br label %278
+281:                                              ; preds = %280
+  br label %282
 
-278:                                              ; preds = %277, %263
-  br label %325
+282:                                              ; preds = %281, %267
+  br label %329
 
-279:                                              ; preds = %257
-  %280 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %281 = load i16, ptr %280, align 4
-  %282 = zext i16 %281 to i32
-  %283 = icmp eq i32 %282, 1433
-  br i1 %283, label %284, label %303
+283:                                              ; preds = %261
+  %284 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %285 = load i16, ptr %284, align 4
+  %286 = zext i16 %285 to i32
+  %287 = icmp eq i32 %286, 1433
+  br i1 %287, label %288, label %307
 
-284:                                              ; preds = %279
-  %285 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
-  %286 = load ptr, ptr %285, align 8
-  store ptr %286, ptr %20, align 8
-  %287 = load ptr, ptr %20, align 8
-  %288 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %287, i32 0, i32 0
-  %289 = load ptr, ptr %288, align 8
-  %290 = icmp ne ptr %289, null
-  br i1 %290, label %291, label %295
+288:                                              ; preds = %283
+  %289 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
+  %290 = load ptr, ptr %289, align 8
+  store ptr %290, ptr %20, align 8
+  %291 = load ptr, ptr %20, align 8
+  %292 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %291, i32 0, i32 0
+  %293 = load ptr, ptr %292, align 8
+  %294 = icmp ne ptr %293, null
+  br i1 %294, label %295, label %299
 
-291:                                              ; preds = %284
-  %292 = load ptr, ptr %20, align 8
-  %293 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %292, i32 0, i32 0
-  %294 = load ptr, ptr %293, align 8
-  store ptr %294, ptr %21, align 8
-  br label %300
-
-295:                                              ; preds = %284
+295:                                              ; preds = %288
   %296 = load ptr, ptr %20, align 8
-  %297 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %296, i32 0, i32 2
-  %298 = load i32, ptr %297, align 4
-  %299 = call ptr @slurm_strerror(i32 noundef %298)
-  store ptr %299, ptr %21, align 8
-  br label %300
+  %297 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %296, i32 0, i32 0
+  %298 = load ptr, ptr %297, align 8
+  store ptr %298, ptr %21, align 8
+  br label %304
 
-300:                                              ; preds = %295, %291
-  %301 = load ptr, ptr %21, align 8
-  %302 = call i32 (ptr, ...) @error(ptr noundef @.str.98, ptr noundef @__func__._agent_thread, ptr noundef %301)
-  br label %324
+299:                                              ; preds = %288
+  %300 = load ptr, ptr %20, align 8
+  %301 = getelementptr inbounds %struct.persist_rc_msg_t, ptr %300, i32 0, i32 2
+  %302 = load i32, ptr %301, align 4
+  %303 = call ptr @slurm_strerror(i32 noundef %302)
+  store ptr %303, ptr %21, align 8
+  br label %304
 
-303:                                              ; preds = %279
-  %304 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %305 = load i16, ptr %304, align 4
-  %306 = zext i16 %305 to i32
-  %307 = icmp eq i32 %306, 8001
-  br i1 %307, label %308, label %318
+304:                                              ; preds = %299, %295
+  %305 = load ptr, ptr %21, align 8
+  %306 = call i32 (ptr, ...) @error(ptr noundef @.str.98, ptr noundef @__func__._agent_thread, ptr noundef %305)
+  br label %328
 
-308:                                              ; preds = %303
-  %309 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %310 = load i16, ptr %309, align 4
-  %311 = zext i16 %310 to i32
-  %312 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
-  %313 = load ptr, ptr %312, align 8
-  %314 = call i32 @slurm_get_return_code(i32 noundef %311, ptr noundef %313)
-  store i32 %314, ptr %12, align 4
-  %315 = load i32, ptr %12, align 4
-  %316 = call ptr @slurm_strerror(i32 noundef %315)
-  %317 = call i32 (ptr, ...) @error(ptr noundef @.str.98, ptr noundef @__func__._agent_thread, ptr noundef %316)
-  br label %323
+307:                                              ; preds = %283
+  %308 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %309 = load i16, ptr %308, align 4
+  %310 = zext i16 %309 to i32
+  %311 = icmp eq i32 %310, 8001
+  br i1 %311, label %312, label %322
 
-318:                                              ; preds = %303
-  %319 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %320 = load i16, ptr %319, align 4
-  %321 = zext i16 %320 to i32
-  %322 = call i32 (ptr, ...) @error(ptr noundef @.str.99, ptr noundef @__func__._agent_thread, i32 noundef %321)
-  br label %323
+312:                                              ; preds = %307
+  %313 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %314 = load i16, ptr %313, align 4
+  %315 = zext i16 %314 to i32
+  %316 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
+  %317 = load ptr, ptr %316, align 8
+  %318 = call i32 @slurm_get_return_code(i32 noundef %315, ptr noundef %317)
+  store i32 %318, ptr %12, align 4
+  %319 = load i32, ptr %12, align 4
+  %320 = call ptr @slurm_strerror(i32 noundef %319)
+  %321 = call i32 (ptr, ...) @error(ptr noundef @.str.98, ptr noundef @__func__._agent_thread, ptr noundef %320)
+  br label %327
 
-323:                                              ; preds = %318, %308
-  br label %324
+322:                                              ; preds = %307
+  %323 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %324 = load i16, ptr %323, align 4
+  %325 = zext i16 %324 to i32
+  %326 = call i32 (ptr, ...) @error(ptr noundef @.str.99, ptr noundef @__func__._agent_thread, i32 noundef %325)
+  br label %327
 
-324:                                              ; preds = %323, %300
-  br label %325
+327:                                              ; preds = %322, %312
+  br label %328
 
-325:                                              ; preds = %324, %278
-  br label %326
+328:                                              ; preds = %327, %304
+  br label %329
 
-326:                                              ; preds = %325, %256
-  %327 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
-  %328 = load i16, ptr %327, align 4
-  %329 = zext i16 %328 to i32
-  %330 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
-  %331 = load ptr, ptr %330, align 8
-  %332 = call i32 @slurm_free_msg_data(i32 noundef %329, ptr noundef %331)
-  br label %333
+329:                                              ; preds = %328, %282
+  br label %330
 
-333:                                              ; preds = %326
-  %334 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+330:                                              ; preds = %329, %260
+  %331 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 15
+  %332 = load i16, ptr %331, align 4
+  %333 = zext i16 %332 to i32
+  %334 = getelementptr inbounds %struct.slurm_msg, ptr %9, i32 0, i32 12
   %335 = load ptr, ptr %334, align 8
-  %336 = icmp ne ptr %335, null
-  br i1 %336, label %337, label %340
+  %336 = call i32 @slurm_free_msg_data(i32 noundef %333, ptr noundef %335)
+  br label %337
 
-337:                                              ; preds = %333
+337:                                              ; preds = %330
   %338 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
   %339 = load ptr, ptr %338, align 8
-  call void @list_destroy(ptr noundef %339)
-  br label %340
+  %340 = icmp ne ptr %339, null
+  br i1 %340, label %341, label %344
 
-340:                                              ; preds = %337, %333
-  %341 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
-  store ptr null, ptr %341, align 8
-  br label %342
+341:                                              ; preds = %337
+  %342 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  %343 = load ptr, ptr %342, align 8
+  call void @list_destroy(ptr noundef %343)
+  br label %344
 
-342:                                              ; preds = %340
-  br label %90, !llvm.loop !34
+344:                                              ; preds = %341, %337
+  %345 = getelementptr inbounds %struct.ctld_list_msg_t, ptr %10, i32 0, i32 0
+  store ptr null, ptr %345, align 8
+  br label %346
 
-343:                                              ; preds = %97
-  %344 = load ptr, ptr %5, align 8
-  call void @list_iterator_destroy(ptr noundef %344)
+346:                                              ; preds = %344
+  br label %93, !llvm.loop !34
+
+347:                                              ; preds = %101
+  %348 = load ptr, ptr %5, align 8
+  call void @list_iterator_destroy(ptr noundef %348)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %15)
   br label %27, !llvm.loop !33
 
-345:                                              ; preds = %75, %27
+349:                                              ; preds = %78, %27
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %15)
-  %346 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %347 = icmp ne ptr %346, null
-  br i1 %347, label %349, label %348
-
-348:                                              ; preds = %345
-  br label %411
-
-349:                                              ; preds = %345
   %350 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %351 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %350, i32 0, i32 2
-  %352 = load ptr, ptr %351, align 8
-  %353 = call ptr @list_iterator_create(ptr noundef %352)
-  store ptr %353, ptr %5, align 8
-  br label %354
+  %351 = icmp ne ptr %350, null
+  br i1 %351, label %353, label %352
 
-354:                                              ; preds = %408, %363, %349
-  %355 = load ptr, ptr %5, align 8
-  %356 = call ptr @list_next(ptr noundef %355)
-  store ptr %356, ptr %3, align 8
-  %357 = icmp ne ptr %356, null
-  br i1 %357, label %358, label %409
+352:                                              ; preds = %349
+  br label %415
 
-358:                                              ; preds = %354
-  %359 = load ptr, ptr %3, align 8
-  %360 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %359, i32 0, i32 15
-  %361 = load ptr, ptr %360, align 8
-  %362 = icmp eq ptr %361, null
-  br i1 %362, label %363, label %364
+353:                                              ; preds = %349
+  %354 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %355 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %354, i32 0, i32 2
+  %356 = load ptr, ptr %355, align 8
+  %357 = call ptr @list_iterator_create(ptr noundef %356)
+  store ptr %357, ptr %5, align 8
+  br label %358
 
-363:                                              ; preds = %358
-  br label %354, !llvm.loop !37
+358:                                              ; preds = %412, %367, %353
+  %359 = load ptr, ptr %5, align 8
+  %360 = call ptr @list_next(ptr noundef %359)
+  store ptr %360, ptr %3, align 8
+  %361 = icmp ne ptr %360, null
+  br i1 %361, label %362, label %413
 
-364:                                              ; preds = %358
-  %365 = load ptr, ptr %3, align 8
-  %366 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %365, i32 0, i32 15
-  %367 = load ptr, ptr %366, align 8
-  %368 = call ptr @list_iterator_create(ptr noundef %367)
-  store ptr %368, ptr %6, align 8
-  br label %369
+362:                                              ; preds = %358
+  %363 = load ptr, ptr %3, align 8
+  %364 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %363, i32 0, i32 15
+  %365 = load ptr, ptr %364, align 8
+  %366 = icmp eq ptr %365, null
+  br i1 %366, label %367, label %368
 
-369:                                              ; preds = %391, %364
-  %370 = load ptr, ptr %6, align 8
-  %371 = call ptr @list_next(ptr noundef %370)
-  store ptr %371, ptr %7, align 8
-  %372 = icmp ne ptr %371, null
-  br i1 %372, label %373, label %394
+367:                                              ; preds = %362
+  br label %358, !llvm.loop !37
 
-373:                                              ; preds = %369
-  br label %374
+368:                                              ; preds = %362
+  %369 = load ptr, ptr %3, align 8
+  %370 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %369, i32 0, i32 15
+  %371 = load ptr, ptr %370, align 8
+  %372 = call ptr @list_iterator_create(ptr noundef %371)
+  store ptr %372, ptr %6, align 8
+  br label %373
 
-374:                                              ; preds = %373
-  br label %375
+373:                                              ; preds = %395, %368
+  %374 = load ptr, ptr %6, align 8
+  %375 = call ptr @list_next(ptr noundef %374)
+  store ptr %375, ptr %7, align 8
+  %376 = icmp ne ptr %375, null
+  br i1 %376, label %377, label %398
 
-375:                                              ; preds = %374
-  %376 = call i32 @get_log_level()
-  %377 = icmp sge i32 %376, 3
-  br i1 %377, label %378, label %389
+377:                                              ; preds = %373
+  br label %378
 
-378:                                              ; preds = %375
-  %379 = load ptr, ptr %7, align 8
-  %380 = getelementptr inbounds %struct.agent_queue_t, ptr %379, i32 0, i32 4
-  %381 = load i16, ptr %380, align 4
-  %382 = call ptr @rpc_num2string(i16 noundef zeroext %381)
+378:                                              ; preds = %377
+  br label %379
+
+379:                                              ; preds = %378
+  %380 = call i32 @get_log_level()
+  %381 = icmp sge i32 %380, 3
+  br i1 %381, label %382, label %393
+
+382:                                              ; preds = %379
   %383 = load ptr, ptr %7, align 8
-  %384 = getelementptr inbounds %struct.agent_queue_t, ptr %383, i32 0, i32 1
-  %385 = load i32, ptr %384, align 8
-  %386 = load ptr, ptr %3, align 8
-  %387 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %386, i32 0, i32 11
-  %388 = load ptr, ptr %387, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.100, ptr noundef @__func__._agent_thread, ptr noundef %382, i32 noundef %385, ptr noundef %388)
-  br label %389
+  %384 = getelementptr inbounds %struct.agent_queue_t, ptr %383, i32 0, i32 4
+  %385 = load i16, ptr %384, align 4
+  %386 = call ptr @rpc_num2string(i16 noundef zeroext %385)
+  %387 = load ptr, ptr %7, align 8
+  %388 = getelementptr inbounds %struct.agent_queue_t, ptr %387, i32 0, i32 1
+  %389 = load i32, ptr %388, align 8
+  %390 = load ptr, ptr %3, align 8
+  %391 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %390, i32 0, i32 11
+  %392 = load ptr, ptr %391, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.100, ptr noundef @__func__._agent_thread, ptr noundef %386, i32 noundef %389, ptr noundef %392)
+  br label %393
 
-389:                                              ; preds = %378, %375
-  br label %390
+393:                                              ; preds = %382, %379
+  br label %394
 
-390:                                              ; preds = %389
-  br label %391
+394:                                              ; preds = %393
+  br label %395
 
-391:                                              ; preds = %390
-  %392 = load ptr, ptr %6, align 8
-  %393 = call i32 @list_delete_item(ptr noundef %392)
-  br label %369, !llvm.loop !38
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %6, align 8
+  %397 = call i32 @list_delete_item(ptr noundef %396)
+  br label %373, !llvm.loop !38
 
-394:                                              ; preds = %369
-  %395 = load ptr, ptr %6, align 8
-  call void @list_iterator_destroy(ptr noundef %395)
-  br label %396
+398:                                              ; preds = %373
+  %399 = load ptr, ptr %6, align 8
+  call void @list_iterator_destroy(ptr noundef %399)
+  br label %400
 
-396:                                              ; preds = %394
-  %397 = load ptr, ptr %3, align 8
-  %398 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %397, i32 0, i32 15
-  %399 = load ptr, ptr %398, align 8
-  %400 = icmp ne ptr %399, null
-  br i1 %400, label %401, label %405
+400:                                              ; preds = %398
+  %401 = load ptr, ptr %3, align 8
+  %402 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %401, i32 0, i32 15
+  %403 = load ptr, ptr %402, align 8
+  %404 = icmp ne ptr %403, null
+  br i1 %404, label %405, label %409
 
-401:                                              ; preds = %396
-  %402 = load ptr, ptr %3, align 8
-  %403 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %402, i32 0, i32 15
-  %404 = load ptr, ptr %403, align 8
-  call void @list_destroy(ptr noundef %404)
-  br label %405
-
-405:                                              ; preds = %401, %396
+405:                                              ; preds = %400
   %406 = load ptr, ptr %3, align 8
   %407 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %406, i32 0, i32 15
-  store ptr null, ptr %407, align 8
-  br label %408
+  %408 = load ptr, ptr %407, align 8
+  call void @list_destroy(ptr noundef %408)
+  br label %409
 
-408:                                              ; preds = %405
-  br label %354, !llvm.loop !37
+409:                                              ; preds = %405, %400
+  %410 = load ptr, ptr %3, align 8
+  %411 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %410, i32 0, i32 15
+  store ptr null, ptr %411, align 8
+  br label %412
 
-409:                                              ; preds = %354
-  %410 = load ptr, ptr %5, align 8
-  call void @list_iterator_destroy(ptr noundef %410)
-  br label %411
+412:                                              ; preds = %409
+  br label %358, !llvm.loop !37
 
-411:                                              ; preds = %409, %348
+413:                                              ; preds = %358
+  %414 = load ptr, ptr %5, align 8
+  call void @list_iterator_destroy(ptr noundef %414)
+  br label %415
+
+415:                                              ; preds = %413, %352
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %15)
   ret ptr null
 }
@@ -13978,110 +14026,112 @@ define internal ptr @_fed_job_update_thread(ptr noundef %0) #0 {
 12:                                               ; preds = %10, %1
   br label %13
 
-13:                                               ; preds = %64, %12
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %15 = icmp ne i64 %14, 0
-  %16 = xor i1 %15, true
-  br i1 %16, label %17, label %65
+13:                                               ; preds = %66, %12
+  %14 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ne i64 %15, 0
+  %17 = xor i1 %16, true
+  br i1 %17, label %18, label %67
 
-17:                                               ; preds = %13
-  br label %18
+18:                                               ; preds = %13
+  br label %19
 
-18:                                               ; preds = %17
-  %19 = call i32 @pthread_mutex_lock(ptr noundef @job_update_mutex) #8
-  store i32 %19, ptr %5, align 4
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
+19:                                               ; preds = %18
+  %20 = call i32 @pthread_mutex_lock(ptr noundef @job_update_mutex) #8
+  store i32 %20, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %18
-  %23 = load i32, ptr %5, align 4
-  %24 = call ptr @__errno_location() #9
-  store i32 %23, ptr %24, align 4
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = call ptr @__errno_location() #9
+  store i32 %24, ptr %25, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2543, ptr noundef @__func__._fed_job_update_thread) #10
   unreachable
 
-25:                                               ; preds = %18
-  br label %26
+26:                                               ; preds = %19
+  br label %27
 
-26:                                               ; preds = %25
-  %27 = call i64 @time(ptr noundef null) #8
-  %28 = add nsw i64 %27, 2
-  %29 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
-  store i64 %28, ptr %29, align 8
-  br label %30
+27:                                               ; preds = %26
+  %28 = call i64 @time(ptr noundef null) #8
+  %29 = add nsw i64 %28, 2
+  %30 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
+  store i64 %29, ptr %30, align 8
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = call i32 @pthread_cond_timedwait(ptr noundef @job_update_cond, ptr noundef @job_update_mutex, ptr noundef %3)
-  store i32 %31, ptr %6, align 4
-  %32 = load i32, ptr %6, align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %41
+31:                                               ; preds = %27
+  %32 = call i32 @pthread_cond_timedwait(ptr noundef @job_update_cond, ptr noundef @job_update_mutex, ptr noundef %3)
+  store i32 %32, ptr %6, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  %36 = icmp ne i32 %35, 110
-  br i1 %36, label %37, label %41
+35:                                               ; preds = %31
+  %36 = load i32, ptr %6, align 4
+  %37 = icmp ne i32 %36, 110
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %6, align 4
-  %39 = call ptr @__errno_location() #9
-  store i32 %38, ptr %39, align 4
-  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2546, ptr noundef @__func__._fed_job_update_thread)
-  br label %41
-
-41:                                               ; preds = %37, %34, %30
+38:                                               ; preds = %35
+  %39 = load i32, ptr %6, align 4
+  %40 = call ptr @__errno_location() #9
+  store i32 %39, ptr %40, align 4
+  %41 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2546, ptr noundef @__func__._fed_job_update_thread)
   br label %42
 
-42:                                               ; preds = %41
+42:                                               ; preds = %38, %35, %31
   br label %43
 
 43:                                               ; preds = %42
-  %44 = call i32 @pthread_mutex_unlock(ptr noundef @job_update_mutex) #8
-  store i32 %44, ptr %7, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %50
+  br label %44
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %7, align 4
-  %49 = call ptr @__errno_location() #9
-  store i32 %48, ptr %49, align 4
+44:                                               ; preds = %43
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef @job_update_mutex) #8
+  store i32 %45, ptr %7, align 4
+  %46 = load i32, ptr %7, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %51
+
+48:                                               ; preds = %44
+  %49 = load i32, ptr %7, align 4
+  %50 = call ptr @__errno_location() #9
+  store i32 %49, ptr %50, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2547, ptr noundef @__func__._fed_job_update_thread) #10
   unreachable
 
-50:                                               ; preds = %43
-  br label %51
+51:                                               ; preds = %44
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %53 = icmp ne i64 %52, 0
-  br i1 %53, label %54, label %55
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %51
-  br label %65
+56:                                               ; preds = %52
+  br label %67
 
-55:                                               ; preds = %51
-  br label %56
+57:                                               ; preds = %52
+  br label %58
 
-56:                                               ; preds = %60, %55
-  %57 = load ptr, ptr @fed_job_update_list, align 8
-  %58 = call ptr @list_pop(ptr noundef %57)
-  store ptr %58, ptr %4, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %64
+58:                                               ; preds = %62, %57
+  %59 = load ptr, ptr @fed_job_update_list, align 8
+  %60 = call ptr @list_pop(ptr noundef %59)
+  store ptr %60, ptr %4, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %66
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %4, align 8
-  %62 = call i32 @_foreach_fed_job_update_info(ptr noundef %61)
+62:                                               ; preds = %58
   %63 = load ptr, ptr %4, align 8
-  call void @_destroy_fed_job_update_info(ptr noundef %63)
-  br label %56, !llvm.loop !39
+  %64 = call i32 @_foreach_fed_job_update_info(ptr noundef %63)
+  %65 = load ptr, ptr %4, align 8
+  call void @_destroy_fed_job_update_info(ptr noundef %65)
+  br label %58, !llvm.loop !39
 
-64:                                               ; preds = %56
+66:                                               ; preds = %58
   br label %13, !llvm.loop !40
 
-65:                                               ; preds = %54, %13
+67:                                               ; preds = %56, %13
   ret ptr null
 }
 
@@ -14106,121 +14156,123 @@ define internal ptr @_remote_dep_recv_thread(ptr noundef %0) #0 {
 12:                                               ; preds = %10, %1
   br label %13
 
-13:                                               ; preds = %69, %61, %12
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %15 = icmp ne i64 %14, 0
-  %16 = xor i1 %15, true
-  br i1 %16, label %17, label %70
+13:                                               ; preds = %71, %63, %12
+  %14 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ne i64 %15, 0
+  %17 = xor i1 %16, true
+  br i1 %17, label %18, label %72
 
-17:                                               ; preds = %13
-  br label %18
+18:                                               ; preds = %13
+  br label %19
 
-18:                                               ; preds = %17
-  %19 = call i32 @pthread_mutex_lock(ptr noundef @remote_dep_recv_mutex) #8
-  store i32 %19, ptr %5, align 4
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
+19:                                               ; preds = %18
+  %20 = call i32 @pthread_mutex_lock(ptr noundef @remote_dep_recv_mutex) #8
+  store i32 %20, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %18
-  %23 = load i32, ptr %5, align 4
-  %24 = call ptr @__errno_location() #9
-  store i32 %23, ptr %24, align 4
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = call ptr @__errno_location() #9
+  store i32 %24, ptr %25, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2510, ptr noundef @__func__._remote_dep_recv_thread) #10
   unreachable
 
-25:                                               ; preds = %18
-  br label %26
+26:                                               ; preds = %19
+  br label %27
 
-26:                                               ; preds = %25
-  %27 = call i64 @time(ptr noundef null) #8
-  %28 = add nsw i64 %27, 2
-  %29 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
-  store i64 %28, ptr %29, align 8
-  br label %30
+27:                                               ; preds = %26
+  %28 = call i64 @time(ptr noundef null) #8
+  %29 = add nsw i64 %28, 2
+  %30 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
+  store i64 %29, ptr %30, align 8
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = call i32 @pthread_cond_timedwait(ptr noundef @remote_dep_cond, ptr noundef @remote_dep_recv_mutex, ptr noundef %3)
-  store i32 %31, ptr %6, align 4
-  %32 = load i32, ptr %6, align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %41
+31:                                               ; preds = %27
+  %32 = call i32 @pthread_cond_timedwait(ptr noundef @remote_dep_cond, ptr noundef @remote_dep_recv_mutex, ptr noundef %3)
+  store i32 %32, ptr %6, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  %36 = icmp ne i32 %35, 110
-  br i1 %36, label %37, label %41
+35:                                               ; preds = %31
+  %36 = load i32, ptr %6, align 4
+  %37 = icmp ne i32 %36, 110
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %6, align 4
-  %39 = call ptr @__errno_location() #9
-  store i32 %38, ptr %39, align 4
-  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2513, ptr noundef @__func__._remote_dep_recv_thread)
-  br label %41
-
-41:                                               ; preds = %37, %34, %30
+38:                                               ; preds = %35
+  %39 = load i32, ptr %6, align 4
+  %40 = call ptr @__errno_location() #9
+  store i32 %39, ptr %40, align 4
+  %41 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2513, ptr noundef @__func__._remote_dep_recv_thread)
   br label %42
 
-42:                                               ; preds = %41
+42:                                               ; preds = %38, %35, %31
   br label %43
 
 43:                                               ; preds = %42
-  %44 = call i32 @pthread_mutex_unlock(ptr noundef @remote_dep_recv_mutex) #8
-  store i32 %44, ptr %7, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %50
+  br label %44
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %7, align 4
-  %49 = call ptr @__errno_location() #9
-  store i32 %48, ptr %49, align 4
+44:                                               ; preds = %43
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef @remote_dep_recv_mutex) #8
+  store i32 %45, ptr %7, align 4
+  %46 = load i32, ptr %7, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %51
+
+48:                                               ; preds = %44
+  %49 = load i32, ptr %7, align 4
+  %50 = call ptr @__errno_location() #9
+  store i32 %49, ptr %50, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2514, ptr noundef @__func__._remote_dep_recv_thread) #10
   unreachable
 
-50:                                               ; preds = %43
-  br label %51
+51:                                               ; preds = %44
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %53 = icmp ne i64 %52, 0
-  br i1 %53, label %54, label %55
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %51
-  br label %70
+56:                                               ; preds = %52
+  br label %72
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %61
+57:                                               ; preds = %52
+  %58 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %63
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %62, label %61
+60:                                               ; preds = %57
+  %61 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %64, label %63
 
-61:                                               ; preds = %58, %55
+63:                                               ; preds = %60, %57
   br label %13, !llvm.loop !41
 
-62:                                               ; preds = %58
-  br label %63
+64:                                               ; preds = %60
+  br label %65
 
-63:                                               ; preds = %67, %62
-  %64 = load ptr, ptr @remote_dep_recv_list, align 8
-  %65 = call ptr @list_pop(ptr noundef %64)
-  store ptr %65, ptr %4, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %69
+65:                                               ; preds = %69, %64
+  %66 = load ptr, ptr @remote_dep_recv_list, align 8
+  %67 = call ptr @list_pop(ptr noundef %66)
+  store ptr %67, ptr %4, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %71
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %4, align 8
-  call void @_handle_recv_remote_dep(ptr noundef %68)
-  br label %63, !llvm.loop !42
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %4, align 8
+  call void @_handle_recv_remote_dep(ptr noundef %70)
+  br label %65, !llvm.loop !42
 
-69:                                               ; preds = %63
+71:                                               ; preds = %65
   br label %13, !llvm.loop !41
 
-70:                                               ; preds = %54, %13
+72:                                               ; preds = %56, %13
   ret ptr null
 }
 
@@ -14249,112 +14301,113 @@ define internal ptr @_test_dep_job_thread(ptr noundef %0) #0 {
 14:                                               ; preds = %12, %1
   br label %15
 
-15:                                               ; preds = %67, %14
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %17 = icmp ne i64 %16, 0
-  %18 = xor i1 %17, true
-  br i1 %18, label %19, label %68
+15:                                               ; preds = %68, %14
+  %16 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ne i64 %17, 0
+  %19 = xor i1 %18, true
+  br i1 %19, label %20, label %69
 
-19:                                               ; preds = %15
-  %20 = call i64 @time(ptr noundef null) #8
-  store i64 %20, ptr %4, align 8
-  %21 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %33
+20:                                               ; preds = %15
+  %21 = call i64 @time(ptr noundef null) #8
+  store i64 %21, ptr %4, align 8
+  %22 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %34
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %34
 
-26:                                               ; preds = %23
-  %27 = load i64, ptr %4, align 8
-  %28 = load i64, ptr %3, align 8
-  %29 = sub nsw i64 %27, %28
-  %30 = icmp sgt i64 %29, 30
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %24
+  %28 = load i64, ptr %4, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = sub nsw i64 %28, %29
+  %31 = icmp sgt i64 %30, 30
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = load i64, ptr %4, align 8
-  store i64 %32, ptr %3, align 8
+32:                                               ; preds = %27
+  %33 = load i64, ptr %4, align 8
+  store i64 %33, ptr %3, align 8
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %6)
   call void @fed_mgr_test_remote_dependencies()
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %6)
-  br label %33
-
-33:                                               ; preds = %31, %26, %23, %19
   br label %34
 
-34:                                               ; preds = %33
-  %35 = call i32 @pthread_mutex_lock(ptr noundef @test_dep_mutex) #8
-  store i32 %35, ptr %7, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %41
+34:                                               ; preds = %32, %27, %24, %20
+  br label %35
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %7, align 4
-  %40 = call ptr @__errno_location() #9
-  store i32 %39, ptr %40, align 4
+35:                                               ; preds = %34
+  %36 = call i32 @pthread_mutex_lock(ptr noundef @test_dep_mutex) #8
+  store i32 %36, ptr %7, align 4
+  %37 = load i32, ptr %7, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = load i32, ptr %7, align 4
+  %41 = call ptr @__errno_location() #9
+  store i32 %40, ptr %41, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2458, ptr noundef @__func__._test_dep_job_thread) #10
   unreachable
 
-41:                                               ; preds = %34
-  br label %42
+42:                                               ; preds = %35
+  br label %43
 
-42:                                               ; preds = %41
-  %43 = load i64, ptr %4, align 8
-  %44 = add nsw i64 %43, 2
-  %45 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
-  store i64 %44, ptr %45, align 8
-  br label %46
+43:                                               ; preds = %42
+  %44 = load i64, ptr %4, align 8
+  %45 = add nsw i64 %44, 2
+  %46 = getelementptr inbounds %struct.timespec, ptr %5, i32 0, i32 0
+  store i64 %45, ptr %46, align 8
+  br label %47
 
-46:                                               ; preds = %42
-  %47 = call i32 @pthread_cond_timedwait(ptr noundef @test_dep_cond, ptr noundef @test_dep_mutex, ptr noundef %5)
-  store i32 %47, ptr %8, align 4
-  %48 = load i32, ptr %8, align 4
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %57
+47:                                               ; preds = %43
+  %48 = call i32 @pthread_cond_timedwait(ptr noundef @test_dep_cond, ptr noundef @test_dep_mutex, ptr noundef %5)
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %8, align 4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp ne i32 %51, 110
-  br i1 %52, label %53, label %57
+51:                                               ; preds = %47
+  %52 = load i32, ptr %8, align 4
+  %53 = icmp ne i32 %52, 110
+  br i1 %53, label %54, label %58
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %8, align 4
-  %55 = call ptr @__errno_location() #9
-  store i32 %54, ptr %55, align 4
-  %56 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2461, ptr noundef @__func__._test_dep_job_thread)
-  br label %57
-
-57:                                               ; preds = %53, %50, %46
+54:                                               ; preds = %51
+  %55 = load i32, ptr %8, align 4
+  %56 = call ptr @__errno_location() #9
+  store i32 %55, ptr %56, align 4
+  %57 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2461, ptr noundef @__func__._test_dep_job_thread)
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %54, %51, %47
   br label %59
 
 59:                                               ; preds = %58
-  %60 = call i32 @pthread_mutex_unlock(ptr noundef @test_dep_mutex) #8
-  store i32 %60, ptr %9, align 4
-  %61 = load i32, ptr %9, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %66
+  br label %60
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %9, align 4
-  %65 = call ptr @__errno_location() #9
-  store i32 %64, ptr %65, align 4
+60:                                               ; preds = %59
+  %61 = call i32 @pthread_mutex_unlock(ptr noundef @test_dep_mutex) #8
+  store i32 %61, ptr %9, align 4
+  %62 = load i32, ptr %9, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %67
+
+64:                                               ; preds = %60
+  %65 = load i32, ptr %9, align 4
+  %66 = call ptr @__errno_location() #9
+  store i32 %65, ptr %66, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2462, ptr noundef @__func__._test_dep_job_thread) #10
   unreachable
 
-66:                                               ; preds = %59
-  br label %67
+67:                                               ; preds = %60
+  br label %68
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   br label %15, !llvm.loop !43
 
-68:                                               ; preds = %15
+69:                                               ; preds = %15
   ret ptr null
 }
 
@@ -14378,107 +14431,109 @@ define internal ptr @_origin_dep_update_thread(ptr noundef %0) #0 {
 11:                                               ; preds = %9, %1
   br label %12
 
-12:                                               ; preds = %61, %60, %11
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %14 = icmp ne i64 %13, 0
-  %15 = xor i1 %14, true
-  br i1 %15, label %16, label %62
+12:                                               ; preds = %63, %62, %11
+  %13 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp ne i64 %14, 0
+  %16 = xor i1 %15, true
+  br i1 %16, label %17, label %64
 
-16:                                               ; preds = %12
-  br label %17
+17:                                               ; preds = %12
+  br label %18
 
-17:                                               ; preds = %16
-  %18 = call i32 @pthread_mutex_lock(ptr noundef @origin_dep_update_mutex) #8
-  store i32 %18, ptr %4, align 4
-  %19 = load i32, ptr %4, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %24
+18:                                               ; preds = %17
+  %19 = call i32 @pthread_mutex_lock(ptr noundef @origin_dep_update_mutex) #8
+  store i32 %19, ptr %4, align 4
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %17
-  %22 = load i32, ptr %4, align 4
-  %23 = call ptr @__errno_location() #9
-  store i32 %22, ptr %23, align 4
+22:                                               ; preds = %18
+  %23 = load i32, ptr %4, align 4
+  %24 = call ptr @__errno_location() #9
+  store i32 %23, ptr %24, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2479, ptr noundef @__func__._origin_dep_update_thread) #10
   unreachable
 
-24:                                               ; preds = %17
-  br label %25
+25:                                               ; preds = %18
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = call i64 @time(ptr noundef null) #8
-  %27 = add nsw i64 %26, 2
-  %28 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
-  store i64 %27, ptr %28, align 8
-  br label %29
+26:                                               ; preds = %25
+  %27 = call i64 @time(ptr noundef null) #8
+  %28 = add nsw i64 %27, 2
+  %29 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
+  store i64 %28, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = call i32 @pthread_cond_timedwait(ptr noundef @origin_dep_cond, ptr noundef @origin_dep_update_mutex, ptr noundef %3)
-  store i32 %30, ptr %5, align 4
-  %31 = load i32, ptr %5, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %40
+30:                                               ; preds = %26
+  %31 = call i32 @pthread_cond_timedwait(ptr noundef @origin_dep_cond, ptr noundef @origin_dep_update_mutex, ptr noundef %3)
+  store i32 %31, ptr %5, align 4
+  %32 = load i32, ptr %5, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %41
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %5, align 4
-  %35 = icmp ne i32 %34, 110
-  br i1 %35, label %36, label %40
+34:                                               ; preds = %30
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp ne i32 %35, 110
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %5, align 4
-  %38 = call ptr @__errno_location() #9
-  store i32 %37, ptr %38, align 4
-  %39 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2482, ptr noundef @__func__._origin_dep_update_thread)
-  br label %40
-
-40:                                               ; preds = %36, %33, %29
+37:                                               ; preds = %34
+  %38 = load i32, ptr %5, align 4
+  %39 = call ptr @__errno_location() #9
+  store i32 %38, ptr %39, align 4
+  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 2482, ptr noundef @__func__._origin_dep_update_thread)
   br label %41
 
-41:                                               ; preds = %40
+41:                                               ; preds = %37, %34, %30
   br label %42
 
 42:                                               ; preds = %41
-  %43 = call i32 @pthread_mutex_unlock(ptr noundef @origin_dep_update_mutex) #8
-  store i32 %43, ptr %6, align 4
-  %44 = load i32, ptr %6, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %49
+  br label %43
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %6, align 4
-  %48 = call ptr @__errno_location() #9
-  store i32 %47, ptr %48, align 4
+43:                                               ; preds = %42
+  %44 = call i32 @pthread_mutex_unlock(ptr noundef @origin_dep_update_mutex) #8
+  store i32 %44, ptr %6, align 4
+  %45 = load i32, ptr %6, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %43
+  %48 = load i32, ptr %6, align 4
+  %49 = call ptr @__errno_location() #9
+  store i32 %48, ptr %49, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2483, ptr noundef @__func__._origin_dep_update_thread) #10
   unreachable
 
-49:                                               ; preds = %42
-  br label %50
+50:                                               ; preds = %43
+  br label %51
 
-50:                                               ; preds = %49
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %52 = icmp ne i64 %51, 0
-  br i1 %52, label %53, label %54
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %53 = load i64, ptr %52, align 8
+  %54 = icmp ne i64 %53, 0
+  br i1 %54, label %55, label %56
 
-53:                                               ; preds = %50
-  br label %62
+55:                                               ; preds = %51
+  br label %64
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %60
+56:                                               ; preds = %51
+  %57 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %62
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %61, label %60
+59:                                               ; preds = %56
+  %60 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %63, label %62
 
-60:                                               ; preds = %57, %54
+62:                                               ; preds = %59, %56
   br label %12, !llvm.loop !44
 
-61:                                               ; preds = %57
+63:                                               ; preds = %59
   call void @_handle_dep_update_origin_msgs()
   br label %12, !llvm.loop !44
 
-62:                                               ; preds = %53, %12
+64:                                               ; preds = %55, %12
   ret ptr null
 }
 
@@ -14706,434 +14761,441 @@ define internal i32 @_open_controller_conn(ptr noundef %0, i1 noundef zeroext %1
   store ptr null, ptr %7, align 8
   %12 = load i32, ptr @_open_controller_conn.timeout, align 4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %18
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %2
-  %15 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105), align 8
-  %16 = zext i16 %15 to i32
-  %17 = mul nsw i32 %16, 1000
-  store i32 %17, ptr @_open_controller_conn.timeout, align 4
-  br label %18
+  %15 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105
+  %16 = load i16, ptr %15, align 8
+  %17 = zext i16 %16 to i32
+  %18 = mul nsw i32 %17, 1000
+  store i32 %18, ptr @_open_controller_conn.timeout, align 4
+  br label %19
 
-18:                                               ; preds = %14, %2
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %31
+19:                                               ; preds = %14, %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %18
-  br label %23
-
-23:                                               ; preds = %22
+23:                                               ; preds = %19
   br label %24
 
 24:                                               ; preds = %23
-  %25 = call i32 @get_log_level()
-  %26 = icmp sge i32 %25, 3
-  br i1 %26, label %27, label %28
+  br label %25
 
-27:                                               ; preds = %24
+25:                                               ; preds = %24
+  %26 = call i32 @get_log_level()
+  %27 = icmp sge i32 %26, 3
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %25
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.101, ptr noundef @__func__._open_controller_conn)
-  br label %28
-
-28:                                               ; preds = %27, %24
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %28, %25
   br label %30
 
 30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
   store i32 -1, ptr %3, align 4
-  br label %266
+  br label %273
 
-31:                                               ; preds = %18
-  %32 = load i8, ptr %5, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %46, label %34
+32:                                               ; preds = %19
+  %33 = load i8, ptr %5, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %47, label %35
 
-34:                                               ; preds = %31
-  br label %35
+35:                                               ; preds = %32
+  br label %36
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %36, i32 0, i32 10
-  %38 = call i32 @pthread_mutex_lock(ptr noundef %37) #8
-  store i32 %38, ptr %8, align 4
-  %39 = load i32, ptr %8, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %44
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %37, i32 0, i32 10
+  %39 = call i32 @pthread_mutex_lock(ptr noundef %38) #8
+  store i32 %39, ptr %8, align 4
+  %40 = load i32, ptr %8, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %35
-  %42 = load i32, ptr %8, align 4
-  %43 = call ptr @__errno_location() #9
-  store i32 %42, ptr %43, align 4
+42:                                               ; preds = %36
+  %43 = load i32, ptr %8, align 4
+  %44 = call ptr @__errno_location() #9
+  store i32 %43, ptr %44, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 321, ptr noundef @__func__._open_controller_conn) #10
   unreachable
 
-44:                                               ; preds = %35
-  br label %45
-
-45:                                               ; preds = %44
+45:                                               ; preds = %36
   br label %46
 
-46:                                               ; preds = %45, %31
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %47, i32 0, i32 4
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %63
+46:                                               ; preds = %45
+  br label %47
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %52, i32 0, i32 4
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 0
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp ne i8 %56, 0
-  br i1 %57, label %58, label %63
+47:                                               ; preds = %46, %32
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %48, i32 0, i32 4
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %64
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %59, i32 0, i32 5
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %121, label %63
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp ne i8 %57, 0
+  br i1 %58, label %59, label %64
 
-63:                                               ; preds = %58, %51, %46
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %64, i32 0, i32 8
-  %66 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %69, label %88
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %60, i32 0, i32 5
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %123, label %64
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %70, i32 0, i32 8
-  %72 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %71, i32 0, i32 3
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %7, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %74, i32 0, i32 15
-  %76 = load i16, ptr %75, align 8
-  %77 = zext i16 %76 to i32
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %78, i32 0, i32 5
-  store i32 %77, ptr %79, align 8
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %80, i32 0, i32 4
-  call void @slurm_xfree(ptr noundef %81)
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %82, i32 0, i32 14
-  %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @xstrdup(ptr noundef %84)
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %86, i32 0, i32 4
-  store ptr %85, ptr %87, align 8
-  br label %120
+64:                                               ; preds = %59, %52, %47
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %65, i32 0, i32 8
+  %67 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %89
 
-88:                                               ; preds = %63
-  br label %89
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %71, i32 0, i32 8
+  %73 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %72, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %7, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %75, i32 0, i32 15
+  %77 = load i16, ptr %76, align 8
+  %78 = zext i16 %77 to i32
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %79, i32 0, i32 5
+  store i32 %78, ptr %80, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %81, i32 0, i32 4
+  call void @slurm_xfree(ptr noundef %82)
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %83, i32 0, i32 14
+  %85 = load ptr, ptr %84, align 8
+  %86 = call ptr @xstrdup(ptr noundef %85)
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %87, i32 0, i32 4
+  store ptr %86, ptr %88, align 8
+  br label %122
 
-89:                                               ; preds = %88
-  %90 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %91 = and i64 %90, 281474976710656
-  %92 = icmp ne i64 %91, 0
-  br i1 %92, label %93, label %103
+89:                                               ; preds = %64
+  br label %90
 
-93:                                               ; preds = %89
-  br label %94
+90:                                               ; preds = %89
+  %91 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %92, 281474976710656
+  %94 = icmp ne i64 %93, 0
+  br i1 %94, label %95, label %105
 
-94:                                               ; preds = %93
-  %95 = call i32 @get_log_level()
-  %96 = icmp sge i32 %95, 4
-  br i1 %96, label %97, label %101
+95:                                               ; preds = %90
+  br label %96
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %98, i32 0, i32 11
-  %100 = load ptr, ptr %99, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.102, ptr noundef @__func__._open_controller_conn, ptr noundef %100)
-  br label %101
+96:                                               ; preds = %95
+  %97 = call i32 @get_log_level()
+  %98 = icmp sge i32 %97, 4
+  br i1 %98, label %99, label %103
 
-101:                                              ; preds = %97, %94
-  br label %102
-
-102:                                              ; preds = %101
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %4, align 8
+  %101 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %100, i32 0, i32 11
+  %102 = load ptr, ptr %101, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.102, ptr noundef @__func__._open_controller_conn, ptr noundef %102)
   br label %103
 
-103:                                              ; preds = %102, %89
+103:                                              ; preds = %99, %96
   br label %104
 
 104:                                              ; preds = %103
-  %105 = load i8, ptr %5, align 1
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %119, label %107
+  br label %105
 
-107:                                              ; preds = %104
-  br label %108
+105:                                              ; preds = %104, %90
+  br label %106
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %109, i32 0, i32 10
-  %111 = call i32 @pthread_mutex_unlock(ptr noundef %110) #8
-  store i32 %111, ptr %9, align 4
-  %112 = load i32, ptr %9, align 4
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %114, label %117
+106:                                              ; preds = %105
+  %107 = load i8, ptr %5, align 1
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-114:                                              ; preds = %108
-  %115 = load i32, ptr %9, align 4
-  %116 = call ptr @__errno_location() #9
-  store i32 %115, ptr %116, align 4
+109:                                              ; preds = %106
+  br label %110
+
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %111, i32 0, i32 10
+  %113 = call i32 @pthread_mutex_unlock(ptr noundef %112) #8
+  store i32 %113, ptr %9, align 4
+  %114 = load i32, ptr %9, align 4
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %119
+
+116:                                              ; preds = %110
+  %117 = load i32, ptr %9, align 4
+  %118 = call ptr @__errno_location() #9
+  store i32 %117, ptr %118, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 334, ptr noundef @__func__._open_controller_conn) #10
   unreachable
 
-117:                                              ; preds = %108
-  br label %118
+119:                                              ; preds = %110
+  br label %120
 
-118:                                              ; preds = %117
-  br label %119
-
-119:                                              ; preds = %118, %104
-  store i32 -1, ptr %3, align 4
-  br label %266
-
-120:                                              ; preds = %69
+120:                                              ; preds = %119
   br label %121
 
-121:                                              ; preds = %120, %58
-  br label %122
+121:                                              ; preds = %120, %106
+  store i32 -1, ptr %3, align 4
+  br label %273
 
-122:                                              ; preds = %121
-  %123 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %124 = and i64 %123, 281474976710656
-  %125 = icmp ne i64 %124, 0
-  br i1 %125, label %126, label %142
+122:                                              ; preds = %70
+  br label %123
 
-126:                                              ; preds = %122
-  br label %127
+123:                                              ; preds = %122, %59
+  br label %124
 
-127:                                              ; preds = %126
-  %128 = call i32 @get_log_level()
-  %129 = icmp sge i32 %128, 4
-  br i1 %129, label %130, label %140
+124:                                              ; preds = %123
+  %125 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %126 = load i64, ptr %125, align 8
+  %127 = and i64 %126, 281474976710656
+  %128 = icmp ne i64 %127, 0
+  br i1 %128, label %129, label %145
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %4, align 8
-  %132 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %131, i32 0, i32 11
-  %133 = load ptr, ptr %132, align 8
+129:                                              ; preds = %124
+  br label %130
+
+130:                                              ; preds = %129
+  %131 = call i32 @get_log_level()
+  %132 = icmp sge i32 %131, 4
+  br i1 %132, label %133, label %143
+
+133:                                              ; preds = %130
   %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %134, i32 0, i32 4
+  %135 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %134, i32 0, i32 11
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %4, align 8
-  %138 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %137, i32 0, i32 5
-  %139 = load i32, ptr %138, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.103, ptr noundef %133, ptr noundef %136, i32 noundef %139)
-  br label %140
-
-140:                                              ; preds = %130, %127
-  br label %141
-
-141:                                              ; preds = %140
-  br label %142
-
-142:                                              ; preds = %141, %122
+  %138 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %137, i32 0, i32 4
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %4, align 8
+  %141 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %140, i32 0, i32 5
+  %142 = load i32, ptr %141, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.103, ptr noundef %136, ptr noundef %139, i32 noundef %142)
   br label %143
 
-143:                                              ; preds = %142
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %144, i32 0, i32 8
-  %146 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %145, i32 0, i32 4
-  %147 = load ptr, ptr %146, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %187, label %149
+143:                                              ; preds = %133, %130
+  br label %144
 
-149:                                              ; preds = %143
-  %150 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 343, ptr noundef @__func__._open_controller_conn)
-  store ptr %150, ptr %7, align 8
-  %151 = load ptr, ptr %7, align 8
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %152, i32 0, i32 8
-  %154 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %153, i32 0, i32 4
-  store ptr %151, ptr %154, align 8
-  %155 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %156 = call ptr @xstrdup(ptr noundef %155)
-  %157 = load ptr, ptr %7, align 8
-  %158 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %157, i32 0, i32 6
-  store ptr %156, ptr %158, align 8
-  %159 = load ptr, ptr %7, align 8
-  %160 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %159, i32 0, i32 12
-  store i32 2, ptr %160, align 4
-  %161 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 177), align 8
-  %162 = trunc i32 %161 to i16
+144:                                              ; preds = %143
+  br label %145
+
+145:                                              ; preds = %144, %124
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %147, i32 0, i32 8
+  %149 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %148, i32 0, i32 4
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp ne ptr %150, null
+  br i1 %151, label %193, label %152
+
+152:                                              ; preds = %146
+  %153 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 343, ptr noundef @__func__._open_controller_conn)
+  store ptr %153, ptr %7, align 8
+  %154 = load ptr, ptr %7, align 8
+  %155 = load ptr, ptr %4, align 8
+  %156 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %155, i32 0, i32 8
+  %157 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %156, i32 0, i32 4
+  store ptr %154, ptr %157, align 8
+  %158 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %159 = load ptr, ptr %158, align 8
+  %160 = call ptr @xstrdup(ptr noundef %159)
+  %161 = load ptr, ptr %7, align 8
+  %162 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %161, i32 0, i32 6
+  store ptr %160, ptr %162, align 8
   %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %163, i32 0, i32 8
-  store i16 %162, ptr %164, align 8
-  %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %165, i32 0, i32 4
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @xstrdup(ptr noundef %167)
-  %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %169, i32 0, i32 14
-  store ptr %168, ptr %170, align 8
-  %171 = load ptr, ptr %4, align 8
-  %172 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %171, i32 0, i32 5
-  %173 = load i32, ptr %172, align 8
-  %174 = trunc i32 %173 to i16
-  %175 = load ptr, ptr %7, align 8
-  %176 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %175, i32 0, i32 15
-  store i16 %174, ptr %176, align 8
-  %177 = load ptr, ptr %4, align 8
-  %178 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %177, i32 0, i32 14
-  %179 = load i16, ptr %178, align 8
+  %164 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %163, i32 0, i32 12
+  store i32 2, ptr %164, align 4
+  %165 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 177
+  %166 = load i32, ptr %165, align 8
+  %167 = trunc i32 %166 to i16
+  %168 = load ptr, ptr %7, align 8
+  %169 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %168, i32 0, i32 8
+  store i16 %167, ptr %169, align 8
+  %170 = load ptr, ptr %4, align 8
+  %171 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %170, i32 0, i32 4
+  %172 = load ptr, ptr %171, align 8
+  %173 = call ptr @xstrdup(ptr noundef %172)
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %174, i32 0, i32 14
+  store ptr %173, ptr %175, align 8
+  %176 = load ptr, ptr %4, align 8
+  %177 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %176, i32 0, i32 5
+  %178 = load i32, ptr %177, align 8
+  %179 = trunc i32 %178 to i16
   %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %180, i32 0, i32 20
+  %181 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %180, i32 0, i32 15
   store i16 %179, ptr %181, align 8
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %182, i32 0, i32 16
-  store ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), ptr %183, align 8
-  %184 = load i32, ptr @_open_controller_conn.timeout, align 4
+  %182 = load ptr, ptr %4, align 8
+  %183 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %182, i32 0, i32 14
+  %184 = load i16, ptr %183, align 8
   %185 = load ptr, ptr %7, align 8
-  %186 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %185, i32 0, i32 18
-  store i32 %184, ptr %186, align 8
-  br label %206
+  %186 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %185, i32 0, i32 20
+  store i16 %184, ptr %186, align 8
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %187, i32 0, i32 16
+  %189 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  store ptr %189, ptr %188, align 8
+  %190 = load i32, ptr @_open_controller_conn.timeout, align 4
+  %191 = load ptr, ptr %7, align 8
+  %192 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %191, i32 0, i32 18
+  store i32 %190, ptr %192, align 8
+  br label %212
 
-187:                                              ; preds = %143
-  %188 = load ptr, ptr %4, align 8
-  %189 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %188, i32 0, i32 8
-  %190 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %189, i32 0, i32 4
-  %191 = load ptr, ptr %190, align 8
-  store ptr %191, ptr %7, align 8
-  %192 = load ptr, ptr %7, align 8
-  %193 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %192, i32 0, i32 14
-  call void @slurm_xfree(ptr noundef %193)
+193:                                              ; preds = %146
   %194 = load ptr, ptr %4, align 8
-  %195 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %194, i32 0, i32 4
-  %196 = load ptr, ptr %195, align 8
-  %197 = call ptr @xstrdup(ptr noundef %196)
+  %195 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %194, i32 0, i32 8
+  %196 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %195, i32 0, i32 4
+  %197 = load ptr, ptr %196, align 8
+  store ptr %197, ptr %7, align 8
   %198 = load ptr, ptr %7, align 8
   %199 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %198, i32 0, i32 14
-  store ptr %197, ptr %199, align 8
+  call void @slurm_xfree(ptr noundef %199)
   %200 = load ptr, ptr %4, align 8
-  %201 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %200, i32 0, i32 5
-  %202 = load i32, ptr %201, align 8
-  %203 = trunc i32 %202 to i16
+  %201 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %200, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8
+  %203 = call ptr @xstrdup(ptr noundef %202)
   %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %204, i32 0, i32 15
-  store i16 %203, ptr %205, align 8
-  br label %206
+  %205 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %204, i32 0, i32 14
+  store ptr %203, ptr %205, align 8
+  %206 = load ptr, ptr %4, align 8
+  %207 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %206, i32 0, i32 5
+  %208 = load i32, ptr %207, align 8
+  %209 = trunc i32 %208 to i16
+  %210 = load ptr, ptr %7, align 8
+  %211 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %210, i32 0, i32 15
+  store i16 %209, ptr %211, align 8
+  br label %212
 
-206:                                              ; preds = %187, %149
-  %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %207, i32 0, i32 13
-  store i32 -1, ptr %208, align 8
-  %209 = load ptr, ptr %7, align 8
-  %210 = call i32 @slurm_persist_conn_open(ptr noundef %209)
-  store i32 %210, ptr %6, align 4
-  %211 = load i32, ptr %6, align 4
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %229
+212:                                              ; preds = %193, %152
+  %213 = load ptr, ptr %7, align 8
+  %214 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %213, i32 0, i32 13
+  store i32 -1, ptr %214, align 8
+  %215 = load ptr, ptr %7, align 8
+  %216 = call i32 @slurm_persist_conn_open(ptr noundef %215)
+  store i32 %216, ptr %6, align 4
+  %217 = load i32, ptr %6, align 4
+  %218 = icmp ne i32 %217, 0
+  br i1 %218, label %219, label %235
 
-213:                                              ; preds = %206
-  %214 = load ptr, ptr %4, align 8
-  %215 = call zeroext i1 @_comm_fail_log(ptr noundef %214)
-  br i1 %215, label %216, label %228
+219:                                              ; preds = %212
+  %220 = load ptr, ptr %4, align 8
+  %221 = call zeroext i1 @_comm_fail_log(ptr noundef %220)
+  br i1 %221, label %222, label %234
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %4, align 8
-  %218 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %217, i32 0, i32 11
-  %219 = load ptr, ptr %218, align 8
-  %220 = load ptr, ptr %7, align 8
-  %221 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %220, i32 0, i32 14
-  %222 = load ptr, ptr %221, align 8
-  %223 = load ptr, ptr %7, align 8
-  %224 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %223, i32 0, i32 15
-  %225 = load i16, ptr %224, align 8
-  %226 = zext i16 %225 to i32
-  %227 = call i32 (ptr, ...) @error(ptr noundef @.str.104, ptr noundef %219, ptr noundef %222, i32 noundef %226)
-  br label %228
+222:                                              ; preds = %219
+  %223 = load ptr, ptr %4, align 8
+  %224 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %223, i32 0, i32 11
+  %225 = load ptr, ptr %224, align 8
+  %226 = load ptr, ptr %7, align 8
+  %227 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %226, i32 0, i32 14
+  %228 = load ptr, ptr %227, align 8
+  %229 = load ptr, ptr %7, align 8
+  %230 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %229, i32 0, i32 15
+  %231 = load i16, ptr %230, align 8
+  %232 = zext i16 %231 to i32
+  %233 = call i32 (ptr, ...) @error(ptr noundef @.str.104, ptr noundef %225, ptr noundef %228, i32 noundef %232)
+  br label %234
 
-228:                                              ; preds = %216, %213
-  br label %249
+234:                                              ; preds = %222, %219
+  br label %256
 
-229:                                              ; preds = %206
-  br label %230
+235:                                              ; preds = %212
+  br label %236
 
-230:                                              ; preds = %229
-  %231 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %232 = and i64 %231, 281474976710656
-  %233 = icmp ne i64 %232, 0
-  br i1 %233, label %234, label %247
+236:                                              ; preds = %235
+  %237 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %238 = load i64, ptr %237, align 8
+  %239 = and i64 %238, 281474976710656
+  %240 = icmp ne i64 %239, 0
+  br i1 %240, label %241, label %254
 
-234:                                              ; preds = %230
-  br label %235
+241:                                              ; preds = %236
+  br label %242
 
-235:                                              ; preds = %234
-  %236 = call i32 @get_log_level()
-  %237 = icmp sge i32 %236, 4
-  br i1 %237, label %238, label %245
+242:                                              ; preds = %241
+  %243 = call i32 @get_log_level()
+  %244 = icmp sge i32 %243, 4
+  br i1 %244, label %245, label %252
 
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %4, align 8
-  %240 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %239, i32 0, i32 11
-  %241 = load ptr, ptr %240, align 8
-  %242 = load ptr, ptr %7, align 8
-  %243 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %242, i32 0, i32 9
-  %244 = load i32, ptr %243, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.105, ptr noundef %241, i32 noundef %244)
-  br label %245
+245:                                              ; preds = %242
+  %246 = load ptr, ptr %4, align 8
+  %247 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %246, i32 0, i32 11
+  %248 = load ptr, ptr %247, align 8
+  %249 = load ptr, ptr %7, align 8
+  %250 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %249, i32 0, i32 9
+  %251 = load i32, ptr %250, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.105, ptr noundef %248, i32 noundef %251)
+  br label %252
 
-245:                                              ; preds = %238, %235
-  br label %246
-
-246:                                              ; preds = %245
-  br label %247
-
-247:                                              ; preds = %246, %230
-  br label %248
-
-248:                                              ; preds = %247
-  br label %249
-
-249:                                              ; preds = %248, %228
-  %250 = load i8, ptr %5, align 1
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %264, label %252
-
-252:                                              ; preds = %249
+252:                                              ; preds = %245, %242
   br label %253
 
 253:                                              ; preds = %252
-  %254 = load ptr, ptr %4, align 8
-  %255 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %254, i32 0, i32 10
-  %256 = call i32 @pthread_mutex_unlock(ptr noundef %255) #8
-  store i32 %256, ptr %10, align 4
-  %257 = load i32, ptr %10, align 4
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %259, label %262
+  br label %254
 
-259:                                              ; preds = %253
-  %260 = load i32, ptr %10, align 4
-  %261 = call ptr @__errno_location() #9
-  store i32 %260, ptr %261, align 4
+254:                                              ; preds = %253, %236
+  br label %255
+
+255:                                              ; preds = %254
+  br label %256
+
+256:                                              ; preds = %255, %234
+  %257 = load i8, ptr %5, align 1
+  %258 = trunc i8 %257 to i1
+  br i1 %258, label %271, label %259
+
+259:                                              ; preds = %256
+  br label %260
+
+260:                                              ; preds = %259
+  %261 = load ptr, ptr %4, align 8
+  %262 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %261, i32 0, i32 10
+  %263 = call i32 @pthread_mutex_unlock(ptr noundef %262) #8
+  store i32 %263, ptr %10, align 4
+  %264 = load i32, ptr %10, align 4
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %266, label %269
+
+266:                                              ; preds = %260
+  %267 = load i32, ptr %10, align 4
+  %268 = call ptr @__errno_location() #9
+  store i32 %267, ptr %268, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 383, ptr noundef @__func__._open_controller_conn) #10
   unreachable
 
-262:                                              ; preds = %253
-  br label %263
+269:                                              ; preds = %260
+  br label %270
 
-263:                                              ; preds = %262
-  br label %264
+270:                                              ; preds = %269
+  br label %271
 
-264:                                              ; preds = %263, %249
-  %265 = load i32, ptr %6, align 4
-  store i32 %265, ptr %3, align 4
-  br label %266
+271:                                              ; preds = %270, %256
+  %272 = load i32, ptr %6, align 4
+  store i32 %272, ptr %3, align 4
+  br label %273
 
-266:                                              ; preds = %264, %119, %30
-  %267 = load i32, ptr %3, align 4
-  ret i32 %267
+273:                                              ; preds = %271, %121, %31
+  %274 = load i32, ptr %3, align 4
+  ret i32 %274
 }
 
 declare i32 @slurm_persist_conn_open(ptr noundef) #1
@@ -15170,130 +15232,131 @@ define internal i32 @_foreach_fed_job_update_info(ptr noundef %0) #0 {
 
 14:                                               ; preds = %13
   store i32 0, ptr %2, align 4
-  br label %70
+  br label %71
 
 15:                                               ; preds = %1
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %18 = and i64 %17, 281474976710656
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %34
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 281474976710656
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %35
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %16
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @get_log_level()
-  %23 = icmp sge i32 %22, 4
-  br i1 %23, label %24, label %32
+22:                                               ; preds = %21
+  %23 = call i32 @get_log_level()
+  %24 = icmp sge i32 %23, 4
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %25, i32 0, i32 2
-  %27 = load i32, ptr %26, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %28, i32 0, i32 15
-  %30 = load i32, ptr %29, align 4
-  %31 = call ptr @_job_update_type_str(i32 noundef %30)
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.108, ptr noundef @__func__._foreach_fed_job_update_info, i32 noundef %27, ptr noundef %31)
-  br label %32
-
-32:                                               ; preds = %24, %21
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %29, i32 0, i32 15
+  %31 = load i32, ptr %30, align 4
+  %32 = call ptr @_job_update_type_str(i32 noundef %31)
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.108, ptr noundef @__func__._foreach_fed_job_update_info, i32 noundef %28, ptr noundef %32)
   br label %33
 
-33:                                               ; preds = %32
+33:                                               ; preds = %25, %22
   br label %34
 
-34:                                               ; preds = %33, %16
+34:                                               ; preds = %33
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %36, i32 0, i32 15
-  %38 = load i32, ptr %37, align 4
-  switch i32 %38, label %61 [
-    i32 2, label %39
-    i32 1, label %41
-    i32 3, label %43
-    i32 4, label %45
-    i32 5, label %47
-    i32 6, label %49
-    i32 7, label %49
-    i32 9, label %51
-    i32 10, label %54
-    i32 11, label %56
-    i32 12, label %58
+35:                                               ; preds = %34, %16
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %37, i32 0, i32 15
+  %39 = load i32, ptr %38, align 4
+  switch i32 %39, label %62 [
+    i32 2, label %40
+    i32 1, label %42
+    i32 3, label %44
+    i32 4, label %46
+    i32 5, label %48
+    i32 6, label %50
+    i32 7, label %50
+    i32 9, label %52
+    i32 10, label %55
+    i32 11, label %57
+    i32 12, label %59
   ]
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_complete(ptr noundef %40)
-  br label %69
-
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_cancel(ptr noundef %42)
-  br label %69
-
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_remove_active_sib_bit(ptr noundef %44)
-  br label %69
-
-45:                                               ; preds = %35
-  %46 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_requeue(ptr noundef %46)
-  br label %69
-
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_start(ptr noundef %48)
-  br label %69
-
-49:                                               ; preds = %35, %35
-  %50 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_submission(ptr noundef %50)
-  br label %69
-
-51:                                               ; preds = %35
-  %52 = load ptr, ptr %3, align 8
-  %53 = call i32 @_handle_fed_job_sync(ptr noundef %52)
-  br label %69
-
-54:                                               ; preds = %35
-  %55 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_update(ptr noundef %55)
-  br label %69
-
-56:                                               ; preds = %35
-  %57 = load ptr, ptr %3, align 8
-  call void @_handle_fed_job_update_response(ptr noundef %57)
-  br label %69
-
-58:                                               ; preds = %35
-  %59 = load ptr, ptr %3, align 8
-  %60 = call i32 @_handle_fed_send_job_sync(ptr noundef %59)
-  br label %69
-
-61:                                               ; preds = %35
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %62, i32 0, i32 15
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %65, i32 0, i32 2
-  %67 = load i32, ptr %66, align 8
-  %68 = call i32 (ptr, ...) @error(ptr noundef @.str.109, i32 noundef %64, i32 noundef %67)
-  br label %69
-
-69:                                               ; preds = %61, %58, %56, %54, %51, %49, %47, %45, %43, %41, %39
-  store i32 0, ptr %2, align 4
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_complete(ptr noundef %41)
   br label %70
 
-70:                                               ; preds = %69, %14
-  %71 = load i32, ptr %2, align 4
-  ret i32 %71
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_cancel(ptr noundef %43)
+  br label %70
+
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_remove_active_sib_bit(ptr noundef %45)
+  br label %70
+
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_requeue(ptr noundef %47)
+  br label %70
+
+48:                                               ; preds = %36
+  %49 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_start(ptr noundef %49)
+  br label %70
+
+50:                                               ; preds = %36, %36
+  %51 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_submission(ptr noundef %51)
+  br label %70
+
+52:                                               ; preds = %36
+  %53 = load ptr, ptr %3, align 8
+  %54 = call i32 @_handle_fed_job_sync(ptr noundef %53)
+  br label %70
+
+55:                                               ; preds = %36
+  %56 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_update(ptr noundef %56)
+  br label %70
+
+57:                                               ; preds = %36
+  %58 = load ptr, ptr %3, align 8
+  call void @_handle_fed_job_update_response(ptr noundef %58)
+  br label %70
+
+59:                                               ; preds = %36
+  %60 = load ptr, ptr %3, align 8
+  %61 = call i32 @_handle_fed_send_job_sync(ptr noundef %60)
+  br label %70
+
+62:                                               ; preds = %36
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %63, i32 0, i32 15
+  %65 = load i32, ptr %64, align 4
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %66, i32 0, i32 2
+  %68 = load i32, ptr %67, align 8
+  %69 = call i32 (ptr, ...) @error(ptr noundef @.str.109, i32 noundef %65, i32 noundef %68)
+  br label %70
+
+70:                                               ; preds = %62, %59, %57, %55, %52, %50, %48, %46, %44, %42, %40
+  store i32 0, ptr %2, align 4
+  br label %71
+
+71:                                               ; preds = %70, %14
+  %72 = load i32, ptr %2, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15320,7 +15383,7 @@ define internal void @_handle_fed_job_complete(ptr noundef %0) #0 {
   %15 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %14, i32 0, i32 2
   %16 = load i32, ptr %15, align 8
   %17 = call i32 (ptr, ...) @error(ptr noundef @.str.110, ptr noundef @__func__._handle_fed_job_complete, i32 noundef %16)
-  br label %93
+  br label %94
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr %3, align 8
@@ -15352,7 +15415,7 @@ define internal void @_handle_fed_job_complete(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %31
-  br label %92
+  br label %93
 
 33:                                               ; preds = %18
   %34 = load ptr, ptr %3, align 8
@@ -15360,7 +15423,7 @@ define internal void @_handle_fed_job_complete(ptr noundef %0) #0 {
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 255
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %80
+  br i1 %38, label %39, label %81
 
 39:                                               ; preds = %33
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 96, i1 false)
@@ -15399,61 +15462,62 @@ define internal void @_handle_fed_job_complete(ptr noundef %0) #0 {
   br label %62
 
 62:                                               ; preds = %39
-  %63 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %64 = and i64 %63, 281474976710656
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %74
+  %63 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 281474976710656
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %75
 
-66:                                               ; preds = %62
-  br label %67
+67:                                               ; preds = %62
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = call i32 @get_log_level()
-  %69 = icmp sge i32 %68, 4
-  br i1 %69, label %70, label %72
+68:                                               ; preds = %67
+  %69 = call i32 @get_log_level()
+  %70 = icmp sge i32 %69, 4
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.112, ptr noundef @__func__._handle_fed_job_complete, ptr noundef %71)
-  br label %72
-
-72:                                               ; preds = %70, %67
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.112, ptr noundef @__func__._handle_fed_job_complete, ptr noundef %72)
   br label %73
 
-73:                                               ; preds = %72
+73:                                               ; preds = %71, %68
   br label %74
 
-74:                                               ; preds = %73, %62
+74:                                               ; preds = %73
   br label %75
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %76, i32 0, i32 16
-  %78 = load i32, ptr %77, align 8
-  %79 = call i32 @_q_sib_job_cancel(ptr noundef %5, i32 noundef %78)
-  br label %91
+75:                                               ; preds = %74, %62
+  br label %76
 
-80:                                               ; preds = %33
-  %81 = load ptr, ptr %3, align 8
-  %82 = load ptr, ptr %2, align 8
-  %83 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %82, i32 0, i32 4
-  %84 = load i32, ptr %83, align 8
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %85, i32 0, i32 7
-  %87 = load i32, ptr %86, align 4
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %88, i32 0, i32 11
-  %90 = load i64, ptr %89, align 8
-  call void @_do_fed_job_complete(ptr noundef %81, i32 noundef %84, i32 noundef %87, i64 noundef %90)
-  br label %91
-
-91:                                               ; preds = %80, %75
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %77, i32 0, i32 16
+  %79 = load i32, ptr %78, align 8
+  %80 = call i32 @_q_sib_job_cancel(ptr noundef %5, i32 noundef %79)
   br label %92
 
-92:                                               ; preds = %91, %32
+81:                                               ; preds = %33
+  %82 = load ptr, ptr %3, align 8
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %83, i32 0, i32 4
+  %85 = load i32, ptr %84, align 8
+  %86 = load ptr, ptr %2, align 8
+  %87 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %86, i32 0, i32 7
+  %88 = load i32, ptr %87, align 4
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %89, i32 0, i32 11
+  %91 = load i64, ptr %90, align 8
+  call void @_do_fed_job_complete(ptr noundef %82, i32 noundef %85, i32 noundef %88, i64 noundef %91)
+  br label %92
+
+92:                                               ; preds = %81, %76
   br label %93
 
-93:                                               ; preds = %92, %13
+93:                                               ; preds = %92, %32
+  br label %94
+
+94:                                               ; preds = %93, %13
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
   ret void
 }
@@ -15719,7 +15783,7 @@ define internal void @_handle_fed_job_start(ptr noundef %0) #0 {
   %17 = load i32, ptr %16, align 8
   %18 = call i32 (ptr, ...) @error(ptr noundef @.str.110, ptr noundef @__func__._handle_fed_job_start, i32 noundef %17)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  br label %108
+  br label %109
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr %4, align 8
@@ -15752,7 +15816,7 @@ define internal void @_handle_fed_job_start(ptr noundef %0) #0 {
 
 33:                                               ; preds = %32
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  br label %108
+  br label %109
 
 34:                                               ; preds = %19
   br label %35
@@ -15812,7 +15876,7 @@ define internal void @_handle_fed_job_start(ptr noundef %0) #0 {
 
 63:                                               ; preds = %62
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  br label %108
+  br label %109
 
 64:                                               ; preds = %44
   %65 = load ptr, ptr %3, align 8
@@ -15849,52 +15913,53 @@ define internal void @_handle_fed_job_start(ptr noundef %0) #0 {
   %84 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %83, i32 0, i32 1
   %85 = load i32, ptr %84, align 8
   %86 = icmp ne i32 %81, %85
-  br i1 %86, label %87, label %107
+  br i1 %86, label %87, label %108
 
 87:                                               ; preds = %78
   br label %88
 
 88:                                               ; preds = %87
-  %89 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %90 = and i64 %89, 281474976710656
-  %91 = icmp ne i64 %90, 0
-  br i1 %91, label %92, label %100
+  %89 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %90, 281474976710656
+  %92 = icmp ne i64 %91, 0
+  br i1 %92, label %93, label %101
 
-92:                                               ; preds = %88
-  br label %93
+93:                                               ; preds = %88
+  br label %94
 
-93:                                               ; preds = %92
-  %94 = call i32 @get_log_level()
-  %95 = icmp sge i32 %94, 4
-  br i1 %95, label %96, label %98
+94:                                               ; preds = %93
+  %95 = call i32 @get_log_level()
+  %96 = icmp sge i32 %95, 4
+  br i1 %96, label %97, label %99
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.115, ptr noundef @__func__._handle_fed_job_start, ptr noundef %97)
-  br label %98
-
-98:                                               ; preds = %96, %93
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.115, ptr noundef @__func__._handle_fed_job_start, ptr noundef %98)
   br label %99
 
-99:                                               ; preds = %98
+99:                                               ; preds = %97, %94
   br label %100
 
-100:                                              ; preds = %99, %88
+100:                                              ; preds = %99
   br label %101
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %4, align 8
-  %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %103, i32 0, i32 11
-  %105 = load i64, ptr %104, align 8
-  %106 = call i32 @fed_mgr_job_revoke(ptr noundef %102, i1 noundef zeroext false, i32 noundef 4, i32 noundef 0, i64 noundef %105)
-  br label %107
+101:                                              ; preds = %100, %88
+  br label %102
 
-107:                                              ; preds = %101, %78
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %4, align 8
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %104, i32 0, i32 11
+  %106 = load i64, ptr %105, align 8
+  %107 = call i32 @fed_mgr_job_revoke(ptr noundef %103, i1 noundef zeroext false, i32 noundef 4, i32 noundef 0, i64 noundef %106)
   br label %108
 
-108:                                              ; preds = %107, %63, %33, %14
+108:                                              ; preds = %102, %78
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
+  br label %109
+
+109:                                              ; preds = %108, %63, %33, %14
   ret void
 }
 
@@ -15917,103 +15982,104 @@ define internal void @_handle_fed_job_submission(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %1
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %15 = and i64 %14, 281474976710656
-  %16 = icmp ne i64 %15, 0
-  br i1 %16, label %17, label %35
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 281474976710656
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %36
 
-17:                                               ; preds = %13
-  br label %18
+18:                                               ; preds = %13
+  br label %19
 
-18:                                               ; preds = %17
-  %19 = call i32 @get_log_level()
-  %20 = icmp sge i32 %19, 4
-  br i1 %20, label %21, label %33
+19:                                               ; preds = %18
+  %20 = call i32 @get_log_level()
+  %21 = icmp sge i32 %20, 4
+  br i1 %21, label %22, label %34
 
-21:                                               ; preds = %18
-  %22 = load i8, ptr %4, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = select i1 %23, ptr @.str.117, ptr @.str.118
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %25, i32 0, i32 13
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.job_descriptor, ptr %27, i32 0, i32 44
-  %29 = load i32, ptr %28, align 4
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %30, i32 0, i32 12
-  %32 = load ptr, ptr %31, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.116, ptr noundef @__func__._handle_fed_job_submission, ptr noundef %24, i32 noundef %29, ptr noundef %32)
-  br label %33
-
-33:                                               ; preds = %21, %18
+22:                                               ; preds = %19
+  %23 = load i8, ptr %4, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, ptr @.str.117, ptr @.str.118
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %26, i32 0, i32 13
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.job_descriptor, ptr %28, i32 0, i32 44
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %31, i32 0, i32 12
+  %33 = load ptr, ptr %32, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.116, ptr noundef @__func__._handle_fed_job_submission, ptr noundef %25, i32 noundef %30, ptr noundef %33)
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %22, %19
   br label %35
 
-35:                                               ; preds = %34, %13
+35:                                               ; preds = %34
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 8
-  call void @delete_job_desc_files(i32 noundef %39)
+36:                                               ; preds = %35, %13
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8
+  call void @delete_job_desc_files(i32 noundef %40)
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 8
-  %43 = call ptr @find_job_record(i32 noundef %42)
-  store ptr %43, ptr %3, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %61
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8
+  %44 = call ptr @find_job_record(i32 noundef %43)
+  store ptr %44, ptr %3, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %62
 
-45:                                               ; preds = %36
-  br label %46
-
-46:                                               ; preds = %45
+46:                                               ; preds = %37
   br label %47
 
 47:                                               ; preds = %46
-  %48 = call i32 @get_log_level()
-  %49 = icmp sge i32 %48, 5
-  br i1 %49, label %50, label %52
+  br label %48
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.119, ptr noundef %51)
-  br label %52
+48:                                               ; preds = %47
+  %49 = call i32 @get_log_level()
+  %50 = icmp sge i32 %49, 5
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %50, %47
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.119, ptr noundef %52)
   br label %53
 
-53:                                               ; preds = %52
+53:                                               ; preds = %51, %48
   br label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %3, align 8
-  call void @job_state_set_flag(ptr noundef %55, i32 noundef 524288)
-  %56 = load ptr, ptr %3, align 8
-  call void @unlink_job_record(ptr noundef %56)
-  %57 = load ptr, ptr @purge_files_list, align 8
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %58, i32 0, i32 2
-  %60 = call i32 @list_delete_all(ptr noundef %57, ptr noundef @_list_find_jobid, ptr noundef %59)
-  br label %61
+  br label %55
 
-61:                                               ; preds = %54, %36
-  %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %62, i32 0, i32 12
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %65, i32 0, i32 13
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %68, i32 0, i32 14
-  %70 = load i16, ptr %69, align 8
-  %71 = load i8, ptr %4, align 1
-  %72 = trunc i8 %71 to i1
-  %73 = call i32 @_fed_mgr_job_allocate_sib(ptr noundef %64, ptr noundef %67, i16 noundef zeroext %70, i1 noundef zeroext %72)
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %3, align 8
+  call void @job_state_set_flag(ptr noundef %56, i32 noundef 524288)
+  %57 = load ptr, ptr %3, align 8
+  call void @unlink_job_record(ptr noundef %57)
+  %58 = load ptr, ptr @purge_files_list, align 8
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %59, i32 0, i32 2
+  %61 = call i32 @list_delete_all(ptr noundef %58, ptr noundef @_list_find_jobid, ptr noundef %60)
+  br label %62
+
+62:                                               ; preds = %55, %37
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %63, i32 0, i32 12
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %66, i32 0, i32 13
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds %struct.fed_job_update_info_t, ptr %69, i32 0, i32 14
+  %71 = load i16, ptr %70, align 8
+  %72 = load i8, ptr %4, align 1
+  %73 = trunc i8 %72 to i1
+  %74 = call i32 @_fed_mgr_job_allocate_sib(ptr noundef %65, ptr noundef %68, i16 noundef zeroext %71, i1 noundef zeroext %73)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
   ret void
 }
@@ -16382,7 +16448,7 @@ define internal i32 @_handle_fed_send_job_sync(ptr noundef %0) #0 {
   %25 = call i32 (ptr, ...) @error(ptr noundef @.str.146, ptr noundef @__func__._handle_fed_send_job_sync, ptr noundef %24)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %14)
   store i32 -1, ptr %2, align 4
-  br label %143
+  br label %144
 
 26:                                               ; preds = %1
   br label %27
@@ -16467,7 +16533,7 @@ define internal i32 @_handle_fed_send_job_sync(ptr noundef %0) #0 {
   %75 = call i32 (ptr, ...) @error(ptr noundef @.str.147, ptr noundef @__func__._handle_fed_send_job_sync, ptr noundef %74)
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %14)
   store i32 -1, ptr %2, align 4
-  br label %143
+  br label %144
 
 76:                                               ; preds = %68
   %77 = call i64 @time(ptr noundef null) #8
@@ -16480,119 +16546,120 @@ define internal i32 @_handle_fed_send_job_sync(ptr noundef %0) #0 {
   %83 = call ptr @_get_sync_jobid_list(i32 noundef %81, i64 noundef %82)
   store ptr %83, ptr %5, align 8
   %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %86, i32 0, i32 14
-  %88 = load i16, ptr %87, align 8
-  %89 = call ptr @pack_spec_jobs(ptr noundef %84, i16 noundef zeroext 1, i32 noundef %85, i32 noundef -2, i16 noundef zeroext %88)
-  store ptr %89, ptr %10, align 8
-  br label %90
+  %85 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %86 = load i32, ptr %85, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %87, i32 0, i32 14
+  %89 = load i16, ptr %88, align 8
+  %90 = call ptr @pack_spec_jobs(ptr noundef %84, i16 noundef zeroext 1, i32 noundef %86, i32 noundef -2, i16 noundef zeroext %89)
+  store ptr %90, ptr %10, align 8
+  br label %91
 
-90:                                               ; preds = %76
-  %91 = load ptr, ptr %5, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %95
+91:                                               ; preds = %76
+  %92 = load ptr, ptr %5, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %96
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %5, align 8
-  call void @list_destroy(ptr noundef %94)
-  br label %95
-
-95:                                               ; preds = %93, %90
-  store ptr null, ptr %5, align 8
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %5, align 8
+  call void @list_destroy(ptr noundef %95)
   br label %96
 
-96:                                               ; preds = %95
+96:                                               ; preds = %94, %91
+  store ptr null, ptr %5, align 8
+  br label %97
+
+97:                                               ; preds = %96
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %14)
   call void @slurm_msg_t_init(ptr noundef %7)
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %97, i32 0, i32 14
-  %99 = load i16, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
-  store i16 %99, ptr %100, align 2
-  %101 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
-  store i16 2004, ptr %101, align 4
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 12
-  store ptr %102, ptr %103, align 8
-  %104 = call ptr @init_buf(i32 noundef 16384)
-  store ptr %104, ptr %11, align 8
-  %105 = load ptr, ptr %11, align 8
-  %106 = call i32 @pack_msg(ptr noundef %7, ptr noundef %105)
+  %98 = load ptr, ptr %9, align 8
+  %99 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %98, i32 0, i32 14
+  %100 = load i16, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
+  store i16 %100, ptr %101, align 2
+  %102 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
+  store i16 2004, ptr %102, align 4
+  %103 = load ptr, ptr %10, align 8
+  %104 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 12
+  store ptr %103, ptr %104, align 8
+  %105 = call ptr @init_buf(i32 noundef 16384)
+  store ptr %105, ptr %11, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = call i32 @pack_msg(ptr noundef %7, ptr noundef %106)
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 96, i1 false)
-  %107 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 14
-  store i16 9, ptr %107, align 4
-  %108 = load ptr, ptr %11, align 8
-  %109 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 2
-  store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
-  %111 = load i16, ptr %110, align 4
-  %112 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 4
-  store i16 %111, ptr %112, align 4
-  %113 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
-  %114 = load i16, ptr %113, align 2
-  %115 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 5
-  store i16 %114, ptr %115, align 2
-  %116 = load i64, ptr %12, align 8
-  %117 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 11
-  store i64 %116, ptr %117, align 8
+  %108 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 14
+  store i16 9, ptr %108, align 4
+  %109 = load ptr, ptr %11, align 8
+  %110 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 2
+  store ptr %109, ptr %110, align 8
+  %111 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 15
+  %112 = load i16, ptr %111, align 4
+  %113 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 4
+  store i16 %112, ptr %113, align 4
+  %114 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
+  %115 = load i16, ptr %114, align 2
+  %116 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 5
+  store i16 %115, ptr %116, align 2
+  %117 = load i64, ptr %12, align 8
+  %118 = getelementptr inbounds %struct.sib_msg_t, ptr %8, i32 0, i32 11
+  store i64 %117, ptr %118, align 8
   call void @slurm_msg_t_init(ptr noundef %6)
-  %118 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
-  store i16 4502, ptr %118, align 4
-  %119 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
-  %120 = load i16, ptr %119, align 2
-  %121 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 16
-  store i16 %120, ptr %121, align 2
-  %122 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
-  store ptr %8, ptr %122, align 8
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %123, i32 0, i32 8
-  %125 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %124, i32 0, i32 7
-  store i8 1, ptr %125, align 1
-  %126 = load ptr, ptr %9, align 8
-  %127 = call i32 @_queue_rpc(ptr noundef %126, ptr noundef %6, i32 noundef 0, i1 noundef zeroext false)
-  store i32 %127, ptr %4, align 4
-  br label %128
+  %119 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 15
+  store i16 4502, ptr %119, align 4
+  %120 = getelementptr inbounds %struct.slurm_msg, ptr %7, i32 0, i32 16
+  %121 = load i16, ptr %120, align 2
+  %122 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 16
+  store i16 %121, ptr %122, align 2
+  %123 = getelementptr inbounds %struct.slurm_msg, ptr %6, i32 0, i32 12
+  store ptr %8, ptr %123, align 8
+  %124 = load ptr, ptr %9, align 8
+  %125 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %124, i32 0, i32 8
+  %126 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %125, i32 0, i32 7
+  store i8 1, ptr %126, align 1
+  %127 = load ptr, ptr %9, align 8
+  %128 = call i32 @_queue_rpc(ptr noundef %127, ptr noundef %6, i32 noundef 0, i1 noundef zeroext false)
+  store i32 %128, ptr %4, align 4
+  br label %129
 
-128:                                              ; preds = %96
-  %129 = load ptr, ptr %10, align 8
-  %130 = icmp ne ptr %129, null
-  br i1 %130, label %131, label %133
+129:                                              ; preds = %97
+  %130 = load ptr, ptr %10, align 8
+  %131 = icmp ne ptr %130, null
+  br i1 %131, label %132, label %134
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %10, align 8
-  call void @free_buf(ptr noundef %132)
-  br label %133
-
-133:                                              ; preds = %131, %128
-  store ptr null, ptr %10, align 8
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %10, align 8
+  call void @free_buf(ptr noundef %133)
   br label %134
 
-134:                                              ; preds = %133
+134:                                              ; preds = %132, %129
+  store ptr null, ptr %10, align 8
   br label %135
 
 135:                                              ; preds = %134
-  %136 = load ptr, ptr %11, align 8
-  %137 = icmp ne ptr %136, null
-  br i1 %137, label %138, label %140
+  br label %136
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %11, align 8
-  call void @free_buf(ptr noundef %139)
-  br label %140
+136:                                              ; preds = %135
+  %137 = load ptr, ptr %11, align 8
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %141
 
-140:                                              ; preds = %138, %135
-  store ptr null, ptr %11, align 8
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %11, align 8
+  call void @free_buf(ptr noundef %140)
   br label %141
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %4, align 4
-  store i32 %142, ptr %2, align 4
-  br label %143
+141:                                              ; preds = %139, %136
+  store ptr null, ptr %11, align 8
+  br label %142
 
-143:                                              ; preds = %141, %73, %23
-  %144 = load i32, ptr %2, align 4
-  ret i32 %144
+142:                                              ; preds = %141
+  %143 = load i32, ptr %4, align 4
+  store i32 %143, ptr %2, align 4
+  br label %144
+
+144:                                              ; preds = %142, %73, %23
+  %145 = load i32, ptr %2, align 4
+  ret i32 %145
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18537,190 +18604,191 @@ define internal void @_handle_recv_remote_dep(ptr noundef %0) #0 {
   br label %58
 
 58:                                               ; preds = %54
-  %59 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %60 = and i64 %59, 281474976710656
-  %61 = icmp ne i64 %60, 0
-  br i1 %61, label %62, label %89
+  %59 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %60 = load i64, ptr %59, align 8
+  %61 = and i64 %60, 281474976710656
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %63, label %90
 
-62:                                               ; preds = %58
-  br label %63
+63:                                               ; preds = %58
+  br label %64
 
-63:                                               ; preds = %62
-  %64 = call i32 @get_log_level()
-  %65 = icmp sge i32 %64, 4
-  br i1 %65, label %66, label %87
+64:                                               ; preds = %63
+  %65 = call i32 @get_log_level()
+  %66 = icmp sge i32 %65, 4
+  br i1 %66, label %67, label %88
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.dep_msg_t, ptr %67, i32 0, i32 4
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.dep_msg_t, ptr %70, i32 0, i32 5
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.dep_msg_t, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.dep_msg_t, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.dep_msg_t, ptr %79, i32 0, i32 3
-  %81 = load i8, ptr %80, align 8
-  %82 = trunc i8 %81 to i1
-  %83 = select i1 %82, ptr @.str.150, ptr @.str.151
-  %84 = load ptr, ptr %2, align 8
-  %85 = getelementptr inbounds %struct.dep_msg_t, ptr %84, i32 0, i32 6
-  %86 = load i32, ptr %85, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.149, ptr noundef @__func__._handle_recv_remote_dep, i32 noundef %69, ptr noundef %72, i32 noundef %75, ptr noundef %78, ptr noundef %83, i32 noundef %86)
-  br label %87
-
-87:                                               ; preds = %66, %63
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.dep_msg_t, ptr %68, i32 0, i32 4
+  %70 = load i32, ptr %69, align 4
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds %struct.dep_msg_t, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds %struct.dep_msg_t, ptr %74, i32 0, i32 1
+  %76 = load i32, ptr %75, align 4
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds %struct.dep_msg_t, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds %struct.dep_msg_t, ptr %80, i32 0, i32 3
+  %82 = load i8, ptr %81, align 8
+  %83 = trunc i8 %82 to i1
+  %84 = select i1 %83, ptr @.str.150, ptr @.str.151
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds %struct.dep_msg_t, ptr %85, i32 0, i32 6
+  %87 = load i32, ptr %86, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.149, ptr noundef @__func__._handle_recv_remote_dep, i32 noundef %70, ptr noundef %73, i32 noundef %76, ptr noundef %79, ptr noundef %84, i32 noundef %87)
   br label %88
 
-88:                                               ; preds = %87
+88:                                               ; preds = %67, %64
   br label %89
 
-89:                                               ; preds = %88, %58
+89:                                               ; preds = %88
   br label %90
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds %struct.dep_msg_t, ptr %91, i32 0, i32 5
-  store ptr null, ptr %92, align 8
+90:                                               ; preds = %89, %58
+  br label %91
+
+91:                                               ; preds = %90
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds %struct.dep_msg_t, ptr %92, i32 0, i32 5
+  store ptr null, ptr %93, align 8
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  %93 = load ptr, ptr %6, align 8
-  %94 = load ptr, ptr %2, align 8
-  %95 = getelementptr inbounds %struct.dep_msg_t, ptr %94, i32 0, i32 2
-  %96 = load ptr, ptr %95, align 8
-  %97 = call i32 @update_job_dependency(ptr noundef %93, ptr noundef %96)
-  store i32 %97, ptr %3, align 4
+  %94 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %2, align 8
+  %96 = getelementptr inbounds %struct.dep_msg_t, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i32 @update_job_dependency(ptr noundef %94, ptr noundef %97)
+  store i32 %98, ptr %3, align 4
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %5)
-  %98 = load i32, ptr %3, align 4
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %109
+  %99 = load i32, ptr %3, align 4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %110
 
-100:                                              ; preds = %90
-  %101 = load ptr, ptr %2, align 8
-  %102 = getelementptr inbounds %struct.dep_msg_t, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %3, align 4
-  %106 = call ptr @slurm_strerror(i32 noundef %105)
-  %107 = call i32 (ptr, ...) @error(ptr noundef @.str.152, ptr noundef @__func__._handle_recv_remote_dep, ptr noundef %103, ptr noundef %104, ptr noundef %106)
-  %108 = load ptr, ptr %6, align 8
-  call void @_destroy_dep_job(ptr noundef %108)
-  br label %169
+101:                                              ; preds = %91
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds %struct.dep_msg_t, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = load i32, ptr %3, align 4
+  %107 = call ptr @slurm_strerror(i32 noundef %106)
+  %108 = call i32 (ptr, ...) @error(ptr noundef @.str.152, ptr noundef @__func__._handle_recv_remote_dep, ptr noundef %104, ptr noundef %105, ptr noundef %107)
+  %109 = load ptr, ptr %6, align 8
+  call void @_destroy_dep_job(ptr noundef %109)
+  br label %170
 
-109:                                              ; preds = %90
-  br label %110
+110:                                              ; preds = %91
+  br label %111
 
-110:                                              ; preds = %109
-  %111 = call i32 @pthread_mutex_lock(ptr noundef @dep_job_list_mutex) #8
-  store i32 %111, ptr %9, align 4
-  %112 = load i32, ptr %9, align 4
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %114, label %117
+111:                                              ; preds = %110
+  %112 = call i32 @pthread_mutex_lock(ptr noundef @dep_job_list_mutex) #8
+  store i32 %112, ptr %9, align 4
+  %113 = load i32, ptr %9, align 4
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %118
 
-114:                                              ; preds = %110
-  %115 = load i32, ptr %9, align 4
-  %116 = call ptr @__errno_location() #9
-  store i32 %115, ptr %116, align 4
+115:                                              ; preds = %111
+  %116 = load i32, ptr %9, align 4
+  %117 = call ptr @__errno_location() #9
+  store i32 %116, ptr %117, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 2346, ptr noundef @__func__._handle_recv_remote_dep) #10
   unreachable
 
-117:                                              ; preds = %110
-  br label %118
+118:                                              ; preds = %111
+  br label %119
 
-118:                                              ; preds = %117
-  %119 = load ptr, ptr @remote_dep_job_list, align 8
-  %120 = call ptr @list_iterator_create(ptr noundef %119)
-  store ptr %120, ptr %8, align 8
-  br label %121
+119:                                              ; preds = %118
+  %120 = load ptr, ptr @remote_dep_job_list, align 8
+  %121 = call ptr @list_iterator_create(ptr noundef %120)
+  store ptr %121, ptr %8, align 8
+  br label %122
 
-121:                                              ; preds = %136, %118
-  %122 = load ptr, ptr %8, align 8
-  %123 = call ptr @list_next(ptr noundef %122)
-  store ptr %123, ptr %7, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %137
+122:                                              ; preds = %137, %119
+  %123 = load ptr, ptr %8, align 8
+  %124 = call ptr @list_next(ptr noundef %123)
+  store ptr %124, ptr %7, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %138
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.job_record, ptr %126, i32 0, i32 53
-  %128 = load i32, ptr %127, align 8
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds %struct.job_record, ptr %129, i32 0, i32 53
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp eq i32 %128, %131
-  br i1 %132, label %133, label %136
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.job_record, ptr %127, i32 0, i32 53
+  %129 = load i32, ptr %128, align 8
+  %130 = load ptr, ptr %6, align 8
+  %131 = getelementptr inbounds %struct.job_record, ptr %130, i32 0, i32 53
+  %132 = load i32, ptr %131, align 8
+  %133 = icmp eq i32 %129, %132
+  br i1 %133, label %134, label %137
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr %8, align 8
-  %135 = call i32 @list_delete_item(ptr noundef %134)
-  br label %137
+134:                                              ; preds = %126
+  %135 = load ptr, ptr %8, align 8
+  %136 = call i32 @list_delete_item(ptr noundef %135)
+  br label %138
 
-136:                                              ; preds = %125
-  br label %121, !llvm.loop !49
+137:                                              ; preds = %126
+  br label %122, !llvm.loop !49
 
-137:                                              ; preds = %133, %121
-  %138 = load ptr, ptr %8, align 8
-  call void @list_iterator_destroy(ptr noundef %138)
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct.job_record, ptr %139, i32 0, i32 30
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %struct.job_details_t, ptr %141, i32 0, i32 18
-  %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @list_count(ptr noundef %143)
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %157
+138:                                              ; preds = %134, %122
+  %139 = load ptr, ptr %8, align 8
+  call void @list_iterator_destroy(ptr noundef %139)
+  %140 = load ptr, ptr %6, align 8
+  %141 = getelementptr inbounds %struct.job_record, ptr %140, i32 0, i32 30
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.job_details_t, ptr %142, i32 0, i32 18
+  %144 = load ptr, ptr %143, align 8
+  %145 = call i32 @list_count(ptr noundef %144)
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %158
 
-146:                                              ; preds = %137
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct.job_record, ptr %147, i32 0, i32 30
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.job_details_t, ptr %149, i32 0, i32 18
-  %151 = load ptr, ptr %150, align 8
-  %152 = call ptr @list_find_first(ptr noundef %151, ptr noundef @_find_local_dep, ptr noundef %4)
-  %153 = icmp ne ptr %152, null
-  br i1 %153, label %154, label %157
+147:                                              ; preds = %138
+  %148 = load ptr, ptr %6, align 8
+  %149 = getelementptr inbounds %struct.job_record, ptr %148, i32 0, i32 30
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds %struct.job_details_t, ptr %150, i32 0, i32 18
+  %152 = load ptr, ptr %151, align 8
+  %153 = call ptr @list_find_first(ptr noundef %152, ptr noundef @_find_local_dep, ptr noundef %4)
+  %154 = icmp ne ptr %153, null
+  br i1 %154, label %155, label %158
 
-154:                                              ; preds = %146
-  %155 = load ptr, ptr @remote_dep_job_list, align 8
-  %156 = load ptr, ptr %6, align 8
-  call void @list_append(ptr noundef %155, ptr noundef %156)
-  br label %159
-
-157:                                              ; preds = %146, %137
-  %158 = load ptr, ptr %6, align 8
-  call void @_destroy_dep_job(ptr noundef %158)
-  br label %159
-
-159:                                              ; preds = %157, %154
+155:                                              ; preds = %147
+  %156 = load ptr, ptr @remote_dep_job_list, align 8
+  %157 = load ptr, ptr %6, align 8
+  call void @list_append(ptr noundef %156, ptr noundef %157)
   br label %160
 
-160:                                              ; preds = %159
-  %161 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
-  store i32 %161, ptr %10, align 4
-  %162 = load i32, ptr %10, align 4
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %167
+158:                                              ; preds = %147, %138
+  %159 = load ptr, ptr %6, align 8
+  call void @_destroy_dep_job(ptr noundef %159)
+  br label %160
 
-164:                                              ; preds = %160
-  %165 = load i32, ptr %10, align 4
-  %166 = call ptr @__errno_location() #9
-  store i32 %165, ptr %166, align 4
+160:                                              ; preds = %158, %155
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = call i32 @pthread_mutex_unlock(ptr noundef @dep_job_list_mutex) #8
+  store i32 %162, ptr %10, align 4
+  %163 = load i32, ptr %10, align 4
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %168
+
+165:                                              ; preds = %161
+  %166 = load i32, ptr %10, align 4
+  %167 = call ptr @__errno_location() #9
+  store i32 %166, ptr %167, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 2369, ptr noundef @__func__._handle_recv_remote_dep) #10
   unreachable
 
-167:                                              ; preds = %160
-  br label %168
-
-168:                                              ; preds = %167
+168:                                              ; preds = %161
   br label %169
 
-169:                                              ; preds = %168, %100
-  %170 = load ptr, ptr %2, align 8
-  call void @_destroy_dep_msg(ptr noundef %170)
+169:                                              ; preds = %168
+  br label %170
+
+170:                                              ; preds = %169, %101
+  %171 = load ptr, ptr %2, align 8
+  call void @_destroy_dep_msg(ptr noundef %171)
   ret void
 }
 
@@ -18760,18 +18828,18 @@ define internal void @_handle_dep_update_origin_msgs() #0 {
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %0
-  br label %107
+  br label %109
 
 9:                                                ; preds = %0
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
   br label %10
 
-10:                                               ; preds = %91, %64, %36, %9
+10:                                               ; preds = %93, %66, %37, %9
   %11 = load ptr, ptr @origin_dep_update_list, align 8
   %12 = call ptr @list_pop(ptr noundef %11)
   store ptr %12, ptr %2, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %93
+  br i1 %13, label %14, label %95
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8
@@ -18780,179 +18848,181 @@ define internal void @_handle_dep_update_origin_msgs() #0 {
   %18 = call ptr @find_job_record(i32 noundef %17)
   store ptr %18, ptr %1, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %38, label %20
+  br i1 %19, label %39, label %20
 
 20:                                               ; preds = %14
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %23 = and i64 %22, 9007199254740992
-  %24 = icmp ne i64 %23, 0
-  br i1 %24, label %25, label %35
+  %22 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 9007199254740992
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %36
 
-25:                                               ; preds = %21
-  br label %26
+26:                                               ; preds = %21
+  br label %27
 
-26:                                               ; preds = %25
-  %27 = call i32 @get_log_level()
-  %28 = icmp sge i32 %27, 4
-  br i1 %28, label %29, label %33
+27:                                               ; preds = %26
+  %28 = call i32 @get_log_level()
+  %29 = icmp sge i32 %28, 4
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.155, ptr noundef @__func__._handle_dep_update_origin_msgs, i32 noundef %32)
-  br label %33
-
-33:                                               ; preds = %29, %26
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.155, ptr noundef @__func__._handle_dep_update_origin_msgs, i32 noundef %33)
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %30, %27
   br label %35
 
-35:                                               ; preds = %34, %21
+35:                                               ; preds = %34
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8
-  call void @slurm_free_dep_update_origin_msg(ptr noundef %37)
+36:                                               ; preds = %35, %21
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %2, align 8
+  call void @slurm_free_dep_update_origin_msg(ptr noundef %38)
   br label %10, !llvm.loop !50
 
-38:                                               ; preds = %14
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds %struct.job_record, ptr %39, i32 0, i32 30
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %50
+39:                                               ; preds = %14
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds %struct.job_record, ptr %40, i32 0, i32 30
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %51
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds %struct.job_record, ptr %44, i32 0, i32 30
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.job_details_t, ptr %46, i32 0, i32 18
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %66, label %50
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %1, align 8
+  %46 = getelementptr inbounds %struct.job_record, ptr %45, i32 0, i32 30
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.job_details_t, ptr %47, i32 0, i32 18
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %68, label %51
 
-50:                                               ; preds = %43, %38
-  br label %51
+51:                                               ; preds = %44, %39
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %53 = and i64 %52, 9007199254740992
-  %54 = icmp ne i64 %53, 0
-  br i1 %54, label %55, label %63
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, 9007199254740992
+  %56 = icmp ne i64 %55, 0
+  br i1 %56, label %57, label %65
 
-55:                                               ; preds = %51
-  br label %56
+57:                                               ; preds = %52
+  br label %58
 
-56:                                               ; preds = %55
-  %57 = call i32 @get_log_level()
-  %58 = icmp sge i32 %57, 4
-  br i1 %58, label %59, label %61
+58:                                               ; preds = %57
+  %59 = call i32 @get_log_level()
+  %60 = icmp sge i32 %59, 4
+  br i1 %60, label %61, label %63
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %1, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.156, ptr noundef @__func__._handle_dep_update_origin_msgs, ptr noundef %60)
-  br label %61
-
-61:                                               ; preds = %59, %56
-  br label %62
-
-62:                                               ; preds = %61
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %1, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.156, ptr noundef @__func__._handle_dep_update_origin_msgs, ptr noundef %62)
   br label %63
 
-63:                                               ; preds = %62, %51
+63:                                               ; preds = %61, %58
   br label %64
 
 64:                                               ; preds = %63
-  %65 = load ptr, ptr %2, align 8
-  call void @slurm_free_dep_update_origin_msg(ptr noundef %65)
+  br label %65
+
+65:                                               ; preds = %64, %52
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %2, align 8
+  call void @slurm_free_dep_update_origin_msg(ptr noundef %67)
   br label %10, !llvm.loop !50
 
-66:                                               ; preds = %43
-  br label %67
+68:                                               ; preds = %44
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %1, align 8
-  %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = call zeroext i1 @update_job_dependency_list(ptr noundef %68, ptr noundef %71)
-  br i1 %72, label %73, label %91
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %1, align 8
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds %struct.dep_update_origin_msg_t, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = call zeroext i1 @update_job_dependency_list(ptr noundef %70, ptr noundef %73)
+  br i1 %74, label %75, label %93
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %3, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %80, label %76
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %3, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %82, label %78
 
-76:                                               ; preds = %73
-  %77 = call ptr @list_create(ptr noundef null)
-  store ptr %77, ptr %3, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = load ptr, ptr %1, align 8
-  call void @list_append(ptr noundef %78, ptr noundef %79)
-  br label %90
+78:                                               ; preds = %75
+  %79 = call ptr @list_create(ptr noundef null)
+  store ptr %79, ptr %3, align 8
+  %80 = load ptr, ptr %3, align 8
+  %81 = load ptr, ptr %1, align 8
+  call void @list_append(ptr noundef %80, ptr noundef %81)
+  br label %92
 
-80:                                               ; preds = %73
-  %81 = load ptr, ptr %3, align 8
-  %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds %struct.job_record, ptr %82, i32 0, i32 53
-  %84 = call ptr @list_find_first(ptr noundef %81, ptr noundef @_find_job_by_id, ptr noundef %83)
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %89, label %86
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %3, align 8
+  %84 = load ptr, ptr %1, align 8
+  %85 = getelementptr inbounds %struct.job_record, ptr %84, i32 0, i32 53
+  %86 = call ptr @list_find_first(ptr noundef %83, ptr noundef @_find_job_by_id, ptr noundef %85)
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %91, label %88
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %3, align 8
-  %88 = load ptr, ptr %1, align 8
-  call void @list_append(ptr noundef %87, ptr noundef %88)
-  br label %89
-
-89:                                               ; preds = %86, %80
-  br label %90
-
-90:                                               ; preds = %89, %76
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %3, align 8
+  %90 = load ptr, ptr %1, align 8
+  call void @list_append(ptr noundef %89, ptr noundef %90)
   br label %91
 
-91:                                               ; preds = %90, %67
-  %92 = load ptr, ptr %2, align 8
-  call void @slurm_free_dep_update_origin_msg(ptr noundef %92)
+91:                                               ; preds = %88, %82
+  br label %92
+
+92:                                               ; preds = %91, %78
+  br label %93
+
+93:                                               ; preds = %92, %69
+  %94 = load ptr, ptr %2, align 8
+  call void @slurm_free_dep_update_origin_msg(ptr noundef %94)
   br label %10, !llvm.loop !50
 
-93:                                               ; preds = %10
-  %94 = load ptr, ptr %3, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %96, label %106
+95:                                               ; preds = %10
+  %96 = load ptr, ptr %3, align 8
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %108
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %3, align 8
-  %98 = call i32 @list_for_each(ptr noundef %97, ptr noundef @handle_job_dependency_updates, ptr noundef null)
-  br label %99
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %3, align 8
+  %100 = call i32 @list_for_each(ptr noundef %99, ptr noundef @handle_job_dependency_updates, ptr noundef null)
+  br label %101
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %3, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %104
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %3, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %3, align 8
-  call void @list_destroy(ptr noundef %103)
-  br label %104
-
-104:                                              ; preds = %102, %99
-  store ptr null, ptr %3, align 8
-  br label %105
-
-105:                                              ; preds = %104
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %3, align 8
+  call void @list_destroy(ptr noundef %105)
   br label %106
 
-106:                                              ; preds = %105, %93
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
+106:                                              ; preds = %104, %101
+  store ptr null, ptr %3, align 8
   br label %107
 
-107:                                              ; preds = %106, %8
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107, %95
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
+  br label %109
+
+109:                                              ; preds = %108, %8
   ret void
 }
 
@@ -19003,287 +19073,295 @@ define internal void @_fed_mgr_ptr_init(ptr noundef %0, ptr noundef %1, ptr noun
   br label %16
 
 16:                                               ; preds = %3
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %18 = and i64 %17, 281474976710656
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %30
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 281474976710656
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %31
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %16
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @get_log_level()
-  %23 = icmp sge i32 %22, 4
-  br i1 %23, label %24, label %28
+22:                                               ; preds = %21
+  %23 = call i32 @get_log_level()
+  %24 = icmp sge i32 %23, 4
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.157, ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %24, %21
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.157, ptr noundef %28)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %25, %22
   br label %30
 
-30:                                               ; preds = %29, %16
+30:                                               ; preds = %29
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %30, %16
+  br label %32
+
+32:                                               ; preds = %31
   call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %13)
-  %32 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %151
+  %33 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %153
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @list_iterator_create(ptr noundef %37)
-  store ptr %38, ptr %7, align 8
-  br label %39
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @list_iterator_create(ptr noundef %38)
+  store ptr %39, ptr %7, align 8
+  br label %40
 
-39:                                               ; preds = %136, %58, %50, %34
-  %40 = load ptr, ptr %7, align 8
-  %41 = call ptr @list_next(ptr noundef %40)
-  store ptr %41, ptr %9, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %144
+40:                                               ; preds = %138, %60, %52, %35
+  %41 = load ptr, ptr %7, align 8
+  %42 = call ptr @list_next(ptr noundef %41)
+  store ptr %42, ptr %9, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %146
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %44, i32 0, i32 11
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %48 = call i32 @xstrcmp(ptr noundef %46, ptr noundef %47)
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %52, label %50
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %45, i32 0, i32 11
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 @xstrcmp(ptr noundef %47, ptr noundef %49)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %54, label %52
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %9, align 8
-  store ptr %51, ptr @fed_mgr_cluster_rec, align 8
-  br label %39, !llvm.loop !51
-
-52:                                               ; preds = %43
+52:                                               ; preds = %44
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %53, i32 0, i32 11
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr @fed_mgr_get_cluster_by_name(ptr noundef %55)
-  store ptr %56, ptr %8, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %69, label %58
+  store ptr %53, ptr @fed_mgr_cluster_rec, align 8
+  br label %40, !llvm.loop !51
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %59, i32 0, i32 8
-  %61 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  %63 = sub i32 %62, 1
-  %64 = zext i32 %63 to i64
-  %65 = shl i64 1, %64
-  %66 = load ptr, ptr %6, align 8
-  %67 = load i64, ptr %66, align 8
-  %68 = or i64 %67, %65
-  store i64 %68, ptr %66, align 8
-  br label %39, !llvm.loop !51
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %55, i32 0, i32 11
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @fed_mgr_get_cluster_by_name(ptr noundef %57)
+  store ptr %58, ptr %8, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %71, label %60
 
-69:                                               ; preds = %52
-  br label %70
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %61, i32 0, i32 8
+  %63 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = sub i32 %64, 1
+  %66 = zext i32 %65 to i64
+  %67 = shl i64 1, %66
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i64, ptr %68, align 8
+  %70 = or i64 %69, %67
+  store i64 %70, ptr %68, align 8
+  br label %40, !llvm.loop !51
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %71, i32 0, i32 10
-  %73 = call i32 @pthread_mutex_lock(ptr noundef %72) #8
-  store i32 %73, ptr %14, align 4
-  %74 = load i32, ptr %14, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %79
+71:                                               ; preds = %54
+  br label %72
 
-76:                                               ; preds = %70
-  %77 = load i32, ptr %14, align 4
-  %78 = call ptr @__errno_location() #9
-  store i32 %77, ptr %78, align 4
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %73, i32 0, i32 10
+  %75 = call i32 @pthread_mutex_lock(ptr noundef %74) #8
+  store i32 %75, ptr %14, align 4
+  %76 = load i32, ptr %14, align 4
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %72
+  %79 = load i32, ptr %14, align 4
+  %80 = call ptr @__errno_location() #9
+  store i32 %79, ptr %80, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 753, ptr noundef @__func__._fed_mgr_ptr_init) #10
   unreachable
 
-79:                                               ; preds = %70
-  br label %80
+81:                                               ; preds = %72
+  br label %82
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %81, i32 0, i32 8
-  %83 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %82, i32 0, i32 4
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %9, align 8
-  %86 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %85, i32 0, i32 8
-  %87 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %86, i32 0, i32 4
-  store ptr %84, ptr %87, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %88, i32 0, i32 8
-  %90 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %89, i32 0, i32 4
-  store ptr null, ptr %90, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %91, i32 0, i32 8
-  %93 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %92, i32 0, i32 3
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %95, i32 0, i32 8
-  %97 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %96, i32 0, i32 3
-  store ptr %94, ptr %97, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %98, i32 0, i32 8
-  %100 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %99, i32 0, i32 3
-  store ptr null, ptr %100, align 8
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %101, i32 0, i32 15
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %104, i32 0, i32 15
-  store ptr %103, ptr %105, align 8
-  %106 = load ptr, ptr %8, align 8
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %83, i32 0, i32 8
+  %85 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %84, i32 0, i32 4
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %87, i32 0, i32 8
+  %89 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %88, i32 0, i32 4
+  store ptr %86, ptr %89, align 8
+  %90 = load ptr, ptr %8, align 8
+  %91 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %90, i32 0, i32 8
+  %92 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %91, i32 0, i32 4
+  store ptr null, ptr %92, align 8
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %93, i32 0, i32 8
+  %95 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %94, i32 0, i32 3
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %97, i32 0, i32 8
+  %99 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %98, i32 0, i32 3
+  store ptr %96, ptr %99, align 8
+  %100 = load ptr, ptr %8, align 8
+  %101 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %100, i32 0, i32 8
+  %102 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %101, i32 0, i32 3
+  store ptr null, ptr %102, align 8
+  %103 = load ptr, ptr %8, align 8
+  %104 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %103, i32 0, i32 15
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %9, align 8
   %107 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %106, i32 0, i32 15
-  store ptr null, ptr %107, align 8
+  store ptr %105, ptr %107, align 8
   %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %108, i32 0, i32 8
-  %110 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %109, i32 0, i32 7
-  %111 = load i8, ptr %110, align 1
-  %112 = trunc i8 %111 to i1
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %113, i32 0, i32 8
-  %115 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %114, i32 0, i32 7
-  %116 = zext i1 %112 to i8
-  store i8 %116, ptr %115, align 1
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %117, i32 0, i32 8
-  %119 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %118, i32 0, i32 6
-  %120 = load i8, ptr %119, align 4
-  %121 = trunc i8 %120 to i1
-  %122 = load ptr, ptr %9, align 8
-  %123 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %122, i32 0, i32 8
-  %124 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %123, i32 0, i32 6
-  %125 = zext i1 %121 to i8
-  store i8 %125, ptr %124, align 4
-  br label %126
+  %109 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %108, i32 0, i32 15
+  store ptr null, ptr %109, align 8
+  %110 = load ptr, ptr %8, align 8
+  %111 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %110, i32 0, i32 8
+  %112 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %111, i32 0, i32 7
+  %113 = load i8, ptr %112, align 1
+  %114 = trunc i8 %113 to i1
+  %115 = load ptr, ptr %9, align 8
+  %116 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %115, i32 0, i32 8
+  %117 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %116, i32 0, i32 7
+  %118 = zext i1 %114 to i8
+  store i8 %118, ptr %117, align 1
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %119, i32 0, i32 8
+  %121 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %120, i32 0, i32 6
+  %122 = load i8, ptr %121, align 4
+  %123 = trunc i8 %122 to i1
+  %124 = load ptr, ptr %9, align 8
+  %125 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %124, i32 0, i32 8
+  %126 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %125, i32 0, i32 6
+  %127 = zext i1 %123 to i8
+  store i8 %127, ptr %126, align 4
+  br label %128
 
-126:                                              ; preds = %80
-  %127 = load ptr, ptr %8, align 8
-  %128 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %127, i32 0, i32 10
-  %129 = call i32 @pthread_mutex_unlock(ptr noundef %128) #8
-  store i32 %129, ptr %15, align 4
-  %130 = load i32, ptr %15, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %135
+128:                                              ; preds = %82
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %129, i32 0, i32 10
+  %131 = call i32 @pthread_mutex_unlock(ptr noundef %130) #8
+  store i32 %131, ptr %15, align 4
+  %132 = load i32, ptr %15, align 4
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %137
 
-132:                                              ; preds = %126
-  %133 = load i32, ptr %15, align 4
-  %134 = call ptr @__errno_location() #9
-  store i32 %133, ptr %134, align 4
+134:                                              ; preds = %128
+  %135 = load i32, ptr %15, align 4
+  %136 = call ptr @__errno_location() #9
+  store i32 %135, ptr %136, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 765, ptr noundef @__func__._fed_mgr_ptr_init) #10
   unreachable
 
-135:                                              ; preds = %126
-  br label %136
+137:                                              ; preds = %128
+  br label %138
 
-136:                                              ; preds = %135
-  %137 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %138 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %137, i32 0, i32 2
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %9, align 8
-  %141 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %140, i32 0, i32 11
-  %142 = load ptr, ptr %141, align 8
-  %143 = call i32 @list_delete_all(ptr noundef %139, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %142)
-  br label %39, !llvm.loop !51
+138:                                              ; preds = %137
+  %139 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %140 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %139, i32 0, i32 2
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %142, i32 0, i32 11
+  %144 = load ptr, ptr %143, align 8
+  %145 = call i32 @list_delete_all(ptr noundef %141, ptr noundef @slurmdb_find_cluster_in_list, ptr noundef %144)
+  br label %40, !llvm.loop !51
 
-144:                                              ; preds = %39
-  %145 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %145)
-  %146 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %147 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %146, i32 0, i32 2
-  %148 = load ptr, ptr %147, align 8
-  %149 = call i32 @list_for_each(ptr noundef %148, ptr noundef @_clear_recv_conns, ptr noundef null)
-  %150 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  call void @slurmdb_destroy_federation_rec(ptr noundef %150)
-  br label %153
+146:                                              ; preds = %40
+  %147 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %147)
+  %148 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %149 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %148, i32 0, i32 2
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i32 @list_for_each(ptr noundef %150, ptr noundef @_clear_recv_conns, ptr noundef null)
+  %152 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  call void @slurmdb_destroy_federation_rec(ptr noundef %152)
+  br label %155
 
-151:                                              ; preds = %31
-  %152 = load ptr, ptr %5, align 8
-  store ptr %152, ptr @fed_mgr_cluster_rec, align 8
-  br label %153
+153:                                              ; preds = %32
+  %154 = load ptr, ptr %5, align 8
+  store ptr %154, ptr @fed_mgr_cluster_rec, align 8
+  br label %155
 
-153:                                              ; preds = %151, %144
-  %154 = load ptr, ptr %4, align 8
-  store ptr %154, ptr @fed_mgr_fed_rec, align 8
-  %155 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %156 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %155, i32 0, i32 8
-  %157 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %156, i32 0, i32 5
-  %158 = load i32, ptr %157, align 8
-  store i32 %158, ptr %10, align 4
-  %159 = load i32, ptr %10, align 4
-  %160 = and i32 %159, 15
-  store i32 %160, ptr %11, align 4
+155:                                              ; preds = %153, %146
+  %156 = load ptr, ptr %4, align 8
+  store ptr %156, ptr @fed_mgr_fed_rec, align 8
+  %157 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %158 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %157, i32 0, i32 8
+  %159 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %158, i32 0, i32 5
+  %160 = load i32, ptr %159, align 8
+  store i32 %160, ptr %10, align 4
   %161 = load i32, ptr %10, align 4
-  %162 = and i32 %161, 16
-  %163 = icmp ne i32 %162, 0
-  %164 = zext i1 %163 to i8
-  store i8 %164, ptr %12, align 1
+  %162 = and i32 %161, 15
+  store i32 %162, ptr %11, align 4
+  %163 = load i32, ptr %10, align 4
+  %164 = and i32 %163, 16
+  %165 = icmp ne i32 %164, 0
+  %166 = zext i1 %165 to i8
+  store i8 %166, ptr %12, align 1
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %13)
-  %165 = load i8, ptr %12, align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %172
+  %167 = load i8, ptr %12, align 1
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %176
 
-167:                                              ; preds = %153
-  store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9), align 1
-  store i8 1, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12), align 8
-  %168 = load i32, ptr %11, align 4
-  %169 = icmp eq i32 %168, 1
-  br i1 %169, label %170, label %171
+169:                                              ; preds = %155
+  %170 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9
+  store i8 0, ptr %170, align 1
+  %171 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12
+  store i8 1, ptr %171, align 8
+  %172 = load i32, ptr %11, align 4
+  %173 = icmp eq i32 %172, 1
+  br i1 %173, label %174, label %175
 
-170:                                              ; preds = %167
+174:                                              ; preds = %169
   call void @_spawn_job_watch_thread()
-  br label %171
+  br label %175
 
-171:                                              ; preds = %170, %167
-  br label %182
+175:                                              ; preds = %174, %169
+  br label %190
 
-172:                                              ; preds = %153
-  %173 = load i32, ptr %11, align 4
-  %174 = icmp eq i32 %173, 1
-  br i1 %174, label %175, label %176
-
-175:                                              ; preds = %172
-  store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12), align 8
-  br label %181
-
-176:                                              ; preds = %172
+176:                                              ; preds = %155
   %177 = load i32, ptr %11, align 4
-  %178 = icmp eq i32 %177, 2
-  br i1 %178, label %179, label %180
+  %178 = icmp eq i32 %177, 1
+  br i1 %178, label %179, label %182
 
 179:                                              ; preds = %176
-  store i8 1, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9), align 1
-  store i8 1, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12), align 8
-  br label %180
+  %180 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9
+  store i8 0, ptr %180, align 1
+  %181 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12
+  store i8 0, ptr %181, align 8
+  br label %189
 
-180:                                              ; preds = %179, %176
-  br label %181
-
-181:                                              ; preds = %180, %175
-  br label %182
-
-182:                                              ; preds = %181, %171
-  %183 = load i8, ptr %12, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %186, label %185
+182:                                              ; preds = %176
+  %183 = load i32, ptr %11, align 4
+  %184 = icmp eq i32 %183, 2
+  br i1 %184, label %185, label %188
 
 185:                                              ; preds = %182
-  call void @_remove_job_watch_thread()
-  br label %186
+  %186 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9
+  store i8 1, ptr %186, align 1
+  %187 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12
+  store i8 1, ptr %187, align 8
+  br label %188
 
-186:                                              ; preds = %185, %182
+188:                                              ; preds = %185, %182
+  br label %189
+
+189:                                              ; preds = %188, %179
+  br label %190
+
+190:                                              ; preds = %189, %175
+  %191 = load i8, ptr %12, align 1
+  %192 = trunc i8 %191 to i1
+  br i1 %192, label %194, label %193
+
+193:                                              ; preds = %190
+  call void @_remove_job_watch_thread()
+  br label %194
+
+194:                                              ; preds = %193, %190
   ret void
 }
 
@@ -19305,133 +19383,134 @@ define internal void @_open_persist_sends() #0 {
   %10 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %9, i32 0, i32 2
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
-  br i1 %12, label %27, label %13
+  br i1 %12, label %28, label %13
 
 13:                                               ; preds = %8, %0
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %16 = and i64 %15, 281474976710656
-  %17 = icmp ne i64 %16, 0
-  br i1 %17, label %18, label %25
+  %15 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %16 = load i64, ptr %15, align 8
+  %17 = and i64 %16, 281474976710656
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %26
 
-18:                                               ; preds = %14
-  br label %19
+19:                                               ; preds = %14
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = call i32 @get_log_level()
-  %21 = icmp sge i32 %20, 4
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %19
+  %21 = call i32 @get_log_level()
+  %22 = icmp sge i32 %21, 4
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.169)
-  br label %23
-
-23:                                               ; preds = %22, %19
   br label %24
 
-24:                                               ; preds = %23
+24:                                               ; preds = %23, %20
   br label %25
 
-25:                                               ; preds = %24, %14
+25:                                               ; preds = %24
   br label %26
 
-26:                                               ; preds = %25
-  br label %76
+26:                                               ; preds = %25, %14
+  br label %27
 
-27:                                               ; preds = %8
-  br label %28
+27:                                               ; preds = %26
+  br label %77
 
-28:                                               ; preds = %27
-  %29 = call i32 @pthread_mutex_lock(ptr noundef @open_send_mutex) #8
-  store i32 %29, ptr %4, align 4
-  %30 = load i32, ptr %4, align 4
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %35
+28:                                               ; preds = %8
+  br label %29
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr %4, align 4
-  %34 = call ptr @__errno_location() #9
-  store i32 %33, ptr %34, align 4
+29:                                               ; preds = %28
+  %30 = call i32 @pthread_mutex_lock(ptr noundef @open_send_mutex) #8
+  store i32 %30, ptr %4, align 4
+  %31 = load i32, ptr %4, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %29
+  %34 = load i32, ptr %4, align 4
+  %35 = call ptr @__errno_location() #9
+  store i32 %34, ptr %35, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 418, ptr noundef @__func__._open_persist_sends) #10
   unreachable
 
-35:                                               ; preds = %28
-  br label %36
+36:                                               ; preds = %29
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %38 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr @list_iterator_create(ptr noundef %39)
-  store ptr %40, ptr %1, align 8
-  br label %41
+37:                                               ; preds = %36
+  %38 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %39 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @list_iterator_create(ptr noundef %40)
+  store ptr %41, ptr %1, align 8
+  br label %42
 
-41:                                               ; preds = %65, %49, %36
-  %42 = load ptr, ptr %1, align 8
-  %43 = call ptr @list_next(ptr noundef %42)
-  store ptr %43, ptr %2, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %66
+42:                                               ; preds = %66, %50, %37
+  %43 = load ptr, ptr %1, align 8
+  %44 = call ptr @list_next(ptr noundef %43)
+  store ptr %44, ptr %2, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %67
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %2, align 8
-  %47 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %48 = icmp eq ptr %46, %47
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %2, align 8
+  %48 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %49 = icmp eq ptr %47, %48
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
-  br label %41, !llvm.loop !52
+50:                                               ; preds = %46
+  br label %42, !llvm.loop !52
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %51, i32 0, i32 8
-  %53 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %52, i32 0, i32 4
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %3, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %62
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %52, i32 0, i32 8
+  %54 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %3, align 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %58, i32 0, i32 9
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, -1
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %59, i32 0, i32 9
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %57, %50
-  %63 = load ptr, ptr %2, align 8
-  %64 = call i32 @_open_controller_conn(ptr noundef %63, i1 noundef zeroext false)
-  br label %65
+63:                                               ; preds = %58, %51
+  %64 = load ptr, ptr %2, align 8
+  %65 = call i32 @_open_controller_conn(ptr noundef %64, i1 noundef zeroext false)
+  br label %66
 
-65:                                               ; preds = %62, %57
-  br label %41, !llvm.loop !52
+66:                                               ; preds = %63, %58
+  br label %42, !llvm.loop !52
 
-66:                                               ; preds = %41
-  %67 = load ptr, ptr %1, align 8
-  call void @list_iterator_destroy(ptr noundef %67)
-  br label %68
+67:                                               ; preds = %42
+  %68 = load ptr, ptr %1, align 8
+  call void @list_iterator_destroy(ptr noundef %68)
+  br label %69
 
-68:                                               ; preds = %66
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef @open_send_mutex) #8
-  store i32 %69, ptr %5, align 4
-  %70 = load i32, ptr %5, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %75
+69:                                               ; preds = %67
+  %70 = call i32 @pthread_mutex_unlock(ptr noundef @open_send_mutex) #8
+  store i32 %70, ptr %5, align 4
+  %71 = load i32, ptr %5, align 4
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %5, align 4
-  %74 = call ptr @__errno_location() #9
-  store i32 %73, ptr %74, align 4
+73:                                               ; preds = %69
+  %74 = load i32, ptr %5, align 4
+  %75 = call ptr @__errno_location() #9
+  store i32 %74, ptr %75, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 429, ptr noundef @__func__._open_persist_sends) #10
   unreachable
 
-75:                                               ; preds = %68
-  br label %76
+76:                                               ; preds = %69
+  br label %77
 
-76:                                               ; preds = %75, %26
+77:                                               ; preds = %76, %27
   ret void
 }
 
@@ -19670,275 +19749,281 @@ define internal ptr @_job_watch_thread(ptr noundef %0) #0 {
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %18 = and i64 %17, 281474976710656
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %27
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 281474976710656
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %16
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @get_log_level()
-  %23 = icmp sge i32 %22, 4
-  br i1 %23, label %24, label %25
+22:                                               ; preds = %21
+  %23 = call i32 @get_log_level()
+  %24 = icmp sge i32 %23, 4
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.161, ptr noundef @__func__._job_watch_thread)
-  br label %25
-
-25:                                               ; preds = %24, %21
   br label %26
 
-26:                                               ; preds = %25
+26:                                               ; preds = %25, %22
   br label %27
 
-27:                                               ; preds = %26, %16
+27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %27, %16
   br label %29
 
-29:                                               ; preds = %135, %28
-  %30 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %36, label %32
+29:                                               ; preds = %28
+  br label %30
 
-32:                                               ; preds = %29
-  %33 = load i8, ptr @stop_job_watch_thread, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = xor i1 %34, true
-  br label %36
+30:                                               ; preds = %140, %29
+  %31 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %38, label %34
 
-36:                                               ; preds = %32, %29
-  %37 = phi i1 [ false, %29 ], [ %35, %32 ]
-  br i1 %37, label %38, label %136
+34:                                               ; preds = %30
+  %35 = load i8, ptr @stop_job_watch_thread, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = xor i1 %36, true
+  br label %38
 
-38:                                               ; preds = %36
-  br label %39
+38:                                               ; preds = %34, %30
+  %39 = phi i1 [ false, %30 ], [ %37, %34 ]
+  br i1 %39, label %40, label %141
 
-39:                                               ; preds = %38
-  %40 = call i32 @pthread_mutex_lock(ptr noundef @job_watch_mutex) #8
-  store i32 %40, ptr %7, align 4
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %46
+40:                                               ; preds = %38
+  br label %41
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %7, align 4
-  %45 = call ptr @__errno_location() #9
-  store i32 %44, ptr %45, align 4
+41:                                               ; preds = %40
+  %42 = call i32 @pthread_mutex_lock(ptr noundef @job_watch_mutex) #8
+  store i32 %42, ptr %7, align 4
+  %43 = load i32, ptr %7, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %41
+  %46 = load i32, ptr %7, align 4
+  %47 = call ptr @__errno_location() #9
+  store i32 %46, ptr %47, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.1, ptr noundef @.str, i32 noundef 626, ptr noundef @__func__._job_watch_thread) #10
   unreachable
 
-46:                                               ; preds = %39
-  br label %47
+48:                                               ; preds = %41
+  br label %49
 
-47:                                               ; preds = %46
-  %48 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %49 = icmp ne i64 %48, 0
-  br i1 %49, label %70, label %50
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %73, label %53
 
-50:                                               ; preds = %47
-  %51 = load i8, ptr @stop_job_watch_thread, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %70, label %53
+53:                                               ; preds = %49
+  %54 = load i8, ptr @stop_job_watch_thread, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %73, label %56
 
-53:                                               ; preds = %50
-  %54 = call i64 @time(ptr noundef null) #8
-  %55 = add nsw i64 %54, 5
-  %56 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
-  store i64 %55, ptr %56, align 8
-  br label %57
+56:                                               ; preds = %53
+  %57 = call i64 @time(ptr noundef null) #8
+  %58 = add nsw i64 %57, 5
+  %59 = getelementptr inbounds %struct.timespec, ptr %3, i32 0, i32 0
+  store i64 %58, ptr %59, align 8
+  br label %60
 
-57:                                               ; preds = %53
-  %58 = call i32 @pthread_cond_timedwait(ptr noundef @job_watch_cond, ptr noundef @job_watch_mutex, ptr noundef %3)
-  store i32 %58, ptr %8, align 4
-  %59 = load i32, ptr %8, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %68
-
-61:                                               ; preds = %57
+60:                                               ; preds = %56
+  %61 = call i32 @pthread_cond_timedwait(ptr noundef @job_watch_cond, ptr noundef @job_watch_mutex, ptr noundef %3)
+  store i32 %61, ptr %8, align 4
   %62 = load i32, ptr %8, align 4
-  %63 = icmp ne i32 %62, 110
-  br i1 %63, label %64, label %68
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %71
 
-64:                                               ; preds = %61
+64:                                               ; preds = %60
   %65 = load i32, ptr %8, align 4
-  %66 = call ptr @__errno_location() #9
-  store i32 %65, ptr %66, align 4
-  %67 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 630, ptr noundef @__func__._job_watch_thread)
-  br label %68
+  %66 = icmp ne i32 %65, 110
+  br i1 %66, label %67, label %71
 
-68:                                               ; preds = %64, %61, %57
-  br label %69
-
-69:                                               ; preds = %68
-  br label %70
-
-70:                                               ; preds = %69, %50, %47
+67:                                               ; preds = %64
+  %68 = load i32, ptr %8, align 4
+  %69 = call ptr @__errno_location() #9
+  store i32 %68, ptr %69, align 4
+  %70 = call i32 (ptr, ...) @error(ptr noundef @.str.94, ptr noundef @.str, i32 noundef 630, ptr noundef @__func__._job_watch_thread)
   br label %71
 
-71:                                               ; preds = %70
-  %72 = call i32 @pthread_mutex_unlock(ptr noundef @job_watch_mutex) #8
-  store i32 %72, ptr %9, align 4
-  %73 = load i32, ptr %9, align 4
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %78
+71:                                               ; preds = %67, %64, %60
+  br label %72
 
-75:                                               ; preds = %71
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72, %53, %49
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef @job_watch_mutex) #8
+  store i32 %75, ptr %9, align 4
   %76 = load i32, ptr %9, align 4
-  %77 = call ptr @__errno_location() #9
-  store i32 %76, ptr %77, align 4
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %74
+  %79 = load i32, ptr %9, align 4
+  %80 = call ptr @__errno_location() #9
+  store i32 %79, ptr %80, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 632, ptr noundef @__func__._job_watch_thread) #10
   unreachable
 
-78:                                               ; preds = %71
-  br label %79
+81:                                               ; preds = %74
+  br label %82
 
-79:                                               ; preds = %78
-  %80 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11), align 8
-  %81 = icmp ne i64 %80, 0
-  br i1 %81, label %85, label %82
-
-82:                                               ; preds = %79
-  %83 = load i8, ptr @stop_job_watch_thread, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %82, %79
-  br label %136
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 11
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ne i64 %84, 0
+  br i1 %85, label %89, label %86
 
 86:                                               ; preds = %82
-  call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
-  %87 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %90, label %89
+  %87 = load i8, ptr @stop_job_watch_thread, align 1
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %90
 
-89:                                               ; preds = %86
-  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
-  br label %136
+89:                                               ; preds = %86, %82
+  br label %141
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr @job_list, align 8
-  %92 = call i32 @list_count(ptr noundef %91)
-  store i32 %92, ptr %5, align 4
-  %93 = load ptr, ptr @job_list, align 8
-  %94 = call i32 @list_for_each(ptr noundef %93, ptr noundef @_foreach_job_completed, ptr noundef null)
-  store i32 %94, ptr %6, align 4
-  %95 = icmp ne i32 %92, %94
-  br i1 %95, label %96, label %115
+  call void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
+  %91 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %94, label %93
 
-96:                                               ; preds = %90
-  %97 = load i32, ptr %5, align 4
-  %98 = load i32, ptr %6, align 4
-  %99 = add nsw i32 %97, %98
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %10, align 4
-  br label %101
+93:                                               ; preds = %90
+  call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
+  br label %141
 
-101:                                              ; preds = %96
-  %102 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %103 = and i64 %102, 281474976710656
-  %104 = icmp ne i64 %103, 0
-  br i1 %104, label %105, label %113
+94:                                               ; preds = %90
+  %95 = load ptr, ptr @job_list, align 8
+  %96 = call i32 @list_count(ptr noundef %95)
+  store i32 %96, ptr %5, align 4
+  %97 = load ptr, ptr @job_list, align 8
+  %98 = call i32 @list_for_each(ptr noundef %97, ptr noundef @_foreach_job_completed, ptr noundef null)
+  store i32 %98, ptr %6, align 4
+  %99 = icmp ne i32 %96, %98
+  br i1 %99, label %100, label %120
 
-105:                                              ; preds = %101
-  br label %106
+100:                                              ; preds = %94
+  %101 = load i32, ptr %5, align 4
+  %102 = load i32, ptr %6, align 4
+  %103 = add nsw i32 %101, %102
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %10, align 4
+  br label %105
 
-106:                                              ; preds = %105
-  %107 = call i32 @get_log_level()
-  %108 = icmp sge i32 %107, 4
-  br i1 %108, label %109, label %111
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %107 = load i64, ptr %106, align 8
+  %108 = and i64 %107, 281474976710656
+  %109 = icmp ne i64 %108, 0
+  br i1 %109, label %110, label %118
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.162, ptr noundef @__func__._job_watch_thread, i32 noundef %110)
+110:                                              ; preds = %105
   br label %111
 
-111:                                              ; preds = %109, %106
-  br label %112
+111:                                              ; preds = %110
+  %112 = call i32 @get_log_level()
+  %113 = icmp sge i32 %112, 4
+  br i1 %113, label %114, label %116
 
-112:                                              ; preds = %111
-  br label %113
+114:                                              ; preds = %111
+  %115 = load i32, ptr %10, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.162, ptr noundef @__func__._job_watch_thread, i32 noundef %115)
+  br label %116
 
-113:                                              ; preds = %112, %101
-  br label %114
+116:                                              ; preds = %114, %111
+  br label %117
 
-114:                                              ; preds = %113
-  br label %135
+117:                                              ; preds = %116
+  br label %118
 
-115:                                              ; preds = %90
-  %116 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %117 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %116, i32 0, i32 8
-  %118 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %117, i32 0, i32 5
-  %119 = load i32, ptr %118, align 8
-  %120 = and i32 %119, 32
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %122, label %125
+118:                                              ; preds = %117, %105
+  br label %119
 
-122:                                              ; preds = %115
-  %123 = load ptr, ptr @job_list, align 8
-  %124 = call i32 @list_for_each(ptr noundef %123, ptr noundef @_foreach_job_no_requeue, ptr noundef null)
+119:                                              ; preds = %118
+  br label %140
+
+120:                                              ; preds = %94
+  %121 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %122 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %121, i32 0, i32 8
+  %123 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %122, i32 0, i32 5
+  %124 = load i32, ptr %123, align 8
+  %125 = and i32 %124, 32
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %120
+  %128 = load ptr, ptr @job_list, align 8
+  %129 = call i32 @list_for_each(ptr noundef %128, ptr noundef @_foreach_job_no_requeue, ptr noundef null)
   call void @_remove_self_from_federation()
-  br label %134
+  br label %139
 
-125:                                              ; preds = %115
-  %126 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %127 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %126, i32 0, i32 8
-  %128 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %127, i32 0, i32 5
-  %129 = load i32, ptr %128, align 8
-  %130 = and i32 %129, 16
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %133
+130:                                              ; preds = %120
+  %131 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %132 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %131, i32 0, i32 8
+  %133 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %132, i32 0, i32 5
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 16
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %138
 
-132:                                              ; preds = %125
+137:                                              ; preds = %130
   call void @_mark_self_as_drained()
-  br label %133
+  br label %138
 
-133:                                              ; preds = %132, %125
-  br label %134
+138:                                              ; preds = %137, %130
+  br label %139
 
-134:                                              ; preds = %133, %122
+139:                                              ; preds = %138, %127
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
-  br label %136
+  br label %141
 
-135:                                              ; preds = %114
+140:                                              ; preds = %119
   call void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8 %4)
-  br label %29, !llvm.loop !53
+  br label %30, !llvm.loop !53
 
-136:                                              ; preds = %134, %89, %85, %36
+141:                                              ; preds = %139, %93, %89, %38
   store i8 0, ptr @job_watch_thread_running, align 1
-  br label %137
-
-137:                                              ; preds = %136
-  %138 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %139 = and i64 %138, 281474976710656
-  %140 = icmp ne i64 %139, 0
-  br i1 %140, label %141, label %148
-
-141:                                              ; preds = %137
   br label %142
 
 142:                                              ; preds = %141
-  %143 = call i32 @get_log_level()
-  %144 = icmp sge i32 %143, 4
-  br i1 %144, label %145, label %146
+  %143 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %144 = load i64, ptr %143, align 8
+  %145 = and i64 %144, 281474976710656
+  %146 = icmp ne i64 %145, 0
+  br i1 %146, label %147, label %154
 
-145:                                              ; preds = %142
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.163, ptr noundef @__func__._job_watch_thread)
-  br label %146
-
-146:                                              ; preds = %145, %142
-  br label %147
-
-147:                                              ; preds = %146
+147:                                              ; preds = %142
   br label %148
 
-148:                                              ; preds = %147, %137
-  br label %149
+148:                                              ; preds = %147
+  %149 = call i32 @get_log_level()
+  %150 = icmp sge i32 %149, 4
+  br i1 %150, label %151, label %152
 
-149:                                              ; preds = %148
+151:                                              ; preds = %148
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.163, ptr noundef @__func__._job_watch_thread)
+  br label %152
+
+152:                                              ; preds = %151, %148
+  br label %153
+
+153:                                              ; preds = %152
+  br label %154
+
+154:                                              ; preds = %153, %142
+  br label %155
+
+155:                                              ; preds = %154
   ret ptr null
 }
 
@@ -20017,140 +20102,144 @@ define internal void @_remove_self_from_federation() #0 {
   br label %5
 
 5:                                                ; preds = %0
-  %6 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %7 = and i64 %6, 281474976710656
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %19
+  %6 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %7 = load i64, ptr %6, align 8
+  %8 = and i64 %7, 281474976710656
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %20
 
-9:                                                ; preds = %5
-  br label %10
+10:                                               ; preds = %5
+  br label %11
 
-10:                                               ; preds = %9
-  %11 = call i32 @get_log_level()
-  %12 = icmp sge i32 %11, 4
-  br i1 %12, label %13, label %17
+11:                                               ; preds = %10
+  %12 = call i32 @get_log_level()
+  %13 = icmp sge i32 %12, 4
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %15 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.164, ptr noundef @__func__._remove_self_from_federation, ptr noundef %16)
-  br label %17
-
-17:                                               ; preds = %13, %10
+14:                                               ; preds = %11
+  %15 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %16 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.164, ptr noundef @__func__._remove_self_from_federation, ptr noundef %17)
   br label %18
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14, %11
   br label %19
 
-19:                                               ; preds = %18, %5
+19:                                               ; preds = %18
   br label %20
 
-20:                                               ; preds = %19
+20:                                               ; preds = %19, %5
+  br label %21
+
+21:                                               ; preds = %20
   call void @slurmdb_init_federation_cond(ptr noundef %2, i1 noundef zeroext false)
   call void @slurmdb_init_federation_rec(ptr noundef %3, i1 noundef zeroext false)
   call void @slurmdb_init_cluster_rec(ptr noundef %4, i1 noundef zeroext false)
-  %21 = call ptr @list_create(ptr noundef null)
-  %22 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
-  store ptr %21, ptr %22, align 8
+  %22 = call ptr @list_create(ptr noundef null)
   %23 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %26 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  call void @list_append(ptr noundef %24, ptr noundef %27)
-  %28 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %29 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %28, i32 0, i32 11
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.165, ptr noundef %30)
-  %32 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %4, i32 0, i32 11
-  store ptr %31, ptr %32, align 8
-  %33 = call ptr @list_create(ptr noundef null)
-  %34 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
-  store ptr %33, ptr %34, align 8
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %27 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  call void @list_append(ptr noundef %25, ptr noundef %28)
+  %29 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %30 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %29, i32 0, i32 11
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.165, ptr noundef %31)
+  %33 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %4, i32 0, i32 11
+  store ptr %32, ptr %33, align 8
+  %34 = call ptr @list_create(ptr noundef null)
   %35 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  call void @list_append(ptr noundef %36, ptr noundef %4)
-  %37 = load ptr, ptr @acct_db_conn, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %39 = call ptr @acct_storage_g_modify_federations(ptr noundef %37, i32 noundef %38, ptr noundef %2, ptr noundef %3)
-  store ptr %39, ptr %1, align 8
-  %40 = load ptr, ptr %1, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  call void @list_append(ptr noundef %37, ptr noundef %4)
+  %38 = load ptr, ptr @acct_db_conn, align 8
+  %39 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %40 = load i32, ptr %39, align 8
+  %41 = call ptr @acct_storage_g_modify_federations(ptr noundef %38, i32 noundef %40, ptr noundef %2, ptr noundef %3)
+  store ptr %41, ptr %1, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %48
 
-42:                                               ; preds = %20
-  %43 = load ptr, ptr %1, align 8
-  %44 = call i32 @list_count(ptr noundef %43)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %48, label %46
+44:                                               ; preds = %21
+  %45 = load ptr, ptr %1, align 8
+  %46 = call i32 @list_count(ptr noundef %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %50, label %48
 
-46:                                               ; preds = %42, %20
-  %47 = call i32 (ptr, ...) @error(ptr noundef @.str.166)
-  br label %48
+48:                                               ; preds = %44, %21
+  %49 = call i32 (ptr, ...) @error(ptr noundef @.str.166)
+  br label %50
 
-48:                                               ; preds = %46, %42
-  br label %49
+50:                                               ; preds = %48, %44
+  br label %51
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %1, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %54
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %1, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %56
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %1, align 8
-  call void @list_destroy(ptr noundef %53)
-  br label %54
-
-54:                                               ; preds = %52, %49
-  store ptr null, ptr %1, align 8
-  br label %55
-
-55:                                               ; preds = %54
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %1, align 8
+  call void @list_destroy(ptr noundef %55)
   br label %56
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %63
+56:                                               ; preds = %54, %51
+  store ptr null, ptr %1, align 8
+  br label %57
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  call void @list_destroy(ptr noundef %62)
-  br label %63
+57:                                               ; preds = %56
+  br label %58
 
-63:                                               ; preds = %60, %56
-  %64 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
-  store ptr null, ptr %64, align 8
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  call void @list_destroy(ptr noundef %64)
   br label %65
 
-65:                                               ; preds = %63
-  br label %66
+65:                                               ; preds = %62, %58
+  %66 = getelementptr inbounds %struct.slurmdb_federation_cond_t, ptr %2, i32 0, i32 1
+  store ptr null, ptr %66, align 8
+  br label %67
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %70, label %73
+67:                                               ; preds = %65
+  br label %68
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  call void @list_destroy(ptr noundef %72)
-  br label %73
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %75
 
-73:                                               ; preds = %70, %66
-  %74 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
-  store ptr null, ptr %74, align 8
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  call void @list_destroy(ptr noundef %74)
   br label %75
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %4, i32 0, i32 11
-  call void @slurm_xfree(ptr noundef %76)
-  store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12), align 8
+75:                                               ; preds = %72, %68
+  %76 = getelementptr inbounds %struct.slurmdb_federation_rec_t, ptr %3, i32 0, i32 2
+  store ptr null, ptr %76, align 8
+  br label %77
+
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %4, i32 0, i32 11
+  call void @slurm_xfree(ptr noundef %78)
+  %79 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 9
+  store i8 0, ptr %79, align 1
+  %80 = getelementptr inbounds %struct.slurmctld_config, ptr @slurmctld_config, i32 0, i32 12
+  store i8 0, ptr %80, align 8
   call void @_leave_federation()
   ret void
 }
@@ -20163,109 +20252,111 @@ define internal void @_mark_self_as_drained() #0 {
   br label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %6 = and i64 %5, 281474976710656
-  %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %15
+  %5 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %6 = load i64, ptr %5, align 8
+  %7 = and i64 %6, 281474976710656
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %16
 
-8:                                                ; preds = %4
-  br label %9
+9:                                                ; preds = %4
+  br label %10
 
-9:                                                ; preds = %8
-  %10 = call i32 @get_log_level()
-  %11 = icmp sge i32 %10, 4
-  br i1 %11, label %12, label %13
+10:                                               ; preds = %9
+  %11 = call i32 @get_log_level()
+  %12 = icmp sge i32 %11, 4
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.167, ptr noundef @__func__._mark_self_as_drained)
-  br label %13
-
-13:                                               ; preds = %12, %9
   br label %14
 
-14:                                               ; preds = %13
+14:                                               ; preds = %13, %10
   br label %15
 
-15:                                               ; preds = %14, %4
+15:                                               ; preds = %14
   br label %16
 
-16:                                               ; preds = %15
+16:                                               ; preds = %15, %4
+  br label %17
+
+17:                                               ; preds = %16
   call void @slurmdb_init_cluster_cond(ptr noundef %2, i1 noundef zeroext false)
   call void @slurmdb_init_cluster_rec(ptr noundef %3, i1 noundef zeroext false)
-  %17 = call ptr @list_create(ptr noundef null)
-  %18 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
-  store ptr %17, ptr %18, align 8
+  %18 = call ptr @list_create(ptr noundef null)
   %19 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %22 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %21, i32 0, i32 11
-  %23 = load ptr, ptr %22, align 8
-  call void @list_append(ptr noundef %20, ptr noundef %23)
-  %24 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %25 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %24, i32 0, i32 8
-  %26 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %25, i32 0, i32 5
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, -16
-  %29 = or i32 2, %28
-  %30 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %3, i32 0, i32 8
-  %31 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %30, i32 0, i32 5
-  store i32 %29, ptr %31, align 8
-  %32 = load ptr, ptr @acct_db_conn, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %34 = call ptr @acct_storage_g_modify_clusters(ptr noundef %32, i32 noundef %33, ptr noundef %2, ptr noundef %3)
-  store ptr %34, ptr %1, align 8
-  %35 = load ptr, ptr %1, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %41
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %23 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %22, i32 0, i32 11
+  %24 = load ptr, ptr %23, align 8
+  call void @list_append(ptr noundef %21, ptr noundef %24)
+  %25 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %26 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %25, i32 0, i32 8
+  %27 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %26, i32 0, i32 5
+  %28 = load i32, ptr %27, align 8
+  %29 = and i32 %28, -16
+  %30 = or i32 2, %29
+  %31 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %3, i32 0, i32 8
+  %32 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %31, i32 0, i32 5
+  store i32 %30, ptr %32, align 8
+  %33 = load ptr, ptr @acct_db_conn, align 8
+  %34 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %35 = load i32, ptr %34, align 8
+  %36 = call ptr @acct_storage_g_modify_clusters(ptr noundef %33, i32 noundef %35, ptr noundef %2, ptr noundef %3)
+  store ptr %36, ptr %1, align 8
+  %37 = load ptr, ptr %1, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %43
 
-37:                                               ; preds = %16
-  %38 = load ptr, ptr %1, align 8
-  %39 = call i32 @list_count(ptr noundef %38)
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %43, label %41
+39:                                               ; preds = %17
+  %40 = load ptr, ptr %1, align 8
+  %41 = call i32 @list_count(ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %45, label %43
 
-41:                                               ; preds = %37, %16
-  %42 = call i32 (ptr, ...) @error(ptr noundef @.str.168)
-  br label %43
+43:                                               ; preds = %39, %17
+  %44 = call i32 (ptr, ...) @error(ptr noundef @.str.168)
+  br label %45
 
-43:                                               ; preds = %41, %37
-  br label %44
+45:                                               ; preds = %43, %39
+  br label %46
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %53
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  call void @list_destroy(ptr noundef %50)
-  br label %51
-
-51:                                               ; preds = %48, %44
-  %52 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
-  store ptr null, ptr %52, align 8
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  call void @list_destroy(ptr noundef %52)
   br label %53
 
-53:                                               ; preds = %51
-  br label %54
+53:                                               ; preds = %50, %46
+  %54 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %2, i32 0, i32 1
+  store ptr null, ptr %54, align 8
+  br label %55
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %1, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %59
+55:                                               ; preds = %53
+  br label %56
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %1, align 8
-  call void @list_destroy(ptr noundef %58)
-  br label %59
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %1, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %61
 
-59:                                               ; preds = %57, %54
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %1, align 8
+  call void @list_destroy(ptr noundef %60)
+  br label %61
+
+61:                                               ; preds = %59, %56
   store ptr null, ptr %1, align 8
-  br label %60
+  br label %62
 
-60:                                               ; preds = %59
+62:                                               ; preds = %61
   ret void
 }
 
@@ -20900,106 +20991,108 @@ define internal i32 @_close_controller_conn(ptr noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %19 = and i64 %18, 281474976710656
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %31
+  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %19, 281474976710656
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %32
 
-21:                                               ; preds = %17
-  br label %22
+22:                                               ; preds = %17
+  br label %23
 
-22:                                               ; preds = %21
-  %23 = call i32 @get_log_level()
-  %24 = icmp sge i32 %23, 4
-  br i1 %24, label %25, label %29
+23:                                               ; preds = %22
+  %24 = call i32 @get_log_level()
+  %25 = icmp sge i32 %24, 4
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %26, i32 0, i32 11
-  %28 = load ptr, ptr %27, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.174, ptr noundef %28)
-  br label %29
-
-29:                                               ; preds = %25, %22
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %27, i32 0, i32 11
+  %29 = load ptr, ptr %28, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.174, ptr noundef %29)
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %26, %23
   br label %31
 
-31:                                               ; preds = %30, %17
+31:                                               ; preds = %30
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %33, i32 0, i32 8
-  %35 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %34, i32 0, i32 3
-  store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %36, i32 0, i32 8
-  %38 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %37, i32 0, i32 4
-  %39 = load ptr, ptr %38, align 8
-  call void @slurm_persist_conn_destroy(ptr noundef %39)
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %40, i32 0, i32 8
-  %42 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %41, i32 0, i32 4
-  store ptr null, ptr %42, align 8
-  br label %43
+32:                                               ; preds = %31, %17
+  br label %33
 
-43:                                               ; preds = %32
-  %44 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %45 = and i64 %44, 281474976710656
-  %46 = icmp ne i64 %45, 0
-  br i1 %46, label %47, label %57
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %34, i32 0, i32 8
+  %36 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %35, i32 0, i32 3
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %37, i32 0, i32 8
+  %39 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8
+  call void @slurm_persist_conn_destroy(ptr noundef %40)
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %41, i32 0, i32 8
+  %43 = getelementptr inbounds %struct.slurmdb_cluster_fed_t, ptr %42, i32 0, i32 4
+  store ptr null, ptr %43, align 8
+  br label %44
 
-47:                                               ; preds = %43
-  br label %48
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 281474976710656
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %59
 
-48:                                               ; preds = %47
-  %49 = call i32 @get_log_level()
-  %50 = icmp sge i32 %49, 4
-  br i1 %50, label %51, label %55
+49:                                               ; preds = %44
+  br label %50
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %52, i32 0, i32 11
-  %54 = load ptr, ptr %53, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.175, ptr noundef %54)
-  br label %55
+50:                                               ; preds = %49
+  %51 = call i32 @get_log_level()
+  %52 = icmp sge i32 %51, 4
+  br i1 %52, label %53, label %57
 
-55:                                               ; preds = %51, %48
-  br label %56
-
-56:                                               ; preds = %55
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %54, i32 0, i32 11
+  %56 = load ptr, ptr %55, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.175, ptr noundef %56)
   br label %57
 
-57:                                               ; preds = %56, %43
+57:                                               ; preds = %53, %50
   br label %58
 
 58:                                               ; preds = %57
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %60, i32 0, i32 10
-  %62 = call i32 @pthread_mutex_unlock(ptr noundef %61) #8
-  store i32 %62, ptr %5, align 4
-  %63 = load i32, ptr %5, align 4
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %68
+59:                                               ; preds = %58, %44
+  br label %60
 
-65:                                               ; preds = %59
-  %66 = load i32, ptr %5, align 4
-  %67 = call ptr @__errno_location() #9
-  store i32 %66, ptr %67, align 4
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %62, i32 0, i32 10
+  %64 = call i32 @pthread_mutex_unlock(ptr noundef %63) #8
+  store i32 %64, ptr %5, align 4
+  %65 = load i32, ptr %5, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %70
+
+67:                                               ; preds = %61
+  %68 = load i32, ptr %5, align 4
+  %69 = call ptr @__errno_location() #9
+  store i32 %68, ptr %69, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 255, ptr noundef @__func__._close_controller_conn) #10
   unreachable
 
-68:                                               ; preds = %59
-  br label %69
+70:                                               ; preds = %61
+  br label %71
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %3, align 4
-  ret i32 %70
+71:                                               ; preds = %70
+  %72 = load i32, ptr %3, align 4
+  ret i32 %72
 }
 
 declare void @slurm_persist_conn_destroy(ptr noundef) #1

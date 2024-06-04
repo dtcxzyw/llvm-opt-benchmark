@@ -11354,299 +11354,307 @@ define double @H5_trace(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) #0 
 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %4, align 8
-  br label %201
+  br label %209
 
 20:                                               ; preds = %3
-  %21 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
+  %21 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %20
-  %24 = call i32 @H5_timer_init(ptr noundef %12)
-  br label %25
+24:                                               ; preds = %20
+  %25 = call i32 @H5_timer_init(ptr noundef %12)
+  br label %26
 
-25:                                               ; preds = %23, %20
-  %26 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 1), align 8
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %46
+26:                                               ; preds = %24, %20
+  %27 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 1
+  %28 = load i8, ptr %27, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %48
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %38
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %5, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr @H5_trace.current_depth, align 4
-  %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %34, label %37
+33:                                               ; preds = %30
+  %34 = load i32, ptr @H5_trace.current_depth, align 4
+  %35 = icmp sgt i32 %34, 1
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr @H5_trace.current_depth, align 4
-  %36 = add nsw i32 %35, -1
-  store i32 %36, ptr @H5_trace.current_depth, align 4
+36:                                               ; preds = %33
+  %37 = load i32, ptr @H5_trace.current_depth, align 4
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr @H5_trace.current_depth, align 4
   store double 0.000000e+00, ptr %4, align 8
-  br label %201
+  br label %209
 
-37:                                               ; preds = %31
-  br label %45
+39:                                               ; preds = %33
+  br label %47
 
-38:                                               ; preds = %28
-  %39 = load i32, ptr @H5_trace.current_depth, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %44
+40:                                               ; preds = %30
+  %41 = load i32, ptr @H5_trace.current_depth, align 4
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %46
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr @H5_trace.current_depth, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr @H5_trace.current_depth, align 4
+43:                                               ; preds = %40
+  %44 = load i32, ptr @H5_trace.current_depth, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr @H5_trace.current_depth, align 4
   store double 0.000000e+00, ptr %4, align 8
-  br label %201
+  br label %209
 
-44:                                               ; preds = %38
-  br label %45
+46:                                               ; preds = %40
+  br label %47
 
-45:                                               ; preds = %44, %37
-  br label %46
+47:                                               ; preds = %46, %39
+  br label %48
 
-46:                                               ; preds = %45, %25
-  %47 = load i8, ptr @H5_trace.is_first_invocation, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %55
+48:                                               ; preds = %47, %26
+  %49 = load i8, ptr @H5_trace.is_first_invocation, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %58
 
-49:                                               ; preds = %46
-  %50 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %55
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %58
 
-52:                                               ; preds = %49
+55:                                               ; preds = %51
   store i8 0, ptr @H5_trace.is_first_invocation, align 1
-  %53 = call i32 @H5_timer_init(ptr noundef @H5_trace.running_timer)
-  %54 = call i32 @H5_timer_start(ptr noundef @H5_trace.running_timer)
-  br label %55
+  %56 = call i32 @H5_timer_init(ptr noundef @H5_trace.running_timer)
+  %57 = call i32 @H5_timer_start(ptr noundef @H5_trace.running_timer)
+  br label %58
 
-55:                                               ; preds = %52, %49, %46
-  %56 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %60
+58:                                               ; preds = %55, %51, %48
+  %59 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %64
 
-58:                                               ; preds = %55
-  %59 = call i32 @H5_timer_start(ptr noundef %12)
-  br label %60
+62:                                               ; preds = %58
+  %63 = call i32 @H5_timer_start(ptr noundef %12)
+  br label %64
 
-60:                                               ; preds = %58, %55
-  %61 = call ptr @H5RS_create(ptr noundef null)
-  store ptr %61, ptr %9, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %110
+64:                                               ; preds = %62, %58
+  %65 = call ptr @H5RS_create(ptr noundef null)
+  store ptr %65, ptr %9, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %115
 
-64:                                               ; preds = %60
-  %65 = load i32, ptr @H5_trace.current_depth, align 4
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr @H5_trace.current_depth, align 4
-  %67 = load i32, ptr @H5_trace.current_depth, align 4
-  %68 = load i32, ptr @H5_trace.last_call_depth, align 4
-  %69 = icmp slt i32 %67, %68
-  br i1 %69, label %70, label %106
+68:                                               ; preds = %64
+  %69 = load i32, ptr @H5_trace.current_depth, align 4
+  %70 = add nsw i32 %69, -1
+  store i32 %70, ptr @H5_trace.current_depth, align 4
+  %71 = load i32, ptr @H5_trace.current_depth, align 4
+  %72 = load i32, ptr @H5_trace.last_call_depth, align 4
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %74, label %111
 
-70:                                               ; preds = %64
-  %71 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %88
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %76 = load i8, ptr %75, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %93
 
-73:                                               ; preds = %70
-  %74 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
-  %75 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
-  %76 = getelementptr inbounds [320 x i8], ptr %15, i64 0, i64 0
-  %77 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
-  %80 = load double, ptr %79, align 8
-  %81 = fsub double %78, %80
-  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %76, i64 noundef 320, ptr noundef @.str.517, double noundef %81) #8
-  %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds [320 x i8], ptr %15, i64 0, i64 0
-  %85 = call i64 @strlen(ptr noundef %84) #9
-  %86 = trunc i64 %85 to i32
-  %87 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %83, ptr noundef @.str.518, i32 noundef %86, ptr noundef @.str.2)
-  br label %88
+78:                                               ; preds = %74
+  %79 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
+  %80 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
+  %81 = getelementptr inbounds [320 x i8], ptr %15, i64 0, i64 0
+  %82 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
+  %83 = load double, ptr %82, align 8
+  %84 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
+  %85 = load double, ptr %84, align 8
+  %86 = fsub double %83, %85
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %81, i64 noundef 320, ptr noundef @.str.517, double noundef %86) #8
+  %88 = load ptr, ptr %9, align 8
+  %89 = getelementptr inbounds [320 x i8], ptr %15, i64 0, i64 0
+  %90 = call i64 @strlen(ptr noundef %89) #9
+  %91 = trunc i64 %90 to i32
+  %92 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %88, ptr noundef @.str.518, i32 noundef %91, ptr noundef @.str.2)
+  br label %93
 
-88:                                               ; preds = %73, %70
+93:                                               ; preds = %78, %74
   store i64 0, ptr %10, align 8
-  br label %89
+  br label %94
 
-89:                                               ; preds = %97, %88
-  %90 = load i64, ptr %10, align 8
-  %91 = load i32, ptr @H5_trace.current_depth, align 4
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %90, %92
-  br i1 %93, label %94, label %100
+94:                                               ; preds = %102, %93
+  %95 = load i64, ptr %10, align 8
+  %96 = load i32, ptr @H5_trace.current_depth, align 4
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %95, %97
+  br i1 %98, label %99, label %105
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %9, align 8
-  %96 = call i32 @H5RS_aputc(ptr noundef %95, i32 noundef 43)
-  br label %97
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %9, align 8
+  %101 = call i32 @H5RS_aputc(ptr noundef %100, i32 noundef 43)
+  br label %102
 
-97:                                               ; preds = %94
-  %98 = load i64, ptr %10, align 8
-  %99 = add nsw i64 %98, 1
-  store i64 %99, ptr %10, align 8
-  br label %89
+102:                                              ; preds = %99
+  %103 = load i64, ptr %10, align 8
+  %104 = add nsw i64 %103, 1
+  store i64 %104, ptr %10, align 8
+  br label %94
 
-100:                                              ; preds = %89
-  %101 = load ptr, ptr %9, align 8
-  %102 = load i32, ptr @H5_trace.current_depth, align 4
-  %103 = mul nsw i32 2, %102
-  %104 = load ptr, ptr %6, align 8
-  %105 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %101, ptr noundef @.str.519, i32 noundef %103, ptr noundef @.str.2, ptr noundef %104)
-  br label %109
+105:                                              ; preds = %94
+  %106 = load ptr, ptr %9, align 8
+  %107 = load i32, ptr @H5_trace.current_depth, align 4
+  %108 = mul nsw i32 2, %107
+  %109 = load ptr, ptr %6, align 8
+  %110 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %106, ptr noundef @.str.519, i32 noundef %108, ptr noundef @.str.2, ptr noundef %109)
+  br label %114
 
-106:                                              ; preds = %64
-  %107 = load ptr, ptr %9, align 8
-  %108 = call i32 @H5RS_acat(ptr noundef %107, ptr noundef @.str.520)
-  br label %109
+111:                                              ; preds = %68
+  %112 = load ptr, ptr %9, align 8
+  %113 = call i32 @H5RS_acat(ptr noundef %112, ptr noundef @.str.520)
+  br label %114
 
-109:                                              ; preds = %106, %100
-  br label %148
+114:                                              ; preds = %111, %105
+  br label %154
 
-110:                                              ; preds = %60
-  %111 = load i32, ptr @H5_trace.current_depth, align 4
-  %112 = load i32, ptr @H5_trace.last_call_depth, align 4
-  %113 = icmp sgt i32 %111, %112
-  br i1 %113, label %114, label %117
+115:                                              ; preds = %64
+  %116 = load i32, ptr @H5_trace.current_depth, align 4
+  %117 = load i32, ptr @H5_trace.last_call_depth, align 4
+  %118 = icmp sgt i32 %116, %117
+  br i1 %118, label %119, label %122
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %9, align 8
-  %116 = call i32 @H5RS_acat(ptr noundef %115, ptr noundef @.str.521)
-  br label %117
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %9, align 8
+  %121 = call i32 @H5RS_acat(ptr noundef %120, ptr noundef @.str.521)
+  br label %122
 
-117:                                              ; preds = %114, %110
-  %118 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %130
+122:                                              ; preds = %119, %115
+  %123 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %124 = load i8, ptr %123, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %136
 
-120:                                              ; preds = %117
-  %121 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
-  %122 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
-  %125 = load double, ptr %124, align 8
-  %126 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
-  %127 = load double, ptr %126, align 8
-  %128 = fsub double %125, %127
-  %129 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %123, ptr noundef @.str.522, double noundef %128)
-  br label %130
+126:                                              ; preds = %122
+  %127 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
+  %128 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
+  %129 = load ptr, ptr %9, align 8
+  %130 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
+  %131 = load double, ptr %130, align 8
+  %132 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
+  %133 = load double, ptr %132, align 8
+  %134 = fsub double %131, %133
+  %135 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %129, ptr noundef @.str.522, double noundef %134)
+  br label %136
 
-130:                                              ; preds = %120, %117
+136:                                              ; preds = %126, %122
   store i64 0, ptr %10, align 8
-  br label %131
+  br label %137
 
-131:                                              ; preds = %139, %130
-  %132 = load i64, ptr %10, align 8
-  %133 = load i32, ptr @H5_trace.current_depth, align 4
-  %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %132, %134
-  br i1 %135, label %136, label %142
+137:                                              ; preds = %145, %136
+  %138 = load i64, ptr %10, align 8
+  %139 = load i32, ptr @H5_trace.current_depth, align 4
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %138, %140
+  br i1 %141, label %142, label %148
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr %9, align 8
-  %138 = call i32 @H5RS_aputc(ptr noundef %137, i32 noundef 43)
-  br label %139
-
-139:                                              ; preds = %136
-  %140 = load i64, ptr %10, align 8
-  %141 = add nsw i64 %140, 1
-  store i64 %141, ptr %10, align 8
-  br label %131
-
-142:                                              ; preds = %131
+142:                                              ; preds = %137
   %143 = load ptr, ptr %9, align 8
-  %144 = load i32, ptr @H5_trace.current_depth, align 4
-  %145 = mul nsw i32 2, %144
-  %146 = load ptr, ptr %6, align 8
-  %147 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %143, ptr noundef @.str.523, i32 noundef %145, ptr noundef @.str.2, ptr noundef %146)
-  br label %148
+  %144 = call i32 @H5RS_aputc(ptr noundef %143, i32 noundef 43)
+  br label %145
 
-148:                                              ; preds = %142, %109
-  %149 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start.p0(ptr %149)
-  %150 = load ptr, ptr %9, align 8
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  %153 = call i32 @H5_trace_args(ptr noundef %150, ptr noundef %151, ptr noundef %152)
-  %154 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end.p0(ptr %154)
-  %155 = load ptr, ptr %5, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %157, label %175
+145:                                              ; preds = %142
+  %146 = load i64, ptr %10, align 8
+  %147 = add nsw i64 %146, 1
+  store i64 %147, ptr %10, align 8
+  br label %137
 
-157:                                              ; preds = %148
-  %158 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %175
+148:                                              ; preds = %137
+  %149 = load ptr, ptr %9, align 8
+  %150 = load i32, ptr @H5_trace.current_depth, align 4
+  %151 = mul nsw i32 2, %150
+  %152 = load ptr, ptr %6, align 8
+  %153 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %149, ptr noundef @.str.523, i32 noundef %151, ptr noundef @.str.2, ptr noundef %152)
+  br label %154
 
-160:                                              ; preds = %157
-  %161 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
-  %162 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
-  %163 = load ptr, ptr %9, align 8
-  %164 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
-  %165 = load double, ptr %164, align 8
-  %166 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
-  %167 = load double, ptr %166, align 8
-  %168 = fsub double %165, %167
-  %169 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
-  %170 = load double, ptr %169, align 8
-  %171 = load ptr, ptr %5, align 8
+154:                                              ; preds = %148, %114
+  %155 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %155)
+  %156 = load ptr, ptr %9, align 8
+  %157 = load ptr, ptr %7, align 8
+  %158 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  %159 = call i32 @H5_trace_args(ptr noundef %156, ptr noundef %157, ptr noundef %158)
+  %160 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %160)
+  %161 = load ptr, ptr %5, align 8
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %163, label %182
+
+163:                                              ; preds = %154
+  %164 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %165 = load i8, ptr %164, align 1
+  %166 = trunc i8 %165 to i1
+  br i1 %166, label %167, label %182
+
+167:                                              ; preds = %163
+  %168 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 %12, ptr noundef %13)
+  %169 = call i32 @H5_timer_get_times(ptr noundef byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef %14)
+  %170 = load ptr, ptr %9, align 8
+  %171 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
   %172 = load double, ptr %171, align 8
-  %173 = fsub double %170, %172
-  %174 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %163, ptr noundef @.str.524, double noundef %168, double noundef %173)
-  br label %175
+  %173 = getelementptr inbounds %struct.H5_timevals_t, ptr %14, i32 0, i32 2
+  %174 = load double, ptr %173, align 8
+  %175 = fsub double %172, %174
+  %176 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
+  %177 = load double, ptr %176, align 8
+  %178 = load ptr, ptr %5, align 8
+  %179 = load double, ptr %178, align 8
+  %180 = fsub double %177, %179
+  %181 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %170, ptr noundef @.str.524, double noundef %175, double noundef %180)
+  br label %182
 
-175:                                              ; preds = %160, %157, %148
-  %176 = load ptr, ptr %5, align 8
-  %177 = icmp ne ptr %176, null
-  br i1 %177, label %178, label %181
+182:                                              ; preds = %167, %163, %154
+  %183 = load ptr, ptr %5, align 8
+  %184 = icmp ne ptr %183, null
+  br i1 %184, label %185, label %188
 
-178:                                              ; preds = %175
-  %179 = load ptr, ptr %9, align 8
-  %180 = call i32 @H5RS_acat(ptr noundef %179, ptr noundef @.str.525)
-  br label %186
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %9, align 8
+  %187 = call i32 @H5RS_acat(ptr noundef %186, ptr noundef @.str.525)
+  br label %193
 
-181:                                              ; preds = %175
-  %182 = load i32, ptr @H5_trace.current_depth, align 4
-  %183 = add nsw i32 %182, 1
-  store i32 %183, ptr @H5_trace.current_depth, align 4
-  store i32 %182, ptr @H5_trace.last_call_depth, align 4
-  %184 = load ptr, ptr %9, align 8
-  %185 = call i32 @H5RS_acat(ptr noundef %184, ptr noundef @.str.526)
-  br label %186
+188:                                              ; preds = %182
+  %189 = load i32, ptr @H5_trace.current_depth, align 4
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr @H5_trace.current_depth, align 4
+  store i32 %189, ptr @H5_trace.last_call_depth, align 4
+  %191 = load ptr, ptr %9, align 8
+  %192 = call i32 @H5RS_acat(ptr noundef %191, ptr noundef @.str.526)
+  br label %193
 
-186:                                              ; preds = %181, %178
-  %187 = load ptr, ptr %9, align 8
-  %188 = call ptr @H5RS_get_str(ptr noundef %187)
-  %189 = load ptr, ptr %11, align 8
-  %190 = call i32 @fputs(ptr noundef %188, ptr noundef %189)
-  %191 = load ptr, ptr %11, align 8
-  %192 = call i32 @fflush(ptr noundef %191)
-  %193 = load ptr, ptr %9, align 8
-  %194 = call i32 @H5RS_decr(ptr noundef %193)
-  %195 = load i8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  %196 = trunc i8 %195 to i1
-  br i1 %196, label %197, label %200
+193:                                              ; preds = %188, %185
+  %194 = load ptr, ptr %9, align 8
+  %195 = call ptr @H5RS_get_str(ptr noundef %194)
+  %196 = load ptr, ptr %11, align 8
+  %197 = call i32 @fputs(ptr noundef %195, ptr noundef %196)
+  %198 = load ptr, ptr %11, align 8
+  %199 = call i32 @fflush(ptr noundef %198)
+  %200 = load ptr, ptr %9, align 8
+  %201 = call i32 @H5RS_decr(ptr noundef %200)
+  %202 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  %203 = load i8, ptr %202, align 1
+  %204 = trunc i8 %203 to i1
+  br i1 %204, label %205, label %208
 
-197:                                              ; preds = %186
-  %198 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
-  %199 = load double, ptr %198, align 8
-  store double %199, ptr %4, align 8
-  br label %201
+205:                                              ; preds = %193
+  %206 = getelementptr inbounds %struct.H5_timevals_t, ptr %13, i32 0, i32 2
+  %207 = load double, ptr %206, align 8
+  store double %207, ptr %4, align 8
+  br label %209
 
-200:                                              ; preds = %186
+208:                                              ; preds = %193
   store double 0.000000e+00, ptr %4, align 8
-  br label %201
+  br label %209
 
-201:                                              ; preds = %200, %197, %41, %34, %19
-  %202 = load double, ptr %4, align 8
-  ret double %202
+209:                                              ; preds = %208, %205, %43, %36, %19
+  %210 = load double, ptr %4, align 8
+  ret double %210
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

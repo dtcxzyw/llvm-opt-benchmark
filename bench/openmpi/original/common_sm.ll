@@ -119,7 +119,7 @@ define internal ptr @attach_and_init(ptr noundef %0, i64 noundef %1, i64 noundef
 
 20:                                               ; preds = %5
   store ptr null, ptr %6, align 8
-  br label %128
+  br label %129
 
 21:                                               ; preds = %5
   call void @opal_atomic_rmb()
@@ -134,7 +134,7 @@ define internal ptr @attach_and_init(ptr noundef %0, i64 noundef %1, i64 noundef
   %26 = load ptr, ptr %7, align 8
   %27 = call i32 @opal_shmem_segment_detach(ptr noundef %26)
   store ptr null, ptr %6, align 8
-  br label %128
+  br label %129
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %7, align 8
@@ -150,7 +150,7 @@ define internal ptr @attach_and_init(ptr noundef %0, i64 noundef %1, i64 noundef
   %37 = load ptr, ptr %12, align 8
   call void @free(ptr noundef %37) #6
   store ptr null, ptr %6, align 8
-  br label %128
+  br label %129
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %13, align 8
@@ -163,7 +163,7 @@ define internal ptr @attach_and_init(ptr noundef %0, i64 noundef %1, i64 noundef
   store ptr %44, ptr %14, align 8
   %45 = load i64, ptr %10, align 8
   %46 = icmp ne i64 0, %45
-  br i1 %46, label %47, label %78
+  br i1 %46, label %47, label %79
 
 47:                                               ; preds = %38
   %48 = load ptr, ptr %14, align 8
@@ -184,97 +184,98 @@ define internal ptr @attach_and_init(ptr noundef %0, i64 noundef %1, i64 noundef
   %62 = getelementptr inbounds i8, ptr %58, i64 %61
   %63 = load ptr, ptr %14, align 8
   %64 = icmp ult ptr %62, %63
-  br i1 %64, label %65, label %77
+  br i1 %64, label %65, label %78
 
 65:                                               ; preds = %47
   %66 = load ptr, ptr @opal_show_help, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %68, i32 0, i32 3
-  %70 = load i64, ptr %69, align 8
-  %71 = load i64, ptr %9, align 8
-  %72 = load i64, ptr %10, align 8
-  %73 = call i32 (ptr, ptr, i32, ...) %66(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1, ptr noundef %67, i64 noundef %70, i64 noundef %71, i64 noundef %72)
-  %74 = load ptr, ptr %7, align 8
-  %75 = call i32 @opal_shmem_segment_detach(ptr noundef %74)
-  %76 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %76) #6
+  %67 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %69, i32 0, i32 3
+  %71 = load i64, ptr %70, align 8
+  %72 = load i64, ptr %9, align 8
+  %73 = load i64, ptr %10, align 8
+  %74 = call i32 (ptr, ptr, i32, ...) %66(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1, ptr noundef %68, i64 noundef %71, i64 noundef %72, i64 noundef %73)
+  %75 = load ptr, ptr %7, align 8
+  %76 = call i32 @opal_shmem_segment_detach(ptr noundef %75)
+  %77 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %77) #6
   store ptr null, ptr %6, align 8
-  br label %128
+  br label %129
 
-77:                                               ; preds = %47
-  br label %78
+78:                                               ; preds = %47
+  br label %79
 
-78:                                               ; preds = %77, %38
-  %79 = load ptr, ptr %14, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %80, i32 0, i32 3
-  store ptr %79, ptr %81, align 8
-  %82 = load ptr, ptr %13, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %83, i32 0, i32 2
-  store ptr %82, ptr %84, align 8
-  %85 = load i8, ptr %11, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %121
+79:                                               ; preds = %78, %38
+  %80 = load ptr, ptr %14, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %81, i32 0, i32 3
+  store ptr %80, ptr %82, align 8
+  %83 = load ptr, ptr %13, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %84, i32 0, i32 2
+  store ptr %83, ptr %85, align 8
+  %86 = load i8, ptr %11, align 1
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %122
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %88, i32 0, i32 3
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = ptrtoint ptr %90 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  store i64 %96, ptr %15, align 8
-  %97 = load ptr, ptr %12, align 8
-  %98 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %99, i32 0, i32 0
-  call void @opal_atomic_lock_init(ptr noundef %100, i32 noundef 0)
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %103, i32 0, i32 1
-  store volatile i32 0, ptr %104, align 4
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %107, i32 0, i32 2
-  store volatile i64 0, ptr %108, align 8
-  %109 = load i64, ptr %15, align 8
-  %110 = load ptr, ptr %12, align 8
-  %111 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %110, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %112, i32 0, i32 3
-  store i64 %109, ptr %113, align 8
-  %114 = load i64, ptr %8, align 8
-  %115 = load i64, ptr %15, align 8
-  %116 = sub i64 %114, %115
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %119, i32 0, i32 4
-  store i64 %116, ptr %120, align 8
+88:                                               ; preds = %79
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %89, i32 0, i32 3
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = ptrtoint ptr %91 to i64
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  store i64 %97, ptr %15, align 8
+  %98 = load ptr, ptr %12, align 8
+  %99 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %100, i32 0, i32 0
+  call void @opal_atomic_lock_init(ptr noundef %101, i32 noundef 0)
+  %102 = load ptr, ptr %12, align 8
+  %103 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %104, i32 0, i32 1
+  store volatile i32 0, ptr %105, align 4
+  %106 = load ptr, ptr %12, align 8
+  %107 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %108, i32 0, i32 2
+  store volatile i64 0, ptr %109, align 8
+  %110 = load i64, ptr %15, align 8
+  %111 = load ptr, ptr %12, align 8
+  %112 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %113, i32 0, i32 3
+  store i64 %110, ptr %114, align 8
+  %115 = load i64, ptr %8, align 8
+  %116 = load i64, ptr %15, align 8
+  %117 = sub i64 %115, %116
+  %118 = load ptr, ptr %12, align 8
+  %119 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %120, i32 0, i32 4
+  store i64 %117, ptr %121, align 8
   call void @opal_atomic_wmb()
-  br label %121
+  br label %122
 
-121:                                              ; preds = %87, %78
-  %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %124, i32 0, i32 2
-  %126 = call i64 @opal_atomic_add_fetch_size_t(ptr noundef %125, i64 noundef 1)
+122:                                              ; preds = %88, %79
+  %123 = load ptr, ptr %12, align 8
+  %124 = getelementptr inbounds %struct.mca_common_sm_module_t, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds %struct.mca_common_sm_seg_header_t, ptr %125, i32 0, i32 2
+  %127 = call i64 @opal_atomic_add_fetch_size_t(ptr noundef %126, i64 noundef 1)
   call void @opal_atomic_wmb()
-  %127 = load ptr, ptr %12, align 8
-  store ptr %127, ptr %6, align 8
-  br label %128
+  %128 = load ptr, ptr %12, align 8
+  store ptr %128, ptr %6, align 8
+  br label %129
 
-128:                                              ; preds = %121, %65, %34, %24, %20
-  %129 = load ptr, ptr %6, align 8
-  ret ptr %129
+129:                                              ; preds = %122, %65, %34, %24, %20
+  %130 = load ptr, ptr %6, align 8
+  ret ptr %130
 }
 
 ; Function Attrs: nounwind

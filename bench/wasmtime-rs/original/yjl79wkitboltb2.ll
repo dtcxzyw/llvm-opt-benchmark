@@ -47,10 +47,11 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h3f2180fd486c6ef2E(ptr n
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error6source17h5eb9203ad888385bE(ptr noalias noundef nonnull readonly align 1 %0) unnamed_addr #0 {
   %2 = load ptr, ptr @anon.064516cfe2ba2d0f2d64708289debbb4.0, align 8, !align !5, !noundef !4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.064516cfe2ba2d0f2d64708289debbb4.0, i64 8), align 8
-  %4 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
-  ret { ptr, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.064516cfe2ba2d0f2d64708289debbb4.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -95,16 +96,16 @@ define available_externally { ptr, ptr } @"_ZN64_$LT$wiggle..error..GuestError$u
   %4 = zext i32 %3 to i64
   switch i64 %4, label %5 [
     i64 0, label %6
-    i64 1, label %10
-    i64 2, label %14
-    i64 3, label %18
-    i64 4, label %22
-    i64 5, label %26
-    i64 6, label %30
-    i64 7, label %34
-    i64 8, label %38
-    i64 9, label %41
-    i64 10, label %44
+    i64 1, label %11
+    i64 2, label %16
+    i64 3, label %21
+    i64 4, label %26
+    i64 5, label %31
+    i64 6, label %36
+    i64 7, label %41
+    i64 8, label %46
+    i64 9, label %49
+    i64 10, label %52
   ]
 
 5:                                                ; preds = %1
@@ -112,96 +113,104 @@ define available_externally { ptr, ptr } @"_ZN64_$LT$wiggle..error..GuestError$u
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
+  %8 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %9 = load ptr, ptr %8, align 8
   store ptr %7, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %8, ptr %9, align 8
-  br label %47
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %9, ptr %10, align 8
+  br label %55
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %11, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %12, ptr %13, align 8
-  br label %47
+11:                                               ; preds = %1
+  %12 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %13 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %12, ptr %2, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %14, ptr %15, align 8
+  br label %55
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %15, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %16, ptr %17, align 8
-  br label %47
+16:                                               ; preds = %1
+  %17 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %18 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %19 = load ptr, ptr %18, align 8
+  store ptr %17, ptr %2, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %19, ptr %20, align 8
+  br label %55
 
-18:                                               ; preds = %1
-  %19 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %19, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %20, ptr %21, align 8
-  br label %47
-
-22:                                               ; preds = %1
-  %23 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %23, ptr %2, align 8
+21:                                               ; preds = %1
+  %22 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %23 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %22, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %24, ptr %25, align 8
-  br label %47
+  br label %55
 
 26:                                               ; preds = %1
   %27 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
+  %28 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %29 = load ptr, ptr %28, align 8
   store ptr %27, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %28, ptr %29, align 8
-  br label %47
+  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %29, ptr %30, align 8
+  br label %55
 
-30:                                               ; preds = %1
-  %31 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %31, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %32, ptr %33, align 8
-  br label %47
+31:                                               ; preds = %1
+  %32 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %33 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %34 = load ptr, ptr %33, align 8
+  store ptr %32, ptr %2, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %34, ptr %35, align 8
+  br label %55
 
-34:                                               ; preds = %1
-  %35 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8), align 8
-  store ptr %35, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %36, ptr %37, align 8
-  br label %47
-
-38:                                               ; preds = %1
-  %39 = getelementptr inbounds { [1 x i64], { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, ptr }, ptr %0, i32 0, i32 4
-  store ptr %39, ptr %2, align 8
+36:                                               ; preds = %1
+  %37 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %38 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %39 = load ptr, ptr %38, align 8
+  store ptr %37, ptr %2, align 8
   %40 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, ptr %40, align 8
-  br label %47
+  store ptr %39, ptr %40, align 8
+  br label %55
 
 41:                                               ; preds = %1
-  %42 = getelementptr inbounds { [1 x i64], { i64, { i8, [1 x i8] }, [6 x i8] } }, ptr %0, i32 0, i32 1
+  %42 = load ptr, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, align 8, !align !5, !noundef !4
+  %43 = getelementptr inbounds i8, ptr @anon.54a5971469fec889470d4ea1aca8aca2.0.llvm.12709601882666644001, i64 8
+  %44 = load ptr, ptr %43, align 8
   store ptr %42, ptr %2, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, ptr %43, align 8
-  br label %47
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %44, ptr %45, align 8
+  br label %55
 
-44:                                               ; preds = %1
-  %45 = getelementptr inbounds { [4 x i8], { {} } }, ptr %0, i32 0, i32 1
-  store ptr %45, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, ptr %46, align 8
-  br label %47
+46:                                               ; preds = %1
+  %47 = getelementptr inbounds { [1 x i64], { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, ptr }, ptr %0, i32 0, i32 4
+  store ptr %47, ptr %2, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.17.llvm.12709601882666644001, ptr %48, align 8
+  br label %55
 
-47:                                               ; preds = %44, %41, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %48 = load ptr, ptr %2, align 8, !align !5, !noundef !4
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = insertvalue { ptr, ptr } poison, ptr %48, 0
-  %52 = insertvalue { ptr, ptr } %51, ptr %50, 1
-  ret { ptr, ptr } %52
+49:                                               ; preds = %1
+  %50 = getelementptr inbounds { [1 x i64], { i64, { i8, [1 x i8] }, [6 x i8] } }, ptr %0, i32 0, i32 1
+  store ptr %50, ptr %2, align 8
+  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.19.llvm.12709601882666644001, ptr %51, align 8
+  br label %55
+
+52:                                               ; preds = %1
+  %53 = getelementptr inbounds { [4 x i8], { {} } }, ptr %0, i32 0, i32 1
+  store ptr %53, ptr %2, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @anon.54a5971469fec889470d4ea1aca8aca2.21.llvm.12709601882666644001, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %52, %49, %46, %41, %36, %31, %26, %21, %16, %11, %6
+  %56 = load ptr, ptr %2, align 8, !align !5, !noundef !4
+  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = insertvalue { ptr, ptr } poison, ptr %56, 0
+  %60 = insertvalue { ptr, ptr } %59, ptr %58, 1
+  ret { ptr, ptr } %60
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

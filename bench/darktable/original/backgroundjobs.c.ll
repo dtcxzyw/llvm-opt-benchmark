@@ -63,94 +63,99 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %2, ptr %3, align 8, !tbaa !6
   tail call void @gtk_widget_set_no_show_all(ptr noundef %2, i32 noundef 1) #10
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14568
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #10
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %8 = getelementptr inbounds i8, ptr %7, i64 14608
-  store ptr %0, ptr %8, align 8, !tbaa !23
-  %9 = getelementptr inbounds i8, ptr %7, i64 14616
-  store ptr @_lib_backgroundjobs_added, ptr %9, align 8, !tbaa !29
-  %10 = getelementptr inbounds i8, ptr %7, i64 14624
-  store ptr @_lib_backgroundjobs_destroyed, ptr %10, align 8, !tbaa !30
-  %11 = getelementptr inbounds i8, ptr %7, i64 14632
-  store ptr @_lib_backgroundjobs_cancellable, ptr %11, align 8, !tbaa !31
-  %12 = getelementptr inbounds i8, ptr %7, i64 14640
-  store ptr @_lib_backgroundjobs_updated, ptr %12, align 8, !tbaa !32
-  %13 = getelementptr inbounds i8, ptr %7, i64 14648
-  store ptr @_lib_backgroundjobs_message_updated, ptr %13, align 8, !tbaa !33
-  %14 = getelementptr inbounds i8, ptr %7, i64 14536
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %19, label %23
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = getelementptr inbounds i8, ptr %5, i64 14568
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #10
+  %8 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = getelementptr inbounds i8, ptr %9, i64 14608
+  store ptr %0, ptr %10, align 8, !tbaa !23
+  %11 = getelementptr inbounds i8, ptr %9, i64 14616
+  store ptr @_lib_backgroundjobs_added, ptr %11, align 8, !tbaa !29
+  %12 = getelementptr inbounds i8, ptr %9, i64 14624
+  store ptr @_lib_backgroundjobs_destroyed, ptr %12, align 8, !tbaa !30
+  %13 = getelementptr inbounds i8, ptr %9, i64 14632
+  store ptr @_lib_backgroundjobs_cancellable, ptr %13, align 8, !tbaa !31
+  %14 = getelementptr inbounds i8, ptr %9, i64 14640
+  store ptr @_lib_backgroundjobs_updated, ptr %14, align 8, !tbaa !32
+  %15 = getelementptr inbounds i8, ptr %9, i64 14648
+  store ptr @_lib_backgroundjobs_message_updated, ptr %15, align 8, !tbaa !33
+  %16 = getelementptr inbounds i8, ptr %9, i64 14536
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %22, label %26
 
-17:                                               ; preds = %53
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  br label %19
+19:                                               ; preds = %58
+  %20 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %21 = load ptr, ptr %20, align 8, !tbaa !13
+  br label %22
 
-19:                                               ; preds = %17, %1
-  %20 = phi ptr [ %18, %17 ], [ %7, %1 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 14568
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #10
+22:                                               ; preds = %19, %1
+  %23 = phi ptr [ %21, %19 ], [ %9, %1 ]
+  %24 = getelementptr inbounds i8, ptr %23, i64 14568
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #10
   ret void
 
-23:                                               ; preds = %53, %1
-  %24 = phi ptr [ %55, %53 ], [ %15, %1 ]
-  %25 = load ptr, ptr %24, align 8, !tbaa !35
-  %26 = tail call ptr @dt_control_progress_get_gui_data(ptr noundef %25) #10
-  tail call void @free(ptr noundef %26) #10
-  %27 = tail call i32 @dt_control_progress_has_progress_bar(ptr noundef %25) #10
-  %28 = tail call ptr @dt_control_progress_get_message(ptr noundef %25) #10
-  %29 = tail call ptr @_lib_backgroundjobs_added(ptr noundef %0, i32 noundef %27, ptr noundef %28)
-  tail call void @dt_control_progress_set_gui_data(ptr noundef %25, ptr noundef %29) #10
-  %30 = tail call i32 @dt_control_progress_cancellable(ptr noundef %25) #10
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %42, label %32
+26:                                               ; preds = %58, %1
+  %27 = phi ptr [ %60, %58 ], [ %17, %1 ]
+  %28 = load ptr, ptr %27, align 8, !tbaa !35
+  %29 = tail call ptr @dt_control_progress_get_gui_data(ptr noundef %28) #10
+  tail call void @free(ptr noundef %29) #10
+  %30 = tail call i32 @dt_control_progress_has_progress_bar(ptr noundef %28) #10
+  %31 = tail call ptr @dt_control_progress_get_message(ptr noundef %28) #10
+  %32 = tail call ptr @_lib_backgroundjobs_added(ptr noundef %0, i32 noundef %30, ptr noundef %31)
+  tail call void @dt_control_progress_set_gui_data(ptr noundef %28, ptr noundef %32) #10
+  %33 = tail call i32 @dt_control_progress_cancellable(ptr noundef %28) #10
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %46, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %34 = getelementptr inbounds i8, ptr %33, i64 14144
-  %35 = load i32, ptr %34, align 8, !tbaa !37
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %42, label %37
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %37 = load ptr, ptr %36, align 8, !tbaa !13
+  %38 = getelementptr inbounds i8, ptr %37, i64 14144
+  %39 = load i32, ptr %38, align 8, !tbaa !37
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %46, label %41
 
-37:                                               ; preds = %32
-  %38 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %42, label %40
+41:                                               ; preds = %35
+  %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %46, label %44
 
-40:                                               ; preds = %37
-  store ptr %29, ptr %38, align 8, !tbaa !38
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %25, ptr %41, align 8, !tbaa !40
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %38) #10
-  br label %42
+44:                                               ; preds = %41
+  store ptr %32, ptr %42, align 8, !tbaa !38
+  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %28, ptr %45, align 8, !tbaa !40
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %42) #10
+  br label %46
 
-42:                                               ; preds = %40, %37, %32, %23
-  %43 = tail call reassoc nsz arcp contract afn double @dt_control_progress_get_progress(ptr noundef %25) #10
-  %44 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %45 = getelementptr inbounds i8, ptr %44, i64 14144
-  %46 = load i32, ptr %45, align 8, !tbaa !37
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %53, label %48
+46:                                               ; preds = %44, %41, %35, %26
+  %47 = tail call reassoc nsz arcp contract afn double @dt_control_progress_get_progress(ptr noundef %28) #10
+  %48 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %49 = load ptr, ptr %48, align 8, !tbaa !13
+  %50 = getelementptr inbounds i8, ptr %49, i64 14144
+  %51 = load i32, ptr %50, align 8, !tbaa !37
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %58, label %53
 
-48:                                               ; preds = %42
-  %49 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %53, label %51
+53:                                               ; preds = %46
+  %54 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %58, label %56
 
-51:                                               ; preds = %48
-  store ptr %29, ptr %49, align 8, !tbaa !41
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  store double %43, ptr %52, align 8, !tbaa !43
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %49) #10
-  br label %53
+56:                                               ; preds = %53
+  store ptr %32, ptr %54, align 8, !tbaa !41
+  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  store double %47, ptr %57, align 8, !tbaa !43
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %54) #10
+  br label %58
 
-53:                                               ; preds = %51, %48, %42
-  %54 = getelementptr inbounds i8, ptr %24, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !34
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %17, label %23
+58:                                               ; preds = %56, %53, %46
+  %59 = getelementptr inbounds i8, ptr %27, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !34
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %19, label %26
 }
 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -247,74 +252,77 @@ define internal void @_lib_backgroundjobs_destroyed(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
-  %6 = load i32, ptr %5, align 8, !tbaa !37
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %13, label %8
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = getelementptr inbounds i8, ptr %5, i64 14144
+  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %3
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %13, label %11
+9:                                                ; preds = %3
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %8
-  store ptr %1, ptr %9, align 8, !tbaa !38
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %2, ptr %12, align 8, !tbaa !40
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %9) #10
-  br label %13
+12:                                               ; preds = %9
+  store ptr %1, ptr %10, align 8, !tbaa !38
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %2, ptr %13, align 8, !tbaa !40
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %10) #10
+  br label %14
 
-13:                                               ; preds = %11, %8, %3
+14:                                               ; preds = %12, %9, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr noundef %1, double noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
-  %6 = load i32, ptr %5, align 8, !tbaa !37
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %13, label %8
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = getelementptr inbounds i8, ptr %5, i64 14144
+  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %3
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %13, label %11
+9:                                                ; preds = %3
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %8
-  store ptr %1, ptr %9, align 8, !tbaa !41
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  store double %2, ptr %12, align 8, !tbaa !43
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %9) #10
-  br label %13
+12:                                               ; preds = %9
+  store ptr %1, ptr %10, align 8, !tbaa !41
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  store double %2, ptr %13, align 8, !tbaa !43
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %10) #10
+  br label %14
 
-13:                                               ; preds = %11, %8, %3
+14:                                               ; preds = %12, %9, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_message_updated(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
-  %6 = load i32, ptr %5, align 8, !tbaa !37
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %14, label %8
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = getelementptr inbounds i8, ptr %5, i64 14144
+  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %15, label %9
 
-8:                                                ; preds = %3
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %14, label %11
+9:                                                ; preds = %3
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %8
-  store ptr %1, ptr %9, align 8, !tbaa !55
-  %12 = tail call noalias ptr @g_strdup(ptr noundef %2) #10
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !57
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_message_gui_thread, ptr noundef nonnull %9) #10
-  br label %14
+12:                                               ; preds = %9
+  store ptr %1, ptr %10, align 8, !tbaa !55
+  %13 = tail call noalias ptr @g_strdup(ptr noundef %2) #10
+  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %13, ptr %14, align 8, !tbaa !57
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_message_gui_thread, ptr noundef nonnull %10) #10
+  br label %15
 
-14:                                               ; preds = %11, %8, %3
+15:                                               ; preds = %12, %9, %3
   ret void
 }
 
@@ -335,14 +343,16 @@ declare double @dt_control_progress_get_progress(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %3 = getelementptr inbounds i8, ptr %2, i64 14568
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #10
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 14608
-  %7 = getelementptr inbounds i8, ptr %5, i64 14568
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #10
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds i8, ptr %3, i64 14568
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #10
+  %6 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = getelementptr inbounds i8, ptr %7, i64 14608
+  %9 = getelementptr inbounds i8, ptr %7, i64 14568
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #10
   ret void
 }
 
@@ -517,8 +527,9 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_cancel_callback_new(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !13
-  tail call void @dt_control_progress_cancel(ptr noundef %3, ptr noundef %1) #10
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 12
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
+  tail call void @dt_control_progress_cancel(ptr noundef %4, ptr noundef %1) #10
   ret void
 }
 

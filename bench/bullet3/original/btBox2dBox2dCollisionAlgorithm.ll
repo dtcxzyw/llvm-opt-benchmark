@@ -208,34 +208,35 @@ entry:
   %1 = load ptr, ptr %obj0Wrap.addr, align 8
   %2 = load ptr, ptr %obj1Wrap.addr, align 8
   call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btBox2dBox2dCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV30btBox2dBox2dCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_ownManifold, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %mf.addr, align 8
-  store ptr %3, ptr %m_manifoldPtr, align 8
+  %4 = load ptr, ptr %mf.addr, align 8
+  store ptr %4, ptr %m_manifoldPtr, align 8
   %m_manifoldPtr2 = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %m_manifoldPtr2, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr %m_manifoldPtr2, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_dispatcher, align 8
-  %6 = load ptr, ptr %obj0Wrap.addr, align 8
-  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %6 = load ptr, ptr %m_dispatcher, align 8
+  %7 = load ptr, ptr %obj0Wrap.addr, align 8
+  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true
-  %7 = load ptr, ptr %obj1Wrap.addr, align 8
-  %call4 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %8 = load ptr, ptr %obj1Wrap.addr, align 8
+  %call4 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %vtable = load ptr, ptr %5, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %8 = load ptr, ptr %vfn, align 8
-  %call6 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %call, ptr noundef %call4)
+  %9 = load ptr, ptr %vfn, align 8
+  %call6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %call, ptr noundef %call4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -243,21 +244,21 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont5
   %m_dispatcher7 = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_dispatcher7, align 8
-  %10 = load ptr, ptr %obj0Wrap.addr, align 8
-  %call9 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %10 = load ptr, ptr %m_dispatcher7, align 8
+  %11 = load ptr, ptr %obj0Wrap.addr, align 8
+  %call9 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then
-  %11 = load ptr, ptr %obj1Wrap.addr, align 8
-  %call11 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  %12 = load ptr, ptr %obj1Wrap.addr, align 8
+  %call11 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %vtable12 = load ptr, ptr %9, align 8
+  %vtable12 = load ptr, ptr %10, align 8
   %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
-  %12 = load ptr, ptr %vfn13, align 8
-  %call15 = invoke noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %call9, ptr noundef %call11)
+  %13 = load ptr, ptr %vfn13, align 8
+  %call15 = invoke noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %call9, ptr noundef %call11)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont10
@@ -268,12 +269,12 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont8, %if.then, %invoke.cont3, %invoke.cont, %land.lhs.true
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #10
   br label %eh.resume
 
@@ -312,27 +313,28 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btBox2dBox2dCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV30btBox2dBox2dCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_ownManifold, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownManifold, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %m_manifoldPtr = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool2 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %m_manifoldPtr, align 8
+  %tobool2 = icmp ne ptr %2, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
   %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_dispatcher, align 8
+  %3 = load ptr, ptr %m_dispatcher, align 8
   %m_manifoldPtr4 = getelementptr inbounds %class.btBox2dBox2dCollisionAlgorithm, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %m_manifoldPtr4, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %m_manifoldPtr4, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then3
@@ -346,10 +348,10 @@ if.end5:                                          ; preds = %if.end, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 

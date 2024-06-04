@@ -314,25 +314,25 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %
   tail call void asm sideeffect "316: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 316b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 316) #7, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 198, i32 2307, i64 12) #7, !srcloc !23
   tail call void asm sideeffect "317: nop\0A\09.pushsection .discard.instr_end\0A\09.long 317b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 317) #7, !srcloc !24
-  br label %33
+  br label %35
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %33, label %9
+  br i1 %8, label %35, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @percpu_counters_lock) #7
   %11 = icmp eq i32 %1, 0
-  br i1 %11, label %23, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %9
   %13 = zext i32 %1 to i64
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = phi i64 [ 0, %12 ], [ %21, %14 ]
+  %15 = phi i64 [ 0, %12 ], [ %23, %14 ]
   %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15, i32 2
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -340,32 +340,34 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   store volatile ptr %19, ptr %18, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %16, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %17, align 8
-  %21 = add nuw nsw i64 %15, 1
-  %22 = icmp eq i64 %21, %13
-  br i1 %22, label %23, label %14, !llvm.loop !25
+  %21 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %21, ptr %16, align 8
+  %22 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %22, ptr %17, align 8
+  %23 = add nuw nsw i64 %15, 1
+  %24 = icmp eq i64 %23, %13
+  br i1 %24, label %25, label %14, !llvm.loop !25
 
-23:                                               ; preds = %14, %9
+25:                                               ; preds = %14, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @percpu_counters_lock, i64 noundef %10) #7
-  %24 = load ptr, ptr %6, align 8
-  tail call void @free_percpu(ptr noundef %24) #7
-  %25 = icmp eq i32 %1, 0
-  br i1 %25, label %33, label %26
+  %26 = load ptr, ptr %6, align 8
+  tail call void @free_percpu(ptr noundef %26) #7
+  %27 = icmp eq i32 %1, 0
+  br i1 %27, label %35, label %28
 
-26:                                               ; preds = %23
-  %27 = zext i32 %1 to i64
-  br label %28
+28:                                               ; preds = %25
+  %29 = zext i32 %1 to i64
+  br label %30
 
-28:                                               ; preds = %28, %26
-  %29 = phi i64 [ 0, %26 ], [ %31, %28 ]
-  %30 = getelementptr %struct.percpu_counter, ptr %0, i64 %29, i32 3
-  store ptr null, ptr %30, align 8
-  %31 = add nuw nsw i64 %29, 1
-  %32 = icmp eq i64 %31, %27
-  br i1 %32, label %33, label %28, !llvm.loop !26
+30:                                               ; preds = %30, %28
+  %31 = phi i64 [ 0, %28 ], [ %33, %30 ]
+  %32 = getelementptr %struct.percpu_counter, ptr %0, i64 %31, i32 3
+  store ptr null, ptr %32, align 8
+  %33 = add nuw nsw i64 %31, 1
+  %34 = icmp eq i64 %33, %29
+  br i1 %34, label %35, label %30, !llvm.loop !26
 
-33:                                               ; preds = %28, %23, %5, %4
+35:                                               ; preds = %30, %25, %5, %4
   ret void
 }
 

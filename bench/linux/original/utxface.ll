@@ -236,7 +236,7 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %7 = or i1 %5, %6
   %8 = icmp ult i64 %1, 16
   %9 = or i1 %8, %7
-  br i1 %9, label %113, label %10
+  br i1 %9, label %114, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
@@ -247,143 +247,144 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %12 = and i64 %11, 512
   %13 = icmp eq i64 %12, 0
   %14 = select i1 %13, i32 2336, i32 3520
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %16 = call noalias noundef align 8 dereferenceable_or_null(34) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %14, i64 noundef 34) #6
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %113, label %18
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %16 = load ptr, ptr %15, align 16
+  %17 = call noalias noundef align 8 dereferenceable_or_null(34) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %14, i64 noundef 34) #6
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %114, label %19
 
-18:                                               ; preds = %10
-  %19 = load i32, ptr %0, align 4
-  %20 = trunc i32 %19 to i8
-  %21 = and i8 %20, 127
-  store i8 %21, ptr %16, align 8
-  %22 = lshr i8 %20, 7
-  %23 = getelementptr inbounds i8, ptr %16, i64 1
-  store i8 %22, ptr %23, align 1
-  %24 = lshr i32 %19, 8
-  %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %16, i64 2
-  store i8 %25, ptr %26, align 2
-  %27 = lshr i32 %19, 16
-  %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %16, i64 3
-  store i8 %28, ptr %29, align 1
-  %30 = lshr i32 %19, 24
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %16, i64 4
-  store i8 %31, ptr %32, align 4
-  %33 = getelementptr i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds i8, ptr %16, i64 6
-  store i16 %35, ptr %36, align 2
-  %37 = lshr i32 %34, 16
-  %38 = trunc i32 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %16, i64 8
-  store i16 %38, ptr %39, align 8
-  %40 = getelementptr i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 4
-  %42 = trunc i32 %41 to i8
-  %43 = and i8 %42, 1
-  %44 = getelementptr inbounds i8, ptr %16, i64 10
-  store i8 %43, ptr %44, align 2
-  %45 = lshr i8 %42, 1
-  %46 = and i8 %45, 1
-  %47 = getelementptr inbounds i8, ptr %16, i64 11
-  store i8 %46, ptr %47, align 1
-  %48 = lshr i8 %42, 2
-  %49 = and i8 %48, 1
-  %50 = getelementptr inbounds i8, ptr %16, i64 12
-  store i8 %49, ptr %50, align 4
-  %51 = lshr i8 %42, 3
-  %52 = and i8 %51, 7
-  %53 = getelementptr inbounds i8, ptr %16, i64 13
-  store i8 %52, ptr %53, align 1
-  %54 = lshr i8 %42, 6
-  %55 = getelementptr inbounds i8, ptr %16, i64 14
-  store i8 %54, ptr %55, align 2
-  %56 = lshr i32 %41, 8
-  %57 = trunc i32 %56 to i8
-  %58 = and i8 %57, 3
-  %59 = getelementptr inbounds i8, ptr %16, i64 15
-  store i8 %58, ptr %59, align 1
-  %60 = lshr i32 %41, 10
-  %61 = trunc i32 %60 to i8
-  %62 = and i8 %61, 15
-  %63 = getelementptr inbounds i8, ptr %16, i64 16
-  store i8 %62, ptr %63, align 8
-  %64 = lshr i32 %41, 14
-  %65 = trunc i32 %64 to i8
-  %66 = and i8 %65, 1
-  %67 = getelementptr inbounds i8, ptr %16, i64 17
-  store i8 %66, ptr %67, align 1
-  %68 = lshr i32 %41, 15
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %16, i64 18
-  store i8 %69, ptr %70, align 2
-  %71 = lshr i32 %41, 23
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds i8, ptr %16, i64 19
-  store i8 %72, ptr %73, align 1
-  %74 = lshr i32 %41, 31
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds i8, ptr %16, i64 20
-  store i8 %75, ptr %76, align 4
-  %77 = getelementptr i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = trunc i32 %78 to i8
-  %80 = and i8 %79, 1
-  %81 = getelementptr inbounds i8, ptr %16, i64 21
-  store i8 %80, ptr %81, align 1
-  %82 = lshr i8 %79, 1
-  %83 = and i8 %82, 1
-  %84 = getelementptr inbounds i8, ptr %16, i64 22
-  store i8 %83, ptr %84, align 2
-  %85 = lshr i32 %78, 2
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %16, i64 23
-  store i8 %86, ptr %87, align 1
-  %88 = lshr i32 %78, 10
-  %89 = trunc i32 %88 to i8
-  %90 = getelementptr inbounds i8, ptr %16, i64 24
-  store i8 %89, ptr %90, align 8
-  %91 = lshr i32 %78, 18
-  %92 = trunc i32 %91 to i8
-  %93 = and i8 %92, 1
-  %94 = getelementptr inbounds i8, ptr %16, i64 25
-  store i8 %93, ptr %94, align 1
-  %95 = lshr i32 %78, 19
-  %96 = trunc i32 %95 to i8
-  %97 = and i8 %96, 15
-  %98 = getelementptr inbounds i8, ptr %16, i64 26
-  store i8 %97, ptr %98, align 2
-  %99 = lshr i32 %78, 23
-  %100 = trunc i32 %99 to i8
-  %101 = and i8 %100, 31
-  %102 = getelementptr inbounds i8, ptr %16, i64 27
-  store i8 %101, ptr %102, align 1
-  %103 = icmp ugt i64 %1, 19
-  br i1 %103, label %104, label %112
+19:                                               ; preds = %10
+  %20 = load i32, ptr %0, align 4
+  %21 = trunc i32 %20 to i8
+  %22 = and i8 %21, 127
+  store i8 %22, ptr %17, align 8
+  %23 = lshr i8 %21, 7
+  %24 = getelementptr inbounds i8, ptr %17, i64 1
+  store i8 %23, ptr %24, align 1
+  %25 = lshr i32 %20, 8
+  %26 = trunc i32 %25 to i8
+  %27 = getelementptr inbounds i8, ptr %17, i64 2
+  store i8 %26, ptr %27, align 2
+  %28 = lshr i32 %20, 16
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds i8, ptr %17, i64 3
+  store i8 %29, ptr %30, align 1
+  %31 = lshr i32 %20, 24
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds i8, ptr %17, i64 4
+  store i8 %32, ptr %33, align 4
+  %34 = getelementptr i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = trunc i32 %35 to i16
+  %37 = getelementptr inbounds i8, ptr %17, i64 6
+  store i16 %36, ptr %37, align 2
+  %38 = lshr i32 %35, 16
+  %39 = trunc i32 %38 to i16
+  %40 = getelementptr inbounds i8, ptr %17, i64 8
+  store i16 %39, ptr %40, align 8
+  %41 = getelementptr i8, ptr %0, i64 8
+  %42 = load i32, ptr %41, align 4
+  %43 = trunc i32 %42 to i8
+  %44 = and i8 %43, 1
+  %45 = getelementptr inbounds i8, ptr %17, i64 10
+  store i8 %44, ptr %45, align 2
+  %46 = lshr i8 %43, 1
+  %47 = and i8 %46, 1
+  %48 = getelementptr inbounds i8, ptr %17, i64 11
+  store i8 %47, ptr %48, align 1
+  %49 = lshr i8 %43, 2
+  %50 = and i8 %49, 1
+  %51 = getelementptr inbounds i8, ptr %17, i64 12
+  store i8 %50, ptr %51, align 4
+  %52 = lshr i8 %43, 3
+  %53 = and i8 %52, 7
+  %54 = getelementptr inbounds i8, ptr %17, i64 13
+  store i8 %53, ptr %54, align 1
+  %55 = lshr i8 %43, 6
+  %56 = getelementptr inbounds i8, ptr %17, i64 14
+  store i8 %55, ptr %56, align 2
+  %57 = lshr i32 %42, 8
+  %58 = trunc i32 %57 to i8
+  %59 = and i8 %58, 3
+  %60 = getelementptr inbounds i8, ptr %17, i64 15
+  store i8 %59, ptr %60, align 1
+  %61 = lshr i32 %42, 10
+  %62 = trunc i32 %61 to i8
+  %63 = and i8 %62, 15
+  %64 = getelementptr inbounds i8, ptr %17, i64 16
+  store i8 %63, ptr %64, align 8
+  %65 = lshr i32 %42, 14
+  %66 = trunc i32 %65 to i8
+  %67 = and i8 %66, 1
+  %68 = getelementptr inbounds i8, ptr %17, i64 17
+  store i8 %67, ptr %68, align 1
+  %69 = lshr i32 %42, 15
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds i8, ptr %17, i64 18
+  store i8 %70, ptr %71, align 2
+  %72 = lshr i32 %42, 23
+  %73 = trunc i32 %72 to i8
+  %74 = getelementptr inbounds i8, ptr %17, i64 19
+  store i8 %73, ptr %74, align 1
+  %75 = lshr i32 %42, 31
+  %76 = trunc i32 %75 to i8
+  %77 = getelementptr inbounds i8, ptr %17, i64 20
+  store i8 %76, ptr %77, align 4
+  %78 = getelementptr i8, ptr %0, i64 12
+  %79 = load i32, ptr %78, align 4
+  %80 = trunc i32 %79 to i8
+  %81 = and i8 %80, 1
+  %82 = getelementptr inbounds i8, ptr %17, i64 21
+  store i8 %81, ptr %82, align 1
+  %83 = lshr i8 %80, 1
+  %84 = and i8 %83, 1
+  %85 = getelementptr inbounds i8, ptr %17, i64 22
+  store i8 %84, ptr %85, align 2
+  %86 = lshr i32 %79, 2
+  %87 = trunc i32 %86 to i8
+  %88 = getelementptr inbounds i8, ptr %17, i64 23
+  store i8 %87, ptr %88, align 1
+  %89 = lshr i32 %79, 10
+  %90 = trunc i32 %89 to i8
+  %91 = getelementptr inbounds i8, ptr %17, i64 24
+  store i8 %90, ptr %91, align 8
+  %92 = lshr i32 %79, 18
+  %93 = trunc i32 %92 to i8
+  %94 = and i8 %93, 1
+  %95 = getelementptr inbounds i8, ptr %17, i64 25
+  store i8 %94, ptr %95, align 1
+  %96 = lshr i32 %79, 19
+  %97 = trunc i32 %96 to i8
+  %98 = and i8 %97, 15
+  %99 = getelementptr inbounds i8, ptr %17, i64 26
+  store i8 %98, ptr %99, align 2
+  %100 = lshr i32 %79, 23
+  %101 = trunc i32 %100 to i8
+  %102 = and i8 %101, 31
+  %103 = getelementptr inbounds i8, ptr %17, i64 27
+  store i8 %102, ptr %103, align 1
+  %104 = icmp ugt i64 %1, 19
+  br i1 %104, label %105, label %113
 
-104:                                              ; preds = %18
-  %105 = getelementptr i8, ptr %0, i64 16
-  %106 = load i32, ptr %105, align 4
-  %107 = trunc i32 %106 to i16
-  %108 = getelementptr inbounds i8, ptr %16, i64 30
-  store i16 %107, ptr %108, align 2
-  %109 = lshr i32 %106, 16
-  %110 = trunc i32 %109 to i16
-  %111 = getelementptr inbounds i8, ptr %16, i64 32
-  store i16 %110, ptr %111, align 8
-  br label %112
-
-112:                                              ; preds = %104, %18
-  store ptr %16, ptr %2, align 8
+105:                                              ; preds = %19
+  %106 = getelementptr i8, ptr %0, i64 16
+  %107 = load i32, ptr %106, align 4
+  %108 = trunc i32 %107 to i16
+  %109 = getelementptr inbounds i8, ptr %17, i64 30
+  store i16 %108, ptr %109, align 2
+  %110 = lshr i32 %107, 16
+  %111 = trunc i32 %110 to i16
+  %112 = getelementptr inbounds i8, ptr %17, i64 32
+  store i16 %111, ptr %112, align 8
   br label %113
 
-113:                                              ; preds = %112, %10, %3
-  %114 = phi i32 [ 0, %112 ], [ 4097, %3 ], [ 4, %10 ]
-  ret i32 %114
+113:                                              ; preds = %105, %19
+  store ptr %17, ptr %2, align 8
+  br label %114
+
+114:                                              ; preds = %113, %10, %3
+  %115 = phi i32 [ 0, %113 ], [ 4097, %3 ], [ 4, %10 ]
+  ret i32 %115
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

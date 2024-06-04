@@ -708,7 +708,8 @@ if.then18:                                        ; preds = %if.end12
 
 if.end19:                                         ; preds = %if.end12
   %arraydecay20 = getelementptr inbounds [16 x i8], ptr %got_tag, i64 0, i64 0
-  %call21 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 1559, ptr noundef @.str.175, ptr noundef @.str.176, ptr noundef %arraydecay20, i64 noundef 16, ptr noundef getelementptr inbounds (i8, ptr @retry_encoded, i64 20), i64 noundef 16)
+  %0 = getelementptr inbounds i8, ptr @retry_encoded, i64 20
+  %call21 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 1559, ptr noundef @.str.175, ptr noundef @.str.176, ptr noundef %arraydecay20, i64 noundef 16, ptr noundef %0, i64 noundef 16)
   %tobool22 = icmp ne i32 %call21, 0
   br i1 %tobool22, label %if.end24, label %if.then23
 
@@ -731,8 +732,8 @@ if.end31:                                         ; preds = %if.end24
   br label %err
 
 err:                                              ; preds = %if.end31, %if.then30, %if.then23, %if.then18, %if.then11, %if.then7, %if.then
-  %0 = load i32, ptr %testresult, align 4
-  ret i32 %0
+  %1 = load i32, ptr %testresult, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1125,8 +1126,9 @@ if.end36:                                         ; preds = %if.end29
   %coerce.dive = getelementptr inbounds %struct.OSSL_TIME, ptr %delay_time, i32 0, i32 0
   %14 = load i64, ptr %coerce.dive, align 8
   %call37 = call i64 @ossl_time2ticks(i64 %14)
-  %15 = load i64, ptr getelementptr inbounds (%struct.ossl_quic_frame_ack_st, ptr @encode_case_3_f, i32 0, i32 2), align 8
-  %call38 = call i64 @ossl_time2ticks(i64 %15)
+  %15 = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr @encode_case_3_f, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8
+  %call38 = call i64 @ossl_time2ticks(i64 %16)
   %call39 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 136, ptr noundef @.str.35, ptr noundef @.str.36, i64 noundef %call37, i64 noundef %call38)
   %tobool40 = icmp ne i32 %call39, 0
   br i1 %tobool40, label %if.end42, label %if.then41
@@ -1152,8 +1154,8 @@ if.then47:                                        ; preds = %if.end42
 
 if.end48:                                         ; preds = %if.end42
   %ect0 = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %f, i32 0, i32 3
-  %16 = load i64, ptr %ect0, align 8
-  %call49 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 142, ptr noundef @.str.38, ptr noundef @.str.39, i64 noundef %16, i64 noundef 60)
+  %17 = load i64, ptr %ect0, align 8
+  %call49 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 142, ptr noundef @.str.38, ptr noundef @.str.39, i64 noundef %17, i64 noundef 60)
   %tobool50 = icmp ne i32 %call49, 0
   br i1 %tobool50, label %if.end52, label %if.then51
 
@@ -1163,8 +1165,8 @@ if.then51:                                        ; preds = %if.end48
 
 if.end52:                                         ; preds = %if.end48
   %ect1 = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %f, i32 0, i32 4
-  %17 = load i64, ptr %ect1, align 8
-  %call53 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 145, ptr noundef @.str.40, ptr noundef @.str.41, i64 noundef %17, i64 noundef 70)
+  %18 = load i64, ptr %ect1, align 8
+  %call53 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 145, ptr noundef @.str.40, ptr noundef @.str.41, i64 noundef %18, i64 noundef 70)
   %tobool54 = icmp ne i32 %call53, 0
   br i1 %tobool54, label %if.end56, label %if.then55
 
@@ -1174,8 +1176,8 @@ if.then55:                                        ; preds = %if.end52
 
 if.end56:                                         ; preds = %if.end52
   %ecnce = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %f, i32 0, i32 5
-  %18 = load i64, ptr %ecnce, align 8
-  %call57 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 148, ptr noundef @.str.42, ptr noundef @.str.43, i64 noundef %18, i64 noundef 80)
+  %19 = load i64, ptr %ecnce, align 8
+  %call57 = call i32 @test_uint64_t_eq(ptr noundef @.str.5, i32 noundef 148, ptr noundef @.str.42, ptr noundef @.str.43, i64 noundef %19, i64 noundef 80)
   %tobool58 = icmp ne i32 %call57, 0
   br i1 %tobool58, label %if.end60, label %if.then59
 
@@ -1188,8 +1190,8 @@ if.end60:                                         ; preds = %if.end56
   br label %return
 
 return:                                           ; preds = %if.end60, %if.then59, %if.then55, %if.then51, %if.then47, %if.then41, %if.then35, %if.then28, %if.then21, %if.then17, %if.then13, %if.then6, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %20 = load i32, ptr %retval, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2816,7 +2818,8 @@ if.end26:                                         ; preds = %if.end18
   %stateless_reset = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %f, i32 0, i32 3
   %token = getelementptr inbounds %struct.QUIC_STATELESS_RESET_TOKEN, ptr %stateless_reset, i32 0, i32 0
   %arraydecay27 = getelementptr inbounds [16 x i8], ptr %token, i64 0, i64 0
-  %call28 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 791, ptr noundef @.str.113, ptr noundef @.str.114, ptr noundef %arraydecay27, i64 noundef 16, ptr noundef getelementptr inbounds (%struct.ossl_quic_frame_new_conn_id_st, ptr @encode_case_16_f, i32 0, i32 3), i64 noundef 16)
+  %7 = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr @encode_case_16_f, i32 0, i32 3
+  %call28 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 791, ptr noundef @.str.113, ptr noundef @.str.114, ptr noundef %arraydecay27, i64 noundef 16, ptr noundef %7, i64 noundef 16)
   %tobool29 = icmp ne i32 %call28, 0
   br i1 %tobool29, label %if.end31, label %if.then30
 
@@ -2829,8 +2832,8 @@ if.end31:                                         ; preds = %if.end26
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then30, %if.then25, %if.then17, %if.then12, %if.then8, %if.then4, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3237,8 +3240,9 @@ if.end21:                                         ; preds = %if.end17
   %6 = load ptr, ptr %reason, align 8
   %reason_len22 = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %f, i32 0, i32 4
   %7 = load i64, ptr %reason_len22, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ossl_quic_frame_conn_close_st, ptr @encode_case_20_f, i32 0, i32 3), align 8
-  %call23 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 1000, ptr noundef @.str.135, ptr noundef @.str.136, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef 18)
+  %8 = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr @encode_case_20_f, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  %call23 = call i32 @test_mem_eq(ptr noundef @.str.5, i32 noundef 1000, ptr noundef @.str.135, ptr noundef @.str.136, ptr noundef %6, i64 noundef %7, ptr noundef %9, i64 noundef 18)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
 
@@ -3251,8 +3255,8 @@ if.end26:                                         ; preds = %if.end21
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then25, %if.then20, %if.then16, %if.then12, %if.then8, %if.then4, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable

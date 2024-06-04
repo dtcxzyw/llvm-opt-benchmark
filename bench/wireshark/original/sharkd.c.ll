@@ -97,7 +97,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 29:                                               ; preds = %24
   %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
   store i32 1, ptr %9, align 4
-  br label %51
+  br label %52
 
 31:                                               ; preds = %24
   call void @init_report_message(ptr noundef @.str, ptr noundef @main.sharkd_report_routines)
@@ -111,7 +111,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 34:                                               ; preds = %31
   store i32 2, ptr %9, align 4
-  br label %51
+  br label %52
 
 35:                                               ; preds = %31
   call void @codecs_init()
@@ -135,20 +135,22 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   %45 = load ptr, ptr %8, align 8
   %46 = getelementptr inbounds %struct._e_prefs, ptr %45, i32 0, i32 1
   %47 = load i32, ptr %46, align 8
-  call void @build_column_format_array(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 45), i32 noundef %47, i32 noundef 1)
-  %48 = load i32, ptr %4, align 4
-  %49 = load ptr, ptr %5, align 8
-  %50 = call i32 @sharkd_loop(i32 noundef %48, ptr noundef %49)
-  store i32 %50, ptr %9, align 4
-  br label %51
+  %48 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 45
+  call void @build_column_format_array(ptr noundef %48, i32 noundef %47, i32 noundef 1)
+  %49 = load i32, ptr %4, align 4
+  %50 = load ptr, ptr %5, align 8
+  %51 = call i32 @sharkd_loop(i32 noundef %49, ptr noundef %50)
+  store i32 %51, ptr %9, align 4
+  br label %52
 
-51:                                               ; preds = %44, %34, %29
-  call void @col_cleanup(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 45))
+52:                                               ; preds = %44, %34, %29
+  %53 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 45
+  call void @col_cleanup(ptr noundef %53)
   call void @codecs_cleanup()
   call void @wtap_cleanup()
   call void @free_progdirs()
-  %52 = load i32, ptr %9, align 4
-  ret i32 %52
+  %54 = load i32, ptr %9, align 4
+  ret i32 %54
 }
 
 declare void @failure_message(ptr noundef, ptr noundef) #1
@@ -646,10 +648,11 @@ define internal i32 @load_cap_file(ptr noundef %0, i32 noundef %1, i64 noundef %
 define hidden ptr @sharkd_get_frame(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = call ptr @frame_data_sequence_find(ptr noundef %3, i32 noundef %4)
-  ret ptr %5
+  %3 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = call ptr @frame_data_sequence_find(ptr noundef %4, i32 noundef %5)
+  ret ptr %6
 }
 
 declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) #1
@@ -691,186 +694,189 @@ define hidden i32 @sharkd_dissect_request(i32 noundef %0, i32 noundef %1, i32 no
 
 31:                                               ; preds = %11
   store i32 1, ptr %12, align 4
-  br label %145
+  br label %148
 
 32:                                               ; preds = %11
-  %33 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), align 8
-  %34 = load ptr, ptr %24, align 8
-  %35 = getelementptr inbounds %struct._frame_data, ptr %34, i32 0, i32 4
-  %36 = load i64, ptr %35, align 8
-  %37 = load ptr, ptr %16, align 8
-  %38 = load ptr, ptr %17, align 8
-  %39 = load ptr, ptr %22, align 8
-  %40 = load ptr, ptr %23, align 8
-  %41 = call i32 @wtap_seek_read(ptr noundef %33, i64 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %50, label %43
+  %33 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %24, align 8
+  %36 = getelementptr inbounds %struct._frame_data, ptr %35, i32 0, i32 4
+  %37 = load i64, ptr %36, align 8
+  %38 = load ptr, ptr %16, align 8
+  %39 = load ptr, ptr %17, align 8
+  %40 = load ptr, ptr %22, align 8
+  %41 = load ptr, ptr %23, align 8
+  %42 = call i32 @wtap_seek_read(ptr noundef %34, i64 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41)
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %51, label %44
 
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %18, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %49
+44:                                               ; preds = %32
+  %45 = load ptr, ptr %18, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %18, align 8
-  %48 = load ptr, ptr %24, align 8
-  call void @col_fill_in_error(ptr noundef %47, ptr noundef %48, i32 noundef 0, i32 noundef 0)
-  br label %49
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %18, align 8
+  %49 = load ptr, ptr %24, align 8
+  call void @col_fill_in_error(ptr noundef %48, ptr noundef %49, i32 noundef 0, i32 noundef 0)
+  br label %50
 
-49:                                               ; preds = %46, %43
+50:                                               ; preds = %47, %44
   store i32 2, ptr %12, align 4
-  br label %145
+  br label %148
 
-50:                                               ; preds = %32
-  %51 = load i32, ptr %19, align 4
-  %52 = and i32 %51, 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %70, label %54
+51:                                               ; preds = %32
+  %52 = load i32, ptr %19, align 4
+  %53 = and i32 %52, 4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %71, label %55
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %19, align 4
-  %56 = and i32 %55, 8
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %61
+55:                                               ; preds = %51
+  %56 = load i32, ptr %19, align 4
+  %57 = and i32 %56, 8
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %62
 
-58:                                               ; preds = %54
-  %59 = call i32 @color_filters_used()
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %70, label %61
+59:                                               ; preds = %55
+  %60 = call i32 @color_filters_used()
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %71, label %62
 
-61:                                               ; preds = %58, %54
-  %62 = load ptr, ptr %18, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %68
+62:                                               ; preds = %59, %55
+  %63 = load ptr, ptr %18, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %69
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %18, align 8
-  %66 = call i32 @have_custom_cols(ptr noundef %65)
-  %67 = icmp ne i32 %66, 0
-  br label %68
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %18, align 8
+  %67 = call i32 @have_custom_cols(ptr noundef %66)
+  %68 = icmp ne i32 %67, 0
+  br label %69
 
-68:                                               ; preds = %64, %61
-  %69 = phi i1 [ false, %61 ], [ %67, %64 ]
-  br label %70
+69:                                               ; preds = %65, %62
+  %70 = phi i1 [ false, %62 ], [ %68, %65 ]
+  br label %71
 
-70:                                               ; preds = %68, %58, %50
-  %71 = phi i1 [ true, %58 ], [ true, %50 ], [ %69, %68 ]
-  %72 = zext i1 %71 to i32
-  store i32 %72, ptr %26, align 4
-  %73 = load ptr, ptr @cfile, align 8
-  %74 = load i32, ptr %26, align 4
-  %75 = load i32, ptr %19, align 4
-  %76 = and i32 %75, 4
-  call void @epan_dissect_init(ptr noundef %25, ptr noundef %73, i32 noundef %74, i32 noundef %76)
-  %77 = load i32, ptr %19, align 4
-  %78 = and i32 %77, 8
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %86
+71:                                               ; preds = %69, %59, %51
+  %72 = phi i1 [ true, %59 ], [ true, %51 ], [ %70, %69 ]
+  %73 = zext i1 %72 to i32
+  store i32 %73, ptr %26, align 4
+  %74 = load ptr, ptr @cfile, align 8
+  %75 = load i32, ptr %26, align 4
+  %76 = load i32, ptr %19, align 4
+  %77 = and i32 %76, 4
+  call void @epan_dissect_init(ptr noundef %25, ptr noundef %74, i32 noundef %75, i32 noundef %77)
+  %78 = load i32, ptr %19, align 4
+  %79 = and i32 %78, 8
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %87
 
-80:                                               ; preds = %70
+81:                                               ; preds = %71
   call void @color_filters_prime_edt(ptr noundef %25)
-  %81 = load ptr, ptr %24, align 8
-  %82 = getelementptr inbounds %struct._frame_data, ptr %81, i32 0, i32 9
-  %83 = load i16, ptr %82, align 2
-  %84 = and i16 %83, -513
-  %85 = or i16 %84, 512
-  store i16 %85, ptr %82, align 2
-  br label %86
+  %82 = load ptr, ptr %24, align 8
+  %83 = getelementptr inbounds %struct._frame_data, ptr %82, i32 0, i32 9
+  %84 = load i16, ptr %83, align 2
+  %85 = and i16 %84, -513
+  %86 = or i16 %85, 512
+  store i16 %86, ptr %83, align 2
+  br label %87
 
-86:                                               ; preds = %80, %70
-  %87 = load ptr, ptr %18, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %91
+87:                                               ; preds = %81, %71
+  %88 = load ptr, ptr %18, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %18, align 8
-  call void @col_custom_prime_edt(ptr noundef %25, ptr noundef %90)
-  br label %91
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %18, align 8
+  call void @col_custom_prime_edt(ptr noundef %25, ptr noundef %91)
+  br label %92
 
-91:                                               ; preds = %89, %86
-  %92 = load i32, ptr %13, align 4
-  %93 = load i32, ptr %14, align 4
-  %94 = icmp eq i32 %92, %93
-  %95 = zext i1 %94 to i32
-  %96 = load ptr, ptr %24, align 8
-  %97 = getelementptr inbounds %struct._frame_data, ptr %96, i32 0, i32 9
-  %98 = trunc i32 %95 to i16
-  %99 = load i16, ptr %97, align 2
-  %100 = and i16 %98, 1
-  %101 = shl i16 %100, 5
-  %102 = and i16 %99, -33
-  %103 = or i16 %102, %101
-  store i16 %103, ptr %97, align 2
-  %104 = load i32, ptr %14, align 4
-  %105 = load ptr, ptr %24, align 8
-  %106 = getelementptr inbounds %struct._frame_data, ptr %105, i32 0, i32 12
-  store i32 %104, ptr %106, align 8
-  %107 = load i32, ptr %15, align 4
-  %108 = load ptr, ptr %24, align 8
-  %109 = getelementptr inbounds %struct._frame_data, ptr %108, i32 0, i32 13
-  store i32 %107, ptr %109, align 4
-  %110 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 8), align 8
-  %111 = zext i16 %110 to i32
-  %112 = load ptr, ptr %16, align 8
-  %113 = load ptr, ptr %24, align 8
-  %114 = load ptr, ptr %17, align 8
-  %115 = call ptr @frame_tvbuff_new_buffer(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %113, ptr noundef %114)
-  %116 = load ptr, ptr %24, align 8
-  %117 = load ptr, ptr %18, align 8
-  call void @epan_dissect_run(ptr noundef %25, i32 noundef %111, ptr noundef %112, ptr noundef %115, ptr noundef %116, ptr noundef %117)
-  %118 = load ptr, ptr %18, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %121
+92:                                               ; preds = %90, %87
+  %93 = load i32, ptr %13, align 4
+  %94 = load i32, ptr %14, align 4
+  %95 = icmp eq i32 %93, %94
+  %96 = zext i1 %95 to i32
+  %97 = load ptr, ptr %24, align 8
+  %98 = getelementptr inbounds %struct._frame_data, ptr %97, i32 0, i32 9
+  %99 = trunc i32 %96 to i16
+  %100 = load i16, ptr %98, align 2
+  %101 = and i16 %99, 1
+  %102 = shl i16 %101, 5
+  %103 = and i16 %100, -33
+  %104 = or i16 %103, %102
+  store i16 %104, ptr %98, align 2
+  %105 = load i32, ptr %14, align 4
+  %106 = load ptr, ptr %24, align 8
+  %107 = getelementptr inbounds %struct._frame_data, ptr %106, i32 0, i32 12
+  store i32 %105, ptr %107, align 8
+  %108 = load i32, ptr %15, align 4
+  %109 = load ptr, ptr %24, align 8
+  %110 = getelementptr inbounds %struct._frame_data, ptr %109, i32 0, i32 13
+  store i32 %108, ptr %110, align 4
+  %111 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 8
+  %112 = load i16, ptr %111, align 8
+  %113 = zext i16 %112 to i32
+  %114 = load ptr, ptr %16, align 8
+  %115 = load ptr, ptr %24, align 8
+  %116 = load ptr, ptr %17, align 8
+  %117 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %118 = call ptr @frame_tvbuff_new_buffer(ptr noundef %117, ptr noundef %115, ptr noundef %116)
+  %119 = load ptr, ptr %24, align 8
+  %120 = load ptr, ptr %18, align 8
+  call void @epan_dissect_run(ptr noundef %25, i32 noundef %113, ptr noundef %114, ptr noundef %118, ptr noundef %119, ptr noundef %120)
+  %121 = load ptr, ptr %18, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %123, label %124
 
-120:                                              ; preds = %91
+123:                                              ; preds = %92
   call void @epan_dissect_fill_in_columns(ptr noundef %25, i32 noundef 0, i32 noundef 1)
-  br label %121
+  br label %124
 
-121:                                              ; preds = %120, %91
-  %122 = load ptr, ptr %20, align 8
-  %123 = load i32, ptr %19, align 4
-  %124 = and i32 %123, 4
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %129
+124:                                              ; preds = %123, %92
+  %125 = load ptr, ptr %20, align 8
+  %126 = load i32, ptr %19, align 4
+  %127 = and i32 %126, 4
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %132
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds %struct.epan_dissect, ptr %25, i32 0, i32 2
-  %128 = load ptr, ptr %127, align 8
-  br label %130
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds %struct.epan_dissect, ptr %25, i32 0, i32 2
+  %131 = load ptr, ptr %130, align 8
+  br label %133
 
-129:                                              ; preds = %121
-  br label %130
+132:                                              ; preds = %124
+  br label %133
 
-130:                                              ; preds = %129, %126
-  %131 = phi ptr [ %128, %126 ], [ null, %129 ]
-  %132 = load ptr, ptr %18, align 8
-  %133 = load i32, ptr %19, align 4
-  %134 = and i32 %133, 1
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %140
+133:                                              ; preds = %132, %129
+  %134 = phi ptr [ %131, %129 ], [ null, %132 ]
+  %135 = load ptr, ptr %18, align 8
+  %136 = load i32, ptr %19, align 4
+  %137 = and i32 %136, 1
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %143
 
-136:                                              ; preds = %130
-  %137 = getelementptr inbounds %struct.epan_dissect, ptr %25, i32 0, i32 3
-  %138 = getelementptr inbounds %struct._packet_info, ptr %137, i32 0, i32 11
-  %139 = load ptr, ptr %138, align 8
-  br label %141
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds %struct.epan_dissect, ptr %25, i32 0, i32 3
+  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 11
+  %142 = load ptr, ptr %141, align 8
+  br label %144
 
-140:                                              ; preds = %130
-  br label %141
+143:                                              ; preds = %133
+  br label %144
 
-141:                                              ; preds = %140, %136
-  %142 = phi ptr [ %139, %136 ], [ null, %140 ]
-  %143 = load ptr, ptr %21, align 8
-  call void %122(ptr noundef %25, ptr noundef %131, ptr noundef %132, ptr noundef %142, ptr noundef %143)
-  %144 = load ptr, ptr %16, align 8
-  call void @wtap_rec_reset(ptr noundef %144)
+144:                                              ; preds = %143, %139
+  %145 = phi ptr [ %142, %139 ], [ null, %143 ]
+  %146 = load ptr, ptr %21, align 8
+  call void %125(ptr noundef %25, ptr noundef %134, ptr noundef %135, ptr noundef %145, ptr noundef %146)
+  %147 = load ptr, ptr %16, align 8
+  call void @wtap_rec_reset(ptr noundef %147)
   call void @epan_dissect_cleanup(ptr noundef %25)
   store i32 0, ptr %12, align 4
-  br label %145
+  br label %148
 
-145:                                              ; preds = %141, %49, %31
-  %146 = load i32, ptr %12, align 4
-  ret i32 %146
+148:                                              ; preds = %144, %50, %31
+  %149 = load i32, ptr %12, align 4
+  ret i32 %149
 }
 
 declare i32 @wtap_seek_read(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -914,88 +920,93 @@ define hidden i32 @sharkd_retap() #0 {
   store i32 %11, ptr %7, align 4
   %12 = call i32 @tap_listeners_require_columns()
   %13 = icmp ne i32 %12, 0
-  %14 = select i1 %13, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 45), ptr null
-  store ptr %14, ptr %10, align 8
-  %15 = call i32 @have_filtering_tap_listeners()
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %21, label %17
+  %14 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 45
+  %15 = select i1 %13, ptr %14, ptr null
+  store ptr %15, ptr %10, align 8
+  %16 = call i32 @have_filtering_tap_listeners()
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %0
-  %18 = load i32, ptr %7, align 4
-  %19 = and i32 %18, 1
-  %20 = icmp ne i32 %19, 0
-  br label %21
+18:                                               ; preds = %0
+  %19 = load i32, ptr %7, align 4
+  %20 = and i32 %19, 1
+  %21 = icmp ne i32 %20, 0
+  br label %22
 
-21:                                               ; preds = %17, %0
-  %22 = phi i1 [ true, %0 ], [ %20, %17 ]
-  %23 = zext i1 %22 to i32
-  store i32 %23, ptr %8, align 4
+22:                                               ; preds = %18, %0
+  %23 = phi i1 [ true, %0 ], [ %21, %18 ]
+  %24 = zext i1 %23 to i32
+  store i32 %24, ptr %8, align 4
   call void @wtap_rec_init(ptr noundef %4)
   call void @ws_buffer_init(ptr noundef %3, i64 noundef 1514)
-  %24 = load ptr, ptr @cfile, align 8
-  %25 = load i32, ptr %8, align 4
-  call void @epan_dissect_init(ptr noundef %9, ptr noundef %24, i32 noundef %25, i32 noundef 0)
+  %25 = load ptr, ptr @cfile, align 8
+  %26 = load i32, ptr %8, align 4
+  call void @epan_dissect_init(ptr noundef %9, ptr noundef %25, i32 noundef %26, i32 noundef 0)
   call void @reset_tap_listeners()
   store i32 1, ptr %1, align 4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %61, %21
-  %27 = load i32, ptr %1, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  %29 = icmp ule i32 %27, %28
-  br i1 %29, label %30, label %64
+27:                                               ; preds = %66, %22
+  %28 = load i32, ptr %1, align 4
+  %29 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ule i32 %28, %30
+  br i1 %31, label %32, label %69
 
-30:                                               ; preds = %26
-  %31 = load i32, ptr %1, align 4
-  %32 = call ptr @sharkd_get_frame(i32 noundef %31)
-  store ptr %32, ptr %2, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct._frame_data, ptr %34, i32 0, i32 4
-  %36 = load i64, ptr %35, align 8
-  %37 = call i32 @wtap_seek_read(ptr noundef %33, i64 noundef %36, ptr noundef %4, ptr noundef %3, ptr noundef %5, ptr noundef %6)
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %40, label %39
+32:                                               ; preds = %27
+  %33 = load i32, ptr %1, align 4
+  %34 = call ptr @sharkd_get_frame(i32 noundef %33)
+  store ptr %34, ptr %2, align 8
+  %35 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct._frame_data, ptr %37, i32 0, i32 4
+  %39 = load i64, ptr %38, align 8
+  %40 = call i32 @wtap_seek_read(ptr noundef %36, i64 noundef %39, ptr noundef %4, ptr noundef %3, ptr noundef %5, ptr noundef %6)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %43, label %42
 
-39:                                               ; preds = %30
-  br label %64
+42:                                               ; preds = %32
+  br label %69
 
-40:                                               ; preds = %30
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct._frame_data, ptr %41, i32 0, i32 9
-  %43 = load i16, ptr %42, align 2
-  %44 = and i16 %43, -33
-  %45 = or i16 %44, 0
-  store i16 %45, ptr %42, align 2
-  %46 = load i32, ptr %1, align 4
-  %47 = icmp ne i32 %46, 1
-  %48 = select i1 %47, i32 1, i32 0
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct._frame_data, ptr %49, i32 0, i32 12
-  store i32 %48, ptr %50, align 8
-  %51 = load i32, ptr %1, align 4
-  %52 = sub i32 %51, 1
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct._frame_data, ptr %53, i32 0, i32 13
-  store i32 %52, ptr %54, align 4
-  %55 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 8), align 8
-  %56 = zext i16 %55 to i32
-  %57 = load ptr, ptr %2, align 8
-  %58 = call ptr @frame_tvbuff_new_buffer(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %57, ptr noundef %3)
-  %59 = load ptr, ptr %2, align 8
-  %60 = load ptr, ptr %10, align 8
-  call void @epan_dissect_run_with_taps(ptr noundef %9, i32 noundef %56, ptr noundef %4, ptr noundef %58, ptr noundef %59, ptr noundef %60)
+43:                                               ; preds = %32
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct._frame_data, ptr %44, i32 0, i32 9
+  %46 = load i16, ptr %45, align 2
+  %47 = and i16 %46, -33
+  %48 = or i16 %47, 0
+  store i16 %48, ptr %45, align 2
+  %49 = load i32, ptr %1, align 4
+  %50 = icmp ne i32 %49, 1
+  %51 = select i1 %50, i32 1, i32 0
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct._frame_data, ptr %52, i32 0, i32 12
+  store i32 %51, ptr %53, align 8
+  %54 = load i32, ptr %1, align 4
+  %55 = sub i32 %54, 1
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 13
+  store i32 %55, ptr %57, align 4
+  %58 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 8
+  %59 = load i16, ptr %58, align 8
+  %60 = zext i16 %59 to i32
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %63 = call ptr @frame_tvbuff_new_buffer(ptr noundef %62, ptr noundef %61, ptr noundef %3)
+  %64 = load ptr, ptr %2, align 8
+  %65 = load ptr, ptr %10, align 8
+  call void @epan_dissect_run_with_taps(ptr noundef %9, i32 noundef %60, ptr noundef %4, ptr noundef %63, ptr noundef %64, ptr noundef %65)
   call void @wtap_rec_reset(ptr noundef %4)
   call void @epan_dissect_reset(ptr noundef %9)
-  br label %61
+  br label %66
 
-61:                                               ; preds = %40
-  %62 = load i32, ptr %1, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %1, align 4
-  br label %26, !llvm.loop !7
+66:                                               ; preds = %43
+  %67 = load i32, ptr %1, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %1, align 4
+  br label %27, !llvm.loop !7
 
-64:                                               ; preds = %39, %26
+69:                                               ; preds = %42, %27
   call void @wtap_rec_cleanup(ptr noundef %4)
   call void @ws_buffer_free(ptr noundef %3)
   call void @epan_dissect_cleanup(ptr noundef %9)
@@ -1053,7 +1064,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %2
   store i32 -1, ptr %3, align 4
-  br label %113
+  br label %117
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %6, align 8
@@ -1064,152 +1075,156 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef %1) #0 {
   %25 = load ptr, ptr %5, align 8
   store ptr null, ptr %25, align 8
   store i32 0, ptr %3, align 4
-  br label %113
+  br label %117
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 13), align 8
-  store i32 %27, ptr %9, align 4
+  %27 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 13
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %9, align 4
   call void @wtap_rec_init(ptr noundef %11)
   call void @ws_buffer_init(ptr noundef %10, i64 noundef 1514)
-  %28 = load ptr, ptr @cfile, align 8
-  call void @epan_dissect_init(ptr noundef %16, ptr noundef %28, i32 noundef 1, i32 noundef 0)
+  %29 = load ptr, ptr @cfile, align 8
+  call void @epan_dissect_init(ptr noundef %16, ptr noundef %29, i32 noundef 1, i32 noundef 0)
   store i8 0, ptr %15, align 1
-  %29 = load i32, ptr %9, align 4
-  %30 = udiv i32 %29, 8
-  %31 = add i32 2, %30
-  %32 = zext i32 %31 to i64
-  %33 = call noalias ptr @g_malloc(i64 noundef %32) #6
-  store ptr %33, ptr %14, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = udiv i32 %30, 8
+  %32 = add i32 2, %31
+  %33 = zext i32 %32 to i64
+  %34 = call noalias ptr @g_malloc(i64 noundef %33) #6
+  store ptr %34, ptr %14, align 8
   store i32 1, ptr %7, align 4
-  br label %34
+  br label %35
 
-34:                                               ; preds = %92, %26
-  %35 = load i32, ptr %7, align 4
-  %36 = load i32, ptr %9, align 4
-  %37 = icmp ule i32 %35, %36
-  br i1 %37, label %38, label %95
+35:                                               ; preds = %96, %26
+  %36 = load i32, ptr %7, align 4
+  %37 = load i32, ptr %9, align 4
+  %38 = icmp ule i32 %36, %37
+  br i1 %38, label %39, label %99
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %7, align 4
-  %40 = call ptr @sharkd_get_frame(i32 noundef %39)
-  store ptr %40, ptr %17, align 8
-  %41 = load i32, ptr %7, align 4
-  %42 = and i32 %41, 7
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %52
+39:                                               ; preds = %35
+  %40 = load i32, ptr %7, align 4
+  %41 = call ptr @sharkd_get_frame(i32 noundef %40)
+  store ptr %41, ptr %17, align 8
+  %42 = load i32, ptr %7, align 4
+  %43 = and i32 %42, 7
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %53
 
-44:                                               ; preds = %38
-  %45 = load i8, ptr %15, align 1
-  %46 = load ptr, ptr %14, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = udiv i32 %47, 8
-  %49 = sub i32 %48, 1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr i8, ptr %46, i64 %50
-  store i8 %45, ptr %51, align 1
+45:                                               ; preds = %39
+  %46 = load i8, ptr %15, align 1
+  %47 = load ptr, ptr %14, align 8
+  %48 = load i32, ptr %7, align 4
+  %49 = udiv i32 %48, 8
+  %50 = sub i32 %49, 1
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr i8, ptr %47, i64 %51
+  store i8 %46, ptr %52, align 1
   store i8 0, ptr %15, align 1
-  br label %52
+  br label %53
 
-52:                                               ; preds = %44, %38
-  %53 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), align 8
-  %54 = load ptr, ptr %17, align 8
-  %55 = getelementptr inbounds %struct._frame_data, ptr %54, i32 0, i32 4
-  %56 = load i64, ptr %55, align 8
-  %57 = call i32 @wtap_seek_read(ptr noundef %53, i64 noundef %56, ptr noundef %11, ptr noundef %10, ptr noundef %12, ptr noundef %13)
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %60, label %59
+53:                                               ; preds = %45, %39
+  %54 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %17, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 4
+  %58 = load i64, ptr %57, align 8
+  %59 = call i32 @wtap_seek_read(ptr noundef %55, i64 noundef %58, ptr noundef %11, ptr noundef %10, ptr noundef %12, ptr noundef %13)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %62, label %61
 
-59:                                               ; preds = %52
+61:                                               ; preds = %53
+  br label %99
+
+62:                                               ; preds = %53
+  %63 = load ptr, ptr %6, align 8
+  call void @epan_dissect_prime_with_dfilter(ptr noundef %16, ptr noundef %63)
+  %64 = load ptr, ptr %17, align 8
+  %65 = getelementptr inbounds %struct._frame_data, ptr %64, i32 0, i32 9
+  %66 = load i16, ptr %65, align 2
+  %67 = and i16 %66, -33
+  %68 = or i16 %67, 0
+  store i16 %68, ptr %65, align 2
+  %69 = load i32, ptr %7, align 4
+  %70 = icmp ne i32 %69, 1
+  %71 = select i1 %70, i32 1, i32 0
+  %72 = load ptr, ptr %17, align 8
+  %73 = getelementptr inbounds %struct._frame_data, ptr %72, i32 0, i32 12
+  store i32 %71, ptr %73, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = load ptr, ptr %17, align 8
+  %76 = getelementptr inbounds %struct._frame_data, ptr %75, i32 0, i32 13
+  store i32 %74, ptr %76, align 4
+  %77 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 8
+  %78 = load i16, ptr %77, align 8
+  %79 = zext i16 %78 to i32
+  %80 = load ptr, ptr %17, align 8
+  %81 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %82 = call ptr @frame_tvbuff_new_buffer(ptr noundef %81, ptr noundef %80, ptr noundef %10)
+  %83 = load ptr, ptr %17, align 8
+  call void @epan_dissect_run(ptr noundef %16, i32 noundef %79, ptr noundef %11, ptr noundef %82, ptr noundef %83, ptr noundef null)
+  %84 = load ptr, ptr %6, align 8
+  %85 = call zeroext i1 @dfilter_apply_edt(ptr noundef %84, ptr noundef %16)
+  br i1 %85, label %86, label %95
+
+86:                                               ; preds = %62
+  %87 = load i32, ptr %7, align 4
+  %88 = urem i32 %87, 8
+  %89 = shl i32 1, %88
+  %90 = load i8, ptr %15, align 1
+  %91 = zext i8 %90 to i32
+  %92 = or i32 %91, %89
+  %93 = trunc i32 %92 to i8
+  store i8 %93, ptr %15, align 1
+  %94 = load i32, ptr %7, align 4
+  store i32 %94, ptr %8, align 4
   br label %95
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr %6, align 8
-  call void @epan_dissect_prime_with_dfilter(ptr noundef %16, ptr noundef %61)
-  %62 = load ptr, ptr %17, align 8
-  %63 = getelementptr inbounds %struct._frame_data, ptr %62, i32 0, i32 9
-  %64 = load i16, ptr %63, align 2
-  %65 = and i16 %64, -33
-  %66 = or i16 %65, 0
-  store i16 %66, ptr %63, align 2
-  %67 = load i32, ptr %7, align 4
-  %68 = icmp ne i32 %67, 1
-  %69 = select i1 %68, i32 1, i32 0
-  %70 = load ptr, ptr %17, align 8
-  %71 = getelementptr inbounds %struct._frame_data, ptr %70, i32 0, i32 12
-  store i32 %69, ptr %71, align 8
-  %72 = load i32, ptr %8, align 4
-  %73 = load ptr, ptr %17, align 8
-  %74 = getelementptr inbounds %struct._frame_data, ptr %73, i32 0, i32 13
-  store i32 %72, ptr %74, align 4
-  %75 = load i16, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 8), align 8
-  %76 = zext i16 %75 to i32
-  %77 = load ptr, ptr %17, align 8
-  %78 = call ptr @frame_tvbuff_new_buffer(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %77, ptr noundef %10)
-  %79 = load ptr, ptr %17, align 8
-  call void @epan_dissect_run(ptr noundef %16, i32 noundef %76, ptr noundef %11, ptr noundef %78, ptr noundef %79, ptr noundef null)
-  %80 = load ptr, ptr %6, align 8
-  %81 = call zeroext i1 @dfilter_apply_edt(ptr noundef %80, ptr noundef %16)
-  br i1 %81, label %82, label %91
-
-82:                                               ; preds = %60
-  %83 = load i32, ptr %7, align 4
-  %84 = urem i32 %83, 8
-  %85 = shl i32 1, %84
-  %86 = load i8, ptr %15, align 1
-  %87 = zext i8 %86 to i32
-  %88 = or i32 %87, %85
-  %89 = trunc i32 %88 to i8
-  store i8 %89, ptr %15, align 1
-  %90 = load i32, ptr %7, align 4
-  store i32 %90, ptr %8, align 4
-  br label %91
-
-91:                                               ; preds = %82, %60
+95:                                               ; preds = %86, %62
   call void @wtap_rec_reset(ptr noundef %11)
   call void @epan_dissect_reset(ptr noundef %16)
-  br label %92
+  br label %96
 
-92:                                               ; preds = %91
-  %93 = load i32, ptr %7, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %7, align 4
-  br label %34, !llvm.loop !8
+96:                                               ; preds = %95
+  %97 = load i32, ptr %7, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %7, align 4
+  br label %35, !llvm.loop !8
 
-95:                                               ; preds = %59, %34
-  %96 = load i32, ptr %7, align 4
-  %97 = and i32 %96, 7
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %102
-
-99:                                               ; preds = %95
+99:                                               ; preds = %61, %35
   %100 = load i32, ptr %7, align 4
-  %101 = add i32 %100, -1
-  store i32 %101, ptr %7, align 4
-  br label %102
+  %101 = and i32 %100, 7
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %106
 
-102:                                              ; preds = %99, %95
-  %103 = load i8, ptr %15, align 1
-  %104 = load ptr, ptr %14, align 8
-  %105 = load i32, ptr %7, align 4
-  %106 = udiv i32 %105, 8
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr i8, ptr %104, i64 %107
-  store i8 %103, ptr %108, align 1
+103:                                              ; preds = %99
+  %104 = load i32, ptr %7, align 4
+  %105 = add i32 %104, -1
+  store i32 %105, ptr %7, align 4
+  br label %106
+
+106:                                              ; preds = %103, %99
+  %107 = load i8, ptr %15, align 1
+  %108 = load ptr, ptr %14, align 8
+  %109 = load i32, ptr %7, align 4
+  %110 = udiv i32 %109, 8
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr i8, ptr %108, i64 %111
+  store i8 %107, ptr %112, align 1
   call void @wtap_rec_cleanup(ptr noundef %11)
   call void @ws_buffer_free(ptr noundef %10)
   call void @epan_dissect_cleanup(ptr noundef %16)
-  %109 = load ptr, ptr %6, align 8
-  call void @dfilter_free(ptr noundef %109)
-  %110 = load ptr, ptr %14, align 8
-  %111 = load ptr, ptr %5, align 8
-  store ptr %110, ptr %111, align 8
-  %112 = load i32, ptr %7, align 4
-  store i32 %112, ptr %3, align 4
-  br label %113
+  %113 = load ptr, ptr %6, align 8
+  call void @dfilter_free(ptr noundef %113)
+  %114 = load ptr, ptr %14, align 8
+  %115 = load ptr, ptr %5, align 8
+  store ptr %114, ptr %115, align 8
+  %116 = load i32, ptr %7, align 4
+  store i32 %116, ptr %3, align 4
+  br label %117
 
-113:                                              ; preds = %102, %24, %20
-  %114 = load i32, ptr %3, align 4
-  ret i32 %114
+117:                                              ; preds = %106, %24, %20
+  %118 = load i32, ptr %3, align 4
+  ret i32 %118
 }
 
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
@@ -1228,8 +1243,9 @@ define hidden ptr @sharkd_get_modified_block(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call ptr @cap_file_provider_get_modified_block(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %3)
-  ret ptr %4
+  %4 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %5 = call ptr @cap_file_provider_get_modified_block(ptr noundef %4, ptr noundef %3)
+  ret ptr %5
 }
 
 declare ptr @cap_file_provider_get_modified_block(ptr noundef, ptr noundef) #1
@@ -1251,43 +1267,45 @@ define hidden ptr @sharkd_get_packet_block(ptr noundef %0) #0 {
   %13 = and i16 %12, 1
   %14 = zext i16 %13 to i32
   %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %20
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %3, align 8
-  %18 = call ptr @cap_file_provider_get_modified_block(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %17)
-  %19 = call ptr @wtap_block_ref(ptr noundef %18)
-  store ptr %19, ptr %2, align 8
-  br label %33
+  %18 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %19 = call ptr @cap_file_provider_get_modified_block(ptr noundef %18, ptr noundef %17)
+  %20 = call ptr @wtap_block_ref(ptr noundef %19)
+  store ptr %20, ptr %2, align 8
+  br label %35
 
-20:                                               ; preds = %1
+21:                                               ; preds = %1
   call void @wtap_rec_init(ptr noundef %4)
   call void @ws_buffer_init(ptr noundef %5, i64 noundef 1514)
-  %21 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct._frame_data, ptr %22, i32 0, i32 4
-  %24 = load i64, ptr %23, align 8
-  %25 = call i32 @wtap_seek_read(ptr noundef %21, i64 noundef %24, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %28, label %27
+  %22 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct._frame_data, ptr %24, i32 0, i32 4
+  %26 = load i64, ptr %25, align 8
+  %27 = call i32 @wtap_seek_read(ptr noundef %23, i64 noundef %26, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
 
-27:                                               ; preds = %20
-  br label %28
+29:                                               ; preds = %21
+  br label %30
 
-28:                                               ; preds = %27, %20
-  %29 = getelementptr inbounds %struct.wtap_rec, ptr %4, i32 0, i32 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @wtap_block_ref(ptr noundef %30)
-  store ptr %31, ptr %6, align 8
+30:                                               ; preds = %29, %21
+  %31 = getelementptr inbounds %struct.wtap_rec, ptr %4, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @wtap_block_ref(ptr noundef %32)
+  store ptr %33, ptr %6, align 8
   call void @wtap_rec_cleanup(ptr noundef %4)
   call void @ws_buffer_free(ptr noundef %5)
-  %32 = load ptr, ptr %6, align 8
-  store ptr %32, ptr %2, align 8
-  br label %33
+  %34 = load ptr, ptr %6, align 8
+  store ptr %34, ptr %2, align 8
+  br label %35
 
-33:                                               ; preds = %28, %16
-  %34 = load ptr, ptr %2, align 8
-  ret ptr %34
+35:                                               ; preds = %30, %16
+  %36 = load ptr, ptr %2, align 8
+  ret ptr %36
 }
 
 declare ptr @wtap_block_ref(ptr noundef) #1
@@ -1300,7 +1318,8 @@ define hidden i32 @sharkd_set_modified_block(ptr noundef %0, ptr noundef %1) #0 
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @cap_file_provider_set_modified_block(ptr noundef getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 42), ptr noundef %5, ptr noundef %6)
+  %7 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 42
+  call void @cap_file_provider_set_modified_block(ptr noundef %7, ptr noundef %5, ptr noundef %6)
   ret i32 0
 }
 
@@ -1358,207 +1377,209 @@ define internal i32 @process_packet(ptr noundef %0, ptr noundef %1, i64 noundef 
   call void @frame_data_init(ptr noundef %11, i32 noundef %16, ptr noundef %17, i64 noundef %18, i32 noundef %19)
   %20 = load ptr, ptr %7, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %96
+  br i1 %21, label %22, label %98
 
 22:                                               ; preds = %5
   %23 = load i32, ptr @gbl_resolv_flags, align 4
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %31, label %25
+  br i1 %24, label %33, label %25
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %31, label %28
+  %26 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %33
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
 
-31:                                               ; preds = %28, %25, %22
-  %32 = call i32 @host_name_lookup_process()
-  br label %33
+33:                                               ; preds = %29, %25, %22
+  %34 = call i32 @host_name_lookup_process()
+  br label %35
 
-33:                                               ; preds = %31, %28
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._capture_file, ptr %34, i32 0, i32 23
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %43
+35:                                               ; preds = %33, %29
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct._capture_file, ptr %36, i32 0, i32 23
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %45
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct._capture_file, ptr %40, i32 0, i32 23
-  %42 = load ptr, ptr %41, align 8
-  call void @epan_dissect_prime_with_dfilter(ptr noundef %39, ptr noundef %42)
-  br label %43
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct._capture_file, ptr %42, i32 0, i32 23
+  %44 = load ptr, ptr %43, align 8
+  call void @epan_dissect_prime_with_dfilter(ptr noundef %41, ptr noundef %44)
+  br label %45
 
-43:                                               ; preds = %38, %33
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct._capture_file, ptr %44, i32 0, i32 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %53
+45:                                               ; preds = %40, %35
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds %struct._capture_file, ptr %46, i32 0, i32 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %55
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct._capture_file, ptr %50, i32 0, i32 24
-  %52 = load ptr, ptr %51, align 8
-  call void @epan_dissect_prime_with_dfilter(ptr noundef %49, ptr noundef %52)
-  br label %53
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds %struct._capture_file, ptr %52, i32 0, i32 24
+  %54 = load ptr, ptr %53, align 8
+  call void @epan_dissect_prime_with_dfilter(ptr noundef %51, ptr noundef %54)
+  br label %55
 
-53:                                               ; preds = %48, %43
-  %54 = load ptr, ptr %7, align 8
-  call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %54)
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._capture_file, ptr %55, i32 0, i32 21
+55:                                               ; preds = %50, %45
+  %56 = load ptr, ptr %7, align 8
+  call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %56)
   %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct._capture_file, ptr %57, i32 0, i32 42
-  %59 = getelementptr inbounds %struct.packet_provider_data, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._capture_file, ptr %60, i32 0, i32 42
-  %62 = getelementptr inbounds %struct.packet_provider_data, ptr %61, i32 0, i32 2
-  %63 = load ptr, ptr %62, align 8
-  call void @frame_data_set_before_dissect(ptr noundef %11, ptr noundef %56, ptr noundef %59, ptr noundef %63)
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct._capture_file, ptr %64, i32 0, i32 42
-  %66 = getelementptr inbounds %struct.packet_provider_data, ptr %65, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %11
-  br i1 %68, label %69, label %73
+  %58 = getelementptr inbounds %struct._capture_file, ptr %57, i32 0, i32 21
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds %struct._capture_file, ptr %59, i32 0, i32 42
+  %61 = getelementptr inbounds %struct.packet_provider_data, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct._capture_file, ptr %62, i32 0, i32 42
+  %64 = getelementptr inbounds %struct.packet_provider_data, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8
+  call void @frame_data_set_before_dissect(ptr noundef %11, ptr noundef %58, ptr noundef %61, ptr noundef %65)
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct._capture_file, ptr %66, i32 0, i32 42
+  %68 = getelementptr inbounds %struct.packet_provider_data, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, %11
+  br i1 %70, label %71, label %75
 
-69:                                               ; preds = %53
+71:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @ref_frame, ptr align 8 %11, i64 104, i1 false)
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct._capture_file, ptr %70, i32 0, i32 42
-  %72 = getelementptr inbounds %struct.packet_provider_data, ptr %71, i32 0, i32 1
-  store ptr @ref_frame, ptr %72, align 8
-  br label %73
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct._capture_file, ptr %72, i32 0, i32 42
+  %74 = getelementptr inbounds %struct.packet_provider_data, ptr %73, i32 0, i32 1
+  store ptr @ref_frame, ptr %74, align 8
+  br label %75
 
-73:                                               ; preds = %69, %53
-  %74 = load ptr, ptr %7, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct._capture_file, ptr %75, i32 0, i32 8
-  %77 = load i16, ptr %76, align 8
-  %78 = zext i16 %77 to i32
-  %79 = load ptr, ptr %9, align 8
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct._capture_file, ptr %80, i32 0, i32 42
-  %82 = load ptr, ptr %10, align 8
-  %83 = call ptr @frame_tvbuff_new_buffer(ptr noundef %81, ptr noundef %11, ptr noundef %82)
-  call void @epan_dissect_run(ptr noundef %74, i32 noundef %78, ptr noundef %79, ptr noundef %83, ptr noundef %11, ptr noundef null)
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct._capture_file, ptr %84, i32 0, i32 23
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %95
+75:                                               ; preds = %71, %55
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct._capture_file, ptr %77, i32 0, i32 8
+  %79 = load i16, ptr %78, align 8
+  %80 = zext i16 %79 to i32
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %6, align 8
+  %83 = getelementptr inbounds %struct._capture_file, ptr %82, i32 0, i32 42
+  %84 = load ptr, ptr %10, align 8
+  %85 = call ptr @frame_tvbuff_new_buffer(ptr noundef %83, ptr noundef %11, ptr noundef %84)
+  call void @epan_dissect_run(ptr noundef %76, i32 noundef %80, ptr noundef %81, ptr noundef %85, ptr noundef %11, ptr noundef null)
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds %struct._capture_file, ptr %86, i32 0, i32 23
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %97
 
-88:                                               ; preds = %73
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct._capture_file, ptr %89, i32 0, i32 23
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %7, align 8
-  %93 = call zeroext i1 @dfilter_apply_edt(ptr noundef %91, ptr noundef %92)
-  %94 = zext i1 %93 to i32
-  store i32 %94, ptr %12, align 4
-  br label %95
+90:                                               ; preds = %75
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct._capture_file, ptr %91, i32 0, i32 23
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = call zeroext i1 @dfilter_apply_edt(ptr noundef %93, ptr noundef %94)
+  %96 = zext i1 %95 to i32
+  store i32 %96, ptr %12, align 4
+  br label %97
 
-95:                                               ; preds = %88, %73
-  br label %96
+97:                                               ; preds = %90, %75
+  br label %98
 
-96:                                               ; preds = %95, %5
-  %97 = load i32, ptr %12, align 4
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %149
+98:                                               ; preds = %97, %5
+  %99 = load i32, ptr %12, align 4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %151
 
-99:                                               ; preds = %96
+101:                                              ; preds = %98
   call void @frame_data_set_after_dissect(ptr noundef %11, ptr noundef @cum_bytes)
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct._capture_file, ptr %100, i32 0, i32 42
-  %102 = getelementptr inbounds %struct.packet_provider_data, ptr %101, i32 0, i32 4
-  %103 = load ptr, ptr %102, align 8
-  %104 = call ptr @frame_data_sequence_add(ptr noundef %103, ptr noundef %11)
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct._capture_file, ptr %105, i32 0, i32 42
-  %107 = getelementptr inbounds %struct.packet_provider_data, ptr %106, i32 0, i32 2
-  store ptr %104, ptr %107, align 8
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct._capture_file, ptr %108, i32 0, i32 42
-  %110 = getelementptr inbounds %struct.packet_provider_data, ptr %109, i32 0, i32 3
-  store ptr %104, ptr %110, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = icmp ne ptr %111, null
-  br i1 %112, label %113, label %144
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds %struct._capture_file, ptr %102, i32 0, i32 42
+  %104 = getelementptr inbounds %struct.packet_provider_data, ptr %103, i32 0, i32 4
+  %105 = load ptr, ptr %104, align 8
+  %106 = call ptr @frame_data_sequence_add(ptr noundef %105, ptr noundef %11)
+  %107 = load ptr, ptr %6, align 8
+  %108 = getelementptr inbounds %struct._capture_file, ptr %107, i32 0, i32 42
+  %109 = getelementptr inbounds %struct.packet_provider_data, ptr %108, i32 0, i32 2
+  store ptr %106, ptr %109, align 8
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds %struct._capture_file, ptr %110, i32 0, i32 42
+  %112 = getelementptr inbounds %struct.packet_provider_data, ptr %111, i32 0, i32 3
+  store ptr %106, ptr %112, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %146
 
-113:                                              ; preds = %99
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct._capture_file, ptr %114, i32 0, i32 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %144
+115:                                              ; preds = %101
+  %116 = load ptr, ptr %6, align 8
+  %117 = getelementptr inbounds %struct._capture_file, ptr %116, i32 0, i32 24
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %146
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct._capture_file, ptr %119, i32 0, i32 24
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %7, align 8
-  %123 = call zeroext i1 @dfilter_apply_edt(ptr noundef %121, ptr noundef %122)
-  br i1 %123, label %124, label %143
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds %struct._capture_file, ptr %121, i32 0, i32 24
+  %123 = load ptr, ptr %122, align 8
+  %124 = load ptr, ptr %7, align 8
+  %125 = call zeroext i1 @dfilter_apply_edt(ptr noundef %123, ptr noundef %124)
+  br i1 %125, label %126, label %145
 
-124:                                              ; preds = %118
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.epan_dissect, ptr %125, i32 0, i32 3
-  %127 = getelementptr inbounds %struct._packet_info, ptr %126, i32 0, i32 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct._frame_data, ptr %128, i32 0, i32 6
+126:                                              ; preds = %120
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.epan_dissect, ptr %127, i32 0, i32 3
+  %129 = getelementptr inbounds %struct._packet_info, ptr %128, i32 0, i32 8
   %130 = load ptr, ptr %129, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %143
+  %131 = getelementptr inbounds %struct._frame_data, ptr %130, i32 0, i32 6
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %145
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds %struct.epan_dissect, ptr %133, i32 0, i32 3
-  %135 = getelementptr inbounds %struct._packet_info, ptr %134, i32 0, i32 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %struct._frame_data, ptr %136, i32 0, i32 6
+134:                                              ; preds = %126
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds %struct.epan_dissect, ptr %135, i32 0, i32 3
+  %137 = getelementptr inbounds %struct._packet_info, ptr %136, i32 0, i32 8
   %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct._capture_file, ptr %139, i32 0, i32 42
-  %141 = getelementptr inbounds %struct.packet_provider_data, ptr %140, i32 0, i32 4
-  %142 = load ptr, ptr %141, align 8
-  call void @g_hash_table_foreach(ptr noundef %138, ptr noundef @find_and_mark_frame_depended_upon, ptr noundef %142)
-  br label %143
+  %139 = getelementptr inbounds %struct._frame_data, ptr %138, i32 0, i32 6
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %6, align 8
+  %142 = getelementptr inbounds %struct._capture_file, ptr %141, i32 0, i32 42
+  %143 = getelementptr inbounds %struct.packet_provider_data, ptr %142, i32 0, i32 4
+  %144 = load ptr, ptr %143, align 8
+  call void @g_hash_table_foreach(ptr noundef %140, ptr noundef @find_and_mark_frame_depended_upon, ptr noundef %144)
+  br label %145
 
-143:                                              ; preds = %132, %124, %118
-  br label %144
+145:                                              ; preds = %134, %126, %120
+  br label %146
 
-144:                                              ; preds = %143, %113, %99
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds %struct._capture_file, ptr %145, i32 0, i32 13
-  %147 = load i32, ptr %146, align 8
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %146, align 8
-  br label %150
+146:                                              ; preds = %145, %115, %101
+  %147 = load ptr, ptr %6, align 8
+  %148 = getelementptr inbounds %struct._capture_file, ptr %147, i32 0, i32 13
+  %149 = load i32, ptr %148, align 8
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %148, align 8
+  br label %152
 
-149:                                              ; preds = %96
+151:                                              ; preds = %98
   call void @frame_data_destroy(ptr noundef %11)
-  br label %150
+  br label %152
 
-150:                                              ; preds = %149, %144
-  %151 = load ptr, ptr %7, align 8
-  %152 = icmp ne ptr %151, null
-  br i1 %152, label %153, label %155
+152:                                              ; preds = %151, %146
+  %153 = load ptr, ptr %7, align 8
+  %154 = icmp ne ptr %153, null
+  br i1 %154, label %155, label %157
 
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %7, align 8
-  call void @epan_dissect_reset(ptr noundef %154)
-  br label %155
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %7, align 8
+  call void @epan_dissect_reset(ptr noundef %156)
+  br label %157
 
-155:                                              ; preds = %153, %150
-  %156 = load i32, ptr %12, align 4
-  ret i32 %156
+157:                                              ; preds = %155, %152
+  %158 = load i32, ptr %12, align 4
+  ret i32 %158
 }
 
 declare void @epan_dissect_free(ptr noundef) #1

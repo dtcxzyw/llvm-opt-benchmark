@@ -76,27 +76,29 @@ define internal i32 @mca_rcache_base_open(i32 noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %9
-
-9:                                                ; preds = %8, %4
-  store ptr @opal_list_t_class, ptr @mca_rcache_base_modules, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_rcache_base_modules, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_rcache_base_modules)
   br label %10
 
-10:                                               ; preds = %9
-  br label %11
+10:                                               ; preds = %9, %4
+  store ptr @opal_list_t_class, ptr @mca_rcache_base_modules, align 8
+  %11 = getelementptr inbounds %struct.opal_object_t, ptr @mca_rcache_base_modules, i32 0, i32 1
+  store volatile i32 1, ptr %11, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_rcache_base_modules)
+  br label %12
 
-11:                                               ; preds = %10
-  %12 = load i32, ptr %2, align 4
-  %13 = call i32 @mca_base_framework_components_open(ptr noundef @opal_rcache_base_framework, i32 noundef %12)
-  ret i32 %13
+12:                                               ; preds = %10
+  br label %13
+
+13:                                               ; preds = %12
+  %14 = load i32, ptr %2, align 4
+  %15 = call i32 @mca_base_framework_components_open(ptr noundef @opal_rcache_base_framework, i32 noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -190,32 +192,33 @@ define void @mca_rcache_base_module_init(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %10, i32 0, i32 7
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %13, i32 0, i32 7
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %16, i32 0, i32 7
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %11, i32 0, i32 7
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %14, i32 0, i32 7
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.mca_rcache_base_module_t, ptr %17, i32 0, i32 7
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
+19:                                               ; preds = %10
+  br label %20
+
+20:                                               ; preds = %19
   ret void
 }
 

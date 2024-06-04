@@ -828,9 +828,10 @@ define linkonce_odr void @_ZN3gmx18LogTargetFormatterD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx18LogTargetFormatterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::LogTargetFormatter", ptr %3, i32 0, i32 1
-  call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx18LogTargetFormatterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::LogTargetFormatter", ptr %3, i32 0, i32 1
+  call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
   call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -2997,31 +2998,32 @@ define linkonce_odr void @_ZN3gmx18LogTargetFormatterC2EPNS_16TextOutputStreamE(
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3gmx10ILogTargetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx18LogTargetFormatterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::LogTargetFormatter", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN3gmx10TextWriterC1EPNS_16TextOutputStreamE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx18LogTargetFormatterE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.gmx::LogTargetFormatter", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN3gmx10TextWriterC1EPNS_16TextOutputStreamE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3902,7 +3904,8 @@ define linkonce_odr void @_ZN3gmx10ILogTargetC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10ILogTargetE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx10ILogTargetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5727,9 +5730,10 @@ define linkonce_odr void @_ZN3gmx19LogTargetCollectionC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx10ILogTargetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx19LogTargetCollectionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::LogTargetCollection", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx19LogTargetCollectionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::LogTargetCollection", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   ret void
 }
 
@@ -6017,9 +6021,10 @@ define linkonce_odr void @_ZN3gmx19LogTargetCollectionD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx19LogTargetCollectionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::LogTargetCollection", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx19LogTargetCollectionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::LogTargetCollection", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }

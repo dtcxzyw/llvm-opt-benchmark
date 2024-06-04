@@ -317,10 +317,11 @@ entry:
   %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 1
   %1 = load ptr, ptr %infoGlobal.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %a.addr, align 8
-  store ptr %2, ptr %m_anchor, align 8
+  %3 = load ptr, ptr %a.addr, align 8
+  store ptr %3, ptr %m_anchor, align 8
   ret void
 }
 
@@ -334,15 +335,16 @@ entry:
   store ptr %normal, ptr %normal.addr, align 8
   store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_static, align 8
   %m_infoGlobal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %infoGlobal.addr, align 8
-  store ptr %0, ptr %m_infoGlobal, align 8
+  %1 = load ptr, ptr %infoGlobal.addr, align 8
+  store ptr %1, ptr %m_infoGlobal, align 8
   %m_normal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %normal.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_normal, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %normal.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_normal, ptr align 4 %2, i64 16, i1 false)
   ret void
 }
 
@@ -356,12 +358,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_anchor2 = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %m_anchor2, align 8
-  store ptr %2, ptr %m_anchor, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_anchor2 = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %m_anchor2, align 8
+  store ptr %3, ptr %m_anchor, align 8
   ret void
 }
 
@@ -373,22 +376,23 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_static2 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %m_static2, align 8
-  %tobool = trunc i8 %1 to i1
+  %1 = load ptr, ptr %other.addr, align 8
+  %m_static2 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %1, i32 0, i32 1
+  %2 = load i8, ptr %m_static2, align 8
+  %tobool = trunc i8 %2 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_static, align 8
   %m_infoGlobal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_infoGlobal3 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %m_infoGlobal3, align 8
-  store ptr %3, ptr %m_infoGlobal, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %m_infoGlobal3 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %m_infoGlobal3, align 8
+  store ptr %4, ptr %m_infoGlobal, align 8
   %m_normal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %other.addr, align 8
-  %m_normal4 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %other.addr, align 8
+  %m_normal4 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %5, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_normal, ptr align 8 %m_normal4, i64 16, i1 false)
   ret void
 }
@@ -1494,7 +1498,8 @@ entry:
   %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 1
   %1 = load ptr, ptr %infoGlobal.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv)
           to label %invoke.cont unwind label %lpad
@@ -1506,8 +1511,8 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %c.addr, align 8
-  store ptr %2, ptr %m_contact, align 8
+  %3 = load ptr, ptr %c.addr, align 8
+  store ptr %3, ptr %m_contact, align 8
   %m_total_normal_dv3 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector37setZeroEv(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv3)
           to label %invoke.cont4 unwind label %lpad
@@ -1518,12 +1523,12 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %3 = load ptr, ptr %c.addr, align 8
-  %m_cti7 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %c.addr, align 8
+  %m_cti7 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %4, i32 0, i32 0
   %m_offset = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti7, i32 0, i32 3
-  %4 = load float, ptr %m_offset, align 8
+  %5 = load float, ptr %m_offset, align 8
   %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  store float %4, ptr %m_penetration, align 8
+  store float %5, ptr %m_penetration, align 8
   %m_total_split_impulse = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
   store float 0.000000e+00, ptr %m_total_split_impulse, align 4
   %m_binding = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 5
@@ -1531,12 +1536,12 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #12
   br label %eh.resume
 
@@ -1586,7 +1591,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv)
           to label %invoke.cont unwind label %lpad
@@ -1598,44 +1604,44 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_penetration3 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %1, i32 0, i32 3
-  %2 = load float, ptr %m_penetration3, align 8
-  store float %2, ptr %m_penetration, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_penetration3 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %2, i32 0, i32 3
+  %3 = load float, ptr %m_penetration3, align 8
+  store float %3, ptr %m_penetration, align 8
   %m_total_split_impulse = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_total_split_impulse4 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %3, i32 0, i32 4
-  %4 = load float, ptr %m_total_split_impulse4, align 4
-  store float %4, ptr %m_total_split_impulse, align 4
+  %4 = load ptr, ptr %other.addr, align 8
+  %m_total_split_impulse4 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %4, i32 0, i32 4
+  %5 = load float, ptr %m_total_split_impulse4, align 4
+  store float %5, ptr %m_total_split_impulse, align 4
   %m_binding = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %other.addr, align 8
-  %m_binding5 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %5, i32 0, i32 5
-  %6 = load i8, ptr %m_binding5, align 8
-  %tobool = trunc i8 %6 to i1
+  %6 = load ptr, ptr %other.addr, align 8
+  %m_binding5 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %6, i32 0, i32 5
+  %7 = load i8, ptr %m_binding5, align 8
+  %tobool = trunc i8 %7 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_binding, align 8
   %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %7 = load ptr, ptr %other.addr, align 8
-  %m_contact6 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %m_contact6, align 8
-  store ptr %8, ptr %m_contact, align 8
-  %9 = load ptr, ptr %other.addr, align 8
-  %m_total_normal_dv7 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %9, i32 0, i32 1
+  %8 = load ptr, ptr %other.addr, align 8
+  %m_contact6 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %8, i32 0, i32 6
+  %9 = load ptr, ptr %m_contact6, align 8
+  store ptr %9, ptr %m_contact, align 8
+  %10 = load ptr, ptr %other.addr, align 8
+  %m_total_normal_dv7 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %10, i32 0, i32 1
   %m_total_normal_dv8 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_total_normal_dv8, ptr align 8 %m_total_normal_dv7, i64 16, i1 false)
-  %10 = load ptr, ptr %other.addr, align 8
-  %m_total_tangent_dv9 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %other.addr, align 8
+  %m_total_tangent_dv9 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %11, i32 0, i32 2
   %m_total_tangent_dv10 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_total_tangent_dv10, ptr align 8 %m_total_tangent_dv9, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #12
   br label %eh.resume
 
@@ -3426,12 +3432,13 @@ entry:
   %0 = load ptr, ptr %contact.addr, align 8
   %1 = load ptr, ptr %infoGlobal.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(848) %0, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %contact.addr, align 8
-  %m_node2 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_node2, align 8
-  store ptr %3, ptr %m_node, align 8
+  %3 = load ptr, ptr %contact.addr, align 8
+  %m_node2 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_node2, align 8
+  store ptr %4, ptr %m_node, align 8
   ret void
 }
 
@@ -3445,12 +3452,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(96) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_node2 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %m_node2, align 8
-  store ptr %2, ptr %m_node, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_node2 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %m_node2, align 8
+  store ptr %3, ptr %m_node, align 8
   ret void
 }
 
@@ -3599,15 +3607,16 @@ entry:
   %0 = load ptr, ptr %contact.addr, align 8
   %1 = load ptr, ptr %infoGlobal.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(848) %0, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %contact.addr, align 8
-  %m_face2 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_face2, align 8
-  store ptr %3, ptr %m_face, align 8
+  %3 = load ptr, ptr %contact.addr, align 8
+  %m_face2 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_face2, align 8
+  store ptr %4, ptr %m_face, align 8
   %m_useStrainLimiting = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %4 = load i8, ptr %useStrainLimiting.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %useStrainLimiting.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %m_useStrainLimiting, align 8
   ret void
@@ -3623,17 +3632,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(96) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_face2 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %m_face2, align 8
-  store ptr %2, ptr %m_face, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_face2 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %m_face2, align 8
+  store ptr %3, ptr %m_face, align 8
   %m_useStrainLimiting = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_useStrainLimiting3 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %3, i32 0, i32 2
-  %4 = load i8, ptr %m_useStrainLimiting3, align 8
-  %tobool = trunc i8 %4 to i1
+  %4 = load ptr, ptr %other.addr, align 8
+  %m_useStrainLimiting3 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %4, i32 0, i32 2
+  %5 = load i8, ptr %m_useStrainLimiting3, align 8
+  %tobool = trunc i8 %5 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_useStrainLimiting, align 8
   ret void
@@ -4472,20 +4482,21 @@ entry:
   %m_normal = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i32 0, i32 4
   %1 = load ptr, ptr %infoGlobal.addr, align 8
   call void @_ZN29btDeformableContactConstraintC2ERK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_node = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %contact.addr, align 8
-  %m_node2 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %m_node2, align 8
-  store ptr %3, ptr %m_node, align 8
+  %3 = load ptr, ptr %contact.addr, align 8
+  %m_node2 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %m_node2, align 8
+  store ptr %4, ptr %m_node, align 8
   %m_face = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %contact.addr, align 8
-  %m_face3 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %m_face3, align 8
-  store ptr %5, ptr %m_face, align 8
+  %5 = load ptr, ptr %contact.addr, align 8
+  %m_face3 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %m_face3, align 8
+  store ptr %6, ptr %m_face, align 8
   %m_contact = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %contact.addr, align 8
-  store ptr %6, ptr %m_contact, align 8
+  %7 = load ptr, ptr %contact.addr, align 8
+  store ptr %7, ptr %m_contact, align 8
   %m_total_normal_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this1, i32 0, i32 4
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv)
           to label %invoke.cont unwind label %lpad
@@ -4509,12 +4520,12 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont4, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #12
   br label %eh.resume
 

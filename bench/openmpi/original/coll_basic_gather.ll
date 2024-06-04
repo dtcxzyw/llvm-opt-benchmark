@@ -59,100 +59,102 @@ define i32 @mca_coll_basic_gather_inter(ptr noundef %0, i32 noundef %1, ptr noun
 
 31:                                               ; preds = %9
   store i32 0, ptr %21, align 4
-  br label %82
+  br label %84
 
 32:                                               ; preds = %9
   %33 = load i32, ptr %17, align 4
   %34 = icmp ne i32 -4, %33
-  br i1 %34, label %35, label %44
+  br i1 %34, label %35, label %45
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 12), align 8
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr %12, align 4
-  %39 = sext i32 %38 to i64
-  %40 = load ptr, ptr %13, align 8
-  %41 = load i32, ptr %17, align 4
-  %42 = load ptr, ptr %18, align 8
-  %43 = call i32 %36(ptr noundef %37, i64 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef -19, i32 noundef 4, ptr noundef %42)
-  store i32 %43, ptr %21, align 4
-  br label %81
+  %36 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 12
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load i32, ptr %12, align 4
+  %40 = sext i32 %39 to i64
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr %17, align 4
+  %43 = load ptr, ptr %18, align 8
+  %44 = call i32 %37(ptr noundef %38, i64 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef -19, i32 noundef 4, ptr noundef %43)
+  store i32 %44, ptr %21, align 4
+  br label %83
 
-44:                                               ; preds = %32
-  %45 = load ptr, ptr %16, align 8
-  %46 = call i32 @ompi_datatype_get_extent(ptr noundef %45, ptr noundef %26, ptr noundef %25)
-  store i32 %46, ptr %21, align 4
-  %47 = load i32, ptr %21, align 4
-  %48 = icmp ne i32 0, %47
-  br i1 %48, label %49, label %50
+45:                                               ; preds = %32
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 @ompi_datatype_get_extent(ptr noundef %46, ptr noundef %26, ptr noundef %25)
+  store i32 %47, ptr %21, align 4
+  %48 = load i32, ptr %21, align 4
+  %49 = icmp ne i32 0, %48
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %44
+50:                                               ; preds = %45
   store i32 -1, ptr %10, align 4
-  br label %84
+  br label %86
 
-50:                                               ; preds = %44
-  %51 = load i64, ptr %25, align 8
-  %52 = load i32, ptr %15, align 4
-  %53 = sext i32 %52 to i64
-  %54 = mul nsw i64 %51, %53
-  store i64 %54, ptr %24, align 8
+51:                                               ; preds = %45
+  %52 = load i64, ptr %25, align 8
+  %53 = load i32, ptr %15, align 4
+  %54 = sext i32 %53 to i64
+  %55 = mul nsw i64 %52, %54
+  store i64 %55, ptr %24, align 8
   store i32 0, ptr %20, align 4
-  %55 = load ptr, ptr %14, align 8
-  store ptr %55, ptr %23, align 8
-  br label %56
+  %56 = load ptr, ptr %14, align 8
+  store ptr %56, ptr %23, align 8
+  br label %57
 
-56:                                               ; preds = %74, %50
-  %57 = load i32, ptr %20, align 4
-  %58 = load i32, ptr %22, align 4
-  %59 = icmp slt i32 %57, %58
-  br i1 %59, label %60, label %80
+57:                                               ; preds = %76, %51
+  %58 = load i32, ptr %20, align 4
+  %59 = load i32, ptr %22, align 4
+  %60 = icmp slt i32 %58, %59
+  br i1 %60, label %61, label %82
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9), align 8
-  %62 = load ptr, ptr %23, align 8
-  %63 = load i32, ptr %15, align 4
-  %64 = sext i32 %63 to i64
-  %65 = load ptr, ptr %16, align 8
-  %66 = load i32, ptr %20, align 4
-  %67 = load ptr, ptr %18, align 8
-  %68 = call i32 %61(ptr noundef %62, i64 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef -19, ptr noundef %67, ptr noundef null)
-  store i32 %68, ptr %21, align 4
-  %69 = load i32, ptr %21, align 4
-  %70 = icmp ne i32 0, %69
-  br i1 %70, label %71, label %73
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %23, align 8
+  %65 = load i32, ptr %15, align 4
+  %66 = sext i32 %65 to i64
+  %67 = load ptr, ptr %16, align 8
+  %68 = load i32, ptr %20, align 4
+  %69 = load ptr, ptr %18, align 8
+  %70 = call i32 %63(ptr noundef %64, i64 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef -19, ptr noundef %69, ptr noundef null)
+  store i32 %70, ptr %21, align 4
+  %71 = load i32, ptr %21, align 4
+  %72 = icmp ne i32 0, %71
+  br i1 %72, label %73, label %75
 
-71:                                               ; preds = %60
-  %72 = load i32, ptr %21, align 4
-  store i32 %72, ptr %10, align 4
+73:                                               ; preds = %61
+  %74 = load i32, ptr %21, align 4
+  store i32 %74, ptr %10, align 4
+  br label %86
+
+75:                                               ; preds = %61
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load i32, ptr %20, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %20, align 4
+  %79 = load i64, ptr %24, align 8
+  %80 = load ptr, ptr %23, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 %79
+  store ptr %81, ptr %23, align 8
+  br label %57, !llvm.loop !4
+
+82:                                               ; preds = %57
+  br label %83
+
+83:                                               ; preds = %82, %35
   br label %84
 
-73:                                               ; preds = %60
-  br label %74
+84:                                               ; preds = %83, %31
+  %85 = load i32, ptr %21, align 4
+  store i32 %85, ptr %10, align 4
+  br label %86
 
-74:                                               ; preds = %73
-  %75 = load i32, ptr %20, align 4
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %20, align 4
-  %77 = load i64, ptr %24, align 8
-  %78 = load ptr, ptr %23, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %77
-  store ptr %79, ptr %23, align 8
-  br label %56, !llvm.loop !4
-
-80:                                               ; preds = %56
-  br label %81
-
-81:                                               ; preds = %80, %35
-  br label %82
-
-82:                                               ; preds = %81, %31
-  %83 = load i32, ptr %21, align 4
-  store i32 %83, ptr %10, align 4
-  br label %84
-
-84:                                               ; preds = %82, %71, %49
-  %85 = load i32, ptr %10, align 4
-  ret i32 %85
+86:                                               ; preds = %84, %73, %50
+  %87 = load i32, ptr %10, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind uwtable

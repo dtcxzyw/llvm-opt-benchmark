@@ -16,184 +16,190 @@ define dso_local void @sort_job_list(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = call ptr @xstrdup(ptr noundef @.str)
-  store ptr %8, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  br label %9
+8:                                                ; preds = %1
+  %9 = call ptr @xstrdup(ptr noundef @.str)
+  %10 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  store ptr %9, ptr %10, align 8
+  br label %11
 
-9:                                                ; preds = %7, %1
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  %11 = call i64 @strlen(ptr noundef %10) #4
-  %12 = trunc i64 %11 to i32
-  store i32 %12, ptr %3, align 4
-  br label %13
-
-13:                                               ; preds = %84, %34, %9
-  %14 = load i32, ptr %3, align 4
-  %15 = add nsw i32 %14, -1
+11:                                               ; preds = %8, %1
+  %12 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #4
+  %15 = trunc i64 %14 to i32
   store i32 %15, ptr %3, align 4
-  %16 = icmp sgt i32 %14, 0
-  br i1 %16, label %17, label %85
+  br label %16
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  %19 = load i32, ptr %3, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  %22 = load i8, ptr %21, align 1
-  store i8 %22, ptr %4, align 1
-  %23 = load i8, ptr %4, align 1
-  %24 = sext i8 %23 to i32
-  %25 = icmp eq i32 %24, 44
-  br i1 %25, label %34, label %26
+16:                                               ; preds = %90, %38, %11
+  %17 = load i32, ptr %3, align 4
+  %18 = add nsw i32 %17, -1
+  store i32 %18, ptr %3, align 4
+  %19 = icmp sgt i32 %17, 0
+  br i1 %19, label %20, label %91
 
-26:                                               ; preds = %17
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %3, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  %26 = load i8, ptr %25, align 1
+  store i8 %26, ptr %4, align 1
   %27 = load i8, ptr %4, align 1
   %28 = sext i8 %27 to i32
-  %29 = icmp eq i32 %28, 45
-  br i1 %29, label %34, label %30
+  %29 = icmp eq i32 %28, 44
+  br i1 %29, label %38, label %30
 
-30:                                               ; preds = %26
+30:                                               ; preds = %20
   %31 = load i8, ptr %4, align 1
   %32 = sext i8 %31 to i32
-  %33 = icmp eq i32 %32, 43
-  br i1 %33, label %34, label %35
+  %33 = icmp eq i32 %32, 45
+  br i1 %33, label %38, label %34
 
-34:                                               ; preds = %30, %26, %17
-  br label %13, !llvm.loop !7
+34:                                               ; preds = %30
+  %35 = load i8, ptr %4, align 1
+  %36 = sext i8 %35 to i32
+  %37 = icmp eq i32 %36, 43
+  br i1 %37, label %38, label %39
 
-35:                                               ; preds = %30
+38:                                               ; preds = %34, %30, %20
+  br label %16, !llvm.loop !7
+
+39:                                               ; preds = %34
   store i8 0, ptr @sort_descend, align 1
-  %36 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  %37 = load i32, ptr %3, align 4
-  %38 = sub nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %36, i64 %39
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = icmp eq i32 %42, 45
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %35
-  store i8 1, ptr @sort_descend, align 1
-  br label %45
-
-45:                                               ; preds = %44, %35
-  %46 = load i8, ptr %4, align 1
+  %40 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %3, align 4
+  %43 = sub nsw i32 %42, 1
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %41, i64 %44
+  %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i32
-  switch i32 %47, label %76 [
-    i32 99, label %48
-    i32 105, label %50
-    i32 78, label %52
-    i32 110, label %54
-    i32 111, label %56
-    i32 114, label %58
-    i32 117, label %60
-    i32 65, label %62
-    i32 97, label %62
-    i32 70, label %64
-    i32 102, label %64
-    i32 74, label %66
-    i32 106, label %66
-    i32 80, label %68
-    i32 112, label %68
-    i32 81, label %70
-    i32 113, label %70
-    i32 84, label %72
-    i32 116, label %72
-    i32 89, label %74
-    i32 121, label %74
+  %48 = icmp eq i32 %47, 45
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %39
+  store i8 1, ptr @sort_descend, align 1
+  br label %50
+
+50:                                               ; preds = %49, %39
+  %51 = load i8, ptr %4, align 1
+  %52 = sext i8 %51 to i32
+  switch i32 %52, label %81 [
+    i32 99, label %53
+    i32 105, label %55
+    i32 78, label %57
+    i32 110, label %59
+    i32 111, label %61
+    i32 114, label %63
+    i32 117, label %65
+    i32 65, label %67
+    i32 97, label %67
+    i32 70, label %69
+    i32 102, label %69
+    i32 74, label %71
+    i32 106, label %71
+    i32 80, label %73
+    i32 112, label %73
+    i32 81, label %75
+    i32 113, label %75
+    i32 84, label %77
+    i32 116, label %77
+    i32 89, label %79
+    i32 121, label %79
   ]
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %49, ptr noundef @_sort_by_cluster_name)
-  br label %84
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %54, ptr noundef @_sort_by_cluster_name)
+  br label %90
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %51, ptr noundef @_sort_by_job_id)
-  br label %84
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %56, ptr noundef @_sort_by_job_id)
+  br label %90
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %53, ptr noundef @_sort_by_nice_level)
-  br label %84
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %58, ptr noundef @_sort_by_nice_level)
+  br label %90
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %55, ptr noundef @_sort_by_qos_name)
-  br label %84
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %60, ptr noundef @_sort_by_qos_name)
+  br label %90
 
-56:                                               ; preds = %45
-  %57 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %57, ptr noundef @_sort_by_account)
-  br label %84
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %62, ptr noundef @_sort_by_account)
+  br label %90
 
-58:                                               ; preds = %45
-  %59 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %59, ptr noundef @_sort_by_partition)
-  br label %84
+63:                                               ; preds = %50
+  %64 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %64, ptr noundef @_sort_by_partition)
+  br label %90
 
-60:                                               ; preds = %45
-  %61 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %61, ptr noundef @_sort_by_username)
-  br label %84
+65:                                               ; preds = %50
+  %66 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %66, ptr noundef @_sort_by_username)
+  br label %90
 
-62:                                               ; preds = %45, %45
-  %63 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %63, ptr noundef @_sort_by_age_prio)
-  br label %84
+67:                                               ; preds = %50, %50
+  %68 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %68, ptr noundef @_sort_by_age_prio)
+  br label %90
 
-64:                                               ; preds = %45, %45
-  %65 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %65, ptr noundef @_sort_by_fairshare_prio)
-  br label %84
+69:                                               ; preds = %50, %50
+  %70 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %70, ptr noundef @_sort_by_fairshare_prio)
+  br label %90
 
-66:                                               ; preds = %45, %45
-  %67 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %67, ptr noundef @_sort_by_jobsize_prio)
-  br label %84
+71:                                               ; preds = %50, %50
+  %72 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %72, ptr noundef @_sort_by_jobsize_prio)
+  br label %90
 
-68:                                               ; preds = %45, %45
-  %69 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %69, ptr noundef @_sort_by_partition_prio)
-  br label %84
+73:                                               ; preds = %50, %50
+  %74 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %74, ptr noundef @_sort_by_partition_prio)
+  br label %90
 
-70:                                               ; preds = %45, %45
-  %71 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %71, ptr noundef @_sort_by_qos_prio)
-  br label %84
+75:                                               ; preds = %50, %50
+  %76 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %76, ptr noundef @_sort_by_qos_prio)
+  br label %90
 
-72:                                               ; preds = %45, %45
-  %73 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %73, ptr noundef @_sort_by_tres_prio)
-  br label %84
+77:                                               ; preds = %50, %50
+  %78 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %78, ptr noundef @_sort_by_tres_prio)
+  br label %90
 
-74:                                               ; preds = %45, %45
-  %75 = load ptr, ptr %2, align 8
-  call void @list_sort(ptr noundef %75, ptr noundef @_sort_by_job_prio)
-  br label %84
+79:                                               ; preds = %50, %50
+  %80 = load ptr, ptr %2, align 8
+  call void @list_sort(ptr noundef %80, ptr noundef @_sort_by_job_prio)
+  br label %90
 
-76:                                               ; preds = %45
-  %77 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i32 0, i32 15), align 8
-  %78 = load i32, ptr %3, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %77, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %82 = sext i8 %81 to i32
-  %83 = call i32 (ptr, ...) @error(ptr noundef @.str.1, i32 noundef %82)
+81:                                               ; preds = %50
+  %82 = getelementptr inbounds %struct.sprio_parameters, ptr @params, i32 0, i32 15
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %3, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %83, i64 %85
+  %87 = load i8, ptr %86, align 1
+  %88 = sext i8 %87 to i32
+  %89 = call i32 (ptr, ...) @error(ptr noundef @.str.1, i32 noundef %88)
   call void @exit(i32 noundef 1) #5
   unreachable
 
-84:                                               ; preds = %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48
-  br label %13, !llvm.loop !7
+90:                                               ; preds = %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53
+  br label %16, !llvm.loop !7
 
-85:                                               ; preds = %13
+91:                                               ; preds = %16
   ret void
 }
 

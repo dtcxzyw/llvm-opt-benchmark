@@ -575,7 +575,8 @@ entry:
   store i32 %numSolvers, ptr %numSolvers.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_solvers = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers)
           to label %invoke.cont unwind label %lpad
@@ -585,8 +586,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %0 = load i32, ptr %numSolvers.addr, align 4
-  invoke void @_ZN20btAlignedObjectArrayIP18btConstraintSolverE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %solvers, i32 noundef %0)
+  %1 = load i32, ptr %numSolvers.addr, align 4
+  invoke void @_ZN20btAlignedObjectArrayIP18btConstraintSolverE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %solvers, i32 noundef %1)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -594,9 +595,9 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont5
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %numSolvers.addr, align 4
-  %cmp = icmp slt i32 %1, %2
+  %2 = load i32, ptr %i, align 4
+  %3 = load i32, ptr %numSolvers.addr, align 4
+  %cmp = icmp slt i32 %2, %3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -616,45 +617,45 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont9
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad4:                                            ; preds = %invoke.cont10, %for.end, %invoke.cont8, %for.body, %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN35btSequentialImpulseConstraintSolverdlEPv(ptr noundef %call) #10
   br label %ehcleanup
 
@@ -663,8 +664,8 @@ for.end:                                          ; preds = %for.cond
           to label %invoke.cont10 unwind label %lpad4
 
 invoke.cont10:                                    ; preds = %for.end
-  %16 = load i32, ptr %numSolvers.addr, align 4
-  invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef %call11, i32 noundef %16)
+  %17 = load i32, ptr %numSolvers.addr, align 4
+  invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef %call11, i32 noundef %17)
           to label %invoke.cont12 unwind label %lpad4
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -697,7 +698,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18btConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV18btConstraintSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -905,36 +907,37 @@ entry:
   store i32 %numSolvers, ptr %numSolvers.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_solvers = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %solvers.addr, align 8
-  %1 = load i32, ptr %numSolvers.addr, align 4
-  invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef %0, i32 noundef %1)
+  %1 = load ptr, ptr %solvers.addr, align 8
+  %2 = load i32, ptr %numSolvers.addr, align 4
+  invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef %1, i32 noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers) #10
   br label %ehcleanup
 
@@ -958,50 +961,51 @@ entry:
   %solver = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
+  %1 = load i32, ptr %i, align 4
   %m_solvers = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
   %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp slt i32 %0, %call
+  %cmp = icmp slt i32 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
   %m_solvers2 = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %i, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers2, i32 noundef %1)
+  %2 = load i32, ptr %i, align 4
+  %call4 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers2, i32 noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %for.body
   store ptr %call4, ptr %solver, align 8
-  %2 = load ptr, ptr %solver, align 8
-  %solver5 = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %solver5, align 8
-  %isnull = icmp eq ptr %3, null
+  %3 = load ptr, ptr %solver, align 8
+  %solver5 = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %solver5, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont3
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont3
-  %5 = load ptr, ptr %solver, align 8
-  %solver6 = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %solver, align 8
+  %solver6 = getelementptr inbounds %"struct.btConstraintSolverPoolMt::ThreadSolver", ptr %6, i32 0, i32 0
   store ptr null, ptr %solver6, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
+  %7 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
@@ -1012,10 +1016,10 @@ for.end:                                          ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %for.body, %for.cond
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #11
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #11
   unreachable
 }
 
@@ -1170,34 +1174,35 @@ entry:
   %2 = load ptr, ptr %solverPool.addr, align 8
   %3 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_ownsIslandManager = getelementptr inbounds %class.btDiscreteDynamicsWorld, ptr %this1, i32 0, i32 10
-  %4 = load i8, ptr %m_ownsIslandManager, align 8
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %m_ownsIslandManager, align 8
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_islandManager = getelementptr inbounds %class.btDiscreteDynamicsWorld, ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %m_islandManager, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %m_islandManager, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(105) %5) #10
+  %7 = load ptr, ptr %vfn, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(105) %6) #10
   %m_islandManager2 = getelementptr inbounds %class.btDiscreteDynamicsWorld, ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %m_islandManager2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %7)
+  %8 = load ptr, ptr %m_islandManager2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %if.end, %if.then
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508) %this1) #10
   br label %eh.resume
 
@@ -1207,26 +1212,26 @@ if.end:                                           ; preds = %invoke.cont, %entry
 
 invoke.cont3:                                     ; preds = %if.end
   store ptr %call, ptr %mem, align 8
-  %11 = load ptr, ptr %mem, align 8
-  invoke void @_ZN27btSimulationIslandManagerMtC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %11)
+  %12 = load ptr, ptr %mem, align 8
+  invoke void @_ZN27btSimulationIslandManagerMtC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr %11, ptr %im, align 8
-  %12 = load ptr, ptr %im, align 8
+  store ptr %12, ptr %im, align 8
+  %13 = load ptr, ptr %im, align 8
   %m_solverInfo = getelementptr inbounds %class.btDynamicsWorld, ptr %this1, i32 0, i32 4
   %m_minimumSolverBatchSize = getelementptr inbounds %struct.btContactSolverInfoData, ptr %m_solverInfo, i32 0, i32 24
-  %13 = load i32, ptr %m_minimumSolverBatchSize, align 8
-  invoke void @_ZN27btSimulationIslandManagerMt25setMinimumSolverBatchSizeEi(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef %13)
+  %14 = load i32, ptr %m_minimumSolverBatchSize, align 8
+  invoke void @_ZN27btSimulationIslandManagerMt25setMinimumSolverBatchSizeEi(ptr noundef nonnull align 8 dereferenceable(264) %13, i32 noundef %14)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %14 = load ptr, ptr %im, align 8
+  %15 = load ptr, ptr %im, align 8
   %m_islandManager6 = getelementptr inbounds %class.btDiscreteDynamicsWorld, ptr %this1, i32 0, i32 4
-  store ptr %14, ptr %m_islandManager6, align 8
-  %15 = load ptr, ptr %constraintSolverMt.addr, align 8
+  store ptr %15, ptr %m_islandManager6, align 8
+  %16 = load ptr, ptr %constraintSolverMt.addr, align 8
   %m_constraintSolverMt = getelementptr inbounds %class.btDiscreteDynamicsWorldMt, ptr %this1, i32 0, i32 1
-  store ptr %15, ptr %m_constraintSolverMt, align 8
+  store ptr %16, ptr %m_constraintSolverMt, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad
@@ -1568,7 +1573,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26UpdaterUnconstrainedMotion, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV26UpdaterUnconstrainedMotion, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1698,7 +1704,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1804,7 +1811,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1866,7 +1874,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2132,7 +2141,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

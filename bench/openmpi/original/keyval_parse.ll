@@ -46,24 +46,26 @@ define i32 @opal_util_keyval_parse_init() #0 {
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %5 = icmp ne i32 %3, %4
-  br i1 %5, label %6, label %7
+  %4 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ne i32 %3, %5
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %7
-
-7:                                                ; preds = %6, %2
-  store ptr @opal_mutex_t_class, ptr @keyval_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @keyval_mutex, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @keyval_mutex)
   br label %8
 
-8:                                                ; preds = %7
-  br label %9
+8:                                                ; preds = %7, %2
+  store ptr @opal_mutex_t_class, ptr @keyval_mutex, align 8
+  %9 = getelementptr inbounds %struct.opal_object_t, ptr @keyval_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %9, align 8
+  call void @opal_obj_run_constructors(ptr noundef @keyval_mutex)
+  br label %10
 
-9:                                                ; preds = %8
+10:                                               ; preds = %8
+  br label %11
+
+11:                                               ; preds = %10
   call void @opal_finalize_append_cleanup(ptr noundef @opal_util_keyval_parse_finalize, ptr noundef @.str, ptr noundef null)
   ret i32 0
 }

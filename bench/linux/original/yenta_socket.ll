@@ -157,185 +157,186 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.2) #11
-  br label %104
+  br label %105
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1424) #12
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %104, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 1424) #12
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %105, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 64
-  %14 = getelementptr inbounds i8, ptr %10, i64 416
-  store ptr @yenta_socket_operations, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 424
-  store ptr @pccard_nonstatic_ops, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
-  %17 = getelementptr inbounds i8, ptr %10, i64 688
-  store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 1352
-  store ptr %10, ptr %18, align 8
-  store ptr null, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 380
-  store i32 16385, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 388
-  store i32 4096, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 400
-  store ptr %0, ptr %21, align 8
-  store ptr %0, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr %10, ptr %22, align 8
-  %23 = tail call i32 @pci_enable_device(ptr noundef %0) #10
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %102
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds i8, ptr %11, i64 416
+  store ptr @yenta_socket_operations, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 424
+  store ptr @pccard_nonstatic_ops, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds i8, ptr %11, i64 688
+  store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %11, i64 1352
+  store ptr %11, ptr %19, align 8
+  store ptr null, ptr %14, align 8
+  %20 = getelementptr inbounds i8, ptr %11, i64 380
+  store i32 16385, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %11, i64 388
+  store i32 4096, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %11, i64 400
+  store ptr %0, ptr %22, align 8
+  store ptr %0, ptr %11, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %11, ptr %23, align 8
+  %24 = tail call i32 @pci_enable_device(ptr noundef %0) #10
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %103
 
-25:                                               ; preds = %12
-  %26 = tail call i32 @pci_request_regions(ptr noundef %0, ptr noundef nonnull @.str) #10
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %100
+26:                                               ; preds = %13
+  %27 = tail call i32 @pci_request_regions(ptr noundef %0, ptr noundef nonnull @.str) #10
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %101
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 920
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %33
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %0, i64 920
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.3) #11
-  br label %98
+33:                                               ; preds = %29
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %17, ptr noundef nonnull @.str.3) #11
+  br label %99
 
-33:                                               ; preds = %28
-  %34 = tail call ptr @ioremap(i64 noundef %30, i64 noundef 4096) #10
-  %35 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %34, ptr %35, align 8
-  %36 = icmp eq ptr %34, null
-  br i1 %36, label %98, label %37
+34:                                               ; preds = %29
+  %35 = tail call ptr @ioremap(i64 noundef %31, i64 noundef 4096) #10
+  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %35, ptr %36, align 8
+  %37 = icmp eq ptr %35, null
+  br i1 %37, label %99, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = load i16, ptr %38, align 8
-  %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 66
-  %42 = load i16, ptr %41, align 2
-  %43 = zext i16 %42 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %43) #11
-  tail call fastcc void @yenta_config_init(ptr noundef nonnull %10)
-  %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr i8, ptr %44, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %45) #10, !srcloc !5
-  %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr i8, ptr %46, i64 4
-  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47) #10, !srcloc !6
-  tail call fastcc void @yenta_allocate_resources(ptr noundef nonnull %10)
-  %49 = getelementptr inbounds i8, ptr %0, i64 916
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp ult i64 %53, 9
-  br i1 %54, label %55, label %61
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = load i16, ptr %39, align 8
+  %41 = zext i16 %40 to i32
+  %42 = getelementptr inbounds i8, ptr %0, i64 66
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.4, i32 noundef %41, i32 noundef %44) #11
+  tail call fastcc void @yenta_config_init(ptr noundef nonnull %11)
+  %45 = load ptr, ptr %36, align 8
+  %46 = getelementptr i8, ptr %45, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %46) #10, !srcloc !5
+  %47 = load ptr, ptr %36, align 8
+  %48 = getelementptr i8, ptr %47, i64 4
+  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #10, !srcloc !6
+  tail call fastcc void @yenta_allocate_resources(ptr noundef nonnull %11)
+  %50 = getelementptr inbounds i8, ptr %0, i64 916
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp ult i64 %54, 9
+  br i1 %55, label %56, label %62
 
-55:                                               ; preds = %37
-  %56 = getelementptr [9 x %struct.cardbus_type], ptr @cardbus_type, i64 0, i64 %53
-  %57 = getelementptr inbounds i8, ptr %10, i64 1368
-  store ptr %56, ptr %57, align 8
-  %58 = load ptr, ptr %56, align 16
-  %59 = tail call i32 %58(ptr noundef nonnull %10) #10
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %95, label %61
+56:                                               ; preds = %38
+  %57 = getelementptr [9 x %struct.cardbus_type], ptr @cardbus_type, i64 0, i64 %54
+  %58 = getelementptr inbounds i8, ptr %11, i64 1368
+  store ptr %57, ptr %58, align 8
+  %59 = load ptr, ptr %57, align 16
+  %60 = tail call i32 %59(ptr noundef nonnull %11) #10
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %96, label %62
 
-61:                                               ; preds = %55, %37
-  %62 = load i32, ptr %51, align 8
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %67, label %64
+62:                                               ; preds = %56, %38
+  %63 = load i32, ptr %52, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %68, label %65
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @request_threaded_irq(i32 noundef %62, ptr noundef nonnull @yenta_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %10) #10
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %72, label %67
+65:                                               ; preds = %62
+  %66 = tail call i32 @request_threaded_irq(i32 noundef %63, ptr noundef nonnull @yenta_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %11) #10
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %73, label %68
 
-67:                                               ; preds = %64, %61
-  store i32 0, ptr %51, align 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @init_timer_key(ptr noundef %68, ptr noundef nonnull @yenta_interrupt_wrapper, i32 noundef 0, ptr noundef null, ptr noundef null) #10
-  %69 = load volatile i64, ptr @jiffies, align 64
-  %70 = add i64 %69, 1000
-  %71 = tail call i32 @mod_timer(ptr noundef %68, i64 noundef %70) #10
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.6) #11
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.7) #11
-  br label %75
+68:                                               ; preds = %65, %62
+  store i32 0, ptr %52, align 8
+  %69 = getelementptr inbounds i8, ptr %11, i64 24
+  tail call void @init_timer_key(ptr noundef %69, ptr noundef nonnull @yenta_interrupt_wrapper, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %70 = load volatile i64, ptr @jiffies, align 64
+  %71 = add i64 %70, 1000
+  %72 = tail call i32 @mod_timer(ptr noundef %69, i64 noundef %71) #10
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.7) #11
+  br label %76
 
-72:                                               ; preds = %64
-  %73 = load i32, ptr %19, align 4
-  %74 = or i32 %73, 32768
-  store i32 %74, ptr %19, align 4
-  br label %75
+73:                                               ; preds = %65
+  %74 = load i32, ptr %20, align 4
+  %75 = or i32 %74, 32768
+  store i32 %75, ptr %20, align 4
+  br label %76
 
-75:                                               ; preds = %72, %67
-  tail call fastcc void @yenta_interrogate(ptr noundef nonnull %10)
-  tail call fastcc void @yenta_get_socket_capabilities(ptr noundef nonnull %10)
-  %76 = load ptr, ptr %35, align 8
-  %77 = getelementptr i8, ptr %76, i64 8
-  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #10, !srcloc !6
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.8, i32 noundef %78) #11
-  %79 = load ptr, ptr %3, align 8
-  tail call fastcc void @yenta_fixup_parent_bridge(ptr noundef %79)
-  %80 = tail call i32 @pcmcia_register_socket(ptr noundef %13) #10
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %86
+76:                                               ; preds = %73, %68
+  tail call fastcc void @yenta_interrogate(ptr noundef nonnull %11)
+  tail call fastcc void @yenta_get_socket_capabilities(ptr noundef nonnull %11)
+  %77 = load ptr, ptr %36, align 8
+  %78 = getelementptr i8, ptr %77, i64 8
+  %79 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78) #10, !srcloc !6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef %79) #11
+  %80 = load ptr, ptr %3, align 8
+  tail call fastcc void @yenta_fixup_parent_bridge(ptr noundef %80)
+  %81 = tail call i32 @pcmcia_register_socket(ptr noundef %14) #10
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %87
 
-82:                                               ; preds = %75
-  %83 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_yenta_registers) #10
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %104, label %85
+83:                                               ; preds = %76
+  %84 = tail call i32 @device_create_file(ptr noundef %17, ptr noundef nonnull @dev_attr_yenta_registers) #10
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %105, label %86
 
-85:                                               ; preds = %82
-  tail call void @pcmcia_unregister_socket(ptr noundef %13) #10
-  br label %86
+86:                                               ; preds = %83
+  tail call void @pcmcia_unregister_socket(ptr noundef %14) #10
+  br label %87
 
-86:                                               ; preds = %85, %75
-  %87 = phi i32 [ %80, %75 ], [ %83, %85 ]
-  %88 = load i32, ptr %51, align 8
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %92, label %90
+87:                                               ; preds = %86, %76
+  %88 = phi i32 [ %81, %76 ], [ %84, %86 ]
+  %89 = load i32, ptr %52, align 8
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %93, label %91
 
-90:                                               ; preds = %86
-  %91 = tail call ptr @free_irq(i32 noundef %88, ptr noundef nonnull %10) #10
-  br label %95
+91:                                               ; preds = %87
+  %92 = tail call ptr @free_irq(i32 noundef %89, ptr noundef nonnull %11) #10
+  br label %96
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %10, i64 24
-  %94 = tail call i32 @timer_shutdown_sync(ptr noundef %93) #10
-  br label %95
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds i8, ptr %11, i64 24
+  %95 = tail call i32 @timer_shutdown_sync(ptr noundef %94) #10
+  br label %96
 
-95:                                               ; preds = %92, %90, %55
-  %96 = phi i32 [ %59, %55 ], [ %87, %90 ], [ %87, %92 ]
-  %97 = load ptr, ptr %35, align 8
-  tail call void @iounmap(ptr noundef %97) #10
-  tail call fastcc void @yenta_free_resources(ptr noundef nonnull %10)
-  br label %98
+96:                                               ; preds = %93, %91, %56
+  %97 = phi i32 [ %60, %56 ], [ %88, %91 ], [ %88, %93 ]
+  %98 = load ptr, ptr %36, align 8
+  tail call void @iounmap(ptr noundef %98) #10
+  tail call fastcc void @yenta_free_resources(ptr noundef nonnull %11)
+  br label %99
 
-98:                                               ; preds = %95, %33, %32
-  %99 = phi i32 [ %96, %95 ], [ -19, %32 ], [ -12, %33 ]
+99:                                               ; preds = %96, %34, %33
+  %100 = phi i32 [ %97, %96 ], [ -19, %33 ], [ -12, %34 ]
   tail call void @pci_release_regions(ptr noundef %0) #10
-  br label %100
+  br label %101
 
-100:                                              ; preds = %98, %25
-  %101 = phi i32 [ %26, %25 ], [ %99, %98 ]
+101:                                              ; preds = %99, %26
+  %102 = phi i32 [ %27, %26 ], [ %100, %99 ]
   tail call void @pci_disable_device(ptr noundef %0) #10
-  br label %102
+  br label %103
 
-102:                                              ; preds = %100, %12
-  %103 = phi i32 [ %101, %100 ], [ -16, %12 ]
-  store ptr null, ptr %22, align 8
-  tail call void @kfree(ptr noundef nonnull %10) #10
-  br label %104
+103:                                              ; preds = %101, %13
+  %104 = phi i32 [ %102, %101 ], [ -16, %13 ]
+  store ptr null, ptr %23, align 8
+  tail call void @kfree(ptr noundef nonnull %11) #10
+  br label %105
 
-104:                                              ; preds = %102, %82, %8, %6
-  %105 = phi i32 [ %103, %102 ], [ -19, %6 ], [ -12, %8 ], [ 0, %82 ]
-  ret i32 %105
+105:                                              ; preds = %103, %83, %8, %6
+  %106 = phi i32 [ %104, %103 ], [ -19, %6 ], [ -12, %8 ], [ 0, %83 ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

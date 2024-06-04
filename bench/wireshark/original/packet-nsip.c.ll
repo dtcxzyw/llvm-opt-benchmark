@@ -1837,89 +1837,91 @@ define internal void @decode_iei_ip_address(ptr noundef %0, ptr noundef %1, i32 
   %27 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %23, i32 noundef %26, i32 noundef 1, i32 noundef 0)
   %28 = load i8, ptr %7, align 1
   %29 = zext i8 %28 to i32
-  switch i32 %29, label %84 [
+  switch i32 %29, label %86 [
     i32 1, label %30
-    i32 2, label %58
+    i32 2, label %59
   ]
 
 30:                                               ; preds = %3
-  %31 = load i32, ptr getelementptr inbounds (%struct.nsip_ip_element_info_t, ptr @ipv4_element, i32 0, i32 1), align 4
-  %32 = add i32 2, %31
-  %33 = trunc i32 %32 to i16
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.nsip_ie_t, ptr %34, i32 0, i32 4
-  store i16 %33, ptr %35, align 2
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.build_info_t, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.build_info_t, ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = add i32 %41, 1
-  %43 = call i32 @tvb_get_ipv4(ptr noundef %38, i32 noundef %42)
-  store i32 %43, ptr %8, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.build_info_t, ptr %44, i32 0, i32 3
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.build_info_t, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %6, align 4
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.nsip_ie_t, ptr %52, i32 0, i32 4
-  %54 = load i16, ptr %53, align 2
-  %55 = zext i16 %54 to i32
-  %56 = load i32, ptr %8, align 4
-  %57 = call ptr @proto_tree_add_ipv4(ptr noundef %46, i32 noundef %47, ptr noundef %50, i32 noundef %51, i32 noundef %55, i32 noundef %56)
-  br label %85
+  %31 = getelementptr inbounds %struct.nsip_ip_element_info_t, ptr @ipv4_element, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 2, %32
+  %34 = trunc i32 %33 to i16
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.nsip_ie_t, ptr %35, i32 0, i32 4
+  store i16 %34, ptr %36, align 2
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.build_info_t, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds %struct.build_info_t, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = add i32 %42, 1
+  %44 = call i32 @tvb_get_ipv4(ptr noundef %39, i32 noundef %43)
+  store i32 %44, ptr %8, align 4
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds %struct.build_info_t, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct.build_info_t, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %6, align 4
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds %struct.nsip_ie_t, ptr %53, i32 0, i32 4
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = call ptr @proto_tree_add_ipv4(ptr noundef %47, i32 noundef %48, ptr noundef %51, i32 noundef %52, i32 noundef %56, i32 noundef %57)
+  br label %87
 
-58:                                               ; preds = %3
-  %59 = load i32, ptr getelementptr inbounds (%struct.nsip_ip_element_info_t, ptr @ipv6_element, i32 0, i32 1), align 4
-  %60 = add i32 2, %59
-  %61 = trunc i32 %60 to i16
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.nsip_ie_t, ptr %62, i32 0, i32 4
-  store i16 %61, ptr %63, align 2
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.build_info_t, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.build_info_t, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  %70 = add i32 %69, 1
-  call void @tvb_get_ipv6(ptr noundef %66, i32 noundef %70, ptr noundef %9)
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.build_info_t, ptr %71, i32 0, i32 3
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.build_info_t, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %6, align 4
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.nsip_ie_t, ptr %79, i32 0, i32 4
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = call ptr @proto_tree_add_ipv6(ptr noundef %73, i32 noundef %74, ptr noundef %77, i32 noundef %78, i32 noundef %82, ptr noundef %9)
-  br label %85
+59:                                               ; preds = %3
+  %60 = getelementptr inbounds %struct.nsip_ip_element_info_t, ptr @ipv6_element, i32 0, i32 1
+  %61 = load i32, ptr %60, align 4
+  %62 = add i32 2, %61
+  %63 = trunc i32 %62 to i16
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %struct.nsip_ie_t, ptr %64, i32 0, i32 4
+  store i16 %63, ptr %65, align 2
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct.build_info_t, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = getelementptr inbounds %struct.build_info_t, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, 1
+  call void @tvb_get_ipv6(ptr noundef %68, i32 noundef %72, ptr noundef %9)
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.build_info_t, ptr %73, i32 0, i32 3
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds %struct.build_info_t, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i32, ptr %6, align 4
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.nsip_ie_t, ptr %81, i32 0, i32 4
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %85 = call ptr @proto_tree_add_ipv6(ptr noundef %75, i32 noundef %76, ptr noundef %79, i32 noundef %80, i32 noundef %84, ptr noundef %9)
+  br label %87
 
-84:                                               ; preds = %3
-  br label %94
+86:                                               ; preds = %3
+  br label %96
 
-85:                                               ; preds = %58, %30
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.nsip_ie_t, ptr %86, i32 0, i32 3
-  %88 = load i16, ptr %87, align 4
-  %89 = zext i16 %88 to i32
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.build_info_t, ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 8
-  %93 = add i32 %92, %89
-  store i32 %93, ptr %91, align 8
-  br label %94
+87:                                               ; preds = %59, %30
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds %struct.nsip_ie_t, ptr %88, i32 0, i32 3
+  %90 = load i16, ptr %89, align 4
+  %91 = zext i16 %90 to i32
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds %struct.build_info_t, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 8
+  %95 = add i32 %94, %91
+  store i32 %95, ptr %93, align 8
+  br label %96
 
-94:                                               ; preds = %85, %84
+96:                                               ; preds = %87, %86
   ret void
 }
 

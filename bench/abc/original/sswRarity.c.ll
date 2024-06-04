@@ -749,7 +749,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -777,7 +777,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -2119,7 +2119,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   store i32 0, ptr %9, align 4
   br label %15
 
-15:                                               ; preds = %159, %3
+15:                                               ; preds = %160, %3
   %16 = load i32, ptr %9, align 4
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %17, i32 0, i32 3
@@ -2141,7 +2141,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
 
 30:                                               ; preds = %22, %15
   %31 = phi i1 [ false, %15 ], [ true, %22 ]
-  br i1 %31, label %32, label %162
+  br i1 %31, label %32, label %163
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %5, align 8
@@ -2168,7 +2168,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %39
-  br label %162
+  br label %163
 
 53:                                               ; preds = %39, %32
   %54 = load ptr, ptr %5, align 8
@@ -2187,7 +2187,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %58
-  br label %159
+  br label %160
 
 66:                                               ; preds = %58, %53
   %67 = load ptr, ptr %5, align 8
@@ -2197,7 +2197,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %66
-  br label %159
+  br label %160
 
 72:                                               ; preds = %66
   %73 = load i32, ptr %9, align 4
@@ -2219,7 +2219,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %72
-  br label %162
+  br label %163
 
 88:                                               ; preds = %72
   %89 = load ptr, ptr %5, align 8
@@ -2251,94 +2251,95 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %0, i32 noundef %1, i64 n
   %109 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %108, i32 0, i32 15
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %9, align 4
-  call void @Vec_PtrWriteEntry(ptr noundef %110, i32 noundef %111, ptr noundef inttoptr (i64 1 to ptr))
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %112, i32 0, i32 0
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %114, i32 0, i32 20
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %128
+  %112 = inttoptr i64 1 to ptr
+  call void @Vec_PtrWriteEntry(ptr noundef %110, i32 noundef %111, ptr noundef %112)
+  %113 = load ptr, ptr %5, align 8
+  %114 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %113, i32 0, i32 0
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %115, i32 0, i32 20
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %129
 
-118:                                              ; preds = %107
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %119, i32 0, i32 0
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %121, i32 0, i32 20
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %9, align 4
-  %125 = call i32 %123(i32 noundef %124, ptr noundef null)
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %128
+119:                                              ; preds = %107
+  %120 = load ptr, ptr %5, align 8
+  %121 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %122, i32 0, i32 20
+  %124 = load ptr, ptr %123, align 8
+  %125 = load i32, ptr %9, align 4
+  %126 = call i32 %124(i32 noundef %125, ptr noundef null)
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %118
+128:                                              ; preds = %119
   store i32 2, ptr %4, align 4
-  br label %169
+  br label %170
 
-128:                                              ; preds = %118, %107
-  %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %131, i32 0, i32 11
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp ne i32 %133, 0
-  br i1 %134, label %158, label %135
+129:                                              ; preds = %119, %107
+  %130 = load ptr, ptr %5, align 8
+  %131 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %132, i32 0, i32 11
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %159, label %136
 
-135:                                              ; preds = %128
-  %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %136, i32 0, i32 3
-  %138 = load ptr, ptr %137, align 8
-  %139 = call i32 @Saig_ManPoNum(ptr noundef %138)
-  %140 = call i32 @Abc_Base10Log(i32 noundef %139)
-  store i32 %140, ptr %10, align 4
-  %141 = load i32, ptr %10, align 4
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %142, i32 0, i32 13
-  %144 = load i32, ptr %143, align 8
-  %145 = load i32, ptr %6, align 4
-  %146 = load i32, ptr %10, align 4
-  %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %147, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %149, i32 0, i32 18
-  %151 = load i32, ptr %150, align 8
-  %152 = load i32, ptr %10, align 4
-  %153 = load ptr, ptr %5, align 8
-  %154 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %153, i32 0, i32 3
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @Saig_ManPoNum(ptr noundef %155)
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.3, i32 noundef %141, i32 noundef %144, i32 noundef %145, i32 noundef %146, i32 noundef %151, i32 noundef %152, i32 noundef %156)
-  %157 = load i64, ptr %7, align 8
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.1, i64 noundef %157)
-  br label %158
-
-158:                                              ; preds = %135, %128
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %5, align 8
+  %138 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %137, i32 0, i32 3
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i32 @Saig_ManPoNum(ptr noundef %139)
+  %141 = call i32 @Abc_Base10Log(i32 noundef %140)
+  store i32 %141, ptr %10, align 4
+  %142 = load i32, ptr %10, align 4
+  %143 = load ptr, ptr %5, align 8
+  %144 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %143, i32 0, i32 13
+  %145 = load i32, ptr %144, align 8
+  %146 = load i32, ptr %6, align 4
+  %147 = load i32, ptr %10, align 4
+  %148 = load ptr, ptr %5, align 8
+  %149 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %148, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds %struct.Ssw_RarPars_t_, ptr %150, i32 0, i32 18
+  %152 = load i32, ptr %151, align 8
+  %153 = load i32, ptr %10, align 4
+  %154 = load ptr, ptr %5, align 8
+  %155 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %154, i32 0, i32 3
+  %156 = load ptr, ptr %155, align 8
+  %157 = call i32 @Saig_ManPoNum(ptr noundef %156)
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.3, i32 noundef %142, i32 noundef %145, i32 noundef %146, i32 noundef %147, i32 noundef %152, i32 noundef %153, i32 noundef %157)
+  %158 = load i64, ptr %7, align 8
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.1, i64 noundef %158)
   br label %159
 
-159:                                              ; preds = %158, %71, %65
-  %160 = load i32, ptr %9, align 4
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %9, align 4
+159:                                              ; preds = %136, %129
+  br label %160
+
+160:                                              ; preds = %159, %71, %65
+  %161 = load i32, ptr %9, align 4
+  %162 = add nsw i32 %161, 1
+  store i32 %162, ptr %9, align 4
   br label %15, !llvm.loop !37
 
-162:                                              ; preds = %87, %52, %30
-  %163 = load ptr, ptr %5, align 8
-  %164 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %163, i32 0, i32 13
-  %165 = load i32, ptr %164, align 8
-  %166 = icmp sge i32 %165, 0
-  br i1 %166, label %167, label %168
+163:                                              ; preds = %87, %52, %30
+  %164 = load ptr, ptr %5, align 8
+  %165 = getelementptr inbounds %struct.Ssw_RarMan_t_, ptr %164, i32 0, i32 13
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp sge i32 %166, 0
+  br i1 %167, label %168, label %169
 
-167:                                              ; preds = %162
+168:                                              ; preds = %163
   store i32 1, ptr %4, align 4
-  br label %169
+  br label %170
 
-168:                                              ; preds = %162
+169:                                              ; preds = %163
   store i32 0, ptr %4, align 4
-  br label %169
+  br label %170
 
-169:                                              ; preds = %168, %167, %127
-  %170 = load i32, ptr %4, align 4
-  ret i32 %170
+170:                                              ; preds = %169, %168, %128
+  %171 = load i32, ptr %4, align 4
+  ret i32 %171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6444,19 +6445,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @Abc_Clock() #0 {
@@ -6551,7 +6546,7 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #7
+declare ptr @realloc(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Aig_Regular(ptr noundef %0) #0 {
@@ -6576,7 +6571,7 @@ define internal i32 @Aig_IsComplement(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #8
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Ssw_RarBitWordNum(i32 noundef %0) #0 {
@@ -6858,15 +6853,21 @@ define internal ptr @Aig_ObjFanin1(ptr noundef %0) #0 {
 
 declare void @Aig_ManCleanMarkB(ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind allocsize(0) }

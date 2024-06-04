@@ -2571,7 +2571,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %7, align 4
   %33 = load i32, ptr %7, align 4
-  switch i32 %33, label %1623 [
+  switch i32 %33, label %1628 [
     i32 1, label %34
     i32 2, label %38
     i32 3, label %50
@@ -2597,95 +2597,95 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
     i32 22, label %206
     i32 23, label %206
     i32 24, label %256
-    i32 25, label %302
-    i32 26, label %335
-    i32 28, label %368
-    i32 30, label %387
-    i32 27, label %406
-    i32 29, label %425
-    i32 31, label %483
-    i32 32, label %528
-    i32 33, label %569
-    i32 34, label %598
-    i32 35, label %627
-    i32 36, label %659
-    i32 37, label %691
-    i32 40, label %723
-    i32 38, label %755
-    i32 39, label %774
-    i32 41, label %780
-    i32 42, label %786
-    i32 43, label %789
-    i32 44, label %793
-    i32 45, label %796
-    i32 47, label %802
-    i32 48, label %808
-    i32 49, label %814
-    i32 51, label %820
-    i32 52, label %826
-    i32 53, label %832
-    i32 50, label %838
-    i32 54, label %844
-    i32 55, label %861
-    i32 57, label %880
-    i32 58, label %906
-    i32 56, label %915
-    i32 59, label %915
-    i32 64, label %920
-    i32 66, label %920
-    i32 60, label %924
-    i32 61, label %928
-    i32 62, label %932
-    i32 63, label %936
-    i32 69, label %940
-    i32 71, label %944
-    i32 65, label %950
-    i32 67, label %950
-    i32 70, label %950
-    i32 103, label %950
-    i32 102, label %989
-    i32 68, label %993
-    i32 77, label %999
-    i32 78, label %1008
-    i32 79, label %1017
-    i32 80, label %1023
-    i32 81, label %1032
-    i32 82, label %1051
-    i32 83, label %1083
-    i32 84, label %1092
-    i32 85, label %1102
-    i32 86, label %1108
-    i32 87, label %1120
-    i32 88, label %1129
-    i32 89, label %1138
-    i32 90, label %1157
-    i32 91, label %1163
-    i32 92, label %1163
-    i32 93, label %1163
-    i32 94, label %1163
-    i32 95, label %1172
-    i32 96, label %1175
-    i32 97, label %1178
-    i32 98, label %1181
-    i32 99, label %1184
-    i32 100, label %1187
-    i32 101, label %1193
-    i32 104, label %1199
-    i32 105, label %1231
-    i32 74, label %1237
-    i32 75, label %1246
-    i32 76, label %1255
-    i32 72, label %1285
-    i32 0, label %1405
-    i32 106, label %1467
-    i32 108, label %1514
-    i32 107, label %1554
-    i32 110, label %1607
-    i32 111, label %1611
-    i32 112, label %1615
-    i32 109, label %1619
-    i32 73, label %1622
-    i32 113, label %1622
+    i32 25, label %303
+    i32 26, label %337
+    i32 28, label %371
+    i32 30, label %390
+    i32 27, label %409
+    i32 29, label %428
+    i32 31, label %486
+    i32 32, label %531
+    i32 33, label %572
+    i32 34, label %601
+    i32 35, label %630
+    i32 36, label %662
+    i32 37, label %694
+    i32 40, label %726
+    i32 38, label %758
+    i32 39, label %777
+    i32 41, label %783
+    i32 42, label %789
+    i32 43, label %792
+    i32 44, label %796
+    i32 45, label %799
+    i32 47, label %805
+    i32 48, label %811
+    i32 49, label %817
+    i32 51, label %823
+    i32 52, label %829
+    i32 53, label %835
+    i32 50, label %841
+    i32 54, label %847
+    i32 55, label %864
+    i32 57, label %883
+    i32 58, label %909
+    i32 56, label %918
+    i32 59, label %918
+    i32 64, label %923
+    i32 66, label %923
+    i32 60, label %927
+    i32 61, label %931
+    i32 62, label %935
+    i32 63, label %939
+    i32 69, label %943
+    i32 71, label %947
+    i32 65, label %953
+    i32 67, label %953
+    i32 70, label %953
+    i32 103, label %953
+    i32 102, label %992
+    i32 68, label %996
+    i32 77, label %1002
+    i32 78, label %1011
+    i32 79, label %1020
+    i32 80, label %1026
+    i32 81, label %1035
+    i32 82, label %1054
+    i32 83, label %1086
+    i32 84, label %1095
+    i32 85, label %1105
+    i32 86, label %1111
+    i32 87, label %1123
+    i32 88, label %1132
+    i32 89, label %1141
+    i32 90, label %1160
+    i32 91, label %1166
+    i32 92, label %1166
+    i32 93, label %1166
+    i32 94, label %1166
+    i32 95, label %1175
+    i32 96, label %1178
+    i32 97, label %1181
+    i32 98, label %1184
+    i32 99, label %1187
+    i32 100, label %1190
+    i32 101, label %1196
+    i32 104, label %1202
+    i32 105, label %1234
+    i32 74, label %1240
+    i32 75, label %1249
+    i32 76, label %1258
+    i32 72, label %1289
+    i32 0, label %1409
+    i32 106, label %1471
+    i32 108, label %1518
+    i32 107, label %1558
+    i32 110, label %1612
+    i32 111, label %1616
+    i32 112, label %1620
+    i32 109, label %1624
+    i32 73, label %1627
+    i32 113, label %1627
   ]
 
 34:                                               ; preds = %2
@@ -2693,7 +2693,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %36 = load ptr, ptr %5, align 8
   %37 = call i64 @dump_block(ptr noundef %35, ptr noundef %36)
   store i64 %37, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 38:                                               ; preds = %2
   %39 = load ptr, ptr %4, align 8
@@ -2708,7 +2708,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %48 = load ptr, ptr %47, align 8
   %49 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %39, i64 noundef 3, ptr noundef %42, ptr noundef %45, ptr noundef %48)
   store i64 %49, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 50:                                               ; preds = %2
   %51 = load ptr, ptr %4, align 8
@@ -2723,7 +2723,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %60 = load ptr, ptr %59, align 8
   %61 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %51, i64 noundef 3, ptr noundef %54, ptr noundef %57, ptr noundef %60)
   store i64 %61, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 62:                                               ; preds = %2
   %63 = load ptr, ptr %4, align 8
@@ -2735,7 +2735,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %69 = load ptr, ptr %68, align 8
   %70 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %63, i64 noundef 2, ptr noundef %66, ptr noundef %69)
   store i64 %70, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 71:                                               ; preds = %2
   %72 = load ptr, ptr %4, align 8
@@ -2747,7 +2747,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %78 = load ptr, ptr %77, align 8
   %79 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %72, i64 noundef 2, ptr noundef %75, ptr noundef %78)
   store i64 %79, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 80:                                               ; preds = %2
   %81 = load ptr, ptr %4, align 8
@@ -2759,7 +2759,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %87 = load ptr, ptr %86, align 8
   %88 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %81, i64 noundef 2, ptr noundef %84, ptr noundef %87)
   store i64 %88, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 89:                                               ; preds = %2
   %90 = load ptr, ptr %4, align 8
@@ -2774,7 +2774,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %99 = load ptr, ptr %98, align 8
   %100 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %90, i64 noundef 3, ptr noundef %93, ptr noundef %96, ptr noundef %99)
   store i64 %100, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 101:                                              ; preds = %2
   %102 = load ptr, ptr %4, align 8
@@ -2789,7 +2789,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %111 = load ptr, ptr %110, align 8
   %112 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %102, i64 noundef 3, ptr noundef %105, ptr noundef %108, ptr noundef %111)
   store i64 %112, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 113:                                              ; preds = %2, %2
   %114 = load ptr, ptr %4, align 8
@@ -2807,7 +2807,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %126 = select i1 %125, i64 20, i64 0
   %127 = call i64 @rb_ary_push(i64 noundef %121, i64 noundef %126)
   store i64 %127, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 128:                                              ; preds = %2, %2
   %129 = load ptr, ptr %4, align 8
@@ -2819,7 +2819,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %135 = load ptr, ptr %134, align 8
   %136 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %129, i64 noundef 2, ptr noundef %132, ptr noundef %135)
   store i64 %136, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 137:                                              ; preds = %2
   %138 = load ptr, ptr %4, align 8
@@ -2828,7 +2828,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %141 = load ptr, ptr %140, align 8
   %142 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %138, i64 noundef 1, ptr noundef %141)
   store i64 %142, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 143:                                              ; preds = %2
   %144 = load ptr, ptr %4, align 8
@@ -2837,7 +2837,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %147 = load ptr, ptr %146, align 8
   %148 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %144, i64 noundef 1, ptr noundef %147)
   store i64 %148, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 149:                                              ; preds = %2
   %150 = load ptr, ptr %4, align 8
@@ -2846,7 +2846,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %153 = load ptr, ptr %152, align 8
   %154 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %150, i64 noundef 1, ptr noundef %153)
   store i64 %154, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 155:                                              ; preds = %2
   %156 = load ptr, ptr %4, align 8
@@ -2855,19 +2855,19 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %159 = load ptr, ptr %158, align 8
   %160 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %156, i64 noundef 1, ptr noundef %159)
   store i64 %160, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 161:                                              ; preds = %2
   %162 = load ptr, ptr %4, align 8
   %163 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %162, i64 noundef 0)
   store i64 %163, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 164:                                              ; preds = %2
   %165 = load ptr, ptr %4, align 8
   %166 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %165, i64 noundef 0)
   store i64 %166, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 167:                                              ; preds = %2
   %168 = load ptr, ptr %4, align 8
@@ -2876,7 +2876,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %171 = load ptr, ptr %170, align 8
   %172 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %168, i64 noundef 1, ptr noundef %171)
   store i64 %172, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 173:                                              ; preds = %2
   %174 = load ptr, ptr %4, align 8
@@ -2891,7 +2891,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %183 = load ptr, ptr %182, align 8
   %184 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %174, i64 noundef 3, ptr noundef %177, ptr noundef %180, ptr noundef %183)
   store i64 %184, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 185:                                              ; preds = %2
   %186 = load ptr, ptr %4, align 8
@@ -2906,7 +2906,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %195 = load ptr, ptr %194, align 8
   %196 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %186, i64 noundef 3, ptr noundef %189, ptr noundef %192, ptr noundef %195)
   store i64 %196, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 197:                                              ; preds = %2
   %198 = load ptr, ptr %4, align 8
@@ -2918,7 +2918,7 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %204 = load ptr, ptr %203, align 8
   %205 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %198, i64 noundef 2, ptr noundef %201, ptr noundef %204)
   store i64 %205, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 206:                                              ; preds = %2, %2
   %207 = call i64 @rb_ary_new()
@@ -2995,2046 +2995,2051 @@ define internal i64 @node_children(ptr noundef %0, ptr noundef %1) #0 {
   %254 = call i64 @rb_ary_push(i64 noundef %240, i64 noundef %253)
   %255 = load i64, ptr %8, align 8
   store i64 %255, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 256:                                              ; preds = %2
   %257 = load ptr, ptr %5, align 8
   %258 = getelementptr inbounds %struct.RNode_MASGN, ptr %257, i32 0, i32 3
   %259 = load ptr, ptr %258, align 8
-  %260 = icmp ne ptr %259, inttoptr (i64 -1 to ptr)
-  br i1 %260, label %261, label %273
-
-261:                                              ; preds = %256
-  %262 = load ptr, ptr %4, align 8
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds %struct.RNode_MASGN, ptr %263, i32 0, i32 2
-  %265 = load ptr, ptr %264, align 8
-  %266 = load ptr, ptr %5, align 8
-  %267 = getelementptr inbounds %struct.RNode_MASGN, ptr %266, i32 0, i32 1
-  %268 = load ptr, ptr %267, align 8
-  %269 = load ptr, ptr %5, align 8
-  %270 = getelementptr inbounds %struct.RNode_MASGN, ptr %269, i32 0, i32 3
-  %271 = load ptr, ptr %270, align 8
-  %272 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %262, i64 noundef 3, ptr noundef %265, ptr noundef %268, ptr noundef %271)
-  store i64 %272, ptr %3, align 8
-  br label %1626
-
-273:                                              ; preds = %256
-  %274 = load ptr, ptr %5, align 8
-  %275 = getelementptr inbounds %struct.RNode_MASGN, ptr %274, i32 0, i32 2
-  %276 = load ptr, ptr %275, align 8
-  %277 = icmp ne ptr %276, null
-  br i1 %277, label %278, label %284
-
-278:                                              ; preds = %273
-  %279 = load ptr, ptr %4, align 8
-  %280 = load ptr, ptr %5, align 8
-  %281 = getelementptr inbounds %struct.RNode_MASGN, ptr %280, i32 0, i32 2
-  %282 = load ptr, ptr %281, align 8
-  %283 = call i64 @ast_new_internal(ptr noundef %279, ptr noundef %282)
-  br label %285
-
-284:                                              ; preds = %273
-  br label %285
-
-285:                                              ; preds = %284, %278
-  %286 = phi i64 [ %283, %278 ], [ 4, %284 ]
-  %287 = load ptr, ptr %5, align 8
-  %288 = getelementptr inbounds %struct.RNode_MASGN, ptr %287, i32 0, i32 1
-  %289 = load ptr, ptr %288, align 8
-  %290 = icmp ne ptr %289, null
-  br i1 %290, label %291, label %297
-
-291:                                              ; preds = %285
-  %292 = load ptr, ptr %4, align 8
-  %293 = load ptr, ptr %5, align 8
-  %294 = getelementptr inbounds %struct.RNode_MASGN, ptr %293, i32 0, i32 1
-  %295 = load ptr, ptr %294, align 8
-  %296 = call i64 @ast_new_internal(ptr noundef %292, ptr noundef %295)
-  br label %298
-
-297:                                              ; preds = %285
-  br label %298
-
-298:                                              ; preds = %297, %291
-  %299 = phi i64 [ %296, %291 ], [ 4, %297 ]
-  %300 = call i64 @no_name_rest()
-  %301 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %286, i64 noundef %299, i64 noundef %300)
-  store i64 %301, ptr %3, align 8
-  br label %1626
-
-302:                                              ; preds = %2
-  %303 = load ptr, ptr %5, align 8
-  %304 = getelementptr inbounds %struct.RNode_LASGN, ptr %303, i32 0, i32 2
-  %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, inttoptr (i64 -1 to ptr)
-  br i1 %306, label %307, label %316
-
-307:                                              ; preds = %302
-  %308 = load ptr, ptr %5, align 8
-  %309 = getelementptr inbounds %struct.RNode_LASGN, ptr %308, i32 0, i32 1
-  %310 = load i64, ptr %309, align 8
-  %311 = call i64 @var_name(i64 noundef %310)
-  %312 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id, ptr noundef @.str.26) #14
-  store i64 %312, ptr %9, align 8
-  %313 = load i64, ptr %9, align 8
-  %314 = call i64 @rb_id2sym(i64 noundef %313)
-  %315 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %311, i64 noundef %314)
-  store i64 %315, ptr %3, align 8
-  br label %1626
-
-316:                                              ; preds = %302
-  %317 = load ptr, ptr %5, align 8
-  %318 = getelementptr inbounds %struct.RNode_LASGN, ptr %317, i32 0, i32 1
-  %319 = load i64, ptr %318, align 8
-  %320 = call i64 @var_name(i64 noundef %319)
-  %321 = load ptr, ptr %5, align 8
-  %322 = getelementptr inbounds %struct.RNode_LASGN, ptr %321, i32 0, i32 2
-  %323 = load ptr, ptr %322, align 8
-  %324 = icmp ne ptr %323, null
-  br i1 %324, label %325, label %331
-
-325:                                              ; preds = %316
-  %326 = load ptr, ptr %4, align 8
-  %327 = load ptr, ptr %5, align 8
-  %328 = getelementptr inbounds %struct.RNode_LASGN, ptr %327, i32 0, i32 2
-  %329 = load ptr, ptr %328, align 8
-  %330 = call i64 @ast_new_internal(ptr noundef %326, ptr noundef %329)
-  br label %332
-
-331:                                              ; preds = %316
-  br label %332
-
-332:                                              ; preds = %331, %325
-  %333 = phi i64 [ %330, %325 ], [ 4, %331 ]
-  %334 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %320, i64 noundef %333)
-  store i64 %334, ptr %3, align 8
-  br label %1626
-
-335:                                              ; preds = %2
-  %336 = load ptr, ptr %5, align 8
-  %337 = getelementptr inbounds %struct.RNode_DASGN, ptr %336, i32 0, i32 2
-  %338 = load ptr, ptr %337, align 8
-  %339 = icmp eq ptr %338, inttoptr (i64 -1 to ptr)
-  br i1 %339, label %340, label %349
-
-340:                                              ; preds = %335
-  %341 = load ptr, ptr %5, align 8
-  %342 = getelementptr inbounds %struct.RNode_DASGN, ptr %341, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  %344 = call i64 @var_name(i64 noundef %343)
-  %345 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.27, ptr noundef @.str.26) #14
-  store i64 %345, ptr %10, align 8
-  %346 = load i64, ptr %10, align 8
-  %347 = call i64 @rb_id2sym(i64 noundef %346)
-  %348 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %344, i64 noundef %347)
-  store i64 %348, ptr %3, align 8
-  br label %1626
-
-349:                                              ; preds = %335
-  %350 = load ptr, ptr %5, align 8
-  %351 = getelementptr inbounds %struct.RNode_DASGN, ptr %350, i32 0, i32 1
-  %352 = load i64, ptr %351, align 8
-  %353 = call i64 @var_name(i64 noundef %352)
-  %354 = load ptr, ptr %5, align 8
-  %355 = getelementptr inbounds %struct.RNode_DASGN, ptr %354, i32 0, i32 2
-  %356 = load ptr, ptr %355, align 8
-  %357 = icmp ne ptr %356, null
-  br i1 %357, label %358, label %364
-
-358:                                              ; preds = %349
-  %359 = load ptr, ptr %4, align 8
-  %360 = load ptr, ptr %5, align 8
-  %361 = getelementptr inbounds %struct.RNode_DASGN, ptr %360, i32 0, i32 2
-  %362 = load ptr, ptr %361, align 8
-  %363 = call i64 @ast_new_internal(ptr noundef %359, ptr noundef %362)
-  br label %365
-
-364:                                              ; preds = %349
-  br label %365
-
-365:                                              ; preds = %364, %358
-  %366 = phi i64 [ %363, %358 ], [ 4, %364 ]
-  %367 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %353, i64 noundef %366)
-  store i64 %367, ptr %3, align 8
-  br label %1626
-
-368:                                              ; preds = %2
-  %369 = load ptr, ptr %5, align 8
-  %370 = getelementptr inbounds %struct.RNode_IASGN, ptr %369, i32 0, i32 1
-  %371 = load i64, ptr %370, align 8
-  %372 = call i64 @var_name(i64 noundef %371)
-  %373 = load ptr, ptr %5, align 8
-  %374 = getelementptr inbounds %struct.RNode_IASGN, ptr %373, i32 0, i32 2
-  %375 = load ptr, ptr %374, align 8
-  %376 = icmp ne ptr %375, null
-  br i1 %376, label %377, label %383
-
-377:                                              ; preds = %368
-  %378 = load ptr, ptr %4, align 8
-  %379 = load ptr, ptr %5, align 8
-  %380 = getelementptr inbounds %struct.RNode_IASGN, ptr %379, i32 0, i32 2
-  %381 = load ptr, ptr %380, align 8
-  %382 = call i64 @ast_new_internal(ptr noundef %378, ptr noundef %381)
-  br label %384
-
-383:                                              ; preds = %368
-  br label %384
-
-384:                                              ; preds = %383, %377
-  %385 = phi i64 [ %382, %377 ], [ 4, %383 ]
-  %386 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %372, i64 noundef %385)
-  store i64 %386, ptr %3, align 8
-  br label %1626
-
-387:                                              ; preds = %2
-  %388 = load ptr, ptr %5, align 8
-  %389 = getelementptr inbounds %struct.RNode_CVASGN, ptr %388, i32 0, i32 1
-  %390 = load i64, ptr %389, align 8
-  %391 = call i64 @var_name(i64 noundef %390)
-  %392 = load ptr, ptr %5, align 8
-  %393 = getelementptr inbounds %struct.RNode_CVASGN, ptr %392, i32 0, i32 2
-  %394 = load ptr, ptr %393, align 8
-  %395 = icmp ne ptr %394, null
-  br i1 %395, label %396, label %402
-
-396:                                              ; preds = %387
-  %397 = load ptr, ptr %4, align 8
-  %398 = load ptr, ptr %5, align 8
-  %399 = getelementptr inbounds %struct.RNode_CVASGN, ptr %398, i32 0, i32 2
-  %400 = load ptr, ptr %399, align 8
-  %401 = call i64 @ast_new_internal(ptr noundef %397, ptr noundef %400)
-  br label %403
-
-402:                                              ; preds = %387
-  br label %403
-
-403:                                              ; preds = %402, %396
-  %404 = phi i64 [ %401, %396 ], [ 4, %402 ]
-  %405 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %391, i64 noundef %404)
-  store i64 %405, ptr %3, align 8
-  br label %1626
-
-406:                                              ; preds = %2
-  %407 = load ptr, ptr %5, align 8
-  %408 = getelementptr inbounds %struct.RNode_GASGN, ptr %407, i32 0, i32 1
-  %409 = load i64, ptr %408, align 8
-  %410 = call i64 @var_name(i64 noundef %409)
-  %411 = load ptr, ptr %5, align 8
-  %412 = getelementptr inbounds %struct.RNode_GASGN, ptr %411, i32 0, i32 2
-  %413 = load ptr, ptr %412, align 8
-  %414 = icmp ne ptr %413, null
-  br i1 %414, label %415, label %421
-
-415:                                              ; preds = %406
-  %416 = load ptr, ptr %4, align 8
-  %417 = load ptr, ptr %5, align 8
-  %418 = getelementptr inbounds %struct.RNode_GASGN, ptr %417, i32 0, i32 2
-  %419 = load ptr, ptr %418, align 8
-  %420 = call i64 @ast_new_internal(ptr noundef %416, ptr noundef %419)
-  br label %422
-
-421:                                              ; preds = %406
-  br label %422
-
-422:                                              ; preds = %421, %415
-  %423 = phi i64 [ %420, %415 ], [ 4, %421 ]
-  %424 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %410, i64 noundef %423)
-  store i64 %424, ptr %3, align 8
-  br label %1626
-
-425:                                              ; preds = %2
-  %426 = load ptr, ptr %5, align 8
-  %427 = getelementptr inbounds %struct.RNode_CDECL, ptr %426, i32 0, i32 1
-  %428 = load i64, ptr %427, align 8
-  %429 = icmp ne i64 %428, 0
-  br i1 %429, label %430, label %449
-
-430:                                              ; preds = %425
-  %431 = load ptr, ptr %5, align 8
-  %432 = getelementptr inbounds %struct.RNode_CDECL, ptr %431, i32 0, i32 1
-  %433 = load i64, ptr %432, align 8
-  %434 = call i64 @rb_id2sym(i64 noundef %433)
-  %435 = load ptr, ptr %5, align 8
-  %436 = getelementptr inbounds %struct.RNode_CDECL, ptr %435, i32 0, i32 2
-  %437 = load ptr, ptr %436, align 8
-  %438 = icmp ne ptr %437, null
-  br i1 %438, label %439, label %445
-
-439:                                              ; preds = %430
-  %440 = load ptr, ptr %4, align 8
-  %441 = load ptr, ptr %5, align 8
-  %442 = getelementptr inbounds %struct.RNode_CDECL, ptr %441, i32 0, i32 2
-  %443 = load ptr, ptr %442, align 8
-  %444 = call i64 @ast_new_internal(ptr noundef %440, ptr noundef %443)
-  br label %446
-
-445:                                              ; preds = %430
-  br label %446
-
-446:                                              ; preds = %445, %439
-  %447 = phi i64 [ %444, %439 ], [ 4, %445 ]
-  %448 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %434, i64 noundef %447)
-  store i64 %448, ptr %3, align 8
-  br label %1626
-
-449:                                              ; preds = %425
-  %450 = load ptr, ptr %5, align 8
-  %451 = getelementptr inbounds %struct.RNode_CDECL, ptr %450, i32 0, i32 3
-  %452 = load ptr, ptr %451, align 8
-  %453 = icmp ne ptr %452, null
-  br i1 %453, label %454, label %460
-
-454:                                              ; preds = %449
-  %455 = load ptr, ptr %4, align 8
-  %456 = load ptr, ptr %5, align 8
-  %457 = getelementptr inbounds %struct.RNode_CDECL, ptr %456, i32 0, i32 3
-  %458 = load ptr, ptr %457, align 8
-  %459 = call i64 @ast_new_internal(ptr noundef %455, ptr noundef %458)
-  br label %461
-
-460:                                              ; preds = %449
-  br label %461
-
-461:                                              ; preds = %460, %454
-  %462 = phi i64 [ %459, %454 ], [ 4, %460 ]
-  %463 = load ptr, ptr %5, align 8
-  %464 = getelementptr inbounds %struct.RNode_CDECL, ptr %463, i32 0, i32 3
-  %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds %struct.RNode_COLON2, ptr %465, i32 0, i32 2
-  %467 = load i64, ptr %466, align 8
-  %468 = call i64 @rb_id2sym(i64 noundef %467)
-  %469 = load ptr, ptr %5, align 8
-  %470 = getelementptr inbounds %struct.RNode_CDECL, ptr %469, i32 0, i32 2
-  %471 = load ptr, ptr %470, align 8
-  %472 = icmp ne ptr %471, null
-  br i1 %472, label %473, label %479
-
-473:                                              ; preds = %461
-  %474 = load ptr, ptr %4, align 8
-  %475 = load ptr, ptr %5, align 8
-  %476 = getelementptr inbounds %struct.RNode_CDECL, ptr %475, i32 0, i32 2
-  %477 = load ptr, ptr %476, align 8
-  %478 = call i64 @ast_new_internal(ptr noundef %474, ptr noundef %477)
-  br label %480
-
-479:                                              ; preds = %461
-  br label %480
-
-480:                                              ; preds = %479, %473
-  %481 = phi i64 [ %478, %473 ], [ 4, %479 ]
-  %482 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %462, i64 noundef %468, i64 noundef %481)
-  store i64 %482, ptr %3, align 8
-  br label %1626
-
-483:                                              ; preds = %2
-  %484 = load ptr, ptr %5, align 8
-  %485 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %484, i32 0, i32 1
-  %486 = load ptr, ptr %485, align 8
-  %487 = icmp ne ptr %486, null
-  br i1 %487, label %488, label %494
-
-488:                                              ; preds = %483
-  %489 = load ptr, ptr %4, align 8
-  %490 = load ptr, ptr %5, align 8
-  %491 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %490, i32 0, i32 1
-  %492 = load ptr, ptr %491, align 8
-  %493 = call i64 @ast_new_internal(ptr noundef %489, ptr noundef %492)
-  br label %495
-
-494:                                              ; preds = %483
-  br label %495
-
-495:                                              ; preds = %494, %488
-  %496 = phi i64 [ %493, %488 ], [ 4, %494 ]
-  %497 = load ptr, ptr %5, align 8
-  %498 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %497, i32 0, i32 2
-  %499 = load i64, ptr %498, align 8
-  %500 = call i64 @rb_id2sym(i64 noundef %499)
-  %501 = load ptr, ptr %5, align 8
-  %502 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %501, i32 0, i32 3
-  %503 = load ptr, ptr %502, align 8
-  %504 = icmp ne ptr %503, null
-  br i1 %504, label %505, label %511
-
-505:                                              ; preds = %495
-  %506 = load ptr, ptr %4, align 8
-  %507 = load ptr, ptr %5, align 8
-  %508 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %507, i32 0, i32 3
-  %509 = load ptr, ptr %508, align 8
-  %510 = call i64 @ast_new_internal(ptr noundef %506, ptr noundef %509)
-  br label %512
-
-511:                                              ; preds = %495
-  br label %512
-
-512:                                              ; preds = %511, %505
-  %513 = phi i64 [ %510, %505 ], [ 4, %511 ]
-  %514 = load ptr, ptr %5, align 8
-  %515 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %514, i32 0, i32 4
-  %516 = load ptr, ptr %515, align 8
-  %517 = icmp ne ptr %516, null
-  br i1 %517, label %518, label %524
-
-518:                                              ; preds = %512
-  %519 = load ptr, ptr %4, align 8
-  %520 = load ptr, ptr %5, align 8
-  %521 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %520, i32 0, i32 4
-  %522 = load ptr, ptr %521, align 8
-  %523 = call i64 @ast_new_internal(ptr noundef %519, ptr noundef %522)
-  br label %525
-
-524:                                              ; preds = %512
-  br label %525
-
-525:                                              ; preds = %524, %518
-  %526 = phi i64 [ %523, %518 ], [ 4, %524 ]
-  %527 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %496, i64 noundef %500, i64 noundef %513, i64 noundef %526)
-  store i64 %527, ptr %3, align 8
-  br label %1626
-
-528:                                              ; preds = %2
-  %529 = load ptr, ptr %5, align 8
-  %530 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %529, i32 0, i32 1
-  %531 = load ptr, ptr %530, align 8
-  %532 = icmp ne ptr %531, null
-  br i1 %532, label %533, label %539
-
-533:                                              ; preds = %528
-  %534 = load ptr, ptr %4, align 8
-  %535 = load ptr, ptr %5, align 8
-  %536 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %535, i32 0, i32 1
-  %537 = load ptr, ptr %536, align 8
-  %538 = call i64 @ast_new_internal(ptr noundef %534, ptr noundef %537)
-  br label %540
-
-539:                                              ; preds = %528
-  br label %540
-
-540:                                              ; preds = %539, %533
-  %541 = phi i64 [ %538, %533 ], [ 4, %539 ]
-  %542 = load ptr, ptr %5, align 8
-  %543 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %542, i32 0, i32 5
-  %544 = load i8, ptr %543, align 8
-  %545 = trunc i8 %544 to i1
-  %546 = select i1 %545, i64 20, i64 0
-  %547 = load ptr, ptr %5, align 8
-  %548 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %547, i32 0, i32 3
-  %549 = load i64, ptr %548, align 8
-  %550 = call i64 @rb_id2sym(i64 noundef %549)
-  %551 = load ptr, ptr %5, align 8
-  %552 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %551, i32 0, i32 4
-  %553 = load i64, ptr %552, align 8
-  %554 = call i64 @rb_id2sym(i64 noundef %553)
-  %555 = load ptr, ptr %5, align 8
-  %556 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %555, i32 0, i32 2
-  %557 = load ptr, ptr %556, align 8
-  %558 = icmp ne ptr %557, null
-  br i1 %558, label %559, label %565
-
-559:                                              ; preds = %540
-  %560 = load ptr, ptr %4, align 8
-  %561 = load ptr, ptr %5, align 8
-  %562 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %561, i32 0, i32 2
-  %563 = load ptr, ptr %562, align 8
-  %564 = call i64 @ast_new_internal(ptr noundef %560, ptr noundef %563)
-  br label %566
-
-565:                                              ; preds = %540
-  br label %566
-
-566:                                              ; preds = %565, %559
-  %567 = phi i64 [ %564, %559 ], [ 4, %565 ]
-  %568 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 5, i64 noundef %541, i64 noundef %546, i64 noundef %550, i64 noundef %554, i64 noundef %567)
-  store i64 %568, ptr %3, align 8
-  br label %1626
-
-569:                                              ; preds = %2
-  %570 = load ptr, ptr %5, align 8
-  %571 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %570, i32 0, i32 1
-  %572 = load ptr, ptr %571, align 8
-  %573 = icmp ne ptr %572, null
-  br i1 %573, label %574, label %580
-
-574:                                              ; preds = %569
-  %575 = load ptr, ptr %4, align 8
-  %576 = load ptr, ptr %5, align 8
-  %577 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %576, i32 0, i32 1
-  %578 = load ptr, ptr %577, align 8
-  %579 = call i64 @ast_new_internal(ptr noundef %575, ptr noundef %578)
-  br label %581
-
-580:                                              ; preds = %569
-  br label %581
-
-581:                                              ; preds = %580, %574
-  %582 = phi i64 [ %579, %574 ], [ 4, %580 ]
-  %583 = call i64 @rb_id2sym(i64 noundef 148)
-  %584 = load ptr, ptr %5, align 8
-  %585 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %584, i32 0, i32 2
-  %586 = load ptr, ptr %585, align 8
-  %587 = icmp ne ptr %586, null
-  br i1 %587, label %588, label %594
-
-588:                                              ; preds = %581
-  %589 = load ptr, ptr %4, align 8
-  %590 = load ptr, ptr %5, align 8
-  %591 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %590, i32 0, i32 2
-  %592 = load ptr, ptr %591, align 8
-  %593 = call i64 @ast_new_internal(ptr noundef %589, ptr noundef %592)
-  br label %595
-
-594:                                              ; preds = %581
-  br label %595
-
-595:                                              ; preds = %594, %588
-  %596 = phi i64 [ %593, %588 ], [ 4, %594 ]
-  %597 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %582, i64 noundef %583, i64 noundef %596)
-  store i64 %597, ptr %3, align 8
-  br label %1626
-
-598:                                              ; preds = %2
-  %599 = load ptr, ptr %5, align 8
-  %600 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %599, i32 0, i32 1
-  %601 = load ptr, ptr %600, align 8
-  %602 = icmp ne ptr %601, null
-  br i1 %602, label %603, label %609
-
-603:                                              ; preds = %598
-  %604 = load ptr, ptr %4, align 8
-  %605 = load ptr, ptr %5, align 8
-  %606 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %605, i32 0, i32 1
-  %607 = load ptr, ptr %606, align 8
-  %608 = call i64 @ast_new_internal(ptr noundef %604, ptr noundef %607)
-  br label %610
-
-609:                                              ; preds = %598
-  br label %610
-
-610:                                              ; preds = %609, %603
-  %611 = phi i64 [ %608, %603 ], [ 4, %609 ]
-  %612 = call i64 @rb_id2sym(i64 noundef 149)
-  %613 = load ptr, ptr %5, align 8
-  %614 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %613, i32 0, i32 2
-  %615 = load ptr, ptr %614, align 8
-  %616 = icmp ne ptr %615, null
-  br i1 %616, label %617, label %623
-
-617:                                              ; preds = %610
-  %618 = load ptr, ptr %4, align 8
-  %619 = load ptr, ptr %5, align 8
-  %620 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %619, i32 0, i32 2
-  %621 = load ptr, ptr %620, align 8
-  %622 = call i64 @ast_new_internal(ptr noundef %618, ptr noundef %621)
-  br label %624
-
-623:                                              ; preds = %610
-  br label %624
-
-624:                                              ; preds = %623, %617
-  %625 = phi i64 [ %622, %617 ], [ 4, %623 ]
-  %626 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %611, i64 noundef %612, i64 noundef %625)
-  store i64 %626, ptr %3, align 8
-  br label %1626
-
-627:                                              ; preds = %2
-  %628 = load ptr, ptr %5, align 8
-  %629 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %628, i32 0, i32 1
-  %630 = load ptr, ptr %629, align 8
-  %631 = icmp ne ptr %630, null
-  br i1 %631, label %632, label %638
-
-632:                                              ; preds = %627
-  %633 = load ptr, ptr %4, align 8
-  %634 = load ptr, ptr %5, align 8
-  %635 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %634, i32 0, i32 1
-  %636 = load ptr, ptr %635, align 8
-  %637 = call i64 @ast_new_internal(ptr noundef %633, ptr noundef %636)
-  br label %639
-
-638:                                              ; preds = %627
-  br label %639
-
-639:                                              ; preds = %638, %632
-  %640 = phi i64 [ %637, %632 ], [ 4, %638 ]
-  %641 = load ptr, ptr %5, align 8
-  %642 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %641, i32 0, i32 3
-  %643 = load i64, ptr %642, align 8
-  %644 = call i64 @rb_id2sym(i64 noundef %643)
-  %645 = load ptr, ptr %5, align 8
-  %646 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %645, i32 0, i32 2
-  %647 = load ptr, ptr %646, align 8
-  %648 = icmp ne ptr %647, null
-  br i1 %648, label %649, label %655
-
-649:                                              ; preds = %639
-  %650 = load ptr, ptr %4, align 8
-  %651 = load ptr, ptr %5, align 8
-  %652 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %651, i32 0, i32 2
-  %653 = load ptr, ptr %652, align 8
-  %654 = call i64 @ast_new_internal(ptr noundef %650, ptr noundef %653)
-  br label %656
-
-655:                                              ; preds = %639
-  br label %656
-
-656:                                              ; preds = %655, %649
-  %657 = phi i64 [ %654, %649 ], [ 4, %655 ]
-  %658 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %640, i64 noundef %644, i64 noundef %657)
-  store i64 %658, ptr %3, align 8
-  br label %1626
-
-659:                                              ; preds = %2
-  %660 = load ptr, ptr %5, align 8
-  %661 = getelementptr inbounds %struct.RNode_CALL, ptr %660, i32 0, i32 1
-  %662 = load ptr, ptr %661, align 8
-  %663 = icmp ne ptr %662, null
-  br i1 %663, label %664, label %670
-
-664:                                              ; preds = %659
-  %665 = load ptr, ptr %4, align 8
-  %666 = load ptr, ptr %5, align 8
-  %667 = getelementptr inbounds %struct.RNode_CALL, ptr %666, i32 0, i32 1
-  %668 = load ptr, ptr %667, align 8
-  %669 = call i64 @ast_new_internal(ptr noundef %665, ptr noundef %668)
-  br label %671
-
-670:                                              ; preds = %659
-  br label %671
-
-671:                                              ; preds = %670, %664
-  %672 = phi i64 [ %669, %664 ], [ 4, %670 ]
-  %673 = load ptr, ptr %5, align 8
-  %674 = getelementptr inbounds %struct.RNode_CALL, ptr %673, i32 0, i32 2
-  %675 = load i64, ptr %674, align 8
-  %676 = call i64 @rb_id2sym(i64 noundef %675)
-  %677 = load ptr, ptr %5, align 8
-  %678 = getelementptr inbounds %struct.RNode_CALL, ptr %677, i32 0, i32 3
-  %679 = load ptr, ptr %678, align 8
-  %680 = icmp ne ptr %679, null
-  br i1 %680, label %681, label %687
-
-681:                                              ; preds = %671
-  %682 = load ptr, ptr %4, align 8
-  %683 = load ptr, ptr %5, align 8
-  %684 = getelementptr inbounds %struct.RNode_CALL, ptr %683, i32 0, i32 3
-  %685 = load ptr, ptr %684, align 8
-  %686 = call i64 @ast_new_internal(ptr noundef %682, ptr noundef %685)
-  br label %688
-
-687:                                              ; preds = %671
-  br label %688
-
-688:                                              ; preds = %687, %681
-  %689 = phi i64 [ %686, %681 ], [ 4, %687 ]
-  %690 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %672, i64 noundef %676, i64 noundef %689)
-  store i64 %690, ptr %3, align 8
-  br label %1626
-
-691:                                              ; preds = %2
-  %692 = load ptr, ptr %5, align 8
-  %693 = getelementptr inbounds %struct.RNode_OPCALL, ptr %692, i32 0, i32 1
-  %694 = load ptr, ptr %693, align 8
-  %695 = icmp ne ptr %694, null
-  br i1 %695, label %696, label %702
-
-696:                                              ; preds = %691
-  %697 = load ptr, ptr %4, align 8
-  %698 = load ptr, ptr %5, align 8
-  %699 = getelementptr inbounds %struct.RNode_OPCALL, ptr %698, i32 0, i32 1
-  %700 = load ptr, ptr %699, align 8
-  %701 = call i64 @ast_new_internal(ptr noundef %697, ptr noundef %700)
-  br label %703
-
-702:                                              ; preds = %691
-  br label %703
-
-703:                                              ; preds = %702, %696
-  %704 = phi i64 [ %701, %696 ], [ 4, %702 ]
-  %705 = load ptr, ptr %5, align 8
-  %706 = getelementptr inbounds %struct.RNode_OPCALL, ptr %705, i32 0, i32 2
-  %707 = load i64, ptr %706, align 8
-  %708 = call i64 @rb_id2sym(i64 noundef %707)
-  %709 = load ptr, ptr %5, align 8
-  %710 = getelementptr inbounds %struct.RNode_OPCALL, ptr %709, i32 0, i32 3
-  %711 = load ptr, ptr %710, align 8
-  %712 = icmp ne ptr %711, null
-  br i1 %712, label %713, label %719
-
-713:                                              ; preds = %703
-  %714 = load ptr, ptr %4, align 8
-  %715 = load ptr, ptr %5, align 8
-  %716 = getelementptr inbounds %struct.RNode_OPCALL, ptr %715, i32 0, i32 3
-  %717 = load ptr, ptr %716, align 8
-  %718 = call i64 @ast_new_internal(ptr noundef %714, ptr noundef %717)
-  br label %720
-
-719:                                              ; preds = %703
-  br label %720
-
-720:                                              ; preds = %719, %713
-  %721 = phi i64 [ %718, %713 ], [ 4, %719 ]
-  %722 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %704, i64 noundef %708, i64 noundef %721)
-  store i64 %722, ptr %3, align 8
-  br label %1626
-
-723:                                              ; preds = %2
-  %724 = load ptr, ptr %5, align 8
-  %725 = getelementptr inbounds %struct.RNode_QCALL, ptr %724, i32 0, i32 1
-  %726 = load ptr, ptr %725, align 8
-  %727 = icmp ne ptr %726, null
-  br i1 %727, label %728, label %734
-
-728:                                              ; preds = %723
-  %729 = load ptr, ptr %4, align 8
-  %730 = load ptr, ptr %5, align 8
-  %731 = getelementptr inbounds %struct.RNode_QCALL, ptr %730, i32 0, i32 1
-  %732 = load ptr, ptr %731, align 8
-  %733 = call i64 @ast_new_internal(ptr noundef %729, ptr noundef %732)
-  br label %735
-
-734:                                              ; preds = %723
-  br label %735
-
-735:                                              ; preds = %734, %728
-  %736 = phi i64 [ %733, %728 ], [ 4, %734 ]
-  %737 = load ptr, ptr %5, align 8
-  %738 = getelementptr inbounds %struct.RNode_QCALL, ptr %737, i32 0, i32 2
-  %739 = load i64, ptr %738, align 8
-  %740 = call i64 @rb_id2sym(i64 noundef %739)
-  %741 = load ptr, ptr %5, align 8
-  %742 = getelementptr inbounds %struct.RNode_QCALL, ptr %741, i32 0, i32 3
-  %743 = load ptr, ptr %742, align 8
-  %744 = icmp ne ptr %743, null
-  br i1 %744, label %745, label %751
-
-745:                                              ; preds = %735
-  %746 = load ptr, ptr %4, align 8
-  %747 = load ptr, ptr %5, align 8
-  %748 = getelementptr inbounds %struct.RNode_QCALL, ptr %747, i32 0, i32 3
-  %749 = load ptr, ptr %748, align 8
-  %750 = call i64 @ast_new_internal(ptr noundef %746, ptr noundef %749)
-  br label %752
-
-751:                                              ; preds = %735
-  br label %752
-
-752:                                              ; preds = %751, %745
-  %753 = phi i64 [ %750, %745 ], [ 4, %751 ]
-  %754 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %736, i64 noundef %740, i64 noundef %753)
-  store i64 %754, ptr %3, align 8
-  br label %1626
-
-755:                                              ; preds = %2
-  %756 = load ptr, ptr %5, align 8
-  %757 = getelementptr inbounds %struct.RNode_FCALL, ptr %756, i32 0, i32 1
-  %758 = load i64, ptr %757, align 8
-  %759 = call i64 @rb_id2sym(i64 noundef %758)
-  %760 = load ptr, ptr %5, align 8
-  %761 = getelementptr inbounds %struct.RNode_FCALL, ptr %760, i32 0, i32 2
-  %762 = load ptr, ptr %761, align 8
-  %763 = icmp ne ptr %762, null
-  br i1 %763, label %764, label %770
-
-764:                                              ; preds = %755
-  %765 = load ptr, ptr %4, align 8
-  %766 = load ptr, ptr %5, align 8
-  %767 = getelementptr inbounds %struct.RNode_FCALL, ptr %766, i32 0, i32 2
-  %768 = load ptr, ptr %767, align 8
-  %769 = call i64 @ast_new_internal(ptr noundef %765, ptr noundef %768)
-  br label %771
-
-770:                                              ; preds = %755
-  br label %771
-
-771:                                              ; preds = %770, %764
-  %772 = phi i64 [ %769, %764 ], [ 4, %770 ]
-  %773 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %759, i64 noundef %772)
-  store i64 %773, ptr %3, align 8
-  br label %1626
-
-774:                                              ; preds = %2
-  %775 = load ptr, ptr %5, align 8
-  %776 = getelementptr inbounds %struct.RNode_VCALL, ptr %775, i32 0, i32 1
-  %777 = load i64, ptr %776, align 8
-  %778 = call i64 @rb_id2sym(i64 noundef %777)
-  %779 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %778)
-  store i64 %779, ptr %3, align 8
-  br label %1626
-
-780:                                              ; preds = %2
-  %781 = load ptr, ptr %4, align 8
-  %782 = load ptr, ptr %5, align 8
-  %783 = getelementptr inbounds %struct.RNode_SUPER, ptr %782, i32 0, i32 1
-  %784 = load ptr, ptr %783, align 8
-  %785 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %781, i64 noundef 1, ptr noundef %784)
-  store i64 %785, ptr %3, align 8
-  br label %1626
-
-786:                                              ; preds = %2
-  %787 = load ptr, ptr %4, align 8
-  %788 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %787, i64 noundef 0)
+  %260 = inttoptr i64 -1 to ptr
+  %261 = icmp ne ptr %259, %260
+  br i1 %261, label %262, label %274
+
+262:                                              ; preds = %256
+  %263 = load ptr, ptr %4, align 8
+  %264 = load ptr, ptr %5, align 8
+  %265 = getelementptr inbounds %struct.RNode_MASGN, ptr %264, i32 0, i32 2
+  %266 = load ptr, ptr %265, align 8
+  %267 = load ptr, ptr %5, align 8
+  %268 = getelementptr inbounds %struct.RNode_MASGN, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8
+  %270 = load ptr, ptr %5, align 8
+  %271 = getelementptr inbounds %struct.RNode_MASGN, ptr %270, i32 0, i32 3
+  %272 = load ptr, ptr %271, align 8
+  %273 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %263, i64 noundef 3, ptr noundef %266, ptr noundef %269, ptr noundef %272)
+  store i64 %273, ptr %3, align 8
+  br label %1631
+
+274:                                              ; preds = %256
+  %275 = load ptr, ptr %5, align 8
+  %276 = getelementptr inbounds %struct.RNode_MASGN, ptr %275, i32 0, i32 2
+  %277 = load ptr, ptr %276, align 8
+  %278 = icmp ne ptr %277, null
+  br i1 %278, label %279, label %285
+
+279:                                              ; preds = %274
+  %280 = load ptr, ptr %4, align 8
+  %281 = load ptr, ptr %5, align 8
+  %282 = getelementptr inbounds %struct.RNode_MASGN, ptr %281, i32 0, i32 2
+  %283 = load ptr, ptr %282, align 8
+  %284 = call i64 @ast_new_internal(ptr noundef %280, ptr noundef %283)
+  br label %286
+
+285:                                              ; preds = %274
+  br label %286
+
+286:                                              ; preds = %285, %279
+  %287 = phi i64 [ %284, %279 ], [ 4, %285 ]
+  %288 = load ptr, ptr %5, align 8
+  %289 = getelementptr inbounds %struct.RNode_MASGN, ptr %288, i32 0, i32 1
+  %290 = load ptr, ptr %289, align 8
+  %291 = icmp ne ptr %290, null
+  br i1 %291, label %292, label %298
+
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %4, align 8
+  %294 = load ptr, ptr %5, align 8
+  %295 = getelementptr inbounds %struct.RNode_MASGN, ptr %294, i32 0, i32 1
+  %296 = load ptr, ptr %295, align 8
+  %297 = call i64 @ast_new_internal(ptr noundef %293, ptr noundef %296)
+  br label %299
+
+298:                                              ; preds = %286
+  br label %299
+
+299:                                              ; preds = %298, %292
+  %300 = phi i64 [ %297, %292 ], [ 4, %298 ]
+  %301 = call i64 @no_name_rest()
+  %302 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %287, i64 noundef %300, i64 noundef %301)
+  store i64 %302, ptr %3, align 8
+  br label %1631
+
+303:                                              ; preds = %2
+  %304 = load ptr, ptr %5, align 8
+  %305 = getelementptr inbounds %struct.RNode_LASGN, ptr %304, i32 0, i32 2
+  %306 = load ptr, ptr %305, align 8
+  %307 = inttoptr i64 -1 to ptr
+  %308 = icmp eq ptr %306, %307
+  br i1 %308, label %309, label %318
+
+309:                                              ; preds = %303
+  %310 = load ptr, ptr %5, align 8
+  %311 = getelementptr inbounds %struct.RNode_LASGN, ptr %310, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8
+  %313 = call i64 @var_name(i64 noundef %312)
+  %314 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id, ptr noundef @.str.26) #14
+  store i64 %314, ptr %9, align 8
+  %315 = load i64, ptr %9, align 8
+  %316 = call i64 @rb_id2sym(i64 noundef %315)
+  %317 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %313, i64 noundef %316)
+  store i64 %317, ptr %3, align 8
+  br label %1631
+
+318:                                              ; preds = %303
+  %319 = load ptr, ptr %5, align 8
+  %320 = getelementptr inbounds %struct.RNode_LASGN, ptr %319, i32 0, i32 1
+  %321 = load i64, ptr %320, align 8
+  %322 = call i64 @var_name(i64 noundef %321)
+  %323 = load ptr, ptr %5, align 8
+  %324 = getelementptr inbounds %struct.RNode_LASGN, ptr %323, i32 0, i32 2
+  %325 = load ptr, ptr %324, align 8
+  %326 = icmp ne ptr %325, null
+  br i1 %326, label %327, label %333
+
+327:                                              ; preds = %318
+  %328 = load ptr, ptr %4, align 8
+  %329 = load ptr, ptr %5, align 8
+  %330 = getelementptr inbounds %struct.RNode_LASGN, ptr %329, i32 0, i32 2
+  %331 = load ptr, ptr %330, align 8
+  %332 = call i64 @ast_new_internal(ptr noundef %328, ptr noundef %331)
+  br label %334
+
+333:                                              ; preds = %318
+  br label %334
+
+334:                                              ; preds = %333, %327
+  %335 = phi i64 [ %332, %327 ], [ 4, %333 ]
+  %336 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %322, i64 noundef %335)
+  store i64 %336, ptr %3, align 8
+  br label %1631
+
+337:                                              ; preds = %2
+  %338 = load ptr, ptr %5, align 8
+  %339 = getelementptr inbounds %struct.RNode_DASGN, ptr %338, i32 0, i32 2
+  %340 = load ptr, ptr %339, align 8
+  %341 = inttoptr i64 -1 to ptr
+  %342 = icmp eq ptr %340, %341
+  br i1 %342, label %343, label %352
+
+343:                                              ; preds = %337
+  %344 = load ptr, ptr %5, align 8
+  %345 = getelementptr inbounds %struct.RNode_DASGN, ptr %344, i32 0, i32 1
+  %346 = load i64, ptr %345, align 8
+  %347 = call i64 @var_name(i64 noundef %346)
+  %348 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.27, ptr noundef @.str.26) #14
+  store i64 %348, ptr %10, align 8
+  %349 = load i64, ptr %10, align 8
+  %350 = call i64 @rb_id2sym(i64 noundef %349)
+  %351 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %347, i64 noundef %350)
+  store i64 %351, ptr %3, align 8
+  br label %1631
+
+352:                                              ; preds = %337
+  %353 = load ptr, ptr %5, align 8
+  %354 = getelementptr inbounds %struct.RNode_DASGN, ptr %353, i32 0, i32 1
+  %355 = load i64, ptr %354, align 8
+  %356 = call i64 @var_name(i64 noundef %355)
+  %357 = load ptr, ptr %5, align 8
+  %358 = getelementptr inbounds %struct.RNode_DASGN, ptr %357, i32 0, i32 2
+  %359 = load ptr, ptr %358, align 8
+  %360 = icmp ne ptr %359, null
+  br i1 %360, label %361, label %367
+
+361:                                              ; preds = %352
+  %362 = load ptr, ptr %4, align 8
+  %363 = load ptr, ptr %5, align 8
+  %364 = getelementptr inbounds %struct.RNode_DASGN, ptr %363, i32 0, i32 2
+  %365 = load ptr, ptr %364, align 8
+  %366 = call i64 @ast_new_internal(ptr noundef %362, ptr noundef %365)
+  br label %368
+
+367:                                              ; preds = %352
+  br label %368
+
+368:                                              ; preds = %367, %361
+  %369 = phi i64 [ %366, %361 ], [ 4, %367 ]
+  %370 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %356, i64 noundef %369)
+  store i64 %370, ptr %3, align 8
+  br label %1631
+
+371:                                              ; preds = %2
+  %372 = load ptr, ptr %5, align 8
+  %373 = getelementptr inbounds %struct.RNode_IASGN, ptr %372, i32 0, i32 1
+  %374 = load i64, ptr %373, align 8
+  %375 = call i64 @var_name(i64 noundef %374)
+  %376 = load ptr, ptr %5, align 8
+  %377 = getelementptr inbounds %struct.RNode_IASGN, ptr %376, i32 0, i32 2
+  %378 = load ptr, ptr %377, align 8
+  %379 = icmp ne ptr %378, null
+  br i1 %379, label %380, label %386
+
+380:                                              ; preds = %371
+  %381 = load ptr, ptr %4, align 8
+  %382 = load ptr, ptr %5, align 8
+  %383 = getelementptr inbounds %struct.RNode_IASGN, ptr %382, i32 0, i32 2
+  %384 = load ptr, ptr %383, align 8
+  %385 = call i64 @ast_new_internal(ptr noundef %381, ptr noundef %384)
+  br label %387
+
+386:                                              ; preds = %371
+  br label %387
+
+387:                                              ; preds = %386, %380
+  %388 = phi i64 [ %385, %380 ], [ 4, %386 ]
+  %389 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %375, i64 noundef %388)
+  store i64 %389, ptr %3, align 8
+  br label %1631
+
+390:                                              ; preds = %2
+  %391 = load ptr, ptr %5, align 8
+  %392 = getelementptr inbounds %struct.RNode_CVASGN, ptr %391, i32 0, i32 1
+  %393 = load i64, ptr %392, align 8
+  %394 = call i64 @var_name(i64 noundef %393)
+  %395 = load ptr, ptr %5, align 8
+  %396 = getelementptr inbounds %struct.RNode_CVASGN, ptr %395, i32 0, i32 2
+  %397 = load ptr, ptr %396, align 8
+  %398 = icmp ne ptr %397, null
+  br i1 %398, label %399, label %405
+
+399:                                              ; preds = %390
+  %400 = load ptr, ptr %4, align 8
+  %401 = load ptr, ptr %5, align 8
+  %402 = getelementptr inbounds %struct.RNode_CVASGN, ptr %401, i32 0, i32 2
+  %403 = load ptr, ptr %402, align 8
+  %404 = call i64 @ast_new_internal(ptr noundef %400, ptr noundef %403)
+  br label %406
+
+405:                                              ; preds = %390
+  br label %406
+
+406:                                              ; preds = %405, %399
+  %407 = phi i64 [ %404, %399 ], [ 4, %405 ]
+  %408 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %394, i64 noundef %407)
+  store i64 %408, ptr %3, align 8
+  br label %1631
+
+409:                                              ; preds = %2
+  %410 = load ptr, ptr %5, align 8
+  %411 = getelementptr inbounds %struct.RNode_GASGN, ptr %410, i32 0, i32 1
+  %412 = load i64, ptr %411, align 8
+  %413 = call i64 @var_name(i64 noundef %412)
+  %414 = load ptr, ptr %5, align 8
+  %415 = getelementptr inbounds %struct.RNode_GASGN, ptr %414, i32 0, i32 2
+  %416 = load ptr, ptr %415, align 8
+  %417 = icmp ne ptr %416, null
+  br i1 %417, label %418, label %424
+
+418:                                              ; preds = %409
+  %419 = load ptr, ptr %4, align 8
+  %420 = load ptr, ptr %5, align 8
+  %421 = getelementptr inbounds %struct.RNode_GASGN, ptr %420, i32 0, i32 2
+  %422 = load ptr, ptr %421, align 8
+  %423 = call i64 @ast_new_internal(ptr noundef %419, ptr noundef %422)
+  br label %425
+
+424:                                              ; preds = %409
+  br label %425
+
+425:                                              ; preds = %424, %418
+  %426 = phi i64 [ %423, %418 ], [ 4, %424 ]
+  %427 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %413, i64 noundef %426)
+  store i64 %427, ptr %3, align 8
+  br label %1631
+
+428:                                              ; preds = %2
+  %429 = load ptr, ptr %5, align 8
+  %430 = getelementptr inbounds %struct.RNode_CDECL, ptr %429, i32 0, i32 1
+  %431 = load i64, ptr %430, align 8
+  %432 = icmp ne i64 %431, 0
+  br i1 %432, label %433, label %452
+
+433:                                              ; preds = %428
+  %434 = load ptr, ptr %5, align 8
+  %435 = getelementptr inbounds %struct.RNode_CDECL, ptr %434, i32 0, i32 1
+  %436 = load i64, ptr %435, align 8
+  %437 = call i64 @rb_id2sym(i64 noundef %436)
+  %438 = load ptr, ptr %5, align 8
+  %439 = getelementptr inbounds %struct.RNode_CDECL, ptr %438, i32 0, i32 2
+  %440 = load ptr, ptr %439, align 8
+  %441 = icmp ne ptr %440, null
+  br i1 %441, label %442, label %448
+
+442:                                              ; preds = %433
+  %443 = load ptr, ptr %4, align 8
+  %444 = load ptr, ptr %5, align 8
+  %445 = getelementptr inbounds %struct.RNode_CDECL, ptr %444, i32 0, i32 2
+  %446 = load ptr, ptr %445, align 8
+  %447 = call i64 @ast_new_internal(ptr noundef %443, ptr noundef %446)
+  br label %449
+
+448:                                              ; preds = %433
+  br label %449
+
+449:                                              ; preds = %448, %442
+  %450 = phi i64 [ %447, %442 ], [ 4, %448 ]
+  %451 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %437, i64 noundef %450)
+  store i64 %451, ptr %3, align 8
+  br label %1631
+
+452:                                              ; preds = %428
+  %453 = load ptr, ptr %5, align 8
+  %454 = getelementptr inbounds %struct.RNode_CDECL, ptr %453, i32 0, i32 3
+  %455 = load ptr, ptr %454, align 8
+  %456 = icmp ne ptr %455, null
+  br i1 %456, label %457, label %463
+
+457:                                              ; preds = %452
+  %458 = load ptr, ptr %4, align 8
+  %459 = load ptr, ptr %5, align 8
+  %460 = getelementptr inbounds %struct.RNode_CDECL, ptr %459, i32 0, i32 3
+  %461 = load ptr, ptr %460, align 8
+  %462 = call i64 @ast_new_internal(ptr noundef %458, ptr noundef %461)
+  br label %464
+
+463:                                              ; preds = %452
+  br label %464
+
+464:                                              ; preds = %463, %457
+  %465 = phi i64 [ %462, %457 ], [ 4, %463 ]
+  %466 = load ptr, ptr %5, align 8
+  %467 = getelementptr inbounds %struct.RNode_CDECL, ptr %466, i32 0, i32 3
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds %struct.RNode_COLON2, ptr %468, i32 0, i32 2
+  %470 = load i64, ptr %469, align 8
+  %471 = call i64 @rb_id2sym(i64 noundef %470)
+  %472 = load ptr, ptr %5, align 8
+  %473 = getelementptr inbounds %struct.RNode_CDECL, ptr %472, i32 0, i32 2
+  %474 = load ptr, ptr %473, align 8
+  %475 = icmp ne ptr %474, null
+  br i1 %475, label %476, label %482
+
+476:                                              ; preds = %464
+  %477 = load ptr, ptr %4, align 8
+  %478 = load ptr, ptr %5, align 8
+  %479 = getelementptr inbounds %struct.RNode_CDECL, ptr %478, i32 0, i32 2
+  %480 = load ptr, ptr %479, align 8
+  %481 = call i64 @ast_new_internal(ptr noundef %477, ptr noundef %480)
+  br label %483
+
+482:                                              ; preds = %464
+  br label %483
+
+483:                                              ; preds = %482, %476
+  %484 = phi i64 [ %481, %476 ], [ 4, %482 ]
+  %485 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %465, i64 noundef %471, i64 noundef %484)
+  store i64 %485, ptr %3, align 8
+  br label %1631
+
+486:                                              ; preds = %2
+  %487 = load ptr, ptr %5, align 8
+  %488 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %487, i32 0, i32 1
+  %489 = load ptr, ptr %488, align 8
+  %490 = icmp ne ptr %489, null
+  br i1 %490, label %491, label %497
+
+491:                                              ; preds = %486
+  %492 = load ptr, ptr %4, align 8
+  %493 = load ptr, ptr %5, align 8
+  %494 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %493, i32 0, i32 1
+  %495 = load ptr, ptr %494, align 8
+  %496 = call i64 @ast_new_internal(ptr noundef %492, ptr noundef %495)
+  br label %498
+
+497:                                              ; preds = %486
+  br label %498
+
+498:                                              ; preds = %497, %491
+  %499 = phi i64 [ %496, %491 ], [ 4, %497 ]
+  %500 = load ptr, ptr %5, align 8
+  %501 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %500, i32 0, i32 2
+  %502 = load i64, ptr %501, align 8
+  %503 = call i64 @rb_id2sym(i64 noundef %502)
+  %504 = load ptr, ptr %5, align 8
+  %505 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %504, i32 0, i32 3
+  %506 = load ptr, ptr %505, align 8
+  %507 = icmp ne ptr %506, null
+  br i1 %507, label %508, label %514
+
+508:                                              ; preds = %498
+  %509 = load ptr, ptr %4, align 8
+  %510 = load ptr, ptr %5, align 8
+  %511 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %510, i32 0, i32 3
+  %512 = load ptr, ptr %511, align 8
+  %513 = call i64 @ast_new_internal(ptr noundef %509, ptr noundef %512)
+  br label %515
+
+514:                                              ; preds = %498
+  br label %515
+
+515:                                              ; preds = %514, %508
+  %516 = phi i64 [ %513, %508 ], [ 4, %514 ]
+  %517 = load ptr, ptr %5, align 8
+  %518 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %517, i32 0, i32 4
+  %519 = load ptr, ptr %518, align 8
+  %520 = icmp ne ptr %519, null
+  br i1 %520, label %521, label %527
+
+521:                                              ; preds = %515
+  %522 = load ptr, ptr %4, align 8
+  %523 = load ptr, ptr %5, align 8
+  %524 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %523, i32 0, i32 4
+  %525 = load ptr, ptr %524, align 8
+  %526 = call i64 @ast_new_internal(ptr noundef %522, ptr noundef %525)
+  br label %528
+
+527:                                              ; preds = %515
+  br label %528
+
+528:                                              ; preds = %527, %521
+  %529 = phi i64 [ %526, %521 ], [ 4, %527 ]
+  %530 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %499, i64 noundef %503, i64 noundef %516, i64 noundef %529)
+  store i64 %530, ptr %3, align 8
+  br label %1631
+
+531:                                              ; preds = %2
+  %532 = load ptr, ptr %5, align 8
+  %533 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %532, i32 0, i32 1
+  %534 = load ptr, ptr %533, align 8
+  %535 = icmp ne ptr %534, null
+  br i1 %535, label %536, label %542
+
+536:                                              ; preds = %531
+  %537 = load ptr, ptr %4, align 8
+  %538 = load ptr, ptr %5, align 8
+  %539 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %538, i32 0, i32 1
+  %540 = load ptr, ptr %539, align 8
+  %541 = call i64 @ast_new_internal(ptr noundef %537, ptr noundef %540)
+  br label %543
+
+542:                                              ; preds = %531
+  br label %543
+
+543:                                              ; preds = %542, %536
+  %544 = phi i64 [ %541, %536 ], [ 4, %542 ]
+  %545 = load ptr, ptr %5, align 8
+  %546 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %545, i32 0, i32 5
+  %547 = load i8, ptr %546, align 8
+  %548 = trunc i8 %547 to i1
+  %549 = select i1 %548, i64 20, i64 0
+  %550 = load ptr, ptr %5, align 8
+  %551 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %550, i32 0, i32 3
+  %552 = load i64, ptr %551, align 8
+  %553 = call i64 @rb_id2sym(i64 noundef %552)
+  %554 = load ptr, ptr %5, align 8
+  %555 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %554, i32 0, i32 4
+  %556 = load i64, ptr %555, align 8
+  %557 = call i64 @rb_id2sym(i64 noundef %556)
+  %558 = load ptr, ptr %5, align 8
+  %559 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %558, i32 0, i32 2
+  %560 = load ptr, ptr %559, align 8
+  %561 = icmp ne ptr %560, null
+  br i1 %561, label %562, label %568
+
+562:                                              ; preds = %543
+  %563 = load ptr, ptr %4, align 8
+  %564 = load ptr, ptr %5, align 8
+  %565 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %564, i32 0, i32 2
+  %566 = load ptr, ptr %565, align 8
+  %567 = call i64 @ast_new_internal(ptr noundef %563, ptr noundef %566)
+  br label %569
+
+568:                                              ; preds = %543
+  br label %569
+
+569:                                              ; preds = %568, %562
+  %570 = phi i64 [ %567, %562 ], [ 4, %568 ]
+  %571 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 5, i64 noundef %544, i64 noundef %549, i64 noundef %553, i64 noundef %557, i64 noundef %570)
+  store i64 %571, ptr %3, align 8
+  br label %1631
+
+572:                                              ; preds = %2
+  %573 = load ptr, ptr %5, align 8
+  %574 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %573, i32 0, i32 1
+  %575 = load ptr, ptr %574, align 8
+  %576 = icmp ne ptr %575, null
+  br i1 %576, label %577, label %583
+
+577:                                              ; preds = %572
+  %578 = load ptr, ptr %4, align 8
+  %579 = load ptr, ptr %5, align 8
+  %580 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %579, i32 0, i32 1
+  %581 = load ptr, ptr %580, align 8
+  %582 = call i64 @ast_new_internal(ptr noundef %578, ptr noundef %581)
+  br label %584
+
+583:                                              ; preds = %572
+  br label %584
+
+584:                                              ; preds = %583, %577
+  %585 = phi i64 [ %582, %577 ], [ 4, %583 ]
+  %586 = call i64 @rb_id2sym(i64 noundef 148)
+  %587 = load ptr, ptr %5, align 8
+  %588 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %587, i32 0, i32 2
+  %589 = load ptr, ptr %588, align 8
+  %590 = icmp ne ptr %589, null
+  br i1 %590, label %591, label %597
+
+591:                                              ; preds = %584
+  %592 = load ptr, ptr %4, align 8
+  %593 = load ptr, ptr %5, align 8
+  %594 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %593, i32 0, i32 2
+  %595 = load ptr, ptr %594, align 8
+  %596 = call i64 @ast_new_internal(ptr noundef %592, ptr noundef %595)
+  br label %598
+
+597:                                              ; preds = %584
+  br label %598
+
+598:                                              ; preds = %597, %591
+  %599 = phi i64 [ %596, %591 ], [ 4, %597 ]
+  %600 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %585, i64 noundef %586, i64 noundef %599)
+  store i64 %600, ptr %3, align 8
+  br label %1631
+
+601:                                              ; preds = %2
+  %602 = load ptr, ptr %5, align 8
+  %603 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %602, i32 0, i32 1
+  %604 = load ptr, ptr %603, align 8
+  %605 = icmp ne ptr %604, null
+  br i1 %605, label %606, label %612
+
+606:                                              ; preds = %601
+  %607 = load ptr, ptr %4, align 8
+  %608 = load ptr, ptr %5, align 8
+  %609 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %608, i32 0, i32 1
+  %610 = load ptr, ptr %609, align 8
+  %611 = call i64 @ast_new_internal(ptr noundef %607, ptr noundef %610)
+  br label %613
+
+612:                                              ; preds = %601
+  br label %613
+
+613:                                              ; preds = %612, %606
+  %614 = phi i64 [ %611, %606 ], [ 4, %612 ]
+  %615 = call i64 @rb_id2sym(i64 noundef 149)
+  %616 = load ptr, ptr %5, align 8
+  %617 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %616, i32 0, i32 2
+  %618 = load ptr, ptr %617, align 8
+  %619 = icmp ne ptr %618, null
+  br i1 %619, label %620, label %626
+
+620:                                              ; preds = %613
+  %621 = load ptr, ptr %4, align 8
+  %622 = load ptr, ptr %5, align 8
+  %623 = getelementptr inbounds %struct.RNode_OP_ASGN_OR, ptr %622, i32 0, i32 2
+  %624 = load ptr, ptr %623, align 8
+  %625 = call i64 @ast_new_internal(ptr noundef %621, ptr noundef %624)
+  br label %627
+
+626:                                              ; preds = %613
+  br label %627
+
+627:                                              ; preds = %626, %620
+  %628 = phi i64 [ %625, %620 ], [ 4, %626 ]
+  %629 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %614, i64 noundef %615, i64 noundef %628)
+  store i64 %629, ptr %3, align 8
+  br label %1631
+
+630:                                              ; preds = %2
+  %631 = load ptr, ptr %5, align 8
+  %632 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %631, i32 0, i32 1
+  %633 = load ptr, ptr %632, align 8
+  %634 = icmp ne ptr %633, null
+  br i1 %634, label %635, label %641
+
+635:                                              ; preds = %630
+  %636 = load ptr, ptr %4, align 8
+  %637 = load ptr, ptr %5, align 8
+  %638 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %637, i32 0, i32 1
+  %639 = load ptr, ptr %638, align 8
+  %640 = call i64 @ast_new_internal(ptr noundef %636, ptr noundef %639)
+  br label %642
+
+641:                                              ; preds = %630
+  br label %642
+
+642:                                              ; preds = %641, %635
+  %643 = phi i64 [ %640, %635 ], [ 4, %641 ]
+  %644 = load ptr, ptr %5, align 8
+  %645 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %644, i32 0, i32 3
+  %646 = load i64, ptr %645, align 8
+  %647 = call i64 @rb_id2sym(i64 noundef %646)
+  %648 = load ptr, ptr %5, align 8
+  %649 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %648, i32 0, i32 2
+  %650 = load ptr, ptr %649, align 8
+  %651 = icmp ne ptr %650, null
+  br i1 %651, label %652, label %658
+
+652:                                              ; preds = %642
+  %653 = load ptr, ptr %4, align 8
+  %654 = load ptr, ptr %5, align 8
+  %655 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %654, i32 0, i32 2
+  %656 = load ptr, ptr %655, align 8
+  %657 = call i64 @ast_new_internal(ptr noundef %653, ptr noundef %656)
+  br label %659
+
+658:                                              ; preds = %642
+  br label %659
+
+659:                                              ; preds = %658, %652
+  %660 = phi i64 [ %657, %652 ], [ 4, %658 ]
+  %661 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %643, i64 noundef %647, i64 noundef %660)
+  store i64 %661, ptr %3, align 8
+  br label %1631
+
+662:                                              ; preds = %2
+  %663 = load ptr, ptr %5, align 8
+  %664 = getelementptr inbounds %struct.RNode_CALL, ptr %663, i32 0, i32 1
+  %665 = load ptr, ptr %664, align 8
+  %666 = icmp ne ptr %665, null
+  br i1 %666, label %667, label %673
+
+667:                                              ; preds = %662
+  %668 = load ptr, ptr %4, align 8
+  %669 = load ptr, ptr %5, align 8
+  %670 = getelementptr inbounds %struct.RNode_CALL, ptr %669, i32 0, i32 1
+  %671 = load ptr, ptr %670, align 8
+  %672 = call i64 @ast_new_internal(ptr noundef %668, ptr noundef %671)
+  br label %674
+
+673:                                              ; preds = %662
+  br label %674
+
+674:                                              ; preds = %673, %667
+  %675 = phi i64 [ %672, %667 ], [ 4, %673 ]
+  %676 = load ptr, ptr %5, align 8
+  %677 = getelementptr inbounds %struct.RNode_CALL, ptr %676, i32 0, i32 2
+  %678 = load i64, ptr %677, align 8
+  %679 = call i64 @rb_id2sym(i64 noundef %678)
+  %680 = load ptr, ptr %5, align 8
+  %681 = getelementptr inbounds %struct.RNode_CALL, ptr %680, i32 0, i32 3
+  %682 = load ptr, ptr %681, align 8
+  %683 = icmp ne ptr %682, null
+  br i1 %683, label %684, label %690
+
+684:                                              ; preds = %674
+  %685 = load ptr, ptr %4, align 8
+  %686 = load ptr, ptr %5, align 8
+  %687 = getelementptr inbounds %struct.RNode_CALL, ptr %686, i32 0, i32 3
+  %688 = load ptr, ptr %687, align 8
+  %689 = call i64 @ast_new_internal(ptr noundef %685, ptr noundef %688)
+  br label %691
+
+690:                                              ; preds = %674
+  br label %691
+
+691:                                              ; preds = %690, %684
+  %692 = phi i64 [ %689, %684 ], [ 4, %690 ]
+  %693 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %675, i64 noundef %679, i64 noundef %692)
+  store i64 %693, ptr %3, align 8
+  br label %1631
+
+694:                                              ; preds = %2
+  %695 = load ptr, ptr %5, align 8
+  %696 = getelementptr inbounds %struct.RNode_OPCALL, ptr %695, i32 0, i32 1
+  %697 = load ptr, ptr %696, align 8
+  %698 = icmp ne ptr %697, null
+  br i1 %698, label %699, label %705
+
+699:                                              ; preds = %694
+  %700 = load ptr, ptr %4, align 8
+  %701 = load ptr, ptr %5, align 8
+  %702 = getelementptr inbounds %struct.RNode_OPCALL, ptr %701, i32 0, i32 1
+  %703 = load ptr, ptr %702, align 8
+  %704 = call i64 @ast_new_internal(ptr noundef %700, ptr noundef %703)
+  br label %706
+
+705:                                              ; preds = %694
+  br label %706
+
+706:                                              ; preds = %705, %699
+  %707 = phi i64 [ %704, %699 ], [ 4, %705 ]
+  %708 = load ptr, ptr %5, align 8
+  %709 = getelementptr inbounds %struct.RNode_OPCALL, ptr %708, i32 0, i32 2
+  %710 = load i64, ptr %709, align 8
+  %711 = call i64 @rb_id2sym(i64 noundef %710)
+  %712 = load ptr, ptr %5, align 8
+  %713 = getelementptr inbounds %struct.RNode_OPCALL, ptr %712, i32 0, i32 3
+  %714 = load ptr, ptr %713, align 8
+  %715 = icmp ne ptr %714, null
+  br i1 %715, label %716, label %722
+
+716:                                              ; preds = %706
+  %717 = load ptr, ptr %4, align 8
+  %718 = load ptr, ptr %5, align 8
+  %719 = getelementptr inbounds %struct.RNode_OPCALL, ptr %718, i32 0, i32 3
+  %720 = load ptr, ptr %719, align 8
+  %721 = call i64 @ast_new_internal(ptr noundef %717, ptr noundef %720)
+  br label %723
+
+722:                                              ; preds = %706
+  br label %723
+
+723:                                              ; preds = %722, %716
+  %724 = phi i64 [ %721, %716 ], [ 4, %722 ]
+  %725 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %707, i64 noundef %711, i64 noundef %724)
+  store i64 %725, ptr %3, align 8
+  br label %1631
+
+726:                                              ; preds = %2
+  %727 = load ptr, ptr %5, align 8
+  %728 = getelementptr inbounds %struct.RNode_QCALL, ptr %727, i32 0, i32 1
+  %729 = load ptr, ptr %728, align 8
+  %730 = icmp ne ptr %729, null
+  br i1 %730, label %731, label %737
+
+731:                                              ; preds = %726
+  %732 = load ptr, ptr %4, align 8
+  %733 = load ptr, ptr %5, align 8
+  %734 = getelementptr inbounds %struct.RNode_QCALL, ptr %733, i32 0, i32 1
+  %735 = load ptr, ptr %734, align 8
+  %736 = call i64 @ast_new_internal(ptr noundef %732, ptr noundef %735)
+  br label %738
+
+737:                                              ; preds = %726
+  br label %738
+
+738:                                              ; preds = %737, %731
+  %739 = phi i64 [ %736, %731 ], [ 4, %737 ]
+  %740 = load ptr, ptr %5, align 8
+  %741 = getelementptr inbounds %struct.RNode_QCALL, ptr %740, i32 0, i32 2
+  %742 = load i64, ptr %741, align 8
+  %743 = call i64 @rb_id2sym(i64 noundef %742)
+  %744 = load ptr, ptr %5, align 8
+  %745 = getelementptr inbounds %struct.RNode_QCALL, ptr %744, i32 0, i32 3
+  %746 = load ptr, ptr %745, align 8
+  %747 = icmp ne ptr %746, null
+  br i1 %747, label %748, label %754
+
+748:                                              ; preds = %738
+  %749 = load ptr, ptr %4, align 8
+  %750 = load ptr, ptr %5, align 8
+  %751 = getelementptr inbounds %struct.RNode_QCALL, ptr %750, i32 0, i32 3
+  %752 = load ptr, ptr %751, align 8
+  %753 = call i64 @ast_new_internal(ptr noundef %749, ptr noundef %752)
+  br label %755
+
+754:                                              ; preds = %738
+  br label %755
+
+755:                                              ; preds = %754, %748
+  %756 = phi i64 [ %753, %748 ], [ 4, %754 ]
+  %757 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %739, i64 noundef %743, i64 noundef %756)
+  store i64 %757, ptr %3, align 8
+  br label %1631
+
+758:                                              ; preds = %2
+  %759 = load ptr, ptr %5, align 8
+  %760 = getelementptr inbounds %struct.RNode_FCALL, ptr %759, i32 0, i32 1
+  %761 = load i64, ptr %760, align 8
+  %762 = call i64 @rb_id2sym(i64 noundef %761)
+  %763 = load ptr, ptr %5, align 8
+  %764 = getelementptr inbounds %struct.RNode_FCALL, ptr %763, i32 0, i32 2
+  %765 = load ptr, ptr %764, align 8
+  %766 = icmp ne ptr %765, null
+  br i1 %766, label %767, label %773
+
+767:                                              ; preds = %758
+  %768 = load ptr, ptr %4, align 8
+  %769 = load ptr, ptr %5, align 8
+  %770 = getelementptr inbounds %struct.RNode_FCALL, ptr %769, i32 0, i32 2
+  %771 = load ptr, ptr %770, align 8
+  %772 = call i64 @ast_new_internal(ptr noundef %768, ptr noundef %771)
+  br label %774
+
+773:                                              ; preds = %758
+  br label %774
+
+774:                                              ; preds = %773, %767
+  %775 = phi i64 [ %772, %767 ], [ 4, %773 ]
+  %776 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %762, i64 noundef %775)
+  store i64 %776, ptr %3, align 8
+  br label %1631
+
+777:                                              ; preds = %2
+  %778 = load ptr, ptr %5, align 8
+  %779 = getelementptr inbounds %struct.RNode_VCALL, ptr %778, i32 0, i32 1
+  %780 = load i64, ptr %779, align 8
+  %781 = call i64 @rb_id2sym(i64 noundef %780)
+  %782 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %781)
+  store i64 %782, ptr %3, align 8
+  br label %1631
+
+783:                                              ; preds = %2
+  %784 = load ptr, ptr %4, align 8
+  %785 = load ptr, ptr %5, align 8
+  %786 = getelementptr inbounds %struct.RNode_SUPER, ptr %785, i32 0, i32 1
+  %787 = load ptr, ptr %786, align 8
+  %788 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %784, i64 noundef 1, ptr noundef %787)
   store i64 %788, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 789:                                              ; preds = %2
   %790 = load ptr, ptr %4, align 8
-  %791 = load ptr, ptr %5, align 8
-  %792 = call i64 @dump_array(ptr noundef %790, ptr noundef %791)
-  store i64 %792, ptr %3, align 8
-  br label %1626
+  %791 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %790, i64 noundef 0)
+  store i64 %791, ptr %3, align 8
+  br label %1631
 
-793:                                              ; preds = %2
-  %794 = load ptr, ptr %4, align 8
-  %795 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %794, i64 noundef 0)
+792:                                              ; preds = %2
+  %793 = load ptr, ptr %4, align 8
+  %794 = load ptr, ptr %5, align 8
+  %795 = call i64 @dump_array(ptr noundef %793, ptr noundef %794)
   store i64 %795, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 796:                                              ; preds = %2
   %797 = load ptr, ptr %4, align 8
-  %798 = load ptr, ptr %5, align 8
-  %799 = getelementptr inbounds %struct.RNode_HASH, ptr %798, i32 0, i32 1
-  %800 = load ptr, ptr %799, align 8
-  %801 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %797, i64 noundef 1, ptr noundef %800)
-  store i64 %801, ptr %3, align 8
-  br label %1626
+  %798 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %797, i64 noundef 0)
+  store i64 %798, ptr %3, align 8
+  br label %1631
 
-802:                                              ; preds = %2
-  %803 = load ptr, ptr %4, align 8
-  %804 = load ptr, ptr %5, align 8
-  %805 = getelementptr inbounds %struct.RNode_YIELD, ptr %804, i32 0, i32 1
-  %806 = load ptr, ptr %805, align 8
-  %807 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %803, i64 noundef 1, ptr noundef %806)
-  store i64 %807, ptr %3, align 8
-  br label %1626
+799:                                              ; preds = %2
+  %800 = load ptr, ptr %4, align 8
+  %801 = load ptr, ptr %5, align 8
+  %802 = getelementptr inbounds %struct.RNode_HASH, ptr %801, i32 0, i32 1
+  %803 = load ptr, ptr %802, align 8
+  %804 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %800, i64 noundef 1, ptr noundef %803)
+  store i64 %804, ptr %3, align 8
+  br label %1631
 
-808:                                              ; preds = %2
-  %809 = load ptr, ptr %5, align 8
-  %810 = getelementptr inbounds %struct.RNode_LVAR, ptr %809, i32 0, i32 1
-  %811 = load i64, ptr %810, align 8
-  %812 = call i64 @var_name(i64 noundef %811)
-  %813 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %812)
-  store i64 %813, ptr %3, align 8
-  br label %1626
+805:                                              ; preds = %2
+  %806 = load ptr, ptr %4, align 8
+  %807 = load ptr, ptr %5, align 8
+  %808 = getelementptr inbounds %struct.RNode_YIELD, ptr %807, i32 0, i32 1
+  %809 = load ptr, ptr %808, align 8
+  %810 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %806, i64 noundef 1, ptr noundef %809)
+  store i64 %810, ptr %3, align 8
+  br label %1631
 
-814:                                              ; preds = %2
-  %815 = load ptr, ptr %5, align 8
-  %816 = getelementptr inbounds %struct.RNode_DVAR, ptr %815, i32 0, i32 1
-  %817 = load i64, ptr %816, align 8
-  %818 = call i64 @var_name(i64 noundef %817)
-  %819 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %818)
-  store i64 %819, ptr %3, align 8
-  br label %1626
+811:                                              ; preds = %2
+  %812 = load ptr, ptr %5, align 8
+  %813 = getelementptr inbounds %struct.RNode_LVAR, ptr %812, i32 0, i32 1
+  %814 = load i64, ptr %813, align 8
+  %815 = call i64 @var_name(i64 noundef %814)
+  %816 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %815)
+  store i64 %816, ptr %3, align 8
+  br label %1631
 
-820:                                              ; preds = %2
-  %821 = load ptr, ptr %5, align 8
-  %822 = getelementptr inbounds %struct.RNode_IVAR, ptr %821, i32 0, i32 1
-  %823 = load i64, ptr %822, align 8
-  %824 = call i64 @rb_id2sym(i64 noundef %823)
-  %825 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %824)
-  store i64 %825, ptr %3, align 8
-  br label %1626
+817:                                              ; preds = %2
+  %818 = load ptr, ptr %5, align 8
+  %819 = getelementptr inbounds %struct.RNode_DVAR, ptr %818, i32 0, i32 1
+  %820 = load i64, ptr %819, align 8
+  %821 = call i64 @var_name(i64 noundef %820)
+  %822 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %821)
+  store i64 %822, ptr %3, align 8
+  br label %1631
 
-826:                                              ; preds = %2
-  %827 = load ptr, ptr %5, align 8
-  %828 = getelementptr inbounds %struct.RNode_CONST, ptr %827, i32 0, i32 1
-  %829 = load i64, ptr %828, align 8
-  %830 = call i64 @rb_id2sym(i64 noundef %829)
-  %831 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %830)
-  store i64 %831, ptr %3, align 8
-  br label %1626
+823:                                              ; preds = %2
+  %824 = load ptr, ptr %5, align 8
+  %825 = getelementptr inbounds %struct.RNode_IVAR, ptr %824, i32 0, i32 1
+  %826 = load i64, ptr %825, align 8
+  %827 = call i64 @rb_id2sym(i64 noundef %826)
+  %828 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %827)
+  store i64 %828, ptr %3, align 8
+  br label %1631
 
-832:                                              ; preds = %2
-  %833 = load ptr, ptr %5, align 8
-  %834 = getelementptr inbounds %struct.RNode_CVAR, ptr %833, i32 0, i32 1
-  %835 = load i64, ptr %834, align 8
-  %836 = call i64 @rb_id2sym(i64 noundef %835)
-  %837 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %836)
-  store i64 %837, ptr %3, align 8
-  br label %1626
+829:                                              ; preds = %2
+  %830 = load ptr, ptr %5, align 8
+  %831 = getelementptr inbounds %struct.RNode_CONST, ptr %830, i32 0, i32 1
+  %832 = load i64, ptr %831, align 8
+  %833 = call i64 @rb_id2sym(i64 noundef %832)
+  %834 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %833)
+  store i64 %834, ptr %3, align 8
+  br label %1631
 
-838:                                              ; preds = %2
-  %839 = load ptr, ptr %5, align 8
-  %840 = getelementptr inbounds %struct.RNode_GVAR, ptr %839, i32 0, i32 1
-  %841 = load i64, ptr %840, align 8
-  %842 = call i64 @rb_id2sym(i64 noundef %841)
-  %843 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %842)
-  store i64 %843, ptr %3, align 8
-  br label %1626
+835:                                              ; preds = %2
+  %836 = load ptr, ptr %5, align 8
+  %837 = getelementptr inbounds %struct.RNode_CVAR, ptr %836, i32 0, i32 1
+  %838 = load i64, ptr %837, align 8
+  %839 = call i64 @rb_id2sym(i64 noundef %838)
+  %840 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %839)
+  store i64 %840, ptr %3, align 8
+  br label %1631
 
-844:                                              ; preds = %2
-  %845 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
-  %846 = load ptr, ptr %5, align 8
-  %847 = getelementptr inbounds %struct.RNode_NTH_REF, ptr %846, i32 0, i32 1
-  %848 = load i64, ptr %847, align 8
-  %849 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %845, i64 noundef 22, ptr noundef @.str.28, i64 noundef %848)
-  br i1 false, label %850, label %854
+841:                                              ; preds = %2
+  %842 = load ptr, ptr %5, align 8
+  %843 = getelementptr inbounds %struct.RNode_GVAR, ptr %842, i32 0, i32 1
+  %844 = load i64, ptr %843, align 8
+  %845 = call i64 @rb_id2sym(i64 noundef %844)
+  %846 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %845)
+  store i64 %846, ptr %3, align 8
+  br label %1631
 
-850:                                              ; preds = %844
-  %851 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
-  %852 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.29, ptr noundef %851) #14
-  store i64 %852, ptr %11, align 8
-  %853 = load i64, ptr %11, align 8
-  br label %857
+847:                                              ; preds = %2
+  %848 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
+  %849 = load ptr, ptr %5, align 8
+  %850 = getelementptr inbounds %struct.RNode_NTH_REF, ptr %849, i32 0, i32 1
+  %851 = load i64, ptr %850, align 8
+  %852 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %848, i64 noundef 22, ptr noundef @.str.28, i64 noundef %851)
+  br i1 false, label %853, label %857
 
-854:                                              ; preds = %844
-  %855 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
-  %856 = call i64 @rb_intern(ptr noundef %855)
-  br label %857
+853:                                              ; preds = %847
+  %854 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
+  %855 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.29, ptr noundef %854) #14
+  store i64 %855, ptr %11, align 8
+  %856 = load i64, ptr %11, align 8
+  br label %860
 
-857:                                              ; preds = %854, %850
-  %858 = phi i64 [ %853, %850 ], [ %856, %854 ]
-  %859 = call i64 @rb_id2sym(i64 noundef %858)
-  %860 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %859)
-  store i64 %860, ptr %3, align 8
-  br label %1626
+857:                                              ; preds = %847
+  %858 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
+  %859 = call i64 @rb_intern(ptr noundef %858)
+  br label %860
 
-861:                                              ; preds = %2
-  %862 = getelementptr [22 x i8], ptr %6, i64 0, i64 0
-  store i8 36, ptr %862, align 16
-  %863 = load ptr, ptr %5, align 8
-  %864 = getelementptr inbounds %struct.RNode_BACK_REF, ptr %863, i32 0, i32 1
-  %865 = load i64, ptr %864, align 8
-  %866 = trunc i64 %865 to i8
-  %867 = getelementptr [22 x i8], ptr %6, i64 0, i64 1
-  store i8 %866, ptr %867, align 1
-  %868 = getelementptr [22 x i8], ptr %6, i64 0, i64 2
-  store i8 0, ptr %868, align 2
-  br i1 false, label %869, label %873
+860:                                              ; preds = %857, %853
+  %861 = phi i64 [ %856, %853 ], [ %859, %857 ]
+  %862 = call i64 @rb_id2sym(i64 noundef %861)
+  %863 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %862)
+  store i64 %863, ptr %3, align 8
+  br label %1631
 
-869:                                              ; preds = %861
-  %870 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
-  %871 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.30, ptr noundef %870) #14
-  store i64 %871, ptr %12, align 8
-  %872 = load i64, ptr %12, align 8
-  br label %876
+864:                                              ; preds = %2
+  %865 = getelementptr [22 x i8], ptr %6, i64 0, i64 0
+  store i8 36, ptr %865, align 16
+  %866 = load ptr, ptr %5, align 8
+  %867 = getelementptr inbounds %struct.RNode_BACK_REF, ptr %866, i32 0, i32 1
+  %868 = load i64, ptr %867, align 8
+  %869 = trunc i64 %868 to i8
+  %870 = getelementptr [22 x i8], ptr %6, i64 0, i64 1
+  store i8 %869, ptr %870, align 1
+  %871 = getelementptr [22 x i8], ptr %6, i64 0, i64 2
+  store i8 0, ptr %871, align 2
+  br i1 false, label %872, label %876
 
-873:                                              ; preds = %861
-  %874 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
-  %875 = call i64 @rb_intern(ptr noundef %874)
-  br label %876
+872:                                              ; preds = %864
+  %873 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
+  %874 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.30, ptr noundef %873) #14
+  store i64 %874, ptr %12, align 8
+  %875 = load i64, ptr %12, align 8
+  br label %879
 
-876:                                              ; preds = %873, %869
-  %877 = phi i64 [ %872, %869 ], [ %875, %873 ]
-  %878 = call i64 @rb_id2sym(i64 noundef %877)
-  %879 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %878)
-  store i64 %879, ptr %3, align 8
-  br label %1626
+876:                                              ; preds = %864
+  %877 = getelementptr inbounds [22 x i8], ptr %6, i64 0, i64 0
+  %878 = call i64 @rb_intern(ptr noundef %877)
+  br label %879
 
-880:                                              ; preds = %2
-  %881 = load ptr, ptr %5, align 8
-  %882 = getelementptr inbounds %struct.RNode_MATCH2, ptr %881, i32 0, i32 3
-  %883 = load ptr, ptr %882, align 8
-  %884 = icmp ne ptr %883, null
-  br i1 %884, label %885, label %897
+879:                                              ; preds = %876, %872
+  %880 = phi i64 [ %875, %872 ], [ %878, %876 ]
+  %881 = call i64 @rb_id2sym(i64 noundef %880)
+  %882 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %881)
+  store i64 %882, ptr %3, align 8
+  br label %1631
 
-885:                                              ; preds = %880
-  %886 = load ptr, ptr %4, align 8
-  %887 = load ptr, ptr %5, align 8
-  %888 = getelementptr inbounds %struct.RNode_MATCH2, ptr %887, i32 0, i32 1
-  %889 = load ptr, ptr %888, align 8
+883:                                              ; preds = %2
+  %884 = load ptr, ptr %5, align 8
+  %885 = getelementptr inbounds %struct.RNode_MATCH2, ptr %884, i32 0, i32 3
+  %886 = load ptr, ptr %885, align 8
+  %887 = icmp ne ptr %886, null
+  br i1 %887, label %888, label %900
+
+888:                                              ; preds = %883
+  %889 = load ptr, ptr %4, align 8
   %890 = load ptr, ptr %5, align 8
-  %891 = getelementptr inbounds %struct.RNode_MATCH2, ptr %890, i32 0, i32 2
+  %891 = getelementptr inbounds %struct.RNode_MATCH2, ptr %890, i32 0, i32 1
   %892 = load ptr, ptr %891, align 8
   %893 = load ptr, ptr %5, align 8
-  %894 = getelementptr inbounds %struct.RNode_MATCH2, ptr %893, i32 0, i32 3
+  %894 = getelementptr inbounds %struct.RNode_MATCH2, ptr %893, i32 0, i32 2
   %895 = load ptr, ptr %894, align 8
-  %896 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %886, i64 noundef 3, ptr noundef %889, ptr noundef %892, ptr noundef %895)
-  store i64 %896, ptr %3, align 8
-  br label %1626
+  %896 = load ptr, ptr %5, align 8
+  %897 = getelementptr inbounds %struct.RNode_MATCH2, ptr %896, i32 0, i32 3
+  %898 = load ptr, ptr %897, align 8
+  %899 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %889, i64 noundef 3, ptr noundef %892, ptr noundef %895, ptr noundef %898)
+  store i64 %899, ptr %3, align 8
+  br label %1631
 
-897:                                              ; preds = %880
-  %898 = load ptr, ptr %4, align 8
-  %899 = load ptr, ptr %5, align 8
-  %900 = getelementptr inbounds %struct.RNode_MATCH2, ptr %899, i32 0, i32 1
-  %901 = load ptr, ptr %900, align 8
+900:                                              ; preds = %883
+  %901 = load ptr, ptr %4, align 8
   %902 = load ptr, ptr %5, align 8
-  %903 = getelementptr inbounds %struct.RNode_MATCH2, ptr %902, i32 0, i32 2
+  %903 = getelementptr inbounds %struct.RNode_MATCH2, ptr %902, i32 0, i32 1
   %904 = load ptr, ptr %903, align 8
-  %905 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %898, i64 noundef 2, ptr noundef %901, ptr noundef %904)
-  store i64 %905, ptr %3, align 8
-  br label %1626
+  %905 = load ptr, ptr %5, align 8
+  %906 = getelementptr inbounds %struct.RNode_MATCH2, ptr %905, i32 0, i32 2
+  %907 = load ptr, ptr %906, align 8
+  %908 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %901, i64 noundef 2, ptr noundef %904, ptr noundef %907)
+  store i64 %908, ptr %3, align 8
+  br label %1631
 
-906:                                              ; preds = %2
-  %907 = load ptr, ptr %4, align 8
-  %908 = load ptr, ptr %5, align 8
-  %909 = getelementptr inbounds %struct.RNode_MATCH3, ptr %908, i32 0, i32 1
-  %910 = load ptr, ptr %909, align 8
+909:                                              ; preds = %2
+  %910 = load ptr, ptr %4, align 8
   %911 = load ptr, ptr %5, align 8
-  %912 = getelementptr inbounds %struct.RNode_MATCH3, ptr %911, i32 0, i32 2
+  %912 = getelementptr inbounds %struct.RNode_MATCH3, ptr %911, i32 0, i32 1
   %913 = load ptr, ptr %912, align 8
-  %914 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %907, i64 noundef 2, ptr noundef %910, ptr noundef %913)
-  store i64 %914, ptr %3, align 8
-  br label %1626
+  %914 = load ptr, ptr %5, align 8
+  %915 = getelementptr inbounds %struct.RNode_MATCH3, ptr %914, i32 0, i32 2
+  %916 = load ptr, ptr %915, align 8
+  %917 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %910, i64 noundef 2, ptr noundef %913, ptr noundef %916)
+  store i64 %917, ptr %3, align 8
+  br label %1631
 
-915:                                              ; preds = %2, %2
-  %916 = load ptr, ptr %5, align 8
-  %917 = getelementptr inbounds %struct.RNode_LIT, ptr %916, i32 0, i32 1
-  %918 = load i64, ptr %917, align 8
-  %919 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %918)
-  store i64 %919, ptr %3, align 8
-  br label %1626
+918:                                              ; preds = %2, %2
+  %919 = load ptr, ptr %5, align 8
+  %920 = getelementptr inbounds %struct.RNode_LIT, ptr %919, i32 0, i32 1
+  %921 = load i64, ptr %920, align 8
+  %922 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %921)
+  store i64 %922, ptr %3, align 8
+  br label %1631
 
-920:                                              ; preds = %2, %2
-  %921 = load ptr, ptr %5, align 8
-  %922 = call i64 @rb_node_str_string_val(ptr noundef %921)
-  %923 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %922)
-  store i64 %923, ptr %3, align 8
-  br label %1626
+923:                                              ; preds = %2, %2
+  %924 = load ptr, ptr %5, align 8
+  %925 = call i64 @rb_node_str_string_val(ptr noundef %924)
+  %926 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %925)
+  store i64 %926, ptr %3, align 8
+  br label %1631
 
-924:                                              ; preds = %2
-  %925 = load ptr, ptr %5, align 8
-  %926 = call i64 @rb_node_integer_literal_val(ptr noundef %925)
-  %927 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %926)
-  store i64 %927, ptr %3, align 8
-  br label %1626
+927:                                              ; preds = %2
+  %928 = load ptr, ptr %5, align 8
+  %929 = call i64 @rb_node_integer_literal_val(ptr noundef %928)
+  %930 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %929)
+  store i64 %930, ptr %3, align 8
+  br label %1631
 
-928:                                              ; preds = %2
-  %929 = load ptr, ptr %5, align 8
-  %930 = call i64 @rb_node_float_literal_val(ptr noundef %929)
-  %931 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %930)
-  store i64 %931, ptr %3, align 8
-  br label %1626
+931:                                              ; preds = %2
+  %932 = load ptr, ptr %5, align 8
+  %933 = call i64 @rb_node_float_literal_val(ptr noundef %932)
+  %934 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %933)
+  store i64 %934, ptr %3, align 8
+  br label %1631
 
-932:                                              ; preds = %2
-  %933 = load ptr, ptr %5, align 8
-  %934 = call i64 @rb_node_rational_literal_val(ptr noundef %933)
-  %935 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %934)
-  store i64 %935, ptr %3, align 8
-  br label %1626
+935:                                              ; preds = %2
+  %936 = load ptr, ptr %5, align 8
+  %937 = call i64 @rb_node_rational_literal_val(ptr noundef %936)
+  %938 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %937)
+  store i64 %938, ptr %3, align 8
+  br label %1631
 
-936:                                              ; preds = %2
-  %937 = load ptr, ptr %5, align 8
-  %938 = call i64 @rb_node_imaginary_literal_val(ptr noundef %937)
-  %939 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %938)
-  store i64 %939, ptr %3, align 8
-  br label %1626
+939:                                              ; preds = %2
+  %940 = load ptr, ptr %5, align 8
+  %941 = call i64 @rb_node_imaginary_literal_val(ptr noundef %940)
+  %942 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %941)
+  store i64 %942, ptr %3, align 8
+  br label %1631
 
-940:                                              ; preds = %2
-  %941 = load ptr, ptr %5, align 8
-  %942 = call i64 @rb_node_regx_string_val(ptr noundef %941)
-  %943 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %942)
-  store i64 %943, ptr %3, align 8
-  br label %1626
+943:                                              ; preds = %2
+  %944 = load ptr, ptr %5, align 8
+  %945 = call i64 @rb_node_regx_string_val(ptr noundef %944)
+  %946 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %945)
+  store i64 %946, ptr %3, align 8
+  br label %1631
 
-944:                                              ; preds = %2
-  %945 = load ptr, ptr %4, align 8
-  %946 = load ptr, ptr %5, align 8
-  %947 = getelementptr inbounds %struct.RNode_ONCE, ptr %946, i32 0, i32 1
-  %948 = load ptr, ptr %947, align 8
-  %949 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %945, i64 noundef 1, ptr noundef %948)
-  store i64 %949, ptr %3, align 8
-  br label %1626
+947:                                              ; preds = %2
+  %948 = load ptr, ptr %4, align 8
+  %949 = load ptr, ptr %5, align 8
+  %950 = getelementptr inbounds %struct.RNode_ONCE, ptr %949, i32 0, i32 1
+  %951 = load ptr, ptr %950, align 8
+  %952 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %948, i64 noundef 1, ptr noundef %951)
+  store i64 %952, ptr %3, align 8
+  br label %1631
 
-950:                                              ; preds = %2, %2, %2, %2
-  %951 = load ptr, ptr %5, align 8
-  %952 = getelementptr inbounds %struct.RNode_DSTR, ptr %951, i32 0, i32 3
-  %953 = load ptr, ptr %952, align 8
-  store ptr %953, ptr %13, align 8
+953:                                              ; preds = %2, %2, %2, %2
+  %954 = load ptr, ptr %5, align 8
+  %955 = getelementptr inbounds %struct.RNode_DSTR, ptr %954, i32 0, i32 3
+  %956 = load ptr, ptr %955, align 8
+  store ptr %956, ptr %13, align 8
   store i64 4, ptr %14, align 8
   store i64 4, ptr %15, align 8
-  %954 = load ptr, ptr %13, align 8
-  %955 = icmp ne ptr %954, null
-  br i1 %955, label %956, label %983
-
-956:                                              ; preds = %950
   %957 = load ptr, ptr %13, align 8
-  %958 = getelementptr inbounds %struct.RNode_LIST, ptr %957, i32 0, i32 1
-  %959 = load ptr, ptr %958, align 8
-  %960 = icmp ne ptr %959, null
-  br i1 %960, label %961, label %967
+  %958 = icmp ne ptr %957, null
+  br i1 %958, label %959, label %986
 
-961:                                              ; preds = %956
-  %962 = load ptr, ptr %4, align 8
-  %963 = load ptr, ptr %13, align 8
-  %964 = getelementptr inbounds %struct.RNode_LIST, ptr %963, i32 0, i32 1
-  %965 = load ptr, ptr %964, align 8
-  %966 = call i64 @ast_new_internal(ptr noundef %962, ptr noundef %965)
-  br label %968
+959:                                              ; preds = %953
+  %960 = load ptr, ptr %13, align 8
+  %961 = getelementptr inbounds %struct.RNode_LIST, ptr %960, i32 0, i32 1
+  %962 = load ptr, ptr %961, align 8
+  %963 = icmp ne ptr %962, null
+  br i1 %963, label %964, label %970
 
-967:                                              ; preds = %956
-  br label %968
+964:                                              ; preds = %959
+  %965 = load ptr, ptr %4, align 8
+  %966 = load ptr, ptr %13, align 8
+  %967 = getelementptr inbounds %struct.RNode_LIST, ptr %966, i32 0, i32 1
+  %968 = load ptr, ptr %967, align 8
+  %969 = call i64 @ast_new_internal(ptr noundef %965, ptr noundef %968)
+  br label %971
 
-968:                                              ; preds = %967, %961
-  %969 = phi i64 [ %966, %961 ], [ 4, %967 ]
-  store i64 %969, ptr %14, align 8
-  %970 = load ptr, ptr %13, align 8
-  %971 = getelementptr inbounds %struct.RNode_LIST, ptr %970, i32 0, i32 3
-  %972 = load ptr, ptr %971, align 8
-  %973 = icmp ne ptr %972, null
-  br i1 %973, label %974, label %980
+970:                                              ; preds = %959
+  br label %971
 
-974:                                              ; preds = %968
-  %975 = load ptr, ptr %4, align 8
-  %976 = load ptr, ptr %13, align 8
-  %977 = getelementptr inbounds %struct.RNode_LIST, ptr %976, i32 0, i32 3
-  %978 = load ptr, ptr %977, align 8
-  %979 = call i64 @ast_new_internal(ptr noundef %975, ptr noundef %978)
-  br label %981
+971:                                              ; preds = %970, %964
+  %972 = phi i64 [ %969, %964 ], [ 4, %970 ]
+  store i64 %972, ptr %14, align 8
+  %973 = load ptr, ptr %13, align 8
+  %974 = getelementptr inbounds %struct.RNode_LIST, ptr %973, i32 0, i32 3
+  %975 = load ptr, ptr %974, align 8
+  %976 = icmp ne ptr %975, null
+  br i1 %976, label %977, label %983
 
-980:                                              ; preds = %968
-  br label %981
+977:                                              ; preds = %971
+  %978 = load ptr, ptr %4, align 8
+  %979 = load ptr, ptr %13, align 8
+  %980 = getelementptr inbounds %struct.RNode_LIST, ptr %979, i32 0, i32 3
+  %981 = load ptr, ptr %980, align 8
+  %982 = call i64 @ast_new_internal(ptr noundef %978, ptr noundef %981)
+  br label %984
 
-981:                                              ; preds = %980, %974
-  %982 = phi i64 [ %979, %974 ], [ 4, %980 ]
-  store i64 %982, ptr %15, align 8
-  br label %983
+983:                                              ; preds = %971
+  br label %984
 
-983:                                              ; preds = %981, %950
-  %984 = load ptr, ptr %5, align 8
-  %985 = call i64 @rb_node_dstr_string_val(ptr noundef %984)
-  %986 = load i64, ptr %14, align 8
-  %987 = load i64, ptr %15, align 8
-  %988 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %985, i64 noundef %986, i64 noundef %987)
-  store i64 %988, ptr %3, align 8
-  br label %1626
+984:                                              ; preds = %983, %977
+  %985 = phi i64 [ %982, %977 ], [ 4, %983 ]
+  store i64 %985, ptr %15, align 8
+  br label %986
 
-989:                                              ; preds = %2
-  %990 = load ptr, ptr %5, align 8
-  %991 = call i64 @rb_node_sym_string_val(ptr noundef %990)
-  %992 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %991)
-  store i64 %992, ptr %3, align 8
-  br label %1626
+986:                                              ; preds = %984, %953
+  %987 = load ptr, ptr %5, align 8
+  %988 = call i64 @rb_node_dstr_string_val(ptr noundef %987)
+  %989 = load i64, ptr %14, align 8
+  %990 = load i64, ptr %15, align 8
+  %991 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %988, i64 noundef %989, i64 noundef %990)
+  store i64 %991, ptr %3, align 8
+  br label %1631
 
-993:                                              ; preds = %2
-  %994 = load ptr, ptr %4, align 8
-  %995 = load ptr, ptr %5, align 8
-  %996 = getelementptr inbounds %struct.RNode_EVSTR, ptr %995, i32 0, i32 1
-  %997 = load ptr, ptr %996, align 8
-  %998 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %994, i64 noundef 1, ptr noundef %997)
-  store i64 %998, ptr %3, align 8
-  br label %1626
+992:                                              ; preds = %2
+  %993 = load ptr, ptr %5, align 8
+  %994 = call i64 @rb_node_sym_string_val(ptr noundef %993)
+  %995 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %994)
+  store i64 %995, ptr %3, align 8
+  br label %1631
 
-999:                                              ; preds = %2
-  %1000 = load ptr, ptr %4, align 8
-  %1001 = load ptr, ptr %5, align 8
-  %1002 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %1001, i32 0, i32 1
-  %1003 = load ptr, ptr %1002, align 8
+996:                                              ; preds = %2
+  %997 = load ptr, ptr %4, align 8
+  %998 = load ptr, ptr %5, align 8
+  %999 = getelementptr inbounds %struct.RNode_EVSTR, ptr %998, i32 0, i32 1
+  %1000 = load ptr, ptr %999, align 8
+  %1001 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %997, i64 noundef 1, ptr noundef %1000)
+  store i64 %1001, ptr %3, align 8
+  br label %1631
+
+1002:                                             ; preds = %2
+  %1003 = load ptr, ptr %4, align 8
   %1004 = load ptr, ptr %5, align 8
-  %1005 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %1004, i32 0, i32 2
+  %1005 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %1004, i32 0, i32 1
   %1006 = load ptr, ptr %1005, align 8
-  %1007 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1000, i64 noundef 2, ptr noundef %1003, ptr noundef %1006)
-  store i64 %1007, ptr %3, align 8
-  br label %1626
+  %1007 = load ptr, ptr %5, align 8
+  %1008 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %1007, i32 0, i32 2
+  %1009 = load ptr, ptr %1008, align 8
+  %1010 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1003, i64 noundef 2, ptr noundef %1006, ptr noundef %1009)
+  store i64 %1010, ptr %3, align 8
+  br label %1631
 
-1008:                                             ; preds = %2
-  %1009 = load ptr, ptr %4, align 8
-  %1010 = load ptr, ptr %5, align 8
-  %1011 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %1010, i32 0, i32 1
-  %1012 = load ptr, ptr %1011, align 8
+1011:                                             ; preds = %2
+  %1012 = load ptr, ptr %4, align 8
   %1013 = load ptr, ptr %5, align 8
-  %1014 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %1013, i32 0, i32 2
+  %1014 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %1013, i32 0, i32 1
   %1015 = load ptr, ptr %1014, align 8
-  %1016 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1009, i64 noundef 2, ptr noundef %1012, ptr noundef %1015)
-  store i64 %1016, ptr %3, align 8
-  br label %1626
+  %1016 = load ptr, ptr %5, align 8
+  %1017 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %1016, i32 0, i32 2
+  %1018 = load ptr, ptr %1017, align 8
+  %1019 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1012, i64 noundef 2, ptr noundef %1015, ptr noundef %1018)
+  store i64 %1019, ptr %3, align 8
+  br label %1631
 
-1017:                                             ; preds = %2
-  %1018 = load ptr, ptr %4, align 8
-  %1019 = load ptr, ptr %5, align 8
-  %1020 = getelementptr inbounds %struct.RNode_SPLAT, ptr %1019, i32 0, i32 1
-  %1021 = load ptr, ptr %1020, align 8
-  %1022 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1018, i64 noundef 1, ptr noundef %1021)
-  store i64 %1022, ptr %3, align 8
-  br label %1626
+1020:                                             ; preds = %2
+  %1021 = load ptr, ptr %4, align 8
+  %1022 = load ptr, ptr %5, align 8
+  %1023 = getelementptr inbounds %struct.RNode_SPLAT, ptr %1022, i32 0, i32 1
+  %1024 = load ptr, ptr %1023, align 8
+  %1025 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1021, i64 noundef 1, ptr noundef %1024)
+  store i64 %1025, ptr %3, align 8
+  br label %1631
 
-1023:                                             ; preds = %2
-  %1024 = load ptr, ptr %4, align 8
-  %1025 = load ptr, ptr %5, align 8
-  %1026 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %1025, i32 0, i32 1
-  %1027 = load ptr, ptr %1026, align 8
+1026:                                             ; preds = %2
+  %1027 = load ptr, ptr %4, align 8
   %1028 = load ptr, ptr %5, align 8
-  %1029 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %1028, i32 0, i32 2
+  %1029 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %1028, i32 0, i32 1
   %1030 = load ptr, ptr %1029, align 8
-  %1031 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1024, i64 noundef 2, ptr noundef %1027, ptr noundef %1030)
-  store i64 %1031, ptr %3, align 8
-  br label %1626
+  %1031 = load ptr, ptr %5, align 8
+  %1032 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %1031, i32 0, i32 2
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1027, i64 noundef 2, ptr noundef %1030, ptr noundef %1033)
+  store i64 %1034, ptr %3, align 8
+  br label %1631
 
-1032:                                             ; preds = %2
-  %1033 = load ptr, ptr %5, align 8
-  %1034 = getelementptr inbounds %struct.RNode_DEFN, ptr %1033, i32 0, i32 1
-  %1035 = load i64, ptr %1034, align 8
-  %1036 = call i64 @rb_id2sym(i64 noundef %1035)
-  %1037 = load ptr, ptr %5, align 8
-  %1038 = getelementptr inbounds %struct.RNode_DEFN, ptr %1037, i32 0, i32 2
-  %1039 = load ptr, ptr %1038, align 8
-  %1040 = icmp ne ptr %1039, null
-  br i1 %1040, label %1041, label %1047
+1035:                                             ; preds = %2
+  %1036 = load ptr, ptr %5, align 8
+  %1037 = getelementptr inbounds %struct.RNode_DEFN, ptr %1036, i32 0, i32 1
+  %1038 = load i64, ptr %1037, align 8
+  %1039 = call i64 @rb_id2sym(i64 noundef %1038)
+  %1040 = load ptr, ptr %5, align 8
+  %1041 = getelementptr inbounds %struct.RNode_DEFN, ptr %1040, i32 0, i32 2
+  %1042 = load ptr, ptr %1041, align 8
+  %1043 = icmp ne ptr %1042, null
+  br i1 %1043, label %1044, label %1050
 
-1041:                                             ; preds = %1032
-  %1042 = load ptr, ptr %4, align 8
-  %1043 = load ptr, ptr %5, align 8
-  %1044 = getelementptr inbounds %struct.RNode_DEFN, ptr %1043, i32 0, i32 2
-  %1045 = load ptr, ptr %1044, align 8
-  %1046 = call i64 @ast_new_internal(ptr noundef %1042, ptr noundef %1045)
-  br label %1048
+1044:                                             ; preds = %1035
+  %1045 = load ptr, ptr %4, align 8
+  %1046 = load ptr, ptr %5, align 8
+  %1047 = getelementptr inbounds %struct.RNode_DEFN, ptr %1046, i32 0, i32 2
+  %1048 = load ptr, ptr %1047, align 8
+  %1049 = call i64 @ast_new_internal(ptr noundef %1045, ptr noundef %1048)
+  br label %1051
 
-1047:                                             ; preds = %1032
-  br label %1048
+1050:                                             ; preds = %1035
+  br label %1051
 
-1048:                                             ; preds = %1047, %1041
-  %1049 = phi i64 [ %1046, %1041 ], [ 4, %1047 ]
-  %1050 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1036, i64 noundef %1049)
-  store i64 %1050, ptr %3, align 8
-  br label %1626
+1051:                                             ; preds = %1050, %1044
+  %1052 = phi i64 [ %1049, %1044 ], [ 4, %1050 ]
+  %1053 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1039, i64 noundef %1052)
+  store i64 %1053, ptr %3, align 8
+  br label %1631
 
-1051:                                             ; preds = %2
-  %1052 = load ptr, ptr %5, align 8
-  %1053 = getelementptr inbounds %struct.RNode_DEFS, ptr %1052, i32 0, i32 1
-  %1054 = load ptr, ptr %1053, align 8
-  %1055 = icmp ne ptr %1054, null
-  br i1 %1055, label %1056, label %1062
+1054:                                             ; preds = %2
+  %1055 = load ptr, ptr %5, align 8
+  %1056 = getelementptr inbounds %struct.RNode_DEFS, ptr %1055, i32 0, i32 1
+  %1057 = load ptr, ptr %1056, align 8
+  %1058 = icmp ne ptr %1057, null
+  br i1 %1058, label %1059, label %1065
 
-1056:                                             ; preds = %1051
-  %1057 = load ptr, ptr %4, align 8
-  %1058 = load ptr, ptr %5, align 8
-  %1059 = getelementptr inbounds %struct.RNode_DEFS, ptr %1058, i32 0, i32 1
-  %1060 = load ptr, ptr %1059, align 8
-  %1061 = call i64 @ast_new_internal(ptr noundef %1057, ptr noundef %1060)
-  br label %1063
+1059:                                             ; preds = %1054
+  %1060 = load ptr, ptr %4, align 8
+  %1061 = load ptr, ptr %5, align 8
+  %1062 = getelementptr inbounds %struct.RNode_DEFS, ptr %1061, i32 0, i32 1
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = call i64 @ast_new_internal(ptr noundef %1060, ptr noundef %1063)
+  br label %1066
 
-1062:                                             ; preds = %1051
-  br label %1063
+1065:                                             ; preds = %1054
+  br label %1066
 
-1063:                                             ; preds = %1062, %1056
-  %1064 = phi i64 [ %1061, %1056 ], [ 4, %1062 ]
-  %1065 = load ptr, ptr %5, align 8
-  %1066 = getelementptr inbounds %struct.RNode_DEFS, ptr %1065, i32 0, i32 2
-  %1067 = load i64, ptr %1066, align 8
-  %1068 = call i64 @rb_id2sym(i64 noundef %1067)
-  %1069 = load ptr, ptr %5, align 8
-  %1070 = getelementptr inbounds %struct.RNode_DEFS, ptr %1069, i32 0, i32 3
-  %1071 = load ptr, ptr %1070, align 8
-  %1072 = icmp ne ptr %1071, null
-  br i1 %1072, label %1073, label %1079
+1066:                                             ; preds = %1065, %1059
+  %1067 = phi i64 [ %1064, %1059 ], [ 4, %1065 ]
+  %1068 = load ptr, ptr %5, align 8
+  %1069 = getelementptr inbounds %struct.RNode_DEFS, ptr %1068, i32 0, i32 2
+  %1070 = load i64, ptr %1069, align 8
+  %1071 = call i64 @rb_id2sym(i64 noundef %1070)
+  %1072 = load ptr, ptr %5, align 8
+  %1073 = getelementptr inbounds %struct.RNode_DEFS, ptr %1072, i32 0, i32 3
+  %1074 = load ptr, ptr %1073, align 8
+  %1075 = icmp ne ptr %1074, null
+  br i1 %1075, label %1076, label %1082
 
-1073:                                             ; preds = %1063
-  %1074 = load ptr, ptr %4, align 8
-  %1075 = load ptr, ptr %5, align 8
-  %1076 = getelementptr inbounds %struct.RNode_DEFS, ptr %1075, i32 0, i32 3
-  %1077 = load ptr, ptr %1076, align 8
-  %1078 = call i64 @ast_new_internal(ptr noundef %1074, ptr noundef %1077)
-  br label %1080
+1076:                                             ; preds = %1066
+  %1077 = load ptr, ptr %4, align 8
+  %1078 = load ptr, ptr %5, align 8
+  %1079 = getelementptr inbounds %struct.RNode_DEFS, ptr %1078, i32 0, i32 3
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = call i64 @ast_new_internal(ptr noundef %1077, ptr noundef %1080)
+  br label %1083
 
-1079:                                             ; preds = %1063
-  br label %1080
+1082:                                             ; preds = %1066
+  br label %1083
 
-1080:                                             ; preds = %1079, %1073
-  %1081 = phi i64 [ %1078, %1073 ], [ 4, %1079 ]
-  %1082 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1064, i64 noundef %1068, i64 noundef %1081)
-  store i64 %1082, ptr %3, align 8
-  br label %1626
+1083:                                             ; preds = %1082, %1076
+  %1084 = phi i64 [ %1081, %1076 ], [ 4, %1082 ]
+  %1085 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1067, i64 noundef %1071, i64 noundef %1084)
+  store i64 %1085, ptr %3, align 8
+  br label %1631
 
-1083:                                             ; preds = %2
-  %1084 = load ptr, ptr %4, align 8
-  %1085 = load ptr, ptr %5, align 8
-  %1086 = getelementptr inbounds %struct.RNode_ALIAS, ptr %1085, i32 0, i32 1
-  %1087 = load ptr, ptr %1086, align 8
+1086:                                             ; preds = %2
+  %1087 = load ptr, ptr %4, align 8
   %1088 = load ptr, ptr %5, align 8
-  %1089 = getelementptr inbounds %struct.RNode_ALIAS, ptr %1088, i32 0, i32 2
+  %1089 = getelementptr inbounds %struct.RNode_ALIAS, ptr %1088, i32 0, i32 1
   %1090 = load ptr, ptr %1089, align 8
-  %1091 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1084, i64 noundef 2, ptr noundef %1087, ptr noundef %1090)
-  store i64 %1091, ptr %3, align 8
-  br label %1626
+  %1091 = load ptr, ptr %5, align 8
+  %1092 = getelementptr inbounds %struct.RNode_ALIAS, ptr %1091, i32 0, i32 2
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1087, i64 noundef 2, ptr noundef %1090, ptr noundef %1093)
+  store i64 %1094, ptr %3, align 8
+  br label %1631
 
-1092:                                             ; preds = %2
-  %1093 = load ptr, ptr %5, align 8
-  %1094 = getelementptr inbounds %struct.RNode_VALIAS, ptr %1093, i32 0, i32 1
-  %1095 = load i64, ptr %1094, align 8
-  %1096 = call i64 @rb_id2sym(i64 noundef %1095)
-  %1097 = load ptr, ptr %5, align 8
-  %1098 = getelementptr inbounds %struct.RNode_VALIAS, ptr %1097, i32 0, i32 2
-  %1099 = load i64, ptr %1098, align 8
-  %1100 = call i64 @rb_id2sym(i64 noundef %1099)
-  %1101 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1096, i64 noundef %1100)
-  store i64 %1101, ptr %3, align 8
-  br label %1626
+1095:                                             ; preds = %2
+  %1096 = load ptr, ptr %5, align 8
+  %1097 = getelementptr inbounds %struct.RNode_VALIAS, ptr %1096, i32 0, i32 1
+  %1098 = load i64, ptr %1097, align 8
+  %1099 = call i64 @rb_id2sym(i64 noundef %1098)
+  %1100 = load ptr, ptr %5, align 8
+  %1101 = getelementptr inbounds %struct.RNode_VALIAS, ptr %1100, i32 0, i32 2
+  %1102 = load i64, ptr %1101, align 8
+  %1103 = call i64 @rb_id2sym(i64 noundef %1102)
+  %1104 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1099, i64 noundef %1103)
+  store i64 %1104, ptr %3, align 8
+  br label %1631
 
-1102:                                             ; preds = %2
-  %1103 = load ptr, ptr %4, align 8
-  %1104 = load ptr, ptr %5, align 8
-  %1105 = getelementptr inbounds %struct.RNode_UNDEF, ptr %1104, i32 0, i32 1
-  %1106 = load ptr, ptr %1105, align 8
-  %1107 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1103, i64 noundef 1, ptr noundef %1106)
-  store i64 %1107, ptr %3, align 8
-  br label %1626
+1105:                                             ; preds = %2
+  %1106 = load ptr, ptr %4, align 8
+  %1107 = load ptr, ptr %5, align 8
+  %1108 = getelementptr inbounds %struct.RNode_UNDEF, ptr %1107, i32 0, i32 1
+  %1109 = load ptr, ptr %1108, align 8
+  %1110 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1106, i64 noundef 1, ptr noundef %1109)
+  store i64 %1110, ptr %3, align 8
+  br label %1631
 
-1108:                                             ; preds = %2
-  %1109 = load ptr, ptr %4, align 8
-  %1110 = load ptr, ptr %5, align 8
-  %1111 = getelementptr inbounds %struct.RNode_CLASS, ptr %1110, i32 0, i32 1
-  %1112 = load ptr, ptr %1111, align 8
+1111:                                             ; preds = %2
+  %1112 = load ptr, ptr %4, align 8
   %1113 = load ptr, ptr %5, align 8
-  %1114 = getelementptr inbounds %struct.RNode_CLASS, ptr %1113, i32 0, i32 3
+  %1114 = getelementptr inbounds %struct.RNode_CLASS, ptr %1113, i32 0, i32 1
   %1115 = load ptr, ptr %1114, align 8
   %1116 = load ptr, ptr %5, align 8
-  %1117 = getelementptr inbounds %struct.RNode_CLASS, ptr %1116, i32 0, i32 2
+  %1117 = getelementptr inbounds %struct.RNode_CLASS, ptr %1116, i32 0, i32 3
   %1118 = load ptr, ptr %1117, align 8
-  %1119 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1109, i64 noundef 3, ptr noundef %1112, ptr noundef %1115, ptr noundef %1118)
-  store i64 %1119, ptr %3, align 8
-  br label %1626
+  %1119 = load ptr, ptr %5, align 8
+  %1120 = getelementptr inbounds %struct.RNode_CLASS, ptr %1119, i32 0, i32 2
+  %1121 = load ptr, ptr %1120, align 8
+  %1122 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1112, i64 noundef 3, ptr noundef %1115, ptr noundef %1118, ptr noundef %1121)
+  store i64 %1122, ptr %3, align 8
+  br label %1631
 
-1120:                                             ; preds = %2
-  %1121 = load ptr, ptr %4, align 8
-  %1122 = load ptr, ptr %5, align 8
-  %1123 = getelementptr inbounds %struct.RNode_MODULE, ptr %1122, i32 0, i32 1
-  %1124 = load ptr, ptr %1123, align 8
+1123:                                             ; preds = %2
+  %1124 = load ptr, ptr %4, align 8
   %1125 = load ptr, ptr %5, align 8
-  %1126 = getelementptr inbounds %struct.RNode_MODULE, ptr %1125, i32 0, i32 2
+  %1126 = getelementptr inbounds %struct.RNode_MODULE, ptr %1125, i32 0, i32 1
   %1127 = load ptr, ptr %1126, align 8
-  %1128 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1121, i64 noundef 2, ptr noundef %1124, ptr noundef %1127)
-  store i64 %1128, ptr %3, align 8
-  br label %1626
+  %1128 = load ptr, ptr %5, align 8
+  %1129 = getelementptr inbounds %struct.RNode_MODULE, ptr %1128, i32 0, i32 2
+  %1130 = load ptr, ptr %1129, align 8
+  %1131 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1124, i64 noundef 2, ptr noundef %1127, ptr noundef %1130)
+  store i64 %1131, ptr %3, align 8
+  br label %1631
 
-1129:                                             ; preds = %2
-  %1130 = load ptr, ptr %4, align 8
-  %1131 = load ptr, ptr %5, align 8
-  %1132 = getelementptr inbounds %struct.RNode_SCLASS, ptr %1131, i32 0, i32 1
-  %1133 = load ptr, ptr %1132, align 8
+1132:                                             ; preds = %2
+  %1133 = load ptr, ptr %4, align 8
   %1134 = load ptr, ptr %5, align 8
-  %1135 = getelementptr inbounds %struct.RNode_SCLASS, ptr %1134, i32 0, i32 2
+  %1135 = getelementptr inbounds %struct.RNode_SCLASS, ptr %1134, i32 0, i32 1
   %1136 = load ptr, ptr %1135, align 8
-  %1137 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1130, i64 noundef 2, ptr noundef %1133, ptr noundef %1136)
-  store i64 %1137, ptr %3, align 8
-  br label %1626
+  %1137 = load ptr, ptr %5, align 8
+  %1138 = getelementptr inbounds %struct.RNode_SCLASS, ptr %1137, i32 0, i32 2
+  %1139 = load ptr, ptr %1138, align 8
+  %1140 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1133, i64 noundef 2, ptr noundef %1136, ptr noundef %1139)
+  store i64 %1140, ptr %3, align 8
+  br label %1631
 
-1138:                                             ; preds = %2
-  %1139 = load ptr, ptr %5, align 8
-  %1140 = getelementptr inbounds %struct.RNode_COLON2, ptr %1139, i32 0, i32 1
-  %1141 = load ptr, ptr %1140, align 8
-  %1142 = icmp ne ptr %1141, null
-  br i1 %1142, label %1143, label %1149
+1141:                                             ; preds = %2
+  %1142 = load ptr, ptr %5, align 8
+  %1143 = getelementptr inbounds %struct.RNode_COLON2, ptr %1142, i32 0, i32 1
+  %1144 = load ptr, ptr %1143, align 8
+  %1145 = icmp ne ptr %1144, null
+  br i1 %1145, label %1146, label %1152
 
-1143:                                             ; preds = %1138
-  %1144 = load ptr, ptr %4, align 8
-  %1145 = load ptr, ptr %5, align 8
-  %1146 = getelementptr inbounds %struct.RNode_COLON2, ptr %1145, i32 0, i32 1
-  %1147 = load ptr, ptr %1146, align 8
-  %1148 = call i64 @ast_new_internal(ptr noundef %1144, ptr noundef %1147)
-  br label %1150
+1146:                                             ; preds = %1141
+  %1147 = load ptr, ptr %4, align 8
+  %1148 = load ptr, ptr %5, align 8
+  %1149 = getelementptr inbounds %struct.RNode_COLON2, ptr %1148, i32 0, i32 1
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = call i64 @ast_new_internal(ptr noundef %1147, ptr noundef %1150)
+  br label %1153
 
-1149:                                             ; preds = %1138
-  br label %1150
+1152:                                             ; preds = %1141
+  br label %1153
 
-1150:                                             ; preds = %1149, %1143
-  %1151 = phi i64 [ %1148, %1143 ], [ 4, %1149 ]
-  %1152 = load ptr, ptr %5, align 8
-  %1153 = getelementptr inbounds %struct.RNode_COLON2, ptr %1152, i32 0, i32 2
-  %1154 = load i64, ptr %1153, align 8
-  %1155 = call i64 @rb_id2sym(i64 noundef %1154)
-  %1156 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1151, i64 noundef %1155)
-  store i64 %1156, ptr %3, align 8
-  br label %1626
+1153:                                             ; preds = %1152, %1146
+  %1154 = phi i64 [ %1151, %1146 ], [ 4, %1152 ]
+  %1155 = load ptr, ptr %5, align 8
+  %1156 = getelementptr inbounds %struct.RNode_COLON2, ptr %1155, i32 0, i32 2
+  %1157 = load i64, ptr %1156, align 8
+  %1158 = call i64 @rb_id2sym(i64 noundef %1157)
+  %1159 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1154, i64 noundef %1158)
+  store i64 %1159, ptr %3, align 8
+  br label %1631
 
-1157:                                             ; preds = %2
-  %1158 = load ptr, ptr %5, align 8
-  %1159 = getelementptr inbounds %struct.RNode_COLON3, ptr %1158, i32 0, i32 1
-  %1160 = load i64, ptr %1159, align 8
-  %1161 = call i64 @rb_id2sym(i64 noundef %1160)
-  %1162 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1161)
-  store i64 %1162, ptr %3, align 8
-  br label %1626
+1160:                                             ; preds = %2
+  %1161 = load ptr, ptr %5, align 8
+  %1162 = getelementptr inbounds %struct.RNode_COLON3, ptr %1161, i32 0, i32 1
+  %1163 = load i64, ptr %1162, align 8
+  %1164 = call i64 @rb_id2sym(i64 noundef %1163)
+  %1165 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1164)
+  store i64 %1165, ptr %3, align 8
+  br label %1631
 
-1163:                                             ; preds = %2, %2, %2, %2
-  %1164 = load ptr, ptr %4, align 8
-  %1165 = load ptr, ptr %5, align 8
-  %1166 = getelementptr inbounds %struct.RNode_DOT2, ptr %1165, i32 0, i32 1
-  %1167 = load ptr, ptr %1166, align 8
+1166:                                             ; preds = %2, %2, %2, %2
+  %1167 = load ptr, ptr %4, align 8
   %1168 = load ptr, ptr %5, align 8
-  %1169 = getelementptr inbounds %struct.RNode_DOT2, ptr %1168, i32 0, i32 2
+  %1169 = getelementptr inbounds %struct.RNode_DOT2, ptr %1168, i32 0, i32 1
   %1170 = load ptr, ptr %1169, align 8
-  %1171 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1164, i64 noundef 2, ptr noundef %1167, ptr noundef %1170)
-  store i64 %1171, ptr %3, align 8
-  br label %1626
-
-1172:                                             ; preds = %2
-  %1173 = load ptr, ptr %4, align 8
-  %1174 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1173, i64 noundef 0)
+  %1171 = load ptr, ptr %5, align 8
+  %1172 = getelementptr inbounds %struct.RNode_DOT2, ptr %1171, i32 0, i32 2
+  %1173 = load ptr, ptr %1172, align 8
+  %1174 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1167, i64 noundef 2, ptr noundef %1170, ptr noundef %1173)
   store i64 %1174, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 1175:                                             ; preds = %2
   %1176 = load ptr, ptr %4, align 8
   %1177 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1176, i64 noundef 0)
   store i64 %1177, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 1178:                                             ; preds = %2
   %1179 = load ptr, ptr %4, align 8
   %1180 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1179, i64 noundef 0)
   store i64 %1180, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 1181:                                             ; preds = %2
   %1182 = load ptr, ptr %4, align 8
   %1183 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1182, i64 noundef 0)
   store i64 %1183, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 1184:                                             ; preds = %2
   %1185 = load ptr, ptr %4, align 8
   %1186 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1185, i64 noundef 0)
   store i64 %1186, ptr %3, align 8
-  br label %1626
+  br label %1631
 
 1187:                                             ; preds = %2
   %1188 = load ptr, ptr %4, align 8
-  %1189 = load ptr, ptr %5, align 8
-  %1190 = getelementptr inbounds %struct.RNode_DEFINED, ptr %1189, i32 0, i32 1
-  %1191 = load ptr, ptr %1190, align 8
-  %1192 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1188, i64 noundef 1, ptr noundef %1191)
-  store i64 %1192, ptr %3, align 8
-  br label %1626
+  %1189 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1188, i64 noundef 0)
+  store i64 %1189, ptr %3, align 8
+  br label %1631
 
-1193:                                             ; preds = %2
-  %1194 = load ptr, ptr %4, align 8
-  %1195 = load ptr, ptr %5, align 8
-  %1196 = getelementptr inbounds %struct.RNode_POSTEXE, ptr %1195, i32 0, i32 1
-  %1197 = load ptr, ptr %1196, align 8
-  %1198 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1194, i64 noundef 1, ptr noundef %1197)
-  store i64 %1198, ptr %3, align 8
-  br label %1626
+1190:                                             ; preds = %2
+  %1191 = load ptr, ptr %4, align 8
+  %1192 = load ptr, ptr %5, align 8
+  %1193 = getelementptr inbounds %struct.RNode_DEFINED, ptr %1192, i32 0, i32 1
+  %1194 = load ptr, ptr %1193, align 8
+  %1195 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1191, i64 noundef 1, ptr noundef %1194)
+  store i64 %1195, ptr %3, align 8
+  br label %1631
 
-1199:                                             ; preds = %2
-  %1200 = load ptr, ptr %5, align 8
-  %1201 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1200, i32 0, i32 1
-  %1202 = load ptr, ptr %1201, align 8
-  %1203 = icmp ne ptr %1202, null
-  br i1 %1203, label %1204, label %1210
+1196:                                             ; preds = %2
+  %1197 = load ptr, ptr %4, align 8
+  %1198 = load ptr, ptr %5, align 8
+  %1199 = getelementptr inbounds %struct.RNode_POSTEXE, ptr %1198, i32 0, i32 1
+  %1200 = load ptr, ptr %1199, align 8
+  %1201 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1197, i64 noundef 1, ptr noundef %1200)
+  store i64 %1201, ptr %3, align 8
+  br label %1631
 
-1204:                                             ; preds = %1199
-  %1205 = load ptr, ptr %4, align 8
-  %1206 = load ptr, ptr %5, align 8
-  %1207 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1206, i32 0, i32 1
-  %1208 = load ptr, ptr %1207, align 8
-  %1209 = call i64 @ast_new_internal(ptr noundef %1205, ptr noundef %1208)
-  br label %1211
+1202:                                             ; preds = %2
+  %1203 = load ptr, ptr %5, align 8
+  %1204 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1203, i32 0, i32 1
+  %1205 = load ptr, ptr %1204, align 8
+  %1206 = icmp ne ptr %1205, null
+  br i1 %1206, label %1207, label %1213
 
-1210:                                             ; preds = %1199
-  br label %1211
+1207:                                             ; preds = %1202
+  %1208 = load ptr, ptr %4, align 8
+  %1209 = load ptr, ptr %5, align 8
+  %1210 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1209, i32 0, i32 1
+  %1211 = load ptr, ptr %1210, align 8
+  %1212 = call i64 @ast_new_internal(ptr noundef %1208, ptr noundef %1211)
+  br label %1214
 
-1211:                                             ; preds = %1210, %1204
-  %1212 = phi i64 [ %1209, %1204 ], [ 4, %1210 ]
-  %1213 = load ptr, ptr %5, align 8
-  %1214 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1213, i32 0, i32 2
-  %1215 = load i64, ptr %1214, align 8
-  %1216 = call i64 @rb_id2sym(i64 noundef %1215)
-  %1217 = load ptr, ptr %5, align 8
-  %1218 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1217, i32 0, i32 3
-  %1219 = load ptr, ptr %1218, align 8
-  %1220 = icmp ne ptr %1219, null
-  br i1 %1220, label %1221, label %1227
+1213:                                             ; preds = %1202
+  br label %1214
 
-1221:                                             ; preds = %1211
-  %1222 = load ptr, ptr %4, align 8
-  %1223 = load ptr, ptr %5, align 8
-  %1224 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1223, i32 0, i32 3
-  %1225 = load ptr, ptr %1224, align 8
-  %1226 = call i64 @ast_new_internal(ptr noundef %1222, ptr noundef %1225)
-  br label %1228
+1214:                                             ; preds = %1213, %1207
+  %1215 = phi i64 [ %1212, %1207 ], [ 4, %1213 ]
+  %1216 = load ptr, ptr %5, align 8
+  %1217 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1216, i32 0, i32 2
+  %1218 = load i64, ptr %1217, align 8
+  %1219 = call i64 @rb_id2sym(i64 noundef %1218)
+  %1220 = load ptr, ptr %5, align 8
+  %1221 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1220, i32 0, i32 3
+  %1222 = load ptr, ptr %1221, align 8
+  %1223 = icmp ne ptr %1222, null
+  br i1 %1223, label %1224, label %1230
 
-1227:                                             ; preds = %1211
-  br label %1228
+1224:                                             ; preds = %1214
+  %1225 = load ptr, ptr %4, align 8
+  %1226 = load ptr, ptr %5, align 8
+  %1227 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %1226, i32 0, i32 3
+  %1228 = load ptr, ptr %1227, align 8
+  %1229 = call i64 @ast_new_internal(ptr noundef %1225, ptr noundef %1228)
+  br label %1231
 
-1228:                                             ; preds = %1227, %1221
-  %1229 = phi i64 [ %1226, %1221 ], [ 4, %1227 ]
-  %1230 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1212, i64 noundef %1216, i64 noundef %1229)
-  store i64 %1230, ptr %3, align 8
-  br label %1626
+1230:                                             ; preds = %1214
+  br label %1231
 
-1231:                                             ; preds = %2
-  %1232 = load ptr, ptr %4, align 8
-  %1233 = load ptr, ptr %5, align 8
-  %1234 = getelementptr inbounds %struct.RNode_LAMBDA, ptr %1233, i32 0, i32 1
-  %1235 = load ptr, ptr %1234, align 8
-  %1236 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1232, i64 noundef 1, ptr noundef %1235)
-  store i64 %1236, ptr %3, align 8
-  br label %1626
+1231:                                             ; preds = %1230, %1224
+  %1232 = phi i64 [ %1229, %1224 ], [ 4, %1230 ]
+  %1233 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1215, i64 noundef %1219, i64 noundef %1232)
+  store i64 %1233, ptr %3, align 8
+  br label %1631
 
-1237:                                             ; preds = %2
-  %1238 = load ptr, ptr %4, align 8
-  %1239 = load ptr, ptr %5, align 8
-  %1240 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %1239, i32 0, i32 1
-  %1241 = load ptr, ptr %1240, align 8
+1234:                                             ; preds = %2
+  %1235 = load ptr, ptr %4, align 8
+  %1236 = load ptr, ptr %5, align 8
+  %1237 = getelementptr inbounds %struct.RNode_LAMBDA, ptr %1236, i32 0, i32 1
+  %1238 = load ptr, ptr %1237, align 8
+  %1239 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1235, i64 noundef 1, ptr noundef %1238)
+  store i64 %1239, ptr %3, align 8
+  br label %1631
+
+1240:                                             ; preds = %2
+  %1241 = load ptr, ptr %4, align 8
   %1242 = load ptr, ptr %5, align 8
-  %1243 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %1242, i32 0, i32 2
+  %1243 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %1242, i32 0, i32 1
   %1244 = load ptr, ptr %1243, align 8
-  %1245 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1238, i64 noundef 2, ptr noundef %1241, ptr noundef %1244)
-  store i64 %1245, ptr %3, align 8
-  br label %1626
+  %1245 = load ptr, ptr %5, align 8
+  %1246 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %1245, i32 0, i32 2
+  %1247 = load ptr, ptr %1246, align 8
+  %1248 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1241, i64 noundef 2, ptr noundef %1244, ptr noundef %1247)
+  store i64 %1248, ptr %3, align 8
+  br label %1631
 
-1246:                                             ; preds = %2
-  %1247 = load ptr, ptr %4, align 8
-  %1248 = load ptr, ptr %5, align 8
-  %1249 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %1248, i32 0, i32 1
-  %1250 = load ptr, ptr %1249, align 8
+1249:                                             ; preds = %2
+  %1250 = load ptr, ptr %4, align 8
   %1251 = load ptr, ptr %5, align 8
-  %1252 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %1251, i32 0, i32 2
+  %1252 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %1251, i32 0, i32 1
   %1253 = load ptr, ptr %1252, align 8
-  %1254 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1247, i64 noundef 2, ptr noundef %1250, ptr noundef %1253)
-  store i64 %1254, ptr %3, align 8
-  br label %1626
+  %1254 = load ptr, ptr %5, align 8
+  %1255 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %1254, i32 0, i32 2
+  %1256 = load ptr, ptr %1255, align 8
+  %1257 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1250, i64 noundef 2, ptr noundef %1253, ptr noundef %1256)
+  store i64 %1257, ptr %3, align 8
+  br label %1631
 
-1255:                                             ; preds = %2
-  %1256 = load ptr, ptr %5, align 8
-  %1257 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1256, i32 0, i32 1
-  %1258 = load ptr, ptr %1257, align 8
-  %1259 = icmp ne ptr %1258, inttoptr (i64 -1 to ptr)
-  br i1 %1259, label %1260, label %1269
+1258:                                             ; preds = %2
+  %1259 = load ptr, ptr %5, align 8
+  %1260 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1259, i32 0, i32 1
+  %1261 = load ptr, ptr %1260, align 8
+  %1262 = inttoptr i64 -1 to ptr
+  %1263 = icmp ne ptr %1261, %1262
+  br i1 %1263, label %1264, label %1273
 
-1260:                                             ; preds = %1255
-  %1261 = load ptr, ptr %4, align 8
-  %1262 = load ptr, ptr %5, align 8
-  %1263 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1262, i32 0, i32 1
-  %1264 = load ptr, ptr %1263, align 8
-  %1265 = load ptr, ptr %5, align 8
-  %1266 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1265, i32 0, i32 2
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1261, i64 noundef 2, ptr noundef %1264, ptr noundef %1267)
-  store i64 %1268, ptr %3, align 8
-  br label %1626
+1264:                                             ; preds = %1258
+  %1265 = load ptr, ptr %4, align 8
+  %1266 = load ptr, ptr %5, align 8
+  %1267 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1266, i32 0, i32 1
+  %1268 = load ptr, ptr %1267, align 8
+  %1269 = load ptr, ptr %5, align 8
+  %1270 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1269, i32 0, i32 2
+  %1271 = load ptr, ptr %1270, align 8
+  %1272 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1265, i64 noundef 2, ptr noundef %1268, ptr noundef %1271)
+  store i64 %1272, ptr %3, align 8
+  br label %1631
 
-1269:                                             ; preds = %1255
-  %1270 = call i64 @no_name_rest()
-  %1271 = load ptr, ptr %5, align 8
-  %1272 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1271, i32 0, i32 2
-  %1273 = load ptr, ptr %1272, align 8
-  %1274 = icmp ne ptr %1273, null
-  br i1 %1274, label %1275, label %1281
+1273:                                             ; preds = %1258
+  %1274 = call i64 @no_name_rest()
+  %1275 = load ptr, ptr %5, align 8
+  %1276 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1275, i32 0, i32 2
+  %1277 = load ptr, ptr %1276, align 8
+  %1278 = icmp ne ptr %1277, null
+  br i1 %1278, label %1279, label %1285
 
-1275:                                             ; preds = %1269
-  %1276 = load ptr, ptr %4, align 8
-  %1277 = load ptr, ptr %5, align 8
-  %1278 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1277, i32 0, i32 2
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = call i64 @ast_new_internal(ptr noundef %1276, ptr noundef %1279)
-  br label %1282
+1279:                                             ; preds = %1273
+  %1280 = load ptr, ptr %4, align 8
+  %1281 = load ptr, ptr %5, align 8
+  %1282 = getelementptr inbounds %struct.RNode_POSTARG, ptr %1281, i32 0, i32 2
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = call i64 @ast_new_internal(ptr noundef %1280, ptr noundef %1283)
+  br label %1286
 
-1281:                                             ; preds = %1269
-  br label %1282
+1285:                                             ; preds = %1273
+  br label %1286
 
-1282:                                             ; preds = %1281, %1275
-  %1283 = phi i64 [ %1280, %1275 ], [ 4, %1281 ]
-  %1284 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1270, i64 noundef %1283)
-  store i64 %1284, ptr %3, align 8
-  br label %1626
+1286:                                             ; preds = %1285, %1279
+  %1287 = phi i64 [ %1284, %1279 ], [ 4, %1285 ]
+  %1288 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %1274, i64 noundef %1287)
+  store i64 %1288, ptr %3, align 8
+  br label %1631
 
-1285:                                             ; preds = %2
-  %1286 = load ptr, ptr %5, align 8
-  %1287 = getelementptr inbounds %struct.RNode_ARGS, ptr %1286, i32 0, i32 1
-  store ptr %1287, ptr %16, align 8
-  %1288 = load ptr, ptr %16, align 8
-  %1289 = getelementptr inbounds %struct.rb_args_info, ptr %1288, i32 0, i32 2
-  %1290 = load i32, ptr %1289, align 8
-  %1291 = call i64 @rb_int2num_inline(i32 noundef %1290)
+1289:                                             ; preds = %2
+  %1290 = load ptr, ptr %5, align 8
+  %1291 = getelementptr inbounds %struct.RNode_ARGS, ptr %1290, i32 0, i32 1
+  store ptr %1291, ptr %16, align 8
   %1292 = load ptr, ptr %16, align 8
-  %1293 = getelementptr inbounds %struct.rb_args_info, ptr %1292, i32 0, i32 0
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = icmp ne ptr %1294, null
-  br i1 %1295, label %1296, label %1302
+  %1293 = getelementptr inbounds %struct.rb_args_info, ptr %1292, i32 0, i32 2
+  %1294 = load i32, ptr %1293, align 8
+  %1295 = call i64 @rb_int2num_inline(i32 noundef %1294)
+  %1296 = load ptr, ptr %16, align 8
+  %1297 = getelementptr inbounds %struct.rb_args_info, ptr %1296, i32 0, i32 0
+  %1298 = load ptr, ptr %1297, align 8
+  %1299 = icmp ne ptr %1298, null
+  br i1 %1299, label %1300, label %1306
 
-1296:                                             ; preds = %1285
-  %1297 = load ptr, ptr %4, align 8
-  %1298 = load ptr, ptr %16, align 8
-  %1299 = getelementptr inbounds %struct.rb_args_info, ptr %1298, i32 0, i32 0
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = call i64 @ast_new_internal(ptr noundef %1297, ptr noundef %1300)
-  br label %1303
+1300:                                             ; preds = %1289
+  %1301 = load ptr, ptr %4, align 8
+  %1302 = load ptr, ptr %16, align 8
+  %1303 = getelementptr inbounds %struct.rb_args_info, ptr %1302, i32 0, i32 0
+  %1304 = load ptr, ptr %1303, align 8
+  %1305 = call i64 @ast_new_internal(ptr noundef %1301, ptr noundef %1304)
+  br label %1307
 
-1302:                                             ; preds = %1285
-  br label %1303
+1306:                                             ; preds = %1289
+  br label %1307
 
-1303:                                             ; preds = %1302, %1296
-  %1304 = phi i64 [ %1301, %1296 ], [ 4, %1302 ]
-  %1305 = load ptr, ptr %16, align 8
-  %1306 = getelementptr inbounds %struct.rb_args_info, ptr %1305, i32 0, i32 9
-  %1307 = load ptr, ptr %1306, align 8
-  %1308 = icmp ne ptr %1307, null
-  br i1 %1308, label %1309, label %1315
+1307:                                             ; preds = %1306, %1300
+  %1308 = phi i64 [ %1305, %1300 ], [ 4, %1306 ]
+  %1309 = load ptr, ptr %16, align 8
+  %1310 = getelementptr inbounds %struct.rb_args_info, ptr %1309, i32 0, i32 9
+  %1311 = load ptr, ptr %1310, align 8
+  %1312 = icmp ne ptr %1311, null
+  br i1 %1312, label %1313, label %1319
 
-1309:                                             ; preds = %1303
-  %1310 = load ptr, ptr %4, align 8
-  %1311 = load ptr, ptr %16, align 8
-  %1312 = getelementptr inbounds %struct.rb_args_info, ptr %1311, i32 0, i32 9
-  %1313 = load ptr, ptr %1312, align 8
-  %1314 = call i64 @ast_new_internal(ptr noundef %1310, ptr noundef %1313)
-  br label %1316
+1313:                                             ; preds = %1307
+  %1314 = load ptr, ptr %4, align 8
+  %1315 = load ptr, ptr %16, align 8
+  %1316 = getelementptr inbounds %struct.rb_args_info, ptr %1315, i32 0, i32 9
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = call i64 @ast_new_internal(ptr noundef %1314, ptr noundef %1317)
+  br label %1320
 
-1315:                                             ; preds = %1303
-  br label %1316
+1319:                                             ; preds = %1307
+  br label %1320
 
-1316:                                             ; preds = %1315, %1309
-  %1317 = phi i64 [ %1314, %1309 ], [ 4, %1315 ]
-  %1318 = load ptr, ptr %16, align 8
-  %1319 = getelementptr inbounds %struct.rb_args_info, ptr %1318, i32 0, i32 4
-  %1320 = load i64, ptr %1319, align 8
-  %1321 = call i64 @var_name(i64 noundef %1320)
+1320:                                             ; preds = %1319, %1313
+  %1321 = phi i64 [ %1318, %1313 ], [ 4, %1319 ]
   %1322 = load ptr, ptr %16, align 8
-  %1323 = getelementptr inbounds %struct.rb_args_info, ptr %1322, i32 0, i32 3
-  %1324 = load i32, ptr %1323, align 4
-  %1325 = call i64 @rb_int2num_inline(i32 noundef %1324)
+  %1323 = getelementptr inbounds %struct.rb_args_info, ptr %1322, i32 0, i32 4
+  %1324 = load i64, ptr %1323, align 8
+  %1325 = call i64 @var_name(i64 noundef %1324)
   %1326 = load ptr, ptr %16, align 8
-  %1327 = getelementptr inbounds %struct.rb_args_info, ptr %1326, i32 0, i32 1
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = icmp ne ptr %1328, null
-  br i1 %1329, label %1330, label %1336
+  %1327 = getelementptr inbounds %struct.rb_args_info, ptr %1326, i32 0, i32 3
+  %1328 = load i32, ptr %1327, align 4
+  %1329 = call i64 @rb_int2num_inline(i32 noundef %1328)
+  %1330 = load ptr, ptr %16, align 8
+  %1331 = getelementptr inbounds %struct.rb_args_info, ptr %1330, i32 0, i32 1
+  %1332 = load ptr, ptr %1331, align 8
+  %1333 = icmp ne ptr %1332, null
+  br i1 %1333, label %1334, label %1340
 
-1330:                                             ; preds = %1316
-  %1331 = load ptr, ptr %4, align 8
-  %1332 = load ptr, ptr %16, align 8
-  %1333 = getelementptr inbounds %struct.rb_args_info, ptr %1332, i32 0, i32 1
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = call i64 @ast_new_internal(ptr noundef %1331, ptr noundef %1334)
-  br label %1337
+1334:                                             ; preds = %1320
+  %1335 = load ptr, ptr %4, align 8
+  %1336 = load ptr, ptr %16, align 8
+  %1337 = getelementptr inbounds %struct.rb_args_info, ptr %1336, i32 0, i32 1
+  %1338 = load ptr, ptr %1337, align 8
+  %1339 = call i64 @ast_new_internal(ptr noundef %1335, ptr noundef %1338)
+  br label %1341
 
-1336:                                             ; preds = %1316
-  br label %1337
+1340:                                             ; preds = %1320
+  br label %1341
 
-1337:                                             ; preds = %1336, %1330
-  %1338 = phi i64 [ %1335, %1330 ], [ 4, %1336 ]
-  %1339 = load ptr, ptr %16, align 8
-  %1340 = getelementptr inbounds %struct.rb_args_info, ptr %1339, i32 0, i32 5
-  %1341 = load i64, ptr %1340, align 8
-  %1342 = icmp eq i64 %1341, 1
-  br i1 %1342, label %1343, label %1347
+1341:                                             ; preds = %1340, %1334
+  %1342 = phi i64 [ %1339, %1334 ], [ 4, %1340 ]
+  %1343 = load ptr, ptr %16, align 8
+  %1344 = getelementptr inbounds %struct.rb_args_info, ptr %1343, i32 0, i32 5
+  %1345 = load i64, ptr %1344, align 8
+  %1346 = icmp eq i64 %1345, 1
+  br i1 %1346, label %1347, label %1351
 
-1343:                                             ; preds = %1337
-  %1344 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.31, ptr noundef @.str.32) #14
-  store i64 %1344, ptr %17, align 8
-  %1345 = load i64, ptr %17, align 8
-  %1346 = call i64 @rb_id2sym(i64 noundef %1345)
-  br label %1352
+1347:                                             ; preds = %1341
+  %1348 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.31, ptr noundef @.str.32) #14
+  store i64 %1348, ptr %17, align 8
+  %1349 = load i64, ptr %17, align 8
+  %1350 = call i64 @rb_id2sym(i64 noundef %1349)
+  br label %1356
 
-1347:                                             ; preds = %1337
-  %1348 = load ptr, ptr %16, align 8
-  %1349 = getelementptr inbounds %struct.rb_args_info, ptr %1348, i32 0, i32 5
-  %1350 = load i64, ptr %1349, align 8
-  %1351 = call i64 @var_name(i64 noundef %1350)
-  br label %1352
+1351:                                             ; preds = %1341
+  %1352 = load ptr, ptr %16, align 8
+  %1353 = getelementptr inbounds %struct.rb_args_info, ptr %1352, i32 0, i32 5
+  %1354 = load i64, ptr %1353, align 8
+  %1355 = call i64 @var_name(i64 noundef %1354)
+  br label %1356
 
-1352:                                             ; preds = %1347, %1343
-  %1353 = phi i64 [ %1346, %1343 ], [ %1351, %1347 ]
-  %1354 = load ptr, ptr %16, align 8
-  %1355 = getelementptr inbounds %struct.rb_args_info, ptr %1354, i32 0, i32 10
-  %1356 = load i8, ptr %1355, align 8
-  %1357 = and i8 %1356, 1
-  %1358 = zext i8 %1357 to i32
-  %1359 = icmp ne i32 %1358, 0
-  br i1 %1359, label %1360, label %1361
+1356:                                             ; preds = %1351, %1347
+  %1357 = phi i64 [ %1350, %1347 ], [ %1355, %1351 ]
+  %1358 = load ptr, ptr %16, align 8
+  %1359 = getelementptr inbounds %struct.rb_args_info, ptr %1358, i32 0, i32 10
+  %1360 = load i8, ptr %1359, align 8
+  %1361 = and i8 %1360, 1
+  %1362 = zext i8 %1361 to i32
+  %1363 = icmp ne i32 %1362, 0
+  br i1 %1363, label %1364, label %1365
 
-1360:                                             ; preds = %1352
-  br label %1375
+1364:                                             ; preds = %1356
+  br label %1379
 
-1361:                                             ; preds = %1352
-  %1362 = load ptr, ptr %16, align 8
-  %1363 = getelementptr inbounds %struct.rb_args_info, ptr %1362, i32 0, i32 7
-  %1364 = load ptr, ptr %1363, align 8
-  %1365 = icmp ne ptr %1364, null
-  br i1 %1365, label %1366, label %1372
+1365:                                             ; preds = %1356
+  %1366 = load ptr, ptr %16, align 8
+  %1367 = getelementptr inbounds %struct.rb_args_info, ptr %1366, i32 0, i32 7
+  %1368 = load ptr, ptr %1367, align 8
+  %1369 = icmp ne ptr %1368, null
+  br i1 %1369, label %1370, label %1376
 
-1366:                                             ; preds = %1361
-  %1367 = load ptr, ptr %4, align 8
-  %1368 = load ptr, ptr %16, align 8
-  %1369 = getelementptr inbounds %struct.rb_args_info, ptr %1368, i32 0, i32 7
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = call i64 @ast_new_internal(ptr noundef %1367, ptr noundef %1370)
-  br label %1373
+1370:                                             ; preds = %1365
+  %1371 = load ptr, ptr %4, align 8
+  %1372 = load ptr, ptr %16, align 8
+  %1373 = getelementptr inbounds %struct.rb_args_info, ptr %1372, i32 0, i32 7
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = call i64 @ast_new_internal(ptr noundef %1371, ptr noundef %1374)
+  br label %1377
 
-1372:                                             ; preds = %1361
-  br label %1373
+1376:                                             ; preds = %1365
+  br label %1377
 
-1373:                                             ; preds = %1372, %1366
-  %1374 = phi i64 [ %1371, %1366 ], [ 4, %1372 ]
-  br label %1375
+1377:                                             ; preds = %1376, %1370
+  %1378 = phi i64 [ %1375, %1370 ], [ 4, %1376 ]
+  br label %1379
 
-1375:                                             ; preds = %1373, %1360
-  %1376 = phi i64 [ 0, %1360 ], [ %1374, %1373 ]
-  %1377 = load ptr, ptr %16, align 8
-  %1378 = getelementptr inbounds %struct.rb_args_info, ptr %1377, i32 0, i32 10
-  %1379 = load i8, ptr %1378, align 8
-  %1380 = and i8 %1379, 1
-  %1381 = zext i8 %1380 to i32
-  %1382 = icmp ne i32 %1381, 0
-  br i1 %1382, label %1383, label %1384
+1379:                                             ; preds = %1377, %1364
+  %1380 = phi i64 [ 0, %1364 ], [ %1378, %1377 ]
+  %1381 = load ptr, ptr %16, align 8
+  %1382 = getelementptr inbounds %struct.rb_args_info, ptr %1381, i32 0, i32 10
+  %1383 = load i8, ptr %1382, align 8
+  %1384 = and i8 %1383, 1
+  %1385 = zext i8 %1384 to i32
+  %1386 = icmp ne i32 %1385, 0
+  br i1 %1386, label %1387, label %1388
 
-1383:                                             ; preds = %1375
-  br label %1398
+1387:                                             ; preds = %1379
+  br label %1402
 
-1384:                                             ; preds = %1375
-  %1385 = load ptr, ptr %16, align 8
-  %1386 = getelementptr inbounds %struct.rb_args_info, ptr %1385, i32 0, i32 8
-  %1387 = load ptr, ptr %1386, align 8
-  %1388 = icmp ne ptr %1387, null
-  br i1 %1388, label %1389, label %1395
+1388:                                             ; preds = %1379
+  %1389 = load ptr, ptr %16, align 8
+  %1390 = getelementptr inbounds %struct.rb_args_info, ptr %1389, i32 0, i32 8
+  %1391 = load ptr, ptr %1390, align 8
+  %1392 = icmp ne ptr %1391, null
+  br i1 %1392, label %1393, label %1399
 
-1389:                                             ; preds = %1384
-  %1390 = load ptr, ptr %4, align 8
-  %1391 = load ptr, ptr %16, align 8
-  %1392 = getelementptr inbounds %struct.rb_args_info, ptr %1391, i32 0, i32 8
-  %1393 = load ptr, ptr %1392, align 8
-  %1394 = call i64 @ast_new_internal(ptr noundef %1390, ptr noundef %1393)
-  br label %1396
+1393:                                             ; preds = %1388
+  %1394 = load ptr, ptr %4, align 8
+  %1395 = load ptr, ptr %16, align 8
+  %1396 = getelementptr inbounds %struct.rb_args_info, ptr %1395, i32 0, i32 8
+  %1397 = load ptr, ptr %1396, align 8
+  %1398 = call i64 @ast_new_internal(ptr noundef %1394, ptr noundef %1397)
+  br label %1400
 
-1395:                                             ; preds = %1384
-  br label %1396
+1399:                                             ; preds = %1388
+  br label %1400
 
-1396:                                             ; preds = %1395, %1389
-  %1397 = phi i64 [ %1394, %1389 ], [ 4, %1395 ]
-  br label %1398
+1400:                                             ; preds = %1399, %1393
+  %1401 = phi i64 [ %1398, %1393 ], [ 4, %1399 ]
+  br label %1402
 
-1398:                                             ; preds = %1396, %1383
-  %1399 = phi i64 [ 0, %1383 ], [ %1397, %1396 ]
-  %1400 = load ptr, ptr %16, align 8
-  %1401 = getelementptr inbounds %struct.rb_args_info, ptr %1400, i32 0, i32 6
-  %1402 = load i64, ptr %1401, align 8
-  %1403 = call i64 @var_name(i64 noundef %1402)
-  %1404 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 10, i64 noundef %1291, i64 noundef %1304, i64 noundef %1317, i64 noundef %1321, i64 noundef %1325, i64 noundef %1338, i64 noundef %1353, i64 noundef %1376, i64 noundef %1399, i64 noundef %1403)
-  store i64 %1404, ptr %3, align 8
-  br label %1626
+1402:                                             ; preds = %1400, %1387
+  %1403 = phi i64 [ 0, %1387 ], [ %1401, %1400 ]
+  %1404 = load ptr, ptr %16, align 8
+  %1405 = getelementptr inbounds %struct.rb_args_info, ptr %1404, i32 0, i32 6
+  %1406 = load i64, ptr %1405, align 8
+  %1407 = call i64 @var_name(i64 noundef %1406)
+  %1408 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 10, i64 noundef %1295, i64 noundef %1308, i64 noundef %1321, i64 noundef %1325, i64 noundef %1329, i64 noundef %1342, i64 noundef %1357, i64 noundef %1380, i64 noundef %1403, i64 noundef %1407)
+  store i64 %1408, ptr %3, align 8
+  br label %1631
 
-1405:                                             ; preds = %2
-  %1406 = load ptr, ptr %5, align 8
-  %1407 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1406, i32 0, i32 1
-  %1408 = load ptr, ptr %1407, align 8
-  store ptr %1408, ptr %18, align 8
-  %1409 = load ptr, ptr %18, align 8
-  %1410 = icmp ne ptr %1409, null
-  br i1 %1410, label %1411, label %1415
+1409:                                             ; preds = %2
+  %1410 = load ptr, ptr %5, align 8
+  %1411 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1410, i32 0, i32 1
+  %1412 = load ptr, ptr %1411, align 8
+  store ptr %1412, ptr %18, align 8
+  %1413 = load ptr, ptr %18, align 8
+  %1414 = icmp ne ptr %1413, null
+  br i1 %1414, label %1415, label %1419
 
-1411:                                             ; preds = %1405
-  %1412 = load ptr, ptr %18, align 8
-  %1413 = getelementptr inbounds %struct.rb_ast_id_table, ptr %1412, i32 0, i32 0
-  %1414 = load i32, ptr %1413, align 8
-  br label %1416
+1415:                                             ; preds = %1409
+  %1416 = load ptr, ptr %18, align 8
+  %1417 = getelementptr inbounds %struct.rb_ast_id_table, ptr %1416, i32 0, i32 0
+  %1418 = load i32, ptr %1417, align 8
+  br label %1420
 
-1415:                                             ; preds = %1405
-  br label %1416
+1419:                                             ; preds = %1409
+  br label %1420
 
-1416:                                             ; preds = %1415, %1411
-  %1417 = phi i32 [ %1414, %1411 ], [ 0, %1415 ]
-  store i32 %1417, ptr %20, align 4
-  %1418 = load i32, ptr %20, align 4
-  %1419 = sext i32 %1418 to i64
-  %1420 = call i64 @rb_ary_new_capa(i64 noundef %1419)
-  store i64 %1420, ptr %21, align 8
+1420:                                             ; preds = %1419, %1415
+  %1421 = phi i32 [ %1418, %1415 ], [ 0, %1419 ]
+  store i32 %1421, ptr %20, align 4
+  %1422 = load i32, ptr %20, align 4
+  %1423 = sext i32 %1422 to i64
+  %1424 = call i64 @rb_ary_new_capa(i64 noundef %1423)
+  store i64 %1424, ptr %21, align 8
   store i32 0, ptr %19, align 4
-  br label %1421
+  br label %1425
 
-1421:                                             ; preds = %1435, %1416
-  %1422 = load i32, ptr %19, align 4
-  %1423 = load i32, ptr %20, align 4
-  %1424 = icmp slt i32 %1422, %1423
-  br i1 %1424, label %1425, label %1438
+1425:                                             ; preds = %1439, %1420
+  %1426 = load i32, ptr %19, align 4
+  %1427 = load i32, ptr %20, align 4
+  %1428 = icmp slt i32 %1426, %1427
+  br i1 %1428, label %1429, label %1442
 
-1425:                                             ; preds = %1421
-  %1426 = load i64, ptr %21, align 8
-  %1427 = load ptr, ptr %18, align 8
-  %1428 = getelementptr inbounds %struct.rb_ast_id_table, ptr %1427, i32 0, i32 1
-  %1429 = load i32, ptr %19, align 4
-  %1430 = sext i32 %1429 to i64
-  %1431 = getelementptr [0 x i64], ptr %1428, i64 0, i64 %1430
-  %1432 = load i64, ptr %1431, align 8
-  %1433 = call i64 @var_name(i64 noundef %1432)
-  %1434 = call i64 @rb_ary_push(i64 noundef %1426, i64 noundef %1433)
-  br label %1435
+1429:                                             ; preds = %1425
+  %1430 = load i64, ptr %21, align 8
+  %1431 = load ptr, ptr %18, align 8
+  %1432 = getelementptr inbounds %struct.rb_ast_id_table, ptr %1431, i32 0, i32 1
+  %1433 = load i32, ptr %19, align 4
+  %1434 = sext i32 %1433 to i64
+  %1435 = getelementptr [0 x i64], ptr %1432, i64 0, i64 %1434
+  %1436 = load i64, ptr %1435, align 8
+  %1437 = call i64 @var_name(i64 noundef %1436)
+  %1438 = call i64 @rb_ary_push(i64 noundef %1430, i64 noundef %1437)
+  br label %1439
 
-1435:                                             ; preds = %1425
-  %1436 = load i32, ptr %19, align 4
-  %1437 = add i32 %1436, 1
-  store i32 %1437, ptr %19, align 4
-  br label %1421, !llvm.loop !10
+1439:                                             ; preds = %1429
+  %1440 = load i32, ptr %19, align 4
+  %1441 = add i32 %1440, 1
+  store i32 %1441, ptr %19, align 4
+  br label %1425, !llvm.loop !10
 
-1438:                                             ; preds = %1421
-  %1439 = load i64, ptr %21, align 8
-  %1440 = load ptr, ptr %5, align 8
-  %1441 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1440, i32 0, i32 3
-  %1442 = load ptr, ptr %1441, align 8
-  %1443 = icmp ne ptr %1442, null
-  br i1 %1443, label %1444, label %1450
+1442:                                             ; preds = %1425
+  %1443 = load i64, ptr %21, align 8
+  %1444 = load ptr, ptr %5, align 8
+  %1445 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1444, i32 0, i32 3
+  %1446 = load ptr, ptr %1445, align 8
+  %1447 = icmp ne ptr %1446, null
+  br i1 %1447, label %1448, label %1454
 
-1444:                                             ; preds = %1438
-  %1445 = load ptr, ptr %4, align 8
-  %1446 = load ptr, ptr %5, align 8
-  %1447 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1446, i32 0, i32 3
-  %1448 = load ptr, ptr %1447, align 8
-  %1449 = call i64 @ast_new_internal(ptr noundef %1445, ptr noundef %1448)
-  br label %1451
+1448:                                             ; preds = %1442
+  %1449 = load ptr, ptr %4, align 8
+  %1450 = load ptr, ptr %5, align 8
+  %1451 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1450, i32 0, i32 3
+  %1452 = load ptr, ptr %1451, align 8
+  %1453 = call i64 @ast_new_internal(ptr noundef %1449, ptr noundef %1452)
+  br label %1455
 
-1450:                                             ; preds = %1438
-  br label %1451
+1454:                                             ; preds = %1442
+  br label %1455
 
-1451:                                             ; preds = %1450, %1444
-  %1452 = phi i64 [ %1449, %1444 ], [ 4, %1450 ]
-  %1453 = load ptr, ptr %5, align 8
-  %1454 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1453, i32 0, i32 2
-  %1455 = load ptr, ptr %1454, align 8
-  %1456 = icmp ne ptr %1455, null
-  br i1 %1456, label %1457, label %1463
+1455:                                             ; preds = %1454, %1448
+  %1456 = phi i64 [ %1453, %1448 ], [ 4, %1454 ]
+  %1457 = load ptr, ptr %5, align 8
+  %1458 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1457, i32 0, i32 2
+  %1459 = load ptr, ptr %1458, align 8
+  %1460 = icmp ne ptr %1459, null
+  br i1 %1460, label %1461, label %1467
 
-1457:                                             ; preds = %1451
-  %1458 = load ptr, ptr %4, align 8
-  %1459 = load ptr, ptr %5, align 8
-  %1460 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1459, i32 0, i32 2
-  %1461 = load ptr, ptr %1460, align 8
-  %1462 = call i64 @ast_new_internal(ptr noundef %1458, ptr noundef %1461)
-  br label %1464
+1461:                                             ; preds = %1455
+  %1462 = load ptr, ptr %4, align 8
+  %1463 = load ptr, ptr %5, align 8
+  %1464 = getelementptr inbounds %struct.RNode_SCOPE, ptr %1463, i32 0, i32 2
+  %1465 = load ptr, ptr %1464, align 8
+  %1466 = call i64 @ast_new_internal(ptr noundef %1462, ptr noundef %1465)
+  br label %1468
 
-1463:                                             ; preds = %1451
-  br label %1464
+1467:                                             ; preds = %1455
+  br label %1468
 
-1464:                                             ; preds = %1463, %1457
-  %1465 = phi i64 [ %1462, %1457 ], [ 4, %1463 ]
-  %1466 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1439, i64 noundef %1452, i64 noundef %1465)
-  store i64 %1466, ptr %3, align 8
-  br label %1626
+1468:                                             ; preds = %1467, %1461
+  %1469 = phi i64 [ %1466, %1461 ], [ 4, %1467 ]
+  %1470 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1443, i64 noundef %1456, i64 noundef %1469)
+  store i64 %1470, ptr %3, align 8
+  br label %1631
 
-1467:                                             ; preds = %2
-  %1468 = load ptr, ptr %4, align 8
-  %1469 = load ptr, ptr %5, align 8
-  %1470 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1469, i32 0, i32 3
-  %1471 = load ptr, ptr %1470, align 8
-  %1472 = call i64 @rest_arg(ptr noundef %1468, ptr noundef %1471)
-  store i64 %1472, ptr %22, align 8
+1471:                                             ; preds = %2
+  %1472 = load ptr, ptr %4, align 8
   %1473 = load ptr, ptr %5, align 8
-  %1474 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1473, i32 0, i32 1
+  %1474 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1473, i32 0, i32 3
   %1475 = load ptr, ptr %1474, align 8
-  %1476 = icmp ne ptr %1475, null
-  br i1 %1476, label %1477, label %1483
+  %1476 = call i64 @rest_arg(ptr noundef %1472, ptr noundef %1475)
+  store i64 %1476, ptr %22, align 8
+  %1477 = load ptr, ptr %5, align 8
+  %1478 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1477, i32 0, i32 1
+  %1479 = load ptr, ptr %1478, align 8
+  %1480 = icmp ne ptr %1479, null
+  br i1 %1480, label %1481, label %1487
 
-1477:                                             ; preds = %1467
-  %1478 = load ptr, ptr %4, align 8
-  %1479 = load ptr, ptr %5, align 8
-  %1480 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1479, i32 0, i32 1
-  %1481 = load ptr, ptr %1480, align 8
-  %1482 = call i64 @ast_new_internal(ptr noundef %1478, ptr noundef %1481)
-  br label %1484
+1481:                                             ; preds = %1471
+  %1482 = load ptr, ptr %4, align 8
+  %1483 = load ptr, ptr %5, align 8
+  %1484 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1483, i32 0, i32 1
+  %1485 = load ptr, ptr %1484, align 8
+  %1486 = call i64 @ast_new_internal(ptr noundef %1482, ptr noundef %1485)
+  br label %1488
 
-1483:                                             ; preds = %1467
-  br label %1484
+1487:                                             ; preds = %1471
+  br label %1488
 
-1484:                                             ; preds = %1483, %1477
-  %1485 = phi i64 [ %1482, %1477 ], [ 4, %1483 ]
-  %1486 = load ptr, ptr %5, align 8
-  %1487 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1486, i32 0, i32 2
-  %1488 = load ptr, ptr %1487, align 8
-  %1489 = icmp ne ptr %1488, null
-  br i1 %1489, label %1490, label %1496
+1488:                                             ; preds = %1487, %1481
+  %1489 = phi i64 [ %1486, %1481 ], [ 4, %1487 ]
+  %1490 = load ptr, ptr %5, align 8
+  %1491 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1490, i32 0, i32 2
+  %1492 = load ptr, ptr %1491, align 8
+  %1493 = icmp ne ptr %1492, null
+  br i1 %1493, label %1494, label %1500
 
-1490:                                             ; preds = %1484
-  %1491 = load ptr, ptr %4, align 8
-  %1492 = load ptr, ptr %5, align 8
-  %1493 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1492, i32 0, i32 2
-  %1494 = load ptr, ptr %1493, align 8
-  %1495 = call i64 @ast_new_internal(ptr noundef %1491, ptr noundef %1494)
-  br label %1497
+1494:                                             ; preds = %1488
+  %1495 = load ptr, ptr %4, align 8
+  %1496 = load ptr, ptr %5, align 8
+  %1497 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1496, i32 0, i32 2
+  %1498 = load ptr, ptr %1497, align 8
+  %1499 = call i64 @ast_new_internal(ptr noundef %1495, ptr noundef %1498)
+  br label %1501
 
-1496:                                             ; preds = %1484
-  br label %1497
+1500:                                             ; preds = %1488
+  br label %1501
 
-1497:                                             ; preds = %1496, %1490
-  %1498 = phi i64 [ %1495, %1490 ], [ 4, %1496 ]
-  %1499 = load i64, ptr %22, align 8
-  %1500 = load ptr, ptr %5, align 8
-  %1501 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1500, i32 0, i32 4
-  %1502 = load ptr, ptr %1501, align 8
-  %1503 = icmp ne ptr %1502, null
-  br i1 %1503, label %1504, label %1510
+1501:                                             ; preds = %1500, %1494
+  %1502 = phi i64 [ %1499, %1494 ], [ 4, %1500 ]
+  %1503 = load i64, ptr %22, align 8
+  %1504 = load ptr, ptr %5, align 8
+  %1505 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1504, i32 0, i32 4
+  %1506 = load ptr, ptr %1505, align 8
+  %1507 = icmp ne ptr %1506, null
+  br i1 %1507, label %1508, label %1514
 
-1504:                                             ; preds = %1497
-  %1505 = load ptr, ptr %4, align 8
-  %1506 = load ptr, ptr %5, align 8
-  %1507 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1506, i32 0, i32 4
-  %1508 = load ptr, ptr %1507, align 8
-  %1509 = call i64 @ast_new_internal(ptr noundef %1505, ptr noundef %1508)
-  br label %1511
+1508:                                             ; preds = %1501
+  %1509 = load ptr, ptr %4, align 8
+  %1510 = load ptr, ptr %5, align 8
+  %1511 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %1510, i32 0, i32 4
+  %1512 = load ptr, ptr %1511, align 8
+  %1513 = call i64 @ast_new_internal(ptr noundef %1509, ptr noundef %1512)
+  br label %1515
 
-1510:                                             ; preds = %1497
-  br label %1511
+1514:                                             ; preds = %1501
+  br label %1515
 
-1511:                                             ; preds = %1510, %1504
-  %1512 = phi i64 [ %1509, %1504 ], [ 4, %1510 ]
-  %1513 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %1485, i64 noundef %1498, i64 noundef %1499, i64 noundef %1512)
-  store i64 %1513, ptr %3, align 8
-  br label %1626
+1515:                                             ; preds = %1514, %1508
+  %1516 = phi i64 [ %1513, %1508 ], [ 4, %1514 ]
+  %1517 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %1489, i64 noundef %1502, i64 noundef %1503, i64 noundef %1516)
+  store i64 %1517, ptr %3, align 8
+  br label %1631
 
-1514:                                             ; preds = %2
-  %1515 = load ptr, ptr %4, align 8
-  %1516 = load ptr, ptr %5, align 8
-  %1517 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1516, i32 0, i32 2
-  %1518 = load ptr, ptr %1517, align 8
-  %1519 = call i64 @rest_arg(ptr noundef %1515, ptr noundef %1518)
-  store i64 %1519, ptr %23, align 8
-  %1520 = load ptr, ptr %4, align 8
-  %1521 = load ptr, ptr %5, align 8
-  %1522 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1521, i32 0, i32 4
-  %1523 = load ptr, ptr %1522, align 8
-  %1524 = call i64 @rest_arg(ptr noundef %1520, ptr noundef %1523)
-  store i64 %1524, ptr %24, align 8
+1518:                                             ; preds = %2
+  %1519 = load ptr, ptr %4, align 8
+  %1520 = load ptr, ptr %5, align 8
+  %1521 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1520, i32 0, i32 2
+  %1522 = load ptr, ptr %1521, align 8
+  %1523 = call i64 @rest_arg(ptr noundef %1519, ptr noundef %1522)
+  store i64 %1523, ptr %23, align 8
+  %1524 = load ptr, ptr %4, align 8
   %1525 = load ptr, ptr %5, align 8
-  %1526 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1525, i32 0, i32 1
+  %1526 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1525, i32 0, i32 4
   %1527 = load ptr, ptr %1526, align 8
-  %1528 = icmp ne ptr %1527, null
-  br i1 %1528, label %1529, label %1535
+  %1528 = call i64 @rest_arg(ptr noundef %1524, ptr noundef %1527)
+  store i64 %1528, ptr %24, align 8
+  %1529 = load ptr, ptr %5, align 8
+  %1530 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1529, i32 0, i32 1
+  %1531 = load ptr, ptr %1530, align 8
+  %1532 = icmp ne ptr %1531, null
+  br i1 %1532, label %1533, label %1539
 
-1529:                                             ; preds = %1514
-  %1530 = load ptr, ptr %4, align 8
-  %1531 = load ptr, ptr %5, align 8
-  %1532 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1531, i32 0, i32 1
-  %1533 = load ptr, ptr %1532, align 8
-  %1534 = call i64 @ast_new_internal(ptr noundef %1530, ptr noundef %1533)
-  br label %1536
+1533:                                             ; preds = %1518
+  %1534 = load ptr, ptr %4, align 8
+  %1535 = load ptr, ptr %5, align 8
+  %1536 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1535, i32 0, i32 1
+  %1537 = load ptr, ptr %1536, align 8
+  %1538 = call i64 @ast_new_internal(ptr noundef %1534, ptr noundef %1537)
+  br label %1540
 
-1535:                                             ; preds = %1514
-  br label %1536
+1539:                                             ; preds = %1518
+  br label %1540
 
-1536:                                             ; preds = %1535, %1529
-  %1537 = phi i64 [ %1534, %1529 ], [ 4, %1535 ]
-  %1538 = load i64, ptr %23, align 8
-  %1539 = load ptr, ptr %5, align 8
-  %1540 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1539, i32 0, i32 3
-  %1541 = load ptr, ptr %1540, align 8
-  %1542 = icmp ne ptr %1541, null
-  br i1 %1542, label %1543, label %1549
+1540:                                             ; preds = %1539, %1533
+  %1541 = phi i64 [ %1538, %1533 ], [ 4, %1539 ]
+  %1542 = load i64, ptr %23, align 8
+  %1543 = load ptr, ptr %5, align 8
+  %1544 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1543, i32 0, i32 3
+  %1545 = load ptr, ptr %1544, align 8
+  %1546 = icmp ne ptr %1545, null
+  br i1 %1546, label %1547, label %1553
 
-1543:                                             ; preds = %1536
-  %1544 = load ptr, ptr %4, align 8
-  %1545 = load ptr, ptr %5, align 8
-  %1546 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1545, i32 0, i32 3
-  %1547 = load ptr, ptr %1546, align 8
-  %1548 = call i64 @ast_new_internal(ptr noundef %1544, ptr noundef %1547)
-  br label %1550
+1547:                                             ; preds = %1540
+  %1548 = load ptr, ptr %4, align 8
+  %1549 = load ptr, ptr %5, align 8
+  %1550 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %1549, i32 0, i32 3
+  %1551 = load ptr, ptr %1550, align 8
+  %1552 = call i64 @ast_new_internal(ptr noundef %1548, ptr noundef %1551)
+  br label %1554
 
-1549:                                             ; preds = %1536
-  br label %1550
+1553:                                             ; preds = %1540
+  br label %1554
 
-1550:                                             ; preds = %1549, %1543
-  %1551 = phi i64 [ %1548, %1543 ], [ 4, %1549 ]
-  %1552 = load i64, ptr %24, align 8
-  %1553 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %1537, i64 noundef %1538, i64 noundef %1551, i64 noundef %1552)
-  store i64 %1553, ptr %3, align 8
-  br label %1626
+1554:                                             ; preds = %1553, %1547
+  %1555 = phi i64 [ %1552, %1547 ], [ 4, %1553 ]
+  %1556 = load i64, ptr %24, align 8
+  %1557 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %1541, i64 noundef %1542, i64 noundef %1555, i64 noundef %1556)
+  store i64 %1557, ptr %3, align 8
+  br label %1631
 
-1554:                                             ; preds = %2
-  %1555 = load ptr, ptr %5, align 8
-  %1556 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1555, i32 0, i32 3
-  %1557 = load ptr, ptr %1556, align 8
-  %1558 = icmp eq ptr %1557, inttoptr (i64 -1 to ptr)
-  br i1 %1558, label %1559, label %1563
+1558:                                             ; preds = %2
+  %1559 = load ptr, ptr %5, align 8
+  %1560 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1559, i32 0, i32 3
+  %1561 = load ptr, ptr %1560, align 8
+  %1562 = inttoptr i64 -1 to ptr
+  %1563 = icmp eq ptr %1561, %1562
+  br i1 %1563, label %1564, label %1568
 
-1559:                                             ; preds = %1554
-  %1560 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.33, ptr noundef @.str.34) #14
-  store i64 %1560, ptr %26, align 8
-  %1561 = load i64, ptr %26, align 8
-  %1562 = call i64 @rb_id2sym(i64 noundef %1561)
-  br label %1577
+1564:                                             ; preds = %1558
+  %1565 = call i64 @rbimpl_intern_const(ptr noundef @node_children.rbimpl_id.33, ptr noundef @.str.34) #14
+  store i64 %1565, ptr %26, align 8
+  %1566 = load i64, ptr %26, align 8
+  %1567 = call i64 @rb_id2sym(i64 noundef %1566)
+  br label %1582
 
-1563:                                             ; preds = %1554
-  %1564 = load ptr, ptr %5, align 8
-  %1565 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1564, i32 0, i32 3
-  %1566 = load ptr, ptr %1565, align 8
-  %1567 = icmp ne ptr %1566, null
-  br i1 %1567, label %1568, label %1574
+1568:                                             ; preds = %1558
+  %1569 = load ptr, ptr %5, align 8
+  %1570 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1569, i32 0, i32 3
+  %1571 = load ptr, ptr %1570, align 8
+  %1572 = icmp ne ptr %1571, null
+  br i1 %1572, label %1573, label %1579
 
-1568:                                             ; preds = %1563
-  %1569 = load ptr, ptr %4, align 8
-  %1570 = load ptr, ptr %5, align 8
-  %1571 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1570, i32 0, i32 3
-  %1572 = load ptr, ptr %1571, align 8
-  %1573 = call i64 @ast_new_internal(ptr noundef %1569, ptr noundef %1572)
-  br label %1575
+1573:                                             ; preds = %1568
+  %1574 = load ptr, ptr %4, align 8
+  %1575 = load ptr, ptr %5, align 8
+  %1576 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1575, i32 0, i32 3
+  %1577 = load ptr, ptr %1576, align 8
+  %1578 = call i64 @ast_new_internal(ptr noundef %1574, ptr noundef %1577)
+  br label %1580
 
-1574:                                             ; preds = %1563
-  br label %1575
+1579:                                             ; preds = %1568
+  br label %1580
 
-1575:                                             ; preds = %1574, %1568
-  %1576 = phi i64 [ %1573, %1568 ], [ 4, %1574 ]
-  br label %1577
+1580:                                             ; preds = %1579, %1573
+  %1581 = phi i64 [ %1578, %1573 ], [ 4, %1579 ]
+  br label %1582
 
-1577:                                             ; preds = %1575, %1559
-  %1578 = phi i64 [ %1562, %1559 ], [ %1576, %1575 ]
-  store i64 %1578, ptr %25, align 8
-  %1579 = load ptr, ptr %5, align 8
-  %1580 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1579, i32 0, i32 1
-  %1581 = load ptr, ptr %1580, align 8
-  %1582 = icmp ne ptr %1581, null
-  br i1 %1582, label %1583, label %1589
+1582:                                             ; preds = %1580, %1564
+  %1583 = phi i64 [ %1567, %1564 ], [ %1581, %1580 ]
+  store i64 %1583, ptr %25, align 8
+  %1584 = load ptr, ptr %5, align 8
+  %1585 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1584, i32 0, i32 1
+  %1586 = load ptr, ptr %1585, align 8
+  %1587 = icmp ne ptr %1586, null
+  br i1 %1587, label %1588, label %1594
 
-1583:                                             ; preds = %1577
-  %1584 = load ptr, ptr %4, align 8
-  %1585 = load ptr, ptr %5, align 8
-  %1586 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1585, i32 0, i32 1
-  %1587 = load ptr, ptr %1586, align 8
-  %1588 = call i64 @ast_new_internal(ptr noundef %1584, ptr noundef %1587)
-  br label %1590
+1588:                                             ; preds = %1582
+  %1589 = load ptr, ptr %4, align 8
+  %1590 = load ptr, ptr %5, align 8
+  %1591 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1590, i32 0, i32 1
+  %1592 = load ptr, ptr %1591, align 8
+  %1593 = call i64 @ast_new_internal(ptr noundef %1589, ptr noundef %1592)
+  br label %1595
 
-1589:                                             ; preds = %1577
-  br label %1590
+1594:                                             ; preds = %1582
+  br label %1595
 
-1590:                                             ; preds = %1589, %1583
-  %1591 = phi i64 [ %1588, %1583 ], [ 4, %1589 ]
-  %1592 = load ptr, ptr %5, align 8
-  %1593 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1592, i32 0, i32 2
-  %1594 = load ptr, ptr %1593, align 8
-  %1595 = icmp ne ptr %1594, null
-  br i1 %1595, label %1596, label %1602
+1595:                                             ; preds = %1594, %1588
+  %1596 = phi i64 [ %1593, %1588 ], [ 4, %1594 ]
+  %1597 = load ptr, ptr %5, align 8
+  %1598 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1597, i32 0, i32 2
+  %1599 = load ptr, ptr %1598, align 8
+  %1600 = icmp ne ptr %1599, null
+  br i1 %1600, label %1601, label %1607
 
-1596:                                             ; preds = %1590
-  %1597 = load ptr, ptr %4, align 8
-  %1598 = load ptr, ptr %5, align 8
-  %1599 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1598, i32 0, i32 2
-  %1600 = load ptr, ptr %1599, align 8
-  %1601 = call i64 @ast_new_internal(ptr noundef %1597, ptr noundef %1600)
-  br label %1603
+1601:                                             ; preds = %1595
+  %1602 = load ptr, ptr %4, align 8
+  %1603 = load ptr, ptr %5, align 8
+  %1604 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %1603, i32 0, i32 2
+  %1605 = load ptr, ptr %1604, align 8
+  %1606 = call i64 @ast_new_internal(ptr noundef %1602, ptr noundef %1605)
+  br label %1608
 
-1602:                                             ; preds = %1590
-  br label %1603
+1607:                                             ; preds = %1595
+  br label %1608
 
-1603:                                             ; preds = %1602, %1596
-  %1604 = phi i64 [ %1601, %1596 ], [ 4, %1602 ]
-  %1605 = load i64, ptr %25, align 8
-  %1606 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1591, i64 noundef %1604, i64 noundef %1605)
-  store i64 %1606, ptr %3, align 8
-  br label %1626
+1608:                                             ; preds = %1607, %1601
+  %1609 = phi i64 [ %1606, %1601 ], [ 4, %1607 ]
+  %1610 = load i64, ptr %25, align 8
+  %1611 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %1596, i64 noundef %1609, i64 noundef %1610)
+  store i64 %1611, ptr %3, align 8
+  br label %1631
 
-1607:                                             ; preds = %2
-  %1608 = load ptr, ptr %5, align 8
-  %1609 = call i64 @rb_node_line_lineno_val(ptr noundef %1608)
-  %1610 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1609)
-  store i64 %1610, ptr %3, align 8
-  br label %1626
+1612:                                             ; preds = %2
+  %1613 = load ptr, ptr %5, align 8
+  %1614 = call i64 @rb_node_line_lineno_val(ptr noundef %1613)
+  %1615 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1614)
+  store i64 %1615, ptr %3, align 8
+  br label %1631
 
-1611:                                             ; preds = %2
-  %1612 = load ptr, ptr %5, align 8
-  %1613 = call i64 @rb_node_file_path_val(ptr noundef %1612)
-  %1614 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1613)
-  store i64 %1614, ptr %3, align 8
-  br label %1626
+1616:                                             ; preds = %2
+  %1617 = load ptr, ptr %5, align 8
+  %1618 = call i64 @rb_node_file_path_val(ptr noundef %1617)
+  %1619 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1618)
+  store i64 %1619, ptr %3, align 8
+  br label %1631
 
-1615:                                             ; preds = %2
-  %1616 = load ptr, ptr %5, align 8
-  %1617 = call i64 @rb_node_encoding_val(ptr noundef %1616)
-  %1618 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1617)
-  store i64 %1618, ptr %3, align 8
-  br label %1626
+1620:                                             ; preds = %2
+  %1621 = load ptr, ptr %5, align 8
+  %1622 = call i64 @rb_node_encoding_val(ptr noundef %1621)
+  %1623 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1622)
+  store i64 %1623, ptr %3, align 8
+  br label %1631
 
-1619:                                             ; preds = %2
-  %1620 = load ptr, ptr %4, align 8
-  %1621 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1620, i64 noundef 0)
-  store i64 %1621, ptr %3, align 8
-  br label %1626
+1624:                                             ; preds = %2
+  %1625 = load ptr, ptr %4, align 8
+  %1626 = call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %1625, i64 noundef 0)
+  store i64 %1626, ptr %3, align 8
+  br label %1631
 
-1622:                                             ; preds = %2, %2
-  br label %1623
+1627:                                             ; preds = %2, %2
+  br label %1628
 
-1623:                                             ; preds = %1622, %2
-  %1624 = load i32, ptr %7, align 4
-  %1625 = call ptr @ruby_node_name(i32 noundef %1624)
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.35, ptr noundef %1625) #19
+1628:                                             ; preds = %1627, %2
+  %1629 = load i32, ptr %7, align 4
+  %1630 = call ptr @ruby_node_name(i32 noundef %1629)
+  call void (ptr, ...) @rb_bug(ptr noundef @.str.35, ptr noundef %1630) #19
   unreachable
 
-1626:                                             ; preds = %1619, %1615, %1611, %1607, %1603, %1550, %1511, %1464, %1398, %1282, %1260, %1246, %1237, %1231, %1228, %1193, %1187, %1184, %1181, %1178, %1175, %1172, %1163, %1157, %1150, %1129, %1120, %1108, %1102, %1092, %1083, %1080, %1048, %1023, %1017, %1008, %999, %993, %989, %983, %944, %940, %936, %932, %928, %924, %920, %915, %906, %897, %885, %876, %857, %838, %832, %826, %820, %814, %808, %802, %796, %793, %789, %786, %780, %774, %771, %752, %720, %688, %656, %624, %595, %566, %525, %480, %446, %422, %403, %384, %365, %340, %332, %307, %298, %261, %252, %197, %185, %173, %167, %164, %161, %155, %149, %143, %137, %128, %113, %101, %89, %80, %71, %62, %50, %38, %34
-  %1627 = load i64, ptr %3, align 8
-  ret i64 %1627
+1631:                                             ; preds = %1624, %1620, %1616, %1612, %1608, %1554, %1515, %1468, %1402, %1286, %1264, %1249, %1240, %1234, %1231, %1196, %1190, %1187, %1184, %1181, %1178, %1175, %1166, %1160, %1153, %1132, %1123, %1111, %1105, %1095, %1086, %1083, %1051, %1026, %1020, %1011, %1002, %996, %992, %986, %947, %943, %939, %935, %931, %927, %923, %918, %909, %900, %888, %879, %860, %841, %835, %829, %823, %817, %811, %805, %799, %796, %792, %789, %783, %777, %774, %755, %723, %691, %659, %627, %598, %569, %528, %483, %449, %425, %406, %387, %368, %343, %334, %309, %299, %262, %252, %197, %185, %173, %167, %164, %161, %155, %149, %143, %137, %128, %113, %101, %89, %80, %71, %62, %50, %38, %34
+  %1632 = load i64, ptr %3, align 8
+  ret i64 %1632
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(read) uwtable
@@ -5294,7 +5299,7 @@ define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef %1, .
   %10 = call i64 @rb_ary_new_capa(i64 noundef %9)
   store i64 %10, ptr %6, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   store i64 0, ptr %7, align 8
   br label %12
 
@@ -5357,7 +5362,7 @@ define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef %1, .
 
 47:                                               ; preds = %12
   %48 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %48)
+  call void @llvm.va_end.p0(ptr %48)
   %49 = load i64, ptr %6, align 8
   ret i64 %49
 }
@@ -5603,34 +5608,35 @@ define internal i64 @rest_arg(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, inttoptr (i64 -1 to ptr)
-  br i1 %6, label %7, label %17
+  %6 = inttoptr i64 -1 to ptr
+  %7 = icmp ne ptr %5, %6
+  br i1 %7, label %8, label %18
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call i64 @ast_new_internal(ptr noundef %11, ptr noundef %12)
-  br label %15
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call i64 @ast_new_internal(ptr noundef %12, ptr noundef %13)
+  br label %16
 
-14:                                               ; preds = %7
-  br label %15
+15:                                               ; preds = %8
+  br label %16
 
-15:                                               ; preds = %14, %10
-  %16 = phi i64 [ %13, %10 ], [ 4, %14 ]
-  br label %19
+16:                                               ; preds = %15, %11
+  %17 = phi i64 [ %14, %11 ], [ 4, %15 ]
+  br label %20
 
-17:                                               ; preds = %2
-  %18 = call i64 @no_name_rest()
-  br label %19
+18:                                               ; preds = %2
+  %19 = call i64 @no_name_rest()
+  br label %20
 
-19:                                               ; preds = %17, %15
-  %20 = phi i64 [ %16, %15 ], [ %18, %17 ]
-  ret i64 %20
+20:                                               ; preds = %18, %16
+  %21 = phi i64 [ %17, %16 ], [ %19, %18 ]
+  ret i64 %21
 }
 
 declare i64 @rb_node_line_lineno_val(ptr noundef) #2
@@ -5643,12 +5649,6 @@ declare i64 @rb_node_encoding_val(ptr noundef) #2
 declare void @rb_bug(ptr noundef, ...) #12
 
 declare ptr @ruby_node_name(i32 noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
 
 declare i64 @rb_id2str(i64 noundef) #2
 
@@ -5767,6 +5767,12 @@ declare i64 @rb_obj_class(i64 noundef) #2
 declare i64 @rb_str_append(i64 noundef, i64 noundef) #2
 
 declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -392,292 +392,294 @@ define void @_ZN19FirewallRulesDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonn
   %19 = load ptr, ptr %5, align 8
   %20 = load ptr, ptr %6, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %18, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(48) %20)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 0, i32 2), ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 1, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #11
-          to label %24 unwind label %101
-
-24:                                               ; preds = %3
+  %21 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 0, i32 2
+  store ptr %21, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 1, i32 2
   store ptr %23, ptr %22, align 8
-  %25 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #12
-  %26 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 6
-  store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  invoke void @_ZN22Ui_FirewallRulesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %18)
-          to label %29 unwind label %105
+  %24 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #11
+          to label %26 unwind label %103
 
-29:                                               ; preds = %24
+26:                                               ; preds = %3
+  store ptr %25, ptr %24, align 8
+  %27 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #12
+  %28 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 6
+  store i64 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  invoke void @_ZN22Ui_FirewallRulesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef %18)
+          to label %31 unwind label %107
+
+31:                                               ; preds = %26
   invoke void @_ZN19FirewallRulesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %30 unwind label %105
+          to label %32 unwind label %107
 
-30:                                               ; preds = %29
+32:                                               ; preds = %31
   invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %18, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %31 unwind label %109
+          to label %33 unwind label %111
 
-31:                                               ; preds = %30
+33:                                               ; preds = %32
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %32 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %33, i32 0, i32 9
+  %34 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
   %35 = load ptr, ptr %34, align 8
-  %36 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %35, i32 noundef 33554432)
-          to label %37 unwind label %105
+  %36 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %35, i32 0, i32 9
+  %37 = load ptr, ptr %36, align 8
+  %38 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %37, i32 noundef 33554432)
+          to label %39 unwind label %107
 
-37:                                               ; preds = %31
+39:                                               ; preds = %33
   invoke void @_ZN19FirewallRulesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %38 unwind label %105
+          to label %40 unwind label %107
 
-38:                                               ; preds = %37
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %39 unwind label %113
+40:                                               ; preds = %39
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %41 unwind label %115
 
-39:                                               ; preds = %38
+41:                                               ; preds = %40
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %40 = load ptr, ptr %6, align 8
-  invoke void @_ZN11CaptureFile8fileNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %40)
-          to label %41 unwind label %105
+  %42 = load ptr, ptr %6, align 8
+  invoke void @_ZN11CaptureFile8fileNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %42)
+          to label %43 unwind label %107
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 3
-  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 3
+  %45 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %11) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  %44 = load ptr, ptr %6, align 8
-  %45 = invoke noundef ptr @_ZN11CaptureFile10packetInfoEv(ptr noundef nonnull align 8 dereferenceable(48) %44)
-          to label %46 unwind label %105
+  %46 = load ptr, ptr %6, align 8
+  %47 = invoke noundef ptr @_ZN11CaptureFile10packetInfoEv(ptr noundef nonnull align 8 dereferenceable(48) %46)
+          to label %48 unwind label %107
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 3
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 4
-  store i32 %48, ptr %49, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = invoke noundef ptr @_ZN11CaptureFile10packetInfoEv(ptr noundef nonnull align 8 dereferenceable(48) %50)
-          to label %52 unwind label %105
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 4
+  store i32 %50, ptr %51, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = invoke noundef ptr @_ZN11CaptureFile10packetInfoEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
+          to label %54 unwind label %107
 
-52:                                               ; preds = %46
-  store ptr %51, ptr %12, align 8
-  %53 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 7
-  %54 = load ptr, ptr %12, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 12
-  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %53, ptr noundef %55)
-          to label %56 unwind label %105
+54:                                               ; preds = %48
+  store ptr %53, ptr %12, align 8
+  %55 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 7
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 12
+  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %55, ptr noundef %57)
+          to label %58 unwind label %107
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 8
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 13
-  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %57, ptr noundef %59)
-          to label %60 unwind label %105
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr inbounds %struct._packet_info, ptr %60, i32 0, i32 13
+  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %59, ptr noundef %61)
+          to label %62 unwind label %107
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 9
-  %62 = load ptr, ptr %12, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 14
-  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %61, ptr noundef %63)
-          to label %64 unwind label %105
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 9
+  %64 = load ptr, ptr %12, align 8
+  %65 = getelementptr inbounds %struct._packet_info, ptr %64, i32 0, i32 14
+  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %63, ptr noundef %65)
+          to label %66 unwind label %107
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 10
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 15
-  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %65, ptr noundef %67)
-          to label %68 unwind label %105
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 10
+  %68 = load ptr, ptr %12, align 8
+  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 15
+  invoke void @_ZL12copy_addressP8_addressPKS_(ptr noundef %67, ptr noundef %69)
+          to label %70 unwind label %107
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct._packet_info, ptr %69, i32 0, i32 22
-  %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 11
-  store i32 %71, ptr %72, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 23
-  %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 12
-  store i32 %75, ptr %76, align 4
-  %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds %struct._packet_info, ptr %77, i32 0, i32 24
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 13
-  store i32 %79, ptr %80, align 8
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 22
+  %73 = load i32, ptr %72, align 8
+  %74 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 11
+  store i32 %73, ptr %74, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 23
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 12
+  store i32 %77, ptr %78, align 4
+  %79 = load ptr, ptr %12, align 8
+  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 24
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 13
+  store i32 %81, ptr %82, align 8
   store i32 0, ptr %13, align 4
   store i64 0, ptr %14, align 8
-  br label %81
+  br label %83
 
-81:                                               ; preds = %131, %68
-  %82 = load i64, ptr %14, align 8
-  %83 = invoke i64 @firewall_product_count()
-          to label %84 unwind label %105
+83:                                               ; preds = %133, %70
+  %84 = load i64, ptr %14, align 8
+  %85 = invoke i64 @firewall_product_count()
+          to label %86 unwind label %107
 
-84:                                               ; preds = %81
-  %85 = icmp ult i64 %82, %83
-  br i1 %85, label %86, label %139
+86:                                               ; preds = %83
+  %87 = icmp ult i64 %84, %85
+  br i1 %87, label %88, label %141
 
-86:                                               ; preds = %84
-  %87 = load i64, ptr %14, align 8
-  %88 = invoke ptr @firewall_product_name(i64 noundef %87)
-          to label %89 unwind label %105
+88:                                               ; preds = %86
+  %89 = load i64, ptr %14, align 8
+  %90 = invoke ptr @firewall_product_name(i64 noundef %89)
+          to label %91 unwind label %107
 
-89:                                               ; preds = %86
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %88)
-          to label %90 unwind label %105
+91:                                               ; preds = %88
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %90)
+          to label %92 unwind label %107
 
-90:                                               ; preds = %89
+92:                                               ; preds = %91
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str.2)
-          to label %91 unwind label %117
+          to label %93 unwind label %119
 
-91:                                               ; preds = %90
-  %92 = invoke noundef zeroext i1 @_ZNK7QString8containsERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1)
-          to label %93 unwind label %121
+93:                                               ; preds = %92
+  %94 = invoke noundef zeroext i1 @_ZNK7QString8containsERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1)
+          to label %95 unwind label %123
 
-93:                                               ; preds = %91
+95:                                               ; preds = %93
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
-  br i1 %92, label %94, label %125
+  br i1 %94, label %96, label %127
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %96, i32 0, i32 4
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
   %98 = load ptr, ptr %97, align 8
-  %99 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %98)
-          to label %100 unwind label %117
+  %99 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %98, i32 0, i32 4
+  %100 = load ptr, ptr %99, align 8
+  %101 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %100)
+          to label %102 unwind label %119
 
-100:                                              ; preds = %94
-  store i32 %99, ptr %13, align 4
-  br label %125
+102:                                              ; preds = %96
+  store i32 %101, ptr %13, align 4
+  br label %127
 
-101:                                              ; preds = %3
-  %102 = landingpad { ptr, i32 }
+103:                                              ; preds = %3
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %7, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %8, align 4
-  br label %154
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %7, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %8, align 4
+  br label %156
 
-105:                                              ; preds = %151, %145, %139, %89, %86, %81, %64, %60, %56, %52, %46, %41, %39, %37, %31, %29, %24
-  %106 = landingpad { ptr, i32 }
+107:                                              ; preds = %153, %147, %141, %91, %88, %83, %66, %62, %58, %54, %48, %43, %41, %39, %33, %31, %26
+  %108 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %7, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %8, align 4
-  br label %153
-
-109:                                              ; preds = %30
-  %110 = landingpad { ptr, i32 }
-          cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %7, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  br label %153
-
-113:                                              ; preds = %38
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %7, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  br label %153
-
-117:                                              ; preds = %94, %90
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %7, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %8, align 4
-  br label %138
-
-121:                                              ; preds = %91
-  %122 = landingpad { ptr, i32 }
-          cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %7, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
-  br label %138
-
-125:                                              ; preds = %100, %93
-  %126 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %127, i32 0, i32 4
-  %129 = load ptr, ptr %128, align 8
-  call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %130 unwind label %134
-
-130:                                              ; preds = %125
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  br label %131
-
-131:                                              ; preds = %130
-  %132 = load i64, ptr %14, align 8
-  %133 = add i64 %132, 1
-  store i64 %133, ptr %14, align 8
-  br label %81, !llvm.loop !4
-
-134:                                              ; preds = %125
-  %135 = landingpad { ptr, i32 }
-          cleanup
-  %136 = extractvalue { ptr, i32 } %135, 0
-  store ptr %136, ptr %7, align 8
-  %137 = extractvalue { ptr, i32 } %135, 1
-  store i32 %137, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
-  br label %138
-
-138:                                              ; preds = %134, %121, %117
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  br label %153
-
-139:                                              ; preds = %84
-  %140 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %141, i32 0, i32 4
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i32, ptr %13, align 4
-  invoke void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %143, i32 noundef %144)
-          to label %145 unwind label %105
-
-145:                                              ; preds = %139
-  %146 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %147, i32 0, i32 9
-  %149 = load ptr, ptr %148, align 8
-  %150 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %149, i32 noundef 2097152)
-          to label %151 unwind label %105
-
-151:                                              ; preds = %145
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %150, i1 noundef zeroext true)
-          to label %152 unwind label %105
-
-152:                                              ; preds = %151
-  ret void
-
-153:                                              ; preds = %138, %113, %109, %105
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #12
-  br label %154
-
-154:                                              ; preds = %153, %101
-  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %18) #12
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %7, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %8, align 4
   br label %155
 
-155:                                              ; preds = %154
-  %156 = load ptr, ptr %7, align 8
-  %157 = load i32, ptr %8, align 4
-  %158 = insertvalue { ptr, i32 } poison, ptr %156, 0
-  %159 = insertvalue { ptr, i32 } %158, i32 %157, 1
-  resume { ptr, i32 } %159
+111:                                              ; preds = %32
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %7, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  br label %155
+
+115:                                              ; preds = %40
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %7, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  br label %155
+
+119:                                              ; preds = %96, %92
+  %120 = landingpad { ptr, i32 }
+          cleanup
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %7, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %8, align 4
+  br label %140
+
+123:                                              ; preds = %93
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %7, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
+  br label %140
+
+127:                                              ; preds = %102, %95
+  %128 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %129, i32 0, i32 4
+  %131 = load ptr, ptr %130, align 8
+  call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %131, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %132 unwind label %136
+
+132:                                              ; preds = %127
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
+  br label %133
+
+133:                                              ; preds = %132
+  %134 = load i64, ptr %14, align 8
+  %135 = add i64 %134, 1
+  store i64 %135, ptr %14, align 8
+  br label %83, !llvm.loop !4
+
+136:                                              ; preds = %127
+  %137 = landingpad { ptr, i32 }
+          cleanup
+  %138 = extractvalue { ptr, i32 } %137, 0
+  store ptr %138, ptr %7, align 8
+  %139 = extractvalue { ptr, i32 } %137, 1
+  store i32 %139, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  br label %140
+
+140:                                              ; preds = %136, %123, %119
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
+  br label %155
+
+141:                                              ; preds = %86
+  %142 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %143, i32 0, i32 4
+  %145 = load ptr, ptr %144, align 8
+  %146 = load i32, ptr %13, align 4
+  invoke void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %145, i32 noundef %146)
+          to label %147 unwind label %107
+
+147:                                              ; preds = %141
+  %148 = getelementptr inbounds %class.FirewallRulesDialog, ptr %18, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds %class.Ui_FirewallRulesDialog, ptr %149, i32 0, i32 9
+  %151 = load ptr, ptr %150, align 8
+  %152 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %151, i32 noundef 2097152)
+          to label %153 unwind label %107
+
+153:                                              ; preds = %147
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %152, i1 noundef zeroext true)
+          to label %154 unwind label %107
+
+154:                                              ; preds = %153
+  ret void
+
+155:                                              ; preds = %140, %115, %111, %107
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #12
+  br label %156
+
+156:                                              ; preds = %155, %103
+  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %18) #12
+  br label %157
+
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %7, align 8
+  %159 = load i32, ptr %8, align 4
+  %160 = insertvalue { ptr, i32 } poison, ptr %158, 0
+  %161 = insertvalue { ptr, i32 } %160, i32 %159, 1
+  resume { ptr, i32 } %161
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -1429,13 +1431,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
   ret void
 }
@@ -1445,21 +1449,23 @@ define void @_ZN19FirewallRulesDialogD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.FirewallRulesDialog, ptr %3, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV19FirewallRulesDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.FirewallRulesDialog, ptr %3, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #13
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #13
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.FirewallRulesDialog, ptr %3, i32 0, i32 3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.FirewallRulesDialog, ptr %3, i32 0, i32 3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %3) #12
   ret void
 }
@@ -3460,19 +3466,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.13, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #12
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #12
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #12
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #12
   ret void
 }
 
@@ -4015,9 +4022,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

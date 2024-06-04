@@ -3988,9 +3988,10 @@ define dso_local ptr @rb_ractor_local_storage_ptr_newkey(ptr noundef %0) #0 {
   store ptr %11, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds %struct.rb_ractor_local_key_struct, ptr %14, i32 0, i32 1
-  store ptr inttoptr (i64 36 to ptr), ptr %15, align 8
-  %16 = load ptr, ptr %3, align 8
-  ret ptr %16
+  %16 = inttoptr i64 36 to ptr
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: allocsize(0)
@@ -4009,42 +4010,50 @@ define dso_local void @rb_ractor_local_storage_delkey(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   call void @rb_vm_lock_enter(ptr noundef %3, ptr noundef @.str, i32 noundef 3707)
   %4 = load i32, ptr @freed_ractor_local_keys, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %6 = icmp eq i32 %4, %5
-  br i1 %6, label %7, label %20
+  %5 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp eq i32 %4, %6
+  br i1 %7, label %8, label %27
 
-7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %16
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %12 = mul i32 %11, 2
-  br label %14
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = mul i32 %14, 2
+  br label %17
 
-13:                                               ; preds = %7
-  br label %14
+16:                                               ; preds = %8
+  br label %17
 
-14:                                               ; preds = %13, %10
-  %15 = phi i32 [ %12, %10 ], [ 4, %13 ]
-  store i32 %15, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %18 = sext i32 %17 to i64
-  %19 = call nonnull ptr @ruby_xrealloc2(ptr noundef %16, i64 noundef %18, i64 noundef 8) #31
-  store ptr %19, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  br label %20
+17:                                               ; preds = %16, %12
+  %18 = phi i32 [ %15, %12 ], [ 4, %16 ]
+  %19 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4
+  %24 = sext i32 %23 to i64
+  %25 = call nonnull ptr @ruby_xrealloc2(ptr noundef %21, i64 noundef %24, i64 noundef 8) #31
+  %26 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  store ptr %25, ptr %26, align 8
+  br label %27
 
-20:                                               ; preds = %14, %1
-  %21 = load ptr, ptr %2, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  %23 = load i32, ptr @freed_ractor_local_keys, align 8
-  %24 = add i32 %23, 1
-  store i32 %24, ptr @freed_ractor_local_keys, align 8
-  %25 = sext i32 %23 to i64
-  %26 = getelementptr ptr, ptr %22, i64 %25
-  store ptr %21, ptr %26, align 8
+27:                                               ; preds = %17, %1
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr @freed_ractor_local_keys, align 8
+  %32 = add i32 %31, 1
+  store i32 %32, ptr @freed_ractor_local_keys, align 8
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr ptr, ptr %30, i64 %33
+  store ptr %28, ptr %34, align 8
   call void @rb_vm_lock_leave(ptr noundef %3, ptr noundef @.str, i32 noundef 3715)
   ret void
 }
@@ -4267,41 +4276,46 @@ define hidden void @rb_ractor_finish_marking() #0 {
   store i32 0, ptr %1, align 4
   br label %2
 
-2:                                                ; preds = %12, %0
+2:                                                ; preds = %13, %0
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr @freed_ractor_local_keys, align 8
   %5 = icmp slt i32 %3, %4
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  %8 = load i32, ptr %1, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  call void @ruby_xfree(ptr noundef %11)
-  br label %12
+  %7 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i32, ptr %1, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr ptr, ptr %8, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  call void @ruby_xfree(ptr noundef %12)
+  br label %13
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr %1, align 4
-  %14 = add i32 %13, 1
-  store i32 %14, ptr %1, align 4
+13:                                               ; preds = %6
+  %14 = load i32, ptr %1, align 4
+  %15 = add i32 %14, 1
+  store i32 %15, ptr %1, align 4
   br label %2, !llvm.loop !17
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   store i32 0, ptr @freed_ractor_local_keys, align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %17 = icmp sgt i32 %16, 16
-  br i1 %17, label %18, label %21
+  %17 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp sgt i32 %18, 16
+  br i1 %19, label %20, label %26
 
-18:                                               ; preds = %15
-  store i32 16, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1), align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  %20 = call nonnull ptr @ruby_xrealloc2(ptr noundef %19, i64 noundef 16, i64 noundef 8) #31
-  store ptr %20, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  br label %21
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 1
+  store i32 16, ptr %21, align 4
+  %22 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = call nonnull ptr @ruby_xrealloc2(ptr noundef %23, i64 noundef 16, i64 noundef 8) #31
+  %25 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-21:                                               ; preds = %18, %15
+26:                                               ; preds = %20, %16
   ret void
 }
 
@@ -5337,7 +5351,7 @@ define internal void @ractor_local_storage_mark(ptr noundef %0) #0 {
   %8 = getelementptr inbounds %struct.rb_ractor_struct, ptr %7, i32 0, i32 10
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %54
+  br i1 %10, label %11, label %55
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %2, align 8
@@ -5347,78 +5361,79 @@ define internal void @ractor_local_storage_mark(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   br label %16
 
-16:                                               ; preds = %50, %11
+16:                                               ; preds = %51, %11
   %17 = load i32, ptr %3, align 4
   %18 = load i32, ptr @freed_ractor_local_keys, align 8
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %20, label %53
+  br i1 %19, label %20, label %54
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds (%struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2), align 8
-  %22 = load i32, ptr %3, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %4, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = ptrtoint ptr %26 to i64
-  store i64 %27, ptr %6, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.rb_ractor_struct, ptr %28, i32 0, i32 10
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @rb_st_delete(ptr noundef %30, ptr noundef %6, ptr noundef %5)
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %49
+  %21 = getelementptr inbounds %struct.freed_ractor_local_keys_struct, ptr @freed_ractor_local_keys, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %3, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = ptrtoint ptr %27 to i64
+  store i64 %28, ptr %6, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.rb_ractor_struct, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8
+  %32 = call i32 @rb_st_delete(ptr noundef %31, ptr noundef %6, ptr noundef %5)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %50
 
-33:                                               ; preds = %20
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.rb_ractor_local_key_struct, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.rb_ractor_local_storage_type, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %49
+34:                                               ; preds = %20
+  %35 = load i64, ptr %6, align 8
+  %36 = inttoptr i64 %35 to ptr
+  store ptr %36, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.rb_ractor_local_key_struct, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.rb_ractor_local_storage_type, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %50
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.rb_ractor_local_key_struct, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.rb_ractor_local_storage_type, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %5, align 8
-  %48 = inttoptr i64 %47 to ptr
-  call void %46(ptr noundef %48)
-  br label %49
-
-49:                                               ; preds = %41, %33, %20
+42:                                               ; preds = %34
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.rb_ractor_local_key_struct, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.rb_ractor_local_storage_type, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i64, ptr %5, align 8
+  %49 = inttoptr i64 %48 to ptr
+  call void %47(ptr noundef %49)
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %3, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %3, align 4
+50:                                               ; preds = %42, %34, %20
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load i32, ptr %3, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %3, align 4
   br label %16, !llvm.loop !23
 
-53:                                               ; preds = %16
-  br label %54
+54:                                               ; preds = %16
+  br label %55
 
-54:                                               ; preds = %53, %1
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.rb_ractor_struct, ptr %55, i32 0, i32 11
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %63
+55:                                               ; preds = %54, %1
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.rb_ractor_struct, ptr %56, i32 0, i32 11
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.rb_ractor_struct, ptr %60, i32 0, i32 11
-  %62 = load ptr, ptr %61, align 8
-  call void @rb_id_table_foreach(ptr noundef %62, ptr noundef @idkey_local_storage_mark_i, ptr noundef null)
-  br label %63
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.rb_ractor_struct, ptr %61, i32 0, i32 11
+  %63 = load ptr, ptr %62, align 8
+  call void @rb_id_table_foreach(ptr noundef %63, ptr noundef @idkey_local_storage_mark_i, ptr noundef null)
+  br label %64
 
-63:                                               ; preds = %59, %54
+64:                                               ; preds = %60, %55
   ret void
 }
 

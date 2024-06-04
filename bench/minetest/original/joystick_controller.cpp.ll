@@ -233,7 +233,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !43
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %8, ptr %6, align 8, !tbaa !43
   %filter_mask2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -254,8 +255,8 @@ if.else.i.invoke.cont12_crit_edge:                ; preds = %if.else.i
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.else.i.invoke.cont12_crit_edge, %if.then.i
-  %8 = phi ptr [ %.pre387, %if.else.i.invoke.cont12_crit_edge ], [ %7, %if.then.i ]
-  %9 = phi ptr [ %.pre, %if.else.i.invoke.cont12_crit_edge ], [ %incdec.ptr.i, %if.then.i ]
+  %9 = phi ptr [ %.pre387, %if.else.i.invoke.cont12_crit_edge ], [ %7, %if.then.i ]
+  %10 = phi ptr [ %.pre, %if.else.i.invoke.cont12_crit_edge ], [ %incdec.ptr.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp10) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp9) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8) #22
@@ -265,23 +266,24 @@ invoke.cont12:                                    ; preds = %if.else.i.invoke.co
   store i32 132, ptr %ref.tmp19, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp21) #22
   store i32 4, ptr %ref.tmp21, align 4, !tbaa !41
-  %cmp.not.i197 = icmp eq ptr %9, %8
+  %cmp.not.i197 = icmp eq ptr %10, %9
   br i1 %cmp.not.i197, label %if.else.i204, label %if.then.i198
 
 if.then.i198:                                     ; preds = %invoke.cont12
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i199 = getelementptr inbounds i8, ptr %9, i64 12
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %11, ptr %10, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i199 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 132, ptr %filter_mask2.i.i.i.i199, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i200 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i200 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 4, ptr %compare_mask3.i.i.i.i200, align 8, !tbaa !14
-  %key4.i.i.i.i201 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i201 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 6, ptr %key4.i.i.i.i201, align 8, !tbaa !45
-  %incdec.ptr.i202 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i202 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %incdec.ptr.i202, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont23
 
 if.else.i204:                                     ; preds = %invoke.cont12
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21)
           to label %if.else.i204.invoke.cont23_crit_edge unwind label %lpad22
 
 if.else.i204.invoke.cont23_crit_edge:             ; preds = %if.else.i204
@@ -290,8 +292,8 @@ if.else.i204.invoke.cont23_crit_edge:             ; preds = %if.else.i204
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.else.i204.invoke.cont23_crit_edge, %if.then.i198
-  %10 = phi ptr [ %.pre389, %if.else.i204.invoke.cont23_crit_edge ], [ %8, %if.then.i198 ]
-  %11 = phi ptr [ %.pre388, %if.else.i204.invoke.cont23_crit_edge ], [ %incdec.ptr.i202, %if.then.i198 ]
+  %12 = phi ptr [ %.pre389, %if.else.i204.invoke.cont23_crit_edge ], [ %9, %if.then.i198 ]
+  %13 = phi ptr [ %.pre388, %if.else.i204.invoke.cont23_crit_edge ], [ %incdec.ptr.i202, %if.then.i198 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp19) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp18) #22
@@ -301,23 +303,24 @@ invoke.cont23:                                    ; preds = %if.else.i204.invoke
   store i32 24, ptr %ref.tmp30, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp32) #22
   store i32 16, ptr %ref.tmp32, align 4, !tbaa !41
-  %cmp.not.i209 = icmp eq ptr %11, %10
+  %cmp.not.i209 = icmp eq ptr %13, %12
   br i1 %cmp.not.i209, label %if.else.i216, label %if.then.i210
 
 if.then.i210:                                     ; preds = %invoke.cont23
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i211 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %14, ptr %13, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i211 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 24, ptr %filter_mask2.i.i.i.i211, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i212 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i212 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i212, align 8, !tbaa !14
-  %key4.i.i.i.i213 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i213 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 8, ptr %key4.i.i.i.i213, align 8, !tbaa !45
-  %incdec.ptr.i214 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i214 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %incdec.ptr.i214, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont34
 
 if.else.i216:                                     ; preds = %invoke.cont23
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
           to label %if.else.i216.invoke.cont34_crit_edge unwind label %lpad33
 
 if.else.i216.invoke.cont34_crit_edge:             ; preds = %if.else.i216
@@ -326,8 +329,8 @@ if.else.i216.invoke.cont34_crit_edge:             ; preds = %if.else.i216
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.else.i216.invoke.cont34_crit_edge, %if.then.i210
-  %12 = phi ptr [ %.pre391, %if.else.i216.invoke.cont34_crit_edge ], [ %10, %if.then.i210 ]
-  %13 = phi ptr [ %.pre390, %if.else.i216.invoke.cont34_crit_edge ], [ %incdec.ptr.i214, %if.then.i210 ]
+  %15 = phi ptr [ %.pre391, %if.else.i216.invoke.cont34_crit_edge ], [ %12, %if.then.i210 ]
+  %16 = phi ptr [ %.pre390, %if.else.i216.invoke.cont34_crit_edge ], [ %incdec.ptr.i214, %if.then.i210 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp30) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29) #22
@@ -337,23 +340,24 @@ invoke.cont34:                                    ; preds = %if.else.i216.invoke
   store i32 40, ptr %ref.tmp41, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp43) #22
   store i32 32, ptr %ref.tmp43, align 4, !tbaa !41
-  %cmp.not.i222 = icmp eq ptr %13, %12
+  %cmp.not.i222 = icmp eq ptr %16, %15
   br i1 %cmp.not.i222, label %if.else.i229, label %if.then.i223
 
 if.then.i223:                                     ; preds = %invoke.cont34
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %13, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i224 = getelementptr inbounds i8, ptr %13, i64 12
+  %17 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %17, ptr %16, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i224 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 40, ptr %filter_mask2.i.i.i.i224, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i225 = getelementptr inbounds i8, ptr %13, i64 16
+  %compare_mask3.i.i.i.i225 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i225, align 8, !tbaa !14
-  %key4.i.i.i.i226 = getelementptr inbounds i8, ptr %13, i64 8
+  %key4.i.i.i.i226 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 9, ptr %key4.i.i.i.i226, align 8, !tbaa !45
-  %incdec.ptr.i227 = getelementptr inbounds i8, ptr %13, i64 24
+  %incdec.ptr.i227 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %incdec.ptr.i227, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
 if.else.i229:                                     ; preds = %invoke.cont34
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
           to label %if.else.i229.invoke.cont45_crit_edge unwind label %lpad44
 
 if.else.i229.invoke.cont45_crit_edge:             ; preds = %if.else.i229
@@ -362,8 +366,8 @@ if.else.i229.invoke.cont45_crit_edge:             ; preds = %if.else.i229
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.else.i229.invoke.cont45_crit_edge, %if.then.i223
-  %14 = phi ptr [ %.pre393, %if.else.i229.invoke.cont45_crit_edge ], [ %12, %if.then.i223 ]
-  %15 = phi ptr [ %.pre392, %if.else.i229.invoke.cont45_crit_edge ], [ %incdec.ptr.i227, %if.then.i223 ]
+  %18 = phi ptr [ %.pre393, %if.else.i229.invoke.cont45_crit_edge ], [ %15, %if.then.i223 ]
+  %19 = phi ptr [ %.pre392, %if.else.i229.invoke.cont45_crit_edge ], [ %incdec.ptr.i227, %if.then.i223 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp40) #22
@@ -373,23 +377,24 @@ invoke.cont45:                                    ; preds = %if.else.i229.invoke
   store i32 137, ptr %ref.tmp52, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp54) #22
   store i32 1, ptr %ref.tmp54, align 4, !tbaa !41
-  %cmp.not.i235 = icmp eq ptr %15, %14
+  %cmp.not.i235 = icmp eq ptr %19, %18
   br i1 %cmp.not.i235, label %if.else.i242, label %if.then.i236
 
 if.then.i236:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %15, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i237 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %20, ptr %19, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i237 = getelementptr inbounds i8, ptr %19, i64 12
   store i32 137, ptr %filter_mask2.i.i.i.i237, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i238 = getelementptr inbounds i8, ptr %15, i64 16
+  %compare_mask3.i.i.i.i238 = getelementptr inbounds i8, ptr %19, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i238, align 8, !tbaa !14
-  %key4.i.i.i.i239 = getelementptr inbounds i8, ptr %15, i64 8
+  %key4.i.i.i.i239 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 4, ptr %key4.i.i.i.i239, align 8, !tbaa !45
-  %incdec.ptr.i240 = getelementptr inbounds i8, ptr %15, i64 24
+  %incdec.ptr.i240 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %incdec.ptr.i240, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont56
 
 if.else.i242:                                     ; preds = %invoke.cont45
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp51, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp52, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp51, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp52, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54)
           to label %if.else.i242.invoke.cont56_crit_edge unwind label %lpad55
 
 if.else.i242.invoke.cont56_crit_edge:             ; preds = %if.else.i242
@@ -398,8 +403,8 @@ if.else.i242.invoke.cont56_crit_edge:             ; preds = %if.else.i242
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.else.i242.invoke.cont56_crit_edge, %if.then.i236
-  %16 = phi ptr [ %.pre395, %if.else.i242.invoke.cont56_crit_edge ], [ %14, %if.then.i236 ]
-  %17 = phi ptr [ %.pre394, %if.else.i242.invoke.cont56_crit_edge ], [ %incdec.ptr.i240, %if.then.i236 ]
+  %21 = phi ptr [ %.pre395, %if.else.i242.invoke.cont56_crit_edge ], [ %18, %if.then.i236 ]
+  %22 = phi ptr [ %.pre394, %if.else.i242.invoke.cont56_crit_edge ], [ %incdec.ptr.i240, %if.then.i236 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp54) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp52) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp51) #22
@@ -409,23 +414,24 @@ invoke.cont56:                                    ; preds = %if.else.i242.invoke
   store i32 138, ptr %ref.tmp63, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp65) #22
   store i32 2, ptr %ref.tmp65, align 4, !tbaa !41
-  %cmp.not.i248 = icmp eq ptr %17, %16
+  %cmp.not.i248 = icmp eq ptr %22, %21
   br i1 %cmp.not.i248, label %if.else.i255, label %if.then.i249
 
 if.then.i249:                                     ; preds = %invoke.cont56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i250 = getelementptr inbounds i8, ptr %17, i64 12
+  %23 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %23, ptr %22, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i250 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i250, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i251 = getelementptr inbounds i8, ptr %17, i64 16
+  %compare_mask3.i.i.i.i251 = getelementptr inbounds i8, ptr %22, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i251, align 8, !tbaa !14
-  %key4.i.i.i.i252 = getelementptr inbounds i8, ptr %17, i64 8
+  %key4.i.i.i.i252 = getelementptr inbounds i8, ptr %22, i64 8
   store i32 5, ptr %key4.i.i.i.i252, align 8, !tbaa !45
-  %incdec.ptr.i253 = getelementptr inbounds i8, ptr %17, i64 24
+  %incdec.ptr.i253 = getelementptr inbounds i8, ptr %22, i64 24
   store ptr %incdec.ptr.i253, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont67
 
 if.else.i255:                                     ; preds = %invoke.cont56
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp65)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp65)
           to label %if.else.i255.invoke.cont67_crit_edge unwind label %lpad66
 
 if.else.i255.invoke.cont67_crit_edge:             ; preds = %if.else.i255
@@ -434,8 +440,8 @@ if.else.i255.invoke.cont67_crit_edge:             ; preds = %if.else.i255
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.else.i255.invoke.cont67_crit_edge, %if.then.i249
-  %18 = phi ptr [ %.pre397, %if.else.i255.invoke.cont67_crit_edge ], [ %16, %if.then.i249 ]
-  %19 = phi ptr [ %.pre396, %if.else.i255.invoke.cont67_crit_edge ], [ %incdec.ptr.i253, %if.then.i249 ]
+  %24 = phi ptr [ %.pre397, %if.else.i255.invoke.cont67_crit_edge ], [ %21, %if.then.i249 ]
+  %25 = phi ptr [ %.pre396, %if.else.i255.invoke.cont67_crit_edge ], [ %incdec.ptr.i253, %if.then.i249 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp65) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp62) #22
@@ -445,23 +451,24 @@ invoke.cont67:                                    ; preds = %if.else.i255.invoke
   store i32 138, ptr %ref.tmp74, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp76) #22
   store i32 10, ptr %ref.tmp76, align 4, !tbaa !41
-  %cmp.not.i261 = icmp eq ptr %19, %18
+  %cmp.not.i261 = icmp eq ptr %25, %24
   br i1 %cmp.not.i261, label %if.else.i268, label %if.then.i262
 
 if.then.i262:                                     ; preds = %invoke.cont67
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i263 = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %26, ptr %25, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i263 = getelementptr inbounds i8, ptr %25, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i263, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i264 = getelementptr inbounds i8, ptr %19, i64 16
+  %compare_mask3.i.i.i.i264 = getelementptr inbounds i8, ptr %25, i64 16
   store i32 10, ptr %compare_mask3.i.i.i.i264, align 8, !tbaa !14
-  %key4.i.i.i.i265 = getelementptr inbounds i8, ptr %19, i64 8
+  %key4.i.i.i.i265 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 11, ptr %key4.i.i.i.i265, align 8, !tbaa !45
-  %incdec.ptr.i266 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i266 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i266, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont79
 
 if.else.i268:                                     ; preds = %invoke.cont67
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp74, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp74, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76)
           to label %if.else.i268.invoke.cont79_crit_edge unwind label %lpad78
 
 if.else.i268.invoke.cont79_crit_edge:             ; preds = %if.else.i268
@@ -470,8 +477,8 @@ if.else.i268.invoke.cont79_crit_edge:             ; preds = %if.else.i268
   br label %invoke.cont79
 
 invoke.cont79:                                    ; preds = %if.else.i268.invoke.cont79_crit_edge, %if.then.i262
-  %20 = phi ptr [ %.pre399, %if.else.i268.invoke.cont79_crit_edge ], [ %18, %if.then.i262 ]
-  %21 = phi ptr [ %.pre398, %if.else.i268.invoke.cont79_crit_edge ], [ %incdec.ptr.i266, %if.then.i262 ]
+  %27 = phi ptr [ %.pre399, %if.else.i268.invoke.cont79_crit_edge ], [ %24, %if.then.i262 ]
+  %28 = phi ptr [ %.pre398, %if.else.i268.invoke.cont79_crit_edge ], [ %incdec.ptr.i266, %if.then.i262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp76) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp74) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp73) #22
@@ -481,23 +488,24 @@ invoke.cont79:                                    ; preds = %if.else.i268.invoke
   store i32 152, ptr %ref.tmp86, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp88) #22
   store i32 24, ptr %ref.tmp88, align 4, !tbaa !41
-  %cmp.not.i273 = icmp eq ptr %21, %20
+  %cmp.not.i273 = icmp eq ptr %28, %27
   br i1 %cmp.not.i273, label %if.else.i280, label %if.then.i274
 
 if.then.i274:                                     ; preds = %invoke.cont79
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %21, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i275 = getelementptr inbounds i8, ptr %21, i64 12
+  %29 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %29, ptr %28, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i275 = getelementptr inbounds i8, ptr %28, i64 12
   store i32 152, ptr %filter_mask2.i.i.i.i275, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i276 = getelementptr inbounds i8, ptr %21, i64 16
+  %compare_mask3.i.i.i.i276 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 24, ptr %compare_mask3.i.i.i.i276, align 8, !tbaa !14
-  %key4.i.i.i.i277 = getelementptr inbounds i8, ptr %21, i64 8
+  %key4.i.i.i.i277 = getelementptr inbounds i8, ptr %28, i64 8
   store i32 22, ptr %key4.i.i.i.i277, align 8, !tbaa !45
-  %incdec.ptr.i278 = getelementptr inbounds i8, ptr %21, i64 24
+  %incdec.ptr.i278 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %incdec.ptr.i278, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont91
 
 if.else.i280:                                     ; preds = %invoke.cont79
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp85, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp86, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp88)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp85, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp86, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp88)
           to label %if.else.i280.invoke.cont91_crit_edge unwind label %lpad90
 
 if.else.i280.invoke.cont91_crit_edge:             ; preds = %if.else.i280
@@ -506,8 +514,8 @@ if.else.i280.invoke.cont91_crit_edge:             ; preds = %if.else.i280
   br label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %if.else.i280.invoke.cont91_crit_edge, %if.then.i274
-  %22 = phi ptr [ %.pre401, %if.else.i280.invoke.cont91_crit_edge ], [ %20, %if.then.i274 ]
-  %23 = phi ptr [ %.pre400, %if.else.i280.invoke.cont91_crit_edge ], [ %incdec.ptr.i278, %if.then.i274 ]
+  %30 = phi ptr [ %.pre401, %if.else.i280.invoke.cont91_crit_edge ], [ %27, %if.then.i274 ]
+  %31 = phi ptr [ %.pre400, %if.else.i280.invoke.cont91_crit_edge ], [ %incdec.ptr.i278, %if.then.i274 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp88) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp86) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp85) #22
@@ -517,23 +525,24 @@ invoke.cont91:                                    ; preds = %if.else.i280.invoke
   store i32 168, ptr %ref.tmp98, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp100) #22
   store i32 40, ptr %ref.tmp100, align 4, !tbaa !41
-  %cmp.not.i286 = icmp eq ptr %23, %22
+  %cmp.not.i286 = icmp eq ptr %31, %30
   br i1 %cmp.not.i286, label %if.else.i293, label %if.then.i287
 
 if.then.i287:                                     ; preds = %invoke.cont91
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %23, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i288 = getelementptr inbounds i8, ptr %23, i64 12
+  %32 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %32, ptr %31, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i288 = getelementptr inbounds i8, ptr %31, i64 12
   store i32 168, ptr %filter_mask2.i.i.i.i288, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i289 = getelementptr inbounds i8, ptr %23, i64 16
+  %compare_mask3.i.i.i.i289 = getelementptr inbounds i8, ptr %31, i64 16
   store i32 40, ptr %compare_mask3.i.i.i.i289, align 8, !tbaa !14
-  %key4.i.i.i.i290 = getelementptr inbounds i8, ptr %23, i64 8
+  %key4.i.i.i.i290 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 23, ptr %key4.i.i.i.i290, align 8, !tbaa !45
-  %incdec.ptr.i291 = getelementptr inbounds i8, ptr %23, i64 24
+  %incdec.ptr.i291 = getelementptr inbounds i8, ptr %31, i64 24
   store ptr %incdec.ptr.i291, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont103
 
 if.else.i293:                                     ; preds = %invoke.cont91
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp97, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp98, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp100)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp97, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp98, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp100)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %if.else.i293, %if.then.i287
@@ -548,29 +557,30 @@ invoke.cont103:                                   ; preds = %if.else.i293, %if.t
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp110) #22
   store i32 1, ptr %ref.tmp110, align 4, !tbaa !41
   %_M_finish.i297 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %24 = load ptr, ptr %_M_finish.i297, align 8, !tbaa !20
+  %33 = load ptr, ptr %_M_finish.i297, align 8, !tbaa !20
   %_M_end_of_storage.i298 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %25 = load ptr, ptr %_M_end_of_storage.i298, align 8, !tbaa !47
-  %cmp.not.i299 = icmp eq ptr %24, %25
+  %34 = load ptr, ptr %_M_end_of_storage.i298, align 8, !tbaa !47
+  %cmp.not.i299 = icmp eq ptr %33, %34
   br i1 %cmp.not.i299, label %if.else.i303, label %if.then.i300
 
 if.then.i300:                                     ; preds = %invoke.cont103
-  %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %24, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
+  %35 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %36 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %36, ptr %33, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 20
-  store i16 %26, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 20
+  store i16 %35, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
+  %key5.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
   store i32 0, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i301 = getelementptr inbounds i8, ptr %24, i64 24
+  %incdec.ptr.i301 = getelementptr inbounds i8, ptr %33, i64 24
   store ptr %incdec.ptr.i301, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont113
 
 if.else.i303:                                     ; preds = %invoke.cont103
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp108, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp109, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp110, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp108, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp109, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp110, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i303.invoke.cont113_crit_edge unwind label %lpad112
 
 if.else.i303.invoke.cont113_crit_edge:            ; preds = %if.else.i303
@@ -579,8 +589,8 @@ if.else.i303.invoke.cont113_crit_edge:            ; preds = %if.else.i303
   br label %invoke.cont113
 
 invoke.cont113:                                   ; preds = %if.else.i303.invoke.cont113_crit_edge, %if.then.i300
-  %27 = phi ptr [ %.pre403, %if.else.i303.invoke.cont113_crit_edge ], [ %25, %if.then.i300 ]
-  %28 = phi ptr [ %.pre402, %if.else.i303.invoke.cont113_crit_edge ], [ %incdec.ptr.i301, %if.then.i300 ]
+  %37 = phi ptr [ %.pre403, %if.else.i303.invoke.cont113_crit_edge ], [ %34, %if.then.i300 ]
+  %38 = phi ptr [ %.pre402, %if.else.i303.invoke.cont113_crit_edge ], [ %incdec.ptr.i301, %if.then.i300 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp110) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp108) #22
@@ -590,26 +600,27 @@ invoke.cont113:                                   ; preds = %if.else.i303.invoke
   store i32 1, ptr %ref.tmp120, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp121) #22
   store i32 -1, ptr %ref.tmp121, align 4, !tbaa !41
-  %cmp.not.i308 = icmp eq ptr %28, %27
+  %cmp.not.i308 = icmp eq ptr %38, %37
   br i1 %cmp.not.i308, label %if.else.i317, label %if.then.i309
 
 if.then.i309:                                     ; preds = %invoke.cont113
-  %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i311 = getelementptr inbounds i8, ptr %28, i64 12
+  %39 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %40 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %40, ptr %38, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i311 = getelementptr inbounds i8, ptr %38, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i311, align 4, !tbaa !15
-  %direction3.i.i.i.i312 = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i312 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 -1, ptr %direction3.i.i.i.i312, align 8, !tbaa !18
-  %thresh4.i.i.i.i313 = getelementptr inbounds i8, ptr %28, i64 20
-  store i16 %29, ptr %thresh4.i.i.i.i313, align 4, !tbaa !19
-  %key5.i.i.i.i314 = getelementptr inbounds i8, ptr %28, i64 8
+  %thresh4.i.i.i.i313 = getelementptr inbounds i8, ptr %38, i64 20
+  store i16 %39, ptr %thresh4.i.i.i.i313, align 4, !tbaa !19
+  %key5.i.i.i.i314 = getelementptr inbounds i8, ptr %38, i64 8
   store i32 1, ptr %key5.i.i.i.i314, align 8, !tbaa !45
-  %incdec.ptr.i315 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i315 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i315, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont124
 
 if.else.i317:                                     ; preds = %invoke.cont113
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp119, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp120, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp121, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp119, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp120, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp121, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i317.invoke.cont124_crit_edge unwind label %lpad123
 
 if.else.i317.invoke.cont124_crit_edge:            ; preds = %if.else.i317
@@ -618,8 +629,8 @@ if.else.i317.invoke.cont124_crit_edge:            ; preds = %if.else.i317
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %if.else.i317.invoke.cont124_crit_edge, %if.then.i309
-  %30 = phi ptr [ %.pre405, %if.else.i317.invoke.cont124_crit_edge ], [ %27, %if.then.i309 ]
-  %31 = phi ptr [ %.pre404, %if.else.i317.invoke.cont124_crit_edge ], [ %incdec.ptr.i315, %if.then.i309 ]
+  %41 = phi ptr [ %.pre405, %if.else.i317.invoke.cont124_crit_edge ], [ %37, %if.then.i309 ]
+  %42 = phi ptr [ %.pre404, %if.else.i317.invoke.cont124_crit_edge ], [ %incdec.ptr.i315, %if.then.i309 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp121) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp120) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp119) #22
@@ -629,26 +640,27 @@ invoke.cont124:                                   ; preds = %if.else.i317.invoke
   store i32 0, ptr %ref.tmp131, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp132) #22
   store i32 1, ptr %ref.tmp132, align 4, !tbaa !41
-  %cmp.not.i323 = icmp eq ptr %31, %30
+  %cmp.not.i323 = icmp eq ptr %42, %41
   br i1 %cmp.not.i323, label %if.else.i332, label %if.then.i324
 
 if.then.i324:                                     ; preds = %invoke.cont124
-  %32 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %31, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i326 = getelementptr inbounds i8, ptr %31, i64 12
+  %43 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %44 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %44, ptr %42, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i326 = getelementptr inbounds i8, ptr %42, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i326, align 4, !tbaa !15
-  %direction3.i.i.i.i327 = getelementptr inbounds i8, ptr %31, i64 16
+  %direction3.i.i.i.i327 = getelementptr inbounds i8, ptr %42, i64 16
   store i32 1, ptr %direction3.i.i.i.i327, align 8, !tbaa !18
-  %thresh4.i.i.i.i328 = getelementptr inbounds i8, ptr %31, i64 20
-  store i16 %32, ptr %thresh4.i.i.i.i328, align 4, !tbaa !19
-  %key5.i.i.i.i329 = getelementptr inbounds i8, ptr %31, i64 8
+  %thresh4.i.i.i.i328 = getelementptr inbounds i8, ptr %42, i64 20
+  store i16 %43, ptr %thresh4.i.i.i.i328, align 4, !tbaa !19
+  %key5.i.i.i.i329 = getelementptr inbounds i8, ptr %42, i64 8
   store i32 2, ptr %key5.i.i.i.i329, align 8, !tbaa !45
-  %incdec.ptr.i330 = getelementptr inbounds i8, ptr %31, i64 24
+  %incdec.ptr.i330 = getelementptr inbounds i8, ptr %42, i64 24
   store ptr %incdec.ptr.i330, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont135
 
 if.else.i332:                                     ; preds = %invoke.cont124
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp130, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp131, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp132, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp130, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp131, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp132, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i332.invoke.cont135_crit_edge unwind label %lpad134
 
 if.else.i332.invoke.cont135_crit_edge:            ; preds = %if.else.i332
@@ -657,8 +669,8 @@ if.else.i332.invoke.cont135_crit_edge:            ; preds = %if.else.i332
   br label %invoke.cont135
 
 invoke.cont135:                                   ; preds = %if.else.i332.invoke.cont135_crit_edge, %if.then.i324
-  %33 = phi ptr [ %.pre407, %if.else.i332.invoke.cont135_crit_edge ], [ %30, %if.then.i324 ]
-  %34 = phi ptr [ %.pre406, %if.else.i332.invoke.cont135_crit_edge ], [ %incdec.ptr.i330, %if.then.i324 ]
+  %45 = phi ptr [ %.pre407, %if.else.i332.invoke.cont135_crit_edge ], [ %41, %if.then.i324 ]
+  %46 = phi ptr [ %.pre406, %if.else.i332.invoke.cont135_crit_edge ], [ %incdec.ptr.i330, %if.then.i324 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp132) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp131) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp130) #22
@@ -668,26 +680,27 @@ invoke.cont135:                                   ; preds = %if.else.i332.invoke
   store i32 0, ptr %ref.tmp142, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp143) #22
   store i32 -1, ptr %ref.tmp143, align 4, !tbaa !41
-  %cmp.not.i338 = icmp eq ptr %34, %33
+  %cmp.not.i338 = icmp eq ptr %46, %45
   br i1 %cmp.not.i338, label %if.else.i347, label %if.then.i339
 
 if.then.i339:                                     ; preds = %invoke.cont135
-  %35 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i341 = getelementptr inbounds i8, ptr %34, i64 12
+  %47 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %48 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %48, ptr %46, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i341 = getelementptr inbounds i8, ptr %46, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i341, align 4, !tbaa !15
-  %direction3.i.i.i.i342 = getelementptr inbounds i8, ptr %34, i64 16
+  %direction3.i.i.i.i342 = getelementptr inbounds i8, ptr %46, i64 16
   store i32 -1, ptr %direction3.i.i.i.i342, align 8, !tbaa !18
-  %thresh4.i.i.i.i343 = getelementptr inbounds i8, ptr %34, i64 20
-  store i16 %35, ptr %thresh4.i.i.i.i343, align 4, !tbaa !19
-  %key5.i.i.i.i344 = getelementptr inbounds i8, ptr %34, i64 8
+  %thresh4.i.i.i.i343 = getelementptr inbounds i8, ptr %46, i64 20
+  store i16 %47, ptr %thresh4.i.i.i.i343, align 4, !tbaa !19
+  %key5.i.i.i.i344 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 3, ptr %key5.i.i.i.i344, align 8, !tbaa !45
-  %incdec.ptr.i345 = getelementptr inbounds i8, ptr %34, i64 24
+  %incdec.ptr.i345 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %incdec.ptr.i345, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont146
 
 if.else.i347:                                     ; preds = %invoke.cont135
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp141, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp142, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp143, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp141, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp142, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp143, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i347.invoke.cont146_crit_edge unwind label %lpad145
 
 if.else.i347.invoke.cont146_crit_edge:            ; preds = %if.else.i347
@@ -696,8 +709,8 @@ if.else.i347.invoke.cont146_crit_edge:            ; preds = %if.else.i347
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %if.else.i347.invoke.cont146_crit_edge, %if.then.i339
-  %36 = phi ptr [ %.pre409, %if.else.i347.invoke.cont146_crit_edge ], [ %33, %if.then.i339 ]
-  %37 = phi ptr [ %.pre408, %if.else.i347.invoke.cont146_crit_edge ], [ %incdec.ptr.i345, %if.then.i339 ]
+  %49 = phi ptr [ %.pre409, %if.else.i347.invoke.cont146_crit_edge ], [ %45, %if.then.i339 ]
+  %50 = phi ptr [ %.pre408, %if.else.i347.invoke.cont146_crit_edge ], [ %incdec.ptr.i345, %if.then.i339 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp143) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp142) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp141) #22
@@ -707,26 +720,27 @@ invoke.cont146:                                   ; preds = %if.else.i347.invoke
   store i32 2, ptr %ref.tmp153, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp154) #22
   store i32 -1, ptr %ref.tmp154, align 4, !tbaa !41
-  %cmp.not.i353 = icmp eq ptr %37, %36
+  %cmp.not.i353 = icmp eq ptr %50, %49
   br i1 %cmp.not.i353, label %if.else.i362, label %if.then.i354
 
 if.then.i354:                                     ; preds = %invoke.cont146
-  %38 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %37, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i356 = getelementptr inbounds i8, ptr %37, i64 12
+  %51 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %52 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %52, ptr %50, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i356 = getelementptr inbounds i8, ptr %50, i64 12
   store i16 2, ptr %axis_to_compare2.i.i.i.i356, align 4, !tbaa !15
-  %direction3.i.i.i.i357 = getelementptr inbounds i8, ptr %37, i64 16
+  %direction3.i.i.i.i357 = getelementptr inbounds i8, ptr %50, i64 16
   store i32 -1, ptr %direction3.i.i.i.i357, align 8, !tbaa !18
-  %thresh4.i.i.i.i358 = getelementptr inbounds i8, ptr %37, i64 20
-  store i16 %38, ptr %thresh4.i.i.i.i358, align 4, !tbaa !19
-  %key5.i.i.i.i359 = getelementptr inbounds i8, ptr %37, i64 8
+  %thresh4.i.i.i.i358 = getelementptr inbounds i8, ptr %50, i64 20
+  store i16 %51, ptr %thresh4.i.i.i.i358, align 4, !tbaa !19
+  %key5.i.i.i.i359 = getelementptr inbounds i8, ptr %50, i64 8
   store i32 22, ptr %key5.i.i.i.i359, align 8, !tbaa !45
-  %incdec.ptr.i360 = getelementptr inbounds i8, ptr %37, i64 24
+  %incdec.ptr.i360 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %incdec.ptr.i360, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont157
 
 if.else.i362:                                     ; preds = %invoke.cont146
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp152, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp153, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp154, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp152, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp153, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp154, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i362.invoke.cont157_crit_edge unwind label %lpad156
 
 if.else.i362.invoke.cont157_crit_edge:            ; preds = %if.else.i362
@@ -735,8 +749,8 @@ if.else.i362.invoke.cont157_crit_edge:            ; preds = %if.else.i362
   br label %invoke.cont157
 
 invoke.cont157:                                   ; preds = %if.else.i362.invoke.cont157_crit_edge, %if.then.i354
-  %39 = phi ptr [ %.pre411, %if.else.i362.invoke.cont157_crit_edge ], [ %36, %if.then.i354 ]
-  %40 = phi ptr [ %.pre410, %if.else.i362.invoke.cont157_crit_edge ], [ %incdec.ptr.i360, %if.then.i354 ]
+  %53 = phi ptr [ %.pre411, %if.else.i362.invoke.cont157_crit_edge ], [ %49, %if.then.i354 ]
+  %54 = phi ptr [ %.pre410, %if.else.i362.invoke.cont157_crit_edge ], [ %incdec.ptr.i360, %if.then.i354 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp154) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp153) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp152) #22
@@ -746,26 +760,27 @@ invoke.cont157:                                   ; preds = %if.else.i362.invoke
   store i32 5, ptr %ref.tmp164, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp165) #22
   store i32 -1, ptr %ref.tmp165, align 4, !tbaa !41
-  %cmp.not.i368 = icmp eq ptr %40, %39
+  %cmp.not.i368 = icmp eq ptr %54, %53
   br i1 %cmp.not.i368, label %if.else.i377, label %if.then.i369
 
 if.then.i369:                                     ; preds = %invoke.cont157
-  %41 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %40, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i371 = getelementptr inbounds i8, ptr %40, i64 12
+  %55 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %56 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %56, ptr %54, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i371 = getelementptr inbounds i8, ptr %54, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i371, align 4, !tbaa !15
-  %direction3.i.i.i.i372 = getelementptr inbounds i8, ptr %40, i64 16
+  %direction3.i.i.i.i372 = getelementptr inbounds i8, ptr %54, i64 16
   store i32 -1, ptr %direction3.i.i.i.i372, align 8, !tbaa !18
-  %thresh4.i.i.i.i373 = getelementptr inbounds i8, ptr %40, i64 20
-  store i16 %41, ptr %thresh4.i.i.i.i373, align 4, !tbaa !19
-  %key5.i.i.i.i374 = getelementptr inbounds i8, ptr %40, i64 8
+  %thresh4.i.i.i.i373 = getelementptr inbounds i8, ptr %54, i64 20
+  store i16 %55, ptr %thresh4.i.i.i.i373, align 4, !tbaa !19
+  %key5.i.i.i.i374 = getelementptr inbounds i8, ptr %54, i64 8
   store i32 23, ptr %key5.i.i.i.i374, align 8, !tbaa !45
-  %incdec.ptr.i375 = getelementptr inbounds i8, ptr %40, i64 24
+  %incdec.ptr.i375 = getelementptr inbounds i8, ptr %54, i64 24
   store ptr %incdec.ptr.i375, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont168
 
 if.else.i377:                                     ; preds = %invoke.cont157
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %39, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp163, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp164, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp165, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %53, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp163, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp164, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp165, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %invoke.cont168 unwind label %lpad167
 
 invoke.cont168:                                   ; preds = %if.else.i377, %if.then.i369
@@ -775,34 +790,34 @@ invoke.cont168:                                   ; preds = %if.else.i377, %if.t
   ret void
 
 lpad:                                             ; preds = %entry
-  %42 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %call2.i11.i.noexc
-  %43 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
-  %cmp.i.i.i381 = icmp eq ptr %44, %1
+  %59 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
+  %cmp.i.i.i381 = icmp eq ptr %59, %1
   br i1 %cmp.i.i.i381, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383, label %if.then.i.i382
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383: ; preds = %lpad2
-  %45 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
-  %cmp3.i.i.i385 = icmp ult i64 %45, 16
+  %60 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
+  %cmp3.i.i.i385 = icmp ult i64 %60, 16
   call void @llvm.assume(i1 %cmp3.i.i.i385)
   br label %ehcleanup
 
 if.then.i.i382:                                   ; preds = %lpad2
-  call void @_ZdlPv(ptr noundef %44) #23
+  call void @_ZdlPv(ptr noundef %59) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i382, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383, %lpad
-  %.pn = phi { ptr, i32 } [ %42, %lpad ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383 ], [ %43, %if.then.i.i382 ]
+  %.pn = phi { ptr, i32 } [ %57, %lpad ], [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383 ], [ %58, %if.then.i.i382 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   br label %ehcleanup177
 
 lpad11:                                           ; preds = %if.else.i
-  %46 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp10) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp9) #22
@@ -810,7 +825,7 @@ lpad11:                                           ; preds = %if.else.i
   br label %ehcleanup177
 
 lpad22:                                           ; preds = %if.else.i204
-  %47 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp19) #22
@@ -818,7 +833,7 @@ lpad22:                                           ; preds = %if.else.i204
   br label %ehcleanup177
 
 lpad33:                                           ; preds = %if.else.i216
-  %48 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp30) #22
@@ -826,7 +841,7 @@ lpad33:                                           ; preds = %if.else.i216
   br label %ehcleanup177
 
 lpad44:                                           ; preds = %if.else.i229
-  %49 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #22
@@ -834,7 +849,7 @@ lpad44:                                           ; preds = %if.else.i229
   br label %ehcleanup177
 
 lpad55:                                           ; preds = %if.else.i242
-  %50 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp54) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp52) #22
@@ -842,7 +857,7 @@ lpad55:                                           ; preds = %if.else.i242
   br label %ehcleanup177
 
 lpad66:                                           ; preds = %if.else.i255
-  %51 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp65) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
@@ -850,7 +865,7 @@ lpad66:                                           ; preds = %if.else.i255
   br label %ehcleanup177
 
 lpad78:                                           ; preds = %if.else.i268
-  %52 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp76) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp74) #22
@@ -858,7 +873,7 @@ lpad78:                                           ; preds = %if.else.i268
   br label %ehcleanup177
 
 lpad90:                                           ; preds = %if.else.i280
-  %53 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp88) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp86) #22
@@ -866,7 +881,7 @@ lpad90:                                           ; preds = %if.else.i280
   br label %ehcleanup177
 
 lpad102:                                          ; preds = %if.else.i293
-  %54 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp100) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp98) #22
@@ -874,7 +889,7 @@ lpad102:                                          ; preds = %if.else.i293
   br label %ehcleanup177
 
 lpad112:                                          ; preds = %if.else.i303
-  %55 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp110) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #22
@@ -882,7 +897,7 @@ lpad112:                                          ; preds = %if.else.i303
   br label %ehcleanup177
 
 lpad123:                                          ; preds = %if.else.i317
-  %56 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp121) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp120) #22
@@ -890,7 +905,7 @@ lpad123:                                          ; preds = %if.else.i317
   br label %ehcleanup177
 
 lpad134:                                          ; preds = %if.else.i332
-  %57 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp132) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp131) #22
@@ -898,7 +913,7 @@ lpad134:                                          ; preds = %if.else.i332
   br label %ehcleanup177
 
 lpad145:                                          ; preds = %if.else.i347
-  %58 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp143) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp142) #22
@@ -906,7 +921,7 @@ lpad145:                                          ; preds = %if.else.i347
   br label %ehcleanup177
 
 lpad156:                                          ; preds = %if.else.i362
-  %59 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp154) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp153) #22
@@ -914,7 +929,7 @@ lpad156:                                          ; preds = %if.else.i362
   br label %ehcleanup177
 
 lpad167:                                          ; preds = %if.else.i377
-  %60 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp165) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp164) #22
@@ -922,7 +937,7 @@ lpad167:                                          ; preds = %if.else.i377
   br label %ehcleanup177
 
 ehcleanup177:                                     ; preds = %lpad167, %lpad156, %lpad145, %lpad134, %lpad123, %lpad112, %lpad102, %lpad90, %lpad78, %lpad66, %lpad55, %lpad44, %lpad33, %lpad22, %lpad11, %ehcleanup
-  %.pn190.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %60, %lpad167 ], [ %59, %lpad156 ], [ %58, %lpad145 ], [ %57, %lpad134 ], [ %56, %lpad123 ], [ %55, %lpad112 ], [ %54, %lpad102 ], [ %53, %lpad90 ], [ %52, %lpad78 ], [ %51, %lpad66 ], [ %50, %lpad55 ], [ %49, %lpad44 ], [ %48, %lpad33 ], [ %47, %lpad22 ], [ %46, %lpad11 ]
+  %.pn190.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %75, %lpad167 ], [ %74, %lpad156 ], [ %73, %lpad145 ], [ %72, %lpad134 ], [ %71, %lpad123 ], [ %70, %lpad112 ], [ %69, %lpad102 ], [ %68, %lpad90 ], [ %67, %lpad78 ], [ %66, %lpad66 ], [ %65, %lpad55 ], [ %64, %lpad44 ], [ %63, %lpad33 ], [ %62, %lpad22 ], [ %61, %lpad11 ]
   call void @_ZN14JoystickLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %agg.result) #22
   resume { ptr, i32 } %.pn190.pn
 }
@@ -1096,7 +1111,8 @@ invoke.cont:                                      ; preds = %if.else.i
   br i1 %cmp.not.i146, label %if.else.i153, label %if.then.i147
 
 if.then.i147:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %.pre, align 8, !tbaa !43
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %0, ptr %.pre, align 8, !tbaa !43
   %filter_mask2.i.i.i.i148 = getelementptr inbounds i8, ptr %.pre, i64 12
   store i32 512, ptr %filter_mask2.i.i.i.i148, align 4, !tbaa !10
   %compare_mask3.i.i.i.i149 = getelementptr inbounds i8, ptr %.pre, i64 16
@@ -1117,8 +1133,8 @@ if.else.i153.invoke.cont10_crit_edge:             ; preds = %if.else.i153
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.else.i153.invoke.cont10_crit_edge, %if.then.i147
-  %0 = phi ptr [ %.pre395, %if.else.i153.invoke.cont10_crit_edge ], [ %.pre393, %if.then.i147 ]
-  %1 = phi ptr [ %.pre394, %if.else.i153.invoke.cont10_crit_edge ], [ %incdec.ptr.i151, %if.then.i147 ]
+  %1 = phi ptr [ %.pre395, %if.else.i153.invoke.cont10_crit_edge ], [ %.pre393, %if.then.i147 ]
+  %2 = phi ptr [ %.pre394, %if.else.i153.invoke.cont10_crit_edge ], [ %incdec.ptr.i151, %if.then.i147 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp6) #22
@@ -1128,23 +1144,24 @@ invoke.cont10:                                    ; preds = %if.else.i153.invoke
   store i32 1, ptr %ref.tmp14, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp15) #22
   store i32 1, ptr %ref.tmp15, align 4, !tbaa !41
-  %cmp.not.i159 = icmp eq ptr %1, %0
+  %cmp.not.i159 = icmp eq ptr %2, %1
   br i1 %cmp.not.i159, label %if.else.i166, label %if.then.i160
 
 if.then.i160:                                     ; preds = %invoke.cont10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i161 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %3, ptr %2, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i161 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i161, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i162 = getelementptr inbounds i8, ptr %1, i64 16
+  %compare_mask3.i.i.i.i162 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i162, align 8, !tbaa !14
-  %key4.i.i.i.i163 = getelementptr inbounds i8, ptr %1, i64 8
+  %key4.i.i.i.i163 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 4, ptr %key4.i.i.i.i163, align 8, !tbaa !45
-  %incdec.ptr.i164 = getelementptr inbounds i8, ptr %1, i64 24
+  %incdec.ptr.i164 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %incdec.ptr.i164, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont17
 
 if.else.i166:                                     ; preds = %invoke.cont10
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
           to label %if.else.i166.invoke.cont17_crit_edge unwind label %lpad16
 
 if.else.i166.invoke.cont17_crit_edge:             ; preds = %if.else.i166
@@ -1153,8 +1170,8 @@ if.else.i166.invoke.cont17_crit_edge:             ; preds = %if.else.i166
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.else.i166.invoke.cont17_crit_edge, %if.then.i160
-  %2 = phi ptr [ %.pre397, %if.else.i166.invoke.cont17_crit_edge ], [ %0, %if.then.i160 ]
-  %3 = phi ptr [ %.pre396, %if.else.i166.invoke.cont17_crit_edge ], [ %incdec.ptr.i164, %if.then.i160 ]
+  %4 = phi ptr [ %.pre397, %if.else.i166.invoke.cont17_crit_edge ], [ %1, %if.then.i160 ]
+  %5 = phi ptr [ %.pre396, %if.else.i166.invoke.cont17_crit_edge ], [ %incdec.ptr.i164, %if.then.i160 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp15) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp14) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp13) #22
@@ -1164,23 +1181,24 @@ invoke.cont17:                                    ; preds = %if.else.i166.invoke
   store i32 2, ptr %ref.tmp21, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp22) #22
   store i32 2, ptr %ref.tmp22, align 4, !tbaa !41
-  %cmp.not.i172 = icmp eq ptr %3, %2
+  %cmp.not.i172 = icmp eq ptr %5, %4
   br i1 %cmp.not.i172, label %if.else.i179, label %if.then.i173
 
 if.then.i173:                                     ; preds = %invoke.cont17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i174 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %6, ptr %5, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i174 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i174, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i175 = getelementptr inbounds i8, ptr %3, i64 16
+  %compare_mask3.i.i.i.i175 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i175, align 8, !tbaa !14
-  %key4.i.i.i.i176 = getelementptr inbounds i8, ptr %3, i64 8
+  %key4.i.i.i.i176 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 10, ptr %key4.i.i.i.i176, align 8, !tbaa !45
-  %incdec.ptr.i177 = getelementptr inbounds i8, ptr %3, i64 24
+  %incdec.ptr.i177 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %incdec.ptr.i177, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont24
 
 if.else.i179:                                     ; preds = %invoke.cont17
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22)
           to label %if.else.i179.invoke.cont24_crit_edge unwind label %lpad23
 
 if.else.i179.invoke.cont24_crit_edge:             ; preds = %if.else.i179
@@ -1189,8 +1207,8 @@ if.else.i179.invoke.cont24_crit_edge:             ; preds = %if.else.i179
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.else.i179.invoke.cont24_crit_edge, %if.then.i173
-  %4 = phi ptr [ %.pre399, %if.else.i179.invoke.cont24_crit_edge ], [ %2, %if.then.i173 ]
-  %5 = phi ptr [ %.pre398, %if.else.i179.invoke.cont24_crit_edge ], [ %incdec.ptr.i177, %if.then.i173 ]
+  %7 = phi ptr [ %.pre399, %if.else.i179.invoke.cont24_crit_edge ], [ %4, %if.then.i173 ]
+  %8 = phi ptr [ %.pre398, %if.else.i179.invoke.cont24_crit_edge ], [ %incdec.ptr.i177, %if.then.i173 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp22) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20) #22
@@ -1200,23 +1218,24 @@ invoke.cont24:                                    ; preds = %if.else.i179.invoke
   store i32 4, ptr %ref.tmp28, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp29) #22
   store i32 4, ptr %ref.tmp29, align 4, !tbaa !41
-  %cmp.not.i185 = icmp eq ptr %5, %4
+  %cmp.not.i185 = icmp eq ptr %8, %7
   br i1 %cmp.not.i185, label %if.else.i192, label %if.then.i186
 
 if.then.i186:                                     ; preds = %invoke.cont24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i187 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %9, ptr %8, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i187 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i187, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i188 = getelementptr inbounds i8, ptr %5, i64 16
+  %compare_mask3.i.i.i.i188 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 4, ptr %compare_mask3.i.i.i.i188, align 8, !tbaa !14
-  %key4.i.i.i.i189 = getelementptr inbounds i8, ptr %5, i64 8
+  %key4.i.i.i.i189 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 5, ptr %key4.i.i.i.i189, align 8, !tbaa !45
-  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %5, i64 24
+  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr.i190, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont31
 
 if.else.i192:                                     ; preds = %invoke.cont24
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
           to label %if.else.i192.invoke.cont31_crit_edge unwind label %lpad30
 
 if.else.i192.invoke.cont31_crit_edge:             ; preds = %if.else.i192
@@ -1225,8 +1244,8 @@ if.else.i192.invoke.cont31_crit_edge:             ; preds = %if.else.i192
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.else.i192.invoke.cont31_crit_edge, %if.then.i186
-  %6 = phi ptr [ %.pre401, %if.else.i192.invoke.cont31_crit_edge ], [ %4, %if.then.i186 ]
-  %7 = phi ptr [ %.pre400, %if.else.i192.invoke.cont31_crit_edge ], [ %incdec.ptr.i190, %if.then.i186 ]
+  %10 = phi ptr [ %.pre401, %if.else.i192.invoke.cont31_crit_edge ], [ %7, %if.then.i186 ]
+  %11 = phi ptr [ %.pre400, %if.else.i192.invoke.cont31_crit_edge ], [ %incdec.ptr.i190, %if.then.i186 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp28) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp27) #22
@@ -1236,23 +1255,24 @@ invoke.cont31:                                    ; preds = %if.else.i192.invoke
   store i32 8, ptr %ref.tmp35, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp36) #22
   store i32 8, ptr %ref.tmp36, align 4, !tbaa !41
-  %cmp.not.i198 = icmp eq ptr %7, %6
+  %cmp.not.i198 = icmp eq ptr %11, %10
   br i1 %cmp.not.i198, label %if.else.i205, label %if.then.i199
 
 if.then.i199:                                     ; preds = %invoke.cont31
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i200 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %11, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i200 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i200, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i201 = getelementptr inbounds i8, ptr %7, i64 16
+  %compare_mask3.i.i.i.i201 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 8, ptr %compare_mask3.i.i.i.i201, align 8, !tbaa !14
-  %key4.i.i.i.i202 = getelementptr inbounds i8, ptr %7, i64 8
+  %key4.i.i.i.i202 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 12, ptr %key4.i.i.i.i202, align 8, !tbaa !45
-  %incdec.ptr.i203 = getelementptr inbounds i8, ptr %7, i64 24
+  %incdec.ptr.i203 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %incdec.ptr.i203, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont38
 
 if.else.i205:                                     ; preds = %invoke.cont31
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36)
           to label %if.else.i205.invoke.cont38_crit_edge unwind label %lpad37
 
 if.else.i205.invoke.cont38_crit_edge:             ; preds = %if.else.i205
@@ -1261,8 +1281,8 @@ if.else.i205.invoke.cont38_crit_edge:             ; preds = %if.else.i205
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.else.i205.invoke.cont38_crit_edge, %if.then.i199
-  %8 = phi ptr [ %.pre403, %if.else.i205.invoke.cont38_crit_edge ], [ %6, %if.then.i199 ]
-  %9 = phi ptr [ %.pre402, %if.else.i205.invoke.cont38_crit_edge ], [ %incdec.ptr.i203, %if.then.i199 ]
+  %13 = phi ptr [ %.pre403, %if.else.i205.invoke.cont38_crit_edge ], [ %10, %if.then.i199 ]
+  %14 = phi ptr [ %.pre402, %if.else.i205.invoke.cont38_crit_edge ], [ %incdec.ptr.i203, %if.then.i199 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp36) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp35) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp34) #22
@@ -1272,23 +1292,24 @@ invoke.cont38:                                    ; preds = %if.else.i205.invoke
   store i32 2048, ptr %ref.tmp42, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp43) #22
   store i32 2048, ptr %ref.tmp43, align 4, !tbaa !41
-  %cmp.not.i211 = icmp eq ptr %9, %8
+  %cmp.not.i211 = icmp eq ptr %14, %13
   br i1 %cmp.not.i211, label %if.else.i218, label %if.then.i212
 
 if.then.i212:                                     ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i213 = getelementptr inbounds i8, ptr %9, i64 12
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %15, ptr %14, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i213 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 2048, ptr %filter_mask2.i.i.i.i213, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i214 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i214 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 2048, ptr %compare_mask3.i.i.i.i214, align 8, !tbaa !14
-  %key4.i.i.i.i215 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i215 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 5, ptr %key4.i.i.i.i215, align 8, !tbaa !45
-  %incdec.ptr.i216 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i216 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i216, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
 if.else.i218:                                     ; preds = %invoke.cont38
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
           to label %if.else.i218.invoke.cont45_crit_edge unwind label %lpad44
 
 if.else.i218.invoke.cont45_crit_edge:             ; preds = %if.else.i218
@@ -1297,8 +1318,8 @@ if.else.i218.invoke.cont45_crit_edge:             ; preds = %if.else.i218
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.else.i218.invoke.cont45_crit_edge, %if.then.i212
-  %10 = phi ptr [ %.pre405, %if.else.i218.invoke.cont45_crit_edge ], [ %8, %if.then.i212 ]
-  %11 = phi ptr [ %.pre404, %if.else.i218.invoke.cont45_crit_edge ], [ %incdec.ptr.i216, %if.then.i212 ]
+  %16 = phi ptr [ %.pre405, %if.else.i218.invoke.cont45_crit_edge ], [ %13, %if.then.i212 ]
+  %17 = phi ptr [ %.pre404, %if.else.i218.invoke.cont45_crit_edge ], [ %incdec.ptr.i216, %if.then.i212 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp42) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #22
@@ -1308,23 +1329,24 @@ invoke.cont45:                                    ; preds = %if.else.i218.invoke
   store i32 4096, ptr %ref.tmp49, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp50) #22
   store i32 4096, ptr %ref.tmp50, align 4, !tbaa !41
-  %cmp.not.i224 = icmp eq ptr %11, %10
+  %cmp.not.i224 = icmp eq ptr %17, %16
   br i1 %cmp.not.i224, label %if.else.i231, label %if.then.i225
 
 if.then.i225:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i226 = getelementptr inbounds i8, ptr %11, i64 12
+  %18 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %18, ptr %17, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i226 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 4096, ptr %filter_mask2.i.i.i.i226, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i227 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i227 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 4096, ptr %compare_mask3.i.i.i.i227, align 8, !tbaa !14
-  %key4.i.i.i.i228 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i228 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 6, ptr %key4.i.i.i.i228, align 8, !tbaa !45
-  %incdec.ptr.i229 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i229 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %incdec.ptr.i229, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont52
 
 if.else.i231:                                     ; preds = %invoke.cont45
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp48, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp50)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp48, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp50)
           to label %if.else.i231.invoke.cont52_crit_edge unwind label %lpad51
 
 if.else.i231.invoke.cont52_crit_edge:             ; preds = %if.else.i231
@@ -1333,8 +1355,8 @@ if.else.i231.invoke.cont52_crit_edge:             ; preds = %if.else.i231
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %if.else.i231.invoke.cont52_crit_edge, %if.then.i225
-  %12 = phi ptr [ %.pre407, %if.else.i231.invoke.cont52_crit_edge ], [ %10, %if.then.i225 ]
-  %13 = phi ptr [ %.pre406, %if.else.i231.invoke.cont52_crit_edge ], [ %incdec.ptr.i229, %if.then.i225 ]
+  %19 = phi ptr [ %.pre407, %if.else.i231.invoke.cont52_crit_edge ], [ %16, %if.then.i225 ]
+  %20 = phi ptr [ %.pre406, %if.else.i231.invoke.cont52_crit_edge ], [ %incdec.ptr.i229, %if.then.i225 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp50) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp49) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp48) #22
@@ -1344,23 +1366,24 @@ invoke.cont52:                                    ; preds = %if.else.i231.invoke
   store i32 64, ptr %ref.tmp56, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp57) #22
   store i32 64, ptr %ref.tmp57, align 4, !tbaa !41
-  %cmp.not.i237 = icmp eq ptr %13, %12
+  %cmp.not.i237 = icmp eq ptr %20, %19
   br i1 %cmp.not.i237, label %if.else.i244, label %if.then.i238
 
 if.then.i238:                                     ; preds = %invoke.cont52
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %13, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i239 = getelementptr inbounds i8, ptr %13, i64 12
+  %21 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %21, ptr %20, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i239 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i239, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i240 = getelementptr inbounds i8, ptr %13, i64 16
+  %compare_mask3.i.i.i.i240 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 64, ptr %compare_mask3.i.i.i.i240, align 8, !tbaa !14
-  %key4.i.i.i.i241 = getelementptr inbounds i8, ptr %13, i64 8
+  %key4.i.i.i.i241 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 8, ptr %key4.i.i.i.i241, align 8, !tbaa !45
-  %incdec.ptr.i242 = getelementptr inbounds i8, ptr %13, i64 24
+  %incdec.ptr.i242 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %incdec.ptr.i242, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont59
 
 if.else.i244:                                     ; preds = %invoke.cont52
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp57)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp57)
           to label %if.else.i244.invoke.cont59_crit_edge unwind label %lpad58
 
 if.else.i244.invoke.cont59_crit_edge:             ; preds = %if.else.i244
@@ -1369,8 +1392,8 @@ if.else.i244.invoke.cont59_crit_edge:             ; preds = %if.else.i244
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %if.else.i244.invoke.cont59_crit_edge, %if.then.i238
-  %14 = phi ptr [ %.pre409, %if.else.i244.invoke.cont59_crit_edge ], [ %12, %if.then.i238 ]
-  %15 = phi ptr [ %.pre408, %if.else.i244.invoke.cont59_crit_edge ], [ %incdec.ptr.i242, %if.then.i238 ]
+  %22 = phi ptr [ %.pre409, %if.else.i244.invoke.cont59_crit_edge ], [ %19, %if.then.i238 ]
+  %23 = phi ptr [ %.pre408, %if.else.i244.invoke.cont59_crit_edge ], [ %incdec.ptr.i242, %if.then.i238 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp57) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp56) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp55) #22
@@ -1380,23 +1403,24 @@ invoke.cont59:                                    ; preds = %if.else.i244.invoke
   store i32 128, ptr %ref.tmp63, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp64) #22
   store i32 128, ptr %ref.tmp64, align 4, !tbaa !41
-  %cmp.not.i250 = icmp eq ptr %15, %14
+  %cmp.not.i250 = icmp eq ptr %23, %22
   br i1 %cmp.not.i250, label %if.else.i257, label %if.then.i251
 
 if.then.i251:                                     ; preds = %invoke.cont59
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %15, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i252 = getelementptr inbounds i8, ptr %15, i64 12
+  %24 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %24, ptr %23, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i252 = getelementptr inbounds i8, ptr %23, i64 12
   store i32 128, ptr %filter_mask2.i.i.i.i252, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i253 = getelementptr inbounds i8, ptr %15, i64 16
+  %compare_mask3.i.i.i.i253 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 128, ptr %compare_mask3.i.i.i.i253, align 8, !tbaa !14
-  %key4.i.i.i.i254 = getelementptr inbounds i8, ptr %15, i64 8
+  %key4.i.i.i.i254 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 9, ptr %key4.i.i.i.i254, align 8, !tbaa !45
-  %incdec.ptr.i255 = getelementptr inbounds i8, ptr %15, i64 24
+  %incdec.ptr.i255 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %incdec.ptr.i255, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont66
 
 if.else.i257:                                     ; preds = %invoke.cont59
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp64)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp64)
           to label %if.else.i257.invoke.cont66_crit_edge unwind label %lpad65
 
 if.else.i257.invoke.cont66_crit_edge:             ; preds = %if.else.i257
@@ -1405,8 +1429,8 @@ if.else.i257.invoke.cont66_crit_edge:             ; preds = %if.else.i257
   br label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %if.else.i257.invoke.cont66_crit_edge, %if.then.i251
-  %16 = phi ptr [ %.pre411, %if.else.i257.invoke.cont66_crit_edge ], [ %14, %if.then.i251 ]
-  %17 = phi ptr [ %.pre410, %if.else.i257.invoke.cont66_crit_edge ], [ %incdec.ptr.i255, %if.then.i251 ]
+  %25 = phi ptr [ %.pre411, %if.else.i257.invoke.cont66_crit_edge ], [ %22, %if.then.i251 ]
+  %26 = phi ptr [ %.pre410, %if.else.i257.invoke.cont66_crit_edge ], [ %incdec.ptr.i255, %if.then.i251 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp64) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp62) #22
@@ -1416,23 +1440,24 @@ invoke.cont66:                                    ; preds = %if.else.i257.invoke
   store i32 16, ptr %ref.tmp70, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp71) #22
   store i32 16, ptr %ref.tmp71, align 4, !tbaa !41
-  %cmp.not.i263 = icmp eq ptr %17, %16
+  %cmp.not.i263 = icmp eq ptr %26, %25
   br i1 %cmp.not.i263, label %if.else.i270, label %if.then.i264
 
 if.then.i264:                                     ; preds = %invoke.cont66
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i265 = getelementptr inbounds i8, ptr %17, i64 12
+  %27 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %27, ptr %26, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i265 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i265, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i266 = getelementptr inbounds i8, ptr %17, i64 16
+  %compare_mask3.i.i.i.i266 = getelementptr inbounds i8, ptr %26, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i266, align 8, !tbaa !14
-  %key4.i.i.i.i267 = getelementptr inbounds i8, ptr %17, i64 8
+  %key4.i.i.i.i267 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 22, ptr %key4.i.i.i.i267, align 8, !tbaa !45
-  %incdec.ptr.i268 = getelementptr inbounds i8, ptr %17, i64 24
+  %incdec.ptr.i268 = getelementptr inbounds i8, ptr %26, i64 24
   store ptr %incdec.ptr.i268, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont73
 
 if.else.i270:                                     ; preds = %invoke.cont66
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp69, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp71)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp69, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp71)
           to label %if.else.i270.invoke.cont73_crit_edge unwind label %lpad72
 
 if.else.i270.invoke.cont73_crit_edge:             ; preds = %if.else.i270
@@ -1441,8 +1466,8 @@ if.else.i270.invoke.cont73_crit_edge:             ; preds = %if.else.i270
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i270.invoke.cont73_crit_edge, %if.then.i264
-  %18 = phi ptr [ %.pre413, %if.else.i270.invoke.cont73_crit_edge ], [ %16, %if.then.i264 ]
-  %19 = phi ptr [ %.pre412, %if.else.i270.invoke.cont73_crit_edge ], [ %incdec.ptr.i268, %if.then.i264 ]
+  %28 = phi ptr [ %.pre413, %if.else.i270.invoke.cont73_crit_edge ], [ %25, %if.then.i264 ]
+  %29 = phi ptr [ %.pre412, %if.else.i270.invoke.cont73_crit_edge ], [ %incdec.ptr.i268, %if.then.i264 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp70) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp69) #22
@@ -1452,23 +1477,24 @@ invoke.cont73:                                    ; preds = %if.else.i270.invoke
   store i32 32, ptr %ref.tmp77, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp78) #22
   store i32 32, ptr %ref.tmp78, align 4, !tbaa !41
-  %cmp.not.i276 = icmp eq ptr %19, %18
+  %cmp.not.i276 = icmp eq ptr %29, %28
   br i1 %cmp.not.i276, label %if.else.i283, label %if.then.i277
 
 if.then.i277:                                     ; preds = %invoke.cont73
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i278 = getelementptr inbounds i8, ptr %19, i64 12
+  %30 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %30, ptr %29, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i278 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i278, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i279 = getelementptr inbounds i8, ptr %19, i64 16
+  %compare_mask3.i.i.i.i279 = getelementptr inbounds i8, ptr %29, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i279, align 8, !tbaa !14
-  %key4.i.i.i.i280 = getelementptr inbounds i8, ptr %19, i64 8
+  %key4.i.i.i.i280 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 23, ptr %key4.i.i.i.i280, align 8, !tbaa !45
-  %incdec.ptr.i281 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i281 = getelementptr inbounds i8, ptr %29, i64 24
   store ptr %incdec.ptr.i281, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont80
 
 if.else.i283:                                     ; preds = %invoke.cont73
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp77, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp78)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp77, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp78)
           to label %if.else.i283.invoke.cont80_crit_edge unwind label %lpad79
 
 if.else.i283.invoke.cont80_crit_edge:             ; preds = %if.else.i283
@@ -1477,8 +1503,8 @@ if.else.i283.invoke.cont80_crit_edge:             ; preds = %if.else.i283
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %if.else.i283.invoke.cont80_crit_edge, %if.then.i277
-  %20 = phi ptr [ %.pre415, %if.else.i283.invoke.cont80_crit_edge ], [ %18, %if.then.i277 ]
-  %21 = phi ptr [ %.pre414, %if.else.i283.invoke.cont80_crit_edge ], [ %incdec.ptr.i281, %if.then.i277 ]
+  %31 = phi ptr [ %.pre415, %if.else.i283.invoke.cont80_crit_edge ], [ %28, %if.then.i277 ]
+  %32 = phi ptr [ %.pre414, %if.else.i283.invoke.cont80_crit_edge ], [ %incdec.ptr.i281, %if.then.i277 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp78) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp77) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp76) #22
@@ -1488,23 +1514,24 @@ invoke.cont80:                                    ; preds = %if.else.i283.invoke
   store i32 32768, ptr %ref.tmp84, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp85) #22
   store i32 32768, ptr %ref.tmp85, align 4, !tbaa !41
-  %cmp.not.i289 = icmp eq ptr %21, %20
+  %cmp.not.i289 = icmp eq ptr %32, %31
   br i1 %cmp.not.i289, label %if.else.i296, label %if.then.i290
 
 if.then.i290:                                     ; preds = %invoke.cont80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %21, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i291 = getelementptr inbounds i8, ptr %21, i64 12
+  %33 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %33, ptr %32, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i291 = getelementptr inbounds i8, ptr %32, i64 12
   store i32 32768, ptr %filter_mask2.i.i.i.i291, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i292 = getelementptr inbounds i8, ptr %21, i64 16
+  %compare_mask3.i.i.i.i292 = getelementptr inbounds i8, ptr %32, i64 16
   store i32 32768, ptr %compare_mask3.i.i.i.i292, align 8, !tbaa !14
-  %key4.i.i.i.i293 = getelementptr inbounds i8, ptr %21, i64 8
+  %key4.i.i.i.i293 = getelementptr inbounds i8, ptr %32, i64 8
   store i32 40, ptr %key4.i.i.i.i293, align 8, !tbaa !45
-  %incdec.ptr.i294 = getelementptr inbounds i8, ptr %21, i64 24
+  %incdec.ptr.i294 = getelementptr inbounds i8, ptr %32, i64 24
   store ptr %incdec.ptr.i294, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont87
 
 if.else.i296:                                     ; preds = %invoke.cont80
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp83, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp84, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp85)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp83, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp84, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp85)
           to label %if.else.i296.invoke.cont87_crit_edge unwind label %lpad86
 
 if.else.i296.invoke.cont87_crit_edge:             ; preds = %if.else.i296
@@ -1513,8 +1540,8 @@ if.else.i296.invoke.cont87_crit_edge:             ; preds = %if.else.i296
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.else.i296.invoke.cont87_crit_edge, %if.then.i290
-  %22 = phi ptr [ %.pre417, %if.else.i296.invoke.cont87_crit_edge ], [ %20, %if.then.i290 ]
-  %23 = phi ptr [ %.pre416, %if.else.i296.invoke.cont87_crit_edge ], [ %incdec.ptr.i294, %if.then.i290 ]
+  %34 = phi ptr [ %.pre417, %if.else.i296.invoke.cont87_crit_edge ], [ %31, %if.then.i290 ]
+  %35 = phi ptr [ %.pre416, %if.else.i296.invoke.cont87_crit_edge ], [ %incdec.ptr.i294, %if.then.i290 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp85) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp84) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp83) #22
@@ -1524,23 +1551,24 @@ invoke.cont87:                                    ; preds = %if.else.i296.invoke
   store i32 8192, ptr %ref.tmp91, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp92) #22
   store i32 8192, ptr %ref.tmp92, align 4, !tbaa !41
-  %cmp.not.i302 = icmp eq ptr %23, %22
+  %cmp.not.i302 = icmp eq ptr %35, %34
   br i1 %cmp.not.i302, label %if.else.i309, label %if.then.i303
 
 if.then.i303:                                     ; preds = %invoke.cont87
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %23, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i304 = getelementptr inbounds i8, ptr %23, i64 12
+  %36 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %36, ptr %35, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i304 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 8192, ptr %filter_mask2.i.i.i.i304, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i305 = getelementptr inbounds i8, ptr %23, i64 16
+  %compare_mask3.i.i.i.i305 = getelementptr inbounds i8, ptr %35, i64 16
   store i32 8192, ptr %compare_mask3.i.i.i.i305, align 8, !tbaa !14
-  %key4.i.i.i.i306 = getelementptr inbounds i8, ptr %23, i64 8
+  %key4.i.i.i.i306 = getelementptr inbounds i8, ptr %35, i64 8
   store i32 11, ptr %key4.i.i.i.i306, align 8, !tbaa !45
-  %incdec.ptr.i307 = getelementptr inbounds i8, ptr %23, i64 24
+  %incdec.ptr.i307 = getelementptr inbounds i8, ptr %35, i64 24
   store ptr %incdec.ptr.i307, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont94
 
 if.else.i309:                                     ; preds = %invoke.cont87
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp90, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp91, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp92)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp90, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp91, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp92)
           to label %if.else.i309.invoke.cont94_crit_edge unwind label %lpad93
 
 if.else.i309.invoke.cont94_crit_edge:             ; preds = %if.else.i309
@@ -1549,8 +1577,8 @@ if.else.i309.invoke.cont94_crit_edge:             ; preds = %if.else.i309
   br label %invoke.cont94
 
 invoke.cont94:                                    ; preds = %if.else.i309.invoke.cont94_crit_edge, %if.then.i303
-  %24 = phi ptr [ %.pre419, %if.else.i309.invoke.cont94_crit_edge ], [ %22, %if.then.i303 ]
-  %25 = phi ptr [ %.pre418, %if.else.i309.invoke.cont94_crit_edge ], [ %incdec.ptr.i307, %if.then.i303 ]
+  %37 = phi ptr [ %.pre419, %if.else.i309.invoke.cont94_crit_edge ], [ %34, %if.then.i303 ]
+  %38 = phi ptr [ %.pre418, %if.else.i309.invoke.cont94_crit_edge ], [ %incdec.ptr.i307, %if.then.i303 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp92) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp91) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp90) #22
@@ -1560,23 +1588,24 @@ invoke.cont94:                                    ; preds = %if.else.i309.invoke
   store i32 16384, ptr %ref.tmp98, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp99) #22
   store i32 16384, ptr %ref.tmp99, align 4, !tbaa !41
-  %cmp.not.i315 = icmp eq ptr %25, %24
+  %cmp.not.i315 = icmp eq ptr %38, %37
   br i1 %cmp.not.i315, label %if.else.i322, label %if.then.i316
 
 if.then.i316:                                     ; preds = %invoke.cont94
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %25, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i317 = getelementptr inbounds i8, ptr %25, i64 12
+  %39 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %39, ptr %38, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i317 = getelementptr inbounds i8, ptr %38, i64 12
   store i32 16384, ptr %filter_mask2.i.i.i.i317, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i318 = getelementptr inbounds i8, ptr %25, i64 16
+  %compare_mask3.i.i.i.i318 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 16384, ptr %compare_mask3.i.i.i.i318, align 8, !tbaa !14
-  %key4.i.i.i.i319 = getelementptr inbounds i8, ptr %25, i64 8
+  %key4.i.i.i.i319 = getelementptr inbounds i8, ptr %38, i64 8
   store i32 28, ptr %key4.i.i.i.i319, align 8, !tbaa !45
-  %incdec.ptr.i320 = getelementptr inbounds i8, ptr %25, i64 24
+  %incdec.ptr.i320 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i320, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont101
 
 if.else.i322:                                     ; preds = %invoke.cont94
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp97, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp98, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp99)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp97, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp98, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp99)
           to label %if.else.i322.invoke.cont101_crit_edge unwind label %lpad100
 
 if.else.i322.invoke.cont101_crit_edge:            ; preds = %if.else.i322
@@ -1585,8 +1614,8 @@ if.else.i322.invoke.cont101_crit_edge:            ; preds = %if.else.i322
   br label %invoke.cont101
 
 invoke.cont101:                                   ; preds = %if.else.i322.invoke.cont101_crit_edge, %if.then.i316
-  %26 = phi ptr [ %.pre421, %if.else.i322.invoke.cont101_crit_edge ], [ %24, %if.then.i316 ]
-  %27 = phi ptr [ %.pre420, %if.else.i322.invoke.cont101_crit_edge ], [ %incdec.ptr.i320, %if.then.i316 ]
+  %40 = phi ptr [ %.pre421, %if.else.i322.invoke.cont101_crit_edge ], [ %37, %if.then.i316 ]
+  %41 = phi ptr [ %.pre420, %if.else.i322.invoke.cont101_crit_edge ], [ %incdec.ptr.i320, %if.then.i316 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp99) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp98) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp97) #22
@@ -1596,23 +1625,24 @@ invoke.cont101:                                   ; preds = %if.else.i322.invoke
   store i32 65536, ptr %ref.tmp105, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp106) #22
   store i32 65536, ptr %ref.tmp106, align 4, !tbaa !41
-  %cmp.not.i328 = icmp eq ptr %27, %26
+  %cmp.not.i328 = icmp eq ptr %41, %40
   br i1 %cmp.not.i328, label %if.else.i335, label %if.then.i329
 
 if.then.i329:                                     ; preds = %invoke.cont101
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i330 = getelementptr inbounds i8, ptr %27, i64 12
+  %42 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %42, ptr %41, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i330 = getelementptr inbounds i8, ptr %41, i64 12
   store i32 65536, ptr %filter_mask2.i.i.i.i330, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i331 = getelementptr inbounds i8, ptr %27, i64 16
+  %compare_mask3.i.i.i.i331 = getelementptr inbounds i8, ptr %41, i64 16
   store i32 65536, ptr %compare_mask3.i.i.i.i331, align 8, !tbaa !14
-  %key4.i.i.i.i332 = getelementptr inbounds i8, ptr %27, i64 8
+  %key4.i.i.i.i332 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 18, ptr %key4.i.i.i.i332, align 8, !tbaa !45
-  %incdec.ptr.i333 = getelementptr inbounds i8, ptr %27, i64 24
+  %incdec.ptr.i333 = getelementptr inbounds i8, ptr %41, i64 24
   store ptr %incdec.ptr.i333, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont108
 
 if.else.i335:                                     ; preds = %invoke.cont101
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %26, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp104, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp105, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp106)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %40, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp104, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp105, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp106)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %if.else.i335, %if.then.i329
@@ -1627,29 +1657,30 @@ invoke.cont108:                                   ; preds = %if.else.i335, %if.t
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp112) #22
   store i32 1, ptr %ref.tmp112, align 4, !tbaa !41
   %_M_finish.i339 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %28 = load ptr, ptr %_M_finish.i339, align 8, !tbaa !20
+  %43 = load ptr, ptr %_M_finish.i339, align 8, !tbaa !20
   %_M_end_of_storage.i340 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %29 = load ptr, ptr %_M_end_of_storage.i340, align 8, !tbaa !47
-  %cmp.not.i341 = icmp eq ptr %28, %29
+  %44 = load ptr, ptr %_M_end_of_storage.i340, align 8, !tbaa !47
+  %cmp.not.i341 = icmp eq ptr %43, %44
   br i1 %cmp.not.i341, label %if.else.i345, label %if.then.i342
 
 if.then.i342:                                     ; preds = %invoke.cont108
-  %30 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %45 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %46 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %46, ptr %43, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 20
-  store i16 %30, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 20
+  store i16 %45, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
+  %key5.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   store i32 0, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i343 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i343 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr %incdec.ptr.i343, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont115
 
 if.else.i345:                                     ; preds = %invoke.cont108
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp110, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp111, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp112, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %43, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp110, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp111, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp112, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i345.invoke.cont115_crit_edge unwind label %lpad114
 
 if.else.i345.invoke.cont115_crit_edge:            ; preds = %if.else.i345
@@ -1658,8 +1689,8 @@ if.else.i345.invoke.cont115_crit_edge:            ; preds = %if.else.i345
   br label %invoke.cont115
 
 invoke.cont115:                                   ; preds = %if.else.i345.invoke.cont115_crit_edge, %if.then.i342
-  %31 = phi ptr [ %.pre423, %if.else.i345.invoke.cont115_crit_edge ], [ %29, %if.then.i342 ]
-  %32 = phi ptr [ %.pre422, %if.else.i345.invoke.cont115_crit_edge ], [ %incdec.ptr.i343, %if.then.i342 ]
+  %47 = phi ptr [ %.pre423, %if.else.i345.invoke.cont115_crit_edge ], [ %44, %if.then.i342 ]
+  %48 = phi ptr [ %.pre422, %if.else.i345.invoke.cont115_crit_edge ], [ %incdec.ptr.i343, %if.then.i342 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp112) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp111) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp110) #22
@@ -1669,26 +1700,27 @@ invoke.cont115:                                   ; preds = %if.else.i345.invoke
   store i32 1, ptr %ref.tmp119, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp120) #22
   store i32 -1, ptr %ref.tmp120, align 4, !tbaa !41
-  %cmp.not.i350 = icmp eq ptr %32, %31
+  %cmp.not.i350 = icmp eq ptr %48, %47
   br i1 %cmp.not.i350, label %if.else.i359, label %if.then.i351
 
 if.then.i351:                                     ; preds = %invoke.cont115
-  %33 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %32, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i353 = getelementptr inbounds i8, ptr %32, i64 12
+  %49 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %50 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %50, ptr %48, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i353 = getelementptr inbounds i8, ptr %48, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i353, align 4, !tbaa !15
-  %direction3.i.i.i.i354 = getelementptr inbounds i8, ptr %32, i64 16
+  %direction3.i.i.i.i354 = getelementptr inbounds i8, ptr %48, i64 16
   store i32 -1, ptr %direction3.i.i.i.i354, align 8, !tbaa !18
-  %thresh4.i.i.i.i355 = getelementptr inbounds i8, ptr %32, i64 20
-  store i16 %33, ptr %thresh4.i.i.i.i355, align 4, !tbaa !19
-  %key5.i.i.i.i356 = getelementptr inbounds i8, ptr %32, i64 8
+  %thresh4.i.i.i.i355 = getelementptr inbounds i8, ptr %48, i64 20
+  store i16 %49, ptr %thresh4.i.i.i.i355, align 4, !tbaa !19
+  %key5.i.i.i.i356 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 1, ptr %key5.i.i.i.i356, align 8, !tbaa !45
-  %incdec.ptr.i357 = getelementptr inbounds i8, ptr %32, i64 24
+  %incdec.ptr.i357 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr %incdec.ptr.i357, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont123
 
 if.else.i359:                                     ; preds = %invoke.cont115
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp118, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp119, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp120, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %47, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp118, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp119, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp120, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i359.invoke.cont123_crit_edge unwind label %lpad122
 
 if.else.i359.invoke.cont123_crit_edge:            ; preds = %if.else.i359
@@ -1697,8 +1729,8 @@ if.else.i359.invoke.cont123_crit_edge:            ; preds = %if.else.i359
   br label %invoke.cont123
 
 invoke.cont123:                                   ; preds = %if.else.i359.invoke.cont123_crit_edge, %if.then.i351
-  %34 = phi ptr [ %.pre425, %if.else.i359.invoke.cont123_crit_edge ], [ %31, %if.then.i351 ]
-  %35 = phi ptr [ %.pre424, %if.else.i359.invoke.cont123_crit_edge ], [ %incdec.ptr.i357, %if.then.i351 ]
+  %51 = phi ptr [ %.pre425, %if.else.i359.invoke.cont123_crit_edge ], [ %47, %if.then.i351 ]
+  %52 = phi ptr [ %.pre424, %if.else.i359.invoke.cont123_crit_edge ], [ %incdec.ptr.i357, %if.then.i351 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp120) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp119) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp118) #22
@@ -1708,26 +1740,27 @@ invoke.cont123:                                   ; preds = %if.else.i359.invoke
   store i32 0, ptr %ref.tmp127, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp128) #22
   store i32 1, ptr %ref.tmp128, align 4, !tbaa !41
-  %cmp.not.i365 = icmp eq ptr %35, %34
+  %cmp.not.i365 = icmp eq ptr %52, %51
   br i1 %cmp.not.i365, label %if.else.i374, label %if.then.i366
 
 if.then.i366:                                     ; preds = %invoke.cont123
-  %36 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %35, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i368 = getelementptr inbounds i8, ptr %35, i64 12
+  %53 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %54 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %54, ptr %52, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i368 = getelementptr inbounds i8, ptr %52, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i368, align 4, !tbaa !15
-  %direction3.i.i.i.i369 = getelementptr inbounds i8, ptr %35, i64 16
+  %direction3.i.i.i.i369 = getelementptr inbounds i8, ptr %52, i64 16
   store i32 1, ptr %direction3.i.i.i.i369, align 8, !tbaa !18
-  %thresh4.i.i.i.i370 = getelementptr inbounds i8, ptr %35, i64 20
-  store i16 %36, ptr %thresh4.i.i.i.i370, align 4, !tbaa !19
-  %key5.i.i.i.i371 = getelementptr inbounds i8, ptr %35, i64 8
+  %thresh4.i.i.i.i370 = getelementptr inbounds i8, ptr %52, i64 20
+  store i16 %53, ptr %thresh4.i.i.i.i370, align 4, !tbaa !19
+  %key5.i.i.i.i371 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 2, ptr %key5.i.i.i.i371, align 8, !tbaa !45
-  %incdec.ptr.i372 = getelementptr inbounds i8, ptr %35, i64 24
+  %incdec.ptr.i372 = getelementptr inbounds i8, ptr %52, i64 24
   store ptr %incdec.ptr.i372, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont131
 
 if.else.i374:                                     ; preds = %invoke.cont123
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp126, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp127, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp128, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %51, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp126, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp127, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp128, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i374.invoke.cont131_crit_edge unwind label %lpad130
 
 if.else.i374.invoke.cont131_crit_edge:            ; preds = %if.else.i374
@@ -1736,8 +1769,8 @@ if.else.i374.invoke.cont131_crit_edge:            ; preds = %if.else.i374
   br label %invoke.cont131
 
 invoke.cont131:                                   ; preds = %if.else.i374.invoke.cont131_crit_edge, %if.then.i366
-  %37 = phi ptr [ %.pre427, %if.else.i374.invoke.cont131_crit_edge ], [ %34, %if.then.i366 ]
-  %38 = phi ptr [ %.pre426, %if.else.i374.invoke.cont131_crit_edge ], [ %incdec.ptr.i372, %if.then.i366 ]
+  %55 = phi ptr [ %.pre427, %if.else.i374.invoke.cont131_crit_edge ], [ %51, %if.then.i366 ]
+  %56 = phi ptr [ %.pre426, %if.else.i374.invoke.cont131_crit_edge ], [ %incdec.ptr.i372, %if.then.i366 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp128) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp127) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp126) #22
@@ -1747,26 +1780,27 @@ invoke.cont131:                                   ; preds = %if.else.i374.invoke
   store i32 0, ptr %ref.tmp135, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp136) #22
   store i32 -1, ptr %ref.tmp136, align 4, !tbaa !41
-  %cmp.not.i380 = icmp eq ptr %38, %37
+  %cmp.not.i380 = icmp eq ptr %56, %55
   br i1 %cmp.not.i380, label %if.else.i389, label %if.then.i381
 
 if.then.i381:                                     ; preds = %invoke.cont131
-  %39 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i383 = getelementptr inbounds i8, ptr %38, i64 12
+  %57 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %58 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %58, ptr %56, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i383 = getelementptr inbounds i8, ptr %56, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i383, align 4, !tbaa !15
-  %direction3.i.i.i.i384 = getelementptr inbounds i8, ptr %38, i64 16
+  %direction3.i.i.i.i384 = getelementptr inbounds i8, ptr %56, i64 16
   store i32 -1, ptr %direction3.i.i.i.i384, align 8, !tbaa !18
-  %thresh4.i.i.i.i385 = getelementptr inbounds i8, ptr %38, i64 20
-  store i16 %39, ptr %thresh4.i.i.i.i385, align 4, !tbaa !19
-  %key5.i.i.i.i386 = getelementptr inbounds i8, ptr %38, i64 8
+  %thresh4.i.i.i.i385 = getelementptr inbounds i8, ptr %56, i64 20
+  store i16 %57, ptr %thresh4.i.i.i.i385, align 4, !tbaa !19
+  %key5.i.i.i.i386 = getelementptr inbounds i8, ptr %56, i64 8
   store i32 3, ptr %key5.i.i.i.i386, align 8, !tbaa !45
-  %incdec.ptr.i387 = getelementptr inbounds i8, ptr %38, i64 24
+  %incdec.ptr.i387 = getelementptr inbounds i8, ptr %56, i64 24
   store ptr %incdec.ptr.i387, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont139
 
 if.else.i389:                                     ; preds = %invoke.cont131
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp134, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp135, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp136, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %55, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp134, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp135, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp136, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %if.else.i389, %if.then.i381
@@ -1776,7 +1810,7 @@ invoke.cont139:                                   ; preds = %if.else.i389, %if.t
   ret void
 
 lpad:                                             ; preds = %if.else.i
-  %40 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp3) #22
@@ -1784,7 +1818,7 @@ lpad:                                             ; preds = %if.else.i
   br label %ehcleanup
 
 lpad9:                                            ; preds = %if.else.i153
-  %41 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp7) #22
@@ -1792,7 +1826,7 @@ lpad9:                                            ; preds = %if.else.i153
   br label %ehcleanup
 
 lpad16:                                           ; preds = %if.else.i166
-  %42 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp15) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp14) #22
@@ -1800,7 +1834,7 @@ lpad16:                                           ; preds = %if.else.i166
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else.i179
-  %43 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp22) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
@@ -1808,7 +1842,7 @@ lpad23:                                           ; preds = %if.else.i179
   br label %ehcleanup
 
 lpad30:                                           ; preds = %if.else.i192
-  %44 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp28) #22
@@ -1816,7 +1850,7 @@ lpad30:                                           ; preds = %if.else.i192
   br label %ehcleanup
 
 lpad37:                                           ; preds = %if.else.i205
-  %45 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp36) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp35) #22
@@ -1824,7 +1858,7 @@ lpad37:                                           ; preds = %if.else.i205
   br label %ehcleanup
 
 lpad44:                                           ; preds = %if.else.i218
-  %46 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp42) #22
@@ -1832,7 +1866,7 @@ lpad44:                                           ; preds = %if.else.i218
   br label %ehcleanup
 
 lpad51:                                           ; preds = %if.else.i231
-  %47 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp50) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp49) #22
@@ -1840,7 +1874,7 @@ lpad51:                                           ; preds = %if.else.i231
   br label %ehcleanup
 
 lpad58:                                           ; preds = %if.else.i244
-  %48 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp57) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp56) #22
@@ -1848,7 +1882,7 @@ lpad58:                                           ; preds = %if.else.i244
   br label %ehcleanup
 
 lpad65:                                           ; preds = %if.else.i257
-  %49 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp64) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
@@ -1856,7 +1890,7 @@ lpad65:                                           ; preds = %if.else.i257
   br label %ehcleanup
 
 lpad72:                                           ; preds = %if.else.i270
-  %50 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp70) #22
@@ -1864,7 +1898,7 @@ lpad72:                                           ; preds = %if.else.i270
   br label %ehcleanup
 
 lpad79:                                           ; preds = %if.else.i283
-  %51 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp78) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp77) #22
@@ -1872,7 +1906,7 @@ lpad79:                                           ; preds = %if.else.i283
   br label %ehcleanup
 
 lpad86:                                           ; preds = %if.else.i296
-  %52 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp85) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp84) #22
@@ -1880,7 +1914,7 @@ lpad86:                                           ; preds = %if.else.i296
   br label %ehcleanup
 
 lpad93:                                           ; preds = %if.else.i309
-  %53 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp92) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp91) #22
@@ -1888,7 +1922,7 @@ lpad93:                                           ; preds = %if.else.i309
   br label %ehcleanup
 
 lpad100:                                          ; preds = %if.else.i322
-  %54 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp99) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp98) #22
@@ -1896,7 +1930,7 @@ lpad100:                                          ; preds = %if.else.i322
   br label %ehcleanup
 
 lpad107:                                          ; preds = %if.else.i335
-  %55 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp106) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp105) #22
@@ -1904,7 +1938,7 @@ lpad107:                                          ; preds = %if.else.i335
   br label %ehcleanup
 
 lpad114:                                          ; preds = %if.else.i345
-  %56 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp112) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp111) #22
@@ -1912,7 +1946,7 @@ lpad114:                                          ; preds = %if.else.i345
   br label %ehcleanup
 
 lpad122:                                          ; preds = %if.else.i359
-  %57 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp120) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp119) #22
@@ -1920,7 +1954,7 @@ lpad122:                                          ; preds = %if.else.i359
   br label %ehcleanup
 
 lpad130:                                          ; preds = %if.else.i374
-  %58 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp128) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp127) #22
@@ -1928,7 +1962,7 @@ lpad130:                                          ; preds = %if.else.i374
   br label %ehcleanup
 
 lpad138:                                          ; preds = %if.else.i389
-  %59 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp136) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp135) #22
@@ -1936,7 +1970,7 @@ lpad138:                                          ; preds = %if.else.i389
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad138, %lpad130, %lpad122, %lpad114, %lpad107, %lpad100, %lpad93, %lpad86, %lpad79, %lpad72, %lpad65, %lpad58, %lpad51, %lpad44, %lpad37, %lpad30, %lpad23, %lpad16, %lpad9, %lpad
-  %.pn = phi { ptr, i32 } [ %59, %lpad138 ], [ %58, %lpad130 ], [ %57, %lpad122 ], [ %56, %lpad114 ], [ %55, %lpad107 ], [ %54, %lpad100 ], [ %53, %lpad93 ], [ %52, %lpad86 ], [ %51, %lpad79 ], [ %50, %lpad72 ], [ %49, %lpad65 ], [ %48, %lpad58 ], [ %47, %lpad51 ], [ %46, %lpad44 ], [ %45, %lpad37 ], [ %44, %lpad30 ], [ %43, %lpad23 ], [ %42, %lpad16 ], [ %41, %lpad9 ], [ %40, %lpad ]
+  %.pn = phi { ptr, i32 } [ %78, %lpad138 ], [ %77, %lpad130 ], [ %76, %lpad122 ], [ %75, %lpad114 ], [ %74, %lpad107 ], [ %73, %lpad100 ], [ %72, %lpad93 ], [ %71, %lpad86 ], [ %70, %lpad79 ], [ %69, %lpad72 ], [ %68, %lpad65 ], [ %67, %lpad58 ], [ %66, %lpad51 ], [ %65, %lpad44 ], [ %64, %lpad37 ], [ %63, %lpad30 ], [ %62, %lpad23 ], [ %61, %lpad16 ], [ %60, %lpad9 ], [ %59, %lpad ]
   call void @_ZN14JoystickLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %agg.result) #22
   resume { ptr, i32 } %.pn
 }
@@ -2018,7 +2052,8 @@ invoke.cont:                                      ; preds = %if.else.i
   br i1 %cmp.not.i106, label %if.else.i113, label %if.then.i107
 
 if.then.i107:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %.pre, align 8, !tbaa !43
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %0, ptr %.pre, align 8, !tbaa !43
   %filter_mask2.i.i.i.i108 = getelementptr inbounds i8, ptr %.pre, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i108, align 4, !tbaa !10
   %compare_mask3.i.i.i.i109 = getelementptr inbounds i8, ptr %.pre, i64 16
@@ -2039,8 +2074,8 @@ if.else.i113.invoke.cont10_crit_edge:             ; preds = %if.else.i113
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.else.i113.invoke.cont10_crit_edge, %if.then.i107
-  %0 = phi ptr [ %.pre281, %if.else.i113.invoke.cont10_crit_edge ], [ %.pre279, %if.then.i107 ]
-  %1 = phi ptr [ %.pre280, %if.else.i113.invoke.cont10_crit_edge ], [ %incdec.ptr.i111, %if.then.i107 ]
+  %1 = phi ptr [ %.pre281, %if.else.i113.invoke.cont10_crit_edge ], [ %.pre279, %if.then.i107 ]
+  %2 = phi ptr [ %.pre280, %if.else.i113.invoke.cont10_crit_edge ], [ %incdec.ptr.i111, %if.then.i107 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp6) #22
@@ -2050,23 +2085,24 @@ invoke.cont10:                                    ; preds = %if.else.i113.invoke
   store i32 8, ptr %ref.tmp14, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp15) #22
   store i32 8, ptr %ref.tmp15, align 4, !tbaa !41
-  %cmp.not.i119 = icmp eq ptr %1, %0
+  %cmp.not.i119 = icmp eq ptr %2, %1
   br i1 %cmp.not.i119, label %if.else.i126, label %if.then.i120
 
 if.then.i120:                                     ; preds = %invoke.cont10
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i121 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %3, ptr %2, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i121 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i121, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i122 = getelementptr inbounds i8, ptr %1, i64 16
+  %compare_mask3.i.i.i.i122 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 8, ptr %compare_mask3.i.i.i.i122, align 8, !tbaa !14
-  %key4.i.i.i.i123 = getelementptr inbounds i8, ptr %1, i64 8
+  %key4.i.i.i.i123 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 6, ptr %key4.i.i.i.i123, align 8, !tbaa !45
-  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %1, i64 24
+  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %incdec.ptr.i124, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont17
 
 if.else.i126:                                     ; preds = %invoke.cont10
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
           to label %if.else.i126.invoke.cont17_crit_edge unwind label %lpad16
 
 if.else.i126.invoke.cont17_crit_edge:             ; preds = %if.else.i126
@@ -2075,8 +2111,8 @@ if.else.i126.invoke.cont17_crit_edge:             ; preds = %if.else.i126
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.else.i126.invoke.cont17_crit_edge, %if.then.i120
-  %2 = phi ptr [ %.pre283, %if.else.i126.invoke.cont17_crit_edge ], [ %0, %if.then.i120 ]
-  %3 = phi ptr [ %.pre282, %if.else.i126.invoke.cont17_crit_edge ], [ %incdec.ptr.i124, %if.then.i120 ]
+  %4 = phi ptr [ %.pre283, %if.else.i126.invoke.cont17_crit_edge ], [ %1, %if.then.i120 ]
+  %5 = phi ptr [ %.pre282, %if.else.i126.invoke.cont17_crit_edge ], [ %incdec.ptr.i124, %if.then.i120 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp15) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp14) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp13) #22
@@ -2086,23 +2122,24 @@ invoke.cont17:                                    ; preds = %if.else.i126.invoke
   store i32 1, ptr %ref.tmp21, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp22) #22
   store i32 1, ptr %ref.tmp22, align 4, !tbaa !41
-  %cmp.not.i132 = icmp eq ptr %3, %2
+  %cmp.not.i132 = icmp eq ptr %5, %4
   br i1 %cmp.not.i132, label %if.else.i139, label %if.then.i133
 
 if.then.i133:                                     ; preds = %invoke.cont17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i134 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %6, ptr %5, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i134 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i134, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i135 = getelementptr inbounds i8, ptr %3, i64 16
+  %compare_mask3.i.i.i.i135 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i135, align 8, !tbaa !14
-  %key4.i.i.i.i136 = getelementptr inbounds i8, ptr %3, i64 8
+  %key4.i.i.i.i136 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 11, ptr %key4.i.i.i.i136, align 8, !tbaa !45
-  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %3, i64 24
+  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %incdec.ptr.i137, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont24
 
 if.else.i139:                                     ; preds = %invoke.cont17
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22)
           to label %if.else.i139.invoke.cont24_crit_edge unwind label %lpad23
 
 if.else.i139.invoke.cont24_crit_edge:             ; preds = %if.else.i139
@@ -2111,8 +2148,8 @@ if.else.i139.invoke.cont24_crit_edge:             ; preds = %if.else.i139
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.else.i139.invoke.cont24_crit_edge, %if.then.i133
-  %4 = phi ptr [ %.pre285, %if.else.i139.invoke.cont24_crit_edge ], [ %2, %if.then.i133 ]
-  %5 = phi ptr [ %.pre284, %if.else.i139.invoke.cont24_crit_edge ], [ %incdec.ptr.i137, %if.then.i133 ]
+  %7 = phi ptr [ %.pre285, %if.else.i139.invoke.cont24_crit_edge ], [ %4, %if.then.i133 ]
+  %8 = phi ptr [ %.pre284, %if.else.i139.invoke.cont24_crit_edge ], [ %incdec.ptr.i137, %if.then.i133 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp22) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20) #22
@@ -2122,23 +2159,24 @@ invoke.cont24:                                    ; preds = %if.else.i139.invoke
   store i32 2, ptr %ref.tmp28, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp29) #22
   store i32 2, ptr %ref.tmp29, align 4, !tbaa !41
-  %cmp.not.i145 = icmp eq ptr %5, %4
+  %cmp.not.i145 = icmp eq ptr %8, %7
   br i1 %cmp.not.i145, label %if.else.i152, label %if.then.i146
 
 if.then.i146:                                     ; preds = %invoke.cont24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i147 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %9, ptr %8, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i147 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i147, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i148 = getelementptr inbounds i8, ptr %5, i64 16
+  %compare_mask3.i.i.i.i148 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i148, align 8, !tbaa !14
-  %key4.i.i.i.i149 = getelementptr inbounds i8, ptr %5, i64 8
+  %key4.i.i.i.i149 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 5, ptr %key4.i.i.i.i149, align 8, !tbaa !45
-  %incdec.ptr.i150 = getelementptr inbounds i8, ptr %5, i64 24
+  %incdec.ptr.i150 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr.i150, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont31
 
 if.else.i152:                                     ; preds = %invoke.cont24
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
           to label %if.else.i152.invoke.cont31_crit_edge unwind label %lpad30
 
 if.else.i152.invoke.cont31_crit_edge:             ; preds = %if.else.i152
@@ -2147,8 +2185,8 @@ if.else.i152.invoke.cont31_crit_edge:             ; preds = %if.else.i152
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.else.i152.invoke.cont31_crit_edge, %if.then.i146
-  %6 = phi ptr [ %.pre287, %if.else.i152.invoke.cont31_crit_edge ], [ %4, %if.then.i146 ]
-  %7 = phi ptr [ %.pre286, %if.else.i152.invoke.cont31_crit_edge ], [ %incdec.ptr.i150, %if.then.i146 ]
+  %10 = phi ptr [ %.pre287, %if.else.i152.invoke.cont31_crit_edge ], [ %7, %if.then.i146 ]
+  %11 = phi ptr [ %.pre286, %if.else.i152.invoke.cont31_crit_edge ], [ %incdec.ptr.i150, %if.then.i146 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp28) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp27) #22
@@ -2158,23 +2196,24 @@ invoke.cont31:                                    ; preds = %if.else.i152.invoke
   store i32 16, ptr %ref.tmp35, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp36) #22
   store i32 16, ptr %ref.tmp36, align 4, !tbaa !41
-  %cmp.not.i158 = icmp eq ptr %7, %6
+  %cmp.not.i158 = icmp eq ptr %11, %10
   br i1 %cmp.not.i158, label %if.else.i165, label %if.then.i159
 
 if.then.i159:                                     ; preds = %invoke.cont31
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i160 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %11, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i160 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i160, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i161 = getelementptr inbounds i8, ptr %7, i64 16
+  %compare_mask3.i.i.i.i161 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i161, align 8, !tbaa !14
-  %key4.i.i.i.i162 = getelementptr inbounds i8, ptr %7, i64 8
+  %key4.i.i.i.i162 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 8, ptr %key4.i.i.i.i162, align 8, !tbaa !45
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %7, i64 24
+  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %incdec.ptr.i163, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont38
 
 if.else.i165:                                     ; preds = %invoke.cont31
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36)
           to label %if.else.i165.invoke.cont38_crit_edge unwind label %lpad37
 
 if.else.i165.invoke.cont38_crit_edge:             ; preds = %if.else.i165
@@ -2183,8 +2222,8 @@ if.else.i165.invoke.cont38_crit_edge:             ; preds = %if.else.i165
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.else.i165.invoke.cont38_crit_edge, %if.then.i159
-  %8 = phi ptr [ %.pre289, %if.else.i165.invoke.cont38_crit_edge ], [ %6, %if.then.i159 ]
-  %9 = phi ptr [ %.pre288, %if.else.i165.invoke.cont38_crit_edge ], [ %incdec.ptr.i163, %if.then.i159 ]
+  %13 = phi ptr [ %.pre289, %if.else.i165.invoke.cont38_crit_edge ], [ %10, %if.then.i159 ]
+  %14 = phi ptr [ %.pre288, %if.else.i165.invoke.cont38_crit_edge ], [ %incdec.ptr.i163, %if.then.i159 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp36) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp35) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp34) #22
@@ -2194,23 +2233,24 @@ invoke.cont38:                                    ; preds = %if.else.i165.invoke
   store i32 32, ptr %ref.tmp42, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp43) #22
   store i32 32, ptr %ref.tmp43, align 4, !tbaa !41
-  %cmp.not.i171 = icmp eq ptr %9, %8
+  %cmp.not.i171 = icmp eq ptr %14, %13
   br i1 %cmp.not.i171, label %if.else.i178, label %if.then.i172
 
 if.then.i172:                                     ; preds = %invoke.cont38
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i173 = getelementptr inbounds i8, ptr %9, i64 12
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %15, ptr %14, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i173 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i173, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i174 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i174 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i174, align 8, !tbaa !14
-  %key4.i.i.i.i175 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i175 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 9, ptr %key4.i.i.i.i175, align 8, !tbaa !45
-  %incdec.ptr.i176 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i176 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i176, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
 if.else.i178:                                     ; preds = %invoke.cont38
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp43)
           to label %if.else.i178.invoke.cont45_crit_edge unwind label %lpad44
 
 if.else.i178.invoke.cont45_crit_edge:             ; preds = %if.else.i178
@@ -2219,8 +2259,8 @@ if.else.i178.invoke.cont45_crit_edge:             ; preds = %if.else.i178
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.else.i178.invoke.cont45_crit_edge, %if.then.i172
-  %10 = phi ptr [ %.pre291, %if.else.i178.invoke.cont45_crit_edge ], [ %8, %if.then.i172 ]
-  %11 = phi ptr [ %.pre290, %if.else.i178.invoke.cont45_crit_edge ], [ %incdec.ptr.i176, %if.then.i172 ]
+  %16 = phi ptr [ %.pre291, %if.else.i178.invoke.cont45_crit_edge ], [ %13, %if.then.i172 ]
+  %17 = phi ptr [ %.pre290, %if.else.i178.invoke.cont45_crit_edge ], [ %incdec.ptr.i176, %if.then.i172 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp42) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #22
@@ -2230,23 +2270,24 @@ invoke.cont45:                                    ; preds = %if.else.i178.invoke
   store i32 64, ptr %ref.tmp49, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp50) #22
   store i32 64, ptr %ref.tmp50, align 4, !tbaa !41
-  %cmp.not.i184 = icmp eq ptr %11, %10
+  %cmp.not.i184 = icmp eq ptr %17, %16
   br i1 %cmp.not.i184, label %if.else.i191, label %if.then.i185
 
 if.then.i185:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i186 = getelementptr inbounds i8, ptr %11, i64 12
+  %18 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %18, ptr %17, align 8, !tbaa !43
+  %filter_mask2.i.i.i.i186 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i186, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i187 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i187 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 64, ptr %compare_mask3.i.i.i.i187, align 8, !tbaa !14
-  %key4.i.i.i.i188 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i188 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 12, ptr %key4.i.i.i.i188, align 8, !tbaa !45
-  %incdec.ptr.i189 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i189 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %incdec.ptr.i189, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont52
 
 if.else.i191:                                     ; preds = %invoke.cont45
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp48, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp50)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp48, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp50)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.else.i191, %if.then.i185
@@ -2261,29 +2302,30 @@ invoke.cont52:                                    ; preds = %if.else.i191, %if.t
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp56) #22
   store i32 1, ptr %ref.tmp56, align 4, !tbaa !41
   %_M_finish.i195 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %12 = load ptr, ptr %_M_finish.i195, align 8, !tbaa !20
+  %19 = load ptr, ptr %_M_finish.i195, align 8, !tbaa !20
   %_M_end_of_storage.i196 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %13 = load ptr, ptr %_M_end_of_storage.i196, align 8, !tbaa !47
-  %cmp.not.i197 = icmp eq ptr %12, %13
+  %20 = load ptr, ptr %_M_end_of_storage.i196, align 8, !tbaa !47
+  %cmp.not.i197 = icmp eq ptr %19, %20
   br i1 %cmp.not.i197, label %if.else.i201, label %if.then.i198
 
 if.then.i198:                                     ; preds = %invoke.cont52
-  %14 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
+  %21 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %22 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %22, ptr %19, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 20
-  store i16 %14, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 20
+  store i16 %21, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
+  %key5.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i32 22, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i199 = getelementptr inbounds i8, ptr %12, i64 24
+  %incdec.ptr.i199 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %incdec.ptr.i199, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont59
 
 if.else.i201:                                     ; preds = %invoke.cont52
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i201.invoke.cont59_crit_edge unwind label %lpad58
 
 if.else.i201.invoke.cont59_crit_edge:             ; preds = %if.else.i201
@@ -2292,8 +2334,8 @@ if.else.i201.invoke.cont59_crit_edge:             ; preds = %if.else.i201
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %if.else.i201.invoke.cont59_crit_edge, %if.then.i198
-  %15 = phi ptr [ %.pre293, %if.else.i201.invoke.cont59_crit_edge ], [ %13, %if.then.i198 ]
-  %16 = phi ptr [ %.pre292, %if.else.i201.invoke.cont59_crit_edge ], [ %incdec.ptr.i199, %if.then.i198 ]
+  %23 = phi ptr [ %.pre293, %if.else.i201.invoke.cont59_crit_edge ], [ %20, %if.then.i198 ]
+  %24 = phi ptr [ %.pre292, %if.else.i201.invoke.cont59_crit_edge ], [ %incdec.ptr.i199, %if.then.i198 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp56) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp55) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp54) #22
@@ -2303,26 +2345,27 @@ invoke.cont59:                                    ; preds = %if.else.i201.invoke
   store i32 5, ptr %ref.tmp63, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp64) #22
   store i32 -1, ptr %ref.tmp64, align 4, !tbaa !41
-  %cmp.not.i206 = icmp eq ptr %16, %15
+  %cmp.not.i206 = icmp eq ptr %24, %23
   br i1 %cmp.not.i206, label %if.else.i215, label %if.then.i207
 
 if.then.i207:                                     ; preds = %invoke.cont59
-  %17 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %16, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i209 = getelementptr inbounds i8, ptr %16, i64 12
+  %25 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %26 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %26, ptr %24, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i209 = getelementptr inbounds i8, ptr %24, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i209, align 4, !tbaa !15
-  %direction3.i.i.i.i210 = getelementptr inbounds i8, ptr %16, i64 16
+  %direction3.i.i.i.i210 = getelementptr inbounds i8, ptr %24, i64 16
   store i32 -1, ptr %direction3.i.i.i.i210, align 8, !tbaa !18
-  %thresh4.i.i.i.i211 = getelementptr inbounds i8, ptr %16, i64 20
-  store i16 %17, ptr %thresh4.i.i.i.i211, align 4, !tbaa !19
-  %key5.i.i.i.i212 = getelementptr inbounds i8, ptr %16, i64 8
+  %thresh4.i.i.i.i211 = getelementptr inbounds i8, ptr %24, i64 20
+  store i16 %25, ptr %thresh4.i.i.i.i211, align 4, !tbaa !19
+  %key5.i.i.i.i212 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 23, ptr %key5.i.i.i.i212, align 8, !tbaa !45
-  %incdec.ptr.i213 = getelementptr inbounds i8, ptr %16, i64 24
+  %incdec.ptr.i213 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %incdec.ptr.i213, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont67
 
 if.else.i215:                                     ; preds = %invoke.cont59
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp64, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp64, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i215.invoke.cont67_crit_edge unwind label %lpad66
 
 if.else.i215.invoke.cont67_crit_edge:             ; preds = %if.else.i215
@@ -2331,8 +2374,8 @@ if.else.i215.invoke.cont67_crit_edge:             ; preds = %if.else.i215
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.else.i215.invoke.cont67_crit_edge, %if.then.i207
-  %18 = phi ptr [ %.pre295, %if.else.i215.invoke.cont67_crit_edge ], [ %15, %if.then.i207 ]
-  %19 = phi ptr [ %.pre294, %if.else.i215.invoke.cont67_crit_edge ], [ %incdec.ptr.i213, %if.then.i207 ]
+  %27 = phi ptr [ %.pre295, %if.else.i215.invoke.cont67_crit_edge ], [ %23, %if.then.i207 ]
+  %28 = phi ptr [ %.pre294, %if.else.i215.invoke.cont67_crit_edge ], [ %incdec.ptr.i213, %if.then.i207 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp64) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp62) #22
@@ -2342,26 +2385,27 @@ invoke.cont67:                                    ; preds = %if.else.i215.invoke
   store i32 0, ptr %ref.tmp71, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp72) #22
   store i32 1, ptr %ref.tmp72, align 4, !tbaa !41
-  %cmp.not.i221 = icmp eq ptr %19, %18
+  %cmp.not.i221 = icmp eq ptr %28, %27
   br i1 %cmp.not.i221, label %if.else.i230, label %if.then.i222
 
 if.then.i222:                                     ; preds = %invoke.cont67
-  %20 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i224 = getelementptr inbounds i8, ptr %19, i64 12
+  %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %30 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %30, ptr %28, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i224 = getelementptr inbounds i8, ptr %28, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i224, align 4, !tbaa !15
-  %direction3.i.i.i.i225 = getelementptr inbounds i8, ptr %19, i64 16
+  %direction3.i.i.i.i225 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 1, ptr %direction3.i.i.i.i225, align 8, !tbaa !18
-  %thresh4.i.i.i.i226 = getelementptr inbounds i8, ptr %19, i64 20
-  store i16 %20, ptr %thresh4.i.i.i.i226, align 4, !tbaa !19
-  %key5.i.i.i.i227 = getelementptr inbounds i8, ptr %19, i64 8
+  %thresh4.i.i.i.i226 = getelementptr inbounds i8, ptr %28, i64 20
+  store i16 %29, ptr %thresh4.i.i.i.i226, align 4, !tbaa !19
+  %key5.i.i.i.i227 = getelementptr inbounds i8, ptr %28, i64 8
   store i32 2, ptr %key5.i.i.i.i227, align 8, !tbaa !45
-  %incdec.ptr.i228 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i228 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %incdec.ptr.i228, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont75
 
 if.else.i230:                                     ; preds = %invoke.cont67
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp71, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp72, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp71, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp72, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i230.invoke.cont75_crit_edge unwind label %lpad74
 
 if.else.i230.invoke.cont75_crit_edge:             ; preds = %if.else.i230
@@ -2370,8 +2414,8 @@ if.else.i230.invoke.cont75_crit_edge:             ; preds = %if.else.i230
   br label %invoke.cont75
 
 invoke.cont75:                                    ; preds = %if.else.i230.invoke.cont75_crit_edge, %if.then.i222
-  %21 = phi ptr [ %.pre297, %if.else.i230.invoke.cont75_crit_edge ], [ %18, %if.then.i222 ]
-  %22 = phi ptr [ %.pre296, %if.else.i230.invoke.cont75_crit_edge ], [ %incdec.ptr.i228, %if.then.i222 ]
+  %31 = phi ptr [ %.pre297, %if.else.i230.invoke.cont75_crit_edge ], [ %27, %if.then.i222 ]
+  %32 = phi ptr [ %.pre296, %if.else.i230.invoke.cont75_crit_edge ], [ %incdec.ptr.i228, %if.then.i222 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp72) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp70) #22
@@ -2381,26 +2425,27 @@ invoke.cont75:                                    ; preds = %if.else.i230.invoke
   store i32 0, ptr %ref.tmp79, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp80) #22
   store i32 -1, ptr %ref.tmp80, align 4, !tbaa !41
-  %cmp.not.i236 = icmp eq ptr %22, %21
+  %cmp.not.i236 = icmp eq ptr %32, %31
   br i1 %cmp.not.i236, label %if.else.i245, label %if.then.i237
 
 if.then.i237:                                     ; preds = %invoke.cont75
-  %23 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %22, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i239 = getelementptr inbounds i8, ptr %22, i64 12
+  %33 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %34 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %34, ptr %32, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i239 = getelementptr inbounds i8, ptr %32, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i239, align 4, !tbaa !15
-  %direction3.i.i.i.i240 = getelementptr inbounds i8, ptr %22, i64 16
+  %direction3.i.i.i.i240 = getelementptr inbounds i8, ptr %32, i64 16
   store i32 -1, ptr %direction3.i.i.i.i240, align 8, !tbaa !18
-  %thresh4.i.i.i.i241 = getelementptr inbounds i8, ptr %22, i64 20
-  store i16 %23, ptr %thresh4.i.i.i.i241, align 4, !tbaa !19
-  %key5.i.i.i.i242 = getelementptr inbounds i8, ptr %22, i64 8
+  %thresh4.i.i.i.i241 = getelementptr inbounds i8, ptr %32, i64 20
+  store i16 %33, ptr %thresh4.i.i.i.i241, align 4, !tbaa !19
+  %key5.i.i.i.i242 = getelementptr inbounds i8, ptr %32, i64 8
   store i32 3, ptr %key5.i.i.i.i242, align 8, !tbaa !45
-  %incdec.ptr.i243 = getelementptr inbounds i8, ptr %22, i64 24
+  %incdec.ptr.i243 = getelementptr inbounds i8, ptr %32, i64 24
   store ptr %incdec.ptr.i243, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont83
 
 if.else.i245:                                     ; preds = %invoke.cont75
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp78, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp79, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp80, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp78, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp79, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp80, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i245.invoke.cont83_crit_edge unwind label %lpad82
 
 if.else.i245.invoke.cont83_crit_edge:             ; preds = %if.else.i245
@@ -2409,8 +2454,8 @@ if.else.i245.invoke.cont83_crit_edge:             ; preds = %if.else.i245
   br label %invoke.cont83
 
 invoke.cont83:                                    ; preds = %if.else.i245.invoke.cont83_crit_edge, %if.then.i237
-  %24 = phi ptr [ %.pre299, %if.else.i245.invoke.cont83_crit_edge ], [ %21, %if.then.i237 ]
-  %25 = phi ptr [ %.pre298, %if.else.i245.invoke.cont83_crit_edge ], [ %incdec.ptr.i243, %if.then.i237 ]
+  %35 = phi ptr [ %.pre299, %if.else.i245.invoke.cont83_crit_edge ], [ %31, %if.then.i237 ]
+  %36 = phi ptr [ %.pre298, %if.else.i245.invoke.cont83_crit_edge ], [ %incdec.ptr.i243, %if.then.i237 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp80) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp79) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp78) #22
@@ -2420,26 +2465,27 @@ invoke.cont83:                                    ; preds = %if.else.i245.invoke
   store i32 1, ptr %ref.tmp87, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp88) #22
   store i32 1, ptr %ref.tmp88, align 4, !tbaa !41
-  %cmp.not.i251 = icmp eq ptr %25, %24
+  %cmp.not.i251 = icmp eq ptr %36, %35
   br i1 %cmp.not.i251, label %if.else.i260, label %if.then.i252
 
 if.then.i252:                                     ; preds = %invoke.cont83
-  %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %25, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i254 = getelementptr inbounds i8, ptr %25, i64 12
+  %37 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %38 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %38, ptr %36, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i254 = getelementptr inbounds i8, ptr %36, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i254, align 4, !tbaa !15
-  %direction3.i.i.i.i255 = getelementptr inbounds i8, ptr %25, i64 16
+  %direction3.i.i.i.i255 = getelementptr inbounds i8, ptr %36, i64 16
   store i32 1, ptr %direction3.i.i.i.i255, align 8, !tbaa !18
-  %thresh4.i.i.i.i256 = getelementptr inbounds i8, ptr %25, i64 20
-  store i16 %26, ptr %thresh4.i.i.i.i256, align 4, !tbaa !19
-  %key5.i.i.i.i257 = getelementptr inbounds i8, ptr %25, i64 8
+  %thresh4.i.i.i.i256 = getelementptr inbounds i8, ptr %36, i64 20
+  store i16 %37, ptr %thresh4.i.i.i.i256, align 4, !tbaa !19
+  %key5.i.i.i.i257 = getelementptr inbounds i8, ptr %36, i64 8
   store i32 0, ptr %key5.i.i.i.i257, align 8, !tbaa !45
-  %incdec.ptr.i258 = getelementptr inbounds i8, ptr %25, i64 24
+  %incdec.ptr.i258 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %incdec.ptr.i258, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont91
 
 if.else.i260:                                     ; preds = %invoke.cont83
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp86, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp88, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp86, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp88, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %if.else.i260.invoke.cont91_crit_edge unwind label %lpad90
 
 if.else.i260.invoke.cont91_crit_edge:             ; preds = %if.else.i260
@@ -2448,8 +2494,8 @@ if.else.i260.invoke.cont91_crit_edge:             ; preds = %if.else.i260
   br label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %if.else.i260.invoke.cont91_crit_edge, %if.then.i252
-  %27 = phi ptr [ %.pre301, %if.else.i260.invoke.cont91_crit_edge ], [ %24, %if.then.i252 ]
-  %28 = phi ptr [ %.pre300, %if.else.i260.invoke.cont91_crit_edge ], [ %incdec.ptr.i258, %if.then.i252 ]
+  %39 = phi ptr [ %.pre301, %if.else.i260.invoke.cont91_crit_edge ], [ %35, %if.then.i252 ]
+  %40 = phi ptr [ %.pre300, %if.else.i260.invoke.cont91_crit_edge ], [ %incdec.ptr.i258, %if.then.i252 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp88) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp87) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp86) #22
@@ -2459,26 +2505,27 @@ invoke.cont91:                                    ; preds = %if.else.i260.invoke
   store i32 1, ptr %ref.tmp95, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp96) #22
   store i32 -1, ptr %ref.tmp96, align 4, !tbaa !41
-  %cmp.not.i266 = icmp eq ptr %28, %27
+  %cmp.not.i266 = icmp eq ptr %40, %39
   br i1 %cmp.not.i266, label %if.else.i275, label %if.then.i267
 
 if.then.i267:                                     ; preds = %invoke.cont91
-  %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i269 = getelementptr inbounds i8, ptr %28, i64 12
+  %41 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
+  %42 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %42, ptr %40, align 8, !tbaa !43
+  %axis_to_compare2.i.i.i.i269 = getelementptr inbounds i8, ptr %40, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i269, align 4, !tbaa !15
-  %direction3.i.i.i.i270 = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i270 = getelementptr inbounds i8, ptr %40, i64 16
   store i32 -1, ptr %direction3.i.i.i.i270, align 8, !tbaa !18
-  %thresh4.i.i.i.i271 = getelementptr inbounds i8, ptr %28, i64 20
-  store i16 %29, ptr %thresh4.i.i.i.i271, align 4, !tbaa !19
-  %key5.i.i.i.i272 = getelementptr inbounds i8, ptr %28, i64 8
+  %thresh4.i.i.i.i271 = getelementptr inbounds i8, ptr %40, i64 20
+  store i16 %41, ptr %thresh4.i.i.i.i271, align 4, !tbaa !19
+  %key5.i.i.i.i272 = getelementptr inbounds i8, ptr %40, i64 8
   store i32 1, ptr %key5.i.i.i.i272, align 8, !tbaa !45
-  %incdec.ptr.i273 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i273 = getelementptr inbounds i8, ptr %40, i64 24
   store ptr %incdec.ptr.i273, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont99
 
 if.else.i275:                                     ; preds = %invoke.cont91
-  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp94, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp95, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp96, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
+  invoke void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %axis_keys, ptr %39, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp94, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp95, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp96, ptr noundef nonnull align 2 dereferenceable(2) %axes_deadzone)
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %if.else.i275, %if.then.i267
@@ -2488,7 +2535,7 @@ invoke.cont99:                                    ; preds = %if.else.i275, %if.t
   ret void
 
 lpad:                                             ; preds = %if.else.i
-  %30 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp3) #22
@@ -2496,7 +2543,7 @@ lpad:                                             ; preds = %if.else.i
   br label %ehcleanup
 
 lpad9:                                            ; preds = %if.else.i113
-  %31 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp7) #22
@@ -2504,7 +2551,7 @@ lpad9:                                            ; preds = %if.else.i113
   br label %ehcleanup
 
 lpad16:                                           ; preds = %if.else.i126
-  %32 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp15) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp14) #22
@@ -2512,7 +2559,7 @@ lpad16:                                           ; preds = %if.else.i126
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else.i139
-  %33 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp22) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21) #22
@@ -2520,7 +2567,7 @@ lpad23:                                           ; preds = %if.else.i139
   br label %ehcleanup
 
 lpad30:                                           ; preds = %if.else.i152
-  %34 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp28) #22
@@ -2528,7 +2575,7 @@ lpad30:                                           ; preds = %if.else.i152
   br label %ehcleanup
 
 lpad37:                                           ; preds = %if.else.i165
-  %35 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp36) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp35) #22
@@ -2536,7 +2583,7 @@ lpad37:                                           ; preds = %if.else.i165
   br label %ehcleanup
 
 lpad44:                                           ; preds = %if.else.i178
-  %36 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp43) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp42) #22
@@ -2544,7 +2591,7 @@ lpad44:                                           ; preds = %if.else.i178
   br label %ehcleanup
 
 lpad51:                                           ; preds = %if.else.i191
-  %37 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp50) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp49) #22
@@ -2552,7 +2599,7 @@ lpad51:                                           ; preds = %if.else.i191
   br label %ehcleanup
 
 lpad58:                                           ; preds = %if.else.i201
-  %38 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp56) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp55) #22
@@ -2560,7 +2607,7 @@ lpad58:                                           ; preds = %if.else.i201
   br label %ehcleanup
 
 lpad66:                                           ; preds = %if.else.i215
-  %39 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp64) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63) #22
@@ -2568,7 +2615,7 @@ lpad66:                                           ; preds = %if.else.i215
   br label %ehcleanup
 
 lpad74:                                           ; preds = %if.else.i230
-  %40 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp72) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71) #22
@@ -2576,7 +2623,7 @@ lpad74:                                           ; preds = %if.else.i230
   br label %ehcleanup
 
 lpad82:                                           ; preds = %if.else.i245
-  %41 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp80) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp79) #22
@@ -2584,7 +2631,7 @@ lpad82:                                           ; preds = %if.else.i245
   br label %ehcleanup
 
 lpad90:                                           ; preds = %if.else.i260
-  %42 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp88) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp87) #22
@@ -2592,7 +2639,7 @@ lpad90:                                           ; preds = %if.else.i260
   br label %ehcleanup
 
 lpad98:                                           ; preds = %if.else.i275
-  %43 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp96) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp95) #22
@@ -2600,7 +2647,7 @@ lpad98:                                           ; preds = %if.else.i275
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad98, %lpad90, %lpad82, %lpad74, %lpad66, %lpad58, %lpad51, %lpad44, %lpad37, %lpad30, %lpad23, %lpad16, %lpad9, %lpad
-  %.pn = phi { ptr, i32 } [ %43, %lpad98 ], [ %42, %lpad90 ], [ %41, %lpad82 ], [ %40, %lpad74 ], [ %39, %lpad66 ], [ %38, %lpad58 ], [ %37, %lpad51 ], [ %36, %lpad44 ], [ %35, %lpad37 ], [ %34, %lpad30 ], [ %33, %lpad23 ], [ %32, %lpad16 ], [ %31, %lpad9 ], [ %30, %lpad ]
+  %.pn = phi { ptr, i32 } [ %56, %lpad98 ], [ %55, %lpad90 ], [ %54, %lpad82 ], [ %53, %lpad74 ], [ %52, %lpad66 ], [ %51, %lpad58 ], [ %50, %lpad51 ], [ %49, %lpad44 ], [ %48, %lpad37 ], [ %47, %lpad30 ], [ %46, %lpad23 ], [ %45, %lpad16 ], [ %44, %lpad9 ], [ %43, %lpad ]
   call void @_ZN14JoystickLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %agg.result) #22
   resume { ptr, i32 } %.pn
 }
@@ -4109,7 +4156,8 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !43
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %6, ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -4126,17 +4174,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
-  %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !84, !noalias !81
-  store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !81, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !81, !noalias !84
+  %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !84, !noalias !81
+  store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !81, !noalias !84
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %8, ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !81, !noalias !84
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
-  %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !84, !noalias !81
-  store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !81, !noalias !84
+  %9 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !84, !noalias !81
+  store i64 %9, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !81, !noalias !84
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !84, !noalias !81
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !86
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !81
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !86
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !81
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -4155,17 +4204,18 @@ for.body.i.i.i53:                                 ; preds = %for.body.i.i.i53, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
-  %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !91, !noalias !88
-  store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !88, !noalias !91
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !88, !noalias !91
+  %11 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !91, !noalias !88
+  store i32 %11, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !88, !noalias !91
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !88, !noalias !91
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
-  %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !91, !noalias !88
-  store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !88, !noalias !91
+  %13 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !91, !noalias !88
+  store i64 %13, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !88, !noalias !91
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !91, !noalias !88
   %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !93
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !88
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !93
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !88
   %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
   %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
@@ -4235,7 +4285,8 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !43
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %6, ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -4252,17 +4303,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
-  %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !97, !noalias !94
-  store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !94, !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !94, !noalias !97
+  %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !97, !noalias !94
+  store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !94, !noalias !97
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %8, ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !94, !noalias !97
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
-  %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !97, !noalias !94
-  store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !94, !noalias !97
+  %9 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !97, !noalias !94
+  store i64 %9, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !94, !noalias !97
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !97, !noalias !94
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !99
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !94
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !99
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !94
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -4281,17 +4333,18 @@ for.body.i.i.i53:                                 ; preds = %for.body.i.i.i53, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
-  %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !103, !noalias !100
-  store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !100, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !100, !noalias !103
+  %11 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !103, !noalias !100
+  store i32 %11, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !100, !noalias !103
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !100, !noalias !103
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
-  %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !103, !noalias !100
-  store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !100, !noalias !103
+  %13 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !103, !noalias !100
+  store i64 %13, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !100, !noalias !103
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !103, !noalias !100
   %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !105
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !100
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !105
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !100
   %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
   %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
@@ -4355,7 +4408,8 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !43
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %6, ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -4372,17 +4426,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
-  %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !109, !noalias !106
-  store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !106, !noalias !109
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !106, !noalias !109
+  %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !109, !noalias !106
+  store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !106, !noalias !109
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %8, ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !106, !noalias !109
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
-  %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !109, !noalias !106
-  store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !106, !noalias !109
+  %9 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !109, !noalias !106
+  store i64 %9, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !106, !noalias !109
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !109, !noalias !106
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !111
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !106
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !111
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !106
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -4401,17 +4456,18 @@ for.body.i.i.i53:                                 ; preds = %for.body.i.i.i53, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
-  %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !115, !noalias !112
-  store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !112, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !112, !noalias !115
+  %11 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !115, !noalias !112
+  store i32 %11, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !112, !noalias !115
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !112, !noalias !115
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
-  %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !115, !noalias !112
-  store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !112, !noalias !115
+  %13 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !115, !noalias !112
+  store i64 %13, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !112, !noalias !115
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !115, !noalias !112
   %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !117
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !112
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !117
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !112
   %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
   %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
@@ -4477,7 +4533,8 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %conv.i.i = trunc i32 %4 to i16
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   %6 = load i16, ptr %__args5, align 2, !tbaa !17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !43
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %7, ptr %add.ptr, align 8, !tbaa !43
   %axis_to_compare2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store i16 %conv.i.i, ptr %axis_to_compare2.i.i.i, align 4, !tbaa !15
   %direction3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -4496,16 +4553,17 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
-  %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !121, !noalias !118
-  store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !118, !noalias !121
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !118, !noalias !121
+  %8 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !121, !noalias !118
+  store i32 %8, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !118, !noalias !121
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %9, ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !118, !noalias !121
   %axis_to_compare.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
   %axis_to_compare2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i, i64 10, i1 false), !alias.scope !123
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !121, !noalias !118
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !123
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i) #22, !noalias !118
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !123
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i) #22, !noalias !118
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -4524,16 +4582,17 @@ for.body.i.i.i55:                                 ; preds = %for.body.i.i.i55, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %key.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 8
   %key2.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 8
-  %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i59, align 8, !tbaa !45, !alias.scope !128, !noalias !125
-  store i32 %9, ptr %key.i.i.i.i.i.i.i.i58, align 8, !tbaa !45, !alias.scope !125, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i56, align 8, !tbaa !43, !alias.scope !125, !noalias !128
+  %11 = load i32, ptr %key2.i.i.i.i.i.i.i.i59, align 8, !tbaa !45, !alias.scope !128, !noalias !125
+  store i32 %11, ptr %key.i.i.i.i.i.i.i.i58, align 8, !tbaa !45, !alias.scope !125, !noalias !128
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2
+  store ptr %12, ptr %__cur.08.i.i.i56, align 8, !tbaa !43, !alias.scope !125, !noalias !128
   %axis_to_compare.i.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 12
   %axis_to_compare2.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i61, i64 10, i1 false), !alias.scope !130
   %vtable.i.i.i.i.i.i62 = load ptr, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !43, !alias.scope !128, !noalias !125
   %vfn.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i62, i64 8
-  %10 = load ptr, ptr %vfn.i.i.i.i.i.i63, align 8, !noalias !130
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i57) #22, !noalias !125
+  %13 = load ptr, ptr %vfn.i.i.i.i.i.i63, align 8, !noalias !130
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i57) #22, !noalias !125
   %incdec.ptr.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 24
   %incdec.ptr1.i.i.i65 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 24
   %cmp.not.i.i.i66 = icmp eq ptr %incdec.ptr.i.i.i64, %0

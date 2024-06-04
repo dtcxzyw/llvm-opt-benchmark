@@ -1676,41 +1676,43 @@ if.then5:                                         ; preds = %if.then3
   unreachable
 
 if.end6:                                          ; preds = %if.then3
-  store ptr @outbuf, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 6), align 8
-  store i64 16384, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 2), align 8
-  %7 = load ptr, ptr %ar.addr, align 8
-  %8 = load ptr, ptr %args.addr, align 8
-  %call7 = call i32 @write_tar_archive(ptr noundef %7, ptr noundef %8)
+  %7 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 6
+  store ptr @outbuf, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 2
+  store i64 16384, ptr %8, align 8
+  %9 = load ptr, ptr %ar.addr, align 8
+  %10 = load ptr, ptr %args.addr, align 8
+  %call7 = call i32 @write_tar_archive(ptr noundef %9, ptr noundef %10)
   store i32 %call7, ptr %r, align 4
   call void @tgz_deflate(i32 noundef 4)
   call void @git_deflate_end(ptr noundef @gzstream)
-  %9 = load i32, ptr %r, align 4
-  store i32 %9, ptr %retval, align 4
+  %11 = load i32, ptr %r, align 4
+  store i32 %11, ptr %retval, align 4
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %10 = load ptr, ptr %ar.addr, align 8
-  %filter_command9 = getelementptr inbounds %struct.archiver, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %filter_command9, align 8
-  call void @strbuf_addstr(ptr noundef %cmd, ptr noundef %11)
-  %12 = load ptr, ptr %args.addr, align 8
-  %compression_level10 = getelementptr inbounds %struct.archiver_args, ptr %12, i32 0, i32 12
-  %13 = load i32, ptr %compression_level10, align 4
-  %cmp11 = icmp sge i32 %13, 0
+  %12 = load ptr, ptr %ar.addr, align 8
+  %filter_command9 = getelementptr inbounds %struct.archiver, ptr %12, i32 0, i32 3
+  %13 = load ptr, ptr %filter_command9, align 8
+  call void @strbuf_addstr(ptr noundef %cmd, ptr noundef %13)
+  %14 = load ptr, ptr %args.addr, align 8
+  %compression_level10 = getelementptr inbounds %struct.archiver_args, ptr %14, i32 0, i32 12
+  %15 = load i32, ptr %compression_level10, align 4
+  %cmp11 = icmp sge i32 %15, 0
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end8
-  %14 = load ptr, ptr %args.addr, align 8
-  %compression_level13 = getelementptr inbounds %struct.archiver_args, ptr %14, i32 0, i32 12
-  %15 = load i32, ptr %compression_level13, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %cmd, ptr noundef @.str.31, i32 noundef %15)
+  %16 = load ptr, ptr %args.addr, align 8
+  %compression_level13 = getelementptr inbounds %struct.archiver_args, ptr %16, i32 0, i32 12
+  %17 = load i32, ptr %compression_level13, align 4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %cmd, ptr noundef @.str.31, i32 noundef %17)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end8
   %args15 = getelementptr inbounds %struct.child_process, ptr %filter, i32 0, i32 0
   %buf = getelementptr inbounds %struct.strbuf, ptr %cmd, i32 0, i32 2
-  %16 = load ptr, ptr %buf, align 8
-  %call16 = call ptr @strvec_push(ptr noundef %args15, ptr noundef %16)
+  %18 = load ptr, ptr %buf, align 8
+  %call16 = call ptr @strvec_push(ptr noundef %args15, ptr noundef %18)
   %use_shell = getelementptr inbounds %struct.child_process, ptr %filter, i32 0, i32 11
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.clear = and i16 %bf.load, -33
@@ -1730,15 +1732,15 @@ if.end14:                                         ; preds = %if.then12, %if.end8
 if.then22:                                        ; preds = %if.end14
   %call23 = call ptr @_(ptr noundef @.str.32)
   %buf24 = getelementptr inbounds %struct.strbuf, ptr %cmd, i32 0, i32 2
-  %17 = load ptr, ptr %buf24, align 8
-  call void (ptr, ...) @die_errno(ptr noundef %call23, ptr noundef %17) #9
+  %19 = load ptr, ptr %buf24, align 8
+  call void (ptr, ...) @die_errno(ptr noundef %call23, ptr noundef %19) #9
   unreachable
 
 if.end25:                                         ; preds = %if.end14
   %call26 = call i32 @close(i32 noundef 1)
   %in27 = getelementptr inbounds %struct.child_process, ptr %filter, i32 0, i32 7
-  %18 = load i32, ptr %in27, align 8
-  %call28 = call i32 @dup2(i32 noundef %18, i32 noundef 1) #8
+  %20 = load i32, ptr %in27, align 8
+  %call28 = call i32 @dup2(i32 noundef %20, i32 noundef 1) #8
   %cmp29 = icmp slt i32 %call28, 0
   br i1 %cmp29, label %if.then30, label %if.end32
 
@@ -1749,11 +1751,11 @@ if.then30:                                        ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end25
   %in33 = getelementptr inbounds %struct.child_process, ptr %filter, i32 0, i32 7
-  %19 = load i32, ptr %in33, align 8
-  %call34 = call i32 @close(i32 noundef %19)
-  %20 = load ptr, ptr %ar.addr, align 8
-  %21 = load ptr, ptr %args.addr, align 8
-  %call35 = call i32 @write_tar_archive(ptr noundef %20, ptr noundef %21)
+  %21 = load i32, ptr %in33, align 8
+  %call34 = call i32 @close(i32 noundef %21)
+  %22 = load ptr, ptr %ar.addr, align 8
+  %23 = load ptr, ptr %args.addr, align 8
+  %call35 = call i32 @write_tar_archive(ptr noundef %22, ptr noundef %23)
   store i32 %call35, ptr %r, align 4
   %call36 = call i32 @close(i32 noundef 1)
   %call37 = call i32 @finish_command(ptr noundef %filter)
@@ -1763,19 +1765,19 @@ if.end32:                                         ; preds = %if.end25
 if.then39:                                        ; preds = %if.end32
   %call40 = call ptr @_(ptr noundef @.str.34)
   %buf41 = getelementptr inbounds %struct.strbuf, ptr %cmd, i32 0, i32 2
-  %22 = load ptr, ptr %buf41, align 8
-  call void (ptr, ...) @die(ptr noundef %call40, ptr noundef %22) #9
+  %24 = load ptr, ptr %buf41, align 8
+  call void (ptr, ...) @die(ptr noundef %call40, ptr noundef %24) #9
   unreachable
 
 if.end42:                                         ; preds = %if.end32
   call void @strbuf_release(ptr noundef %cmd)
-  %23 = load i32, ptr %r, align 4
-  store i32 %23, ptr %retval, align 4
+  %25 = load i32, ptr %r, align 4
+  store i32 %25, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end42, %if.end6
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) #1
@@ -1832,8 +1834,10 @@ entry:
   %data.addr = alloca ptr, align 8
   store ptr %data, ptr %data.addr, align 8
   %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 5), align 8
-  store i64 10240, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 5
+  store ptr %0, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 1
+  store i64 10240, ptr %2, align 8
   call void @tgz_deflate(i32 noundef 0)
   ret void
 }
@@ -1851,41 +1855,47 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end10, %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 1), align 8
-  %tobool = icmp ne i64 %0, 0
+  %0 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %tobool = icmp ne i64 %1, 0
   br i1 %tobool, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.cond
-  %1 = load i32, ptr %flush.addr, align 4
-  %cmp = icmp eq i32 %1, 4
+  %2 = load i32, ptr %flush.addr, align 4
+  %cmp = icmp eq i32 %2, 4
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %while.cond
-  %2 = phi i1 [ true, %while.cond ], [ %cmp, %lor.rhs ]
-  br i1 %2, label %while.body, label %while.end
+  %3 = phi i1 [ true, %while.cond ], [ %cmp, %lor.rhs ]
+  br i1 %3, label %while.body, label %while.end
 
 while.body:                                       ; preds = %lor.end
-  %3 = load i32, ptr %flush.addr, align 4
-  %call = call i32 @git_deflate(ptr noundef @gzstream, i32 noundef %3)
+  %4 = load i32, ptr %flush.addr, align 4
+  %call = call i32 @git_deflate(ptr noundef @gzstream, i32 noundef %4)
   store i32 %call, ptr %status, align 4
-  %4 = load i64, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 2), align 8
-  %tobool1 = icmp ne i64 %4, 0
+  %5 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 2
+  %6 = load i64, ptr %5, align 8
+  %tobool1 = icmp ne i64 %6, 0
   br i1 %tobool1, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %while.body
-  %5 = load i32, ptr %status, align 4
-  %cmp2 = icmp eq i32 %5, 1
+  %7 = load i32, ptr %status, align 4
+  %cmp2 = icmp eq i32 %7, 1
   br i1 %cmp2, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %lor.lhs.false, %while.body
-  %6 = load ptr, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 6), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @outbuf to i64)
+  %8 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
+  %10 = ptrtoint ptr @outbuf to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %10
   call void @write_or_die(i32 noundef 1, ptr noundef @outbuf, i64 noundef %sub.ptr.sub)
-  store ptr @outbuf, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 6), align 8
-  store i64 16384, ptr getelementptr inbounds (%struct.git_zstream, ptr @gzstream, i32 0, i32 2), align 8
-  %7 = load i32, ptr %status, align 4
-  %cmp3 = icmp eq i32 %7, 1
+  %11 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 6
+  store ptr @outbuf, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.git_zstream, ptr @gzstream, i32 0, i32 2
+  store i64 16384, ptr %12, align 8
+  %13 = load i32, ptr %status, align 4
+  %cmp3 = icmp eq i32 %13, 1
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
@@ -1895,19 +1905,19 @@ if.end:                                           ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %lor.lhs.false
-  %8 = load i32, ptr %status, align 4
-  %cmp6 = icmp ne i32 %8, 0
+  %14 = load i32, ptr %status, align 4
+  %cmp6 = icmp ne i32 %14, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end5
-  %9 = load i32, ptr %status, align 4
-  %cmp7 = icmp ne i32 %9, -5
+  %15 = load i32, ptr %status, align 4
+  %cmp7 = icmp ne i32 %15, -5
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %land.lhs.true
   %call9 = call ptr @_(ptr noundef @.str.35)
-  %10 = load i32, ptr %status, align 4
-  call void (ptr, ...) @die(ptr noundef %call9, i32 noundef %10) #9
+  %16 = load i32, ptr %status, align 4
+  call void (ptr, ...) @die(ptr noundef %call9, i32 noundef %16) #9
   unreachable
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end5

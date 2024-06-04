@@ -275,7 +275,8 @@ entry:
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6611,24 +6612,26 @@ if.end13:                                         ; preds = %if.end, %if.then
   %asc = getelementptr inbounds %struct.SCSISense, ptr %10, i32 0, i32 1
   %11 = load i8, ptr %asc, align 1
   %conv14 = zext i8 %11 to i32
-  %12 = load i8, ptr getelementptr inbounds (%struct.SCSISense, ptr @sense_code_REPORTED_LUNS_CHANGED, i32 0, i32 1), align 1
-  %conv15 = zext i8 %12 to i32
+  %12 = getelementptr inbounds %struct.SCSISense, ptr @sense_code_REPORTED_LUNS_CHANGED, i32 0, i32 1
+  %13 = load i8, ptr %12, align 1
+  %conv15 = zext i8 %13 to i32
   %cmp16 = icmp eq i32 %conv14, %conv15
   br i1 %cmp16, label %land.lhs.true, label %if.end23
 
 land.lhs.true:                                    ; preds = %if.end13
-  %13 = load ptr, ptr %ua, align 8
-  %ascq = getelementptr inbounds %struct.SCSISense, ptr %13, i32 0, i32 2
-  %14 = load i8, ptr %ascq, align 1
-  %conv18 = zext i8 %14 to i32
-  %15 = load i8, ptr getelementptr inbounds (%struct.SCSISense, ptr @sense_code_REPORTED_LUNS_CHANGED, i32 0, i32 2), align 1
-  %conv19 = zext i8 %15 to i32
+  %14 = load ptr, ptr %ua, align 8
+  %ascq = getelementptr inbounds %struct.SCSISense, ptr %14, i32 0, i32 2
+  %15 = load i8, ptr %ascq, align 1
+  %conv18 = zext i8 %15 to i32
+  %16 = getelementptr inbounds %struct.SCSISense, ptr @sense_code_REPORTED_LUNS_CHANGED, i32 0, i32 2
+  %17 = load i8, ptr %16, align 1
+  %conv19 = zext i8 %17 to i32
   %cmp20 = icmp eq i32 %conv18, %conv19
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %ua, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 @sense_code_NO_SENSE, i64 3, i1 false)
+  %18 = load ptr, ptr %ua, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 @sense_code_NO_SENSE, i64 3, i1 false)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %land.lhs.true, %if.end13, %if.else12

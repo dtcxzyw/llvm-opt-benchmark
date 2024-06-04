@@ -250,14 +250,14 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
-  br i1 %7, label %116, label %8
+  br i1 %7, label %119, label %8
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %1, 0
   br label %10
 
-10:                                               ; preds = %113, %8
-  %11 = phi ptr [ %6, %8 ], [ %114, %113 ]
+10:                                               ; preds = %116, %8
+  %11 = phi ptr [ %6, %8 ], [ %117, %116 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #9
   store i16 0, ptr %3, align 2, !annotation !11
   %12 = call i32 @pci_read_config_word(ptr noundef %11, i32 noundef 4, ptr noundef nonnull %3) #9
@@ -265,18 +265,18 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   %14 = getelementptr inbounds i8, ptr %11, i64 184
   br label %15
 
-15:                                               ; preds = %88, %10
-  %16 = phi i64 [ 0, %10 ], [ %89, %88 ]
+15:                                               ; preds = %91, %10
+  %16 = phi i64 [ 0, %10 ], [ %92, %91 ]
   %17 = getelementptr [11 x %struct.resource], ptr %13, i64 0, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %88
+  br i1 %20, label %21, label %91
 
 21:                                               ; preds = %15
   %22 = load i64, ptr %17, align 8
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %88, label %24
+  br i1 %23, label %91, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %17, i64 24
@@ -301,13 +301,13 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 38:                                               ; preds = %34, %30
   %39 = phi i32 [ %33, %30 ], [ %37, %34 ]
   %40 = icmp eq i32 %39, %1
-  br i1 %40, label %41, label %88
+  br i1 %40, label %41, label %91
 
 41:                                               ; preds = %38
   %42 = trunc i64 %16 to i32
   %43 = call i32 @pci_claim_resource(ptr noundef %11, i32 noundef %42) #9
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %88
+  br i1 %44, label %45, label %91
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %25, align 8
@@ -317,12 +317,12 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 49:                                               ; preds = %45
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %42, ptr noundef %17) #11
-  br label %88
+  br label %91
 
 50:                                               ; preds = %45
   %51 = load i64, ptr %17, align 8
   %52 = load i1, ptr @pcibios_fw_addr_done, align 1
-  br i1 %52, label %83, label %53
+  br i1 %52, label %86, label %53
 
 53:                                               ; preds = %50
   %54 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #9
@@ -343,102 +343,105 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 63:                                               ; preds = %59, %55
   %64 = phi ptr [ %57, %59 ], [ null, %55 ]
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %78
+  br i1 %65, label %66, label %81
 
 66:                                               ; preds = %63
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %54) #9
-  %67 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %68 = call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 112) #12
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %83, label %70
+  %67 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %68 = load ptr, ptr %67, align 8
+  %69 = call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %68, i32 noundef 3520, i64 noundef 112) #12
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %86, label %71
 
-70:                                               ; preds = %66
-  %71 = call ptr @pci_dev_get(ptr noundef %11) #9
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %68, i64 24
-  %74 = getelementptr [11 x i64], ptr %73, i64 0, i64 %16
-  store i64 %51, ptr %74, align 8
-  store volatile ptr %68, ptr %68, align 8
-  %75 = getelementptr inbounds i8, ptr %68, i64 8
-  store volatile ptr %68, ptr %75, align 8
-  %76 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #9
-  %77 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1), align 8
-  store ptr %68, ptr getelementptr inbounds (%struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1), align 8
-  store ptr @pcibios_fwaddrmappings, ptr %68, align 8
-  store ptr %77, ptr %75, align 8
-  store volatile ptr %68, ptr %77, align 8
-  br label %81
+71:                                               ; preds = %66
+  %72 = call ptr @pci_dev_get(ptr noundef %11) #9
+  %73 = getelementptr inbounds i8, ptr %69, i64 16
+  store ptr %72, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %69, i64 24
+  %75 = getelementptr [11 x i64], ptr %74, i64 0, i64 %16
+  store i64 %51, ptr %75, align 8
+  store volatile ptr %69, ptr %69, align 8
+  %76 = getelementptr inbounds i8, ptr %69, i64 8
+  store volatile ptr %69, ptr %76, align 8
+  %77 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #9
+  %78 = getelementptr inbounds %struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.list_head, ptr @pcibios_fwaddrmappings, i64 0, i32 1
+  store ptr %69, ptr %80, align 8
+  store ptr @pcibios_fwaddrmappings, ptr %69, align 8
+  store ptr %79, ptr %76, align 8
+  store volatile ptr %69, ptr %79, align 8
+  br label %84
 
-78:                                               ; preds = %63
-  %79 = getelementptr inbounds i8, ptr %64, i64 24
-  %80 = getelementptr [11 x i64], ptr %79, i64 0, i64 %16
-  store i64 %51, ptr %80, align 8
-  br label %81
+81:                                               ; preds = %63
+  %82 = getelementptr inbounds i8, ptr %64, i64 24
+  %83 = getelementptr [11 x i64], ptr %82, i64 0, i64 %16
+  store i64 %51, ptr %83, align 8
+  br label %84
 
-81:                                               ; preds = %78, %70
-  %82 = phi i64 [ %54, %78 ], [ %76, %70 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %82) #9
-  br label %83
+84:                                               ; preds = %81, %71
+  %85 = phi i64 [ %54, %81 ], [ %77, %71 ]
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %85) #9
+  br label %86
 
-83:                                               ; preds = %81, %66, %50
-  %84 = load i64, ptr %17, align 8
-  %85 = getelementptr inbounds i8, ptr %17, i64 8
-  %86 = load i64, ptr %85, align 8
-  %87 = sub i64 %86, %84
-  store i64 %87, ptr %85, align 8
+86:                                               ; preds = %84, %66, %50
+  %87 = load i64, ptr %17, align 8
+  %88 = getelementptr inbounds i8, ptr %17, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = sub i64 %89, %87
+  store i64 %90, ptr %88, align 8
   store i64 0, ptr %17, align 8
-  br label %88
+  br label %91
 
-88:                                               ; preds = %83, %49, %41, %38, %21, %15
-  %89 = add nuw nsw i64 %16, 1
-  %90 = icmp eq i64 %89, 6
-  br i1 %90, label %91, label %15, !llvm.loop !12
+91:                                               ; preds = %86, %49, %41, %38, %21, %15
+  %92 = add nuw nsw i64 %16, 1
+  %93 = icmp eq i64 %92, 6
+  br i1 %93, label %94, label %15, !llvm.loop !12
 
-91:                                               ; preds = %88
-  br i1 %9, label %92, label %108
+94:                                               ; preds = %91
+  br i1 %9, label %95, label %111
 
-92:                                               ; preds = %91
-  %93 = getelementptr i8, ptr %11, i64 1328
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, 1
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %108, label %97
+95:                                               ; preds = %94
+  %96 = getelementptr i8, ptr %11, i64 1328
+  %97 = load i64, ptr %96, align 8
+  %98 = and i64 %97, 1
+  %99 = icmp eq i64 %98, 0
+  br i1 %99, label %111, label %100
 
-97:                                               ; preds = %92
+100:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !11
-  %98 = and i64 %94, -2
-  store i64 %98, ptr %93, align 8
-  %99 = getelementptr inbounds i8, ptr %11, i64 104
-  %100 = load i8, ptr %99, align 8
-  %101 = zext i8 %100 to i32
-  %102 = call i32 @pci_read_config_dword(ptr noundef %11, i32 noundef %101, ptr noundef nonnull %4) #9
-  %103 = load i8, ptr %99, align 8
+  %101 = and i64 %97, -2
+  store i64 %101, ptr %96, align 8
+  %102 = getelementptr inbounds i8, ptr %11, i64 104
+  %103 = load i8, ptr %102, align 8
   %104 = zext i8 %103 to i32
-  %105 = load i32, ptr %4, align 4
-  %106 = and i32 %105, -2
-  %107 = call i32 @pci_write_config_dword(ptr noundef %11, i32 noundef %104, i32 noundef %106) #9
+  %105 = call i32 @pci_read_config_dword(ptr noundef %11, i32 noundef %104, ptr noundef nonnull %4) #9
+  %106 = load i8, ptr %102, align 8
+  %107 = zext i8 %106 to i32
+  %108 = load i32, ptr %4, align 4
+  %109 = and i32 %108, -2
+  %110 = call i32 @pci_write_config_dword(ptr noundef %11, i32 noundef %107, i32 noundef %109) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  br label %108
+  br label %111
 
-108:                                              ; preds = %97, %92, %91
+111:                                              ; preds = %100, %95, %94
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  %109 = getelementptr inbounds i8, ptr %11, i64 24
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %113, label %112
+  %112 = getelementptr inbounds i8, ptr %11, i64 24
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %116, label %115
 
-112:                                              ; preds = %108
-  call fastcc void @pcibios_allocate_resources(ptr noundef nonnull %110, i32 noundef %1)
-  br label %113
+115:                                              ; preds = %111
+  call fastcc void @pcibios_allocate_resources(ptr noundef nonnull %113, i32 noundef %1)
+  br label %116
 
-113:                                              ; preds = %112, %108
-  %114 = load ptr, ptr %11, align 8
-  %115 = icmp eq ptr %114, %5
-  br i1 %115, label %116, label %10, !llvm.loop !13
+116:                                              ; preds = %115, %111
+  %117 = load ptr, ptr %11, align 8
+  %118 = icmp eq ptr %117, %5
+  br i1 %118, label %119, label %10, !llvm.loop !13
 
-116:                                              ; preds = %113, %2
+119:                                              ; preds = %116, %2
   ret void
 }
 
@@ -561,7 +564,7 @@ define internal fastcc void @pcibios_fw_addr_list_del() unnamed_addr #4 section 
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #9
   %2 = load ptr, ptr @pcibios_fwaddrmappings, align 8
   %3 = icmp eq ptr %2, @pcibios_fwaddrmappings
-  br i1 %3, label %13, label %4
+  br i1 %3, label %15, label %4
 
 4:                                                ; preds = %4, %0
   %5 = phi ptr [ %6, %4 ], [ %2, %0 ]
@@ -571,16 +574,18 @@ define internal fastcc void @pcibios_fw_addr_list_del() unnamed_addr #4 section 
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   store volatile ptr %6, ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = load ptr, ptr %10, align 8
-  tail call void @pci_dev_put(ptr noundef %11) #9
+  %10 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %10, ptr %5, align 8
+  %11 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %11, ptr %7, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = load ptr, ptr %12, align 8
+  tail call void @pci_dev_put(ptr noundef %13) #9
   tail call void @kfree(ptr noundef %5) #9
-  %12 = icmp eq ptr %6, @pcibios_fwaddrmappings
-  br i1 %12, label %13, label %4, !llvm.loop !18
+  %14 = icmp eq ptr %6, @pcibios_fwaddrmappings
+  br i1 %14, label %15, label %4, !llvm.loop !18
 
-13:                                               ; preds = %4, %0
+15:                                               ; preds = %4, %0
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %1) #9
   store i1 true, ptr @pcibios_fw_addr_done, align 1
   ret void

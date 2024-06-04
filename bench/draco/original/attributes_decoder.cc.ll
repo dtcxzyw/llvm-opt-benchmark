@@ -500,15 +500,16 @@ define void @_ZN5draco17AttributesDecoderC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco26AttributesDecoderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 3
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 4
+  %6 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 3
   store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 4
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -517,7 +518,8 @@ define linkonce_odr void @_ZN5draco26AttributesDecoderInterfaceC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco26AttributesDecoderInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5draco26AttributesDecoderInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1241,11 +1243,12 @@ define linkonce_odr void @_ZN5draco17AttributesDecoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN5draco26AttributesDecoderInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

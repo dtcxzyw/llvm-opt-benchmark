@@ -273,77 +273,78 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ci.addr, align 8
   call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_ownManifold, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %mf.addr, align 8
-  store ptr %1, ptr %m_manifoldPtr, align 8
+  %2 = load ptr, ptr %mf.addr, align 8
+  store ptr %2, ptr %m_manifoldPtr, align 8
   %m_isSwapped = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %isSwapped.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %isSwapped.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_isSwapped, align 8
   %m_numPerturbationIterations = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %numPerturbationIterations.addr, align 4
-  store i32 %3, ptr %m_numPerturbationIterations, align 4
+  %4 = load i32, ptr %numPerturbationIterations.addr, align 4
+  store i32 %4, ptr %m_numPerturbationIterations, align 4
   %m_minimumPointsPerturbationThreshold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 7
-  %4 = load i32, ptr %minimumPointsPerturbationThreshold.addr, align 4
-  store i32 %4, ptr %m_minimumPointsPerturbationThreshold, align 8
+  %5 = load i32, ptr %minimumPointsPerturbationThreshold.addr, align 4
+  store i32 %5, ptr %m_minimumPointsPerturbationThreshold, align 8
   %m_isSwapped3 = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 4
-  %5 = load i8, ptr %m_isSwapped3, align 8
-  %tobool4 = trunc i8 %5 to i1
+  %6 = load i8, ptr %m_isSwapped3, align 8
+  %tobool4 = trunc i8 %6 to i1
   br i1 %tobool4, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %6 = load ptr, ptr %col1Wrap.addr, align 8
+  %7 = load ptr, ptr %col1Wrap.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %7 = load ptr, ptr %col0Wrap.addr, align 8
+  %8 = load ptr, ptr %col0Wrap.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %6, %cond.true ], [ %7, %cond.false ]
+  %cond = phi ptr [ %7, %cond.true ], [ %8, %cond.false ]
   store ptr %cond, ptr %convexObjWrap, align 8
   %m_isSwapped5 = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 4
-  %8 = load i8, ptr %m_isSwapped5, align 8
-  %tobool6 = trunc i8 %8 to i1
+  %9 = load i8, ptr %m_isSwapped5, align 8
+  %tobool6 = trunc i8 %9 to i1
   br i1 %tobool6, label %cond.true7, label %cond.false8
 
 cond.true7:                                       ; preds = %cond.end
-  %9 = load ptr, ptr %col0Wrap.addr, align 8
+  %10 = load ptr, ptr %col0Wrap.addr, align 8
   br label %cond.end9
 
 cond.false8:                                      ; preds = %cond.end
-  %10 = load ptr, ptr %col1Wrap.addr, align 8
+  %11 = load ptr, ptr %col1Wrap.addr, align 8
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.false8, %cond.true7
-  %cond10 = phi ptr [ %9, %cond.true7 ], [ %10, %cond.false8 ]
+  %cond10 = phi ptr [ %10, %cond.true7 ], [ %11, %cond.false8 ]
   store ptr %cond10, ptr %planeObjWrap, align 8
   %m_manifoldPtr11 = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 3
-  %11 = load ptr, ptr %m_manifoldPtr11, align 8
-  %tobool12 = icmp ne ptr %11, null
+  %12 = load ptr, ptr %m_manifoldPtr11, align 8
+  %tobool12 = icmp ne ptr %12, null
   br i1 %tobool12, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end9
   %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %m_dispatcher, align 8
-  %13 = load ptr, ptr %convexObjWrap, align 8
-  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %13 = load ptr, ptr %m_dispatcher, align 8
+  %14 = load ptr, ptr %convexObjWrap, align 8
+  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true
-  %14 = load ptr, ptr %planeObjWrap, align 8
-  %call14 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %15 = load ptr, ptr %planeObjWrap, align 8
+  %call14 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %15)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %vtable = load ptr, ptr %12, align 8
+  %vtable = load ptr, ptr %13, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %15 = load ptr, ptr %vfn, align 8
-  %call16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %call, ptr noundef %call14)
+  %16 = load ptr, ptr %vfn, align 8
+  %call16 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %call, ptr noundef %call14)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -351,21 +352,21 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 if.then:                                          ; preds = %invoke.cont15
   %m_dispatcher17 = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %m_dispatcher17, align 8
-  %17 = load ptr, ptr %convexObjWrap, align 8
-  %call19 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %17 = load ptr, ptr %m_dispatcher17, align 8
+  %18 = load ptr, ptr %convexObjWrap, align 8
+  %call19 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.then
-  %18 = load ptr, ptr %planeObjWrap, align 8
-  %call21 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
+  %19 = load ptr, ptr %planeObjWrap, align 8
+  %call21 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %vtable22 = load ptr, ptr %16, align 8
+  %vtable22 = load ptr, ptr %17, align 8
   %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 3
-  %19 = load ptr, ptr %vfn23, align 8
-  %call25 = invoke noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %call19, ptr noundef %call21)
+  %20 = load ptr, ptr %vfn23, align 8
+  %call25 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %call19, ptr noundef %call21)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont20
@@ -376,12 +377,12 @@ invoke.cont24:                                    ; preds = %invoke.cont20
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont18, %if.then, %invoke.cont13, %invoke.cont, %land.lhs.true
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN20btCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #10
   br label %eh.resume
 
@@ -425,27 +426,28 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_ownManifold, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownManifold, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool2 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %m_manifoldPtr, align 8
+  %tobool2 = icmp ne ptr %2, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
   %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_dispatcher, align 8
+  %3 = load ptr, ptr %m_dispatcher, align 8
   %m_manifoldPtr4 = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %m_manifoldPtr4, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %m_manifoldPtr4, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then3
@@ -459,10 +461,10 @@ if.end5:                                          ; preds = %if.end, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 

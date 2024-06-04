@@ -250,18 +250,19 @@ define dso_local void @AsyncShmemInit() #0 {
   br label %79
 
 79:                                               ; preds = %78, %0
-  store ptr @asyncQueuePagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @NotifyCtlData, i32 0, i32 4), align 8
-  %80 = load i32, ptr @notify_buffers, align 4
-  call void @SimpleLruInit(ptr noundef @NotifyCtlData, ptr noundef @.str.1, i32 noundef %80, i32 noundef 0, ptr noundef @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true)
-  %81 = load i8, ptr %1, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %85, label %83
+  %80 = getelementptr inbounds %struct.SlruCtlData, ptr @NotifyCtlData, i32 0, i32 4
+  store ptr @asyncQueuePagePrecedes, ptr %80, align 8
+  %81 = load i32, ptr @notify_buffers, align 4
+  call void @SimpleLruInit(ptr noundef @NotifyCtlData, ptr noundef @.str.1, i32 noundef %81, i32 noundef 0, ptr noundef @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true)
+  %82 = load i8, ptr %1, align 1
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %86, label %84
 
-83:                                               ; preds = %79
-  %84 = call zeroext i1 @SlruScanDirectory(ptr noundef @NotifyCtlData, ptr noundef @SlruScanDirCbDeleteAll, ptr noundef null)
-  br label %85
+84:                                               ; preds = %79
+  %85 = call zeroext i1 @SlruScanDirectory(ptr noundef @NotifyCtlData, ptr noundef @SlruScanDirCbDeleteAll, ptr noundef null)
+  br label %86
 
-85:                                               ; preds = %83, %79
+86:                                               ; preds = %84, %79
   ret void
 }
 

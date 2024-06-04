@@ -18272,32 +18272,36 @@ define internal void @zend_mm_safe_error(ptr noundef %0, ptr noundef %1, i64 nou
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds %struct._zend_mm_heap, ptr %11, i32 0, i32 8
   store i32 1, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  store ptr %13, ptr %9, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %14 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %10, i64 0, i64 0
-  %15 = call i32 @__sigsetjmp(ptr noundef %14, i32 noundef 0) #29
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %21
+  %13 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %10, ptr %15, align 8
+  %16 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %10, i64 0, i64 0
+  %17 = call i32 @__sigsetjmp(ptr noundef %16, i32 noundef 0) #29
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %23
 
-17:                                               ; preds = %4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i64, ptr %7, align 8
-  %20 = load i64, ptr %8, align 8
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %18, i64 noundef %19, i64 noundef %20) #19
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %7, align 8
+  %22 = load i64, ptr %8, align 8
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %20, i64 noundef %21, i64 noundef %22) #19
   unreachable
 
-21:                                               ; preds = %4
-  %22 = load ptr, ptr %9, align 8
-  store ptr %22, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  br label %23
-
-23:                                               ; preds = %21
+23:                                               ; preds = %4
   %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7), align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct._zend_mm_heap, ptr %25, i32 0, i32 8
-  store i32 0, ptr %26, align 8
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %24, ptr %25, align 8
+  br label %26
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 7
+  store ptr %27, ptr %28, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._zend_mm_heap, ptr %29, i32 0, i32 8
+  store i32 0, ptr %30, align 8
   call void @_zend_bailout(ptr noundef @.str.6, i32 noundef 390) #19
   unreachable
 }
@@ -18351,11 +18355,11 @@ define internal i32 @zend_mm_chunk_extend(ptr noundef %0, ptr noundef %1, i64 no
   %41 = call zeroext i1 %34(ptr noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40)
   %42 = zext i1 %41 to i32
   store i32 %42, ptr %5, align 4
-  br label %56
+  br label %57
 
 43:                                               ; preds = %20
   store i32 0, ptr %5, align 4
-  br label %56
+  br label %57
 
 44:                                               ; preds = %4
   %45 = load ptr, ptr %7, align 8
@@ -18364,24 +18368,25 @@ define internal i32 @zend_mm_chunk_extend(ptr noundef %0, ptr noundef %1, i64 no
   %48 = call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %45, i64 noundef %46, i64 noundef %47, i32 noundef 0) #20
   store ptr %48, ptr %10, align 8
   %49 = load ptr, ptr %10, align 8
-  %50 = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %44
-  store i32 0, ptr %5, align 4
-  br label %56
+  %50 = inttoptr i64 -1 to ptr
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %52, label %53
 
 52:                                               ; preds = %44
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = icmp eq ptr %53, %54
-  call void @llvm.assume(i1 %55)
-  store i32 1, ptr %5, align 4
-  br label %56
+  store i32 0, ptr %5, align 4
+  br label %57
 
-56:                                               ; preds = %52, %51, %43, %28
-  %57 = load i32, ptr %5, align 4
-  ret i32 %57
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %10, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = icmp eq ptr %54, %55
+  call void @llvm.assume(i1 %56)
+  store i32 1, ptr %5, align 4
+  br label %57
+
+57:                                               ; preds = %53, %52, %43, %28
+  %58 = load i32, ptr %5, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind returns_twice
@@ -19540,12 +19545,12 @@ define internal ptr @zend_mm_mmap(i64 noundef %0) #0 {
   store i64 %0, ptr %9, align 8
   %13 = load i8, ptr @zend_mm_use_huge_pages, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %38
+  br i1 %14, label %15, label %39
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %9, align 8
   %17 = icmp eq i64 %16, 2097152
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %15
   store i32 -1, ptr %11, align 4
@@ -19559,66 +19564,68 @@ define internal ptr @zend_mm_mmap(i64 noundef %0) #0 {
   %24 = call ptr @mmap(ptr noundef null, i64 noundef %21, i32 noundef 3, i32 noundef %22, i32 noundef %23, i64 noundef 0) #20
   store ptr %24, ptr %10, align 8
   %25 = load ptr, ptr %10, align 8
-  %26 = icmp ne ptr %25, inttoptr (i64 -1 to ptr)
-  br i1 %26, label %27, label %37
+  %26 = inttoptr i64 -1 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %38
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i64, ptr %9, align 8
-  store ptr %28, ptr %2, align 8
-  store i64 %29, ptr %3, align 8
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i64, ptr %9, align 8
+  store ptr %29, ptr %2, align 8
+  store i64 %30, ptr %3, align 8
   store ptr @.str.8, ptr %4, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = load i64, ptr %3, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %31, i64 noundef %32, i64 noundef %34) #20
-  %36 = load ptr, ptr %10, align 8
-  store ptr %36, ptr %8, align 8
-  br label %61
+  %31 = load ptr, ptr %2, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = load i64, ptr %3, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %32, i64 noundef %33, i64 noundef %35) #20
+  %37 = load ptr, ptr %10, align 8
+  store ptr %37, ptr %8, align 8
+  br label %63
 
-37:                                               ; preds = %18
-  br label %38
+38:                                               ; preds = %18
+  br label %39
 
-38:                                               ; preds = %37, %15, %1
-  %39 = load i64, ptr %9, align 8
-  %40 = call ptr @mmap(ptr noundef null, i64 noundef %39, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #20
-  store ptr %40, ptr %10, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
-  br i1 %42, label %43, label %51
+39:                                               ; preds = %38, %15, %1
+  %40 = load i64, ptr %9, align 8
+  %41 = call ptr @mmap(ptr noundef null, i64 noundef %40, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #20
+  store ptr %41, ptr %10, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = inttoptr i64 -1 to ptr
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %53
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call ptr @__errno_location() #28
-  %46 = load i32, ptr %45, align 4
+45:                                               ; preds = %39
+  %46 = load ptr, ptr @stderr, align 8
   %47 = call ptr @__errno_location() #28
   %48 = load i32, ptr %47, align 4
-  %49 = call ptr @strerror(i32 noundef %48) #20
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.9, i32 noundef %46, ptr noundef %49) #20
+  %49 = call ptr @__errno_location() #28
+  %50 = load i32, ptr %49, align 4
+  %51 = call ptr @strerror(i32 noundef %50) #20
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.9, i32 noundef %48, ptr noundef %51) #20
   store ptr null, ptr %8, align 8
-  br label %61
+  br label %63
 
-51:                                               ; preds = %38
-  %52 = load ptr, ptr %10, align 8
-  %53 = load i64, ptr %9, align 8
-  store ptr %52, ptr %5, align 8
-  store i64 %53, ptr %6, align 8
+53:                                               ; preds = %39
+  %54 = load ptr, ptr %10, align 8
+  %55 = load i64, ptr %9, align 8
+  store ptr %54, ptr %5, align 8
+  store i64 %55, ptr %6, align 8
   store ptr @.str.8, ptr %7, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = ptrtoint ptr %54 to i64
-  %56 = load i64, ptr %6, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %55, i64 noundef %56, i64 noundef %58) #20
-  %60 = load ptr, ptr %10, align 8
-  store ptr %60, ptr %8, align 8
-  br label %61
+  %56 = load ptr, ptr %5, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = load i64, ptr %6, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %57, i64 noundef %58, i64 noundef %60) #20
+  %62 = load ptr, ptr %10, align 8
+  store ptr %62, ptr %8, align 8
+  br label %63
 
-61:                                               ; preds = %51, %43, %27
-  %62 = load ptr, ptr %8, align 8
-  ret ptr %62
+63:                                               ; preds = %53, %45, %28
+  %64 = load ptr, ptr %8, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: nounwind

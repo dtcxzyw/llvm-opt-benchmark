@@ -35,10 +35,11 @@ entry:
   store ptr %biToAdopt, ptr %biToAdopt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.icu_75::SharedBreakIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %biToAdopt.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %biToAdopt.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   ret void
 }
 
@@ -49,7 +50,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -65,17 +67,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.icu_75::SharedBreakIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %ptr, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(479) %0) #4
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(479) %1) #4
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -108,7 +111,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -50,12 +50,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds inrange(-72, 56) ({ [16 x ptr] }, ptr @_ZTVN5folly14InlineExecutorE, i64 0, i32 0, i64 9), ptr @_ZZN5folly14InlineExecutor13instance_slowEvE8instance, align 8, !tbaa !8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5folly14InlineExecutorE, i64 0, i32 0, i64 9
+  store ptr %2, ptr @_ZZN5folly14InlineExecutor13instance_slowEvE8instance, align 8, !tbaa !8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly14InlineExecutor13instance_slowEvE8instance) #8
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  store atomic i64 ptrtoint (ptr @_ZZN5folly14InlineExecutor13instance_slowEvE8instance to i64), ptr @_ZN5folly14InlineExecutor5cacheE release, align 8
+  %3 = ptrtoint ptr @_ZZN5folly14InlineExecutor13instance_slowEvE8instance to i64
+  store atomic i64 %3, ptr @_ZN5folly14InlineExecutor5cacheE release, align 8
   ret ptr @_ZZN5folly14InlineExecutor13instance_slowEvE8instance
 }
 

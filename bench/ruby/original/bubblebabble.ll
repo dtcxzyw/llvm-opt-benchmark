@@ -187,11 +187,11 @@ define internal i64 @bubblebabble_str_new(i64 noundef %0) #0 {
   store i8 120, ptr %39, align 1
   br label %40
 
-40:                                               ; preds = %115, %22
+40:                                               ; preds = %116, %22
   %41 = load i64, ptr %7, align 8
   %42 = load i64, ptr %4, align 8
   %43 = icmp uge i64 %41, %42
-  br i1 %43, label %44, label %66
+  br i1 %43, label %44, label %67
 
 44:                                               ; preds = %40
   %45 = load i64, ptr %9, align 8
@@ -204,146 +204,147 @@ define internal i64 @bubblebabble_str_new(i64 noundef %0) #0 {
   store i64 %51, ptr %8, align 8
   %52 = getelementptr inbounds i8, ptr %49, i64 %50
   store i8 %48, ptr %52, align 1
-  %53 = load i8, ptr getelementptr inbounds ([17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 16), align 16
-  %54 = load ptr, ptr %6, align 8
-  %55 = load i64, ptr %8, align 8
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 %55
-  store i8 %53, ptr %57, align 1
-  %58 = load i64, ptr %9, align 8
-  %59 = udiv i64 %58, 6
-  %60 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 1
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i64, ptr %8, align 8
-  %64 = add i64 %63, 1
-  store i64 %64, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 %63
-  store i8 %61, ptr %65, align 1
-  br label %157
+  %53 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 16
+  %54 = load i8, ptr %53, align 16
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i64, ptr %8, align 8
+  %57 = add i64 %56, 1
+  store i64 %57, ptr %8, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 %56
+  store i8 %54, ptr %58, align 1
+  %59 = load i64, ptr %9, align 8
+  %60 = udiv i64 %59, 6
+  %61 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i64, ptr %8, align 8
+  %65 = add i64 %64, 1
+  store i64 %65, ptr %8, align 8
+  %66 = getelementptr inbounds i8, ptr %63, i64 %64
+  store i8 %62, ptr %66, align 1
+  br label %158
 
-66:                                               ; preds = %40
-  %67 = load ptr, ptr %3, align 8
-  %68 = load i64, ptr %7, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 %68
-  %71 = load i8, ptr %70, align 1
-  store i8 %71, ptr %10, align 1
-  %72 = load i8, ptr %10, align 1
-  %73 = zext i8 %72 to i32
-  %74 = ashr i32 %73, 6
-  %75 = and i32 %74, 3
-  %76 = sext i32 %75 to i64
-  %77 = load i64, ptr %9, align 8
-  %78 = add i64 %76, %77
-  %79 = urem i64 %78, 6
-  %80 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %82 = load ptr, ptr %6, align 8
-  %83 = load i64, ptr %8, align 8
-  %84 = add i64 %83, 1
-  store i64 %84, ptr %8, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 %83
-  store i8 %81, ptr %85, align 1
-  %86 = load i8, ptr %10, align 1
-  %87 = zext i8 %86 to i32
-  %88 = ashr i32 %87, 2
-  %89 = and i32 %88, 15
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1
-  %93 = load ptr, ptr %6, align 8
-  %94 = load i64, ptr %8, align 8
-  %95 = add i64 %94, 1
-  store i64 %95, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 %94
-  store i8 %92, ptr %96, align 1
-  %97 = load i8, ptr %10, align 1
-  %98 = zext i8 %97 to i32
-  %99 = and i32 %98, 3
-  %100 = sext i32 %99 to i64
-  %101 = load i64, ptr %9, align 8
-  %102 = udiv i64 %101, 6
-  %103 = add i64 %100, %102
-  %104 = urem i64 %103, 6
-  %105 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = load ptr, ptr %6, align 8
-  %108 = load i64, ptr %8, align 8
-  %109 = add i64 %108, 1
-  store i64 %109, ptr %8, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 %108
-  store i8 %106, ptr %110, align 1
-  %111 = load i64, ptr %7, align 8
-  %112 = load i64, ptr %4, align 8
-  %113 = icmp uge i64 %111, %112
-  br i1 %113, label %114, label %115
+67:                                               ; preds = %40
+  %68 = load ptr, ptr %3, align 8
+  %69 = load i64, ptr %7, align 8
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %7, align 8
+  %71 = getelementptr inbounds i8, ptr %68, i64 %69
+  %72 = load i8, ptr %71, align 1
+  store i8 %72, ptr %10, align 1
+  %73 = load i8, ptr %10, align 1
+  %74 = zext i8 %73 to i32
+  %75 = ashr i32 %74, 6
+  %76 = and i32 %75, 3
+  %77 = sext i32 %76 to i64
+  %78 = load i64, ptr %9, align 8
+  %79 = add i64 %77, %78
+  %80 = urem i64 %79, 6
+  %81 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %80
+  %82 = load i8, ptr %81, align 1
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i64, ptr %8, align 8
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %8, align 8
+  %86 = getelementptr inbounds i8, ptr %83, i64 %84
+  store i8 %82, ptr %86, align 1
+  %87 = load i8, ptr %10, align 1
+  %88 = zext i8 %87 to i32
+  %89 = ashr i32 %88, 2
+  %90 = and i32 %89, 15
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1
+  %94 = load ptr, ptr %6, align 8
+  %95 = load i64, ptr %8, align 8
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %8, align 8
+  %97 = getelementptr inbounds i8, ptr %94, i64 %95
+  store i8 %93, ptr %97, align 1
+  %98 = load i8, ptr %10, align 1
+  %99 = zext i8 %98 to i32
+  %100 = and i32 %99, 3
+  %101 = sext i32 %100 to i64
+  %102 = load i64, ptr %9, align 8
+  %103 = udiv i64 %102, 6
+  %104 = add i64 %101, %103
+  %105 = urem i64 %104, 6
+  %106 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1
+  %108 = load ptr, ptr %6, align 8
+  %109 = load i64, ptr %8, align 8
+  %110 = add i64 %109, 1
+  store i64 %110, ptr %8, align 8
+  %111 = getelementptr inbounds i8, ptr %108, i64 %109
+  store i8 %107, ptr %111, align 1
+  %112 = load i64, ptr %7, align 8
+  %113 = load i64, ptr %4, align 8
+  %114 = icmp uge i64 %112, %113
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %66
-  br label %157
+115:                                              ; preds = %67
+  br label %158
 
-115:                                              ; preds = %66
-  %116 = load ptr, ptr %3, align 8
-  %117 = load i64, ptr %7, align 8
-  %118 = add i64 %117, 1
-  store i64 %118, ptr %7, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 %117
-  %120 = load i8, ptr %119, align 1
-  store i8 %120, ptr %11, align 1
-  %121 = load i8, ptr %11, align 1
-  %122 = zext i8 %121 to i32
-  %123 = ashr i32 %122, 4
-  %124 = and i32 %123, 15
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %125
-  %127 = load i8, ptr %126, align 1
-  %128 = load ptr, ptr %6, align 8
-  %129 = load i64, ptr %8, align 8
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %8, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 %129
-  store i8 %127, ptr %131, align 1
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i64, ptr %8, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %8, align 8
-  %135 = getelementptr inbounds i8, ptr %132, i64 %133
-  store i8 45, ptr %135, align 1
-  %136 = load i8, ptr %11, align 1
-  %137 = zext i8 %136 to i32
-  %138 = and i32 %137, 15
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i64, ptr %8, align 8
-  %144 = add i64 %143, 1
-  store i64 %144, ptr %8, align 8
-  %145 = getelementptr inbounds i8, ptr %142, i64 %143
-  store i8 %141, ptr %145, align 1
-  %146 = load i64, ptr %9, align 8
-  %147 = mul i64 %146, 5
-  %148 = load i8, ptr %10, align 1
-  %149 = zext i8 %148 to i32
-  %150 = mul nsw i32 %149, 7
-  %151 = sext i32 %150 to i64
-  %152 = add i64 %147, %151
-  %153 = load i8, ptr %11, align 1
-  %154 = zext i8 %153 to i64
-  %155 = add i64 %152, %154
-  %156 = urem i64 %155, 36
-  store i64 %156, ptr %9, align 8
+116:                                              ; preds = %67
+  %117 = load ptr, ptr %3, align 8
+  %118 = load i64, ptr %7, align 8
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %7, align 8
+  %120 = getelementptr inbounds i8, ptr %117, i64 %118
+  %121 = load i8, ptr %120, align 1
+  store i8 %121, ptr %11, align 1
+  %122 = load i8, ptr %11, align 1
+  %123 = zext i8 %122 to i32
+  %124 = ashr i32 %123, 4
+  %125 = and i32 %124, 15
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %126
+  %128 = load i8, ptr %127, align 1
+  %129 = load ptr, ptr %6, align 8
+  %130 = load i64, ptr %8, align 8
+  %131 = add i64 %130, 1
+  store i64 %131, ptr %8, align 8
+  %132 = getelementptr inbounds i8, ptr %129, i64 %130
+  store i8 %128, ptr %132, align 1
+  %133 = load ptr, ptr %6, align 8
+  %134 = load i64, ptr %8, align 8
+  %135 = add i64 %134, 1
+  store i64 %135, ptr %8, align 8
+  %136 = getelementptr inbounds i8, ptr %133, i64 %134
+  store i8 45, ptr %136, align 1
+  %137 = load i8, ptr %11, align 1
+  %138 = zext i8 %137 to i32
+  %139 = and i32 %138, 15
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds [17 x i8], ptr @bubblebabble_str_new.consonants, i64 0, i64 %140
+  %142 = load i8, ptr %141, align 1
+  %143 = load ptr, ptr %6, align 8
+  %144 = load i64, ptr %8, align 8
+  %145 = add i64 %144, 1
+  store i64 %145, ptr %8, align 8
+  %146 = getelementptr inbounds i8, ptr %143, i64 %144
+  store i8 %142, ptr %146, align 1
+  %147 = load i64, ptr %9, align 8
+  %148 = mul i64 %147, 5
+  %149 = load i8, ptr %10, align 1
+  %150 = zext i8 %149 to i32
+  %151 = mul nsw i32 %150, 7
+  %152 = sext i32 %151 to i64
+  %153 = add i64 %148, %152
+  %154 = load i8, ptr %11, align 1
+  %155 = zext i8 %154 to i64
+  %156 = add i64 %153, %155
+  %157 = urem i64 %156, 36
+  store i64 %157, ptr %9, align 8
   br label %40
 
-157:                                              ; preds = %114, %44
-  %158 = load ptr, ptr %6, align 8
-  %159 = load i64, ptr %8, align 8
-  %160 = getelementptr inbounds i8, ptr %158, i64 %159
-  store i8 120, ptr %160, align 1
-  %161 = load i64, ptr %5, align 8
-  ret i64 %161
+158:                                              ; preds = %115, %44
+  %159 = load ptr, ptr %6, align 8
+  %160 = load i64, ptr %8, align 8
+  %161 = getelementptr inbounds i8, ptr %159, i64 %160
+  store i8 120, ptr %161, align 1
+  %162 = load i64, ptr %5, align 8
+  ret i64 %162
 }
 
 declare i64 @rb_string_value(ptr noundef) #1

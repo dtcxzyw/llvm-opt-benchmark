@@ -15,8 +15,9 @@ define weak i64 @ruby_abi_version() #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_euc_tw() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.OnigEncodingTypeST, ptr @encoding_EUC_TW, i32 0, i32 1), align 8
-  %2 = call i32 @rb_enc_register(ptr noundef %1, ptr noundef @encoding_EUC_TW)
+  %1 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr @encoding_EUC_TW, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = call i32 @rb_enc_register(ptr noundef %2, ptr noundef @encoding_EUC_TW)
   ret void
 }
 

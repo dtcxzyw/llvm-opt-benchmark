@@ -14393,16 +14393,17 @@ define internal void @_ZN12_GLOBAL__N_126FeaturePlaceHolderExpanderC2EPKNSt7__cx
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %8, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %8, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -28115,7 +28116,8 @@ define linkonce_odr dso_local void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

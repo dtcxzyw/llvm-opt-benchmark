@@ -2401,18 +2401,19 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %type.addr, align 8
   %tp_init = getelementptr inbounds %struct._typeobject, ptr %1, i32 0, i32 35
   %2 = load ptr, ptr %tp_init, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrozenSet_Type, i32 0, i32 35), align 8
-  %cmp1 = icmp eq ptr %2, %3
+  %3 = getelementptr inbounds %struct._typeobject, ptr @PyFrozenSet_Type, i32 0, i32 35
+  %4 = load ptr, ptr %3, align 8
+  %cmp1 = icmp eq ptr %2, %4
   br i1 %cmp1, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %4 = load ptr, ptr %kwds.addr, align 8
-  %cmp2 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %kwds.addr, align 8
+  %cmp2 = icmp eq ptr %5, null
   br i1 %cmp2, label %if.end, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %land.lhs.true
-  %5 = load ptr, ptr %kwds.addr, align 8
-  %call = call i32 @_PyArg_NoKeywords(ptr noundef @.str.2, ptr noundef %5)
+  %6 = load ptr, ptr %kwds.addr, align 8
+  %call = call i32 @_PyArg_NoKeywords(ptr noundef @.str.2, ptr noundef %6)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -2421,11 +2422,11 @@ if.then:                                          ; preds = %lor.lhs.false3
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false3, %land.lhs.true, %lor.lhs.false
-  %6 = load ptr, ptr %args.addr, align 8
-  %7 = load ptr, ptr %type.addr, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %tp_name, align 8
-  %call4 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %6, ptr noundef %8, i64 noundef 0, i64 noundef 1, ptr noundef %iterable)
+  %7 = load ptr, ptr %args.addr, align 8
+  %8 = load ptr, ptr %type.addr, align 8
+  %tp_name = getelementptr inbounds %struct._typeobject, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %tp_name, align 8
+  %call4 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %7, ptr noundef %9, i64 noundef 0, i64 noundef 1, ptr noundef %iterable)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.end7, label %if.then6
 
@@ -2434,15 +2435,15 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %9 = load ptr, ptr %type.addr, align 8
-  %10 = load ptr, ptr %iterable, align 8
-  %call8 = call ptr @make_new_frozenset(ptr noundef %9, ptr noundef %10)
+  %10 = load ptr, ptr %type.addr, align 8
+  %11 = load ptr, ptr %iterable, align 8
+  %call8 = call ptr @make_new_frozenset(ptr noundef %10, ptr noundef %11)
   store ptr %call8, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %retval, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4006,15 +4007,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
-  %4 = load ptr, ptr %list, align 8
-  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.7, ptr noundef %call2, ptr noundef %4)
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %5 = getelementptr inbounds %struct.anon.39, ptr %4, i32 0, i32 3, i32 1, i32 434
+  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef %5)
+  %6 = load ptr, ptr %list, align 8
+  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.7, ptr noundef %call2, ptr noundef %6)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 declare ptr @PyLong_FromSsize_t(i64 noundef) #1

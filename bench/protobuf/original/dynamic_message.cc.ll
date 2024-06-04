@@ -1231,10 +1231,11 @@ entry:
   store ptr %type_info, ptr %type_info.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_info_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %type_info.addr, align 8
-  store ptr %0, ptr %type_info_, align 8
+  %1 = load ptr, ptr %type_info.addr, align 8
+  store ptr %1, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %cached_byte_size_, i32 noundef 0) #3
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %this1, i1 noundef zeroext true)
@@ -1244,12 +1245,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1268,7 +1269,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1743,10 +1745,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %type_info_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %type_info.addr, align 8
-  store ptr %1, ptr %type_info_, align 8
+  %2 = load ptr, ptr %type_info.addr, align 8
+  store ptr %2, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %cached_byte_size_, i32 noundef 0) #3
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %this1, i1 noundef zeroext true)
@@ -1756,12 +1759,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1783,7 +1786,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1801,17 +1805,18 @@ entry:
   store i8 %frombool, ptr %lock_factory.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_info_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %type_info.addr, align 8
-  store ptr %0, ptr %type_info_, align 8
+  %1 = load ptr, ptr %type_info.addr, align 8
+  store ptr %1, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %cached_byte_size_, i32 noundef 0) #3
-  %1 = load ptr, ptr %type_info.addr, align 8
-  %prototype = getelementptr inbounds %"struct.google::protobuf::DynamicMessageFactory::TypeInfo", ptr %1, i32 0, i32 10
+  %2 = load ptr, ptr %type_info.addr, align 8
+  %prototype = getelementptr inbounds %"struct.google::protobuf::DynamicMessageFactory::TypeInfo", ptr %2, i32 0, i32 10
   store ptr %this1, ptr %prototype, align 8
-  %2 = load i8, ptr %lock_factory.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %lock_factory.addr, align 1
+  %tobool = trunc i8 %3 to i1
   invoke void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %this1, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
@@ -1819,12 +1824,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -4286,7 +4291,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf14MessageFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 1
   store ptr null, ptr %pool_, align 8
   %delegate_to_generated_factory_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 2
@@ -4304,21 +4310,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_21DynamicMessageFactory8TypeInfoENS0_18container_internal6HashEqIS6_vE4HashENSD_2EqESaISt4pairIKS6_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %prototypes_) #3
   br label %ehcleanup
 
@@ -4340,7 +4346,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf14MessageFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf14MessageFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4389,10 +4396,11 @@ entry:
   store ptr %pool, ptr %pool.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf14MessageFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pool.addr, align 8
-  store ptr %0, ptr %pool_, align 8
+  %1 = load ptr, ptr %pool.addr, align 8
+  store ptr %1, ptr %pool_, align 8
   %delegate_to_generated_factory_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 2
   store i8 0, ptr %delegate_to_generated_factory_, align 8
   %prototypes_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 3
@@ -4408,21 +4416,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_21DynamicMessageFactory8TypeInfoENS0_18container_internal6HashEqIS6_vE4HashENSD_2EqESaISt4pairIKS6_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %prototypes_) #3
   br label %ehcleanup
 
@@ -4446,18 +4454,19 @@ entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::Descriptor *, const google::protobuf::DynamicMessageFactory::TypeInfo *>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::Descriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::Descriptor *>::Eq, std::allocator<std::pair<const google::protobuf::Descriptor *const, const google::protobuf::DynamicMessageFactory::TypeInfo *>>>::iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prototypes_ = getelementptr inbounds %"class.google::protobuf::DynamicMessageFactory", ptr %this1, i32 0, i32 3
   %call = invoke { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_21DynamicMessageFactory8TypeInfoEEENS1_6HashEqIS8_vE4HashENSF_2EqESaISt4pairIKS8_SC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %prototypes_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %iter, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %iter, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %iter, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %iter, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont9, %invoke.cont
@@ -4466,12 +4475,12 @@ for.cond:                                         ; preds = %invoke.cont9, %invo
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %for.cond
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 0
-  %5 = extractvalue { ptr, ptr } %call4, 0
-  store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 1
-  %7 = extractvalue { ptr, ptr } %call4, 1
-  store ptr %7, ptr %6, align 8
+  %5 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 0
+  %6 = extractvalue { ptr, ptr } %call4, 0
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 1
+  %8 = extractvalue { ptr, ptr } %call4, 1
+  store ptr %8, ptr %7, align 8
   %call6 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_21DynamicMessageFactory8TypeInfoEEENS1_6HashEqIS8_vE4HashENSF_2EqESaISt4pairIKS8_SC_EEE8iteratorESP_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont5 unwind label %terminate.lpad
 
@@ -4484,13 +4493,13 @@ for.body:                                         ; preds = %invoke.cont5
 
 invoke.cont7:                                     ; preds = %for.body
   %second = getelementptr inbounds %"struct.std::pair", ptr %call8, i32 0, i32 1
-  %8 = load ptr, ptr %second, align 8
-  %isnull = icmp eq ptr %8, null
+  %9 = load ptr, ptr %second, align 8
+  %isnull = icmp eq ptr %9, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont7
-  call void @_ZN6google8protobuf21DynamicMessageFactory8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %8) #3
-  call void @_ZdlPv(ptr noundef %8) #21
+  call void @_ZN6google8protobuf21DynamicMessageFactory8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %9) #3
+  call void @_ZdlPv(ptr noundef %9) #21
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont7
@@ -4512,10 +4521,10 @@ for.end:                                          ; preds = %invoke.cont5
   ret void
 
 terminate.lpad:                                   ; preds = %for.inc, %for.body, %invoke.cont3, %for.cond, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 }
 
@@ -5299,7 +5308,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_)
   ret void
@@ -5358,10 +5368,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %arena.addr, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %0)
+  %1 = load ptr, ptr %arena.addr, align 8
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %1)
   ret void
 }
 
@@ -9185,7 +9196,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11109,7 +11121,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

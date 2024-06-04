@@ -24577,13 +24577,13 @@ define internal void @dissect_x11_replies(ptr noundef %0, ptr noundef %1, ptr no
   store volatile i32 0, ptr %7, align 4
   br label %51
 
-51:                                               ; preds = %799, %46
+51:                                               ; preds = %800, %46
   %52 = load ptr, ptr %4, align 8
   %53 = load volatile i32, ptr %7, align 4
   %54 = call i32 @tvb_reported_length_remaining(ptr noundef %52, i32 noundef %53)
   store i32 %54, ptr %13, align 4
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %803
+  br i1 %55, label %56, label %804
 
 56:                                               ; preds = %51
   %57 = load i32, ptr @x11_desegment, align 4
@@ -24611,7 +24611,7 @@ define internal void @dissect_x11_replies(ptr noundef %0, ptr noundef %1, ptr no
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds %struct._packet_info, ptr %72, i32 0, i32 33
   store i32 268435455, ptr %73, align 8
-  br label %804
+  br label %805
 
 74:                                               ; preds = %65
   br label %75
@@ -24626,1178 +24626,1179 @@ define internal void @dissect_x11_replies(ptr noundef %0, ptr noundef %1, ptr no
   %82 = sext i32 %81 to i64
   %83 = inttoptr i64 %82 to ptr
   %84 = call ptr @wmem_map_lookup(ptr noundef %78, ptr noundef %83)
-  %85 = icmp eq ptr %84, inttoptr (i64 -1 to ptr)
-  br i1 %85, label %94, label %86
+  %85 = inttoptr i64 -1 to ptr
+  %86 = icmp eq ptr %84, %85
+  br i1 %86, label %95, label %87
 
-86:                                               ; preds = %75
-  %87 = load volatile ptr, ptr %11, align 8
-  %88 = getelementptr inbounds %struct._x11_conv_data, ptr %87, i32 0, i32 9
-  %89 = load i32, ptr %88, align 8
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct._packet_info, ptr %90, i32 0, i32 3
-  %92 = load i32, ptr %91, align 4
-  %93 = icmp eq i32 %89, %92
-  br i1 %93, label %94, label %235
+87:                                               ; preds = %75
+  %88 = load volatile ptr, ptr %11, align 8
+  %89 = getelementptr inbounds %struct._x11_conv_data, ptr %88, i32 0, i32 9
+  %90 = load i32, ptr %89, align 8
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct._packet_info, ptr %91, i32 0, i32 3
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp eq i32 %90, %93
+  br i1 %94, label %95, label %236
 
-94:                                               ; preds = %86, %75
-  %95 = load ptr, ptr %4, align 8
-  %96 = load volatile i32, ptr %7, align 4
-  %97 = add i32 %96, 6
-  %98 = load volatile i32, ptr %12, align 4
-  %99 = call zeroext i16 @tvb_get_guint16(ptr noundef %95, i32 noundef %97, i32 noundef %98)
-  %100 = zext i16 %99 to i32
-  %101 = mul i32 %100, 4
-  %102 = add i32 8, %101
-  store volatile i32 %102, ptr %8, align 4
-  br label %103
+95:                                               ; preds = %87, %75
+  %96 = load ptr, ptr %4, align 8
+  %97 = load volatile i32, ptr %7, align 4
+  %98 = add i32 %97, 6
+  %99 = load volatile i32, ptr %12, align 4
+  %100 = call zeroext i16 @tvb_get_guint16(ptr noundef %96, i32 noundef %98, i32 noundef %99)
+  %101 = zext i16 %100 to i32
+  %102 = mul i32 %101, 4
+  %103 = add i32 8, %102
+  store volatile i32 %103, ptr %8, align 4
+  br label %104
 
-103:                                              ; preds = %94
-  %104 = load i32, ptr %13, align 4
-  %105 = load volatile i32, ptr %8, align 4
-  %106 = icmp slt i32 %104, %105
-  br i1 %106, label %107, label %127
+104:                                              ; preds = %95
+  %105 = load i32, ptr %13, align 4
+  %106 = load volatile i32, ptr %8, align 4
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %108, label %128
 
-107:                                              ; preds = %103
-  %108 = load i32, ptr @x11_desegment, align 4
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %125
+108:                                              ; preds = %104
+  %109 = load i32, ptr @x11_desegment, align 4
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %126
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct._packet_info, ptr %111, i32 0, i32 30
-  %113 = load i16, ptr %112, align 8
-  %114 = zext i16 %113 to i32
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %125
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %5, align 8
+  %113 = getelementptr inbounds %struct._packet_info, ptr %112, i32 0, i32 30
+  %114 = load i16, ptr %113, align 8
+  %115 = zext i16 %114 to i32
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %126
 
-116:                                              ; preds = %110
-  %117 = load volatile i32, ptr %7, align 4
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds %struct._packet_info, ptr %118, i32 0, i32 32
-  store i32 %117, ptr %119, align 4
-  %120 = load volatile i32, ptr %8, align 4
-  %121 = load i32, ptr %13, align 4
-  %122 = sub i32 %120, %121
-  %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds %struct._packet_info, ptr %123, i32 0, i32 33
-  store i32 %122, ptr %124, align 8
-  br label %804
+117:                                              ; preds = %111
+  %118 = load volatile i32, ptr %7, align 4
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 32
+  store i32 %118, ptr %120, align 4
+  %121 = load volatile i32, ptr %8, align 4
+  %122 = load i32, ptr %13, align 4
+  %123 = sub i32 %121, %122
+  %124 = load ptr, ptr %5, align 8
+  %125 = getelementptr inbounds %struct._packet_info, ptr %124, i32 0, i32 33
+  store i32 %123, ptr %125, align 8
+  br label %805
 
-125:                                              ; preds = %110, %107
-  br label %126
-
-126:                                              ; preds = %125
+126:                                              ; preds = %111, %108
   br label %127
 
-127:                                              ; preds = %126, %103
-  %128 = load i32, ptr %13, align 4
-  %129 = load volatile i32, ptr %8, align 4
-  %130 = icmp sgt i32 %128, %129
-  br i1 %130, label %131, label %133
+127:                                              ; preds = %126
+  br label %128
 
-131:                                              ; preds = %127
-  %132 = load volatile i32, ptr %8, align 4
-  store i32 %132, ptr %13, align 4
-  br label %133
+128:                                              ; preds = %127, %104
+  %129 = load i32, ptr %13, align 4
+  %130 = load volatile i32, ptr %8, align 4
+  %131 = icmp sgt i32 %129, %130
+  br i1 %131, label %132, label %134
 
-133:                                              ; preds = %131, %127
-  %134 = load ptr, ptr %4, align 8
-  %135 = load volatile i32, ptr %7, align 4
-  %136 = load i32, ptr %13, align 4
-  %137 = load volatile i32, ptr %8, align 4
-  %138 = call ptr @tvb_new_subset_length_caplen(ptr noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
-  store volatile ptr %138, ptr %9, align 8
-  %139 = load volatile ptr, ptr %14, align 8
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %141, label %145
+132:                                              ; preds = %128
+  %133 = load volatile i32, ptr %8, align 4
+  store i32 %133, ptr %13, align 4
+  br label %134
 
-141:                                              ; preds = %133
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 1
-  %144 = load ptr, ptr %143, align 8
-  call void @col_set_str(ptr noundef %144, i32 noundef 25, ptr noundef @.str.14648)
+134:                                              ; preds = %132, %128
+  %135 = load ptr, ptr %4, align 8
+  %136 = load volatile i32, ptr %7, align 4
+  %137 = load i32, ptr %13, align 4
+  %138 = load volatile i32, ptr %8, align 4
+  %139 = call ptr @tvb_new_subset_length_caplen(ptr noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef %138)
+  store volatile ptr %139, ptr %9, align 8
+  %140 = load volatile ptr, ptr %14, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %142, label %146
+
+142:                                              ; preds = %134
+  %143 = load ptr, ptr %5, align 8
+  %144 = getelementptr inbounds %struct._packet_info, ptr %143, i32 0, i32 1
+  %145 = load ptr, ptr %144, align 8
+  call void @col_set_str(ptr noundef %145, i32 noundef 25, ptr noundef @.str.14648)
   store volatile ptr @.str.10557, ptr %14, align 8
-  br label %145
+  br label %146
 
-145:                                              ; preds = %141, %133
+146:                                              ; preds = %142, %134
   store volatile i32 0, ptr %16, align 4
   call void @except_setup_try(ptr noundef %17, ptr noundef %18, ptr noundef @dissect_x11_replies.catch_spec, i64 noundef 1)
-  %146 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 3
-  %147 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %146, i64 0, i64 0
-  %148 = call i32 @_setjmp(ptr noundef %147) #7
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %152
+  %147 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 3
+  %148 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %147, i64 0, i64 0
+  %149 = call i32 @_setjmp(ptr noundef %148) #7
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %153
 
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 2
-  store volatile ptr %151, ptr %15, align 8
-  br label %153
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 2
+  store volatile ptr %152, ptr %15, align 8
+  br label %154
 
-152:                                              ; preds = %145
+153:                                              ; preds = %146
   store volatile ptr null, ptr %15, align 8
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %150
-  %154 = load volatile i32, ptr %16, align 4
-  %155 = and i32 %154, 1
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %160
+154:                                              ; preds = %153, %151
+  %155 = load volatile i32, ptr %16, align 4
+  %156 = and i32 %155, 1
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-157:                                              ; preds = %153
-  %158 = load volatile i32, ptr %16, align 4
-  %159 = or i32 %158, 2
-  store volatile i32 %159, ptr %16, align 4
-  br label %160
+158:                                              ; preds = %154
+  %159 = load volatile i32, ptr %16, align 4
+  %160 = or i32 %159, 2
+  store volatile i32 %160, ptr %16, align 4
+  br label %161
 
-160:                                              ; preds = %157, %153
-  %161 = load volatile i32, ptr %16, align 4
-  %162 = and i32 %161, -2
-  store volatile i32 %162, ptr %16, align 4
-  %163 = load volatile i32, ptr %16, align 4
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %175
+161:                                              ; preds = %158, %154
+  %162 = load volatile i32, ptr %16, align 4
+  %163 = and i32 %162, -2
+  store volatile i32 %163, ptr %16, align 4
+  %164 = load volatile i32, ptr %16, align 4
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %176
 
-165:                                              ; preds = %160
-  %166 = load volatile ptr, ptr %15, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %175
+166:                                              ; preds = %161
+  %167 = load volatile ptr, ptr %15, align 8
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %169, label %176
 
-168:                                              ; preds = %165
-  %169 = load volatile ptr, ptr %9, align 8
-  %170 = load ptr, ptr %5, align 8
-  %171 = load ptr, ptr %6, align 8
-  %172 = load volatile ptr, ptr %14, align 8
-  %173 = load volatile ptr, ptr %11, align 8
-  %174 = load volatile i32, ptr %12, align 4
-  call void @dissect_x11_initial_reply(ptr noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173, i32 noundef %174)
-  br label %175
+169:                                              ; preds = %166
+  %170 = load volatile ptr, ptr %9, align 8
+  %171 = load ptr, ptr %5, align 8
+  %172 = load ptr, ptr %6, align 8
+  %173 = load volatile ptr, ptr %14, align 8
+  %174 = load volatile ptr, ptr %11, align 8
+  %175 = load volatile i32, ptr %12, align 4
+  call void @dissect_x11_initial_reply(ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef %174, i32 noundef %175)
+  br label %176
 
-175:                                              ; preds = %168, %165, %160
-  %176 = load volatile i32, ptr %16, align 4
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %220
+176:                                              ; preds = %169, %166, %161
+  %177 = load volatile i32, ptr %16, align 4
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %221
 
-178:                                              ; preds = %175
-  %179 = load volatile ptr, ptr %15, align 8
-  %180 = icmp ne ptr %179, null
-  br i1 %180, label %181, label %220
+179:                                              ; preds = %176
+  %180 = load volatile ptr, ptr %15, align 8
+  %181 = icmp ne ptr %180, null
+  br i1 %181, label %182, label %221
 
-181:                                              ; preds = %178
-  %182 = load volatile ptr, ptr %15, align 8
-  %183 = getelementptr inbounds %struct.except_t, ptr %182, i32 0, i32 0
-  %184 = getelementptr inbounds %struct.except_id_t, ptr %183, i32 0, i32 1
-  %185 = load volatile i64, ptr %184, align 8
-  %186 = icmp eq i64 %185, 3
-  br i1 %186, label %205, label %187
+182:                                              ; preds = %179
+  %183 = load volatile ptr, ptr %15, align 8
+  %184 = getelementptr inbounds %struct.except_t, ptr %183, i32 0, i32 0
+  %185 = getelementptr inbounds %struct.except_id_t, ptr %184, i32 0, i32 1
+  %186 = load volatile i64, ptr %185, align 8
+  %187 = icmp eq i64 %186, 3
+  br i1 %187, label %206, label %188
 
-187:                                              ; preds = %181
-  %188 = load volatile ptr, ptr %15, align 8
-  %189 = getelementptr inbounds %struct.except_t, ptr %188, i32 0, i32 0
-  %190 = getelementptr inbounds %struct.except_id_t, ptr %189, i32 0, i32 1
-  %191 = load volatile i64, ptr %190, align 8
-  %192 = icmp eq i64 %191, 2
-  br i1 %192, label %205, label %193
+188:                                              ; preds = %182
+  %189 = load volatile ptr, ptr %15, align 8
+  %190 = getelementptr inbounds %struct.except_t, ptr %189, i32 0, i32 0
+  %191 = getelementptr inbounds %struct.except_id_t, ptr %190, i32 0, i32 1
+  %192 = load volatile i64, ptr %191, align 8
+  %193 = icmp eq i64 %192, 2
+  br i1 %193, label %206, label %194
 
-193:                                              ; preds = %187
-  %194 = load volatile ptr, ptr %15, align 8
-  %195 = getelementptr inbounds %struct.except_t, ptr %194, i32 0, i32 0
-  %196 = getelementptr inbounds %struct.except_id_t, ptr %195, i32 0, i32 1
-  %197 = load volatile i64, ptr %196, align 8
-  %198 = icmp eq i64 %197, 7
-  br i1 %198, label %205, label %199
+194:                                              ; preds = %188
+  %195 = load volatile ptr, ptr %15, align 8
+  %196 = getelementptr inbounds %struct.except_t, ptr %195, i32 0, i32 0
+  %197 = getelementptr inbounds %struct.except_id_t, ptr %196, i32 0, i32 1
+  %198 = load volatile i64, ptr %197, align 8
+  %199 = icmp eq i64 %198, 7
+  br i1 %199, label %206, label %200
 
-199:                                              ; preds = %193
-  %200 = load volatile ptr, ptr %15, align 8
-  %201 = getelementptr inbounds %struct.except_t, ptr %200, i32 0, i32 0
-  %202 = getelementptr inbounds %struct.except_id_t, ptr %201, i32 0, i32 1
-  %203 = load volatile i64, ptr %202, align 8
-  %204 = icmp eq i64 %203, 9
-  br i1 %204, label %205, label %220
+200:                                              ; preds = %194
+  %201 = load volatile ptr, ptr %15, align 8
+  %202 = getelementptr inbounds %struct.except_t, ptr %201, i32 0, i32 0
+  %203 = getelementptr inbounds %struct.except_id_t, ptr %202, i32 0, i32 1
+  %204 = load volatile i64, ptr %203, align 8
+  %205 = icmp eq i64 %204, 9
+  br i1 %205, label %206, label %221
 
-205:                                              ; preds = %199, %193, %187, %181
-  %206 = load volatile i32, ptr %16, align 4
-  %207 = or i32 %206, 1
-  store volatile i32 %207, ptr %16, align 4
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %220
+206:                                              ; preds = %200, %194, %188, %182
+  %207 = load volatile i32, ptr %16, align 4
+  %208 = or i32 %207, 1
+  store volatile i32 %208, ptr %16, align 4
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %210, label %221
 
-209:                                              ; preds = %205
-  %210 = load volatile ptr, ptr %9, align 8
-  %211 = load ptr, ptr %5, align 8
-  %212 = load ptr, ptr %6, align 8
-  %213 = load volatile ptr, ptr %15, align 8
-  %214 = getelementptr inbounds %struct.except_t, ptr %213, i32 0, i32 0
-  %215 = getelementptr inbounds %struct.except_id_t, ptr %214, i32 0, i32 1
-  %216 = load volatile i64, ptr %215, align 8
-  %217 = load volatile ptr, ptr %15, align 8
-  %218 = getelementptr inbounds %struct.except_t, ptr %217, i32 0, i32 1
-  %219 = load volatile ptr, ptr %218, align 8
-  call void @show_exception(ptr noundef %210, ptr noundef %211, ptr noundef %212, i64 noundef %216, ptr noundef %219)
-  br label %220
+210:                                              ; preds = %206
+  %211 = load volatile ptr, ptr %9, align 8
+  %212 = load ptr, ptr %5, align 8
+  %213 = load ptr, ptr %6, align 8
+  %214 = load volatile ptr, ptr %15, align 8
+  %215 = getelementptr inbounds %struct.except_t, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds %struct.except_id_t, ptr %215, i32 0, i32 1
+  %217 = load volatile i64, ptr %216, align 8
+  %218 = load volatile ptr, ptr %15, align 8
+  %219 = getelementptr inbounds %struct.except_t, ptr %218, i32 0, i32 1
+  %220 = load volatile ptr, ptr %219, align 8
+  call void @show_exception(ptr noundef %211, ptr noundef %212, ptr noundef %213, i64 noundef %217, ptr noundef %220)
+  br label %221
 
-220:                                              ; preds = %209, %205, %199, %178, %175
-  %221 = load volatile i32, ptr %16, align 4
-  %222 = and i32 %221, 1
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %229, label %224
+221:                                              ; preds = %210, %206, %200, %179, %176
+  %222 = load volatile i32, ptr %16, align 4
+  %223 = and i32 %222, 1
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %230, label %225
 
-224:                                              ; preds = %220
-  %225 = load volatile ptr, ptr %15, align 8
-  %226 = icmp ne ptr %225, null
-  br i1 %226, label %227, label %229
+225:                                              ; preds = %221
+  %226 = load volatile ptr, ptr %15, align 8
+  %227 = icmp ne ptr %226, null
+  br i1 %227, label %228, label %230
 
-227:                                              ; preds = %224
-  %228 = load volatile ptr, ptr %15, align 8
-  call void @except_rethrow(ptr noundef %228) #8
+228:                                              ; preds = %225
+  %229 = load volatile ptr, ptr %15, align 8
+  call void @except_rethrow(ptr noundef %229) #8
   unreachable
 
-229:                                              ; preds = %224, %220
-  %230 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 2
-  %231 = getelementptr inbounds %struct.except_t, ptr %230, i32 0, i32 2
-  %232 = load volatile ptr, ptr %231, align 8
-  call void @except_free(ptr noundef %232)
-  %233 = call ptr @except_pop()
+230:                                              ; preds = %225, %221
+  %231 = getelementptr inbounds %struct.except_catch, ptr %18, i32 0, i32 2
+  %232 = getelementptr inbounds %struct.except_t, ptr %231, i32 0, i32 2
+  %233 = load volatile ptr, ptr %232, align 8
+  call void @except_free(ptr noundef %233)
+  %234 = call ptr @except_pop()
   store volatile ptr @.str.10553, ptr %14, align 8
-  br label %234
+  br label %235
 
-234:                                              ; preds = %229
-  br label %799
+235:                                              ; preds = %230
+  br label %800
 
-235:                                              ; preds = %86
-  %236 = load ptr, ptr %4, align 8
-  %237 = load volatile i32, ptr %7, align 4
-  %238 = call zeroext i8 @tvb_get_guint8(ptr noundef %236, i32 noundef %237)
-  %239 = zext i8 %238 to i32
-  switch i32 %239, label %665 [
-    i32 0, label %240
-    i32 1, label %373
-    i32 35, label %519
+236:                                              ; preds = %87
+  %237 = load ptr, ptr %4, align 8
+  %238 = load volatile i32, ptr %7, align 4
+  %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %237, i32 noundef %238)
+  %240 = zext i8 %239 to i32
+  switch i32 %240, label %666 [
+    i32 0, label %241
+    i32 1, label %374
+    i32 35, label %520
   ]
 
-240:                                              ; preds = %235
+241:                                              ; preds = %236
   store volatile i32 32, ptr %8, align 4
-  br label %241
+  br label %242
 
-241:                                              ; preds = %240
-  %242 = load i32, ptr %13, align 4
-  %243 = load volatile i32, ptr %8, align 4
-  %244 = icmp slt i32 %242, %243
-  br i1 %244, label %245, label %265
+242:                                              ; preds = %241
+  %243 = load i32, ptr %13, align 4
+  %244 = load volatile i32, ptr %8, align 4
+  %245 = icmp slt i32 %243, %244
+  br i1 %245, label %246, label %266
 
-245:                                              ; preds = %241
-  %246 = load i32, ptr @x11_desegment, align 4
-  %247 = icmp ne i32 %246, 0
-  br i1 %247, label %248, label %263
+246:                                              ; preds = %242
+  %247 = load i32, ptr @x11_desegment, align 4
+  %248 = icmp ne i32 %247, 0
+  br i1 %248, label %249, label %264
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr %5, align 8
-  %250 = getelementptr inbounds %struct._packet_info, ptr %249, i32 0, i32 30
-  %251 = load i16, ptr %250, align 8
-  %252 = zext i16 %251 to i32
-  %253 = icmp ne i32 %252, 0
-  br i1 %253, label %254, label %263
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %5, align 8
+  %251 = getelementptr inbounds %struct._packet_info, ptr %250, i32 0, i32 30
+  %252 = load i16, ptr %251, align 8
+  %253 = zext i16 %252 to i32
+  %254 = icmp ne i32 %253, 0
+  br i1 %254, label %255, label %264
 
-254:                                              ; preds = %248
-  %255 = load volatile i32, ptr %7, align 4
-  %256 = load ptr, ptr %5, align 8
-  %257 = getelementptr inbounds %struct._packet_info, ptr %256, i32 0, i32 32
-  store i32 %255, ptr %257, align 4
-  %258 = load volatile i32, ptr %8, align 4
-  %259 = load i32, ptr %13, align 4
-  %260 = sub i32 %258, %259
-  %261 = load ptr, ptr %5, align 8
-  %262 = getelementptr inbounds %struct._packet_info, ptr %261, i32 0, i32 33
-  store i32 %260, ptr %262, align 8
-  br label %804
+255:                                              ; preds = %249
+  %256 = load volatile i32, ptr %7, align 4
+  %257 = load ptr, ptr %5, align 8
+  %258 = getelementptr inbounds %struct._packet_info, ptr %257, i32 0, i32 32
+  store i32 %256, ptr %258, align 4
+  %259 = load volatile i32, ptr %8, align 4
+  %260 = load i32, ptr %13, align 4
+  %261 = sub i32 %259, %260
+  %262 = load ptr, ptr %5, align 8
+  %263 = getelementptr inbounds %struct._packet_info, ptr %262, i32 0, i32 33
+  store i32 %261, ptr %263, align 8
+  br label %805
 
-263:                                              ; preds = %248, %245
-  br label %264
-
-264:                                              ; preds = %263
+264:                                              ; preds = %249, %246
   br label %265
 
-265:                                              ; preds = %264, %241
-  %266 = load i32, ptr %13, align 4
-  %267 = load volatile i32, ptr %8, align 4
-  %268 = icmp sgt i32 %266, %267
-  br i1 %268, label %269, label %271
+265:                                              ; preds = %264
+  br label %266
 
-269:                                              ; preds = %265
-  %270 = load volatile i32, ptr %8, align 4
-  store i32 %270, ptr %13, align 4
-  br label %271
+266:                                              ; preds = %265, %242
+  %267 = load i32, ptr %13, align 4
+  %268 = load volatile i32, ptr %8, align 4
+  %269 = icmp sgt i32 %267, %268
+  br i1 %269, label %270, label %272
 
-271:                                              ; preds = %269, %265
-  %272 = load ptr, ptr %4, align 8
-  %273 = load volatile i32, ptr %7, align 4
-  %274 = load i32, ptr %13, align 4
-  %275 = load volatile i32, ptr %8, align 4
-  %276 = call ptr @tvb_new_subset_length_caplen(ptr noundef %272, i32 noundef %273, i32 noundef %274, i32 noundef %275)
-  store volatile ptr %276, ptr %9, align 8
-  %277 = load volatile ptr, ptr %14, align 8
-  %278 = icmp eq ptr %277, null
-  br i1 %278, label %279, label %283
+270:                                              ; preds = %266
+  %271 = load volatile i32, ptr %8, align 4
+  store i32 %271, ptr %13, align 4
+  br label %272
 
-279:                                              ; preds = %271
-  %280 = load ptr, ptr %5, align 8
-  %281 = getelementptr inbounds %struct._packet_info, ptr %280, i32 0, i32 1
-  %282 = load ptr, ptr %281, align 8
-  call void @col_set_str(ptr noundef %282, i32 noundef 25, ptr noundef @.str.14649)
+272:                                              ; preds = %270, %266
+  %273 = load ptr, ptr %4, align 8
+  %274 = load volatile i32, ptr %7, align 4
+  %275 = load i32, ptr %13, align 4
+  %276 = load volatile i32, ptr %8, align 4
+  %277 = call ptr @tvb_new_subset_length_caplen(ptr noundef %273, i32 noundef %274, i32 noundef %275, i32 noundef %276)
+  store volatile ptr %277, ptr %9, align 8
+  %278 = load volatile ptr, ptr %14, align 8
+  %279 = icmp eq ptr %278, null
+  br i1 %279, label %280, label %284
+
+280:                                              ; preds = %272
+  %281 = load ptr, ptr %5, align 8
+  %282 = getelementptr inbounds %struct._packet_info, ptr %281, i32 0, i32 1
+  %283 = load ptr, ptr %282, align 8
+  call void @col_set_str(ptr noundef %283, i32 noundef 25, ptr noundef @.str.14649)
   store volatile ptr @.str.10557, ptr %14, align 8
-  br label %283
+  br label %284
 
-283:                                              ; preds = %279, %271
+284:                                              ; preds = %280, %272
   store volatile i32 0, ptr %20, align 4
   call void @except_setup_try(ptr noundef %21, ptr noundef %22, ptr noundef @dissect_x11_replies.catch_spec.14650, i64 noundef 1)
-  %284 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 3
-  %285 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %284, i64 0, i64 0
-  %286 = call i32 @_setjmp(ptr noundef %285) #7
-  %287 = icmp ne i32 %286, 0
-  br i1 %287, label %288, label %290
+  %285 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 3
+  %286 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %285, i64 0, i64 0
+  %287 = call i32 @_setjmp(ptr noundef %286) #7
+  %288 = icmp ne i32 %287, 0
+  br i1 %288, label %289, label %291
 
-288:                                              ; preds = %283
-  %289 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 2
-  store volatile ptr %289, ptr %19, align 8
-  br label %291
+289:                                              ; preds = %284
+  %290 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 2
+  store volatile ptr %290, ptr %19, align 8
+  br label %292
 
-290:                                              ; preds = %283
+291:                                              ; preds = %284
   store volatile ptr null, ptr %19, align 8
-  br label %291
+  br label %292
 
-291:                                              ; preds = %290, %288
-  %292 = load volatile i32, ptr %20, align 4
-  %293 = and i32 %292, 1
-  %294 = icmp ne i32 %293, 0
-  br i1 %294, label %295, label %298
+292:                                              ; preds = %291, %289
+  %293 = load volatile i32, ptr %20, align 4
+  %294 = and i32 %293, 1
+  %295 = icmp ne i32 %294, 0
+  br i1 %295, label %296, label %299
 
-295:                                              ; preds = %291
-  %296 = load volatile i32, ptr %20, align 4
-  %297 = or i32 %296, 2
-  store volatile i32 %297, ptr %20, align 4
-  br label %298
+296:                                              ; preds = %292
+  %297 = load volatile i32, ptr %20, align 4
+  %298 = or i32 %297, 2
+  store volatile i32 %298, ptr %20, align 4
+  br label %299
 
-298:                                              ; preds = %295, %291
-  %299 = load volatile i32, ptr %20, align 4
-  %300 = and i32 %299, -2
-  store volatile i32 %300, ptr %20, align 4
-  %301 = load volatile i32, ptr %20, align 4
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %303, label %313
+299:                                              ; preds = %296, %292
+  %300 = load volatile i32, ptr %20, align 4
+  %301 = and i32 %300, -2
+  store volatile i32 %301, ptr %20, align 4
+  %302 = load volatile i32, ptr %20, align 4
+  %303 = icmp eq i32 %302, 0
+  br i1 %303, label %304, label %314
 
-303:                                              ; preds = %298
-  %304 = load volatile ptr, ptr %19, align 8
-  %305 = icmp eq ptr %304, null
-  br i1 %305, label %306, label %313
+304:                                              ; preds = %299
+  %305 = load volatile ptr, ptr %19, align 8
+  %306 = icmp eq ptr %305, null
+  br i1 %306, label %307, label %314
 
-306:                                              ; preds = %303
-  %307 = load volatile ptr, ptr %9, align 8
-  %308 = load ptr, ptr %5, align 8
-  %309 = load ptr, ptr %6, align 8
-  %310 = load volatile ptr, ptr %14, align 8
-  %311 = load volatile ptr, ptr %11, align 8
-  %312 = load volatile i32, ptr %12, align 4
-  call void @dissect_x11_error(ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310, ptr noundef %311, i32 noundef %312)
-  br label %313
+307:                                              ; preds = %304
+  %308 = load volatile ptr, ptr %9, align 8
+  %309 = load ptr, ptr %5, align 8
+  %310 = load ptr, ptr %6, align 8
+  %311 = load volatile ptr, ptr %14, align 8
+  %312 = load volatile ptr, ptr %11, align 8
+  %313 = load volatile i32, ptr %12, align 4
+  call void @dissect_x11_error(ptr noundef %308, ptr noundef %309, ptr noundef %310, ptr noundef %311, ptr noundef %312, i32 noundef %313)
+  br label %314
 
-313:                                              ; preds = %306, %303, %298
-  %314 = load volatile i32, ptr %20, align 4
-  %315 = icmp eq i32 %314, 0
-  br i1 %315, label %316, label %358
+314:                                              ; preds = %307, %304, %299
+  %315 = load volatile i32, ptr %20, align 4
+  %316 = icmp eq i32 %315, 0
+  br i1 %316, label %317, label %359
 
-316:                                              ; preds = %313
-  %317 = load volatile ptr, ptr %19, align 8
-  %318 = icmp ne ptr %317, null
-  br i1 %318, label %319, label %358
+317:                                              ; preds = %314
+  %318 = load volatile ptr, ptr %19, align 8
+  %319 = icmp ne ptr %318, null
+  br i1 %319, label %320, label %359
 
-319:                                              ; preds = %316
-  %320 = load volatile ptr, ptr %19, align 8
-  %321 = getelementptr inbounds %struct.except_t, ptr %320, i32 0, i32 0
-  %322 = getelementptr inbounds %struct.except_id_t, ptr %321, i32 0, i32 1
-  %323 = load volatile i64, ptr %322, align 8
-  %324 = icmp eq i64 %323, 3
-  br i1 %324, label %343, label %325
+320:                                              ; preds = %317
+  %321 = load volatile ptr, ptr %19, align 8
+  %322 = getelementptr inbounds %struct.except_t, ptr %321, i32 0, i32 0
+  %323 = getelementptr inbounds %struct.except_id_t, ptr %322, i32 0, i32 1
+  %324 = load volatile i64, ptr %323, align 8
+  %325 = icmp eq i64 %324, 3
+  br i1 %325, label %344, label %326
 
-325:                                              ; preds = %319
-  %326 = load volatile ptr, ptr %19, align 8
-  %327 = getelementptr inbounds %struct.except_t, ptr %326, i32 0, i32 0
-  %328 = getelementptr inbounds %struct.except_id_t, ptr %327, i32 0, i32 1
-  %329 = load volatile i64, ptr %328, align 8
-  %330 = icmp eq i64 %329, 2
-  br i1 %330, label %343, label %331
+326:                                              ; preds = %320
+  %327 = load volatile ptr, ptr %19, align 8
+  %328 = getelementptr inbounds %struct.except_t, ptr %327, i32 0, i32 0
+  %329 = getelementptr inbounds %struct.except_id_t, ptr %328, i32 0, i32 1
+  %330 = load volatile i64, ptr %329, align 8
+  %331 = icmp eq i64 %330, 2
+  br i1 %331, label %344, label %332
 
-331:                                              ; preds = %325
-  %332 = load volatile ptr, ptr %19, align 8
-  %333 = getelementptr inbounds %struct.except_t, ptr %332, i32 0, i32 0
-  %334 = getelementptr inbounds %struct.except_id_t, ptr %333, i32 0, i32 1
-  %335 = load volatile i64, ptr %334, align 8
-  %336 = icmp eq i64 %335, 7
-  br i1 %336, label %343, label %337
+332:                                              ; preds = %326
+  %333 = load volatile ptr, ptr %19, align 8
+  %334 = getelementptr inbounds %struct.except_t, ptr %333, i32 0, i32 0
+  %335 = getelementptr inbounds %struct.except_id_t, ptr %334, i32 0, i32 1
+  %336 = load volatile i64, ptr %335, align 8
+  %337 = icmp eq i64 %336, 7
+  br i1 %337, label %344, label %338
 
-337:                                              ; preds = %331
-  %338 = load volatile ptr, ptr %19, align 8
-  %339 = getelementptr inbounds %struct.except_t, ptr %338, i32 0, i32 0
-  %340 = getelementptr inbounds %struct.except_id_t, ptr %339, i32 0, i32 1
-  %341 = load volatile i64, ptr %340, align 8
-  %342 = icmp eq i64 %341, 9
-  br i1 %342, label %343, label %358
+338:                                              ; preds = %332
+  %339 = load volatile ptr, ptr %19, align 8
+  %340 = getelementptr inbounds %struct.except_t, ptr %339, i32 0, i32 0
+  %341 = getelementptr inbounds %struct.except_id_t, ptr %340, i32 0, i32 1
+  %342 = load volatile i64, ptr %341, align 8
+  %343 = icmp eq i64 %342, 9
+  br i1 %343, label %344, label %359
 
-343:                                              ; preds = %337, %331, %325, %319
-  %344 = load volatile i32, ptr %20, align 4
-  %345 = or i32 %344, 1
-  store volatile i32 %345, ptr %20, align 4
-  %346 = icmp ne i32 %345, 0
-  br i1 %346, label %347, label %358
+344:                                              ; preds = %338, %332, %326, %320
+  %345 = load volatile i32, ptr %20, align 4
+  %346 = or i32 %345, 1
+  store volatile i32 %346, ptr %20, align 4
+  %347 = icmp ne i32 %346, 0
+  br i1 %347, label %348, label %359
 
-347:                                              ; preds = %343
-  %348 = load volatile ptr, ptr %9, align 8
-  %349 = load ptr, ptr %5, align 8
-  %350 = load ptr, ptr %6, align 8
-  %351 = load volatile ptr, ptr %19, align 8
-  %352 = getelementptr inbounds %struct.except_t, ptr %351, i32 0, i32 0
-  %353 = getelementptr inbounds %struct.except_id_t, ptr %352, i32 0, i32 1
-  %354 = load volatile i64, ptr %353, align 8
-  %355 = load volatile ptr, ptr %19, align 8
-  %356 = getelementptr inbounds %struct.except_t, ptr %355, i32 0, i32 1
-  %357 = load volatile ptr, ptr %356, align 8
-  call void @show_exception(ptr noundef %348, ptr noundef %349, ptr noundef %350, i64 noundef %354, ptr noundef %357)
-  br label %358
+348:                                              ; preds = %344
+  %349 = load volatile ptr, ptr %9, align 8
+  %350 = load ptr, ptr %5, align 8
+  %351 = load ptr, ptr %6, align 8
+  %352 = load volatile ptr, ptr %19, align 8
+  %353 = getelementptr inbounds %struct.except_t, ptr %352, i32 0, i32 0
+  %354 = getelementptr inbounds %struct.except_id_t, ptr %353, i32 0, i32 1
+  %355 = load volatile i64, ptr %354, align 8
+  %356 = load volatile ptr, ptr %19, align 8
+  %357 = getelementptr inbounds %struct.except_t, ptr %356, i32 0, i32 1
+  %358 = load volatile ptr, ptr %357, align 8
+  call void @show_exception(ptr noundef %349, ptr noundef %350, ptr noundef %351, i64 noundef %355, ptr noundef %358)
+  br label %359
 
-358:                                              ; preds = %347, %343, %337, %316, %313
-  %359 = load volatile i32, ptr %20, align 4
-  %360 = and i32 %359, 1
-  %361 = icmp ne i32 %360, 0
-  br i1 %361, label %367, label %362
+359:                                              ; preds = %348, %344, %338, %317, %314
+  %360 = load volatile i32, ptr %20, align 4
+  %361 = and i32 %360, 1
+  %362 = icmp ne i32 %361, 0
+  br i1 %362, label %368, label %363
 
-362:                                              ; preds = %358
-  %363 = load volatile ptr, ptr %19, align 8
-  %364 = icmp ne ptr %363, null
-  br i1 %364, label %365, label %367
+363:                                              ; preds = %359
+  %364 = load volatile ptr, ptr %19, align 8
+  %365 = icmp ne ptr %364, null
+  br i1 %365, label %366, label %368
 
-365:                                              ; preds = %362
-  %366 = load volatile ptr, ptr %19, align 8
-  call void @except_rethrow(ptr noundef %366) #8
+366:                                              ; preds = %363
+  %367 = load volatile ptr, ptr %19, align 8
+  call void @except_rethrow(ptr noundef %367) #8
   unreachable
 
-367:                                              ; preds = %362, %358
-  %368 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 2
-  %369 = getelementptr inbounds %struct.except_t, ptr %368, i32 0, i32 2
-  %370 = load volatile ptr, ptr %369, align 8
-  call void @except_free(ptr noundef %370)
-  %371 = call ptr @except_pop()
+368:                                              ; preds = %363, %359
+  %369 = getelementptr inbounds %struct.except_catch, ptr %22, i32 0, i32 2
+  %370 = getelementptr inbounds %struct.except_t, ptr %369, i32 0, i32 2
+  %371 = load volatile ptr, ptr %370, align 8
+  call void @except_free(ptr noundef %371)
+  %372 = call ptr @except_pop()
   store volatile ptr @.str.10553, ptr %14, align 8
-  br label %372
+  br label %373
 
-372:                                              ; preds = %367
-  br label %798
+373:                                              ; preds = %368
+  br label %799
 
-373:                                              ; preds = %235
-  %374 = load ptr, ptr %4, align 8
-  %375 = load volatile i32, ptr %7, align 4
-  %376 = add i32 %375, 4
-  %377 = load volatile i32, ptr %12, align 4
-  %378 = call i32 @tvb_get_guint32(ptr noundef %374, i32 noundef %376, i32 noundef %377)
-  %379 = mul i32 %378, 4
-  %380 = add i32 32, %379
-  store volatile i32 %380, ptr %8, align 4
-  store i32 %380, ptr %23, align 4
-  br label %381
+374:                                              ; preds = %236
+  %375 = load ptr, ptr %4, align 8
+  %376 = load volatile i32, ptr %7, align 4
+  %377 = add i32 %376, 4
+  %378 = load volatile i32, ptr %12, align 4
+  %379 = call i32 @tvb_get_guint32(ptr noundef %375, i32 noundef %377, i32 noundef %378)
+  %380 = mul i32 %379, 4
+  %381 = add i32 32, %380
+  store volatile i32 %381, ptr %8, align 4
+  store i32 %381, ptr %23, align 4
+  br label %382
 
-381:                                              ; preds = %373
-  %382 = load i32, ptr %23, align 4
-  %383 = icmp slt i32 %382, 32
-  br i1 %383, label %384, label %385
+382:                                              ; preds = %374
+  %383 = load i32, ptr %23, align 4
+  %384 = icmp slt i32 %383, 32
+  br i1 %384, label %385, label %386
 
-384:                                              ; preds = %381
+385:                                              ; preds = %382
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #8
   unreachable
 
-385:                                              ; preds = %381
-  br label %386
-
-386:                                              ; preds = %385
+386:                                              ; preds = %382
   br label %387
 
 387:                                              ; preds = %386
-  %388 = load i32, ptr %13, align 4
-  %389 = load volatile i32, ptr %8, align 4
-  %390 = icmp slt i32 %388, %389
-  br i1 %390, label %391, label %411
+  br label %388
 
-391:                                              ; preds = %387
-  %392 = load i32, ptr @x11_desegment, align 4
-  %393 = icmp ne i32 %392, 0
-  br i1 %393, label %394, label %409
+388:                                              ; preds = %387
+  %389 = load i32, ptr %13, align 4
+  %390 = load volatile i32, ptr %8, align 4
+  %391 = icmp slt i32 %389, %390
+  br i1 %391, label %392, label %412
 
-394:                                              ; preds = %391
-  %395 = load ptr, ptr %5, align 8
-  %396 = getelementptr inbounds %struct._packet_info, ptr %395, i32 0, i32 30
-  %397 = load i16, ptr %396, align 8
-  %398 = zext i16 %397 to i32
-  %399 = icmp ne i32 %398, 0
-  br i1 %399, label %400, label %409
+392:                                              ; preds = %388
+  %393 = load i32, ptr @x11_desegment, align 4
+  %394 = icmp ne i32 %393, 0
+  br i1 %394, label %395, label %410
 
-400:                                              ; preds = %394
-  %401 = load volatile i32, ptr %7, align 4
-  %402 = load ptr, ptr %5, align 8
-  %403 = getelementptr inbounds %struct._packet_info, ptr %402, i32 0, i32 32
-  store i32 %401, ptr %403, align 4
-  %404 = load volatile i32, ptr %8, align 4
-  %405 = load i32, ptr %13, align 4
-  %406 = sub i32 %404, %405
-  %407 = load ptr, ptr %5, align 8
-  %408 = getelementptr inbounds %struct._packet_info, ptr %407, i32 0, i32 33
-  store i32 %406, ptr %408, align 8
-  br label %804
+395:                                              ; preds = %392
+  %396 = load ptr, ptr %5, align 8
+  %397 = getelementptr inbounds %struct._packet_info, ptr %396, i32 0, i32 30
+  %398 = load i16, ptr %397, align 8
+  %399 = zext i16 %398 to i32
+  %400 = icmp ne i32 %399, 0
+  br i1 %400, label %401, label %410
 
-409:                                              ; preds = %394, %391
-  br label %410
+401:                                              ; preds = %395
+  %402 = load volatile i32, ptr %7, align 4
+  %403 = load ptr, ptr %5, align 8
+  %404 = getelementptr inbounds %struct._packet_info, ptr %403, i32 0, i32 32
+  store i32 %402, ptr %404, align 4
+  %405 = load volatile i32, ptr %8, align 4
+  %406 = load i32, ptr %13, align 4
+  %407 = sub i32 %405, %406
+  %408 = load ptr, ptr %5, align 8
+  %409 = getelementptr inbounds %struct._packet_info, ptr %408, i32 0, i32 33
+  store i32 %407, ptr %409, align 8
+  br label %805
 
-410:                                              ; preds = %409
+410:                                              ; preds = %395, %392
   br label %411
 
-411:                                              ; preds = %410, %387
-  %412 = load i32, ptr %13, align 4
-  %413 = load volatile i32, ptr %8, align 4
-  %414 = icmp sgt i32 %412, %413
-  br i1 %414, label %415, label %417
+411:                                              ; preds = %410
+  br label %412
 
-415:                                              ; preds = %411
-  %416 = load volatile i32, ptr %8, align 4
-  store i32 %416, ptr %13, align 4
-  br label %417
+412:                                              ; preds = %411, %388
+  %413 = load i32, ptr %13, align 4
+  %414 = load volatile i32, ptr %8, align 4
+  %415 = icmp sgt i32 %413, %414
+  br i1 %415, label %416, label %418
 
-417:                                              ; preds = %415, %411
-  %418 = load ptr, ptr %4, align 8
-  %419 = load volatile i32, ptr %7, align 4
-  %420 = load i32, ptr %13, align 4
-  %421 = load volatile i32, ptr %8, align 4
-  %422 = call ptr @tvb_new_subset_length_caplen(ptr noundef %418, i32 noundef %419, i32 noundef %420, i32 noundef %421)
-  store volatile ptr %422, ptr %9, align 8
-  %423 = load volatile ptr, ptr %14, align 8
-  %424 = icmp eq ptr %423, null
-  br i1 %424, label %425, label %429
+416:                                              ; preds = %412
+  %417 = load volatile i32, ptr %8, align 4
+  store i32 %417, ptr %13, align 4
+  br label %418
 
-425:                                              ; preds = %417
-  %426 = load ptr, ptr %5, align 8
-  %427 = getelementptr inbounds %struct._packet_info, ptr %426, i32 0, i32 1
-  %428 = load ptr, ptr %427, align 8
-  call void @col_set_str(ptr noundef %428, i32 noundef 25, ptr noundef @.str.14651)
+418:                                              ; preds = %416, %412
+  %419 = load ptr, ptr %4, align 8
+  %420 = load volatile i32, ptr %7, align 4
+  %421 = load i32, ptr %13, align 4
+  %422 = load volatile i32, ptr %8, align 4
+  %423 = call ptr @tvb_new_subset_length_caplen(ptr noundef %419, i32 noundef %420, i32 noundef %421, i32 noundef %422)
+  store volatile ptr %423, ptr %9, align 8
+  %424 = load volatile ptr, ptr %14, align 8
+  %425 = icmp eq ptr %424, null
+  br i1 %425, label %426, label %430
+
+426:                                              ; preds = %418
+  %427 = load ptr, ptr %5, align 8
+  %428 = getelementptr inbounds %struct._packet_info, ptr %427, i32 0, i32 1
+  %429 = load ptr, ptr %428, align 8
+  call void @col_set_str(ptr noundef %429, i32 noundef 25, ptr noundef @.str.14651)
   store volatile ptr @.str.10557, ptr %14, align 8
-  br label %429
+  br label %430
 
-429:                                              ; preds = %425, %417
+430:                                              ; preds = %426, %418
   store volatile i32 0, ptr %25, align 4
   call void @except_setup_try(ptr noundef %26, ptr noundef %27, ptr noundef @dissect_x11_replies.catch_spec.14652, i64 noundef 1)
-  %430 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 3
-  %431 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %430, i64 0, i64 0
-  %432 = call i32 @_setjmp(ptr noundef %431) #7
-  %433 = icmp ne i32 %432, 0
-  br i1 %433, label %434, label %436
+  %431 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 3
+  %432 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %431, i64 0, i64 0
+  %433 = call i32 @_setjmp(ptr noundef %432) #7
+  %434 = icmp ne i32 %433, 0
+  br i1 %434, label %435, label %437
 
-434:                                              ; preds = %429
-  %435 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 2
-  store volatile ptr %435, ptr %24, align 8
-  br label %437
+435:                                              ; preds = %430
+  %436 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 2
+  store volatile ptr %436, ptr %24, align 8
+  br label %438
 
-436:                                              ; preds = %429
+437:                                              ; preds = %430
   store volatile ptr null, ptr %24, align 8
-  br label %437
+  br label %438
 
-437:                                              ; preds = %436, %434
-  %438 = load volatile i32, ptr %25, align 4
-  %439 = and i32 %438, 1
-  %440 = icmp ne i32 %439, 0
-  br i1 %440, label %441, label %444
+438:                                              ; preds = %437, %435
+  %439 = load volatile i32, ptr %25, align 4
+  %440 = and i32 %439, 1
+  %441 = icmp ne i32 %440, 0
+  br i1 %441, label %442, label %445
 
-441:                                              ; preds = %437
-  %442 = load volatile i32, ptr %25, align 4
-  %443 = or i32 %442, 2
-  store volatile i32 %443, ptr %25, align 4
-  br label %444
+442:                                              ; preds = %438
+  %443 = load volatile i32, ptr %25, align 4
+  %444 = or i32 %443, 2
+  store volatile i32 %444, ptr %25, align 4
+  br label %445
 
-444:                                              ; preds = %441, %437
-  %445 = load volatile i32, ptr %25, align 4
-  %446 = and i32 %445, -2
-  store volatile i32 %446, ptr %25, align 4
-  %447 = load volatile i32, ptr %25, align 4
-  %448 = icmp eq i32 %447, 0
-  br i1 %448, label %449, label %459
+445:                                              ; preds = %442, %438
+  %446 = load volatile i32, ptr %25, align 4
+  %447 = and i32 %446, -2
+  store volatile i32 %447, ptr %25, align 4
+  %448 = load volatile i32, ptr %25, align 4
+  %449 = icmp eq i32 %448, 0
+  br i1 %449, label %450, label %460
 
-449:                                              ; preds = %444
-  %450 = load volatile ptr, ptr %24, align 8
-  %451 = icmp eq ptr %450, null
-  br i1 %451, label %452, label %459
+450:                                              ; preds = %445
+  %451 = load volatile ptr, ptr %24, align 8
+  %452 = icmp eq ptr %451, null
+  br i1 %452, label %453, label %460
 
-452:                                              ; preds = %449
-  %453 = load volatile ptr, ptr %9, align 8
-  %454 = load ptr, ptr %5, align 8
-  %455 = load ptr, ptr %6, align 8
-  %456 = load volatile ptr, ptr %14, align 8
-  %457 = load volatile ptr, ptr %11, align 8
-  %458 = load volatile i32, ptr %12, align 4
-  call void @dissect_x11_reply(ptr noundef %453, ptr noundef %454, ptr noundef %455, ptr noundef %456, ptr noundef %457, i32 noundef %458)
-  br label %459
+453:                                              ; preds = %450
+  %454 = load volatile ptr, ptr %9, align 8
+  %455 = load ptr, ptr %5, align 8
+  %456 = load ptr, ptr %6, align 8
+  %457 = load volatile ptr, ptr %14, align 8
+  %458 = load volatile ptr, ptr %11, align 8
+  %459 = load volatile i32, ptr %12, align 4
+  call void @dissect_x11_reply(ptr noundef %454, ptr noundef %455, ptr noundef %456, ptr noundef %457, ptr noundef %458, i32 noundef %459)
+  br label %460
 
-459:                                              ; preds = %452, %449, %444
-  %460 = load volatile i32, ptr %25, align 4
-  %461 = icmp eq i32 %460, 0
-  br i1 %461, label %462, label %504
+460:                                              ; preds = %453, %450, %445
+  %461 = load volatile i32, ptr %25, align 4
+  %462 = icmp eq i32 %461, 0
+  br i1 %462, label %463, label %505
 
-462:                                              ; preds = %459
-  %463 = load volatile ptr, ptr %24, align 8
-  %464 = icmp ne ptr %463, null
-  br i1 %464, label %465, label %504
+463:                                              ; preds = %460
+  %464 = load volatile ptr, ptr %24, align 8
+  %465 = icmp ne ptr %464, null
+  br i1 %465, label %466, label %505
 
-465:                                              ; preds = %462
-  %466 = load volatile ptr, ptr %24, align 8
-  %467 = getelementptr inbounds %struct.except_t, ptr %466, i32 0, i32 0
-  %468 = getelementptr inbounds %struct.except_id_t, ptr %467, i32 0, i32 1
-  %469 = load volatile i64, ptr %468, align 8
-  %470 = icmp eq i64 %469, 3
-  br i1 %470, label %489, label %471
+466:                                              ; preds = %463
+  %467 = load volatile ptr, ptr %24, align 8
+  %468 = getelementptr inbounds %struct.except_t, ptr %467, i32 0, i32 0
+  %469 = getelementptr inbounds %struct.except_id_t, ptr %468, i32 0, i32 1
+  %470 = load volatile i64, ptr %469, align 8
+  %471 = icmp eq i64 %470, 3
+  br i1 %471, label %490, label %472
 
-471:                                              ; preds = %465
-  %472 = load volatile ptr, ptr %24, align 8
-  %473 = getelementptr inbounds %struct.except_t, ptr %472, i32 0, i32 0
-  %474 = getelementptr inbounds %struct.except_id_t, ptr %473, i32 0, i32 1
-  %475 = load volatile i64, ptr %474, align 8
-  %476 = icmp eq i64 %475, 2
-  br i1 %476, label %489, label %477
+472:                                              ; preds = %466
+  %473 = load volatile ptr, ptr %24, align 8
+  %474 = getelementptr inbounds %struct.except_t, ptr %473, i32 0, i32 0
+  %475 = getelementptr inbounds %struct.except_id_t, ptr %474, i32 0, i32 1
+  %476 = load volatile i64, ptr %475, align 8
+  %477 = icmp eq i64 %476, 2
+  br i1 %477, label %490, label %478
 
-477:                                              ; preds = %471
-  %478 = load volatile ptr, ptr %24, align 8
-  %479 = getelementptr inbounds %struct.except_t, ptr %478, i32 0, i32 0
-  %480 = getelementptr inbounds %struct.except_id_t, ptr %479, i32 0, i32 1
-  %481 = load volatile i64, ptr %480, align 8
-  %482 = icmp eq i64 %481, 7
-  br i1 %482, label %489, label %483
+478:                                              ; preds = %472
+  %479 = load volatile ptr, ptr %24, align 8
+  %480 = getelementptr inbounds %struct.except_t, ptr %479, i32 0, i32 0
+  %481 = getelementptr inbounds %struct.except_id_t, ptr %480, i32 0, i32 1
+  %482 = load volatile i64, ptr %481, align 8
+  %483 = icmp eq i64 %482, 7
+  br i1 %483, label %490, label %484
 
-483:                                              ; preds = %477
-  %484 = load volatile ptr, ptr %24, align 8
-  %485 = getelementptr inbounds %struct.except_t, ptr %484, i32 0, i32 0
-  %486 = getelementptr inbounds %struct.except_id_t, ptr %485, i32 0, i32 1
-  %487 = load volatile i64, ptr %486, align 8
-  %488 = icmp eq i64 %487, 9
-  br i1 %488, label %489, label %504
+484:                                              ; preds = %478
+  %485 = load volatile ptr, ptr %24, align 8
+  %486 = getelementptr inbounds %struct.except_t, ptr %485, i32 0, i32 0
+  %487 = getelementptr inbounds %struct.except_id_t, ptr %486, i32 0, i32 1
+  %488 = load volatile i64, ptr %487, align 8
+  %489 = icmp eq i64 %488, 9
+  br i1 %489, label %490, label %505
 
-489:                                              ; preds = %483, %477, %471, %465
-  %490 = load volatile i32, ptr %25, align 4
-  %491 = or i32 %490, 1
-  store volatile i32 %491, ptr %25, align 4
-  %492 = icmp ne i32 %491, 0
-  br i1 %492, label %493, label %504
+490:                                              ; preds = %484, %478, %472, %466
+  %491 = load volatile i32, ptr %25, align 4
+  %492 = or i32 %491, 1
+  store volatile i32 %492, ptr %25, align 4
+  %493 = icmp ne i32 %492, 0
+  br i1 %493, label %494, label %505
 
-493:                                              ; preds = %489
-  %494 = load volatile ptr, ptr %9, align 8
-  %495 = load ptr, ptr %5, align 8
-  %496 = load ptr, ptr %6, align 8
-  %497 = load volatile ptr, ptr %24, align 8
-  %498 = getelementptr inbounds %struct.except_t, ptr %497, i32 0, i32 0
-  %499 = getelementptr inbounds %struct.except_id_t, ptr %498, i32 0, i32 1
-  %500 = load volatile i64, ptr %499, align 8
-  %501 = load volatile ptr, ptr %24, align 8
-  %502 = getelementptr inbounds %struct.except_t, ptr %501, i32 0, i32 1
-  %503 = load volatile ptr, ptr %502, align 8
-  call void @show_exception(ptr noundef %494, ptr noundef %495, ptr noundef %496, i64 noundef %500, ptr noundef %503)
-  br label %504
+494:                                              ; preds = %490
+  %495 = load volatile ptr, ptr %9, align 8
+  %496 = load ptr, ptr %5, align 8
+  %497 = load ptr, ptr %6, align 8
+  %498 = load volatile ptr, ptr %24, align 8
+  %499 = getelementptr inbounds %struct.except_t, ptr %498, i32 0, i32 0
+  %500 = getelementptr inbounds %struct.except_id_t, ptr %499, i32 0, i32 1
+  %501 = load volatile i64, ptr %500, align 8
+  %502 = load volatile ptr, ptr %24, align 8
+  %503 = getelementptr inbounds %struct.except_t, ptr %502, i32 0, i32 1
+  %504 = load volatile ptr, ptr %503, align 8
+  call void @show_exception(ptr noundef %495, ptr noundef %496, ptr noundef %497, i64 noundef %501, ptr noundef %504)
+  br label %505
 
-504:                                              ; preds = %493, %489, %483, %462, %459
-  %505 = load volatile i32, ptr %25, align 4
-  %506 = and i32 %505, 1
-  %507 = icmp ne i32 %506, 0
-  br i1 %507, label %513, label %508
+505:                                              ; preds = %494, %490, %484, %463, %460
+  %506 = load volatile i32, ptr %25, align 4
+  %507 = and i32 %506, 1
+  %508 = icmp ne i32 %507, 0
+  br i1 %508, label %514, label %509
 
-508:                                              ; preds = %504
-  %509 = load volatile ptr, ptr %24, align 8
-  %510 = icmp ne ptr %509, null
-  br i1 %510, label %511, label %513
+509:                                              ; preds = %505
+  %510 = load volatile ptr, ptr %24, align 8
+  %511 = icmp ne ptr %510, null
+  br i1 %511, label %512, label %514
 
-511:                                              ; preds = %508
-  %512 = load volatile ptr, ptr %24, align 8
-  call void @except_rethrow(ptr noundef %512) #8
+512:                                              ; preds = %509
+  %513 = load volatile ptr, ptr %24, align 8
+  call void @except_rethrow(ptr noundef %513) #8
   unreachable
 
-513:                                              ; preds = %508, %504
-  %514 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 2
-  %515 = getelementptr inbounds %struct.except_t, ptr %514, i32 0, i32 2
-  %516 = load volatile ptr, ptr %515, align 8
-  call void @except_free(ptr noundef %516)
-  %517 = call ptr @except_pop()
+514:                                              ; preds = %509, %505
+  %515 = getelementptr inbounds %struct.except_catch, ptr %27, i32 0, i32 2
+  %516 = getelementptr inbounds %struct.except_t, ptr %515, i32 0, i32 2
+  %517 = load volatile ptr, ptr %516, align 8
+  call void @except_free(ptr noundef %517)
+  %518 = call ptr @except_pop()
   store volatile ptr @.str.10553, ptr %14, align 8
-  br label %518
+  br label %519
 
-518:                                              ; preds = %513
-  br label %798
+519:                                              ; preds = %514
+  br label %799
 
-519:                                              ; preds = %235
-  %520 = load ptr, ptr %4, align 8
-  %521 = load volatile i32, ptr %7, align 4
-  %522 = add i32 %521, 4
-  %523 = load volatile i32, ptr %12, align 4
-  %524 = call i32 @tvb_get_guint32(ptr noundef %520, i32 noundef %522, i32 noundef %523)
-  %525 = mul i32 %524, 4
-  %526 = add i32 32, %525
-  store volatile i32 %526, ptr %8, align 4
-  store i32 %526, ptr %28, align 4
-  br label %527
+520:                                              ; preds = %236
+  %521 = load ptr, ptr %4, align 8
+  %522 = load volatile i32, ptr %7, align 4
+  %523 = add i32 %522, 4
+  %524 = load volatile i32, ptr %12, align 4
+  %525 = call i32 @tvb_get_guint32(ptr noundef %521, i32 noundef %523, i32 noundef %524)
+  %526 = mul i32 %525, 4
+  %527 = add i32 32, %526
+  store volatile i32 %527, ptr %8, align 4
+  store i32 %527, ptr %28, align 4
+  br label %528
 
-527:                                              ; preds = %519
-  %528 = load i32, ptr %28, align 4
-  %529 = icmp slt i32 %528, 32
-  br i1 %529, label %530, label %531
+528:                                              ; preds = %520
+  %529 = load i32, ptr %28, align 4
+  %530 = icmp slt i32 %529, 32
+  br i1 %530, label %531, label %532
 
-530:                                              ; preds = %527
+531:                                              ; preds = %528
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #8
   unreachable
 
-531:                                              ; preds = %527
-  br label %532
-
-532:                                              ; preds = %531
+532:                                              ; preds = %528
   br label %533
 
 533:                                              ; preds = %532
-  %534 = load i32, ptr %13, align 4
-  %535 = load volatile i32, ptr %8, align 4
-  %536 = icmp slt i32 %534, %535
-  br i1 %536, label %537, label %557
+  br label %534
 
-537:                                              ; preds = %533
-  %538 = load i32, ptr @x11_desegment, align 4
-  %539 = icmp ne i32 %538, 0
-  br i1 %539, label %540, label %555
+534:                                              ; preds = %533
+  %535 = load i32, ptr %13, align 4
+  %536 = load volatile i32, ptr %8, align 4
+  %537 = icmp slt i32 %535, %536
+  br i1 %537, label %538, label %558
 
-540:                                              ; preds = %537
-  %541 = load ptr, ptr %5, align 8
-  %542 = getelementptr inbounds %struct._packet_info, ptr %541, i32 0, i32 30
-  %543 = load i16, ptr %542, align 8
-  %544 = zext i16 %543 to i32
-  %545 = icmp ne i32 %544, 0
-  br i1 %545, label %546, label %555
+538:                                              ; preds = %534
+  %539 = load i32, ptr @x11_desegment, align 4
+  %540 = icmp ne i32 %539, 0
+  br i1 %540, label %541, label %556
 
-546:                                              ; preds = %540
-  %547 = load volatile i32, ptr %7, align 4
-  %548 = load ptr, ptr %5, align 8
-  %549 = getelementptr inbounds %struct._packet_info, ptr %548, i32 0, i32 32
-  store i32 %547, ptr %549, align 4
-  %550 = load volatile i32, ptr %8, align 4
-  %551 = load i32, ptr %13, align 4
-  %552 = sub i32 %550, %551
-  %553 = load ptr, ptr %5, align 8
-  %554 = getelementptr inbounds %struct._packet_info, ptr %553, i32 0, i32 33
-  store i32 %552, ptr %554, align 8
-  br label %804
+541:                                              ; preds = %538
+  %542 = load ptr, ptr %5, align 8
+  %543 = getelementptr inbounds %struct._packet_info, ptr %542, i32 0, i32 30
+  %544 = load i16, ptr %543, align 8
+  %545 = zext i16 %544 to i32
+  %546 = icmp ne i32 %545, 0
+  br i1 %546, label %547, label %556
 
-555:                                              ; preds = %540, %537
-  br label %556
+547:                                              ; preds = %541
+  %548 = load volatile i32, ptr %7, align 4
+  %549 = load ptr, ptr %5, align 8
+  %550 = getelementptr inbounds %struct._packet_info, ptr %549, i32 0, i32 32
+  store i32 %548, ptr %550, align 4
+  %551 = load volatile i32, ptr %8, align 4
+  %552 = load i32, ptr %13, align 4
+  %553 = sub i32 %551, %552
+  %554 = load ptr, ptr %5, align 8
+  %555 = getelementptr inbounds %struct._packet_info, ptr %554, i32 0, i32 33
+  store i32 %553, ptr %555, align 8
+  br label %805
 
-556:                                              ; preds = %555
+556:                                              ; preds = %541, %538
   br label %557
 
-557:                                              ; preds = %556, %533
-  %558 = load i32, ptr %13, align 4
-  %559 = load volatile i32, ptr %8, align 4
-  %560 = icmp sgt i32 %558, %559
-  br i1 %560, label %561, label %563
+557:                                              ; preds = %556
+  br label %558
 
-561:                                              ; preds = %557
-  %562 = load volatile i32, ptr %8, align 4
-  store i32 %562, ptr %13, align 4
-  br label %563
+558:                                              ; preds = %557, %534
+  %559 = load i32, ptr %13, align 4
+  %560 = load volatile i32, ptr %8, align 4
+  %561 = icmp sgt i32 %559, %560
+  br i1 %561, label %562, label %564
 
-563:                                              ; preds = %561, %557
-  %564 = load ptr, ptr %4, align 8
-  %565 = load volatile i32, ptr %7, align 4
-  %566 = load i32, ptr %13, align 4
-  %567 = load volatile i32, ptr %8, align 4
-  %568 = call ptr @tvb_new_subset_length_caplen(ptr noundef %564, i32 noundef %565, i32 noundef %566, i32 noundef %567)
-  store volatile ptr %568, ptr %9, align 8
-  %569 = load volatile ptr, ptr %14, align 8
-  %570 = icmp eq ptr %569, null
-  br i1 %570, label %571, label %575
+562:                                              ; preds = %558
+  %563 = load volatile i32, ptr %8, align 4
+  store i32 %563, ptr %13, align 4
+  br label %564
 
-571:                                              ; preds = %563
-  %572 = load ptr, ptr %5, align 8
-  %573 = getelementptr inbounds %struct._packet_info, ptr %572, i32 0, i32 1
-  %574 = load ptr, ptr %573, align 8
-  call void @col_set_str(ptr noundef %574, i32 noundef 25, ptr noundef @.str.14653)
+564:                                              ; preds = %562, %558
+  %565 = load ptr, ptr %4, align 8
+  %566 = load volatile i32, ptr %7, align 4
+  %567 = load i32, ptr %13, align 4
+  %568 = load volatile i32, ptr %8, align 4
+  %569 = call ptr @tvb_new_subset_length_caplen(ptr noundef %565, i32 noundef %566, i32 noundef %567, i32 noundef %568)
+  store volatile ptr %569, ptr %9, align 8
+  %570 = load volatile ptr, ptr %14, align 8
+  %571 = icmp eq ptr %570, null
+  br i1 %571, label %572, label %576
+
+572:                                              ; preds = %564
+  %573 = load ptr, ptr %5, align 8
+  %574 = getelementptr inbounds %struct._packet_info, ptr %573, i32 0, i32 1
+  %575 = load ptr, ptr %574, align 8
+  call void @col_set_str(ptr noundef %575, i32 noundef 25, ptr noundef @.str.14653)
   store volatile ptr @.str.10557, ptr %14, align 8
-  br label %575
+  br label %576
 
-575:                                              ; preds = %571, %563
+576:                                              ; preds = %572, %564
   store volatile i32 0, ptr %30, align 4
   call void @except_setup_try(ptr noundef %31, ptr noundef %32, ptr noundef @dissect_x11_replies.catch_spec.14654, i64 noundef 1)
-  %576 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 3
-  %577 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %576, i64 0, i64 0
-  %578 = call i32 @_setjmp(ptr noundef %577) #7
-  %579 = icmp ne i32 %578, 0
-  br i1 %579, label %580, label %582
+  %577 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 3
+  %578 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %577, i64 0, i64 0
+  %579 = call i32 @_setjmp(ptr noundef %578) #7
+  %580 = icmp ne i32 %579, 0
+  br i1 %580, label %581, label %583
 
-580:                                              ; preds = %575
-  %581 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 2
-  store volatile ptr %581, ptr %29, align 8
-  br label %583
+581:                                              ; preds = %576
+  %582 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 2
+  store volatile ptr %582, ptr %29, align 8
+  br label %584
 
-582:                                              ; preds = %575
+583:                                              ; preds = %576
   store volatile ptr null, ptr %29, align 8
-  br label %583
+  br label %584
 
-583:                                              ; preds = %582, %580
-  %584 = load volatile i32, ptr %30, align 4
-  %585 = and i32 %584, 1
-  %586 = icmp ne i32 %585, 0
-  br i1 %586, label %587, label %590
+584:                                              ; preds = %583, %581
+  %585 = load volatile i32, ptr %30, align 4
+  %586 = and i32 %585, 1
+  %587 = icmp ne i32 %586, 0
+  br i1 %587, label %588, label %591
 
-587:                                              ; preds = %583
-  %588 = load volatile i32, ptr %30, align 4
-  %589 = or i32 %588, 2
-  store volatile i32 %589, ptr %30, align 4
-  br label %590
+588:                                              ; preds = %584
+  %589 = load volatile i32, ptr %30, align 4
+  %590 = or i32 %589, 2
+  store volatile i32 %590, ptr %30, align 4
+  br label %591
 
-590:                                              ; preds = %587, %583
-  %591 = load volatile i32, ptr %30, align 4
-  %592 = and i32 %591, -2
-  store volatile i32 %592, ptr %30, align 4
-  %593 = load volatile i32, ptr %30, align 4
-  %594 = icmp eq i32 %593, 0
-  br i1 %594, label %595, label %605
+591:                                              ; preds = %588, %584
+  %592 = load volatile i32, ptr %30, align 4
+  %593 = and i32 %592, -2
+  store volatile i32 %593, ptr %30, align 4
+  %594 = load volatile i32, ptr %30, align 4
+  %595 = icmp eq i32 %594, 0
+  br i1 %595, label %596, label %606
 
-595:                                              ; preds = %590
-  %596 = load volatile ptr, ptr %29, align 8
-  %597 = icmp eq ptr %596, null
-  br i1 %597, label %598, label %605
+596:                                              ; preds = %591
+  %597 = load volatile ptr, ptr %29, align 8
+  %598 = icmp eq ptr %597, null
+  br i1 %598, label %599, label %606
 
-598:                                              ; preds = %595
-  %599 = load volatile ptr, ptr %9, align 8
-  %600 = load ptr, ptr %5, align 8
-  %601 = load ptr, ptr %6, align 8
-  %602 = load volatile ptr, ptr %14, align 8
-  %603 = load volatile ptr, ptr %11, align 8
-  %604 = load volatile i32, ptr %12, align 4
-  call void @dissect_x11_event(ptr noundef %599, ptr noundef %600, ptr noundef %601, ptr noundef %602, ptr noundef %603, i32 noundef %604)
-  br label %605
+599:                                              ; preds = %596
+  %600 = load volatile ptr, ptr %9, align 8
+  %601 = load ptr, ptr %5, align 8
+  %602 = load ptr, ptr %6, align 8
+  %603 = load volatile ptr, ptr %14, align 8
+  %604 = load volatile ptr, ptr %11, align 8
+  %605 = load volatile i32, ptr %12, align 4
+  call void @dissect_x11_event(ptr noundef %600, ptr noundef %601, ptr noundef %602, ptr noundef %603, ptr noundef %604, i32 noundef %605)
+  br label %606
 
-605:                                              ; preds = %598, %595, %590
-  %606 = load volatile i32, ptr %30, align 4
-  %607 = icmp eq i32 %606, 0
-  br i1 %607, label %608, label %650
+606:                                              ; preds = %599, %596, %591
+  %607 = load volatile i32, ptr %30, align 4
+  %608 = icmp eq i32 %607, 0
+  br i1 %608, label %609, label %651
 
-608:                                              ; preds = %605
-  %609 = load volatile ptr, ptr %29, align 8
-  %610 = icmp ne ptr %609, null
-  br i1 %610, label %611, label %650
+609:                                              ; preds = %606
+  %610 = load volatile ptr, ptr %29, align 8
+  %611 = icmp ne ptr %610, null
+  br i1 %611, label %612, label %651
 
-611:                                              ; preds = %608
-  %612 = load volatile ptr, ptr %29, align 8
-  %613 = getelementptr inbounds %struct.except_t, ptr %612, i32 0, i32 0
-  %614 = getelementptr inbounds %struct.except_id_t, ptr %613, i32 0, i32 1
-  %615 = load volatile i64, ptr %614, align 8
-  %616 = icmp eq i64 %615, 3
-  br i1 %616, label %635, label %617
+612:                                              ; preds = %609
+  %613 = load volatile ptr, ptr %29, align 8
+  %614 = getelementptr inbounds %struct.except_t, ptr %613, i32 0, i32 0
+  %615 = getelementptr inbounds %struct.except_id_t, ptr %614, i32 0, i32 1
+  %616 = load volatile i64, ptr %615, align 8
+  %617 = icmp eq i64 %616, 3
+  br i1 %617, label %636, label %618
 
-617:                                              ; preds = %611
-  %618 = load volatile ptr, ptr %29, align 8
-  %619 = getelementptr inbounds %struct.except_t, ptr %618, i32 0, i32 0
-  %620 = getelementptr inbounds %struct.except_id_t, ptr %619, i32 0, i32 1
-  %621 = load volatile i64, ptr %620, align 8
-  %622 = icmp eq i64 %621, 2
-  br i1 %622, label %635, label %623
+618:                                              ; preds = %612
+  %619 = load volatile ptr, ptr %29, align 8
+  %620 = getelementptr inbounds %struct.except_t, ptr %619, i32 0, i32 0
+  %621 = getelementptr inbounds %struct.except_id_t, ptr %620, i32 0, i32 1
+  %622 = load volatile i64, ptr %621, align 8
+  %623 = icmp eq i64 %622, 2
+  br i1 %623, label %636, label %624
 
-623:                                              ; preds = %617
-  %624 = load volatile ptr, ptr %29, align 8
-  %625 = getelementptr inbounds %struct.except_t, ptr %624, i32 0, i32 0
-  %626 = getelementptr inbounds %struct.except_id_t, ptr %625, i32 0, i32 1
-  %627 = load volatile i64, ptr %626, align 8
-  %628 = icmp eq i64 %627, 7
-  br i1 %628, label %635, label %629
+624:                                              ; preds = %618
+  %625 = load volatile ptr, ptr %29, align 8
+  %626 = getelementptr inbounds %struct.except_t, ptr %625, i32 0, i32 0
+  %627 = getelementptr inbounds %struct.except_id_t, ptr %626, i32 0, i32 1
+  %628 = load volatile i64, ptr %627, align 8
+  %629 = icmp eq i64 %628, 7
+  br i1 %629, label %636, label %630
 
-629:                                              ; preds = %623
-  %630 = load volatile ptr, ptr %29, align 8
-  %631 = getelementptr inbounds %struct.except_t, ptr %630, i32 0, i32 0
-  %632 = getelementptr inbounds %struct.except_id_t, ptr %631, i32 0, i32 1
-  %633 = load volatile i64, ptr %632, align 8
-  %634 = icmp eq i64 %633, 9
-  br i1 %634, label %635, label %650
+630:                                              ; preds = %624
+  %631 = load volatile ptr, ptr %29, align 8
+  %632 = getelementptr inbounds %struct.except_t, ptr %631, i32 0, i32 0
+  %633 = getelementptr inbounds %struct.except_id_t, ptr %632, i32 0, i32 1
+  %634 = load volatile i64, ptr %633, align 8
+  %635 = icmp eq i64 %634, 9
+  br i1 %635, label %636, label %651
 
-635:                                              ; preds = %629, %623, %617, %611
-  %636 = load volatile i32, ptr %30, align 4
-  %637 = or i32 %636, 1
-  store volatile i32 %637, ptr %30, align 4
-  %638 = icmp ne i32 %637, 0
-  br i1 %638, label %639, label %650
+636:                                              ; preds = %630, %624, %618, %612
+  %637 = load volatile i32, ptr %30, align 4
+  %638 = or i32 %637, 1
+  store volatile i32 %638, ptr %30, align 4
+  %639 = icmp ne i32 %638, 0
+  br i1 %639, label %640, label %651
 
-639:                                              ; preds = %635
-  %640 = load volatile ptr, ptr %9, align 8
-  %641 = load ptr, ptr %5, align 8
-  %642 = load ptr, ptr %6, align 8
-  %643 = load volatile ptr, ptr %29, align 8
-  %644 = getelementptr inbounds %struct.except_t, ptr %643, i32 0, i32 0
-  %645 = getelementptr inbounds %struct.except_id_t, ptr %644, i32 0, i32 1
-  %646 = load volatile i64, ptr %645, align 8
-  %647 = load volatile ptr, ptr %29, align 8
-  %648 = getelementptr inbounds %struct.except_t, ptr %647, i32 0, i32 1
-  %649 = load volatile ptr, ptr %648, align 8
-  call void @show_exception(ptr noundef %640, ptr noundef %641, ptr noundef %642, i64 noundef %646, ptr noundef %649)
-  br label %650
+640:                                              ; preds = %636
+  %641 = load volatile ptr, ptr %9, align 8
+  %642 = load ptr, ptr %5, align 8
+  %643 = load ptr, ptr %6, align 8
+  %644 = load volatile ptr, ptr %29, align 8
+  %645 = getelementptr inbounds %struct.except_t, ptr %644, i32 0, i32 0
+  %646 = getelementptr inbounds %struct.except_id_t, ptr %645, i32 0, i32 1
+  %647 = load volatile i64, ptr %646, align 8
+  %648 = load volatile ptr, ptr %29, align 8
+  %649 = getelementptr inbounds %struct.except_t, ptr %648, i32 0, i32 1
+  %650 = load volatile ptr, ptr %649, align 8
+  call void @show_exception(ptr noundef %641, ptr noundef %642, ptr noundef %643, i64 noundef %647, ptr noundef %650)
+  br label %651
 
-650:                                              ; preds = %639, %635, %629, %608, %605
-  %651 = load volatile i32, ptr %30, align 4
-  %652 = and i32 %651, 1
-  %653 = icmp ne i32 %652, 0
-  br i1 %653, label %659, label %654
+651:                                              ; preds = %640, %636, %630, %609, %606
+  %652 = load volatile i32, ptr %30, align 4
+  %653 = and i32 %652, 1
+  %654 = icmp ne i32 %653, 0
+  br i1 %654, label %660, label %655
 
-654:                                              ; preds = %650
-  %655 = load volatile ptr, ptr %29, align 8
-  %656 = icmp ne ptr %655, null
-  br i1 %656, label %657, label %659
+655:                                              ; preds = %651
+  %656 = load volatile ptr, ptr %29, align 8
+  %657 = icmp ne ptr %656, null
+  br i1 %657, label %658, label %660
 
-657:                                              ; preds = %654
-  %658 = load volatile ptr, ptr %29, align 8
-  call void @except_rethrow(ptr noundef %658) #8
+658:                                              ; preds = %655
+  %659 = load volatile ptr, ptr %29, align 8
+  call void @except_rethrow(ptr noundef %659) #8
   unreachable
 
-659:                                              ; preds = %654, %650
-  %660 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 2
-  %661 = getelementptr inbounds %struct.except_t, ptr %660, i32 0, i32 2
-  %662 = load volatile ptr, ptr %661, align 8
-  call void @except_free(ptr noundef %662)
-  %663 = call ptr @except_pop()
+660:                                              ; preds = %655, %651
+  %661 = getelementptr inbounds %struct.except_catch, ptr %32, i32 0, i32 2
+  %662 = getelementptr inbounds %struct.except_t, ptr %661, i32 0, i32 2
+  %663 = load volatile ptr, ptr %662, align 8
+  call void @except_free(ptr noundef %663)
+  %664 = call ptr @except_pop()
   store volatile ptr @.str.10553, ptr %14, align 8
-  br label %664
+  br label %665
 
-664:                                              ; preds = %659
-  br label %798
-
-665:                                              ; preds = %235
-  store volatile i32 32, ptr %8, align 4
-  br label %666
-
-666:                                              ; preds = %665
-  %667 = load i32, ptr %13, align 4
-  %668 = load volatile i32, ptr %8, align 4
-  %669 = icmp slt i32 %667, %668
-  br i1 %669, label %670, label %690
-
-670:                                              ; preds = %666
-  %671 = load i32, ptr @x11_desegment, align 4
-  %672 = icmp ne i32 %671, 0
-  br i1 %672, label %673, label %688
-
-673:                                              ; preds = %670
-  %674 = load ptr, ptr %5, align 8
-  %675 = getelementptr inbounds %struct._packet_info, ptr %674, i32 0, i32 30
-  %676 = load i16, ptr %675, align 8
-  %677 = zext i16 %676 to i32
-  %678 = icmp ne i32 %677, 0
-  br i1 %678, label %679, label %688
-
-679:                                              ; preds = %673
-  %680 = load volatile i32, ptr %7, align 4
-  %681 = load ptr, ptr %5, align 8
-  %682 = getelementptr inbounds %struct._packet_info, ptr %681, i32 0, i32 32
-  store i32 %680, ptr %682, align 4
-  %683 = load volatile i32, ptr %8, align 4
-  %684 = load i32, ptr %13, align 4
-  %685 = sub i32 %683, %684
-  %686 = load ptr, ptr %5, align 8
-  %687 = getelementptr inbounds %struct._packet_info, ptr %686, i32 0, i32 33
-  store i32 %685, ptr %687, align 8
-  br label %804
-
-688:                                              ; preds = %673, %670
-  br label %689
-
-689:                                              ; preds = %688
-  br label %690
-
-690:                                              ; preds = %689, %666
-  %691 = load i32, ptr %13, align 4
-  %692 = load volatile i32, ptr %8, align 4
-  %693 = icmp sgt i32 %691, %692
-  br i1 %693, label %694, label %696
-
-694:                                              ; preds = %690
-  %695 = load volatile i32, ptr %8, align 4
-  store i32 %695, ptr %13, align 4
-  br label %696
-
-696:                                              ; preds = %694, %690
-  %697 = load ptr, ptr %4, align 8
-  %698 = load volatile i32, ptr %7, align 4
-  %699 = load i32, ptr %13, align 4
-  %700 = load volatile i32, ptr %8, align 4
-  %701 = call ptr @tvb_new_subset_length_caplen(ptr noundef %697, i32 noundef %698, i32 noundef %699, i32 noundef %700)
-  store volatile ptr %701, ptr %9, align 8
-  %702 = load volatile ptr, ptr %14, align 8
-  %703 = icmp eq ptr %702, null
-  br i1 %703, label %704, label %708
-
-704:                                              ; preds = %696
-  %705 = load ptr, ptr %5, align 8
-  %706 = getelementptr inbounds %struct._packet_info, ptr %705, i32 0, i32 1
-  %707 = load ptr, ptr %706, align 8
-  call void @col_set_str(ptr noundef %707, i32 noundef 25, ptr noundef @.str.14653)
-  store volatile ptr @.str.10557, ptr %14, align 8
-  br label %708
-
-708:                                              ; preds = %704, %696
-  store volatile i32 0, ptr %34, align 4
-  call void @except_setup_try(ptr noundef %35, ptr noundef %36, ptr noundef @dissect_x11_replies.catch_spec.14655, i64 noundef 1)
-  %709 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 3
-  %710 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %709, i64 0, i64 0
-  %711 = call i32 @_setjmp(ptr noundef %710) #7
-  %712 = icmp ne i32 %711, 0
-  br i1 %712, label %713, label %715
-
-713:                                              ; preds = %708
-  %714 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 2
-  store volatile ptr %714, ptr %33, align 8
-  br label %716
-
-715:                                              ; preds = %708
-  store volatile ptr null, ptr %33, align 8
-  br label %716
-
-716:                                              ; preds = %715, %713
-  %717 = load volatile i32, ptr %34, align 4
-  %718 = and i32 %717, 1
-  %719 = icmp ne i32 %718, 0
-  br i1 %719, label %720, label %723
-
-720:                                              ; preds = %716
-  %721 = load volatile i32, ptr %34, align 4
-  %722 = or i32 %721, 2
-  store volatile i32 %722, ptr %34, align 4
-  br label %723
-
-723:                                              ; preds = %720, %716
-  %724 = load volatile i32, ptr %34, align 4
-  %725 = and i32 %724, -2
-  store volatile i32 %725, ptr %34, align 4
-  %726 = load volatile i32, ptr %34, align 4
-  %727 = icmp eq i32 %726, 0
-  br i1 %727, label %728, label %738
-
-728:                                              ; preds = %723
-  %729 = load volatile ptr, ptr %33, align 8
-  %730 = icmp eq ptr %729, null
-  br i1 %730, label %731, label %738
-
-731:                                              ; preds = %728
-  %732 = load volatile ptr, ptr %9, align 8
-  %733 = load ptr, ptr %5, align 8
-  %734 = load ptr, ptr %6, align 8
-  %735 = load volatile ptr, ptr %14, align 8
-  %736 = load volatile ptr, ptr %11, align 8
-  %737 = load volatile i32, ptr %12, align 4
-  call void @dissect_x11_event(ptr noundef %732, ptr noundef %733, ptr noundef %734, ptr noundef %735, ptr noundef %736, i32 noundef %737)
-  br label %738
-
-738:                                              ; preds = %731, %728, %723
-  %739 = load volatile i32, ptr %34, align 4
-  %740 = icmp eq i32 %739, 0
-  br i1 %740, label %741, label %783
-
-741:                                              ; preds = %738
-  %742 = load volatile ptr, ptr %33, align 8
-  %743 = icmp ne ptr %742, null
-  br i1 %743, label %744, label %783
-
-744:                                              ; preds = %741
-  %745 = load volatile ptr, ptr %33, align 8
-  %746 = getelementptr inbounds %struct.except_t, ptr %745, i32 0, i32 0
-  %747 = getelementptr inbounds %struct.except_id_t, ptr %746, i32 0, i32 1
-  %748 = load volatile i64, ptr %747, align 8
-  %749 = icmp eq i64 %748, 3
-  br i1 %749, label %768, label %750
-
-750:                                              ; preds = %744
-  %751 = load volatile ptr, ptr %33, align 8
-  %752 = getelementptr inbounds %struct.except_t, ptr %751, i32 0, i32 0
-  %753 = getelementptr inbounds %struct.except_id_t, ptr %752, i32 0, i32 1
-  %754 = load volatile i64, ptr %753, align 8
-  %755 = icmp eq i64 %754, 2
-  br i1 %755, label %768, label %756
-
-756:                                              ; preds = %750
-  %757 = load volatile ptr, ptr %33, align 8
-  %758 = getelementptr inbounds %struct.except_t, ptr %757, i32 0, i32 0
-  %759 = getelementptr inbounds %struct.except_id_t, ptr %758, i32 0, i32 1
-  %760 = load volatile i64, ptr %759, align 8
-  %761 = icmp eq i64 %760, 7
-  br i1 %761, label %768, label %762
-
-762:                                              ; preds = %756
-  %763 = load volatile ptr, ptr %33, align 8
-  %764 = getelementptr inbounds %struct.except_t, ptr %763, i32 0, i32 0
-  %765 = getelementptr inbounds %struct.except_id_t, ptr %764, i32 0, i32 1
-  %766 = load volatile i64, ptr %765, align 8
-  %767 = icmp eq i64 %766, 9
-  br i1 %767, label %768, label %783
-
-768:                                              ; preds = %762, %756, %750, %744
-  %769 = load volatile i32, ptr %34, align 4
-  %770 = or i32 %769, 1
-  store volatile i32 %770, ptr %34, align 4
-  %771 = icmp ne i32 %770, 0
-  br i1 %771, label %772, label %783
-
-772:                                              ; preds = %768
-  %773 = load volatile ptr, ptr %9, align 8
-  %774 = load ptr, ptr %5, align 8
-  %775 = load ptr, ptr %6, align 8
-  %776 = load volatile ptr, ptr %33, align 8
-  %777 = getelementptr inbounds %struct.except_t, ptr %776, i32 0, i32 0
-  %778 = getelementptr inbounds %struct.except_id_t, ptr %777, i32 0, i32 1
-  %779 = load volatile i64, ptr %778, align 8
-  %780 = load volatile ptr, ptr %33, align 8
-  %781 = getelementptr inbounds %struct.except_t, ptr %780, i32 0, i32 1
-  %782 = load volatile ptr, ptr %781, align 8
-  call void @show_exception(ptr noundef %773, ptr noundef %774, ptr noundef %775, i64 noundef %779, ptr noundef %782)
-  br label %783
-
-783:                                              ; preds = %772, %768, %762, %741, %738
-  %784 = load volatile i32, ptr %34, align 4
-  %785 = and i32 %784, 1
-  %786 = icmp ne i32 %785, 0
-  br i1 %786, label %792, label %787
-
-787:                                              ; preds = %783
-  %788 = load volatile ptr, ptr %33, align 8
-  %789 = icmp ne ptr %788, null
-  br i1 %789, label %790, label %792
-
-790:                                              ; preds = %787
-  %791 = load volatile ptr, ptr %33, align 8
-  call void @except_rethrow(ptr noundef %791) #8
-  unreachable
-
-792:                                              ; preds = %787, %783
-  %793 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 2
-  %794 = getelementptr inbounds %struct.except_t, ptr %793, i32 0, i32 2
-  %795 = load volatile ptr, ptr %794, align 8
-  call void @except_free(ptr noundef %795)
-  %796 = call ptr @except_pop()
-  store volatile ptr @.str.10553, ptr %14, align 8
-  br label %797
-
-797:                                              ; preds = %792
-  br label %798
-
-798:                                              ; preds = %797, %664, %518, %372
+665:                                              ; preds = %660
   br label %799
 
-799:                                              ; preds = %798, %234
-  %800 = load volatile i32, ptr %8, align 4
-  %801 = load volatile i32, ptr %7, align 4
-  %802 = add i32 %801, %800
-  store volatile i32 %802, ptr %7, align 4
+666:                                              ; preds = %236
+  store volatile i32 32, ptr %8, align 4
+  br label %667
+
+667:                                              ; preds = %666
+  %668 = load i32, ptr %13, align 4
+  %669 = load volatile i32, ptr %8, align 4
+  %670 = icmp slt i32 %668, %669
+  br i1 %670, label %671, label %691
+
+671:                                              ; preds = %667
+  %672 = load i32, ptr @x11_desegment, align 4
+  %673 = icmp ne i32 %672, 0
+  br i1 %673, label %674, label %689
+
+674:                                              ; preds = %671
+  %675 = load ptr, ptr %5, align 8
+  %676 = getelementptr inbounds %struct._packet_info, ptr %675, i32 0, i32 30
+  %677 = load i16, ptr %676, align 8
+  %678 = zext i16 %677 to i32
+  %679 = icmp ne i32 %678, 0
+  br i1 %679, label %680, label %689
+
+680:                                              ; preds = %674
+  %681 = load volatile i32, ptr %7, align 4
+  %682 = load ptr, ptr %5, align 8
+  %683 = getelementptr inbounds %struct._packet_info, ptr %682, i32 0, i32 32
+  store i32 %681, ptr %683, align 4
+  %684 = load volatile i32, ptr %8, align 4
+  %685 = load i32, ptr %13, align 4
+  %686 = sub i32 %684, %685
+  %687 = load ptr, ptr %5, align 8
+  %688 = getelementptr inbounds %struct._packet_info, ptr %687, i32 0, i32 33
+  store i32 %686, ptr %688, align 8
+  br label %805
+
+689:                                              ; preds = %674, %671
+  br label %690
+
+690:                                              ; preds = %689
+  br label %691
+
+691:                                              ; preds = %690, %667
+  %692 = load i32, ptr %13, align 4
+  %693 = load volatile i32, ptr %8, align 4
+  %694 = icmp sgt i32 %692, %693
+  br i1 %694, label %695, label %697
+
+695:                                              ; preds = %691
+  %696 = load volatile i32, ptr %8, align 4
+  store i32 %696, ptr %13, align 4
+  br label %697
+
+697:                                              ; preds = %695, %691
+  %698 = load ptr, ptr %4, align 8
+  %699 = load volatile i32, ptr %7, align 4
+  %700 = load i32, ptr %13, align 4
+  %701 = load volatile i32, ptr %8, align 4
+  %702 = call ptr @tvb_new_subset_length_caplen(ptr noundef %698, i32 noundef %699, i32 noundef %700, i32 noundef %701)
+  store volatile ptr %702, ptr %9, align 8
+  %703 = load volatile ptr, ptr %14, align 8
+  %704 = icmp eq ptr %703, null
+  br i1 %704, label %705, label %709
+
+705:                                              ; preds = %697
+  %706 = load ptr, ptr %5, align 8
+  %707 = getelementptr inbounds %struct._packet_info, ptr %706, i32 0, i32 1
+  %708 = load ptr, ptr %707, align 8
+  call void @col_set_str(ptr noundef %708, i32 noundef 25, ptr noundef @.str.14653)
+  store volatile ptr @.str.10557, ptr %14, align 8
+  br label %709
+
+709:                                              ; preds = %705, %697
+  store volatile i32 0, ptr %34, align 4
+  call void @except_setup_try(ptr noundef %35, ptr noundef %36, ptr noundef @dissect_x11_replies.catch_spec.14655, i64 noundef 1)
+  %710 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 3
+  %711 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %710, i64 0, i64 0
+  %712 = call i32 @_setjmp(ptr noundef %711) #7
+  %713 = icmp ne i32 %712, 0
+  br i1 %713, label %714, label %716
+
+714:                                              ; preds = %709
+  %715 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 2
+  store volatile ptr %715, ptr %33, align 8
+  br label %717
+
+716:                                              ; preds = %709
+  store volatile ptr null, ptr %33, align 8
+  br label %717
+
+717:                                              ; preds = %716, %714
+  %718 = load volatile i32, ptr %34, align 4
+  %719 = and i32 %718, 1
+  %720 = icmp ne i32 %719, 0
+  br i1 %720, label %721, label %724
+
+721:                                              ; preds = %717
+  %722 = load volatile i32, ptr %34, align 4
+  %723 = or i32 %722, 2
+  store volatile i32 %723, ptr %34, align 4
+  br label %724
+
+724:                                              ; preds = %721, %717
+  %725 = load volatile i32, ptr %34, align 4
+  %726 = and i32 %725, -2
+  store volatile i32 %726, ptr %34, align 4
+  %727 = load volatile i32, ptr %34, align 4
+  %728 = icmp eq i32 %727, 0
+  br i1 %728, label %729, label %739
+
+729:                                              ; preds = %724
+  %730 = load volatile ptr, ptr %33, align 8
+  %731 = icmp eq ptr %730, null
+  br i1 %731, label %732, label %739
+
+732:                                              ; preds = %729
+  %733 = load volatile ptr, ptr %9, align 8
+  %734 = load ptr, ptr %5, align 8
+  %735 = load ptr, ptr %6, align 8
+  %736 = load volatile ptr, ptr %14, align 8
+  %737 = load volatile ptr, ptr %11, align 8
+  %738 = load volatile i32, ptr %12, align 4
+  call void @dissect_x11_event(ptr noundef %733, ptr noundef %734, ptr noundef %735, ptr noundef %736, ptr noundef %737, i32 noundef %738)
+  br label %739
+
+739:                                              ; preds = %732, %729, %724
+  %740 = load volatile i32, ptr %34, align 4
+  %741 = icmp eq i32 %740, 0
+  br i1 %741, label %742, label %784
+
+742:                                              ; preds = %739
+  %743 = load volatile ptr, ptr %33, align 8
+  %744 = icmp ne ptr %743, null
+  br i1 %744, label %745, label %784
+
+745:                                              ; preds = %742
+  %746 = load volatile ptr, ptr %33, align 8
+  %747 = getelementptr inbounds %struct.except_t, ptr %746, i32 0, i32 0
+  %748 = getelementptr inbounds %struct.except_id_t, ptr %747, i32 0, i32 1
+  %749 = load volatile i64, ptr %748, align 8
+  %750 = icmp eq i64 %749, 3
+  br i1 %750, label %769, label %751
+
+751:                                              ; preds = %745
+  %752 = load volatile ptr, ptr %33, align 8
+  %753 = getelementptr inbounds %struct.except_t, ptr %752, i32 0, i32 0
+  %754 = getelementptr inbounds %struct.except_id_t, ptr %753, i32 0, i32 1
+  %755 = load volatile i64, ptr %754, align 8
+  %756 = icmp eq i64 %755, 2
+  br i1 %756, label %769, label %757
+
+757:                                              ; preds = %751
+  %758 = load volatile ptr, ptr %33, align 8
+  %759 = getelementptr inbounds %struct.except_t, ptr %758, i32 0, i32 0
+  %760 = getelementptr inbounds %struct.except_id_t, ptr %759, i32 0, i32 1
+  %761 = load volatile i64, ptr %760, align 8
+  %762 = icmp eq i64 %761, 7
+  br i1 %762, label %769, label %763
+
+763:                                              ; preds = %757
+  %764 = load volatile ptr, ptr %33, align 8
+  %765 = getelementptr inbounds %struct.except_t, ptr %764, i32 0, i32 0
+  %766 = getelementptr inbounds %struct.except_id_t, ptr %765, i32 0, i32 1
+  %767 = load volatile i64, ptr %766, align 8
+  %768 = icmp eq i64 %767, 9
+  br i1 %768, label %769, label %784
+
+769:                                              ; preds = %763, %757, %751, %745
+  %770 = load volatile i32, ptr %34, align 4
+  %771 = or i32 %770, 1
+  store volatile i32 %771, ptr %34, align 4
+  %772 = icmp ne i32 %771, 0
+  br i1 %772, label %773, label %784
+
+773:                                              ; preds = %769
+  %774 = load volatile ptr, ptr %9, align 8
+  %775 = load ptr, ptr %5, align 8
+  %776 = load ptr, ptr %6, align 8
+  %777 = load volatile ptr, ptr %33, align 8
+  %778 = getelementptr inbounds %struct.except_t, ptr %777, i32 0, i32 0
+  %779 = getelementptr inbounds %struct.except_id_t, ptr %778, i32 0, i32 1
+  %780 = load volatile i64, ptr %779, align 8
+  %781 = load volatile ptr, ptr %33, align 8
+  %782 = getelementptr inbounds %struct.except_t, ptr %781, i32 0, i32 1
+  %783 = load volatile ptr, ptr %782, align 8
+  call void @show_exception(ptr noundef %774, ptr noundef %775, ptr noundef %776, i64 noundef %780, ptr noundef %783)
+  br label %784
+
+784:                                              ; preds = %773, %769, %763, %742, %739
+  %785 = load volatile i32, ptr %34, align 4
+  %786 = and i32 %785, 1
+  %787 = icmp ne i32 %786, 0
+  br i1 %787, label %793, label %788
+
+788:                                              ; preds = %784
+  %789 = load volatile ptr, ptr %33, align 8
+  %790 = icmp ne ptr %789, null
+  br i1 %790, label %791, label %793
+
+791:                                              ; preds = %788
+  %792 = load volatile ptr, ptr %33, align 8
+  call void @except_rethrow(ptr noundef %792) #8
+  unreachable
+
+793:                                              ; preds = %788, %784
+  %794 = getelementptr inbounds %struct.except_catch, ptr %36, i32 0, i32 2
+  %795 = getelementptr inbounds %struct.except_t, ptr %794, i32 0, i32 2
+  %796 = load volatile ptr, ptr %795, align 8
+  call void @except_free(ptr noundef %796)
+  %797 = call ptr @except_pop()
+  store volatile ptr @.str.10553, ptr %14, align 8
+  br label %798
+
+798:                                              ; preds = %793
+  br label %799
+
+799:                                              ; preds = %798, %665, %519, %373
+  br label %800
+
+800:                                              ; preds = %799, %235
+  %801 = load volatile i32, ptr %8, align 4
+  %802 = load volatile i32, ptr %7, align 4
+  %803 = add i32 %802, %801
+  store volatile i32 %803, ptr %7, align 4
   br label %51, !llvm.loop !4
 
-803:                                              ; preds = %51
-  br label %804
+804:                                              ; preds = %51
+  br label %805
 
-804:                                              ; preds = %803, %679, %546, %400, %254, %116, %68
+805:                                              ; preds = %804, %680, %547, %401, %255, %117, %68
   ret void
 }
 
@@ -25832,13 +25833,13 @@ define internal void @dissect_x11_requests(ptr noundef %0, ptr noundef %1, ptr n
   store volatile ptr null, ptr %16, align 8
   br label %26
 
-26:                                               ; preds = %348, %3
+26:                                               ; preds = %349, %3
   %27 = load ptr, ptr %4, align 8
   %28 = load volatile i32, ptr %7, align 4
   %29 = call i32 @tvb_reported_length_remaining(ptr noundef %27, i32 noundef %28)
   store i32 %29, ptr %8, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %356
+  br i1 %30, label %31, label %357
 
 31:                                               ; preds = %26
   %32 = load i32, ptr @x11_desegment, align 4
@@ -25866,7 +25867,7 @@ define internal void @dissect_x11_requests(ptr noundef %0, ptr noundef %1, ptr n
   %47 = load ptr, ptr %5, align 8
   %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 33
   store i32 268435455, ptr %48, align 8
-  br label %356
+  br label %357
 
 49:                                               ; preds = %40
   br label %50
@@ -25933,7 +25934,7 @@ define internal void @dissect_x11_requests(ptr noundef %0, ptr noundef %1, ptr n
   %91 = load ptr, ptr %12, align 8
   %92 = load volatile i32, ptr %11, align 4
   %93 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %90, ptr noundef %91, ptr noundef @ei_x11_request_length, ptr noundef @.str.14698, i32 noundef %92)
-  br label %356
+  br label %357
 
 94:                                               ; preds = %81
   %95 = load volatile ptr, ptr %18, align 8
@@ -25943,7 +25944,7 @@ define internal void @dissect_x11_requests(ptr noundef %0, ptr noundef %1, ptr n
   %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 3
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %97, %100
-  br i1 %101, label %127, label %102
+  br i1 %101, label %128, label %102
 
 102:                                              ; preds = %94
   %103 = load volatile ptr, ptr %18, align 8
@@ -25955,395 +25956,396 @@ define internal void @dissect_x11_requests(ptr noundef %0, ptr noundef %1, ptr n
   %109 = sext i32 %108 to i64
   %110 = inttoptr i64 %109 to ptr
   %111 = call ptr @wmem_map_lookup(ptr noundef %105, ptr noundef %110)
-  %112 = icmp eq ptr %111, inttoptr (i64 -3 to ptr)
-  br i1 %112, label %113, label %185
+  %112 = inttoptr i64 -3 to ptr
+  %113 = icmp eq ptr %111, %112
+  br i1 %113, label %114, label %186
 
-113:                                              ; preds = %102
-  %114 = load i8, ptr %10, align 1
-  %115 = zext i8 %114 to i32
-  %116 = icmp eq i32 %115, 66
-  br i1 %116, label %121, label %117
+114:                                              ; preds = %102
+  %115 = load i8, ptr %10, align 1
+  %116 = zext i8 %115 to i32
+  %117 = icmp eq i32 %116, 66
+  br i1 %117, label %122, label %118
 
-117:                                              ; preds = %113
-  %118 = load i8, ptr %10, align 1
-  %119 = zext i8 %118 to i32
-  %120 = icmp eq i32 %119, 108
-  br i1 %120, label %121, label %185
+118:                                              ; preds = %114
+  %119 = load i8, ptr %10, align 1
+  %120 = zext i8 %119 to i32
+  %121 = icmp eq i32 %120, 108
+  br i1 %121, label %122, label %186
 
-121:                                              ; preds = %117, %113
-  %122 = load volatile i32, ptr %11, align 4
-  %123 = icmp eq i32 %122, 11
-  br i1 %123, label %127, label %124
+122:                                              ; preds = %118, %114
+  %123 = load volatile i32, ptr %11, align 4
+  %124 = icmp eq i32 %123, 11
+  br i1 %124, label %128, label %125
 
-124:                                              ; preds = %121
-  %125 = load volatile i32, ptr %11, align 4
-  %126 = icmp eq i32 %125, 2816
-  br i1 %126, label %127, label %185
+125:                                              ; preds = %122
+  %126 = load volatile i32, ptr %11, align 4
+  %127 = icmp eq i32 %126, 2816
+  br i1 %127, label %128, label %186
 
-127:                                              ; preds = %124, %121, %94
+128:                                              ; preds = %125, %122, %94
   store volatile i32 1, ptr %13, align 4
-  %128 = load volatile ptr, ptr %18, align 8
-  %129 = getelementptr inbounds %struct._x11_conv_data, ptr %128, i32 0, i32 10
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %130, -1
-  br i1 %131, label %132, label %143
+  %129 = load volatile ptr, ptr %18, align 8
+  %130 = getelementptr inbounds %struct._x11_conv_data, ptr %129, i32 0, i32 10
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %133, label %144
 
-132:                                              ; preds = %127
-  %133 = load i8, ptr %10, align 1
-  %134 = zext i8 %133 to i32
-  %135 = icmp eq i32 %134, 66
-  br i1 %135, label %136, label %139
+133:                                              ; preds = %128
+  %134 = load i8, ptr %10, align 1
+  %135 = zext i8 %134 to i32
+  %136 = icmp eq i32 %135, 66
+  br i1 %136, label %137, label %140
 
-136:                                              ; preds = %132
-  %137 = load volatile ptr, ptr %18, align 8
-  %138 = getelementptr inbounds %struct._x11_conv_data, ptr %137, i32 0, i32 10
-  store i32 0, ptr %138, align 4
+137:                                              ; preds = %133
+  %138 = load volatile ptr, ptr %18, align 8
+  %139 = getelementptr inbounds %struct._x11_conv_data, ptr %138, i32 0, i32 10
+  store i32 0, ptr %139, align 4
   store volatile i32 0, ptr %9, align 4
-  br label %142
-
-139:                                              ; preds = %132
-  %140 = load volatile ptr, ptr %18, align 8
-  %141 = getelementptr inbounds %struct._x11_conv_data, ptr %140, i32 0, i32 10
-  store i32 -2147483648, ptr %141, align 4
-  store volatile i32 -2147483648, ptr %9, align 4
-  br label %142
-
-142:                                              ; preds = %139, %136
   br label %143
 
-143:                                              ; preds = %142, %127
-  %144 = load i32, ptr @x11_desegment, align 4
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %162
+140:                                              ; preds = %133
+  %141 = load volatile ptr, ptr %18, align 8
+  %142 = getelementptr inbounds %struct._x11_conv_data, ptr %141, i32 0, i32 10
+  store i32 -2147483648, ptr %142, align 4
+  store volatile i32 -2147483648, ptr %9, align 4
+  br label %143
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds %struct._packet_info, ptr %147, i32 0, i32 30
-  %149 = load i16, ptr %148, align 8
-  %150 = zext i16 %149 to i32
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %162
+143:                                              ; preds = %140, %137
+  br label %144
 
-152:                                              ; preds = %146
-  %153 = load i32, ptr %8, align 4
-  %154 = icmp slt i32 %153, 10
-  br i1 %154, label %155, label %161
+144:                                              ; preds = %143, %128
+  %145 = load i32, ptr @x11_desegment, align 4
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %163
 
-155:                                              ; preds = %152
-  %156 = load volatile i32, ptr %7, align 4
-  %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds %struct._packet_info, ptr %157, i32 0, i32 32
-  store i32 %156, ptr %158, align 4
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds %struct._packet_info, ptr %159, i32 0, i32 33
-  store i32 268435455, ptr %160, align 8
-  br label %356
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %5, align 8
+  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 30
+  %150 = load i16, ptr %149, align 8
+  %151 = zext i16 %150 to i32
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %163
 
-161:                                              ; preds = %152
-  br label %162
+153:                                              ; preds = %147
+  %154 = load i32, ptr %8, align 4
+  %155 = icmp slt i32 %154, 10
+  br i1 %155, label %156, label %162
 
-162:                                              ; preds = %161, %146, %143
-  %163 = load ptr, ptr %4, align 8
-  %164 = load volatile i32, ptr %7, align 4
-  %165 = add i32 %164, 6
-  %166 = load volatile i32, ptr %9, align 4
-  %167 = call zeroext i16 @tvb_get_guint16(ptr noundef %163, i32 noundef %165, i32 noundef %166)
-  store i16 %167, ptr %14, align 2
-  %168 = load ptr, ptr %4, align 8
-  %169 = load volatile i32, ptr %7, align 4
-  %170 = add i32 %169, 8
-  %171 = load volatile i32, ptr %9, align 4
-  %172 = call zeroext i16 @tvb_get_guint16(ptr noundef %168, i32 noundef %170, i32 noundef %171)
-  store i16 %172, ptr %15, align 2
-  %173 = load i16, ptr %14, align 2
-  %174 = zext i16 %173 to i32
-  %175 = add i32 %174, 3
-  %176 = sdiv i32 %175, 4
-  %177 = mul i32 %176, 4
-  %178 = add i32 12, %177
-  %179 = load i16, ptr %15, align 2
-  %180 = zext i16 %179 to i32
-  %181 = add i32 %180, 3
-  %182 = sdiv i32 %181, 4
-  %183 = mul i32 %182, 4
-  %184 = add i32 %178, %183
-  store volatile i32 %184, ptr %11, align 4
-  br label %204
+156:                                              ; preds = %153
+  %157 = load volatile i32, ptr %7, align 4
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr inbounds %struct._packet_info, ptr %158, i32 0, i32 32
+  store i32 %157, ptr %159, align 4
+  %160 = load ptr, ptr %5, align 8
+  %161 = getelementptr inbounds %struct._packet_info, ptr %160, i32 0, i32 33
+  store i32 268435455, ptr %161, align 8
+  br label %357
 
-185:                                              ; preds = %124, %117, %102
-  %186 = load volatile i32, ptr %11, align 4
-  %187 = sext i32 %186 to i64
-  %188 = mul i64 %187, 4
-  store volatile i64 %188, ptr %21, align 8
+162:                                              ; preds = %153
+  br label %163
+
+163:                                              ; preds = %162, %147, %144
+  %164 = load ptr, ptr %4, align 8
+  %165 = load volatile i32, ptr %7, align 4
+  %166 = add i32 %165, 6
+  %167 = load volatile i32, ptr %9, align 4
+  %168 = call zeroext i16 @tvb_get_guint16(ptr noundef %164, i32 noundef %166, i32 noundef %167)
+  store i16 %168, ptr %14, align 2
+  %169 = load ptr, ptr %4, align 8
+  %170 = load volatile i32, ptr %7, align 4
+  %171 = add i32 %170, 8
+  %172 = load volatile i32, ptr %9, align 4
+  %173 = call zeroext i16 @tvb_get_guint16(ptr noundef %169, i32 noundef %171, i32 noundef %172)
+  store i16 %173, ptr %15, align 2
+  %174 = load i16, ptr %14, align 2
+  %175 = zext i16 %174 to i32
+  %176 = add i32 %175, 3
+  %177 = sdiv i32 %176, 4
+  %178 = mul i32 %177, 4
+  %179 = add i32 12, %178
+  %180 = load i16, ptr %15, align 2
+  %181 = zext i16 %180 to i32
+  %182 = add i32 %181, 3
+  %183 = sdiv i32 %182, 4
+  %184 = mul i32 %183, 4
+  %185 = add i32 %179, %184
+  store volatile i32 %185, ptr %11, align 4
+  br label %205
+
+186:                                              ; preds = %125, %118, %102
+  %187 = load volatile i32, ptr %11, align 4
+  %188 = sext i32 %187 to i64
+  %189 = mul i64 %188, 4
+  store volatile i64 %189, ptr %21, align 8
   store volatile i32 0, ptr %13, align 4
-  %189 = load volatile i64, ptr %21, align 8
-  %190 = icmp sgt i64 %189, 2147483647
-  br i1 %190, label %191, label %201
+  %190 = load volatile i64, ptr %21, align 8
+  %191 = icmp sgt i64 %190, 2147483647
+  br i1 %191, label %192, label %202
 
-191:                                              ; preds = %185
-  %192 = load ptr, ptr %6, align 8
-  %193 = load i32, ptr @proto_x11, align 4
-  %194 = load ptr, ptr %4, align 8
-  %195 = load volatile i32, ptr %7, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef -1, i32 noundef 0)
-  store ptr %196, ptr %12, align 8
-  %197 = load ptr, ptr %5, align 8
-  %198 = load ptr, ptr %12, align 8
-  %199 = load volatile i64, ptr %21, align 8
-  %200 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %197, ptr noundef %198, ptr noundef @ei_x11_request_length, ptr noundef @.str.14699, i64 noundef %199)
-  br label %356
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %6, align 8
+  %194 = load i32, ptr @proto_x11, align 4
+  %195 = load ptr, ptr %4, align 8
+  %196 = load volatile i32, ptr %7, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef -1, i32 noundef 0)
+  store ptr %197, ptr %12, align 8
+  %198 = load ptr, ptr %5, align 8
+  %199 = load ptr, ptr %12, align 8
+  %200 = load volatile i64, ptr %21, align 8
+  %201 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %198, ptr noundef %199, ptr noundef @ei_x11_request_length, ptr noundef @.str.14699, i64 noundef %200)
+  br label %357
 
-201:                                              ; preds = %185
-  %202 = load volatile i64, ptr %21, align 8
-  %203 = trunc i64 %202 to i32
-  store volatile i32 %203, ptr %11, align 4
-  br label %204
+202:                                              ; preds = %186
+  %203 = load volatile i64, ptr %21, align 8
+  %204 = trunc i64 %203 to i32
+  store volatile i32 %204, ptr %11, align 4
+  br label %205
 
-204:                                              ; preds = %201, %162
-  %205 = load i32, ptr @x11_desegment, align 4
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %207, label %227
+205:                                              ; preds = %202, %163
+  %206 = load i32, ptr @x11_desegment, align 4
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %208, label %228
 
-207:                                              ; preds = %204
-  %208 = load ptr, ptr %5, align 8
-  %209 = getelementptr inbounds %struct._packet_info, ptr %208, i32 0, i32 30
-  %210 = load i16, ptr %209, align 8
-  %211 = zext i16 %210 to i32
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %227
+208:                                              ; preds = %205
+  %209 = load ptr, ptr %5, align 8
+  %210 = getelementptr inbounds %struct._packet_info, ptr %209, i32 0, i32 30
+  %211 = load i16, ptr %210, align 8
+  %212 = zext i16 %211 to i32
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %228
 
-213:                                              ; preds = %207
-  %214 = load i32, ptr %8, align 4
-  %215 = load volatile i32, ptr %11, align 4
-  %216 = icmp slt i32 %214, %215
-  br i1 %216, label %217, label %226
+214:                                              ; preds = %208
+  %215 = load i32, ptr %8, align 4
+  %216 = load volatile i32, ptr %11, align 4
+  %217 = icmp slt i32 %215, %216
+  br i1 %217, label %218, label %227
 
-217:                                              ; preds = %213
-  %218 = load volatile i32, ptr %7, align 4
-  %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds %struct._packet_info, ptr %219, i32 0, i32 32
-  store i32 %218, ptr %220, align 4
-  %221 = load volatile i32, ptr %11, align 4
-  %222 = load i32, ptr %8, align 4
-  %223 = sub i32 %221, %222
-  %224 = load ptr, ptr %5, align 8
-  %225 = getelementptr inbounds %struct._packet_info, ptr %224, i32 0, i32 33
-  store i32 %223, ptr %225, align 8
-  br label %356
+218:                                              ; preds = %214
+  %219 = load volatile i32, ptr %7, align 4
+  %220 = load ptr, ptr %5, align 8
+  %221 = getelementptr inbounds %struct._packet_info, ptr %220, i32 0, i32 32
+  store i32 %219, ptr %221, align 4
+  %222 = load volatile i32, ptr %11, align 4
+  %223 = load i32, ptr %8, align 4
+  %224 = sub i32 %222, %223
+  %225 = load ptr, ptr %5, align 8
+  %226 = getelementptr inbounds %struct._packet_info, ptr %225, i32 0, i32 33
+  store i32 %224, ptr %226, align 8
+  br label %357
 
-226:                                              ; preds = %213
-  br label %227
+227:                                              ; preds = %214
+  br label %228
 
-227:                                              ; preds = %226, %207, %204
-  %228 = load i32, ptr %8, align 4
-  store i32 %228, ptr %19, align 4
-  %229 = load i32, ptr %19, align 4
-  %230 = load volatile i32, ptr %11, align 4
-  %231 = icmp sgt i32 %229, %230
-  br i1 %231, label %232, label %234
+228:                                              ; preds = %227, %208, %205
+  %229 = load i32, ptr %8, align 4
+  store i32 %229, ptr %19, align 4
+  %230 = load i32, ptr %19, align 4
+  %231 = load volatile i32, ptr %11, align 4
+  %232 = icmp sgt i32 %230, %231
+  br i1 %232, label %233, label %235
 
-232:                                              ; preds = %227
-  %233 = load volatile i32, ptr %11, align 4
-  store i32 %233, ptr %19, align 4
-  br label %234
+233:                                              ; preds = %228
+  %234 = load volatile i32, ptr %11, align 4
+  store i32 %234, ptr %19, align 4
+  br label %235
 
-234:                                              ; preds = %232, %227
-  %235 = load ptr, ptr %4, align 8
-  %236 = load volatile i32, ptr %7, align 4
-  %237 = load i32, ptr %19, align 4
-  %238 = load volatile i32, ptr %11, align 4
-  %239 = call ptr @tvb_new_subset_length_caplen(ptr noundef %235, i32 noundef %236, i32 noundef %237, i32 noundef %238)
-  store volatile ptr %239, ptr %20, align 8
-  %240 = load volatile i32, ptr %13, align 4
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %246
+235:                                              ; preds = %233, %228
+  %236 = load ptr, ptr %4, align 8
+  %237 = load volatile i32, ptr %7, align 4
+  %238 = load i32, ptr %19, align 4
+  %239 = load volatile i32, ptr %11, align 4
+  %240 = call ptr @tvb_new_subset_length_caplen(ptr noundef %236, i32 noundef %237, i32 noundef %238, i32 noundef %239)
+  store volatile ptr %240, ptr %20, align 8
+  %241 = load volatile i32, ptr %13, align 4
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %247
 
-242:                                              ; preds = %234
-  %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds %struct._packet_info, ptr %243, i32 0, i32 1
-  %245 = load ptr, ptr %244, align 8
-  call void @col_set_str(ptr noundef %245, i32 noundef 25, ptr noundef @.str.11925)
-  br label %254
+243:                                              ; preds = %235
+  %244 = load ptr, ptr %5, align 8
+  %245 = getelementptr inbounds %struct._packet_info, ptr %244, i32 0, i32 1
+  %246 = load ptr, ptr %245, align 8
+  call void @col_set_str(ptr noundef %246, i32 noundef 25, ptr noundef @.str.11925)
+  br label %255
 
-246:                                              ; preds = %234
-  %247 = load volatile ptr, ptr %16, align 8
-  %248 = icmp eq ptr %247, null
-  br i1 %248, label %249, label %253
+247:                                              ; preds = %235
+  %248 = load volatile ptr, ptr %16, align 8
+  %249 = icmp eq ptr %248, null
+  br i1 %249, label %250, label %254
 
-249:                                              ; preds = %246
-  %250 = load ptr, ptr %5, align 8
-  %251 = getelementptr inbounds %struct._packet_info, ptr %250, i32 0, i32 1
-  %252 = load ptr, ptr %251, align 8
-  call void @col_set_str(ptr noundef %252, i32 noundef 25, ptr noundef @.str.14700)
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %5, align 8
+  %252 = getelementptr inbounds %struct._packet_info, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8
+  call void @col_set_str(ptr noundef %253, i32 noundef 25, ptr noundef @.str.14700)
   store volatile ptr @.str.10557, ptr %16, align 8
-  br label %253
-
-253:                                              ; preds = %249, %246
   br label %254
 
-254:                                              ; preds = %253, %242
+254:                                              ; preds = %250, %247
+  br label %255
+
+255:                                              ; preds = %254, %243
   store volatile i32 0, ptr %23, align 4
   call void @except_setup_try(ptr noundef %24, ptr noundef %25, ptr noundef @dissect_x11_requests.catch_spec, i64 noundef 1)
-  %255 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 3
-  %256 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %255, i64 0, i64 0
-  %257 = call i32 @_setjmp(ptr noundef %256) #7
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %259, label %261
+  %256 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 3
+  %257 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %256, i64 0, i64 0
+  %258 = call i32 @_setjmp(ptr noundef %257) #7
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %262
 
-259:                                              ; preds = %254
-  %260 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 2
-  store volatile ptr %260, ptr %22, align 8
-  br label %262
+260:                                              ; preds = %255
+  %261 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 2
+  store volatile ptr %261, ptr %22, align 8
+  br label %263
 
-261:                                              ; preds = %254
+262:                                              ; preds = %255
   store volatile ptr null, ptr %22, align 8
-  br label %262
+  br label %263
 
-262:                                              ; preds = %261, %259
-  %263 = load volatile i32, ptr %23, align 4
-  %264 = and i32 %263, 1
-  %265 = icmp ne i32 %264, 0
-  br i1 %265, label %266, label %269
+263:                                              ; preds = %262, %260
+  %264 = load volatile i32, ptr %23, align 4
+  %265 = and i32 %264, 1
+  %266 = icmp ne i32 %265, 0
+  br i1 %266, label %267, label %270
 
-266:                                              ; preds = %262
-  %267 = load volatile i32, ptr %23, align 4
-  %268 = or i32 %267, 2
-  store volatile i32 %268, ptr %23, align 4
-  br label %269
+267:                                              ; preds = %263
+  %268 = load volatile i32, ptr %23, align 4
+  %269 = or i32 %268, 2
+  store volatile i32 %269, ptr %23, align 4
+  br label %270
 
-269:                                              ; preds = %266, %262
-  %270 = load volatile i32, ptr %23, align 4
-  %271 = and i32 %270, -2
-  store volatile i32 %271, ptr %23, align 4
-  %272 = load volatile i32, ptr %23, align 4
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %294
+270:                                              ; preds = %267, %263
+  %271 = load volatile i32, ptr %23, align 4
+  %272 = and i32 %271, -2
+  store volatile i32 %272, ptr %23, align 4
+  %273 = load volatile i32, ptr %23, align 4
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %295
 
-274:                                              ; preds = %269
-  %275 = load volatile ptr, ptr %22, align 8
-  %276 = icmp eq ptr %275, null
-  br i1 %276, label %277, label %294
+275:                                              ; preds = %270
+  %276 = load volatile ptr, ptr %22, align 8
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %278, label %295
 
-277:                                              ; preds = %274
-  %278 = load volatile i32, ptr %13, align 4
-  %279 = icmp ne i32 %278, 0
-  br i1 %279, label %280, label %286
+278:                                              ; preds = %275
+  %279 = load volatile i32, ptr %13, align 4
+  %280 = icmp ne i32 %279, 0
+  br i1 %280, label %281, label %287
 
-280:                                              ; preds = %277
-  %281 = load volatile ptr, ptr %20, align 8
-  %282 = load ptr, ptr %5, align 8
-  %283 = load ptr, ptr %6, align 8
-  %284 = load volatile ptr, ptr %18, align 8
-  %285 = load volatile i32, ptr %9, align 4
-  call void @dissect_x11_initial_conn(ptr noundef %281, ptr noundef %282, ptr noundef %283, ptr noundef %284, i32 noundef %285)
-  br label %293
-
-286:                                              ; preds = %277
-  %287 = load volatile ptr, ptr %20, align 8
-  %288 = load ptr, ptr %5, align 8
-  %289 = load ptr, ptr %6, align 8
-  %290 = load volatile ptr, ptr %16, align 8
-  %291 = load volatile ptr, ptr %18, align 8
-  %292 = load volatile i32, ptr %9, align 4
-  call void @dissect_x11_request(ptr noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef %290, ptr noundef %291, i32 noundef %292)
-  br label %293
-
-293:                                              ; preds = %286, %280
+281:                                              ; preds = %278
+  %282 = load volatile ptr, ptr %20, align 8
+  %283 = load ptr, ptr %5, align 8
+  %284 = load ptr, ptr %6, align 8
+  %285 = load volatile ptr, ptr %18, align 8
+  %286 = load volatile i32, ptr %9, align 4
+  call void @dissect_x11_initial_conn(ptr noundef %282, ptr noundef %283, ptr noundef %284, ptr noundef %285, i32 noundef %286)
   br label %294
 
-294:                                              ; preds = %293, %274, %269
-  %295 = load volatile i32, ptr %23, align 4
-  %296 = icmp eq i32 %295, 0
-  br i1 %296, label %297, label %339
+287:                                              ; preds = %278
+  %288 = load volatile ptr, ptr %20, align 8
+  %289 = load ptr, ptr %5, align 8
+  %290 = load ptr, ptr %6, align 8
+  %291 = load volatile ptr, ptr %16, align 8
+  %292 = load volatile ptr, ptr %18, align 8
+  %293 = load volatile i32, ptr %9, align 4
+  call void @dissect_x11_request(ptr noundef %288, ptr noundef %289, ptr noundef %290, ptr noundef %291, ptr noundef %292, i32 noundef %293)
+  br label %294
 
-297:                                              ; preds = %294
-  %298 = load volatile ptr, ptr %22, align 8
-  %299 = icmp ne ptr %298, null
-  br i1 %299, label %300, label %339
+294:                                              ; preds = %287, %281
+  br label %295
 
-300:                                              ; preds = %297
-  %301 = load volatile ptr, ptr %22, align 8
-  %302 = getelementptr inbounds %struct.except_t, ptr %301, i32 0, i32 0
-  %303 = getelementptr inbounds %struct.except_id_t, ptr %302, i32 0, i32 1
-  %304 = load volatile i64, ptr %303, align 8
-  %305 = icmp eq i64 %304, 3
-  br i1 %305, label %324, label %306
+295:                                              ; preds = %294, %275, %270
+  %296 = load volatile i32, ptr %23, align 4
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %298, label %340
 
-306:                                              ; preds = %300
-  %307 = load volatile ptr, ptr %22, align 8
-  %308 = getelementptr inbounds %struct.except_t, ptr %307, i32 0, i32 0
-  %309 = getelementptr inbounds %struct.except_id_t, ptr %308, i32 0, i32 1
-  %310 = load volatile i64, ptr %309, align 8
-  %311 = icmp eq i64 %310, 2
-  br i1 %311, label %324, label %312
+298:                                              ; preds = %295
+  %299 = load volatile ptr, ptr %22, align 8
+  %300 = icmp ne ptr %299, null
+  br i1 %300, label %301, label %340
 
-312:                                              ; preds = %306
-  %313 = load volatile ptr, ptr %22, align 8
-  %314 = getelementptr inbounds %struct.except_t, ptr %313, i32 0, i32 0
-  %315 = getelementptr inbounds %struct.except_id_t, ptr %314, i32 0, i32 1
-  %316 = load volatile i64, ptr %315, align 8
-  %317 = icmp eq i64 %316, 7
-  br i1 %317, label %324, label %318
+301:                                              ; preds = %298
+  %302 = load volatile ptr, ptr %22, align 8
+  %303 = getelementptr inbounds %struct.except_t, ptr %302, i32 0, i32 0
+  %304 = getelementptr inbounds %struct.except_id_t, ptr %303, i32 0, i32 1
+  %305 = load volatile i64, ptr %304, align 8
+  %306 = icmp eq i64 %305, 3
+  br i1 %306, label %325, label %307
 
-318:                                              ; preds = %312
-  %319 = load volatile ptr, ptr %22, align 8
-  %320 = getelementptr inbounds %struct.except_t, ptr %319, i32 0, i32 0
-  %321 = getelementptr inbounds %struct.except_id_t, ptr %320, i32 0, i32 1
-  %322 = load volatile i64, ptr %321, align 8
-  %323 = icmp eq i64 %322, 9
-  br i1 %323, label %324, label %339
+307:                                              ; preds = %301
+  %308 = load volatile ptr, ptr %22, align 8
+  %309 = getelementptr inbounds %struct.except_t, ptr %308, i32 0, i32 0
+  %310 = getelementptr inbounds %struct.except_id_t, ptr %309, i32 0, i32 1
+  %311 = load volatile i64, ptr %310, align 8
+  %312 = icmp eq i64 %311, 2
+  br i1 %312, label %325, label %313
 
-324:                                              ; preds = %318, %312, %306, %300
-  %325 = load volatile i32, ptr %23, align 4
-  %326 = or i32 %325, 1
-  store volatile i32 %326, ptr %23, align 4
-  %327 = icmp ne i32 %326, 0
-  br i1 %327, label %328, label %339
+313:                                              ; preds = %307
+  %314 = load volatile ptr, ptr %22, align 8
+  %315 = getelementptr inbounds %struct.except_t, ptr %314, i32 0, i32 0
+  %316 = getelementptr inbounds %struct.except_id_t, ptr %315, i32 0, i32 1
+  %317 = load volatile i64, ptr %316, align 8
+  %318 = icmp eq i64 %317, 7
+  br i1 %318, label %325, label %319
 
-328:                                              ; preds = %324
-  %329 = load ptr, ptr %4, align 8
-  %330 = load ptr, ptr %5, align 8
-  %331 = load ptr, ptr %6, align 8
-  %332 = load volatile ptr, ptr %22, align 8
-  %333 = getelementptr inbounds %struct.except_t, ptr %332, i32 0, i32 0
-  %334 = getelementptr inbounds %struct.except_id_t, ptr %333, i32 0, i32 1
-  %335 = load volatile i64, ptr %334, align 8
-  %336 = load volatile ptr, ptr %22, align 8
-  %337 = getelementptr inbounds %struct.except_t, ptr %336, i32 0, i32 1
-  %338 = load volatile ptr, ptr %337, align 8
-  call void @show_exception(ptr noundef %329, ptr noundef %330, ptr noundef %331, i64 noundef %335, ptr noundef %338)
-  br label %339
+319:                                              ; preds = %313
+  %320 = load volatile ptr, ptr %22, align 8
+  %321 = getelementptr inbounds %struct.except_t, ptr %320, i32 0, i32 0
+  %322 = getelementptr inbounds %struct.except_id_t, ptr %321, i32 0, i32 1
+  %323 = load volatile i64, ptr %322, align 8
+  %324 = icmp eq i64 %323, 9
+  br i1 %324, label %325, label %340
 
-339:                                              ; preds = %328, %324, %318, %297, %294
-  %340 = load volatile i32, ptr %23, align 4
-  %341 = and i32 %340, 1
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %348, label %343
+325:                                              ; preds = %319, %313, %307, %301
+  %326 = load volatile i32, ptr %23, align 4
+  %327 = or i32 %326, 1
+  store volatile i32 %327, ptr %23, align 4
+  %328 = icmp ne i32 %327, 0
+  br i1 %328, label %329, label %340
 
-343:                                              ; preds = %339
-  %344 = load volatile ptr, ptr %22, align 8
-  %345 = icmp ne ptr %344, null
-  br i1 %345, label %346, label %348
+329:                                              ; preds = %325
+  %330 = load ptr, ptr %4, align 8
+  %331 = load ptr, ptr %5, align 8
+  %332 = load ptr, ptr %6, align 8
+  %333 = load volatile ptr, ptr %22, align 8
+  %334 = getelementptr inbounds %struct.except_t, ptr %333, i32 0, i32 0
+  %335 = getelementptr inbounds %struct.except_id_t, ptr %334, i32 0, i32 1
+  %336 = load volatile i64, ptr %335, align 8
+  %337 = load volatile ptr, ptr %22, align 8
+  %338 = getelementptr inbounds %struct.except_t, ptr %337, i32 0, i32 1
+  %339 = load volatile ptr, ptr %338, align 8
+  call void @show_exception(ptr noundef %330, ptr noundef %331, ptr noundef %332, i64 noundef %336, ptr noundef %339)
+  br label %340
 
-346:                                              ; preds = %343
-  %347 = load volatile ptr, ptr %22, align 8
-  call void @except_rethrow(ptr noundef %347) #8
+340:                                              ; preds = %329, %325, %319, %298, %295
+  %341 = load volatile i32, ptr %23, align 4
+  %342 = and i32 %341, 1
+  %343 = icmp ne i32 %342, 0
+  br i1 %343, label %349, label %344
+
+344:                                              ; preds = %340
+  %345 = load volatile ptr, ptr %22, align 8
+  %346 = icmp ne ptr %345, null
+  br i1 %346, label %347, label %349
+
+347:                                              ; preds = %344
+  %348 = load volatile ptr, ptr %22, align 8
+  call void @except_rethrow(ptr noundef %348) #8
   unreachable
 
-348:                                              ; preds = %343, %339
-  %349 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 2
-  %350 = getelementptr inbounds %struct.except_t, ptr %349, i32 0, i32 2
-  %351 = load volatile ptr, ptr %350, align 8
-  call void @except_free(ptr noundef %351)
-  %352 = call ptr @except_pop()
-  %353 = load volatile i32, ptr %11, align 4
-  %354 = load volatile i32, ptr %7, align 4
-  %355 = add i32 %354, %353
-  store volatile i32 %355, ptr %7, align 4
+349:                                              ; preds = %344, %340
+  %350 = getelementptr inbounds %struct.except_catch, ptr %25, i32 0, i32 2
+  %351 = getelementptr inbounds %struct.except_t, ptr %350, i32 0, i32 2
+  %352 = load volatile ptr, ptr %351, align 8
+  call void @except_free(ptr noundef %352)
+  %353 = call ptr @except_pop()
+  %354 = load volatile i32, ptr %11, align 4
+  %355 = load volatile i32, ptr %7, align 4
+  %356 = add i32 %355, %354
+  store volatile i32 %356, ptr %7, align 4
   store volatile ptr @.str.10553, ptr %16, align 8
   br label %26, !llvm.loop !6
 
-356:                                              ; preds = %217, %191, %155, %84, %43, %26
+357:                                              ; preds = %218, %192, %156, %84, %43, %26
   ret void
 }
 
@@ -26618,16 +26620,17 @@ define internal ptr @x11_stateinit(ptr noundef %0) #1 {
   %186 = load ptr, ptr %3, align 8
   %187 = getelementptr inbounds %struct._x11_conv_data, ptr %186, i32 0, i32 0
   %188 = load ptr, ptr %187, align 8
-  %189 = call ptr @wmem_map_insert(ptr noundef %188, ptr noundef null, ptr noundef inttoptr (i64 -3 to ptr))
-  %190 = load ptr, ptr %3, align 8
-  %191 = getelementptr inbounds %struct._x11_conv_data, ptr %190, i32 0, i32 10
-  store i32 -1, ptr %191, align 4
-  %192 = load ptr, ptr %2, align 8
-  %193 = load i32, ptr @proto_x11, align 4
-  %194 = load ptr, ptr %3, align 8
-  call void @conversation_add_proto_data(ptr noundef %192, i32 noundef %193, ptr noundef %194)
+  %189 = inttoptr i64 -3 to ptr
+  %190 = call ptr @wmem_map_insert(ptr noundef %188, ptr noundef null, ptr noundef %189)
+  %191 = load ptr, ptr %3, align 8
+  %192 = getelementptr inbounds %struct._x11_conv_data, ptr %191, i32 0, i32 10
+  store i32 -1, ptr %192, align 4
+  %193 = load ptr, ptr %2, align 8
+  %194 = load i32, ptr @proto_x11, align 4
   %195 = load ptr, ptr %3, align 8
-  ret ptr %195
+  call void @conversation_add_proto_data(ptr noundef %193, i32 noundef %194, ptr noundef %195)
+  %196 = load ptr, ptr %3, align 8
+  ret ptr %196
 }
 
 ; Function Attrs: nounwind uwtable
@@ -37096,7 +37099,8 @@ define internal void @dissect_x11_initial_conn(ptr noundef %0, ptr noundef %1, p
   %130 = load i32, ptr %129, align 8
   %131 = sext i32 %130 to i64
   %132 = inttoptr i64 %131 to ptr
-  %133 = call ptr @wmem_map_insert(ptr noundef %127, ptr noundef %132, ptr noundef inttoptr (i64 -1 to ptr))
+  %133 = inttoptr i64 -1 to ptr
+  %134 = call ptr @wmem_map_insert(ptr noundef %127, ptr noundef %132, ptr noundef %133)
   ret void
 }
 

@@ -182,79 +182,80 @@ define internal fastcc noundef ptr @create_port(i32 noundef %0, i32 noundef %1) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, i8 0, i64 168, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !11
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 16) #12
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %43, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 16) #12
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %44, label %9
 
-8:                                                ; preds = %2
-  %9 = load i32, ptr @my_client, align 4
-  store i32 %9, ptr %6, align 8
-  %10 = load i8, ptr @duplex, align 1, !range !6, !noundef !7
-  %11 = zext nneg i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4
+9:                                                ; preds = %2
+  %10 = load i32, ptr @my_client, align 4
+  store i32 %10, ptr %7, align 8
+  %11 = load i8, ptr @duplex, align 1, !range !6, !noundef !7
+  %12 = zext nneg i8 %11 to i32
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 0, ptr %14, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, i8 0, i64 168, i1 false)
-  %14 = trunc i32 %9 to i8
-  store i8 %14, ptr %3, align 8
-  %15 = icmp eq i8 %10, 0
-  %16 = getelementptr inbounds i8, ptr %3, i64 2
-  br i1 %15, label %21, label %17
+  %15 = trunc i32 %10 to i8
+  store i8 %15, ptr %3, align 8
+  %16 = icmp eq i8 %11, 0
+  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  br i1 %16, label %22, label %18
 
-17:                                               ; preds = %8
-  %18 = icmp eq i32 %1, 0
-  %19 = select i1 %18, i32 65, i32 66
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %0, i32 noundef %19) #9
-  br label %23
+18:                                               ; preds = %9
+  %19 = icmp eq i32 %1, 0
+  %20 = select i1 %19, i32 65, i32 66
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %17, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %0, i32 noundef %20) #9
+  br label %24
 
-21:                                               ; preds = %8
-  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %0) #9
-  br label %23
+22:                                               ; preds = %9
+  %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %17, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %0) #9
+  br label %24
 
-23:                                               ; preds = %21, %17
-  %24 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 99, ptr %24, align 4
-  %25 = load i8, ptr @duplex, align 1, !range !6, !noundef !7
-  %26 = icmp eq i8 %25, 0
-  %27 = select i1 %26, i32 99, i32 115
-  store i32 %27, ptr %24, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 109
-  store i8 3, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 655362, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 48
+24:                                               ; preds = %22, %18
+  %25 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 99, ptr %25, align 4
+  %26 = load i8, ptr @duplex, align 1, !range !6, !noundef !7
+  %27 = icmp eq i8 %26, 0
+  %28 = select i1 %27, i32 99, i32 115
+  store i32 %28, ptr %25, align 4
+  %29 = getelementptr inbounds i8, ptr %3, i64 109
+  store i8 3, ptr %29, align 1
+  %30 = getelementptr inbounds i8, ptr %3, i64 72
+  store i32 655362, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  store ptr @dummy_input, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr @dummy_free, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %6, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr %4, ptr %33, align 8
-  %34 = load i32, ptr @my_client, align 4
-  %35 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %34, i32 noundef -1062710496, ptr noundef nonnull %3) #9
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %38
+  store ptr @dummy_input, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr @dummy_free, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %7, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %4, ptr %34, align 8
+  %35 = load i32, ptr @my_client, align 4
+  %36 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %35, i32 noundef -1062710496, ptr noundef nonnull %3) #9
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %23
-  call void @kfree(ptr noundef nonnull %6) #9
-  br label %43
+38:                                               ; preds = %24
+  call void @kfree(ptr noundef nonnull %7) #9
+  br label %44
 
-38:                                               ; preds = %23
-  %39 = getelementptr inbounds i8, ptr %3, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %41, ptr %42, align 4
-  br label %43
+39:                                               ; preds = %24
+  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %42, ptr %43, align 4
+  br label %44
 
-43:                                               ; preds = %38, %37, %2
-  %44 = phi ptr [ null, %37 ], [ %6, %38 ], [ null, %2 ]
+44:                                               ; preds = %39, %38, %2
+  %45 = phi ptr [ null, %38 ], [ %7, %39 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3) #9
-  ret ptr %44
+  ret ptr %45
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

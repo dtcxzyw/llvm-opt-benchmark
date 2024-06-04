@@ -397,10 +397,11 @@ entry:
   %0 = load i32, ptr %id.addr, align 4
   %1 = load ptr, ptr %spdy_session.addr, align 8
   call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %spdy_session.addr, align 8
-  store ptr %2, ptr %spdy_session_, align 8
+  %3 = load ptr, ptr %spdy_session.addr, align 8
+  store ptr %3, ptr %spdy_session_, align 8
   %visitor_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 2
   store ptr null, ptr %visitor_, align 8
   %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 3
@@ -439,30 +440,30 @@ if.then:                                          ; preds = %invoke.cont6
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad4:                                            ; preds = %invoke.cont15, %invoke.cont13, %if.end, %invoke.cont7, %if.else, %invoke.cont5, %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont6
@@ -482,12 +483,12 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br label %if.end
 
 lpad10:                                           ; preds = %invoke.cont9
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #9
   br label %ehcleanup
 
@@ -501,11 +502,11 @@ invoke.cont13:                                    ; preds = %if.end
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   %spdy_session_16 = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
-  %15 = load ptr, ptr %spdy_session_16, align 8
-  %16 = load i32, ptr %id.addr, align 4
+  %16 = load ptr, ptr %spdy_session_16, align 8
+  %17 = load i32, ptr %id.addr, align 4
   %priority_17 = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 4
-  %17 = load i8, ptr %priority_17, align 1
-  invoke void @_ZN3net15QuicSpdySession22RegisterStreamPriorityEjh(ptr noundef nonnull align 8 dereferenceable(2057) %15, i32 noundef %16, i8 noundef zeroext %17)
+  %18 = load i8, ptr %priority_17, align 1
+  invoke void @_ZN3net15QuicSpdySession22RegisterStreamPriorityEjh(ptr noundef nonnull align 8 dereferenceable(2057) %16, i32 noundef %17, i8 noundef zeroext %18)
           to label %invoke.cont18 unwind label %lpad4
 
 invoke.cont18:                                    ; preds = %invoke.cont15
@@ -629,20 +630,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %spdy_session_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %spdy_session_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %spdy_session_2 = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %spdy_session_2, align 8
+  %2 = load ptr, ptr %spdy_session_2, align 8
   %call = invoke noundef i32 @_ZNK3net18ReliableQuicStream2idEv(ptr noundef nonnull align 8 dereferenceable(377) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  invoke void @_ZN3net15QuicSpdySession24UnregisterStreamPriorityEj(ptr noundef nonnull align 8 dereferenceable(2057) %1, i32 noundef %call)
+  invoke void @_ZN3net15QuicSpdySession24UnregisterStreamPriorityEj(ptr noundef nonnull align 8 dereferenceable(2057) %2, i32 noundef %call)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -661,10 +663,10 @@ if.end:                                           ; preds = %invoke.cont3, %entr
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 

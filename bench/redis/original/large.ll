@@ -3463,7 +3463,8 @@ entry:
   %edata.addr = alloca ptr, align 8
   store ptr %edata, ptr %edata.addr, align 8
   %0 = load ptr, ptr %edata.addr, align 8
-  call void @large_prof_tctx_set(ptr noundef %0, ptr noundef inttoptr (i64 1 to ptr))
+  %1 = inttoptr i64 1 to ptr
+  call void @large_prof_tctx_set(ptr noundef %0, ptr noundef %1)
   ret void
 }
 

@@ -39,38 +39,39 @@ entry:
   store i32 %priority, ptr %priority.addr, align 4
   store ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, ptr %__range2, align 8
   store ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.base::internal::ThreadPriorityToNiceValuePair", ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 4), ptr %__end2, align 8
+  %0 = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 4
+  store ptr %0, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %pair, align 8
-  %3 = load ptr, ptr %pair, align 8
-  %priority1 = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %priority1, align 4
-  %5 = load i32, ptr %priority.addr, align 4
-  %cmp2 = icmp eq i32 %4, %5
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %pair, align 8
+  %4 = load ptr, ptr %pair, align 8
+  %priority1 = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %priority1, align 4
+  %6 = load i32, ptr %priority.addr, align 4
+  %cmp2 = icmp eq i32 %5, %6
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %pair, align 8
-  %nice_value = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %nice_value, align 4
-  store i32 %7, ptr %retval, align 4
+  %7 = load ptr, ptr %pair, align 8
+  %nice_value = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %7, i32 0, i32 1
+  %8 = load i32, ptr %nice_value, align 4
+  store i32 %8, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %8 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %8, i32 1
+  %9 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %9, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -79,8 +80,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -835,126 +835,127 @@ define internal i64 @initialize(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
   %25 = call i64 @rb_iv_set(i64 noundef %23, ptr noundef @.str.21, i64 noundef %24)
   %26 = load i64, ptr %12, align 8
   %27 = call zeroext i1 @RB_NIL_P(i64 noundef %26) #13
-  br i1 %27, label %52, label %28
+  br i1 %27, label %53, label %28
 
 28:                                               ; preds = %3
   %29 = load i64, ptr @initialize.kw, align 16
   %30 = icmp ne i64 %29, 0
-  br i1 %30, label %34, label %31
+  br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
   %32 = call i64 @rb_intern_const(ptr noundef @.str.22) #17
   store i64 %32, ptr @initialize.kw, align 16
   %33 = call i64 @rb_intern_const(ptr noundef @.str.23) #17
-  store i64 %33, ptr getelementptr inbounds ([2 x i64], ptr @initialize.kw, i64 0, i64 1), align 8
-  br label %34
+  %34 = getelementptr inbounds [2 x i64], ptr @initialize.kw, i64 0, i64 1
+  store i64 %33, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %31, %28
-  %35 = load i64, ptr %12, align 8
-  %36 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
-  %37 = call i32 @rb_get_kwargs(i64 noundef %35, ptr noundef @initialize.kw, i32 noundef 0, i32 noundef 2, ptr noundef %36)
-  %38 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
-  %39 = load i64, ptr %38, align 16
-  %40 = icmp ne i64 %39, 36
-  br i1 %40, label %41, label %44
+35:                                               ; preds = %31, %28
+  %36 = load i64, ptr %12, align 8
+  %37 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
+  %38 = call i32 @rb_get_kwargs(i64 noundef %36, ptr noundef @initialize.kw, i32 noundef 0, i32 noundef 2, ptr noundef %37)
+  %39 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
+  %40 = load i64, ptr %39, align 16
+  %41 = icmp ne i64 %40, 36
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
-  %43 = load i64, ptr %42, align 16
-  store i64 %43, ptr %13, align 8
-  br label %44
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 0
+  %44 = load i64, ptr %43, align 16
+  store i64 %44, ptr %13, align 8
+  br label %45
 
-44:                                               ; preds = %41, %34
-  %45 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 1
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp ne i64 %46, 36
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %42, %35
+  %46 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 1
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ne i64 %47, 36
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 1
-  %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr %14, align 8
-  br label %51
-
-51:                                               ; preds = %48, %44
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds [2 x i64], ptr %19, i64 0, i64 1
+  %51 = load i64, ptr %50, align 8
+  store i64 %51, ptr %14, align 8
   br label %52
 
-52:                                               ; preds = %51, %3
-  %53 = load i64, ptr %6, align 8
-  %54 = load i64, ptr %13, align 8
-  %55 = call i64 @rb_iv_set(i64 noundef %53, ptr noundef @.str.24, i64 noundef %54)
-  %56 = load i64, ptr %6, align 8
-  %57 = load i64, ptr %14, align 8
-  %58 = call i64 @rb_iv_set(i64 noundef %56, ptr noundef @.str.10, i64 noundef %57)
-  %59 = load i64, ptr %8, align 8
-  %60 = call i64 @rb_Integer(i64 noundef %59)
-  store i64 %60, ptr %8, align 8
-  %61 = load i64, ptr %8, align 8
-  %62 = call i64 @rb_num2ulong_inline(i64 noundef %61)
-  %63 = inttoptr i64 %62 to ptr
-  store ptr %63, ptr %18, align 8
-  %64 = load ptr, ptr %18, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = call i64 @rb_long2num_inline(i64 noundef %65)
-  %67 = load i64, ptr %11, align 8
-  %68 = call zeroext i1 @RB_NIL_P(i64 noundef %67) #13
-  br i1 %68, label %69, label %70
+52:                                               ; preds = %49, %45
+  br label %53
 
-69:                                               ; preds = %52
-  br label %73
+53:                                               ; preds = %52, %3
+  %54 = load i64, ptr %6, align 8
+  %55 = load i64, ptr %13, align 8
+  %56 = call i64 @rb_iv_set(i64 noundef %54, ptr noundef @.str.24, i64 noundef %55)
+  %57 = load i64, ptr %6, align 8
+  %58 = load i64, ptr %14, align 8
+  %59 = call i64 @rb_iv_set(i64 noundef %57, ptr noundef @.str.10, i64 noundef %58)
+  %60 = load i64, ptr %8, align 8
+  %61 = call i64 @rb_Integer(i64 noundef %60)
+  store i64 %61, ptr %8, align 8
+  %62 = load i64, ptr %8, align 8
+  %63 = call i64 @rb_num2ulong_inline(i64 noundef %62)
+  %64 = inttoptr i64 %63 to ptr
+  store ptr %64, ptr %18, align 8
+  %65 = load ptr, ptr %18, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = call i64 @rb_long2num_inline(i64 noundef %66)
+  %68 = load i64, ptr %11, align 8
+  %69 = call zeroext i1 @RB_NIL_P(i64 noundef %68) #13
+  br i1 %69, label %70, label %71
 
-70:                                               ; preds = %52
-  %71 = load i64, ptr %11, align 8
-  %72 = call i32 @rb_num2int_inline(i64 noundef %71)
-  br label %73
+70:                                               ; preds = %53
+  br label %74
 
-73:                                               ; preds = %70, %69
-  %74 = phi i32 [ 2, %69 ], [ %72, %70 ]
-  store i32 %74, ptr %17, align 4
-  %75 = load i32, ptr %17, align 4
-  %76 = zext i32 %75 to i64
-  %77 = call i64 @RB_INT2FIX(i64 noundef %76) #13
-  store i64 %77, ptr %11, align 8
-  %78 = load i64, ptr %10, align 8
-  %79 = call i64 @rb_fiddle_type_ensure(i64 noundef %78)
-  store i64 %79, ptr %10, align 8
-  %80 = load i64, ptr %10, align 8
-  %81 = call i32 @rb_num2int_inline(i64 noundef %80)
-  store i32 %81, ptr %15, align 4
-  %82 = load i32, ptr %15, align 4
-  %83 = call ptr @rb_fiddle_int_to_ffi_type(i32 noundef %82)
-  %84 = load i32, ptr %15, align 4
-  %85 = sext i32 %84 to i64
-  %86 = call i64 @RB_INT2FIX(i64 noundef %85) #13
-  store i64 %86, ptr %10, align 8
-  %87 = load i64, ptr %9, align 8
-  %88 = call i64 @normalize_argument_types(ptr noundef @.str.25, i64 noundef %87, ptr noundef %16)
-  store i64 %88, ptr %9, align 8
-  %89 = load i64, ptr %6, align 8
-  %90 = load i64, ptr %8, align 8
-  %91 = call i64 @rb_iv_set(i64 noundef %89, ptr noundef @.str.5, i64 noundef %90)
-  %92 = load i64, ptr %6, align 8
-  %93 = load i64, ptr %9, align 8
-  %94 = call i64 @rb_iv_set(i64 noundef %92, ptr noundef @.str.7, i64 noundef %93)
-  %95 = load i64, ptr %6, align 8
-  %96 = load i64, ptr %10, align 8
-  %97 = call i64 @rb_iv_set(i64 noundef %95, ptr noundef @.str.14, i64 noundef %96)
-  %98 = load i64, ptr %6, align 8
-  %99 = load i64, ptr %11, align 8
-  %100 = call i64 @rb_iv_set(i64 noundef %98, ptr noundef @.str.6, i64 noundef %99)
-  %101 = load i64, ptr %6, align 8
-  %102 = load i8, ptr %16, align 1
-  %103 = trunc i8 %102 to i1
-  %104 = select i1 %103, i64 20, i64 0
-  %105 = call i64 @rb_iv_set(i64 noundef %101, ptr noundef @.str.9, i64 noundef %104)
-  %106 = load i64, ptr %6, align 8
-  %107 = call ptr @rb_check_typeddata(i64 noundef %106, ptr noundef @function_data_type)
-  store ptr %107, ptr %7, align 8
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %struct.ffi_cif, ptr %108, i32 0, i32 2
-  store ptr null, ptr %109, align 8
-  %110 = load i64, ptr %6, align 8
-  ret i64 %110
+71:                                               ; preds = %53
+  %72 = load i64, ptr %11, align 8
+  %73 = call i32 @rb_num2int_inline(i64 noundef %72)
+  br label %74
+
+74:                                               ; preds = %71, %70
+  %75 = phi i32 [ 2, %70 ], [ %73, %71 ]
+  store i32 %75, ptr %17, align 4
+  %76 = load i32, ptr %17, align 4
+  %77 = zext i32 %76 to i64
+  %78 = call i64 @RB_INT2FIX(i64 noundef %77) #13
+  store i64 %78, ptr %11, align 8
+  %79 = load i64, ptr %10, align 8
+  %80 = call i64 @rb_fiddle_type_ensure(i64 noundef %79)
+  store i64 %80, ptr %10, align 8
+  %81 = load i64, ptr %10, align 8
+  %82 = call i32 @rb_num2int_inline(i64 noundef %81)
+  store i32 %82, ptr %15, align 4
+  %83 = load i32, ptr %15, align 4
+  %84 = call ptr @rb_fiddle_int_to_ffi_type(i32 noundef %83)
+  %85 = load i32, ptr %15, align 4
+  %86 = sext i32 %85 to i64
+  %87 = call i64 @RB_INT2FIX(i64 noundef %86) #13
+  store i64 %87, ptr %10, align 8
+  %88 = load i64, ptr %9, align 8
+  %89 = call i64 @normalize_argument_types(ptr noundef @.str.25, i64 noundef %88, ptr noundef %16)
+  store i64 %89, ptr %9, align 8
+  %90 = load i64, ptr %6, align 8
+  %91 = load i64, ptr %8, align 8
+  %92 = call i64 @rb_iv_set(i64 noundef %90, ptr noundef @.str.5, i64 noundef %91)
+  %93 = load i64, ptr %6, align 8
+  %94 = load i64, ptr %9, align 8
+  %95 = call i64 @rb_iv_set(i64 noundef %93, ptr noundef @.str.7, i64 noundef %94)
+  %96 = load i64, ptr %6, align 8
+  %97 = load i64, ptr %10, align 8
+  %98 = call i64 @rb_iv_set(i64 noundef %96, ptr noundef @.str.14, i64 noundef %97)
+  %99 = load i64, ptr %6, align 8
+  %100 = load i64, ptr %11, align 8
+  %101 = call i64 @rb_iv_set(i64 noundef %99, ptr noundef @.str.6, i64 noundef %100)
+  %102 = load i64, ptr %6, align 8
+  %103 = load i8, ptr %16, align 1
+  %104 = trunc i8 %103 to i1
+  %105 = select i1 %104, i64 20, i64 0
+  %106 = call i64 @rb_iv_set(i64 noundef %102, ptr noundef @.str.9, i64 noundef %105)
+  %107 = load i64, ptr %6, align 8
+  %108 = call ptr @rb_check_typeddata(i64 noundef %107, ptr noundef @function_data_type)
+  store ptr %108, ptr %7, align 8
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds %struct.ffi_cif, ptr %109, i32 0, i32 2
+  store ptr null, ptr %110, align 8
+  %111 = load i64, ptr %6, align 8
+  ret i64 %111
 }
 
 declare void @ruby_xfree(ptr noundef) #1

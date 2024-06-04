@@ -942,7 +942,8 @@ entry:
   %frombool = zext i1 %usePgs to i8
   store i8 %frombool, ptr %usePgs.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_tmpSolverBodyPool = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 4
   call void @_ZN20b3AlignedObjectArrayI15b3GpuSolverBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool)
   %m_tmpSolverContactConstraintPool = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 5
@@ -970,8 +971,8 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %0 = load i8, ptr %usePgs.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %usePgs.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %m_usePgs = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 10
   %frombool10 = zext i1 %tobool to i8
   store i8 %frombool10, ptr %m_usePgs, align 8
@@ -986,406 +987,406 @@ invoke.cont12:                                    ; preds = %invoke.cont9
 invoke.cont14:                                    ; preds = %invoke.cont12
   %m_gpuData = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
   store ptr %call, ptr %m_gpuData, align 8
-  %1 = load ptr, ptr %ctx.addr, align 8
+  %2 = load ptr, ptr %ctx.addr, align 8
   %m_gpuData15 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %m_gpuData15, align 8
-  %m_context = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %2, i32 0, i32 0
-  store ptr %1, ptr %m_context, align 8
-  %3 = load ptr, ptr %device.addr, align 8
+  %3 = load ptr, ptr %m_gpuData15, align 8
+  %m_context = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %3, i32 0, i32 0
+  store ptr %2, ptr %m_context, align 8
+  %4 = load ptr, ptr %device.addr, align 8
   %m_gpuData16 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %m_gpuData16, align 8
-  %m_device = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %4, i32 0, i32 1
-  store ptr %3, ptr %m_device, align 8
-  %5 = load ptr, ptr %queue.addr, align 8
+  %5 = load ptr, ptr %m_gpuData16, align 8
+  %m_device = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %5, i32 0, i32 1
+  store ptr %4, ptr %m_device, align 8
+  %6 = load ptr, ptr %queue.addr, align 8
   %m_gpuData17 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %m_gpuData17, align 8
-  %m_queue = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %6, i32 0, i32 2
-  store ptr %5, ptr %m_queue, align 8
+  %7 = load ptr, ptr %m_gpuData17, align 8
+  %m_queue = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %7, i32 0, i32 2
+  store ptr %6, ptr %m_queue, align 8
   %call19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #13
           to label %invoke.cont18 unwind label %lpad11
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %8 = load ptr, ptr %device.addr, align 8
-  %9 = load ptr, ptr %queue.addr, align 8
-  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call19, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef 0)
+  %8 = load ptr, ptr %ctx.addr, align 8
+  %9 = load ptr, ptr %device.addr, align 8
+  %10 = load ptr, ptr %queue.addr, align 8
+  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call19, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef 0)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   %m_gpuData22 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %10 = load ptr, ptr %m_gpuData22, align 8
-  %m_prefixScan = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %10, i32 0, i32 3
+  %11 = load ptr, ptr %m_gpuData22, align 8
+  %m_prefixScan = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %11, i32 0, i32 3
   store ptr %call19, ptr %m_prefixScan, align 8
   %call24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #13
           to label %invoke.cont23 unwind label %lpad11
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %m_gpuData25 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %11 = load ptr, ptr %m_gpuData25, align 8
-  %m_context26 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %m_context26, align 8
+  %12 = load ptr, ptr %m_gpuData25, align 8
+  %m_context26 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %m_context26, align 8
   %m_gpuData27 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %13 = load ptr, ptr %m_gpuData27, align 8
-  %m_queue28 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %m_queue28, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call24, ptr noundef %12, ptr noundef %14, i64 noundef 0, i1 noundef zeroext true)
+  %14 = load ptr, ptr %m_gpuData27, align 8
+  %m_queue28 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %m_queue28, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call24, ptr noundef %13, ptr noundef %15, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont23
   %m_gpuData31 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %15 = load ptr, ptr %m_gpuData31, align 8
-  %m_gpuConstraintRowOffsets = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %15, i32 0, i32 11
+  %16 = load ptr, ptr %m_gpuData31, align 8
+  %m_gpuConstraintRowOffsets = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %16, i32 0, i32 11
   store ptr %call24, ptr %m_gpuConstraintRowOffsets, align 8
   %call33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #13
           to label %invoke.cont32 unwind label %lpad11
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   %m_gpuData34 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %16 = load ptr, ptr %m_gpuData34, align 8
-  %m_context35 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %m_context35, align 8
+  %17 = load ptr, ptr %m_gpuData34, align 8
+  %m_context35 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %m_context35, align 8
   %m_gpuData36 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %18 = load ptr, ptr %m_gpuData36, align 8
-  %m_queue37 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %m_queue37, align 8
-  invoke void @_ZN13b3OpenCLArrayI15b3GpuSolverBodyEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call33, ptr noundef %17, ptr noundef %19, i64 noundef 0, i1 noundef zeroext true)
+  %19 = load ptr, ptr %m_gpuData36, align 8
+  %m_queue37 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %19, i32 0, i32 2
+  %20 = load ptr, ptr %m_queue37, align 8
+  invoke void @_ZN13b3OpenCLArrayI15b3GpuSolverBodyEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call33, ptr noundef %18, ptr noundef %20, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont32
   %m_gpuData40 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %m_gpuData40, align 8
-  %m_gpuSolverBodies = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %20, i32 0, i32 12
+  %21 = load ptr, ptr %m_gpuData40, align 8
+  %m_gpuSolverBodies = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %21, i32 0, i32 12
   store ptr %call33, ptr %m_gpuSolverBodies, align 8
   %call42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #13
           to label %invoke.cont41 unwind label %lpad11
 
 invoke.cont41:                                    ; preds = %invoke.cont39
   %m_gpuData43 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %21 = load ptr, ptr %m_gpuData43, align 8
-  %m_context44 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %m_context44, align 8
+  %22 = load ptr, ptr %m_gpuData43, align 8
+  %m_context44 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %m_context44, align 8
   %m_gpuData45 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %23 = load ptr, ptr %m_gpuData45, align 8
-  %m_queue46 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %23, i32 0, i32 2
-  %24 = load ptr, ptr %m_queue46, align 8
-  invoke void @_ZN13b3OpenCLArrayI17b3BatchConstraintEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call42, ptr noundef %22, ptr noundef %24, i64 noundef 0, i1 noundef zeroext true)
+  %24 = load ptr, ptr %m_gpuData45, align 8
+  %m_queue46 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %24, i32 0, i32 2
+  %25 = load ptr, ptr %m_queue46, align 8
+  invoke void @_ZN13b3OpenCLArrayI17b3BatchConstraintEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call42, ptr noundef %23, ptr noundef %25, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont41
   %m_gpuData49 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %25 = load ptr, ptr %m_gpuData49, align 8
-  %m_gpuBatchConstraints = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %25, i32 0, i32 13
+  %26 = load ptr, ptr %m_gpuData49, align 8
+  %m_gpuBatchConstraints = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %26, i32 0, i32 13
   store ptr %call42, ptr %m_gpuBatchConstraints, align 8
   %call51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #13
           to label %invoke.cont50 unwind label %lpad11
 
 invoke.cont50:                                    ; preds = %invoke.cont48
   %m_gpuData52 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %26 = load ptr, ptr %m_gpuData52, align 8
-  %m_context53 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %m_context53, align 8
+  %27 = load ptr, ptr %m_gpuData52, align 8
+  %m_context53 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %m_context53, align 8
   %m_gpuData54 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %28 = load ptr, ptr %m_gpuData54, align 8
-  %m_queue55 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %m_queue55, align 8
-  invoke void @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call51, ptr noundef %27, ptr noundef %29, i64 noundef 0, i1 noundef zeroext true)
+  %29 = load ptr, ptr %m_gpuData54, align 8
+  %m_queue55 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %29, i32 0, i32 2
+  %30 = load ptr, ptr %m_queue55, align 8
+  invoke void @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call51, ptr noundef %28, ptr noundef %30, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont50
   %m_gpuData58 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %30 = load ptr, ptr %m_gpuData58, align 8
-  %m_gpuConstraintRows = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %30, i32 0, i32 14
+  %31 = load ptr, ptr %m_gpuData58, align 8
+  %m_gpuConstraintRows = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %31, i32 0, i32 14
   store ptr %call51, ptr %m_gpuConstraintRows, align 8
   %call60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #13
           to label %invoke.cont59 unwind label %lpad11
 
 invoke.cont59:                                    ; preds = %invoke.cont57
   %m_gpuData61 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %31 = load ptr, ptr %m_gpuData61, align 8
-  %m_context62 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %m_context62, align 8
+  %32 = load ptr, ptr %m_gpuData61, align 8
+  %m_context62 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %m_context62, align 8
   %m_gpuData63 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %33 = load ptr, ptr %m_gpuData63, align 8
-  %m_queue64 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %m_queue64, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call60, ptr noundef %32, ptr noundef %34, i64 noundef 0, i1 noundef zeroext true)
+  %34 = load ptr, ptr %m_gpuData63, align 8
+  %m_queue64 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %m_queue64, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call60, ptr noundef %33, ptr noundef %35, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont59
   %m_gpuData67 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %35 = load ptr, ptr %m_gpuData67, align 8
-  %m_gpuConstraintInfo1 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %35, i32 0, i32 15
+  %36 = load ptr, ptr %m_gpuData67, align 8
+  %m_gpuConstraintInfo1 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %36, i32 0, i32 15
   store ptr %call60, ptr %m_gpuConstraintInfo1, align 8
   store i32 0, ptr %errNum, align 4
   %m_gpuData68 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %m_gpuData68, align 8
-  %m_context69 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %m_context69, align 8
+  %37 = load ptr, ptr %m_gpuData68, align 8
+  %m_context69 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %m_context69, align 8
   %m_gpuData70 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %38 = load ptr, ptr %m_gpuData70, align 8
-  %m_device71 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %m_device71, align 8
-  %40 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %call73 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef %errNum, ptr noundef @.str, ptr noundef @.str.1, i1 noundef zeroext false)
+  %39 = load ptr, ptr %m_gpuData70, align 8
+  %m_device71 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %39, i32 0, i32 1
+  %40 = load ptr, ptr %m_device71, align 8
+  %41 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %call73 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %38, ptr noundef %40, ptr noundef %41, ptr noundef %errNum, ptr noundef @.str, ptr noundef @.str.1, i1 noundef zeroext false)
           to label %invoke.cont72 unwind label %lpad11
 
 invoke.cont72:                                    ; preds = %invoke.cont66
   store ptr %call73, ptr %prog, align 8
   %m_gpuData74 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %41 = load ptr, ptr %m_gpuData74, align 8
-  %m_context75 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %m_context75, align 8
+  %42 = load ptr, ptr %m_gpuData74, align 8
+  %m_context75 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %42, i32 0, i32 0
+  %43 = load ptr, ptr %m_context75, align 8
   %m_gpuData76 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %43 = load ptr, ptr %m_gpuData76, align 8
-  %m_device77 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %43, i32 0, i32 1
-  %44 = load ptr, ptr %m_device77, align 8
-  %45 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %46 = load ptr, ptr %prog, align 8
-  %call79 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %42, ptr noundef %44, ptr noundef %45, ptr noundef @.str.2, ptr noundef %errNum, ptr noundef %46, ptr noundef @.str)
+  %44 = load ptr, ptr %m_gpuData76, align 8
+  %m_device77 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %44, i32 0, i32 1
+  %45 = load ptr, ptr %m_device77, align 8
+  %46 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %47 = load ptr, ptr %prog, align 8
+  %call79 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %43, ptr noundef %45, ptr noundef %46, ptr noundef @.str.2, ptr noundef %errNum, ptr noundef %47, ptr noundef @.str)
           to label %invoke.cont78 unwind label %lpad11
 
 invoke.cont78:                                    ; preds = %invoke.cont72
   %m_gpuData80 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %47 = load ptr, ptr %m_gpuData80, align 8
-  %m_solveJointConstraintRowsKernels = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %47, i32 0, i32 4
+  %48 = load ptr, ptr %m_gpuData80, align 8
+  %m_solveJointConstraintRowsKernels = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %48, i32 0, i32 4
   store ptr %call79, ptr %m_solveJointConstraintRowsKernels, align 8
   %m_gpuData81 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %48 = load ptr, ptr %m_gpuData81, align 8
-  %m_context82 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %48, i32 0, i32 0
-  %49 = load ptr, ptr %m_context82, align 8
+  %49 = load ptr, ptr %m_gpuData81, align 8
+  %m_context82 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %49, i32 0, i32 0
+  %50 = load ptr, ptr %m_context82, align 8
   %m_gpuData83 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %50 = load ptr, ptr %m_gpuData83, align 8
-  %m_device84 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %m_device84, align 8
-  %52 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %53 = load ptr, ptr %prog, align 8
-  %call86 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %49, ptr noundef %51, ptr noundef %52, ptr noundef @.str.3, ptr noundef %errNum, ptr noundef %53, ptr noundef @.str)
+  %51 = load ptr, ptr %m_gpuData83, align 8
+  %m_device84 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %51, i32 0, i32 1
+  %52 = load ptr, ptr %m_device84, align 8
+  %53 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %54 = load ptr, ptr %prog, align 8
+  %call86 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %50, ptr noundef %52, ptr noundef %53, ptr noundef @.str.3, ptr noundef %errNum, ptr noundef %54, ptr noundef @.str)
           to label %invoke.cont85 unwind label %lpad11
 
 invoke.cont85:                                    ; preds = %invoke.cont78
   %m_gpuData87 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %54 = load ptr, ptr %m_gpuData87, align 8
-  %m_initSolverBodiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %54, i32 0, i32 5
+  %55 = load ptr, ptr %m_gpuData87, align 8
+  %m_initSolverBodiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %55, i32 0, i32 5
   store ptr %call86, ptr %m_initSolverBodiesKernel, align 8
   %m_gpuData88 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %55 = load ptr, ptr %m_gpuData88, align 8
-  %m_context89 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %55, i32 0, i32 0
-  %56 = load ptr, ptr %m_context89, align 8
+  %56 = load ptr, ptr %m_gpuData88, align 8
+  %m_context89 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %56, i32 0, i32 0
+  %57 = load ptr, ptr %m_context89, align 8
   %m_gpuData90 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %57 = load ptr, ptr %m_gpuData90, align 8
-  %m_device91 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %m_device91, align 8
-  %59 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %60 = load ptr, ptr %prog, align 8
-  %call93 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %56, ptr noundef %58, ptr noundef %59, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %60, ptr noundef @.str)
+  %58 = load ptr, ptr %m_gpuData90, align 8
+  %m_device91 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %58, i32 0, i32 1
+  %59 = load ptr, ptr %m_device91, align 8
+  %60 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %61 = load ptr, ptr %prog, align 8
+  %call93 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %57, ptr noundef %59, ptr noundef %60, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %61, ptr noundef @.str)
           to label %invoke.cont92 unwind label %lpad11
 
 invoke.cont92:                                    ; preds = %invoke.cont85
   %m_gpuData94 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %61 = load ptr, ptr %m_gpuData94, align 8
-  %m_getInfo1Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %61, i32 0, i32 6
+  %62 = load ptr, ptr %m_gpuData94, align 8
+  %m_getInfo1Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %62, i32 0, i32 6
   store ptr %call93, ptr %m_getInfo1Kernel, align 8
   %m_gpuData95 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %62 = load ptr, ptr %m_gpuData95, align 8
-  %m_context96 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %62, i32 0, i32 0
-  %63 = load ptr, ptr %m_context96, align 8
+  %63 = load ptr, ptr %m_gpuData95, align 8
+  %m_context96 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %63, i32 0, i32 0
+  %64 = load ptr, ptr %m_context96, align 8
   %m_gpuData97 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %64 = load ptr, ptr %m_gpuData97, align 8
-  %m_device98 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %64, i32 0, i32 1
-  %65 = load ptr, ptr %m_device98, align 8
-  %66 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %67 = load ptr, ptr %prog, align 8
-  %call100 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %63, ptr noundef %65, ptr noundef %66, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %67, ptr noundef @.str)
+  %65 = load ptr, ptr %m_gpuData97, align 8
+  %m_device98 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %65, i32 0, i32 1
+  %66 = load ptr, ptr %m_device98, align 8
+  %67 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %68 = load ptr, ptr %prog, align 8
+  %call100 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %64, ptr noundef %66, ptr noundef %67, ptr noundef @.str.5, ptr noundef %errNum, ptr noundef %68, ptr noundef @.str)
           to label %invoke.cont99 unwind label %lpad11
 
 invoke.cont99:                                    ; preds = %invoke.cont92
   %m_gpuData101 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %68 = load ptr, ptr %m_gpuData101, align 8
-  %m_initBatchConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %68, i32 0, i32 7
+  %69 = load ptr, ptr %m_gpuData101, align 8
+  %m_initBatchConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %69, i32 0, i32 7
   store ptr %call100, ptr %m_initBatchConstraintsKernel, align 8
   %m_gpuData102 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %69 = load ptr, ptr %m_gpuData102, align 8
-  %m_context103 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %69, i32 0, i32 0
-  %70 = load ptr, ptr %m_context103, align 8
+  %70 = load ptr, ptr %m_gpuData102, align 8
+  %m_context103 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %70, i32 0, i32 0
+  %71 = load ptr, ptr %m_context103, align 8
   %m_gpuData104 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %71 = load ptr, ptr %m_gpuData104, align 8
-  %m_device105 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %71, i32 0, i32 1
-  %72 = load ptr, ptr %m_device105, align 8
-  %73 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %74 = load ptr, ptr %prog, align 8
-  %call107 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %70, ptr noundef %72, ptr noundef %73, ptr noundef @.str.6, ptr noundef %errNum, ptr noundef %74, ptr noundef @.str)
+  %72 = load ptr, ptr %m_gpuData104, align 8
+  %m_device105 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %72, i32 0, i32 1
+  %73 = load ptr, ptr %m_device105, align 8
+  %74 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %75 = load ptr, ptr %prog, align 8
+  %call107 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %71, ptr noundef %73, ptr noundef %74, ptr noundef @.str.6, ptr noundef %errNum, ptr noundef %75, ptr noundef @.str)
           to label %invoke.cont106 unwind label %lpad11
 
 invoke.cont106:                                   ; preds = %invoke.cont99
   %m_gpuData108 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %75 = load ptr, ptr %m_gpuData108, align 8
-  %m_getInfo2Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %75, i32 0, i32 8
+  %76 = load ptr, ptr %m_gpuData108, align 8
+  %m_getInfo2Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %76, i32 0, i32 8
   store ptr %call107, ptr %m_getInfo2Kernel, align 8
   %m_gpuData109 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %76 = load ptr, ptr %m_gpuData109, align 8
-  %m_context110 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %m_context110, align 8
+  %77 = load ptr, ptr %m_gpuData109, align 8
+  %m_context110 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %77, i32 0, i32 0
+  %78 = load ptr, ptr %m_context110, align 8
   %m_gpuData111 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %78 = load ptr, ptr %m_gpuData111, align 8
-  %m_device112 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %78, i32 0, i32 1
-  %79 = load ptr, ptr %m_device112, align 8
-  %80 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %81 = load ptr, ptr %prog, align 8
-  %call114 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef @.str.7, ptr noundef %errNum, ptr noundef %81, ptr noundef @.str)
+  %79 = load ptr, ptr %m_gpuData111, align 8
+  %m_device112 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %79, i32 0, i32 1
+  %80 = load ptr, ptr %m_device112, align 8
+  %81 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %82 = load ptr, ptr %prog, align 8
+  %call114 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %78, ptr noundef %80, ptr noundef %81, ptr noundef @.str.7, ptr noundef %errNum, ptr noundef %82, ptr noundef @.str)
           to label %invoke.cont113 unwind label %lpad11
 
 invoke.cont113:                                   ; preds = %invoke.cont106
   %m_gpuData115 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %82 = load ptr, ptr %m_gpuData115, align 8
-  %m_writeBackVelocitiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %82, i32 0, i32 9
+  %83 = load ptr, ptr %m_gpuData115, align 8
+  %m_writeBackVelocitiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %83, i32 0, i32 9
   store ptr %call114, ptr %m_writeBackVelocitiesKernel, align 8
   %m_gpuData116 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %83 = load ptr, ptr %m_gpuData116, align 8
-  %m_context117 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %83, i32 0, i32 0
-  %84 = load ptr, ptr %m_context117, align 8
+  %84 = load ptr, ptr %m_gpuData116, align 8
+  %m_context117 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %84, i32 0, i32 0
+  %85 = load ptr, ptr %m_context117, align 8
   %m_gpuData118 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %85 = load ptr, ptr %m_gpuData118, align 8
-  %m_device119 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %85, i32 0, i32 1
-  %86 = load ptr, ptr %m_device119, align 8
-  %87 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
-  %88 = load ptr, ptr %prog, align 8
-  %call121 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %84, ptr noundef %86, ptr noundef %87, ptr noundef @.str.8, ptr noundef %errNum, ptr noundef %88, ptr noundef @.str)
+  %86 = load ptr, ptr %m_gpuData118, align 8
+  %m_device119 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %86, i32 0, i32 1
+  %87 = load ptr, ptr %m_device119, align 8
+  %88 = load ptr, ptr @_ZL21solveConstraintRowsCL, align 8
+  %89 = load ptr, ptr %prog, align 8
+  %call121 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %85, ptr noundef %87, ptr noundef %88, ptr noundef @.str.8, ptr noundef %errNum, ptr noundef %89, ptr noundef @.str)
           to label %invoke.cont120 unwind label %lpad11
 
 invoke.cont120:                                   ; preds = %invoke.cont113
   %m_gpuData122 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %89 = load ptr, ptr %m_gpuData122, align 8
-  %m_breakViolatedConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %89, i32 0, i32 10
+  %90 = load ptr, ptr %m_gpuData122, align 8
+  %m_breakViolatedConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %90, i32 0, i32 10
   store ptr %call121, ptr %m_breakViolatedConstraintsKernel, align 8
-  %90 = load ptr, ptr @__clewReleaseProgram, align 8
-  %91 = load ptr, ptr %prog, align 8
-  %call124 = invoke i32 %90(ptr noundef %91)
+  %91 = load ptr, ptr @__clewReleaseProgram, align 8
+  %92 = load ptr, ptr %prog, align 8
+  %call124 = invoke i32 %91(ptr noundef %92)
           to label %invoke.cont123 unwind label %lpad11
 
 invoke.cont123:                                   ; preds = %invoke.cont120
   ret void
 
 lpad:                                             ; preds = %entry
-  %92 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %exn.slot, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %ehselector.slot, align 4
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %exn.slot, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %ehselector.slot, align 4
   br label %ehcleanup129
 
 lpad2:                                            ; preds = %invoke.cont
-  %95 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %exn.slot, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %ehselector.slot, align 4
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %exn.slot, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %ehselector.slot, align 4
   br label %ehcleanup128
 
 lpad4:                                            ; preds = %invoke.cont3
-  %98 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %exn.slot, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %ehselector.slot, align 4
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %exn.slot, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %ehselector.slot, align 4
   br label %ehcleanup127
 
 lpad6:                                            ; preds = %invoke.cont5
-  %101 = landingpad { ptr, i32 }
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %exn.slot, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %ehselector.slot, align 4
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %exn.slot, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %ehselector.slot, align 4
   br label %ehcleanup126
 
 lpad8:                                            ; preds = %invoke.cont7
-  %104 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %exn.slot, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %ehselector.slot, align 4
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %exn.slot, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %ehselector.slot, align 4
   br label %ehcleanup125
 
 lpad11:                                           ; preds = %invoke.cont120, %invoke.cont113, %invoke.cont106, %invoke.cont99, %invoke.cont92, %invoke.cont85, %invoke.cont78, %invoke.cont72, %invoke.cont66, %invoke.cont57, %invoke.cont48, %invoke.cont39, %invoke.cont30, %invoke.cont21, %invoke.cont14, %invoke.cont9
-  %107 = landingpad { ptr, i32 }
+  %108 = landingpad { ptr, i32 }
           cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %exn.slot, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %ehselector.slot, align 4
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %exn.slot, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont12
-  %110 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %exn.slot, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %ehselector.slot, align 4
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %exn.slot, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #14
   br label %ehcleanup
 
 lpad20:                                           ; preds = %invoke.cont18
-  %113 = landingpad { ptr, i32 }
+  %114 = landingpad { ptr, i32 }
           cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %exn.slot, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %ehselector.slot, align 4
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %exn.slot, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call19) #14
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont23
-  %116 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
-  %117 = extractvalue { ptr, i32 } %116, 0
-  store ptr %117, ptr %exn.slot, align 8
-  %118 = extractvalue { ptr, i32 } %116, 1
-  store i32 %118, ptr %ehselector.slot, align 4
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %exn.slot, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call24) #14
   br label %ehcleanup
 
 lpad38:                                           ; preds = %invoke.cont32
-  %119 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %exn.slot, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %ehselector.slot, align 4
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %exn.slot, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call33) #14
   br label %ehcleanup
 
 lpad47:                                           ; preds = %invoke.cont41
-  %122 = landingpad { ptr, i32 }
+  %123 = landingpad { ptr, i32 }
           cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %exn.slot, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %ehselector.slot, align 4
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %exn.slot, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call42) #14
   br label %ehcleanup
 
 lpad56:                                           ; preds = %invoke.cont50
-  %125 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %126 = extractvalue { ptr, i32 } %125, 0
-  store ptr %126, ptr %exn.slot, align 8
-  %127 = extractvalue { ptr, i32 } %125, 1
-  store i32 %127, ptr %ehselector.slot, align 4
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %exn.slot, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call51) #14
   br label %ehcleanup
 
 lpad65:                                           ; preds = %invoke.cont59
-  %128 = landingpad { ptr, i32 }
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %129 = extractvalue { ptr, i32 } %128, 0
-  store ptr %129, ptr %exn.slot, align 8
-  %130 = extractvalue { ptr, i32 } %128, 1
-  store i32 %130, ptr %ehselector.slot, align 4
+  %130 = extractvalue { ptr, i32 } %129, 0
+  store ptr %130, ptr %exn.slot, align 8
+  %131 = extractvalue { ptr, i32 } %129, 1
+  store i32 %131, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call60) #14
   br label %ehcleanup
 
@@ -1628,7 +1629,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -1636,27 +1638,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1678,7 +1680,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 2
@@ -1686,27 +1689,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3GpuSolverBodyE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3GpuSolverBodyE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.28, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1728,7 +1731,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 2
@@ -1736,27 +1740,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI17b3BatchConstraintE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI17b3BatchConstraintE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.30, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1778,7 +1782,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 2
@@ -1786,27 +1791,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.32, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1937,168 +1942,169 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr @__clewReleaseKernel, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV24b3GpuPgsConstraintSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %m_gpuData, align 8
-  %m_solveJointConstraintRowsKernels = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %m_solveJointConstraintRowsKernels, align 8
-  %call = invoke i32 %0(ptr noundef %2)
+  %2 = load ptr, ptr %m_gpuData, align 8
+  %m_solveJointConstraintRowsKernels = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %2, i32 0, i32 4
+  %3 = load ptr, ptr %m_solveJointConstraintRowsKernels, align 8
+  %call = invoke i32 %1(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr @__clewReleaseKernel, align 8
+  %4 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData2 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %m_gpuData2, align 8
-  %m_initSolverBodiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %m_initSolverBodiesKernel, align 8
-  %call4 = invoke i32 %3(ptr noundef %5)
+  %5 = load ptr, ptr %m_gpuData2, align 8
+  %m_initSolverBodiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %5, i32 0, i32 5
+  %6 = load ptr, ptr %m_initSolverBodiesKernel, align 8
+  %call4 = invoke i32 %4(ptr noundef %6)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %6 = load ptr, ptr @__clewReleaseKernel, align 8
+  %7 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData5 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %7 = load ptr, ptr %m_gpuData5, align 8
-  %m_getInfo1Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %m_getInfo1Kernel, align 8
-  %call7 = invoke i32 %6(ptr noundef %8)
+  %8 = load ptr, ptr %m_gpuData5, align 8
+  %m_getInfo1Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %8, i32 0, i32 6
+  %9 = load ptr, ptr %m_getInfo1Kernel, align 8
+  %call7 = invoke i32 %7(ptr noundef %9)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  %9 = load ptr, ptr @__clewReleaseKernel, align 8
+  %10 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData8 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %10 = load ptr, ptr %m_gpuData8, align 8
-  %m_initBatchConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %10, i32 0, i32 7
-  %11 = load ptr, ptr %m_initBatchConstraintsKernel, align 8
-  %call10 = invoke i32 %9(ptr noundef %11)
+  %11 = load ptr, ptr %m_gpuData8, align 8
+  %m_initBatchConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %11, i32 0, i32 7
+  %12 = load ptr, ptr %m_initBatchConstraintsKernel, align 8
+  %call10 = invoke i32 %10(ptr noundef %12)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont6
-  %12 = load ptr, ptr @__clewReleaseKernel, align 8
+  %13 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData11 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %13 = load ptr, ptr %m_gpuData11, align 8
-  %m_getInfo2Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %13, i32 0, i32 8
-  %14 = load ptr, ptr %m_getInfo2Kernel, align 8
-  %call13 = invoke i32 %12(ptr noundef %14)
+  %14 = load ptr, ptr %m_gpuData11, align 8
+  %m_getInfo2Kernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %14, i32 0, i32 8
+  %15 = load ptr, ptr %m_getInfo2Kernel, align 8
+  %call13 = invoke i32 %13(ptr noundef %15)
           to label %invoke.cont12 unwind label %terminate.lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont9
-  %15 = load ptr, ptr @__clewReleaseKernel, align 8
+  %16 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData14 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %16 = load ptr, ptr %m_gpuData14, align 8
-  %m_writeBackVelocitiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %16, i32 0, i32 9
-  %17 = load ptr, ptr %m_writeBackVelocitiesKernel, align 8
-  %call16 = invoke i32 %15(ptr noundef %17)
+  %17 = load ptr, ptr %m_gpuData14, align 8
+  %m_writeBackVelocitiesKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %17, i32 0, i32 9
+  %18 = load ptr, ptr %m_writeBackVelocitiesKernel, align 8
+  %call16 = invoke i32 %16(ptr noundef %18)
           to label %invoke.cont15 unwind label %terminate.lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %18 = load ptr, ptr @__clewReleaseKernel, align 8
+  %19 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_gpuData17 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %19 = load ptr, ptr %m_gpuData17, align 8
-  %m_breakViolatedConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %19, i32 0, i32 10
-  %20 = load ptr, ptr %m_breakViolatedConstraintsKernel, align 8
-  %call19 = invoke i32 %18(ptr noundef %20)
+  %20 = load ptr, ptr %m_gpuData17, align 8
+  %m_breakViolatedConstraintsKernel = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %20, i32 0, i32 10
+  %21 = load ptr, ptr %m_breakViolatedConstraintsKernel, align 8
+  %call19 = invoke i32 %19(ptr noundef %21)
           to label %invoke.cont18 unwind label %terminate.lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont15
   %m_gpuData20 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %21 = load ptr, ptr %m_gpuData20, align 8
-  %m_prefixScan = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %21, i32 0, i32 3
-  %22 = load ptr, ptr %m_prefixScan, align 8
-  %isnull = icmp eq ptr %22, null
+  %22 = load ptr, ptr %m_gpuData20, align 8
+  %m_prefixScan = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %22, i32 0, i32 3
+  %23 = load ptr, ptr %m_prefixScan, align 8
+  %isnull = icmp eq ptr %23, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont18
-  %vtable = load ptr, ptr %22, align 8
+  %vtable = load ptr, ptr %23, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %23 = load ptr, ptr %vfn, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(48) %22) #9
+  %24 = load ptr, ptr %vfn, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(48) %23) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont18
   %m_gpuData21 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %24 = load ptr, ptr %m_gpuData21, align 8
-  %m_gpuConstraintRowOffsets = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %24, i32 0, i32 11
-  %25 = load ptr, ptr %m_gpuConstraintRowOffsets, align 8
-  %isnull22 = icmp eq ptr %25, null
+  %25 = load ptr, ptr %m_gpuData21, align 8
+  %m_gpuConstraintRowOffsets = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %25, i32 0, i32 11
+  %26 = load ptr, ptr %m_gpuConstraintRowOffsets, align 8
+  %isnull22 = icmp eq ptr %26, null
   br i1 %isnull22, label %delete.end26, label %delete.notnull23
 
 delete.notnull23:                                 ; preds = %delete.end
-  %vtable24 = load ptr, ptr %25, align 8
+  %vtable24 = load ptr, ptr %26, align 8
   %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 1
-  %26 = load ptr, ptr %vfn25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(50) %25) #9
+  %27 = load ptr, ptr %vfn25, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(50) %26) #9
   br label %delete.end26
 
 delete.end26:                                     ; preds = %delete.notnull23, %delete.end
   %m_gpuData27 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %27 = load ptr, ptr %m_gpuData27, align 8
-  %m_gpuSolverBodies = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %27, i32 0, i32 12
-  %28 = load ptr, ptr %m_gpuSolverBodies, align 8
-  %isnull28 = icmp eq ptr %28, null
+  %28 = load ptr, ptr %m_gpuData27, align 8
+  %m_gpuSolverBodies = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %28, i32 0, i32 12
+  %29 = load ptr, ptr %m_gpuSolverBodies, align 8
+  %isnull28 = icmp eq ptr %29, null
   br i1 %isnull28, label %delete.end32, label %delete.notnull29
 
 delete.notnull29:                                 ; preds = %delete.end26
-  %vtable30 = load ptr, ptr %28, align 8
+  %vtable30 = load ptr, ptr %29, align 8
   %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 1
-  %29 = load ptr, ptr %vfn31, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(50) %28) #9
+  %30 = load ptr, ptr %vfn31, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(50) %29) #9
   br label %delete.end32
 
 delete.end32:                                     ; preds = %delete.notnull29, %delete.end26
   %m_gpuData33 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %30 = load ptr, ptr %m_gpuData33, align 8
-  %m_gpuBatchConstraints = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %30, i32 0, i32 13
-  %31 = load ptr, ptr %m_gpuBatchConstraints, align 8
-  %isnull34 = icmp eq ptr %31, null
+  %31 = load ptr, ptr %m_gpuData33, align 8
+  %m_gpuBatchConstraints = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %31, i32 0, i32 13
+  %32 = load ptr, ptr %m_gpuBatchConstraints, align 8
+  %isnull34 = icmp eq ptr %32, null
   br i1 %isnull34, label %delete.end38, label %delete.notnull35
 
 delete.notnull35:                                 ; preds = %delete.end32
-  %vtable36 = load ptr, ptr %31, align 8
+  %vtable36 = load ptr, ptr %32, align 8
   %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 1
-  %32 = load ptr, ptr %vfn37, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(50) %31) #9
+  %33 = load ptr, ptr %vfn37, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(50) %32) #9
   br label %delete.end38
 
 delete.end38:                                     ; preds = %delete.notnull35, %delete.end32
   %m_gpuData39 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %33 = load ptr, ptr %m_gpuData39, align 8
-  %m_gpuConstraintRows = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %33, i32 0, i32 14
-  %34 = load ptr, ptr %m_gpuConstraintRows, align 8
-  %isnull40 = icmp eq ptr %34, null
+  %34 = load ptr, ptr %m_gpuData39, align 8
+  %m_gpuConstraintRows = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %34, i32 0, i32 14
+  %35 = load ptr, ptr %m_gpuConstraintRows, align 8
+  %isnull40 = icmp eq ptr %35, null
   br i1 %isnull40, label %delete.end44, label %delete.notnull41
 
 delete.notnull41:                                 ; preds = %delete.end38
-  %vtable42 = load ptr, ptr %34, align 8
+  %vtable42 = load ptr, ptr %35, align 8
   %vfn43 = getelementptr inbounds ptr, ptr %vtable42, i64 1
-  %35 = load ptr, ptr %vfn43, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(50) %34) #9
+  %36 = load ptr, ptr %vfn43, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(50) %35) #9
   br label %delete.end44
 
 delete.end44:                                     ; preds = %delete.notnull41, %delete.end38
   %m_gpuData45 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %m_gpuData45, align 8
-  %m_gpuConstraintInfo1 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %36, i32 0, i32 15
-  %37 = load ptr, ptr %m_gpuConstraintInfo1, align 8
-  %isnull46 = icmp eq ptr %37, null
+  %37 = load ptr, ptr %m_gpuData45, align 8
+  %m_gpuConstraintInfo1 = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %37, i32 0, i32 15
+  %38 = load ptr, ptr %m_gpuConstraintInfo1, align 8
+  %isnull46 = icmp eq ptr %38, null
   br i1 %isnull46, label %delete.end50, label %delete.notnull47
 
 delete.notnull47:                                 ; preds = %delete.end44
-  %vtable48 = load ptr, ptr %37, align 8
+  %vtable48 = load ptr, ptr %38, align 8
   %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 1
-  %38 = load ptr, ptr %vfn49, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(50) %37) #9
+  %39 = load ptr, ptr %vfn49, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(50) %38) #9
   br label %delete.end50
 
 delete.end50:                                     ; preds = %delete.notnull47, %delete.end44
   %m_gpuData51 = getelementptr inbounds %class.b3GpuPgsConstraintSolver, ptr %this1, i32 0, i32 3
-  %39 = load ptr, ptr %m_gpuData51, align 8
-  %isnull52 = icmp eq ptr %39, null
+  %40 = load ptr, ptr %m_gpuData51, align 8
+  %isnull52 = icmp eq ptr %40, null
   br i1 %isnull52, label %delete.end54, label %delete.notnull53
 
 delete.notnull53:                                 ; preds = %delete.end50
-  call void @_ZN32b3GpuPgsJacobiSolverInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %39) #9
-  call void @_ZdlPv(ptr noundef %39) #14
+  call void @_ZN32b3GpuPgsJacobiSolverInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %40) #9
+  call void @_ZdlPv(ptr noundef %40) #14
   br label %delete.end54
 
 delete.end54:                                     ; preds = %delete.notnull53, %delete.end50
@@ -2117,10 +2123,10 @@ delete.end54:                                     ; preds = %delete.notnull53, %
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont15, %invoke.cont12, %invoke.cont9, %invoke.cont6, %invoke.cont3, %invoke.cont, %entry
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #15
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #15
   unreachable
 }
 
@@ -10398,7 +10404,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIjE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10410,10 +10417,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -10635,7 +10642,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuSolverBodyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10647,10 +10655,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -10872,7 +10880,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI17b3BatchConstraintE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10884,10 +10893,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -11109,7 +11118,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI21b3GpuSolverConstraintE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -11121,10 +11131,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 

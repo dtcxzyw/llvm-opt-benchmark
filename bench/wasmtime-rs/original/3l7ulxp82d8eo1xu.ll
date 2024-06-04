@@ -330,21 +330,22 @@ define hidden zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = load ptr, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.4, align 8, !nonnull !4, !align !3, !noundef !4
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.4, i64 8), align 8, !noundef !4
+  %9 = getelementptr inbounds i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.4, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
   store ptr %5, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %7, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %7, ptr %11, align 8
   store ptr %8, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %9, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8, !nonnull !4, !align !3, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = load ptr, ptr %2, align 8, !nonnull !4, !align !3, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
-  %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr align 1 %12, i64 %14, ptr align 1 %15, i64 %17)
-  ret i1 %18
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %10, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8, !nonnull !4, !align !3, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = load ptr, ptr %2, align 8, !nonnull !4, !align !3, !noundef !4
+  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = load i64, ptr %17, align 8, !noundef !4
+  %19 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr align 1 %13, i64 %15, ptr align 1 %16, i64 %18)
+  ret i1 %19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -364,11 +365,12 @@ define void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20
   store i64 5, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %3, i64 56, i1 false)
   %10 = load ptr, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, align 8, !align !3, !noundef !4
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8), align 8
-  %12 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 3
-  store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %11, ptr %13, align 8
+  %11 = getelementptr inbounds i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 3
+  store ptr %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %12, ptr %14, align 8
   ret void
 }
 
@@ -393,42 +395,43 @@ define hidden void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u
   %12 = icmp eq i64 %11, 0
   %13 = select i1 %12, i64 0, i64 1
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, align 8, !align !3, !noundef !4
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8), align 8
+  %17 = getelementptr inbounds i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8
+  %18 = load i64, ptr %17, align 8
   store ptr %16, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %17, ptr %18, align 8
-  br label %25
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %18, ptr %19, align 8
+  br label %26
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !3, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  %23 = load i64, ptr %22, align 8, !noundef !4
-  store ptr %21, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %23, ptr %24, align 8
-  br label %25
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !3, !noundef !4
+  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = load i64, ptr %23, align 8, !noundef !4
+  store ptr %22, ptr %3, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %24, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %19, %15
-  %26 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store ptr %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %8, ptr %27, align 8
+26:                                               ; preds = %20, %15
+  %27 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store ptr %6, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %8, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %4, i64 104, i1 false)
-  %28 = load ptr, ptr %3, align 8, !align !3, !noundef !4
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
-  store ptr %28, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 %30, ptr %32, align 8
+  %29 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
+  store ptr %29, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  store i64 %31, ptr %33, align 8
   ret void
 
-33:                                               ; No predecessors!
+34:                                               ; No predecessors!
   unreachable
 }
 
@@ -574,46 +577,47 @@ define hidden void @"_ZN90_$LT$cranelift_codegen_meta..cdsl..operands..OperandKi
   %16 = icmp eq i64 %15, 0
   %17 = select i1 %16, i64 0, i64 1
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, align 8, !align !3, !noundef !4
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8), align 8
+  %21 = getelementptr inbounds i8, ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.7, i64 8
+  %22 = load i64, ptr %21, align 8
   store ptr %20, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %21, ptr %22, align 8
-  br label %29
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %22, ptr %23, align 8
+  br label %30
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 3
-  %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !3, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i64, ptr %26, align 8, !noundef !4
-  store ptr %25, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %27, ptr %28, align 8
-  br label %29
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8, !nonnull !4, !align !3, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = load i64, ptr %27, align 8, !noundef !4
+  store ptr %26, ptr %3, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %28, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %23, %19
-  %30 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store ptr %6, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %8, ptr %31, align 8
-  %32 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
-  store ptr %10, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  store i64 %12, ptr %33, align 8
+30:                                               ; preds = %24, %19
+  %31 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store ptr %6, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store i64 %8, ptr %32, align 8
+  %33 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 2
+  store ptr %10, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store i64 %12, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %4, i64 56, i1 false)
-  %34 = load ptr, ptr %3, align 8, !align !3, !noundef !4
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 3
-  store ptr %34, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store i64 %36, ptr %38, align 8
+  %35 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %0, i32 0, i32 3
+  store ptr %35, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 %37, ptr %39, align 8
   ret void
 
-39:                                               ; No predecessors!
+40:                                               ; No predecessors!
   unreachable
 }
 

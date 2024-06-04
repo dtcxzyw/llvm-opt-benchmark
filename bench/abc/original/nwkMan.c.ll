@@ -561,113 +561,140 @@ define i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %13, %11
   store i32 0, ptr %3, align 4
-  br label %76
+  br label %103
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %4, align 8
   %17 = call i32 @Nwk_ManLevel(ptr noundef %16)
-  store i32 %17, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = call i32 @Nwk_ManLatchNum(ptr noundef %18)
-  store i32 %19, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 @Nwk_ManNodeNum(ptr noundef %20)
-  store i32 %21, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3), align 8
+  %18 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1
+  store i32 %17, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call i32 @Nwk_ManLatchNum(ptr noundef %19)
+  %21 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2
+  store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %4, align 8
-  %23 = call i32 @Nwk_ManPiNum(ptr noundef %22)
-  store i32 %23, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 4), align 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @Nwk_ManPoNum(ptr noundef %24)
-  store i32 %25, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 5), align 8
-  %26 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %59, label %28
+  %23 = call i32 @Nwk_ManNodeNum(ptr noundef %22)
+  %24 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3
+  store i32 %23, ptr %24, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i32 @Nwk_ManPiNum(ptr noundef %25)
+  %27 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 4
+  store i32 %26, ptr %27, align 4
+  %28 = load ptr, ptr %4, align 8
+  %29 = call i32 @Nwk_ManPoNum(ptr noundef %28)
+  %30 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 5
+  store i32 %29, ptr %30, align 8
+  %31 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %76, label %33
 
-28:                                               ; preds = %15
-  %29 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Nwk_Man_t_, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @strcmp(ptr noundef %29, ptr noundef %32) #10
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %59, label %35
+33:                                               ; preds = %15
+  %34 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.Nwk_Man_t_, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i32 @strcmp(ptr noundef %34, ptr noundef %37) #10
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %76, label %40
 
-35:                                               ; preds = %28
-  %36 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %59, label %39
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp sgt i32 %42, %44
+  br i1 %45, label %76, label %46
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %42 = icmp eq i32 %40, %41
-  br i1 %42, label %43, label %47
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %48, %50
+  br i1 %51, label %52, label %58
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %45 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %46 = icmp sgt i32 %44, %45
-  br i1 %46, label %59, label %47
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp sgt i32 %54, %56
+  br i1 %57, label %76, label %58
 
-47:                                               ; preds = %43, %39
-  %48 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %50 = icmp eq i32 %48, %49
-  br i1 %50, label %51, label %75
+58:                                               ; preds = %52, %46
+  %59 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp eq i32 %60, %62
+  br i1 %63, label %64, label %102
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %53 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %54 = icmp eq i32 %52, %53
-  br i1 %54, label %55, label %75
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %66, %68
+  br i1 %69, label %70, label %102
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 3), align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3), align 8
-  %58 = icmp sgt i32 %56, %57
-  br i1 %58, label %59, label %75
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 3
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp sgt i32 %72, %74
+  br i1 %75, label %76, label %102
 
-59:                                               ; preds = %55, %43, %35, %28, %15
-  %60 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %64
+76:                                               ; preds = %70, %52, %40, %33, %15
+  %77 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %81
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  call void @free(ptr noundef %63) #9
+79:                                               ; preds = %76
+  %80 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
+  call void @free(ptr noundef %80) #9
   store ptr null, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  br label %65
+  br label %82
 
-64:                                               ; preds = %59
-  br label %65
+81:                                               ; preds = %76
+  br label %82
 
-65:                                               ; preds = %64, %62
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.Nwk_Man_t_, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @Abc_UtilStrsav(ptr noundef %68)
-  store ptr %69, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
-  %70 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  store i32 %70, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %71 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  store i32 %71, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %72 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3), align 8
-  store i32 %72, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 3), align 8
-  %73 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 4), align 4
-  store i32 %73, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 4), align 4
-  %74 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 5), align 8
-  store i32 %74, ptr getelementptr inbounds (%struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 5), align 8
+82:                                               ; preds = %81, %79
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct.Nwk_Man_t_, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = call ptr @Abc_UtilStrsav(ptr noundef %85)
+  store ptr %86, ptr @Nwk_ManCompareAndSaveBest.ParsBest, align 8
+  %87 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8
+  %89 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 1
+  store i32 %88, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 2
+  store i32 %91, ptr %92, align 4
+  %93 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 3
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 3
+  store i32 %94, ptr %95, align 8
+  %96 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 4
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 4
+  store i32 %97, ptr %98, align 4
+  %99 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsNew, i32 0, i32 5
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds %struct.ParStruct, ptr @Nwk_ManCompareAndSaveBest.ParsBest, i32 0, i32 5
+  store i32 %100, ptr %101, align 8
   store i32 1, ptr %3, align 4
-  br label %76
+  br label %103
 
-75:                                               ; preds = %55, %51, %47
+102:                                              ; preds = %70, %64, %58
   store i32 0, ptr %3, align 4
-  br label %76
+  br label %103
 
-76:                                               ; preds = %75, %65, %14
-  %77 = load i32, ptr %3, align 4
-  ret i32 %77
+103:                                              ; preds = %102, %82, %14
+  %104 = load i32, ptr %3, align 4
+  ret i32 %104
 }
 
 declare i32 @Nwk_ManLevel(ptr noundef) #3

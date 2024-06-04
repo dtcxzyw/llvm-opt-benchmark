@@ -804,24 +804,25 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %store_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN2v812BackingStoreEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %store_, ptr noundef nonnull align 8 dereferenceable(16) %store) #3
   %length_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %length.addr, align 8
-  store i64 %0, ptr %length_, align 8
+  %1 = load i64, ptr %length.addr, align 8
+  store i64 %1, ptr %length_, align 8
   %offset_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %1 = load i64, ptr %offset.addr, align 8
-  store i64 %1, ptr %offset_, align 8
+  %2 = load i64, ptr %offset.addr, align 8
+  store i64 %2, ptr %offset_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %offset_2 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %offset_2, align 8
+  %3 = load i64, ptr %offset_2, align 8
   %store_3 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %store_3) #3
   %call4 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call)
-  %cmp = icmp ule i64 %2, %call4
+  %cmp = icmp ule i64 %3, %call4
   %lnot = xor i1 %cmp, true
   %lnot5 = xor i1 %lnot, true
   %lnot6 = xor i1 %lnot5, true
@@ -846,14 +847,14 @@ do.end8:                                          ; preds = %if.end
 
 do.body9:                                         ; preds = %do.end8
   %length_10 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
-  %3 = load i64, ptr %length_10, align 8
+  %4 = load i64, ptr %length_10, align 8
   %store_11 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   %call12 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %store_11) #3
   %call13 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call12)
   %offset_14 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %offset_14, align 8
-  %sub = sub i64 %call13, %4
-  %cmp15 = icmp ule i64 %3, %sub
+  %5 = load i64, ptr %offset_14, align 8
+  %sub = sub i64 %call13, %5
+  %cmp15 = icmp ule i64 %4, %sub
   %lnot16 = xor i1 %cmp15, true
   %lnot17 = xor i1 %lnot16, true
   %lnot18 = xor i1 %lnot17, true
@@ -883,7 +884,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -930,24 +932,25 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %store_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN2v812BackingStoreEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %store_, ptr noundef nonnull align 8 dereferenceable(8) %store)
   %length_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %length.addr, align 8
-  store i64 %0, ptr %length_, align 8
+  %1 = load i64, ptr %length.addr, align 8
+  store i64 %1, ptr %length_, align 8
   %offset_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %1 = load i64, ptr %offset.addr, align 8
-  store i64 %1, ptr %offset_, align 8
+  %2 = load i64, ptr %offset.addr, align 8
+  store i64 %2, ptr %offset_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %offset_2 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %offset_2, align 8
+  %3 = load i64, ptr %offset_2, align 8
   %store_3 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %store_3) #3
   %call4 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call)
-  %cmp = icmp ule i64 %2, %call4
+  %cmp = icmp ule i64 %3, %call4
   %lnot = xor i1 %cmp, true
   %lnot5 = xor i1 %lnot, true
   %lnot6 = xor i1 %lnot5, true
@@ -972,14 +975,14 @@ do.end8:                                          ; preds = %if.end
 
 do.body9:                                         ; preds = %do.end8
   %length_10 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
-  %3 = load i64, ptr %length_10, align 8
+  %4 = load i64, ptr %length_10, align 8
   %store_11 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   %call12 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %store_11) #3
   %call13 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call12)
   %offset_14 = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %offset_14, align 8
-  %sub = sub i64 %call13, %4
-  %cmp15 = icmp ule i64 %3, %sub
+  %5 = load i64, ptr %offset_14, align 8
+  %sub = sub i64 %call13, %5
+  %cmp15 = icmp ule i64 %4, %sub
   %lnot16 = xor i1 %cmp15, true
   %lnot17 = xor i1 %lnot16, true
   %lnot18 = xor i1 %lnot17, true
@@ -1650,7 +1653,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %reason_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, ptr noundef nonnull align 8 dereferenceable(16) %reason, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -1719,22 +1723,23 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %reason_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %reason = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %reason, align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %reasonlen = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %2, i32 0, i32 4
-  %3 = load i64, ptr %reasonlen, align 8
+  %1 = load ptr, ptr %ptr.addr, align 8
+  %reason = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %1, i32 0, i32 3
+  %2 = load ptr, ptr %reason, align 8
+  %3 = load ptr, ptr %ptr.addr, align 8
+  %reasonlen = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %3, i32 0, i32 4
+  %4 = load i64, ptr %reasonlen, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, ptr noundef %1, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, ptr noundef %2, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   %error_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %error_, i8 0, i64 40, i1 false)
   %ptr_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %ptr.addr, align 8
-  store ptr %4, ptr %ptr_, align 8
+  %5 = load ptr, ptr %ptr.addr, align 8
+  store ptr %5, ptr %ptr_, align 8
   ret void
 }
 
@@ -1750,20 +1755,21 @@ entry:
   store ptr %error, ptr %error.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %reason_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %error.addr, align 8
-  %reason = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %reason, align 8
-  %2 = load ptr, ptr %error.addr, align 8
-  %reasonlen = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %2, i32 0, i32 4
-  %3 = load i64, ptr %reasonlen, align 8
+  %1 = load ptr, ptr %error.addr, align 8
+  %reason = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %1, i32 0, i32 3
+  %2 = load ptr, ptr %reason, align 8
+  %3 = load ptr, ptr %error.addr, align 8
+  %reasonlen = getelementptr inbounds %struct.ngtcp2_connection_close_error, ptr %3, i32 0, i32 4
+  %4 = load i64, ptr %reasonlen, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, ptr noundef %1, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, ptr noundef %2, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   %error_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %error.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %error_, ptr align 8 %4, i64 40, i1 false)
+  %5 = load ptr, ptr %error.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %error_, ptr align 8 %5, i64 40, i1 false)
   %ptr_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 3
   %error_2 = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 2
   store ptr %error_2, ptr %ptr_, align 8
@@ -4482,10 +4488,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -4495,7 +4502,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -5075,7 +5083,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -5086,14 +5095,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -5175,7 +5184,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

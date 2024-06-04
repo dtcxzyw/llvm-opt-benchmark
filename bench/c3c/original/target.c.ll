@@ -373,8 +373,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @target_alloca_addr_space() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 9), align 4
-  ret i32 %1
+  %1 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 9
+  %2 = load i32, ptr %1, align 4
+  ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -710,121 +711,129 @@ define dso_local ptr @llvm_target_machine_create() #0 {
 
 35:                                               ; preds = %28
   store i32 0, ptr %3, align 4
-  %36 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 14), align 4
-  switch i32 %36, label %40 [
-    i32 1, label %37
-    i32 2, label %37
-    i32 3, label %37
-    i32 4, label %37
-    i32 0, label %38
-    i32 -1, label %39
+  %36 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 14
+  %37 = load i32, ptr %36, align 4
+  switch i32 %37, label %41 [
+    i32 1, label %38
+    i32 2, label %38
+    i32 3, label %38
+    i32 4, label %38
+    i32 0, label %39
+    i32 -1, label %40
   ]
 
-37:                                               ; preds = %35, %35, %35, %35
+38:                                               ; preds = %35, %35, %35, %35
   store i32 2, ptr %3, align 4
-  br label %43
-
-38:                                               ; preds = %35
-  store i32 3, ptr %3, align 4
-  br label %43
+  br label %44
 
 39:                                               ; preds = %35
-  br label %40
+  store i32 3, ptr %3, align 4
+  br label %44
 
-40:                                               ; preds = %39, %35
+40:                                               ; preds = %35
   br label %41
 
-41:                                               ; preds = %40
+41:                                               ; preds = %40, %35
+  br label %42
+
+42:                                               ; preds = %41
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @__func__.llvm_target_machine_create, ptr noundef @.str.18, i32 noundef 1741) #7
   unreachable
 
-42:                                               ; No predecessors!
-  br label %43
-
-43:                                               ; preds = %42, %38, %37
+43:                                               ; No predecessors!
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load i8, ptr @debug_log, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %48, label %47
+44:                                               ; preds = %43, %39, %38
+  br label %45
 
-47:                                               ; preds = %44
-  br label %53
+45:                                               ; preds = %44
+  %46 = load i8, ptr @debug_log, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %49, label %48
 
-48:                                               ; preds = %44
-  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %50 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 2), align 8
-  %51 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, ptr noundef %50)
-  %52 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %53
+48:                                               ; preds = %45
+  br label %55
 
-53:                                               ; preds = %48, %47
-  br label %54
+49:                                               ; preds = %45
+  %50 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %51 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, ptr noundef %52)
+  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %55
 
-54:                                               ; preds = %53
-  %55 = load i8, ptr @debug_log, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %58, label %57
+55:                                               ; preds = %49, %48
+  br label %56
 
-57:                                               ; preds = %54
-  br label %63
+56:                                               ; preds = %55
+  %57 = load i8, ptr @debug_log, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %54
-  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %60 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 3), align 8
-  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.23, ptr noundef %60)
-  %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %63
+59:                                               ; preds = %56
+  br label %66
 
-63:                                               ; preds = %58, %57
-  %64 = load ptr, ptr %2, align 8
-  %65 = load ptr, ptr @platform_target, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 2), align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %70
+60:                                               ; preds = %56
+  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %62 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.23, ptr noundef %63)
+  %65 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %66
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 2), align 8
-  br label %71
+66:                                               ; preds = %60, %59
+  %67 = load ptr, ptr %2, align 8
+  %68 = load ptr, ptr @platform_target, align 8
+  %69 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %75
 
-70:                                               ; preds = %63
-  br label %71
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  br label %76
 
-71:                                               ; preds = %70, %68
-  %72 = phi ptr [ %69, %68 ], [ @.str.24, %70 ]
-  %73 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 3), align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %77
+75:                                               ; preds = %66
+  br label %76
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 3), align 8
-  br label %78
+76:                                               ; preds = %75, %72
+  %77 = phi ptr [ %74, %72 ], [ @.str.24, %75 ]
+  %78 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 3
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %84
 
-77:                                               ; preds = %71
-  br label %78
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 3
+  %83 = load ptr, ptr %82, align 8
+  br label %85
 
-78:                                               ; preds = %77, %75
-  %79 = phi ptr [ %76, %75 ], [ @.str.24, %77 ]
-  %80 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 1), align 8
-  %81 = load i32, ptr %3, align 4
-  %82 = call ptr @LLVMCreateTargetMachine(ptr noundef %64, ptr noundef %65, ptr noundef %72, ptr noundef %79, i32 noundef %80, i32 noundef %81, i32 noundef 0)
-  store ptr %82, ptr %4, align 8
-  %83 = load ptr, ptr %4, align 8
-  call void @LLVMSetTargetMachineUseInitArray(ptr noundef %83, i1 noundef zeroext true)
-  %84 = load ptr, ptr %4, align 8
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %87, label %86
+84:                                               ; preds = %76
+  br label %85
 
-86:                                               ; preds = %78
+85:                                               ; preds = %84, %81
+  %86 = phi ptr [ %83, %81 ], [ @.str.24, %84 ]
+  %87 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8
+  %89 = load i32, ptr %3, align 4
+  %90 = call ptr @LLVMCreateTargetMachine(ptr noundef %67, ptr noundef %68, ptr noundef %77, ptr noundef %86, i32 noundef %88, i32 noundef %89, i32 noundef 0)
+  store ptr %90, ptr %4, align 8
+  %91 = load ptr, ptr %4, align 8
+  call void @LLVMSetTargetMachineUseInitArray(ptr noundef %91, i1 noundef zeroext true)
+  %92 = load ptr, ptr %4, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %95, label %94
+
+94:                                               ; preds = %85
   call void (ptr, ...) @error_exit(ptr noundef @.str.25) #7
   unreachable
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %4, align 8
-  call void @LLVMSetTargetMachineAsmVerbosity(ptr noundef %88, i32 noundef 1)
-  %89 = load ptr, ptr %4, align 8
-  ret ptr %89
+95:                                               ; preds = %85
+  %96 = load ptr, ptr %4, align 8
+  call void @LLVMSetTargetMachineAsmVerbosity(ptr noundef %96, i32 noundef 1)
+  %97 = load ptr, ptr %4, align 8
+  ret ptr %97
 }
 
 declare void @LLVMInitializeARMAsmParser() #2
@@ -973,758 +982,896 @@ define dso_local void @target_setup(ptr noundef %0) #0 {
   %55 = getelementptr inbounds [25 x ptr], ptr @arch_to_target_triple, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr @platform_target, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 9), align 4
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.BuildTarget, ptr %57, i32 0, i32 42
-  %59 = load i32, ptr %58, align 8
-  switch i32 %59, label %67 [
-    i32 -1, label %60
-    i32 3, label %63
-    i32 2, label %64
-    i32 1, label %65
-    i32 0, label %66
+  %57 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 9
+  store i32 0, ptr %57, align 4
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %struct.BuildTarget, ptr %58, i32 0, i32 42
+  %60 = load i32, ptr %59, align 8
+  switch i32 %60, label %68 [
+    i32 -1, label %61
+    i32 3, label %64
+    i32 2, label %65
+    i32 1, label %66
+    i32 0, label %67
   ]
 
-60:                                               ; preds = %50
-  br label %61
+61:                                               ; preds = %50
+  br label %62
 
-61:                                               ; preds = %60
+62:                                               ; preds = %61
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1783) #7
   unreachable
 
-62:                                               ; No predecessors!
-  br label %63
+63:                                               ; No predecessors!
+  br label %64
 
-63:                                               ; preds = %62, %50
+64:                                               ; preds = %63, %50
   store i32 3, ptr %6, align 4
-  br label %70
-
-64:                                               ; preds = %50
-  store i32 2, ptr %6, align 4
-  br label %70
+  br label %71
 
 65:                                               ; preds = %50
-  store i32 1, ptr %6, align 4
-  br label %70
+  store i32 2, ptr %6, align 4
+  br label %71
 
 66:                                               ; preds = %50
-  store i32 0, ptr %6, align 4
-  br label %70
+  store i32 1, ptr %6, align 4
+  br label %71
 
 67:                                               ; preds = %50
-  br label %68
+  store i32 0, ptr %6, align 4
+  br label %71
 
-68:                                               ; preds = %67
+68:                                               ; preds = %50
+  br label %69
+
+69:                                               ; preds = %68
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1797) #7
   unreachable
 
-69:                                               ; No predecessors!
-  br label %70
+70:                                               ; No predecessors!
+  br label %71
 
-70:                                               ; preds = %69, %66, %65, %64, %63
-  %71 = load i32, ptr %6, align 4
-  store i32 %71, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 1), align 8
-  br label %72
+71:                                               ; preds = %70, %67, %66, %65, %64
+  %72 = load i32, ptr %6, align 4
+  %73 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 1
+  store i32 %72, ptr %73, align 8
+  br label %74
 
-72:                                               ; preds = %70
-  %73 = load i8, ptr @debug_log, align 1
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %76, label %75
+74:                                               ; preds = %71
+  %75 = load i8, ptr @debug_log, align 1
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %78, label %77
 
-75:                                               ; preds = %72
-  br label %81
+77:                                               ; preds = %74
+  br label %83
 
-76:                                               ; preds = %72
-  %77 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %78 = load ptr, ptr @platform_target, align 8
-  %79 = call i32 (ptr, ...) @printf(ptr noundef @.str.28, ptr noundef %78)
-  %80 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %81
+78:                                               ; preds = %74
+  %79 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %80 = load ptr, ptr @platform_target, align 8
+  %81 = call i32 (ptr, ...) @printf(ptr noundef @.str.28, ptr noundef %80)
+  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %83
 
-81:                                               ; preds = %76, %75
-  br label %82
+83:                                               ; preds = %78, %77
+  br label %84
 
-82:                                               ; preds = %81
-  %83 = load i8, ptr @debug_log, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %86, label %85
+84:                                               ; preds = %83
+  %85 = load i8, ptr @debug_log, align 1
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %88, label %87
 
-85:                                               ; preds = %82
-  br label %90
+87:                                               ; preds = %84
+  br label %92
 
-86:                                               ; preds = %82
-  %87 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %88 = call i32 (ptr, ...) @printf(ptr noundef @.str.29, ptr noundef @.str.30)
-  %89 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %90
+88:                                               ; preds = %84
+  %89 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %90 = call i32 (ptr, ...) @printf(ptr noundef @.str.29, ptr noundef @.str.30)
+  %91 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %92
 
-90:                                               ; preds = %86, %85
-  %91 = load ptr, ptr @platform_target, align 8
-  %92 = call { ptr, i64 } @slice_from_string(ptr noundef %91)
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %94 = extractvalue { ptr, i64 } %92, 0
-  store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %96 = extractvalue { ptr, i64 } %92, 1
-  store i64 %96, ptr %95, align 8
-  %97 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
-  %99 = extractvalue { ptr, i64 } %97, 0
-  store ptr %99, ptr %98, align 8
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
-  %101 = extractvalue { ptr, i64 } %97, 1
-  store i64 %101, ptr %100, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
-  %105 = load i64, ptr %104, align 8
-  %106 = call i32 @arch_from_llvm_string(ptr %103, i64 %105)
-  store i32 %106, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %107 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %108 = call zeroext i1 @arch_is_supported(i32 noundef %107)
-  br i1 %108, label %111, label %109
+92:                                               ; preds = %88, %87
+  %93 = load ptr, ptr @platform_target, align 8
+  %94 = call { ptr, i64 } @slice_from_string(ptr noundef %93)
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %96 = extractvalue { ptr, i64 } %94, 0
+  store ptr %96, ptr %95, align 8
+  %97 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %98 = extractvalue { ptr, i64 } %94, 1
+  store i64 %98, ptr %97, align 8
+  %99 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
+  %101 = extractvalue { ptr, i64 } %99, 0
+  store ptr %101, ptr %100, align 8
+  %102 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
+  %103 = extractvalue { ptr, i64 } %99, 1
+  store i64 %103, ptr %102, align 8
+  %104 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8
+  %108 = call i32 @arch_from_llvm_string(ptr %105, i64 %107)
+  %109 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  store i32 %108, ptr %109, align 8
+  %110 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %111 = load i32, ptr %110, align 8
+  %112 = call zeroext i1 @arch_is_supported(i32 noundef %111)
+  br i1 %112, label %115, label %113
 
-109:                                              ; preds = %90
-  %110 = call i32 (ptr, ...) @printf(ptr noundef @.str.31)
-  br label %111
+113:                                              ; preds = %92
+  %114 = call i32 (ptr, ...) @printf(ptr noundef @.str.31)
+  br label %115
 
-111:                                              ; preds = %109, %90
-  %112 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
-  %113 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
-  %114 = extractvalue { ptr, i64 } %112, 0
-  store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
-  %116 = extractvalue { ptr, i64 } %112, 1
-  store i64 %116, ptr %115, align 8
+115:                                              ; preds = %113, %92
+  %116 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
   %117 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
+  %118 = extractvalue { ptr, i64 } %116, 0
+  store ptr %118, ptr %117, align 8
   %119 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
-  %120 = load i64, ptr %119, align 8
-  %121 = call i32 @vendor_from_llvm_string(ptr %118, i64 %120)
-  store i32 %121, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 6), align 8
-  %122 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
-  %123 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %124 = extractvalue { ptr, i64 } %122, 0
-  store ptr %124, ptr %123, align 8
-  %125 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %126 = extractvalue { ptr, i64 } %122, 1
-  store i64 %126, ptr %125, align 8
-  %127 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %130 = load i64, ptr %129, align 8
-  %131 = call i32 @os_from_llvm_string(ptr %128, i64 %130)
-  store i32 %131, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %132 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %120 = extractvalue { ptr, i64 } %116, 1
+  store i64 %120, ptr %119, align 8
+  %121 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
+  %124 = load i64, ptr %123, align 8
+  %125 = call i32 @vendor_from_llvm_string(ptr %122, i64 %124)
+  %126 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 6
+  store i32 %125, ptr %126, align 8
+  %127 = call { ptr, i64 } @slice_next_token(ptr noundef %7, i8 noundef signext 45)
+  %128 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
+  %129 = extractvalue { ptr, i64 } %127, 0
+  store ptr %129, ptr %128, align 8
+  %130 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
+  %131 = extractvalue { ptr, i64 } %127, 1
+  store i64 %131, ptr %130, align 8
+  %132 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %134 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
   %135 = load i64, ptr %134, align 8
-  %136 = call i32 @environment_type_from_llvm_string(ptr %133, i64 %135)
-  store i32 %136, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.BuildTarget, ptr %137, i32 0, i32 50
-  %139 = load i32, ptr %138, align 8
-  %140 = icmp eq i32 %139, -1
-  br i1 %140, label %141, label %144
+  %136 = call i32 @os_from_llvm_string(ptr %133, i64 %135)
+  %137 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  store i32 %136, ptr %137, align 4
+  %138 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %141 = load i64, ptr %140, align 8
+  %142 = call i32 @environment_type_from_llvm_string(ptr %139, i64 %141)
+  %143 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  store i32 %142, ptr %143, align 4
+  %144 = load ptr, ptr %5, align 8
+  %145 = getelementptr inbounds %struct.BuildTarget, ptr %144, i32 0, i32 50
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp eq i32 %146, -1
+  br i1 %147, label %148, label %151
 
-141:                                              ; preds = %111
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.BuildTarget, ptr %142, i32 0, i32 50
-  store i32 2, ptr %143, align 8
-  br label %144
+148:                                              ; preds = %115
+  %149 = load ptr, ptr %5, align 8
+  %150 = getelementptr inbounds %struct.BuildTarget, ptr %149, i32 0, i32 50
+  store i32 2, ptr %150, align 8
+  br label %151
 
-144:                                              ; preds = %141, %111
-  %145 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %146 = and i16 %145, -29
-  %147 = or i16 %146, 0
-  store i16 %147, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %148 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %149 = call zeroext i1 @os_target_use_thread_local(i32 noundef %148)
-  %150 = zext i1 %149 to i8
-  store i8 %150, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 18), align 1
-  %151 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %152 = call i32 @arch_big_endian(i32 noundef %151)
-  %153 = icmp ne i32 %152, 0
-  %154 = zext i1 %153 to i8
-  store i8 %154, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 17), align 8
-  %155 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %156 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %157 = call i32 @arch_pointer_bit_width(i32 noundef %155, i32 noundef %156)
-  store i32 %157, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 31), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 9), align 4
-  %158 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %159 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %160 = call i32 @object_format_from_os(i32 noundef %158, i32 noundef %159)
-  store i32 %160, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 8), align 8
-  %161 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 8), align 8
-  switch i32 %161, label %166 [
-    i32 1, label %162
-    i32 3, label %162
-    i32 5, label %162
+151:                                              ; preds = %148, %115
+  %152 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %153 = load i16, ptr %152, align 8
+  %154 = and i16 %153, -29
+  %155 = or i16 %154, 0
+  %156 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  store i16 %155, ptr %156, align 8
+  %157 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %158 = load i32, ptr %157, align 4
+  %159 = call zeroext i1 @os_target_use_thread_local(i32 noundef %158)
+  %160 = zext i1 %159 to i8
+  %161 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 18
+  store i8 %160, ptr %161, align 1
+  %162 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %163 = load i32, ptr %162, align 8
+  %164 = call i32 @arch_big_endian(i32 noundef %163)
+  %165 = icmp ne i32 %164, 0
+  %166 = zext i1 %165 to i8
+  %167 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 17
+  store i8 %166, ptr %167, align 8
+  %168 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %169 = load i32, ptr %168, align 4
+  %170 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %171 = load i32, ptr %170, align 8
+  %172 = call i32 @arch_pointer_bit_width(i32 noundef %169, i32 noundef %171)
+  %173 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 31
+  store i32 %172, ptr %173, align 8
+  %174 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 9
+  store i32 0, ptr %174, align 4
+  %175 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %178 = load i32, ptr %177, align 8
+  %179 = call i32 @object_format_from_os(i32 noundef %176, i32 noundef %178)
+  %180 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 8
+  store i32 %179, ptr %180, align 8
+  %181 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 8
+  %182 = load i32, ptr %181, align 8
+  switch i32 %182, label %189 [
+    i32 1, label %183
+    i32 3, label %183
+    i32 5, label %183
   ]
 
-162:                                              ; preds = %144, %144, %144
-  %163 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %164 = and i16 %163, -8193
-  %165 = or i16 %164, 8192
-  store i16 %165, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  br label %167
+183:                                              ; preds = %151, %151, %151
+  %184 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %185 = load i16, ptr %184, align 8
+  %186 = and i16 %185, -8193
+  %187 = or i16 %186, 8192
+  %188 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  store i16 %187, ptr %188, align 8
+  br label %190
 
-166:                                              ; preds = %144
-  br label %167
+189:                                              ; preds = %151
+  br label %190
 
-167:                                              ; preds = %166, %162
-  %168 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %169 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %170 = call i32 @os_target_supports_int128(i32 noundef %168, i32 noundef %169)
-  %171 = icmp ne i32 %170, 0
-  %172 = zext i1 %171 to i8
-  store i8 %172, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 26), align 1
-  %173 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %174 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %175 = call i32 @os_target_supports_vec(i32 noundef %173, i32 noundef %174, i32 noundef 128, i1 noundef zeroext false)
-  %176 = icmp ne i32 %175, 0
-  %177 = zext i1 %176 to i8
-  store i8 %177, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 24), align 1
-  %178 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %179 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %180 = call i32 @os_target_supports_vec(i32 noundef %178, i32 noundef %179, i32 noundef 128, i1 noundef zeroext true)
-  %181 = icmp ne i32 %180, 0
-  %182 = zext i1 %181 to i8
-  store i8 %182, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 22), align 1
-  %183 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %184 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %185 = call i32 @os_target_supports_vec(i32 noundef %183, i32 noundef %184, i32 noundef 64, i1 noundef zeroext false)
-  %186 = icmp ne i32 %185, 0
-  %187 = zext i1 %186 to i8
-  store i8 %187, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 25), align 8
-  %188 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %189 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %190 = call i32 @os_target_supports_vec(i32 noundef %188, i32 noundef %189, i32 noundef 64, i1 noundef zeroext true)
-  %191 = icmp ne i32 %190, 0
-  %192 = zext i1 %191 to i8
-  store i8 %192, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 23), align 2
-  %193 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %194 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %195 = call i32 @os_target_supports_float128(i32 noundef %193, i32 noundef %194)
+190:                                              ; preds = %189, %183
+  %191 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %192 = load i32, ptr %191, align 4
+  %193 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %194 = load i32, ptr %193, align 8
+  %195 = call i32 @os_target_supports_int128(i32 noundef %192, i32 noundef %194)
   %196 = icmp ne i32 %195, 0
   %197 = zext i1 %196 to i8
-  store i8 %197, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 20), align 1
-  %198 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %199 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %200 = call i32 @os_target_supports_float16(i32 noundef %198, i32 noundef %199)
-  %201 = icmp ne i32 %200, 0
-  %202 = zext i1 %201 to i8
-  store i8 %202, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 21), align 4
+  %198 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 26
+  store i8 %197, ptr %198, align 1
+  %199 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %202 = load i32, ptr %201, align 8
+  %203 = call i32 @os_target_supports_vec(i32 noundef %200, i32 noundef %202, i32 noundef 128, i1 noundef zeroext false)
+  %204 = icmp ne i32 %203, 0
+  %205 = zext i1 %204 to i8
+  %206 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 24
+  store i8 %205, ptr %206, align 1
+  %207 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %208 = load i32, ptr %207, align 4
+  %209 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %210 = load i32, ptr %209, align 8
+  %211 = call i32 @os_target_supports_vec(i32 noundef %208, i32 noundef %210, i32 noundef 128, i1 noundef zeroext true)
+  %212 = icmp ne i32 %211, 0
+  %213 = zext i1 %212 to i8
+  %214 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 22
+  store i8 %213, ptr %214, align 1
+  %215 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %216 = load i32, ptr %215, align 4
+  %217 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %218 = load i32, ptr %217, align 8
+  %219 = call i32 @os_target_supports_vec(i32 noundef %216, i32 noundef %218, i32 noundef 64, i1 noundef zeroext false)
+  %220 = icmp ne i32 %219, 0
+  %221 = zext i1 %220 to i8
+  %222 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 25
+  store i8 %221, ptr %222, align 8
+  %223 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %224 = load i32, ptr %223, align 4
+  %225 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %226 = load i32, ptr %225, align 8
+  %227 = call i32 @os_target_supports_vec(i32 noundef %224, i32 noundef %226, i32 noundef 64, i1 noundef zeroext true)
+  %228 = icmp ne i32 %227, 0
+  %229 = zext i1 %228 to i8
+  %230 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 23
+  store i8 %229, ptr %230, align 2
+  %231 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %232 = load i32, ptr %231, align 4
+  %233 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %234 = load i32, ptr %233, align 8
+  %235 = call i32 @os_target_supports_float128(i32 noundef %232, i32 noundef %234)
+  %236 = icmp ne i32 %235, 0
+  %237 = zext i1 %236 to i8
+  %238 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 20
+  store i8 %237, ptr %238, align 1
+  %239 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %240 = load i32, ptr %239, align 4
+  %241 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %242 = load i32, ptr %241, align 8
+  %243 = call i32 @os_target_supports_float16(i32 noundef %240, i32 noundef %242)
+  %244 = icmp ne i32 %243, 0
+  %245 = zext i1 %244 to i8
+  %246 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 21
+  store i8 %245, ptr %246, align 4
   store i32 1, ptr %11, align 4
-  br label %203
+  br label %247
 
-203:                                              ; preds = %224, %167
-  %204 = load i32, ptr %11, align 4
-  %205 = icmp ult i32 %204, 7
-  br i1 %205, label %206, label %227
+247:                                              ; preds = %274, %190
+  %248 = load i32, ptr %11, align 4
+  %249 = icmp ult i32 %248, 7
+  br i1 %249, label %250, label %277
 
-206:                                              ; preds = %203
-  %207 = load i32, ptr %11, align 4
-  %208 = sub i32 %207, 1
-  %209 = shl i32 8, %208
-  store i32 %209, ptr %12, align 4
-  %210 = load i32, ptr %11, align 4
-  %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 11), i64 0, i64 %211
-  %213 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %214 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %215 = load i32, ptr %12, align 4
-  %216 = call i64 @os_target_alignment_of_int(i32 noundef %213, i32 noundef %214, i32 noundef %215)
-  store i64 %216, ptr %13, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %212, ptr align 4 %13, i64 8, i1 false)
-  %217 = load i32, ptr %11, align 4
-  %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 12), i64 0, i64 %218
-  %220 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %221 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %222 = load i32, ptr %12, align 4
-  %223 = call i64 @os_target_alignment_of_float(i32 noundef %220, i32 noundef %221, i32 noundef %222)
-  store i64 %223, ptr %14, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %219, ptr align 4 %14, i64 8, i1 false)
-  br label %224
+250:                                              ; preds = %247
+  %251 = load i32, ptr %11, align 4
+  %252 = sub i32 %251, 1
+  %253 = shl i32 8, %252
+  store i32 %253, ptr %12, align 4
+  %254 = load i32, ptr %11, align 4
+  %255 = zext i32 %254 to i64
+  %256 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 11
+  %257 = getelementptr inbounds [7 x %struct.AlignData], ptr %256, i64 0, i64 %255
+  %258 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %259 = load i32, ptr %258, align 4
+  %260 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %261 = load i32, ptr %260, align 8
+  %262 = load i32, ptr %12, align 4
+  %263 = call i64 @os_target_alignment_of_int(i32 noundef %259, i32 noundef %261, i32 noundef %262)
+  store i64 %263, ptr %13, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %257, ptr align 4 %13, i64 8, i1 false)
+  %264 = load i32, ptr %11, align 4
+  %265 = zext i32 %264 to i64
+  %266 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 12
+  %267 = getelementptr inbounds [7 x %struct.AlignData], ptr %266, i64 0, i64 %265
+  %268 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %269 = load i32, ptr %268, align 4
+  %270 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %271 = load i32, ptr %270, align 8
+  %272 = load i32, ptr %12, align 4
+  %273 = call i64 @os_target_alignment_of_float(i32 noundef %269, i32 noundef %271, i32 noundef %272)
+  store i64 %273, ptr %14, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %267, ptr align 4 %14, i64 8, i1 false)
+  br label %274
 
-224:                                              ; preds = %206
-  %225 = load i32, ptr %11, align 4
-  %226 = add i32 %225, 1
-  store i32 %226, ptr %11, align 4
-  br label %203, !llvm.loop !7
+274:                                              ; preds = %250
+  %275 = load i32, ptr %11, align 4
+  %276 = add i32 %275, 1
+  store i32 %276, ptr %11, align 4
+  br label %247, !llvm.loop !7
 
-227:                                              ; preds = %203
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 11), ptr align 4 getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 11, i64 1), i64 8, i1 false)
-  %228 = getelementptr inbounds %struct.AlignData, ptr %15, i32 0, i32 0
-  %229 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 31), align 8
-  store i32 %229, ptr %228, align 4
-  %230 = getelementptr inbounds %struct.AlignData, ptr %15, i32 0, i32 1
-  %231 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 31), align 8
-  store i32 %231, ptr %230, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 27), ptr align 4 %15, i64 8, i1 false)
-  %232 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %233 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %234 = call i32 @os_target_c_type_bits(i32 noundef %232, i32 noundef %233, i32 noundef 0)
-  store i32 %234, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 32), align 4
-  %235 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %236 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %237 = call i32 @os_target_c_type_bits(i32 noundef %235, i32 noundef %236, i32 noundef 1)
-  store i32 %237, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %238 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %239 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %240 = call i32 @os_target_c_type_bits(i32 noundef %238, i32 noundef %239, i32 noundef 2)
-  store i32 %240, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 34), align 4
-  %241 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %242 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %243 = call i32 @os_target_c_type_bits(i32 noundef %241, i32 noundef %242, i32 noundef 3)
-  store i32 %243, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 35), align 8
-  %244 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %245 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %246 = call zeroext i1 @os_target_signed_c_char_type(i32 noundef %244, i32 noundef %245)
-  %247 = zext i1 %246 to i16
-  %248 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %249 = shl i16 %247, 1
-  %250 = and i16 %248, -3
-  %251 = or i16 %250, %249
-  store i16 %251, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %252 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  switch i32 %252, label %337 [
-    i32 5, label %253
-    i32 8, label %253
-    i32 9, label %253
-    i32 25, label %253
-    i32 37, label %253
-    i32 38, label %253
-    i32 39, label %253
-    i32 40, label %253
-    i32 41, label %253
-    i32 44, label %253
-    i32 45, label %253
-    i32 49, label %253
-    i32 50, label %253
-    i32 36, label %253
-    i32 11, label %253
-    i32 12, label %253
-    i32 14, label %253
-    i32 13, label %253
-    i32 7, label %253
-    i32 35, label %253
-    i32 34, label %253
-    i32 15, label %253
-    i32 26, label %253
-    i32 28, label %253
-    i32 27, label %253
-    i32 46, label %253
-    i32 10, label %253
-    i32 20, label %253
-    i32 19, label %253
-    i32 23, label %253
-    i32 24, label %253
-    i32 33, label %253
-    i32 6, label %253
-    i32 43, label %253
-    i32 42, label %253
-    i32 3, label %256
-    i32 4, label %256
-    i32 47, label %270
-    i32 48, label %270
-    i32 2, label %271
-    i32 1, label %271
-    i32 30, label %271
-    i32 29, label %271
-    i32 16, label %272
-    i32 17, label %275
-    i32 18, label %275
-    i32 22, label %307
-    i32 21, label %307
-    i32 31, label %328
-    i32 32, label %330
-    i32 0, label %336
+277:                                              ; preds = %247
+  %278 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 11
+  %279 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 11, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %278, ptr align 4 %279, i64 8, i1 false)
+  %280 = getelementptr inbounds %struct.AlignData, ptr %15, i32 0, i32 0
+  %281 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 31
+  %282 = load i32, ptr %281, align 8
+  store i32 %282, ptr %280, align 4
+  %283 = getelementptr inbounds %struct.AlignData, ptr %15, i32 0, i32 1
+  %284 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 31
+  %285 = load i32, ptr %284, align 8
+  store i32 %285, ptr %283, align 4
+  %286 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %286, ptr align 4 %15, i64 8, i1 false)
+  %287 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %288 = load i32, ptr %287, align 4
+  %289 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %290 = load i32, ptr %289, align 8
+  %291 = call i32 @os_target_c_type_bits(i32 noundef %288, i32 noundef %290, i32 noundef 0)
+  %292 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 32
+  store i32 %291, ptr %292, align 4
+  %293 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %294 = load i32, ptr %293, align 4
+  %295 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %296 = load i32, ptr %295, align 8
+  %297 = call i32 @os_target_c_type_bits(i32 noundef %294, i32 noundef %296, i32 noundef 1)
+  %298 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  store i32 %297, ptr %298, align 8
+  %299 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %300 = load i32, ptr %299, align 4
+  %301 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %302 = load i32, ptr %301, align 8
+  %303 = call i32 @os_target_c_type_bits(i32 noundef %300, i32 noundef %302, i32 noundef 2)
+  %304 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 34
+  store i32 %303, ptr %304, align 4
+  %305 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %306 = load i32, ptr %305, align 4
+  %307 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %308 = load i32, ptr %307, align 8
+  %309 = call i32 @os_target_c_type_bits(i32 noundef %306, i32 noundef %308, i32 noundef 3)
+  %310 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 35
+  store i32 %309, ptr %310, align 8
+  %311 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %312 = load i32, ptr %311, align 4
+  %313 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %314 = load i32, ptr %313, align 8
+  %315 = call zeroext i1 @os_target_signed_c_char_type(i32 noundef %312, i32 noundef %314)
+  %316 = zext i1 %315 to i16
+  %317 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %318 = load i16, ptr %317, align 8
+  %319 = shl i16 %316, 1
+  %320 = and i16 %318, -3
+  %321 = or i16 %320, %319
+  %322 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  store i16 %321, ptr %322, align 8
+  %323 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %324 = load i32, ptr %323, align 8
+  switch i32 %324, label %440 [
+    i32 5, label %325
+    i32 8, label %325
+    i32 9, label %325
+    i32 25, label %325
+    i32 37, label %325
+    i32 38, label %325
+    i32 39, label %325
+    i32 40, label %325
+    i32 41, label %325
+    i32 44, label %325
+    i32 45, label %325
+    i32 49, label %325
+    i32 50, label %325
+    i32 36, label %325
+    i32 11, label %325
+    i32 12, label %325
+    i32 14, label %325
+    i32 13, label %325
+    i32 7, label %325
+    i32 35, label %325
+    i32 34, label %325
+    i32 15, label %325
+    i32 26, label %325
+    i32 28, label %325
+    i32 27, label %325
+    i32 46, label %325
+    i32 10, label %325
+    i32 20, label %325
+    i32 19, label %325
+    i32 23, label %325
+    i32 24, label %325
+    i32 33, label %325
+    i32 6, label %325
+    i32 43, label %325
+    i32 42, label %325
+    i32 3, label %328
+    i32 4, label %328
+    i32 47, label %349
+    i32 48, label %349
+    i32 2, label %351
+    i32 1, label %351
+    i32 30, label %351
+    i32 29, label %351
+    i32 16, label %352
+    i32 17, label %355
+    i32 18, label %355
+    i32 22, label %398
+    i32 21, label %398
+    i32 31, label %427
+    i32 32, label %429
+    i32 0, label %438
   ]
 
-253:                                              ; preds = %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227, %227
-  br label %254
+325:                                              ; preds = %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277, %277
+  br label %326
 
-254:                                              ; preds = %253
+326:                                              ; preds = %325
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1864) #7
   unreachable
 
-255:                                              ; No predecessors!
-  br label %337
+327:                                              ; No predecessors!
+  br label %440
 
-256:                                              ; preds = %227, %227
-  %257 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %258 = call zeroext i1 @os_is_apple(i32 noundef %257)
-  %259 = zext i1 %258 to i8
-  %260 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %261 = and i8 %260, -2
-  %262 = or i8 %261, %259
-  store i8 %262, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %263 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %264 = icmp eq i32 %263, 15
-  %265 = zext i1 %264 to i8
-  %266 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %267 = shl i8 %265, 1
-  %268 = and i8 %266, -3
-  %269 = or i8 %268, %267
-  store i8 %269, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  store i32 4, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
+328:                                              ; preds = %277, %277
+  %329 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %330 = load i32, ptr %329, align 4
+  %331 = call zeroext i1 @os_is_apple(i32 noundef %330)
+  %332 = zext i1 %331 to i8
+  %333 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %334 = load i8, ptr %333, align 8
+  %335 = and i8 %334, -2
+  %336 = or i8 %335, %332
+  %337 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %336, ptr %337, align 8
+  %338 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %339 = load i32, ptr %338, align 4
+  %340 = icmp eq i32 %339, 15
+  %341 = zext i1 %340 to i8
+  %342 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %343 = load i8, ptr %342, align 8
+  %344 = shl i8 %341, 1
+  %345 = and i8 %343, -3
+  %346 = or i8 %345, %344
+  %347 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %346, ptr %347, align 8
+  %348 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 4, ptr %348, align 8
+  br label %440
 
-270:                                              ; preds = %227, %227
-  store i32 5, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
+349:                                              ; preds = %277, %277
+  %350 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 5, ptr %350, align 8
+  br label %440
 
-271:                                              ; preds = %227, %227, %227, %227
+351:                                              ; preds = %277, %277, %277, %277
   call void @target_setup_arm_abi()
-  br label %337
+  br label %440
 
-272:                                              ; preds = %227
-  br label %273
+352:                                              ; preds = %277
+  br label %353
 
-273:                                              ; preds = %272
+353:                                              ; preds = %352
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.32, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1883) #7
   unreachable
 
-274:                                              ; No predecessors!
-  br label %275
+354:                                              ; No predecessors!
+  br label %355
 
-275:                                              ; preds = %274, %227, %227
-  %276 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 8), align 8
-  %277 = icmp ne i32 %276, 3
-  br i1 %277, label %278, label %287
+355:                                              ; preds = %354, %277, %277
+  %356 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 8
+  %357 = load i32, ptr %356, align 8
+  %358 = icmp ne i32 %357, 3
+  br i1 %358, label %359, label %369
 
-278:                                              ; preds = %275
-  %279 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %280 = icmp eq i32 %279, 18
-  br i1 %280, label %281, label %284
+359:                                              ; preds = %355
+  %360 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %361 = load i32, ptr %360, align 8
+  %362 = icmp eq i32 %361, 18
+  br i1 %362, label %363, label %366
 
-281:                                              ; preds = %278
-  br label %282
+363:                                              ; preds = %359
+  br label %364
 
-282:                                              ; preds = %281
+364:                                              ; preds = %363
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.33, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1890) #7
   unreachable
 
-283:                                              ; No predecessors!
-  br label %284
+365:                                              ; No predecessors!
+  br label %366
 
-284:                                              ; preds = %283, %278
-  br label %285
+366:                                              ; preds = %365, %359
+  br label %367
 
-285:                                              ; preds = %284
+367:                                              ; preds = %366
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.34, ptr noundef @__func__.target_setup, ptr noundef @.str.18, i32 noundef 1892) #7
   unreachable
 
-286:                                              ; No predecessors!
-  br label %287
+368:                                              ; No predecessors!
+  br label %369
 
-287:                                              ; preds = %286, %275
-  store i32 8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  %288 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %289 = lshr i16 %288, 2
-  %290 = and i16 %289, 7
-  %291 = zext i16 %290 to i32
-  %292 = icmp eq i32 %291, 1
-  %293 = zext i1 %292 to i8
-  %294 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %295 = and i8 %294, -2
-  %296 = or i8 %295, %293
-  store i8 %296, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %297 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %298 = icmp eq i32 %297, 18
-  %299 = zext i1 %298 to i8
-  %300 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %301 = shl i8 %299, 1
-  %302 = and i8 %300, -3
-  %303 = or i8 %302, %301
-  store i8 %303, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %304 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %305 = and i8 %304, -5
-  %306 = or i8 %305, 0
-  store i8 %306, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %337
+369:                                              ; preds = %368, %355
+  %370 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 8, ptr %370, align 8
+  %371 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %372 = load i16, ptr %371, align 8
+  %373 = lshr i16 %372, 2
+  %374 = and i16 %373, 7
+  %375 = zext i16 %374 to i32
+  %376 = icmp eq i32 %375, 1
+  %377 = zext i1 %376 to i8
+  %378 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %379 = load i8, ptr %378, align 8
+  %380 = and i8 %379, -2
+  %381 = or i8 %380, %377
+  %382 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %381, ptr %382, align 8
+  %383 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %384 = load i32, ptr %383, align 8
+  %385 = icmp eq i32 %384, 18
+  %386 = zext i1 %385 to i8
+  %387 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %388 = load i8, ptr %387, align 8
+  %389 = shl i8 %386, 1
+  %390 = and i8 %388, -3
+  %391 = or i8 %390, %389
+  %392 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %391, ptr %392, align 8
+  %393 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %394 = load i8, ptr %393, align 8
+  %395 = and i8 %394, -5
+  %396 = or i8 %395, 0
+  %397 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %396, ptr %397, align 8
+  br label %440
 
-307:                                              ; preds = %227, %227
-  %308 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %309 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %310 = call i32 @arch_pointer_bit_width(i32 noundef %308, i32 noundef %309)
-  %311 = udiv i32 %310, 8
-  store i32 %311, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %312 = load ptr, ptr %5, align 8
-  %313 = getelementptr inbounds %struct.BuildTarget, ptr %312, i32 0, i32 67
-  %314 = load i16, ptr %313, align 8
-  %315 = shl i16 %314, 2
-  %316 = ashr i16 %315, 12
-  %317 = sext i16 %316 to i32
-  switch i32 %317, label %327 [
-    i32 -1, label %318
-    i32 0, label %319
-    i32 1, label %319
-    i32 2, label %319
+398:                                              ; preds = %277, %277
+  %399 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %400 = load i32, ptr %399, align 4
+  %401 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %402 = load i32, ptr %401, align 8
+  %403 = call i32 @arch_pointer_bit_width(i32 noundef %400, i32 noundef %402)
+  %404 = udiv i32 %403, 8
+  %405 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i32 %404, ptr %405, align 8
+  %406 = load ptr, ptr %5, align 8
+  %407 = getelementptr inbounds %struct.BuildTarget, ptr %406, i32 0, i32 67
+  %408 = load i16, ptr %407, align 8
+  %409 = shl i16 %408, 2
+  %410 = ashr i16 %409, 12
+  %411 = sext i16 %410 to i32
+  switch i32 %411, label %425 [
+    i32 -1, label %412
+    i32 0, label %415
+    i32 1, label %415
+    i32 2, label %415
   ]
 
-318:                                              ; preds = %307
-  store i32 0, ptr getelementptr inbounds (%struct.anon.7, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 4
-  br label %327
-
-319:                                              ; preds = %307, %307, %307
-  %320 = load ptr, ptr %5, align 8
-  %321 = getelementptr inbounds %struct.BuildTarget, ptr %320, i32 0, i32 67
-  %322 = load i16, ptr %321, align 8
-  %323 = shl i16 %322, 2
-  %324 = ashr i16 %323, 12
-  %325 = sext i16 %324 to i32
-  %326 = mul nsw i32 4, %325
-  store i32 %326, ptr getelementptr inbounds (%struct.anon.7, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 4
-  br label %327
-
-327:                                              ; preds = %319, %318, %307
-  store i32 9, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
-
-328:                                              ; preds = %227
-  %329 = load ptr, ptr %5, align 8
-  call void @target_setup_x86_abi(ptr noundef %329)
-  br label %337
-
-330:                                              ; preds = %227
-  %331 = load ptr, ptr %5, align 8
-  call void @target_setup_x64_abi(ptr noundef %331)
-  %332 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %333 = icmp eq i32 %332, 15
-  br i1 %333, label %334, label %335
-
-334:                                              ; preds = %330
-  store i32 2, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
-
-335:                                              ; preds = %330
-  store i32 1, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
-
-336:                                              ; preds = %227
-  store i32 0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  br label %337
-
-337:                                              ; preds = %336, %335, %334, %328, %327, %287, %271, %270, %256, %255, %227
-  %338 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %339 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %340 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %341 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %342 = lshr i8 %341, 1
-  %343 = and i8 %342, 7
-  %344 = zext i8 %343 to i32
-  %345 = call i32 @os_arch_max_alignment_of_vector(i32 noundef %338, i32 noundef %339, i32 noundef %340, i32 noundef %344, ptr noundef getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16))
-  store i32 %345, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 28), align 4
-  %346 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %347 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %348 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %349 = call i32 @os_arch_max_alignment_of_tls(i32 noundef %346, i32 noundef %347, i32 noundef %348)
-  store i32 %349, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 29), align 8
-  %350 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %351 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %352 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %353 = load i32, ptr @active_target, align 8
-  %354 = icmp ne i32 %353, 0
-  %355 = call i32 @arch_os_reloc_default(i32 noundef %350, i32 noundef %351, i32 noundef %352, i1 noundef zeroext %354)
-  store i32 %355, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 14), align 4
-  %356 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %357 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %358 = call zeroext i1 @arch_os_pic_default_forced(i32 noundef %356, i32 noundef %357)
-  %359 = zext i1 %358 to i16
-  %360 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %361 = and i16 %360, -2
-  %362 = or i16 %361, %359
-  store i16 %362, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %363 = load ptr, ptr %5, align 8
-  %364 = getelementptr inbounds %struct.BuildTarget, ptr %363, i32 0, i32 51
-  %365 = load i32, ptr %364, align 4
-  %366 = icmp ne i32 %365, -1
-  br i1 %366, label %367, label %380
-
-367:                                              ; preds = %337
-  %368 = load ptr, ptr %5, align 8
-  %369 = getelementptr inbounds %struct.BuildTarget, ptr %368, i32 0, i32 51
-  %370 = load i32, ptr %369, align 4
-  %371 = icmp ne i32 %370, 0
-  br i1 %371, label %376, label %372
-
-372:                                              ; preds = %367
-  %373 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %374 = and i16 %373, 1
-  %375 = trunc i16 %374 to i1
-  br i1 %375, label %380, label %376
-
-376:                                              ; preds = %372, %367
-  %377 = load ptr, ptr %5, align 8
-  %378 = getelementptr inbounds %struct.BuildTarget, ptr %377, i32 0, i32 51
-  %379 = load i32, ptr %378, align 4
-  store i32 %379, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 14), align 4
-  br label %380
-
-380:                                              ; preds = %376, %372, %337
-  %381 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %382 = icmp eq i32 %381, 11
-  br i1 %382, label %383, label %466
-
-383:                                              ; preds = %380
-  %384 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68), align 8
-  %385 = icmp ne ptr %384, null
-  br i1 %385, label %388, label %386
-
-386:                                              ; preds = %383
-  %387 = call ptr @macos_sysroot()
-  store ptr %387, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68), align 8
-  br label %388
-
-388:                                              ; preds = %386, %383
-  %389 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68), align 8
-  %390 = icmp ne ptr %389, null
-  br i1 %390, label %391, label %393
-
-391:                                              ; preds = %388
-  %392 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68), align 8
-  br label %395
-
-393:                                              ; preds = %388
-  %394 = call ptr @macos_sysroot()
-  br label %395
-
-395:                                              ; preds = %393, %391
-  %396 = phi ptr [ %392, %391 ], [ %394, %393 ]
-  store ptr %396, ptr %16, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %397 = load ptr, ptr %16, align 8
-  %398 = icmp ne ptr %397, null
-  br i1 %398, label %399, label %438
-
-399:                                              ; preds = %395
-  br label %400
-
-400:                                              ; preds = %399
-  %401 = load i8, ptr @debug_log, align 1
-  %402 = trunc i8 %401 to i1
-  br i1 %402, label %404, label %403
-
-403:                                              ; preds = %400
-  br label %409
-
-404:                                              ; preds = %400
-  %405 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %406 = load ptr, ptr %16, align 8
-  %407 = call i32 (ptr, ...) @printf(ptr noundef @.str.35, ptr noundef %406)
-  %408 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %409
-
-409:                                              ; preds = %404, %403
-  %410 = load ptr, ptr %16, align 8
-  %411 = call ptr @macos_sysroot_sdk_information(ptr noundef %410)
-  store ptr %411, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %412 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %413 = icmp eq i32 %412, 3
-  br i1 %413, label %414, label %437
-
-414:                                              ; preds = %409
-  %415 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %416 = getelementptr inbounds %struct.MacSDK, ptr %415, i32 0, i32 1
-  %417 = getelementptr inbounds %struct.Version, ptr %416, i32 0, i32 0
-  %418 = load i32, ptr %417, align 4
-  %419 = icmp slt i32 %418, 11
-  br i1 %419, label %420, label %425
-
-420:                                              ; preds = %414
-  %421 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %422 = getelementptr inbounds %struct.MacSDK, ptr %421, i32 0, i32 1
-  %423 = getelementptr inbounds %struct.Version, ptr %17, i32 0, i32 0
-  store i32 11, ptr %423, align 4
-  %424 = getelementptr inbounds %struct.Version, ptr %17, i32 0, i32 1
-  store i32 0, ptr %424, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %422, ptr align 4 %17, i64 8, i1 false)
+412:                                              ; preds = %398
+  %413 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %414 = getelementptr inbounds %struct.anon.7, ptr %413, i32 0, i32 1
+  store i32 0, ptr %414, align 4
   br label %425
 
-425:                                              ; preds = %420, %414
-  %426 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %427 = getelementptr inbounds %struct.MacSDK, ptr %426, i32 0, i32 0
-  %428 = getelementptr inbounds %struct.Version, ptr %427, i32 0, i32 0
-  %429 = load i32, ptr %428, align 4
-  %430 = icmp slt i32 %429, 11
-  br i1 %430, label %431, label %436
+415:                                              ; preds = %398, %398, %398
+  %416 = load ptr, ptr %5, align 8
+  %417 = getelementptr inbounds %struct.BuildTarget, ptr %416, i32 0, i32 67
+  %418 = load i16, ptr %417, align 8
+  %419 = shl i16 %418, 2
+  %420 = ashr i16 %419, 12
+  %421 = sext i16 %420 to i32
+  %422 = mul nsw i32 4, %421
+  %423 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %424 = getelementptr inbounds %struct.anon.7, ptr %423, i32 0, i32 1
+  store i32 %422, ptr %424, align 4
+  br label %425
 
-431:                                              ; preds = %425
-  %432 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  %433 = getelementptr inbounds %struct.MacSDK, ptr %432, i32 0, i32 0
-  %434 = getelementptr inbounds %struct.Version, ptr %18, i32 0, i32 0
-  store i32 11, ptr %434, align 4
-  %435 = getelementptr inbounds %struct.Version, ptr %18, i32 0, i32 1
-  store i32 0, ptr %435, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %433, ptr align 4 %18, i64 8, i1 false)
-  br label %436
+425:                                              ; preds = %415, %412, %398
+  %426 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 9, ptr %426, align 8
+  br label %440
 
-436:                                              ; preds = %431, %425
-  br label %437
+427:                                              ; preds = %277
+  %428 = load ptr, ptr %5, align 8
+  call void @target_setup_x86_abi(ptr noundef %428)
+  br label %440
 
-437:                                              ; preds = %436, %409
-  br label %438
+429:                                              ; preds = %277
+  %430 = load ptr, ptr %5, align 8
+  call void @target_setup_x64_abi(ptr noundef %430)
+  %431 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %432 = load i32, ptr %431, align 4
+  %433 = icmp eq i32 %432, 15
+  br i1 %433, label %434, label %436
 
-438:                                              ; preds = %437, %395
-  %439 = load ptr, ptr @platform_target, align 8
-  store ptr %439, ptr %3, align 8
-  %440 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 1), align 8
-  %441 = icmp ne ptr %440, null
-  br i1 %441, label %442, label %446
+434:                                              ; preds = %429
+  %435 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 2, ptr %435, align 8
+  br label %440
 
-442:                                              ; preds = %438
+436:                                              ; preds = %429
+  %437 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 1, ptr %437, align 8
+  br label %440
+
+438:                                              ; preds = %277
+  %439 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 0, ptr %439, align 8
+  br label %440
+
+440:                                              ; preds = %438, %436, %434, %427, %425, %369, %351, %349, %328, %327, %277
+  %441 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %442 = load i32, ptr %441, align 4
+  %443 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %444 = load i32, ptr %443, align 8
+  %445 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %446 = load i32, ptr %445, align 4
+  %447 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %448 = load i8, ptr %447, align 8
+  %449 = lshr i8 %448, 1
+  %450 = and i8 %449, 7
+  %451 = zext i8 %450 to i32
+  %452 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %453 = call i32 @os_arch_max_alignment_of_vector(i32 noundef %442, i32 noundef %444, i32 noundef %446, i32 noundef %451, ptr noundef %452)
+  %454 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 28
+  store i32 %453, ptr %454, align 4
+  %455 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %456 = load i32, ptr %455, align 4
+  %457 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %458 = load i32, ptr %457, align 8
+  %459 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %460 = load i32, ptr %459, align 4
+  %461 = call i32 @os_arch_max_alignment_of_tls(i32 noundef %456, i32 noundef %458, i32 noundef %460)
+  %462 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 29
+  store i32 %461, ptr %462, align 8
+  %463 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %464 = load i32, ptr %463, align 8
+  %465 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %466 = load i32, ptr %465, align 4
+  %467 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %468 = load i32, ptr %467, align 4
+  %469 = load i32, ptr @active_target, align 8
+  %470 = icmp ne i32 %469, 0
+  %471 = call i32 @arch_os_reloc_default(i32 noundef %464, i32 noundef %466, i32 noundef %468, i1 noundef zeroext %470)
+  %472 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 14
+  store i32 %471, ptr %472, align 4
+  %473 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %474 = load i32, ptr %473, align 8
+  %475 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %476 = load i32, ptr %475, align 4
+  %477 = call zeroext i1 @arch_os_pic_default_forced(i32 noundef %474, i32 noundef %476)
+  %478 = zext i1 %477 to i16
+  %479 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %480 = load i16, ptr %479, align 8
+  %481 = and i16 %480, -2
+  %482 = or i16 %481, %478
+  %483 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  store i16 %482, ptr %483, align 8
+  %484 = load ptr, ptr %5, align 8
+  %485 = getelementptr inbounds %struct.BuildTarget, ptr %484, i32 0, i32 51
+  %486 = load i32, ptr %485, align 4
+  %487 = icmp ne i32 %486, -1
+  br i1 %487, label %488, label %503
+
+488:                                              ; preds = %440
+  %489 = load ptr, ptr %5, align 8
+  %490 = getelementptr inbounds %struct.BuildTarget, ptr %489, i32 0, i32 51
+  %491 = load i32, ptr %490, align 4
+  %492 = icmp ne i32 %491, 0
+  br i1 %492, label %498, label %493
+
+493:                                              ; preds = %488
+  %494 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %495 = load i16, ptr %494, align 8
+  %496 = and i16 %495, 1
+  %497 = trunc i16 %496 to i1
+  br i1 %497, label %503, label %498
+
+498:                                              ; preds = %493, %488
+  %499 = load ptr, ptr %5, align 8
+  %500 = getelementptr inbounds %struct.BuildTarget, ptr %499, i32 0, i32 51
+  %501 = load i32, ptr %500, align 4
+  %502 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 14
+  store i32 %501, ptr %502, align 4
+  br label %503
+
+503:                                              ; preds = %498, %493, %440
+  %504 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %505 = load i32, ptr %504, align 4
+  %506 = icmp eq i32 %505, 11
+  br i1 %506, label %507, label %604
+
+507:                                              ; preds = %503
+  %508 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68
+  %509 = load ptr, ptr %508, align 8
+  %510 = icmp ne ptr %509, null
+  br i1 %510, label %514, label %511
+
+511:                                              ; preds = %507
+  %512 = call ptr @macos_sysroot()
+  %513 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68
+  store ptr %512, ptr %513, align 8
+  br label %514
+
+514:                                              ; preds = %511, %507
+  %515 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68
+  %516 = load ptr, ptr %515, align 8
+  %517 = icmp ne ptr %516, null
+  br i1 %517, label %518, label %521
+
+518:                                              ; preds = %514
+  %519 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68
+  %520 = load ptr, ptr %519, align 8
+  br label %523
+
+521:                                              ; preds = %514
+  %522 = call ptr @macos_sysroot()
+  br label %523
+
+523:                                              ; preds = %521, %518
+  %524 = phi ptr [ %520, %518 ], [ %522, %521 ]
+  store ptr %524, ptr %16, align 8
+  %525 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  store ptr null, ptr %525, align 8
+  %526 = load ptr, ptr %16, align 8
+  %527 = icmp ne ptr %526, null
+  br i1 %527, label %528, label %573
+
+528:                                              ; preds = %523
+  br label %529
+
+529:                                              ; preds = %528
+  %530 = load i8, ptr @debug_log, align 1
+  %531 = trunc i8 %530 to i1
+  br i1 %531, label %533, label %532
+
+532:                                              ; preds = %529
+  br label %538
+
+533:                                              ; preds = %529
+  %534 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %535 = load ptr, ptr %16, align 8
+  %536 = call i32 (ptr, ...) @printf(ptr noundef @.str.35, ptr noundef %535)
+  %537 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %538
+
+538:                                              ; preds = %533, %532
+  %539 = load ptr, ptr %16, align 8
+  %540 = call ptr @macos_sysroot_sdk_information(ptr noundef %539)
+  %541 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  store ptr %540, ptr %541, align 8
+  %542 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %543 = load i32, ptr %542, align 8
+  %544 = icmp eq i32 %543, 3
+  br i1 %544, label %545, label %572
+
+545:                                              ; preds = %538
+  %546 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  %547 = load ptr, ptr %546, align 8
+  %548 = getelementptr inbounds %struct.MacSDK, ptr %547, i32 0, i32 1
+  %549 = getelementptr inbounds %struct.Version, ptr %548, i32 0, i32 0
+  %550 = load i32, ptr %549, align 4
+  %551 = icmp slt i32 %550, 11
+  br i1 %551, label %552, label %558
+
+552:                                              ; preds = %545
+  %553 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  %554 = load ptr, ptr %553, align 8
+  %555 = getelementptr inbounds %struct.MacSDK, ptr %554, i32 0, i32 1
+  %556 = getelementptr inbounds %struct.Version, ptr %17, i32 0, i32 0
+  store i32 11, ptr %556, align 4
+  %557 = getelementptr inbounds %struct.Version, ptr %17, i32 0, i32 1
+  store i32 0, ptr %557, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %555, ptr align 4 %17, i64 8, i1 false)
+  br label %558
+
+558:                                              ; preds = %552, %545
+  %559 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  %560 = load ptr, ptr %559, align 8
+  %561 = getelementptr inbounds %struct.MacSDK, ptr %560, i32 0, i32 0
+  %562 = getelementptr inbounds %struct.Version, ptr %561, i32 0, i32 0
+  %563 = load i32, ptr %562, align 4
+  %564 = icmp slt i32 %563, 11
+  br i1 %564, label %565, label %571
+
+565:                                              ; preds = %558
+  %566 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds %struct.MacSDK, ptr %567, i32 0, i32 0
+  %569 = getelementptr inbounds %struct.Version, ptr %18, i32 0, i32 0
+  store i32 11, ptr %569, align 4
+  %570 = getelementptr inbounds %struct.Version, ptr %18, i32 0, i32 1
+  store i32 0, ptr %570, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %568, ptr align 4 %18, i64 8, i1 false)
+  br label %571
+
+571:                                              ; preds = %565, %558
+  br label %572
+
+572:                                              ; preds = %571, %538
+  br label %573
+
+573:                                              ; preds = %572, %523
+  %574 = load ptr, ptr @platform_target, align 8
+  store ptr %574, ptr %3, align 8
+  %575 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 1
+  %576 = load ptr, ptr %575, align 8
+  %577 = icmp ne ptr %576, null
+  br i1 %577, label %578, label %583
+
+578:                                              ; preds = %573
   call void @scratch_buffer_clear() #8
-  %443 = load ptr, ptr %3, align 8
-  call void @scratch_buffer_append(ptr noundef %443) #8
-  %444 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 1), align 8
-  call void @scratch_buffer_append(ptr noundef %444) #8
-  %445 = call ptr @scratch_buffer_to_string() #8
-  store ptr %445, ptr %2, align 8
-  br label %463
+  %579 = load ptr, ptr %3, align 8
+  call void @scratch_buffer_append(ptr noundef %579) #8
+  %580 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 1
+  %581 = load ptr, ptr %580, align 8
+  call void @scratch_buffer_append(ptr noundef %581) #8
+  %582 = call ptr @scratch_buffer_to_string() #8
+  store ptr %582, ptr %2, align 8
+  br label %601
 
-446:                                              ; preds = %438
-  %447 = load ptr, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3), align 8
-  store ptr %447, ptr %4, align 8
-  %448 = load ptr, ptr %4, align 8
-  %449 = icmp ne ptr %448, null
-  br i1 %449, label %453, label %450
+583:                                              ; preds = %573
+  %584 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 68, i32 3
+  %585 = load ptr, ptr %584, align 8
+  store ptr %585, ptr %4, align 8
+  %586 = load ptr, ptr %4, align 8
+  %587 = icmp ne ptr %586, null
+  br i1 %587, label %591, label %588
 
-450:                                              ; preds = %446
+588:                                              ; preds = %583
   call void @scratch_buffer_clear() #8
-  %451 = load ptr, ptr %3, align 8
-  call void @scratch_buffer_append(ptr noundef %451) #8
+  %589 = load ptr, ptr %3, align 8
+  call void @scratch_buffer_append(ptr noundef %589) #8
   call void @scratch_buffer_append(ptr noundef @.str.325) #8
-  %452 = call ptr @scratch_buffer_to_string() #8
-  store ptr %452, ptr %2, align 8
-  br label %463
+  %590 = call ptr @scratch_buffer_to_string() #8
+  store ptr %590, ptr %2, align 8
+  br label %601
 
-453:                                              ; preds = %446
+591:                                              ; preds = %583
   call void @scratch_buffer_clear() #8
-  %454 = load ptr, ptr %3, align 8
-  call void @scratch_buffer_append(ptr noundef %454) #8
-  %455 = load ptr, ptr %4, align 8
-  %456 = getelementptr inbounds %struct.MacSDK, ptr %455, i32 0, i32 1
-  %457 = load i32, ptr %456, align 4
-  %458 = load ptr, ptr %4, align 8
-  %459 = getelementptr inbounds %struct.MacSDK, ptr %458, i32 0, i32 1
-  %460 = getelementptr inbounds %struct.Version, ptr %459, i32 0, i32 1
-  %461 = load i32, ptr %460, align 4
-  call void (ptr, ...) @scratch_buffer_printf(ptr noundef @.str.326, i32 noundef %457, i32 noundef %461) #8
-  %462 = call ptr @scratch_buffer_to_string() #8
-  store ptr %462, ptr %2, align 8
-  br label %463
+  %592 = load ptr, ptr %3, align 8
+  call void @scratch_buffer_append(ptr noundef %592) #8
+  %593 = load ptr, ptr %4, align 8
+  %594 = getelementptr inbounds %struct.MacSDK, ptr %593, i32 0, i32 1
+  %595 = load i32, ptr %594, align 4
+  %596 = load ptr, ptr %4, align 8
+  %597 = getelementptr inbounds %struct.MacSDK, ptr %596, i32 0, i32 1
+  %598 = getelementptr inbounds %struct.Version, ptr %597, i32 0, i32 1
+  %599 = load i32, ptr %598, align 4
+  call void (ptr, ...) @scratch_buffer_printf(ptr noundef @.str.326, i32 noundef %595, i32 noundef %599) #8
+  %600 = call ptr @scratch_buffer_to_string() #8
+  store ptr %600, ptr %2, align 8
+  br label %601
 
-463:                                              ; preds = %453, %450, %442
-  %464 = load ptr, ptr %2, align 8
-  %465 = call noalias ptr @strdup(ptr noundef %464) #8
-  store ptr %465, ptr @platform_target, align 8
-  br label %466
+601:                                              ; preds = %591, %588, %578
+  %602 = load ptr, ptr %2, align 8
+  %603 = call noalias ptr @strdup(ptr noundef %602) #8
+  store ptr %603, ptr @platform_target, align 8
+  br label %604
 
-466:                                              ; preds = %463, %380
+604:                                              ; preds = %601, %503
   call void @type_setup(ptr noundef @platform_target)
   ret void
 }
@@ -5211,202 +5358,245 @@ define internal zeroext i1 @os_target_signed_c_char_type(i32 noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @target_setup_arm_abi() #0 {
-  store i32 6, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %13
+  %1 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 6, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %5, label %21
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %5 = and i8 %4, -2
-  %6 = or i8 %5, 1
-  store i8 %6, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %7 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %8 = and i8 %7, -15
-  %9 = or i8 %8, 0
-  store i8 %9, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %11 = and i8 %10, -113
-  %12 = or i8 %11, 32
-  store i8 %12, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %104
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %7 = load i8, ptr %6, align 8
+  %8 = and i8 %7, -2
+  %9 = or i8 %8, 1
+  %10 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %9, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %12 = load i8, ptr %11, align 8
+  %13 = and i8 %12, -15
+  %14 = or i8 %13, 0
+  %15 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %14, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, -113
+  %19 = or i8 %18, 32
+  %20 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %19, ptr %20, align 8
+  br label %147
 
-13:                                               ; preds = %0
-  %14 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 8), align 8
-  %15 = icmp eq i32 %14, 4
-  br i1 %15, label %16, label %30
+21:                                               ; preds = %0
+  %22 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 8
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %25, label %45
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %18 = icmp eq i32 %17, 8
-  br i1 %18, label %22, label %19
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 8
+  br i1 %28, label %33, label %29
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %26
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %39
 
-22:                                               ; preds = %19, %16
-  %23 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %24 = and i8 %23, -15
-  %25 = or i8 %24, 0
-  store i8 %25, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %104
+33:                                               ; preds = %29, %25
+  %34 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %35 = load i8, ptr %34, align 8
+  %36 = and i8 %35, -15
+  %37 = or i8 %36, 0
+  %38 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %37, ptr %38, align 8
+  br label %147
 
-26:                                               ; preds = %19
-  %27 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %28 = and i8 %27, -15
-  %29 = or i8 %28, 4
-  store i8 %29, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %60
-
-30:                                               ; preds = %13
-  %31 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  switch i32 %31, label %44 [
-    i32 12, label %32
-    i32 4, label %32
-    i32 5, label %32
-    i32 14, label %32
-    i32 15, label %32
-    i32 8, label %36
-    i32 9, label %36
-    i32 1, label %40
-  ]
-
-32:                                               ; preds = %30, %30, %30, %30, %30
-  %33 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %34 = and i8 %33, -15
-  %35 = or i8 %34, 6
-  store i8 %35, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %60
-
-36:                                               ; preds = %30, %30
-  %37 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %38 = and i8 %37, -15
-  %39 = or i8 %38, 0
-  store i8 %39, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %60
-
-40:                                               ; preds = %30
-  %41 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, -15
   %43 = or i8 %42, 4
-  store i8 %43, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %60
+  %44 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %43, ptr %44, align 8
+  br label %89
 
-44:                                               ; preds = %30
-  br label %45
-
-45:                                               ; preds = %44
-  %46 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  switch i32 %46, label %55 [
-    i32 12, label %47
-    i32 13, label %51
+45:                                               ; preds = %21
+  %46 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %47 = load i32, ptr %46, align 4
+  switch i32 %47, label %66 [
+    i32 12, label %48
+    i32 4, label %48
+    i32 5, label %48
+    i32 14, label %48
+    i32 15, label %48
+    i32 8, label %54
+    i32 9, label %54
+    i32 1, label %60
   ]
 
-47:                                               ; preds = %45
-  %48 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %49 = and i8 %48, -15
-  %50 = or i8 %49, 4
-  store i8 %50, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %59
+48:                                               ; preds = %45, %45, %45, %45, %45
+  %49 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %50 = load i8, ptr %49, align 8
+  %51 = and i8 %50, -15
+  %52 = or i8 %51, 6
+  %53 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %52, ptr %53, align 8
+  br label %89
 
-51:                                               ; preds = %45
-  %52 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %53 = and i8 %52, -15
-  %54 = or i8 %53, 6
-  store i8 %54, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %59
-
-55:                                               ; preds = %45
-  %56 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
+54:                                               ; preds = %45, %45
+  %55 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, -15
   %58 = or i8 %57, 0
-  store i8 %58, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %59
+  %59 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %58, ptr %59, align 8
+  br label %89
 
-59:                                               ; preds = %55, %51, %47
-  br label %60
+60:                                               ; preds = %45
+  %61 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %62 = load i8, ptr %61, align 8
+  %63 = and i8 %62, -15
+  %64 = or i8 %63, 4
+  %65 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %64, ptr %65, align 8
+  br label %89
 
-60:                                               ; preds = %59, %40, %36, %32, %26
-  %61 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %62 = lshr i8 %61, 1
-  %63 = and i8 %62, 7
-  %64 = zext i8 %63 to i32
-  switch i32 %64, label %102 [
-    i32 2, label %65
-    i32 1, label %69
-    i32 0, label %73
-    i32 3, label %73
+66:                                               ; preds = %45
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %69 = load i32, ptr %68, align 4
+  switch i32 %69, label %82 [
+    i32 12, label %70
+    i32 13, label %76
   ]
 
-65:                                               ; preds = %60
-  %66 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %67 = and i8 %66, -113
-  %68 = or i8 %67, 16
-  store i8 %68, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %104
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %72 = load i8, ptr %71, align 8
+  %73 = and i8 %72, -15
+  %74 = or i8 %73, 4
+  %75 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %74, ptr %75, align 8
+  br label %88
 
-69:                                               ; preds = %60
-  %70 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %71 = and i8 %70, -113
-  %72 = or i8 %71, 32
-  store i8 %72, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %104
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %78 = load i8, ptr %77, align 8
+  %79 = and i8 %78, -15
+  %80 = or i8 %79, 6
+  %81 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %80, ptr %81, align 8
+  br label %88
 
-73:                                               ; preds = %60, %60
-  %74 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %75 = lshr i16 %74, 2
-  %76 = and i16 %75, 7
-  %77 = zext i16 %76 to i32
-  %78 = icmp eq i32 %77, 2
-  br i1 %78, label %94, label %79
+82:                                               ; preds = %67
+  %83 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %84 = load i8, ptr %83, align 8
+  %85 = and i8 %84, -15
+  %86 = or i8 %85, 0
+  %87 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %86, ptr %87, align 8
+  br label %88
 
-79:                                               ; preds = %73
-  %80 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %81 = lshr i16 %80, 2
-  %82 = and i16 %81, 7
-  %83 = zext i16 %82 to i32
-  %84 = icmp ne i32 %83, 1
-  br i1 %84, label %85, label %98
+88:                                               ; preds = %82, %76, %70
+  br label %89
 
-85:                                               ; preds = %79
-  %86 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %87 = icmp eq i32 %86, 5
-  br i1 %87, label %94, label %88
+89:                                               ; preds = %88, %60, %54, %48, %39
+  %90 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %91 = load i8, ptr %90, align 8
+  %92 = lshr i8 %91, 1
+  %93 = and i8 %92, 7
+  %94 = zext i8 %93 to i32
+  switch i32 %94, label %145 [
+    i32 2, label %95
+    i32 1, label %101
+    i32 0, label %107
+    i32 3, label %107
+  ]
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %90 = icmp eq i32 %89, 15
-  br i1 %90, label %94, label %91
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %97 = load i8, ptr %96, align 8
+  %98 = and i8 %97, -113
+  %99 = or i8 %98, 16
+  %100 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %99, ptr %100, align 8
+  br label %147
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %93 = icmp eq i32 %92, 9
-  br i1 %93, label %94, label %98
+101:                                              ; preds = %89
+  %102 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %103 = load i8, ptr %102, align 8
+  %104 = and i8 %103, -113
+  %105 = or i8 %104, 32
+  %106 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %105, ptr %106, align 8
+  br label %147
 
-94:                                               ; preds = %91, %88, %85, %73
-  %95 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %96 = and i8 %95, -113
-  %97 = or i8 %96, 48
-  store i8 %97, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %104
+107:                                              ; preds = %89, %89
+  %108 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %109 = load i16, ptr %108, align 8
+  %110 = lshr i16 %109, 2
+  %111 = and i16 %110, 7
+  %112 = zext i16 %111 to i32
+  %113 = icmp eq i32 %112, 2
+  br i1 %113, label %133, label %114
 
-98:                                               ; preds = %91, %79
-  %99 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %100 = and i8 %99, -113
-  %101 = or i8 %100, 0
-  store i8 %101, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %102
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %116 = load i16, ptr %115, align 8
+  %117 = lshr i16 %116, 2
+  %118 = and i16 %117, 7
+  %119 = zext i16 %118 to i32
+  %120 = icmp ne i32 %119, 1
+  br i1 %120, label %121, label %139
 
-102:                                              ; preds = %98, %60
-  br label %103
+121:                                              ; preds = %114
+  %122 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, 5
+  br i1 %124, label %133, label %125
 
-103:                                              ; preds = %102
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 15
+  br i1 %128, label %133, label %129
+
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, 9
+  br i1 %132, label %133, label %139
+
+133:                                              ; preds = %129, %125, %121, %107
+  %134 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %135 = load i8, ptr %134, align 8
+  %136 = and i8 %135, -113
+  %137 = or i8 %136, 48
+  %138 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %137, ptr %138, align 8
+  br label %147
+
+139:                                              ; preds = %129, %114
+  %140 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %141 = load i8, ptr %140, align 8
+  %142 = and i8 %141, -113
+  %143 = or i8 %142, 0
+  %144 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %143, ptr %144, align 8
+  br label %145
+
+145:                                              ; preds = %139, %89
+  br label %146
+
+146:                                              ; preds = %145
   call void (ptr, ...) @error_exit(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @__func__.target_setup_arm_abi, ptr noundef @.str.18, i32 noundef 241) #7
   unreachable
 
-104:                                              ; preds = %94, %69, %65, %22, %3
+147:                                              ; preds = %133, %101, %95, %33, %5
   ret void
 }
 
@@ -5414,101 +5604,115 @@ define internal void @target_setup_arm_abi() #0 {
 define internal void @target_setup_x86_abi(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  store i32 3, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  %3 = load i16, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 15), align 8
-  %4 = lshr i16 %3, 2
-  %5 = and i16 %4, 7
-  %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %6, 1
-  %8 = zext i1 %7 to i8
-  %9 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %10 = shl i8 %8, 1
-  %11 = and i8 %9, -3
-  %12 = or i8 %11, %10
-  store i8 %12, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.BuildTarget, ptr %13, i32 0, i32 67
-  %15 = load i16, ptr %14, align 8
-  %16 = shl i16 %15, 13
-  %17 = ashr i16 %16, 13
-  %18 = sext i16 %17 to i32
-  %19 = icmp ne i32 %18, -1
-  br i1 %19, label %20, label %33
+  %3 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 3, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 15
+  %5 = load i16, ptr %4, align 8
+  %6 = lshr i16 %5, 2
+  %7 = and i16 %6, 7
+  %8 = zext i16 %7 to i32
+  %9 = icmp eq i32 %8, 1
+  %10 = zext i1 %9 to i8
+  %11 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %12 = load i8, ptr %11, align 8
+  %13 = shl i8 %10, 1
+  %14 = and i8 %12, -3
+  %15 = or i8 %14, %13
+  %16 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %15, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.BuildTarget, ptr %17, i32 0, i32 67
+  %19 = load i16, ptr %18, align 8
+  %20 = shl i16 %19, 13
+  %21 = ashr i16 %20, 13
+  %22 = sext i16 %21 to i32
+  %23 = icmp ne i32 %22, -1
+  br i1 %23, label %24, label %39
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.BuildTarget, ptr %21, i32 0, i32 67
-  %23 = load i16, ptr %22, align 8
-  %24 = shl i16 %23, 13
-  %25 = ashr i16 %24, 13
-  %26 = sext i16 %25 to i32
-  %27 = icmp eq i32 %26, 1
-  %28 = zext i1 %27 to i8
-  %29 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %30 = shl i8 %28, 1
-  %31 = and i8 %29, -3
-  %32 = or i8 %31, %30
-  store i8 %32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %33
+24:                                               ; preds = %1
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.BuildTarget, ptr %25, i32 0, i32 67
+  %27 = load i16, ptr %26, align 8
+  %28 = shl i16 %27, 13
+  %29 = ashr i16 %28, 13
+  %30 = sext i16 %29 to i32
+  %31 = icmp eq i32 %30, 1
+  %32 = zext i1 %31 to i8
+  %33 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %34 = load i8, ptr %33, align 8
+  %35 = shl i8 %32, 1
+  %36 = and i8 %34, -3
+  %37 = or i8 %36, %35
+  %38 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %37, ptr %38, align 8
+  br label %39
 
-33:                                               ; preds = %20, %1
-  %34 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %35 = icmp eq i32 %34, 26
-  %36 = zext i1 %35 to i8
-  %37 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %38 = shl i8 %36, 2
-  %39 = and i8 %37, -5
-  %40 = or i8 %39, %38
-  store i8 %40, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  switch i32 %41, label %46 [
-    i32 11, label %42
-    i32 7, label %42
-    i32 28, label %42
-    i32 27, label %42
-    i32 4, label %42
-    i32 5, label %42
-    i32 26, label %42
-    i32 13, label %42
-    i32 15, label %42
+39:                                               ; preds = %24, %1
+  %40 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, 26
+  %43 = zext i1 %42 to i8
+  %44 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %45 = load i8, ptr %44, align 8
+  %46 = shl i8 %43, 2
+  %47 = and i8 %45, -5
+  %48 = or i8 %47, %46
+  %49 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %48, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %51 = load i32, ptr %50, align 4
+  switch i32 %51, label %58 [
+    i32 11, label %52
+    i32 7, label %52
+    i32 28, label %52
+    i32 27, label %52
+    i32 4, label %52
+    i32 5, label %52
+    i32 26, label %52
+    i32 13, label %52
+    i32 15, label %52
   ]
 
-42:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33
-  %43 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %44 = and i8 %43, -2
-  %45 = or i8 %44, 1
-  store i8 %45, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %47
+52:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39
+  %53 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, -2
+  %56 = or i8 %55, 1
+  %57 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %56, ptr %57, align 8
+  br label %59
 
-46:                                               ; preds = %33
-  br label %47
+58:                                               ; preds = %39
+  br label %59
 
-47:                                               ; preds = %46, %42
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.BuildTarget, ptr %48, i32 0, i32 67
-  %50 = load i16, ptr %49, align 8
-  %51 = shl i16 %50, 10
-  %52 = ashr i16 %51, 13
-  %53 = sext i16 %52 to i32
-  %54 = icmp ne i32 %53, -1
-  br i1 %54, label %55, label %67
+59:                                               ; preds = %58, %52
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds %struct.BuildTarget, ptr %60, i32 0, i32 67
+  %62 = load i16, ptr %61, align 8
+  %63 = shl i16 %62, 10
+  %64 = ashr i16 %63, 13
+  %65 = sext i16 %64 to i32
+  %66 = icmp ne i32 %65, -1
+  br i1 %66, label %67, label %81
 
-55:                                               ; preds = %47
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.BuildTarget, ptr %56, i32 0, i32 67
-  %58 = load i16, ptr %57, align 8
-  %59 = shl i16 %58, 10
-  %60 = ashr i16 %59, 13
-  %61 = sext i16 %60 to i32
-  %62 = icmp eq i32 %61, 1
-  %63 = zext i1 %62 to i8
-  %64 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  %65 = and i8 %64, -2
-  %66 = or i8 %65, %63
-  store i8 %66, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), align 8
-  br label %67
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.BuildTarget, ptr %68, i32 0, i32 67
+  %70 = load i16, ptr %69, align 8
+  %71 = shl i16 %70, 10
+  %72 = ashr i16 %71, 13
+  %73 = sext i16 %72 to i32
+  %74 = icmp eq i32 %73, 1
+  %75 = zext i1 %74 to i8
+  %76 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %77 = load i8, ptr %76, align 8
+  %78 = and i8 %77, -2
+  %79 = or i8 %78, %75
+  %80 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  store i8 %79, ptr %80, align 8
+  br label %81
 
-67:                                               ; preds = %55, %47
+81:                                               ; preds = %67, %59
   ret void
 }
 
@@ -5519,216 +5723,261 @@ define internal void @target_setup_x64_abi(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.X86Features, align 8
   store ptr %0, ptr %2, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 10), align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %7 = icmp eq i32 %6, 15
-  %8 = zext i1 %7 to i32
-  %9 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %10 = shl i32 %8, 17
-  %11 = and i32 %9, -131073
-  %12 = or i32 %11, %10
-  store i32 %12, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.BuildTarget, ptr %13, i32 0, i32 67
-  %15 = getelementptr inbounds %struct.anon.9, ptr %14, i32 0, i32 3
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ne i32 %16, -1
-  br i1 %17, label %18, label %23
-
-18:                                               ; preds = %1
+  %6 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 10
+  store i32 1, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 15
+  %10 = zext i1 %9 to i32
+  %11 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %12 = getelementptr inbounds %struct.anon.0, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %14 = shl i32 %10, 17
+  %15 = and i32 %13, -131073
+  %16 = or i32 %15, %14
+  %17 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %18 = getelementptr inbounds %struct.anon.0, ptr %17, i32 0, i32 1
+  store i32 %16, ptr %18, align 8
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds %struct.BuildTarget, ptr %19, i32 0, i32 67
   %21 = getelementptr inbounds %struct.anon.9, ptr %20, i32 0, i32 3
   %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %4, align 4
-  br label %38
+  %23 = icmp ne i32 %22, -1
+  br i1 %23, label %24, label %29
 
-23:                                               ; preds = %1
-  %24 = call i32 @x64_cpu_default()
-  store i32 %24, ptr %4, align 4
-  br label %25
+24:                                               ; preds = %1
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.BuildTarget, ptr %25, i32 0, i32 67
+  %27 = getelementptr inbounds %struct.anon.9, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %4, align 4
+  br label %44
 
-25:                                               ; preds = %23
-  %26 = load i8, ptr @debug_log, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %29, label %28
+29:                                               ; preds = %1
+  %30 = call i32 @x64_cpu_default()
+  store i32 %30, ptr %4, align 4
+  br label %31
 
-28:                                               ; preds = %25
-  br label %37
+31:                                               ; preds = %29
+  %32 = load i8, ptr @debug_log, align 1
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %35, label %34
 
-29:                                               ; preds = %25
-  %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  %31 = load i32, ptr %4, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [8 x ptr], ptr @x86_cpu_set, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.203, ptr noundef %34)
-  %36 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %37
+34:                                               ; preds = %31
+  br label %43
 
-37:                                               ; preds = %29, %28
-  br label %38
+35:                                               ; preds = %31
+  %36 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  %37 = load i32, ptr %4, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [8 x ptr], ptr @x86_cpu_set, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 (ptr, ...) @printf(ptr noundef @.str.203, ptr noundef %40)
+  %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %43
 
-38:                                               ; preds = %37, %18
-  %39 = load i32, ptr %4, align 4
-  %40 = call ptr @x86_cpu_from_set(i32 noundef %39)
-  store ptr %40, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 2), align 8
-  %41 = load i32, ptr %4, align 4
-  call void @x86features_from_cpu(ptr noundef %5, i32 noundef %41)
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.BuildTarget, ptr %42, i32 0, i32 67
-  %44 = load i16, ptr %43, align 8
-  %45 = shl i16 %44, 6
-  %46 = ashr i16 %45, 12
-  %47 = sext i16 %46 to i32
-  %48 = icmp ne i32 %47, -1
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %35, %34
+  br label %44
 
-49:                                               ; preds = %38
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.BuildTarget, ptr %50, i32 0, i32 67
-  %52 = load i16, ptr %51, align 8
-  %53 = shl i16 %52, 6
-  %54 = ashr i16 %53, 12
-  %55 = sext i16 %54 to i32
-  store i32 %55, ptr %3, align 4
-  br label %57
+44:                                               ; preds = %43, %24
+  %45 = load i32, ptr %4, align 4
+  %46 = call ptr @x86_cpu_from_set(i32 noundef %45)
+  %47 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 2
+  store ptr %46, ptr %47, align 8
+  %48 = load i32, ptr %4, align 4
+  call void @x86features_from_cpu(ptr noundef %5, i32 noundef %48)
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds %struct.BuildTarget, ptr %49, i32 0, i32 67
+  %51 = load i16, ptr %50, align 8
+  %52 = shl i16 %51, 6
+  %53 = ashr i16 %52, 12
+  %54 = sext i16 %53 to i32
+  %55 = icmp ne i32 %54, -1
+  br i1 %55, label %56, label %63
 
-56:                                               ; preds = %38
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %2, align 8
+  %58 = getelementptr inbounds %struct.BuildTarget, ptr %57, i32 0, i32 67
+  %59 = load i16, ptr %58, align 8
+  %60 = shl i16 %59, 6
+  %61 = ashr i16 %60, 12
+  %62 = sext i16 %61 to i32
+  store i32 %62, ptr %3, align 4
+  br label %64
+
+63:                                               ; preds = %44
   store i32 5, ptr %3, align 4
-  br label %57
+  br label %64
 
-57:                                               ; preds = %56, %49
-  %58 = load i32, ptr %3, align 4
-  call void @x64features_limit_from_capability(ptr noundef %5, i32 noundef %58)
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.BuildTarget, ptr %59, i32 0, i32 67
-  %61 = load i16, ptr %60, align 8
-  %62 = shl i16 %61, 13
-  %63 = ashr i16 %62, 13
-  %64 = sext i16 %63 to i32
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %70
+64:                                               ; preds = %63, %56
+  %65 = load i32, ptr %3, align 4
+  call void @x64features_limit_from_capability(ptr noundef %5, i32 noundef %65)
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds %struct.BuildTarget, ptr %66, i32 0, i32 67
+  %68 = load i16, ptr %67, align 8
+  %69 = shl i16 %68, 13
+  %70 = ashr i16 %69, 13
+  %71 = sext i16 %70 to i32
+  %72 = icmp eq i32 %71, 1
+  br i1 %72, label %73, label %81
 
-66:                                               ; preds = %57
-  %67 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %68 = and i32 %67, -65537
-  %69 = or i32 %68, 65536
-  store i32 %69, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  br label %70
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %75 = getelementptr inbounds %struct.anon.0, ptr %74, i32 0, i32 1
+  %76 = load i32, ptr %75, align 8
+  %77 = and i32 %76, -65537
+  %78 = or i32 %77, 65536
+  %79 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %80 = getelementptr inbounds %struct.anon.0, ptr %79, i32 0, i32 1
+  store i32 %78, ptr %80, align 8
+  br label %81
 
-70:                                               ; preds = %66, %57
+81:                                               ; preds = %73, %64
   call void @scratch_buffer_clear()
-  %71 = load i32, ptr %4, align 4
-  call void @x86features_as_diff_to_scratch(ptr noundef %5, i32 noundef %71)
-  %72 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %73 = lshr i32 %72, 16
-  %74 = and i32 %73, 1
-  %75 = trunc i32 %74 to i1
-  br i1 %75, label %76, label %77
+  %82 = load i32, ptr %4, align 4
+  call void @x86features_as_diff_to_scratch(ptr noundef %5, i32 noundef %82)
+  %83 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %84 = getelementptr inbounds %struct.anon.0, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %84, align 8
+  %86 = lshr i32 %85, 16
+  %87 = and i32 %86, 1
+  %88 = trunc i32 %87 to i1
+  br i1 %88, label %89, label %90
 
-76:                                               ; preds = %70
+89:                                               ; preds = %81
   call void @scratch_buffer_append(ptr noundef @.str.204)
-  br label %77
+  br label %90
 
-77:                                               ; preds = %76, %70
-  %78 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %79 = icmp ugt i32 %78, 0
-  br i1 %79, label %80, label %83
+90:                                               ; preds = %89, %81
+  %91 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp ugt i32 %92, 0
+  br i1 %93, label %94, label %99
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %82 = add i32 %81, -1
-  store i32 %82, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  br label %83
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4
+  %97 = add i32 %96, -1
+  %98 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  store i32 %97, ptr %98, align 4
+  br label %99
 
-83:                                               ; preds = %80, %77
-  %84 = call ptr @scratch_buffer_copy()
-  store ptr %84, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 3), align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 7), align 4
-  %86 = icmp eq i32 %85, 1
-  br i1 %86, label %87, label %96
+99:                                               ; preds = %94, %90
+  %100 = call ptr @scratch_buffer_copy()
+  %101 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 3
+  store ptr %100, ptr %101, align 8
+  %102 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 7
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp eq i32 %103, 1
+  br i1 %104, label %105, label %116
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %89 = lshr i32 %88, 17
-  %90 = and i32 %89, 1
-  %91 = trunc i32 %90 to i1
-  br i1 %91, label %92, label %95
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %107 = getelementptr inbounds %struct.anon.0, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 8
+  %109 = lshr i32 %108, 17
+  %110 = and i32 %109, 1
+  %111 = trunc i32 %110 to i1
+  br i1 %111, label %112, label %115
 
-92:                                               ; preds = %87
-  br label %93
+112:                                              ; preds = %105
+  br label %113
 
-93:                                               ; preds = %92
-  br label %94
+113:                                              ; preds = %112
+  br label %114
 
-94:                                               ; preds = %93
-  br label %95
+114:                                              ; preds = %113
+  br label %115
 
-95:                                               ; preds = %94, %87
-  br label %96
+115:                                              ; preds = %114, %105
+  br label %116
 
-96:                                               ; preds = %95, %83
-  %97 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %98 = icmp eq i32 %97, 9
-  br i1 %98, label %102, label %99
+116:                                              ; preds = %115, %99
+  %117 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp eq i32 %118, 9
+  br i1 %119, label %124, label %120
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 5), align 4
-  %101 = icmp eq i32 %100, 12
-  br i1 %101, label %102, label %106
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 5
+  %122 = load i32, ptr %121, align 4
+  %123 = icmp eq i32 %122, 12
+  br i1 %123, label %124, label %132
 
-102:                                              ; preds = %99, %96
-  %103 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %104 = and i32 %103, -524289
-  %105 = or i32 %104, 524288
-  store i32 %105, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  br label %106
+124:                                              ; preds = %120, %116
+  %125 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %126 = getelementptr inbounds %struct.anon.0, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 8
+  %128 = and i32 %127, -524289
+  %129 = or i32 %128, 524288
+  %130 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %131 = getelementptr inbounds %struct.anon.0, ptr %130, i32 0, i32 1
+  store i32 %129, ptr %131, align 8
+  br label %132
 
-106:                                              ; preds = %102, %99
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), ptr align 8 %5, i64 24, i1 false)
-  %107 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 17)
-  br i1 %107, label %108, label %112
+132:                                              ; preds = %124, %120
+  %133 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %133, ptr align 8 %5, i64 24, i1 false)
+  %134 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 17)
+  br i1 %134, label %135, label %145
 
-108:                                              ; preds = %106
-  store i32 64, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %109 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %110 = and i32 %109, -65536
-  %111 = or i32 %110, 512
-  store i32 %111, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  br label %126
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %137 = getelementptr inbounds %struct.anon.0, ptr %136, i32 0, i32 2
+  store i32 64, ptr %137, align 4
+  %138 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %139 = getelementptr inbounds %struct.anon.0, ptr %138, i32 0, i32 1
+  %140 = load i32, ptr %139, align 8
+  %141 = and i32 %140, -65536
+  %142 = or i32 %141, 512
+  %143 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %144 = getelementptr inbounds %struct.anon.0, ptr %143, i32 0, i32 1
+  store i32 %142, ptr %144, align 8
+  br label %171
 
-112:                                              ; preds = %106
-  %113 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 7)
-  br i1 %113, label %114, label %118
+145:                                              ; preds = %132
+  %146 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 7)
+  br i1 %146, label %147, label %157
 
-114:                                              ; preds = %112
-  store i32 32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %115 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %116 = and i32 %115, -65536
-  %117 = or i32 %116, 256
-  store i32 %117, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  br label %125
+147:                                              ; preds = %145
+  %148 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %149 = getelementptr inbounds %struct.anon.0, ptr %148, i32 0, i32 2
+  store i32 32, ptr %149, align 4
+  %150 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %151 = getelementptr inbounds %struct.anon.0, ptr %150, i32 0, i32 1
+  %152 = load i32, ptr %151, align 8
+  %153 = and i32 %152, -65536
+  %154 = or i32 %153, 256
+  %155 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %156 = getelementptr inbounds %struct.anon.0, ptr %155, i32 0, i32 1
+  store i32 %154, ptr %156, align 8
+  br label %170
 
-118:                                              ; preds = %112
-  %119 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 82)
-  br i1 %119, label %120, label %124
+157:                                              ; preds = %145
+  %158 = call zeroext i1 @x64features_contains(ptr noundef %5, i32 noundef 82)
+  br i1 %158, label %159, label %169
 
-120:                                              ; preds = %118
-  store i32 16, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %121 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %122 = and i32 %121, -65536
-  %123 = or i32 %122, 128
-  store i32 %123, ptr getelementptr inbounds (%struct.anon.0, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  br label %124
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %161 = getelementptr inbounds %struct.anon.0, ptr %160, i32 0, i32 2
+  store i32 16, ptr %161, align 4
+  %162 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %163 = getelementptr inbounds %struct.anon.0, ptr %162, i32 0, i32 1
+  %164 = load i32, ptr %163, align 8
+  %165 = and i32 %164, -65536
+  %166 = or i32 %165, 128
+  %167 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %168 = getelementptr inbounds %struct.anon.0, ptr %167, i32 0, i32 1
+  store i32 %166, ptr %168, align 8
+  br label %169
 
-124:                                              ; preds = %120, %118
-  br label %125
+169:                                              ; preds = %159, %157
+  br label %170
 
-125:                                              ; preds = %124, %114
-  br label %126
+170:                                              ; preds = %169, %147
+  br label %171
 
-126:                                              ; preds = %125, %108
+171:                                              ; preds = %170, %135
   ret void
 }
 

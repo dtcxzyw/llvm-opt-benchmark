@@ -54,9 +54,11 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %1 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 68, ptr noundef @.str.1, i32 noundef %1)
+  %1 = getelementptr i8, ptr @.str, i64 129
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = load i32, ptr %err, align 4
+  %3 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 68, ptr noundef @.str.1, i32 noundef %2)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body
@@ -72,17 +74,19 @@ if.end:                                           ; preds = %do.end4, %entry
   %cv_5 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 1
   %call6 = call i32 @pthread_cond_init(ptr noundef %cv_5, ptr noundef null) #6
   store i32 %call6, ptr %err2, align 4
-  %2 = load i32, ptr %err2, align 4
-  %cmp7 = icmp ne i32 %2, 0
+  %4 = load i32, ptr %err2, align 4
+  %cmp7 = icmp ne i32 %4, 0
   br i1 %cmp7, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.end
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then8
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename10, align 8
-  %3 = load i32, ptr %err2, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 73, ptr noundef @.str.2, i32 noundef %3)
+  %5 = getelementptr i8, ptr @.str, i64 129
+  store ptr %5, ptr %absl_raw_log_internal_basename10, align 8
+  %6 = load i32, ptr %err2, align 4
+  %7 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %7, i32 noundef 73, ptr noundef @.str.2, i32 noundef %6)
   br label %do.body11
 
 do.body11:                                        ; preds = %do.body9
@@ -255,9 +259,11 @@ if.then8:                                         ; preds = %invoke.cont5
   br label %do.body
 
 do.body:                                          ; preds = %if.then8
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %7 = load i32, ptr %err, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 123, ptr noundef @.str.3, i32 noundef %7)
+  %7 = getelementptr i8, ptr @.str, i64 129
+  store ptr %7, ptr %absl_raw_log_internal_basename, align 8
+  %8 = load i32, ptr %err, align 4
+  %9 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 123, ptr noundef @.str.3, i32 noundef %8)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %do.body
@@ -284,37 +290,39 @@ if.end13:                                         ; preds = %do.end12, %invoke.c
 if.else:                                          ; preds = %invoke.cont2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %t, i64 8, i1 false)
   %coerce.dive15 = getelementptr inbounds %"class.absl::synchronization_internal::KernelTimeout", ptr %agg.tmp, i32 0, i32 0
-  %8 = load i64, ptr %coerce.dive15, align 8
-  %call17 = invoke noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %this1, i64 %8)
+  %10 = load i64, ptr %coerce.dive15, align 8
+  %call17 = invoke noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9TimedWaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96) %this1, i64 %10)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.else
   store i32 %call17, ptr %err14, align 4
-  %9 = load i32, ptr %err14, align 4
-  %cmp18 = icmp eq i32 %9, 110
+  %11 = load i32, ptr %err14, align 4
+  %cmp18 = icmp eq i32 %11, 110
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %invoke.cont16
   %waiter_count_20 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %10 = load i32, ptr %waiter_count_20, align 8
-  %dec = add nsw i32 %10, -1
+  %12 = load i32, ptr %waiter_count_20, align 8
+  %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %waiter_count_20, align 8
   store i1 false, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 if.end21:                                         ; preds = %invoke.cont16
-  %11 = load i32, ptr %err14, align 4
-  %cmp22 = icmp ne i32 %11, 0
+  %13 = load i32, ptr %err14, align 4
+  %cmp22 = icmp ne i32 %13, 0
   br i1 %cmp22, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %if.end21
   br label %do.body24
 
 do.body24:                                        ; preds = %if.then23
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename25, align 8
-  %12 = load i32, ptr %err14, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 132, ptr noundef @.str.4, i32 noundef %12)
+  %14 = getelementptr i8, ptr @.str, i64 129
+  store ptr %14, ptr %absl_raw_log_internal_basename25, align 8
+  %15 = load i32, ptr %err14, align 4
+  %16 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %16, i32 noundef 132, ptr noundef @.str.4, i32 noundef %15)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %do.body24
@@ -344,12 +352,12 @@ if.end33:                                         ; preds = %if.end32, %if.end13
 
 while.end:                                        ; preds = %while.cond
   %wakeup_count_34 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 3
-  %13 = load i32, ptr %wakeup_count_34, align 4
-  %dec35 = add nsw i32 %13, -1
+  %17 = load i32, ptr %wakeup_count_34, align 4
+  %dec35 = add nsw i32 %17, -1
   store i32 %dec35, ptr %wakeup_count_34, align 4
   %waiter_count_36 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this1, i32 0, i32 2
-  %14 = load i32, ptr %waiter_count_36, align 8
-  %dec37 = add nsw i32 %14, -1
+  %18 = load i32, ptr %waiter_count_36, align 8
+  %dec37 = add nsw i32 %18, -1
   store i32 %dec37, ptr %waiter_count_36, align 8
   store i1 true, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
@@ -357,8 +365,8 @@ while.end:                                        ; preds = %while.cond
 
 cleanup:                                          ; preds = %while.end, %if.then19
   call void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %h) #6
-  %15 = load i1, ptr %retval, align 1
-  ret i1 %15
+  %19 = load i1, ptr %retval, align 1
+  ret i1 %19
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -393,9 +401,11 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %3 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 42, ptr noundef @.str.6, i32 noundef %3)
+  %3 = getelementptr i8, ptr @.str, i64 129
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
+  %4 = load i32, ptr %err, align 4
+  %5 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 42, ptr noundef @.str.6, i32 noundef %4)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body
@@ -452,9 +462,11 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %2 = load i32, ptr %err, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef @.str.7, i32 noundef %2)
+  %2 = getelementptr i8, ptr @.str, i64 129
+  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
+  %3 = load i32, ptr %err, align 4
+  %4 = getelementptr i8, ptr @.str, i64 129
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 52, ptr noundef @.str.7, i32 noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %do.body
@@ -479,10 +491,10 @@ if.end:                                           ; preds = %do.end4, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %do.body
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #7
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #7
   unreachable
 }
 
@@ -551,9 +563,11 @@ if.then3:                                         ; preds = %if.then
   br label %do.body
 
 do.body:                                          ; preds = %if.then3
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %2 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef @.str.5, i32 noundef %2)
+  %2 = getelementptr i8, ptr @.str, i64 129
+  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
+  %3 = load i32, ptr %err, align 4
+  %4 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 158, ptr noundef @.str.5, i32 noundef %3)
   br label %do.body4
 
 do.body4:                                         ; preds = %do.body

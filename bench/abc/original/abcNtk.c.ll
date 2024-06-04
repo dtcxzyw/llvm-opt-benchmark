@@ -1554,7 +1554,8 @@ define internal void @Abc_LatchSetInit0(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -13133,13 +13134,13 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  br label %37
+  br label %39
 
 8:                                                ; preds = %1
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %34, %8
+9:                                                ; preds = %36, %8
   %10 = load i32, ptr %4, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @Vec_PtrSize(ptr noundef %11)
@@ -13155,45 +13156,47 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14, %9
   %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = icmp ne ptr %21, inttoptr (i64 1 to ptr)
-  br i1 %22, label %23, label %33
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 2 to ptr)
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 2 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %35
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %30) #10
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %32) #10
   store ptr null, ptr %3, align 8
-  br label %32
-
-31:                                               ; preds = %26
-  br label %32
-
-32:                                               ; preds = %31, %29
-  br label %33
-
-33:                                               ; preds = %32, %23, %20
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %4, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %31
+  br label %35
+
+35:                                               ; preds = %34, %24, %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %4, align 4
   br label %9, !llvm.loop !142
 
-37:                                               ; preds = %18, %7
+39:                                               ; preds = %18, %7
   ret void
 }
 

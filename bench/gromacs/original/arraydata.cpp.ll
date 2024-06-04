@@ -543,62 +543,63 @@ define void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 1
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 2
-  invoke void @_ZN3gmx24AnalysisDataPointSetInfoC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-          to label %9 unwind label %17
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 1
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 2
+  invoke void @_ZN3gmx24AnalysisDataPointSetInfoC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+          to label %10 unwind label %18
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 4
-  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %11 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 5
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  %12 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 6
-  store float 1.000000e+00, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 7
-  store i8 1, ptr %13, align 4
-  %14 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 8
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 5
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 4
+  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  %12 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  %13 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 6
+  store float 1.000000e+00, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 7
+  store i8 1, ptr %14, align 4
+  %15 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 8
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %6, i32 0, i32 5
   store float 0.000000e+00, ptr %5, align 4
-  invoke void @_ZNSt6vectorIfSaIfEE9push_backEOf(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %16 unwind label %21
+  invoke void @_ZNSt6vectorIfSaIfEE9push_backEOf(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %9
+17:                                               ; preds = %10
   ret void
 
-17:                                               ; preds = %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  br label %25
-
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i32, ptr %4, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %10
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %3, align 8
+  %29 = load i32, ptr %4, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
@@ -1801,11 +1802,12 @@ define void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"class.gmx::AbstractAnalysisArrayData", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   ret void
 }

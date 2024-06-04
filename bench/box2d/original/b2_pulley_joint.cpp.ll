@@ -230,49 +230,50 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13b2PulleyJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %groundAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV13b2PulleyJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %groundAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %2, i32 0, i32 1
   %m_groundAnchorA2 = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_groundAnchorA2, ptr align 4 %groundAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %groundAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %groundAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %3, i32 0, i32 2
   %m_groundAnchorB3 = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_groundAnchorB3, ptr align 4 %groundAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %4, i32 0, i32 3
   %m_localAnchorA4 = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA4, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %4 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %4, i32 0, i32 4
+  %5 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %5, i32 0, i32 4
   %m_localAnchorB5 = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB5, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %5 = load ptr, ptr %def.addr, align 8
-  %lengthA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %5, i32 0, i32 5
-  %6 = load float, ptr %lengthA, align 4
+  %6 = load ptr, ptr %def.addr, align 8
+  %lengthA = getelementptr inbounds %struct.b2PulleyJointDef, ptr %6, i32 0, i32 5
+  %7 = load float, ptr %lengthA, align 4
   %m_lengthA = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 3
-  store float %6, ptr %m_lengthA, align 8
-  %7 = load ptr, ptr %def.addr, align 8
-  %lengthB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %7, i32 0, i32 6
-  %8 = load float, ptr %lengthB, align 8
+  store float %7, ptr %m_lengthA, align 8
+  %8 = load ptr, ptr %def.addr, align 8
+  %lengthB = getelementptr inbounds %struct.b2PulleyJointDef, ptr %8, i32 0, i32 6
+  %9 = load float, ptr %lengthB, align 8
   %m_lengthB = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 4
-  store float %8, ptr %m_lengthB, align 4
-  %9 = load ptr, ptr %def.addr, align 8
-  %ratio = getelementptr inbounds %struct.b2PulleyJointDef, ptr %9, i32 0, i32 7
-  %10 = load float, ptr %ratio, align 4
+  store float %9, ptr %m_lengthB, align 4
+  %10 = load ptr, ptr %def.addr, align 8
+  %ratio = getelementptr inbounds %struct.b2PulleyJointDef, ptr %10, i32 0, i32 7
+  %11 = load float, ptr %ratio, align 4
   %m_ratio = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 8
-  store float %10, ptr %m_ratio, align 4
-  %11 = load ptr, ptr %def.addr, align 8
-  %lengthA6 = getelementptr inbounds %struct.b2PulleyJointDef, ptr %11, i32 0, i32 5
-  %12 = load float, ptr %lengthA6, align 4
+  store float %11, ptr %m_ratio, align 4
+  %12 = load ptr, ptr %def.addr, align 8
+  %lengthA6 = getelementptr inbounds %struct.b2PulleyJointDef, ptr %12, i32 0, i32 5
+  %13 = load float, ptr %lengthA6, align 4
   %m_ratio7 = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 8
-  %13 = load float, ptr %m_ratio7, align 4
-  %14 = load ptr, ptr %def.addr, align 8
-  %lengthB8 = getelementptr inbounds %struct.b2PulleyJointDef, ptr %14, i32 0, i32 6
-  %15 = load float, ptr %lengthB8, align 8
-  %16 = call float @llvm.fmuladd.f32(float %13, float %15, float %12)
+  %14 = load float, ptr %m_ratio7, align 4
+  %15 = load ptr, ptr %def.addr, align 8
+  %lengthB8 = getelementptr inbounds %struct.b2PulleyJointDef, ptr %15, i32 0, i32 6
+  %16 = load float, ptr %lengthB8, align 8
+  %17 = call float @llvm.fmuladd.f32(float %14, float %16, float %13)
   %m_constant = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 7
-  store float %16, ptr %m_constant, align 8
+  store float %17, ptr %m_constant, align 8
   %m_impulse = getelementptr inbounds %class.b2PulleyJoint, ptr %this1, i32 0, i32 9
   store float 0.000000e+00, ptr %m_impulse, align 8
   ret void

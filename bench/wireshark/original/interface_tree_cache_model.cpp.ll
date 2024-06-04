@@ -979,91 +979,92 @@ define void @_ZN23InterfaceTreeCacheModelC2EP7QObject(ptr noundef nonnull align 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 3
-  call void @_ZN5QListI20InterfaceTreeColumnsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  %10 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 4
+  %9 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 3
   call void @_ZN5QListI20InterfaceTreeColumnsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #14
-          to label %12 unwind label %34
+  %11 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 4
+  call void @_ZN5QListI20InterfaceTreeColumnsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #14
+          to label %13 unwind label %35
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  invoke void @_ZN18InterfaceTreeModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13)
-          to label %14 unwind label %38
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  invoke void @_ZN18InterfaceTreeModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %14)
+          to label %15 unwind label %39
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 1
-  store ptr %11, ptr %15, align 8
+15:                                               ; preds = %13
   %16 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  invoke void @_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractItemModel(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %17)
-          to label %18 unwind label %34
+  store ptr %12, ptr %16, align 8
+  %17 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractItemModel(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %18)
+          to label %19 unwind label %35
 
-18:                                               ; preds = %14
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %20 unwind label %34
+19:                                               ; preds = %15
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
+          to label %21 unwind label %35
 
-20:                                               ; preds = %18
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 8, i1 false)
-  call void @_ZN4QMapIiPS_I20InterfaceTreeColumns8QVariantEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
-  %21 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 2
-  store ptr %19, ptr %21, align 8
-  %22 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 4
-  %23 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef 2)
-          to label %24 unwind label %34
+21:                                               ; preds = %19
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 8, i1 false)
+  call void @_ZN4QMapIiPS_I20InterfaceTreeColumns8QVariantEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
+  %22 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 2
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 4
+  %24 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 2)
+          to label %25 unwind label %35
 
-24:                                               ; preds = %20
-  %25 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 9)
-          to label %26 unwind label %34
+25:                                               ; preds = %21
+  %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef 9)
+          to label %27 unwind label %35
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 3
-  %28 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 6)
-          to label %29 unwind label %34
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %7, i32 0, i32 3
+  %29 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 6)
+          to label %30 unwind label %35
 
-29:                                               ; preds = %26
-  %30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 12)
-          to label %31 unwind label %34
+30:                                               ; preds = %27
+  %31 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 12)
+          to label %32 unwind label %35
 
-31:                                               ; preds = %29
-  %32 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %30, i32 noundef 14)
-          to label %33 unwind label %34
+32:                                               ; preds = %30
+  %33 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI20InterfaceTreeColumnsElsES0_(ptr noundef nonnull align 8 dereferenceable(24) %31, i32 noundef 14)
+          to label %34 unwind label %35
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   ret void
 
-34:                                               ; preds = %31, %29, %26, %24, %20, %18, %14, %2
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %32, %30, %27, %25, %21, %19, %15, %2
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %5, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %6, align 4
-  br label %42
-
-38:                                               ; preds = %12
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %5, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %11) #15
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+39:                                               ; preds = %13
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %5, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %12) #15
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 declare void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -1133,35 +1134,36 @@ define void @_ZN23InterfaceTreeCacheModelD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZN4QMapIiPS_I20InterfaceTreeColumns8QVariantEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @_ZdlPv(ptr noundef %5) #15
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZN4QMapIiPS_I20InterfaceTreeColumns8QVariantEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @_ZdlPv(ptr noundef %6) #15
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %16, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 4
-  %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  br label %16
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %11, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 4
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
+  br label %17
 
-16:                                               ; preds = %12, %8
-  %17 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 4
-  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
-  %18 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 3
+17:                                               ; preds = %13, %9
+  %18 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 4
   call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
+  %19 = getelementptr inbounds %class.InterfaceTreeCacheModel, ptr %3, i32 0, i32 3
+  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }

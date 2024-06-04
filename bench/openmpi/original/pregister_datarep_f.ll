@@ -92,123 +92,127 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %21, ptr %20, align 8
   %22 = load ptr, ptr %20, align 8
   %23 = icmp eq ptr null, %22
-  br i1 %23, label %24, label %35
+  br i1 %23, label %24, label %37
 
 24:                                               ; preds = %7
-  %25 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %26 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %27 = call i32 @ompi_errcode_get_mpi_code(i32 noundef -2)
-  %28 = call i32 @ompi_errhandler_invoke(ptr noundef %25, ptr noundef @ompi_mpi_file_null, i32 noundef %26, i32 noundef %27, ptr noundef @FUNC_NAME)
-  store i32 %28, ptr %16, align 4
-  %29 = load ptr, ptr %13, align 8
-  %30 = icmp ne ptr null, %29
-  br i1 %30, label %31, label %34
+  %25 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %28 = load i32, ptr %27, align 8
+  %29 = call i32 @ompi_errcode_get_mpi_code(i32 noundef -2)
+  %30 = call i32 @ompi_errhandler_invoke(ptr noundef %26, ptr noundef @ompi_mpi_file_null, i32 noundef %28, i32 noundef %29, ptr noundef @FUNC_NAME)
+  store i32 %30, ptr %16, align 4
+  %31 = load ptr, ptr %13, align 8
+  %32 = icmp ne ptr null, %31
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %16, align 4
-  %33 = load ptr, ptr %13, align 8
-  store i32 %32, ptr %33, align 4
-  br label %34
+33:                                               ; preds = %24
+  %34 = load i32, ptr %16, align 4
+  %35 = load ptr, ptr %13, align 8
+  store i32 %34, ptr %35, align 4
+  br label %36
 
-34:                                               ; preds = %31, %24
-  br label %89
+36:                                               ; preds = %33, %24
+  br label %93
 
-35:                                               ; preds = %7
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds %struct.intercept_extra_state, ptr %36, i32 0, i32 0
-  call void @_opal_list_append(ptr noundef @ompi_registered_datareps, ptr noundef %37)
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr %14, align 4
-  %40 = call i32 @ompi_fortran_string_f2c(ptr noundef %38, i32 noundef %39, ptr noundef %15)
-  store i32 %40, ptr %17, align 4
-  %41 = icmp ne i32 0, %40
-  br i1 %41, label %42, label %54
+37:                                               ; preds = %7
+  %38 = load ptr, ptr %20, align 8
+  %39 = getelementptr inbounds %struct.intercept_extra_state, ptr %38, i32 0, i32 0
+  call void @_opal_list_append(ptr noundef @ompi_registered_datareps, ptr noundef %39)
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i32, ptr %14, align 4
+  %42 = call i32 @ompi_fortran_string_f2c(ptr noundef %40, i32 noundef %41, ptr noundef %15)
+  store i32 %42, ptr %17, align 4
+  %43 = icmp ne i32 0, %42
+  br i1 %43, label %44, label %58
 
-42:                                               ; preds = %35
-  %43 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %45 = load i32, ptr %17, align 4
-  %46 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %45)
-  %47 = call i32 @ompi_errhandler_invoke(ptr noundef %43, ptr noundef @ompi_mpi_file_null, i32 noundef %44, i32 noundef %46, ptr noundef @FUNC_NAME)
-  store i32 %47, ptr %16, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = icmp ne ptr null, %48
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %42
-  %51 = load i32, ptr %16, align 4
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %48 = load i32, ptr %47, align 8
+  %49 = load i32, ptr %17, align 4
+  %50 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %49)
+  %51 = call i32 @ompi_errhandler_invoke(ptr noundef %46, ptr noundef @ompi_mpi_file_null, i32 noundef %48, i32 noundef %50, ptr noundef @FUNC_NAME)
+  store i32 %51, ptr %16, align 4
   %52 = load ptr, ptr %13, align 8
-  store i32 %51, ptr %52, align 4
-  br label %53
+  %53 = icmp ne ptr null, %52
+  br i1 %53, label %54, label %57
 
-53:                                               ; preds = %50, %42
-  br label %89
+54:                                               ; preds = %44
+  %55 = load i32, ptr %16, align 4
+  %56 = load ptr, ptr %13, align 8
+  store i32 %55, ptr %56, align 4
+  br label %57
 
-54:                                               ; preds = %35
-  %55 = load ptr, ptr %9, align 8
-  %56 = icmp eq ptr @mpi_conversion_fn_null_, %55
-  br i1 %56, label %57, label %58
+57:                                               ; preds = %54, %44
+  br label %93
 
-57:                                               ; preds = %54
-  store ptr null, ptr %18, align 8
-  br label %62
-
-58:                                               ; preds = %54
+58:                                               ; preds = %37
   %59 = load ptr, ptr %9, align 8
-  %60 = load ptr, ptr %20, align 8
-  %61 = getelementptr inbounds %struct.intercept_extra_state, ptr %60, i32 0, i32 1
-  store ptr %59, ptr %61, align 8
+  %60 = icmp eq ptr @mpi_conversion_fn_null_, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %58
+  store ptr null, ptr %18, align 8
+  br label %66
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %20, align 8
+  %65 = getelementptr inbounds %struct.intercept_extra_state, ptr %64, i32 0, i32 1
+  store ptr %63, ptr %65, align 8
   store ptr @read_intercept_fn, ptr %18, align 8
-  br label %62
+  br label %66
 
-62:                                               ; preds = %58, %57
-  %63 = load ptr, ptr %10, align 8
-  %64 = icmp eq ptr @mpi_conversion_fn_null_, %63
-  br i1 %64, label %65, label %66
-
-65:                                               ; preds = %62
-  store ptr null, ptr %19, align 8
-  br label %70
-
-66:                                               ; preds = %62
+66:                                               ; preds = %62, %61
   %67 = load ptr, ptr %10, align 8
-  %68 = load ptr, ptr %20, align 8
-  %69 = getelementptr inbounds %struct.intercept_extra_state, ptr %68, i32 0, i32 2
-  store ptr %67, ptr %69, align 8
-  store ptr @write_intercept_fn, ptr %19, align 8
-  br label %70
+  %68 = icmp eq ptr @mpi_conversion_fn_null_, %67
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %66, %65
-  %71 = load ptr, ptr %11, align 8
+69:                                               ; preds = %66
+  store ptr null, ptr %19, align 8
+  br label %74
+
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %10, align 8
   %72 = load ptr, ptr %20, align 8
-  %73 = getelementptr inbounds %struct.intercept_extra_state, ptr %72, i32 0, i32 3
+  %73 = getelementptr inbounds %struct.intercept_extra_state, ptr %72, i32 0, i32 2
   store ptr %71, ptr %73, align 8
-  %74 = load ptr, ptr %12, align 8
-  %75 = load ptr, ptr %20, align 8
-  %76 = getelementptr inbounds %struct.intercept_extra_state, ptr %75, i32 0, i32 4
-  store ptr %74, ptr %76, align 8
-  %77 = load ptr, ptr %15, align 8
-  %78 = load ptr, ptr %18, align 8
-  %79 = load ptr, ptr %19, align 8
-  %80 = load ptr, ptr %20, align 8
-  %81 = call i32 @PMPI_Register_datarep(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef @extent_intercept_fn, ptr noundef %80)
-  store i32 %81, ptr %16, align 4
-  %82 = load ptr, ptr %13, align 8
-  %83 = icmp ne ptr null, %82
-  br i1 %83, label %84, label %87
+  store ptr @write_intercept_fn, ptr %19, align 8
+  br label %74
 
-84:                                               ; preds = %70
-  %85 = load i32, ptr %16, align 4
+74:                                               ; preds = %70, %69
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %20, align 8
+  %77 = getelementptr inbounds %struct.intercept_extra_state, ptr %76, i32 0, i32 3
+  store ptr %75, ptr %77, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = load ptr, ptr %20, align 8
+  %80 = getelementptr inbounds %struct.intercept_extra_state, ptr %79, i32 0, i32 4
+  store ptr %78, ptr %80, align 8
+  %81 = load ptr, ptr %15, align 8
+  %82 = load ptr, ptr %18, align 8
+  %83 = load ptr, ptr %19, align 8
+  %84 = load ptr, ptr %20, align 8
+  %85 = call i32 @PMPI_Register_datarep(ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef @extent_intercept_fn, ptr noundef %84)
+  store i32 %85, ptr %16, align 4
   %86 = load ptr, ptr %13, align 8
-  store i32 %85, ptr %86, align 4
-  br label %87
+  %87 = icmp ne ptr null, %86
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %84, %70
-  %88 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %88) #4
-  br label %89
+88:                                               ; preds = %74
+  %89 = load i32, ptr %16, align 4
+  %90 = load ptr, ptr %13, align 8
+  store i32 %89, ptr %90, align 4
+  br label %91
 
-89:                                               ; preds = %87, %53, %34
+91:                                               ; preds = %88, %74
+  %92 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %92) #4
+  br label %93
+
+93:                                               ; preds = %91, %57, %36
   ret void
 }
 

@@ -301,16 +301,17 @@ entry:
   %0 = load ptr, ptr %rbA.addr, align 8
   %1 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23btGeneric6DofConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV23btGeneric6DofConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_frameInA = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %frameInA.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %2)
+  %3 = load ptr, ptr %frameInA.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %3)
+  %4 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -409,8 +410,8 @@ invoke.cont32:                                    ; preds = %arrayctor.cont31
 
 invoke.cont33:                                    ; preds = %invoke.cont32
   %m_useLinearReferenceFrameA = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 18
-  %4 = load i8, ptr %useLinearReferenceFrameA.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %useLinearReferenceFrameA.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool34 = zext i1 %tobool to i8
   store i8 %frombool34, ptr %m_useLinearReferenceFrameA, align 4
   %m_useOffsetForConstraintFrame = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 19
@@ -426,12 +427,12 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   ret void
 
 lpad:                                             ; preds = %invoke.cont33, %invoke.cont32, %arrayctor.cont31, %arrayctor.loop26, %invoke.cont22, %invoke.cont21, %arrayctor.cont20, %arrayctor.loop15, %arrayctor.cont11, %arrayctor.loop6, %arrayctor.loop, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -699,15 +700,16 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   %0 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(744) %call, ptr noundef nonnull align 8 dereferenceable(744) %0)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23btGeneric6DofConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV23btGeneric6DofConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_frameInA = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %1)
+  %2 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -806,8 +808,8 @@ invoke.cont32:                                    ; preds = %arrayctor.cont31
 
 invoke.cont33:                                    ; preds = %invoke.cont32
   %m_useLinearReferenceFrameA = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 18
-  %2 = load i8, ptr %useLinearReferenceFrameB.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %useLinearReferenceFrameB.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool34 = zext i1 %tobool to i8
   store i8 %frombool34, ptr %m_useLinearReferenceFrameA, align 4
   %m_useOffsetForConstraintFrame = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 19
@@ -816,8 +818,8 @@ invoke.cont33:                                    ; preds = %invoke.cont32
   store i32 0, ptr %m_flags, align 8
   %m_useSolveConstraintObsolete = getelementptr inbounds %class.btGeneric6DofConstraint, ptr %this1, i32 0, i32 22
   store i8 0, ptr %m_useSolveConstraintObsolete, align 4
-  %3 = load ptr, ptr %rbB.addr, align 8
-  %call36 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
+  %4 = load ptr, ptr %rbB.addr, align 8
+  %call36 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %4)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -838,12 +840,12 @@ invoke.cont42:                                    ; preds = %invoke.cont40
   ret void
 
 lpad:                                             ; preds = %invoke.cont40, %invoke.cont38, %invoke.cont35, %invoke.cont33, %invoke.cont32, %arrayctor.cont31, %arrayctor.loop26, %invoke.cont22, %invoke.cont21, %arrayctor.cont20, %arrayctor.loop15, %arrayctor.cont11, %arrayctor.loop6, %arrayctor.loop, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -6285,7 +6287,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

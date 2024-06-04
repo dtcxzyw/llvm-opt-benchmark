@@ -910,7 +910,7 @@ define void @Dau_DsdNormalize_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %93
-  br label %253
+  br label %254
 
 100:                                              ; preds = %93, %87
   %101 = load ptr, ptr %5, align 8
@@ -926,7 +926,7 @@ define void @Dau_DsdNormalize_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %109 = load i8, ptr %108, align 1
   %110 = sext i8 %109 to i32
   %111 = icmp eq i32 %110, 91
-  br i1 %111, label %112, label %192
+  br i1 %111, label %112, label %193
 
 112:                                              ; preds = %106, %100
   %113 = load ptr, ptr %5, align 8
@@ -1037,98 +1037,99 @@ define void @Dau_DsdNormalize_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %188 = load ptr, ptr %9, align 8
   %189 = load ptr, ptr %8, align 8
   %190 = ptrtoint ptr %189 to i64
-  %191 = sub i64 %190, ptrtoint (ptr @Dau_DsdNormalize_rec.pBuffer to i64)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 16 @Dau_DsdNormalize_rec.pBuffer, i64 %191, i1 false)
-  br label %253
+  %191 = ptrtoint ptr @Dau_DsdNormalize_rec.pBuffer to i64
+  %192 = sub i64 %190, %191
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 16 @Dau_DsdNormalize_rec.pBuffer, i64 %192, i1 false)
+  br label %254
 
-192:                                              ; preds = %106
-  %193 = load ptr, ptr %5, align 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = load i8, ptr %194, align 1
-  %196 = sext i8 %195 to i32
-  %197 = icmp eq i32 %196, 60
-  br i1 %197, label %204, label %198
+193:                                              ; preds = %106
+  %194 = load ptr, ptr %5, align 8
+  %195 = load ptr, ptr %194, align 8
+  %196 = load i8, ptr %195, align 1
+  %197 = sext i8 %196 to i32
+  %198 = icmp eq i32 %197, 60
+  br i1 %198, label %205, label %199
 
-198:                                              ; preds = %192
-  %199 = load ptr, ptr %5, align 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = load i8, ptr %200, align 1
-  %202 = sext i8 %201 to i32
-  %203 = icmp eq i32 %202, 123
-  br i1 %203, label %204, label %253
+199:                                              ; preds = %193
+  %200 = load ptr, ptr %5, align 8
+  %201 = load ptr, ptr %200, align 8
+  %202 = load i8, ptr %201, align 1
+  %203 = sext i8 %202 to i32
+  %204 = icmp eq i32 %203, 123
+  br i1 %204, label %205, label %254
 
-204:                                              ; preds = %198, %192
-  %205 = load ptr, ptr %4, align 8
-  %206 = load ptr, ptr %6, align 8
-  %207 = load ptr, ptr %5, align 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = load ptr, ptr %4, align 8
-  %210 = ptrtoint ptr %208 to i64
+205:                                              ; preds = %199, %193
+  %206 = load ptr, ptr %4, align 8
+  %207 = load ptr, ptr %6, align 8
+  %208 = load ptr, ptr %5, align 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = load ptr, ptr %4, align 8
   %211 = ptrtoint ptr %209 to i64
-  %212 = sub i64 %210, %211
-  %213 = getelementptr inbounds i32, ptr %206, i64 %212
-  %214 = load i32, ptr %213, align 4
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i8, ptr %205, i64 %215
-  store ptr %216, ptr %15, align 8
-  %217 = load ptr, ptr %5, align 8
-  %218 = load ptr, ptr %217, align 8
-  %219 = load i8, ptr %218, align 1
-  %220 = sext i8 %219 to i32
-  %221 = icmp eq i32 %220, 60
-  br i1 %221, label %222, label %235
+  %212 = ptrtoint ptr %210 to i64
+  %213 = sub i64 %211, %212
+  %214 = getelementptr inbounds i32, ptr %207, i64 %213
+  %215 = load i32, ptr %214, align 4
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds i8, ptr %206, i64 %216
+  store ptr %217, ptr %15, align 8
+  %218 = load ptr, ptr %5, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = load i8, ptr %219, align 1
+  %221 = sext i8 %220 to i32
+  %222 = icmp eq i32 %221, 60
+  br i1 %222, label %223, label %236
 
-222:                                              ; preds = %204
-  %223 = load ptr, ptr %15, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 1
-  %225 = load i8, ptr %224, align 1
-  %226 = sext i8 %225 to i32
-  %227 = icmp eq i32 %226, 123
-  br i1 %227, label %228, label %235
+223:                                              ; preds = %205
+  %224 = load ptr, ptr %15, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 1
+  %226 = load i8, ptr %225, align 1
+  %227 = sext i8 %226 to i32
+  %228 = icmp eq i32 %227, 123
+  br i1 %228, label %229, label %236
 
-228:                                              ; preds = %222
-  %229 = load ptr, ptr %15, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 1
-  %231 = load ptr, ptr %5, align 8
-  store ptr %230, ptr %231, align 8
-  %232 = load ptr, ptr %4, align 8
-  %233 = load ptr, ptr %5, align 8
-  %234 = load ptr, ptr %6, align 8
-  call void @Dau_DsdNormalize_rec(ptr noundef %232, ptr noundef %233, ptr noundef %234)
-  br label %253
+229:                                              ; preds = %223
+  %230 = load ptr, ptr %15, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 1
+  %232 = load ptr, ptr %5, align 8
+  store ptr %231, ptr %232, align 8
+  %233 = load ptr, ptr %4, align 8
+  %234 = load ptr, ptr %5, align 8
+  %235 = load ptr, ptr %6, align 8
+  call void @Dau_DsdNormalize_rec(ptr noundef %233, ptr noundef %234, ptr noundef %235)
+  br label %254
 
-235:                                              ; preds = %222, %204
-  %236 = load ptr, ptr %5, align 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i32 1
-  store ptr %238, ptr %236, align 8
-  br label %239
+236:                                              ; preds = %223, %205
+  %237 = load ptr, ptr %5, align 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %238, i32 1
+  store ptr %239, ptr %237, align 8
+  br label %240
 
-239:                                              ; preds = %248, %235
-  %240 = load ptr, ptr %5, align 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = load ptr, ptr %15, align 8
-  %243 = icmp ult ptr %241, %242
-  br i1 %243, label %244, label %252
+240:                                              ; preds = %249, %236
+  %241 = load ptr, ptr %5, align 8
+  %242 = load ptr, ptr %241, align 8
+  %243 = load ptr, ptr %15, align 8
+  %244 = icmp ult ptr %242, %243
+  br i1 %244, label %245, label %253
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %4, align 8
-  %246 = load ptr, ptr %5, align 8
-  %247 = load ptr, ptr %6, align 8
-  call void @Dau_DsdNormalize_rec(ptr noundef %245, ptr noundef %246, ptr noundef %247)
-  br label %248
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %4, align 8
+  %247 = load ptr, ptr %5, align 8
+  %248 = load ptr, ptr %6, align 8
+  call void @Dau_DsdNormalize_rec(ptr noundef %246, ptr noundef %247, ptr noundef %248)
+  br label %249
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr %5, align 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i32 1
-  store ptr %251, ptr %249, align 8
-  br label %239, !llvm.loop !18
+249:                                              ; preds = %245
+  %250 = load ptr, ptr %5, align 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i32 1
+  store ptr %252, ptr %250, align 8
+  br label %240, !llvm.loop !18
 
-252:                                              ; preds = %239
-  br label %253
+253:                                              ; preds = %240
+  br label %254
 
-253:                                              ; preds = %252, %228, %198, %187, %99
+254:                                              ; preds = %253, %229, %199, %187, %99
   ret void
 }
 
@@ -5292,43 +5293,44 @@ define internal i32 @Dau_DsdPerformReplace(ptr noundef %0, i32 noundef %1, i32 n
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %11, align 8
   %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %65, ptrtoint (ptr @Dau_DsdPerformReplace.pTemp to i64)
-  %67 = add nsw i64 %63, %66
-  %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %14, align 4
-  %69 = load i32, ptr %7, align 4
-  store i32 %69, ptr %12, align 4
-  br label %70
+  %66 = ptrtoint ptr @Dau_DsdPerformReplace.pTemp to i64
+  %67 = sub i64 %65, %66
+  %68 = add nsw i64 %63, %67
+  %69 = trunc i64 %68 to i32
+  store i32 %69, ptr %14, align 4
+  %70 = load i32, ptr %7, align 4
+  store i32 %70, ptr %12, align 4
+  br label %71
 
-70:                                               ; preds = %85, %61
-  %71 = load i32, ptr %12, align 4
-  %72 = load i32, ptr %14, align 4
-  %73 = icmp slt i32 %71, %72
-  br i1 %73, label %74, label %88
+71:                                               ; preds = %86, %61
+  %72 = load i32, ptr %12, align 4
+  %73 = load i32, ptr %14, align 4
+  %74 = icmp slt i32 %72, %73
+  br i1 %74, label %75, label %89
 
-74:                                               ; preds = %70
-  %75 = load i32, ptr %12, align 4
-  %76 = load i32, ptr %7, align 4
-  %77 = sub nsw i32 %75, %76
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [2000 x i8], ptr @Dau_DsdPerformReplace.pTemp, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = load ptr, ptr %6, align 8
-  %82 = load i32, ptr %12, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  store i8 %80, ptr %84, align 1
-  br label %85
+75:                                               ; preds = %71
+  %76 = load i32, ptr %12, align 4
+  %77 = load i32, ptr %7, align 4
+  %78 = sub nsw i32 %76, %77
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [2000 x i8], ptr @Dau_DsdPerformReplace.pTemp, i64 0, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i32, ptr %12, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
+  store i8 %81, ptr %85, align 1
+  br label %86
 
-85:                                               ; preds = %74
-  %86 = load i32, ptr %12, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %12, align 4
-  br label %70, !llvm.loop !58
+86:                                               ; preds = %75
+  %87 = load i32, ptr %12, align 4
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %12, align 4
+  br label %71, !llvm.loop !58
 
-88:                                               ; preds = %70
-  %89 = load i32, ptr %14, align 4
-  ret i32 %89
+89:                                               ; preds = %71
+  %90 = load i32, ptr %14, align 4
+  ret i32 %90
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6846,16 +6848,16 @@ define i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr noun
   store i64 %14, ptr %10, align 8
   br label %15
 
-15:                                               ; preds = %80, %4
+15:                                               ; preds = %82, %4
   %16 = load i32, ptr %9, align 4
   %17 = sub nsw i32 %16, 1
   store i32 %17, ptr %11, align 4
   br label %18
 
-18:                                               ; preds = %73, %15
+18:                                               ; preds = %75, %15
   %19 = load i32, ptr %11, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %76
+  br i1 %20, label %21, label %78
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %11, align 4
@@ -6863,10 +6865,10 @@ define i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %23, ptr %12, align 4
   br label %24
 
-24:                                               ; preds = %65, %21
+24:                                               ; preds = %67, %21
   %25 = load i32, ptr %12, align 4
   %26 = icmp sge i32 %25, 0
-  br i1 %26, label %27, label %68
+  br i1 %26, label %27, label %70
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %6, align 8
@@ -6885,7 +6887,7 @@ define i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %27
-  br label %65
+  br label %67
 
 42:                                               ; preds = %27
   %43 = load i32, ptr %9, align 4
@@ -6900,78 +6902,82 @@ define i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %50, ptr %9, align 4
   %51 = load i32, ptr %9, align 4
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %59
+  br i1 %52, label %53, label %61
 
 53:                                               ; preds = %42
   %54 = call i64 @Abc_Clock()
   %55 = load i64, ptr %10, align 8
   %56 = sub nsw i64 %54, %55
-  %57 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %58 = add nsw i64 %57, %56
-  store i64 %58, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
+  %57 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  %58 = load i64, ptr %57, align 8
+  %59 = add nsw i64 %58, %56
+  %60 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  store i64 %59, ptr %60, align 8
   store i32 0, ptr %5, align 4
-  br label %88
+  br label %92
 
-59:                                               ; preds = %42
-  %60 = load i32, ptr %13, align 4
-  %61 = load i32, ptr %9, align 4
-  %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %63, label %64
+61:                                               ; preds = %42
+  %62 = load i32, ptr %13, align 4
+  %63 = load i32, ptr %9, align 4
+  %64 = icmp sgt i32 %62, %63
+  br i1 %64, label %65, label %66
 
-63:                                               ; preds = %59
-  br label %68
+65:                                               ; preds = %61
+  br label %70
 
-64:                                               ; preds = %59
-  br label %65
+66:                                               ; preds = %61
+  br label %67
 
-65:                                               ; preds = %64, %41
-  %66 = load i32, ptr %12, align 4
-  %67 = add nsw i32 %66, -1
-  store i32 %67, ptr %12, align 4
+67:                                               ; preds = %66, %41
+  %68 = load i32, ptr %12, align 4
+  %69 = add nsw i32 %68, -1
+  store i32 %69, ptr %12, align 4
   br label %24, !llvm.loop !74
 
-68:                                               ; preds = %63, %24
-  %69 = load i32, ptr %12, align 4
-  %70 = icmp sge i32 %69, 0
-  br i1 %70, label %71, label %72
+70:                                               ; preds = %65, %24
+  %71 = load i32, ptr %12, align 4
+  %72 = icmp sge i32 %71, 0
+  br i1 %72, label %73, label %74
 
-71:                                               ; preds = %68
-  br label %76
+73:                                               ; preds = %70
+  br label %78
 
-72:                                               ; preds = %68
-  br label %73
+74:                                               ; preds = %70
+  br label %75
 
-73:                                               ; preds = %72
-  %74 = load i32, ptr %11, align 4
-  %75 = add nsw i32 %74, -1
-  store i32 %75, ptr %11, align 4
+75:                                               ; preds = %74
+  %76 = load i32, ptr %11, align 4
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %11, align 4
   br label %18, !llvm.loop !75
 
-76:                                               ; preds = %71, %18
-  %77 = load i32, ptr %11, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %80
+78:                                               ; preds = %73, %18
+  %79 = load i32, ptr %11, align 4
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %76
-  br label %81
+81:                                               ; preds = %78
+  br label %83
 
-80:                                               ; preds = %76
+82:                                               ; preds = %78
   br label %15
 
-81:                                               ; preds = %79
-  %82 = call i64 @Abc_Clock()
-  %83 = load i64, ptr %10, align 8
-  %84 = sub nsw i64 %82, %83
-  %85 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %86 = add nsw i64 %85, %84
-  store i64 %86, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %87 = load i32, ptr %9, align 4
-  store i32 %87, ptr %5, align 4
-  br label %88
+83:                                               ; preds = %81
+  %84 = call i64 @Abc_Clock()
+  %85 = load i64, ptr %10, align 8
+  %86 = sub nsw i64 %84, %85
+  %87 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  %88 = load i64, ptr %87, align 8
+  %89 = add nsw i64 %88, %86
+  %90 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  store i64 %89, ptr %90, align 8
+  %91 = load i32, ptr %9, align 4
+  store i32 %91, ptr %5, align 4
+  br label %92
 
-88:                                               ; preds = %81, %53
-  %89 = load i32, ptr %5, align 4
-  ret i32 %89
+92:                                               ; preds = %83, %53
+  %93 = load i32, ptr %5, align 4
+  ret i32 %93
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7385,16 +7391,16 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr noun
   store i64 %14, ptr %10, align 8
   br label %15
 
-15:                                               ; preds = %109, %4
+15:                                               ; preds = %115, %4
   %16 = load i32, ptr %9, align 4
   %17 = sub nsw i32 %16, 1
   store i32 %17, ptr %11, align 4
   br label %18
 
-18:                                               ; preds = %96, %15
+18:                                               ; preds = %100, %15
   %19 = load i32, ptr %11, align 4
   %20 = icmp sge i32 %19, 0
-  br i1 %20, label %21, label %99
+  br i1 %20, label %21, label %103
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %6, align 8
@@ -7420,7 +7426,7 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr noun
   %39 = load i32, ptr %11, align 4
   %40 = call i32 @Dau_Dsd6DecomposeTripleVarsOuter(ptr noundef %35, ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39)
   store i32 %40, ptr %5, align 4
-  br label %110
+  br label %116
 
 41:                                               ; preds = %21
   %42 = load i32, ptr %12, align 4
@@ -7431,7 +7437,7 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr noun
   %47 = and i32 %46, 1431655765
   %48 = call i32 @Abc_TtSuppOnlyOne(i32 noundef %47)
   %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %95
+  br i1 %49, label %50, label %99
 
 50:                                               ; preds = %41
   %51 = load i32, ptr %12, align 4
@@ -7442,7 +7448,7 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr noun
   %56 = and i32 %55, 1431655765
   %57 = call i32 @Abc_TtSuppOnlyOne(i32 noundef %56)
   %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %95
+  br i1 %58, label %59, label %99
 
 59:                                               ; preds = %50
   %60 = load ptr, ptr %6, align 8
@@ -7459,78 +7465,84 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %59
-  br label %96
+  br label %100
 
 71:                                               ; preds = %59
   %72 = load i32, ptr %13, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %80
+  br i1 %73, label %74, label %82
 
 74:                                               ; preds = %71
   %75 = call i64 @Abc_Clock()
   %76 = load i64, ptr %10, align 8
   %77 = sub nsw i64 %75, %76
-  %78 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %79 = add nsw i64 %78, %77
-  store i64 %79, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
+  %78 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %79 = load i64, ptr %78, align 16
+  %80 = add nsw i64 %79, %77
+  %81 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %80, ptr %81, align 16
   store i32 0, ptr %5, align 4
-  br label %110
+  br label %116
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84)
-  store i32 %85, ptr %9, align 4
-  %86 = load i32, ptr %9, align 4
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %94
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = load i32, ptr %13, align 4
+  %87 = call i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86)
+  store i32 %87, ptr %9, align 4
+  %88 = load i32, ptr %9, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %98
 
-88:                                               ; preds = %80
-  %89 = call i64 @Abc_Clock()
-  %90 = load i64, ptr %10, align 8
-  %91 = sub nsw i64 %89, %90
-  %92 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %93 = add nsw i64 %92, %91
-  store i64 %93, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
+90:                                               ; preds = %82
+  %91 = call i64 @Abc_Clock()
+  %92 = load i64, ptr %10, align 8
+  %93 = sub nsw i64 %91, %92
+  %94 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %95 = load i64, ptr %94, align 16
+  %96 = add nsw i64 %95, %93
+  %97 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %96, ptr %97, align 16
   store i32 0, ptr %5, align 4
-  br label %110
+  br label %116
 
-94:                                               ; preds = %80
-  br label %99
+98:                                               ; preds = %82
+  br label %103
 
-95:                                               ; preds = %50, %41
-  br label %96
+99:                                               ; preds = %50, %41
+  br label %100
 
-96:                                               ; preds = %95, %70
-  %97 = load i32, ptr %11, align 4
-  %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %11, align 4
+100:                                              ; preds = %99, %70
+  %101 = load i32, ptr %11, align 4
+  %102 = add nsw i32 %101, -1
+  store i32 %102, ptr %11, align 4
   br label %18, !llvm.loop !76
 
-99:                                               ; preds = %94, %18
-  %100 = load i32, ptr %11, align 4
-  %101 = icmp eq i32 %100, -1
-  br i1 %101, label %102, label %109
+103:                                              ; preds = %98, %18
+  %104 = load i32, ptr %11, align 4
+  %105 = icmp eq i32 %104, -1
+  br i1 %105, label %106, label %115
 
-102:                                              ; preds = %99
-  %103 = call i64 @Abc_Clock()
-  %104 = load i64, ptr %10, align 8
-  %105 = sub nsw i64 %103, %104
-  %106 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %107 = add nsw i64 %106, %105
-  store i64 %107, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %108 = load i32, ptr %9, align 4
-  store i32 %108, ptr %5, align 4
-  br label %110
+106:                                              ; preds = %103
+  %107 = call i64 @Abc_Clock()
+  %108 = load i64, ptr %10, align 8
+  %109 = sub nsw i64 %107, %108
+  %110 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %111 = load i64, ptr %110, align 16
+  %112 = add nsw i64 %111, %109
+  %113 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %112, ptr %113, align 16
+  %114 = load i32, ptr %9, align 4
+  store i32 %114, ptr %5, align 4
+  br label %116
 
-109:                                              ; preds = %99
+115:                                              ; preds = %103
   br label %15
 
-110:                                              ; preds = %102, %88, %74, %34
-  %111 = load i32, ptr %5, align 4
-  ret i32 %111
+116:                                              ; preds = %106, %90, %74, %34
+  %117 = load i32, ptr %5, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8631,16 +8643,16 @@ define i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %14, ptr %10, align 8
   br label %15
 
-15:                                               ; preds = %80, %4
+15:                                               ; preds = %82, %4
   %16 = load i32, ptr %9, align 4
   %17 = sub nsw i32 %16, 1
   store i32 %17, ptr %11, align 4
   br label %18
 
-18:                                               ; preds = %73, %15
+18:                                               ; preds = %75, %15
   %19 = load i32, ptr %11, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %76
+  br i1 %20, label %21, label %78
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %11, align 4
@@ -8648,10 +8660,10 @@ define i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %23, ptr %12, align 4
   br label %24
 
-24:                                               ; preds = %65, %21
+24:                                               ; preds = %67, %21
   %25 = load i32, ptr %12, align 4
   %26 = icmp sge i32 %25, 0
-  br i1 %26, label %27, label %68
+  br i1 %26, label %27, label %70
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %6, align 8
@@ -8670,7 +8682,7 @@ define i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %27
-  br label %65
+  br label %67
 
 42:                                               ; preds = %27
   %43 = load i32, ptr %9, align 4
@@ -8685,78 +8697,82 @@ define i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %50, ptr %9, align 4
   %51 = load i32, ptr %9, align 4
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %59
+  br i1 %52, label %53, label %61
 
 53:                                               ; preds = %42
   %54 = call i64 @Abc_Clock()
   %55 = load i64, ptr %10, align 8
   %56 = sub nsw i64 %54, %55
-  %57 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %58 = add nsw i64 %57, %56
-  store i64 %58, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
+  %57 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  %58 = load i64, ptr %57, align 8
+  %59 = add nsw i64 %58, %56
+  %60 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  store i64 %59, ptr %60, align 8
   store i32 0, ptr %5, align 4
-  br label %88
+  br label %92
 
-59:                                               ; preds = %42
-  %60 = load i32, ptr %13, align 4
-  %61 = load i32, ptr %9, align 4
-  %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %63, label %64
+61:                                               ; preds = %42
+  %62 = load i32, ptr %13, align 4
+  %63 = load i32, ptr %9, align 4
+  %64 = icmp sgt i32 %62, %63
+  br i1 %64, label %65, label %66
 
-63:                                               ; preds = %59
-  br label %68
+65:                                               ; preds = %61
+  br label %70
 
-64:                                               ; preds = %59
-  br label %65
+66:                                               ; preds = %61
+  br label %67
 
-65:                                               ; preds = %64, %41
-  %66 = load i32, ptr %12, align 4
-  %67 = add nsw i32 %66, -1
-  store i32 %67, ptr %12, align 4
+67:                                               ; preds = %66, %41
+  %68 = load i32, ptr %12, align 4
+  %69 = add nsw i32 %68, -1
+  store i32 %69, ptr %12, align 4
   br label %24, !llvm.loop !80
 
-68:                                               ; preds = %63, %24
-  %69 = load i32, ptr %12, align 4
-  %70 = icmp sge i32 %69, 0
-  br i1 %70, label %71, label %72
+70:                                               ; preds = %65, %24
+  %71 = load i32, ptr %12, align 4
+  %72 = icmp sge i32 %71, 0
+  br i1 %72, label %73, label %74
 
-71:                                               ; preds = %68
-  br label %76
+73:                                               ; preds = %70
+  br label %78
 
-72:                                               ; preds = %68
-  br label %73
+74:                                               ; preds = %70
+  br label %75
 
-73:                                               ; preds = %72
-  %74 = load i32, ptr %11, align 4
-  %75 = add nsw i32 %74, -1
-  store i32 %75, ptr %11, align 4
+75:                                               ; preds = %74
+  %76 = load i32, ptr %11, align 4
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %11, align 4
   br label %18, !llvm.loop !81
 
-76:                                               ; preds = %71, %18
-  %77 = load i32, ptr %11, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %80
+78:                                               ; preds = %73, %18
+  %79 = load i32, ptr %11, align 4
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %76
-  br label %81
+81:                                               ; preds = %78
+  br label %83
 
-80:                                               ; preds = %76
+82:                                               ; preds = %78
   br label %15
 
-81:                                               ; preds = %79
-  %82 = call i64 @Abc_Clock()
-  %83 = load i64, ptr %10, align 8
-  %84 = sub nsw i64 %82, %83
-  %85 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %86 = add nsw i64 %85, %84
-  store i64 %86, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  %87 = load i32, ptr %9, align 4
-  store i32 %87, ptr %5, align 4
-  br label %88
+83:                                               ; preds = %81
+  %84 = call i64 @Abc_Clock()
+  %85 = load i64, ptr %10, align 8
+  %86 = sub nsw i64 %84, %85
+  %87 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  %88 = load i64, ptr %87, align 8
+  %89 = add nsw i64 %88, %86
+  %90 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  store i64 %89, ptr %90, align 8
+  %91 = load i32, ptr %9, align 4
+  store i32 %91, ptr %5, align 4
+  br label %92
 
-88:                                               ; preds = %81, %53
-  %89 = load i32, ptr %5, align 4
-  ret i32 %89
+92:                                               ; preds = %83, %53
+  %93 = load i32, ptr %5, align 4
+  ret i32 %93
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9214,16 +9230,16 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %14, ptr %10, align 8
   br label %15
 
-15:                                               ; preds = %109, %4
+15:                                               ; preds = %115, %4
   %16 = load i32, ptr %9, align 4
   %17 = sub nsw i32 %16, 1
   store i32 %17, ptr %11, align 4
   br label %18
 
-18:                                               ; preds = %96, %15
+18:                                               ; preds = %100, %15
   %19 = load i32, ptr %11, align 4
   %20 = icmp sge i32 %19, 0
-  br i1 %20, label %21, label %99
+  br i1 %20, label %21, label %103
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %6, align 8
@@ -9249,7 +9265,7 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   %39 = load i32, ptr %11, align 4
   %40 = call i32 @Dau_DsdDecomposeTripleVarsOuter(ptr noundef %35, ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39)
   store i32 %40, ptr %5, align 4
-  br label %110
+  br label %116
 
 41:                                               ; preds = %21
   %42 = load i32, ptr %12, align 4
@@ -9260,7 +9276,7 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   %47 = and i32 %46, 1431655765
   %48 = call i32 @Abc_TtSuppOnlyOne(i32 noundef %47)
   %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %95
+  br i1 %49, label %50, label %99
 
 50:                                               ; preds = %41
   %51 = load i32, ptr %12, align 4
@@ -9271,7 +9287,7 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   %56 = and i32 %55, 1431655765
   %57 = call i32 @Abc_TtSuppOnlyOne(i32 noundef %56)
   %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %95
+  br i1 %58, label %59, label %99
 
 59:                                               ; preds = %50
   %60 = load ptr, ptr %6, align 8
@@ -9288,78 +9304,84 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %59
-  br label %96
+  br label %100
 
 71:                                               ; preds = %59
   %72 = load i32, ptr %13, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %80
+  br i1 %73, label %74, label %82
 
 74:                                               ; preds = %71
   %75 = call i64 @Abc_Clock()
   %76 = load i64, ptr %10, align 8
   %77 = sub nsw i64 %75, %76
-  %78 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %79 = add nsw i64 %78, %77
-  store i64 %79, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
+  %78 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %79 = load i64, ptr %78, align 16
+  %80 = add nsw i64 %79, %77
+  %81 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %80, ptr %81, align 16
   store i32 0, ptr %5, align 4
-  br label %110
+  br label %116
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84)
-  store i32 %85, ptr %9, align 4
-  %86 = load i32, ptr %9, align 4
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %94
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = load i32, ptr %13, align 4
+  %87 = call i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86)
+  store i32 %87, ptr %9, align 4
+  %88 = load i32, ptr %9, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %98
 
-88:                                               ; preds = %80
-  %89 = call i64 @Abc_Clock()
-  %90 = load i64, ptr %10, align 8
-  %91 = sub nsw i64 %89, %90
-  %92 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %93 = add nsw i64 %92, %91
-  store i64 %93, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
+90:                                               ; preds = %82
+  %91 = call i64 @Abc_Clock()
+  %92 = load i64, ptr %10, align 8
+  %93 = sub nsw i64 %91, %92
+  %94 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %95 = load i64, ptr %94, align 16
+  %96 = add nsw i64 %95, %93
+  %97 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %96, ptr %97, align 16
   store i32 0, ptr %5, align 4
-  br label %110
+  br label %116
 
-94:                                               ; preds = %80
-  br label %99
+98:                                               ; preds = %82
+  br label %103
 
-95:                                               ; preds = %50, %41
-  br label %96
+99:                                               ; preds = %50, %41
+  br label %100
 
-96:                                               ; preds = %95, %70
-  %97 = load i32, ptr %11, align 4
-  %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %11, align 4
+100:                                              ; preds = %99, %70
+  %101 = load i32, ptr %11, align 4
+  %102 = add nsw i32 %101, -1
+  store i32 %102, ptr %11, align 4
   br label %18, !llvm.loop !82
 
-99:                                               ; preds = %94, %18
-  %100 = load i32, ptr %11, align 4
-  %101 = icmp eq i32 %100, -1
-  br i1 %101, label %102, label %109
+103:                                              ; preds = %98, %18
+  %104 = load i32, ptr %11, align 4
+  %105 = icmp eq i32 %104, -1
+  br i1 %105, label %106, label %115
 
-102:                                              ; preds = %99
-  %103 = call i64 @Abc_Clock()
-  %104 = load i64, ptr %10, align 8
-  %105 = sub nsw i64 %103, %104
-  %106 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %107 = add nsw i64 %106, %105
-  store i64 %107, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  %108 = load i32, ptr %9, align 4
-  store i32 %108, ptr %5, align 4
-  br label %110
+106:                                              ; preds = %103
+  %107 = call i64 @Abc_Clock()
+  %108 = load i64, ptr %10, align 8
+  %109 = sub nsw i64 %107, %108
+  %110 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %111 = load i64, ptr %110, align 16
+  %112 = add nsw i64 %111, %109
+  %113 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  store i64 %112, ptr %113, align 16
+  %114 = load i32, ptr %9, align 4
+  store i32 %114, ptr %5, align 4
+  br label %116
 
-109:                                              ; preds = %99
+115:                                              ; preds = %103
   br label %15
 
-110:                                              ; preds = %102, %88, %74, %34
-  %111 = load i32, ptr %5, align 4
-  ret i32 %111
+116:                                              ; preds = %106, %90, %74, %34
+  %117 = load i32, ptr %5, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11181,12 +11203,14 @@ define void @Dau_DsdTest555() #0 {
   call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.15, i64 noundef %123)
   %124 = load i64, ptr @s_Times, align 16
   call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.16, i64 noundef %124)
-  %125 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 1), align 8
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.17, i64 noundef %125)
-  %126 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @s_Times, i64 0, i64 2), align 16
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.18, i64 noundef %126)
-  %127 = load ptr, ptr %4, align 8
-  %128 = call i32 @fclose(ptr noundef %127)
+  %125 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 1
+  %126 = load i64, ptr %125, align 8
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.17, i64 noundef %126)
+  %127 = getelementptr inbounds [3 x i64], ptr @s_Times, i64 0, i64 2
+  %128 = load i64, ptr %127, align 16
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.18, i64 noundef %128)
+  %129 = load ptr, ptr %4, align 8
+  %130 = call i32 @fclose(ptr noundef %129)
   ret void
 }
 
@@ -14223,7 +14247,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -14251,7 +14275,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -14262,9 +14286,6 @@ declare i32 @Abc_FrameIsBridgeMode(...) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
@@ -14274,7 +14295,10 @@ declare void @free(ptr noundef) #1
 declare i32 @vprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

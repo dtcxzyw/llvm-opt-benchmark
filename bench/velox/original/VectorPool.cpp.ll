@@ -731,55 +731,64 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %call4.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE1EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.i) #3
-  store ptr %call4.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 1), align 8
+  %3 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 1
+  store ptr %call4.i, ptr %3, align 8
   invoke void @_ZN8facebook5velox8SMALLINTEv(ptr sret(%"class.std::shared_ptr.32") align 8 %ref.tmp5.i)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont3.i
   %call8.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE2EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i) #3
-  store ptr %call8.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 2), align 8
+  %4 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 2
+  store ptr %call8.i, ptr %4, align 8
   invoke void @_ZN8facebook5velox7INTEGEREv(ptr sret(%"class.std::shared_ptr.39") align 8 %ref.tmp9.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont7.i
   %call12.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE3EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.i) #3
-  store ptr %call12.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 3), align 8
+  %5 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 3
+  store ptr %call12.i, ptr %5, align 8
   invoke void @_ZN8facebook5velox6BIGINTEv(ptr sret(%"class.std::shared_ptr.46") align 8 %ref.tmp13.i)
           to label %invoke.cont15.i unwind label %lpad14.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont11.i
   %call16.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i) #3
-  store ptr %call16.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 4), align 8
+  %6 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 4
+  store ptr %call16.i, ptr %6, align 8
   invoke void @_ZN8facebook5velox4REALEv(ptr sret(%"class.std::shared_ptr.53") align 8 %ref.tmp17.i)
           to label %invoke.cont19.i unwind label %lpad18.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont15.i
   %call20.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE5EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17.i) #3
-  store ptr %call20.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 5), align 8
+  %7 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 5
+  store ptr %call20.i, ptr %7, align 8
   invoke void @_ZN8facebook5velox6DOUBLEEv(ptr sret(%"class.std::shared_ptr.60") align 8 %ref.tmp21.i)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont19.i
   %call24.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE6EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i) #3
-  store ptr %call24.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 6), align 8
+  %8 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 6
+  store ptr %call24.i, ptr %8, align 8
   invoke void @_ZN8facebook5velox7VARCHAREv(ptr sret(%"class.std::shared_ptr.67") align 8 %ref.tmp25.i)
           to label %invoke.cont27.i unwind label %lpad26.i
 
 invoke.cont27.i:                                  ; preds = %invoke.cont23.i
   %call28.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i) #3
-  store ptr %call28.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 7), align 8
+  %9 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 7
+  store ptr %call28.i, ptr %9, align 8
   invoke void @_ZN8facebook5velox9VARBINARYEv(ptr sret(%"class.std::shared_ptr.74") align 8 %ref.tmp29.i)
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont27.i
   %call32.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i) #3
-  store ptr %call32.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 8), align 8
+  %10 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 8
+  store ptr %call32.i, ptr %10, align 8
   invoke void @_ZN8facebook5velox9TIMESTAMPEv(ptr sret(%"class.std::shared_ptr.81") align 8 %ref.tmp33.i)
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont31.i
   %call36.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
-  store ptr %call36.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 9), align 8
+  %11 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 9
+  store ptr %call36.i, ptr %11, align 8
   %call.i56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox8DateType3getEv()
           to label %_ZN8facebook5velox4DATEEv.exit unwind label %lpad37.i
 
@@ -788,7 +797,8 @@ _ZN8facebook5velox4DATEEv.exit:                   ; preds = %invoke.cont35.i
 
 invoke.cont38.i:                                  ; preds = %_ZN8facebook5velox4DATEEv.exit
   %call40.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call.i56) #3
-  store ptr %call40.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 10), align 8
+  %12 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 10
+  store ptr %call40.i, ptr %12, align 8
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i) #3
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i) #3
@@ -803,127 +813,127 @@ invoke.cont38.i:                                  ; preds = %_ZN8facebook5velox4
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont38.i, %init.check.i, %entry
-  %3 = load ptr, ptr %type.addr.i, align 8
-  %call50.i = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %13 = load ptr, ptr %type.addr.i, align 8
+  %call50.i = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
   %call51.i = call noundef signext i8 @_ZNK8facebook5velox4Type4kindEv(ptr noundef nonnull align 8 dereferenceable(17) %call50.i)
   %conv.i = sext i8 %call51.i to i32
   store i32 %conv.i, ptr %index.i, align 4
-  %4 = load i32, ptr %index.i, align 4
-  %cmp.i = icmp slt i32 %4, 11
+  %14 = load i32, ptr %index.i, align 4
+  %cmp.i = icmp slt i32 %14, 11
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %5 = load i32, ptr %index.i, align 4
-  %conv52.i = sext i32 %5 to i64
+  %15 = load i32, ptr %index.i, align 4
+  %conv52.i = sext i32 %15 to i64
   %call53.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPKN8facebook5velox4TypeELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 noundef %conv52.i) #3
-  %6 = load ptr, ptr %call53.i, align 8
-  %7 = load ptr, ptr %type.addr.i, align 8
-  %call54.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  %cmp55.i = icmp eq ptr %6, %call54.i
+  %16 = load ptr, ptr %call53.i, align 8
+  %17 = load ptr, ptr %type.addr.i, align 8
+  %call54.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  %cmp55.i = icmp eq ptr %16, %call54.i
   br i1 %cmp55.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %8 = load i32, ptr %index.i, align 4
-  store i32 %8, ptr %retval.i, align 4
+  %18 = load i32, ptr %index.i, align 4
+  store i32 %18, ptr %retval.i, align 4
   br label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %init.i
-  %9 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot.i, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot.i, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot.i, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot.i, align 4
   br label %ehcleanup49.i
 
 lpad2.i:                                          ; preds = %invoke.cont.i
-  %12 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot.i, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot.i, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot.i, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot.i, align 4
   br label %ehcleanup48.i
 
 lpad6.i:                                          ; preds = %invoke.cont3.i
-  %15 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot.i, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot.i, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot.i, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot.i, align 4
   br label %ehcleanup47.i
 
 lpad10.i:                                         ; preds = %invoke.cont7.i
-  %18 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot.i, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot.i, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot.i, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot.i, align 4
   br label %ehcleanup46.i
 
 lpad14.i:                                         ; preds = %invoke.cont11.i
-  %21 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot.i, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot.i, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot.i, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot.i, align 4
   br label %ehcleanup45.i
 
 lpad18.i:                                         ; preds = %invoke.cont15.i
-  %24 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot.i, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot.i, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot.i, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot.i, align 4
   br label %ehcleanup44.i
 
 lpad22.i:                                         ; preds = %invoke.cont19.i
-  %27 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot.i, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot.i, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot.i, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot.i, align 4
   br label %ehcleanup43.i
 
 lpad26.i:                                         ; preds = %invoke.cont23.i
-  %30 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot.i, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot.i, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot.i, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot.i, align 4
   br label %ehcleanup42.i
 
 lpad30.i:                                         ; preds = %invoke.cont27.i
-  %33 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot.i, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot.i, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot.i, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot.i, align 4
   br label %ehcleanup41.i
 
 lpad34.i:                                         ; preds = %invoke.cont31.i
-  %36 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot.i, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot.i, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot.i, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot.i, align 4
   br label %ehcleanup.i
 
 lpad37.i:                                         ; preds = %invoke.cont35.i
-  %39 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot.i, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot.i, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot.i, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot.i, align 4
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
   br label %ehcleanup.i
 
@@ -976,35 +986,35 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   br label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %if.end.i, %if.then.i
-  %42 = load i32, ptr %retval.i, align 4
-  store i32 %42, ptr %cacheIndex, align 4
-  %43 = load i32, ptr %cacheIndex, align 4
-  %cmp = icmp sge i32 %43, 0
+  %52 = load i32, ptr %retval.i, align 4
+  store i32 %52, ptr %cacheIndex, align 4
+  %53 = load i32, ptr %cacheIndex, align 4
+  %cmp = icmp sge i32 %53, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
-  %44 = load i32, ptr %size.addr, align 4
-  %cmp2 = icmp sle i32 %44, 65536
+  %54 = load i32, ptr %size.addr, align 4
+  %cmp2 = icmp sle i32 %54, 65536
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %vectors_ = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this1, i32 0, i32 1
-  %45 = load i32, ptr %cacheIndex, align 4
-  %conv = sext i32 %45 to i64
+  %55 = load i32, ptr %cacheIndex, align 4
+  %conv = sext i32 %55 to i64
   %call3 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZNSt5arrayIN8facebook5velox10VectorPool8TypePoolELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(1848) %vectors_, i64 noundef %conv) #3
-  %46 = load ptr, ptr %type.addr, align 8
-  %47 = load i32, ptr %size.addr, align 4
+  %56 = load ptr, ptr %type.addr, align 8
+  %57 = load i32, ptr %size.addr, align 4
   %pool_ = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this1, i32 0, i32 0
-  %48 = load ptr, ptr %pool_, align 8
-  call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %call3, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(168) %48)
+  %58 = load ptr, ptr %pool_, align 8
+  call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %call3, ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(168) %58)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
-  %49 = load ptr, ptr %type.addr, align 8
-  %50 = load i32, ptr %size.addr, align 4
+  %59 = load ptr, ptr %type.addr, align 8
+  %60 = load i32, ptr %size.addr, align 4
   %pool_4 = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this1, i32 0, i32 0
-  %51 = load ptr, ptr %pool_4, align 8
-  call void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef %50, ptr noundef %51)
+  %61 = load ptr, ptr %pool_4, align 8
+  call void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef %60, ptr noundef %61)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1306,55 +1316,64 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %call4.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE1EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.i) #3
-  store ptr %call4.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 1), align 8
+  %6 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 1
+  store ptr %call4.i, ptr %6, align 8
   invoke void @_ZN8facebook5velox8SMALLINTEv(ptr sret(%"class.std::shared_ptr.32") align 8 %ref.tmp5.i)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont3.i
   %call8.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE2EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i) #3
-  store ptr %call8.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 2), align 8
+  %7 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 2
+  store ptr %call8.i, ptr %7, align 8
   invoke void @_ZN8facebook5velox7INTEGEREv(ptr sret(%"class.std::shared_ptr.39") align 8 %ref.tmp9.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont7.i
   %call12.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE3EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.i) #3
-  store ptr %call12.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 3), align 8
+  %8 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 3
+  store ptr %call12.i, ptr %8, align 8
   invoke void @_ZN8facebook5velox6BIGINTEv(ptr sret(%"class.std::shared_ptr.46") align 8 %ref.tmp13.i)
           to label %invoke.cont15.i unwind label %lpad14.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont11.i
   %call16.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i) #3
-  store ptr %call16.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 4), align 8
+  %9 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 4
+  store ptr %call16.i, ptr %9, align 8
   invoke void @_ZN8facebook5velox4REALEv(ptr sret(%"class.std::shared_ptr.53") align 8 %ref.tmp17.i)
           to label %invoke.cont19.i unwind label %lpad18.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont15.i
   %call20.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE5EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17.i) #3
-  store ptr %call20.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 5), align 8
+  %10 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 5
+  store ptr %call20.i, ptr %10, align 8
   invoke void @_ZN8facebook5velox6DOUBLEEv(ptr sret(%"class.std::shared_ptr.60") align 8 %ref.tmp21.i)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont19.i
   %call24.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE6EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i) #3
-  store ptr %call24.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 6), align 8
+  %11 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 6
+  store ptr %call24.i, ptr %11, align 8
   invoke void @_ZN8facebook5velox7VARCHAREv(ptr sret(%"class.std::shared_ptr.67") align 8 %ref.tmp25.i)
           to label %invoke.cont27.i unwind label %lpad26.i
 
 invoke.cont27.i:                                  ; preds = %invoke.cont23.i
   %call28.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i) #3
-  store ptr %call28.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 7), align 8
+  %12 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 7
+  store ptr %call28.i, ptr %12, align 8
   invoke void @_ZN8facebook5velox9VARBINARYEv(ptr sret(%"class.std::shared_ptr.74") align 8 %ref.tmp29.i)
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont27.i
   %call32.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i) #3
-  store ptr %call32.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 8), align 8
+  %13 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 8
+  store ptr %call32.i, ptr %13, align 8
   invoke void @_ZN8facebook5velox9TIMESTAMPEv(ptr sret(%"class.std::shared_ptr.81") align 8 %ref.tmp33.i)
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont31.i
   %call36.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
-  store ptr %call36.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 9), align 8
+  %14 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 9
+  store ptr %call36.i, ptr %14, align 8
   %call.i1516 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox8DateType3getEv()
           to label %_ZN8facebook5velox4DATEEv.exit unwind label %lpad37.i
 
@@ -1363,7 +1382,8 @@ _ZN8facebook5velox4DATEEv.exit:                   ; preds = %invoke.cont35.i
 
 invoke.cont38.i:                                  ; preds = %_ZN8facebook5velox4DATEEv.exit
   %call40.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call.i1516) #3
-  store ptr %call40.i, ptr getelementptr inbounds (ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 10), align 8
+  %15 = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 10
+  store ptr %call40.i, ptr %15, align 8
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i) #3
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i) #3
@@ -1378,127 +1398,127 @@ invoke.cont38.i:                                  ; preds = %_ZN8facebook5velox4
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont38.i, %init.check.i, %if.end6
-  %6 = load ptr, ptr %type.addr.i, align 8
-  %call50.i = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  %16 = load ptr, ptr %type.addr.i, align 8
+  %call50.i = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   %call51.i = call noundef signext i8 @_ZNK8facebook5velox4Type4kindEv(ptr noundef nonnull align 8 dereferenceable(17) %call50.i)
   %conv.i = sext i8 %call51.i to i32
   store i32 %conv.i, ptr %index.i, align 4
-  %7 = load i32, ptr %index.i, align 4
-  %cmp.i = icmp slt i32 %7, 11
+  %17 = load i32, ptr %index.i, align 4
+  %cmp.i = icmp slt i32 %17, 11
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %8 = load i32, ptr %index.i, align 4
-  %conv52.i = sext i32 %8 to i64
+  %18 = load i32, ptr %index.i, align 4
+  %conv52.i = sext i32 %18 to i64
   %call53.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPKN8facebook5velox4TypeELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 noundef %conv52.i) #3
-  %9 = load ptr, ptr %call53.i, align 8
-  %10 = load ptr, ptr %type.addr.i, align 8
-  %call54.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  %cmp55.i = icmp eq ptr %9, %call54.i
+  %19 = load ptr, ptr %call53.i, align 8
+  %20 = load ptr, ptr %type.addr.i, align 8
+  %call54.i = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
+  %cmp55.i = icmp eq ptr %19, %call54.i
   br i1 %cmp55.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %11 = load i32, ptr %index.i, align 4
-  store i32 %11, ptr %retval.i, align 4
+  %21 = load i32, ptr %index.i, align 4
+  store i32 %21, ptr %retval.i, align 4
   br label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %init.i
-  %12 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot.i, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot.i, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot.i, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot.i, align 4
   br label %ehcleanup49.i
 
 lpad2.i:                                          ; preds = %invoke.cont.i
-  %15 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot.i, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot.i, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot.i, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot.i, align 4
   br label %ehcleanup48.i
 
 lpad6.i:                                          ; preds = %invoke.cont3.i
-  %18 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot.i, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot.i, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot.i, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot.i, align 4
   br label %ehcleanup47.i
 
 lpad10.i:                                         ; preds = %invoke.cont7.i
-  %21 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot.i, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot.i, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot.i, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot.i, align 4
   br label %ehcleanup46.i
 
 lpad14.i:                                         ; preds = %invoke.cont11.i
-  %24 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot.i, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot.i, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot.i, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot.i, align 4
   br label %ehcleanup45.i
 
 lpad18.i:                                         ; preds = %invoke.cont15.i
-  %27 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot.i, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot.i, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot.i, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot.i, align 4
   br label %ehcleanup44.i
 
 lpad22.i:                                         ; preds = %invoke.cont19.i
-  %30 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot.i, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot.i, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot.i, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot.i, align 4
   br label %ehcleanup43.i
 
 lpad26.i:                                         ; preds = %invoke.cont23.i
-  %33 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot.i, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot.i, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot.i, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot.i, align 4
   br label %ehcleanup42.i
 
 lpad30.i:                                         ; preds = %invoke.cont27.i
-  %36 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot.i, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot.i, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot.i, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot.i, align 4
   br label %ehcleanup41.i
 
 lpad34.i:                                         ; preds = %invoke.cont31.i
-  %39 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot.i, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot.i, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot.i, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot.i, align 4
   br label %ehcleanup.i
 
 lpad37.i:                                         ; preds = %invoke.cont35.i
-  %42 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %exn.slot.i, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %ehselector.slot.i, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %exn.slot.i, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %ehselector.slot.i, align 4
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #3
   br label %ehcleanup.i
 
@@ -1551,10 +1571,10 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   br label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %if.end.i, %if.then.i
-  %45 = load i32, ptr %retval.i, align 4
-  store i32 %45, ptr %cacheIndex, align 4
-  %46 = load i32, ptr %cacheIndex, align 4
-  %cmp10 = icmp slt i32 %46, 0
+  %55 = load i32, ptr %retval.i, align 4
+  store i32 %55, ptr %cacheIndex, align 4
+  %56 = load i32, ptr %cacheIndex, align 4
+  %cmp10 = icmp slt i32 %56, 0
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
@@ -1563,17 +1583,17 @@ if.then11:                                        ; preds = %_ZN8facebook5velox1
 
 if.end12:                                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
   %vectors_ = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this1, i32 0, i32 1
-  %47 = load i32, ptr %cacheIndex, align 4
-  %conv = sext i32 %47 to i64
+  %57 = load i32, ptr %cacheIndex, align 4
+  %conv = sext i32 %57 to i64
   %call13 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZNSt5arrayIN8facebook5velox10VectorPool8TypePoolELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(1848) %vectors_, i64 noundef %conv) #3
-  %48 = load ptr, ptr %vector.addr, align 8
-  %call14 = call noundef zeroext i1 @_ZN8facebook5velox10VectorPool8TypePool13maybePushBackERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(168) %call13, ptr noundef nonnull align 8 dereferenceable(16) %48)
+  %58 = load ptr, ptr %vector.addr, align 8
+  %call14 = call noundef zeroext i1 @_ZN8facebook5velox10VectorPool8TypePool13maybePushBackERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(168) %call13, ptr noundef nonnull align 8 dereferenceable(16) %58)
   store i1 %call14, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then11, %if.then5, %if.then
-  %49 = load i1, ptr %retval, align 1
-  ret i1 %49
+  %59 = load i1, ptr %retval, align 1
+  ret i1 %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2470,9 +2490,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8DateTypeE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -2512,9 +2534,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox8TypeBaseILNS0_8TypeKindE3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -2887,9 +2911,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4TypeC2ENS0_8TypeKindE(ptr noundef nonnull align 8 dereferenceable(17) %this1, i8 noundef signext 3)
-  store ptr getelementptr inbounds ({ [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8TypeBaseILNS0_8TypeKindE3EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8TypeBaseILNS0_8TypeKindE3EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8TypeBaseILNS0_8TypeKindE3EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox8TypeBaseILNS0_8TypeKindE3EEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -3141,12 +3167,14 @@ entry:
   call void @_ZN8facebook5velox4TreeIKSt10shared_ptrIKNS0_4TypeEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN8facebook5velox13ISerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox4TypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox4TypeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox4TypeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [17 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox4TypeE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %kind_ = getelementptr inbounds %"class.facebook::velox::Type", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %kind.addr, align 1
-  store i8 %1, ptr %kind_, align 8
+  %3 = load i8, ptr %kind.addr, align 1
+  store i8 %3, ptr %kind_, align 8
   ret void
 }
 
@@ -3301,7 +3329,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4TreeIKSt10shared_ptrIKNS0_4TypeEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8facebook5velox4TreeIKSt10shared_ptrIKNS0_4TypeEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3311,7 +3340,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5018,10 +5048,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -5035,7 +5066,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

@@ -514,168 +514,169 @@ define internal i64 @ossl_rsa_sign_pss(i32 noundef %0, ptr noundef %1, i64 nound
   store i64 %2, ptr %6, align 8
   %21 = load i64, ptr @ossl_rsa_sign_pss.kwargs_ids, align 16
   %22 = icmp ne i64 %21, 0
-  br i1 %22, label %26, label %23
+  br i1 %22, label %27, label %23
 
 23:                                               ; preds = %3
   %24 = call i64 @rb_intern_const(ptr noundef @.str.32) #11
   store i64 %24, ptr @ossl_rsa_sign_pss.kwargs_ids, align 16
   %25 = call i64 @rb_intern_const(ptr noundef @.str.33) #11
-  store i64 %25, ptr getelementptr inbounds ([2 x i64], ptr @ossl_rsa_sign_pss.kwargs_ids, i64 0, i64 1), align 8
-  br label %26
+  %26 = getelementptr inbounds [2 x i64], ptr @ossl_rsa_sign_pss.kwargs_ids, i64 0, i64 1
+  store i64 %25, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %23, %3
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %27, ptr noundef %28, ptr noundef @.str.34, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %30 = load i64, ptr %9, align 8
-  %31 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
-  %32 = call i32 @rb_get_kwargs(i64 noundef %30, ptr noundef @ossl_rsa_sign_pss.kwargs_ids, i32 noundef 2, i32 noundef 0, ptr noundef %31)
-  %33 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
-  %34 = load i64, ptr %33, align 16
-  %35 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_sign_pss.rbimpl_id, ptr noundef @.str.35) #12
-  store i64 %35, ptr %19, align 8
-  %36 = load i64, ptr %19, align 8
-  %37 = call i64 @rb_id2sym(i64 noundef %36)
-  %38 = icmp eq i64 %34, %37
-  br i1 %38, label %39, label %40
+27:                                               ; preds = %23, %3
+  %28 = load i32, ptr %4, align 4
+  %29 = load ptr, ptr %5, align 8
+  %30 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %28, ptr noundef %29, ptr noundef @.str.34, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %31 = load i64, ptr %9, align 8
+  %32 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
+  %33 = call i32 @rb_get_kwargs(i64 noundef %31, ptr noundef @ossl_rsa_sign_pss.kwargs_ids, i32 noundef 2, i32 noundef 0, ptr noundef %32)
+  %34 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
+  %35 = load i64, ptr %34, align 16
+  %36 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_sign_pss.rbimpl_id, ptr noundef @.str.35) #12
+  store i64 %36, ptr %19, align 8
+  %37 = load i64, ptr %19, align 8
+  %38 = call i64 @rb_id2sym(i64 noundef %37)
+  %39 = icmp eq i64 %35, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %26
+40:                                               ; preds = %27
   store i32 -2, ptr %18, align 4
-  br label %53
+  br label %54
 
-40:                                               ; preds = %26
-  %41 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
-  %42 = load i64, ptr %41, align 16
-  %43 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_sign_pss.rbimpl_id.36, ptr noundef @.str.37) #12
-  store i64 %43, ptr %20, align 8
-  %44 = load i64, ptr %20, align 8
-  %45 = call i64 @rb_id2sym(i64 noundef %44)
-  %46 = icmp eq i64 %42, %45
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %27
+  %42 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
+  %43 = load i64, ptr %42, align 16
+  %44 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_sign_pss.rbimpl_id.36, ptr noundef @.str.37) #12
+  store i64 %44, ptr %20, align 8
+  %45 = load i64, ptr %20, align 8
+  %46 = call i64 @rb_id2sym(i64 noundef %45)
+  %47 = icmp eq i64 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %40
+48:                                               ; preds = %41
   store i32 -1, ptr %18, align 4
-  br label %52
-
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
-  %50 = load i64, ptr %49, align 16
-  %51 = call i32 @rb_num2int_inline(i64 noundef %50)
-  store i32 %51, ptr %18, align 4
-  br label %52
-
-52:                                               ; preds = %48, %47
   br label %53
 
-53:                                               ; preds = %52, %39
-  %54 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 1
-  %55 = load i64, ptr %54, align 8
-  %56 = call ptr @ossl_evp_get_digestbyname(i64 noundef %55)
-  store ptr %56, ptr %15, align 8
-  %57 = load i64, ptr %6, align 8
-  %58 = call ptr @GetPrivPKeyPtr(i64 noundef %57)
-  store ptr %58, ptr %12, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = call i32 @EVP_PKEY_get_size(ptr noundef %59)
-  %61 = sext i32 %60 to i64
-  store i64 %61, ptr %17, align 8
-  %62 = load i64, ptr %7, align 8
-  %63 = call ptr @ossl_evp_get_digestbyname(i64 noundef %62)
-  store ptr %63, ptr %14, align 8
-  %64 = call i64 @rb_string_value(ptr noundef %8)
-  %65 = load i64, ptr %17, align 8
-  %66 = call i1 @llvm.is.constant.i64(i64 %65)
-  %67 = select i1 %66, ptr @rb_str_new_static, ptr @rb_str_new
-  %68 = load i64, ptr %17, align 8
-  %69 = call i64 %67(ptr noundef null, i64 noundef %68)
-  store i64 %69, ptr %11, align 8
-  %70 = call ptr @EVP_MD_CTX_new()
-  store ptr %70, ptr %16, align 8
-  %71 = load ptr, ptr %16, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %74, label %73
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
+  %51 = load i64, ptr %50, align 16
+  %52 = call i32 @rb_num2int_inline(i64 noundef %51)
+  store i32 %52, ptr %18, align 4
+  br label %53
 
-73:                                               ; preds = %53
-  br label %119
+53:                                               ; preds = %49, %48
+  br label %54
 
-74:                                               ; preds = %53
-  %75 = load ptr, ptr %16, align 8
-  %76 = load ptr, ptr %14, align 8
-  %77 = load ptr, ptr %12, align 8
-  %78 = call i32 @EVP_DigestSignInit(ptr noundef %75, ptr noundef %13, ptr noundef %76, ptr noundef null, ptr noundef %77)
-  %79 = icmp ne i32 %78, 1
-  br i1 %79, label %80, label %81
+54:                                               ; preds = %53, %40
+  %55 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 1
+  %56 = load i64, ptr %55, align 8
+  %57 = call ptr @ossl_evp_get_digestbyname(i64 noundef %56)
+  store ptr %57, ptr %15, align 8
+  %58 = load i64, ptr %6, align 8
+  %59 = call ptr @GetPrivPKeyPtr(i64 noundef %58)
+  store ptr %59, ptr %12, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = call i32 @EVP_PKEY_get_size(ptr noundef %60)
+  %62 = sext i32 %61 to i64
+  store i64 %62, ptr %17, align 8
+  %63 = load i64, ptr %7, align 8
+  %64 = call ptr @ossl_evp_get_digestbyname(i64 noundef %63)
+  store ptr %64, ptr %14, align 8
+  %65 = call i64 @rb_string_value(ptr noundef %8)
+  %66 = load i64, ptr %17, align 8
+  %67 = call i1 @llvm.is.constant.i64(i64 %66)
+  %68 = select i1 %67, ptr @rb_str_new_static, ptr @rb_str_new
+  %69 = load i64, ptr %17, align 8
+  %70 = call i64 %68(ptr noundef null, i64 noundef %69)
+  store i64 %70, ptr %11, align 8
+  %71 = call ptr @EVP_MD_CTX_new()
+  store ptr %71, ptr %16, align 8
+  %72 = load ptr, ptr %16, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %75, label %74
 
-80:                                               ; preds = %74
-  br label %119
+74:                                               ; preds = %54
+  br label %120
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %13, align 8
-  %83 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %82, i32 noundef 6)
-  %84 = icmp ne i32 %83, 1
-  br i1 %84, label %85, label %86
+75:                                               ; preds = %54
+  %76 = load ptr, ptr %16, align 8
+  %77 = load ptr, ptr %14, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = call i32 @EVP_DigestSignInit(ptr noundef %76, ptr noundef %13, ptr noundef %77, ptr noundef null, ptr noundef %78)
+  %80 = icmp ne i32 %79, 1
+  br i1 %80, label %81, label %82
 
-85:                                               ; preds = %81
-  br label %119
+81:                                               ; preds = %75
+  br label %120
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %13, align 8
-  %88 = load i32, ptr %18, align 4
-  %89 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %87, i32 noundef %88)
-  %90 = icmp ne i32 %89, 1
-  br i1 %90, label %91, label %92
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %13, align 8
+  %84 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %83, i32 noundef 6)
+  %85 = icmp ne i32 %84, 1
+  br i1 %85, label %86, label %87
 
-91:                                               ; preds = %86
-  br label %119
+86:                                               ; preds = %82
+  br label %120
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr %13, align 8
-  %94 = load ptr, ptr %15, align 8
-  %95 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %93, ptr noundef %94)
-  %96 = icmp ne i32 %95, 1
-  br i1 %96, label %97, label %98
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %13, align 8
+  %89 = load i32, ptr %18, align 4
+  %90 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %88, i32 noundef %89)
+  %91 = icmp ne i32 %90, 1
+  br i1 %91, label %92, label %93
 
-97:                                               ; preds = %92
-  br label %119
+92:                                               ; preds = %87
+  br label %120
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %16, align 8
-  %100 = load i64, ptr %8, align 8
-  %101 = call ptr @RSTRING_PTR(i64 noundef %100)
-  %102 = load i64, ptr %8, align 8
-  %103 = call i64 @RSTRING_LEN(i64 noundef %102) #11
-  %104 = call i32 @EVP_DigestSignUpdate(ptr noundef %99, ptr noundef %101, i64 noundef %103)
-  %105 = icmp ne i32 %104, 1
-  br i1 %105, label %106, label %107
+93:                                               ; preds = %87
+  %94 = load ptr, ptr %13, align 8
+  %95 = load ptr, ptr %15, align 8
+  %96 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %94, ptr noundef %95)
+  %97 = icmp ne i32 %96, 1
+  br i1 %97, label %98, label %99
 
-106:                                              ; preds = %98
-  br label %119
+98:                                               ; preds = %93
+  br label %120
 
-107:                                              ; preds = %98
-  %108 = load ptr, ptr %16, align 8
-  %109 = load i64, ptr %11, align 8
-  %110 = call ptr @RSTRING_PTR(i64 noundef %109)
-  %111 = call i32 @EVP_DigestSignFinal(ptr noundef %108, ptr noundef %110, ptr noundef %17)
-  %112 = icmp ne i32 %111, 1
-  br i1 %112, label %113, label %114
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %16, align 8
+  %101 = load i64, ptr %8, align 8
+  %102 = call ptr @RSTRING_PTR(i64 noundef %101)
+  %103 = load i64, ptr %8, align 8
+  %104 = call i64 @RSTRING_LEN(i64 noundef %103) #11
+  %105 = call i32 @EVP_DigestSignUpdate(ptr noundef %100, ptr noundef %102, i64 noundef %104)
+  %106 = icmp ne i32 %105, 1
+  br i1 %106, label %107, label %108
 
-113:                                              ; preds = %107
-  br label %119
+107:                                              ; preds = %99
+  br label %120
 
-114:                                              ; preds = %107
-  %115 = load i64, ptr %11, align 8
-  %116 = load i64, ptr %17, align 8
-  call void @rb_str_set_len(i64 noundef %115, i64 noundef %116)
-  %117 = load ptr, ptr %16, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %117)
-  %118 = load i64, ptr %11, align 8
-  ret i64 %118
+108:                                              ; preds = %99
+  %109 = load ptr, ptr %16, align 8
+  %110 = load i64, ptr %11, align 8
+  %111 = call ptr @RSTRING_PTR(i64 noundef %110)
+  %112 = call i32 @EVP_DigestSignFinal(ptr noundef %109, ptr noundef %111, ptr noundef %17)
+  %113 = icmp ne i32 %112, 1
+  br i1 %113, label %114, label %115
 
-119:                                              ; preds = %113, %106, %97, %91, %85, %80, %73
-  %120 = load ptr, ptr %16, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %120)
-  %121 = load i64, ptr @eRSAError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %121, ptr noundef null) #10
+114:                                              ; preds = %108
+  br label %120
+
+115:                                              ; preds = %108
+  %116 = load i64, ptr %11, align 8
+  %117 = load i64, ptr %17, align 8
+  call void @rb_str_set_len(i64 noundef %116, i64 noundef %117)
+  %118 = load ptr, ptr %16, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %118)
+  %119 = load i64, ptr %11, align 8
+  ret i64 %119
+
+120:                                              ; preds = %114, %107, %98, %92, %86, %81, %74
+  %121 = load ptr, ptr %16, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %121)
+  %122 = load i64, ptr @eRSAError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %122, ptr noundef null) #10
   unreachable
 }
 
@@ -704,190 +705,191 @@ define internal i64 @ossl_rsa_verify_pss(i32 noundef %0, ptr noundef %1, i64 nou
   store i64 %2, ptr %7, align 8
   %22 = load i64, ptr @ossl_rsa_verify_pss.kwargs_ids, align 16
   %23 = icmp ne i64 %22, 0
-  br i1 %23, label %27, label %24
+  br i1 %23, label %28, label %24
 
 24:                                               ; preds = %3
   %25 = call i64 @rb_intern_const(ptr noundef @.str.32) #11
   store i64 %25, ptr @ossl_rsa_verify_pss.kwargs_ids, align 16
   %26 = call i64 @rb_intern_const(ptr noundef @.str.33) #11
-  store i64 %26, ptr getelementptr inbounds ([2 x i64], ptr @ossl_rsa_verify_pss.kwargs_ids, i64 0, i64 1), align 8
-  br label %27
+  %27 = getelementptr inbounds [2 x i64], ptr @ossl_rsa_verify_pss.kwargs_ids, i64 0, i64 1
+  store i64 %26, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %24, %3
-  %28 = load i32, ptr %5, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %28, ptr noundef %29, ptr noundef @.str.38, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %31 = load i64, ptr %11, align 8
-  %32 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %33 = call i32 @rb_get_kwargs(i64 noundef %31, ptr noundef @ossl_rsa_verify_pss.kwargs_ids, i32 noundef 2, i32 noundef 0, ptr noundef %32)
-  %34 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %35 = load i64, ptr %34, align 16
-  %36 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_verify_pss.rbimpl_id, ptr noundef @.str.39) #12
-  store i64 %36, ptr %20, align 8
-  %37 = load i64, ptr %20, align 8
-  %38 = call i64 @rb_id2sym(i64 noundef %37)
-  %39 = icmp eq i64 %35, %38
-  br i1 %39, label %40, label %41
+28:                                               ; preds = %24, %3
+  %29 = load i32, ptr %5, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %29, ptr noundef %30, ptr noundef @.str.38, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %32 = load i64, ptr %11, align 8
+  %33 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %34 = call i32 @rb_get_kwargs(i64 noundef %32, ptr noundef @ossl_rsa_verify_pss.kwargs_ids, i32 noundef 2, i32 noundef 0, ptr noundef %33)
+  %35 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %36 = load i64, ptr %35, align 16
+  %37 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_verify_pss.rbimpl_id, ptr noundef @.str.39) #12
+  store i64 %37, ptr %20, align 8
+  %38 = load i64, ptr %20, align 8
+  %39 = call i64 @rb_id2sym(i64 noundef %38)
+  %40 = icmp eq i64 %36, %39
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %27
+41:                                               ; preds = %28
   store i32 -2, ptr %19, align 4
-  br label %54
+  br label %55
 
-41:                                               ; preds = %27
-  %42 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %43 = load i64, ptr %42, align 16
-  %44 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_verify_pss.rbimpl_id.40, ptr noundef @.str.37) #12
-  store i64 %44, ptr %21, align 8
-  %45 = load i64, ptr %21, align 8
-  %46 = call i64 @rb_id2sym(i64 noundef %45)
-  %47 = icmp eq i64 %43, %46
-  br i1 %47, label %48, label %49
+42:                                               ; preds = %28
+  %43 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %44 = load i64, ptr %43, align 16
+  %45 = call i64 @rbimpl_intern_const(ptr noundef @ossl_rsa_verify_pss.rbimpl_id.40, ptr noundef @.str.37) #12
+  store i64 %45, ptr %21, align 8
+  %46 = load i64, ptr %21, align 8
+  %47 = call i64 @rb_id2sym(i64 noundef %46)
+  %48 = icmp eq i64 %44, %47
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %41
+49:                                               ; preds = %42
   store i32 -1, ptr %19, align 4
-  br label %53
-
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %51 = load i64, ptr %50, align 16
-  %52 = call i32 @rb_num2int_inline(i64 noundef %51)
-  store i32 %52, ptr %19, align 4
-  br label %53
-
-53:                                               ; preds = %49, %48
   br label %54
 
-54:                                               ; preds = %53, %40
-  %55 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
-  %56 = load i64, ptr %55, align 8
-  %57 = call ptr @ossl_evp_get_digestbyname(i64 noundef %56)
-  store ptr %57, ptr %16, align 8
-  br label %58
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %52 = load i64, ptr %51, align 16
+  %53 = call i32 @rb_num2int_inline(i64 noundef %52)
+  store i32 %53, ptr %19, align 4
+  br label %54
 
-58:                                               ; preds = %54
-  %59 = load i64, ptr %7, align 8
-  %60 = call ptr @rb_check_typeddata(i64 noundef %59, ptr noundef @ossl_evp_pkey_type)
-  store ptr %60, ptr %13, align 8
-  %61 = load ptr, ptr %13, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %65, label %63
+54:                                               ; preds = %50, %49
+  br label %55
 
-63:                                               ; preds = %58
-  %64 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %64, ptr noundef @.str.29) #10
+55:                                               ; preds = %54, %41
+  %56 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
+  %57 = load i64, ptr %56, align 8
+  %58 = call ptr @ossl_evp_get_digestbyname(i64 noundef %57)
+  store ptr %58, ptr %16, align 8
+  br label %59
+
+59:                                               ; preds = %55
+  %60 = load i64, ptr %7, align 8
+  %61 = call ptr @rb_check_typeddata(i64 noundef %60, ptr noundef @ossl_evp_pkey_type)
+  store ptr %61, ptr %13, align 8
+  %62 = load ptr, ptr %13, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %66, label %64
+
+64:                                               ; preds = %59
+  %65 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef @.str.29) #10
   unreachable
 
-65:                                               ; preds = %58
-  br label %66
+66:                                               ; preds = %59
+  br label %67
 
-66:                                               ; preds = %65
-  %67 = load i64, ptr %8, align 8
-  %68 = call ptr @ossl_evp_get_digestbyname(i64 noundef %67)
-  store ptr %68, ptr %15, align 8
-  %69 = call i64 @rb_string_value(ptr noundef %9)
-  %70 = call i64 @rb_string_value(ptr noundef %10)
-  %71 = call ptr @EVP_MD_CTX_new()
-  store ptr %71, ptr %17, align 8
-  %72 = load ptr, ptr %17, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %75, label %74
+67:                                               ; preds = %66
+  %68 = load i64, ptr %8, align 8
+  %69 = call ptr @ossl_evp_get_digestbyname(i64 noundef %68)
+  store ptr %69, ptr %15, align 8
+  %70 = call i64 @rb_string_value(ptr noundef %9)
+  %71 = call i64 @rb_string_value(ptr noundef %10)
+  %72 = call ptr @EVP_MD_CTX_new()
+  store ptr %72, ptr %17, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %76, label %75
 
-74:                                               ; preds = %66
-  br label %121
+75:                                               ; preds = %67
+  br label %122
 
-75:                                               ; preds = %66
-  %76 = load ptr, ptr %17, align 8
-  %77 = load ptr, ptr %15, align 8
-  %78 = load ptr, ptr %13, align 8
-  %79 = call i32 @EVP_DigestVerifyInit(ptr noundef %76, ptr noundef %14, ptr noundef %77, ptr noundef null, ptr noundef %78)
-  %80 = icmp ne i32 %79, 1
-  br i1 %80, label %81, label %82
+76:                                               ; preds = %67
+  %77 = load ptr, ptr %17, align 8
+  %78 = load ptr, ptr %15, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = call i32 @EVP_DigestVerifyInit(ptr noundef %77, ptr noundef %14, ptr noundef %78, ptr noundef null, ptr noundef %79)
+  %81 = icmp ne i32 %80, 1
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %75
-  br label %121
+82:                                               ; preds = %76
+  br label %122
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %14, align 8
-  %84 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %83, i32 noundef 6)
-  %85 = icmp ne i32 %84, 1
-  br i1 %85, label %86, label %87
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %14, align 8
+  %85 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %84, i32 noundef 6)
+  %86 = icmp ne i32 %85, 1
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %82
-  br label %121
+87:                                               ; preds = %83
+  br label %122
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %14, align 8
-  %89 = load i32, ptr %19, align 4
-  %90 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %88, i32 noundef %89)
-  %91 = icmp ne i32 %90, 1
-  br i1 %91, label %92, label %93
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %14, align 8
+  %90 = load i32, ptr %19, align 4
+  %91 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %89, i32 noundef %90)
+  %92 = icmp ne i32 %91, 1
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %87
-  br label %121
+93:                                               ; preds = %88
+  br label %122
 
-93:                                               ; preds = %87
-  %94 = load ptr, ptr %14, align 8
-  %95 = load ptr, ptr %16, align 8
-  %96 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %94, ptr noundef %95)
-  %97 = icmp ne i32 %96, 1
-  br i1 %97, label %98, label %99
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %14, align 8
+  %96 = load ptr, ptr %16, align 8
+  %97 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %95, ptr noundef %96)
+  %98 = icmp ne i32 %97, 1
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %93
-  br label %121
+99:                                               ; preds = %94
+  br label %122
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %17, align 8
-  %101 = load i64, ptr %10, align 8
-  %102 = call ptr @RSTRING_PTR(i64 noundef %101)
-  %103 = load i64, ptr %10, align 8
-  %104 = call i64 @RSTRING_LEN(i64 noundef %103) #11
-  %105 = call i32 @EVP_DigestVerifyUpdate(ptr noundef %100, ptr noundef %102, i64 noundef %104)
-  %106 = icmp ne i32 %105, 1
-  br i1 %106, label %107, label %108
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %17, align 8
+  %102 = load i64, ptr %10, align 8
+  %103 = call ptr @RSTRING_PTR(i64 noundef %102)
+  %104 = load i64, ptr %10, align 8
+  %105 = call i64 @RSTRING_LEN(i64 noundef %104) #11
+  %106 = call i32 @EVP_DigestVerifyUpdate(ptr noundef %101, ptr noundef %103, i64 noundef %105)
+  %107 = icmp ne i32 %106, 1
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %99
-  br label %121
+108:                                              ; preds = %100
+  br label %122
 
-108:                                              ; preds = %99
-  %109 = load ptr, ptr %17, align 8
-  %110 = load i64, ptr %9, align 8
-  %111 = call ptr @RSTRING_PTR(i64 noundef %110)
-  %112 = load i64, ptr %9, align 8
-  %113 = call i64 @RSTRING_LEN(i64 noundef %112) #11
-  %114 = call i32 @EVP_DigestVerifyFinal(ptr noundef %109, ptr noundef %111, i64 noundef %113)
-  store i32 %114, ptr %18, align 4
-  %115 = load i32, ptr %18, align 4
-  switch i32 %115, label %120 [
-    i32 0, label %116
-    i32 1, label %118
+109:                                              ; preds = %100
+  %110 = load ptr, ptr %17, align 8
+  %111 = load i64, ptr %9, align 8
+  %112 = call ptr @RSTRING_PTR(i64 noundef %111)
+  %113 = load i64, ptr %9, align 8
+  %114 = call i64 @RSTRING_LEN(i64 noundef %113) #11
+  %115 = call i32 @EVP_DigestVerifyFinal(ptr noundef %110, ptr noundef %112, i64 noundef %114)
+  store i32 %115, ptr %18, align 4
+  %116 = load i32, ptr %18, align 4
+  switch i32 %116, label %121 [
+    i32 0, label %117
+    i32 1, label %119
   ]
 
-116:                                              ; preds = %108
+117:                                              ; preds = %109
   call void @ossl_clear_error()
-  %117 = load ptr, ptr %17, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %117)
+  %118 = load ptr, ptr %17, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %118)
   store i64 0, ptr %4, align 8
-  br label %124
+  br label %125
 
-118:                                              ; preds = %108
-  %119 = load ptr, ptr %17, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %119)
+119:                                              ; preds = %109
+  %120 = load ptr, ptr %17, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %120)
   store i64 20, ptr %4, align 8
-  br label %124
+  br label %125
 
-120:                                              ; preds = %108
-  br label %121
+121:                                              ; preds = %109
+  br label %122
 
-121:                                              ; preds = %120, %107, %98, %92, %86, %81, %74
-  %122 = load ptr, ptr %17, align 8
-  call void @EVP_MD_CTX_free(ptr noundef %122)
-  %123 = load i64, ptr @eRSAError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %123, ptr noundef null) #10
+122:                                              ; preds = %121, %108, %99, %93, %87, %82, %75
+  %123 = load ptr, ptr %17, align 8
+  call void @EVP_MD_CTX_free(ptr noundef %123)
+  %124 = load i64, ptr @eRSAError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %124, ptr noundef null) #10
   unreachable
 
-124:                                              ; preds = %118, %116
-  %125 = load i64, ptr %4, align 8
-  ret i64 %125
+125:                                              ; preds = %119, %117
+  %126 = load i64, ptr %4, align 8
+  ret i64 %126
 }
 
 ; Function Attrs: nounwind uwtable

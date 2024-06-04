@@ -141,9 +141,10 @@ define internal void @hi_free(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4), align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ptr.addr, align 8
+  call void %1(ptr noundef %2)
   ret void
 }
 
@@ -1149,10 +1150,11 @@ entry:
   %size.addr = alloca i64, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
   store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2), align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr %0(ptr noundef %1, i64 noundef %2)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ptr.addr, align 8
+  %3 = load i64, ptr %size.addr, align 8
+  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
   ret ptr %call
 }
 
@@ -4321,16 +4323,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1), align 8
-  %3 = load i64, ptr %nmemb.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %call = call ptr %2(i64 noundef %3, i64 noundef %4)
+  %2 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %nmemb.addr, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  %call = call ptr %3(i64 noundef %4, i64 noundef %5)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 declare void @redisNetClose(ptr noundef) #1

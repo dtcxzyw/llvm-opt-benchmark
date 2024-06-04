@@ -1196,7 +1196,7 @@ define hidden void @pdo_sqlite_create_function_internal(ptr noundef %0, ptr noun
   %539 = load i32, ptr %78, align 4
   %540 = load ptr, ptr %77, align 8
   call void @zend_wrong_parameter_error(i32 noundef %536, i32 noundef %537, ptr noundef %538, i32 noundef %539, ptr noundef %540)
-  br label %644
+  br label %645
 
 541:                                              ; preds = %527
   br label %542
@@ -1212,7 +1212,7 @@ define hidden void @pdo_sqlite_create_function_internal(ptr noundef %0, ptr noun
   %549 = getelementptr inbounds %struct._pdo_dbh_t, ptr %548, i32 0, i32 15
   %550 = load ptr, ptr %549, align 8
   %551 = icmp ne ptr %550, null
-  br i1 %551, label %567, label %552
+  br i1 %551, label %568, label %552
 
 552:                                              ; preds = %542
   %553 = load ptr, ptr %59, align 8
@@ -1229,142 +1229,143 @@ define hidden void @pdo_sqlite_create_function_internal(ptr noundef %0, ptr noun
   br label %563
 
 563:                                              ; preds = %552
-  %564 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %565 = icmp ne ptr %564, null
-  call void @llvm.assume(i1 %565)
-  br label %644
+  %564 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %565 = load ptr, ptr %564, align 8
+  %566 = icmp ne ptr %565, null
+  call void @llvm.assume(i1 %566)
+  br label %645
 
-566:                                              ; No predecessors!
-  br label %567
+567:                                              ; No predecessors!
+  br label %568
 
-567:                                              ; preds = %566, %542
-  %568 = load ptr, ptr %68, align 8
-  %569 = getelementptr inbounds %struct._pdo_dbh_t, ptr %568, i32 0, i32 1
-  %570 = load ptr, ptr %569, align 8
-  store ptr %570, ptr %69, align 8
-  %571 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 384) #10
-  store ptr %571, ptr %61, align 8
-  %572 = load ptr, ptr %69, align 8
-  %573 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %572, i32 0, i32 0
-  %574 = load ptr, ptr %573, align 8
-  %575 = load ptr, ptr %64, align 8
-  %576 = load i64, ptr %66, align 8
-  %577 = trunc i64 %576 to i32
-  %578 = load i64, ptr %67, align 8
-  %579 = or i64 %578, 1
-  %580 = trunc i64 %579 to i32
-  %581 = load ptr, ptr %61, align 8
-  %582 = call i32 @sqlite3_create_function(ptr noundef %574, ptr noundef %575, i32 noundef %577, i32 noundef %580, ptr noundef %581, ptr noundef @php_sqlite3_func_callback, ptr noundef null, ptr noundef null)
-  store i32 %582, ptr %70, align 4
-  %583 = load i32, ptr %70, align 4
-  %584 = icmp eq i32 %583, 0
-  br i1 %584, label %585, label %637
+568:                                              ; preds = %567, %542
+  %569 = load ptr, ptr %68, align 8
+  %570 = getelementptr inbounds %struct._pdo_dbh_t, ptr %569, i32 0, i32 1
+  %571 = load ptr, ptr %570, align 8
+  store ptr %571, ptr %69, align 8
+  %572 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 384) #10
+  store ptr %572, ptr %61, align 8
+  %573 = load ptr, ptr %69, align 8
+  %574 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %573, i32 0, i32 0
+  %575 = load ptr, ptr %574, align 8
+  %576 = load ptr, ptr %64, align 8
+  %577 = load i64, ptr %66, align 8
+  %578 = trunc i64 %577 to i32
+  %579 = load i64, ptr %67, align 8
+  %580 = or i64 %579, 1
+  %581 = trunc i64 %580 to i32
+  %582 = load ptr, ptr %61, align 8
+  %583 = call i32 @sqlite3_create_function(ptr noundef %575, ptr noundef %576, i32 noundef %578, i32 noundef %581, ptr noundef %582, ptr noundef @php_sqlite3_func_callback, ptr noundef null, ptr noundef null)
+  store i32 %583, ptr %70, align 4
+  %584 = load i32, ptr %70, align 4
+  %585 = icmp eq i32 %584, 0
+  br i1 %585, label %586, label %638
 
-585:                                              ; preds = %567
-  %586 = load ptr, ptr %64, align 8
-  %587 = call noalias ptr @_estrdup(ptr noundef %586)
-  %588 = load ptr, ptr %61, align 8
-  %589 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %588, i32 0, i32 5
-  store ptr %587, ptr %589, align 8
-  br label %590
+586:                                              ; preds = %568
+  %587 = load ptr, ptr %64, align 8
+  %588 = call noalias ptr @_estrdup(ptr noundef %587)
+  %589 = load ptr, ptr %61, align 8
+  %590 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %589, i32 0, i32 5
+  store ptr %588, ptr %590, align 8
+  br label %591
 
-590:                                              ; preds = %585
-  %591 = load ptr, ptr %61, align 8
-  %592 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %591, i32 0, i32 1
-  store ptr %592, ptr %83, align 8
-  %593 = getelementptr inbounds %struct._zend_fcall_info, ptr %62, i32 0, i32 1
-  store ptr %593, ptr %84, align 8
-  %594 = load ptr, ptr %84, align 8
-  %595 = getelementptr inbounds %struct._zval_struct, ptr %594, i32 0, i32 0
-  %596 = load ptr, ptr %595, align 8
-  store ptr %596, ptr %85, align 8
-  %597 = load ptr, ptr %84, align 8
-  %598 = getelementptr inbounds %struct._zval_struct, ptr %597, i32 0, i32 1
-  %599 = load i32, ptr %598, align 8
-  store i32 %599, ptr %86, align 4
-  br label %600
+591:                                              ; preds = %586
+  %592 = load ptr, ptr %61, align 8
+  %593 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %592, i32 0, i32 1
+  store ptr %593, ptr %83, align 8
+  %594 = getelementptr inbounds %struct._zend_fcall_info, ptr %62, i32 0, i32 1
+  store ptr %594, ptr %84, align 8
+  %595 = load ptr, ptr %84, align 8
+  %596 = getelementptr inbounds %struct._zval_struct, ptr %595, i32 0, i32 0
+  %597 = load ptr, ptr %596, align 8
+  store ptr %597, ptr %85, align 8
+  %598 = load ptr, ptr %84, align 8
+  %599 = getelementptr inbounds %struct._zval_struct, ptr %598, i32 0, i32 1
+  %600 = load i32, ptr %599, align 8
+  store i32 %600, ptr %86, align 4
+  br label %601
 
-600:                                              ; preds = %590
-  %601 = load ptr, ptr %85, align 8
-  %602 = load ptr, ptr %83, align 8
-  %603 = getelementptr inbounds %struct._zval_struct, ptr %602, i32 0, i32 0
-  store ptr %601, ptr %603, align 8
-  %604 = load i32, ptr %86, align 4
-  %605 = load ptr, ptr %83, align 8
-  %606 = getelementptr inbounds %struct._zval_struct, ptr %605, i32 0, i32 1
-  store i32 %604, ptr %606, align 8
-  br label %607
+601:                                              ; preds = %591
+  %602 = load ptr, ptr %85, align 8
+  %603 = load ptr, ptr %83, align 8
+  %604 = getelementptr inbounds %struct._zval_struct, ptr %603, i32 0, i32 0
+  store ptr %602, ptr %604, align 8
+  %605 = load i32, ptr %86, align 4
+  %606 = load ptr, ptr %83, align 8
+  %607 = getelementptr inbounds %struct._zval_struct, ptr %606, i32 0, i32 1
+  store i32 %605, ptr %607, align 8
+  br label %608
 
-607:                                              ; preds = %600
-  %608 = load i32, ptr %86, align 4
-  %609 = and i32 %608, 65280
-  %610 = icmp ne i32 %609, 0
-  br i1 %610, label %611, label %617
+608:                                              ; preds = %601
+  %609 = load i32, ptr %86, align 4
+  %610 = and i32 %609, 65280
+  %611 = icmp ne i32 %610, 0
+  br i1 %611, label %612, label %618
 
-611:                                              ; preds = %607
-  %612 = load ptr, ptr %85, align 8
-  %613 = getelementptr inbounds %struct._zend_refcounted, ptr %612, i32 0, i32 0
-  store ptr %613, ptr %34, align 8
-  %614 = load ptr, ptr %34, align 8
-  %615 = load i32, ptr %614, align 4
-  %616 = add i32 %615, 1
-  store i32 %616, ptr %614, align 4
-  br label %617
-
-617:                                              ; preds = %611, %607
+612:                                              ; preds = %608
+  %613 = load ptr, ptr %85, align 8
+  %614 = getelementptr inbounds %struct._zend_refcounted, ptr %613, i32 0, i32 0
+  store ptr %614, ptr %34, align 8
+  %615 = load ptr, ptr %34, align 8
+  %616 = load i32, ptr %615, align 4
+  %617 = add i32 %616, 1
+  store i32 %617, ptr %615, align 4
   br label %618
 
-618:                                              ; preds = %617
-  %619 = load i64, ptr %66, align 8
-  %620 = trunc i64 %619 to i32
-  %621 = load ptr, ptr %61, align 8
-  %622 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %621, i32 0, i32 4
-  store i32 %620, ptr %622, align 8
-  %623 = load ptr, ptr %69, align 8
-  %624 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %623, i32 0, i32 2
-  %625 = load ptr, ptr %624, align 8
-  %626 = load ptr, ptr %61, align 8
-  %627 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %626, i32 0, i32 0
-  store ptr %625, ptr %627, align 8
-  %628 = load ptr, ptr %61, align 8
-  %629 = load ptr, ptr %69, align 8
-  %630 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %629, i32 0, i32 2
-  store ptr %628, ptr %630, align 8
-  br label %631
+618:                                              ; preds = %612, %608
+  br label %619
 
-631:                                              ; preds = %618
+619:                                              ; preds = %618
+  %620 = load i64, ptr %66, align 8
+  %621 = trunc i64 %620 to i32
+  %622 = load ptr, ptr %61, align 8
+  %623 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %622, i32 0, i32 4
+  store i32 %621, ptr %623, align 8
+  %624 = load ptr, ptr %69, align 8
+  %625 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %624, i32 0, i32 2
+  %626 = load ptr, ptr %625, align 8
+  %627 = load ptr, ptr %61, align 8
+  %628 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %627, i32 0, i32 0
+  store ptr %626, ptr %628, align 8
+  %629 = load ptr, ptr %61, align 8
+  %630 = load ptr, ptr %69, align 8
+  %631 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %630, i32 0, i32 2
+  store ptr %629, ptr %631, align 8
   br label %632
 
-632:                                              ; preds = %631
-  %633 = load ptr, ptr %60, align 8
-  %634 = getelementptr inbounds %struct._zval_struct, ptr %633, i32 0, i32 1
-  store i32 3, ptr %634, align 8
-  br label %635
+632:                                              ; preds = %619
+  br label %633
 
-635:                                              ; preds = %632
-  br label %644
+633:                                              ; preds = %632
+  %634 = load ptr, ptr %60, align 8
+  %635 = getelementptr inbounds %struct._zval_struct, ptr %634, i32 0, i32 1
+  store i32 3, ptr %635, align 8
+  br label %636
 
-636:                                              ; No predecessors!
-  br label %637
+636:                                              ; preds = %633
+  br label %645
 
-637:                                              ; preds = %636, %567
-  %638 = load ptr, ptr %61, align 8
-  call void @_efree(ptr noundef %638)
-  br label %639
+637:                                              ; No predecessors!
+  br label %638
 
-639:                                              ; preds = %637
+638:                                              ; preds = %637, %568
+  %639 = load ptr, ptr %61, align 8
+  call void @_efree(ptr noundef %639)
   br label %640
 
-640:                                              ; preds = %639
-  %641 = load ptr, ptr %60, align 8
-  %642 = getelementptr inbounds %struct._zval_struct, ptr %641, i32 0, i32 1
-  store i32 2, ptr %642, align 8
-  br label %643
+640:                                              ; preds = %638
+  br label %641
 
-643:                                              ; preds = %640
+641:                                              ; preds = %640
+  %642 = load ptr, ptr %60, align 8
+  %643 = getelementptr inbounds %struct._zval_struct, ptr %642, i32 0, i32 1
+  store i32 2, ptr %643, align 8
   br label %644
 
-644:                                              ; preds = %643, %635, %563, %535
+644:                                              ; preds = %641
+  br label %645
+
+645:                                              ; preds = %644, %636, %563, %535
   ret void
 }
 
@@ -2274,7 +2275,7 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr nou
   %522 = load i32, ptr %74, align 4
   %523 = load ptr, ptr %73, align 8
   call void @zend_wrong_parameter_error(i32 noundef %519, i32 noundef %520, ptr noundef %521, i32 noundef %522, ptr noundef %523)
-  br label %653
+  br label %654
 
 524:                                              ; preds = %510
   br label %525
@@ -2290,7 +2291,7 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr nou
   %532 = getelementptr inbounds %struct._pdo_dbh_t, ptr %531, i32 0, i32 15
   %533 = load ptr, ptr %532, align 8
   %534 = icmp ne ptr %533, null
-  br i1 %534, label %550, label %535
+  br i1 %534, label %551, label %535
 
 535:                                              ; preds = %525
   %536 = load ptr, ptr %54, align 8
@@ -2307,188 +2308,189 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr nou
   br label %546
 
 546:                                              ; preds = %535
-  %547 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %548 = icmp ne ptr %547, null
-  call void @llvm.assume(i1 %548)
-  br label %653
+  %547 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %548 = load ptr, ptr %547, align 8
+  %549 = icmp ne ptr %548, null
+  call void @llvm.assume(i1 %549)
+  br label %654
 
-549:                                              ; No predecessors!
-  br label %550
+550:                                              ; No predecessors!
+  br label %551
 
-550:                                              ; preds = %549, %525
-  %551 = load ptr, ptr %64, align 8
-  %552 = getelementptr inbounds %struct._pdo_dbh_t, ptr %551, i32 0, i32 1
-  %553 = load ptr, ptr %552, align 8
-  store ptr %553, ptr %65, align 8
-  %554 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 384) #10
-  store ptr %554, ptr %56, align 8
-  %555 = load ptr, ptr %65, align 8
-  %556 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %555, i32 0, i32 0
-  %557 = load ptr, ptr %556, align 8
-  %558 = load ptr, ptr %61, align 8
-  %559 = load i64, ptr %63, align 8
-  %560 = trunc i64 %559 to i32
-  %561 = load ptr, ptr %56, align 8
-  %562 = call i32 @sqlite3_create_function(ptr noundef %557, ptr noundef %558, i32 noundef %560, i32 noundef 1, ptr noundef %561, ptr noundef null, ptr noundef @php_sqlite3_func_step_callback, ptr noundef @php_sqlite3_func_final_callback)
-  store i32 %562, ptr %66, align 4
-  %563 = load i32, ptr %66, align 4
-  %564 = icmp eq i32 %563, 0
-  br i1 %564, label %565, label %646
+551:                                              ; preds = %550, %525
+  %552 = load ptr, ptr %64, align 8
+  %553 = getelementptr inbounds %struct._pdo_dbh_t, ptr %552, i32 0, i32 1
+  %554 = load ptr, ptr %553, align 8
+  store ptr %554, ptr %65, align 8
+  %555 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 384) #10
+  store ptr %555, ptr %56, align 8
+  %556 = load ptr, ptr %65, align 8
+  %557 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %556, i32 0, i32 0
+  %558 = load ptr, ptr %557, align 8
+  %559 = load ptr, ptr %61, align 8
+  %560 = load i64, ptr %63, align 8
+  %561 = trunc i64 %560 to i32
+  %562 = load ptr, ptr %56, align 8
+  %563 = call i32 @sqlite3_create_function(ptr noundef %558, ptr noundef %559, i32 noundef %561, i32 noundef 1, ptr noundef %562, ptr noundef null, ptr noundef @php_sqlite3_func_step_callback, ptr noundef @php_sqlite3_func_final_callback)
+  store i32 %563, ptr %66, align 4
+  %564 = load i32, ptr %66, align 4
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %566, label %647
 
-565:                                              ; preds = %550
-  %566 = load ptr, ptr %61, align 8
-  %567 = call noalias ptr @_estrdup(ptr noundef %566)
-  %568 = load ptr, ptr %56, align 8
-  %569 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %568, i32 0, i32 5
-  store ptr %567, ptr %569, align 8
-  br label %570
+566:                                              ; preds = %551
+  %567 = load ptr, ptr %61, align 8
+  %568 = call noalias ptr @_estrdup(ptr noundef %567)
+  %569 = load ptr, ptr %56, align 8
+  %570 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %569, i32 0, i32 5
+  store ptr %568, ptr %570, align 8
+  br label %571
 
-570:                                              ; preds = %565
-  %571 = load ptr, ptr %56, align 8
-  %572 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %571, i32 0, i32 2
-  store ptr %572, ptr %79, align 8
-  %573 = getelementptr inbounds %struct._zend_fcall_info, ptr %57, i32 0, i32 1
-  store ptr %573, ptr %80, align 8
-  %574 = load ptr, ptr %80, align 8
-  %575 = getelementptr inbounds %struct._zval_struct, ptr %574, i32 0, i32 0
-  %576 = load ptr, ptr %575, align 8
-  store ptr %576, ptr %81, align 8
-  %577 = load ptr, ptr %80, align 8
-  %578 = getelementptr inbounds %struct._zval_struct, ptr %577, i32 0, i32 1
-  %579 = load i32, ptr %578, align 8
-  store i32 %579, ptr %82, align 4
-  br label %580
+571:                                              ; preds = %566
+  %572 = load ptr, ptr %56, align 8
+  %573 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %572, i32 0, i32 2
+  store ptr %573, ptr %79, align 8
+  %574 = getelementptr inbounds %struct._zend_fcall_info, ptr %57, i32 0, i32 1
+  store ptr %574, ptr %80, align 8
+  %575 = load ptr, ptr %80, align 8
+  %576 = getelementptr inbounds %struct._zval_struct, ptr %575, i32 0, i32 0
+  %577 = load ptr, ptr %576, align 8
+  store ptr %577, ptr %81, align 8
+  %578 = load ptr, ptr %80, align 8
+  %579 = getelementptr inbounds %struct._zval_struct, ptr %578, i32 0, i32 1
+  %580 = load i32, ptr %579, align 8
+  store i32 %580, ptr %82, align 4
+  br label %581
 
-580:                                              ; preds = %570
-  %581 = load ptr, ptr %81, align 8
-  %582 = load ptr, ptr %79, align 8
-  %583 = getelementptr inbounds %struct._zval_struct, ptr %582, i32 0, i32 0
-  store ptr %581, ptr %583, align 8
-  %584 = load i32, ptr %82, align 4
-  %585 = load ptr, ptr %79, align 8
-  %586 = getelementptr inbounds %struct._zval_struct, ptr %585, i32 0, i32 1
-  store i32 %584, ptr %586, align 8
-  br label %587
+581:                                              ; preds = %571
+  %582 = load ptr, ptr %81, align 8
+  %583 = load ptr, ptr %79, align 8
+  %584 = getelementptr inbounds %struct._zval_struct, ptr %583, i32 0, i32 0
+  store ptr %582, ptr %584, align 8
+  %585 = load i32, ptr %82, align 4
+  %586 = load ptr, ptr %79, align 8
+  %587 = getelementptr inbounds %struct._zval_struct, ptr %586, i32 0, i32 1
+  store i32 %585, ptr %587, align 8
+  br label %588
 
-587:                                              ; preds = %580
-  %588 = load i32, ptr %82, align 4
-  %589 = and i32 %588, 65280
-  %590 = icmp ne i32 %589, 0
-  br i1 %590, label %591, label %597
+588:                                              ; preds = %581
+  %589 = load i32, ptr %82, align 4
+  %590 = and i32 %589, 65280
+  %591 = icmp ne i32 %590, 0
+  br i1 %591, label %592, label %598
 
-591:                                              ; preds = %587
-  %592 = load ptr, ptr %81, align 8
-  %593 = getelementptr inbounds %struct._zend_refcounted, ptr %592, i32 0, i32 0
-  store ptr %593, ptr %26, align 8
-  %594 = load ptr, ptr %26, align 8
-  %595 = load i32, ptr %594, align 4
-  %596 = add i32 %595, 1
-  store i32 %596, ptr %594, align 4
-  br label %597
-
-597:                                              ; preds = %591, %587
+592:                                              ; preds = %588
+  %593 = load ptr, ptr %81, align 8
+  %594 = getelementptr inbounds %struct._zend_refcounted, ptr %593, i32 0, i32 0
+  store ptr %594, ptr %26, align 8
+  %595 = load ptr, ptr %26, align 8
+  %596 = load i32, ptr %595, align 4
+  %597 = add i32 %596, 1
+  store i32 %597, ptr %595, align 4
   br label %598
 
-598:                                              ; preds = %597
+598:                                              ; preds = %592, %588
   br label %599
 
 599:                                              ; preds = %598
-  %600 = load ptr, ptr %56, align 8
-  %601 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %600, i32 0, i32 3
-  store ptr %601, ptr %83, align 8
-  %602 = getelementptr inbounds %struct._zend_fcall_info, ptr %58, i32 0, i32 1
-  store ptr %602, ptr %84, align 8
-  %603 = load ptr, ptr %84, align 8
-  %604 = getelementptr inbounds %struct._zval_struct, ptr %603, i32 0, i32 0
-  %605 = load ptr, ptr %604, align 8
-  store ptr %605, ptr %85, align 8
-  %606 = load ptr, ptr %84, align 8
-  %607 = getelementptr inbounds %struct._zval_struct, ptr %606, i32 0, i32 1
-  %608 = load i32, ptr %607, align 8
-  store i32 %608, ptr %86, align 4
-  br label %609
+  br label %600
 
-609:                                              ; preds = %599
-  %610 = load ptr, ptr %85, align 8
-  %611 = load ptr, ptr %83, align 8
-  %612 = getelementptr inbounds %struct._zval_struct, ptr %611, i32 0, i32 0
-  store ptr %610, ptr %612, align 8
-  %613 = load i32, ptr %86, align 4
-  %614 = load ptr, ptr %83, align 8
-  %615 = getelementptr inbounds %struct._zval_struct, ptr %614, i32 0, i32 1
-  store i32 %613, ptr %615, align 8
-  br label %616
+600:                                              ; preds = %599
+  %601 = load ptr, ptr %56, align 8
+  %602 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %601, i32 0, i32 3
+  store ptr %602, ptr %83, align 8
+  %603 = getelementptr inbounds %struct._zend_fcall_info, ptr %58, i32 0, i32 1
+  store ptr %603, ptr %84, align 8
+  %604 = load ptr, ptr %84, align 8
+  %605 = getelementptr inbounds %struct._zval_struct, ptr %604, i32 0, i32 0
+  %606 = load ptr, ptr %605, align 8
+  store ptr %606, ptr %85, align 8
+  %607 = load ptr, ptr %84, align 8
+  %608 = getelementptr inbounds %struct._zval_struct, ptr %607, i32 0, i32 1
+  %609 = load i32, ptr %608, align 8
+  store i32 %609, ptr %86, align 4
+  br label %610
 
-616:                                              ; preds = %609
-  %617 = load i32, ptr %86, align 4
-  %618 = and i32 %617, 65280
-  %619 = icmp ne i32 %618, 0
-  br i1 %619, label %620, label %626
+610:                                              ; preds = %600
+  %611 = load ptr, ptr %85, align 8
+  %612 = load ptr, ptr %83, align 8
+  %613 = getelementptr inbounds %struct._zval_struct, ptr %612, i32 0, i32 0
+  store ptr %611, ptr %613, align 8
+  %614 = load i32, ptr %86, align 4
+  %615 = load ptr, ptr %83, align 8
+  %616 = getelementptr inbounds %struct._zval_struct, ptr %615, i32 0, i32 1
+  store i32 %614, ptr %616, align 8
+  br label %617
 
-620:                                              ; preds = %616
-  %621 = load ptr, ptr %85, align 8
-  %622 = getelementptr inbounds %struct._zend_refcounted, ptr %621, i32 0, i32 0
-  store ptr %622, ptr %27, align 8
-  %623 = load ptr, ptr %27, align 8
-  %624 = load i32, ptr %623, align 4
-  %625 = add i32 %624, 1
-  store i32 %625, ptr %623, align 4
-  br label %626
+617:                                              ; preds = %610
+  %618 = load i32, ptr %86, align 4
+  %619 = and i32 %618, 65280
+  %620 = icmp ne i32 %619, 0
+  br i1 %620, label %621, label %627
 
-626:                                              ; preds = %620, %616
+621:                                              ; preds = %617
+  %622 = load ptr, ptr %85, align 8
+  %623 = getelementptr inbounds %struct._zend_refcounted, ptr %622, i32 0, i32 0
+  store ptr %623, ptr %27, align 8
+  %624 = load ptr, ptr %27, align 8
+  %625 = load i32, ptr %624, align 4
+  %626 = add i32 %625, 1
+  store i32 %626, ptr %624, align 4
   br label %627
 
-627:                                              ; preds = %626
-  %628 = load i64, ptr %63, align 8
-  %629 = trunc i64 %628 to i32
-  %630 = load ptr, ptr %56, align 8
-  %631 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %630, i32 0, i32 4
-  store i32 %629, ptr %631, align 8
-  %632 = load ptr, ptr %65, align 8
-  %633 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %632, i32 0, i32 2
-  %634 = load ptr, ptr %633, align 8
-  %635 = load ptr, ptr %56, align 8
-  %636 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %635, i32 0, i32 0
-  store ptr %634, ptr %636, align 8
-  %637 = load ptr, ptr %56, align 8
-  %638 = load ptr, ptr %65, align 8
-  %639 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %638, i32 0, i32 2
-  store ptr %637, ptr %639, align 8
-  br label %640
+627:                                              ; preds = %621, %617
+  br label %628
 
-640:                                              ; preds = %627
+628:                                              ; preds = %627
+  %629 = load i64, ptr %63, align 8
+  %630 = trunc i64 %629 to i32
+  %631 = load ptr, ptr %56, align 8
+  %632 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %631, i32 0, i32 4
+  store i32 %630, ptr %632, align 8
+  %633 = load ptr, ptr %65, align 8
+  %634 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %633, i32 0, i32 2
+  %635 = load ptr, ptr %634, align 8
+  %636 = load ptr, ptr %56, align 8
+  %637 = getelementptr inbounds %struct.pdo_sqlite_func, ptr %636, i32 0, i32 0
+  store ptr %635, ptr %637, align 8
+  %638 = load ptr, ptr %56, align 8
+  %639 = load ptr, ptr %65, align 8
+  %640 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %639, i32 0, i32 2
+  store ptr %638, ptr %640, align 8
   br label %641
 
-641:                                              ; preds = %640
-  %642 = load ptr, ptr %55, align 8
-  %643 = getelementptr inbounds %struct._zval_struct, ptr %642, i32 0, i32 1
-  store i32 3, ptr %643, align 8
-  br label %644
+641:                                              ; preds = %628
+  br label %642
 
-644:                                              ; preds = %641
-  br label %653
+642:                                              ; preds = %641
+  %643 = load ptr, ptr %55, align 8
+  %644 = getelementptr inbounds %struct._zval_struct, ptr %643, i32 0, i32 1
+  store i32 3, ptr %644, align 8
+  br label %645
 
-645:                                              ; No predecessors!
-  br label %646
+645:                                              ; preds = %642
+  br label %654
 
-646:                                              ; preds = %645, %550
-  %647 = load ptr, ptr %56, align 8
-  call void @_efree(ptr noundef %647)
-  br label %648
+646:                                              ; No predecessors!
+  br label %647
 
-648:                                              ; preds = %646
+647:                                              ; preds = %646, %551
+  %648 = load ptr, ptr %56, align 8
+  call void @_efree(ptr noundef %648)
   br label %649
 
-649:                                              ; preds = %648
-  %650 = load ptr, ptr %55, align 8
-  %651 = getelementptr inbounds %struct._zval_struct, ptr %650, i32 0, i32 1
-  store i32 2, ptr %651, align 8
-  br label %652
+649:                                              ; preds = %647
+  br label %650
 
-652:                                              ; preds = %649
+650:                                              ; preds = %649
+  %651 = load ptr, ptr %55, align 8
+  %652 = getelementptr inbounds %struct._zval_struct, ptr %651, i32 0, i32 1
+  store i32 2, ptr %652, align 8
   br label %653
 
-653:                                              ; preds = %652, %644, %546, %518
+653:                                              ; preds = %650
+  br label %654
+
+654:                                              ; preds = %653, %645, %546, %518
   ret void
 }
 
@@ -3043,7 +3045,7 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr nou
   %311 = load i32, ptr %50, align 4
   %312 = load ptr, ptr %49, align 8
   call void @zend_wrong_parameter_error(i32 noundef %308, i32 noundef %309, ptr noundef %310, i32 noundef %311, ptr noundef %312)
-  br label %421
+  br label %424
 
 313:                                              ; preds = %299
   br label %314
@@ -3059,7 +3061,7 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr nou
   %321 = getelementptr inbounds %struct._pdo_dbh_t, ptr %320, i32 0, i32 15
   %322 = load ptr, ptr %321, align 8
   %323 = icmp ne ptr %322, null
-  br i1 %323, label %339, label %324
+  br i1 %323, label %340, label %324
 
 324:                                              ; preds = %314
   %325 = load ptr, ptr %32, align 8
@@ -3076,155 +3078,158 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr nou
   br label %335
 
 335:                                              ; preds = %324
-  %336 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %337 = icmp ne ptr %336, null
-  call void @llvm.assume(i1 %337)
-  br label %421
+  %336 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %337 = load ptr, ptr %336, align 8
+  %338 = icmp ne ptr %337, null
+  call void @llvm.assume(i1 %338)
+  br label %424
 
-338:                                              ; No predecessors!
-  br label %339
+339:                                              ; No predecessors!
+  br label %340
 
-339:                                              ; preds = %338, %314
-  %340 = load ptr, ptr %40, align 8
-  %341 = getelementptr inbounds %struct._pdo_dbh_t, ptr %340, i32 0, i32 1
-  %342 = load ptr, ptr %341, align 8
-  store ptr %342, ptr %41, align 8
-  %343 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 136) #10
-  store ptr %343, ptr %35, align 8
-  %344 = load ptr, ptr %41, align 8
-  %345 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %344, i32 0, i32 0
-  %346 = load ptr, ptr %345, align 8
-  %347 = load ptr, ptr %38, align 8
-  %348 = load ptr, ptr %35, align 8
-  %349 = load ptr, ptr %34, align 8
-  %350 = call i32 @sqlite3_create_collation(ptr noundef %346, ptr noundef %347, i32 noundef 1, ptr noundef %348, ptr noundef %349)
-  store i32 %350, ptr %42, align 4
-  %351 = load i32, ptr %42, align 4
-  %352 = icmp eq i32 %351, 0
-  br i1 %352, label %353, label %401
+340:                                              ; preds = %339, %314
+  %341 = load ptr, ptr %40, align 8
+  %342 = getelementptr inbounds %struct._pdo_dbh_t, ptr %341, i32 0, i32 1
+  %343 = load ptr, ptr %342, align 8
+  store ptr %343, ptr %41, align 8
+  %344 = call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef 136) #10
+  store ptr %344, ptr %35, align 8
+  %345 = load ptr, ptr %41, align 8
+  %346 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %345, i32 0, i32 0
+  %347 = load ptr, ptr %346, align 8
+  %348 = load ptr, ptr %38, align 8
+  %349 = load ptr, ptr %35, align 8
+  %350 = load ptr, ptr %34, align 8
+  %351 = call i32 @sqlite3_create_collation(ptr noundef %347, ptr noundef %348, i32 noundef 1, ptr noundef %349, ptr noundef %350)
+  store i32 %351, ptr %42, align 4
+  %352 = load i32, ptr %42, align 4
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %354, label %402
 
-353:                                              ; preds = %339
-  %354 = load ptr, ptr %38, align 8
-  %355 = call noalias ptr @_estrdup(ptr noundef %354)
-  %356 = load ptr, ptr %35, align 8
-  %357 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %356, i32 0, i32 1
-  store ptr %355, ptr %357, align 8
-  br label %358
+354:                                              ; preds = %340
+  %355 = load ptr, ptr %38, align 8
+  %356 = call noalias ptr @_estrdup(ptr noundef %355)
+  %357 = load ptr, ptr %35, align 8
+  %358 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %357, i32 0, i32 1
+  store ptr %356, ptr %358, align 8
+  br label %359
 
-358:                                              ; preds = %353
-  %359 = load ptr, ptr %35, align 8
-  %360 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %359, i32 0, i32 2
-  store ptr %360, ptr %55, align 8
-  %361 = getelementptr inbounds %struct._zend_fcall_info, ptr %36, i32 0, i32 1
-  store ptr %361, ptr %56, align 8
-  %362 = load ptr, ptr %56, align 8
-  %363 = getelementptr inbounds %struct._zval_struct, ptr %362, i32 0, i32 0
-  %364 = load ptr, ptr %363, align 8
-  store ptr %364, ptr %57, align 8
-  %365 = load ptr, ptr %56, align 8
-  %366 = getelementptr inbounds %struct._zval_struct, ptr %365, i32 0, i32 1
-  %367 = load i32, ptr %366, align 8
-  store i32 %367, ptr %58, align 4
-  br label %368
+359:                                              ; preds = %354
+  %360 = load ptr, ptr %35, align 8
+  %361 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %360, i32 0, i32 2
+  store ptr %361, ptr %55, align 8
+  %362 = getelementptr inbounds %struct._zend_fcall_info, ptr %36, i32 0, i32 1
+  store ptr %362, ptr %56, align 8
+  %363 = load ptr, ptr %56, align 8
+  %364 = getelementptr inbounds %struct._zval_struct, ptr %363, i32 0, i32 0
+  %365 = load ptr, ptr %364, align 8
+  store ptr %365, ptr %57, align 8
+  %366 = load ptr, ptr %56, align 8
+  %367 = getelementptr inbounds %struct._zval_struct, ptr %366, i32 0, i32 1
+  %368 = load i32, ptr %367, align 8
+  store i32 %368, ptr %58, align 4
+  br label %369
 
-368:                                              ; preds = %358
-  %369 = load ptr, ptr %57, align 8
-  %370 = load ptr, ptr %55, align 8
-  %371 = getelementptr inbounds %struct._zval_struct, ptr %370, i32 0, i32 0
-  store ptr %369, ptr %371, align 8
-  %372 = load i32, ptr %58, align 4
-  %373 = load ptr, ptr %55, align 8
-  %374 = getelementptr inbounds %struct._zval_struct, ptr %373, i32 0, i32 1
-  store i32 %372, ptr %374, align 8
-  br label %375
+369:                                              ; preds = %359
+  %370 = load ptr, ptr %57, align 8
+  %371 = load ptr, ptr %55, align 8
+  %372 = getelementptr inbounds %struct._zval_struct, ptr %371, i32 0, i32 0
+  store ptr %370, ptr %372, align 8
+  %373 = load i32, ptr %58, align 4
+  %374 = load ptr, ptr %55, align 8
+  %375 = getelementptr inbounds %struct._zval_struct, ptr %374, i32 0, i32 1
+  store i32 %373, ptr %375, align 8
+  br label %376
 
-375:                                              ; preds = %368
-  %376 = load i32, ptr %58, align 4
-  %377 = and i32 %376, 65280
-  %378 = icmp ne i32 %377, 0
-  br i1 %378, label %379, label %385
+376:                                              ; preds = %369
+  %377 = load i32, ptr %58, align 4
+  %378 = and i32 %377, 65280
+  %379 = icmp ne i32 %378, 0
+  br i1 %379, label %380, label %386
 
-379:                                              ; preds = %375
-  %380 = load ptr, ptr %57, align 8
-  %381 = getelementptr inbounds %struct._zend_refcounted, ptr %380, i32 0, i32 0
-  store ptr %381, ptr %17, align 8
-  %382 = load ptr, ptr %17, align 8
-  %383 = load i32, ptr %382, align 4
-  %384 = add i32 %383, 1
-  store i32 %384, ptr %382, align 4
-  br label %385
-
-385:                                              ; preds = %379, %375
+380:                                              ; preds = %376
+  %381 = load ptr, ptr %57, align 8
+  %382 = getelementptr inbounds %struct._zend_refcounted, ptr %381, i32 0, i32 0
+  store ptr %382, ptr %17, align 8
+  %383 = load ptr, ptr %17, align 8
+  %384 = load i32, ptr %383, align 4
+  %385 = add i32 %384, 1
+  store i32 %385, ptr %383, align 4
   br label %386
 
-386:                                              ; preds = %385
-  %387 = load ptr, ptr %41, align 8
-  %388 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %387, i32 0, i32 3
-  %389 = load ptr, ptr %388, align 8
-  %390 = load ptr, ptr %35, align 8
-  %391 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %390, i32 0, i32 0
-  store ptr %389, ptr %391, align 8
-  %392 = load ptr, ptr %35, align 8
-  %393 = load ptr, ptr %41, align 8
-  %394 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %393, i32 0, i32 3
-  store ptr %392, ptr %394, align 8
-  br label %395
+386:                                              ; preds = %380, %376
+  br label %387
 
-395:                                              ; preds = %386
+387:                                              ; preds = %386
+  %388 = load ptr, ptr %41, align 8
+  %389 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %388, i32 0, i32 3
+  %390 = load ptr, ptr %389, align 8
+  %391 = load ptr, ptr %35, align 8
+  %392 = getelementptr inbounds %struct.pdo_sqlite_collation, ptr %391, i32 0, i32 0
+  store ptr %390, ptr %392, align 8
+  %393 = load ptr, ptr %35, align 8
+  %394 = load ptr, ptr %41, align 8
+  %395 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %394, i32 0, i32 3
+  store ptr %393, ptr %395, align 8
   br label %396
 
-396:                                              ; preds = %395
-  %397 = load ptr, ptr %33, align 8
-  %398 = getelementptr inbounds %struct._zval_struct, ptr %397, i32 0, i32 1
-  store i32 3, ptr %398, align 8
-  br label %399
+396:                                              ; preds = %387
+  br label %397
 
-399:                                              ; preds = %396
-  br label %421
+397:                                              ; preds = %396
+  %398 = load ptr, ptr %33, align 8
+  %399 = getelementptr inbounds %struct._zval_struct, ptr %398, i32 0, i32 1
+  store i32 3, ptr %399, align 8
+  br label %400
 
-400:                                              ; No predecessors!
-  br label %401
+400:                                              ; preds = %397
+  br label %424
 
-401:                                              ; preds = %400, %339
-  %402 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %403 = icmp ne ptr %402, null
-  %404 = xor i1 %403, true
-  %405 = xor i1 %404, true
-  %406 = zext i1 %405 to i32
-  %407 = sext i32 %406 to i64
-  %408 = icmp ne i64 %407, 0
-  br i1 %408, label %409, label %414
+401:                                              ; No predecessors!
+  br label %402
 
-409:                                              ; preds = %401
-  br label %410
+402:                                              ; preds = %401, %340
+  %403 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %404 = load ptr, ptr %403, align 8
+  %405 = icmp ne ptr %404, null
+  %406 = xor i1 %405, true
+  %407 = xor i1 %406, true
+  %408 = zext i1 %407 to i32
+  %409 = sext i32 %408 to i64
+  %410 = icmp ne i64 %409, 0
+  br i1 %410, label %411, label %417
 
-410:                                              ; preds = %409
-  %411 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %412 = icmp ne ptr %411, null
-  call void @llvm.assume(i1 %412)
-  br label %421
+411:                                              ; preds = %402
+  br label %412
 
-413:                                              ; No predecessors!
-  br label %414
+412:                                              ; preds = %411
+  %413 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %414 = load ptr, ptr %413, align 8
+  %415 = icmp ne ptr %414, null
+  call void @llvm.assume(i1 %415)
+  br label %424
 
-414:                                              ; preds = %413, %401
-  %415 = load ptr, ptr %35, align 8
-  call void @_efree(ptr noundef %415)
-  br label %416
-
-416:                                              ; preds = %414
+416:                                              ; No predecessors!
   br label %417
 
-417:                                              ; preds = %416
-  %418 = load ptr, ptr %33, align 8
-  %419 = getelementptr inbounds %struct._zval_struct, ptr %418, i32 0, i32 1
-  store i32 2, ptr %419, align 8
+417:                                              ; preds = %416, %402
+  %418 = load ptr, ptr %35, align 8
+  call void @_efree(ptr noundef %418)
+  br label %419
+
+419:                                              ; preds = %417
   br label %420
 
-420:                                              ; preds = %417
-  br label %421
+420:                                              ; preds = %419
+  %421 = load ptr, ptr %33, align 8
+  %422 = getelementptr inbounds %struct._zval_struct, ptr %421, i32 0, i32 1
+  store i32 2, ptr %422, align 8
+  br label %423
 
-421:                                              ; preds = %420, %410, %399, %335, %307
+423:                                              ; preds = %420
+  br label %424
+
+424:                                              ; preds = %423, %412, %400, %335, %307
   ret void
 }
 
@@ -4856,108 +4861,112 @@ define internal i32 @pdo_sqlite_handle_factory(ptr noundef %0, ptr noundef %1) #
   %45 = getelementptr inbounds %struct._pdo_dbh_t, ptr %44, i32 0, i32 5
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %43, i64 noundef 0, ptr noundef @.str.11, ptr noundef %46)
-  br label %112
+  br label %116
 
 48:                                               ; preds = %20
   %49 = load ptr, ptr %4, align 8
   %50 = call i64 @pdo_attr_lval(ptr noundef %49, i32 noundef 1000, i64 noundef 6)
   store i64 %50, ptr %9, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %58
+  %51 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %60
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %55 = load i8, ptr %54, align 1
-  %56 = sext i8 %55 to i32
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %61, label %58
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i8, ptr %56, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %63, label %60
 
-58:                                               ; preds = %53, %48
-  %59 = load i64, ptr %9, align 8
-  %60 = or i64 %59, 64
-  store i64 %60, ptr %9, align 8
-  br label %61
+60:                                               ; preds = %54, %48
+  %61 = load i64, ptr %9, align 8
+  %62 = or i64 %61, 64
+  store i64 %62, ptr %9, align 8
+  br label %63
 
-61:                                               ; preds = %58, %53
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %63, i32 0, i32 0
-  %65 = load i64, ptr %9, align 8
-  %66 = trunc i64 %65 to i32
-  %67 = call i32 @sqlite3_open_v2(ptr noundef %62, ptr noundef %64, i32 noundef %66, ptr noundef null)
-  store i32 %67, ptr %6, align 4
-  %68 = load ptr, ptr %10, align 8
-  call void @_efree(ptr noundef %68)
-  %69 = load i32, ptr %6, align 4
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %74
+63:                                               ; preds = %60, %54
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %65, i32 0, i32 0
+  %67 = load i64, ptr %9, align 8
+  %68 = trunc i64 %67 to i32
+  %69 = call i32 @sqlite3_open_v2(ptr noundef %64, ptr noundef %66, i32 noundef %68, ptr noundef null)
+  store i32 %69, ptr %6, align 4
+  %70 = load ptr, ptr %10, align 8
+  call void @_efree(ptr noundef %70)
+  %71 = load i32, ptr %6, align 4
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
 
-71:                                               ; preds = %61
-  %72 = load ptr, ptr %3, align 8
-  %73 = call i32 @_pdo_sqlite_error(ptr noundef %72, ptr noundef null, ptr noundef @.str.12, i32 noundef 824)
-  br label %112
+73:                                               ; preds = %63
+  %74 = load ptr, ptr %3, align 8
+  %75 = call i32 @_pdo_sqlite_error(ptr noundef %74, ptr noundef null, ptr noundef @.str.12, i32 noundef 824)
+  br label %116
 
-74:                                               ; preds = %61
-  %75 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %87
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %91
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %79 = load i8, ptr %78, align 1
-  %80 = sext i8 %79 to i32
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %87
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i8, ptr %82, align 1
+  %84 = sext i8 %83 to i32
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %91
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @sqlite3_set_authorizer(ptr noundef %85, ptr noundef @authorizer, ptr noundef null)
-  br label %87
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 @sqlite3_set_authorizer(ptr noundef %89, ptr noundef @authorizer, ptr noundef null)
+  br label %91
 
-87:                                               ; preds = %82, %77, %74
-  %88 = load ptr, ptr %4, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %94
+91:                                               ; preds = %86, %80, %76
+  %92 = load ptr, ptr %4, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %98
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %4, align 8
-  %92 = load i64, ptr %8, align 8
-  %93 = call i64 @pdo_attr_lval(ptr noundef %91, i32 noundef 2, i64 noundef %92)
-  store i64 %93, ptr %8, align 8
-  br label %94
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %4, align 8
+  %96 = load i64, ptr %8, align 8
+  %97 = call i64 @pdo_attr_lval(ptr noundef %95, i32 noundef 2, i64 noundef %96)
+  store i64 %97, ptr %8, align 8
+  br label %98
 
-94:                                               ; preds = %90, %87
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i64, ptr %8, align 8
-  %99 = mul nsw i64 %98, 1000
-  %100 = trunc i64 %99 to i32
-  %101 = call i32 @sqlite3_busy_timeout(ptr noundef %97, i32 noundef %100)
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct._pdo_dbh_t, ptr %102, i32 0, i32 4
-  %104 = load i32, ptr %103, align 8
-  %105 = and i32 %104, -9
-  %106 = or i32 %105, 8
-  store i32 %106, ptr %103, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct._pdo_dbh_t, ptr %107, i32 0, i32 4
-  %109 = load i32, ptr %108, align 8
-  %110 = and i32 %109, -225
-  %111 = or i32 %110, 64
-  store i32 %111, ptr %108, align 8
+98:                                               ; preds = %94, %91
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds %struct.pdo_sqlite_db_handle, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = load i64, ptr %8, align 8
+  %103 = mul nsw i64 %102, 1000
+  %104 = trunc i64 %103 to i32
+  %105 = call i32 @sqlite3_busy_timeout(ptr noundef %101, i32 noundef %104)
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds %struct._pdo_dbh_t, ptr %106, i32 0, i32 4
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, -9
+  %110 = or i32 %109, 8
+  store i32 %110, ptr %107, align 8
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct._pdo_dbh_t, ptr %111, i32 0, i32 4
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, -225
+  %115 = or i32 %114, 64
+  store i32 %115, ptr %112, align 8
   store i32 1, ptr %7, align 4
-  br label %112
+  br label %116
 
-112:                                              ; preds = %94, %71, %42
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds %struct._pdo_dbh_t, ptr %113, i32 0, i32 0
-  store ptr @sqlite_methods, ptr %114, align 8
-  %115 = load i32, ptr %7, align 4
-  ret i32 %115
+116:                                              ; preds = %98, %73, %42
+  %117 = load ptr, ptr %3, align 8
+  %118 = getelementptr inbounds %struct._pdo_dbh_t, ptr %117, i32 0, i32 0
+  store ptr @sqlite_methods, ptr %118, align 8
+  %119 = load i32, ptr %7, align 4
+  ret i32 %119
 }
 
 declare zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) #1
@@ -5130,7 +5139,7 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %116 = load ptr, ptr %33, align 8
   call void @_efree(ptr noundef %116)
   store i32 -1, ptr %26, align 4
-  br label %887
+  br label %888
 
 117:                                              ; preds = %110
   %118 = load ptr, ptr %38, align 8
@@ -6150,7 +6159,7 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 775:                                              ; preds = %772
   %776 = load ptr, ptr %30, align 8
   %777 = icmp ne ptr %776, null
-  br i1 %777, label %835, label %778
+  br i1 %777, label %836, label %778
 
 778:                                              ; preds = %775, %772
   store ptr %34, ptr %22, align 8
@@ -6159,7 +6168,7 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %781 = load i8, ptr %780, align 8
   %782 = zext i8 %781 to i32
   %783 = icmp eq i32 %782, 0
-  br i1 %783, label %826, label %784
+  br i1 %783, label %827, label %784
 
 784:                                              ; preds = %778
   store ptr %34, ptr %23, align 8
@@ -6179,19 +6188,19 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %792 = load i64, ptr %791, align 8
   %793 = trunc i64 %792 to i32
   call void @sqlite3_result_int(ptr noundef %790, i32 noundef %793)
-  br label %825
+  br label %826
 
 794:                                              ; preds = %784
   %795 = load ptr, ptr %31, align 8
   call void @sqlite3_result_null(ptr noundef %795)
-  br label %825
+  br label %826
 
 796:                                              ; preds = %784
   %797 = load ptr, ptr %31, align 8
   %798 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 0
   %799 = load double, ptr %798, align 8
   call void @sqlite3_result_double(ptr noundef %797, double noundef %799)
-  br label %825
+  br label %826
 
 800:                                              ; preds = %784
   store ptr %34, ptr %14, align 8
@@ -6220,7 +6229,7 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 813:                                              ; preds = %811
   store i32 -1, ptr %36, align 4
-  br label %825
+  br label %826
 
 814:                                              ; preds = %811
   %815 = load ptr, ptr %31, align 8
@@ -6233,128 +6242,129 @@ define internal i32 @do_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %822 = getelementptr inbounds %struct._zend_string, ptr %821, i32 0, i32 2
   %823 = load i64, ptr %822, align 8
   %824 = trunc i64 %823 to i32
-  call void @sqlite3_result_text(ptr noundef %815, ptr noundef %819, i32 noundef %824, ptr noundef inttoptr (i64 -1 to ptr))
-  br label %825
+  %825 = inttoptr i64 -1 to ptr
+  call void @sqlite3_result_text(ptr noundef %815, ptr noundef %819, i32 noundef %824, ptr noundef %825)
+  br label %826
 
-825:                                              ; preds = %814, %813, %796, %794, %789
-  br label %828
+826:                                              ; preds = %814, %813, %796, %794, %789
+  br label %829
 
-826:                                              ; preds = %778
-  %827 = load ptr, ptr %31, align 8
-  call void @sqlite3_result_error(ptr noundef %827, ptr noundef @.str.10, i32 noundef 0)
-  br label %828
+827:                                              ; preds = %778
+  %828 = load ptr, ptr %31, align 8
+  call void @sqlite3_result_error(ptr noundef %828, ptr noundef @.str.10, i32 noundef 0)
+  br label %829
 
-828:                                              ; preds = %826, %825
-  %829 = load ptr, ptr %38, align 8
-  %830 = icmp ne ptr %829, null
-  br i1 %830, label %831, label %834
+829:                                              ; preds = %827, %826
+  %830 = load ptr, ptr %38, align 8
+  %831 = icmp ne ptr %830, null
+  br i1 %831, label %832, label %835
 
-831:                                              ; preds = %828
-  %832 = load ptr, ptr %38, align 8
-  %833 = getelementptr inbounds %struct.aggregate_context, ptr %832, i32 0, i32 0
-  call void @zval_ptr_dtor(ptr noundef %833)
-  br label %834
+832:                                              ; preds = %829
+  %833 = load ptr, ptr %38, align 8
+  %834 = getelementptr inbounds %struct.aggregate_context, ptr %833, i32 0, i32 0
+  call void @zval_ptr_dtor(ptr noundef %834)
+  br label %835
 
-834:                                              ; preds = %831, %828
-  br label %878
+835:                                              ; preds = %832, %829
+  br label %879
 
-835:                                              ; preds = %775
-  %836 = load ptr, ptr %38, align 8
-  %837 = icmp ne ptr %836, null
-  br i1 %837, label %838, label %877
+836:                                              ; preds = %775
+  %837 = load ptr, ptr %38, align 8
+  %838 = icmp ne ptr %837, null
+  br i1 %838, label %839, label %878
 
-838:                                              ; preds = %835
+839:                                              ; preds = %836
   store ptr %34, ptr %24, align 8
-  %839 = load ptr, ptr %24, align 8
-  %840 = getelementptr inbounds %struct._zval_struct, ptr %839, i32 0, i32 1
-  %841 = load i8, ptr %840, align 8
-  %842 = zext i8 %841 to i32
-  %843 = icmp eq i32 %842, 0
-  br i1 %843, label %844, label %847
+  %840 = load ptr, ptr %24, align 8
+  %841 = getelementptr inbounds %struct._zval_struct, ptr %840, i32 0, i32 1
+  %842 = load i8, ptr %841, align 8
+  %843 = zext i8 %842 to i32
+  %844 = icmp eq i32 %843, 0
+  br i1 %844, label %845, label %848
 
-844:                                              ; preds = %838
-  %845 = load ptr, ptr %38, align 8
-  %846 = getelementptr inbounds %struct.aggregate_context, ptr %845, i32 0, i32 0
-  call void @zval_ptr_dtor(ptr noundef %846)
+845:                                              ; preds = %839
+  %846 = load ptr, ptr %38, align 8
+  %847 = getelementptr inbounds %struct.aggregate_context, ptr %846, i32 0, i32 0
+  call void @zval_ptr_dtor(ptr noundef %847)
   store i32 -1, ptr %26, align 4
-  br label %887
+  br label %888
 
-847:                                              ; preds = %838
-  %848 = load ptr, ptr %38, align 8
-  %849 = getelementptr inbounds %struct.aggregate_context, ptr %848, i32 0, i32 0
-  %850 = getelementptr inbounds %struct._zval_struct, ptr %849, i32 0, i32 0
-  %851 = load ptr, ptr %850, align 8
-  %852 = getelementptr inbounds %struct._zend_reference, ptr %851, i32 0, i32 1
-  call void @zval_ptr_dtor(ptr noundef %852)
-  br label %853
+848:                                              ; preds = %839
+  %849 = load ptr, ptr %38, align 8
+  %850 = getelementptr inbounds %struct.aggregate_context, ptr %849, i32 0, i32 0
+  %851 = getelementptr inbounds %struct._zval_struct, ptr %850, i32 0, i32 0
+  %852 = load ptr, ptr %851, align 8
+  %853 = getelementptr inbounds %struct._zend_reference, ptr %852, i32 0, i32 1
+  call void @zval_ptr_dtor(ptr noundef %853)
+  br label %854
 
-853:                                              ; preds = %847
-  %854 = load ptr, ptr %38, align 8
-  %855 = getelementptr inbounds %struct.aggregate_context, ptr %854, i32 0, i32 0
-  %856 = getelementptr inbounds %struct._zval_struct, ptr %855, i32 0, i32 0
-  %857 = load ptr, ptr %856, align 8
-  %858 = getelementptr inbounds %struct._zend_reference, ptr %857, i32 0, i32 1
-  store ptr %858, ptr %57, align 8
+854:                                              ; preds = %848
+  %855 = load ptr, ptr %38, align 8
+  %856 = getelementptr inbounds %struct.aggregate_context, ptr %855, i32 0, i32 0
+  %857 = getelementptr inbounds %struct._zval_struct, ptr %856, i32 0, i32 0
+  %858 = load ptr, ptr %857, align 8
+  %859 = getelementptr inbounds %struct._zend_reference, ptr %858, i32 0, i32 1
+  store ptr %859, ptr %57, align 8
   store ptr %34, ptr %58, align 8
-  %859 = load ptr, ptr %58, align 8
-  %860 = getelementptr inbounds %struct._zval_struct, ptr %859, i32 0, i32 0
-  %861 = load ptr, ptr %860, align 8
-  store ptr %861, ptr %59, align 8
-  %862 = load ptr, ptr %58, align 8
-  %863 = getelementptr inbounds %struct._zval_struct, ptr %862, i32 0, i32 1
-  %864 = load i32, ptr %863, align 8
-  store i32 %864, ptr %60, align 4
-  br label %865
+  %860 = load ptr, ptr %58, align 8
+  %861 = getelementptr inbounds %struct._zval_struct, ptr %860, i32 0, i32 0
+  %862 = load ptr, ptr %861, align 8
+  store ptr %862, ptr %59, align 8
+  %863 = load ptr, ptr %58, align 8
+  %864 = getelementptr inbounds %struct._zval_struct, ptr %863, i32 0, i32 1
+  %865 = load i32, ptr %864, align 8
+  store i32 %865, ptr %60, align 4
+  br label %866
 
-865:                                              ; preds = %853
-  %866 = load ptr, ptr %59, align 8
-  %867 = load ptr, ptr %57, align 8
-  %868 = getelementptr inbounds %struct._zval_struct, ptr %867, i32 0, i32 0
-  store ptr %866, ptr %868, align 8
-  %869 = load i32, ptr %60, align 4
-  %870 = load ptr, ptr %57, align 8
-  %871 = getelementptr inbounds %struct._zval_struct, ptr %870, i32 0, i32 1
-  store i32 %869, ptr %871, align 8
-  br label %872
-
-872:                                              ; preds = %865
+866:                                              ; preds = %854
+  %867 = load ptr, ptr %59, align 8
+  %868 = load ptr, ptr %57, align 8
+  %869 = getelementptr inbounds %struct._zval_struct, ptr %868, i32 0, i32 0
+  store ptr %867, ptr %869, align 8
+  %870 = load i32, ptr %60, align 4
+  %871 = load ptr, ptr %57, align 8
+  %872 = getelementptr inbounds %struct._zval_struct, ptr %871, i32 0, i32 1
+  store i32 %870, ptr %872, align 8
   br label %873
 
-873:                                              ; preds = %872
+873:                                              ; preds = %866
   br label %874
 
 874:                                              ; preds = %873
-  %875 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
-  store i32 0, ptr %875, align 8
-  br label %876
+  br label %875
 
-876:                                              ; preds = %874
+875:                                              ; preds = %874
+  %876 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
+  store i32 0, ptr %876, align 8
   br label %877
 
-877:                                              ; preds = %876, %835
+877:                                              ; preds = %875
   br label %878
 
-878:                                              ; preds = %877, %834
+878:                                              ; preds = %877, %836
+  br label %879
+
+879:                                              ; preds = %878, %835
   store ptr %34, ptr %25, align 8
-  %879 = load ptr, ptr %25, align 8
-  %880 = getelementptr inbounds %struct._zval_struct, ptr %879, i32 0, i32 1
-  %881 = load i8, ptr %880, align 8
-  %882 = zext i8 %881 to i32
-  %883 = icmp eq i32 %882, 0
-  br i1 %883, label %885, label %884
+  %880 = load ptr, ptr %25, align 8
+  %881 = getelementptr inbounds %struct._zval_struct, ptr %880, i32 0, i32 1
+  %882 = load i8, ptr %881, align 8
+  %883 = zext i8 %882 to i32
+  %884 = icmp eq i32 %883, 0
+  br i1 %884, label %886, label %885
 
-884:                                              ; preds = %878
+885:                                              ; preds = %879
   call void @zval_ptr_dtor(ptr noundef %34)
-  br label %885
+  br label %886
 
-885:                                              ; preds = %884, %878
-  %886 = load i32, ptr %36, align 4
-  store i32 %886, ptr %26, align 4
-  br label %887
+886:                                              ; preds = %885, %879
+  %887 = load i32, ptr %36, align 4
+  store i32 %887, ptr %26, align 4
+  br label %888
 
-887:                                              ; preds = %885, %844, %115
-  %888 = load i32, ptr %26, align 4
-  ret i32 %888
+888:                                              ; preds = %886, %845, %115
+  %889 = load i32, ptr %26, align 4
+  ret i32 %889
 }
 
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) #1
@@ -6484,94 +6494,96 @@ define internal ptr @make_filename_safe(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %55
+  br label %57
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %29
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %3, align 8
   %15 = call i32 @strncasecmp(ptr noundef %14, ptr noundef @.str.13, i64 noundef 5) #12
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %29
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %26
+  %18 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i8, ptr %23, align 1
+  %25 = sext i8 %24 to i32
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %20
+27:                                               ; preds = %21
   store ptr null, ptr %2, align 8
-  br label %55
+  br label %57
 
-26:                                               ; preds = %20, %17
-  %27 = load ptr, ptr %3, align 8
-  %28 = call noalias ptr @_estrdup(ptr noundef %27)
-  store ptr %28, ptr %2, align 8
-  br label %55
+28:                                               ; preds = %21, %17
+  %29 = load ptr, ptr %3, align 8
+  %30 = call noalias ptr @_estrdup(ptr noundef %29)
+  store ptr %30, ptr %2, align 8
+  br label %57
 
-29:                                               ; preds = %13, %8
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = sext i8 %31 to i32
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %52
+31:                                               ; preds = %13, %8
+  %32 = load ptr, ptr %3, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = sext i8 %33 to i32
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %54
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %3, align 8
-  %36 = call i32 @memcmp(ptr noundef %35, ptr noundef @.str.14, i64 noundef 9) #12
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %52
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %3, align 8
+  %38 = call i32 @memcmp(ptr noundef %37, ptr noundef @.str.14, i64 noundef 9) #12
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %54
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %3, align 8
-  %40 = call ptr @expand_filepath(ptr noundef %39, ptr noundef null)
-  store ptr %40, ptr %4, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %44, label %43
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %3, align 8
+  %42 = call ptr @expand_filepath(ptr noundef %41, ptr noundef null)
+  store ptr %42, ptr %4, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %46, label %45
 
-43:                                               ; preds = %38
+45:                                               ; preds = %40
   store ptr null, ptr %2, align 8
-  br label %55
+  br label %57
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %4, align 8
-  %46 = call i32 @php_check_open_basedir(ptr noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %50
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %4, align 8
+  %48 = call i32 @php_check_open_basedir(ptr noundef %47)
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %52
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %4, align 8
-  call void @_efree(ptr noundef %49)
-  store ptr null, ptr %2, align 8
-  br label %55
-
-50:                                               ; preds = %44
+50:                                               ; preds = %46
   %51 = load ptr, ptr %4, align 8
-  store ptr %51, ptr %2, align 8
-  br label %55
+  call void @_efree(ptr noundef %51)
+  store ptr null, ptr %2, align 8
+  br label %57
 
-52:                                               ; preds = %34, %29
-  %53 = load ptr, ptr %3, align 8
-  %54 = call noalias ptr @_estrdup(ptr noundef %53)
-  store ptr %54, ptr %2, align 8
-  br label %55
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %4, align 8
+  store ptr %53, ptr %2, align 8
+  br label %57
 
-55:                                               ; preds = %52, %50, %48, %43, %26, %25, %7
-  %56 = load ptr, ptr %2, align 8
-  ret ptr %56
+54:                                               ; preds = %36, %31
+  %55 = load ptr, ptr %3, align 8
+  %56 = call noalias ptr @_estrdup(ptr noundef %55)
+  store ptr %56, ptr %2, align 8
+  br label %57
+
+57:                                               ; preds = %54, %52, %50, %45, %28, %27, %7
+  %58 = load ptr, ptr %2, align 8
+  ret ptr %58
 }
 
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) #1

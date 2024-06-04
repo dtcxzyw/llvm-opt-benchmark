@@ -1263,124 +1263,125 @@ define weak_odr void @_ZN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
-  %21 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-          to label %23 unwind label %52
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  %22 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+          to label %24 unwind label %53
 
-23:                                               ; preds = %5
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #3
-  invoke void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %22)
-          to label %24 unwind label %52
+24:                                               ; preds = %5
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
+  invoke void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
+          to label %25 unwind label %53
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
-  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
-  store ptr %25, ptr %28, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
-  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
-  store ptr %29, ptr %32, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
-  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
-  store ptr %33, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %37)
-          to label %38 unwind label %56
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %28 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %27) #3
+  %29 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %28, i32 0, i32 0
+  store ptr %26, ptr %29, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %32 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
+  %33 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %36 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
+  %37 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %36, i32 0, i32 2
+  store ptr %34, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %38)
+          to label %39 unwind label %57
 
-38:                                               ; preds = %24
-  %39 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
-  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
-  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+39:                                               ; preds = %25
+  %40 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %41 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+  %42 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %41, i32 0, i32 3
+  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %43 = getelementptr inbounds %class.anon, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %43, align 8
-  %44 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
-  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
-  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIS5_EC1EPKcSF_SF_S7_EUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES9_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS7_EEEE5valueERS9_E4typeEOSJ_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %48 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds %class.anon, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %44, align 8
+  %45 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  %46 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
+  %47 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %46, i32 0, i32 4
+  %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIS5_EC1EPKcSF_SF_S7_EUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES9_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS7_EEEE5valueERS9_E4typeEOSJ_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %49 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %49 unwind label %60
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %50 unwind label %61
 
-49:                                               ; preds = %38
-  %50 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds %"class.absl::Flag.1", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %51) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %51 unwind label %64
+          to label %52 unwind label %65
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-52:                                               ; preds = %23, %5
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %24, %5
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %11, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %12, align 4
-  br label %70
-
-56:                                               ; preds = %24
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %11, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %12, align 4
-  br label %69
-
-60:                                               ; preds = %38
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %11, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %12, align 4
-  br label %68
-
-64:                                               ; preds = %49
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %11, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %12, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %68
-
-68:                                               ; preds = %64, %60
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %69
-
-69:                                               ; preds = %68, %56
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
-  br label %70
-
-70:                                               ; preds = %69, %52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %11, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %12, align 4
   br label %71
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %11, align 8
-  %73 = load i32, ptr %12, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+57:                                               ; preds = %25
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %11, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %12, align 4
+  br label %70
+
+61:                                               ; preds = %39
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %11, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %12, align 4
+  br label %69
+
+65:                                               ; preds = %50
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %11, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %12, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %69
+
+69:                                               ; preds = %65, %61
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %70
+
+70:                                               ; preds = %69, %57
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  br label %71
+
+71:                                               ; preds = %70, %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr %12, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -1656,11 +1657,12 @@ define weak_odr void @_ZN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.1", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %"class.absl::Flag.1", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.1", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %"class.absl::Flag.1", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   ret void
 }
 
@@ -1791,106 +1793,107 @@ define weak_odr void @_ZN4absl4FlagIiEC2EPKcS3_S3_RKi(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIiEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIiEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.2, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIiEC1EPKcSF_SF_RKiEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.2, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIiEC1EPKcSF_SF_RKiEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.0", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1954,9 +1957,10 @@ define weak_odr void @_ZN4absl4FlagIiED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIiEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.0", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIiEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.0", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -2106,106 +2110,107 @@ define weak_odr void @_ZN4absl4FlagIjEC2EPKcS3_S3_RKj(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIjEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIjEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.4, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIjEC1EPKcSF_SF_RKjEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.4, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIjEC1EPKcSF_SF_RKjEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.3", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2269,9 +2274,10 @@ define weak_odr void @_ZN4absl4FlagIjED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIjEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.3", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIjEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.3", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -2421,106 +2427,107 @@ define weak_odr void @_ZN4absl4FlagIdEC2EPKcS3_S3_RKd(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIdEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load double, ptr %20, align 8
-  store double %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIdEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load double, ptr %21, align 8
+  store double %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.6, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIdEC1EPKcSF_SF_RKdEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.6, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIdEC1EPKcSF_SF_RKdEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.5", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2584,9 +2591,10 @@ define weak_odr void @_ZN4absl4FlagIdED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIdEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.5", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIdEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.5", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -2736,106 +2744,107 @@ define weak_odr void @_ZN4absl4FlagIfEC2EPKcS3_S3_RKf(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIfEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load float, ptr %20, align 4
-  store float %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIfEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load float, ptr %21, align 4
+  store float %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.8, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIfEC1EPKcSF_SF_RKfEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.8, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIfEC1EPKcSF_SF_RKfEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.7", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2899,9 +2908,10 @@ define weak_odr void @_ZN4absl4FlagIfED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIfEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.7", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIfEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.7", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -3051,108 +3061,109 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIbEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = zext i1 %22 to i8
-  store i8 %23, ptr %19, align 8
-  %24 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %25 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %25) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %25)
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %28 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %27) #3
-  %29 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %28, i32 0, i32 0
-  store ptr %26, ptr %29, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %32 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
-  %33 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %32, i32 0, i32 1
-  store ptr %30, ptr %33, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %36 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %35) #3
-  %37 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %36, i32 0, i32 2
-  store ptr %34, ptr %37, align 8
-  %38 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %38)
-          to label %39 unwind label %53
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIbEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %20, align 8
+  %25 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %26 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %26) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %26)
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %29 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
+  %30 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %29, i32 0, i32 0
+  store ptr %27, ptr %30, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %33 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %32) #3
+  %34 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %33, i32 0, i32 1
+  store ptr %31, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %37 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
+  %38 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %37, i32 0, i32 2
+  store ptr %35, ptr %38, align 8
+  %39 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %39)
+          to label %40 unwind label %54
 
-39:                                               ; preds = %5
-  %40 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %41 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  %42 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %41, i32 0, i32 3
-  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+40:                                               ; preds = %5
+  %41 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %42 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %41) #3
+  %43 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %42, i32 0, i32 3
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %44 = getelementptr inbounds %class.anon.9, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %44, align 8
-  %45 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  %46 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
-  %47 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %46, i32 0, i32 4
-  %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIbEC1EPKcSF_SF_RKbEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %49 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %class.anon.9, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %45, align 8
+  %46 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  %47 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %46) #3
+  %48 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %47, i32 0, i32 4
+  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIbEC1EPKcSF_SF_RKbEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %50 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %50 unwind label %57
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %50, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %51 unwind label %58
 
-50:                                               ; preds = %39
-  %51 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %51) #3
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds %"class.absl::Flag", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %52) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %52 unwind label %61
+          to label %53 unwind label %62
 
-52:                                               ; preds = %50
+53:                                               ; preds = %51
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-53:                                               ; preds = %5
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %5
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %12, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %13, align 4
-  br label %66
-
-57:                                               ; preds = %39
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %12, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %13, align 4
-  br label %65
-
-61:                                               ; preds = %50
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %12, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %65
-
-65:                                               ; preds = %61, %57
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %66
-
-66:                                               ; preds = %65, %53
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #3
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %12, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %13, align 4
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %12, align 8
-  %69 = load i32, ptr %13, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+58:                                               ; preds = %40
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %12, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %13, align 4
+  br label %66
+
+62:                                               ; preds = %51
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %12, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %67
+
+67:                                               ; preds = %66, %54
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %12, align 8
+  %70 = load i32, ptr %13, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3214,9 +3225,10 @@ define weak_odr void @_ZN4absl4FlagIbED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIbEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIbEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -3275,106 +3287,107 @@ define weak_odr void @_ZN4absl4FlagIlEC2EPKcS3_S3_RKl(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIlEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIlEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.11, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIlEC1EPKcSF_SF_RKlEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.11, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIlEC1EPKcSF_SF_RKlEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.10", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3438,9 +3451,10 @@ define weak_odr void @_ZN4absl4FlagIlED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagIlEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.10", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagIlEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.10", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -3590,106 +3604,107 @@ define weak_odr void @_ZN4absl4FlagImEC2EPKcS3_S3_RKm(ptr noundef nonnull align 
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %18 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagImEE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
-  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #3
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %26 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
-  %27 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %26, i32 0, i32 0
-  store ptr %24, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #3
-  %31 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %30, i32 0, i32 1
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %34 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %33) #3
-  %35 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %34, i32 0, i32 2
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %37 unwind label %51
+  %19 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagImEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %20, align 8
+  %23 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #14
+  call void @_ZN4absl8internal8FlagFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #3
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %27 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #3
+  %28 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %27, i32 0, i32 0
+  store ptr %25, ptr %28, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %31 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #3
+  %32 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %31, i32 0, i32 1
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %35 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %34) #3
+  %36 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %35, i32 0, i32 2
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl8internal12_GLOBAL__N_16to_strImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %39 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  %40 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %39, i32 0, i32 3
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %40 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %39) #3
+  %41 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %40, i32 0, i32 3
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %42 = getelementptr inbounds %class.anon.13, ptr %14, i32 0, i32 0
-  store ptr %18, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  %44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %43) #3
-  %45 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %44, i32 0, i32 4
-  %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagImEC1EPKcSF_SF_RKmEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %47 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.anon.13, ptr %14, i32 0, i32 0
+  store ptr %18, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  %45 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %44) #3
+  %46 = getelementptr inbounds %"struct.absl::internal::FlagFunc", ptr %45, i32 0, i32 4
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagImEC1EPKcSF_SF_RKmEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %48 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %48 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %49 unwind label %56
 
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %"class.absl::Flag.12", ptr %18, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %50) #3
   invoke void @_ZN4absl8internal12RegisterFlagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8FlagFuncEE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
-          to label %50 unwind label %59
+          to label %51 unwind label %60
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
   ret void
 
-51:                                               ; preds = %5
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %5
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  br label %64
-
-55:                                               ; preds = %37
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  br label %63
-
-59:                                               ; preds = %48
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %12, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %13, align 4
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr %13, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %12, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %13, align 4
+  br label %64
+
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %12, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %13, align 4
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr %13, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3753,9 +3768,10 @@ define weak_odr void @_ZN4absl4FlagImED2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN4absl4FlagImEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::Flag.12", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl4FlagImEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.absl::Flag.12", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -9107,10 +9123,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN4absl8internal8FlagFuncELN9__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4absl8internal8FlagFuncELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -9131,11 +9148,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

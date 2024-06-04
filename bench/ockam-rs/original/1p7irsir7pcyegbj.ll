@@ -16152,9 +16152,9 @@ define hidden void @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u2
 8:                                                ; preds = %11
   %9 = load i8, ptr %4, align 1, !range !10, !noundef !4
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %39, label %33
+  br i1 %10, label %40, label %34
 
-11:                                               ; preds = %22, %18, %2
+11:                                               ; preds = %23, %18, %2
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = extractvalue { ptr, i32 } %12, 0
@@ -16167,52 +16167,53 @@ define hidden void @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u2
   br label %8
 
 17:                                               ; preds = %2
-  br i1 %7, label %22, label %18
+  br i1 %7, label %23, label %18
 
 18:                                               ; preds = %17
   store i8 0, ptr %4, align 1
   %19 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
   %20 = load ptr, ptr @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..socket_addr..SocketAddr$GT$11deserialize8VARIANTS17hf81bf66a125e6884E", align 8, !nonnull !4, !align !6, !noundef !4
-  %21 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..socket_addr..SocketAddr$GT$11deserialize8VARIANTS17hf81bf66a125e6884E", i32 0, i32 1), align 8, !noundef !4
-  invoke void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17he8dd83309e734eadE"(ptr noalias nocapture noundef sret({ i16, [15 x i16] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(16) %19, ptr noalias noundef nonnull readonly align 1 @anon.22485fac7804c1df64fe3550d117dfc4.81.llvm.101954639100057123, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 %20, i64 noundef %21)
-          to label %30 unwind label %11
+  %21 = getelementptr inbounds { ptr, i64 }, ptr @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..net..socket_addr..SocketAddr$GT$11deserialize8VARIANTS17hf81bf66a125e6884E", i32 0, i32 1
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  invoke void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17he8dd83309e734eadE"(ptr noalias nocapture noundef sret({ i16, [15 x i16] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(16) %19, ptr noalias noundef nonnull readonly align 1 @anon.22485fac7804c1df64fe3550d117dfc4.81.llvm.101954639100057123, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 %20, i64 noundef %22)
+          to label %31 unwind label %11
 
-22:                                               ; preds = %17
+23:                                               ; preds = %17
   store i8 0, ptr %4, align 1
-  %23 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
+  %24 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr %5)
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr @anon.22485fac7804c1df64fe3550d117dfc4.82.llvm.101954639100057123, ptr %24, align 8
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
-  store i64 14, ptr %25, align 8
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !5, !noundef !4
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8, !noundef !4
-  invoke void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h8302866db5c442a4E"(ptr noalias nocapture noundef sret({ i16, [15 x i16] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
-          to label %32 unwind label %11
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr @anon.22485fac7804c1df64fe3550d117dfc4.82.llvm.101954639100057123, ptr %25, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 14, ptr %26, align 8
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !5, !noundef !4
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8, !noundef !4
+  invoke void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h8302866db5c442a4E"(ptr noalias nocapture noundef sret({ i16, [15 x i16] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(16) %24, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %30)
+          to label %33 unwind label %11
 
-30:                                               ; preds = %18
-  br label %31
+31:                                               ; preds = %18
+  br label %32
 
-31:                                               ; preds = %32, %30
+32:                                               ; preds = %33, %31
   ret void
 
-32:                                               ; preds = %22
+33:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 16, ptr %5)
-  br label %31
+  br label %32
 
-33:                                               ; preds = %39, %8
-  %34 = load ptr, ptr %3, align 8, !noundef !4
-  %35 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  %36 = load i32, ptr %35, align 8, !noundef !4
+34:                                               ; preds = %40, %8
+  %35 = load ptr, ptr %3, align 8, !noundef !4
+  %36 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
-  %37 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+  %38 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 
-39:                                               ; preds = %8
-  br label %33
+40:                                               ; preds = %8
+  br label %34
 }
 
 ; Function Attrs: nonlazybind uwtable

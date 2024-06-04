@@ -2029,8 +2029,9 @@ if.then62:                                        ; preds = %land.lhs.true
   %63 = load i8, ptr %t2, align 1
   %conv68 = zext i8 %63 to i32
   %add69 = add nsw i32 %shl67, %conv68
-  %64 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 3), align 4
-  %sub70 = sub i32 %add69, %64
+  %64 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 3
+  %65 = load i32, ptr %64, align 4
+  %sub70 = sub i32 %add69, %65
   store i32 %sub70, ptr %retval, align 4
   br label %return
 
@@ -2038,32 +2039,33 @@ if.end71:                                         ; preds = %land.lhs.true, %if.
   br label %if.end121
 
 if.else72:                                        ; preds = %if.end45
-  %65 = load i16, ptr %countTrailBytes, align 2
-  %conv73 = zext i16 %65 to i32
+  %66 = load i16, ptr %countTrailBytes, align 2
+  %conv73 = zext i16 %66 to i32
   %cmp74 = icmp eq i32 %conv73, 1
   br i1 %cmp74, label %if.then75, label %if.else86
 
 if.then75:                                        ; preds = %if.else72
-  %66 = load ptr, ptr %source, align 8
-  %67 = load i8, ptr %66, align 1
-  store i8 %67, ptr %t176, align 1
-  %68 = load i8, ptr %t176, align 1
-  %conv77 = sext i8 %68 to i32
+  %67 = load ptr, ptr %source, align 8
+  %68 = load i8, ptr %67, align 1
+  store i8 %68, ptr %t176, align 1
+  %69 = load i8, ptr %t176, align 1
+  %conv77 = sext i8 %69 to i32
   %cmp78 = icmp slt i32 %conv77, -64
   br i1 %cmp78, label %if.then79, label %if.end85
 
 if.then79:                                        ; preds = %if.then75
-  %69 = load ptr, ptr %source, align 8
-  %add.ptr80 = getelementptr inbounds i8, ptr %69, i64 1
-  %70 = load ptr, ptr %args.addr, align 8
-  %source81 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %70, i32 0, i32 3
+  %70 = load ptr, ptr %source, align 8
+  %add.ptr80 = getelementptr inbounds i8, ptr %70, i64 1
+  %71 = load ptr, ptr %args.addr, align 8
+  %source81 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %71, i32 0, i32 3
   store ptr %add.ptr80, ptr %source81, align 8
-  %71 = load i32, ptr %ch, align 4
-  %72 = load i8, ptr %t176, align 1
-  %conv82 = zext i8 %72 to i32
-  %add83 = add nsw i32 %71, %conv82
-  %73 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 2), align 8
-  %sub84 = sub i32 %add83, %73
+  %72 = load i32, ptr %ch, align 4
+  %73 = load i8, ptr %t176, align 1
+  %conv82 = zext i8 %73 to i32
+  %add83 = add nsw i32 %72, %conv82
+  %74 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 2
+  %75 = load i32, ptr %74, align 8
+  %sub84 = sub i32 %add83, %75
   store i32 %sub84, ptr %retval, align 4
   br label %return
 
@@ -2071,18 +2073,18 @@ if.end85:                                         ; preds = %if.then75
   br label %if.end120
 
 if.else86:                                        ; preds = %if.else72
-  %74 = load ptr, ptr %source, align 8
-  %75 = load i8, ptr %74, align 1
-  store i8 %75, ptr %t187, align 1
-  %76 = load i8, ptr %t187, align 1
-  %conv89 = zext i8 %76 to i32
+  %76 = load ptr, ptr %source, align 8
+  %77 = load i8, ptr %76, align 1
+  store i8 %77, ptr %t187, align 1
+  %78 = load i8, ptr %t187, align 1
+  %conv89 = zext i8 %78 to i32
   %shr90 = ashr i32 %conv89, 4
   %idxprom91 = sext i32 %shr90 to i64
   %arrayidx92 = getelementptr inbounds [17 x i8], ptr @.str.1, i64 0, i64 %idxprom91
-  %77 = load i8, ptr %arrayidx92, align 1
-  %conv93 = sext i8 %77 to i32
-  %78 = load i8, ptr %myByte, align 1
-  %conv94 = zext i8 %78 to i32
+  %79 = load i8, ptr %arrayidx92, align 1
+  %conv93 = sext i8 %79 to i32
+  %80 = load i8, ptr %myByte, align 1
+  %conv94 = zext i8 %80 to i32
   %and95 = and i32 %conv94, 7
   %shl96 = shl i32 1, %and95
   %and97 = and i32 %conv93, %shl96
@@ -2090,45 +2092,46 @@ if.else86:                                        ; preds = %if.else72
   br i1 %tobool98, label %land.lhs.true99, label %if.end119
 
 land.lhs.true99:                                  ; preds = %if.else86
-  %79 = load ptr, ptr %source, align 8
-  %incdec.ptr100 = getelementptr inbounds i8, ptr %79, i32 1
+  %81 = load ptr, ptr %source, align 8
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %81, i32 1
   store ptr %incdec.ptr100, ptr %source, align 8
-  %80 = load i8, ptr %incdec.ptr100, align 1
-  store i8 %80, ptr %t288, align 1
-  %conv101 = sext i8 %80 to i32
+  %82 = load i8, ptr %incdec.ptr100, align 1
+  store i8 %82, ptr %t288, align 1
+  %conv101 = sext i8 %82 to i32
   %cmp102 = icmp slt i32 %conv101, -64
   br i1 %cmp102, label %land.lhs.true103, label %if.end119
 
 land.lhs.true103:                                 ; preds = %land.lhs.true99
-  %81 = load ptr, ptr %source, align 8
-  %incdec.ptr104 = getelementptr inbounds i8, ptr %81, i32 1
+  %83 = load ptr, ptr %source, align 8
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %83, i32 1
   store ptr %incdec.ptr104, ptr %source, align 8
-  %82 = load i8, ptr %incdec.ptr104, align 1
-  store i8 %82, ptr %t3, align 1
-  %conv105 = sext i8 %82 to i32
+  %84 = load i8, ptr %incdec.ptr104, align 1
+  store i8 %84, ptr %t3, align 1
+  %conv105 = sext i8 %84 to i32
   %cmp106 = icmp slt i32 %conv105, -64
   br i1 %cmp106, label %if.then107, label %if.end119
 
 if.then107:                                       ; preds = %land.lhs.true103
-  %83 = load ptr, ptr %source, align 8
-  %add.ptr108 = getelementptr inbounds i8, ptr %83, i64 1
-  %84 = load ptr, ptr %args.addr, align 8
-  %source109 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %84, i32 0, i32 3
+  %85 = load ptr, ptr %source, align 8
+  %add.ptr108 = getelementptr inbounds i8, ptr %85, i64 1
+  %86 = load ptr, ptr %args.addr, align 8
+  %source109 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %86, i32 0, i32 3
   store ptr %add.ptr108, ptr %source109, align 8
-  %85 = load i32, ptr %ch, align 4
-  %86 = load i8, ptr %t187, align 1
-  %conv110 = zext i8 %86 to i32
-  %add111 = add nsw i32 %85, %conv110
+  %87 = load i32, ptr %ch, align 4
+  %88 = load i8, ptr %t187, align 1
+  %conv110 = zext i8 %88 to i32
+  %add111 = add nsw i32 %87, %conv110
   %shl112 = shl i32 %add111, 6
-  %87 = load i8, ptr %t288, align 1
-  %conv113 = zext i8 %87 to i32
+  %89 = load i8, ptr %t288, align 1
+  %conv113 = zext i8 %89 to i32
   %add114 = add nsw i32 %shl112, %conv113
   %shl115 = shl i32 %add114, 6
-  %88 = load i8, ptr %t3, align 1
-  %conv116 = zext i8 %88 to i32
+  %90 = load i8, ptr %t3, align 1
+  %conv116 = zext i8 %90 to i32
   %add117 = add nsw i32 %shl115, %conv116
-  %89 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 4), align 16
-  %sub118 = sub i32 %add117, %89
+  %91 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 4
+  %92 = load i32, ptr %91, align 16
+  %sub118 = sub i32 %add117, %92
   store i32 %sub118, ptr %retval, align 4
   br label %return
 
@@ -2139,51 +2142,51 @@ if.end120:                                        ; preds = %if.end119, %if.end8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end120, %if.end71
-  %90 = load ptr, ptr %source, align 8
-  %91 = load ptr, ptr %args.addr, align 8
-  %source122 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %91, i32 0, i32 3
-  store ptr %90, ptr %source122, align 8
+  %93 = load ptr, ptr %source, align 8
+  %94 = load ptr, ptr %args.addr, align 8
+  %source122 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %94, i32 0, i32 3
+  store ptr %93, ptr %source122, align 8
   store i8 0, ptr %i, align 1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end121
-  %92 = load ptr, ptr %sourceInitial, align 8
-  %93 = load ptr, ptr %source, align 8
-  %cmp123 = icmp ult ptr %92, %93
+  %95 = load ptr, ptr %sourceInitial, align 8
+  %96 = load ptr, ptr %source, align 8
+  %cmp123 = icmp ult ptr %95, %96
   br i1 %cmp123, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %94 = load ptr, ptr %sourceInitial, align 8
-  %incdec.ptr124 = getelementptr inbounds i8, ptr %94, i32 1
+  %97 = load ptr, ptr %sourceInitial, align 8
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %97, i32 1
   store ptr %incdec.ptr124, ptr %sourceInitial, align 8
-  %95 = load i8, ptr %94, align 1
-  %96 = load ptr, ptr %cnv, align 8
-  %toUBytes125 = getelementptr inbounds %struct.UConverter, ptr %96, i32 0, i32 13
-  %97 = load i8, ptr %i, align 1
-  %idxprom126 = sext i8 %97 to i64
+  %98 = load i8, ptr %97, align 1
+  %99 = load ptr, ptr %cnv, align 8
+  %toUBytes125 = getelementptr inbounds %struct.UConverter, ptr %99, i32 0, i32 13
+  %100 = load i8, ptr %i, align 1
+  %idxprom126 = sext i8 %100 to i64
   %arrayidx127 = getelementptr inbounds [7 x i8], ptr %toUBytes125, i64 0, i64 %idxprom126
-  store i8 %95, ptr %arrayidx127, align 1
+  store i8 %98, ptr %arrayidx127, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %98 = load i8, ptr %i, align 1
-  %inc128 = add i8 %98, 1
+  %101 = load i8, ptr %i, align 1
+  %inc128 = add i8 %101, 1
   store i8 %inc128, ptr %i, align 1
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %for.cond
-  %99 = load i8, ptr %i, align 1
-  %100 = load ptr, ptr %cnv, align 8
-  %toULength129 = getelementptr inbounds %struct.UConverter, ptr %100, i32 0, i32 12
-  store i8 %99, ptr %toULength129, align 8
-  %101 = load ptr, ptr %err.addr, align 8
-  store i32 12, ptr %101, align 4
+  %102 = load i8, ptr %i, align 1
+  %103 = load ptr, ptr %cnv, align 8
+  %toULength129 = getelementptr inbounds %struct.UConverter, ptr %103, i32 0, i32 12
+  store i8 %102, ptr %toULength129, align 8
+  %104 = load ptr, ptr %err.addr, align 8
+  store i32 12, ptr %104, align 4
   store i32 65535, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then107, %if.then79, %if.then62, %while.end, %if.then21, %if.then3, %if.then
-  %102 = load i32, ptr %retval, align 4
-  ret i32 %102
+  %105 = load i32, ptr %retval, align 4
+  ret i32 %105
 }
 
 declare void @ucnv_getNonSurrogateUnicodeSet_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2

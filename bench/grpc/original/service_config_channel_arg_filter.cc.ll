@@ -2746,7 +2746,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2756,7 +2757,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3645,15 +3647,16 @@ terminate.lpad:                                   ; preds = %entry
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core8Activity19g_current_activity_E() #9 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14087,9 +14090,11 @@ entry:
   %4 = load ptr, ptr %.addr1, align 8
   %5 = load i8, ptr %.addr2, align 1
   call void @_ZN9grpc_core21promise_filter_detail14ClientCallDataC2EP17grpc_call_elementPK22grpc_call_element_argsh(ptr noundef nonnull align 16 dereferenceable(272) %this3, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i32 0, i32 0, i32 2), ptr %this3, align 16
+  %6 = getelementptr inbounds { [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this3, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %7 = getelementptr inbounds { [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %add.ptr, align 8
   ret void
 }
 
@@ -15028,7 +15033,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core13ChannelFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15106,10 +15112,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN9grpc_core13ChannelFilterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::ServiceConfigChannelArgFilter", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %service_config_2 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::ServiceConfigChannelArgFilter", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %service_config_2 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::ServiceConfigChannelArgFilter", ptr %3, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %service_config_, ptr noundef nonnull align 8 dereferenceable(8) %service_config_2) #3
   ret void
 }
@@ -15140,19 +15147,20 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core13ChannelFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::ServiceConfigChannelArgFilter", ptr %this1, i32 0, i32 1
   invoke void @_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %service_config_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %args.addr, align 8
+  %1 = load ptr, ptr %args.addr, align 8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.3) #3
-  %1 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %2 = load i64, ptr %1, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %4 = load ptr, ptr %3, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs14GetOwnedStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional") align 8 %service_config_str, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %2, ptr %4)
+  %2 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs14GetOwnedStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional") align 8 %service_config_str, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %3, ptr %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -15160,20 +15168,20 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %call, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %invoke.cont3
-  %5 = load ptr, ptr %args.addr, align 8
+  %6 = load ptr, ptr %args.addr, align 8
   %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(40) %service_config_str) #3
   %call6 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call5) #3
-  %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 0
-  %7 = extractvalue { i64, ptr } %call6, 0
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 1
-  %9 = extractvalue { i64, ptr } %call6, 1
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  invoke void @_ZN9grpc_core17ServiceConfigImpl6CreateERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::StatusOr.154") align 8 %service_config, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %11, ptr %13)
+  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 0
+  %8 = extractvalue { i64, ptr } %call6, 0
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 1
+  %10 = extractvalue { i64, ptr } %call6, 1
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp4, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  invoke void @_ZN9grpc_core17ServiceConfigImpl6CreateERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::StatusOr.154") align 8 %service_config, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %12, ptr %14)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then
@@ -15201,48 +15209,48 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad2:                                            ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 lpad7:                                            ; preds = %if.then
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup24
 
 lpad9:                                            ; preds = %if.else, %invoke.cont13, %if.then12, %invoke.cont8
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad17:                                           ; preds = %invoke.cont15
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -15306,7 +15314,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::ServiceConfigChannelArgFilter", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %service_config_) #3
   call void @_ZN9grpc_core13ChannelFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -15320,14 +15329,15 @@ entry:
   %agg.tmp = alloca %"class.grpc_core::SourceLocation", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %event_engine_ = getelementptr inbounds %"class.grpc_core::ChannelFilter", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core14SourceLocationC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef @.str.7, i32 noundef 76)
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %3 = load i32, ptr %2, align 8
-  call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr sret(%"class.std::shared_ptr") align 8 %event_engine_, ptr %1, i32 %3)
+  %1 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr sret(%"class.std::shared_ptr") align 8 %event_engine_, ptr %2, i32 %4)
   ret void
 }
 
@@ -15694,7 +15704,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %event_engine_ = getelementptr inbounds %"class.grpc_core::ChannelFilter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %event_engine_) #3
   ret void
@@ -17067,34 +17078,35 @@ entry:
   store ptr %arena, ptr %arena.addr, align 8
   store ptr %call_context, ptr %call_context.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core21ServiceConfigCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core21ServiceConfigCallDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %service_config_ = getelementptr inbounds %"class.grpc_core::ServiceConfigCallData", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %service_config_)
   %method_configs_ = getelementptr inbounds %"class.grpc_core::ServiceConfigCallData", ptr %this1, i32 0, i32 2
   store ptr null, ptr %method_configs_, align 8
   %call_attributes_ = getelementptr inbounds %"class.grpc_core::ServiceConfigCallData", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EEC2EPNS_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %call_attributes_, ptr noundef %0)
+  %1 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EEC2EPNS_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %call_attributes_, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %call_context.addr, align 8
-  %arrayidx = getelementptr inbounds %struct.grpc_call_context_element, ptr %1, i64 5
+  %2 = load ptr, ptr %call_context.addr, align 8
+  %arrayidx = getelementptr inbounds %struct.grpc_call_context_element, ptr %2, i64 5
   %value = getelementptr inbounds %struct.grpc_call_context_element, ptr %arrayidx, i32 0, i32 0
   store ptr %this1, ptr %value, align 8
-  %2 = load ptr, ptr %call_context.addr, align 8
-  %arrayidx2 = getelementptr inbounds %struct.grpc_call_context_element, ptr %2, i64 5
+  %3 = load ptr, ptr %call_context.addr, align 8
+  %arrayidx2 = getelementptr inbounds %struct.grpc_call_context_element, ptr %3, i64 5
   %destroy = getelementptr inbounds %struct.grpc_call_context_element, ptr %arrayidx2, i32 0, i32 1
   store ptr @_ZN9grpc_core21ServiceConfigCallData7DestroyEPv, ptr %destroy, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %service_config_) #3
   br label %eh.resume
 
@@ -17146,7 +17158,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core21ServiceConfigCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core21ServiceConfigCallDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call_attributes_ = getelementptr inbounds %"class.grpc_core::ServiceConfigCallData", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call_attributes_) #3
   %service_config_ = getelementptr inbounds %"class.grpc_core::ServiceConfigCallData", ptr %this1, i32 0, i32 1
@@ -17633,10 +17646,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %event_engine_ = getelementptr inbounds %"class.grpc_core::ChannelFilter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %event_engine_2 = getelementptr inbounds %"class.grpc_core::ChannelFilter", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %event_engine_2 = getelementptr inbounds %"class.grpc_core::ChannelFilter", ptr %2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %event_engine_, ptr noundef nonnull align 8 dereferenceable(16) %event_engine_2) #3
   ret void
 }

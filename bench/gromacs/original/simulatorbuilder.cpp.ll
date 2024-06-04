@@ -7702,7 +7702,8 @@ define linkonce_odr void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8476,7 +8477,8 @@ define linkonce_odr void @_ZN3gmx15LegacySimulatorCI2NS_19LegacySimulatorDataEEP
   %115 = load i8, ptr %76, align 1
   %116 = trunc i8 %115 to i1
   call void @_ZN3gmx19LegacySimulatorDataC2EP8_IO_FILEP9t_commrecPK14gmx_multisim_tRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRKNS_12MdrunOptionsENS_16StartingBehaviorEPNS_19VirtualSitesHandlerEPNS_11ConstraintsEP10gmx_enfrotPNS_14BoxDeformationEPNS_17IMDOutputProviderERKNS_18MDModulesNotifiersEP10t_inputrecPNS_10ImdSessionEP6pull_tP6t_swapRK10gmx_mtop_tP14gmx_localtop_tP7t_stateS1C_P18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecP14gmx_enerdata_tPNS_25ObservablesReducerBuilderEP14gmx_ekindata_tPNS_21MdrunScheduleWorkloadERK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accountingSt10unique_ptrINS_18StopHandlerBuilderESt14default_deleteIS23_EEb(ptr noundef nonnull align 8 dereferenceable(289) %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef nonnull align 1 %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(56) %87, i32 noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef nonnull align 8 dereferenceable(600) %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(768) %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef nonnull align 4 dereferenceable(12) %112, ptr noundef %113, ptr noundef %114, ptr noundef %36, i1 noundef zeroext %116)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx15LegacySimulatorE, i32 0, i32 0, i32 2), ptr %78, align 8
+  %117 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx15LegacySimulatorE, i32 0, i32 0, i32 2
+  store ptr %117, ptr %78, align 8
   ret void
 }
 
@@ -8962,9 +8964,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -11164,7 +11167,8 @@ define linkonce_odr void @_ZN3gmx10ISimulatorC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10ISimulatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx10ISimulatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

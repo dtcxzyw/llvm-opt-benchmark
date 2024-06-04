@@ -1134,7 +1134,8 @@ entry:
   %0 = load ptr, ptr %connection.addr, align 8
   %1 = load ptr, ptr %config.addr, align 8
   call void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1)
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %headers_stream_ = getelementptr inbounds %"class.net::QuicSpdySession", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %headers_stream_) #11
   %force_hol_blocking_ = getelementptr inbounds %"class.net::QuicSpdySession", ptr %this1, i32 0, i32 3
@@ -1170,18 +1171,19 @@ entry:
   %kv = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef ptr @_ZN3net11QuicSession14closed_streamsEv(ptr noundef nonnull align 8 dereferenceable(2044) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call2 = call ptr @_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
+  %1 = load ptr, ptr %__range1, align 8
+  %call2 = call ptr @_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #11
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin1, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call3 = call ptr @_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #11
+  %2 = load ptr, ptr %__range1, align 8
+  %call3 = call ptr @_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #11
   %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end1, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive4, align 8
   br label %for.cond
@@ -1192,10 +1194,10 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3net18ReliableQuicStreamESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #11
-  %2 = load ptr, ptr %call6, align 8
-  store ptr %2, ptr %stream, align 8
-  %3 = load ptr, ptr %stream, align 8
-  invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %3)
+  %3 = load ptr, ptr %call6, align 8
+  store ptr %3, ptr %stream, align 8
+  %4 = load ptr, ptr %stream, align 8
+  invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %4)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %for.body
@@ -1211,28 +1213,28 @@ for.end:                                          ; preds = %for.cond
 
 invoke.cont10:                                    ; preds = %for.end
   store ptr %call11, ptr %__range19, align 8
-  %4 = load ptr, ptr %__range19, align 8
-  %call14 = invoke { ptr, ptr } @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
+  %5 = load ptr, ptr %__range19, align 8
+  %call14 = invoke { ptr, ptr } @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(168) %5)
           to label %invoke.cont13 unwind label %terminate.lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %__begin112, i32 0, i32 0
-  %6 = extractvalue { ptr, ptr } %call14, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %__begin112, i32 0, i32 1
-  %8 = extractvalue { ptr, ptr } %call14, 1
-  store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr %__range19, align 8
-  %call17 = invoke { ptr, ptr } @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(168) %9)
+  %6 = getelementptr inbounds { ptr, ptr }, ptr %__begin112, i32 0, i32 0
+  %7 = extractvalue { ptr, ptr } %call14, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, ptr }, ptr %__begin112, i32 0, i32 1
+  %9 = extractvalue { ptr, ptr } %call14, 1
+  store ptr %9, ptr %8, align 8
+  %10 = load ptr, ptr %__range19, align 8
+  %call17 = invoke { ptr, ptr } @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(168) %10)
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %__end115, i32 0, i32 0
-  %11 = extractvalue { ptr, ptr } %call17, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %__end115, i32 0, i32 1
-  %13 = extractvalue { ptr, ptr } %call17, 1
-  store ptr %13, ptr %12, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %__end115, i32 0, i32 0
+  %12 = extractvalue { ptr, ptr } %call17, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %__end115, i32 0, i32 1
+  %14 = extractvalue { ptr, ptr } %call17, 1
+  store ptr %14, ptr %13, align 8
   br label %for.cond18
 
 for.cond18:                                       ; preds = %invoke.cont26, %invoke.cont16
@@ -1248,10 +1250,10 @@ for.body21:                                       ; preds = %invoke.cont19
 
 invoke.cont22:                                    ; preds = %for.body21
   store ptr %call23, ptr %kv, align 8
-  %14 = load ptr, ptr %kv, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %second, align 8
-  invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %15)
+  %15 = load ptr, ptr %kv, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %second, align 8
+  invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %16)
           to label %invoke.cont24 unwind label %terminate.lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -1271,10 +1273,10 @@ for.end28:                                        ; preds = %invoke.cont19
   ret void
 
 terminate.lpad:                                   ; preds = %for.inc25, %invoke.cont22, %for.body21, %for.cond18, %invoke.cont13, %invoke.cont10, %for.end, %for.body, %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #12
   unreachable
 }
 

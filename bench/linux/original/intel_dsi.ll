@@ -173,36 +173,38 @@ declare dso_local i32 @intel_mode_valid_max_plane_size(ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @intel_dsi_host_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #6
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %17, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 56) #6
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %19, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 %2, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %12 = tail call noalias align 8 dereferenceable_or_null(808) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 808) #6
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %2, ptr %11, align 8
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias align 8 dereferenceable_or_null(808) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 808) #6
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-14:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #5
-  br label %17
+16:                                               ; preds = %8
+  tail call void @kfree(ptr noundef nonnull %6) #5
+  br label %19
 
-15:                                               ; preds = %7
-  store ptr %5, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr %12, ptr %16, align 8
-  br label %17
+17:                                               ; preds = %8
+  store ptr %6, ptr %14, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %14, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %15, %14, %3
-  %18 = phi ptr [ %5, %15 ], [ null, %14 ], [ null, %3 ]
-  ret ptr %18
+19:                                               ; preds = %17, %16, %3
+  %20 = phi ptr [ %6, %17 ], [ null, %16 ], [ null, %3 ]
+  ret ptr %20
 }
 
 ; Function Attrs: null_pointer_is_valid

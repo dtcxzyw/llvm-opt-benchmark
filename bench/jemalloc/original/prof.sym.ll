@@ -177,12 +177,13 @@ if.end:                                           ; preds = %do.end2
 
 land.rhs.i:                                       ; preds = %if.end
   %10 = load ptr, ptr %tctx.addr.i, align 8
-  %cmp1.i = icmp ne ptr %10, inttoptr (i64 1 to ptr)
+  %11 = inttoptr i64 1 to ptr
+  %cmp1.i = icmp ne ptr %10, %11
   br label %prof_tctx_is_valid.exit
 
 prof_tctx_is_valid.exit:                          ; preds = %land.rhs.i, %if.end
-  %11 = phi i1 [ false, %if.end ], [ %cmp1.i, %land.rhs.i ]
-  br i1 %11, label %if.then7, label %if.end11
+  %12 = phi i1 [ false, %if.end ], [ %cmp1.i, %land.rhs.i ]
+  br i1 %12, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %prof_tctx_is_valid.exit
   br label %do.body8
@@ -191,21 +192,21 @@ do.body8:                                         ; preds = %if.then7
   br label %do.end9
 
 do.end9:                                          ; preds = %do.body8
-  %12 = load ptr, ptr %tsd.addr, align 8
-  store ptr %12, ptr %tsd.addr.i12, align 8
-  %13 = load ptr, ptr %tsd.addr.i12, align 8
-  %14 = load ptr, ptr %tctx.addr, align 8
-  %tdata = getelementptr inbounds %struct.prof_tctx_s, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %tdata, align 8
-  %lock = getelementptr inbounds %struct.prof_tdata_s, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %lock, align 8
-  call void @malloc_mutex_lock(ptr noundef %13, ptr noundef %16)
-  %17 = load ptr, ptr %tctx.addr, align 8
-  %prepared = getelementptr inbounds %struct.prof_tctx_s, ptr %17, i32 0, i32 8
+  %13 = load ptr, ptr %tsd.addr, align 8
+  store ptr %13, ptr %tsd.addr.i12, align 8
+  %14 = load ptr, ptr %tsd.addr.i12, align 8
+  %15 = load ptr, ptr %tctx.addr, align 8
+  %tdata = getelementptr inbounds %struct.prof_tctx_s, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %tdata, align 8
+  %lock = getelementptr inbounds %struct.prof_tdata_s, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %lock, align 8
+  call void @malloc_mutex_lock(ptr noundef %14, ptr noundef %17)
+  %18 = load ptr, ptr %tctx.addr, align 8
+  %prepared = getelementptr inbounds %struct.prof_tctx_s, ptr %18, i32 0, i32 8
   store i8 0, ptr %prepared, align 8
-  %18 = load ptr, ptr %tsd.addr, align 8
-  %19 = load ptr, ptr %tctx.addr, align 8
-  call void @prof_tctx_try_destroy(ptr noundef %18, ptr noundef %19)
+  %19 = load ptr, ptr %tsd.addr, align 8
+  %20 = load ptr, ptr %tctx.addr, align 8
+  call void @prof_tctx_try_destroy(ptr noundef %19, ptr noundef %20)
   br label %if.end11
 
 if.end11:                                         ; preds = %do.end9, %prof_tctx_is_valid.exit, %do.end5

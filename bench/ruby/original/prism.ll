@@ -29226,7 +29226,7 @@ define internal zeroext i16 @parse_unescaped_encoding(ptr noundef %0) #0 {
   %5 = getelementptr inbounds %struct.pm_parser, ptr %4, i32 0, i32 30
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %22
+  br i1 %7, label %8, label %23
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -29237,32 +29237,33 @@ define internal zeroext i16 @parse_unescaped_encoding(ptr noundef %0) #0 {
 
 13:                                               ; preds = %8
   store i16 1, ptr %2, align 2
-  br label %23
+  br label %24
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds %struct.pm_parser, ptr %15, i32 0, i32 20
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, getelementptr inbounds ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 74)
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %14
-  store i16 2, ptr %2, align 2
-  br label %23
+  %18 = getelementptr inbounds [90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 74
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14
-  br label %21
+  store i16 2, ptr %2, align 2
+  br label %24
 
-21:                                               ; preds = %20
+21:                                               ; preds = %14
   br label %22
 
-22:                                               ; preds = %21, %1
-  store i16 0, ptr %2, align 2
+22:                                               ; preds = %21
   br label %23
 
-23:                                               ; preds = %22, %19, %13
-  %24 = load i16, ptr %2, align 2
-  ret i16 %24
+23:                                               ; preds = %22, %1
+  store i16 0, ptr %2, align 2
+  br label %24
+
+24:                                               ; preds = %23, %20, %13
+  %25 = load i16, ptr %2, align 2
+  ret i16 %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -42549,7 +42550,7 @@ define internal zeroext i16 @parse_symbol_encoding(ptr noundef %0, ptr noundef %
   %7 = getelementptr inbounds %struct.pm_parser, ptr %6, i32 0, i32 30
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
@@ -42560,44 +42561,45 @@ define internal zeroext i16 @parse_symbol_encoding(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %10
   store i16 1, ptr %3, align 2
-  br label %30
+  br label %31
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds %struct.pm_parser, ptr %17, i32 0, i32 20
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, getelementptr inbounds ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 74)
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %16
-  store i16 2, ptr %3, align 2
-  br label %30
+  %20 = getelementptr inbounds [90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 74
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %16
-  br label %23
+  store i16 2, ptr %3, align 2
+  br label %31
 
-23:                                               ; preds = %22
-  br label %29
+23:                                               ; preds = %16
+  br label %24
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr %5, align 8
-  %26 = call zeroext i1 @pm_ascii_only_p(ptr noundef %25)
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %23
+  br label %30
 
-27:                                               ; preds = %24
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %5, align 8
+  %27 = call zeroext i1 @pm_ascii_only_p(ptr noundef %26)
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %25
   store i16 4, ptr %3, align 2
+  br label %31
+
+29:                                               ; preds = %25
   br label %30
 
-28:                                               ; preds = %24
-  br label %29
-
-29:                                               ; preds = %28, %23
+30:                                               ; preds = %29, %24
   store i16 0, ptr %3, align 2
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %27, %21, %15
-  %31 = load i16, ptr %3, align 2
-  ret i16 %31
+31:                                               ; preds = %30, %28, %22, %15
+  %32 = load i16, ptr %3, align 2
+  ret i16 %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

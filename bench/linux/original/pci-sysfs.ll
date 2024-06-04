@@ -1125,44 +1125,45 @@ define internal noundef i64 @numa_node_store(ptr noundef %0, ptr nocapture readn
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4, !annotation !5
   %6 = tail call zeroext i1 @capable(i32 noundef 21) #11
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
   %8 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #11
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %25, label %10
+  br i1 %9, label %26, label %10
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %5, align 4
   %12 = add i32 %11, -64
   %13 = icmp ult i32 %12, -65
-  br i1 %13, label %25, label %14
+  br i1 %13, label %26, label %14
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %11, -1
-  br i1 %15, label %21, label %16
+  br i1 %15, label %22, label %16
 
 16:                                               ; preds = %14
   %17 = sext i32 %11 to i64
-  %18 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), i64 %17) #11, !srcloc !20
-  %19 = icmp ult i8 %18, 2
-  call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %25, label %21
+  %18 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %19 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 %17) #11, !srcloc !20
+  %20 = icmp ult i8 %19, 2
+  call void @llvm.assume(i1 %20)
+  %21 = icmp eq i8 %19, 0
+  br i1 %21, label %26, label %22
 
-21:                                               ; preds = %16, %14
+22:                                               ; preds = %16, %14
   call void @add_taint(i32 noundef 11, i32 noundef 0) #11
-  %22 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @_dev_alert(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %22) #13
   %23 = load i32, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 %23, ptr %24, align 8
-  br label %25
+  call void (ptr, ptr, ...) @_dev_alert(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %23) #13
+  %24 = load i32, ptr %5, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 %24, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %21, %16, %10, %7, %4
-  %26 = phi i64 [ %3, %21 ], [ -1, %4 ], [ -22, %7 ], [ -22, %10 ], [ -22, %16 ]
+26:                                               ; preds = %22, %16, %10, %7, %4
+  %27 = phi i64 [ %3, %22 ], [ -1, %4 ], [ -22, %7 ], [ -22, %10 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  ret i64 %26
+  ret i64 %27
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3052,7 +3053,7 @@ define internal i64 @resource5_resize_store(ptr noundef %0, ptr nocapture readno
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal zeroext i16 @pci_dev_attrs_are_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #9 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_boot_vga
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 -116
@@ -3061,13 +3062,14 @@ define internal zeroext i16 @pci_dev_attrs_are_visible(ptr nocapture noundef rea
   %9 = icmp eq i32 %8, 768
   %10 = icmp eq i32 %8, 1
   %11 = or i1 %9, %10
-  %12 = load i16, ptr getelementptr inbounds (%struct.device_attribute, ptr @dev_attr_boot_vga, i64 0, i32 0, i32 1), align 8
-  %13 = select i1 %11, i16 %12, i16 0
-  br label %14
+  %12 = getelementptr inbounds %struct.device_attribute, ptr @dev_attr_boot_vga, i64 0, i32 0, i32 1
+  %13 = load i16, ptr %12, align 8
+  %14 = select i1 %11, i16 %13, i16 0
+  br label %15
 
-14:                                               ; preds = %5, %3
-  %15 = phi i16 [ 0, %3 ], [ %13, %5 ]
-  ret i16 %15
+15:                                               ; preds = %5, %3
+  %16 = phi i16 [ 0, %3 ], [ %14, %5 ]
+  ret i16 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

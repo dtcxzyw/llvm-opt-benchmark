@@ -9723,7 +9723,7 @@ define internal void @onig_syntax_warn(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds %struct.ScanEnv, ptr %9, i32 0, i32 2
@@ -9738,7 +9738,7 @@ define internal void @onig_syntax_warn(ptr noundef %0, ptr noundef %1, ...) #0 {
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @onig_vsnprintf_with_pattern(ptr noundef %8, i32 noundef 256, ptr noundef %11, ptr noundef %14, ptr noundef %17, ptr noundef %18, ptr noundef %19)
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds %struct.ScanEnv, ptr %21, i32 0, i32 22
   %23 = load ptr, ptr %22, align 8
@@ -11730,16 +11730,10 @@ define internal i32 @fetch_name_with_level(i32 noundef %0, ptr noundef %1, ptr n
   ret i32 %410
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare void @onig_vsnprintf_with_pattern(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
-
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) #7
+declare void @rb_warn(ptr noundef, ...) #6
 
 declare void @rb_compile_warn(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
@@ -11889,7 +11883,7 @@ define internal void @UNKNOWN_ESC_WARN(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @RB_TEST(i64 noundef %0) #8 {
+define internal zeroext i1 @RB_TEST(i64 noundef %0) #7 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -22754,7 +22748,7 @@ define internal i32 @not_code_range_buf(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @add_code_range_to_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -27545,7 +27539,7 @@ define internal i32 @parse_posix_bracket(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %72
-  br label %238
+  br label %239
 
 79:                                               ; preds = %72
   %80 = load ptr, ptr %11, align 8
@@ -27571,509 +27565,510 @@ define internal i32 @parse_posix_bracket(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr @parse_posix_bracket.PBS, ptr %12, align 8
   br label %95
 
-95:                                               ; preds = %234, %92
+95:                                               ; preds = %235, %92
   %96 = load ptr, ptr %12, align 8
-  %97 = icmp ult ptr %96, getelementptr (%struct.PosixBracketEntryType, ptr @parse_posix_bracket.PBS, i64 14)
-  br i1 %97, label %98, label %237
+  %97 = getelementptr %struct.PosixBracketEntryType, ptr @parse_posix_bracket.PBS, i64 14
+  %98 = icmp ult ptr %96, %97
+  br i1 %98, label %99, label %238
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %18, align 8
-  %100 = load ptr, ptr %19, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %102, i32 0, i32 1
-  %104 = getelementptr inbounds [6 x i8], ptr %103, i64 0, i64 0
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %105, i32 0, i32 0
-  %107 = load i16, ptr %106, align 4
-  %108 = sext i16 %107 to i32
-  %109 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %104, i32 noundef %108)
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %233
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %18, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %103, i32 0, i32 1
+  %105 = getelementptr inbounds [6 x i8], ptr %104, i64 0, i64 0
+  %106 = load ptr, ptr %12, align 8
+  %107 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %106, i32 0, i32 0
+  %108 = load i16, ptr %107, align 4
+  %109 = sext i16 %108 to i32
+  %110 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %105, i32 noundef %109)
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %234
 
-111:                                              ; preds = %98
-  %112 = load ptr, ptr %18, align 8
-  %113 = load ptr, ptr %19, align 8
-  %114 = load ptr, ptr %10, align 8
-  %115 = load ptr, ptr %12, align 8
-  %116 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %115, i32 0, i32 0
-  %117 = load i16, ptr %116, align 4
-  %118 = sext i16 %117 to i32
-  %119 = call ptr @onigenc_step(ptr noundef %112, ptr noundef %113, ptr noundef %114, i32 noundef %118)
-  store ptr %119, ptr %19, align 8
-  %120 = load ptr, ptr %18, align 8
-  %121 = load ptr, ptr %19, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef @.str.22, i32 noundef 2)
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %126
+112:                                              ; preds = %99
+  %113 = load ptr, ptr %18, align 8
+  %114 = load ptr, ptr %19, align 8
+  %115 = load ptr, ptr %10, align 8
+  %116 = load ptr, ptr %12, align 8
+  %117 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %116, i32 0, i32 0
+  %118 = load i16, ptr %117, align 4
+  %119 = sext i16 %118 to i32
+  %120 = call ptr @onigenc_step(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %119)
+  store ptr %120, ptr %19, align 8
+  %121 = load ptr, ptr %18, align 8
+  %122 = load ptr, ptr %19, align 8
+  %123 = load ptr, ptr %10, align 8
+  %124 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef @.str.22, i32 noundef 2)
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %127
 
-125:                                              ; preds = %111
+126:                                              ; preds = %112
   store i32 -121, ptr %6, align 4
-  br label %402
+  br label %403
 
-126:                                              ; preds = %111
-  %127 = load ptr, ptr %7, align 8
-  %128 = load ptr, ptr %12, align 8
-  %129 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %128, i32 0, i32 2
-  %130 = load i32, ptr %129, align 4
-  %131 = load i32, ptr %13, align 4
-  %132 = load i32, ptr %16, align 4
-  %133 = load ptr, ptr %11, align 8
-  %134 = call i32 @add_ctype_to_cc(ptr noundef %127, i32 noundef %130, i32 noundef %131, i32 noundef %132, ptr noundef %133)
-  store i32 %134, ptr %15, align 4
-  %135 = load i32, ptr %15, align 4
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %139
+127:                                              ; preds = %112
+  %128 = load ptr, ptr %7, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 4
+  %132 = load i32, ptr %13, align 4
+  %133 = load i32, ptr %16, align 4
+  %134 = load ptr, ptr %11, align 8
+  %135 = call i32 @add_ctype_to_cc(ptr noundef %128, i32 noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef %134)
+  store i32 %135, ptr %15, align 4
+  %136 = load i32, ptr %15, align 4
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %126
-  %138 = load i32, ptr %15, align 4
-  store i32 %138, ptr %6, align 4
-  br label %402
+138:                                              ; preds = %127
+  %139 = load i32, ptr %15, align 4
+  store i32 %139, ptr %6, align 4
+  br label %403
 
-139:                                              ; preds = %126
-  %140 = load ptr, ptr %8, align 8
-  %141 = icmp ne ptr %140, null
-  br i1 %141, label %142, label %170
+140:                                              ; preds = %127
+  %141 = load ptr, ptr %8, align 8
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %171
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %12, align 8
-  %144 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %143, i32 0, i32 2
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp ne i32 %145, 12
-  br i1 %146, label %147, label %164
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %12, align 8
+  %145 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %144, i32 0, i32 2
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp ne i32 %146, 12
+  br i1 %147, label %148, label %165
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %12, align 8
-  %149 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %148, i32 0, i32 2
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp ne i32 %150, 14
-  br i1 %151, label %152, label %164
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %12, align 8
+  %150 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %149, i32 0, i32 2
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp ne i32 %151, 14
+  br i1 %152, label %153, label %165
 
-152:                                              ; preds = %147
-  %153 = load i32, ptr %16, align 4
-  %154 = icmp ne i32 %153, 0
-  br i1 %154, label %164, label %155
+153:                                              ; preds = %148
+  %154 = load i32, ptr %16, align 4
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %165, label %156
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %8, align 8
-  %157 = load ptr, ptr %12, align 8
-  %158 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %157, i32 0, i32 2
-  %159 = load i32, ptr %158, align 4
-  %160 = load i32, ptr %13, align 4
-  %161 = load i32, ptr %16, align 4
-  %162 = load ptr, ptr %11, align 8
-  %163 = call i32 @add_ctype_to_cc(ptr noundef %156, i32 noundef %159, i32 noundef %160, i32 noundef %161, ptr noundef %162)
-  store i32 %163, ptr %15, align 4
-  br label %164
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %8, align 8
+  %158 = load ptr, ptr %12, align 8
+  %159 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %158, i32 0, i32 2
+  %160 = load i32, ptr %159, align 4
+  %161 = load i32, ptr %13, align 4
+  %162 = load i32, ptr %16, align 4
+  %163 = load ptr, ptr %11, align 8
+  %164 = call i32 @add_ctype_to_cc(ptr noundef %157, i32 noundef %160, i32 noundef %161, i32 noundef %162, ptr noundef %163)
+  store i32 %164, ptr %15, align 4
+  br label %165
 
-164:                                              ; preds = %155, %152, %147, %142
-  %165 = load i32, ptr %15, align 4
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %167, label %169
+165:                                              ; preds = %156, %153, %148, %143
+  %166 = load i32, ptr %15, align 4
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %168, label %170
 
-167:                                              ; preds = %164
-  %168 = load i32, ptr %15, align 4
-  store i32 %168, ptr %6, align 4
-  br label %402
+168:                                              ; preds = %165
+  %169 = load i32, ptr %15, align 4
+  store i32 %169, ptr %6, align 4
+  br label %403
 
-169:                                              ; preds = %164
-  br label %170
-
-170:                                              ; preds = %169, %139
+170:                                              ; preds = %165
   br label %171
 
-171:                                              ; preds = %170
-  %172 = load ptr, ptr %18, align 8
-  %173 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %172, i32 0, i32 2
-  %174 = load i32, ptr %173, align 8
-  %175 = load ptr, ptr %18, align 8
-  %176 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %175, i32 0, i32 3
-  %177 = load i32, ptr %176, align 4
-  %178 = icmp eq i32 %174, %177
-  br i1 %178, label %179, label %190
+171:                                              ; preds = %170, %140
+  br label %172
 
-179:                                              ; preds = %171
-  %180 = load ptr, ptr %19, align 8
-  %181 = load ptr, ptr %10, align 8
-  %182 = icmp ult ptr %180, %181
-  br i1 %182, label %183, label %187
+172:                                              ; preds = %171
+  %173 = load ptr, ptr %18, align 8
+  %174 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %173, i32 0, i32 2
+  %175 = load i32, ptr %174, align 8
+  %176 = load ptr, ptr %18, align 8
+  %177 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %176, i32 0, i32 3
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %175, %178
+  br i1 %179, label %180, label %191
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %18, align 8
-  %185 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %184, i32 0, i32 3
-  %186 = load i32, ptr %185, align 4
-  br label %188
+180:                                              ; preds = %172
+  %181 = load ptr, ptr %19, align 8
+  %182 = load ptr, ptr %10, align 8
+  %183 = icmp ult ptr %181, %182
+  br i1 %183, label %184, label %188
 
-187:                                              ; preds = %179
-  br label %188
+184:                                              ; preds = %180
+  %185 = load ptr, ptr %18, align 8
+  %186 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %185, i32 0, i32 3
+  %187 = load i32, ptr %186, align 4
+  br label %189
 
-188:                                              ; preds = %187, %183
-  %189 = phi i32 [ %186, %183 ], [ 0, %187 ]
-  br label %195
+188:                                              ; preds = %180
+  br label %189
 
-190:                                              ; preds = %171
-  %191 = load ptr, ptr %19, align 8
-  %192 = load ptr, ptr %10, align 8
-  %193 = load ptr, ptr %18, align 8
-  %194 = call i32 @onigenc_mbclen(ptr noundef %191, ptr noundef %192, ptr noundef %193)
-  br label %195
+189:                                              ; preds = %188, %184
+  %190 = phi i32 [ %187, %184 ], [ 0, %188 ]
+  br label %196
 
-195:                                              ; preds = %190, %188
-  %196 = phi i32 [ %189, %188 ], [ %194, %190 ]
-  %197 = load ptr, ptr %19, align 8
-  %198 = sext i32 %196 to i64
-  %199 = getelementptr i8, ptr %197, i64 %198
-  store ptr %199, ptr %19, align 8
-  br label %200
+191:                                              ; preds = %172
+  %192 = load ptr, ptr %19, align 8
+  %193 = load ptr, ptr %10, align 8
+  %194 = load ptr, ptr %18, align 8
+  %195 = call i32 @onigenc_mbclen(ptr noundef %192, ptr noundef %193, ptr noundef %194)
+  br label %196
 
-200:                                              ; preds = %195
+196:                                              ; preds = %191, %189
+  %197 = phi i32 [ %190, %189 ], [ %195, %191 ]
+  %198 = load ptr, ptr %19, align 8
+  %199 = sext i32 %197 to i64
+  %200 = getelementptr i8, ptr %198, i64 %199
+  store ptr %200, ptr %19, align 8
   br label %201
 
-201:                                              ; preds = %200
-  %202 = load ptr, ptr %18, align 8
-  %203 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %202, i32 0, i32 2
-  %204 = load i32, ptr %203, align 8
-  %205 = load ptr, ptr %18, align 8
-  %206 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %205, i32 0, i32 3
-  %207 = load i32, ptr %206, align 4
-  %208 = icmp eq i32 %204, %207
-  br i1 %208, label %209, label %220
+201:                                              ; preds = %196
+  br label %202
 
-209:                                              ; preds = %201
-  %210 = load ptr, ptr %19, align 8
-  %211 = load ptr, ptr %10, align 8
-  %212 = icmp ult ptr %210, %211
-  br i1 %212, label %213, label %217
+202:                                              ; preds = %201
+  %203 = load ptr, ptr %18, align 8
+  %204 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %203, i32 0, i32 2
+  %205 = load i32, ptr %204, align 8
+  %206 = load ptr, ptr %18, align 8
+  %207 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %206, i32 0, i32 3
+  %208 = load i32, ptr %207, align 4
+  %209 = icmp eq i32 %205, %208
+  br i1 %209, label %210, label %221
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %18, align 8
-  %215 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %214, i32 0, i32 3
-  %216 = load i32, ptr %215, align 4
-  br label %218
+210:                                              ; preds = %202
+  %211 = load ptr, ptr %19, align 8
+  %212 = load ptr, ptr %10, align 8
+  %213 = icmp ult ptr %211, %212
+  br i1 %213, label %214, label %218
 
-217:                                              ; preds = %209
-  br label %218
+214:                                              ; preds = %210
+  %215 = load ptr, ptr %18, align 8
+  %216 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %215, i32 0, i32 3
+  %217 = load i32, ptr %216, align 4
+  br label %219
 
-218:                                              ; preds = %217, %213
-  %219 = phi i32 [ %216, %213 ], [ 0, %217 ]
-  br label %225
+218:                                              ; preds = %210
+  br label %219
 
-220:                                              ; preds = %201
-  %221 = load ptr, ptr %19, align 8
-  %222 = load ptr, ptr %10, align 8
-  %223 = load ptr, ptr %18, align 8
-  %224 = call i32 @onigenc_mbclen(ptr noundef %221, ptr noundef %222, ptr noundef %223)
-  br label %225
+219:                                              ; preds = %218, %214
+  %220 = phi i32 [ %217, %214 ], [ 0, %218 ]
+  br label %226
 
-225:                                              ; preds = %220, %218
-  %226 = phi i32 [ %219, %218 ], [ %224, %220 ]
-  %227 = load ptr, ptr %19, align 8
-  %228 = sext i32 %226 to i64
-  %229 = getelementptr i8, ptr %227, i64 %228
-  store ptr %229, ptr %19, align 8
-  br label %230
+221:                                              ; preds = %202
+  %222 = load ptr, ptr %19, align 8
+  %223 = load ptr, ptr %10, align 8
+  %224 = load ptr, ptr %18, align 8
+  %225 = call i32 @onigenc_mbclen(ptr noundef %222, ptr noundef %223, ptr noundef %224)
+  br label %226
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %19, align 8
-  %232 = load ptr, ptr %9, align 8
-  store ptr %231, ptr %232, align 8
+226:                                              ; preds = %221, %219
+  %227 = phi i32 [ %220, %219 ], [ %225, %221 ]
+  %228 = load ptr, ptr %19, align 8
+  %229 = sext i32 %227 to i64
+  %230 = getelementptr i8, ptr %228, i64 %229
+  store ptr %230, ptr %19, align 8
+  br label %231
+
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %19, align 8
+  %233 = load ptr, ptr %9, align 8
+  store ptr %232, ptr %233, align 8
   store i32 0, ptr %6, align 4
-  br label %402
+  br label %403
 
-233:                                              ; preds = %98
-  br label %234
+234:                                              ; preds = %99
+  br label %235
 
-234:                                              ; preds = %233
-  %235 = load ptr, ptr %12, align 8
-  %236 = getelementptr %struct.PosixBracketEntryType, ptr %235, i32 1
-  store ptr %236, ptr %12, align 8
+235:                                              ; preds = %234
+  %236 = load ptr, ptr %12, align 8
+  %237 = getelementptr %struct.PosixBracketEntryType, ptr %236, i32 1
+  store ptr %237, ptr %12, align 8
   br label %95, !llvm.loop !78
 
-237:                                              ; preds = %95
-  br label %238
-
-238:                                              ; preds = %237, %78
-  store i32 0, ptr %17, align 4
-  store i32 0, ptr %14, align 4
+238:                                              ; preds = %95
   br label %239
 
-239:                                              ; preds = %301, %238
-  %240 = load ptr, ptr %19, align 8
-  %241 = load ptr, ptr %10, align 8
-  %242 = icmp ult ptr %240, %241
-  br i1 %242, label %243, label %244
+239:                                              ; preds = %238, %78
+  store i32 0, ptr %17, align 4
+  store i32 0, ptr %14, align 4
+  br label %240
 
-243:                                              ; preds = %239
-  br i1 false, label %264, label %245
+240:                                              ; preds = %302, %239
+  %241 = load ptr, ptr %19, align 8
+  %242 = load ptr, ptr %10, align 8
+  %243 = icmp ult ptr %241, %242
+  br i1 %243, label %244, label %245
 
-244:                                              ; preds = %239
-  br i1 true, label %264, label %245
+244:                                              ; preds = %240
+  br i1 false, label %265, label %246
 
-245:                                              ; preds = %244, %243
-  %246 = load ptr, ptr %19, align 8
-  %247 = load ptr, ptr %10, align 8
-  %248 = icmp ult ptr %246, %247
-  br i1 %248, label %249, label %257
+245:                                              ; preds = %240
+  br i1 true, label %265, label %246
 
-249:                                              ; preds = %245
-  %250 = load ptr, ptr %18, align 8
-  %251 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %250, i32 0, i32 5
-  %252 = load ptr, ptr %251, align 8
-  %253 = load ptr, ptr %19, align 8
-  %254 = load ptr, ptr %10, align 8
-  %255 = load ptr, ptr %18, align 8
-  %256 = call i32 %252(ptr noundef %253, ptr noundef %254, ptr noundef %255)
-  br label %258
+246:                                              ; preds = %245, %244
+  %247 = load ptr, ptr %19, align 8
+  %248 = load ptr, ptr %10, align 8
+  %249 = icmp ult ptr %247, %248
+  br i1 %249, label %250, label %258
 
-257:                                              ; preds = %245
-  br label %258
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %18, align 8
+  %252 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %251, i32 0, i32 5
+  %253 = load ptr, ptr %252, align 8
+  %254 = load ptr, ptr %19, align 8
+  %255 = load ptr, ptr %10, align 8
+  %256 = load ptr, ptr %18, align 8
+  %257 = call i32 %253(ptr noundef %254, ptr noundef %255, ptr noundef %256)
+  br label %259
 
-258:                                              ; preds = %257, %249
-  %259 = phi i32 [ %256, %249 ], [ 0, %257 ]
-  store i32 %259, ptr %17, align 4
-  %260 = icmp ne i32 %259, 58
-  br i1 %260, label %261, label %264
+258:                                              ; preds = %246
+  br label %259
 
-261:                                              ; preds = %258
-  %262 = load i32, ptr %17, align 4
-  %263 = icmp ne i32 %262, 93
-  br label %264
+259:                                              ; preds = %258, %250
+  %260 = phi i32 [ %257, %250 ], [ 0, %258 ]
+  store i32 %260, ptr %17, align 4
+  %261 = icmp ne i32 %260, 58
+  br i1 %261, label %262, label %265
 
-264:                                              ; preds = %261, %258, %244, %243
-  %265 = phi i1 [ false, %258 ], [ false, %244 ], [ false, %243 ], [ %263, %261 ]
-  br i1 %265, label %266, label %302
+262:                                              ; preds = %259
+  %263 = load i32, ptr %17, align 4
+  %264 = icmp ne i32 %263, 93
+  br label %265
 
-266:                                              ; preds = %264
-  br label %267
+265:                                              ; preds = %262, %259, %245, %244
+  %266 = phi i1 [ false, %259 ], [ false, %245 ], [ false, %244 ], [ %264, %262 ]
+  br i1 %266, label %267, label %303
 
-267:                                              ; preds = %266
-  %268 = load ptr, ptr %18, align 8
-  %269 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %268, i32 0, i32 2
-  %270 = load i32, ptr %269, align 8
-  %271 = load ptr, ptr %18, align 8
-  %272 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %271, i32 0, i32 3
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp eq i32 %270, %273
-  br i1 %274, label %275, label %286
+267:                                              ; preds = %265
+  br label %268
 
-275:                                              ; preds = %267
-  %276 = load ptr, ptr %19, align 8
-  %277 = load ptr, ptr %10, align 8
-  %278 = icmp ult ptr %276, %277
-  br i1 %278, label %279, label %283
+268:                                              ; preds = %267
+  %269 = load ptr, ptr %18, align 8
+  %270 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %269, i32 0, i32 2
+  %271 = load i32, ptr %270, align 8
+  %272 = load ptr, ptr %18, align 8
+  %273 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %272, i32 0, i32 3
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp eq i32 %271, %274
+  br i1 %275, label %276, label %287
 
-279:                                              ; preds = %275
-  %280 = load ptr, ptr %18, align 8
-  %281 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %280, i32 0, i32 3
-  %282 = load i32, ptr %281, align 4
-  br label %284
+276:                                              ; preds = %268
+  %277 = load ptr, ptr %19, align 8
+  %278 = load ptr, ptr %10, align 8
+  %279 = icmp ult ptr %277, %278
+  br i1 %279, label %280, label %284
 
-283:                                              ; preds = %275
-  br label %284
+280:                                              ; preds = %276
+  %281 = load ptr, ptr %18, align 8
+  %282 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %281, i32 0, i32 3
+  %283 = load i32, ptr %282, align 4
+  br label %285
 
-284:                                              ; preds = %283, %279
-  %285 = phi i32 [ %282, %279 ], [ 0, %283 ]
-  br label %291
+284:                                              ; preds = %276
+  br label %285
 
-286:                                              ; preds = %267
-  %287 = load ptr, ptr %19, align 8
-  %288 = load ptr, ptr %10, align 8
-  %289 = load ptr, ptr %18, align 8
-  %290 = call i32 @onigenc_mbclen(ptr noundef %287, ptr noundef %288, ptr noundef %289)
-  br label %291
+285:                                              ; preds = %284, %280
+  %286 = phi i32 [ %283, %280 ], [ 0, %284 ]
+  br label %292
 
-291:                                              ; preds = %286, %284
-  %292 = phi i32 [ %285, %284 ], [ %290, %286 ]
-  %293 = load ptr, ptr %19, align 8
-  %294 = sext i32 %292 to i64
-  %295 = getelementptr i8, ptr %293, i64 %294
-  store ptr %295, ptr %19, align 8
-  br label %296
+287:                                              ; preds = %268
+  %288 = load ptr, ptr %19, align 8
+  %289 = load ptr, ptr %10, align 8
+  %290 = load ptr, ptr %18, align 8
+  %291 = call i32 @onigenc_mbclen(ptr noundef %288, ptr noundef %289, ptr noundef %290)
+  br label %292
 
-296:                                              ; preds = %291
-  %297 = load i32, ptr %14, align 4
-  %298 = add i32 %297, 1
-  store i32 %298, ptr %14, align 4
-  %299 = icmp sgt i32 %298, 20
-  br i1 %299, label %300, label %301
+292:                                              ; preds = %287, %285
+  %293 = phi i32 [ %286, %285 ], [ %291, %287 ]
+  %294 = load ptr, ptr %19, align 8
+  %295 = sext i32 %293 to i64
+  %296 = getelementptr i8, ptr %294, i64 %295
+  store ptr %296, ptr %19, align 8
+  br label %297
 
-300:                                              ; preds = %296
-  br label %302
+297:                                              ; preds = %292
+  %298 = load i32, ptr %14, align 4
+  %299 = add i32 %298, 1
+  store i32 %299, ptr %14, align 4
+  %300 = icmp sgt i32 %299, 20
+  br i1 %300, label %301, label %302
 
-301:                                              ; preds = %296
-  br label %239, !llvm.loop !79
+301:                                              ; preds = %297
+  br label %303
 
-302:                                              ; preds = %300, %264
-  %303 = load i32, ptr %17, align 4
-  %304 = icmp eq i32 %303, 58
-  br i1 %304, label %305, label %401
+302:                                              ; preds = %297
+  br label %240, !llvm.loop !79
 
-305:                                              ; preds = %302
-  %306 = load ptr, ptr %19, align 8
-  %307 = load ptr, ptr %10, align 8
-  %308 = icmp ult ptr %306, %307
-  br i1 %308, label %309, label %310
+303:                                              ; preds = %301, %265
+  %304 = load i32, ptr %17, align 4
+  %305 = icmp eq i32 %304, 58
+  br i1 %305, label %306, label %402
 
-309:                                              ; preds = %305
-  br i1 false, label %401, label %311
+306:                                              ; preds = %303
+  %307 = load ptr, ptr %19, align 8
+  %308 = load ptr, ptr %10, align 8
+  %309 = icmp ult ptr %307, %308
+  br i1 %309, label %310, label %311
 
-310:                                              ; preds = %305
-  br i1 true, label %401, label %311
+310:                                              ; preds = %306
+  br i1 false, label %402, label %312
 
-311:                                              ; preds = %310, %309
-  br label %312
+311:                                              ; preds = %306
+  br i1 true, label %402, label %312
 
-312:                                              ; preds = %311
-  %313 = load ptr, ptr %18, align 8
-  %314 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %313, i32 0, i32 2
-  %315 = load i32, ptr %314, align 8
-  %316 = load ptr, ptr %18, align 8
-  %317 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %316, i32 0, i32 3
-  %318 = load i32, ptr %317, align 4
-  %319 = icmp eq i32 %315, %318
-  br i1 %319, label %320, label %331
+312:                                              ; preds = %311, %310
+  br label %313
 
-320:                                              ; preds = %312
-  %321 = load ptr, ptr %19, align 8
-  %322 = load ptr, ptr %10, align 8
-  %323 = icmp ult ptr %321, %322
-  br i1 %323, label %324, label %328
+313:                                              ; preds = %312
+  %314 = load ptr, ptr %18, align 8
+  %315 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %314, i32 0, i32 2
+  %316 = load i32, ptr %315, align 8
+  %317 = load ptr, ptr %18, align 8
+  %318 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %317, i32 0, i32 3
+  %319 = load i32, ptr %318, align 4
+  %320 = icmp eq i32 %316, %319
+  br i1 %320, label %321, label %332
 
-324:                                              ; preds = %320
-  %325 = load ptr, ptr %18, align 8
-  %326 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %325, i32 0, i32 3
-  %327 = load i32, ptr %326, align 4
-  br label %329
+321:                                              ; preds = %313
+  %322 = load ptr, ptr %19, align 8
+  %323 = load ptr, ptr %10, align 8
+  %324 = icmp ult ptr %322, %323
+  br i1 %324, label %325, label %329
 
-328:                                              ; preds = %320
-  br label %329
+325:                                              ; preds = %321
+  %326 = load ptr, ptr %18, align 8
+  %327 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %326, i32 0, i32 3
+  %328 = load i32, ptr %327, align 4
+  br label %330
 
-329:                                              ; preds = %328, %324
-  %330 = phi i32 [ %327, %324 ], [ 0, %328 ]
-  br label %336
+329:                                              ; preds = %321
+  br label %330
 
-331:                                              ; preds = %312
-  %332 = load ptr, ptr %19, align 8
-  %333 = load ptr, ptr %10, align 8
-  %334 = load ptr, ptr %18, align 8
-  %335 = call i32 @onigenc_mbclen(ptr noundef %332, ptr noundef %333, ptr noundef %334)
-  br label %336
+330:                                              ; preds = %329, %325
+  %331 = phi i32 [ %328, %325 ], [ 0, %329 ]
+  br label %337
 
-336:                                              ; preds = %331, %329
-  %337 = phi i32 [ %330, %329 ], [ %335, %331 ]
-  %338 = load ptr, ptr %19, align 8
-  %339 = sext i32 %337 to i64
-  %340 = getelementptr i8, ptr %338, i64 %339
-  store ptr %340, ptr %19, align 8
-  br label %341
+332:                                              ; preds = %313
+  %333 = load ptr, ptr %19, align 8
+  %334 = load ptr, ptr %10, align 8
+  %335 = load ptr, ptr %18, align 8
+  %336 = call i32 @onigenc_mbclen(ptr noundef %333, ptr noundef %334, ptr noundef %335)
+  br label %337
 
-341:                                              ; preds = %336
-  %342 = load ptr, ptr %19, align 8
-  %343 = load ptr, ptr %10, align 8
-  %344 = icmp ult ptr %342, %343
-  br i1 %344, label %345, label %346
+337:                                              ; preds = %332, %330
+  %338 = phi i32 [ %331, %330 ], [ %336, %332 ]
+  %339 = load ptr, ptr %19, align 8
+  %340 = sext i32 %338 to i64
+  %341 = getelementptr i8, ptr %339, i64 %340
+  store ptr %341, ptr %19, align 8
+  br label %342
 
-345:                                              ; preds = %341
-  br i1 false, label %400, label %347
+342:                                              ; preds = %337
+  %343 = load ptr, ptr %19, align 8
+  %344 = load ptr, ptr %10, align 8
+  %345 = icmp ult ptr %343, %344
+  br i1 %345, label %346, label %347
 
-346:                                              ; preds = %341
-  br i1 true, label %400, label %347
+346:                                              ; preds = %342
+  br i1 false, label %401, label %348
 
-347:                                              ; preds = %346, %345
-  br label %348
+347:                                              ; preds = %342
+  br i1 true, label %401, label %348
 
-348:                                              ; preds = %347
-  %349 = load ptr, ptr %18, align 8
-  %350 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %349, i32 0, i32 2
-  %351 = load i32, ptr %350, align 8
-  %352 = icmp eq i32 %351, 1
-  br i1 %352, label %353, label %357
+348:                                              ; preds = %347, %346
+  br label %349
 
-353:                                              ; preds = %348
-  %354 = load ptr, ptr %19, align 8
-  %355 = load i8, ptr %354, align 1
-  %356 = zext i8 %355 to i32
-  br label %365
+349:                                              ; preds = %348
+  %350 = load ptr, ptr %18, align 8
+  %351 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %350, i32 0, i32 2
+  %352 = load i32, ptr %351, align 8
+  %353 = icmp eq i32 %352, 1
+  br i1 %353, label %354, label %358
 
-357:                                              ; preds = %348
-  %358 = load ptr, ptr %18, align 8
-  %359 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %358, i32 0, i32 5
-  %360 = load ptr, ptr %359, align 8
-  %361 = load ptr, ptr %19, align 8
-  %362 = load ptr, ptr %10, align 8
-  %363 = load ptr, ptr %18, align 8
-  %364 = call i32 %360(ptr noundef %361, ptr noundef %362, ptr noundef %363)
-  br label %365
+354:                                              ; preds = %349
+  %355 = load ptr, ptr %19, align 8
+  %356 = load i8, ptr %355, align 1
+  %357 = zext i8 %356 to i32
+  br label %366
 
-365:                                              ; preds = %357, %353
-  %366 = phi i32 [ %356, %353 ], [ %364, %357 ]
-  store i32 %366, ptr %17, align 4
-  %367 = load ptr, ptr %18, align 8
-  %368 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %367, i32 0, i32 2
-  %369 = load i32, ptr %368, align 8
-  %370 = load ptr, ptr %18, align 8
-  %371 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %370, i32 0, i32 3
-  %372 = load i32, ptr %371, align 4
-  %373 = icmp eq i32 %369, %372
-  br i1 %373, label %374, label %385
+358:                                              ; preds = %349
+  %359 = load ptr, ptr %18, align 8
+  %360 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %359, i32 0, i32 5
+  %361 = load ptr, ptr %360, align 8
+  %362 = load ptr, ptr %19, align 8
+  %363 = load ptr, ptr %10, align 8
+  %364 = load ptr, ptr %18, align 8
+  %365 = call i32 %361(ptr noundef %362, ptr noundef %363, ptr noundef %364)
+  br label %366
 
-374:                                              ; preds = %365
-  %375 = load ptr, ptr %19, align 8
-  %376 = load ptr, ptr %10, align 8
-  %377 = icmp ult ptr %375, %376
-  br i1 %377, label %378, label %382
+366:                                              ; preds = %358, %354
+  %367 = phi i32 [ %357, %354 ], [ %365, %358 ]
+  store i32 %367, ptr %17, align 4
+  %368 = load ptr, ptr %18, align 8
+  %369 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %368, i32 0, i32 2
+  %370 = load i32, ptr %369, align 8
+  %371 = load ptr, ptr %18, align 8
+  %372 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %371, i32 0, i32 3
+  %373 = load i32, ptr %372, align 4
+  %374 = icmp eq i32 %370, %373
+  br i1 %374, label %375, label %386
 
-378:                                              ; preds = %374
-  %379 = load ptr, ptr %18, align 8
-  %380 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %379, i32 0, i32 3
-  %381 = load i32, ptr %380, align 4
-  br label %383
+375:                                              ; preds = %366
+  %376 = load ptr, ptr %19, align 8
+  %377 = load ptr, ptr %10, align 8
+  %378 = icmp ult ptr %376, %377
+  br i1 %378, label %379, label %383
 
-382:                                              ; preds = %374
-  br label %383
+379:                                              ; preds = %375
+  %380 = load ptr, ptr %18, align 8
+  %381 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %380, i32 0, i32 3
+  %382 = load i32, ptr %381, align 4
+  br label %384
 
-383:                                              ; preds = %382, %378
-  %384 = phi i32 [ %381, %378 ], [ 0, %382 ]
-  br label %390
+383:                                              ; preds = %375
+  br label %384
 
-385:                                              ; preds = %365
-  %386 = load ptr, ptr %19, align 8
-  %387 = load ptr, ptr %10, align 8
-  %388 = load ptr, ptr %18, align 8
-  %389 = call i32 @onigenc_mbclen(ptr noundef %386, ptr noundef %387, ptr noundef %388)
-  br label %390
+384:                                              ; preds = %383, %379
+  %385 = phi i32 [ %382, %379 ], [ 0, %383 ]
+  br label %391
 
-390:                                              ; preds = %385, %383
-  %391 = phi i32 [ %384, %383 ], [ %389, %385 ]
-  %392 = load ptr, ptr %19, align 8
-  %393 = sext i32 %391 to i64
-  %394 = getelementptr i8, ptr %392, i64 %393
-  store ptr %394, ptr %19, align 8
-  br label %395
+386:                                              ; preds = %366
+  %387 = load ptr, ptr %19, align 8
+  %388 = load ptr, ptr %10, align 8
+  %389 = load ptr, ptr %18, align 8
+  %390 = call i32 @onigenc_mbclen(ptr noundef %387, ptr noundef %388, ptr noundef %389)
+  br label %391
 
-395:                                              ; preds = %390
-  %396 = load i32, ptr %17, align 4
-  %397 = icmp eq i32 %396, 93
-  br i1 %397, label %398, label %399
+391:                                              ; preds = %386, %384
+  %392 = phi i32 [ %385, %384 ], [ %390, %386 ]
+  %393 = load ptr, ptr %19, align 8
+  %394 = sext i32 %392 to i64
+  %395 = getelementptr i8, ptr %393, i64 %394
+  store ptr %395, ptr %19, align 8
+  br label %396
 
-398:                                              ; preds = %395
+396:                                              ; preds = %391
+  %397 = load i32, ptr %17, align 4
+  %398 = icmp eq i32 %397, 93
+  br i1 %398, label %399, label %400
+
+399:                                              ; preds = %396
   store i32 -121, ptr %6, align 4
-  br label %402
+  br label %403
 
-399:                                              ; preds = %395
-  br label %400
-
-400:                                              ; preds = %399, %346, %345
+400:                                              ; preds = %396
   br label %401
 
-401:                                              ; preds = %400, %310, %309, %302
-  store i32 1, ptr %6, align 4
+401:                                              ; preds = %400, %347, %346
   br label %402
 
-402:                                              ; preds = %401, %398, %230, %167, %137, %125
-  %403 = load i32, ptr %6, align 4
-  ret i32 %403
+402:                                              ; preds = %401, %311, %310, %303
+  store i32 1, ptr %6, align 4
+  br label %403
+
+403:                                              ; preds = %402, %399, %231, %168, %138, %126
+  %404 = load i32, ptr %6, align 4
+  ret i32 %404
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -29174,16 +29169,22 @@ define internal ptr @str_node_split_last_char(ptr noundef %0, ptr noundef %1) #0
 
 declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nounwind allocsize(0) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(1) }

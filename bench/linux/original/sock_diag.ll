@@ -66,7 +66,7 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load volatile i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %28
+  br i1 %4, label %5, label %32
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @sock_cookie, align 64
@@ -74,40 +74,44 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call i64 asm sideeffect " xaddq $0, $1;", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 1, ptr elementtype(i64) %8) #11, !srcloc !7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %21, !prof !8
+  br i1 %10, label %11, label %23, !prof !8
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 4095
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %18, !prof !9
+  br i1 %15, label %16, label %20, !prof !9
 
 16:                                               ; preds = %11
-  %17 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
-  br label %18
+  %17 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %18 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %19 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %17, i64 4096, ptr nonnull elementtype(i64) %18) #11, !srcloc !10
+  br label %20
 
-18:                                               ; preds = %16, %11
-  %19 = phi i64 [ %17, %16 ], [ %13, %11 ]
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %12, align 8
-  br label %24
-
-21:                                               ; preds = %5
-  %22 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
-  %23 = add i64 %22, -1
-  br label %24
-
-24:                                               ; preds = %21, %18
-  %25 = phi i64 [ %20, %18 ], [ %23, %21 ]
-  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, ptr elementtype(i64) %8) #11, !srcloc !11
-  %26 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %25, i64 0, ptr elementtype(i64) %2) #11, !srcloc !12
-  %27 = load volatile i64, ptr %2, align 8
+20:                                               ; preds = %16, %11
+  %21 = phi i64 [ %19, %16 ], [ %13, %11 ]
+  %22 = add i64 %21, 1
+  store i64 %22, ptr %12, align 8
   br label %28
 
-28:                                               ; preds = %24, %1
-  %29 = phi i64 [ %3, %1 ], [ %27, %24 ]
-  ret i64 %29
+23:                                               ; preds = %5
+  %24 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %25 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %26 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 -1, ptr nonnull elementtype(i64) %25) #11, !srcloc !10
+  %27 = add i64 %26, -1
+  br label %28
+
+28:                                               ; preds = %23, %20
+  %29 = phi i64 [ %22, %20 ], [ %27, %23 ]
+  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, ptr elementtype(i64) %8) #11, !srcloc !11
+  %30 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %29, i64 0, ptr elementtype(i64) %2) #11, !srcloc !12
+  %31 = load volatile i64, ptr %2, align 8
+  br label %32
+
+32:                                               ; preds = %28, %1
+  %33 = phi i64 [ %3, %1 ], [ %31, %28 ]
+  ret i64 %33
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -126,156 +130,172 @@ define dso_local i32 @sock_diag_check_cookie(ptr noundef %0, ptr nocapture nound
   %6 = getelementptr i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %55, label %9
+  br i1 %8, label %63, label %9
 
 9:                                                ; preds = %5, %2
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !13
+  %10 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %11 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, ptr nonnull elementtype(i32) %11) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load volatile i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %36
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = load volatile i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %42
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr @sock_cookie, align 64
-  %15 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %14) #10, !srcloc !6
-  %16 = inttoptr i64 %15 to ptr
-  %17 = tail call i64 asm sideeffect " xaddq $0, $1;", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 1, ptr elementtype(i64) %16) #11, !srcloc !7
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %29, !prof !8
+15:                                               ; preds = %9
+  %16 = load ptr, ptr @sock_cookie, align 64
+  %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #10, !srcloc !6
+  %18 = inttoptr i64 %17 to ptr
+  %19 = tail call i64 asm sideeffect " xaddq $0, $1;", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, i64 1, ptr elementtype(i64) %18) #11, !srcloc !7
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %33, !prof !8
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, 4095
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %26, !prof !9
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 4095
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %30, !prof !9
 
-24:                                               ; preds = %19
-  %25 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
-  br label %26
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %28 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %29 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %27, i64 4096, ptr nonnull elementtype(i64) %28) #11, !srcloc !10
+  br label %30
 
-26:                                               ; preds = %24, %19
-  %27 = phi i64 [ %25, %24 ], [ %21, %19 ]
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %20, align 8
-  br label %32
+30:                                               ; preds = %26, %21
+  %31 = phi i64 [ %29, %26 ], [ %23, %21 ]
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %22, align 8
+  br label %38
 
-29:                                               ; preds = %13
-  %30 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
-  %31 = add i64 %30, -1
-  br label %32
+33:                                               ; preds = %15
+  %34 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %35 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %36 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 -1, ptr nonnull elementtype(i64) %35) #11, !srcloc !10
+  %37 = add i64 %36, -1
+  br label %38
 
-32:                                               ; preds = %29, %26
-  %33 = phi i64 [ %28, %26 ], [ %31, %29 ]
-  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, ptr elementtype(i64) %16) #11, !srcloc !11
-  %34 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 %33, i64 0, ptr elementtype(i64) %10) #11, !srcloc !12
-  %35 = load volatile i64, ptr %10, align 8
-  br label %36
+38:                                               ; preds = %33, %30
+  %39 = phi i64 [ %32, %30 ], [ %37, %33 ]
+  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, ptr elementtype(i64) %18) #11, !srcloc !11
+  %40 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %39, i64 0, ptr elementtype(i64) %12) #11, !srcloc !12
+  %41 = load volatile i64, ptr %12, align 8
+  br label %42
 
-36:                                               ; preds = %32, %9
-  %37 = phi i64 [ %11, %9 ], [ %35, %32 ]
+42:                                               ; preds = %38, %9
+  %43 = phi i64 [ %13, %9 ], [ %41, %38 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  %38 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !16
-  %39 = icmp ult i8 %38, 2
-  tail call void @llvm.assume(i1 %39)
-  %40 = icmp eq i8 %38, 0
-  br i1 %40, label %44, label %41, !prof !8
+  %44 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %45 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %46 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, ptr nonnull elementtype(i32) %45) #11, !srcloc !16
+  %47 = icmp ult i8 %46, 2
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i8 %46, 0
+  br i1 %48, label %52, label %49, !prof !8
 
-41:                                               ; preds = %36
-  %42 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %43 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %42) #11, !srcloc !17
-  tail call void @llvm.write_register.i64(metadata !0, i64 %43)
-  br label %44
+49:                                               ; preds = %42
+  %50 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %51 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %50) #11, !srcloc !17
+  tail call void @llvm.write_register.i64(metadata !0, i64 %51)
+  br label %52
 
-44:                                               ; preds = %41, %36
-  %45 = trunc i64 %37 to i32
-  %46 = load i32, ptr %1, align 4
-  %47 = icmp eq i32 %46, %45
-  br i1 %47, label %48, label %55
+52:                                               ; preds = %49, %42
+  %53 = trunc i64 %43 to i32
+  %54 = load i32, ptr %1, align 4
+  %55 = icmp eq i32 %54, %53
+  br i1 %55, label %56, label %63
 
-48:                                               ; preds = %44
-  %49 = lshr i64 %37, 32
-  %50 = trunc i64 %49 to i32
-  %51 = getelementptr i8, ptr %1, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, %50
-  %54 = select i1 %53, i32 0, i32 -116
-  br label %55
+56:                                               ; preds = %52
+  %57 = lshr i64 %43, 32
+  %58 = trunc i64 %57 to i32
+  %59 = getelementptr i8, ptr %1, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, %58
+  %62 = select i1 %61, i32 0, i32 -116
+  br label %63
 
-55:                                               ; preds = %48, %44, %5
-  %56 = phi i32 [ 0, %5 ], [ -116, %44 ], [ %54, %48 ]
-  ret i32 %56
+63:                                               ; preds = %56, %52, %5
+  %64 = phi i32 [ 0, %5 ], [ -116, %52 ], [ %62, %56 ]
+  ret i32 %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !13
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %4) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
-  %4 = load volatile i64, ptr %3, align 8
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %29
+  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = load volatile i64, ptr %5, align 8
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %35
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr @sock_cookie, align 64
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #10, !srcloc !6
-  %9 = inttoptr i64 %8 to ptr
-  %10 = tail call i64 asm sideeffect " xaddq $0, $1;", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %9, i64 1, ptr elementtype(i64) %9) #11, !srcloc !7
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %22, !prof !8
+8:                                                ; preds = %2
+  %9 = load ptr, ptr @sock_cookie, align 64
+  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #10, !srcloc !6
+  %11 = inttoptr i64 %10 to ptr
+  %12 = tail call i64 asm sideeffect " xaddq $0, $1;", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 1, ptr elementtype(i64) %11) #11, !srcloc !7
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %26, !prof !8
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 4095
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %19, !prof !9
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = and i64 %16, 4095
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23, !prof !9
 
-17:                                               ; preds = %12
-  %18 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2)) #11, !srcloc !10
-  br label %19
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %21 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 2
+  %22 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 4096, ptr nonnull elementtype(i64) %21) #11, !srcloc !10
+  br label %23
 
-19:                                               ; preds = %17, %12
-  %20 = phi i64 [ %18, %17 ], [ %14, %12 ]
-  %21 = add i64 %20, 1
-  store i64 %21, ptr %13, align 8
-  br label %25
+23:                                               ; preds = %19, %14
+  %24 = phi i64 [ %22, %19 ], [ %16, %14 ]
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %15, align 8
+  br label %31
 
-22:                                               ; preds = %6
-  %23 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (%struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3)) #11, !srcloc !10
-  %24 = add i64 %23, -1
-  br label %25
+26:                                               ; preds = %8
+  %27 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %28 = getelementptr inbounds %struct.gen_cookie, ptr @sock_cookie, i64 0, i32 3
+  %29 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %27, i64 -1, ptr nonnull elementtype(i64) %28) #11, !srcloc !10
+  %30 = add i64 %29, -1
+  br label %31
 
-25:                                               ; preds = %22, %19
-  %26 = phi i64 [ %21, %19 ], [ %24, %22 ]
-  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %9, ptr elementtype(i64) %9) #11, !srcloc !11
-  %27 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %26, i64 0, ptr elementtype(i64) %3) #11, !srcloc !12
-  %28 = load volatile i64, ptr %3, align 8
-  br label %29
+31:                                               ; preds = %26, %23
+  %32 = phi i64 [ %25, %23 ], [ %30, %26 ]
+  tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, ptr elementtype(i64) %11) #11, !srcloc !11
+  %33 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 %32, i64 0, ptr elementtype(i64) %5) #11, !srcloc !12
+  %34 = load volatile i64, ptr %5, align 8
+  br label %35
 
-29:                                               ; preds = %25, %2
-  %30 = phi i64 [ %4, %2 ], [ %28, %25 ]
+35:                                               ; preds = %31, %2
+  %36 = phi i64 [ %6, %2 ], [ %34, %31 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  %31 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !16
-  %32 = icmp ult i8 %31, 2
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i8 %31, 0
-  br i1 %33, label %37, label %34, !prof !8
+  %37 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %38 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %39 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, ptr nonnull elementtype(i32) %38) #11, !srcloc !16
+  %40 = icmp ult i8 %39, 2
+  tail call void @llvm.assume(i1 %40)
+  %41 = icmp eq i8 %39, 0
+  br i1 %41, label %45, label %42, !prof !8
 
-34:                                               ; preds = %29
-  %35 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %36 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %35) #11, !srcloc !17
-  tail call void @llvm.write_register.i64(metadata !0, i64 %36)
-  br label %37
+42:                                               ; preds = %35
+  %43 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %44 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %43) #11, !srcloc !17
+  tail call void @llvm.write_register.i64(metadata !0, i64 %44)
+  br label %45
 
-37:                                               ; preds = %34, %29
-  %38 = trunc i64 %30 to i32
-  store i32 %38, ptr %1, align 4
-  %39 = lshr i64 %30, 32
-  %40 = trunc i64 %39 to i32
-  %41 = getelementptr i8, ptr %1, i64 4
-  store i32 %40, ptr %41, align 4
+45:                                               ; preds = %42, %35
+  %46 = trunc i64 %36 to i32
+  store i32 %46, ptr %1, align 4
+  %47 = lshr i64 %36, 32
+  %48 = trunc i64 %47 to i32
+  %49 = getelementptr i8, ptr %1, i64 4
+  store i32 %48, ptr %49, align 4
   ret void
 }
 
@@ -356,30 +376,31 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sock_diag_broadcast_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 40) #12
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %1
-  tail call void @sk_destruct(ptr noundef %0) #11
-  br label %13
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 2080, i64 noundef 40) #12
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 68719476704, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  store volatile ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr @sock_diag_broadcast_destroy_work, ptr %10, align 8
-  %11 = load ptr, ptr @broadcast_wq, align 8
-  %12 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %11, ptr noundef %7) #11
-  br label %13
+  tail call void @sk_destruct(ptr noundef %0) #11
+  br label %14
 
-13:                                               ; preds = %6, %5
+7:                                                ; preds = %1
+  store ptr %0, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 68719476704, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store volatile ptr %9, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  store volatile ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @sock_diag_broadcast_destroy_work, ptr %11, align 8
+  %12 = load ptr, ptr @broadcast_wq, align 8
+  %13 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %12, ptr noundef %8) #11
+  br label %14
+
+14:                                               ; preds = %7, %6
   ret void
 }
 
@@ -695,29 +716,31 @@ define internal void @sock_diag_rcv(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @sock_diag_bind(ptr nocapture readnone %0, i32 noundef %1) #0 align 16 {
-  switch i32 %1, label %12 [
+  switch i32 %1, label %14 [
     i32 1, label %3
     i32 2, label %3
-    i32 3, label %6
-    i32 4, label %6
+    i32 3, label %7
+    i32 4, label %7
   ]
 
 3:                                                ; preds = %2, %2
-  %4 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @sock_diag_handlers, i64 0, i64 2), align 16
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %9, label %12
+  %4 = getelementptr inbounds [46 x ptr], ptr @sock_diag_handlers, i64 0, i64 2
+  %5 = load ptr, ptr %4, align 16
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %14
 
-6:                                                ; preds = %2, %2
-  %7 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @sock_diag_handlers, i64 0, i64 10), align 16
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %12
+7:                                                ; preds = %2, %2
+  %8 = getelementptr inbounds [46 x ptr], ptr @sock_diag_handlers, i64 0, i64 10
+  %9 = load ptr, ptr %8, align 16
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %14
 
-9:                                                ; preds = %6, %3
-  %10 = phi i32 [ 2, %3 ], [ 10, %6 ]
-  %11 = tail call i32 @sock_load_diag_module(i32 noundef %10, i32 noundef 0) #11
-  br label %12
+11:                                               ; preds = %7, %3
+  %12 = phi i32 [ 2, %3 ], [ 10, %7 ]
+  %13 = tail call i32 @sock_load_diag_module(i32 noundef %12, i32 noundef 0) #11
+  br label %14
 
-12:                                               ; preds = %9, %6, %3, %2
+14:                                               ; preds = %11, %7, %3, %2
   ret i32 0
 }
 

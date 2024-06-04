@@ -1348,7 +1348,8 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes7AuditorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes7AuditorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %this1, align 8
   ret void
 }
 
@@ -1384,7 +1385,8 @@ entry:
   %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %5 = load i64, ptr %4, align 8
   call void @_ZN6hermes4PassC2ENS0_8PassKindEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 0, ptr %3, i64 %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   ret void
 }
 
@@ -1404,10 +1406,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %K, ptr %K.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.hermes::Pass", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %K.addr, align 4
-  store i32 %2, ptr %kind, align 8
+  %3 = load i32, ptr %K.addr, align 4
+  store i32 %3, ptr %kind, align 8
   %name2 = getelementptr inbounds %"class.hermes::Pass", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %name2, ptr align 8 %name, i64 16, i1 false)
   ret void

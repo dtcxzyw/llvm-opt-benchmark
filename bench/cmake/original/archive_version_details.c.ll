@@ -36,102 +36,104 @@ define dso_local ptr @archive_version_details() #0 {
   store ptr %12, ptr %5, align 8
   %13 = load i32, ptr @archive_version_details.init, align 4
   %14 = icmp ne i32 %13, 0
-  br i1 %14, label %70, label %15
+  br i1 %14, label %72, label %15
 
 15:                                               ; preds = %0
   br label %16
 
 16:                                               ; preds = %15
   store ptr null, ptr @archive_version_details.str, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.archive_string, ptr @archive_version_details.str, i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.archive_string, ptr @archive_version_details.str, i32 0, i32 2), align 8
-  br label %17
+  %17 = getelementptr inbounds %struct.archive_string, ptr @archive_version_details.str, i32 0, i32 1
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.archive_string, ptr @archive_version_details.str, i32 0, i32 2
+  store i64 0, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %16
-  %18 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str)
-  %19 = load ptr, ptr %1, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %25
+19:                                               ; preds = %16
+  %20 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str)
+  %21 = load ptr, ptr %1, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %27
 
-21:                                               ; preds = %17
-  %22 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.1)
-  %23 = load ptr, ptr %1, align 8
-  %24 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %23)
-  br label %25
+23:                                               ; preds = %19
+  %24 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.1)
+  %25 = load ptr, ptr %1, align 8
+  %26 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %25)
+  br label %27
 
-25:                                               ; preds = %21, %17
-  %26 = load ptr, ptr %2, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %32
+27:                                               ; preds = %23, %19
+  %28 = load ptr, ptr %2, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %25
-  %29 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.2)
-  %30 = load ptr, ptr %2, align 8
-  %31 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %30)
-  br label %32
+30:                                               ; preds = %27
+  %31 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.2)
+  %32 = load ptr, ptr %2, align 8
+  %33 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %32)
+  br label %34
 
-32:                                               ; preds = %28, %25
-  %33 = load ptr, ptr %3, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %55
+34:                                               ; preds = %30, %27
+  %35 = load ptr, ptr %3, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %57
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %3, align 8
-  store ptr %36, ptr %6, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = call ptr @strchr(ptr noundef %37, i32 noundef 44) #3
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %46
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %3, align 8
+  store ptr %38, ptr %6, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = call ptr @strchr(ptr noundef %39, i32 noundef 44) #3
+  store ptr %40, ptr %7, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %48
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = call i64 @strlen(ptr noundef %43) #3
-  %45 = getelementptr inbounds i8, ptr %42, i64 %44
-  store ptr %45, ptr %7, align 8
-  br label %46
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = call i64 @strlen(ptr noundef %45) #3
+  %47 = getelementptr inbounds i8, ptr %44, i64 %46
+  store ptr %47, ptr %7, align 8
+  br label %48
 
-46:                                               ; preds = %41, %35
-  %47 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.3)
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %7, align 8
+48:                                               ; preds = %43, %37
+  %49 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.3)
   %50 = load ptr, ptr %6, align 8
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = call ptr @archive_strncat(ptr noundef @archive_version_details.str, ptr noundef %48, i64 noundef %53)
-  br label %55
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = call ptr @archive_strncat(ptr noundef @archive_version_details.str, ptr noundef %50, i64 noundef %55)
+  br label %57
 
-55:                                               ; preds = %46, %32
-  %56 = load ptr, ptr %4, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %62
+57:                                               ; preds = %48, %34
+  %58 = load ptr, ptr %4, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %64
 
-58:                                               ; preds = %55
-  %59 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.4)
-  %60 = load ptr, ptr %4, align 8
-  %61 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %60)
-  br label %62
+60:                                               ; preds = %57
+  %61 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.4)
+  %62 = load ptr, ptr %4, align 8
+  %63 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %62)
+  br label %64
 
-62:                                               ; preds = %58, %55
-  %63 = load ptr, ptr %5, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %69
+64:                                               ; preds = %60, %57
+  %65 = load ptr, ptr %5, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %71
 
-65:                                               ; preds = %62
-  %66 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.5)
-  %67 = load ptr, ptr %5, align 8
-  %68 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %67)
-  br label %69
+67:                                               ; preds = %64
+  %68 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef @.str.5)
+  %69 = load ptr, ptr %5, align 8
+  %70 = call ptr @archive_strcat(ptr noundef @archive_version_details.str, ptr noundef %69)
+  br label %71
 
-69:                                               ; preds = %65, %62
-  br label %70
+71:                                               ; preds = %67, %64
+  br label %72
 
-70:                                               ; preds = %69, %0
-  %71 = load ptr, ptr @archive_version_details.str, align 8
-  ret ptr %71
+72:                                               ; preds = %71, %0
+  %73 = load ptr, ptr @archive_version_details.str, align 8
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable

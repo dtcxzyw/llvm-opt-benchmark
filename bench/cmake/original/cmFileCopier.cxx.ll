@@ -592,47 +592,48 @@ define dso_local void @_ZN12cmFileCopierC2ER17cmExecutionStatusPKc(ptr noundef n
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %5, align 8
-  %12 = call noundef nonnull align 8 dereferenceable(3520) ptr @_ZN17cmExecutionStatus11GetMakefileEv(ptr noundef nonnull align 8 dereferenceable(80) %11)
-  store ptr %12, ptr %10, align 8
-  %13 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 3
-  %14 = load ptr, ptr %6, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 4
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 6
-  call void @_ZN15cmFileTimeCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %16)
-  %17 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 7
-  store i8 1, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 9
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 10
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 12
-  call void @_ZNSt6vectorIN12cmFileCopier9MatchRuleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  %21 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 13
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 14
-  store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 15
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 16
-  store i8 1, ptr %24, align 2
-  %25 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 17
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  %27 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 20
+  %8 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef nonnull align 8 dereferenceable(3520) ptr @_ZN17cmExecutionStatus11GetMakefileEv(ptr noundef nonnull align 8 dereferenceable(80) %12)
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 3
+  %15 = load ptr, ptr %6, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 4
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 6
+  call void @_ZN15cmFileTimeCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  %18 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 7
+  store i8 1, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 9
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 10
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 12
+  call void @_ZNSt6vectorIN12cmFileCopier9MatchRuleESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  %22 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 13
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 14
+  store i8 0, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 15
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 16
+  store i8 1, ptr %25, align 2
+  %26 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 17
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
-  %28 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 21
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 22
-  store i32 0, ptr %29, align 8
+  %28 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  %29 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 21
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 22
+  store i32 0, ptr %30, align 8
   ret void
 }
 
@@ -674,17 +675,18 @@ define dso_local void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 21
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 19
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 21
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorIN12cmFileCopier9MatchRuleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 6
-  call void @_ZN15cmFileTimeCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
+  %7 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %8 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorIN12cmFileCopier9MatchRuleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 6
+  call void @_ZN15cmFileTimeCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
   ret void
 }
 

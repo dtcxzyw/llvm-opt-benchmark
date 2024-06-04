@@ -1004,14 +1004,17 @@ if.then5:                                         ; preds = %if.else
   %call6 = call i32 @PyCode_AddWatcher(ptr noundef @second_code_object_callback)
   store i32 %call6, ptr %watcher_id, align 4
   %6 = load i32, ptr %watcher_id, align 4
-  store i32 %6, ptr getelementptr inbounds ([2 x i32], ptr @code_watcher_ids, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([2 x i32], ptr @num_code_object_created_events, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([2 x i32], ptr @num_code_object_destroyed_events, i64 0, i64 1), align 4
+  %7 = getelementptr inbounds [2 x i32], ptr @code_watcher_ids, i64 0, i64 1
+  store i32 %6, ptr %7, align 4
+  %8 = getelementptr inbounds [2 x i32], ptr @num_code_object_created_events, i64 0, i64 1
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds [2 x i32], ptr @num_code_object_destroyed_events, i64 0, i64 1
+  store i32 0, ptr %9, align 4
   br label %if.end13
 
 if.else7:                                         ; preds = %if.else
-  %7 = load i64, ptr %which_l, align 8
-  %cmp8 = icmp eq i64 %7, 2
+  %10 = load i64, ptr %which_l, align 8
+  %cmp8 = icmp eq i64 %10, 2
   br i1 %cmp8, label %if.then9, label %if.else11
 
 if.then9:                                         ; preds = %if.else7
@@ -1020,9 +1023,9 @@ if.then9:                                         ; preds = %if.else7
   br label %if.end
 
 if.else11:                                        ; preds = %if.else7
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  %9 = load i64, ptr %which_l, align 8
-  %call12 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef @.str.44, i64 noundef %9)
+  %11 = load ptr, ptr @PyExc_ValueError, align 8
+  %12 = load i64, ptr %which_l, align 8
+  %call12 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef @.str.44, i64 noundef %12)
   store ptr null, ptr %retval, align 8
   br label %return
 
@@ -1033,8 +1036,8 @@ if.end13:                                         ; preds = %if.end, %if.then5
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %if.then
-  %10 = load i32, ptr %watcher_id, align 4
-  %cmp15 = icmp slt i32 %10, 0
+  %13 = load i32, ptr %watcher_id, align 4
+  %cmp15 = icmp slt i32 %13, 0
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
@@ -1042,15 +1045,15 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end17:                                         ; preds = %if.end14
-  %11 = load i32, ptr %watcher_id, align 4
-  %conv = sext i32 %11 to i64
+  %14 = load i32, ptr %watcher_id, align 4
+  %conv = sext i32 %14 to i64
   %call18 = call ptr @PyLong_FromLong(i64 noundef %conv)
   store ptr %call18, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end17, %if.then16, %if.else11
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %15 = load ptr, ptr %retval, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2729,11 +2732,12 @@ entry:
   store i32 %event, ptr %event.addr, align 4
   store ptr %func, ptr %func.addr, align 8
   store ptr %new_value, ptr %new_value.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @pyfunc_watchers, i64 0, i64 1), align 8
-  %1 = load i32, ptr %event.addr, align 4
-  %2 = load ptr, ptr %func.addr, align 8
-  %3 = load ptr, ptr %new_value.addr, align 8
-  %call = call i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+  %0 = getelementptr inbounds [2 x ptr], ptr @pyfunc_watchers, i64 0, i64 1
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %event.addr, align 4
+  %3 = load ptr, ptr %func.addr, align 8
+  %4 = load ptr, ptr %new_value.addr, align 8
+  %call = call i32 @call_pyfunc_watcher(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %call
 }
 

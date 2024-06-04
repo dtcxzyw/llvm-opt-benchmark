@@ -214,85 +214,97 @@ return:                                           ; preds = %if.end52, %if.then
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_neon() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 1), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 1
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_armcrypto() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 2), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_sse2() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 3), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 3
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_sse3() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 4), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 4
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_ssse3() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 5), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 5
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_sse41() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 6), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 6
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_avx() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 7), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 7
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_avx2() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 8), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 8
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_avx512f() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 9), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 9
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_pclmul() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 10), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 10
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_aesni() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 11), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 11
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define weak i32 @sodium_runtime_has_rdrand() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 12), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.CPUFeatures_, ptr @_cpu_features, i32 0, i32 12
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind ssp uwtable

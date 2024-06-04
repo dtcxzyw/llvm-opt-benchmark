@@ -813,9 +813,11 @@ if.end:                                           ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  store ptr getelementptr (i8, ptr @.str.4, i64 120), ptr %absl_raw_log_internal_basename, align 8
+  %15 = getelementptr i8, ptr @.str.4, i64 120
+  store ptr %15, ptr %absl_raw_log_internal_basename, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #3
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef getelementptr (i8, ptr @.str.4, i64 120), i32 noundef 95, ptr noundef @.str.5, ptr noundef %call)
+  %16 = getelementptr i8, ptr @.str.4, i64 120
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef %16, i32 noundef 95, ptr noundef @.str.5, ptr noundef %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
@@ -830,18 +832,18 @@ do.end:                                           ; preds = %do.cond
   br label %return
 
 lpad:                                             ; preds = %do.body
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #3
   br label %eh.resume
 
 return:                                           ; preds = %do.end, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

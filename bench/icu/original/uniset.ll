@@ -982,9 +982,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513UnicodeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %list = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
   %stackList = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 15
   %arraydecay = getelementptr inbounds [25 x i32], ptr %stackList, i64 0, i64 0
@@ -1010,8 +1012,8 @@ entry:
   %stringSpan = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 14
   store ptr null, ptr %stringSpan, align 8
   %list2 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %list2, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 0
+  %2 = load ptr, ptr %list2, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
   store i32 1114112, ptr %arrayidx, align 4
   ret void
 }
@@ -1025,9 +1027,11 @@ entry:
   call void @_ZN6icu_7514UnicodeFunctorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_7514UnicodeMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   ret void
 }
 
@@ -1044,9 +1048,11 @@ entry:
   store i32 %end, ptr %end.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513UnicodeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %list = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
   %stackList = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 15
   %arraydecay = getelementptr inbounds [25 x i32], ptr %stackList, i64 0, i64 0
@@ -1072,24 +1078,24 @@ entry:
   %stringSpan = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 14
   store ptr null, ptr %stringSpan, align 8
   %list2 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %list2, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 0
+  %2 = load ptr, ptr %list2, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
   store i32 1114112, ptr %arrayidx, align 4
-  %1 = load i32, ptr %start.addr, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %call = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %this1, i32 noundef %1, i32 noundef %2)
+  %3 = load i32, ptr %start.addr, align 4
+  %4 = load i32, ptr %end.addr, align 4
+  %call = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %this1, i32 noundef %3, i32 noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
   br label %eh.resume
 
@@ -1328,9 +1334,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %o.addr, align 8
   call void @_ZN6icu_7513UnicodeFilterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %list = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
   %stackList = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 15
   %arraydecay = getelementptr inbounds [25 x i32], ptr %stackList, i64 0, i64 0
@@ -1355,20 +1363,20 @@ entry:
   store ptr null, ptr %strings, align 8
   %stringSpan = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 14
   store ptr null, ptr %stringSpan, align 8
-  %1 = load ptr, ptr %o.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %this1, ptr noundef nonnull align 8 dereferenceable(200) %1)
+  %3 = load ptr, ptr %o.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %this1, ptr noundef nonnull align 8 dereferenceable(200) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
   br label %eh.resume
 
@@ -1394,9 +1402,11 @@ entry:
   %3 = load ptr, ptr %.addr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN6icu_7514UnicodeMatcherC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #12
-  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 1, i32 2), ptr %add.ptr2, align 8
+  %5 = getelementptr inbounds { [11 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7513UnicodeFilterE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr2, align 8
   ret void
 }
 
@@ -1428,9 +1438,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %o.addr, align 8
   call void @_ZN6icu_7513UnicodeFilterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #12
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %list = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
   %stackList = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 15
   %arraydecay = getelementptr inbounds [25 x i32], ptr %stackList, i64 0, i64 0
@@ -1455,42 +1467,42 @@ entry:
   store ptr null, ptr %strings, align 8
   %stringSpan = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 14
   store ptr null, ptr %stringSpan, align 8
-  %2 = load ptr, ptr %o.addr, align 8
-  %len2 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %len2, align 4
-  %call = invoke noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this1, i32 noundef %3)
+  %4 = load ptr, ptr %o.addr, align 8
+  %len2 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %4, i32 0, i32 3
+  %5 = load i32, ptr %len2, align 4
+  %call = invoke noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this1, i32 noundef %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   br i1 %call, label %if.then, label %if.end30
 
 if.then:                                          ; preds = %invoke.cont
-  %4 = load ptr, ptr %o.addr, align 8
-  %len3 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %4, i32 0, i32 3
-  %5 = load i32, ptr %len3, align 4
+  %6 = load ptr, ptr %o.addr, align 8
+  %len3 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %len3, align 4
   %len4 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 3
-  store i32 %5, ptr %len4, align 4
+  store i32 %7, ptr %len4, align 4
   br label %do.body
 
 do.body:                                          ; preds = %if.then
   %list5 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %list5, align 8
-  %7 = load ptr, ptr %o.addr, align 8
-  %list6 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %list6, align 8
+  %8 = load ptr, ptr %list5, align 8
+  %9 = load ptr, ptr %o.addr, align 8
+  %list6 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %list6, align 8
   %len7 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 3
-  %9 = load i32, ptr %len7, align 4
-  %conv = sext i32 %9 to i64
+  %11 = load i32, ptr %len7, align 4
+  %conv = sext i32 %11 to i64
   %mul = mul i64 %conv, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %8, i64 %mul, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %10, i64 %mul, i1 false)
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.cond
-  %10 = load ptr, ptr %o.addr, align 8
-  %call9 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet10hasStringsEv(ptr noundef nonnull align 8 dereferenceable(200) %10)
+  %12 = load ptr, ptr %o.addr, align 8
+  %call9 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet10hasStringsEv(ptr noundef nonnull align 8 dereferenceable(200) %12)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %do.end
@@ -1508,16 +1520,16 @@ invoke.cont11:                                    ; preds = %if.then10
 
 lor.lhs.false:                                    ; preds = %invoke.cont11
   %strings14 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 13
-  %11 = load ptr, ptr %strings14, align 8
-  %12 = load ptr, ptr %o.addr, align 8
-  %strings15 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %12, i32 0, i32 13
-  %13 = load ptr, ptr %strings15, align 8
-  invoke void @_ZN6icu_757UVector6assignERKS0_PFvP8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef @_ZN6icu_75L18cloneUnicodeStringEP8UElementS1_, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %13 = load ptr, ptr %strings14, align 8
+  %14 = load ptr, ptr %o.addr, align 8
+  %strings15 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %14, i32 0, i32 13
+  %15 = load ptr, ptr %strings15, align 8
+  invoke void @_ZN6icu_757UVector6assignERKS0_PFvP8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef @_ZN6icu_75L18cloneUnicodeStringEP8UElementS1_, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %lor.lhs.false
-  %14 = load i32, ptr %status, align 4
-  %call18 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %14)
+  %16 = load i32, ptr %status, align 4
+  %call18 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont16
@@ -1532,12 +1544,12 @@ invoke.cont21:                                    ; preds = %if.then20
   br label %if.end30
 
 lpad:                                             ; preds = %if.then25, %if.then20, %invoke.cont16, %lor.lhs.false, %if.then10, %do.end, %entry
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
   br label %eh.resume
 
@@ -1545,20 +1557,20 @@ if.end:                                           ; preds = %invoke.cont17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end, %invoke.cont8
-  %18 = load ptr, ptr %o.addr, align 8
-  %pat23 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %18, i32 0, i32 10
-  %19 = load ptr, ptr %pat23, align 8
-  %tobool24 = icmp ne ptr %19, null
+  %20 = load ptr, ptr %o.addr, align 8
+  %pat23 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %20, i32 0, i32 10
+  %21 = load ptr, ptr %pat23, align 8
+  %tobool24 = icmp ne ptr %21, null
   br i1 %tobool24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end22
-  %20 = load ptr, ptr %o.addr, align 8
-  %pat26 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %20, i32 0, i32 10
-  %21 = load ptr, ptr %pat26, align 8
   %22 = load ptr, ptr %o.addr, align 8
-  %patLen27 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %22, i32 0, i32 11
-  %23 = load i32, ptr %patLen27, align 8
-  invoke void @_ZN6icu_7510UnicodeSet10setPatternEPKDsi(ptr noundef nonnull align 8 dereferenceable(200) %this1, ptr noundef %21, i32 noundef %23)
+  %pat26 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %22, i32 0, i32 10
+  %23 = load ptr, ptr %pat26, align 8
+  %24 = load ptr, ptr %o.addr, align 8
+  %patLen27 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %24, i32 0, i32 11
+  %25 = load i32, ptr %patLen27, align 8
+  invoke void @_ZN6icu_7510UnicodeSet10setPatternEPKDsi(ptr noundef nonnull align 8 dereferenceable(200) %this1, ptr noundef %23, i32 noundef %25)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %if.then25
@@ -7728,9 +7740,11 @@ entry:
   store ptr %ec, ptr %ec.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513UnicodeFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [35 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510UnicodeSetE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %list = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
   %stackList = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 15
   %arraydecay = getelementptr inbounds [25 x i32], ptr %stackList, i64 0, i64 0
@@ -7755,9 +7769,9 @@ entry:
   store ptr null, ptr %strings, align 8
   %stringSpan = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 14
   store ptr null, ptr %stringSpan, align 8
-  %0 = load ptr, ptr %ec.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
+  %2 = load ptr, ptr %ec.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -7772,33 +7786,33 @@ invoke.cont2:                                     ; preds = %if.then
   br label %return
 
 lpad:                                             ; preds = %cond.end, %if.then6, %if.then, %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont
-  %5 = load i32, ptr %serialization.addr, align 4
-  %cmp = icmp ne i32 %5, 0
+  %7 = load i32, ptr %serialization.addr, align 4
+  %cmp = icmp ne i32 %7, 0
   br i1 %cmp, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %6 = load ptr, ptr %data.addr, align 8
-  %cmp3 = icmp eq ptr %6, null
+  %8 = load ptr, ptr %data.addr, align 8
+  %cmp3 = icmp eq ptr %8, null
   br i1 %cmp3, label %if.then6, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %7 = load i32, ptr %dataLen.addr, align 4
-  %cmp5 = icmp slt i32 %7, 1
+  %9 = load i32, ptr %dataLen.addr, align 4
+  %cmp5 = icmp slt i32 %9, 1
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %if.end
-  %8 = load ptr, ptr %ec.addr, align 8
-  store i32 1, ptr %8, align 4
+  %10 = load ptr, ptr %ec.addr, align 8
+  store i32 1, ptr %10, align 4
   invoke void @_ZN6icu_7510UnicodeSet10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(200) %this1)
           to label %invoke.cont7 unwind label %lpad
 
@@ -7806,47 +7820,47 @@ invoke.cont7:                                     ; preds = %if.then6
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %9 = load ptr, ptr %data.addr, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 0
-  %10 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %10 to i32
+  %11 = load ptr, ptr %data.addr, align 8
+  %arrayidx = getelementptr inbounds i16, ptr %11, i64 0
+  %12 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %12 to i32
   %and = and i32 %conv, 32768
   %tobool9 = icmp ne i32 %and, 0
   %cond = select i1 %tobool9, i32 2, i32 1
   store i32 %cond, ptr %headerSize, align 4
-  %11 = load i32, ptr %headerSize, align 4
-  %cmp10 = icmp eq i32 %11, 1
+  %13 = load i32, ptr %headerSize, align 4
+  %cmp10 = icmp eq i32 %13, 1
   br i1 %cmp10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end8
-  %12 = load ptr, ptr %data.addr, align 8
-  %arrayidx11 = getelementptr inbounds i16, ptr %12, i64 0
-  %13 = load i16, ptr %arrayidx11, align 2
+  %14 = load ptr, ptr %data.addr, align 8
+  %arrayidx11 = getelementptr inbounds i16, ptr %14, i64 0
+  %15 = load i16, ptr %arrayidx11, align 2
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end8
-  %14 = load ptr, ptr %data.addr, align 8
-  %arrayidx12 = getelementptr inbounds i16, ptr %14, i64 1
-  %15 = load i16, ptr %arrayidx12, align 2
+  %16 = load ptr, ptr %data.addr, align 8
+  %arrayidx12 = getelementptr inbounds i16, ptr %16, i64 1
+  %17 = load i16, ptr %arrayidx12, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond13 = phi i16 [ %13, %cond.true ], [ %15, %cond.false ]
+  %cond13 = phi i16 [ %15, %cond.true ], [ %17, %cond.false ]
   %conv14 = zext i16 %cond13 to i32
   store i32 %conv14, ptr %bmpLength, align 4
-  %16 = load ptr, ptr %data.addr, align 8
-  %arrayidx15 = getelementptr inbounds i16, ptr %16, i64 0
-  %17 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %17 to i32
+  %18 = load ptr, ptr %data.addr, align 8
+  %arrayidx15 = getelementptr inbounds i16, ptr %18, i64 0
+  %19 = load i16, ptr %arrayidx15, align 2
+  %conv16 = zext i16 %19 to i32
   %and17 = and i32 %conv16, 32767
-  %18 = load i32, ptr %bmpLength, align 4
-  %sub = sub nsw i32 %and17, %18
+  %20 = load i32, ptr %bmpLength, align 4
+  %sub = sub nsw i32 %and17, %20
   %div = sdiv i32 %sub, 2
-  %19 = load i32, ptr %bmpLength, align 4
-  %add = add nsw i32 %div, %19
+  %21 = load i32, ptr %bmpLength, align 4
+  %add = add nsw i32 %div, %21
   store i32 %add, ptr %newLength, align 4
-  %20 = load i32, ptr %newLength, align 4
-  %add18 = add nsw i32 %20, 1
+  %22 = load i32, ptr %newLength, align 4
+  %add18 = add nsw i32 %22, 1
   %call20 = invoke noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this1, i32 noundef %add18)
           to label %invoke.cont19 unwind label %lpad
 
@@ -7861,121 +7875,121 @@ if.end22:                                         ; preds = %invoke.cont19
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end22
-  %21 = load i32, ptr %i, align 4
-  %22 = load i32, ptr %bmpLength, align 4
-  %cmp23 = icmp slt i32 %21, %22
+  %23 = load i32, ptr %i, align 4
+  %24 = load i32, ptr %bmpLength, align 4
+  %cmp23 = icmp slt i32 %23, %24
   br i1 %cmp23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %23 = load ptr, ptr %data.addr, align 8
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr %headerSize, align 4
-  %add24 = add nsw i32 %24, %25
+  %25 = load ptr, ptr %data.addr, align 8
+  %26 = load i32, ptr %i, align 4
+  %27 = load i32, ptr %headerSize, align 4
+  %add24 = add nsw i32 %26, %27
   %idxprom = sext i32 %add24 to i64
-  %arrayidx25 = getelementptr inbounds i16, ptr %23, i64 %idxprom
-  %26 = load i16, ptr %arrayidx25, align 2
-  %conv26 = zext i16 %26 to i32
+  %arrayidx25 = getelementptr inbounds i16, ptr %25, i64 %idxprom
+  %28 = load i16, ptr %arrayidx25, align 2
+  %conv26 = zext i16 %28 to i32
   %list27 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %27 = load ptr, ptr %list27, align 8
-  %28 = load i32, ptr %i, align 4
-  %idxprom28 = sext i32 %28 to i64
-  %arrayidx29 = getelementptr inbounds i32, ptr %27, i64 %idxprom28
+  %29 = load ptr, ptr %list27, align 8
+  %30 = load i32, ptr %i, align 4
+  %idxprom28 = sext i32 %30 to i64
+  %arrayidx29 = getelementptr inbounds i32, ptr %29, i64 %idxprom28
   store i32 %conv26, ptr %arrayidx29, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %29 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %29, 1
+  %31 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %31, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !26
 
 for.end:                                          ; preds = %for.cond
-  %30 = load i32, ptr %bmpLength, align 4
-  store i32 %30, ptr %i, align 4
+  %32 = load i32, ptr %bmpLength, align 4
+  store i32 %32, ptr %i, align 4
   br label %for.cond30
 
 for.cond30:                                       ; preds = %for.inc52, %for.end
-  %31 = load i32, ptr %i, align 4
-  %32 = load i32, ptr %newLength, align 4
-  %cmp31 = icmp slt i32 %31, %32
+  %33 = load i32, ptr %i, align 4
+  %34 = load i32, ptr %newLength, align 4
+  %cmp31 = icmp slt i32 %33, %34
   br i1 %cmp31, label %for.body32, label %for.end54
 
 for.body32:                                       ; preds = %for.cond30
-  %33 = load ptr, ptr %data.addr, align 8
-  %34 = load i32, ptr %headerSize, align 4
-  %35 = load i32, ptr %bmpLength, align 4
-  %add33 = add nsw i32 %34, %35
-  %36 = load i32, ptr %i, align 4
+  %35 = load ptr, ptr %data.addr, align 8
+  %36 = load i32, ptr %headerSize, align 4
   %37 = load i32, ptr %bmpLength, align 4
-  %sub34 = sub nsw i32 %36, %37
+  %add33 = add nsw i32 %36, %37
+  %38 = load i32, ptr %i, align 4
+  %39 = load i32, ptr %bmpLength, align 4
+  %sub34 = sub nsw i32 %38, %39
   %mul = mul nsw i32 %sub34, 2
   %add35 = add nsw i32 %add33, %mul
   %add36 = add nsw i32 %add35, 0
   %idxprom37 = sext i32 %add36 to i64
-  %arrayidx38 = getelementptr inbounds i16, ptr %33, i64 %idxprom37
-  %38 = load i16, ptr %arrayidx38, align 2
-  %conv39 = zext i16 %38 to i32
+  %arrayidx38 = getelementptr inbounds i16, ptr %35, i64 %idxprom37
+  %40 = load i16, ptr %arrayidx38, align 2
+  %conv39 = zext i16 %40 to i32
   %shl = shl i32 %conv39, 16
-  %39 = load ptr, ptr %data.addr, align 8
-  %40 = load i32, ptr %headerSize, align 4
-  %41 = load i32, ptr %bmpLength, align 4
-  %add40 = add nsw i32 %40, %41
-  %42 = load i32, ptr %i, align 4
+  %41 = load ptr, ptr %data.addr, align 8
+  %42 = load i32, ptr %headerSize, align 4
   %43 = load i32, ptr %bmpLength, align 4
-  %sub41 = sub nsw i32 %42, %43
+  %add40 = add nsw i32 %42, %43
+  %44 = load i32, ptr %i, align 4
+  %45 = load i32, ptr %bmpLength, align 4
+  %sub41 = sub nsw i32 %44, %45
   %mul42 = mul nsw i32 %sub41, 2
   %add43 = add nsw i32 %add40, %mul42
   %add44 = add nsw i32 %add43, 1
   %idxprom45 = sext i32 %add44 to i64
-  %arrayidx46 = getelementptr inbounds i16, ptr %39, i64 %idxprom45
-  %44 = load i16, ptr %arrayidx46, align 2
-  %conv47 = zext i16 %44 to i32
+  %arrayidx46 = getelementptr inbounds i16, ptr %41, i64 %idxprom45
+  %46 = load i16, ptr %arrayidx46, align 2
+  %conv47 = zext i16 %46 to i32
   %add48 = add nsw i32 %shl, %conv47
   %list49 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %45 = load ptr, ptr %list49, align 8
-  %46 = load i32, ptr %i, align 4
-  %idxprom50 = sext i32 %46 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %45, i64 %idxprom50
+  %47 = load ptr, ptr %list49, align 8
+  %48 = load i32, ptr %i, align 4
+  %idxprom50 = sext i32 %48 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %47, i64 %idxprom50
   store i32 %add48, ptr %arrayidx51, align 4
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.body32
-  %47 = load i32, ptr %i, align 4
-  %inc53 = add nsw i32 %47, 1
+  %49 = load i32, ptr %i, align 4
+  %inc53 = add nsw i32 %49, 1
   store i32 %inc53, ptr %i, align 4
   br label %for.cond30, !llvm.loop !27
 
 for.end54:                                        ; preds = %for.cond30
-  %48 = load i32, ptr %i, align 4
-  %cmp55 = icmp eq i32 %48, 0
+  %50 = load i32, ptr %i, align 4
+  %cmp55 = icmp eq i32 %50, 0
   br i1 %cmp55, label %if.then62, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %for.end54
   %list57 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %49 = load ptr, ptr %list57, align 8
-  %50 = load i32, ptr %i, align 4
-  %sub58 = sub nsw i32 %50, 1
+  %51 = load ptr, ptr %list57, align 8
+  %52 = load i32, ptr %i, align 4
+  %sub58 = sub nsw i32 %52, 1
   %idxprom59 = sext i32 %sub58 to i64
-  %arrayidx60 = getelementptr inbounds i32, ptr %49, i64 %idxprom59
-  %51 = load i32, ptr %arrayidx60, align 4
-  %cmp61 = icmp ne i32 %51, 1114112
+  %arrayidx60 = getelementptr inbounds i32, ptr %51, i64 %idxprom59
+  %53 = load i32, ptr %arrayidx60, align 4
+  %cmp61 = icmp ne i32 %53, 1114112
   br i1 %cmp61, label %if.then62, label %if.end67
 
 if.then62:                                        ; preds = %lor.lhs.false56, %for.end54
   %list63 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 1
-  %52 = load ptr, ptr %list63, align 8
-  %53 = load i32, ptr %i, align 4
-  %inc64 = add nsw i32 %53, 1
+  %54 = load ptr, ptr %list63, align 8
+  %55 = load i32, ptr %i, align 4
+  %inc64 = add nsw i32 %55, 1
   store i32 %inc64, ptr %i, align 4
-  %idxprom65 = sext i32 %53 to i64
-  %arrayidx66 = getelementptr inbounds i32, ptr %52, i64 %idxprom65
+  %idxprom65 = sext i32 %55 to i64
+  %arrayidx66 = getelementptr inbounds i32, ptr %54, i64 %idxprom65
   store i32 1114112, ptr %arrayidx66, align 4
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then62, %lor.lhs.false56
-  %54 = load i32, ptr %i, align 4
+  %56 = load i32, ptr %i, align 4
   %len68 = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this1, i32 0, i32 3
-  store i32 %54, ptr %len68, align 4
+  store i32 %56, ptr %len68, align 4
   br label %return
 
 return:                                           ; preds = %if.end67, %if.then21, %invoke.cont7, %invoke.cont2
@@ -10301,7 +10315,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10311,7 +10326,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7514UnicodeMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7514UnicodeMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10321,7 +10337,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10335,7 +10352,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_7514UnicodeFunctorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -10347,7 +10365,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7514UnicodeMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7514UnicodeMatcherE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10359,7 +10378,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

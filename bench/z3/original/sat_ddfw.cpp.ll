@@ -903,17 +903,18 @@ entry:
   %ci = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3sat4ddfwE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN3sat4ddfwE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_clauses = getelementptr inbounds %"class.sat::ddfw", ptr %this1, i32 0, i32 4
   store ptr %m_clauses, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = invoke noundef ptr @_ZN6vectorIN3sat4ddfw11clause_infoELb0EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__range1, align 8
+  %call = invoke noundef ptr @_ZN6vectorIN3sat4ddfw11clause_infoELb0EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call3 = invoke noundef ptr @_ZN6vectorIN3sat4ddfw11clause_infoELb0EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = load ptr, ptr %__range1, align 8
+  %call3 = invoke noundef ptr @_ZN6vectorIN3sat4ddfw11clause_infoELb0EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -921,27 +922,27 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont2
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  store ptr %4, ptr %ci, align 8
+  %5 = load ptr, ptr %__begin1, align 8
+  store ptr %5, ptr %ci, align 8
   %m_alloc = getelementptr inbounds %"class.sat::ddfw", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %ci, align 8
-  %m_clause = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %m_clause, align 8
-  invoke void @_ZN3sat16clause_allocator10del_clauseEPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc, ptr noundef %6)
+  %6 = load ptr, ptr %ci, align 8
+  %m_clause = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %m_clause, align 8
+  invoke void @_ZN3sat16clause_allocator10del_clauseEPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc, ptr noundef %7)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont4
-  %7 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %7, i32 1
+  %8 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %8, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -978,10 +979,10 @@ for.end:                                          ; preds = %for.cond
   ret void
 
 terminate.lpad:                                   ; preds = %for.body, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #15
   unreachable
 }
 
@@ -8626,10 +8627,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -8639,7 +8641,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8877,7 +8880,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

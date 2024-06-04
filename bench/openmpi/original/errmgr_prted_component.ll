@@ -33,32 +33,33 @@ define internal i32 @errmgr_prted_component_query(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4
-  %7 = zext i8 %6 to i32
-  %8 = and i32 2, %7
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
+  %7 = load i8, ptr %6, align 4
+  %8 = zext i8 %7 to i32
+  %9 = and i32 2, %8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr @my_priority, align 4
-  %12 = load ptr, ptr %5, align 8
-  store i32 %11, ptr %12, align 4
-  %13 = load ptr, ptr %4, align 8
-  store ptr @prte_errmgr_prted_module, ptr %13, align 8
+11:                                               ; preds = %2
+  %12 = load i32, ptr @my_priority, align 4
+  %13 = load ptr, ptr %5, align 8
+  store i32 %12, ptr %13, align 4
+  %14 = load ptr, ptr %4, align 8
+  store ptr @prte_errmgr_prted_module, ptr %14, align 8
   store i32 0, ptr %3, align 4
-  br label %17
+  br label %18
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %15, align 4
-  %16 = load ptr, ptr %4, align 8
-  store ptr null, ptr %16, align 8
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8
+  store i32 -1, ptr %16, align 4
+  %17 = load ptr, ptr %4, align 8
+  store ptr null, ptr %17, align 8
   store i32 -1, ptr %3, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %14, %10
-  %18 = load i32, ptr %3, align 4
-  ret i32 %18
+18:                                               ; preds = %15, %11
+  %19 = load i32, ptr %3, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable

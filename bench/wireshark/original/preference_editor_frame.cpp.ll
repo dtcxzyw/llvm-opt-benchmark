@@ -564,93 +564,95 @@ define void @_ZN21PreferenceEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #14
-          to label %16 unwind label %45
-
-16:                                               ; preds = %2
+  %13 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 1, i32 2
   store ptr %15, ptr %14, align 8
-  %17 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 2
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 3
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 4
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 5
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef @.str)
-          to label %21 unwind label %45
+  %16 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #14
+          to label %18 unwind label %47
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 6
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  invoke void @_ZN24Ui_PreferenceEditorFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef %11)
-          to label %25 unwind label %49
+18:                                               ; preds = %2
+  store ptr %17, ptr %16, align 8
+  %19 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 2
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 3
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 4
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 5
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef @.str)
+          to label %23 unwind label %47
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %class.Ui_PreferenceEditorFrame, ptr %27, i32 0, i32 5
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 6
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  invoke void @_ZN24Ui_PreferenceEditorFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef %11)
+          to label %27 unwind label %51
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %class.Ui_PreferenceEditorFrame, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %8, align 8
-  %30 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %32 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
   %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN21PreferenceEditorFrame23browsePushButtonClickedEv to i64), i64 0 }, ptr %9, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM21PreferenceEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %29, i64 %31, i64 %33, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
-          to label %34 unwind label %49
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM21PreferenceEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %31, i64 %33, i64 %35, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
+          to label %36 unwind label %51
 
-34:                                               ; preds = %25
+36:                                               ; preds = %27
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
-  %35 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %class.Ui_PreferenceEditorFrame, ptr %36, i32 0, i32 4
+  %37 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %11, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %class.Ui_PreferenceEditorFrame, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), i64 0 }, ptr %10, align 8
-  %39 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 1
+  %41 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
   %42 = load i64, ptr %41, align 8
-  %43 = invoke noundef zeroext i1 @_ZN7QObject10disconnectIM9QLineEditFvRK7QStringEEEbPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKS_PPv(ptr noundef %38, i64 %40, i64 %42, ptr noundef null, ptr noundef null)
-          to label %44 unwind label %49
+  %43 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = invoke noundef zeroext i1 @_ZN7QObject10disconnectIM9QLineEditFvRK7QStringEEEbPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKS_PPv(ptr noundef %40, i64 %42, i64 %44, ptr noundef null, ptr noundef null)
+          to label %46 unwind label %51
 
-44:                                               ; preds = %34
+46:                                               ; preds = %36
   ret void
 
-45:                                               ; preds = %16, %2
-  %46 = landingpad { ptr, i32 }
+47:                                               ; preds = %18, %2
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %53
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %5, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %6, align 4
+  br label %55
 
-49:                                               ; preds = %34, %25, %21
-  %50 = landingpad { ptr, i32 }
+51:                                               ; preds = %36, %27, %23
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
-  br label %53
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %5, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #15
+  br label %55
 
-53:                                               ; preds = %49, %45
+55:                                               ; preds = %51, %47
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #15
-  br label %54
+  br label %56
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i32, ptr %6, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %6, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 declare void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
@@ -1469,21 +1471,23 @@ define void @_ZN21PreferenceEditorFrameD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21PreferenceEditorFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #16
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #16
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %3, i32 0, i32 5
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.PreferenceEditorFrame, ptr %3, i32 0, i32 5
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   ret void
 }
@@ -3665,19 +3669,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.9, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #15
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #15
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #15
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #15
   ret void
 }
 
@@ -4288,9 +4293,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

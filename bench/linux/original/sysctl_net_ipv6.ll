@@ -164,81 +164,82 @@ declare dso_local i32 @proc_dointvec_minmax(ptr noundef, i32 noundef, ptr nounde
 define internal noundef i32 @ipv6_sysctl_net_init(ptr noundef %0) #0 align 16 {
   %2 = tail call dereferenceable_or_null(1344) ptr @kmemdup(ptr noundef nonnull @ipv6_table_template, i64 noundef 1344, i32 noundef 3264) #4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %34, label %4
+  br i1 %3, label %35, label %4
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %5, ptrtoint (ptr @init_net to i64)
-  br label %7
+  %6 = ptrtoint ptr @init_net to i64
+  %7 = sub i64 %5, %6
+  br label %8
 
-7:                                                ; preds = %7, %4
-  %8 = phi i64 [ 0, %4 ], [ %12, %7 ]
-  %9 = getelementptr %struct.ctl_table, ptr %2, i64 %8, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i8, ptr %10, i64 %6
-  store ptr %11, ptr %9, align 8
-  %12 = add nuw nsw i64 %8, 1
-  %13 = icmp eq i64 %12, 20
-  br i1 %13, label %14, label %7, !llvm.loop !5
+8:                                                ; preds = %8, %4
+  %9 = phi i64 [ 0, %4 ], [ %13, %8 ]
+  %10 = getelementptr %struct.ctl_table, ptr %2, i64 %9, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr i8, ptr %11, i64 %7
+  store ptr %12, ptr %10, align 8
+  %13 = add nuw nsw i64 %9, 1
+  %14 = icmp eq i64 %13, 20
+  br i1 %14, label %15, label %8, !llvm.loop !5
 
-14:                                               ; preds = %7
-  %15 = tail call ptr @ipv6_route_sysctl_init(ptr noundef %0) #3
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %42, label %17
+15:                                               ; preds = %8
+  %16 = tail call ptr @ipv6_route_sysctl_init(ptr noundef %0) #3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %43, label %18
 
-17:                                               ; preds = %14
-  %18 = tail call ptr @ipv6_icmp_sysctl_init(ptr noundef %0) #3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %41, label %20
+18:                                               ; preds = %15
+  %19 = tail call ptr @ipv6_icmp_sysctl_init(ptr noundef %0) #3
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %42, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %2, i64 noundef 21) #3
-  %22 = getelementptr inbounds i8, ptr %0, i64 1664
-  store ptr %21, ptr %22, align 64
-  %23 = icmp eq ptr %21, null
-  br i1 %23, label %40, label %24
+21:                                               ; preds = %18
+  %22 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %2, i64 noundef 21) #3
+  %23 = getelementptr inbounds i8, ptr %0, i64 1664
+  store ptr %22, ptr %23, align 64
+  %24 = icmp eq ptr %22, null
+  br i1 %24, label %41, label %25
 
-24:                                               ; preds = %20
-  %25 = tail call i64 @ipv6_route_sysctl_table_size(ptr noundef %0) #3
-  %26 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i64 noundef %25) #3
-  %27 = getelementptr inbounds i8, ptr %0, i64 1672
-  store ptr %26, ptr %27, align 8
-  %28 = icmp eq ptr %26, null
-  br i1 %28, label %38, label %29
+25:                                               ; preds = %21
+  %26 = tail call i64 @ipv6_route_sysctl_table_size(ptr noundef %0) #3
+  %27 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %16, i64 noundef %26) #3
+  %28 = getelementptr inbounds i8, ptr %0, i64 1672
+  store ptr %27, ptr %28, align 8
+  %29 = icmp eq ptr %27, null
+  br i1 %29, label %39, label %30
 
-29:                                               ; preds = %24
-  %30 = tail call i64 @ipv6_icmp_sysctl_table_size() #3
-  %31 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %18, i64 noundef %30) #3
-  %32 = getelementptr inbounds i8, ptr %0, i64 1680
-  store ptr %31, ptr %32, align 16
-  %33 = icmp eq ptr %31, null
-  br i1 %33, label %36, label %34
+30:                                               ; preds = %25
+  %31 = tail call i64 @ipv6_icmp_sysctl_table_size() #3
+  %32 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %19, i64 noundef %31) #3
+  %33 = getelementptr inbounds i8, ptr %0, i64 1680
+  store ptr %32, ptr %33, align 16
+  %34 = icmp eq ptr %32, null
+  br i1 %34, label %37, label %35
 
-34:                                               ; preds = %42, %29, %1
-  %35 = phi i32 [ -12, %42 ], [ -12, %1 ], [ 0, %29 ]
-  ret i32 %35
+35:                                               ; preds = %43, %30, %1
+  %36 = phi i32 [ -12, %43 ], [ -12, %1 ], [ 0, %30 ]
+  ret i32 %36
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %27, align 8
-  tail call void @unregister_net_sysctl_table(ptr noundef %37) #3
-  br label %38
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %28, align 8
+  tail call void @unregister_net_sysctl_table(ptr noundef %38) #3
+  br label %39
 
-38:                                               ; preds = %36, %24
-  %39 = load ptr, ptr %22, align 64
-  tail call void @unregister_net_sysctl_table(ptr noundef %39) #3
-  br label %40
-
-40:                                               ; preds = %38, %20
-  tail call void @kfree(ptr noundef nonnull %18) #3
+39:                                               ; preds = %37, %25
+  %40 = load ptr, ptr %23, align 64
+  tail call void @unregister_net_sysctl_table(ptr noundef %40) #3
   br label %41
 
-41:                                               ; preds = %40, %17
-  tail call void @kfree(ptr noundef nonnull %15) #3
+41:                                               ; preds = %39, %21
+  tail call void @kfree(ptr noundef nonnull %19) #3
   br label %42
 
-42:                                               ; preds = %41, %14
+42:                                               ; preds = %41, %18
+  tail call void @kfree(ptr noundef nonnull %16) #3
+  br label %43
+
+43:                                               ; preds = %42, %15
   tail call void @kfree(ptr noundef nonnull %2) #3
-  br label %34
+  br label %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

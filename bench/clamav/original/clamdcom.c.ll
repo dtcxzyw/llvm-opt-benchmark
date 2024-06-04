@@ -1171,7 +1171,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  br label %292
+  br label %293
 
 31:                                               ; preds = %25
   br label %32
@@ -1196,7 +1196,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 38:                                               ; preds = %35
   %39 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.23)
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %9, align 8
@@ -1223,7 +1223,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   %58 = call ptr @strerror(i32 noundef %57) #9
   %59 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef @.str.24, ptr noundef %58)
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
 60:                                               ; preds = %40
   %61 = load ptr, ptr %16, align 8
@@ -1244,7 +1244,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   %74 = load ptr, ptr %16, align 8
   call void @free(ptr noundef %74) #9
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
 75:                                               ; preds = %60
   %76 = load ptr, ptr %16, align 8
@@ -1296,16 +1296,16 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 101:                                              ; preds = %97, %94
   %102 = load i32, ptr %14, align 4
   store i32 %102, ptr %13, align 4
-  br label %292
+  br label %293
 
 103:                                              ; preds = %86
   br label %104
 
-104:                                              ; preds = %263, %103
+104:                                              ; preds = %264, %103
   %105 = call i32 @recvln(ptr noundef %18, ptr noundef %16, ptr noundef %17)
   store i32 %105, ptr %14, align 4
   %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %264
+  br i1 %106, label %107, label %265
 
 107:                                              ; preds = %104
   %108 = load i32, ptr %14, align 4
@@ -1314,7 +1314,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 
 110:                                              ; preds = %107
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
 111:                                              ; preds = %107
   store i32 1, ptr %15, align 4
@@ -1330,7 +1330,7 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 117:                                              ; preds = %114, %111
   %118 = load i32, ptr %14, align 4
   %119 = icmp sgt i32 %118, 7
-  br i1 %119, label %120, label %263
+  br i1 %119, label %120, label %264
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %16, align 8
@@ -1414,14 +1414,14 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 
 168:                                              ; preds = %165, %162
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
 169:                                              ; preds = %142
   %170 = load ptr, ptr %17, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 -7
   %172 = call i32 @memcmp(ptr noundef %171, ptr noundef @.str.31, i64 noundef 6) #10
   %173 = icmp ne i32 %172, 0
-  br i1 %173, label %228, label %174
+  br i1 %173, label %229, label %174
 
 174:                                              ; preds = %169
   %175 = load ptr, ptr %17, align 8
@@ -1445,18 +1445,18 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   %185 = load i32, ptr %13, align 4
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr %13, align 4
-  br label %200
+  br label %201
 
 187:                                              ; preds = %181
   %188 = load ptr, ptr %9, align 8
   %189 = icmp ne ptr %188, null
-  br i1 %189, label %190, label %199
+  br i1 %189, label %190, label %200
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr %9, align 8
   %192 = call i32 @strcmp(ptr noundef %191, ptr noundef @dsresult.last_filename) #10
   %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %199
+  br i1 %193, label %194, label %200
 
 194:                                              ; preds = %190
   %195 = load i32, ptr %13, align 4
@@ -1464,183 +1464,184 @@ define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   store i32 %196, ptr %13, align 4
   %197 = load ptr, ptr %9, align 8
   %198 = call ptr @strncpy(ptr noundef @dsresult.last_filename, ptr noundef %197, i64 noundef 4096) #9
-  store i8 0, ptr getelementptr inbounds ([4097 x i8], ptr @dsresult.last_filename, i64 0, i64 4096), align 16
-  br label %199
-
-199:                                              ; preds = %194, %190, %187
+  %199 = getelementptr inbounds [4097 x i8], ptr @dsresult.last_filename, i64 0, i64 4096
+  store i8 0, ptr %199, align 16
   br label %200
 
-200:                                              ; preds = %199, %184
-  %201 = load ptr, ptr %9, align 8
-  %202 = icmp ne ptr %201, null
-  br i1 %202, label %203, label %227
+200:                                              ; preds = %194, %190, %187
+  br label %201
 
-203:                                              ; preds = %200
-  %204 = load i32, ptr %8, align 4
-  %205 = icmp sge i32 %204, 2
-  br i1 %205, label %206, label %216
+201:                                              ; preds = %200, %184
+  %202 = load ptr, ptr %9, align 8
+  %203 = icmp ne ptr %202, null
+  br i1 %203, label %204, label %228
 
-206:                                              ; preds = %203
-  %207 = load ptr, ptr %9, align 8
-  %208 = load ptr, ptr %20, align 8
-  %209 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.32, ptr noundef %207, ptr noundef %208)
-  %210 = load ptr, ptr @action, align 8
-  %211 = icmp ne ptr %210, null
-  br i1 %211, label %212, label %215
+204:                                              ; preds = %201
+  %205 = load i32, ptr %8, align 4
+  %206 = icmp sge i32 %205, 2
+  br i1 %206, label %207, label %217
 
-212:                                              ; preds = %206
-  %213 = load ptr, ptr @action, align 8
-  %214 = load ptr, ptr %9, align 8
-  call void %213(ptr noundef %214)
-  br label %215
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %9, align 8
+  %209 = load ptr, ptr %20, align 8
+  %210 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.32, ptr noundef %208, ptr noundef %209)
+  %211 = load ptr, ptr @action, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %213, label %216
 
-215:                                              ; preds = %212, %206
-  br label %226
+213:                                              ; preds = %207
+  %214 = load ptr, ptr @action, align 8
+  %215 = load ptr, ptr %9, align 8
+  call void %214(ptr noundef %215)
+  br label %216
 
-216:                                              ; preds = %203
-  %217 = load ptr, ptr %16, align 8
-  %218 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.33, ptr noundef %217)
-  %219 = load ptr, ptr %20, align 8
-  store i8 0, ptr %219, align 1
-  %220 = load ptr, ptr @action, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %225
-
-222:                                              ; preds = %216
-  %223 = load ptr, ptr @action, align 8
-  %224 = load ptr, ptr %16, align 8
-  call void %223(ptr noundef %224)
-  br label %225
-
-225:                                              ; preds = %222, %216
-  br label %226
-
-226:                                              ; preds = %225, %215
+216:                                              ; preds = %213, %207
   br label %227
 
-227:                                              ; preds = %226, %200
-  br label %261
+217:                                              ; preds = %204
+  %218 = load ptr, ptr %16, align 8
+  %219 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.33, ptr noundef %218)
+  %220 = load ptr, ptr %20, align 8
+  store i8 0, ptr %220, align 1
+  %221 = load ptr, ptr @action, align 8
+  %222 = icmp ne ptr %221, null
+  br i1 %222, label %223, label %226
 
-228:                                              ; preds = %169
-  %229 = load ptr, ptr %17, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 -7
-  %231 = call i32 @memcmp(ptr noundef %230, ptr noundef @.str.34, i64 noundef 6) #10
-  %232 = icmp ne i32 %231, 0
-  br i1 %232, label %260, label %233
+223:                                              ; preds = %217
+  %224 = load ptr, ptr @action, align 8
+  %225 = load ptr, ptr %16, align 8
+  call void %224(ptr noundef %225)
+  br label %226
 
-233:                                              ; preds = %228
-  %234 = load ptr, ptr %11, align 8
-  %235 = icmp ne ptr %234, null
-  br i1 %235, label %236, label %240
+226:                                              ; preds = %223, %217
+  br label %227
 
-236:                                              ; preds = %233
-  %237 = load ptr, ptr %11, align 8
-  %238 = load i32, ptr %237, align 4
-  %239 = add nsw i32 %238, 1
-  store i32 %239, ptr %237, align 4
-  br label %240
+227:                                              ; preds = %226, %216
+  br label %228
 
-240:                                              ; preds = %236, %233
-  %241 = load ptr, ptr %10, align 8
-  %242 = icmp ne ptr %241, null
-  br i1 %242, label %243, label %245
-
-243:                                              ; preds = %240
-  %244 = load ptr, ptr %10, align 8
-  store i32 0, ptr %244, align 4
-  br label %245
-
-245:                                              ; preds = %243, %240
-  %246 = load ptr, ptr %9, align 8
-  %247 = icmp ne ptr %246, null
-  br i1 %247, label %248, label %259
-
-248:                                              ; preds = %245
-  %249 = load i32, ptr %8, align 4
-  %250 = icmp sge i32 %249, 2
-  br i1 %250, label %251, label %255
-
-251:                                              ; preds = %248
-  %252 = load ptr, ptr %9, align 8
-  %253 = load ptr, ptr %20, align 8
-  %254 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.35, ptr noundef %252, ptr noundef %253)
-  br label %258
-
-255:                                              ; preds = %248
-  %256 = load ptr, ptr %16, align 8
-  %257 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.26, ptr noundef %256)
-  br label %258
-
-258:                                              ; preds = %255, %251
-  br label %259
-
-259:                                              ; preds = %258, %245
-  br label %260
-
-260:                                              ; preds = %259, %228
-  br label %261
-
-261:                                              ; preds = %260, %227
+228:                                              ; preds = %227, %201
   br label %262
 
-262:                                              ; preds = %261
+229:                                              ; preds = %169
+  %230 = load ptr, ptr %17, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 -7
+  %232 = call i32 @memcmp(ptr noundef %231, ptr noundef @.str.34, i64 noundef 6) #10
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %261, label %234
+
+234:                                              ; preds = %229
+  %235 = load ptr, ptr %11, align 8
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %237, label %241
+
+237:                                              ; preds = %234
+  %238 = load ptr, ptr %11, align 8
+  %239 = load i32, ptr %238, align 4
+  %240 = add nsw i32 %239, 1
+  store i32 %240, ptr %238, align 4
+  br label %241
+
+241:                                              ; preds = %237, %234
+  %242 = load ptr, ptr %10, align 8
+  %243 = icmp ne ptr %242, null
+  br i1 %243, label %244, label %246
+
+244:                                              ; preds = %241
+  %245 = load ptr, ptr %10, align 8
+  store i32 0, ptr %245, align 4
+  br label %246
+
+246:                                              ; preds = %244, %241
+  %247 = load ptr, ptr %9, align 8
+  %248 = icmp ne ptr %247, null
+  br i1 %248, label %249, label %260
+
+249:                                              ; preds = %246
+  %250 = load i32, ptr %8, align 4
+  %251 = icmp sge i32 %250, 2
+  br i1 %251, label %252, label %256
+
+252:                                              ; preds = %249
+  %253 = load ptr, ptr %9, align 8
+  %254 = load ptr, ptr %20, align 8
+  %255 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.35, ptr noundef %253, ptr noundef %254)
+  br label %259
+
+256:                                              ; preds = %249
+  %257 = load ptr, ptr %16, align 8
+  %258 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.26, ptr noundef %257)
+  br label %259
+
+259:                                              ; preds = %256, %252
+  br label %260
+
+260:                                              ; preds = %259, %246
+  br label %261
+
+261:                                              ; preds = %260, %229
+  br label %262
+
+262:                                              ; preds = %261, %228
   br label %263
 
-263:                                              ; preds = %262, %117
+263:                                              ; preds = %262
+  br label %264
+
+264:                                              ; preds = %263, %117
   br label %104
 
-264:                                              ; preds = %104
-  %265 = load i32, ptr %15, align 4
-  %266 = icmp ne i32 %265, 0
-  br i1 %266, label %291, label %267
+265:                                              ; preds = %104
+  %266 = load i32, ptr %15, align 4
+  %267 = icmp ne i32 %266, 0
+  br i1 %267, label %292, label %268
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %9, align 8
-  %269 = icmp ne ptr %268, null
-  br i1 %269, label %272, label %270
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %9, align 8
+  %270 = icmp ne ptr %269, null
+  br i1 %270, label %273, label %271
 
-270:                                              ; preds = %267
-  %271 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.36)
+271:                                              ; preds = %268
+  %272 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.36)
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
-272:                                              ; preds = %267
-  %273 = load ptr, ptr %9, align 8
-  %274 = call i32 @stat(ptr noundef %273, ptr noundef %19) #9
-  %275 = icmp eq i32 %274, -1
-  br i1 %275, label %276, label %282
+273:                                              ; preds = %268
+  %274 = load ptr, ptr %9, align 8
+  %275 = call i32 @stat(ptr noundef %274, ptr noundef %19) #9
+  %276 = icmp eq i32 %275, -1
+  br i1 %276, label %277, label %283
 
-276:                                              ; preds = %272
-  %277 = load ptr, ptr %9, align 8
-  %278 = call ptr @__errno_location() #8
-  %279 = load i32, ptr %278, align 4
-  %280 = call ptr @strerror(i32 noundef %279) #9
-  %281 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.37, ptr noundef %277, ptr noundef %280)
+277:                                              ; preds = %273
+  %278 = load ptr, ptr %9, align 8
+  %279 = call ptr @__errno_location() #8
+  %280 = load i32, ptr %279, align 4
+  %281 = call ptr @strerror(i32 noundef %280) #9
+  %282 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.37, ptr noundef %278, ptr noundef %281)
   store i32 -1, ptr %13, align 4
-  br label %292
+  br label %293
 
-282:                                              ; preds = %272
-  %283 = getelementptr inbounds %struct.stat, ptr %19, i32 0, i32 3
-  %284 = load i32, ptr %283, align 8
-  %285 = and i32 %284, 61440
-  %286 = icmp eq i32 %285, 16384
-  br i1 %286, label %290, label %287
+283:                                              ; preds = %273
+  %284 = getelementptr inbounds %struct.stat, ptr %19, i32 0, i32 3
+  %285 = load i32, ptr %284, align 8
+  %286 = and i32 %285, 61440
+  %287 = icmp eq i32 %286, 16384
+  br i1 %287, label %291, label %288
 
-287:                                              ; preds = %282
-  %288 = load ptr, ptr %9, align 8
-  %289 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.38, ptr noundef %288)
+288:                                              ; preds = %283
+  %289 = load ptr, ptr %9, align 8
+  %290 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef @.str.38, ptr noundef %289)
   store i32 -1, ptr %13, align 4
+  br label %293
+
+291:                                              ; preds = %283
   br label %292
 
-290:                                              ; preds = %282
-  br label %291
+292:                                              ; preds = %291, %265
+  br label %293
 
-291:                                              ; preds = %290, %264
-  br label %292
-
-292:                                              ; preds = %291, %287, %276, %270, %168, %110, %101, %73, %55, %38, %30
-  %293 = load i32, ptr %13, align 4
-  ret i32 %293
+293:                                              ; preds = %292, %288, %277, %271, %168, %110, %101, %73, %55, %38, %30
+  %294 = load i32, ptr %13, align 4
+  ret i32 %294
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

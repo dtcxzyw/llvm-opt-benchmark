@@ -56,7 +56,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
 
 25:                                               ; preds = %22, %4
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %7, align 8
@@ -69,7 +69,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
 
 31:                                               ; preds = %26
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 32:                                               ; preds = %26
   %33 = load i64, ptr %7, align 8
@@ -83,7 +83,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
 38:                                               ; preds = %32
   %39 = call i32 @deflateEnd(ptr noundef %10)
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 40:                                               ; preds = %32
   %41 = load i64, ptr %11, align 8
@@ -95,7 +95,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
 44:                                               ; preds = %40
   %45 = call i32 @deflateEnd(ptr noundef %10)
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %6, align 8
@@ -123,7 +123,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
   %62 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %62) #8
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 63:                                               ; preds = %46
   %64 = load i64, ptr %11, align 8
@@ -144,7 +144,7 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
   %75 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %75) #8
   store i1 false, ptr %5, align 1
-  br label %107
+  br label %111
 
 76:                                               ; preds = %63
   %77 = load ptr, ptr %14, align 8
@@ -165,39 +165,43 @@ define internal zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %85, i64 %87, i1 false)
   %88 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %88) #8
-  %89 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %90 = icmp sge i32 %89, 0
-  br i1 %90, label %91, label %106
+  %89 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp sge i32 %90, 0
+  br i1 %91, label %92, label %110
 
-91:                                               ; preds = %76
-  %92 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %93 = icmp slt i32 %92, 64
-  br i1 %93, label %94, label %106
+92:                                               ; preds = %76
+  %93 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp slt i32 %94, 64
+  br i1 %95, label %96, label %110
 
-94:                                               ; preds = %91
-  %95 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %96
-  %98 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp sge i32 %99, 2
-  br i1 %100, label %101, label %106
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %98 = load i32, ptr %97, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %99
+  %101 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %100, i32 0, i32 2
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp sge i32 %102, 2
+  br i1 %103, label %104, label %110
 
-101:                                              ; preds = %94
-  %102 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %103 = load i64, ptr %7, align 8
-  %104 = load i64, ptr %12, align 8
-  %105 = sub i64 %104, 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %102, ptr noundef @.str.1, i64 noundef %103, i64 noundef %105)
-  br label %106
+104:                                              ; preds = %96
+  %105 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %106 = load i32, ptr %105, align 4
+  %107 = load i64, ptr %7, align 8
+  %108 = load i64, ptr %12, align 8
+  %109 = sub i64 %108, 4
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %106, ptr noundef @.str.1, i64 noundef %107, i64 noundef %109)
+  br label %110
 
-106:                                              ; preds = %101, %94, %91, %76
+110:                                              ; preds = %104, %96, %92, %76
   store i1 true, ptr %5, align 1
-  br label %107
+  br label %111
 
-107:                                              ; preds = %106, %74, %61, %44, %38, %31, %25
-  %108 = load i1, ptr %5, align 1
-  ret i1 %108
+111:                                              ; preds = %110, %74, %61, %44, %38, %31, %25
+  %112 = load i1, ptr %5, align 1
+  ret i1 %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -218,62 +222,66 @@ define internal zeroext i1 @zlib_decompress(ptr noundef %0, ptr noundef %1, ptr 
   store i64 0, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 1 %14, i64 4, i1 false)
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %16 = icmp sge i32 %15, 0
-  br i1 %16, label %17, label %31
+  %15 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp sge i32 %16, 0
+  br i1 %17, label %18, label %35
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %19 = icmp slt i32 %18, 64
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp slt i32 %20, 64
+  br i1 %21, label %22, label %35
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22
-  %24 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sge i32 %25, 2
-  br i1 %26, label %27, label %31
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %25
+  %27 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp sge i32 %28, 2
+  br i1 %29, label %30, label %35
 
-27:                                               ; preds = %20
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %29 = load i64, ptr %9, align 8
-  %30 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %28, ptr noundef @.str.2, i64 noundef %29, i32 noundef %30)
-  br label %31
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %32 = load i32, ptr %31, align 4
+  %33 = load i64, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %32, ptr noundef @.str.2, i64 noundef %33, i32 noundef %34)
+  br label %35
 
-31:                                               ; preds = %27, %20, %17, %4
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
-  store ptr %33, ptr %12, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = zext i32 %35 to i64
-  %37 = load ptr, ptr %12, align 8
-  %38 = load i64, ptr %9, align 8
-  %39 = call zeroext i1 @doit(ptr noundef %34, i64 noundef %36, ptr noundef %37, i64 noundef %38)
-  %40 = zext i1 %39 to i8
-  store i8 %40, ptr %11, align 1
-  %41 = load i8, ptr %11, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %47
+35:                                               ; preds = %30, %22, %18, %4
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  store ptr %37, ptr %12, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = zext i32 %39 to i64
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = call zeroext i1 @doit(ptr noundef %38, i64 noundef %40, ptr noundef %41, i64 noundef %42)
+  %44 = zext i1 %43 to i8
+  store i8 %44, ptr %11, align 1
+  %45 = load i8, ptr %11, align 1
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %51
 
-43:                                               ; preds = %31
-  %44 = load i32, ptr %10, align 4
-  %45 = zext i32 %44 to i64
-  %46 = load ptr, ptr %7, align 8
-  store i64 %45, ptr %46, align 8
+47:                                               ; preds = %35
+  %48 = load i32, ptr %10, align 4
+  %49 = zext i32 %48 to i64
+  %50 = load ptr, ptr %7, align 8
+  store i64 %49, ptr %50, align 8
   store i1 true, ptr %5, align 1
-  br label %48
+  br label %52
 
-47:                                               ; preds = %31
+51:                                               ; preds = %35
   store i1 false, ptr %5, align 1
-  br label %48
+  br label %52
 
-48:                                               ; preds = %47, %43
-  %49 = load i1, ptr %5, align 1
-  ret i1 %49
+52:                                               ; preds = %51, %47
+  %53 = load i1, ptr %5, align 1
+  ret i1 %53
 }
 
 ; Function Attrs: nounwind uwtable

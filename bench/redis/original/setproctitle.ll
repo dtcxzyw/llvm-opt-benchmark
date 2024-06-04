@@ -304,22 +304,26 @@ if.then84:                                        ; preds = %if.end81
 
 if.end85:                                         ; preds = %if.end81
   %76 = load ptr, ptr %nul, align 8
-  store ptr %76, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 3), align 8
-  %77 = load ptr, ptr %base, align 8
-  store ptr %77, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %78 = load ptr, ptr %end, align 8
-  store ptr %78, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 2), align 8
+  %77 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 3
+  store ptr %76, ptr %77, align 8
+  %78 = load ptr, ptr %base, align 8
+  %79 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  store ptr %78, ptr %79, align 8
+  %80 = load ptr, ptr %end, align 8
+  %81 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 2
+  store ptr %80, ptr %81, align 8
   br label %return
 
 syerr:                                            ; preds = %if.then76, %if.then72, %if.then68
   %call86 = call ptr @__errno_location() #10
-  %79 = load i32, ptr %call86, align 4
-  store i32 %79, ptr %error, align 4
+  %82 = load i32, ptr %call86, align 4
+  store i32 %82, ptr %error, align 4
   br label %error87
 
 error87:                                          ; preds = %syerr, %if.then84, %if.then80
-  %80 = load i32, ptr %error, align 4
-  store i32 %80, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 5), align 4
+  %83 = load i32, ptr %error, align 4
+  %84 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 5
+  store i32 %83, ptr %84, align 4
   br label %return
 
 return:                                           ; preds = %error87, %if.end85, %if.then
@@ -587,25 +591,26 @@ entry:
   %len = alloca i32, align 4
   %error = alloca i32, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %fmt.addr, align 8
-  %tobool1 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %fmt.addr, align 8
+  %tobool1 = icmp ne ptr %2, null
   br i1 %tobool1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay3 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
-  %2 = load ptr, ptr %fmt.addr, align 8
+  %3 = load ptr, ptr %fmt.addr, align 8
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  %call = call i32 @vsnprintf(ptr noundef %arraydecay3, i64 noundef 256, ptr noundef %2, ptr noundef %arraydecay4) #8
+  %call = call i32 @vsnprintf(ptr noundef %arraydecay3, i64 noundef 256, ptr noundef %3, ptr noundef %arraydecay4) #8
   store i32 %call, ptr %len, align 4
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @llvm.va_end.p0(ptr %arraydecay5)
@@ -613,100 +618,117 @@ if.then2:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %arraydecay6 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
-  %3 = load ptr, ptr @SPT, align 8
-  %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay6, i64 noundef 256, ptr noundef @.str, ptr noundef %3) #8
+  %4 = load ptr, ptr @SPT, align 8
+  %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay6, i64 noundef 256, ptr noundef @.str, ptr noundef %4) #8
   store i32 %call7, ptr %len, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then2
-  %4 = load i32, ptr %len, align 4
-  %cmp = icmp sle i32 %4, 0
+  %5 = load i32, ptr %len, align 4
+  %cmp = icmp sle i32 %5, 0
   br i1 %cmp, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end8
   %call10 = call ptr @__errno_location() #10
-  %5 = load i32, ptr %call10, align 4
-  store i32 %5, ptr %error, align 4
+  %6 = load i32, ptr %call10, align 4
+  store i32 %6, ptr %error, align 4
   br label %error40
 
 if.end11:                                         ; preds = %if.end8
-  %6 = load i8, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 4), align 8
-  %tobool12 = trunc i8 %6 to i1
+  %7 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 4
+  %8 = load i8, ptr %7, align 8
+  %tobool12 = trunc i8 %8 to i1
   br i1 %tobool12, label %if.else14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %7 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 2), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
+  %9 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %sub.ptr.sub, i1 false)
-  store i8 1, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 4), align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %sub.ptr.sub, i1 false)
+  %15 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 4
+  store i8 1, ptr %15, align 8
   br label %if.end19
 
 if.else14:                                        ; preds = %if.end11
-  %10 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 2), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %sub.ptr.lhs.cast15 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast16 = ptrtoint ptr %12 to i64
+  %16 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %sub.ptr.lhs.cast15 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast16 = ptrtoint ptr %21 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %call18 = call i64 @spt_min(i64 noundef 256, i64 noundef %sub.ptr.sub17)
-  call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %call18, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %call18, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else14, %if.then13
-  %13 = load i32, ptr %len, align 4
-  %conv = sext i32 %13 to i64
-  %14 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %sub.ptr.lhs.cast20 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast21 = ptrtoint ptr %15 to i64
+  %22 = load i32, ptr %len, align 4
+  %conv = sext i32 %22 to i64
+  %23 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast20 = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast21 = ptrtoint ptr %26 to i64
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %call23 = call i64 @spt_min(i64 noundef 256, i64 noundef %sub.ptr.sub22)
   %sub = sub i64 %call23, 1
   %call24 = call i64 @spt_min(i64 noundef %conv, i64 noundef %sub)
   %conv25 = trunc i64 %call24 to i32
   store i32 %conv25, ptr %len, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
+  %27 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
   %arraydecay26 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
-  %17 = load i32, ptr %len, align 4
-  %conv27 = sext i32 %17 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 16 %arraydecay26, i64 %conv27, i1 false)
-  %18 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 1), align 8
-  %19 = load i32, ptr %len, align 4
-  %idxprom = sext i32 %19 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %18, i64 %idxprom
+  %29 = load i32, ptr %len, align 4
+  %conv27 = sext i32 %29 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 16 %arraydecay26, i64 %conv27, i1 false)
+  %30 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %len, align 4
+  %idxprom = sext i32 %32 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %31, i64 %idxprom
   store ptr %arrayidx, ptr %nul, align 8
-  %20 = load ptr, ptr %nul, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 3), align 8
-  %cmp28 = icmp ult ptr %20, %21
+  %33 = load ptr, ptr %nul, align 8
+  %34 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
+  %cmp28 = icmp ult ptr %33, %35
   br i1 %cmp28, label %if.then30, label %if.else31
 
 if.then30:                                        ; preds = %if.end19
-  %22 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 3), align 8
-  store i8 46, ptr %22, align 1
+  %36 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  store i8 46, ptr %37, align 1
   br label %if.end39
 
 if.else31:                                        ; preds = %if.end19
-  %23 = load ptr, ptr %nul, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 3), align 8
-  %cmp32 = icmp eq ptr %23, %24
+  %38 = load ptr, ptr %nul, align 8
+  %39 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8
+  %cmp32 = icmp eq ptr %38, %40
   br i1 %cmp32, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.else31
-  %25 = load ptr, ptr %nul, align 8
-  %arrayidx34 = getelementptr inbounds i8, ptr %25, i64 1
-  %26 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 2), align 8
-  %cmp35 = icmp ult ptr %arrayidx34, %26
+  %41 = load ptr, ptr %nul, align 8
+  %arrayidx34 = getelementptr inbounds i8, ptr %41, i64 1
+  %42 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %cmp35 = icmp ult ptr %arrayidx34, %43
   br i1 %cmp35, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %land.lhs.true
-  %27 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 3), align 8
-  store i8 32, ptr %27, align 1
-  %28 = load ptr, ptr %nul, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %28, i32 1
+  %44 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  store i8 32, ptr %45, align 1
+  %46 = load ptr, ptr %nul, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %46, i32 1
   store ptr %incdec.ptr, ptr %nul, align 8
   store i8 0, ptr %incdec.ptr, align 1
   br label %if.end38
@@ -718,8 +740,9 @@ if.end39:                                         ; preds = %if.end38, %if.then3
   br label %return
 
 error40:                                          ; preds = %if.then9
-  %29 = load i32, ptr %error, align 4
-  store i32 %29, ptr getelementptr inbounds (%struct.anon, ptr @SPT, i32 0, i32 5), align 4
+  %47 = load i32, ptr %error, align 4
+  %48 = getelementptr inbounds %struct.anon, ptr @SPT, i32 0, i32 5
+  store i32 %47, ptr %48, align 4
   br label %return
 
 return:                                           ; preds = %error40, %if.end39, %if.then

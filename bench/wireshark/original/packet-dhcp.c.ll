@@ -3804,677 +3804,683 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %25, align 8
   store i8 0, ptr %29, align 1
   store i32 0, ptr @rfc3396_dns_domain_search_list, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
+  %30 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  store ptr null, ptr %30, align 8
   store i32 0, ptr @rfc3396_sip_server, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 23
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 4011
-  br i1 %33, label %39, label %34
+  %31 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 23
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 4011
+  br i1 %35, label %41, label %36
 
-34:                                               ; preds = %4
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 24
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, 4011
-  br i1 %38, label %39, label %49
+36:                                               ; preds = %4
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 24
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 4011
+  br i1 %40, label %41, label %51
 
-39:                                               ; preds = %34, %4
-  %40 = load ptr, ptr %6, align 8
-  %41 = call i32 @tvb_bytes_exist(ptr noundef %40, i32 noundef 236, i32 noundef 4)
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %47
+41:                                               ; preds = %36, %4
+  %42 = load ptr, ptr %6, align 8
+  %43 = call i32 @tvb_bytes_exist(ptr noundef %42, i32 noundef 236, i32 noundef 4)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %49
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %6, align 8
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %44, i32 noundef 236)
-  %46 = icmp ne i32 %45, 1669485411
-  br i1 %46, label %47, label %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %6, align 8
+  %47 = call i32 @tvb_get_ntohl(ptr noundef %46, i32 noundef 236)
+  %48 = icmp ne i32 %47, 1669485411
+  br i1 %48, label %49, label %50
 
-47:                                               ; preds = %43, %39
+49:                                               ; preds = %45, %41
   store i32 0, ptr %5, align 4
-  br label %490
+  br label %496
 
-48:                                               ; preds = %43
+50:                                               ; preds = %45
   store i32 1, ptr %23, align 4
-  br label %50
+  br label %52
 
-49:                                               ; preds = %34
+51:                                               ; preds = %36
   store i32 0, ptr %23, align 4
-  br label %50
+  br label %52
 
-50:                                               ; preds = %49, %48
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef @.str.1937)
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  call void @col_clear(ptr noundef %56, i32 noundef 25)
-  %57 = load ptr, ptr %6, align 8
-  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %57, i32 noundef 0)
-  store i8 %58, ptr %15, align 1
+52:                                               ; preds = %51, %50
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  call void @col_set_str(ptr noundef %55, i32 noundef 34, ptr noundef @.str.1937)
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  call void @col_clear(ptr noundef %58, i32 noundef 25)
   %59 = load ptr, ptr %6, align 8
-  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %59, i32 noundef 1)
-  store i8 %60, ptr %16, align 1
+  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %59, i32 noundef 0)
+  store i8 %60, ptr %15, align 1
   %61 = load ptr, ptr %6, align 8
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef 2)
-  store i8 %62, ptr %17, align 1
-  %63 = load i8, ptr %15, align 1
-  %64 = zext i8 %63 to i32
-  switch i32 %64, label %110 [
-    i32 1, label %65
-    i32 2, label %106
+  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef 1)
+  store i8 %62, ptr %16, align 1
+  %63 = load ptr, ptr %6, align 8
+  %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef 2)
+  store i8 %64, ptr %17, align 1
+  %65 = load i8, ptr %15, align 1
+  %66 = zext i8 %65 to i32
+  switch i32 %66, label %112 [
+    i32 1, label %67
+    i32 2, label %108
   ]
 
-65:                                               ; preds = %50
-  %66 = load i8, ptr %16, align 1
-  %67 = zext i8 %66 to i32
-  %68 = icmp eq i32 %67, 1
-  br i1 %68, label %73, label %69
+67:                                               ; preds = %52
+  %68 = load i8, ptr %16, align 1
+  %69 = zext i8 %68 to i32
+  %70 = icmp eq i32 %69, 1
+  br i1 %70, label %75, label %71
 
-69:                                               ; preds = %65
-  %70 = load i8, ptr %16, align 1
-  %71 = zext i8 %70 to i32
-  %72 = icmp eq i32 %71, 6
-  br i1 %72, label %73, label %92
+71:                                               ; preds = %67
+  %72 = load i8, ptr %16, align 1
+  %73 = zext i8 %72 to i32
+  %74 = icmp eq i32 %73, 6
+  br i1 %74, label %75, label %94
 
-73:                                               ; preds = %69, %65
-  %74 = load i8, ptr %17, align 1
-  %75 = zext i8 %74 to i32
-  %76 = icmp eq i32 %75, 6
-  br i1 %76, label %77, label %92
+75:                                               ; preds = %71, %67
+  %76 = load i8, ptr %17, align 1
+  %77 = zext i8 %76 to i32
+  %78 = icmp eq i32 %77, 6
+  br i1 %78, label %79, label %94
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct._packet_info, ptr %78, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct._packet_info, ptr %81, i32 0, i32 50
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i8, ptr %17, align 1
-  %86 = zext i8 %85 to i32
-  %87 = load i8, ptr %16, align 1
-  %88 = zext i8 %87 to i16
-  %89 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %83, ptr noundef %84, i32 noundef 28, i32 noundef %86, i16 noundef zeroext %88)
-  %90 = load ptr, ptr %6, align 8
-  %91 = call ptr @tvb_get_ether_name(ptr noundef %90, i32 noundef 28)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %80, i32 noundef 25, ptr noundef @.str.1938, ptr noundef %89, ptr noundef %91)
-  br label %105
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds %struct._packet_info, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 50
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i8, ptr %17, align 1
+  %88 = zext i8 %87 to i32
+  %89 = load i8, ptr %16, align 1
+  %90 = zext i8 %89 to i16
+  %91 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %85, ptr noundef %86, i32 noundef 28, i32 noundef %88, i16 noundef zeroext %90)
+  %92 = load ptr, ptr %6, align 8
+  %93 = call ptr @tvb_get_ether_name(ptr noundef %92, i32 noundef 28)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %82, i32 noundef 25, ptr noundef @.str.1938, ptr noundef %91, ptr noundef %93)
+  br label %107
 
-92:                                               ; preds = %73, %69
-  %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 50
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %6, align 8
-  %100 = load i8, ptr %17, align 1
-  %101 = zext i8 %100 to i32
-  %102 = load i8, ptr %16, align 1
-  %103 = zext i8 %102 to i16
-  %104 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %98, ptr noundef %99, i32 noundef 28, i32 noundef %101, i16 noundef zeroext %103)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %95, i32 noundef 25, ptr noundef @.str.1939, ptr noundef %104)
-  br label %105
+94:                                               ; preds = %75, %71
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 50
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %6, align 8
+  %102 = load i8, ptr %17, align 1
+  %103 = zext i8 %102 to i32
+  %104 = load i8, ptr %16, align 1
+  %105 = zext i8 %104 to i16
+  %106 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %100, ptr noundef %101, i32 noundef 28, i32 noundef %103, i16 noundef zeroext %105)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %97, i32 noundef 25, ptr noundef @.str.1939, ptr noundef %106)
+  br label %107
 
-105:                                              ; preds = %92, %77
-  br label %116
+107:                                              ; preds = %94, %79
+  br label %118
 
-106:                                              ; preds = %50
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct._packet_info, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  call void @col_set_str(ptr noundef %109, i32 noundef 25, ptr noundef @.str.1541)
-  br label %116
+108:                                              ; preds = %52
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds %struct._packet_info, ptr %109, i32 0, i32 1
+  %111 = load ptr, ptr %110, align 8
+  call void @col_set_str(ptr noundef %111, i32 noundef 25, ptr noundef @.str.1541)
+  br label %118
 
-110:                                              ; preds = %50
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._packet_info, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = load i8, ptr %15, align 1
-  %115 = zext i8 %114 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %113, i32 noundef 25, ptr noundef @.str.1940, i32 noundef %115)
-  br label %116
+112:                                              ; preds = %52
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds %struct._packet_info, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8
+  %116 = load i8, ptr %15, align 1
+  %117 = zext i8 %116 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %115, i32 noundef 25, ptr noundef @.str.1940, i32 noundef %117)
+  br label %118
 
-116:                                              ; preds = %110, %106, %105
+118:                                              ; preds = %112, %108, %107
   store i32 236, ptr %18, align 4
-  %117 = load ptr, ptr %6, align 8
-  %118 = load i32, ptr %18, align 4
-  %119 = call i32 @tvb_bytes_exist(ptr noundef %117, i32 noundef %118, i32 noundef 4)
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %129
+  %119 = load ptr, ptr %6, align 8
+  %120 = load i32, ptr %18, align 4
+  %121 = call i32 @tvb_bytes_exist(ptr noundef %119, i32 noundef %120, i32 noundef 4)
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %131
 
-121:                                              ; preds = %116
-  %122 = load ptr, ptr %6, align 8
-  %123 = load i32, ptr %18, align 4
-  %124 = call i32 @tvb_get_ntohl(ptr noundef %122, i32 noundef %123)
-  %125 = icmp eq i32 %124, 1669485411
-  br i1 %125, label %126, label %129
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %6, align 8
+  %125 = load i32, ptr %18, align 4
+  %126 = call i32 @tvb_get_ntohl(ptr noundef %124, i32 noundef %125)
+  %127 = icmp eq i32 %126, 1669485411
+  br i1 %127, label %128, label %131
 
-126:                                              ; preds = %121
-  %127 = load i32, ptr %18, align 4
-  %128 = add i32 %127, 4
-  store i32 %128, ptr %18, align 4
-  br label %132
+128:                                              ; preds = %123
+  %129 = load i32, ptr %18, align 4
+  %130 = add i32 %129, 4
+  store i32 %130, ptr %18, align 4
+  br label %134
 
-129:                                              ; preds = %121, %116
-  %130 = load i32, ptr %18, align 4
-  %131 = add i32 %130, 64
-  store i32 %131, ptr %18, align 4
-  br label %132
+131:                                              ; preds = %123, %118
+  %132 = load i32, ptr %18, align 4
+  %133 = add i32 %132, 64
+  store i32 %133, ptr %18, align 4
+  br label %134
 
-132:                                              ; preds = %129, %126
-  %133 = load ptr, ptr %6, align 8
-  %134 = call i32 @tvb_reported_length(ptr noundef %133)
-  store i32 %134, ptr %19, align 4
-  %135 = load ptr, ptr %8, align 8
-  %136 = load i32, ptr @proto_dhcp, align 4
-  %137 = load ptr, ptr %6, align 8
-  %138 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %138, ptr %11, align 8
-  %139 = load ptr, ptr %11, align 8
-  %140 = load i32, ptr @ett_dhcp, align 4
-  %141 = call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140)
-  store ptr %141, ptr %10, align 8
-  %142 = load i32, ptr %18, align 4
-  store i32 %142, ptr %20, align 4
+134:                                              ; preds = %131, %128
+  %135 = load ptr, ptr %6, align 8
+  %136 = call i32 @tvb_reported_length(ptr noundef %135)
+  store i32 %136, ptr %19, align 4
+  %137 = load ptr, ptr %8, align 8
+  %138 = load i32, ptr @proto_dhcp, align 4
+  %139 = load ptr, ptr %6, align 8
+  %140 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %140, ptr %11, align 8
+  %141 = load ptr, ptr %11, align 8
+  %142 = load i32, ptr @ett_dhcp, align 4
+  %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142)
+  store ptr %143, ptr %10, align 8
+  %144 = load i32, ptr %18, align 4
+  store i32 %144, ptr %20, align 4
   store i32 0, ptr %22, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  br label %143
+  %145 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  store i32 0, ptr %145, align 4
+  %146 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  store i32 0, ptr %146, align 4
+  br label %147
 
-143:                                              ; preds = %169, %132
-  %144 = load i32, ptr %20, align 4
-  %145 = load i32, ptr %19, align 4
-  %146 = icmp slt i32 %144, %145
-  br i1 %146, label %147, label %151
+147:                                              ; preds = %173, %134
+  %148 = load i32, ptr %20, align 4
+  %149 = load i32, ptr %19, align 4
+  %150 = icmp slt i32 %148, %149
+  br i1 %150, label %151, label %155
 
-147:                                              ; preds = %143
-  %148 = load i32, ptr %22, align 4
-  %149 = icmp ne i32 %148, 0
-  %150 = xor i1 %149, true
-  br label %151
+151:                                              ; preds = %147
+  %152 = load i32, ptr %22, align 4
+  %153 = icmp ne i32 %152, 0
+  %154 = xor i1 %153, true
+  br label %155
 
-151:                                              ; preds = %147, %143
-  %152 = phi i1 [ false, %143 ], [ %150, %147 ]
-  br i1 %152, label %153, label %173
+155:                                              ; preds = %151, %147
+  %156 = phi i1 [ false, %147 ], [ %154, %151 ]
+  br i1 %156, label %157, label %177
 
-153:                                              ; preds = %151
-  %154 = load ptr, ptr %6, align 8
-  %155 = load ptr, ptr %7, align 8
-  %156 = load i32, ptr %20, align 4
-  %157 = load i32, ptr %19, align 4
-  %158 = call i32 @dhcp_option(ptr noundef %154, ptr noundef %155, ptr noundef null, i32 noundef %156, i32 noundef %157, i32 noundef 1, ptr noundef %22, ptr noundef %24, ptr noundef %25, ptr noundef %29)
-  store i32 %158, ptr %28, align 4
-  %159 = load i32, ptr %28, align 4
-  %160 = icmp sle i32 %159, 0
-  br i1 %160, label %161, label %169
+157:                                              ; preds = %155
+  %158 = load ptr, ptr %6, align 8
+  %159 = load ptr, ptr %7, align 8
+  %160 = load i32, ptr %20, align 4
+  %161 = load i32, ptr %19, align 4
+  %162 = call i32 @dhcp_option(ptr noundef %158, ptr noundef %159, ptr noundef null, i32 noundef %160, i32 noundef %161, i32 noundef 1, ptr noundef %22, ptr noundef %24, ptr noundef %25, ptr noundef %29)
+  store i32 %162, ptr %28, align 4
+  %163 = load i32, ptr %28, align 4
+  %164 = icmp sle i32 %163, 0
+  br i1 %164, label %165, label %173
 
-161:                                              ; preds = %153
-  %162 = load ptr, ptr %10, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = load ptr, ptr %6, align 8
-  %165 = load i32, ptr %20, align 4
-  %166 = load i32, ptr %19, align 4
-  %167 = call ptr @proto_tree_add_expert(ptr noundef %162, ptr noundef %163, ptr noundef @ei_dhcp_option_parse_err, ptr noundef %164, i32 noundef %165, i32 noundef %166)
-  %168 = load i32, ptr %20, align 4
-  store i32 %168, ptr %5, align 4
-  br label %490
+165:                                              ; preds = %157
+  %166 = load ptr, ptr %10, align 8
+  %167 = load ptr, ptr %7, align 8
+  %168 = load ptr, ptr %6, align 8
+  %169 = load i32, ptr %20, align 4
+  %170 = load i32, ptr %19, align 4
+  %171 = call ptr @proto_tree_add_expert(ptr noundef %166, ptr noundef %167, ptr noundef @ei_dhcp_option_parse_err, ptr noundef %168, i32 noundef %169, i32 noundef %170)
+  %172 = load i32, ptr %20, align 4
+  store i32 %172, ptr %5, align 4
+  br label %496
 
-169:                                              ; preds = %153
-  %170 = load i32, ptr %28, align 4
-  %171 = load i32, ptr %20, align 4
-  %172 = add i32 %171, %170
-  store i32 %172, ptr %20, align 4
-  br label %143, !llvm.loop !10
+173:                                              ; preds = %157
+  %174 = load i32, ptr %28, align 4
+  %175 = load i32, ptr %20, align 4
+  %176 = add i32 %175, %174
+  store i32 %176, ptr %20, align 4
+  br label %147, !llvm.loop !10
 
-173:                                              ; preds = %151
-  %174 = load ptr, ptr %24, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %192
+177:                                              ; preds = %155
+  %178 = load ptr, ptr %24, align 8
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %196
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %7, align 8
-  %178 = getelementptr inbounds %struct._packet_info, ptr %177, i32 0, i32 1
-  %179 = load ptr, ptr %178, align 8
-  call void @col_set_str(ptr noundef %179, i32 noundef 34, ptr noundef @.str.667)
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct._packet_info, ptr %180, i32 0, i32 1
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr %23, align 4
-  %184 = icmp ne i32 %183, 0
-  %185 = select i1 %184, ptr @.str.1942, ptr @.str.1858
-  %186 = load ptr, ptr %24, align 8
-  %187 = load ptr, ptr %6, align 8
-  %188 = call i32 @tvb_get_ntohl(ptr noundef %187, i32 noundef 4)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %182, i32 noundef 25, ptr noundef @.str.1941, ptr noundef %185, ptr noundef %186, i32 noundef %188)
-  %189 = load i32, ptr @dhcp_bootp_tap, align 4
-  %190 = load ptr, ptr %7, align 8
-  %191 = load ptr, ptr %24, align 8
-  call void @tap_queue_packet(i32 noundef %189, ptr noundef %190, ptr noundef %191)
-  br label %192
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %7, align 8
+  %182 = getelementptr inbounds %struct._packet_info, ptr %181, i32 0, i32 1
+  %183 = load ptr, ptr %182, align 8
+  call void @col_set_str(ptr noundef %183, i32 noundef 34, ptr noundef @.str.667)
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds %struct._packet_info, ptr %184, i32 0, i32 1
+  %186 = load ptr, ptr %185, align 8
+  %187 = load i32, ptr %23, align 4
+  %188 = icmp ne i32 %187, 0
+  %189 = select i1 %188, ptr @.str.1942, ptr @.str.1858
+  %190 = load ptr, ptr %24, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = call i32 @tvb_get_ntohl(ptr noundef %191, i32 noundef 4)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %186, i32 noundef 25, ptr noundef @.str.1941, ptr noundef %189, ptr noundef %190, i32 noundef %192)
+  %193 = load i32, ptr @dhcp_bootp_tap, align 4
+  %194 = load ptr, ptr %7, align 8
+  %195 = load ptr, ptr %24, align 8
+  call void @tap_queue_packet(i32 noundef %193, ptr noundef %194, ptr noundef %195)
+  br label %196
 
-192:                                              ; preds = %176, %173
-  %193 = load ptr, ptr %10, align 8
-  %194 = load i32, ptr @hf_dhcp_type, align 4
-  %195 = load ptr, ptr %6, align 8
-  %196 = load i8, ptr %15, align 1
-  %197 = zext i8 %196 to i32
-  %198 = call ptr @proto_tree_add_uint(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef 0, i32 noundef 1, i32 noundef %197)
-  %199 = load ptr, ptr %10, align 8
-  %200 = load i32, ptr @hf_dhcp_hw_type, align 4
-  %201 = load ptr, ptr %6, align 8
-  %202 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+196:                                              ; preds = %180, %177
+  %197 = load ptr, ptr %10, align 8
+  %198 = load i32, ptr @hf_dhcp_type, align 4
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i8, ptr %15, align 1
+  %201 = zext i8 %200 to i32
+  %202 = call ptr @proto_tree_add_uint(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef 0, i32 noundef 1, i32 noundef %201)
   %203 = load ptr, ptr %10, align 8
-  %204 = load i32, ptr @hf_dhcp_hw_len, align 4
+  %204 = load i32, ptr @hf_dhcp_hw_type, align 4
   %205 = load ptr, ptr %6, align 8
-  %206 = load i8, ptr %17, align 1
-  %207 = zext i8 %206 to i32
-  %208 = call ptr @proto_tree_add_uint(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef 2, i32 noundef 1, i32 noundef %207)
-  %209 = load ptr, ptr %10, align 8
-  %210 = load i32, ptr @hf_dhcp_hops, align 4
-  %211 = load ptr, ptr %6, align 8
-  %212 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %210, ptr noundef %211, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %206 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %207 = load ptr, ptr %10, align 8
+  %208 = load i32, ptr @hf_dhcp_hw_len, align 4
+  %209 = load ptr, ptr %6, align 8
+  %210 = load i8, ptr %17, align 1
+  %211 = zext i8 %210 to i32
+  %212 = call ptr @proto_tree_add_uint(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef 2, i32 noundef 1, i32 noundef %211)
   %213 = load ptr, ptr %10, align 8
-  %214 = load i32, ptr @hf_dhcp_id, align 4
+  %214 = load i32, ptr @hf_dhcp_hops, align 4
   %215 = load ptr, ptr %6, align 8
-  %216 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef 4, i32 noundef 4, i32 noundef 0)
-  %217 = load i32, ptr @dhcp_secs_endian, align 4
-  %218 = icmp eq i32 %217, -1
-  br i1 %218, label %219, label %245
+  %216 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %217 = load ptr, ptr %10, align 8
+  %218 = load i32, ptr @hf_dhcp_id, align 4
+  %219 = load ptr, ptr %6, align 8
+  %220 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef %219, i32 noundef 4, i32 noundef 4, i32 noundef 0)
+  %221 = load i32, ptr @dhcp_secs_endian, align 4
+  %222 = icmp eq i32 %221, -1
+  br i1 %222, label %223, label %249
 
-219:                                              ; preds = %192
-  %220 = load ptr, ptr %6, align 8
-  %221 = call zeroext i16 @tvb_get_letohs(ptr noundef %220, i32 noundef 8)
-  store i16 %221, ptr %27, align 2
-  %222 = load i16, ptr %27, align 2
-  %223 = zext i16 %222 to i32
-  %224 = icmp sgt i32 %223, 0
-  br i1 %224, label %225, label %239
-
-225:                                              ; preds = %219
+223:                                              ; preds = %196
+  %224 = load ptr, ptr %6, align 8
+  %225 = call zeroext i16 @tvb_get_letohs(ptr noundef %224, i32 noundef 8)
+  store i16 %225, ptr %27, align 2
   %226 = load i16, ptr %27, align 2
   %227 = zext i16 %226 to i32
-  %228 = icmp sle i32 %227, 255
-  br i1 %228, label %229, label %239
+  %228 = icmp sgt i32 %227, 0
+  br i1 %228, label %229, label %243
 
-229:                                              ; preds = %225
-  %230 = load ptr, ptr %10, align 8
-  %231 = load i32, ptr @hf_dhcp_secs, align 4
-  %232 = load ptr, ptr %6, align 8
-  %233 = load i16, ptr %27, align 2
-  %234 = zext i16 %233 to i32
-  %235 = call ptr @proto_tree_add_uint(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef 8, i32 noundef 2, i32 noundef %234)
-  store ptr %235, ptr %12, align 8
-  %236 = load ptr, ptr %7, align 8
-  %237 = load ptr, ptr %12, align 8
-  %238 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %236, ptr noundef %237, ptr noundef @ei_dhcp_secs_le, ptr noundef @.str.1462)
-  br label %244
+229:                                              ; preds = %223
+  %230 = load i16, ptr %27, align 2
+  %231 = zext i16 %230 to i32
+  %232 = icmp sle i32 %231, 255
+  br i1 %232, label %233, label %243
 
-239:                                              ; preds = %225, %219
-  %240 = load ptr, ptr %10, align 8
-  %241 = load i32, ptr @hf_dhcp_secs, align 4
-  %242 = load ptr, ptr %6, align 8
-  %243 = call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %242, i32 noundef 8, i32 noundef 2, i32 noundef 0)
-  br label %244
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %10, align 8
+  %235 = load i32, ptr @hf_dhcp_secs, align 4
+  %236 = load ptr, ptr %6, align 8
+  %237 = load i16, ptr %27, align 2
+  %238 = zext i16 %237 to i32
+  %239 = call ptr @proto_tree_add_uint(ptr noundef %234, i32 noundef %235, ptr noundef %236, i32 noundef 8, i32 noundef 2, i32 noundef %238)
+  store ptr %239, ptr %12, align 8
+  %240 = load ptr, ptr %7, align 8
+  %241 = load ptr, ptr %12, align 8
+  %242 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %240, ptr noundef %241, ptr noundef @ei_dhcp_secs_le, ptr noundef @.str.1462)
+  br label %248
 
-244:                                              ; preds = %239, %229
-  br label %251
+243:                                              ; preds = %229, %223
+  %244 = load ptr, ptr %10, align 8
+  %245 = load i32, ptr @hf_dhcp_secs, align 4
+  %246 = load ptr, ptr %6, align 8
+  %247 = call ptr @proto_tree_add_item(ptr noundef %244, i32 noundef %245, ptr noundef %246, i32 noundef 8, i32 noundef 2, i32 noundef 0)
+  br label %248
 
-245:                                              ; preds = %192
-  %246 = load ptr, ptr %10, align 8
-  %247 = load i32, ptr @hf_dhcp_secs, align 4
-  %248 = load ptr, ptr %6, align 8
-  %249 = load i32, ptr @dhcp_secs_endian, align 4
-  %250 = call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %247, ptr noundef %248, i32 noundef 8, i32 noundef 2, i32 noundef %249)
-  br label %251
+248:                                              ; preds = %243, %233
+  br label %255
 
-251:                                              ; preds = %245, %244
+249:                                              ; preds = %196
+  %250 = load ptr, ptr %10, align 8
+  %251 = load i32, ptr @hf_dhcp_secs, align 4
   %252 = load ptr, ptr %6, align 8
-  %253 = call zeroext i16 @tvb_get_ntohs(ptr noundef %252, i32 noundef 10)
-  store i16 %253, ptr %26, align 2
-  %254 = load ptr, ptr %10, align 8
-  %255 = load ptr, ptr %6, align 8
-  %256 = load i32, ptr @hf_dhcp_flags, align 4
-  %257 = load i32, ptr @ett_dhcp_flags, align 4
-  %258 = call ptr @proto_tree_add_bitmask(ptr noundef %254, ptr noundef %255, i32 noundef 10, i32 noundef %256, i32 noundef %257, ptr noundef @dissect_dhcp.dhcp_flags, i32 noundef 0)
-  store ptr %258, ptr %13, align 8
-  %259 = load ptr, ptr %13, align 8
-  %260 = load i16, ptr %26, align 2
-  %261 = zext i16 %260 to i32
-  %262 = and i32 %261, 32768
-  %263 = icmp ne i32 %262, 0
-  %264 = select i1 %263, ptr @.str.1542, ptr @.str.1543
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %259, ptr noundef @.str.1943, ptr noundef %264)
-  %265 = load ptr, ptr %10, align 8
-  %266 = load i32, ptr @hf_dhcp_ip_client, align 4
-  %267 = load ptr, ptr %6, align 8
-  %268 = call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %267, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  %269 = load ptr, ptr %10, align 8
-  %270 = load i32, ptr @hf_dhcp_ip_your, align 4
-  %271 = load ptr, ptr %6, align 8
-  %272 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %271, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %273 = load ptr, ptr %10, align 8
-  %274 = load i32, ptr @hf_dhcp_ip_server, align 4
-  %275 = load ptr, ptr %6, align 8
-  %276 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %275, i32 noundef 20, i32 noundef 4, i32 noundef 0)
-  %277 = load ptr, ptr %10, align 8
-  %278 = load i32, ptr @hf_dhcp_ip_relay, align 4
-  %279 = load ptr, ptr %6, align 8
-  %280 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef 24, i32 noundef 4, i32 noundef 0)
-  %281 = load i8, ptr %17, align 1
-  %282 = zext i8 %281 to i32
-  %283 = icmp sgt i32 %282, 0
-  br i1 %283, label %284, label %336
+  %253 = load i32, ptr @dhcp_secs_endian, align 4
+  %254 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef 8, i32 noundef 2, i32 noundef %253)
+  br label %255
 
-284:                                              ; preds = %251
+255:                                              ; preds = %249, %248
+  %256 = load ptr, ptr %6, align 8
+  %257 = call zeroext i16 @tvb_get_ntohs(ptr noundef %256, i32 noundef 10)
+  store i16 %257, ptr %26, align 2
+  %258 = load ptr, ptr %10, align 8
+  %259 = load ptr, ptr %6, align 8
+  %260 = load i32, ptr @hf_dhcp_flags, align 4
+  %261 = load i32, ptr @ett_dhcp_flags, align 4
+  %262 = call ptr @proto_tree_add_bitmask(ptr noundef %258, ptr noundef %259, i32 noundef 10, i32 noundef %260, i32 noundef %261, ptr noundef @dissect_dhcp.dhcp_flags, i32 noundef 0)
+  store ptr %262, ptr %13, align 8
+  %263 = load ptr, ptr %13, align 8
+  %264 = load i16, ptr %26, align 2
+  %265 = zext i16 %264 to i32
+  %266 = and i32 %265, 32768
+  %267 = icmp ne i32 %266, 0
+  %268 = select i1 %267, ptr @.str.1542, ptr @.str.1543
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %263, ptr noundef @.str.1943, ptr noundef %268)
+  %269 = load ptr, ptr %10, align 8
+  %270 = load i32, ptr @hf_dhcp_ip_client, align 4
+  %271 = load ptr, ptr %6, align 8
+  %272 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %271, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %273 = load ptr, ptr %10, align 8
+  %274 = load i32, ptr @hf_dhcp_ip_your, align 4
+  %275 = load ptr, ptr %6, align 8
+  %276 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %275, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %277 = load ptr, ptr %10, align 8
+  %278 = load i32, ptr @hf_dhcp_ip_server, align 4
+  %279 = load ptr, ptr %6, align 8
+  %280 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %281 = load ptr, ptr %10, align 8
+  %282 = load i32, ptr @hf_dhcp_ip_relay, align 4
+  %283 = load ptr, ptr %6, align 8
+  %284 = call ptr @proto_tree_add_item(ptr noundef %281, i32 noundef %282, ptr noundef %283, i32 noundef 24, i32 noundef 4, i32 noundef 0)
   %285 = load i8, ptr %17, align 1
   %286 = zext i8 %285 to i32
-  %287 = icmp sle i32 %286, 16
-  br i1 %287, label %288, label %336
+  %287 = icmp sgt i32 %286, 0
+  br i1 %287, label %288, label %340
 
-288:                                              ; preds = %284
-  %289 = load i8, ptr %16, align 1
+288:                                              ; preds = %255
+  %289 = load i8, ptr %17, align 1
   %290 = zext i8 %289 to i32
-  %291 = icmp eq i32 %290, 1
-  br i1 %291, label %296, label %292
+  %291 = icmp sle i32 %290, 16
+  br i1 %291, label %292, label %340
 
 292:                                              ; preds = %288
   %293 = load i8, ptr %16, align 1
   %294 = zext i8 %293 to i32
-  %295 = icmp eq i32 %294, 6
-  br i1 %295, label %296, label %305
+  %295 = icmp eq i32 %294, 1
+  br i1 %295, label %300, label %296
 
-296:                                              ; preds = %292, %288
-  %297 = load i8, ptr %17, align 1
+296:                                              ; preds = %292
+  %297 = load i8, ptr %16, align 1
   %298 = zext i8 %297 to i32
   %299 = icmp eq i32 %298, 6
-  br i1 %299, label %300, label %305
+  br i1 %299, label %300, label %309
 
-300:                                              ; preds = %296
-  %301 = load ptr, ptr %10, align 8
-  %302 = load i32, ptr @hf_dhcp_hw_ether_addr, align 4
-  %303 = load ptr, ptr %6, align 8
-  %304 = call ptr @proto_tree_add_item(ptr noundef %301, i32 noundef %302, ptr noundef %303, i32 noundef 28, i32 noundef 6, i32 noundef 0)
-  br label %319
+300:                                              ; preds = %296, %292
+  %301 = load i8, ptr %17, align 1
+  %302 = zext i8 %301 to i32
+  %303 = icmp eq i32 %302, 6
+  br i1 %303, label %304, label %309
 
-305:                                              ; preds = %296, %292
-  %306 = load ptr, ptr %10, align 8
-  %307 = load i32, ptr @hf_dhcp_hw_addr, align 4
-  %308 = load ptr, ptr %6, align 8
-  %309 = load ptr, ptr %7, align 8
-  %310 = getelementptr inbounds %struct._packet_info, ptr %309, i32 0, i32 50
-  %311 = load ptr, ptr %310, align 8
+304:                                              ; preds = %300
+  %305 = load ptr, ptr %10, align 8
+  %306 = load i32, ptr @hf_dhcp_hw_ether_addr, align 4
+  %307 = load ptr, ptr %6, align 8
+  %308 = call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %306, ptr noundef %307, i32 noundef 28, i32 noundef 6, i32 noundef 0)
+  br label %323
+
+309:                                              ; preds = %300, %296
+  %310 = load ptr, ptr %10, align 8
+  %311 = load i32, ptr @hf_dhcp_hw_addr, align 4
   %312 = load ptr, ptr %6, align 8
-  %313 = load i8, ptr %17, align 1
-  %314 = zext i8 %313 to i32
-  %315 = load i8, ptr %16, align 1
-  %316 = zext i8 %315 to i16
-  %317 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %311, ptr noundef %312, i32 noundef 28, i32 noundef %314, i16 noundef zeroext %316)
-  %318 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %306, i32 noundef %307, ptr noundef %308, i32 noundef 28, i32 noundef 16, ptr noundef null, ptr noundef @.str.1944, ptr noundef %317)
-  br label %319
+  %313 = load ptr, ptr %7, align 8
+  %314 = getelementptr inbounds %struct._packet_info, ptr %313, i32 0, i32 50
+  %315 = load ptr, ptr %314, align 8
+  %316 = load ptr, ptr %6, align 8
+  %317 = load i8, ptr %17, align 1
+  %318 = zext i8 %317 to i32
+  %319 = load i8, ptr %16, align 1
+  %320 = zext i8 %319 to i16
+  %321 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %315, ptr noundef %316, i32 noundef 28, i32 noundef %318, i16 noundef zeroext %320)
+  %322 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %310, i32 noundef %311, ptr noundef %312, i32 noundef 28, i32 noundef 16, ptr noundef null, ptr noundef @.str.1944, ptr noundef %321)
+  br label %323
 
-319:                                              ; preds = %305, %300
-  %320 = load i8, ptr %17, align 1
-  %321 = zext i8 %320 to i32
-  %322 = sub i32 16, %321
-  %323 = icmp sgt i32 %322, 0
-  br i1 %323, label %324, label %335
+323:                                              ; preds = %309, %304
+  %324 = load i8, ptr %17, align 1
+  %325 = zext i8 %324 to i32
+  %326 = sub i32 16, %325
+  %327 = icmp sgt i32 %326, 0
+  br i1 %327, label %328, label %339
 
-324:                                              ; preds = %319
-  %325 = load ptr, ptr %10, align 8
-  %326 = load i32, ptr @hf_dhcp_hw_addr_padding, align 4
-  %327 = load ptr, ptr %6, align 8
-  %328 = load i8, ptr %17, align 1
-  %329 = zext i8 %328 to i32
-  %330 = add i32 28, %329
-  %331 = load i8, ptr %17, align 1
-  %332 = zext i8 %331 to i32
-  %333 = sub i32 16, %332
-  %334 = call ptr @proto_tree_add_item(ptr noundef %325, i32 noundef %326, ptr noundef %327, i32 noundef %330, i32 noundef %333, i32 noundef 0)
-  br label %335
+328:                                              ; preds = %323
+  %329 = load ptr, ptr %10, align 8
+  %330 = load i32, ptr @hf_dhcp_hw_addr_padding, align 4
+  %331 = load ptr, ptr %6, align 8
+  %332 = load i8, ptr %17, align 1
+  %333 = zext i8 %332 to i32
+  %334 = add i32 28, %333
+  %335 = load i8, ptr %17, align 1
+  %336 = zext i8 %335 to i32
+  %337 = sub i32 16, %336
+  %338 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef %334, i32 noundef %337, i32 noundef 0)
+  br label %339
 
-335:                                              ; preds = %324, %319
-  br label %341
+339:                                              ; preds = %328, %323
+  br label %345
 
-336:                                              ; preds = %284, %251
-  %337 = load ptr, ptr %10, align 8
-  %338 = load ptr, ptr %7, align 8
-  %339 = load ptr, ptr %6, align 8
-  %340 = call ptr @proto_tree_add_expert(ptr noundef %337, ptr noundef %338, ptr noundef @ei_dhcp_client_address_not_given, ptr noundef %339, i32 noundef 28, i32 noundef 16)
-  br label %341
+340:                                              ; preds = %288, %255
+  %341 = load ptr, ptr %10, align 8
+  %342 = load ptr, ptr %7, align 8
+  %343 = load ptr, ptr %6, align 8
+  %344 = call ptr @proto_tree_add_expert(ptr noundef %341, ptr noundef %342, ptr noundef @ei_dhcp_client_address_not_given, ptr noundef %343, i32 noundef 28, i32 noundef 16)
+  br label %345
 
-341:                                              ; preds = %336, %335
-  %342 = load i8, ptr %29, align 1
-  %343 = zext i8 %342 to i32
-  %344 = and i32 %343, 2
-  %345 = icmp ne i32 %344, 0
-  br i1 %345, label %346, label %351
+345:                                              ; preds = %340, %339
+  %346 = load i8, ptr %29, align 1
+  %347 = zext i8 %346 to i32
+  %348 = and i32 %347, 2
+  %349 = icmp ne i32 %348, 0
+  br i1 %349, label %350, label %355
 
-346:                                              ; preds = %341
-  %347 = load ptr, ptr %10, align 8
-  %348 = load ptr, ptr %7, align 8
-  %349 = load ptr, ptr %6, align 8
-  %350 = call ptr @proto_tree_add_expert(ptr noundef %347, ptr noundef %348, ptr noundef @ei_dhcp_server_name_overloaded_by_dhcp, ptr noundef %349, i32 noundef 44, i32 noundef 64)
-  br label %367
+350:                                              ; preds = %345
+  %351 = load ptr, ptr %10, align 8
+  %352 = load ptr, ptr %7, align 8
+  %353 = load ptr, ptr %6, align 8
+  %354 = call ptr @proto_tree_add_expert(ptr noundef %351, ptr noundef %352, ptr noundef @ei_dhcp_server_name_overloaded_by_dhcp, ptr noundef %353, i32 noundef 44, i32 noundef 64)
+  br label %371
 
-351:                                              ; preds = %341
-  %352 = load ptr, ptr %6, align 8
-  %353 = call zeroext i8 @tvb_get_guint8(ptr noundef %352, i32 noundef 44)
-  %354 = zext i8 %353 to i32
-  %355 = icmp ne i32 %354, 0
-  br i1 %355, label %356, label %361
+355:                                              ; preds = %345
+  %356 = load ptr, ptr %6, align 8
+  %357 = call zeroext i8 @tvb_get_guint8(ptr noundef %356, i32 noundef 44)
+  %358 = zext i8 %357 to i32
+  %359 = icmp ne i32 %358, 0
+  br i1 %359, label %360, label %365
 
-356:                                              ; preds = %351
-  %357 = load ptr, ptr %10, align 8
-  %358 = load i32, ptr @hf_dhcp_server, align 4
-  %359 = load ptr, ptr %6, align 8
-  %360 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %358, ptr noundef %359, i32 noundef 44, i32 noundef 64, i32 noundef 0)
-  br label %366
+360:                                              ; preds = %355
+  %361 = load ptr, ptr %10, align 8
+  %362 = load i32, ptr @hf_dhcp_server, align 4
+  %363 = load ptr, ptr %6, align 8
+  %364 = call ptr @proto_tree_add_item(ptr noundef %361, i32 noundef %362, ptr noundef %363, i32 noundef 44, i32 noundef 64, i32 noundef 0)
+  br label %370
 
-361:                                              ; preds = %351
-  %362 = load ptr, ptr %10, align 8
-  %363 = load i32, ptr @hf_dhcp_server, align 4
-  %364 = load ptr, ptr %6, align 8
-  %365 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %362, i32 noundef %363, ptr noundef %364, i32 noundef 44, i32 noundef 64, ptr noundef @.str.1858, ptr noundef @.str.1945)
-  br label %366
+365:                                              ; preds = %355
+  %366 = load ptr, ptr %10, align 8
+  %367 = load i32, ptr @hf_dhcp_server, align 4
+  %368 = load ptr, ptr %6, align 8
+  %369 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %366, i32 noundef %367, ptr noundef %368, i32 noundef 44, i32 noundef 64, ptr noundef @.str.1858, ptr noundef @.str.1945)
+  br label %370
 
-366:                                              ; preds = %361, %356
-  br label %367
+370:                                              ; preds = %365, %360
+  br label %371
 
-367:                                              ; preds = %366, %346
-  %368 = load i8, ptr %29, align 1
-  %369 = zext i8 %368 to i32
-  %370 = and i32 %369, 1
-  %371 = icmp ne i32 %370, 0
-  br i1 %371, label %372, label %377
+371:                                              ; preds = %370, %350
+  %372 = load i8, ptr %29, align 1
+  %373 = zext i8 %372 to i32
+  %374 = and i32 %373, 1
+  %375 = icmp ne i32 %374, 0
+  br i1 %375, label %376, label %381
 
-372:                                              ; preds = %367
-  %373 = load ptr, ptr %10, align 8
-  %374 = load ptr, ptr %7, align 8
-  %375 = load ptr, ptr %6, align 8
-  %376 = call ptr @proto_tree_add_expert(ptr noundef %373, ptr noundef %374, ptr noundef @ei_dhcp_boot_filename_overloaded_by_dhcp, ptr noundef %375, i32 noundef 108, i32 noundef 128)
-  br label %393
+376:                                              ; preds = %371
+  %377 = load ptr, ptr %10, align 8
+  %378 = load ptr, ptr %7, align 8
+  %379 = load ptr, ptr %6, align 8
+  %380 = call ptr @proto_tree_add_expert(ptr noundef %377, ptr noundef %378, ptr noundef @ei_dhcp_boot_filename_overloaded_by_dhcp, ptr noundef %379, i32 noundef 108, i32 noundef 128)
+  br label %397
 
-377:                                              ; preds = %367
-  %378 = load ptr, ptr %6, align 8
-  %379 = call zeroext i8 @tvb_get_guint8(ptr noundef %378, i32 noundef 108)
-  %380 = zext i8 %379 to i32
-  %381 = icmp ne i32 %380, 0
-  br i1 %381, label %382, label %387
+381:                                              ; preds = %371
+  %382 = load ptr, ptr %6, align 8
+  %383 = call zeroext i8 @tvb_get_guint8(ptr noundef %382, i32 noundef 108)
+  %384 = zext i8 %383 to i32
+  %385 = icmp ne i32 %384, 0
+  br i1 %385, label %386, label %391
 
-382:                                              ; preds = %377
-  %383 = load ptr, ptr %10, align 8
-  %384 = load i32, ptr @hf_dhcp_file, align 4
-  %385 = load ptr, ptr %6, align 8
-  %386 = call ptr @proto_tree_add_item(ptr noundef %383, i32 noundef %384, ptr noundef %385, i32 noundef 108, i32 noundef 128, i32 noundef 0)
-  br label %392
+386:                                              ; preds = %381
+  %387 = load ptr, ptr %10, align 8
+  %388 = load i32, ptr @hf_dhcp_file, align 4
+  %389 = load ptr, ptr %6, align 8
+  %390 = call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %388, ptr noundef %389, i32 noundef 108, i32 noundef 128, i32 noundef 0)
+  br label %396
 
-387:                                              ; preds = %377
-  %388 = load ptr, ptr %10, align 8
-  %389 = load i32, ptr @hf_dhcp_file, align 4
-  %390 = load ptr, ptr %6, align 8
-  %391 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef 108, i32 noundef 128, ptr noundef @.str.1858, ptr noundef @.str.1946)
-  br label %392
+391:                                              ; preds = %381
+  %392 = load ptr, ptr %10, align 8
+  %393 = load i32, ptr @hf_dhcp_file, align 4
+  %394 = load ptr, ptr %6, align 8
+  %395 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %392, i32 noundef %393, ptr noundef %394, i32 noundef 108, i32 noundef 128, ptr noundef @.str.1858, ptr noundef @.str.1946)
+  br label %396
 
-392:                                              ; preds = %387, %382
-  br label %393
+396:                                              ; preds = %391, %386
+  br label %397
 
-393:                                              ; preds = %392, %372
+397:                                              ; preds = %396, %376
   store i32 236, ptr %18, align 4
-  %394 = load ptr, ptr %24, align 8
-  %395 = icmp eq ptr %394, null
-  br i1 %395, label %396, label %402
+  %398 = load ptr, ptr %24, align 8
+  %399 = icmp eq ptr %398, null
+  br i1 %399, label %400, label %406
 
-396:                                              ; preds = %393
-  %397 = load ptr, ptr %10, align 8
-  %398 = load i32, ptr @hf_dhcp_bootp, align 4
-  %399 = load ptr, ptr %6, align 8
-  %400 = call ptr @proto_tree_add_boolean(ptr noundef %397, i32 noundef %398, ptr noundef %399, i32 noundef 0, i32 noundef 0, i64 noundef 1)
-  store ptr %400, ptr %14, align 8
-  %401 = load ptr, ptr %14, align 8
-  call void @proto_item_set_hidden(ptr noundef %401)
-  br label %402
-
-402:                                              ; preds = %396, %393
+400:                                              ; preds = %397
+  %401 = load ptr, ptr %10, align 8
+  %402 = load i32, ptr @hf_dhcp_bootp, align 4
   %403 = load ptr, ptr %6, align 8
-  %404 = load i32, ptr %18, align 4
-  %405 = call i32 @tvb_bytes_exist(ptr noundef %403, i32 noundef %404, i32 noundef 4)
-  %406 = icmp ne i32 %405, 0
-  br i1 %406, label %407, label %424
+  %404 = call ptr @proto_tree_add_boolean(ptr noundef %401, i32 noundef %402, ptr noundef %403, i32 noundef 0, i32 noundef 0, i64 noundef 1)
+  store ptr %404, ptr %14, align 8
+  %405 = load ptr, ptr %14, align 8
+  call void @proto_item_set_hidden(ptr noundef %405)
+  br label %406
 
-407:                                              ; preds = %402
-  %408 = load ptr, ptr %6, align 8
-  %409 = load i32, ptr %18, align 4
-  %410 = call i32 @tvb_get_ntohl(ptr noundef %408, i32 noundef %409)
-  %411 = icmp eq i32 %410, 1669485411
-  br i1 %411, label %412, label %424
+406:                                              ; preds = %400, %397
+  %407 = load ptr, ptr %6, align 8
+  %408 = load i32, ptr %18, align 4
+  %409 = call i32 @tvb_bytes_exist(ptr noundef %407, i32 noundef %408, i32 noundef 4)
+  %410 = icmp ne i32 %409, 0
+  br i1 %410, label %411, label %428
 
-412:                                              ; preds = %407
-  %413 = load ptr, ptr %6, align 8
-  %414 = load i32, ptr %18, align 4
-  %415 = call i32 @tvb_get_ipv4(ptr noundef %413, i32 noundef %414)
-  store i32 %415, ptr %21, align 4
-  %416 = load ptr, ptr %10, align 8
-  %417 = load i32, ptr @hf_dhcp_cookie, align 4
-  %418 = load ptr, ptr %6, align 8
-  %419 = load i32, ptr %18, align 4
-  %420 = load i32, ptr %21, align 4
-  %421 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %416, i32 noundef %417, ptr noundef %418, i32 noundef %419, i32 noundef 4, i32 noundef %420, ptr noundef @.str.667)
-  %422 = load i32, ptr %18, align 4
-  %423 = add i32 %422, 4
-  store i32 %423, ptr %18, align 4
-  br label %432
+411:                                              ; preds = %406
+  %412 = load ptr, ptr %6, align 8
+  %413 = load i32, ptr %18, align 4
+  %414 = call i32 @tvb_get_ntohl(ptr noundef %412, i32 noundef %413)
+  %415 = icmp eq i32 %414, 1669485411
+  br i1 %415, label %416, label %428
 
-424:                                              ; preds = %407, %402
-  %425 = load ptr, ptr %10, align 8
-  %426 = load i32, ptr @hf_dhcp_vendor_specific_options, align 4
-  %427 = load ptr, ptr %6, align 8
-  %428 = load i32, ptr %18, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %425, i32 noundef %426, ptr noundef %427, i32 noundef %428, i32 noundef 64, i32 noundef 0)
-  %430 = load i32, ptr %18, align 4
-  %431 = add i32 %430, 64
-  store i32 %431, ptr %18, align 4
-  br label %432
+416:                                              ; preds = %411
+  %417 = load ptr, ptr %6, align 8
+  %418 = load i32, ptr %18, align 4
+  %419 = call i32 @tvb_get_ipv4(ptr noundef %417, i32 noundef %418)
+  store i32 %419, ptr %21, align 4
+  %420 = load ptr, ptr %10, align 8
+  %421 = load i32, ptr @hf_dhcp_cookie, align 4
+  %422 = load ptr, ptr %6, align 8
+  %423 = load i32, ptr %18, align 4
+  %424 = load i32, ptr %21, align 4
+  %425 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %420, i32 noundef %421, ptr noundef %422, i32 noundef %423, i32 noundef 4, i32 noundef %424, ptr noundef @.str.667)
+  %426 = load i32, ptr %18, align 4
+  %427 = add i32 %426, 4
+  store i32 %427, ptr %18, align 4
+  br label %436
 
-432:                                              ; preds = %424, %412
-  store i32 0, ptr %22, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  br label %433
-
-433:                                              ; preds = %460, %432
+428:                                              ; preds = %411, %406
+  %429 = load ptr, ptr %10, align 8
+  %430 = load i32, ptr @hf_dhcp_vendor_specific_options, align 4
+  %431 = load ptr, ptr %6, align 8
+  %432 = load i32, ptr %18, align 4
+  %433 = call ptr @proto_tree_add_item(ptr noundef %429, i32 noundef %430, ptr noundef %431, i32 noundef %432, i32 noundef 64, i32 noundef 0)
   %434 = load i32, ptr %18, align 4
-  %435 = load i32, ptr %19, align 4
-  %436 = icmp slt i32 %434, %435
-  br i1 %436, label %437, label %441
+  %435 = add i32 %434, 64
+  store i32 %435, ptr %18, align 4
+  br label %436
 
-437:                                              ; preds = %433
-  %438 = load i32, ptr %22, align 4
-  %439 = icmp ne i32 %438, 0
-  %440 = xor i1 %439, true
-  br label %441
+436:                                              ; preds = %428, %416
+  store i32 0, ptr %22, align 4
+  %437 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  store i32 0, ptr %437, align 4
+  %438 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  store i32 0, ptr %438, align 4
+  br label %439
 
-441:                                              ; preds = %437, %433
-  %442 = phi i1 [ false, %433 ], [ %440, %437 ]
-  br i1 %442, label %443, label %464
+439:                                              ; preds = %466, %436
+  %440 = load i32, ptr %18, align 4
+  %441 = load i32, ptr %19, align 4
+  %442 = icmp slt i32 %440, %441
+  br i1 %442, label %443, label %447
 
-443:                                              ; preds = %441
-  %444 = load ptr, ptr %6, align 8
-  %445 = load ptr, ptr %7, align 8
-  %446 = load ptr, ptr %10, align 8
-  %447 = load i32, ptr %18, align 4
-  %448 = load i32, ptr %19, align 4
-  %449 = call i32 @dhcp_option(ptr noundef %444, ptr noundef %445, ptr noundef %446, i32 noundef %447, i32 noundef %448, i32 noundef 0, ptr noundef %22, ptr noundef %24, ptr noundef %25, ptr noundef %29)
-  store i32 %449, ptr %28, align 4
-  %450 = load i32, ptr %28, align 4
-  %451 = icmp sle i32 %450, 0
-  br i1 %451, label %452, label %460
+443:                                              ; preds = %439
+  %444 = load i32, ptr %22, align 4
+  %445 = icmp ne i32 %444, 0
+  %446 = xor i1 %445, true
+  br label %447
 
-452:                                              ; preds = %443
-  %453 = load ptr, ptr %10, align 8
-  %454 = load ptr, ptr %7, align 8
-  %455 = load ptr, ptr %6, align 8
-  %456 = load i32, ptr %18, align 4
-  %457 = load i32, ptr %19, align 4
-  %458 = call ptr @proto_tree_add_expert(ptr noundef %453, ptr noundef %454, ptr noundef @ei_dhcp_option_parse_err, ptr noundef %455, i32 noundef %456, i32 noundef %457)
-  %459 = load i32, ptr %18, align 4
-  store i32 %459, ptr %5, align 4
-  br label %490
+447:                                              ; preds = %443, %439
+  %448 = phi i1 [ false, %439 ], [ %446, %443 ]
+  br i1 %448, label %449, label %470
 
-460:                                              ; preds = %443
-  %461 = load i32, ptr %28, align 4
+449:                                              ; preds = %447
+  %450 = load ptr, ptr %6, align 8
+  %451 = load ptr, ptr %7, align 8
+  %452 = load ptr, ptr %10, align 8
+  %453 = load i32, ptr %18, align 4
+  %454 = load i32, ptr %19, align 4
+  %455 = call i32 @dhcp_option(ptr noundef %450, ptr noundef %451, ptr noundef %452, i32 noundef %453, i32 noundef %454, i32 noundef 0, ptr noundef %22, ptr noundef %24, ptr noundef %25, ptr noundef %29)
+  store i32 %455, ptr %28, align 4
+  %456 = load i32, ptr %28, align 4
+  %457 = icmp sle i32 %456, 0
+  br i1 %457, label %458, label %466
+
+458:                                              ; preds = %449
+  %459 = load ptr, ptr %10, align 8
+  %460 = load ptr, ptr %7, align 8
+  %461 = load ptr, ptr %6, align 8
   %462 = load i32, ptr %18, align 4
-  %463 = add i32 %462, %461
-  store i32 %463, ptr %18, align 4
-  br label %433, !llvm.loop !11
+  %463 = load i32, ptr %19, align 4
+  %464 = call ptr @proto_tree_add_expert(ptr noundef %459, ptr noundef %460, ptr noundef @ei_dhcp_option_parse_err, ptr noundef %461, i32 noundef %462, i32 noundef %463)
+  %465 = load i32, ptr %18, align 4
+  store i32 %465, ptr %5, align 4
+  br label %496
 
-464:                                              ; preds = %441
-  %465 = load ptr, ptr %24, align 8
-  %466 = icmp ne ptr %465, null
-  br i1 %466, label %467, label %474
+466:                                              ; preds = %449
+  %467 = load i32, ptr %28, align 4
+  %468 = load i32, ptr %18, align 4
+  %469 = add i32 %468, %467
+  store i32 %469, ptr %18, align 4
+  br label %439, !llvm.loop !11
 
-467:                                              ; preds = %464
-  %468 = load i32, ptr %22, align 4
-  %469 = icmp ne i32 %468, 0
-  br i1 %469, label %474, label %470
+470:                                              ; preds = %447
+  %471 = load ptr, ptr %24, align 8
+  %472 = icmp ne ptr %471, null
+  br i1 %472, label %473, label %480
 
-470:                                              ; preds = %467
-  %471 = load ptr, ptr %7, align 8
-  %472 = load ptr, ptr %11, align 8
-  %473 = call ptr @expert_add_info(ptr noundef %471, ptr noundef %472, ptr noundef @ei_dhcp_end_option_missing)
-  br label %474
+473:                                              ; preds = %470
+  %474 = load i32, ptr %22, align 4
+  %475 = icmp ne i32 %474, 0
+  br i1 %475, label %480, label %476
 
-474:                                              ; preds = %470, %467, %464
-  %475 = load i32, ptr %18, align 4
-  %476 = load i32, ptr %19, align 4
-  %477 = icmp slt i32 %475, %476
-  br i1 %477, label %478, label %487
+476:                                              ; preds = %473
+  %477 = load ptr, ptr %7, align 8
+  %478 = load ptr, ptr %11, align 8
+  %479 = call ptr @expert_add_info(ptr noundef %477, ptr noundef %478, ptr noundef @ei_dhcp_end_option_missing)
+  br label %480
 
-478:                                              ; preds = %474
-  %479 = load ptr, ptr %10, align 8
-  %480 = load i32, ptr @hf_dhcp_option_padding, align 4
-  %481 = load ptr, ptr %6, align 8
-  %482 = load i32, ptr %18, align 4
-  %483 = load i32, ptr %19, align 4
-  %484 = load i32, ptr %18, align 4
-  %485 = sub i32 %483, %484
-  %486 = call ptr @proto_tree_add_item(ptr noundef %479, i32 noundef %480, ptr noundef %481, i32 noundef %482, i32 noundef %485, i32 noundef 0)
-  br label %487
+480:                                              ; preds = %476, %473, %470
+  %481 = load i32, ptr %18, align 4
+  %482 = load i32, ptr %19, align 4
+  %483 = icmp slt i32 %481, %482
+  br i1 %483, label %484, label %493
 
-487:                                              ; preds = %478, %474
-  %488 = load ptr, ptr %6, align 8
-  %489 = call i32 @tvb_captured_length(ptr noundef %488)
-  store i32 %489, ptr %5, align 4
-  br label %490
+484:                                              ; preds = %480
+  %485 = load ptr, ptr %10, align 8
+  %486 = load i32, ptr @hf_dhcp_option_padding, align 4
+  %487 = load ptr, ptr %6, align 8
+  %488 = load i32, ptr %18, align 4
+  %489 = load i32, ptr %19, align 4
+  %490 = load i32, ptr %18, align 4
+  %491 = sub i32 %489, %490
+  %492 = call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %486, ptr noundef %487, i32 noundef %488, i32 noundef %491, i32 noundef 0)
+  br label %493
 
-490:                                              ; preds = %487, %452, %161, %47
-  %491 = load i32, ptr %5, align 4
-  ret i32 %491
+493:                                              ; preds = %484, %480
+  %494 = load ptr, ptr %6, align 8
+  %495 = call i32 @tvb_captured_length(ptr noundef %494)
+  store i32 %495, ptr %5, align 4
+  br label %496
+
+496:                                              ; preds = %493, %458, %165, %49
+  %497 = load i32, ptr %5, align 4
+  ret i32 %497
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
@@ -5000,7 +5006,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   %28 = load ptr, ptr %8, align 8
   %29 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %27, ptr noundef %28, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1967)
   store i32 1, ptr %5, align 4
-  br label %144
+  br label %148
 
 30:                                               ; preds = %4
   %31 = load ptr, ptr %8, align 8
@@ -5014,7 +5020,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = icmp sge i32 %40, 1
-  br i1 %41, label %42, label %141
+  br i1 %41, label %42, label %145
 
 42:                                               ; preds = %30
   %43 = load ptr, ptr %14, align 8
@@ -5023,13 +5029,13 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = icmp sle i32 %47, 3
-  br i1 %48, label %49, label %141
+  br i1 %48, label %49, label %145
 
 49:                                               ; preds = %42
   %50 = load i32, ptr %15, align 4
   %51 = and i32 %50, 2
   %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %93
+  br i1 %52, label %53, label %95
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %8, align 8
@@ -5043,144 +5049,148 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   store i32 44, ptr %11, align 4
   store i32 108, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  br label %60
+  %60 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  store i32 0, ptr %61, align 4
+  br label %62
 
-60:                                               ; preds = %70, %53
-  %61 = load i32, ptr %11, align 4
-  %62 = load i32, ptr %12, align 4
-  %63 = icmp slt i32 %61, %62
-  br i1 %63, label %64, label %68
+62:                                               ; preds = %72, %53
+  %63 = load i32, ptr %11, align 4
+  %64 = load i32, ptr %12, align 4
+  %65 = icmp slt i32 %63, %64
+  br i1 %65, label %66, label %70
 
-64:                                               ; preds = %60
-  %65 = load i32, ptr %13, align 4
-  %66 = icmp ne i32 %65, 0
-  %67 = xor i1 %66, true
-  br label %68
+66:                                               ; preds = %62
+  %67 = load i32, ptr %13, align 4
+  %68 = icmp ne i32 %67, 0
+  %69 = xor i1 %68, true
+  br label %70
 
-68:                                               ; preds = %64, %60
-  %69 = phi i1 [ false, %60 ], [ %67, %64 ]
-  br i1 %69, label %70, label %85
+70:                                               ; preds = %66, %62
+  %71 = phi i1 [ false, %62 ], [ %69, %66 ]
+  br i1 %71, label %72, label %87
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %14, align 8
-  %72 = getelementptr inbounds %struct.dhcp_option_data, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = load ptr, ptr %17, align 8
-  %76 = load i32, ptr %11, align 4
-  %77 = load i32, ptr %12, align 4
-  %78 = load ptr, ptr %14, align 8
-  %79 = getelementptr inbounds %struct.dhcp_option_data, ptr %78, i32 0, i32 3
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %14, align 8
+  %74 = getelementptr inbounds %struct.dhcp_option_data, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %17, align 8
+  %78 = load i32, ptr %11, align 4
+  %79 = load i32, ptr %12, align 4
   %80 = load ptr, ptr %14, align 8
-  %81 = getelementptr inbounds %struct.dhcp_option_data, ptr %80, i32 0, i32 4
-  %82 = call i32 @dhcp_option(ptr noundef %73, ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef 0, ptr noundef %13, ptr noundef %79, ptr noundef %81, ptr noundef %18)
-  %83 = load i32, ptr %11, align 4
-  %84 = add i32 %83, %82
-  store i32 %84, ptr %11, align 4
-  br label %60, !llvm.loop !14
+  %81 = getelementptr inbounds %struct.dhcp_option_data, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %14, align 8
+  %83 = getelementptr inbounds %struct.dhcp_option_data, ptr %82, i32 0, i32 4
+  %84 = call i32 @dhcp_option(ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef %79, i32 noundef 0, ptr noundef %13, ptr noundef %81, ptr noundef %83, ptr noundef %18)
+  %85 = load i32, ptr %11, align 4
+  %86 = add i32 %85, %84
+  store i32 %86, ptr %11, align 4
+  br label %62, !llvm.loop !14
 
-85:                                               ; preds = %68
-  %86 = load i32, ptr %13, align 4
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %92, label %88
+87:                                               ; preds = %70
+  %88 = load i32, ptr %13, align 4
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %94, label %90
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %7, align 8
-  %90 = load ptr, ptr %16, align 8
-  %91 = call ptr @expert_add_info(ptr noundef %89, ptr noundef %90, ptr noundef @ei_dhcp_opt_overload_sname_end_missing)
-  br label %92
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %16, align 8
+  %93 = call ptr @expert_add_info(ptr noundef %91, ptr noundef %92, ptr noundef @ei_dhcp_opt_overload_sname_end_missing)
+  br label %94
 
-92:                                               ; preds = %88, %85
-  br label %93
+94:                                               ; preds = %90, %87
+  br label %95
 
-93:                                               ; preds = %92, %49
-  %94 = load i32, ptr %15, align 4
-  %95 = and i32 %94, 1
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %137
+95:                                               ; preds = %94, %49
+  %96 = load i32, ptr %15, align 4
+  %97 = and i32 %96, 1
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %141
 
-97:                                               ; preds = %93
-  %98 = load ptr, ptr %8, align 8
-  %99 = load ptr, ptr %14, align 8
-  %100 = getelementptr inbounds %struct.dhcp_option_data, ptr %99, i32 0, i32 2
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr @ett_dhcp_filename_option, align 4
-  %103 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %101, i32 noundef 108, i32 noundef 128, i32 noundef %102, ptr noundef %19, ptr noundef @.str.1969)
-  store ptr %103, ptr %20, align 8
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %8, align 8
+  %101 = load ptr, ptr %14, align 8
+  %102 = getelementptr inbounds %struct.dhcp_option_data, ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i32, ptr @ett_dhcp_filename_option, align 4
+  %105 = call ptr @proto_tree_add_subtree(ptr noundef %100, ptr noundef %103, i32 noundef 108, i32 noundef 128, i32 noundef %104, ptr noundef %19, ptr noundef @.str.1969)
+  store ptr %105, ptr %20, align 8
   store i8 0, ptr %21, align 1
   store i32 108, ptr %11, align 4
   store i32 236, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  br label %104
+  %106 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  store i32 0, ptr %106, align 4
+  %107 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  store i32 0, ptr %107, align 4
+  br label %108
 
-104:                                              ; preds = %114, %97
-  %105 = load i32, ptr %11, align 4
-  %106 = load i32, ptr %12, align 4
-  %107 = icmp slt i32 %105, %106
-  br i1 %107, label %108, label %112
+108:                                              ; preds = %118, %99
+  %109 = load i32, ptr %11, align 4
+  %110 = load i32, ptr %12, align 4
+  %111 = icmp slt i32 %109, %110
+  br i1 %111, label %112, label %116
 
-108:                                              ; preds = %104
-  %109 = load i32, ptr %13, align 4
-  %110 = icmp ne i32 %109, 0
-  %111 = xor i1 %110, true
-  br label %112
+112:                                              ; preds = %108
+  %113 = load i32, ptr %13, align 4
+  %114 = icmp ne i32 %113, 0
+  %115 = xor i1 %114, true
+  br label %116
 
-112:                                              ; preds = %108, %104
-  %113 = phi i1 [ false, %104 ], [ %111, %108 ]
-  br i1 %113, label %114, label %129
+116:                                              ; preds = %112, %108
+  %117 = phi i1 [ false, %108 ], [ %115, %112 ]
+  br i1 %117, label %118, label %133
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr %14, align 8
-  %116 = getelementptr inbounds %struct.dhcp_option_data, ptr %115, i32 0, i32 2
-  %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %7, align 8
-  %119 = load ptr, ptr %20, align 8
-  %120 = load i32, ptr %11, align 4
-  %121 = load i32, ptr %12, align 4
-  %122 = load ptr, ptr %14, align 8
-  %123 = getelementptr inbounds %struct.dhcp_option_data, ptr %122, i32 0, i32 3
-  %124 = load ptr, ptr %14, align 8
-  %125 = getelementptr inbounds %struct.dhcp_option_data, ptr %124, i32 0, i32 4
-  %126 = call i32 @dhcp_option(ptr noundef %117, ptr noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef %121, i32 noundef 0, ptr noundef %13, ptr noundef %123, ptr noundef %125, ptr noundef %21)
-  %127 = load i32, ptr %11, align 4
-  %128 = add i32 %127, %126
-  store i32 %128, ptr %11, align 4
-  br label %104, !llvm.loop !15
+118:                                              ; preds = %116
+  %119 = load ptr, ptr %14, align 8
+  %120 = getelementptr inbounds %struct.dhcp_option_data, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load ptr, ptr %20, align 8
+  %124 = load i32, ptr %11, align 4
+  %125 = load i32, ptr %12, align 4
+  %126 = load ptr, ptr %14, align 8
+  %127 = getelementptr inbounds %struct.dhcp_option_data, ptr %126, i32 0, i32 3
+  %128 = load ptr, ptr %14, align 8
+  %129 = getelementptr inbounds %struct.dhcp_option_data, ptr %128, i32 0, i32 4
+  %130 = call i32 @dhcp_option(ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef %125, i32 noundef 0, ptr noundef %13, ptr noundef %127, ptr noundef %129, ptr noundef %21)
+  %131 = load i32, ptr %11, align 4
+  %132 = add i32 %131, %130
+  store i32 %132, ptr %11, align 4
+  br label %108, !llvm.loop !15
 
-129:                                              ; preds = %112
-  %130 = load i32, ptr %13, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %136, label %132
+133:                                              ; preds = %116
+  %134 = load i32, ptr %13, align 4
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %140, label %136
 
-132:                                              ; preds = %129
-  %133 = load ptr, ptr %7, align 8
-  %134 = load ptr, ptr %19, align 8
-  %135 = call ptr @expert_add_info(ptr noundef %133, ptr noundef %134, ptr noundef @ei_dhcp_opt_overload_file_end_missing)
-  br label %136
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %7, align 8
+  %138 = load ptr, ptr %19, align 8
+  %139 = call ptr @expert_add_info(ptr noundef %137, ptr noundef %138, ptr noundef @ei_dhcp_opt_overload_file_end_missing)
+  br label %140
 
-136:                                              ; preds = %132, %129
-  br label %137
-
-137:                                              ; preds = %136, %93
-  %138 = load ptr, ptr %14, align 8
-  %139 = getelementptr inbounds %struct.dhcp_option_data, ptr %138, i32 0, i32 1
-  %140 = load ptr, ptr %139, align 8
-  store i8 0, ptr %140, align 1
+140:                                              ; preds = %136, %133
   br label %141
 
-141:                                              ; preds = %137, %42, %30
-  %142 = load ptr, ptr %6, align 8
-  %143 = call i32 @tvb_captured_length(ptr noundef %142)
-  store i32 %143, ptr %5, align 4
-  br label %144
+141:                                              ; preds = %140, %95
+  %142 = load ptr, ptr %14, align 8
+  %143 = getelementptr inbounds %struct.dhcp_option_data, ptr %142, i32 0, i32 1
+  %144 = load ptr, ptr %143, align 8
+  store i8 0, ptr %144, align 1
+  br label %145
 
-144:                                              ; preds = %141, %26
-  %145 = load i32, ptr %5, align 4
-  ret i32 %145
+145:                                              ; preds = %141, %42, %30
+  %146 = load ptr, ptr %6, align 8
+  %147 = call i32 @tvb_captured_length(ptr noundef %146)
+  store i32 %147, ptr %5, align 4
+  br label %148
+
+148:                                              ; preds = %145, %26
+  %149 = load i32, ptr %5, align 4
+  ret i32 %149
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7349,152 +7359,166 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noun
   %15 = load ptr, ptr %5, align 8
   %16 = call i32 @tvb_reported_length(ptr noundef %15)
   store i32 %16, ptr %9, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  %18 = add i32 %17, 1
-  store i32 %18, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  %19 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %20 = icmp ugt i32 %19, 1
-  br i1 %20, label %21, label %49
+  %17 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = add i32 %18, 1
+  %20 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  store i32 %19, ptr %20, align 4
+  %21 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %22 = icmp ugt i32 %21, 1
+  br i1 %22, label %23, label %53
 
-21:                                               ; preds = %4
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_rfc_3396_detected, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 50
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  %30 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %31 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef @.str.1993, i32 noundef %29, i32 noundef %30)
-  %32 = call ptr @proto_tree_add_string(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef %25, ptr noundef %31)
-  %33 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  %34 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %35 = icmp ne i32 %33, %34
-  br i1 %35, label %36, label %48
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_rfc_3396_detected, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 50
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %34 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef @.str.1993, i32 noundef %32, i32 noundef %33)
+  %35 = call ptr @proto_tree_add_string(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef %27, ptr noundef %34)
+  %36 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %39 = icmp ne i32 %37, %38
+  br i1 %39, label %40, label %52
 
-36:                                               ; preds = %21
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_refer_last_option, align 4
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 50
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %45 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %46 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %43, ptr noundef @.str.1993, i32 noundef %44, i32 noundef %45)
-  %47 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef 0, i32 noundef %40, ptr noundef %46)
-  br label %48
+40:                                               ; preds = %23
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_refer_last_option, align 4
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %9, align 4
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %49 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %50 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef @.str.1993, i32 noundef %48, i32 noundef %49)
+  %51 = call ptr @proto_tree_add_string(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef 0, i32 noundef %44, ptr noundef %50)
+  br label %52
 
-48:                                               ; preds = %36, %21
-  br label %49
+52:                                               ; preds = %40, %23
+  br label %53
 
-49:                                               ; preds = %48, %4
-  %50 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %57
+53:                                               ; preds = %52, %4
+  %54 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %63
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %9, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %57
-
-55:                                               ; preds = %52
-  %56 = call ptr @tvb_new_composite()
-  store ptr %56, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  br label %57
-
-57:                                               ; preds = %55, %52, %49
+57:                                               ; preds = %53
   %58 = load i32, ptr %9, align 4
   %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %65
+  br i1 %59, label %60, label %63
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = load i32, ptr %9, align 4
-  %64 = call ptr @tvb_new_subset_length(ptr noundef %62, i32 noundef 0, i32 noundef %63)
-  call void @tvb_composite_append(ptr noundef %61, ptr noundef %64)
-  br label %65
+  %61 = call ptr @tvb_new_composite()
+  %62 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  store ptr %61, ptr %62, align 8
+  br label %63
 
-65:                                               ; preds = %60, %57
-  %66 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1), align 4
-  %67 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %69, label %113
+63:                                               ; preds = %60, %57, %53
+  %64 = load i32, ptr %9, align 4
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %72
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %113
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %5, align 8
+  %70 = load i32, ptr %9, align 4
+  %71 = call ptr @tvb_new_subset_length(ptr noundef %69, i32 noundef 0, i32 noundef %70)
+  call void @tvb_composite_append(ptr noundef %68, ptr noundef %71)
+  br label %72
 
-72:                                               ; preds = %69
+72:                                               ; preds = %66, %63
+  %73 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4
+  %75 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %76 = icmp eq i32 %74, %75
+  br i1 %76, label %77, label %127
+
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %127
+
+81:                                               ; preds = %77
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
-  %73 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  call void @tvb_composite_finalize(ptr noundef %73)
-  br label %74
+  %82 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  call void @tvb_composite_finalize(ptr noundef %83)
+  br label %84
 
-74:                                               ; preds = %108, %72
-  %75 = load i32, ptr %14, align 4
-  %76 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %77 = call i32 @tvb_reported_length(ptr noundef %76)
-  %78 = icmp ult i32 %75, %77
-  br i1 %78, label %79, label %112
-
-79:                                               ; preds = %74
-  %80 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %81 = load i32, ptr %14, align 4
-  %82 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  %83 = call i32 @tvb_reported_length(ptr noundef %82)
-  %84 = call i32 @get_dns_name(ptr noundef %80, i32 noundef %81, i32 noundef %83, i32 noundef 0, ptr noundef %11, ptr noundef %12)
-  store i32 %84, ptr %13, align 4
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 50
+84:                                               ; preds = %121, %81
+  %85 = load i32, ptr %14, align 4
+  %86 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
   %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = load i32, ptr %12, align 4
-  %90 = sext i32 %89 to i64
-  %91 = call ptr @format_text(ptr noundef %87, ptr noundef %88, i64 noundef %90)
-  store ptr %91, ptr %10, align 8
-  %92 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %94, label %102
+  %88 = call i32 @tvb_reported_length(ptr noundef %87)
+  %89 = icmp ult i32 %85, %88
+  br i1 %89, label %90, label %125
 
-94:                                               ; preds = %79
-  %95 = load ptr, ptr %7, align 8
-  %96 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_fqdn, align 4
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %14, align 4
-  %99 = load i32, ptr %13, align 4
-  %100 = load ptr, ptr %10, align 8
-  %101 = call ptr @proto_tree_add_string(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, ptr noundef %100)
-  br label %108
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %14, align 4
+  %94 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  %96 = call i32 @tvb_reported_length(ptr noundef %95)
+  %97 = call i32 @get_dns_name(ptr noundef %92, i32 noundef %93, i32 noundef %96, i32 noundef 0, ptr noundef %11, ptr noundef %12)
+  store i32 %97, ptr %13, align 4
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 50
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %11, align 8
+  %102 = load i32, ptr %12, align 4
+  %103 = sext i32 %102 to i64
+  %104 = call ptr @format_text(ptr noundef %100, ptr noundef %101, i64 noundef %103)
+  store ptr %104, ptr %10, align 8
+  %105 = load i32, ptr @rfc3396_dns_domain_search_list, align 8
+  %106 = icmp eq i32 %105, 1
+  br i1 %106, label %107, label %115
 
-102:                                              ; preds = %79
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_fqdn, align 4
-  %105 = load ptr, ptr %5, align 8
-  %106 = load ptr, ptr %10, align 8
-  %107 = call ptr @proto_tree_add_string(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef 0, i32 noundef 0, ptr noundef %106)
-  br label %108
+107:                                              ; preds = %90
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_fqdn, align 4
+  %110 = load ptr, ptr %5, align 8
+  %111 = load i32, ptr %14, align 4
+  %112 = load i32, ptr %13, align 4
+  %113 = load ptr, ptr %10, align 8
+  %114 = call ptr @proto_tree_add_string(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef %112, ptr noundef %113)
+  br label %121
 
-108:                                              ; preds = %102, %94
-  %109 = load i32, ptr %13, align 4
-  %110 = load i32, ptr %14, align 4
-  %111 = add i32 %110, %109
-  store i32 %111, ptr %14, align 4
-  br label %74, !llvm.loop !25
+115:                                              ; preds = %90
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_fqdn, align 4
+  %118 = load ptr, ptr %5, align 8
+  %119 = load ptr, ptr %10, align 8
+  %120 = call ptr @proto_tree_add_string(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef 0, i32 noundef 0, ptr noundef %119)
+  br label %121
 
-112:                                              ; preds = %74
-  store ptr null, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2), align 8
-  br label %113
+121:                                              ; preds = %115, %107
+  %122 = load i32, ptr %13, align 4
+  %123 = load i32, ptr %14, align 4
+  %124 = add i32 %123, %122
+  store i32 %124, ptr %14, align 4
+  br label %84, !llvm.loop !25
 
-113:                                              ; preds = %112, %69, %65
-  %114 = load ptr, ptr %5, align 8
-  %115 = call i32 @tvb_captured_length(ptr noundef %114)
-  ret i32 %115
+125:                                              ; preds = %84
+  %126 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_dns_domain_search_list, i32 0, i32 2
+  store ptr null, ptr %126, align 8
+  br label %127
+
+127:                                              ; preds = %125, %77, %72
+  %128 = load ptr, ptr %5, align 8
+  %129 = call i32 @tvb_captured_length(ptr noundef %128)
+  ret i32 %129
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7518,301 +7542,325 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   %17 = load ptr, ptr %5, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef %17)
   store i32 %18, ptr %9, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  %21 = load i32, ptr @rfc3396_sip_server, align 8
-  %22 = icmp ugt i32 %21, 1
-  br i1 %22, label %23, label %51
+  %19 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
+  %22 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  store i32 %21, ptr %22, align 4
+  %23 = load i32, ptr @rfc3396_sip_server, align 8
+  %24 = icmp ugt i32 %23, 1
+  br i1 %24, label %25, label %55
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr @hf_dhcp_option_sip_server_rfc_3396_detected, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 50
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  %32 = load i32, ptr @rfc3396_sip_server, align 8
-  %33 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef @.str.1993, i32 noundef %31, i32 noundef %32)
-  %34 = call ptr @proto_tree_add_string(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef %27, ptr noundef %33)
-  %35 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  %36 = load i32, ptr @rfc3396_sip_server, align 8
-  %37 = icmp ne i32 %35, %36
-  br i1 %37, label %38, label %50
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr @hf_dhcp_option_sip_server_rfc_3396_detected, align 4
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 50
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4
+  %35 = load i32, ptr @rfc3396_sip_server, align 8
+  %36 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %32, ptr noundef @.str.1993, i32 noundef %34, i32 noundef %35)
+  %37 = call ptr @proto_tree_add_string(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef %29, ptr noundef %36)
+  %38 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = load i32, ptr @rfc3396_sip_server, align 8
+  %41 = icmp ne i32 %39, %40
+  br i1 %41, label %42, label %54
 
-38:                                               ; preds = %23
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr @hf_dhcp_option_sip_server_refer_last_option, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 50
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr @rfc3396_sip_server, align 8
-  %47 = load i32, ptr @rfc3396_sip_server, align 8
-  %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef @.str.1993, i32 noundef %46, i32 noundef %47)
-  %49 = call ptr @proto_tree_add_string(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef %42, ptr noundef %48)
-  br label %50
+42:                                               ; preds = %25
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr @hf_dhcp_option_sip_server_refer_last_option, align 4
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 50
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr @rfc3396_sip_server, align 8
+  %51 = load i32, ptr @rfc3396_sip_server, align 8
+  %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef @.str.1993, i32 noundef %50, i32 noundef %51)
+  %53 = call ptr @proto_tree_add_string(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef 0, i32 noundef %46, ptr noundef %52)
+  br label %54
 
-50:                                               ; preds = %38, %23
-  br label %51
+54:                                               ; preds = %42, %25
+  br label %55
 
-51:                                               ; preds = %50, %4
-  %52 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %59
+55:                                               ; preds = %54, %4
+  %56 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %65
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %9, align 4
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %54
-  %58 = call ptr @tvb_new_composite()
-  store ptr %58, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  br label %59
-
-59:                                               ; preds = %57, %54, %51
+59:                                               ; preds = %55
   %60 = load i32, ptr %9, align 4
   %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %67
+  br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %9, align 4
-  %66 = call ptr @tvb_new_subset_length(ptr noundef %64, i32 noundef 0, i32 noundef %65)
-  call void @tvb_composite_append(ptr noundef %63, ptr noundef %66)
-  br label %67
+  %63 = call ptr @tvb_new_composite()
+  %64 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  store ptr %63, ptr %64, align 8
+  br label %65
 
-67:                                               ; preds = %62, %59
-  %68 = load i32, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1), align 4
-  %69 = load i32, ptr @rfc3396_sip_server, align 8
-  %70 = icmp eq i32 %68, %69
-  br i1 %70, label %71, label %214
+65:                                               ; preds = %62, %59, %55
+  %66 = load i32, ptr %9, align 4
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %74
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %214
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = load i32, ptr %9, align 4
+  %73 = call ptr @tvb_new_subset_length(ptr noundef %71, i32 noundef 0, i32 noundef %72)
+  call void @tvb_composite_append(ptr noundef %70, ptr noundef %73)
+  br label %74
 
-74:                                               ; preds = %71
+74:                                               ; preds = %68, %65
+  %75 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 1
+  %76 = load i32, ptr %75, align 4
+  %77 = load i32, ptr @rfc3396_sip_server, align 8
+  %78 = icmp eq i32 %76, %77
+  br i1 %78, label %79, label %238
+
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %238
+
+83:                                               ; preds = %79
   store i32 1, ptr %14, align 4
-  %75 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  call void @tvb_composite_finalize(ptr noundef %75)
-  %76 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %76, i32 noundef 0)
-  store i8 %77, ptr %13, align 1
-  %78 = load i32, ptr @rfc3396_sip_server, align 8
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %87
+  %84 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8
+  call void @tvb_composite_finalize(ptr noundef %85)
+  %86 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %87 = load ptr, ptr %86, align 8
+  %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %87, i32 noundef 0)
+  store i8 %88, ptr %13, align 1
+  %89 = load i32, ptr @rfc3396_sip_server, align 8
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %98
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %7, align 8
-  %82 = load i32, ptr @hf_dhcp_option_sip_server_enc, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i8, ptr %13, align 1
-  %85 = zext i8 %84 to i32
-  %86 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef 0, i32 noundef 1, i32 noundef %85)
-  br label %94
-
-87:                                               ; preds = %74
-  %88 = load ptr, ptr %7, align 8
-  %89 = load i32, ptr @hf_dhcp_option_sip_server_enc, align 4
-  %90 = load ptr, ptr %5, align 8
-  %91 = load i8, ptr %13, align 1
-  %92 = zext i8 %91 to i32
-  %93 = call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef 0, i32 noundef 0, i32 noundef %92)
-  br label %94
-
-94:                                               ; preds = %87, %80
+91:                                               ; preds = %83
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr @hf_dhcp_option_sip_server_enc, align 4
+  %94 = load ptr, ptr %5, align 8
   %95 = load i8, ptr %13, align 1
   %96 = zext i8 %95 to i32
-  switch i32 %96, label %207 [
-    i32 0, label %97
-    i32 1, label %147
+  %97 = call ptr @proto_tree_add_uint(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef 0, i32 noundef 1, i32 noundef %96)
+  br label %105
+
+98:                                               ; preds = %83
+  %99 = load ptr, ptr %7, align 8
+  %100 = load i32, ptr @hf_dhcp_option_sip_server_enc, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i8, ptr %13, align 1
+  %103 = zext i8 %102 to i32
+  %104 = call ptr @proto_tree_add_uint(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef %103)
+  br label %105
+
+105:                                              ; preds = %98, %91
+  %106 = load i8, ptr %13, align 1
+  %107 = zext i8 %106 to i32
+  switch i32 %107, label %231 [
+    i32 0, label %108
+    i32 1, label %164
   ]
 
-97:                                               ; preds = %94
+108:                                              ; preds = %105
   store i32 0, ptr %15, align 4
-  %98 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %99 = call i32 @tvb_reported_length(ptr noundef %98)
-  %100 = icmp ult i32 %99, 3
-  br i1 %100, label %101, label %107
-
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %6, align 8
-  %103 = load ptr, ptr %7, align 8
-  %104 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %105 = call i32 @tvb_reported_length(ptr noundef %104)
-  %106 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %102, ptr noundef %103, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1994, i32 noundef %105)
-  br label %213
-
-107:                                              ; preds = %97
-  br label %108
-
-108:                                              ; preds = %142, %107
-  %109 = load i32, ptr %14, align 4
-  %110 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
+  %109 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %110 = load ptr, ptr %109, align 8
   %111 = call i32 @tvb_reported_length(ptr noundef %110)
-  %112 = icmp ult i32 %109, %111
-  br i1 %112, label %113, label %146
+  %112 = icmp ult i32 %111, 3
+  br i1 %112, label %113, label %120
 
 113:                                              ; preds = %108
-  %114 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %115 = load i32, ptr %14, align 4
-  %116 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %117 = call i32 @tvb_reported_length(ptr noundef %116)
-  %118 = call i32 @get_dns_name(ptr noundef %114, i32 noundef %115, i32 noundef %117, i32 noundef 1, ptr noundef %10, ptr noundef %11)
-  store i32 %118, ptr %15, align 4
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 50
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = load i32, ptr %11, align 4
-  %124 = sext i32 %123 to i64
-  %125 = call ptr @format_text(ptr noundef %121, ptr noundef %122, i64 noundef %124)
-  store ptr %125, ptr %12, align 8
-  %126 = load i32, ptr @rfc3396_sip_server, align 8
-  %127 = icmp eq i32 %126, 1
-  br i1 %127, label %128, label %136
+  %114 = load ptr, ptr %6, align 8
+  %115 = load ptr, ptr %7, align 8
+  %116 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i32 @tvb_reported_length(ptr noundef %117)
+  %119 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %114, ptr noundef %115, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1994, i32 noundef %118)
+  br label %237
 
-128:                                              ; preds = %113
-  %129 = load ptr, ptr %7, align 8
-  %130 = load i32, ptr @hf_dhcp_option_sip_server_name, align 4
-  %131 = load ptr, ptr %5, align 8
-  %132 = load i32, ptr %14, align 4
-  %133 = load i32, ptr %15, align 4
-  %134 = load ptr, ptr %12, align 8
-  %135 = call ptr @proto_tree_add_string(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef %134)
-  br label %142
+120:                                              ; preds = %108
+  br label %121
 
-136:                                              ; preds = %113
-  %137 = load ptr, ptr %7, align 8
-  %138 = load i32, ptr @hf_dhcp_option_sip_server_name, align 4
-  %139 = load ptr, ptr %5, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = call ptr @proto_tree_add_string(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef 0, i32 noundef 0, ptr noundef %140)
-  br label %142
+121:                                              ; preds = %158, %120
+  %122 = load i32, ptr %14, align 4
+  %123 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 @tvb_reported_length(ptr noundef %124)
+  %126 = icmp ult i32 %122, %125
+  br i1 %126, label %127, label %162
 
-142:                                              ; preds = %136, %128
-  %143 = load i32, ptr %15, align 4
-  %144 = load i32, ptr %14, align 4
-  %145 = add i32 %144, %143
-  store i32 %145, ptr %14, align 4
-  br label %108, !llvm.loop !26
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i32, ptr %14, align 4
+  %131 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %132 = load ptr, ptr %131, align 8
+  %133 = call i32 @tvb_reported_length(ptr noundef %132)
+  %134 = call i32 @get_dns_name(ptr noundef %129, i32 noundef %130, i32 noundef %133, i32 noundef 1, ptr noundef %10, ptr noundef %11)
+  store i32 %134, ptr %15, align 4
+  %135 = load ptr, ptr %6, align 8
+  %136 = getelementptr inbounds %struct._packet_info, ptr %135, i32 0, i32 50
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %10, align 8
+  %139 = load i32, ptr %11, align 4
+  %140 = sext i32 %139 to i64
+  %141 = call ptr @format_text(ptr noundef %137, ptr noundef %138, i64 noundef %140)
+  store ptr %141, ptr %12, align 8
+  %142 = load i32, ptr @rfc3396_sip_server, align 8
+  %143 = icmp eq i32 %142, 1
+  br i1 %143, label %144, label %152
 
-146:                                              ; preds = %108
-  store ptr null, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  br label %213
+144:                                              ; preds = %127
+  %145 = load ptr, ptr %7, align 8
+  %146 = load i32, ptr @hf_dhcp_option_sip_server_name, align 4
+  %147 = load ptr, ptr %5, align 8
+  %148 = load i32, ptr %14, align 4
+  %149 = load i32, ptr %15, align 4
+  %150 = load ptr, ptr %12, align 8
+  %151 = call ptr @proto_tree_add_string(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef %149, ptr noundef %150)
+  br label %158
 
-147:                                              ; preds = %94
-  %148 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %149 = call i32 @tvb_reported_length(ptr noundef %148)
-  %150 = icmp ult i32 %149, 5
-  br i1 %150, label %151, label %157
-
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %6, align 8
+152:                                              ; preds = %127
   %153 = load ptr, ptr %7, align 8
-  %154 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %155 = call i32 @tvb_reported_length(ptr noundef %154)
-  %156 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %152, ptr noundef %153, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1995, i32 noundef %155)
-  br label %213
+  %154 = load i32, ptr @hf_dhcp_option_sip_server_name, align 4
+  %155 = load ptr, ptr %5, align 8
+  %156 = load ptr, ptr %12, align 8
+  %157 = call ptr @proto_tree_add_string(ptr noundef %153, i32 noundef %154, ptr noundef %155, i32 noundef 0, i32 noundef 0, ptr noundef %156)
+  br label %158
 
-157:                                              ; preds = %147
-  %158 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %159 = call i32 @tvb_reported_length(ptr noundef %158)
-  %160 = sub i32 %159, 1
-  %161 = and i32 %160, 3
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %179
+158:                                              ; preds = %152, %144
+  %159 = load i32, ptr %15, align 4
+  %160 = load i32, ptr %14, align 4
+  %161 = add i32 %160, %159
+  store i32 %161, ptr %14, align 4
+  br label %121, !llvm.loop !26
 
-163:                                              ; preds = %157
-  %164 = load i32, ptr @rfc3396_sip_server, align 8
-  %165 = icmp eq i32 %164, 1
-  br i1 %165, label %166, label %172
+162:                                              ; preds = %121
+  %163 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  store ptr null, ptr %163, align 8
+  br label %237
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %6, align 8
-  %168 = load ptr, ptr %7, align 8
-  %169 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %170 = call i32 @tvb_reported_length(ptr noundef %169)
-  %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %167, ptr noundef %168, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1996, i32 noundef %170)
-  br label %178
+164:                                              ; preds = %105
+  %165 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %166 = load ptr, ptr %165, align 8
+  %167 = call i32 @tvb_reported_length(ptr noundef %166)
+  %168 = icmp ult i32 %167, 5
+  br i1 %168, label %169, label %176
 
-172:                                              ; preds = %163
-  %173 = load ptr, ptr %6, align 8
-  %174 = load ptr, ptr %7, align 8
-  %175 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %176 = call i32 @tvb_reported_length(ptr noundef %175)
-  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %173, ptr noundef %174, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1997, i32 noundef %176)
-  br label %178
+169:                                              ; preds = %164
+  %170 = load ptr, ptr %6, align 8
+  %171 = load ptr, ptr %7, align 8
+  %172 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %173 = load ptr, ptr %172, align 8
+  %174 = call i32 @tvb_reported_length(ptr noundef %173)
+  %175 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %170, ptr noundef %171, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1995, i32 noundef %174)
+  br label %237
 
-178:                                              ; preds = %172, %166
-  br label %213
+176:                                              ; preds = %164
+  %177 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %178 = load ptr, ptr %177, align 8
+  %179 = call i32 @tvb_reported_length(ptr noundef %178)
+  %180 = sub i32 %179, 1
+  %181 = and i32 %180, 3
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %183, label %201
 
-179:                                              ; preds = %157
-  br label %180
+183:                                              ; preds = %176
+  %184 = load i32, ptr @rfc3396_sip_server, align 8
+  %185 = icmp eq i32 %184, 1
+  br i1 %185, label %186, label %193
 
-180:                                              ; preds = %203, %179
-  %181 = load i32, ptr %14, align 4
-  %182 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %183 = call i32 @tvb_reported_length(ptr noundef %182)
-  %184 = icmp ult i32 %181, %183
-  br i1 %184, label %185, label %206
+186:                                              ; preds = %183
+  %187 = load ptr, ptr %6, align 8
+  %188 = load ptr, ptr %7, align 8
+  %189 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %190 = load ptr, ptr %189, align 8
+  %191 = call i32 @tvb_reported_length(ptr noundef %190)
+  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %187, ptr noundef %188, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1996, i32 noundef %191)
+  br label %200
 
-185:                                              ; preds = %180
-  %186 = load i32, ptr @rfc3396_sip_server, align 8
-  %187 = icmp eq i32 %186, 1
-  br i1 %187, label %188, label %194
+193:                                              ; preds = %183
+  %194 = load ptr, ptr %6, align 8
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %197 = load ptr, ptr %196, align 8
+  %198 = call i32 @tvb_reported_length(ptr noundef %197)
+  %199 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %194, ptr noundef %195, ptr noundef @ei_dhcp_bad_length, ptr noundef @.str.1997, i32 noundef %198)
+  br label %200
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %7, align 8
-  %190 = load i32, ptr @hf_dhcp_option_sip_server_address, align 4
-  %191 = load ptr, ptr %5, align 8
-  %192 = load i32, ptr %14, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %191, i32 noundef %192, i32 noundef 4, i32 noundef 0)
-  br label %203
+200:                                              ; preds = %193, %186
+  br label %237
 
-194:                                              ; preds = %185
-  %195 = load ptr, ptr getelementptr inbounds (%struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2), align 8
-  %196 = load i32, ptr %14, align 4
-  %197 = call i32 @tvb_get_ipv4(ptr noundef %195, i32 noundef %196)
-  store i32 %197, ptr %16, align 4
-  %198 = load ptr, ptr %7, align 8
-  %199 = load i32, ptr @hf_dhcp_option_sip_server_address, align 4
-  %200 = load ptr, ptr %5, align 8
-  %201 = load i32, ptr %16, align 4
-  %202 = call ptr @proto_tree_add_ipv4(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef 0, i32 noundef 0, i32 noundef %201)
-  br label %203
+201:                                              ; preds = %176
+  br label %202
 
-203:                                              ; preds = %194, %188
-  %204 = load i32, ptr %14, align 4
-  %205 = add i32 %204, 4
-  store i32 %205, ptr %14, align 4
-  br label %180, !llvm.loop !27
+202:                                              ; preds = %227, %201
+  %203 = load i32, ptr %14, align 4
+  %204 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %205 = load ptr, ptr %204, align 8
+  %206 = call i32 @tvb_reported_length(ptr noundef %205)
+  %207 = icmp ult i32 %203, %206
+  br i1 %207, label %208, label %230
 
-206:                                              ; preds = %180
-  br label %213
+208:                                              ; preds = %202
+  %209 = load i32, ptr @rfc3396_sip_server, align 8
+  %210 = icmp eq i32 %209, 1
+  br i1 %210, label %211, label %217
 
-207:                                              ; preds = %94
-  %208 = load ptr, ptr %6, align 8
-  %209 = load ptr, ptr %7, align 8
-  %210 = load i8, ptr %13, align 1
-  %211 = zext i8 %210 to i32
-  %212 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %208, ptr noundef %209, ptr noundef @ei_dhcp_option_sip_server_address_encoding, ptr noundef @.str.1998, i32 noundef %211)
-  br label %213
+211:                                              ; preds = %208
+  %212 = load ptr, ptr %7, align 8
+  %213 = load i32, ptr @hf_dhcp_option_sip_server_address, align 4
+  %214 = load ptr, ptr %5, align 8
+  %215 = load i32, ptr %14, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef 4, i32 noundef 0)
+  br label %227
 
-213:                                              ; preds = %207, %206, %178, %151, %146, %101
-  br label %214
+217:                                              ; preds = %208
+  %218 = getelementptr inbounds %struct.rfc3396_for_option_t, ptr @rfc3396_sip_server, i32 0, i32 2
+  %219 = load ptr, ptr %218, align 8
+  %220 = load i32, ptr %14, align 4
+  %221 = call i32 @tvb_get_ipv4(ptr noundef %219, i32 noundef %220)
+  store i32 %221, ptr %16, align 4
+  %222 = load ptr, ptr %7, align 8
+  %223 = load i32, ptr @hf_dhcp_option_sip_server_address, align 4
+  %224 = load ptr, ptr %5, align 8
+  %225 = load i32, ptr %16, align 4
+  %226 = call ptr @proto_tree_add_ipv4(ptr noundef %222, i32 noundef %223, ptr noundef %224, i32 noundef 0, i32 noundef 0, i32 noundef %225)
+  br label %227
 
-214:                                              ; preds = %213, %71, %67
-  %215 = load ptr, ptr %5, align 8
-  %216 = call i32 @tvb_captured_length(ptr noundef %215)
-  ret i32 %216
+227:                                              ; preds = %217, %211
+  %228 = load i32, ptr %14, align 4
+  %229 = add i32 %228, 4
+  store i32 %229, ptr %14, align 4
+  br label %202, !llvm.loop !27
+
+230:                                              ; preds = %202
+  br label %237
+
+231:                                              ; preds = %105
+  %232 = load ptr, ptr %6, align 8
+  %233 = load ptr, ptr %7, align 8
+  %234 = load i8, ptr %13, align 1
+  %235 = zext i8 %234 to i32
+  %236 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %232, ptr noundef %233, ptr noundef @ei_dhcp_option_sip_server_address_encoding, ptr noundef @.str.1998, i32 noundef %235)
+  br label %237
+
+237:                                              ; preds = %231, %230, %200, %169, %162, %113
+  br label %238
+
+238:                                              ; preds = %237, %79, %74
+  %239 = load ptr, ptr %5, align 8
+  %240 = call i32 @tvb_captured_length(ptr noundef %239)
+  ret i32 %240
 }
 
 ; Function Attrs: nounwind uwtable

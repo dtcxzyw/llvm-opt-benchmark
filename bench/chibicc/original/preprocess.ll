@@ -182,40 +182,41 @@ if.end3:                                          ; preds = %if.end
 
 for.cond:                                         ; preds = %for.inc, %if.end3
   %6 = load i32, ptr %i, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i32 0, i32 2), align 4
-  %cmp4 = icmp slt i32 %6, %7
+  %7 = getelementptr inbounds %struct.StringArray, ptr @include_paths, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4
+  %cmp4 = icmp slt i32 %6, %8
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr @include_paths, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx6, align 8
-  %11 = load ptr, ptr %filename.addr, align 8
-  %call7 = call ptr (ptr, ...) @format(ptr noundef @.str, ptr noundef %10, ptr noundef %11)
+  %9 = load ptr, ptr @include_paths, align 8
+  %10 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %10 to i64
+  %arrayidx6 = getelementptr inbounds ptr, ptr %9, i64 %idxprom
+  %11 = load ptr, ptr %arrayidx6, align 8
+  %12 = load ptr, ptr %filename.addr, align 8
+  %call7 = call ptr (ptr, ...) @format(ptr noundef @.str, ptr noundef %11, ptr noundef %12)
   store ptr %call7, ptr %path, align 8
-  %12 = load ptr, ptr %path, align 8
-  %call8 = call zeroext i1 @file_exists(ptr noundef %12)
+  %13 = load ptr, ptr %path, align 8
+  %call8 = call zeroext i1 @file_exists(ptr noundef %13)
   br i1 %call8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %for.body
   br label %for.inc
 
 if.end10:                                         ; preds = %for.body
-  %13 = load ptr, ptr %filename.addr, align 8
-  %14 = load ptr, ptr %path, align 8
-  call void @hashmap_put(ptr noundef @search_include_paths.cache, ptr noundef %13, ptr noundef %14)
-  %15 = load i32, ptr %i, align 4
-  %add = add nsw i32 %15, 1
+  %14 = load ptr, ptr %filename.addr, align 8
+  %15 = load ptr, ptr %path, align 8
+  call void @hashmap_put(ptr noundef @search_include_paths.cache, ptr noundef %14, ptr noundef %15)
+  %16 = load i32, ptr %i, align 4
+  %add = add nsw i32 %16, 1
   store i32 %add, ptr @include_next_idx, align 4
-  %16 = load ptr, ptr %path, align 8
-  store ptr %16, ptr %retval, align 8
+  %17 = load ptr, ptr %path, align 8
+  store ptr %17, ptr %retval, align 8
   br label %return
 
 for.inc:                                          ; preds = %if.then9
-  %17 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %17, 1
+  %18 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -224,8 +225,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.end10, %if.then2, %if.then
-  %18 = load ptr, ptr %retval, align 8
-  ret ptr %18
+  %19 = load ptr, ptr %retval, align 8
+  ret ptr %19
 }
 
 declare ptr @hashmap_get(ptr noundef, ptr noundef) #1
@@ -1139,36 +1140,37 @@ if.then169:                                       ; preds = %land.lhs.true165
   %134 = load ptr, ptr %file170, align 16
   %name171 = getelementptr inbounds %struct.File, ptr %134, i32 0, i32 0
   %135 = load ptr, ptr %name171, align 8
-  call void @hashmap_put(ptr noundef @pragma_once, ptr noundef %135, ptr noundef inttoptr (i64 1 to ptr))
-  %136 = load ptr, ptr %tok.addr, align 8
-  %next172 = getelementptr inbounds %struct.Token, ptr %136, i32 0, i32 1
-  %137 = load ptr, ptr %next172, align 8
-  %next173 = getelementptr inbounds %struct.Token, ptr %137, i32 0, i32 1
-  %138 = load ptr, ptr %next173, align 8
-  %call174 = call ptr @skip_line(ptr noundef %138)
+  %136 = inttoptr i64 1 to ptr
+  call void @hashmap_put(ptr noundef @pragma_once, ptr noundef %135, ptr noundef %136)
+  %137 = load ptr, ptr %tok.addr, align 8
+  %next172 = getelementptr inbounds %struct.Token, ptr %137, i32 0, i32 1
+  %138 = load ptr, ptr %next172, align 8
+  %next173 = getelementptr inbounds %struct.Token, ptr %138, i32 0, i32 1
+  %139 = load ptr, ptr %next173, align 8
+  %call174 = call ptr @skip_line(ptr noundef %139)
   store ptr %call174, ptr %tok.addr, align 8
   br label %while.cond, !llvm.loop !12
 
 if.end175:                                        ; preds = %land.lhs.true165, %if.end162
-  %139 = load ptr, ptr %tok.addr, align 8
-  %call176 = call zeroext i1 @equal(ptr noundef %139, ptr noundef @.str.82)
+  %140 = load ptr, ptr %tok.addr, align 8
+  %call176 = call zeroext i1 @equal(ptr noundef %140, ptr noundef @.str.82)
   br i1 %call176, label %if.then177, label %if.end181
 
 if.then177:                                       ; preds = %if.end175
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then177
-  %140 = load ptr, ptr %tok.addr, align 8
-  %next178 = getelementptr inbounds %struct.Token, ptr %140, i32 0, i32 1
-  %141 = load ptr, ptr %next178, align 8
-  store ptr %141, ptr %tok.addr, align 8
+  %141 = load ptr, ptr %tok.addr, align 8
+  %next178 = getelementptr inbounds %struct.Token, ptr %141, i32 0, i32 1
+  %142 = load ptr, ptr %next178, align 8
+  store ptr %142, ptr %tok.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %142 = load ptr, ptr %tok.addr, align 8
-  %at_bol = getelementptr inbounds %struct.Token, ptr %142, i32 0, i32 12
-  %143 = load i8, ptr %at_bol, align 8
-  %tobool179 = trunc i8 %143 to i1
+  %143 = load ptr, ptr %tok.addr, align 8
+  %at_bol = getelementptr inbounds %struct.Token, ptr %143, i32 0, i32 12
+  %144 = load i8, ptr %at_bol, align 8
+  %tobool179 = trunc i8 %144 to i1
   %lnot180 = xor i1 %tobool179, true
   br i1 %lnot180, label %do.body, label %do.end, !llvm.loop !13
 
@@ -1176,38 +1178,38 @@ do.end:                                           ; preds = %do.cond
   br label %while.cond, !llvm.loop !12
 
 if.end181:                                        ; preds = %if.end175
-  %144 = load ptr, ptr %tok.addr, align 8
-  %call182 = call zeroext i1 @equal(ptr noundef %144, ptr noundef @.str.84)
+  %145 = load ptr, ptr %tok.addr, align 8
+  %call182 = call zeroext i1 @equal(ptr noundef %145, ptr noundef @.str.84)
   br i1 %call182, label %if.then183, label %if.end184
 
 if.then183:                                       ; preds = %if.end181
-  %145 = load ptr, ptr %tok.addr, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %145, ptr noundef @.str.84) #11
+  %146 = load ptr, ptr %tok.addr, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %146, ptr noundef @.str.84) #11
   unreachable
 
 if.end184:                                        ; preds = %if.end181
-  %146 = load ptr, ptr %tok.addr, align 8
-  %at_bol185 = getelementptr inbounds %struct.Token, ptr %146, i32 0, i32 12
-  %147 = load i8, ptr %at_bol185, align 8
-  %tobool186 = trunc i8 %147 to i1
+  %147 = load ptr, ptr %tok.addr, align 8
+  %at_bol185 = getelementptr inbounds %struct.Token, ptr %147, i32 0, i32 12
+  %148 = load i8, ptr %at_bol185, align 8
+  %tobool186 = trunc i8 %148 to i1
   br i1 %tobool186, label %if.then187, label %if.end188
 
 if.then187:                                       ; preds = %if.end184
   br label %while.cond, !llvm.loop !12
 
 if.end188:                                        ; preds = %if.end184
-  %148 = load ptr, ptr %tok.addr, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %148, ptr noundef @.str.85) #11
+  %149 = load ptr, ptr %tok.addr, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %149, ptr noundef @.str.85) #11
   unreachable
 
 while.end:                                        ; preds = %while.cond
-  %149 = load ptr, ptr %tok.addr, align 8
-  %150 = load ptr, ptr %cur, align 8
-  %next189 = getelementptr inbounds %struct.Token, ptr %150, i32 0, i32 1
-  store ptr %149, ptr %next189, align 8
+  %150 = load ptr, ptr %tok.addr, align 8
+  %151 = load ptr, ptr %cur, align 8
+  %next189 = getelementptr inbounds %struct.Token, ptr %151, i32 0, i32 1
+  store ptr %150, ptr %next189, align 8
   %next190 = getelementptr inbounds %struct.Token, ptr %head, i32 0, i32 1
-  %151 = load ptr, ptr %next190, align 8
-  ret ptr %151
+  %152 = load ptr, ptr %next190, align 8
+  ret ptr %152
 }
 
 ; Function Attrs: noreturn
@@ -2318,34 +2320,35 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr @include_next_idx, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.StringArray, ptr @include_paths, i32 0, i32 2), align 4
-  %cmp = icmp slt i32 %0, %1
+  %1 = getelementptr inbounds %struct.StringArray, ptr @include_paths, i32 0, i32 2
+  %2 = load i32, ptr %1, align 4
+  %cmp = icmp slt i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @include_paths, align 8
-  %3 = load i32, ptr @include_next_idx, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %5 = load ptr, ptr %filename.addr, align 8
-  %call = call ptr (ptr, ...) @format(ptr noundef @.str, ptr noundef %4, ptr noundef %5)
+  %3 = load ptr, ptr @include_paths, align 8
+  %4 = load i32, ptr @include_next_idx, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %filename.addr, align 8
+  %call = call ptr (ptr, ...) @format(ptr noundef @.str, ptr noundef %5, ptr noundef %6)
   store ptr %call, ptr %path, align 8
-  %6 = load ptr, ptr %path, align 8
-  %call1 = call zeroext i1 @file_exists(ptr noundef %6)
+  %7 = load ptr, ptr %path, align 8
+  %call1 = call zeroext i1 @file_exists(ptr noundef %7)
   br i1 %call1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %path, align 8
-  store ptr %7, ptr %retval, align 8
+  %8 = load ptr, ptr %path, align 8
+  store ptr %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %8 = load i32, ptr @include_next_idx, align 4
-  %inc = add nsw i32 %8, 1
+  %9 = load i32, ptr @include_next_idx, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr @include_next_idx, align 4
   br label %for.cond, !llvm.loop !27
 
@@ -2354,8 +2357,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

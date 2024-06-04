@@ -119,7 +119,7 @@ define dso_local void @intel_gt_debugfs_register(ptr noundef %0) local_unnamed_a
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %43, label %9
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 4952
@@ -131,47 +131,48 @@ define dso_local void @intel_gt_debugfs_register(ptr noundef %0) local_unnamed_a
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @debugfs_create_dir(ptr noundef nonnull %2, ptr noundef %17) #5
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %43, label %20
+  %19 = inttoptr i64 -4096 to ptr
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %44, label %21
 
-20:                                               ; preds = %38, %9
-  %21 = phi i64 [ %23, %38 ], [ 2, %9 ]
-  %22 = phi ptr [ %39, %38 ], [ @gt_debugfs_register.files, %9 ]
-  %23 = add nsw i64 %21, -1
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = select i1 %28, i16 292, i16 420
-  %30 = getelementptr inbounds i8, ptr %22, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %35, label %33
+21:                                               ; preds = %39, %9
+  %22 = phi i64 [ %24, %39 ], [ 2, %9 ]
+  %23 = phi ptr [ %40, %39 ], [ @gt_debugfs_register.files, %9 ]
+  %24 = add nsw i64 %22, -1
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  %30 = select i1 %29, i16 292, i16 420
+  %31 = getelementptr inbounds i8, ptr %23, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %36, label %34
 
-33:                                               ; preds = %20
-  %34 = call zeroext i1 %31(ptr noundef %0) #5
-  br i1 %34, label %35, label %38
+34:                                               ; preds = %21
+  %35 = call zeroext i1 %32(ptr noundef %0) #5
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %33, %20
-  %36 = load ptr, ptr %22, align 8
-  %37 = call ptr @debugfs_create_file(ptr noundef %36, i16 noundef zeroext %29, ptr noundef %18, ptr noundef %0, ptr noundef %25) #5
-  br label %38
+36:                                               ; preds = %34, %21
+  %37 = load ptr, ptr %23, align 8
+  %38 = call ptr @debugfs_create_file(ptr noundef %37, i16 noundef zeroext %30, ptr noundef %18, ptr noundef %0, ptr noundef %26) #5
+  br label %39
 
-38:                                               ; preds = %35, %33
-  %39 = getelementptr i8, ptr %22, i64 24
-  %40 = icmp eq i64 %23, 0
-  br i1 %40, label %41, label %20, !llvm.loop !6
+39:                                               ; preds = %36, %34
+  %40 = getelementptr i8, ptr %23, i64 24
+  %41 = icmp eq i64 %24, 0
+  br i1 %41, label %42, label %21, !llvm.loop !6
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   call void @intel_gt_engines_debugfs_register(ptr noundef %0, ptr noundef %18) #5
   call void @intel_gt_pm_debugfs_register(ptr noundef %0, ptr noundef %18) #5
   call void @intel_sseu_debugfs_register(ptr noundef %0, ptr noundef %18) #5
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @intel_uc_debugfs_register(ptr noundef %42, ptr noundef %18) #5
-  br label %43
+  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @intel_uc_debugfs_register(ptr noundef %43, ptr noundef %18) #5
+  br label %44
 
-43:                                               ; preds = %41, %9, %1
+44:                                               ; preds = %42, %9, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   ret void
 }

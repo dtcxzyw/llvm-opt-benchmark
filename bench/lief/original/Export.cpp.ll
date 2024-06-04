@@ -261,11 +261,12 @@ define void @_ZN4LIEF2PE6ExportD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %5 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %6 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -327,56 +328,57 @@ define void @_ZN4LIEF2PE6ExportC2ERKS1_(ptr noundef nonnull align 8 dereferencea
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %10, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 16, i1 false)
-  %12 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 6
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %13, i32 0, i32 6
-  invoke void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %20
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 16, i1 false)
+  %13 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 6
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %14, i32 0, i32 6
+  invoke void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 7
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %17, i32 0, i32 7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %19 unwind label %24
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %7, i32 0, i32 7
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %18, i32 0, i32 7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  br label %28
-
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %6, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %16
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
+  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
@@ -666,21 +668,22 @@ define void @_ZN4LIEF2PE6ExportC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 3
-  store i16 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 4
-  store i16 0, ptr %7, align 2
-  %8 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %10 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 3
+  store i16 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 4
+  store i16 0, ptr %8, align 2
+  %9 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  %11 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
   ret void
 }
 
@@ -706,36 +709,37 @@ define void @_ZN4LIEF2PE6ExportC2ERKNS0_7details25pe_export_directory_tableE(ptr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 1
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 1
-  store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 1
-  store i16 %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %19, i32 0, i32 3
-  %21 = load i16, ptr %20, align 1
-  store i16 %21, ptr %18, align 2
-  %22 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 5
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %23, i32 0, i32 5
-  %25 = load i32, ptr %24, align 1
-  store i32 %25, ptr %22, align 4
-  %26 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 6
-  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #11
-  %27 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #11
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE6ExportE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 1
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 1
+  store i32 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 1
+  store i16 %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %20, i32 0, i32 3
+  %22 = load i16, ptr %21, align 1
+  store i16 %22, ptr %19, align 2
+  %23 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::PE::details::pe_export_directory_table", ptr %24, i32 0, i32 5
+  %26 = load i32, ptr %25, align 1
+  store i32 %26, ptr %23, align 4
+  %27 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 6
+  call void @_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
+  %28 = getelementptr inbounds %"class.LIEF::PE::Export", ptr %5, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #11
   ret void
 }
 

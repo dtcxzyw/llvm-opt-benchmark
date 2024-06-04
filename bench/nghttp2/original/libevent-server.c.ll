@@ -74,18 +74,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %act, i8 0, i64 152, i1 false)
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %__sigaction_handler, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef %act, ptr noundef null) #11
-  %2 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 1
-  %3 = load ptr, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %argv.addr, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %4, i64 2
-  %5 = load ptr, ptr %arrayidx2, align 8
-  %6 = load ptr, ptr %argv.addr, align 8
-  %arrayidx3 = getelementptr inbounds ptr, ptr %6, i64 3
-  %7 = load ptr, ptr %arrayidx3, align 8
-  call void @run(ptr noundef %3, ptr noundef %5, ptr noundef %7)
+  %3 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 1
+  %4 = load ptr, ptr %arrayidx, align 8
+  %5 = load ptr, ptr %argv.addr, align 8
+  %arrayidx2 = getelementptr inbounds ptr, ptr %5, i64 2
+  %6 = load ptr, ptr %arrayidx2, align 8
+  %7 = load ptr, ptr %argv.addr, align 8
+  %arrayidx3 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = load ptr, ptr %arrayidx3, align 8
+  call void @run(ptr noundef %4, ptr noundef %6, ptr noundef %8)
   ret i32 0
 }
 

@@ -219,15 +219,15 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   store i32 0, ptr %6, align 4, !annotation !8
   %7 = icmp sgt i32 %2, 0
-  br i1 %7, label %8, label %70
+  br i1 %7, label %8, label %74
 
-8:                                                ; preds = %67, %3
-  %9 = phi i32 [ %68, %67 ], [ 0, %3 ]
+8:                                                ; preds = %71, %3
+  %9 = phi i32 [ %72, %71 ], [ 0, %3 ]
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr ptr, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %70, label %14
+  br i1 %13, label %74, label %14
 
 14:                                               ; preds = %8
   %15 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -236,103 +236,107 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
   %18 = load i16, ptr %5, align 2
   %19 = zext i16 %18 to i32
   %20 = icmp eq i32 %15, 3
-  br i1 %20, label %21, label %64
+  br i1 %20, label %21, label %68
 
 21:                                               ; preds = %14
   %22 = load i32, ptr %6, align 4
   %23 = zext i32 %22 to i64
-  %24 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
-  %25 = call noalias noundef align 8 dereferenceable_or_null(7632) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 7632) #8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %61, label %27
+  %24 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13
+  %25 = load ptr, ptr %24, align 8
+  %26 = call noalias noundef align 8 dereferenceable_or_null(7632) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 7632) #8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %65, label %28
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %29 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3264, i64 noundef 40) #8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %59, label %31
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %30 = load ptr, ptr %29, align 16
+  %31 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %30, i32 noundef 3264, i64 noundef 40) #8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %63, label %33
 
-31:                                               ; preds = %27
-  store i16 %1, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 52
-  store i16 %1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 2
-  store i16 0, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %25, i64 54
-  store i16 0, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %29, i64 4
-  store i32 %17, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %25, i64 56
-  store i32 %17, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
-  store i32 %19, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %25, i64 60
-  store i32 %19, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 %23, ptr %39, align 8
+33:                                               ; preds = %28
+  store i16 %1, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %26, i64 52
+  store i16 %1, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %31, i64 2
+  store i16 0, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %26, i64 54
+  store i16 0, ptr %36, align 2
+  %37 = getelementptr inbounds i8, ptr %31, i64 4
+  store i32 %17, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %26, i64 56
+  store i32 %17, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %31, i64 8
+  store i32 %19, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %26, i64 60
+  store i32 %19, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %31, i64 16
+  store i64 %23, ptr %41, align 8
   call void @mutex_lock(ptr noundef nonnull @dquirks_lock) #7
-  br label %40
+  br label %42
 
-40:                                               ; preds = %44, %31
-  %41 = phi ptr [ @dquirks_list, %31 ], [ %42, %44 ]
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, @dquirks_list
-  br i1 %43, label %54, label %44
+42:                                               ; preds = %46, %33
+  %43 = phi ptr [ @dquirks_list, %33 ], [ %44, %46 ]
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, @dquirks_list
+  br i1 %45, label %56, label %46
 
-44:                                               ; preds = %40
-  %45 = getelementptr i8, ptr %42, i64 -24
-  %46 = call zeroext i1 @hid_match_one_id(ptr noundef nonnull %25, ptr noundef %45) #7
-  br i1 %46, label %47, label %40, !llvm.loop !9
+46:                                               ; preds = %42
+  %47 = getelementptr i8, ptr %44, i64 -24
+  %48 = call zeroext i1 @hid_match_one_id(ptr noundef nonnull %26, ptr noundef %47) #7
+  br i1 %48, label %49, label %42, !llvm.loop !9
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %29, i64 24
-  %49 = load ptr, ptr %42, align 8
-  store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %48, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %52, ptr %53, align 8
-  store ptr %48, ptr %52, align 8
-  call void @kfree(ptr noundef %45) #7
-  br label %58
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %31, i64 24
+  %51 = load ptr, ptr %44, align 8
+  store ptr %51, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %44, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %31, i64 32
+  store ptr %54, ptr %55, align 8
+  store ptr %50, ptr %54, align 8
+  call void @kfree(ptr noundef %47) #7
+  br label %62
 
-54:                                               ; preds = %40
-  %55 = getelementptr inbounds i8, ptr %29, i64 24
-  %56 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dquirks_list, i64 0, i32 1), align 8
-  store ptr %55, ptr getelementptr inbounds (%struct.list_head, ptr @dquirks_list, i64 0, i32 1), align 8
-  store ptr @dquirks_list, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %56, ptr %57, align 8
-  store volatile ptr %55, ptr %56, align 8
-  br label %58
+56:                                               ; preds = %42
+  %57 = getelementptr inbounds i8, ptr %31, i64 24
+  %58 = getelementptr inbounds %struct.list_head, ptr @dquirks_list, i64 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.list_head, ptr @dquirks_list, i64 0, i32 1
+  store ptr %57, ptr %60, align 8
+  store ptr @dquirks_list, ptr %57, align 8
+  %61 = getelementptr inbounds i8, ptr %31, i64 32
+  store ptr %59, ptr %61, align 8
+  store volatile ptr %57, ptr %59, align 8
+  br label %62
 
-58:                                               ; preds = %54, %47
+62:                                               ; preds = %56, %49
   call void @mutex_unlock(ptr noundef nonnull @dquirks_lock) #7
-  br label %59
+  br label %63
 
-59:                                               ; preds = %58, %27
-  %60 = phi i32 [ 0, %58 ], [ -12, %27 ]
-  call void @kfree(ptr noundef nonnull %25) #7
-  br label %61
+63:                                               ; preds = %62, %28
+  %64 = phi i32 [ 0, %62 ], [ -12, %28 ]
+  call void @kfree(ptr noundef nonnull %26) #7
+  br label %65
 
-61:                                               ; preds = %59, %21
-  %62 = phi i32 [ %60, %59 ], [ -12, %21 ]
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %67, label %64
+65:                                               ; preds = %63, %21
+  %66 = phi i32 [ %64, %63 ], [ -12, %21 ]
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %71, label %68
 
-64:                                               ; preds = %61, %14
-  %65 = load ptr, ptr %11, align 8
-  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %65) #9
-  br label %67
+68:                                               ; preds = %65, %14
+  %69 = load ptr, ptr %11, align 8
+  %70 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %69) #9
+  br label %71
 
-67:                                               ; preds = %64, %61
-  %68 = add nuw nsw i32 %9, 1
-  %69 = icmp eq i32 %68, %2
-  br i1 %69, label %70, label %8, !llvm.loop !10
+71:                                               ; preds = %68, %65
+  %72 = add nuw nsw i32 %9, 1
+  %73 = icmp eq i32 %72, %2
+  br i1 %73, label %74, label %8, !llvm.loop !10
 
-70:                                               ; preds = %67, %8, %3
+74:                                               ; preds = %71, %8, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
@@ -350,14 +354,14 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @dquirks_lock) #7
   %2 = load ptr, ptr @dquirks_list, align 8
   %3 = icmp eq ptr %2, @dquirks_list
-  br i1 %3, label %19, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
   %5 = icmp eq i16 %0, -1
   br label %6
 
-6:                                                ; preds = %17, %4
-  %7 = phi ptr [ %2, %4 ], [ %9, %17 ]
+6:                                                ; preds = %19, %4
+  %7 = phi ptr [ %2, %4 ], [ %9, %19 ]
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load ptr, ptr %7, align 8
   br i1 %5, label %13, label %10
@@ -365,7 +369,7 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
 10:                                               ; preds = %6
   %11 = load i16, ptr %8, align 8
   %12 = icmp eq i16 %11, %0
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %10, %6
   %14 = getelementptr inbounds i8, ptr %7, i64 8
@@ -373,16 +377,18 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
   %16 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %15, ptr %16, align 8
   store volatile ptr %9, ptr %15, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %7, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %14, align 8
   tail call void @kfree(ptr noundef %8) #7
-  br label %17
+  br label %19
 
-17:                                               ; preds = %13, %10
-  %18 = icmp eq ptr %9, @dquirks_list
-  br i1 %18, label %19, label %6, !llvm.loop !11
+19:                                               ; preds = %13, %10
+  %20 = icmp eq ptr %9, @dquirks_list
+  br i1 %20, label %21, label %6, !llvm.loop !11
 
-19:                                               ; preds = %17, %1
+21:                                               ; preds = %19, %1
   tail call void @mutex_unlock(ptr noundef nonnull @dquirks_lock) #7
   ret void
 }

@@ -6515,14 +6515,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -6548,13 +6548,14 @@ define double @gvelapsed_sec() #0 {
   %8 = add nsw i64 %5, %7
   %9 = load i64, ptr @T, align 8
   %10 = sub nsw i64 %8, %9
-  %11 = load i64, ptr getelementptr inbounds (%struct.tms, ptr @T, i32 0, i32 1), align 8
-  %12 = sub nsw i64 %10, %11
-  %13 = sitofp i64 %12 to double
-  %14 = fdiv double %13, 1.000000e+02
-  store double %14, ptr %2, align 8
-  %15 = load double, ptr %2, align 8
-  ret double %15
+  %11 = getelementptr inbounds %struct.tms, ptr @T, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = sub nsw i64 %10, %12
+  %14 = sitofp i64 %13 to double
+  %15 = fdiv double %14, 1.000000e+02
+  store double %15, ptr %2, align 8
+  %16 = load double, ptr %2, align 8
+  ret double %16
 }
 
 declare ptr @dtopen(ptr noundef, ptr noundef) #1
@@ -8161,9 +8162,6 @@ define internal zeroext i1 @gv_isupper(i32 noundef %0) #0 {
 ; Function Attrs: nounwind willreturn memory(read)
 declare i32 @strcasecmp(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -8182,20 +8180,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #14
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -8283,12 +8281,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %80
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #12
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
@@ -8324,6 +8316,15 @@ define internal ptr @agxbnext(ptr noundef %0) #0 {
   %21 = phi ptr [ %12, %8 ], [ %19, %13 ]
   ret ptr %21
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

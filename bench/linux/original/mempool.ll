@@ -309,23 +309,24 @@ define dso_local noundef i32 @mempool_init(ptr noundef %0, i32 noundef %1, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @mempool_create(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3520, i32 noundef -1, i64 noundef 72) #9
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %12, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_node_trace(ptr noundef %6, i32 noundef 3520, i32 noundef -1, i64 noundef 72) #9
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %4
-  %9 = tail call i32 @mempool_init_node(ptr noundef nonnull %6, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 3264, i32 noundef -1)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %12, label %11
+9:                                                ; preds = %4
+  %10 = tail call i32 @mempool_init_node(ptr noundef nonnull %7, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 3264, i32 noundef -1)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %8
-  tail call void @kfree(ptr noundef nonnull %6) #7
-  br label %12
+12:                                               ; preds = %9
+  tail call void @kfree(ptr noundef nonnull %7) #7
+  br label %13
 
-12:                                               ; preds = %11, %8, %4
-  %13 = phi ptr [ null, %11 ], [ null, %4 ], [ %6, %8 ]
-  ret ptr %13
+13:                                               ; preds = %12, %9, %4
+  %14 = phi ptr [ null, %12 ], [ null, %4 ], [ %7, %9 ]
+  ret ptr %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

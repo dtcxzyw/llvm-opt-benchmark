@@ -28,25 +28,26 @@ define dso_local void @__printk_safe_exit() local_unnamed_addr #0 align 16 {
 define dso_local i32 @vprintk(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @printk_context) #2, !srcloc !7
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #3, !srcloc !8
-  %7 = and i32 %6, 15728640
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+  %6 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6) #3, !srcloc !8
+  %8 = and i32 %7, 15728640
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %5, %2
-  %10 = tail call i32 @vprintk_deferred(ptr noundef %0, ptr noundef %1) #2
-  br label %13
+10:                                               ; preds = %5, %2
+  %11 = tail call i32 @vprintk_deferred(ptr noundef %0, ptr noundef %1) #2
+  br label %14
 
-11:                                               ; preds = %5
-  %12 = tail call i32 @vprintk_default(ptr noundef %0, ptr noundef %1) #2
-  br label %13
+12:                                               ; preds = %5
+  %13 = tail call i32 @vprintk_default(ptr noundef %0, ptr noundef %1) #2
+  br label %14
 
-13:                                               ; preds = %11, %9
-  %14 = phi i32 [ %10, %9 ], [ %12, %11 ]
-  ret i32 %14
+14:                                               ; preds = %12, %10
+  %15 = phi i32 [ %11, %10 ], [ %13, %12 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid

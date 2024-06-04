@@ -239,274 +239,276 @@ define dso_local i32 @setup_x11_forward(ptr noundef %0) #0 {
 44:                                               ; preds = %43
   %45 = call i32 @get_log_level()
   %46 = icmp sge i32 %45, 5
-  br i1 %46, label %47, label %49
+  br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 219), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.3, ptr noundef %48)
-  br label %49
-
-49:                                               ; preds = %47, %44
+  %48 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 219
+  %49 = load ptr, ptr %48, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.3, ptr noundef %49)
   br label %50
 
-50:                                               ; preds = %49
+50:                                               ; preds = %47, %44
   br label %51
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 219), align 8
-  %53 = call ptr @xstrcasestr(ptr noundef %52, ptr noundef @.str.4)
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %75
+  br label %52
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %56, i32 0, i32 49
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @xstrdup(ptr noundef %58)
-  store ptr %59, ptr %9, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %70, label %62
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 219
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr @xstrcasestr(ptr noundef %54, ptr noundef @.str.4)
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %77
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %63, i32 0, i32 46
-  %65 = load i32, ptr %64, align 8
-  %66 = call ptr @uid_to_dir(i32 noundef %65)
-  store ptr %66, ptr %9, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %70, label %68
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %58, i32 0, i32 49
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr @xstrdup(ptr noundef %60)
+  store ptr %61, ptr %9, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %72, label %64
 
-68:                                               ; preds = %62
-  %69 = call i32 (ptr, ...) @error(ptr noundef @.str.5)
-  br label %178
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %65, i32 0, i32 46
+  %67 = load i32, ptr %66, align 8
+  %68 = call ptr @uid_to_dir(i32 noundef %67)
+  store ptr %68, ptr %9, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %72, label %70
 
-70:                                               ; preds = %62, %55
-  %71 = load ptr, ptr %9, align 8
-  %72 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.6, ptr noundef %71)
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %73, i32 0, i32 108
-  store ptr %72, ptr %74, align 8
+70:                                               ; preds = %64
+  %71 = call i32 (ptr, ...) @error(ptr noundef @.str.5)
+  br label %180
+
+72:                                               ; preds = %64, %57
+  %73 = load ptr, ptr %9, align 8
+  %74 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.6, ptr noundef %73)
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %75, i32 0, i32 108
+  store ptr %74, ptr %76, align 8
   call void @slurm_xfree(ptr noundef %9)
-  br label %95
+  br label %97
 
-75:                                               ; preds = %51
+77:                                               ; preds = %52
   store i8 1, ptr @local_xauthority, align 1
-  %76 = load ptr, ptr @conf, align 8
-  %77 = getelementptr inbounds %struct.slurmd_config, ptr %76, i32 0, i32 35
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @slurm_get_tmp_fs(ptr noundef %78)
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %80, i32 0, i32 108
-  store ptr %79, ptr %81, align 8
+  %78 = load ptr, ptr @conf, align 8
+  %79 = getelementptr inbounds %struct.slurmd_config, ptr %78, i32 0, i32 35
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr @slurm_get_tmp_fs(ptr noundef %80)
   %82 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %82, i32 0, i32 108
-  call void @_xstrcat(ptr noundef %83, ptr noundef @.str.7)
-  %84 = call i32 @umask(i32 noundef 63) #6
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %85, i32 0, i32 108
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i32 @mkstemp(ptr noundef %87)
-  store i32 %88, ptr %10, align 4
-  %89 = icmp eq i32 %88, -1
-  br i1 %89, label %90, label %92
+  store ptr %81, ptr %83, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %84, i32 0, i32 108
+  call void @_xstrcat(ptr noundef %85, ptr noundef @.str.7)
+  %86 = call i32 @umask(i32 noundef 63) #6
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %87, i32 0, i32 108
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 @mkstemp(ptr noundef %89)
+  store i32 %90, ptr %10, align 4
+  %91 = icmp eq i32 %90, -1
+  br i1 %91, label %92, label %94
 
-90:                                               ; preds = %75
-  %91 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.setup_x11_forward)
-  br label %178
+92:                                               ; preds = %77
+  %93 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.setup_x11_forward)
+  br label %180
 
-92:                                               ; preds = %75
-  %93 = load i32, ptr %10, align 4
-  %94 = call i32 @close(i32 noundef %93)
-  br label %95
+94:                                               ; preds = %77
+  %95 = load i32, ptr %10, align 4
+  %96 = call i32 @close(i32 noundef %95)
+  br label %97
 
-95:                                               ; preds = %92, %70
-  %96 = call i32 @gethostname(ptr noundef @hostname, i64 noundef 64) #6
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %99
+97:                                               ; preds = %94, %72
+  %98 = call i32 @gethostname(ptr noundef @hostname, i64 noundef 64) #6
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %101
 
-98:                                               ; preds = %95
+100:                                              ; preds = %97
   call void (ptr, ...) @fatal(ptr noundef @.str.9, ptr noundef @__func__.setup_x11_forward) #7
   unreachable
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds [2 x i16], ptr %6, i64 0, i64 0
-  %101 = call i32 @net_stream_listen_ports(ptr noundef %4, ptr noundef %5, ptr noundef %100, i1 noundef zeroext true)
-  %102 = icmp eq i32 %101, -1
-  br i1 %102, label %103, label %105
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds [2 x i16], ptr %6, i64 0, i64 0
+  %103 = call i32 @net_stream_listen_ports(ptr noundef %4, ptr noundef %5, ptr noundef %102, i1 noundef zeroext true)
+  %104 = icmp eq i32 %103, -1
+  br i1 %104, label %105, label %107
 
-103:                                              ; preds = %99
-  %104 = call i32 (ptr, ...) @error(ptr noundef @.str.10)
-  br label %178
+105:                                              ; preds = %101
+  %106 = call i32 (ptr, ...) @error(ptr noundef @.str.10)
+  br label %180
 
-105:                                              ; preds = %99
-  %106 = load i16, ptr %5, align 2
-  %107 = zext i16 %106 to i32
-  %108 = sub nsw i32 %107, 6000
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %109, i32 0, i32 102
-  store i32 %108, ptr %110, align 8
-  br label %111
+107:                                              ; preds = %101
+  %108 = load i16, ptr %5, align 2
+  %109 = zext i16 %108 to i32
+  %110 = sub nsw i32 %109, 6000
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %111, i32 0, i32 102
+  store i32 %110, ptr %112, align 8
+  br label %113
 
-111:                                              ; preds = %105
-  br label %112
+113:                                              ; preds = %107
+  br label %114
 
-112:                                              ; preds = %111
-  %113 = call i32 @get_log_level()
-  %114 = icmp sge i32 %113, 3
-  br i1 %114, label %115, label %119
+114:                                              ; preds = %113
+  %115 = call i32 @get_log_level()
+  %116 = icmp sge i32 %115, 3
+  br i1 %116, label %117, label %121
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %116, i32 0, i32 102
-  %118 = load i32, ptr %117, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.11, ptr noundef @hostname, i32 noundef %118)
-  br label %119
-
-119:                                              ; preds = %115, %112
-  br label %120
-
-120:                                              ; preds = %119
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %118, i32 0, i32 102
+  %120 = load i32, ptr %119, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.11, ptr noundef @hostname, i32 noundef %120)
   br label %121
 
-121:                                              ; preds = %120
-  %122 = call ptr @eio_handle_create(i16 noundef zeroext 0)
-  store ptr %122, ptr @eio_handle, align 8
-  %123 = load i32, ptr %4, align 4
-  %124 = call ptr @eio_obj_create(i32 noundef %123, ptr noundef @setup_x11_forward.x11_socket_ops, ptr noundef null)
-  store ptr %124, ptr %7, align 8
-  %125 = load ptr, ptr @eio_handle, align 8
-  %126 = load ptr, ptr %7, align 8
-  call void @eio_new_initial_obj(ptr noundef %125, ptr noundef %126)
-  br label %127
+121:                                              ; preds = %117, %114
+  br label %122
 
-127:                                              ; preds = %121
-  br label %128
+122:                                              ; preds = %121
+  br label %123
 
-128:                                              ; preds = %127
-  %129 = call i32 @pthread_attr_init(ptr noundef %12) #6
-  store i32 %129, ptr %14, align 4
-  %130 = load i32, ptr %14, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %135
+123:                                              ; preds = %122
+  %124 = call ptr @eio_handle_create(i16 noundef zeroext 0)
+  store ptr %124, ptr @eio_handle, align 8
+  %125 = load i32, ptr %4, align 4
+  %126 = call ptr @eio_obj_create(i32 noundef %125, ptr noundef @setup_x11_forward.x11_socket_ops, ptr noundef null)
+  store ptr %126, ptr %7, align 8
+  %127 = load ptr, ptr @eio_handle, align 8
+  %128 = load ptr, ptr %7, align 8
+  call void @eio_new_initial_obj(ptr noundef %127, ptr noundef %128)
+  br label %129
 
-132:                                              ; preds = %128
-  %133 = load i32, ptr %14, align 4
-  %134 = call ptr @__errno_location() #8
-  store i32 %133, ptr %134, align 4
+129:                                              ; preds = %123
+  br label %130
+
+130:                                              ; preds = %129
+  %131 = call i32 @pthread_attr_init(ptr noundef %12) #6
+  store i32 %131, ptr %14, align 4
+  %132 = load i32, ptr %14, align 4
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %137
+
+134:                                              ; preds = %130
+  %135 = load i32, ptr %14, align 4
+  %136 = call ptr @__errno_location() #8
+  store i32 %135, ptr %136, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.12) #7
   unreachable
 
-135:                                              ; preds = %128
-  %136 = call i32 @pthread_attr_setscope(ptr noundef %12, i32 noundef 0) #6
-  store i32 %136, ptr %14, align 4
-  %137 = load i32, ptr %14, align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %143
+137:                                              ; preds = %130
+  %138 = call i32 @pthread_attr_setscope(ptr noundef %12, i32 noundef 0) #6
+  store i32 %138, ptr %14, align 4
+  %139 = load i32, ptr %14, align 4
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %145
 
-139:                                              ; preds = %135
-  %140 = load i32, ptr %14, align 4
-  %141 = call ptr @__errno_location() #8
-  store i32 %140, ptr %141, align 4
-  %142 = call i32 (ptr, ...) @error(ptr noundef @.str.13)
-  br label %143
+141:                                              ; preds = %137
+  %142 = load i32, ptr %14, align 4
+  %143 = call ptr @__errno_location() #8
+  store i32 %142, ptr %143, align 4
+  %144 = call i32 (ptr, ...) @error(ptr noundef @.str.13)
+  br label %145
 
-143:                                              ; preds = %139, %135
-  %144 = call i32 @pthread_attr_setstacksize(ptr noundef %12, i64 noundef 1048576) #6
-  store i32 %144, ptr %14, align 4
-  %145 = load i32, ptr %14, align 4
-  %146 = icmp ne i32 %145, 0
-  br i1 %146, label %147, label %151
+145:                                              ; preds = %141, %137
+  %146 = call i32 @pthread_attr_setstacksize(ptr noundef %12, i64 noundef 1048576) #6
+  store i32 %146, ptr %14, align 4
+  %147 = load i32, ptr %14, align 4
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %153
 
-147:                                              ; preds = %143
-  %148 = load i32, ptr %14, align 4
-  %149 = call ptr @__errno_location() #8
-  store i32 %148, ptr %149, align 4
-  %150 = call i32 (ptr, ...) @error(ptr noundef @.str.14)
-  br label %151
+149:                                              ; preds = %145
+  %150 = load i32, ptr %14, align 4
+  %151 = call ptr @__errno_location() #8
+  store i32 %150, ptr %151, align 4
+  %152 = call i32 (ptr, ...) @error(ptr noundef @.str.14)
+  br label %153
 
-151:                                              ; preds = %147, %143
-  br label %152
+153:                                              ; preds = %149, %145
+  br label %154
 
-152:                                              ; preds = %151
-  %153 = call i32 @pthread_attr_setdetachstate(ptr noundef %12, i32 noundef 1) #6
-  store i32 %153, ptr %13, align 4
-  %154 = load i32, ptr %13, align 4
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %159
+154:                                              ; preds = %153
+  %155 = call i32 @pthread_attr_setdetachstate(ptr noundef %12, i32 noundef 1) #6
+  store i32 %155, ptr %13, align 4
+  %156 = load i32, ptr %13, align 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-156:                                              ; preds = %152
-  %157 = load i32, ptr %13, align 4
-  %158 = call ptr @__errno_location() #8
-  store i32 %157, ptr %158, align 4
+158:                                              ; preds = %154
+  %159 = load i32, ptr %13, align 4
+  %160 = call ptr @__errno_location() #8
+  store i32 %159, ptr %160, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.15, ptr noundef @__func__.setup_x11_forward) #7
   unreachable
 
-159:                                              ; preds = %152
-  %160 = call i32 @pthread_create(ptr noundef %11, ptr noundef %12, ptr noundef @_eio_thread, ptr noundef null) #6
-  store i32 %160, ptr %13, align 4
-  %161 = load i32, ptr %13, align 4
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %166
+161:                                              ; preds = %154
+  %162 = call i32 @pthread_create(ptr noundef %11, ptr noundef %12, ptr noundef @_eio_thread, ptr noundef null) #6
+  store i32 %162, ptr %13, align 4
+  %163 = load i32, ptr %13, align 4
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %168
 
-163:                                              ; preds = %159
-  %164 = load i32, ptr %13, align 4
-  %165 = call ptr @__errno_location() #8
-  store i32 %164, ptr %165, align 4
+165:                                              ; preds = %161
+  %166 = load i32, ptr %13, align 4
+  %167 = call ptr @__errno_location() #8
+  store i32 %166, ptr %167, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.16, ptr noundef @__func__.setup_x11_forward) #7
   unreachable
 
-166:                                              ; preds = %159
-  br label %167
+168:                                              ; preds = %161
+  br label %169
 
-167:                                              ; preds = %166
-  %168 = call i32 @pthread_attr_destroy(ptr noundef %12) #6
-  store i32 %168, ptr %15, align 4
-  %169 = load i32, ptr %15, align 4
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %175
+169:                                              ; preds = %168
+  %170 = call i32 @pthread_attr_destroy(ptr noundef %12) #6
+  store i32 %170, ptr %15, align 4
+  %171 = load i32, ptr %15, align 4
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %177
 
-171:                                              ; preds = %167
-  %172 = load i32, ptr %15, align 4
-  %173 = call ptr @__errno_location() #8
-  store i32 %172, ptr %173, align 4
-  %174 = call i32 (ptr, ...) @error(ptr noundef @.str.17)
-  br label %175
-
-175:                                              ; preds = %171, %167
-  br label %176
-
-176:                                              ; preds = %175
+173:                                              ; preds = %169
+  %174 = load i32, ptr %15, align 4
+  %175 = call ptr @__errno_location() #8
+  store i32 %174, ptr %175, align 4
+  %176 = call i32 (ptr, ...) @error(ptr noundef @.str.17)
   br label %177
 
-177:                                              ; preds = %176
+177:                                              ; preds = %173, %169
+  br label %178
+
+178:                                              ; preds = %177
+  br label %179
+
+179:                                              ; preds = %178
   store i32 0, ptr %2, align 4
-  br label %189
+  br label %191
 
-178:                                              ; preds = %103, %90, %68
+180:                                              ; preds = %105, %92, %70
   call void @slurm_xfree(ptr noundef @x11_target)
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %179, i32 0, i32 102
-  store i32 0, ptr %180, align 8
   %181 = load ptr, ptr %3, align 8
-  %182 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %181, i32 0, i32 108
-  call void @slurm_xfree(ptr noundef %182)
-  %183 = load i32, ptr %4, align 4
-  %184 = icmp ne i32 %183, -1
-  br i1 %184, label %185, label %188
+  %182 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %181, i32 0, i32 102
+  store i32 0, ptr %182, align 8
+  %183 = load ptr, ptr %3, align 8
+  %184 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %183, i32 0, i32 108
+  call void @slurm_xfree(ptr noundef %184)
+  %185 = load i32, ptr %4, align 4
+  %186 = icmp ne i32 %185, -1
+  br i1 %186, label %187, label %190
 
-185:                                              ; preds = %178
-  %186 = load i32, ptr %4, align 4
-  %187 = call i32 @close(i32 noundef %186)
-  br label %188
+187:                                              ; preds = %180
+  %188 = load i32, ptr %4, align 4
+  %189 = call i32 @close(i32 noundef %188)
+  br label %190
 
-188:                                              ; preds = %185, %178
+190:                                              ; preds = %187, %180
   store i32 -1, ptr %2, align 4
-  br label %189
+  br label %191
 
-189:                                              ; preds = %188, %177
-  %190 = load i32, ptr %2, align 4
-  ret i32 %190
+191:                                              ; preds = %190, %179
+  %192 = load i32, ptr %2, align 4
+  ret i32 %192
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -128,16 +128,17 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp17, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end15
-  %13 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 1), align 4
-  %call20 = call i32 @git_bswap32(i32 noundef %13)
+  %13 = getelementptr inbounds [256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 1
+  %14 = load i32, ptr %13, align 4
+  %call20 = call i32 @git_bswap32(i32 noundef %14)
   store i32 %call20, ptr %version, align 4
-  %14 = load i32, ptr %version, align 4
-  %cmp21 = icmp ult i32 %14, 2
+  %15 = load i32, ptr %version, align 4
+  %cmp21 = icmp ult i32 %15, 2
   br i1 %cmp21, label %if.then25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then19
-  %15 = load i32, ptr %version, align 4
-  %cmp23 = icmp ugt i32 %15, 2
+  %16 = load i32, ptr %version, align 4
+  %cmp23 = icmp ugt i32 %16, 2
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %lor.lhs.false, %if.then19
@@ -145,8 +146,8 @@ if.then25:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end26:                                         ; preds = %lor.lhs.false
-  %16 = load ptr, ptr @stdin, align 8
-  %call27 = call i64 @fread(ptr noundef @cmd_show_index.top_index, i64 noundef 1024, i64 noundef 1, ptr noundef %16)
+  %17 = load ptr, ptr @stdin, align 8
+  %call27 = call i64 @fread(ptr noundef @cmd_show_index.top_index, i64 noundef 1024, i64 noundef 1, ptr noundef %17)
   %cmp28 = icmp ne i64 %call27, 1
   br i1 %cmp28, label %if.then30, label %if.end31
 
@@ -159,8 +160,9 @@ if.end31:                                         ; preds = %if.end26
 
 if.else:                                          ; preds = %if.end15
   store i32 1, ptr %version, align 4
-  %17 = load ptr, ptr @stdin, align 8
-  %call32 = call i64 @fread(ptr noundef getelementptr inbounds ([256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 2), i64 noundef 1016, i64 noundef 1, ptr noundef %17)
+  %18 = load ptr, ptr @stdin, align 8
+  %19 = getelementptr inbounds [256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 2
+  %call32 = call i64 @fread(ptr noundef %19, i64 noundef 1016, i64 noundef 1, ptr noundef %18)
   %cmp33 = icmp ne i64 %call32, 1
   br i1 %cmp33, label %if.then35, label %if.end36
 
@@ -177,20 +179,20 @@ if.end37:                                         ; preds = %if.end36, %if.end31
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end37
-  %18 = load i32, ptr %i, align 4
-  %cmp38 = icmp slt i32 %18, 256
+  %20 = load i32, ptr %i, align 4
+  %cmp38 = icmp slt i32 %20, 256
   br i1 %cmp38, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %19 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %19 to i64
+  %21 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %21 to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 %idxprom
-  %20 = load i32, ptr %arrayidx, align 4
-  %call40 = call i32 @git_bswap32(i32 noundef %20)
+  %22 = load i32, ptr %arrayidx, align 4
+  %call40 = call i32 @git_bswap32(i32 noundef %22)
   store i32 %call40, ptr %n, align 4
-  %21 = load i32, ptr %n, align 4
-  %22 = load i32, ptr %nr, align 4
-  %cmp41 = icmp ult i32 %21, %22
+  %23 = load i32, ptr %n, align 4
+  %24 = load i32, ptr %nr, align 4
+  %cmp41 = icmp ult i32 %23, %24
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %for.body
@@ -198,19 +200,19 @@ if.then43:                                        ; preds = %for.body
   unreachable
 
 if.end44:                                         ; preds = %for.body
-  %23 = load i32, ptr %n, align 4
-  store i32 %23, ptr %nr, align 4
+  %25 = load i32, ptr %n, align 4
+  store i32 %25, ptr %nr, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end44
-  %24 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %24, 1
+  %26 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %26, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %25 = load i32, ptr %version, align 4
-  %cmp45 = icmp eq i32 %25, 1
+  %27 = load i32, ptr %version, align 4
+  %cmp45 = icmp eq i32 %27, 1
   br i1 %cmp45, label %if.then47, label %if.else68
 
 if.then47:                                        ; preds = %for.end
@@ -218,42 +220,42 @@ if.then47:                                        ; preds = %for.end
   br label %for.cond48
 
 for.cond48:                                       ; preds = %for.inc65, %if.then47
-  %26 = load i32, ptr %i, align 4
-  %27 = load i32, ptr %nr, align 4
-  %cmp49 = icmp ult i32 %26, %27
+  %28 = load i32, ptr %i, align 4
+  %29 = load i32, ptr %nr, align 4
+  %cmp49 = icmp ult i32 %28, %29
   br i1 %cmp49, label %for.body51, label %for.end67
 
 for.body51:                                       ; preds = %for.cond48
   %arraydecay53 = getelementptr inbounds [9 x i32], ptr %entry52, i64 0, i64 0
-  %28 = load i32, ptr %hashsz, align 4
-  %add = add i32 4, %28
+  %30 = load i32, ptr %hashsz, align 4
+  %add = add i32 4, %30
   %conv54 = zext i32 %add to i64
-  %29 = load ptr, ptr @stdin, align 8
-  %call55 = call i64 @fread(ptr noundef %arraydecay53, i64 noundef %conv54, i64 noundef 1, ptr noundef %29)
+  %31 = load ptr, ptr @stdin, align 8
+  %call55 = call i64 @fread(ptr noundef %arraydecay53, i64 noundef %conv54, i64 noundef 1, ptr noundef %31)
   %cmp56 = icmp ne i64 %call55, 1
   br i1 %cmp56, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %for.body51
-  %30 = load i32, ptr %i, align 4
-  %31 = load i32, ptr %nr, align 4
-  call void (ptr, ...) @die(ptr noundef @.str.8, i32 noundef %30, i32 noundef %31) #6
+  %32 = load i32, ptr %i, align 4
+  %33 = load i32, ptr %nr, align 4
+  call void (ptr, ...) @die(ptr noundef @.str.8, i32 noundef %32, i32 noundef %33) #6
   unreachable
 
 if.end59:                                         ; preds = %for.body51
   %arrayidx60 = getelementptr inbounds [9 x i32], ptr %entry52, i64 0, i64 0
-  %32 = load i32, ptr %arrayidx60, align 16
-  %call61 = call i32 @git_bswap32(i32 noundef %32)
+  %34 = load i32, ptr %arrayidx60, align 16
+  %call61 = call i32 @git_bswap32(i32 noundef %34)
   store i32 %call61, ptr %offset, align 4
-  %33 = load i32, ptr %offset, align 4
+  %35 = load i32, ptr %offset, align 4
   %arraydecay62 = getelementptr inbounds [9 x i32], ptr %entry52, i64 0, i64 0
   %add.ptr = getelementptr inbounds i32, ptr %arraydecay62, i64 1
   %call63 = call ptr @hash_to_hex(ptr noundef %add.ptr)
-  %call64 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %33, ptr noundef %call63)
+  %call64 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %35, ptr noundef %call63)
   br label %for.inc65
 
 for.inc65:                                        ; preds = %if.end59
-  %34 = load i32, ptr %i, align 4
-  %inc66 = add nsw i32 %34, 1
+  %36 = load i32, ptr %i, align 4
+  %inc66 = add nsw i32 %36, 1
   store i32 %inc66, ptr %i, align 4
   br label %for.cond48, !llvm.loop !7
 
@@ -262,8 +264,8 @@ for.end67:                                        ; preds = %for.cond48
 
 if.else68:                                        ; preds = %for.end
   store i32 0, ptr %off64_nr, align 4
-  %35 = load i32, ptr %nr, align 4
-  %conv69 = zext i32 %35 to i64
+  %37 = load i32, ptr %nr, align 4
+  %conv69 = zext i32 %37 to i64
   %call70 = call i64 @st_mult(i64 noundef 44, i64 noundef %conv69)
   %call71 = call ptr @xmalloc(i64 noundef %call70)
   store ptr %call71, ptr %entries, align 8
@@ -271,49 +273,49 @@ if.else68:                                        ; preds = %for.end
   br label %for.cond72
 
 for.cond72:                                       ; preds = %for.inc90, %if.else68
-  %36 = load i32, ptr %i, align 4
-  %37 = load i32, ptr %nr, align 4
-  %cmp73 = icmp ult i32 %36, %37
+  %38 = load i32, ptr %i, align 4
+  %39 = load i32, ptr %nr, align 4
+  %cmp73 = icmp ult i32 %38, %39
   br i1 %cmp73, label %for.body75, label %for.end92
 
 for.body75:                                       ; preds = %for.cond72
-  %38 = load ptr, ptr %entries, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom76 = sext i32 %39 to i64
-  %arrayidx77 = getelementptr inbounds %struct.anon, ptr %38, i64 %idxprom76
+  %40 = load ptr, ptr %entries, align 8
+  %41 = load i32, ptr %i, align 4
+  %idxprom76 = sext i32 %41 to i64
+  %arrayidx77 = getelementptr inbounds %struct.anon, ptr %40, i64 %idxprom76
   %oid = getelementptr inbounds %struct.anon, ptr %arrayidx77, i32 0, i32 0
   %hash = getelementptr inbounds %struct.object_id, ptr %oid, i32 0, i32 0
   %arraydecay78 = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %40 = load i32, ptr %hashsz, align 4
-  %conv79 = zext i32 %40 to i64
-  %41 = load ptr, ptr @stdin, align 8
-  %call80 = call i64 @fread(ptr noundef %arraydecay78, i64 noundef %conv79, i64 noundef 1, ptr noundef %41)
+  %42 = load i32, ptr %hashsz, align 4
+  %conv79 = zext i32 %42 to i64
+  %43 = load ptr, ptr @stdin, align 8
+  %call80 = call i64 @fread(ptr noundef %arraydecay78, i64 noundef %conv79, i64 noundef 1, ptr noundef %43)
   %cmp81 = icmp ne i64 %call80, 1
   br i1 %cmp81, label %if.then83, label %if.end84
 
 if.then83:                                        ; preds = %for.body75
-  %42 = load i32, ptr %i, align 4
-  %43 = load i32, ptr %nr, align 4
-  call void (ptr, ...) @die(ptr noundef @.str.10, i32 noundef %42, i32 noundef %43) #6
+  %44 = load i32, ptr %i, align 4
+  %45 = load i32, ptr %nr, align 4
+  call void (ptr, ...) @die(ptr noundef @.str.10, i32 noundef %44, i32 noundef %45) #6
   unreachable
 
 if.end84:                                         ; preds = %for.body75
-  %44 = load ptr, ptr @the_repository, align 8
-  %hash_algo85 = getelementptr inbounds %struct.repository, ptr %44, i32 0, i32 15
-  %45 = load ptr, ptr %hash_algo85, align 8
-  %call86 = call i32 @hash_algo_by_ptr(ptr noundef %45)
-  %46 = load ptr, ptr %entries, align 8
-  %47 = load i32, ptr %i, align 4
-  %idxprom87 = sext i32 %47 to i64
-  %arrayidx88 = getelementptr inbounds %struct.anon, ptr %46, i64 %idxprom87
+  %46 = load ptr, ptr @the_repository, align 8
+  %hash_algo85 = getelementptr inbounds %struct.repository, ptr %46, i32 0, i32 15
+  %47 = load ptr, ptr %hash_algo85, align 8
+  %call86 = call i32 @hash_algo_by_ptr(ptr noundef %47)
+  %48 = load ptr, ptr %entries, align 8
+  %49 = load i32, ptr %i, align 4
+  %idxprom87 = sext i32 %49 to i64
+  %arrayidx88 = getelementptr inbounds %struct.anon, ptr %48, i64 %idxprom87
   %oid89 = getelementptr inbounds %struct.anon, ptr %arrayidx88, i32 0, i32 0
   %algo = getelementptr inbounds %struct.object_id, ptr %oid89, i32 0, i32 1
   store i32 %call86, ptr %algo, align 4
   br label %for.inc90
 
 for.inc90:                                        ; preds = %if.end84
-  %48 = load i32, ptr %i, align 4
-  %inc91 = add nsw i32 %48, 1
+  %50 = load i32, ptr %i, align 4
+  %inc91 = add nsw i32 %50, 1
   store i32 %inc91, ptr %i, align 4
   br label %for.cond72, !llvm.loop !8
 
@@ -322,34 +324,34 @@ for.end92:                                        ; preds = %for.cond72
   br label %for.cond93
 
 for.cond93:                                       ; preds = %for.inc104, %for.end92
-  %49 = load i32, ptr %i, align 4
-  %50 = load i32, ptr %nr, align 4
-  %cmp94 = icmp ult i32 %49, %50
+  %51 = load i32, ptr %i, align 4
+  %52 = load i32, ptr %nr, align 4
+  %cmp94 = icmp ult i32 %51, %52
   br i1 %cmp94, label %for.body96, label %for.end106
 
 for.body96:                                       ; preds = %for.cond93
-  %51 = load ptr, ptr %entries, align 8
-  %52 = load i32, ptr %i, align 4
-  %idxprom97 = sext i32 %52 to i64
-  %arrayidx98 = getelementptr inbounds %struct.anon, ptr %51, i64 %idxprom97
+  %53 = load ptr, ptr %entries, align 8
+  %54 = load i32, ptr %i, align 4
+  %idxprom97 = sext i32 %54 to i64
+  %arrayidx98 = getelementptr inbounds %struct.anon, ptr %53, i64 %idxprom97
   %crc = getelementptr inbounds %struct.anon, ptr %arrayidx98, i32 0, i32 1
-  %53 = load ptr, ptr @stdin, align 8
-  %call99 = call i64 @fread(ptr noundef %crc, i64 noundef 4, i64 noundef 1, ptr noundef %53)
+  %55 = load ptr, ptr @stdin, align 8
+  %call99 = call i64 @fread(ptr noundef %crc, i64 noundef 4, i64 noundef 1, ptr noundef %55)
   %cmp100 = icmp ne i64 %call99, 1
   br i1 %cmp100, label %if.then102, label %if.end103
 
 if.then102:                                       ; preds = %for.body96
-  %54 = load i32, ptr %i, align 4
-  %55 = load i32, ptr %nr, align 4
-  call void (ptr, ...) @die(ptr noundef @.str.11, i32 noundef %54, i32 noundef %55) #6
+  %56 = load i32, ptr %i, align 4
+  %57 = load i32, ptr %nr, align 4
+  call void (ptr, ...) @die(ptr noundef @.str.11, i32 noundef %56, i32 noundef %57) #6
   unreachable
 
 if.end103:                                        ; preds = %for.body96
   br label %for.inc104
 
 for.inc104:                                       ; preds = %if.end103
-  %56 = load i32, ptr %i, align 4
-  %inc105 = add nsw i32 %56, 1
+  %58 = load i32, ptr %i, align 4
+  %inc105 = add nsw i32 %58, 1
   store i32 %inc105, ptr %i, align 4
   br label %for.cond93, !llvm.loop !9
 
@@ -358,34 +360,34 @@ for.end106:                                       ; preds = %for.cond93
   br label %for.cond107
 
 for.cond107:                                      ; preds = %for.inc118, %for.end106
-  %57 = load i32, ptr %i, align 4
-  %58 = load i32, ptr %nr, align 4
-  %cmp108 = icmp ult i32 %57, %58
+  %59 = load i32, ptr %i, align 4
+  %60 = load i32, ptr %nr, align 4
+  %cmp108 = icmp ult i32 %59, %60
   br i1 %cmp108, label %for.body110, label %for.end120
 
 for.body110:                                      ; preds = %for.cond107
-  %59 = load ptr, ptr %entries, align 8
-  %60 = load i32, ptr %i, align 4
-  %idxprom111 = sext i32 %60 to i64
-  %arrayidx112 = getelementptr inbounds %struct.anon, ptr %59, i64 %idxprom111
+  %61 = load ptr, ptr %entries, align 8
+  %62 = load i32, ptr %i, align 4
+  %idxprom111 = sext i32 %62 to i64
+  %arrayidx112 = getelementptr inbounds %struct.anon, ptr %61, i64 %idxprom111
   %off = getelementptr inbounds %struct.anon, ptr %arrayidx112, i32 0, i32 2
-  %61 = load ptr, ptr @stdin, align 8
-  %call113 = call i64 @fread(ptr noundef %off, i64 noundef 4, i64 noundef 1, ptr noundef %61)
+  %63 = load ptr, ptr @stdin, align 8
+  %call113 = call i64 @fread(ptr noundef %off, i64 noundef 4, i64 noundef 1, ptr noundef %63)
   %cmp114 = icmp ne i64 %call113, 1
   br i1 %cmp114, label %if.then116, label %if.end117
 
 if.then116:                                       ; preds = %for.body110
-  %62 = load i32, ptr %i, align 4
-  %63 = load i32, ptr %nr, align 4
-  call void (ptr, ...) @die(ptr noundef @.str.12, i32 noundef %62, i32 noundef %63) #6
+  %64 = load i32, ptr %i, align 4
+  %65 = load i32, ptr %nr, align 4
+  call void (ptr, ...) @die(ptr noundef @.str.12, i32 noundef %64, i32 noundef %65) #6
   unreachable
 
 if.end117:                                        ; preds = %for.body110
   br label %for.inc118
 
 for.inc118:                                       ; preds = %if.end117
-  %64 = load i32, ptr %i, align 4
-  %inc119 = add nsw i32 %64, 1
+  %66 = load i32, ptr %i, align 4
+  %inc119 = add nsw i32 %66, 1
   store i32 %inc119, ptr %i, align 4
   br label %for.cond107, !llvm.loop !10
 
@@ -394,36 +396,36 @@ for.end120:                                       ; preds = %for.cond107
   br label %for.cond121
 
 for.cond121:                                      ; preds = %for.inc163, %for.end120
-  %65 = load i32, ptr %i, align 4
-  %66 = load i32, ptr %nr, align 4
-  %cmp122 = icmp ult i32 %65, %66
+  %67 = load i32, ptr %i, align 4
+  %68 = load i32, ptr %nr, align 4
+  %cmp122 = icmp ult i32 %67, %68
   br i1 %cmp122, label %for.body124, label %for.end165
 
 for.body124:                                      ; preds = %for.cond121
-  %67 = load ptr, ptr %entries, align 8
-  %68 = load i32, ptr %i, align 4
-  %idxprom127 = sext i32 %68 to i64
-  %arrayidx128 = getelementptr inbounds %struct.anon, ptr %67, i64 %idxprom127
+  %69 = load ptr, ptr %entries, align 8
+  %70 = load i32, ptr %i, align 4
+  %idxprom127 = sext i32 %70 to i64
+  %arrayidx128 = getelementptr inbounds %struct.anon, ptr %69, i64 %idxprom127
   %off129 = getelementptr inbounds %struct.anon, ptr %arrayidx128, i32 0, i32 2
-  %69 = load i32, ptr %off129, align 4
-  %call130 = call i32 @git_bswap32(i32 noundef %69)
+  %71 = load i32, ptr %off129, align 4
+  %call130 = call i32 @git_bswap32(i32 noundef %71)
   store i32 %call130, ptr %off126, align 4
-  %70 = load i32, ptr %off126, align 4
-  %and = and i32 %70, -2147483648
+  %72 = load i32, ptr %off126, align 4
+  %and = and i32 %72, -2147483648
   %tobool131 = icmp ne i32 %and, 0
   br i1 %tobool131, label %if.else134, label %if.then132
 
 if.then132:                                       ; preds = %for.body124
-  %71 = load i32, ptr %off126, align 4
-  %conv133 = zext i32 %71 to i64
+  %73 = load i32, ptr %off126, align 4
+  %conv133 = zext i32 %73 to i64
   store i64 %conv133, ptr %offset125, align 8
   br label %if.end153
 
 if.else134:                                       ; preds = %for.body124
-  %72 = load i32, ptr %off126, align 4
-  %and135 = and i32 %72, 2147483647
-  %73 = load i32, ptr %off64_nr, align 4
-  %cmp136 = icmp ne i32 %and135, %73
+  %74 = load i32, ptr %off126, align 4
+  %and135 = and i32 %74, 2147483647
+  %75 = load i32, ptr %off64_nr, align 4
+  %cmp136 = icmp ne i32 %and135, %75
   br i1 %cmp136, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %if.else134
@@ -432,60 +434,60 @@ if.then138:                                       ; preds = %if.else134
 
 if.end139:                                        ; preds = %if.else134
   %arraydecay140 = getelementptr inbounds [2 x i32], ptr %off64, i64 0, i64 0
-  %74 = load ptr, ptr @stdin, align 8
-  %call141 = call i64 @fread(ptr noundef %arraydecay140, i64 noundef 8, i64 noundef 1, ptr noundef %74)
+  %76 = load ptr, ptr @stdin, align 8
+  %call141 = call i64 @fread(ptr noundef %arraydecay140, i64 noundef 8, i64 noundef 1, ptr noundef %76)
   %cmp142 = icmp ne i64 %call141, 1
   br i1 %cmp142, label %if.then144, label %if.end145
 
 if.then144:                                       ; preds = %if.end139
-  %75 = load i32, ptr %off64_nr, align 4
-  call void (ptr, ...) @die(ptr noundef @.str.14, i32 noundef %75) #6
+  %77 = load i32, ptr %off64_nr, align 4
+  call void (ptr, ...) @die(ptr noundef @.str.14, i32 noundef %77) #6
   unreachable
 
 if.end145:                                        ; preds = %if.end139
   %arrayidx146 = getelementptr inbounds [2 x i32], ptr %off64, i64 0, i64 0
-  %76 = load i32, ptr %arrayidx146, align 4
-  %call147 = call i32 @git_bswap32(i32 noundef %76)
+  %78 = load i32, ptr %arrayidx146, align 4
+  %call147 = call i32 @git_bswap32(i32 noundef %78)
   %conv148 = zext i32 %call147 to i64
   %shl = shl i64 %conv148, 32
   %arrayidx149 = getelementptr inbounds [2 x i32], ptr %off64, i64 0, i64 1
-  %77 = load i32, ptr %arrayidx149, align 4
-  %call150 = call i32 @git_bswap32(i32 noundef %77)
+  %79 = load i32, ptr %arrayidx149, align 4
+  %call150 = call i32 @git_bswap32(i32 noundef %79)
   %conv151 = zext i32 %call150 to i64
   %or = or i64 %shl, %conv151
   store i64 %or, ptr %offset125, align 8
-  %78 = load i32, ptr %off64_nr, align 4
-  %inc152 = add i32 %78, 1
+  %80 = load i32, ptr %off64_nr, align 4
+  %inc152 = add i32 %80, 1
   store i32 %inc152, ptr %off64_nr, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end145, %if.then132
-  %79 = load i64, ptr %offset125, align 8
-  %80 = load ptr, ptr %entries, align 8
-  %81 = load i32, ptr %i, align 4
-  %idxprom154 = sext i32 %81 to i64
-  %arrayidx155 = getelementptr inbounds %struct.anon, ptr %80, i64 %idxprom154
-  %oid156 = getelementptr inbounds %struct.anon, ptr %arrayidx155, i32 0, i32 0
-  %call157 = call ptr @oid_to_hex(ptr noundef %oid156)
+  %81 = load i64, ptr %offset125, align 8
   %82 = load ptr, ptr %entries, align 8
   %83 = load i32, ptr %i, align 4
-  %idxprom158 = sext i32 %83 to i64
-  %arrayidx159 = getelementptr inbounds %struct.anon, ptr %82, i64 %idxprom158
+  %idxprom154 = sext i32 %83 to i64
+  %arrayidx155 = getelementptr inbounds %struct.anon, ptr %82, i64 %idxprom154
+  %oid156 = getelementptr inbounds %struct.anon, ptr %arrayidx155, i32 0, i32 0
+  %call157 = call ptr @oid_to_hex(ptr noundef %oid156)
+  %84 = load ptr, ptr %entries, align 8
+  %85 = load i32, ptr %i, align 4
+  %idxprom158 = sext i32 %85 to i64
+  %arrayidx159 = getelementptr inbounds %struct.anon, ptr %84, i64 %idxprom158
   %crc160 = getelementptr inbounds %struct.anon, ptr %arrayidx159, i32 0, i32 1
-  %84 = load i32, ptr %crc160, align 4
-  %call161 = call i32 @git_bswap32(i32 noundef %84)
-  %call162 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, i64 noundef %79, ptr noundef %call157, i32 noundef %call161)
+  %86 = load i32, ptr %crc160, align 4
+  %call161 = call i32 @git_bswap32(i32 noundef %86)
+  %call162 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, i64 noundef %81, ptr noundef %call157, i32 noundef %call161)
   br label %for.inc163
 
 for.inc163:                                       ; preds = %if.end153
-  %85 = load i32, ptr %i, align 4
-  %inc164 = add nsw i32 %85, 1
+  %87 = load i32, ptr %i, align 4
+  %inc164 = add nsw i32 %87, 1
   store i32 %inc164, ptr %i, align 4
   br label %for.cond121, !llvm.loop !11
 
 for.end165:                                       ; preds = %for.cond121
-  %86 = load ptr, ptr %entries, align 8
-  call void @free(ptr noundef %86) #7
+  %88 = load ptr, ptr %entries, align 8
+  call void @free(ptr noundef %88) #7
   br label %if.end166
 
 if.end166:                                        ; preds = %for.end165, %for.end67
@@ -613,7 +615,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv

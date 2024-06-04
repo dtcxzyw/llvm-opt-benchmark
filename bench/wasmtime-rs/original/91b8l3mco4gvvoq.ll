@@ -251,13 +251,14 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8ee9ba71c0fe5
 
 129:                                              ; preds = %108
   %130 = load ptr, ptr @anon.7b87c0558a439af2291e7d7f3ec40d78.1, align 8, !noundef !4
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @anon.7b87c0558a439af2291e7d7f3ec40d78.1, i64 8), align 8
+  %131 = getelementptr inbounds i8, ptr @anon.7b87c0558a439af2291e7d7f3ec40d78.1, i64 8
+  %132 = load i64, ptr %131, align 8
   store ptr %130, ptr %23, align 8
-  %132 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %131, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %132, ptr %133, align 8
   br label %50
 
-133:                                              ; No predecessors!
+134:                                              ; No predecessors!
   unreachable
 }
 

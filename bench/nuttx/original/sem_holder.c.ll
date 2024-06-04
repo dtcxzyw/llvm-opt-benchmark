@@ -48,7 +48,8 @@ define void @nxsem_initialize_holders() #0 {
   br label %2, !llvm.loop !6
 
 17:                                               ; preds = %2
-  store ptr null, ptr getelementptr inbounds ([8 x %struct.semholder_s], ptr @g_holderalloc, i64 0, i64 7), align 8
+  %18 = getelementptr inbounds [8 x %struct.semholder_s], ptr @g_holderalloc, i64 0, i64 7
+  store ptr null, ptr %18, align 8
   ret void
 }
 

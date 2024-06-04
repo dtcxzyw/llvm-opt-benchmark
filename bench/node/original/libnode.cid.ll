@@ -141,7 +141,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 2
   %cid_2 = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 1
   store ptr %cid_2, ptr %ptr_, align 8
@@ -157,7 +158,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -208,15 +210,16 @@ entry:
   store ptr %cid, ptr %cid.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %cid.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %cid.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %cid.addr, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %cid.addr, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -254,17 +257,18 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic3CIDE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 2
   %cid_2 = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 1
   store ptr %cid_2, ptr %ptr_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %other.addr, align 8
-  %ptr_3 = getelementptr inbounds %"class.node::quic::CID", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %ptr_3, align 8
-  %cmp = icmp ne ptr %1, null
+  %1 = load ptr, ptr %other.addr, align 8
+  %ptr_3 = getelementptr inbounds %"class.node::quic::CID", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %ptr_3, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot4 = xor i1 %lnot, true
   %lnot5 = xor i1 %lnot4, true
@@ -286,17 +290,17 @@ if.end:                                           ; preds = %do.end, %do.body
 
 do.end7:                                          ; preds = %if.end
   %cid_8 = getelementptr inbounds %"class.node::quic::CID", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %ptr_9 = getelementptr inbounds %"class.node::quic::CID", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %ptr_9, align 8
-  %data = getelementptr inbounds %struct.ngtcp2_cid, ptr %3, i32 0, i32 1
+  %3 = load ptr, ptr %other.addr, align 8
+  %ptr_9 = getelementptr inbounds %"class.node::quic::CID", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %ptr_9, align 8
+  %data = getelementptr inbounds %struct.ngtcp2_cid, ptr %4, i32 0, i32 1
   %arraydecay = getelementptr inbounds [20 x i8], ptr %data, i64 0, i64 0
-  %4 = load ptr, ptr %other.addr, align 8
-  %ptr_10 = getelementptr inbounds %"class.node::quic::CID", ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %ptr_10, align 8
-  %datalen = getelementptr inbounds %struct.ngtcp2_cid, ptr %5, i32 0, i32 0
-  %6 = load i64, ptr %datalen, align 8
-  call void @ngtcp2_cid_init(ptr noundef %cid_8, ptr noundef %arraydecay, i64 noundef %6)
+  %5 = load ptr, ptr %other.addr, align 8
+  %ptr_10 = getelementptr inbounds %"class.node::quic::CID", ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %ptr_10, align 8
+  %datalen = getelementptr inbounds %struct.ngtcp2_cid, ptr %6, i32 0, i32 0
+  %7 = load i64, ptr %datalen, align 8
+  call void @ngtcp2_cid_init(ptr noundef %cid_8, ptr noundef %arraydecay, i64 noundef %7)
   ret void
 }
 
@@ -662,7 +666,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node4quic3CID7FactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos_ = getelementptr inbounds %"class.node::quic::(anonymous namespace)::RandomCIDFactory", ptr %this1, i32 0, i32 1
   store i32 4096, ptr %pos_, align 8
   %mutex_ = getelementptr inbounds %"class.node::quic::(anonymous namespace)::RandomCIDFactory", ptr %this1, i32 0, i32 3
@@ -676,7 +681,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::quic::(anonymous namespace)::RandomCIDFactory", ptr %this1, i32 0, i32 3
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #3
   call void @_ZN4node4quic3CID7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -791,7 +797,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node4quic3CID7FactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node4quic3CID7FactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

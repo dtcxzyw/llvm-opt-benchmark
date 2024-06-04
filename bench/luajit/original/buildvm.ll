@@ -1408,7 +1408,7 @@ if.end28:                                         ; preds = %do.end, %entry
   %arrayidx = getelementptr inbounds i32, ptr %44, i64 %idxprom
   store i32 %43, ptr %arrayidx, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %while.body31
 
 while.body31:                                     ; preds = %if.end415, %sw.epilog, %if.end28
@@ -2349,7 +2349,7 @@ if.end415:                                        ; preds = %if.end414, %if.then
 
 stop:                                             ; preds = %sw.bb412
   %arraydecay416 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay416)
+  call void @llvm.va_end.p0(ptr %arraydecay416)
   %250 = load i32, ptr %pos, align 4
   %251 = load ptr, ptr %sec, align 8
   %pos417 = getelementptr inbounds %struct.dasm_Section, ptr %251, i32 0, i32 3
@@ -2363,12 +2363,6 @@ stop:                                             ; preds = %sw.bb412
 return:                                           ; preds = %stop, %if.then397, %if.then350, %if.then315, %if.then266, %if.then227, %if.then209, %if.then138, %if.then109, %if.then85, %if.then74
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @dasm_link(ptr noundef %ctx, ptr noundef %szp) #0 {
@@ -4290,15 +4284,15 @@ if.end:                                           ; preds = %entry
   ret void
 }
 
-declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #6
+declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #5
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #7
+declare ptr @__errno_location() #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) #0 {
@@ -5014,9 +5008,9 @@ return:                                           ; preds = %for.end90, %if.then
   ret i32 %100
 }
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #6
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #5
 
-declare void @emit_asm(ptr noundef) #6
+declare void @emit_asm(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @emit_asm_debug(ptr noundef %ctx) #0 {
@@ -5225,7 +5219,7 @@ sw.epilog:                                        ; preds = %sw.default, %if.end
   ret void
 }
 
-declare void @emit_peobj(ptr noundef) #6
+declare void @emit_peobj(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @emit_raw(ptr noundef %ctx) #0 {
@@ -5304,7 +5298,7 @@ for.end:                                          ; preds = %for.cond
   ret void
 }
 
-declare void @emit_lib(ptr noundef) #6
+declare void @emit_lib(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @emit_vmdef(ptr noundef %ctx) #0 {
@@ -5569,14 +5563,14 @@ for.end97:                                        ; preds = %for.cond86
   ret void
 }
 
-declare void @emit_fold(ptr noundef) #6
+declare void @emit_fold(ptr noundef) #5
 
-declare i32 @fflush(ptr noundef) #6
+declare i32 @fflush(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @ferror(ptr noundef) #4
 
-declare i32 @fclose(ptr noundef) #6
+declare i32 @fclose(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @sym_decorate(ptr noundef %ctx, ptr noundef %prefix, ptr noundef %suffix) #0 {
@@ -5630,13 +5624,13 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @sprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #8
+declare ptr @strchr(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #9
+declare noalias ptr @malloc(i64 noundef) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #8
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #4
@@ -5736,7 +5730,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #8
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @build_backend(ptr noundef %ctx) #0 {
@@ -5868,177 +5862,609 @@ entry:
   %1 = load ptr, ptr %ctx.addr, align 8
   call void (ptr, i32, ...) @dasm_put(ptr noundef %1, i32 noundef 2, i32 noundef 4, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef 1, i32 noundef 3, i32 noundef -3784, i32 noundef -2)
   %2 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %2, i32 noundef 81, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32))
-  %3 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %3, i32 noundef 194, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef 1)
-  %4 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %4, i32 noundef 276, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.global_State, ptr null, i32 0, i32 9) to i32), i32 noundef -2, i64 noundef -4, i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 5) to i32), i32 noundef 3968, i32 noundef -1, i32 noundef -32769, i32 noundef -3784, i32 noundef -1)
-  %5 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %5, i32 noundef 402, i32 noundef 20, i32 noundef -97, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef 5, i32 noundef 1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 5) to i32))
-  %6 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %6, i32 noundef 557, i32 noundef 3968, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 4) to i32), i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 4) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef 3, i32 noundef 5)
-  %7 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %7, i32 noundef 668, i32 noundef 1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef 3968, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef -9, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32))
-  %8 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %8, i32 noundef 830, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 10) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 5) to i32), i32 noundef 3968, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef -3600, i32 noundef 5, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -72)
+  %3 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %4 = ptrtoint ptr %3 to i32
+  %5 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i32
+  %7 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %8 = ptrtoint ptr %7 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %2, i32 noundef 81, i32 noundef %4, i32 noundef %6, i32 noundef %8)
   %9 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %9, i32 noundef 991, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef 54, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
-  %10 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %10, i32 noundef 1107, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef 2, i32 noundef 3)
-  %11 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %11, i32 noundef 1281, i32 noundef -1, i32 noundef 0, i32 noundef -163840, i32 noundef 55, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
-  %12 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %12, i32 noundef 1393, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef 2, i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %13 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %13, i32 noundef 1605, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -131072, i32 noundef -2, i32 noundef -2)
-  %14 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %14, i32 noundef 1741, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %15 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %15, i32 noundef 1897, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 2, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
+  %10 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %11 = ptrtoint ptr %10 to i32
+  %12 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %13 = ptrtoint ptr %12 to i32
+  %14 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %15 = ptrtoint ptr %14 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %9, i32 noundef 194, i32 noundef %11, i32 noundef -1, i32 noundef %13, i32 noundef %15, i32 noundef 1)
   %16 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %16, i32 noundef 2068)
-  %17 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %17, i32 noundef 2073, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 1232, i32 noundef 2, i32 noundef -2)
-  %18 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %18, i32 noundef 2294, i32 noundef 2, i32 noundef -14, ptr noundef getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 9), i32 noundef 0, i32 noundef -163840, i32 noundef 2)
-  %19 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %19, i32 noundef 2405, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef -1, i32 noundef 0, i32 noundef -393216, i32 noundef -3408, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 5) to i32), i32 noundef 0, i32 noundef -163840, i64 noundef 24)
-  %20 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %20, i32 noundef 2499, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 2) to i32), i32 noundef 0, i32 noundef -1)
-  %21 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %21, i32 noundef 2557, i32 noundef -13, i32 noundef -14, i32 noundef -14, i32 noundef -3368, i32 noundef 3, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32))
-  %22 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %22, i32 noundef 2644, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
-  %23 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %23, i32 noundef 2726, i32 noundef 3, i32 noundef -12, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  %24 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %24, i32 noundef 2853, i32 noundef -5, i32 noundef -14, i32 noundef -3264, i32 noundef -3952, i32 noundef -3944)
+  %17 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 5
+  %18 = ptrtoint ptr %17 to i32
+  %19 = getelementptr inbounds %struct.global_State, ptr null, i32 0, i32 9
+  %20 = ptrtoint ptr %19 to i32
+  %21 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %22 = ptrtoint ptr %21 to i32
+  %23 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 5
+  %24 = ptrtoint ptr %23 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %16, i32 noundef 276, i32 noundef %18, i32 noundef %20, i32 noundef -2, i64 noundef -4, i32 noundef 2, i32 noundef %22, i32 noundef %24, i32 noundef 3968, i32 noundef -1, i32 noundef -32769, i32 noundef -3784, i32 noundef -1)
   %25 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %25, i32 noundef 2927, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef 2, i32 noundef -12)
-  %26 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %26, i32 noundef 3024, i32 noundef -1, i32 noundef -1, i32 noundef 2, i32 noundef -12)
-  %27 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %27, i32 noundef 3130, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 9) to i32), i32 noundef 0, i32 noundef -294912, i32 noundef -1, i32 noundef 4, i32 noundef 3, i32 noundef -12, i32 noundef -14, i32 noundef 0, i32 noundef 1072693248)
-  %28 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %28, i32 noundef 3253, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32))
-  %29 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %29, i32 noundef 3353, i32 noundef 1, i32 noundef 2, i32 noundef -12)
-  %30 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %30, i32 noundef 3404, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 9) to i32), i32 noundef 0, i32 noundef -294912, i32 noundef 4, i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef 22, i32 noundef -3823, i32 noundef 4)
-  %31 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %31, i32 noundef 3540, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef -9, i32 noundef 30, i32 noundef 2)
-  %32 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %32, i32 noundef 3626, i32 noundef -7, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 4) to i32), i32 noundef 1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32))
-  %33 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %33, i32 noundef 3731, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1)
-  %34 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %34, i32 noundef 3835, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef -1, i32 noundef -32769)
-  %35 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %35, i32 noundef 3955, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 4) to i32), i32 noundef 1)
-  %36 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %36, i32 noundef 4079, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32))
-  %37 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %37, i32 noundef 4182, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32))
+  %26 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %27 = ptrtoint ptr %26 to i32
+  %28 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %29 = ptrtoint ptr %28 to i32
+  %30 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %31 = ptrtoint ptr %30 to i32
+  %32 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %33 = ptrtoint ptr %32 to i32
+  %34 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %35 = ptrtoint ptr %34 to i32
+  %36 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 5
+  %37 = ptrtoint ptr %36 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %25, i32 noundef 402, i32 noundef 20, i32 noundef -97, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35, i32 noundef 5, i32 noundef 1, i32 noundef %37)
   %38 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %38, i32 noundef 4272, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef 1)
-  %39 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %39, i32 noundef 4384, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i32 noundef 1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 4) to i32), i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  %40 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %40, i32 noundef 4476, i32 noundef -14, i32 noundef 2, i32 noundef 3, i32 noundef -1)
-  %41 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %41, i32 noundef 4596, i32 noundef -14, i32 noundef -14)
-  %42 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %42, i32 noundef 4676, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  %43 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %43, i32 noundef 4775, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  %44 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %44, i32 noundef 4874, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  %45 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %45, i32 noundef 4982, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  %46 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %46, i32 noundef 5081, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  %47 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %47, i32 noundef 5198, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
-  %48 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %48, i32 noundef 5317, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  %39 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %40 = ptrtoint ptr %39 to i32
+  %41 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 4
+  %42 = ptrtoint ptr %41 to i32
+  %43 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 4
+  %44 = ptrtoint ptr %43 to i32
+  %45 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %46 = ptrtoint ptr %45 to i32
+  %47 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %48 = ptrtoint ptr %47 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %38, i32 noundef 557, i32 noundef 3968, i32 noundef %40, i32 noundef %42, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef 3, i32 noundef 5)
   %49 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %49, i32 noundef 5428, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 2)
-  %50 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %50, i32 noundef 5537, i32 noundef -14, i32 noundef 3, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef 2)
-  %51 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %51, i32 noundef 5684, i32 noundef -14, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  %52 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %52, i32 noundef 5796, i32 noundef -14, i32 noundef 2, i32 noundef -5, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 7) to i32))
-  %53 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %53, i32 noundef 5907, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i64 1) to i32), i32 noundef -3952, i32 noundef -3944, i32 noundef 2, i32 noundef -14)
-  %54 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %54, i32 noundef 5982, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef -3952, i32 noundef -3944, i32 noundef 3)
-  %55 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %55, i32 noundef 6090, i32 noundef -14, i32 noundef -5, i32 noundef -14, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 7) to i32))
-  %56 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %56, i32 noundef 6196, i64 noundef 23)
-  %57 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %57, i32 noundef 6261, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
-  %58 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %58, i32 noundef 6337, i32 noundef -3768, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 3) to i32), i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
-  %59 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %59, i32 noundef 6436, i32 noundef -3768, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 3) to i32), i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944)
-  %60 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %60, i32 noundef 6513, i32 noundef -5, i32 noundef -3768, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.SBuf, ptr null, i32 0, i32 3) to i32), i32 noundef 0, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  %61 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %61, i32 noundef 6625, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
+  %50 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 5
+  %51 = ptrtoint ptr %50 to i32
+  %52 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %53 = ptrtoint ptr %52 to i32
+  %54 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %55 = ptrtoint ptr %54 to i32
+  %56 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %57 = ptrtoint ptr %56 to i32
+  %58 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %59 = ptrtoint ptr %58 to i32
+  %60 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %61 = ptrtoint ptr %60 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %49, i32 noundef 668, i32 noundef 1, i32 noundef %51, i32 noundef %53, i32 noundef 3968, i32 noundef %55, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef %57, i32 noundef %59, i32 noundef -9, i32 noundef %61)
   %62 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %62, i32 noundef 6733, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
-  %63 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %63, i32 noundef 6871, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14, i32 noundef 2)
-  %64 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %64, i32 noundef 6987, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  %65 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %65, i32 noundef 7076, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  %66 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %66, i32 noundef 7176, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3)
-  %67 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %67, i32 noundef 7306, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14)
-  %68 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %68, i32 noundef 7432, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  %69 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %69, i32 noundef 7568, i32 noundef 3, i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 160, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32))
-  %70 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %70, i32 noundef 7680, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef 3, i32 noundef 20, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %71 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %71, i32 noundef 7829, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef -3823, i32 noundef 32, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef -3823, i32 noundef 16)
-  %72 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %72, i32 noundef 7896, i32 noundef -3823, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %73 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %73, i32 noundef 7959, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 1232, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -93, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef -3240, i32 noundef -3112)
-  %74 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %74, i32 noundef 8086, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtrace, ptr null, i32 0, i32 20) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtrace, ptr null, i32 0, i32 21) to i32))
+  %63 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 10
+  %64 = ptrtoint ptr %63 to i32
+  %65 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %66 = ptrtoint ptr %65 to i32
+  %67 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 5
+  %68 = ptrtoint ptr %67 to i32
+  %69 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %70 = ptrtoint ptr %69 to i32
+  %71 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %72 = ptrtoint ptr %71 to i32
+  %73 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %74 = ptrtoint ptr %73 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %62, i32 noundef 830, i32 noundef %64, i32 noundef %66, i32 noundef %68, i32 noundef 3968, i32 noundef %70, i32 noundef %72, i32 noundef -3600, i32 noundef 5, i32 noundef -1, i32 noundef %74, i32 noundef -72)
   %75 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %75, i32 noundef 8282, i32 noundef 87, i32 noundef -220, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3240, i32 noundef -3112, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -1)
-  %76 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %76, i32 noundef 8346, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %77 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %77, i32 noundef 8380, i32 noundef -3784, i32 noundef -3784, i32 noundef -4, i32 noundef -220, i32 noundef -224, i32 noundef 128, i32 noundef -3600, i32 noundef -3592, i32 noundef -3112, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3240, i32 noundef -3592, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 13) to i32), i64 noundef -4, i32 noundef 16, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 24)
+  %76 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %77 = ptrtoint ptr %76 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %75, i32 noundef 991, i32 noundef %77, i32 noundef 0, i32 noundef -163840, i32 noundef 54, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
   %78 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %78, i32 noundef 8620, i32 noundef -5, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -72, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3592, i32 noundef -3784, i32 noundef -1, i32 noundef 89, i32 noundef 97)
-  %79 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %79, i32 noundef 8736, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -72, i32 noundef -2856, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtrace, ptr null, i32 0, i32 14) to i32), i32 noundef 1232, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200)
-  %80 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %80, i32 noundef 8858, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647)
-  %81 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %81, i32 noundef 9024, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248)
-  %82 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %82, i32 noundef 9245, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32), i64 noundef 24, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 8) to i32), i32 noundef 0, i32 noundef -1)
-  %83 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %83, i32 noundef 9332, i32 noundef -1)
-  %84 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %84, i32 noundef 9371, i32 noundef 3968, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.global_State, ptr null, i32 0, i32 26) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 3) to i32), i32 noundef 80, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 4) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 4) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 6) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds ([8 x %union.FPRCBArg], ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7), i64 0, i64 7) to i32))
+  %79 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %80 = ptrtoint ptr %79 to i32
+  %81 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %82 = ptrtoint ptr %81 to i32
+  %83 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %84 = ptrtoint ptr %83 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %78, i32 noundef 1107, i32 noundef %80, i32 noundef %82, i32 noundef %84, i32 noundef 2, i32 noundef 3)
   %85 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %85, i32 noundef 9477, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 2) to i32), i32 noundef -3784, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -3584, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7, i32 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CTState, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 2) to i32))
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %85, i32 noundef 1281, i32 noundef -1, i32 noundef 0, i32 noundef -163840, i32 noundef 55, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
   %86 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %86, i32 noundef 9636, i64 noundef 192, i32 noundef 0, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 4) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 2) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 3) to i32))
-  %87 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %87, i32 noundef 9717, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 4) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 6) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 7) to i32), i32 noundef 0, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 7, i64 1) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.CCallState, ptr null, i32 0, i32 6, i64 1) to i32))
+  %87 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %88 = ptrtoint ptr %87 to i32
+  %89 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %90 = ptrtoint ptr %89 to i32
+  %91 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %92 = ptrtoint ptr %91 to i32
+  %93 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %94 = ptrtoint ptr %93 to i32
+  %95 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %96 = ptrtoint ptr %95 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %86, i32 noundef 1393, i32 noundef %88, i32 noundef %90, i32 noundef %92, i32 noundef 2, i32 noundef 4, i32 noundef %94, i32 noundef %96)
+  %97 = load ptr, ptr %ctx.addr, align 8
+  %98 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %99 = ptrtoint ptr %98 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %97, i32 noundef 1605, i32 noundef %99, i32 noundef -131072, i32 noundef -2, i32 noundef -2)
+  %100 = load ptr, ptr %ctx.addr, align 8
+  %101 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %102 = ptrtoint ptr %101 to i32
+  %103 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %104 = ptrtoint ptr %103 to i32
+  %105 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %106 = ptrtoint ptr %105 to i32
+  %107 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %108 = ptrtoint ptr %107 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %100, i32 noundef 1741, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108)
+  %109 = load ptr, ptr %ctx.addr, align 8
+  %110 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %111 = ptrtoint ptr %110 to i32
+  %112 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %113 = ptrtoint ptr %112 to i32
+  %114 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %115 = ptrtoint ptr %114 to i32
+  %116 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %117 = ptrtoint ptr %116 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %109, i32 noundef 1897, i32 noundef %111, i32 noundef %113, i32 noundef 2, i32 noundef 3, i32 noundef %115, i32 noundef %117)
+  %118 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %118, i32 noundef 2068)
+  %119 = load ptr, ptr %ctx.addr, align 8
+  %120 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %121 = ptrtoint ptr %120 to i32
+  %122 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %123 = ptrtoint ptr %122 to i32
+  %124 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %125 = ptrtoint ptr %124 to i32
+  %126 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %127 = ptrtoint ptr %126 to i32
+  %128 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %129 = ptrtoint ptr %128 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %119, i32 noundef 2073, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef 1232, i32 noundef 2, i32 noundef -2)
+  %130 = load ptr, ptr %ctx.addr, align 8
+  %131 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 9
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %130, i32 noundef 2294, i32 noundef 2, i32 noundef -14, ptr noundef %131, i32 noundef 0, i32 noundef -163840, i32 noundef 2)
+  %132 = load ptr, ptr %ctx.addr, align 8
+  %133 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %134 = ptrtoint ptr %133 to i32
+  %135 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %136 = ptrtoint ptr %135 to i32
+  %137 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 5
+  %138 = ptrtoint ptr %137 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %132, i32 noundef 2405, i32 noundef -12, i32 noundef %134, i32 noundef -1, i32 noundef 0, i32 noundef -393216, i32 noundef -3408, i32 noundef %136, i32 noundef %138, i32 noundef 0, i32 noundef -163840, i64 noundef 24)
+  %139 = load ptr, ptr %ctx.addr, align 8
+  %140 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 8
+  %141 = ptrtoint ptr %140 to i32
+  %142 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 1
+  %143 = ptrtoint ptr %142 to i32
+  %144 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 2
+  %145 = ptrtoint ptr %144 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %139, i32 noundef 2499, i32 noundef %141, i32 noundef %143, i32 noundef %145, i32 noundef 0, i32 noundef -1)
+  %146 = load ptr, ptr %ctx.addr, align 8
+  %147 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %148 = ptrtoint ptr %147 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %146, i32 noundef 2557, i32 noundef -13, i32 noundef -14, i32 noundef -14, i32 noundef -3368, i32 noundef 3, i32 noundef -12, i32 noundef %148)
+  %149 = load ptr, ptr %ctx.addr, align 8
+  %150 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %151 = ptrtoint ptr %150 to i32
+  %152 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %153 = ptrtoint ptr %152 to i32
+  %154 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %155 = ptrtoint ptr %154 to i32
+  %156 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %157 = ptrtoint ptr %156 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %149, i32 noundef 2644, i32 noundef -12, i32 noundef %151, i32 noundef %153, i32 noundef 4, i32 noundef %155, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef %157)
+  %158 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %158, i32 noundef 2726, i32 noundef 3, i32 noundef -12, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  %159 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %159, i32 noundef 2853, i32 noundef -5, i32 noundef -14, i32 noundef -3264, i32 noundef -3952, i32 noundef -3944)
+  %160 = load ptr, ptr %ctx.addr, align 8
+  %161 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %162 = ptrtoint ptr %161 to i32
+  %163 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %164 = ptrtoint ptr %163 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %160, i32 noundef 2927, i32 noundef %162, i32 noundef %164, i32 noundef 0, i32 noundef -163840, i32 noundef 2, i32 noundef -12)
+  %165 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %165, i32 noundef 3024, i32 noundef -1, i32 noundef -1, i32 noundef 2, i32 noundef -12)
+  %166 = load ptr, ptr %ctx.addr, align 8
+  %167 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 9
+  %168 = ptrtoint ptr %167 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %166, i32 noundef 3130, i32 noundef %168, i32 noundef 0, i32 noundef -294912, i32 noundef -1, i32 noundef 4, i32 noundef 3, i32 noundef -12, i32 noundef -14, i32 noundef 0, i32 noundef 1072693248)
+  %169 = load ptr, ptr %ctx.addr, align 8
+  %170 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %171 = ptrtoint ptr %170 to i32
+  %172 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %173 = ptrtoint ptr %172 to i32
+  %174 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %175 = ptrtoint ptr %174 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %169, i32 noundef 3253, i32 noundef %171, i32 noundef %173, i32 noundef -1, i32 noundef 3, i32 noundef %175)
+  %176 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %176, i32 noundef 3353, i32 noundef 1, i32 noundef 2, i32 noundef -12)
+  %177 = load ptr, ptr %ctx.addr, align 8
+  %178 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 9
+  %179 = ptrtoint ptr %178 to i32
+  %180 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %181 = ptrtoint ptr %180 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %177, i32 noundef 3404, i32 noundef %179, i32 noundef 0, i32 noundef -294912, i32 noundef 4, i32 noundef 2, i32 noundef %181, i32 noundef 22, i32 noundef -3823, i32 noundef 4)
+  %182 = load ptr, ptr %ctx.addr, align 8
+  %183 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %184 = ptrtoint ptr %183 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %182, i32 noundef 3540, i32 noundef 3, i32 noundef %184, i32 noundef -9, i32 noundef 30, i32 noundef 2)
+  %185 = load ptr, ptr %ctx.addr, align 8
+  %186 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %187 = ptrtoint ptr %186 to i32
+  %188 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 4
+  %189 = ptrtoint ptr %188 to i32
+  %190 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %191 = ptrtoint ptr %190 to i32
+  %192 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %193 = ptrtoint ptr %192 to i32
+  %194 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %195 = ptrtoint ptr %194 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %185, i32 noundef 3626, i32 noundef -7, i32 noundef %187, i32 noundef %189, i32 noundef 1, i32 noundef %191, i32 noundef %193, i32 noundef %195)
+  %196 = load ptr, ptr %ctx.addr, align 8
+  %197 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %198 = ptrtoint ptr %197 to i32
+  %199 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %200 = ptrtoint ptr %199 to i32
+  %201 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %202 = ptrtoint ptr %201 to i32
+  %203 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %204 = ptrtoint ptr %203 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %196, i32 noundef 3731, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %204, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1)
+  %205 = load ptr, ptr %ctx.addr, align 8
+  %206 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %207 = ptrtoint ptr %206 to i32
+  %208 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %209 = ptrtoint ptr %208 to i32
+  %210 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %211 = ptrtoint ptr %210 to i32
+  %212 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %213 = ptrtoint ptr %212 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %205, i32 noundef 3835, i32 noundef %207, i32 noundef %209, i32 noundef %211, i32 noundef %213, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef -1, i32 noundef -32769)
+  %214 = load ptr, ptr %ctx.addr, align 8
+  %215 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %216 = ptrtoint ptr %215 to i32
+  %217 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %218 = ptrtoint ptr %217 to i32
+  %219 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %220 = ptrtoint ptr %219 to i32
+  %221 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %222 = ptrtoint ptr %221 to i32
+  %223 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 9
+  %224 = ptrtoint ptr %223 to i32
+  %225 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %226 = ptrtoint ptr %225 to i32
+  %227 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 4
+  %228 = ptrtoint ptr %227 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %214, i32 noundef 3955, i32 noundef %216, i32 noundef %218, i32 noundef 3, i32 noundef %220, i32 noundef %222, i32 noundef %224, i32 noundef %226, i32 noundef %228, i32 noundef 1)
+  %229 = load ptr, ptr %ctx.addr, align 8
+  %230 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %231 = ptrtoint ptr %230 to i32
+  %232 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %233 = ptrtoint ptr %232 to i32
+  %234 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %235 = ptrtoint ptr %234 to i32
+  %236 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %237 = ptrtoint ptr %236 to i32
+  %238 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %239 = ptrtoint ptr %238 to i32
+  %240 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %241 = ptrtoint ptr %240 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %229, i32 noundef 4079, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241)
+  %242 = load ptr, ptr %ctx.addr, align 8
+  %243 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %244 = ptrtoint ptr %243 to i32
+  %245 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %246 = ptrtoint ptr %245 to i32
+  %247 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %248 = ptrtoint ptr %247 to i32
+  %249 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %250 = ptrtoint ptr %249 to i32
+  %251 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %252 = ptrtoint ptr %251 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %242, i32 noundef 4182, i32 noundef %244, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1, i32 noundef %246, i32 noundef %248, i32 noundef %250, i32 noundef %252)
+  %253 = load ptr, ptr %ctx.addr, align 8
+  %254 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %255 = ptrtoint ptr %254 to i32
+  %256 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %257 = ptrtoint ptr %256 to i32
+  %258 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %259 = ptrtoint ptr %258 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %253, i32 noundef 4272, i32 noundef 3, i32 noundef %255, i32 noundef %257, i32 noundef %259, i32 noundef 1)
+  %260 = load ptr, ptr %ctx.addr, align 8
+  %261 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %262 = ptrtoint ptr %261 to i32
+  %263 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %264 = ptrtoint ptr %263 to i32
+  %265 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %266 = ptrtoint ptr %265 to i32
+  %267 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 4
+  %268 = ptrtoint ptr %267 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %260, i32 noundef 4384, i32 noundef %262, i32 noundef %264, i32 noundef %266, i32 noundef 1, i32 noundef %268, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  %269 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %269, i32 noundef 4476, i32 noundef -14, i32 noundef 2, i32 noundef 3, i32 noundef -1)
+  %270 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %270, i32 noundef 4596, i32 noundef -14, i32 noundef -14)
+  %271 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %271, i32 noundef 4676, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  %272 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %272, i32 noundef 4775, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  %273 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %273, i32 noundef 4874, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  %274 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %274, i32 noundef 4982, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  %275 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %275, i32 noundef 5081, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  %276 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %276, i32 noundef 5198, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  %277 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %277, i32 noundef 5317, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  %278 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %278, i32 noundef 5428, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 2)
+  %279 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %279, i32 noundef 5537, i32 noundef -14, i32 noundef 3, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef 2)
+  %280 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %280, i32 noundef 5684, i32 noundef -14, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  %281 = load ptr, ptr %ctx.addr, align 8
+  %282 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 7
+  %283 = ptrtoint ptr %282 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %281, i32 noundef 5796, i32 noundef -14, i32 noundef 2, i32 noundef -5, i32 noundef %283)
+  %284 = load ptr, ptr %ctx.addr, align 8
+  %285 = getelementptr inbounds %struct.GCstr, ptr null, i64 1
+  %286 = ptrtoint ptr %285 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %284, i32 noundef 5907, i32 noundef %286, i32 noundef -3952, i32 noundef -3944, i32 noundef 2, i32 noundef -14)
+  %287 = load ptr, ptr %ctx.addr, align 8
+  %288 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %289 = ptrtoint ptr %288 to i32
+  %290 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %291 = ptrtoint ptr %290 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %287, i32 noundef 5982, i32 noundef %289, i32 noundef %291, i32 noundef 0, i32 noundef -163840, i32 noundef -3952, i32 noundef -3944, i32 noundef 3)
+  %292 = load ptr, ptr %ctx.addr, align 8
+  %293 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 7
+  %294 = ptrtoint ptr %293 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %292, i32 noundef 6090, i32 noundef -14, i32 noundef -5, i32 noundef -14, i32 noundef %294)
+  %295 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %295, i32 noundef 6196, i64 noundef 23)
+  %296 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %296, i32 noundef 6261, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
+  %297 = load ptr, ptr %ctx.addr, align 8
+  %298 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %299 = ptrtoint ptr %298 to i32
+  %300 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 2
+  %301 = ptrtoint ptr %300 to i32
+  %302 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 3
+  %303 = ptrtoint ptr %302 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %297, i32 noundef 6337, i32 noundef -3768, i32 noundef %299, i32 noundef %301, i32 noundef %303, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
+  %304 = load ptr, ptr %ctx.addr, align 8
+  %305 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %306 = ptrtoint ptr %305 to i32
+  %307 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 2
+  %308 = ptrtoint ptr %307 to i32
+  %309 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 3
+  %310 = ptrtoint ptr %309 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %304, i32 noundef 6436, i32 noundef -3768, i32 noundef %306, i32 noundef %308, i32 noundef %310, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944)
+  %311 = load ptr, ptr %ctx.addr, align 8
+  %312 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %313 = ptrtoint ptr %312 to i32
+  %314 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 2
+  %315 = ptrtoint ptr %314 to i32
+  %316 = getelementptr inbounds %struct.SBuf, ptr null, i32 0, i32 3
+  %317 = ptrtoint ptr %316 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %311, i32 noundef 6513, i32 noundef -5, i32 noundef -3768, i32 noundef %313, i32 noundef %315, i32 noundef %317, i32 noundef 0, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  %318 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %318, i32 noundef 6625, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
+  %319 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %319, i32 noundef 6733, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
+  %320 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %320, i32 noundef 6871, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14, i32 noundef 2)
+  %321 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %321, i32 noundef 6987, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  %322 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %322, i32 noundef 7076, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  %323 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %323, i32 noundef 7176, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3)
+  %324 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %324, i32 noundef 7306, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  %325 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %325, i32 noundef 7432, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  %326 = load ptr, ptr %ctx.addr, align 8
+  %327 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %328 = ptrtoint ptr %327 to i32
+  %329 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %330 = ptrtoint ptr %329 to i32
+  %331 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %332 = ptrtoint ptr %331 to i32
+  %333 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 8
+  %334 = ptrtoint ptr %333 to i32
+  %335 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %336 = ptrtoint ptr %335 to i32
+  %337 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %338 = ptrtoint ptr %337 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %326, i32 noundef 7568, i32 noundef 3, i32 noundef 2, i32 noundef %328, i32 noundef 160, i32 noundef %330, i32 noundef %332, i32 noundef %334, i32 noundef %336, i32 noundef %338)
+  %339 = load ptr, ptr %ctx.addr, align 8
+  %340 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %341 = ptrtoint ptr %340 to i32
+  %342 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %343 = ptrtoint ptr %342 to i32
+  %344 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %345 = ptrtoint ptr %344 to i32
+  %346 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %347 = ptrtoint ptr %346 to i32
+  %348 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %349 = ptrtoint ptr %348 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %339, i32 noundef 7680, i32 noundef %341, i32 noundef 3, i32 noundef 20, i32 noundef %343, i32 noundef %345, i32 noundef %347, i32 noundef %349)
+  %350 = load ptr, ptr %ctx.addr, align 8
+  %351 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %352 = ptrtoint ptr %351 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %350, i32 noundef 7829, i32 noundef %352, i32 noundef -3823, i32 noundef 32, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef -3823, i32 noundef 16)
+  %353 = load ptr, ptr %ctx.addr, align 8
+  %354 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %355 = ptrtoint ptr %354 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %353, i32 noundef 7896, i32 noundef -3823, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef 4, i32 noundef %355)
+  %356 = load ptr, ptr %ctx.addr, align 8
+  %357 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %358 = ptrtoint ptr %357 to i32
+  %359 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %360 = ptrtoint ptr %359 to i32
+  %361 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %362 = ptrtoint ptr %361 to i32
+  %363 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %364 = ptrtoint ptr %363 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %356, i32 noundef 7959, i32 noundef %358, i32 noundef 1232, i32 noundef %360, i32 noundef -93, i32 noundef %362, i32 noundef %364, i32 noundef -3240, i32 noundef -3112)
+  %365 = load ptr, ptr %ctx.addr, align 8
+  %366 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %367 = ptrtoint ptr %366 to i32
+  %368 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %369 = ptrtoint ptr %368 to i32
+  %370 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %371 = ptrtoint ptr %370 to i32
+  %372 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %373 = ptrtoint ptr %372 to i32
+  %374 = getelementptr inbounds %struct.GCtrace, ptr null, i32 0, i32 20
+  %375 = ptrtoint ptr %374 to i32
+  %376 = getelementptr inbounds %struct.GCtrace, ptr null, i32 0, i32 21
+  %377 = ptrtoint ptr %376 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %365, i32 noundef 8086, i32 noundef %367, i32 noundef %369, i32 noundef %371, i32 noundef %373, i32 noundef %375, i32 noundef %377)
+  %378 = load ptr, ptr %ctx.addr, align 8
+  %379 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %380 = ptrtoint ptr %379 to i32
+  %381 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %382 = ptrtoint ptr %381 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %378, i32 noundef 8282, i32 noundef 87, i32 noundef -220, i32 noundef %380, i32 noundef -3240, i32 noundef -3112, i32 noundef %382, i32 noundef -1)
+  %383 = load ptr, ptr %ctx.addr, align 8
+  %384 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %385 = ptrtoint ptr %384 to i32
+  %386 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %387 = ptrtoint ptr %386 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %383, i32 noundef 8346, i32 noundef %385, i32 noundef %387)
+  %388 = load ptr, ptr %ctx.addr, align 8
+  %389 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %390 = ptrtoint ptr %389 to i32
+  %391 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 13
+  %392 = ptrtoint ptr %391 to i32
+  %393 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %394 = ptrtoint ptr %393 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %388, i32 noundef 8380, i32 noundef -3784, i32 noundef -3784, i32 noundef -4, i32 noundef -220, i32 noundef -224, i32 noundef 128, i32 noundef -3600, i32 noundef -3592, i32 noundef -3112, i32 noundef %390, i32 noundef -3240, i32 noundef -3592, i32 noundef %392, i64 noundef -4, i32 noundef 16, i32 noundef %394, i32 noundef 24)
+  %395 = load ptr, ptr %ctx.addr, align 8
+  %396 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %397 = ptrtoint ptr %396 to i32
+  %398 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %399 = ptrtoint ptr %398 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %395, i32 noundef 8620, i32 noundef -5, i32 noundef %397, i32 noundef -72, i32 noundef %399, i32 noundef -3592, i32 noundef -3784, i32 noundef -1, i32 noundef 89, i32 noundef 97)
+  %400 = load ptr, ptr %ctx.addr, align 8
+  %401 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %402 = ptrtoint ptr %401 to i32
+  %403 = getelementptr inbounds %struct.GCtrace, ptr null, i32 0, i32 14
+  %404 = ptrtoint ptr %403 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %400, i32 noundef 8736, i32 noundef 3, i32 noundef %402, i32 noundef -72, i32 noundef -2856, i32 noundef %404, i32 noundef 1232, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200)
+  %405 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %405, i32 noundef 8858, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647)
+  %406 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %406, i32 noundef 9024, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248)
+  %407 = load ptr, ptr %ctx.addr, align 8
+  %408 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %409 = ptrtoint ptr %408 to i32
+  %410 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %411 = ptrtoint ptr %410 to i32
+  %412 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %413 = ptrtoint ptr %412 to i32
+  %414 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 8
+  %415 = ptrtoint ptr %414 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %407, i32 noundef 9245, i32 noundef %409, i32 noundef %411, i32 noundef -1, i32 noundef %413, i64 noundef 24, i32 noundef %415, i32 noundef 0, i32 noundef -1)
+  %416 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %416, i32 noundef 9332, i32 noundef -1)
+  %417 = load ptr, ptr %ctx.addr, align 8
+  %418 = getelementptr inbounds %struct.global_State, ptr null, i32 0, i32 26
+  %419 = ptrtoint ptr %418 to i32
+  %420 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 7
+  %421 = ptrtoint ptr %420 to i32
+  %422 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1
+  %423 = ptrtoint ptr %422 to i32
+  %424 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 1
+  %425 = ptrtoint ptr %424 to i32
+  %426 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 2
+  %427 = ptrtoint ptr %426 to i32
+  %428 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 3
+  %429 = ptrtoint ptr %428 to i32
+  %430 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %431 = ptrtoint ptr %430 to i32
+  %432 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %433 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %432, i64 0, i64 1
+  %434 = ptrtoint ptr %433 to i32
+  %435 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %436 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %435, i64 0, i64 2
+  %437 = ptrtoint ptr %436 to i32
+  %438 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %439 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %438, i64 0, i64 3
+  %440 = ptrtoint ptr %439 to i32
+  %441 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 4
+  %442 = ptrtoint ptr %441 to i32
+  %443 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1, i64 5
+  %444 = ptrtoint ptr %443 to i32
+  %445 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %446 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %445, i64 0, i64 4
+  %447 = ptrtoint ptr %446 to i32
+  %448 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %449 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %448, i64 0, i64 5
+  %450 = ptrtoint ptr %449 to i32
+  %451 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %452 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %451, i64 0, i64 6
+  %453 = ptrtoint ptr %452 to i32
+  %454 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %455 = getelementptr inbounds [8 x %union.FPRCBArg], ptr %454, i64 0, i64 7
+  %456 = ptrtoint ptr %455 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %417, i32 noundef 9371, i32 noundef 3968, i32 noundef %419, i32 noundef %421, i32 noundef %423, i32 noundef %425, i32 noundef %427, i32 noundef %429, i32 noundef %431, i32 noundef %434, i32 noundef %437, i32 noundef %440, i32 noundef 80, i32 noundef %442, i32 noundef %444, i32 noundef %447, i32 noundef %450, i32 noundef %453, i32 noundef %456)
+  %457 = load ptr, ptr %ctx.addr, align 8
+  %458 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 2
+  %459 = ptrtoint ptr %458 to i32
+  %460 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %461 = ptrtoint ptr %460 to i32
+  %462 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %463 = ptrtoint ptr %462 to i32
+  %464 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %465 = ptrtoint ptr %464 to i32
+  %466 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 3
+  %467 = ptrtoint ptr %466 to i32
+  %468 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %469 = ptrtoint ptr %468 to i32
+  %470 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %471 = ptrtoint ptr %470 to i32
+  %472 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7, i32 1
+  %473 = ptrtoint ptr %472 to i32
+  %474 = getelementptr inbounds %struct.CTState, ptr null, i32 0, i32 7
+  %475 = ptrtoint ptr %474 to i32
+  %476 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 1
+  %477 = ptrtoint ptr %476 to i32
+  %478 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 2
+  %479 = ptrtoint ptr %478 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %457, i32 noundef 9477, i32 noundef %459, i32 noundef -3784, i32 noundef -1, i32 noundef %461, i32 noundef %463, i32 noundef %465, i32 noundef -3584, i32 noundef %467, i32 noundef %469, i32 noundef %471, i32 noundef %473, i32 noundef %475, i32 noundef %477, i32 noundef %479)
+  %480 = load ptr, ptr %ctx.addr, align 8
+  %481 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 5
+  %482 = ptrtoint ptr %481 to i32
+  %483 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7
+  %484 = ptrtoint ptr %483 to i32
+  %485 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 1
+  %486 = ptrtoint ptr %485 to i32
+  %487 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 2
+  %488 = ptrtoint ptr %487 to i32
+  %489 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 3
+  %490 = ptrtoint ptr %489 to i32
+  %491 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 4
+  %492 = ptrtoint ptr %491 to i32
+  %493 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 5
+  %494 = ptrtoint ptr %493 to i32
+  %495 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6
+  %496 = ptrtoint ptr %495 to i32
+  %497 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 1
+  %498 = ptrtoint ptr %497 to i32
+  %499 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 2
+  %500 = ptrtoint ptr %499 to i32
+  %501 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 3
+  %502 = ptrtoint ptr %501 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %480, i32 noundef 9636, i64 noundef 192, i32 noundef 0, i32 noundef %482, i32 noundef %484, i32 noundef %486, i32 noundef %488, i32 noundef %490, i32 noundef %492, i32 noundef %494, i32 noundef %496, i32 noundef %498, i32 noundef %500, i32 noundef %502)
+  %503 = load ptr, ptr %ctx.addr, align 8
+  %504 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 4
+  %505 = ptrtoint ptr %504 to i32
+  %506 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 5
+  %507 = ptrtoint ptr %506 to i32
+  %508 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 6
+  %509 = ptrtoint ptr %508 to i32
+  %510 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 7
+  %511 = ptrtoint ptr %510 to i32
+  %512 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7
+  %513 = ptrtoint ptr %512 to i32
+  %514 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6
+  %515 = ptrtoint ptr %514 to i32
+  %516 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 7, i64 1
+  %517 = ptrtoint ptr %516 to i32
+  %518 = getelementptr inbounds %struct.CCallState, ptr null, i32 0, i32 6, i64 1
+  %519 = ptrtoint ptr %518 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %503, i32 noundef 9717, i32 noundef %505, i32 noundef %507, i32 noundef %509, i32 noundef %511, i32 noundef 0, i32 noundef %513, i32 noundef %515, i32 noundef %517, i32 noundef %519)
   ret void
 }
 
@@ -6265,76 +6691,80 @@ lor.lhs.false:                                    ; preds = %if.end13
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.end13
   %23 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %23, i32 noundef 10003, i32 noundef -11, i32 noundef -11, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 16)
-  %24 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %24, i32 noundef 10071)
-  %25 = load i32, ptr %vk, align 4
-  %tobool19 = icmp ne i32 %25, 0
+  %24 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %25 = ptrtoint ptr %24 to i32
+  %26 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %27 = ptrtoint ptr %26 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %23, i32 noundef 10003, i32 noundef -11, i32 noundef -11, i32 noundef -12, i32 noundef %25, i32 noundef %27, i32 noundef 16)
+  %28 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %28, i32 noundef 10071)
+  %29 = load i32, ptr %vk, align 4
+  %tobool19 = icmp ne i32 %29, 0
   br i1 %tobool19, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.then18
-  %26 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %26, i32 noundef 10076)
+  %30 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %30, i32 noundef 10076)
   br label %if.end22
 
 if.else21:                                        ; preds = %if.then18
-  %27 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %27, i32 noundef 10080)
+  %31 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %31, i32 noundef 10080)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else21, %if.then20
-  %28 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %28, i32 noundef 10086)
+  %32 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %32, i32 noundef 10086)
   br label %if.end24
 
 if.else23:                                        ; preds = %lor.lhs.false
-  %29 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %29, i32 noundef 10091, i32 noundef -11)
-  %30 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %30, i32 noundef 10071)
-  %31 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %31, i32 noundef 10104)
+  %33 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %33, i32 noundef 10091, i32 noundef -11)
+  %34 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %34, i32 noundef 10071)
+  %35 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %35, i32 noundef 10104)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else23, %if.end22
   br label %sw.epilog253
 
 sw.bb25:                                          ; preds = %entry, %entry
-  %32 = load i32, ptr %op.addr, align 4
-  %cmp26 = icmp eq i32 %32, 6
+  %36 = load i32, ptr %op.addr, align 4
+  %cmp26 = icmp eq i32 %36, 6
   %conv27 = zext i1 %cmp26 to i32
   store i32 %conv27, ptr %vk, align 4
-  %33 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %33, i32 noundef 10109, i32 noundef -5)
+  %37 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %37, i32 noundef 10109, i32 noundef -5)
   br label %iseqne_test
 
 iseqne_test:                                      ; preds = %sw.bb25
-  %34 = load i32, ptr %vk, align 4
-  %tobool28 = icmp ne i32 %34, 0
+  %38 = load i32, ptr %vk, align 4
+  %tobool28 = icmp ne i32 %38, 0
   br i1 %tobool28, label %if.then29, label %if.else30
 
 if.then29:                                        ; preds = %iseqne_test
-  %35 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %35, i32 noundef 9952)
+  %39 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %39, i32 noundef 9952)
   br label %if.end31
 
 if.else30:                                        ; preds = %iseqne_test
-  %36 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %36, i32 noundef 9961)
+  %40 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %40, i32 noundef 9961)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else30, %if.then29
   br label %iseqne_end
 
 sw.bb32:                                          ; preds = %entry, %entry
-  %37 = load i32, ptr %op.addr, align 4
-  %cmp33 = icmp eq i32 %37, 8
+  %41 = load i32, ptr %op.addr, align 4
+  %cmp33 = icmp eq i32 %41, 8
   %conv34 = zext i1 %cmp33 to i32
   store i32 %conv34, ptr %vk, align 4
-  %38 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %38, i32 noundef 10153)
-  %39 = load i32, ptr %vk, align 4
-  %tobool35 = icmp ne i32 %39, 0
+  %42 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %42, i32 noundef 10153)
+  %43 = load i32, ptr %vk, align 4
+  %tobool35 = icmp ne i32 %43, 0
   br i1 %tobool35, label %if.then36, label %if.else37
 
 if.then36:                                        ; preds = %sw.bb32
@@ -6344,750 +6774,950 @@ if.else37:                                        ; preds = %sw.bb32
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else37, %if.then36
-  %40 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %40, i32 noundef 10162, i32 noundef -14)
+  %44 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %44, i32 noundef 10162, i32 noundef -14)
   br label %iseqne_fp
 
 sw.bb39:                                          ; preds = %entry, %entry
-  %41 = load i32, ptr %op.addr, align 4
-  %cmp40 = icmp eq i32 %41, 10
+  %45 = load i32, ptr %op.addr, align 4
+  %cmp40 = icmp eq i32 %45, 10
   %conv41 = zext i1 %cmp40 to i32
   store i32 %conv41, ptr %vk, align 4
-  %42 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %42, i32 noundef 10199)
-  %43 = load i32, ptr %vk, align 4
-  %tobool42 = icmp ne i32 %43, 0
+  %46 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %46, i32 noundef 10199)
+  %47 = load i32, ptr %vk, align 4
+  %tobool42 = icmp ne i32 %47, 0
   br i1 %tobool42, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %sw.bb39
-  %44 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %44, i32 noundef 10219, i32 noundef -131072, i32 noundef -11)
+  %48 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %48, i32 noundef 10219, i32 noundef -131072, i32 noundef -11)
   br label %if.end45
 
 if.else44:                                        ; preds = %sw.bb39
-  %45 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %45, i32 noundef 10272, i32 noundef -11, i32 noundef -131072)
+  %49 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %49, i32 noundef 10272, i32 noundef -11, i32 noundef -131072)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else44, %if.then43
   br label %sw.epilog253
 
 sw.bb46:                                          ; preds = %entry, %entry, %entry, %entry
-  %46 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %46, i32 noundef 10319)
-  %47 = load i32, ptr %op.addr, align 4
-  %cmp47 = icmp eq i32 %47, 12
+  %50 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %50, i32 noundef 10319)
+  %51 = load i32, ptr %op.addr, align 4
+  %cmp47 = icmp eq i32 %51, 12
   br i1 %cmp47, label %if.then52, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %sw.bb46
-  %48 = load i32, ptr %op.addr, align 4
-  %cmp50 = icmp eq i32 %48, 13
+  %52 = load i32, ptr %op.addr, align 4
+  %cmp50 = icmp eq i32 %52, 13
   br i1 %cmp50, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %lor.lhs.false49, %sw.bb46
-  %49 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %49, i32 noundef 10328)
+  %53 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %53, i32 noundef 10328)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %lor.lhs.false49
-  %50 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %50, i32 noundef 4971, i32 noundef -2)
-  %51 = load i32, ptr %op.addr, align 4
-  %cmp54 = icmp eq i32 %51, 14
+  %54 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %54, i32 noundef 4971, i32 noundef -2)
+  %55 = load i32, ptr %op.addr, align 4
+  %cmp54 = icmp eq i32 %55, 14
   br i1 %cmp54, label %if.then59, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %if.end53
-  %52 = load i32, ptr %op.addr, align 4
-  %cmp57 = icmp eq i32 %52, 12
+  %56 = load i32, ptr %op.addr, align 4
+  %cmp57 = icmp eq i32 %56, 12
   br i1 %cmp57, label %if.then59, label %if.else60
 
 if.then59:                                        ; preds = %lor.lhs.false56, %if.end53
-  %53 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %53, i32 noundef 9841)
+  %57 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %57, i32 noundef 9841)
   br label %if.end61
 
 if.else60:                                        ; preds = %lor.lhs.false56
-  %54 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %54, i32 noundef 2922)
+  %58 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %58, i32 noundef 2922)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else60, %if.then59
-  %55 = load i32, ptr %op.addr, align 4
-  %cmp62 = icmp eq i32 %55, 12
+  %59 = load i32, ptr %op.addr, align 4
+  %cmp62 = icmp eq i32 %59, 12
   br i1 %cmp62, label %if.then67, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %if.end61
-  %56 = load i32, ptr %op.addr, align 4
-  %cmp65 = icmp eq i32 %56, 13
+  %60 = load i32, ptr %op.addr, align 4
+  %cmp65 = icmp eq i32 %60, 13
   br i1 %cmp65, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %lor.lhs.false64, %if.end61
-  %57 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %57, i32 noundef 10332)
+  %61 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %61, i32 noundef 10332)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then67, %lor.lhs.false64
-  %58 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %58, i32 noundef 9846, i32 noundef -131072)
+  %62 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %62, i32 noundef 9846, i32 noundef -131072)
   br label %sw.epilog253
 
 sw.bb69:                                          ; preds = %entry
-  %59 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %59, i32 noundef 10337)
+  %63 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %63, i32 noundef 10337)
   br label %sw.epilog253
 
 sw.bb70:                                          ; preds = %entry
-  %60 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %60, i32 noundef 10374, i32 noundef -14)
+  %64 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %64, i32 noundef 10374, i32 noundef -14)
   br label %sw.epilog253
 
 sw.bb71:                                          ; preds = %entry
-  %61 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %61, i32 noundef 10414)
+  %65 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %65, i32 noundef 10414)
   br label %sw.epilog253
 
 sw.bb72:                                          ; preds = %entry
-  %62 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %62, i32 noundef 10444, i32 noundef -2)
+  %66 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %66, i32 noundef 10444, i32 noundef -2)
   br label %sw.epilog253
 
 sw.bb73:                                          ; preds = %entry
-  %63 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %63, i32 noundef 10500, i32 noundef -14, i32 noundef 0, i32 noundef -2147483648)
+  %67 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %67, i32 noundef 10500, i32 noundef -14, i32 noundef 0, i32 noundef -2147483648)
   br label %sw.epilog253
 
 sw.bb74:                                          ; preds = %entry
-  %64 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %64, i32 noundef 10555, i32 noundef -5, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 7) to i32), i32 noundef -12)
-  %65 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %65, i32 noundef 10653)
+  %68 = load ptr, ptr %ctx.addr, align 8
+  %69 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 7
+  %70 = ptrtoint ptr %69 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %68, i32 noundef 10555, i32 noundef -5, i32 noundef %70, i32 noundef -12)
+  %71 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %71, i32 noundef 10653)
   br label %sw.epilog253
 
 sw.bb75:                                          ; preds = %entry, %entry, %entry
-  %66 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %66, i32 noundef 10697)
-  %67 = load i32, ptr %op.addr, align 4
-  %sub = sub nsw i32 %67, 22
+  %72 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %72, i32 noundef 10697)
+  %73 = load i32, ptr %op.addr, align 4
+  %sub = sub nsw i32 %73, 22
   %div = sdiv i32 %sub, 5
   store i32 %div, ptr %vk, align 4
-  %68 = load i32, ptr %vk, align 4
-  switch i32 %68, label %sw.default78 [
+  %74 = load i32, ptr %vk, align 4
+  switch i32 %74, label %sw.default78 [
     i32 0, label %sw.bb76
     i32 1, label %sw.bb77
   ]
 
 sw.bb76:                                          ; preds = %sw.bb75
-  %69 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %69, i32 noundef 10705, i32 noundef -14)
+  %75 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %75, i32 noundef 10705, i32 noundef -14)
   br label %sw.epilog79
 
 sw.bb77:                                          ; preds = %sw.bb75
-  %70 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %70, i32 noundef 10739, i32 noundef -14)
+  %76 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %76, i32 noundef 10739, i32 noundef -14)
   br label %sw.epilog79
 
 sw.default78:                                     ; preds = %sw.bb75
-  %71 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %71, i32 noundef 10773, i32 noundef -14, i32 noundef -14)
+  %77 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %77, i32 noundef 10773, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog79
 
 sw.epilog79:                                      ; preds = %sw.default78, %sw.bb77, %sw.bb76
-  %72 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %72, i32 noundef 10824)
+  %78 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %78, i32 noundef 10824)
   br label %sw.epilog253
 
 sw.bb80:                                          ; preds = %entry, %entry, %entry
-  %73 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %73, i32 noundef 10697)
-  %74 = load i32, ptr %op.addr, align 4
-  %sub81 = sub nsw i32 %74, 22
+  %79 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %79, i32 noundef 10697)
+  %80 = load i32, ptr %op.addr, align 4
+  %sub81 = sub nsw i32 %80, 22
   %div82 = sdiv i32 %sub81, 5
   store i32 %div82, ptr %vk, align 4
-  %75 = load i32, ptr %vk, align 4
-  switch i32 %75, label %sw.default85 [
+  %81 = load i32, ptr %vk, align 4
+  switch i32 %81, label %sw.default85 [
     i32 0, label %sw.bb83
     i32 1, label %sw.bb84
   ]
 
 sw.bb83:                                          ; preds = %sw.bb80
-  %76 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %76, i32 noundef 10852, i32 noundef -14)
+  %82 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %82, i32 noundef 10852, i32 noundef -14)
   br label %sw.epilog86
 
 sw.bb84:                                          ; preds = %sw.bb80
-  %77 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %77, i32 noundef 10886, i32 noundef -14)
+  %83 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %83, i32 noundef 10886, i32 noundef -14)
   br label %sw.epilog86
 
 sw.default85:                                     ; preds = %sw.bb80
-  %78 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %78, i32 noundef 10920, i32 noundef -14, i32 noundef -14)
+  %84 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %84, i32 noundef 10920, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog86
 
 sw.epilog86:                                      ; preds = %sw.default85, %sw.bb84, %sw.bb83
-  %79 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %79, i32 noundef 10824)
+  %85 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %85, i32 noundef 10824)
   br label %sw.epilog253
 
 sw.bb87:                                          ; preds = %entry, %entry, %entry
-  %80 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %80, i32 noundef 10697)
-  %81 = load i32, ptr %op.addr, align 4
-  %sub88 = sub nsw i32 %81, 22
+  %86 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %86, i32 noundef 10697)
+  %87 = load i32, ptr %op.addr, align 4
+  %sub88 = sub nsw i32 %87, 22
   %div89 = sdiv i32 %sub88, 5
   store i32 %div89, ptr %vk, align 4
-  %82 = load i32, ptr %vk, align 4
-  switch i32 %82, label %sw.default92 [
+  %88 = load i32, ptr %vk, align 4
+  switch i32 %88, label %sw.default92 [
     i32 0, label %sw.bb90
     i32 1, label %sw.bb91
   ]
 
 sw.bb90:                                          ; preds = %sw.bb87
-  %83 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %83, i32 noundef 10971, i32 noundef -14)
+  %89 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %89, i32 noundef 10971, i32 noundef -14)
   br label %sw.epilog93
 
 sw.bb91:                                          ; preds = %sw.bb87
-  %84 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %84, i32 noundef 11005, i32 noundef -14)
+  %90 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %90, i32 noundef 11005, i32 noundef -14)
   br label %sw.epilog93
 
 sw.default92:                                     ; preds = %sw.bb87
-  %85 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %85, i32 noundef 11039, i32 noundef -14, i32 noundef -14)
+  %91 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %91, i32 noundef 11039, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog93
 
 sw.epilog93:                                      ; preds = %sw.default92, %sw.bb91, %sw.bb90
-  %86 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %86, i32 noundef 10824)
+  %92 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %92, i32 noundef 10824)
   br label %sw.epilog253
 
 sw.bb94:                                          ; preds = %entry, %entry, %entry
-  %87 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %87, i32 noundef 10697)
-  %88 = load i32, ptr %op.addr, align 4
-  %sub95 = sub nsw i32 %88, 22
+  %93 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %93, i32 noundef 10697)
+  %94 = load i32, ptr %op.addr, align 4
+  %sub95 = sub nsw i32 %94, 22
   %div96 = sdiv i32 %sub95, 5
   store i32 %div96, ptr %vk, align 4
-  %89 = load i32, ptr %vk, align 4
-  switch i32 %89, label %sw.default99 [
+  %95 = load i32, ptr %vk, align 4
+  switch i32 %95, label %sw.default99 [
     i32 0, label %sw.bb97
     i32 1, label %sw.bb98
   ]
 
 sw.bb97:                                          ; preds = %sw.bb94
-  %90 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %90, i32 noundef 11090, i32 noundef -14)
+  %96 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %96, i32 noundef 11090, i32 noundef -14)
   br label %sw.epilog100
 
 sw.bb98:                                          ; preds = %sw.bb94
-  %91 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %91, i32 noundef 11124, i32 noundef -14)
+  %97 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %97, i32 noundef 11124, i32 noundef -14)
   br label %sw.epilog100
 
 sw.default99:                                     ; preds = %sw.bb94
-  %92 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %92, i32 noundef 11158, i32 noundef -14, i32 noundef -14)
+  %98 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %98, i32 noundef 11158, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog100
 
 sw.epilog100:                                     ; preds = %sw.default99, %sw.bb98, %sw.bb97
-  %93 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %93, i32 noundef 10824)
+  %99 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %99, i32 noundef 10824)
   br label %sw.epilog253
 
 sw.bb101:                                         ; preds = %entry
-  %94 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %94, i32 noundef 10697)
-  %95 = load i32, ptr %op.addr, align 4
-  %sub102 = sub nsw i32 %95, 22
+  %100 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %100, i32 noundef 10697)
+  %101 = load i32, ptr %op.addr, align 4
+  %sub102 = sub nsw i32 %101, 22
   %div103 = sdiv i32 %sub102, 5
   store i32 %div103, ptr %vk, align 4
-  %96 = load i32, ptr %vk, align 4
-  switch i32 %96, label %sw.default106 [
+  %102 = load i32, ptr %vk, align 4
+  switch i32 %102, label %sw.default106 [
     i32 0, label %sw.bb104
     i32 1, label %sw.bb105
   ]
 
 sw.bb104:                                         ; preds = %sw.bb101
-  %97 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %97, i32 noundef 11209, i32 noundef -14)
+  %103 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %103, i32 noundef 11209, i32 noundef -14)
   br label %sw.epilog107
 
 sw.bb105:                                         ; preds = %sw.bb101
-  %98 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %98, i32 noundef 11243, i32 noundef -14)
+  %104 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %104, i32 noundef 11243, i32 noundef -14)
   br label %sw.epilog107
 
 sw.default106:                                    ; preds = %sw.bb101
-  %99 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %99, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
+  %105 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %105, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog107
 
 sw.epilog107:                                     ; preds = %sw.default106, %sw.bb105, %sw.bb104
-  %100 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %100, i32 noundef 11328)
+  %106 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %106, i32 noundef 11328)
   br label %sw.epilog253
 
 sw.bb108:                                         ; preds = %entry, %entry
-  %101 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %101, i32 noundef 10697)
-  %102 = load i32, ptr %op.addr, align 4
-  %sub109 = sub nsw i32 %102, 22
+  %107 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %107, i32 noundef 10697)
+  %108 = load i32, ptr %op.addr, align 4
+  %sub109 = sub nsw i32 %108, 22
   %div110 = sdiv i32 %sub109, 5
   store i32 %div110, ptr %vk, align 4
-  %103 = load i32, ptr %vk, align 4
-  switch i32 %103, label %sw.default113 [
+  %109 = load i32, ptr %vk, align 4
+  switch i32 %109, label %sw.default113 [
     i32 0, label %sw.bb111
     i32 1, label %sw.bb112
   ]
 
 sw.bb111:                                         ; preds = %sw.bb108
-  %104 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %104, i32 noundef 11209, i32 noundef -14)
+  %110 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %110, i32 noundef 11209, i32 noundef -14)
   br label %sw.epilog114
 
 sw.bb112:                                         ; preds = %sw.bb108
-  %105 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %105, i32 noundef 11243, i32 noundef -14)
+  %111 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %111, i32 noundef 11243, i32 noundef -14)
   br label %sw.epilog114
 
 sw.default113:                                    ; preds = %sw.bb108
-  %106 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %106, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
+  %112 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %112, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog114
 
 sw.epilog114:                                     ; preds = %sw.default113, %sw.bb112, %sw.bb111
-  %107 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %107, i32 noundef 11361)
+  %113 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %113, i32 noundef 11361)
   br label %sw.epilog253
 
 sw.bb115:                                         ; preds = %entry
-  %108 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %108, i32 noundef 10697)
-  %109 = load i32, ptr %op.addr, align 4
-  %sub116 = sub nsw i32 %109, 22
+  %114 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %114, i32 noundef 10697)
+  %115 = load i32, ptr %op.addr, align 4
+  %sub116 = sub nsw i32 %115, 22
   %div117 = sdiv i32 %sub116, 5
   store i32 %div117, ptr %vk, align 4
-  %110 = load i32, ptr %vk, align 4
-  switch i32 %110, label %sw.default120 [
+  %116 = load i32, ptr %vk, align 4
+  switch i32 %116, label %sw.default120 [
     i32 0, label %sw.bb118
     i32 1, label %sw.bb119
   ]
 
 sw.bb118:                                         ; preds = %sw.bb115
-  %111 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %111, i32 noundef 11209, i32 noundef -14)
+  %117 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %117, i32 noundef 11209, i32 noundef -14)
   br label %sw.epilog121
 
 sw.bb119:                                         ; preds = %sw.bb115
-  %112 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %112, i32 noundef 11243, i32 noundef -14)
+  %118 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %118, i32 noundef 11243, i32 noundef -14)
   br label %sw.epilog121
 
 sw.default120:                                    ; preds = %sw.bb115
-  %113 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %113, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
+  %119 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %119, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog121
 
 sw.epilog121:                                     ; preds = %sw.default120, %sw.bb119, %sw.bb118
-  %114 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %114, i32 noundef 11366)
+  %120 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %120, i32 noundef 11366)
   br label %sw.epilog253
 
 sw.bb122:                                         ; preds = %entry
-  %115 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %115, i32 noundef 11410, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
+  %121 = load ptr, ptr %ctx.addr, align 8
+  %122 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %123 = ptrtoint ptr %122 to i32
+  %124 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %125 = ptrtoint ptr %124 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %121, i32 noundef 11410, i32 noundef %123, i32 noundef %125)
   br label %sw.epilog253
 
 sw.bb123:                                         ; preds = %entry
-  %116 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %116, i32 noundef 11502, i32 noundef 0, i32 noundef -163840)
+  %126 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %126, i32 noundef 11502, i32 noundef 0, i32 noundef -163840)
   br label %sw.epilog253
 
 sw.bb124:                                         ; preds = %entry
-  %117 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %117, i32 noundef 11502, i32 noundef 0, i32 noundef -360448)
+  %127 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %127, i32 noundef 11502, i32 noundef 0, i32 noundef -360448)
   br label %sw.epilog253
 
 sw.bb125:                                         ; preds = %entry
-  %118 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %118, i32 noundef 11543)
+  %128 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %128, i32 noundef 11543)
   br label %sw.epilog253
 
 sw.bb126:                                         ; preds = %entry
-  %119 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %119, i32 noundef 11579)
+  %129 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %129, i32 noundef 11579)
   br label %sw.epilog253
 
 sw.bb127:                                         ; preds = %entry
-  %120 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %120, i32 noundef 10466)
+  %130 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %130, i32 noundef 10466)
   br label %sw.epilog253
 
 sw.bb128:                                         ; preds = %entry
-  %121 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %121, i32 noundef 11614, i32 noundef -1)
+  %131 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %131, i32 noundef 11614, i32 noundef -1)
   br label %sw.epilog253
 
 sw.bb129:                                         ; preds = %entry
-  %122 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %122, i32 noundef 11670, i64 noundef 40, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 6) to i32))
+  %132 = load ptr, ptr %ctx.addr, align 8
+  %133 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 6
+  %134 = ptrtoint ptr %133 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %132, i32 noundef 11670, i64 noundef 40, i32 noundef %134)
   br label %sw.epilog253
 
 sw.bb130:                                         ; preds = %entry
-  %123 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %123, i32 noundef 11724, i64 noundef 40, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 6) to i32), i32 noundef -8, i32 noundef 4, i32 noundef -4, i32 noundef -10, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GChead, ptr null, i32 0, i32 1) to i32), i32 noundef 3)
-  %124 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %124, i32 noundef 11836, i32 noundef -3968)
+  %135 = load ptr, ptr %ctx.addr, align 8
+  %136 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 3
+  %137 = ptrtoint ptr %136 to i32
+  %138 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 6
+  %139 = ptrtoint ptr %138 to i32
+  %140 = getelementptr inbounds %struct.GChead, ptr null, i32 0, i32 1
+  %141 = ptrtoint ptr %140 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %135, i32 noundef 11724, i64 noundef 40, i32 noundef %137, i32 noundef %139, i32 noundef -8, i32 noundef 4, i32 noundef -4, i32 noundef -10, i32 noundef %141, i32 noundef 3)
+  %142 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %142, i32 noundef 11836, i32 noundef -3968)
   br label %sw.epilog253
 
 sw.bb131:                                         ; preds = %entry
-  %125 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %125, i32 noundef 11860, i64 noundef 40, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 6) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GChead, ptr null, i32 0, i32 1) to i32), i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 3) to i32), i32 noundef -3968)
+  %143 = load ptr, ptr %ctx.addr, align 8
+  %144 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 6
+  %145 = ptrtoint ptr %144 to i32
+  %146 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 1
+  %147 = ptrtoint ptr %146 to i32
+  %148 = getelementptr inbounds %struct.GChead, ptr null, i32 0, i32 1
+  %149 = ptrtoint ptr %148 to i32
+  %150 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 3
+  %151 = ptrtoint ptr %150 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %143, i32 noundef 11860, i64 noundef 40, i32 noundef %145, i32 noundef 0, i32 noundef -163840, i32 noundef %147, i32 noundef 4, i32 noundef %149, i32 noundef 3, i32 noundef %151, i32 noundef -3968)
   br label %sw.epilog253
 
 sw.bb132:                                         ; preds = %entry
-  %126 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %126, i32 noundef 11976, i64 noundef 40, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 6) to i32))
+  %152 = load ptr, ptr %ctx.addr, align 8
+  %153 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 6
+  %154 = ptrtoint ptr %153 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %152, i32 noundef 11976, i64 noundef 40, i32 noundef %154)
   br label %sw.epilog253
 
 sw.bb133:                                         ; preds = %entry
-  %127 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %127, i32 noundef 12034, i64 noundef 40, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCupval, ptr null, i32 0, i32 6) to i32))
+  %155 = load ptr, ptr %ctx.addr, align 8
+  %156 = getelementptr inbounds %struct.GCupval, ptr null, i32 0, i32 6
+  %157 = ptrtoint ptr %156 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %155, i32 noundef 12034, i64 noundef 40, i32 noundef %157)
   br label %sw.epilog253
 
 sw.bb134:                                         ; preds = %entry
-  %128 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %128, i32 noundef 12091, i32 noundef -131072, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 11) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
+  %158 = load ptr, ptr %ctx.addr, align 8
+  %159 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 11
+  %160 = ptrtoint ptr %159 to i32
+  %161 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %162 = ptrtoint ptr %161 to i32
+  %163 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %164 = ptrtoint ptr %163 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %158, i32 noundef 12091, i32 noundef -131072, i32 noundef %160, i32 noundef %162, i32 noundef %164)
   br label %sw.epilog253
 
 sw.bb135:                                         ; preds = %entry
-  %129 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %129, i32 noundef 12155, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -294912)
+  %165 = load ptr, ptr %ctx.addr, align 8
+  %166 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %167 = ptrtoint ptr %166 to i32
+  %168 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %169 = ptrtoint ptr %168 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %165, i32 noundef 12155, i32 noundef %167, i32 noundef %169, i32 noundef 0, i32 noundef -294912)
   br label %sw.epilog253
 
 sw.bb136:                                         ; preds = %entry
-  %130 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %130, i32 noundef 12241, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3952, i32 noundef -3944, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -393216)
+  %170 = load ptr, ptr %ctx.addr, align 8
+  %171 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %172 = ptrtoint ptr %171 to i32
+  %173 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %174 = ptrtoint ptr %173 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %170, i32 noundef 12241, i32 noundef %172, i32 noundef -3952, i32 noundef -3944, i32 noundef %174, i32 noundef 0, i32 noundef -393216)
   br label %sw.epilog253
 
 sw.bb137:                                         ; preds = %entry
-  %131 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %131, i32 noundef 12375, i32 noundef -3952, i32 noundef -3944, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 0, i32 noundef -393216)
+  %175 = load ptr, ptr %ctx.addr, align 8
+  %176 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %177 = ptrtoint ptr %176 to i32
+  %178 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %179 = ptrtoint ptr %178 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %175, i32 noundef 12375, i32 noundef -3952, i32 noundef -3944, i32 noundef %177, i32 noundef %179, i32 noundef 0, i32 noundef -393216)
   br label %sw.epilog253
 
 sw.bb138:                                         ; preds = %entry
-  %132 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %132, i32 noundef 12484, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 5) to i32))
+  %180 = load ptr, ptr %ctx.addr, align 8
+  %181 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 5
+  %182 = ptrtoint ptr %181 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %180, i32 noundef 12484, i32 noundef %182)
   br label %sw.epilog253
 
 sw.bb139:                                         ; preds = %entry
-  %133 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %133, i32 noundef 12515, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 5) to i32))
+  %183 = load ptr, ptr %ctx.addr, align 8
+  %184 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 5
+  %185 = ptrtoint ptr %184 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %183, i32 noundef 12515, i32 noundef %185)
   br label %sw.epilog253
 
 sw.bb140:                                         ; preds = %entry
-  %134 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %134, i32 noundef 12546, i32 noundef -12, i32 noundef -14, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32))
-  %135 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %135, i32 noundef 12696, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 1, i32 noundef -5)
+  %186 = load ptr, ptr %ctx.addr, align 8
+  %187 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %188 = ptrtoint ptr %187 to i32
+  %189 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %190 = ptrtoint ptr %189 to i32
+  %191 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %192 = ptrtoint ptr %191 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %186, i32 noundef 12546, i32 noundef -12, i32 noundef -14, i32 noundef %188, i32 noundef %190, i32 noundef -1, i32 noundef %192)
+  %193 = load ptr, ptr %ctx.addr, align 8
+  %194 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %195 = ptrtoint ptr %194 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %193, i32 noundef 12696, i32 noundef %195, i32 noundef 1, i32 noundef -5)
   br label %sw.epilog253
 
 sw.bb141:                                         ; preds = %entry
-  %136 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %136, i32 noundef 12734, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 5) to i32), i64 noundef 24, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 8) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 1) to i32), i32 noundef 0, i32 noundef -1)
-  %137 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %137, i32 noundef 12832, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 2) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 1)
+  %196 = load ptr, ptr %ctx.addr, align 8
+  %197 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %198 = ptrtoint ptr %197 to i32
+  %199 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 5
+  %200 = ptrtoint ptr %199 to i32
+  %201 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 8
+  %202 = ptrtoint ptr %201 to i32
+  %203 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 1
+  %204 = ptrtoint ptr %203 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %196, i32 noundef 12734, i32 noundef -12, i32 noundef %198, i32 noundef %200, i64 noundef 24, i32 noundef %202, i32 noundef 0, i32 noundef -163840, i32 noundef %204, i32 noundef 0, i32 noundef -1)
+  %205 = load ptr, ptr %ctx.addr, align 8
+  %206 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 2
+  %207 = ptrtoint ptr %206 to i32
+  %208 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %209 = ptrtoint ptr %208 to i32
+  %210 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %211 = ptrtoint ptr %210 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %205, i32 noundef 12832, i32 noundef %207, i32 noundef -1, i32 noundef %209, i32 noundef %211, i32 noundef 1)
   br label %sw.epilog253
 
 sw.bb142:                                         ; preds = %entry
-  %138 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %138, i32 noundef 12902, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 1)
-  %139 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %139, i32 noundef 10676)
+  %212 = load ptr, ptr %ctx.addr, align 8
+  %213 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %214 = ptrtoint ptr %213 to i32
+  %215 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %216 = ptrtoint ptr %215 to i32
+  %217 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %218 = ptrtoint ptr %217 to i32
+  %219 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %220 = ptrtoint ptr %219 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %212, i32 noundef 12902, i32 noundef -12, i32 noundef %214, i32 noundef %216, i32 noundef -1, i32 noundef %218, i32 noundef %220, i32 noundef 1)
+  %221 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %221, i32 noundef 10676)
   br label %sw.epilog253
 
 sw.bb143:                                         ; preds = %entry
-  %140 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %140, i32 noundef 13018, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32))
+  %222 = load ptr, ptr %ctx.addr, align 8
+  %223 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %224 = ptrtoint ptr %223 to i32
+  %225 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %226 = ptrtoint ptr %225 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %222, i32 noundef 13018, i32 noundef %224, i32 noundef %226)
   br label %sw.epilog253
 
 sw.bb144:                                         ; preds = %entry
-  %141 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %141, i32 noundef 13092, i32 noundef -12, i32 noundef -14, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4)
-  %142 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %142, i32 noundef 13211, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 2, i32 noundef -5, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251)
-  %143 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %143, i32 noundef 13296, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
+  %227 = load ptr, ptr %ctx.addr, align 8
+  %228 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %229 = ptrtoint ptr %228 to i32
+  %230 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %231 = ptrtoint ptr %230 to i32
+  %232 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %233 = ptrtoint ptr %232 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %227, i32 noundef 13092, i32 noundef -12, i32 noundef -14, i32 noundef %229, i32 noundef %231, i32 noundef -1, i32 noundef %233, i32 noundef 4)
+  %234 = load ptr, ptr %ctx.addr, align 8
+  %235 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %236 = ptrtoint ptr %235 to i32
+  %237 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %238 = ptrtoint ptr %237 to i32
+  %239 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %240 = ptrtoint ptr %239 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %234, i32 noundef 13211, i32 noundef %236, i32 noundef %238, i32 noundef 2, i32 noundef -5, i32 noundef %240, i32 noundef 251)
+  %241 = load ptr, ptr %ctx.addr, align 8
+  %242 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %243 = ptrtoint ptr %242 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %241, i32 noundef 13296, i32 noundef -3904, i32 noundef -3904, i32 noundef %243)
   br label %sw.epilog253
 
 sw.bb145:                                         ; preds = %entry
-  %144 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %144, i32 noundef 13313, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCstr, ptr null, i32 0, i32 5) to i32), i64 noundef 24, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 8) to i32), i32 noundef 0, i32 noundef -163840, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 1) to i32), i32 noundef -1)
-  %145 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %145, i32 noundef 13410, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 2) to i32))
-  %146 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %146, i32 noundef 13490, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
+  %244 = load ptr, ptr %ctx.addr, align 8
+  %245 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %246 = ptrtoint ptr %245 to i32
+  %247 = getelementptr inbounds %struct.GCstr, ptr null, i32 0, i32 5
+  %248 = ptrtoint ptr %247 to i32
+  %249 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %250 = ptrtoint ptr %249 to i32
+  %251 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 8
+  %252 = ptrtoint ptr %251 to i32
+  %253 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 1
+  %254 = ptrtoint ptr %253 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %244, i32 noundef 13313, i32 noundef -12, i32 noundef %246, i32 noundef %248, i64 noundef 24, i32 noundef %250, i32 noundef %252, i32 noundef 0, i32 noundef -163840, i32 noundef %254, i32 noundef -1)
+  %255 = load ptr, ptr %ctx.addr, align 8
+  %256 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %257 = ptrtoint ptr %256 to i32
+  %258 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %259 = ptrtoint ptr %258 to i32
+  %260 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %261 = ptrtoint ptr %260 to i32
+  %262 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 2
+  %263 = ptrtoint ptr %262 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %255, i32 noundef 13410, i32 noundef %257, i32 noundef 4, i32 noundef %259, i32 noundef %261, i32 noundef 2, i32 noundef %263)
+  %264 = load ptr, ptr %ctx.addr, align 8
+  %265 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %266 = ptrtoint ptr %265 to i32
+  %267 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %268 = ptrtoint ptr %267 to i32
+  %269 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %270 = ptrtoint ptr %269 to i32
+  %271 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %272 = ptrtoint ptr %271 to i32
+  %273 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %274 = ptrtoint ptr %273 to i32
+  %275 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %276 = ptrtoint ptr %275 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %264, i32 noundef 13490, i32 noundef %266, i32 noundef %268, i32 noundef 2, i32 noundef %270, i32 noundef %272, i32 noundef %274, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef %276)
   br label %sw.epilog253
 
 sw.bb146:                                         ; preds = %entry
-  %147 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %147, i32 noundef 13587, i32 noundef -12, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 7) to i32))
-  %148 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %148, i32 noundef 13703, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 3) to i32), i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
+  %277 = load ptr, ptr %ctx.addr, align 8
+  %278 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %279 = ptrtoint ptr %278 to i32
+  %280 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %281 = ptrtoint ptr %280 to i32
+  %282 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %283 = ptrtoint ptr %282 to i32
+  %284 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 7
+  %285 = ptrtoint ptr %284 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %277, i32 noundef 13587, i32 noundef -12, i32 noundef %279, i32 noundef %281, i32 noundef -1, i32 noundef %283, i32 noundef 4, i32 noundef %285)
+  %286 = load ptr, ptr %ctx.addr, align 8
+  %287 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 3
+  %288 = ptrtoint ptr %287 to i32
+  %289 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %290 = ptrtoint ptr %289 to i32
+  %291 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %292 = ptrtoint ptr %291 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %286, i32 noundef 13703, i32 noundef %288, i32 noundef 2, i32 noundef %290, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef %292)
   br label %sw.epilog253
 
 sw.bb147:                                         ; preds = %entry
-  %149 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %149, i32 noundef 13740, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
+  %293 = load ptr, ptr %ctx.addr, align 8
+  %294 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %295 = ptrtoint ptr %294 to i32
+  %296 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %297 = ptrtoint ptr %296 to i32
+  %298 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %299 = ptrtoint ptr %298 to i32
+  %300 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %301 = ptrtoint ptr %300 to i32
+  %302 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %303 = ptrtoint ptr %302 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %293, i32 noundef 13740, i32 noundef %295, i32 noundef 4, i32 noundef %297, i32 noundef %299, i32 noundef %301, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef %303)
   br label %sw.epilog253
 
 sw.bb148:                                         ; preds = %entry
-  %150 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %150, i32 noundef 13845, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 4, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32))
-  %151 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %151, i32 noundef 13992, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 1) to i32), i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 6) to i32))
+  %304 = load ptr, ptr %ctx.addr, align 8
+  %305 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %306 = ptrtoint ptr %305 to i32
+  %307 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %308 = ptrtoint ptr %307 to i32
+  %309 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %310 = ptrtoint ptr %309 to i32
+  %311 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %312 = ptrtoint ptr %311 to i32
+  %313 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %314 = ptrtoint ptr %313 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %304, i32 noundef 13845, i32 noundef %306, i32 noundef 4, i32 noundef %308, i32 noundef %310, i32 noundef %312, i32 noundef %314)
+  %315 = load ptr, ptr %ctx.addr, align 8
+  %316 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 1
+  %317 = ptrtoint ptr %316 to i32
+  %318 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 6
+  %319 = ptrtoint ptr %318 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %315, i32 noundef 13992, i32 noundef %317, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef %319)
   br label %sw.epilog253
 
 sw.bb149:                                         ; preds = %entry, %entry
-  %152 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %152, i32 noundef 10701)
-  %153 = load i32, ptr %op.addr, align 4
-  %cmp150 = icmp eq i32 %153, 65
+  %320 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %320, i32 noundef 10701)
+  %321 = load i32, ptr %op.addr, align 4
+  %cmp150 = icmp eq i32 %321, 65
   br i1 %cmp150, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %sw.bb149
-  %154 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %154, i32 noundef 14029)
+  %322 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %322, i32 noundef 14029)
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then152, %sw.bb149
-  %155 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %155, i32 noundef 14033, i32 noundef -9, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32))
+  %323 = load ptr, ptr %ctx.addr, align 8
+  %324 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %325 = ptrtoint ptr %324 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %323, i32 noundef 14033, i32 noundef -9, i32 noundef %325)
   br label %sw.epilog253
 
 sw.bb154:                                         ; preds = %entry
-  %156 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %156, i32 noundef 14029)
+  %326 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %326, i32 noundef 14029)
   br label %sw.epilog253
 
 sw.bb155:                                         ; preds = %entry
-  %157 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %157, i32 noundef 14098, i32 noundef -9, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 3) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32))
-  %158 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %158, i32 noundef 14218, i32 noundef 3, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -72, i32 noundef 3, i32 noundef 7, i32 noundef 3)
+  %327 = load ptr, ptr %ctx.addr, align 8
+  %328 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 3
+  %329 = ptrtoint ptr %328 to i32
+  %330 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %331 = ptrtoint ptr %330 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %327, i32 noundef 14098, i32 noundef -9, i32 noundef 3, i32 noundef %329, i32 noundef %331)
+  %332 = load ptr, ptr %ctx.addr, align 8
+  %333 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %334 = ptrtoint ptr %333 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %332, i32 noundef 14218, i32 noundef 3, i32 noundef %334, i32 noundef -72, i32 noundef 3, i32 noundef 7, i32 noundef 3)
   br label %sw.epilog253
 
 sw.bb156:                                         ; preds = %entry
-  %159 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %159, i32 noundef 14322, i32 noundef 3, i32 noundef -9, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32))
+  %335 = load ptr, ptr %ctx.addr, align 8
+  %336 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %337 = ptrtoint ptr %336 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %335, i32 noundef 14322, i32 noundef 3, i32 noundef -9, i32 noundef %337)
   br label %sw.epilog253
 
 sw.bb157:                                         ; preds = %entry
-  %160 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %160, i32 noundef 14412, i64 noundef 126, i32 noundef -128, i32 noundef 2, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 5) to i32), i32 noundef -1, i32 noundef -131072)
-  %161 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %161, i32 noundef 14561, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 10) to i32), i64 noundef 24, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtab, ptr null, i32 0, i32 8) to i32), i32 noundef 0, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.Node, ptr null, i32 0, i32 1) to i32), i32 noundef 0)
+  %338 = load ptr, ptr %ctx.addr, align 8
+  %339 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 9
+  %340 = ptrtoint ptr %339 to i32
+  %341 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 5
+  %342 = ptrtoint ptr %341 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %338, i32 noundef 14412, i64 noundef 126, i32 noundef -128, i32 noundef 2, i32 noundef %340, i32 noundef %342, i32 noundef -1, i32 noundef -131072)
+  %343 = load ptr, ptr %ctx.addr, align 8
+  %344 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 10
+  %345 = ptrtoint ptr %344 to i32
+  %346 = getelementptr inbounds %struct.GCtab, ptr null, i32 0, i32 8
+  %347 = ptrtoint ptr %346 to i32
+  %348 = getelementptr inbounds %struct.Node, ptr null, i32 0, i32 1
+  %349 = ptrtoint ptr %348 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %343, i32 noundef 14561, i32 noundef %345, i64 noundef 24, i32 noundef %347, i32 noundef 0, i32 noundef -1, i32 noundef %349, i32 noundef 0)
   br label %sw.epilog253
 
 sw.bb158:                                         ; preds = %entry
-  %162 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %162, i32 noundef 14632, i32 noundef -9, i32 noundef -12, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 3) to i32), i32 noundef 4, i32 noundef -131072, i32 noundef 0, i32 noundef -98305, i32 noundef 88)
-  %163 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %163, i32 noundef 14751, i32 noundef -131072, i32 noundef 70, i32 noundef 69, i32 noundef -2856, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtrace, ptr null, i32 0, i32 14) to i32), i32 noundef 69)
+  %350 = load ptr, ptr %ctx.addr, align 8
+  %351 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 3
+  %352 = ptrtoint ptr %351 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %350, i32 noundef 14632, i32 noundef -9, i32 noundef -12, i32 noundef -1, i32 noundef %352, i32 noundef 4, i32 noundef -131072, i32 noundef 0, i32 noundef -98305, i32 noundef 88)
+  %353 = load ptr, ptr %ctx.addr, align 8
+  %354 = getelementptr inbounds %struct.GCtrace, ptr null, i32 0, i32 14
+  %355 = ptrtoint ptr %354 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %353, i32 noundef 14751, i32 noundef -131072, i32 noundef 70, i32 noundef 69, i32 noundef -2856, i32 noundef %355, i32 noundef 69)
   br label %sw.epilog253
 
 sw.bb159:                                         ; preds = %entry
-  %164 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %164, i32 noundef 14797, i32 noundef 19, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32))
-  %165 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %165, i32 noundef 14959, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32))
+  %356 = load ptr, ptr %ctx.addr, align 8
+  %357 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %358 = ptrtoint ptr %357 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %356, i32 noundef 14797, i32 noundef 19, i32 noundef -1, i32 noundef %358)
+  %359 = load ptr, ptr %ctx.addr, align 8
+  %360 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %361 = ptrtoint ptr %360 to i32
+  %362 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %363 = ptrtoint ptr %362 to i32
+  %364 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %365 = ptrtoint ptr %364 to i32
+  %366 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %367 = ptrtoint ptr %366 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %359, i32 noundef 14959, i32 noundef %361, i32 noundef %363, i32 noundef %365, i32 noundef %367)
   br label %sw.epilog253
 
 sw.bb160:                                         ; preds = %entry
-  %166 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %166, i32 noundef 14029)
+  %368 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %368, i32 noundef 14029)
   br label %sw.epilog253
 
 sw.bb161:                                         ; preds = %entry, %entry, %entry
-  %167 = load i32, ptr %op.addr, align 4
-  %cmp162 = icmp ne i32 %167, 75
+  %369 = load i32, ptr %op.addr, align 4
+  %cmp162 = icmp ne i32 %369, 75
   br i1 %cmp162, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %sw.bb161
-  %168 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %168, i32 noundef 15051)
+  %370 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %370, i32 noundef 15051)
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then164, %sw.bb161
-  %169 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %169, i32 noundef 15055, i32 noundef 3)
-  %170 = load i32, ptr %op.addr, align 4
-  switch i32 %170, label %sw.default169 [
+  %371 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %371, i32 noundef 15055, i32 noundef 3)
+  %372 = load i32, ptr %op.addr, align 4
+  switch i32 %372, label %sw.default169 [
     i32 74, label %sw.bb166
     i32 76, label %sw.bb167
     i32 75, label %sw.bb168
   ]
 
 sw.bb166:                                         ; preds = %if.end165
-  %171 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %171, i32 noundef 15074)
+  %373 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %373, i32 noundef 15074)
   br label %sw.epilog170
 
 sw.bb167:                                         ; preds = %if.end165
-  %172 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %172, i32 noundef 15127)
+  %374 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %374, i32 noundef 15127)
   br label %sw.bb168
 
 sw.bb168:                                         ; preds = %sw.bb167, %if.end165
-  %173 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %173, i32 noundef 15137)
+  %375 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %375, i32 noundef 15137)
   br label %sw.default169
 
 sw.default169:                                    ; preds = %sw.bb168, %if.end165
   br label %sw.epilog170
 
 sw.epilog170:                                     ; preds = %sw.default169, %sw.bb166
-  %174 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %174, i32 noundef 15148, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncL, ptr null, i32 0, i32 7) to i32), i32 noundef -72)
-  %175 = load i32, ptr %op.addr, align 4
-  %cmp171 = icmp eq i32 %175, 74
+  %376 = load ptr, ptr %ctx.addr, align 8
+  %377 = getelementptr inbounds %struct.GCfuncL, ptr null, i32 0, i32 7
+  %378 = ptrtoint ptr %377 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %376, i32 noundef 15148, i32 noundef %378, i32 noundef -72)
+  %379 = load i32, ptr %op.addr, align 4
+  %cmp171 = icmp eq i32 %379, 74
   br i1 %cmp171, label %if.then173, label %if.else174
 
 if.then173:                                       ; preds = %sw.epilog170
-  %176 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %176, i32 noundef 15209, i32 noundef -1)
+  %380 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %380, i32 noundef 15209, i32 noundef -1)
   br label %if.end175
 
 if.else174:                                       ; preds = %sw.epilog170
-  %177 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %177, i32 noundef 15220, i32 noundef -1)
+  %381 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %381, i32 noundef 15220, i32 noundef -1)
   br label %if.end175
 
 if.end175:                                        ; preds = %if.else174, %if.then173
-  %178 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %178, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
-  %179 = load i32, ptr %op.addr, align 4
-  %cmp176 = icmp ne i32 %179, 75
+  %382 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %382, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
+  %383 = load i32, ptr %op.addr, align 4
+  %cmp176 = icmp ne i32 %383, 75
   br i1 %cmp176, label %if.then178, label %if.end179
 
 if.then178:                                       ; preds = %if.end175
-  %180 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %180, i32 noundef 15254)
+  %384 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %384, i32 noundef 15254)
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then178, %if.end175
-  %181 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %181, i32 noundef 10676)
+  %385 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %385, i32 noundef 10676)
   br label %sw.epilog253
 
 sw.bb180:                                         ; preds = %entry
-  %182 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %182, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  %386 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %386, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %sw.epilog253
 
 sw.bb181:                                         ; preds = %entry, %entry, %entry, %entry
-  %183 = load i32, ptr %op.addr, align 4
-  %cmp182 = icmp eq i32 %183, 80
+  %387 = load i32, ptr %op.addr, align 4
+  %cmp182 = icmp eq i32 %387, 80
   br i1 %cmp182, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %sw.bb181
-  %184 = load i32, ptr %op.addr, align 4
-  %cmp184 = icmp eq i32 %184, 81
+  %388 = load i32, ptr %op.addr, align 4
+  %cmp184 = icmp eq i32 %388, 81
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb181
-  %185 = phi i1 [ true, %sw.bb181 ], [ %cmp184, %lor.rhs ]
-  %lor.ext = zext i1 %185 to i32
+  %389 = phi i1 [ true, %sw.bb181 ], [ %cmp184, %lor.rhs ]
+  %lor.ext = zext i1 %389 to i32
   store i32 %lor.ext, ptr %vk, align 4
-  %186 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %186, i32 noundef 15280)
-  %187 = load i32, ptr %vk, align 4
-  %tobool186 = icmp ne i32 %187, 0
+  %390 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %390, i32 noundef 15280)
+  %391 = load i32, ptr %vk, align 4
+  %tobool186 = icmp ne i32 %391, 0
   br i1 %tobool186, label %if.end188, label %if.then187
 
 if.then187:                                       ; preds = %lor.end
-  %188 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %188, i32 noundef 15558, i32 noundef -14)
+  %392 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %392, i32 noundef 15558, i32 noundef -14)
   br label %if.end188
 
 if.end188:                                        ; preds = %if.then187, %lor.end
-  %189 = load i32, ptr %vk, align 4
-  %tobool189 = icmp ne i32 %189, 0
+  %393 = load i32, ptr %vk, align 4
+  %tobool189 = icmp ne i32 %393, 0
   br i1 %tobool189, label %if.else191, label %if.then190
 
 if.then190:                                       ; preds = %if.end188
-  %190 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %190, i32 noundef 15576, i32 noundef -14)
+  %394 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %394, i32 noundef 15576, i32 noundef -14)
   br label %if.end192
 
 if.else191:                                       ; preds = %if.end188
   br label %if.end192
 
 if.end192:                                        ; preds = %if.else191, %if.then190
-  %191 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %191, i32 noundef 15632)
-  %192 = load i32, ptr %vk, align 4
-  %tobool193 = icmp ne i32 %192, 0
+  %395 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %395, i32 noundef 15632)
+  %396 = load i32, ptr %vk, align 4
+  %tobool193 = icmp ne i32 %396, 0
   br i1 %tobool193, label %if.end195, label %if.then194
 
 if.then194:                                       ; preds = %if.end192
-  %193 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %193, i32 noundef 15637, i32 noundef -14)
+  %397 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %397, i32 noundef 15637, i32 noundef -14)
   br label %if.end195
 
 if.end195:                                        ; preds = %if.then194, %if.end192
-  %194 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %194, i32 noundef 15656)
-  %195 = load i32, ptr %vk, align 4
-  %tobool196 = icmp ne i32 %195, 0
+  %398 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %398, i32 noundef 15656)
+  %399 = load i32, ptr %vk, align 4
+  %tobool196 = icmp ne i32 %399, 0
   br i1 %tobool196, label %if.then197, label %if.else198
 
 if.then197:                                       ; preds = %if.end195
-  %196 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %196, i32 noundef 15668)
+  %400 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %400, i32 noundef 15668)
   br label %if.end199
 
 if.else198:                                       ; preds = %if.end195
-  %197 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %197, i32 noundef 15688)
+  %401 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %401, i32 noundef 15688)
   br label %if.end199
 
 if.end199:                                        ; preds = %if.else198, %if.then197
-  %198 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %198, i32 noundef 15693)
-  %199 = load i32, ptr %op.addr, align 4
-  %cmp200 = icmp eq i32 %199, 77
+  %402 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %402, i32 noundef 15693)
+  %403 = load i32, ptr %op.addr, align 4
+  %cmp200 = icmp eq i32 %403, 77
   br i1 %cmp200, label %if.then202, label %if.else203
 
 if.then202:                                       ; preds = %if.end199
-  %200 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %200, i32 noundef 15706, i32 noundef -131072)
+  %404 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %404, i32 noundef 15706, i32 noundef -131072)
   br label %if.end214
 
 if.else203:                                       ; preds = %if.end199
-  %201 = load i32, ptr %op.addr, align 4
-  %cmp204 = icmp eq i32 %201, 78
+  %405 = load i32, ptr %op.addr, align 4
+  %cmp204 = icmp eq i32 %405, 78
   br i1 %cmp204, label %if.then206, label %if.else207
 
 if.then206:                                       ; preds = %if.else203
-  %202 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %202, i32 noundef 15717, i32 noundef -131072, i32 noundef 87)
+  %406 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %406, i32 noundef 15717, i32 noundef -131072, i32 noundef 87)
   br label %if.end213
 
 if.else207:                                       ; preds = %if.else203
-  %203 = load i32, ptr %op.addr, align 4
-  %cmp208 = icmp eq i32 %203, 80
+  %407 = load i32, ptr %op.addr, align 4
+  %cmp208 = icmp eq i32 %407, 80
   br i1 %cmp208, label %if.then210, label %if.else211
 
 if.then210:                                       ; preds = %if.else207
-  %204 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %204, i32 noundef 15732, i32 noundef -131072)
+  %408 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %408, i32 noundef 15732, i32 noundef -131072)
   br label %if.end212
 
 if.else211:                                       ; preds = %if.else207
-  %205 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %205, i32 noundef 15728, i32 noundef 87)
+  %409 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %409, i32 noundef 15728, i32 noundef 87)
   br label %if.end212
 
 if.end212:                                        ; preds = %if.else211, %if.then210
@@ -7097,160 +7727,178 @@ if.end213:                                        ; preds = %if.end212, %if.then
   br label %if.end214
 
 if.end214:                                        ; preds = %if.end213, %if.then202
-  %206 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %206, i32 noundef 15743)
+  %410 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %410, i32 noundef 15743)
   br label %sw.epilog253
 
 sw.bb215:                                         ; preds = %entry
-  %207 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %207, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  %411 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %411, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %sw.epilog253
 
 sw.bb216:                                         ; preds = %entry, %entry
-  %208 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %208, i32 noundef 15777, i32 noundef -1)
-  %209 = load i32, ptr %op.addr, align 4
-  %cmp217 = icmp eq i32 %209, 84
+  %412 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %412, i32 noundef 15777, i32 noundef -1)
+  %413 = load i32, ptr %op.addr, align 4
+  %cmp217 = icmp eq i32 %413, 84
   br i1 %cmp217, label %if.then219, label %if.else220
 
 if.then219:                                       ; preds = %sw.bb216
-  %210 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %210, i32 noundef 15794, i32 noundef 87)
+  %414 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %414, i32 noundef 15794, i32 noundef 87)
   br label %if.end221
 
 if.else220:                                       ; preds = %sw.bb216
-  %211 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %211, i32 noundef 15803, i32 noundef -131072)
+  %415 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %415, i32 noundef 15803, i32 noundef -131072)
   br label %if.end221
 
 if.end221:                                        ; preds = %if.else220, %if.then219
-  %212 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %212, i32 noundef 9857)
+  %416 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %416, i32 noundef 9857)
   br label %sw.epilog253
 
 sw.bb222:                                         ; preds = %entry
-  %213 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %213, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  %417 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %417, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %sw.epilog253
 
 sw.bb223:                                         ; preds = %entry
-  %214 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %214, i32 noundef 9859)
+  %418 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %418, i32 noundef 9859)
   br label %sw.epilog253
 
 sw.bb224:                                         ; preds = %entry
-  %215 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %215, i32 noundef 15815, i32 noundef -2856, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCtrace, ptr null, i32 0, i32 16) to i32), i32 noundef -3592, i32 noundef -3744)
+  %419 = load ptr, ptr %ctx.addr, align 8
+  %420 = getelementptr inbounds %struct.GCtrace, ptr null, i32 0, i32 16
+  %421 = ptrtoint ptr %420 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %419, i32 noundef 15815, i32 noundef -2856, i32 noundef %421, i32 noundef -3592, i32 noundef -3744)
   br label %sw.epilog253
 
 sw.bb225:                                         ; preds = %entry
-  %216 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %216, i32 noundef 15859, i32 noundef -131072)
+  %422 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %422, i32 noundef 15859, i32 noundef -131072)
   br label %sw.epilog253
 
 sw.bb226:                                         ; preds = %entry
-  %217 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %217, i32 noundef 15887, i64 noundef 126, i32 noundef -128, i32 noundef 1)
+  %423 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %423, i32 noundef 15887, i64 noundef 126, i32 noundef -128, i32 noundef 1)
   br label %sw.bb227
 
 sw.bb227:                                         ; preds = %sw.bb226, %entry
   br label %sw.epilog253
 
 sw.bb228:                                         ; preds = %entry, %entry
-  %218 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %218, i32 noundef 15908, i32 noundef -76, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef -98)
-  %219 = load i32, ptr %op.addr, align 4
-  %cmp229 = icmp eq i32 %219, 91
+  %424 = load ptr, ptr %ctx.addr, align 8
+  %425 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %426 = ptrtoint ptr %425 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %424, i32 noundef 15908, i32 noundef -76, i32 noundef %426, i32 noundef -98)
+  %427 = load i32, ptr %op.addr, align 4
+  %cmp229 = icmp eq i32 %427, 91
   br i1 %cmp229, label %if.then231, label %if.else232
 
 if.then231:                                       ; preds = %sw.bb228
-  %220 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %220, i32 noundef 15942, i32 noundef 87)
+  %428 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %428, i32 noundef 15942, i32 noundef 87)
   br label %if.end233
 
 if.else232:                                       ; preds = %sw.bb228
-  %221 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %221, i32 noundef 9859)
+  %429 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %429, i32 noundef 9859)
   br label %if.end233
 
 if.end233:                                        ; preds = %if.else232, %if.then231
-  %222 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %222, i32 noundef 15951, i32 noundef -1)
+  %430 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %430, i32 noundef 15951, i32 noundef -1)
   br label %sw.epilog253
 
 sw.bb234:                                         ; preds = %entry
-  %223 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %223, i32 noundef 9369)
+  %431 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %431, i32 noundef 9369)
   br label %sw.epilog253
 
 sw.bb235:                                         ; preds = %entry
-  %224 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %224, i32 noundef 15974, i32 noundef 11, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef -98, i32 noundef -1)
-  %225 = load i32, ptr %op.addr, align 4
-  %cmp236 = icmp eq i32 %225, 94
+  %432 = load ptr, ptr %ctx.addr, align 8
+  %433 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %434 = ptrtoint ptr %433 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %432, i32 noundef 15974, i32 noundef 11, i32 noundef %434, i32 noundef -98, i32 noundef -1)
+  %435 = load i32, ptr %op.addr, align 4
+  %cmp236 = icmp eq i32 %435, 94
   br i1 %cmp236, label %if.then238, label %if.else239
 
 if.then238:                                       ; preds = %sw.bb235
-  %226 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %226, i32 noundef 15942, i32 noundef 87)
+  %436 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %436, i32 noundef 15942, i32 noundef 87)
   br label %if.end240
 
 if.else239:                                       ; preds = %sw.bb235
-  %227 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %227, i32 noundef 16078, i32 noundef -76)
+  %437 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %437, i32 noundef 16078, i32 noundef -76)
   br label %if.end240
 
 if.end240:                                        ; preds = %if.else239, %if.then238
-  %228 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %228, i32 noundef 16104, i32 noundef -1)
+  %438 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %438, i32 noundef 16104, i32 noundef -1)
   br label %sw.epilog253
 
 sw.bb241:                                         ; preds = %entry, %entry
-  %229 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %229, i32 noundef 16127, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.GCfuncC, ptr null, i32 0, i32 8) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef 160, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 9) to i32), i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32))
-  %230 = load i32, ptr %op.addr, align 4
-  %cmp242 = icmp eq i32 %230, 95
+  %439 = load ptr, ptr %ctx.addr, align 8
+  %440 = getelementptr inbounds %struct.GCfuncC, ptr null, i32 0, i32 8
+  %441 = ptrtoint ptr %440 to i32
+  %442 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %443 = ptrtoint ptr %442 to i32
+  %444 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 9
+  %445 = ptrtoint ptr %444 to i32
+  %446 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %447 = ptrtoint ptr %446 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %439, i32 noundef 16127, i32 noundef %441, i32 noundef %443, i32 noundef 160, i32 noundef %445, i32 noundef %447)
+  %448 = load i32, ptr %op.addr, align 4
+  %cmp242 = icmp eq i32 %448, 95
   br i1 %cmp242, label %if.then244, label %if.else245
 
 if.then244:                                       ; preds = %sw.bb241
-  %231 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %231, i32 noundef 16173)
+  %449 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %449, i32 noundef 16173)
   br label %if.end246
 
 if.else245:                                       ; preds = %sw.bb241
-  %232 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %232, i32 noundef 16178)
+  %450 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %450, i32 noundef 16178)
   br label %if.end246
 
 if.end246:                                        ; preds = %if.else245, %if.then244
-  %233 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %233, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
-  %234 = load i32, ptr %op.addr, align 4
-  %cmp247 = icmp eq i32 %234, 95
+  %451 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %451, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
+  %452 = load i32, ptr %op.addr, align 4
+  %cmp247 = icmp eq i32 %452, 95
   br i1 %cmp247, label %if.then249, label %if.else250
 
 if.then249:                                       ; preds = %if.end246
-  %235 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %235, i32 noundef 16197)
+  %453 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %453, i32 noundef 16197)
   br label %if.end251
 
 if.else250:                                       ; preds = %if.end246
-  %236 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %236, i32 noundef 16202, i32 noundef -3624)
+  %454 = load ptr, ptr %ctx.addr, align 8
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %454, i32 noundef 16202, i32 noundef -3624)
   br label %if.end251
 
 if.end251:                                        ; preds = %if.else250, %if.then249
-  %237 = load ptr, ptr %ctx.addr, align 8
-  call void (ptr, i32, ...) @dasm_put(ptr noundef %237, i32 noundef 16208, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 7) to i32), i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef ptrtoint (ptr getelementptr inbounds (%struct.lua_State, ptr null, i32 0, i32 8) to i32))
+  %455 = load ptr, ptr %ctx.addr, align 8
+  %456 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 7
+  %457 = ptrtoint ptr %456 to i32
+  %458 = getelementptr inbounds %struct.lua_State, ptr null, i32 0, i32 8
+  %459 = ptrtoint ptr %458 to i32
+  call void (ptr, i32, ...) @dasm_put(ptr noundef %455, i32 noundef 16208, i32 noundef %457, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef %459)
   br label %sw.epilog253
 
 sw.default252:                                    ; preds = %entry
-  %238 = load ptr, ptr @stderr, align 8
-  %239 = load i32, ptr %op.addr, align 4
-  %idxprom = zext i32 %239 to i64
+  %460 = load ptr, ptr @stderr, align 8
+  %461 = load i32, ptr %op.addr, align 4
+  %idxprom = zext i32 %461 to i64
   %arrayidx = getelementptr inbounds [0 x ptr], ptr @bc_names, i64 0, i64 %idxprom
-  %240 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef @.str.589, ptr noundef %240)
+  %462 = load ptr, ptr %arrayidx, align 8
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %460, ptr noundef @.str.589, ptr noundef %462)
   call void @exit(i32 noundef 2) #12
   unreachable
 
@@ -7259,7 +7907,7 @@ sw.epilog253:                                     ; preds = %if.end251, %if.end2
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @lower(ptr noundef %buf, ptr noundef %s) #0 {
@@ -7325,17 +7973,23 @@ while.end:                                        ; preds = %while.cond
   ret ptr %14
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind allocsize(1) }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { nounwind }

@@ -1251,23 +1251,24 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp7ZipFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp7ZipFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_Filename = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_Filename, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_Filename, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_Size = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %size.addr, align 8
-  store i64 %1, ptr %m_Size, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %m_Size, align 8
   %m_SeekPtr = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 3
   store i64 0, ptr %m_SeekPtr, align 8
   %m_Buffer = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %m_Buffer) #9
   %m_Size2 = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %m_Size2, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %2) #16
+  %3 = load i64, ptr %m_Size2, align 8
+  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %3) #16
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1278,21 +1279,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_Buffer) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_Filename) #9
   br label %ehcleanup
@@ -1315,7 +1316,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp8IOStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp8IOStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1357,7 +1359,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp7ZipFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp7ZipFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_Buffer = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_Buffer) #9
   %m_Filename = getelementptr inbounds %"class.Assimp::ZipFile", ptr %this1, i32 0, i32 1
@@ -2688,16 +2691,17 @@ entry:
   store ptr %pMode, ptr %pMode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pImpl = getelementptr inbounds %"class.Assimp::ZipArchiveIOSystem", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #16
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %pIOHandler.addr, align 8
-  %1 = load ptr, ptr %pFilename.addr, align 8
-  %2 = load ptr, ptr %pMode.addr, align 8
-  invoke void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC1EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %1 = load ptr, ptr %pIOHandler.addr, align 8
+  %2 = load ptr, ptr %pFilename.addr, align 8
+  %3 = load ptr, ptr %pMode.addr, align 8
+  invoke void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC1EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %1, ptr noundef %2, ptr noundef %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2705,21 +2709,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #19
   br label %ehcleanup
 
@@ -2741,7 +2745,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #9
   ret void
@@ -2768,17 +2773,18 @@ entry:
   store ptr %pMode, ptr %pMode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pImpl = getelementptr inbounds %"class.Assimp::ZipArchiveIOSystem", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #16
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %pIOHandler.addr, align 8
-  %1 = load ptr, ptr %rFilename.addr, align 8
-  %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
-  %2 = load ptr, ptr %pMode.addr, align 8
-  invoke void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC1EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %0, ptr noundef %call2, ptr noundef %2)
+  %1 = load ptr, ptr %pIOHandler.addr, align 8
+  %2 = load ptr, ptr %rFilename.addr, align 8
+  %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
+  %3 = load ptr, ptr %pMode.addr, align 8
+  invoke void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC1EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %1, ptr noundef %call2, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -2786,21 +2792,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #19
   br label %ehcleanup
 
@@ -2822,15 +2828,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pImpl = getelementptr inbounds %"class.Assimp::ZipArchiveIOSystem", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pImpl, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pImpl, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN6Assimp18ZipArchiveIOSystem9ImplementD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
-  call void @_ZdlPv(ptr noundef %0) #19
+  call void @_ZN6Assimp18ZipArchiveIOSystem9ImplementD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
+  call void @_ZdlPv(ptr noundef %1) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -3141,7 +3148,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #9
   ret void

@@ -1943,7 +1943,8 @@ entry:
   store ptr %supported_versions, ptr %supported_versions.addr, align 8
   store i32 %perspective, ptr %perspective.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %detailed_error_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %detailed_error_) #13
   %visitor_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 2
@@ -1967,8 +1968,8 @@ entry:
   %last_serialized_connection_id_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 11
   store i64 0, ptr %last_serialized_connection_id_, align 8
   %supported_versions_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 14
-  %0 = load ptr, ptr %supported_versions.addr, align 8
-  invoke void @_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %1 = load ptr, ptr %supported_versions.addr, align 8
+  invoke void @_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1996,8 +1997,8 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %in
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %perspective_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 21
-  %1 = load i32, ptr %perspective.addr, align 4
-  store i32 %1, ptr %perspective_, align 8
+  %2 = load i32, ptr %perspective.addr, align 4
+  store i32 %2, ptr %perspective_, align 8
   %validate_flags_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 22
   store i8 1, ptr %validate_flags_, align 4
   %creation_time_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 23
@@ -2007,17 +2008,17 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %arrayctor.cont
-  %2 = getelementptr inbounds { i64, i64 }, ptr %last_timestamp_, i32 0, i32 0
-  %3 = extractvalue { i64, i64 } %call, 0
-  store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %last_timestamp_, i32 0, i32 1
-  %5 = extractvalue { i64, i64 } %call, 1
-  store i64 %5, ptr %4, align 8
+  %3 = getelementptr inbounds { i64, i64 }, ptr %last_timestamp_, i32 0, i32 0
+  %4 = extractvalue { i64, i64 } %call, 0
+  store i64 %4, ptr %3, align 8
+  %5 = getelementptr inbounds { i64, i64 }, ptr %last_timestamp_, i32 0, i32 1
+  %6 = extractvalue { i64, i64 } %call, 1
+  store i64 %6, ptr %5, align 8
   %supported_versions_4 = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 14
   %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIN3net11QuicVersionESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_4, i64 noundef 0) #13
-  %6 = load i32, ptr %call5, align 4
+  %7 = load i32, ptr %call5, align 4
   %quic_version_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 13
-  store i32 %6, ptr %quic_version_, align 4
+  store i32 %7, ptr %quic_version_, align 4
   %decrypter_6 = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 15
   %call8 = invoke noundef ptr @_ZN3net13QuicDecrypter6CreateEj(i32 noundef 1313625422)
           to label %invoke.cont7 unwind label %lpad2
@@ -2034,27 +2035,27 @@ invoke.cont10:                                    ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont7, %invoke.cont3, %arrayctor.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   %array.begin12 = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %encrypter_, i32 0, i32 0
-  %13 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %array.begin12, i64 3
+  %14 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %array.begin12, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad2
-  %arraydestroy.elementPast = phi ptr [ %13, %lpad2 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %14, %lpad2 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::unique_ptr.23", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #13
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin12
@@ -2403,14 +2404,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %encrypter_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 20
   %array.begin = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %encrypter_, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %array.begin, i64 3
+  %1 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %array.begin, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::unique_ptr.23", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #13
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin

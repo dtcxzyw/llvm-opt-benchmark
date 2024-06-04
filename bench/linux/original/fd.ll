@@ -382,49 +382,50 @@ define internal ptr @proc_fd_instantiate(ptr noundef %0, ptr noundef %1, ptr noc
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext -24576) #7
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %32, label %8
+  %8 = inttoptr i64 -2 to ptr
+  br i1 %7, label %33, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr i8, ptr %6, i64 -64
-  store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr @proc_pid_link_inode_operations, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 80
-  store i64 64, ptr %13, align 8
-  %14 = getelementptr i8, ptr %6, i64 -56
-  store ptr @proc_fd_link, ptr %14, align 8
-  %15 = load i32, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %16, ptr noundef %17) #7
-  %18 = load i16, ptr %6, align 8
-  %19 = and i16 %18, -4096
-  %20 = icmp eq i16 %19, -24576
-  br i1 %20, label %21, label %30
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr i8, ptr %6, i64 -64
+  store i32 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr @proc_pid_link_inode_operations, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 80
+  store i64 64, ptr %14, align 8
+  %15 = getelementptr i8, ptr %6, i64 -56
+  store ptr @proc_fd_link, ptr %15, align 8
+  %16 = load i32, ptr %2, align 4
+  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %17, ptr noundef %18) #7
+  %19 = load i16, ptr %6, align 8
+  %20 = and i16 %19, -4096
+  %21 = icmp eq i16 %20, -24576
+  br i1 %21, label %22, label %31
 
-21:                                               ; preds = %8
-  %22 = and i32 %15, 1
-  %23 = icmp eq i32 %22, 0
-  %24 = select i1 %23, i32 40960, i32 41280
-  %25 = and i32 %15, 2
-  %26 = icmp eq i32 %25, 0
-  %27 = or i32 %24, 192
-  %28 = select i1 %26, i32 %24, i32 %27
-  %29 = trunc i32 %28 to i16
-  store i16 %29, ptr %6, align 8
-  br label %30
+22:                                               ; preds = %9
+  %23 = and i32 %16, 1
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, i32 40960, i32 41280
+  %26 = and i32 %16, 2
+  %27 = icmp eq i32 %26, 0
+  %28 = or i32 %25, 192
+  %29 = select i1 %27, i32 %25, i32 %28
+  %30 = trunc i32 %29 to i16
+  store i16 %30, ptr %6, align 8
+  br label %31
 
-30:                                               ; preds = %21, %8
+31:                                               ; preds = %22, %9
   tail call void @security_task_to_inode(ptr noundef %1, ptr noundef nonnull %6) #7
   tail call void @d_set_d_op(ptr noundef %0, ptr noundef nonnull @tid_fd_dentry_operations) #7
-  %31 = tail call ptr @d_splice_alias(ptr noundef nonnull %6, ptr noundef %0) #7
-  br label %32
+  %32 = tail call ptr @d_splice_alias(ptr noundef nonnull %6, ptr noundef %0) #7
+  br label %33
 
-32:                                               ; preds = %30, %3
-  %33 = phi ptr [ %31, %30 ], [ inttoptr (i64 -2 to ptr), %3 ]
-  ret ptr %33
+33:                                               ; preds = %31, %3
+  %34 = phi ptr [ %32, %31 ], [ %8, %3 ]
+  ret ptr %34
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -679,57 +680,60 @@ define internal fastcc ptr @proc_lookupfd_common(ptr nocapture noundef readonly 
   %10 = tail call i32 @name_to_int(ptr noundef %9) #7
   store i32 %10, ptr %8, align 4
   %11 = icmp eq ptr %7, null
-  br i1 %11, label %32, label %12
+  %12 = inttoptr i64 -2 to ptr
+  br i1 %11, label %35, label %13
 
-12:                                               ; preds = %3
-  %13 = icmp eq i32 %10, -1
-  br i1 %13, label %21, label %14
+13:                                               ; preds = %3
+  %14 = icmp eq i32 %10, -1
+  %15 = inttoptr i64 -2 to ptr
+  br i1 %14, label %24, label %16
 
-14:                                               ; preds = %12
+16:                                               ; preds = %13
   tail call void @__rcu_read_lock() #7
-  %15 = tail call ptr @task_lookup_fdget_rcu(ptr noundef nonnull %7, i32 noundef %10) #7
+  %17 = tail call ptr @task_lookup_fdget_rcu(ptr noundef nonnull %7, i32 noundef %10) #7
   tail call void @__rcu_read_unlock() #7
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %21, label %17
+  %18 = icmp eq ptr %17, null
+  %19 = inttoptr i64 -2 to ptr
+  br i1 %18, label %24, label %20
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %4, align 8
-  tail call void @fput(ptr noundef nonnull %15) #7
-  %20 = call ptr %2(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %4) #7, !callees !12
-  br label %21
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %17, i64 20
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %4, align 8
+  tail call void @fput(ptr noundef nonnull %17) #7
+  %23 = call ptr %2(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %4) #7, !callees !12
+  br label %24
 
-21:                                               ; preds = %17, %14, %12
-  %22 = phi ptr [ inttoptr (i64 -2 to ptr), %12 ], [ %20, %17 ], [ inttoptr (i64 -2 to ptr), %14 ]
-  %23 = getelementptr inbounds i8, ptr %7, i64 40
-  %24 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 -1, ptr elementtype(i32) %23) #7, !srcloc !6
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %20, %16, %13
+  %25 = phi ptr [ %15, %13 ], [ %23, %20 ], [ %19, %16 ]
+  %26 = getelementptr inbounds i8, ptr %7, i64 40
+  %27 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 -1, ptr elementtype(i32) %26) #7, !srcloc !6
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %30
 
-26:                                               ; preds = %21
+29:                                               ; preds = %24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
-  br label %30
+  br label %33
 
-27:                                               ; preds = %21
-  %28 = icmp sgt i32 %24, 0
-  br i1 %28, label %30, label %29, !prof !8
+30:                                               ; preds = %24
+  %31 = icmp sgt i32 %27, 0
+  br i1 %31, label %33, label %32, !prof !8
 
-29:                                               ; preds = %27
-  call void @refcount_warn_saturate(ptr noundef %23, i32 noundef 3) #7
-  br label %30
+32:                                               ; preds = %30
+  call void @refcount_warn_saturate(ptr noundef %26, i32 noundef 3) #7
+  br label %33
 
-30:                                               ; preds = %29, %27, %26
-  br i1 %25, label %31, label %32
+33:                                               ; preds = %32, %30, %29
+  br i1 %28, label %34, label %35
 
-31:                                               ; preds = %30
+34:                                               ; preds = %33
   call void @__put_task_struct(ptr noundef nonnull %7) #7
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %30, %3
-  %33 = phi ptr [ inttoptr (i64 -2 to ptr), %3 ], [ %22, %30 ], [ %22, %31 ]
+35:                                               ; preds = %34, %33, %3
+  %36 = phi ptr [ %12, %3 ], [ %25, %33 ], [ %25, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret ptr %33
+  ret ptr %36
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -747,36 +751,37 @@ define internal ptr @proc_fdinfo_instantiate(ptr noundef %0, ptr noundef %1, ptr
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext -32476) #7
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %21, label %8
+  %8 = inttoptr i64 -2 to ptr
+  br i1 %7, label %22, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr i8, ptr %6, i64 -64
-  store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 344
-  store ptr @proc_fdinfo_file_operations, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %13, ptr noundef %14) #7
-  %15 = load i16, ptr %6, align 8
-  %16 = and i16 %15, -4096
-  %17 = icmp eq i16 %16, -24576
-  br i1 %17, label %18, label %19
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr i8, ptr %6, i64 -64
+  store i32 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 344
+  store ptr @proc_fdinfo_file_operations, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %14, ptr noundef %15) #7
+  %16 = load i16, ptr %6, align 8
+  %17 = and i16 %16, -4096
+  %18 = icmp eq i16 %17, -24576
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %8
+19:                                               ; preds = %9
   store i16 -24576, ptr %6, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %8
+20:                                               ; preds = %19, %9
   tail call void @security_task_to_inode(ptr noundef %1, ptr noundef nonnull %6) #7
   tail call void @d_set_d_op(ptr noundef %0, ptr noundef nonnull @tid_fd_dentry_operations) #7
-  %20 = tail call ptr @d_splice_alias(ptr noundef nonnull %6, ptr noundef %0) #7
-  br label %21
+  %21 = tail call ptr @d_splice_alias(ptr noundef nonnull %6, ptr noundef %0) #7
+  br label %22
 
-21:                                               ; preds = %19, %3
-  %22 = phi ptr [ %20, %19 ], [ inttoptr (i64 -2 to ptr), %3 ]
-  ret ptr %22
+22:                                               ; preds = %20, %3
+  %23 = phi ptr [ %21, %20 ], [ %8, %3 ]
+  ret ptr %23
 }
 
 ; Function Attrs: null_pointer_is_valid

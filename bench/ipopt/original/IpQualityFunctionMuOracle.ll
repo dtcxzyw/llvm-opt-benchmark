@@ -494,465 +494,466 @@ define void @_ZN5Ipopt23QualityFunctionMuOracleC2ERKNS_8SmartPtrINS_14PDSystemSo
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Ipopt8MuOracleC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Ipopt23QualityFunctionMuOracleE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %60
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Ipopt23QualityFunctionMuOracleE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %61
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 10
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef null)
-          to label %12 unwind label %64
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 10
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef null)
+          to label %13 unwind label %65
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 11
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef null)
-          to label %14 unwind label %68
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 11
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef null)
+          to label %15 unwind label %69
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 12
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef null)
-          to label %16 unwind label %72
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 12
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef null)
+          to label %17 unwind label %73
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 13
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef null)
-          to label %18 unwind label %76
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 13
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef null)
+          to label %19 unwind label %77
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 14
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef null)
-          to label %20 unwind label %80
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 14
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef null)
+          to label %21 unwind label %81
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 15
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef null)
-          to label %22 unwind label %84
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 15
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef null)
+          to label %23 unwind label %85
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 16
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef null)
-          to label %24 unwind label %88
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 16
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef null)
+          to label %25 unwind label %89
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 17
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef null)
-          to label %26 unwind label %92
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 17
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef null)
+          to label %27 unwind label %93
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 18
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef null)
-          to label %28 unwind label %96
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 18
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef null)
+          to label %29 unwind label %97
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 19
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef null)
-          to label %30 unwind label %100
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 19
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef null)
+          to label %31 unwind label %101
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 20
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef null)
-          to label %32 unwind label %104
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 20
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef null)
+          to label %33 unwind label %105
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 21
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef null)
-          to label %34 unwind label %108
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 21
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef null)
+          to label %35 unwind label %109
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 22
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef null)
-          to label %36 unwind label %112
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 22
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef null)
+          to label %37 unwind label %113
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 23
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef null)
-          to label %38 unwind label %116
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 23
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef null)
+          to label %39 unwind label %117
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 24
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef null)
-          to label %40 unwind label %120
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 24
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef null)
+          to label %41 unwind label %121
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 25
-  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef null)
-          to label %42 unwind label %124
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 25
+  invoke void @_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef null)
+          to label %43 unwind label %125
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 26
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 31
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %45 unwind label %128
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 26
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 31
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45)
+          to label %46 unwind label %129
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 32
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46)
-          to label %47 unwind label %132
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 32
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47)
+          to label %48 unwind label %133
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 33
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %49 unwind label %136
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 33
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49)
+          to label %50 unwind label %137
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 34
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50)
-          to label %51 unwind label %140
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 34
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51)
+          to label %52 unwind label %141
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 35
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52)
-          to label %53 unwind label %144
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 35
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53)
+          to label %54 unwind label %145
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 36
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54)
-          to label %55 unwind label %148
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 36
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55)
+          to label %56 unwind label %149
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 37
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %56)
-          to label %57 unwind label %152
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 37
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57)
+          to label %58 unwind label %153
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 38
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %58)
-          to label %59 unwind label %156
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %7, i32 0, i32 38
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_6VectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59)
+          to label %60 unwind label %157
 
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   ret void
 
-60:                                               ; preds = %2
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %2
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %5, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %6, align 4
-  br label %183
-
-64:                                               ; preds = %10
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %5, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %6, align 4
-  br label %182
-
-68:                                               ; preds = %12
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %5, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %6, align 4
-  br label %181
-
-72:                                               ; preds = %14
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %5, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %6, align 4
-  br label %180
-
-76:                                               ; preds = %16
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %5, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %6, align 4
-  br label %179
-
-80:                                               ; preds = %18
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %5, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %6, align 4
-  br label %178
-
-84:                                               ; preds = %20
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %5, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %6, align 4
-  br label %177
-
-88:                                               ; preds = %22
-  %89 = landingpad { ptr, i32 }
-          cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %5, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %6, align 4
-  br label %176
-
-92:                                               ; preds = %24
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %5, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %6, align 4
-  br label %175
-
-96:                                               ; preds = %26
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %5, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %6, align 4
-  br label %174
-
-100:                                              ; preds = %28
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %5, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %6, align 4
-  br label %173
-
-104:                                              ; preds = %30
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %5, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %6, align 4
-  br label %172
-
-108:                                              ; preds = %32
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %5, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %6, align 4
-  br label %171
-
-112:                                              ; preds = %34
-  %113 = landingpad { ptr, i32 }
-          cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %5, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %6, align 4
-  br label %170
-
-116:                                              ; preds = %36
-  %117 = landingpad { ptr, i32 }
-          cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %5, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %6, align 4
-  br label %169
-
-120:                                              ; preds = %38
-  %121 = landingpad { ptr, i32 }
-          cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %5, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %6, align 4
-  br label %168
-
-124:                                              ; preds = %40
-  %125 = landingpad { ptr, i32 }
-          cleanup
-  %126 = extractvalue { ptr, i32 } %125, 0
-  store ptr %126, ptr %5, align 8
-  %127 = extractvalue { ptr, i32 } %125, 1
-  store i32 %127, ptr %6, align 4
-  br label %167
-
-128:                                              ; preds = %42
-  %129 = landingpad { ptr, i32 }
-          cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %5, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %6, align 4
-  br label %166
-
-132:                                              ; preds = %45
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %5, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %6, align 4
-  br label %165
-
-136:                                              ; preds = %47
-  %137 = landingpad { ptr, i32 }
-          cleanup
-  %138 = extractvalue { ptr, i32 } %137, 0
-  store ptr %138, ptr %5, align 8
-  %139 = extractvalue { ptr, i32 } %137, 1
-  store i32 %139, ptr %6, align 4
-  br label %164
-
-140:                                              ; preds = %49
-  %141 = landingpad { ptr, i32 }
-          cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %5, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %6, align 4
-  br label %163
-
-144:                                              ; preds = %51
-  %145 = landingpad { ptr, i32 }
-          cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %5, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %6, align 4
-  br label %162
-
-148:                                              ; preds = %53
-  %149 = landingpad { ptr, i32 }
-          cleanup
-  %150 = extractvalue { ptr, i32 } %149, 0
-  store ptr %150, ptr %5, align 8
-  %151 = extractvalue { ptr, i32 } %149, 1
-  store i32 %151, ptr %6, align 4
-  br label %161
-
-152:                                              ; preds = %55
-  %153 = landingpad { ptr, i32 }
-          cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %5, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %6, align 4
-  br label %160
-
-156:                                              ; preds = %57
-  %157 = landingpad { ptr, i32 }
-          cleanup
-  %158 = extractvalue { ptr, i32 } %157, 0
-  store ptr %158, ptr %5, align 8
-  %159 = extractvalue { ptr, i32 } %157, 1
-  store i32 %159, ptr %6, align 4
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #3
-  br label %160
-
-160:                                              ; preds = %156, %152
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
-  br label %161
-
-161:                                              ; preds = %160, %148
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #3
-  br label %162
-
-162:                                              ; preds = %161, %144
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #3
-  br label %163
-
-163:                                              ; preds = %162, %140
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
-  br label %164
-
-164:                                              ; preds = %163, %136
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
-  br label %165
-
-165:                                              ; preds = %164, %132
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #3
-  br label %166
-
-166:                                              ; preds = %165, %128
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #3
-  br label %167
-
-167:                                              ; preds = %166, %124
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
-  br label %168
-
-168:                                              ; preds = %167, %120
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
-  br label %169
-
-169:                                              ; preds = %168, %116
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
-  br label %170
-
-170:                                              ; preds = %169, %112
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #3
-  br label %171
-
-171:                                              ; preds = %170, %108
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
-  br label %172
-
-172:                                              ; preds = %171, %104
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
-  br label %173
-
-173:                                              ; preds = %172, %100
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  br label %174
-
-174:                                              ; preds = %173, %96
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
-  br label %175
-
-175:                                              ; preds = %174, %92
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
-  br label %176
-
-176:                                              ; preds = %175, %88
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  br label %177
-
-177:                                              ; preds = %176, %84
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  br label %178
-
-178:                                              ; preds = %177, %80
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  br label %179
-
-179:                                              ; preds = %178, %76
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  br label %180
-
-180:                                              ; preds = %179, %72
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  br label %181
-
-181:                                              ; preds = %180, %68
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %182
-
-182:                                              ; preds = %181, %64
-  call void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %183
-
-183:                                              ; preds = %182, %60
-  call void @_ZN5Ipopt8MuOracleD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #3
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %5, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %6, align 4
   br label %184
 
-184:                                              ; preds = %183
-  %185 = load ptr, ptr %5, align 8
-  %186 = load i32, ptr %6, align 4
-  %187 = insertvalue { ptr, i32 } poison, ptr %185, 0
-  %188 = insertvalue { ptr, i32 } %187, i32 %186, 1
-  resume { ptr, i32 } %188
+65:                                               ; preds = %11
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %5, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %6, align 4
+  br label %183
+
+69:                                               ; preds = %13
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %5, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %6, align 4
+  br label %182
+
+73:                                               ; preds = %15
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %5, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %6, align 4
+  br label %181
+
+77:                                               ; preds = %17
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %5, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %6, align 4
+  br label %180
+
+81:                                               ; preds = %19
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %5, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %6, align 4
+  br label %179
+
+85:                                               ; preds = %21
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %5, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %6, align 4
+  br label %178
+
+89:                                               ; preds = %23
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %5, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %6, align 4
+  br label %177
+
+93:                                               ; preds = %25
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %5, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %6, align 4
+  br label %176
+
+97:                                               ; preds = %27
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %5, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %6, align 4
+  br label %175
+
+101:                                              ; preds = %29
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %5, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %6, align 4
+  br label %174
+
+105:                                              ; preds = %31
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %5, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %6, align 4
+  br label %173
+
+109:                                              ; preds = %33
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %5, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %6, align 4
+  br label %172
+
+113:                                              ; preds = %35
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %5, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %6, align 4
+  br label %171
+
+117:                                              ; preds = %37
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %5, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %6, align 4
+  br label %170
+
+121:                                              ; preds = %39
+  %122 = landingpad { ptr, i32 }
+          cleanup
+  %123 = extractvalue { ptr, i32 } %122, 0
+  store ptr %123, ptr %5, align 8
+  %124 = extractvalue { ptr, i32 } %122, 1
+  store i32 %124, ptr %6, align 4
+  br label %169
+
+125:                                              ; preds = %41
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %5, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %6, align 4
+  br label %168
+
+129:                                              ; preds = %43
+  %130 = landingpad { ptr, i32 }
+          cleanup
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %5, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %6, align 4
+  br label %167
+
+133:                                              ; preds = %46
+  %134 = landingpad { ptr, i32 }
+          cleanup
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %5, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %6, align 4
+  br label %166
+
+137:                                              ; preds = %48
+  %138 = landingpad { ptr, i32 }
+          cleanup
+  %139 = extractvalue { ptr, i32 } %138, 0
+  store ptr %139, ptr %5, align 8
+  %140 = extractvalue { ptr, i32 } %138, 1
+  store i32 %140, ptr %6, align 4
+  br label %165
+
+141:                                              ; preds = %50
+  %142 = landingpad { ptr, i32 }
+          cleanup
+  %143 = extractvalue { ptr, i32 } %142, 0
+  store ptr %143, ptr %5, align 8
+  %144 = extractvalue { ptr, i32 } %142, 1
+  store i32 %144, ptr %6, align 4
+  br label %164
+
+145:                                              ; preds = %52
+  %146 = landingpad { ptr, i32 }
+          cleanup
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %5, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %6, align 4
+  br label %163
+
+149:                                              ; preds = %54
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %5, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %6, align 4
+  br label %162
+
+153:                                              ; preds = %56
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %5, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %6, align 4
+  br label %161
+
+157:                                              ; preds = %58
+  %158 = landingpad { ptr, i32 }
+          cleanup
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %5, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %6, align 4
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #3
+  br label %161
+
+161:                                              ; preds = %157, %153
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #3
+  br label %162
+
+162:                                              ; preds = %161, %149
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
+  br label %163
+
+163:                                              ; preds = %162, %145
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #3
+  br label %164
+
+164:                                              ; preds = %163, %141
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
+  br label %165
+
+165:                                              ; preds = %164, %137
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #3
+  br label %166
+
+166:                                              ; preds = %165, %133
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #3
+  br label %167
+
+167:                                              ; preds = %166, %129
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #3
+  br label %168
+
+168:                                              ; preds = %167, %125
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  br label %169
+
+169:                                              ; preds = %168, %121
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  br label %170
+
+170:                                              ; preds = %169, %117
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #3
+  br label %171
+
+171:                                              ; preds = %170, %113
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
+  br label %172
+
+172:                                              ; preds = %171, %109
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #3
+  br label %173
+
+173:                                              ; preds = %172, %105
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+  br label %174
+
+174:                                              ; preds = %173, %101
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  br label %175
+
+175:                                              ; preds = %174, %97
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
+  br label %176
+
+176:                                              ; preds = %175, %93
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %177
+
+177:                                              ; preds = %176, %89
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  br label %178
+
+178:                                              ; preds = %177, %85
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %179
+
+179:                                              ; preds = %178, %81
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br label %180
+
+180:                                              ; preds = %179, %77
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  br label %181
+
+181:                                              ; preds = %180, %73
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %182
+
+182:                                              ; preds = %181, %69
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  br label %183
+
+183:                                              ; preds = %182, %65
+  call void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %184
+
+184:                                              ; preds = %183, %61
+  call void @_ZN5Ipopt8MuOracleD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #3
+  br label %185
+
+185:                                              ; preds = %184
+  %186 = load ptr, ptr %5, align 8
+  %187 = load i32, ptr %6, align 4
+  %188 = insertvalue { ptr, i32 } poison, ptr %186, 0
+  %189 = insertvalue { ptr, i32 } %188, i32 %187, 1
+  resume { ptr, i32 } %189
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -961,7 +962,8 @@ define linkonce_odr void @_ZN5Ipopt8MuOracleC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Ipopt8MuOracleE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Ipopt8MuOracleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1037,57 +1039,58 @@ define void @_ZN5Ipopt23QualityFunctionMuOracleD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Ipopt23QualityFunctionMuOracleE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 38
-  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 37
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5Ipopt23QualityFunctionMuOracleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 38
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 36
+  %6 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 37
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 35
+  %7 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 36
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 34
+  %8 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 35
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %9 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 33
+  %9 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 34
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %10 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 32
+  %10 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 33
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  %11 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 31
+  %11 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 32
   call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  %12 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 25
-  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 24
+  %12 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 31
+  call void @_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %13 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 25
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %14 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 23
+  %14 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 24
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %15 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 22
+  %15 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 23
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 21
+  %16 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 22
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %17 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 20
+  %17 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 21
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  %18 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 19
+  %18 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 20
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
-  %19 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 18
+  %19 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 19
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  %20 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 17
+  %20 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 18
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  %21 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 16
+  %21 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 17
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %22 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 15
+  %22 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 16
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  %23 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 14
+  %23 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 15
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
-  %24 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 13
+  %24 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 14
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
-  %25 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 12
+  %25 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 13
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
-  %26 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 11
+  %26 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 12
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
-  %27 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 10
+  %27 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 11
   call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  %28 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 1
-  call void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  %28 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 10
+  call void @_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  %29 = getelementptr inbounds %"class.Ipopt::QualityFunctionMuOracle", ptr %3, i32 0, i32 1
+  call void @_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
   call void @_ZN5Ipopt8MuOracleD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #3
   ret void
 }
@@ -10305,86 +10308,87 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %7 unwind label %15
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %8 unwind label %16
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %19
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %20
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
-  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %11 unwind label %23
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
+  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %24
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
-  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %27
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
+  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %28
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
-  store i8 0, ptr %14, align 8
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
+  store i8 0, ptr %15, align 8
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  br label %33
-
-19:                                               ; preds = %7
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %32
-
-23:                                               ; preds = %9
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  br label %31
-
-27:                                               ; preds = %11
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %32
-
-32:                                               ; preds = %31, %19
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %33
-
-33:                                               ; preds = %32, %15
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %4, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %33
+
+24:                                               ; preds = %10
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %32
+
+28:                                               ; preds = %12
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %34
+
+34:                                               ; preds = %33, %16
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %4, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10411,9 +10415,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -10519,15 +10524,16 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
-  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
+  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -10545,7 +10551,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

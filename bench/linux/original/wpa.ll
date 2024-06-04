@@ -2456,13 +2456,13 @@ define dso_local noundef i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture no
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 12
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %14, label %89
+  br i1 %13, label %14, label %90
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %6, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 50
-  br i1 %17, label %89, label %18
+  br i1 %17, label %90, label %18
 
 18:                                               ; preds = %14
   %19 = zext i32 %16 to i64
@@ -2470,13 +2470,13 @@ define dso_local noundef i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture no
   %21 = getelementptr i8, ptr %20, i64 -26
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 76
-  br i1 %23, label %24, label %89
+  br i1 %23, label %24, label %90
 
 24:                                               ; preds = %18
   %25 = getelementptr i8, ptr %20, i64 -25
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 24
-  br i1 %27, label %28, label %89
+  br i1 %27, label %28, label %90
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %20, i64 -22
@@ -2512,14 +2512,14 @@ define dso_local noundef i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture no
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
-  br label %89
+  br label %90
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds i8, ptr %6, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 2
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %86
+  br i1 %57, label %58, label %87
 
 58:                                               ; preds = %53
   %59 = and i16 %11, -14349
@@ -2531,54 +2531,55 @@ define dso_local noundef i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %62, i64 6, i1 false)
   %63 = getelementptr inbounds i8, ptr %4, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %63, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %64 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %65 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2080, i64 noundef 16) #12
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %89, label %67
+  %64 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %65 = load ptr, ptr %64, align 16
+  %66 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 2080, i64 noundef 16) #12
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %90, label %68
 
-67:                                               ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %8, i64 56
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr i8, ptr %70, i64 24
-  %72 = load i32, ptr %15, align 8
-  %73 = add i32 %72, -24
-  %74 = zext i32 %73 to i64
-  %75 = call i32 @ieee80211_aes_gmac(ptr noundef %69, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %71, i64 noundef %74, ptr noundef nonnull %65) #11
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %81, label %77
+68:                                               ; preds = %58
+  %69 = getelementptr inbounds i8, ptr %8, i64 56
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr i8, ptr %71, i64 24
+  %73 = load i32, ptr %15, align 8
+  %74 = add i32 %73, -24
+  %75 = zext i32 %74 to i64
+  %76 = call i32 @ieee80211_aes_gmac(ptr noundef %70, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %72, i64 noundef %75, ptr noundef nonnull %66) #11
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %82, label %78
 
-77:                                               ; preds = %67
-  %78 = getelementptr i8, ptr %20, i64 -16
-  %79 = call i64 @__crypto_memneq(ptr noundef nonnull %65, ptr noundef %78, i64 noundef 16) #11
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %85, label %81
+78:                                               ; preds = %68
+  %79 = getelementptr i8, ptr %20, i64 -16
+  %80 = call i64 @__crypto_memneq(ptr noundef nonnull %66, ptr noundef %79, i64 noundef 16) #11
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %86, label %82
 
-81:                                               ; preds = %77, %67
-  %82 = getelementptr inbounds i8, ptr %8, i64 68
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  call void @kfree(ptr noundef nonnull %65) #11
-  br label %89
+82:                                               ; preds = %78, %68
+  %83 = getelementptr inbounds i8, ptr %8, i64 68
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4
+  call void @kfree(ptr noundef nonnull %66) #11
+  br label %90
 
-85:                                               ; preds = %77
-  call void @kfree(ptr noundef nonnull %65) #11
-  br label %86
+86:                                               ; preds = %78
+  call void @kfree(ptr noundef nonnull %66) #11
+  br label %87
 
-86:                                               ; preds = %85, %53
+87:                                               ; preds = %86, %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %87 = load i32, ptr %15, align 8
-  %88 = add i32 %87, -26
-  call void @skb_trim(ptr noundef %6, i32 noundef %88) #11
-  br label %89
+  %88 = load i32, ptr %15, align 8
+  %89 = add i32 %88, -26
+  call void @skb_trim(ptr noundef %6, i32 noundef %89) #11
+  br label %90
 
-89:                                               ; preds = %86, %81, %58, %49, %24, %18, %14, %1
-  %90 = phi i32 [ 65538, %49 ], [ 1, %86 ], [ 65537, %81 ], [ 1, %1 ], [ 65577, %14 ], [ 65539, %24 ], [ 65539, %18 ], [ 65545, %58 ]
+90:                                               ; preds = %87, %82, %58, %49, %24, %18, %14, %1
+  %91 = phi i32 [ 65538, %49 ], [ 1, %87 ], [ 65537, %82 ], [ 1, %1 ], [ 65577, %14 ], [ 65539, %24 ], [ 65539, %18 ], [ 65545, %58 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #11
-  ret i32 %90
+  ret i32 %91
 }
 
 ; Function Attrs: null_pointer_is_valid

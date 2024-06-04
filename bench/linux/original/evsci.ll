@@ -65,11 +65,12 @@ declare dso_local i32 @acpi_ev_gpe_detect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_install_sci_handler() local_unnamed_addr #0 align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %2 = zext i16 %1 to i32
-  %3 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
-  %4 = tail call i32 @acpi_os_install_interrupt_handler(i32 noundef %2, ptr noundef nonnull @acpi_ev_sci_xrupt_handler, ptr noundef %3) #2
-  ret i32 %4
+  %1 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %2 = load i16, ptr %1, align 1
+  %3 = zext i16 %2 to i32
+  %4 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
+  %5 = tail call i32 @acpi_os_install_interrupt_handler(i32 noundef %3, ptr noundef nonnull @acpi_ev_sci_xrupt_handler, ptr noundef %4) #2
+  ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -121,36 +122,37 @@ define internal i32 @acpi_ev_sci_xrupt_handler(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_remove_all_sci_handlers() local_unnamed_addr #0 align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %2 = zext i16 %1 to i32
-  %3 = tail call i32 @acpi_os_remove_interrupt_handler(i32 noundef %2, ptr noundef nonnull @acpi_ev_sci_xrupt_handler) #2
-  %4 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %18, label %6
+  %1 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %2 = load i16, ptr %1, align 1
+  %3 = zext i16 %2 to i32
+  %4 = tail call i32 @acpi_os_remove_interrupt_handler(i32 noundef %3, ptr noundef nonnull @acpi_ev_sci_xrupt_handler) #2
+  %5 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %19, label %7
 
-6:                                                ; preds = %0
-  %7 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %8 = tail call i64 @acpi_os_acquire_lock(ptr noundef %7) #2
-  %9 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %16, label %11
+7:                                                ; preds = %0
+  %8 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %9 = tail call i64 @acpi_os_acquire_lock(ptr noundef %8) #2
+  %10 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
 
-11:                                               ; preds = %11, %6
-  %12 = phi ptr [ %14, %11 ], [ %9, %6 ]
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr @acpi_gbl_sci_handler_list, align 8
-  tail call void @kfree(ptr noundef nonnull %12) #2
-  %14 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %11, !llvm.loop !8
+12:                                               ; preds = %12, %7
+  %13 = phi ptr [ %15, %12 ], [ %10, %7 ]
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr @acpi_gbl_sci_handler_list, align 8
+  tail call void @kfree(ptr noundef nonnull %13) #2
+  %15 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %12, !llvm.loop !8
 
-16:                                               ; preds = %11, %6
-  %17 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  tail call void @acpi_os_release_lock(ptr noundef %17, i64 noundef %8) #2
-  br label %18
+17:                                               ; preds = %12, %7
+  %18 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  tail call void @acpi_os_release_lock(ptr noundef %18, i64 noundef %9) #2
+  br label %19
 
-18:                                               ; preds = %16, %0
-  ret i32 %3
+19:                                               ; preds = %17, %0
+  ret i32 %4
 }
 
 ; Function Attrs: null_pointer_is_valid

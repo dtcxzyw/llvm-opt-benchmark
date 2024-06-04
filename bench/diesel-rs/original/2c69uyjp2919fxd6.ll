@@ -142,22 +142,23 @@ define void @_ZN12darling_core5error5Error23unknown_field_with_alts17he53adda653
   %10 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
-  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %6, i32 0, i32 1
-  store i64 0, ptr %12, align 8
+  %12 = inttoptr i64 8 to ptr
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %6, i32 0, i32 1
+  store i64 0, ptr %13, align 8
   store i32 0, ptr %5, align 4
-  %13 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %9, i64 56, i1 false)
+  %14 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %9, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 24, i1 false)
-  %14 = getelementptr inbounds { i32, i32 }, ptr %5, i32 0, i32 0
-  %15 = load i32, ptr %14, align 4, !range !5, !noundef !4
-  %16 = getelementptr inbounds { i32, i32 }, ptr %5, i32 0, i32 1
-  %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, ptr %0, i32 0, i32 2
-  %19 = getelementptr inbounds { i32, i32 }, ptr %18, i32 0, i32 0
-  store i32 %15, ptr %19, align 8
-  %20 = getelementptr inbounds { i32, i32 }, ptr %18, i32 0, i32 1
-  store i32 %17, ptr %20, align 4
+  %15 = getelementptr inbounds { i32, i32 }, ptr %5, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !range !5, !noundef !4
+  %17 = getelementptr inbounds { i32, i32 }, ptr %5, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, ptr %0, i32 0, i32 2
+  %20 = getelementptr inbounds { i32, i32 }, ptr %19, i32 0, i32 0
+  store i32 %16, ptr %20, align 8
+  %21 = getelementptr inbounds { i32, i32 }, ptr %19, i32 0, i32 1
+  store i32 %18, ptr %21, align 4
   ret void
 }
 

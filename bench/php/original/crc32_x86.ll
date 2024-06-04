@@ -1301,12 +1301,13 @@ define hidden i32 @zm_startup_crc32_x86_intrin(i32 noundef %0, i32 noundef %1) #
 ; Function Attrs: nounwind uwtable
 define internal i32 @zend_cpu_supports_sse42() #2 {
   call void @__cpu_indicator_init()
-  %1 = load i32, ptr getelementptr inbounds ({ i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0), align 4
-  %2 = and i32 %1, 256
-  %3 = icmp eq i32 %2, 256
-  %4 = and i1 true, %3
-  %5 = zext i1 %4 to i32
-  ret i32 %5
+  %1 = getelementptr inbounds { i32, i32, i32, [1 x i32] }, ptr @__cpu_model, i32 0, i32 3, i32 0
+  %2 = load i32, ptr %1, align 4
+  %3 = and i32 %2, 256
+  %4 = icmp eq i32 %3, 256
+  %5 = and i1 true, %4
+  %6 = zext i1 %5 to i32
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

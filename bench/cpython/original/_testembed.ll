@@ -4198,11 +4198,12 @@ if.then2:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28), ptr %rt_preconfig, align 8
-  %1 = load ptr, ptr %rt_preconfig, align 8
-  %isolated = getelementptr inbounds %struct.PyPreConfig, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %isolated, align 4
-  %cmp = icmp eq i32 %2, 1
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  store ptr %1, ptr %rt_preconfig, align 8
+  %2 = load ptr, ptr %rt_preconfig, align 8
+  %isolated = getelementptr inbounds %struct.PyPreConfig, ptr %2, i32 0, i32 2
+  %3 = load i32, ptr %isolated, align 4
+  %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
@@ -4212,14 +4213,14 @@ cond.false:                                       ; preds = %if.end
   call void @__assert_fail(ptr noundef @.str.170, ptr noundef @.str.171, i32 noundef 1054, ptr noundef @__PRETTY_FUNCTION__.check_preinit_isolated_config) #9
   unreachable
 
-3:                                                ; No predecessors!
+4:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %3, %cond.true
-  %4 = load ptr, ptr %rt_preconfig, align 8
-  %use_environment = getelementptr inbounds %struct.PyPreConfig, ptr %4, i32 0, i32 3
-  %5 = load i32, ptr %use_environment, align 4
-  %cmp3 = icmp eq i32 %5, 0
+cond.end:                                         ; preds = %4, %cond.true
+  %5 = load ptr, ptr %rt_preconfig, align 8
+  %use_environment = getelementptr inbounds %struct.PyPreConfig, ptr %5, i32 0, i32 3
+  %6 = load i32, ptr %use_environment, align 4
+  %cmp3 = icmp eq i32 %6, 0
   br i1 %cmp3, label %cond.true4, label %cond.false5
 
 cond.true4:                                       ; preds = %cond.end
@@ -4229,21 +4230,22 @@ cond.false5:                                      ; preds = %cond.end
   call void @__assert_fail(ptr noundef @.str.172, ptr noundef @.str.171, i32 noundef 1055, ptr noundef @__PRETTY_FUNCTION__.check_preinit_isolated_config) #9
   unreachable
 
-6:                                                ; No predecessors!
+7:                                                ; No predecessors!
   br label %cond.end6
 
-cond.end6:                                        ; preds = %6, %cond.true4
+cond.end6:                                        ; preds = %7, %cond.true4
   br label %if.end7
 
 if.end7:                                          ; preds = %cond.end6, %entry
   call void @PyConfig_InitIsolatedConfig(ptr noundef %config)
   call void @config_set_program_name(ptr noundef %config)
   call void @init_from_config_clear(ptr noundef %config)
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28), ptr %rt_preconfig, align 8
-  %7 = load ptr, ptr %rt_preconfig, align 8
-  %isolated8 = getelementptr inbounds %struct.PyPreConfig, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %isolated8, align 4
-  %cmp9 = icmp eq i32 %8, 1
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 28
+  store ptr %8, ptr %rt_preconfig, align 8
+  %9 = load ptr, ptr %rt_preconfig, align 8
+  %isolated8 = getelementptr inbounds %struct.PyPreConfig, ptr %9, i32 0, i32 2
+  %10 = load i32, ptr %isolated8, align 4
+  %cmp9 = icmp eq i32 %10, 1
   br i1 %cmp9, label %cond.true10, label %cond.false11
 
 cond.true10:                                      ; preds = %if.end7
@@ -4253,14 +4255,14 @@ cond.false11:                                     ; preds = %if.end7
   call void @__assert_fail(ptr noundef @.str.170, ptr noundef @.str.171, i32 noundef 1065, ptr noundef @__PRETTY_FUNCTION__.check_preinit_isolated_config) #9
   unreachable
 
-9:                                                ; No predecessors!
+11:                                               ; No predecessors!
   br label %cond.end12
 
-cond.end12:                                       ; preds = %9, %cond.true10
-  %10 = load ptr, ptr %rt_preconfig, align 8
-  %use_environment13 = getelementptr inbounds %struct.PyPreConfig, ptr %10, i32 0, i32 3
-  %11 = load i32, ptr %use_environment13, align 4
-  %cmp14 = icmp eq i32 %11, 0
+cond.end12:                                       ; preds = %11, %cond.true10
+  %12 = load ptr, ptr %rt_preconfig, align 8
+  %use_environment13 = getelementptr inbounds %struct.PyPreConfig, ptr %12, i32 0, i32 3
+  %13 = load i32, ptr %use_environment13, align 4
+  %cmp14 = icmp eq i32 %13, 0
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.end12
@@ -4270,10 +4272,10 @@ cond.false16:                                     ; preds = %cond.end12
   call void @__assert_fail(ptr noundef @.str.172, ptr noundef @.str.171, i32 noundef 1066, ptr noundef @__PRETTY_FUNCTION__.check_preinit_isolated_config) #9
   unreachable
 
-12:                                               ; No predecessors!
+14:                                               ; No predecessors!
   br label %cond.end17
 
-cond.end17:                                       ; preds = %12, %cond.true15
+cond.end17:                                       ; preds = %14, %cond.true15
   call void @dump_config()
   call void @Py_Finalize()
   ret i32 0

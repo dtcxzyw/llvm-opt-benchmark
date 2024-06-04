@@ -237,7 +237,8 @@ define dso_local void @pgstat_count_slru_truncate(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_slru() #0 {
   call void @pgstat_snapshot_fixed(i32 noundef 10)
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7)
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7
+  ret ptr %1
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) #1
@@ -540,10 +541,11 @@ define dso_local void @pgstat_slru_snapshot_cb() #0 {
   %6 = call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 1)
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds %struct.PgStatShared_SLRU, ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7), ptr align 8 %8, i64 512, i1 false)
-  %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %struct.PgStatShared_SLRU, ptr %9, i32 0, i32 0
-  call void @LWLockRelease(ptr noundef %10)
+  %9 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %8, i64 512, i1 false)
+  %10 = load ptr, ptr %1, align 8
+  %11 = getelementptr inbounds %struct.PgStatShared_SLRU, ptr %10, i32 0, i32 0
+  call void @LWLockRelease(ptr noundef %11)
   ret void
 }
 

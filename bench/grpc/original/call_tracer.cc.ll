@@ -2561,7 +2561,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2571,7 +2572,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2783,23 +2785,24 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core5Arena16ManagedNewObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  invoke void @_ZN9grpc_core26DelegatingClientCallTracerC2EPNS_16ClientCallTracerE(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %1)
+  %1 = load ptr, ptr %args.addr, align 8
+  %2 = load ptr, ptr %1, align 8
+  invoke void @_ZN9grpc_core26DelegatingClientCallTracerC2EPNS_16ClientCallTracerE(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -2817,7 +2820,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena16ManagedNewObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena16ManagedNewObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %this1, i32 0, i32 1
   store ptr null, ptr %next, align 8
   ret void
@@ -2837,22 +2841,23 @@ entry:
   store ptr %tracer, ptr %tracer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core16ClientCallTracerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingClientCallTracer", ptr %this1, i32 0, i32 1
   %arrayinit.begin = getelementptr inbounds [1 x ptr], ptr %ref.tmp, i64 0, i64 0
-  %0 = load ptr, ptr %tracer.addr, align 8
-  store ptr %0, ptr %arrayinit.begin, align 8
+  %1 = load ptr, ptr %tracer.addr, align 8
+  store ptr %1, ptr %arrayinit.begin, align 8
   %_M_array = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp, i32 0, i32 0
   %arraystart = getelementptr inbounds [1 x ptr], ptr %ref.tmp, i64 0, i64 0
   store ptr %arraystart, ptr %_M_array, align 8
   %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp, i32 0, i32 1
   store i64 1, ptr %_M_len, align 8
   call void @_ZNSaIPN9grpc_core16ClientCallTracerEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
-  invoke void @_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %tracers_, ptr %2, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  invoke void @_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %tracers_, ptr %3, i64 %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2860,12 +2865,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSaIPN9grpc_core16ClientCallTracerEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   call void @_ZN9grpc_core16ClientCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
@@ -2884,7 +2889,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core26DelegatingClientCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t) #3
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -2928,7 +2934,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core29CallTracerAnnotationInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core16ClientCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN9grpc_core16ClientCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3001,7 +3008,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingClientCallTracer", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tracers_) #3
   call void @_ZN9grpc_core16ClientCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3284,7 +3292,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core29CallTracerAnnotationInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core29CallTracerAnnotationInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4776,10 +4785,11 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core5Arena16ManagedNewObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl.19", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %1 = load ptr, ptr %args.addr, align 8
+  call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   invoke void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerC2ESt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -4788,12 +4798,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #3
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
@@ -4828,7 +4838,8 @@ entry:
   store ptr %tracers, ptr %tracers.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core16ClientCallTracer17CallAttemptTracerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingClientCallTracer::DelegatingClientCallAttemptTracer", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %tracers_, ptr noundef nonnull align 8 dereferenceable(24) %tracers) #3
   ret void
@@ -4840,7 +4851,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl.19", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t) #3
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -4953,7 +4965,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19CallTracerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core16ClientCallTracer17CallAttemptTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core16ClientCallTracer17CallAttemptTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4963,7 +4976,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingClientCallTracer::DelegatingClientCallAttemptTracer", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tracers_) #3
   call void @_ZN9grpc_core16ClientCallTracer17CallAttemptTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5697,7 +5711,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core29CallTracerAnnotationInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN9grpc_core19CallTracerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN9grpc_core19CallTracerInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6138,23 +6153,24 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core5Arena16ManagedNewObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl.24", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  invoke void @_ZN9grpc_core26DelegatingServerCallTracerC2EPNS_16ServerCallTracerE(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %1)
+  %1 = load ptr, ptr %args.addr, align 8
+  %2 = load ptr, ptr %1, align 8
+  invoke void @_ZN9grpc_core26DelegatingServerCallTracerC2EPNS_16ServerCallTracerE(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -6180,22 +6196,23 @@ entry:
   store ptr %tracer, ptr %tracer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core16ServerCallTracerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingServerCallTracer", ptr %this1, i32 0, i32 1
   %arrayinit.begin = getelementptr inbounds [1 x ptr], ptr %ref.tmp, i64 0, i64 0
-  %0 = load ptr, ptr %tracer.addr, align 8
-  store ptr %0, ptr %arrayinit.begin, align 8
+  %1 = load ptr, ptr %tracer.addr, align 8
+  store ptr %1, ptr %arrayinit.begin, align 8
   %_M_array = getelementptr inbounds %"class.std::initializer_list.25", ptr %agg.tmp, i32 0, i32 0
   %arraystart = getelementptr inbounds [1 x ptr], ptr %ref.tmp, i64 0, i64 0
   store ptr %arraystart, ptr %_M_array, align 8
   %_M_len = getelementptr inbounds %"class.std::initializer_list.25", ptr %agg.tmp, i32 0, i32 1
   store i64 1, ptr %_M_len, align 8
   call void @_ZNSaIPN9grpc_core16ServerCallTracerEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
-  invoke void @_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %tracers_, ptr %2, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  invoke void @_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %tracers_, ptr %3, i64 %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -6203,12 +6220,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSaIPN9grpc_core16ServerCallTracerEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   call void @_ZN9grpc_core16ServerCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
@@ -6227,7 +6244,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewImpl.24", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core26DelegatingServerCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t) #3
   call void @_ZN9grpc_core5Arena16ManagedNewObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -6252,7 +6270,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19CallTracerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core16ServerCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core16ServerCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6325,7 +6344,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracers_ = getelementptr inbounds %"class.grpc_core::DelegatingServerCallTracer", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tracers_) #3
   call void @_ZN9grpc_core16ServerCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

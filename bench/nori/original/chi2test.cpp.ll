@@ -1480,234 +1480,235 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTestC2ERKNS_12PropertyListE(
   store ptr %1, ptr %4, align 8
   %22 = load ptr, ptr %3, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13ChiSquareTestE, i32 0, i32 0, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 7
-  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4nori13ChiSquareTestE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 7
+  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  %25 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %25 unwind label %64
+          to label %26 unwind label %65
 
-25:                                               ; preds = %2
+26:                                               ; preds = %2
   store float 0x3F847AE140000000, ptr %9, align 4
-  %26 = invoke noundef float @_ZNK4nori12PropertyList8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKf(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %27 unwind label %68
+  %27 = invoke noundef float @_ZNK4nori12PropertyList8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKf(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %28 unwind label %69
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 6
-  store float %26, ptr %28, align 4
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 6
+  store float %27, ptr %29, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %30 unwind label %73
+          to label %31 unwind label %74
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   store i32 10, ptr %12, align 4
-  %31 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %32 unwind label %77
+  %32 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %33 unwind label %78
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
-  store i32 %31, ptr %33, align 8
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
+  store i32 %32, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %34 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %35 unwind label %82
+          to label %36 unwind label %83
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   store i32 5, ptr %15, align 4
-  %36 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %37 unwind label %86
+  %37 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %38 unwind label %87
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 3
-  store i32 %36, ptr %38, align 8
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 3
+  store i32 %37, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %40 unwind label %91
+          to label %41 unwind label %92
 
-40:                                               ; preds = %37
+41:                                               ; preds = %38
   store i32 -1, ptr %18, align 4
-  %41 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 4 dereferenceable(4) %18)
-          to label %42 unwind label %95
+  %42 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %43 unwind label %96
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
-  store i32 %41, ptr %43, align 4
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
+  store i32 %42, ptr %44, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  %44 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %20)
-          to label %45 unwind label %100
+          to label %46 unwind label %101
 
-45:                                               ; preds = %42
+46:                                               ; preds = %43
   store i32 5, ptr %21, align 4
-  %46 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(4) %21)
-          to label %47 unwind label %104
+  %47 = invoke noundef i32 @_ZNK4nori12PropertyList10getIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKi(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(4) %21)
+          to label %48 unwind label %105
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 5
-  store i32 %46, ptr %48, align 8
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 5
+  store i32 %47, ptr %49, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
-  %49 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = mul nsw i32 2, %50
-  %52 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 2
-  store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %109
+  %50 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  %52 = mul nsw i32 2, %51
+  %53 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 2
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %110
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 2
-  %60 = load i32, ptr %59, align 4
-  %61 = mul nsw i32 %58, %60
-  %62 = mul nsw i32 %61, 5000
-  %63 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
-  store i32 %62, ptr %63, align 4
-  br label %109
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 2
+  %61 = load i32, ptr %60, align 4
+  %62 = mul nsw i32 %59, %61
+  %63 = mul nsw i32 %62, 5000
+  %64 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %22, i32 0, i32 4
+  store i32 %63, ptr %64, align 4
+  br label %110
 
-64:                                               ; preds = %2
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %2
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %7, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %8, align 4
-  br label %72
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %7, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %8, align 4
+  br label %73
 
-68:                                               ; preds = %25
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %26
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %7, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %8, align 4
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %7, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %8, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %72
+  br label %73
 
-72:                                               ; preds = %68, %64
+73:                                               ; preds = %69, %65
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  br label %110
-
-73:                                               ; preds = %27
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %7, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %8, align 4
-  br label %81
-
-77:                                               ; preds = %30
-  %78 = landingpad { ptr, i32 }
-          cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %7, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  br label %81
-
-81:                                               ; preds = %77, %73
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  br label %110
-
-82:                                               ; preds = %32
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %7, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %8, align 4
-  br label %90
-
-86:                                               ; preds = %35
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %7, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  br label %90
-
-90:                                               ; preds = %86, %82
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  br label %110
-
-91:                                               ; preds = %37
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %7, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %8, align 4
-  br label %99
-
-95:                                               ; preds = %40
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %7, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  br label %99
-
-99:                                               ; preds = %95, %91
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
-  br label %110
-
-100:                                              ; preds = %42
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %7, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %8, align 4
-  br label %108
-
-104:                                              ; preds = %45
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %7, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  br label %108
-
-108:                                              ; preds = %104, %100
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
-  br label %110
-
-109:                                              ; preds = %56, %47
-  ret void
-
-110:                                              ; preds = %108, %99, %90, %81, %72
-  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  call void @_ZN4nori10NoriObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
   br label %111
 
-111:                                              ; preds = %110
-  %112 = load ptr, ptr %7, align 8
-  %113 = load i32, ptr %8, align 4
-  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
-  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
-  resume { ptr, i32 } %115
+74:                                               ; preds = %28
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %7, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %8, align 4
+  br label %82
+
+78:                                               ; preds = %31
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %7, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %82
+
+82:                                               ; preds = %78, %74
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  br label %111
+
+83:                                               ; preds = %33
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %7, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %8, align 4
+  br label %91
+
+87:                                               ; preds = %36
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %7, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  br label %91
+
+91:                                               ; preds = %87, %83
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
+  br label %111
+
+92:                                               ; preds = %38
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %7, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %8, align 4
+  br label %100
+
+96:                                               ; preds = %41
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %7, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  br label %100
+
+100:                                              ; preds = %96, %92
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #3
+  br label %111
+
+101:                                              ; preds = %43
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %7, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %8, align 4
+  br label %109
+
+105:                                              ; preds = %46
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %7, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  br label %109
+
+109:                                              ; preds = %105, %101
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #3
+  br label %111
+
+110:                                              ; preds = %57, %48
+  ret void
+
+111:                                              ; preds = %109, %100, %91, %82, %73
+  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  call void @_ZN4nori10NoriObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %7, align 8
+  %114 = load i32, ptr %8, align 4
+  %115 = insertvalue { ptr, i32 } poison, ptr %113, 0
+  %116 = insertvalue { ptr, i32 } %115, i32 %114, 1
+  resume { ptr, i32 } %116
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1782,7 +1783,8 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1913,48 +1915,49 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTestD2Ev(ptr noundef nonnull
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13ChiSquareTestE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %7, i32 0, i32 7
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorIPN4nori4BSDFESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorIPN4nori4BSDFESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4nori13ChiSquareTestE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %7, i32 0, i32 7
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorIPN4nori4BSDFESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorIPN4nori4BSDFESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %27, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %16, label %17, label %29
+16:                                               ; preds = %28, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %17, label %18, label %30
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %6, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %6, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 1
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  br label %26
-
-26:                                               ; preds = %22, %17
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 1
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
   br label %27
 
-27:                                               ; preds = %26
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %15
+27:                                               ; preds = %23, %18
+  br label %28
 
-29:                                               ; preds = %15
-  %30 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %7, i32 0, i32 7
-  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+28:                                               ; preds = %27
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN4nori4BSDFESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br label %16
+
+30:                                               ; preds = %16
+  %31 = getelementptr inbounds %"class.nori::ChiSquareTest", ptr %7, i32 0, i32 7
+  call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
   call void @_ZN4nori10NoriObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 }
@@ -3569,29 +3572,30 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
   %12 = load ptr, ptr %6, align 8
   call void @_ZN10tinyformat6formatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %13 unwind label %14
+          to label %13 unwind label %15
 
 13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %10, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %10, align 8
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %8, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %9, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %8, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

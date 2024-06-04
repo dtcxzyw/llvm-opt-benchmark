@@ -71,7 +71,7 @@ declare dso_local ptr @acpi_ut_create_generic_state() local_unnamed_addr #2
 define dso_local noundef i32 @acpi_ps_push_scope(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = tail call ptr @acpi_ut_create_generic_state() #3
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %22, label %7
+  br i1 %6, label %23, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -89,21 +89,22 @@ define dso_local noundef i32 @acpi_ps_push_scope(ptr noundef %0, ptr noundef %1,
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @acpi_ut_push_generic_state(ptr noundef %15, ptr noundef nonnull %5) #3
   %16 = icmp eq i32 %3, -1
-  br i1 %16, label %17, label %19
+  %17 = inttoptr i64 -1 to ptr
+  br i1 %16, label %18, label %20
 
-17:                                               ; preds = %7
-  %18 = load ptr, ptr %12, align 8
-  br label %19
+18:                                               ; preds = %7
+  %19 = load ptr, ptr %12, align 8
+  br label %20
 
-19:                                               ; preds = %17, %7
-  %20 = phi ptr [ %18, %17 ], [ inttoptr (i64 -1 to ptr), %7 ]
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %20, ptr %21, align 8
-  br label %22
+20:                                               ; preds = %18, %7
+  %21 = phi ptr [ %19, %18 ], [ %17, %7 ]
+  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %21, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %19, %4
-  %23 = phi i32 [ 4, %4 ], [ 0, %19 ]
-  ret i32 %23
+23:                                               ; preds = %20, %4
+  %24 = phi i32 [ 4, %4 ], [ 0, %20 ]
+  ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1423,7 +1423,7 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %17, %3
-  br label %143
+  br label %144
 
 27:                                               ; preds = %17
   %28 = load i32, ptr %5, align 4
@@ -1449,7 +1449,7 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   store i32 %39, ptr %10, align 4
   br label %40
 
-40:                                               ; preds = %140, %32
+40:                                               ; preds = %141, %32
   %41 = load i32, ptr %10, align 4
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds %struct.epan_column_info, ptr %42, i32 0, i32 4
@@ -1459,7 +1459,7 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   %47 = getelementptr i32, ptr %44, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp sle i32 %41, %48
-  br i1 %49, label %50, label %143
+  br i1 %49, label %50, label %144
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %4, align 8
@@ -1477,7 +1477,7 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   %62 = getelementptr i32, ptr %59, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %139
+  br i1 %64, label %65, label %140
 
 65:                                               ; preds = %50
   %66 = load ptr, ptr %12, align 8
@@ -1518,16 +1518,16 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %87
-  br label %143
+  br label %144
 
 96:                                               ; preds = %87
   %97 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %97)
+  call void @llvm.va_start.p0(ptr %97)
   %98 = load ptr, ptr %6, align 8
   store ptr %98, ptr %11, align 8
   br label %99
 
-99:                                               ; preds = %135, %96
+99:                                               ; preds = %136, %96
   %100 = load ptr, ptr %11, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %103
@@ -1557,7 +1557,7 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   %114 = load i64, ptr %8, align 8
   %115 = load i64, ptr %9, align 8
   %116 = icmp ult i64 %114, %115
-  br i1 %116, label %117, label %135
+  br i1 %116, label %117, label %136
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
@@ -1585,40 +1585,35 @@ define void @col_append_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
   %132 = phi ptr [ %125, %122 ], [ %129, %127 ]
   %133 = load ptr, ptr %132, align 8
   store ptr %133, ptr %11, align 8
-  %134 = icmp ne ptr %133, inttoptr (i64 -1 to ptr)
-  br label %135
+  %134 = inttoptr i64 -1 to ptr
+  %135 = icmp ne ptr %133, %134
+  br label %136
 
-135:                                              ; preds = %131, %113
-  %136 = phi i1 [ false, %113 ], [ %134, %131 ]
-  br i1 %136, label %99, label %137, !llvm.loop !17
+136:                                              ; preds = %131, %113
+  %137 = phi i1 [ false, %113 ], [ %135, %131 ]
+  br i1 %137, label %99, label %138, !llvm.loop !17
 
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %138)
-  br label %139
-
-139:                                              ; preds = %137, %50
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %139)
   br label %140
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %10, align 4
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %10, align 4
+140:                                              ; preds = %138, %50
+  br label %141
+
+141:                                              ; preds = %140
+  %142 = load i32, ptr %10, align 4
+  %143 = add i32 %142, 1
+  store i32 %143, ptr %10, align 4
   br label %40, !llvm.loop !18
 
-143:                                              ; preds = %95, %40, %26
+144:                                              ; preds = %95, %40, %26
   ret void
 }
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare i64 @ws_label_strcpy(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -1653,7 +1648,8 @@ define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %22 = phi ptr [ %19, %18 ], [ @.str.1, %20 ]
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
-  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef %14, i32 noundef %15, ptr noundef %22, ptr noundef %23, ptr noundef @.str.3, ptr noundef %24, ptr noundef inttoptr (i64 -1 to ptr))
+  %25 = inttoptr i64 -1 to ptr
+  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef %14, i32 noundef %15, ptr noundef %22, ptr noundef %23, ptr noundef @.str.3, ptr noundef %24, ptr noundef %25)
   ret void
 }
 
@@ -1685,7 +1681,8 @@ define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1
   %20 = load i32, ptr %7, align 4
   %21 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 0
   %22 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 0
-  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef @.str.4, ptr noundef %22, ptr noundef inttoptr (i64 -1 to ptr))
+  %23 = inttoptr i64 -1 to ptr
+  call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef @.str.4, ptr noundef %22, ptr noundef %23)
   ret void
 }
 
@@ -1700,37 +1697,38 @@ define internal void @col_snprint_port(ptr noundef %0, i64 noundef %1, i32 nound
   store i64 %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i16 %3, ptr %8, align 2
-  %10 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %25
+  %10 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %26
 
-12:                                               ; preds = %4
-  %13 = load i32, ptr %7, align 4
-  %14 = load i16, ptr %8, align 2
-  %15 = zext i16 %14 to i32
-  %16 = call ptr @try_serv_name_lookup(i32 noundef %13, i32 noundef %15)
-  store ptr %16, ptr %9, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %25
+13:                                               ; preds = %4
+  %14 = load i32, ptr %7, align 4
+  %15 = load i16, ptr %8, align 2
+  %16 = zext i16 %15 to i32
+  %17 = call ptr @try_serv_name_lookup(i32 noundef %14, i32 noundef %16)
+  store ptr %17, ptr %9, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %26
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i64, ptr %6, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i16, ptr %8, align 2
-  %23 = zext i16 %22 to i32
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %19, i64 noundef %20, ptr noundef @.str.18, ptr noundef %21, i32 noundef %23) #7
-  br label %31
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i16, ptr %8, align 2
+  %24 = zext i16 %23 to i32
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef %21, ptr noundef @.str.18, ptr noundef %22, i32 noundef %24) #7
+  br label %32
 
-25:                                               ; preds = %12, %4
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i64, ptr %6, align 8
-  %28 = load i16, ptr %8, align 2
-  %29 = zext i16 %28 to i32
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef %27, ptr noundef @.str.19, i32 noundef %29) #7
-  br label %31
+26:                                               ; preds = %13, %4
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i64, ptr %6, align 8
+  %29 = load i16, ptr %8, align 2
+  %30 = zext i16 %29 to i32
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef %28, ptr noundef @.str.19, i32 noundef %30) #7
+  br label %32
 
-31:                                               ; preds = %25, %18
+32:                                               ; preds = %26, %19
   ret void
 }
 
@@ -1801,14 +1799,14 @@ define void @col_append_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %23)
+  call void @llvm.va_start.p0(ptr %23)
   %24 = load ptr, ptr %4, align 8
   %25 = load i32, ptr %5, align 4
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   call void @col_do_append_fstr(ptr noundef %24, i32 noundef %25, ptr noundef null, ptr noundef %26, ptr noundef %27)
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %28)
+  call void @llvm.va_end.p0(ptr %28)
   br label %29
 
 29:                                               ; preds = %22, %21
@@ -1967,7 +1965,7 @@ define internal void @col_do_append_fstr(ptr noundef %0, i32 noundef %1, ptr nou
 110:                                              ; preds = %106
   %111 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %18, i64 0, i64 0
   %112 = load ptr, ptr %10, align 8
-  call void @llvm.va_copy(ptr %111, ptr %112)
+  call void @llvm.va_copy.p0(ptr %111, ptr %112)
   %113 = getelementptr inbounds [4096 x i8], ptr %17, i64 0, i64 0
   %114 = load ptr, ptr %9, align 8
   %115 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %18, i64 0, i64 0
@@ -1975,7 +1973,7 @@ define internal void @col_do_append_fstr(ptr noundef %0, i32 noundef %1, ptr nou
   %117 = sext i32 %116 to i64
   store i64 %117, ptr %14, align 8
   %118 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %18, i64 0, i64 0
-  call void @llvm.va_end(ptr %118)
+  call void @llvm.va_end.p0(ptr %118)
   %119 = load i64, ptr %14, align 8
   %120 = load i64, ptr %12, align 8
   %121 = icmp uge i64 %119, %120
@@ -2062,7 +2060,7 @@ define void @col_append_sep_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 28:                                               ; preds = %27, %24
   %29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %29)
+  call void @llvm.va_start.p0(ptr %29)
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %6, align 4
   %32 = load ptr, ptr %7, align 8
@@ -2070,7 +2068,7 @@ define void @col_append_sep_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %34 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   call void @col_do_append_fstr(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
   %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %35)
+  call void @llvm.va_end.p0(ptr %35)
   br label %36
 
 36:                                               ; preds = %28, %23
@@ -2197,7 +2195,7 @@ define void @col_prepend_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ..
 
 87:                                               ; preds = %79, %75
   %88 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %88)
+  call void @llvm.va_start.p0(ptr %88)
   %89 = getelementptr inbounds [4096 x i8], ptr %14, i64 0, i64 0
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
@@ -2205,7 +2203,7 @@ define void @col_prepend_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ..
   %93 = sext i32 %92 to i64
   store i64 %93, ptr %12, align 8
   %94 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %94)
+  call void @llvm.va_end.p0(ptr %94)
   %95 = load i64, ptr %12, align 8
   %96 = load i64, ptr %11, align 8
   %97 = icmp uge i64 %95, %96
@@ -2405,7 +2403,7 @@ define void @col_prepend_fence_fstr(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 87:                                               ; preds = %79, %75
   %88 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %88)
+  call void @llvm.va_start.p0(ptr %88)
   %89 = getelementptr inbounds [4096 x i8], ptr %14, i64 0, i64 0
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
@@ -2413,7 +2411,7 @@ define void @col_prepend_fence_fstr(ptr noundef %0, i32 noundef %1, ptr noundef 
   %93 = sext i32 %92 to i64
   store i64 %93, ptr %12, align 8
   %94 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %94)
+  call void @llvm.va_end.p0(ptr %94)
   %95 = load i64, ptr %12, align 8
   %96 = load i64, ptr %11, align 8
   %97 = icmp uge i64 %95, %96
@@ -2839,7 +2837,7 @@ define void @col_set_str(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #6
+declare void @proto_report_dissector_bug(ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
 define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #0 {
@@ -2873,7 +2871,7 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %17, %3
-  br label %148
+  br label %149
 
 27:                                               ; preds = %17
   %28 = load i32, ptr %5, align 4
@@ -2899,7 +2897,7 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   store i32 %39, ptr %8, align 4
   br label %40
 
-40:                                               ; preds = %145, %32
+40:                                               ; preds = %146, %32
   %41 = load i32, ptr %8, align 4
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds %struct.epan_column_info, ptr %42, i32 0, i32 4
@@ -2909,7 +2907,7 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   %47 = getelementptr i32, ptr %44, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp sle i32 %41, %48
-  br i1 %49, label %50, label %148
+  br i1 %49, label %50, label %149
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %4, align 8
@@ -2927,7 +2925,7 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   %62 = getelementptr i32, ptr %59, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %144
+  br i1 %64, label %65, label %145
 
 65:                                               ; preds = %50
   %66 = load ptr, ptr %12, align 8
@@ -2980,12 +2978,12 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
 
 101:                                              ; preds = %95, %94
   %102 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %102)
+  call void @llvm.va_start.p0(ptr %102)
   %103 = load ptr, ptr %6, align 8
   store ptr %103, ptr %11, align 8
   br label %104
 
-104:                                              ; preds = %140, %101
+104:                                              ; preds = %141, %101
   %105 = load ptr, ptr %11, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %108
@@ -3015,7 +3013,7 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   %119 = load i64, ptr %9, align 8
   %120 = load i64, ptr %10, align 8
   %121 = icmp ult i64 %119, %120
-  br i1 %121, label %122, label %140
+  br i1 %121, label %122, label %141
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
@@ -3043,28 +3041,29 @@ define void @col_add_lstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
   %137 = phi ptr [ %130, %127 ], [ %134, %132 ]
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %11, align 8
-  %139 = icmp ne ptr %138, inttoptr (i64 -1 to ptr)
-  br label %140
+  %139 = inttoptr i64 -1 to ptr
+  %140 = icmp ne ptr %138, %139
+  br label %141
 
-140:                                              ; preds = %136, %118
-  %141 = phi i1 [ false, %118 ], [ %139, %136 ]
-  br i1 %141, label %104, label %142, !llvm.loop !24
+141:                                              ; preds = %136, %118
+  %142 = phi i1 [ false, %118 ], [ %140, %136 ]
+  br i1 %142, label %104, label %143, !llvm.loop !24
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %143)
-  br label %144
-
-144:                                              ; preds = %142, %50
+143:                                              ; preds = %141
+  %144 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %144)
   br label %145
 
-145:                                              ; preds = %144
-  %146 = load i32, ptr %8, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %8, align 4
+145:                                              ; preds = %143, %50
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load i32, ptr %8, align 4
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %8, align 4
   br label %40, !llvm.loop !25
 
-148:                                              ; preds = %40, %26
+149:                                              ; preds = %40, %26
   ret void
 }
 
@@ -3205,14 +3204,14 @@ define void @col_add_fstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #
 
 100:                                              ; preds = %94, %93
   %101 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %101)
+  call void @llvm.va_start.p0(ptr %101)
   %102 = getelementptr inbounds [4096 x i8], ptr %12, i64 0, i64 0
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %105 = call i32 @vsnprintf(ptr noundef %102, i64 noundef 4096, ptr noundef %103, ptr noundef %104) #7
   store i32 %105, ptr %9, align 4
   %106 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %106)
+  call void @llvm.va_end.p0(ptr %106)
   %107 = load i32, ptr %9, align 4
   %108 = load i32, ptr %10, align 4
   %109 = icmp sge i32 %107, %108
@@ -4191,7 +4190,7 @@ define internal void @set_time_seconds(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #6
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_time_hour_min_sec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -6284,9 +6283,6 @@ declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
 declare i64 @ws_label_strcat(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #5
-
 declare ptr @ws_localtime_r(ptr noundef, ptr noundef) #3
 
 declare ptr @ws_gmtime_r(ptr noundef, ptr noundef) #3
@@ -7336,13 +7332,22 @@ declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #3
 
 declare ptr @udp_port_to_display(ptr noundef, i32 noundef) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { allocsize(0,1) }
 attributes #9 = { nounwind willreturn memory(read) }

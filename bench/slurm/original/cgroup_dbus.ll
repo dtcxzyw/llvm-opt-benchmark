@@ -65,207 +65,209 @@ define i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) #0 {
   br label %19
 
 19:                                               ; preds = %2
-  %20 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %21 = and i64 %20, 36028797018963968
-  %22 = icmp ne i64 %21, 0
-  br i1 %22, label %23, label %32
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, 36028797018963968
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %33
 
-23:                                               ; preds = %19
-  br label %24
+24:                                               ; preds = %19
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = call i32 @get_log_level()
-  %26 = icmp sge i32 %25, 4
-  br i1 %26, label %27, label %30
+25:                                               ; preds = %24
+  %26 = call i32 @get_log_level()
+  %27 = icmp sge i32 %26, 4
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %28, i32 noundef %29)
-  br label %30
-
-30:                                               ; preds = %27, %24
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %29, i32 noundef %30)
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %28, %25
   br label %32
 
-32:                                               ; preds = %31, %19
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
+33:                                               ; preds = %32, %19
+  br label %34
+
+34:                                               ; preds = %33
   call void @dbus_error_init(ptr noundef %12)
-  %34 = call ptr @dbus_bus_get(i32 noundef 1, ptr noundef %12)
-  store ptr %34, ptr %10, align 8
-  %35 = call i32 @dbus_error_is_set(ptr noundef %12)
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %41
+  %35 = call ptr @dbus_bus_get(i32 noundef 1, ptr noundef %12)
+  store ptr %35, ptr %10, align 8
+  %36 = call i32 @dbus_error_is_set(ptr noundef %12)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds %struct.DBusError, ptr %12, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %39)
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %struct.DBusError, ptr %12, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %40)
   call void @dbus_error_free(ptr noundef %12)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %37, %33
-  %42 = load ptr, ptr %10, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %45, label %44
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr %10, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %46, label %45
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-45:                                               ; preds = %41
-  %46 = call ptr @dbus_message_new_method_call(ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6)
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %51, label %49
+46:                                               ; preds = %42
+  %47 = call ptr @dbus_message_new_method_call(ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6)
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %45
-  %50 = call i32 (ptr, ...) @error(ptr noundef @.str.7, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+50:                                               ; preds = %46
+  %51 = call i32 (ptr, ...) @error(ptr noundef @.str.7, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %8, align 8
-  call void @dbus_message_iter_init_append(ptr noundef %52, ptr noundef %9)
-  %53 = call i32 @dbus_message_iter_append_basic(ptr noundef %9, i32 noundef 115, ptr noundef %7)
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %57, label %55
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %8, align 8
+  call void @dbus_message_iter_init_append(ptr noundef %53, ptr noundef %9)
+  %54 = call i32 @dbus_message_iter_append_basic(ptr noundef %9, i32 noundef 115, ptr noundef %7)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %58, label %56
 
-55:                                               ; preds = %51
-  %56 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+56:                                               ; preds = %52
+  %57 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-57:                                               ; preds = %51
-  %58 = call i32 @dbus_message_iter_append_basic(ptr noundef %9, i32 noundef 115, ptr noundef %6)
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %62, label %60
+58:                                               ; preds = %52
+  %59 = call i32 @dbus_message_iter_append_basic(ptr noundef %9, i32 noundef 115, ptr noundef %6)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %63, label %61
 
-60:                                               ; preds = %57
-  %61 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+61:                                               ; preds = %58
+  %62 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 0
-  %64 = load i32, ptr %14, align 4
-  %65 = call zeroext i1 @_set_scope_properties(ptr noundef %9, ptr noundef %63, i32 noundef %64, i1 noundef zeroext true)
-  br i1 %65, label %68, label %66
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 0
+  %65 = load i32, ptr %14, align 4
+  %66 = call zeroext i1 @_set_scope_properties(ptr noundef %9, ptr noundef %64, i32 noundef %65, i1 noundef zeroext true)
+  br i1 %66, label %69, label %67
 
-66:                                               ; preds = %62
-  %67 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+67:                                               ; preds = %63
+  %68 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-68:                                               ; preds = %62
-  %69 = call zeroext i1 @_set_scope_aux(ptr noundef %9)
-  br i1 %69, label %72, label %70
+69:                                               ; preds = %63
+  %70 = call zeroext i1 @_set_scope_aux(ptr noundef %9)
+  br i1 %70, label %73, label %71
 
-70:                                               ; preds = %68
-  %71 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+71:                                               ; preds = %69
+  %72 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-72:                                               ; preds = %68
-  br label %73
+73:                                               ; preds = %69
+  br label %74
 
-73:                                               ; preds = %72
-  %74 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %75 = and i64 %74, 36028797018963968
-  %76 = icmp ne i64 %75, 0
-  br i1 %76, label %77, label %86
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %76 = load i64, ptr %75, align 8
+  %77 = and i64 %76, 36028797018963968
+  %78 = icmp ne i64 %77, 0
+  br i1 %78, label %79, label %88
 
-77:                                               ; preds = %73
-  br label %78
+79:                                               ; preds = %74
+  br label %80
 
-78:                                               ; preds = %77
-  %79 = call i32 @get_log_level()
-  %80 = icmp sge i32 %79, 4
-  br i1 %80, label %81, label %84
+80:                                               ; preds = %79
+  %81 = call i32 @get_log_level()
+  %82 = icmp sge i32 %81, 4
+  br i1 %82, label %83, label %86
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %8, align 8
-  %83 = call ptr @dbus_message_get_signature(ptr noundef %82)
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %83)
-  br label %84
-
-84:                                               ; preds = %81, %78
-  br label %85
-
-85:                                               ; preds = %84
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %8, align 8
+  %85 = call ptr @dbus_message_get_signature(ptr noundef %84)
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.cgroup_dbus_attach_to_scope, ptr noundef %85)
   br label %86
 
-86:                                               ; preds = %85, %73
+86:                                               ; preds = %83, %80
   br label %87
 
 87:                                               ; preds = %86
-  %88 = load ptr, ptr %10, align 8
-  %89 = load ptr, ptr %8, align 8
-  %90 = call i32 @dbus_connection_send_with_reply(ptr noundef %88, ptr noundef %89, ptr noundef %11, i32 noundef -1)
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %94, label %92
+  br label %88
 
-92:                                               ; preds = %87
-  %93 = call i32 (ptr, ...) @error(ptr noundef @.str.12, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+88:                                               ; preds = %87, %74
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %10, align 8
+  %91 = load ptr, ptr %8, align 8
+  %92 = call i32 @dbus_connection_send_with_reply(ptr noundef %90, ptr noundef %91, ptr noundef %11, i32 noundef -1)
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %96, label %94
+
+94:                                               ; preds = %89
+  %95 = call i32 (ptr, ...) @error(ptr noundef @.str.12, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-94:                                               ; preds = %87
-  %95 = load ptr, ptr %11, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %99, label %97
+96:                                               ; preds = %89
+  %97 = load ptr, ptr %11, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %101, label %99
 
-97:                                               ; preds = %94
-  %98 = call i32 (ptr, ...) @error(ptr noundef @.str.13, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+99:                                               ; preds = %96
+  %100 = call i32 (ptr, ...) @error(ptr noundef @.str.13, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %10, align 8
-  call void @dbus_connection_flush(ptr noundef %100)
-  %101 = load ptr, ptr %8, align 8
-  call void @dbus_message_unref(ptr noundef %101)
-  %102 = load ptr, ptr %11, align 8
-  call void @dbus_pending_call_block(ptr noundef %102)
-  %103 = load ptr, ptr %11, align 8
-  %104 = call ptr @dbus_pending_call_steal_reply(ptr noundef %103)
-  store ptr %104, ptr %8, align 8
-  %105 = icmp ne ptr %104, null
-  br i1 %105, label %109, label %106
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %10, align 8
+  call void @dbus_connection_flush(ptr noundef %102)
+  %103 = load ptr, ptr %8, align 8
+  call void @dbus_message_unref(ptr noundef %103)
+  %104 = load ptr, ptr %11, align 8
+  call void @dbus_pending_call_block(ptr noundef %104)
+  %105 = load ptr, ptr %11, align 8
+  %106 = call ptr @dbus_pending_call_steal_reply(ptr noundef %105)
+  store ptr %106, ptr %8, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %111, label %108
 
-106:                                              ; preds = %99
-  %107 = load ptr, ptr %10, align 8
-  call void @dbus_connection_unref(ptr noundef %107)
-  %108 = call i32 (ptr, ...) @error(ptr noundef @.str.14, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %10, align 8
+  call void @dbus_connection_unref(ptr noundef %109)
+  %110 = call i32 (ptr, ...) @error(ptr noundef @.str.14, ptr noundef @__func__.cgroup_dbus_attach_to_scope)
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %11, align 8
-  call void @dbus_pending_call_unref(ptr noundef %110)
-  %111 = load ptr, ptr %10, align 8
-  call void @dbus_connection_unref(ptr noundef %111)
-  %112 = load ptr, ptr %8, align 8
-  %113 = call i32 @_process_and_close_reply_msg(ptr noundef %112)
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %116
+111:                                              ; preds = %101
+  %112 = load ptr, ptr %11, align 8
+  call void @dbus_pending_call_unref(ptr noundef %112)
+  %113 = load ptr, ptr %10, align 8
+  call void @dbus_connection_unref(ptr noundef %113)
+  %114 = load ptr, ptr %8, align 8
+  %115 = call i32 @_process_and_close_reply_msg(ptr noundef %114)
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %118
 
-115:                                              ; preds = %109
+117:                                              ; preds = %111
   store i32 -1, ptr %3, align 4
-  br label %117
+  br label %119
 
-116:                                              ; preds = %109
+118:                                              ; preds = %111
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %119
 
-117:                                              ; preds = %116, %115, %106, %97, %92, %70, %66, %60, %55, %49, %44
-  %118 = load i32, ptr %3, align 4
-  ret i32 %118
+119:                                              ; preds = %118, %117, %108, %99, %94, %71, %67, %61, %56, %50, %45
+  %120 = load i32, ptr %3, align 4
+  ret i32 %120
 }
 
 declare ptr @xbasename(ptr noundef) #1
@@ -673,14 +675,14 @@ define internal i32 @_process_and_close_reply_msg(ptr noundef %0) #0 {
   %8 = call i32 @dbus_message_iter_init(ptr noundef %7, ptr noundef %3)
   br label %9
 
-9:                                                ; preds = %46, %1
+9:                                                ; preds = %48, %1
   %10 = call i32 @dbus_message_iter_get_arg_type(ptr noundef %3)
   store i32 %10, ptr %4, align 4
   %11 = load i32, ptr %4, align 4
-  switch i32 %11, label %42 [
+  switch i32 %11, label %44 [
     i32 111, label %12
-    i32 115, label %27
-    i32 103, label %27
+    i32 115, label %28
+    i32 103, label %28
   ]
 
 12:                                               ; preds = %9
@@ -688,91 +690,93 @@ define internal i32 @_process_and_close_reply_msg(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %12
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %15 = and i64 %14, 36028797018963968
-  %16 = icmp ne i64 %15, 0
-  br i1 %16, label %17, label %25
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 36028797018963968
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %13
-  br label %18
+18:                                               ; preds = %13
+  br label %19
 
-18:                                               ; preds = %17
-  %19 = call i32 @get_log_level()
-  %20 = icmp sge i32 %19, 4
-  br i1 %20, label %21, label %23
+19:                                               ; preds = %18
+  %20 = call i32 @get_log_level()
+  %21 = icmp sge i32 %20, 4
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %6, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__._process_and_close_reply_msg, ptr noundef %22)
-  br label %23
-
-23:                                               ; preds = %21, %18
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %6, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.18, ptr noundef @plugin_type, ptr noundef @__func__._process_and_close_reply_msg, ptr noundef %23)
   br label %24
 
-24:                                               ; preds = %23
+24:                                               ; preds = %22, %19
   br label %25
 
-25:                                               ; preds = %24, %13
+25:                                               ; preds = %24
   br label %26
 
-26:                                               ; preds = %25
-  br label %45
+26:                                               ; preds = %25, %13
+  br label %27
 
-27:                                               ; preds = %9, %9
+27:                                               ; preds = %26
+  br label %47
+
+28:                                               ; preds = %9, %9
   store i32 -1, ptr %5, align 4
   call void @dbus_message_iter_get_basic(ptr noundef %3, ptr noundef %6)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27
-  %29 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %30 = and i64 %29, 36028797018963968
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %32, label %40
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 36028797018963968
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %42
 
-32:                                               ; preds = %28
-  br label %33
+34:                                               ; preds = %29
+  br label %35
 
-33:                                               ; preds = %32
-  %34 = call i32 @get_log_level()
-  %35 = icmp sge i32 %34, 4
-  br i1 %35, label %36, label %38
+35:                                               ; preds = %34
+  %36 = call i32 @get_log_level()
+  %37 = icmp sge i32 %36, 4
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %6, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.19, ptr noundef @plugin_type, ptr noundef @__func__._process_and_close_reply_msg, ptr noundef %37)
-  br label %38
-
-38:                                               ; preds = %36, %33
-  br label %39
-
-39:                                               ; preds = %38
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %6, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.19, ptr noundef @plugin_type, ptr noundef @__func__._process_and_close_reply_msg, ptr noundef %39)
   br label %40
 
-40:                                               ; preds = %39, %28
+40:                                               ; preds = %38, %35
   br label %41
 
 41:                                               ; preds = %40
-  br label %45
+  br label %42
 
-42:                                               ; preds = %9
+42:                                               ; preds = %41, %29
+  br label %43
+
+43:                                               ; preds = %42
+  br label %47
+
+44:                                               ; preds = %9
   store i32 -1, ptr %5, align 4
-  %43 = load i32, ptr %4, align 4
-  %44 = call i32 (ptr, ...) @error(ptr noundef @.str.20, ptr noundef @__func__._process_and_close_reply_msg, i32 noundef %43)
-  br label %45
+  %45 = load i32, ptr %4, align 4
+  %46 = call i32 (ptr, ...) @error(ptr noundef @.str.20, ptr noundef @__func__._process_and_close_reply_msg, i32 noundef %45)
+  br label %47
 
-45:                                               ; preds = %42, %41, %26
-  br label %46
+47:                                               ; preds = %44, %43, %27
+  br label %48
 
-46:                                               ; preds = %45
-  %47 = call i32 @dbus_message_iter_next(ptr noundef %3)
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %9, label %49, !llvm.loop !6
+48:                                               ; preds = %47
+  %49 = call i32 @dbus_message_iter_next(ptr noundef %3)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %9, label %51, !llvm.loop !6
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %2, align 8
-  call void @dbus_message_unref(ptr noundef %50)
-  %51 = load i32, ptr %5, align 4
-  ret i32 %51
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %2, align 8
+  call void @dbus_message_unref(ptr noundef %52)
+  %53 = load i32, ptr %5, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

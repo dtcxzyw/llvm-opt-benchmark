@@ -41,17 +41,20 @@ define hidden i32 @zm_deactivate_syslog(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
   call void @php_closelog()
-  %5 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  call void @free(ptr noundef %8) #4
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  br label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %10 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %10) #4
+  %11 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  store ptr null, ptr %11, align 8
+  br label %12
 
-9:                                                ; preds = %7, %2
+12:                                               ; preds = %8, %2
   ret i32 0
 }
 
@@ -758,47 +761,51 @@ define hidden void @zif_openlog(ptr noundef %0, ptr noundef %1) #0 {
   %437 = load i32, ptr %63, align 4
   %438 = load ptr, ptr %62, align 8
   call void @zend_wrong_parameter_error(i32 noundef %434, i32 noundef %435, ptr noundef %436, i32 noundef %437, ptr noundef %438)
-  br label %459
+  br label %463
 
 439:                                              ; preds = %425
   br label %440
 
 440:                                              ; preds = %439
-  %441 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  %442 = icmp ne ptr %441, null
-  br i1 %442, label %443, label %445
+  %441 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %442 = load ptr, ptr %441, align 8
+  %443 = icmp ne ptr %442, null
+  br i1 %443, label %444, label %447
 
-443:                                              ; preds = %440
-  %444 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  call void @free(ptr noundef %444) #4
-  br label %445
+444:                                              ; preds = %440
+  %445 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %446 = load ptr, ptr %445, align 8
+  call void @free(ptr noundef %446) #4
+  br label %447
 
-445:                                              ; preds = %443, %440
-  %446 = load ptr, ptr %52, align 8
-  %447 = load i64, ptr %55, align 8
-  %448 = call noalias ptr @zend_strndup(ptr noundef %446, i64 noundef %447)
-  store ptr %448, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  %449 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  %450 = load i64, ptr %53, align 8
-  %451 = trunc i64 %450 to i32
-  %452 = load i64, ptr %54, align 8
-  %453 = trunc i64 %452 to i32
-  call void @php_openlog(ptr noundef %449, i32 noundef %451, i32 noundef %453)
-  br label %454
-
-454:                                              ; preds = %445
-  br label %455
-
-455:                                              ; preds = %454
-  %456 = load ptr, ptr %51, align 8
-  %457 = getelementptr inbounds %struct._zval_struct, ptr %456, i32 0, i32 1
-  store i32 3, ptr %457, align 8
+447:                                              ; preds = %444, %440
+  %448 = load ptr, ptr %52, align 8
+  %449 = load i64, ptr %55, align 8
+  %450 = call noalias ptr @zend_strndup(ptr noundef %448, i64 noundef %449)
+  %451 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  store ptr %450, ptr %451, align 8
+  %452 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %453 = load ptr, ptr %452, align 8
+  %454 = load i64, ptr %53, align 8
+  %455 = trunc i64 %454 to i32
+  %456 = load i64, ptr %54, align 8
+  %457 = trunc i64 %456 to i32
+  call void @php_openlog(ptr noundef %453, i32 noundef %455, i32 noundef %457)
   br label %458
 
-458:                                              ; preds = %455
+458:                                              ; preds = %447
   br label %459
 
-459:                                              ; preds = %458, %433
+459:                                              ; preds = %458
+  %460 = load ptr, ptr %51, align 8
+  %461 = getelementptr inbounds %struct._zval_struct, ptr %460, i32 0, i32 1
+  store i32 3, ptr %461, align 8
+  br label %462
+
+462:                                              ; preds = %459
+  br label %463
+
+463:                                              ; preds = %462, %433
   ret void
 }
 
@@ -836,39 +843,42 @@ define hidden void @zif_closelog(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %5
   call void @zend_wrong_parameters_none_error()
-  br label %29
+  br label %32
 
 17:                                               ; preds = %5
   br label %18
 
 18:                                               ; preds = %17
   call void @php_closelog()
-  %19 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %23
+  %19 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  call void @free(ptr noundef %22) #4
-  store ptr null, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21), align 8
-  br label %23
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  %24 = load ptr, ptr %23, align 8
+  call void @free(ptr noundef %24) #4
+  %25 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 21
+  store ptr null, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %22, %18
+  br label %27
 
-24:                                               ; preds = %23
-  br label %25
-
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 1
-  store i32 3, ptr %27, align 8
+27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %25
-  br label %29
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 1
+  store i32 3, ptr %30, align 8
+  br label %31
 
-29:                                               ; preds = %28, %16
+31:                                               ; preds = %28
+  br label %32
+
+32:                                               ; preds = %31, %16
   ret void
 }
 

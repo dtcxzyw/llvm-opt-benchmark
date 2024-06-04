@@ -888,42 +888,43 @@ define internal void @io_buffer_map_file(ptr noundef %0, i32 noundef %1, i64 nou
   %54 = call ptr @mmap(ptr noundef null, i64 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52, i64 noundef %53) #18
   store ptr %54, ptr %13, align 8
   %55 = load ptr, ptr %13, align 8
-  %56 = icmp eq ptr %55, inttoptr (i64 -1 to ptr)
-  br i1 %56, label %57, label %63
+  %56 = inttoptr i64 -1 to ptr
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %64
 
-57:                                               ; preds = %48
-  br label %58
+58:                                               ; preds = %48
+  br label %59
 
-58:                                               ; preds = %57
-  %59 = call ptr @rb_errno_ptr()
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %14, align 4
-  %61 = load i32, ptr %14, align 4
-  call void @rb_syserr_fail(i32 noundef %61, ptr noundef @.str.113) #22
+59:                                               ; preds = %58
+  %60 = call ptr @rb_errno_ptr()
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr %14, align 4
+  %62 = load i32, ptr %14, align 4
+  call void @rb_syserr_fail(i32 noundef %62, ptr noundef @.str.113) #22
   unreachable
 
-62:                                               ; No predecessors!
-  br label %63
+63:                                               ; No predecessors!
+  br label %64
 
-63:                                               ; preds = %62, %48
-  %64 = load ptr, ptr %13, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.rb_io_buffer, ptr %65, i32 0, i32 0
-  store ptr %64, ptr %66, align 8
-  %67 = load i64, ptr %8, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.rb_io_buffer, ptr %68, i32 0, i32 1
-  store i64 %67, ptr %69, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.rb_io_buffer, ptr %70, i32 0, i32 2
-  %72 = load i32, ptr %71, align 8
-  %73 = or i32 %72, 4
-  store i32 %73, ptr %71, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.rb_io_buffer, ptr %74, i32 0, i32 2
-  %76 = load i32, ptr %75, align 8
-  %77 = or i32 %76, 256
-  store i32 %77, ptr %75, align 8
+64:                                               ; preds = %63, %48
+  %65 = load ptr, ptr %13, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct.rb_io_buffer, ptr %66, i32 0, i32 0
+  store ptr %65, ptr %67, align 8
+  %68 = load i64, ptr %8, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.rb_io_buffer, ptr %69, i32 0, i32 1
+  store i64 %68, ptr %70, align 8
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds %struct.rb_io_buffer, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8
+  %74 = or i32 %73, 4
+  store i32 %74, ptr %72, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct.rb_io_buffer, ptr %75, i32 0, i32 2
+  %77 = load i32, ptr %76, align 8
+  %78 = or i32 %77, 256
+  store i32 %78, ptr %76, align 8
   ret void
 }
 
@@ -2211,7 +2212,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) #0 {
   %28 = load i64, ptr %4, align 8
   %29 = call i32 @io_flags_for_size(i64 noundef %28)
   call void @io_buffer_initialize(i64 noundef %25, ptr noundef %26, ptr noundef null, i64 noundef %27, i32 noundef %29, i64 noundef 4)
-  br label %110
+  br label %111
 
 30:                                               ; preds = %19
   %31 = load ptr, ptr %5, align 8
@@ -2232,7 +2233,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) #0 {
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 4
   %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %71
+  br i1 %43, label %44, label %72
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %5, align 8
@@ -2245,104 +2246,105 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) #0 {
   %52 = call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %47, i64 noundef %50, i64 noundef %51, i32 noundef 1) #18
   store ptr %52, ptr %6, align 8
   %53 = load ptr, ptr %6, align 8
-  %54 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
-  br i1 %54, label %55, label %61
+  %54 = inttoptr i64 -1 to ptr
+  %55 = icmp eq ptr %53, %54
+  br i1 %55, label %56, label %62
 
-55:                                               ; preds = %44
-  br label %56
+56:                                               ; preds = %44
+  br label %57
 
-56:                                               ; preds = %55
-  %57 = call ptr @rb_errno_ptr()
-  %58 = load i32, ptr %57, align 4
-  store i32 %58, ptr %7, align 4
-  %59 = load i32, ptr %7, align 4
-  call void @rb_syserr_fail(i32 noundef %59, ptr noundef @.str.20) #22
+57:                                               ; preds = %56
+  %58 = call ptr @rb_errno_ptr()
+  %59 = load i32, ptr %58, align 4
+  store i32 %59, ptr %7, align 4
+  %60 = load i32, ptr %7, align 4
+  call void @rb_syserr_fail(i32 noundef %60, ptr noundef @.str.20) #22
   unreachable
 
-60:                                               ; No predecessors!
-  br label %61
+61:                                               ; No predecessors!
+  br label %62
 
-61:                                               ; preds = %60, %44
-  %62 = load ptr, ptr %5, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = load i64, ptr %4, align 8
-  call void @io_buffer_resize_clear(ptr noundef %62, ptr noundef %63, i64 noundef %64)
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.rb_io_buffer, ptr %66, i32 0, i32 0
-  store ptr %65, ptr %67, align 8
-  %68 = load i64, ptr %4, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.rb_io_buffer, ptr %69, i32 0, i32 1
-  store i64 %68, ptr %70, align 8
-  br label %110
+62:                                               ; preds = %61, %44
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i64, ptr %4, align 8
+  call void @io_buffer_resize_clear(ptr noundef %63, ptr noundef %64, i64 noundef %65)
+  %66 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds %struct.rb_io_buffer, ptr %67, i32 0, i32 0
+  store ptr %66, ptr %68, align 8
+  %69 = load i64, ptr %4, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct.rb_io_buffer, ptr %70, i32 0, i32 1
+  store i64 %69, ptr %71, align 8
+  br label %111
 
-71:                                               ; preds = %38
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.rb_io_buffer, ptr %72, i32 0, i32 2
-  %74 = load i32, ptr %73, align 8
-  %75 = and i32 %74, 2
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %106
+72:                                               ; preds = %38
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.rb_io_buffer, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 8
+  %76 = and i32 %75, 2
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %107
 
-77:                                               ; preds = %71
-  %78 = load i64, ptr %4, align 8
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %82
+78:                                               ; preds = %72
+  %79 = load i64, ptr %4, align 8
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %5, align 8
-  call void @io_buffer_free(ptr noundef %81)
-  br label %110
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %5, align 8
+  call void @io_buffer_free(ptr noundef %82)
+  br label %111
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.rb_io_buffer, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i64, ptr %4, align 8
-  %87 = call ptr @realloc(ptr noundef %85, i64 noundef %86) #24
-  store ptr %87, ptr %8, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %96, label %90
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds %struct.rb_io_buffer, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i64, ptr %4, align 8
+  %88 = call ptr @realloc(ptr noundef %86, i64 noundef %87) #24
+  store ptr %88, ptr %8, align 8
+  %89 = load ptr, ptr %8, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %97, label %91
 
-90:                                               ; preds = %82
-  br label %91
+91:                                               ; preds = %83
+  br label %92
 
-91:                                               ; preds = %90
-  %92 = call ptr @rb_errno_ptr()
-  %93 = load i32, ptr %92, align 4
-  store i32 %93, ptr %9, align 4
-  %94 = load i32, ptr %9, align 4
-  call void @rb_syserr_fail(i32 noundef %94, ptr noundef @.str.21) #22
+92:                                               ; preds = %91
+  %93 = call ptr @rb_errno_ptr()
+  %94 = load i32, ptr %93, align 4
+  store i32 %94, ptr %9, align 4
+  %95 = load i32, ptr %9, align 4
+  call void @rb_syserr_fail(i32 noundef %95, ptr noundef @.str.21) #22
   unreachable
 
-95:                                               ; No predecessors!
-  br label %96
+96:                                               ; No predecessors!
+  br label %97
 
-96:                                               ; preds = %95, %82
-  %97 = load ptr, ptr %5, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = load i64, ptr %4, align 8
-  call void @io_buffer_resize_clear(ptr noundef %97, ptr noundef %98, i64 noundef %99)
-  %100 = load ptr, ptr %8, align 8
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.rb_io_buffer, ptr %101, i32 0, i32 0
-  store ptr %100, ptr %102, align 8
-  %103 = load i64, ptr %4, align 8
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.rb_io_buffer, ptr %104, i32 0, i32 1
-  store i64 %103, ptr %105, align 8
-  br label %110
+97:                                               ; preds = %96, %83
+  %98 = load ptr, ptr %5, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = load i64, ptr %4, align 8
+  call void @io_buffer_resize_clear(ptr noundef %98, ptr noundef %99, i64 noundef %100)
+  %101 = load ptr, ptr %8, align 8
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct.rb_io_buffer, ptr %102, i32 0, i32 0
+  store ptr %101, ptr %103, align 8
+  %104 = load i64, ptr %4, align 8
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds %struct.rb_io_buffer, ptr %105, i32 0, i32 1
+  store i64 %104, ptr %106, align 8
+  br label %111
 
-106:                                              ; preds = %71
-  %107 = load i64, ptr %3, align 8
-  %108 = load ptr, ptr %5, align 8
-  %109 = load i64, ptr %4, align 8
-  call void @io_buffer_resize_copy(i64 noundef %107, ptr noundef %108, i64 noundef %109)
-  br label %110
+107:                                              ; preds = %72
+  %108 = load i64, ptr %3, align 8
+  %109 = load ptr, ptr %5, align 8
+  %110 = load i64, ptr %4, align 8
+  call void @io_buffer_resize_copy(i64 noundef %108, ptr noundef %109, i64 noundef %110)
+  br label %111
 
-110:                                              ; preds = %106, %96, %80, %61, %24
+111:                                              ; preds = %107, %97, %81, %62, %24
   ret void
 }
 
@@ -6565,26 +6567,27 @@ define internal ptr @io_buffer_map_memory(i64 noundef %0, i32 noundef %1) #0 {
   %20 = call ptr @mmap(ptr noundef null, i64 noundef %18, i32 noundef 3, i32 noundef %19, i32 noundef -1, i64 noundef 0) #18
   store ptr %20, ptr %6, align 8
   %21 = load ptr, ptr %6, align 8
-  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
-  br i1 %22, label %23, label %29
+  %22 = inttoptr i64 -1 to ptr
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %30
 
-23:                                               ; preds = %17
-  br label %24
+24:                                               ; preds = %17
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = call ptr @rb_errno_ptr()
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %7, align 4
-  %27 = load i32, ptr %7, align 4
-  call void @rb_syserr_fail(i32 noundef %27, ptr noundef @.str.111) #22
+25:                                               ; preds = %24
+  %26 = call ptr @rb_errno_ptr()
+  %27 = load i32, ptr %26, align 4
+  store i32 %27, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4
+  call void @rb_syserr_fail(i32 noundef %28, ptr noundef @.str.111) #22
   unreachable
 
-28:                                               ; No predecessors!
-  br label %29
+29:                                               ; No predecessors!
+  br label %30
 
-29:                                               ; preds = %28, %17
-  %30 = load ptr, ptr %6, align 8
-  ret ptr %30
+30:                                               ; preds = %29, %17
+  %31 = load ptr, ptr %6, align 8
+  ret ptr %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

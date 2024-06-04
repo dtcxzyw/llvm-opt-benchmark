@@ -201,27 +201,29 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (float, ptr @linprebuf, i64 10), ptr @linpre, align 8
-  store ptr getelementptr inbounds (float, ptr @rinprebuf, i64 10), ptr @rinpre, align 8
-  %1 = load ptr, ptr @lstepbuf, align 8
-  %add.ptr = getelementptr inbounds float, ptr %1, i64 10
+  %1 = getelementptr inbounds float, ptr @linprebuf, i64 10
+  store ptr %1, ptr @linpre, align 8
+  %2 = getelementptr inbounds float, ptr @rinprebuf, i64 10
+  store ptr %2, ptr @rinpre, align 8
+  %3 = load ptr, ptr @lstepbuf, align 8
+  %add.ptr = getelementptr inbounds float, ptr %3, i64 10
   store ptr %add.ptr, ptr @lstep, align 8
-  %2 = load ptr, ptr @rstepbuf, align 8
-  %add.ptr1 = getelementptr inbounds float, ptr %2, i64 10
+  %4 = load ptr, ptr @rstepbuf, align 8
+  %add.ptr1 = getelementptr inbounds float, ptr %4, i64 10
   store ptr %add.ptr1, ptr @rstep, align 8
-  %3 = load ptr, ptr @loutbuf, align 8
-  %add.ptr2 = getelementptr inbounds float, ptr %3, i64 10
+  %5 = load ptr, ptr @loutbuf, align 8
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 10
   store ptr %add.ptr2, ptr @lout, align 8
-  %4 = load ptr, ptr @routbuf, align 8
-  %add.ptr3 = getelementptr inbounds float, ptr %4, i64 10
+  %6 = load ptr, ptr @routbuf, align 8
+  %add.ptr3 = getelementptr inbounds float, ptr %6, i64 10
   store ptr %add.ptr3, ptr @rout, align 8
   call void @llvm.memset.p0.i64(ptr align 16 @B, i8 0, i64 48000, i1 false)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %7 = load i32, ptr %retval, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -769,77 +771,79 @@ if.then123:                                       ; preds = %while.end
   call void @llvm.memmove.p0.p0.i64(ptr align 16 @rinprebuf, ptr align 4 %add.ptr127, i64 %mul129, i1 false)
   %132 = load i64, ptr %num_samples.addr, align 8
   %idx.neg = sub i64 0, %132
-  %add.ptr130 = getelementptr inbounds float, ptr getelementptr inbounds (float, ptr @linprebuf, i64 10), i64 %idx.neg
-  %133 = load ptr, ptr %left_samples.addr, align 8
-  %134 = load i64, ptr %num_samples.addr, align 8
-  %mul131 = mul i64 %134, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr130, ptr align 4 %133, i64 %mul131, i1 false)
+  %133 = getelementptr inbounds float, ptr @linprebuf, i64 10
+  %add.ptr130 = getelementptr inbounds float, ptr %133, i64 %idx.neg
+  %134 = load ptr, ptr %left_samples.addr, align 8
   %135 = load i64, ptr %num_samples.addr, align 8
-  %idx.neg132 = sub i64 0, %135
-  %add.ptr133 = getelementptr inbounds float, ptr getelementptr inbounds (float, ptr @rinprebuf, i64 10), i64 %idx.neg132
-  %136 = load ptr, ptr %right_samples.addr, align 8
-  %137 = load i64, ptr %num_samples.addr, align 8
-  %mul134 = mul i64 %137, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr133, ptr align 4 %136, i64 %mul134, i1 false)
+  %mul131 = mul i64 %135, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr130, ptr align 4 %134, i64 %mul131, i1 false)
+  %136 = load i64, ptr %num_samples.addr, align 8
+  %idx.neg132 = sub i64 0, %136
+  %137 = getelementptr inbounds float, ptr @rinprebuf, i64 10
+  %add.ptr133 = getelementptr inbounds float, ptr %137, i64 %idx.neg132
+  %138 = load ptr, ptr %right_samples.addr, align 8
+  %139 = load i64, ptr %num_samples.addr, align 8
+  %mul134 = mul i64 %139, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr133, ptr align 4 %138, i64 %mul134, i1 false)
   br label %if.end162
 
 if.else135:                                       ; preds = %while.end
-  %138 = load ptr, ptr @replaygainfilter, align 8
-  %downsample136 = getelementptr inbounds %struct.ReplayGainFilter, ptr %138, i32 0, i32 1
-  %139 = load i32, ptr %downsample136, align 8
-  store i32 %139, ptr %downsample, align 4
-  %140 = load i64, ptr %num_samples.addr, align 8
-  %sub137 = sub i64 %140, 10
-  %141 = load i32, ptr %downsample, align 4
-  %conv138 = zext i32 %141 to i64
+  %140 = load ptr, ptr @replaygainfilter, align 8
+  %downsample136 = getelementptr inbounds %struct.ReplayGainFilter, ptr %140, i32 0, i32 1
+  %141 = load i32, ptr %downsample136, align 8
+  store i32 %141, ptr %downsample, align 4
+  %142 = load i64, ptr %num_samples.addr, align 8
+  %sub137 = sub i64 %142, 10
+  %143 = load i32, ptr %downsample, align 4
+  %conv138 = zext i32 %143 to i64
   %mul139 = mul i64 %sub137, %conv138
-  %142 = load ptr, ptr %left_samples.addr, align 8
-  %add.ptr140 = getelementptr inbounds float, ptr %142, i64 %mul139
+  %144 = load ptr, ptr %left_samples.addr, align 8
+  %add.ptr140 = getelementptr inbounds float, ptr %144, i64 %mul139
   store ptr %add.ptr140, ptr %left_samples.addr, align 8
-  %143 = load i64, ptr %num_samples.addr, align 8
-  %sub141 = sub i64 %143, 10
-  %144 = load i32, ptr %downsample, align 4
-  %conv142 = zext i32 %144 to i64
+  %145 = load i64, ptr %num_samples.addr, align 8
+  %sub141 = sub i64 %145, 10
+  %146 = load i32, ptr %downsample, align 4
+  %conv142 = zext i32 %146 to i64
   %mul143 = mul i64 %sub141, %conv142
-  %145 = load ptr, ptr %right_samples.addr, align 8
-  %add.ptr144 = getelementptr inbounds float, ptr %145, i64 %mul143
+  %147 = load ptr, ptr %right_samples.addr, align 8
+  %add.ptr144 = getelementptr inbounds float, ptr %147, i64 %mul143
   store ptr %add.ptr144, ptr %right_samples.addr, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond145
 
 for.cond145:                                      ; preds = %for.inc159, %if.else135
-  %146 = load i32, ptr %i, align 4
-  %cmp146 = icmp slt i32 %146, 10
+  %148 = load i32, ptr %i, align 4
+  %cmp146 = icmp slt i32 %148, 10
   br i1 %cmp146, label %for.body148, label %for.end161
 
 for.body148:                                      ; preds = %for.cond145
-  %147 = load ptr, ptr %left_samples.addr, align 8
-  %148 = load i32, ptr %i, align 4
-  %149 = load i32, ptr %downsample, align 4
-  %mul149 = mul i32 %148, %149
+  %149 = load ptr, ptr %left_samples.addr, align 8
+  %150 = load i32, ptr %i, align 4
+  %151 = load i32, ptr %downsample, align 4
+  %mul149 = mul i32 %150, %151
   %idxprom150 = zext i32 %mul149 to i64
-  %arrayidx151 = getelementptr inbounds float, ptr %147, i64 %idxprom150
-  %150 = load float, ptr %arrayidx151, align 4
-  %151 = load i32, ptr %i, align 4
-  %idxprom152 = sext i32 %151 to i64
-  %arrayidx153 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %idxprom152
-  store float %150, ptr %arrayidx153, align 4
-  %152 = load ptr, ptr %right_samples.addr, align 8
+  %arrayidx151 = getelementptr inbounds float, ptr %149, i64 %idxprom150
+  %152 = load float, ptr %arrayidx151, align 4
   %153 = load i32, ptr %i, align 4
-  %154 = load i32, ptr %downsample, align 4
-  %mul154 = mul i32 %153, %154
+  %idxprom152 = sext i32 %153 to i64
+  %arrayidx153 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %idxprom152
+  store float %152, ptr %arrayidx153, align 4
+  %154 = load ptr, ptr %right_samples.addr, align 8
+  %155 = load i32, ptr %i, align 4
+  %156 = load i32, ptr %downsample, align 4
+  %mul154 = mul i32 %155, %156
   %idxprom155 = zext i32 %mul154 to i64
-  %arrayidx156 = getelementptr inbounds float, ptr %152, i64 %idxprom155
-  %155 = load float, ptr %arrayidx156, align 4
-  %156 = load i32, ptr %i, align 4
-  %idxprom157 = sext i32 %156 to i64
+  %arrayidx156 = getelementptr inbounds float, ptr %154, i64 %idxprom155
+  %157 = load float, ptr %arrayidx156, align 4
+  %158 = load i32, ptr %i, align 4
+  %idxprom157 = sext i32 %158 to i64
   %arrayidx158 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %idxprom157
-  store float %155, ptr %arrayidx158, align 4
+  store float %157, ptr %arrayidx158, align 4
   br label %for.inc159
 
 for.inc159:                                       ; preds = %for.body148
-  %157 = load i32, ptr %i, align 4
-  %inc160 = add nsw i32 %157, 1
+  %159 = load i32, ptr %i, align 4
+  %inc160 = add nsw i32 %159, 1
   store i32 %inc160, ptr %i, align 4
   br label %for.cond145, !llvm.loop !12
 
@@ -851,8 +855,8 @@ if.end162:                                        ; preds = %for.end161, %if.the
   br label %return
 
 return:                                           ; preds = %if.end162, %if.then119, %sw.default, %if.then
-  %158 = load i32, ptr %retval, align 4
-  ret i32 %158
+  %160 = load i32, ptr %retval, align 4
+  ret i32 %160
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

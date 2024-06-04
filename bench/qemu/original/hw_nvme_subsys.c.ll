@@ -476,9 +476,10 @@ if.then:                                          ; preds = %for.body
   %16 = load i32, ptr %i, align 4
   %idxprom9 = sext i32 %16 to i64
   %arrayidx10 = getelementptr [256 x ptr], ptr %ctrls8, i64 0, i64 %idxprom9
-  store ptr inttoptr (i64 65535 to ptr), ptr %arrayidx10, align 8
-  %17 = load i32, ptr %cnt, align 4
-  %inc = add i32 %17, 1
+  %17 = inttoptr i64 65535 to ptr
+  store ptr %17, ptr %arrayidx10, align 8
+  %18 = load i32, ptr %cnt, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %cnt, align 4
   br label %if.end
 
@@ -486,14 +487,14 @@ if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %18 = load i32, ptr %i, align 4
-  %inc11 = add i32 %18, 1
+  %19 = load i32, ptr %i, align 4
+  %inc11 = add i32 %19, 1
   store i32 %inc11, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %land.end
-  %19 = load i32, ptr %cnt, align 4
-  ret i32 %19
+  %20 = load i32, ptr %cnt, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -550,7 +551,8 @@ if.then:                                          ; preds = %for.body
   %idxprom4 = sext i32 %12 to i64
   %arrayidx5 = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %idxprom4
   %13 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %13, inttoptr (i64 65535 to ptr)
+  %14 = inttoptr i64 65535 to ptr
+  %cmp6 = icmp eq ptr %13, %14
   br i1 %cmp6, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
@@ -561,14 +563,14 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then8
-  %14 = load ptr, ptr %subsys, align 8
-  %ctrls9 = getelementptr inbounds %struct.NvmeSubsystem, ptr %14, i32 0, i32 4
-  %15 = load i32, ptr %cntlid, align 4
-  %idxprom10 = sext i32 %15 to i64
+  %15 = load ptr, ptr %subsys, align 8
+  %ctrls9 = getelementptr inbounds %struct.NvmeSubsystem, ptr %15, i32 0, i32 4
+  %16 = load i32, ptr %cntlid, align 4
+  %idxprom10 = sext i32 %16 to i64
   %arrayidx11 = getelementptr [256 x ptr], ptr %ctrls9, i64 0, i64 %idxprom10
   store ptr null, ptr %arrayidx11, align 8
-  %16 = load ptr, ptr %sctrl, align 8
-  %scid12 = getelementptr inbounds %struct.NvmeSecCtrlEntry, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %sctrl, align 8
+  %scid12 = getelementptr inbounds %struct.NvmeSecCtrlEntry, ptr %17, i32 0, i32 0
   store i16 0, ptr %scid12, align 1
   br label %if.end13
 
@@ -576,8 +578,8 @@ if.end13:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13
-  %17 = load i32, ptr %i, align 4
-  %inc = add i32 %17, 1
+  %18 = load i32, ptr %i, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -613,25 +615,26 @@ if.then:                                          ; preds = %entry
   %3 = load i16, ptr %cntlid, align 8
   %idxprom = zext i16 %3 to i64
   %arrayidx = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %idxprom
-  store ptr inttoptr (i64 65535 to ptr), ptr %arrayidx, align 8
+  %4 = inttoptr i64 65535 to ptr
+  store ptr %4, ptr %arrayidx, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %subsys.addr, align 8
-  %ctrls1 = getelementptr inbounds %struct.NvmeSubsystem, ptr %4, i32 0, i32 4
-  %5 = load ptr, ptr %n.addr, align 8
-  %cntlid2 = getelementptr inbounds %struct.NvmeCtrl, ptr %5, i32 0, i32 6
-  %6 = load i16, ptr %cntlid2, align 8
-  %idxprom3 = zext i16 %6 to i64
+  %5 = load ptr, ptr %subsys.addr, align 8
+  %ctrls1 = getelementptr inbounds %struct.NvmeSubsystem, ptr %5, i32 0, i32 4
+  %6 = load ptr, ptr %n.addr, align 8
+  %cntlid2 = getelementptr inbounds %struct.NvmeCtrl, ptr %6, i32 0, i32 6
+  %7 = load i16, ptr %cntlid2, align 8
+  %idxprom3 = zext i16 %7 to i64
   %arrayidx4 = getelementptr [256 x ptr], ptr %ctrls1, i64 0, i64 %idxprom3
   store ptr null, ptr %arrayidx4, align 8
-  %7 = load ptr, ptr %n.addr, align 8
-  call void @nvme_subsys_unreserve_cntlids(ptr noundef %7)
+  %8 = load ptr, ptr %n.addr, align 8
+  call void @nvme_subsys_unreserve_cntlids(ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %n.addr, align 8
-  %cntlid5 = getelementptr inbounds %struct.NvmeCtrl, ptr %8, i32 0, i32 6
+  %9 = load ptr, ptr %n.addr, align 8
+  %cntlid5 = getelementptr inbounds %struct.NvmeCtrl, ptr %9, i32 0, i32 6
   store i16 -1, ptr %cntlid5, align 8
   ret void
 }

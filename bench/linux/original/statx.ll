@@ -8,20 +8,20 @@ define dso_local i32 @io_statx_prep(ptr nocapture noundef %0, ptr noundef %1) lo
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %42
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %42
+  br i1 %9, label %10, label %43
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %42
+  br i1 %14, label %15, label %43
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -48,24 +48,25 @@ define dso_local i32 @io_statx_prep(ptr nocapture noundef %0, ptr noundef %1) lo
   %33 = tail call ptr @getname_flags(ptr noundef %24, i32 noundef %32, ptr noundef null) #2
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %33, ptr %34, align 8
-  %35 = icmp ugt ptr %33, inttoptr (i64 -4096 to ptr)
-  br i1 %35, label %36, label %39
+  %35 = inttoptr i64 -4096 to ptr
+  %36 = icmp ugt ptr %33, %35
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %15
-  %37 = ptrtoint ptr %33 to i64
-  %38 = trunc i64 %37 to i32
+37:                                               ; preds = %15
+  %38 = ptrtoint ptr %33 to i64
+  %39 = trunc i64 %38 to i32
   store ptr null, ptr %34, align 8
-  br label %42
+  br label %43
 
-39:                                               ; preds = %15
-  %40 = load i32, ptr %11, align 4
-  %41 = or i32 %40, 8208
-  store i32 %41, ptr %11, align 4
-  br label %42
+40:                                               ; preds = %15
+  %41 = load i32, ptr %11, align 4
+  %42 = or i32 %41, 8208
+  store i32 %42, ptr %11, align 4
+  br label %43
 
-42:                                               ; preds = %39, %36, %10, %6, %2
-  %43 = phi i32 [ %38, %36 ], [ 0, %39 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
-  ret i32 %43
+43:                                               ; preds = %40, %37, %10, %6, %2
+  %44 = phi i32 [ %39, %37 ], [ 0, %40 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
+  ret i32 %44
 }
 
 ; Function Attrs: null_pointer_is_valid

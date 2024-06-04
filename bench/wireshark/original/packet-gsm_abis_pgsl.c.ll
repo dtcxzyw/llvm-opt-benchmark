@@ -640,7 +640,8 @@ define hidden void @proto_reg_handoff_abis_pgsl() #0 {
   %2 = call ptr @find_dissector(ptr noundef @.str.93)
   store ptr %2, ptr @sub_handles, align 16
   %3 = call ptr @find_dissector(ptr noundef @.str.94)
-  store ptr %3, ptr getelementptr inbounds ([2 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
+  %4 = getelementptr inbounds [2 x ptr], ptr @sub_handles, i64 0, i64 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -718,118 +719,119 @@ define internal void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, ptr noun
 18:                                               ; preds = %5
   %19 = load ptr, ptr @sub_handles, align 16
   store ptr %19, ptr %11, align 8
-  br label %22
+  br label %23
 
 20:                                               ; preds = %5
-  %21 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  store ptr %21, ptr %11, align 8
-  br label %22
+  %21 = getelementptr inbounds [2 x ptr], ptr @sub_handles, i64 0, i64 1
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %11, align 8
+  br label %23
 
-22:                                               ; preds = %20, %18
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  switch i32 %25, label %89 [
-    i32 32, label %26
-    i32 49, label %43
-    i32 50, label %43
-    i32 51, label %43
+23:                                               ; preds = %20, %18
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4
+  switch i32 %26, label %90 [
+    i32 32, label %27
+    i32 49, label %44
+    i32 50, label %44
+    i32 51, label %44
   ]
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %10, align 8
-  call void @dissect_pgsl_access_burst(ptr noundef %27, i32 noundef 0, ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %10, align 8
-  call void @dissect_pgsl_access_burst(ptr noundef %31, i32 noundef 5, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = load ptr, ptr %10, align 8
-  call void @dissect_pgsl_access_burst(ptr noundef %35, i32 noundef 10, ptr noundef %36, ptr noundef %37, ptr noundef %38)
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = load ptr, ptr %10, align 8
-  call void @dissect_pgsl_access_burst(ptr noundef %39, i32 noundef 15, ptr noundef %40, ptr noundef %41, ptr noundef %42)
-  br label %96
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %10, align 8
+  call void @dissect_pgsl_access_burst(ptr noundef %28, i32 noundef 0, ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %10, align 8
+  call void @dissect_pgsl_access_burst(ptr noundef %32, i32 noundef 5, ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = load ptr, ptr %10, align 8
+  call void @dissect_pgsl_access_burst(ptr noundef %36, i32 noundef 10, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %10, align 8
+  call void @dissect_pgsl_access_burst(ptr noundef %40, i32 noundef 15, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  br label %97
 
-43:                                               ; preds = %22, %22, %22
-  %44 = load ptr, ptr %11, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = call i32 @call_dissector_with_data(ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  %50 = load ptr, ptr %10, align 8
-  %51 = load i32, ptr %9, align 4
-  %52 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 0
-  call void @setup_rlc_mac_priv(ptr noundef %50, i32 noundef %51, ptr noundef %15, ptr noundef %13, ptr noundef %52)
-  %53 = load i32, ptr %15, align 4
-  %54 = icmp uge i32 %53, 2
-  br i1 %54, label %55, label %70
+44:                                               ; preds = %23, %23, %23
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %6, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = call i32 @call_dissector_with_data(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  %51 = load ptr, ptr %10, align 8
+  %52 = load i32, ptr %9, align 4
+  %53 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 0
+  call void @setup_rlc_mac_priv(ptr noundef %51, i32 noundef %52, ptr noundef %15, ptr noundef %13, ptr noundef %53)
+  %54 = load i32, ptr %15, align 4
+  %55 = icmp uge i32 %54, 2
+  br i1 %55, label %56, label %71
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %56, i32 0, i32 4
-  store i32 1, ptr %57, align 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr [2 x i32], ptr %14, i64 0, i64 0
-  %60 = load i32, ptr %59, align 4
-  %61 = load i32, ptr %13, align 4
-  %62 = load ptr, ptr %7, align 8
-  %63 = call ptr @get_egprs_data_block(ptr noundef %58, i32 noundef %60, i32 noundef %61, ptr noundef %62)
-  store ptr %63, ptr %12, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = load ptr, ptr %12, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %10, align 8
-  %69 = call i32 @call_dissector_with_data(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
-  br label %70
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %57, i32 0, i32 4
+  store i32 1, ptr %58, align 4
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr [2 x i32], ptr %14, i64 0, i64 0
+  %61 = load i32, ptr %60, align 4
+  %62 = load i32, ptr %13, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = call ptr @get_egprs_data_block(ptr noundef %59, i32 noundef %61, i32 noundef %62, ptr noundef %63)
+  store ptr %64, ptr %12, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %7, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = call i32 @call_dissector_with_data(ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69)
+  br label %71
 
-70:                                               ; preds = %55, %43
-  %71 = load i32, ptr %15, align 4
-  %72 = icmp eq i32 %71, 3
-  br i1 %72, label %73, label %88
+71:                                               ; preds = %56, %44
+  %72 = load i32, ptr %15, align 4
+  %73 = icmp eq i32 %72, 3
+  br i1 %73, label %74, label %89
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %74, i32 0, i32 4
-  store i32 2, ptr %75, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr [2 x i32], ptr %14, i64 0, i64 1
-  %78 = load i32, ptr %77, align 4
-  %79 = load i32, ptr %13, align 4
-  %80 = load ptr, ptr %7, align 8
-  %81 = call ptr @get_egprs_data_block(ptr noundef %76, i32 noundef %78, i32 noundef %79, ptr noundef %80)
-  store ptr %81, ptr %12, align 8
-  %82 = load ptr, ptr %11, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = call i32 @call_dissector_with_data(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86)
-  br label %88
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct.RlcMacPrivateData_t, ptr %75, i32 0, i32 4
+  store i32 2, ptr %76, align 4
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr [2 x i32], ptr %14, i64 0, i64 1
+  %79 = load i32, ptr %78, align 4
+  %80 = load i32, ptr %13, align 4
+  %81 = load ptr, ptr %7, align 8
+  %82 = call ptr @get_egprs_data_block(ptr noundef %77, i32 noundef %79, i32 noundef %80, ptr noundef %81)
+  store ptr %82, ptr %12, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = call i32 @call_dissector_with_data(ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87)
+  br label %89
 
-88:                                               ; preds = %73, %70
-  br label %96
+89:                                               ; preds = %74, %71
+  br label %97
 
-89:                                               ; preds = %22
-  %90 = load ptr, ptr %11, align 8
-  %91 = load ptr, ptr %6, align 8
-  %92 = load ptr, ptr %7, align 8
-  %93 = load ptr, ptr %8, align 8
-  %94 = load ptr, ptr %10, align 8
-  %95 = call i32 @call_dissector_with_data(ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94)
-  br label %96
+90:                                               ; preds = %23
+  %91 = load ptr, ptr %11, align 8
+  %92 = load ptr, ptr %6, align 8
+  %93 = load ptr, ptr %7, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = call i32 @call_dissector_with_data(ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %95)
+  br label %97
 
-96:                                               ; preds = %89, %88, %26
+97:                                               ; preds = %90, %89, %27
   ret void
 }
 

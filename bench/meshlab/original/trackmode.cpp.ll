@@ -1657,9 +1657,10 @@ define linkonce_odr void @_ZN3vcg8PathModeD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg8PathModeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::PathMode", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3vcg8PathModeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.vcg::PathMode", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   call void @_ZN3vcg9TrackModeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -1926,11 +1927,12 @@ define linkonce_odr void @_ZN3vcg8AreaModeD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg8AreaModeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::AreaMode", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %5 = getelementptr inbounds %"class.vcg::AreaMode", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3vcg8AreaModeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.vcg::AreaMode", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
+  %6 = getelementptr inbounds %"class.vcg::AreaMode", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
   call void @_ZN3vcg9TrackModeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
@@ -9377,18 +9379,18 @@ define void @_ZN3vcg10trackutils14DrawSphereIconEPNS_9TrackballEbb(ptr noundef %
   %23 = getelementptr inbounds %"class.vcg::Transform", ptr %22, i32 0, i32 0
   call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv(ptr dead_on_unwind writable sret(%"class.vcg::Matrix44") align 4 %9, ptr noundef nonnull align 4 dereferenceable(32) %23)
   invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %10, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %24 unwind label %43
+          to label %24 unwind label %44
 
 24:                                               ; preds = %3
   %25 = invoke { <2 x float>, float } @_ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
-          to label %26 unwind label %43
+          to label %26 unwind label %44
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds %"class.vcg::Point3", ptr %8, i32 0, i32 0
   store { <2 x float>, float } %25, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 8 %13, i64 12, i1 false)
   %28 = invoke { <2 x float>, float } @_ZNK3vcg6Point3IfEplERKS1_(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %8)
-          to label %29 unwind label %43
+          to label %29 unwind label %44
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds %"class.vcg::Point3", ptr %7, i32 0, i32 0
@@ -9411,82 +9413,85 @@ define void @_ZN3vcg10trackutils14DrawSphereIconEPNS_9TrackballEbb(ptr noundef %
   call void @glEnable(i32 noundef 2848)
   %39 = load i8, ptr %5, align 1
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %47
+  br i1 %40, label %41, label %48
 
 41:                                               ; preds = %29
-  %42 = load float, ptr getelementptr inbounds (%"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 5), align 4
-  call void @glLineWidth(float noundef %42)
-  br label %49
+  %42 = getelementptr inbounds %"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 5
+  %43 = load float, ptr %42, align 4
+  call void @glLineWidth(float noundef %43)
+  br label %51
 
-43:                                               ; preds = %26, %24, %3
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %26, %24, %3
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %11, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %12, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %11, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %12, align 4
   call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %9) #7
-  br label %69
+  br label %72
 
-47:                                               ; preds = %29
-  %48 = load float, ptr getelementptr inbounds (%"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 4), align 4
-  call void @glLineWidth(float noundef %48)
-  br label %49
+48:                                               ; preds = %29
+  %49 = getelementptr inbounds %"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 4
+  %50 = load float, ptr %49, align 4
+  call void @glLineWidth(float noundef %50)
+  br label %51
 
-49:                                               ; preds = %47, %41
+51:                                               ; preds = %48, %41
   call void @glDisable(i32 noundef 2903)
   call void @glEnable(i32 noundef 2896)
   call void @glEnable(i32 noundef 16384)
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
-  call void @_ZN3vcg7glColorERKNS_6Color4IhEE(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 3))
-  %50 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef %50)
-  %51 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  store float 0x3FD99999A0000000, ptr %51, align 16
-  %52 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
-  store float 0x3FD99999A0000000, ptr %52, align 4
-  %53 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
-  store float 0x3FEB333340000000, ptr %53, align 8
+  %52 = getelementptr inbounds %"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 3
+  call void @_ZN3vcg7glColorERKNS_6Color4IhEE(ptr noundef nonnull align 1 dereferenceable(4) %52)
+  %53 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef %53)
   %54 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %54)
-  %55 = load i8, ptr %6, align 1
-  %56 = trunc i8 %55 to i1
-  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %56)
-  call void @glRotatef(float noundef 9.000000e+01, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  store float 0x3FD99999A0000000, ptr %54, align 16
+  %55 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  store float 0x3FD99999A0000000, ptr %55, align 4
+  %56 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
+  store float 0x3FEB333340000000, ptr %56, align 8
   %57 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  store float 0x3FD99999A0000000, ptr %57, align 16
-  %58 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
-  store float 0x3FEB333340000000, ptr %58, align 4
-  %59 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
-  store float 0x3FD99999A0000000, ptr %59, align 8
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %57)
+  %58 = load i8, ptr %6, align 1
+  %59 = trunc i8 %58 to i1
+  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %59)
+  call void @glRotatef(float noundef 9.000000e+01, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %60 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %60)
-  %61 = load i8, ptr %6, align 1
-  %62 = trunc i8 %61 to i1
-  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %62)
-  call void @glRotatef(float noundef 9.000000e+01, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  store float 0x3FD99999A0000000, ptr %60, align 16
+  %61 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  store float 0x3FEB333340000000, ptr %61, align 4
+  %62 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
+  store float 0x3FD99999A0000000, ptr %62, align 8
   %63 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  store float 0x3FEB333340000000, ptr %63, align 16
-  %64 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
-  store float 0x3FD99999A0000000, ptr %64, align 4
-  %65 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
-  store float 0x3FD99999A0000000, ptr %65, align 8
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %63)
+  %64 = load i8, ptr %6, align 1
+  %65 = trunc i8 %64 to i1
+  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %65)
+  call void @glRotatef(float noundef 9.000000e+01, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
   %66 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %66)
-  %67 = load i8, ptr %6, align 1
-  %68 = trunc i8 %67 to i1
-  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %68)
+  store float 0x3FEB333340000000, ptr %66, align 16
+  %67 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  store float 0x3FD99999A0000000, ptr %67, align 4
+  %68 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
+  store float 0x3FD99999A0000000, ptr %68, align 8
+  %69 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %69)
+  %70 = load i8, ptr %6, align 1
+  %71 = trunc i8 %70 to i1
+  call void @_ZN3vcg10trackutils10DrawCircleEb(i1 noundef zeroext %71)
   call void @glPopMatrix()
   call void @glPopAttrib()
   ret void
 
-69:                                               ; preds = %43
-  %70 = load ptr, ptr %11, align 8
-  %71 = load i32, ptr %12, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+72:                                               ; preds = %44
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr %12, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 declare void @glPushAttrib(i32 noundef) #5
@@ -12649,18 +12654,18 @@ define void @_ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE(ptr noundef %0)
   %17 = getelementptr inbounds %"class.vcg::Transform", ptr %16, i32 0, i32 0
   call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv(ptr dead_on_unwind writable sret(%"class.vcg::Matrix44") align 4 %5, ptr noundef nonnull align 4 dereferenceable(32) %17)
   invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %18 unwind label %47
+          to label %18 unwind label %49
 
 18:                                               ; preds = %1
   %19 = invoke { <2 x float>, float } @_ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_(ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-          to label %20 unwind label %47
+          to label %20 unwind label %49
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds %"class.vcg::Point3", ptr %4, i32 0, i32 0
   store { <2 x float>, float } %19, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 8 %9, i64 12, i1 false)
   %22 = invoke { <2 x float>, float } @_ZNK3vcg6Point3IfEplERKS1_(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %4)
-          to label %23 unwind label %47
+          to label %23 unwind label %49
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds %"class.vcg::Point3", ptr %3, i32 0, i32 0
@@ -12681,52 +12686,54 @@ define void @_ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE(ptr noundef %0)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %12, ptr align 16 @__const._ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE.amb, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr align 16 @__const._ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE.col, i64 16, i1 false)
   call void @glEnable(i32 noundef 2848)
-  %33 = load float, ptr getelementptr inbounds (%"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 5), align 4
-  call void @glLineWidth(float noundef %33)
+  %33 = getelementptr inbounds %"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 5
+  %34 = load float, ptr %33, align 4
+  call void @glLineWidth(float noundef %34)
   call void @glDisable(i32 noundef 2903)
   call void @glEnable(i32 noundef 2896)
   call void @glEnable(i32 noundef 16384)
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
-  call void @_ZN3vcg7glColorERKNS_6Color4IhEE(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 3))
-  %34 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef %34)
-  %35 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  store float 1.000000e+00, ptr %35, align 16
-  %36 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
-  store float 0.000000e+00, ptr %36, align 4
-  %37 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
-  store float 0.000000e+00, ptr %37, align 8
-  %38 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %38)
+  %35 = getelementptr inbounds %"class.vcg::trackutils::DrawingHint", ptr @_ZN3vcg10trackutils2DHE, i32 0, i32 3
+  call void @_ZN3vcg7glColorERKNS_6Color4IhEE(ptr noundef nonnull align 1 dereferenceable(4) %35)
+  %36 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef %36)
+  %37 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  store float 1.000000e+00, ptr %37, align 16
+  %38 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  store float 0.000000e+00, ptr %38, align 4
+  %39 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
+  store float 0.000000e+00, ptr %39, align 8
+  %40 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %40)
   call void @glBegin(i32 noundef 1)
   call void @glNormal3d(double noundef -1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   call void @glVertex3d(double noundef -1.200000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   call void @glNormal3d(double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   call void @glVertex3d(double noundef 1.200000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   call void @glEnd()
-  %39 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  store float 0.000000e+00, ptr %39, align 16
-  %40 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
-  store float 1.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
-  store float 0.000000e+00, ptr %41, align 8
-  %42 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %42)
+  %41 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  store float 0.000000e+00, ptr %41, align 16
+  %42 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  store float 1.000000e+00, ptr %42, align 4
+  %43 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
+  store float 0.000000e+00, ptr %43, align 8
+  %44 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %44)
   call void @glBegin(i32 noundef 1)
   call void @glNormal3d(double noundef 0.000000e+00, double noundef -1.000000e+00, double noundef 0.000000e+00)
   call void @glVertex3d(double noundef 0.000000e+00, double noundef -1.200000e+00, double noundef 0.000000e+00)
   call void @glNormal3d(double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00)
   call void @glVertex3d(double noundef 0.000000e+00, double noundef 1.200000e+00, double noundef 0.000000e+00)
   call void @glEnd()
-  %43 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  store float 0.000000e+00, ptr %43, align 16
-  %44 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
-  store float 0.000000e+00, ptr %44, align 4
-  %45 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
-  store float 1.000000e+00, ptr %45, align 8
-  %46 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
-  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %46)
+  %45 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  store float 0.000000e+00, ptr %45, align 16
+  %46 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  store float 0.000000e+00, ptr %46, align 4
+  %47 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 2
+  store float 1.000000e+00, ptr %47, align 8
+  %48 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 0
+  call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef %48)
   call void @glBegin(i32 noundef 1)
   call void @glNormal3d(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef -1.000000e+00)
   call void @glVertex3d(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef -1.200000e+00)
@@ -12737,22 +12744,22 @@ define void @_ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE(ptr noundef %0)
   call void @glPopAttrib()
   ret void
 
-47:                                               ; preds = %20, %18, %1
-  %48 = landingpad { ptr, i32 }
+49:                                               ; preds = %20, %18, %1
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %7, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %8, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %7, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %8, align 4
   call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %5) #7
-  br label %51
+  br label %53
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr %8, align 4
-  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
-  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
-  resume { ptr, i32 } %55
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %8, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17260,49 +17267,50 @@ define void @_ZN3vcg17NavigatorWasdModeC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3vcg9TrackModeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg17NavigatorWasdModeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 3
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %6)
-          to label %7 unwind label %17
+  %6 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3vcg17NavigatorWasdModeE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 3
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %7)
+          to label %8 unwind label %18
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 7
-  store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 8
-  store i32 1, ptr %9, align 4
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 7
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 8
+  store i32 1, ptr %10, align 4
   invoke void @_ZN3vcg17NavigatorWasdMode18SetTopSpeedsAndAccEfff(ptr noundef nonnull align 8 dereferenceable(80) %5, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 4.000000e+00)
-          to label %10 unwind label %17
+          to label %11 unwind label %18
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 16
-  store float 0.000000e+00, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 15
-  store float 0.000000e+00, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 5
-  %15 = load ptr, ptr %14, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(80) %5)
-          to label %16 unwind label %17
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 16
+  store float 0.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.vcg::NavigatorWasdMode", ptr %5, i32 0, i32 15
+  store float 0.000000e+00, ptr %13, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 5
+  %16 = load ptr, ptr %15, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(80) %5)
+          to label %17 unwind label %18
 
-16:                                               ; preds = %10
+17:                                               ; preds = %11
   ret void
 
-17:                                               ; preds = %10, %7, %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %11, %8, %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
   call void @_ZN3vcg9TrackModeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17310,7 +17318,8 @@ define linkonce_odr void @_ZN3vcg9TrackModeC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg9TrackModeE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3vcg9TrackModeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

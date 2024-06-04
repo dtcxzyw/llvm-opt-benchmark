@@ -6409,88 +6409,90 @@ define dso_local { ptr, i64 } @_ZN5vcpkg18azure_blob_headersB5cxx11Ev() #0 perso
   %7 = alloca i1, align 1
   %8 = load atomic i8, ptr @_ZGVZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11 acquire, align 8
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %17, !prof !11
+  br i1 %9, label %10, label %19, !prof !11
 
 10:                                               ; preds = %0
   %11 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11) #5
   %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %10
   store i1 true, ptr %7, align 1
   store ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %14 unwind label %19
+          to label %14 unwind label %21
 
 14:                                               ; preds = %13
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 1), ptr %2, align 8
+  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 1
+  store ptr %15, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 1), ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %15 unwind label %23
+  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %17 unwind label %25
 
-15:                                               ; preds = %14
+17:                                               ; preds = %14
   store i1 false, ptr %7, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
-  %16 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #5
+  %18 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #5
   call void @__cxa_guard_release(ptr @_ZGVZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11) #5
-  br label %17
+  br label %19
 
-17:                                               ; preds = %15, %10, %0
+19:                                               ; preds = %17, %10, %0
   call void @_ZN5vcpkg4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ILm2EEERAT__S7_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11) #5
-  %18 = load { ptr, i64 }, ptr %1, align 8
-  ret { ptr, i64 } %18
+  %20 = load { ptr, i64 }, ptr %1, align 8
+  ret { ptr, i64 } %20
 
-19:                                               ; preds = %13
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %4, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %5, align 4
-  br label %27
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %4, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %5, align 4
+  br label %29
 
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %14
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %4, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %5, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %4, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %5, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  br label %27
+  br label %29
 
-27:                                               ; preds = %23, %19
+29:                                               ; preds = %25, %21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
-  %28 = load i1, ptr %7, align 1
-  br i1 %28, label %29, label %37
+  %30 = load i1, ptr %7, align 1
+  br i1 %30, label %31, label %39
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %2, align 8
-  %31 = icmp eq ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, %30
-  br i1 %31, label %36, label %32
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %2, align 8
+  %33 = icmp eq ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, %32
+  br i1 %33, label %38, label %34
 
-32:                                               ; preds = %32, %29
-  %33 = phi ptr [ %30, %29 ], [ %34, %32 ]
-  %34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #5
-  %35 = icmp eq ptr %34, @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11
-  br i1 %35, label %36, label %32
+34:                                               ; preds = %34, %31
+  %35 = phi ptr [ %32, %31 ], [ %36, %34 ]
+  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %35, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #5
+  %37 = icmp eq ptr %36, @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11
+  br i1 %37, label %38, label %34
 
-36:                                               ; preds = %32, %29
-  br label %37
+38:                                               ; preds = %34, %31
+  br label %39
 
-37:                                               ; preds = %36, %27
+39:                                               ; preds = %38, %29
   call void @__cxa_guard_abort(ptr @_ZGVZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11) #5
-  br label %38
+  br label %40
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %4, align 8
+  %42 = load i32, ptr %5, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: nounwind
@@ -6565,16 +6567,17 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #6 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 2
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11, i64 2), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
-  %6 = icmp eq ptr %5, @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  %7 = icmp eq ptr %6, @_ZZN5vcpkg18azure_blob_headersB5cxx11EvE9s_headersB5cxx11
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

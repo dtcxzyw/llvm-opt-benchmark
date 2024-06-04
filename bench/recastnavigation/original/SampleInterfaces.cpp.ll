@@ -75,36 +75,37 @@ define dso_local void @_ZN12BuildContextC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9rcContextC2Eb(ptr noundef nonnull align 8 dereferenceable(10) %5, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12BuildContext, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 4
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 6
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 3
-  %9 = getelementptr inbounds [1000 x ptr], ptr %8, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 8000, i1 false)
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12BuildContext, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 4
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 6
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 3
+  %10 = getelementptr inbounds [1000 x ptr], ptr %9, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 8000, i1 false)
   invoke void @_ZN9rcContext11resetTimersEv(ptr noundef nonnull align 8 dereferenceable(10) %5)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %1
-  ret void
+          to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  call void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #8
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  call void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #7
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %3, align 8
+  %18 = load i32, ptr %4, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -115,17 +116,18 @@ define linkonce_odr dso_local void @_ZN9rcContextC2Eb(ptr noundef nonnull align 
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 1
-  %8 = load i8, ptr %4, align 1
-  %9 = trunc i8 %8 to i1
-  %10 = zext i1 %9 to i8
-  store i8 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 2
-  %12 = load i8, ptr %4, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 1
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 1
+  %9 = load i8, ptr %4, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = zext i1 %10 to i8
+  store i8 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 2
+  %13 = load i8, ptr %4, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 1
   ret void
 }
 
@@ -436,12 +438,12 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull align 
   store ptr %1, ptr %4, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
+  call void @llvm.va_start.p0(ptr %13)
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %16 = call i32 @vprintf(ptr noundef %14, ptr noundef %15) #8
+  %16 = call i32 @vprintf(ptr noundef %14, ptr noundef %15) #7
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = call i32 (ptr, ...) @printf(ptr noundef @.str)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 16 @__const._ZN12BuildContext7dumpLogEPKcz.TAB_STOPS, i64 16, i1 false)
   store i32 0, ptr %7, align 4
@@ -566,14 +568,8 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull align 
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare i32 @vprintf(ptr noundef, ptr noundef) #5
 
 declare i32 @printf(ptr noundef, ...) #4
 
@@ -606,9 +602,9 @@ define dso_local noundef ptr @_ZNK12BuildContext10getLogTextEi(ptr noundef nonnu
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init() #7 section ".text.startup" {
+define internal void @__cxx_global_var_init() #6 section ".text.startup" {
   call void @_ZN16GLCheckerTextureC2Ev(ptr noundef nonnull align 4 dereferenceable(4) @_ZL5g_tex)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN16GLCheckerTextureD2Ev, ptr @_ZL5g_tex, ptr @__dso_handle) #8
+  %1 = call i32 @__cxa_atexit(ptr @_ZN16GLCheckerTextureD2Ev, ptr @_ZL5g_tex, ptr @__dso_handle) #7
   ret void
 }
 
@@ -652,7 +648,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTextureD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #8
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11DebugDrawGL9depthMaskEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
@@ -981,12 +977,13 @@ define dso_local void @_ZN6FileIOC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN8duFileIOC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 2
-  store i32 -1, ptr %5, align 8
+  call void @_ZN8duFileIOC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 2
+  store i32 -1, ptr %6, align 8
   ret void
 }
 
@@ -995,7 +992,8 @@ define linkonce_odr dso_local void @_ZN8duFileIOC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8duFileIO, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8duFileIO, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1004,38 +1002,39 @@ define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %12
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = invoke i32 @fclose(ptr noundef %9)
-          to label %11 unwind label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke i32 @fclose(ptr noundef %10)
+          to label %12 unwind label %14
 
-11:                                               ; preds = %7
-  br label %12
+12:                                               ; preds = %8
+  br label %13
 
-12:                                               ; preds = %11, %1
-  call void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+13:                                               ; preds = %12, %1
+  call void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 
-13:                                               ; preds = %7
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #11
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #11
   unreachable
 }
 
 declare i32 @fclose(ptr noundef) #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
   call void @_ZSt9terminatev() #11
   unreachable
 }
@@ -1045,20 +1044,20 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: nounwind
-declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #8
+  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #7
   call void @_ZdlPv(ptr noundef %3) #12
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPv(ptr noundef) #9
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) #0 align 2 {
@@ -1259,7 +1258,7 @@ define linkonce_odr dso_local void @_ZN12BuildContextD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #8
+  call void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #7
   ret void
 }
 
@@ -1268,7 +1267,7 @@ define linkonce_odr dso_local void @_ZN12BuildContextD0Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN12BuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16472) %3) #8
+  call void @_ZN12BuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16472) %3) #7
   call void @_ZdlPv(ptr noundef %3) #12
   ret void
 }
@@ -1278,7 +1277,7 @@ define linkonce_odr dso_local void @_ZN11DebugDrawGLD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   ret void
 }
 
@@ -1287,7 +1286,7 @@ define linkonce_odr dso_local void @_ZN11DebugDrawGLD0Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11DebugDrawGLD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  call void @_ZN11DebugDrawGLD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   call void @_ZdlPv(ptr noundef %3) #12
   ret void
 }
@@ -1328,25 +1327,31 @@ declare void @glTexImage2D(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare void @glTexParameteri(i32 noundef, i32 noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_SampleInterfaces.cpp() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_SampleInterfaces.cpp() #6 section ".text.startup" {
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { builtin nounwind }
 

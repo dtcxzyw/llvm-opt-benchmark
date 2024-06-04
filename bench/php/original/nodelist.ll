@@ -525,49 +525,50 @@ define hidden void @zim_DOMNodeList_count(ptr noundef %0, ptr noundef %1) #0 {
 22:                                               ; preds = %21, %20
   %23 = phi i32 [ 0, %20 ], [ -1, %21 ]
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %46
+  %27 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %29)
+  br label %47
 
-29:                                               ; No predecessors!
-  br label %30
+30:                                               ; No predecessors!
+  br label %31
 
-30:                                               ; preds = %29, %22
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @php_dom_obj_from_obj(ptr noundef %33)
-  store ptr %34, ptr %6, align 8
-  br label %35
-
-35:                                               ; preds = %30
+31:                                               ; preds = %30, %22
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @php_dom_obj_from_obj(ptr noundef %34)
+  store ptr %35, ptr %6, align 8
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %4, align 8
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = call i32 @php_dom_get_nodelist_length(ptr noundef %38)
-  %40 = sext i32 %39 to i64
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %41, i32 0, i32 0
-  store i64 %40, ptr %42, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 1
-  store i32 4, ptr %44, align 8
-  br label %45
+36:                                               ; preds = %31
+  br label %37
 
-45:                                               ; preds = %36
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %4, align 8
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = call i32 @php_dom_get_nodelist_length(ptr noundef %39)
+  %41 = sext i32 %40 to i64
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i32 0, i32 0
+  store i64 %41, ptr %43, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 1
+  store i32 4, ptr %45, align 8
   br label %46
 
-46:                                               ; preds = %45, %26
+46:                                               ; preds = %37
+  br label %47
+
+47:                                               ; preds = %46, %26
   ret void
 }
 

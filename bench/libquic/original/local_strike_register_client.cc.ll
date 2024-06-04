@@ -83,40 +83,41 @@ entry:
   store i32 %startup, ptr %startup.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net20StrikeRegisterClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base4LockC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %max_entries.addr, align 4
-  %1 = load i32, ptr %current_time_external.addr, align 4
-  %2 = load i32, ptr %window_secs.addr, align 4
-  %3 = load ptr, ptr %orbit.addr, align 8
-  %4 = load i32, ptr %startup.addr, align 4
-  invoke void @_ZN3net14StrikeRegisterC1EjjjPKhNS0_11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_, i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  %1 = load i32, ptr %max_entries.addr, align 4
+  %2 = load i32, ptr %current_time_external.addr, align 4
+  %3 = load i32, ptr %window_secs.addr, align 4
+  %4 = load ptr, ptr %orbit.addr, align 8
+  %5 = load i32, ptr %startup.addr, align 4
+  invoke void @_ZN3net14StrikeRegisterC1EjjjPKhNS0_11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN4base4LockD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #8
   br label %ehcleanup
 
@@ -138,7 +139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClientE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -408,7 +410,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 2
   call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #8
   %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 1

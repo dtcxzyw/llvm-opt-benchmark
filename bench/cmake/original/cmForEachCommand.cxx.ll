@@ -2751,7 +2751,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115TryParseIntegerER17cmExec
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %9, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %43
 
@@ -2796,7 +2796,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115TryParseIntegerER17cmExec
   br label %92
 
 43:                                               ; preds = %24
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12out_of_range) #3
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12out_of_range) #3
   %45 = icmp eq i32 %25, %44
   br i1 %45, label %46, label %94
 
@@ -5556,9 +5556,6 @@ define linkonce_odr dso_local noundef i32 @_ZNSt7__cxx114stoiERKNS_12basic_strin
   ret i32 %11
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
@@ -5707,7 +5704,7 @@ define linkonce_odr dso_local void @_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PP
 declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) #9
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #13
+declare ptr @__errno_location() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkElSt17integral_constantIbLb1EE(i64 noundef %0) #5 comdat align 2 {
@@ -6336,7 +6333,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructINSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
@@ -6351,41 +6348,42 @@ define internal void @_ZN12_GLOBAL__N_124cmForEachFunctionBlockerC2EP10cmMakefil
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %7) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 3
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 4
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 5
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  invoke void @_ZN10cmMakefile13PushLoopBlockEv(ptr noundef nonnull align 8 dereferenceable(3520) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 3
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 4
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 5
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8
+  invoke void @_ZN10cmMakefile13PushLoopBlockEv(ptr noundef nonnull align 8 dereferenceable(3520) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %7) #3
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %7) #3
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6416,13 +6414,14 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
-  store i32 1, ptr %6, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
+  store i32 1, ptr %7, align 8
   ret void
 }
 
@@ -6469,23 +6468,24 @@ define internal void @_ZN12_GLOBAL__N_124cmForEachFunctionBlockerD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_ZN10cmMakefile12PopLoopBlockEv(ptr noundef nonnull align 8 dereferenceable(3520) %5)
-          to label %6 unwind label %8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_ZN10cmMakefile12PopLoopBlockEv(ptr noundef nonnull align 8 dereferenceable(3520) %6)
+          to label %7 unwind label %9
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %3) #3
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #20
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 }
 
@@ -6656,11 +6656,12 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #3
   ret void
 }
 
@@ -10321,7 +10322,7 @@ define linkonce_odr dso_local void @_ZSt19__iterator_categoryIN9__gnu_cxx17__nor
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #15
+declare i1 @llvm.is.constant.i64(i64) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
@@ -12755,7 +12756,7 @@ define linkonce_odr dso_local void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPS
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #16
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8optionalIS5_EESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSI_PSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 comdat align 2 {
@@ -15156,7 +15157,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #16
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_EvT_SE_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
@@ -17099,6 +17100,9 @@ define internal void @_GLOBAL__sub_I_cmForEachCommand.cxx() #0 section ".text.st
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17111,11 +17115,11 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #16 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }

@@ -48,34 +48,36 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %7 = getelementptr inbounds %struct.pmix_peer_t, ptr %6, i32 0, i32 3
-  %8 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
-  %10 = and i32 4, %9
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %15, label %12
+  %6 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.pmix_peer_t, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8
+  %11 = and i32 4, %10
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %16, label %13
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr null, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
-  store i32 0, ptr %14, align 4
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr null, ptr %14, align 8
+  %15 = load ptr, ptr %5, align 8
+  store i32 0, ptr %15, align 4
   store i32 -1366, ptr %3, align 4
-  br label %19
+  br label %21
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  store ptr @pmix_ptl_tool_module, ptr %16, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.pmix_ptl_base_component_t, ptr @pmix_mca_ptl_tool_component, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %5, align 8
-  store i32 %17, ptr %18, align 4
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  store ptr @pmix_ptl_tool_module, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.pmix_ptl_base_component_t, ptr @pmix_mca_ptl_tool_component, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = load ptr, ptr %5, align 8
+  store i32 %19, ptr %20, align 4
   store i32 0, ptr %3, align 4
-  br label %19
+  br label %21
 
-19:                                               ; preds = %15, %12
-  %20 = load i32, ptr %3, align 4
-  ret i32 %20
+21:                                               ; preds = %16, %13
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

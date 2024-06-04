@@ -326,24 +326,25 @@ define internal i32 @compat_drm_getclient(ptr noundef %0, i32 %1, i64 noundef %2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @compat_drm_getstats(ptr nocapture readnone %0, i32 %1, i64 noundef %2) #0 align 16 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = icmp sgt ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %6, label %13
+  %5 = inttoptr i64 -1 to ptr
+  %6 = icmp sgt ptr %4, %5
+  br i1 %6, label %7, label %14
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
-  %7 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %8 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 124, ptr %4, i64 %7) #7, !srcloc !11
-  %9 = extractvalue { i64, ptr, i64 } %8, 0
-  %10 = extractvalue { i64, ptr, i64 } %8, 2
-  tail call void @llvm.write_register.i64(metadata !0, i64 %10)
+  %8 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %9 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 124, ptr %4, i64 %8) #7, !srcloc !11
+  %10 = extractvalue { i64, ptr, i64 } %9, 0
+  %11 = extractvalue { i64, ptr, i64 } %9, 2
+  tail call void @llvm.write_register.i64(metadata !0, i64 %11)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  %11 = icmp eq i64 %9, 0
-  %12 = select i1 %11, i32 0, i32 -14
-  br label %13
+  %12 = icmp eq i64 %10, 0
+  %13 = select i1 %12, i32 0, i32 -14
+  br label %14
 
-13:                                               ; preds = %6, %3
-  %14 = phi i32 [ %12, %6 ], [ -14, %3 ]
-  ret i32 %14
+14:                                               ; preds = %7, %3
+  %15 = phi i32 [ %13, %7 ], [ -14, %3 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

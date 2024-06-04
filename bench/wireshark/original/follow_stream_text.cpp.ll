@@ -534,90 +534,92 @@ define void @_ZN16FollowStreamTextC2EP7QWidget(ptr noundef nonnull align 8 deref
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN14QPlainTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 1
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 2
-  call void @_ZN4QMapIijEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #12
-  %15 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 3
-  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %15) #12
+  %12 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 1
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 2
+  call void @_ZN4QMapIijEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  %17 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 3
+  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %17) #12
   invoke void @_ZN7QWidget16setMouseTrackingEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i1 noundef zeroext true)
-          to label %16 unwind label %34
+          to label %18 unwind label %36
 
-16:                                               ; preds = %2
-  %17 = invoke noundef ptr @_ZNK14QPlainTextEdit8documentEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %18 unwind label %34
+18:                                               ; preds = %2
+  %19 = invoke noundef ptr @_ZNK14QPlainTextEdit8documentEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+          to label %20 unwind label %36
 
-18:                                               ; preds = %16
-  store ptr %17, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = load ptr, ptr @mainApp, align 8
-  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %8, ptr noundef nonnull align 8 dereferenceable(216) %20, i1 noundef zeroext false)
-          to label %21 unwind label %34
+20:                                               ; preds = %18
+  store ptr %19, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr @mainApp, align 8
+  invoke void @_ZNK15MainApplication13monospaceFontEb(ptr dead_on_unwind writable sret(%class.QFont) align 8 %8, ptr noundef nonnull align 8 dereferenceable(216) %22, i1 noundef zeroext false)
+          to label %23 unwind label %36
 
-21:                                               ; preds = %18
-  invoke void @_ZN13QTextDocument14setDefaultFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %22 unwind label %38
+23:                                               ; preds = %20
+  invoke void @_ZN13QTextDocument14setDefaultFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(12) %8)
+          to label %24 unwind label %40
 
-22:                                               ; preds = %21
+24:                                               ; preds = %23
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #12
-  %23 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %24 unwind label %34
-
-24:                                               ; preds = %22
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette10windowTextEv(ptr noundef nonnull align 8 dereferenceable(12) %23)
-          to label %26 unwind label %34
+  %25 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+          to label %26 unwind label %36
 
 26:                                               ; preds = %24
-  %27 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %28 unwind label %34
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette10windowTextEv(ptr noundef nonnull align 8 dereferenceable(12) %25)
+          to label %28 unwind label %36
 
 28:                                               ; preds = %26
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef nonnull align 8 dereferenceable(12) %27)
-          to label %30 unwind label %34
+  %29 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+          to label %30 unwind label %36
 
 30:                                               ; preds = %28
-  %31 = invoke noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %29, double noundef 3.500000e-01)
-          to label %32 unwind label %34
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef nonnull align 8 dereferenceable(12) %29)
+          to label %32 unwind label %36
 
 32:                                               ; preds = %30
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %9, i32 noundef %31) #12
-  %33 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 4 %9, i64 14, i1 false)
+  %33 = invoke noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %31, double noundef 3.500000e-01)
+          to label %34 unwind label %36
+
+34:                                               ; preds = %32
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %9, i32 noundef %33) #12
+  %35 = getelementptr inbounds %class.FollowStreamText, ptr %10, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 4 %9, i64 14, i1 false)
   ret void
 
-34:                                               ; preds = %30, %28, %26, %24, %22, %18, %16, %2
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %32, %30, %28, %26, %24, %20, %18, %2
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %5, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %6, align 4
-  br label %42
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  br label %44
 
-38:                                               ; preds = %21
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %23
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %5, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %6, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #12
-  br label %42
+  br label %44
 
-42:                                               ; preds = %38, %34
-  call void @_ZN4QMapIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #12
+44:                                               ; preds = %40, %36
+  call void @_ZN4QMapIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
   call void @_ZN14QPlainTextEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  br label %43
+  br label %45
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i32, ptr %6, align 4
+  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
+  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
+  resume { ptr, i32 } %49
 }
 
 declare void @_ZN14QPlainTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -1100,7 +1102,7 @@ define void @_ZN16FollowStreamText7addTextE7QStringbjb(ptr noundef nonnull align
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %5
-  br label %161
+  br label %165
 
 43:                                               ; preds = %5
   %44 = call noundef ptr @_ZNK14QPlainTextEdit8documentEv(ptr noundef nonnull align 8 dereferenceable(40) %38)
@@ -1176,16 +1178,16 @@ define void @_ZN16FollowStreamText7addTextE7QStringbjb(ptr noundef nonnull align
 
 77:                                               ; preds = %76
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #12
-  br label %148
+  br label %152
 
-78:                                               ; preds = %159, %157, %150, %149, %148, %132, %129, %123, %120, %105, %102, %96, %93, %75, %73, %71, %69, %67, %65, %63, %61
+78:                                               ; preds = %163, %161, %154, %153, %152, %136, %132, %126, %122, %107, %103, %97, %93, %75, %73, %71, %69, %67, %65, %63, %61
   %79 = landingpad { ptr, i32 }
           cleanup
   %80 = extractvalue { ptr, i32 } %79, 0
   store ptr %80, ptr %15, align 8
   %81 = extractvalue { ptr, i32 } %79, 1
   store i32 %81, ptr %16, align 4
-  br label %166
+  br label %170
 
 82:                                               ; preds = %68
   %83 = landingpad { ptr, i32 }
@@ -1195,7 +1197,7 @@ define void @_ZN16FollowStreamText7addTextE7QStringbjb(ptr noundef nonnull align
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %16, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #12
-  br label %166
+  br label %170
 
 86:                                               ; preds = %76
   %87 = landingpad { ptr, i32 }
@@ -1205,211 +1207,215 @@ define void @_ZN16FollowStreamText7addTextE7QStringbjb(ptr noundef nonnull align
   %89 = extractvalue { ptr, i32 } %87, 1
   store i32 %89, ptr %16, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #12
-  br label %166
+  br label %170
 
 90:                                               ; preds = %56
   %91 = load i8, ptr %8, align 1
   %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %120
+  br i1 %92, label %93, label %122
 
 93:                                               ; preds = %90
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 8 getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4), i64 6, i1 false)
+  %94 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 8 %94, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 2 %20, i64 6, i1 false)
-  %94 = load i48, ptr %21, align 8
-  %95 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %94)
-          to label %96 unwind label %78
+  %95 = load i48, ptr %21, align 8
+  %96 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %95)
+          to label %97 unwind label %78
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
-  %98 = extractvalue { i64, i64 } %95, 0
-  store i64 %98, ptr %97, align 4
-  %99 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
-  %100 = extractvalue { i64, i64 } %95, 1
-  store i64 %100, ptr %99, align 4
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
+  %99 = extractvalue { i64, i64 } %96, 0
+  store i64 %99, ptr %98, align 4
+  %100 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %101 = extractvalue { i64, i64 } %96, 1
+  store i64 %101, ptr %100, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(14) %19, i32 noundef 1)
-          to label %101 unwind label %78
+          to label %102 unwind label %78
 
-101:                                              ; preds = %96
+102:                                              ; preds = %97
   invoke void @_ZN11QTextFormat13setForegroundERK6QBrush(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %102 unwind label %112
+          to label %103 unwind label %114
 
-102:                                              ; preds = %101
+103:                                              ; preds = %102
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %24, ptr align 2 getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5), i64 6, i1 false)
+  %104 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %24, ptr align 2 %104, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 2 %24, i64 6, i1 false)
-  %103 = load i48, ptr %25, align 8
-  %104 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %103)
-          to label %105 unwind label %78
+  %105 = load i48, ptr %25, align 8
+  %106 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %105)
+          to label %107 unwind label %78
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 0
-  %107 = extractvalue { i64, i64 } %104, 0
-  store i64 %107, ptr %106, align 4
-  %108 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 1
-  %109 = extractvalue { i64, i64 } %104, 1
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 0
+  %109 = extractvalue { i64, i64 } %106, 0
   store i64 %109, ptr %108, align 4
+  %110 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 1
+  %111 = extractvalue { i64, i64 } %106, 1
+  store i64 %111, ptr %110, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(14) %23, i32 noundef 1)
-          to label %110 unwind label %78
+          to label %112 unwind label %78
 
-110:                                              ; preds = %105
+112:                                              ; preds = %107
   invoke void @_ZN11QTextFormat13setBackgroundERK6QBrush(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %111 unwind label %116
+          to label %113 unwind label %118
 
-111:                                              ; preds = %110
+113:                                              ; preds = %112
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
-  br label %147
+  br label %151
 
-112:                                              ; preds = %101
-  %113 = landingpad { ptr, i32 }
+114:                                              ; preds = %102
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %15, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %16, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %15, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %16, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
-  br label %166
+  br label %170
 
-116:                                              ; preds = %110
-  %117 = landingpad { ptr, i32 }
+118:                                              ; preds = %112
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %15, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %16, align 4
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %15, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %16, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
-  br label %166
+  br label %170
 
-120:                                              ; preds = %90
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 4 getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2), i64 6, i1 false)
+122:                                              ; preds = %90
+  %123 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 4 %123, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 2 %28, i64 6, i1 false)
-  %121 = load i48, ptr %29, align 8
-  %122 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %121)
-          to label %123 unwind label %78
+  %124 = load i48, ptr %29, align 8
+  %125 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %124)
+          to label %126 unwind label %78
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 0
-  %125 = extractvalue { i64, i64 } %122, 0
-  store i64 %125, ptr %124, align 4
-  %126 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 1
-  %127 = extractvalue { i64, i64 } %122, 1
-  store i64 %127, ptr %126, align 4
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 0
+  %128 = extractvalue { i64, i64 } %125, 0
+  store i64 %128, ptr %127, align 4
+  %129 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 1
+  %130 = extractvalue { i64, i64 } %125, 1
+  store i64 %130, ptr %129, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(14) %27, i32 noundef 1)
-          to label %128 unwind label %78
+          to label %131 unwind label %78
 
-128:                                              ; preds = %123
+131:                                              ; preds = %126
   invoke void @_ZN11QTextFormat13setForegroundERK6QBrush(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %129 unwind label %139
+          to label %132 unwind label %143
 
-129:                                              ; preds = %128
+132:                                              ; preds = %131
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3), i64 6, i1 false)
+  %133 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 %133, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 2 %32, i64 6, i1 false)
-  %130 = load i48, ptr %33, align 8
-  %131 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %130)
-          to label %132 unwind label %78
+  %134 = load i48, ptr %33, align 8
+  %135 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %134)
+          to label %136 unwind label %78
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
-  %134 = extractvalue { i64, i64 } %131, 0
-  store i64 %134, ptr %133, align 4
-  %135 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
-  %136 = extractvalue { i64, i64 } %131, 1
-  store i64 %136, ptr %135, align 4
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
+  %138 = extractvalue { i64, i64 } %135, 0
+  store i64 %138, ptr %137, align 4
+  %139 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
+  %140 = extractvalue { i64, i64 } %135, 1
+  store i64 %140, ptr %139, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(14) %31, i32 noundef 1)
-          to label %137 unwind label %78
+          to label %141 unwind label %78
 
-137:                                              ; preds = %132
+141:                                              ; preds = %136
   invoke void @_ZN11QTextFormat13setBackgroundERK6QBrush(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %138 unwind label %143
+          to label %142 unwind label %147
 
-138:                                              ; preds = %137
+142:                                              ; preds = %141
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #12
-  br label %147
+  br label %151
 
-139:                                              ; preds = %128
-  %140 = landingpad { ptr, i32 }
-          cleanup
-  %141 = extractvalue { ptr, i32 } %140, 0
-  store ptr %141, ptr %15, align 8
-  %142 = extractvalue { ptr, i32 } %140, 1
-  store i32 %142, ptr %16, align 4
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
-  br label %166
-
-143:                                              ; preds = %137
+143:                                              ; preds = %131
   %144 = landingpad { ptr, i32 }
           cleanup
   %145 = extractvalue { ptr, i32 } %144, 0
   store ptr %145, ptr %15, align 8
   %146 = extractvalue { ptr, i32 } %144, 1
   store i32 %146, ptr %16, align 4
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
+  br label %170
+
+147:                                              ; preds = %141
+  %148 = landingpad { ptr, i32 }
+          cleanup
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %15, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %16, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #12
-  br label %166
+  br label %170
 
-147:                                              ; preds = %138, %111
-  br label %148
+151:                                              ; preds = %142, %113
+  br label %152
 
-148:                                              ; preds = %147, %77
+152:                                              ; preds = %151, %77
   invoke void @_ZN14QPlainTextEdit20setCurrentCharFormatERK15QTextCharFormat(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(12) %13)
-          to label %149 unwind label %78
-
-149:                                              ; preds = %148
-  invoke void @_ZN14QPlainTextEdit15insertPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %150 unwind label %78
-
-150:                                              ; preds = %149
-  %151 = load i32, ptr %9, align 4
-  %152 = getelementptr inbounds %class.FollowStreamText, ptr %38, i32 0, i32 2
-  invoke void @_ZNK14QPlainTextEdit10textCursorEv(ptr dead_on_unwind writable sret(%class.QTextCursor) align 8 %35, ptr noundef nonnull align 8 dereferenceable(40) %38)
           to label %153 unwind label %78
 
-153:                                              ; preds = %150
-  %154 = invoke noundef i32 @_ZNK11QTextCursor6anchorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %155 unwind label %162
+153:                                              ; preds = %152
+  invoke void @_ZN14QPlainTextEdit15insertPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %154 unwind label %78
 
-155:                                              ; preds = %153
-  store i32 %154, ptr %34, align 4
-  %156 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIijEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull align 4 dereferenceable(4) %34)
-          to label %157 unwind label %162
+154:                                              ; preds = %153
+  %155 = load i32, ptr %9, align 4
+  %156 = getelementptr inbounds %class.FollowStreamText, ptr %38, i32 0, i32 2
+  invoke void @_ZNK14QPlainTextEdit10textCursorEv(ptr dead_on_unwind writable sret(%class.QTextCursor) align 8 %35, ptr noundef nonnull align 8 dereferenceable(40) %38)
+          to label %157 unwind label %78
 
-157:                                              ; preds = %155
-  store i32 %151, ptr %156, align 4
-  call void @_ZN11QTextCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #12
-  %158 = load i32, ptr %12, align 4
-  invoke void @_ZN16FollowStreamText12addTruncatedEi(ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %158)
-          to label %159 unwind label %78
+157:                                              ; preds = %154
+  %158 = invoke noundef i32 @_ZNK11QTextCursor6anchorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %159 unwind label %166
 
 159:                                              ; preds = %157
+  store i32 %158, ptr %34, align 4
+  %160 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIijEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull align 4 dereferenceable(4) %34)
+          to label %161 unwind label %166
+
+161:                                              ; preds = %159
+  store i32 %155, ptr %160, align 4
+  call void @_ZN11QTextCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #12
+  %162 = load i32, ptr %12, align 4
+  invoke void @_ZN16FollowStreamText12addTruncatedEi(ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %162)
+          to label %163 unwind label %78
+
+163:                                              ; preds = %161
   invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %38, i1 noundef zeroext true)
-          to label %160 unwind label %78
+          to label %164 unwind label %78
 
-160:                                              ; preds = %159
+164:                                              ; preds = %163
   call void @_ZN15QTextCharFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #12
-  br label %161
+  br label %165
 
-161:                                              ; preds = %160, %42
+165:                                              ; preds = %164, %42
   ret void
 
-162:                                              ; preds = %155, %153
-  %163 = landingpad { ptr, i32 }
+166:                                              ; preds = %159, %157
+  %167 = landingpad { ptr, i32 }
           cleanup
-  %164 = extractvalue { ptr, i32 } %163, 0
-  store ptr %164, ptr %15, align 8
-  %165 = extractvalue { ptr, i32 } %163, 1
-  store i32 %165, ptr %16, align 4
+  %168 = extractvalue { ptr, i32 } %167, 0
+  store ptr %168, ptr %15, align 8
+  %169 = extractvalue { ptr, i32 } %167, 1
+  store i32 %169, ptr %16, align 4
   call void @_ZN11QTextCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #12
-  br label %166
+  br label %170
 
-166:                                              ; preds = %162, %143, %139, %116, %112, %86, %82, %78
+170:                                              ; preds = %166, %147, %143, %118, %114, %86, %82, %78
   call void @_ZN15QTextCharFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #12
-  br label %167
+  br label %171
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %15, align 8
-  %169 = load i32, ptr %16, align 4
-  %170 = insertvalue { ptr, i32 } poison, ptr %168, 0
-  %171 = insertvalue { ptr, i32 } %170, i32 %169, 1
-  resume { ptr, i32 } %171
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %15, align 8
+  %173 = load i32, ptr %16, align 4
+  %174 = insertvalue { ptr, i32 } poison, ptr %172, 0
+  %175 = insertvalue { ptr, i32 } %174, i32 %173, 1
+  resume { ptr, i32 } %175
 }
 
 declare noundef i32 @_ZNK13QTextDocument14characterCountEv(ptr noundef nonnull align 8 dereferenceable(16)) #1

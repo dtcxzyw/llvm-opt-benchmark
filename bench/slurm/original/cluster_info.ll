@@ -30,54 +30,55 @@ define i32 @slurm_get_cluster_info(ptr noundef %0, ptr noundef %1, i16 noundef z
 
 10:                                               ; preds = %3
   store i32 -1, ptr %4, align 4
-  br label %34
+  br label %35
 
 11:                                               ; preds = %3
   %12 = load i16, ptr %7, align 2
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 64
   %15 = icmp ne i32 %14, 0
-  br i1 %15, label %20, label %16
+  br i1 %15, label %21, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 49), align 8
-  %18 = call ptr @xstrstr(ptr noundef %17, ptr noundef @.str)
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %27
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 49
+  %18 = load ptr, ptr %17, align 8
+  %19 = call ptr @xstrstr(ptr noundef %18, ptr noundef @.str)
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %28
 
-20:                                               ; preds = %16, %11
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i32 @_get_clusters_from_fed(ptr noundef %21, ptr noundef %22)
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %26, label %25
+21:                                               ; preds = %16, %11
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i32 @_get_clusters_from_fed(ptr noundef %22, ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   store i32 0, ptr %4, align 4
-  br label %34
+  br label %35
 
-26:                                               ; preds = %20
-  br label %27
+27:                                               ; preds = %21
+  br label %28
 
-27:                                               ; preds = %26, %16
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @slurmdb_get_info_cluster(ptr noundef %28)
-  %30 = load ptr, ptr %5, align 8
-  store ptr %29, ptr %30, align 8
-  %31 = icmp ne ptr %29, null
-  br i1 %31, label %33, label %32
+28:                                               ; preds = %27, %16
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @slurmdb_get_info_cluster(ptr noundef %29)
+  %31 = load ptr, ptr %5, align 8
+  store ptr %30, ptr %31, align 8
+  %32 = icmp ne ptr %30, null
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   store i32 -1, ptr %4, align 4
-  br label %34
+  br label %35
 
-33:                                               ; preds = %27
+34:                                               ; preds = %28
   store i32 0, ptr %4, align 4
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %32, %25, %10
-  %35 = load i32, ptr %4, align 4
-  ret i32 %35
+35:                                               ; preds = %34, %33, %26, %10
+  %36 = load i32, ptr %4, align 4
+  ret i32 %36
 }
 
 declare ptr @xstrstr(ptr noundef, ptr noundef) #1

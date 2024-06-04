@@ -1132,33 +1132,35 @@ for.cond:                                         ; preds = %sw.epilog, %entry
   %c = getelementptr inbounds %struct.CPState, ptr %4, i32 0, i32 0
   %5 = load i32, ptr %c, align 8
   %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %6 to i32
+  %6 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %idxprom
+  %7 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %7 to i32
   %and = and i32 %conv, 128
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.cond
-  %7 = load ptr, ptr %cp.addr, align 8
-  %c1 = getelementptr inbounds %struct.CPState, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %c1, align 8
-  %idxprom2 = sext i32 %8 to i64
-  %arrayidx3 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom2
-  %9 = load i8, ptr %arrayidx3, align 1
-  %conv4 = zext i8 %9 to i32
+  %8 = load ptr, ptr %cp.addr, align 8
+  %c1 = getelementptr inbounds %struct.CPState, ptr %8, i32 0, i32 0
+  %9 = load i32, ptr %c1, align 8
+  %idxprom2 = sext i32 %9 to i64
+  %10 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %10, i64 %idxprom2
+  %11 = load i8, ptr %arrayidx3, align 1
+  %conv4 = zext i8 %11 to i32
   %and5 = and i32 %conv4, 8
   %tobool6 = icmp ne i32 %and5, 0
   br i1 %tobool6, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
-  %10 = load ptr, ptr %cp.addr, align 8
-  %call = call i32 @cp_number(ptr noundef %10)
+  %12 = load ptr, ptr %cp.addr, align 8
+  %call = call i32 @cp_number(ptr noundef %12)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %11 = load ptr, ptr %cp.addr, align 8
-  %call7 = call i32 @cp_ident(ptr noundef %11)
+  %13 = load ptr, ptr %cp.addr, align 8
+  %call7 = call i32 @cp_ident(ptr noundef %13)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -1167,10 +1169,10 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.end:                                           ; preds = %for.cond
-  %12 = load ptr, ptr %cp.addr, align 8
-  %c8 = getelementptr inbounds %struct.CPState, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %c8, align 8
-  switch i32 %13, label %sw.default [
+  %14 = load ptr, ptr %cp.addr, align 8
+  %c8 = getelementptr inbounds %struct.CPState, ptr %14, i32 0, i32 0
+  %15 = load i32, ptr %c8, align 8
+  switch i32 %15, label %sw.default [
     i32 10, label %sw.bb
     i32 13, label %sw.bb
     i32 32, label %sw.bb9
@@ -1192,36 +1194,36 @@ if.end:                                           ; preds = %for.cond
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end
-  %14 = load ptr, ptr %cp.addr, align 8
-  call void @cp_newline(ptr noundef %14)
+  %16 = load ptr, ptr %cp.addr, align 8
+  call void @cp_newline(ptr noundef %16)
   br label %sw.bb9
 
 sw.bb9:                                           ; preds = %sw.bb, %if.end, %if.end, %if.end, %if.end
-  %15 = load ptr, ptr %cp.addr, align 8
-  store ptr %15, ptr %cp.addr.i315, align 8
-  %16 = load ptr, ptr %cp.addr.i315, align 8
-  %p.i316 = getelementptr inbounds %struct.CPState, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %p.i316, align 8
-  %incdec.ptr.i317 = getelementptr inbounds i8, ptr %17, i32 1
+  %17 = load ptr, ptr %cp.addr, align 8
+  store ptr %17, ptr %cp.addr.i315, align 8
+  %18 = load ptr, ptr %cp.addr.i315, align 8
+  %p.i316 = getelementptr inbounds %struct.CPState, ptr %18, i32 0, i32 5
+  %19 = load ptr, ptr %p.i316, align 8
+  %incdec.ptr.i317 = getelementptr inbounds i8, ptr %19, i32 1
   store ptr %incdec.ptr.i317, ptr %p.i316, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv.i318 = zext i8 %18 to i32
-  %19 = load ptr, ptr %cp.addr.i315, align 8
-  store i32 %conv.i318, ptr %19, align 8
-  %20 = load ptr, ptr %cp.addr.i315, align 8
-  %21 = load i32, ptr %20, align 8
-  %cmp.i319 = icmp ne i32 %21, 92
+  %20 = load i8, ptr %19, align 1
+  %conv.i318 = zext i8 %20 to i32
+  %21 = load ptr, ptr %cp.addr.i315, align 8
+  store i32 %conv.i318, ptr %21, align 8
+  %22 = load ptr, ptr %cp.addr.i315, align 8
+  %23 = load i32, ptr %22, align 8
+  %cmp.i319 = icmp ne i32 %23, 92
   br i1 %cmp.i319, label %if.then.i325, label %if.end.i323
 
 if.then.i325:                                     ; preds = %sw.bb9
-  %22 = load ptr, ptr %cp.addr.i315, align 8
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %retval.i314, align 4
+  %24 = load ptr, ptr %cp.addr.i315, align 8
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %retval.i314, align 4
   br label %cp_get.exit326
 
 if.end.i323:                                      ; preds = %sw.bb9
-  %24 = load ptr, ptr %cp.addr.i315, align 8
-  %call.i324 = call i32 @cp_get_bs(ptr noundef %24)
+  %26 = load ptr, ptr %cp.addr.i315, align 8
+  %call.i324 = call i32 @cp_get_bs(ptr noundef %26)
   store i32 %call.i324, ptr %retval.i314, align 4
   br label %cp_get.exit326
 
@@ -1229,60 +1231,60 @@ cp_get.exit326:                                   ; preds = %if.end.i323, %if.th
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end, %if.end
-  %25 = load ptr, ptr %cp.addr, align 8
-  %call12 = call i32 @cp_string(ptr noundef %25)
+  %27 = load ptr, ptr %cp.addr, align 8
+  %call12 = call i32 @cp_string(ptr noundef %27)
   store i32 %call12, ptr %retval, align 4
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
-  %26 = load ptr, ptr %cp.addr, align 8
-  store ptr %26, ptr %cp.addr.i302, align 8
-  %27 = load ptr, ptr %cp.addr.i302, align 8
-  %p.i303 = getelementptr inbounds %struct.CPState, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %p.i303, align 8
-  %incdec.ptr.i304 = getelementptr inbounds i8, ptr %28, i32 1
+  %28 = load ptr, ptr %cp.addr, align 8
+  store ptr %28, ptr %cp.addr.i302, align 8
+  %29 = load ptr, ptr %cp.addr.i302, align 8
+  %p.i303 = getelementptr inbounds %struct.CPState, ptr %29, i32 0, i32 5
+  %30 = load ptr, ptr %p.i303, align 8
+  %incdec.ptr.i304 = getelementptr inbounds i8, ptr %30, i32 1
   store ptr %incdec.ptr.i304, ptr %p.i303, align 8
-  %29 = load i8, ptr %28, align 1
-  %conv.i305 = zext i8 %29 to i32
-  %30 = load ptr, ptr %cp.addr.i302, align 8
-  store i32 %conv.i305, ptr %30, align 8
-  %31 = load ptr, ptr %cp.addr.i302, align 8
-  %32 = load i32, ptr %31, align 8
-  %cmp.i306 = icmp ne i32 %32, 92
+  %31 = load i8, ptr %30, align 1
+  %conv.i305 = zext i8 %31 to i32
+  %32 = load ptr, ptr %cp.addr.i302, align 8
+  store i32 %conv.i305, ptr %32, align 8
+  %33 = load ptr, ptr %cp.addr.i302, align 8
+  %34 = load i32, ptr %33, align 8
+  %cmp.i306 = icmp ne i32 %34, 92
   br i1 %cmp.i306, label %if.then.i312, label %if.end.i310
 
 if.then.i312:                                     ; preds = %sw.bb13
-  %33 = load ptr, ptr %cp.addr.i302, align 8
-  %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %retval.i301, align 4
+  %35 = load ptr, ptr %cp.addr.i302, align 8
+  %36 = load i32, ptr %35, align 8
+  store i32 %36, ptr %retval.i301, align 4
   br label %cp_get.exit313
 
 if.end.i310:                                      ; preds = %sw.bb13
-  %35 = load ptr, ptr %cp.addr.i302, align 8
-  %call.i311 = call i32 @cp_get_bs(ptr noundef %35)
+  %37 = load ptr, ptr %cp.addr.i302, align 8
+  %call.i311 = call i32 @cp_get_bs(ptr noundef %37)
   store i32 %call.i311, ptr %retval.i301, align 4
   br label %cp_get.exit313
 
 cp_get.exit313:                                   ; preds = %if.end.i310, %if.then.i312
-  %36 = load i32, ptr %retval.i301, align 4
-  %cmp = icmp eq i32 %36, 42
+  %38 = load i32, ptr %retval.i301, align 4
+  %cmp = icmp eq i32 %38, 42
   br i1 %cmp, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %cp_get.exit313
-  %37 = load ptr, ptr %cp.addr, align 8
-  call void @cp_comment_c(ptr noundef %37)
+  %39 = load ptr, ptr %cp.addr, align 8
+  call void @cp_comment_c(ptr noundef %39)
   br label %if.end23
 
 if.else:                                          ; preds = %cp_get.exit313
-  %38 = load ptr, ptr %cp.addr, align 8
-  %c17 = getelementptr inbounds %struct.CPState, ptr %38, i32 0, i32 0
-  %39 = load i32, ptr %c17, align 8
-  %cmp18 = icmp eq i32 %39, 47
+  %40 = load ptr, ptr %cp.addr, align 8
+  %c17 = getelementptr inbounds %struct.CPState, ptr %40, i32 0, i32 0
+  %41 = load i32, ptr %c17, align 8
+  %cmp18 = icmp eq i32 %41, 47
   br i1 %cmp18, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.else
-  %40 = load ptr, ptr %cp.addr, align 8
-  call void @cp_comment_cpp(ptr noundef %40)
+  %42 = load ptr, ptr %cp.addr, align 8
+  call void @cp_comment_cpp(ptr noundef %42)
   br label %if.end22
 
 if.else21:                                        ; preds = %if.else
@@ -1296,37 +1298,37 @@ if.end23:                                         ; preds = %if.end22, %if.then1
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end
-  %41 = load ptr, ptr %cp.addr, align 8
-  store ptr %41, ptr %cp.addr.i289, align 8
-  %42 = load ptr, ptr %cp.addr.i289, align 8
-  %p.i290 = getelementptr inbounds %struct.CPState, ptr %42, i32 0, i32 5
-  %43 = load ptr, ptr %p.i290, align 8
-  %incdec.ptr.i291 = getelementptr inbounds i8, ptr %43, i32 1
+  %43 = load ptr, ptr %cp.addr, align 8
+  store ptr %43, ptr %cp.addr.i289, align 8
+  %44 = load ptr, ptr %cp.addr.i289, align 8
+  %p.i290 = getelementptr inbounds %struct.CPState, ptr %44, i32 0, i32 5
+  %45 = load ptr, ptr %p.i290, align 8
+  %incdec.ptr.i291 = getelementptr inbounds i8, ptr %45, i32 1
   store ptr %incdec.ptr.i291, ptr %p.i290, align 8
-  %44 = load i8, ptr %43, align 1
-  %conv.i292 = zext i8 %44 to i32
-  %45 = load ptr, ptr %cp.addr.i289, align 8
-  store i32 %conv.i292, ptr %45, align 8
-  %46 = load ptr, ptr %cp.addr.i289, align 8
-  %47 = load i32, ptr %46, align 8
-  %cmp.i293 = icmp ne i32 %47, 92
+  %46 = load i8, ptr %45, align 1
+  %conv.i292 = zext i8 %46 to i32
+  %47 = load ptr, ptr %cp.addr.i289, align 8
+  store i32 %conv.i292, ptr %47, align 8
+  %48 = load ptr, ptr %cp.addr.i289, align 8
+  %49 = load i32, ptr %48, align 8
+  %cmp.i293 = icmp ne i32 %49, 92
   br i1 %cmp.i293, label %if.then.i299, label %if.end.i297
 
 if.then.i299:                                     ; preds = %sw.bb24
-  %48 = load ptr, ptr %cp.addr.i289, align 8
-  %49 = load i32, ptr %48, align 8
-  store i32 %49, ptr %retval.i288, align 4
+  %50 = load ptr, ptr %cp.addr.i289, align 8
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %retval.i288, align 4
   br label %cp_get.exit300
 
 if.end.i297:                                      ; preds = %sw.bb24
-  %50 = load ptr, ptr %cp.addr.i289, align 8
-  %call.i298 = call i32 @cp_get_bs(ptr noundef %50)
+  %52 = load ptr, ptr %cp.addr.i289, align 8
+  %call.i298 = call i32 @cp_get_bs(ptr noundef %52)
   store i32 %call.i298, ptr %retval.i288, align 4
   br label %cp_get.exit300
 
 cp_get.exit300:                                   ; preds = %if.end.i297, %if.then.i299
-  %51 = load i32, ptr %retval.i288, align 4
-  %cmp26 = icmp ne i32 %51, 124
+  %53 = load i32, ptr %retval.i288, align 4
+  %cmp26 = icmp ne i32 %53, 124
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %cp_get.exit300
@@ -1334,31 +1336,31 @@ if.then28:                                        ; preds = %cp_get.exit300
   br label %return
 
 if.end29:                                         ; preds = %cp_get.exit300
-  %52 = load ptr, ptr %cp.addr, align 8
-  store ptr %52, ptr %cp.addr.i276, align 8
-  %53 = load ptr, ptr %cp.addr.i276, align 8
-  %p.i277 = getelementptr inbounds %struct.CPState, ptr %53, i32 0, i32 5
-  %54 = load ptr, ptr %p.i277, align 8
-  %incdec.ptr.i278 = getelementptr inbounds i8, ptr %54, i32 1
+  %54 = load ptr, ptr %cp.addr, align 8
+  store ptr %54, ptr %cp.addr.i276, align 8
+  %55 = load ptr, ptr %cp.addr.i276, align 8
+  %p.i277 = getelementptr inbounds %struct.CPState, ptr %55, i32 0, i32 5
+  %56 = load ptr, ptr %p.i277, align 8
+  %incdec.ptr.i278 = getelementptr inbounds i8, ptr %56, i32 1
   store ptr %incdec.ptr.i278, ptr %p.i277, align 8
-  %55 = load i8, ptr %54, align 1
-  %conv.i279 = zext i8 %55 to i32
-  %56 = load ptr, ptr %cp.addr.i276, align 8
-  store i32 %conv.i279, ptr %56, align 8
-  %57 = load ptr, ptr %cp.addr.i276, align 8
-  %58 = load i32, ptr %57, align 8
-  %cmp.i280 = icmp ne i32 %58, 92
+  %57 = load i8, ptr %56, align 1
+  %conv.i279 = zext i8 %57 to i32
+  %58 = load ptr, ptr %cp.addr.i276, align 8
+  store i32 %conv.i279, ptr %58, align 8
+  %59 = load ptr, ptr %cp.addr.i276, align 8
+  %60 = load i32, ptr %59, align 8
+  %cmp.i280 = icmp ne i32 %60, 92
   br i1 %cmp.i280, label %if.then.i286, label %if.end.i284
 
 if.then.i286:                                     ; preds = %if.end29
-  %59 = load ptr, ptr %cp.addr.i276, align 8
-  %60 = load i32, ptr %59, align 8
-  store i32 %60, ptr %retval.i275, align 4
+  %61 = load ptr, ptr %cp.addr.i276, align 8
+  %62 = load i32, ptr %61, align 8
+  store i32 %62, ptr %retval.i275, align 4
   br label %cp_get.exit287
 
 if.end.i284:                                      ; preds = %if.end29
-  %61 = load ptr, ptr %cp.addr.i276, align 8
-  %call.i285 = call i32 @cp_get_bs(ptr noundef %61)
+  %63 = load ptr, ptr %cp.addr.i276, align 8
+  %call.i285 = call i32 @cp_get_bs(ptr noundef %63)
   store i32 %call.i285, ptr %retval.i275, align 4
   br label %cp_get.exit287
 
@@ -1367,37 +1369,37 @@ cp_get.exit287:                                   ; preds = %if.end.i284, %if.th
   br label %return
 
 sw.bb31:                                          ; preds = %if.end
-  %62 = load ptr, ptr %cp.addr, align 8
-  store ptr %62, ptr %cp.addr.i263, align 8
-  %63 = load ptr, ptr %cp.addr.i263, align 8
-  %p.i264 = getelementptr inbounds %struct.CPState, ptr %63, i32 0, i32 5
-  %64 = load ptr, ptr %p.i264, align 8
-  %incdec.ptr.i265 = getelementptr inbounds i8, ptr %64, i32 1
+  %64 = load ptr, ptr %cp.addr, align 8
+  store ptr %64, ptr %cp.addr.i263, align 8
+  %65 = load ptr, ptr %cp.addr.i263, align 8
+  %p.i264 = getelementptr inbounds %struct.CPState, ptr %65, i32 0, i32 5
+  %66 = load ptr, ptr %p.i264, align 8
+  %incdec.ptr.i265 = getelementptr inbounds i8, ptr %66, i32 1
   store ptr %incdec.ptr.i265, ptr %p.i264, align 8
-  %65 = load i8, ptr %64, align 1
-  %conv.i266 = zext i8 %65 to i32
-  %66 = load ptr, ptr %cp.addr.i263, align 8
-  store i32 %conv.i266, ptr %66, align 8
-  %67 = load ptr, ptr %cp.addr.i263, align 8
-  %68 = load i32, ptr %67, align 8
-  %cmp.i267 = icmp ne i32 %68, 92
+  %67 = load i8, ptr %66, align 1
+  %conv.i266 = zext i8 %67 to i32
+  %68 = load ptr, ptr %cp.addr.i263, align 8
+  store i32 %conv.i266, ptr %68, align 8
+  %69 = load ptr, ptr %cp.addr.i263, align 8
+  %70 = load i32, ptr %69, align 8
+  %cmp.i267 = icmp ne i32 %70, 92
   br i1 %cmp.i267, label %if.then.i273, label %if.end.i271
 
 if.then.i273:                                     ; preds = %sw.bb31
-  %69 = load ptr, ptr %cp.addr.i263, align 8
-  %70 = load i32, ptr %69, align 8
-  store i32 %70, ptr %retval.i262, align 4
+  %71 = load ptr, ptr %cp.addr.i263, align 8
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %retval.i262, align 4
   br label %cp_get.exit274
 
 if.end.i271:                                      ; preds = %sw.bb31
-  %71 = load ptr, ptr %cp.addr.i263, align 8
-  %call.i272 = call i32 @cp_get_bs(ptr noundef %71)
+  %73 = load ptr, ptr %cp.addr.i263, align 8
+  %call.i272 = call i32 @cp_get_bs(ptr noundef %73)
   store i32 %call.i272, ptr %retval.i262, align 4
   br label %cp_get.exit274
 
 cp_get.exit274:                                   ; preds = %if.end.i271, %if.then.i273
-  %72 = load i32, ptr %retval.i262, align 4
-  %cmp33 = icmp ne i32 %72, 38
+  %74 = load i32, ptr %retval.i262, align 4
+  %cmp33 = icmp ne i32 %74, 38
   br i1 %cmp33, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %cp_get.exit274
@@ -1405,31 +1407,31 @@ if.then35:                                        ; preds = %cp_get.exit274
   br label %return
 
 if.end36:                                         ; preds = %cp_get.exit274
-  %73 = load ptr, ptr %cp.addr, align 8
-  store ptr %73, ptr %cp.addr.i250, align 8
-  %74 = load ptr, ptr %cp.addr.i250, align 8
-  %p.i251 = getelementptr inbounds %struct.CPState, ptr %74, i32 0, i32 5
-  %75 = load ptr, ptr %p.i251, align 8
-  %incdec.ptr.i252 = getelementptr inbounds i8, ptr %75, i32 1
+  %75 = load ptr, ptr %cp.addr, align 8
+  store ptr %75, ptr %cp.addr.i250, align 8
+  %76 = load ptr, ptr %cp.addr.i250, align 8
+  %p.i251 = getelementptr inbounds %struct.CPState, ptr %76, i32 0, i32 5
+  %77 = load ptr, ptr %p.i251, align 8
+  %incdec.ptr.i252 = getelementptr inbounds i8, ptr %77, i32 1
   store ptr %incdec.ptr.i252, ptr %p.i251, align 8
-  %76 = load i8, ptr %75, align 1
-  %conv.i253 = zext i8 %76 to i32
-  %77 = load ptr, ptr %cp.addr.i250, align 8
-  store i32 %conv.i253, ptr %77, align 8
-  %78 = load ptr, ptr %cp.addr.i250, align 8
-  %79 = load i32, ptr %78, align 8
-  %cmp.i254 = icmp ne i32 %79, 92
+  %78 = load i8, ptr %77, align 1
+  %conv.i253 = zext i8 %78 to i32
+  %79 = load ptr, ptr %cp.addr.i250, align 8
+  store i32 %conv.i253, ptr %79, align 8
+  %80 = load ptr, ptr %cp.addr.i250, align 8
+  %81 = load i32, ptr %80, align 8
+  %cmp.i254 = icmp ne i32 %81, 92
   br i1 %cmp.i254, label %if.then.i260, label %if.end.i258
 
 if.then.i260:                                     ; preds = %if.end36
-  %80 = load ptr, ptr %cp.addr.i250, align 8
-  %81 = load i32, ptr %80, align 8
-  store i32 %81, ptr %retval.i249, align 4
+  %82 = load ptr, ptr %cp.addr.i250, align 8
+  %83 = load i32, ptr %82, align 8
+  store i32 %83, ptr %retval.i249, align 4
   br label %cp_get.exit261
 
 if.end.i258:                                      ; preds = %if.end36
-  %82 = load ptr, ptr %cp.addr.i250, align 8
-  %call.i259 = call i32 @cp_get_bs(ptr noundef %82)
+  %84 = load ptr, ptr %cp.addr.i250, align 8
+  %call.i259 = call i32 @cp_get_bs(ptr noundef %84)
   store i32 %call.i259, ptr %retval.i249, align 4
   br label %cp_get.exit261
 
@@ -1438,37 +1440,37 @@ cp_get.exit261:                                   ; preds = %if.end.i258, %if.th
   br label %return
 
 sw.bb38:                                          ; preds = %if.end
-  %83 = load ptr, ptr %cp.addr, align 8
-  store ptr %83, ptr %cp.addr.i237, align 8
-  %84 = load ptr, ptr %cp.addr.i237, align 8
-  %p.i238 = getelementptr inbounds %struct.CPState, ptr %84, i32 0, i32 5
-  %85 = load ptr, ptr %p.i238, align 8
-  %incdec.ptr.i239 = getelementptr inbounds i8, ptr %85, i32 1
+  %85 = load ptr, ptr %cp.addr, align 8
+  store ptr %85, ptr %cp.addr.i237, align 8
+  %86 = load ptr, ptr %cp.addr.i237, align 8
+  %p.i238 = getelementptr inbounds %struct.CPState, ptr %86, i32 0, i32 5
+  %87 = load ptr, ptr %p.i238, align 8
+  %incdec.ptr.i239 = getelementptr inbounds i8, ptr %87, i32 1
   store ptr %incdec.ptr.i239, ptr %p.i238, align 8
-  %86 = load i8, ptr %85, align 1
-  %conv.i240 = zext i8 %86 to i32
-  %87 = load ptr, ptr %cp.addr.i237, align 8
-  store i32 %conv.i240, ptr %87, align 8
-  %88 = load ptr, ptr %cp.addr.i237, align 8
-  %89 = load i32, ptr %88, align 8
-  %cmp.i241 = icmp ne i32 %89, 92
+  %88 = load i8, ptr %87, align 1
+  %conv.i240 = zext i8 %88 to i32
+  %89 = load ptr, ptr %cp.addr.i237, align 8
+  store i32 %conv.i240, ptr %89, align 8
+  %90 = load ptr, ptr %cp.addr.i237, align 8
+  %91 = load i32, ptr %90, align 8
+  %cmp.i241 = icmp ne i32 %91, 92
   br i1 %cmp.i241, label %if.then.i247, label %if.end.i245
 
 if.then.i247:                                     ; preds = %sw.bb38
-  %90 = load ptr, ptr %cp.addr.i237, align 8
-  %91 = load i32, ptr %90, align 8
-  store i32 %91, ptr %retval.i236, align 4
+  %92 = load ptr, ptr %cp.addr.i237, align 8
+  %93 = load i32, ptr %92, align 8
+  store i32 %93, ptr %retval.i236, align 4
   br label %cp_get.exit248
 
 if.end.i245:                                      ; preds = %sw.bb38
-  %92 = load ptr, ptr %cp.addr.i237, align 8
-  %call.i246 = call i32 @cp_get_bs(ptr noundef %92)
+  %94 = load ptr, ptr %cp.addr.i237, align 8
+  %call.i246 = call i32 @cp_get_bs(ptr noundef %94)
   store i32 %call.i246, ptr %retval.i236, align 4
   br label %cp_get.exit248
 
 cp_get.exit248:                                   ; preds = %if.end.i245, %if.then.i247
-  %93 = load i32, ptr %retval.i236, align 4
-  %cmp40 = icmp ne i32 %93, 61
+  %95 = load i32, ptr %retval.i236, align 4
+  %cmp40 = icmp ne i32 %95, 61
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %cp_get.exit248
@@ -1476,31 +1478,31 @@ if.then42:                                        ; preds = %cp_get.exit248
   br label %return
 
 if.end43:                                         ; preds = %cp_get.exit248
-  %94 = load ptr, ptr %cp.addr, align 8
-  store ptr %94, ptr %cp.addr.i224, align 8
-  %95 = load ptr, ptr %cp.addr.i224, align 8
-  %p.i225 = getelementptr inbounds %struct.CPState, ptr %95, i32 0, i32 5
-  %96 = load ptr, ptr %p.i225, align 8
-  %incdec.ptr.i226 = getelementptr inbounds i8, ptr %96, i32 1
+  %96 = load ptr, ptr %cp.addr, align 8
+  store ptr %96, ptr %cp.addr.i224, align 8
+  %97 = load ptr, ptr %cp.addr.i224, align 8
+  %p.i225 = getelementptr inbounds %struct.CPState, ptr %97, i32 0, i32 5
+  %98 = load ptr, ptr %p.i225, align 8
+  %incdec.ptr.i226 = getelementptr inbounds i8, ptr %98, i32 1
   store ptr %incdec.ptr.i226, ptr %p.i225, align 8
-  %97 = load i8, ptr %96, align 1
-  %conv.i227 = zext i8 %97 to i32
-  %98 = load ptr, ptr %cp.addr.i224, align 8
-  store i32 %conv.i227, ptr %98, align 8
-  %99 = load ptr, ptr %cp.addr.i224, align 8
-  %100 = load i32, ptr %99, align 8
-  %cmp.i228 = icmp ne i32 %100, 92
+  %99 = load i8, ptr %98, align 1
+  %conv.i227 = zext i8 %99 to i32
+  %100 = load ptr, ptr %cp.addr.i224, align 8
+  store i32 %conv.i227, ptr %100, align 8
+  %101 = load ptr, ptr %cp.addr.i224, align 8
+  %102 = load i32, ptr %101, align 8
+  %cmp.i228 = icmp ne i32 %102, 92
   br i1 %cmp.i228, label %if.then.i234, label %if.end.i232
 
 if.then.i234:                                     ; preds = %if.end43
-  %101 = load ptr, ptr %cp.addr.i224, align 8
-  %102 = load i32, ptr %101, align 8
-  store i32 %102, ptr %retval.i223, align 4
+  %103 = load ptr, ptr %cp.addr.i224, align 8
+  %104 = load i32, ptr %103, align 8
+  store i32 %104, ptr %retval.i223, align 4
   br label %cp_get.exit235
 
 if.end.i232:                                      ; preds = %if.end43
-  %103 = load ptr, ptr %cp.addr.i224, align 8
-  %call.i233 = call i32 @cp_get_bs(ptr noundef %103)
+  %105 = load ptr, ptr %cp.addr.i224, align 8
+  %call.i233 = call i32 @cp_get_bs(ptr noundef %105)
   store i32 %call.i233, ptr %retval.i223, align 4
   br label %cp_get.exit235
 
@@ -1509,37 +1511,37 @@ cp_get.exit235:                                   ; preds = %if.end.i232, %if.th
   br label %return
 
 sw.bb45:                                          ; preds = %if.end
-  %104 = load ptr, ptr %cp.addr, align 8
-  store ptr %104, ptr %cp.addr.i211, align 8
-  %105 = load ptr, ptr %cp.addr.i211, align 8
-  %p.i212 = getelementptr inbounds %struct.CPState, ptr %105, i32 0, i32 5
-  %106 = load ptr, ptr %p.i212, align 8
-  %incdec.ptr.i213 = getelementptr inbounds i8, ptr %106, i32 1
+  %106 = load ptr, ptr %cp.addr, align 8
+  store ptr %106, ptr %cp.addr.i211, align 8
+  %107 = load ptr, ptr %cp.addr.i211, align 8
+  %p.i212 = getelementptr inbounds %struct.CPState, ptr %107, i32 0, i32 5
+  %108 = load ptr, ptr %p.i212, align 8
+  %incdec.ptr.i213 = getelementptr inbounds i8, ptr %108, i32 1
   store ptr %incdec.ptr.i213, ptr %p.i212, align 8
-  %107 = load i8, ptr %106, align 1
-  %conv.i214 = zext i8 %107 to i32
-  %108 = load ptr, ptr %cp.addr.i211, align 8
-  store i32 %conv.i214, ptr %108, align 8
-  %109 = load ptr, ptr %cp.addr.i211, align 8
-  %110 = load i32, ptr %109, align 8
-  %cmp.i215 = icmp ne i32 %110, 92
+  %109 = load i8, ptr %108, align 1
+  %conv.i214 = zext i8 %109 to i32
+  %110 = load ptr, ptr %cp.addr.i211, align 8
+  store i32 %conv.i214, ptr %110, align 8
+  %111 = load ptr, ptr %cp.addr.i211, align 8
+  %112 = load i32, ptr %111, align 8
+  %cmp.i215 = icmp ne i32 %112, 92
   br i1 %cmp.i215, label %if.then.i221, label %if.end.i219
 
 if.then.i221:                                     ; preds = %sw.bb45
-  %111 = load ptr, ptr %cp.addr.i211, align 8
-  %112 = load i32, ptr %111, align 8
-  store i32 %112, ptr %retval.i210, align 4
+  %113 = load ptr, ptr %cp.addr.i211, align 8
+  %114 = load i32, ptr %113, align 8
+  store i32 %114, ptr %retval.i210, align 4
   br label %cp_get.exit222
 
 if.end.i219:                                      ; preds = %sw.bb45
-  %113 = load ptr, ptr %cp.addr.i211, align 8
-  %call.i220 = call i32 @cp_get_bs(ptr noundef %113)
+  %115 = load ptr, ptr %cp.addr.i211, align 8
+  %call.i220 = call i32 @cp_get_bs(ptr noundef %115)
   store i32 %call.i220, ptr %retval.i210, align 4
   br label %cp_get.exit222
 
 cp_get.exit222:                                   ; preds = %if.end.i219, %if.then.i221
-  %114 = load i32, ptr %retval.i210, align 4
-  %cmp47 = icmp ne i32 %114, 61
+  %116 = load i32, ptr %retval.i210, align 4
+  %cmp47 = icmp ne i32 %116, 61
   br i1 %cmp47, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %cp_get.exit222
@@ -1547,31 +1549,31 @@ if.then49:                                        ; preds = %cp_get.exit222
   br label %return
 
 if.end50:                                         ; preds = %cp_get.exit222
-  %115 = load ptr, ptr %cp.addr, align 8
-  store ptr %115, ptr %cp.addr.i198, align 8
-  %116 = load ptr, ptr %cp.addr.i198, align 8
-  %p.i199 = getelementptr inbounds %struct.CPState, ptr %116, i32 0, i32 5
-  %117 = load ptr, ptr %p.i199, align 8
-  %incdec.ptr.i200 = getelementptr inbounds i8, ptr %117, i32 1
+  %117 = load ptr, ptr %cp.addr, align 8
+  store ptr %117, ptr %cp.addr.i198, align 8
+  %118 = load ptr, ptr %cp.addr.i198, align 8
+  %p.i199 = getelementptr inbounds %struct.CPState, ptr %118, i32 0, i32 5
+  %119 = load ptr, ptr %p.i199, align 8
+  %incdec.ptr.i200 = getelementptr inbounds i8, ptr %119, i32 1
   store ptr %incdec.ptr.i200, ptr %p.i199, align 8
-  %118 = load i8, ptr %117, align 1
-  %conv.i201 = zext i8 %118 to i32
-  %119 = load ptr, ptr %cp.addr.i198, align 8
-  store i32 %conv.i201, ptr %119, align 8
-  %120 = load ptr, ptr %cp.addr.i198, align 8
-  %121 = load i32, ptr %120, align 8
-  %cmp.i202 = icmp ne i32 %121, 92
+  %120 = load i8, ptr %119, align 1
+  %conv.i201 = zext i8 %120 to i32
+  %121 = load ptr, ptr %cp.addr.i198, align 8
+  store i32 %conv.i201, ptr %121, align 8
+  %122 = load ptr, ptr %cp.addr.i198, align 8
+  %123 = load i32, ptr %122, align 8
+  %cmp.i202 = icmp ne i32 %123, 92
   br i1 %cmp.i202, label %if.then.i208, label %if.end.i206
 
 if.then.i208:                                     ; preds = %if.end50
-  %122 = load ptr, ptr %cp.addr.i198, align 8
-  %123 = load i32, ptr %122, align 8
-  store i32 %123, ptr %retval.i197, align 4
+  %124 = load ptr, ptr %cp.addr.i198, align 8
+  %125 = load i32, ptr %124, align 8
+  store i32 %125, ptr %retval.i197, align 4
   br label %cp_get.exit209
 
 if.end.i206:                                      ; preds = %if.end50
-  %124 = load ptr, ptr %cp.addr.i198, align 8
-  %call.i207 = call i32 @cp_get_bs(ptr noundef %124)
+  %126 = load ptr, ptr %cp.addr.i198, align 8
+  %call.i207 = call i32 @cp_get_bs(ptr noundef %126)
   store i32 %call.i207, ptr %retval.i197, align 4
   br label %cp_get.exit209
 
@@ -1580,65 +1582,65 @@ cp_get.exit209:                                   ; preds = %if.end.i206, %if.th
   br label %return
 
 sw.bb52:                                          ; preds = %if.end
-  %125 = load ptr, ptr %cp.addr, align 8
-  store ptr %125, ptr %cp.addr.i185, align 8
-  %126 = load ptr, ptr %cp.addr.i185, align 8
-  %p.i186 = getelementptr inbounds %struct.CPState, ptr %126, i32 0, i32 5
-  %127 = load ptr, ptr %p.i186, align 8
-  %incdec.ptr.i187 = getelementptr inbounds i8, ptr %127, i32 1
+  %127 = load ptr, ptr %cp.addr, align 8
+  store ptr %127, ptr %cp.addr.i185, align 8
+  %128 = load ptr, ptr %cp.addr.i185, align 8
+  %p.i186 = getelementptr inbounds %struct.CPState, ptr %128, i32 0, i32 5
+  %129 = load ptr, ptr %p.i186, align 8
+  %incdec.ptr.i187 = getelementptr inbounds i8, ptr %129, i32 1
   store ptr %incdec.ptr.i187, ptr %p.i186, align 8
-  %128 = load i8, ptr %127, align 1
-  %conv.i188 = zext i8 %128 to i32
-  %129 = load ptr, ptr %cp.addr.i185, align 8
-  store i32 %conv.i188, ptr %129, align 8
-  %130 = load ptr, ptr %cp.addr.i185, align 8
-  %131 = load i32, ptr %130, align 8
-  %cmp.i189 = icmp ne i32 %131, 92
+  %130 = load i8, ptr %129, align 1
+  %conv.i188 = zext i8 %130 to i32
+  %131 = load ptr, ptr %cp.addr.i185, align 8
+  store i32 %conv.i188, ptr %131, align 8
+  %132 = load ptr, ptr %cp.addr.i185, align 8
+  %133 = load i32, ptr %132, align 8
+  %cmp.i189 = icmp ne i32 %133, 92
   br i1 %cmp.i189, label %if.then.i195, label %if.end.i193
 
 if.then.i195:                                     ; preds = %sw.bb52
-  %132 = load ptr, ptr %cp.addr.i185, align 8
-  %133 = load i32, ptr %132, align 8
-  store i32 %133, ptr %retval.i184, align 4
+  %134 = load ptr, ptr %cp.addr.i185, align 8
+  %135 = load i32, ptr %134, align 8
+  store i32 %135, ptr %retval.i184, align 4
   br label %cp_get.exit196
 
 if.end.i193:                                      ; preds = %sw.bb52
-  %134 = load ptr, ptr %cp.addr.i185, align 8
-  %call.i194 = call i32 @cp_get_bs(ptr noundef %134)
+  %136 = load ptr, ptr %cp.addr.i185, align 8
+  %call.i194 = call i32 @cp_get_bs(ptr noundef %136)
   store i32 %call.i194, ptr %retval.i184, align 4
   br label %cp_get.exit196
 
 cp_get.exit196:                                   ; preds = %if.end.i193, %if.then.i195
-  %135 = load i32, ptr %retval.i184, align 4
-  %cmp54 = icmp eq i32 %135, 61
+  %137 = load i32, ptr %retval.i184, align 4
+  %cmp54 = icmp eq i32 %137, 61
   br i1 %cmp54, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %cp_get.exit196
-  %136 = load ptr, ptr %cp.addr, align 8
-  store ptr %136, ptr %cp.addr.i172, align 8
-  %137 = load ptr, ptr %cp.addr.i172, align 8
-  %p.i173 = getelementptr inbounds %struct.CPState, ptr %137, i32 0, i32 5
-  %138 = load ptr, ptr %p.i173, align 8
-  %incdec.ptr.i174 = getelementptr inbounds i8, ptr %138, i32 1
+  %138 = load ptr, ptr %cp.addr, align 8
+  store ptr %138, ptr %cp.addr.i172, align 8
+  %139 = load ptr, ptr %cp.addr.i172, align 8
+  %p.i173 = getelementptr inbounds %struct.CPState, ptr %139, i32 0, i32 5
+  %140 = load ptr, ptr %p.i173, align 8
+  %incdec.ptr.i174 = getelementptr inbounds i8, ptr %140, i32 1
   store ptr %incdec.ptr.i174, ptr %p.i173, align 8
-  %139 = load i8, ptr %138, align 1
-  %conv.i175 = zext i8 %139 to i32
-  %140 = load ptr, ptr %cp.addr.i172, align 8
-  store i32 %conv.i175, ptr %140, align 8
-  %141 = load ptr, ptr %cp.addr.i172, align 8
-  %142 = load i32, ptr %141, align 8
-  %cmp.i176 = icmp ne i32 %142, 92
+  %141 = load i8, ptr %140, align 1
+  %conv.i175 = zext i8 %141 to i32
+  %142 = load ptr, ptr %cp.addr.i172, align 8
+  store i32 %conv.i175, ptr %142, align 8
+  %143 = load ptr, ptr %cp.addr.i172, align 8
+  %144 = load i32, ptr %143, align 8
+  %cmp.i176 = icmp ne i32 %144, 92
   br i1 %cmp.i176, label %if.then.i182, label %if.end.i180
 
 if.then.i182:                                     ; preds = %if.then56
-  %143 = load ptr, ptr %cp.addr.i172, align 8
-  %144 = load i32, ptr %143, align 8
-  store i32 %144, ptr %retval.i171, align 4
+  %145 = load ptr, ptr %cp.addr.i172, align 8
+  %146 = load i32, ptr %145, align 8
+  store i32 %146, ptr %retval.i171, align 4
   br label %cp_get.exit183
 
 if.end.i180:                                      ; preds = %if.then56
-  %145 = load ptr, ptr %cp.addr.i172, align 8
-  %call.i181 = call i32 @cp_get_bs(ptr noundef %145)
+  %147 = load ptr, ptr %cp.addr.i172, align 8
+  %call.i181 = call i32 @cp_get_bs(ptr noundef %147)
   store i32 %call.i181, ptr %retval.i171, align 4
   br label %cp_get.exit183
 
@@ -1647,38 +1649,38 @@ cp_get.exit183:                                   ; preds = %if.end.i180, %if.th
   br label %return
 
 if.else58:                                        ; preds = %cp_get.exit196
-  %146 = load ptr, ptr %cp.addr, align 8
-  %c59 = getelementptr inbounds %struct.CPState, ptr %146, i32 0, i32 0
-  %147 = load i32, ptr %c59, align 8
-  %cmp60 = icmp eq i32 %147, 60
+  %148 = load ptr, ptr %cp.addr, align 8
+  %c59 = getelementptr inbounds %struct.CPState, ptr %148, i32 0, i32 0
+  %149 = load i32, ptr %c59, align 8
+  %cmp60 = icmp eq i32 %149, 60
   br i1 %cmp60, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.else58
-  %148 = load ptr, ptr %cp.addr, align 8
-  store ptr %148, ptr %cp.addr.i159, align 8
-  %149 = load ptr, ptr %cp.addr.i159, align 8
-  %p.i160 = getelementptr inbounds %struct.CPState, ptr %149, i32 0, i32 5
-  %150 = load ptr, ptr %p.i160, align 8
-  %incdec.ptr.i161 = getelementptr inbounds i8, ptr %150, i32 1
+  %150 = load ptr, ptr %cp.addr, align 8
+  store ptr %150, ptr %cp.addr.i159, align 8
+  %151 = load ptr, ptr %cp.addr.i159, align 8
+  %p.i160 = getelementptr inbounds %struct.CPState, ptr %151, i32 0, i32 5
+  %152 = load ptr, ptr %p.i160, align 8
+  %incdec.ptr.i161 = getelementptr inbounds i8, ptr %152, i32 1
   store ptr %incdec.ptr.i161, ptr %p.i160, align 8
-  %151 = load i8, ptr %150, align 1
-  %conv.i162 = zext i8 %151 to i32
-  %152 = load ptr, ptr %cp.addr.i159, align 8
-  store i32 %conv.i162, ptr %152, align 8
-  %153 = load ptr, ptr %cp.addr.i159, align 8
-  %154 = load i32, ptr %153, align 8
-  %cmp.i163 = icmp ne i32 %154, 92
+  %153 = load i8, ptr %152, align 1
+  %conv.i162 = zext i8 %153 to i32
+  %154 = load ptr, ptr %cp.addr.i159, align 8
+  store i32 %conv.i162, ptr %154, align 8
+  %155 = load ptr, ptr %cp.addr.i159, align 8
+  %156 = load i32, ptr %155, align 8
+  %cmp.i163 = icmp ne i32 %156, 92
   br i1 %cmp.i163, label %if.then.i169, label %if.end.i167
 
 if.then.i169:                                     ; preds = %if.then62
-  %155 = load ptr, ptr %cp.addr.i159, align 8
-  %156 = load i32, ptr %155, align 8
-  store i32 %156, ptr %retval.i158, align 4
+  %157 = load ptr, ptr %cp.addr.i159, align 8
+  %158 = load i32, ptr %157, align 8
+  store i32 %158, ptr %retval.i158, align 4
   br label %cp_get.exit170
 
 if.end.i167:                                      ; preds = %if.then62
-  %157 = load ptr, ptr %cp.addr.i159, align 8
-  %call.i168 = call i32 @cp_get_bs(ptr noundef %157)
+  %159 = load ptr, ptr %cp.addr.i159, align 8
+  %call.i168 = call i32 @cp_get_bs(ptr noundef %159)
   store i32 %call.i168, ptr %retval.i158, align 4
   br label %cp_get.exit170
 
@@ -1694,65 +1696,65 @@ if.end65:                                         ; preds = %if.end64
   br label %return
 
 sw.bb66:                                          ; preds = %if.end
-  %158 = load ptr, ptr %cp.addr, align 8
-  store ptr %158, ptr %cp.addr.i146, align 8
-  %159 = load ptr, ptr %cp.addr.i146, align 8
-  %p.i147 = getelementptr inbounds %struct.CPState, ptr %159, i32 0, i32 5
-  %160 = load ptr, ptr %p.i147, align 8
-  %incdec.ptr.i148 = getelementptr inbounds i8, ptr %160, i32 1
+  %160 = load ptr, ptr %cp.addr, align 8
+  store ptr %160, ptr %cp.addr.i146, align 8
+  %161 = load ptr, ptr %cp.addr.i146, align 8
+  %p.i147 = getelementptr inbounds %struct.CPState, ptr %161, i32 0, i32 5
+  %162 = load ptr, ptr %p.i147, align 8
+  %incdec.ptr.i148 = getelementptr inbounds i8, ptr %162, i32 1
   store ptr %incdec.ptr.i148, ptr %p.i147, align 8
-  %161 = load i8, ptr %160, align 1
-  %conv.i149 = zext i8 %161 to i32
-  %162 = load ptr, ptr %cp.addr.i146, align 8
-  store i32 %conv.i149, ptr %162, align 8
-  %163 = load ptr, ptr %cp.addr.i146, align 8
-  %164 = load i32, ptr %163, align 8
-  %cmp.i150 = icmp ne i32 %164, 92
+  %163 = load i8, ptr %162, align 1
+  %conv.i149 = zext i8 %163 to i32
+  %164 = load ptr, ptr %cp.addr.i146, align 8
+  store i32 %conv.i149, ptr %164, align 8
+  %165 = load ptr, ptr %cp.addr.i146, align 8
+  %166 = load i32, ptr %165, align 8
+  %cmp.i150 = icmp ne i32 %166, 92
   br i1 %cmp.i150, label %if.then.i156, label %if.end.i154
 
 if.then.i156:                                     ; preds = %sw.bb66
-  %165 = load ptr, ptr %cp.addr.i146, align 8
-  %166 = load i32, ptr %165, align 8
-  store i32 %166, ptr %retval.i145, align 4
+  %167 = load ptr, ptr %cp.addr.i146, align 8
+  %168 = load i32, ptr %167, align 8
+  store i32 %168, ptr %retval.i145, align 4
   br label %cp_get.exit157
 
 if.end.i154:                                      ; preds = %sw.bb66
-  %167 = load ptr, ptr %cp.addr.i146, align 8
-  %call.i155 = call i32 @cp_get_bs(ptr noundef %167)
+  %169 = load ptr, ptr %cp.addr.i146, align 8
+  %call.i155 = call i32 @cp_get_bs(ptr noundef %169)
   store i32 %call.i155, ptr %retval.i145, align 4
   br label %cp_get.exit157
 
 cp_get.exit157:                                   ; preds = %if.end.i154, %if.then.i156
-  %168 = load i32, ptr %retval.i145, align 4
-  %cmp68 = icmp eq i32 %168, 61
+  %170 = load i32, ptr %retval.i145, align 4
+  %cmp68 = icmp eq i32 %170, 61
   br i1 %cmp68, label %if.then70, label %if.else72
 
 if.then70:                                        ; preds = %cp_get.exit157
-  %169 = load ptr, ptr %cp.addr, align 8
-  store ptr %169, ptr %cp.addr.i133, align 8
-  %170 = load ptr, ptr %cp.addr.i133, align 8
-  %p.i134 = getelementptr inbounds %struct.CPState, ptr %170, i32 0, i32 5
-  %171 = load ptr, ptr %p.i134, align 8
-  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %171, i32 1
+  %171 = load ptr, ptr %cp.addr, align 8
+  store ptr %171, ptr %cp.addr.i133, align 8
+  %172 = load ptr, ptr %cp.addr.i133, align 8
+  %p.i134 = getelementptr inbounds %struct.CPState, ptr %172, i32 0, i32 5
+  %173 = load ptr, ptr %p.i134, align 8
+  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %173, i32 1
   store ptr %incdec.ptr.i135, ptr %p.i134, align 8
-  %172 = load i8, ptr %171, align 1
-  %conv.i136 = zext i8 %172 to i32
-  %173 = load ptr, ptr %cp.addr.i133, align 8
-  store i32 %conv.i136, ptr %173, align 8
-  %174 = load ptr, ptr %cp.addr.i133, align 8
-  %175 = load i32, ptr %174, align 8
-  %cmp.i137 = icmp ne i32 %175, 92
+  %174 = load i8, ptr %173, align 1
+  %conv.i136 = zext i8 %174 to i32
+  %175 = load ptr, ptr %cp.addr.i133, align 8
+  store i32 %conv.i136, ptr %175, align 8
+  %176 = load ptr, ptr %cp.addr.i133, align 8
+  %177 = load i32, ptr %176, align 8
+  %cmp.i137 = icmp ne i32 %177, 92
   br i1 %cmp.i137, label %if.then.i143, label %if.end.i141
 
 if.then.i143:                                     ; preds = %if.then70
-  %176 = load ptr, ptr %cp.addr.i133, align 8
-  %177 = load i32, ptr %176, align 8
-  store i32 %177, ptr %retval.i132, align 4
+  %178 = load ptr, ptr %cp.addr.i133, align 8
+  %179 = load i32, ptr %178, align 8
+  store i32 %179, ptr %retval.i132, align 4
   br label %cp_get.exit144
 
 if.end.i141:                                      ; preds = %if.then70
-  %178 = load ptr, ptr %cp.addr.i133, align 8
-  %call.i142 = call i32 @cp_get_bs(ptr noundef %178)
+  %180 = load ptr, ptr %cp.addr.i133, align 8
+  %call.i142 = call i32 @cp_get_bs(ptr noundef %180)
   store i32 %call.i142, ptr %retval.i132, align 4
   br label %cp_get.exit144
 
@@ -1761,38 +1763,38 @@ cp_get.exit144:                                   ; preds = %if.end.i141, %if.th
   br label %return
 
 if.else72:                                        ; preds = %cp_get.exit157
-  %179 = load ptr, ptr %cp.addr, align 8
-  %c73 = getelementptr inbounds %struct.CPState, ptr %179, i32 0, i32 0
-  %180 = load i32, ptr %c73, align 8
-  %cmp74 = icmp eq i32 %180, 62
+  %181 = load ptr, ptr %cp.addr, align 8
+  %c73 = getelementptr inbounds %struct.CPState, ptr %181, i32 0, i32 0
+  %182 = load i32, ptr %c73, align 8
+  %cmp74 = icmp eq i32 %182, 62
   br i1 %cmp74, label %if.then76, label %if.end78
 
 if.then76:                                        ; preds = %if.else72
-  %181 = load ptr, ptr %cp.addr, align 8
-  store ptr %181, ptr %cp.addr.i120, align 8
-  %182 = load ptr, ptr %cp.addr.i120, align 8
-  %p.i121 = getelementptr inbounds %struct.CPState, ptr %182, i32 0, i32 5
-  %183 = load ptr, ptr %p.i121, align 8
-  %incdec.ptr.i122 = getelementptr inbounds i8, ptr %183, i32 1
+  %183 = load ptr, ptr %cp.addr, align 8
+  store ptr %183, ptr %cp.addr.i120, align 8
+  %184 = load ptr, ptr %cp.addr.i120, align 8
+  %p.i121 = getelementptr inbounds %struct.CPState, ptr %184, i32 0, i32 5
+  %185 = load ptr, ptr %p.i121, align 8
+  %incdec.ptr.i122 = getelementptr inbounds i8, ptr %185, i32 1
   store ptr %incdec.ptr.i122, ptr %p.i121, align 8
-  %184 = load i8, ptr %183, align 1
-  %conv.i123 = zext i8 %184 to i32
-  %185 = load ptr, ptr %cp.addr.i120, align 8
-  store i32 %conv.i123, ptr %185, align 8
-  %186 = load ptr, ptr %cp.addr.i120, align 8
-  %187 = load i32, ptr %186, align 8
-  %cmp.i124 = icmp ne i32 %187, 92
+  %186 = load i8, ptr %185, align 1
+  %conv.i123 = zext i8 %186 to i32
+  %187 = load ptr, ptr %cp.addr.i120, align 8
+  store i32 %conv.i123, ptr %187, align 8
+  %188 = load ptr, ptr %cp.addr.i120, align 8
+  %189 = load i32, ptr %188, align 8
+  %cmp.i124 = icmp ne i32 %189, 92
   br i1 %cmp.i124, label %if.then.i130, label %if.end.i128
 
 if.then.i130:                                     ; preds = %if.then76
-  %188 = load ptr, ptr %cp.addr.i120, align 8
-  %189 = load i32, ptr %188, align 8
-  store i32 %189, ptr %retval.i119, align 4
+  %190 = load ptr, ptr %cp.addr.i120, align 8
+  %191 = load i32, ptr %190, align 8
+  store i32 %191, ptr %retval.i119, align 4
   br label %cp_get.exit131
 
 if.end.i128:                                      ; preds = %if.then76
-  %190 = load ptr, ptr %cp.addr.i120, align 8
-  %call.i129 = call i32 @cp_get_bs(ptr noundef %190)
+  %192 = load ptr, ptr %cp.addr.i120, align 8
+  %call.i129 = call i32 @cp_get_bs(ptr noundef %192)
   store i32 %call.i129, ptr %retval.i119, align 4
   br label %cp_get.exit131
 
@@ -1808,37 +1810,37 @@ if.end79:                                         ; preds = %if.end78
   br label %return
 
 sw.bb80:                                          ; preds = %if.end
-  %191 = load ptr, ptr %cp.addr, align 8
-  store ptr %191, ptr %cp.addr.i107, align 8
-  %192 = load ptr, ptr %cp.addr.i107, align 8
-  %p.i108 = getelementptr inbounds %struct.CPState, ptr %192, i32 0, i32 5
-  %193 = load ptr, ptr %p.i108, align 8
-  %incdec.ptr.i109 = getelementptr inbounds i8, ptr %193, i32 1
+  %193 = load ptr, ptr %cp.addr, align 8
+  store ptr %193, ptr %cp.addr.i107, align 8
+  %194 = load ptr, ptr %cp.addr.i107, align 8
+  %p.i108 = getelementptr inbounds %struct.CPState, ptr %194, i32 0, i32 5
+  %195 = load ptr, ptr %p.i108, align 8
+  %incdec.ptr.i109 = getelementptr inbounds i8, ptr %195, i32 1
   store ptr %incdec.ptr.i109, ptr %p.i108, align 8
-  %194 = load i8, ptr %193, align 1
-  %conv.i110 = zext i8 %194 to i32
-  %195 = load ptr, ptr %cp.addr.i107, align 8
-  store i32 %conv.i110, ptr %195, align 8
-  %196 = load ptr, ptr %cp.addr.i107, align 8
-  %197 = load i32, ptr %196, align 8
-  %cmp.i111 = icmp ne i32 %197, 92
+  %196 = load i8, ptr %195, align 1
+  %conv.i110 = zext i8 %196 to i32
+  %197 = load ptr, ptr %cp.addr.i107, align 8
+  store i32 %conv.i110, ptr %197, align 8
+  %198 = load ptr, ptr %cp.addr.i107, align 8
+  %199 = load i32, ptr %198, align 8
+  %cmp.i111 = icmp ne i32 %199, 92
   br i1 %cmp.i111, label %if.then.i117, label %if.end.i115
 
 if.then.i117:                                     ; preds = %sw.bb80
-  %198 = load ptr, ptr %cp.addr.i107, align 8
-  %199 = load i32, ptr %198, align 8
-  store i32 %199, ptr %retval.i106, align 4
+  %200 = load ptr, ptr %cp.addr.i107, align 8
+  %201 = load i32, ptr %200, align 8
+  store i32 %201, ptr %retval.i106, align 4
   br label %cp_get.exit118
 
 if.end.i115:                                      ; preds = %sw.bb80
-  %200 = load ptr, ptr %cp.addr.i107, align 8
-  %call.i116 = call i32 @cp_get_bs(ptr noundef %200)
+  %202 = load ptr, ptr %cp.addr.i107, align 8
+  %call.i116 = call i32 @cp_get_bs(ptr noundef %202)
   store i32 %call.i116, ptr %retval.i106, align 4
   br label %cp_get.exit118
 
 cp_get.exit118:                                   ; preds = %if.end.i115, %if.then.i117
-  %201 = load i32, ptr %retval.i106, align 4
-  %cmp82 = icmp ne i32 %201, 62
+  %203 = load i32, ptr %retval.i106, align 4
+  %cmp82 = icmp ne i32 %203, 62
   br i1 %cmp82, label %if.then84, label %if.end85
 
 if.then84:                                        ; preds = %cp_get.exit118
@@ -1846,31 +1848,31 @@ if.then84:                                        ; preds = %cp_get.exit118
   br label %return
 
 if.end85:                                         ; preds = %cp_get.exit118
-  %202 = load ptr, ptr %cp.addr, align 8
-  store ptr %202, ptr %cp.addr.i94, align 8
-  %203 = load ptr, ptr %cp.addr.i94, align 8
-  %p.i95 = getelementptr inbounds %struct.CPState, ptr %203, i32 0, i32 5
-  %204 = load ptr, ptr %p.i95, align 8
-  %incdec.ptr.i96 = getelementptr inbounds i8, ptr %204, i32 1
+  %204 = load ptr, ptr %cp.addr, align 8
+  store ptr %204, ptr %cp.addr.i94, align 8
+  %205 = load ptr, ptr %cp.addr.i94, align 8
+  %p.i95 = getelementptr inbounds %struct.CPState, ptr %205, i32 0, i32 5
+  %206 = load ptr, ptr %p.i95, align 8
+  %incdec.ptr.i96 = getelementptr inbounds i8, ptr %206, i32 1
   store ptr %incdec.ptr.i96, ptr %p.i95, align 8
-  %205 = load i8, ptr %204, align 1
-  %conv.i97 = zext i8 %205 to i32
-  %206 = load ptr, ptr %cp.addr.i94, align 8
-  store i32 %conv.i97, ptr %206, align 8
-  %207 = load ptr, ptr %cp.addr.i94, align 8
-  %208 = load i32, ptr %207, align 8
-  %cmp.i98 = icmp ne i32 %208, 92
+  %207 = load i8, ptr %206, align 1
+  %conv.i97 = zext i8 %207 to i32
+  %208 = load ptr, ptr %cp.addr.i94, align 8
+  store i32 %conv.i97, ptr %208, align 8
+  %209 = load ptr, ptr %cp.addr.i94, align 8
+  %210 = load i32, ptr %209, align 8
+  %cmp.i98 = icmp ne i32 %210, 92
   br i1 %cmp.i98, label %if.then.i104, label %if.end.i102
 
 if.then.i104:                                     ; preds = %if.end85
-  %209 = load ptr, ptr %cp.addr.i94, align 8
-  %210 = load i32, ptr %209, align 8
-  store i32 %210, ptr %retval.i93, align 4
+  %211 = load ptr, ptr %cp.addr.i94, align 8
+  %212 = load i32, ptr %211, align 8
+  store i32 %212, ptr %retval.i93, align 4
   br label %cp_get.exit105
 
 if.end.i102:                                      ; preds = %if.end85
-  %211 = load ptr, ptr %cp.addr.i94, align 8
-  %call.i103 = call i32 @cp_get_bs(ptr noundef %211)
+  %213 = load ptr, ptr %cp.addr.i94, align 8
+  %call.i103 = call i32 @cp_get_bs(ptr noundef %213)
   store i32 %call.i103, ptr %retval.i93, align 4
   br label %cp_get.exit105
 
@@ -1879,8 +1881,8 @@ cp_get.exit105:                                   ; preds = %if.end.i102, %if.th
   br label %return
 
 sw.bb87:                                          ; preds = %if.end
-  %212 = load ptr, ptr %cp.addr, align 8
-  %call88 = call i32 @cp_param(ptr noundef %212)
+  %214 = load ptr, ptr %cp.addr, align 8
+  %call88 = call i32 @cp_param(ptr noundef %214)
   store i32 %call88, ptr %retval, align 4
   br label %return
 
@@ -1889,49 +1891,49 @@ sw.bb89:                                          ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  %213 = load ptr, ptr %cp.addr, align 8
-  %c91 = getelementptr inbounds %struct.CPState, ptr %213, i32 0, i32 0
-  %214 = load i32, ptr %c91, align 8
-  store i32 %214, ptr %c90, align 4
   %215 = load ptr, ptr %cp.addr, align 8
-  store ptr %215, ptr %cp.addr.i, align 8
-  %216 = load ptr, ptr %cp.addr.i, align 8
-  %p.i = getelementptr inbounds %struct.CPState, ptr %216, i32 0, i32 5
-  %217 = load ptr, ptr %p.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %217, i32 1
+  %c91 = getelementptr inbounds %struct.CPState, ptr %215, i32 0, i32 0
+  %216 = load i32, ptr %c91, align 8
+  store i32 %216, ptr %c90, align 4
+  %217 = load ptr, ptr %cp.addr, align 8
+  store ptr %217, ptr %cp.addr.i, align 8
+  %218 = load ptr, ptr %cp.addr.i, align 8
+  %p.i = getelementptr inbounds %struct.CPState, ptr %218, i32 0, i32 5
+  %219 = load ptr, ptr %p.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %219, i32 1
   store ptr %incdec.ptr.i, ptr %p.i, align 8
-  %218 = load i8, ptr %217, align 1
-  %conv.i = zext i8 %218 to i32
-  %219 = load ptr, ptr %cp.addr.i, align 8
-  store i32 %conv.i, ptr %219, align 8
-  %220 = load ptr, ptr %cp.addr.i, align 8
-  %221 = load i32, ptr %220, align 8
-  %cmp.i = icmp ne i32 %221, 92
+  %220 = load i8, ptr %219, align 1
+  %conv.i = zext i8 %220 to i32
+  %221 = load ptr, ptr %cp.addr.i, align 8
+  store i32 %conv.i, ptr %221, align 8
+  %222 = load ptr, ptr %cp.addr.i, align 8
+  %223 = load i32, ptr %222, align 8
+  %cmp.i = icmp ne i32 %223, 92
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.default
-  %222 = load ptr, ptr %cp.addr.i, align 8
-  %223 = load i32, ptr %222, align 8
-  store i32 %223, ptr %retval.i, align 4
+  %224 = load ptr, ptr %cp.addr.i, align 8
+  %225 = load i32, ptr %224, align 8
+  store i32 %225, ptr %retval.i, align 4
   br label %cp_get.exit
 
 if.end.i:                                         ; preds = %sw.default
-  %224 = load ptr, ptr %cp.addr.i, align 8
-  %call.i = call i32 @cp_get_bs(ptr noundef %224)
+  %226 = load ptr, ptr %cp.addr.i, align 8
+  %call.i = call i32 @cp_get_bs(ptr noundef %226)
   store i32 %call.i, ptr %retval.i, align 4
   br label %cp_get.exit
 
 cp_get.exit:                                      ; preds = %if.end.i, %if.then.i
-  %225 = load i32, ptr %c90, align 4
-  store i32 %225, ptr %retval, align 4
+  %227 = load i32, ptr %c90, align 4
+  store i32 %227, ptr %retval, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %if.end23, %cp_get.exit326
   br label %for.cond
 
 return:                                           ; preds = %cp_get.exit, %sw.bb89, %sw.bb87, %cp_get.exit105, %if.then84, %if.end79, %cp_get.exit131, %cp_get.exit144, %if.end65, %cp_get.exit170, %cp_get.exit183, %cp_get.exit209, %if.then49, %cp_get.exit235, %if.then42, %cp_get.exit261, %if.then35, %cp_get.exit287, %if.then28, %if.else21, %sw.bb11, %cond.end
-  %226 = load i32, ptr %retval, align 4
-  ret i32 %226
+  %228 = load i32, ptr %retval, align 4
+  ret i32 %228
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2048,116 +2050,117 @@ if.end.i:                                         ; preds = %do.cond
 cp_get.exit:                                      ; preds = %if.end.i, %if.then.i
   %30 = load i32, ptr %retval.i, align 4
   %idxprom = sext i32 %30 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %31 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %31 to i32
+  %31 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %31, i64 %idxprom
+  %32 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %32 to i32
   %and = and i32 %conv, 128
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %do.body, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %cp_get.exit
-  %32 = load ptr, ptr %cp.addr, align 8
-  store ptr %32, ptr %cp.addr.i19, align 8
+  %33 = load ptr, ptr %cp.addr, align 8
+  store ptr %33, ptr %cp.addr.i19, align 8
   store i32 0, ptr %c.addr.i, align 4
-  %33 = load ptr, ptr %cp.addr.i19, align 8
-  %sb.i = getelementptr inbounds %struct.CPState, ptr %33, i32 0, i32 6
-  %34 = load i32, ptr %c.addr.i, align 4
+  %34 = load ptr, ptr %cp.addr.i19, align 8
+  %sb.i = getelementptr inbounds %struct.CPState, ptr %34, i32 0, i32 6
+  %35 = load i32, ptr %c.addr.i, align 4
   store ptr %sb.i, ptr %sb.addr.i27, align 8
-  store i32 %34, ptr %c.addr.i28, align 4
-  %35 = load ptr, ptr %sb.addr.i27, align 8
-  store ptr %35, ptr %sb.addr.i34, align 8
+  store i32 %35, ptr %c.addr.i28, align 4
+  %36 = load ptr, ptr %sb.addr.i27, align 8
+  store ptr %36, ptr %sb.addr.i34, align 8
   store i32 1, ptr %sz.addr.i, align 4
-  %36 = load i32, ptr %sz.addr.i, align 4
-  %37 = load ptr, ptr %sb.addr.i34, align 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %e.i, align 8
-  %39 = load ptr, ptr %sb.addr.i34, align 8
-  %40 = load ptr, ptr %39, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
+  %37 = load i32, ptr %sz.addr.i, align 4
+  %38 = load ptr, ptr %sb.addr.i34, align 8
+  %e.i = getelementptr inbounds %struct.SBuf, ptr %38, i32 0, i32 1
+  %39 = load ptr, ptr %e.i, align 8
+  %40 = load ptr, ptr %sb.addr.i34, align 8
+  %41 = load ptr, ptr %40, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i35 = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.i36 = icmp ugt i32 %36, %conv.i35
+  %cmp.i36 = icmp ugt i32 %37, %conv.i35
   br i1 %cmp.i36, label %if.then.i40, label %if.end.i39
 
 if.then.i40:                                      ; preds = %do.end
-  %41 = load ptr, ptr %sb.addr.i34, align 8
-  %42 = load i32, ptr %sz.addr.i, align 4
-  %call.i41 = call ptr @lj_buf_more2(ptr noundef %41, i32 noundef %42) #10
+  %42 = load ptr, ptr %sb.addr.i34, align 8
+  %43 = load i32, ptr %sz.addr.i, align 4
+  %call.i41 = call ptr @lj_buf_more2(ptr noundef %42, i32 noundef %43) #10
   store ptr %call.i41, ptr %retval.i33, align 8
   br label %lj_buf_more.exit
 
 if.end.i39:                                       ; preds = %do.end
-  %43 = load ptr, ptr %sb.addr.i34, align 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %retval.i33, align 8
+  %44 = load ptr, ptr %sb.addr.i34, align 8
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %retval.i33, align 8
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %if.end.i39, %if.then.i40
-  %45 = load ptr, ptr %retval.i33, align 8
-  store ptr %45, ptr %w.i29, align 8
-  %46 = load i32, ptr %c.addr.i28, align 4
-  %conv.i31 = trunc i32 %46 to i8
-  %47 = load ptr, ptr %w.i29, align 8
-  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %incdec.ptr.i32, ptr %w.i29, align 8
-  store i8 %conv.i31, ptr %47, align 1
+  %46 = load ptr, ptr %retval.i33, align 8
+  store ptr %46, ptr %w.i29, align 8
+  %47 = load i32, ptr %c.addr.i28, align 4
+  %conv.i31 = trunc i32 %47 to i8
   %48 = load ptr, ptr %w.i29, align 8
-  %49 = load ptr, ptr %sb.addr.i27, align 8
-  store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr %cp.addr, align 8
-  %sb = getelementptr inbounds %struct.CPState, ptr %50, i32 0, i32 6
+  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %48, i32 1
+  store ptr %incdec.ptr.i32, ptr %w.i29, align 8
+  store i8 %conv.i31, ptr %48, align 1
+  %49 = load ptr, ptr %w.i29, align 8
+  %50 = load ptr, ptr %sb.addr.i27, align 8
+  store ptr %49, ptr %50, align 8
+  %51 = load ptr, ptr %cp.addr, align 8
+  %sb = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 6
   %b = getelementptr inbounds %struct.SBuf, ptr %sb, i32 0, i32 2
-  %51 = load ptr, ptr %b, align 8
-  %52 = load ptr, ptr %cp.addr, align 8
-  %sb1 = getelementptr inbounds %struct.CPState, ptr %52, i32 0, i32 6
+  %52 = load ptr, ptr %b, align 8
+  %53 = load ptr, ptr %cp.addr, align 8
+  %sb1 = getelementptr inbounds %struct.CPState, ptr %53, i32 0, i32 6
   %w = getelementptr inbounds %struct.SBuf, ptr %sb1, i32 0, i32 0
-  %53 = load ptr, ptr %w, align 8
-  %54 = load ptr, ptr %cp.addr, align 8
-  %sb2 = getelementptr inbounds %struct.CPState, ptr %54, i32 0, i32 6
+  %54 = load ptr, ptr %w, align 8
+  %55 = load ptr, ptr %cp.addr, align 8
+  %sb2 = getelementptr inbounds %struct.CPState, ptr %55, i32 0, i32 6
   %b3 = getelementptr inbounds %struct.SBuf, ptr %sb2, i32 0, i32 2
-  %55 = load ptr, ptr %b3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %55 to i64
+  %56 = load ptr, ptr %b3, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %54 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %56 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv4 = trunc i64 %sub.ptr.sub to i32
   %sub = sub i32 %conv4, 1
-  %call5 = call i32 @lj_strscan_scan(ptr noundef %51, i32 noundef %sub, ptr noundef %o, i32 noundef 16)
+  %call5 = call i32 @lj_strscan_scan(ptr noundef %52, i32 noundef %sub, ptr noundef %o, i32 noundef 16)
   store i32 %call5, ptr %fmt, align 4
-  %56 = load i32, ptr %fmt, align 4
-  %cmp = icmp eq i32 %56, 3
+  %57 = load i32, ptr %fmt, align 4
+  %cmp = icmp eq i32 %57, 3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lj_buf_more.exit
-  %57 = load ptr, ptr %cp.addr, align 8
-  %val = getelementptr inbounds %struct.CPState, ptr %57, i32 0, i32 2
+  %58 = load ptr, ptr %cp.addr, align 8
+  %val = getelementptr inbounds %struct.CPState, ptr %58, i32 0, i32 2
   %id = getelementptr inbounds %struct.CPValue, ptr %val, i32 0, i32 1
   store i32 9, ptr %id, align 4
   br label %if.end17
 
 if.else:                                          ; preds = %lj_buf_more.exit
-  %58 = load i32, ptr %fmt, align 4
-  %cmp7 = icmp eq i32 %58, 4
+  %59 = load i32, ptr %fmt, align 4
+  %cmp7 = icmp eq i32 %59, 4
   br i1 %cmp7, label %if.then9, label %if.else12
 
 if.then9:                                         ; preds = %if.else
-  %59 = load ptr, ptr %cp.addr, align 8
-  %val10 = getelementptr inbounds %struct.CPState, ptr %59, i32 0, i32 2
+  %60 = load ptr, ptr %cp.addr, align 8
+  %val10 = getelementptr inbounds %struct.CPState, ptr %60, i32 0, i32 2
   %id11 = getelementptr inbounds %struct.CPValue, ptr %val10, i32 0, i32 1
   store i32 10, ptr %id11, align 4
   br label %if.end16
 
 if.else12:                                        ; preds = %if.else
-  %60 = load ptr, ptr %cp.addr, align 8
-  %mode = getelementptr inbounds %struct.CPState, ptr %60, i32 0, i32 14
-  %61 = load i32, ptr %mode, align 4
-  %and13 = and i32 %61, 32
+  %61 = load ptr, ptr %cp.addr, align 8
+  %mode = getelementptr inbounds %struct.CPState, ptr %61, i32 0, i32 14
+  %62 = load i32, ptr %mode, align 4
+  %and13 = and i32 %62, 32
   %tobool14 = icmp ne i32 %and13, 0
   br i1 %tobool14, label %if.end, label %if.then15
 
 if.then15:                                        ; preds = %if.else12
-  %62 = load ptr, ptr %cp.addr, align 8
-  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %62, i32 noundef 258, i32 noundef 2229) #9
+  %63 = load ptr, ptr %cp.addr, align 8
+  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %63, i32 noundef 258, i32 noundef 2229) #9
   unreachable
 
 if.end:                                           ; preds = %if.else12
@@ -2168,11 +2171,11 @@ if.end16:                                         ; preds = %if.end, %if.then9
 
 if.end17:                                         ; preds = %if.end16, %if.then
   %i = getelementptr inbounds %struct.anon, ptr %o, i32 0, i32 0
-  %63 = load i32, ptr %i, align 8
-  %64 = load ptr, ptr %cp.addr, align 8
-  %val18 = getelementptr inbounds %struct.CPState, ptr %64, i32 0, i32 2
-  %65 = getelementptr inbounds %struct.CPValue, ptr %val18, i32 0, i32 0
-  store i32 %63, ptr %65, align 8
+  %64 = load i32, ptr %i, align 8
+  %65 = load ptr, ptr %cp.addr, align 8
+  %val18 = getelementptr inbounds %struct.CPState, ptr %65, i32 0, i32 2
+  %66 = getelementptr inbounds %struct.CPValue, ptr %val18, i32 0, i32 0
+  store i32 %64, ptr %66, align 8
   ret i32 258
 }
 
@@ -2283,71 +2286,72 @@ if.end.i:                                         ; preds = %do.cond
 cp_get.exit:                                      ; preds = %if.end.i, %if.then.i
   %30 = load i32, ptr %retval.i, align 4
   %idxprom = sext i32 %30 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %31 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %31 to i32
+  %31 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %31, i64 %idxprom
+  %32 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %32 to i32
   %and = and i32 %conv, 128
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %cp_get.exit
-  %32 = load ptr, ptr %cp.addr, align 8
-  %L = getelementptr inbounds %struct.CPState, ptr %32, i32 0, i32 7
-  %33 = load ptr, ptr %L, align 8
-  %34 = load ptr, ptr %cp.addr, align 8
-  %sb = getelementptr inbounds %struct.CPState, ptr %34, i32 0, i32 6
-  store ptr %33, ptr %L.addr.i, align 8
+  %33 = load ptr, ptr %cp.addr, align 8
+  %L = getelementptr inbounds %struct.CPState, ptr %33, i32 0, i32 7
+  %34 = load ptr, ptr %L, align 8
+  %35 = load ptr, ptr %cp.addr, align 8
+  %sb = getelementptr inbounds %struct.CPState, ptr %35, i32 0, i32 6
+  store ptr %34, ptr %L.addr.i, align 8
   store ptr %sb, ptr %sb.addr.i23, align 8
-  %35 = load ptr, ptr %L.addr.i, align 8
-  %36 = load ptr, ptr %sb.addr.i23, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %b.i, align 8
-  %38 = load ptr, ptr %sb.addr.i23, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %sb.addr.i23, align 8
-  %b1.i = getelementptr inbounds %struct.SBuf, ptr %40, i32 0, i32 2
-  %41 = load ptr, ptr %b1.i, align 8
-  %sub.ptr.lhs.cast.i24 = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i25 = ptrtoint ptr %41 to i64
+  %36 = load ptr, ptr %L.addr.i, align 8
+  %37 = load ptr, ptr %sb.addr.i23, align 8
+  %b.i = getelementptr inbounds %struct.SBuf, ptr %37, i32 0, i32 2
+  %38 = load ptr, ptr %b.i, align 8
+  %39 = load ptr, ptr %sb.addr.i23, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %sb.addr.i23, align 8
+  %b1.i = getelementptr inbounds %struct.SBuf, ptr %41, i32 0, i32 2
+  %42 = load ptr, ptr %b1.i, align 8
+  %sub.ptr.lhs.cast.i24 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i25 = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i25
   %conv.i27 = trunc i64 %sub.ptr.sub.i26 to i32
   %conv2.i = zext i32 %conv.i27 to i64
-  %call.i28 = call ptr @lj_str_new(ptr noundef %35, ptr noundef %37, i64 noundef %conv2.i) #10
-  %42 = load ptr, ptr %cp.addr, align 8
-  %str = getelementptr inbounds %struct.CPState, ptr %42, i32 0, i32 3
-  store ptr %call.i28, ptr %str, align 8
+  %call.i28 = call ptr @lj_str_new(ptr noundef %36, ptr noundef %38, i64 noundef %conv2.i) #10
   %43 = load ptr, ptr %cp.addr, align 8
-  %cts = getelementptr inbounds %struct.CPState, ptr %43, i32 0, i32 8
-  %44 = load ptr, ptr %cts, align 8
-  %45 = load ptr, ptr %cp.addr, align 8
-  %ct = getelementptr inbounds %struct.CPState, ptr %45, i32 0, i32 4
+  %str = getelementptr inbounds %struct.CPState, ptr %43, i32 0, i32 3
+  store ptr %call.i28, ptr %str, align 8
+  %44 = load ptr, ptr %cp.addr, align 8
+  %cts = getelementptr inbounds %struct.CPState, ptr %44, i32 0, i32 8
+  %45 = load ptr, ptr %cts, align 8
   %46 = load ptr, ptr %cp.addr, align 8
-  %str2 = getelementptr inbounds %struct.CPState, ptr %46, i32 0, i32 3
-  %47 = load ptr, ptr %str2, align 8
-  %48 = load ptr, ptr %cp.addr, align 8
-  %tmask = getelementptr inbounds %struct.CPState, ptr %48, i32 0, i32 13
-  %49 = load i32, ptr %tmask, align 8
-  %call3 = call i32 @lj_ctype_getname(ptr noundef %44, ptr noundef %ct, ptr noundef %47, i32 noundef %49)
-  %50 = load ptr, ptr %cp.addr, align 8
-  %val = getelementptr inbounds %struct.CPState, ptr %50, i32 0, i32 2
+  %ct = getelementptr inbounds %struct.CPState, ptr %46, i32 0, i32 4
+  %47 = load ptr, ptr %cp.addr, align 8
+  %str2 = getelementptr inbounds %struct.CPState, ptr %47, i32 0, i32 3
+  %48 = load ptr, ptr %str2, align 8
+  %49 = load ptr, ptr %cp.addr, align 8
+  %tmask = getelementptr inbounds %struct.CPState, ptr %49, i32 0, i32 13
+  %50 = load i32, ptr %tmask, align 8
+  %call3 = call i32 @lj_ctype_getname(ptr noundef %45, ptr noundef %ct, ptr noundef %48, i32 noundef %50)
+  %51 = load ptr, ptr %cp.addr, align 8
+  %val = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 2
   %id = getelementptr inbounds %struct.CPValue, ptr %val, i32 0, i32 1
   store i32 %call3, ptr %id, align 4
-  %51 = load ptr, ptr %cp.addr, align 8
-  %ct4 = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 4
-  %52 = load ptr, ptr %ct4, align 8
-  %info = getelementptr inbounds %struct.CType, ptr %52, i32 0, i32 0
-  %53 = load i32, ptr %info, align 8
-  %shr = lshr i32 %53, 28
+  %52 = load ptr, ptr %cp.addr, align 8
+  %ct4 = getelementptr inbounds %struct.CPState, ptr %52, i32 0, i32 4
+  %53 = load ptr, ptr %ct4, align 8
+  %info = getelementptr inbounds %struct.CType, ptr %53, i32 0, i32 0
+  %54 = load i32, ptr %info, align 8
+  %shr = lshr i32 %54, 28
   %cmp = icmp eq i32 %shr, 13
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end
-  %54 = load ptr, ptr %cp.addr, align 8
-  %ct6 = getelementptr inbounds %struct.CPState, ptr %54, i32 0, i32 4
-  %55 = load ptr, ptr %ct6, align 8
-  %info7 = getelementptr inbounds %struct.CType, ptr %55, i32 0, i32 0
-  %56 = load i32, ptr %info7, align 8
-  %and8 = and i32 %56, 65535
+  %55 = load ptr, ptr %cp.addr, align 8
+  %ct6 = getelementptr inbounds %struct.CPState, ptr %55, i32 0, i32 4
+  %56 = load ptr, ptr %ct6, align 8
+  %info7 = getelementptr inbounds %struct.CType, ptr %56, i32 0, i32 0
+  %57 = load i32, ptr %info7, align 8
+  %and8 = and i32 %57, 65535
   store i32 %and8, ptr %retval, align 4
   br label %return
 
@@ -2356,8 +2360,8 @@ if.end:                                           ; preds = %do.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %57 = load i32, ptr %retval, align 4
-  ret i32 %57
+  %58 = load i32, ptr %retval, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2649,39 +2653,41 @@ if.end.i144:                                      ; preds = %while.cond17
 cp_get.exit147:                                   ; preds = %if.end.i144, %if.then.i146
   %43 = load i32, ptr %retval.i135, align 4
   %idxprom = sext i32 %43 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %44 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %44 to i32
+  %44 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %44, i64 %idxprom
+  %45 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %45 to i32
   %and = and i32 %conv, 16
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %while.body19, label %while.end
 
 while.body19:                                     ; preds = %cp_get.exit147
-  %45 = load i32, ptr %c2, align 4
-  %shl = shl i32 %45, 4
-  %46 = load ptr, ptr %cp.addr, align 8
-  %c20 = getelementptr inbounds %struct.CPState, ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %c20, align 8
-  %idxprom21 = sext i32 %47 to i64
-  %arrayidx22 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom21
-  %48 = load i8, ptr %arrayidx22, align 1
-  %conv23 = zext i8 %48 to i32
+  %46 = load i32, ptr %c2, align 4
+  %shl = shl i32 %46, 4
+  %47 = load ptr, ptr %cp.addr, align 8
+  %c20 = getelementptr inbounds %struct.CPState, ptr %47, i32 0, i32 0
+  %48 = load i32, ptr %c20, align 8
+  %idxprom21 = sext i32 %48 to i64
+  %49 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %49, i64 %idxprom21
+  %50 = load i8, ptr %arrayidx22, align 1
+  %conv23 = zext i8 %50 to i32
   %and24 = and i32 %conv23, 8
   %tobool25 = icmp ne i32 %and24, 0
   br i1 %tobool25, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.body19
-  %49 = load ptr, ptr %cp.addr, align 8
-  %c26 = getelementptr inbounds %struct.CPState, ptr %49, i32 0, i32 0
-  %50 = load i32, ptr %c26, align 8
-  %sub = sub nsw i32 %50, 48
+  %51 = load ptr, ptr %cp.addr, align 8
+  %c26 = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %c26, align 8
+  %sub = sub nsw i32 %52, 48
   br label %cond.end
 
 cond.false:                                       ; preds = %while.body19
-  %51 = load ptr, ptr %cp.addr, align 8
-  %c27 = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 0
-  %52 = load i32, ptr %c27, align 8
-  %and28 = and i32 %52, 15
+  %53 = load ptr, ptr %cp.addr, align 8
+  %c27 = getelementptr inbounds %struct.CPState, ptr %53, i32 0, i32 0
+  %54 = load i32, ptr %c27, align 8
+  %and28 = and i32 %54, 15
   %add = add nsw i32 %and28, 9
   br label %cond.end
 
@@ -2692,192 +2698,195 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %while.cond17, !llvm.loop !10
 
 while.end:                                        ; preds = %cp_get.exit147
-  %53 = load ptr, ptr %cp.addr, align 8
-  %54 = load i32, ptr %c2, align 4
-  %and30 = and i32 %54, 255
-  store ptr %53, ptr %cp.addr.i178, align 8
+  %55 = load ptr, ptr %cp.addr, align 8
+  %56 = load i32, ptr %c2, align 4
+  %and30 = and i32 %56, 255
+  store ptr %55, ptr %cp.addr.i178, align 8
   store i32 %and30, ptr %c.addr.i179, align 4
-  %55 = load ptr, ptr %cp.addr.i178, align 8
-  %sb.i180 = getelementptr inbounds %struct.CPState, ptr %55, i32 0, i32 6
-  %56 = load i32, ptr %c.addr.i179, align 4
+  %57 = load ptr, ptr %cp.addr.i178, align 8
+  %sb.i180 = getelementptr inbounds %struct.CPState, ptr %57, i32 0, i32 6
+  %58 = load i32, ptr %c.addr.i179, align 4
   store ptr %sb.i180, ptr %sb.addr.i, align 8
-  store i32 %56, ptr %c.addr.i181, align 4
-  %57 = load ptr, ptr %sb.addr.i, align 8
-  store ptr %57, ptr %sb.addr.i223, align 8
+  store i32 %58, ptr %c.addr.i181, align 4
+  %59 = load ptr, ptr %sb.addr.i, align 8
+  store ptr %59, ptr %sb.addr.i223, align 8
   store i32 1, ptr %sz.addr.i224, align 4
-  %58 = load i32, ptr %sz.addr.i224, align 4
-  %59 = load ptr, ptr %sb.addr.i223, align 8
-  %e.i225 = getelementptr inbounds %struct.SBuf, ptr %59, i32 0, i32 1
-  %60 = load ptr, ptr %e.i225, align 8
+  %60 = load i32, ptr %sz.addr.i224, align 4
   %61 = load ptr, ptr %sb.addr.i223, align 8
-  %62 = load ptr, ptr %61, align 8
-  %sub.ptr.lhs.cast.i226 = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i227 = ptrtoint ptr %62 to i64
+  %e.i225 = getelementptr inbounds %struct.SBuf, ptr %61, i32 0, i32 1
+  %62 = load ptr, ptr %e.i225, align 8
+  %63 = load ptr, ptr %sb.addr.i223, align 8
+  %64 = load ptr, ptr %63, align 8
+  %sub.ptr.lhs.cast.i226 = ptrtoint ptr %62 to i64
+  %sub.ptr.rhs.cast.i227 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i228 = sub i64 %sub.ptr.lhs.cast.i226, %sub.ptr.rhs.cast.i227
   %conv.i229 = trunc i64 %sub.ptr.sub.i228 to i32
-  %cmp.i230 = icmp ugt i32 %58, %conv.i229
+  %cmp.i230 = icmp ugt i32 %60, %conv.i229
   br i1 %cmp.i230, label %if.then.i235, label %if.end.i234
 
 if.then.i235:                                     ; preds = %while.end
-  %63 = load ptr, ptr %sb.addr.i223, align 8
-  %64 = load i32, ptr %sz.addr.i224, align 4
-  %call.i236 = call ptr @lj_buf_more2(ptr noundef %63, i32 noundef %64) #10
+  %65 = load ptr, ptr %sb.addr.i223, align 8
+  %66 = load i32, ptr %sz.addr.i224, align 4
+  %call.i236 = call ptr @lj_buf_more2(ptr noundef %65, i32 noundef %66) #10
   store ptr %call.i236, ptr %retval.i222, align 8
   br label %lj_buf_more.exit237
 
 if.end.i234:                                      ; preds = %while.end
-  %65 = load ptr, ptr %sb.addr.i223, align 8
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %retval.i222, align 8
+  %67 = load ptr, ptr %sb.addr.i223, align 8
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %retval.i222, align 8
   br label %lj_buf_more.exit237
 
 lj_buf_more.exit237:                              ; preds = %if.end.i234, %if.then.i235
-  %67 = load ptr, ptr %retval.i222, align 8
-  store ptr %67, ptr %w.i, align 8
-  %68 = load i32, ptr %c.addr.i181, align 4
-  %conv.i183 = trunc i32 %68 to i8
-  %69 = load ptr, ptr %w.i, align 8
-  %incdec.ptr.i184 = getelementptr inbounds i8, ptr %69, i32 1
+  %69 = load ptr, ptr %retval.i222, align 8
+  store ptr %69, ptr %w.i, align 8
+  %70 = load i32, ptr %c.addr.i181, align 4
+  %conv.i183 = trunc i32 %70 to i8
+  %71 = load ptr, ptr %w.i, align 8
+  %incdec.ptr.i184 = getelementptr inbounds i8, ptr %71, i32 1
   store ptr %incdec.ptr.i184, ptr %w.i, align 8
-  store i8 %conv.i183, ptr %69, align 1
-  %70 = load ptr, ptr %w.i, align 8
-  %71 = load ptr, ptr %sb.addr.i, align 8
-  store ptr %70, ptr %71, align 8
+  store i8 %conv.i183, ptr %71, align 1
+  %72 = load ptr, ptr %w.i, align 8
+  %73 = load ptr, ptr %sb.addr.i, align 8
+  store ptr %72, ptr %73, align 8
   br label %while.cond, !llvm.loop !11
 
 sw.default:                                       ; preds = %cp_get.exit160
-  %72 = load i32, ptr %c2, align 4
-  %idxprom31 = sext i32 %72 to i64
-  %arrayidx32 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom31
-  %73 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %73 to i32
+  %74 = load i32, ptr %c2, align 4
+  %idxprom31 = sext i32 %74 to i64
+  %75 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %75, i64 %idxprom31
+  %76 = load i8, ptr %arrayidx32, align 1
+  %conv33 = zext i8 %76 to i32
   %and34 = and i32 %conv33, 8
   %tobool35 = icmp ne i32 %and34, 0
   br i1 %tobool35, label %if.then36, label %if.end63
 
 if.then36:                                        ; preds = %sw.default
-  %74 = load i32, ptr %c2, align 4
-  %sub37 = sub nsw i32 %74, 48
+  %77 = load i32, ptr %c2, align 4
+  %sub37 = sub nsw i32 %77, 48
   store i32 %sub37, ptr %c2, align 4
-  %75 = load ptr, ptr %cp.addr, align 8
-  store ptr %75, ptr %cp.addr.i123, align 8
-  %76 = load ptr, ptr %cp.addr.i123, align 8
-  %p.i124 = getelementptr inbounds %struct.CPState, ptr %76, i32 0, i32 5
-  %77 = load ptr, ptr %p.i124, align 8
-  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %77, i32 1
-  store ptr %incdec.ptr.i125, ptr %p.i124, align 8
-  %78 = load i8, ptr %77, align 1
-  %conv.i126 = zext i8 %78 to i32
+  %78 = load ptr, ptr %cp.addr, align 8
+  store ptr %78, ptr %cp.addr.i123, align 8
   %79 = load ptr, ptr %cp.addr.i123, align 8
-  store i32 %conv.i126, ptr %79, align 8
-  %80 = load ptr, ptr %cp.addr.i123, align 8
-  %81 = load i32, ptr %80, align 8
-  %cmp.i127 = icmp ne i32 %81, 92
+  %p.i124 = getelementptr inbounds %struct.CPState, ptr %79, i32 0, i32 5
+  %80 = load ptr, ptr %p.i124, align 8
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %80, i32 1
+  store ptr %incdec.ptr.i125, ptr %p.i124, align 8
+  %81 = load i8, ptr %80, align 1
+  %conv.i126 = zext i8 %81 to i32
+  %82 = load ptr, ptr %cp.addr.i123, align 8
+  store i32 %conv.i126, ptr %82, align 8
+  %83 = load ptr, ptr %cp.addr.i123, align 8
+  %84 = load i32, ptr %83, align 8
+  %cmp.i127 = icmp ne i32 %84, 92
   br i1 %cmp.i127, label %if.then.i133, label %if.end.i131
 
 if.then.i133:                                     ; preds = %if.then36
-  %82 = load ptr, ptr %cp.addr.i123, align 8
-  %83 = load i32, ptr %82, align 8
-  store i32 %83, ptr %retval.i122, align 4
+  %85 = load ptr, ptr %cp.addr.i123, align 8
+  %86 = load i32, ptr %85, align 8
+  store i32 %86, ptr %retval.i122, align 4
   br label %cp_get.exit134
 
 if.end.i131:                                      ; preds = %if.then36
-  %84 = load ptr, ptr %cp.addr.i123, align 8
-  %call.i132 = call i32 @cp_get_bs(ptr noundef %84)
+  %87 = load ptr, ptr %cp.addr.i123, align 8
+  %call.i132 = call i32 @cp_get_bs(ptr noundef %87)
   store i32 %call.i132, ptr %retval.i122, align 4
   br label %cp_get.exit134
 
 cp_get.exit134:                                   ; preds = %if.end.i131, %if.then.i133
-  %85 = load i32, ptr %retval.i122, align 4
-  %idxprom39 = sext i32 %85 to i64
-  %arrayidx40 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom39
-  %86 = load i8, ptr %arrayidx40, align 1
-  %conv41 = zext i8 %86 to i32
+  %88 = load i32, ptr %retval.i122, align 4
+  %idxprom39 = sext i32 %88 to i64
+  %89 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx40 = getelementptr inbounds i8, ptr %89, i64 %idxprom39
+  %90 = load i8, ptr %arrayidx40, align 1
+  %conv41 = zext i8 %90 to i32
   %and42 = and i32 %conv41, 8
   %tobool43 = icmp ne i32 %and42, 0
   br i1 %tobool43, label %if.then44, label %if.end61
 
 if.then44:                                        ; preds = %cp_get.exit134
-  %87 = load i32, ptr %c2, align 4
-  %mul = mul nsw i32 %87, 8
-  %88 = load ptr, ptr %cp.addr, align 8
-  %c45 = getelementptr inbounds %struct.CPState, ptr %88, i32 0, i32 0
-  %89 = load i32, ptr %c45, align 8
-  %sub46 = sub nsw i32 %89, 48
+  %91 = load i32, ptr %c2, align 4
+  %mul = mul nsw i32 %91, 8
+  %92 = load ptr, ptr %cp.addr, align 8
+  %c45 = getelementptr inbounds %struct.CPState, ptr %92, i32 0, i32 0
+  %93 = load i32, ptr %c45, align 8
+  %sub46 = sub nsw i32 %93, 48
   %add47 = add nsw i32 %mul, %sub46
   store i32 %add47, ptr %c2, align 4
-  %90 = load ptr, ptr %cp.addr, align 8
-  store ptr %90, ptr %cp.addr.i110, align 8
-  %91 = load ptr, ptr %cp.addr.i110, align 8
-  %p.i111 = getelementptr inbounds %struct.CPState, ptr %91, i32 0, i32 5
-  %92 = load ptr, ptr %p.i111, align 8
-  %incdec.ptr.i112 = getelementptr inbounds i8, ptr %92, i32 1
-  store ptr %incdec.ptr.i112, ptr %p.i111, align 8
-  %93 = load i8, ptr %92, align 1
-  %conv.i113 = zext i8 %93 to i32
-  %94 = load ptr, ptr %cp.addr.i110, align 8
-  store i32 %conv.i113, ptr %94, align 8
+  %94 = load ptr, ptr %cp.addr, align 8
+  store ptr %94, ptr %cp.addr.i110, align 8
   %95 = load ptr, ptr %cp.addr.i110, align 8
-  %96 = load i32, ptr %95, align 8
-  %cmp.i114 = icmp ne i32 %96, 92
+  %p.i111 = getelementptr inbounds %struct.CPState, ptr %95, i32 0, i32 5
+  %96 = load ptr, ptr %p.i111, align 8
+  %incdec.ptr.i112 = getelementptr inbounds i8, ptr %96, i32 1
+  store ptr %incdec.ptr.i112, ptr %p.i111, align 8
+  %97 = load i8, ptr %96, align 1
+  %conv.i113 = zext i8 %97 to i32
+  %98 = load ptr, ptr %cp.addr.i110, align 8
+  store i32 %conv.i113, ptr %98, align 8
+  %99 = load ptr, ptr %cp.addr.i110, align 8
+  %100 = load i32, ptr %99, align 8
+  %cmp.i114 = icmp ne i32 %100, 92
   br i1 %cmp.i114, label %if.then.i120, label %if.end.i118
 
 if.then.i120:                                     ; preds = %if.then44
-  %97 = load ptr, ptr %cp.addr.i110, align 8
-  %98 = load i32, ptr %97, align 8
-  store i32 %98, ptr %retval.i109, align 4
+  %101 = load ptr, ptr %cp.addr.i110, align 8
+  %102 = load i32, ptr %101, align 8
+  store i32 %102, ptr %retval.i109, align 4
   br label %cp_get.exit121
 
 if.end.i118:                                      ; preds = %if.then44
-  %99 = load ptr, ptr %cp.addr.i110, align 8
-  %call.i119 = call i32 @cp_get_bs(ptr noundef %99)
+  %103 = load ptr, ptr %cp.addr.i110, align 8
+  %call.i119 = call i32 @cp_get_bs(ptr noundef %103)
   store i32 %call.i119, ptr %retval.i109, align 4
   br label %cp_get.exit121
 
 cp_get.exit121:                                   ; preds = %if.end.i118, %if.then.i120
-  %100 = load i32, ptr %retval.i109, align 4
-  %idxprom49 = sext i32 %100 to i64
-  %arrayidx50 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom49
-  %101 = load i8, ptr %arrayidx50, align 1
-  %conv51 = zext i8 %101 to i32
+  %104 = load i32, ptr %retval.i109, align 4
+  %idxprom49 = sext i32 %104 to i64
+  %105 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx50 = getelementptr inbounds i8, ptr %105, i64 %idxprom49
+  %106 = load i8, ptr %arrayidx50, align 1
+  %conv51 = zext i8 %106 to i32
   %and52 = and i32 %conv51, 8
   %tobool53 = icmp ne i32 %and52, 0
   br i1 %tobool53, label %if.then54, label %if.end60
 
 if.then54:                                        ; preds = %cp_get.exit121
-  %102 = load i32, ptr %c2, align 4
-  %mul55 = mul nsw i32 %102, 8
-  %103 = load ptr, ptr %cp.addr, align 8
-  %c56 = getelementptr inbounds %struct.CPState, ptr %103, i32 0, i32 0
-  %104 = load i32, ptr %c56, align 8
-  %sub57 = sub nsw i32 %104, 48
+  %107 = load i32, ptr %c2, align 4
+  %mul55 = mul nsw i32 %107, 8
+  %108 = load ptr, ptr %cp.addr, align 8
+  %c56 = getelementptr inbounds %struct.CPState, ptr %108, i32 0, i32 0
+  %109 = load i32, ptr %c56, align 8
+  %sub57 = sub nsw i32 %109, 48
   %add58 = add nsw i32 %mul55, %sub57
   store i32 %add58, ptr %c2, align 4
-  %105 = load ptr, ptr %cp.addr, align 8
-  store ptr %105, ptr %cp.addr.i97, align 8
-  %106 = load ptr, ptr %cp.addr.i97, align 8
-  %p.i98 = getelementptr inbounds %struct.CPState, ptr %106, i32 0, i32 5
-  %107 = load ptr, ptr %p.i98, align 8
-  %incdec.ptr.i99 = getelementptr inbounds i8, ptr %107, i32 1
+  %110 = load ptr, ptr %cp.addr, align 8
+  store ptr %110, ptr %cp.addr.i97, align 8
+  %111 = load ptr, ptr %cp.addr.i97, align 8
+  %p.i98 = getelementptr inbounds %struct.CPState, ptr %111, i32 0, i32 5
+  %112 = load ptr, ptr %p.i98, align 8
+  %incdec.ptr.i99 = getelementptr inbounds i8, ptr %112, i32 1
   store ptr %incdec.ptr.i99, ptr %p.i98, align 8
-  %108 = load i8, ptr %107, align 1
-  %conv.i100 = zext i8 %108 to i32
-  %109 = load ptr, ptr %cp.addr.i97, align 8
-  store i32 %conv.i100, ptr %109, align 8
-  %110 = load ptr, ptr %cp.addr.i97, align 8
-  %111 = load i32, ptr %110, align 8
-  %cmp.i101 = icmp ne i32 %111, 92
+  %113 = load i8, ptr %112, align 1
+  %conv.i100 = zext i8 %113 to i32
+  %114 = load ptr, ptr %cp.addr.i97, align 8
+  store i32 %conv.i100, ptr %114, align 8
+  %115 = load ptr, ptr %cp.addr.i97, align 8
+  %116 = load i32, ptr %115, align 8
+  %cmp.i101 = icmp ne i32 %116, 92
   br i1 %cmp.i101, label %if.then.i107, label %if.end.i105
 
 if.then.i107:                                     ; preds = %if.then54
-  %112 = load ptr, ptr %cp.addr.i97, align 8
-  %113 = load i32, ptr %112, align 8
-  store i32 %113, ptr %retval.i96, align 4
+  %117 = load ptr, ptr %cp.addr.i97, align 8
+  %118 = load i32, ptr %117, align 8
+  store i32 %118, ptr %retval.i96, align 4
   br label %cp_get.exit108
 
 if.end.i105:                                      ; preds = %if.then54
-  %114 = load ptr, ptr %cp.addr.i97, align 8
-  %call.i106 = call i32 @cp_get_bs(ptr noundef %114)
+  %119 = load ptr, ptr %cp.addr.i97, align 8
+  %call.i106 = call i32 @cp_get_bs(ptr noundef %119)
   store i32 %call.i106, ptr %retval.i96, align 4
   br label %cp_get.exit108
 
@@ -2888,57 +2897,57 @@ if.end60:                                         ; preds = %cp_get.exit108, %cp
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end60, %cp_get.exit134
-  %115 = load ptr, ptr %cp.addr, align 8
-  %116 = load i32, ptr %c2, align 4
-  %and62 = and i32 %116, 255
-  store ptr %115, ptr %cp.addr.i175, align 8
+  %120 = load ptr, ptr %cp.addr, align 8
+  %121 = load i32, ptr %c2, align 4
+  %and62 = and i32 %121, 255
+  store ptr %120, ptr %cp.addr.i175, align 8
   store i32 %and62, ptr %c.addr.i176, align 4
-  %117 = load ptr, ptr %cp.addr.i175, align 8
-  %sb.i177 = getelementptr inbounds %struct.CPState, ptr %117, i32 0, i32 6
-  %118 = load i32, ptr %c.addr.i176, align 4
+  %122 = load ptr, ptr %cp.addr.i175, align 8
+  %sb.i177 = getelementptr inbounds %struct.CPState, ptr %122, i32 0, i32 6
+  %123 = load i32, ptr %c.addr.i176, align 4
   store ptr %sb.i177, ptr %sb.addr.i185, align 8
-  store i32 %118, ptr %c.addr.i186, align 4
-  %119 = load ptr, ptr %sb.addr.i185, align 8
-  store ptr %119, ptr %sb.addr.i207, align 8
+  store i32 %123, ptr %c.addr.i186, align 4
+  %124 = load ptr, ptr %sb.addr.i185, align 8
+  store ptr %124, ptr %sb.addr.i207, align 8
   store i32 1, ptr %sz.addr.i208, align 4
-  %120 = load i32, ptr %sz.addr.i208, align 4
-  %121 = load ptr, ptr %sb.addr.i207, align 8
-  %e.i209 = getelementptr inbounds %struct.SBuf, ptr %121, i32 0, i32 1
-  %122 = load ptr, ptr %e.i209, align 8
-  %123 = load ptr, ptr %sb.addr.i207, align 8
-  %124 = load ptr, ptr %123, align 8
-  %sub.ptr.lhs.cast.i210 = ptrtoint ptr %122 to i64
-  %sub.ptr.rhs.cast.i211 = ptrtoint ptr %124 to i64
+  %125 = load i32, ptr %sz.addr.i208, align 4
+  %126 = load ptr, ptr %sb.addr.i207, align 8
+  %e.i209 = getelementptr inbounds %struct.SBuf, ptr %126, i32 0, i32 1
+  %127 = load ptr, ptr %e.i209, align 8
+  %128 = load ptr, ptr %sb.addr.i207, align 8
+  %129 = load ptr, ptr %128, align 8
+  %sub.ptr.lhs.cast.i210 = ptrtoint ptr %127 to i64
+  %sub.ptr.rhs.cast.i211 = ptrtoint ptr %129 to i64
   %sub.ptr.sub.i212 = sub i64 %sub.ptr.lhs.cast.i210, %sub.ptr.rhs.cast.i211
   %conv.i213 = trunc i64 %sub.ptr.sub.i212 to i32
-  %cmp.i214 = icmp ugt i32 %120, %conv.i213
+  %cmp.i214 = icmp ugt i32 %125, %conv.i213
   br i1 %cmp.i214, label %if.then.i219, label %if.end.i218
 
 if.then.i219:                                     ; preds = %if.end61
-  %125 = load ptr, ptr %sb.addr.i207, align 8
-  %126 = load i32, ptr %sz.addr.i208, align 4
-  %call.i220 = call ptr @lj_buf_more2(ptr noundef %125, i32 noundef %126) #10
+  %130 = load ptr, ptr %sb.addr.i207, align 8
+  %131 = load i32, ptr %sz.addr.i208, align 4
+  %call.i220 = call ptr @lj_buf_more2(ptr noundef %130, i32 noundef %131) #10
   store ptr %call.i220, ptr %retval.i206, align 8
   br label %lj_buf_more.exit221
 
 if.end.i218:                                      ; preds = %if.end61
-  %127 = load ptr, ptr %sb.addr.i207, align 8
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr %retval.i206, align 8
+  %132 = load ptr, ptr %sb.addr.i207, align 8
+  %133 = load ptr, ptr %132, align 8
+  store ptr %133, ptr %retval.i206, align 8
   br label %lj_buf_more.exit221
 
 lj_buf_more.exit221:                              ; preds = %if.end.i218, %if.then.i219
-  %129 = load ptr, ptr %retval.i206, align 8
-  store ptr %129, ptr %w.i187, align 8
-  %130 = load i32, ptr %c.addr.i186, align 4
-  %conv.i189 = trunc i32 %130 to i8
-  %131 = load ptr, ptr %w.i187, align 8
-  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %131, i32 1
+  %134 = load ptr, ptr %retval.i206, align 8
+  store ptr %134, ptr %w.i187, align 8
+  %135 = load i32, ptr %c.addr.i186, align 4
+  %conv.i189 = trunc i32 %135 to i8
+  %136 = load ptr, ptr %w.i187, align 8
+  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %136, i32 1
   store ptr %incdec.ptr.i190, ptr %w.i187, align 8
-  store i8 %conv.i189, ptr %131, align 1
-  %132 = load ptr, ptr %w.i187, align 8
-  %133 = load ptr, ptr %sb.addr.i185, align 8
-  store ptr %132, ptr %133, align 8
+  store i8 %conv.i189, ptr %136, align 1
+  %137 = load ptr, ptr %w.i187, align 8
+  %138 = load ptr, ptr %sb.addr.i185, align 8
+  store ptr %137, ptr %138, align 8
   br label %while.cond, !llvm.loop !11
 
 if.end63:                                         ; preds = %sw.default
@@ -2948,81 +2957,81 @@ sw.epilog:                                        ; preds = %if.end63, %sw.bb15,
   br label %if.end64
 
 if.end64:                                         ; preds = %sw.epilog, %if.end
-  %134 = load ptr, ptr %cp.addr, align 8
-  %135 = load i32, ptr %c2, align 4
-  store ptr %134, ptr %cp.addr.i174, align 8
-  store i32 %135, ptr %c.addr.i, align 4
-  %136 = load ptr, ptr %cp.addr.i174, align 8
-  %sb.i = getelementptr inbounds %struct.CPState, ptr %136, i32 0, i32 6
-  %137 = load i32, ptr %c.addr.i, align 4
+  %139 = load ptr, ptr %cp.addr, align 8
+  %140 = load i32, ptr %c2, align 4
+  store ptr %139, ptr %cp.addr.i174, align 8
+  store i32 %140, ptr %c.addr.i, align 4
+  %141 = load ptr, ptr %cp.addr.i174, align 8
+  %sb.i = getelementptr inbounds %struct.CPState, ptr %141, i32 0, i32 6
+  %142 = load i32, ptr %c.addr.i, align 4
   store ptr %sb.i, ptr %sb.addr.i191, align 8
-  store i32 %137, ptr %c.addr.i192, align 4
-  %138 = load ptr, ptr %sb.addr.i191, align 8
-  store ptr %138, ptr %sb.addr.i198, align 8
+  store i32 %142, ptr %c.addr.i192, align 4
+  %143 = load ptr, ptr %sb.addr.i191, align 8
+  store ptr %143, ptr %sb.addr.i198, align 8
   store i32 1, ptr %sz.addr.i, align 4
-  %139 = load i32, ptr %sz.addr.i, align 4
-  %140 = load ptr, ptr %sb.addr.i198, align 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %140, i32 0, i32 1
-  %141 = load ptr, ptr %e.i, align 8
-  %142 = load ptr, ptr %sb.addr.i198, align 8
-  %143 = load ptr, ptr %142, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %141 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %143 to i64
+  %144 = load i32, ptr %sz.addr.i, align 4
+  %145 = load ptr, ptr %sb.addr.i198, align 8
+  %e.i = getelementptr inbounds %struct.SBuf, ptr %145, i32 0, i32 1
+  %146 = load ptr, ptr %e.i, align 8
+  %147 = load ptr, ptr %sb.addr.i198, align 8
+  %148 = load ptr, ptr %147, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %146 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %148 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i199 = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.i200 = icmp ugt i32 %139, %conv.i199
+  %cmp.i200 = icmp ugt i32 %144, %conv.i199
   br i1 %cmp.i200, label %if.then.i204, label %if.end.i203
 
 if.then.i204:                                     ; preds = %if.end64
-  %144 = load ptr, ptr %sb.addr.i198, align 8
-  %145 = load i32, ptr %sz.addr.i, align 4
-  %call.i205 = call ptr @lj_buf_more2(ptr noundef %144, i32 noundef %145) #10
+  %149 = load ptr, ptr %sb.addr.i198, align 8
+  %150 = load i32, ptr %sz.addr.i, align 4
+  %call.i205 = call ptr @lj_buf_more2(ptr noundef %149, i32 noundef %150) #10
   store ptr %call.i205, ptr %retval.i197, align 8
   br label %lj_buf_more.exit
 
 if.end.i203:                                      ; preds = %if.end64
-  %146 = load ptr, ptr %sb.addr.i198, align 8
-  %147 = load ptr, ptr %146, align 8
-  store ptr %147, ptr %retval.i197, align 8
+  %151 = load ptr, ptr %sb.addr.i198, align 8
+  %152 = load ptr, ptr %151, align 8
+  store ptr %152, ptr %retval.i197, align 8
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %if.end.i203, %if.then.i204
-  %148 = load ptr, ptr %retval.i197, align 8
-  store ptr %148, ptr %w.i193, align 8
-  %149 = load i32, ptr %c.addr.i192, align 4
-  %conv.i195 = trunc i32 %149 to i8
-  %150 = load ptr, ptr %w.i193, align 8
-  %incdec.ptr.i196 = getelementptr inbounds i8, ptr %150, i32 1
+  %153 = load ptr, ptr %retval.i197, align 8
+  store ptr %153, ptr %w.i193, align 8
+  %154 = load i32, ptr %c.addr.i192, align 4
+  %conv.i195 = trunc i32 %154 to i8
+  %155 = load ptr, ptr %w.i193, align 8
+  %incdec.ptr.i196 = getelementptr inbounds i8, ptr %155, i32 1
   store ptr %incdec.ptr.i196, ptr %w.i193, align 8
-  store i8 %conv.i195, ptr %150, align 1
-  %151 = load ptr, ptr %w.i193, align 8
-  %152 = load ptr, ptr %sb.addr.i191, align 8
-  store ptr %151, ptr %152, align 8
-  %153 = load ptr, ptr %cp.addr, align 8
-  store ptr %153, ptr %cp.addr.i84, align 8
-  %154 = load ptr, ptr %cp.addr.i84, align 8
-  %p.i85 = getelementptr inbounds %struct.CPState, ptr %154, i32 0, i32 5
-  %155 = load ptr, ptr %p.i85, align 8
-  %incdec.ptr.i86 = getelementptr inbounds i8, ptr %155, i32 1
+  store i8 %conv.i195, ptr %155, align 1
+  %156 = load ptr, ptr %w.i193, align 8
+  %157 = load ptr, ptr %sb.addr.i191, align 8
+  store ptr %156, ptr %157, align 8
+  %158 = load ptr, ptr %cp.addr, align 8
+  store ptr %158, ptr %cp.addr.i84, align 8
+  %159 = load ptr, ptr %cp.addr.i84, align 8
+  %p.i85 = getelementptr inbounds %struct.CPState, ptr %159, i32 0, i32 5
+  %160 = load ptr, ptr %p.i85, align 8
+  %incdec.ptr.i86 = getelementptr inbounds i8, ptr %160, i32 1
   store ptr %incdec.ptr.i86, ptr %p.i85, align 8
-  %156 = load i8, ptr %155, align 1
-  %conv.i87 = zext i8 %156 to i32
-  %157 = load ptr, ptr %cp.addr.i84, align 8
-  store i32 %conv.i87, ptr %157, align 8
-  %158 = load ptr, ptr %cp.addr.i84, align 8
-  %159 = load i32, ptr %158, align 8
-  %cmp.i88 = icmp ne i32 %159, 92
+  %161 = load i8, ptr %160, align 1
+  %conv.i87 = zext i8 %161 to i32
+  %162 = load ptr, ptr %cp.addr.i84, align 8
+  store i32 %conv.i87, ptr %162, align 8
+  %163 = load ptr, ptr %cp.addr.i84, align 8
+  %164 = load i32, ptr %163, align 8
+  %cmp.i88 = icmp ne i32 %164, 92
   br i1 %cmp.i88, label %if.then.i94, label %if.end.i92
 
 if.then.i94:                                      ; preds = %lj_buf_more.exit
-  %160 = load ptr, ptr %cp.addr.i84, align 8
-  %161 = load i32, ptr %160, align 8
-  store i32 %161, ptr %retval.i83, align 4
+  %165 = load ptr, ptr %cp.addr.i84, align 8
+  %166 = load i32, ptr %165, align 8
+  store i32 %166, ptr %retval.i83, align 4
   br label %cp_get.exit95
 
 if.end.i92:                                       ; preds = %lj_buf_more.exit
-  %162 = load ptr, ptr %cp.addr.i84, align 8
-  %call.i93 = call i32 @cp_get_bs(ptr noundef %162)
+  %167 = load ptr, ptr %cp.addr.i84, align 8
+  %call.i93 = call i32 @cp_get_bs(ptr noundef %167)
   store i32 %call.i93, ptr %retval.i83, align 4
   br label %cp_get.exit95
 
@@ -3030,110 +3039,110 @@ cp_get.exit95:                                    ; preds = %if.end.i92, %if.the
   br label %while.cond, !llvm.loop !11
 
 while.end66:                                      ; preds = %while.cond
-  %163 = load ptr, ptr %cp.addr, align 8
-  store ptr %163, ptr %cp.addr.i, align 8
-  %164 = load ptr, ptr %cp.addr.i, align 8
-  %p.i = getelementptr inbounds %struct.CPState, ptr %164, i32 0, i32 5
-  %165 = load ptr, ptr %p.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %165, i32 1
+  %168 = load ptr, ptr %cp.addr, align 8
+  store ptr %168, ptr %cp.addr.i, align 8
+  %169 = load ptr, ptr %cp.addr.i, align 8
+  %p.i = getelementptr inbounds %struct.CPState, ptr %169, i32 0, i32 5
+  %170 = load ptr, ptr %p.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %170, i32 1
   store ptr %incdec.ptr.i, ptr %p.i, align 8
-  %166 = load i8, ptr %165, align 1
-  %conv.i = zext i8 %166 to i32
-  %167 = load ptr, ptr %cp.addr.i, align 8
-  store i32 %conv.i, ptr %167, align 8
-  %168 = load ptr, ptr %cp.addr.i, align 8
-  %169 = load i32, ptr %168, align 8
-  %cmp.i = icmp ne i32 %169, 92
+  %171 = load i8, ptr %170, align 1
+  %conv.i = zext i8 %171 to i32
+  %172 = load ptr, ptr %cp.addr.i, align 8
+  store i32 %conv.i, ptr %172, align 8
+  %173 = load ptr, ptr %cp.addr.i, align 8
+  %174 = load i32, ptr %173, align 8
+  %cmp.i = icmp ne i32 %174, 92
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end66
-  %170 = load ptr, ptr %cp.addr.i, align 8
-  %171 = load i32, ptr %170, align 8
-  store i32 %171, ptr %retval.i, align 4
+  %175 = load ptr, ptr %cp.addr.i, align 8
+  %176 = load i32, ptr %175, align 8
+  store i32 %176, ptr %retval.i, align 4
   br label %cp_get.exit
 
 if.end.i:                                         ; preds = %while.end66
-  %172 = load ptr, ptr %cp.addr.i, align 8
-  %call.i = call i32 @cp_get_bs(ptr noundef %172)
+  %177 = load ptr, ptr %cp.addr.i, align 8
+  %call.i = call i32 @cp_get_bs(ptr noundef %177)
   store i32 %call.i, ptr %retval.i, align 4
   br label %cp_get.exit
 
 cp_get.exit:                                      ; preds = %if.end.i, %if.then.i
-  %173 = load i32, ptr %delim, align 4
-  %cmp68 = icmp eq i32 %173, 34
+  %178 = load i32, ptr %delim, align 4
+  %cmp68 = icmp eq i32 %178, 34
   br i1 %cmp68, label %if.then70, label %if.else
 
 if.then70:                                        ; preds = %cp_get.exit
-  %174 = load ptr, ptr %cp.addr, align 8
-  %L = getelementptr inbounds %struct.CPState, ptr %174, i32 0, i32 7
-  %175 = load ptr, ptr %L, align 8
-  %176 = load ptr, ptr %cp.addr, align 8
-  %sb = getelementptr inbounds %struct.CPState, ptr %176, i32 0, i32 6
-  store ptr %175, ptr %L.addr.i, align 8
+  %179 = load ptr, ptr %cp.addr, align 8
+  %L = getelementptr inbounds %struct.CPState, ptr %179, i32 0, i32 7
+  %180 = load ptr, ptr %L, align 8
+  %181 = load ptr, ptr %cp.addr, align 8
+  %sb = getelementptr inbounds %struct.CPState, ptr %181, i32 0, i32 6
+  store ptr %180, ptr %L.addr.i, align 8
   store ptr %sb, ptr %sb.addr.i238, align 8
-  %177 = load ptr, ptr %L.addr.i, align 8
-  %178 = load ptr, ptr %sb.addr.i238, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %178, i32 0, i32 2
-  %179 = load ptr, ptr %b.i, align 8
-  %180 = load ptr, ptr %sb.addr.i238, align 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %sb.addr.i238, align 8
-  %b1.i = getelementptr inbounds %struct.SBuf, ptr %182, i32 0, i32 2
-  %183 = load ptr, ptr %b1.i, align 8
-  %sub.ptr.lhs.cast.i239 = ptrtoint ptr %181 to i64
-  %sub.ptr.rhs.cast.i240 = ptrtoint ptr %183 to i64
+  %182 = load ptr, ptr %L.addr.i, align 8
+  %183 = load ptr, ptr %sb.addr.i238, align 8
+  %b.i = getelementptr inbounds %struct.SBuf, ptr %183, i32 0, i32 2
+  %184 = load ptr, ptr %b.i, align 8
+  %185 = load ptr, ptr %sb.addr.i238, align 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = load ptr, ptr %sb.addr.i238, align 8
+  %b1.i = getelementptr inbounds %struct.SBuf, ptr %187, i32 0, i32 2
+  %188 = load ptr, ptr %b1.i, align 8
+  %sub.ptr.lhs.cast.i239 = ptrtoint ptr %186 to i64
+  %sub.ptr.rhs.cast.i240 = ptrtoint ptr %188 to i64
   %sub.ptr.sub.i241 = sub i64 %sub.ptr.lhs.cast.i239, %sub.ptr.rhs.cast.i240
   %conv.i242 = trunc i64 %sub.ptr.sub.i241 to i32
   %conv2.i = zext i32 %conv.i242 to i64
-  %call.i243 = call ptr @lj_str_new(ptr noundef %177, ptr noundef %179, i64 noundef %conv2.i) #10
-  %184 = load ptr, ptr %cp.addr, align 8
-  %str = getelementptr inbounds %struct.CPState, ptr %184, i32 0, i32 3
+  %call.i243 = call ptr @lj_str_new(ptr noundef %182, ptr noundef %184, i64 noundef %conv2.i) #10
+  %189 = load ptr, ptr %cp.addr, align 8
+  %str = getelementptr inbounds %struct.CPState, ptr %189, i32 0, i32 3
   store ptr %call.i243, ptr %str, align 8
   store i32 257, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %cp_get.exit
-  %185 = load ptr, ptr %cp.addr, align 8
-  %sb72 = getelementptr inbounds %struct.CPState, ptr %185, i32 0, i32 6
+  %190 = load ptr, ptr %cp.addr, align 8
+  %sb72 = getelementptr inbounds %struct.CPState, ptr %190, i32 0, i32 6
   %w = getelementptr inbounds %struct.SBuf, ptr %sb72, i32 0, i32 0
-  %186 = load ptr, ptr %w, align 8
-  %187 = load ptr, ptr %cp.addr, align 8
-  %sb73 = getelementptr inbounds %struct.CPState, ptr %187, i32 0, i32 6
+  %191 = load ptr, ptr %w, align 8
+  %192 = load ptr, ptr %cp.addr, align 8
+  %sb73 = getelementptr inbounds %struct.CPState, ptr %192, i32 0, i32 6
   %b = getelementptr inbounds %struct.SBuf, ptr %sb73, i32 0, i32 2
-  %188 = load ptr, ptr %b, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %186 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %188 to i64
+  %193 = load ptr, ptr %b, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %191 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %193 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv74 = trunc i64 %sub.ptr.sub to i32
   %cmp75 = icmp ne i32 %conv74, 1
   br i1 %cmp75, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.else
-  %189 = load ptr, ptr %cp.addr, align 8
-  call void @cp_err_token(ptr noundef %189, i32 noundef 39) #9
+  %194 = load ptr, ptr %cp.addr, align 8
+  call void @cp_err_token(ptr noundef %194, i32 noundef 39) #9
   unreachable
 
 if.end78:                                         ; preds = %if.else
-  %190 = load ptr, ptr %cp.addr, align 8
-  %sb79 = getelementptr inbounds %struct.CPState, ptr %190, i32 0, i32 6
-  %b80 = getelementptr inbounds %struct.SBuf, ptr %sb79, i32 0, i32 2
-  %191 = load ptr, ptr %b80, align 8
-  %192 = load i8, ptr %191, align 1
-  %conv81 = sext i8 %192 to i32
-  %193 = load ptr, ptr %cp.addr, align 8
-  %val = getelementptr inbounds %struct.CPState, ptr %193, i32 0, i32 2
-  %194 = getelementptr inbounds %struct.CPValue, ptr %val, i32 0, i32 0
-  store i32 %conv81, ptr %194, align 8
   %195 = load ptr, ptr %cp.addr, align 8
-  %val82 = getelementptr inbounds %struct.CPState, ptr %195, i32 0, i32 2
+  %sb79 = getelementptr inbounds %struct.CPState, ptr %195, i32 0, i32 6
+  %b80 = getelementptr inbounds %struct.SBuf, ptr %sb79, i32 0, i32 2
+  %196 = load ptr, ptr %b80, align 8
+  %197 = load i8, ptr %196, align 1
+  %conv81 = sext i8 %197 to i32
+  %198 = load ptr, ptr %cp.addr, align 8
+  %val = getelementptr inbounds %struct.CPState, ptr %198, i32 0, i32 2
+  %199 = getelementptr inbounds %struct.CPValue, ptr %val, i32 0, i32 0
+  store i32 %conv81, ptr %199, align 8
+  %200 = load ptr, ptr %cp.addr, align 8
+  %val82 = getelementptr inbounds %struct.CPState, ptr %200, i32 0, i32 2
   %id = getelementptr inbounds %struct.CPValue, ptr %val82, i32 0, i32 1
   store i32 9, ptr %id, align 4
   store i32 258, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end78, %if.then70
-  %196 = load i32, ptr %retval, align 4
-  ret i32 %196
+  %201 = load i32, ptr %retval, align 4
+  ret i32 %201
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3429,165 +3438,166 @@ cp_get.exit:                                      ; preds = %if.end.i, %if.then.
   store ptr %12, ptr %o, align 8
   %13 = load i32, ptr %c, align 4
   %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %14 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %14 to i32
+  %14 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %14, i64 %idxprom
+  %15 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %15 to i32
   %and = and i32 %conv, 128
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cp_get.exit
-  %15 = load i32, ptr %c, align 4
-  %cmp = icmp eq i32 %15, 36
+  %16 = load i32, ptr %c, align 4
+  %cmp = icmp eq i32 %16, 36
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %cp_get.exit
-  %16 = load ptr, ptr %cp.addr, align 8
-  %17 = load i32, ptr %c, align 4
-  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %16, i32 noundef %17, i32 noundef 2793) #9
+  %17 = load ptr, ptr %cp.addr, align 8
+  %18 = load i32, ptr %c, align 4
+  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %17, i32 noundef %18, i32 noundef 2793) #9
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %18 = load ptr, ptr %o, align 8
-  %tobool2 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %o, align 8
+  %tobool2 = icmp ne ptr %19, null
   br i1 %tobool2, label %lor.lhs.false3, label %if.then6
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %19 = load ptr, ptr %o, align 8
-  %20 = load ptr, ptr %cp.addr, align 8
-  %L = getelementptr inbounds %struct.CPState, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %L, align 8
-  %top = getelementptr inbounds %struct.lua_State, ptr %21, i32 0, i32 8
-  %22 = load ptr, ptr %top, align 8
-  %cmp4 = icmp uge ptr %19, %22
+  %20 = load ptr, ptr %o, align 8
+  %21 = load ptr, ptr %cp.addr, align 8
+  %L = getelementptr inbounds %struct.CPState, ptr %21, i32 0, i32 7
+  %22 = load ptr, ptr %L, align 8
+  %top = getelementptr inbounds %struct.lua_State, ptr %22, i32 0, i32 8
+  %23 = load ptr, ptr %top, align 8
+  %cmp4 = icmp uge ptr %20, %23
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %lor.lhs.false3, %if.end
-  %23 = load ptr, ptr %cp.addr, align 8
-  call void @cp_err(ptr noundef %23, i32 noundef 3156) #9
+  %24 = load ptr, ptr %cp.addr, align 8
+  call void @cp_err(ptr noundef %24, i32 noundef 3156) #9
   unreachable
 
 if.end7:                                          ; preds = %lor.lhs.false3
-  %24 = load ptr, ptr %o, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %24, i64 1
-  %25 = load ptr, ptr %cp.addr, align 8
-  %param8 = getelementptr inbounds %struct.CPState, ptr %25, i32 0, i32 9
+  %25 = load ptr, ptr %o, align 8
+  %add.ptr = getelementptr inbounds %union.TValue, ptr %25, i64 1
+  %26 = load ptr, ptr %cp.addr, align 8
+  %param8 = getelementptr inbounds %struct.CPState, ptr %26, i32 0, i32 9
   store ptr %add.ptr, ptr %param8, align 8
-  %26 = load ptr, ptr %o, align 8
-  %27 = load i64, ptr %26, align 8
-  %shr = ashr i64 %27, 47
+  %27 = load ptr, ptr %o, align 8
+  %28 = load i64, ptr %27, align 8
+  %shr = ashr i64 %28, 47
   %conv9 = trunc i64 %shr to i32
   %cmp10 = icmp eq i32 %conv9, -5
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end7
-  %28 = load ptr, ptr %o, align 8
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %28, i32 0, i32 0
-  %29 = load i64, ptr %gcptr64, align 8
-  %and13 = and i64 %29, 140737488355327
-  %30 = inttoptr i64 %and13 to ptr
-  %31 = load ptr, ptr %cp.addr, align 8
-  %str = getelementptr inbounds %struct.CPState, ptr %31, i32 0, i32 3
-  store ptr %30, ptr %str, align 8
+  %29 = load ptr, ptr %o, align 8
+  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %29, i32 0, i32 0
+  %30 = load i64, ptr %gcptr64, align 8
+  %and13 = and i64 %30, 140737488355327
+  %31 = inttoptr i64 %and13 to ptr
   %32 = load ptr, ptr %cp.addr, align 8
-  %val = getelementptr inbounds %struct.CPState, ptr %32, i32 0, i32 2
+  %str = getelementptr inbounds %struct.CPState, ptr %32, i32 0, i32 3
+  store ptr %31, ptr %str, align 8
+  %33 = load ptr, ptr %cp.addr, align 8
+  %val = getelementptr inbounds %struct.CPState, ptr %33, i32 0, i32 2
   %id = getelementptr inbounds %struct.CPValue, ptr %val, i32 0, i32 1
   store i32 0, ptr %id, align 4
-  %33 = load ptr, ptr %cp.addr, align 8
-  %cts = getelementptr inbounds %struct.CPState, ptr %33, i32 0, i32 8
-  %34 = load ptr, ptr %cts, align 8
-  %tab = getelementptr inbounds %struct.CTState, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %tab, align 8
-  %arrayidx14 = getelementptr inbounds %struct.CType, ptr %35, i64 0
-  %36 = load ptr, ptr %cp.addr, align 8
-  %ct = getelementptr inbounds %struct.CPState, ptr %36, i32 0, i32 4
+  %34 = load ptr, ptr %cp.addr, align 8
+  %cts = getelementptr inbounds %struct.CPState, ptr %34, i32 0, i32 8
+  %35 = load ptr, ptr %cts, align 8
+  %tab = getelementptr inbounds %struct.CTState, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %tab, align 8
+  %arrayidx14 = getelementptr inbounds %struct.CType, ptr %36, i64 0
+  %37 = load ptr, ptr %cp.addr, align 8
+  %ct = getelementptr inbounds %struct.CPState, ptr %37, i32 0, i32 4
   store ptr %arrayidx14, ptr %ct, align 8
   store i32 256, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end7
-  %37 = load ptr, ptr %o, align 8
-  %38 = load i64, ptr %37, align 8
-  %shr15 = ashr i64 %38, 47
+  %38 = load ptr, ptr %o, align 8
+  %39 = load i64, ptr %38, align 8
+  %shr15 = ashr i64 %39, 47
   %conv16 = trunc i64 %shr15 to i32
   %cmp17 = icmp ule i32 %conv16, -14
   br i1 %cmp17, label %if.then19, label %if.else24
 
 if.then19:                                        ; preds = %if.else
-  %39 = load ptr, ptr %o, align 8
-  store ptr %39, ptr %o.addr.i, align 8
-  %40 = load ptr, ptr %o.addr.i, align 8
-  %41 = load double, ptr %40, align 8
-  %conv.i49 = fptosi double %41 to i32
-  %42 = load ptr, ptr %cp.addr, align 8
-  %val21 = getelementptr inbounds %struct.CPState, ptr %42, i32 0, i32 2
-  %43 = getelementptr inbounds %struct.CPValue, ptr %val21, i32 0, i32 0
-  store i32 %conv.i49, ptr %43, align 8
-  %44 = load ptr, ptr %cp.addr, align 8
-  %val22 = getelementptr inbounds %struct.CPState, ptr %44, i32 0, i32 2
+  %40 = load ptr, ptr %o, align 8
+  store ptr %40, ptr %o.addr.i, align 8
+  %41 = load ptr, ptr %o.addr.i, align 8
+  %42 = load double, ptr %41, align 8
+  %conv.i49 = fptosi double %42 to i32
+  %43 = load ptr, ptr %cp.addr, align 8
+  %val21 = getelementptr inbounds %struct.CPState, ptr %43, i32 0, i32 2
+  %44 = getelementptr inbounds %struct.CPValue, ptr %val21, i32 0, i32 0
+  store i32 %conv.i49, ptr %44, align 8
+  %45 = load ptr, ptr %cp.addr, align 8
+  %val22 = getelementptr inbounds %struct.CPState, ptr %45, i32 0, i32 2
   %id23 = getelementptr inbounds %struct.CPValue, ptr %val22, i32 0, i32 1
   store i32 9, ptr %id23, align 4
   store i32 258, ptr %retval, align 4
   br label %return
 
 if.else24:                                        ; preds = %if.else
-  %45 = load ptr, ptr %o, align 8
-  %46 = load i64, ptr %45, align 8
-  %shr25 = ashr i64 %46, 47
+  %46 = load ptr, ptr %o, align 8
+  %47 = load i64, ptr %46, align 8
+  %shr25 = ashr i64 %47, 47
   %conv26 = trunc i64 %shr25 to i32
   %cmp27 = icmp eq i32 %conv26, -11
   br i1 %cmp27, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %if.else24
-  %47 = load ptr, ptr %cp.addr, align 8
-  %L30 = getelementptr inbounds %struct.CPState, ptr %47, i32 0, i32 7
-  %48 = load ptr, ptr %L30, align 8
-  %49 = load ptr, ptr %o, align 8
-  %50 = load ptr, ptr %cp.addr, align 8
-  %L31 = getelementptr inbounds %struct.CPState, ptr %50, i32 0, i32 7
-  %51 = load ptr, ptr %L31, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %51, i32 0, i32 7
-  %52 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %49 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %52 to i64
+  %48 = load ptr, ptr %cp.addr, align 8
+  %L30 = getelementptr inbounds %struct.CPState, ptr %48, i32 0, i32 7
+  %49 = load ptr, ptr %L30, align 8
+  %50 = load ptr, ptr %o, align 8
+  %51 = load ptr, ptr %cp.addr, align 8
+  %L31 = getelementptr inbounds %struct.CPState, ptr %51, i32 0, i32 7
+  %52 = load ptr, ptr %L31, align 8
+  %base = getelementptr inbounds %struct.lua_State, ptr %52, i32 0, i32 7
+  %53 = load ptr, ptr %base, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %53 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
   %conv32 = trunc i64 %sub.ptr.div to i32
   %add = add nsw i32 %conv32, 1
-  call void @lj_err_argtype(ptr noundef %48, i32 noundef %add, ptr noundef @.str.16) #9
+  call void @lj_err_argtype(ptr noundef %49, i32 noundef %add, ptr noundef @.str.16) #9
   unreachable
 
 if.end33:                                         ; preds = %if.else24
-  %53 = load ptr, ptr %o, align 8
-  %gcptr6434 = getelementptr inbounds %struct.GCRef, ptr %53, i32 0, i32 0
-  %54 = load i64, ptr %gcptr6434, align 8
-  %and35 = and i64 %54, 140737488355327
-  %55 = inttoptr i64 %and35 to ptr
-  store ptr %55, ptr %cd, align 8
-  %56 = load ptr, ptr %cd, align 8
-  %ctypeid = getelementptr inbounds %struct.GCcdata, ptr %56, i32 0, i32 3
-  %57 = load i16, ptr %ctypeid, align 2
-  %conv36 = zext i16 %57 to i32
+  %54 = load ptr, ptr %o, align 8
+  %gcptr6434 = getelementptr inbounds %struct.GCRef, ptr %54, i32 0, i32 0
+  %55 = load i64, ptr %gcptr6434, align 8
+  %and35 = and i64 %55, 140737488355327
+  %56 = inttoptr i64 %and35 to ptr
+  store ptr %56, ptr %cd, align 8
+  %57 = load ptr, ptr %cd, align 8
+  %ctypeid = getelementptr inbounds %struct.GCcdata, ptr %57, i32 0, i32 3
+  %58 = load i16, ptr %ctypeid, align 2
+  %conv36 = zext i16 %58 to i32
   %cmp37 = icmp eq i32 %conv36, 22
   br i1 %cmp37, label %if.then39, label %if.else43
 
 if.then39:                                        ; preds = %if.end33
-  %58 = load ptr, ptr %cd, align 8
-  %add.ptr40 = getelementptr inbounds %struct.GCcdata, ptr %58, i64 1
-  %59 = load i32, ptr %add.ptr40, align 4
-  %60 = load ptr, ptr %cp.addr, align 8
-  %val41 = getelementptr inbounds %struct.CPState, ptr %60, i32 0, i32 2
+  %59 = load ptr, ptr %cd, align 8
+  %add.ptr40 = getelementptr inbounds %struct.GCcdata, ptr %59, i64 1
+  %60 = load i32, ptr %add.ptr40, align 4
+  %61 = load ptr, ptr %cp.addr, align 8
+  %val41 = getelementptr inbounds %struct.CPState, ptr %61, i32 0, i32 2
   %id42 = getelementptr inbounds %struct.CPValue, ptr %val41, i32 0, i32 1
-  store i32 %59, ptr %id42, align 4
+  store i32 %60, ptr %id42, align 4
   br label %if.end48
 
 if.else43:                                        ; preds = %if.end33
-  %61 = load ptr, ptr %cd, align 8
-  %ctypeid44 = getelementptr inbounds %struct.GCcdata, ptr %61, i32 0, i32 3
-  %62 = load i16, ptr %ctypeid44, align 2
-  %conv45 = zext i16 %62 to i32
-  %63 = load ptr, ptr %cp.addr, align 8
-  %val46 = getelementptr inbounds %struct.CPState, ptr %63, i32 0, i32 2
+  %62 = load ptr, ptr %cd, align 8
+  %ctypeid44 = getelementptr inbounds %struct.GCcdata, ptr %62, i32 0, i32 3
+  %63 = load i16, ptr %ctypeid44, align 2
+  %conv45 = zext i16 %63 to i32
+  %64 = load ptr, ptr %cp.addr, align 8
+  %val46 = getelementptr inbounds %struct.CPState, ptr %64, i32 0, i32 2
   %id47 = getelementptr inbounds %struct.CPValue, ptr %val46, i32 0, i32 1
   store i32 %conv45, ptr %id47, align 4
   br label %if.end48
@@ -3597,8 +3607,8 @@ if.end48:                                         ; preds = %if.else43, %if.then
   br label %return
 
 return:                                           ; preds = %if.end48, %if.then19, %if.then12
-  %64 = load i32, ptr %retval, align 4
-  ret i32 %64
+  %65 = load i32, ptr %retval, align 4
+  ret i32 %65
 }
 
 declare hidden i32 @lj_strscan_scan(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
@@ -3797,7 +3807,7 @@ if.end15:                                         ; preds = %if.end14, %if.then
   %50 = load ptr, ptr %L16, align 8
   store ptr %50, ptr %L, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argp, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %51 = load ptr, ptr %L, align 8
   %52 = load ptr, ptr @lj_err_allmsg, align 8
   %53 = load i32, ptr %em.addr, align 4
@@ -3807,7 +3817,7 @@ if.end15:                                         ; preds = %if.end14, %if.then
   %call18 = call ptr @lj_strfmt_pushvf(ptr noundef %51, ptr noundef %add.ptr, ptr noundef %arraydecay17)
   store ptr %call18, ptr %msg, align 8
   %arraydecay19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argp, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay19)
+  call void @llvm.va_end.p0(ptr %arraydecay19)
   %54 = load ptr, ptr %tokstr, align 8
   %tobool = icmp ne ptr %54, null
   br i1 %tobool, label %if.then20, label %if.end23
@@ -3873,48 +3883,43 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %3 = load i32, ptr %tok.addr, align 4
   %idxprom2 = sext i32 %3 to i64
-  %arrayidx3 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom2
-  %4 = load i8, ptr %arrayidx3, align 1
-  %conv = zext i8 %4 to i32
+  %4 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %4, i64 %idxprom2
+  %5 = load i8, ptr %arrayidx3, align 1
+  %conv = zext i8 %5 to i32
   %and = and i32 %conv, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.else5, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %5 = load ptr, ptr %cp.addr, align 8
-  %L = getelementptr inbounds %struct.CPState, ptr %5, i32 0, i32 7
-  %6 = load ptr, ptr %L, align 8
-  %7 = load i32, ptr %tok.addr, align 4
-  %call = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %6, ptr noundef @.str.1, i32 noundef %7)
+  %6 = load ptr, ptr %cp.addr, align 8
+  %L = getelementptr inbounds %struct.CPState, ptr %6, i32 0, i32 7
+  %7 = load ptr, ptr %L, align 8
+  %8 = load i32, ptr %tok.addr, align 4
+  %call = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %7, ptr noundef @.str.1, i32 noundef %8)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 if.else5:                                         ; preds = %if.else
-  %8 = load ptr, ptr %cp.addr, align 8
-  %L6 = getelementptr inbounds %struct.CPState, ptr %8, i32 0, i32 7
-  %9 = load ptr, ptr %L6, align 8
-  %10 = load i32, ptr %tok.addr, align 4
-  %call7 = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %9, ptr noundef @.str.2, i32 noundef %10)
+  %9 = load ptr, ptr %cp.addr, align 8
+  %L6 = getelementptr inbounds %struct.CPState, ptr %9, i32 0, i32 7
+  %10 = load ptr, ptr %L6, align 8
+  %11 = load i32, ptr %tok.addr, align 4
+  %call7 = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %10, ptr noundef @.str.2, i32 noundef %11)
   store ptr %call7, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else5, %if.then4, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %retval, align 8
+  ret ptr %12
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare hidden ptr @lj_strfmt_pushvf(ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_callermsg(ptr noundef, ptr noundef) #6
+declare hidden void @lj_err_callermsg(ptr noundef, ptr noundef) #5
 
 declare hidden i32 @lj_ctype_getname(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
@@ -3939,7 +3944,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) #6
+declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cp_opt(ptr noundef %cp, i32 noundef %tok) #0 {
@@ -6064,7 +6069,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @cp_decl_attributes(ptr noundef %cp, ptr noundef %decl) #0 {
@@ -11007,14 +11012,20 @@ if.end7:                                          ; preds = %if.end, %if.then
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind }

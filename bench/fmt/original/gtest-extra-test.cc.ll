@@ -2148,7 +2148,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51single_evaluation_test_failed_expect_throw_msg_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51single_evaluation_test_failed_expect_throw_msg_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2329,7 +2330,7 @@ lpad18:                                           ; preds = %if.then21, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad18
   %sel = load i32, ptr %ehselector.slot, align 4
-  %22 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %22
   br i1 %matches, label %catch30, label %catch
 
@@ -2553,7 +2554,8 @@ do.cond:                                          ; preds = %if.end79
   br i1 %call83, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.cond
-  store ptr getelementptr inbounds (i8, ptr @.str.5, i64 1), ptr %ref.tmp85, align 8
+  %45 = getelementptr inbounds i8, ptr @.str.5, i64 1
+  store ptr %45, ptr %ref.tmp85, align 8
   call void @_ZN7testing8internal8EqHelper7CompareIPKcS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultES4_S4_RKS6_RKS7_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar84, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(8) @_ZN12_GLOBAL__N_122single_evaluation_test2p_E)
   %call88 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar84)
           to label %invoke.cont87 unwind label %lpad86
@@ -2577,12 +2579,12 @@ ehcleanup82:                                      ; preds = %ehcleanup81, %ehcle
   br label %eh.resume
 
 lpad86:                                           ; preds = %if.else90, %do.end
-  %45 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %exn.slot, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %ehselector.slot, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot, align 4
   br label %ehcleanup103
 
 if.else90:                                        ; preds = %invoke.cont87
@@ -2607,21 +2609,21 @@ invoke.cont99:                                    ; preds = %invoke.cont97
   br label %if.end102
 
 lpad94:                                           ; preds = %invoke.cont95, %invoke.cont92
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot, align 4
   br label %ehcleanup101
 
 lpad98:                                           ; preds = %invoke.cont97
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %exn.slot, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %ehselector.slot, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %exn.slot, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93) #3
   br label %ehcleanup101
 
@@ -2645,10 +2647,10 @@ eh.resume:                                        ; preds = %ehcleanup103, %ehcl
   resume { ptr, i32 } %lpad.val106
 
 terminate.lpad:                                   ; preds = %lpad33, %lpad23
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #20
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 
 unreachable:                                      ; preds = %cleanup61
@@ -2685,9 +2687,6 @@ entry:
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
 
 declare ptr @__cxa_begin_catch(ptr)
 
@@ -2736,7 +2735,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #20
   unreachable
@@ -3208,7 +3207,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54single_evaluation_test_failed_expect_system_error_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54single_evaluation_test_failed_expect_system_error_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3388,7 +3388,7 @@ lpad22:                                           ; preds = %if.then25, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad22
   %sel = load i32, ptr %ehselector.slot, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %25
   br i1 %matches, label %catch34, label %catch
 
@@ -3612,7 +3612,8 @@ do.cond:                                          ; preds = %if.end83
   br i1 %call87, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond
-  store ptr getelementptr inbounds (i8, ptr @.str.5, i64 1), ptr %ref.tmp89, align 8
+  %48 = getelementptr inbounds i8, ptr @.str.5, i64 1
+  store ptr %48, ptr %ref.tmp89, align 8
   call void @_ZN7testing8internal8EqHelper7CompareIPKcS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultES4_S4_RKS6_RKS7_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar88, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(8) @_ZN12_GLOBAL__N_122single_evaluation_test2p_E)
   %call92 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar88)
           to label %invoke.cont91 unwind label %lpad90
@@ -3636,12 +3637,12 @@ ehcleanup86:                                      ; preds = %ehcleanup85, %ehcle
   br label %eh.resume
 
 lpad90:                                           ; preds = %if.else94, %do.end
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot, align 4
   br label %ehcleanup107
 
 if.else94:                                        ; preds = %invoke.cont91
@@ -3666,21 +3667,21 @@ invoke.cont103:                                   ; preds = %invoke.cont101
   br label %if.end106
 
 lpad98:                                           ; preds = %invoke.cont99, %invoke.cont96
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %exn.slot, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %ehselector.slot, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %exn.slot, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %ehselector.slot, align 4
   br label %ehcleanup105
 
 lpad102:                                          ; preds = %invoke.cont101
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %exn.slot, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %ehselector.slot, align 4
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %exn.slot, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp97) #3
   br label %ehcleanup105
 
@@ -3704,10 +3705,10 @@ eh.resume:                                        ; preds = %ehcleanup107, %ehcl
   resume { ptr, i32 } %lpad.val110
 
 terminate.lpad:                                   ; preds = %lpad37, %lpad27
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #20
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #20
   unreachable
 
 unreachable:                                      ; preds = %cleanup65
@@ -4005,7 +4006,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43single_evaluation_test_exception_tests_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43single_evaluation_test_exception_tests_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4161,7 +4163,7 @@ lpad4:                                            ; preds = %if.then7, %invoke.c
 
 catch.dispatch:                                   ; preds = %lpad4
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch16, label %catch
 
@@ -4647,7 +4649,7 @@ lpad130:                                          ; preds = %if.then133, %invoke
 
 catch.dispatch138:                                ; preds = %lpad130
   %sel139 = load i32, ptr %ehselector.slot, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt11logic_error) #3
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt11logic_error) #3
   %matches140 = icmp eq i32 %sel139, %75
   br i1 %matches140, label %catch151, label %catch141
 
@@ -5158,7 +5160,7 @@ lpad284:                                          ; preds = %if.then287, %invoke
 
 catch.dispatch292:                                ; preds = %lpad284
   %sel293 = load i32, ptr %ehselector.slot, align 4
-  %139 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %139 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches294 = icmp eq i32 %sel293, %139
   br i1 %matches294, label %catch305, label %catch295
 
@@ -5665,7 +5667,7 @@ lpad440:                                          ; preds = %invoke.cont437
 
 catch.dispatch447:                                ; preds = %lpad440
   %sel448 = load i32, ptr %ehselector.slot, align 4
-  %203 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %203 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches449 = icmp eq i32 %sel448, %203
   br i1 %matches449, label %catch460, label %catch450
 
@@ -6529,7 +6531,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46single_evaluation_test_system_error_tests_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46single_evaluation_test_system_error_tests_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6707,7 +6710,7 @@ lpad7:                                            ; preds = %if.then10, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %14 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %14
   br i1 %matches, label %catch20, label %catch
 
@@ -7211,7 +7214,7 @@ lpad140:                                          ; preds = %if.then143, %invoke
 
 catch.dispatch148:                                ; preds = %lpad140
   %sel149 = load i32, ptr %ehselector.slot, align 4
-  %81 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %81 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches150 = icmp eq i32 %sel149, %81
   br i1 %matches150, label %catch161, label %catch151
 
@@ -7740,7 +7743,7 @@ lpad298:                                          ; preds = %if.then301, %invoke
 
 catch.dispatch306:                                ; preds = %lpad298
   %sel307 = load i32, ptr %ehselector.slot, align 4
-  %148 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %148 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches308 = icmp eq i32 %sel307, %148
   br i1 %matches308, label %catch319, label %catch309
 
@@ -8265,7 +8268,7 @@ lpad458:                                          ; preds = %invoke.cont454
 
 catch.dispatch465:                                ; preds = %lpad458
   %sel466 = load i32, ptr %ehselector.slot, align 4
-  %215 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %215 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches467 = icmp eq i32 %sel466, %215
   br i1 %matches467, label %catch478, label %catch468
 
@@ -9066,7 +9069,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47single_evaluation_test_failed_expect_write_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47single_evaluation_test_failed_expect_write_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9376,7 +9380,8 @@ do.cond:                                          ; preds = %if.end62
   br i1 %call66, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond
-  store ptr getelementptr inbounds (i8, ptr @.str.5, i64 1), ptr %ref.tmp68, align 8
+  %35 = getelementptr inbounds i8, ptr @.str.5, i64 1
+  store ptr %35, ptr %ref.tmp68, align 8
   call void @_ZN7testing8internal8EqHelper7CompareIPKcS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultES4_S4_RKS6_RKS7_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar67, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(8) @_ZN12_GLOBAL__N_122single_evaluation_test2p_E)
   %call71 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar67)
           to label %invoke.cont70 unwind label %lpad69
@@ -9400,12 +9405,12 @@ ehcleanup65:                                      ; preds = %ehcleanup64, %ehcle
   br label %eh.resume
 
 lpad69:                                           ; preds = %if.else73, %do.end
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup86
 
 if.else73:                                        ; preds = %invoke.cont70
@@ -9430,21 +9435,21 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   br label %if.end85
 
 lpad77:                                           ; preds = %invoke.cont78, %invoke.cont75
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   br label %ehcleanup84
 
 lpad81:                                           ; preds = %invoke.cont80
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76) #3
   br label %ehcleanup84
 
@@ -9647,7 +9652,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39single_evaluation_test_write_tests_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39single_evaluation_test_write_tests_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10835,7 +10841,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34gtest_extra_test_expect_write_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34gtest_extra_test_expect_write_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11967,7 +11974,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44gtest_extra_test_expect_write_streaming_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44gtest_extra_test_expect_write_streaming_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12651,7 +12659,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI62gtest_extra_test_expect_throw_no_unreachable_code_warning_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI62gtest_extra_test_expect_throw_no_unreachable_code_warning_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12784,7 +12793,7 @@ lpad8:                                            ; preds = %if.then7
 
 catch.dispatch:                                   ; preds = %lpad8, %lpad4
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch16, label %catch
 
@@ -13123,7 +13132,7 @@ lpad89:                                           ; preds = %invoke.cont86
 
 catch.dispatch95:                                 ; preds = %lpad89
   %sel96 = load i32, ptr %ehselector.slot, align 4
-  %57 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %matches97 = icmp eq i32 %sel96, %57
   br i1 %matches97, label %catch108, label %catch98
 
@@ -13487,7 +13496,7 @@ lpad200:                                          ; preds = %if.then203, %invoke
 
 catch.dispatch207:                                ; preds = %lpad200
   %sel208 = load i32, ptr %ehselector.slot, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %matches209 = icmp eq i32 %sel208, %101
   br i1 %matches209, label %catch220, label %catch210
 
@@ -13865,7 +13874,7 @@ lpad319:                                          ; preds = %if.then317
 
 catch.dispatch324:                                ; preds = %lpad319, %lpad314
   %sel325 = load i32, ptr %ehselector.slot, align 4
-  %148 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %148 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %matches326 = icmp eq i32 %sel325, %148
   br i1 %matches326, label %catch337, label %catch327
 
@@ -14610,7 +14619,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI69gtest_extra_test_expect_system_error_no_unreachable_code_warning_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI69gtest_extra_test_expect_system_error_no_unreachable_code_warning_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14802,7 +14812,7 @@ lpad11:                                           ; preds = %invoke.cont12
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %23
   br i1 %matches, label %catch22, label %catch
 
@@ -15159,7 +15169,7 @@ lpad101:                                          ; preds = %invoke.cont97
 
 catch.dispatch107:                                ; preds = %lpad101
   %sel108 = load i32, ptr %ehselector.slot, align 4
-  %71 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches109 = icmp eq i32 %sel108, %71
   br i1 %matches109, label %catch120, label %catch110
 
@@ -15541,7 +15551,7 @@ lpad216:                                          ; preds = %if.then219, %invoke
 
 catch.dispatch223:                                ; preds = %lpad216
   %sel224 = load i32, ptr %ehselector.slot, align 4
-  %118 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches225 = icmp eq i32 %sel224, %118
   br i1 %matches225, label %catch236, label %catch226
 
@@ -15962,7 +15972,7 @@ lpad340:                                          ; preds = %invoke.cont341
 
 catch.dispatch346:                                ; preds = %lpad340, %lpad334
   %sel347 = load i32, ptr %ehselector.slot, align 4
-  %176 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %176 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches348 = icmp eq i32 %sel347, %176
   br i1 %matches348, label %catch359, label %catch349
 
@@ -16623,7 +16633,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64gtest_extra_test_expect_throw_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64gtest_extra_test_expect_throw_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16711,7 +16722,7 @@ lpad6:                                            ; preds = %invoke.cont5
 
 catch.dispatch:                                   ; preds = %lpad6
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch16, label %catch
 
@@ -16988,7 +16999,7 @@ lpad77:                                           ; preds = %if.then80, %invoke.
 
 catch.dispatch84:                                 ; preds = %lpad77
   %sel85 = load i32, ptr %ehselector.slot, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches86 = icmp eq i32 %sel85, %41
   br i1 %matches86, label %catch97, label %catch87
 
@@ -17463,7 +17474,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI71gtest_extra_test_expect_system_error_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI71gtest_extra_test_expect_system_error_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17571,7 +17583,7 @@ lpad9:                                            ; preds = %invoke.cont8
 
 catch.dispatch:                                   ; preds = %lpad9
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch20, label %catch
 
@@ -17866,7 +17878,7 @@ lpad87:                                           ; preds = %if.then90, %invoke.
 
 catch.dispatch94:                                 ; preds = %lpad87
   %sel95 = load i32, ptr %ehselector.slot, align 4
-  %47 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches96 = icmp eq i32 %sel95, %47
   br i1 %matches96, label %catch107, label %catch97
 
@@ -18257,7 +18269,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64gtest_extra_test_expect_write_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64gtest_extra_test_expect_write_behaves_like_single_statement_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18859,7 +18872,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38gtest_extra_test_expect_throw_msg_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38gtest_extra_test_expect_throw_msg_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18977,7 +18991,7 @@ lpad4:                                            ; preds = %if.then7, %invoke.c
 
 catch.dispatch:                                   ; preds = %lpad4
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch15, label %catch
 
@@ -19317,7 +19331,7 @@ lpad88:                                           ; preds = %if.then91, %invoke.
 
 catch.dispatch95:                                 ; preds = %lpad88
   %sel96 = load i32, ptr %ehselector.slot, align 4
-  %53 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt11logic_error) #3
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt11logic_error) #3
   %matches97 = icmp eq i32 %sel96, %53
   br i1 %matches97, label %catch108, label %catch98
 
@@ -19679,7 +19693,7 @@ lpad200:                                          ; preds = %invoke.cont197
 
 catch.dispatch206:                                ; preds = %lpad200
   %sel207 = load i32, ptr %ehselector.slot, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches208 = icmp eq i32 %sel207, %97
   br i1 %matches208, label %catch219, label %catch209
 
@@ -20044,7 +20058,7 @@ lpad313:                                          ; preds = %if.then316, %invoke
 
 catch.dispatch320:                                ; preds = %lpad313
   %sel321 = load i32, ptr %ehselector.slot, align 4
-  %141 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %141 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches322 = icmp eq i32 %sel321, %141
   br i1 %matches322, label %catch333, label %catch323
 
@@ -20411,7 +20425,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41gtest_extra_test_expect_system_error_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41gtest_extra_test_expect_system_error_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20577,7 +20592,7 @@ lpad7:                                            ; preds = %if.then10, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch19, label %catch
 
@@ -20935,7 +20950,7 @@ lpad98:                                           ; preds = %if.then101, %invoke
 
 catch.dispatch105:                                ; preds = %lpad98
   %sel106 = load i32, ptr %ehselector.slot, align 4
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches107 = icmp eq i32 %sel106, %59
   br i1 %matches107, label %catch118, label %catch108
 
@@ -21315,7 +21330,7 @@ lpad214:                                          ; preds = %invoke.cont210
 
 catch.dispatch220:                                ; preds = %lpad214
   %sel221 = load i32, ptr %ehselector.slot, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches222 = icmp eq i32 %sel221, %106
   br i1 %matches222, label %catch233, label %catch223
 
@@ -21856,7 +21871,7 @@ lpad351:                                          ; preds = %if.then354, %invoke
 
 catch.dispatch358:                                ; preds = %lpad351
   %sel359 = load i32, ptr %ehselector.slot, align 4
-  %193 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %193 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches360 = icmp eq i32 %sel359, %193
   br i1 %matches360, label %catch371, label %catch361
 
@@ -22307,7 +22322,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48gtest_extra_test_expect_throw_msg_streaming_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48gtest_extra_test_expect_throw_msg_streaming_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22399,7 +22415,7 @@ lpad4:                                            ; preds = %if.then7, %invoke.c
 
 catch.dispatch:                                   ; preds = %lpad4
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch15, label %catch
 
@@ -22743,7 +22759,7 @@ lpad90:                                           ; preds = %if.then93, %invoke.
 
 catch.dispatch97:                                 ; preds = %lpad90
   %sel98 = load i32, ptr %ehselector.slot, align 4
-  %53 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches99 = icmp eq i32 %sel98, %53
   br i1 %matches99, label %catch110, label %catch100
 
@@ -23114,7 +23130,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51gtest_extra_test_expect_system_error_streaming_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51gtest_extra_test_expect_system_error_streaming_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23226,7 +23243,7 @@ lpad7:                                            ; preds = %if.then10, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch19, label %catch
 
@@ -23588,7 +23605,7 @@ lpad100:                                          ; preds = %if.then103, %invoke
 
 catch.dispatch107:                                ; preds = %lpad100
   %sel108 = load i32, ptr %ehselector.slot, align 4
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches109 = icmp eq i32 %sel108, %59
   br i1 %matches109, label %catch120, label %catch110
 
@@ -23959,7 +23976,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41output_redirect_test_scoped_redirect_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41output_redirect_test_scoped_redirect_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24339,7 +24357,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45output_redirect_test_flush_error_in_ctor_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45output_redirect_test_flush_error_in_ctor_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24606,7 +24625,7 @@ lpad48:                                           ; preds = %invoke.cont45
 
 catch.dispatch:                                   ; preds = %lpad48, %lpad41
   %sel = load i32, ptr %ehselector.slot, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %38
   br i1 %matches, label %catch60, label %catch
 
@@ -25208,7 +25227,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43output_redirect_test_dup_error_in_ctor_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43output_redirect_test_dup_error_in_ctor_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25452,7 +25472,7 @@ lpad22:                                           ; preds = %invoke.cont19
 
 catch.dispatch:                                   ; preds = %lpad22, %lpad15
   %sel = load i32, ptr %ehselector.slot, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %50
   br i1 %matches, label %catch30, label %catch
 
@@ -25902,7 +25922,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42output_redirect_test_restore_and_read_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42output_redirect_test_restore_and_read_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26491,7 +26512,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57output_redirect_test_flush_error_in_restore_and_read_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57output_redirect_test_flush_error_in_restore_and_read_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26747,7 +26769,7 @@ lpad43:                                           ; preds = %if.then46, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad43
   %sel = load i32, ptr %ehselector.slot, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %35
   br i1 %matches, label %catch57, label %catch
 
@@ -27200,7 +27222,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39output_redirect_test_error_in_dtor_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39output_redirect_test_error_in_dtor_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28169,7 +28192,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28246,7 +28270,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN51single_evaluation_test_failed_expect_throw_msg_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
@@ -28255,7 +28279,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV51single_evaluation_test_failed_expect_throw_msg_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV51single_evaluation_test_failed_expect_throw_msg_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28266,7 +28291,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122single_evaluation_testE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122single_evaluation_testE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store ptr @.str.5, ptr @_ZN12_GLOBAL__N_122single_evaluation_test2p_E, align 8
   store i32 0, ptr @_ZN12_GLOBAL__N_122single_evaluation_test2a_E, align 4
   store i32 0, ptr @_ZN12_GLOBAL__N_122single_evaluation_test2b_E, align 4
@@ -29104,12 +29130,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV54single_evaluation_test_failed_expect_system_error_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV54single_evaluation_test_failed_expect_system_error_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #12
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %__v, ptr noundef nonnull align 8 dereferenceable(8) %__cat) unnamed_addr #4 comdat align 2 {
@@ -29131,7 +29158,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12system_errorC2ESt10error_codeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %__ec.coerce0, ptr %__ec.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %__what) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -29168,36 +29195,37 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -29443,7 +29471,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43single_evaluation_test_exception_tests_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV43single_evaluation_test_exception_tests_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29507,7 +29536,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV46single_evaluation_test_system_error_tests_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV46single_evaluation_test_system_error_tests_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29571,7 +29601,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV47single_evaluation_test_failed_expect_write_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV47single_evaluation_test_failed_expect_write_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29635,7 +29666,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_122single_evaluation_testC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39single_evaluation_test_write_tests_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV39single_evaluation_test_write_tests_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29699,7 +29731,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34gtest_extra_test_expect_write_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV34gtest_extra_test_expect_write_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29763,7 +29796,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44gtest_extra_test_expect_write_streaming_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV44gtest_extra_test_expect_write_streaming_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29827,7 +29861,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV62gtest_extra_test_expect_throw_no_unreachable_code_warning_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV62gtest_extra_test_expect_throw_no_unreachable_code_warning_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29891,7 +29926,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV69gtest_extra_test_expect_system_error_no_unreachable_code_warning_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV69gtest_extra_test_expect_system_error_no_unreachable_code_warning_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29955,7 +29991,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV64gtest_extra_test_expect_throw_behaves_like_single_statement_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV64gtest_extra_test_expect_throw_behaves_like_single_statement_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30019,7 +30056,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV71gtest_extra_test_expect_system_error_behaves_like_single_statement_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV71gtest_extra_test_expect_system_error_behaves_like_single_statement_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30083,7 +30121,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV64gtest_extra_test_expect_write_behaves_like_single_statement_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV64gtest_extra_test_expect_write_behaves_like_single_statement_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30147,7 +30186,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38gtest_extra_test_expect_throw_msg_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV38gtest_extra_test_expect_throw_msg_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30211,7 +30251,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41gtest_extra_test_expect_system_error_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41gtest_extra_test_expect_system_error_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30275,7 +30316,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV48gtest_extra_test_expect_throw_msg_streaming_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV48gtest_extra_test_expect_throw_msg_streaming_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30339,7 +30381,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV51gtest_extra_test_expect_system_error_streaming_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV51gtest_extra_test_expect_system_error_streaming_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30403,7 +30446,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41output_redirect_test_scoped_redirect_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41output_redirect_test_scoped_redirect_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30480,12 +30524,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45output_redirect_test_flush_error_in_ctor_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV45output_redirect_test_flush_error_in_ctor_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI15output_redirectSt14default_deleteIS0_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
@@ -30628,7 +30673,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43output_redirect_test_dup_error_in_ctor_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV43output_redirect_test_dup_error_in_ctor_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30692,7 +30738,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42output_redirect_test_restore_and_read_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV42output_redirect_test_restore_and_read_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30758,7 +30805,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV57output_redirect_test_flush_error_in_restore_and_read_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV57output_redirect_test_flush_error_in_restore_and_read_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30822,7 +30870,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39output_redirect_test_error_in_dtor_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV39output_redirect_test_error_in_dtor_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30831,7 +30880,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #15
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34410,7 +34459,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -34421,14 +34473,14 @@ attributes #5 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }

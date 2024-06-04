@@ -699,25 +699,26 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11upolynomial21upolynomial_exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN11upolynomial21upolynomial_exceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -7988,10 +7989,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %factors.addr, align 8
   call void @_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN11upolynomial35ufactorization_combination_iteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN11upolynomial35ufactorization_combination_iteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_degree_set = getelementptr inbounds %"class.upolynomial::ufactorization_combination_iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %degree_set.addr, align 8
-  store ptr %1, ptr %m_degree_set, align 8
+  %2 = load ptr, ptr %degree_set.addr, align 8
+  store ptr %2, ptr %m_degree_set, align 8
   ret void
 }
 
@@ -9092,7 +9094,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10065,10 +10068,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -10078,7 +10082,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -12026,19 +12031,20 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %factors, ptr %factors.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_total_size = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %factors.addr, align 8
-  %call = call noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %1 = load ptr, ptr %factors.addr, align 8
+  %call = call noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   store i32 %call, ptr %m_total_size, align 8
   %m_max_size = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %factors.addr, align 8
-  %call2 = call noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %2 = load ptr, ptr %factors.addr, align 8
+  %call2 = call noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %div = udiv i32 %call2, 2
   store i32 %div, ptr %m_max_size, align 4
   %m_factors = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %factors.addr, align 8
-  store ptr %2, ptr %m_factors, align 8
+  %3 = load ptr, ptr %factors.addr, align 8
+  store ptr %3, ptr %m_factors, align 8
   %m_enabled = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIbjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_enabled)
   %m_current = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 6
@@ -12048,8 +12054,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_enabled3 = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 4
   %m_factors4 = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %m_factors4, align 8
-  %call7 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %4 = load ptr, ptr %m_factors4, align 8
+  %call7 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -12059,15 +12065,15 @@ invoke.cont6:                                     ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_current9 = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 6
   %m_factors10 = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %m_factors10, align 8
-  %call12 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %5 = load ptr, ptr %m_factors10, align 8
+  %call12 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %invoke.cont11 unwind label %lpad5
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   %add = add i32 %call12, 1
   %m_factors13 = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %m_factors13, align 8
-  %call15 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %6 = load ptr, ptr %m_factors13, align 8
+  %call15 = invoke noundef i32 @_ZNK11upolynomial12core_manager7factors16distinct_factorsEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %invoke.cont14 unwind label %lpad5
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -12080,21 +12086,21 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont14, %invoke.cont11, %invoke.cont8, %invoke.cont6, %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_current) #3
   br label %ehcleanup
 
@@ -12350,7 +12356,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_current = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 6
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_current) #3
   %m_enabled = getelementptr inbounds %"class.upolynomial::factorization_combination_iterator_base", ptr %this1, i32 0, i32 4

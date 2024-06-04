@@ -337,10 +337,11 @@ entry:
   store ptr %file_, ptr %file_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pugi10xml_writerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi15xml_writer_fileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4pugi15xml_writer_fileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file = getelementptr inbounds %"class.pugi::xml_writer_file", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %file_.addr, align 8
-  store ptr %0, ptr %file, align 8
+  %1 = load ptr, ptr %file_.addr, align 8
+  store ptr %1, ptr %file, align 8
   ret void
 }
 
@@ -350,7 +351,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi10xml_writerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4pugi10xml_writerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -385,10 +387,11 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pugi10xml_writerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi17xml_writer_streamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4pugi17xml_writer_streamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %narrow_stream = getelementptr inbounds %"class.pugi::xml_writer_stream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %stream.addr, align 8
-  store ptr %0, ptr %narrow_stream, align 8
+  %1 = load ptr, ptr %stream.addr, align 8
+  store ptr %1, ptr %narrow_stream, align 8
   %wide_stream = getelementptr inbounds %"class.pugi::xml_writer_stream", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wide_stream, align 8
   ret void
@@ -403,12 +406,13 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pugi10xml_writerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi17xml_writer_streamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4pugi17xml_writer_streamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %narrow_stream = getelementptr inbounds %"class.pugi::xml_writer_stream", ptr %this1, i32 0, i32 1
   store ptr null, ptr %narrow_stream, align 8
   %wide_stream = getelementptr inbounds %"class.pugi::xml_writer_stream", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %stream.addr, align 8
-  store ptr %0, ptr %wide_stream, align 8
+  %1 = load ptr, ptr %stream.addr, align 8
+  store ptr %1, ptr %wide_stream, align 8
   ret void
 }
 
@@ -458,7 +462,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pugi15xml_tree_walkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pugi15xml_tree_walkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_depth = getelementptr inbounds %"class.pugi::xml_tree_walker", ptr %this1, i32 0, i32 1
   store i32 0, ptr %_depth, align 8
   ret void
@@ -13828,10 +13833,11 @@ entry:
   store ptr %result_, ptr %result_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi15xpath_exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4pugi15xpath_exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_result = getelementptr inbounds %"class.pugi::xpath_exception", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %result_.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_result, ptr align 8 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %result_.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_result, ptr align 8 %1, i64 16, i1 false)
   ret void
 }
 
@@ -13841,7 +13847,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14207,7 +14214,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

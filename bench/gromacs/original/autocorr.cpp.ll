@@ -526,688 +526,690 @@ define void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr no
   store float %14, ptr %31, align 4
   store i32 %15, ptr %32, align 4
   store ptr null, ptr %34, align 8
-  %61 = load i8, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 5), align 8
-  %62 = trunc i8 %61 to i1
-  %63 = zext i1 %62 to i8
-  store i8 %63, ptr %42, align 1
-  %64 = call noundef i32 @_Z11get_acfnoutv()
-  store i32 %64, ptr %22, align 4
-  %65 = load i32, ptr %22, align 4
-  %66 = icmp eq i32 %65, -1
-  br i1 %66, label %67, label %71
+  %61 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 5
+  %62 = load i8, ptr %61, align 8
+  %63 = trunc i8 %62 to i1
+  %64 = zext i1 %63 to i8
+  store i8 %64, ptr %42, align 1
+  %65 = call noundef i32 @_Z11get_acfnoutv()
+  store i32 %65, ptr %22, align 4
+  %66 = load i32, ptr %22, align 4
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %68, label %73
 
-67:                                               ; preds = %16
-  %68 = load i32, ptr %20, align 4
-  %69 = add nsw i32 %68, 1
-  %70 = sdiv i32 %69, 2
-  store i32 %70, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 2), align 4
-  store i32 %70, ptr %22, align 4
-  br label %78
+68:                                               ; preds = %16
+  %69 = load i32, ptr %20, align 4
+  %70 = add nsw i32 %69, 1
+  %71 = sdiv i32 %70, 2
+  %72 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 2
+  store i32 %71, ptr %72, align 4
+  store i32 %71, ptr %22, align 4
+  br label %80
 
-71:                                               ; preds = %16
-  %72 = load i32, ptr %22, align 4
-  %73 = load i32, ptr %20, align 4
-  %74 = icmp sgt i32 %72, %73
-  br i1 %74, label %75, label %77
+73:                                               ; preds = %16
+  %74 = load i32, ptr %22, align 4
+  %75 = load i32, ptr %20, align 4
+  %76 = icmp sgt i32 %74, %75
+  br i1 %76, label %77, label %79
 
-75:                                               ; preds = %71
-  %76 = load i32, ptr %20, align 4
-  store i32 %76, ptr %22, align 4
-  br label %77
+77:                                               ; preds = %73
+  %78 = load i32, ptr %20, align 4
+  store i32 %78, ptr %22, align 4
+  br label %79
 
-77:                                               ; preds = %75, %71
-  br label %78
+79:                                               ; preds = %77, %73
+  br label %80
 
-78:                                               ; preds = %77, %67
-  %79 = load i64, ptr %25, align 8
-  %80 = and i64 %79, 2
-  %81 = icmp eq i64 %80, 2
-  br i1 %81, label %82, label %92
+80:                                               ; preds = %79, %68
+  %81 = load i64, ptr %25, align 8
+  %82 = and i64 %81, 2
+  %83 = icmp eq i64 %82, 2
+  br i1 %83, label %84, label %94
 
-82:                                               ; preds = %78
-  %83 = load i64, ptr %25, align 8
-  %84 = and i64 %83, 4
-  %85 = icmp eq i64 %84, 4
-  br i1 %85, label %86, label %92
+84:                                               ; preds = %80
+  %85 = load i64, ptr %25, align 8
+  %86 = and i64 %85, 4
+  %87 = icmp eq i64 %86, 4
+  br i1 %87, label %88, label %94
 
-86:                                               ; preds = %82
+88:                                               ; preds = %84
   call void @_ZNSt10filesystem7__cxx114pathC2IA139_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 1 dereferenceable(139) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %43, i32 noundef 571, ptr noundef @.str.1, ptr noundef @.str, i32 noundef 571) #12
-          to label %87 unwind label %88
+          to label %89 unwind label %90
 
-87:                                               ; preds = %86
+89:                                               ; preds = %88
   unreachable
 
-88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+90:                                               ; preds = %88
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %44, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %45, align 4
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %44, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %45, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #13
-  br label %456
+  br label %458
 
-92:                                               ; preds = %82, %78
-  %93 = load i64, ptr %25, align 8
-  %94 = and i64 %93, 132
-  %95 = icmp eq i64 %94, 132
-  br i1 %95, label %100, label %96
+94:                                               ; preds = %84, %80
+  %95 = load i64, ptr %25, align 8
+  %96 = and i64 %95, 132
+  %97 = icmp eq i64 %96, 132
+  br i1 %97, label %102, label %98
 
-96:                                               ; preds = %92
-  %97 = load i64, ptr %25, align 8
-  %98 = and i64 %97, 12
-  %99 = icmp eq i64 %98, 12
-  br i1 %99, label %100, label %111
+98:                                               ; preds = %94
+  %99 = load i64, ptr %25, align 8
+  %100 = and i64 %99, 12
+  %101 = icmp eq i64 %100, 12
+  br i1 %101, label %102, label %113
 
-100:                                              ; preds = %96, %92
-  %101 = load i8, ptr %42, align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %103, label %111
+102:                                              ; preds = %98, %94
+  %103 = load i8, ptr %42, align 1
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %113
 
-103:                                              ; preds = %100
-  %104 = load i8, ptr %29, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %110
+105:                                              ; preds = %102
+  %106 = load i8, ptr %29, align 1
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %112
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr @stderr, align 8
-  %108 = load i64, ptr %25, align 8
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef @.str.2, i64 noundef %108) #13
-  br label %110
+108:                                              ; preds = %105
+  %109 = load ptr, ptr @stderr, align 8
+  %110 = load i64, ptr %25, align 8
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.2, i64 noundef %110) #13
+  br label %112
 
-110:                                              ; preds = %106, %103
+112:                                              ; preds = %108, %105
   store i8 0, ptr %42, align 1
-  br label %111
+  br label %113
 
-111:                                              ; preds = %110, %100, %96
-  %112 = load i64, ptr %25, align 8
-  %113 = and i64 %112, 1
-  %114 = icmp eq i64 %113, 1
-  br i1 %114, label %115, label %125
+113:                                              ; preds = %112, %102, %98
+  %114 = load i64, ptr %25, align 8
+  %115 = and i64 %114, 1
+  %116 = icmp eq i64 %115, 1
+  br i1 %116, label %117, label %127
 
-115:                                              ; preds = %111
-  %116 = load i64, ptr %25, align 8
-  %117 = and i64 %116, 4
-  %118 = icmp eq i64 %117, 4
-  br i1 %118, label %119, label %125
+117:                                              ; preds = %113
+  %118 = load i64, ptr %25, align 8
+  %119 = and i64 %118, 4
+  %120 = icmp eq i64 %119, 4
+  br i1 %120, label %121, label %127
 
-119:                                              ; preds = %115
+121:                                              ; preds = %117
   call void @_ZNSt10filesystem7__cxx114pathC2IA139_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 1 dereferenceable(139) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef 583, ptr noundef @.str.3) #12
-          to label %120 unwind label %121
+          to label %122 unwind label %123
 
-120:                                              ; preds = %119
+122:                                              ; preds = %121
   unreachable
 
-121:                                              ; preds = %119
-  %122 = landingpad { ptr, i32 }
+123:                                              ; preds = %121
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %44, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %45, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %44, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %45, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #13
-  br label %456
+  br label %458
 
-125:                                              ; preds = %115, %111
-  %126 = load i8, ptr %29, align 1
-  %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %154
+127:                                              ; preds = %117, %113
+  %128 = load i8, ptr %29, align 1
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %130, label %156
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %19, align 8
-  %130 = icmp ne ptr %129, null
-  br i1 %130, label %131, label %133
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %19, align 8
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %135
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %19, align 8
-  br label %134
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %19, align 8
+  br label %136
 
-133:                                              ; preds = %128
-  br label %134
+135:                                              ; preds = %130
+  br label %136
 
-134:                                              ; preds = %133, %131
-  %135 = phi ptr [ %132, %131 ], [ @.str.5, %133 ]
-  %136 = load i32, ptr %21, align 4
-  %137 = load i32, ptr %20, align 4
-  %138 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %135, i32 noundef %136, i32 noundef %137)
-  %139 = load i8, ptr %27, align 1
-  %140 = trunc i8 %139 to i1
-  %141 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %140)
-  %142 = load i8, ptr %42, align 1
-  %143 = trunc i8 %142 to i1
-  %144 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %143)
-  %145 = load i8, ptr %28, align 1
-  %146 = trunc i8 %145 to i1
-  %147 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %146)
-  %148 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %141, ptr noundef %144, ptr noundef %147)
-  %149 = load i64, ptr %25, align 8
-  %150 = load float, ptr %24, align 4
-  %151 = fpext float %150 to double
-  %152 = load i32, ptr %26, align 4
-  %153 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i64 noundef %149, double noundef %151, i32 noundef %152)
-  br label %154
+136:                                              ; preds = %135, %133
+  %137 = phi ptr [ %134, %133 ], [ @.str.5, %135 ]
+  %138 = load i32, ptr %21, align 4
+  %139 = load i32, ptr %20, align 4
+  %140 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %137, i32 noundef %138, i32 noundef %139)
+  %141 = load i8, ptr %27, align 1
+  %142 = trunc i8 %141 to i1
+  %143 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %142)
+  %144 = load i8, ptr %42, align 1
+  %145 = trunc i8 %144 to i1
+  %146 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %145)
+  %147 = load i8, ptr %28, align 1
+  %148 = trunc i8 %147 to i1
+  %149 = call noundef ptr @_ZN3gmxL12boolToStringEb(i1 noundef zeroext %148)
+  %150 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %143, ptr noundef %146, ptr noundef %149)
+  %151 = load i64, ptr %25, align 8
+  %152 = load float, ptr %24, align 4
+  %153 = fpext float %152 to double
+  %154 = load i32, ptr %26, align 4
+  %155 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i64 noundef %151, double noundef %153, i32 noundef %154)
+  br label %156
 
-154:                                              ; preds = %134, %125
-  %155 = load i32, ptr %20, align 4
-  %156 = sext i32 %155 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.8, ptr noundef @.str, i32 noundef 597, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %156)
+156:                                              ; preds = %136, %127
   %157 = load i32, ptr %20, align 4
   %158 = sext i32 %157 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.9, ptr noundef @.str, i32 noundef 598, ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %158)
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.8, ptr noundef @.str, i32 noundef 597, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %158)
+  %159 = load i32, ptr %20, align 4
+  %160 = sext i32 %159 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.9, ptr noundef @.str, i32 noundef 598, ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %160)
   store i32 0, ptr %47, align 4
-  br label %159
+  br label %161
 
-159:                                              ; preds = %207, %154
-  %160 = load i32, ptr %47, align 4
-  %161 = load i32, ptr %21, align 4
-  %162 = icmp slt i32 %160, %161
-  br i1 %162, label %163, label %210
+161:                                              ; preds = %209, %156
+  %162 = load i32, ptr %47, align 4
+  %163 = load i32, ptr %21, align 4
+  %164 = icmp slt i32 %162, %163
+  br i1 %164, label %165, label %212
 
-163:                                              ; preds = %159
-  %164 = load i8, ptr %29, align 1
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %166, label %182
+165:                                              ; preds = %161
+  %166 = load i8, ptr %29, align 1
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %168, label %184
 
-166:                                              ; preds = %163
-  %167 = load i32, ptr %47, align 4
-  %168 = srem i32 %167, 100
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %175, label %170
+168:                                              ; preds = %165
+  %169 = load i32, ptr %47, align 4
+  %170 = srem i32 %169, 100
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %177, label %172
 
-170:                                              ; preds = %166
-  %171 = load i32, ptr %47, align 4
-  %172 = load i32, ptr %21, align 4
-  %173 = sub nsw i32 %172, 1
-  %174 = icmp eq i32 %171, %173
-  br i1 %174, label %175, label %182
+172:                                              ; preds = %168
+  %173 = load i32, ptr %47, align 4
+  %174 = load i32, ptr %21, align 4
+  %175 = sub nsw i32 %174, 1
+  %176 = icmp eq i32 %173, %175
+  br i1 %176, label %177, label %184
 
-175:                                              ; preds = %170, %166
-  %176 = load ptr, ptr @stderr, align 8
-  %177 = load i32, ptr %47, align 4
-  %178 = add nsw i32 %177, 1
-  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.10, i32 noundef %178) #13
-  %180 = load ptr, ptr @stderr, align 8
-  %181 = call i32 @fflush(ptr noundef %180)
-  br label %182
+177:                                              ; preds = %172, %168
+  %178 = load ptr, ptr @stderr, align 8
+  %179 = load i32, ptr %47, align 4
+  %180 = add nsw i32 %179, 1
+  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef @.str.10, i32 noundef %180) #13
+  %182 = load ptr, ptr @stderr, align 8
+  %183 = call i32 @fflush(ptr noundef %182)
+  br label %184
 
-182:                                              ; preds = %175, %170, %163
-  %183 = load i8, ptr %42, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %185, label %195
+184:                                              ; preds = %177, %172, %165
+  %185 = load i8, ptr %42, align 1
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %197
 
-185:                                              ; preds = %182
-  %186 = load i64, ptr %25, align 8
-  %187 = load i32, ptr %20, align 4
-  %188 = load ptr, ptr %23, align 8
-  %189 = load i32, ptr %47, align 4
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds ptr, ptr %188, i64 %190
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %36, align 8
-  %194 = load ptr, ptr %37, align 8
-  call void @_ZL12do_four_coremiPfS_S_(i64 noundef %186, i32 noundef %187, ptr noundef %192, ptr noundef %193, ptr noundef %194)
-  br label %206
+187:                                              ; preds = %184
+  %188 = load i64, ptr %25, align 8
+  %189 = load i32, ptr %20, align 4
+  %190 = load ptr, ptr %23, align 8
+  %191 = load i32, ptr %47, align 4
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
+  %194 = load ptr, ptr %193, align 8
+  %195 = load ptr, ptr %36, align 8
+  %196 = load ptr, ptr %37, align 8
+  call void @_ZL12do_four_coremiPfS_S_(i64 noundef %188, i32 noundef %189, ptr noundef %194, ptr noundef %195, ptr noundef %196)
+  br label %208
 
-195:                                              ; preds = %182
-  %196 = load i32, ptr %20, align 4
-  %197 = load i32, ptr %22, align 4
-  %198 = load ptr, ptr %37, align 8
-  %199 = load ptr, ptr %23, align 8
-  %200 = load i32, ptr %47, align 4
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds ptr, ptr %199, i64 %201
-  %203 = load ptr, ptr %202, align 8
-  %204 = load i32, ptr %26, align 4
-  %205 = load i64, ptr %25, align 8
-  call void @_ZL10do_ac_coreiiPfS_im(i32 noundef %196, i32 noundef %197, ptr noundef %198, ptr noundef %203, i32 noundef %204, i64 noundef %205)
-  br label %206
+197:                                              ; preds = %184
+  %198 = load i32, ptr %20, align 4
+  %199 = load i32, ptr %22, align 4
+  %200 = load ptr, ptr %37, align 8
+  %201 = load ptr, ptr %23, align 8
+  %202 = load i32, ptr %47, align 4
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds ptr, ptr %201, i64 %203
+  %205 = load ptr, ptr %204, align 8
+  %206 = load i32, ptr %26, align 4
+  %207 = load i64, ptr %25, align 8
+  call void @_ZL10do_ac_coreiiPfS_im(i32 noundef %198, i32 noundef %199, ptr noundef %200, ptr noundef %205, i32 noundef %206, i64 noundef %207)
+  br label %208
 
-206:                                              ; preds = %195, %185
-  br label %207
+208:                                              ; preds = %197, %187
+  br label %209
 
-207:                                              ; preds = %206
-  %208 = load i32, ptr %47, align 4
-  %209 = add nsw i32 %208, 1
-  store i32 %209, ptr %47, align 4
-  br label %159, !llvm.loop !5
+209:                                              ; preds = %208
+  %210 = load i32, ptr %47, align 4
+  %211 = add nsw i32 %210, 1
+  store i32 %211, ptr %47, align 4
+  br label %161, !llvm.loop !5
 
-210:                                              ; preds = %159
-  %211 = load i8, ptr %29, align 1
-  %212 = trunc i8 %211 to i1
-  br i1 %212, label %213, label %216
+212:                                              ; preds = %161
+  %213 = load i8, ptr %29, align 1
+  %214 = trunc i8 %213 to i1
+  br i1 %214, label %215, label %218
 
-213:                                              ; preds = %210
-  %214 = load ptr, ptr @stderr, align 8
-  %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef @.str.11) #13
-  br label %216
+215:                                              ; preds = %212
+  %216 = load ptr, ptr @stderr, align 8
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef @.str.11) #13
+  br label %218
 
-216:                                              ; preds = %213, %210
-  %217 = load ptr, ptr %37, align 8
-  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.9, ptr noundef @.str, i32 noundef 625, ptr noundef %217)
-  %218 = load ptr, ptr %36, align 8
-  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.8, ptr noundef @.str, i32 noundef 626, ptr noundef %218)
-  %219 = load ptr, ptr %17, align 8
-  %220 = icmp ne ptr %219, null
-  br i1 %220, label %221, label %244
+218:                                              ; preds = %215, %212
+  %219 = load ptr, ptr %37, align 8
+  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.9, ptr noundef @.str, i32 noundef 625, ptr noundef %219)
+  %220 = load ptr, ptr %36, align 8
+  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.8, ptr noundef @.str, i32 noundef 626, ptr noundef %220)
+  %221 = load ptr, ptr %17, align 8
+  %222 = icmp ne ptr %221, null
+  br i1 %222, label %223, label %246
 
-221:                                              ; preds = %216
-  %222 = load i32, ptr %22, align 4
-  %223 = sext i32 %222 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.12, ptr noundef @.str, i32 noundef 630, ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %223)
+223:                                              ; preds = %218
+  %224 = load i32, ptr %22, align 4
+  %225 = sext i32 %224 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.12, ptr noundef @.str, i32 noundef 630, ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %225)
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef zeroext 2)
-  %224 = load ptr, ptr %19, align 8
+  %226 = load ptr, ptr %19, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %50)
-          to label %225 unwind label %230
+          to label %227 unwind label %232
 
-225:                                              ; preds = %221
+227:                                              ; preds = %223
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %52)
-          to label %226 unwind label %234
+          to label %228 unwind label %236
 
-226:                                              ; preds = %225
-  %227 = load ptr, ptr %18, align 8
-  %228 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef %224, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef %227)
-          to label %229 unwind label %238
+228:                                              ; preds = %227
+  %229 = load ptr, ptr %18, align 8
+  %230 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef %229)
+          to label %231 unwind label %240
 
-229:                                              ; preds = %226
-  store ptr %228, ptr %33, align 8
+231:                                              ; preds = %228
+  store ptr %230, ptr %33, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #13
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #13
+  br label %247
+
+232:                                              ; preds = %223
+  %233 = landingpad { ptr, i32 }
+          cleanup
+  %234 = extractvalue { ptr, i32 } %233, 0
+  store ptr %234, ptr %44, align 8
+  %235 = extractvalue { ptr, i32 } %233, 1
+  store i32 %235, ptr %45, align 4
   br label %245
 
-230:                                              ; preds = %221
-  %231 = landingpad { ptr, i32 }
+236:                                              ; preds = %227
+  %237 = landingpad { ptr, i32 }
           cleanup
-  %232 = extractvalue { ptr, i32 } %231, 0
-  store ptr %232, ptr %44, align 8
-  %233 = extractvalue { ptr, i32 } %231, 1
-  store i32 %233, ptr %45, align 4
-  br label %243
+  %238 = extractvalue { ptr, i32 } %237, 0
+  store ptr %238, ptr %44, align 8
+  %239 = extractvalue { ptr, i32 } %237, 1
+  store i32 %239, ptr %45, align 4
+  br label %244
 
-234:                                              ; preds = %225
-  %235 = landingpad { ptr, i32 }
+240:                                              ; preds = %228
+  %241 = landingpad { ptr, i32 }
           cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %44, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %45, align 4
-  br label %242
-
-238:                                              ; preds = %226
-  %239 = landingpad { ptr, i32 }
-          cleanup
-  %240 = extractvalue { ptr, i32 } %239, 0
-  store ptr %240, ptr %44, align 8
-  %241 = extractvalue { ptr, i32 } %239, 1
-  store i32 %241, ptr %45, align 4
+  %242 = extractvalue { ptr, i32 } %241, 0
+  store ptr %242, ptr %44, align 8
+  %243 = extractvalue { ptr, i32 } %241, 1
+  store i32 %243, ptr %45, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #13
-  br label %242
+  br label %244
 
-242:                                              ; preds = %238, %234
+244:                                              ; preds = %240, %236
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #13
-  br label %243
+  br label %245
 
-243:                                              ; preds = %242, %230
+245:                                              ; preds = %244, %232
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #13
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #13
-  br label %456
+  br label %458
 
-244:                                              ; preds = %216
+246:                                              ; preds = %218
   store ptr null, ptr %38, align 8
   store ptr null, ptr %33, align 8
-  br label %245
+  br label %247
 
-245:                                              ; preds = %244, %229
-  %246 = load i8, ptr %27, align 1
-  %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %306
+247:                                              ; preds = %246, %231
+  %248 = load i8, ptr %27, align 1
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %250, label %308
 
-248:                                              ; preds = %245
-  %249 = load i32, ptr %21, align 4
-  %250 = icmp sgt i32 %249, 1
-  br i1 %250, label %251, label %257
+250:                                              ; preds = %247
+  %251 = load i32, ptr %21, align 4
+  %252 = icmp sgt i32 %251, 1
+  br i1 %252, label %253, label %259
 
-251:                                              ; preds = %248
-  %252 = load i8, ptr %29, align 1
-  %253 = trunc i8 %252 to i1
-  %254 = load i32, ptr %20, align 4
-  %255 = load i32, ptr %21, align 4
-  %256 = load ptr, ptr %23, align 8
-  call void @_ZL11average_acfbiiPPf(i1 noundef zeroext %253, i32 noundef %254, i32 noundef %255, ptr noundef %256)
-  br label %257
+253:                                              ; preds = %250
+  %254 = load i8, ptr %29, align 1
+  %255 = trunc i8 %254 to i1
+  %256 = load i32, ptr %20, align 4
+  %257 = load i32, ptr %21, align 4
+  %258 = load ptr, ptr %23, align 8
+  call void @_ZL11average_acfbiiPPf(i1 noundef zeroext %255, i32 noundef %256, i32 noundef %257, ptr noundef %258)
+  br label %259
 
-257:                                              ; preds = %251, %248
-  %258 = load i8, ptr %28, align 1
-  %259 = trunc i8 %258 to i1
-  br i1 %259, label %260, label %265
+259:                                              ; preds = %253, %250
+  %260 = load i8, ptr %28, align 1
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %262, label %267
 
-260:                                              ; preds = %257
-  %261 = load i32, ptr %22, align 4
-  %262 = load ptr, ptr %23, align 8
-  %263 = getelementptr inbounds ptr, ptr %262, i64 0
-  %264 = load ptr, ptr %263, align 8
-  call void @_ZL13normalize_acfiPf(i32 noundef %261, ptr noundef %264)
-  br label %265
+262:                                              ; preds = %259
+  %263 = load i32, ptr %22, align 4
+  %264 = load ptr, ptr %23, align 8
+  %265 = getelementptr inbounds ptr, ptr %264, i64 0
+  %266 = load ptr, ptr %265, align 8
+  call void @_ZL13normalize_acfiPf(i32 noundef %263, ptr noundef %266)
+  br label %267
 
-265:                                              ; preds = %260, %257
-  %266 = load i32, ptr %32, align 4
-  %267 = icmp ne i32 %266, 0
-  br i1 %267, label %268, label %290
+267:                                              ; preds = %262, %259
+  %268 = load i32, ptr %32, align 4
+  %269 = icmp ne i32 %268, 0
+  br i1 %269, label %270, label %292
 
-268:                                              ; preds = %265
-  %269 = load i32, ptr %22, align 4
-  %270 = load i32, ptr %32, align 4
-  %271 = load ptr, ptr %18, align 8
-  %272 = load ptr, ptr %17, align 8
-  %273 = icmp ne ptr %272, null
-  %274 = load float, ptr %30, align 4
-  %275 = load float, ptr %31, align 4
-  %276 = load float, ptr %24, align 4
-  %277 = load ptr, ptr %23, align 8
-  %278 = getelementptr inbounds ptr, ptr %277, i64 0
-  %279 = load ptr, ptr %278, align 8
-  %280 = load ptr, ptr %38, align 8
-  %281 = call noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %269, i32 noundef %270, ptr noundef %271, i1 noundef zeroext %273, float noundef %274, float noundef %275, float noundef %276, ptr noundef %279, ptr noundef %280)
-  %282 = load ptr, ptr %33, align 8
-  %283 = load i32, ptr %22, align 4
-  %284 = load float, ptr %24, align 4
-  %285 = load ptr, ptr %23, align 8
-  %286 = getelementptr inbounds ptr, ptr %285, i64 0
-  %287 = load ptr, ptr %286, align 8
-  %288 = load ptr, ptr %38, align 8
-  %289 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %282, i32 noundef %283, float noundef %284, ptr noundef %287, ptr noundef %288, i32 noundef 1)
-  store float %289, ptr %39, align 4
-  br label %298
+270:                                              ; preds = %267
+  %271 = load i32, ptr %22, align 4
+  %272 = load i32, ptr %32, align 4
+  %273 = load ptr, ptr %18, align 8
+  %274 = load ptr, ptr %17, align 8
+  %275 = icmp ne ptr %274, null
+  %276 = load float, ptr %30, align 4
+  %277 = load float, ptr %31, align 4
+  %278 = load float, ptr %24, align 4
+  %279 = load ptr, ptr %23, align 8
+  %280 = getelementptr inbounds ptr, ptr %279, i64 0
+  %281 = load ptr, ptr %280, align 8
+  %282 = load ptr, ptr %38, align 8
+  %283 = call noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %271, i32 noundef %272, ptr noundef %273, i1 noundef zeroext %275, float noundef %276, float noundef %277, float noundef %278, ptr noundef %281, ptr noundef %282)
+  %284 = load ptr, ptr %33, align 8
+  %285 = load i32, ptr %22, align 4
+  %286 = load float, ptr %24, align 4
+  %287 = load ptr, ptr %23, align 8
+  %288 = getelementptr inbounds ptr, ptr %287, i64 0
+  %289 = load ptr, ptr %288, align 8
+  %290 = load ptr, ptr %38, align 8
+  %291 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %284, i32 noundef %285, float noundef %286, ptr noundef %289, ptr noundef %290, i32 noundef 1)
+  store float %291, ptr %39, align 4
+  br label %300
 
-290:                                              ; preds = %265
-  %291 = load ptr, ptr %33, align 8
-  %292 = load i32, ptr %22, align 4
-  %293 = load float, ptr %24, align 4
-  %294 = load ptr, ptr %23, align 8
-  %295 = getelementptr inbounds ptr, ptr %294, i64 0
-  %296 = load ptr, ptr %295, align 8
-  %297 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %291, i32 noundef %292, float noundef %293, ptr noundef %296, ptr noundef null, i32 noundef 1)
-  store float %297, ptr %39, align 4
-  br label %298
+292:                                              ; preds = %267
+  %293 = load ptr, ptr %33, align 8
+  %294 = load i32, ptr %22, align 4
+  %295 = load float, ptr %24, align 4
+  %296 = load ptr, ptr %23, align 8
+  %297 = getelementptr inbounds ptr, ptr %296, i64 0
+  %298 = load ptr, ptr %297, align 8
+  %299 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %293, i32 noundef %294, float noundef %295, ptr noundef %298, ptr noundef null, i32 noundef 1)
+  store float %299, ptr %39, align 4
+  br label %300
 
-298:                                              ; preds = %290, %268
-  %299 = load i8, ptr %29, align 1
-  %300 = trunc i8 %299 to i1
-  br i1 %300, label %301, label %305
+300:                                              ; preds = %292, %270
+  %301 = load i8, ptr %29, align 1
+  %302 = trunc i8 %301 to i1
+  br i1 %302, label %303, label %307
 
-301:                                              ; preds = %298
-  %302 = load float, ptr %39, align 4
-  %303 = fpext float %302 to double
-  %304 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, double noundef %303)
-  br label %305
+303:                                              ; preds = %300
+  %304 = load float, ptr %39, align 4
+  %305 = fpext float %304 to double
+  %306 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, double noundef %305)
+  br label %307
 
-305:                                              ; preds = %301, %298
-  br label %449
+307:                                              ; preds = %303, %300
+  br label %451
 
-306:                                              ; preds = %245
+308:                                              ; preds = %247
   store float 0.000000e+00, ptr %40, align 4
   store float 0.000000e+00, ptr %41, align 4
-  %307 = load ptr, ptr @debug, align 8
-  %308 = icmp ne ptr %307, null
-  br i1 %308, label %309, label %329
+  %309 = load ptr, ptr @debug, align 8
+  %310 = icmp ne ptr %309, null
+  br i1 %310, label %311, label %331
 
-309:                                              ; preds = %306
+311:                                              ; preds = %308
   call void @_ZNSt10filesystem7__cxx114pathC2IA13_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 1 dereferenceable(13) @.str.16, i8 noundef zeroext 2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %55)
-          to label %310 unwind label %315
+          to label %312 unwind label %317
 
-310:                                              ; preds = %309
+312:                                              ; preds = %311
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %57)
-          to label %311 unwind label %319
+          to label %313 unwind label %321
 
-311:                                              ; preds = %310
-  %312 = load ptr, ptr %18, align 8
-  %313 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %312)
-          to label %314 unwind label %323
+313:                                              ; preds = %312
+  %314 = load ptr, ptr %18, align 8
+  %315 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %314)
+          to label %316 unwind label %325
 
-314:                                              ; preds = %311
-  store ptr %313, ptr %34, align 8
+316:                                              ; preds = %313
+  store ptr %315, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #13
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %53) #13
-  br label %329
+  br label %331
 
-315:                                              ; preds = %309
-  %316 = landingpad { ptr, i32 }
+317:                                              ; preds = %311
+  %318 = landingpad { ptr, i32 }
           cleanup
-  %317 = extractvalue { ptr, i32 } %316, 0
-  store ptr %317, ptr %44, align 8
-  %318 = extractvalue { ptr, i32 } %316, 1
-  store i32 %318, ptr %45, align 4
-  br label %328
-
-319:                                              ; preds = %310
-  %320 = landingpad { ptr, i32 }
-          cleanup
-  %321 = extractvalue { ptr, i32 } %320, 0
-  store ptr %321, ptr %44, align 8
-  %322 = extractvalue { ptr, i32 } %320, 1
-  store i32 %322, ptr %45, align 4
-  br label %327
-
-323:                                              ; preds = %311
-  %324 = landingpad { ptr, i32 }
-          cleanup
-  %325 = extractvalue { ptr, i32 } %324, 0
-  store ptr %325, ptr %44, align 8
-  %326 = extractvalue { ptr, i32 } %324, 1
-  store i32 %326, ptr %45, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #13
-  br label %327
-
-327:                                              ; preds = %323, %319
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #13
-  br label %328
-
-328:                                              ; preds = %327, %315
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #13
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %53) #13
-  br label %456
-
-329:                                              ; preds = %314, %306
-  store i32 0, ptr %35, align 4
+  %319 = extractvalue { ptr, i32 } %318, 0
+  store ptr %319, ptr %44, align 8
+  %320 = extractvalue { ptr, i32 } %318, 1
+  store i32 %320, ptr %45, align 4
   br label %330
 
-330:                                              ; preds = %409, %329
-  %331 = load i32, ptr %35, align 4
-  %332 = load i32, ptr %21, align 4
-  %333 = icmp slt i32 %331, %332
-  br i1 %333, label %334, label %412
+321:                                              ; preds = %312
+  %322 = landingpad { ptr, i32 }
+          cleanup
+  %323 = extractvalue { ptr, i32 } %322, 0
+  store ptr %323, ptr %44, align 8
+  %324 = extractvalue { ptr, i32 } %322, 1
+  store i32 %324, ptr %45, align 4
+  br label %329
 
-334:                                              ; preds = %330
-  %335 = load i8, ptr %28, align 1
-  %336 = trunc i8 %335 to i1
-  br i1 %336, label %337, label %344
+325:                                              ; preds = %313
+  %326 = landingpad { ptr, i32 }
+          cleanup
+  %327 = extractvalue { ptr, i32 } %326, 0
+  store ptr %327, ptr %44, align 8
+  %328 = extractvalue { ptr, i32 } %326, 1
+  store i32 %328, ptr %45, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #13
+  br label %329
 
-337:                                              ; preds = %334
-  %338 = load i32, ptr %22, align 4
-  %339 = load ptr, ptr %23, align 8
-  %340 = load i32, ptr %35, align 4
-  %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds ptr, ptr %339, i64 %341
-  %343 = load ptr, ptr %342, align 8
-  call void @_ZL13normalize_acfiPf(i32 noundef %338, ptr noundef %343)
-  br label %344
+329:                                              ; preds = %325, %321
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #13
+  br label %330
 
-344:                                              ; preds = %337, %334
-  %345 = load i32, ptr %32, align 4
-  %346 = icmp ne i32 %345, 0
-  br i1 %346, label %347, label %373
+330:                                              ; preds = %329, %317
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #13
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %53) #13
+  br label %458
 
-347:                                              ; preds = %344
-  %348 = load i32, ptr %22, align 4
-  %349 = load i32, ptr %32, align 4
-  %350 = load ptr, ptr %18, align 8
-  %351 = load ptr, ptr %17, align 8
-  %352 = icmp ne ptr %351, null
-  %353 = load float, ptr %30, align 4
-  %354 = load float, ptr %31, align 4
-  %355 = load float, ptr %24, align 4
-  %356 = load ptr, ptr %23, align 8
-  %357 = load i32, ptr %35, align 4
-  %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds ptr, ptr %356, i64 %358
-  %360 = load ptr, ptr %359, align 8
-  %361 = load ptr, ptr %38, align 8
-  %362 = call noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %348, i32 noundef %349, ptr noundef %350, i1 noundef zeroext %352, float noundef %353, float noundef %354, float noundef %355, ptr noundef %360, ptr noundef %361)
-  %363 = load ptr, ptr %33, align 8
-  %364 = load i32, ptr %22, align 4
-  %365 = load float, ptr %24, align 4
-  %366 = load ptr, ptr %23, align 8
-  %367 = load i32, ptr %35, align 4
-  %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds ptr, ptr %366, i64 %368
-  %370 = load ptr, ptr %369, align 8
-  %371 = load ptr, ptr %38, align 8
-  %372 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %363, i32 noundef %364, float noundef %365, ptr noundef %370, ptr noundef %371, i32 noundef 1)
-  store float %372, ptr %39, align 4
-  br label %392
+331:                                              ; preds = %316, %308
+  store i32 0, ptr %35, align 4
+  br label %332
 
-373:                                              ; preds = %344
-  %374 = load ptr, ptr %33, align 8
-  %375 = load i32, ptr %22, align 4
-  %376 = load float, ptr %24, align 4
-  %377 = load ptr, ptr %23, align 8
-  %378 = load i32, ptr %35, align 4
-  %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %377, i64 %379
-  %381 = load ptr, ptr %380, align 8
-  %382 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %374, i32 noundef %375, float noundef %376, ptr noundef %381, ptr noundef null, i32 noundef 1)
-  store float %382, ptr %39, align 4
-  %383 = load ptr, ptr @debug, align 8
-  %384 = icmp ne ptr %383, null
-  br i1 %384, label %385, label %391
+332:                                              ; preds = %411, %331
+  %333 = load i32, ptr %35, align 4
+  %334 = load i32, ptr %21, align 4
+  %335 = icmp slt i32 %333, %334
+  br i1 %335, label %336, label %414
 
-385:                                              ; preds = %373
-  %386 = load ptr, ptr @debug, align 8
-  %387 = load i32, ptr %35, align 4
-  %388 = load float, ptr %39, align 4
-  %389 = fpext float %388 to double
-  %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef @.str.20, i32 noundef %387, double noundef %389) #13
-  br label %391
+336:                                              ; preds = %332
+  %337 = load i8, ptr %28, align 1
+  %338 = trunc i8 %337 to i1
+  br i1 %338, label %339, label %346
 
-391:                                              ; preds = %385, %373
-  br label %392
+339:                                              ; preds = %336
+  %340 = load i32, ptr %22, align 4
+  %341 = load ptr, ptr %23, align 8
+  %342 = load i32, ptr %35, align 4
+  %343 = sext i32 %342 to i64
+  %344 = getelementptr inbounds ptr, ptr %341, i64 %343
+  %345 = load ptr, ptr %344, align 8
+  call void @_ZL13normalize_acfiPf(i32 noundef %340, ptr noundef %345)
+  br label %346
 
-392:                                              ; preds = %391, %347
-  %393 = load float, ptr %39, align 4
-  %394 = load float, ptr %41, align 4
-  %395 = fadd float %394, %393
-  store float %395, ptr %41, align 4
-  %396 = load float, ptr %39, align 4
-  %397 = load float, ptr %39, align 4
-  %398 = load float, ptr %40, align 4
-  %399 = call float @llvm.fmuladd.f32(float %396, float %397, float %398)
-  store float %399, ptr %40, align 4
-  %400 = load ptr, ptr @debug, align 8
-  %401 = icmp ne ptr %400, null
-  br i1 %401, label %402, label %408
+346:                                              ; preds = %339, %336
+  %347 = load i32, ptr %32, align 4
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %349, label %375
 
-402:                                              ; preds = %392
-  %403 = load ptr, ptr %34, align 8
-  %404 = load i32, ptr %35, align 4
-  %405 = load float, ptr %39, align 4
-  %406 = fpext float %405 to double
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %403, ptr noundef @.str.21, i32 noundef %404, double noundef %406) #13
-  br label %408
+349:                                              ; preds = %346
+  %350 = load i32, ptr %22, align 4
+  %351 = load i32, ptr %32, align 4
+  %352 = load ptr, ptr %18, align 8
+  %353 = load ptr, ptr %17, align 8
+  %354 = icmp ne ptr %353, null
+  %355 = load float, ptr %30, align 4
+  %356 = load float, ptr %31, align 4
+  %357 = load float, ptr %24, align 4
+  %358 = load ptr, ptr %23, align 8
+  %359 = load i32, ptr %35, align 4
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds ptr, ptr %358, i64 %360
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %38, align 8
+  %364 = call noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %350, i32 noundef %351, ptr noundef %352, i1 noundef zeroext %354, float noundef %355, float noundef %356, float noundef %357, ptr noundef %362, ptr noundef %363)
+  %365 = load ptr, ptr %33, align 8
+  %366 = load i32, ptr %22, align 4
+  %367 = load float, ptr %24, align 4
+  %368 = load ptr, ptr %23, align 8
+  %369 = load i32, ptr %35, align 4
+  %370 = sext i32 %369 to i64
+  %371 = getelementptr inbounds ptr, ptr %368, i64 %370
+  %372 = load ptr, ptr %371, align 8
+  %373 = load ptr, ptr %38, align 8
+  %374 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %365, i32 noundef %366, float noundef %367, ptr noundef %372, ptr noundef %373, i32 noundef 1)
+  store float %374, ptr %39, align 4
+  br label %394
 
-408:                                              ; preds = %402, %392
-  br label %409
+375:                                              ; preds = %346
+  %376 = load ptr, ptr %33, align 8
+  %377 = load i32, ptr %22, align 4
+  %378 = load float, ptr %24, align 4
+  %379 = load ptr, ptr %23, align 8
+  %380 = load i32, ptr %35, align 4
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds ptr, ptr %379, i64 %381
+  %383 = load ptr, ptr %382, align 8
+  %384 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %376, i32 noundef %377, float noundef %378, ptr noundef %383, ptr noundef null, i32 noundef 1)
+  store float %384, ptr %39, align 4
+  %385 = load ptr, ptr @debug, align 8
+  %386 = icmp ne ptr %385, null
+  br i1 %386, label %387, label %393
 
-409:                                              ; preds = %408
-  %410 = load i32, ptr %35, align 4
-  %411 = add nsw i32 %410, 1
-  store i32 %411, ptr %35, align 4
-  br label %330, !llvm.loop !7
+387:                                              ; preds = %375
+  %388 = load ptr, ptr @debug, align 8
+  %389 = load i32, ptr %35, align 4
+  %390 = load float, ptr %39, align 4
+  %391 = fpext float %390 to double
+  %392 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef @.str.20, i32 noundef %389, double noundef %391) #13
+  br label %393
 
-412:                                              ; preds = %330
-  %413 = load ptr, ptr @debug, align 8
-  %414 = icmp ne ptr %413, null
-  br i1 %414, label %415, label %417
+393:                                              ; preds = %387, %375
+  br label %394
 
-415:                                              ; preds = %412
-  %416 = load ptr, ptr %34, align 8
-  call void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %416)
-  br label %417
+394:                                              ; preds = %393, %349
+  %395 = load float, ptr %39, align 4
+  %396 = load float, ptr %41, align 4
+  %397 = fadd float %396, %395
+  store float %397, ptr %41, align 4
+  %398 = load float, ptr %39, align 4
+  %399 = load float, ptr %39, align 4
+  %400 = load float, ptr %40, align 4
+  %401 = call float @llvm.fmuladd.f32(float %398, float %399, float %400)
+  store float %401, ptr %40, align 4
+  %402 = load ptr, ptr @debug, align 8
+  %403 = icmp ne ptr %402, null
+  br i1 %403, label %404, label %410
 
-417:                                              ; preds = %415, %412
-  %418 = load i32, ptr %21, align 4
-  %419 = icmp sgt i32 %418, 1
-  br i1 %419, label %420, label %448
+404:                                              ; preds = %394
+  %405 = load ptr, ptr %34, align 8
+  %406 = load i32, ptr %35, align 4
+  %407 = load float, ptr %39, align 4
+  %408 = fpext float %407 to double
+  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %405, ptr noundef @.str.21, i32 noundef %406, double noundef %408) #13
+  br label %410
 
-420:                                              ; preds = %417
-  %421 = load i32, ptr %21, align 4
-  %422 = sitofp i32 %421 to float
-  %423 = load float, ptr %41, align 4
-  %424 = fdiv float %423, %422
-  store float %424, ptr %41, align 4
-  %425 = load i32, ptr %21, align 4
-  %426 = sitofp i32 %425 to float
-  %427 = load float, ptr %40, align 4
-  %428 = fdiv float %427, %426
-  store float %428, ptr %40, align 4
-  %429 = load float, ptr %41, align 4
-  %430 = fpext float %429 to double
-  %431 = load float, ptr %40, align 4
-  %432 = load float, ptr %41, align 4
-  %433 = call noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %432)
-  %434 = fsub float %431, %433
-  %435 = call noundef float @_ZSt4sqrtf(float noundef %434)
-  %436 = fpext float %435 to double
-  %437 = load float, ptr %40, align 4
-  %438 = load float, ptr %41, align 4
-  %439 = call noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %438)
-  %440 = fsub float %437, %439
-  %441 = load i32, ptr %21, align 4
-  %442 = sub nsw i32 %441, 1
-  %443 = sitofp i32 %442 to float
-  %444 = fdiv float %440, %443
-  %445 = call noundef float @_ZSt4sqrtf(float noundef %444)
-  %446 = fpext float %445 to double
-  %447 = call i32 (ptr, ...) @printf(ptr noundef @.str.22, double noundef %430, double noundef %436, double noundef %446)
-  br label %448
+410:                                              ; preds = %404, %394
+  br label %411
 
-448:                                              ; preds = %420, %417
-  br label %449
+411:                                              ; preds = %410
+  %412 = load i32, ptr %35, align 4
+  %413 = add nsw i32 %412, 1
+  store i32 %413, ptr %35, align 4
+  br label %332, !llvm.loop !7
 
-449:                                              ; preds = %448, %305
-  %450 = load ptr, ptr %33, align 8
-  %451 = icmp ne ptr %450, null
-  br i1 %451, label %452, label %454
+414:                                              ; preds = %332
+  %415 = load ptr, ptr @debug, align 8
+  %416 = icmp ne ptr %415, null
+  br i1 %416, label %417, label %419
 
-452:                                              ; preds = %449
-  %453 = load ptr, ptr %33, align 8
-  call void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %453)
-  br label %454
+417:                                              ; preds = %414
+  %418 = load ptr, ptr %34, align 8
+  call void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %418)
+  br label %419
 
-454:                                              ; preds = %452, %449
-  %455 = load ptr, ptr %38, align 8
-  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.12, ptr noundef @.str, i32 noundef 716, ptr noundef %455)
+419:                                              ; preds = %417, %414
+  %420 = load i32, ptr %21, align 4
+  %421 = icmp sgt i32 %420, 1
+  br i1 %421, label %422, label %450
+
+422:                                              ; preds = %419
+  %423 = load i32, ptr %21, align 4
+  %424 = sitofp i32 %423 to float
+  %425 = load float, ptr %41, align 4
+  %426 = fdiv float %425, %424
+  store float %426, ptr %41, align 4
+  %427 = load i32, ptr %21, align 4
+  %428 = sitofp i32 %427 to float
+  %429 = load float, ptr %40, align 4
+  %430 = fdiv float %429, %428
+  store float %430, ptr %40, align 4
+  %431 = load float, ptr %41, align 4
+  %432 = fpext float %431 to double
+  %433 = load float, ptr %40, align 4
+  %434 = load float, ptr %41, align 4
+  %435 = call noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %434)
+  %436 = fsub float %433, %435
+  %437 = call noundef float @_ZSt4sqrtf(float noundef %436)
+  %438 = fpext float %437 to double
+  %439 = load float, ptr %40, align 4
+  %440 = load float, ptr %41, align 4
+  %441 = call noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %440)
+  %442 = fsub float %439, %441
+  %443 = load i32, ptr %21, align 4
+  %444 = sub nsw i32 %443, 1
+  %445 = sitofp i32 %444 to float
+  %446 = fdiv float %442, %445
+  %447 = call noundef float @_ZSt4sqrtf(float noundef %446)
+  %448 = fpext float %447 to double
+  %449 = call i32 (ptr, ...) @printf(ptr noundef @.str.22, double noundef %432, double noundef %438, double noundef %448)
+  br label %450
+
+450:                                              ; preds = %422, %419
+  br label %451
+
+451:                                              ; preds = %450, %307
+  %452 = load ptr, ptr %33, align 8
+  %453 = icmp ne ptr %452, null
+  br i1 %453, label %454, label %456
+
+454:                                              ; preds = %451
+  %455 = load ptr, ptr %33, align 8
+  call void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %455)
+  br label %456
+
+456:                                              ; preds = %454, %451
+  %457 = load ptr, ptr %38, align 8
+  call void @_ZL14gmx_sfree_implIfEvPKcS1_iPT_(ptr noundef @.str.12, ptr noundef @.str, i32 noundef 716, ptr noundef %457)
   ret void
 
-456:                                              ; preds = %328, %243, %121, %88
-  %457 = load ptr, ptr %44, align 8
-  %458 = load i32, ptr %45, align 4
-  %459 = insertvalue { ptr, i32 } poison, ptr %457, 0
-  %460 = insertvalue { ptr, i32 } %459, i32 %458, 1
-  resume { ptr, i32 } %460
+458:                                              ; preds = %330, %245, %123, %90
+  %459 = load ptr, ptr %44, align 8
+  %460 = load i32, ptr %45, align 4
+  %461 = insertvalue { ptr, i32 } poison, ptr %459, 0
+  %462 = insertvalue { ptr, i32 } %461, i32 %460, 1
+  resume { ptr, i32 } %462
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1235,18 +1237,19 @@ define noundef i32 @_Z11get_acfnoutv() #0 personality ptr @__gxx_personality_v0 
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %3, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
-  br label %14
+  br label %15
 
 12:                                               ; preds = %0
-  %13 = load i32, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 2), align 4
-  ret i32 %13
+  %13 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 2
+  %14 = load i32, ptr %13, align 4
+  ret i32 %14
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %2, align 8
+  %17 = load i32, ptr %3, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: noreturn
@@ -7487,17 +7490,25 @@ define noundef ptr @_Z13add_acf_pargsPiP7t_pargs(ptr noundef %0, ptr noundef %1)
   %55 = add nsw i32 %54, %52
   store i32 %55, ptr %53, align 4
   store i64 0, ptr @_ZL3acf, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 3), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 4), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 5), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 6), align 1
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 7), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 8), align 8
+  %56 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 1
+  store i32 1, ptr %56, align 8
+  %57 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 2
+  store i32 -1, ptr %57, align 4
+  %58 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 3
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 4
+  store i32 1, ptr %59, align 4
+  %60 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 5
+  store i8 1, ptr %60, align 8
+  %61 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 6
+  store i8 1, ptr %61, align 1
+  %62 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 7
+  store float 0.000000e+00, ptr %62, align 4
+  %63 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 8
+  store float -1.000000e+00, ptr %63, align 8
   store i8 1, ptr @_ZL8bACFinit, align 1
-  %56 = load ptr, ptr %6, align 8
-  ret ptr %56
+  %64 = load ptr, ptr %6, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7560,57 +7571,66 @@ define void @_Z11do_autocorrPKcPK16gmx_output_env_tS0_iiPPffmb(ptr noundef %0, p
 
 24:                                               ; preds = %22, %9
   %25 = load ptr, ptr @_ZL3Leg, align 16
-  %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef @.str.67, ptr noundef getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 3)) #13
-  %27 = call noundef i32 @_Z9sffn2effnPPKc(ptr noundef @s_ffn)
-  store i32 %27, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 4), align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 3), align 8
-  switch i32 %28, label %38 [
-    i32 1, label %29
-    i32 2, label %32
-    i32 3, label %35
+  %26 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 3
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef @.str.67, ptr noundef %26) #13
+  %28 = call noundef i32 @_Z9sffn2effnPPKc(ptr noundef @s_ffn)
+  %29 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 4
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8
+  switch i32 %31, label %41 [
+    i32 1, label %32
+    i32 2, label %35
+    i32 3, label %38
   ]
-
-29:                                               ; preds = %24
-  %30 = load i64, ptr %17, align 8
-  %31 = or i64 %30, 36
-  store i64 %31, ptr %17, align 8
-  br label %39
 
 32:                                               ; preds = %24
   %33 = load i64, ptr %17, align 8
-  %34 = or i64 %33, 68
+  %34 = or i64 %33, 36
   store i64 %34, ptr %17, align 8
-  br label %39
+  br label %42
 
 35:                                               ; preds = %24
   %36 = load i64, ptr %17, align 8
-  %37 = or i64 %36, 132
+  %37 = or i64 %36, 68
   store i64 %37, ptr %17, align 8
-  br label %39
+  br label %42
 
 38:                                               ; preds = %24
-  br label %39
+  %39 = load i64, ptr %17, align 8
+  %40 = or i64 %39, 132
+  store i64 %40, ptr %17, align 8
+  br label %42
 
-39:                                               ; preds = %38, %35, %32, %29
-  %40 = load ptr, ptr %10, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load i32, ptr %14, align 4
-  %45 = load i32, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 2), align 4
-  %46 = load ptr, ptr %15, align 8
-  %47 = load float, ptr %16, align 4
-  %48 = load i64, ptr %17, align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 1), align 8
-  %50 = load i8, ptr %18, align 1
-  %51 = trunc i8 %50 to i1
-  %52 = load i8, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 6), align 1
-  %53 = trunc i8 %52 to i1
-  %54 = call noundef zeroext i1 @_Z10bDebugModev()
-  %55 = load float, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 7), align 4
-  %56 = load float, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 8), align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.t_acf, ptr @_ZL3acf, i32 0, i32 4), align 4
-  call void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef %46, float noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext %51, i1 noundef zeroext %53, i1 noundef zeroext %54, float noundef %55, float noundef %56, i32 noundef %57)
+41:                                               ; preds = %24
+  br label %42
+
+42:                                               ; preds = %41, %38, %35, %32
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr %13, align 4
+  %47 = load i32, ptr %14, align 4
+  %48 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 2
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %15, align 8
+  %51 = load float, ptr %16, align 4
+  %52 = load i64, ptr %17, align 8
+  %53 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 1
+  %54 = load i32, ptr %53, align 8
+  %55 = load i8, ptr %18, align 1
+  %56 = trunc i8 %55 to i1
+  %57 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 6
+  %58 = load i8, ptr %57, align 1
+  %59 = trunc i8 %58 to i1
+  %60 = call noundef zeroext i1 @_Z10bDebugModev()
+  %61 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 7
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 8
+  %64 = load float, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.t_acf, ptr @_ZL3acf, i32 0, i32 4
+  %66 = load i32, ptr %65, align 4
+  call void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %49, ptr noundef %50, float noundef %51, i64 noundef %52, i32 noundef %54, i1 noundef zeroext %56, i1 noundef zeroext %59, i1 noundef zeroext %60, float noundef %62, float noundef %64, i32 noundef %66)
   ret void
 }
 

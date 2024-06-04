@@ -239,18 +239,19 @@ entry:
   %0 = load ptr, ptr %body.addr, align 8
   %1 = load i32, ptr %link.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef null, i32 noundef %1, i32 noundef -1, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %bodyB.addr, align 8
-  store ptr %2, ptr %m_rigidBodyB, align 8
+  %3 = load ptr, ptr %bodyB.addr, align 8
+  store ptr %3, ptr %m_rigidBodyB, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %3, i64 16, i1 false)
+  %4 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %4, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %4, i64 16, i1 false)
+  %5 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %5, i64 16, i1 false)
   %m_data = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 13
   store float 0.000000e+00, ptr %ref.tmp, align 4
   invoke void @_ZN20btAlignedObjectArrayIfE6resizeEiRKf(ptr noundef nonnull align 8 dereferenceable(25) %m_data, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -260,12 +261,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #10
   br label %eh.resume
 
@@ -405,17 +406,18 @@ entry:
   %2 = load i32, ptr %linkA.addr, align 4
   %3 = load i32, ptr %linkB.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_rigidBodyB, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %4, i64 16, i1 false)
+  %5 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %5, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %5, i64 16, i1 false)
+  %6 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %6, i64 16, i1 false)
   %m_data = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 13
   store float 0.000000e+00, ptr %ref.tmp, align 4
   invoke void @_ZN20btAlignedObjectArrayIfE6resizeEiRKf(ptr noundef nonnull align 8 dereferenceable(25) %m_data, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -425,12 +427,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #10
   br label %eh.resume
 

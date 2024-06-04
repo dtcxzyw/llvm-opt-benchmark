@@ -1131,23 +1131,24 @@ define dso_local void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull 
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools12OutputParserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 1
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 2
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 1
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
-  %12 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 4
-  %13 = load i8, ptr %5, align 1
-  store i8 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 5
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 6
-  %16 = load i8, ptr %6, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr %15, align 2
+  %11 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 2
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
+  %13 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 4
+  %14 = load i8, ptr %5, align 1
+  store i8 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 5
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %8, i32 0, i32 6
+  %17 = load i8, ptr %6, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %16, align 2
   ret void
 }
 
@@ -1156,7 +1157,8 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools12OutputParserC2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputParserE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1334,9 +1336,10 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools10LineParserD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZN14cmProcessTools12OutputParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

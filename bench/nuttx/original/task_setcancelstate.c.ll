@@ -43,7 +43,7 @@ define i32 @task_setcancelstate(i32 noundef %0, ptr noundef %1) #0 {
 22:                                               ; preds = %21, %2
   %23 = load i32, ptr %3, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %46
+  br i1 %24, label %25, label %47
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %5, align 8
@@ -59,7 +59,7 @@ define i32 @task_setcancelstate(i32 noundef %0, ptr noundef %1) #0 {
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 4
   %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %45
+  br i1 %37, label %38, label %46
 
 38:                                               ; preds = %25
   %39 = load ptr, ptr %5, align 8
@@ -69,45 +69,46 @@ define i32 @task_setcancelstate(i32 noundef %0, ptr noundef %1) #0 {
   %43 = and i32 %42, -5
   %44 = trunc i32 %43 to i8
   store i8 %44, ptr %40, align 8
-  call void @pthread_exit(ptr noundef inttoptr (i64 -1 to ptr)) #3
+  %45 = inttoptr i64 -1 to ptr
+  call void @pthread_exit(ptr noundef %45) #3
   unreachable
 
-45:                                               ; preds = %25
+46:                                               ; preds = %25
+  br label %62
+
+47:                                               ; preds = %22
+  %48 = load i32, ptr %3, align 4
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %50, label %57
+
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds %struct.tls_info_s, ptr %51, i32 0, i32 1
+  %53 = load i8, ptr %52, align 8
+  %54 = zext i8 %53 to i32
+  %55 = or i32 %54, 1
+  %56 = trunc i32 %55 to i8
+  store i8 %56, ptr %52, align 8
   br label %61
 
-46:                                               ; preds = %22
-  %47 = load i32, ptr %3, align 4
-  %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %56
+57:                                               ; preds = %47
+  br label %58
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.tls_info_s, ptr %50, i32 0, i32 1
-  %52 = load i8, ptr %51, align 8
-  %53 = zext i8 %52 to i32
-  %54 = or i32 %53, 1
-  %55 = trunc i32 %54 to i8
-  store i8 %55, ptr %51, align 8
+58:                                               ; preds = %57
+  %59 = call ptr @__errno()
+  store i32 22, ptr %59, align 4
   br label %60
 
-56:                                               ; preds = %46
-  br label %57
-
-57:                                               ; preds = %56
-  %58 = call ptr @__errno()
-  store i32 22, ptr %58, align 4
-  br label %59
-
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   store i32 -1, ptr %6, align 4
-  br label %60
-
-60:                                               ; preds = %59, %49
   br label %61
 
-61:                                               ; preds = %60, %45
-  %62 = load i32, ptr %6, align 4
-  ret i32 %62
+61:                                               ; preds = %60, %50
+  br label %62
+
+62:                                               ; preds = %61, %46
+  %63 = load i32, ptr %6, align 4
+  ret i32 %63
 }
 
 declare ptr @tls_get_info() #1

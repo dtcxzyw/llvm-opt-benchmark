@@ -6300,74 +6300,79 @@ entry:
   %cid1 = getelementptr inbounds %struct.SDState, ptr %2, i32 0, i32 4
   %arrayidx2 = getelementptr [16 x i8], ptr %cid1, i64 0, i64 1
   store i8 %1, ptr %arrayidx2, align 1
-  %3 = load i8, ptr getelementptr inbounds ([3 x i8], ptr @.str.51, i64 0, i64 1), align 1
-  %4 = load ptr, ptr %sd.addr, align 8
-  %cid3 = getelementptr inbounds %struct.SDState, ptr %4, i32 0, i32 4
+  %3 = getelementptr inbounds [3 x i8], ptr @.str.51, i64 0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = load ptr, ptr %sd.addr, align 8
+  %cid3 = getelementptr inbounds %struct.SDState, ptr %5, i32 0, i32 4
   %arrayidx4 = getelementptr [16 x i8], ptr %cid3, i64 0, i64 2
-  store i8 %3, ptr %arrayidx4, align 2
-  %5 = load i8, ptr @.str.52, align 1
-  %6 = load ptr, ptr %sd.addr, align 8
-  %cid5 = getelementptr inbounds %struct.SDState, ptr %6, i32 0, i32 4
+  store i8 %4, ptr %arrayidx4, align 2
+  %6 = load i8, ptr @.str.52, align 1
+  %7 = load ptr, ptr %sd.addr, align 8
+  %cid5 = getelementptr inbounds %struct.SDState, ptr %7, i32 0, i32 4
   %arrayidx6 = getelementptr [16 x i8], ptr %cid5, i64 0, i64 3
-  store i8 %5, ptr %arrayidx6, align 1
-  %7 = load i8, ptr getelementptr inbounds ([6 x i8], ptr @.str.52, i64 0, i64 1), align 1
-  %8 = load ptr, ptr %sd.addr, align 8
-  %cid7 = getelementptr inbounds %struct.SDState, ptr %8, i32 0, i32 4
-  %arrayidx8 = getelementptr [16 x i8], ptr %cid7, i64 0, i64 4
-  store i8 %7, ptr %arrayidx8, align 4
-  %9 = load i8, ptr getelementptr inbounds ([6 x i8], ptr @.str.52, i64 0, i64 2), align 1
+  store i8 %6, ptr %arrayidx6, align 1
+  %8 = getelementptr inbounds [6 x i8], ptr @.str.52, i64 0, i64 1
+  %9 = load i8, ptr %8, align 1
   %10 = load ptr, ptr %sd.addr, align 8
-  %cid9 = getelementptr inbounds %struct.SDState, ptr %10, i32 0, i32 4
+  %cid7 = getelementptr inbounds %struct.SDState, ptr %10, i32 0, i32 4
+  %arrayidx8 = getelementptr [16 x i8], ptr %cid7, i64 0, i64 4
+  store i8 %9, ptr %arrayidx8, align 4
+  %11 = getelementptr inbounds [6 x i8], ptr @.str.52, i64 0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = load ptr, ptr %sd.addr, align 8
+  %cid9 = getelementptr inbounds %struct.SDState, ptr %13, i32 0, i32 4
   %arrayidx10 = getelementptr [16 x i8], ptr %cid9, i64 0, i64 5
-  store i8 %9, ptr %arrayidx10, align 1
-  %11 = load i8, ptr getelementptr inbounds ([6 x i8], ptr @.str.52, i64 0, i64 3), align 1
-  %12 = load ptr, ptr %sd.addr, align 8
-  %cid11 = getelementptr inbounds %struct.SDState, ptr %12, i32 0, i32 4
+  store i8 %12, ptr %arrayidx10, align 1
+  %14 = getelementptr inbounds [6 x i8], ptr @.str.52, i64 0, i64 3
+  %15 = load i8, ptr %14, align 1
+  %16 = load ptr, ptr %sd.addr, align 8
+  %cid11 = getelementptr inbounds %struct.SDState, ptr %16, i32 0, i32 4
   %arrayidx12 = getelementptr [16 x i8], ptr %cid11, i64 0, i64 6
-  store i8 %11, ptr %arrayidx12, align 2
-  %13 = load i8, ptr getelementptr inbounds ([6 x i8], ptr @.str.52, i64 0, i64 4), align 1
-  %14 = load ptr, ptr %sd.addr, align 8
-  %cid13 = getelementptr inbounds %struct.SDState, ptr %14, i32 0, i32 4
+  store i8 %15, ptr %arrayidx12, align 2
+  %17 = getelementptr inbounds [6 x i8], ptr @.str.52, i64 0, i64 4
+  %18 = load i8, ptr %17, align 1
+  %19 = load ptr, ptr %sd.addr, align 8
+  %cid13 = getelementptr inbounds %struct.SDState, ptr %19, i32 0, i32 4
   %arrayidx14 = getelementptr [16 x i8], ptr %cid13, i64 0, i64 7
-  store i8 %13, ptr %arrayidx14, align 1
-  %15 = load ptr, ptr %sd.addr, align 8
-  %cid15 = getelementptr inbounds %struct.SDState, ptr %15, i32 0, i32 4
+  store i8 %18, ptr %arrayidx14, align 1
+  %20 = load ptr, ptr %sd.addr, align 8
+  %cid15 = getelementptr inbounds %struct.SDState, ptr %20, i32 0, i32 4
   %arrayidx16 = getelementptr [16 x i8], ptr %cid15, i64 0, i64 8
   store i8 1, ptr %arrayidx16, align 8
-  %16 = load ptr, ptr %sd.addr, align 8
-  %cid17 = getelementptr inbounds %struct.SDState, ptr %16, i32 0, i32 4
+  %21 = load ptr, ptr %sd.addr, align 8
+  %cid17 = getelementptr inbounds %struct.SDState, ptr %21, i32 0, i32 4
   %arrayidx18 = getelementptr [16 x i8], ptr %cid17, i64 0, i64 9
   store i8 -34, ptr %arrayidx18, align 1
-  %17 = load ptr, ptr %sd.addr, align 8
-  %cid19 = getelementptr inbounds %struct.SDState, ptr %17, i32 0, i32 4
+  %22 = load ptr, ptr %sd.addr, align 8
+  %cid19 = getelementptr inbounds %struct.SDState, ptr %22, i32 0, i32 4
   %arrayidx20 = getelementptr [16 x i8], ptr %cid19, i64 0, i64 10
   store i8 -83, ptr %arrayidx20, align 2
-  %18 = load ptr, ptr %sd.addr, align 8
-  %cid21 = getelementptr inbounds %struct.SDState, ptr %18, i32 0, i32 4
+  %23 = load ptr, ptr %sd.addr, align 8
+  %cid21 = getelementptr inbounds %struct.SDState, ptr %23, i32 0, i32 4
   %arrayidx22 = getelementptr [16 x i8], ptr %cid21, i64 0, i64 11
   store i8 -66, ptr %arrayidx22, align 1
-  %19 = load ptr, ptr %sd.addr, align 8
-  %cid23 = getelementptr inbounds %struct.SDState, ptr %19, i32 0, i32 4
+  %24 = load ptr, ptr %sd.addr, align 8
+  %cid23 = getelementptr inbounds %struct.SDState, ptr %24, i32 0, i32 4
   %arrayidx24 = getelementptr [16 x i8], ptr %cid23, i64 0, i64 12
   store i8 -17, ptr %arrayidx24, align 4
-  %20 = load ptr, ptr %sd.addr, align 8
-  %cid25 = getelementptr inbounds %struct.SDState, ptr %20, i32 0, i32 4
+  %25 = load ptr, ptr %sd.addr, align 8
+  %cid25 = getelementptr inbounds %struct.SDState, ptr %25, i32 0, i32 4
   %arrayidx26 = getelementptr [16 x i8], ptr %cid25, i64 0, i64 13
   store i8 0, ptr %arrayidx26, align 1
-  %21 = load ptr, ptr %sd.addr, align 8
-  %cid27 = getelementptr inbounds %struct.SDState, ptr %21, i32 0, i32 4
+  %26 = load ptr, ptr %sd.addr, align 8
+  %cid27 = getelementptr inbounds %struct.SDState, ptr %26, i32 0, i32 4
   %arrayidx28 = getelementptr [16 x i8], ptr %cid27, i64 0, i64 14
   store i8 98, ptr %arrayidx28, align 2
-  %22 = load ptr, ptr %sd.addr, align 8
-  %cid29 = getelementptr inbounds %struct.SDState, ptr %22, i32 0, i32 4
+  %27 = load ptr, ptr %sd.addr, align 8
+  %cid29 = getelementptr inbounds %struct.SDState, ptr %27, i32 0, i32 4
   %arraydecay = getelementptr inbounds [16 x i8], ptr %cid29, i64 0, i64 0
   %call = call zeroext i8 @sd_crc7(ptr noundef %arraydecay, i64 noundef 15)
   %conv = zext i8 %call to i32
   %shl = shl i32 %conv, 1
   %or = or i32 %shl, 1
   %conv30 = trunc i32 %or to i8
-  %23 = load ptr, ptr %sd.addr, align 8
-  %cid31 = getelementptr inbounds %struct.SDState, ptr %23, i32 0, i32 4
+  %28 = load ptr, ptr %sd.addr, align 8
+  %cid31 = getelementptr inbounds %struct.SDState, ptr %28, i32 0, i32 4
   %arrayidx32 = getelementptr [16 x i8], ptr %cid31, i64 0, i64 15
   store i8 %conv30, ptr %arrayidx32, align 1
   ret void

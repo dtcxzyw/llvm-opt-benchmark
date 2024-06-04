@@ -21,7 +21,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @EVP_aead_aes_128_gcm()
   call void @_ZN3net17AeadBaseDecrypterC2EPK11evp_aead_stmmm(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %call, i64 noundef 16, i64 noundef 12, i64 noundef 4)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net20Aes128Gcm12DecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net20Aes128Gcm12DecrypterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

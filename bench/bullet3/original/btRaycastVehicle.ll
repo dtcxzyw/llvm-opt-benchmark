@@ -590,7 +590,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_constraintRefs = getelementptr inbounds %class.btRigidBody, ptr %this1, i32 0, i32 21
   call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraintRefs) #3
   call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #3
@@ -623,7 +624,8 @@ entry:
   store ptr %raycaster, ptr %raycaster.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btActionInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_forwardWS = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_forwardWS)
           to label %invoke.cont unwind label %lpad
@@ -645,8 +647,8 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %m_vehicleRaycaster = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %raycaster.addr, align 8
-  store ptr %0, ptr %m_vehicleRaycaster, align 8
+  %1 = load ptr, ptr %raycaster.addr, align 8
+  store ptr %1, ptr %m_vehicleRaycaster, align 8
   %m_pitchControl = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 8
   store float 0.000000e+00, ptr %m_pitchControl, align 8
   %m_wheelInfo = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 16
@@ -654,74 +656,74 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %1 = load ptr, ptr %chassis.addr, align 8
+  %2 = load ptr, ptr %chassis.addr, align 8
   %m_chassisBody = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 11
-  store ptr %1, ptr %m_chassisBody, align 8
+  store ptr %2, ptr %m_chassisBody, align 8
   %m_indexRightAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 12
   store i32 0, ptr %m_indexRightAxis, align 8
   %m_indexUpAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 13
   store i32 2, ptr %m_indexUpAxis, align 4
   %m_indexForwardAxis = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 14
   store i32 1, ptr %m_indexForwardAxis, align 8
-  %2 = load ptr, ptr %tuning.addr, align 8
-  invoke void @_ZN16btRaycastVehicle11defaultInitERKNS_15btVehicleTuningE(ptr noundef nonnull align 8 dereferenceable(224) %this1, ptr noundef nonnull align 4 dereferenceable(24) %2)
+  %3 = load ptr, ptr %tuning.addr, align 8
+  invoke void @_ZN16btRaycastVehicle11defaultInitERKNS_15btVehicleTuningE(ptr noundef nonnull align 8 dereferenceable(224) %this1, ptr noundef nonnull align 4 dereferenceable(24) %3)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad6:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad8:                                            ; preds = %invoke.cont7
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_wheelInfo) #3
   br label %ehcleanup
 
@@ -759,7 +761,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -880,7 +883,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_wheelInfo = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 16
   call void @_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_wheelInfo) #3
   %m_sideImpulse = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 4
@@ -4808,13 +4812,14 @@ entry:
   store ptr %rayToWorld, ptr %rayToWorld.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btCollisionWorld17RayResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld24ClosestRayResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN16btCollisionWorld24ClosestRayResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_rayFromWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rayFromWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_rayFromWorld, ptr align 4 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %rayFromWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_rayFromWorld, ptr align 4 %1, i64 16, i1 false)
   %m_rayToWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %rayToWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_rayToWorld, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %rayToWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_rayToWorld, ptr align 4 %2, i64 16, i1 false)
   %m_hitNormalWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_hitNormalWorld)
           to label %invoke.cont unwind label %lpad
@@ -4828,12 +4833,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN16btCollisionWorld17RayResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1) #3
   br label %eh.resume
 
@@ -4912,7 +4917,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6228,7 +6234,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld17RayResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN16btCollisionWorld17RayResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_closestHitFraction = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %m_closestHitFraction, align 8
   %m_collisionObject = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this1, i32 0, i32 3

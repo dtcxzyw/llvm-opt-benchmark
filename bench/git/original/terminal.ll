@@ -172,7 +172,8 @@ if.end9:                                          ; preds = %if.end3
   %call10 = call i32 @sigaction(i32 noundef 20, ptr noundef null, ptr noundef %sa) #8
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 0
   %5 = load ptr, ptr %__sigaction_handler, align 8
-  %cmp11 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
+  %6 = inttoptr i64 1 to ptr
+  %cmp11 = icmp eq ptr %5, %6
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
@@ -203,8 +204,8 @@ if.end13:                                         ; preds = %if.end9
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then12, %if.then8, %if.then2
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+  %7 = load i32, ptr %retval, align 4
+  ret i32 %7
 }
 
 declare i32 @open64(ptr noundef, i32 noundef, ...) #2
@@ -466,13 +467,14 @@ if.then23:                                        ; preds = %if.end20
   br label %return
 
 if.end24:                                         ; preds = %if.end20
-  %16 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @git_terminal_prompt.buf, i32 0, i32 2), align 8
-  store ptr %16, ptr %retval, align 8
+  %16 = getelementptr inbounds %struct.strbuf, ptr @git_terminal_prompt.buf, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then23, %if.then9, %if.then3, %if.then
-  %17 = load ptr, ptr %retval, align 8
-  ret ptr %17
+  %18 = load ptr, ptr %retval, align 8
+  ret ptr %18
 }
 
 declare ptr @git_fopen(ptr noundef, ptr noundef) #2

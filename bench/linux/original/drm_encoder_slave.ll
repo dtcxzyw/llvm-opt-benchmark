@@ -31,59 +31,60 @@ define dso_local i32 @drm_i2c_encoder_init(ptr noundef %0, ptr noundef %1, ptr n
   %5 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %3) #2
   %6 = tail call ptr @i2c_new_client_device(ptr noundef %2, ptr noundef %3) #2
   %7 = icmp eq ptr %6, null
-  %8 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
-  %9 = or i1 %7, %8
-  br i1 %9, label %36, label %10
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %6, %8
+  %10 = or i1 %7, %9
+  br i1 %10, label %37, label %11
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 136
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %36, label %14
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %6, i64 136
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %37, label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 136
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call zeroext i1 @try_module_get(ptr noundef %18) #2
-  br i1 %19, label %20, label %36
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %6, i64 136
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call zeroext i1 @try_module_get(ptr noundef %19) #2
+  br i1 %20, label %21, label %37
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr %6, ptr %21, align 8
-  %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr i8, ptr %22, i64 192
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %6, ptr noundef %0, ptr noundef %1) #2
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %35
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %6, ptr %22, align 8
+  %23 = load ptr, ptr %16, align 8
+  %24 = getelementptr i8, ptr %23, i64 192
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 %25(ptr noundef %6, ptr noundef %0, ptr noundef %1) #2
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %36
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %3, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %38, label %31
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %39, label %32
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %1, i64 128
-  %33 = load ptr, ptr %32, align 8
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %1, i64 128
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %1, ptr noundef nonnull %29) #2
-  br label %38
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef %1, ptr noundef nonnull %30) #2
+  br label %39
 
-35:                                               ; preds = %20
-  tail call void @module_put(ptr noundef %18) #2
-  br label %36
+36:                                               ; preds = %21
+  tail call void @module_put(ptr noundef %19) #2
+  br label %37
 
-36:                                               ; preds = %35, %14, %10, %4
-  %37 = phi i32 [ %25, %35 ], [ -19, %10 ], [ -19, %14 ], [ -19, %4 ]
+37:                                               ; preds = %36, %15, %11, %4
+  %38 = phi i32 [ %26, %36 ], [ -19, %11 ], [ -19, %15 ], [ -19, %4 ]
   tail call void @i2c_unregister_device(ptr noundef %6) #2
-  br label %38
+  br label %39
 
-38:                                               ; preds = %36, %31, %27
-  %39 = phi i32 [ %37, %36 ], [ 0, %31 ], [ 0, %27 ]
-  ret i32 %39
+39:                                               ; preds = %37, %32, %28
+  %40 = phi i32 [ %38, %37 ], [ 0, %32 ], [ 0, %28 ]
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

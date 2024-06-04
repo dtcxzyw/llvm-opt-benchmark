@@ -4429,62 +4429,63 @@ define internal ptr @dissect_datetime_ie(ptr noundef %0, i32 noundef %1, ptr nou
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @hf_iax2_ies, i64 0, i64 31), align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = add i32 %13, 2
-  %15 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %16 = load ptr, ptr %4, align 8
-  %17 = load i32, ptr %5, align 4
-  %18 = add i32 %17, 2
-  %19 = call i32 @tvb_get_ntohl(ptr noundef %16, i32 noundef %18)
-  store i32 %19, ptr %8, align 4
-  %20 = load i32, ptr %8, align 4
-  %21 = and i32 %20, 31
-  %22 = shl i32 %21, 1
-  %23 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 0
-  store i32 %22, ptr %23, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = lshr i32 %24, 5
-  %26 = and i32 %25, 63
-  %27 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 1
-  store i32 %26, ptr %27, align 4
-  %28 = load i32, ptr %8, align 4
-  %29 = lshr i32 %28, 11
-  %30 = and i32 %29, 31
-  %31 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 2
-  store i32 %30, ptr %31, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = lshr i32 %32, 16
-  %34 = and i32 %33, 31
-  %35 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 3
-  store i32 %34, ptr %35, align 4
-  %36 = load i32, ptr %8, align 4
-  %37 = lshr i32 %36, 21
-  %38 = and i32 %37, 15
-  %39 = sub i32 %38, 1
-  %40 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 4
-  store i32 %39, ptr %40, align 8
-  %41 = load i32, ptr %8, align 4
-  %42 = lshr i32 %41, 25
-  %43 = and i32 %42, 127
-  %44 = add i32 %43, 100
-  %45 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 5
-  store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 8
-  store i32 -1, ptr %46, align 8
-  %47 = call i64 @mktime(ptr noundef %7) #9
-  %48 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 0
-  store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
-  store i32 0, ptr %49, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr @hf_iax2_ie_datetime, align 4
-  %52 = load ptr, ptr %4, align 8
-  %53 = load i32, ptr %5, align 4
-  %54 = add i32 %53, 2
-  %55 = call ptr @proto_tree_add_time(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %54, i32 noundef 4, ptr noundef %9)
-  ret ptr %55
+  %11 = getelementptr inbounds [256 x i32], ptr @hf_iax2_ies, i64 0, i64 31
+  %12 = load i32, ptr %11, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i32, ptr %5, align 4
+  %15 = add i32 %14, 2
+  %16 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %13, i32 noundef %15, i32 noundef 4, i32 noundef 0)
+  %17 = load ptr, ptr %4, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = add i32 %18, 2
+  %20 = call i32 @tvb_get_ntohl(ptr noundef %17, i32 noundef %19)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  %22 = and i32 %21, 31
+  %23 = shl i32 %22, 1
+  %24 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 0
+  store i32 %23, ptr %24, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = lshr i32 %25, 5
+  %27 = and i32 %26, 63
+  %28 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 1
+  store i32 %27, ptr %28, align 4
+  %29 = load i32, ptr %8, align 4
+  %30 = lshr i32 %29, 11
+  %31 = and i32 %30, 31
+  %32 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 2
+  store i32 %31, ptr %32, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = lshr i32 %33, 16
+  %35 = and i32 %34, 31
+  %36 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 3
+  store i32 %35, ptr %36, align 4
+  %37 = load i32, ptr %8, align 4
+  %38 = lshr i32 %37, 21
+  %39 = and i32 %38, 15
+  %40 = sub i32 %39, 1
+  %41 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 4
+  store i32 %40, ptr %41, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = lshr i32 %42, 25
+  %44 = and i32 %43, 127
+  %45 = add i32 %44, 100
+  %46 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 5
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 8
+  store i32 -1, ptr %47, align 8
+  %48 = call i64 @mktime(ptr noundef %7) #9
+  %49 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 0
+  store i64 %48, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
+  store i32 0, ptr %50, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr @hf_iax2_ie_datetime, align 4
+  %53 = load ptr, ptr %4, align 8
+  %54 = load i32, ptr %5, align 4
+  %55 = add i32 %54, 2
+  %56 = call ptr @proto_tree_add_time(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %55, i32 noundef 4, ptr noundef %9)
+  ret ptr %56
 }
 
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1

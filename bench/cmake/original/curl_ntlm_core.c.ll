@@ -425,7 +425,7 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %5
   store i32 27, ptr %6, align 4
-  br label %128
+  br label %131
 
 31:                                               ; preds = %5
   %32 = load ptr, ptr %13, align 8
@@ -438,115 +438,118 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef 
   %39 = zext i32 %38 to i64
   %40 = load i8, ptr @.str.2, align 1
   %41 = sext i8 %40 to i32
-  %42 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 1), align 1
-  %43 = sext i8 %42 to i32
-  %44 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 2), align 1
-  %45 = sext i8 %44 to i32
-  %46 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 3), align 1
+  %42 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 2
+  %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i32
-  %48 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 255
+  %48 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 3
+  %49 = load i8, ptr %48, align 1
+  %50 = sext i8 %49 to i32
   %51 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
   %52 = load i32, ptr %51, align 4
-  %53 = lshr i32 %52, 8
-  %54 = and i32 %53, 255
-  %55 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
-  %56 = load i32, ptr %55, align 4
-  %57 = lshr i32 %56, 16
-  %58 = and i32 %57, 255
-  %59 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
-  %60 = load i32, ptr %59, align 4
-  %61 = lshr i32 %60, 24
-  %62 = and i32 %61, 255
-  %63 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
-  %64 = load i32, ptr %63, align 4
+  %53 = and i32 %52, 255
+  %54 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
+  %55 = load i32, ptr %54, align 4
+  %56 = lshr i32 %55, 8
+  %57 = and i32 %56, 255
+  %58 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4
+  %60 = lshr i32 %59, 16
+  %61 = and i32 %60, 255
+  %62 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 0
+  %63 = load i32, ptr %62, align 4
+  %64 = lshr i32 %63, 24
   %65 = and i32 %64, 255
   %66 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
   %67 = load i32, ptr %66, align 4
-  %68 = lshr i32 %67, 8
-  %69 = and i32 %68, 255
-  %70 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
-  %71 = load i32, ptr %70, align 4
-  %72 = lshr i32 %71, 16
-  %73 = and i32 %72, 255
-  %74 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = lshr i32 %75, 24
-  %77 = and i32 %76, 255
-  %78 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %33, i64 noundef %39, ptr noundef @.str.1, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %50, i32 noundef %54, i32 noundef %58, i32 noundef %62, i32 noundef %65, i32 noundef %69, i32 noundef %73, i32 noundef %77)
-  %79 = load ptr, ptr %13, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
-  %81 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %81, i64 8, i1 false)
-  %82 = load ptr, ptr %9, align 8
-  %83 = getelementptr inbounds %struct.ntlmdata, ptr %82, i32 0, i32 2
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %96
+  %68 = and i32 %67, 255
+  %69 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4
+  %71 = lshr i32 %70, 8
+  %72 = and i32 %71, 255
+  %73 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4
+  %75 = lshr i32 %74, 16
+  %76 = and i32 %75, 255
+  %77 = getelementptr inbounds %struct.ms_filetime, ptr %15, i32 0, i32 1
+  %78 = load i32, ptr %77, align 4
+  %79 = lshr i32 %78, 24
+  %80 = and i32 %79, 255
+  %81 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %33, i64 noundef %39, ptr noundef @.str.1, i32 noundef %41, i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %53, i32 noundef %57, i32 noundef %61, i32 noundef %65, i32 noundef %68, i32 noundef %72, i32 noundef %76, i32 noundef %80)
+  %82 = load ptr, ptr %13, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %84, i64 8, i1 false)
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds %struct.ntlmdata, ptr %85, i32 0, i32 2
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %99
 
-86:                                               ; preds = %31
-  %87 = load ptr, ptr %13, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 44
-  %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr inbounds %struct.ntlmdata, ptr %89, i32 0, i32 3
-  %91 = load ptr, ptr %90, align 8
+89:                                               ; preds = %31
+  %90 = load ptr, ptr %13, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 44
   %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.ntlmdata, ptr %92, i32 0, i32 2
-  %94 = load i32, ptr %93, align 4
-  %95 = zext i32 %94 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %91, i64 %95, i1 false)
-  br label %96
+  %93 = getelementptr inbounds %struct.ntlmdata, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds %struct.ntlmdata, ptr %95, i32 0, i32 2
+  %97 = load i32, ptr %96, align 4
+  %98 = zext i32 %97 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr align 1 %94, i64 %98, i1 false)
+  br label %99
 
-96:                                               ; preds = %86, %31
-  %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds %struct.ntlmdata, ptr %99, i32 0, i32 1
-  %101 = getelementptr inbounds [8 x i8], ptr %100, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 4 %101, i64 8, i1 false)
-  %102 = load ptr, ptr %7, align 8
-  %103 = load ptr, ptr %13, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct.ntlmdata, ptr %105, i32 0, i32 2
-  %107 = load i32, ptr %106, align 4
-  %108 = add i32 28, %107
-  %109 = add i32 %108, 4
-  %110 = add i32 %109, 8
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
-  %113 = call i32 @Curl_hmacit(ptr noundef @Curl_HMAC_MD5, ptr noundef %102, i64 noundef 16, ptr noundef %104, i64 noundef %111, ptr noundef %112)
-  store i32 %113, ptr %16, align 4
-  %114 = load i32, ptr %16, align 4
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %120
+99:                                               ; preds = %89, %31
+  %100 = load ptr, ptr %13, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds %struct.ntlmdata, ptr %102, i32 0, i32 1
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 4 %104, i64 8, i1 false)
+  %105 = load ptr, ptr %7, align 8
+  %106 = load ptr, ptr %13, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds %struct.ntlmdata, ptr %108, i32 0, i32 2
+  %110 = load i32, ptr %109, align 4
+  %111 = add i32 28, %110
+  %112 = add i32 %111, 4
+  %113 = add i32 %112, 8
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
+  %116 = call i32 @Curl_hmacit(ptr noundef @Curl_HMAC_MD5, ptr noundef %105, i64 noundef 16, ptr noundef %107, i64 noundef %114, ptr noundef %115)
+  store i32 %116, ptr %16, align 4
+  %117 = load i32, ptr %16, align 4
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %123
 
-116:                                              ; preds = %96
-  %117 = load ptr, ptr @Curl_cfree, align 8
-  %118 = load ptr, ptr %13, align 8
-  call void %117(ptr noundef %118)
-  %119 = load i32, ptr %16, align 4
-  store i32 %119, ptr %6, align 4
-  br label %128
-
-120:                                              ; preds = %96
+119:                                              ; preds = %99
+  %120 = load ptr, ptr @Curl_cfree, align 8
   %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr align 16 %122, i64 16, i1 false)
-  %123 = load ptr, ptr %13, align 8
-  %124 = load ptr, ptr %10, align 8
-  store ptr %123, ptr %124, align 8
-  %125 = load i32, ptr %12, align 4
-  %126 = load ptr, ptr %11, align 8
-  store i32 %125, ptr %126, align 4
-  %127 = load i32, ptr %16, align 4
-  store i32 %127, ptr %6, align 4
-  br label %128
+  call void %120(ptr noundef %121)
+  %122 = load i32, ptr %16, align 4
+  store i32 %122, ptr %6, align 4
+  br label %131
 
-128:                                              ; preds = %120, %116, %30
-  %129 = load i32, ptr %6, align 4
-  ret i32 %129
+123:                                              ; preds = %99
+  %124 = load ptr, ptr %13, align 8
+  %125 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr align 16 %125, i64 16, i1 false)
+  %126 = load ptr, ptr %13, align 8
+  %127 = load ptr, ptr %10, align 8
+  store ptr %126, ptr %127, align 8
+  %128 = load i32, ptr %12, align 4
+  %129 = load ptr, ptr %11, align 8
+  store i32 %128, ptr %129, align 4
+  %130 = load i32, ptr %16, align 4
+  store i32 %130, ptr %6, align 4
+  br label %131
+
+131:                                              ; preds = %123, %119, %30
+  %132 = load i32, ptr %6, align 4
+  ret i32 %132
 }
 
 ; Function Attrs: nounwind uwtable

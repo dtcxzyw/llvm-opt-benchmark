@@ -75,10 +75,11 @@ define { ptr, i64 } @_ZN6common5panic12downcast_str17h1990e8560d26491dE(ptr alig
 
 50:                                               ; preds = %22
   %51 = load ptr, ptr @anon.750c0433dfb4ce402eb89aa84d816712.0, align 8, !align !4, !noundef !3
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @anon.750c0433dfb4ce402eb89aa84d816712.0, i64 8), align 8
+  %52 = getelementptr inbounds i8, ptr @anon.750c0433dfb4ce402eb89aa84d816712.0, i64 8
+  %53 = load i64, ptr %52, align 8
   store ptr %51, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %53, ptr %54, align 8
   br label %29
 }
 

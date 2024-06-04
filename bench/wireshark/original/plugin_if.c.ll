@@ -1580,13 +1580,18 @@ define void @plugin_if_get_ws_info(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   store i32 0, ptr @plugin_if_get_ws_info.ws_info, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 3), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 4), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 1), align 4
-  %3 = load ptr, ptr %2, align 8
-  store ptr @plugin_if_get_ws_info.ws_info, ptr %3, align 8
+  %3 = getelementptr inbounds %struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 3
+  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds %struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 2
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds %struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 4
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 5
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %struct._ws_info_t, ptr @plugin_if_get_ws_info.ws_info, i32 0, i32 1
+  store i32 0, ptr %7, align 4
+  %8 = load ptr, ptr %2, align 8
+  store ptr @plugin_if_get_ws_info.ws_info, ptr %8, align 8
   ret void
 }
 

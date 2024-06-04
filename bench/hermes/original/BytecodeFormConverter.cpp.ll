@@ -736,55 +736,61 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 16 %steps, i8 0, i64 96, i1 false)
   %0 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 0
   %1 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processMagicNumberEv to i64), ptr %1, align 16
-  %2 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 1
-  %3 = getelementptr inbounds { i64, i64 }, ptr %2, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE19processInstructionsEv to i64), ptr %3, align 16
-  %4 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 2
-  %5 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE30processOverflowFunctionHeadersEv to i64), ptr %5, align 16
-  %6 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 3
+  %2 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processMagicNumberEv to i64
+  store i64 %2, ptr %1, align 16
+  %3 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 1
+  %4 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
+  %5 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE19processInstructionsEv to i64
+  store i64 %5, ptr %4, align 16
+  %6 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 2
   %7 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE22processFunctionHeadersEv to i64), ptr %7, align 16
-  %8 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 4
-  %9 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processStringTableEv to i64), ptr %9, align 16
-  %10 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 5
-  %11 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE26processOverflowStringTableEv to i64), ptr %11, align 16
+  %8 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE30processOverflowFunctionHeadersEv to i64
+  store i64 %8, ptr %7, align 16
+  %9 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 3
+  %10 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %11 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE22processFunctionHeadersEv to i64
+  store i64 %11, ptr %10, align 16
+  %12 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 4
+  %13 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
+  %14 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processStringTableEv to i64
+  store i64 %14, ptr %13, align 16
+  %15 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 5
+  %16 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %17 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE26processOverflowStringTableEv to i64
+  store i64 %17, ptr %16, align 16
   store ptr %steps, ptr %__range2, align 8
-  %12 = load ptr, ptr %__range2, align 8
-  %arraydecay = getelementptr inbounds [6 x { i64, i64 }], ptr %12, i64 0, i64 0
+  %18 = load ptr, ptr %__range2, align 8
+  %arraydecay = getelementptr inbounds [6 x { i64, i64 }], ptr %18, i64 0, i64 0
   store ptr %arraydecay, ptr %__begin0, align 8
-  %13 = load ptr, ptr %__range2, align 8
-  %arraydecay2 = getelementptr inbounds [6 x { i64, i64 }], ptr %13, i64 0, i64 0
+  %19 = load ptr, ptr %__range2, align 8
+  %arraydecay2 = getelementptr inbounds [6 x { i64, i64 }], ptr %19, i64 0, i64 0
   %add.ptr = getelementptr inbounds { i64, i64 }, ptr %arraydecay2, i64 6
   store ptr %add.ptr, ptr %__end0, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %14 = load ptr, ptr %__begin0, align 8
-  %15 = load ptr, ptr %__end0, align 8
-  %cmp = icmp ne ptr %14, %15
+  %20 = load ptr, ptr %__begin0, align 8
+  %21 = load ptr, ptr %__end0, align 8
+  %cmp = icmp ne ptr %20, %21
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %__begin0, align 8
-  %17 = load { i64, i64 }, ptr %16, align 8
-  store { i64, i64 } %17, ptr %step, align 8
-  %18 = load { i64, i64 }, ptr %step, align 8
-  %memptr.adj = extractvalue { i64, i64 } %18, 1
-  %19 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
-  %memptr.ptr = extractvalue { i64, i64 } %18, 0
-  %20 = and i64 %memptr.ptr, 1
-  %memptr.isvirtual = icmp ne i64 %20, 0
+  %22 = load ptr, ptr %__begin0, align 8
+  %23 = load { i64, i64 }, ptr %22, align 8
+  store { i64, i64 } %23, ptr %step, align 8
+  %24 = load { i64, i64 }, ptr %step, align 8
+  %memptr.adj = extractvalue { i64, i64 } %24, 1
+  %25 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
+  %memptr.ptr = extractvalue { i64, i64 } %24, 0
+  %26 = and i64 %memptr.ptr, 1
+  %memptr.isvirtual = icmp ne i64 %26, 0
   br i1 %memptr.isvirtual, label %memptr.virtual, label %memptr.nonvirtual
 
 memptr.virtual:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %19, align 8
-  %21 = sub i64 %memptr.ptr, 1
-  %22 = getelementptr i8, ptr %vtable, i64 %21, !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %22, align 8, !nosanitize !4
+  %vtable = load ptr, ptr %25, align 8
+  %27 = sub i64 %memptr.ptr, 1
+  %28 = getelementptr i8, ptr %vtable, i64 %27, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %28, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %for.body
@@ -792,24 +798,24 @@ memptr.nonvirtual:                                ; preds = %for.body
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %23 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  call void %23(ptr noundef nonnull align 8 dereferenceable(288) %19)
+  %29 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  call void %29(ptr noundef nonnull align 8 dereferenceable(288) %25)
   br label %for.inc
 
 for.inc:                                          ; preds = %memptr.end
-  %24 = load ptr, ptr %__begin0, align 8
-  %incdec.ptr = getelementptr inbounds { i64, i64 }, ptr %24, i32 1
+  %30 = load ptr, ptr %__begin0, align 8
+  %incdec.ptr = getelementptr inbounds { i64, i64 }, ptr %30, i32 1
   store ptr %incdec.ptr, ptr %__begin0, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %bytes_ = getelementptr inbounds %"class.(anonymous namespace)::BytecodeFormConverter", ptr %this1, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %bytes_, i64 16, i1 false)
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %28 = load i64, ptr %27, align 8
-  call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %26, i64 %28)
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %32, i64 %34)
   ret void
 }
 
@@ -894,58 +900,64 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 16 %steps, i8 0, i64 96, i1 false)
   %0 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 0
   %1 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processMagicNumberEv to i64), ptr %1, align 16
-  %2 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 1
-  %3 = getelementptr inbounds { i64, i64 }, ptr %2, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE19processInstructionsEv to i64), ptr %3, align 16
-  %4 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 2
-  %5 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE30processOverflowFunctionHeadersEv to i64), ptr %5, align 16
-  %6 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 3
+  %2 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processMagicNumberEv to i64
+  store i64 %2, ptr %1, align 16
+  %3 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 1
+  %4 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
+  %5 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE19processInstructionsEv to i64
+  store i64 %5, ptr %4, align 16
+  %6 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 2
   %7 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE22processFunctionHeadersEv to i64), ptr %7, align 16
-  %8 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 4
-  %9 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processStringTableEv to i64), ptr %9, align 16
-  %10 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 5
-  %11 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE26processOverflowStringTableEv to i64), ptr %11, align 16
+  %8 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE30processOverflowFunctionHeadersEv to i64
+  store i64 %8, ptr %7, align 16
+  %9 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 3
+  %10 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %11 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE22processFunctionHeadersEv to i64
+  store i64 %11, ptr %10, align 16
+  %12 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 4
+  %13 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
+  %14 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processStringTableEv to i64
+  store i64 %14, ptr %13, align 16
+  %15 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps, i32 0, i32 5
+  %16 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %17 = ptrtoint ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE26processOverflowStringTableEv to i64
+  store i64 %17, ptr %16, align 16
   %call = call noundef ptr @_ZSt5beginIMN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEEFvvELm6EEPT_RAT0__S8_(ptr noundef nonnull align 8 dereferenceable(96) %steps) #10
   %call2 = call noundef ptr @_ZSt3endIMN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEEFvvELm6EEPT_RAT0__S8_(ptr noundef nonnull align 8 dereferenceable(96) %steps) #10
   call void @_ZSt7reverseIPMN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEEFvvEEvT_S9_(ptr noundef %call, ptr noundef %call2)
   store ptr %steps, ptr %__range2, align 8
-  %12 = load ptr, ptr %__range2, align 8
-  %arraydecay = getelementptr inbounds [6 x { i64, i64 }], ptr %12, i64 0, i64 0
+  %18 = load ptr, ptr %__range2, align 8
+  %arraydecay = getelementptr inbounds [6 x { i64, i64 }], ptr %18, i64 0, i64 0
   store ptr %arraydecay, ptr %__begin0, align 8
-  %13 = load ptr, ptr %__range2, align 8
-  %arraydecay3 = getelementptr inbounds [6 x { i64, i64 }], ptr %13, i64 0, i64 0
+  %19 = load ptr, ptr %__range2, align 8
+  %arraydecay3 = getelementptr inbounds [6 x { i64, i64 }], ptr %19, i64 0, i64 0
   %add.ptr = getelementptr inbounds { i64, i64 }, ptr %arraydecay3, i64 6
   store ptr %add.ptr, ptr %__end0, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %14 = load ptr, ptr %__begin0, align 8
-  %15 = load ptr, ptr %__end0, align 8
-  %cmp = icmp ne ptr %14, %15
+  %20 = load ptr, ptr %__begin0, align 8
+  %21 = load ptr, ptr %__end0, align 8
+  %cmp = icmp ne ptr %20, %21
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %__begin0, align 8
-  %17 = load { i64, i64 }, ptr %16, align 8
-  store { i64, i64 } %17, ptr %step, align 8
-  %18 = load { i64, i64 }, ptr %step, align 8
-  %memptr.adj = extractvalue { i64, i64 } %18, 1
-  %19 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
-  %memptr.ptr = extractvalue { i64, i64 } %18, 0
-  %20 = and i64 %memptr.ptr, 1
-  %memptr.isvirtual = icmp ne i64 %20, 0
+  %22 = load ptr, ptr %__begin0, align 8
+  %23 = load { i64, i64 }, ptr %22, align 8
+  store { i64, i64 } %23, ptr %step, align 8
+  %24 = load { i64, i64 }, ptr %step, align 8
+  %memptr.adj = extractvalue { i64, i64 } %24, 1
+  %25 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
+  %memptr.ptr = extractvalue { i64, i64 } %24, 0
+  %26 = and i64 %memptr.ptr, 1
+  %memptr.isvirtual = icmp ne i64 %26, 0
   br i1 %memptr.isvirtual, label %memptr.virtual, label %memptr.nonvirtual
 
 memptr.virtual:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %19, align 8
-  %21 = sub i64 %memptr.ptr, 1
-  %22 = getelementptr i8, ptr %vtable, i64 %21, !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %22, align 8, !nosanitize !4
+  %vtable = load ptr, ptr %25, align 8
+  %27 = sub i64 %memptr.ptr, 1
+  %28 = getelementptr i8, ptr %vtable, i64 %27, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %28, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %for.body
@@ -953,24 +965,24 @@ memptr.nonvirtual:                                ; preds = %for.body
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %23 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  call void %23(ptr noundef nonnull align 8 dereferenceable(288) %19)
+  %29 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  call void %29(ptr noundef nonnull align 8 dereferenceable(288) %25)
   br label %for.inc
 
 for.inc:                                          ; preds = %memptr.end
-  %24 = load ptr, ptr %__begin0, align 8
-  %incdec.ptr = getelementptr inbounds { i64, i64 }, ptr %24, i32 1
+  %30 = load ptr, ptr %__begin0, align 8
+  %incdec.ptr = getelementptr inbounds { i64, i64 }, ptr %30, i32 1
   store ptr %incdec.ptr, ptr %__begin0, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %bytes_ = getelementptr inbounds %"class.(anonymous namespace)::BytecodeFormConverter.18", ptr %this1, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %bytes_, i64 16, i1 false)
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %28 = load i64, ptr %27, align 8
-  call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %26, i64 %28)
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %32, i64 %34)
   ret void
 }
 
@@ -2322,7 +2334,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errstr_ = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %this1, i32 0, i32 20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_) #10
   ret void
@@ -3029,13 +3042,14 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %data_, align 8
+  %1 = load ptr, ptr %data.addr, align 8
+  store ptr %1, ptr %data_, align 8
   %size_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %size.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %size_, align 8
   ret void
 }
 

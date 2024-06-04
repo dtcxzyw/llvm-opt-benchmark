@@ -5819,18 +5819,20 @@ _ZNO2v85MaybeIlE8FromJustEv.exit:                 ; preds = %if.then.i149, %_ZNK
 
 memptr.virtual:                                   ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   %vtable = load ptr, ptr %82, align 8
-  %83 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node9inspector5Agent17AsyncTaskCanceledEPv to i64), i64 1), !nosanitize !5
-  %memptr.virtualfn = load ptr, ptr %83, align 8, !nosanitize !5
+  %83 = ptrtoint ptr @_ZN4node9inspector5Agent17AsyncTaskCanceledEPv to i64
+  %84 = sub i64 %83, 1
+  %85 = getelementptr i8, ptr %vtable, i64 %84, !nosanitize !5
+  %memptr.virtualfn = load ptr, ptr %85, align 8, !nosanitize !5
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %84 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent17AsyncTaskCanceledEPv, %memptr.nonvirtual ]
-  %85 = load i64, ptr %task_id, align 8
-  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %85)
-  call void %84(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
+  %86 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent17AsyncTaskCanceledEPv, %memptr.nonvirtual ]
+  %87 = load i64, ptr %task_id, align 8
+  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %87)
+  call void %86(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
   ret void
 }
 
@@ -6237,18 +6239,20 @@ _ZNO2v85MaybeIlE8FromJustEv.exit:                 ; preds = %if.then.i149, %_ZNK
 
 memptr.virtual:                                   ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   %vtable = load ptr, ptr %82, align 8
-  %83 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node9inspector5Agent16AsyncTaskStartedEPv to i64), i64 1), !nosanitize !5
-  %memptr.virtualfn = load ptr, ptr %83, align 8, !nosanitize !5
+  %83 = ptrtoint ptr @_ZN4node9inspector5Agent16AsyncTaskStartedEPv to i64
+  %84 = sub i64 %83, 1
+  %85 = getelementptr i8, ptr %vtable, i64 %84, !nosanitize !5
+  %memptr.virtualfn = load ptr, ptr %85, align 8, !nosanitize !5
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %84 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent16AsyncTaskStartedEPv, %memptr.nonvirtual ]
-  %85 = load i64, ptr %task_id, align 8
-  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %85)
-  call void %84(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
+  %86 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent16AsyncTaskStartedEPv, %memptr.nonvirtual ]
+  %87 = load i64, ptr %task_id, align 8
+  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %87)
+  call void %86(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
   ret void
 }
 
@@ -6655,18 +6659,20 @@ _ZNO2v85MaybeIlE8FromJustEv.exit:                 ; preds = %if.then.i149, %_ZNK
 
 memptr.virtual:                                   ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   %vtable = load ptr, ptr %82, align 8
-  %83 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZN4node9inspector5Agent17AsyncTaskFinishedEPv to i64), i64 1), !nosanitize !5
-  %memptr.virtualfn = load ptr, ptr %83, align 8, !nosanitize !5
+  %83 = ptrtoint ptr @_ZN4node9inspector5Agent17AsyncTaskFinishedEPv to i64
+  %84 = sub i64 %83, 1
+  %85 = getelementptr i8, ptr %vtable, i64 %84, !nosanitize !5
+  %memptr.virtualfn = load ptr, ptr %85, align 8, !nosanitize !5
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %_ZNO2v85MaybeIlE8FromJustEv.exit
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %84 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent17AsyncTaskFinishedEPv, %memptr.nonvirtual ]
-  %85 = load i64, ptr %task_id, align 8
-  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %85)
-  call void %84(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
+  %86 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node9inspector5Agent17AsyncTaskFinishedEPv, %memptr.nonvirtual ]
+  %87 = load i64, ptr %task_id, align 8
+  %call27 = call noundef ptr @_ZN4node9inspector12_GLOBAL__N_112GetAsyncTaskEl(i64 noundef %87)
+  call void %86(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %call27)
   ret void
 }
 
@@ -14058,36 +14064,37 @@ entry:
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive9, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this6, ptr noundef %0, ptr %1, i32 noundef 63, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i32 0, i32 0, i32 2), ptr %this6, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this6, align 8
   %session_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection", ptr %this6, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %callback_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection", ptr %this6, i32 0, i32 2
-  %2 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %2)
+  %3 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %callback, i64 8, i1 false)
   %coerce.dive11 = getelementptr inbounds %"class.v8::Local.258", ptr %agg.tmp10, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::LocalBase.259", ptr %coerce.dive11, i32 0, i32 0
   %coerce.dive13 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive12, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive13, align 8
-  store ptr %3, ptr %that.i, align 8
+  %4 = load ptr, ptr %coerce.dive13, align 8
+  store ptr %4, ptr %that.i, align 8
   store ptr %callback_, ptr %this.addr.i, align 8
   store ptr %call, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
-  %4 = load ptr, ptr %isolate.addr.i, align 8
+  %5 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %5 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %5, ptr %slot.addr.i.i, align 8
-  %6 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %4, ptr %isolate.addr.i20, align 8
-  store ptr %6, ptr %that.addr.i, align 8
-  %7 = load ptr, ptr %that.addr.i, align 8
-  store ptr %7, ptr %value.addr.i, align 8
-  %8 = load ptr, ptr %value.addr.i, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %cmp.i = icmp eq i64 %9, 0
+  %6 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %6, ptr %slot.addr.i.i, align 8
+  %7 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %5, ptr %isolate.addr.i20, align 8
+  store ptr %7, ptr %that.addr.i, align 8
+  %8 = load ptr, ptr %that.addr.i, align 8
+  store ptr %8, ptr %value.addr.i, align 8
+  %9 = load ptr, ptr %value.addr.i, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %cmp.i = icmp eq i64 %10, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -14095,34 +14102,34 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i:                                         ; preds = %entry
-  %10 = load ptr, ptr %isolate.addr.i20, align 8
-  %11 = load ptr, ptr %that.addr.i, align 8
-  store ptr %11, ptr %value.addr.i24, align 8
-  %12 = load ptr, ptr %value.addr.i24, align 8
-  %13 = load i64, ptr %12, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %13) #3
+  %11 = load ptr, ptr %isolate.addr.i20, align 8
+  %12 = load ptr, ptr %that.addr.i, align 8
+  store ptr %12, ptr %value.addr.i24, align 8
+  %13 = load ptr, ptr %value.addr.i24, align 8
+  %14 = load i64, ptr %13, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %14) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i, %if.then.i
-  %14 = load ptr, ptr %retval.i, align 8
+  %15 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i22, align 8
-  store ptr %14, ptr %location.addr.i, align 8
+  store ptr %15, ptr %location.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i22, align 8
-  %15 = load ptr, ptr %location.addr.i, align 8
+  %16 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i.i21, align 8
-  store ptr %15, ptr %location.addr.i.i, align 8
+  store ptr %16, ptr %location.addr.i.i, align 8
   %this1.i.i23 = load ptr, ptr %this.addr.i.i21, align 8
-  %16 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %16, ptr %this1.i.i23, align 8
-  %17 = load ptr, ptr %env.addr, align 8
-  %call14 = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %17)
+  %17 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %17, ptr %this1.i.i23, align 8
+  %18 = load ptr, ptr %env.addr, align 8
+  %call14 = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %18)
   store ptr %call14, ptr %inspector, align 8
-  %18 = load ptr, ptr %inspector, align 8
+  %19 = load ptr, ptr %inspector, align 8
   store ptr %this6, ptr %ref.tmp17, align 8
   call void @_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.332") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %env.addr, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EEC2INS1_12_GLOBAL__N_120JSBindingsConnectionINS7_15LocalConnectionEE25JSBindingsSessionDelegateES3_ISB_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16) #3
-  call void @_ZN4node9inspector12_GLOBAL__N_115LocalConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE(ptr sret(%"class.std::unique_ptr.316") align 8 %ref.tmp, ptr noundef %18, ptr noundef %agg.tmp15)
+  call void @_ZN4node9inspector12_GLOBAL__N_115LocalConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE(ptr sret(%"class.std::unique_ptr.316") align 8 %ref.tmp, ptr noundef %19, ptr noundef %agg.tmp15)
   %session_18 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection", ptr %this6, i32 0, i32 1
   %call19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %session_18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
@@ -14308,7 +14315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection", ptr %this1, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -14316,8 +14324,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -14326,8 +14334,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i4, align 8
   %this1.i5 = load ptr, ptr %this.addr.i4, align 8
-  %1 = load ptr, ptr %this1.i5, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i5, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i6, align 8
   %this1.i7 = load ptr, ptr %this.addr.i6, align 8
   store ptr null, ptr %this1.i7, align 8
@@ -14669,13 +14677,14 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector24InspectorSessionDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::LocalConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %connection_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::LocalConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %connection.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEEELb0EEC2EPS5_(ptr noundef nonnull align 8 dereferenceable(8) %connection_, ptr noundef %1)
+  %2 = load ptr, ptr %connection.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEEELb0EEC2EPS5_(ptr noundef nonnull align 8 dereferenceable(8) %connection_, ptr noundef %2)
   ret void
 }
 
@@ -14699,7 +14708,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14762,7 +14772,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::LocalConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 2
   call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connection_) #3
   call void @_ZN4node9inspector24InspectorSessionDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -16503,7 +16514,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -16514,14 +16526,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -16576,7 +16588,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17798,36 +17811,37 @@ entry:
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive9, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this6, ptr noundef %0, ptr %1, i32 noundef 63, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i32 0, i32 0, i32 2), ptr %this6, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this6, align 8
   %session_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection.391", ptr %this6, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %callback_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection.391", ptr %this6, i32 0, i32 2
-  %2 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %2)
+  %3 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %callback, i64 8, i1 false)
   %coerce.dive11 = getelementptr inbounds %"class.v8::Local.258", ptr %agg.tmp10, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::LocalBase.259", ptr %coerce.dive11, i32 0, i32 0
   %coerce.dive13 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive12, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive13, align 8
-  store ptr %3, ptr %that.i, align 8
+  %4 = load ptr, ptr %coerce.dive13, align 8
+  store ptr %4, ptr %that.i, align 8
   store ptr %callback_, ptr %this.addr.i, align 8
   store ptr %call, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
-  %4 = load ptr, ptr %isolate.addr.i, align 8
+  %5 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %5 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %5, ptr %slot.addr.i.i, align 8
-  %6 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %4, ptr %isolate.addr.i20, align 8
-  store ptr %6, ptr %that.addr.i, align 8
-  %7 = load ptr, ptr %that.addr.i, align 8
-  store ptr %7, ptr %value.addr.i, align 8
-  %8 = load ptr, ptr %value.addr.i, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %cmp.i = icmp eq i64 %9, 0
+  %6 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %6, ptr %slot.addr.i.i, align 8
+  %7 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %5, ptr %isolate.addr.i20, align 8
+  store ptr %7, ptr %that.addr.i, align 8
+  %8 = load ptr, ptr %that.addr.i, align 8
+  store ptr %8, ptr %value.addr.i, align 8
+  %9 = load ptr, ptr %value.addr.i, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %cmp.i = icmp eq i64 %10, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -17835,34 +17849,34 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i:                                         ; preds = %entry
-  %10 = load ptr, ptr %isolate.addr.i20, align 8
-  %11 = load ptr, ptr %that.addr.i, align 8
-  store ptr %11, ptr %value.addr.i24, align 8
-  %12 = load ptr, ptr %value.addr.i24, align 8
-  %13 = load i64, ptr %12, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %13) #3
+  %11 = load ptr, ptr %isolate.addr.i20, align 8
+  %12 = load ptr, ptr %that.addr.i, align 8
+  store ptr %12, ptr %value.addr.i24, align 8
+  %13 = load ptr, ptr %value.addr.i24, align 8
+  %14 = load i64, ptr %13, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %14) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i, %if.then.i
-  %14 = load ptr, ptr %retval.i, align 8
+  %15 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i22, align 8
-  store ptr %14, ptr %location.addr.i, align 8
+  store ptr %15, ptr %location.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i22, align 8
-  %15 = load ptr, ptr %location.addr.i, align 8
+  %16 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i.i21, align 8
-  store ptr %15, ptr %location.addr.i.i, align 8
+  store ptr %16, ptr %location.addr.i.i, align 8
   %this1.i.i23 = load ptr, ptr %this.addr.i.i21, align 8
-  %16 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %16, ptr %this1.i.i23, align 8
-  %17 = load ptr, ptr %env.addr, align 8
-  %call14 = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %17)
+  %17 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %17, ptr %this1.i.i23, align 8
+  %18 = load ptr, ptr %env.addr, align 8
+  %call14 = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %18)
   store ptr %call14, ptr %inspector, align 8
-  %18 = load ptr, ptr %inspector, align 8
+  %19 = load ptr, ptr %inspector, align 8
   store ptr %this6, ptr %ref.tmp17, align 8
   call void @_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.392") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %env.addr, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EEC2INS1_12_GLOBAL__N_120JSBindingsConnectionINS7_20MainThreadConnectionEE25JSBindingsSessionDelegateES3_ISB_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16) #3
-  call void @_ZN4node9inspector12_GLOBAL__N_120MainThreadConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE(ptr sret(%"class.std::unique_ptr.316") align 8 %ref.tmp, ptr noundef %18, ptr noundef %agg.tmp15)
+  call void @_ZN4node9inspector12_GLOBAL__N_120MainThreadConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE(ptr sret(%"class.std::unique_ptr.316") align 8 %ref.tmp, ptr noundef %19, ptr noundef %agg.tmp15)
   %session_18 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection.391", ptr %this6, i32 0, i32 1
   %call19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %session_18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
@@ -17963,7 +17977,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection.391", ptr %this1, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -17971,8 +17986,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -17981,8 +17996,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i4, align 8
   %this1.i5 = load ptr, ptr %this.addr.i4, align 8
-  %1 = load ptr, ptr %this1.i5, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i5, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i6, align 8
   %this1.i7 = load ptr, ptr %this.addr.i6, align 8
   store ptr null, ptr %this1.i7, align 8
@@ -18059,13 +18074,14 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector24InspectorSessionDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::MainThreadConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %connection_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::MainThreadConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %connection.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEEELb0EEC2EPS5_(ptr noundef nonnull align 8 dereferenceable(8) %connection_, ptr noundef %1)
+  %2 = load ptr, ptr %connection.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEEELb0EEC2EPS5_(ptr noundef nonnull align 8 dereferenceable(8) %connection_, ptr noundef %2)
   ret void
 }
 
@@ -18142,7 +18158,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::JSBindingsConnection<node::inspector::(anonymous namespace)::MainThreadConnection>::JSBindingsSessionDelegate", ptr %this1, i32 0, i32 2
   call void @_ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connection_) #3
   call void @_ZN4node9inspector24InspectorSessionDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

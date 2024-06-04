@@ -542,68 +542,69 @@ define hidden i32 @column_prefs_has_custom(ptr noundef %0) #0 {
   store i32 0, ptr %6, align 4
   br label %7
 
-7:                                                ; preds = %41, %1
+7:                                                ; preds = %42, %1
   %8 = load i32, ptr %6, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 1), align 8
-  %10 = icmp slt i32 %8, %9
-  br i1 %10, label %11, label %44
+  %9 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp slt i32 %8, %10
+  br i1 %11, label %12, label %45
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr @prefs, align 8
-  %13 = load i32, ptr %6, align 4
-  %14 = call ptr @g_list_nth(ptr noundef %12, i32 noundef %13)
-  store ptr %14, ptr %3, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+12:                                               ; preds = %7
+  %13 = load ptr, ptr @prefs, align 8
+  %14 = load i32, ptr %6, align 4
+  %15 = call ptr @g_list_nth(ptr noundef %13, i32 noundef %14)
+  store ptr %15, ptr %3, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %11
-  br label %41
+18:                                               ; preds = %12
+  br label %42
 
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct._GList, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct._fmt_data, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, 4
-  br i1 %25, label %26, label %40
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds %struct._GList, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %4, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %struct._fmt_data, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, 4
+  br i1 %26, label %27, label %41
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct._fmt_data, ptr %27, i32 0, i32 3
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %40
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct._fmt_data, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %41
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %2, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct._fmt_data, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 @strcmp(ptr noundef %32, ptr noundef %35) #7
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %40
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %2, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct._fmt_data, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 @strcmp(ptr noundef %33, ptr noundef %36) #7
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %31
-  %39 = load i32, ptr %6, align 4
-  store i32 %39, ptr %5, align 4
-  br label %44
+39:                                               ; preds = %32
+  %40 = load i32, ptr %6, align 4
+  store i32 %40, ptr %5, align 4
+  br label %45
 
-40:                                               ; preds = %31, %26, %18
-  br label %41
+41:                                               ; preds = %32, %27, %19
+  br label %42
 
-41:                                               ; preds = %40, %17
-  %42 = load i32, ptr %6, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %6, align 4
+42:                                               ; preds = %41, %18
+  %43 = load i32, ptr %6, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %6, align 4
   br label %7, !llvm.loop !6
 
-44:                                               ; preds = %38, %7
-  %45 = load i32, ptr %5, align 4
-  ret i32 %45
+45:                                               ; preds = %39, %7
+  %46 = load i32, ptr %5, align 4
+  ret i32 %46
 }
 
 declare ptr @g_list_nth(ptr noundef, i32 noundef) #1

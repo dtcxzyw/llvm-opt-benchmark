@@ -178,7 +178,8 @@ entry:
   %retval = alloca i32, align 4
   %m.addr = alloca ptr, align 8
   store ptr %m, ptr %m.addr, align 8
-  store ptr @PyDict_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @spamdict_type, i32 0, i32 30), align 8
+  %0 = getelementptr inbounds %struct._typeobject, ptr @spamdict_type, i32 0, i32 30
+  store ptr @PyDict_Type, ptr %0, align 8
   %call = call i32 @PyType_Ready(ptr noundef @spamdict_type)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -188,7 +189,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr @PyList_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @spamlist_type, i32 0, i32 30), align 8
+  %1 = getelementptr inbounds %struct._typeobject, ptr @spamlist_type, i32 0, i32 30
+  store ptr @PyList_Type, ptr %1, align 8
   %call1 = call i32 @PyType_Ready(ptr noundef @spamlist_type)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -216,8 +218,8 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 if.end12:                                         ; preds = %if.end8
-  %0 = load ptr, ptr %m.addr, align 8
-  %call13 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef @.str.3, ptr noundef @spamlist_type)
+  %2 = load ptr, ptr %m.addr, align 8
+  %call13 = call i32 @PyModule_AddObjectRef(ptr noundef %2, ptr noundef @.str.3, ptr noundef @spamlist_type)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
@@ -226,8 +228,8 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %1 = load ptr, ptr %m.addr, align 8
-  %call17 = call i32 @PyModule_AddObjectRef(ptr noundef %1, ptr noundef @.str.4, ptr noundef @spamdict_type)
+  %3 = load ptr, ptr %m.addr, align 8
+  %call17 = call i32 @PyModule_AddObjectRef(ptr noundef %3, ptr noundef @.str.4, ptr noundef @spamdict_type)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end20
 
@@ -240,8 +242,8 @@ if.end20:                                         ; preds = %if.end16
   br label %return
 
 return:                                           ; preds = %if.end20, %if.then19, %if.then15, %if.then11, %if.then7, %if.then3, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 declare i32 @PyType_Ready(ptr noundef) #1
@@ -258,11 +260,12 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %args, ptr %args.addr, align 8
   store ptr %kwds, ptr %kwds.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i32 0, i32 35), align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %2 = load ptr, ptr %args.addr, align 8
-  %3 = load ptr, ptr %kwds.addr, align 8
-  %call = call i32 %0(ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %0 = getelementptr inbounds %struct._typeobject, ptr @PyDict_Type, i32 0, i32 35
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %self.addr, align 8
+  %3 = load ptr, ptr %args.addr, align 8
+  %4 = load ptr, ptr %kwds.addr, align 8
+  %call = call i32 %1(ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -271,15 +274,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %state = getelementptr inbounds %struct.spamdictobject, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %self.addr, align 8
+  %state = getelementptr inbounds %struct.spamdictobject, ptr %5, i32 0, i32 1
   store i32 0, ptr %state, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -391,11 +394,12 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %args, ptr %args.addr, align 8
   store ptr %kwds, ptr %kwds.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyList_Type, i32 0, i32 35), align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %2 = load ptr, ptr %args.addr, align 8
-  %3 = load ptr, ptr %kwds.addr, align 8
-  %call = call i32 %0(ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %0 = getelementptr inbounds %struct._typeobject, ptr @PyList_Type, i32 0, i32 35
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %self.addr, align 8
+  %3 = load ptr, ptr %args.addr, align 8
+  %4 = load ptr, ptr %kwds.addr, align 8
+  %call = call i32 %1(ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -404,15 +408,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %state = getelementptr inbounds %struct.spamlistobject, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %self.addr, align 8
+  %state = getelementptr inbounds %struct.spamlistobject, ptr %5, i32 0, i32 1
   store i32 0, ptr %state, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

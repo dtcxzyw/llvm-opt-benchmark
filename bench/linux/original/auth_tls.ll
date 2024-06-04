@@ -27,22 +27,25 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @tls_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @tls_auth, i64 0, i32 7), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_auth, ptr @tls_auth, i64 0, i32 7)) #8, !srcloc !5
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %9, label %5, !prof !6
+  %3 = getelementptr inbounds %struct.rpc_auth, ptr @tls_auth, i64 0, i32 7
+  %4 = getelementptr inbounds %struct.rpc_auth, ptr @tls_auth, i64 0, i32 7
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 1, ptr nonnull elementtype(i32) %4) #8, !srcloc !5
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %11, label %7, !prof !6
 
-5:                                                ; preds = %2
-  %6 = add i32 %3, 1
-  %7 = or i32 %6, %3
-  %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %11, label %9, !prof !7
+7:                                                ; preds = %2
+  %8 = add i32 %5, 1
+  %9 = or i32 %8, %5
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %14, label %11, !prof !7
 
-9:                                                ; preds = %5, %2
-  %10 = phi i32 [ 2, %2 ], [ 1, %5 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (%struct.rpc_auth, ptr @tls_auth, i64 0, i32 7), i32 noundef %10) #8
-  br label %11
+11:                                               ; preds = %7, %2
+  %12 = phi i32 [ 2, %2 ], [ 1, %7 ]
+  %13 = getelementptr inbounds %struct.rpc_auth, ptr @tls_auth, i64 0, i32 7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef %12) #8
+  br label %14
 
-11:                                               ; preds = %9, %5
+14:                                               ; preds = %11, %7
   ret ptr @tls_auth
 }
 
@@ -53,45 +56,49 @@ define internal void @tls_destroy(ptr nocapture readnone %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @tls_lookup_cred(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 align 16 {
-  %4 = load volatile i32, ptr getelementptr inbounds (%struct.rpc_cred, ptr @tls_cred, i64 0, i32 7), align 8
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %19, label %6
+  %4 = getelementptr inbounds %struct.rpc_cred, ptr @tls_cred, i64 0, i32 7
+  %5 = load volatile i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %22, label %7
 
-6:                                                ; preds = %15, %3
-  %7 = phi i32 [ %16, %15 ], [ %4, %3 ]
-  %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_cred, ptr @tls_cred, i64 0, i32 7), i32 %8, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.rpc_cred, ptr @tls_cred, i64 0, i32 7), i32 %7) #8, !srcloc !8
-  %10 = extractvalue { i8, i32 } %9, 0
-  %11 = icmp ult i8 %10, 2
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp ne i8 %10, 0
-  br i1 %12, label %15, label %13, !prof !7
+7:                                                ; preds = %18, %3
+  %8 = phi i32 [ %19, %18 ], [ %5, %3 ]
+  %9 = add i32 %8, 1
+  %10 = getelementptr inbounds %struct.rpc_cred, ptr @tls_cred, i64 0, i32 7
+  %11 = getelementptr inbounds %struct.rpc_cred, ptr @tls_cred, i64 0, i32 7
+  %12 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 %9, ptr nonnull elementtype(i32) %11, i32 %8) #8, !srcloc !8
+  %13 = extractvalue { i8, i32 } %12, 0
+  %14 = icmp ult i8 %13, 2
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp ne i8 %13, 0
+  br i1 %15, label %18, label %16, !prof !7
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i8, i32 } %9, 1
-  br label %15
+16:                                               ; preds = %7
+  %17 = extractvalue { i8, i32 } %12, 1
+  br label %18
 
-15:                                               ; preds = %13, %6
-  %16 = phi i32 [ %7, %6 ], [ %14, %13 ]
-  %17 = icmp eq i32 %16, 0
-  %18 = select i1 %12, i1 true, i1 %17
-  br i1 %18, label %19, label %6, !llvm.loop !9
+18:                                               ; preds = %16, %7
+  %19 = phi i32 [ %8, %7 ], [ %17, %16 ]
+  %20 = icmp eq i32 %19, 0
+  %21 = select i1 %15, i1 true, i1 %20
+  br i1 %21, label %22, label %7, !llvm.loop !9
 
-19:                                               ; preds = %15, %3
-  %20 = phi i32 [ %4, %3 ], [ %16, %15 ]
-  %21 = add i32 %20, 1
-  %22 = or i32 %21, %20
-  %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %25, label %24, !prof !7
+22:                                               ; preds = %18, %3
+  %23 = phi i32 [ %5, %3 ], [ %19, %18 ]
+  %24 = add i32 %23, 1
+  %25 = or i32 %24, %23
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %29, label %27, !prof !7
 
-24:                                               ; preds = %19
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (%struct.rpc_cred, ptr @tls_cred, i64 0, i32 7), i32 noundef 0) #8
-  br label %25
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds %struct.rpc_cred, ptr @tls_cred, i64 0, i32 7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %28, i32 noundef 0) #8
+  br label %29
 
-25:                                               ; preds = %24, %19
-  %26 = icmp eq i32 %20, 0
-  %27 = select i1 %26, ptr null, ptr @tls_cred
-  ret ptr %27
+29:                                               ; preds = %27, %22
+  %30 = icmp eq i32 %23, 0
+  %31 = select i1 %30, ptr null, ptr @tls_cred
+  ret ptr %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -121,25 +128,26 @@ define internal i32 @tls_probe(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds i8, ptr %3, i64 66
   store i8 0, ptr %12, align 2
   %13 = call ptr @rpc_run_task(ptr noundef nonnull %3) #8
-  %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %15, label %18
+  %14 = inttoptr i64 -4096 to ptr
+  %15 = icmp ugt ptr %13, %14
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %1
-  %16 = ptrtoint ptr %13 to i64
-  %17 = trunc i64 %16 to i32
-  br label %21
+16:                                               ; preds = %1
+  %17 = ptrtoint ptr %13 to i64
+  %18 = trunc i64 %17 to i32
+  br label %22
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
-  %20 = load i32, ptr %19, align 4
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  %21 = load i32, ptr %20, align 4
   call void @rpc_put_task(ptr noundef %13) #8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %18, %15
-  %22 = phi i32 [ %17, %15 ], [ %20, %18 ]
+22:                                               ; preds = %19, %16
+  %23 = phi i32 [ %18, %16 ], [ %21, %19 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
-  ret i32 %22
+  ret i32 %23
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

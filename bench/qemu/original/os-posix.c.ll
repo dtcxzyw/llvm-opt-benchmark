@@ -42,7 +42,8 @@ entry:
   %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 2
   store i32 0, ptr %sa_flags, align 8
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %__sigaction_handler, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef %act, ptr noundef null) #6
   ret void
 }
@@ -393,9 +394,12 @@ if.end33:                                         ; preds = %if.else29
 
 if.end34:                                         ; preds = %if.end33
   %call35 = call i32 @umask(i32 noundef 23) #6
-  %call36 = call ptr @signal(i32 noundef 20, ptr noundef inttoptr (i64 1 to ptr)) #6
-  %call37 = call ptr @signal(i32 noundef 22, ptr noundef inttoptr (i64 1 to ptr)) #6
-  %call38 = call ptr @signal(i32 noundef 21, ptr noundef inttoptr (i64 1 to ptr)) #6
+  %15 = inttoptr i64 1 to ptr
+  %call36 = call ptr @signal(i32 noundef 20, ptr noundef %15) #6
+  %16 = inttoptr i64 1 to ptr
+  %call37 = call ptr @signal(i32 noundef 22, ptr noundef %16) #6
+  %17 = inttoptr i64 1 to ptr
+  %call38 = call ptr @signal(i32 noundef 21, ptr noundef %17) #6
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end34, %entry

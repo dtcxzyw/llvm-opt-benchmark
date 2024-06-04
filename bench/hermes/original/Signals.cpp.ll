@@ -2854,52 +2854,54 @@ if.end:                                           ; preds = %_ZNKSt13__atomic_ba
   call void @_ZL17CreateSigAltStackv()
   store ptr @_ZL7IntSigs, ptr %__range1, align 8
   store ptr @_ZL7IntSigs, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZL7IntSigs, i64 6), ptr %__end1, align 8
+  %6 = getelementptr inbounds i32, ptr @_ZL7IntSigs, i64 6
+  store ptr %6, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %6 = load ptr, ptr %__begin1, align 8
-  %7 = load ptr, ptr %__end1, align 8
-  %cmp2 = icmp ne ptr %6, %7
+  %7 = load ptr, ptr %__begin1, align 8
+  %8 = load ptr, ptr %__end1, align 8
+  %cmp2 = icmp ne ptr %7, %8
   br i1 %cmp2, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %__begin1, align 8
-  %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %S, align 4
-  %10 = load i32, ptr %S, align 4
-  call void @"_ZZL16RegisterHandlersvENK3$_0clEi"(ptr noundef nonnull align 1 dereferenceable(1) %registerHandler, i32 noundef %10)
+  %9 = load ptr, ptr %__begin1, align 8
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %S, align 4
+  %11 = load i32, ptr %S, align 4
+  call void @"_ZZL16RegisterHandlersvENK3$_0clEi"(ptr noundef nonnull align 1 dereferenceable(1) %registerHandler, i32 noundef %11)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %11 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %11, i32 1
+  %12 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %12, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   store ptr @_ZL8KillSigs, ptr %__range13, align 8
   store ptr @_ZL8KillSigs, ptr %__begin14, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZL8KillSigs, i64 10), ptr %__end15, align 8
+  %13 = getelementptr inbounds i32, ptr @_ZL8KillSigs, i64 10
+  store ptr %13, ptr %__end15, align 8
   br label %for.cond6
 
 for.cond6:                                        ; preds = %for.inc10, %for.end
-  %12 = load ptr, ptr %__begin14, align 8
-  %13 = load ptr, ptr %__end15, align 8
-  %cmp7 = icmp ne ptr %12, %13
+  %14 = load ptr, ptr %__begin14, align 8
+  %15 = load ptr, ptr %__end15, align 8
+  %cmp7 = icmp ne ptr %14, %15
   br i1 %cmp7, label %for.body8, label %for.end12
 
 for.body8:                                        ; preds = %for.cond6
-  %14 = load ptr, ptr %__begin14, align 8
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %S9, align 4
-  %16 = load i32, ptr %S9, align 4
-  call void @"_ZZL16RegisterHandlersvENK3$_0clEi"(ptr noundef nonnull align 1 dereferenceable(1) %registerHandler, i32 noundef %16)
+  %16 = load ptr, ptr %__begin14, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %S9, align 4
+  %18 = load i32, ptr %S9, align 4
+  call void @"_ZZL16RegisterHandlersvENK3$_0clEi"(ptr noundef nonnull align 1 dereferenceable(1) %registerHandler, i32 noundef %18)
   br label %for.inc10
 
 for.inc10:                                        ; preds = %for.body8
-  %17 = load ptr, ptr %__begin14, align 8
-  %incdec.ptr11 = getelementptr inbounds i32, ptr %17, i32 1
+  %19 = load ptr, ptr %__begin14, align 8
+  %incdec.ptr11 = getelementptr inbounds i32, ptr %19, i32 1
   store ptr %incdec.ptr11, ptr %__begin14, align 8
   br label %for.cond6
 
@@ -4036,20 +4038,22 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.stack_t, ptr @_ZL11OldAltStack, i32 0, i32 1), align 8
-  %and = and i32 %0, 1
+  %0 = getelementptr inbounds %struct.stack_t, ptr @_ZL11OldAltStack, i32 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %and = and i32 %1, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %1 = load ptr, ptr @_ZL11OldAltStack, align 8
-  %tobool3 = icmp ne ptr %1, null
+  %2 = load ptr, ptr @_ZL11OldAltStack, align 8
+  %tobool3 = icmp ne ptr %2, null
   br i1 %tobool3, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false2
-  %2 = load i64, ptr getelementptr inbounds (%struct.stack_t, ptr @_ZL11OldAltStack, i32 0, i32 2), align 8
-  %3 = load i64, ptr %AltStackSize, align 8
-  %cmp4 = icmp uge i64 %2, %3
+  %3 = getelementptr inbounds %struct.stack_t, ptr @_ZL11OldAltStack, i32 0, i32 2
+  %4 = load i64, ptr %3, align 8
+  %5 = load i64, ptr %AltStackSize, align 8
+  %cmp4 = icmp uge i64 %4, %5
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true, %lor.lhs.false, %entry
@@ -4057,24 +4061,24 @@ if.then:                                          ; preds = %land.lhs.true, %lor
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false2
   call void @llvm.memset.p0.i64(ptr align 8 %AltStack, i8 0, i64 24, i1 false)
-  %4 = load i64, ptr %AltStackSize, align 8
-  %call5 = call noundef nonnull ptr @_ZN4llvh11safe_mallocEm(i64 noundef %4)
+  %6 = load i64, ptr %AltStackSize, align 8
+  %call5 = call noundef nonnull ptr @_ZN4llvh11safe_mallocEm(i64 noundef %6)
   %ss_sp = getelementptr inbounds %struct.stack_t, ptr %AltStack, i32 0, i32 0
   store ptr %call5, ptr %ss_sp, align 8
   %ss_sp6 = getelementptr inbounds %struct.stack_t, ptr %AltStack, i32 0, i32 0
-  %5 = load ptr, ptr %ss_sp6, align 8
-  store ptr %5, ptr @_ZL18NewAltStackPointer, align 8
-  %6 = load i64, ptr %AltStackSize, align 8
+  %7 = load ptr, ptr %ss_sp6, align 8
+  store ptr %7, ptr @_ZL18NewAltStackPointer, align 8
+  %8 = load i64, ptr %AltStackSize, align 8
   %ss_size = getelementptr inbounds %struct.stack_t, ptr %AltStack, i32 0, i32 2
-  store i64 %6, ptr %ss_size, align 8
+  store i64 %8, ptr %ss_size, align 8
   %call7 = call i32 @sigaltstack(ptr noundef %AltStack, ptr noundef @_ZL11OldAltStack) #11
   %cmp8 = icmp ne i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
   %ss_sp10 = getelementptr inbounds %struct.stack_t, ptr %AltStack, i32 0, i32 0
-  %7 = load ptr, ptr %ss_sp10, align 8
-  call void @free(ptr noundef %7) #11
+  %9 = load ptr, ptr %ss_sp10, align 8
+  call void @free(ptr noundef %9) #11
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end, %if.then

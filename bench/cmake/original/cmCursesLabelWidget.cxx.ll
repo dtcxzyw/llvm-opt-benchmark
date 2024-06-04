@@ -39,51 +39,52 @@ define dso_local void @_ZN19cmCursesLabelWidgetC2EiiiiRKNSt7__cxx1112basic_strin
   %18 = load i32, ptr %10, align 4
   %19 = load i32, ptr %11, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %15, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesLabelWidget, i32 0, i32 0, i32 2), ptr %15, align 8
-  %20 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
-  %21 = load ptr, ptr %20, align 8
-  %22 = invoke i32 @field_opts_off(ptr noundef %21, i32 noundef 8)
-          to label %23 unwind label %37
+  %20 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV19cmCursesLabelWidget, i32 0, i32 0, i32 2
+  store ptr %20, ptr %15, align 8
+  %21 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = invoke i32 @field_opts_off(ptr noundef %22, i32 noundef 8)
+          to label %24 unwind label %38
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
-  %25 = load ptr, ptr %24, align 8
-  %26 = invoke i32 @field_opts_off(ptr noundef %25, i32 noundef 2)
-          to label %27 unwind label %37
+24:                                               ; preds = %6
+  %25 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = invoke i32 @field_opts_off(ptr noundef %26, i32 noundef 2)
+          to label %28 unwind label %38
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
-  %29 = load ptr, ptr %28, align 8
-  %30 = invoke i32 @field_opts_off(ptr noundef %29, i32 noundef 512)
-          to label %31 unwind label %37
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %31 = invoke i32 @field_opts_off(ptr noundef %30, i32 noundef 512)
+          to label %32 unwind label %38
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %12, align 8
-  %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 4
-  %35 = load ptr, ptr %34, align 8
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef nonnull align 8 dereferenceable(32) %32)
-          to label %36 unwind label %37
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %12, align 8
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 4
+  %36 = load ptr, ptr %35, align 8
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef nonnull align 8 dereferenceable(32) %33)
+          to label %37 unwind label %38
 
-36:                                               ; preds = %31
+37:                                               ; preds = %32
   ret void
 
-37:                                               ; preds = %31, %27, %23, %6
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %32, %28, %24, %6
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %13, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %14, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
   call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %15) #5
-  br label %41
+  br label %42
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 declare void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1

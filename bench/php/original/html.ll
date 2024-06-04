@@ -14157,51 +14157,57 @@ define internal void @write_s3row_data(ptr noundef %0, i32 noundef %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_default_charset() #0 {
   %1 = alloca ptr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 30), align 8
-  %3 = icmp ne ptr %2, null
-  br i1 %3, label %4, label %12
+  %2 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 30
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %15
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 30), align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 0
-  %7 = load i8, ptr %6, align 1
-  %8 = sext i8 %7 to i32
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %12
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 30
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 0
+  %9 = load i8, ptr %8, align 1
+  %10 = sext i8 %9 to i32
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %15
 
-10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 30), align 8
-  store ptr %11, ptr %1, align 8
-  br label %25
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 30
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %1, align 8
+  br label %31
 
-12:                                               ; preds = %4, %0
-  %13 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8), align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %23
+15:                                               ; preds = %5, %0
+  %16 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %29
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8), align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 0
-  %18 = load i8, ptr %17, align 1
-  %19 = sext i8 %18 to i32
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1
+  %24 = sext i8 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %29
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8), align 8
-  store ptr %22, ptr %1, align 8
-  br label %25
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %1, align 8
+  br label %31
 
-23:                                               ; preds = %15, %12
-  br label %24
+29:                                               ; preds = %19, %15
+  br label %30
 
-24:                                               ; preds = %23
+30:                                               ; preds = %29
   store ptr null, ptr %1, align 8
-  br label %25
+  br label %31
 
-25:                                               ; preds = %24, %21, %10
-  %26 = load ptr, ptr %1, align 8
-  ret ptr %26
+31:                                               ; preds = %30, %26, %12
+  %32 = load ptr, ptr %1, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

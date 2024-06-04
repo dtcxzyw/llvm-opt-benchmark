@@ -514,7 +514,8 @@ entry:
   %_f = alloca ptr, align 8
   %tmp = alloca ptr, align 8
   %atomic-temp = alloca ptr, align 8
-  store ptr getelementptr inbounds (%struct.DBMState, ptr @dbm_state, i32 0, i32 1), ptr %s, align 8
+  %0 = getelementptr inbounds %struct.DBMState, ptr @dbm_state, i32 0, i32 1
+  store ptr %0, ptr %s, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %do.end, %entry
@@ -531,20 +532,20 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load ptr, ptr %atomic-temp, align 8
-  store ptr %1, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %_f, align 8
-  %3 = load ptr, ptr %_f, align 8
-  %4 = load ptr, ptr %s, align 8
-  %lock = getelementptr inbounds %struct.DBMLoadState, ptr %4, i32 0, i32 10
-  call void %3(ptr noundef %lock, ptr noundef @.str, i32 noundef 890)
+  %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %1, ptr %atomic-temp, align 8
+  %2 = load ptr, ptr %atomic-temp, align 8
+  store ptr %2, ptr %tmp, align 8
+  %3 = load ptr, ptr %tmp, align 8
+  store ptr %3, ptr %_f, align 8
+  %4 = load ptr, ptr %_f, align 8
   %5 = load ptr, ptr %s, align 8
-  %before_vm_start_handled = getelementptr inbounds %struct.DBMLoadState, ptr %5, i32 0, i32 6
-  %6 = load i8, ptr %before_vm_start_handled, align 8
-  %tobool = trunc i8 %6 to i1
+  %lock = getelementptr inbounds %struct.DBMLoadState, ptr %5, i32 0, i32 10
+  call void %4(ptr noundef %lock, ptr noundef @.str, i32 noundef 890)
+  %6 = load ptr, ptr %s, align 8
+  %before_vm_start_handled = getelementptr inbounds %struct.DBMLoadState, ptr %6, i32 0, i32 6
+  %7 = load i8, ptr %before_vm_start_handled, align 8
+  %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.end
@@ -555,16 +556,16 @@ if.else:                                          ; preds = %while.end
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %7 = load ptr, ptr %s, align 8
-  %bitmaps = getelementptr inbounds %struct.DBMLoadState, ptr %7, i32 0, i32 9
-  %8 = load ptr, ptr %bitmaps, align 8
-  %9 = load ptr, ptr %s, align 8
-  call void @g_slist_foreach(ptr noundef %8, ptr noundef @before_vm_start_handle_item, ptr noundef %9)
+  %8 = load ptr, ptr %s, align 8
+  %bitmaps = getelementptr inbounds %struct.DBMLoadState, ptr %8, i32 0, i32 9
+  %9 = load ptr, ptr %bitmaps, align 8
   %10 = load ptr, ptr %s, align 8
-  %before_vm_start_handled1 = getelementptr inbounds %struct.DBMLoadState, ptr %10, i32 0, i32 6
-  store i8 1, ptr %before_vm_start_handled1, align 8
+  call void @g_slist_foreach(ptr noundef %9, ptr noundef @before_vm_start_handle_item, ptr noundef %10)
   %11 = load ptr, ptr %s, align 8
-  %lock2 = getelementptr inbounds %struct.DBMLoadState, ptr %11, i32 0, i32 10
+  %before_vm_start_handled1 = getelementptr inbounds %struct.DBMLoadState, ptr %11, i32 0, i32 6
+  store i8 1, ptr %before_vm_start_handled1, align 8
+  %12 = load ptr, ptr %s, align 8
+  %lock2 = getelementptr inbounds %struct.DBMLoadState, ptr %12, i32 0, i32 10
   call void @qemu_mutex_unlock_impl(ptr noundef %lock2, ptr noundef @.str, i32 noundef 896)
   ret void
 }
@@ -740,7 +741,8 @@ entry:
   %_f = alloca ptr, align 8
   %tmp = alloca ptr, align 8
   %atomic-temp = alloca ptr, align 8
-  store ptr getelementptr inbounds (%struct.DBMState, ptr @dbm_state, i32 0, i32 1), ptr %s, align 8
+  %0 = getelementptr inbounds %struct.DBMState, ptr @dbm_state, i32 0, i32 1
+  store ptr %0, ptr %s, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %do.end, %entry
@@ -757,20 +759,20 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load ptr, ptr %atomic-temp, align 8
-  store ptr %1, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %_f, align 8
-  %3 = load ptr, ptr %_f, align 8
-  %4 = load ptr, ptr %s, align 8
-  %lock = getelementptr inbounds %struct.DBMLoadState, ptr %4, i32 0, i32 10
-  call void %3(ptr noundef %lock, ptr noundef @.str, i32 noundef 941)
+  %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %1, ptr %atomic-temp, align 8
+  %2 = load ptr, ptr %atomic-temp, align 8
+  store ptr %2, ptr %tmp, align 8
+  %3 = load ptr, ptr %tmp, align 8
+  store ptr %3, ptr %_f, align 8
+  %4 = load ptr, ptr %_f, align 8
   %5 = load ptr, ptr %s, align 8
-  call void @cancel_incoming_locked(ptr noundef %5)
+  %lock = getelementptr inbounds %struct.DBMLoadState, ptr %5, i32 0, i32 10
+  call void %4(ptr noundef %lock, ptr noundef @.str, i32 noundef 941)
   %6 = load ptr, ptr %s, align 8
-  %lock1 = getelementptr inbounds %struct.DBMLoadState, ptr %6, i32 0, i32 10
+  call void @cancel_incoming_locked(ptr noundef %6)
+  %7 = load ptr, ptr %s, align 8
+  %lock1 = getelementptr inbounds %struct.DBMLoadState, ptr %7, i32 0, i32 10
   call void @qemu_mutex_unlock_impl(ptr noundef %lock1, ptr noundef @.str, i32 noundef 945)
   ret void
 }
@@ -905,11 +907,13 @@ entry:
 
 do.body:                                          ; preds = %entry
   store ptr null, ptr @dbm_state, align 8
-  store ptr @dbm_state, ptr getelementptr inbounds (%struct.anon, ptr @dbm_state, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.anon, ptr @dbm_state, i32 0, i32 1
+  store ptr @dbm_state, ptr %0, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  call void @qemu_mutex_init(ptr noundef getelementptr inbounds (%struct.DBMState, ptr @dbm_state, i32 0, i32 1, i32 10))
+  %1 = getelementptr inbounds %struct.DBMState, ptr @dbm_state, i32 0, i32 1, i32 10
+  call void @qemu_mutex_init(ptr noundef %1)
   %call = call i32 @register_savevm_live(ptr noundef @.str.2, i32 noundef 0, i32 noundef 1, ptr noundef @savevm_dirty_bitmap_handlers, ptr noundef @dbm_state)
   ret void
 }

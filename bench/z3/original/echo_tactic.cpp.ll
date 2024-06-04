@@ -240,16 +240,17 @@ entry:
   store i8 %frombool, ptr %newline.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11skip_tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11echo_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11echo_tactic, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %class.echo_tactic, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_ctx, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_ctx, align 8
   %m_msg = getelementptr inbounds %class.echo_tactic, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %msg.addr, align 8
-  store ptr %1, ptr %m_msg, align 8
+  %2 = load ptr, ptr %msg.addr, align 8
+  store ptr %2, ptr %m_msg, align 8
   %m_newline = getelementptr inbounds %class.echo_tactic, ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %newline.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %newline.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_newline, align 8
   ret void
@@ -295,36 +296,37 @@ entry:
   store i8 %frombool, ptr %newline.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11skip_tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18probe_value_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV18probe_value_tactic, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_ctx, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_ctx, align 8
   %m_msg = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %msg.addr, align 8
-  store ptr %1, ptr %m_msg, align 8
+  %2 = load ptr, ptr %msg.addr, align 8
+  store ptr %2, ptr %m_msg, align 8
   %m_p = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %p.addr, align 8
-  store ptr %2, ptr %m_p, align 8
+  %3 = load ptr, ptr %p.addr, align 8
+  store ptr %3, ptr %m_p, align 8
   %m_newline = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 5
-  %3 = load i8, ptr %newline.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %newline.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_newline, align 8
   %m_p3 = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %m_p3, align 8
-  invoke void @_ZN5probe7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
+  %5 = load ptr, ptr %m_p3, align 8
+  invoke void @_ZN5probe7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN11skip_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
   br label %eh.resume
 
@@ -343,7 +345,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11skip_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11skip_tactic, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1092,7 +1095,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15user_propagator4coreC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV6tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV6tactic, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %class.tactic, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_ref_count, align 8
   ret void
@@ -1104,7 +1108,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN15user_propagator4coreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN15user_propagator4coreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1445,10 +1450,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -1458,7 +1464,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -1705,7 +1712,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1760,10 +1768,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18probe_value_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV18probe_value_tactic, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_p = getelementptr inbounds %class.probe_value_tactic, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %m_p, align 8
-  invoke void @_ZN5probe7dec_refEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
+  %1 = load ptr, ptr %m_p, align 8
+  invoke void @_ZN5probe7dec_refEv(ptr noundef nonnull align 8 dereferenceable(12) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1771,10 +1780,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #12
   unreachable
 }
 

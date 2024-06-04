@@ -5143,7 +5143,7 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
 
 19:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %101
+  br label %102
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %5, align 8
@@ -5159,7 +5159,7 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
   %29 = sext i8 %28 to i32
   %30 = call i32 @rb_isupper(i32 noundef %29) #15
   store i32 %30, ptr %4, align 4
-  br label %101
+  br label %102
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr %5, align 8
@@ -5173,7 +5173,7 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
 
 38:                                               ; preds = %31
   store i32 0, ptr %4, align 4
-  br label %101
+  br label %102
 
 39:                                               ; preds = %31
   %40 = load i32, ptr %8, align 4
@@ -5190,7 +5190,7 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
 
 48:                                               ; preds = %39
   store i32 1, ptr %4, align 4
-  br label %101
+  br label %102
 
 49:                                               ; preds = %39
   %50 = load i32, ptr %8, align 4
@@ -5200,7 +5200,7 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
 
 53:                                               ; preds = %49
   store i32 0, ptr %4, align 4
-  br label %101
+  br label %102
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %7, align 8
@@ -5208,80 +5208,81 @@ define internal i32 @rb_sym_constant_char_p(ptr noundef %0, i64 noundef %1, ptr 
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 1
   %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %76
+  br i1 %59, label %60, label %77
 
 60:                                               ; preds = %54
   %61 = load i32, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
   %62 = icmp ne i32 %61, 0
-  br i1 %62, label %69, label %63
+  br i1 %62, label %70, label %63
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %64, i32 0, i32 11
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %7, align 8
-  %68 = call i32 %66(ptr noundef %67, ptr noundef @rb_sym_constant_char_p.cname, ptr noundef getelementptr (i8, ptr @rb_sym_constant_char_p.cname, i64 15))
-  store i32 %68, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
-  br label %69
+  %68 = getelementptr i8, ptr @rb_sym_constant_char_p.cname, i64 15
+  %69 = call i32 %66(ptr noundef %67, ptr noundef @rb_sym_constant_char_p.cname, ptr noundef %68)
+  store i32 %69, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
+  br label %70
 
-69:                                               ; preds = %63, %60
-  %70 = load i32, ptr %8, align 4
-  %71 = load i32, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
-  %72 = load ptr, ptr %7, align 8
-  %73 = call zeroext i1 @rb_enc_isctype(i32 noundef %70, i32 noundef %71, ptr noundef %72)
-  br i1 %73, label %74, label %75
+70:                                               ; preds = %63, %60
+  %71 = load i32, ptr %8, align 4
+  %72 = load i32, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = call zeroext i1 @rb_enc_isctype(i32 noundef %71, i32 noundef %72, ptr noundef %73)
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %69
+75:                                               ; preds = %70
   store i32 1, ptr %4, align 4
+  br label %102
+
+76:                                               ; preds = %70
   br label %101
 
-75:                                               ; preds = %69
-  br label %100
+77:                                               ; preds = %54
+  %78 = load ptr, ptr %5, align 8
+  store ptr %78, ptr %12, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds [13 x i8], ptr %11, i64 0, i64 0
+  %84 = load ptr, ptr %7, align 8
+  %85 = call i32 %81(i32 noundef 524288, ptr noundef %12, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  store i32 %85, ptr %13, align 4
+  %86 = load i32, ptr %13, align 4
+  %87 = icmp sgt i32 %86, 0
+  br i1 %87, label %88, label %100
 
-76:                                               ; preds = %54
-  %77 = load ptr, ptr %5, align 8
-  store ptr %77, ptr %12, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr %78, i32 0, i32 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds [13 x i8], ptr %11, i64 0, i64 0
-  %83 = load ptr, ptr %7, align 8
-  %84 = call i32 %80(i32 noundef 524288, ptr noundef %12, ptr noundef %81, ptr noundef %82, ptr noundef %83)
-  store i32 %84, ptr %13, align 4
-  %85 = load i32, ptr %13, align 4
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %87, label %99
+88:                                               ; preds = %77
+  %89 = load i32, ptr %13, align 4
+  %90 = load i32, ptr %9, align 4
+  %91 = icmp ne i32 %89, %90
+  br i1 %91, label %99, label %92
 
-87:                                               ; preds = %76
-  %88 = load i32, ptr %13, align 4
-  %89 = load i32, ptr %9, align 4
-  %90 = icmp ne i32 %88, %89
-  br i1 %90, label %98, label %91
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds [13 x i8], ptr %11, i64 0, i64 0
+  %94 = load ptr, ptr %5, align 8
+  %95 = load i32, ptr %13, align 4
+  %96 = sext i32 %95 to i64
+  %97 = call i32 @memcmp(ptr noundef %93, ptr noundef %94, i64 noundef %96) #17
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %100
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds [13 x i8], ptr %11, i64 0, i64 0
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr %13, align 4
-  %95 = sext i32 %94 to i64
-  %96 = call i32 @memcmp(ptr noundef %92, ptr noundef %93, i64 noundef %95) #17
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %99
-
-98:                                               ; preds = %91, %87
+99:                                               ; preds = %92, %88
   store i32 1, ptr %4, align 4
+  br label %102
+
+100:                                              ; preds = %92, %77
   br label %101
 
-99:                                               ; preds = %91, %76
-  br label %100
-
-100:                                              ; preds = %99, %75
+101:                                              ; preds = %100, %76
   store i32 0, ptr %4, align 4
-  br label %101
+  br label %102
 
-101:                                              ; preds = %100, %98, %74, %53, %48, %38, %26, %19
-  %102 = load i32, ptr %4, align 4
-  ret i32 %102
+102:                                              ; preds = %101, %99, %75, %53, %48, %38, %26, %19
+  %103 = load i32, ptr %4, align 4
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

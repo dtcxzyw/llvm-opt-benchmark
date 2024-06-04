@@ -81,136 +81,139 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   %3 = load i32, ptr @acpi_gbl_dsdt_index, align 4
   %4 = zext i32 %3 to i64
   %5 = getelementptr %struct.acpi_table_desc, ptr %2, i64 %4
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %83, label %8
+  %6 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %86, label %9
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %5, i64 20
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 1413763908
-  br i1 %11, label %12, label %83
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds i8, ptr %5, i64 20
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 1413763908
+  br i1 %12, label %13, label %86
 
-12:                                               ; preds = %8
-  %13 = tail call i32 @acpi_tb_validate_table(ptr noundef %5) #5
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %83
+13:                                               ; preds = %9
+  %14 = tail call i32 @acpi_tb_validate_table(ptr noundef %5) #5
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %86
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr @acpi_gbl_DSDT, align 8
-  %18 = load i8, ptr @acpi_gbl_copy_dsdt_locally, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %25, label %20
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr @acpi_gbl_DSDT, align 8
+  %19 = load i8, ptr @acpi_gbl_copy_dsdt_locally, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr @acpi_gbl_dsdt_index, align 4
-  %22 = tail call ptr @acpi_tb_copy_dsdt(i32 noundef %21) #5
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %25, label %24
+21:                                               ; preds = %16
+  %22 = load i32, ptr @acpi_gbl_dsdt_index, align 4
+  %23 = tail call ptr @acpi_tb_copy_dsdt(i32 noundef %22) #5
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %20
-  store ptr %22, ptr @acpi_gbl_DSDT, align 8
-  br label %25
+25:                                               ; preds = %21
+  store ptr %23, ptr @acpi_gbl_DSDT, align 8
+  br label %26
 
-25:                                               ; preds = %24, %20, %15
-  %26 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) @acpi_gbl_original_dsdt_header, ptr noundef align 1 dereferenceable(36) %26, i64 36, i1 false)
-  %27 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
-  %28 = load i32, ptr @acpi_gbl_dsdt_index, align 4
-  %29 = load ptr, ptr @acpi_gbl_root_node, align 8
-  %30 = tail call i32 @acpi_ns_load_table(i32 noundef %28, ptr noundef %29) #5
-  %31 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
-  %32 = icmp eq i32 %30, 0
-  br i1 %32, label %34, label %33
+26:                                               ; preds = %25, %21, %16
+  %27 = load ptr, ptr @acpi_gbl_DSDT, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) @acpi_gbl_original_dsdt_header, ptr noundef align 1 dereferenceable(36) %27, i64 36, i1 false)
+  %28 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
+  %29 = load i32, ptr @acpi_gbl_dsdt_index, align 4
+  %30 = load ptr, ptr @acpi_gbl_root_node, align 8
+  %31 = tail call i32 @acpi_ns_load_table(i32 noundef %29, ptr noundef %30) #5
+  %32 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
+  %33 = icmp eq i32 %31, 0
+  br i1 %33, label %35, label %34
 
-33:                                               ; preds = %25
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 161, i32 noundef %30, ptr noundef nonnull @.str.3) #5
-  br label %34
+34:                                               ; preds = %26
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 161, i32 noundef %31, ptr noundef nonnull @.str.3) #5
+  br label %35
 
-34:                                               ; preds = %33, %25
-  %35 = phi i32 [ 0, %33 ], [ 1, %25 ]
-  %36 = phi i32 [ 1, %33 ], [ 0, %25 ]
-  %37 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %76, label %39
+35:                                               ; preds = %34, %26
+  %36 = phi i32 [ 0, %34 ], [ 1, %26 ]
+  %37 = phi i32 [ 1, %34 ], [ 0, %26 ]
+  %38 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %79, label %41
 
-39:                                               ; preds = %68, %34
-  %40 = phi i64 [ %72, %68 ], [ 0, %34 ]
-  %41 = phi i32 [ %71, %68 ], [ %36, %34 ]
-  %42 = phi i32 [ %70, %68 ], [ %35, %34 ]
-  %43 = phi i32 [ %69, %68 ], [ %30, %34 ]
-  %44 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %45 = getelementptr %struct.acpi_table_desc, ptr %44, i64 %40
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %68, label %48
+41:                                               ; preds = %70, %35
+  %42 = phi i64 [ %74, %70 ], [ 0, %35 ]
+  %43 = phi i32 [ %73, %70 ], [ %37, %35 ]
+  %44 = phi i32 [ %72, %70 ], [ %36, %35 ]
+  %45 = phi i32 [ %71, %70 ], [ %31, %35 ]
+  %46 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %47 = getelementptr %struct.acpi_table_desc, ptr %46, i64 %42
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %70, label %50
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds i8, ptr %45, i64 20
-  %50 = load i32, ptr %49, align 4
-  switch i32 %50, label %68 [
-    i32 1413763923, label %51
-    i32 1413763920, label %51
-    i32 1413763919, label %51
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds i8, ptr %47, i64 20
+  %52 = load i32, ptr %51, align 4
+  switch i32 %52, label %70 [
+    i32 1413763923, label %53
+    i32 1413763920, label %53
+    i32 1413763919, label %53
   ]
 
-51:                                               ; preds = %48, %48, %48
-  %52 = tail call i32 @acpi_tb_validate_table(ptr noundef %45) #5
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %68
+53:                                               ; preds = %50, %50, %50
+  %54 = tail call i32 @acpi_tb_validate_table(ptr noundef %47) #5
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %70
 
-54:                                               ; preds = %51
-  %55 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
-  %56 = load ptr, ptr @acpi_gbl_root_node, align 8
-  %57 = trunc i64 %40 to i32
-  %58 = tail call i32 @acpi_ns_load_table(i32 noundef %57, ptr noundef %56) #5
-  %59 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
-  %60 = icmp eq i32 %58, 0
-  br i1 %60, label %66, label %61
+56:                                               ; preds = %53
+  %57 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
+  %58 = load ptr, ptr @acpi_gbl_root_node, align 8
+  %59 = trunc i64 %42 to i32
+  %60 = tail call i32 @acpi_ns_load_table(i32 noundef %59, ptr noundef %58) #5
+  %61 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
+  %62 = icmp eq i32 %60, 0
+  br i1 %62, label %68, label %63
 
-61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %45, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 189, i32 noundef %58, ptr noundef nonnull @.str.7, ptr noundef %49, ptr noundef %64) #5
-  %65 = add i32 %41, 1
-  br label %68
+63:                                               ; preds = %56
+  %64 = getelementptr inbounds i8, ptr %47, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 189, i32 noundef %60, ptr noundef nonnull @.str.7, ptr noundef %51, ptr noundef %66) #5
+  %67 = add i32 %43, 1
+  br label %70
 
-66:                                               ; preds = %54
-  %67 = add i32 %42, 1
-  br label %68
+68:                                               ; preds = %56
+  %69 = add i32 %44, 1
+  br label %70
 
-68:                                               ; preds = %66, %61, %51, %48, %39
-  %69 = phi i32 [ %43, %51 ], [ %58, %61 ], [ 0, %66 ], [ %43, %39 ], [ %43, %48 ]
-  %70 = phi i32 [ %42, %51 ], [ %42, %61 ], [ %67, %66 ], [ %42, %39 ], [ %42, %48 ]
-  %71 = phi i32 [ %41, %51 ], [ %65, %61 ], [ %41, %66 ], [ %41, %39 ], [ %41, %48 ]
-  %72 = add nuw nsw i64 %40, 1
-  %73 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %72, %74
-  br i1 %75, label %39, label %76, !llvm.loop !5
+70:                                               ; preds = %68, %63, %53, %50, %41
+  %71 = phi i32 [ %45, %53 ], [ %60, %63 ], [ 0, %68 ], [ %45, %41 ], [ %45, %50 ]
+  %72 = phi i32 [ %44, %53 ], [ %44, %63 ], [ %69, %68 ], [ %44, %41 ], [ %44, %50 ]
+  %73 = phi i32 [ %43, %53 ], [ %67, %63 ], [ %43, %68 ], [ %43, %41 ], [ %43, %50 ]
+  %74 = add nuw nsw i64 %42, 1
+  %75 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %76 = load i32, ptr %75, align 8
+  %77 = zext i32 %76 to i64
+  %78 = icmp ult i64 %74, %77
+  br i1 %78, label %41, label %79, !llvm.loop !5
 
-76:                                               ; preds = %68, %34
-  %77 = phi i32 [ %30, %34 ], [ %69, %68 ]
-  %78 = phi i32 [ %35, %34 ], [ %70, %68 ]
-  %79 = phi i32 [ %36, %34 ], [ %71, %68 ]
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %82
+79:                                               ; preds = %70, %35
+  %80 = phi i32 [ %31, %35 ], [ %71, %70 ]
+  %81 = phi i32 [ %36, %35 ], [ %72, %70 ]
+  %82 = phi i32 [ %37, %35 ], [ %73, %70 ]
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %85
 
-81:                                               ; preds = %76
-  tail call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.8, i32 noundef %78) #5
-  br label %83
+84:                                               ; preds = %79
+  tail call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.8, i32 noundef %81) #5
+  br label %86
 
-82:                                               ; preds = %76
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 208, ptr noundef nonnull @.str.9, i32 noundef %79, i32 noundef %78) #5
-  br label %83
+85:                                               ; preds = %79
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 208, ptr noundef nonnull @.str.9, i32 noundef %82, i32 noundef %81) #5
+  br label %86
 
-83:                                               ; preds = %82, %81, %12, %8, %0
-  %84 = phi i32 [ 16387, %82 ], [ %77, %81 ], [ 2, %12 ], [ 2, %8 ], [ 2, %0 ]
-  %85 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
-  ret i32 %84
+86:                                               ; preds = %85, %84, %13, %9, %0
+  %87 = phi i32 [ 16387, %85 ], [ %80, %84 ], [ 2, %13 ], [ 2, %9 ], [ 2, %0 ]
+  %88 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -307,62 +310,63 @@ declare dso_local i32 @acpi_tb_install_and_load_table(i64 noundef, i8 noundef ze
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %36, label %3
+  br i1 %2, label %37, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 0
-  br i1 %6, label %36, label %7
+  br i1 %6, label %37, label %7
 
 7:                                                ; preds = %3
   %8 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %37
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %33, label %13
+  %11 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %34, label %14
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  br label %15
+14:                                               ; preds = %10
+  %15 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  br label %16
 
-15:                                               ; preds = %30, %13
-  %16 = phi i32 [ 0, %13 ], [ %31, %30 ]
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.acpi_table_desc, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load i16, ptr %19, align 8
-  %21 = icmp eq i16 %5, %20
-  br i1 %21, label %22, label %30
+16:                                               ; preds = %31, %14
+  %17 = phi i32 [ 0, %14 ], [ %32, %31 ]
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr %struct.acpi_table_desc, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load i16, ptr %20, align 8
+  %22 = icmp eq i16 %5, %21
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %18, i64 20
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 1413763908
-  br i1 %25, label %33, label %26
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds i8, ptr %19, i64 20
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, 1413763908
+  br i1 %26, label %34, label %27
 
-26:                                               ; preds = %22
-  %27 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
-  %28 = tail call i32 @acpi_tb_unload_table(i32 noundef %16) #5
-  %29 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
-  br label %33
+27:                                               ; preds = %23
+  %28 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
+  %29 = tail call i32 @acpi_tb_unload_table(i32 noundef %17) #5
+  %30 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
+  br label %34
 
-30:                                               ; preds = %15
-  %31 = add nuw i32 %16, 1
-  %32 = icmp eq i32 %31, %11
-  br i1 %32, label %33, label %15, !llvm.loop !9
+31:                                               ; preds = %16
+  %32 = add nuw i32 %17, 1
+  %33 = icmp eq i32 %32, %12
+  br i1 %33, label %34, label %16, !llvm.loop !9
 
-33:                                               ; preds = %30, %26, %22, %10
-  %34 = phi i32 [ %28, %26 ], [ 8, %22 ], [ 0, %10 ], [ 0, %30 ]
-  %35 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
-  br label %36
+34:                                               ; preds = %31, %27, %23, %10
+  %35 = phi i32 [ %29, %27 ], [ 8, %23 ], [ 0, %10 ], [ 0, %31 ]
+  %36 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
+  br label %37
 
-36:                                               ; preds = %33, %7, %3, %1
-  %37 = phi i32 [ %34, %33 ], [ 4097, %1 ], [ 8, %3 ], [ %8, %7 ]
-  ret i32 %37
+37:                                               ; preds = %34, %7, %3, %1
+  %38 = phi i32 [ %35, %34 ], [ 4097, %1 ], [ 8, %3 ], [ %8, %7 ]
+  ret i32 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

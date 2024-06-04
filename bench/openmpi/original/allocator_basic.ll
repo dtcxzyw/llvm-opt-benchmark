@@ -64,7 +64,7 @@ define ptr @mca_allocator_basic_component_init(i1 noundef zeroext %0, ptr nounde
 
 15:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %102
+  br label %105
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %10, align 8
@@ -107,113 +107,116 @@ define ptr @mca_allocator_basic_component_init(i1 noundef zeroext %0, ptr nounde
 
 43:                                               ; preds = %42
   %44 = load i32, ptr @opal_class_init_epoch, align 4
-  %45 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %46 = icmp ne i32 %44, %45
-  br i1 %46, label %47, label %48
+  %45 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp ne i32 %44, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %43
+48:                                               ; preds = %43
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %43
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds %struct.opal_object_t, ptr %50, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %51, align 16
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %52, i32 0, i32 3
-  %54 = getelementptr inbounds %struct.opal_object_t, ptr %53, i32 0, i32 1
-  store volatile i32 1, ptr %54, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %55, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %56)
-  br label %57
-
-57:                                               ; preds = %48
+49:                                               ; preds = %48, %43
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds %struct.opal_object_t, ptr %51, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %52, align 16
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %53, i32 0, i32 3
+  %55 = getelementptr inbounds %struct.opal_object_t, ptr %54, i32 0, i32 1
+  store volatile i32 1, ptr %55, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %56, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %57)
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %49
   br label %59
 
 59:                                               ; preds = %58
   br label %60
 
 60:                                               ; preds = %59
-  %61 = load i32, ptr @opal_class_init_epoch, align 4
-  %62 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %63 = icmp ne i32 %61, %62
-  br i1 %63, label %64, label %65
+  br label %61
 
-64:                                               ; preds = %60
+61:                                               ; preds = %60
+  %62 = load i32, ptr @opal_class_init_epoch, align 4
+  %63 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ne i32 %62, %64
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %61
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %65
+  br label %67
 
-65:                                               ; preds = %64, %60
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %66, i32 0, i32 4
-  %68 = getelementptr inbounds %struct.opal_object_t, ptr %67, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %68, align 16
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %69, i32 0, i32 4
-  %71 = getelementptr inbounds %struct.opal_object_t, ptr %70, i32 0, i32 1
-  store volatile i32 1, ptr %71, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %72, i32 0, i32 4
-  call void @opal_obj_run_constructors(ptr noundef %73)
-  br label %74
-
-74:                                               ; preds = %65
-  br label %75
-
-75:                                               ; preds = %74
+67:                                               ; preds = %66, %61
+  %68 = load ptr, ptr %10, align 8
+  %69 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %68, i32 0, i32 4
+  %70 = getelementptr inbounds %struct.opal_object_t, ptr %69, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %70, align 16
+  %71 = load ptr, ptr %10, align 8
+  %72 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %71, i32 0, i32 4
+  %73 = getelementptr inbounds %struct.opal_object_t, ptr %72, i32 0, i32 1
+  store volatile i32 1, ptr %73, align 8
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %74, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %75)
   br label %76
 
-76:                                               ; preds = %75
+76:                                               ; preds = %67
   br label %77
 
 77:                                               ; preds = %76
-  %78 = load i32, ptr @opal_class_init_epoch, align 4
-  %79 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %80 = icmp ne i32 %78, %79
-  br i1 %80, label %81, label %82
+  br label %78
 
-81:                                               ; preds = %77
+78:                                               ; preds = %77
+  br label %79
+
+79:                                               ; preds = %78
+  %80 = load i32, ptr @opal_class_init_epoch, align 4
+  %81 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp ne i32 %80, %82
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %79
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %82
+  br label %85
 
-82:                                               ; preds = %81, %77
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %83, i32 0, i32 5
-  %85 = getelementptr inbounds %struct.opal_object_t, ptr %84, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %85, align 16
+85:                                               ; preds = %84, %79
   %86 = load ptr, ptr %10, align 8
   %87 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %86, i32 0, i32 5
-  %88 = getelementptr inbounds %struct.opal_object_t, ptr %87, i32 0, i32 1
-  store volatile i32 1, ptr %88, align 8
+  %88 = getelementptr inbounds %struct.opal_object_t, ptr %87, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %88, align 16
   %89 = load ptr, ptr %10, align 8
   %90 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %89, i32 0, i32 5
-  call void @opal_obj_run_constructors(ptr noundef %90)
-  br label %91
+  %91 = getelementptr inbounds %struct.opal_object_t, ptr %90, i32 0, i32 1
+  store volatile i32 1, ptr %91, align 8
+  %92 = load ptr, ptr %10, align 8
+  %93 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %92, i32 0, i32 5
+  call void @opal_obj_run_constructors(ptr noundef %93)
+  br label %94
 
-91:                                               ; preds = %82
-  br label %92
+94:                                               ; preds = %85
+  br label %95
 
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %93, i32 0, i32 5
-  %95 = load i32, ptr @opal_cache_line_size, align 4
-  %96 = sext i32 %95 to i64
-  %97 = load i32, ptr @opal_cache_line_size, align 4
-  %98 = sext i32 %97 to i64
-  %99 = call i32 @opal_free_list_init(ptr noundef %94, i64 noundef 72, i64 noundef %96, ptr noundef @mca_allocator_basic_segment_t_class, i64 noundef 0, i64 noundef %98, i32 noundef 0, i32 noundef -1, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %100, i32 0, i32 0
-  store ptr %101, ptr %5, align 8
-  br label %102
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %10, align 8
+  %97 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %96, i32 0, i32 5
+  %98 = load i32, ptr @opal_cache_line_size, align 4
+  %99 = sext i32 %98 to i64
+  %100 = load i32, ptr @opal_cache_line_size, align 4
+  %101 = sext i32 %100 to i64
+  %102 = call i32 @opal_free_list_init(ptr noundef %97, i64 noundef 72, i64 noundef %99, ptr noundef @mca_allocator_basic_segment_t_class, i64 noundef 0, i64 noundef %101, i32 noundef 0, i32 noundef -1, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %103 = load ptr, ptr %10, align 8
+  %104 = getelementptr inbounds %struct.mca_allocator_basic_module_t, ptr %103, i32 0, i32 0
+  store ptr %104, ptr %5, align 8
+  br label %105
 
-102:                                              ; preds = %92, %15
-  %103 = load ptr, ptr %5, align 8
-  ret ptr %103
+105:                                              ; preds = %95, %15
+  %106 = load ptr, ptr %5, align 8
+  ret ptr %106
 }
 
 ; Function Attrs: nounwind allocsize(0)

@@ -175,87 +175,88 @@ define dso_local void @arch_stack_walk_user(ptr nocapture noundef readonly %0, p
   %6 = getelementptr inbounds i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %8 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %7) #7
-  br i1 %8, label %9, label %63
+  br i1 %8, label %9, label %64
 
 9:                                                ; preds = %3
   %10 = inttoptr i64 %5 to ptr
   %11 = getelementptr inbounds i8, ptr %2, i64 152
   br label %12
 
-12:                                               ; preds = %60, %9
-  %13 = phi ptr [ %61, %60 ], [ %10, %9 ]
-  %14 = icmp sgt ptr %13, inttoptr (i64 -1 to ptr)
-  br i1 %14, label %15, label %46
+12:                                               ; preds = %61, %9
+  %13 = phi ptr [ %62, %61 ], [ %10, %9 ]
+  %14 = inttoptr i64 -1 to ptr
+  %15 = icmp sgt ptr %13, %14
+  br i1 %15, label %16, label %47
 
-15:                                               ; preds = %12
-  %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !7
-  %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 2628
-  %19 = load i32, ptr %18, align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4
+16:                                               ; preds = %12
+  %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !7
+  %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds i8, ptr %18, i64 2628
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %19, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
-  %21 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %22 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %13, i64 8, i64 %21) #7, !srcloc !15
-  %23 = extractvalue { ptr, i64, i64 } %22, 0
-  %24 = extractvalue { ptr, i64, i64 } %22, 1
-  %25 = extractvalue { ptr, i64, i64 } %22, 2
-  %26 = ptrtoint ptr %23 to i64
-  tail call void @llvm.write_register.i64(metadata !0, i64 %25)
-  %27 = inttoptr i64 %24 to ptr
-  %28 = and i64 %26, 4294967295
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %41
+  %22 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %23 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %13, i64 8, i64 %22) #7, !srcloc !15
+  %24 = extractvalue { ptr, i64, i64 } %23, 0
+  %25 = extractvalue { ptr, i64, i64 } %23, 1
+  %26 = extractvalue { ptr, i64, i64 } %23, 2
+  %27 = ptrtoint ptr %24 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %26)
+  %28 = inttoptr i64 %25 to ptr
+  %29 = and i64 %27, 4294967295
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %42
 
-30:                                               ; preds = %15
-  %31 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %32 = getelementptr inbounds i8, ptr %13, i64 8
-  %33 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %32, i64 8, i64 %31) #7, !srcloc !16
-  %34 = extractvalue { ptr, i64, i64 } %33, 0
-  %35 = extractvalue { ptr, i64, i64 } %33, 1
-  %36 = extractvalue { ptr, i64, i64 } %33, 2
-  %37 = ptrtoint ptr %34 to i64
-  tail call void @llvm.write_register.i64(metadata !0, i64 %36)
-  %38 = and i64 %37, 4294967295
-  %39 = icmp eq i64 %38, 0
-  %40 = zext i1 %39 to i32
-  br label %41
+31:                                               ; preds = %16
+  %32 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %33 = getelementptr inbounds i8, ptr %13, i64 8
+  %34 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %33, i64 8, i64 %32) #7, !srcloc !16
+  %35 = extractvalue { ptr, i64, i64 } %34, 0
+  %36 = extractvalue { ptr, i64, i64 } %34, 1
+  %37 = extractvalue { ptr, i64, i64 } %34, 2
+  %38 = ptrtoint ptr %35 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %37)
+  %39 = and i64 %38, 4294967295
+  %40 = icmp eq i64 %39, 0
+  %41 = zext i1 %40 to i32
+  br label %42
 
-41:                                               ; preds = %30, %15
-  %42 = phi i64 [ 0, %15 ], [ %35, %30 ]
-  %43 = phi i32 [ 0, %15 ], [ %40, %30 ]
+42:                                               ; preds = %31, %16
+  %43 = phi i64 [ 0, %16 ], [ %36, %31 ]
+  %44 = phi i32 [ 0, %16 ], [ %41, %31 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
-  %44 = load i32, ptr %18, align 4
-  %45 = add i32 %44, -1
-  store i32 %45, ptr %18, align 4
-  br label %46
+  %45 = load i32, ptr %19, align 4
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %19, align 4
+  br label %47
 
-46:                                               ; preds = %41, %12
-  %47 = phi ptr [ %27, %41 ], [ null, %12 ]
-  %48 = phi i64 [ %42, %41 ], [ 0, %12 ]
-  %49 = phi i32 [ %43, %41 ], [ 0, %12 ]
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %60, label %51
+47:                                               ; preds = %42, %12
+  %48 = phi ptr [ %28, %42 ], [ null, %12 ]
+  %49 = phi i64 [ %43, %42 ], [ 0, %12 ]
+  %50 = phi i32 [ %44, %42 ], [ 0, %12 ]
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %61, label %52
 
-51:                                               ; preds = %46
-  %52 = ptrtoint ptr %13 to i64
-  %53 = load i64, ptr %11, align 8
-  %54 = icmp ugt i64 %53, %52
-  %55 = icmp eq i64 %48, 0
-  %56 = select i1 %54, i1 true, i1 %55
-  br i1 %56, label %60, label %57
+52:                                               ; preds = %47
+  %53 = ptrtoint ptr %13 to i64
+  %54 = load i64, ptr %11, align 8
+  %55 = icmp ugt i64 %54, %53
+  %56 = icmp eq i64 %49, 0
+  %57 = select i1 %55, i1 true, i1 %56
+  br i1 %57, label %61, label %58
 
-57:                                               ; preds = %51
-  %58 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %48) #7
-  %59 = select i1 %58, ptr %47, ptr %13
-  br label %60
+58:                                               ; preds = %52
+  %59 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %49) #7
+  %60 = select i1 %59, ptr %48, ptr %13
+  br label %61
 
-60:                                               ; preds = %57, %51, %46
-  %61 = phi ptr [ %13, %46 ], [ %13, %51 ], [ %59, %57 ]
-  %62 = phi i1 [ false, %46 ], [ false, %51 ], [ %58, %57 ]
-  br i1 %62, label %12, label %63
+61:                                               ; preds = %58, %52, %47
+  %62 = phi ptr [ %13, %47 ], [ %13, %52 ], [ %60, %58 ]
+  %63 = phi i1 [ false, %47 ], [ false, %52 ], [ %59, %58 ]
+  br i1 %63, label %12, label %64
 
-63:                                               ; preds = %60, %3
+64:                                               ; preds = %61, %3
   ret void
 }
 

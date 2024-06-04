@@ -59,7 +59,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fFlagAndLength, align 8
   %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 2
@@ -76,7 +77,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -95,38 +97,39 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %count.addr, align 4
-  store i32 %1, ptr %fFlagAndLength, align 8
+  %2 = load i32, ptr %count.addr, align 4
+  store i32 %2, ptr %fFlagAndLength, align 8
   %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fHashCode, align 4
-  %2 = load i32, ptr %count.addr, align 4
-  %cmp = icmp slt i32 %2, 0
+  %3 = load i32, ptr %count.addr, align 4
+  %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %newValues.addr, align 8
-  %cmp2 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %newValues.addr, align 8
+  %cmp2 = icmp eq ptr %4, null
   br i1 %cmp2, label %land.lhs.true, label %lor.lhs.false4
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %4 = load i32, ptr %count.addr, align 4
-  %cmp3 = icmp ne i32 %4, 0
+  %5 = load i32, ptr %count.addr, align 4
+  %cmp3 = icmp ne i32 %5, 0
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %land.lhs.true, %lor.lhs.false
-  %5 = load i32, ptr %count.addr, align 4
+  %6 = load i32, ptr %count.addr, align 4
   %call = invoke noundef i32 @_ZNK6icu_7512CollationKey11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %lor.lhs.false4
-  %cmp5 = icmp sgt i32 %5, %call
+  %cmp5 = icmp sgt i32 %6, %call
   br i1 %cmp5, label %land.lhs.true6, label %if.end
 
 land.lhs.true6:                                   ; preds = %invoke.cont
-  %6 = load i32, ptr %count.addr, align 4
-  %call8 = invoke noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr noundef nonnull align 8 dereferenceable(48) %this1, i32 noundef %6, i32 noundef 0)
+  %7 = load i32, ptr %count.addr, align 4
+  %call8 = invoke noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr noundef nonnull align 8 dereferenceable(48) %this1, i32 noundef %7, i32 noundef 0)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %land.lhs.true6
@@ -141,18 +144,18 @@ invoke.cont10:                                    ; preds = %if.then
   br label %if.end16
 
 lpad:                                             ; preds = %do.body, %if.then, %land.lhs.true6, %lor.lhs.false4
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont7, %invoke.cont
-  %10 = load i32, ptr %count.addr, align 4
-  %cmp12 = icmp sgt i32 %10, 0
+  %11 = load i32, ptr %count.addr, align 4
+  %cmp12 = icmp sgt i32 %11, 0
   br i1 %cmp12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.end
@@ -163,10 +166,10 @@ do.body:                                          ; preds = %if.then13
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %do.body
-  %11 = load ptr, ptr %newValues.addr, align 8
-  %12 = load i32, ptr %count.addr, align 4
-  %conv = sext i32 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call15, ptr align 1 %11, i64 %conv, i1 false)
+  %12 = load ptr, ptr %newValues.addr, align 8
+  %13 = load i32, ptr %count.addr, align 4
+  %conv = sext i32 %13 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call15, ptr align 1 %12, i64 %conv, i1 false)
   br label %do.cond
 
 do.cond:                                          ; preds = %invoke.cont14
@@ -352,21 +355,22 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %call = invoke noundef i32 @_ZNK6icu_7512CollationKey9getLengthEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %2 = load ptr, ptr %other.addr, align 8
+  %call = invoke noundef i32 @_ZNK6icu_7512CollationKey9getLengthEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i32 %call, ptr %fFlagAndLength, align 8
   %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %fHashCode2 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %fHashCode2, align 4
-  store i32 %3, ptr %fHashCode, align 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %call4 = invoke noundef signext i8 @_ZNK6icu_7512CollationKey7isBogusEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %3 = load ptr, ptr %other.addr, align 8
+  %fHashCode2 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %fHashCode2, align 4
+  store i32 %4, ptr %fHashCode, align 4
+  %5 = load ptr, ptr %other.addr, align 8
+  %call4 = invoke noundef signext i8 @_ZNK6icu_7512CollationKey7isBogusEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -381,30 +385,30 @@ invoke.cont5:                                     ; preds = %if.then
   br label %if.end23
 
 lpad:                                             ; preds = %invoke.cont19, %do.body, %if.then13, %land.lhs.true, %if.end, %if.then, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont3
   %fFlagAndLength7 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %fFlagAndLength7, align 8
-  store i32 %8, ptr %length, align 4
-  %9 = load i32, ptr %length, align 4
+  %9 = load i32, ptr %fFlagAndLength7, align 8
+  store i32 %9, ptr %length, align 4
+  %10 = load i32, ptr %length, align 4
   %call9 = invoke noundef i32 @_ZNK6icu_7512CollationKey11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end
-  %cmp = icmp sgt i32 %9, %call9
+  %cmp = icmp sgt i32 %10, %call9
   br i1 %cmp, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %invoke.cont8
-  %10 = load i32, ptr %length, align 4
-  %call11 = invoke noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr noundef nonnull align 8 dereferenceable(48) %this1, i32 noundef %10, i32 noundef 0)
+  %11 = load i32, ptr %length, align 4
+  %call11 = invoke noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr noundef nonnull align 8 dereferenceable(48) %this1, i32 noundef %11, i32 noundef 0)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %land.lhs.true
@@ -419,8 +423,8 @@ invoke.cont14:                                    ; preds = %if.then13
   br label %if.end23
 
 if.end16:                                         ; preds = %invoke.cont10, %invoke.cont8
-  %11 = load i32, ptr %length, align 4
-  %cmp17 = icmp sgt i32 %11, 0
+  %12 = load i32, ptr %length, align 4
+  %cmp17 = icmp sgt i32 %12, 0
   br i1 %cmp17, label %if.then18, label %if.end23
 
 if.then18:                                        ; preds = %if.end16
@@ -431,13 +435,13 @@ do.body:                                          ; preds = %if.then18
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %do.body
-  %12 = load ptr, ptr %other.addr, align 8
-  %call22 = invoke noundef ptr @_ZNK6icu_7512CollationKey8getBytesEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %13 = load ptr, ptr %other.addr, align 8
+  %call22 = invoke noundef ptr @_ZNK6icu_7512CollationKey8getBytesEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %13 = load i32, ptr %length, align 4
-  %conv = sext i32 %13 to i64
+  %14 = load i32, ptr %length, align 4
+  %conv = sext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20, ptr align 1 %call22, i64 %conv, i1 false)
   br label %do.cond
 
@@ -466,7 +470,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -528,17 +533,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %fFlagAndLength, align 8
-  %cmp = icmp slt i32 %0, 0
+  %1 = load i32, ptr %fFlagAndLength, align 8
+  %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fUnion = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this1, i32 0, i32 3
   %fBytes = getelementptr inbounds %struct.anon, ptr %fUnion, i32 0, i32 0
-  %1 = load ptr, ptr %fBytes, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
+  %2 = load ptr, ptr %fBytes, align 8
+  invoke void @uprv_free_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -549,10 +555,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #11
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 

@@ -117,95 +117,98 @@ define dso_local i32 @fwnode_mdiobus_register_phy(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
   store i32 0, ptr %4, align 4, !annotation !5
   %5 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %1) #3
-  br i1 %5, label %9, label %6
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = tail call zeroext i1 @is_acpi_data_node(ptr noundef %1) #3
-  %8 = select i1 %7, ptr null, ptr inttoptr (i64 -38 to ptr)
-  br label %9
+  %8 = inttoptr i64 -38 to ptr
+  %9 = select i1 %7, ptr null, ptr %8
+  br label %10
 
-9:                                                ; preds = %6, %3
-  %10 = phi ptr [ null, %3 ], [ %8, %6 ]
-  %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %12, label %15
+10:                                               ; preds = %6, %3
+  %11 = phi ptr [ null, %3 ], [ %9, %6 ]
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %17
 
-12:                                               ; preds = %9
-  %13 = ptrtoint ptr %10 to i64
-  %14 = trunc i64 %13 to i32
-  br label %52
+14:                                               ; preds = %10
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %55
 
-15:                                               ; preds = %9
-  %16 = tail call i32 @fwnode_property_match_string(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3) #3
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %21, label %18
+17:                                               ; preds = %10
+  %18 = tail call i32 @fwnode_property_match_string(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3) #3
+  %19 = icmp sgt i32 %18, -1
+  br i1 %19, label %23, label %20
 
-18:                                               ; preds = %15
-  %19 = call i32 @fwnode_get_phy_id(ptr noundef %1, ptr noundef nonnull %4) #3
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %23, label %21
+20:                                               ; preds = %17
+  %21 = call i32 @fwnode_get_phy_id(ptr noundef %1, ptr noundef nonnull %4) #3
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %25, label %23
 
-21:                                               ; preds = %18, %15
-  %22 = call ptr @get_phy_device(ptr noundef %0, i32 noundef %2, i1 noundef zeroext %17) #3
-  br label %26
+23:                                               ; preds = %20, %17
+  %24 = call ptr @get_phy_device(ptr noundef %0, i32 noundef %2, i1 noundef zeroext %19) #3
+  br label %28
 
-23:                                               ; preds = %18
-  %24 = load i32, ptr %4, align 4
-  %25 = call ptr @phy_device_create(ptr noundef %0, i32 noundef %2, i32 noundef %24, i1 noundef zeroext false, ptr noundef null) #3
-  br label %26
+25:                                               ; preds = %20
+  %26 = load i32, ptr %4, align 4
+  %27 = call ptr @phy_device_create(ptr noundef %0, i32 noundef %2, i32 noundef %26, i1 noundef zeroext false, ptr noundef null) #3
+  br label %28
 
-26:                                               ; preds = %23, %21
-  %27 = phi ptr [ %22, %21 ], [ %25, %23 ]
-  %28 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
-  br i1 %28, label %29, label %32
+28:                                               ; preds = %25, %23
+  %29 = phi ptr [ %24, %23 ], [ %27, %25 ]
+  %30 = inttoptr i64 -4096 to ptr
+  %31 = icmp ugt ptr %29, %30
+  br i1 %31, label %32, label %35
 
-29:                                               ; preds = %26
-  %30 = ptrtoint ptr %27 to i64
-  %31 = trunc i64 %30 to i32
-  br label %52
+32:                                               ; preds = %28
+  %33 = ptrtoint ptr %29 to i64
+  %34 = trunc i64 %33 to i32
+  br label %55
 
-32:                                               ; preds = %26
-  %33 = call zeroext i1 @is_acpi_device_node(ptr noundef %1) #3
-  br i1 %33, label %36, label %34
+35:                                               ; preds = %28
+  %36 = call zeroext i1 @is_acpi_device_node(ptr noundef %1) #3
+  br i1 %36, label %39, label %37
 
-34:                                               ; preds = %32
-  %35 = call zeroext i1 @is_acpi_data_node(ptr noundef %1) #3
-  br i1 %35, label %36, label %47
+37:                                               ; preds = %35
+  %38 = call zeroext i1 @is_acpi_data_node(ptr noundef %1) #3
+  br i1 %38, label %39, label %50
 
-36:                                               ; preds = %34, %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 2192
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr [32 x i32], ptr %37, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %27, i64 1176
-  store i32 %40, ptr %41, align 8
-  %42 = call ptr @fwnode_handle_get(ptr noundef %1) #3
-  %43 = getelementptr inbounds i8, ptr %27, i64 632
-  store ptr %42, ptr %43, align 8
-  %44 = call i32 @phy_device_register(ptr noundef %27) #3
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %47, label %46
+39:                                               ; preds = %37, %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 2192
+  %41 = zext i32 %2 to i64
+  %42 = getelementptr [32 x i32], ptr %40, i64 0, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %29, i64 1176
+  store i32 %43, ptr %44, align 8
+  %45 = call ptr @fwnode_handle_get(ptr noundef %1) #3
+  %46 = getelementptr inbounds i8, ptr %29, i64 632
+  store ptr %45, ptr %46, align 8
+  %47 = call i32 @phy_device_register(ptr noundef %29) #3
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %50, label %49
 
-46:                                               ; preds = %36
-  store ptr null, ptr %43, align 8
+49:                                               ; preds = %39
+  store ptr null, ptr %46, align 8
   call void @fwnode_handle_put(ptr noundef %1) #3
-  call void @phy_device_free(ptr noundef %27) #3
-  br label %52
+  call void @phy_device_free(ptr noundef %29) #3
+  br label %55
 
-47:                                               ; preds = %36, %34
-  %48 = getelementptr inbounds i8, ptr %27, i64 1384
-  store ptr null, ptr %48, align 8
-  %49 = icmp eq ptr %10, null
-  br i1 %49, label %52, label %50
+50:                                               ; preds = %39, %37
+  %51 = getelementptr inbounds i8, ptr %29, i64 1384
+  store ptr null, ptr %51, align 8
+  %52 = icmp eq ptr %11, null
+  br i1 %52, label %55, label %53
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %27, i64 1376
-  store ptr %10, ptr %51, align 8
-  br label %52
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %29, i64 1376
+  store ptr %11, ptr %54, align 8
+  br label %55
 
-52:                                               ; preds = %50, %47, %46, %29, %12
-  %53 = phi i32 [ 0, %50 ], [ 0, %47 ], [ %14, %12 ], [ %31, %29 ], [ %44, %46 ]
+55:                                               ; preds = %53, %50, %49, %32, %14
+  %56 = phi i32 [ 0, %53 ], [ 0, %50 ], [ %16, %14 ], [ %34, %32 ], [ %47, %49 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  ret i32 %53
+  ret i32 %56
 }
 
 ; Function Attrs: null_pointer_is_valid

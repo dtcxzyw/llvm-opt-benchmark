@@ -156,25 +156,26 @@ invoke.cont7:                                     ; preds = %if.then.i16, %call.
   call void @free(ptr noundef %8) #13
   %9 = load ptr, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, align 8
   store ptr %9, ptr %out, align 8
-  %10 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 0, i64 3), align 8
+  %10 = getelementptr inbounds [4 x ptr], ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 0, i64 3
+  %11 = load ptr, ptr %10, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %9, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i.i
-  store ptr %10, ptr %add.ptr.i.i, align 8
+  store ptr %11, ptr %add.ptr.i.i, align 8
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %_M_filebuf.i) #13
-  %11 = getelementptr inbounds i8, ptr %out, i64 248
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %11) #13
+  %12 = getelementptr inbounds i8, ptr %out, i64 248
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %12) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %out) #13
   br label %cleanup
 
 lpad:                                             ; preds = %if.then.i16, %invoke.cont, %if.end5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %out) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %out) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes) #13
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 
 cleanup:                                          ; preds = %invoke.cont7, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length) #13
@@ -695,23 +696,26 @@ cleanup78:                                        ; preds = %cleanup, %invoke.co
   %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %invoke.cont4 ]
   %41 = load ptr, ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, align 8
   store ptr %41, ptr %is, align 8
-  %42 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 3), align 8
+  %42 = getelementptr inbounds [4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 3
+  %43 = load ptr, ptr %42, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %41, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
-  store ptr %42, ptr %add.ptr.i.i, align 8
+  store ptr %43, ptr %add.ptr.i.i, align 8
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %_M_filebuf.i) #13
-  %43 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 1), align 8
-  store ptr %43, ptr %is, align 8
-  %44 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 2), align 8
-  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %43, i64 -24
+  %44 = getelementptr inbounds [4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 1
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %is, align 8
+  %46 = getelementptr inbounds [4 x ptr], ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 0, i64 2
+  %47 = load ptr, ptr %46, align 8
+  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %45, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i.i
-  store ptr %44, ptr %add.ptr.i.i.i, align 8
+  store ptr %47, ptr %add.ptr.i.i.i, align 8
   %_M_gcount.i.i.i = getelementptr inbounds %"class.std::basic_istream", ptr %is, i64 0, i32 1
   store i64 0, ptr %_M_gcount.i.i.i, align 8
-  %45 = getelementptr inbounds i8, ptr %is, i64 256
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %45) #13
+  %48 = getelementptr inbounds i8, ptr %is, i64 256
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %48) #13
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %is) #13
   ret ptr %retval.1
 

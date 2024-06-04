@@ -1536,7 +1536,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v88platform7tracing17TracingControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node7tracing17TracingControllerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node7tracing17TracingControllerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

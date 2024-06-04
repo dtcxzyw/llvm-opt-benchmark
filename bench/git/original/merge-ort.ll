@@ -7164,15 +7164,16 @@ if.end35:                                         ; preds = %if.then32, %if.end2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx38, ptr align 8 @diff_queued_diff, i64 16, i1 false)
   %output_format39 = getelementptr inbounds %struct.diff_options, ptr %diff_opts, i32 0, i32 25
   store i32 2048, ptr %output_format39, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
+  %45 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  store i32 0, ptr %45, align 4
   store ptr null, ptr @diff_queued_diff, align 8
   call void @diff_flush(ptr noundef %diff_opts)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end35, %if.then
-  %45 = load i32, ptr %retval, align 4
-  ret i32 %45
+  %46 = load i32, ptr %retval, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9483,7 +9484,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %tmp, %cond.true ], [ %buf, %cond.false ]
   store ptr %cond, ptr %dest, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %38 = load ptr, ptr %opt.addr, align 8
   %priv41 = getelementptr inbounds %struct.merge_options, ptr %38, i32 0, i32 17
   %39 = load ptr, ptr %priv41, align 8
@@ -9514,7 +9515,7 @@ if.end48:                                         ; preds = %if.then44, %cond.en
   %arraydecay49 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %47, ptr noundef %48, ptr noundef %arraydecay49)
   %arraydecay50 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay50)
+  call void @llvm.va_end.p0(ptr %arraydecay50)
   %49 = load ptr, ptr %opt.addr, align 8
   %record_conflict_msgs_as_headers51 = getelementptr inbounds %struct.merge_options, ptr %49, i32 0, i32 15
   %bf.load52 = load i8, ptr %record_conflict_msgs_as_headers51, align 8
@@ -9642,9 +9643,6 @@ declare void @strvec_init(ptr noundef) #3
 
 declare ptr @strvec_push(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
@@ -9663,9 +9661,6 @@ entry:
 }
 
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) #3
 
@@ -15422,6 +15417,12 @@ entry:
   store ptr %0, ptr %maybe_tree, align 8
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

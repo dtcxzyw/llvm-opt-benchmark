@@ -26,7 +26,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -92,15 +93,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %formatter, ptr %formatter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_formatter = getelementptr inbounds %"class.ODDLParser::IOStreamBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %formatter.addr, align 8
-  store ptr %0, ptr %m_formatter, align 8
+  %1 = load ptr, ptr %formatter.addr, align 8
+  store ptr %1, ptr %m_formatter, align 8
   %m_file = getelementptr inbounds %"class.ODDLParser::IOStreamBase", ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_file, align 8
   %m_formatter2 = getelementptr inbounds %"class.ODDLParser::IOStreamBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_formatter2, align 8
-  %cmp = icmp eq ptr null, %1
+  %2 = load ptr, ptr %m_formatter2, align 8
+  %cmp = icmp eq ptr null, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -114,12 +116,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #7
   br label %eh.resume
 
@@ -145,17 +147,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_formatter = getelementptr inbounds %"class.ODDLParser::IOStreamBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_formatter, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_formatter, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

@@ -9294,71 +9294,72 @@ define linkonce_odr hidden void @_ZN5osgeo4proj11NetworkFileC2EP6pj_ctxRKNSt7__c
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %9, align 8
   call void @_ZN5osgeo4proj4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj11NetworkFileE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %17 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 2
-  %18 = load ptr, ptr %8, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 3
-  %20 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %21 unwind label %37
+  %17 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj11NetworkFileE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %15, align 8
+  %18 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 2
+  %19 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 3
+  %21 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %22 unwind label %38
 
-21:                                               ; preds = %6
-  %22 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 4
-  %23 = load ptr, ptr %10, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 5
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 6
-  store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 7
-  %27 = load i64, ptr %11, align 8
-  store i64 %27, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 8
-  %29 = load ptr, ptr %12, align 8
-  invoke void @_ZN5osgeo4proj14FilePropertiesC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(80) %29)
-          to label %30 unwind label %41
+22:                                               ; preds = %6
+  %23 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 4
+  %24 = load ptr, ptr %10, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 5
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 6
+  store i64 1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 7
+  %28 = load i64, ptr %11, align 8
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 8
+  %30 = load ptr, ptr %12, align 8
+  invoke void @_ZN5osgeo4proj14FilePropertiesC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(80) %30)
+          to label %31 unwind label %42
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 9
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct.pj_ctx, ptr %32, i32 0, i32 27
-  %34 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %31, align 8
-  %36 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 10
-  store i8 0, ptr %36, align 8
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 9
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct.pj_ctx, ptr %33, i32 0, i32 27
+  %35 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %32, align 8
+  %37 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %15, i32 0, i32 10
+  store i8 0, ptr %37, align 8
   ret void
 
-37:                                               ; preds = %6
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %6
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %13, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %14, align 4
-  br label %45
-
-41:                                               ; preds = %21
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %13, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %15) #4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %13, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %14, align 4
   br label %46
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %13, align 8
-  %48 = load i32, ptr %14, align 4
-  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
-  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
-  resume { ptr, i32 } %50
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #4
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %15) #4
+  br label %47
+
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %13, align 8
+  %49 = load i32, ptr %14, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10494,46 +10495,47 @@ define hidden void @_ZN5osgeo4proj11NetworkFileD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj11NetworkFileE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %23
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj11NetworkFileE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %24
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.pj_ctx, ptr %9, i32 0, i32 27
-  %11 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.pj_ctx, ptr %18, i32 0, i32 27
-  %20 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %19, i32 0, i32 5
-  %21 = load ptr, ptr %20, align 8
-  invoke void %12(ptr noundef %14, ptr noundef %16, ptr noundef %21)
-          to label %22 unwind label %26
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.pj_ctx, ptr %10, i32 0, i32 27
+  %12 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.pj_ctx, ptr %19, i32 0, i32 27
+  %21 = getelementptr inbounds %struct.projNetworkCallbacksAndData, ptr %20, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8
+  invoke void %13(ptr noundef %15, ptr noundef %17, ptr noundef %22)
+          to label %23 unwind label %27
 
-22:                                               ; preds = %7
-  br label %23
+23:                                               ; preds = %8
+  br label %24
 
-23:                                               ; preds = %22, %1
-  %24 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 8
-  call void @_ZN5osgeo4proj14FilePropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %24) #4
-  %25 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #4
+24:                                               ; preds = %23, %1
+  %25 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 8
+  call void @_ZN5osgeo4proj14FilePropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #4
+  %26 = getelementptr inbounds %"class.osgeo::proj::NetworkFile", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #4
   call void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #4
   ret void
 
-26:                                               ; preds = %7
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %8
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #19
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #19
   unreachable
 }
 
@@ -14688,22 +14690,23 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINS0_17NetworkChunkCa
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINS0_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEESt5mutexSt13unordered_mapIS4_St14_List_iteratorINS1_12KeyValuePairIS4_S9_EEENS3_9KeyHasherESt8equal_toIS4_ESaISt4pairIKS4_SF_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 40, i1 false)
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #4
-  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 56, i1 false)
-  call void @_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #4
-  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 4
-  %12 = load i64, ptr %5, align 8
-  store i64 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 5
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %13, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINS0_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEESt5mutexSt13unordered_mapIS4_St14_List_iteratorINS1_12KeyValuePairIS4_S9_EEENS3_9KeyHasherESt8equal_toIS4_ESaISt4pairIKS4_SF_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 40, i1 false)
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #4
+  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 56, i1 false)
+  call void @_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #4
+  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 4
+  %13 = load i64, ptr %5, align 8
+  store i64 %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 5
+  %15 = load i64, ptr %6, align 8
+  store i64 %15, ptr %14, align 8
   ret void
 }
 
@@ -14740,11 +14743,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINS0_17NetworkChunkCa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINS0_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEESt5mutexSt13unordered_mapIS4_St14_List_iteratorINS1_12KeyValuePairIS4_S9_EEENS3_9KeyHasherESt8equal_toIS4_ESaISt4pairIKS4_SF_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
-  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINS0_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEESt5mutexSt13unordered_mapIS4_St14_List_iteratorINS1_12KeyValuePairIS4_S9_EEENS3_9KeyHasherESt8equal_toIS4_ESaISt4pairIKS4_SF_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #4
   ret void
 }
 
@@ -15639,22 +15643,23 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_s
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14FilePropertiesESt5mutexSt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_S9_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SF_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 40, i1 false)
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #4
-  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 56, i1 false)
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_NS8_14FilePropertiesEEEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #4
-  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEENS2_14FilePropertiesEEESaISB_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 4
-  %12 = load i64, ptr %5, align 8
-  store i64 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 5
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %13, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14FilePropertiesESt5mutexSt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_S9_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SF_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 40, i1 false)
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #4
+  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 56, i1 false)
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_NS8_14FilePropertiesEEEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #4
+  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEENS2_14FilePropertiesEEESaISB_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 4
+  %13 = load i64, ptr %5, align 8
+  store i64 %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %7, i32 0, i32 5
+  %15 = load i64, ptr %6, align 8
+  store i64 %15, ptr %14, align 8
   ret void
 }
 
@@ -15682,11 +15687,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_s
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14FilePropertiesESt5mutexSt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_S9_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SF_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEENS2_14FilePropertiesEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
-  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_NS8_14FilePropertiesEEEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14FilePropertiesESt5mutexSt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_S9_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SF_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEENS2_14FilePropertiesEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.5", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_NS8_14FilePropertiesEEEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #4
   ret void
 }
 
@@ -19699,12 +19705,13 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvEL
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #4
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructISt6vectorIhSaIhEEJS5_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #4
+  %10 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructISt6vectorIhSaIhEEJS5_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #4
   ret void
 }
 
@@ -19863,11 +19870,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -25038,10 +25046,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPSt6vectorIhSaIhEELN9__gnu_cxx1
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

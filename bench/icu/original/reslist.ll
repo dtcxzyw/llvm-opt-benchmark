@@ -607,7 +607,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fType = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 1
   store i8 -1, ptr %fType, align 8
   %fWritten = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 2
@@ -647,10 +648,11 @@ entry:
   store ptr %comment, ptr %comment.addr, align 8
   store ptr %errorCode, ptr %errorCode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fType = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %type.addr, align 1
-  store i8 %0, ptr %fType, align 8
+  %1 = load i8, ptr %type.addr, align 1
+  store i8 %1, ptr %fType, align 8
   %fWritten = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 2
   store i8 0, ptr %fWritten, align 1
   %fRes = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 3
@@ -658,15 +660,15 @@ entry:
   %fRes16 = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 4
   store i32 -1, ptr %fRes16, align 8
   %fKey = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %bundle.addr, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %bundle.addr, align 8
+  %cmp = icmp ne ptr %2, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %bundle.addr, align 8
-  %3 = load ptr, ptr %tag.addr, align 8
-  %4 = load ptr, ptr %errorCode.addr, align 8
-  %call = call noundef i32 @_ZN7SRBRoot6addTagEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %3 = load ptr, ptr %bundle.addr, align 8
+  %4 = load ptr, ptr %tag.addr, align 8
+  %5 = load ptr, ptr %errorCode.addr, align 8
+  %call = call noundef i32 @_ZN7SRBRoot6addTagEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -683,15 +685,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store ptr null, ptr %fNext, align 8
   %fComment2 = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 9
   call void @ustr_init(ptr noundef %fComment2)
-  %5 = load ptr, ptr %comment.addr, align 8
-  %cmp3 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %comment.addr, align 8
+  %cmp3 = icmp ne ptr %6, null
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
   %fComment4 = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 9
-  %6 = load ptr, ptr %comment.addr, align 8
-  %7 = load ptr, ptr %errorCode.addr, align 8
-  call void @ustr_cpy(ptr noundef %fComment4, ptr noundef %6, ptr noundef %7)
+  %7 = load ptr, ptr %comment.addr, align 8
+  %8 = load ptr, ptr %errorCode.addr, align 8
+  call void @ustr_cpy(ptr noundef %fComment4, ptr noundef %7, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
@@ -769,7 +771,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fComment = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 9
   invoke void @ustr_deinit(ptr noundef %fComment)
           to label %invoke.cont unwind label %terminate.lpad
@@ -778,10 +781,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #16
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
@@ -822,36 +825,37 @@ entry:
   %next = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fFirst = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fFirst, align 8
-  store ptr %0, ptr %current, align 8
+  %1 = load ptr, ptr %fFirst, align 8
+  store ptr %1, ptr %current, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %delete.end, %entry
-  %1 = load ptr, ptr %current, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %current, align 8
+  %cmp = icmp ne ptr %2, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %current, align 8
-  %fNext = getelementptr inbounds %struct.SResource, ptr %2, i32 0, i32 8
-  %3 = load ptr, ptr %fNext, align 8
-  store ptr %3, ptr %next, align 8
-  %4 = load ptr, ptr %current, align 8
-  %isnull = icmp eq ptr %4, null
+  %3 = load ptr, ptr %current, align 8
+  %fNext = getelementptr inbounds %struct.SResource, ptr %3, i32 0, i32 8
+  %4 = load ptr, ptr %fNext, align 8
+  store ptr %4, ptr %next, align 8
+  %5 = load ptr, ptr %current, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %while.body
-  %vtable = load ptr, ptr %4, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %while.body
-  %6 = load ptr, ptr %next, align 8
-  store ptr %6, ptr %current, align 8
+  %7 = load ptr, ptr %next, align 8
+  store ptr %7, ptr %current, align 8
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
@@ -1250,24 +1254,25 @@ entry:
   %3 = load ptr, ptr %comment.addr, align 8
   %4 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = load i32, ptr %len.addr, align 4
-  %cmp = icmp eq i32 %5, 0
+  %6 = load i32, ptr %len.addr, align 4
+  %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %6 = load i32, ptr @_ZL14gFormatVersion, align 4
-  %cmp2 = icmp sgt i32 %6, 1
+  %7 = load i32, ptr @_ZL14gFormatVersion, align 4
+  %cmp2 = icmp sgt i32 %7, 1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %7 = load i8, ptr %type.addr, align 1
-  %conv = sext i8 %7 to i32
+  %8 = load i8, ptr %type.addr, align 1
+  %conv = sext i8 %8 to i32
   %shl = shl i32 %conv, 28
   %fRes = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 3
   store i32 %shl, ptr %fRes, align 4
@@ -1276,18 +1281,18 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end21
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup22
 
 if.end:                                           ; preds = %land.lhs.true, %invoke.cont
   %fString3 = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %value.addr, align 8
-  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %11)
+  %12 = load ptr, ptr %value.addr, align 8
+  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %12)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.end
@@ -1295,8 +1300,8 @@ invoke.cont5:                                     ; preds = %if.end
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %12 = load i32, ptr %len.addr, align 4
-  %call9 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %fString3, ptr noundef %call, i32 noundef %12)
+  %13 = load i32, ptr %len.addr, align 4
+  %call9 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %fString3, ptr noundef %call, i32 noundef %13)
           to label %invoke.cont8 unwind label %lpad6
 
 invoke.cont8:                                     ; preds = %invoke.cont7
@@ -1306,9 +1311,9 @@ invoke.cont8:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %invoke.cont8
-  %13 = load ptr, ptr %errorCode.addr, align 8
-  %14 = load i32, ptr %13, align 4
-  %call14 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %14)
+  %14 = load ptr, ptr %errorCode.addr, align 8
+  %15 = load i32, ptr %14, align 4
+  %call14 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %15)
           to label %invoke.cont13 unwind label %lpad4
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -1325,26 +1330,26 @@ invoke.cont17:                                    ; preds = %land.lhs.true15
   br i1 %tobool19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %invoke.cont17
-  %15 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %15, align 4
+  %16 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %16, align 4
   br label %if.end21
 
 lpad4:                                            ; preds = %land.lhs.true15, %invoke.cont11, %invoke.cont8, %if.end
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont5
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -1374,7 +1379,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1486,15 +1492,16 @@ entry:
   %1 = load i8, ptr %type.addr, align 1
   %2 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef null, i8 noundef signext %1, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %value.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %4 = load ptr, ptr %value.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %4 = load ptr, ptr %value.addr, align 8
-  %call = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %5 = load ptr, ptr %value.addr, align 8
+  %call = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1502,13 +1509,13 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont3
-  %5 = load i32, ptr @_ZL14gFormatVersion, align 4
-  %cmp = icmp sgt i32 %5, 1
+  %6 = load i32, ptr @_ZL14gFormatVersion, align 4
+  %cmp = icmp sgt i32 %6, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %6 = load i8, ptr %type.addr, align 1
-  %conv = sext i8 %6 to i32
+  %7 = load i8, ptr %type.addr, align 1
+  %conv = sext i8 %7 to i32
   %shl = shl i32 %conv, 28
   %fRes = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 3
   store i32 %shl, ptr %fRes, align 4
@@ -1517,21 +1524,21 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end16
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %land.lhs.true10, %invoke.cont5, %if.end, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #3
   br label %ehcleanup
 
@@ -1541,9 +1548,9 @@ if.end:                                           ; preds = %land.lhs.true, %inv
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %if.end
-  %13 = load ptr, ptr %errorCode.addr, align 8
-  %14 = load i32, ptr %13, align 4
-  %call8 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %14)
+  %14 = load ptr, ptr %errorCode.addr, align 8
+  %15 = load i32, ptr %14, align 4
+  %call8 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %15)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -1560,8 +1567,8 @@ invoke.cont12:                                    ; preds = %land.lhs.true10
   br i1 %tobool14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %invoke.cont12
-  %15 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %15, align 4
+  %16 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %16, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %invoke.cont12, %invoke.cont7, %if.then
@@ -1617,15 +1624,16 @@ entry:
   %0 = load i8, ptr %type.addr, align 1
   %1 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef null, ptr noundef null, i8 noundef signext %0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %value.addr, align 8
-  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %2)
+  %3 = load ptr, ptr %value.addr, align 8
+  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i32, ptr %len.addr, align 4
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %fString, i8 noundef signext 1, ptr noundef %agg.tmp, i32 noundef %3)
+  %4 = load i32, ptr %len.addr, align 4
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %fString, i8 noundef signext 1, ptr noundef %agg.tmp, i32 noundef %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1633,21 +1641,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup
 
@@ -1671,7 +1679,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #3
   call void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -1752,12 +1761,13 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 7, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11IntResource, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %4 = load i32, ptr %value.addr, align 4
-  %fValue = getelementptr inbounds %class.IntResource, ptr %this1, i32 0, i32 1
-  store i32 %4, ptr %fValue, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11IntResource, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %5 = load i32, ptr %value.addr, align 4
-  %and = and i32 %5, 268435455
+  %fValue = getelementptr inbounds %class.IntResource, ptr %this1, i32 0, i32 1
+  store i32 %5, ptr %fValue, align 8
+  %6 = load i32, ptr %value.addr, align 4
+  %and = and i32 %6, 268435455
   %or = or i32 1879048192, %and
   %fRes = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 3
   store i32 %or, ptr %fRes, align 4
@@ -1808,40 +1818,41 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 14, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %fCount = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 1
   store i64 0, ptr %fCount, align 8
   %fSize = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 2
   store i64 2048, ptr %fSize, align 8
   %fArray = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 3
   %fSize2 = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 2
-  %4 = load i64, ptr %fSize2, align 8
-  %5 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 4)
-  %6 = extractvalue { i64, i1 } %5, 1
-  %7 = extractvalue { i64, i1 } %5, 0
-  %8 = select i1 %6, i64 -1, i64 %7
-  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %8) #19
+  %5 = load i64, ptr %fSize2, align 8
+  %6 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 4)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  %9 = select i1 %7, i64 -1, i64 %8
+  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %fArray, align 8
   %fArray3 = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 3
-  %9 = load ptr, ptr %fArray3, align 8
-  %cmp = icmp eq ptr %9, null
+  %10 = load ptr, ptr %fArray3, align 8
+  %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %10 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %10, align 4
+  %11 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %11, align 4
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   br label %eh.resume
 
@@ -1868,14 +1879,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fArray = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fArray, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fArray, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #18
+  call void @_ZdaPv(ptr noundef %1) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2020,17 +2032,18 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %fLength = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %length.addr, align 4
-  store i32 %4, ptr %fLength, align 8
+  %5 = load i32, ptr %length.addr, align 4
+  store i32 %5, ptr %fLength, align 8
   %fData = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
   store ptr null, ptr %fData, align 8
   %fFileName = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 3
   store ptr null, ptr %fFileName, align 8
-  %5 = load ptr, ptr %errorCode.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %6)
+  %6 = load ptr, ptr %errorCode.addr, align 8
+  %7 = load i32, ptr %6, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2041,30 +2054,30 @@ if.then:                                          ; preds = %invoke.cont
   br label %if.end30
 
 lpad:                                             ; preds = %if.then16, %if.then3, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont
-  %10 = load ptr, ptr %fileName.addr, align 8
-  %cmp = icmp ne ptr %10, null
+  %11 = load ptr, ptr %fileName.addr, align 8
+  %cmp = icmp ne ptr %11, null
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end
-  %11 = load ptr, ptr %fileName.addr, align 8
-  %12 = load i8, ptr %11, align 1
-  %conv = sext i8 %12 to i32
+  %12 = load ptr, ptr %fileName.addr, align 8
+  %13 = load i8, ptr %12, align 1
+  %conv = sext i8 %13 to i32
   %cmp2 = icmp ne i32 %conv, 0
   br i1 %cmp2, label %if.then3, label %if.end14
 
 if.then3:                                         ; preds = %land.lhs.true
-  %13 = load ptr, ptr %fileName.addr, align 8
-  %call4 = call i64 @strlen(ptr noundef %13) #17
+  %14 = load ptr, ptr %fileName.addr, align 8
+  %call4 = call i64 @strlen(ptr noundef %14) #17
   %add = add i64 %call4, 1
   %call6 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add) #19
           to label %invoke.cont5 unwind label %lpad
@@ -2073,30 +2086,30 @@ invoke.cont5:                                     ; preds = %if.then3
   %fFileName7 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 3
   store ptr %call6, ptr %fFileName7, align 8
   %fFileName8 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 3
-  %14 = load ptr, ptr %fFileName8, align 8
-  %cmp9 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %fFileName8, align 8
+  %cmp9 = icmp eq ptr %15, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %invoke.cont5
-  %15 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %15, align 4
+  %16 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %16, align 4
   br label %if.end30
 
 if.end11:                                         ; preds = %invoke.cont5
   %fFileName12 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 3
-  %16 = load ptr, ptr %fFileName12, align 8
-  %17 = load ptr, ptr %fileName.addr, align 8
-  %call13 = call ptr @strcpy(ptr noundef %16, ptr noundef %17) #3
+  %17 = load ptr, ptr %fFileName12, align 8
+  %18 = load ptr, ptr %fileName.addr, align 8
+  %call13 = call ptr @strcpy(ptr noundef %17, ptr noundef %18) #3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end11, %land.lhs.true, %if.end
-  %18 = load i32, ptr %length.addr, align 4
-  %cmp15 = icmp ugt i32 %18, 0
+  %19 = load i32, ptr %length.addr, align 4
+  %cmp15 = icmp ugt i32 %19, 0
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end14
-  %19 = load i32, ptr %length.addr, align 4
-  %conv17 = zext i32 %19 to i64
+  %20 = load i32, ptr %length.addr, align 4
+  %conv17 = zext i32 %20 to i64
   %call19 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv17) #19
           to label %invoke.cont18 unwind label %lpad
 
@@ -2104,13 +2117,13 @@ invoke.cont18:                                    ; preds = %if.then16
   %fData20 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %fData20, align 8
   %fData21 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
-  %20 = load ptr, ptr %fData21, align 8
-  %cmp22 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %fData21, align 8
+  %cmp22 = icmp eq ptr %21, null
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %invoke.cont18
-  %21 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %21, align 4
+  %22 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %22, align 4
   br label %if.end30
 
 if.end24:                                         ; preds = %invoke.cont18
@@ -2118,11 +2131,11 @@ if.end24:                                         ; preds = %invoke.cont18
 
 do.body:                                          ; preds = %if.end24
   %fData25 = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
-  %22 = load ptr, ptr %fData25, align 8
-  %23 = load ptr, ptr %data.addr, align 8
-  %24 = load i32, ptr %length.addr, align 4
-  %conv26 = zext i32 %24 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %23, i64 %conv26, i1 false)
+  %23 = load ptr, ptr %fData25, align 8
+  %24 = load ptr, ptr %data.addr, align 8
+  %25 = load i32, ptr %length.addr, align 4
+  %conv26 = zext i32 %25 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %24, i64 %conv26, i1 false)
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
@@ -2132,8 +2145,8 @@ do.end:                                           ; preds = %do.cond
   br label %if.end30
 
 if.else:                                          ; preds = %if.end14
-  %25 = load i32, ptr @_ZL14gFormatVersion, align 4
-  %cmp27 = icmp sgt i32 %25, 1
+  %26 = load i32, ptr @_ZL14gFormatVersion, align 4
+  %cmp27 = icmp sgt i32 %26, 1
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.else
@@ -2169,24 +2182,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fData = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fData, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fData, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #18
+  call void @_ZdaPv(ptr noundef %1) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %fFileName = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fFileName, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %fFileName, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %1) #18
+  call void @_ZdaPv(ptr noundef %2) #18
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
@@ -4497,22 +4511,23 @@ do.body:                                          ; preds = %if.end151
   %103 = load i32, ptr %formatVersion, align 4
   %idx.ext152 = sext i32 %103 to i64
   %add.ptr153 = getelementptr inbounds [4 x i8], ptr @_ZL15gFormatVersions, i64 %idx.ext152
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 7), ptr align 1 %add.ptr153, i64 4, i1 false)
+  %104 = getelementptr inbounds %struct.UDataInfo, ptr @_ZL8dataInfo, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %104, ptr align 1 %add.ptr153, i64 4, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %104 = load ptr, ptr %outputDir.addr, align 8
+  %105 = load ptr, ptr %outputDir.addr, align 8
   %arraydecay154 = getelementptr inbounds [1024 x i8], ptr %dataName, i64 0, i64 0
-  %105 = load i8, ptr @_ZL17gIncludeCopyright, align 1
-  %conv155 = sext i8 %105 to i32
+  %106 = load i8, ptr @_ZL17gIncludeCopyright, align 1
+  %conv155 = sext i8 %106 to i32
   %cmp156 = icmp eq i32 %conv155, 1
   %cond = select i1 %cmp156, ptr @.str.6, ptr null
-  %106 = load ptr, ptr %errorCode.addr, align 8
-  %call157 = call ptr @udata_create(ptr noundef %104, ptr noundef @.str.5, ptr noundef %arraydecay154, ptr noundef @_ZL8dataInfo, ptr noundef %cond, ptr noundef %106)
-  store ptr %call157, ptr %mem, align 8
   %107 = load ptr, ptr %errorCode.addr, align 8
-  %108 = load i32, ptr %107, align 4
-  %call158 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %108)
+  %call157 = call ptr @udata_create(ptr noundef %105, ptr noundef @.str.5, ptr noundef %arraydecay154, ptr noundef @_ZL8dataInfo, ptr noundef %cond, ptr noundef %107)
+  store ptr %call157, ptr %mem, align 8
+  %108 = load ptr, ptr %errorCode.addr, align 8
+  %109 = load i32, ptr %108, align 4
+  %call158 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %109)
   %tobool159 = icmp ne i8 %call158, 0
   br i1 %tobool159, label %if.then160, label %if.end161
 
@@ -4520,38 +4535,38 @@ if.then160:                                       ; preds = %do.end
   br label %if.end288
 
 if.end161:                                        ; preds = %do.end
-  %109 = load ptr, ptr %mem, align 8
+  %110 = load ptr, ptr %mem, align 8
   %fRoot162 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 0
-  %110 = load ptr, ptr %fRoot162, align 8
-  %fRes = getelementptr inbounds %struct.SResource, ptr %110, i32 0, i32 3
-  %111 = load i32, ptr %fRes, align 4
-  call void @udata_write32(ptr noundef %109, i32 noundef %111)
+  %111 = load ptr, ptr %fRoot162, align 8
+  %fRes = getelementptr inbounds %struct.SResource, ptr %111, i32 0, i32 3
+  %112 = load i32, ptr %fRes, align 4
+  call void @udata_write32(ptr noundef %110, i32 noundef %112)
   %arraydecay163 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 16 %arraydecay163, i8 0, i64 32, i1 false)
   %fIndexLength = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 2
-  %112 = load i32, ptr %fIndexLength, align 8
+  %113 = load i32, ptr %fIndexLength, align 8
   %arrayidx164 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 0
-  store i32 %112, ptr %arrayidx164, align 16
+  store i32 %113, ptr %arrayidx164, align 16
   %fKeysTop165 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 10
-  %113 = load i32, ptr %fKeysTop165, align 4
-  %shr = ashr i32 %113, 2
+  %114 = load i32, ptr %fKeysTop165, align 4
+  %shr = ashr i32 %114, 2
   %arrayidx166 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 1
   store i32 %shr, ptr %arrayidx166, align 4
-  %114 = load i32, ptr %top, align 4
-  %shr167 = lshr i32 %114, 2
+  %115 = load i32, ptr %top, align 4
+  %shr167 = lshr i32 %115, 2
   %arrayidx168 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 2
   store i32 %shr167, ptr %arrayidx168, align 8
   %arrayidx169 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 2
-  %115 = load i32, ptr %arrayidx169, align 8
+  %116 = load i32, ptr %arrayidx169, align 8
   %arrayidx170 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 3
-  store i32 %115, ptr %arrayidx170, align 4
+  store i32 %116, ptr %arrayidx170, align 4
   %fMaxTableLength = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 3
-  %116 = load i32, ptr %fMaxTableLength, align 4
+  %117 = load i32, ptr %fMaxTableLength, align 4
   %arrayidx171 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 4
-  store i32 %116, ptr %arrayidx171, align 16
+  store i32 %117, ptr %arrayidx171, align 16
   %fNoFallback = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 4
-  %117 = load i8, ptr %fNoFallback, align 8
-  %tobool172 = icmp ne i8 %117, 0
+  %118 = load i8, ptr %fNoFallback, align 8
+  %tobool172 = icmp ne i8 %118, 0
   br i1 %tobool172, label %if.then173, label %if.end175
 
 if.then173:                                       ; preds = %if.end161
@@ -4561,14 +4576,14 @@ if.then173:                                       ; preds = %if.end161
 
 if.end175:                                        ; preds = %if.then173, %if.end161
   %fIndexLength176 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 2
-  %118 = load i32, ptr %fIndexLength176, align 8
-  %cmp177 = icmp slt i32 6, %118
+  %119 = load i32, ptr %fIndexLength176, align 8
+  %cmp177 = icmp slt i32 6, %119
   br i1 %cmp177, label %if.then178, label %if.end186
 
 if.then178:                                       ; preds = %if.end175
   %fKeysTop179 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 10
-  %119 = load i32, ptr %fKeysTop179, align 4
-  %shr180 = ashr i32 %119, 2
+  %120 = load i32, ptr %fKeysTop179, align 4
+  %shr180 = ashr i32 %120, 2
   %f16BitUnits181 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 14
   %call182 = call noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %f16BitUnits181)
   %shr183 = ashr i32 %call182, 1
@@ -4579,32 +4594,32 @@ if.then178:                                       ; preds = %if.end175
 
 if.end186:                                        ; preds = %if.then178, %if.end175
   %fIndexLength187 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 2
-  %120 = load i32, ptr %fIndexLength187, align 8
-  %cmp188 = icmp slt i32 7, %120
+  %121 = load i32, ptr %fIndexLength187, align 8
+  %cmp188 = icmp slt i32 7, %121
   br i1 %cmp188, label %if.then189, label %if.end249
 
 if.then189:                                       ; preds = %if.end186
   %fIsPoolBundle190 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 6
-  %121 = load i8, ptr %fIsPoolBundle190, align 2
-  %tobool191 = icmp ne i8 %121, 0
+  %122 = load i8, ptr %fIsPoolBundle190, align 2
+  %tobool191 = icmp ne i8 %122, 0
   br i1 %tobool191, label %if.then192, label %if.else240
 
 if.then192:                                       ; preds = %if.then189
   %arrayidx193 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 5
-  %122 = load i32, ptr %arrayidx193, align 4
-  %or = or i32 %122, 3
+  %123 = load i32, ptr %arrayidx193, align 4
+  %or = or i32 %123, 3
   store i32 %or, ptr %arrayidx193, align 4
   %fKeys194 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 7
-  %123 = load ptr, ptr %fKeys194, align 8
+  %124 = load ptr, ptr %fKeys194, align 8
   %fKeysBottom195 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 9
-  %124 = load i32, ptr %fKeysBottom195, align 8
-  %idx.ext196 = sext i32 %124 to i64
-  %add.ptr197 = getelementptr inbounds i8, ptr %123, i64 %idx.ext196
+  %125 = load i32, ptr %fKeysBottom195, align 8
+  %idx.ext196 = sext i32 %125 to i64
+  %add.ptr197 = getelementptr inbounds i8, ptr %124, i64 %idx.ext196
   %fKeysTop198 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 10
-  %125 = load i32, ptr %fKeysTop198, align 4
+  %126 = load i32, ptr %fKeysTop198, align 4
   %fKeysBottom199 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 9
-  %126 = load i32, ptr %fKeysBottom199, align 8
-  %sub200 = sub nsw i32 %125, %126
+  %127 = load i32, ptr %fKeysBottom199, align 8
+  %sub200 = sub nsw i32 %126, %127
   %call201 = call i32 @computeCRC(ptr noundef %add.ptr197, i32 noundef %sub200, i32 noundef 0)
   store i32 %call201, ptr %checksum, align 4
   %f16BitUnits202 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 14
@@ -4637,41 +4652,41 @@ invoke.cont213:                                   ; preds = %invoke.cont210
   br label %for.cond215
 
 for.cond215:                                      ; preds = %for.inc223, %invoke.cont213
-  %127 = load i32, ptr %count, align 4
-  %cmp216 = icmp sgt i32 %127, 0
+  %128 = load i32, ptr %count, align 4
+  %cmp216 = icmp sgt i32 %128, 0
   br i1 %cmp216, label %for.body217, label %for.end225
 
 for.body217:                                      ; preds = %for.cond215
-  %128 = load ptr, ptr %p, align 8
-  %129 = load i16, ptr %128, align 2
-  store i16 %129, ptr %x, align 2
-  %130 = load i16, ptr %x, align 2
-  %conv218 = zext i16 %130 to i32
-  %shl = shl i32 %conv218, 8
+  %129 = load ptr, ptr %p, align 8
+  %130 = load i16, ptr %129, align 2
+  store i16 %130, ptr %x, align 2
   %131 = load i16, ptr %x, align 2
-  %conv219 = zext i16 %131 to i32
+  %conv218 = zext i16 %131 to i32
+  %shl = shl i32 %conv218, 8
+  %132 = load i16, ptr %x, align 2
+  %conv219 = zext i16 %132 to i32
   %shr220 = ashr i32 %conv219, 8
   %or221 = or i32 %shl, %shr220
   %conv222 = trunc i32 %or221 to i16
-  %132 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %132, i32 1
+  %133 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %133, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
-  store i16 %conv222, ptr %132, align 2
+  store i16 %conv222, ptr %133, align 2
   br label %for.inc223
 
 for.inc223:                                       ; preds = %for.body217
-  %133 = load i32, ptr %count, align 4
-  %dec224 = add nsw i32 %133, -1
+  %134 = load i32, ptr %count, align 4
+  %dec224 = add nsw i32 %134, -1
   store i32 %dec224, ptr %count, align 4
   br label %for.cond215, !llvm.loop !23
 
 lpad:                                             ; preds = %invoke.cont233, %invoke.cont230, %invoke.cont229, %invoke.cont227, %for.end225, %invoke.cont210, %invoke.cont, %if.else206
-  %134 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
-  %135 = extractvalue { ptr, i32 } %134, 0
-  store ptr %135, ptr %exn.slot, align 8
-  %136 = extractvalue { ptr, i32 } %134, 1
-  store i32 %136, ptr %ehselector.slot, align 4
+  %136 = extractvalue { ptr, i32 } %135, 0
+  store ptr %136, ptr %exn.slot, align 8
+  %137 = extractvalue { ptr, i32 } %135, 1
+  store i32 %137, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #3
   br label %eh.resume
 
@@ -4695,8 +4710,8 @@ invoke.cont230:                                   ; preds = %invoke.cont229
 
 invoke.cont233:                                   ; preds = %invoke.cont230
   %mul235 = mul i32 %call234, 2
-  %137 = load i32, ptr %checksum, align 4
-  %call237 = invoke i32 @computeCRC(ptr noundef %call231, i32 noundef %mul235, i32 noundef %137)
+  %138 = load i32, ptr %checksum, align 4
+  %call237 = invoke i32 @computeCRC(ptr noundef %call231, i32 noundef %mul235, i32 noundef %138)
           to label %invoke.cont236 unwind label %lpad
 
 invoke.cont236:                                   ; preds = %invoke.cont233
@@ -4705,27 +4720,27 @@ invoke.cont236:                                   ; preds = %invoke.cont233
   br label %if.end238
 
 if.end238:                                        ; preds = %invoke.cont236, %if.then205
-  %138 = load i32, ptr %checksum, align 4
+  %139 = load i32, ptr %checksum, align 4
   %arrayidx239 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 7
-  store i32 %138, ptr %arrayidx239, align 4
+  store i32 %139, ptr %arrayidx239, align 4
   br label %if.end248
 
 if.else240:                                       ; preds = %if.then189
-  %139 = load i8, ptr @_ZL14gUsePoolBundle, align 1
-  %tobool241 = icmp ne i8 %139, 0
+  %140 = load i8, ptr @_ZL14gUsePoolBundle, align 1
+  %tobool241 = icmp ne i8 %140, 0
   br i1 %tobool241, label %if.then242, label %if.end247
 
 if.then242:                                       ; preds = %if.else240
   %arrayidx243 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 5
-  %140 = load i32, ptr %arrayidx243, align 4
-  %or244 = or i32 %140, 4
+  %141 = load i32, ptr %arrayidx243, align 4
+  %or244 = or i32 %141, 4
   store i32 %or244, ptr %arrayidx243, align 4
   %fUsePoolBundle245 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 16
-  %141 = load ptr, ptr %fUsePoolBundle245, align 8
-  %fChecksum = getelementptr inbounds %struct.ResFile, ptr %141, i32 0, i32 7
-  %142 = load i32, ptr %fChecksum, align 4
+  %142 = load ptr, ptr %fUsePoolBundle245, align 8
+  %fChecksum = getelementptr inbounds %struct.ResFile, ptr %142, i32 0, i32 7
+  %143 = load i32, ptr %fChecksum, align 4
   %arrayidx246 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 7
-  store i32 %142, ptr %arrayidx246, align 4
+  store i32 %143, ptr %arrayidx246, align 4
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then242, %if.else240
@@ -4736,80 +4751,80 @@ if.end248:                                        ; preds = %if.end247, %if.end2
 
 if.end249:                                        ; preds = %if.end248, %if.end186
   %fPoolStringIndexLimit250 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 17
-  %143 = load i32, ptr %fPoolStringIndexLimit250, align 8
-  %shl251 = shl i32 %143, 8
+  %144 = load i32, ptr %fPoolStringIndexLimit250, align 8
+  %shl251 = shl i32 %144, 8
   %arrayidx252 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 0
-  %144 = load i32, ptr %arrayidx252, align 16
-  %or253 = or i32 %144, %shl251
+  %145 = load i32, ptr %arrayidx252, align 16
+  %or253 = or i32 %145, %shl251
   store i32 %or253, ptr %arrayidx252, align 16
   %fPoolStringIndexLimit254 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 17
-  %145 = load i32, ptr %fPoolStringIndexLimit254, align 8
-  %shr255 = ashr i32 %145, 12
+  %146 = load i32, ptr %fPoolStringIndexLimit254, align 8
+  %shr255 = ashr i32 %146, 12
   %and256 = and i32 %shr255, 61440
   %arrayidx257 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 5
-  %146 = load i32, ptr %arrayidx257, align 4
-  %or258 = or i32 %146, %and256
+  %147 = load i32, ptr %arrayidx257, align 4
+  %or258 = or i32 %147, %and256
   store i32 %or258, ptr %arrayidx257, align 4
   %fPoolStringIndex16Limit259 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 18
-  %147 = load i32, ptr %fPoolStringIndex16Limit259, align 4
-  %shl260 = shl i32 %147, 16
+  %148 = load i32, ptr %fPoolStringIndex16Limit259, align 4
+  %shl260 = shl i32 %148, 16
   %arrayidx261 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 5
-  %148 = load i32, ptr %arrayidx261, align 4
-  %or262 = or i32 %148, %shl260
+  %149 = load i32, ptr %arrayidx261, align 4
+  %or262 = or i32 %149, %shl260
   store i32 %or262, ptr %arrayidx261, align 4
-  %149 = load ptr, ptr %mem, align 8
+  %150 = load ptr, ptr %mem, align 8
   %arraydecay263 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 0
   %fIndexLength264 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 2
-  %150 = load i32, ptr %fIndexLength264, align 8
-  %mul265 = mul nsw i32 %150, 4
-  call void @udata_writeBlock(ptr noundef %149, ptr noundef %arraydecay263, i32 noundef %mul265)
-  %151 = load ptr, ptr %mem, align 8
+  %151 = load i32, ptr %fIndexLength264, align 8
+  %mul265 = mul nsw i32 %151, 4
+  call void @udata_writeBlock(ptr noundef %150, ptr noundef %arraydecay263, i32 noundef %mul265)
+  %152 = load ptr, ptr %mem, align 8
   %fKeys266 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 7
-  %152 = load ptr, ptr %fKeys266, align 8
+  %153 = load ptr, ptr %fKeys266, align 8
   %fKeysBottom267 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 9
-  %153 = load i32, ptr %fKeysBottom267, align 8
-  %idx.ext268 = sext i32 %153 to i64
-  %add.ptr269 = getelementptr inbounds i8, ptr %152, i64 %idx.ext268
+  %154 = load i32, ptr %fKeysBottom267, align 8
+  %idx.ext268 = sext i32 %154 to i64
+  %add.ptr269 = getelementptr inbounds i8, ptr %153, i64 %idx.ext268
   %fKeysTop270 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 10
-  %154 = load i32, ptr %fKeysTop270, align 4
+  %155 = load i32, ptr %fKeysTop270, align 4
   %fKeysBottom271 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 9
-  %155 = load i32, ptr %fKeysBottom271, align 8
-  %sub272 = sub nsw i32 %154, %155
-  call void @udata_writeBlock(ptr noundef %151, ptr noundef %add.ptr269, i32 noundef %sub272)
-  %156 = load ptr, ptr %mem, align 8
+  %156 = load i32, ptr %fKeysBottom271, align 8
+  %sub272 = sub nsw i32 %155, %156
+  call void @udata_writeBlock(ptr noundef %152, ptr noundef %add.ptr269, i32 noundef %sub272)
+  %157 = load ptr, ptr %mem, align 8
   %f16BitUnits273 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 14
   %call274 = call noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %f16BitUnits273)
   %f16BitUnits275 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 14
   %call276 = call noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %f16BitUnits275)
   %mul277 = mul nsw i32 %call276, 2
-  call void @udata_writeBlock(ptr noundef %156, ptr noundef %call274, i32 noundef %mul277)
+  call void @udata_writeBlock(ptr noundef %157, ptr noundef %call274, i32 noundef %mul277)
   %fKeysTop278 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 10
-  %157 = load i32, ptr %fKeysTop278, align 4
+  %158 = load i32, ptr %fKeysTop278, align 4
   %f16BitUnits279 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 14
   %call280 = call noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %f16BitUnits279)
   %mul281 = mul nsw i32 %call280, 2
-  %add282 = add nsw i32 %157, %mul281
+  %add282 = add nsw i32 %158, %mul281
   store i32 %add282, ptr %byteOffset, align 4
   %fRoot283 = getelementptr inbounds %struct.SRBRoot, ptr %this1, i32 0, i32 0
-  %158 = load ptr, ptr %fRoot283, align 8
-  %159 = load ptr, ptr %mem, align 8
-  call void @_ZN9SResource5writeEP14UNewDataMemoryPj(ptr noundef nonnull align 8 dereferenceable(56) %158, ptr noundef %159, ptr noundef %byteOffset)
+  %159 = load ptr, ptr %fRoot283, align 8
   %160 = load ptr, ptr %mem, align 8
-  %161 = load ptr, ptr %errorCode.addr, align 8
-  %call284 = call i32 @udata_finish(ptr noundef %160, ptr noundef %161)
+  call void @_ZN9SResource5writeEP14UNewDataMemoryPj(ptr noundef nonnull align 8 dereferenceable(56) %159, ptr noundef %160, ptr noundef %byteOffset)
+  %161 = load ptr, ptr %mem, align 8
+  %162 = load ptr, ptr %errorCode.addr, align 8
+  %call284 = call i32 @udata_finish(ptr noundef %161, ptr noundef %162)
   store i32 %call284, ptr %size, align 4
-  %162 = load i32, ptr %top, align 4
-  %163 = load i32, ptr %size, align 4
-  %cmp285 = icmp ne i32 %162, %163
+  %163 = load i32, ptr %top, align 4
+  %164 = load i32, ptr %size, align 4
+  %cmp285 = icmp ne i32 %163, %164
   br i1 %cmp285, label %if.then286, label %if.end288
 
 if.then286:                                       ; preds = %if.end249
-  %164 = load ptr, ptr @stderr, align 8
-  %165 = load i32, ptr %size, align 4
-  %166 = load i32, ptr %top, align 4
-  %call287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.7, i32 noundef %165, i32 noundef %166)
-  %167 = load ptr, ptr %errorCode.addr, align 8
-  store i32 5, ptr %167, align 4
+  %165 = load ptr, ptr @stderr, align 8
+  %166 = load i32, ptr %size, align 4
+  %167 = load i32, ptr %top, align 4
+  %call287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef @.str.7, i32 noundef %166, i32 noundef %167)
+  %168 = load ptr, ptr %errorCode.addr, align 8
+  store i32 5, ptr %168, align 4
   br label %if.end288
 
 if.end288:                                        ; preds = %if.then286, %if.end249, %if.then160, %if.then68, %if.then41, %if.then35
@@ -6654,12 +6669,13 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TableResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13TableResource, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %fTableType = getelementptr inbounds %class.TableResource, ptr %this1, i32 0, i32 1
   store i8 2, ptr %fTableType, align 8
   %fRoot = getelementptr inbounds %class.TableResource, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %bundle.addr, align 8
-  store ptr %4, ptr %fRoot, align 8
+  %5 = load ptr, ptr %bundle.addr, align 8
+  store ptr %5, ptr %fRoot, align 8
   ret void
 }
 
@@ -6830,7 +6846,8 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 8, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ArrayResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13ArrayResource, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %fLast = getelementptr inbounds %class.ArrayResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fLast, align 8
   ret void
@@ -7015,7 +7032,8 @@ entry:
   %4 = load ptr, ptr %comment.addr, align 8
   %5 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %fSame = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fSame, align 8
   %fSuffixOffset = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 2
@@ -7208,7 +7226,8 @@ entry:
   %4 = load ptr, ptr %comment.addr, align 8
   %5 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 3, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13AliasResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13AliasResource, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   ret void
 }
 
@@ -7814,7 +7833,8 @@ entry:
   %0 = load ptr, ptr %bundle.addr, align 8
   %1 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef null, i8 noundef signext 2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -9027,7 +9047,8 @@ entry:
   %1 = load ptr, ptr %value.addr, align 8
   %2 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %fSame = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fSame, align 8
   %fSuffixOffset = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 2
@@ -9385,7 +9406,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9395,7 +9417,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9613,7 +9636,8 @@ entry:
   %3 = load ptr, ptr %comment.addr, align 8
   %4 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %fCount = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 1
   store i32 0, ptr %fCount, align 8
   %fFirst = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 2

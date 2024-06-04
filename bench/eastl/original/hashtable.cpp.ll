@@ -35,12 +35,13 @@ entry:
   %nBucketCountHint.addr = alloca i32, align 4
   %nPrime = alloca i32, align 4
   store i32 %nBucketCountHint, ptr %nBucketCountHint.addr, align 4
-  %call = call noundef ptr @_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef getelementptr inbounds (i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256), ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
+  %0 = getelementptr inbounds i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256
+  %call = call noundef ptr @_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 -1
-  %0 = load i32, ptr %add.ptr, align 4
-  store i32 %0, ptr %nPrime, align 4
-  %1 = load i32, ptr %nPrime, align 4
-  ret i32 %1
+  %1 = load i32, ptr %add.ptr, align 4
+  store i32 %1, ptr %nPrime, align 4
+  %2 = load i32, ptr %nPrime, align 4
+  ret i32 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -115,21 +116,22 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %nBucketCountHint, ptr %nBucketCountHint.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef getelementptr inbounds (i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256), ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
+  %0 = getelementptr inbounds i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256
+  %call = call noundef ptr @_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 -1
-  %0 = load i32, ptr %add.ptr, align 4
-  store i32 %0, ptr %nPrime, align 4
-  %1 = load i32, ptr %nPrime, align 4
-  %conv = uitofp i32 %1 to float
+  %1 = load i32, ptr %add.ptr, align 4
+  store i32 %1, ptr %nPrime, align 4
+  %2 = load i32, ptr %nPrime, align 4
+  %conv = uitofp i32 %2 to float
   %mfMaxLoadFactor = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
-  %2 = load float, ptr %mfMaxLoadFactor, align 4
-  %mul = fmul float %conv, %2
-  %3 = call float @llvm.ceil.f32(float %mul)
-  %conv2 = fptoui float %3 to i32
+  %3 = load float, ptr %mfMaxLoadFactor, align 4
+  %mul = fmul float %conv, %3
+  %4 = call float @llvm.ceil.f32(float %mul)
+  %conv2 = fptoui float %4 to i32
   %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
   store i32 %conv2, ptr %mnNextResize, align 4
-  %4 = load i32, ptr %nPrime, align 4
-  ret i32 %4
+  %5 = load i32, ptr %nPrime, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -144,20 +146,21 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %nBucketCountHint, ptr %nBucketCountHint.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef getelementptr inbounds (i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256), ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
-  %0 = load i32, ptr %call, align 4
-  store i32 %0, ptr %nPrime, align 4
-  %1 = load i32, ptr %nPrime, align 4
-  %conv = uitofp i32 %1 to float
+  %0 = getelementptr inbounds i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256
+  %call = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %nBucketCountHint.addr)
+  %1 = load i32, ptr %call, align 4
+  store i32 %1, ptr %nPrime, align 4
+  %2 = load i32, ptr %nPrime, align 4
+  %conv = uitofp i32 %2 to float
   %mfMaxLoadFactor = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
-  %2 = load float, ptr %mfMaxLoadFactor, align 4
-  %mul = fmul float %conv, %2
-  %3 = call float @llvm.ceil.f32(float %mul)
-  %conv2 = fptoui float %3 to i32
+  %3 = load float, ptr %mfMaxLoadFactor, align 4
+  %mul = fmul float %conv, %3
+  %4 = call float @llvm.ceil.f32(float %mul)
+  %conv2 = fptoui float %4 to i32
   %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
   store i32 %conv2, ptr %mnNextResize, align 4
-  %4 = load i32, ptr %nPrime, align 4
-  ret i32 %4
+  %5 = load i32, ptr %nPrime, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -240,20 +243,21 @@ entry:
   %div = fdiv float %conv, %1
   %conv2 = fptoui float %div to i32
   store i32 %conv2, ptr %nMinBucketCount, align 4
-  %call = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef getelementptr inbounds (i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256), ptr noundef nonnull align 4 dereferenceable(4) %nMinBucketCount)
-  %2 = load i32, ptr %call, align 4
-  store i32 %2, ptr %nPrime, align 4
-  %3 = load i32, ptr %nPrime, align 4
-  %conv3 = uitofp i32 %3 to float
+  %2 = getelementptr inbounds i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256
+  %call = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %nMinBucketCount)
+  %3 = load i32, ptr %call, align 4
+  store i32 %3, ptr %nPrime, align 4
+  %4 = load i32, ptr %nPrime, align 4
+  %conv3 = uitofp i32 %4 to float
   %mfMaxLoadFactor4 = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
-  %4 = load float, ptr %mfMaxLoadFactor4, align 4
-  %mul = fmul float %conv3, %4
-  %5 = call float @llvm.ceil.f32(float %mul)
-  %conv5 = fptoui float %5 to i32
+  %5 = load float, ptr %mfMaxLoadFactor4, align 4
+  %mul = fmul float %conv3, %5
+  %6 = call float @llvm.ceil.f32(float %mul)
+  %conv5 = fptoui float %6 to i32
   %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
   store i32 %conv5, ptr %mnNextResize, align 4
-  %6 = load i32, ptr %nPrime, align 4
-  ret i32 %6
+  %7 = load i32, ptr %nPrime, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -321,16 +325,17 @@ if.then7:                                         ; preds = %if.end
   %12 = load float, ptr %fMinBucketCount, align 4
   %conv9 = fptoui float %12 to i32
   store i32 %conv9, ptr %ref.tmp, align 4
-  %call10 = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef getelementptr inbounds (i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  %13 = load i32, ptr %call10, align 4
-  store i32 %13, ptr %nPrime, align 4
-  %14 = load i32, ptr %nPrime, align 4
-  %conv11 = uitofp i32 %14 to float
+  %13 = getelementptr inbounds i32, ptr @_ZN5eastlL17gPrimeNumberArrayE, i64 256
+  %call10 = call noundef ptr @_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_(ptr noundef @_ZN5eastlL17gPrimeNumberArrayE, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  %14 = load i32, ptr %call10, align 4
+  store i32 %14, ptr %nPrime, align 4
+  %15 = load i32, ptr %nPrime, align 4
+  %conv11 = uitofp i32 %15 to float
   %mfMaxLoadFactor12 = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
-  %15 = load float, ptr %mfMaxLoadFactor12, align 4
-  %mul13 = fmul float %conv11, %15
-  %16 = call float @llvm.ceil.f32(float %mul13)
-  %conv14 = fptoui float %16 to i32
+  %16 = load float, ptr %mfMaxLoadFactor12, align 4
+  %mul13 = fmul float %conv11, %16
+  %17 = call float @llvm.ceil.f32(float %mul13)
+  %conv14 = fptoui float %17 to i32
   %mnNextResize15 = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
   store i32 %conv14, ptr %mnNextResize15, align 4
   store i8 1, ptr %ref.tmp16, align 1
@@ -338,13 +343,13 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %17 = load i32, ptr %nBucketCount.addr, align 4
-  %conv17 = uitofp i32 %17 to float
+  %18 = load i32, ptr %nBucketCount.addr, align 4
+  %conv17 = uitofp i32 %18 to float
   %mfMaxLoadFactor18 = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
-  %18 = load float, ptr %mfMaxLoadFactor18, align 4
-  %mul19 = fmul float %conv17, %18
-  %19 = call float @llvm.ceil.f32(float %mul19)
-  %conv20 = fptoui float %19 to i32
+  %19 = load float, ptr %mfMaxLoadFactor18, align 4
+  %mul19 = fmul float %conv17, %19
+  %20 = call float @llvm.ceil.f32(float %mul19)
+  %conv20 = fptoui float %20 to i32
   %mnNextResize21 = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
   store i32 %conv20, ptr %mnNextResize21, align 4
   store i8 0, ptr %ref.tmp22, align 1
@@ -359,8 +364,8 @@ if.end24:                                         ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end24, %if.else, %if.then7
-  %20 = load i64, ptr %retval, align 4
-  ret i64 %20
+  %21 = load i64, ptr %retval, align 4
+  ret i64 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -442,21 +442,22 @@ entry:
   store ptr %fB, ptr %fB.addr, align 8
   store i32 %indexB, ptr %indexB.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9b2Contact, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV9b2Contact, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_flags = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 1
   store i32 4, ptr %m_flags, align 8
-  %0 = load ptr, ptr %fA.addr, align 8
+  %1 = load ptr, ptr %fA.addr, align 8
   %m_fixtureA = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 6
-  store ptr %0, ptr %m_fixtureA, align 8
-  %1 = load ptr, ptr %fB.addr, align 8
+  store ptr %1, ptr %m_fixtureA, align 8
+  %2 = load ptr, ptr %fB.addr, align 8
   %m_fixtureB = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 7
-  store ptr %1, ptr %m_fixtureB, align 8
-  %2 = load i32, ptr %indexA.addr, align 4
+  store ptr %2, ptr %m_fixtureB, align 8
+  %3 = load i32, ptr %indexA.addr, align 4
   %m_indexA = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 8
-  store i32 %2, ptr %m_indexA, align 8
-  %3 = load i32, ptr %indexB.addr, align 4
+  store i32 %3, ptr %m_indexA, align 8
+  %4 = load i32, ptr %indexB.addr, align 4
   %m_indexB = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 9
-  store i32 %3, ptr %m_indexB, align 4
+  store i32 %4, ptr %m_indexB, align 4
   %m_manifold2 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 10
   %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %m_manifold2, i32 0, i32 4
   store i32 0, ptr %pointCount, align 4
@@ -491,36 +492,36 @@ entry:
   %m_toiCount = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 11
   store i32 0, ptr %m_toiCount, align 8
   %m_fixtureA15 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %m_fixtureA15, align 8
-  %m_friction = getelementptr inbounds %class.b2Fixture, ptr %4, i32 0, i32 4
-  %5 = load float, ptr %m_friction, align 8
+  %5 = load ptr, ptr %m_fixtureA15, align 8
+  %m_friction = getelementptr inbounds %class.b2Fixture, ptr %5, i32 0, i32 4
+  %6 = load float, ptr %m_friction, align 8
   %m_fixtureB16 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %m_fixtureB16, align 8
-  %m_friction17 = getelementptr inbounds %class.b2Fixture, ptr %6, i32 0, i32 4
-  %7 = load float, ptr %m_friction17, align 8
-  %call = call noundef float @_Z13b2MixFrictionff(float noundef %5, float noundef %7)
+  %7 = load ptr, ptr %m_fixtureB16, align 8
+  %m_friction17 = getelementptr inbounds %class.b2Fixture, ptr %7, i32 0, i32 4
+  %8 = load float, ptr %m_friction17, align 8
+  %call = call noundef float @_Z13b2MixFrictionff(float noundef %6, float noundef %8)
   %m_friction18 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 13
   store float %call, ptr %m_friction18, align 8
   %m_fixtureA19 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 6
-  %8 = load ptr, ptr %m_fixtureA19, align 8
-  %m_restitution = getelementptr inbounds %class.b2Fixture, ptr %8, i32 0, i32 5
-  %9 = load float, ptr %m_restitution, align 4
+  %9 = load ptr, ptr %m_fixtureA19, align 8
+  %m_restitution = getelementptr inbounds %class.b2Fixture, ptr %9, i32 0, i32 5
+  %10 = load float, ptr %m_restitution, align 4
   %m_fixtureB20 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 7
-  %10 = load ptr, ptr %m_fixtureB20, align 8
-  %m_restitution21 = getelementptr inbounds %class.b2Fixture, ptr %10, i32 0, i32 5
-  %11 = load float, ptr %m_restitution21, align 4
-  %call22 = call noundef float @_Z16b2MixRestitutionff(float noundef %9, float noundef %11)
+  %11 = load ptr, ptr %m_fixtureB20, align 8
+  %m_restitution21 = getelementptr inbounds %class.b2Fixture, ptr %11, i32 0, i32 5
+  %12 = load float, ptr %m_restitution21, align 4
+  %call22 = call noundef float @_Z16b2MixRestitutionff(float noundef %10, float noundef %12)
   %m_restitution23 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 14
   store float %call22, ptr %m_restitution23, align 4
   %m_fixtureA24 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 6
-  %12 = load ptr, ptr %m_fixtureA24, align 8
-  %m_restitutionThreshold = getelementptr inbounds %class.b2Fixture, ptr %12, i32 0, i32 6
-  %13 = load float, ptr %m_restitutionThreshold, align 8
+  %13 = load ptr, ptr %m_fixtureA24, align 8
+  %m_restitutionThreshold = getelementptr inbounds %class.b2Fixture, ptr %13, i32 0, i32 6
+  %14 = load float, ptr %m_restitutionThreshold, align 8
   %m_fixtureB25 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 7
-  %14 = load ptr, ptr %m_fixtureB25, align 8
-  %m_restitutionThreshold26 = getelementptr inbounds %class.b2Fixture, ptr %14, i32 0, i32 6
-  %15 = load float, ptr %m_restitutionThreshold26, align 8
-  %call27 = call noundef float @_Z25b2MixRestitutionThresholdff(float noundef %13, float noundef %15)
+  %15 = load ptr, ptr %m_fixtureB25, align 8
+  %m_restitutionThreshold26 = getelementptr inbounds %class.b2Fixture, ptr %15, i32 0, i32 6
+  %16 = load float, ptr %m_restitutionThreshold26, align 8
+  %call27 = call noundef float @_Z25b2MixRestitutionThresholdff(float noundef %14, float noundef %16)
   %m_restitutionThreshold28 = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 15
   store float %call27, ptr %m_restitutionThreshold28, align 8
   %m_tangentSpeed = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 16

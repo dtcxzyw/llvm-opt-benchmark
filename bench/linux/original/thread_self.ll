@@ -115,30 +115,34 @@ define internal noundef ptr @proc_thread_self_get_link(ptr noundef readnone %0, 
   %11 = tail call i32 @__task_pid_nr_ns(ptr noundef %10, i32 noundef 1, ptr noundef %8) #6
   %12 = tail call i32 @__task_pid_nr_ns(ptr noundef %10, i32 noundef 0, ptr noundef %8) #6
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %25, label %14
+  %14 = inttoptr i64 -2 to ptr
+  br i1 %13, label %29, label %15
 
-14:                                               ; preds = %3
-  %15 = icmp eq ptr %0, null
-  %16 = select i1 %15, i32 2080, i32 3264
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %18 = tail call noalias align 8 dereferenceable_or_null(27) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %16, i64 noundef 27) #9
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %22, !prof !6
+15:                                               ; preds = %3
+  %16 = icmp eq ptr %0, null
+  %17 = select i1 %16, i32 2080, i32 3264
+  %18 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noalias align 8 dereferenceable_or_null(27) ptr @kmalloc_trace(ptr noundef %19, i32 noundef %17, i64 noundef 27) #9
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %26, !prof !6
 
-20:                                               ; preds = %14
-  %21 = select i1 %15, ptr inttoptr (i64 -10 to ptr), ptr inttoptr (i64 -12 to ptr)
-  br label %25
+22:                                               ; preds = %15
+  %23 = inttoptr i64 -10 to ptr
+  %24 = inttoptr i64 -12 to ptr
+  %25 = select i1 %16, ptr %23, ptr %24
+  br label %29
 
-22:                                               ; preds = %14
-  %23 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %11, i32 noundef %12) #6
+26:                                               ; preds = %15
+  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %11, i32 noundef %12) #6
   store ptr @kfree_link, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %18, ptr %24, align 8
-  br label %25
+  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %20, ptr %28, align 8
+  br label %29
 
-25:                                               ; preds = %22, %20, %3
-  %26 = phi ptr [ %18, %22 ], [ inttoptr (i64 -2 to ptr), %3 ], [ %21, %20 ]
-  ret ptr %26
+29:                                               ; preds = %26, %22, %3
+  %30 = phi ptr [ %20, %26 ], [ %14, %3 ], [ %25, %22 ]
+  ret ptr %30
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

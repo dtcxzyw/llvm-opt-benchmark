@@ -1140,142 +1140,144 @@ define void @_ZN13FileSetDialogC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %14 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef %13, i32 %15)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
-          to label %19 unwind label %65
-
-19:                                               ; preds = %2
+  %16 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 1, i32 2
   store ptr %18, ptr %17, align 8
-  %20 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 2
-  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #15
-          to label %22 unwind label %65
+  %19 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
+          to label %21 unwind label %67
 
-22:                                               ; preds = %19
-  invoke void @_ZN17FilesetEntryModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef %12)
-          to label %23 unwind label %69
+21:                                               ; preds = %2
+  store ptr %20, ptr %19, align 8
+  %22 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 2
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #15
+          to label %24 unwind label %67
 
-23:                                               ; preds = %22
-  store ptr %21, ptr %20, align 8
-  %24 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 3
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  invoke void @_ZN16Ui_FileSetDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef %12)
-          to label %27 unwind label %65
+24:                                               ; preds = %21
+  invoke void @_ZN17FilesetEntryModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef %12)
+          to label %25 unwind label %71
 
-27:                                               ; preds = %23
+25:                                               ; preds = %24
+  store ptr %23, ptr %22, align 8
+  %26 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 3
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  invoke void @_ZN16Ui_FileSetDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef %12)
+          to label %29 unwind label %67
+
+29:                                               ; preds = %25
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %28 unwind label %73
+          to label %30 unwind label %75
 
-28:                                               ; preds = %27
+30:                                               ; preds = %29
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %29 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %30, i32 0, i32 6
+  %31 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 2
+  %33 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %32, i32 0, i32 6
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 57
-  %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef %34)
-          to label %38 unwind label %65
+  %35 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 57
+  %39 = load ptr, ptr %38, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef %36)
+          to label %40 unwind label %67
 
-38:                                               ; preds = %28
-  %39 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %40, i32 0, i32 6
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  invoke void @_ZN7QWidget8setFocusEv(ptr noundef nonnull align 8 dereferenceable(40) %42)
-          to label %43 unwind label %65
+  %43 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8
+  invoke void @_ZN7QWidget8setFocusEv(ptr noundef nonnull align 8 dereferenceable(40) %44)
+          to label %45 unwind label %67
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %45, i32 0, i32 5
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 2097152)
-          to label %49 unwind label %65
+  %48 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %47, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8
+  %50 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %49, i32 noundef 2097152)
+          to label %51 unwind label %67
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 3
-  store ptr %48, ptr %50, align 8
-  %51 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %52, i32 0, i32 6
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 3
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds %class.FileSetDialog, ptr %12, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
-  %55 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef nonnull align 8 dereferenceable(40) %54)
-          to label %56 unwind label %65
+  %55 = getelementptr inbounds %class.Ui_FileSetDialog, ptr %54, i32 0, i32 6
+  %56 = load ptr, ptr %55, align 8
+  %57 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef nonnull align 8 dereferenceable(40) %56)
+          to label %58 unwind label %67
 
-56:                                               ; preds = %49
+58:                                               ; preds = %51
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN19QItemSelectionModel16selectionChangedERK14QItemSelectionS2_ to i64), i64 0 }, ptr %10, align 8
-  %57 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 1
+  %59 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
   %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN13FileSetDialog16selectionChangedERK14QItemSelectionS2_ to i64), i64 0 }, ptr %11, align 8
-  invoke void @_ZN7QObject7connectIM19QItemSelectionModelFvRK14QItemSelectionS4_EM13FileSetDialogFvS4_S4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %55, i64 %58, i64 %60, ptr noundef %12, ptr noundef byval({ i64, i64 }) align 8 %11, i32 noundef 0)
-          to label %61 unwind label %65
+  invoke void @_ZN7QObject7connectIM19QItemSelectionModelFvRK14QItemSelectionS4_EM13FileSetDialogFvS4_S4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %57, i64 %60, i64 %62, ptr noundef %12, ptr noundef byval({ i64, i64 }) align 8 %11, i32 noundef 0)
+          to label %63 unwind label %67
 
-61:                                               ; preds = %56
+63:                                               ; preds = %58
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
   invoke void @_ZN13FileSetDialog12beginAddFileEv(ptr noundef nonnull align 8 dereferenceable(92) %12)
-          to label %62 unwind label %65
-
-62:                                               ; preds = %61
-  invoke void @_ZN13FileSetDialog7addFileEP14_fileset_entry(ptr noundef nonnull align 8 dereferenceable(92) %12, ptr noundef null)
-          to label %63 unwind label %65
-
-63:                                               ; preds = %62
-  invoke void @_ZN13FileSetDialog10endAddFileEv(ptr noundef nonnull align 8 dereferenceable(92) %12)
-          to label %64 unwind label %65
+          to label %64 unwind label %67
 
 64:                                               ; preds = %63
+  invoke void @_ZN13FileSetDialog7addFileEP14_fileset_entry(ptr noundef nonnull align 8 dereferenceable(92) %12, ptr noundef null)
+          to label %65 unwind label %67
+
+65:                                               ; preds = %64
+  invoke void @_ZN13FileSetDialog10endAddFileEv(ptr noundef nonnull align 8 dereferenceable(92) %12)
+          to label %66 unwind label %67
+
+66:                                               ; preds = %65
   ret void
 
-65:                                               ; preds = %63, %62, %61, %56, %49, %43, %38, %28, %23, %19, %2
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %65, %64, %63, %58, %51, %45, %40, %30, %25, %21, %2
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %6, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %7, align 4
-  br label %77
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %6, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %7, align 4
+  br label %79
 
-69:                                               ; preds = %22
-  %70 = landingpad { ptr, i32 }
+71:                                               ; preds = %24
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %6, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %21) #16
-  br label %77
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %6, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %7, align 4
+  call void @_ZdlPv(ptr noundef %23) #16
+  br label %79
 
-73:                                               ; preds = %27
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %29
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %6, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %7, align 4
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %6, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  br label %77
+  br label %79
 
-77:                                               ; preds = %73, %69, %65
+79:                                               ; preds = %75, %71, %67
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #14
-  br label %78
+  br label %80
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %7, align 4
-  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
-  resume { ptr, i32 } %82
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %6, align 8
+  %82 = load i32, ptr %7, align 4
+  %83 = insertvalue { ptr, i32 } poison, ptr %81, 0
+  %84 = insertvalue { ptr, i32 } %83, i32 %82, 1
+  resume { ptr, i32 } %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1303,11 +1305,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   ret void
 }
 
@@ -2102,33 +2106,35 @@ define void @_ZN13FileSetDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.FileSetDialog, ptr %3, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  invoke void @_ZN17FilesetEntryModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %7 unwind label %13
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV13FileSetDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.FileSetDialog, ptr %3, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  invoke void @_ZN17FilesetEntryModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+          to label %9 unwind label %15
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.FileSetDialog, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %class.FileSetDialog, ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-11:                                               ; preds = %7
-  call void @_ZdlPv(ptr noundef %9) #16
-  br label %12
+13:                                               ; preds = %9
+  call void @_ZdlPv(ptr noundef %11) #16
+  br label %14
 
-12:                                               ; preds = %11, %7
+14:                                               ; preds = %13, %9
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+15:                                               ; preds = %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #17
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #17
   unreachable
 }
 
@@ -6416,47 +6422,49 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QI
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %13, !prof !10
+  br i1 %4, label %5, label %15, !prof !10
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t) #14
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIRK14QItemSelectionLb1EE14qt_metatype_idEv()
-          to label %10 unwind label %14
+          to label %10 unwind label %16
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t, align 4
   %11 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIRK14QItemSelectionLb1EE14qt_metatype_idEv()
-          to label %12 unwind label %14
+          to label %12 unwind label %16
 
 12:                                               ; preds = %10
-  store i32 %11, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t, i64 2), align 4
+  %13 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t, i64 1
+  store i32 %11, ptr %13, align 4
+  %14 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t, i64 2
+  store i32 0, ptr %14, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t) #14
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %5, %0
+15:                                               ; preds = %12, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t
 
-14:                                               ; preds = %10, %8
-  %15 = landingpad { ptr, i32 }
+16:                                               ; preds = %10, %8
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %1, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %2, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %1, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJRK14QItemSelectionS4_EEELb1EE5typesEvE1t) #14
-  br label %18
+  br label %20
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %1, align 8
-  %20 = load i32, ptr %2, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %1, align 8
+  %22 = load i32, ptr %2, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

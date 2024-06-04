@@ -1296,7 +1296,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb26SecondaryCacheResultHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inner_handle_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %inner_handle_) #8
   %ctx_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 2
@@ -2132,7 +2133,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nvm_sec_cache_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nvm_sec_cache_) #8
   %comp_sec_cache_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this1, i32 0, i32 1
@@ -3397,7 +3399,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb26SecondaryCacheResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb26SecondaryCacheResultHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3419,7 +3422,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ctx_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 2
   call void @_ZN7rocksdb20TieredSecondaryCache13CreateContextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ctx_) #8
   %inner_handle_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 1
@@ -4005,7 +4009,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::SecondaryCacheWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_) #8
   call void @_ZN7rocksdb14SecondaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #8
@@ -4177,7 +4182,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #8
   ret void

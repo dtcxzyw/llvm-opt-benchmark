@@ -134,91 +134,93 @@ define i32 @mpi_p_slurmstepd_task(ptr noundef %0, ptr noundef %1) #0 {
   %15 = load i32, ptr %14, align 4
   %16 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %6, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef %15)
   %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 11), align 8
-  %19 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %17, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %18)
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.mpi_task_info_t, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %20, ptr noundef @.str.6, ptr noundef @.str.3, i32 noundef %23)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.mpi_task_info_t, ptr %26, i32 0, i32 6
-  %28 = load i32, ptr %27, align 4
-  %29 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %25, ptr noundef @.str.7, ptr noundef @.str.3, i32 noundef %28)
-  %30 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 7), align 8
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %35
+  %18 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 11
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %17, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %19)
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.mpi_task_info_t, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %21, ptr noundef @.str.6, ptr noundef @.str.3, i32 noundef %24)
+  %26 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds %struct.mpi_task_info_t, ptr %27, i32 0, i32 6
+  %29 = load i32, ptr %28, align 4
+  %30 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %26, ptr noundef @.str.7, ptr noundef @.str.3, i32 noundef %29)
+  %31 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 7
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %37
 
-32:                                               ; preds = %2
-  %33 = load ptr, ptr %4, align 8
-  %34 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %33, ptr noundef @.str.8, ptr noundef @.str.3, i32 noundef 1)
-  br label %35
+34:                                               ; preds = %2
+  %35 = load ptr, ptr %4, align 8
+  %36 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %35, ptr noundef @.str.8, ptr noundef @.str.3, i32 noundef 1)
+  br label %37
 
-35:                                               ; preds = %32, %2
-  %36 = load i32, ptr @tree_sock, align 4
-  %37 = call i32 @close(i32 noundef %36)
+37:                                               ; preds = %34, %2
+  %38 = load i32, ptr @tree_sock, align 4
+  %39 = call i32 @close(i32 noundef %38)
   store i32 0, ptr @tree_sock, align 4
   store i32 0, ptr %5, align 4
-  br label %38
+  br label %40
 
-38:                                               ; preds = %78, %35
-  %39 = load i32, ptr %5, align 4
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.mpi_task_info_t, ptr %40, i32 0, i32 3
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp ult i32 %39, %42
-  br i1 %43, label %44, label %81
+40:                                               ; preds = %80, %37
+  %41 = load i32, ptr %5, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds %struct.mpi_task_info_t, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ult i32 %41, %44
+  br i1 %45, label %46, label %83
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr @task_socks, align 8
-  %46 = load i32, ptr %5, align 4
-  %47 = mul nsw i32 %46, 2
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %45, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = call i32 @close(i32 noundef %50)
-  %52 = load ptr, ptr @task_socks, align 8
-  %53 = load i32, ptr %5, align 4
-  %54 = mul nsw i32 %53, 2
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %52, i64 %55
-  store i32 0, ptr %56, align 4
-  %57 = load i32, ptr %5, align 4
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.mpi_task_info_t, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp ne i32 %57, %60
-  br i1 %61, label %62, label %77
+46:                                               ; preds = %40
+  %47 = load ptr, ptr @task_socks, align 8
+  %48 = load i32, ptr %5, align 4
+  %49 = mul nsw i32 %48, 2
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %47, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = call i32 @close(i32 noundef %52)
+  %54 = load ptr, ptr @task_socks, align 8
+  %55 = load i32, ptr %5, align 4
+  %56 = mul nsw i32 %55, 2
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %54, i64 %57
+  store i32 0, ptr %58, align 4
+  %59 = load i32, ptr %5, align 4
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds %struct.mpi_task_info_t, ptr %60, i32 0, i32 2
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp ne i32 %59, %62
+  br i1 %63, label %64, label %79
 
-62:                                               ; preds = %44
-  %63 = load ptr, ptr @task_socks, align 8
-  %64 = load i32, ptr %5, align 4
-  %65 = mul nsw i32 %64, 2
-  %66 = add nsw i32 %65, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %63, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = call i32 @close(i32 noundef %69)
-  %71 = load ptr, ptr @task_socks, align 8
-  %72 = load i32, ptr %5, align 4
-  %73 = mul nsw i32 %72, 2
-  %74 = add nsw i32 %73, 1
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %71, i64 %75
-  store i32 0, ptr %76, align 4
-  br label %77
+64:                                               ; preds = %46
+  %65 = load ptr, ptr @task_socks, align 8
+  %66 = load i32, ptr %5, align 4
+  %67 = mul nsw i32 %66, 2
+  %68 = add nsw i32 %67, 1
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i32, ptr %65, i64 %69
+  %71 = load i32, ptr %70, align 4
+  %72 = call i32 @close(i32 noundef %71)
+  %73 = load ptr, ptr @task_socks, align 8
+  %74 = load i32, ptr %5, align 4
+  %75 = mul nsw i32 %74, 2
+  %76 = add nsw i32 %75, 1
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  store i32 0, ptr %78, align 4
+  br label %79
 
-77:                                               ; preds = %62, %44
-  br label %78
+79:                                               ; preds = %64, %46
+  br label %80
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %5, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %5, align 4
-  br label %38, !llvm.loop !6
+80:                                               ; preds = %79
+  %81 = load i32, ptr %5, align 4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %5, align 4
+  br label %40, !llvm.loop !6
 
-81:                                               ; preds = %38
+83:                                               ; preds = %40
   ret i32 0
 }
 
@@ -265,7 +267,7 @@ define ptr @mpi_p_client_prelaunch(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %14
   store ptr null, ptr %3, align 8
-  br label %27
+  br label %28
 
 21:                                               ; preds = %14
   %22 = call i32 @pmi2_start_agent()
@@ -275,15 +277,16 @@ define ptr @mpi_p_client_prelaunch(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %21
   %25 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.10)
   store ptr null, ptr %3, align 8
-  br label %27
+  br label %28
 
 26:                                               ; preds = %21
-  store ptr inttoptr (i64 305419896 to ptr), ptr %3, align 8
-  br label %27
+  %27 = inttoptr i64 305419896 to ptr
+  store ptr %27, ptr %3, align 8
+  br label %28
 
-27:                                               ; preds = %26, %24, %20
-  %28 = load ptr, ptr %3, align 8
-  ret ptr %28
+28:                                               ; preds = %26, %24, %20
+  %29 = load ptr, ptr %3, align 8
+  ret ptr %29
 }
 
 declare i32 @pmi2_setup_srun(ptr noundef, ptr noundef) #1

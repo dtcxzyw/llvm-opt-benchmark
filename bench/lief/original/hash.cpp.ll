@@ -5904,7 +5904,8 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO4HashC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF4HashC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [173 x ptr] }, ptr @_ZTVN4LIEF5MachO4HashE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [173 x ptr] }, ptr @_ZTVN4LIEF5MachO4HashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

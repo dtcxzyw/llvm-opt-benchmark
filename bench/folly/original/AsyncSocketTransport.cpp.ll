@@ -29,13 +29,15 @@ init:                                             ; preds = %init.check
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %init
-  store i16 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 1), align 8, !tbaa !8
-  store i8 0, ptr getelementptr inbounds (%"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 2), align 2, !tbaa !14
+  %2 = getelementptr inbounds %"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 1
+  store i16 0, ptr %2, align 8, !tbaa !8
+  %3 = getelementptr inbounds %"class.folly::SocketAddress", ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, i64 0, i32 2
+  store i8 0, ptr %3, align 2, !tbaa !14
   invoke void @_ZN5folly13SocketAddress13setFromIpPortEPKct(ptr noundef nonnull align 8 dereferenceable(27) @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, ptr noundef nonnull @.str, i16 noundef zeroext 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13SocketAddressD2Ev, ptr nonnull @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, ptr nonnull @__dso_handle) #5
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13SocketAddressD2Ev, ptr nonnull @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress) #5
   br label %init.end
 
@@ -43,10 +45,10 @@ init.end:                                         ; preds = %invoke.cont, %init.
   ret ptr @_ZZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress
 
 lpad:                                             ; preds = %.noexc, %init
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly20AsyncSocketTransport10anyAddressEvE10anyAddress) #5
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: nofree nounwind

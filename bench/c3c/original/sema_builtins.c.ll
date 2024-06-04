@@ -4465,7 +4465,7 @@ define internal zeroext i1 @sema_expr_analyse_syscall(ptr noundef %0, ptr nounde
   %44 = load i64, ptr %43, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %44, ptr noundef @.str.37)
   store i1 false, ptr %12, align 1
-  br label %123
+  br label %124
 
 45:                                               ; No predecessors!
   br label %46
@@ -4496,7 +4496,7 @@ define internal zeroext i1 @sema_expr_analyse_syscall(ptr noundef %0, ptr nounde
 
 61:                                               ; preds = %51
   store i1 false, ptr %12, align 1
-  br label %123
+  br label %124
 
 62:                                               ; preds = %51
   %63 = load i8, ptr %17, align 1
@@ -4555,71 +4555,72 @@ define internal zeroext i1 @sema_expr_analyse_syscall(ptr noundef %0, ptr nounde
   br label %47, !llvm.loop !12
 
 93:                                               ; preds = %47
-  %94 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  switch i32 %94, label %96 [
-    i32 3, label %95
-    i32 4, label %95
-    i32 31, label %95
-    i32 32, label %95
+  %94 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %95 = load i32, ptr %94, align 8
+  switch i32 %95, label %97 [
+    i32 3, label %96
+    i32 4, label %96
+    i32 31, label %96
+    i32 32, label %96
   ]
 
-95:                                               ; preds = %93, %93, %93, %93
-  br label %103
+96:                                               ; preds = %93, %93, %93, %93
+  br label %104
 
-96:                                               ; preds = %93
-  br label %97
+97:                                               ; preds = %93
+  br label %98
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr %14, align 8
-  %99 = getelementptr inbounds %struct.Expr_, ptr %98, i32 0, i32 1
-  %100 = getelementptr inbounds %union.SourceSpan, ptr %99, i32 0, i32 0
-  %101 = load i64, ptr %100, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %101, ptr noundef @.str.38)
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %14, align 8
+  %100 = getelementptr inbounds %struct.Expr_, ptr %99, i32 0, i32 1
+  %101 = getelementptr inbounds %union.SourceSpan, ptr %100, i32 0, i32 0
+  %102 = load i64, ptr %101, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %102, ptr noundef @.str.38)
   store i1 false, ptr %12, align 1
-  br label %123
+  br label %124
 
-102:                                              ; No predecessors!
-  br label %103
+103:                                              ; No predecessors!
+  br label %104
 
-103:                                              ; preds = %102, %95
-  %104 = load ptr, ptr @type_uptr, align 8
-  %105 = load i8, ptr %17, align 1
-  %106 = trunc i8 %105 to i1
-  store ptr %104, ptr %4, align 8
-  %107 = zext i1 %106 to i8
-  store i8 %107, ptr %5, align 1
-  %108 = load i8, ptr %5, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %114
+104:                                              ; preds = %103, %96
+  %105 = load ptr, ptr @type_uptr, align 8
+  %106 = load i8, ptr %17, align 1
+  %107 = trunc i8 %106 to i1
+  store ptr %105, ptr %4, align 8
+  %108 = zext i1 %107 to i8
+  store i8 %108, ptr %5, align 1
+  %109 = load i8, ptr %5, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %115
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %4, align 8
-  %112 = load i32, ptr %111, align 8
-  %113 = icmp eq i32 %112, 40
-  br i1 %113, label %114, label %116
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %4, align 8
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp eq i32 %113, 40
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %110, %103
-  %115 = load ptr, ptr %4, align 8
-  store ptr %115, ptr %3, align 8
-  br label %119
+115:                                              ; preds = %111, %104
+  %116 = load ptr, ptr %4, align 8
+  store ptr %116, ptr %3, align 8
+  br label %120
 
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %4, align 8
-  %118 = call ptr @type_get_optional(ptr noundef %117) #5
-  store ptr %118, ptr %3, align 8
-  br label %119
+117:                                              ; preds = %111
+  %118 = load ptr, ptr %4, align 8
+  %119 = call ptr @type_get_optional(ptr noundef %118) #5
+  store ptr %119, ptr %3, align 8
+  br label %120
 
-119:                                              ; preds = %116, %114
-  %120 = load ptr, ptr %3, align 8
-  %121 = load ptr, ptr %14, align 8
-  %122 = getelementptr inbounds %struct.Expr_, ptr %121, i32 0, i32 0
-  store ptr %120, ptr %122, align 8
+120:                                              ; preds = %117, %115
+  %121 = load ptr, ptr %3, align 8
+  %122 = load ptr, ptr %14, align 8
+  %123 = getelementptr inbounds %struct.Expr_, ptr %122, i32 0, i32 0
+  store ptr %121, ptr %123, align 8
   store i1 true, ptr %12, align 1
-  br label %123
+  br label %124
 
-123:                                              ; preds = %119, %97, %61, %38
-  %124 = load i1, ptr %12, align 1
-  ret i1 %124
+124:                                              ; preds = %120, %98, %61, %38
+  %125 = load i1, ptr %12, align 1
+  ret i1 %125
 }
 
 ; Function Attrs: nounwind uwtable

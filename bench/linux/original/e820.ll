@@ -1314,78 +1314,80 @@ define dso_local i64 @e820__memblock_alloc_reserved(i64 noundef %0, i64 noundef 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef i64 @e820__end_of_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #17
-          to label %2 [label %2, label %1], !srcloc !37
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %1) #17
+          to label %3 [label %3, label %2], !srcloc !37
 
-1:                                                ; preds = %0
-  br label %2
+2:                                                ; preds = %0
+  br label %3
 
-2:                                                ; preds = %1, %0, %0
-  %3 = phi i64 [ 17179869184, %1 ], [ 1099511627776, %0 ], [ 1099511627776, %0 ]
-  %4 = tail call fastcc i64 @e820_end_pfn(i64 noundef %3) #15
-  ret i64 %4
+3:                                                ; preds = %2, %0, %0
+  %4 = phi i64 [ 17179869184, %2 ], [ 1099511627776, %0 ], [ 1099511627776, %0 ]
+  %5 = tail call fastcc i64 @e820_end_pfn(i64 noundef %4) #15
+  ret i64 %5
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #17
-          to label %3 [label %3, label %2], !srcloc !37
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %2) #17
+          to label %4 [label %4, label %3], !srcloc !37
 
-2:                                                ; preds = %1
-  br label %3
+3:                                                ; preds = %1
+  br label %4
 
-3:                                                ; preds = %2, %1, %1
-  %4 = phi i64 [ 17179869184, %2 ], [ 1099511627776, %1 ], [ 1099511627776, %1 ]
-  %5 = load ptr, ptr @e820_table, align 8
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %36, label %8
+4:                                                ; preds = %3, %1, %1
+  %5 = phi i64 [ 17179869184, %3 ], [ 1099511627776, %1 ], [ 1099511627776, %1 ]
+  %6 = load ptr, ptr @e820_table, align 8
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %37, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
-  br label %10
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  br label %11
 
-10:                                               ; preds = %30, %8
-  %11 = phi i32 [ 0, %8 ], [ %33, %30 ]
-  %12 = phi i64 [ 0, %8 ], [ %31, %30 ]
-  %13 = sext i32 %11 to i64
-  %14 = getelementptr [320 x %struct.e820_entry], ptr %9, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 1
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %30
+11:                                               ; preds = %31, %9
+  %12 = phi i32 [ 0, %9 ], [ %34, %31 ]
+  %13 = phi i64 [ 0, %9 ], [ %32, %31 ]
+  %14 = sext i32 %12 to i64
+  %15 = getelementptr [320 x %struct.e820_entry], ptr %10, i64 0, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load i32, ptr %16, align 1
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %31
 
-18:                                               ; preds = %10
-  %19 = load i64, ptr %14, align 1
-  %20 = lshr i64 %19, 12
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 1
-  %23 = add i64 %22, %19
-  %24 = lshr i64 %23, 12
-  %25 = icmp ult i64 %20, %0
-  br i1 %25, label %26, label %30
+19:                                               ; preds = %11
+  %20 = load i64, ptr %15, align 1
+  %21 = lshr i64 %20, 12
+  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = load i64, ptr %22, align 1
+  %24 = add i64 %23, %20
+  %25 = lshr i64 %24, 12
+  %26 = icmp ult i64 %21, %0
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %18
-  %27 = icmp ugt i64 %24, %0
-  br i1 %27, label %30, label %28
+27:                                               ; preds = %19
+  %28 = icmp ugt i64 %25, %0
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call i64 @llvm.umax.i64(i64 %24, i64 %12)
-  br label %30
+29:                                               ; preds = %27
+  %30 = tail call i64 @llvm.umax.i64(i64 %25, i64 %13)
+  br label %31
 
-30:                                               ; preds = %28, %26, %18, %10
-  %31 = phi i64 [ %29, %28 ], [ %12, %10 ], [ %12, %18 ], [ %0, %26 ]
-  %32 = phi i1 [ false, %28 ], [ false, %10 ], [ false, %18 ], [ true, %26 ]
-  %33 = add nuw i32 %11, 1
-  %34 = icmp eq i32 %33, %6
-  %35 = select i1 %32, i1 true, i1 %34
-  br i1 %35, label %36, label %10, !llvm.loop !38
+31:                                               ; preds = %29, %27, %19, %11
+  %32 = phi i64 [ %30, %29 ], [ %13, %11 ], [ %13, %19 ], [ %0, %27 ]
+  %33 = phi i1 [ false, %29 ], [ false, %11 ], [ false, %19 ], [ true, %27 ]
+  %34 = add nuw i32 %12, 1
+  %35 = icmp eq i32 %34, %7
+  %36 = select i1 %33, i1 true, i1 %35
+  br i1 %36, label %37, label %11, !llvm.loop !38
 
-36:                                               ; preds = %30, %3
-  %37 = phi i64 [ 0, %3 ], [ %31, %30 ]
-  %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 %4)
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, i64 noundef %38, i64 noundef %4) #16
-  ret i64 %38
+37:                                               ; preds = %31, %4
+  %38 = phi i64 [ 0, %4 ], [ %32, %31 ]
+  %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 %5)
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, i64 noundef %39, i64 noundef %5) #16
+  ret i64 %39
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1454,98 +1456,99 @@ define internal noundef i32 @parse_memmap_opt(ptr noundef %0) #3 section ".init.
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__reserve_setup_data() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
-  %2 = icmp eq i64 %1, 0
-  br i1 %2, label %62, label %3
+  %1 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34
+  %2 = load i64, ptr %1, align 1
+  %3 = icmp eq i64 %2, 0
+  br i1 %3, label %63, label %4
 
-3:                                                ; preds = %51, %0
-  %4 = phi i64 [ %10, %51 ], [ %1, %0 ]
-  %5 = tail call ptr @early_memremap(i64 noundef %4, i64 noundef 16) #17
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %9
+4:                                                ; preds = %52, %0
+  %5 = phi i64 [ %11, %52 ], [ %2, %0 ]
+  %6 = tail call ptr @early_memremap(i64 noundef %5, i64 noundef 16) #17
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %3
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #16
-  br label %62
+8:                                                ; preds = %4
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #16
+  br label %63
 
-9:                                                ; preds = %3
-  %10 = load i64, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
-  %12 = load i32, ptr %11, align 4
-  %13 = zext i32 %12 to i64
-  %14 = add nuw nsw i64 %13, 16
-  %15 = load ptr, ptr @e820_table, align 8
-  %16 = tail call fastcc i64 @__e820__range_update(ptr noundef %15, i64 noundef %4, i64 noundef %14, i32 noundef 1, i32 noundef 128) #15
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load i32, ptr %17, align 8
-  switch i32 %18, label %19 [
-    i32 4, label %25
-    i32 8, label %25
+10:                                               ; preds = %4
+  %11 = load i64, ptr %6, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = zext i32 %13 to i64
+  %15 = add nuw nsw i64 %14, 16
+  %16 = load ptr, ptr @e820_table, align 8
+  %17 = tail call fastcc i64 @__e820__range_update(ptr noundef %16, i64 noundef %5, i64 noundef %15, i32 noundef 1, i32 noundef 128) #15
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = load i32, ptr %18, align 8
+  switch i32 %19, label %20 [
+    i32 4, label %26
+    i32 8, label %26
   ]
 
-19:                                               ; preds = %9
-  %20 = load i32, ptr %11, align 4
-  %21 = zext i32 %20 to i64
-  %22 = add nuw nsw i64 %21, 16
-  %23 = load ptr, ptr @e820_table_kexec, align 8
-  %24 = tail call fastcc i64 @__e820__range_update(ptr noundef %23, i64 noundef %4, i64 noundef %22, i32 noundef 1, i32 noundef 128) #15
-  br label %25
+20:                                               ; preds = %10
+  %21 = load i32, ptr %12, align 4
+  %22 = zext i32 %21 to i64
+  %23 = add nuw nsw i64 %22, 16
+  %24 = load ptr, ptr @e820_table_kexec, align 8
+  %25 = tail call fastcc i64 @__e820__range_update(ptr noundef %24, i64 noundef %5, i64 noundef %23, i32 noundef 1, i32 noundef 128) #15
+  br label %26
 
-25:                                               ; preds = %19, %9, %9
-  %26 = load i32, ptr %17, align 8
-  %27 = icmp eq i32 %26, -2147483648
-  br i1 %27, label %28, label %51
+26:                                               ; preds = %20, %10, %10
+  %27 = load i32, ptr %18, align 8
+  %28 = icmp eq i32 %27, -2147483648
+  br i1 %28, label %29, label %52
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %11, align 4
-  %30 = add i32 %29, 16
-  tail call void @early_memunmap(ptr noundef nonnull %5, i64 noundef 16) #17
-  %31 = zext i32 %30 to i64
-  %32 = tail call ptr @early_memremap(i64 noundef %4, i64 noundef %31) #17
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %36
+29:                                               ; preds = %26
+  %30 = load i32, ptr %12, align 4
+  %31 = add i32 %30, 16
+  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef 16) #17
+  %32 = zext i32 %31 to i64
+  %33 = tail call ptr @early_memremap(i64 noundef %5, i64 noundef %32) #17
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %28
-  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #16
-  br label %62
+35:                                               ; preds = %29
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #16
+  br label %63
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, -2147483648
-  br i1 %39, label %51, label %40
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, -2147483648
+  br i1 %40, label %52, label %41
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %32, i64 32
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %32, i64 24
-  %44 = load i64, ptr %43, align 8
-  %45 = load ptr, ptr @e820_table, align 8
-  %46 = tail call fastcc i64 @__e820__range_update(ptr noundef %45, i64 noundef %42, i64 noundef %44, i32 noundef 1, i32 noundef 128) #15
-  %47 = load i64, ptr %41, align 8
-  %48 = load i64, ptr %43, align 8
-  %49 = load ptr, ptr @e820_table_kexec, align 8
-  %50 = tail call fastcc i64 @__e820__range_update(ptr noundef %49, i64 noundef %47, i64 noundef %48, i32 noundef 1, i32 noundef 128) #15
-  br label %51
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %33, i64 32
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %33, i64 24
+  %45 = load i64, ptr %44, align 8
+  %46 = load ptr, ptr @e820_table, align 8
+  %47 = tail call fastcc i64 @__e820__range_update(ptr noundef %46, i64 noundef %43, i64 noundef %45, i32 noundef 1, i32 noundef 128) #15
+  %48 = load i64, ptr %42, align 8
+  %49 = load i64, ptr %44, align 8
+  %50 = load ptr, ptr @e820_table_kexec, align 8
+  %51 = tail call fastcc i64 @__e820__range_update(ptr noundef %50, i64 noundef %48, i64 noundef %49, i32 noundef 1, i32 noundef 128) #15
+  br label %52
 
-51:                                               ; preds = %40, %36, %25
-  %52 = phi i32 [ %30, %40 ], [ %30, %36 ], [ 16, %25 ]
-  %53 = phi ptr [ %32, %40 ], [ %32, %36 ], [ %5, %25 ]
-  %54 = zext i32 %52 to i64
-  tail call void @early_memunmap(ptr noundef nonnull %53, i64 noundef %54) #17
-  %55 = icmp eq i64 %10, 0
-  br i1 %55, label %56, label %3, !llvm.loop !40
+52:                                               ; preds = %41, %37, %26
+  %53 = phi i32 [ %31, %41 ], [ %31, %37 ], [ 16, %26 ]
+  %54 = phi ptr [ %33, %41 ], [ %33, %37 ], [ %6, %26 ]
+  %55 = zext i32 %53 to i64
+  tail call void @early_memunmap(ptr noundef nonnull %54, i64 noundef %55) #17
+  %56 = icmp eq i64 %11, 0
+  br i1 %56, label %57, label %4, !llvm.loop !40
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr @e820_table, align 8
-  %58 = tail call i32 @e820__update_table(ptr noundef %57) #15, !range !23
-  %59 = load ptr, ptr @e820_table_kexec, align 8
-  %60 = tail call i32 @e820__update_table(ptr noundef %59) #15, !range !23
-  %61 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #16
+57:                                               ; preds = %52
+  %58 = load ptr, ptr @e820_table, align 8
+  %59 = tail call i32 @e820__update_table(ptr noundef %58) #15, !range !23
+  %60 = load ptr, ptr @e820_table_kexec, align 8
+  %61 = tail call i32 @e820__update_table(ptr noundef %60) #15, !range !23
+  %62 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #16
   tail call void @e820__print_table(ptr noundef nonnull @.str.14) #15
-  br label %62
+  br label %63
 
-62:                                               ; preds = %56, %34, %7, %0
+63:                                               ; preds = %57, %35, %8, %0
   ret void
 }
 
@@ -1864,52 +1867,57 @@ declare dso_local void @reserve_region_with_split(ptr noundef, i64 noundef, i64 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local nonnull ptr @e820__memory_setup_default() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 20), align 1
-  %2 = icmp ult i8 %1, 2
-  br i1 %2, label %7, label %3
+  %1 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 20
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp ult i8 %2, 2
+  br i1 %3, label %9, label %4
 
-3:                                                ; preds = %0
-  %4 = zext i8 %1 to i32
-  %5 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 31), i32 noundef %4) #15
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %20
+4:                                                ; preds = %0
+  %5 = zext i8 %2 to i32
+  %6 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 31
+  %7 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull %6, i32 noundef %5) #15
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %24
 
-7:                                                ; preds = %3, %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 18), align 1
-  %9 = load i16, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 2), align 1
-  %10 = zext i16 %9 to i32
-  %11 = icmp ult i32 %8, %10
-  %12 = zext i16 %9 to i64
-  %13 = zext i32 %8 to i64
-  %14 = select i1 %11, ptr @.str.22, ptr @.str.23
-  %15 = select i1 %11, i64 %12, i64 %13
-  %16 = load ptr, ptr @e820_table, align 8
-  store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr @e820_table, align 8
-  tail call fastcc void @__e820__range_add(ptr noundef %17, i64 noundef 0, i64 noundef 651264, i32 noundef 1) #15
-  %18 = shl nuw nsw i64 %15, 10
-  %19 = load ptr, ptr @e820_table, align 8
-  tail call fastcc void @__e820__range_add(ptr noundef %19, i64 noundef 1048576, i64 noundef %18, i32 noundef 1) #15
-  br label %20
+9:                                                ; preds = %4, %0
+  %10 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 18
+  %11 = load i32, ptr %10, align 1
+  %12 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 2
+  %13 = load i16, ptr %12, align 1
+  %14 = zext i16 %13 to i32
+  %15 = icmp ult i32 %11, %14
+  %16 = zext i16 %13 to i64
+  %17 = zext i32 %11 to i64
+  %18 = select i1 %15, ptr @.str.22, ptr @.str.23
+  %19 = select i1 %15, i64 %16, i64 %17
+  %20 = load ptr, ptr @e820_table, align 8
+  store i32 0, ptr %20, align 4
+  %21 = load ptr, ptr @e820_table, align 8
+  tail call fastcc void @__e820__range_add(ptr noundef %21, i64 noundef 0, i64 noundef 651264, i32 noundef 1) #15
+  %22 = shl nuw nsw i64 %19, 10
+  %23 = load ptr, ptr @e820_table, align 8
+  tail call fastcc void @__e820__range_add(ptr noundef %23, i64 noundef 1048576, i64 noundef %22, i32 noundef 1) #15
+  br label %24
 
-20:                                               ; preds = %7, %3
-  %21 = phi ptr [ %14, %7 ], [ @.str.21, %3 ]
-  %22 = load ptr, ptr @e820_table, align 8
-  %23 = tail call i32 @e820__update_table(ptr noundef %22) #15, !range !23
-  ret ptr %21
+24:                                               ; preds = %9, %4
+  %25 = phi ptr [ %18, %9 ], [ @.str.21, %4 ]
+  %26 = load ptr, ptr @e820_table, align 8
+  %27 = tail call i32 @e820__update_table(ptr noundef %26) #15, !range !23
+  ret ptr %25
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__memory_setup() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 0, i32 2), align 8
-  %2 = tail call ptr %1() #17
-  %3 = load ptr, ptr @e820_table_kexec, align 8
-  %4 = load ptr, ptr @e820_table, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(6404) %3, ptr noundef align 4 dereferenceable(6404) %4, i64 6404, i1 false)
-  %5 = load ptr, ptr @e820_table_firmware, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(6404) %5, ptr noundef align 4 dereferenceable(6404) %4, i64 6404, i1 false)
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24) #16
-  tail call void @e820__print_table(ptr noundef %2) #15
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call ptr %2() #17
+  %4 = load ptr, ptr @e820_table_kexec, align 8
+  %5 = load ptr, ptr @e820_table, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(6404) %4, ptr noundef align 4 dereferenceable(6404) %5, i64 6404, i1 false)
+  %6 = load ptr, ptr @e820_table_firmware, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(6404) %6, ptr noundef align 4 dereferenceable(6404) %5, i64 6404, i1 false)
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24) #16
+  tail call void @e820__print_table(ptr noundef %3) #15
   ret void
 }
 

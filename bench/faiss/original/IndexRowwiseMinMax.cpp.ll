@@ -774,12 +774,13 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr noundef nonnull
   %11 = getelementptr inbounds %"struct.faiss::Index", ptr %10, i32 0, i32 7
   %12 = load i32, ptr %11, align 4
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %5, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %5, i32 0, i32 3
-  store i8 0, ptr %15, align 8
+  %13 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %5, i32 0, i32 3
+  store i8 0, ptr %16, align 8
   ret void
 }
 
@@ -792,22 +793,23 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
-  store float 0.000000e+00, ptr %16, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
+  store float 0.000000e+00, ptr %17, align 8
   ret void
 }
 
@@ -817,11 +819,12 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %3, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 3
-  store i8 0, ptr %5, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 3
+  store i8 0, ptr %6, align 8
   ret void
 }
 
@@ -830,31 +833,32 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 3
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %17
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 3
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %18
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(36) %9) #12
-  br label %15
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(36) %10) #12
+  br label %16
 
-15:                                               ; preds = %11, %7
-  %16 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
-  store ptr null, ptr %16, align 8
-  br label %17
+16:                                               ; preds = %12, %8
+  %17 = getelementptr inbounds %"struct.faiss::IndexRowwiseMinMaxBase", ptr %3, i32 0, i32 2
+  store ptr null, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %15, %1
+18:                                               ; preds = %16, %1
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
   ret void
 }
@@ -941,9 +945,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -1186,7 +1191,8 @@ define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2EPNS_5IndexE(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1196,7 +1202,8 @@ define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5060,7 +5067,8 @@ define void @_ZN5faiss18IndexRowwiseMinMaxC2EPNS_5IndexE(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -5070,7 +5078,8 @@ define void @_ZN5faiss18IndexRowwiseMinMaxC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

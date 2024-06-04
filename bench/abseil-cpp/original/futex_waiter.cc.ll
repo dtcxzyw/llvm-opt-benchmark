@@ -674,9 +674,11 @@ if.else18:                                        ; preds = %if.else
   br label %do.body
 
 do.body:                                          ; preds = %if.else18
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %96 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 85, ptr noundef @.str.1, i32 noundef %96)
+  %96 = getelementptr i8, ptr @.str, i64 129
+  store ptr %96, ptr %absl_raw_log_internal_basename, align 8
+  %97 = load i32, ptr %err, align 4
+  %98 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %98, i32 noundef 85, ptr noundef @.str.1, i32 noundef %97)
   br label %do.body19
 
 do.body19:                                        ; preds = %do.body
@@ -699,8 +701,8 @@ if.end23:                                         ; preds = %if.end22, %if.end7
   br label %while.body, !llvm.loop !7
 
 return:                                           ; preds = %if.then17, %if.end
-  %97 = load i1, ptr %retval, align 1
-  ret i1 %97
+  %99 = load i1, ptr %retval, align 1
+  ret i1 %99
 }
 
 declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() #2
@@ -799,9 +801,11 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  %1 = load i32, ptr %err, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef @.str.1, i32 noundef %1)
+  %1 = getelementptr i8, ptr @.str, i64 129
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = load i32, ptr %err, align 4
+  %3 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 103, ptr noundef @.str.1, i32 noundef %2)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.body

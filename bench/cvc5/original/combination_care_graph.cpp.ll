@@ -477,7 +477,8 @@ entry:
   %1 = load ptr, ptr %te.addr, align 8
   %2 = load ptr, ptr %paraTheories.addr, align 8
   call void @_ZN4cvc58internal6theory17CombinationEngineC2ERNS0_3EnvERNS0_12TheoryEngineERKSt6vectorIPNS1_6TheoryESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(1448) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory20CombinationCareGraphE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory20CombinationCareGraphE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   ret void
 }
 

@@ -1390,38 +1390,39 @@ define void @_ZN8UatModelC2EP7QObjectP8epan_uat(ptr noundef nonnull align 8 dere
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 1
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 2
-  call void @_ZN5QListIbEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  %13 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 3
-  call void @_ZN5QListI4QMapIi7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  %14 = load ptr, ptr %6, align 8
-  invoke void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 1
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 2
+  call void @_ZN5QListIbEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 3
+  call void @_ZN5QListI4QMapIi7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
+  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -1575,60 +1576,61 @@ define void @_ZN8UatModelC2EP7QObject7QString(ptr noundef nonnull align 8 derefe
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 1
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 2
-  call void @_ZN5QListIbEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  %14 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 3
-  call void @_ZN5QListI4QMapIi7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  %12 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 1
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 2
+  call void @_ZN5QListIbEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  %15 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 3
+  call void @_ZN5QListI4QMapIi7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   invoke void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %15 unwind label %20
+          to label %16 unwind label %21
 
-15:                                               ; preds = %3
-  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  %17 = invoke ptr @uat_get_table_by_name(ptr noundef %16)
-          to label %18 unwind label %24
+16:                                               ; preds = %3
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  %18 = invoke ptr @uat_get_table_by_name(ptr noundef %17)
+          to label %19 unwind label %25
 
-18:                                               ; preds = %15
-  invoke void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef %17)
-          to label %19 unwind label %24
+19:                                               ; preds = %16
+  invoke void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef %18)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %18
+20:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   ret void
 
-20:                                               ; preds = %3
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
-  br label %28
-
-24:                                               ; preds = %18, %15
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %8, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i32, ptr %9, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %19, %16
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare ptr @uat_get_table_by_name(ptr noundef) #1
@@ -5984,11 +5986,12 @@ define linkonce_odr void @_ZN8UatModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 3
-  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  %5 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 2
-  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 3
+  call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 2
+  call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   ret void
 }

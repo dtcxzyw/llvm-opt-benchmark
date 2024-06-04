@@ -1533,22 +1533,23 @@ define internal void @set_arg0(i64 noundef %0, i64 noundef %1, ptr noundef %2) #
   store i64 %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %11
+  %7 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %3
-  %10 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef @.str.131) #20
+10:                                               ; preds = %3
+  %11 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef @.str.131) #20
   unreachable
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %4, align 8
-  %13 = call i64 @ruby_setproctitle(i64 noundef %12)
-  %14 = call i64 @rb_str_new_frozen(i64 noundef %13)
-  %15 = call ptr @rb_current_vm()
-  %16 = getelementptr inbounds %struct.rb_vm_struct, ptr %15, i32 0, i32 28
-  store i64 %14, ptr %16, align 8
+12:                                               ; preds = %3
+  %13 = load i64, ptr %4, align 8
+  %14 = call i64 @ruby_setproctitle(i64 noundef %13)
+  %15 = call i64 @rb_str_new_frozen(i64 noundef %14)
+  %16 = call ptr @rb_current_vm()
+  %17 = getelementptr inbounds %struct.rb_vm_struct, ptr %16, i32 0, i32 28
+  store i64 %15, ptr %17, align 8
   ret void
 }
 
@@ -1664,64 +1665,66 @@ define dso_local ptr @ruby_process_options(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %21, ptr %7, align 8
   %22 = call ptr @rb_ruby_prism_ptr()
   store i8 0, ptr %22, align 1
-  %23 = load ptr, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %28
+  %23 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %20
-  %26 = load i32, ptr @origarg, align 8
-  %27 = icmp sle i32 %26, 0
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %20
+  %27 = load i32, ptr @origarg, align 8
+  %28 = icmp sle i32 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %25, %20
-  %29 = load i32, ptr %3, align 4
-  store i32 %29, ptr @origarg, align 8
-  %30 = load ptr, ptr %4, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  br label %31
+29:                                               ; preds = %26, %20
+  %30 = load i32, ptr %3, align 4
+  store i32 %30, ptr @origarg, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
+  br label %33
 
-31:                                               ; preds = %28, %25
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i64 @external_str_new_cstr(ptr noundef %32)
-  call void @set_progname(i64 noundef %33)
-  %34 = call ptr @rb_current_vm()
-  %35 = getelementptr inbounds %struct.rb_vm_struct, ptr %34, i32 0, i32 28
-  %36 = load i64, ptr %35, align 8
-  %37 = call i64 @rb_str_new_frozen(i64 noundef %36)
-  store i64 %37, ptr @rb_argv0, align 8
-  %38 = load i64, ptr @rb_argv0, align 8
-  call void @rb_gc_register_mark_object(i64 noundef %38)
-  %39 = load i32, ptr %3, align 4
-  %40 = load ptr, ptr %4, align 8
-  call void @ruby_init_setproctitle(i32 noundef %39, ptr noundef %40)
+33:                                               ; preds = %29, %26
+  %34 = load ptr, ptr %7, align 8
+  %35 = call i64 @external_str_new_cstr(ptr noundef %34)
+  call void @set_progname(i64 noundef %35)
+  %36 = call ptr @rb_current_vm()
+  %37 = getelementptr inbounds %struct.rb_vm_struct, ptr %36, i32 0, i32 28
+  %38 = load i64, ptr %37, align 8
+  %39 = call i64 @rb_str_new_frozen(i64 noundef %38)
+  store i64 %39, ptr @rb_argv0, align 8
+  %40 = load i64, ptr @rb_argv0, align 8
+  call void @rb_gc_register_mark_object(i64 noundef %40)
   %41 = load i32, ptr %3, align 4
   %42 = load ptr, ptr %4, align 8
-  %43 = call ptr @cmdline_options_init(ptr noundef %5)
-  %44 = call i64 @process_options(i32 noundef %41, ptr noundef %42, ptr noundef %43)
-  store i64 %44, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %57
+  call void @ruby_init_setproctitle(i32 noundef %41, ptr noundef %42)
+  %43 = load i32, ptr %3, align 4
+  %44 = load ptr, ptr %4, align 8
+  %45 = call ptr @cmdline_options_init(ptr noundef %5)
+  %46 = call i64 @process_options(i32 noundef %43, ptr noundef %44, ptr noundef %45)
+  store i64 %46, ptr %6, align 8
+  %47 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %59
 
-48:                                               ; preds = %31
-  %49 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i8, ptr %50, align 1
-  %52 = sext i8 %51 to i32
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %57
+50:                                               ; preds = %33
+  %51 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i8, ptr %52, align 1
+  %54 = sext i8 %53 to i32
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %59
 
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
-  %56 = load ptr, ptr %55, align 8
-  call void @ruby_set_crash_report(ptr noundef %56)
-  br label %57
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %5, i32 0, i32 12
+  %58 = load ptr, ptr %57, align 8
+  call void @ruby_set_crash_report(ptr noundef %58)
+  br label %59
 
-57:                                               ; preds = %54, %48, %31
-  %58 = load i64, ptr %6, align 8
-  %59 = inttoptr i64 %58 to ptr
-  ret ptr %59
+59:                                               ; preds = %56, %50, %33
+  %60 = load i64, ptr %6, align 8
+  %61 = inttoptr i64 %60 to ptr
+  ret ptr %61
 }
 
 declare ptr @rb_ruby_prism_ptr() #2
@@ -1798,7 +1801,7 @@ define internal i64 @process_options(i32 noundef %0, ptr noundef %1, ptr noundef
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 48
   %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %102
+  br i1 %61, label %62, label %105
 
 62:                                               ; preds = %3
   %63 = load i32, ptr %5, align 4
@@ -1821,1224 +1824,1227 @@ define internal i64 @process_options(i32 noundef %0, ptr noundef %1, ptr noundef
   %74 = load ptr, ptr %6, align 8
   %75 = getelementptr ptr, ptr %74, i64 0
   %76 = load ptr, ptr %75, align 8
-  br label %95
+  br label %98
 
 77:                                               ; preds = %68, %65, %62
   %78 = load i32, ptr @origarg, align 8
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %92
+  br i1 %79, label %80, label %95
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %92
+  %81 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %95
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  %85 = getelementptr ptr, ptr %84, i64 0
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
   %86 = load ptr, ptr %85, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %92
+  %87 = getelementptr ptr, ptr %86, i64 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %95
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  %90 = getelementptr ptr, ptr %89, i64 0
-  %91 = load ptr, ptr %90, align 8
-  br label %93
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr ptr, ptr %92, i64 0
+  %94 = load ptr, ptr %93, align 8
+  br label %96
 
-92:                                               ; preds = %83, %80, %77
-  br label %93
+95:                                               ; preds = %84, %80, %77
+  br label %96
 
-93:                                               ; preds = %92, %88
-  %94 = phi ptr [ %91, %88 ], [ @ruby_engine, %92 ]
-  br label %95
+96:                                               ; preds = %95, %90
+  %97 = phi ptr [ %94, %90 ], [ @ruby_engine, %95 ]
+  br label %98
 
-95:                                               ; preds = %93, %73
-  %96 = phi ptr [ %76, %73 ], [ %94, %93 ]
-  store ptr %96, ptr %18, align 8
-  %97 = load ptr, ptr %18, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %98, i32 0, i32 9
-  %100 = load i32, ptr %99, align 8
-  %101 = and i32 %100, 32
-  call void @show_help(ptr noundef %97, i32 noundef %101)
+98:                                               ; preds = %96, %73
+  %99 = phi ptr [ %76, %73 ], [ %97, %96 ]
+  store ptr %99, ptr %18, align 8
+  %100 = load ptr, ptr %18, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %101, i32 0, i32 9
+  %103 = load i32, ptr %102, align 8
+  %104 = and i32 %103, 32
+  call void @show_help(ptr noundef %100, i32 noundef %104)
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-102:                                              ; preds = %3
-  %103 = load i32, ptr %14, align 4
-  %104 = load i32, ptr %5, align 4
-  %105 = sub i32 %104, %103
-  store i32 %105, ptr %5, align 4
+105:                                              ; preds = %3
   %106 = load i32, ptr %14, align 4
-  %107 = load ptr, ptr %6, align 8
-  %108 = sext i32 %106 to i64
-  %109 = getelementptr ptr, ptr %107, i64 %108
-  store ptr %109, ptr %6, align 8
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %110, i32 0, i32 7
-  %112 = getelementptr inbounds %struct.ruby_features_t, ptr %111, i32 0, i32 1
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 16
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %122
+  %107 = load i32, ptr %5, align 4
+  %108 = sub i32 %107, %106
+  store i32 %108, ptr %5, align 4
+  %109 = load i32, ptr %14, align 4
+  %110 = load ptr, ptr %6, align 8
+  %111 = sext i32 %109 to i64
+  %112 = getelementptr ptr, ptr %110, i64 %111
+  store ptr %112, ptr %6, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %113, i32 0, i32 7
+  %115 = getelementptr inbounds %struct.ruby_features_t, ptr %114, i32 0, i32 1
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 16
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %125
 
-116:                                              ; preds = %102
-  %117 = call ptr @getenv(ptr noundef @.str.133) #19
-  store ptr %117, ptr %12, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %119, label %122
+119:                                              ; preds = %105
+  %120 = call ptr @getenv(ptr noundef @.str.133) #19
+  store ptr %120, ptr %12, align 8
+  %121 = icmp ne ptr %120, null
+  br i1 %121, label %122, label %125
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %12, align 8
-  %121 = load ptr, ptr %7, align 8
-  call void @moreswitches(ptr noundef %120, ptr noundef %121, i32 noundef 1)
-  br label %122
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %12, align 8
+  %124 = load ptr, ptr %7, align 8
+  call void @moreswitches(ptr noundef %123, ptr noundef %124, i32 noundef 1)
+  br label %125
 
-122:                                              ; preds = %119, %116, %102
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %123, i32 0, i32 3
-  %125 = getelementptr inbounds %struct.anon.5, ptr %124, i32 0, i32 0
-  %126 = getelementptr inbounds %struct.anon.6, ptr %125, i32 0, i32 0
-  %127 = load i64, ptr %126, align 8
-  %128 = icmp ne i64 %127, 0
-  br i1 %128, label %129, label %130
+125:                                              ; preds = %122, %119, %105
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %126, i32 0, i32 3
+  %128 = getelementptr inbounds %struct.anon.5, ptr %127, i32 0, i32 0
+  %129 = getelementptr inbounds %struct.anon.6, ptr %128, i32 0, i32 0
+  %130 = load i64, ptr %129, align 8
+  %131 = icmp ne i64 %130, 0
+  br i1 %131, label %132, label %133
 
-129:                                              ; preds = %122
+132:                                              ; preds = %125
   call void (ptr, ...) @rb_warning(ptr noundef @.str.134)
-  br label %130
+  br label %133
 
-130:                                              ; preds = %129, %122
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %131, i32 0, i32 7
-  %133 = getelementptr inbounds %struct.ruby_features_t, ptr %132, i32 0, i32 1
-  %134 = load i32, ptr %133, align 4
-  %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %135, i32 0, i32 7
-  %137 = getelementptr inbounds %struct.ruby_features_t, ptr %136, i32 0, i32 0
-  %138 = load i32, ptr %137, align 8
-  %139 = and i32 %134, %138
-  %140 = and i32 %139, 192
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %155, label %142
+133:                                              ; preds = %132, %125
+  %134 = load ptr, ptr %7, align 8
+  %135 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %134, i32 0, i32 7
+  %136 = getelementptr inbounds %struct.ruby_features_t, ptr %135, i32 0, i32 1
+  %137 = load i32, ptr %136, align 4
+  %138 = load ptr, ptr %7, align 8
+  %139 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %138, i32 0, i32 7
+  %140 = getelementptr inbounds %struct.ruby_features_t, ptr %139, i32 0, i32 0
+  %141 = load i32, ptr %140, align 8
+  %142 = and i32 %137, %141
+  %143 = and i32 %142, 192
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %158, label %145
 
-142:                                              ; preds = %130
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %143, i32 0, i32 7
-  %145 = getelementptr inbounds %struct.ruby_features_t, ptr %144, i32 0, i32 0
-  %146 = load i32, ptr %145, align 8
-  %147 = and i32 %146, 128
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %154, label %149
+145:                                              ; preds = %133
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %146, i32 0, i32 7
+  %148 = getelementptr inbounds %struct.ruby_features_t, ptr %147, i32 0, i32 0
+  %149 = load i32, ptr %148, align 8
+  %150 = and i32 %149, 128
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %157, label %152
 
-149:                                              ; preds = %142
-  %150 = call zeroext i1 @env_var_truthy(ptr noundef @.str.135)
-  br i1 %150, label %151, label %154
+152:                                              ; preds = %145
+  %153 = call zeroext i1 @env_var_truthy(ptr noundef @.str.135)
+  br i1 %153, label %154, label %157
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr %7, align 8
-  %153 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %152, i32 0, i32 7
-  call void @rb_feature_set_to(ptr noundef %153, i32 noundef 128, i32 noundef 128)
-  br label %154
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %7, align 8
+  %156 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %155, i32 0, i32 7
+  call void @rb_feature_set_to(ptr noundef %156, i32 noundef 128, i32 noundef 128)
+  br label %157
 
-154:                                              ; preds = %151, %149, %142
-  br label %155
+157:                                              ; preds = %154, %152, %145
+  br label %158
 
-155:                                              ; preds = %154, %130
-  %156 = load ptr, ptr %7, align 8
-  %157 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %156, i32 0, i32 7
-  %158 = getelementptr inbounds %struct.ruby_features_t, ptr %157, i32 0, i32 1
-  %159 = load i32, ptr %158, align 4
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %160, i32 0, i32 7
-  %162 = getelementptr inbounds %struct.ruby_features_t, ptr %161, i32 0, i32 0
-  %163 = load i32, ptr %162, align 8
-  %164 = and i32 %159, %163
-  %165 = and i32 %164, 192
-  %166 = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %166, i32 0, i32 7
-  %168 = getelementptr inbounds %struct.ruby_features_t, ptr %167, i32 0, i32 1
-  %169 = load i32, ptr %168, align 4
-  %170 = load ptr, ptr %7, align 8
-  %171 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %170, i32 0, i32 7
-  %172 = getelementptr inbounds %struct.ruby_features_t, ptr %171, i32 0, i32 0
-  %173 = load i32, ptr %172, align 8
-  %174 = and i32 %169, %173
-  %175 = and i32 %174, 192
-  %176 = sub i32 %175, 1
-  %177 = and i32 %165, %176
-  %178 = icmp ne i32 %177, 0
-  br i1 %178, label %179, label %180
+158:                                              ; preds = %157, %133
+  %159 = load ptr, ptr %7, align 8
+  %160 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %159, i32 0, i32 7
+  %161 = getelementptr inbounds %struct.ruby_features_t, ptr %160, i32 0, i32 1
+  %162 = load i32, ptr %161, align 4
+  %163 = load ptr, ptr %7, align 8
+  %164 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %163, i32 0, i32 7
+  %165 = getelementptr inbounds %struct.ruby_features_t, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %165, align 8
+  %167 = and i32 %162, %166
+  %168 = and i32 %167, 192
+  %169 = load ptr, ptr %7, align 8
+  %170 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %169, i32 0, i32 7
+  %171 = getelementptr inbounds %struct.ruby_features_t, ptr %170, i32 0, i32 1
+  %172 = load i32, ptr %171, align 4
+  %173 = load ptr, ptr %7, align 8
+  %174 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %173, i32 0, i32 7
+  %175 = getelementptr inbounds %struct.ruby_features_t, ptr %174, i32 0, i32 0
+  %176 = load i32, ptr %175, align 8
+  %177 = and i32 %172, %176
+  %178 = and i32 %177, 192
+  %179 = sub i32 %178, 1
+  %180 = and i32 %168, %179
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %183
 
-179:                                              ; preds = %155
+182:                                              ; preds = %158
   call void (ptr, ...) @rb_warn(ptr noundef @.str.136) #22
   store i64 0, ptr %4, align 8
-  br label %895
+  br label %898
 
-180:                                              ; preds = %155
-  %181 = load ptr, ptr %7, align 8
-  %182 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %181, i32 0, i32 7
-  %183 = getelementptr inbounds %struct.ruby_features_t, ptr %182, i32 0, i32 1
-  %184 = load i32, ptr %183, align 4
-  %185 = and i32 %184, 64
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %191
+183:                                              ; preds = %158
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %184, i32 0, i32 7
+  %186 = getelementptr inbounds %struct.ruby_features_t, ptr %185, i32 0, i32 1
+  %187 = load i32, ptr %186, align 4
+  %188 = and i32 %187, 64
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %194
 
-187:                                              ; preds = %180
-  %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %188, i32 0, i32 11
-  %190 = getelementptr inbounds %struct.rb_rjit_options, ptr %189, i32 0, i32 0
-  store i8 1, ptr %190, align 8
-  br label %191
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %7, align 8
+  %192 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %191, i32 0, i32 11
+  %193 = getelementptr inbounds %struct.rb_rjit_options, ptr %192, i32 0, i32 0
+  store i8 1, ptr %193, align 8
+  br label %194
 
-191:                                              ; preds = %187, %180
-  %192 = load ptr, ptr %7, align 8
-  %193 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %192, i32 0, i32 7
-  %194 = getelementptr inbounds %struct.ruby_features_t, ptr %193, i32 0, i32 1
-  %195 = load i32, ptr %194, align 4
-  %196 = and i32 %195, 128
-  %197 = icmp ne i32 %196, 0
-  br i1 %197, label %198, label %204
+194:                                              ; preds = %190, %183
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %195, i32 0, i32 7
+  %197 = getelementptr inbounds %struct.ruby_features_t, ptr %196, i32 0, i32 1
+  %198 = load i32, ptr %197, align 4
+  %199 = and i32 %198, 128
+  %200 = icmp ne i32 %199, 0
+  br i1 %200, label %201, label %207
 
-198:                                              ; preds = %191
-  %199 = load ptr, ptr %7, align 8
-  %200 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %199, i32 0, i32 13
-  %201 = load i16, ptr %200, align 8
-  %202 = and i16 %201, -4097
-  %203 = or i16 %202, 4096
-  store i16 %203, ptr %200, align 8
-  br label %204
+201:                                              ; preds = %194
+  %202 = load ptr, ptr %7, align 8
+  %203 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %202, i32 0, i32 13
+  %204 = load i16, ptr %203, align 8
+  %205 = and i16 %204, -4097
+  %206 = or i16 %205, 4096
+  store i16 %206, ptr %203, align 8
+  br label %207
 
-204:                                              ; preds = %198, %191
+207:                                              ; preds = %201, %194
   call void @ruby_mn_threads_params()
-  %205 = load ptr, ptr %7, align 8
-  call void @Init_ruby_description(ptr noundef %205)
-  %206 = load ptr, ptr %7, align 8
-  %207 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %206, i32 0, i32 9
-  %208 = load i32, ptr %207, align 8
-  %209 = and i32 %208, 5
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %211, label %219
+  %208 = load ptr, ptr %7, align 8
+  call void @Init_ruby_description(ptr noundef %208)
+  %209 = load ptr, ptr %7, align 8
+  %210 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %209, i32 0, i32 9
+  %211 = load i32, ptr %210, align 8
+  %212 = and i32 %211, 5
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %222
 
-211:                                              ; preds = %204
+214:                                              ; preds = %207
   call void @ruby_show_version()
-  %212 = load ptr, ptr %7, align 8
-  %213 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %212, i32 0, i32 9
-  %214 = load i32, ptr %213, align 8
-  %215 = and i32 %214, 4
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %218
+  %215 = load ptr, ptr %7, align 8
+  %216 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %215, i32 0, i32 9
+  %217 = load i32, ptr %216, align 8
+  %218 = and i32 %217, 4
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %220, label %221
 
-217:                                              ; preds = %211
+220:                                              ; preds = %214
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-218:                                              ; preds = %211
-  br label %219
+221:                                              ; preds = %214
+  br label %222
 
-219:                                              ; preds = %218, %204
-  %220 = load ptr, ptr %7, align 8
-  %221 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %220, i32 0, i32 9
-  %222 = load i32, ptr %221, align 8
-  %223 = and i32 %222, 8
-  %224 = icmp ne i32 %223, 0
-  br i1 %224, label %225, label %226
+222:                                              ; preds = %221, %207
+  %223 = load ptr, ptr %7, align 8
+  %224 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %223, i32 0, i32 9
+  %225 = load i32, ptr %224, align 8
+  %226 = and i32 %225, 8
+  %227 = icmp ne i32 %226, 0
+  br i1 %227, label %228, label %229
 
-225:                                              ; preds = %219
+228:                                              ; preds = %222
   call void @ruby_show_copyright()
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-226:                                              ; preds = %219
-  %227 = load ptr, ptr %7, align 8
-  %228 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %227, i32 0, i32 2
-  %229 = load i64, ptr %228, align 8
-  %230 = icmp ne i64 %229, 0
-  br i1 %230, label %340, label %231
+229:                                              ; preds = %222
+  %230 = load ptr, ptr %7, align 8
+  %231 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %230, i32 0, i32 2
+  %232 = load i64, ptr %231, align 8
+  %233 = icmp ne i64 %232, 0
+  br i1 %233, label %343, label %234
 
-231:                                              ; preds = %226
-  %232 = load i32, ptr %5, align 4
-  %233 = icmp sle i32 %232, 0
-  br i1 %233, label %234, label %246
+234:                                              ; preds = %229
+  %235 = load i32, ptr %5, align 4
+  %236 = icmp sle i32 %235, 0
+  br i1 %236, label %237, label %249
 
-234:                                              ; preds = %231
-  %235 = load ptr, ptr %7, align 8
-  %236 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %235, i32 0, i32 13
-  %237 = load i16, ptr %236, align 8
-  %238 = lshr i16 %237, 4
-  %239 = and i16 %238, 1
-  %240 = zext i16 %239 to i32
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %243
+237:                                              ; preds = %234
+  %238 = load ptr, ptr %7, align 8
+  %239 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %238, i32 0, i32 13
+  %240 = load i16, ptr %239, align 8
+  %241 = lshr i16 %240, 4
+  %242 = and i16 %241, 1
+  %243 = zext i16 %242 to i32
+  %244 = icmp ne i32 %243, 0
+  br i1 %244, label %245, label %246
 
-242:                                              ; preds = %234
+245:                                              ; preds = %237
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-243:                                              ; preds = %234
-  %244 = load ptr, ptr %7, align 8
-  %245 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %244, i32 0, i32 0
-  store ptr @.str.26, ptr %245, align 8
-  br label %322
+246:                                              ; preds = %237
+  %247 = load ptr, ptr %7, align 8
+  %248 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %247, i32 0, i32 0
+  store ptr @.str.26, ptr %248, align 8
+  br label %325
 
-246:                                              ; preds = %231
-  %247 = load ptr, ptr %6, align 8
-  %248 = getelementptr ptr, ptr %247, i64 0
-  %249 = load ptr, ptr %248, align 8
-  %250 = load ptr, ptr %7, align 8
-  %251 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %250, i32 0, i32 0
-  store ptr %249, ptr %251, align 8
-  %252 = load ptr, ptr %7, align 8
-  %253 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %252, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp ne ptr %254, null
-  br i1 %255, label %256, label %264
+249:                                              ; preds = %234
+  %250 = load ptr, ptr %6, align 8
+  %251 = getelementptr ptr, ptr %250, i64 0
+  %252 = load ptr, ptr %251, align 8
+  %253 = load ptr, ptr %7, align 8
+  %254 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %253, i32 0, i32 0
+  store ptr %252, ptr %254, align 8
+  %255 = load ptr, ptr %7, align 8
+  %256 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %255, i32 0, i32 0
+  %257 = load ptr, ptr %256, align 8
+  %258 = icmp ne ptr %257, null
+  br i1 %258, label %259, label %267
 
-256:                                              ; preds = %246
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %257, i32 0, i32 0
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr i8, ptr %259, i64 0
-  %261 = load i8, ptr %260, align 1
-  %262 = sext i8 %261 to i32
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %267
+259:                                              ; preds = %249
+  %260 = load ptr, ptr %7, align 8
+  %261 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %260, i32 0, i32 0
+  %262 = load ptr, ptr %261, align 8
+  %263 = getelementptr i8, ptr %262, i64 0
+  %264 = load i8, ptr %263, align 1
+  %265 = sext i8 %264 to i32
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %270
 
-264:                                              ; preds = %256, %246
-  %265 = load ptr, ptr %7, align 8
-  %266 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %265, i32 0, i32 0
-  store ptr @.str.26, ptr %266, align 8
-  br label %317
-
-267:                                              ; preds = %256
+267:                                              ; preds = %259, %249
   %268 = load ptr, ptr %7, align 8
-  %269 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %268, i32 0, i32 13
-  %270 = load i16, ptr %269, align 8
-  %271 = lshr i16 %270, 9
-  %272 = and i16 %271, 1
-  %273 = zext i16 %272 to i32
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %275, label %316
+  %269 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %268, i32 0, i32 0
+  store ptr @.str.26, ptr %269, align 8
+  br label %320
 
-275:                                              ; preds = %267
-  %276 = call ptr @getenv(ptr noundef @.str.137) #19
-  store ptr %276, ptr %19, align 8
-  %277 = load ptr, ptr %7, align 8
-  %278 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %277, i32 0, i32 0
-  store ptr null, ptr %278, align 8
-  %279 = load ptr, ptr %19, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %281, label %290
+270:                                              ; preds = %259
+  %271 = load ptr, ptr %7, align 8
+  %272 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %271, i32 0, i32 13
+  %273 = load i16, ptr %272, align 8
+  %274 = lshr i16 %273, 9
+  %275 = and i16 %274, 1
+  %276 = zext i16 %275 to i32
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %319
 
-281:                                              ; preds = %275
-  %282 = load ptr, ptr %6, align 8
-  %283 = getelementptr ptr, ptr %282, i64 0
-  %284 = load ptr, ptr %283, align 8
-  %285 = load ptr, ptr %19, align 8
-  %286 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %287 = call ptr @dln_find_file_r(ptr noundef %284, ptr noundef %285, ptr noundef %286, i64 noundef 4096)
-  %288 = load ptr, ptr %7, align 8
-  %289 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %288, i32 0, i32 0
-  store ptr %287, ptr %289, align 8
-  br label %290
+278:                                              ; preds = %270
+  %279 = call ptr @getenv(ptr noundef @.str.137) #19
+  store ptr %279, ptr %19, align 8
+  %280 = load ptr, ptr %7, align 8
+  %281 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %280, i32 0, i32 0
+  store ptr null, ptr %281, align 8
+  %282 = load ptr, ptr %19, align 8
+  %283 = icmp ne ptr %282, null
+  br i1 %283, label %284, label %293
 
-290:                                              ; preds = %281, %275
+284:                                              ; preds = %278
+  %285 = load ptr, ptr %6, align 8
+  %286 = getelementptr ptr, ptr %285, i64 0
+  %287 = load ptr, ptr %286, align 8
+  %288 = load ptr, ptr %19, align 8
+  %289 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %290 = call ptr @dln_find_file_r(ptr noundef %287, ptr noundef %288, ptr noundef %289, i64 noundef 4096)
   %291 = load ptr, ptr %7, align 8
   %292 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %291, i32 0, i32 0
-  %293 = load ptr, ptr %292, align 8
-  %294 = icmp ne ptr %293, null
-  br i1 %294, label %304, label %295
+  store ptr %290, ptr %292, align 8
+  br label %293
 
-295:                                              ; preds = %290
-  %296 = load ptr, ptr %6, align 8
-  %297 = getelementptr ptr, ptr %296, i64 0
-  %298 = load ptr, ptr %297, align 8
-  %299 = call ptr @getenv(ptr noundef @.str.138) #19
-  %300 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %301 = call ptr @dln_find_file_r(ptr noundef %298, ptr noundef %299, ptr noundef %300, i64 noundef 4096)
-  %302 = load ptr, ptr %7, align 8
-  %303 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %302, i32 0, i32 0
-  store ptr %301, ptr %303, align 8
-  br label %304
+293:                                              ; preds = %284, %278
+  %294 = load ptr, ptr %7, align 8
+  %295 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %294, i32 0, i32 0
+  %296 = load ptr, ptr %295, align 8
+  %297 = icmp ne ptr %296, null
+  br i1 %297, label %307, label %298
 
-304:                                              ; preds = %295, %290
+298:                                              ; preds = %293
+  %299 = load ptr, ptr %6, align 8
+  %300 = getelementptr ptr, ptr %299, i64 0
+  %301 = load ptr, ptr %300, align 8
+  %302 = call ptr @getenv(ptr noundef @.str.138) #19
+  %303 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %304 = call ptr @dln_find_file_r(ptr noundef %301, ptr noundef %302, ptr noundef %303, i64 noundef 4096)
   %305 = load ptr, ptr %7, align 8
   %306 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %305, i32 0, i32 0
-  %307 = load ptr, ptr %306, align 8
-  %308 = icmp ne ptr %307, null
-  br i1 %308, label %315, label %309
+  store ptr %304, ptr %306, align 8
+  br label %307
 
-309:                                              ; preds = %304
-  %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr ptr, ptr %310, i64 0
-  %312 = load ptr, ptr %311, align 8
-  %313 = load ptr, ptr %7, align 8
-  %314 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %313, i32 0, i32 0
-  store ptr %312, ptr %314, align 8
-  br label %315
+307:                                              ; preds = %298, %293
+  %308 = load ptr, ptr %7, align 8
+  %309 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %308, i32 0, i32 0
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp ne ptr %310, null
+  br i1 %311, label %318, label %312
 
-315:                                              ; preds = %309, %304
-  br label %316
+312:                                              ; preds = %307
+  %313 = load ptr, ptr %6, align 8
+  %314 = getelementptr ptr, ptr %313, i64 0
+  %315 = load ptr, ptr %314, align 8
+  %316 = load ptr, ptr %7, align 8
+  %317 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %316, i32 0, i32 0
+  store ptr %315, ptr %317, align 8
+  br label %318
 
-316:                                              ; preds = %315, %267
-  br label %317
+318:                                              ; preds = %312, %307
+  br label %319
 
-317:                                              ; preds = %316, %264
-  %318 = load i32, ptr %5, align 4
-  %319 = add i32 %318, -1
-  store i32 %319, ptr %5, align 4
-  %320 = load ptr, ptr %6, align 8
-  %321 = getelementptr ptr, ptr %320, i32 1
-  store ptr %321, ptr %6, align 8
-  br label %322
+319:                                              ; preds = %318, %270
+  br label %320
 
-322:                                              ; preds = %317, %243
-  %323 = load ptr, ptr %7, align 8
-  %324 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %323, i32 0, i32 0
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr i8, ptr %325, i64 0
-  %327 = load i8, ptr %326, align 1
-  %328 = sext i8 %327 to i32
-  %329 = icmp eq i32 %328, 45
-  br i1 %329, label %330, label %339
+320:                                              ; preds = %319, %267
+  %321 = load i32, ptr %5, align 4
+  %322 = add i32 %321, -1
+  store i32 %322, ptr %5, align 4
+  %323 = load ptr, ptr %6, align 8
+  %324 = getelementptr ptr, ptr %323, i32 1
+  store ptr %324, ptr %6, align 8
+  br label %325
 
-330:                                              ; preds = %322
-  %331 = load ptr, ptr %7, align 8
-  %332 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %331, i32 0, i32 0
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr i8, ptr %333, i64 1
-  %335 = load i8, ptr %334, align 1
-  %336 = icmp ne i8 %335, 0
-  br i1 %336, label %339, label %337
+325:                                              ; preds = %320, %246
+  %326 = load ptr, ptr %7, align 8
+  %327 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %326, i32 0, i32 0
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr i8, ptr %328, i64 0
+  %330 = load i8, ptr %329, align 1
+  %331 = sext i8 %330 to i32
+  %332 = icmp eq i32 %331, 45
+  br i1 %332, label %333, label %342
 
-337:                                              ; preds = %330
-  %338 = load ptr, ptr %7, align 8
-  call void @forbid_setid(ptr noundef @.str.139, ptr noundef %338)
-  br label %339
+333:                                              ; preds = %325
+  %334 = load ptr, ptr %7, align 8
+  %335 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %334, i32 0, i32 0
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr i8, ptr %336, i64 1
+  %338 = load i8, ptr %337, align 1
+  %339 = icmp ne i8 %338, 0
+  br i1 %339, label %342, label %340
 
-339:                                              ; preds = %337, %330, %322
-  br label %340
-
-340:                                              ; preds = %339, %226
+340:                                              ; preds = %333
   %341 = load ptr, ptr %7, align 8
-  %342 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %341, i32 0, i32 0
-  %343 = load ptr, ptr %342, align 8
-  %344 = call i64 @rb_str_new_cstr(ptr noundef %343)
-  %345 = load ptr, ptr %7, align 8
-  %346 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %345, i32 0, i32 1
-  store i64 %344, ptr %346, align 8
-  %347 = load ptr, ptr %7, align 8
-  %348 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %347, i32 0, i32 1
-  %349 = load i64, ptr %348, align 8
-  %350 = call ptr @RSTRING_PTR(i64 noundef %349)
-  %351 = load ptr, ptr %7, align 8
-  %352 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %351, i32 0, i32 0
-  store ptr %350, ptr %352, align 8
+  call void @forbid_setid(ptr noundef @.str.139, ptr noundef %341)
+  br label %342
+
+342:                                              ; preds = %340, %333, %325
+  br label %343
+
+343:                                              ; preds = %342, %229
+  %344 = load ptr, ptr %7, align 8
+  %345 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %344, i32 0, i32 0
+  %346 = load ptr, ptr %345, align 8
+  %347 = call i64 @rb_str_new_cstr(ptr noundef %346)
+  %348 = load ptr, ptr %7, align 8
+  %349 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %348, i32 0, i32 1
+  store i64 %347, ptr %349, align 8
+  %350 = load ptr, ptr %7, align 8
+  %351 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %350, i32 0, i32 1
+  %352 = load i64, ptr %351, align 8
+  %353 = call ptr @RSTRING_PTR(i64 noundef %352)
+  %354 = load ptr, ptr %7, align 8
+  %355 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %354, i32 0, i32 0
+  store ptr %353, ptr %355, align 8
   call void @ruby_gc_set_params()
   call void @ruby_init_loadpath()
   call void @Init_enc()
-  %353 = call ptr @rb_locale_encoding()
-  store ptr %353, ptr %11, align 8
-  %354 = call ptr @rb_current_vm()
-  %355 = getelementptr inbounds %struct.rb_vm_struct, ptr %354, i32 0, i32 28
-  %356 = load i64, ptr %355, align 8
-  %357 = load ptr, ptr %11, align 8
-  %358 = call i64 @rb_enc_associate(i64 noundef %356, ptr noundef %357)
-  %359 = call ptr @rb_current_vm()
-  %360 = getelementptr inbounds %struct.rb_vm_struct, ptr %359, i32 0, i32 28
-  %361 = load i64, ptr %360, align 8
-  %362 = call i64 @rb_obj_freeze(i64 noundef %361)
-  %363 = load ptr, ptr %7, align 8
-  %364 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %363, i32 0, i32 4
-  %365 = getelementptr inbounds %struct.anon.5, ptr %364, i32 0, i32 0
-  %366 = getelementptr inbounds %struct.anon.6, ptr %365, i32 0, i32 0
-  %367 = load i64, ptr %366, align 8
-  %368 = icmp ne i64 %367, 0
-  br i1 %368, label %369, label %380
+  %356 = call ptr @rb_locale_encoding()
+  store ptr %356, ptr %11, align 8
+  %357 = call ptr @rb_current_vm()
+  %358 = getelementptr inbounds %struct.rb_vm_struct, ptr %357, i32 0, i32 28
+  %359 = load i64, ptr %358, align 8
+  %360 = load ptr, ptr %11, align 8
+  %361 = call i64 @rb_enc_associate(i64 noundef %359, ptr noundef %360)
+  %362 = call ptr @rb_current_vm()
+  %363 = getelementptr inbounds %struct.rb_vm_struct, ptr %362, i32 0, i32 28
+  %364 = load i64, ptr %363, align 8
+  %365 = call i64 @rb_obj_freeze(i64 noundef %364)
+  %366 = load ptr, ptr %7, align 8
+  %367 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %366, i32 0, i32 4
+  %368 = getelementptr inbounds %struct.anon.5, ptr %367, i32 0, i32 0
+  %369 = getelementptr inbounds %struct.anon.6, ptr %368, i32 0, i32 0
+  %370 = load i64, ptr %369, align 8
+  %371 = icmp ne i64 %370, 0
+  br i1 %371, label %372, label %383
 
-369:                                              ; preds = %340
-  %370 = load ptr, ptr %7, align 8
-  %371 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %370, i32 0, i32 4
-  %372 = getelementptr inbounds %struct.anon.5, ptr %371, i32 0, i32 0
-  %373 = getelementptr inbounds %struct.anon.6, ptr %372, i32 0, i32 0
-  %374 = load i64, ptr %373, align 8
-  %375 = call i32 @opt_enc_index(i64 noundef %374)
-  %376 = load ptr, ptr %7, align 8
-  %377 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %376, i32 0, i32 4
-  %378 = getelementptr inbounds %struct.anon.5, ptr %377, i32 0, i32 0
-  %379 = getelementptr inbounds %struct.anon.6, ptr %378, i32 0, i32 1
-  store i32 %375, ptr %379, align 8
-  br label %380
+372:                                              ; preds = %343
+  %373 = load ptr, ptr %7, align 8
+  %374 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %373, i32 0, i32 4
+  %375 = getelementptr inbounds %struct.anon.5, ptr %374, i32 0, i32 0
+  %376 = getelementptr inbounds %struct.anon.6, ptr %375, i32 0, i32 0
+  %377 = load i64, ptr %376, align 8
+  %378 = call i32 @opt_enc_index(i64 noundef %377)
+  %379 = load ptr, ptr %7, align 8
+  %380 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %379, i32 0, i32 4
+  %381 = getelementptr inbounds %struct.anon.5, ptr %380, i32 0, i32 0
+  %382 = getelementptr inbounds %struct.anon.6, ptr %381, i32 0, i32 1
+  store i32 %378, ptr %382, align 8
+  br label %383
 
-380:                                              ; preds = %369, %340
-  %381 = load ptr, ptr %7, align 8
-  %382 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %381, i32 0, i32 5
-  %383 = getelementptr inbounds %struct.anon.5, ptr %382, i32 0, i32 0
-  %384 = getelementptr inbounds %struct.anon.6, ptr %383, i32 0, i32 0
-  %385 = load i64, ptr %384, align 8
-  %386 = icmp ne i64 %385, 0
-  br i1 %386, label %387, label %398
+383:                                              ; preds = %372, %343
+  %384 = load ptr, ptr %7, align 8
+  %385 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %384, i32 0, i32 5
+  %386 = getelementptr inbounds %struct.anon.5, ptr %385, i32 0, i32 0
+  %387 = getelementptr inbounds %struct.anon.6, ptr %386, i32 0, i32 0
+  %388 = load i64, ptr %387, align 8
+  %389 = icmp ne i64 %388, 0
+  br i1 %389, label %390, label %401
 
-387:                                              ; preds = %380
-  %388 = load ptr, ptr %7, align 8
-  %389 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %388, i32 0, i32 5
-  %390 = getelementptr inbounds %struct.anon.5, ptr %389, i32 0, i32 0
-  %391 = getelementptr inbounds %struct.anon.6, ptr %390, i32 0, i32 0
-  %392 = load i64, ptr %391, align 8
-  %393 = call i32 @opt_enc_index(i64 noundef %392)
-  %394 = load ptr, ptr %7, align 8
-  %395 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %394, i32 0, i32 5
-  %396 = getelementptr inbounds %struct.anon.5, ptr %395, i32 0, i32 0
-  %397 = getelementptr inbounds %struct.anon.6, ptr %396, i32 0, i32 1
-  store i32 %393, ptr %397, align 8
-  br label %398
+390:                                              ; preds = %383
+  %391 = load ptr, ptr %7, align 8
+  %392 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %391, i32 0, i32 5
+  %393 = getelementptr inbounds %struct.anon.5, ptr %392, i32 0, i32 0
+  %394 = getelementptr inbounds %struct.anon.6, ptr %393, i32 0, i32 0
+  %395 = load i64, ptr %394, align 8
+  %396 = call i32 @opt_enc_index(i64 noundef %395)
+  %397 = load ptr, ptr %7, align 8
+  %398 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %397, i32 0, i32 5
+  %399 = getelementptr inbounds %struct.anon.5, ptr %398, i32 0, i32 0
+  %400 = getelementptr inbounds %struct.anon.6, ptr %399, i32 0, i32 1
+  store i32 %396, ptr %400, align 8
+  br label %401
 
-398:                                              ; preds = %387, %380
-  %399 = load ptr, ptr %7, align 8
-  %400 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %399, i32 0, i32 3
-  %401 = getelementptr inbounds %struct.anon.5, ptr %400, i32 0, i32 0
-  %402 = getelementptr inbounds %struct.anon.6, ptr %401, i32 0, i32 0
-  %403 = load i64, ptr %402, align 8
-  %404 = icmp ne i64 %403, 0
-  br i1 %404, label %405, label %423
+401:                                              ; preds = %390, %383
+  %402 = load ptr, ptr %7, align 8
+  %403 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %402, i32 0, i32 3
+  %404 = getelementptr inbounds %struct.anon.5, ptr %403, i32 0, i32 0
+  %405 = getelementptr inbounds %struct.anon.6, ptr %404, i32 0, i32 0
+  %406 = load i64, ptr %405, align 8
+  %407 = icmp ne i64 %406, 0
+  br i1 %407, label %408, label %426
 
-405:                                              ; preds = %398
-  %406 = load ptr, ptr %7, align 8
-  %407 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %406, i32 0, i32 3
-  %408 = getelementptr inbounds %struct.anon.5, ptr %407, i32 0, i32 0
-  %409 = getelementptr inbounds %struct.anon.6, ptr %408, i32 0, i32 0
-  %410 = load i64, ptr %409, align 8
-  %411 = call i32 @opt_enc_index(i64 noundef %410)
-  %412 = load ptr, ptr %7, align 8
-  %413 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %412, i32 0, i32 3
-  %414 = getelementptr inbounds %struct.anon.5, ptr %413, i32 0, i32 0
-  %415 = getelementptr inbounds %struct.anon.6, ptr %414, i32 0, i32 1
-  store i32 %411, ptr %415, align 8
-  %416 = load ptr, ptr %7, align 8
-  %417 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %416, i32 0, i32 3
-  %418 = getelementptr inbounds %struct.anon.5, ptr %417, i32 0, i32 0
-  %419 = getelementptr inbounds %struct.anon.6, ptr %418, i32 0, i32 1
-  %420 = load i32, ptr %419, align 8
-  %421 = call ptr @rb_current_vm()
-  %422 = getelementptr inbounds %struct.rb_vm_struct, ptr %421, i32 0, i32 24
-  store i32 %420, ptr %422, align 8
-  br label %423
+408:                                              ; preds = %401
+  %409 = load ptr, ptr %7, align 8
+  %410 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %409, i32 0, i32 3
+  %411 = getelementptr inbounds %struct.anon.5, ptr %410, i32 0, i32 0
+  %412 = getelementptr inbounds %struct.anon.6, ptr %411, i32 0, i32 0
+  %413 = load i64, ptr %412, align 8
+  %414 = call i32 @opt_enc_index(i64 noundef %413)
+  %415 = load ptr, ptr %7, align 8
+  %416 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %415, i32 0, i32 3
+  %417 = getelementptr inbounds %struct.anon.5, ptr %416, i32 0, i32 0
+  %418 = getelementptr inbounds %struct.anon.6, ptr %417, i32 0, i32 1
+  store i32 %414, ptr %418, align 8
+  %419 = load ptr, ptr %7, align 8
+  %420 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %419, i32 0, i32 3
+  %421 = getelementptr inbounds %struct.anon.5, ptr %420, i32 0, i32 0
+  %422 = getelementptr inbounds %struct.anon.6, ptr %421, i32 0, i32 1
+  %423 = load i32, ptr %422, align 8
+  %424 = call ptr @rb_current_vm()
+  %425 = getelementptr inbounds %struct.rb_vm_struct, ptr %424, i32 0, i32 24
+  store i32 %423, ptr %425, align 8
+  br label %426
 
-423:                                              ; preds = %405, %398
-  %424 = load ptr, ptr %7, align 8
-  %425 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %424, i32 0, i32 4
-  %426 = getelementptr inbounds %struct.anon.5, ptr %425, i32 0, i32 0
-  %427 = getelementptr inbounds %struct.anon.6, ptr %426, i32 0, i32 1
-  %428 = load i32, ptr %427, align 8
-  %429 = icmp sge i32 %428, 0
-  br i1 %429, label %430, label %437
+426:                                              ; preds = %408, %401
+  %427 = load ptr, ptr %7, align 8
+  %428 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %427, i32 0, i32 4
+  %429 = getelementptr inbounds %struct.anon.5, ptr %428, i32 0, i32 0
+  %430 = getelementptr inbounds %struct.anon.6, ptr %429, i32 0, i32 1
+  %431 = load i32, ptr %430, align 8
+  %432 = icmp sge i32 %431, 0
+  br i1 %432, label %433, label %440
 
-430:                                              ; preds = %423
-  %431 = load ptr, ptr %7, align 8
-  %432 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %431, i32 0, i32 4
-  %433 = getelementptr inbounds %struct.anon.5, ptr %432, i32 0, i32 0
-  %434 = getelementptr inbounds %struct.anon.6, ptr %433, i32 0, i32 1
-  %435 = load i32, ptr %434, align 8
-  %436 = call ptr @rb_enc_from_index(i32 noundef %435)
-  store ptr %436, ptr %10, align 8
-  br label %439
+433:                                              ; preds = %426
+  %434 = load ptr, ptr %7, align 8
+  %435 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %434, i32 0, i32 4
+  %436 = getelementptr inbounds %struct.anon.5, ptr %435, i32 0, i32 0
+  %437 = getelementptr inbounds %struct.anon.6, ptr %436, i32 0, i32 1
+  %438 = load i32, ptr %437, align 8
+  %439 = call ptr @rb_enc_from_index(i32 noundef %438)
+  store ptr %439, ptr %10, align 8
+  br label %442
 
-437:                                              ; preds = %423
-  %438 = load ptr, ptr %11, align 8
-  store ptr %438, ptr %10, align 8
-  br label %439
+440:                                              ; preds = %426
+  %441 = load ptr, ptr %11, align 8
+  store ptr %441, ptr %10, align 8
+  br label %442
 
-439:                                              ; preds = %437, %430
-  %440 = load ptr, ptr %10, align 8
-  %441 = call i64 @rb_enc_from_encoding(ptr noundef %440)
-  call void @rb_enc_set_default_external(i64 noundef %441)
-  %442 = load ptr, ptr %7, align 8
-  %443 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %442, i32 0, i32 5
-  %444 = getelementptr inbounds %struct.anon.5, ptr %443, i32 0, i32 0
-  %445 = getelementptr inbounds %struct.anon.6, ptr %444, i32 0, i32 1
-  %446 = load i32, ptr %445, align 8
-  %447 = icmp sge i32 %446, 0
-  br i1 %447, label %448, label %461
+442:                                              ; preds = %440, %433
+  %443 = load ptr, ptr %10, align 8
+  %444 = call i64 @rb_enc_from_encoding(ptr noundef %443)
+  call void @rb_enc_set_default_external(i64 noundef %444)
+  %445 = load ptr, ptr %7, align 8
+  %446 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %445, i32 0, i32 5
+  %447 = getelementptr inbounds %struct.anon.5, ptr %446, i32 0, i32 0
+  %448 = getelementptr inbounds %struct.anon.6, ptr %447, i32 0, i32 1
+  %449 = load i32, ptr %448, align 8
+  %450 = icmp sge i32 %449, 0
+  br i1 %450, label %451, label %464
 
-448:                                              ; preds = %439
-  %449 = load ptr, ptr %7, align 8
-  %450 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %449, i32 0, i32 5
-  %451 = getelementptr inbounds %struct.anon.5, ptr %450, i32 0, i32 0
-  %452 = getelementptr inbounds %struct.anon.6, ptr %451, i32 0, i32 1
-  %453 = load i32, ptr %452, align 8
-  %454 = call ptr @rb_enc_from_index(i32 noundef %453)
-  store ptr %454, ptr %10, align 8
-  %455 = load ptr, ptr %10, align 8
-  %456 = call i64 @rb_enc_from_encoding(ptr noundef %455)
-  call void @rb_enc_set_default_internal(i64 noundef %456)
-  %457 = load ptr, ptr %7, align 8
-  %458 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %457, i32 0, i32 5
-  %459 = getelementptr inbounds %struct.anon.5, ptr %458, i32 0, i32 0
-  %460 = getelementptr inbounds %struct.anon.6, ptr %459, i32 0, i32 1
-  store i32 -1, ptr %460, align 8
-  br label %461
+451:                                              ; preds = %442
+  %452 = load ptr, ptr %7, align 8
+  %453 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %452, i32 0, i32 5
+  %454 = getelementptr inbounds %struct.anon.5, ptr %453, i32 0, i32 0
+  %455 = getelementptr inbounds %struct.anon.6, ptr %454, i32 0, i32 1
+  %456 = load i32, ptr %455, align 8
+  %457 = call ptr @rb_enc_from_index(i32 noundef %456)
+  store ptr %457, ptr %10, align 8
+  %458 = load ptr, ptr %10, align 8
+  %459 = call i64 @rb_enc_from_encoding(ptr noundef %458)
+  call void @rb_enc_set_default_internal(i64 noundef %459)
+  %460 = load ptr, ptr %7, align 8
+  %461 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %460, i32 0, i32 5
+  %462 = getelementptr inbounds %struct.anon.5, ptr %461, i32 0, i32 0
+  %463 = getelementptr inbounds %struct.anon.6, ptr %462, i32 0, i32 1
+  store i32 -1, ptr %463, align 8
+  br label %464
 
-461:                                              ; preds = %448, %439
-  %462 = load ptr, ptr %7, align 8
-  %463 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %462, i32 0, i32 1
-  %464 = load i64, ptr %463, align 8
-  %465 = load ptr, ptr %11, align 8
-  %466 = call i64 @rb_enc_associate(i64 noundef %464, ptr noundef %465)
-  %467 = load ptr, ptr %7, align 8
-  %468 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %467, i32 0, i32 1
-  %469 = load i64, ptr %468, align 8
-  %470 = call i64 @rb_obj_freeze(i64 noundef %469)
-  %471 = load ptr, ptr %16, align 8
-  %472 = getelementptr inbounds %struct.rb_vm_struct, ptr %471, i32 0, i32 10
-  %473 = load i64, ptr %472, align 8
-  store i64 %473, ptr %21, align 8
-  %474 = call i64 @rb_intern_const(ptr noundef @.str.1) #18
-  store i64 %474, ptr %22, align 8
+464:                                              ; preds = %451, %442
+  %465 = load ptr, ptr %7, align 8
+  %466 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %465, i32 0, i32 1
+  %467 = load i64, ptr %466, align 8
+  %468 = load ptr, ptr %11, align 8
+  %469 = call i64 @rb_enc_associate(i64 noundef %467, ptr noundef %468)
+  %470 = load ptr, ptr %7, align 8
+  %471 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %470, i32 0, i32 1
+  %472 = load i64, ptr %471, align 8
+  %473 = call i64 @rb_obj_freeze(i64 noundef %472)
+  %474 = load ptr, ptr %16, align 8
+  %475 = getelementptr inbounds %struct.rb_vm_struct, ptr %474, i32 0, i32 10
+  %476 = load i64, ptr %475, align 8
+  store i64 %476, ptr %21, align 8
+  %477 = call i64 @rb_intern_const(ptr noundef @.str.1) #18
+  store i64 %477, ptr %22, align 8
   store i32 0, ptr %23, align 4
-  %475 = call i64 @rb_get_expanded_load_path()
+  %478 = call i64 @rb_get_expanded_load_path()
   store i64 0, ptr %20, align 8
-  br label %476
+  br label %479
 
-476:                                              ; preds = %516, %461
-  %477 = load i64, ptr %20, align 8
-  %478 = load i64, ptr %21, align 8
-  %479 = call i64 @rb_array_len(i64 noundef %478) #18
-  %480 = icmp slt i64 %477, %479
-  br i1 %480, label %481, label %519
+479:                                              ; preds = %519, %464
+  %480 = load i64, ptr %20, align 8
+  %481 = load i64, ptr %21, align 8
+  %482 = call i64 @rb_array_len(i64 noundef %481) #18
+  %483 = icmp slt i64 %480, %482
+  br i1 %483, label %484, label %522
 
-481:                                              ; preds = %476
-  %482 = load i64, ptr %21, align 8
-  %483 = load i64, ptr %20, align 8
-  %484 = call i64 @RARRAY_AREF(i64 noundef %482, i64 noundef %483) #18
-  store i64 %484, ptr %24, align 8
-  %485 = load i64, ptr %24, align 8
-  %486 = load i64, ptr %22, align 8
-  %487 = call i64 @rb_attr_get(i64 noundef %485, i64 noundef %486)
+484:                                              ; preds = %479
+  %485 = load i64, ptr %21, align 8
+  %486 = load i64, ptr %20, align 8
+  %487 = call i64 @RARRAY_AREF(i64 noundef %485, i64 noundef %486) #18
+  store i64 %487, ptr %24, align 8
   %488 = load i64, ptr %24, align 8
-  %489 = icmp eq i64 %487, %488
-  %490 = zext i1 %489 to i32
-  store i32 %490, ptr %25, align 4
+  %489 = load i64, ptr %22, align 8
+  %490 = call i64 @rb_attr_get(i64 noundef %488, i64 noundef %489)
   %491 = load i64, ptr %24, align 8
-  %492 = load ptr, ptr %11, align 8
-  %493 = load i32, ptr %25, align 4
-  %494 = icmp ne i32 %493, 0
-  %495 = xor i1 %494, true
-  %496 = call i64 @copy_str(i64 noundef %491, ptr noundef %492, i1 noundef zeroext %495)
-  store i64 %496, ptr %24, align 8
-  %497 = icmp ne i64 %496, 0
-  br i1 %497, label %499, label %498
+  %492 = icmp eq i64 %490, %491
+  %493 = zext i1 %492 to i32
+  store i32 %493, ptr %25, align 4
+  %494 = load i64, ptr %24, align 8
+  %495 = load ptr, ptr %11, align 8
+  %496 = load i32, ptr %25, align 4
+  %497 = icmp ne i32 %496, 0
+  %498 = xor i1 %497, true
+  %499 = call i64 @copy_str(i64 noundef %494, ptr noundef %495, i1 noundef zeroext %498)
+  store i64 %499, ptr %24, align 8
+  %500 = icmp ne i64 %499, 0
+  br i1 %500, label %502, label %501
 
-498:                                              ; preds = %481
-  br label %516
+501:                                              ; preds = %484
+  br label %519
 
-499:                                              ; preds = %481
-  %500 = load i32, ptr %25, align 4
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %507
+502:                                              ; preds = %484
+  %503 = load i32, ptr %25, align 4
+  %504 = icmp ne i32 %503, 0
+  br i1 %504, label %505, label %510
 
-502:                                              ; preds = %499
-  %503 = load i64, ptr %24, align 8
-  %504 = load i64, ptr %22, align 8
-  %505 = load i64, ptr %24, align 8
-  %506 = call i64 @rb_ivar_set(i64 noundef %503, i64 noundef %504, i64 noundef %505)
-  br label %507
+505:                                              ; preds = %502
+  %506 = load i64, ptr %24, align 8
+  %507 = load i64, ptr %22, align 8
+  %508 = load i64, ptr %24, align 8
+  %509 = call i64 @rb_ivar_set(i64 noundef %506, i64 noundef %507, i64 noundef %508)
+  br label %510
 
-507:                                              ; preds = %502, %499
-  %508 = load i32, ptr %23, align 4
-  %509 = icmp ne i32 %508, 0
-  br i1 %509, label %512, label %510
+510:                                              ; preds = %505, %502
+  %511 = load i32, ptr %23, align 4
+  %512 = icmp ne i32 %511, 0
+  br i1 %512, label %515, label %513
 
-510:                                              ; preds = %507
-  %511 = load i64, ptr %21, align 8
-  call void @rb_ary_modify(i64 noundef %511)
+513:                                              ; preds = %510
+  %514 = load i64, ptr %21, align 8
+  call void @rb_ary_modify(i64 noundef %514)
   store i32 1, ptr %23, align 4
-  br label %512
+  br label %515
 
-512:                                              ; preds = %510, %507
-  %513 = load i64, ptr %21, align 8
-  %514 = load i64, ptr %20, align 8
-  %515 = load i64, ptr %24, align 8
-  call void @RARRAY_ASET(i64 noundef %513, i64 noundef %514, i64 noundef %515)
-  br label %516
-
-516:                                              ; preds = %512, %498
+515:                                              ; preds = %513, %510
+  %516 = load i64, ptr %21, align 8
   %517 = load i64, ptr %20, align 8
-  %518 = add i64 %517, 1
-  store i64 %518, ptr %20, align 8
-  br label %476, !llvm.loop !14
+  %518 = load i64, ptr %24, align 8
+  call void @RARRAY_ASET(i64 noundef %516, i64 noundef %517, i64 noundef %518)
+  br label %519
 
-519:                                              ; preds = %476
-  %520 = load i32, ptr %23, align 4
-  %521 = icmp ne i32 %520, 0
-  br i1 %521, label %522, label %528
+519:                                              ; preds = %515, %501
+  %520 = load i64, ptr %20, align 8
+  %521 = add i64 %520, 1
+  store i64 %521, ptr %20, align 8
+  br label %479, !llvm.loop !14
 
-522:                                              ; preds = %519
-  %523 = load ptr, ptr %16, align 8
-  %524 = getelementptr inbounds %struct.rb_vm_struct, ptr %523, i32 0, i32 11
-  %525 = load i64, ptr %524, align 8
-  %526 = load i64, ptr %21, align 8
-  %527 = call i64 @rb_ary_replace(i64 noundef %525, i64 noundef %526)
-  br label %528
+522:                                              ; preds = %479
+  %523 = load i32, ptr %23, align 4
+  %524 = icmp ne i32 %523, 0
+  br i1 %524, label %525, label %531
 
-528:                                              ; preds = %522, %519
-  %529 = load ptr, ptr %16, align 8
-  %530 = getelementptr inbounds %struct.rb_vm_struct, ptr %529, i32 0, i32 14
-  %531 = load i64, ptr %530, align 8
-  store i64 %531, ptr %26, align 8
+525:                                              ; preds = %522
+  %526 = load ptr, ptr %16, align 8
+  %527 = getelementptr inbounds %struct.rb_vm_struct, ptr %526, i32 0, i32 11
+  %528 = load i64, ptr %527, align 8
+  %529 = load i64, ptr %21, align 8
+  %530 = call i64 @rb_ary_replace(i64 noundef %528, i64 noundef %529)
+  br label %531
+
+531:                                              ; preds = %525, %522
+  %532 = load ptr, ptr %16, align 8
+  %533 = getelementptr inbounds %struct.rb_vm_struct, ptr %532, i32 0, i32 14
+  %534 = load i64, ptr %533, align 8
+  store i64 %534, ptr %26, align 8
   store i8 0, ptr %27, align 1
-  %532 = load i64, ptr %17, align 8
-  store i64 %532, ptr %28, align 8
-  br label %533
+  %535 = load i64, ptr %17, align 8
+  store i64 %535, ptr %28, align 8
+  br label %536
 
-533:                                              ; preds = %556, %528
-  %534 = load i64, ptr %28, align 8
-  %535 = load i64, ptr %26, align 8
-  %536 = call i64 @rb_array_len(i64 noundef %535) #18
-  %537 = icmp slt i64 %534, %536
-  br i1 %537, label %538, label %559
+536:                                              ; preds = %559, %531
+  %537 = load i64, ptr %28, align 8
+  %538 = load i64, ptr %26, align 8
+  %539 = call i64 @rb_array_len(i64 noundef %538) #18
+  %540 = icmp slt i64 %537, %539
+  br i1 %540, label %541, label %562
 
-538:                                              ; preds = %533
-  %539 = load i64, ptr %26, align 8
-  %540 = load i64, ptr %28, align 8
-  %541 = call i64 @RARRAY_AREF(i64 noundef %539, i64 noundef %540) #18
-  store i64 %541, ptr %29, align 8
-  %542 = load i64, ptr %29, align 8
-  %543 = load ptr, ptr %11, align 8
-  %544 = call i64 @copy_str(i64 noundef %542, ptr noundef %543, i1 noundef zeroext true)
+541:                                              ; preds = %536
+  %542 = load i64, ptr %26, align 8
+  %543 = load i64, ptr %28, align 8
+  %544 = call i64 @RARRAY_AREF(i64 noundef %542, i64 noundef %543) #18
   store i64 %544, ptr %29, align 8
-  %545 = icmp ne i64 %544, 0
-  br i1 %545, label %547, label %546
+  %545 = load i64, ptr %29, align 8
+  %546 = load ptr, ptr %11, align 8
+  %547 = call i64 @copy_str(i64 noundef %545, ptr noundef %546, i1 noundef zeroext true)
+  store i64 %547, ptr %29, align 8
+  %548 = icmp ne i64 %547, 0
+  br i1 %548, label %550, label %549
 
-546:                                              ; preds = %538
-  br label %556
+549:                                              ; preds = %541
+  br label %559
 
-547:                                              ; preds = %538
-  %548 = load i8, ptr %27, align 1
-  %549 = trunc i8 %548 to i1
-  br i1 %549, label %552, label %550
+550:                                              ; preds = %541
+  %551 = load i8, ptr %27, align 1
+  %552 = trunc i8 %551 to i1
+  br i1 %552, label %555, label %553
 
-550:                                              ; preds = %547
-  %551 = load i64, ptr %26, align 8
-  call void @rb_ary_modify(i64 noundef %551)
+553:                                              ; preds = %550
+  %554 = load i64, ptr %26, align 8
+  call void @rb_ary_modify(i64 noundef %554)
   store i8 1, ptr %27, align 1
-  br label %552
+  br label %555
 
-552:                                              ; preds = %550, %547
-  %553 = load i64, ptr %26, align 8
-  %554 = load i64, ptr %28, align 8
-  %555 = load i64, ptr %29, align 8
-  call void @RARRAY_ASET(i64 noundef %553, i64 noundef %554, i64 noundef %555)
-  br label %556
-
-556:                                              ; preds = %552, %546
+555:                                              ; preds = %553, %550
+  %556 = load i64, ptr %26, align 8
   %557 = load i64, ptr %28, align 8
-  %558 = add i64 %557, 1
-  store i64 %558, ptr %28, align 8
-  br label %533, !llvm.loop !15
+  %558 = load i64, ptr %29, align 8
+  call void @RARRAY_ASET(i64 noundef %556, i64 noundef %557, i64 noundef %558)
+  br label %559
 
-559:                                              ; preds = %533
-  %560 = load i8, ptr %27, align 1
-  %561 = trunc i8 %560 to i1
-  br i1 %561, label %562, label %568
+559:                                              ; preds = %555, %549
+  %560 = load i64, ptr %28, align 8
+  %561 = add i64 %560, 1
+  store i64 %561, ptr %28, align 8
+  br label %536, !llvm.loop !15
 
-562:                                              ; preds = %559
-  %563 = load ptr, ptr %16, align 8
-  %564 = getelementptr inbounds %struct.rb_vm_struct, ptr %563, i32 0, i32 15
-  %565 = load i64, ptr %564, align 8
-  %566 = load i64, ptr %26, align 8
-  %567 = call i64 @rb_ary_replace(i64 noundef %565, i64 noundef %566)
-  br label %568
+562:                                              ; preds = %536
+  %563 = load i8, ptr %27, align 1
+  %564 = trunc i8 %563 to i1
+  br i1 %564, label %565, label %571
 
-568:                                              ; preds = %562, %559
-  %569 = load ptr, ptr %7, align 8
-  %570 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %569, i32 0, i32 7
-  %571 = getelementptr inbounds %struct.ruby_features_t, ptr %570, i32 0, i32 0
-  %572 = load i32, ptr %571, align 8
-  %573 = and i32 %572, 288
-  %574 = icmp ne i32 %573, 0
-  br i1 %574, label %575, label %602
+565:                                              ; preds = %562
+  %566 = load ptr, ptr %16, align 8
+  %567 = getelementptr inbounds %struct.rb_vm_struct, ptr %566, i32 0, i32 15
+  %568 = load i64, ptr %567, align 8
+  %569 = load i64, ptr %26, align 8
+  %570 = call i64 @rb_ary_replace(i64 noundef %568, i64 noundef %569)
+  br label %571
 
-575:                                              ; preds = %568
-  %576 = call i64 @rb_hash_new()
-  store i64 %576, ptr %30, align 8
-  %577 = load i64, ptr %30, align 8
-  %578 = call i64 @rb_intern_const(ptr noundef @.str.96) #18
-  %579 = call i64 @rb_id2sym(i64 noundef %578)
-  %580 = load ptr, ptr %7, align 8
-  %581 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %580, i32 0, i32 7
-  %582 = getelementptr inbounds %struct.ruby_features_t, ptr %581, i32 0, i32 1
-  %583 = load i32, ptr %582, align 4
-  %584 = and i32 %583, 32
-  %585 = icmp ne i32 %584, 0
-  %586 = select i1 %585, i64 20, i64 0
-  %587 = call i64 @rb_hash_aset(i64 noundef %577, i64 noundef %579, i64 noundef %586)
-  %588 = load i64, ptr %30, align 8
-  %589 = call i64 @rb_intern_const(ptr noundef @.str.140) #18
-  %590 = call i64 @rb_id2sym(i64 noundef %589)
-  %591 = load ptr, ptr %7, align 8
-  %592 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %591, i32 0, i32 7
-  %593 = getelementptr inbounds %struct.ruby_features_t, ptr %592, i32 0, i32 1
-  %594 = load i32, ptr %593, align 4
-  %595 = and i32 %594, 256
-  %596 = icmp ne i32 %595, 0
-  %597 = select i1 %596, i64 20, i64 0
-  %598 = call i64 @rb_hash_aset(i64 noundef %588, i64 noundef %590, i64 noundef %597)
-  %599 = load i64, ptr @rb_cISeq, align 8
-  %600 = call i64 @rb_intern_const(ptr noundef @.str.141) #18
-  %601 = call i64 @rb_funcallv(i64 noundef %599, i64 noundef %600, i32 noundef 1, ptr noundef %30)
-  br label %602
+571:                                              ; preds = %565, %562
+  %572 = load ptr, ptr %7, align 8
+  %573 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %572, i32 0, i32 7
+  %574 = getelementptr inbounds %struct.ruby_features_t, ptr %573, i32 0, i32 0
+  %575 = load i32, ptr %574, align 8
+  %576 = and i32 %575, 288
+  %577 = icmp ne i32 %576, 0
+  br i1 %577, label %578, label %605
 
-602:                                              ; preds = %575, %568
-  %603 = load i32, ptr %5, align 4
-  %604 = load ptr, ptr %6, align 8
-  call void @ruby_set_argv(i32 noundef %603, ptr noundef %604)
-  %605 = load ptr, ptr %7, align 8
-  %606 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %605, i32 0, i32 13
-  %607 = load i16, ptr %606, align 8
-  %608 = shl i16 %607, 14
-  %609 = ashr i16 %608, 14
-  %610 = sext i16 %609 to i32
-  %611 = call i32 @process_sflag(i32 noundef %610)
-  %612 = load ptr, ptr %7, align 8
-  %613 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %612, i32 0, i32 13
-  %614 = trunc i32 %611 to i16
-  %615 = load i16, ptr %613, align 8
-  %616 = and i16 %614, 3
-  %617 = and i16 %615, -4
-  %618 = or i16 %617, %616
-  store i16 %618, ptr %613, align 8
-  %619 = load ptr, ptr %7, align 8
-  %620 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %619, i32 0, i32 2
-  %621 = load i64, ptr %620, align 8
-  %622 = icmp ne i64 %621, 0
-  br i1 %622, label %623, label %645
+578:                                              ; preds = %571
+  %579 = call i64 @rb_hash_new()
+  store i64 %579, ptr %30, align 8
+  %580 = load i64, ptr %30, align 8
+  %581 = call i64 @rb_intern_const(ptr noundef @.str.96) #18
+  %582 = call i64 @rb_id2sym(i64 noundef %581)
+  %583 = load ptr, ptr %7, align 8
+  %584 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %583, i32 0, i32 7
+  %585 = getelementptr inbounds %struct.ruby_features_t, ptr %584, i32 0, i32 1
+  %586 = load i32, ptr %585, align 4
+  %587 = and i32 %586, 32
+  %588 = icmp ne i32 %587, 0
+  %589 = select i1 %588, i64 20, i64 0
+  %590 = call i64 @rb_hash_aset(i64 noundef %580, i64 noundef %582, i64 noundef %589)
+  %591 = load i64, ptr %30, align 8
+  %592 = call i64 @rb_intern_const(ptr noundef @.str.140) #18
+  %593 = call i64 @rb_id2sym(i64 noundef %592)
+  %594 = load ptr, ptr %7, align 8
+  %595 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %594, i32 0, i32 7
+  %596 = getelementptr inbounds %struct.ruby_features_t, ptr %595, i32 0, i32 1
+  %597 = load i32, ptr %596, align 4
+  %598 = and i32 %597, 256
+  %599 = icmp ne i32 %598, 0
+  %600 = select i1 %599, i64 20, i64 0
+  %601 = call i64 @rb_hash_aset(i64 noundef %591, i64 noundef %593, i64 noundef %600)
+  %602 = load i64, ptr @rb_cISeq, align 8
+  %603 = call i64 @rb_intern_const(ptr noundef @.str.141) #18
+  %604 = call i64 @rb_funcallv(i64 noundef %602, i64 noundef %603, i32 noundef 1, ptr noundef %30)
+  br label %605
 
-623:                                              ; preds = %602
-  %624 = load ptr, ptr %7, align 8
-  %625 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %624, i32 0, i32 3
-  %626 = getelementptr inbounds %struct.anon.5, ptr %625, i32 0, i32 0
-  %627 = getelementptr inbounds %struct.anon.6, ptr %626, i32 0, i32 1
-  %628 = load i32, ptr %627, align 8
-  %629 = icmp sge i32 %628, 0
-  br i1 %629, label %630, label %637
+605:                                              ; preds = %578, %571
+  %606 = load i32, ptr %5, align 4
+  %607 = load ptr, ptr %6, align 8
+  call void @ruby_set_argv(i32 noundef %606, ptr noundef %607)
+  %608 = load ptr, ptr %7, align 8
+  %609 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %608, i32 0, i32 13
+  %610 = load i16, ptr %609, align 8
+  %611 = shl i16 %610, 14
+  %612 = ashr i16 %611, 14
+  %613 = sext i16 %612 to i32
+  %614 = call i32 @process_sflag(i32 noundef %613)
+  %615 = load ptr, ptr %7, align 8
+  %616 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %615, i32 0, i32 13
+  %617 = trunc i32 %614 to i16
+  %618 = load i16, ptr %616, align 8
+  %619 = and i16 %617, 3
+  %620 = and i16 %618, -4
+  %621 = or i16 %620, %619
+  store i16 %621, ptr %616, align 8
+  %622 = load ptr, ptr %7, align 8
+  %623 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %622, i32 0, i32 2
+  %624 = load i64, ptr %623, align 8
+  %625 = icmp ne i64 %624, 0
+  br i1 %625, label %626, label %648
 
-630:                                              ; preds = %623
-  %631 = load ptr, ptr %7, align 8
-  %632 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %631, i32 0, i32 3
-  %633 = getelementptr inbounds %struct.anon.5, ptr %632, i32 0, i32 0
-  %634 = getelementptr inbounds %struct.anon.6, ptr %633, i32 0, i32 1
-  %635 = load i32, ptr %634, align 8
-  %636 = call ptr @rb_enc_from_index(i32 noundef %635)
-  store ptr %636, ptr %31, align 8
-  br label %639
+626:                                              ; preds = %605
+  %627 = load ptr, ptr %7, align 8
+  %628 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %627, i32 0, i32 3
+  %629 = getelementptr inbounds %struct.anon.5, ptr %628, i32 0, i32 0
+  %630 = getelementptr inbounds %struct.anon.6, ptr %629, i32 0, i32 1
+  %631 = load i32, ptr %630, align 8
+  %632 = icmp sge i32 %631, 0
+  br i1 %632, label %633, label %640
 
-637:                                              ; preds = %623
-  %638 = load ptr, ptr %11, align 8
-  store ptr %638, ptr %31, align 8
-  br label %639
+633:                                              ; preds = %626
+  %634 = load ptr, ptr %7, align 8
+  %635 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %634, i32 0, i32 3
+  %636 = getelementptr inbounds %struct.anon.5, ptr %635, i32 0, i32 0
+  %637 = getelementptr inbounds %struct.anon.6, ptr %636, i32 0, i32 1
+  %638 = load i32, ptr %637, align 8
+  %639 = call ptr @rb_enc_from_index(i32 noundef %638)
+  store ptr %639, ptr %31, align 8
+  br label %642
 
-639:                                              ; preds = %637, %630
-  %640 = load ptr, ptr %7, align 8
-  %641 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %640, i32 0, i32 2
-  %642 = load i64, ptr %641, align 8
-  %643 = load ptr, ptr %31, align 8
-  %644 = call i64 @rb_enc_associate(i64 noundef %642, ptr noundef %643)
-  br label %645
+640:                                              ; preds = %626
+  %641 = load ptr, ptr %11, align 8
+  store ptr %641, ptr %31, align 8
+  br label %642
 
-645:                                              ; preds = %639, %602
-  %646 = call ptr @rb_ruby_prism_ptr()
-  %647 = load i8, ptr %646, align 1
-  %648 = trunc i8 %647 to i1
-  br i1 %648, label %656, label %649
+642:                                              ; preds = %640, %633
+  %643 = load ptr, ptr %7, align 8
+  %644 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %643, i32 0, i32 2
+  %645 = load i64, ptr %644, align 8
+  %646 = load ptr, ptr %31, align 8
+  %647 = call i64 @rb_enc_associate(i64 noundef %645, ptr noundef %646)
+  br label %648
 
-649:                                              ; preds = %645
-  %650 = load ptr, ptr %7, align 8
-  %651 = call ptr @process_script(ptr noundef %650)
-  %652 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  store ptr %651, ptr %652, align 8
-  %653 = icmp ne ptr %651, null
-  br i1 %653, label %655, label %654
+648:                                              ; preds = %642, %605
+  %649 = call ptr @rb_ruby_prism_ptr()
+  %650 = load i8, ptr %649, align 1
+  %651 = trunc i8 %650 to i1
+  br i1 %651, label %659, label %652
 
-654:                                              ; preds = %649
+652:                                              ; preds = %648
+  %653 = load ptr, ptr %7, align 8
+  %654 = call ptr @process_script(ptr noundef %653)
+  %655 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  store ptr %654, ptr %655, align 8
+  %656 = icmp ne ptr %654, null
+  br i1 %656, label %658, label %657
+
+657:                                              ; preds = %652
   store i64 0, ptr %4, align 8
-  br label %895
+  br label %898
 
-655:                                              ; preds = %649
-  br label %659
+658:                                              ; preds = %652
+  br label %662
 
-656:                                              ; preds = %645
-  %657 = load ptr, ptr %7, align 8
-  %658 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
-  call void @prism_script(ptr noundef %657, ptr noundef %658)
-  br label %659
-
-659:                                              ; preds = %656, %655
+659:                                              ; preds = %648
   %660 = load ptr, ptr %7, align 8
-  %661 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %660, i32 0, i32 1
-  %662 = load i64, ptr %661, align 8
-  call void @ruby_set_script_name(i64 noundef %662)
-  %663 = load i32, ptr %15, align 4
-  %664 = and i32 %663, 64
-  %665 = icmp ne i32 %664, 0
-  br i1 %665, label %666, label %680
+  %661 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
+  call void @prism_script(ptr noundef %660, ptr noundef %661)
+  br label %662
 
-666:                                              ; preds = %659
-  %667 = load i32, ptr %15, align 4
-  %668 = and i32 %667, -65
-  store i32 %668, ptr %15, align 4
-  %669 = icmp ne i32 %668, 0
-  br i1 %669, label %680, label %670
+662:                                              ; preds = %659, %658
+  %663 = load ptr, ptr %7, align 8
+  %664 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %663, i32 0, i32 1
+  %665 = load i64, ptr %664, align 8
+  call void @ruby_set_script_name(i64 noundef %665)
+  %666 = load i32, ptr %15, align 4
+  %667 = and i32 %666, 64
+  %668 = icmp ne i32 %667, 0
+  br i1 %668, label %669, label %683
 
-670:                                              ; preds = %666
-  %671 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %672 = load ptr, ptr %671, align 8
-  %673 = icmp ne ptr %672, null
-  br i1 %673, label %674, label %677
+669:                                              ; preds = %662
+  %670 = load i32, ptr %15, align 4
+  %671 = and i32 %670, -65
+  store i32 %671, ptr %15, align 4
+  %672 = icmp ne i32 %671, 0
+  br i1 %672, label %683, label %673
 
-674:                                              ; preds = %670
-  %675 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %676 = load ptr, ptr %675, align 8
-  call void @rb_ast_dispose(ptr noundef %676)
-  br label %679
+673:                                              ; preds = %669
+  %674 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %675 = load ptr, ptr %674, align 8
+  %676 = icmp ne ptr %675, null
+  br i1 %676, label %677, label %680
 
-677:                                              ; preds = %670
-  %678 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
-  call void @pm_parse_result_free(ptr noundef %678)
-  br label %679
+677:                                              ; preds = %673
+  %678 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %679 = load ptr, ptr %678, align 8
+  call void @rb_ast_dispose(ptr noundef %679)
+  br label %682
 
-679:                                              ; preds = %677, %674
+680:                                              ; preds = %673
+  %681 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
+  call void @pm_parse_result_free(ptr noundef %681)
+  br label %682
+
+682:                                              ; preds = %680, %677
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-680:                                              ; preds = %666, %659
-  %681 = load ptr, ptr %7, align 8
-  %682 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %681, i32 0, i32 4
-  %683 = getelementptr inbounds %struct.anon.5, ptr %682, i32 0, i32 0
-  %684 = getelementptr inbounds %struct.anon.6, ptr %683, i32 0, i32 1
-  %685 = load i32, ptr %684, align 8
-  %686 = icmp sge i32 %685, 0
-  br i1 %686, label %687, label %694
+683:                                              ; preds = %669, %662
+  %684 = load ptr, ptr %7, align 8
+  %685 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %684, i32 0, i32 4
+  %686 = getelementptr inbounds %struct.anon.5, ptr %685, i32 0, i32 0
+  %687 = getelementptr inbounds %struct.anon.6, ptr %686, i32 0, i32 1
+  %688 = load i32, ptr %687, align 8
+  %689 = icmp sge i32 %688, 0
+  br i1 %689, label %690, label %697
 
-687:                                              ; preds = %680
-  %688 = load ptr, ptr %7, align 8
-  %689 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %688, i32 0, i32 4
-  %690 = getelementptr inbounds %struct.anon.5, ptr %689, i32 0, i32 0
-  %691 = getelementptr inbounds %struct.anon.6, ptr %690, i32 0, i32 1
-  %692 = load i32, ptr %691, align 8
-  %693 = call ptr @rb_enc_from_index(i32 noundef %692)
-  store ptr %693, ptr %10, align 8
-  br label %696
+690:                                              ; preds = %683
+  %691 = load ptr, ptr %7, align 8
+  %692 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %691, i32 0, i32 4
+  %693 = getelementptr inbounds %struct.anon.5, ptr %692, i32 0, i32 0
+  %694 = getelementptr inbounds %struct.anon.6, ptr %693, i32 0, i32 1
+  %695 = load i32, ptr %694, align 8
+  %696 = call ptr @rb_enc_from_index(i32 noundef %695)
+  store ptr %696, ptr %10, align 8
+  br label %699
 
-694:                                              ; preds = %680
-  %695 = load ptr, ptr %11, align 8
-  store ptr %695, ptr %10, align 8
-  br label %696
+697:                                              ; preds = %683
+  %698 = load ptr, ptr %11, align 8
+  store ptr %698, ptr %10, align 8
+  br label %699
 
-696:                                              ; preds = %694, %687
-  %697 = load ptr, ptr %10, align 8
-  %698 = call i64 @rb_enc_from_encoding(ptr noundef %697)
-  call void @rb_enc_set_default_external(i64 noundef %698)
-  %699 = load ptr, ptr %7, align 8
-  %700 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %699, i32 0, i32 5
-  %701 = getelementptr inbounds %struct.anon.5, ptr %700, i32 0, i32 0
-  %702 = getelementptr inbounds %struct.anon.6, ptr %701, i32 0, i32 1
-  %703 = load i32, ptr %702, align 8
-  %704 = icmp sge i32 %703, 0
-  br i1 %704, label %705, label %714
+699:                                              ; preds = %697, %690
+  %700 = load ptr, ptr %10, align 8
+  %701 = call i64 @rb_enc_from_encoding(ptr noundef %700)
+  call void @rb_enc_set_default_external(i64 noundef %701)
+  %702 = load ptr, ptr %7, align 8
+  %703 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %702, i32 0, i32 5
+  %704 = getelementptr inbounds %struct.anon.5, ptr %703, i32 0, i32 0
+  %705 = getelementptr inbounds %struct.anon.6, ptr %704, i32 0, i32 1
+  %706 = load i32, ptr %705, align 8
+  %707 = icmp sge i32 %706, 0
+  br i1 %707, label %708, label %717
 
-705:                                              ; preds = %696
-  %706 = load ptr, ptr %7, align 8
-  %707 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %706, i32 0, i32 5
-  %708 = getelementptr inbounds %struct.anon.5, ptr %707, i32 0, i32 0
-  %709 = getelementptr inbounds %struct.anon.6, ptr %708, i32 0, i32 1
-  %710 = load i32, ptr %709, align 8
-  %711 = call ptr @rb_enc_from_index(i32 noundef %710)
-  store ptr %711, ptr %10, align 8
-  %712 = load ptr, ptr %10, align 8
-  %713 = call i64 @rb_enc_from_encoding(ptr noundef %712)
-  call void @rb_enc_set_default_internal(i64 noundef %713)
-  br label %719
+708:                                              ; preds = %699
+  %709 = load ptr, ptr %7, align 8
+  %710 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %709, i32 0, i32 5
+  %711 = getelementptr inbounds %struct.anon.5, ptr %710, i32 0, i32 0
+  %712 = getelementptr inbounds %struct.anon.6, ptr %711, i32 0, i32 1
+  %713 = load i32, ptr %712, align 8
+  %714 = call ptr @rb_enc_from_index(i32 noundef %713)
+  store ptr %714, ptr %10, align 8
+  %715 = load ptr, ptr %10, align 8
+  %716 = call i64 @rb_enc_from_encoding(ptr noundef %715)
+  call void @rb_enc_set_default_internal(i64 noundef %716)
+  br label %722
 
-714:                                              ; preds = %696
-  %715 = call ptr @rb_default_internal_encoding()
-  %716 = icmp ne ptr %715, null
-  br i1 %716, label %718, label %717
+717:                                              ; preds = %699
+  %718 = call ptr @rb_default_internal_encoding()
+  %719 = icmp ne ptr %718, null
+  br i1 %719, label %721, label %720
 
-717:                                              ; preds = %714
+720:                                              ; preds = %717
   call void @rb_enc_set_default_internal(i64 noundef 4)
-  br label %718
+  br label %721
 
-718:                                              ; preds = %717, %714
-  br label %719
+721:                                              ; preds = %720, %717
+  br label %722
 
-719:                                              ; preds = %718, %705
+722:                                              ; preds = %721, %708
   call void @rb_stdio_set_default_encoding()
-  %720 = load ptr, ptr %7, align 8
-  %721 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %720, i32 0, i32 13
-  %722 = load i16, ptr %721, align 8
-  %723 = shl i16 %722, 14
-  %724 = ashr i16 %723, 14
-  %725 = sext i16 %724 to i32
-  %726 = call i32 @process_sflag(i32 noundef %725)
-  %727 = load ptr, ptr %7, align 8
-  %728 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %727, i32 0, i32 13
-  %729 = trunc i32 %726 to i16
-  %730 = load i16, ptr %728, align 8
-  %731 = and i16 %729, 3
-  %732 = and i16 %730, -4
-  %733 = or i16 %732, %731
-  store i16 %733, ptr %728, align 8
-  %734 = load ptr, ptr %7, align 8
-  %735 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %734, i32 0, i32 13
-  %736 = load i16, ptr %735, align 8
-  %737 = and i16 %736, -5
-  %738 = or i16 %737, 0
-  store i16 %738, ptr %735, align 8
-  %739 = load i32, ptr %15, align 4
-  %740 = and i32 %739, 128
-  %741 = icmp ne i32 %740, 0
-  br i1 %741, label %742, label %750
+  %723 = load ptr, ptr %7, align 8
+  %724 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %723, i32 0, i32 13
+  %725 = load i16, ptr %724, align 8
+  %726 = shl i16 %725, 14
+  %727 = ashr i16 %726, 14
+  %728 = sext i16 %727 to i32
+  %729 = call i32 @process_sflag(i32 noundef %728)
+  %730 = load ptr, ptr %7, align 8
+  %731 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %730, i32 0, i32 13
+  %732 = trunc i32 %729 to i16
+  %733 = load i16, ptr %731, align 8
+  %734 = and i16 %732, 3
+  %735 = and i16 %733, -4
+  %736 = or i16 %735, %734
+  store i16 %736, ptr %731, align 8
+  %737 = load ptr, ptr %7, align 8
+  %738 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %737, i32 0, i32 13
+  %739 = load i16, ptr %738, align 8
+  %740 = and i16 %739, -5
+  %741 = or i16 %740, 0
+  store i16 %741, ptr %738, align 8
+  %742 = load i32, ptr %15, align 4
+  %743 = and i32 %742, 128
+  %744 = icmp ne i32 %743, 0
+  br i1 %744, label %745, label %753
 
-742:                                              ; preds = %719
-  %743 = call i32 (ptr, ...) @printf(ptr noundef @.str.142)
-  %744 = load i32, ptr %15, align 4
-  %745 = and i32 %744, -129
-  store i32 %745, ptr %15, align 4
-  %746 = load i32, ptr %15, align 4
-  %747 = icmp ne i32 %746, 0
-  br i1 %747, label %749, label %748
+745:                                              ; preds = %722
+  %746 = call i32 (ptr, ...) @printf(ptr noundef @.str.142)
+  %747 = load i32, ptr %15, align 4
+  %748 = and i32 %747, -129
+  store i32 %748, ptr %15, align 4
+  %749 = load i32, ptr %15, align 4
+  %750 = icmp ne i32 %749, 0
+  br i1 %750, label %752, label %751
 
-748:                                              ; preds = %742
+751:                                              ; preds = %745
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-749:                                              ; preds = %742
-  br label %750
+752:                                              ; preds = %745
+  br label %753
 
-750:                                              ; preds = %749, %719
-  %751 = load i32, ptr %15, align 4
-  %752 = and i32 %751, 768
-  %753 = icmp ne i32 %752, 0
-  br i1 %753, label %754, label %792
+753:                                              ; preds = %752, %722
+  %754 = load i32, ptr %15, align 4
+  %755 = and i32 %754, 768
+  %756 = icmp ne i32 %755, 0
+  br i1 %756, label %757, label %795
 
-754:                                              ; preds = %750
-  %755 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %756 = load ptr, ptr %755, align 8
-  %757 = icmp ne ptr %756, null
-  br i1 %757, label %758, label %768
+757:                                              ; preds = %753
+  %758 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %759 = load ptr, ptr %758, align 8
+  %760 = icmp ne ptr %759, null
+  br i1 %760, label %761, label %771
 
-758:                                              ; preds = %754
-  %759 = load i32, ptr %15, align 4
-  %760 = and i32 %759, 512
-  store i32 %760, ptr %33, align 4
-  %761 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %762 = load ptr, ptr %761, align 8
-  %763 = getelementptr inbounds %struct.rb_ast_struct, ptr %762, i32 0, i32 2
-  %764 = getelementptr inbounds %struct.rb_ast_body_struct, ptr %763, i32 0, i32 0
+761:                                              ; preds = %757
+  %762 = load i32, ptr %15, align 4
+  %763 = and i32 %762, 512
+  store i32 %763, ptr %33, align 4
+  %764 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
   %765 = load ptr, ptr %764, align 8
-  %766 = load i32, ptr %33, align 4
-  %767 = call i64 @rb_parser_dump_tree(ptr noundef %765, i32 noundef %766)
-  store i64 %767, ptr %32, align 8
-  br label %771
-
-768:                                              ; preds = %754
-  %769 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
-  %770 = call i64 @prism_dump_tree(ptr noundef %769)
+  %766 = getelementptr inbounds %struct.rb_ast_struct, ptr %765, i32 0, i32 2
+  %767 = getelementptr inbounds %struct.rb_ast_body_struct, ptr %766, i32 0, i32 0
+  %768 = load ptr, ptr %767, align 8
+  %769 = load i32, ptr %33, align 4
+  %770 = call i64 @rb_parser_dump_tree(ptr noundef %768, i32 noundef %769)
   store i64 %770, ptr %32, align 8
-  br label %771
+  br label %774
 
-771:                                              ; preds = %768, %758
-  %772 = load i64, ptr @rb_stdout, align 8
-  %773 = load i64, ptr %32, align 8
-  %774 = call i64 @rb_io_write(i64 noundef %772, i64 noundef %773)
+771:                                              ; preds = %757
+  %772 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
+  %773 = call i64 @prism_dump_tree(ptr noundef %772)
+  store i64 %773, ptr %32, align 8
+  br label %774
+
+774:                                              ; preds = %771, %761
   %775 = load i64, ptr @rb_stdout, align 8
-  %776 = call i64 @rb_io_flush(i64 noundef %775)
-  %777 = load i32, ptr %15, align 4
-  %778 = and i32 %777, -769
-  store i32 %778, ptr %15, align 4
-  %779 = load i32, ptr %15, align 4
-  %780 = icmp ne i32 %779, 0
-  br i1 %780, label %791, label %781
+  %776 = load i64, ptr %32, align 8
+  %777 = call i64 @rb_io_write(i64 noundef %775, i64 noundef %776)
+  %778 = load i64, ptr @rb_stdout, align 8
+  %779 = call i64 @rb_io_flush(i64 noundef %778)
+  %780 = load i32, ptr %15, align 4
+  %781 = and i32 %780, -769
+  store i32 %781, ptr %15, align 4
+  %782 = load i32, ptr %15, align 4
+  %783 = icmp ne i32 %782, 0
+  br i1 %783, label %794, label %784
 
-781:                                              ; preds = %771
-  %782 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %783 = load ptr, ptr %782, align 8
-  %784 = icmp ne ptr %783, null
-  br i1 %784, label %785, label %788
+784:                                              ; preds = %774
+  %785 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %786 = load ptr, ptr %785, align 8
+  %787 = icmp ne ptr %786, null
+  br i1 %787, label %788, label %791
 
-785:                                              ; preds = %781
-  %786 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %787 = load ptr, ptr %786, align 8
-  call void @rb_ast_dispose(ptr noundef %787)
-  br label %790
+788:                                              ; preds = %784
+  %789 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %790 = load ptr, ptr %789, align 8
+  call void @rb_ast_dispose(ptr noundef %790)
+  br label %793
 
-788:                                              ; preds = %781
-  %789 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
-  call void @pm_parse_result_free(ptr noundef %789)
-  br label %790
+791:                                              ; preds = %784
+  %792 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
+  call void @pm_parse_result_free(ptr noundef %792)
+  br label %793
 
-790:                                              ; preds = %788, %785
+793:                                              ; preds = %791, %788
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-791:                                              ; preds = %771
-  br label %792
+794:                                              ; preds = %774
+  br label %795
 
-792:                                              ; preds = %791, %750
+795:                                              ; preds = %794, %753
   store i64 4, ptr %34, align 8
-  %793 = load ptr, ptr %7, align 8
-  %794 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %793, i32 0, i32 2
-  %795 = load i64, ptr %794, align 8
-  %796 = icmp ne i64 %795, 0
-  br i1 %796, label %817, label %797
+  %796 = load ptr, ptr %7, align 8
+  %797 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %796, i32 0, i32 2
+  %798 = load i64, ptr %797, align 8
+  %799 = icmp ne i64 %798, 0
+  br i1 %799, label %820, label %800
 
-797:                                              ; preds = %792
-  %798 = load ptr, ptr %7, align 8
-  %799 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %798, i32 0, i32 0
-  %800 = load ptr, ptr %799, align 8
-  %801 = call i32 @strcmp(ptr noundef %800, ptr noundef @.str.26) #18
-  %802 = icmp ne i32 %801, 0
-  br i1 %802, label %803, label %817
+800:                                              ; preds = %795
+  %801 = load ptr, ptr %7, align 8
+  %802 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %801, i32 0, i32 0
+  %803 = load ptr, ptr %802, align 8
+  %804 = call i32 @strcmp(ptr noundef %803, ptr noundef @.str.26) #18
+  %805 = icmp ne i32 %804, 0
+  br i1 %805, label %806, label %820
 
-803:                                              ; preds = %797
-  %804 = load ptr, ptr %7, align 8
-  %805 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %804, i32 0, i32 1
-  %806 = load i64, ptr %805, align 8
-  %807 = call i64 @rb_realpath_internal(i64 noundef 4, i64 noundef %806, i32 noundef 1)
-  store i64 %807, ptr %34, align 8
-  %808 = load i64, ptr %34, align 8
-  %809 = call i32 @RB_ENCODING_GET(i64 noundef %808)
-  %810 = icmp ne i32 %809, 0
-  br i1 %810, label %816, label %811
+806:                                              ; preds = %800
+  %807 = load ptr, ptr %7, align 8
+  %808 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %807, i32 0, i32 1
+  %809 = load i64, ptr %808, align 8
+  %810 = call i64 @rb_realpath_internal(i64 noundef 4, i64 noundef %809, i32 noundef 1)
+  store i64 %810, ptr %34, align 8
+  %811 = load i64, ptr %34, align 8
+  %812 = call i32 @RB_ENCODING_GET(i64 noundef %811)
+  %813 = icmp ne i32 %812, 0
+  br i1 %813, label %819, label %814
 
-811:                                              ; preds = %803
-  %812 = load i64, ptr %34, align 8
-  %813 = load ptr, ptr %7, align 8
-  %814 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %813, i32 0, i32 1
-  %815 = load i64, ptr %814, align 8
-  call void @rb_enc_copy(i64 noundef %812, i64 noundef %815)
-  br label %816
+814:                                              ; preds = %806
+  %815 = load i64, ptr %34, align 8
+  %816 = load ptr, ptr %7, align 8
+  %817 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %816, i32 0, i32 1
+  %818 = load i64, ptr %817, align 8
+  call void @rb_enc_copy(i64 noundef %815, i64 noundef %818)
+  br label %819
 
-816:                                              ; preds = %811, %803
-  br label %817
+819:                                              ; preds = %814, %806
+  br label %820
 
-817:                                              ; preds = %816, %797, %792
-  %818 = load i64, ptr @rb_cObject, align 8
-  %819 = call i64 @rbimpl_intern_const(ptr noundef @process_options.rbimpl_id, ptr noundef @.str.143) #23
-  store i64 %819, ptr %36, align 8
-  %820 = load i64, ptr %36, align 8
-  %821 = call i64 @rb_const_get(i64 noundef %818, i64 noundef %820)
-  %822 = inttoptr i64 %821 to ptr
-  %823 = getelementptr inbounds %struct.RData, ptr %822, i32 0, i32 3
-  %824 = load ptr, ptr %823, align 8
-  store ptr %824, ptr %35, align 8
-  %825 = load ptr, ptr %35, align 8
-  %826 = call ptr @toplevel_context(ptr noundef %825)
-  store ptr %826, ptr %37, align 8
-  %827 = load ptr, ptr %37, align 8
-  %828 = call ptr @vm_block_iseq(ptr noundef %827)
-  store ptr %828, ptr %38, align 8
-  %829 = load i32, ptr %15, align 4
-  %830 = and i32 %829, 2048
-  %831 = icmp ne i32 %830, 0
-  %832 = xor i1 %831, true
-  %833 = zext i1 %832 to i8
-  store i8 %833, ptr %39, align 1
-  %834 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %835 = load ptr, ptr %834, align 8
-  %836 = icmp ne ptr %835, null
-  br i1 %836, label %851, label %837
+820:                                              ; preds = %819, %800, %795
+  %821 = load i64, ptr @rb_cObject, align 8
+  %822 = call i64 @rbimpl_intern_const(ptr noundef @process_options.rbimpl_id, ptr noundef @.str.143) #23
+  store i64 %822, ptr %36, align 8
+  %823 = load i64, ptr %36, align 8
+  %824 = call i64 @rb_const_get(i64 noundef %821, i64 noundef %823)
+  %825 = inttoptr i64 %824 to ptr
+  %826 = getelementptr inbounds %struct.RData, ptr %825, i32 0, i32 3
+  %827 = load ptr, ptr %826, align 8
+  store ptr %827, ptr %35, align 8
+  %828 = load ptr, ptr %35, align 8
+  %829 = call ptr @toplevel_context(ptr noundef %828)
+  store ptr %829, ptr %37, align 8
+  %830 = load ptr, ptr %37, align 8
+  %831 = call ptr @vm_block_iseq(ptr noundef %830)
+  store ptr %831, ptr %38, align 8
+  %832 = load i32, ptr %15, align 4
+  %833 = and i32 %832, 2048
+  %834 = icmp ne i32 %833, 0
+  %835 = xor i1 %834, true
+  %836 = zext i1 %835 to i8
+  store i8 %836, ptr %39, align 1
+  %837 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %838 = load ptr, ptr %837, align 8
+  %839 = icmp ne ptr %838, null
+  br i1 %839, label %854, label %840
 
-837:                                              ; preds = %817
-  %838 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
-  store ptr %838, ptr %40, align 8
-  %839 = load ptr, ptr %40, align 8
-  %840 = getelementptr inbounds %struct.pm_parse_result_t, ptr %839, i32 0, i32 3
-  %841 = load ptr, ptr %7, align 8
-  %842 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %841, i32 0, i32 1
-  %843 = load i64, ptr %842, align 8
-  %844 = load i64, ptr %34, align 8
-  %845 = load ptr, ptr %38, align 8
-  %846 = load i8, ptr %39, align 1
-  %847 = trunc i8 %846 to i1
-  %848 = zext i1 %847 to i32
-  %849 = call ptr @pm_iseq_new_main(ptr noundef %840, i64 noundef %843, i64 noundef %844, ptr noundef %845, i32 noundef %848)
-  store ptr %849, ptr %9, align 8
-  %850 = load ptr, ptr %40, align 8
-  call void @pm_parse_result_free(ptr noundef %850)
-  br label %866
+840:                                              ; preds = %820
+  %841 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 1
+  store ptr %841, ptr %40, align 8
+  %842 = load ptr, ptr %40, align 8
+  %843 = getelementptr inbounds %struct.pm_parse_result_t, ptr %842, i32 0, i32 3
+  %844 = load ptr, ptr %7, align 8
+  %845 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %844, i32 0, i32 1
+  %846 = load i64, ptr %845, align 8
+  %847 = load i64, ptr %34, align 8
+  %848 = load ptr, ptr %38, align 8
+  %849 = load i8, ptr %39, align 1
+  %850 = trunc i8 %849 to i1
+  %851 = zext i1 %850 to i32
+  %852 = call ptr @pm_iseq_new_main(ptr noundef %843, i64 noundef %846, i64 noundef %847, ptr noundef %848, i32 noundef %851)
+  store ptr %852, ptr %9, align 8
+  %853 = load ptr, ptr %40, align 8
+  call void @pm_parse_result_free(ptr noundef %853)
+  br label %869
 
-851:                                              ; preds = %817
-  %852 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
-  %853 = load ptr, ptr %852, align 8
-  store ptr %853, ptr %41, align 8
-  %854 = load ptr, ptr %41, align 8
-  %855 = getelementptr inbounds %struct.rb_ast_struct, ptr %854, i32 0, i32 2
-  %856 = load ptr, ptr %7, align 8
-  %857 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %856, i32 0, i32 1
-  %858 = load i64, ptr %857, align 8
-  %859 = load i64, ptr %34, align 8
-  %860 = load ptr, ptr %38, align 8
-  %861 = load i8, ptr %39, align 1
-  %862 = trunc i8 %861 to i1
-  %863 = zext i1 %862 to i32
-  %864 = call ptr @rb_iseq_new_main(ptr noundef %855, i64 noundef %858, i64 noundef %859, ptr noundef %860, i32 noundef %863)
-  store ptr %864, ptr %9, align 8
-  %865 = load ptr, ptr %41, align 8
-  call void @rb_ast_dispose(ptr noundef %865)
-  br label %866
+854:                                              ; preds = %820
+  %855 = getelementptr inbounds %struct.anon.22, ptr %8, i32 0, i32 0
+  %856 = load ptr, ptr %855, align 8
+  store ptr %856, ptr %41, align 8
+  %857 = load ptr, ptr %41, align 8
+  %858 = getelementptr inbounds %struct.rb_ast_struct, ptr %857, i32 0, i32 2
+  %859 = load ptr, ptr %7, align 8
+  %860 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %859, i32 0, i32 1
+  %861 = load i64, ptr %860, align 8
+  %862 = load i64, ptr %34, align 8
+  %863 = load ptr, ptr %38, align 8
+  %864 = load i8, ptr %39, align 1
+  %865 = trunc i8 %864 to i1
+  %866 = zext i1 %865 to i32
+  %867 = call ptr @rb_iseq_new_main(ptr noundef %858, i64 noundef %861, i64 noundef %862, ptr noundef %863, i32 noundef %866)
+  store ptr %867, ptr %9, align 8
+  %868 = load ptr, ptr %41, align 8
+  call void @rb_ast_dispose(ptr noundef %868)
+  br label %869
 
-866:                                              ; preds = %851, %837
-  %867 = load i32, ptr %15, align 4
-  %868 = and i32 %867, 3072
-  %869 = icmp ne i32 %868, 0
-  br i1 %869, label %870, label %883
+869:                                              ; preds = %854, %840
+  %870 = load i32, ptr %15, align 4
+  %871 = and i32 %870, 3072
+  %872 = icmp ne i32 %871, 0
+  br i1 %872, label %873, label %886
 
-870:                                              ; preds = %866
-  %871 = load i64, ptr @rb_stdout, align 8
-  %872 = load ptr, ptr %9, align 8
-  %873 = call i64 @rb_iseq_disasm(ptr noundef %872)
-  %874 = call i64 @rb_io_write(i64 noundef %871, i64 noundef %873)
-  %875 = load i64, ptr @rb_stdout, align 8
-  %876 = call i64 @rb_io_flush(i64 noundef %875)
-  %877 = load i32, ptr %15, align 4
-  %878 = and i32 %877, -1025
-  store i32 %878, ptr %15, align 4
-  %879 = load i32, ptr %15, align 4
-  %880 = icmp ne i32 %879, 0
-  br i1 %880, label %882, label %881
+873:                                              ; preds = %869
+  %874 = load i64, ptr @rb_stdout, align 8
+  %875 = load ptr, ptr %9, align 8
+  %876 = call i64 @rb_iseq_disasm(ptr noundef %875)
+  %877 = call i64 @rb_io_write(i64 noundef %874, i64 noundef %876)
+  %878 = load i64, ptr @rb_stdout, align 8
+  %879 = call i64 @rb_io_flush(i64 noundef %878)
+  %880 = load i32, ptr %15, align 4
+  %881 = and i32 %880, -1025
+  store i32 %881, ptr %15, align 4
+  %882 = load i32, ptr %15, align 4
+  %883 = icmp ne i32 %882, 0
+  br i1 %883, label %885, label %884
 
-881:                                              ; preds = %870
+884:                                              ; preds = %873
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-882:                                              ; preds = %870
-  br label %883
+885:                                              ; preds = %873
+  br label %886
 
-883:                                              ; preds = %882, %866
-  %884 = load ptr, ptr %7, align 8
-  %885 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %884, i32 0, i32 9
-  %886 = load i32, ptr %885, align 8
-  %887 = and i32 %886, 4032
-  %888 = icmp ne i32 %887, 0
-  br i1 %888, label %889, label %890
+886:                                              ; preds = %885, %869
+  %887 = load ptr, ptr %7, align 8
+  %888 = getelementptr inbounds %struct.ruby_cmdline_options, ptr %887, i32 0, i32 9
+  %889 = load i32, ptr %888, align 8
+  %890 = and i32 %889, 4032
+  %891 = icmp ne i32 %890, 0
+  br i1 %891, label %892, label %893
 
-889:                                              ; preds = %883
+892:                                              ; preds = %886
   store i64 20, ptr %4, align 8
-  br label %895
+  br label %898
 
-890:                                              ; preds = %883
-  %891 = load ptr, ptr %7, align 8
-  %892 = load ptr, ptr %9, align 8
-  call void @process_options_global_setup(ptr noundef %891, ptr noundef %892)
-  %893 = load ptr, ptr %9, align 8
-  %894 = ptrtoint ptr %893 to i64
-  store i64 %894, ptr %4, align 8
-  br label %895
+893:                                              ; preds = %886
+  %894 = load ptr, ptr %7, align 8
+  %895 = load ptr, ptr %9, align 8
+  call void @process_options_global_setup(ptr noundef %894, ptr noundef %895)
+  %896 = load ptr, ptr %9, align 8
+  %897 = ptrtoint ptr %896 to i64
+  store i64 %897, ptr %4, align 8
+  br label %898
 
-895:                                              ; preds = %890, %889, %881, %790, %748, %679, %654, %242, %225, %217, %179, %95
-  %896 = load i64, ptr %4, align 8
-  ret i64 %896
+898:                                              ; preds = %893, %892, %884, %793, %751, %682, %657, %245, %228, %220, %182, %98
+  %899 = load i64, ptr %4, align 8
+  ret i64 %899
 }
 
 declare void @ruby_set_crash_report(ptr noundef) #2
@@ -3052,13 +3058,13 @@ define dso_local void @ruby_sysinit(ptr noundef nonnull %0, ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp sge i32 %6, 0
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %17
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %3, align 8
@@ -3066,10 +3072,11 @@ define dso_local void @ruby_sysinit(ptr noundef nonnull %0, ptr noundef nonnull 
   store i32 %14, ptr @origarg, align 8
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.anon.7, ptr @origarg, i32 0, i32 1), align 8
-  br label %17
+  %17 = getelementptr inbounds %struct.anon.7, ptr @origarg, i32 0, i32 1
+  store ptr %16, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %12, %8, %2
+18:                                               ; preds = %12, %8, %2
   call void @fill_standard_fds()
   ret void
 }
@@ -11283,236 +11290,237 @@ define internal void @usage(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 %3, ptr %8, align 4
   %14 = load i32, ptr %7, align 4
   %15 = icmp ne i32 %14, 0
-  %16 = select i1 %15, ptr getelementptr (i8, ptr @esc_standout, i64 1), ptr @esc_none
-  store ptr %16, ptr %10, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = icmp ne i32 %17, 0
-  %19 = select i1 %18, ptr @esc_reset, ptr @esc_none
-  store ptr %19, ptr %11, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp ne i32 %20, 0
-  %22 = select i1 %21, i32 1, i32 0
-  %23 = sub i32 24, %22
-  store i32 %23, ptr %12, align 4
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp sgt i32 %24, 80
-  br i1 %25, label %26, label %30
+  %16 = getelementptr i8, ptr @esc_standout, i64 1
+  %17 = select i1 %15, ptr %16, ptr @esc_none
+  store ptr %17, ptr %10, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = icmp ne i32 %18, 0
+  %20 = select i1 %19, ptr @esc_reset, ptr @esc_none
+  store ptr %20, ptr %11, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp ne i32 %21, 0
+  %23 = select i1 %22, i32 1, i32 0
+  %24 = sub i32 24, %23
+  store i32 %24, ptr %12, align 4
+  %25 = load i32, ptr %8, align 4
+  %26 = icmp sgt i32 %25, 80
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %4
-  %27 = load i32, ptr %8, align 4
-  %28 = sub i32 %27, 79
-  %29 = sdiv i32 %28, 2
-  br label %31
+27:                                               ; preds = %4
+  %28 = load i32, ptr %8, align 4
+  %29 = sub i32 %28, 79
+  %30 = sdiv i32 %29, 2
+  br label %32
 
-30:                                               ; preds = %4
-  br label %31
+31:                                               ; preds = %4
+  br label %32
 
-31:                                               ; preds = %30, %26
-  %32 = phi i32 [ %29, %26 ], [ 0, %30 ]
-  %33 = add i32 %32, 16
-  store i32 %33, ptr %13, align 4
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.200, ptr noundef %34, ptr noundef %35, ptr noundef %36)
+32:                                               ; preds = %31, %27
+  %33 = phi i32 [ %30, %27 ], [ 0, %31 ]
+  %34 = add i32 %33, 16
+  store i32 %34, ptr %13, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.200, ptr noundef %35, ptr noundef %36, ptr noundef %37)
   store i32 0, ptr %9, align 4
-  br label %38
+  br label %39
 
-38:                                               ; preds = %50, %31
-  %39 = load i32, ptr %9, align 4
-  %40 = load i32, ptr %12, align 4
-  %41 = icmp slt i32 %39, %40
-  br i1 %41, label %42, label %53
+39:                                               ; preds = %51, %32
+  %40 = load i32, ptr %9, align 4
+  %41 = load i32, ptr %12, align 4
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %43, label %54
 
-42:                                               ; preds = %38
-  %43 = load i32, ptr %9, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr [24 x %struct.ruby_opt_message], ptr @usage.usage_msg, i64 0, i64 %44
-  %46 = load i32, ptr %6, align 4
-  %47 = load i32, ptr %7, align 4
-  %48 = load i32, ptr %13, align 4
-  %49 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49)
-  br label %50
+43:                                               ; preds = %39
+  %44 = load i32, ptr %9, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr [24 x %struct.ruby_opt_message], ptr @usage.usage_msg, i64 0, i64 %45
+  %47 = load i32, ptr %6, align 4
+  %48 = load i32, ptr %7, align 4
+  %49 = load i32, ptr %13, align 4
+  %50 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %50)
+  br label %51
 
-50:                                               ; preds = %42
-  %51 = load i32, ptr %9, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %9, align 4
-  br label %38, !llvm.loop !32
+51:                                               ; preds = %43
+  %52 = load i32, ptr %9, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %9, align 4
+  br label %39, !llvm.loop !32
 
-53:                                               ; preds = %38
-  %54 = load i32, ptr %6, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %57, label %56
+54:                                               ; preds = %39
+  %55 = load i32, ptr %6, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %58, label %57
 
-56:                                               ; preds = %53
-  br label %159
+57:                                               ; preds = %54
+  br label %160
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr %7, align 4
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %61
+58:                                               ; preds = %54
+  %59 = load i32, ptr %7, align 4
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %57
+61:                                               ; preds = %58
   store ptr @esc_standout, ptr %10, align 8
-  br label %61
-
-61:                                               ; preds = %60, %57
-  store i32 0, ptr %9, align 4
   br label %62
 
-62:                                               ; preds = %73, %61
-  %63 = load i32, ptr %9, align 4
-  %64 = icmp slt i32 %63, 11
-  br i1 %64, label %65, label %76
-
-65:                                               ; preds = %62
-  %66 = load i32, ptr %9, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr [11 x %struct.ruby_opt_message], ptr @usage.help_msg, i64 0, i64 %67
-  %69 = load i32, ptr %6, align 4
-  %70 = load i32, ptr %7, align 4
-  %71 = load i32, ptr %13, align 4
-  %72 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72)
-  br label %73
-
-73:                                               ; preds = %65
-  %74 = load i32, ptr %9, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %9, align 4
-  br label %62, !llvm.loop !33
-
-76:                                               ; preds = %62
-  %77 = load ptr, ptr %10, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = call i32 (ptr, ...) @printf(ptr noundef @.str.201, ptr noundef %77, ptr noundef %78)
+62:                                               ; preds = %61, %58
   store i32 0, ptr %9, align 4
-  br label %80
+  br label %63
 
-80:                                               ; preds = %91, %76
-  %81 = load i32, ptr %9, align 4
-  %82 = icmp slt i32 %81, 5
-  br i1 %82, label %83, label %94
+63:                                               ; preds = %74, %62
+  %64 = load i32, ptr %9, align 4
+  %65 = icmp slt i32 %64, 11
+  br i1 %65, label %66, label %77
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %9, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr [5 x %struct.ruby_opt_message], ptr @usage.dumps, i64 0, i64 %85
-  %87 = load i32, ptr %6, align 4
-  %88 = load i32, ptr %7, align 4
-  %89 = load i32, ptr %13, align 4
-  %90 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %90)
-  br label %91
+66:                                               ; preds = %63
+  %67 = load i32, ptr %9, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr [11 x %struct.ruby_opt_message], ptr @usage.help_msg, i64 0, i64 %68
+  %70 = load i32, ptr %6, align 4
+  %71 = load i32, ptr %7, align 4
+  %72 = load i32, ptr %13, align 4
+  %73 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %73)
+  br label %74
 
-91:                                               ; preds = %83
-  %92 = load i32, ptr %9, align 4
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %9, align 4
-  br label %80, !llvm.loop !34
+74:                                               ; preds = %66
+  %75 = load i32, ptr %9, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %9, align 4
+  br label %63, !llvm.loop !33
 
-94:                                               ; preds = %80
-  %95 = load ptr, ptr %10, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = call i32 (ptr, ...) @printf(ptr noundef @.str.202, ptr noundef %95, ptr noundef %96)
+77:                                               ; preds = %63
+  %78 = load ptr, ptr %10, align 8
+  %79 = load ptr, ptr %11, align 8
+  %80 = call i32 (ptr, ...) @printf(ptr noundef @.str.201, ptr noundef %78, ptr noundef %79)
   store i32 0, ptr %9, align 4
-  br label %98
+  br label %81
 
-98:                                               ; preds = %109, %94
-  %99 = load i32, ptr %9, align 4
-  %100 = icmp slt i32 %99, 8
-  br i1 %100, label %101, label %112
+81:                                               ; preds = %92, %77
+  %82 = load i32, ptr %9, align 4
+  %83 = icmp slt i32 %82, 5
+  br i1 %83, label %84, label %95
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %9, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr [8 x %struct.ruby_opt_message], ptr @usage.features, i64 0, i64 %103
-  %105 = load i32, ptr %6, align 4
-  %106 = load i32, ptr %7, align 4
-  %107 = load i32, ptr %13, align 4
-  %108 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef %107, i32 noundef %108)
-  br label %109
+84:                                               ; preds = %81
+  %85 = load i32, ptr %9, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr [5 x %struct.ruby_opt_message], ptr @usage.dumps, i64 0, i64 %86
+  %88 = load i32, ptr %6, align 4
+  %89 = load i32, ptr %7, align 4
+  %90 = load i32, ptr %13, align 4
+  %91 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %91)
+  br label %92
 
-109:                                              ; preds = %101
-  %110 = load i32, ptr %9, align 4
-  %111 = add i32 %110, 1
-  store i32 %111, ptr %9, align 4
-  br label %98, !llvm.loop !35
+92:                                               ; preds = %84
+  %93 = load i32, ptr %9, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %9, align 4
+  br label %81, !llvm.loop !34
 
-112:                                              ; preds = %98
-  %113 = load ptr, ptr %10, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = call i32 (ptr, ...) @printf(ptr noundef @.str.203, ptr noundef %113, ptr noundef %114)
+95:                                               ; preds = %81
+  %96 = load ptr, ptr %10, align 8
+  %97 = load ptr, ptr %11, align 8
+  %98 = call i32 (ptr, ...) @printf(ptr noundef @.str.202, ptr noundef %96, ptr noundef %97)
   store i32 0, ptr %9, align 4
-  br label %116
+  br label %99
 
-116:                                              ; preds = %127, %112
-  %117 = load i32, ptr %9, align 4
-  %118 = icmp slt i32 %117, 3
-  br i1 %118, label %119, label %130
+99:                                               ; preds = %110, %95
+  %100 = load i32, ptr %9, align 4
+  %101 = icmp slt i32 %100, 8
+  br i1 %101, label %102, label %113
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %9, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr [3 x %struct.ruby_opt_message], ptr @usage.warn_categories, i64 0, i64 %121
-  %123 = load i32, ptr %6, align 4
-  %124 = load i32, ptr %7, align 4
-  %125 = load i32, ptr %13, align 4
-  %126 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %122, i32 noundef %123, i32 noundef %124, i32 noundef %125, i32 noundef %126)
-  br label %127
+102:                                              ; preds = %99
+  %103 = load i32, ptr %9, align 4
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr [8 x %struct.ruby_opt_message], ptr @usage.features, i64 0, i64 %104
+  %106 = load i32, ptr %6, align 4
+  %107 = load i32, ptr %7, align 4
+  %108 = load i32, ptr %13, align 4
+  %109 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %105, i32 noundef %106, i32 noundef %107, i32 noundef %108, i32 noundef %109)
+  br label %110
 
-127:                                              ; preds = %119
-  %128 = load i32, ptr %9, align 4
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %9, align 4
-  br label %116, !llvm.loop !36
+110:                                              ; preds = %102
+  %111 = load i32, ptr %9, align 4
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %9, align 4
+  br label %99, !llvm.loop !35
 
-130:                                              ; preds = %116
-  %131 = load ptr, ptr %10, align 8
-  %132 = load ptr, ptr %11, align 8
-  %133 = call i32 (ptr, ...) @printf(ptr noundef @.str.204, ptr noundef %131, ptr noundef %132)
-  %134 = load i32, ptr %6, align 4
-  %135 = load i32, ptr %7, align 4
-  %136 = load i32, ptr %13, align 4
-  %137 = load i32, ptr %8, align 4
-  call void @rb_yjit_show_usage(i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
-  %138 = load ptr, ptr %10, align 8
-  %139 = load ptr, ptr %11, align 8
-  %140 = call i32 (ptr, ...) @printf(ptr noundef @.str.205, ptr noundef %138, ptr noundef %139)
+113:                                              ; preds = %99
+  %114 = load ptr, ptr %10, align 8
+  %115 = load ptr, ptr %11, align 8
+  %116 = call i32 (ptr, ...) @printf(ptr noundef @.str.203, ptr noundef %114, ptr noundef %115)
   store i32 0, ptr %9, align 4
-  br label %141
+  br label %117
 
-141:                                              ; preds = %156, %130
-  %142 = load i32, ptr %9, align 4
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr [0 x %struct.ruby_opt_message], ptr @rb_rjit_option_messages, i64 0, i64 %143
-  %145 = getelementptr inbounds %struct.ruby_opt_message, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %159
+117:                                              ; preds = %128, %113
+  %118 = load i32, ptr %9, align 4
+  %119 = icmp slt i32 %118, 3
+  br i1 %119, label %120, label %131
 
-148:                                              ; preds = %141
-  %149 = load i32, ptr %9, align 4
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr [0 x %struct.ruby_opt_message], ptr @rb_rjit_option_messages, i64 0, i64 %150
-  %152 = load i32, ptr %6, align 4
-  %153 = load i32, ptr %7, align 4
-  %154 = load i32, ptr %13, align 4
-  %155 = load i32, ptr %8, align 4
-  call void @show_usage_line(ptr noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
-  br label %156
+120:                                              ; preds = %117
+  %121 = load i32, ptr %9, align 4
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr [3 x %struct.ruby_opt_message], ptr @usage.warn_categories, i64 0, i64 %122
+  %124 = load i32, ptr %6, align 4
+  %125 = load i32, ptr %7, align 4
+  %126 = load i32, ptr %13, align 4
+  %127 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %123, i32 noundef %124, i32 noundef %125, i32 noundef %126, i32 noundef %127)
+  br label %128
 
-156:                                              ; preds = %148
-  %157 = load i32, ptr %9, align 4
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %9, align 4
-  br label %141, !llvm.loop !37
+128:                                              ; preds = %120
+  %129 = load i32, ptr %9, align 4
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %9, align 4
+  br label %117, !llvm.loop !36
 
-159:                                              ; preds = %141, %56
+131:                                              ; preds = %117
+  %132 = load ptr, ptr %10, align 8
+  %133 = load ptr, ptr %11, align 8
+  %134 = call i32 (ptr, ...) @printf(ptr noundef @.str.204, ptr noundef %132, ptr noundef %133)
+  %135 = load i32, ptr %6, align 4
+  %136 = load i32, ptr %7, align 4
+  %137 = load i32, ptr %13, align 4
+  %138 = load i32, ptr %8, align 4
+  call void @rb_yjit_show_usage(i32 noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef %138)
+  %139 = load ptr, ptr %10, align 8
+  %140 = load ptr, ptr %11, align 8
+  %141 = call i32 (ptr, ...) @printf(ptr noundef @.str.205, ptr noundef %139, ptr noundef %140)
+  store i32 0, ptr %9, align 4
+  br label %142
+
+142:                                              ; preds = %157, %131
+  %143 = load i32, ptr %9, align 4
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr [0 x %struct.ruby_opt_message], ptr @rb_rjit_option_messages, i64 0, i64 %144
+  %146 = getelementptr inbounds %struct.ruby_opt_message, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp ne ptr %147, null
+  br i1 %148, label %149, label %160
+
+149:                                              ; preds = %142
+  %150 = load i32, ptr %9, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr [0 x %struct.ruby_opt_message], ptr @rb_rjit_option_messages, i64 0, i64 %151
+  %153 = load i32, ptr %6, align 4
+  %154 = load i32, ptr %7, align 4
+  %155 = load i32, ptr %13, align 4
+  %156 = load i32, ptr %8, align 4
+  call void @show_usage_line(ptr noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, i32 noundef %156)
+  br label %157
+
+157:                                              ; preds = %149
+  %158 = load i32, ptr %9, align 4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %9, align 4
+  br label %142, !llvm.loop !37
+
+160:                                              ; preds = %142, %57
   ret void
 }
 

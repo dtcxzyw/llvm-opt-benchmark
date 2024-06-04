@@ -869,67 +869,68 @@ define internal ptr @ros_lookup_opr_dissector(i32 noundef %0, ptr noundef %1, i3
   store i32 %2, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %40
+  br i1 %9, label %10, label %41
 
 10:                                               ; preds = %3
   br label %11
 
-11:                                               ; preds = %36, %10
+11:                                               ; preds = %37, %10
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds %struct._ros_opr_t, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, inttoptr (i64 -1 to ptr)
-  br i1 %15, label %16, label %39
+  %15 = inttoptr i64 -1 to ptr
+  %16 = icmp ne ptr %14, %15
+  br i1 %16, label %17, label %40
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._ros_opr_t, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %35
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds %struct._ros_opr_t, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %36
 
-22:                                               ; preds = %16
-  %23 = load i32, ptr %7, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %29
+23:                                               ; preds = %17
+  %24 = load i32, ptr %7, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._ros_opr_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  br label %33
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds %struct._ros_opr_t, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  br label %34
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._ros_opr_t, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %struct._ros_opr_t, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %29, %25
-  %34 = phi ptr [ %28, %25 ], [ %32, %29 ]
-  store ptr %34, ptr %4, align 8
-  br label %41
+34:                                               ; preds = %30, %26
+  %35 = phi ptr [ %29, %26 ], [ %33, %30 ]
+  store ptr %35, ptr %4, align 8
+  br label %42
 
-35:                                               ; preds = %16
-  br label %36
+36:                                               ; preds = %17
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr %struct._ros_opr_t, ptr %37, i32 1
-  store ptr %38, ptr %6, align 8
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr %struct._ros_opr_t, ptr %38, i32 1
+  store ptr %39, ptr %6, align 8
   br label %11, !llvm.loop !6
 
-39:                                               ; preds = %11
-  br label %40
-
-40:                                               ; preds = %39, %3
-  store ptr null, ptr %4, align 8
+40:                                               ; preds = %11
   br label %41
 
-41:                                               ; preds = %40, %33
-  %42 = load ptr, ptr %4, align 8
-  ret ptr %42
+41:                                               ; preds = %40, %3
+  store ptr null, ptr %4, align 8
+  br label %42
+
+42:                                               ; preds = %41, %34
+  %43 = load ptr, ptr %4, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -941,52 +942,53 @@ define internal ptr @ros_lookup_err_dissector(i32 noundef %0, ptr noundef %1) #0
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %29
+  br i1 %7, label %8, label %30
 
 8:                                                ; preds = %2
   br label %9
 
-9:                                                ; preds = %25, %8
+9:                                                ; preds = %26, %8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds %struct._ros_err_t, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp ne ptr %12, inttoptr (i64 -1 to ptr)
-  br i1 %13, label %14, label %28
+  %13 = inttoptr i64 -1 to ptr
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %29
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct._ros_err_t, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = icmp eq i32 %17, %18
-  br i1 %19, label %20, label %24
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %struct._ros_err_t, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = icmp eq i32 %18, %19
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._ros_err_t, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %3, align 8
-  br label %30
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds %struct._ros_err_t, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %3, align 8
+  br label %31
 
-24:                                               ; preds = %14
-  br label %25
+25:                                               ; preds = %15
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr %struct._ros_err_t, ptr %26, i32 1
-  store ptr %27, ptr %5, align 8
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr %struct._ros_err_t, ptr %27, i32 1
+  store ptr %28, ptr %5, align 8
   br label %9, !llvm.loop !7
 
-28:                                               ; preds = %9
-  br label %29
-
-29:                                               ; preds = %28, %2
-  store ptr null, ptr %3, align 8
+29:                                               ; preds = %9
   br label %30
 
-30:                                               ; preds = %29, %20
-  %31 = load ptr, ptr %3, align 8
-  ret ptr %31
+30:                                               ; preds = %29, %2
+  store ptr null, ptr %3, align 8
+  br label %31
+
+31:                                               ; preds = %30, %21
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
 }
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1

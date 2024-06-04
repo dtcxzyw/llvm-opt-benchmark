@@ -60,13 +60,13 @@ define dso_local ptr @stack_type_name(i32 noundef %0) local_unnamed_addr #0 alig
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 section ".noinstr.text" align 16 {
   %4 = tail call zeroext i1 @in_task_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
-  br i1 %4, label %59, label %5
+  br i1 %4, label %60, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
   %8 = icmp eq ptr %7, %1
-  br i1 %8, label %9, label %59
+  br i1 %8, label %9, label %60
 
 9:                                                ; preds = %5
   %10 = ptrtoint ptr %0 to i64
@@ -112,37 +112,38 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %41, ptr %42, align 8
-  br label %59
+  br label %60
 
 43:                                               ; preds = %18, %13, %9
-  %44 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5)) #5, !srcloc !7
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr i8, ptr %45, i64 8
-  %47 = getelementptr i8, ptr %45, i64 -16376
-  %48 = icmp ule ptr %47, %0
-  %49 = icmp ugt ptr %46, %0
-  %50 = and i1 %48, %49
-  br i1 %50, label %51, label %57
+  %44 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 5
+  %45 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %44) #5, !srcloc !7
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr i8, ptr %46, i64 8
+  %48 = getelementptr i8, ptr %46, i64 -16376
+  %49 = icmp ule ptr %48, %0
+  %50 = icmp ugt ptr %47, %0
+  %51 = and i1 %49, %50
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %43
+52:                                               ; preds = %43
   store i32 2, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %47, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %46, ptr %53, align 8
-  %54 = load i64, ptr %45, align 8
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %55, ptr %56, align 8
-  br label %59
+  %53 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %48, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %47, ptr %54, align 8
+  %55 = load i64, ptr %46, align 8
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %56, ptr %57, align 8
+  br label %60
 
-57:                                               ; preds = %43
-  %58 = tail call zeroext i1 @in_entry_stack(ptr noundef %0, ptr noundef %2) #5
-  br label %59
+58:                                               ; preds = %43
+  %59 = tail call zeroext i1 @in_entry_stack(ptr noundef %0, ptr noundef %2) #5
+  br label %60
 
-59:                                               ; preds = %57, %51, %26, %5, %3
-  %60 = phi i1 [ true, %3 ], [ false, %5 ], [ %58, %57 ], [ true, %26 ], [ true, %51 ]
-  ret i1 %60
+60:                                               ; preds = %58, %52, %26, %5, %3
+  %61 = phi i1 [ true, %3 ], [ false, %5 ], [ %59, %58 ], [ true, %26 ], [ true, %52 ]
+  ret i1 %61
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -581,85 +581,87 @@ define void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 de
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2), ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %class.DetachableTabWidget, ptr %14, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #10
-          to label %19 unwind label %36
+  %16 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %class.DetachableTabWidget, ptr %14, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #9
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #10
+          to label %21 unwind label %38
 
-19:                                               ; preds = %2
-  invoke void @_ZN14DragDropTabBarC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(65) %18, ptr noundef %14)
-          to label %20 unwind label %40
+21:                                               ; preds = %2
+  invoke void @_ZN14DragDropTabBarC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(65) %20, ptr noundef %14)
+          to label %22 unwind label %42
 
-20:                                               ; preds = %19
-  store ptr %18, ptr %5, align 8
-  %21 = load ptr, ptr %5, align 8
+22:                                               ; preds = %21
+  store ptr %20, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN14DragDropTabBar11onDetachTabEi6QPoint to i64), i64 0 }, ptr %9, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %24 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
   store { i64, i64 } { i64 449, i64 0 }, ptr %10, align 8
-  invoke void @_ZN7QObject7connectIM14DragDropTabBarFvi6QPointEM19DetachableTabWidgetFviS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %21, i64 %23, i64 %25, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
-          to label %26 unwind label %36
+  invoke void @_ZN7QObject7connectIM14DragDropTabBarFvi6QPointEM19DetachableTabWidgetFviS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %23, i64 %25, i64 %27, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
+          to label %28 unwind label %38
 
-26:                                               ; preds = %20
+28:                                               ; preds = %22
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %27 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %5, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN14DragDropTabBar9onMoveTabEii to i64), i64 0 }, ptr %12, align 8
-  %28 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %30 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
   %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
   store { i64, i64 } { i64 441, i64 0 }, ptr %13, align 8
-  invoke void @_ZN7QObject7connectIM14DragDropTabBarFviiEM19DetachableTabWidgetFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %27, i64 %29, i64 %31, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
-          to label %32 unwind label %36
+  invoke void @_ZN7QObject7connectIM14DragDropTabBarFviiEM19DetachableTabWidgetFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %29, i64 %31, i64 %33, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
+          to label %34 unwind label %38
 
-32:                                               ; preds = %26
+34:                                               ; preds = %28
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
   invoke void @_ZN10QTabWidget10setMovableEb(ptr noundef nonnull align 8 dereferenceable(40) %14, i1 noundef zeroext false)
-          to label %33 unwind label %36
+          to label %35 unwind label %38
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %5, align 8
-  invoke void @_ZN10QTabWidget9setTabBarEP7QTabBar(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %34)
-          to label %35 unwind label %36
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %5, align 8
+  invoke void @_ZN10QTabWidget9setTabBarEP7QTabBar(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %36)
+          to label %37 unwind label %38
 
-35:                                               ; preds = %33
+37:                                               ; preds = %35
   ret void
 
-36:                                               ; preds = %33, %32, %26, %20, %2
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %35, %34, %28, %22, %2
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %6, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %7, align 4
-  br label %44
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  br label %46
 
-40:                                               ; preds = %19
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %21
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %6, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %18) #11
-  br label %44
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
+  call void @_ZdlPv(ptr noundef %20) #11
+  br label %46
 
-44:                                               ; preds = %40, %36
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
+46:                                               ; preds = %42, %38
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #9
   call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #9
-  br label %45
+  br label %47
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i32, ptr %7, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
 }
 
 declare void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -1490,73 +1492,75 @@ define void @_ZN10ToolDialogC2EP7QWidgetS1_6QFlagsIN2Qt10WindowTypeEE(ptr nounde
   %17 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %16, i32 %18)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 0, i32 2), ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 1, i32 2), ptr %19, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  invoke void @_ZN7QWidget9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef %15)
-          to label %24 unwind label %36
+  %19 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 0, i32 2
+  store ptr %19, ptr %15, align 8
+  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 1, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  invoke void @_ZN7QWidget9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %15)
+          to label %26 unwind label %38
 
-24:                                               ; preds = %4
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #10
-          to label %26 unwind label %36
+26:                                               ; preds = %4
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #10
+          to label %28 unwind label %38
 
-26:                                               ; preds = %24
-  invoke void @_ZN11QVBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef %15)
-          to label %27 unwind label %40
+28:                                               ; preds = %26
+  invoke void @_ZN11QVBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %27, ptr noundef %15)
+          to label %29 unwind label %42
 
-27:                                               ; preds = %26
-  store ptr %25, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
+29:                                               ; preds = %28
+  store ptr %27, ptr %12, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
   call void @_ZN6QFlagsIN2Qt13AlignmentFlagEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #9
-  %31 = getelementptr inbounds %class.QFlags.0, ptr %13, i32 0, i32 0
-  %32 = load i32, ptr %31, align 4
-  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef %30, i32 noundef 0, i32 %32)
-          to label %33 unwind label %36
+  %33 = getelementptr inbounds %class.QFlags.0, ptr %13, i32 0, i32 0
+  %34 = load i32, ptr %33, align 4
+  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef %32, i32 noundef 0, i32 %34)
+          to label %35 unwind label %38
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %12, align 8
-  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %34)
-          to label %35 unwind label %36
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %12, align 8
+  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %36)
+          to label %37 unwind label %38
 
-35:                                               ; preds = %33
+37:                                               ; preds = %35
   ret void
 
-36:                                               ; preds = %33, %27, %24, %4
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %35, %29, %26, %4
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %10, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %11, align 4
-  br label %44
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %10, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %11, align 4
+  br label %46
 
-40:                                               ; preds = %26
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %28
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %10, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %25) #11
-  br label %44
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %10, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %27) #11
+  br label %46
 
-44:                                               ; preds = %40, %36
+46:                                               ; preds = %42, %38
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #9
-  br label %45
+  br label %47
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %10, align 8
-  %47 = load i32, ptr %11, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1686,76 +1690,78 @@ define void @_ZN14DragDropTabBarC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN7QTabBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 1
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #9
-  %14 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 2
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %14) #9
-  %15 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 3
-  invoke void @_ZN7QCursorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %26
+  %12 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 1
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15) #9
+  %16 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 2
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %16) #9
+  %17 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 3
+  invoke void @_ZN7QCursorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %18 unwind label %28
 
-16:                                               ; preds = %2
+18:                                               ; preds = %2
   invoke void @_ZN7QWidget14setAcceptDropsEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i1 noundef zeroext true)
-          to label %17 unwind label %30
-
-17:                                               ; preds = %16
-  invoke void @_ZN7QTabBar12setElideModeEN2Qt13TextElideModeE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1)
-          to label %18 unwind label %30
-
-18:                                               ; preds = %17
-  invoke void @_ZN7QTabBar28setSelectionBehaviorOnRemoveENS_17SelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
-          to label %19 unwind label %30
+          to label %19 unwind label %32
 
 19:                                               ; preds = %18
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #9
-  %20 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 4 %7, i64 8, i1 false)
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %8) #9
-  %21 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 4 %8, i64 8, i1 false)
-  invoke void @_ZN7QCursorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %22 unwind label %30
+  invoke void @_ZN7QTabBar12setElideModeEN2Qt13TextElideModeE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1)
+          to label %20 unwind label %32
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 3
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QCursoraSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+20:                                               ; preds = %19
+  invoke void @_ZN7QTabBar28setSelectionBehaviorOnRemoveENS_17SelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
+          to label %21 unwind label %32
+
+21:                                               ; preds = %20
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #9
+  %22 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 4 %7, i64 8, i1 false)
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %8) #9
+  %23 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 4 %8, i64 8, i1 false)
+  invoke void @_ZN7QCursorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %24 unwind label %32
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 3
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QCursoraSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  %25 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 4
-  store i8 0, ptr %25, align 8
+  %27 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 4
+  store i8 0, ptr %27, align 8
   ret void
 
-26:                                               ; preds = %2
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %5, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %6, align 4
-  br label %34
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  br label %36
 
-30:                                               ; preds = %19, %18, %17, %16
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %21, %20, %19, %18
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %5, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %6, align 4
-  call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #9
-  br label %34
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #9
+  br label %36
 
-34:                                               ; preds = %30, %26
+36:                                               ; preds = %32, %28
   call void @_ZN7QTabBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #9
-  br label %35
+  br label %37
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i32, ptr %6, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN7QTabBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -4634,47 +4640,49 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWid
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %13, !prof !7
+  br i1 %4, label %5, label %15, !prof !7
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t) #9
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIP7QWidgetLb1EE14qt_metatype_idEv()
-          to label %10 unwind label %14
+          to label %10 unwind label %16
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t, align 4
   %11 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperI7QStringLb1EE14qt_metatype_idEv()
-          to label %12 unwind label %14
+          to label %12 unwind label %16
 
 12:                                               ; preds = %10
-  store i32 %11, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t, i64 2), align 4
+  %13 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t, i64 1
+  store i32 %11, ptr %13, align 4
+  %14 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t, i64 2
+  store i32 0, ptr %14, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t) #9
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %5, %0
+15:                                               ; preds = %12, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t
 
-14:                                               ; preds = %10, %8
-  %15 = landingpad { ptr, i32 }
+16:                                               ; preds = %10, %8
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %1, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %2, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %1, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidget7QStringEEELb1EE5typesEvE1t) #9
-  br label %18
+  br label %20
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %1, align 8
-  %20 = load i32, ptr %2, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %1, align 8
+  %22 = load i32, ptr %2, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

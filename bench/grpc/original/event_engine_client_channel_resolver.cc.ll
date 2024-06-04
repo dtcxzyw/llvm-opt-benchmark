@@ -2748,18 +2748,19 @@ invoke.cont18:                                    ; preds = %invoke.cont14
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %request_service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver", ptr %this1, i32 0, i32 1
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9grpc_core15PollingResolver12channel_argsEv(ptr noundef nonnull align 8 dereferenceable(536) %this1)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont21
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef @.str.7) #3
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %call28 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call25, i64 %4, ptr %6)
+  %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp26, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %call28 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call25, i64 %5, ptr %7)
           to label %invoke.cont27 unwind label %lpad23
 
 invoke.cont27:                                    ; preds = %invoke.cont24
@@ -2781,11 +2782,11 @@ invoke.cont33:                                    ; preds = %invoke.cont27
 
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, ptr noundef @.str.8) #3
-  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %call40 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 %8, ptr %10)
+  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp38, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %call40 = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 %9, ptr %11)
           to label %invoke.cont39 unwind label %lpad23
 
 invoke.cont39:                                    ; preds = %invoke.cont36
@@ -2807,11 +2808,11 @@ invoke.cont45:                                    ; preds = %invoke.cont39
 
 invoke.cont52:                                    ; preds = %invoke.cont45
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef @.str.9) #3
-  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp54, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp54, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %call56 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call53, i64 %12, ptr %14)
+  %12 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp54, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp54, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %call56 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %call53, i64 %13, ptr %15)
           to label %invoke.cont55 unwind label %lpad23
 
 invoke.cont55:                                    ; preds = %invoke.cont52
@@ -2848,22 +2849,22 @@ invoke.cont68:                                    ; preds = %invoke.cont66
   ret void
 
 lpad:                                             ; preds = %invoke.cont18, %invoke.cont14, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp) #3
   br label %eh.resume
 
 lpad23:                                           ; preds = %invoke.cont66, %invoke.cont65, %invoke.cont64, %invoke.cont62, %invoke.cont60, %invoke.cont55, %invoke.cont52, %invoke.cont45, %invoke.cont39, %invoke.cont36, %invoke.cont33, %invoke.cont27, %invoke.cont24, %invoke.cont21
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
   br label %eh.resume
 
@@ -3727,7 +3728,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %event_engine_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %event_engine_) #3
   call void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
@@ -6935,7 +6937,8 @@ entry:
   store ptr %event_engine_resolver, ptr %event_engine_resolver.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %resolver_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolverEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %resolver_, ptr noundef nonnull align 8 dereferenceable(8) %resolver) #3
   %on_resolved_mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 2
@@ -7004,39 +7007,39 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup178
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup174
 
 lpad5:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup172
 
 lpad7:                                            ; preds = %invoke.cont156, %invoke.cont149, %cond.end, %cond.false, %if.end137, %invoke.cont112, %if.end105, %invoke.cont101, %invoke.cont99, %invoke.cont96, %if.then94, %if.then91, %if.end86, %invoke.cont61, %if.end54, %invoke.cont50, %invoke.cont48, %invoke.cont45, %if.then43, %if.then40, %invoke.cont36, %invoke.cont23, %if.end, %invoke.cont15, %invoke.cont13, %invoke.cont10, %if.then, %invoke.cont6
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup171
 
 if.end:                                           ; preds = %invoke.cont18, %invoke.cont8
@@ -7044,12 +7047,12 @@ if.end:                                           ; preds = %invoke.cont18, %inv
   store i8 1, ptr %is_hostname_inflight_19, align 8
   %event_engine_resolver_20 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 15
   %call21 = call noundef ptr @_ZNKSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %event_engine_resolver_20) #3
-  %12 = getelementptr inbounds %class.anon, ptr %ref.tmp, i32 0, i32 0
+  %13 = getelementptr inbounds %class.anon, ptr %ref.tmp, i32 0, i32 0
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22, ptr noundef @.str.3, i32 noundef 233)
           to label %invoke.cont23 unwind label %lpad7
 
 invoke.cont23:                                    ; preds = %if.end
-  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22, ptr noundef @.str.14)
+  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22, ptr noundef @.str.14)
           to label %invoke.cont24 unwind label %lpad7
 
 invoke.cont24:                                    ; preds = %invoke.cont23
@@ -7067,26 +7070,26 @@ invoke.cont30:                                    ; preds = %invoke.cont26
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   %call34 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call33) #3
-  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 0
-  %14 = extractvalue { i64, ptr } %call34, 0
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 1
-  %16 = extractvalue { i64, ptr } %call34, 1
-  store ptr %16, ptr %15, align 8
-  %17 = load ptr, ptr @_ZN9grpc_core18kDefaultSecurePortE, align 8
-  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef %17) #3
-  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp35, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp35, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
+  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 0
+  %15 = extractvalue { i64, ptr } %call34, 0
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 1
+  %17 = extractvalue { i64, ptr } %call34, 1
+  store ptr %17, ptr %16, align 8
+  %18 = load ptr, ptr @_ZN9grpc_core18kDefaultSecurePortE, align 8
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef %18) #3
+  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp27, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp35, i32 0, i32 0
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp35, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
   %vtable = load ptr, ptr %call21, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %26 = load ptr, ptr %vfn, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %call21, ptr noundef %agg.tmp, i64 %19, ptr %21, i64 %23, ptr %25)
+  %27 = load ptr, ptr %vfn, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %call21, ptr noundef %agg.tmp, i64 %20, ptr %22, i64 %24, ptr %26)
           to label %invoke.cont36 unwind label %lpad29
 
 invoke.cont36:                                    ; preds = %invoke.cont32
@@ -7098,8 +7101,8 @@ invoke.cont36:                                    ; preds = %invoke.cont32
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %enable_srv_queries_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver", ptr %call39, i32 0, i32 2
-  %27 = load i8, ptr %enable_srv_queries_, align 1
-  %tobool = trunc i8 %27 to i1
+  %28 = load i8, ptr %enable_srv_queries_, align 1
+  %tobool = trunc i8 %28 to i1
   br i1 %tobool, label %if.then40, label %if.end86
 
 if.then40:                                        ; preds = %invoke.cont38
@@ -7132,21 +7135,21 @@ invoke.cont53:                                    ; preds = %invoke.cont50
   br label %if.end54
 
 lpad25:                                           ; preds = %invoke.cont24
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont32, %invoke.cont30, %invoke.cont26
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #3
   br label %ehcleanup
 
@@ -7159,12 +7162,12 @@ if.end54:                                         ; preds = %invoke.cont53, %inv
   store i8 1, ptr %is_srv_inflight_55, align 1
   %event_engine_resolver_56 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 15
   %call57 = call noundef ptr @_ZNKSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %event_engine_resolver_56) #3
-  %34 = getelementptr inbounds %class.anon.145, ptr %ref.tmp59, i32 0, i32 0
+  %35 = getelementptr inbounds %class.anon.145, ptr %ref.tmp59, i32 0, i32 0
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60, ptr noundef @.str.3, i32 noundef 248)
           to label %invoke.cont61 unwind label %lpad7
 
 invoke.cont61:                                    ; preds = %if.end54
-  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60, ptr noundef @.str.16)
+  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60, ptr noundef @.str.16)
           to label %invoke.cont62 unwind label %lpad7
 
 invoke.cont62:                                    ; preds = %invoke.cont61
@@ -7194,20 +7197,20 @@ invoke.cont76:                                    ; preds = %invoke.cont74
 
 invoke.cont77:                                    ; preds = %invoke.cont76
   %call78 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #3
-  %35 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 0
-  %36 = extractvalue { i64, ptr } %call78, 0
-  store i64 %36, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 1
-  %38 = extractvalue { i64, ptr } %call78, 1
-  store ptr %38, ptr %37, align 8
-  %39 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 0
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
+  %36 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 0
+  %37 = extractvalue { i64, ptr } %call78, 0
+  store i64 %37, ptr %36, align 8
+  %38 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 1
+  %39 = extractvalue { i64, ptr } %call78, 1
+  store ptr %39, ptr %38, align 8
+  %40 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp65, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
   %vtable79 = load ptr, ptr %call57, align 8
   %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 3
-  %43 = load ptr, ptr %vfn80, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef %agg.tmp58, i64 %40, ptr %42)
+  %44 = load ptr, ptr %vfn80, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef %agg.tmp58, i64 %41, ptr %43)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont77
@@ -7217,30 +7220,30 @@ invoke.cont82:                                    ; preds = %invoke.cont77
   br label %if.end86
 
 lpad63:                                           ; preds = %invoke.cont62
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   br label %ehcleanup85
 
 lpad68:                                           ; preds = %invoke.cont76, %invoke.cont74, %invoke.cont72, %invoke.cont69, %invoke.cont64
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   br label %ehcleanup84
 
 lpad81:                                           ; preds = %invoke.cont77
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #3
   br label %ehcleanup84
 
@@ -7259,8 +7262,8 @@ if.end86:                                         ; preds = %invoke.cont82, %inv
 
 invoke.cont88:                                    ; preds = %if.end86
   %request_service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver", ptr %call89, i32 0, i32 1
-  %53 = load i8, ptr %request_service_config_, align 8
-  %tobool90 = trunc i8 %53 to i1
+  %54 = load i8, ptr %request_service_config_, align 8
+  %tobool90 = trunc i8 %54 to i1
   br i1 %tobool90, label %if.then91, label %if.end137
 
 if.then91:                                        ; preds = %invoke.cont88
@@ -7297,12 +7300,12 @@ if.end105:                                        ; preds = %invoke.cont104, %in
   store i8 1, ptr %is_txt_inflight_106, align 2
   %event_engine_resolver_107 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 15
   %call108 = call noundef ptr @_ZNKSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %event_engine_resolver_107) #3
-  %54 = getelementptr inbounds %class.anon.149, ptr %ref.tmp110, i32 0, i32 0
+  %55 = getelementptr inbounds %class.anon.149, ptr %ref.tmp110, i32 0, i32 0
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111, ptr noundef @.str.3, i32 noundef 264)
           to label %invoke.cont112 unwind label %lpad7
 
 invoke.cont112:                                   ; preds = %if.end105
-  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111, ptr noundef @.str.19)
+  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %55, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111, ptr noundef @.str.19)
           to label %invoke.cont113 unwind label %lpad7
 
 invoke.cont113:                                   ; preds = %invoke.cont112
@@ -7332,20 +7335,20 @@ invoke.cont127:                                   ; preds = %invoke.cont125
 
 invoke.cont128:                                   ; preds = %invoke.cont127
   %call129 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #3
-  %55 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 0
-  %56 = extractvalue { i64, ptr } %call129, 0
-  store i64 %56, ptr %55, align 8
-  %57 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 1
-  %58 = extractvalue { i64, ptr } %call129, 1
-  store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 0
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
+  %56 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 0
+  %57 = extractvalue { i64, ptr } %call129, 0
+  store i64 %57, ptr %56, align 8
+  %58 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 1
+  %59 = extractvalue { i64, ptr } %call129, 1
+  store ptr %59, ptr %58, align 8
+  %60 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp116, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
   %vtable130 = load ptr, ptr %call108, align 8
   %vfn131 = getelementptr inbounds ptr, ptr %vtable130, i64 4
-  %63 = load ptr, ptr %vfn131, align 8
-  invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %call108, ptr noundef %agg.tmp109, i64 %60, ptr %62)
+  %64 = load ptr, ptr %vfn131, align 8
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(8) %call108, ptr noundef %agg.tmp109, i64 %61, ptr %63)
           to label %invoke.cont133 unwind label %lpad132
 
 invoke.cont133:                                   ; preds = %invoke.cont128
@@ -7355,30 +7358,30 @@ invoke.cont133:                                   ; preds = %invoke.cont128
   br label %if.end137
 
 lpad114:                                          ; preds = %invoke.cont113
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   br label %ehcleanup136
 
 lpad119:                                          ; preds = %invoke.cont127, %invoke.cont125, %invoke.cont123, %invoke.cont120, %invoke.cont115
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %exn.slot, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %ehselector.slot, align 4
   br label %ehcleanup135
 
 lpad132:                                          ; preds = %invoke.cont128
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %exn.slot, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #3
   br label %ehcleanup135
 
@@ -7426,12 +7429,12 @@ invoke.cont149:                                   ; preds = %cond.end
   %event_engine_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver", ptr %call150, i32 0, i32 4
   %call151 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %event_engine_) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp152, ptr align 8 %timeout, i64 8, i1 false)
-  %73 = getelementptr inbounds %class.anon.153, ptr %ref.tmp154, i32 0, i32 0
+  %74 = getelementptr inbounds %class.anon.153, ptr %ref.tmp154, i32 0, i32 0
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef @.str.3, i32 noundef 278)
           to label %invoke.cont156 unwind label %lpad7
 
 invoke.cont156:                                   ; preds = %invoke.cont149
-  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %73, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef @.str.21)
+  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.141") align 8 %74, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef @.str.21)
           to label %invoke.cont157 unwind label %lpad7
 
 invoke.cont157:                                   ; preds = %invoke.cont156
@@ -7440,21 +7443,21 @@ invoke.cont157:                                   ; preds = %invoke.cont156
 
 invoke.cont159:                                   ; preds = %invoke.cont157
   %coerce.dive160 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp152, i32 0, i32 0
-  %74 = load i64, ptr %coerce.dive160, align 8
+  %75 = load i64, ptr %coerce.dive160, align 8
   %vtable161 = load ptr, ptr %call151, align 8
   %vfn162 = getelementptr inbounds ptr, ptr %vtable161, i64 10
-  %75 = load ptr, ptr %vfn162, align 8
-  %call165 = invoke { i64, i64 } %75(ptr noundef nonnull align 8 dereferenceable(24) %call151, i64 %74, ptr noundef %agg.tmp153)
+  %76 = load ptr, ptr %vfn162, align 8
+  %call165 = invoke { i64, i64 } %76(ptr noundef nonnull align 8 dereferenceable(24) %call151, i64 %75, ptr noundef %agg.tmp153)
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %invoke.cont159
   %coerce.dive166 = getelementptr inbounds %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %ref.tmp147, i32 0, i32 0
-  %76 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive166, i32 0, i32 0
-  %77 = extractvalue { i64, i64 } %call165, 0
-  store i64 %77, ptr %76, align 8
-  %78 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive166, i32 0, i32 1
-  %79 = extractvalue { i64, i64 } %call165, 1
-  store i64 %79, ptr %78, align 8
+  %77 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive166, i32 0, i32 0
+  %78 = extractvalue { i64, i64 } %call165, 0
+  store i64 %78, ptr %77, align 8
+  %79 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive166, i32 0, i32 1
+  %80 = extractvalue { i64, i64 } %call165, 1
+  store i64 %80, ptr %79, align 8
   %timeout_handle_167 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 14
   %call168 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %timeout_handle_167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp147) #3
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp153) #3
@@ -7463,21 +7466,21 @@ invoke.cont164:                                   ; preds = %invoke.cont159
   ret void
 
 lpad158:                                          ; preds = %invoke.cont157
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   br label %ehcleanup170
 
 lpad163:                                          ; preds = %invoke.cont159
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %exn.slot, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp153) #3
   br label %ehcleanup170
 
@@ -7730,23 +7733,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.118", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -8306,7 +8310,8 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %resolver_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::EventEngineClientChannelDNSResolver::EventEngineDNSRequestWrapper", ptr %this1, i32 0, i32 1
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.3, i32 noundef 288)
           to label %invoke.cont unwind label %terminate.lpad
@@ -8334,10 +8339,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #17
   unreachable
 }
 
@@ -8358,7 +8363,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9317,7 +9323,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -9349,12 +9356,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15ScopedTimeCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %time_cache_) #3
   br label %eh.resume
 
@@ -9684,24 +9691,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %flags_, align 8
-  %or = or i64 %0, 1
+  %1 = load i64, ptr %flags_, align 8
+  %or = or i64 %1, 1
   store i64 %or, ptr %flags_, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %last_exec_ctx_, align 8
-  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %1)
+  %2 = load ptr, ptr %last_exec_ctx_, align 8
+  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %flags_3 = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %flags_3, align 8
-  %and = and i64 4, %2
+  %3 = load i64, ptr %flags_3, align 8
+  %and = and i64 4, %3
   %tobool = icmp ne i64 %and, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -9718,10 +9726,10 @@ if.end:                                           ; preds = %invoke.cont4, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #17
   unreachable
 }
 
@@ -9870,15 +9878,16 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
+  ret ptr %4
 }
 
 declare void @_ZN9grpc_core4Fork17DoIncExecCtxCountEv() #1
@@ -9890,7 +9899,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -9951,13 +9961,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %previous_, align 8
-  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %this1, ptr %2, align 8
+  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  %2 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %previous_, align 8
+  %3 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %this1, ptr %3, align 8
   ret void
 }
 
@@ -9977,21 +9988,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10061,15 +10074,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core7ExecCtx9exec_ctx_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10078,11 +10092,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %previous_, align 8
-  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %0, ptr %1, align 8
+  %1 = load ptr, ptr %previous_, align 8
+  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %1, ptr %2, align 8
   ret void
 }
 

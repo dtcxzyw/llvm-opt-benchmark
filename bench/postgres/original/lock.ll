@@ -317,32 +317,33 @@ define dso_local zeroext i1 @DoLockModesConflict(i32 noundef %0, i32 noundef %1)
   %6 = alloca ptr, align 8
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @LockMethods, i64 0, i64 1), align 8
-  store ptr %7, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %struct.LockMethodData, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr i32, ptr %10, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = load i32, ptr %5, align 4
-  %16 = shl i32 1, %15
-  %17 = and i32 %14, %16
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %2
-  store i1 true, ptr %3, align 1
-  br label %21
+  %7 = getelementptr inbounds [3 x ptr], ptr @LockMethods, i64 0, i64 1
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds %struct.LockMethodData, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %4, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr i32, ptr %11, i64 %13
+  %15 = load i32, ptr %14, align 4
+  %16 = load i32, ptr %5, align 4
+  %17 = shl i32 1, %16
+  %18 = and i32 %15, %17
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %2
-  store i1 false, ptr %3, align 1
-  br label %21
+  store i1 true, ptr %3, align 1
+  br label %22
 
-21:                                               ; preds = %20, %19
-  %22 = load i1, ptr %3, align 1
-  ret i1 %22
+21:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %22
+
+22:                                               ; preds = %21, %20
+  %23 = load i1, ptr %3, align 1
+  ret i1 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5273,12 +5274,12 @@ define dso_local void @VirtualXactLockTableCleanup() #0 {
   call void @LWLockRelease(ptr noundef %21)
   %22 = load i8, ptr %1, align 1
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %44, label %24
+  br i1 %23, label %45, label %24
 
 24:                                               ; preds = %0
   %25 = load i32, ptr %2, align 4
   %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %44
+  br i1 %26, label %27, label %45
 
 27:                                               ; preds = %24
   %28 = load i32, ptr @MyProcNumber, align 4
@@ -5303,12 +5304,13 @@ define dso_local void @VirtualXactLockTableCleanup() #0 {
   store i8 6, ptr %40, align 2
   %41 = getelementptr inbounds %struct.LOCKTAG, ptr %4, i32 0, i32 5
   store i8 1, ptr %41, align 1
-  %42 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @LockMethods, i64 0, i64 1), align 8
-  %43 = load ptr, ptr @MyProc, align 8
-  call void @LockRefindAndRelease(ptr noundef %42, ptr noundef %43, ptr noundef %4, i32 noundef 7, i1 noundef zeroext false)
-  br label %44
+  %42 = getelementptr inbounds [3 x ptr], ptr @LockMethods, i64 0, i64 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @MyProc, align 8
+  call void @LockRefindAndRelease(ptr noundef %43, ptr noundef %44, ptr noundef %4, i32 noundef 7, i1 noundef zeroext false)
+  br label %45
 
-44:                                               ; preds = %27, %24, %0
+45:                                               ; preds = %27, %24, %0
   ret void
 }
 
@@ -7163,265 +7165,266 @@ define internal ptr @FastPathGetRelationLockEntry(ptr noundef %0) #0 {
   %11 = alloca %struct.PROCLOCKTAG, align 8
   %12 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %13 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @LockMethods, i64 0, i64 1), align 8
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.LOCALLOCK, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.LOCALLOCKTAG, ptr %15, i32 0, i32 0
-  store ptr %16, ptr %4, align 8
+  %13 = getelementptr inbounds [3 x ptr], ptr @LockMethods, i64 0, i64 1
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.LOCALLOCK, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds %struct.LOCALLOCKTAG, ptr %16, i32 0, i32 0
+  store ptr %17, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %17 = load ptr, ptr @MainLWLockArray, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.LOCALLOCK, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 4
-  %21 = urem i32 %20, 16
-  %22 = add i32 181, %21
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr %union.LWLockPadded, ptr %17, i64 %23
-  store ptr %24, ptr %6, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.LOCKTAG, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %7, align 4
-  %28 = load ptr, ptr @MyProc, align 8
-  %29 = getelementptr inbounds %struct.PGPROC, ptr %28, i32 0, i32 42
-  %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0)
+  %18 = load ptr, ptr @MainLWLockArray, align 8
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.LOCALLOCK, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4
+  %22 = urem i32 %21, 16
+  %23 = add i32 181, %22
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr %union.LWLockPadded, ptr %18, i64 %24
+  store ptr %25, ptr %6, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.LOCKTAG, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %7, align 4
+  %29 = load ptr, ptr @MyProc, align 8
+  %30 = getelementptr inbounds %struct.PGPROC, ptr %29, i32 0, i32 42
+  %31 = call zeroext i1 @LWLockAcquire(ptr noundef %30, i32 noundef 0)
   store i32 0, ptr %8, align 4
-  br label %31
+  br label %32
 
-31:                                               ; preds = %120, %1
-  %32 = load i32, ptr %8, align 4
-  %33 = icmp ult i32 %32, 16
-  br i1 %33, label %34, label %123
+32:                                               ; preds = %121, %1
+  %33 = load i32, ptr %8, align 4
+  %34 = icmp ult i32 %33, 16
+  br i1 %34, label %35, label %124
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %7, align 4
-  %36 = load ptr, ptr @MyProc, align 8
-  %37 = getelementptr inbounds %struct.PGPROC, ptr %36, i32 0, i32 44
-  %38 = load i32, ptr %8, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr [16 x i32], ptr %37, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp ne i32 %35, %41
-  br i1 %42, label %53, label %43
+35:                                               ; preds = %32
+  %36 = load i32, ptr %7, align 4
+  %37 = load ptr, ptr @MyProc, align 8
+  %38 = getelementptr inbounds %struct.PGPROC, ptr %37, i32 0, i32 44
+  %39 = load i32, ptr %8, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr [16 x i32], ptr %38, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp ne i32 %36, %42
+  br i1 %43, label %54, label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr @MyProc, align 8
-  %45 = getelementptr inbounds %struct.PGPROC, ptr %44, i32 0, i32 43
-  %46 = load i64, ptr %45, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = mul i32 3, %47
-  %49 = zext i32 %48 to i64
-  %50 = lshr i64 %46, %49
-  %51 = and i64 %50, 7
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %54
+44:                                               ; preds = %35
+  %45 = load ptr, ptr @MyProc, align 8
+  %46 = getelementptr inbounds %struct.PGPROC, ptr %45, i32 0, i32 43
+  %47 = load i64, ptr %46, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = mul i32 3, %48
+  %50 = zext i32 %49 to i64
+  %51 = lshr i64 %47, %50
+  %52 = and i64 %51, 7
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %43, %34
-  br label %120
+54:                                               ; preds = %44, %35
+  br label %121
 
-54:                                               ; preds = %43
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.LOCALLOCK, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %struct.LOCALLOCKTAG, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  store i32 %58, ptr %9, align 4
-  %59 = load ptr, ptr @MyProc, align 8
-  %60 = getelementptr inbounds %struct.PGPROC, ptr %59, i32 0, i32 43
-  %61 = load i64, ptr %60, align 8
-  %62 = load i32, ptr %9, align 4
-  %63 = sub i32 %62, 1
-  %64 = load i32, ptr %8, align 4
-  %65 = mul i32 3, %64
-  %66 = add i32 %63, %65
-  %67 = zext i32 %66 to i64
-  %68 = shl i64 1, %67
-  %69 = and i64 %61, %68
-  %70 = icmp ne i64 %69, 0
-  br i1 %70, label %72, label %71
+55:                                               ; preds = %44
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.LOCALLOCK, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds %struct.LOCALLOCKTAG, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  store i32 %59, ptr %9, align 4
+  %60 = load ptr, ptr @MyProc, align 8
+  %61 = getelementptr inbounds %struct.PGPROC, ptr %60, i32 0, i32 43
+  %62 = load i64, ptr %61, align 8
+  %63 = load i32, ptr %9, align 4
+  %64 = sub i32 %63, 1
+  %65 = load i32, ptr %8, align 4
+  %66 = mul i32 3, %65
+  %67 = add i32 %64, %66
+  %68 = zext i32 %67 to i64
+  %69 = shl i64 1, %68
+  %70 = and i64 %62, %69
+  %71 = icmp ne i64 %70, 0
+  br i1 %71, label %73, label %72
 
-71:                                               ; preds = %54
-  br label %123
+72:                                               ; preds = %55
+  br label %124
 
-72:                                               ; preds = %54
-  %73 = load ptr, ptr %6, align 8
-  %74 = call zeroext i1 @LWLockAcquire(ptr noundef %73, i32 noundef 0)
-  %75 = load ptr, ptr %3, align 8
-  %76 = load ptr, ptr @MyProc, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.LOCALLOCK, ptr %78, i32 0, i32 1
-  %80 = load i32, ptr %79, align 4
-  %81 = load i32, ptr %9, align 4
-  %82 = call ptr @SetupLockInTable(ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %80, i32 noundef %81)
-  store ptr %82, ptr %5, align 8
-  %83 = load ptr, ptr %5, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %100, label %85
+73:                                               ; preds = %55
+  %74 = load ptr, ptr %6, align 8
+  %75 = call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0)
+  %76 = load ptr, ptr %3, align 8
+  %77 = load ptr, ptr @MyProc, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.LOCALLOCK, ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 4
+  %82 = load i32, ptr %9, align 4
+  %83 = call ptr @SetupLockInTable(ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %81, i32 noundef %82)
+  store ptr %83, ptr %5, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %101, label %86
 
-85:                                               ; preds = %72
-  %86 = load ptr, ptr %6, align 8
-  call void @LWLockRelease(ptr noundef %86)
-  %87 = load ptr, ptr @MyProc, align 8
-  %88 = getelementptr inbounds %struct.PGPROC, ptr %87, i32 0, i32 42
-  call void @LWLockRelease(ptr noundef %88)
-  br label %89
+86:                                               ; preds = %73
+  %87 = load ptr, ptr %6, align 8
+  call void @LWLockRelease(ptr noundef %87)
+  %88 = load ptr, ptr @MyProc, align 8
+  %89 = getelementptr inbounds %struct.PGPROC, ptr %88, i32 0, i32 42
+  call void @LWLockRelease(ptr noundef %89)
+  br label %90
 
-89:                                               ; preds = %85
-  br i1 true, label %90, label %92
+90:                                               ; preds = %86
+  br i1 true, label %91, label %93
 
-90:                                               ; preds = %89
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  br i1 %91, label %94, label %98
+91:                                               ; preds = %90
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %92, label %95, label %99
 
-92:                                               ; preds = %89
-  %93 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %93, label %94, label %98
+93:                                               ; preds = %90
+  %94 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %94, label %95, label %99
 
-94:                                               ; preds = %92, %90
-  %95 = call i32 @errcode(i32 noundef 8389)
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
-  %97 = call i32 (ptr, ...) @errhint(ptr noundef @.str.11, ptr noundef @.str.12)
+95:                                               ; preds = %93, %91
+  %96 = call i32 @errcode(i32 noundef 8389)
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
+  %98 = call i32 (ptr, ...) @errhint(ptr noundef @.str.11, ptr noundef @.str.12)
   call void @errfinish(ptr noundef @.str.5, i32 noundef 2787, ptr noundef @__func__.FastPathGetRelationLockEntry)
-  br label %98
+  br label %99
 
-98:                                               ; preds = %94, %92, %90
+99:                                               ; preds = %95, %93, %91
   unreachable
 
-99:                                               ; No predecessors!
-  br label %100
+100:                                              ; No predecessors!
+  br label %101
 
-100:                                              ; preds = %99, %72
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.PROCLOCK, ptr %101, i32 0, i32 0
-  %103 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = load i32, ptr %9, align 4
-  call void @GrantLock(ptr noundef %104, ptr noundef %105, i32 noundef %106)
+101:                                              ; preds = %100, %73
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct.PROCLOCK, ptr %102, i32 0, i32 0
+  %104 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %5, align 8
   %107 = load i32, ptr %9, align 4
-  %108 = sub i32 %107, 1
-  %109 = load i32, ptr %8, align 4
-  %110 = mul i32 3, %109
-  %111 = add i32 %108, %110
-  %112 = zext i32 %111 to i64
-  %113 = shl i64 1, %112
-  %114 = xor i64 %113, -1
-  %115 = load ptr, ptr @MyProc, align 8
-  %116 = getelementptr inbounds %struct.PGPROC, ptr %115, i32 0, i32 43
-  %117 = load i64, ptr %116, align 8
-  %118 = and i64 %117, %114
-  store i64 %118, ptr %116, align 8
-  %119 = load ptr, ptr %6, align 8
-  call void @LWLockRelease(ptr noundef %119)
-  br label %123
+  call void @GrantLock(ptr noundef %105, ptr noundef %106, i32 noundef %107)
+  %108 = load i32, ptr %9, align 4
+  %109 = sub i32 %108, 1
+  %110 = load i32, ptr %8, align 4
+  %111 = mul i32 3, %110
+  %112 = add i32 %109, %111
+  %113 = zext i32 %112 to i64
+  %114 = shl i64 1, %113
+  %115 = xor i64 %114, -1
+  %116 = load ptr, ptr @MyProc, align 8
+  %117 = getelementptr inbounds %struct.PGPROC, ptr %116, i32 0, i32 43
+  %118 = load i64, ptr %117, align 8
+  %119 = and i64 %118, %115
+  store i64 %119, ptr %117, align 8
+  %120 = load ptr, ptr %6, align 8
+  call void @LWLockRelease(ptr noundef %120)
+  br label %124
 
-120:                                              ; preds = %53
-  %121 = load i32, ptr %8, align 4
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %8, align 4
-  br label %31, !llvm.loop !49
+121:                                              ; preds = %54
+  %122 = load i32, ptr %8, align 4
+  %123 = add i32 %122, 1
+  store i32 %123, ptr %8, align 4
+  br label %32, !llvm.loop !49
 
-123:                                              ; preds = %100, %71, %31
-  %124 = load ptr, ptr @MyProc, align 8
-  %125 = getelementptr inbounds %struct.PGPROC, ptr %124, i32 0, i32 42
-  call void @LWLockRelease(ptr noundef %125)
-  %126 = load ptr, ptr %5, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %175
+124:                                              ; preds = %101, %72, %32
+  %125 = load ptr, ptr @MyProc, align 8
+  %126 = getelementptr inbounds %struct.PGPROC, ptr %125, i32 0, i32 42
+  call void @LWLockRelease(ptr noundef %126)
+  %127 = load ptr, ptr %5, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %176
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %6, align 8
-  %130 = call zeroext i1 @LWLockAcquire(ptr noundef %129, i32 noundef 1)
-  %131 = load ptr, ptr @LockMethodLockHash, align 8
-  %132 = load ptr, ptr %4, align 8
-  %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds %struct.LOCALLOCK, ptr %133, i32 0, i32 1
-  %135 = load i32, ptr %134, align 4
-  %136 = call ptr @hash_search_with_hash_value(ptr noundef %131, ptr noundef %132, i32 noundef %135, i32 noundef 0, ptr noundef null)
-  store ptr %136, ptr %10, align 8
-  %137 = load ptr, ptr %10, align 8
-  %138 = icmp ne ptr %137, null
-  br i1 %138, label %149, label %139
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %6, align 8
+  %131 = call zeroext i1 @LWLockAcquire(ptr noundef %130, i32 noundef 1)
+  %132 = load ptr, ptr @LockMethodLockHash, align 8
+  %133 = load ptr, ptr %4, align 8
+  %134 = load ptr, ptr %2, align 8
+  %135 = getelementptr inbounds %struct.LOCALLOCK, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4
+  %137 = call ptr @hash_search_with_hash_value(ptr noundef %132, ptr noundef %133, i32 noundef %136, i32 noundef 0, ptr noundef null)
+  store ptr %137, ptr %10, align 8
+  %138 = load ptr, ptr %10, align 8
+  %139 = icmp ne ptr %138, null
+  br i1 %139, label %150, label %140
 
-139:                                              ; preds = %128
-  br label %140
-
-140:                                              ; preds = %139
-  br i1 true, label %141, label %143
+140:                                              ; preds = %129
+  br label %141
 
 141:                                              ; preds = %140
-  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  br i1 %142, label %145, label %147
+  br i1 true, label %142, label %144
 
-143:                                              ; preds = %140
-  %144 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %144, label %145, label %147
+142:                                              ; preds = %141
+  %143 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %143, label %146, label %148
 
-145:                                              ; preds = %143, %141
-  %146 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.16)
+144:                                              ; preds = %141
+  %145 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %145, label %146, label %148
+
+146:                                              ; preds = %144, %142
+  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.16)
   call void @errfinish(ptr noundef @.str.5, i32 noundef 2815, ptr noundef @__func__.FastPathGetRelationLockEntry)
-  br label %147
+  br label %148
 
-147:                                              ; preds = %145, %143, %141
+148:                                              ; preds = %146, %144, %142
   unreachable
 
-148:                                              ; No predecessors!
-  br label %149
+149:                                              ; No predecessors!
+  br label %150
 
-149:                                              ; preds = %148, %128
-  %150 = load ptr, ptr %10, align 8
-  %151 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %11, i32 0, i32 0
-  store ptr %150, ptr %151, align 8
-  %152 = load ptr, ptr @MyProc, align 8
-  %153 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %11, i32 0, i32 1
-  store ptr %152, ptr %153, align 8
-  %154 = load ptr, ptr %2, align 8
-  %155 = getelementptr inbounds %struct.LOCALLOCK, ptr %154, i32 0, i32 1
-  %156 = load i32, ptr %155, align 4
-  %157 = call i32 @ProcLockHashCode(ptr noundef %11, i32 noundef %156)
-  store i32 %157, ptr %12, align 4
-  %158 = load ptr, ptr @LockMethodProcLockHash, align 8
-  %159 = load i32, ptr %12, align 4
-  %160 = call ptr @hash_search_with_hash_value(ptr noundef %158, ptr noundef %11, i32 noundef %159, i32 noundef 0, ptr noundef null)
-  store ptr %160, ptr %5, align 8
-  %161 = load ptr, ptr %5, align 8
-  %162 = icmp ne ptr %161, null
-  br i1 %162, label %173, label %163
+150:                                              ; preds = %149, %129
+  %151 = load ptr, ptr %10, align 8
+  %152 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %11, i32 0, i32 0
+  store ptr %151, ptr %152, align 8
+  %153 = load ptr, ptr @MyProc, align 8
+  %154 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %11, i32 0, i32 1
+  store ptr %153, ptr %154, align 8
+  %155 = load ptr, ptr %2, align 8
+  %156 = getelementptr inbounds %struct.LOCALLOCK, ptr %155, i32 0, i32 1
+  %157 = load i32, ptr %156, align 4
+  %158 = call i32 @ProcLockHashCode(ptr noundef %11, i32 noundef %157)
+  store i32 %158, ptr %12, align 4
+  %159 = load ptr, ptr @LockMethodProcLockHash, align 8
+  %160 = load i32, ptr %12, align 4
+  %161 = call ptr @hash_search_with_hash_value(ptr noundef %159, ptr noundef %11, i32 noundef %160, i32 noundef 0, ptr noundef null)
+  store ptr %161, ptr %5, align 8
+  %162 = load ptr, ptr %5, align 8
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %174, label %164
 
-163:                                              ; preds = %149
-  br label %164
-
-164:                                              ; preds = %163
-  br i1 true, label %165, label %167
+164:                                              ; preds = %150
+  br label %165
 
 165:                                              ; preds = %164
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  br i1 %166, label %169, label %171
+  br i1 true, label %166, label %168
 
-167:                                              ; preds = %164
-  %168 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %168, label %169, label %171
+166:                                              ; preds = %165
+  %167 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %167, label %170, label %172
 
-169:                                              ; preds = %167, %165
-  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.17)
+168:                                              ; preds = %165
+  %169 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %169, label %170, label %172
+
+170:                                              ; preds = %168, %166
+  %171 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.17)
   call void @errfinish(ptr noundef @.str.5, i32 noundef 2828, ptr noundef @__func__.FastPathGetRelationLockEntry)
-  br label %171
+  br label %172
 
-171:                                              ; preds = %169, %167, %165
+172:                                              ; preds = %170, %168, %166
   unreachable
 
-172:                                              ; No predecessors!
-  br label %173
+173:                                              ; No predecessors!
+  br label %174
 
-173:                                              ; preds = %172, %149
-  %174 = load ptr, ptr %6, align 8
-  call void @LWLockRelease(ptr noundef %174)
-  br label %175
+174:                                              ; preds = %173, %150
+  %175 = load ptr, ptr %6, align 8
+  call void @LWLockRelease(ptr noundef %175)
+  br label %176
 
-175:                                              ; preds = %173, %123
-  %176 = load ptr, ptr %5, align 8
-  ret ptr %176
+176:                                              ; preds = %174, %124
+  %177 = load ptr, ptr %5, align 8
+  ret ptr %177
 }
 
 declare void @RegisterTwoPhaseRecord(i8 noundef zeroext, i16 noundef zeroext, ptr noundef, i32 noundef) #1
@@ -10241,7 +10244,7 @@ define dso_local zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext %1) #0 {
   %21 = load i64, ptr %4, align 4
   %22 = call zeroext i1 @XactLockForVirtualXact(i64 %21, i32 noundef %18, i1 noundef zeroext %20)
   store i1 %22, ptr %3, align 1
-  br label %133
+  br label %134
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds %struct.VirtualTransactionId, ptr %4, i32 0, i32 0
@@ -10274,7 +10277,7 @@ define dso_local zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext %1) #0 {
   %42 = load i64, ptr %4, align 4
   %43 = call zeroext i1 @XactLockForVirtualXact(i64 %42, i32 noundef 0, i1 noundef zeroext %41)
   store i1 %43, ptr %3, align 1
-  br label %133
+  br label %134
 
 44:                                               ; preds = %23
   %45 = load ptr, ptr %7, align 8
@@ -10307,7 +10310,7 @@ define dso_local zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext %1) #0 {
   %67 = load i64, ptr %4, align 4
   %68 = call zeroext i1 @XactLockForVirtualXact(i64 %67, i32 noundef 0, i1 noundef zeroext %66)
   store i1 %68, ptr %3, align 1
-  br label %133
+  br label %134
 
 69:                                               ; preds = %55
   %70 = load i8, ptr %5, align 1
@@ -10319,14 +10322,14 @@ define dso_local zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext %1) #0 {
   %74 = getelementptr inbounds %struct.PGPROC, ptr %73, i32 0, i32 42
   call void @LWLockRelease(ptr noundef %74)
   store i1 false, ptr %3, align 1
-  br label %133
+  br label %134
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %7, align 8
   %77 = getelementptr inbounds %struct.PGPROC, ptr %76, i32 0, i32 45
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %120
+  br i1 %79, label %80, label %121
 
 80:                                               ; preds = %75
   %81 = call i32 @LockTagHashCode(ptr noundef %6)
@@ -10340,82 +10343,83 @@ define dso_local zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext %1) #0 {
   store ptr %87, ptr %11, align 8
   %88 = load ptr, ptr %11, align 8
   %89 = call zeroext i1 @LWLockAcquire(ptr noundef %88, i32 noundef 0)
-  %90 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @LockMethods, i64 0, i64 1), align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = load i32, ptr %10, align 4
-  %93 = call ptr @SetupLockInTable(ptr noundef %90, ptr noundef %91, ptr noundef %6, i32 noundef %92, i32 noundef 7)
-  store ptr %93, ptr %9, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %111, label %96
+  %90 = getelementptr inbounds [3 x ptr], ptr @LockMethods, i64 0, i64 1
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %10, align 4
+  %94 = call ptr @SetupLockInTable(ptr noundef %91, ptr noundef %92, ptr noundef %6, i32 noundef %93, i32 noundef 7)
+  store ptr %94, ptr %9, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %112, label %97
 
-96:                                               ; preds = %80
-  %97 = load ptr, ptr %11, align 8
-  call void @LWLockRelease(ptr noundef %97)
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct.PGPROC, ptr %98, i32 0, i32 42
-  call void @LWLockRelease(ptr noundef %99)
-  br label %100
+97:                                               ; preds = %80
+  %98 = load ptr, ptr %11, align 8
+  call void @LWLockRelease(ptr noundef %98)
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds %struct.PGPROC, ptr %99, i32 0, i32 42
+  call void @LWLockRelease(ptr noundef %100)
+  br label %101
 
-100:                                              ; preds = %96
-  br i1 true, label %101, label %103
+101:                                              ; preds = %97
+  br i1 true, label %102, label %104
 
-101:                                              ; preds = %100
-  %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  br i1 %102, label %105, label %109
+102:                                              ; preds = %101
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %103, label %106, label %110
 
-103:                                              ; preds = %100
-  %104 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %104, label %105, label %109
+104:                                              ; preds = %101
+  %105 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %105, label %106, label %110
 
-105:                                              ; preds = %103, %101
-  %106 = call i32 @errcode(i32 noundef 8389)
-  %107 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
-  %108 = call i32 (ptr, ...) @errhint(ptr noundef @.str.11, ptr noundef @.str.12)
+106:                                              ; preds = %104, %102
+  %107 = call i32 @errcode(i32 noundef 8389)
+  %108 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.10)
+  %109 = call i32 (ptr, ...) @errhint(ptr noundef @.str.11, ptr noundef @.str.12)
   call void @errfinish(ptr noundef @.str.5, i32 noundef 4587, ptr noundef @__func__.VirtualXactLock)
-  br label %109
+  br label %110
 
-109:                                              ; preds = %105, %103, %101
+110:                                              ; preds = %106, %104, %102
   unreachable
 
-110:                                              ; No predecessors!
-  br label %111
+111:                                              ; No predecessors!
+  br label %112
 
-111:                                              ; preds = %110, %80
-  %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.PROCLOCK, ptr %112, i32 0, i32 0
-  %114 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %113, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %9, align 8
-  call void @GrantLock(ptr noundef %115, ptr noundef %116, i32 noundef 7)
-  %117 = load ptr, ptr %11, align 8
-  call void @LWLockRelease(ptr noundef %117)
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.PGPROC, ptr %118, i32 0, i32 45
-  store i8 0, ptr %119, align 8
-  br label %120
+112:                                              ; preds = %111, %80
+  %113 = load ptr, ptr %9, align 8
+  %114 = getelementptr inbounds %struct.PROCLOCK, ptr %113, i32 0, i32 0
+  %115 = getelementptr inbounds %struct.PROCLOCKTAG, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %9, align 8
+  call void @GrantLock(ptr noundef %116, ptr noundef %117, i32 noundef 7)
+  %118 = load ptr, ptr %11, align 8
+  call void @LWLockRelease(ptr noundef %118)
+  %119 = load ptr, ptr %7, align 8
+  %120 = getelementptr inbounds %struct.PGPROC, ptr %119, i32 0, i32 45
+  store i8 0, ptr %120, align 8
+  br label %121
 
-120:                                              ; preds = %111, %75
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.PGPROC, ptr %121, i32 0, i32 5
-  %123 = load i32, ptr %122, align 4
-  store i32 %123, ptr %8, align 4
-  %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds %struct.PGPROC, ptr %124, i32 0, i32 42
-  call void @LWLockRelease(ptr noundef %125)
-  %126 = call i32 @LockAcquire(ptr noundef %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false)
-  %127 = call zeroext i1 @LockRelease(ptr noundef %6, i32 noundef 5, i1 noundef zeroext false)
-  %128 = load i32, ptr %8, align 4
-  %129 = load i8, ptr %5, align 1
-  %130 = trunc i8 %129 to i1
-  %131 = load i64, ptr %4, align 4
-  %132 = call zeroext i1 @XactLockForVirtualXact(i64 %131, i32 noundef %128, i1 noundef zeroext %130)
-  store i1 %132, ptr %3, align 1
-  br label %133
+121:                                              ; preds = %112, %75
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds %struct.PGPROC, ptr %122, i32 0, i32 5
+  %124 = load i32, ptr %123, align 4
+  store i32 %124, ptr %8, align 4
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds %struct.PGPROC, ptr %125, i32 0, i32 42
+  call void @LWLockRelease(ptr noundef %126)
+  %127 = call i32 @LockAcquire(ptr noundef %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false)
+  %128 = call zeroext i1 @LockRelease(ptr noundef %6, i32 noundef 5, i1 noundef zeroext false)
+  %129 = load i32, ptr %8, align 4
+  %130 = load i8, ptr %5, align 1
+  %131 = trunc i8 %130 to i1
+  %132 = load i64, ptr %4, align 4
+  %133 = call zeroext i1 @XactLockForVirtualXact(i64 %132, i32 noundef %129, i1 noundef zeroext %131)
+  store i1 %133, ptr %3, align 1
+  br label %134
 
-133:                                              ; preds = %120, %72, %62, %39, %16
-  %134 = load i1, ptr %3, align 1
-  ret i1 %134
+134:                                              ; preds = %121, %72, %62, %39, %16
+  %135 = load i1, ptr %3, align 1
+  ret i1 %135
 }
 
 ; Function Attrs: nounwind uwtable

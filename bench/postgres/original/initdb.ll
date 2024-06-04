@@ -1619,8 +1619,10 @@ define dso_local void @setup_signals() #0 {
   %2 = call ptr @pqsignal(i32 noundef 2, ptr noundef @trapsig)
   %3 = call ptr @pqsignal(i32 noundef 3, ptr noundef @trapsig)
   %4 = call ptr @pqsignal(i32 noundef 15, ptr noundef @trapsig)
-  %5 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %6 = call ptr @pqsignal(i32 noundef 31, ptr noundef inttoptr (i64 1 to ptr))
+  %5 = inttoptr i64 1 to ptr
+  %6 = call ptr @pqsignal(i32 noundef 13, ptr noundef %5)
+  %7 = inttoptr i64 1 to ptr
+  %8 = call ptr @pqsignal(i32 noundef 31, ptr noundef %7)
   ret void
 }
 

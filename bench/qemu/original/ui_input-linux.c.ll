@@ -116,48 +116,49 @@ if.else:                                          ; preds = %do.body
   %next6 = getelementptr inbounds %struct.InputLinux, ptr %9, i32 0, i32 22
   %tql_prev7 = getelementptr inbounds %struct.QTailQLink, ptr %next6, i32 0, i32 1
   %10 = load ptr, ptr %tql_prev7, align 8
-  store ptr %10, ptr getelementptr inbounds (%struct.QTailQLink, ptr @inputs, i32 0, i32 1), align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @inputs, i32 0, i32 1
+  store ptr %10, ptr %11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  %11 = load ptr, ptr %il, align 8
-  %next8 = getelementptr inbounds %struct.InputLinux, ptr %11, i32 0, i32 22
-  %12 = load ptr, ptr %next8, align 8
-  %13 = load ptr, ptr %il, align 8
-  %next9 = getelementptr inbounds %struct.InputLinux, ptr %13, i32 0, i32 22
+  %12 = load ptr, ptr %il, align 8
+  %next8 = getelementptr inbounds %struct.InputLinux, ptr %12, i32 0, i32 22
+  %13 = load ptr, ptr %next8, align 8
+  %14 = load ptr, ptr %il, align 8
+  %next9 = getelementptr inbounds %struct.InputLinux, ptr %14, i32 0, i32 22
   %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %next9, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev10, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %15 = load ptr, ptr %il, align 8
-  %next11 = getelementptr inbounds %struct.InputLinux, ptr %15, i32 0, i32 22
+  %15 = load ptr, ptr %tql_prev10, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
+  store ptr %13, ptr %tql_next, align 8
+  %16 = load ptr, ptr %il, align 8
+  %next11 = getelementptr inbounds %struct.InputLinux, ptr %16, i32 0, i32 22
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %next11, i32 0, i32 1
   store ptr null, ptr %tql_prev12, align 8
-  %16 = load ptr, ptr %il, align 8
-  %next13 = getelementptr inbounds %struct.InputLinux, ptr %16, i32 0, i32 22
+  %17 = load ptr, ptr %il, align 8
+  %next13 = getelementptr inbounds %struct.InputLinux, ptr %17, i32 0, i32 22
   %tql_next14 = getelementptr inbounds %struct.QTailQLink, ptr %next13, i32 0, i32 0
   store ptr null, ptr %tql_next14, align 8
-  %17 = load ptr, ptr %il, align 8
-  %next15 = getelementptr inbounds %struct.InputLinux, ptr %17, i32 0, i32 22
+  %18 = load ptr, ptr %il, align 8
+  %next15 = getelementptr inbounds %struct.InputLinux, ptr %18, i32 0, i32 22
   store ptr null, ptr %next15, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %18 = load ptr, ptr %il, align 8
-  %fd = getelementptr inbounds %struct.InputLinux, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %fd, align 8
-  call void @qemu_set_fd_handler(i32 noundef %19, ptr noundef null, ptr noundef null, ptr noundef null)
-  %20 = load ptr, ptr %il, align 8
-  %fd16 = getelementptr inbounds %struct.InputLinux, ptr %20, i32 0, i32 2
-  %21 = load i32, ptr %fd16, align 8
-  %call17 = call i32 @close(i32 noundef %21)
+  %19 = load ptr, ptr %il, align 8
+  %fd = getelementptr inbounds %struct.InputLinux, ptr %19, i32 0, i32 2
+  %20 = load i32, ptr %fd, align 8
+  call void @qemu_set_fd_handler(i32 noundef %20, ptr noundef null, ptr noundef null, ptr noundef null)
+  %21 = load ptr, ptr %il, align 8
+  %fd16 = getelementptr inbounds %struct.InputLinux, ptr %21, i32 0, i32 2
+  %22 = load i32, ptr %fd16, align 8
+  %call17 = call i32 @close(i32 noundef %22)
   br label %if.end18
 
 if.end18:                                         ; preds = %do.end, %entry
-  %22 = load ptr, ptr %il, align 8
-  %evdev = getelementptr inbounds %struct.InputLinux, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %evdev, align 8
-  call void @g_free(ptr noundef %23)
+  %23 = load ptr, ptr %il, align 8
+  %evdev = getelementptr inbounds %struct.InputLinux, ptr %23, i32 0, i32 1
+  %24 = load ptr, ptr %evdev, align 8
+  call void @g_free(ptr noundef %24)
   ret void
 }
 
@@ -604,39 +605,42 @@ do.body:                                          ; preds = %if.end121
   %92 = load ptr, ptr %il, align 8
   %next = getelementptr inbounds %struct.InputLinux, ptr %92, i32 0, i32 22
   store ptr null, ptr %next, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @inputs, i32 0, i32 1), align 8
-  %94 = load ptr, ptr %il, align 8
-  %next122 = getelementptr inbounds %struct.InputLinux, ptr %94, i32 0, i32 22
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next122, i32 0, i32 1
-  store ptr %93, ptr %tql_prev, align 8
+  %93 = getelementptr inbounds %struct.QTailQLink, ptr @inputs, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %il, align 8
-  %96 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @inputs, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %96, i32 0, i32 0
-  store ptr %95, ptr %tql_next, align 8
-  %97 = load ptr, ptr %il, align 8
-  %next123 = getelementptr inbounds %struct.InputLinux, ptr %97, i32 0, i32 22
-  store ptr %next123, ptr getelementptr inbounds (%struct.QTailQLink, ptr @inputs, i32 0, i32 1), align 8
+  %next122 = getelementptr inbounds %struct.InputLinux, ptr %95, i32 0, i32 22
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next122, i32 0, i32 1
+  store ptr %94, ptr %tql_prev, align 8
+  %96 = load ptr, ptr %il, align 8
+  %97 = getelementptr inbounds %struct.QTailQLink, ptr @inputs, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %98, i32 0, i32 0
+  store ptr %96, ptr %tql_next, align 8
+  %99 = load ptr, ptr %il, align 8
+  %next123 = getelementptr inbounds %struct.InputLinux, ptr %99, i32 0, i32 22
+  %100 = getelementptr inbounds %struct.QTailQLink, ptr @inputs, i32 0, i32 1
+  store ptr %next123, ptr %100, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %98 = load ptr, ptr %il, align 8
-  %initialized = getelementptr inbounds %struct.InputLinux, ptr %98, i32 0, i32 10
+  %101 = load ptr, ptr %il, align 8
+  %initialized = getelementptr inbounds %struct.InputLinux, ptr %101, i32 0, i32 10
   store i8 1, ptr %initialized, align 8
   br label %return
 
 err_read_event_bits:                              ; preds = %if.then80, %if.then47, %if.then31, %if.then23
-  %99 = load ptr, ptr %errp.addr, align 8
-  %100 = load ptr, ptr %il, align 8
-  %evdev124 = getelementptr inbounds %struct.InputLinux, ptr %100, i32 0, i32 1
-  %101 = load ptr, ptr %evdev124, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %99, ptr noundef @.str.3, i32 noundef 411, ptr noundef @__func__.input_linux_complete, ptr noundef @.str.16, ptr noundef %101)
+  %102 = load ptr, ptr %errp.addr, align 8
+  %103 = load ptr, ptr %il, align 8
+  %evdev124 = getelementptr inbounds %struct.InputLinux, ptr %103, i32 0, i32 1
+  %104 = load ptr, ptr %evdev124, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %102, ptr noundef @.str.3, i32 noundef 411, ptr noundef @__func__.input_linux_complete, ptr noundef @.str.16, ptr noundef %104)
   br label %err_close
 
 err_close:                                        ; preds = %err_read_event_bits, %if.then87, %if.then64, %if.then57, %if.then17
-  %102 = load ptr, ptr %il, align 8
-  %fd125 = getelementptr inbounds %struct.InputLinux, ptr %102, i32 0, i32 2
-  %103 = load i32, ptr %fd125, align 8
-  %call126 = call i32 @close(i32 noundef %103)
+  %105 = load ptr, ptr %il, align 8
+  %fd125 = getelementptr inbounds %struct.InputLinux, ptr %105, i32 0, i32 2
+  %106 = load i32, ptr %fd125, align 8
+  %call126 = call i32 @close(i32 noundef %106)
   br label %return
 
 return:                                           ; preds = %err_close, %do.end, %if.then11, %if.then4, %if.then

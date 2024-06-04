@@ -2360,14 +2360,14 @@ define dso_local void @_ZN5vcpkg21command_help_and_exitERKNS_17VcpkgCmdArguments
 53:                                               ; preds = %50
   unreachable
 
-54:                                               ; preds = %223, %217, %214, %199, %143, %135, %127, %122, %107, %98, %92, %91, %88, %76, %62, %50, %44
+54:                                               ; preds = %224, %218, %215, %200, %144, %136, %128, %123, %108, %98, %92, %91, %88, %76, %62, %50, %44
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = extractvalue { ptr, i32 } %55, 0
   store ptr %56, ptr %8, align 8
   %57 = extractvalue { ptr, i32 } %55, 1
   store i32 %57, ptr %9, align 4
-  br label %231
+  br label %232
 
 58:                                               ; preds = %45
   %59 = landingpad { ptr, i32 }
@@ -2377,7 +2377,7 @@ define dso_local void @_ZN5vcpkg21command_help_and_exitERKNS_17VcpkgCmdArguments
   %61 = extractvalue { ptr, i32 } %59, 1
   store i32 %61, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  br label %231
+  br label %232
 
 62:                                               ; preds = %2
   %63 = getelementptr inbounds %"struct.vcpkg::ParsedArguments", ptr %5, i32 0, i32 3
@@ -2451,261 +2451,262 @@ define dso_local void @_ZN5vcpkg21command_help_and_exitERKNS_17VcpkgCmdArguments
 102:                                              ; preds = %87
   store ptr @_ZN12_GLOBAL__N_16topicsE, ptr %18, align 8
   store ptr @_ZN12_GLOBAL__N_16topicsE, ptr %19, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::Topic", ptr @_ZN12_GLOBAL__N_16topicsE, i64 6), ptr %20, align 8
-  br label %103
+  %103 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr @_ZN12_GLOBAL__N_16topicsE, i64 6
+  store ptr %103, ptr %20, align 8
+  br label %104
 
-103:                                              ; preds = %140, %102
-  %104 = load ptr, ptr %19, align 8
-  %105 = load ptr, ptr %20, align 8
-  %106 = icmp ne ptr %104, %105
-  br i1 %106, label %107, label %143
+104:                                              ; preds = %141, %102
+  %105 = load ptr, ptr %19, align 8
+  %106 = load ptr, ptr %20, align 8
+  %107 = icmp ne ptr %105, %106
+  br i1 %107, label %108, label %144
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %19, align 8
-  store ptr %108, ptr %21, align 8
-  %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %109, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %110, i64 16, i1 false)
-  %111 = load ptr, ptr %11, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %111) #13
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 0
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 1
-  %119 = load i64, ptr %118, align 8
-  %120 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %113, i64 %115, ptr %117, i64 %119)
-          to label %121 unwind label %54
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %19, align 8
+  store ptr %109, ptr %21, align 8
+  %110 = load ptr, ptr %21, align 8
+  %111 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %110, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %111, i64 16, i1 false)
+  %112 = load ptr, ptr %11, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %112) #13
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 1
+  %120 = load i64, ptr %119, align 8
+  %121 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %114, i64 %116, ptr %118, i64 %120)
+          to label %122 unwind label %54
 
-121:                                              ; preds = %107
-  br i1 %120, label %122, label %139
+122:                                              ; preds = %108
+  br i1 %121, label %123, label %140
 
-122:                                              ; preds = %121
-  %123 = load ptr, ptr %21, align 8
-  %124 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %123, i32 0, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %4, align 8
-  invoke void %125(ptr noundef nonnull align 8 dereferenceable(400) %126)
-          to label %127 unwind label %54
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %21, align 8
+  %125 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %4, align 8
+  invoke void %126(ptr noundef nonnull align 8 dereferenceable(400) %127)
+          to label %128 unwind label %54
 
-127:                                              ; preds = %122
-  %128 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
-  %129 = load ptr, ptr %21, align 8
-  %130 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %129, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %130, i64 16, i1 false)
-  %131 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
-  %134 = load i64, ptr %133, align 8
-  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %128, i32 noundef 3, ptr %132, i64 %134)
-          to label %135 unwind label %54
+128:                                              ; preds = %123
+  %129 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
+  %130 = load ptr, ptr %21, align 8
+  %131 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %130, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %131, i64 16, i1 false)
+  %132 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
+  %135 = load i64, ptr %134, align 8
+  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %129, i32 noundef 3, ptr %133, i64 %135)
+          to label %136 unwind label %54
 
-135:                                              ; preds = %127
-  %136 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %25, i32 0, i32 0
-  store i32 177, ptr %136, align 8
-  %137 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %25, i32 0, i32 1
-  store ptr @.str.5, ptr %137, align 8
+136:                                              ; preds = %128
+  %137 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %25, i32 0, i32 0
+  store i32 177, ptr %137, align 8
+  %138 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %25, i32 0, i32 1
+  store ptr @.str.5, ptr %138, align 8
   invoke void @_ZN5vcpkg6Checks12exit_successERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %25) #15
-          to label %138 unwind label %54
+          to label %139 unwind label %54
 
-138:                                              ; preds = %135
+139:                                              ; preds = %136
   unreachable
 
-139:                                              ; preds = %121
-  br label %140
+140:                                              ; preds = %122
+  br label %141
 
-140:                                              ; preds = %139
-  %141 = load ptr, ptr %19, align 8
-  %142 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %141, i32 1
-  store ptr %142, ptr %19, align 8
-  br label %103
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %19, align 8
+  %143 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %142, i32 1
+  store ptr %143, ptr %19, align 8
+  br label %104
 
-143:                                              ; preds = %103
+144:                                              ; preds = %104
   invoke void @_ZN5vcpkg25get_all_commands_metadataEv(ptr dead_on_unwind writable sret(%"class.std::vector.94") align 8 %27)
-          to label %144 unwind label %54
+          to label %145 unwind label %54
 
-144:                                              ; preds = %143
+145:                                              ; preds = %144
   store ptr %27, ptr %26, align 8
-  %145 = load ptr, ptr %26, align 8
-  %146 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #13
-  %147 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %28, i32 0, i32 0
-  store ptr %146, ptr %147, align 8
-  %148 = load ptr, ptr %26, align 8
-  %149 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %148) #13
-  %150 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %29, i32 0, i32 0
-  store ptr %149, ptr %150, align 8
-  br label %151
+  %146 = load ptr, ptr %26, align 8
+  %147 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %146) #13
+  %148 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %28, i32 0, i32 0
+  store ptr %147, ptr %148, align 8
+  %149 = load ptr, ptr %26, align 8
+  %150 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %149) #13
+  %151 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %29, i32 0, i32 0
+  store ptr %150, ptr %151, align 8
+  br label %152
 
-151:                                              ; preds = %196, %144
-  %152 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29) #13
-  br i1 %152, label %154, label %153
+152:                                              ; preds = %197, %145
+  %153 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29) #13
+  br i1 %153, label %155, label %154
 
-153:                                              ; preds = %151
+154:                                              ; preds = %152
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  br label %200
+
+155:                                              ; preds = %152
+  %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #13
+  store ptr %156, ptr %30, align 8
+  %157 = load ptr, ptr %30, align 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %158, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %159, i64 16, i1 false)
+  %160 = load ptr, ptr %11, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(32) %160) #13
+  %161 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 0
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 1
+  %164 = load i64, ptr %163, align 8
+  %165 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 1
+  %168 = load i64, ptr %167, align 8
+  %169 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %162, i64 %164, ptr %166, i64 %168)
+          to label %170 unwind label %188
+
+170:                                              ; preds = %155
+  br i1 %169, label %171, label %196
+
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %30, align 8
+  %173 = load ptr, ptr %172, align 8
+  invoke void @_ZN5vcpkg17usage_for_commandERKNS_15CommandMetadataE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %33, ptr noundef nonnull align 8 dereferenceable(184) %173)
+          to label %174 unwind label %188
+
+174:                                              ; preds = %171
+  invoke void @_ZN5vcpkg3msg5printERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(32) %33)
+          to label %175 unwind label %192
+
+175:                                              ; preds = %174
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #13
+  %176 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
+  %177 = load ptr, ptr %30, align 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %178, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %179, i64 16, i1 false)
+  %180 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
+  %183 = load i64, ptr %182, align 8
+  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %176, i32 noundef 3, ptr %181, i64 %183)
+          to label %184 unwind label %188
+
+184:                                              ; preds = %175
+  %185 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %35, i32 0, i32 0
+  store i32 187, ptr %185, align 8
+  %186 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %35, i32 0, i32 1
+  store ptr @.str.5, ptr %186, align 8
+  invoke void @_ZN5vcpkg6Checks12exit_successERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %35) #15
+          to label %187 unwind label %188
+
+187:                                              ; preds = %184
+  unreachable
+
+188:                                              ; preds = %184, %175, %171, %155
+  %189 = landingpad { ptr, i32 }
+          cleanup
+  %190 = extractvalue { ptr, i32 } %189, 0
+  store ptr %190, ptr %8, align 8
+  %191 = extractvalue { ptr, i32 } %189, 1
+  store i32 %191, ptr %9, align 4
   br label %199
 
-154:                                              ; preds = %151
-  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #13
-  store ptr %155, ptr %30, align 8
-  %156 = load ptr, ptr %30, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %157, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %158, i64 16, i1 false)
-  %159 = load ptr, ptr %11, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(32) %159) #13
-  %160 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 0
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 1
-  %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 0
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 1
-  %167 = load i64, ptr %166, align 8
-  %168 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %161, i64 %163, ptr %165, i64 %167)
-          to label %169 unwind label %187
-
-169:                                              ; preds = %154
-  br i1 %168, label %170, label %195
-
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %30, align 8
-  %172 = load ptr, ptr %171, align 8
-  invoke void @_ZN5vcpkg17usage_for_commandERKNS_15CommandMetadataE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %33, ptr noundef nonnull align 8 dereferenceable(184) %172)
-          to label %173 unwind label %187
-
-173:                                              ; preds = %170
-  invoke void @_ZN5vcpkg3msg5printERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %174 unwind label %191
-
-174:                                              ; preds = %173
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #13
-  %175 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
-  %176 = load ptr, ptr %30, align 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %177, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %178, i64 16, i1 false)
-  %179 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
-  %182 = load i64, ptr %181, align 8
-  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %175, i32 noundef 3, ptr %180, i64 %182)
-          to label %183 unwind label %187
-
-183:                                              ; preds = %174
-  %184 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %35, i32 0, i32 0
-  store i32 187, ptr %184, align 8
-  %185 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %35, i32 0, i32 1
-  store ptr @.str.5, ptr %185, align 8
-  invoke void @_ZN5vcpkg6Checks12exit_successERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %35) #15
-          to label %186 unwind label %187
-
-186:                                              ; preds = %183
-  unreachable
-
-187:                                              ; preds = %183, %174, %170, %154
-  %188 = landingpad { ptr, i32 }
+192:                                              ; preds = %174
+  %193 = landingpad { ptr, i32 }
           cleanup
-  %189 = extractvalue { ptr, i32 } %188, 0
-  store ptr %189, ptr %8, align 8
-  %190 = extractvalue { ptr, i32 } %188, 1
-  store i32 %190, ptr %9, align 4
-  br label %198
-
-191:                                              ; preds = %173
-  %192 = landingpad { ptr, i32 }
-          cleanup
-  %193 = extractvalue { ptr, i32 } %192, 0
-  store ptr %193, ptr %8, align 8
-  %194 = extractvalue { ptr, i32 } %192, 1
-  store i32 %194, ptr %9, align 4
+  %194 = extractvalue { ptr, i32 } %193, 0
+  store ptr %194, ptr %8, align 8
+  %195 = extractvalue { ptr, i32 } %193, 1
+  store i32 %195, ptr %9, align 4
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #13
-  br label %198
+  br label %199
 
-195:                                              ; preds = %169
-  br label %196
+196:                                              ; preds = %170
+  br label %197
 
-196:                                              ; preds = %195
-  %197 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #13
-  br label %151
+197:                                              ; preds = %196
+  %198 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #13
+  br label %152
 
-198:                                              ; preds = %191, %187
+199:                                              ; preds = %192, %188
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  br label %231
-
-199:                                              ; preds = %153
-  %200 = load ptr, ptr @_ZN5vcpkg11stderr_sinkE, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 @_ZN5vcpkg15msgUnknownTopicE, i64 8, i1 false)
-  %201 = load ptr, ptr %11, align 8
-  %202 = call { ptr, i64 } @_ZNK5vcpkg3msg7value_taSINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueESB_SC_E4typeEEERKSC_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL5valueE, ptr noundef nonnull align 8 dereferenceable(32) %201) #13
-  %203 = getelementptr inbounds %"struct.vcpkg::msg::TagArg.101", ptr %37, i32 0, i32 0
-  %204 = getelementptr inbounds { ptr, i64 }, ptr %203, i32 0, i32 0
-  %205 = extractvalue { ptr, i64 } %202, 0
-  store ptr %205, ptr %204, align 8
-  %206 = getelementptr inbounds { ptr, i64 }, ptr %203, i32 0, i32 1
-  %207 = extractvalue { ptr, i64 } %202, 1
-  store i64 %207, ptr %206, align 8
-  %208 = getelementptr inbounds %"struct.vcpkg::msg::MessageT.100", ptr %36, i32 0, i32 0
-  %209 = load i64, ptr %208, align 8
-  %210 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
-  %213 = load i64, ptr %212, align 8
-  invoke void @_ZN5vcpkg11MessageSink13println_errorIJNS_3msg7value_tEEJNS_10StringViewEEEEvNS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS6_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(8) %200, i64 %209, ptr %211, i64 %213)
-          to label %214 unwind label %54
-
-214:                                              ; preds = %199
-  %215 = load ptr, ptr @_ZN5vcpkg11stderr_sinkE, align 8
-  invoke void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %38)
-          to label %216 unwind label %54
-
-216:                                              ; preds = %214
-  invoke void @_ZN5vcpkg11MessageSink5printERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(8) %215, ptr noundef nonnull align 8 dereferenceable(32) %38)
-          to label %217 unwind label %227
-
-217:                                              ; preds = %216
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
-  %218 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
-  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef @.str.9) #13
-  %219 = getelementptr inbounds { ptr, i64 }, ptr %39, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds { ptr, i64 }, ptr %39, i32 0, i32 1
-  %222 = load i64, ptr %221, align 8
-  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %218, i32 noundef 3, ptr %220, i64 %222)
-          to label %223 unwind label %54
-
-223:                                              ; preds = %217
-  %224 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %40, i32 0, i32 0
-  store i32 194, ptr %224, align 8
-  %225 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %40, i32 0, i32 1
-  store ptr @.str.5, ptr %225, align 8
-  invoke void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %40) #15
-          to label %226 unwind label %54
-
-226:                                              ; preds = %223
-  unreachable
-
-227:                                              ; preds = %216
-  %228 = landingpad { ptr, i32 }
-          cleanup
-  %229 = extractvalue { ptr, i32 } %228, 0
-  store ptr %229, ptr %8, align 8
-  %230 = extractvalue { ptr, i32 } %228, 1
-  store i32 %230, ptr %9, align 4
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
-  br label %231
-
-231:                                              ; preds = %227, %198, %58, %54
-  call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #13
   br label %232
 
-232:                                              ; preds = %231
-  %233 = load ptr, ptr %8, align 8
-  %234 = load i32, ptr %9, align 4
-  %235 = insertvalue { ptr, i32 } poison, ptr %233, 0
-  %236 = insertvalue { ptr, i32 } %235, i32 %234, 1
-  resume { ptr, i32 } %236
+200:                                              ; preds = %154
+  %201 = load ptr, ptr @_ZN5vcpkg11stderr_sinkE, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 @_ZN5vcpkg15msgUnknownTopicE, i64 8, i1 false)
+  %202 = load ptr, ptr %11, align 8
+  %203 = call { ptr, i64 } @_ZNK5vcpkg3msg7value_taSINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueESB_SC_E4typeEEERKSC_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL5valueE, ptr noundef nonnull align 8 dereferenceable(32) %202) #13
+  %204 = getelementptr inbounds %"struct.vcpkg::msg::TagArg.101", ptr %37, i32 0, i32 0
+  %205 = getelementptr inbounds { ptr, i64 }, ptr %204, i32 0, i32 0
+  %206 = extractvalue { ptr, i64 } %203, 0
+  store ptr %206, ptr %205, align 8
+  %207 = getelementptr inbounds { ptr, i64 }, ptr %204, i32 0, i32 1
+  %208 = extractvalue { ptr, i64 } %203, 1
+  store i64 %208, ptr %207, align 8
+  %209 = getelementptr inbounds %"struct.vcpkg::msg::MessageT.100", ptr %36, i32 0, i32 0
+  %210 = load i64, ptr %209, align 8
+  %211 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
+  %214 = load i64, ptr %213, align 8
+  invoke void @_ZN5vcpkg11MessageSink13println_errorIJNS_3msg7value_tEEJNS_10StringViewEEEEvNS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS6_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(8) %201, i64 %210, ptr %212, i64 %214)
+          to label %215 unwind label %54
+
+215:                                              ; preds = %200
+  %216 = load ptr, ptr @_ZN5vcpkg11stderr_sinkE, align 8
+  invoke void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %38)
+          to label %217 unwind label %54
+
+217:                                              ; preds = %215
+  invoke void @_ZN5vcpkg11MessageSink5printERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(8) %216, ptr noundef nonnull align 8 dereferenceable(32) %38)
+          to label %218 unwind label %228
+
+218:                                              ; preds = %217
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
+  %219 = call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_metrics_collectorEv() #13
+  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef @.str.9) #13
+  %220 = getelementptr inbounds { ptr, i64 }, ptr %39, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds { ptr, i64 }, ptr %39, i32 0, i32 1
+  %223 = load i64, ptr %222, align 8
+  invoke void @_ZN5vcpkg16MetricsCollector12track_stringENS_12StringMetricENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(240) %219, i32 noundef 3, ptr %221, i64 %223)
+          to label %224 unwind label %54
+
+224:                                              ; preds = %218
+  %225 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %40, i32 0, i32 0
+  store i32 194, ptr %225, align 8
+  %226 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %40, i32 0, i32 1
+  store ptr @.str.5, ptr %226, align 8
+  invoke void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %40) #15
+          to label %227 unwind label %54
+
+227:                                              ; preds = %224
+  unreachable
+
+228:                                              ; preds = %217
+  %229 = landingpad { ptr, i32 }
+          cleanup
+  %230 = extractvalue { ptr, i32 } %229, 0
+  store ptr %230, ptr %8, align 8
+  %231 = extractvalue { ptr, i32 } %229, 1
+  store i32 %231, ptr %9, align 4
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
+  br label %232
+
+232:                                              ; preds = %228, %199, %58, %54
+  call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #13
+  br label %233
+
+233:                                              ; preds = %232
+  %234 = load ptr, ptr %8, align 8
+  %235 = load i32, ptr %9, align 4
+  %236 = insertvalue { ptr, i32 } poison, ptr %234, 0
+  %237 = insertvalue { ptr, i32 } %236, i32 %235, 1
+  resume { ptr, i32 } %237
 }
 
 declare void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ParsedArguments") align 8, ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef nonnull align 8 dereferenceable(184)) #3
@@ -2995,193 +2996,194 @@ define internal void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalia
   call void @_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   store ptr @_ZN12_GLOBAL__N_16topicsE, ptr %4, align 8
   store ptr @_ZN12_GLOBAL__N_16topicsE, ptr %5, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::Topic", ptr @_ZN12_GLOBAL__N_16topicsE, i64 6), ptr %6, align 8
-  br label %22
+  %22 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr @_ZN12_GLOBAL__N_16topicsE, i64 6
+  store ptr %22, ptr %6, align 8
+  br label %23
 
-22:                                               ; preds = %36, %1
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = icmp ne ptr %23, %24
-  br i1 %25, label %26, label %47
+23:                                               ; preds = %37, %1
+  %24 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = icmp ne ptr %24, %25
+  br i1 %26, label %27, label %48
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %7, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %28, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %29, i64 16, i1 false)
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  invoke void @_ZN5vcpkg15LocalizedString8from_rawENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, ptr %31, i64 %33)
-          to label %34 unwind label %39
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  store ptr %28, ptr %7, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %29, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %30, i64 16, i1 false)
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  invoke void @_ZN5vcpkg15LocalizedString8from_rawENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, ptr %32, i64 %34)
+          to label %35 unwind label %40
 
-34:                                               ; preds = %26
+35:                                               ; preds = %27
   invoke void @_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %35 unwind label %43
-
-35:                                               ; preds = %34
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  br label %36
+          to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %37, i32 1
-  store ptr %38, ptr %5, align 8
-  br label %22
-
-39:                                               ; preds = %80, %47, %26
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %10, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %11, align 4
-  br label %101
-
-43:                                               ; preds = %34
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %10, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %11, align 4
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  br label %101
+  br label %37
 
-47:                                               ; preds = %22
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %"struct.(anonymous namespace)::Topic", ptr %38, i32 1
+  store ptr %39, ptr %5, align 8
+  br label %23
+
+40:                                               ; preds = %81, %48, %27
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %10, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %11, align 4
+  br label %102
+
+44:                                               ; preds = %35
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %10, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %11, align 4
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  br label %102
+
+48:                                               ; preds = %23
   invoke void @_ZN5vcpkg25get_all_commands_metadataEv(ptr dead_on_unwind writable sret(%"class.std::vector.94") align 8 %13)
-          to label %48 unwind label %39
+          to label %49 unwind label %40
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   store ptr %13, ptr %12, align 8
-  %49 = load ptr, ptr %12, align 8
-  %50 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #13
-  %51 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %14, i32 0, i32 0
-  store ptr %50, ptr %51, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %52) #13
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %15, i32 0, i32 0
-  store ptr %53, ptr %54, align 8
-  br label %55
+  %50 = load ptr, ptr %12, align 8
+  %51 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #13
+  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %14, i32 0, i32 0
+  store ptr %51, ptr %52, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call ptr @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %53) #13
+  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.99", ptr %15, i32 0, i32 0
+  store ptr %54, ptr %55, align 8
+  br label %56
 
-55:                                               ; preds = %69, %48
-  %56 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #13
-  br i1 %56, label %58, label %57
+56:                                               ; preds = %70, %49
+  %57 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #13
+  br i1 %57, label %59, label %58
 
-57:                                               ; preds = %55
+58:                                               ; preds = %56
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %80
+  br label %81
 
-58:                                               ; preds = %55
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
-  store ptr %59, ptr %16, align 8
-  %60 = load ptr, ptr %16, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %61, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %62, i64 16, i1 false)
-  %63 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  invoke void @_ZN5vcpkg15LocalizedString8from_rawENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, ptr %64, i64 %66)
-          to label %67 unwind label %71
+59:                                               ; preds = %56
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  store ptr %60, ptr %16, align 8
+  %61 = load ptr, ptr %16, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %"struct.vcpkg::CommandMetadata", ptr %62, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %63, i64 16, i1 false)
+  %64 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  invoke void @_ZN5vcpkg15LocalizedString8from_rawENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, ptr %65, i64 %67)
+          to label %68 unwind label %72
 
-67:                                               ; preds = %58
+68:                                               ; preds = %59
   invoke void @_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %68 unwind label %75
-
-68:                                               ; preds = %67
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #13
-  br label %69
+          to label %69 unwind label %76
 
 69:                                               ; preds = %68
-  %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
-  br label %55
-
-71:                                               ; preds = %58
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %10, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %11, align 4
-  br label %79
-
-75:                                               ; preds = %67
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %10, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %11, align 4
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #13
-  br label %79
+  br label %70
 
-79:                                               ; preds = %75, %71
+70:                                               ; preds = %69
+  %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  br label %56
+
+72:                                               ; preds = %59
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %10, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %11, align 4
+  br label %80
+
+76:                                               ; preds = %68
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %10, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %11, align 4
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #13
+  br label %80
+
+80:                                               ; preds = %76, %72
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %101
+  br label %102
 
-80:                                               ; preds = %57
+81:                                               ; preds = %58
   invoke void @_ZN5vcpkg4Util4sortISt6vectorINS_15LocalizedStringESaIS3_EESt4lessIvEEEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %81 unwind label %39
+          to label %82 unwind label %40
 
-81:                                               ; preds = %80
+82:                                               ; preds = %81
   store i1 false, ptr %19, align 1
   call void @_ZN5vcpkg15LocalizedStringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 @_ZN5vcpkg22msgAvailableHelpTopicsE, i64 8, i1 false)
-  %82 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %20, i32 0, i32 0
-  %83 = load i64, ptr %82, align 8
-  %84 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %83)
-          to label %85 unwind label %95
+  %83 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %20, i32 0, i32 0
+  %84 = load i64, ptr %83, align 8
+  %85 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %84)
+          to label %86 unwind label %96
 
-85:                                               ; preds = %81
+86:                                               ; preds = %82
   call void @_ZN5vcpkg4SpanIKNS_15LocalizedStringEEC2IRSt6vectorIS1_SaIS1_EEPS1_vEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(24) %3) #13
-  %86 = getelementptr inbounds { ptr, i64 }, ptr %21, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, i64 }, ptr %21, i32 0, i32 1
-  %89 = load i64, ptr %88, align 8
-  %90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString20append_floating_listEiNS_4SpanIKS0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr %87, i64 %89)
-          to label %91 unwind label %95
+  %87 = getelementptr inbounds { ptr, i64 }, ptr %21, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds { ptr, i64 }, ptr %21, i32 0, i32 1
+  %90 = load i64, ptr %89, align 8
+  %91 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString20append_floating_listEiNS_4SpanIKS0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr %88, i64 %90)
+          to label %92 unwind label %96
 
-91:                                               ; preds = %85
-  %92 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10)
-          to label %93 unwind label %95
+92:                                               ; preds = %86
+  %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10)
+          to label %94 unwind label %96
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   store i1 true, ptr %19, align 1
-  %94 = load i1, ptr %19, align 1
-  br i1 %94, label %100, label %99
+  %95 = load i1, ptr %19, align 1
+  br i1 %95, label %101, label %100
 
-95:                                               ; preds = %91, %85, %81
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %92, %86, %82
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %10, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %11, align 4
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %10, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %11, align 4
+  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  br label %102
+
+100:                                              ; preds = %94
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   br label %101
 
-99:                                               ; preds = %93
-  call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  br label %100
-
-100:                                              ; preds = %99, %93
+101:                                              ; preds = %100, %94
   call void @_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 
-101:                                              ; preds = %95, %79, %43, %39
+102:                                              ; preds = %96, %80, %44, %40
   call void @_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
-  br label %102
+  br label %103
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr %10, align 8
-  %104 = load i32, ptr %11, align 4
-  %105 = insertvalue { ptr, i32 } poison, ptr %103, 0
-  %106 = insertvalue { ptr, i32 } %105, i32 %104, 1
-  resume { ptr, i32 } %106
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %10, align 8
+  %105 = load i32, ptr %11, align 4
+  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
+  resume { ptr, i32 } %107
 }
 
 ; Function Attrs: noreturn

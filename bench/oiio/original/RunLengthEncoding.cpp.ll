@@ -91,7 +91,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf, align 8
   ret void
@@ -105,20 +106,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %buf, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buf2 = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %buf2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %buf2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #8
+  call void @_ZdaPv(ptr noundef %2) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then

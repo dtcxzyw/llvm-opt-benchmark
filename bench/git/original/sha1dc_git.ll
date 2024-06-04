@@ -24,7 +24,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %hash.addr, align 8
-  %call1 = call ptr @hash_to_hex_algop(ptr noundef %2, ptr noundef getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1))
+  %3 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1
+  %call1 = call ptr @hash_to_hex_algop(ptr noundef %2, ptr noundef %3)
   call void (ptr, ...) @die(ptr noundef @.str, ptr noundef %call1) #3
   unreachable
 }

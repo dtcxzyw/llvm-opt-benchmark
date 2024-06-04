@@ -2371,30 +2371,31 @@ if.end6:                                          ; preds = %if.end
   %2 = load i32, ptr %in7, align 8
   %call8 = call ptr @xfdopen(i32 noundef %2, ptr noundef @.str.34)
   store ptr %call8, ptr %fp, align 8
-  %call9 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %3 = load ptr, ptr %c.addr, align 8
-  %4 = load ptr, ptr %fp, align 8
-  call void @credential_write(ptr noundef %3, ptr noundef %4)
+  %3 = inttoptr i64 1 to ptr
+  %call9 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %3)
+  %4 = load ptr, ptr %c.addr, align 8
   %5 = load ptr, ptr %fp, align 8
-  %call10 = call i32 @fclose(ptr noundef %5)
+  call void @credential_write(ptr noundef %4, ptr noundef %5)
+  %6 = load ptr, ptr %fp, align 8
+  %call10 = call i32 @fclose(ptr noundef %6)
   %call11 = call i32 @sigchain_pop(i32 noundef 13)
-  %6 = load i32, ptr %want_output.addr, align 4
-  %tobool12 = icmp ne i32 %6, 0
+  %7 = load i32, ptr %want_output.addr, align 4
+  %tobool12 = icmp ne i32 %7, 0
   br i1 %tobool12, label %if.then13, label %if.end22
 
 if.then13:                                        ; preds = %if.end6
   %out14 = getelementptr inbounds %struct.child_process, ptr %helper, i32 0, i32 8
-  %7 = load i32, ptr %out14, align 4
-  %call15 = call ptr @xfdopen(i32 noundef %7, ptr noundef @.str.35)
+  %8 = load i32, ptr %out14, align 4
+  %call15 = call ptr @xfdopen(i32 noundef %8, ptr noundef @.str.35)
   store ptr %call15, ptr %fp, align 8
-  %8 = load ptr, ptr %c.addr, align 8
-  %9 = load ptr, ptr %fp, align 8
-  %call16 = call i32 @credential_read(ptr noundef %8, ptr noundef %9)
-  store i32 %call16, ptr %r, align 4
+  %9 = load ptr, ptr %c.addr, align 8
   %10 = load ptr, ptr %fp, align 8
-  %call17 = call i32 @fclose(ptr noundef %10)
-  %11 = load i32, ptr %r, align 4
-  %cmp18 = icmp slt i32 %11, 0
+  %call16 = call i32 @credential_read(ptr noundef %9, ptr noundef %10)
+  store i32 %call16, ptr %r, align 4
+  %11 = load ptr, ptr %fp, align 8
+  %call17 = call i32 @fclose(ptr noundef %11)
+  %12 = load i32, ptr %r, align 4
+  %cmp18 = icmp slt i32 %12, 0
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.then13
@@ -2419,8 +2420,8 @@ if.end26:                                         ; preds = %if.end22
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then25, %if.then19, %if.then5
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

@@ -48,47 +48,48 @@ define hidden void @zif_levenshtein(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %37
+  %19 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  call void @llvm.assume(i1 %21)
+  br label %38
 
-21:                                               ; No predecessors!
-  br label %22
-
-22:                                               ; preds = %21, %2
+22:                                               ; No predecessors!
   br label %23
 
-23:                                               ; preds = %22
+23:                                               ; preds = %22, %2
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  store ptr %25, ptr %10, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = load i64, ptr %8, align 8
-  %30 = load i64, ptr %9, align 8
-  %31 = call i64 @reference_levdist(ptr noundef %26, ptr noundef %27, i64 noundef %28, i64 noundef %29, i64 noundef %30)
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
-  store i64 %31, ptr %33, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
-  store i32 4, ptr %35, align 8
-  br label %36
+  br label %25
 
-36:                                               ; preds = %24
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  store ptr %26, ptr %10, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = load i64, ptr %9, align 8
+  %32 = call i64 @reference_levdist(ptr noundef %27, ptr noundef %28, i64 noundef %29, i64 noundef %30, i64 noundef %31)
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i32 0, i32 0
+  store i64 %32, ptr %34, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 1
+  store i32 4, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %36, %18
+37:                                               ; preds = %25
+  br label %38
+
+38:                                               ; preds = %37, %18
   ret void
 }
 

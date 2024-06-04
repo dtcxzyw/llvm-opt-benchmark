@@ -285,7 +285,7 @@ define dso_local noundef i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr nounde
   %4 = alloca i64, align 8
   %5 = ptrtoint ptr %0 to i64
   switch i64 %5, label %8 [
-    i64 0, label %68
+    i64 0, label %69
     i64 -1, label %6
   ]
 
@@ -298,7 +298,7 @@ define dso_local noundef i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 6
-  br i1 %12, label %13, label %68
+  br i1 %12, label %13, label %69
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
@@ -309,94 +309,95 @@ define dso_local noundef i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr nounde
   %15 = and i64 %14, 512
   %16 = icmp eq i64 %15, 0
   %17 = select i1 %16, i32 2336, i32 3520
-  %18 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %19 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %17, i64 noundef 16) #6
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %68, label %21
+  %18 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %19 = load ptr, ptr %18, align 16
+  %20 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %19, i32 noundef %17, i64 noundef 16) #6
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %69, label %22
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %23 = call i64 @acpi_os_acquire_lock(ptr noundef %22) #5
-  %24 = call ptr @acpi_ev_get_gpe_event_info(ptr noundef %1, i32 noundef %2) #5
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %62, label %26
+22:                                               ; preds = %13
+  %23 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %24 = call i64 @acpi_os_acquire_lock(ptr noundef %23) #5
+  %25 = call ptr @acpi_ev_get_gpe_event_info(ptr noundef %1, i32 noundef %2) #5
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %63, label %27
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 7
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %38, label %31
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %29 = load i8, ptr %28, align 8
+  %30 = and i8 %29, 7
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %39, label %32
 
-31:                                               ; preds = %26
-  %32 = and i8 %28, 32
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %40, label %34
+32:                                               ; preds = %27
+  %33 = and i8 %29, 32
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %41, label %35
 
-34:                                               ; preds = %31
-  %35 = call i32 @acpi_ev_remove_gpe_reference(ptr noundef nonnull %24) #5
-  %36 = load i8, ptr %27, align 8
-  %37 = and i8 %36, -33
-  br label %38
+35:                                               ; preds = %32
+  %36 = call i32 @acpi_ev_remove_gpe_reference(ptr noundef nonnull %25) #5
+  %37 = load i8, ptr %28, align 8
+  %38 = and i8 %37, -33
+  br label %39
 
-38:                                               ; preds = %34, %26
-  %39 = phi i8 [ %37, %34 ], [ 11, %26 ]
-  store i8 %39, ptr %27, align 8
-  br label %40
+39:                                               ; preds = %35, %27
+  %40 = phi i8 [ %38, %35 ], [ 11, %27 ]
+  store i8 %40, ptr %28, align 8
+  br label %41
 
-40:                                               ; preds = %38, %31
-  %41 = load i8, ptr %27, align 8
-  %42 = and i8 %41, 7
-  %43 = icmp eq i8 %42, 3
-  br i1 %43, label %44, label %58
+41:                                               ; preds = %39, %32
+  %42 = load i8, ptr %28, align 8
+  %43 = and i8 %42, 7
+  %44 = icmp eq i8 %43, 3
+  br i1 %44, label %45, label %59
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %24, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %55, label %51
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %25, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %56, label %52
 
-47:                                               ; preds = %51
-  %48 = getelementptr inbounds i8, ptr %52, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %55, label %51, !llvm.loop !7
+48:                                               ; preds = %52
+  %49 = getelementptr inbounds i8, ptr %53, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %56, label %52, !llvm.loop !7
 
-51:                                               ; preds = %47, %44
-  %52 = phi ptr [ %49, %47 ], [ %45, %44 ]
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %9
-  br i1 %54, label %62, label %47
+52:                                               ; preds = %48, %45
+  %53 = phi ptr [ %50, %48 ], [ %46, %45 ]
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, %9
+  br i1 %55, label %63, label %48
 
-55:                                               ; preds = %47, %44
-  store ptr %9, ptr %19, align 8
-  %56 = load ptr, ptr %24, align 8
-  %57 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %56, ptr %57, align 8
-  store ptr %19, ptr %24, align 8
-  br label %58
+56:                                               ; preds = %48, %45
+  store ptr %9, ptr %20, align 8
+  %57 = load ptr, ptr %25, align 8
+  %58 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %57, ptr %58, align 8
+  store ptr %20, ptr %25, align 8
+  br label %59
 
-58:                                               ; preds = %55, %40
-  %59 = phi ptr [ null, %55 ], [ %19, %40 ]
-  %60 = load i8, ptr %27, align 8
-  %61 = or i8 %60, 16
-  store i8 %61, ptr %27, align 8
-  br label %62
+59:                                               ; preds = %56, %41
+  %60 = phi ptr [ null, %56 ], [ %20, %41 ]
+  %61 = load i8, ptr %28, align 8
+  %62 = or i8 %61, 16
+  store i8 %62, ptr %28, align 8
+  br label %63
 
-62:                                               ; preds = %58, %51, %21
-  %63 = phi i32 [ 0, %58 ], [ 4097, %21 ], [ 7, %51 ]
-  %64 = phi ptr [ %59, %58 ], [ %19, %21 ], [ %19, %51 ]
-  %65 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  call void @acpi_os_release_lock(ptr noundef %65, i64 noundef %23) #5
-  %66 = icmp eq ptr %64, null
-  br i1 %66, label %68, label %67
+63:                                               ; preds = %59, %52, %22
+  %64 = phi i32 [ 0, %59 ], [ 4097, %22 ], [ 7, %52 ]
+  %65 = phi ptr [ %60, %59 ], [ %20, %22 ], [ %20, %52 ]
+  %66 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  call void @acpi_os_release_lock(ptr noundef %66, i64 noundef %24) #5
+  %67 = icmp eq ptr %65, null
+  br i1 %67, label %69, label %68
 
-67:                                               ; preds = %62
-  call void @kfree(ptr noundef nonnull %64) #5
-  br label %68
+68:                                               ; preds = %63
+  call void @kfree(ptr noundef nonnull %65) #5
+  br label %69
 
-68:                                               ; preds = %67, %62, %13, %8, %3
-  %69 = phi i32 [ 4097, %3 ], [ 4097, %8 ], [ 4, %13 ], [ %63, %67 ], [ %63, %62 ]
-  ret i32 %69
+69:                                               ; preds = %68, %63, %13, %8, %3
+  %70 = phi i32 [ 4097, %3 ], [ 4097, %8 ], [ 4, %13 ], [ %64, %68 ], [ %64, %63 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

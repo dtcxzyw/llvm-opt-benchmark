@@ -451,110 +451,113 @@ define ptr @mca_coll_sync_comm_query(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2), align 4
-  %8 = icmp eq i32 0, %7
-  br i1 %8, label %9, label %13
+  %7 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 0, %8
+  br i1 %9, label %10, label %15
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3), align 8
-  %11 = icmp eq i32 0, %10
-  br i1 %11, label %12, label %13
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 0, %12
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %9
+14:                                               ; preds = %10
   store ptr null, ptr %3, align 8
-  br label %74
+  br label %77
 
-13:                                               ; preds = %9, %2
-  %14 = call ptr @opal_obj_new(ptr noundef @mca_coll_sync_module_t_class)
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = icmp eq ptr null, %15
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %10, %2
+  %16 = call ptr @opal_obj_new(ptr noundef @mca_coll_sync_module_t_class)
+  store ptr %16, ptr %6, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = icmp eq ptr null, %17
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %13
+19:                                               ; preds = %15
   store ptr null, ptr %3, align 8
-  br label %74
+  br label %77
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1), align 8
-  %20 = load ptr, ptr %5, align 8
-  store i32 %19, ptr %20, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %22, i32 0, i32 1
-  store ptr @mca_coll_sync_module_enable, ptr %23, align 8
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1
+  %22 = load i32, ptr %21, align 8
+  %23 = load ptr, ptr %5, align 8
+  store i32 %22, ptr %23, align 4
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %25, i32 0, i32 2
-  store ptr null, ptr %26, align 8
+  %26 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %25, i32 0, i32 1
+  store ptr @mca_coll_sync_module_enable, ptr %26, align 8
   %27 = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %27, i32 0, i32 0
-  %29 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %28, i32 0, i32 3
+  %29 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %28, i32 0, i32 2
   store ptr null, ptr %29, align 8
   %30 = load ptr, ptr %6, align 8
   %31 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %31, i32 0, i32 4
+  %32 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %31, i32 0, i32 3
   store ptr null, ptr %32, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %33, i32 0, i32 0
-  %35 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %34, i32 0, i32 5
+  %35 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %34, i32 0, i32 4
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %37, i32 0, i32 6
+  %38 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %37, i32 0, i32 5
   store ptr null, ptr %38, align 8
   %39 = load ptr, ptr %6, align 8
   %40 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %39, i32 0, i32 0
-  %41 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %40, i32 0, i32 7
+  %41 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %40, i32 0, i32 6
   store ptr null, ptr %41, align 8
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %42, i32 0, i32 0
-  %44 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %43, i32 0, i32 8
+  %44 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %43, i32 0, i32 7
   store ptr null, ptr %44, align 8
   %45 = load ptr, ptr %6, align 8
   %46 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %45, i32 0, i32 0
-  %47 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %46, i32 0, i32 9
-  store ptr @mca_coll_sync_bcast, ptr %47, align 8
+  %47 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %46, i32 0, i32 8
+  store ptr null, ptr %47, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %48, i32 0, i32 0
-  %50 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %49, i32 0, i32 10
-  store ptr @mca_coll_sync_exscan, ptr %50, align 8
+  %50 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %49, i32 0, i32 9
+  store ptr @mca_coll_sync_bcast, ptr %50, align 8
   %51 = load ptr, ptr %6, align 8
   %52 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %51, i32 0, i32 0
-  %53 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %52, i32 0, i32 11
-  store ptr @mca_coll_sync_gather, ptr %53, align 8
+  %53 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %52, i32 0, i32 10
+  store ptr @mca_coll_sync_exscan, ptr %53, align 8
   %54 = load ptr, ptr %6, align 8
   %55 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %54, i32 0, i32 0
-  %56 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %55, i32 0, i32 12
-  store ptr @mca_coll_sync_gatherv, ptr %56, align 8
+  %56 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %55, i32 0, i32 11
+  store ptr @mca_coll_sync_gather, ptr %56, align 8
   %57 = load ptr, ptr %6, align 8
   %58 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %57, i32 0, i32 0
-  %59 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %58, i32 0, i32 13
-  store ptr @mca_coll_sync_reduce, ptr %59, align 8
+  %59 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %58, i32 0, i32 12
+  store ptr @mca_coll_sync_gatherv, ptr %59, align 8
   %60 = load ptr, ptr %6, align 8
   %61 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %61, i32 0, i32 14
-  store ptr @mca_coll_sync_reduce_scatter, ptr %62, align 8
+  %62 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %61, i32 0, i32 13
+  store ptr @mca_coll_sync_reduce, ptr %62, align 8
   %63 = load ptr, ptr %6, align 8
   %64 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %63, i32 0, i32 0
-  %65 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %64, i32 0, i32 16
-  store ptr @mca_coll_sync_scan, ptr %65, align 8
+  %65 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %64, i32 0, i32 14
+  store ptr @mca_coll_sync_reduce_scatter, ptr %65, align 8
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %66, i32 0, i32 0
-  %68 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %67, i32 0, i32 17
-  store ptr @mca_coll_sync_scatter, ptr %68, align 8
+  %68 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %67, i32 0, i32 16
+  store ptr @mca_coll_sync_scan, ptr %68, align 8
   %69 = load ptr, ptr %6, align 8
   %70 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %69, i32 0, i32 0
-  %71 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %70, i32 0, i32 18
-  store ptr @mca_coll_sync_scatterv, ptr %71, align 8
+  %71 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %70, i32 0, i32 17
+  store ptr @mca_coll_sync_scatter, ptr %71, align 8
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %72, i32 0, i32 0
-  store ptr %73, ptr %3, align 8
-  br label %74
+  %74 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %73, i32 0, i32 18
+  store ptr @mca_coll_sync_scatterv, ptr %74, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %75, i32 0, i32 0
+  store ptr %76, ptr %3, align 8
+  br label %77
 
-74:                                               ; preds = %18, %17, %12
-  %75 = load ptr, ptr %3, align 8
-  ret ptr %75
+77:                                               ; preds = %20, %19, %14
+  %78 = load ptr, ptr %3, align 8
+  ret ptr %78
 }
 
 ; Function Attrs: nounwind uwtable
@@ -962,20 +965,22 @@ define i32 @mca_coll_sync_module_enable(ptr noundef %0, ptr noundef %1) #0 {
 
 222:                                              ; preds = %219
   store i32 0, ptr %21, align 4
-  br label %229
+  br label %231
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr @opal_show_help, align 8
-  %225 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %226 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1), align 8
-  %227 = load ptr, ptr %25, align 8
-  %228 = call i32 (ptr, ptr, i32, ...) %224(ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 1, ptr noundef %225, i32 noundef %226, ptr noundef %227)
+  %225 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 1
+  %228 = load i32, ptr %227, align 8
+  %229 = load ptr, ptr %25, align 8
+  %230 = call i32 (ptr, ptr, i32, ...) %224(ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 1, ptr noundef %226, i32 noundef %228, ptr noundef %229)
   store i32 -13, ptr %21, align 4
-  br label %229
+  br label %231
 
-229:                                              ; preds = %223, %222
-  %230 = load i32, ptr %21, align 4
-  ret i32 %230
+231:                                              ; preds = %223, %222
+  %232 = load i32, ptr %21, align 4
+  ret i32 %232
 }
 
 declare i32 @mca_coll_sync_bcast(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1

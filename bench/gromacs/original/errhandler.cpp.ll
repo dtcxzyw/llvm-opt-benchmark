@@ -229,26 +229,27 @@ define noundef i32 @_Z22tMPI_Create_errhandlerPPFvPP10tmpi_comm_PiEPP16tmpi_errh
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stderr, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 1), align 8
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.1, ptr noundef %12) #7
+  %12 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.1, ptr noundef %13) #7
   call void @abort() #8
   unreachable
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %16, i32 0, i32 0
-  store i32 0, ptr %17, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %21, i32 0, i32 1
-  store ptr %19, ptr %22, align 8
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %17, i32 0, i32 0
+  store i32 0, ptr %18, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %22, i32 0, i32 1
+  store ptr %20, ptr %23, align 8
   ret i32 0
 }
 

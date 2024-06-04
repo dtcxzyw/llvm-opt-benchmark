@@ -546,12 +546,13 @@ define linkonce_odr hidden void @_ZN4LIEF2PE21PKCS9AtSequenceNumberC2ERKS1_(ptr 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::PKCS9AtSequenceNumber", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::PKCS9AtSequenceNumber", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %7, align 4
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::PKCS9AtSequenceNumber", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::PKCS9AtSequenceNumber", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  store i32 %11, ptr %8, align 4
   ret void
 }
 
@@ -587,12 +588,13 @@ define linkonce_odr hidden void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
   ret void
 }
 

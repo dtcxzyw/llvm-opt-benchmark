@@ -2789,10 +2789,11 @@ entry:
   store ptr %tn, ptr %tn.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers7EmeEvalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers10EmeEvalTdsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers10EmeEvalTdsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmeEvalTds", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %tds.addr, align 8
-  store ptr %0, ptr %d_tds, align 8
+  %1 = load ptr, ptr %tds.addr, align 8
+  store ptr %1, ptr %d_tds, align 8
   %d_tn = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmeEvalTds", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal8TypeNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %d_tn, ptr noundef nonnull align 8 dereferenceable(8) %tn)
           to label %invoke.cont unwind label %lpad
@@ -2801,12 +2802,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory11quantifiers7EmeEvalD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -2926,7 +2927,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers10EmeEvalTdsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers10EmeEvalTdsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tn = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EmeEvalTds", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_tn) #3
   call void @_ZN4cvc58internal6theory11quantifiers7EmeEvalD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -4483,7 +4485,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7EmeEvalE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7EmeEvalE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

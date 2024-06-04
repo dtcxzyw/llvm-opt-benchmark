@@ -32,13 +32,14 @@ entry:
   store ptr %parentList, ptr %parentList.addr, align 8
   store i32 %parentListLength, ptr %parentListLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %list = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %parentList.addr, align 8
-  store ptr %0, ptr %list, align 8
+  %1 = load ptr, ptr %parentList.addr, align 8
+  store ptr %1, ptr %list, align 8
   %listLength = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 9
-  %1 = load i32, ptr %parentListLength.addr, align 4
-  store i32 %1, ptr %listLength, align 8
+  %2 = load i32, ptr %parentListLength.addr, align 4
+  store i32 %2, ptr %listLength, align 8
   %latin1Contains = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [256 x i8], ptr %latin1Contains, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 256, i1 false)
@@ -49,8 +50,8 @@ entry:
   %arraydecay3 = getelementptr inbounds [64 x i32], ptr %bmpBlockBits, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 4 %arraydecay3, i8 0, i64 256, i1 false)
   %listLength4 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 9
-  %2 = load i32, ptr %listLength4, align 8
-  %sub = sub nsw i32 %2, 1
+  %3 = load i32, ptr %listLength4, align 8
+  %sub = sub nsw i32 %3, 1
   %call = call noundef i32 @_ZNK6icu_756BMPSet13findCodePointEiii(ptr noundef nonnull align 8 dereferenceable(868) %this1, i32 noundef 2048, i32 noundef 0, i32 noundef %sub)
   %list4kStarts = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %arrayidx = getelementptr inbounds [18 x i32], ptr %list4kStarts, i64 0, i64 0
@@ -59,50 +60,50 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %cmp = icmp sle i32 %3, 16
+  %4 = load i32, ptr %i, align 4
+  %cmp = icmp sle i32 %4, 16
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %i, align 4
-  %shl = shl i32 %4, 12
-  %list4kStarts5 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %5 = load i32, ptr %i, align 4
-  %sub6 = sub nsw i32 %5, 1
+  %shl = shl i32 %5, 12
+  %list4kStarts5 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
+  %6 = load i32, ptr %i, align 4
+  %sub6 = sub nsw i32 %6, 1
   %idxprom = sext i32 %sub6 to i64
   %arrayidx7 = getelementptr inbounds [18 x i32], ptr %list4kStarts5, i64 0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx7, align 4
+  %7 = load i32, ptr %arrayidx7, align 4
   %listLength8 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 9
-  %7 = load i32, ptr %listLength8, align 8
-  %sub9 = sub nsw i32 %7, 1
-  %call10 = call noundef i32 @_ZNK6icu_756BMPSet13findCodePointEiii(ptr noundef nonnull align 8 dereferenceable(868) %this1, i32 noundef %shl, i32 noundef %6, i32 noundef %sub9)
+  %8 = load i32, ptr %listLength8, align 8
+  %sub9 = sub nsw i32 %8, 1
+  %call10 = call noundef i32 @_ZNK6icu_756BMPSet13findCodePointEiii(ptr noundef nonnull align 8 dereferenceable(868) %this1, i32 noundef %shl, i32 noundef %7, i32 noundef %sub9)
   %list4kStarts11 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
-  %8 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom12 = sext i32 %9 to i64
   %arrayidx13 = getelementptr inbounds [18 x i32], ptr %list4kStarts11, i64 0, i64 %idxprom12
   store i32 %call10, ptr %arrayidx13, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
+  %10 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
   %listLength14 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 9
-  %10 = load i32, ptr %listLength14, align 8
-  %sub15 = sub nsw i32 %10, 1
+  %11 = load i32, ptr %listLength14, align 8
+  %sub15 = sub nsw i32 %11, 1
   %list4kStarts16 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %arrayidx17 = getelementptr inbounds [18 x i32], ptr %list4kStarts16, i64 0, i64 17
   store i32 %sub15, ptr %arrayidx17, align 4
   %list4kStarts18 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %arrayidx19 = getelementptr inbounds [18 x i32], ptr %list4kStarts18, i64 0, i64 15
-  %11 = load i32, ptr %arrayidx19, align 4
+  %12 = load i32, ptr %arrayidx19, align 4
   %list4kStarts20 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %arrayidx21 = getelementptr inbounds [18 x i32], ptr %list4kStarts20, i64 0, i64 16
-  %12 = load i32, ptr %arrayidx21, align 4
-  %call22 = call noundef signext i8 @_ZNK6icu_756BMPSet12containsSlowEiii(ptr noundef nonnull align 8 dereferenceable(868) %this1, i32 noundef 65533, i32 noundef %11, i32 noundef %12)
+  %13 = load i32, ptr %arrayidx21, align 4
+  %call22 = call noundef signext i8 @_ZNK6icu_756BMPSet12containsSlowEiii(ptr noundef nonnull align 8 dereferenceable(868) %this1, i32 noundef 65533, i32 noundef %12, i32 noundef %13)
   %containsFFFD = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 2
   store i8 %call22, ptr %containsFFFD, align 8
   call void @_ZN6icu_756BMPSet8initBitsEv(ptr noundef nonnull align 8 dereferenceable(868) %this1)
@@ -774,25 +775,26 @@ entry:
   store ptr %newParentList, ptr %newParentList.addr, align 8
   store i32 %newParentListLength, ptr %newParentListLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %containsFFFD = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %otherBMPSet.addr, align 8
-  %containsFFFD2 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %containsFFFD2, align 8
-  store i8 %1, ptr %containsFFFD, align 8
+  %1 = load ptr, ptr %otherBMPSet.addr, align 8
+  %containsFFFD2 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %1, i32 0, i32 2
+  %2 = load i8, ptr %containsFFFD2, align 8
+  store i8 %2, ptr %containsFFFD, align 8
   %list = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %newParentList.addr, align 8
-  store ptr %2, ptr %list, align 8
+  %3 = load ptr, ptr %newParentList.addr, align 8
+  store ptr %3, ptr %list, align 8
   %listLength = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 9
-  %3 = load i32, ptr %newParentListLength.addr, align 4
-  store i32 %3, ptr %listLength, align 8
+  %4 = load i32, ptr %newParentListLength.addr, align 4
+  store i32 %4, ptr %listLength, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %latin1Contains = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [256 x i8], ptr %latin1Contains, i64 0, i64 0
-  %4 = load ptr, ptr %otherBMPSet.addr, align 8
-  %latin1Contains3 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %otherBMPSet.addr, align 8
+  %latin1Contains3 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %5, i32 0, i32 1
   %arraydecay4 = getelementptr inbounds [256 x i8], ptr %latin1Contains3, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 8 %arraydecay4, i64 256, i1 false)
   br label %do.end
@@ -803,8 +805,8 @@ do.end:                                           ; preds = %do.body
 do.body5:                                         ; preds = %do.end
   %table7FF = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 4
   %arraydecay6 = getelementptr inbounds [64 x i32], ptr %table7FF, i64 0, i64 0
-  %5 = load ptr, ptr %otherBMPSet.addr, align 8
-  %table7FF7 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %5, i32 0, i32 4
+  %6 = load ptr, ptr %otherBMPSet.addr, align 8
+  %table7FF7 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %6, i32 0, i32 4
   %arraydecay8 = getelementptr inbounds [64 x i32], ptr %table7FF7, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay6, ptr align 4 %arraydecay8, i64 256, i1 false)
   br label %do.end9
@@ -815,8 +817,8 @@ do.end9:                                          ; preds = %do.body5
 do.body10:                                        ; preds = %do.end9
   %bmpBlockBits = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 5
   %arraydecay11 = getelementptr inbounds [64 x i32], ptr %bmpBlockBits, i64 0, i64 0
-  %6 = load ptr, ptr %otherBMPSet.addr, align 8
-  %bmpBlockBits12 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %6, i32 0, i32 5
+  %7 = load ptr, ptr %otherBMPSet.addr, align 8
+  %bmpBlockBits12 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %7, i32 0, i32 5
   %arraydecay13 = getelementptr inbounds [64 x i32], ptr %bmpBlockBits12, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay11, ptr align 4 %arraydecay13, i64 256, i1 false)
   br label %do.end14
@@ -827,8 +829,8 @@ do.end14:                                         ; preds = %do.body10
 do.body15:                                        ; preds = %do.end14
   %list4kStarts = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 6
   %arraydecay16 = getelementptr inbounds [18 x i32], ptr %list4kStarts, i64 0, i64 0
-  %7 = load ptr, ptr %otherBMPSet.addr, align 8
-  %list4kStarts17 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %7, i32 0, i32 6
+  %8 = load ptr, ptr %otherBMPSet.addr, align 8
+  %list4kStarts17 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %8, i32 0, i32 6
   %arraydecay18 = getelementptr inbounds [18 x i32], ptr %list4kStarts17, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay16, ptr align 4 %arraydecay18, i64 72, i1 false)
   br label %do.end19

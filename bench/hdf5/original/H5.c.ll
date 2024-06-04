@@ -159,7 +159,7 @@ define i32 @H5_init_library() #0 {
 
 11:                                               ; preds = %10
   store i32 0, ptr %2, align 4
-  br label %54
+  br label %74
 
 12:                                               ; No predecessors!
   br label %13
@@ -167,112 +167,132 @@ define i32 @H5_init_library() #0 {
 13:                                               ; preds = %12, %7
   store i8 1, ptr @H5_libinit_g, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @H5_debug_g, i8 0, i64 344, i1 false)
-  store ptr @.str, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3), align 8
-  store ptr @.str.1, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 1), align 8
-  store ptr @.str.2, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 2), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 3), align 8
-  store ptr @.str.4, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 4), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 5), align 8
-  store ptr @.str.6, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 6), align 8
-  store ptr @.str.7, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 7), align 8
-  store ptr @.str.8, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 8), align 8
-  store ptr @.str.9, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 9), align 8
-  store ptr @.str.10, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 10), align 8
-  store ptr @.str.11, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 11), align 8
-  store ptr @.str.12, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 12), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 13), align 8
-  store ptr @.str.14, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 14), align 8
-  store ptr @.str.15, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 15), align 8
-  store ptr @.str.16, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 16), align 8
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 17), align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 18), align 8
-  store ptr @.str.19, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 19), align 8
-  %14 = load i8, ptr @H5_dont_atexit_g, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %18, label %16
+  %14 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3
+  store ptr @.str, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 1
+  store ptr @.str.1, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 2
+  store ptr @.str.2, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 3
+  store ptr @.str.3, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 4
+  store ptr @.str.4, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 5
+  store ptr @.str.5, ptr %19, align 8
+  %20 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 6
+  store ptr @.str.6, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 7
+  store ptr @.str.7, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 8
+  store ptr @.str.8, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 9
+  store ptr @.str.9, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 10
+  store ptr @.str.10, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 11
+  store ptr @.str.11, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 12
+  store ptr @.str.12, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 13
+  store ptr @.str.13, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 14
+  store ptr @.str.14, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 15
+  store ptr @.str.15, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 16
+  store ptr @.str.16, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 17
+  store ptr @.str.17, ptr %31, align 8
+  %32 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 18
+  store ptr @.str.18, ptr %32, align 8
+  %33 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3, i64 19
+  store ptr @.str.19, ptr %33, align 8
+  %34 = load i8, ptr @H5_dont_atexit_g, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %38, label %36
 
-16:                                               ; preds = %13
-  %17 = call i32 @atexit(ptr noundef @H5_term_library) #10
+36:                                               ; preds = %13
+  %37 = call i32 @atexit(ptr noundef @H5_term_library) #10
   store i8 1, ptr @H5_dont_atexit_g, align 1
-  br label %18
+  br label %38
 
-18:                                               ; preds = %16, %13
+38:                                               ; preds = %36, %13
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.H5_init_library.initializer, i64 192, i1 false)
   store i64 0, ptr %1, align 8
-  br label %19
+  br label %39
 
-19:                                               ; preds = %49, %18
-  %20 = load i64, ptr %1, align 8
-  %21 = icmp ult i64 %20, 12
-  br i1 %21, label %22, label %52
+39:                                               ; preds = %69, %38
+  %40 = load i64, ptr %1, align 8
+  %41 = icmp ult i64 %40, 12
+  br i1 %41, label %42, label %72
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %1, align 8
-  %24 = getelementptr inbounds [12 x %struct.anon.0], ptr %4, i64 0, i64 %23
-  %25 = getelementptr inbounds %struct.anon.0, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 16
-  %27 = call i32 %26()
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %48
+42:                                               ; preds = %39
+  %43 = load i64, ptr %1, align 8
+  %44 = getelementptr inbounds [12 x %struct.anon.0], ptr %4, i64 0, i64 %43
+  %45 = getelementptr inbounds %struct.anon.0, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 16
+  %47 = call i32 %46()
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %68
 
-29:                                               ; preds = %22
-  br label %30
+49:                                               ; preds = %42
+  br label %50
 
-30:                                               ; preds = %29
-  br label %31
+50:                                               ; preds = %49
+  br label %51
 
-31:                                               ; preds = %30
-  br label %32
+51:                                               ; preds = %50
+  br label %52
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr @H5E_FUNC_g, align 8
-  %34 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %35 = load i64, ptr %1, align 8
-  %36 = getelementptr inbounds [12 x %struct.anon.0], ptr %4, i64 0, i64 %35
-  %37 = getelementptr inbounds %struct.anon.0, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.30, ptr noundef @__func__.H5_init_library, i32 noundef 270, i64 noundef %33, i64 noundef %34, ptr noundef @.str.31, ptr noundef %38)
-  br label %40
+52:                                               ; preds = %51
+  %53 = load i64, ptr @H5E_FUNC_g, align 8
+  %54 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %55 = load i64, ptr %1, align 8
+  %56 = getelementptr inbounds [12 x %struct.anon.0], ptr %4, i64 0, i64 %55
+  %57 = getelementptr inbounds %struct.anon.0, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str.30, ptr noundef @__func__.H5_init_library, i32 noundef 270, i64 noundef %53, i64 noundef %54, ptr noundef @.str.31, ptr noundef %58)
+  br label %60
 
-40:                                               ; preds = %32
+60:                                               ; preds = %52
   store i8 1, ptr %3, align 1
-  %41 = load i8, ptr %3, align 1
-  %42 = trunc i8 %41 to i1
-  %43 = zext i1 %42 to i8
-  store i8 %43, ptr %3, align 1
-  br label %44
+  %61 = load i8, ptr %3, align 1
+  %62 = trunc i8 %61 to i1
+  %63 = zext i1 %62 to i8
+  store i8 %63, ptr %3, align 1
+  br label %64
 
-44:                                               ; preds = %40
-  br label %45
+64:                                               ; preds = %60
+  br label %65
 
-45:                                               ; preds = %44
+65:                                               ; preds = %64
   store i32 -1, ptr %2, align 4
-  br label %54
+  br label %74
 
-46:                                               ; No predecessors!
-  br label %47
+66:                                               ; No predecessors!
+  br label %67
 
-47:                                               ; preds = %46
-  br label %48
+67:                                               ; preds = %66
+  br label %68
 
-48:                                               ; preds = %47, %22
-  br label %49
+68:                                               ; preds = %67, %42
+  br label %69
 
-49:                                               ; preds = %48
-  %50 = load i64, ptr %1, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %1, align 8
-  br label %19
+69:                                               ; preds = %68
+  %70 = load i64, ptr %1, align 8
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %1, align 8
+  br label %39
 
-52:                                               ; preds = %19
+72:                                               ; preds = %39
   call void @H5__debug_mask(ptr noundef @.str.32)
-  %53 = call ptr @getenv(ptr noundef @.str.33) #10
-  call void @H5__debug_mask(ptr noundef %53)
-  br label %54
+  %73 = call ptr @getenv(ptr noundef @.str.33) #10
+  call void @H5__debug_mask(ptr noundef %73)
+  br label %74
 
-54:                                               ; preds = %52, %45, %11
-  %55 = load i32, ptr %2, align 4
-  ret i32 %55
+74:                                               ; preds = %72, %65, %11
+  %75 = load i32, ptr %2, align 4
+  ret i32 %75
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -304,7 +324,7 @@ define void @H5_term_library() #0 {
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %0
-  br label %158
+  br label %163
 
 17:                                               ; preds = %0
   store i8 1, ptr @H5_libterm_g, align 1
@@ -517,32 +537,37 @@ define void @H5_term_library() #0 {
 143:                                              ; preds = %142, %130
   br label %144
 
-144:                                              ; preds = %147, %143
-  %145 = load ptr, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %147, label %157
+144:                                              ; preds = %148, %143
+  %145 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %162
 
-147:                                              ; preds = %144
-  %148 = load ptr, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  store ptr %148, ptr %12, align 8
-  %149 = load ptr, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  %150 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %149, i32 0, i32 0
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i32 @fclose(ptr noundef %151)
-  %153 = load ptr, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  %154 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %153, i32 0, i32 1
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  %156 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %156) #10
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  %150 = load ptr, ptr %149, align 8
+  store ptr %150, ptr %12, align 8
+  %151 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %152, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = call i32 @fclose(ptr noundef %154)
+  %156 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  store ptr %159, ptr %160, align 8
+  %161 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %161) #10
   br label %144
 
-157:                                              ; preds = %144
+162:                                              ; preds = %144
   store i8 0, ptr @H5_libterm_g, align 1
   store i8 0, ptr @H5_libinit_g, align 1
-  br label %158
+  br label %163
 
-158:                                              ; preds = %157, %16
+163:                                              ; preds = %162, %16
   ret void
 }
 
@@ -642,7 +667,7 @@ define internal void @H5__debug_mask(ptr noundef %0) #0 {
   store ptr %10, ptr %3, align 8
   br label %11
 
-11:                                               ; preds = %231, %1
+11:                                               ; preds = %238, %1
   %12 = load ptr, ptr %2, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %19
@@ -656,7 +681,7 @@ define internal void @H5__debug_mask(ptr noundef %0) #0 {
 
 19:                                               ; preds = %14, %11
   %20 = phi i1 [ false, %11 ], [ %18, %14 ]
-  br i1 %20, label %21, label %232
+  br i1 %20, label %21, label %239
 
 21:                                               ; preds = %19
   %22 = call ptr @__ctype_b_loc() #11
@@ -684,7 +709,7 @@ define internal void @H5__debug_mask(ptr noundef %0) #0 {
   %40 = load i8, ptr %39, align 1
   %41 = sext i8 %40 to i32
   %42 = icmp eq i32 43, %41
-  br i1 %42, label %43, label %190
+  br i1 %42, label %43, label %195
 
 43:                                               ; preds = %38, %33, %21
   %44 = load ptr, ptr %2, align 8
@@ -800,13 +825,13 @@ define internal void @H5__debug_mask(ptr noundef %0) #0 {
 106:                                              ; preds = %104, %103
   %107 = phi ptr [ null, %103 ], [ %105, %104 ]
   store ptr %107, ptr @H5_debug_g, align 8
-  br label %189
+  br label %194
 
 108:                                              ; preds = %94
   %109 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
   %110 = call i32 @strcmp(ptr noundef %109, ptr noundef @.str.89) #12
   %111 = icmp ne i32 %110, 0
-  br i1 %111, label %118, label %112
+  br i1 %111, label %119, label %112
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %3, align 8
@@ -815,212 +840,219 @@ define internal void @H5__debug_mask(ptr noundef %0) #0 {
   %115 = trunc i8 %114 to i1
   %116 = xor i1 %115, true
   %117 = zext i1 %116 to i8
-  store i8 %117, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 1), align 8
-  br label %188
+  %118 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 1
+  store i8 %117, ptr %118, align 8
+  br label %193
 
-118:                                              ; preds = %108
-  %119 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
-  %120 = call i32 @strcmp(ptr noundef %119, ptr noundef @.str.90) #12
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %128, label %122
+119:                                              ; preds = %108
+  %120 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %121 = call i32 @strcmp(ptr noundef %120, ptr noundef @.str.90) #12
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %130, label %123
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %3, align 8
-  store ptr %123, ptr @H5_debug_g, align 8
-  %124 = load i8, ptr %7, align 1
-  %125 = trunc i8 %124 to i1
-  %126 = xor i1 %125, true
-  %127 = zext i1 %126 to i8
-  store i8 %127, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2), align 1
-  br label %187
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %3, align 8
+  store ptr %124, ptr @H5_debug_g, align 8
+  %125 = load i8, ptr %7, align 1
+  %126 = trunc i8 %125 to i1
+  %127 = xor i1 %126, true
+  %128 = zext i1 %127 to i8
+  %129 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 2
+  store i8 %128, ptr %129, align 1
+  br label %192
 
-128:                                              ; preds = %118
-  %129 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
-  %130 = call i32 @strcmp(ptr noundef %129, ptr noundef @.str.91) #12
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %151, label %132
+130:                                              ; preds = %119
+  %131 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %132 = call i32 @strcmp(ptr noundef %131, ptr noundef @.str.91) #12
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %154, label %134
 
-132:                                              ; preds = %128
+134:                                              ; preds = %130
   store i64 0, ptr %6, align 8
-  br label %133
+  br label %135
 
-133:                                              ; preds = %147, %132
-  %134 = load i64, ptr %6, align 8
-  %135 = icmp ult i64 %134, 20
-  br i1 %135, label %136, label %150
+135:                                              ; preds = %150, %134
+  %136 = load i64, ptr %6, align 8
+  %137 = icmp ult i64 %136, 20
+  br i1 %137, label %138, label %153
 
-136:                                              ; preds = %133
-  %137 = load i8, ptr %7, align 1
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %140
+138:                                              ; preds = %135
+  %139 = load i8, ptr %7, align 1
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %141, label %142
 
-139:                                              ; preds = %136
-  br label %142
+141:                                              ; preds = %138
+  br label %144
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %3, align 8
-  br label %142
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %3, align 8
+  br label %144
 
-142:                                              ; preds = %140, %139
-  %143 = phi ptr [ null, %139 ], [ %141, %140 ]
-  %144 = load i64, ptr %6, align 8
-  %145 = getelementptr inbounds [20 x %struct.anon], ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3), i64 0, i64 %144
-  %146 = getelementptr inbounds %struct.anon, ptr %145, i32 0, i32 1
-  store ptr %143, ptr %146, align 8
-  br label %147
+144:                                              ; preds = %142, %141
+  %145 = phi ptr [ null, %141 ], [ %143, %142 ]
+  %146 = load i64, ptr %6, align 8
+  %147 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3
+  %148 = getelementptr inbounds [20 x %struct.anon], ptr %147, i64 0, i64 %146
+  %149 = getelementptr inbounds %struct.anon, ptr %148, i32 0, i32 1
+  store ptr %145, ptr %149, align 8
+  br label %150
 
-147:                                              ; preds = %142
-  %148 = load i64, ptr %6, align 8
-  %149 = add i64 %148, 1
-  store i64 %149, ptr %6, align 8
-  br label %133
+150:                                              ; preds = %144
+  %151 = load i64, ptr %6, align 8
+  %152 = add i64 %151, 1
+  store i64 %152, ptr %6, align 8
+  br label %135
 
-150:                                              ; preds = %133
-  br label %186
+153:                                              ; preds = %135
+  br label %191
 
-151:                                              ; preds = %128
+154:                                              ; preds = %130
   store i64 0, ptr %6, align 8
-  br label %152
+  br label %155
 
-152:                                              ; preds = %175, %151
-  %153 = load i64, ptr %6, align 8
-  %154 = icmp ult i64 %153, 20
-  br i1 %154, label %155, label %178
-
-155:                                              ; preds = %152
+155:                                              ; preds = %180, %154
   %156 = load i64, ptr %6, align 8
-  %157 = getelementptr inbounds [20 x %struct.anon], ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3), i64 0, i64 %156
-  %158 = getelementptr inbounds %struct.anon, ptr %157, i32 0, i32 0
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
-  %161 = call i32 @strcmp(ptr noundef %159, ptr noundef %160) #12
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %174, label %163
+  %157 = icmp ult i64 %156, 20
+  br i1 %157, label %158, label %183
 
-163:                                              ; preds = %155
-  %164 = load i8, ptr %7, align 1
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %166, label %167
+158:                                              ; preds = %155
+  %159 = load i64, ptr %6, align 8
+  %160 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3
+  %161 = getelementptr inbounds [20 x %struct.anon], ptr %160, i64 0, i64 %159
+  %162 = getelementptr inbounds %struct.anon, ptr %161, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %165 = call i32 @strcmp(ptr noundef %163, ptr noundef %164) #12
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %179, label %167
 
-166:                                              ; preds = %163
-  br label %169
+167:                                              ; preds = %158
+  %168 = load i8, ptr %7, align 1
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %170, label %171
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %3, align 8
-  br label %169
+170:                                              ; preds = %167
+  br label %173
 
-169:                                              ; preds = %167, %166
-  %170 = phi ptr [ null, %166 ], [ %168, %167 ]
-  %171 = load i64, ptr %6, align 8
-  %172 = getelementptr inbounds [20 x %struct.anon], ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3), i64 0, i64 %171
-  %173 = getelementptr inbounds %struct.anon, ptr %172, i32 0, i32 1
-  store ptr %170, ptr %173, align 8
-  br label %178
+171:                                              ; preds = %167
+  %172 = load ptr, ptr %3, align 8
+  br label %173
 
-174:                                              ; preds = %155
-  br label %175
+173:                                              ; preds = %171, %170
+  %174 = phi ptr [ null, %170 ], [ %172, %171 ]
+  %175 = load i64, ptr %6, align 8
+  %176 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 3
+  %177 = getelementptr inbounds [20 x %struct.anon], ptr %176, i64 0, i64 %175
+  %178 = getelementptr inbounds %struct.anon, ptr %177, i32 0, i32 1
+  store ptr %174, ptr %178, align 8
+  br label %183
 
-175:                                              ; preds = %174
-  %176 = load i64, ptr %6, align 8
-  %177 = add i64 %176, 1
-  store i64 %177, ptr %6, align 8
-  br label %152
+179:                                              ; preds = %158
+  br label %180
 
-178:                                              ; preds = %169, %152
-  %179 = load i64, ptr %6, align 8
-  %180 = icmp uge i64 %179, 20
-  br i1 %180, label %181, label %185
+180:                                              ; preds = %179
+  %181 = load i64, ptr %6, align 8
+  %182 = add i64 %181, 1
+  store i64 %182, ptr %6, align 8
+  br label %155
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr @stderr, align 8
-  %183 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
-  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef @.str.92, ptr noundef %183) #10
-  br label %185
+183:                                              ; preds = %173, %155
+  %184 = load i64, ptr %6, align 8
+  %185 = icmp uge i64 %184, 20
+  br i1 %185, label %186, label %190
 
-185:                                              ; preds = %181, %178
-  br label %186
+186:                                              ; preds = %183
+  %187 = load ptr, ptr @stderr, align 8
+  %188 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef @.str.92, ptr noundef %188) #10
+  br label %190
 
-186:                                              ; preds = %185, %150
-  br label %187
+190:                                              ; preds = %186, %183
+  br label %191
 
-187:                                              ; preds = %186, %122
-  br label %188
+191:                                              ; preds = %190, %153
+  br label %192
 
-188:                                              ; preds = %187, %112
-  br label %189
+192:                                              ; preds = %191, %123
+  br label %193
 
-189:                                              ; preds = %188, %106
-  br label %231
+193:                                              ; preds = %192, %112
+  br label %194
 
-190:                                              ; preds = %38
-  %191 = call ptr @__ctype_b_loc() #11
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %2, align 8
-  %194 = load i8, ptr %193, align 1
-  %195 = sext i8 %194 to i32
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %192, i64 %196
-  %198 = load i16, ptr %197, align 2
-  %199 = zext i16 %198 to i32
-  %200 = and i32 %199, 2048
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %227
+194:                                              ; preds = %193, %106
+  br label %238
 
-202:                                              ; preds = %190
-  %203 = load ptr, ptr %2, align 8
-  %204 = call i64 @strtol(ptr noundef %203, ptr noundef %5, i32 noundef 0) #10
-  %205 = trunc i64 %204 to i32
-  store i32 %205, ptr %8, align 4
-  %206 = load i32, ptr %8, align 4
-  %207 = call noalias ptr @fdopen(i32 noundef %206, ptr noundef @.str.93) #10
-  store ptr %207, ptr %3, align 8
-  %208 = icmp ne ptr %207, null
-  br i1 %208, label %209, label %225
+195:                                              ; preds = %38
+  %196 = call ptr @__ctype_b_loc() #11
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %2, align 8
+  %199 = load i8, ptr %198, align 1
+  %200 = sext i8 %199 to i32
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i16, ptr %197, i64 %201
+  %203 = load i16, ptr %202, align 2
+  %204 = zext i16 %203 to i32
+  %205 = and i32 %204, 2048
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %234
 
-209:                                              ; preds = %202
-  %210 = load ptr, ptr %3, align 8
-  %211 = call i32 @setvbuf(ptr noundef %210, ptr noundef null, i32 noundef 1, i64 noundef 0) #10
-  %212 = call noalias ptr @malloc(i64 noundef 16) #13
-  store ptr %212, ptr %9, align 8
-  %213 = icmp eq ptr null, %212
-  br i1 %213, label %214, label %217
+207:                                              ; preds = %195
+  %208 = load ptr, ptr %2, align 8
+  %209 = call i64 @strtol(ptr noundef %208, ptr noundef %5, i32 noundef 0) #10
+  %210 = trunc i64 %209 to i32
+  store i32 %210, ptr %8, align 4
+  %211 = load i32, ptr %8, align 4
+  %212 = call noalias ptr @fdopen(i32 noundef %211, ptr noundef @.str.93) #10
+  store ptr %212, ptr %3, align 8
+  %213 = icmp ne ptr %212, null
+  br i1 %213, label %214, label %232
 
-214:                                              ; preds = %209
+214:                                              ; preds = %207
   %215 = load ptr, ptr %3, align 8
-  %216 = call i32 @fclose(ptr noundef %215)
+  %216 = call i32 @setvbuf(ptr noundef %215, ptr noundef null, i32 noundef 1, i64 noundef 0) #10
+  %217 = call noalias ptr @malloc(i64 noundef 16) #13
+  store ptr %217, ptr %9, align 8
+  %218 = icmp eq ptr null, %217
+  br i1 %218, label %219, label %222
+
+219:                                              ; preds = %214
+  %220 = load ptr, ptr %3, align 8
+  %221 = call i32 @fclose(ptr noundef %220)
+  br label %239
+
+222:                                              ; preds = %214
+  %223 = load ptr, ptr %3, align 8
+  %224 = load ptr, ptr %9, align 8
+  %225 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %224, i32 0, i32 0
+  store ptr %223, ptr %225, align 8
+  %226 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  %227 = load ptr, ptr %226, align 8
+  %228 = load ptr, ptr %9, align 8
+  %229 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %228, i32 0, i32 1
+  store ptr %227, ptr %229, align 8
+  %230 = load ptr, ptr %9, align 8
+  %231 = getelementptr inbounds %struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4
+  store ptr %230, ptr %231, align 8
   br label %232
 
-217:                                              ; preds = %209
-  %218 = load ptr, ptr %3, align 8
-  %219 = load ptr, ptr %9, align 8
-  %220 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %219, i32 0, i32 0
-  store ptr %218, ptr %220, align 8
-  %221 = load ptr, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  %222 = load ptr, ptr %9, align 8
-  %223 = getelementptr inbounds %struct.H5_debug_open_stream_t, ptr %222, i32 0, i32 1
-  store ptr %221, ptr %223, align 8
-  %224 = load ptr, ptr %9, align 8
-  store ptr %224, ptr getelementptr inbounds (%struct.H5_debug_t, ptr @H5_debug_g, i32 0, i32 4), align 8
-  br label %225
+232:                                              ; preds = %222, %207
+  %233 = load ptr, ptr %5, align 8
+  store ptr %233, ptr %2, align 8
+  br label %237
 
-225:                                              ; preds = %217, %202
-  %226 = load ptr, ptr %5, align 8
-  store ptr %226, ptr %2, align 8
-  br label %230
+234:                                              ; preds = %195
+  %235 = load ptr, ptr %2, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i32 1
+  store ptr %236, ptr %2, align 8
+  br label %237
 
-227:                                              ; preds = %190
-  %228 = load ptr, ptr %2, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i32 1
-  store ptr %229, ptr %2, align 8
-  br label %230
+237:                                              ; preds = %234, %232
+  br label %238
 
-230:                                              ; preds = %227, %225
-  br label %231
-
-231:                                              ; preds = %230, %189
+238:                                              ; preds = %237, %194
   br label %11
 
-232:                                              ; preds = %214, %19
+239:                                              ; preds = %219, %19
   ret void
 }
 

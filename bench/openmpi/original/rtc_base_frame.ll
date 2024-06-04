@@ -60,31 +60,34 @@ define internal i32 @prte_rtc_base_open(i32 noundef %0) #1 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %10
-
-10:                                               ; preds = %9, %5
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @prte_rtc_base, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @prte_rtc_base, i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef @prte_rtc_base, ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef @prte_rtc_base)
   br label %11
 
-11:                                               ; preds = %10
-  br label %12
+11:                                               ; preds = %10, %5
+  %12 = getelementptr inbounds %struct.pmix_object_t, ptr @prte_rtc_base, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.pmix_object_t, ptr @prte_rtc_base, i32 0, i32 2
+  store i32 1, ptr %13, align 8
+  call void @pmix_obj_construct_tma(ptr noundef @prte_rtc_base, ptr noundef null)
+  call void @pmix_obj_run_constructors(ptr noundef @prte_rtc_base)
+  br label %14
 
-12:                                               ; preds = %11
-  br label %13
+14:                                               ; preds = %11
+  br label %15
 
-13:                                               ; preds = %12
-  %14 = load i32, ptr %2, align 4
-  %15 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @prte_rtc_base_framework, i32 noundef %14)
-  ret i32 %15
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load i32, ptr %2, align 4
+  %18 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @prte_rtc_base_framework, i32 noundef %17)
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -229,38 +232,39 @@ define internal void @rcon(ptr noundef %0) #1 {
 
 9:                                                ; preds = %8
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_value_t_class, i32 0, i32 4), align 8
-  %12 = icmp ne i32 %10, %11
-  br i1 %12, label %13, label %14
+  %11 = getelementptr inbounds %struct.pmix_class_t, ptr @prte_value_t_class, i32 0, i32 4
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp ne i32 %10, %12
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %9
+14:                                               ; preds = %9
   call void @pmix_class_initialize(ptr noundef @prte_value_t_class)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %15, i32 0, i32 3
-  %17 = getelementptr inbounds %struct.pmix_object_t, ptr %16, i32 0, i32 1
-  store ptr @prte_value_t_class, ptr %17, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %18, i32 0, i32 3
-  %20 = getelementptr inbounds %struct.pmix_object_t, ptr %19, i32 0, i32 2
-  store i32 1, ptr %20, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %21, i32 0, i32 3
-  call void @pmix_obj_construct_tma(ptr noundef %22, ptr noundef null)
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %23, i32 0, i32 3
-  call void @pmix_obj_run_constructors(ptr noundef %24)
-  br label %25
-
-25:                                               ; preds = %14
+15:                                               ; preds = %14, %9
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %16, i32 0, i32 3
+  %18 = getelementptr inbounds %struct.pmix_object_t, ptr %17, i32 0, i32 1
+  store ptr @prte_value_t_class, ptr %18, align 8
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %19, i32 0, i32 3
+  %21 = getelementptr inbounds %struct.pmix_object_t, ptr %20, i32 0, i32 2
+  store i32 1, ptr %21, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %22, i32 0, i32 3
+  call void @pmix_obj_construct_tma(ptr noundef %23, ptr noundef null)
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.prte_rtc_resource_t, ptr %24, i32 0, i32 3
+  call void @pmix_obj_run_constructors(ptr noundef %25)
   br label %26
 
-26:                                               ; preds = %25
+26:                                               ; preds = %15
   br label %27
 
 27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
   ret void
 }
 

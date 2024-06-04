@@ -889,33 +889,34 @@ define { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_inde
   %27 = icmp eq i64 %26, 0
   %28 = select i1 %27, i64 0, i64 1
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %34
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %3
   %31 = load i64, ptr @anon.6148fe555715ce9ac9449eba76cb23a9.4, align 8, !range !5, !noundef !3
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @anon.6148fe555715ce9ac9449eba76cb23a9.4, i64 8), align 8
+  %32 = getelementptr inbounds i8, ptr @anon.6148fe555715ce9ac9449eba76cb23a9.4, i64 8
+  %33 = load i64, ptr %32, align 8
   store i64 %31, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %32, ptr %33, align 8
-  br label %38
+  %34 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %33, ptr %34, align 8
+  br label %39
 
-34:                                               ; preds = %3
-  %35 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
-  %36 = load i64, ptr %35, align 8, !noundef !3
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %36, ptr %37, align 8
+35:                                               ; preds = %3
+  %36 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
+  %37 = load i64, ptr %36, align 8, !noundef !3
+  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %37, ptr %38, align 8
   store i64 1, ptr %8, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %34, %30
-  %39 = load i64, ptr %8, align 8, !range !5, !noundef !3
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
-  %41 = load i64, ptr %40, align 8
-  %42 = insertvalue { i64, i64 } poison, i64 %39, 0
-  %43 = insertvalue { i64, i64 } %42, i64 %41, 1
-  ret { i64, i64 } %43
+39:                                               ; preds = %35, %30
+  %40 = load i64, ptr %8, align 8, !range !5, !noundef !3
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = insertvalue { i64, i64 } poison, i64 %40, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %42, 1
+  ret { i64, i64 } %44
 
-44:                                               ; No predecessors!
+45:                                               ; No predecessors!
   unreachable
 }
 

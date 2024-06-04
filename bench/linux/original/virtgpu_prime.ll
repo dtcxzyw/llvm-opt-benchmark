@@ -101,7 +101,7 @@ define dso_local ptr @virtgpu_gem_prime_export(ptr noundef %0, i32 noundef %1) l
 35:                                               ; preds = %32
   %36 = sext i32 %33 to i64
   %37 = inttoptr i64 %36 to ptr
-  br label %64
+  br label %65
 
 38:                                               ; preds = %32
   tail call void @virtio_gpu_notify(ptr noundef %7) #6
@@ -135,33 +135,34 @@ define dso_local ptr @virtgpu_gem_prime_export(ptr noundef %0, i32 noundef %1) l
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %21, align 8
   %53 = call ptr @virtio_dma_buf_export(ptr noundef nonnull %3) #6
-  %54 = icmp ugt ptr %53, inttoptr (i64 -4096 to ptr)
-  br i1 %54, label %64, label %55
+  %54 = inttoptr i64 -4096 to ptr
+  %55 = icmp ugt ptr %53, %54
+  br i1 %55, label %65, label %56
 
-55:                                               ; preds = %48
+56:                                               ; preds = %48
   call void @drm_dev_get(ptr noundef %5) #6
-  %56 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #6, !srcloc !7
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %59, !prof !8
+  %57 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #6, !srcloc !7
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %60, !prof !8
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 2) #6
-  br label %64
+  br label %65
 
-59:                                               ; preds = %55
-  %60 = add i32 %56, 1
-  %61 = or i32 %60, %56
-  %62 = icmp sgt i32 %61, -1
-  br i1 %62, label %64, label %63, !prof !9
+60:                                               ; preds = %56
+  %61 = add i32 %57, 1
+  %62 = or i32 %61, %57
+  %63 = icmp sgt i32 %62, -1
+  br i1 %63, label %65, label %64, !prof !9
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 1) #6
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %59, %58, %48, %35
-  %65 = phi ptr [ %37, %35 ], [ %53, %48 ], [ %53, %58 ], [ %53, %59 ], [ %53, %63 ]
+65:                                               ; preds = %64, %60, %59, %48, %35
+  %66 = phi ptr [ %37, %35 ], [ %53, %48 ], [ %53, %59 ], [ %53, %60 ], [ %53, %64 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #6
-  ret ptr %65
+  ret ptr %66
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -224,7 +225,8 @@ declare dso_local ptr @drm_gem_prime_import(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @virtgpu_gem_prime_import_sg_table(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #4 align 16 {
-  ret ptr inttoptr (i64 -19 to ptr)
+  %4 = inttoptr i64 -19 to ptr
+  ret ptr %4
 }
 
 ; Function Attrs: null_pointer_is_valid

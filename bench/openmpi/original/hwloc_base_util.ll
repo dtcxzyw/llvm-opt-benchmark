@@ -96,926 +96,939 @@ define i32 @opal_hwloc_base_get_topology() #0 {
   br label %36
 
 36:                                               ; preds = %0
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %38 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %37)
-  br i1 %38, label %39, label %41
+  %37 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %38 = load i32, ptr %37, align 4
+  %39 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %38)
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %40, ptr noundef @.str)
-  br label %41
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %42 = load i32, ptr %41, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %42, ptr noundef @.str)
+  br label %43
 
-41:                                               ; preds = %39, %36
-  br label %42
+43:                                               ; preds = %40, %36
+  br label %44
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr @opal_hwloc_topology, align 8
-  %44 = icmp ne ptr null, %43
-  br i1 %44, label %45, label %46
+44:                                               ; preds = %43
+  %45 = load ptr, ptr @opal_hwloc_topology, align 8
+  %46 = icmp ne ptr null, %45
+  br i1 %46, label %47, label %48
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   store i32 0, ptr %1, align 4
-  br label %488
+  br label %501
 
-46:                                               ; preds = %42
-  %47 = call ptr @opal_proc_local_get()
-  %48 = getelementptr inbounds %struct.opal_proc_t, ptr %47, i32 0, i32 1
-  %49 = getelementptr inbounds %struct.opal_process_name_t, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  store i32 -2, ptr %52, align 4
-  br label %53
+48:                                               ; preds = %44
+  %49 = call ptr @opal_proc_local_get()
+  %50 = getelementptr inbounds %struct.opal_proc_t, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds %struct.opal_process_name_t, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  store i32 -2, ptr %54, align 4
+  br label %55
 
-53:                                               ; preds = %46
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %55 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %54)
-  br i1 %55, label %56, label %58
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %57 = load i32, ptr %56, align 4
+  %58 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %57)
+  br i1 %58, label %59, label %62
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef @.str.1)
-  br label %58
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %61 = load i32, ptr %60, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %61, ptr noundef @.str.1)
+  br label %62
 
-58:                                               ; preds = %56, %53
-  br label %59
+62:                                               ; preds = %59, %55
+  br label %63
 
-59:                                               ; preds = %58
+63:                                               ; preds = %62
   store ptr %8, ptr %9, align 8
   store ptr %10, ptr %11, align 8
-  br label %60
+  br label %64
 
-60:                                               ; preds = %59
+64:                                               ; preds = %63
   store ptr null, ptr %14, align 8
-  br label %61
+  br label %65
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 0
-  %63 = getelementptr inbounds [256 x i8], ptr %62, i64 0, i64 0
-  %64 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  %65 = load i32, ptr %64, align 4
-  %66 = call i32 @opal_pmix_convert_jobid(ptr noundef %63, i32 noundef %65)
-  br label %67
-
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 0
+  %67 = getelementptr inbounds [256 x i8], ptr %66, i64 0, i64 0
+  %68 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
   %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 -2, %69
-  br i1 %70, label %71, label %73
+  %70 = call i32 @opal_pmix_convert_jobid(ptr noundef %67, i32 noundef %69)
+  br label %71
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 1
-  store i32 -2, ptr %72, align 4
-  br label %84
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 -2, %73
+  br i1 %74, label %75, label %77
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp eq i32 -1, %75
-  br i1 %76, label %77, label %79
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 1
+  store i32 -2, ptr %76, align 4
+  br label %88
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 1
-  store i32 -4, ptr %78, align 4
-  br label %83
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp eq i32 -1, %79
+  br i1 %80, label %81, label %83
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %81 = load i32, ptr %80, align 4
+81:                                               ; preds = %77
   %82 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 1
-  store i32 %81, ptr %82, align 4
-  br label %83
+  store i32 -4, ptr %82, align 4
+  br label %87
 
-83:                                               ; preds = %79, %77
-  br label %84
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %85 = load i32, ptr %84, align 4
+  %86 = getelementptr inbounds %struct.pmix_proc, ptr %13, i32 0, i32 1
+  store i32 %85, ptr %86, align 4
+  br label %87
 
-84:                                               ; preds = %83, %71
-  br label %85
+87:                                               ; preds = %83, %81
+  br label %88
 
-85:                                               ; preds = %84
-  br label %86
+88:                                               ; preds = %87, %75
+  br label %89
 
-86:                                               ; preds = %85
-  %87 = call i32 @PMIx_Info_load(ptr noundef %15, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
-  %88 = call i32 @PMIx_Get(ptr noundef %13, ptr noundef @.str.3, ptr noundef %15, i64 noundef 1, ptr noundef %14)
-  store i32 %88, ptr %2, align 4
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89
+  %91 = call i32 @PMIx_Info_load(ptr noundef %15, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
+  %92 = call i32 @PMIx_Get(ptr noundef %13, ptr noundef @.str.3, ptr noundef %15, i64 noundef 1, ptr noundef %14)
+  store i32 %92, ptr %2, align 4
   call void @PMIx_Info_destruct(ptr noundef %15)
-  %89 = load ptr, ptr %14, align 8
-  %90 = icmp eq ptr null, %89
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %86
-  store i32 -46, ptr %2, align 4
-  br label %107
-
-92:                                               ; preds = %86
   %93 = load ptr, ptr %14, align 8
-  %94 = getelementptr inbounds %struct.pmix_value, ptr %93, i32 0, i32 0
-  %95 = load i16, ptr %94, align 8
-  %96 = zext i16 %95 to i32
-  %97 = icmp ne i32 %96, 3
-  br i1 %97, label %98, label %99
+  %94 = icmp eq ptr null, %93
+  br i1 %94, label %95, label %96
 
-98:                                               ; preds = %92
-  store i32 -18, ptr %2, align 4
-  br label %106
-
-99:                                               ; preds = %92
-  %100 = load i32, ptr %2, align 4
-  %101 = icmp eq i32 0, %100
-  br i1 %101, label %102, label %105
-
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %14, align 8
-  %104 = call i32 @PMIx_Value_unload(ptr noundef %103, ptr noundef %12, ptr noundef %16)
-  store i32 %104, ptr %2, align 4
-  br label %105
-
-105:                                              ; preds = %102, %99
-  br label %106
-
-106:                                              ; preds = %105, %98
-  br label %107
-
-107:                                              ; preds = %106, %91
-  %108 = load ptr, ptr %14, align 8
-  %109 = icmp ne ptr null, %108
-  br i1 %109, label %110, label %114
-
-110:                                              ; preds = %107
+95:                                               ; preds = %90
+  store i32 -46, ptr %2, align 4
   br label %111
 
-111:                                              ; preds = %110
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %14, align 8
+  %98 = getelementptr inbounds %struct.pmix_value, ptr %97, i32 0, i32 0
+  %99 = load i16, ptr %98, align 8
+  %100 = zext i16 %99 to i32
+  %101 = icmp ne i32 %100, 3
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %96
+  store i32 -18, ptr %2, align 4
+  br label %110
+
+103:                                              ; preds = %96
+  %104 = load i32, ptr %2, align 4
+  %105 = icmp eq i32 0, %104
+  br i1 %105, label %106, label %109
+
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %14, align 8
+  %108 = call i32 @PMIx_Value_unload(ptr noundef %107, ptr noundef %12, ptr noundef %16)
+  store i32 %108, ptr %2, align 4
+  br label %109
+
+109:                                              ; preds = %106, %103
+  br label %110
+
+110:                                              ; preds = %109, %102
+  br label %111
+
+111:                                              ; preds = %110, %95
   %112 = load ptr, ptr %14, align 8
-  call void @PMIx_Value_free(ptr noundef %112, i64 noundef 1)
-  store ptr null, ptr %14, align 8
-  br label %113
+  %113 = icmp ne ptr null, %112
+  br i1 %113, label %114, label %118
 
-113:                                              ; preds = %111
-  br label %114
-
-114:                                              ; preds = %113, %107
+114:                                              ; preds = %111
   br label %115
 
 115:                                              ; preds = %114
-  br label %116
-
-116:                                              ; preds = %115
-  store ptr null, ptr %18, align 8
+  %116 = load ptr, ptr %14, align 8
+  call void @PMIx_Value_free(ptr noundef %116, i64 noundef 1)
+  store ptr null, ptr %14, align 8
   br label %117
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 0
-  %119 = getelementptr inbounds [256 x i8], ptr %118, i64 0, i64 0
-  %120 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  %121 = load i32, ptr %120, align 4
-  %122 = call i32 @opal_pmix_convert_jobid(ptr noundef %119, i32 noundef %121)
-  br label %123
+117:                                              ; preds = %115
+  br label %118
 
-123:                                              ; preds = %117
-  %124 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+118:                                              ; preds = %117, %111
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119
+  store ptr null, ptr %18, align 8
+  br label %121
+
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 0
+  %123 = getelementptr inbounds [256 x i8], ptr %122, i64 0, i64 0
+  %124 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
   %125 = load i32, ptr %124, align 4
-  %126 = icmp eq i32 -2, %125
-  br i1 %126, label %127, label %129
+  %126 = call i32 @opal_pmix_convert_jobid(ptr noundef %123, i32 noundef %125)
+  br label %127
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 1
-  store i32 -2, ptr %128, align 4
-  br label %140
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp eq i32 -2, %129
+  br i1 %130, label %131, label %133
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp eq i32 -1, %131
-  br i1 %132, label %133, label %135
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 1
+  store i32 -2, ptr %132, align 4
+  br label %144
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 1
-  store i32 -4, ptr %134, align 4
-  br label %139
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp eq i32 -1, %135
+  br i1 %136, label %137, label %139
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %137 = load i32, ptr %136, align 4
+137:                                              ; preds = %133
   %138 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 1
-  store i32 %137, ptr %138, align 4
-  br label %139
+  store i32 -4, ptr %138, align 4
+  br label %143
 
-139:                                              ; preds = %135, %133
-  br label %140
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %141 = load i32, ptr %140, align 4
+  %142 = getelementptr inbounds %struct.pmix_proc, ptr %17, i32 0, i32 1
+  store i32 %141, ptr %142, align 4
+  br label %143
 
-140:                                              ; preds = %139, %127
-  br label %141
+143:                                              ; preds = %139, %137
+  br label %144
 
-141:                                              ; preds = %140
-  br label %142
+144:                                              ; preds = %143, %131
+  br label %145
 
-142:                                              ; preds = %141
-  %143 = call i32 @PMIx_Info_load(ptr noundef %19, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
-  %144 = call i32 @PMIx_Get(ptr noundef %17, ptr noundef @.str.4, ptr noundef %19, i64 noundef 1, ptr noundef %18)
-  store i32 %144, ptr %5, align 4
+145:                                              ; preds = %144
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = call i32 @PMIx_Info_load(ptr noundef %19, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
+  %148 = call i32 @PMIx_Get(ptr noundef %17, ptr noundef @.str.4, ptr noundef %19, i64 noundef 1, ptr noundef %18)
+  store i32 %148, ptr %5, align 4
   call void @PMIx_Info_destruct(ptr noundef %19)
-  %145 = load ptr, ptr %18, align 8
-  %146 = icmp eq ptr null, %145
-  br i1 %146, label %147, label %148
-
-147:                                              ; preds = %142
-  store i32 -46, ptr %5, align 4
-  br label %163
-
-148:                                              ; preds = %142
   %149 = load ptr, ptr %18, align 8
-  %150 = getelementptr inbounds %struct.pmix_value, ptr %149, i32 0, i32 0
-  %151 = load i16, ptr %150, align 8
-  %152 = zext i16 %151 to i32
-  %153 = icmp ne i32 %152, 4
-  br i1 %153, label %154, label %155
+  %150 = icmp eq ptr null, %149
+  br i1 %150, label %151, label %152
 
-154:                                              ; preds = %148
-  store i32 -18, ptr %5, align 4
-  br label %162
-
-155:                                              ; preds = %148
-  %156 = load i32, ptr %5, align 4
-  %157 = icmp eq i32 0, %156
-  br i1 %157, label %158, label %161
-
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %18, align 8
-  %160 = call i32 @PMIx_Value_unload(ptr noundef %159, ptr noundef %9, ptr noundef %20)
-  store i32 %160, ptr %5, align 4
-  br label %161
-
-161:                                              ; preds = %158, %155
-  br label %162
-
-162:                                              ; preds = %161, %154
-  br label %163
-
-163:                                              ; preds = %162, %147
-  %164 = load ptr, ptr %18, align 8
-  %165 = icmp ne ptr null, %164
-  br i1 %165, label %166, label %170
-
-166:                                              ; preds = %163
+151:                                              ; preds = %146
+  store i32 -46, ptr %5, align 4
   br label %167
 
-167:                                              ; preds = %166
+152:                                              ; preds = %146
+  %153 = load ptr, ptr %18, align 8
+  %154 = getelementptr inbounds %struct.pmix_value, ptr %153, i32 0, i32 0
+  %155 = load i16, ptr %154, align 8
+  %156 = zext i16 %155 to i32
+  %157 = icmp ne i32 %156, 4
+  br i1 %157, label %158, label %159
+
+158:                                              ; preds = %152
+  store i32 -18, ptr %5, align 4
+  br label %166
+
+159:                                              ; preds = %152
+  %160 = load i32, ptr %5, align 4
+  %161 = icmp eq i32 0, %160
+  br i1 %161, label %162, label %165
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %18, align 8
+  %164 = call i32 @PMIx_Value_unload(ptr noundef %163, ptr noundef %9, ptr noundef %20)
+  store i32 %164, ptr %5, align 4
+  br label %165
+
+165:                                              ; preds = %162, %159
+  br label %166
+
+166:                                              ; preds = %165, %158
+  br label %167
+
+167:                                              ; preds = %166, %151
   %168 = load ptr, ptr %18, align 8
-  call void @PMIx_Value_free(ptr noundef %168, i64 noundef 1)
-  store ptr null, ptr %18, align 8
-  br label %169
+  %169 = icmp ne ptr null, %168
+  br i1 %169, label %170, label %174
 
-169:                                              ; preds = %167
-  br label %170
-
-170:                                              ; preds = %169, %163
+170:                                              ; preds = %167
   br label %171
 
 171:                                              ; preds = %170
-  br label %172
-
-172:                                              ; preds = %171
-  store ptr null, ptr %22, align 8
+  %172 = load ptr, ptr %18, align 8
+  call void @PMIx_Value_free(ptr noundef %172, i64 noundef 1)
+  store ptr null, ptr %18, align 8
   br label %173
 
-173:                                              ; preds = %172
-  %174 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 0
-  %175 = getelementptr inbounds [256 x i8], ptr %174, i64 0, i64 0
-  %176 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  %177 = load i32, ptr %176, align 4
-  %178 = call i32 @opal_pmix_convert_jobid(ptr noundef %175, i32 noundef %177)
-  br label %179
+173:                                              ; preds = %171
+  br label %174
 
-179:                                              ; preds = %173
-  %180 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+174:                                              ; preds = %173, %167
+  br label %175
+
+175:                                              ; preds = %174
+  br label %176
+
+176:                                              ; preds = %175
+  store ptr null, ptr %22, align 8
+  br label %177
+
+177:                                              ; preds = %176
+  %178 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 0
+  %179 = getelementptr inbounds [256 x i8], ptr %178, i64 0, i64 0
+  %180 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
   %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 -2, %181
-  br i1 %182, label %183, label %185
+  %182 = call i32 @opal_pmix_convert_jobid(ptr noundef %179, i32 noundef %181)
+  br label %183
 
-183:                                              ; preds = %179
-  %184 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 1
-  store i32 -2, ptr %184, align 4
-  br label %196
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp eq i32 -2, %185
+  br i1 %186, label %187, label %189
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp eq i32 -1, %187
-  br i1 %188, label %189, label %191
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 1
+  store i32 -2, ptr %188, align 4
+  br label %200
 
-189:                                              ; preds = %185
-  %190 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 1
-  store i32 -4, ptr %190, align 4
-  br label %195
+189:                                              ; preds = %183
+  %190 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp eq i32 -1, %191
+  br i1 %192, label %193, label %195
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %193 = load i32, ptr %192, align 4
+193:                                              ; preds = %189
   %194 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 1
-  store i32 %193, ptr %194, align 4
-  br label %195
+  store i32 -4, ptr %194, align 4
+  br label %199
 
-195:                                              ; preds = %191, %189
-  br label %196
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %197 = load i32, ptr %196, align 4
+  %198 = getelementptr inbounds %struct.pmix_proc, ptr %21, i32 0, i32 1
+  store i32 %197, ptr %198, align 4
+  br label %199
 
-196:                                              ; preds = %195, %183
-  br label %197
+199:                                              ; preds = %195, %193
+  br label %200
 
-197:                                              ; preds = %196
-  br label %198
+200:                                              ; preds = %199, %187
+  br label %201
 
-198:                                              ; preds = %197
-  %199 = call i32 @PMIx_Info_load(ptr noundef %23, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
-  %200 = call i32 @PMIx_Get(ptr noundef %21, ptr noundef @.str.5, ptr noundef %23, i64 noundef 1, ptr noundef %22)
-  store i32 %200, ptr %6, align 4
+201:                                              ; preds = %200
+  br label %202
+
+202:                                              ; preds = %201
+  %203 = call i32 @PMIx_Info_load(ptr noundef %23, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
+  %204 = call i32 @PMIx_Get(ptr noundef %21, ptr noundef @.str.5, ptr noundef %23, i64 noundef 1, ptr noundef %22)
+  store i32 %204, ptr %6, align 4
   call void @PMIx_Info_destruct(ptr noundef %23)
-  %201 = load ptr, ptr %22, align 8
-  %202 = icmp eq ptr null, %201
-  br i1 %202, label %203, label %204
-
-203:                                              ; preds = %198
-  store i32 -46, ptr %6, align 4
-  br label %219
-
-204:                                              ; preds = %198
   %205 = load ptr, ptr %22, align 8
-  %206 = getelementptr inbounds %struct.pmix_value, ptr %205, i32 0, i32 0
-  %207 = load i16, ptr %206, align 8
-  %208 = zext i16 %207 to i32
-  %209 = icmp ne i32 %208, 4
-  br i1 %209, label %210, label %211
+  %206 = icmp eq ptr null, %205
+  br i1 %206, label %207, label %208
 
-210:                                              ; preds = %204
-  store i32 -18, ptr %6, align 4
-  br label %218
-
-211:                                              ; preds = %204
-  %212 = load i32, ptr %6, align 4
-  %213 = icmp eq i32 0, %212
-  br i1 %213, label %214, label %217
-
-214:                                              ; preds = %211
-  %215 = load ptr, ptr %22, align 8
-  %216 = call i32 @PMIx_Value_unload(ptr noundef %215, ptr noundef %11, ptr noundef %24)
-  store i32 %216, ptr %6, align 4
-  br label %217
-
-217:                                              ; preds = %214, %211
-  br label %218
-
-218:                                              ; preds = %217, %210
-  br label %219
-
-219:                                              ; preds = %218, %203
-  %220 = load ptr, ptr %22, align 8
-  %221 = icmp ne ptr null, %220
-  br i1 %221, label %222, label %226
-
-222:                                              ; preds = %219
+207:                                              ; preds = %202
+  store i32 -46, ptr %6, align 4
   br label %223
 
-223:                                              ; preds = %222
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %22, align 8
+  %210 = getelementptr inbounds %struct.pmix_value, ptr %209, i32 0, i32 0
+  %211 = load i16, ptr %210, align 8
+  %212 = zext i16 %211 to i32
+  %213 = icmp ne i32 %212, 4
+  br i1 %213, label %214, label %215
+
+214:                                              ; preds = %208
+  store i32 -18, ptr %6, align 4
+  br label %222
+
+215:                                              ; preds = %208
+  %216 = load i32, ptr %6, align 4
+  %217 = icmp eq i32 0, %216
+  br i1 %217, label %218, label %221
+
+218:                                              ; preds = %215
+  %219 = load ptr, ptr %22, align 8
+  %220 = call i32 @PMIx_Value_unload(ptr noundef %219, ptr noundef %11, ptr noundef %24)
+  store i32 %220, ptr %6, align 4
+  br label %221
+
+221:                                              ; preds = %218, %215
+  br label %222
+
+222:                                              ; preds = %221, %214
+  br label %223
+
+223:                                              ; preds = %222, %207
   %224 = load ptr, ptr %22, align 8
-  call void @PMIx_Value_free(ptr noundef %224, i64 noundef 1)
-  store ptr null, ptr %22, align 8
-  br label %225
+  %225 = icmp ne ptr null, %224
+  br i1 %225, label %226, label %230
 
-225:                                              ; preds = %223
-  br label %226
-
-226:                                              ; preds = %225, %219
+226:                                              ; preds = %223
   br label %227
 
 227:                                              ; preds = %226
-  %228 = load i32, ptr %2, align 4
-  %229 = icmp eq i32 0, %228
-  br i1 %229, label %230, label %288
+  %228 = load ptr, ptr %22, align 8
+  call void @PMIx_Value_free(ptr noundef %228, i64 noundef 1)
+  store ptr null, ptr %22, align 8
+  br label %229
 
-230:                                              ; preds = %227
-  %231 = load i32, ptr %5, align 4
-  %232 = icmp eq i32 0, %231
-  br i1 %232, label %233, label %288
+229:                                              ; preds = %227
+  br label %230
 
-233:                                              ; preds = %230
-  %234 = load i32, ptr %6, align 4
-  %235 = icmp eq i32 0, %234
-  br i1 %235, label %236, label %288
+230:                                              ; preds = %229, %223
+  br label %231
 
-236:                                              ; preds = %233
-  %237 = load ptr, ptr %12, align 8
-  %238 = call i32 (ptr, i32, ...) @open(ptr noundef %237, i32 noundef 0)
-  store i32 %238, ptr %7, align 4
-  %239 = icmp sgt i32 0, %238
-  br i1 %239, label %240, label %243
+231:                                              ; preds = %230
+  %232 = load i32, ptr %2, align 4
+  %233 = icmp eq i32 0, %232
+  br i1 %233, label %234, label %295
 
-240:                                              ; preds = %236
+234:                                              ; preds = %231
+  %235 = load i32, ptr %5, align 4
+  %236 = icmp eq i32 0, %235
+  br i1 %236, label %237, label %295
+
+237:                                              ; preds = %234
+  %238 = load i32, ptr %6, align 4
+  %239 = icmp eq i32 0, %238
+  br i1 %239, label %240, label %295
+
+240:                                              ; preds = %237
   %241 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %241) #6
-  %242 = call ptr @opal_strerror(i32 noundef -21)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, ptr noundef %242, ptr noundef @.str.7, i32 noundef 227)
+  %242 = call i32 (ptr, i32, ...) @open(ptr noundef %241, i32 noundef 0)
+  store i32 %242, ptr %7, align 4
+  %243 = icmp sgt i32 0, %242
+  br i1 %243, label %244, label %247
+
+244:                                              ; preds = %240
+  %245 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %245) #6
+  %246 = call ptr @opal_strerror(i32 noundef -21)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, ptr noundef %246, ptr noundef @.str.7, i32 noundef 227)
   store i32 -21, ptr %1, align 4
-  br label %488
+  br label %501
 
-243:                                              ; preds = %236
-  %244 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %244) #6
-  %245 = load i32, ptr %7, align 4
-  %246 = load i64, ptr %8, align 8
-  %247 = inttoptr i64 %246 to ptr
-  %248 = load i64, ptr %10, align 8
-  %249 = call i32 @hwloc_shmem_topology_adopt(ptr noundef @opal_hwloc_topology, i32 noundef %245, i64 noundef 0, ptr noundef %247, i64 noundef %248, i64 noundef 0)
-  %250 = icmp ne i32 0, %249
-  br i1 %250, label %251, label %279
+247:                                              ; preds = %240
+  %248 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %248) #6
+  %249 = load i32, ptr %7, align 4
+  %250 = load i64, ptr %8, align 8
+  %251 = inttoptr i64 %250 to ptr
+  %252 = load i64, ptr %10, align 8
+  %253 = call i32 @hwloc_shmem_topology_adopt(ptr noundef @opal_hwloc_topology, i32 noundef %249, i64 noundef 0, ptr noundef %251, i64 noundef %252, i64 noundef 0)
+  %254 = icmp ne i32 0, %253
+  br i1 %254, label %255, label %284
 
-251:                                              ; preds = %243
-  %252 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %253 = call i32 @opal_output_get_verbosity(i32 noundef %252)
-  %254 = icmp slt i32 4, %253
-  br i1 %254, label %255, label %278
+255:                                              ; preds = %247
+  %256 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %257 = load i32, ptr %256, align 4
+  %258 = call i32 @opal_output_get_verbosity(i32 noundef %257)
+  %259 = icmp slt i32 4, %258
+  br i1 %259, label %260, label %283
 
-255:                                              ; preds = %251
-  %256 = call noalias ptr @fopen(ptr noundef @.str.8, ptr noundef @.str.9)
-  store ptr %256, ptr %25, align 8
-  %257 = load ptr, ptr %25, align 8
-  %258 = icmp ne ptr %257, null
-  br i1 %258, label %259, label %277
-
-259:                                              ; preds = %255
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.10)
-  br label %260
-
-260:                                              ; preds = %272, %259
-  %261 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 0
+260:                                              ; preds = %255
+  %261 = call noalias ptr @fopen(ptr noundef @.str.8, ptr noundef @.str.9)
+  store ptr %261, ptr %25, align 8
   %262 = load ptr, ptr %25, align 8
-  %263 = call ptr @fgets(ptr noundef %261, i32 noundef 256, ptr noundef %262)
-  %264 = icmp ne ptr %263, null
-  br i1 %264, label %265, label %274
+  %263 = icmp ne ptr %262, null
+  br i1 %263, label %264, label %282
 
-265:                                              ; preds = %260
+264:                                              ; preds = %260
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.10)
+  br label %265
+
+265:                                              ; preds = %277, %264
   %266 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 0
-  %267 = call ptr @strchr(ptr noundef %266, i32 noundef 10) #7
-  store ptr %267, ptr %27, align 8
-  %268 = load ptr, ptr %27, align 8
+  %267 = load ptr, ptr %25, align 8
+  %268 = call ptr @fgets(ptr noundef %266, i32 noundef 256, ptr noundef %267)
   %269 = icmp ne ptr %268, null
-  br i1 %269, label %270, label %272
+  br i1 %269, label %270, label %279
 
 270:                                              ; preds = %265
-  %271 = load ptr, ptr %27, align 8
-  store i8 0, ptr %271, align 1
-  br label %272
+  %271 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 0
+  %272 = call ptr @strchr(ptr noundef %271, i32 noundef 10) #7
+  store ptr %272, ptr %27, align 8
+  %273 = load ptr, ptr %27, align 8
+  %274 = icmp ne ptr %273, null
+  br i1 %274, label %275, label %277
 
-272:                                              ; preds = %270, %265
-  %273 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.11, ptr noundef %273)
-  br label %260, !llvm.loop !4
-
-274:                                              ; preds = %260
-  %275 = load ptr, ptr %25, align 8
-  %276 = call i32 @fclose(ptr noundef %275)
+275:                                              ; preds = %270
+  %276 = load ptr, ptr %27, align 8
+  store i8 0, ptr %276, align 1
   br label %277
 
-277:                                              ; preds = %274, %255
-  br label %278
+277:                                              ; preds = %275, %270
+  %278 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.11, ptr noundef %278)
+  br label %265, !llvm.loop !4
 
-278:                                              ; preds = %277, %251
-  br label %287
+279:                                              ; preds = %265
+  %280 = load ptr, ptr %25, align 8
+  %281 = call i32 @fclose(ptr noundef %280)
+  br label %282
 
-279:                                              ; preds = %243
-  br label %280
+282:                                              ; preds = %279, %260
+  br label %283
 
-280:                                              ; preds = %279
-  %281 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %282 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %281)
-  br i1 %282, label %283, label %285
-
-283:                                              ; preds = %280
-  %284 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %284, ptr noundef @.str.12)
-  br label %285
-
-285:                                              ; preds = %283, %280
-  br label %286
-
-286:                                              ; preds = %285
-  store i8 1, ptr @opal_hwloc_topo_in_shmem, align 1
-  br label %487
-
-287:                                              ; preds = %278
-  br label %288
-
-288:                                              ; preds = %287, %233, %230, %227
-  br label %289
-
-289:                                              ; preds = %288
-  %290 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %291 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %290)
-  br i1 %291, label %292, label %294
-
-292:                                              ; preds = %289
-  %293 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %293, ptr noundef @.str.13, ptr noundef @.str.7, i32 noundef 260)
+283:                                              ; preds = %282, %255
   br label %294
 
-294:                                              ; preds = %292, %289
+284:                                              ; preds = %247
+  br label %285
+
+285:                                              ; preds = %284
+  %286 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %287 = load i32, ptr %286, align 4
+  %288 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %287)
+  br i1 %288, label %289, label %292
+
+289:                                              ; preds = %285
+  %290 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %291 = load i32, ptr %290, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %291, ptr noundef @.str.12)
+  br label %292
+
+292:                                              ; preds = %289, %285
+  br label %293
+
+293:                                              ; preds = %292
+  store i8 1, ptr @opal_hwloc_topo_in_shmem, align 1
+  br label %500
+
+294:                                              ; preds = %283
   br label %295
 
-295:                                              ; preds = %294
+295:                                              ; preds = %294, %237, %234, %231
   br label %296
 
 296:                                              ; preds = %295
-  store ptr null, ptr %29, align 8
-  br label %297
+  %297 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %298 = load i32, ptr %297, align 4
+  %299 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %298)
+  br i1 %299, label %300, label %303
 
-297:                                              ; preds = %296
-  %298 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 0
-  %299 = getelementptr inbounds [256 x i8], ptr %298, i64 0, i64 0
-  %300 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  %301 = load i32, ptr %300, align 4
-  %302 = call i32 @opal_pmix_convert_jobid(ptr noundef %299, i32 noundef %301)
+300:                                              ; preds = %296
+  %301 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %302 = load i32, ptr %301, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %302, ptr noundef @.str.13, ptr noundef @.str.7, i32 noundef 260)
   br label %303
 
-303:                                              ; preds = %297
-  %304 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %305 = load i32, ptr %304, align 4
-  %306 = icmp eq i32 -2, %305
-  br i1 %306, label %307, label %309
+303:                                              ; preds = %300, %296
+  br label %304
 
-307:                                              ; preds = %303
-  %308 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
-  store i32 -2, ptr %308, align 4
-  br label %320
+304:                                              ; preds = %303
+  br label %305
 
-309:                                              ; preds = %303
-  %310 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %311 = load i32, ptr %310, align 4
-  %312 = icmp eq i32 -1, %311
-  br i1 %312, label %313, label %315
-
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
-  store i32 -4, ptr %314, align 4
-  br label %319
-
-315:                                              ; preds = %309
-  %316 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %317 = load i32, ptr %316, align 4
-  %318 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
-  store i32 %317, ptr %318, align 4
-  br label %319
-
-319:                                              ; preds = %315, %313
-  br label %320
-
-320:                                              ; preds = %319, %307
-  br label %321
-
-321:                                              ; preds = %320
-  br label %322
-
-322:                                              ; preds = %321
-  %323 = call i32 @PMIx_Info_load(ptr noundef %30, ptr noundef @.str.14, ptr noundef null, i16 noundef zeroext 1)
-  %324 = call i32 @PMIx_Get(ptr noundef %28, ptr noundef @.str.15, ptr noundef %30, i64 noundef 1, ptr noundef %29)
-  store i32 %324, ptr %2, align 4
-  call void @PMIx_Info_destruct(ptr noundef %30)
-  %325 = load ptr, ptr %29, align 8
-  %326 = icmp eq ptr null, %325
-  br i1 %326, label %327, label %328
-
-327:                                              ; preds = %322
-  store i32 -46, ptr %2, align 4
-  br label %343
-
-328:                                              ; preds = %322
-  %329 = load ptr, ptr %29, align 8
-  %330 = getelementptr inbounds %struct.pmix_value, ptr %329, i32 0, i32 0
-  %331 = load i16, ptr %330, align 8
-  %332 = zext i16 %331 to i32
-  %333 = icmp ne i32 %332, 3
-  br i1 %333, label %334, label %335
-
-334:                                              ; preds = %328
-  store i32 -18, ptr %2, align 4
-  br label %342
-
-335:                                              ; preds = %328
-  %336 = load i32, ptr %2, align 4
-  %337 = icmp eq i32 0, %336
-  br i1 %337, label %338, label %341
-
-338:                                              ; preds = %335
-  %339 = load ptr, ptr %29, align 8
-  %340 = call i32 @PMIx_Value_unload(ptr noundef %339, ptr noundef %4, ptr noundef %31)
-  store i32 %340, ptr %2, align 4
-  br label %341
-
-341:                                              ; preds = %338, %335
-  br label %342
-
-342:                                              ; preds = %341, %334
-  br label %343
-
-343:                                              ; preds = %342, %327
-  %344 = load ptr, ptr %29, align 8
-  %345 = icmp ne ptr null, %344
-  br i1 %345, label %346, label %350
-
-346:                                              ; preds = %343
-  br label %347
-
-347:                                              ; preds = %346
-  %348 = load ptr, ptr %29, align 8
-  call void @PMIx_Value_free(ptr noundef %348, i64 noundef 1)
+305:                                              ; preds = %304
   store ptr null, ptr %29, align 8
-  br label %349
+  br label %306
 
-349:                                              ; preds = %347
-  br label %350
+306:                                              ; preds = %305
+  %307 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 0
+  %308 = getelementptr inbounds [256 x i8], ptr %307, i64 0, i64 0
+  %309 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
+  %310 = load i32, ptr %309, align 4
+  %311 = call i32 @opal_pmix_convert_jobid(ptr noundef %308, i32 noundef %310)
+  br label %312
 
-350:                                              ; preds = %349, %343
+312:                                              ; preds = %306
+  %313 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %314 = load i32, ptr %313, align 4
+  %315 = icmp eq i32 -2, %314
+  br i1 %315, label %316, label %318
+
+316:                                              ; preds = %312
+  %317 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
+  store i32 -2, ptr %317, align 4
+  br label %329
+
+318:                                              ; preds = %312
+  %319 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %320 = load i32, ptr %319, align 4
+  %321 = icmp eq i32 -1, %320
+  br i1 %321, label %322, label %324
+
+322:                                              ; preds = %318
+  %323 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
+  store i32 -4, ptr %323, align 4
+  br label %328
+
+324:                                              ; preds = %318
+  %325 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %326 = load i32, ptr %325, align 4
+  %327 = getelementptr inbounds %struct.pmix_proc, ptr %28, i32 0, i32 1
+  store i32 %326, ptr %327, align 4
+  br label %328
+
+328:                                              ; preds = %324, %322
+  br label %329
+
+329:                                              ; preds = %328, %316
+  br label %330
+
+330:                                              ; preds = %329
+  br label %331
+
+331:                                              ; preds = %330
+  %332 = call i32 @PMIx_Info_load(ptr noundef %30, ptr noundef @.str.14, ptr noundef null, i16 noundef zeroext 1)
+  %333 = call i32 @PMIx_Get(ptr noundef %28, ptr noundef @.str.15, ptr noundef %30, i64 noundef 1, ptr noundef %29)
+  store i32 %333, ptr %2, align 4
+  call void @PMIx_Info_destruct(ptr noundef %30)
+  %334 = load ptr, ptr %29, align 8
+  %335 = icmp eq ptr null, %334
+  br i1 %335, label %336, label %337
+
+336:                                              ; preds = %331
+  store i32 -46, ptr %2, align 4
+  br label %352
+
+337:                                              ; preds = %331
+  %338 = load ptr, ptr %29, align 8
+  %339 = getelementptr inbounds %struct.pmix_value, ptr %338, i32 0, i32 0
+  %340 = load i16, ptr %339, align 8
+  %341 = zext i16 %340 to i32
+  %342 = icmp ne i32 %341, 3
+  br i1 %342, label %343, label %344
+
+343:                                              ; preds = %337
+  store i32 -18, ptr %2, align 4
   br label %351
 
-351:                                              ; preds = %350
-  %352 = load i32, ptr %2, align 4
-  %353 = icmp ne i32 %352, 0
-  br i1 %353, label %354, label %411
+344:                                              ; preds = %337
+  %345 = load i32, ptr %2, align 4
+  %346 = icmp eq i32 0, %345
+  br i1 %346, label %347, label %350
 
-354:                                              ; preds = %351
-  br label %355
+347:                                              ; preds = %344
+  %348 = load ptr, ptr %29, align 8
+  %349 = call i32 @PMIx_Value_unload(ptr noundef %348, ptr noundef %4, ptr noundef %31)
+  store i32 %349, ptr %2, align 4
+  br label %350
 
-355:                                              ; preds = %354
-  store ptr null, ptr %33, align 8
+350:                                              ; preds = %347, %344
+  br label %351
+
+351:                                              ; preds = %350, %343
+  br label %352
+
+352:                                              ; preds = %351, %336
+  %353 = load ptr, ptr %29, align 8
+  %354 = icmp ne ptr null, %353
+  br i1 %354, label %355, label %359
+
+355:                                              ; preds = %352
   br label %356
 
 356:                                              ; preds = %355
-  %357 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 0
-  %358 = getelementptr inbounds [256 x i8], ptr %357, i64 0, i64 0
-  %359 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
-  %360 = load i32, ptr %359, align 4
-  %361 = call i32 @opal_pmix_convert_jobid(ptr noundef %358, i32 noundef %360)
-  br label %362
+  %357 = load ptr, ptr %29, align 8
+  call void @PMIx_Value_free(ptr noundef %357, i64 noundef 1)
+  store ptr null, ptr %29, align 8
+  br label %358
 
-362:                                              ; preds = %356
-  %363 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %364 = load i32, ptr %363, align 4
-  %365 = icmp eq i32 -2, %364
-  br i1 %365, label %366, label %368
+358:                                              ; preds = %356
+  br label %359
 
-366:                                              ; preds = %362
-  %367 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
-  store i32 -2, ptr %367, align 4
-  br label %379
+359:                                              ; preds = %358, %352
+  br label %360
 
-368:                                              ; preds = %362
-  %369 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %370 = load i32, ptr %369, align 4
-  %371 = icmp eq i32 -1, %370
-  br i1 %371, label %372, label %374
+360:                                              ; preds = %359
+  %361 = load i32, ptr %2, align 4
+  %362 = icmp ne i32 %361, 0
+  br i1 %362, label %363, label %420
 
-372:                                              ; preds = %368
-  %373 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
-  store i32 -4, ptr %373, align 4
-  br label %378
+363:                                              ; preds = %360
+  br label %364
 
-374:                                              ; preds = %368
-  %375 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
-  %376 = load i32, ptr %375, align 4
-  %377 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
-  store i32 %376, ptr %377, align 4
-  br label %378
-
-378:                                              ; preds = %374, %372
-  br label %379
-
-379:                                              ; preds = %378, %366
-  br label %380
-
-380:                                              ; preds = %379
-  br label %381
-
-381:                                              ; preds = %380
-  %382 = call i32 @PMIx_Info_load(ptr noundef %34, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
-  %383 = call i32 @PMIx_Get(ptr noundef %32, ptr noundef @.str.16, ptr noundef %34, i64 noundef 1, ptr noundef %33)
-  store i32 %383, ptr %2, align 4
-  call void @PMIx_Info_destruct(ptr noundef %34)
-  %384 = load ptr, ptr %33, align 8
-  %385 = icmp eq ptr null, %384
-  br i1 %385, label %386, label %387
-
-386:                                              ; preds = %381
-  store i32 -46, ptr %2, align 4
-  br label %402
-
-387:                                              ; preds = %381
-  %388 = load ptr, ptr %33, align 8
-  %389 = getelementptr inbounds %struct.pmix_value, ptr %388, i32 0, i32 0
-  %390 = load i16, ptr %389, align 8
-  %391 = zext i16 %390 to i32
-  %392 = icmp ne i32 %391, 3
-  br i1 %392, label %393, label %394
-
-393:                                              ; preds = %387
-  store i32 -18, ptr %2, align 4
-  br label %401
-
-394:                                              ; preds = %387
-  %395 = load i32, ptr %2, align 4
-  %396 = icmp eq i32 0, %395
-  br i1 %396, label %397, label %400
-
-397:                                              ; preds = %394
-  %398 = load ptr, ptr %33, align 8
-  %399 = call i32 @PMIx_Value_unload(ptr noundef %398, ptr noundef %4, ptr noundef %35)
-  store i32 %399, ptr %2, align 4
-  br label %400
-
-400:                                              ; preds = %397, %394
-  br label %401
-
-401:                                              ; preds = %400, %393
-  br label %402
-
-402:                                              ; preds = %401, %386
-  %403 = load ptr, ptr %33, align 8
-  %404 = icmp ne ptr null, %403
-  br i1 %404, label %405, label %409
-
-405:                                              ; preds = %402
-  br label %406
-
-406:                                              ; preds = %405
-  %407 = load ptr, ptr %33, align 8
-  call void @PMIx_Value_free(ptr noundef %407, i64 noundef 1)
+364:                                              ; preds = %363
   store ptr null, ptr %33, align 8
-  br label %408
+  br label %365
 
-408:                                              ; preds = %406
-  br label %409
+365:                                              ; preds = %364
+  %366 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 0
+  %367 = getelementptr inbounds [256 x i8], ptr %366, i64 0, i64 0
+  %368 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 0
+  %369 = load i32, ptr %368, align 4
+  %370 = call i32 @opal_pmix_convert_jobid(ptr noundef %367, i32 noundef %369)
+  br label %371
 
-409:                                              ; preds = %408, %402
-  br label %410
+371:                                              ; preds = %365
+  %372 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %373 = load i32, ptr %372, align 4
+  %374 = icmp eq i32 -2, %373
+  br i1 %374, label %375, label %377
 
-410:                                              ; preds = %409
+375:                                              ; preds = %371
+  %376 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
+  store i32 -2, ptr %376, align 4
+  br label %388
+
+377:                                              ; preds = %371
+  %378 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %379 = load i32, ptr %378, align 4
+  %380 = icmp eq i32 -1, %379
+  br i1 %380, label %381, label %383
+
+381:                                              ; preds = %377
+  %382 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
+  store i32 -4, ptr %382, align 4
+  br label %387
+
+383:                                              ; preds = %377
+  %384 = getelementptr inbounds %struct.opal_process_name_t, ptr %3, i32 0, i32 1
+  %385 = load i32, ptr %384, align 4
+  %386 = getelementptr inbounds %struct.pmix_proc, ptr %32, i32 0, i32 1
+  store i32 %385, ptr %386, align 4
+  br label %387
+
+387:                                              ; preds = %383, %381
+  br label %388
+
+388:                                              ; preds = %387, %375
+  br label %389
+
+389:                                              ; preds = %388
+  br label %390
+
+390:                                              ; preds = %389
+  %391 = call i32 @PMIx_Info_load(ptr noundef %34, ptr noundef @.str.2, ptr noundef null, i16 noundef zeroext 1)
+  %392 = call i32 @PMIx_Get(ptr noundef %32, ptr noundef @.str.16, ptr noundef %34, i64 noundef 1, ptr noundef %33)
+  store i32 %392, ptr %2, align 4
+  call void @PMIx_Info_destruct(ptr noundef %34)
+  %393 = load ptr, ptr %33, align 8
+  %394 = icmp eq ptr null, %393
+  br i1 %394, label %395, label %396
+
+395:                                              ; preds = %390
+  store i32 -46, ptr %2, align 4
   br label %411
 
-411:                                              ; preds = %410, %351
-  %412 = load i32, ptr %2, align 4
-  %413 = icmp eq i32 0, %412
-  br i1 %413, label %414, label %457
+396:                                              ; preds = %390
+  %397 = load ptr, ptr %33, align 8
+  %398 = getelementptr inbounds %struct.pmix_value, ptr %397, i32 0, i32 0
+  %399 = load i16, ptr %398, align 8
+  %400 = zext i16 %399 to i32
+  %401 = icmp ne i32 %400, 3
+  br i1 %401, label %402, label %403
+
+402:                                              ; preds = %396
+  store i32 -18, ptr %2, align 4
+  br label %410
+
+403:                                              ; preds = %396
+  %404 = load i32, ptr %2, align 4
+  %405 = icmp eq i32 0, %404
+  br i1 %405, label %406, label %409
+
+406:                                              ; preds = %403
+  %407 = load ptr, ptr %33, align 8
+  %408 = call i32 @PMIx_Value_unload(ptr noundef %407, ptr noundef %4, ptr noundef %35)
+  store i32 %408, ptr %2, align 4
+  br label %409
+
+409:                                              ; preds = %406, %403
+  br label %410
+
+410:                                              ; preds = %409, %402
+  br label %411
+
+411:                                              ; preds = %410, %395
+  %412 = load ptr, ptr %33, align 8
+  %413 = icmp ne ptr null, %412
+  br i1 %413, label %414, label %418
 
 414:                                              ; preds = %411
-  %415 = load ptr, ptr %4, align 8
-  %416 = icmp ne ptr null, %415
-  br i1 %416, label %417, label %457
+  br label %415
 
-417:                                              ; preds = %414
+415:                                              ; preds = %414
+  %416 = load ptr, ptr %33, align 8
+  call void @PMIx_Value_free(ptr noundef %416, i64 noundef 1)
+  store ptr null, ptr %33, align 8
+  br label %417
+
+417:                                              ; preds = %415
   br label %418
 
-418:                                              ; preds = %417
-  %419 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %420 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %419)
-  br i1 %420, label %421, label %423
+418:                                              ; preds = %417, %411
+  br label %419
 
-421:                                              ; preds = %418
-  %422 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %422, ptr noundef @.str.17)
-  br label %423
+419:                                              ; preds = %418
+  br label %420
 
-423:                                              ; preds = %421, %418
-  br label %424
+420:                                              ; preds = %419, %360
+  %421 = load i32, ptr %2, align 4
+  %422 = icmp eq i32 0, %421
+  br i1 %422, label %423, label %468
 
-424:                                              ; preds = %423
-  %425 = call i32 @hwloc_topology_init(ptr noundef @opal_hwloc_topology)
-  %426 = icmp ne i32 0, %425
-  br i1 %426, label %427, label %429
+423:                                              ; preds = %420
+  %424 = load ptr, ptr %4, align 8
+  %425 = icmp ne ptr null, %424
+  br i1 %425, label %426, label %468
 
-427:                                              ; preds = %424
-  %428 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %428) #6
-  store i32 -1, ptr %1, align 4
-  br label %488
+426:                                              ; preds = %423
+  br label %427
 
-429:                                              ; preds = %424
-  %430 = load ptr, ptr @opal_hwloc_topology, align 8
-  %431 = load ptr, ptr %4, align 8
-  %432 = load ptr, ptr %4, align 8
-  %433 = call i64 @strlen(ptr noundef %432) #7
-  %434 = add i64 %433, 1
-  %435 = trunc i64 %434 to i32
-  %436 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %430, ptr noundef %431, i32 noundef %435)
+427:                                              ; preds = %426
+  %428 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %429 = load i32, ptr %428, align 4
+  %430 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %429)
+  br i1 %430, label %431, label %434
+
+431:                                              ; preds = %427
+  %432 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %433 = load i32, ptr %432, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %433, ptr noundef @.str.17)
+  br label %434
+
+434:                                              ; preds = %431, %427
+  br label %435
+
+435:                                              ; preds = %434
+  %436 = call i32 @hwloc_topology_init(ptr noundef @opal_hwloc_topology)
   %437 = icmp ne i32 0, %436
-  br i1 %437, label %438, label %441
+  br i1 %437, label %438, label %440
 
-438:                                              ; preds = %429
+438:                                              ; preds = %435
   %439 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %439) #6
-  %440 = load ptr, ptr @opal_hwloc_topology, align 8
-  call void @hwloc_topology_destroy(ptr noundef %440)
-  br label %458
+  store i32 -1, ptr %1, align 4
+  br label %501
 
-441:                                              ; preds = %429
-  %442 = load ptr, ptr @opal_hwloc_topology, align 8
-  %443 = call i32 @opal_hwloc_base_topology_set_flags(ptr noundef %442, i64 noundef 2, i1 noundef zeroext true)
-  %444 = icmp ne i32 0, %443
-  br i1 %444, label %445, label %448
+440:                                              ; preds = %435
+  %441 = load ptr, ptr @opal_hwloc_topology, align 8
+  %442 = load ptr, ptr %4, align 8
+  %443 = load ptr, ptr %4, align 8
+  %444 = call i64 @strlen(ptr noundef %443) #7
+  %445 = add i64 %444, 1
+  %446 = trunc i64 %445 to i32
+  %447 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %441, ptr noundef %442, i32 noundef %446)
+  %448 = icmp ne i32 0, %447
+  br i1 %448, label %449, label %452
 
-445:                                              ; preds = %441
-  %446 = load ptr, ptr @opal_hwloc_topology, align 8
-  call void @hwloc_topology_destroy(ptr noundef %446)
-  %447 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %447) #6
-  br label %458
+449:                                              ; preds = %440
+  %450 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %450) #6
+  %451 = load ptr, ptr @opal_hwloc_topology, align 8
+  call void @hwloc_topology_destroy(ptr noundef %451)
+  br label %469
 
-448:                                              ; preds = %441
-  %449 = load ptr, ptr @opal_hwloc_topology, align 8
-  %450 = call i32 @hwloc_topology_load(ptr noundef %449)
-  %451 = icmp ne i32 0, %450
-  br i1 %451, label %452, label %455
-
-452:                                              ; preds = %448
+452:                                              ; preds = %440
   %453 = load ptr, ptr @opal_hwloc_topology, align 8
-  call void @hwloc_topology_destroy(ptr noundef %453)
-  %454 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %454) #6
-  br label %458
+  %454 = call i32 @opal_hwloc_base_topology_set_flags(ptr noundef %453, i64 noundef 2, i1 noundef zeroext true)
+  %455 = icmp ne i32 0, %454
+  br i1 %455, label %456, label %459
 
-455:                                              ; preds = %448
-  %456 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %456) #6
-  br label %486
+456:                                              ; preds = %452
+  %457 = load ptr, ptr @opal_hwloc_topology, align 8
+  call void @hwloc_topology_destroy(ptr noundef %457)
+  %458 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %458) #6
+  br label %469
 
-457:                                              ; preds = %414, %411
-  br label %458
+459:                                              ; preds = %452
+  %460 = load ptr, ptr @opal_hwloc_topology, align 8
+  %461 = call i32 @hwloc_topology_load(ptr noundef %460)
+  %462 = icmp ne i32 0, %461
+  br i1 %462, label %463, label %466
 
-458:                                              ; preds = %457, %452, %445, %438
-  br label %459
+463:                                              ; preds = %459
+  %464 = load ptr, ptr @opal_hwloc_topology, align 8
+  call void @hwloc_topology_destroy(ptr noundef %464)
+  %465 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %465) #6
+  br label %469
 
-459:                                              ; preds = %458
-  %460 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  %461 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %460)
-  br i1 %461, label %462, label %464
+466:                                              ; preds = %459
+  %467 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %467) #6
+  br label %499
 
-462:                                              ; preds = %459
-  %463 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %463, ptr noundef @.str.18)
-  br label %464
+468:                                              ; preds = %423, %420
+  br label %469
 
-464:                                              ; preds = %462, %459
-  br label %465
+469:                                              ; preds = %468, %463, %456, %449
+  br label %470
 
-465:                                              ; preds = %464
-  %466 = call i32 @hwloc_topology_init(ptr noundef @opal_hwloc_topology)
-  %467 = icmp ne i32 0, %466
-  br i1 %467, label %476, label %468
+470:                                              ; preds = %469
+  %471 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %472 = load i32, ptr %471, align 4
+  %473 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %472)
+  br i1 %473, label %474, label %477
 
-468:                                              ; preds = %465
-  %469 = load ptr, ptr @opal_hwloc_topology, align 8
-  %470 = call i32 @opal_hwloc_base_topology_set_flags(ptr noundef %469, i64 noundef 0, i1 noundef zeroext true)
-  %471 = icmp ne i32 0, %470
-  br i1 %471, label %476, label %472
+474:                                              ; preds = %470
+  %475 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_hwloc_base_framework, i32 0, i32 11
+  %476 = load i32, ptr %475, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %476, ptr noundef @.str.18)
+  br label %477
 
-472:                                              ; preds = %468
-  %473 = load ptr, ptr @opal_hwloc_topology, align 8
-  %474 = call i32 @hwloc_topology_load(ptr noundef %473)
-  %475 = icmp ne i32 0, %474
-  br i1 %475, label %476, label %478
+477:                                              ; preds = %474, %470
+  br label %478
 
-476:                                              ; preds = %472, %468, %465
-  %477 = call ptr @opal_strerror(i32 noundef -8)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, ptr noundef %477, ptr noundef @.str.7, i32 noundef 311)
+478:                                              ; preds = %477
+  %479 = call i32 @hwloc_topology_init(ptr noundef @opal_hwloc_topology)
+  %480 = icmp ne i32 0, %479
+  br i1 %480, label %489, label %481
+
+481:                                              ; preds = %478
+  %482 = load ptr, ptr @opal_hwloc_topology, align 8
+  %483 = call i32 @opal_hwloc_base_topology_set_flags(ptr noundef %482, i64 noundef 0, i1 noundef zeroext true)
+  %484 = icmp ne i32 0, %483
+  br i1 %484, label %489, label %485
+
+485:                                              ; preds = %481
+  %486 = load ptr, ptr @opal_hwloc_topology, align 8
+  %487 = call i32 @hwloc_topology_load(ptr noundef %486)
+  %488 = icmp ne i32 0, %487
+  br i1 %488, label %489, label %491
+
+489:                                              ; preds = %485, %481, %478
+  %490 = call ptr @opal_strerror(i32 noundef -8)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, ptr noundef %490, ptr noundef @.str.7, i32 noundef 311)
   store i32 -8, ptr %1, align 4
-  br label %488
+  br label %501
 
-478:                                              ; preds = %472
-  %479 = load ptr, ptr @opal_hwloc_topology, align 8
-  %480 = call i32 @opal_hwloc_base_filter_cpus(ptr noundef %479)
-  store i32 %480, ptr %2, align 4
-  %481 = icmp ne i32 0, %480
-  br i1 %481, label %482, label %485
+491:                                              ; preds = %485
+  %492 = load ptr, ptr @opal_hwloc_topology, align 8
+  %493 = call i32 @opal_hwloc_base_filter_cpus(ptr noundef %492)
+  store i32 %493, ptr %2, align 4
+  %494 = icmp ne i32 0, %493
+  br i1 %494, label %495, label %498
 
-482:                                              ; preds = %478
-  %483 = load ptr, ptr @opal_hwloc_topology, align 8
-  call void @hwloc_topology_destroy(ptr noundef %483)
-  %484 = load i32, ptr %2, align 4
-  store i32 %484, ptr %1, align 4
-  br label %488
+495:                                              ; preds = %491
+  %496 = load ptr, ptr @opal_hwloc_topology, align 8
+  call void @hwloc_topology_destroy(ptr noundef %496)
+  %497 = load i32, ptr %2, align 4
+  store i32 %497, ptr %1, align 4
+  br label %501
 
-485:                                              ; preds = %478
-  br label %486
+498:                                              ; preds = %491
+  br label %499
 
-486:                                              ; preds = %485, %455
-  br label %487
+499:                                              ; preds = %498, %466
+  br label %500
 
-487:                                              ; preds = %486, %286
+500:                                              ; preds = %499, %293
   call void @fill_cache_line_size()
   call void @opal_hwloc_base_set_local_cpuset()
   store i32 0, ptr %1, align 4
-  br label %488
+  br label %501
 
-488:                                              ; preds = %487, %482, %476, %427, %240, %45
-  %489 = load i32, ptr %1, align 4
-  ret i32 %489
+501:                                              ; preds = %500, %495, %489, %438, %244, %47
+  %502 = load i32, ptr %1, align 4
+  ret i32 %502
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) #1

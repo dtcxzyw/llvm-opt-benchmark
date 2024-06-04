@@ -25,7 +25,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %5, align 8
@@ -54,11 +54,11 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef %0, ptr noundef %1, p
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %5, align 8
   store ptr %30, ptr %4, align 8
-  br label %103
+  br label %104
 
 31:                                               ; preds = %16, %16, %16
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
 32:                                               ; preds = %16
   br label %33
@@ -79,7 +79,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef %0, ptr noundef %1, p
   store i32 %44, ptr %11, align 4
   br label %45
 
-45:                                               ; preds = %74, %33
+45:                                               ; preds = %75, %33
   %46 = load i32, ptr %11, align 4
   %47 = icmp ne i32 %46, 0
   br i1 %47, label %48, label %52
@@ -92,7 +92,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef %0, ptr noundef %1, p
 
 52:                                               ; preds = %48, %45
   %53 = phi i1 [ false, %45 ], [ %51, %48 ]
-  br i1 %53, label %54, label %77
+  br i1 %53, label %54, label %78
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %5, align 8
@@ -110,78 +110,79 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef %0, ptr noundef %1, p
 
 64:                                               ; preds = %54
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
 65:                                               ; preds = %54
   %66 = load i32, ptr %10, align 4
   %67 = shl i32 %66, 6
   %68 = load i8, ptr %8, align 1
   %69 = zext i8 %68 to i32
-  %70 = load i8, ptr getelementptr inbounds ([7 x i8], ptr @cm_utf8_mask, i64 0, i64 1), align 1
-  %71 = zext i8 %70 to i32
-  %72 = and i32 %69, %71
-  %73 = or i32 %67, %72
-  store i32 %73, ptr %10, align 4
-  br label %74
+  %70 = getelementptr inbounds [7 x i8], ptr @cm_utf8_mask, i64 0, i64 1
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = and i32 %69, %72
+  %74 = or i32 %67, %73
+  store i32 %74, ptr %10, align 4
+  br label %75
 
-74:                                               ; preds = %65
-  %75 = load i32, ptr %11, align 4
-  %76 = add nsw i32 %75, -1
-  store i32 %76, ptr %11, align 4
+75:                                               ; preds = %65
+  %76 = load i32, ptr %11, align 4
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %11, align 4
   br label %45, !llvm.loop !5
 
-77:                                               ; preds = %52
-  %78 = load i32, ptr %11, align 4
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %87, label %80
+78:                                               ; preds = %52
+  %79 = load i32, ptr %11, align 4
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %88, label %81
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %10, align 4
-  %82 = load i8, ptr %9, align 1
-  %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp ult i32 %81, %85
-  br i1 %86, label %87, label %88
+81:                                               ; preds = %78
+  %82 = load i32, ptr %10, align 4
+  %83 = load i8, ptr %9, align 1
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp ult i32 %82, %86
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %80, %77
+88:                                               ; preds = %81, %78
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
-88:                                               ; preds = %80
-  %89 = load i32, ptr %10, align 4
-  %90 = icmp ule i32 55296, %89
-  br i1 %90, label %91, label %95
+89:                                               ; preds = %81
+  %90 = load i32, ptr %10, align 4
+  %91 = icmp ule i32 55296, %90
+  br i1 %91, label %92, label %96
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %10, align 4
-  %93 = icmp ule i32 %92, 57343
-  br i1 %93, label %94, label %95
+92:                                               ; preds = %89
+  %93 = load i32, ptr %10, align 4
+  %94 = icmp ule i32 %93, 57343
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
-95:                                               ; preds = %91, %88
-  %96 = load i32, ptr %10, align 4
-  %97 = icmp ult i32 1114111, %96
-  br i1 %97, label %98, label %99
+96:                                               ; preds = %92, %89
+  %97 = load i32, ptr %10, align 4
+  %98 = icmp ult i32 1114111, %97
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   store ptr null, ptr %4, align 8
-  br label %103
+  br label %104
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %10, align 4
-  %101 = load ptr, ptr %7, align 8
-  store i32 %100, ptr %101, align 4
-  %102 = load ptr, ptr %5, align 8
-  store ptr %102, ptr %4, align 8
-  br label %103
+100:                                              ; preds = %96
+  %101 = load i32, ptr %10, align 4
+  %102 = load ptr, ptr %7, align 8
+  store i32 %101, ptr %102, align 4
+  %103 = load ptr, ptr %5, align 8
+  store ptr %103, ptr %4, align 8
+  br label %104
 
-103:                                              ; preds = %99, %98, %94, %87, %64, %31, %26, %15
-  %104 = load ptr, ptr %4, align 8
-  ret ptr %104
+104:                                              ; preds = %100, %99, %95, %88, %64, %31, %26, %15
+  %105 = load ptr, ptr %4, align 8
+  ret ptr %105
 }
 
 ; Function Attrs: nounwind uwtable

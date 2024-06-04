@@ -91,92 +91,94 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @bsg_register_queue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(864) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 864) #11
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %51, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(864) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 864) #11
+  %8 = icmp eq ptr %7, null
+  %9 = inttoptr i64 -12 to ptr
+  br i1 %8, label %53, label %10
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 840
-  store i32 64, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 848
-  store i32 2147483647, ptr %10, align 8
-  store ptr %0, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 856
-  store ptr %3, ptr %11, align 8
-  %12 = tail call i32 @ida_alloc_range(ptr noundef nonnull @bsg_minor_ida, i32 noundef 0, i32 noundef 1048575, i32 noundef 3264) #10
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %20
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %7, i64 840
+  store i32 64, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 848
+  store i32 2147483647, ptr %12, align 8
+  store ptr %0, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 856
+  store ptr %3, ptr %13, align 8
+  %14 = tail call i32 @ida_alloc_range(ptr noundef nonnull @bsg_minor_ida, i32 noundef 0, i32 noundef 1048575, i32 noundef 3264) #10
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %22
 
-14:                                               ; preds = %8
-  %15 = icmp eq i32 %12, -28
-  br i1 %15, label %16, label %17
+16:                                               ; preds = %10
+  %17 = icmp eq i32 %14, -28
+  br i1 %17, label %18, label %19
 
-16:                                               ; preds = %14
+18:                                               ; preds = %16
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %1, ptr noundef nonnull @.str.1) #12
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %14
-  tail call void @kfree(ptr noundef nonnull %6) #10
-  %18 = sext i32 %12 to i64
-  %19 = inttoptr i64 %18 to ptr
-  br label %51
+19:                                               ; preds = %18, %16
+  tail call void @kfree(ptr noundef nonnull %7) #10
+  %20 = sext i32 %14 to i64
+  %21 = inttoptr i64 %20 to ptr
+  br label %53
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr @bsg_major, align 4
-  %22 = shl nuw i32 %21, 20
-  %23 = or i32 %22, %12
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 652
-  store i32 %23, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 680
-  store ptr @bsg_class, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 72
-  store ptr %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 696
-  store ptr @bsg_device_release, ptr %28, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %24, ptr noundef nonnull @.str.2, ptr noundef %2) #10
-  tail call void @device_initialize(ptr noundef %24) #10
-  %30 = getelementptr inbounds i8, ptr %6, i64 736
-  tail call void @cdev_init(ptr noundef %30, ptr noundef nonnull @bsg_fops) #10
-  %31 = getelementptr inbounds i8, ptr %6, i64 800
-  store ptr null, ptr %31, align 8
-  %32 = tail call i32 @cdev_device_add(ptr noundef %30, ptr noundef %24) #10
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %47
+22:                                               ; preds = %10
+  %23 = load i32, ptr @bsg_major, align 4
+  %24 = shl nuw i32 %23, 20
+  %25 = or i32 %24, %14
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 652
+  store i32 %25, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %7, i64 680
+  store ptr @bsg_class, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr %1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 696
+  store ptr @bsg_device_release, ptr %30, align 8
+  %31 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %26, ptr noundef nonnull @.str.2, ptr noundef %2) #10
+  tail call void @device_initialize(ptr noundef %26) #10
+  %32 = getelementptr inbounds i8, ptr %7, i64 736
+  tail call void @cdev_init(ptr noundef %32, ptr noundef nonnull @bsg_fops) #10
+  %33 = getelementptr inbounds i8, ptr %7, i64 800
+  store ptr null, ptr %33, align 8
+  %34 = tail call i32 @cdev_device_add(ptr noundef %32, ptr noundef %26) #10
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %49
 
-34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %0, i64 104
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %51, label %38
+36:                                               ; preds = %22
+  %37 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %53, label %40
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 456
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %51, label %42
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %38, i64 456
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %53, label %44
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %36, i64 408
-  %44 = tail call i32 @sysfs_create_link(ptr noundef %43, ptr noundef %24, ptr noundef nonnull @.str) #10
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %51, label %46
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %38, i64 408
+  %46 = tail call i32 @sysfs_create_link(ptr noundef %45, ptr noundef %26, ptr noundef nonnull @.str) #10
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %53, label %48
 
-46:                                               ; preds = %42
-  tail call void @cdev_device_del(ptr noundef %30, ptr noundef %24) #10
-  br label %47
+48:                                               ; preds = %44
+  tail call void @cdev_device_del(ptr noundef %32, ptr noundef %26) #10
+  br label %49
 
-47:                                               ; preds = %46, %20
-  %48 = phi i32 [ %32, %20 ], [ %44, %46 ]
-  tail call void @put_device(ptr noundef %24) #10
-  %49 = sext i32 %48 to i64
-  %50 = inttoptr i64 %49 to ptr
-  br label %51
+49:                                               ; preds = %48, %22
+  %50 = phi i32 [ %34, %22 ], [ %46, %48 ]
+  tail call void @put_device(ptr noundef %26) #10
+  %51 = sext i32 %50 to i64
+  %52 = inttoptr i64 %51 to ptr
+  br label %53
 
-51:                                               ; preds = %47, %42, %38, %34, %17, %4
-  %52 = phi ptr [ %19, %17 ], [ %50, %47 ], [ %6, %42 ], [ %6, %38 ], [ %6, %34 ], [ inttoptr (i64 -12 to ptr), %4 ]
-  ret ptr %52
+53:                                               ; preds = %49, %44, %40, %36, %19, %4
+  %54 = phi ptr [ %21, %19 ], [ %52, %49 ], [ %7, %44 ], [ %7, %40 ], [ %7, %36 ], [ %9, %4 ]
+  ret ptr %54
 }
 
 ; Function Attrs: cold null_pointer_is_valid

@@ -348,77 +348,85 @@ entry:
   store i32 %stamp, ptr %stamp.addr, align 4
   store i32 0, ptr %features, align 4
   call void @Curl_ssl_version(ptr noundef @curl_version_info.ssl_buffer, i64 noundef 80)
-  store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 5), align 8
+  %0 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 5
+  store ptr @curl_version_info.ssl_buffer, ptr %0, align 8
   %call = call ptr @zlibVersion()
-  store ptr %call, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 7), align 8
+  %1 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 7
+  store ptr %call, ptr %1, align 8
   %call1 = call ptr @idn2_check_version(ptr noundef @.str.4) #5
-  store ptr %call1, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 11), align 8
+  %2 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 11
+  store ptr %call1, ptr %2, align 8
   %call2 = call i32 @BrotliDecoderVersion()
-  store i32 %call2, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 14), align 8
+  %3 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 14
+  store i32 %call2, ptr %3, align 8
   call void @brotli_version(ptr noundef @curl_version_info.brotli_buffer, i64 noundef 80)
-  store ptr @curl_version_info.brotli_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 15), align 8
+  %4 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 15
+  store ptr @curl_version_info.brotli_buffer, ptr %4, align 8
   %call3 = call i32 @ZSTD_versionNumber()
-  store i32 %call3, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 21), align 8
+  %5 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 21
+  store i32 %call3, ptr %5, align 8
   call void @zstd_version(ptr noundef @curl_version_info.zstd_buffer, i64 noundef 80)
-  store ptr @curl_version_info.zstd_buffer, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 22), align 8
+  %6 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 22
+  store ptr @curl_version_info.zstd_buffer, ptr %6, align 8
   store i64 0, ptr %n, align 8
   store ptr @features_table, ptr %p, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %p, align 8
-  %name = getelementptr inbounds %struct.feat, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  %tobool = icmp ne ptr %1, null
+  %7 = load ptr, ptr %p, align 8
+  %name = getelementptr inbounds %struct.feat, ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %name, align 8
+  %tobool = icmp ne ptr %8, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %p, align 8
-  %present = getelementptr inbounds %struct.feat, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %present, align 8
-  %tobool4 = icmp ne ptr %3, null
+  %9 = load ptr, ptr %p, align 8
+  %present = getelementptr inbounds %struct.feat, ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %present, align 8
+  %tobool4 = icmp ne ptr %10, null
   br i1 %tobool4, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.body
-  %4 = load ptr, ptr %p, align 8
-  %present5 = getelementptr inbounds %struct.feat, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %present5, align 8
-  %call6 = call i32 %5(ptr noundef @version_info)
+  %11 = load ptr, ptr %p, align 8
+  %present5 = getelementptr inbounds %struct.feat, ptr %11, i32 0, i32 1
+  %12 = load ptr, ptr %present5, align 8
+  %call6 = call i32 %12(ptr noundef @version_info)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body
-  %6 = load ptr, ptr %p, align 8
-  %bitmask = getelementptr inbounds %struct.feat, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %bitmask, align 8
-  %8 = load i32, ptr %features, align 4
-  %or = or i32 %8, %7
+  %13 = load ptr, ptr %p, align 8
+  %bitmask = getelementptr inbounds %struct.feat, ptr %13, i32 0, i32 2
+  %14 = load i32, ptr %bitmask, align 8
+  %15 = load i32, ptr %features, align 4
+  %or = or i32 %15, %14
   store i32 %or, ptr %features, align 4
-  %9 = load ptr, ptr %p, align 8
-  %name8 = getelementptr inbounds %struct.feat, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %name8, align 8
-  %11 = load i64, ptr %n, align 8
-  %inc = add i64 %11, 1
+  %16 = load ptr, ptr %p, align 8
+  %name8 = getelementptr inbounds %struct.feat, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %name8, align 8
+  %18 = load i64, ptr %n, align 8
+  %inc = add i64 %18, 1
   store i64 %inc, ptr %n, align 8
-  %arrayidx = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %11
-  store ptr %10, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %18
+  store ptr %17, ptr %arrayidx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %12 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds %struct.feat, ptr %12, i32 1
+  %19 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds %struct.feat, ptr %19, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %13 = load i64, ptr %n, align 8
-  %arrayidx9 = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %13
+  %20 = load i64, ptr %n, align 8
+  %arrayidx9 = getelementptr inbounds [17 x ptr], ptr @feature_names, i64 0, i64 %20
   store ptr null, ptr %arrayidx9, align 8
-  %14 = load i32, ptr %features, align 4
-  store i32 %14, ptr getelementptr inbounds (%struct.curl_version_info_data, ptr @version_info, i32 0, i32 4), align 8
+  %21 = load i32, ptr %features, align 4
+  %22 = getelementptr inbounds %struct.curl_version_info_data, ptr @version_info, i32 0, i32 4
+  store i32 %21, ptr %22, align 8
   ret ptr @version_info
 }
 

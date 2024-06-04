@@ -401,14 +401,14 @@ entry:
   store ptr %pFormat, ptr %pFormat.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call, i64 noundef 0) #3
   %0 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, ptr noundef %arraydecay2)
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   ret ptr %this1
 }
 
@@ -1099,8 +1099,10 @@ entry:
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef @.str.11)
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef @.str.21)
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef @.str.11)
-  %call1 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i32 0, i32 1)) #3
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i32 0, i32 2)) #3
+  %0 = getelementptr inbounds %"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i32 0, i32 1
+  %call1 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %1 = getelementptr inbounds %"struct.Benchmark::Environment", ptr @_ZN9Benchmark12gEnvironmentE, i32 0, i32 2
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef @.str.22, ptr noundef @.str.23, ptr noundef %call1, ptr noundef %call2, ptr noundef @.str.24, ptr noundef @.str.25)
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef @.str.26)
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeLast)
@@ -1129,44 +1131,44 @@ for.body:                                         ; preds = %invoke.cont7
 
 invoke.cont9:                                     ; preds = %for.body
   store ptr %call10, ptr %result, align 8
-  %0 = load ptr, ptr %result, align 8
-  %msName = getelementptr inbounds %"struct.Benchmark::Result", ptr %0, i32 0, i32 0
+  %2 = load ptr, ptr %result, align 8
+  %msName = getelementptr inbounds %"struct.Benchmark::Result", ptr %2, i32 0, i32 0
   %call11 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEcm(ptr noundef nonnull align 8 dereferenceable(24) %msName, i8 noundef signext 47, i64 noundef 0) #3
   store i64 %call11, ptr %n, align 8
-  %1 = load i64, ptr %n, align 8
-  %cmp = icmp eq i64 %1, -1
+  %3 = load i64, ptr %n, align 8
+  %cmp = icmp eq i64 %3, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont9
-  %2 = load ptr, ptr %result, align 8
-  %msName12 = getelementptr inbounds %"struct.Benchmark::Result", ptr %2, i32 0, i32 0
+  %4 = load ptr, ptr %result, align 8
+  %msName12 = getelementptr inbounds %"struct.Benchmark::Result", ptr %4, i32 0, i32 0
   %call13 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %msName12) #3
   store i64 %call13, ptr %n, align 8
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup70
 
 lpad6:                                            ; preds = %for.end, %for.inc, %if.end30, %if.end27, %if.then25, %if.then19, %invoke.cont15, %if.end, %for.body, %for.cond
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont9
-  %9 = load ptr, ptr %result, align 8
-  %msName14 = getelementptr inbounds %"struct.Benchmark::Result", ptr %9, i32 0, i32 0
-  %10 = load i64, ptr %n, align 8
-  %call16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6assignERKS2_mm(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeTemp, ptr noundef nonnull align 8 dereferenceable(24) %msName14, i64 noundef 0, i64 noundef %10)
+  %11 = load ptr, ptr %result, align 8
+  %msName14 = getelementptr inbounds %"struct.Benchmark::Result", ptr %11, i32 0, i32 0
+  %12 = load i64, ptr %n, align 8
+  %call16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6assignERKS2_mm(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeTemp, ptr noundef nonnull align 8 dereferenceable(24) %msName14, i64 noundef 0, i64 noundef %12)
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %if.end
@@ -1201,8 +1203,8 @@ invoke.cont28:                                    ; preds = %if.end27
   br label %if.end30
 
 if.end30:                                         ; preds = %invoke.cont28, %invoke.cont17
-  %11 = load ptr, ptr %result, align 8
-  invoke void @_ZN9Benchmark15PrintResultLineERKNS_6ResultE(ptr noundef nonnull align 8 dereferenceable(88) %11)
+  %13 = load ptr, ptr %result, align 8
+  invoke void @_ZN9Benchmark15PrintResultLineERKNS_6ResultE(ptr noundef nonnull align 8 dereferenceable(88) %13)
           to label %invoke.cont31 unwind label %lpad6
 
 invoke.cont31:                                    ; preds = %if.end30
@@ -1246,19 +1248,19 @@ for.body47:                                       ; preds = %invoke.cont45
 
 invoke.cont48:                                    ; preds = %for.body47
   store ptr %call49, ptr %resultTemp, align 8
-  %12 = load ptr, ptr %resultTemp, align 8
-  %mTime1 = getelementptr inbounds %"struct.Benchmark::Result", ptr %12, i32 0, i32 2
-  %13 = load i64, ptr %mTime1, align 8
+  %14 = load ptr, ptr %resultTemp, align 8
+  %mTime1 = getelementptr inbounds %"struct.Benchmark::Result", ptr %14, i32 0, i32 2
+  %15 = load i64, ptr %mTime1, align 8
   %mTime150 = getelementptr inbounds %"struct.Benchmark::Result", ptr %resultSum, i32 0, i32 2
-  %14 = load i64, ptr %mTime150, align 8
-  %add = add nsw i64 %14, %13
+  %16 = load i64, ptr %mTime150, align 8
+  %add = add nsw i64 %16, %15
   store i64 %add, ptr %mTime150, align 8
-  %15 = load ptr, ptr %resultTemp, align 8
-  %mTime2 = getelementptr inbounds %"struct.Benchmark::Result", ptr %15, i32 0, i32 4
-  %16 = load i64, ptr %mTime2, align 8
+  %17 = load ptr, ptr %resultTemp, align 8
+  %mTime2 = getelementptr inbounds %"struct.Benchmark::Result", ptr %17, i32 0, i32 4
+  %18 = load i64, ptr %mTime2, align 8
   %mTime251 = getelementptr inbounds %"struct.Benchmark::Result", ptr %resultSum, i32 0, i32 4
-  %17 = load i64, ptr %mTime251, align 8
-  %add52 = add nsw i64 %17, %16
+  %19 = load i64, ptr %mTime251, align 8
+  %add52 = add nsw i64 %19, %18
   store i64 %add52, ptr %mTime251, align 8
   br label %for.inc53
 
@@ -1270,27 +1272,27 @@ invoke.cont54:                                    ; preds = %for.inc53
   br label %for.cond41, !llvm.loop !7
 
 lpad36:                                           ; preds = %invoke.cont68, %invoke.cont67, %invoke.cont66, %invoke.cont65, %invoke.cont64, %invoke.cont63, %invoke.cont61, %invoke.cont58, %for.end56, %for.inc53, %for.body47, %for.cond41, %invoke.cont34
-  %18 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN9Benchmark6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %resultSum) #3
   br label %ehcleanup
 
 for.end56:                                        ; preds = %invoke.cont45
   %mTime157 = getelementptr inbounds %"struct.Benchmark::Result", ptr %resultSum, i32 0, i32 2
-  %21 = load i64, ptr %mTime157, align 8
-  %call59 = invoke noundef i64 @_ZN9BenchmarkL21ConvertStopwatchUnitsEN2EA4StdC9Stopwatch5UnitsElS3_(i32 noundef 1, i64 noundef %21, i32 noundef 2)
+  %23 = load i64, ptr %mTime157, align 8
+  %call59 = invoke noundef i64 @_ZN9BenchmarkL21ConvertStopwatchUnitsEN2EA4StdC9Stopwatch5UnitsElS3_(i32 noundef 1, i64 noundef %23, i32 noundef 2)
           to label %invoke.cont58 unwind label %lpad36
 
 invoke.cont58:                                    ; preds = %for.end56
   %mTime1NS = getelementptr inbounds %"struct.Benchmark::Result", ptr %resultSum, i32 0, i32 3
   store i64 %call59, ptr %mTime1NS, align 8
   %mTime260 = getelementptr inbounds %"struct.Benchmark::Result", ptr %resultSum, i32 0, i32 4
-  %22 = load i64, ptr %mTime260, align 8
-  %call62 = invoke noundef i64 @_ZN9BenchmarkL21ConvertStopwatchUnitsEN2EA4StdC9Stopwatch5UnitsElS3_(i32 noundef 1, i64 noundef %22, i32 noundef 2)
+  %24 = load i64, ptr %mTime260, align 8
+  %call62 = invoke noundef i64 @_ZN9BenchmarkL21ConvertStopwatchUnitsEN2EA4StdC9Stopwatch5UnitsElS3_(i32 noundef 1, i64 noundef %24, i32 noundef 2)
           to label %invoke.cont61 unwind label %lpad36
 
 invoke.cont61:                                    ; preds = %invoke.cont58
@@ -2526,9 +2528,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pFormat, ptr noundef %arguments) #0 comdat align 2 {
 entry:
@@ -2553,7 +2552,7 @@ entry:
   store i64 %call4, ptr %nInitialRemainingCapacity, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
   %0 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   %call6 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call5) #3
   %1 = load i64, ptr %nInitialRemainingCapacity, align 8
@@ -2571,10 +2570,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %6)
+  call void @llvm.va_end.p0(ptr %6)
   %7 = load ptr, ptr %arguments.addr, align 8
   %arraydecay9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %7, ptr %arraydecay9)
+  call void @llvm.va_copy.p0(ptr %7, ptr %arraydecay9)
   %8 = load i64, ptr %nInitialSize, align 8
   %9 = load i32, ptr %nReturnValue, align 4
   %conv10 = sext i32 %9 to i64
@@ -2621,10 +2620,10 @@ land.end:                                         ; preds = %land.rhs, %for.cond
 
 for.body:                                         ; preds = %land.end
   %19 = load ptr, ptr %arguments.addr, align 8
-  call void @llvm.va_end(ptr %19)
+  call void @llvm.va_end.p0(ptr %19)
   %20 = load ptr, ptr %arguments.addr, align 8
   %arraydecay22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %20, ptr %arraydecay22)
+  call void @llvm.va_copy.p0(ptr %20, ptr %arraydecay22)
   %21 = load i64, ptr %n, align 8
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %21)
   %22 = load i64, ptr %n, align 8
@@ -2695,12 +2694,9 @@ if.then40:                                        ; preds = %if.end38
 
 if.end44:                                         ; preds = %if.then40, %if.end38
   %arraydecay45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay45)
+  call void @llvm.va_end.p0(ptr %arraydecay45)
   ret ptr %this1
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout20GetRemainingCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #2 comdat align 2 {
@@ -2715,9 +2711,6 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   ret i64 %sub.ptr.sub
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN5eastl9VsnprintfEPcmPKcP13__va_list_tag(ptr noalias noundef %pDestination, i64 noundef %n, ptr noalias noundef %pFormat, ptr noundef %arguments) #0 comdat {
@@ -3099,7 +3092,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
@@ -4239,7 +4232,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #11
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #10
 
 declare void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
@@ -4412,6 +4405,15 @@ entry:
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4421,9 +4423,9 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { builtin nounwind }
 attributes #14 = { nounwind willreturn memory(read) }

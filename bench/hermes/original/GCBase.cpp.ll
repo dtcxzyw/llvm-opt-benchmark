@@ -2134,30 +2134,31 @@ entry:
   store ptr %crashMgr, ptr %crashMgr.indirect_addr, align 8
   store i32 %kind, ptr %kind.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %numFinalizedObjects_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 1
   store i32 0, ptr %numFinalizedObjects_, align 8
   %totalAllocatedBytes_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 3
   store i64 0, ptr %totalAllocatedBytes_, align 8
   %gcCallbacks_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %gcCallbacks.addr, align 8
-  store ptr %0, ptr %gcCallbacks_, align 8
+  %1 = load ptr, ptr %gcCallbacks.addr, align 8
+  store ptr %1, ptr %gcCallbacks_, align 8
   %pointerBase_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %pointerBase.addr, align 8
-  store ptr %1, ptr %pointerBase_, align 8
+  %2 = load ptr, ptr %pointerBase.addr, align 8
+  store ptr %2, ptr %pointerBase_, align 8
   %crashMgr_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 8
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %crashMgr_, ptr noundef nonnull align 8 dereferenceable(16) %crashMgr) #14
   %heapKind_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 9
-  %2 = load i32, ptr %kind.addr, align 4
-  store i32 %2, ptr %heapKind_, align 8
+  %3 = load i32, ptr %kind.addr, align 4
+  store i32 %3, ptr %heapKind_, align 8
   %analyticsCallback_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 11
-  %3 = load ptr, ptr %gcConfig.addr, align 8
-  call void @_ZNK6hermes2vm8GCConfig20getAnalyticsCallbackEv(ptr sret(%"class.std::function") align 8 %analyticsCallback_, ptr noundef nonnull align 8 dereferenceable(200) %3)
+  %4 = load ptr, ptr %gcConfig.addr, align 8
+  call void @_ZNK6hermes2vm8GCConfig20getAnalyticsCallbackEv(ptr sret(%"class.std::function") align 8 %analyticsCallback_, ptr noundef nonnull align 8 dereferenceable(200) %4)
   %analyticsEvents_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 12
   call void @_ZNSt6vectorIN6hermes2vm16GCAnalyticsEventESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %analyticsEvents_) #14
   %recordGcStats_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 13
-  %4 = load ptr, ptr %gcConfig.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig20getShouldRecordStatsEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
+  %5 = load ptr, ptr %gcConfig.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig20getShouldRecordStatsEv(ptr noundef nonnull align 8 dereferenceable(200) %5)
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %recordGcStats_, align 8
   %inGC_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 14
@@ -2175,8 +2176,8 @@ entry:
   %cumStats_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 22
   call void @_ZN6hermes2vm6GCBase19CumulativeHeapStatsC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %cumStats_) #14
   %name_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 23
-  %5 = load ptr, ptr %gcConfig.addr, align 8
-  call void @_ZNK6hermes2vm8GCConfig7getNameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %name_, ptr noundef nonnull align 8 dereferenceable(200) %5)
+  %6 = load ptr, ptr %gcConfig.addr, align 8
+  call void @_ZNK6hermes2vm8GCConfig7getNameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %name_, ptr noundef nonnull align 8 dereferenceable(200) %6)
   %weakSlots_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 24
   call void @_ZNSt5dequeIN6hermes2vm11WeakRefSlotESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %weakSlots_)
   %firstFreeWeak_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 25
@@ -2186,13 +2187,13 @@ entry:
   %idTracker_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 27
   call void @_ZN6hermes2vm6GCBase9IDTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(192) %idTracker_)
   %tripwireCallback_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 29
-  %6 = load ptr, ptr %gcConfig.addr, align 8
-  call void @_ZNK6hermes2vm8GCConfig17getTripwireConfigEv(ptr sret(%"class.hermes::vm::GCTripwireConfig") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %6)
+  %7 = load ptr, ptr %gcConfig.addr, align 8
+  call void @_ZNK6hermes2vm8GCConfig17getTripwireConfigEv(ptr sret(%"class.hermes::vm::GCTripwireConfig") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %7)
   call void @_ZNK6hermes2vm16GCTripwireConfig11getCallbackEv(ptr sret(%"class.std::function.17") align 8 %tripwireCallback_, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
   call void @_ZN6hermes2vm16GCTripwireConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #14
   %tripwireLimit_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 30
-  %7 = load ptr, ptr %gcConfig.addr, align 8
-  call void @_ZNK6hermes2vm8GCConfig17getTripwireConfigEv(ptr sret(%"class.hermes::vm::GCTripwireConfig") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(200) %7)
+  %8 = load ptr, ptr %gcConfig.addr, align 8
+  call void @_ZNK6hermes2vm8GCConfig17getTripwireConfigEv(ptr sret(%"class.hermes::vm::GCTripwireConfig") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(200) %8)
   %call3 = call noundef i32 @_ZNK6hermes2vm16GCTripwireConfig8getLimitEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp2)
   call void @_ZN6hermes2vm16GCTripwireConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp2) #14
   store i32 %call3, ptr %tripwireLimit_, align 8
@@ -2202,8 +2203,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %8 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %8, 3
+  %9 = load i32, ptr %i, align 4
+  %cmp = icmp ult i32 %9, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -2211,32 +2212,32 @@ for.body:                                         ; preds = %for.cond
   %call5 = call noundef i32 @_ZNSt13random_deviceclEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp4)
   %conv = zext i32 %call5 to i64
   %pointerEncryptionKey_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 28
-  %9 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %9 to i64
+  %10 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds [3 x i64], ptr %pointerEncryptionKey_, i64 0, i64 %idxprom
   store i64 %conv, ptr %arrayidx, align 8
   call void @_ZNSt13random_deviceD2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp4) #14
   %pointerEncryptionKey_6 = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 28
-  %10 = load i32, ptr %i, align 4
-  %idxprom7 = zext i32 %10 to i64
+  %11 = load i32, ptr %i, align 4
+  %idxprom7 = zext i32 %11 to i64
   %arrayidx8 = getelementptr inbounds [3 x i64], ptr %pointerEncryptionKey_6, i64 0, i64 %idxprom7
-  %11 = load i64, ptr %arrayidx8, align 8
-  %shl = shl i64 %11, 32
+  %12 = load i64, ptr %arrayidx8, align 8
+  %shl = shl i64 %12, 32
   call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp9)
   %call10 = call noundef i32 @_ZNSt13random_deviceclEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp9)
   %conv11 = zext i32 %call10 to i64
   %or = or i64 %shl, %conv11
   %pointerEncryptionKey_12 = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 28
-  %12 = load i32, ptr %i, align 4
-  %idxprom13 = zext i32 %12 to i64
+  %13 = load i32, ptr %i, align 4
+  %idxprom13 = zext i32 %13 to i64
   %arrayidx14 = getelementptr inbounds [3 x i64], ptr %pointerEncryptionKey_12, i64 0, i64 %idxprom13
   store i64 %or, ptr %arrayidx14, align 8
   call void @_ZNSt13random_deviceD2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp9) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %13 = load i32, ptr %i, align 4
-  %inc = add i32 %13, 1
+  %14 = load i32, ptr %i, align 4
+  %inc = add i32 %14, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -2656,7 +2657,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm17GCTripwireContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase13checkTripwireEmE3Ctx, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase13checkTripwireEmE3Ctx, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8335,9 +8337,11 @@ entry:
   store ptr %pb, ptr %pb.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %HINT8_MIN = getelementptr inbounds %struct.HeapSizeDiagnosticAcceptor, ptr %this1, i32 0, i32 1
   store i64 -128, ptr %HINT8_MIN, align 8
   %HINT8_MAX = getelementptr inbounds %struct.HeapSizeDiagnosticAcceptor, ptr %this1, i32 0, i32 2
@@ -8357,8 +8361,8 @@ entry:
   %diagnostic = getelementptr inbounds %struct.HeapSizeDiagnosticAcceptor, ptr %this1, i32 0, i32 9
   call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN18HeapSizeDiagnosticC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %diagnostic) #14
   %pointerBase_ = getelementptr inbounds %struct.HeapSizeDiagnosticAcceptor, ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %pb.addr, align 8
-  store ptr %0, ptr %pointerBase_, align 8
+  %2 = load ptr, ptr %pb.addr, align 8
+  store ptr %2, ptr %pointerBase_, align 8
   ret void
 }
 
@@ -8371,12 +8375,14 @@ entry:
   store ptr %acceptor, ptr %acceptor.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm28RootAndSlotAcceptorWithNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %acceptor2 = getelementptr inbounds %"struct.hermes::vm::DroppingAcceptor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %acceptor.addr, align 8
-  store ptr %0, ptr %acceptor2, align 8
+  %2 = load ptr, ptr %acceptor.addr, align 8
+  store ptr %2, ptr %acceptor2, align 8
   ret void
 }
 
@@ -8595,7 +8601,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tripwireCallback_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 29
   call void @_ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tripwireCallback_) #14
   %idTracker_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 27
@@ -9971,7 +9978,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm17GCTripwireContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6hermes2vm17GCTripwireContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10782,13 +10790,14 @@ define linkonce_odr hidden { ptr, i32 } @_ZN6hermes2vm6detail11WeakRefInfo15getT
 entry:
   %retval = alloca %"struct.hermes::vm::detail::WeakRefKey", align 8
   %agg.tmp = alloca %"class.hermes::vm::WeakRef", align 8
-  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef inttoptr (i64 1 to ptr))
+  %0 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::WeakRef", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive1 = getelementptr inbounds %"class.hermes::vm::WeakRefBase", ptr %coerce.dive, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive1, align 8
-  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %0, i32 noundef 1)
-  %1 = load { ptr, i32 }, ptr %retval, align 8
-  ret { ptr, i32 } %1
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %1, i32 noundef 1)
+  %2 = load { ptr, i32 }, ptr %retval, align 8
+  ret { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11331,9 +11340,11 @@ entry:
   call void @_ZN6hermes2vm12RootAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6hermes2vm12SlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  store ptr getelementptr inbounds ({ [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   ret void
 }
 
@@ -11648,7 +11659,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootSectionAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes2vm12RootAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes2vm12RootAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11658,7 +11670,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6hermes2vm12SlotAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6hermes2vm12SlotAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11711,7 +11724,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm19RootSectionAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6hermes2vm19RootSectionAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20358,10 +20372,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  call void @_ZNSt5tupleIJdEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKdEEEbE4typeELb1EEES4_(ptr noundef nonnull align 8 dereferenceable(8) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
+  %2 = load ptr, ptr %vals.addr, align 8
+  call void @_ZNSt5tupleIJdEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKdEEEbE4typeELb1EEES4_(ptr noundef nonnull align 8 dereferenceable(8) %Vals, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   call void @_ZN4llvh26validate_format_parametersIJdEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -20374,10 +20389,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fmt.addr, align 8
-  store ptr %0, ptr %Fmt, align 8
+  %1 = load ptr, ptr %fmt.addr, align 8
+  store ptr %1, ptr %Fmt, align 8
   ret void
 }
 
@@ -24821,9 +24837,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 

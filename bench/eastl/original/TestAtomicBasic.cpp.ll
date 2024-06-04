@@ -3306,9 +3306,11 @@ entry:
   %cmp = icmp eq ptr %call, null
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 370, ptr noundef @.str.5)
-  call void @_ZN5eastl6atomicIPvvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic3, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPvvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic3, ptr noundef %0) #6
   %call5 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic3) #6
-  %cmp6 = icmp eq ptr %call5, inttoptr (i64 4 to ptr)
+  %1 = inttoptr i64 4 to ptr
+  %cmp6 = icmp eq ptr %call5, %1
   %nErrorCount7 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp6, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount7, ptr noundef @.str, i32 noundef 376, ptr noundef @.str.6)
   ret void
@@ -3381,21 +3383,24 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
   store ptr %call, ptr %ret, align 8
-  %0 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 4 to ptr)
+  %1 = load ptr, ptr %ret, align 8
+  %2 = inttoptr i64 4 to ptr
+  %cmp = icmp eq ptr %1, %2
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 387, ptr noundef @.str.7)
   %call3 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp4 = icmp eq ptr %call3, inttoptr (i64 4 to ptr)
+  %3 = inttoptr i64 4 to ptr
+  %cmp4 = icmp eq ptr %call3, %3
   %nErrorCount5 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 389, ptr noundef @.str.6)
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic7) #6
   %call9 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic7, ptr noundef null) #6
   store ptr %call9, ptr %ret8, align 8
-  %1 = load ptr, ptr %ret8, align 8
-  %cmp10 = icmp eq ptr %1, null
+  %4 = load ptr, ptr %ret8, align 8
+  %cmp10 = icmp eq ptr %4, null
   %nErrorCount11 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp10, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount11, ptr noundef @.str, i32 noundef 397, ptr noundef @.str.8)
   %call14 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic7) #6
@@ -3464,13 +3469,14 @@ entry:
   %cmp = icmp eq ptr %call, %1
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 422, ptr noundef @.str.11)
-  store ptr inttoptr (i64 4 to ptr), ptr %val4, align 8
+  %2 = inttoptr i64 4 to ptr
+  store ptr %2, ptr %val4, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
-  %2 = load ptr, ptr %val4, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5, ptr noundef %2) #6
-  %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
   %3 = load ptr, ptr %val4, align 8
-  %cmp9 = icmp eq ptr %call8, %3
+  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5, ptr noundef %3) #6
+  %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
+  %4 = load ptr, ptr %val4, align 8
+  %cmp9 = icmp eq ptr %call8, %4
   %nErrorCount10 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount10, ptr noundef @.str, i32 noundef 431, ptr noundef @.str.11)
   ret void
@@ -3520,15 +3526,18 @@ entry:
   %ret = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5eastl6atomicIPvvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPvvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
   %call = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr %call, ptr %ret, align 8
-  %0 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 4 to ptr)
+  %1 = load ptr, ptr %ret, align 8
+  %2 = inttoptr i64 4 to ptr
+  %cmp = icmp eq ptr %1, %2
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 442, ptr noundef @.str.12)
   %call3 = call noundef ptr @_ZNK5eastl6atomicIPvvEcvS1_Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp4 = icmp eq ptr %call3, inttoptr (i64 4 to ptr)
+  %3 = inttoptr i64 4 to ptr
+  %cmp4 = icmp eq ptr %call3, %3
   %nErrorCount5 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 444, ptr noundef @.str.13)
   ret void
@@ -3553,14 +3562,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
   store ptr %call, ptr %ret, align 8
-  %0 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %ret, align 8
+  %cmp = icmp eq ptr %1, null
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 455, ptr noundef @.str.8)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp5 = icmp eq ptr %call4, inttoptr (i64 4 to ptr)
+  %2 = inttoptr i64 4 to ptr
+  %cmp5 = icmp eq ptr %call4, %2
   %nErrorCount6 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 457, ptr noundef @.str.14)
   ret void
@@ -3632,44 +3643,48 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr null, ptr %observed, align 8
-  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %0) #6
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 1
-  %0 = load i8, ptr %ret, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %ret, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i8, ptr %ret, align 1
-  %tobool2 = trunc i8 %1 to i1
+  %2 = load i8, ptr %ret, align 1
+  %tobool2 = trunc i8 %2 to i1
   %conv = zext i1 %tobool2 to i32
   %cmp = icmp eq i32 %conv, 1
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 471, ptr noundef @.str.4)
-  %2 = load ptr, ptr %observed, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %observed, align 8
+  %cmp4 = icmp eq ptr %3, null
   %nErrorCount5 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 472, ptr noundef @.str.15)
   %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp9 = icmp eq ptr %call8, inttoptr (i64 4 to ptr)
+  %4 = inttoptr i64 4 to ptr
+  %cmp9 = icmp eq ptr %call8, %4
   %nErrorCount10 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount10, ptr noundef @.str, i32 noundef 473, ptr noundef @.str.14)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic12) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %observed13, align 8
-  %call16 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12, ptr noundef nonnull align 8 dereferenceable(8) %observed13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %5 = inttoptr i64 4 to ptr
+  store ptr %5, ptr %observed13, align 8
+  %6 = inttoptr i64 4 to ptr
+  %call16 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12, ptr noundef nonnull align 8 dereferenceable(8) %observed13, ptr noundef %6) #6
   %frombool17 = zext i1 %call16 to i8
   store i8 %frombool17, ptr %ret14, align 1
-  %3 = load i8, ptr %ret14, align 1
-  %tobool18 = trunc i8 %3 to i1
+  %7 = load i8, ptr %ret14, align 1
+  %tobool18 = trunc i8 %7 to i1
   %conv19 = zext i1 %tobool18 to i32
   %cmp20 = icmp eq i32 %conv19, 0
   %nErrorCount21 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount21, ptr noundef @.str, i32 noundef 483, ptr noundef @.str.3)
-  %4 = load ptr, ptr %observed13, align 8
-  %cmp23 = icmp eq ptr %4, null
+  %8 = load ptr, ptr %observed13, align 8
+  %cmp23 = icmp eq ptr %8, null
   %nErrorCount24 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call25 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp23, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount24, ptr noundef @.str, i32 noundef 484, ptr noundef @.str.15)
   %call27 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12) #6
@@ -3755,36 +3770,40 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr null, ptr %observed, align 8
-  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %0) #6
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 1
-  %0 = load i8, ptr %ret, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %ret, align 1
+  %tobool = trunc i8 %1 to i1
   %conv = zext i1 %tobool to i32
   %cmp = icmp eq i32 %conv, 1
   %nErrorCount = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 497, ptr noundef @.str.4)
-  %1 = load ptr, ptr %observed, align 8
-  %cmp3 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %observed, align 8
+  %cmp3 = icmp eq ptr %2, null
   %nErrorCount4 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount4, ptr noundef @.str, i32 noundef 498, ptr noundef @.str.15)
   %call7 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp8 = icmp eq ptr %call7, inttoptr (i64 4 to ptr)
+  %3 = inttoptr i64 4 to ptr
+  %cmp8 = icmp eq ptr %call7, %3
   %nErrorCount9 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount9, ptr noundef @.str, i32 noundef 499, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic11) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %observed12, align 8
-  %call15 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11, ptr noundef nonnull align 8 dereferenceable(8) %observed12, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %4 = inttoptr i64 4 to ptr
+  store ptr %4, ptr %observed12, align 8
+  %5 = inttoptr i64 4 to ptr
+  %call15 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11, ptr noundef nonnull align 8 dereferenceable(8) %observed12, ptr noundef %5) #6
   %frombool16 = zext i1 %call15 to i8
   store i8 %frombool16, ptr %ret13, align 1
-  %2 = load i8, ptr %ret13, align 1
-  %tobool17 = trunc i8 %2 to i1
+  %6 = load i8, ptr %ret13, align 1
+  %tobool17 = trunc i8 %6 to i1
   %conv18 = zext i1 %tobool17 to i32
   %cmp19 = icmp eq i32 %conv18, 0
   %nErrorCount20 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call21 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp19, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount20, ptr noundef @.str, i32 noundef 508, ptr noundef @.str.3)
-  %3 = load ptr, ptr %observed12, align 8
-  %cmp22 = icmp eq ptr %3, null
+  %7 = load ptr, ptr %observed12, align 8
+  %cmp22 = icmp eq ptr %7, null
   %nErrorCount23 = getelementptr inbounds %class.AtomicVoidPointerBasicTest, ptr %this1, i32 0, i32 0
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp22, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount23, ptr noundef @.str, i32 noundef 509, ptr noundef @.str.15)
   %call26 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11) #6
@@ -3880,15 +3899,16 @@ entry:
   %ret105 = alloca i8, align 1
   store ptr %this, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
   %1 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %2 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %2) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %2) #6
   %3 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %3) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %3) #6
+  %4 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl8internal17atomic_base_widthIPvLj8EE5storeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %4) #6
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic4) #6
   %call = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPvLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic4) #6
   store ptr %call, ptr %ret, align 8
@@ -3901,114 +3921,150 @@ entry:
   %call12 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPvLj8EE4loadENS0_27memory_order_read_depends_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic4) #6
   store ptr %call12, ptr %ret, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic13) #6
-  %call15 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %5 = inttoptr i64 4 to ptr
+  %call15 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %5) #6
   store ptr %call15, ptr %ret14, align 8
-  %call17 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %6 = inttoptr i64 4 to ptr
+  %call17 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %6) #6
   store ptr %call17, ptr %ret14, align 8
-  %call19 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %7 = inttoptr i64 4 to ptr
+  %call19 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %7) #6
   store ptr %call19, ptr %ret14, align 8
-  %call21 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %8 = inttoptr i64 4 to ptr
+  %call21 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %8) #6
   store ptr %call21, ptr %ret14, align 8
-  %call23 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %9 = inttoptr i64 4 to ptr
+  %call23 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %9) #6
   store ptr %call23, ptr %ret14, align 8
-  %call25 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %10 = inttoptr i64 4 to ptr
+  %call25 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPvLj8EE8exchangeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic13, ptr noundef %10) #6
   store ptr %call25, ptr %ret14, align 8
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic26) #6
   store ptr null, ptr %observed, align 8
-  %call28 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %11 = inttoptr i64 4 to ptr
+  %call28 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %11) #6
   %frombool = zext i1 %call28 to i8
   store i8 %frombool, ptr %ret27, align 1
-  %call30 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %12 = inttoptr i64 4 to ptr
+  %call30 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %12) #6
   %frombool31 = zext i1 %call30 to i8
   store i8 %frombool31, ptr %ret27, align 1
-  %call33 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %13 = inttoptr i64 4 to ptr
+  %call33 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %13) #6
   %frombool34 = zext i1 %call33 to i8
   store i8 %frombool34, ptr %ret27, align 1
-  %call36 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %14 = inttoptr i64 4 to ptr
+  %call36 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %14) #6
   %frombool37 = zext i1 %call36 to i8
   store i8 %frombool37, ptr %ret27, align 1
-  %call39 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %15 = inttoptr i64 4 to ptr
+  %call39 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %15) #6
   %frombool40 = zext i1 %call39 to i8
   store i8 %frombool40, ptr %ret27, align 1
-  %call42 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %16 = inttoptr i64 4 to ptr
+  %call42 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic26, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %16) #6
   %frombool43 = zext i1 %call42 to i8
   store i8 %frombool43, ptr %ret27, align 1
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic44) #6
   store ptr null, ptr %observed45, align 8
-  %call47 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %17 = inttoptr i64 4 to ptr
+  %call47 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %17) #6
   %frombool48 = zext i1 %call47 to i8
   store i8 %frombool48, ptr %ret46, align 1
-  %call50 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %18 = inttoptr i64 4 to ptr
+  %call50 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %18) #6
   %frombool51 = zext i1 %call50 to i8
   store i8 %frombool51, ptr %ret46, align 1
-  %call53 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %19 = inttoptr i64 4 to ptr
+  %call53 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %19) #6
   %frombool54 = zext i1 %call53 to i8
   store i8 %frombool54, ptr %ret46, align 1
-  %call56 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %20 = inttoptr i64 4 to ptr
+  %call56 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %20) #6
   %frombool57 = zext i1 %call56 to i8
   store i8 %frombool57, ptr %ret46, align 1
-  %call59 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %21 = inttoptr i64 4 to ptr
+  %call59 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %21) #6
   %frombool60 = zext i1 %call59 to i8
   store i8 %frombool60, ptr %ret46, align 1
-  %call62 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %22 = inttoptr i64 4 to ptr
+  %call62 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic44, ptr noundef nonnull align 8 dereferenceable(8) %observed45, ptr noundef %22) #6
   %frombool63 = zext i1 %call62 to i8
   store i8 %frombool63, ptr %ret46, align 1
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic64) #6
   store ptr null, ptr %observed65, align 8
-  %call69 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %23 = inttoptr i64 4 to ptr
+  %call69 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %23) #6
   %frombool70 = zext i1 %call69 to i8
   store i8 %frombool70, ptr %ret66, align 1
-  %call73 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %24 = inttoptr i64 4 to ptr
+  %call73 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %24) #6
   %frombool74 = zext i1 %call73 to i8
   store i8 %frombool74, ptr %ret66, align 1
-  %call77 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %25 = inttoptr i64 4 to ptr
+  %call77 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %25) #6
   %frombool78 = zext i1 %call77 to i8
   store i8 %frombool78, ptr %ret66, align 1
-  %call81 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %26 = inttoptr i64 4 to ptr
+  %call81 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %26) #6
   %frombool82 = zext i1 %call81 to i8
   store i8 %frombool82, ptr %ret66, align 1
-  %call85 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %27 = inttoptr i64 4 to ptr
+  %call85 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %27) #6
   %frombool86 = zext i1 %call85 to i8
   store i8 %frombool86, ptr %ret66, align 1
-  %call89 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %28 = inttoptr i64 4 to ptr
+  %call89 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %28) #6
   %frombool90 = zext i1 %call89 to i8
   store i8 %frombool90, ptr %ret66, align 1
-  %call93 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %29 = inttoptr i64 4 to ptr
+  %call93 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %29) #6
   %frombool94 = zext i1 %call93 to i8
   store i8 %frombool94, ptr %ret66, align 1
-  %call97 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %30 = inttoptr i64 4 to ptr
+  %call97 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %30) #6
   %frombool98 = zext i1 %call97 to i8
   store i8 %frombool98, ptr %ret66, align 1
-  %call101 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %31 = inttoptr i64 4 to ptr
+  %call101 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic64, ptr noundef nonnull align 8 dereferenceable(8) %observed65, ptr noundef %31) #6
   %frombool102 = zext i1 %call101 to i8
   store i8 %frombool102, ptr %ret66, align 1
   call void @_ZN5eastl6atomicIPvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic103) #6
   store ptr null, ptr %observed104, align 8
-  %call108 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %32 = inttoptr i64 4 to ptr
+  %call108 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %32) #6
   %frombool109 = zext i1 %call108 to i8
   store i8 %frombool109, ptr %ret105, align 1
-  %call112 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %33 = inttoptr i64 4 to ptr
+  %call112 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %33) #6
   %frombool113 = zext i1 %call112 to i8
   store i8 %frombool113, ptr %ret105, align 1
-  %call116 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %34 = inttoptr i64 4 to ptr
+  %call116 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %34) #6
   %frombool117 = zext i1 %call116 to i8
   store i8 %frombool117, ptr %ret105, align 1
-  %call120 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %35 = inttoptr i64 4 to ptr
+  %call120 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %35) #6
   %frombool121 = zext i1 %call120 to i8
   store i8 %frombool121, ptr %ret105, align 1
-  %call124 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %36 = inttoptr i64 4 to ptr
+  %call124 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %36) #6
   %frombool125 = zext i1 %call124 to i8
   store i8 %frombool125, ptr %ret105, align 1
-  %call128 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %37 = inttoptr i64 4 to ptr
+  %call128 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %37) #6
   %frombool129 = zext i1 %call128 to i8
   store i8 %frombool129, ptr %ret105, align 1
-  %call132 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %38 = inttoptr i64 4 to ptr
+  %call132 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %38) #6
   %frombool133 = zext i1 %call132 to i8
   store i8 %frombool133, ptr %ret105, align 1
-  %call136 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %39 = inttoptr i64 4 to ptr
+  %call136 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %39) #6
   %frombool137 = zext i1 %call136 to i8
   store i8 %frombool137, ptr %ret105, align 1
-  %call140 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %40 = inttoptr i64 4 to ptr
+  %call140 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPvLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic103, ptr noundef nonnull align 8 dereferenceable(8) %observed104, ptr noundef %40) #6
   %frombool141 = zext i1 %call140 to i8
   store i8 %frombool141, ptr %ret105, align 1
   ret void
@@ -6252,11 +6308,13 @@ entry:
   %cmp = icmp eq ptr %0, null
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 720, ptr noundef @.str.16)
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic3, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %1 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic3, ptr noundef %1) #6
   %call6 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic3) #6
   store ptr %call6, ptr %ret4, align 8
-  %1 = load ptr, ptr %ret4, align 8
-  %cmp7 = icmp eq ptr %1, inttoptr (i64 4 to ptr)
+  %2 = load ptr, ptr %ret4, align 8
+  %3 = inttoptr i64 4 to ptr
+  %cmp7 = icmp eq ptr %2, %3
   %nErrorCount8 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp7, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount8, ptr noundef @.str, i32 noundef 728, ptr noundef @.str.12)
   ret void
@@ -6358,133 +6416,146 @@ entry:
   %ret87 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
-  store ptr inttoptr (i64 8 to ptr), ptr %expected, align 8
-  %1 = load ptr, ptr %expected, align 8
-  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
-  store ptr %call, ptr %ret, align 8
-  %2 = load ptr, ptr %ret, align 8
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
+  %1 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
+  %2 = inttoptr i64 8 to ptr
+  store ptr %2, ptr %expected, align 8
   %3 = load ptr, ptr %expected, align 8
-  %cmp = icmp eq ptr %2, %3
+  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %3) #6
+  store ptr %call, ptr %ret, align 8
+  %4 = load ptr, ptr %ret, align 8
+  %5 = load ptr, ptr %expected, align 8
+  %cmp = icmp eq ptr %4, %5
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 742, ptr noundef @.str.17)
   %call3 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %4 = load ptr, ptr %expected, align 8
-  %cmp4 = icmp eq ptr %call3, %4
+  %6 = load ptr, ptr %expected, align 8
+  %cmp4 = icmp eq ptr %call3, %6
   %nErrorCount5 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 744, ptr noundef @.str.18)
   store ptr null, ptr %val7, align 8
-  %5 = load ptr, ptr %val7, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic8, ptr noundef %5) #6
-  %6 = load ptr, ptr %val7, align 8
-  %call10 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic8, ptr noundef %6) #6
-  store ptr %call10, ptr %ret9, align 8
-  %7 = load ptr, ptr %ret9, align 8
+  %7 = load ptr, ptr %val7, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic8, ptr noundef %7) #6
   %8 = load ptr, ptr %val7, align 8
-  %cmp11 = icmp eq ptr %7, %8
+  %call10 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EEaSES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic8, ptr noundef %8) #6
+  store ptr %call10, ptr %ret9, align 8
+  %9 = load ptr, ptr %ret9, align 8
+  %10 = load ptr, ptr %val7, align 8
+  %cmp11 = icmp eq ptr %9, %10
   %nErrorCount12 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp11, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount12, ptr noundef @.str, i32 noundef 753, ptr noundef @.str.19)
   %call15 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic8) #6
-  %9 = load ptr, ptr %val7, align 8
-  %cmp16 = icmp eq ptr %call15, %9
+  %11 = load ptr, ptr %val7, align 8
+  %cmp16 = icmp eq ptr %call15, %11
   %nErrorCount17 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp16, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount17, ptr noundef @.str, i32 noundef 755, ptr noundef @.str.11)
-  store ptr inttoptr (i64 4 to ptr), ptr %val19, align 8
-  %10 = load ptr, ptr %val19, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic20, ptr noundef %10) #6
-  store ptr inttoptr (i64 8 to ptr), ptr %expected21, align 8
+  %12 = inttoptr i64 4 to ptr
+  store ptr %12, ptr %val19, align 8
+  %13 = load ptr, ptr %val19, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic20, ptr noundef %13) #6
+  %14 = inttoptr i64 8 to ptr
+  store ptr %14, ptr %expected21, align 8
   %call23 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic20) #6
   store ptr %call23, ptr %ret22, align 8
-  %11 = load ptr, ptr %ret22, align 8
-  %12 = load ptr, ptr %expected21, align 8
-  %cmp24 = icmp eq ptr %11, %12
+  %15 = load ptr, ptr %ret22, align 8
+  %16 = load ptr, ptr %expected21, align 8
+  %cmp24 = icmp eq ptr %15, %16
   %nErrorCount25 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount25, ptr noundef @.str, i32 noundef 765, ptr noundef @.str.17)
   %call28 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic20) #6
-  %13 = load ptr, ptr %expected21, align 8
-  %cmp29 = icmp eq ptr %call28, %13
+  %17 = load ptr, ptr %expected21, align 8
+  %cmp29 = icmp eq ptr %call28, %17
   %nErrorCount30 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call31 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount30, ptr noundef @.str, i32 noundef 767, ptr noundef @.str.18)
-  store ptr inttoptr (i64 4 to ptr), ptr %val32, align 8
-  %14 = load ptr, ptr %val32, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic33, ptr noundef %14) #6
-  store ptr inttoptr (i64 8 to ptr), ptr %expected34, align 8
+  %18 = inttoptr i64 4 to ptr
+  store ptr %18, ptr %val32, align 8
+  %19 = load ptr, ptr %val32, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic33, ptr noundef %19) #6
+  %20 = inttoptr i64 8 to ptr
+  store ptr %20, ptr %expected34, align 8
   %call36 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEppEi(ptr noundef nonnull align 8 dereferenceable(8) %atomic33, i32 noundef 0) #6
   store ptr %call36, ptr %ret35, align 8
-  %15 = load ptr, ptr %ret35, align 8
-  %16 = load ptr, ptr %val32, align 8
-  %cmp37 = icmp eq ptr %15, %16
+  %21 = load ptr, ptr %ret35, align 8
+  %22 = load ptr, ptr %val32, align 8
+  %cmp37 = icmp eq ptr %21, %22
   %nErrorCount38 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call39 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp37, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount38, ptr noundef @.str, i32 noundef 778, ptr noundef @.str.19)
   %call41 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic33) #6
-  %17 = load ptr, ptr %expected34, align 8
-  %cmp42 = icmp eq ptr %call41, %17
+  %23 = load ptr, ptr %expected34, align 8
+  %cmp42 = icmp eq ptr %call41, %23
   %nErrorCount43 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call44 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp42, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount43, ptr noundef @.str, i32 noundef 780, ptr noundef @.str.18)
-  store ptr inttoptr (i64 4 to ptr), ptr %val45, align 8
-  %18 = load ptr, ptr %val45, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic46, ptr noundef %18) #6
-  store ptr inttoptr (i64 16 to ptr), ptr %expected47, align 8
+  %24 = inttoptr i64 4 to ptr
+  store ptr %24, ptr %val45, align 8
+  %25 = load ptr, ptr %val45, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic46, ptr noundef %25) #6
+  %26 = inttoptr i64 16 to ptr
+  store ptr %26, ptr %expected47, align 8
   %call49 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %atomic46, i64 noundef 3) #6
   store ptr %call49, ptr %ret48, align 8
-  %19 = load ptr, ptr %ret48, align 8
-  %20 = load ptr, ptr %expected47, align 8
-  %cmp50 = icmp eq ptr %19, %20
+  %27 = load ptr, ptr %ret48, align 8
+  %28 = load ptr, ptr %expected47, align 8
+  %cmp50 = icmp eq ptr %27, %28
   %nErrorCount51 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp50, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount51, ptr noundef @.str, i32 noundef 790, ptr noundef @.str.17)
   %call54 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic46) #6
-  %21 = load ptr, ptr %expected47, align 8
-  %cmp55 = icmp eq ptr %call54, %21
+  %29 = load ptr, ptr %expected47, align 8
+  %cmp55 = icmp eq ptr %call54, %29
   %nErrorCount56 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call57 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp55, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount56, ptr noundef @.str, i32 noundef 792, ptr noundef @.str.18)
-  store ptr inttoptr (i64 4 to ptr), ptr %val58, align 8
-  %22 = load ptr, ptr %val58, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic59, ptr noundef %22) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %expected60, align 8
+  %30 = inttoptr i64 4 to ptr
+  store ptr %30, ptr %val58, align 8
+  %31 = load ptr, ptr %val58, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic59, ptr noundef %31) #6
+  %32 = inttoptr i64 4 to ptr
+  store ptr %32, ptr %expected60, align 8
   %call62 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %atomic59, i64 noundef 0) #6
   store ptr %call62, ptr %ret61, align 8
-  %23 = load ptr, ptr %ret61, align 8
-  %24 = load ptr, ptr %expected60, align 8
-  %cmp63 = icmp eq ptr %23, %24
+  %33 = load ptr, ptr %ret61, align 8
+  %34 = load ptr, ptr %expected60, align 8
+  %cmp63 = icmp eq ptr %33, %34
   %nErrorCount64 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call65 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp63, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount64, ptr noundef @.str, i32 noundef 802, ptr noundef @.str.17)
   %call67 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic59) #6
-  %25 = load ptr, ptr %expected60, align 8
-  %cmp68 = icmp eq ptr %call67, %25
+  %35 = load ptr, ptr %expected60, align 8
+  %cmp68 = icmp eq ptr %call67, %35
   %nErrorCount69 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call70 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp68, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount69, ptr noundef @.str, i32 noundef 804, ptr noundef @.str.18)
-  store ptr inttoptr (i64 4 to ptr), ptr %val71, align 8
-  %26 = load ptr, ptr %val71, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic72, ptr noundef %26) #6
+  %36 = inttoptr i64 4 to ptr
+  store ptr %36, ptr %val71, align 8
+  %37 = load ptr, ptr %val71, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic72, ptr noundef %37) #6
   store ptr null, ptr %expected73, align 8
   %call75 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %atomic72, i64 noundef 1) #6
   store ptr %call75, ptr %ret74, align 8
-  %27 = load ptr, ptr %ret74, align 8
-  %28 = load ptr, ptr %expected73, align 8
-  %cmp76 = icmp eq ptr %27, %28
+  %38 = load ptr, ptr %ret74, align 8
+  %39 = load ptr, ptr %expected73, align 8
+  %cmp76 = icmp eq ptr %38, %39
   %nErrorCount77 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call78 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp76, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount77, ptr noundef @.str, i32 noundef 814, ptr noundef @.str.17)
   %call80 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic72) #6
-  %29 = load ptr, ptr %expected73, align 8
-  %cmp81 = icmp eq ptr %call80, %29
+  %40 = load ptr, ptr %expected73, align 8
+  %cmp81 = icmp eq ptr %call80, %40
   %nErrorCount82 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call83 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp81, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount82, ptr noundef @.str, i32 noundef 816, ptr noundef @.str.18)
-  store ptr inttoptr (i64 4 to ptr), ptr %val84, align 8
-  %30 = load ptr, ptr %val84, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic85, ptr noundef %30) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %expected86, align 8
+  %41 = inttoptr i64 4 to ptr
+  store ptr %41, ptr %val84, align 8
+  %42 = load ptr, ptr %val84, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic85, ptr noundef %42) #6
+  %43 = inttoptr i64 4 to ptr
+  store ptr %43, ptr %expected86, align 8
   %call88 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %atomic85, i64 noundef 0) #6
   store ptr %call88, ptr %ret87, align 8
-  %31 = load ptr, ptr %ret87, align 8
-  %32 = load ptr, ptr %expected86, align 8
-  %cmp89 = icmp eq ptr %31, %32
+  %44 = load ptr, ptr %ret87, align 8
+  %45 = load ptr, ptr %expected86, align 8
+  %cmp89 = icmp eq ptr %44, %45
   %nErrorCount90 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call91 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp89, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount90, ptr noundef @.str, i32 noundef 826, ptr noundef @.str.17)
   %call93 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic85) #6
-  %33 = load ptr, ptr %expected86, align 8
-  %cmp94 = icmp eq ptr %call93, %33
+  %46 = load ptr, ptr %expected86, align 8
+  %cmp94 = icmp eq ptr %call93, %46
   %nErrorCount95 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call96 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp94, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount95, ptr noundef @.str, i32 noundef 828, ptr noundef @.str.18)
   ret void
@@ -6597,13 +6668,14 @@ entry:
   %cmp = icmp eq ptr %call, %1
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 851, ptr noundef @.str.11)
-  store ptr inttoptr (i64 4 to ptr), ptr %val4, align 8
+  %2 = inttoptr i64 4 to ptr
+  store ptr %2, ptr %val4, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
-  %2 = load ptr, ptr %val4, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5, ptr noundef %2) #6
-  %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
   %3 = load ptr, ptr %val4, align 8
-  %cmp9 = icmp eq ptr %call8, %3
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5, ptr noundef %3) #6
+  %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic5) #6
+  %4 = load ptr, ptr %val4, align 8
+  %cmp9 = icmp eq ptr %call8, %4
   %nErrorCount10 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount10, ptr noundef @.str, i32 noundef 860, ptr noundef @.str.11)
   ret void
@@ -6653,15 +6725,18 @@ entry:
   %ret = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
   %call = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr %call, ptr %ret, align 8
-  %0 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 4 to ptr)
+  %1 = load ptr, ptr %ret, align 8
+  %2 = inttoptr i64 4 to ptr
+  %cmp = icmp eq ptr %1, %2
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 871, ptr noundef @.str.12)
   %call3 = call noundef ptr @_ZNK5eastl6atomicIPjvEcvS1_Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp4 = icmp eq ptr %call3, inttoptr (i64 4 to ptr)
+  %3 = inttoptr i64 4 to ptr
+  %cmp4 = icmp eq ptr %call3, %3
   %nErrorCount5 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 873, ptr noundef @.str.13)
   ret void
@@ -6691,44 +6766,48 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr null, ptr %observed, align 8
-  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %0) #6
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 1
-  %0 = load i8, ptr %ret, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %ret, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i8, ptr %ret, align 1
-  %tobool2 = trunc i8 %1 to i1
+  %2 = load i8, ptr %ret, align 1
+  %tobool2 = trunc i8 %2 to i1
   %conv = zext i1 %tobool2 to i32
   %cmp = icmp eq i32 %conv, 1
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 887, ptr noundef @.str.4)
-  %2 = load ptr, ptr %observed, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %observed, align 8
+  %cmp4 = icmp eq ptr %3, null
   %nErrorCount5 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount5, ptr noundef @.str, i32 noundef 888, ptr noundef @.str.15)
   %call8 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp9 = icmp eq ptr %call8, inttoptr (i64 4 to ptr)
+  %4 = inttoptr i64 4 to ptr
+  %cmp9 = icmp eq ptr %call8, %4
   %nErrorCount10 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp9, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount10, ptr noundef @.str, i32 noundef 889, ptr noundef @.str.14)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic12) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %observed13, align 8
-  %call16 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12, ptr noundef nonnull align 8 dereferenceable(8) %observed13, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %5 = inttoptr i64 4 to ptr
+  store ptr %5, ptr %observed13, align 8
+  %6 = inttoptr i64 4 to ptr
+  %call16 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12, ptr noundef nonnull align 8 dereferenceable(8) %observed13, ptr noundef %6) #6
   %frombool17 = zext i1 %call16 to i8
   store i8 %frombool17, ptr %ret14, align 1
-  %3 = load i8, ptr %ret14, align 1
-  %tobool18 = trunc i8 %3 to i1
+  %7 = load i8, ptr %ret14, align 1
+  %tobool18 = trunc i8 %7 to i1
   %conv19 = zext i1 %tobool18 to i32
   %cmp20 = icmp eq i32 %conv19, 0
   %nErrorCount21 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount21, ptr noundef @.str, i32 noundef 899, ptr noundef @.str.3)
-  %4 = load ptr, ptr %observed13, align 8
-  %cmp23 = icmp eq ptr %4, null
+  %8 = load ptr, ptr %observed13, align 8
+  %cmp23 = icmp eq ptr %8, null
   %nErrorCount24 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call25 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp23, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount24, ptr noundef @.str, i32 noundef 900, ptr noundef @.str.15)
   %call27 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic12) #6
@@ -6814,36 +6893,40 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   store ptr null, ptr %observed, align 8
-  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %0) #6
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 1
-  %0 = load i8, ptr %ret, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %ret, align 1
+  %tobool = trunc i8 %1 to i1
   %conv = zext i1 %tobool to i32
   %cmp = icmp eq i32 %conv, 1
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 913, ptr noundef @.str.4)
-  %1 = load ptr, ptr %observed, align 8
-  %cmp3 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %observed, align 8
+  %cmp3 = icmp eq ptr %2, null
   %nErrorCount4 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount4, ptr noundef @.str, i32 noundef 914, ptr noundef @.str.15)
   %call7 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp8 = icmp eq ptr %call7, inttoptr (i64 4 to ptr)
+  %3 = inttoptr i64 4 to ptr
+  %cmp8 = icmp eq ptr %call7, %3
   %nErrorCount9 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call10 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount9, ptr noundef @.str, i32 noundef 915, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic11) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %observed12, align 8
-  %call15 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11, ptr noundef nonnull align 8 dereferenceable(8) %observed12, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %4 = inttoptr i64 4 to ptr
+  store ptr %4, ptr %observed12, align 8
+  %5 = inttoptr i64 4 to ptr
+  %call15 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11, ptr noundef nonnull align 8 dereferenceable(8) %observed12, ptr noundef %5) #6
   %frombool16 = zext i1 %call15 to i8
   store i8 %frombool16, ptr %ret13, align 1
-  %2 = load i8, ptr %ret13, align 1
-  %tobool17 = trunc i8 %2 to i1
+  %6 = load i8, ptr %ret13, align 1
+  %tobool17 = trunc i8 %6 to i1
   %conv18 = zext i1 %tobool17 to i32
   %cmp19 = icmp eq i32 %conv18, 0
   %nErrorCount20 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call21 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp19, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount20, ptr noundef @.str, i32 noundef 924, ptr noundef @.str.3)
-  %3 = load ptr, ptr %observed12, align 8
-  %cmp22 = icmp eq ptr %3, null
+  %7 = load ptr, ptr %observed12, align 8
+  %cmp22 = icmp eq ptr %7, null
   %nErrorCount23 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call24 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp22, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount23, ptr noundef @.str, i32 noundef 925, ptr noundef @.str.15)
   %call26 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic11) #6
@@ -6924,14 +7007,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %0 = inttoptr i64 4 to ptr
+  %call = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
   store ptr %call, ptr %ret, align 8
-  %0 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %ret, align 8
+  %cmp = icmp eq ptr %1, null
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 937, ptr noundef @.str.8)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp5 = icmp eq ptr %call4, inttoptr (i64 4 to ptr)
+  %2 = inttoptr i64 4 to ptr
+  %cmp5 = icmp eq ptr %call4, %2
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 939, ptr noundef @.str.14)
   ret void
@@ -7021,15 +7106,16 @@ entry:
   %ret157 = alloca i8, align 1
   store ptr %this, ptr %this.addr, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
   %1 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %2 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %2) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %2) #6
   %3 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %3) #6
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %3) #6
+  %4 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %4) #6
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic4) #6
   %call = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic4) #6
   store ptr %call, ptr %ret, align 8
@@ -7094,114 +7180,150 @@ entry:
   %call64 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchElNS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic52, i64 noundef 0) #6
   store ptr %call64, ptr %ret53, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic65) #6
-  %call67 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %5 = inttoptr i64 4 to ptr
+  %call67 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %5) #6
   store ptr %call67, ptr %ret66, align 8
-  %call69 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %6 = inttoptr i64 4 to ptr
+  %call69 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %6) #6
   store ptr %call69, ptr %ret66, align 8
-  %call71 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %7 = inttoptr i64 4 to ptr
+  %call71 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %7) #6
   store ptr %call71, ptr %ret66, align 8
-  %call73 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %8 = inttoptr i64 4 to ptr
+  %call73 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %8) #6
   store ptr %call73, ptr %ret66, align 8
-  %call75 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %9 = inttoptr i64 4 to ptr
+  %call75 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %9) #6
   store ptr %call75, ptr %ret66, align 8
-  %call77 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %10 = inttoptr i64 4 to ptr
+  %call77 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic65, ptr noundef %10) #6
   store ptr %call77, ptr %ret66, align 8
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic78) #6
   store ptr null, ptr %observed, align 8
-  %call80 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %11 = inttoptr i64 4 to ptr
+  %call80 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %11) #6
   %frombool = zext i1 %call80 to i8
   store i8 %frombool, ptr %ret79, align 1
-  %call82 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %12 = inttoptr i64 4 to ptr
+  %call82 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %12) #6
   %frombool83 = zext i1 %call82 to i8
   store i8 %frombool83, ptr %ret79, align 1
-  %call85 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %13 = inttoptr i64 4 to ptr
+  %call85 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %13) #6
   %frombool86 = zext i1 %call85 to i8
   store i8 %frombool86, ptr %ret79, align 1
-  %call88 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %14 = inttoptr i64 4 to ptr
+  %call88 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %14) #6
   %frombool89 = zext i1 %call88 to i8
   store i8 %frombool89, ptr %ret79, align 1
-  %call91 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %15 = inttoptr i64 4 to ptr
+  %call91 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %15) #6
   %frombool92 = zext i1 %call91 to i8
   store i8 %frombool92, ptr %ret79, align 1
-  %call94 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %16 = inttoptr i64 4 to ptr
+  %call94 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic78, ptr noundef nonnull align 8 dereferenceable(8) %observed, ptr noundef %16) #6
   %frombool95 = zext i1 %call94 to i8
   store i8 %frombool95, ptr %ret79, align 1
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic96) #6
   store ptr null, ptr %observed97, align 8
-  %call99 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %17 = inttoptr i64 4 to ptr
+  %call99 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %17) #6
   %frombool100 = zext i1 %call99 to i8
   store i8 %frombool100, ptr %ret98, align 1
-  %call102 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %18 = inttoptr i64 4 to ptr
+  %call102 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %18) #6
   %frombool103 = zext i1 %call102 to i8
   store i8 %frombool103, ptr %ret98, align 1
-  %call105 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %19 = inttoptr i64 4 to ptr
+  %call105 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %19) #6
   %frombool106 = zext i1 %call105 to i8
   store i8 %frombool106, ptr %ret98, align 1
-  %call108 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %20 = inttoptr i64 4 to ptr
+  %call108 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %20) #6
   %frombool109 = zext i1 %call108 to i8
   store i8 %frombool109, ptr %ret98, align 1
-  %call111 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %21 = inttoptr i64 4 to ptr
+  %call111 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %21) #6
   %frombool112 = zext i1 %call111 to i8
   store i8 %frombool112, ptr %ret98, align 1
-  %call114 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %22 = inttoptr i64 4 to ptr
+  %call114 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic96, ptr noundef nonnull align 8 dereferenceable(8) %observed97, ptr noundef %22) #6
   %frombool115 = zext i1 %call114 to i8
   store i8 %frombool115, ptr %ret98, align 1
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic116) #6
   store ptr null, ptr %observed117, align 8
-  %call121 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %23 = inttoptr i64 4 to ptr
+  %call121 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %23) #6
   %frombool122 = zext i1 %call121 to i8
   store i8 %frombool122, ptr %ret118, align 1
-  %call125 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %24 = inttoptr i64 4 to ptr
+  %call125 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %24) #6
   %frombool126 = zext i1 %call125 to i8
   store i8 %frombool126, ptr %ret118, align 1
-  %call129 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %25 = inttoptr i64 4 to ptr
+  %call129 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %25) #6
   %frombool130 = zext i1 %call129 to i8
   store i8 %frombool130, ptr %ret118, align 1
-  %call133 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %26 = inttoptr i64 4 to ptr
+  %call133 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %26) #6
   %frombool134 = zext i1 %call133 to i8
   store i8 %frombool134, ptr %ret118, align 1
-  %call137 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %27 = inttoptr i64 4 to ptr
+  %call137 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %27) #6
   %frombool138 = zext i1 %call137 to i8
   store i8 %frombool138, ptr %ret118, align 1
-  %call141 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %28 = inttoptr i64 4 to ptr
+  %call141 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %28) #6
   %frombool142 = zext i1 %call141 to i8
   store i8 %frombool142, ptr %ret118, align 1
-  %call145 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %29 = inttoptr i64 4 to ptr
+  %call145 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %29) #6
   %frombool146 = zext i1 %call145 to i8
   store i8 %frombool146, ptr %ret118, align 1
-  %call149 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %30 = inttoptr i64 4 to ptr
+  %call149 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %30) #6
   %frombool150 = zext i1 %call149 to i8
   store i8 %frombool150, ptr %ret118, align 1
-  %call153 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %31 = inttoptr i64 4 to ptr
+  %call153 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic116, ptr noundef nonnull align 8 dereferenceable(8) %observed117, ptr noundef %31) #6
   %frombool154 = zext i1 %call153 to i8
   store i8 %frombool154, ptr %ret118, align 1
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic155) #6
   store ptr null, ptr %observed156, align 8
-  %call160 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %32 = inttoptr i64 4 to ptr
+  %call160 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %32) #6
   %frombool161 = zext i1 %call160 to i8
   store i8 %frombool161, ptr %ret157, align 1
-  %call164 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %33 = inttoptr i64 4 to ptr
+  %call164 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %33) #6
   %frombool165 = zext i1 %call164 to i8
   store i8 %frombool165, ptr %ret157, align 1
-  %call168 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %34 = inttoptr i64 4 to ptr
+  %call168 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acquire_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %34) #6
   %frombool169 = zext i1 %call168 to i8
   store i8 %frombool169, ptr %ret157, align 1
-  %call172 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %35 = inttoptr i64 4 to ptr
+  %call172 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_release_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %35) #6
   %frombool173 = zext i1 %call172 to i8
   store i8 %frombool173, ptr %ret157, align 1
-  %call176 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %36 = inttoptr i64 4 to ptr
+  %call176 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %36) #6
   %frombool177 = zext i1 %call176 to i8
   store i8 %frombool177, ptr %ret157, align 1
-  %call180 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %37 = inttoptr i64 4 to ptr
+  %call180 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_acq_rel_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %37) #6
   %frombool181 = zext i1 %call180 to i8
   store i8 %frombool181, ptr %ret157, align 1
-  %call184 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %38 = inttoptr i64 4 to ptr
+  %call184 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %38) #6
   %frombool185 = zext i1 %call184 to i8
   store i8 %frombool185, ptr %ret157, align 1
-  %call188 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %39 = inttoptr i64 4 to ptr
+  %call188 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sENS0_22memory_order_acquire_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %39) #6
   %frombool189 = zext i1 %call188 to i8
   store i8 %frombool189, ptr %ret157, align 1
-  %call192 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %40 = inttoptr i64 4 to ptr
+  %call192 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_seq_cst_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %atomic155, ptr noundef nonnull align 8 dereferenceable(8) %observed156, ptr noundef %40) #6
   %frombool193 = zext i1 %call192 to i8
   store i8 %frombool193, ptr %ret157, align 1
   ret void
@@ -10819,30 +10941,36 @@ entry:
   %ret10 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
+  %1 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %call = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, i64 noundef 1) #6
   store ptr %call, ptr %ret, align 8
-  %1 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 4 to ptr)
+  %2 = load ptr, ptr %ret, align 8
+  %3 = inttoptr i64 4 to ptr
+  %cmp = icmp eq ptr %2, %3
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 1143, ptr noundef @.str.12)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp5 = icmp eq ptr %call4, inttoptr (i64 8 to ptr)
+  %4 = inttoptr i64 8 to ptr
+  %cmp5 = icmp eq ptr %call4, %4
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 1145, ptr noundef @.str.20)
-  store ptr inttoptr (i64 4 to ptr), ptr %val8, align 8
-  %2 = load ptr, ptr %val8, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %2) #6
+  %5 = inttoptr i64 4 to ptr
+  store ptr %5, ptr %val8, align 8
+  %6 = load ptr, ptr %val8, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %6) #6
   %call12 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, i64 noundef 0) #6
   store ptr %call12, ptr %ret10, align 8
-  %3 = load ptr, ptr %ret10, align 8
-  %cmp13 = icmp eq ptr %3, inttoptr (i64 4 to ptr)
+  %7 = load ptr, ptr %ret10, align 8
+  %8 = inttoptr i64 4 to ptr
+  %cmp13 = icmp eq ptr %7, %8
   %nErrorCount14 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount14, ptr noundef @.str, i32 noundef 1154, ptr noundef @.str.12)
   %call17 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9) #6
-  %cmp18 = icmp eq ptr %call17, inttoptr (i64 4 to ptr)
+  %9 = inttoptr i64 4 to ptr
+  %cmp18 = icmp eq ptr %call17, %9
   %nErrorCount19 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount19, ptr noundef @.str, i32 noundef 1156, ptr noundef @.str.14)
   ret void
@@ -10860,30 +10988,36 @@ entry:
   %ret10 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
+  %1 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %call = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, i64 noundef 1) #6
   store ptr %call, ptr %ret, align 8
-  %1 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 8 to ptr)
+  %2 = load ptr, ptr %ret, align 8
+  %3 = inttoptr i64 8 to ptr
+  %cmp = icmp eq ptr %2, %3
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 1168, ptr noundef @.str.21)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
-  %cmp5 = icmp eq ptr %call4, inttoptr (i64 8 to ptr)
+  %4 = inttoptr i64 8 to ptr
+  %cmp5 = icmp eq ptr %call4, %4
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 1170, ptr noundef @.str.20)
-  store ptr inttoptr (i64 4 to ptr), ptr %val8, align 8
-  %2 = load ptr, ptr %val8, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %2) #6
+  %5 = inttoptr i64 4 to ptr
+  store ptr %5, ptr %val8, align 8
+  %6 = load ptr, ptr %val8, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %6) #6
   %call12 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, i64 noundef 0) #6
   store ptr %call12, ptr %ret10, align 8
-  %3 = load ptr, ptr %ret10, align 8
-  %cmp13 = icmp eq ptr %3, inttoptr (i64 4 to ptr)
+  %7 = load ptr, ptr %ret10, align 8
+  %8 = inttoptr i64 4 to ptr
+  %cmp13 = icmp eq ptr %7, %8
   %nErrorCount14 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount14, ptr noundef @.str, i32 noundef 1179, ptr noundef @.str.12)
   %call17 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9) #6
-  %cmp18 = icmp eq ptr %call17, inttoptr (i64 4 to ptr)
+  %9 = inttoptr i64 4 to ptr
+  %cmp18 = icmp eq ptr %call17, %9
   %nErrorCount19 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount19, ptr noundef @.str, i32 noundef 1181, ptr noundef @.str.14)
   ret void
@@ -10901,30 +11035,35 @@ entry:
   %ret10 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
+  %1 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %call = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, i64 noundef 1) #6
   store ptr %call, ptr %ret, align 8
-  %1 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 4 to ptr)
+  %2 = load ptr, ptr %ret, align 8
+  %3 = inttoptr i64 4 to ptr
+  %cmp = icmp eq ptr %2, %3
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 1193, ptr noundef @.str.12)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   %cmp5 = icmp eq ptr %call4, null
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 1195, ptr noundef @.str.5)
-  store ptr inttoptr (i64 4 to ptr), ptr %val8, align 8
-  %2 = load ptr, ptr %val8, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %2) #6
+  %4 = inttoptr i64 4 to ptr
+  store ptr %4, ptr %val8, align 8
+  %5 = load ptr, ptr %val8, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %5) #6
   %call12 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, i64 noundef 0) #6
   store ptr %call12, ptr %ret10, align 8
-  %3 = load ptr, ptr %ret10, align 8
-  %cmp13 = icmp eq ptr %3, inttoptr (i64 4 to ptr)
+  %6 = load ptr, ptr %ret10, align 8
+  %7 = inttoptr i64 4 to ptr
+  %cmp13 = icmp eq ptr %6, %7
   %nErrorCount14 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount14, ptr noundef @.str, i32 noundef 1204, ptr noundef @.str.12)
   %call17 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9) #6
-  %cmp18 = icmp eq ptr %call17, inttoptr (i64 4 to ptr)
+  %8 = inttoptr i64 4 to ptr
+  %cmp18 = icmp eq ptr %call17, %8
   %nErrorCount19 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount19, ptr noundef @.str, i32 noundef 1206, ptr noundef @.str.14)
   ret void
@@ -10942,30 +11081,34 @@ entry:
   %ret10 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %0 = load ptr, ptr %val, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %0) #6
+  %0 = inttoptr i64 4 to ptr
+  store ptr %0, ptr %val, align 8
+  %1 = load ptr, ptr %val, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic, ptr noundef %1) #6
   %call = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic, i64 noundef 1) #6
   store ptr %call, ptr %ret, align 8
-  %1 = load ptr, ptr %ret, align 8
-  %cmp = icmp eq ptr %1, null
+  %2 = load ptr, ptr %ret, align 8
+  %cmp = icmp eq ptr %2, null
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 1218, ptr noundef @.str.8)
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic) #6
   %cmp5 = icmp eq ptr %call4, null
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 1220, ptr noundef @.str.5)
-  store ptr inttoptr (i64 4 to ptr), ptr %val8, align 8
-  %2 = load ptr, ptr %val8, align 8
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %2) #6
+  %3 = inttoptr i64 4 to ptr
+  store ptr %3, ptr %val8, align 8
+  %4 = load ptr, ptr %val8, align 8
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, ptr noundef %4) #6
   %call12 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9, i64 noundef 0) #6
   store ptr %call12, ptr %ret10, align 8
-  %3 = load ptr, ptr %ret10, align 8
-  %cmp13 = icmp eq ptr %3, inttoptr (i64 4 to ptr)
+  %5 = load ptr, ptr %ret10, align 8
+  %6 = inttoptr i64 4 to ptr
+  %cmp13 = icmp eq ptr %5, %6
   %nErrorCount14 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount14, ptr noundef @.str, i32 noundef 1229, ptr noundef @.str.12)
   %call17 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic9) #6
-  %cmp18 = icmp eq ptr %call17, inttoptr (i64 4 to ptr)
+  %7 = inttoptr i64 4 to ptr
+  %cmp18 = icmp eq ptr %call17, %7
   %nErrorCount19 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount19, ptr noundef @.str, i32 noundef 1231, ptr noundef @.str.14)
   ret void
@@ -11076,47 +11219,49 @@ entry:
   %nErrorCount = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call2 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str, i32 noundef 1240, ptr noundef @.str.22)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic3) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %val, align 8
-  %1 = load ptr, ptr %val, align 8
+  %1 = inttoptr i64 4 to ptr
+  store ptr %1, ptr %val, align 8
+  %2 = load ptr, ptr %val, align 8
   store ptr %atomic3, ptr %atomicObj.addr.i235, align 8
-  store ptr %1, ptr %desired.addr.i, align 8
-  %2 = load ptr, ptr %atomicObj.addr.i235, align 8
-  %3 = load ptr, ptr %desired.addr.i, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #6
+  store ptr %2, ptr %desired.addr.i, align 8
+  %3 = load ptr, ptr %atomicObj.addr.i235, align 8
+  %4 = load ptr, ptr %desired.addr.i, align 8
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) #6
   %call4 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic3) #6
-  %4 = load ptr, ptr %val, align 8
-  %cmp5 = icmp eq ptr %call4, %4
+  %5 = load ptr, ptr %val, align 8
+  %cmp5 = icmp eq ptr %call4, %5
   %nErrorCount6 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount6, ptr noundef @.str, i32 noundef 1249, ptr noundef @.str.11)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic8) #6
-  store ptr inttoptr (i64 4 to ptr), ptr %val9, align 8
-  %5 = load ptr, ptr %val9, align 8
+  %6 = inttoptr i64 4 to ptr
+  store ptr %6, ptr %val9, align 8
+  %7 = load ptr, ptr %val9, align 8
   store ptr %atomic8, ptr %atomicObj.addr.i236, align 8
-  store ptr %5, ptr %desired.addr.i237, align 8
-  %6 = load ptr, ptr %atomicObj.addr.i236, align 8
-  %7 = load ptr, ptr %desired.addr.i237, align 8
-  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #6
+  store ptr %7, ptr %desired.addr.i237, align 8
+  %8 = load ptr, ptr %atomicObj.addr.i236, align 8
+  %9 = load ptr, ptr %desired.addr.i237, align 8
+  call void @_ZN5eastl8internal17atomic_base_widthIPjLj8EE5storeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9) #6
   %call12 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic8) #6
-  %8 = load ptr, ptr %val9, align 8
-  %cmp13 = icmp eq ptr %call12, %8
+  %10 = load ptr, ptr %val9, align 8
+  %cmp13 = icmp eq ptr %call12, %10
   %nErrorCount14 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount14, ptr noundef @.str, i32 noundef 1258, ptr noundef @.str.11)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic16) #6
   store ptr %atomic16, ptr %atomicObj.addr.i238, align 8
-  %9 = load ptr, ptr %atomicObj.addr.i238, align 8
-  %call.i239 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
+  %11 = load ptr, ptr %atomicObj.addr.i238, align 8
+  %call.i239 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
   store ptr %call.i239, ptr %ret, align 8
-  %10 = load ptr, ptr %ret, align 8
-  %cmp18 = icmp eq ptr %10, null
+  %12 = load ptr, ptr %ret, align 8
+  %cmp18 = icmp eq ptr %12, null
   %nErrorCount19 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call20 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp18, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount19, ptr noundef @.str, i32 noundef 1266, ptr noundef @.str.8)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic21) #6
   store ptr %atomic21, ptr %atomicObj.addr.i240, align 8
-  %11 = load ptr, ptr %atomicObj.addr.i240, align 8
-  %call.i241 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
+  %13 = load ptr, ptr %atomicObj.addr.i240, align 8
+  %call.i241 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
   store ptr %call.i241, ptr %ret22, align 8
-  %12 = load ptr, ptr %ret22, align 8
-  %cmp25 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %ret22, align 8
+  %cmp25 = icmp eq ptr %14, null
   %nErrorCount26 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp25, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount26, ptr noundef @.str, i32 noundef 1274, ptr noundef @.str.8)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic28) #6
@@ -11124,11 +11269,11 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end.i, %entry
-  %13 = load ptr, ptr %atomicObj.addr.i242, align 8
-  %call.i243 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
+  %15 = load ptr, ptr %atomicObj.addr.i242, align 8
+  %call.i243 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
   store ptr %call.i243, ptr %ret.i, align 8
-  %14 = load ptr, ptr %ret.i, align 8
-  %call1.i = invoke noundef zeroext i1 @"_ZZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvENK3$_0clEPj"(ptr noundef nonnull align 1 dereferenceable(1) %pred.i, ptr noundef %14)
+  %16 = load ptr, ptr %ret.i, align 8
+  %call1.i = invoke noundef zeroext i1 @"_ZZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvENK3$_0clEPj"(ptr noundef nonnull align 1 dereferenceable(1) %pred.i, ptr noundef %16)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %for.cond.i
@@ -11139,17 +11284,17 @@ if.end.i:                                         ; preds = %invoke.cont.i
   br label %for.cond.i, !llvm.loop !10
 
 terminate.lpad.i:                                 ; preds = %for.cond.i
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #7
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #7
   unreachable
 
 "_ZN5eastl16atomic_load_condIPjZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvE3$_0EENS_6atomicIT_vE10value_typeEPKS6_T0_.exit": ; preds = %invoke.cont.i
-  %17 = load ptr, ptr %ret.i, align 8
-  store ptr %17, ptr %ret29, align 8
-  %18 = load ptr, ptr %ret29, align 8
-  %cmp32 = icmp eq ptr %18, null
+  %19 = load ptr, ptr %ret.i, align 8
+  store ptr %19, ptr %ret29, align 8
+  %20 = load ptr, ptr %ret29, align 8
+  %cmp32 = icmp eq ptr %20, null
   %nErrorCount33 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call34 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp32, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount33, ptr noundef @.str, i32 noundef 1282, ptr noundef @.str.8)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic35) #6
@@ -11157,11 +11302,11 @@ terminate.lpad.i:                                 ; preds = %for.cond.i
   br label %for.cond.i247
 
 for.cond.i247:                                    ; preds = %if.end.i251, %"_ZN5eastl16atomic_load_condIPjZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvE3$_0EENS_6atomicIT_vE10value_typeEPKS6_T0_.exit"
-  %19 = load ptr, ptr %atomicObj.addr.i245, align 8
-  %call.i248 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %19) #6
+  %21 = load ptr, ptr %atomicObj.addr.i245, align 8
+  %call.i248 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %21) #6
   store ptr %call.i248, ptr %ret.i246, align 8
-  %20 = load ptr, ptr %ret.i246, align 8
-  %call2.i = invoke noundef zeroext i1 @"_ZZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvENK3$_1clEPj"(ptr noundef nonnull align 1 dereferenceable(1) %pred.i244, ptr noundef %20)
+  %22 = load ptr, ptr %ret.i246, align 8
+  %call2.i = invoke noundef zeroext i1 @"_ZZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvENK3$_1clEPj"(ptr noundef nonnull align 1 dereferenceable(1) %pred.i244, ptr noundef %22)
           to label %invoke.cont.i250 unwind label %terminate.lpad.i249
 
 invoke.cont.i250:                                 ; preds = %for.cond.i247
@@ -11172,163 +11317,179 @@ if.end.i251:                                      ; preds = %invoke.cont.i250
   br label %for.cond.i247, !llvm.loop !13
 
 terminate.lpad.i249:                              ; preds = %for.cond.i247
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #7
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #7
   unreachable
 
 "_ZN5eastl25atomic_load_cond_explicitIPjZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvE3$_1NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit": ; preds = %invoke.cont.i250
-  %23 = load ptr, ptr %ret.i246, align 8
-  store ptr %23, ptr %ret36, align 8
-  %24 = load ptr, ptr %ret36, align 8
-  %cmp40 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %ret.i246, align 8
+  store ptr %25, ptr %ret36, align 8
+  %26 = load ptr, ptr %ret36, align 8
+  %cmp40 = icmp eq ptr %26, null
   %nErrorCount41 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp40, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount41, ptr noundef @.str, i32 noundef 1290, ptr noundef @.str.8)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic43) #6
   store ptr %atomic43, ptr %atomicObj.addr.i252, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i253, align 8
-  %25 = load ptr, ptr %atomicObj.addr.i252, align 8
-  %26 = load ptr, ptr %desired.addr.i253, align 8
-  %call.i254 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #6
+  %27 = inttoptr i64 4 to ptr
+  store ptr %27, ptr %desired.addr.i253, align 8
+  %28 = load ptr, ptr %atomicObj.addr.i252, align 8
+  %29 = load ptr, ptr %desired.addr.i253, align 8
+  %call.i254 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %29) #6
   store ptr %call.i254, ptr %ret44, align 8
-  %27 = load ptr, ptr %ret44, align 8
-  %cmp46 = icmp eq ptr %27, null
+  %30 = load ptr, ptr %ret44, align 8
+  %cmp46 = icmp eq ptr %30, null
   %nErrorCount47 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call48 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp46, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount47, ptr noundef @.str, i32 noundef 1298, ptr noundef @.str.8)
   %call50 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic43) #6
-  %cmp51 = icmp eq ptr %call50, inttoptr (i64 4 to ptr)
+  %31 = inttoptr i64 4 to ptr
+  %cmp51 = icmp eq ptr %call50, %31
   %nErrorCount52 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp51, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount52, ptr noundef @.str, i32 noundef 1300, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic54) #6
   store ptr %atomic54, ptr %atomicObj.addr.i255, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i256, align 8
-  %28 = load ptr, ptr %atomicObj.addr.i255, align 8
-  %29 = load ptr, ptr %desired.addr.i256, align 8
-  %call.i257 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %29) #6
+  %32 = inttoptr i64 4 to ptr
+  store ptr %32, ptr %desired.addr.i256, align 8
+  %33 = load ptr, ptr %atomicObj.addr.i255, align 8
+  %34 = load ptr, ptr %desired.addr.i256, align 8
+  %call.i257 = call noundef ptr @_ZN5eastl8internal17atomic_base_widthIPjLj8EE8exchangeES2_NS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %34) #6
   store ptr %call.i257, ptr %ret55, align 8
-  %30 = load ptr, ptr %ret55, align 8
-  %cmp58 = icmp eq ptr %30, null
+  %35 = load ptr, ptr %ret55, align 8
+  %cmp58 = icmp eq ptr %35, null
   %nErrorCount59 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call60 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp58, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount59, ptr noundef @.str, i32 noundef 1308, ptr noundef @.str.8)
   %call62 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic54) #6
-  %cmp63 = icmp eq ptr %call62, inttoptr (i64 4 to ptr)
+  %36 = inttoptr i64 4 to ptr
+  %cmp63 = icmp eq ptr %call62, %36
   %nErrorCount64 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call65 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp63, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount64, ptr noundef @.str, i32 noundef 1310, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic66) #6
   store ptr %atomic66, ptr %atomicObj.addr.i258, align 8
   store i64 1, ptr %arg.addr.i, align 8
-  %31 = load ptr, ptr %atomicObj.addr.i258, align 8
-  %32 = load i64, ptr %arg.addr.i, align 8
-  %call.i259 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchEl(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef %32) #6
+  %37 = load ptr, ptr %atomicObj.addr.i258, align 8
+  %38 = load i64, ptr %arg.addr.i, align 8
+  %call.i259 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchEl(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %38) #6
   store ptr %call.i259, ptr %ret67, align 8
-  %33 = load ptr, ptr %ret67, align 8
-  %cmp69 = icmp eq ptr %33, inttoptr (i64 4 to ptr)
+  %39 = load ptr, ptr %ret67, align 8
+  %40 = inttoptr i64 4 to ptr
+  %cmp69 = icmp eq ptr %39, %40
   %nErrorCount70 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call71 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp69, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount70, ptr noundef @.str, i32 noundef 1318, ptr noundef @.str.12)
   %call73 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic66) #6
-  %cmp74 = icmp eq ptr %call73, inttoptr (i64 4 to ptr)
+  %41 = inttoptr i64 4 to ptr
+  %cmp74 = icmp eq ptr %call73, %41
   %nErrorCount75 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call76 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp74, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount75, ptr noundef @.str, i32 noundef 1320, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic77) #6
   store ptr %atomic77, ptr %atomicObj.addr.i260, align 8
   store i64 1, ptr %arg.addr.i261, align 8
-  %34 = load ptr, ptr %atomicObj.addr.i260, align 8
-  %35 = load i64, ptr %arg.addr.i261, align 8
-  %call.i262 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef %35) #6
+  %42 = load ptr, ptr %atomicObj.addr.i260, align 8
+  %43 = load i64, ptr %arg.addr.i261, align 8
+  %call.i262 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9add_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %43) #6
   store ptr %call.i262, ptr %ret78, align 8
-  %36 = load ptr, ptr %ret78, align 8
-  %cmp81 = icmp eq ptr %36, inttoptr (i64 4 to ptr)
+  %44 = load ptr, ptr %ret78, align 8
+  %45 = inttoptr i64 4 to ptr
+  %cmp81 = icmp eq ptr %44, %45
   %nErrorCount82 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call83 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp81, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount82, ptr noundef @.str, i32 noundef 1328, ptr noundef @.str.12)
   %call85 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic77) #6
-  %cmp86 = icmp eq ptr %call85, inttoptr (i64 4 to ptr)
+  %46 = inttoptr i64 4 to ptr
+  %cmp86 = icmp eq ptr %call85, %46
   %nErrorCount87 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call88 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp86, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount87, ptr noundef @.str, i32 noundef 1330, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic89) #6
   store ptr %atomic89, ptr %atomicObj.addr.i263, align 8
   store i64 1, ptr %arg.addr.i264, align 8
-  %37 = load ptr, ptr %atomicObj.addr.i263, align 8
-  %38 = load i64, ptr %arg.addr.i264, align 8
-  %call.i265 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addEl(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %38) #6
+  %47 = load ptr, ptr %atomicObj.addr.i263, align 8
+  %48 = load i64, ptr %arg.addr.i264, align 8
+  %call.i265 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addEl(ptr noundef nonnull align 8 dereferenceable(8) %47, i64 noundef %48) #6
   store ptr %call.i265, ptr %ret90, align 8
-  %39 = load ptr, ptr %ret90, align 8
-  %cmp92 = icmp eq ptr %39, null
+  %49 = load ptr, ptr %ret90, align 8
+  %cmp92 = icmp eq ptr %49, null
   %nErrorCount93 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call94 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp92, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount93, ptr noundef @.str, i32 noundef 1338, ptr noundef @.str.8)
   %call96 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic89) #6
-  %cmp97 = icmp eq ptr %call96, inttoptr (i64 4 to ptr)
+  %50 = inttoptr i64 4 to ptr
+  %cmp97 = icmp eq ptr %call96, %50
   %nErrorCount98 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call99 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp97, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount98, ptr noundef @.str, i32 noundef 1340, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic100) #6
   store ptr %atomic100, ptr %atomicObj.addr.i266, align 8
   store i64 1, ptr %arg.addr.i267, align 8
-  %40 = load ptr, ptr %atomicObj.addr.i266, align 8
-  %41 = load i64, ptr %arg.addr.i267, align 8
-  %call.i268 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %40, i64 noundef %41) #6
+  %51 = load ptr, ptr %atomicObj.addr.i266, align 8
+  %52 = load i64, ptr %arg.addr.i267, align 8
+  %call.i268 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_addElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %52) #6
   store ptr %call.i268, ptr %ret101, align 8
-  %42 = load ptr, ptr %ret101, align 8
-  %cmp104 = icmp eq ptr %42, null
+  %53 = load ptr, ptr %ret101, align 8
+  %cmp104 = icmp eq ptr %53, null
   %nErrorCount105 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call106 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp104, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount105, ptr noundef @.str, i32 noundef 1348, ptr noundef @.str.8)
   %call108 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic100) #6
-  %cmp109 = icmp eq ptr %call108, inttoptr (i64 4 to ptr)
+  %54 = inttoptr i64 4 to ptr
+  %cmp109 = icmp eq ptr %call108, %54
   %nErrorCount110 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp109, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount110, ptr noundef @.str, i32 noundef 1350, ptr noundef @.str.14)
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic112, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %55 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic112, ptr noundef %55) #6
   store ptr %atomic112, ptr %atomicObj.addr.i269, align 8
   store i64 1, ptr %arg.addr.i270, align 8
-  %43 = load ptr, ptr %atomicObj.addr.i269, align 8
-  %44 = load i64, ptr %arg.addr.i270, align 8
-  %call.i271 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subEl(ptr noundef nonnull align 8 dereferenceable(8) %43, i64 noundef %44) #6
+  %56 = load ptr, ptr %atomicObj.addr.i269, align 8
+  %57 = load i64, ptr %arg.addr.i270, align 8
+  %call.i271 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subEl(ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef %57) #6
   store ptr %call.i271, ptr %ret113, align 8
-  %45 = load ptr, ptr %ret113, align 8
-  %cmp115 = icmp eq ptr %45, inttoptr (i64 4 to ptr)
+  %58 = load ptr, ptr %ret113, align 8
+  %59 = inttoptr i64 4 to ptr
+  %cmp115 = icmp eq ptr %58, %59
   %nErrorCount116 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call117 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp115, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount116, ptr noundef @.str, i32 noundef 1358, ptr noundef @.str.12)
   %call119 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic112) #6
   %cmp120 = icmp eq ptr %call119, null
   %nErrorCount121 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call122 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp120, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount121, ptr noundef @.str, i32 noundef 1360, ptr noundef @.str.5)
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic123, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %60 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic123, ptr noundef %60) #6
   store ptr %atomic123, ptr %atomicObj.addr.i272, align 8
   store i64 1, ptr %arg.addr.i273, align 8
-  %46 = load ptr, ptr %atomicObj.addr.i272, align 8
-  %47 = load i64, ptr %arg.addr.i273, align 8
-  %call.i274 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %47) #6
+  %61 = load ptr, ptr %atomicObj.addr.i272, align 8
+  %62 = load i64, ptr %arg.addr.i273, align 8
+  %call.i274 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9fetch_subElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %61, i64 noundef %62) #6
   store ptr %call.i274, ptr %ret124, align 8
-  %48 = load ptr, ptr %ret124, align 8
-  %cmp127 = icmp eq ptr %48, inttoptr (i64 4 to ptr)
+  %63 = load ptr, ptr %ret124, align 8
+  %64 = inttoptr i64 4 to ptr
+  %cmp127 = icmp eq ptr %63, %64
   %nErrorCount128 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call129 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp127, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount128, ptr noundef @.str, i32 noundef 1368, ptr noundef @.str.12)
   %call131 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic123) #6
   %cmp132 = icmp eq ptr %call131, null
   %nErrorCount133 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call134 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp132, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount133, ptr noundef @.str, i32 noundef 1370, ptr noundef @.str.5)
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic135, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %65 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic135, ptr noundef %65) #6
   store ptr %atomic135, ptr %atomicObj.addr.i275, align 8
   store i64 1, ptr %arg.addr.i276, align 8
-  %49 = load ptr, ptr %atomicObj.addr.i275, align 8
-  %50 = load i64, ptr %arg.addr.i276, align 8
-  %call.i277 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchEl(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %50) #6
+  %66 = load ptr, ptr %atomicObj.addr.i275, align 8
+  %67 = load i64, ptr %arg.addr.i276, align 8
+  %call.i277 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchEl(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %67) #6
   store ptr %call.i277, ptr %ret136, align 8
-  %51 = load ptr, ptr %ret136, align 8
-  %cmp138 = icmp eq ptr %51, null
+  %68 = load ptr, ptr %ret136, align 8
+  %cmp138 = icmp eq ptr %68, null
   %nErrorCount139 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call140 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp138, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount139, ptr noundef @.str, i32 noundef 1378, ptr noundef @.str.8)
   %call142 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic135) #6
   %cmp143 = icmp eq ptr %call142, null
   %nErrorCount144 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call145 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp143, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount144, ptr noundef @.str, i32 noundef 1380, ptr noundef @.str.5)
-  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic146, ptr noundef inttoptr (i64 4 to ptr)) #6
+  %69 = inttoptr i64 4 to ptr
+  call void @_ZN5eastl6atomicIPjvEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %atomic146, ptr noundef %69) #6
   store ptr %atomic146, ptr %atomicObj.addr.i278, align 8
   store i64 1, ptr %arg.addr.i279, align 8
-  %52 = load ptr, ptr %atomicObj.addr.i278, align 8
-  %53 = load i64, ptr %arg.addr.i279, align 8
-  %call.i280 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef %53) #6
+  %70 = load ptr, ptr %atomicObj.addr.i278, align 8
+  %71 = load i64, ptr %arg.addr.i279, align 8
+  %call.i280 = call noundef ptr @_ZN5eastl8internal20atomic_pointer_widthIPjLj8EE9sub_fetchElNS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %70, i64 noundef %71) #6
   store ptr %call.i280, ptr %ret147, align 8
-  %54 = load ptr, ptr %ret147, align 8
-  %cmp150 = icmp eq ptr %54, null
+  %72 = load ptr, ptr %ret147, align 8
+  %cmp150 = icmp eq ptr %72, null
   %nErrorCount151 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call152 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp150, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount151, ptr noundef @.str, i32 noundef 1388, ptr noundef @.str.8)
   %call154 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic146) #6
@@ -11339,80 +11500,86 @@ terminate.lpad.i249:                              ; preds = %for.cond.i247
   store ptr null, ptr %expected, align 8
   store ptr %atomic158, ptr %atomicObj.addr.i281, align 8
   store ptr %expected, ptr %expected.addr.i, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i282, align 8
-  %55 = load ptr, ptr %atomicObj.addr.i281, align 8
-  %56 = load ptr, ptr %expected.addr.i, align 8
-  %57 = load ptr, ptr %desired.addr.i282, align 8
-  %call.i283 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %57) #6
+  %73 = inttoptr i64 4 to ptr
+  store ptr %73, ptr %desired.addr.i282, align 8
+  %74 = load ptr, ptr %atomicObj.addr.i281, align 8
+  %75 = load ptr, ptr %expected.addr.i, align 8
+  %76 = load ptr, ptr %desired.addr.i282, align 8
+  %call.i283 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %76) #6
   %frombool = zext i1 %call.i283 to i8
   store i8 %frombool, ptr %ret159, align 1
-  %58 = load i8, ptr %ret159, align 1
-  %tobool = trunc i8 %58 to i1
+  %77 = load i8, ptr %ret159, align 1
+  %tobool = trunc i8 %77 to i1
   %conv161 = zext i1 %tobool to i32
   %cmp162 = icmp eq i32 %conv161, 1
   %nErrorCount163 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call164 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp162, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount163, ptr noundef @.str, i32 noundef 1399, ptr noundef @.str.4)
-  %59 = load ptr, ptr %expected, align 8
-  %cmp165 = icmp eq ptr %59, null
+  %78 = load ptr, ptr %expected, align 8
+  %cmp165 = icmp eq ptr %78, null
   %nErrorCount166 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call167 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp165, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount166, ptr noundef @.str, i32 noundef 1401, ptr noundef @.str.23)
   %call169 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic158) #6
-  %cmp170 = icmp eq ptr %call169, inttoptr (i64 4 to ptr)
+  %79 = inttoptr i64 4 to ptr
+  %cmp170 = icmp eq ptr %call169, %79
   %nErrorCount171 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call172 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp170, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount171, ptr noundef @.str, i32 noundef 1402, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic173) #6
   store ptr null, ptr %expected174, align 8
   store ptr %atomic173, ptr %atomicObj.addr.i284, align 8
   store ptr %expected174, ptr %expected.addr.i285, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i286, align 8
-  %60 = load ptr, ptr %atomicObj.addr.i284, align 8
-  %61 = load ptr, ptr %expected.addr.i285, align 8
-  %62 = load ptr, ptr %desired.addr.i286, align 8
-  %call.i287 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %62) #6
+  %80 = inttoptr i64 4 to ptr
+  store ptr %80, ptr %desired.addr.i286, align 8
+  %81 = load ptr, ptr %atomicObj.addr.i284, align 8
+  %82 = load ptr, ptr %expected.addr.i285, align 8
+  %83 = load ptr, ptr %desired.addr.i286, align 8
+  %call.i287 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE23compare_exchange_strongERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %83) #6
   %frombool179 = zext i1 %call.i287 to i8
   store i8 %frombool179, ptr %ret175, align 1
-  %63 = load i8, ptr %ret175, align 1
-  %tobool180 = trunc i8 %63 to i1
+  %84 = load i8, ptr %ret175, align 1
+  %tobool180 = trunc i8 %84 to i1
   %conv181 = zext i1 %tobool180 to i32
   %cmp182 = icmp eq i32 %conv181, 1
   %nErrorCount183 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call184 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp182, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount183, ptr noundef @.str, i32 noundef 1411, ptr noundef @.str.4)
-  %64 = load ptr, ptr %expected174, align 8
-  %cmp185 = icmp eq ptr %64, null
+  %85 = load ptr, ptr %expected174, align 8
+  %cmp185 = icmp eq ptr %85, null
   %nErrorCount186 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call187 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp185, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount186, ptr noundef @.str, i32 noundef 1413, ptr noundef @.str.23)
   %call189 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic173) #6
-  %cmp190 = icmp eq ptr %call189, inttoptr (i64 4 to ptr)
+  %86 = inttoptr i64 4 to ptr
+  %cmp190 = icmp eq ptr %call189, %86
   %nErrorCount191 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call192 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp190, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount191, ptr noundef @.str, i32 noundef 1414, ptr noundef @.str.14)
   call void @_ZN5eastl6atomicIPjvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %atomic193) #6
   store ptr null, ptr %expected194, align 8
   store ptr %atomic193, ptr %atomicObj.addr.i288, align 8
   store ptr %expected194, ptr %expected.addr.i289, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i290, align 8
-  %65 = load ptr, ptr %atomicObj.addr.i288, align 8
-  %66 = load ptr, ptr %expected.addr.i289, align 8
-  %67 = load ptr, ptr %desired.addr.i290, align 8
-  %call.i291 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %67) #6
+  %87 = inttoptr i64 4 to ptr
+  store ptr %87, ptr %desired.addr.i290, align 8
+  %88 = load ptr, ptr %atomicObj.addr.i288, align 8
+  %89 = load ptr, ptr %expected.addr.i289, align 8
+  %90 = load ptr, ptr %desired.addr.i290, align 8
+  %call.i291 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef %90) #6
   %frombool197 = zext i1 %call.i291 to i8
   store i8 %frombool197, ptr %ret195, align 1
-  %68 = load i8, ptr %ret195, align 1
-  %tobool198 = trunc i8 %68 to i1
+  %91 = load i8, ptr %ret195, align 1
+  %tobool198 = trunc i8 %91 to i1
   br i1 %tobool198, label %if.then, label %if.end
 
 if.then:                                          ; preds = %"_ZN5eastl25atomic_load_cond_explicitIPjZN22AtomicPointerBasicTest27TestAtomicPointerStandaloneEvE3$_1NS_8internal22memory_order_relaxed_sEEENS_6atomicIT_vE10value_typeEPKS8_T0_T1_.exit"
-  %69 = load i8, ptr %ret195, align 1
-  %tobool199 = trunc i8 %69 to i1
+  %92 = load i8, ptr %ret195, align 1
+  %tobool199 = trunc i8 %92 to i1
   %conv200 = zext i1 %tobool199 to i32
   %cmp201 = icmp eq i32 %conv200, 1
   %nErrorCount202 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call203 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp201, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount202, ptr noundef @.str, i32 noundef 1425, ptr noundef @.str.4)
-  %70 = load ptr, ptr %expected194, align 8
-  %cmp204 = icmp eq ptr %70, null
+  %93 = load ptr, ptr %expected194, align 8
+  %cmp204 = icmp eq ptr %93, null
   %nErrorCount205 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call206 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp204, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount205, ptr noundef @.str, i32 noundef 1427, ptr noundef @.str.23)
   %call208 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic193) #6
-  %cmp209 = icmp eq ptr %call208, inttoptr (i64 4 to ptr)
+  %94 = inttoptr i64 4 to ptr
+  %cmp209 = icmp eq ptr %call208, %94
   %nErrorCount210 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call211 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp209, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount210, ptr noundef @.str, i32 noundef 1428, ptr noundef @.str.14)
   br label %if.end
@@ -11422,30 +11589,32 @@ if.end:                                           ; preds = %if.then, %"_ZN5east
   store ptr null, ptr %expected213, align 8
   store ptr %atomic212, ptr %atomicObj.addr.i292, align 8
   store ptr %expected213, ptr %expected.addr.i293, align 8
-  store ptr inttoptr (i64 4 to ptr), ptr %desired.addr.i294, align 8
-  %71 = load ptr, ptr %atomicObj.addr.i292, align 8
-  %72 = load ptr, ptr %expected.addr.i293, align 8
-  %73 = load ptr, ptr %desired.addr.i294, align 8
-  %call.i295 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %73) #6
+  %95 = inttoptr i64 4 to ptr
+  store ptr %95, ptr %desired.addr.i294, align 8
+  %96 = load ptr, ptr %atomicObj.addr.i292, align 8
+  %97 = load ptr, ptr %expected.addr.i293, align 8
+  %98 = load ptr, ptr %desired.addr.i294, align 8
+  %call.i295 = call noundef zeroext i1 @_ZN5eastl8internal17atomic_base_widthIPjLj8EE21compare_exchange_weakERS2_S2_NS0_22memory_order_relaxed_sES5_(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef %98) #6
   %frombool218 = zext i1 %call.i295 to i8
   store i8 %frombool218, ptr %ret214, align 1
-  %74 = load i8, ptr %ret214, align 1
-  %tobool219 = trunc i8 %74 to i1
+  %99 = load i8, ptr %ret214, align 1
+  %tobool219 = trunc i8 %99 to i1
   br i1 %tobool219, label %if.then220, label %if.end234
 
 if.then220:                                       ; preds = %if.end
-  %75 = load i8, ptr %ret214, align 1
-  %tobool221 = trunc i8 %75 to i1
+  %100 = load i8, ptr %ret214, align 1
+  %tobool221 = trunc i8 %100 to i1
   %conv222 = zext i1 %tobool221 to i32
   %cmp223 = icmp eq i32 %conv222, 1
   %nErrorCount224 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call225 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp223, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount224, ptr noundef @.str, i32 noundef 1440, ptr noundef @.str.4)
-  %76 = load ptr, ptr %expected213, align 8
-  %cmp226 = icmp eq ptr %76, null
+  %101 = load ptr, ptr %expected213, align 8
+  %cmp226 = icmp eq ptr %101, null
   %nErrorCount227 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call228 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp226, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount227, ptr noundef @.str, i32 noundef 1442, ptr noundef @.str.23)
   %call230 = call noundef ptr @_ZNK5eastl8internal17atomic_base_widthIPjLj8EE4loadENS0_22memory_order_relaxed_sE(ptr noundef nonnull align 8 dereferenceable(8) %atomic212) #6
-  %cmp231 = icmp eq ptr %call230, inttoptr (i64 4 to ptr)
+  %102 = inttoptr i64 4 to ptr
+  %cmp231 = icmp eq ptr %call230, %102
   %nErrorCount232 = getelementptr inbounds %class.AtomicPointerBasicTest, ptr %this1, i32 0, i32 0
   %call233 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp231, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount232, ptr noundef @.str, i32 noundef 1443, ptr noundef @.str.14)
   br label %if.end234

@@ -378,12 +378,13 @@ entry:
   %call = call ptr @__errno_location() #12
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %saved_errno, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %1(ptr noundef %2)
-  %3 = load i32, ptr %saved_errno, align 4
+  %1 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %ptr.addr, align 8
+  call void %2(ptr noundef %3)
+  %4 = load i32, ptr %saved_errno, align 4
   %call1 = call ptr @__errno_location() #12
-  store i32 %3, ptr %call1, align 4
+  store i32 %4, ptr %call1, align 4
   ret void
 }
 
@@ -397,10 +398,11 @@ entry:
   %size.addr = alloca i64, align 8
   store i64 %count, ptr %count.addr, align 8
   store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2), align 8
-  %1 = load i64, ptr %count.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr %0(i64 noundef %1, i64 noundef %2)
+  %0 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i64, ptr %count.addr, align 8
+  %3 = load i64, ptr %size.addr, align 8
+  %call = call ptr %1(i64 noundef %2, i64 noundef %3)
   ret ptr %call
 }
 
@@ -417,22 +419,23 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
+  %1 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %ptr.addr, align 8
+  %4 = load i64, ptr %size.addr, align 8
+  %call = call ptr %2(ptr noundef %3, i64 noundef %4)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %ptr.addr, align 8
-  call void @uv__free(ptr noundef %4)
+  %5 = load ptr, ptr %ptr.addr, align 8
+  call void @uv__free(ptr noundef %5)
   store ptr null, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -508,17 +511,20 @@ if.end:                                           ; preds = %lor.lhs.false4
   %4 = load ptr, ptr %malloc_func.addr, align 8
   store ptr %4, ptr @uv__allocator, align 8
   %5 = load ptr, ptr %realloc_func.addr, align 8
-  store ptr %5, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %calloc_func.addr, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2), align 8
-  %7 = load ptr, ptr %free_func.addr, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3), align 8
+  %6 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 1
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr %calloc_func.addr, align 8
+  %8 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 2
+  store ptr %7, ptr %8, align 8
+  %9 = load ptr, ptr %free_func.addr, align 8
+  %10 = getelementptr inbounds %struct.uv__allocator_t, ptr @uv__allocator, i32 0, i32 3
+  store ptr %9, ptr %10, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4907,25 +4913,19 @@ entry:
   store ptr %loop, ptr %loop.addr, align 8
   store i32 %option, ptr %option.addr, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %loop.addr, align 8
   %1 = load i32, ptr %option.addr, align 4
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @uv__loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %err, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %err, align 4
   ret i32 %2
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @uv__loop_configure(ptr noundef, i32 noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @uv_default_loop() #0 {
@@ -5445,13 +5445,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #8
+declare noalias ptr @malloc(i64 noundef) #7
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__queue_init(ptr noundef %q) #0 {
@@ -5515,6 +5515,12 @@ entry:
 
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -5522,10 +5528,10 @@ attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tra
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind }

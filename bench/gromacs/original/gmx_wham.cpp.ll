@@ -1322,7 +1322,7 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) #0 personali
 
 63:                                               ; preds = %60
   invoke void @_ZN15UmbrellaOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(312) @_ZZ8gmx_whamiPPcE3opt)
-          to label %64 unwind label %327
+          to label %64 unwind label %388
 
 64:                                               ; preds = %63
   call void @__cxa_guard_release(ptr @_ZGVZ8gmx_whamiPPcE3opt) #2
@@ -1337,1811 +1337,1930 @@ define noundef i32 @_Z8gmx_whamiPPc(i32 noundef %0, ptr noundef %1) #0 personali
   %69 = getelementptr inbounds %struct.t_pargs, ptr %66, i32 0, i32 2
   store i32 2, ptr %69, align 4
   %70 = getelementptr inbounds %struct.t_pargs, ptr %66, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), ptr %70, align 16
-  %71 = getelementptr inbounds %struct.t_pargs, ptr %66, i32 0, i32 4
-  store ptr @.str.138, ptr %71, align 8
-  %72 = getelementptr inbounds %struct.t_pargs, ptr %66, i64 1
-  %73 = getelementptr inbounds %struct.t_pargs, ptr %72, i32 0, i32 0
-  store ptr @.str.139, ptr %73, align 16
-  %74 = getelementptr inbounds %struct.t_pargs, ptr %72, i32 0, i32 1
-  store i8 0, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.t_pargs, ptr %72, i32 0, i32 2
-  store i32 2, ptr %75, align 4
-  %76 = getelementptr inbounds %struct.t_pargs, ptr %72, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15), ptr %76, align 16
-  %77 = getelementptr inbounds %struct.t_pargs, ptr %72, i32 0, i32 4
-  store ptr @.str.140, ptr %77, align 8
-  %78 = getelementptr inbounds %struct.t_pargs, ptr %72, i64 1
-  %79 = getelementptr inbounds %struct.t_pargs, ptr %78, i32 0, i32 0
-  store ptr @.str.141, ptr %79, align 16
-  %80 = getelementptr inbounds %struct.t_pargs, ptr %78, i32 0, i32 1
-  store i8 0, ptr %80, align 8
-  %81 = getelementptr inbounds %struct.t_pargs, ptr %78, i32 0, i32 2
-  store i32 5, ptr %81, align 4
-  %82 = getelementptr inbounds %struct.t_pargs, ptr %78, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27), ptr %82, align 16
-  %83 = getelementptr inbounds %struct.t_pargs, ptr %78, i32 0, i32 4
-  store ptr @.str.142, ptr %83, align 8
-  %84 = getelementptr inbounds %struct.t_pargs, ptr %78, i64 1
-  %85 = getelementptr inbounds %struct.t_pargs, ptr %84, i32 0, i32 0
-  store ptr @.str.143, ptr %85, align 16
-  %86 = getelementptr inbounds %struct.t_pargs, ptr %84, i32 0, i32 1
-  store i8 0, ptr %86, align 8
-  %87 = getelementptr inbounds %struct.t_pargs, ptr %84, i32 0, i32 2
-  store i32 0, ptr %87, align 4
-  %88 = getelementptr inbounds %struct.t_pargs, ptr %84, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), ptr %88, align 16
-  %89 = getelementptr inbounds %struct.t_pargs, ptr %84, i32 0, i32 4
-  store ptr @.str.144, ptr %89, align 8
-  %90 = getelementptr inbounds %struct.t_pargs, ptr %84, i64 1
-  %91 = getelementptr inbounds %struct.t_pargs, ptr %90, i32 0, i32 0
-  store ptr @.str.145, ptr %91, align 16
-  %92 = getelementptr inbounds %struct.t_pargs, ptr %90, i32 0, i32 1
-  store i8 0, ptr %92, align 8
-  %93 = getelementptr inbounds %struct.t_pargs, ptr %90, i32 0, i32 2
-  store i32 2, ptr %93, align 4
-  %94 = getelementptr inbounds %struct.t_pargs, ptr %90, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 17), ptr %94, align 16
-  %95 = getelementptr inbounds %struct.t_pargs, ptr %90, i32 0, i32 4
-  store ptr @.str.146, ptr %95, align 8
-  %96 = getelementptr inbounds %struct.t_pargs, ptr %90, i64 1
-  %97 = getelementptr inbounds %struct.t_pargs, ptr %96, i32 0, i32 0
-  store ptr @.str.147, ptr %97, align 16
-  %98 = getelementptr inbounds %struct.t_pargs, ptr %96, i32 0, i32 1
-  store i8 0, ptr %98, align 8
-  %99 = getelementptr inbounds %struct.t_pargs, ptr %96, i32 0, i32 2
-  store i32 2, ptr %99, align 4
-  %100 = getelementptr inbounds %struct.t_pargs, ptr %96, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18), ptr %100, align 16
-  %101 = getelementptr inbounds %struct.t_pargs, ptr %96, i32 0, i32 4
-  store ptr @.str.148, ptr %101, align 8
-  %102 = getelementptr inbounds %struct.t_pargs, ptr %96, i64 1
-  %103 = getelementptr inbounds %struct.t_pargs, ptr %102, i32 0, i32 0
-  store ptr @.str.149, ptr %103, align 16
-  %104 = getelementptr inbounds %struct.t_pargs, ptr %102, i32 0, i32 1
-  store i8 0, ptr %104, align 8
-  %105 = getelementptr inbounds %struct.t_pargs, ptr %102, i32 0, i32 2
-  store i32 5, ptr %105, align 4
-  %106 = getelementptr inbounds %struct.t_pargs, ptr %102, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28), ptr %106, align 16
-  %107 = getelementptr inbounds %struct.t_pargs, ptr %102, i32 0, i32 4
-  store ptr @.str.150, ptr %107, align 8
-  %108 = getelementptr inbounds %struct.t_pargs, ptr %102, i64 1
+  %71 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  store ptr %71, ptr %70, align 16
+  %72 = getelementptr inbounds %struct.t_pargs, ptr %66, i32 0, i32 4
+  store ptr @.str.138, ptr %72, align 8
+  %73 = getelementptr inbounds %struct.t_pargs, ptr %66, i64 1
+  %74 = getelementptr inbounds %struct.t_pargs, ptr %73, i32 0, i32 0
+  store ptr @.str.139, ptr %74, align 16
+  %75 = getelementptr inbounds %struct.t_pargs, ptr %73, i32 0, i32 1
+  store i8 0, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.t_pargs, ptr %73, i32 0, i32 2
+  store i32 2, ptr %76, align 4
+  %77 = getelementptr inbounds %struct.t_pargs, ptr %73, i32 0, i32 3
+  %78 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15
+  store ptr %78, ptr %77, align 16
+  %79 = getelementptr inbounds %struct.t_pargs, ptr %73, i32 0, i32 4
+  store ptr @.str.140, ptr %79, align 8
+  %80 = getelementptr inbounds %struct.t_pargs, ptr %73, i64 1
+  %81 = getelementptr inbounds %struct.t_pargs, ptr %80, i32 0, i32 0
+  store ptr @.str.141, ptr %81, align 16
+  %82 = getelementptr inbounds %struct.t_pargs, ptr %80, i32 0, i32 1
+  store i8 0, ptr %82, align 8
+  %83 = getelementptr inbounds %struct.t_pargs, ptr %80, i32 0, i32 2
+  store i32 5, ptr %83, align 4
+  %84 = getelementptr inbounds %struct.t_pargs, ptr %80, i32 0, i32 3
+  %85 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27
+  store ptr %85, ptr %84, align 16
+  %86 = getelementptr inbounds %struct.t_pargs, ptr %80, i32 0, i32 4
+  store ptr @.str.142, ptr %86, align 8
+  %87 = getelementptr inbounds %struct.t_pargs, ptr %80, i64 1
+  %88 = getelementptr inbounds %struct.t_pargs, ptr %87, i32 0, i32 0
+  store ptr @.str.143, ptr %88, align 16
+  %89 = getelementptr inbounds %struct.t_pargs, ptr %87, i32 0, i32 1
+  store i8 0, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.t_pargs, ptr %87, i32 0, i32 2
+  store i32 0, ptr %90, align 4
+  %91 = getelementptr inbounds %struct.t_pargs, ptr %87, i32 0, i32 3
+  %92 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  store ptr %92, ptr %91, align 16
+  %93 = getelementptr inbounds %struct.t_pargs, ptr %87, i32 0, i32 4
+  store ptr @.str.144, ptr %93, align 8
+  %94 = getelementptr inbounds %struct.t_pargs, ptr %87, i64 1
+  %95 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 0
+  store ptr @.str.145, ptr %95, align 16
+  %96 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 1
+  store i8 0, ptr %96, align 8
+  %97 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 2
+  store i32 2, ptr %97, align 4
+  %98 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 3
+  %99 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 17
+  store ptr %99, ptr %98, align 16
+  %100 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 4
+  store ptr @.str.146, ptr %100, align 8
+  %101 = getelementptr inbounds %struct.t_pargs, ptr %94, i64 1
+  %102 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 0
+  store ptr @.str.147, ptr %102, align 16
+  %103 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 1
+  store i8 0, ptr %103, align 8
+  %104 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 2
+  store i32 2, ptr %104, align 4
+  %105 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 3
+  %106 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18
+  store ptr %106, ptr %105, align 16
+  %107 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 4
+  store ptr @.str.148, ptr %107, align 8
+  %108 = getelementptr inbounds %struct.t_pargs, ptr %101, i64 1
   %109 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 0
-  store ptr @.str.151, ptr %109, align 16
+  store ptr @.str.149, ptr %109, align 16
   %110 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 1
   store i8 0, ptr %110, align 8
   %111 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 2
-  store i32 2, ptr %111, align 4
+  store i32 5, ptr %111, align 4
   %112 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 6), ptr %112, align 16
-  %113 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 4
-  store ptr @.str.152, ptr %113, align 8
-  %114 = getelementptr inbounds %struct.t_pargs, ptr %108, i64 1
-  %115 = getelementptr inbounds %struct.t_pargs, ptr %114, i32 0, i32 0
-  store ptr @.str.153, ptr %115, align 16
-  %116 = getelementptr inbounds %struct.t_pargs, ptr %114, i32 0, i32 1
-  store i8 0, ptr %116, align 8
-  %117 = getelementptr inbounds %struct.t_pargs, ptr %114, i32 0, i32 2
-  store i32 2, ptr %117, align 4
-  %118 = getelementptr inbounds %struct.t_pargs, ptr %114, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 7), ptr %118, align 16
-  %119 = getelementptr inbounds %struct.t_pargs, ptr %114, i32 0, i32 4
-  store ptr @.str.154, ptr %119, align 8
-  %120 = getelementptr inbounds %struct.t_pargs, ptr %114, i64 1
-  %121 = getelementptr inbounds %struct.t_pargs, ptr %120, i32 0, i32 0
-  store ptr @.str.155, ptr %121, align 16
-  %122 = getelementptr inbounds %struct.t_pargs, ptr %120, i32 0, i32 1
-  store i8 0, ptr %122, align 8
-  %123 = getelementptr inbounds %struct.t_pargs, ptr %120, i32 0, i32 2
-  store i32 2, ptr %123, align 4
-  %124 = getelementptr inbounds %struct.t_pargs, ptr %120, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 8), ptr %124, align 16
-  %125 = getelementptr inbounds %struct.t_pargs, ptr %120, i32 0, i32 4
-  store ptr @.str.156, ptr %125, align 8
-  %126 = getelementptr inbounds %struct.t_pargs, ptr %120, i64 1
-  %127 = getelementptr inbounds %struct.t_pargs, ptr %126, i32 0, i32 0
-  store ptr @.str.157, ptr %127, align 16
-  %128 = getelementptr inbounds %struct.t_pargs, ptr %126, i32 0, i32 1
-  store i8 0, ptr %128, align 8
-  %129 = getelementptr inbounds %struct.t_pargs, ptr %126, i32 0, i32 2
-  store i32 5, ptr %129, align 4
-  %130 = getelementptr inbounds %struct.t_pargs, ptr %126, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26), ptr %130, align 16
-  %131 = getelementptr inbounds %struct.t_pargs, ptr %126, i32 0, i32 4
-  store ptr @.str.158, ptr %131, align 8
-  %132 = getelementptr inbounds %struct.t_pargs, ptr %126, i64 1
-  %133 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 0
-  store ptr @.str.159, ptr %133, align 16
-  %134 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 1
-  store i8 0, ptr %134, align 8
-  %135 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 2
-  store i32 5, ptr %135, align 4
-  %136 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 25), ptr %136, align 16
-  %137 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 4
-  store ptr @.str.160, ptr %137, align 8
-  %138 = getelementptr inbounds %struct.t_pargs, ptr %132, i64 1
-  %139 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 0
-  store ptr @.str.161, ptr %139, align 16
-  %140 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 1
-  store i8 0, ptr %140, align 8
-  %141 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 2
-  store i32 5, ptr %141, align 4
-  %142 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20), ptr %142, align 16
-  %143 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 4
-  store ptr @.str.162, ptr %143, align 8
-  %144 = getelementptr inbounds %struct.t_pargs, ptr %138, i64 1
-  %145 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 0
-  store ptr @.str.163, ptr %145, align 16
-  %146 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 1
-  store i8 0, ptr %146, align 8
-  %147 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 2
-  store i32 7, ptr %147, align 4
-  %148 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 3
-  %149 = getelementptr inbounds [5 x ptr], ptr %7, i64 0, i64 0
-  store ptr %149, ptr %148, align 16
-  %150 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 4
-  store ptr @.str.164, ptr %150, align 8
-  %151 = getelementptr inbounds %struct.t_pargs, ptr %144, i64 1
-  %152 = getelementptr inbounds %struct.t_pargs, ptr %151, i32 0, i32 0
-  store ptr @.str.165, ptr %152, align 16
-  %153 = getelementptr inbounds %struct.t_pargs, ptr %151, i32 0, i32 1
-  store i8 0, ptr %153, align 8
-  %154 = getelementptr inbounds %struct.t_pargs, ptr %151, i32 0, i32 2
-  store i32 2, ptr %154, align 4
-  %155 = getelementptr inbounds %struct.t_pargs, ptr %151, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 23), ptr %155, align 16
-  %156 = getelementptr inbounds %struct.t_pargs, ptr %151, i32 0, i32 4
-  store ptr @.str.166, ptr %156, align 8
-  %157 = getelementptr inbounds %struct.t_pargs, ptr %151, i64 1
+  %113 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28
+  store ptr %113, ptr %112, align 16
+  %114 = getelementptr inbounds %struct.t_pargs, ptr %108, i32 0, i32 4
+  store ptr @.str.150, ptr %114, align 8
+  %115 = getelementptr inbounds %struct.t_pargs, ptr %108, i64 1
+  %116 = getelementptr inbounds %struct.t_pargs, ptr %115, i32 0, i32 0
+  store ptr @.str.151, ptr %116, align 16
+  %117 = getelementptr inbounds %struct.t_pargs, ptr %115, i32 0, i32 1
+  store i8 0, ptr %117, align 8
+  %118 = getelementptr inbounds %struct.t_pargs, ptr %115, i32 0, i32 2
+  store i32 2, ptr %118, align 4
+  %119 = getelementptr inbounds %struct.t_pargs, ptr %115, i32 0, i32 3
+  %120 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 6
+  store ptr %120, ptr %119, align 16
+  %121 = getelementptr inbounds %struct.t_pargs, ptr %115, i32 0, i32 4
+  store ptr @.str.152, ptr %121, align 8
+  %122 = getelementptr inbounds %struct.t_pargs, ptr %115, i64 1
+  %123 = getelementptr inbounds %struct.t_pargs, ptr %122, i32 0, i32 0
+  store ptr @.str.153, ptr %123, align 16
+  %124 = getelementptr inbounds %struct.t_pargs, ptr %122, i32 0, i32 1
+  store i8 0, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.t_pargs, ptr %122, i32 0, i32 2
+  store i32 2, ptr %125, align 4
+  %126 = getelementptr inbounds %struct.t_pargs, ptr %122, i32 0, i32 3
+  %127 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 7
+  store ptr %127, ptr %126, align 16
+  %128 = getelementptr inbounds %struct.t_pargs, ptr %122, i32 0, i32 4
+  store ptr @.str.154, ptr %128, align 8
+  %129 = getelementptr inbounds %struct.t_pargs, ptr %122, i64 1
+  %130 = getelementptr inbounds %struct.t_pargs, ptr %129, i32 0, i32 0
+  store ptr @.str.155, ptr %130, align 16
+  %131 = getelementptr inbounds %struct.t_pargs, ptr %129, i32 0, i32 1
+  store i8 0, ptr %131, align 8
+  %132 = getelementptr inbounds %struct.t_pargs, ptr %129, i32 0, i32 2
+  store i32 2, ptr %132, align 4
+  %133 = getelementptr inbounds %struct.t_pargs, ptr %129, i32 0, i32 3
+  %134 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 8
+  store ptr %134, ptr %133, align 16
+  %135 = getelementptr inbounds %struct.t_pargs, ptr %129, i32 0, i32 4
+  store ptr @.str.156, ptr %135, align 8
+  %136 = getelementptr inbounds %struct.t_pargs, ptr %129, i64 1
+  %137 = getelementptr inbounds %struct.t_pargs, ptr %136, i32 0, i32 0
+  store ptr @.str.157, ptr %137, align 16
+  %138 = getelementptr inbounds %struct.t_pargs, ptr %136, i32 0, i32 1
+  store i8 0, ptr %138, align 8
+  %139 = getelementptr inbounds %struct.t_pargs, ptr %136, i32 0, i32 2
+  store i32 5, ptr %139, align 4
+  %140 = getelementptr inbounds %struct.t_pargs, ptr %136, i32 0, i32 3
+  %141 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26
+  store ptr %141, ptr %140, align 16
+  %142 = getelementptr inbounds %struct.t_pargs, ptr %136, i32 0, i32 4
+  store ptr @.str.158, ptr %142, align 8
+  %143 = getelementptr inbounds %struct.t_pargs, ptr %136, i64 1
+  %144 = getelementptr inbounds %struct.t_pargs, ptr %143, i32 0, i32 0
+  store ptr @.str.159, ptr %144, align 16
+  %145 = getelementptr inbounds %struct.t_pargs, ptr %143, i32 0, i32 1
+  store i8 0, ptr %145, align 8
+  %146 = getelementptr inbounds %struct.t_pargs, ptr %143, i32 0, i32 2
+  store i32 5, ptr %146, align 4
+  %147 = getelementptr inbounds %struct.t_pargs, ptr %143, i32 0, i32 3
+  %148 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 25
+  store ptr %148, ptr %147, align 16
+  %149 = getelementptr inbounds %struct.t_pargs, ptr %143, i32 0, i32 4
+  store ptr @.str.160, ptr %149, align 8
+  %150 = getelementptr inbounds %struct.t_pargs, ptr %143, i64 1
+  %151 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 0
+  store ptr @.str.161, ptr %151, align 16
+  %152 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 1
+  store i8 0, ptr %152, align 8
+  %153 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 2
+  store i32 5, ptr %153, align 4
+  %154 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 3
+  %155 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20
+  store ptr %155, ptr %154, align 16
+  %156 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 4
+  store ptr @.str.162, ptr %156, align 8
+  %157 = getelementptr inbounds %struct.t_pargs, ptr %150, i64 1
   %158 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 0
-  store ptr @.str.167, ptr %158, align 16
+  store ptr @.str.163, ptr %158, align 16
   %159 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 1
   store i8 0, ptr %159, align 8
   %160 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 2
-  store i32 5, ptr %160, align 4
+  store i32 7, ptr %160, align 4
   %161 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 19), ptr %161, align 16
-  %162 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 4
-  store ptr @.str.168, ptr %162, align 8
-  %163 = getelementptr inbounds %struct.t_pargs, ptr %157, i64 1
-  %164 = getelementptr inbounds %struct.t_pargs, ptr %163, i32 0, i32 0
-  store ptr @.str.169, ptr %164, align 16
-  %165 = getelementptr inbounds %struct.t_pargs, ptr %163, i32 0, i32 1
-  store i8 0, ptr %165, align 8
-  %166 = getelementptr inbounds %struct.t_pargs, ptr %163, i32 0, i32 2
-  store i32 5, ptr %166, align 4
-  %167 = getelementptr inbounds %struct.t_pargs, ptr %163, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22), ptr %167, align 16
-  %168 = getelementptr inbounds %struct.t_pargs, ptr %163, i32 0, i32 4
-  store ptr @.str.170, ptr %168, align 8
-  %169 = getelementptr inbounds %struct.t_pargs, ptr %163, i64 1
-  %170 = getelementptr inbounds %struct.t_pargs, ptr %169, i32 0, i32 0
-  store ptr @.str.171, ptr %170, align 16
-  %171 = getelementptr inbounds %struct.t_pargs, ptr %169, i32 0, i32 1
-  store i8 0, ptr %171, align 8
-  %172 = getelementptr inbounds %struct.t_pargs, ptr %169, i32 0, i32 2
-  store i32 5, ptr %172, align 4
-  %173 = getelementptr inbounds %struct.t_pargs, ptr %169, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 36), ptr %173, align 16
-  %174 = getelementptr inbounds %struct.t_pargs, ptr %169, i32 0, i32 4
-  store ptr @.str.172, ptr %174, align 8
-  %175 = getelementptr inbounds %struct.t_pargs, ptr %169, i64 1
-  %176 = getelementptr inbounds %struct.t_pargs, ptr %175, i32 0, i32 0
-  store ptr @.str.173, ptr %176, align 16
-  %177 = getelementptr inbounds %struct.t_pargs, ptr %175, i32 0, i32 1
-  store i8 0, ptr %177, align 8
-  %178 = getelementptr inbounds %struct.t_pargs, ptr %175, i32 0, i32 2
-  store i32 5, ptr %178, align 4
-  %179 = getelementptr inbounds %struct.t_pargs, ptr %175, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32), ptr %179, align 16
-  %180 = getelementptr inbounds %struct.t_pargs, ptr %175, i32 0, i32 4
-  store ptr @.str.174, ptr %180, align 8
-  %181 = getelementptr inbounds %struct.t_pargs, ptr %175, i64 1
-  %182 = getelementptr inbounds %struct.t_pargs, ptr %181, i32 0, i32 0
-  store ptr @.str.175, ptr %182, align 16
-  %183 = getelementptr inbounds %struct.t_pargs, ptr %181, i32 0, i32 1
-  store i8 0, ptr %183, align 8
-  %184 = getelementptr inbounds %struct.t_pargs, ptr %181, i32 0, i32 2
-  store i32 2, ptr %184, align 4
-  %185 = getelementptr inbounds %struct.t_pargs, ptr %181, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 33), ptr %185, align 16
-  %186 = getelementptr inbounds %struct.t_pargs, ptr %181, i32 0, i32 4
-  store ptr @.str.176, ptr %186, align 8
-  %187 = getelementptr inbounds %struct.t_pargs, ptr %181, i64 1
-  %188 = getelementptr inbounds %struct.t_pargs, ptr %187, i32 0, i32 0
-  store ptr @.str.177, ptr %188, align 16
-  %189 = getelementptr inbounds %struct.t_pargs, ptr %187, i32 0, i32 1
-  store i8 0, ptr %189, align 8
-  %190 = getelementptr inbounds %struct.t_pargs, ptr %187, i32 0, i32 2
-  store i32 2, ptr %190, align 4
-  %191 = getelementptr inbounds %struct.t_pargs, ptr %187, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 35), ptr %191, align 16
-  %192 = getelementptr inbounds %struct.t_pargs, ptr %187, i32 0, i32 4
-  store ptr @.str.178, ptr %192, align 8
-  %193 = getelementptr inbounds %struct.t_pargs, ptr %187, i64 1
-  %194 = getelementptr inbounds %struct.t_pargs, ptr %193, i32 0, i32 0
-  store ptr @.str.179, ptr %194, align 16
-  %195 = getelementptr inbounds %struct.t_pargs, ptr %193, i32 0, i32 1
-  store i8 0, ptr %195, align 8
-  %196 = getelementptr inbounds %struct.t_pargs, ptr %193, i32 0, i32 2
-  store i32 5, ptr %196, align 4
-  %197 = getelementptr inbounds %struct.t_pargs, ptr %193, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 34), ptr %197, align 16
-  %198 = getelementptr inbounds %struct.t_pargs, ptr %193, i32 0, i32 4
-  store ptr @.str.180, ptr %198, align 8
-  %199 = getelementptr inbounds %struct.t_pargs, ptr %193, i64 1
+  %162 = getelementptr inbounds [5 x ptr], ptr %7, i64 0, i64 0
+  store ptr %162, ptr %161, align 16
+  %163 = getelementptr inbounds %struct.t_pargs, ptr %157, i32 0, i32 4
+  store ptr @.str.164, ptr %163, align 8
+  %164 = getelementptr inbounds %struct.t_pargs, ptr %157, i64 1
+  %165 = getelementptr inbounds %struct.t_pargs, ptr %164, i32 0, i32 0
+  store ptr @.str.165, ptr %165, align 16
+  %166 = getelementptr inbounds %struct.t_pargs, ptr %164, i32 0, i32 1
+  store i8 0, ptr %166, align 8
+  %167 = getelementptr inbounds %struct.t_pargs, ptr %164, i32 0, i32 2
+  store i32 2, ptr %167, align 4
+  %168 = getelementptr inbounds %struct.t_pargs, ptr %164, i32 0, i32 3
+  %169 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 23
+  store ptr %169, ptr %168, align 16
+  %170 = getelementptr inbounds %struct.t_pargs, ptr %164, i32 0, i32 4
+  store ptr @.str.166, ptr %170, align 8
+  %171 = getelementptr inbounds %struct.t_pargs, ptr %164, i64 1
+  %172 = getelementptr inbounds %struct.t_pargs, ptr %171, i32 0, i32 0
+  store ptr @.str.167, ptr %172, align 16
+  %173 = getelementptr inbounds %struct.t_pargs, ptr %171, i32 0, i32 1
+  store i8 0, ptr %173, align 8
+  %174 = getelementptr inbounds %struct.t_pargs, ptr %171, i32 0, i32 2
+  store i32 5, ptr %174, align 4
+  %175 = getelementptr inbounds %struct.t_pargs, ptr %171, i32 0, i32 3
+  %176 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 19
+  store ptr %176, ptr %175, align 16
+  %177 = getelementptr inbounds %struct.t_pargs, ptr %171, i32 0, i32 4
+  store ptr @.str.168, ptr %177, align 8
+  %178 = getelementptr inbounds %struct.t_pargs, ptr %171, i64 1
+  %179 = getelementptr inbounds %struct.t_pargs, ptr %178, i32 0, i32 0
+  store ptr @.str.169, ptr %179, align 16
+  %180 = getelementptr inbounds %struct.t_pargs, ptr %178, i32 0, i32 1
+  store i8 0, ptr %180, align 8
+  %181 = getelementptr inbounds %struct.t_pargs, ptr %178, i32 0, i32 2
+  store i32 5, ptr %181, align 4
+  %182 = getelementptr inbounds %struct.t_pargs, ptr %178, i32 0, i32 3
+  %183 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22
+  store ptr %183, ptr %182, align 16
+  %184 = getelementptr inbounds %struct.t_pargs, ptr %178, i32 0, i32 4
+  store ptr @.str.170, ptr %184, align 8
+  %185 = getelementptr inbounds %struct.t_pargs, ptr %178, i64 1
+  %186 = getelementptr inbounds %struct.t_pargs, ptr %185, i32 0, i32 0
+  store ptr @.str.171, ptr %186, align 16
+  %187 = getelementptr inbounds %struct.t_pargs, ptr %185, i32 0, i32 1
+  store i8 0, ptr %187, align 8
+  %188 = getelementptr inbounds %struct.t_pargs, ptr %185, i32 0, i32 2
+  store i32 5, ptr %188, align 4
+  %189 = getelementptr inbounds %struct.t_pargs, ptr %185, i32 0, i32 3
+  %190 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 36
+  store ptr %190, ptr %189, align 16
+  %191 = getelementptr inbounds %struct.t_pargs, ptr %185, i32 0, i32 4
+  store ptr @.str.172, ptr %191, align 8
+  %192 = getelementptr inbounds %struct.t_pargs, ptr %185, i64 1
+  %193 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 0
+  store ptr @.str.173, ptr %193, align 16
+  %194 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 1
+  store i8 0, ptr %194, align 8
+  %195 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 2
+  store i32 5, ptr %195, align 4
+  %196 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 3
+  %197 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32
+  store ptr %197, ptr %196, align 16
+  %198 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 4
+  store ptr @.str.174, ptr %198, align 8
+  %199 = getelementptr inbounds %struct.t_pargs, ptr %192, i64 1
   %200 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 0
-  store ptr @.str.181, ptr %200, align 16
+  store ptr @.str.175, ptr %200, align 16
   %201 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 1
   store i8 0, ptr %201, align 8
   %202 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 2
-  store i32 0, ptr %202, align 4
+  store i32 2, ptr %202, align 4
   %203 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37), ptr %203, align 16
-  %204 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 4
-  store ptr @.str.182, ptr %204, align 8
-  %205 = getelementptr inbounds %struct.t_pargs, ptr %199, i64 1
-  %206 = getelementptr inbounds %struct.t_pargs, ptr %205, i32 0, i32 0
-  store ptr @.str.183, ptr %206, align 16
-  %207 = getelementptr inbounds %struct.t_pargs, ptr %205, i32 0, i32 1
-  store i8 0, ptr %207, align 8
-  %208 = getelementptr inbounds %struct.t_pargs, ptr %205, i32 0, i32 2
-  store i32 7, ptr %208, align 4
-  %209 = getelementptr inbounds %struct.t_pargs, ptr %205, i32 0, i32 3
-  %210 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 0
-  store ptr %210, ptr %209, align 16
-  %211 = getelementptr inbounds %struct.t_pargs, ptr %205, i32 0, i32 4
-  store ptr @.str.184, ptr %211, align 8
-  %212 = getelementptr inbounds %struct.t_pargs, ptr %205, i64 1
-  %213 = getelementptr inbounds %struct.t_pargs, ptr %212, i32 0, i32 0
-  store ptr @.str.185, ptr %213, align 16
-  %214 = getelementptr inbounds %struct.t_pargs, ptr %212, i32 0, i32 1
-  store i8 0, ptr %214, align 8
-  %215 = getelementptr inbounds %struct.t_pargs, ptr %212, i32 0, i32 2
-  store i32 2, ptr %215, align 4
-  %216 = getelementptr inbounds %struct.t_pargs, ptr %212, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39), ptr %216, align 16
-  %217 = getelementptr inbounds %struct.t_pargs, ptr %212, i32 0, i32 4
-  store ptr @.str.186, ptr %217, align 8
-  %218 = getelementptr inbounds %struct.t_pargs, ptr %212, i64 1
-  %219 = getelementptr inbounds %struct.t_pargs, ptr %218, i32 0, i32 0
-  store ptr @.str.187, ptr %219, align 16
-  %220 = getelementptr inbounds %struct.t_pargs, ptr %218, i32 0, i32 1
-  store i8 0, ptr %220, align 8
-  %221 = getelementptr inbounds %struct.t_pargs, ptr %218, i32 0, i32 2
-  store i32 0, ptr %221, align 4
-  %222 = getelementptr inbounds %struct.t_pargs, ptr %218, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 41), ptr %222, align 16
-  %223 = getelementptr inbounds %struct.t_pargs, ptr %218, i32 0, i32 4
-  store ptr @.str.188, ptr %223, align 8
-  %224 = getelementptr inbounds %struct.t_pargs, ptr %218, i64 1
-  %225 = getelementptr inbounds %struct.t_pargs, ptr %224, i32 0, i32 0
-  store ptr @.str.189, ptr %225, align 16
-  %226 = getelementptr inbounds %struct.t_pargs, ptr %224, i32 0, i32 1
-  store i8 0, ptr %226, align 8
-  %227 = getelementptr inbounds %struct.t_pargs, ptr %224, i32 0, i32 2
-  store i32 0, ptr %227, align 4
-  %228 = getelementptr inbounds %struct.t_pargs, ptr %224, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 40), ptr %228, align 16
-  %229 = getelementptr inbounds %struct.t_pargs, ptr %224, i32 0, i32 4
-  store ptr @.str.190, ptr %229, align 8
-  %230 = getelementptr inbounds %struct.t_pargs, ptr %224, i64 1
-  %231 = getelementptr inbounds %struct.t_pargs, ptr %230, i32 0, i32 0
-  store ptr @.str.191, ptr %231, align 16
-  %232 = getelementptr inbounds %struct.t_pargs, ptr %230, i32 0, i32 1
-  store i8 0, ptr %232, align 8
-  %233 = getelementptr inbounds %struct.t_pargs, ptr %230, i32 0, i32 2
-  store i32 5, ptr %233, align 4
-  %234 = getelementptr inbounds %struct.t_pargs, ptr %230, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 42), ptr %234, align 16
-  %235 = getelementptr inbounds %struct.t_pargs, ptr %230, i32 0, i32 4
-  store ptr @.str.192, ptr %235, align 8
-  %236 = getelementptr inbounds %struct.t_pargs, ptr %230, i64 1
-  %237 = getelementptr inbounds %struct.t_pargs, ptr %236, i32 0, i32 0
-  store ptr @.str.193, ptr %237, align 16
-  %238 = getelementptr inbounds %struct.t_pargs, ptr %236, i32 0, i32 1
-  store i8 0, ptr %238, align 8
-  %239 = getelementptr inbounds %struct.t_pargs, ptr %236, i32 0, i32 2
-  store i32 0, ptr %239, align 4
-  %240 = getelementptr inbounds %struct.t_pargs, ptr %236, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29), ptr %240, align 16
-  %241 = getelementptr inbounds %struct.t_pargs, ptr %236, i32 0, i32 4
-  store ptr @.str.194, ptr %241, align 8
-  %242 = getelementptr inbounds %struct.t_pargs, ptr %236, i64 1
-  %243 = getelementptr inbounds %struct.t_pargs, ptr %242, i32 0, i32 0
-  store ptr @.str.195, ptr %243, align 16
-  %244 = getelementptr inbounds %struct.t_pargs, ptr %242, i32 0, i32 1
-  store i8 0, ptr %244, align 8
-  %245 = getelementptr inbounds %struct.t_pargs, ptr %242, i32 0, i32 2
-  store i32 0, ptr %245, align 4
-  %246 = getelementptr inbounds %struct.t_pargs, ptr %242, i32 0, i32 3
-  store ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10), ptr %246, align 16
-  %247 = getelementptr inbounds %struct.t_pargs, ptr %242, i32 0, i32 4
-  store ptr @.str.196, ptr %247, align 8
-  %248 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  store ptr %248, ptr %14, align 8
-  %249 = getelementptr inbounds %struct.t_filenm, ptr %248, i32 0, i32 0
-  store i32 31, ptr %249, align 8
-  %250 = getelementptr inbounds %struct.t_filenm, ptr %248, i32 0, i32 1
-  store ptr @.str.197, ptr %250, align 8
-  %251 = getelementptr inbounds %struct.t_filenm, ptr %248, i32 0, i32 2
-  store ptr @.str.198, ptr %251, align 8
-  %252 = getelementptr inbounds %struct.t_filenm, ptr %248, i32 0, i32 3
-  store i64 10, ptr %252, align 8
-  %253 = getelementptr inbounds %struct.t_filenm, ptr %248, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %253, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #2
-  %254 = getelementptr inbounds %struct.t_filenm, ptr %248, i64 1
-  store ptr %254, ptr %14, align 8
-  %255 = getelementptr inbounds %struct.t_filenm, ptr %254, i32 0, i32 0
-  store i32 31, ptr %255, align 8
-  %256 = getelementptr inbounds %struct.t_filenm, ptr %254, i32 0, i32 1
-  store ptr @.str.199, ptr %256, align 8
-  %257 = getelementptr inbounds %struct.t_filenm, ptr %254, i32 0, i32 2
-  store ptr @.str.200, ptr %257, align 8
-  %258 = getelementptr inbounds %struct.t_filenm, ptr %254, i32 0, i32 3
-  store i64 10, ptr %258, align 8
-  %259 = getelementptr inbounds %struct.t_filenm, ptr %254, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %259, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #2
-  %260 = getelementptr inbounds %struct.t_filenm, ptr %254, i64 1
-  store ptr %260, ptr %14, align 8
-  %261 = getelementptr inbounds %struct.t_filenm, ptr %260, i32 0, i32 0
-  store i32 31, ptr %261, align 8
-  %262 = getelementptr inbounds %struct.t_filenm, ptr %260, i32 0, i32 1
-  store ptr @.str.201, ptr %262, align 8
-  %263 = getelementptr inbounds %struct.t_filenm, ptr %260, i32 0, i32 2
-  store ptr @.str.202, ptr %263, align 8
-  %264 = getelementptr inbounds %struct.t_filenm, ptr %260, i32 0, i32 3
-  store i64 10, ptr %264, align 8
-  %265 = getelementptr inbounds %struct.t_filenm, ptr %260, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %265, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #2
-  %266 = getelementptr inbounds %struct.t_filenm, ptr %260, i64 1
-  store ptr %266, ptr %14, align 8
-  %267 = getelementptr inbounds %struct.t_filenm, ptr %266, i32 0, i32 0
-  store i32 31, ptr %267, align 8
-  %268 = getelementptr inbounds %struct.t_filenm, ptr %266, i32 0, i32 1
-  store ptr @.str.203, ptr %268, align 8
-  %269 = getelementptr inbounds %struct.t_filenm, ptr %266, i32 0, i32 2
-  store ptr @.str.204, ptr %269, align 8
-  %270 = getelementptr inbounds %struct.t_filenm, ptr %266, i32 0, i32 3
-  store i64 10, ptr %270, align 8
-  %271 = getelementptr inbounds %struct.t_filenm, ptr %266, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %271, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #2
-  %272 = getelementptr inbounds %struct.t_filenm, ptr %266, i64 1
-  store ptr %272, ptr %14, align 8
-  %273 = getelementptr inbounds %struct.t_filenm, ptr %272, i32 0, i32 0
-  store i32 20, ptr %273, align 8
-  %274 = getelementptr inbounds %struct.t_filenm, ptr %272, i32 0, i32 1
-  store ptr @.str.205, ptr %274, align 8
-  %275 = getelementptr inbounds %struct.t_filenm, ptr %272, i32 0, i32 2
-  store ptr @.str.206, ptr %275, align 8
-  %276 = getelementptr inbounds %struct.t_filenm, ptr %272, i32 0, i32 3
-  store i64 4, ptr %276, align 8
-  %277 = getelementptr inbounds %struct.t_filenm, ptr %272, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %277, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %277) #2
-  %278 = getelementptr inbounds %struct.t_filenm, ptr %272, i64 1
-  store ptr %278, ptr %14, align 8
-  %279 = getelementptr inbounds %struct.t_filenm, ptr %278, i32 0, i32 0
-  store i32 20, ptr %279, align 8
-  %280 = getelementptr inbounds %struct.t_filenm, ptr %278, i32 0, i32 1
-  store ptr @.str.207, ptr %280, align 8
-  %281 = getelementptr inbounds %struct.t_filenm, ptr %278, i32 0, i32 2
-  store ptr @.str.208, ptr %281, align 8
-  %282 = getelementptr inbounds %struct.t_filenm, ptr %278, i32 0, i32 3
-  store i64 4, ptr %282, align 8
-  %283 = getelementptr inbounds %struct.t_filenm, ptr %278, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %283, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %283) #2
-  %284 = getelementptr inbounds %struct.t_filenm, ptr %278, i64 1
-  store ptr %284, ptr %14, align 8
-  %285 = getelementptr inbounds %struct.t_filenm, ptr %284, i32 0, i32 0
-  store i32 20, ptr %285, align 8
-  %286 = getelementptr inbounds %struct.t_filenm, ptr %284, i32 0, i32 1
-  store ptr @.str.209, ptr %286, align 8
-  %287 = getelementptr inbounds %struct.t_filenm, ptr %284, i32 0, i32 2
-  store ptr @.str.210, ptr %287, align 8
-  %288 = getelementptr inbounds %struct.t_filenm, ptr %284, i32 0, i32 3
-  store i64 12, ptr %288, align 8
-  %289 = getelementptr inbounds %struct.t_filenm, ptr %284, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %289, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %289) #2
-  %290 = getelementptr inbounds %struct.t_filenm, ptr %284, i64 1
-  store ptr %290, ptr %14, align 8
-  %291 = getelementptr inbounds %struct.t_filenm, ptr %290, i32 0, i32 0
-  store i32 31, ptr %291, align 8
-  %292 = getelementptr inbounds %struct.t_filenm, ptr %290, i32 0, i32 1
-  store ptr @.str.211, ptr %292, align 8
-  %293 = getelementptr inbounds %struct.t_filenm, ptr %290, i32 0, i32 2
-  store ptr @.str.212, ptr %293, align 8
-  %294 = getelementptr inbounds %struct.t_filenm, ptr %290, i32 0, i32 3
-  store i64 10, ptr %294, align 8
-  %295 = getelementptr inbounds %struct.t_filenm, ptr %290, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %295, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #2
-  %296 = getelementptr inbounds %struct.t_filenm, ptr %290, i64 1
-  store ptr %296, ptr %14, align 8
-  %297 = getelementptr inbounds %struct.t_filenm, ptr %296, i32 0, i32 0
-  store i32 20, ptr %297, align 8
-  %298 = getelementptr inbounds %struct.t_filenm, ptr %296, i32 0, i32 1
-  store ptr @.str.213, ptr %298, align 8
-  %299 = getelementptr inbounds %struct.t_filenm, ptr %296, i32 0, i32 2
-  store ptr @.str.214, ptr %299, align 8
-  %300 = getelementptr inbounds %struct.t_filenm, ptr %296, i32 0, i32 3
-  store i64 12, ptr %300, align 8
-  %301 = getelementptr inbounds %struct.t_filenm, ptr %296, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %301, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %301) #2
-  %302 = getelementptr inbounds %struct.t_filenm, ptr %296, i64 1
-  store ptr %302, ptr %14, align 8
-  %303 = getelementptr inbounds %struct.t_filenm, ptr %302, i32 0, i32 0
-  store i32 20, ptr %303, align 8
-  %304 = getelementptr inbounds %struct.t_filenm, ptr %302, i32 0, i32 1
-  store ptr @.str.215, ptr %304, align 8
-  %305 = getelementptr inbounds %struct.t_filenm, ptr %302, i32 0, i32 2
-  store ptr @.str.216, ptr %305, align 8
-  %306 = getelementptr inbounds %struct.t_filenm, ptr %302, i32 0, i32 3
-  store i64 12, ptr %306, align 8
-  %307 = getelementptr inbounds %struct.t_filenm, ptr %302, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %307, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %307) #2
-  %308 = getelementptr inbounds %struct.t_filenm, ptr %302, i64 1
-  store ptr %308, ptr %14, align 8
-  %309 = getelementptr inbounds %struct.t_filenm, ptr %308, i32 0, i32 0
-  store i32 31, ptr %309, align 8
-  %310 = getelementptr inbounds %struct.t_filenm, ptr %308, i32 0, i32 1
-  store ptr @.str.217, ptr %310, align 8
-  %311 = getelementptr inbounds %struct.t_filenm, ptr %308, i32 0, i32 2
-  store ptr @.str.218, ptr %311, align 8
-  %312 = getelementptr inbounds %struct.t_filenm, ptr %308, i32 0, i32 3
-  store i64 10, ptr %312, align 8
-  %313 = getelementptr inbounds %struct.t_filenm, ptr %308, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %313, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #2
+  %204 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 33
+  store ptr %204, ptr %203, align 16
+  %205 = getelementptr inbounds %struct.t_pargs, ptr %199, i32 0, i32 4
+  store ptr @.str.176, ptr %205, align 8
+  %206 = getelementptr inbounds %struct.t_pargs, ptr %199, i64 1
+  %207 = getelementptr inbounds %struct.t_pargs, ptr %206, i32 0, i32 0
+  store ptr @.str.177, ptr %207, align 16
+  %208 = getelementptr inbounds %struct.t_pargs, ptr %206, i32 0, i32 1
+  store i8 0, ptr %208, align 8
+  %209 = getelementptr inbounds %struct.t_pargs, ptr %206, i32 0, i32 2
+  store i32 2, ptr %209, align 4
+  %210 = getelementptr inbounds %struct.t_pargs, ptr %206, i32 0, i32 3
+  %211 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 35
+  store ptr %211, ptr %210, align 16
+  %212 = getelementptr inbounds %struct.t_pargs, ptr %206, i32 0, i32 4
+  store ptr @.str.178, ptr %212, align 8
+  %213 = getelementptr inbounds %struct.t_pargs, ptr %206, i64 1
+  %214 = getelementptr inbounds %struct.t_pargs, ptr %213, i32 0, i32 0
+  store ptr @.str.179, ptr %214, align 16
+  %215 = getelementptr inbounds %struct.t_pargs, ptr %213, i32 0, i32 1
+  store i8 0, ptr %215, align 8
+  %216 = getelementptr inbounds %struct.t_pargs, ptr %213, i32 0, i32 2
+  store i32 5, ptr %216, align 4
+  %217 = getelementptr inbounds %struct.t_pargs, ptr %213, i32 0, i32 3
+  %218 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 34
+  store ptr %218, ptr %217, align 16
+  %219 = getelementptr inbounds %struct.t_pargs, ptr %213, i32 0, i32 4
+  store ptr @.str.180, ptr %219, align 8
+  %220 = getelementptr inbounds %struct.t_pargs, ptr %213, i64 1
+  %221 = getelementptr inbounds %struct.t_pargs, ptr %220, i32 0, i32 0
+  store ptr @.str.181, ptr %221, align 16
+  %222 = getelementptr inbounds %struct.t_pargs, ptr %220, i32 0, i32 1
+  store i8 0, ptr %222, align 8
+  %223 = getelementptr inbounds %struct.t_pargs, ptr %220, i32 0, i32 2
+  store i32 0, ptr %223, align 4
+  %224 = getelementptr inbounds %struct.t_pargs, ptr %220, i32 0, i32 3
+  %225 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37
+  store ptr %225, ptr %224, align 16
+  %226 = getelementptr inbounds %struct.t_pargs, ptr %220, i32 0, i32 4
+  store ptr @.str.182, ptr %226, align 8
+  %227 = getelementptr inbounds %struct.t_pargs, ptr %220, i64 1
+  %228 = getelementptr inbounds %struct.t_pargs, ptr %227, i32 0, i32 0
+  store ptr @.str.183, ptr %228, align 16
+  %229 = getelementptr inbounds %struct.t_pargs, ptr %227, i32 0, i32 1
+  store i8 0, ptr %229, align 8
+  %230 = getelementptr inbounds %struct.t_pargs, ptr %227, i32 0, i32 2
+  store i32 7, ptr %230, align 4
+  %231 = getelementptr inbounds %struct.t_pargs, ptr %227, i32 0, i32 3
+  %232 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 0
+  store ptr %232, ptr %231, align 16
+  %233 = getelementptr inbounds %struct.t_pargs, ptr %227, i32 0, i32 4
+  store ptr @.str.184, ptr %233, align 8
+  %234 = getelementptr inbounds %struct.t_pargs, ptr %227, i64 1
+  %235 = getelementptr inbounds %struct.t_pargs, ptr %234, i32 0, i32 0
+  store ptr @.str.185, ptr %235, align 16
+  %236 = getelementptr inbounds %struct.t_pargs, ptr %234, i32 0, i32 1
+  store i8 0, ptr %236, align 8
+  %237 = getelementptr inbounds %struct.t_pargs, ptr %234, i32 0, i32 2
+  store i32 2, ptr %237, align 4
+  %238 = getelementptr inbounds %struct.t_pargs, ptr %234, i32 0, i32 3
+  %239 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39
+  store ptr %239, ptr %238, align 16
+  %240 = getelementptr inbounds %struct.t_pargs, ptr %234, i32 0, i32 4
+  store ptr @.str.186, ptr %240, align 8
+  %241 = getelementptr inbounds %struct.t_pargs, ptr %234, i64 1
+  %242 = getelementptr inbounds %struct.t_pargs, ptr %241, i32 0, i32 0
+  store ptr @.str.187, ptr %242, align 16
+  %243 = getelementptr inbounds %struct.t_pargs, ptr %241, i32 0, i32 1
+  store i8 0, ptr %243, align 8
+  %244 = getelementptr inbounds %struct.t_pargs, ptr %241, i32 0, i32 2
+  store i32 0, ptr %244, align 4
+  %245 = getelementptr inbounds %struct.t_pargs, ptr %241, i32 0, i32 3
+  %246 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 41
+  store ptr %246, ptr %245, align 16
+  %247 = getelementptr inbounds %struct.t_pargs, ptr %241, i32 0, i32 4
+  store ptr @.str.188, ptr %247, align 8
+  %248 = getelementptr inbounds %struct.t_pargs, ptr %241, i64 1
+  %249 = getelementptr inbounds %struct.t_pargs, ptr %248, i32 0, i32 0
+  store ptr @.str.189, ptr %249, align 16
+  %250 = getelementptr inbounds %struct.t_pargs, ptr %248, i32 0, i32 1
+  store i8 0, ptr %250, align 8
+  %251 = getelementptr inbounds %struct.t_pargs, ptr %248, i32 0, i32 2
+  store i32 0, ptr %251, align 4
+  %252 = getelementptr inbounds %struct.t_pargs, ptr %248, i32 0, i32 3
+  %253 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 40
+  store ptr %253, ptr %252, align 16
+  %254 = getelementptr inbounds %struct.t_pargs, ptr %248, i32 0, i32 4
+  store ptr @.str.190, ptr %254, align 8
+  %255 = getelementptr inbounds %struct.t_pargs, ptr %248, i64 1
+  %256 = getelementptr inbounds %struct.t_pargs, ptr %255, i32 0, i32 0
+  store ptr @.str.191, ptr %256, align 16
+  %257 = getelementptr inbounds %struct.t_pargs, ptr %255, i32 0, i32 1
+  store i8 0, ptr %257, align 8
+  %258 = getelementptr inbounds %struct.t_pargs, ptr %255, i32 0, i32 2
+  store i32 5, ptr %258, align 4
+  %259 = getelementptr inbounds %struct.t_pargs, ptr %255, i32 0, i32 3
+  %260 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 42
+  store ptr %260, ptr %259, align 16
+  %261 = getelementptr inbounds %struct.t_pargs, ptr %255, i32 0, i32 4
+  store ptr @.str.192, ptr %261, align 8
+  %262 = getelementptr inbounds %struct.t_pargs, ptr %255, i64 1
+  %263 = getelementptr inbounds %struct.t_pargs, ptr %262, i32 0, i32 0
+  store ptr @.str.193, ptr %263, align 16
+  %264 = getelementptr inbounds %struct.t_pargs, ptr %262, i32 0, i32 1
+  store i8 0, ptr %264, align 8
+  %265 = getelementptr inbounds %struct.t_pargs, ptr %262, i32 0, i32 2
+  store i32 0, ptr %265, align 4
+  %266 = getelementptr inbounds %struct.t_pargs, ptr %262, i32 0, i32 3
+  %267 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29
+  store ptr %267, ptr %266, align 16
+  %268 = getelementptr inbounds %struct.t_pargs, ptr %262, i32 0, i32 4
+  store ptr @.str.194, ptr %268, align 8
+  %269 = getelementptr inbounds %struct.t_pargs, ptr %262, i64 1
+  %270 = getelementptr inbounds %struct.t_pargs, ptr %269, i32 0, i32 0
+  store ptr @.str.195, ptr %270, align 16
+  %271 = getelementptr inbounds %struct.t_pargs, ptr %269, i32 0, i32 1
+  store i8 0, ptr %271, align 8
+  %272 = getelementptr inbounds %struct.t_pargs, ptr %269, i32 0, i32 2
+  store i32 0, ptr %272, align 4
+  %273 = getelementptr inbounds %struct.t_pargs, ptr %269, i32 0, i32 3
+  %274 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10
+  store ptr %274, ptr %273, align 16
+  %275 = getelementptr inbounds %struct.t_pargs, ptr %269, i32 0, i32 4
+  store ptr @.str.196, ptr %275, align 8
+  %276 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  store ptr %276, ptr %14, align 8
+  %277 = getelementptr inbounds %struct.t_filenm, ptr %276, i32 0, i32 0
+  store i32 31, ptr %277, align 8
+  %278 = getelementptr inbounds %struct.t_filenm, ptr %276, i32 0, i32 1
+  store ptr @.str.197, ptr %278, align 8
+  %279 = getelementptr inbounds %struct.t_filenm, ptr %276, i32 0, i32 2
+  store ptr @.str.198, ptr %279, align 8
+  %280 = getelementptr inbounds %struct.t_filenm, ptr %276, i32 0, i32 3
+  store i64 10, ptr %280, align 8
+  %281 = getelementptr inbounds %struct.t_filenm, ptr %276, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %281, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %281) #2
+  %282 = getelementptr inbounds %struct.t_filenm, ptr %276, i64 1
+  store ptr %282, ptr %14, align 8
+  %283 = getelementptr inbounds %struct.t_filenm, ptr %282, i32 0, i32 0
+  store i32 31, ptr %283, align 8
+  %284 = getelementptr inbounds %struct.t_filenm, ptr %282, i32 0, i32 1
+  store ptr @.str.199, ptr %284, align 8
+  %285 = getelementptr inbounds %struct.t_filenm, ptr %282, i32 0, i32 2
+  store ptr @.str.200, ptr %285, align 8
+  %286 = getelementptr inbounds %struct.t_filenm, ptr %282, i32 0, i32 3
+  store i64 10, ptr %286, align 8
+  %287 = getelementptr inbounds %struct.t_filenm, ptr %282, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %287, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #2
+  %288 = getelementptr inbounds %struct.t_filenm, ptr %282, i64 1
+  store ptr %288, ptr %14, align 8
+  %289 = getelementptr inbounds %struct.t_filenm, ptr %288, i32 0, i32 0
+  store i32 31, ptr %289, align 8
+  %290 = getelementptr inbounds %struct.t_filenm, ptr %288, i32 0, i32 1
+  store ptr @.str.201, ptr %290, align 8
+  %291 = getelementptr inbounds %struct.t_filenm, ptr %288, i32 0, i32 2
+  store ptr @.str.202, ptr %291, align 8
+  %292 = getelementptr inbounds %struct.t_filenm, ptr %288, i32 0, i32 3
+  store i64 10, ptr %292, align 8
+  %293 = getelementptr inbounds %struct.t_filenm, ptr %288, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %293, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %293) #2
+  %294 = getelementptr inbounds %struct.t_filenm, ptr %288, i64 1
+  store ptr %294, ptr %14, align 8
+  %295 = getelementptr inbounds %struct.t_filenm, ptr %294, i32 0, i32 0
+  store i32 31, ptr %295, align 8
+  %296 = getelementptr inbounds %struct.t_filenm, ptr %294, i32 0, i32 1
+  store ptr @.str.203, ptr %296, align 8
+  %297 = getelementptr inbounds %struct.t_filenm, ptr %294, i32 0, i32 2
+  store ptr @.str.204, ptr %297, align 8
+  %298 = getelementptr inbounds %struct.t_filenm, ptr %294, i32 0, i32 3
+  store i64 10, ptr %298, align 8
+  %299 = getelementptr inbounds %struct.t_filenm, ptr %294, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %299, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %299) #2
+  %300 = getelementptr inbounds %struct.t_filenm, ptr %294, i64 1
+  store ptr %300, ptr %14, align 8
+  %301 = getelementptr inbounds %struct.t_filenm, ptr %300, i32 0, i32 0
+  store i32 20, ptr %301, align 8
+  %302 = getelementptr inbounds %struct.t_filenm, ptr %300, i32 0, i32 1
+  store ptr @.str.205, ptr %302, align 8
+  %303 = getelementptr inbounds %struct.t_filenm, ptr %300, i32 0, i32 2
+  store ptr @.str.206, ptr %303, align 8
+  %304 = getelementptr inbounds %struct.t_filenm, ptr %300, i32 0, i32 3
+  store i64 4, ptr %304, align 8
+  %305 = getelementptr inbounds %struct.t_filenm, ptr %300, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %305, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %305) #2
+  %306 = getelementptr inbounds %struct.t_filenm, ptr %300, i64 1
+  store ptr %306, ptr %14, align 8
+  %307 = getelementptr inbounds %struct.t_filenm, ptr %306, i32 0, i32 0
+  store i32 20, ptr %307, align 8
+  %308 = getelementptr inbounds %struct.t_filenm, ptr %306, i32 0, i32 1
+  store ptr @.str.207, ptr %308, align 8
+  %309 = getelementptr inbounds %struct.t_filenm, ptr %306, i32 0, i32 2
+  store ptr @.str.208, ptr %309, align 8
+  %310 = getelementptr inbounds %struct.t_filenm, ptr %306, i32 0, i32 3
+  store i64 4, ptr %310, align 8
+  %311 = getelementptr inbounds %struct.t_filenm, ptr %306, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %311, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #2
+  %312 = getelementptr inbounds %struct.t_filenm, ptr %306, i64 1
+  store ptr %312, ptr %14, align 8
+  %313 = getelementptr inbounds %struct.t_filenm, ptr %312, i32 0, i32 0
+  store i32 20, ptr %313, align 8
+  %314 = getelementptr inbounds %struct.t_filenm, ptr %312, i32 0, i32 1
+  store ptr @.str.209, ptr %314, align 8
+  %315 = getelementptr inbounds %struct.t_filenm, ptr %312, i32 0, i32 2
+  store ptr @.str.210, ptr %315, align 8
+  %316 = getelementptr inbounds %struct.t_filenm, ptr %312, i32 0, i32 3
+  store i64 12, ptr %316, align 8
+  %317 = getelementptr inbounds %struct.t_filenm, ptr %312, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %317, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #2
+  %318 = getelementptr inbounds %struct.t_filenm, ptr %312, i64 1
+  store ptr %318, ptr %14, align 8
+  %319 = getelementptr inbounds %struct.t_filenm, ptr %318, i32 0, i32 0
+  store i32 31, ptr %319, align 8
+  %320 = getelementptr inbounds %struct.t_filenm, ptr %318, i32 0, i32 1
+  store ptr @.str.211, ptr %320, align 8
+  %321 = getelementptr inbounds %struct.t_filenm, ptr %318, i32 0, i32 2
+  store ptr @.str.212, ptr %321, align 8
+  %322 = getelementptr inbounds %struct.t_filenm, ptr %318, i32 0, i32 3
+  store i64 10, ptr %322, align 8
+  %323 = getelementptr inbounds %struct.t_filenm, ptr %318, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %323, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %323) #2
+  %324 = getelementptr inbounds %struct.t_filenm, ptr %318, i64 1
+  store ptr %324, ptr %14, align 8
+  %325 = getelementptr inbounds %struct.t_filenm, ptr %324, i32 0, i32 0
+  store i32 20, ptr %325, align 8
+  %326 = getelementptr inbounds %struct.t_filenm, ptr %324, i32 0, i32 1
+  store ptr @.str.213, ptr %326, align 8
+  %327 = getelementptr inbounds %struct.t_filenm, ptr %324, i32 0, i32 2
+  store ptr @.str.214, ptr %327, align 8
+  %328 = getelementptr inbounds %struct.t_filenm, ptr %324, i32 0, i32 3
+  store i64 12, ptr %328, align 8
+  %329 = getelementptr inbounds %struct.t_filenm, ptr %324, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %329, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #2
+  %330 = getelementptr inbounds %struct.t_filenm, ptr %324, i64 1
+  store ptr %330, ptr %14, align 8
+  %331 = getelementptr inbounds %struct.t_filenm, ptr %330, i32 0, i32 0
+  store i32 20, ptr %331, align 8
+  %332 = getelementptr inbounds %struct.t_filenm, ptr %330, i32 0, i32 1
+  store ptr @.str.215, ptr %332, align 8
+  %333 = getelementptr inbounds %struct.t_filenm, ptr %330, i32 0, i32 2
+  store ptr @.str.216, ptr %333, align 8
+  %334 = getelementptr inbounds %struct.t_filenm, ptr %330, i32 0, i32 3
+  store i64 12, ptr %334, align 8
+  %335 = getelementptr inbounds %struct.t_filenm, ptr %330, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %335, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #2
+  %336 = getelementptr inbounds %struct.t_filenm, ptr %330, i64 1
+  store ptr %336, ptr %14, align 8
+  %337 = getelementptr inbounds %struct.t_filenm, ptr %336, i32 0, i32 0
+  store i32 31, ptr %337, align 8
+  %338 = getelementptr inbounds %struct.t_filenm, ptr %336, i32 0, i32 1
+  store ptr @.str.217, ptr %338, align 8
+  %339 = getelementptr inbounds %struct.t_filenm, ptr %336, i32 0, i32 2
+  store ptr @.str.218, ptr %339, align 8
+  %340 = getelementptr inbounds %struct.t_filenm, ptr %336, i32 0, i32 3
+  store i64 10, ptr %340, align 8
+  %341 = getelementptr inbounds %struct.t_filenm, ptr %336, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %341, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %341) #2
   store ptr null, ptr %22, align 8
   store double 1.000000e+20, ptr %24, align 8
   store i8 0, ptr %28, align 1
-  store i32 200, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26), align 2
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 19), align 8
-  store float 5.000000e+01, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 6), align 4
-  store float 0x4415AF1D80000000, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 7), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 8), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27), align 1
-  store i32 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 11), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 12), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37), align 4
-  store i32 2, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39), align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 41), align 4
-  store i32 8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 40), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 42), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20), align 1
-  store i32 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 23), align 4
-  store float 2.980000e+02, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 17), align 8
-  store float 0x3EB0C6F7A0000000, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 25), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32), align 1
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 33), align 4
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 34), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 9), align 8
-  store float 1.000000e+00, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 35), align 4
-  store i32 100, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29), align 8
-  store i32 100, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10), align 4
-  %314 = load ptr, ptr %5, align 8
-  %315 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %316 unwind label %331
+  %342 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  store i32 200, ptr %342, align 8
+  %343 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28
+  store i8 0, ptr %343, align 4
+  %344 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26
+  store i8 0, ptr %344, align 2
+  %345 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 19
+  store i8 0, ptr %345, align 8
+  %346 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 6
+  store float 5.000000e+01, ptr %346, align 4
+  %347 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 7
+  store float 0x4415AF1D80000000, ptr %347, align 8
+  %348 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 8
+  store float 0.000000e+00, ptr %348, align 4
+  %349 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  store float 0.000000e+00, ptr %349, align 4
+  %350 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15
+  store float 0.000000e+00, ptr %350, align 8
+  %351 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27
+  store i8 1, ptr %351, align 1
+  %352 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 11
+  store i32 0, ptr %352, align 8
+  %353 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 12
+  store ptr null, ptr %353, align 8
+  %354 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37
+  store i32 0, ptr %354, align 4
+  %355 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38
+  store i32 2, ptr %355, align 8
+  %356 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39
+  store float 0.000000e+00, ptr %356, align 4
+  %357 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 41
+  store i32 -1, ptr %357, align 4
+  %358 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 40
+  store i32 8, ptr %358, align 8
+  %359 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 42
+  store i8 0, ptr %359, align 8
+  %360 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20
+  store i8 1, ptr %360, align 1
+  %361 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21
+  store i32 1, ptr %361, align 4
+  %362 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 23
+  store float 0.000000e+00, ptr %362, align 4
+  %363 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 17
+  store float 2.980000e+02, ptr %363, align 8
+  %364 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18
+  store float 0x3EB0C6F7A0000000, ptr %364, align 4
+  %365 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 25
+  store i8 0, ptr %365, align 1
+  %366 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22
+  store i8 0, ptr %366, align 8
+  %367 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32
+  store i8 0, ptr %367, align 1
+  %368 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 33
+  store float 0.000000e+00, ptr %368, align 4
+  %369 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 34
+  store i8 1, ptr %369, align 8
+  %370 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 9
+  store i8 1, ptr %370, align 8
+  %371 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 35
+  store float 1.000000e+00, ptr %371, align 4
+  %372 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29
+  store i32 100, ptr %372, align 8
+  %373 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10
+  store i32 100, ptr %373, align 4
+  %374 = load ptr, ptr %5, align 8
+  %375 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %376 unwind label %392
 
-316:                                              ; preds = %65
-  %317 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %318 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %319 unwind label %331
+376:                                              ; preds = %65
+  %377 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %378 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %379 unwind label %392
 
-319:                                              ; preds = %316
-  %320 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %321 = invoke noundef i32 @_Z5asizeIPKcLi148EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(1184) %6)
-          to label %322 unwind label %331
+379:                                              ; preds = %376
+  %380 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %381 = invoke noundef i32 @_Z5asizeIPKcLi148EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(1184) %6)
+          to label %382 unwind label %392
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds [148 x ptr], ptr %6, i64 0, i64 0
-  %324 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %314, i64 noundef 0, i32 noundef %315, ptr noundef %317, i32 noundef %318, ptr noundef %320, i32 noundef %321, ptr noundef %323, i32 noundef 0, ptr noundef null, ptr noundef getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30))
-          to label %325 unwind label %331
+382:                                              ; preds = %379
+  %383 = getelementptr inbounds [148 x ptr], ptr %6, i64 0, i64 0
+  %384 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30
+  %385 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %374, i64 noundef 0, i32 noundef %375, ptr noundef %377, i32 noundef %378, ptr noundef %380, i32 noundef %381, ptr noundef %383, i32 noundef 0, ptr noundef null, ptr noundef %384)
+          to label %386 unwind label %392
 
-325:                                              ; preds = %322
-  br i1 %324, label %335, label %326
+386:                                              ; preds = %382
+  br i1 %385, label %396, label %387
 
-326:                                              ; preds = %325
+387:                                              ; preds = %386
   store i32 0, ptr %3, align 4
   store i32 1, ptr %37, align 4
-  br label %964
+  br label %1083
 
-327:                                              ; preds = %63
-  %328 = landingpad { ptr, i32 }
+388:                                              ; preds = %63
+  %389 = landingpad { ptr, i32 }
           cleanup
-  %329 = extractvalue { ptr, i32 } %328, 0
-  store ptr %329, ptr %10, align 8
-  %330 = extractvalue { ptr, i32 } %328, 1
-  store i32 %330, ptr %11, align 4
+  %390 = extractvalue { ptr, i32 } %389, 0
+  store ptr %390, ptr %10, align 8
+  %391 = extractvalue { ptr, i32 } %389, 1
+  store i32 %391, ptr %11, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZ8gmx_whamiPPcE3opt) #2
-  br label %981
+  br label %1100
 
-331:                                              ; preds = %961, %959, %956, %954, %947, %944, %942, %939, %937, %934, %932, %927, %924, %922, %920, %868, %865, %863, %860, %841, %834, %817, %809, %792, %788, %778, %765, %762, %757, %750, %741, %738, %734, %729, %726, %722, %717, %714, %712, %706, %703, %701, %696, %693, %691, %689, %603, %600, %598, %594, %578, %575, %571, %557, %544, %541, %532, %525, %521, %519, %508, %504, %502, %491, %482, %469, %450, %437, %434, %431, %428, %425, %423, %420, %418, %415, %413, %410, %408, %405, %403, %396, %377, %367, %364, %361, %358, %355, %352, %349, %346, %343, %341, %338, %335, %322, %319, %316, %65
-  %332 = landingpad { ptr, i32 }
+392:                                              ; preds = %1080, %1078, %1075, %1073, %1066, %1063, %1061, %1058, %1056, %1053, %1051, %1045, %1042, %1040, %1038, %980, %977, %975, %972, %951, %943, %925, %917, %899, %895, %884, %867, %864, %859, %851, %840, %837, %833, %827, %824, %820, %814, %811, %809, %802, %799, %797, %791, %788, %786, %784, %692, %689, %687, %683, %666, %663, %659, %644, %630, %627, %615, %608, %604, %602, %590, %586, %584, %572, %560, %546, %527, %514, %511, %508, %505, %502, %499, %496, %493, %490, %487, %484, %482, %479, %477, %470, %447, %434, %430, %427, %423, %420, %416, %413, %409, %406, %403, %399, %396, %382, %379, %376, %65
+  %393 = landingpad { ptr, i32 }
           cleanup
-  %333 = extractvalue { ptr, i32 } %332, 0
-  store ptr %333, ptr %10, align 8
-  %334 = extractvalue { ptr, i32 } %332, 1
-  store i32 %334, ptr %11, align 4
-  br label %973
+  %394 = extractvalue { ptr, i32 } %393, 0
+  store ptr %394, ptr %10, align 8
+  %395 = extractvalue { ptr, i32 } %393, 1
+  store i32 %395, ptr %11, align 4
+  br label %1092
 
-335:                                              ; preds = %325
-  %336 = getelementptr inbounds [5 x ptr], ptr %7, i64 0, i64 0
-  %337 = invoke noundef i32 @_Z5nenumPKPKc(ptr noundef %336)
-          to label %338 unwind label %331
+396:                                              ; preds = %386
+  %397 = getelementptr inbounds [5 x ptr], ptr %7, i64 0, i64 0
+  %398 = invoke noundef i32 @_Z5nenumPKPKc(ptr noundef %397)
+          to label %399 unwind label %392
 
-338:                                              ; preds = %335
-  store i32 %337, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21), align 4
-  %339 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 0
-  %340 = invoke noundef i32 @_Z5nenumPKPKc(ptr noundef %339)
-          to label %341 unwind label %331
+399:                                              ; preds = %396
+  %400 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21
+  store i32 %398, ptr %400, align 4
+  %401 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 0
+  %402 = invoke noundef i32 @_Z5nenumPKPKc(ptr noundef %401)
+          to label %403 unwind label %392
 
-341:                                              ; preds = %338
-  store i32 %340, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38), align 8
-  %342 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %343 unwind label %331
+403:                                              ; preds = %399
+  %404 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38
+  store i32 %402, ptr %404, align 8
+  %405 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %406 unwind label %392
 
-343:                                              ; preds = %341
-  %344 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %345 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.165, i32 noundef %342, ptr noundef %344)
-          to label %346 unwind label %331
+406:                                              ; preds = %403
+  %407 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %408 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.165, i32 noundef %405, ptr noundef %407)
+          to label %409 unwind label %392
 
-346:                                              ; preds = %343
-  %347 = zext i1 %345 to i8
-  store i8 %347, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 24), align 8
-  %348 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %349 unwind label %331
+409:                                              ; preds = %406
+  %410 = zext i1 %408 to i8
+  %411 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 24
+  store i8 %410, ptr %411, align 8
+  %412 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %413 unwind label %392
 
-349:                                              ; preds = %346
-  %350 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %351 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.217, i32 noundef %348, ptr noundef %350)
-          to label %352 unwind label %331
+413:                                              ; preds = %409
+  %414 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %415 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.217, i32 noundef %412, ptr noundef %414)
+          to label %416 unwind label %392
 
-352:                                              ; preds = %349
-  %353 = zext i1 %351 to i8
-  store i8 %353, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43), align 1
-  %354 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %355 unwind label %331
-
-355:                                              ; preds = %352
-  %356 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %357 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.197, i32 noundef %354, ptr noundef %356)
-          to label %358 unwind label %331
-
-358:                                              ; preds = %355
-  %359 = zext i1 %357 to i8
-  store i8 %359, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5), align 1
-  %360 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %361 unwind label %331
-
-361:                                              ; preds = %358
-  %362 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %363 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.199, i32 noundef %360, ptr noundef %362)
-          to label %364 unwind label %331
-
-364:                                              ; preds = %361
-  %365 = zext i1 %363 to i8
-  store i8 %365, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
-  %366 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %367 unwind label %331
-
-367:                                              ; preds = %364
-  %368 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %369 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %366, ptr noundef %368)
-          to label %370 unwind label %331
-
-370:                                              ; preds = %367
-  %371 = zext i1 %369 to i8
-  store i8 %371, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31), align 8
-  %372 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43), align 1
-  %373 = trunc i8 %372 to i1
-  br i1 %373, label %374, label %384
-
-374:                                              ; preds = %370
-  %375 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
-  %376 = trunc i8 %375 to i1
-  br i1 %376, label %377, label %384
-
-377:                                              ; preds = %374
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %378 unwind label %331
-
-378:                                              ; preds = %377
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %38, i32 noundef 3179, ptr noundef @.str.220) #17
-          to label %379 unwind label %380
-
-379:                                              ; preds = %378
-  unreachable
-
-380:                                              ; preds = %378
-  %381 = landingpad { ptr, i32 }
-          cleanup
-  %382 = extractvalue { ptr, i32 } %381, 0
-  store ptr %382, ptr %10, align 8
-  %383 = extractvalue { ptr, i32 } %381, 1
-  store i32 %383, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #2
-  br label %973
-
-384:                                              ; preds = %374, %370
-  %385 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5), align 1
-  %386 = trunc i8 %385 to i1
-  br i1 %386, label %390, label %387
-
-387:                                              ; preds = %384
-  %388 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
-  %389 = trunc i8 %388 to i1
-  br i1 %389, label %403, label %390
-
-390:                                              ; preds = %387, %384
-  %391 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5), align 1
-  %392 = trunc i8 %391 to i1
-  br i1 %392, label %393, label %396
-
-393:                                              ; preds = %390
-  %394 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
-  %395 = trunc i8 %394 to i1
-  br i1 %395, label %396, label %403
-
-396:                                              ; preds = %393, %390
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %397 unwind label %331
-
-397:                                              ; preds = %396
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %39, i32 noundef 3186, ptr noundef @.str.221) #17
-          to label %398 unwind label %399
-
-398:                                              ; preds = %397
-  unreachable
-
-399:                                              ; preds = %397
-  %400 = landingpad { ptr, i32 }
-          cleanup
-  %401 = extractvalue { ptr, i32 } %400, 0
-  store ptr %401, ptr %10, align 8
-  %402 = extractvalue { ptr, i32 } %400, 1
-  store i32 %402, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #2
-  br label %973
-
-403:                                              ; preds = %393, %387
-  %404 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %405 unwind label %331
-
-405:                                              ; preds = %403
-  %406 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %407 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.201, i32 noundef %404, ptr noundef %406)
-          to label %408 unwind label %331
-
-408:                                              ; preds = %405
-  store ptr %407, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
-  %409 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %410 unwind label %331
-
-410:                                              ; preds = %408
-  %411 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %412 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.199, i32 noundef %409, ptr noundef %411)
-          to label %413 unwind label %331
-
-413:                                              ; preds = %410
-  store ptr %412, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 1), align 8
-  %414 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %415 unwind label %331
-
-415:                                              ; preds = %413
-  %416 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %417 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.197, i32 noundef %414, ptr noundef %416)
-          to label %418 unwind label %331
-
-418:                                              ; preds = %415
-  store ptr %417, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 3), align 8
+416:                                              ; preds = %413
+  %417 = zext i1 %415 to i8
+  %418 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43
+  store i8 %417, ptr %418, align 1
   %419 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %420 unwind label %331
+          to label %420 unwind label %392
 
-420:                                              ; preds = %418
+420:                                              ; preds = %416
   %421 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %422 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.203, i32 noundef %419, ptr noundef %421)
-          to label %423 unwind label %331
+  %422 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.197, i32 noundef %419, ptr noundef %421)
+          to label %423 unwind label %392
 
 423:                                              ; preds = %420
-  store ptr %422, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 2), align 8
-  %424 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %425 unwind label %331
+  %424 = zext i1 %422 to i8
+  %425 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5
+  store i8 %424, ptr %425, align 1
+  %426 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %427 unwind label %392
 
-425:                                              ; preds = %423
-  %426 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %427 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.137, i32 noundef %424, ptr noundef %426)
-          to label %428 unwind label %331
+427:                                              ; preds = %423
+  %428 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %429 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.199, i32 noundef %426, ptr noundef %428)
+          to label %430 unwind label %392
 
-428:                                              ; preds = %425
-  %429 = zext i1 %427 to i8
-  store i8 %429, ptr %25, align 1
-  %430 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %431 unwind label %331
+430:                                              ; preds = %427
+  %431 = zext i1 %429 to i8
+  %432 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  store i8 %431, ptr %432, align 8
+  %433 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %434 unwind label %392
 
-431:                                              ; preds = %428
-  %432 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %433 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.139, i32 noundef %430, ptr noundef %432)
-          to label %434 unwind label %331
-
-434:                                              ; preds = %431
-  %435 = zext i1 %433 to i8
-  store i8 %435, ptr %26, align 1
-  %436 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %437 unwind label %331
+434:                                              ; preds = %430
+  %435 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %436 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %433, ptr noundef %435)
+          to label %437 unwind label %392
 
 437:                                              ; preds = %434
-  %438 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %439 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.141, i32 noundef %436, ptr noundef %438)
-          to label %440 unwind label %331
+  %438 = zext i1 %436 to i8
+  %439 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31
+  store i8 %438, ptr %439, align 8
+  %440 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43
+  %441 = load i8, ptr %440, align 1
+  %442 = trunc i8 %441 to i1
+  br i1 %442, label %443, label %454
 
-440:                                              ; preds = %437
-  %441 = zext i1 %439 to i8
-  store i8 %441, ptr %27, align 1
-  %442 = load i8, ptr %25, align 1
-  %443 = trunc i8 %442 to i1
-  br i1 %443, label %447, label %444
-
-444:                                              ; preds = %440
-  %445 = load i8, ptr %26, align 1
+443:                                              ; preds = %437
+  %444 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  %445 = load i8, ptr %444, align 8
   %446 = trunc i8 %445 to i1
-  br i1 %446, label %447, label %457
+  br i1 %446, label %447, label %454
 
-447:                                              ; preds = %444, %440
-  %448 = load i8, ptr %27, align 1
-  %449 = trunc i8 %448 to i1
-  br i1 %449, label %450, label %457
+447:                                              ; preds = %443
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %448 unwind label %392
 
-450:                                              ; preds = %447
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %451 unwind label %331
+448:                                              ; preds = %447
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %38, i32 noundef 3179, ptr noundef @.str.220) #17
+          to label %449 unwind label %450
 
-451:                                              ; preds = %450
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 3199, ptr noundef @.str.222) #17
-          to label %452 unwind label %453
-
-452:                                              ; preds = %451
+449:                                              ; preds = %448
   unreachable
 
-453:                                              ; preds = %451
-  %454 = landingpad { ptr, i32 }
+450:                                              ; preds = %448
+  %451 = landingpad { ptr, i32 }
           cleanup
-  %455 = extractvalue { ptr, i32 } %454, 0
-  store ptr %455, ptr %10, align 8
-  %456 = extractvalue { ptr, i32 } %454, 1
-  store i32 %456, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #2
-  br label %973
+  %452 = extractvalue { ptr, i32 } %451, 0
+  store ptr %452, ptr %10, align 8
+  %453 = extractvalue { ptr, i32 } %451, 1
+  store i32 %453, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #2
+  br label %1092
 
-457:                                              ; preds = %447, %444
-  %458 = load i8, ptr %25, align 1
-  %459 = trunc i8 %458 to i1
-  br i1 %459, label %460, label %463
+454:                                              ; preds = %443, %437
+  %455 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5
+  %456 = load i8, ptr %455, align 1
+  %457 = trunc i8 %456 to i1
+  br i1 %457, label %462, label %458
 
-460:                                              ; preds = %457
-  %461 = load i8, ptr %26, align 1
-  %462 = trunc i8 %461 to i1
-  br i1 %462, label %463, label %469
+458:                                              ; preds = %454
+  %459 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  %460 = load i8, ptr %459, align 8
+  %461 = trunc i8 %460 to i1
+  br i1 %461, label %477, label %462
 
-463:                                              ; preds = %460, %457
-  %464 = load i8, ptr %25, align 1
+462:                                              ; preds = %458, %454
+  %463 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 5
+  %464 = load i8, ptr %463, align 1
   %465 = trunc i8 %464 to i1
-  br i1 %465, label %476, label %466
+  br i1 %465, label %466, label %470
 
-466:                                              ; preds = %463
-  %467 = load i8, ptr %26, align 1
-  %468 = trunc i8 %467 to i1
-  br i1 %468, label %469, label %476
+466:                                              ; preds = %462
+  %467 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  %468 = load i8, ptr %467, align 8
+  %469 = trunc i8 %468 to i1
+  br i1 %469, label %470, label %477
 
-469:                                              ; preds = %466, %460
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %470 unwind label %331
-
-470:                                              ; preds = %469
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 3204, ptr noundef @.str.223) #17
-          to label %471 unwind label %472
+470:                                              ; preds = %466, %462
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %471 unwind label %392
 
 471:                                              ; preds = %470
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %39, i32 noundef 3186, ptr noundef @.str.221) #17
+          to label %472 unwind label %473
+
+472:                                              ; preds = %471
   unreachable
 
-472:                                              ; preds = %470
-  %473 = landingpad { ptr, i32 }
+473:                                              ; preds = %471
+  %474 = landingpad { ptr, i32 }
           cleanup
-  %474 = extractvalue { ptr, i32 } %473, 0
-  store ptr %474, ptr %10, align 8
-  %475 = extractvalue { ptr, i32 } %473, 1
-  store i32 %475, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #2
-  br label %973
+  %475 = extractvalue { ptr, i32 } %474, 0
+  store ptr %475, ptr %10, align 8
+  %476 = extractvalue { ptr, i32 } %474, 1
+  store i32 %476, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #2
+  br label %1092
 
-476:                                              ; preds = %466, %463
-  %477 = load i8, ptr %25, align 1
-  %478 = trunc i8 %477 to i1
-  br i1 %478, label %479, label %485
+477:                                              ; preds = %466, %458
+  %478 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %479 unwind label %392
 
-479:                                              ; preds = %476
-  %480 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27), align 1
-  %481 = trunc i8 %480 to i1
-  br i1 %481, label %482, label %485
+479:                                              ; preds = %477
+  %480 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %481 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.201, i32 noundef %478, ptr noundef %480)
+          to label %482 unwind label %392
 
 482:                                              ; preds = %479
-  %483 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.224)
-          to label %484 unwind label %331
+  store ptr %481, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
+  %483 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %484 unwind label %392
 
 484:                                              ; preds = %482
-  store i8 0, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27), align 1
-  br label %485
+  %485 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %486 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.199, i32 noundef %483, ptr noundef %485)
+          to label %487 unwind label %392
 
-485:                                              ; preds = %484, %479, %476
-  %486 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31), align 8
-  %487 = trunc i8 %486 to i1
-  br i1 %487, label %488, label %498
+487:                                              ; preds = %484
+  %488 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 1
+  store ptr %486, ptr %488, align 8
+  %489 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %490 unwind label %392
 
-488:                                              ; preds = %485
-  %489 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32), align 1
-  %490 = trunc i8 %489 to i1
-  br i1 %490, label %491, label %498
+490:                                              ; preds = %487
+  %491 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %492 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.197, i32 noundef %489, ptr noundef %491)
+          to label %493 unwind label %392
 
-491:                                              ; preds = %488
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %492 unwind label %331
+493:                                              ; preds = %490
+  %494 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 3
+  store ptr %492, ptr %494, align 8
+  %495 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %496 unwind label %392
 
-492:                                              ; preds = %491
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 3215, ptr noundef @.str.225) #17
-          to label %493 unwind label %494
+496:                                              ; preds = %493
+  %497 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %498 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.203, i32 noundef %495, ptr noundef %497)
+          to label %499 unwind label %392
 
-493:                                              ; preds = %492
+499:                                              ; preds = %496
+  %500 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 2
+  store ptr %498, ptr %500, align 8
+  %501 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %502 unwind label %392
+
+502:                                              ; preds = %499
+  %503 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %504 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.137, i32 noundef %501, ptr noundef %503)
+          to label %505 unwind label %392
+
+505:                                              ; preds = %502
+  %506 = zext i1 %504 to i8
+  store i8 %506, ptr %25, align 1
+  %507 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %508 unwind label %392
+
+508:                                              ; preds = %505
+  %509 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %510 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.139, i32 noundef %507, ptr noundef %509)
+          to label %511 unwind label %392
+
+511:                                              ; preds = %508
+  %512 = zext i1 %510 to i8
+  store i8 %512, ptr %26, align 1
+  %513 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %514 unwind label %392
+
+514:                                              ; preds = %511
+  %515 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %516 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.141, i32 noundef %513, ptr noundef %515)
+          to label %517 unwind label %392
+
+517:                                              ; preds = %514
+  %518 = zext i1 %516 to i8
+  store i8 %518, ptr %27, align 1
+  %519 = load i8, ptr %25, align 1
+  %520 = trunc i8 %519 to i1
+  br i1 %520, label %524, label %521
+
+521:                                              ; preds = %517
+  %522 = load i8, ptr %26, align 1
+  %523 = trunc i8 %522 to i1
+  br i1 %523, label %524, label %534
+
+524:                                              ; preds = %521, %517
+  %525 = load i8, ptr %27, align 1
+  %526 = trunc i8 %525 to i1
+  br i1 %526, label %527, label %534
+
+527:                                              ; preds = %524
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %528 unwind label %392
+
+528:                                              ; preds = %527
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 3199, ptr noundef @.str.222) #17
+          to label %529 unwind label %530
+
+529:                                              ; preds = %528
   unreachable
 
-494:                                              ; preds = %492
-  %495 = landingpad { ptr, i32 }
+530:                                              ; preds = %528
+  %531 = landingpad { ptr, i32 }
           cleanup
-  %496 = extractvalue { ptr, i32 } %495, 0
-  store ptr %496, ptr %10, align 8
-  %497 = extractvalue { ptr, i32 } %495, 1
-  store i32 %497, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #2
-  br label %973
+  %532 = extractvalue { ptr, i32 } %531, 0
+  store ptr %532, ptr %10, align 8
+  %533 = extractvalue { ptr, i32 } %531, 1
+  store i32 %533, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #2
+  br label %1092
 
-498:                                              ; preds = %488, %485
-  %499 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39), align 4
-  %500 = fpext float %499 to double
-  %501 = fcmp ogt double %500, 0.000000e+00
-  br i1 %501, label %502, label %515
-
-502:                                              ; preds = %498
-  %503 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
-          to label %504 unwind label %331
-
-504:                                              ; preds = %502
-  %505 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
-  %506 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.173, i32 noundef %503, ptr noundef %505)
-          to label %507 unwind label %331
-
-507:                                              ; preds = %504
-  br i1 %506, label %508, label %515
-
-508:                                              ; preds = %507
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %509 unwind label %331
-
-509:                                              ; preds = %508
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %43, i32 noundef 3222, ptr noundef @.str.226) #17
-          to label %510 unwind label %511
-
-510:                                              ; preds = %509
-  unreachable
-
-511:                                              ; preds = %509
-  %512 = landingpad { ptr, i32 }
-          cleanup
-  %513 = extractvalue { ptr, i32 } %512, 0
-  store ptr %513, ptr %10, align 8
-  %514 = extractvalue { ptr, i32 } %512, 1
-  store i32 %514, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #2
-  br label %973
-
-515:                                              ; preds = %507, %498
-  %516 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39), align 4
-  %517 = fpext float %516 to double
-  %518 = fcmp ogt double %517, 0.000000e+00
-  br i1 %518, label %519, label %532
-
-519:                                              ; preds = %515
-  %520 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %521 unwind label %331
-
-521:                                              ; preds = %519
-  %522 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %523 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %520, ptr noundef %522)
-          to label %524 unwind label %331
-
-524:                                              ; preds = %521
-  br i1 %523, label %525, label %532
-
-525:                                              ; preds = %524
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %526 unwind label %331
-
-526:                                              ; preds = %525
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %44, i32 noundef 3228, ptr noundef @.str.227) #17
-          to label %527 unwind label %528
-
-527:                                              ; preds = %526
-  unreachable
-
-528:                                              ; preds = %526
-  %529 = landingpad { ptr, i32 }
-          cleanup
-  %530 = extractvalue { ptr, i32 } %529, 0
-  store ptr %530, ptr %10, align 8
-  %531 = extractvalue { ptr, i32 } %529, 1
-  store i32 %531, ptr %11, align 4
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #2
-  br label %973
-
-532:                                              ; preds = %524, %515
-  %533 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
-  invoke void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %533, ptr noundef %29, ptr noundef %18, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %534 unwind label %331
-
-534:                                              ; preds = %532
-  %535 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
+534:                                              ; preds = %524, %521
+  %535 = load i8, ptr %25, align 1
   %536 = trunc i8 %535 to i1
-  br i1 %536, label %537, label %539
+  br i1 %536, label %537, label %540
 
 537:                                              ; preds = %534
-  %538 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 1), align 8
-  br label %541
+  %538 = load i8, ptr %26, align 1
+  %539 = trunc i8 %538 to i1
+  br i1 %539, label %540, label %546
 
-539:                                              ; preds = %534
-  %540 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 3), align 8
-  br label %541
+540:                                              ; preds = %537, %534
+  %541 = load i8, ptr %25, align 1
+  %542 = trunc i8 %541 to i1
+  br i1 %542, label %553, label %543
 
-541:                                              ; preds = %539, %537
-  %542 = phi ptr [ %538, %537 ], [ %540, %539 ]
-  store ptr %542, ptr %31, align 8
-  %543 = load ptr, ptr %31, align 8
-  invoke void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %543, ptr noundef %30, ptr noundef %20, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %544 unwind label %331
+543:                                              ; preds = %540
+  %544 = load i8, ptr %26, align 1
+  %545 = trunc i8 %544 to i1
+  br i1 %545, label %546, label %553
 
-544:                                              ; preds = %541
-  %545 = load i32, ptr %18, align 4
-  %546 = load i32, ptr %20, align 4
-  %547 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4), align 8
-  %548 = trunc i8 %547 to i1
-  %549 = select i1 %548, ptr @.str.229, ptr @.str.230
-  %550 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
-  %551 = load ptr, ptr %31, align 8
-  %552 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.228, i32 noundef %545, i32 noundef %546, ptr noundef %549, ptr noundef %550, ptr noundef %551)
-          to label %553 unwind label %331
+546:                                              ; preds = %543, %537
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %547 unwind label %392
 
-553:                                              ; preds = %544
-  %554 = load i32, ptr %18, align 4
-  %555 = load i32, ptr %20, align 4
-  %556 = icmp ne i32 %554, %555
-  br i1 %556, label %557, label %568
+547:                                              ; preds = %546
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 3204, ptr noundef @.str.223) #17
+          to label %548 unwind label %549
 
-557:                                              ; preds = %553
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
-          to label %558 unwind label %331
-
-558:                                              ; preds = %557
-  %559 = load i32, ptr %18, align 4
-  %560 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
-  %561 = load i32, ptr %20, align 4
-  %562 = load ptr, ptr %31, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %45, i32 noundef 3246, ptr noundef @.str.231, i32 noundef %559, ptr noundef %560, i32 noundef %561, ptr noundef %562) #17
-          to label %563 unwind label %564
-
-563:                                              ; preds = %558
+548:                                              ; preds = %547
   unreachable
 
-564:                                              ; preds = %558
-  %565 = landingpad { ptr, i32 }
+549:                                              ; preds = %547
+  %550 = landingpad { ptr, i32 }
           cleanup
-  %566 = extractvalue { ptr, i32 } %565, 0
-  store ptr %566, ptr %10, align 8
-  %567 = extractvalue { ptr, i32 } %565, 1
-  store i32 %567, ptr %11, align 4
+  %551 = extractvalue { ptr, i32 } %550, 0
+  store ptr %551, ptr %10, align 8
+  %552 = extractvalue { ptr, i32 } %550, 1
+  store i32 %552, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #2
+  br label %1092
+
+553:                                              ; preds = %543, %540
+  %554 = load i8, ptr %25, align 1
+  %555 = trunc i8 %554 to i1
+  br i1 %555, label %556, label %564
+
+556:                                              ; preds = %553
+  %557 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27
+  %558 = load i8, ptr %557, align 1
+  %559 = trunc i8 %558 to i1
+  br i1 %559, label %560, label %564
+
+560:                                              ; preds = %556
+  %561 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.224)
+          to label %562 unwind label %392
+
+562:                                              ; preds = %560
+  %563 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 27
+  store i8 0, ptr %563, align 1
+  br label %564
+
+564:                                              ; preds = %562, %556, %553
+  %565 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31
+  %566 = load i8, ptr %565, align 8
+  %567 = trunc i8 %566 to i1
+  br i1 %567, label %568, label %579
+
+568:                                              ; preds = %564
+  %569 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32
+  %570 = load i8, ptr %569, align 1
+  %571 = trunc i8 %570 to i1
+  br i1 %571, label %572, label %579
+
+572:                                              ; preds = %568
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %573 unwind label %392
+
+573:                                              ; preds = %572
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 3215, ptr noundef @.str.225) #17
+          to label %574 unwind label %575
+
+574:                                              ; preds = %573
+  unreachable
+
+575:                                              ; preds = %573
+  %576 = landingpad { ptr, i32 }
+          cleanup
+  %577 = extractvalue { ptr, i32 } %576, 0
+  store ptr %577, ptr %10, align 8
+  %578 = extractvalue { ptr, i32 } %576, 1
+  store i32 %578, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #2
+  br label %1092
+
+579:                                              ; preds = %568, %564
+  %580 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39
+  %581 = load float, ptr %580, align 4
+  %582 = fpext float %581 to double
+  %583 = fcmp ogt double %582, 0.000000e+00
+  br i1 %583, label %584, label %597
+
+584:                                              ; preds = %579
+  %585 = invoke noundef i32 @_Z5asizeI7t_pargsLi30EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(960) %12)
+          to label %586 unwind label %392
+
+586:                                              ; preds = %584
+  %587 = getelementptr inbounds [30 x %struct.t_pargs], ptr %12, i64 0, i64 0
+  %588 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.173, i32 noundef %585, ptr noundef %587)
+          to label %589 unwind label %392
+
+589:                                              ; preds = %586
+  br i1 %588, label %590, label %597
+
+590:                                              ; preds = %589
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %591 unwind label %392
+
+591:                                              ; preds = %590
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %43, i32 noundef 3222, ptr noundef @.str.226) #17
+          to label %592 unwind label %593
+
+592:                                              ; preds = %591
+  unreachable
+
+593:                                              ; preds = %591
+  %594 = landingpad { ptr, i32 }
+          cleanup
+  %595 = extractvalue { ptr, i32 } %594, 0
+  store ptr %595, ptr %10, align 8
+  %596 = extractvalue { ptr, i32 } %594, 1
+  store i32 %596, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #2
+  br label %1092
+
+597:                                              ; preds = %589, %579
+  %598 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 39
+  %599 = load float, ptr %598, align 4
+  %600 = fpext float %599 to double
+  %601 = fcmp ogt double %600, 0.000000e+00
+  br i1 %601, label %602, label %615
+
+602:                                              ; preds = %597
+  %603 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %604 unwind label %392
+
+604:                                              ; preds = %602
+  %605 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %606 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %603, ptr noundef %605)
+          to label %607 unwind label %392
+
+607:                                              ; preds = %604
+  br i1 %606, label %608, label %615
+
+608:                                              ; preds = %607
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %609 unwind label %392
+
+609:                                              ; preds = %608
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %44, i32 noundef 3228, ptr noundef @.str.227) #17
+          to label %610 unwind label %611
+
+610:                                              ; preds = %609
+  unreachable
+
+611:                                              ; preds = %609
+  %612 = landingpad { ptr, i32 }
+          cleanup
+  %613 = extractvalue { ptr, i32 } %612, 0
+  store ptr %613, ptr %10, align 8
+  %614 = extractvalue { ptr, i32 } %612, 1
+  store i32 %614, ptr %11, align 4
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #2
+  br label %1092
+
+615:                                              ; preds = %607, %597
+  %616 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
+  invoke void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %616, ptr noundef %29, ptr noundef %18, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %617 unwind label %392
+
+617:                                              ; preds = %615
+  %618 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  %619 = load i8, ptr %618, align 8
+  %620 = trunc i8 %619 to i1
+  br i1 %620, label %621, label %624
+
+621:                                              ; preds = %617
+  %622 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 1
+  %623 = load ptr, ptr %622, align 8
+  br label %627
+
+624:                                              ; preds = %617
+  %625 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 3
+  %626 = load ptr, ptr %625, align 8
+  br label %627
+
+627:                                              ; preds = %624, %621
+  %628 = phi ptr [ %623, %621 ], [ %626, %624 ]
+  store ptr %628, ptr %31, align 8
+  %629 = load ptr, ptr %31, align 8
+  invoke void @_ZL12read_wham_inPKcPPPcPiP15UmbrellaOptions(ptr noundef %629, ptr noundef %30, ptr noundef %20, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %630 unwind label %392
+
+630:                                              ; preds = %627
+  %631 = load i32, ptr %18, align 4
+  %632 = load i32, ptr %20, align 4
+  %633 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 4
+  %634 = load i8, ptr %633, align 8
+  %635 = trunc i8 %634 to i1
+  %636 = select i1 %635, ptr @.str.229, ptr @.str.230
+  %637 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
+  %638 = load ptr, ptr %31, align 8
+  %639 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.228, i32 noundef %631, i32 noundef %632, ptr noundef %636, ptr noundef %637, ptr noundef %638)
+          to label %640 unwind label %392
+
+640:                                              ; preds = %630
+  %641 = load i32, ptr %18, align 4
+  %642 = load i32, ptr %20, align 4
+  %643 = icmp ne i32 %641, %642
+  br i1 %643, label %644, label %655
+
+644:                                              ; preds = %640
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 1 dereferenceable(125) @.str.219, i8 noundef zeroext 2)
+          to label %645 unwind label %392
+
+645:                                              ; preds = %644
+  %646 = load i32, ptr %18, align 4
+  %647 = load ptr, ptr @_ZZ8gmx_whamiPPcE3opt, align 8
+  %648 = load i32, ptr %20, align 4
+  %649 = load ptr, ptr %31, align 8
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %45, i32 noundef 3246, ptr noundef @.str.231, i32 noundef %646, ptr noundef %647, i32 noundef %648, ptr noundef %649) #17
+          to label %650 unwind label %651
+
+650:                                              ; preds = %645
+  unreachable
+
+651:                                              ; preds = %645
+  %652 = landingpad { ptr, i32 }
+          cleanup
+  %653 = extractvalue { ptr, i32 } %652, 0
+  store ptr %653, ptr %10, align 8
+  %654 = extractvalue { ptr, i32 } %652, 1
+  store i32 %654, ptr %11, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #2
-  br label %973
+  br label %1092
 
-568:                                              ; preds = %553
-  %569 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 2), align 8
-  %570 = icmp ne ptr %569, null
-  br i1 %570, label %571, label %575
+655:                                              ; preds = %640
+  %656 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 2
+  %657 = load ptr, ptr %656, align 8
+  %658 = icmp ne ptr %657, null
+  br i1 %658, label %659, label %663
 
-571:                                              ; preds = %568
-  %572 = load ptr, ptr %29, align 8
-  %573 = load i32, ptr %18, align 4
-  invoke void @_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci(ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %572, i32 noundef %573)
-          to label %574 unwind label %331
+659:                                              ; preds = %655
+  %660 = load ptr, ptr %29, align 8
+  %661 = load i32, ptr %18, align 4
+  invoke void @_ZL22readPullCoordSelectionP15UmbrellaOptionsPPci(ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %660, i32 noundef %661)
+          to label %662 unwind label %392
 
-574:                                              ; preds = %571
-  br label %575
+662:                                              ; preds = %659
+  br label %663
 
-575:                                              ; preds = %574, %568
-  %576 = load i32, ptr %18, align 4
-  %577 = invoke noundef ptr @_ZL19initUmbrellaWindowsi(i32 noundef %576)
-          to label %578 unwind label %331
+663:                                              ; preds = %662, %655
+  %664 = load i32, ptr %18, align 4
+  %665 = invoke noundef ptr @_ZL19initUmbrellaWindowsi(i32 noundef %664)
+          to label %666 unwind label %392
 
-578:                                              ; preds = %575
-  store ptr %577, ptr %22, align 8
-  %579 = load ptr, ptr %29, align 8
-  %580 = load ptr, ptr %30, align 8
-  %581 = load i32, ptr %18, align 4
-  %582 = load ptr, ptr %22, align 8
-  invoke void @_ZL21read_tpr_pullxf_filesPPcS0_iP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptions(ptr noundef %579, ptr noundef %580, i32 noundef %581, ptr noundef %21, ptr noundef %582, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %583 unwind label %331
+666:                                              ; preds = %663
+  store ptr %665, ptr %22, align 8
+  %667 = load ptr, ptr %29, align 8
+  %668 = load ptr, ptr %30, align 8
+  %669 = load i32, ptr %18, align 4
+  %670 = load ptr, ptr %22, align 8
+  invoke void @_ZL21read_tpr_pullxf_filesPPcS0_iP16t_UmbrellaHeaderP16t_UmbrellaWindowP15UmbrellaOptions(ptr noundef %667, ptr noundef %668, i32 noundef %669, ptr noundef %21, ptr noundef %670, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %671 unwind label %392
 
-583:                                              ; preds = %578
-  %584 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
-  %585 = getelementptr inbounds %struct.t_UmbrellaHeader, ptr %21, i32 0, i32 1
-  %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds %struct.t_pullcoord, ptr %586, i64 0
-  %588 = getelementptr inbounds %struct.t_pullcoord, ptr %587, i32 0, i32 7
-  %589 = getelementptr inbounds [256 x i8], ptr %588, i64 0, i64 0
-  %590 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %584, ptr noundef @.str.232, ptr noundef %589) #2
-  %591 = load i32, ptr %18, align 4
-  store i32 %591, ptr %19, align 4
-  %592 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 36), align 8
-  %593 = trunc i8 %592 to i1
-  br i1 %593, label %594, label %598
+671:                                              ; preds = %666
+  %672 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+  %673 = getelementptr inbounds %struct.t_UmbrellaHeader, ptr %21, i32 0, i32 1
+  %674 = load ptr, ptr %673, align 8
+  %675 = getelementptr inbounds %struct.t_pullcoord, ptr %674, i64 0
+  %676 = getelementptr inbounds %struct.t_pullcoord, ptr %675, i32 0, i32 7
+  %677 = getelementptr inbounds [256 x i8], ptr %676, i64 0, i64 0
+  %678 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %672, ptr noundef @.str.232, ptr noundef %677) #2
+  %679 = load i32, ptr %18, align 4
+  store i32 %679, ptr %19, align 4
+  %680 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 36
+  %681 = load i8, ptr %680, align 8
+  %682 = trunc i8 %681 to i1
+  br i1 %682, label %683, label %687
 
-594:                                              ; preds = %583
-  %595 = load ptr, ptr %22, align 8
-  %596 = load i32, ptr %19, align 4
-  invoke void @_ZL19enforceEqualWeightsP16t_UmbrellaWindowi(ptr noundef %595, i32 noundef %596)
-          to label %597 unwind label %331
+683:                                              ; preds = %671
+  %684 = load ptr, ptr %22, align 8
+  %685 = load i32, ptr %19, align 4
+  invoke void @_ZL19enforceEqualWeightsP16t_UmbrellaWindowi(ptr noundef %684, i32 noundef %685)
+          to label %686 unwind label %392
 
-597:                                              ; preds = %594
-  br label %598
+686:                                              ; preds = %683
+  br label %687
 
-598:                                              ; preds = %597, %583
-  %599 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %600 unwind label %331
+687:                                              ; preds = %686, %671
+  %688 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %689 unwind label %392
 
-600:                                              ; preds = %598
-  %601 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %602 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %599, ptr noundef %601)
-          to label %603 unwind label %331
+689:                                              ; preds = %687
+  %690 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %691 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %688, ptr noundef %690)
+          to label %692 unwind label %392
 
-603:                                              ; preds = %600
-  store ptr %602, ptr %47, align 8
+692:                                              ; preds = %689
+  store ptr %691, ptr %47, align 8
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(8) %47, i8 noundef zeroext 2)
-          to label %604 unwind label %331
+          to label %693 unwind label %392
 
-604:                                              ; preds = %603
-  %605 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+693:                                              ; preds = %692
+  %694 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %605, ptr noundef nonnull align 1 dereferenceable(1) %49)
-          to label %606 unwind label %665
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %694, ptr noundef nonnull align 1 dereferenceable(1) %49)
+          to label %695 unwind label %760
 
-606:                                              ; preds = %604
+695:                                              ; preds = %693
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef @.str.234, ptr noundef nonnull align 1 dereferenceable(1) %51)
-          to label %607 unwind label %669
+          to label %696 unwind label %764
 
-607:                                              ; preds = %606
-  %608 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30), align 8
-  %609 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef @.str.233, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %608)
-          to label %610 unwind label %673
+696:                                              ; preds = %695
+  %697 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30
+  %698 = load ptr, ptr %697, align 8
+  %699 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef @.str.233, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %698)
+          to label %700 unwind label %768
 
-610:                                              ; preds = %607
-  store ptr %609, ptr %32, align 8
+700:                                              ; preds = %696
+  store ptr %699, ptr %32, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #2
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #2
   store i32 0, ptr %17, align 4
-  br label %611
+  br label %701
 
-611:                                              ; preds = %686, %610
-  %612 = load i32, ptr %17, align 4
-  %613 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  %614 = icmp slt i32 %612, %613
-  br i1 %614, label %615, label %689
+701:                                              ; preds = %781, %700
+  %702 = load i32, ptr %17, align 4
+  %703 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  %704 = load i32, ptr %703, align 8
+  %705 = icmp slt i32 %702, %704
+  br i1 %705, label %706, label %784
 
-615:                                              ; preds = %611
-  %616 = load ptr, ptr %32, align 8
-  %617 = load i32, ptr %17, align 4
-  %618 = sitofp i32 %617 to double
-  %619 = fadd double %618, 5.000000e-01
-  %620 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  %621 = sitofp i32 %620 to double
-  %622 = fdiv double %619, %621
-  %623 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15), align 8
-  %624 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), align 4
-  %625 = fsub float %623, %624
-  %626 = fpext float %625 to double
-  %627 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), align 4
-  %628 = fpext float %627 to double
-  %629 = call double @llvm.fmuladd.f64(double %622, double %626, double %628)
-  %630 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %616, ptr noundef @.str.235, double noundef %629) #2
+706:                                              ; preds = %701
+  %707 = load ptr, ptr %32, align 8
+  %708 = load i32, ptr %17, align 4
+  %709 = sitofp i32 %708 to double
+  %710 = fadd double %709, 5.000000e-01
+  %711 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  %712 = load i32, ptr %711, align 8
+  %713 = sitofp i32 %712 to double
+  %714 = fdiv double %710, %713
+  %715 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15
+  %716 = load float, ptr %715, align 8
+  %717 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  %718 = load float, ptr %717, align 4
+  %719 = fsub float %716, %718
+  %720 = fpext float %719 to double
+  %721 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  %722 = load float, ptr %721, align 4
+  %723 = fpext float %722 to double
+  %724 = call double @llvm.fmuladd.f64(double %714, double %720, double %723)
+  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %707, ptr noundef @.str.235, double noundef %724) #2
   store i32 0, ptr %15, align 4
-  br label %631
+  br label %726
 
-631:                                              ; preds = %680, %615
-  %632 = load i32, ptr %15, align 4
-  %633 = load i32, ptr %19, align 4
-  %634 = icmp slt i32 %632, %633
-  br i1 %634, label %635, label %683
+726:                                              ; preds = %775, %706
+  %727 = load i32, ptr %15, align 4
+  %728 = load i32, ptr %19, align 4
+  %729 = icmp slt i32 %727, %728
+  br i1 %729, label %730, label %778
 
-635:                                              ; preds = %631
+730:                                              ; preds = %726
   store i32 0, ptr %16, align 4
-  br label %636
-
-636:                                              ; preds = %662, %635
-  %637 = load i32, ptr %16, align 4
-  %638 = load ptr, ptr %22, align 8
-  %639 = load i32, ptr %15, align 4
-  %640 = sext i32 %639 to i64
-  %641 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %638, i64 %640
-  %642 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %641, i32 0, i32 0
-  %643 = load i32, ptr %642, align 8
-  %644 = icmp slt i32 %637, %643
-  br i1 %644, label %645, label %679
-
-645:                                              ; preds = %636
-  %646 = load ptr, ptr %32, align 8
-  %647 = load ptr, ptr %22, align 8
-  %648 = load i32, ptr %15, align 4
-  %649 = sext i32 %648 to i64
-  %650 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %647, i64 %649
-  %651 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %650, i32 0, i32 1
-  %652 = load ptr, ptr %651, align 8
-  %653 = load i32, ptr %16, align 4
-  %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds ptr, ptr %652, i64 %654
-  %656 = load ptr, ptr %655, align 8
-  %657 = load i32, ptr %17, align 4
-  %658 = sext i32 %657 to i64
-  %659 = getelementptr inbounds double, ptr %656, i64 %658
-  %660 = load double, ptr %659, align 8
-  %661 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef @.str.235, double noundef %660) #2
-  br label %662
-
-662:                                              ; preds = %645
-  %663 = load i32, ptr %16, align 4
-  %664 = add nsw i32 %663, 1
-  store i32 %664, ptr %16, align 4
-  br label %636, !llvm.loop !6
-
-665:                                              ; preds = %604
-  %666 = landingpad { ptr, i32 }
-          cleanup
-  %667 = extractvalue { ptr, i32 } %666, 0
-  store ptr %667, ptr %10, align 8
-  %668 = extractvalue { ptr, i32 } %666, 1
-  store i32 %668, ptr %11, align 4
-  br label %678
-
-669:                                              ; preds = %606
-  %670 = landingpad { ptr, i32 }
-          cleanup
-  %671 = extractvalue { ptr, i32 } %670, 0
-  store ptr %671, ptr %10, align 8
-  %672 = extractvalue { ptr, i32 } %670, 1
-  store i32 %672, ptr %11, align 4
-  br label %677
-
-673:                                              ; preds = %607
-  %674 = landingpad { ptr, i32 }
-          cleanup
-  %675 = extractvalue { ptr, i32 } %674, 0
-  store ptr %675, ptr %10, align 8
-  %676 = extractvalue { ptr, i32 } %674, 1
-  store i32 %676, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #2
-  br label %677
-
-677:                                              ; preds = %673, %669
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #2
-  br label %678
-
-678:                                              ; preds = %677, %665
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #2
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #2
-  br label %973
-
-679:                                              ; preds = %636
-  br label %680
-
-680:                                              ; preds = %679
-  %681 = load i32, ptr %15, align 4
-  %682 = add nsw i32 %681, 1
-  store i32 %682, ptr %15, align 4
-  br label %631, !llvm.loop !8
-
-683:                                              ; preds = %631
-  %684 = load ptr, ptr %32, align 8
-  %685 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %684, ptr noundef @.str.236) #2
-  br label %686
-
-686:                                              ; preds = %683
-  %687 = load i32, ptr %17, align 4
-  %688 = add nsw i32 %687, 1
-  store i32 %688, ptr %17, align 4
-  br label %611, !llvm.loop !9
-
-689:                                              ; preds = %611
-  %690 = load ptr, ptr %32, align 8
-  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %690)
-          to label %691 unwind label %331
-
-691:                                              ; preds = %689
-  %692 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %693 unwind label %331
-
-693:                                              ; preds = %691
-  %694 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %695 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %692, ptr noundef %694)
-          to label %696 unwind label %331
-
-696:                                              ; preds = %693
-  %697 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.237, ptr noundef %695)
-          to label %698 unwind label %331
-
-698:                                              ; preds = %696
-  %699 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26), align 2
-  %700 = trunc i8 %699 to i1
-  br i1 %700, label %701, label %709
-
-701:                                              ; preds = %698
-  %702 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %703 unwind label %331
-
-703:                                              ; preds = %701
-  %704 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %705 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %702, ptr noundef %704)
-          to label %706 unwind label %331
-
-706:                                              ; preds = %703
-  %707 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.238, ptr noundef %705)
-          to label %708 unwind label %331
-
-708:                                              ; preds = %706
-  store i32 0, ptr %3, align 4
-  store i32 1, ptr %37, align 4
-  br label %964
-
-709:                                              ; preds = %698
-  %710 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43), align 1
-  %711 = trunc i8 %710 to i1
-  br i1 %711, label %712, label %719
-
-712:                                              ; preds = %709
-  %713 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %714 unwind label %331
-
-714:                                              ; preds = %712
-  %715 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %716 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.217, i32 noundef %713, ptr noundef %715)
-          to label %717 unwind label %331
-
-717:                                              ; preds = %714
-  invoke void @_ZL9setup_tabPKcP15UmbrellaOptions(ptr noundef %716, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %718 unwind label %331
-
-718:                                              ; preds = %717
-  br label %719
-
-719:                                              ; preds = %718, %709
-  %720 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31), align 8
-  %721 = trunc i8 %720 to i1
-  br i1 %721, label %722, label %731
-
-722:                                              ; preds = %719
-  %723 = load ptr, ptr %22, align 8
-  %724 = load i32, ptr %19, align 4
-  %725 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %726 unwind label %331
-
-726:                                              ; preds = %722
-  %727 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %728 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %725, ptr noundef %727)
-          to label %729 unwind label %331
-
-729:                                              ; preds = %726
-  invoke void @_ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc(ptr noundef %723, i32 noundef %724, ptr noundef %728)
-          to label %730 unwind label %331
-
-730:                                              ; preds = %729
   br label %731
 
-731:                                              ; preds = %730, %719
-  %732 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32), align 1
-  %733 = trunc i8 %732 to i1
-  br i1 %733, label %734, label %744
+731:                                              ; preds = %757, %730
+  %732 = load i32, ptr %16, align 4
+  %733 = load ptr, ptr %22, align 8
+  %734 = load i32, ptr %15, align 4
+  %735 = sext i32 %734 to i64
+  %736 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %733, i64 %735
+  %737 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %736, i32 0, i32 0
+  %738 = load i32, ptr %737, align 8
+  %739 = icmp slt i32 %732, %738
+  br i1 %739, label %740, label %774
 
-734:                                              ; preds = %731
-  %735 = load ptr, ptr %22, align 8
-  %736 = load i32, ptr %19, align 4
-  %737 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %738 unwind label %331
+740:                                              ; preds = %731
+  %741 = load ptr, ptr %32, align 8
+  %742 = load ptr, ptr %22, align 8
+  %743 = load i32, ptr %15, align 4
+  %744 = sext i32 %743 to i64
+  %745 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %742, i64 %744
+  %746 = getelementptr inbounds %struct.t_UmbrellaWindow, ptr %745, i32 0, i32 1
+  %747 = load ptr, ptr %746, align 8
+  %748 = load i32, ptr %16, align 4
+  %749 = sext i32 %748 to i64
+  %750 = getelementptr inbounds ptr, ptr %747, i64 %749
+  %751 = load ptr, ptr %750, align 8
+  %752 = load i32, ptr %17, align 4
+  %753 = sext i32 %752 to i64
+  %754 = getelementptr inbounds double, ptr %751, i64 %753
+  %755 = load double, ptr %754, align 8
+  %756 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %741, ptr noundef @.str.235, double noundef %755) #2
+  br label %757
 
-738:                                              ; preds = %734
-  %739 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %740 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.209, i32 noundef %737, ptr noundef %739)
-          to label %741 unwind label %331
+757:                                              ; preds = %740
+  %758 = load i32, ptr %16, align 4
+  %759 = add nsw i32 %758, 1
+  store i32 %759, ptr %16, align 4
+  br label %731, !llvm.loop !6
 
-741:                                              ; preds = %738
-  %742 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
-  invoke void @_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_(ptr noundef %735, i32 noundef %736, ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %740, ptr noundef %742)
-          to label %743 unwind label %331
-
-743:                                              ; preds = %741
-  br label %744
-
-744:                                              ; preds = %743, %731
-  %745 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37), align 4
-  %746 = icmp ne i32 %745, 0
-  br i1 %746, label %747, label %754
-
-747:                                              ; preds = %744
-  %748 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38), align 8
-  %749 = icmp eq i32 %748, 4
-  br i1 %749, label %750, label %754
-
-750:                                              ; preds = %747
-  %751 = load ptr, ptr %22, align 8
-  %752 = load i32, ptr %19, align 4
-  invoke void @_ZL12averageSigmaP16t_UmbrellaWindowi(ptr noundef %751, i32 noundef %752)
-          to label %753 unwind label %331
-
-753:                                              ; preds = %750
-  br label %754
-
-754:                                              ; preds = %753, %747, %744
-  %755 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 9), align 8
-  %756 = trunc i8 %755 to i1
-  br i1 %756, label %757, label %762
-
-757:                                              ; preds = %754
-  %758 = load ptr, ptr %22, align 8
-  %759 = load i32, ptr %19, align 4
-  %760 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
-  invoke void @_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc(ptr noundef %758, i32 noundef %759, ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %760)
-          to label %761 unwind label %331
-
-761:                                              ; preds = %757
-  br label %762
-
-762:                                              ; preds = %761, %754
-  %763 = load ptr, ptr %22, align 8
-  %764 = load i32, ptr %19, align 4
-  invoke void @_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %763, i32 noundef %764, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %765 unwind label %331
-
-765:                                              ; preds = %762
-  %766 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  %767 = sext i32 %766 to i64
-  invoke void @_ZL13gmx_snew_implIdEvPKcS1_iRPT_m(ptr noundef @.str.206, ptr noundef @.str.219, i32 noundef 3327, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %767)
-          to label %768 unwind label %331
-
-768:                                              ; preds = %765
-  %769 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28), align 4
-  %770 = trunc i8 %769 to i1
-  br i1 %770, label %771, label %772
-
-771:                                              ; preds = %768
-  store i32 1, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29), align 8
-  br label %772
-
-772:                                              ; preds = %771, %768
-  store i32 0, ptr %15, align 4
+760:                                              ; preds = %693
+  %761 = landingpad { ptr, i32 }
+          cleanup
+  %762 = extractvalue { ptr, i32 } %761, 0
+  store ptr %762, ptr %10, align 8
+  %763 = extractvalue { ptr, i32 } %761, 1
+  store i32 %763, ptr %11, align 4
   br label %773
 
-773:                                              ; preds = %832, %772
-  %774 = load i32, ptr %15, align 4
-  %775 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10), align 4
-  %776 = srem i32 %774, %775
-  %777 = icmp eq i32 %776, 0
-  br i1 %777, label %778, label %783
+764:                                              ; preds = %695
+  %765 = landingpad { ptr, i32 }
+          cleanup
+  %766 = extractvalue { ptr, i32 } %765, 0
+  store ptr %766, ptr %10, align 8
+  %767 = extractvalue { ptr, i32 } %765, 1
+  store i32 %767, ptr %11, align 4
+  br label %772
 
-778:                                              ; preds = %773
-  %779 = load ptr, ptr %23, align 8
-  %780 = load ptr, ptr %22, align 8
-  %781 = load i32, ptr %19, align 4
-  invoke void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %779, ptr noundef %780, i32 noundef %781, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %782 unwind label %331
+768:                                              ; preds = %696
+  %769 = landingpad { ptr, i32 }
+          cleanup
+  %770 = extractvalue { ptr, i32 } %769, 0
+  store ptr %770, ptr %10, align 8
+  %771 = extractvalue { ptr, i32 } %769, 1
+  store i32 %771, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #2
+  br label %772
 
-782:                                              ; preds = %778
-  br label %783
+772:                                              ; preds = %768, %764
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #2
+  br label %773
 
-783:                                              ; preds = %782, %773
-  %784 = load double, ptr %24, align 8
-  %785 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18), align 4
-  %786 = fpext float %785 to double
-  %787 = fcmp olt double %784, %786
-  br i1 %787, label %788, label %792
+773:                                              ; preds = %772, %760
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #2
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #2
+  br label %1092
 
-788:                                              ; preds = %783
-  store i8 1, ptr %28, align 1
-  %789 = load i32, ptr %15, align 4
-  %790 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.239, i32 noundef %789)
-          to label %791 unwind label %331
+774:                                              ; preds = %731
+  br label %775
+
+775:                                              ; preds = %774
+  %776 = load i32, ptr %15, align 4
+  %777 = add nsw i32 %776, 1
+  store i32 %777, ptr %15, align 4
+  br label %726, !llvm.loop !8
+
+778:                                              ; preds = %726
+  %779 = load ptr, ptr %32, align 8
+  %780 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %779, ptr noundef @.str.236) #2
+  br label %781
+
+781:                                              ; preds = %778
+  %782 = load i32, ptr %17, align 4
+  %783 = add nsw i32 %782, 1
+  store i32 %783, ptr %17, align 4
+  br label %701, !llvm.loop !9
+
+784:                                              ; preds = %701
+  %785 = load ptr, ptr %32, align 8
+  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %785)
+          to label %786 unwind label %392
+
+786:                                              ; preds = %784
+  %787 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %788 unwind label %392
+
+788:                                              ; preds = %786
+  %789 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %790 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %787, ptr noundef %789)
+          to label %791 unwind label %392
 
 791:                                              ; preds = %788
-  br label %792
+  %792 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.237, ptr noundef %790)
+          to label %793 unwind label %392
 
-792:                                              ; preds = %791, %783
-  %793 = load ptr, ptr %23, align 8
-  %794 = load ptr, ptr %22, align 8
-  %795 = load i32, ptr %19, align 4
-  %796 = load i8, ptr %28, align 1
-  %797 = trunc i8 %796 to i1
-  invoke void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb(ptr noundef %793, ptr noundef %794, i32 noundef %795, ptr noundef @_ZZ8gmx_whamiPPcE3opt, i1 noundef zeroext %797)
-          to label %798 unwind label %331
+793:                                              ; preds = %791
+  %794 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 26
+  %795 = load i8, ptr %794, align 2
+  %796 = trunc i8 %795 to i1
+  br i1 %796, label %797, label %805
 
-798:                                              ; preds = %792
-  %799 = load i32, ptr %15, align 4
-  %800 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29), align 8
-  %801 = srem i32 %799, %800
-  %802 = icmp eq i32 %801, 0
-  br i1 %802, label %806, label %803
+797:                                              ; preds = %793
+  %798 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %799 unwind label %392
 
-803:                                              ; preds = %798
-  %804 = load i32, ptr %15, align 4
-  %805 = icmp eq i32 %804, 1
-  br i1 %805, label %806, label %814
+799:                                              ; preds = %797
+  %800 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %801 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %798, ptr noundef %800)
+          to label %802 unwind label %392
 
-806:                                              ; preds = %803, %798
-  %807 = load i32, ptr %15, align 4
-  %808 = icmp ne i32 %807, 0
-  br i1 %808, label %809, label %814
+802:                                              ; preds = %799
+  %803 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.238, ptr noundef %801)
+          to label %804 unwind label %392
 
-809:                                              ; preds = %806
-  %810 = load i32, ptr %15, align 4
-  %811 = load double, ptr %24, align 8
-  %812 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.240, i32 noundef %810, double noundef %811)
-          to label %813 unwind label %331
+804:                                              ; preds = %802
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %37, align 4
+  br label %1083
 
-813:                                              ; preds = %809
-  br label %814
+805:                                              ; preds = %793
+  %806 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 43
+  %807 = load i8, ptr %806, align 1
+  %808 = trunc i8 %807 to i1
+  br i1 %808, label %809, label %816
 
-814:                                              ; preds = %813, %806, %803
-  %815 = load i32, ptr %15, align 4
-  %816 = add nsw i32 %815, 1
-  store i32 %816, ptr %15, align 4
-  br label %817
+809:                                              ; preds = %805
+  %810 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %811 unwind label %392
 
-817:                                              ; preds = %814
-  %818 = load ptr, ptr %23, align 8
-  %819 = load ptr, ptr %22, align 8
-  %820 = load i32, ptr %19, align 4
-  %821 = load i8, ptr %28, align 1
-  %822 = trunc i8 %821 to i1
-  %823 = invoke noundef double @_ZL6calc_zPKdP16t_UmbrellaWindowiP15UmbrellaOptionsb(ptr noundef %818, ptr noundef %819, i32 noundef %820, ptr noundef @_ZZ8gmx_whamiPPcE3opt, i1 noundef zeroext %822)
-          to label %824 unwind label %331
+811:                                              ; preds = %809
+  %812 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %813 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.217, i32 noundef %810, ptr noundef %812)
+          to label %814 unwind label %392
 
-824:                                              ; preds = %817
-  store double %823, ptr %24, align 8
-  %825 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18), align 4
-  %826 = fpext float %825 to double
-  %827 = fcmp ogt double %823, %826
-  br i1 %827, label %832, label %828
+814:                                              ; preds = %811
+  invoke void @_ZL9setup_tabPKcP15UmbrellaOptions(ptr noundef %813, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %815 unwind label %392
 
-828:                                              ; preds = %824
-  %829 = load i8, ptr %28, align 1
-  %830 = trunc i8 %829 to i1
-  %831 = xor i1 %830, true
-  br label %832
+815:                                              ; preds = %814
+  br label %816
 
-832:                                              ; preds = %828, %824
-  %833 = phi i1 [ true, %824 ], [ %831, %828 ]
-  br i1 %833, label %773, label %834, !llvm.loop !10
+816:                                              ; preds = %815, %805
+  %817 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 31
+  %818 = load i8, ptr %817, align 8
+  %819 = trunc i8 %818 to i1
+  br i1 %819, label %820, label %829
 
-834:                                              ; preds = %832
-  %835 = load i32, ptr %15, align 4
-  %836 = load double, ptr %24, align 8
-  %837 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.241, i32 noundef %835, double noundef %836)
-          to label %838 unwind label %331
+820:                                              ; preds = %816
+  %821 = load ptr, ptr %22, align 8
+  %822 = load i32, ptr %19, align 4
+  %823 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %824 unwind label %392
 
-838:                                              ; preds = %834
-  %839 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20), align 1
-  %840 = trunc i8 %839 to i1
-  br i1 %840, label %841, label %852
+824:                                              ; preds = %820
+  %825 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %826 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.211, i32 noundef %823, ptr noundef %825)
+          to label %827 unwind label %392
 
-841:                                              ; preds = %838
-  %842 = load ptr, ptr %23, align 8
-  invoke void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr noundef %842, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %843 unwind label %331
+827:                                              ; preds = %824
+  invoke void @_ZL34readIntegratedAutocorrelationTimesP16t_UmbrellaWindowiPKc(ptr noundef %821, i32 noundef %822, ptr noundef %826)
+          to label %828 unwind label %392
 
-843:                                              ; preds = %841
-  %844 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
-  %845 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21), align 4
-  %846 = sext i32 %845 to i64
-  %847 = getelementptr inbounds [5 x ptr], ptr %8, i64 0, i64 %846
-  %848 = load ptr, ptr %847, align 8
-  %849 = call ptr @strcpy(ptr noundef %844, ptr noundef %848) #2
-  %850 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
-  %851 = call ptr @strcpy(ptr noundef %850, ptr noundef @.str.242) #2
-  br label %857
+828:                                              ; preds = %827
+  br label %829
 
-852:                                              ; preds = %838
-  %853 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
-  %854 = call ptr @strcpy(ptr noundef %853, ptr noundef @.str.243) #2
-  %855 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
-  %856 = call ptr @strcpy(ptr noundef %855, ptr noundef @.str.243) #2
-  br label %857
+829:                                              ; preds = %828, %816
+  %830 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 32
+  %831 = load i8, ptr %830, align 1
+  %832 = trunc i8 %831 to i1
+  br i1 %832, label %833, label %843
 
-857:                                              ; preds = %852, %843
-  %858 = load i8, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22), align 8
-  %859 = trunc i8 %858 to i1
-  br i1 %859, label %860, label %863
+833:                                              ; preds = %829
+  %834 = load ptr, ptr %22, align 8
+  %835 = load i32, ptr %19, align 4
+  %836 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %837 unwind label %392
 
-860:                                              ; preds = %857
-  %861 = load ptr, ptr %23, align 8
-  invoke void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noundef %861, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %862 unwind label %331
+837:                                              ; preds = %833
+  %838 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %839 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.209, i32 noundef %836, ptr noundef %838)
+          to label %840 unwind label %392
 
-862:                                              ; preds = %860
-  br label %863
+840:                                              ; preds = %837
+  %841 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+  invoke void @_ZL34calcIntegratedAutocorrelationTimesP16t_UmbrellaWindowiP15UmbrellaOptionsPKcS4_(ptr noundef %834, i32 noundef %835, ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %839, ptr noundef %841)
+          to label %842 unwind label %392
 
-863:                                              ; preds = %862, %857
-  %864 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %865 unwind label %331
+842:                                              ; preds = %840
+  br label %843
 
-865:                                              ; preds = %863
-  %866 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %867 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.205, i32 noundef %864, ptr noundef %866)
-          to label %868 unwind label %331
+843:                                              ; preds = %842, %829
+  %844 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37
+  %845 = load i32, ptr %844, align 4
+  %846 = icmp ne i32 %845, 0
+  br i1 %846, label %847, label %855
 
-868:                                              ; preds = %865
-  store ptr %867, ptr %53, align 8
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext 2)
-          to label %869 unwind label %331
+847:                                              ; preds = %843
+  %848 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 38
+  %849 = load i32, ptr %848, align 8
+  %850 = icmp eq i32 %849, 4
+  br i1 %850, label %851, label %855
 
-869:                                              ; preds = %868
-  %870 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
-  %871 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %871, ptr noundef nonnull align 1 dereferenceable(1) %55)
-          to label %872 unwind label %906
+851:                                              ; preds = %847
+  %852 = load ptr, ptr %22, align 8
+  %853 = load i32, ptr %19, align 4
+  invoke void @_ZL12averageSigmaP16t_UmbrellaWindowi(ptr noundef %852, i32 noundef %853)
+          to label %854 unwind label %392
 
-872:                                              ; preds = %869
-  %873 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %873, ptr noundef nonnull align 1 dereferenceable(1) %57)
-          to label %874 unwind label %910
+854:                                              ; preds = %851
+  br label %855
 
-874:                                              ; preds = %872
-  %875 = load ptr, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30), align 8
-  %876 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef %870, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %875)
-          to label %877 unwind label %914
+855:                                              ; preds = %854, %847, %843
+  %856 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 9
+  %857 = load i8, ptr %856, align 8
+  %858 = trunc i8 %857 to i1
+  br i1 %858, label %859, label %864
 
-877:                                              ; preds = %874
-  store ptr %876, ptr %33, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #2
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %52) #2
+859:                                              ; preds = %855
+  %860 = load ptr, ptr %22, align 8
+  %861 = load i32, ptr %19, align 4
+  %862 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+  invoke void @_ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc(ptr noundef %860, i32 noundef %861, ptr noundef @_ZZ8gmx_whamiPPcE3opt, ptr noundef %862)
+          to label %863 unwind label %392
+
+863:                                              ; preds = %859
+  br label %864
+
+864:                                              ; preds = %863, %855
+  %865 = load ptr, ptr %22, align 8
+  %866 = load i32, ptr %19, align 4
+  invoke void @_ZL30checkReactionCoordinateCoveredP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %865, i32 noundef %866, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %867 unwind label %392
+
+867:                                              ; preds = %864
+  %868 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  %869 = load i32, ptr %868, align 8
+  %870 = sext i32 %869 to i64
+  invoke void @_ZL13gmx_snew_implIdEvPKcS1_iRPT_m(ptr noundef @.str.206, ptr noundef @.str.219, i32 noundef 3327, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %870)
+          to label %871 unwind label %392
+
+871:                                              ; preds = %867
+  %872 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 28
+  %873 = load i8, ptr %872, align 4
+  %874 = trunc i8 %873 to i1
+  br i1 %874, label %875, label %877
+
+875:                                              ; preds = %871
+  %876 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29
+  store i32 1, ptr %876, align 8
+  br label %877
+
+877:                                              ; preds = %875, %871
   store i32 0, ptr %15, align 4
   br label %878
 
-878:                                              ; preds = %903, %877
+878:                                              ; preds = %941, %877
   %879 = load i32, ptr %15, align 4
-  %880 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  %881 = icmp slt i32 %879, %880
-  br i1 %881, label %882, label %920
+  %880 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 10
+  %881 = load i32, ptr %880, align 4
+  %882 = srem i32 %879, %881
+  %883 = icmp eq i32 %882, 0
+  br i1 %883, label %884, label %889
 
-882:                                              ; preds = %878
-  %883 = load ptr, ptr %33, align 8
-  %884 = load i32, ptr %15, align 4
-  %885 = sitofp i32 %884 to double
-  %886 = fadd double %885, 5.000000e-01
-  %887 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13), align 8
-  %888 = sitofp i32 %887 to double
-  %889 = fdiv double %886, %888
-  %890 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15), align 8
-  %891 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), align 4
-  %892 = fsub float %890, %891
+884:                                              ; preds = %878
+  %885 = load ptr, ptr %23, align 8
+  %886 = load ptr, ptr %22, align 8
+  %887 = load i32, ptr %19, align 4
+  invoke void @_ZL14setup_acc_whamPKdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %885, ptr noundef %886, i32 noundef %887, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %888 unwind label %392
+
+888:                                              ; preds = %884
+  br label %889
+
+889:                                              ; preds = %888, %878
+  %890 = load double, ptr %24, align 8
+  %891 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18
+  %892 = load float, ptr %891, align 4
   %893 = fpext float %892 to double
-  %894 = load float, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14), align 4
-  %895 = fpext float %894 to double
-  %896 = call double @llvm.fmuladd.f64(double %889, double %893, double %895)
-  %897 = load ptr, ptr %23, align 8
-  %898 = load i32, ptr %15, align 4
-  %899 = sext i32 %898 to i64
-  %900 = getelementptr inbounds double, ptr %897, i64 %899
-  %901 = load double, ptr %900, align 8
-  %902 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %883, ptr noundef @.str.244, double noundef %896, double noundef %901) #2
-  br label %903
+  %894 = fcmp olt double %890, %893
+  br i1 %894, label %895, label %899
 
-903:                                              ; preds = %882
-  %904 = load i32, ptr %15, align 4
-  %905 = add nsw i32 %904, 1
-  store i32 %905, ptr %15, align 4
-  br label %878, !llvm.loop !11
+895:                                              ; preds = %889
+  store i8 1, ptr %28, align 1
+  %896 = load i32, ptr %15, align 4
+  %897 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.239, i32 noundef %896)
+          to label %898 unwind label %392
 
-906:                                              ; preds = %869
-  %907 = landingpad { ptr, i32 }
-          cleanup
-  %908 = extractvalue { ptr, i32 } %907, 0
-  store ptr %908, ptr %10, align 8
-  %909 = extractvalue { ptr, i32 } %907, 1
-  store i32 %909, ptr %11, align 4
-  br label %919
+898:                                              ; preds = %895
+  br label %899
 
-910:                                              ; preds = %872
-  %911 = landingpad { ptr, i32 }
-          cleanup
-  %912 = extractvalue { ptr, i32 } %911, 0
-  store ptr %912, ptr %10, align 8
-  %913 = extractvalue { ptr, i32 } %911, 1
-  store i32 %913, ptr %11, align 4
-  br label %918
+899:                                              ; preds = %898, %889
+  %900 = load ptr, ptr %23, align 8
+  %901 = load ptr, ptr %22, align 8
+  %902 = load i32, ptr %19, align 4
+  %903 = load i8, ptr %28, align 1
+  %904 = trunc i8 %903 to i1
+  invoke void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb(ptr noundef %900, ptr noundef %901, i32 noundef %902, ptr noundef @_ZZ8gmx_whamiPPcE3opt, i1 noundef zeroext %904)
+          to label %905 unwind label %392
 
-914:                                              ; preds = %874
-  %915 = landingpad { ptr, i32 }
-          cleanup
-  %916 = extractvalue { ptr, i32 } %915, 0
-  store ptr %916, ptr %10, align 8
-  %917 = extractvalue { ptr, i32 } %915, 1
-  store i32 %917, ptr %11, align 4
+905:                                              ; preds = %899
+  %906 = load i32, ptr %15, align 4
+  %907 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 29
+  %908 = load i32, ptr %907, align 8
+  %909 = srem i32 %906, %908
+  %910 = icmp eq i32 %909, 0
+  br i1 %910, label %914, label %911
+
+911:                                              ; preds = %905
+  %912 = load i32, ptr %15, align 4
+  %913 = icmp eq i32 %912, 1
+  br i1 %913, label %914, label %922
+
+914:                                              ; preds = %911, %905
+  %915 = load i32, ptr %15, align 4
+  %916 = icmp ne i32 %915, 0
+  br i1 %916, label %917, label %922
+
+917:                                              ; preds = %914
+  %918 = load i32, ptr %15, align 4
+  %919 = load double, ptr %24, align 8
+  %920 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.240, i32 noundef %918, double noundef %919)
+          to label %921 unwind label %392
+
+921:                                              ; preds = %917
+  br label %922
+
+922:                                              ; preds = %921, %914, %911
+  %923 = load i32, ptr %15, align 4
+  %924 = add nsw i32 %923, 1
+  store i32 %924, ptr %15, align 4
+  br label %925
+
+925:                                              ; preds = %922
+  %926 = load ptr, ptr %23, align 8
+  %927 = load ptr, ptr %22, align 8
+  %928 = load i32, ptr %19, align 4
+  %929 = load i8, ptr %28, align 1
+  %930 = trunc i8 %929 to i1
+  %931 = invoke noundef double @_ZL6calc_zPKdP16t_UmbrellaWindowiP15UmbrellaOptionsb(ptr noundef %926, ptr noundef %927, i32 noundef %928, ptr noundef @_ZZ8gmx_whamiPPcE3opt, i1 noundef zeroext %930)
+          to label %932 unwind label %392
+
+932:                                              ; preds = %925
+  store double %931, ptr %24, align 8
+  %933 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 18
+  %934 = load float, ptr %933, align 4
+  %935 = fpext float %934 to double
+  %936 = fcmp ogt double %931, %935
+  br i1 %936, label %941, label %937
+
+937:                                              ; preds = %932
+  %938 = load i8, ptr %28, align 1
+  %939 = trunc i8 %938 to i1
+  %940 = xor i1 %939, true
+  br label %941
+
+941:                                              ; preds = %937, %932
+  %942 = phi i1 [ true, %932 ], [ %940, %937 ]
+  br i1 %942, label %878, label %943, !llvm.loop !10
+
+943:                                              ; preds = %941
+  %944 = load i32, ptr %15, align 4
+  %945 = load double, ptr %24, align 8
+  %946 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.241, i32 noundef %944, double noundef %945)
+          to label %947 unwind label %392
+
+947:                                              ; preds = %943
+  %948 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 20
+  %949 = load i8, ptr %948, align 1
+  %950 = trunc i8 %949 to i1
+  br i1 %950, label %951, label %963
+
+951:                                              ; preds = %947
+  %952 = load ptr, ptr %23, align 8
+  invoke void @_ZL27prof_normalization_and_unitPdP15UmbrellaOptions(ptr noundef %952, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %953 unwind label %392
+
+953:                                              ; preds = %951
+  %954 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
+  %955 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 21
+  %956 = load i32, ptr %955, align 4
+  %957 = sext i32 %956 to i64
+  %958 = getelementptr inbounds [5 x ptr], ptr %8, i64 0, i64 %957
+  %959 = load ptr, ptr %958, align 8
+  %960 = call ptr @strcpy(ptr noundef %954, ptr noundef %959) #2
+  %961 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
+  %962 = call ptr @strcpy(ptr noundef %961, ptr noundef @.str.242) #2
+  br label %968
+
+963:                                              ; preds = %947
+  %964 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
+  %965 = call ptr @strcpy(ptr noundef %964, ptr noundef @.str.243) #2
+  %966 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
+  %967 = call ptr @strcpy(ptr noundef %966, ptr noundef @.str.243) #2
+  br label %968
+
+968:                                              ; preds = %963, %953
+  %969 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 22
+  %970 = load i8, ptr %969, align 8
+  %971 = trunc i8 %970 to i1
+  br i1 %971, label %972, label %975
+
+972:                                              ; preds = %968
+  %973 = load ptr, ptr %23, align 8
+  invoke void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noundef %973, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %974 unwind label %392
+
+974:                                              ; preds = %972
+  br label %975
+
+975:                                              ; preds = %974, %968
+  %976 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %977 unwind label %392
+
+977:                                              ; preds = %975
+  %978 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %979 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.205, i32 noundef %976, ptr noundef %978)
+          to label %980 unwind label %392
+
+980:                                              ; preds = %977
+  store ptr %979, ptr %53, align 8
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext 2)
+          to label %981 unwind label %392
+
+981:                                              ; preds = %980
+  %982 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
+  %983 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %983, ptr noundef nonnull align 1 dereferenceable(1) %55)
+          to label %984 unwind label %1024
+
+984:                                              ; preds = %981
+  %985 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %985, ptr noundef nonnull align 1 dereferenceable(1) %57)
+          to label %986 unwind label %1028
+
+986:                                              ; preds = %984
+  %987 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 30
+  %988 = load ptr, ptr %987, align 8
+  %989 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef %982, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %988)
+          to label %990 unwind label %1032
+
+990:                                              ; preds = %986
+  store ptr %989, ptr %33, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #2
-  br label %918
-
-918:                                              ; preds = %914, %910
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #2
-  br label %919
-
-919:                                              ; preds = %918, %906
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #2
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %52) #2
-  br label %973
+  store i32 0, ptr %15, align 4
+  br label %991
 
-920:                                              ; preds = %878
-  %921 = load ptr, ptr %33, align 8
-  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %921)
-          to label %922 unwind label %331
+991:                                              ; preds = %1021, %990
+  %992 = load i32, ptr %15, align 4
+  %993 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  %994 = load i32, ptr %993, align 8
+  %995 = icmp slt i32 %992, %994
+  br i1 %995, label %996, label %1038
 
-922:                                              ; preds = %920
-  %923 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %924 unwind label %331
+996:                                              ; preds = %991
+  %997 = load ptr, ptr %33, align 8
+  %998 = load i32, ptr %15, align 4
+  %999 = sitofp i32 %998 to double
+  %1000 = fadd double %999, 5.000000e-01
+  %1001 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 13
+  %1002 = load i32, ptr %1001, align 8
+  %1003 = sitofp i32 %1002 to double
+  %1004 = fdiv double %1000, %1003
+  %1005 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 15
+  %1006 = load float, ptr %1005, align 8
+  %1007 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  %1008 = load float, ptr %1007, align 4
+  %1009 = fsub float %1006, %1008
+  %1010 = fpext float %1009 to double
+  %1011 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 14
+  %1012 = load float, ptr %1011, align 4
+  %1013 = fpext float %1012 to double
+  %1014 = call double @llvm.fmuladd.f64(double %1004, double %1010, double %1013)
+  %1015 = load ptr, ptr %23, align 8
+  %1016 = load i32, ptr %15, align 4
+  %1017 = sext i32 %1016 to i64
+  %1018 = getelementptr inbounds double, ptr %1015, i64 %1017
+  %1019 = load double, ptr %1018, align 8
+  %1020 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %997, ptr noundef @.str.244, double noundef %1014, double noundef %1019) #2
+  br label %1021
 
-924:                                              ; preds = %922
-  %925 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %926 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.205, i32 noundef %923, ptr noundef %925)
-          to label %927 unwind label %331
+1021:                                             ; preds = %996
+  %1022 = load i32, ptr %15, align 4
+  %1023 = add nsw i32 %1022, 1
+  store i32 %1023, ptr %15, align 4
+  br label %991, !llvm.loop !11
 
-927:                                              ; preds = %924
-  %928 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.237, ptr noundef %926)
-          to label %929 unwind label %331
+1024:                                             ; preds = %981
+  %1025 = landingpad { ptr, i32 }
+          cleanup
+  %1026 = extractvalue { ptr, i32 } %1025, 0
+  store ptr %1026, ptr %10, align 8
+  %1027 = extractvalue { ptr, i32 } %1025, 1
+  store i32 %1027, ptr %11, align 4
+  br label %1037
 
-929:                                              ; preds = %927
-  %930 = load i32, ptr getelementptr inbounds (%struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37), align 4
-  %931 = icmp ne i32 %930, 0
-  br i1 %931, label %932, label %954
+1028:                                             ; preds = %984
+  %1029 = landingpad { ptr, i32 }
+          cleanup
+  %1030 = extractvalue { ptr, i32 } %1029, 0
+  store ptr %1030, ptr %10, align 8
+  %1031 = extractvalue { ptr, i32 } %1029, 1
+  store i32 %1031, ptr %11, align 4
+  br label %1036
 
-932:                                              ; preds = %929
-  %933 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %934 unwind label %331
+1032:                                             ; preds = %986
+  %1033 = landingpad { ptr, i32 }
+          cleanup
+  %1034 = extractvalue { ptr, i32 } %1033, 0
+  store ptr %1034, ptr %10, align 8
+  %1035 = extractvalue { ptr, i32 } %1033, 1
+  store i32 %1035, ptr %11, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #2
+  br label %1036
 
-934:                                              ; preds = %932
-  %935 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %936 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.213, i32 noundef %933, ptr noundef %935)
-          to label %937 unwind label %331
+1036:                                             ; preds = %1032, %1028
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #2
+  br label %1037
 
-937:                                              ; preds = %934
-  %938 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %939 unwind label %331
+1037:                                             ; preds = %1036, %1024
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #2
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %52) #2
+  br label %1092
 
-939:                                              ; preds = %937
-  %940 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %941 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.215, i32 noundef %938, ptr noundef %940)
-          to label %942 unwind label %331
+1038:                                             ; preds = %991
+  %1039 = load ptr, ptr %33, align 8
+  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %1039)
+          to label %1040 unwind label %392
 
-942:                                              ; preds = %939
-  %943 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
-          to label %944 unwind label %331
+1040:                                             ; preds = %1038
+  %1041 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %1042 unwind label %392
 
-944:                                              ; preds = %942
-  %945 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
-  %946 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %943, ptr noundef %945)
-          to label %947 unwind label %331
+1042:                                             ; preds = %1040
+  %1043 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %1044 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.205, i32 noundef %1041, ptr noundef %1043)
+          to label %1045 unwind label %392
 
-947:                                              ; preds = %944
-  %948 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
-  %949 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
-  %950 = load ptr, ptr %23, align 8
-  %951 = load ptr, ptr %22, align 8
-  %952 = load i32, ptr %19, align 4
-  invoke void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %936, ptr noundef %941, ptr noundef %946, ptr noundef %948, ptr noundef %949, ptr noundef %950, ptr noundef %951, i32 noundef %952, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
-          to label %953 unwind label %331
+1045:                                             ; preds = %1042
+  %1046 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.237, ptr noundef %1044)
+          to label %1047 unwind label %392
 
-953:                                              ; preds = %947
-  br label %954
+1047:                                             ; preds = %1045
+  %1048 = getelementptr inbounds %struct.UmbrellaOptions, ptr @_ZZ8gmx_whamiPPcE3opt, i32 0, i32 37
+  %1049 = load i32, ptr %1048, align 4
+  %1050 = icmp ne i32 %1049, 0
+  br i1 %1050, label %1051, label %1073
 
-954:                                              ; preds = %953, %929
-  %955 = load ptr, ptr %23, align 8
-  invoke void @_ZL14gmx_sfree_implIdEvPKcS1_iPT_(ptr noundef @.str.206, ptr noundef @.str.219, i32 noundef 3401, ptr noundef %955)
-          to label %956 unwind label %331
+1051:                                             ; preds = %1047
+  %1052 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %1053 unwind label %392
 
-956:                                              ; preds = %954
-  %957 = load ptr, ptr %22, align 8
-  %958 = load i32, ptr %18, align 4
-  invoke void @_ZL19freeUmbrellaWindowsP16t_UmbrellaWindowi(ptr noundef %957, i32 noundef %958)
-          to label %959 unwind label %331
+1053:                                             ; preds = %1051
+  %1054 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %1055 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.213, i32 noundef %1052, ptr noundef %1054)
+          to label %1056 unwind label %392
 
-959:                                              ; preds = %956
-  %960 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.245)
-          to label %961 unwind label %331
+1056:                                             ; preds = %1053
+  %1057 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %1058 unwind label %392
 
-961:                                              ; preds = %959
-  %962 = load ptr, ptr @stdout, align 8
-  invoke void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %962, ptr noundef @.str.246)
-          to label %963 unwind label %331
+1058:                                             ; preds = %1056
+  %1059 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %1060 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.215, i32 noundef %1057, ptr noundef %1059)
+          to label %1061 unwind label %392
 
-963:                                              ; preds = %961
+1061:                                             ; preds = %1058
+  %1062 = invoke noundef i32 @_Z5asizeI8t_filenmLi11EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(616) %13)
+          to label %1063 unwind label %392
+
+1063:                                             ; preds = %1061
+  %1064 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i64 0, i64 0
+  %1065 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.207, i32 noundef %1062, ptr noundef %1064)
+          to label %1066 unwind label %392
+
+1066:                                             ; preds = %1063
+  %1067 = getelementptr inbounds [4096 x i8], ptr %34, i64 0, i64 0
+  %1068 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
+  %1069 = load ptr, ptr %23, align 8
+  %1070 = load ptr, ptr %22, align 8
+  %1071 = load i32, ptr %19, align 4
+  invoke void @_ZL16do_bootstrappingPKcS0_S0_S0_PcPdP16t_UmbrellaWindowiP15UmbrellaOptions(ptr noundef %1055, ptr noundef %1060, ptr noundef %1065, ptr noundef %1067, ptr noundef %1068, ptr noundef %1069, ptr noundef %1070, i32 noundef %1071, ptr noundef @_ZZ8gmx_whamiPPcE3opt)
+          to label %1072 unwind label %392
+
+1072:                                             ; preds = %1066
+  br label %1073
+
+1073:                                             ; preds = %1072, %1047
+  %1074 = load ptr, ptr %23, align 8
+  invoke void @_ZL14gmx_sfree_implIdEvPKcS1_iPT_(ptr noundef @.str.206, ptr noundef @.str.219, i32 noundef 3401, ptr noundef %1074)
+          to label %1075 unwind label %392
+
+1075:                                             ; preds = %1073
+  %1076 = load ptr, ptr %22, align 8
+  %1077 = load i32, ptr %18, align 4
+  invoke void @_ZL19freeUmbrellaWindowsP16t_UmbrellaWindowi(ptr noundef %1076, i32 noundef %1077)
+          to label %1078 unwind label %392
+
+1078:                                             ; preds = %1075
+  %1079 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.245)
+          to label %1080 unwind label %392
+
+1080:                                             ; preds = %1078
+  %1081 = load ptr, ptr @stdout, align 8
+  invoke void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %1081, ptr noundef @.str.246)
+          to label %1082 unwind label %392
+
+1082:                                             ; preds = %1080
   store i32 0, ptr %3, align 4
   store i32 1, ptr %37, align 4
-  br label %964
+  br label %1083
 
-964:                                              ; preds = %963, %708, %326
-  %965 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i32 0, i32 0
-  %966 = getelementptr inbounds %struct.t_filenm, ptr %965, i64 11
-  br label %967
+1083:                                             ; preds = %1082, %804, %387
+  %1084 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i32 0, i32 0
+  %1085 = getelementptr inbounds %struct.t_filenm, ptr %1084, i64 11
+  br label %1086
 
-967:                                              ; preds = %967, %964
-  %968 = phi ptr [ %966, %964 ], [ %969, %967 ]
-  %969 = getelementptr inbounds %struct.t_filenm, ptr %968, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %969) #2
-  %970 = icmp eq ptr %969, %965
-  br i1 %970, label %971, label %967
+1086:                                             ; preds = %1086, %1083
+  %1087 = phi ptr [ %1085, %1083 ], [ %1088, %1086 ]
+  %1088 = getelementptr inbounds %struct.t_filenm, ptr %1087, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1088) #2
+  %1089 = icmp eq ptr %1088, %1084
+  br i1 %1089, label %1090, label %1086
 
-971:                                              ; preds = %967
-  %972 = load i32, ptr %3, align 4
-  ret i32 %972
+1090:                                             ; preds = %1086
+  %1091 = load i32, ptr %3, align 4
+  ret i32 %1091
 
-973:                                              ; preds = %919, %678, %564, %528, %511, %494, %472, %453, %399, %380, %331
-  %974 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i32 0, i32 0
-  %975 = getelementptr inbounds %struct.t_filenm, ptr %974, i64 11
-  br label %976
+1092:                                             ; preds = %1037, %773, %651, %611, %593, %575, %549, %530, %473, %450, %392
+  %1093 = getelementptr inbounds [11 x %struct.t_filenm], ptr %13, i32 0, i32 0
+  %1094 = getelementptr inbounds %struct.t_filenm, ptr %1093, i64 11
+  br label %1095
 
-976:                                              ; preds = %976, %973
-  %977 = phi ptr [ %975, %973 ], [ %978, %976 ]
-  %978 = getelementptr inbounds %struct.t_filenm, ptr %977, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %978) #2
-  %979 = icmp eq ptr %978, %974
-  br i1 %979, label %980, label %976
+1095:                                             ; preds = %1095, %1092
+  %1096 = phi ptr [ %1094, %1092 ], [ %1097, %1095 ]
+  %1097 = getelementptr inbounds %struct.t_filenm, ptr %1096, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1097) #2
+  %1098 = icmp eq ptr %1097, %1093
+  br i1 %1098, label %1099, label %1095
 
-980:                                              ; preds = %976
-  br label %981
+1099:                                             ; preds = %1095
+  br label %1100
 
-981:                                              ; preds = %980, %327
-  %982 = load ptr, ptr %10, align 8
-  %983 = load i32, ptr %11, align 4
-  %984 = insertvalue { ptr, i32 } poison, ptr %982, 0
-  %985 = insertvalue { ptr, i32 } %984, i32 %983, 1
-  resume { ptr, i32 } %985
+1100:                                             ; preds = %1099, %388
+  %1101 = load ptr, ptr %10, align 8
+  %1102 = load i32, ptr %11, align 4
+  %1103 = insertvalue { ptr, i32 } poison, ptr %1101, 0
+  %1104 = insertvalue { ptr, i32 } %1103, i32 %1102, 1
+  resume { ptr, i32 } %1104
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -10322,7 +10441,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2ERKNS_20ExceptionInitializerE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10357,10 +10477,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #2
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -10448,7 +10569,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2EOS0_(ptr noundef nonnull alig
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #2
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10464,11 +10586,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #2
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -10554,7 +10677,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -10795,11 +10919,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #2
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #2
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #2
   ret void
 }
 
@@ -10810,7 +10935,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -10949,7 +11075,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10958,9 +11085,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #2
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
   ret void
 }
@@ -18232,7 +18360,7 @@ define internal void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb
 
 162:                                              ; preds = %158
   %163 = load i32, ptr %25, align 4
-  %164 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #2
+  %164 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #2
   %165 = icmp eq i32 %163, %164
   br i1 %165, label %166, label %291
 
@@ -18458,9 +18586,6 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiER
   ret ptr %16
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
-
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) #6
 
@@ -18627,7 +18752,7 @@ define internal void @_ZL6calc_zPKdP16t_UmbrellaWindowiP15UmbrellaOptionsb.omp_o
 
 117:                                              ; preds = %113
   %118 = load i32, ptr %27, align 4
-  %119 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #2
+  %119 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #2
   %120 = icmp eq i32 %118, %119
   br i1 %120, label %121, label %276
 
@@ -18880,10 +19005,10 @@ define internal void @_ZL6calc_zPKdP16t_UmbrellaWindowiP15UmbrellaOptionsb.omp_o
 declare double @log(double noundef) #7
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_critical(ptr, i32, ptr) #16
+declare void @__kmpc_critical(ptr, i32, ptr) #15
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_end_critical(ptr, i32, ptr) #16
+declare void @__kmpc_end_critical(ptr, i32, ptr) #15
 
 declare noundef i64 @_ZN3gmx14makeRandomSeedEv() #5
 
@@ -23166,6 +23291,9 @@ define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind }
@@ -23181,8 +23309,8 @@ attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-
 attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { convergent nounwind }
+attributes #15 = { convergent nounwind }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { noreturn nounwind }

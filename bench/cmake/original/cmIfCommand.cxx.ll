@@ -3285,9 +3285,10 @@ define linkonce_odr dso_local void @_ZN19cmIfFunctionBlockerD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmIfFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV19cmIfFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %3) #3
   ret void
 }
@@ -4776,11 +4777,12 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #3
   ret void
 }
 
@@ -6641,13 +6643,14 @@ define linkonce_odr dso_local void @_ZN19cmIfFunctionBlockerC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmIfFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileArgumentSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 4
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 5
-  store i8 0, ptr %6, align 2
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV19cmIfFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileArgumentSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 4
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %class.cmIfFunctionBlocker, ptr %3, i32 0, i32 5
+  store i8 0, ptr %7, align 2
   ret void
 }
 
@@ -6679,13 +6682,14 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
-  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #3
-  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
-  store i32 1, ptr %6, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
+  call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
+  %6 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 3
+  store i32 1, ptr %7, align 8
   ret void
 }
 

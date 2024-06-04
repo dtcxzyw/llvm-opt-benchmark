@@ -6070,127 +6070,136 @@ define internal i32 @dissect_h248(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr @h248_tree, align 8
   %15 = load ptr, ptr %7, align 8
   call void @asn1_ctx_init(ptr noundef %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  store ptr null, ptr %17, align 8
   store ptr null, ptr @curr_info, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 8), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i32 @tvb_captured_length(ptr noundef %16)
-  %18 = icmp uge i32 %17, 6
-  br i1 %18, label %19, label %62
+  %18 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 8
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @tvb_captured_length(ptr noundef %25)
+  %27 = icmp uge i32 %26, 6
+  br i1 %27, label %28, label %71
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %6, align 8
-  %21 = call i32 @tvb_strneql(ptr noundef %20, i32 noundef 0, ptr noundef @.str.1310, i64 noundef 6)
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %40, label %23
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %6, align 8
+  %30 = call i32 @tvb_strneql(ptr noundef %29, i32 noundef 0, ptr noundef @.str.1310, i64 noundef 6)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %49, label %32
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr @dissect_h248.megaco_handle, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %28, label %26
+32:                                               ; preds = %28
+  %33 = load ptr, ptr @dissect_h248.megaco_handle, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %37, label %35
 
-26:                                               ; preds = %23
-  %27 = call ptr @find_dissector(ptr noundef @.str.1311)
-  store ptr %27, ptr @dissect_h248.megaco_handle, align 8
-  br label %28
+35:                                               ; preds = %32
+  %36 = call ptr @find_dissector(ptr noundef @.str.1311)
+  store ptr %36, ptr @dissect_h248.megaco_handle, align 8
+  br label %37
 
-28:                                               ; preds = %26, %23
-  %29 = load ptr, ptr @dissect_h248.megaco_handle, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %39
+37:                                               ; preds = %35, %32
+  %38 = load ptr, ptr @dissect_h248.megaco_handle, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %48
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr @dissect_h248.megaco_handle, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = call i32 @call_dissector(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35)
-  %37 = load ptr, ptr %6, align 8
-  %38 = call i32 @tvb_captured_length(ptr noundef %37)
-  store i32 %38, ptr %5, align 4
-  br label %84
+40:                                               ; preds = %37
+  %41 = load ptr, ptr @dissect_h248.megaco_handle, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = call i32 @call_dissector(ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %6, align 8
+  %47 = call i32 @tvb_captured_length(ptr noundef %46)
+  store i32 %47, ptr %5, align 4
+  br label %93
 
-39:                                               ; preds = %28
-  br label %40
+48:                                               ; preds = %37
+  br label %49
 
-40:                                               ; preds = %39, %19
+49:                                               ; preds = %48, %28
   store ptr null, ptr %12, align 8
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = call i32 @tvb_get_ntohl(ptr noundef %41, i32 noundef %42)
-  store i32 %43, ptr %13, align 4
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr @hf_248_magic_num, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %14, align 4
-  %48 = load i32, ptr %13, align 4
-  %49 = call ptr @proto_tree_add_uint(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 4, i32 noundef %48)
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %50)
-  %51 = load ptr, ptr @subdissector_table, align 8
-  %52 = load i32, ptr %13, align 4
-  %53 = load ptr, ptr %6, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = call i32 @dissector_try_uint(ptr noundef %51, i32 noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55)
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %61
-
-58:                                               ; preds = %40
-  %59 = load ptr, ptr %6, align 8
-  %60 = call i32 @tvb_captured_length(ptr noundef %59)
-  store i32 %60, ptr %5, align 4
-  br label %84
-
-61:                                               ; preds = %40
-  br label %62
-
-62:                                               ; preds = %61, %4
+  %50 = load ptr, ptr %6, align 8
+  %51 = load i32, ptr %14, align 4
+  %52 = call i32 @tvb_get_ntohl(ptr noundef %50, i32 noundef %51)
+  store i32 %52, ptr %13, align 4
+  %53 = load ptr, ptr %8, align 8
+  %54 = load i32, ptr @hf_248_magic_num, align 4
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i32, ptr %14, align 4
+  %57 = load i32, ptr %13, align 4
+  %58 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 4, i32 noundef %57)
+  store ptr %58, ptr %12, align 8
+  %59 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %59)
+  %60 = load ptr, ptr @subdissector_table, align 8
+  %61 = load i32, ptr %13, align 4
+  %62 = load ptr, ptr %6, align 8
   %63 = load ptr, ptr %7, align 8
-  %64 = load ptr, ptr %6, align 8
-  call void @export_h248_pdu(ptr noundef %63, ptr noundef %64)
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  call void @col_set_str(ptr noundef %67, i32 noundef 34, ptr noundef @.str.726)
-  %68 = load ptr, ptr %8, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %70, label %78
+  %64 = load ptr, ptr %8, align 8
+  %65 = call i32 @dissector_try_uint(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %70
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %8, align 8
-  %72 = load i32, ptr @proto_h248, align 4
+67:                                               ; preds = %49
+  %68 = load ptr, ptr %6, align 8
+  %69 = call i32 @tvb_captured_length(ptr noundef %68)
+  store i32 %69, ptr %5, align 4
+  br label %93
+
+70:                                               ; preds = %49
+  br label %71
+
+71:                                               ; preds = %70, %4
+  %72 = load ptr, ptr %7, align 8
   %73 = load ptr, ptr %6, align 8
-  %74 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %74, ptr %10, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = load i32, ptr @ett_h248, align 4
-  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76)
-  store ptr %77, ptr @h248_tree, align 8
-  br label %78
+  call void @export_h248_pdu(ptr noundef %72, ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  call void @col_set_str(ptr noundef %76, i32 noundef 34, ptr noundef @.str.726)
+  %77 = load ptr, ptr %8, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %87
 
-78:                                               ; preds = %70, %62
-  %79 = load ptr, ptr %6, align 8
-  %80 = load ptr, ptr @h248_tree, align 8
-  %81 = call i32 @dissect_h248_MegacoMessage(i1 noundef zeroext false, ptr noundef %79, i32 noundef 0, ptr noundef %11, ptr noundef %80, i32 noundef -1)
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %8, align 8
+  %81 = load i32, ptr @proto_h248, align 4
   %82 = load ptr, ptr %6, align 8
-  %83 = call i32 @tvb_captured_length(ptr noundef %82)
-  store i32 %83, ptr %5, align 4
-  br label %84
+  %83 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %83, ptr %10, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = load i32, ptr @ett_h248, align 4
+  %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85)
+  store ptr %86, ptr @h248_tree, align 8
+  br label %87
 
-84:                                               ; preds = %78, %58, %31
-  %85 = load i32, ptr %5, align 4
-  ret i32 %85
+87:                                               ; preds = %79, %71
+  %88 = load ptr, ptr %6, align 8
+  %89 = load ptr, ptr @h248_tree, align 8
+  %90 = call i32 @dissect_h248_MegacoMessage(i1 noundef zeroext false, ptr noundef %88, i32 noundef 0, ptr noundef %11, ptr noundef %89, i32 noundef -1)
+  %91 = load ptr, ptr %6, align 8
+  %92 = call i32 @tvb_captured_length(ptr noundef %91)
+  store i32 %92, ptr %5, align 4
+  br label %93
+
+93:                                               ; preds = %87, %67, %40
+  %94 = load i32, ptr %5, align 4
+  ret i32 %94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6687,48 +6696,51 @@ define internal i32 @dissect_h248_Message(i1 noundef zeroext %0, ptr noundef %1,
   %18 = call i32 @tvb_raw_offset(ptr noundef %17)
   %19 = load i32, ptr @keep_persistent_data, align 4
   %20 = call ptr @gcp_msg(ptr noundef %16, i32 noundef %18, i32 noundef %19)
-  store ptr %20, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %21 = load i8, ptr %7, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = load ptr, ptr %10, align 8
-  %24 = load ptr, ptr %11, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %9, align 4
-  %27 = load i32, ptr %12, align 4
-  %28 = load i32, ptr @ett_h248_Message, align 4
-  %29 = call i32 @dissect_ber_sequence(i1 noundef zeroext %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef @Message_sequence, i32 noundef %27, i32 noundef %28)
-  store i32 %29, ptr %9, align 4
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct._asn1_ctx_t, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 50
+  %21 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  store ptr %20, ptr %21, align 8
+  %22 = load i8, ptr %7, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = load i32, ptr %12, align 4
+  %29 = load i32, ptr @ett_h248_Message, align 4
+  %30 = call i32 @dissect_ber_sequence(i1 noundef zeroext %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef @Message_sequence, i32 noundef %28, i32 noundef %29)
+  store i32 %30, ptr %9, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds %struct._asn1_ctx_t, ptr %38, i32 0, i32 3
   %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr @keep_persistent_data, align 4
-  %42 = call ptr @gcp_msg_to_str(ptr noundef %35, ptr noundef %40, i32 noundef %41)
-  call void @col_add_str(ptr noundef %34, i32 noundef 25, ptr noundef %42)
+  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr @keep_persistent_data, align 4
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %52
+  %44 = call ptr @gcp_msg_to_str(ptr noundef %37, ptr noundef %42, i32 noundef %43)
+  call void @col_add_str(ptr noundef %35, i32 noundef 25, ptr noundef %44)
+  %45 = load i32, ptr @keep_persistent_data, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %55
 
-45:                                               ; preds = %6
-  %46 = load ptr, ptr @h248_tree, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds %struct._asn1_ctx_t, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  call void @gcp_analyze_msg(ptr noundef %46, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef @h248_arrel, ptr noundef @ei_h248_errored_command)
-  br label %52
+47:                                               ; preds = %6
+  %48 = load ptr, ptr @h248_tree, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds %struct._asn1_ctx_t, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8
+  call void @gcp_analyze_msg(ptr noundef %48, ptr noundef %51, ptr noundef %52, ptr noundef %54, ptr noundef @h248_arrel, ptr noundef @ei_h248_errored_command)
+  br label %55
 
-52:                                               ; preds = %45, %6
-  %53 = load i32, ptr %9, align 4
-  ret i32 %53
+55:                                               ; preds = %47, %6
+  %56 = load i32, ptr %9, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7345,35 +7357,39 @@ define internal i32 @dissect_h248_T_errorCode(i1 noundef zeroext %0, ptr noundef
   %26 = getelementptr inbounds %struct._asn1_ctx_t, ptr %25, i32 0, i32 4
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @expert_add_info(ptr noundef %24, ptr noundef %27, ptr noundef @ei_h248_errored_command)
-  %29 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %35
+  %29 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %6
-  %32 = load i32, ptr @error_code, align 4
-  %33 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %34 = getelementptr inbounds %struct._gcp_cmd_t, ptr %33, i32 0, i32 7
-  store i32 %32, ptr %34, align 8
-  br label %43
+32:                                               ; preds = %6
+  %33 = load i32, ptr @error_code, align 4
+  %34 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct._gcp_cmd_t, ptr %35, i32 0, i32 7
+  store i32 %33, ptr %36, align 8
+  br label %47
 
-35:                                               ; preds = %6
-  %36 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %42
+37:                                               ; preds = %6
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %46
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr @error_code, align 4
-  %40 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %41 = getelementptr inbounds %struct._gcp_trx_t, ptr %40, i32 0, i32 6
-  store i32 %39, ptr %41, align 8
-  br label %42
+41:                                               ; preds = %37
+  %42 = load i32, ptr @error_code, align 4
+  %43 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._gcp_trx_t, ptr %44, i32 0, i32 6
+  store i32 %42, ptr %45, align 8
+  br label %46
 
-42:                                               ; preds = %38, %35
-  br label %43
+46:                                               ; preds = %41, %37
+  br label %47
 
-43:                                               ; preds = %42, %31
-  %44 = load i32, ptr %9, align 4
-  ret i32 %44
+47:                                               ; preds = %46, %32
+  %48 = load i32, ptr %9, align 4
+  ret i32 %48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7605,17 +7621,19 @@ define internal i32 @dissect_h248_T_transactionId(i1 noundef zeroext %0, ptr nou
   %22 = load i32, ptr %9, align 4
   %23 = call i32 @dissect_h248_trx_id(i1 noundef zeroext %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %13)
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %25 = load i32, ptr %13, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct._asn1_ctx_t, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr @keep_persistent_data, align 4
-  %30 = call ptr @gcp_trx(ptr noundef %24, i32 noundef %25, i32 noundef 1, ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %13, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds %struct._asn1_ctx_t, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr @keep_persistent_data, align 4
+  %31 = call ptr @gcp_trx(ptr noundef %25, i32 noundef %26, i32 noundef 1, ptr noundef %29, i32 noundef %30)
+  %32 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
   store i32 0, ptr @error_code, align 4
-  %31 = load i32, ptr %9, align 4
-  ret i32 %31
+  %33 = load i32, ptr %9, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7855,19 +7873,23 @@ define internal i32 @dissect_h248_ContextId(i1 noundef zeroext %0, ptr noundef %
   %22 = load i32, ptr %9, align 4
   %23 = call i32 @dissect_h248_ctx_id(i1 noundef zeroext %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %13)
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %26 = load i32, ptr %13, align 4
-  %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct._asn1_ctx_t, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr @keep_persistent_data, align 4
-  %31 = call ptr @gcp_ctx(ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr @curr_info, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %32 = load i32, ptr %9, align 4
-  ret i32 %32
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %13, align 4
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds %struct._asn1_ctx_t, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr @keep_persistent_data, align 4
+  %33 = call ptr @gcp_ctx(ptr noundef %25, ptr noundef %27, i32 noundef %28, ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr @curr_info, align 8
+  %34 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %34, align 8
+  %35 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  store ptr null, ptr %35, align 8
+  %36 = load i32, ptr %9, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7914,53 +7936,59 @@ define internal i32 @dissect_h248_T_contextAttrAuditReq(i1 noundef zeroext %0, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 10, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 10, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_ContextAttrAuditRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_ContextAttrAuditRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8242,54 +8270,60 @@ define internal i32 @dissect_h248_T_topologyReq(i1 noundef zeroext %0, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 9, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 9, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = load i32, ptr %12, align 4
-  %44 = load i32, ptr @ett_h248_T_topologyReq, align 4
-  %45 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef @T_topologyReq_sequence_of, i32 noundef %43, i32 noundef %44)
-  store i32 %45, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %46 = load i32, ptr %9, align 4
-  ret i32 %46
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = load i32, ptr %12, align 4
+  %49 = load i32, ptr @ett_h248_T_topologyReq, align 4
+  %50 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef @T_topologyReq_sequence_of, i32 noundef %48, i32 noundef %49)
+  store i32 %50, ptr %9, align 4
+  %51 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %51, align 8
+  %52 = load i32, ptr %9, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8428,20 +8462,21 @@ define internal i32 @dissect_h248_TerminationID(i1 noundef zeroext %0, ptr nound
   %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 50
   %18 = load ptr, ptr %17, align 8
   %19 = call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 48)
-  store ptr %19, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
+  %20 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  store ptr %19, ptr %20, align 8
   store i32 0, ptr @wild_term, align 4
-  %20 = load i8, ptr %7, align 1
-  %21 = trunc i8 %20 to i1
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %11, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = load i32, ptr %12, align 4
-  %27 = load i32, ptr @ett_h248_TerminationID, align 4
-  %28 = call i32 @dissect_ber_sequence(i1 noundef zeroext %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef %25, ptr noundef @TerminationID_sequence, i32 noundef %26, i32 noundef %27)
-  store i32 %28, ptr %9, align 4
-  %29 = load i32, ptr %9, align 4
-  ret i32 %29
+  %21 = load i8, ptr %7, align 1
+  %22 = trunc i8 %21 to i1
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr %9, align 4
+  %27 = load i32, ptr %12, align 4
+  %28 = load i32, ptr @ett_h248_TerminationID, align 4
+  %29 = call i32 @dissect_ber_sequence(i1 noundef zeroext %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef @TerminationID_sequence, i32 noundef %27, i32 noundef %28)
+  store i32 %29, ptr %9, align 4
+  %30 = load i32, ptr %9, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8590,149 +8625,168 @@ define internal i32 @dissect_h248_T_terminationId(i1 noundef zeroext %0, ptr nou
   store i32 %26, ptr %9, align 4
   %27 = load ptr, ptr %13, align 8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %120
+  br i1 %28, label %29, label %136
 
 29:                                               ; preds = %6
   %30 = load ptr, ptr %13, align 8
   %31 = call i32 @tvb_reported_length(ptr noundef %30)
-  %32 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %33 = getelementptr inbounds %struct._gcp_term_t, ptr %32, i32 0, i32 2
-  store i32 %31, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %35 = getelementptr inbounds %struct._gcp_term_t, ptr %34, i32 0, i32 3
-  store i32 0, ptr %35, align 4
-  %36 = load ptr, ptr @h248_term_handle, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %46
+  %32 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct._gcp_term_t, ptr %33, i32 0, i32 2
+  store i32 %31, ptr %34, align 8
+  %35 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct._gcp_term_t, ptr %36, i32 0, i32 3
+  store i32 0, ptr %37, align 4
+  %38 = load ptr, ptr @h248_term_handle, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %48
 
-38:                                               ; preds = %29
-  %39 = load ptr, ptr @h248_term_handle, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds %struct._asn1_ctx_t, ptr %41, i32 0, i32 3
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = call i32 @call_dissector_with_data(ptr noundef %39, ptr noundef %40, ptr noundef %43, ptr noundef %44, ptr noundef %14)
+40:                                               ; preds = %29
+  %41 = load ptr, ptr @h248_term_handle, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds %struct._asn1_ctx_t, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = call i32 @call_dissector_with_data(ptr noundef %41, ptr noundef %42, ptr noundef %45, ptr noundef %46, ptr noundef %14)
   store i8 -1, ptr @wild_card, align 1
-  br label %46
+  br label %48
 
-46:                                               ; preds = %38, %29
-  %47 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %48 = getelementptr inbounds %struct._gcp_term_t, ptr %47, i32 0, i32 2
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %109
+48:                                               ; preds = %40, %29
+  %49 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct._gcp_term_t, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %120
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct._asn1_ctx_t, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 50
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %13, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %59 = getelementptr inbounds %struct._gcp_term_t, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = call ptr @tvb_memdup(ptr noundef %56, ptr noundef %57, i32 noundef 0, i64 noundef %61)
-  %63 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %64 = getelementptr inbounds %struct._gcp_term_t, ptr %63, i32 0, i32 1
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds %struct.h248_term_info, ptr %14, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %92
-
-68:                                               ; preds = %51
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct._asn1_ctx_t, ptr %69, i32 0, i32 3
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds %struct._asn1_ctx_t, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 50
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct._gcp_term_t, ptr %62, i32 0, i32 2
+  %64 = load i32, ptr %63, align 8
+  %65 = zext i32 %64 to i64
+  %66 = call ptr @tvb_memdup(ptr noundef %59, ptr noundef %60, i32 noundef 0, i64 noundef %65)
+  %67 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %struct._gcp_term_t, ptr %68, i32 0, i32 1
+  store ptr %66, ptr %69, align 8
+  %70 = getelementptr inbounds %struct.h248_term_info, ptr %14, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 50
-  %73 = load ptr, ptr %72, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %100
+
+73:                                               ; preds = %54
   %74 = load ptr, ptr %10, align 8
   %75 = getelementptr inbounds %struct._asn1_ctx_t, ptr %74, i32 0, i32 3
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 50
   %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %80 = getelementptr inbounds %struct._gcp_term_t, ptr %79, i32 0, i32 1
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds %struct._asn1_ctx_t, ptr %79, i32 0, i32 3
   %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %83 = getelementptr inbounds %struct._gcp_term_t, ptr %82, i32 0, i32 2
-  %84 = load i32, ptr %83, align 8
-  %85 = zext i32 %84 to i64
-  %86 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %78, ptr noundef %81, i64 noundef %85, i8 noundef signext 0, i64 noundef 24)
-  %87 = getelementptr inbounds %struct.h248_term_info, ptr %14, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %73, ptr noundef @.str.767, ptr noundef %86, ptr noundef %88)
-  %90 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %91 = getelementptr inbounds %struct._gcp_term_t, ptr %90, i32 0, i32 0
-  store ptr %89, ptr %91, align 8
-  br label %108
-
-92:                                               ; preds = %51
-  %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds %struct._asn1_ctx_t, ptr %93, i32 0, i32 3
+  %82 = getelementptr inbounds %struct._packet_info, ptr %81, i32 0, i32 50
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds %struct._gcp_term_t, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %struct._gcp_term_t, ptr %89, i32 0, i32 2
+  %91 = load i32, ptr %90, align 8
+  %92 = zext i32 %91 to i64
+  %93 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %83, ptr noundef %87, i64 noundef %92, i8 noundef signext 0, i64 noundef 24)
+  %94 = getelementptr inbounds %struct.h248_term_info, ptr %14, i32 0, i32 1
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 50
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %99 = getelementptr inbounds %struct._gcp_term_t, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %102 = getelementptr inbounds %struct._gcp_term_t, ptr %101, i32 0, i32 2
-  %103 = load i32, ptr %102, align 8
-  %104 = zext i32 %103 to i64
-  %105 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %97, ptr noundef %100, i64 noundef %104, i8 noundef signext 0, i64 noundef 24)
-  %106 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %107 = getelementptr inbounds %struct._gcp_term_t, ptr %106, i32 0, i32 0
-  store ptr %105, ptr %107, align 8
-  br label %108
+  %96 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %78, ptr noundef @.str.767, ptr noundef %93, ptr noundef %95)
+  %97 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds %struct._gcp_term_t, ptr %98, i32 0, i32 0
+  store ptr %96, ptr %99, align 8
+  br label %119
 
-108:                                              ; preds = %92, %68
-  br label %109
-
-109:                                              ; preds = %108, %46
-  %110 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %111 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %112 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %113 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %114 = load i32, ptr @wild_term, align 4
-  %115 = load ptr, ptr %10, align 8
-  %116 = getelementptr inbounds %struct._asn1_ctx_t, ptr %115, i32 0, i32 3
+100:                                              ; preds = %54
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds %struct._asn1_ctx_t, ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %struct._packet_info, ptr %103, i32 0, i32 50
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds %struct._gcp_term_t, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct._gcp_term_t, ptr %111, i32 0, i32 2
+  %113 = load i32, ptr %112, align 8
+  %114 = zext i32 %113 to i64
+  %115 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %105, ptr noundef %109, i64 noundef %114, i8 noundef signext 0, i64 noundef 24)
+  %116 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
   %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr @keep_persistent_data, align 4
-  %119 = call ptr @gcp_cmd_add_term(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef %117, i32 noundef %118)
-  store ptr %119, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  br label %139
+  %118 = getelementptr inbounds %struct._gcp_term_t, ptr %117, i32 0, i32 0
+  store ptr %115, ptr %118, align 8
+  br label %119
 
-120:                                              ; preds = %6
-  %121 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %122 = getelementptr inbounds %struct._gcp_term_t, ptr %121, i32 0, i32 2
-  store i32 0, ptr %122, align 8
-  %123 = load ptr, ptr %10, align 8
-  %124 = getelementptr inbounds %struct._asn1_ctx_t, ptr %123, i32 0, i32 3
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %struct._packet_info, ptr %125, i32 0, i32 50
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noalias ptr @wmem_strdup(ptr noundef %127, ptr noundef @.str.34)
-  %129 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %130 = getelementptr inbounds %struct._gcp_term_t, ptr %129, i32 0, i32 1
-  store ptr %128, ptr %130, align 8
-  %131 = load ptr, ptr %10, align 8
-  %132 = getelementptr inbounds %struct._asn1_ctx_t, ptr %131, i32 0, i32 3
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 50
-  %135 = load ptr, ptr %134, align 8
-  %136 = call noalias ptr @wmem_strdup(ptr noundef %135, ptr noundef @.str.1316)
-  %137 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3), align 8
-  %138 = getelementptr inbounds %struct._gcp_term_t, ptr %137, i32 0, i32 0
-  store ptr %136, ptr %138, align 8
-  br label %139
+119:                                              ; preds = %100, %73
+  br label %120
 
-139:                                              ; preds = %120, %109
-  %140 = load i32, ptr %9, align 4
-  ret i32 %140
+120:                                              ; preds = %119, %48
+  %121 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %128 = load ptr, ptr %127, align 8
+  %129 = load i32, ptr @wild_term, align 4
+  %130 = load ptr, ptr %10, align 8
+  %131 = getelementptr inbounds %struct._asn1_ctx_t, ptr %130, i32 0, i32 3
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i32, ptr @keep_persistent_data, align 4
+  %134 = call ptr @gcp_cmd_add_term(ptr noundef %122, ptr noundef %124, ptr noundef %126, ptr noundef %128, i32 noundef %129, ptr noundef %132, i32 noundef %133)
+  %135 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  store ptr %134, ptr %135, align 8
+  br label %158
+
+136:                                              ; preds = %6
+  %137 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %struct._gcp_term_t, ptr %138, i32 0, i32 2
+  store i32 0, ptr %139, align 8
+  %140 = load ptr, ptr %10, align 8
+  %141 = getelementptr inbounds %struct._asn1_ctx_t, ptr %140, i32 0, i32 3
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 50
+  %144 = load ptr, ptr %143, align 8
+  %145 = call noalias ptr @wmem_strdup(ptr noundef %144, ptr noundef @.str.34)
+  %146 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct._gcp_term_t, ptr %147, i32 0, i32 1
+  store ptr %145, ptr %148, align 8
+  %149 = load ptr, ptr %10, align 8
+  %150 = getelementptr inbounds %struct._asn1_ctx_t, ptr %149, i32 0, i32 3
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 50
+  %153 = load ptr, ptr %152, align 8
+  %154 = call noalias ptr @wmem_strdup(ptr noundef %153, ptr noundef @.str.1316)
+  %155 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 3
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds %struct._gcp_term_t, ptr %156, i32 0, i32 0
+  store ptr %154, ptr %157, align 8
+  br label %158
+
+158:                                              ; preds = %136, %120
+  %159 = load i32, ptr %9, align 4
+  ret i32 %159
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9067,9 +9121,10 @@ define internal i32 @dissect_h248_PkgdName(i1 noundef zeroext %0, ptr noundef %1
 
 119:                                              ; preds = %118, %115
   %120 = load ptr, ptr %17, align 8
-  store ptr %120, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  %121 = load i32, ptr %9, align 4
-  ret i32 %121
+  %121 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr %120, ptr %121, align 8
+  %122 = load i32, ptr %9, align 4
+  ret i32 %122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9146,7 +9201,7 @@ define internal i32 @dissect_h248_PropertyID(i1 noundef zeroext %0, ptr noundef 
   %62 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %49, ptr noundef %52, ptr noundef @ei_h248_octet_string_expected, ptr noundef %53, i32 noundef %55, i32 noundef 2, ptr noundef @.str.1319, i32 noundef %57, i32 noundef %60, i32 noundef %61)
   %63 = load i32, ptr %20, align 4
   store i32 %63, ptr %7, align 4
-  br label %142
+  br label %144
 
 64:                                               ; preds = %45
   %65 = load ptr, ptr %9, align 8
@@ -9158,123 +9213,125 @@ define internal i32 @dissect_h248_PropertyID(i1 noundef zeroext %0, ptr noundef 
   %70 = and i32 %69, 65535
   %71 = trunc i32 %70 to i16
   store i16 %71, ptr %19, align 2
-  %72 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %76
+  %72 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %78
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  br label %77
+75:                                               ; preds = %64
+  %76 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8
+  br label %79
 
-76:                                               ; preds = %64
-  br label %77
+78:                                               ; preds = %64
+  br label %79
 
-77:                                               ; preds = %76, %74
-  %78 = phi ptr [ %75, %74 ], [ @no_package, %76 ]
-  store ptr %78, ptr %21, align 8
-  %79 = load ptr, ptr %21, align 8
-  %80 = getelementptr inbounds %struct._h248_package_t, ptr %79, i32 0, i32 7
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %110
+79:                                               ; preds = %78, %75
+  %80 = phi ptr [ %77, %75 ], [ @no_package, %78 ]
+  store ptr %80, ptr %21, align 8
+  %81 = load ptr, ptr %21, align 8
+  %82 = getelementptr inbounds %struct._h248_package_t, ptr %81, i32 0, i32 7
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %112
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %21, align 8
-  %85 = getelementptr inbounds %struct._h248_package_t, ptr %84, i32 0, i32 7
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %22, align 8
-  br label %87
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %21, align 8
+  %87 = getelementptr inbounds %struct._h248_package_t, ptr %86, i32 0, i32 7
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %22, align 8
+  br label %89
 
-87:                                               ; preds = %106, %83
-  %88 = load ptr, ptr %22, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %95
+89:                                               ; preds = %108, %85
+  %90 = load ptr, ptr %22, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %97
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %22, align 8
-  %92 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp ne ptr %93, null
-  br label %95
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %22, align 8
+  %94 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp ne ptr %95, null
+  br label %97
 
-95:                                               ; preds = %90, %87
-  %96 = phi i1 [ false, %87 ], [ %94, %90 ]
-  br i1 %96, label %97, label %109
+97:                                               ; preds = %92, %89
+  %98 = phi i1 [ false, %89 ], [ %96, %92 ]
+  br i1 %98, label %99, label %111
 
-97:                                               ; preds = %95
-  %98 = load i16, ptr %19, align 2
-  %99 = zext i16 %98 to i32
-  %100 = load ptr, ptr %22, align 8
-  %101 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %100, i32 0, i32 0
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp eq i32 %99, %102
-  br i1 %103, label %104, label %105
+99:                                               ; preds = %97
+  %100 = load i16, ptr %19, align 2
+  %101 = zext i16 %100 to i32
+  %102 = load ptr, ptr %22, align 8
+  %103 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8
+  %105 = icmp eq i32 %101, %104
+  br i1 %105, label %106, label %107
 
-104:                                              ; preds = %97
-  br label %109
-
-105:                                              ; preds = %97
-  br label %106
-
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %22, align 8
-  %108 = getelementptr %struct._h248_pkg_param_t, ptr %107, i32 1
-  store ptr %108, ptr %22, align 8
-  br label %87, !llvm.loop !29
-
-109:                                              ; preds = %104, %95
+106:                                              ; preds = %99
   br label %111
 
-110:                                              ; preds = %77
+107:                                              ; preds = %99
+  br label %108
+
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %22, align 8
+  %110 = getelementptr %struct._h248_pkg_param_t, ptr %109, i32 1
+  store ptr %110, ptr %22, align 8
+  br label %89, !llvm.loop !29
+
+111:                                              ; preds = %106, %97
+  br label %113
+
+112:                                              ; preds = %79
   store ptr @no_param, ptr %22, align 8
-  br label %111
+  br label %113
 
-111:                                              ; preds = %110, %109
-  %112 = load ptr, ptr %22, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %140
+113:                                              ; preds = %112, %111
+  %114 = load ptr, ptr %22, align 8
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %142
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %22, align 8
-  %116 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %115, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %119, label %140
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %22, align 8
+  %118 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %142
 
-119:                                              ; preds = %114
-  %120 = load ptr, ptr %22, align 8
-  %121 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %120, i32 0, i32 2
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %124, label %140
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %22, align 8
+  %123 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %142
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %22, align 8
-  %126 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %125, i32 0, i32 2
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %12, align 8
-  %129 = load ptr, ptr %23, align 8
-  %130 = load ptr, ptr %11, align 8
-  %131 = getelementptr inbounds %struct._asn1_ctx_t, ptr %130, i32 0, i32 3
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %22, align 8
-  %134 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %133, i32 0, i32 1
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i32, ptr %135, align 4
-  %137 = load ptr, ptr %22, align 8
-  %138 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %137, i32 0, i32 3
-  %139 = load ptr, ptr %138, align 8
-  call void %127(ptr noundef %128, ptr noundef %129, ptr noundef %132, i32 noundef %136, ptr noundef @curr_info, ptr noundef %139)
-  br label %140
-
-140:                                              ; preds = %124, %119, %114, %111
-  %141 = load i32, ptr %20, align 4
-  store i32 %141, ptr %7, align 4
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %22, align 8
+  %128 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %127, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %12, align 8
+  %131 = load ptr, ptr %23, align 8
+  %132 = load ptr, ptr %11, align 8
+  %133 = getelementptr inbounds %struct._asn1_ctx_t, ptr %132, i32 0, i32 3
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %22, align 8
+  %136 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  %138 = load i32, ptr %137, align 4
+  %139 = load ptr, ptr %22, align 8
+  %140 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %139, i32 0, i32 3
+  %141 = load ptr, ptr %140, align 8
+  call void %129(ptr noundef %130, ptr noundef %131, ptr noundef %134, i32 noundef %138, ptr noundef @curr_info, ptr noundef %141)
   br label %142
 
-142:                                              ; preds = %140, %48
-  %143 = load i32, ptr %7, align 4
-  ret i32 %143
+142:                                              ; preds = %126, %121, %116, %113
+  %143 = load i32, ptr %20, align 4
+  store i32 %143, ptr %7, align 4
+  br label %144
+
+144:                                              ; preds = %142, %48
+  %145 = load i32, ptr %7, align 4
+  ret i32 %145
 }
 
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
@@ -9552,53 +9609,59 @@ define internal i32 @dissect_h248_T_addReq(i1 noundef zeroext %0, ptr noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 1, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 1, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9616,53 +9679,59 @@ define internal i32 @dissect_h248_T_moveReq(i1 noundef zeroext %0, ptr noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 2, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 2, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9680,53 +9749,59 @@ define internal i32 @dissect_h248_T_modReq(i1 noundef zeroext %0, ptr noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 3, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 3, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9744,53 +9819,59 @@ define internal i32 @dissect_h248_T_subtractReq(i1 noundef zeroext %0, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 4, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 4, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_SubtractRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_SubtractRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9808,53 +9889,59 @@ define internal i32 @dissect_h248_T_auditCapRequest(i1 noundef zeroext %0, ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 5, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 5, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AuditRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AuditRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9872,53 +9959,59 @@ define internal i32 @dissect_h248_T_auditValueRequest(i1 noundef zeroext %0, ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 6, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 6, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AuditRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AuditRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9936,53 +10029,59 @@ define internal i32 @dissect_h248_T_notifyReq(i1 noundef zeroext %0, ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 7, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 7, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_NotifyRequest(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_NotifyRequest(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %50, align 8
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10000,54 +10099,60 @@ define internal i32 @dissect_h248_ServiceChangeRequest(i1 noundef zeroext %0, pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 8, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 8, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = load i32, ptr %12, align 4
-  %44 = load i32, ptr @ett_h248_ServiceChangeRequest, align 4
-  %45 = call i32 @dissect_ber_sequence(i1 noundef zeroext %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef @ServiceChangeRequest_sequence, i32 noundef %43, i32 noundef %44)
-  store i32 %45, ptr %9, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %46 = load i32, ptr %9, align 4
-  ret i32 %46
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = load i32, ptr %12, align 4
+  %49 = load i32, ptr @ett_h248_ServiceChangeRequest, align 4
+  %50 = call i32 @dissect_ber_sequence(i1 noundef zeroext %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef @ServiceChangeRequest_sequence, i32 noundef %48, i32 noundef %49)
+  store i32 %50, ptr %9, align 4
+  %51 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr null, ptr %51, align 8
+  %52 = load i32, ptr %9, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11204,7 +11309,7 @@ define internal i32 @dissect_h248_EventName(i1 noundef zeroext %0, ptr noundef %
   store i32 %29, ptr %9, align 4
   %30 = load ptr, ptr %13, align 8
   %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %155
+  br i1 %31, label %32, label %157
 
 32:                                               ; preds = %6
   %33 = load ptr, ptr %13, align 8
@@ -11262,134 +11367,138 @@ define internal i32 @dissect_h248_EventName(i1 noundef zeroext %0, ptr noundef %
   %75 = zext i16 %74 to i32
   %76 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %67, i32 noundef 2, i32 noundef %69, ptr noundef @.str.43, ptr noundef %73, i32 noundef %75)
   %77 = load ptr, ptr %17, align 8
-  store ptr %77, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  %78 = load ptr, ptr %17, align 8
-  %79 = getelementptr inbounds %struct._h248_package_t, ptr %78, i32 0, i32 9
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %110
+  %78 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr %77, ptr %78, align 8
+  %79 = load ptr, ptr %17, align 8
+  %80 = getelementptr inbounds %struct._h248_package_t, ptr %79, i32 0, i32 9
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %111
 
-82:                                               ; preds = %62
-  %83 = load ptr, ptr %17, align 8
-  %84 = getelementptr inbounds %struct._h248_package_t, ptr %83, i32 0, i32 9
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %18, align 8
-  br label %86
+83:                                               ; preds = %62
+  %84 = load ptr, ptr %17, align 8
+  %85 = getelementptr inbounds %struct._h248_package_t, ptr %84, i32 0, i32 9
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %18, align 8
+  br label %87
 
-86:                                               ; preds = %100, %82
-  %87 = load ptr, ptr %18, align 8
-  %88 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %91, label %103
+87:                                               ; preds = %101, %83
+  %88 = load ptr, ptr %18, align 8
+  %89 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %104
 
-91:                                               ; preds = %86
-  %92 = load i16, ptr %16, align 2
-  %93 = zext i16 %92 to i32
-  %94 = load ptr, ptr %18, align 8
-  %95 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %93, %96
-  br i1 %97, label %98, label %99
+92:                                               ; preds = %87
+  %93 = load i16, ptr %16, align 2
+  %94 = zext i16 %93 to i32
+  %95 = load ptr, ptr %18, align 8
+  %96 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp eq i32 %94, %97
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %91
-  br label %103
+99:                                               ; preds = %92
+  br label %104
 
-99:                                               ; preds = %91
-  br label %100
+100:                                              ; preds = %92
+  br label %101
 
-100:                                              ; preds = %99
-  %101 = load ptr, ptr %18, align 8
-  %102 = getelementptr %struct._h248_pkg_evt_t, ptr %101, i32 1
-  store ptr %102, ptr %18, align 8
-  br label %86, !llvm.loop !30
+101:                                              ; preds = %100
+  %102 = load ptr, ptr %18, align 8
+  %103 = getelementptr %struct._h248_pkg_evt_t, ptr %102, i32 1
+  store ptr %103, ptr %18, align 8
+  br label %87, !llvm.loop !30
 
-103:                                              ; preds = %98, %86
-  %104 = load ptr, ptr %18, align 8
-  %105 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp ne ptr %106, null
-  br i1 %107, label %109, label %108
+104:                                              ; preds = %99, %87
+  %105 = load ptr, ptr %18, align 8
+  %106 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %110, label %109
 
-108:                                              ; preds = %103
+109:                                              ; preds = %104
   store ptr @no_event, ptr %18, align 8
-  br label %109
+  br label %110
 
-109:                                              ; preds = %108, %103
-  br label %111
+110:                                              ; preds = %109, %104
+  br label %112
 
-110:                                              ; preds = %62
+111:                                              ; preds = %62
   store ptr @no_event, ptr %18, align 8
-  br label %111
+  br label %112
 
-111:                                              ; preds = %110, %109
-  %112 = load ptr, ptr %18, align 8
-  store ptr %112, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %113 = load ptr, ptr %14, align 8
-  %114 = load i32, ptr @hf_h248_event_code, align 4
-  %115 = load ptr, ptr %8, align 8
-  %116 = load i32, ptr %9, align 4
-  %117 = sub i32 %116, 2
-  %118 = load i16, ptr %16, align 2
-  %119 = zext i16 %118 to i32
-  %120 = call ptr @proto_tree_add_uint(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %117, i32 noundef 2, i32 noundef %119)
-  store ptr %120, ptr %19, align 8
-  %121 = load ptr, ptr %17, align 8
-  %122 = getelementptr inbounds %struct._h248_package_t, ptr %121, i32 0, i32 5
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %143
+112:                                              ; preds = %111, %110
+  %113 = load ptr, ptr %18, align 8
+  %114 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  store ptr %113, ptr %114, align 8
+  %115 = load ptr, ptr %14, align 8
+  %116 = load i32, ptr @hf_h248_event_code, align 4
+  %117 = load ptr, ptr %8, align 8
+  %118 = load i32, ptr %9, align 4
+  %119 = sub i32 %118, 2
+  %120 = load i16, ptr %16, align 2
+  %121 = zext i16 %120 to i32
+  %122 = call ptr @proto_tree_add_uint(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %119, i32 noundef 2, i32 noundef %121)
+  store ptr %122, ptr %19, align 8
+  %123 = load ptr, ptr %17, align 8
+  %124 = getelementptr inbounds %struct._h248_package_t, ptr %123, i32 0, i32 5
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %127, label %145
 
-125:                                              ; preds = %111
-  %126 = load i16, ptr %16, align 2
-  %127 = zext i16 %126 to i32
-  %128 = load ptr, ptr %17, align 8
-  %129 = getelementptr inbounds %struct._h248_package_t, ptr %128, i32 0, i32 5
-  %130 = load ptr, ptr %129, align 8
-  %131 = call ptr @try_val_to_str(i32 noundef %127, ptr noundef %130)
-  store ptr %131, ptr %20, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %143
+127:                                              ; preds = %112
+  %128 = load i16, ptr %16, align 2
+  %129 = zext i16 %128 to i32
+  %130 = load ptr, ptr %17, align 8
+  %131 = getelementptr inbounds %struct._h248_package_t, ptr %130, i32 0, i32 5
+  %132 = load ptr, ptr %131, align 8
+  %133 = call ptr @try_val_to_str(i32 noundef %129, ptr noundef %132)
+  store ptr %133, ptr %20, align 8
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %135, label %145
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct._asn1_ctx_t, ptr %134, i32 0, i32 3
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %struct._packet_info, ptr %136, i32 0, i32 50
+135:                                              ; preds = %127
+  %136 = load ptr, ptr %10, align 8
+  %137 = getelementptr inbounds %struct._asn1_ctx_t, ptr %136, i32 0, i32 3
   %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %20, align 8
-  %140 = load i16, ptr %16, align 2
-  %141 = zext i16 %140 to i32
-  %142 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef @.str.44, ptr noundef %139, i32 noundef %141)
-  store ptr %142, ptr %20, align 8
-  br label %152
+  %139 = getelementptr inbounds %struct._packet_info, ptr %138, i32 0, i32 50
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %20, align 8
+  %142 = load i16, ptr %16, align 2
+  %143 = zext i16 %142 to i32
+  %144 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %140, ptr noundef @.str.44, ptr noundef %141, i32 noundef %143)
+  store ptr %144, ptr %20, align 8
+  br label %154
 
-143:                                              ; preds = %125, %111
-  %144 = load ptr, ptr %10, align 8
-  %145 = getelementptr inbounds %struct._asn1_ctx_t, ptr %144, i32 0, i32 3
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct._packet_info, ptr %146, i32 0, i32 50
+145:                                              ; preds = %127, %112
+  %146 = load ptr, ptr %10, align 8
+  %147 = getelementptr inbounds %struct._asn1_ctx_t, ptr %146, i32 0, i32 3
   %148 = load ptr, ptr %147, align 8
-  %149 = load i16, ptr %16, align 2
-  %150 = zext i16 %149 to i32
-  %151 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %148, ptr noundef @.str.45, i32 noundef %150)
-  store ptr %151, ptr %20, align 8
-  br label %152
+  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 50
+  %150 = load ptr, ptr %149, align 8
+  %151 = load i16, ptr %16, align 2
+  %152 = zext i16 %151 to i32
+  %153 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %150, ptr noundef @.str.45, i32 noundef %152)
+  store ptr %153, ptr %20, align 8
+  br label %154
 
-152:                                              ; preds = %143, %133
-  %153 = load ptr, ptr %19, align 8
-  %154 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %153, ptr noundef @.str.1320, ptr noundef %154)
-  br label %156
+154:                                              ; preds = %145, %135
+  %155 = load ptr, ptr %19, align 8
+  %156 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %155, ptr noundef @.str.1320, ptr noundef %156)
+  br label %160
 
-155:                                              ; preds = %6
-  store ptr @no_package, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  store ptr @no_event, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  br label %156
+157:                                              ; preds = %6
+  %158 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr @no_package, ptr %158, align 8
+  %159 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  store ptr @no_event, ptr %159, align 8
+  br label %160
 
-156:                                              ; preds = %155, %152
-  %157 = load i32, ptr %9, align 4
-  ret i32 %157
+160:                                              ; preds = %157, %154
+  %161 = load i32, ptr %9, align 4
+  ret i32 %161
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11947,112 +12056,121 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
   br label %51
 
 51:                                               ; preds = %50, %6
-  store ptr @no_param, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %81
+  %52 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr @no_param, ptr %52, align 8
+  %53 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %86
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %56 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %55, i32 0, i32 3
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %81
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %86
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %61 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %60, i32 0, i32 3
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %15, align 8
-  br label %63
-
-63:                                               ; preds = %77, %59
-  %64 = load ptr, ptr %15, align 8
-  %65 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %64, i32 0, i32 1
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %64, i32 0, i32 3
   %66 = load ptr, ptr %65, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %80
+  store ptr %66, ptr %15, align 8
+  br label %67
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = load i32, ptr %14, align 4
-  %73 = icmp eq i32 %71, %72
-  br i1 %73, label %74, label %76
+67:                                               ; preds = %82, %62
+  %68 = load ptr, ptr %15, align 8
+  %69 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %85
 
-74:                                               ; preds = %68
-  %75 = load ptr, ptr %15, align 8
-  store ptr %75, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  br label %80
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %15, align 8
+  %74 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 8
+  %76 = load i32, ptr %14, align 4
+  %77 = icmp eq i32 %75, %76
+  br i1 %77, label %78, label %81
 
-76:                                               ; preds = %68
-  br label %77
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %15, align 8
+  %80 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr %79, ptr %80, align 8
+  br label %85
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %15, align 8
-  %79 = getelementptr %struct._h248_pkg_param_t, ptr %78, i32 1
-  store ptr %79, ptr %15, align 8
-  br label %63, !llvm.loop !31
-
-80:                                               ; preds = %74, %63
+81:                                               ; preds = %72
   br label %82
 
-81:                                               ; preds = %54, %51
-  store ptr @no_param, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  br label %82
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %15, align 8
+  %84 = getelementptr %struct._h248_pkg_param_t, ptr %83, i32 1
+  store ptr %84, ptr %15, align 8
+  br label %67, !llvm.loop !31
 
-82:                                               ; preds = %81, %80
-  %83 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %106
+85:                                               ; preds = %78, %67
+  br label %88
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %87 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %86, i32 0, i32 4
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %106
+86:                                               ; preds = %56, %51
+  %87 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr @no_param, ptr %87, align 8
+  br label %88
 
-90:                                               ; preds = %85
-  %91 = load i32, ptr %14, align 4
-  %92 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6), align 8
-  %93 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %92, i32 0, i32 4
+88:                                               ; preds = %86, %85
+  %89 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %115
+
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
   %94 = load ptr, ptr %93, align 8
-  %95 = call ptr @try_val_to_str(i32 noundef %91, ptr noundef %94)
-  store ptr %95, ptr %16, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %106
+  %95 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %94, i32 0, i32 4
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %115
 
-97:                                               ; preds = %90
-  %98 = load ptr, ptr %10, align 8
-  %99 = getelementptr inbounds %struct._asn1_ctx_t, ptr %98, i32 0, i32 3
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct._packet_info, ptr %100, i32 0, i32 50
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %16, align 8
-  %104 = load i32, ptr %14, align 4
-  %105 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %102, ptr noundef @.str.44, ptr noundef %103, i32 noundef %104)
-  store ptr %105, ptr %16, align 8
-  br label %114
+98:                                               ; preds = %92
+  %99 = load i32, ptr %14, align 4
+  %100 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 6
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds %struct._h248_pkg_evt_t, ptr %101, i32 0, i32 4
+  %103 = load ptr, ptr %102, align 8
+  %104 = call ptr @try_val_to_str(i32 noundef %99, ptr noundef %103)
+  store ptr %104, ptr %16, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %115
 
-106:                                              ; preds = %90, %85, %82
+106:                                              ; preds = %98
   %107 = load ptr, ptr %10, align 8
   %108 = getelementptr inbounds %struct._asn1_ctx_t, ptr %107, i32 0, i32 3
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds %struct._packet_info, ptr %109, i32 0, i32 50
   %111 = load ptr, ptr %110, align 8
-  %112 = load i32, ptr %14, align 4
-  %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %111, ptr noundef @.str.45, i32 noundef %112)
-  store ptr %113, ptr %16, align 8
-  br label %114
+  %112 = load ptr, ptr %16, align 8
+  %113 = load i32, ptr %14, align 4
+  %114 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %111, ptr noundef @.str.44, ptr noundef %112, i32 noundef %113)
+  store ptr %114, ptr %16, align 8
+  br label %123
 
-114:                                              ; preds = %106, %97
-  %115 = load ptr, ptr %17, align 8
-  %116 = load ptr, ptr %16, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %115, ptr noundef @.str.1318, ptr noundef %116)
-  %117 = load i32, ptr %9, align 4
-  ret i32 %117
+115:                                              ; preds = %98, %92, %88
+  %116 = load ptr, ptr %10, align 8
+  %117 = getelementptr inbounds %struct._asn1_ctx_t, ptr %116, i32 0, i32 3
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds %struct._packet_info, ptr %118, i32 0, i32 50
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %14, align 4
+  %122 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef @.str.45, i32 noundef %121)
+  store ptr %122, ptr %16, align 8
+  br label %123
+
+123:                                              ; preds = %115, %106
+  %124 = load ptr, ptr %17, align 8
+  %125 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %124, ptr noundef @.str.1318, ptr noundef %125)
+  %126 = load i32, ptr %9, align 4
+  ret i32 %126
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12183,7 +12301,7 @@ define internal i32 @dissect_h248_EventParamValue(i1 noundef zeroext %0, ptr nou
   %59 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %46, ptr noundef %49, ptr noundef @ei_h248_octet_string_expected, ptr noundef %50, i32 noundef %52, i32 noundef 2, ptr noundef @.str.1319, i32 noundef %54, i32 noundef %57, i32 noundef %58)
   %60 = load i32, ptr %15, align 4
   store i32 %60, ptr %7, align 4
-  br label %91
+  br label %96
 
 61:                                               ; preds = %42
   %62 = load ptr, ptr %9, align 8
@@ -12191,44 +12309,49 @@ define internal i32 @dissect_h248_EventParamValue(i1 noundef zeroext %0, ptr nou
   %64 = load i32, ptr %20, align 4
   %65 = call ptr @tvb_new_subset_length(ptr noundef %62, i32 noundef %63, i32 noundef %64)
   store ptr %65, ptr %14, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %89
+  %66 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %94
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %70 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %69, i32 0, i32 2
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
   %71 = load ptr, ptr %70, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %89
+  %72 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %94
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %75 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %12, align 8
-  %78 = load ptr, ptr %14, align 8
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct._asn1_ctx_t, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %83 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %82, i32 0, i32 1
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %12, align 8
+  %81 = load ptr, ptr %14, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds %struct._asn1_ctx_t, ptr %82, i32 0, i32 3
   %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %84, align 4
-  %86 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %87 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %86, i32 0, i32 3
+  %85 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %86, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
-  call void %76(ptr noundef %77, ptr noundef %78, ptr noundef %81, i32 noundef %85, ptr noundef @curr_info, ptr noundef %88)
-  br label %89
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %91, i32 0, i32 3
+  %93 = load ptr, ptr %92, align 8
+  call void %79(ptr noundef %80, ptr noundef %81, ptr noundef %84, i32 noundef %89, ptr noundef @curr_info, ptr noundef %93)
+  br label %94
 
-89:                                               ; preds = %73, %68, %61
-  %90 = load i32, ptr %15, align 4
-  store i32 %90, ptr %7, align 4
-  br label %91
+94:                                               ; preds = %75, %69, %61
+  %95 = load i32, ptr %15, align 4
+  store i32 %95, ptr %7, align 4
+  br label %96
 
-91:                                               ; preds = %89, %45
-  %92 = load i32, ptr %7, align 4
-  ret i32 %92
+96:                                               ; preds = %94, %45
+  %97 = load i32, ptr %7, align 4
+  ret i32 %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12407,7 +12530,7 @@ define internal i32 @dissect_h248_SignalName(i1 noundef zeroext %0, ptr noundef 
   store i32 %29, ptr %9, align 4
   %30 = load ptr, ptr %13, align 8
   %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %155
+  br i1 %31, label %32, label %159
 
 32:                                               ; preds = %6
   %33 = load ptr, ptr %13, align 8
@@ -12468,7 +12591,7 @@ define internal i32 @dissect_h248_SignalName(i1 noundef zeroext %0, ptr noundef 
   %78 = getelementptr inbounds %struct._h248_package_t, ptr %77, i32 0, i32 8
   %79 = load ptr, ptr %78, align 8
   %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %111
+  br i1 %80, label %81, label %113
 
 81:                                               ; preds = %62
   %82 = load ptr, ptr %17, align 8
@@ -12518,82 +12641,88 @@ define internal i32 @dissect_h248_SignalName(i1 noundef zeroext %0, ptr noundef 
 
 108:                                              ; preds = %107, %102
   %109 = load ptr, ptr %17, align 8
-  store ptr %109, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  %110 = load ptr, ptr %18, align 8
-  store ptr %110, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  br label %112
+  %110 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr %109, ptr %110, align 8
+  %111 = load ptr, ptr %18, align 8
+  %112 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  store ptr %111, ptr %112, align 8
+  br label %116
 
-111:                                              ; preds = %62
-  store ptr @no_package, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  store ptr @no_signal, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  br label %112
+113:                                              ; preds = %62
+  %114 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr @no_package, ptr %114, align 8
+  %115 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  store ptr @no_signal, ptr %115, align 8
+  br label %116
 
-112:                                              ; preds = %111, %108
-  %113 = load ptr, ptr %14, align 8
-  %114 = load i32, ptr @hf_h248_signal_code, align 4
-  %115 = load ptr, ptr %8, align 8
-  %116 = load i32, ptr %9, align 4
-  %117 = sub i32 %116, 2
-  %118 = load i16, ptr %16, align 2
-  %119 = zext i16 %118 to i32
-  %120 = call ptr @proto_tree_add_uint(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %117, i32 noundef 2, i32 noundef %119)
-  store ptr %120, ptr %19, align 8
-  %121 = load ptr, ptr %17, align 8
-  %122 = getelementptr inbounds %struct._h248_package_t, ptr %121, i32 0, i32 4
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %143
+116:                                              ; preds = %113, %108
+  %117 = load ptr, ptr %14, align 8
+  %118 = load i32, ptr @hf_h248_signal_code, align 4
+  %119 = load ptr, ptr %8, align 8
+  %120 = load i32, ptr %9, align 4
+  %121 = sub i32 %120, 2
+  %122 = load i16, ptr %16, align 2
+  %123 = zext i16 %122 to i32
+  %124 = call ptr @proto_tree_add_uint(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %121, i32 noundef 2, i32 noundef %123)
+  store ptr %124, ptr %19, align 8
+  %125 = load ptr, ptr %17, align 8
+  %126 = getelementptr inbounds %struct._h248_package_t, ptr %125, i32 0, i32 4
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %129, label %147
 
-125:                                              ; preds = %112
-  %126 = load i16, ptr %16, align 2
-  %127 = zext i16 %126 to i32
-  %128 = load ptr, ptr %17, align 8
-  %129 = getelementptr inbounds %struct._h248_package_t, ptr %128, i32 0, i32 4
-  %130 = load ptr, ptr %129, align 8
-  %131 = call ptr @try_val_to_str(i32 noundef %127, ptr noundef %130)
-  store ptr %131, ptr %20, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %143
+129:                                              ; preds = %116
+  %130 = load i16, ptr %16, align 2
+  %131 = zext i16 %130 to i32
+  %132 = load ptr, ptr %17, align 8
+  %133 = getelementptr inbounds %struct._h248_package_t, ptr %132, i32 0, i32 4
+  %134 = load ptr, ptr %133, align 8
+  %135 = call ptr @try_val_to_str(i32 noundef %131, ptr noundef %134)
+  store ptr %135, ptr %20, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %147
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct._asn1_ctx_t, ptr %134, i32 0, i32 3
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %struct._packet_info, ptr %136, i32 0, i32 50
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %20, align 8
-  %140 = load i16, ptr %16, align 2
-  %141 = zext i16 %140 to i32
-  %142 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef @.str.44, ptr noundef %139, i32 noundef %141)
-  store ptr %142, ptr %20, align 8
-  br label %152
-
-143:                                              ; preds = %125, %112
-  %144 = load ptr, ptr %10, align 8
-  %145 = getelementptr inbounds %struct._asn1_ctx_t, ptr %144, i32 0, i32 3
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %struct._packet_info, ptr %146, i32 0, i32 50
-  %148 = load ptr, ptr %147, align 8
-  %149 = load i16, ptr %16, align 2
-  %150 = zext i16 %149 to i32
-  %151 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %148, ptr noundef @.str.45, i32 noundef %150)
-  store ptr %151, ptr %20, align 8
-  br label %152
-
-152:                                              ; preds = %143, %133
-  %153 = load ptr, ptr %19, align 8
-  %154 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %153, ptr noundef @.str.46, ptr noundef %154)
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %10, align 8
+  %139 = getelementptr inbounds %struct._asn1_ctx_t, ptr %138, i32 0, i32 3
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 50
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %20, align 8
+  %144 = load i16, ptr %16, align 2
+  %145 = zext i16 %144 to i32
+  %146 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %142, ptr noundef @.str.44, ptr noundef %143, i32 noundef %145)
+  store ptr %146, ptr %20, align 8
   br label %156
 
-155:                                              ; preds = %6
-  store ptr @no_package, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5), align 8
-  store ptr @no_signal, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
+147:                                              ; preds = %129, %116
+  %148 = load ptr, ptr %10, align 8
+  %149 = getelementptr inbounds %struct._asn1_ctx_t, ptr %148, i32 0, i32 3
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 50
+  %152 = load ptr, ptr %151, align 8
+  %153 = load i16, ptr %16, align 2
+  %154 = zext i16 %153 to i32
+  %155 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %152, ptr noundef @.str.45, i32 noundef %154)
+  store ptr %155, ptr %20, align 8
   br label %156
 
-156:                                              ; preds = %155, %152
-  %157 = load i32, ptr %9, align 4
-  ret i32 %157
+156:                                              ; preds = %147, %137
+  %157 = load ptr, ptr %19, align 8
+  %158 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %157, ptr noundef @.str.46, ptr noundef %158)
+  br label %162
+
+159:                                              ; preds = %6
+  %160 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 5
+  store ptr @no_package, ptr %160, align 8
+  %161 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  store ptr @no_signal, ptr %161, align 8
+  br label %162
+
+162:                                              ; preds = %159, %156
+  %163 = load i32, ptr %9, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12863,108 +12992,116 @@ define internal i32 @dissect_h248_SigParameterName(i1 noundef zeroext %0, ptr no
   br label %47
 
 47:                                               ; preds = %46, %42, %38, %35, %32
-  store ptr @no_param, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %77
+  %48 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr @no_param, ptr %48, align 8
+  %49 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %82
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %52 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %51, i32 0, i32 3
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %77
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %82
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %57 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %56, i32 0, i32 3
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %15, align 8
-  br label %59
-
-59:                                               ; preds = %73, %55
-  %60 = load ptr, ptr %15, align 8
-  %61 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %60, i32 0, i32 1
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %60, i32 0, i32 3
   %62 = load ptr, ptr %61, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %76
+  store ptr %62, ptr %15, align 8
+  br label %63
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %15, align 8
-  %66 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %65, i32 0, i32 0
-  %67 = load i32, ptr %66, align 8
-  %68 = load i32, ptr %14, align 4
-  %69 = icmp eq i32 %67, %68
-  br i1 %69, label %70, label %72
+63:                                               ; preds = %78, %58
+  %64 = load ptr, ptr %15, align 8
+  %65 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %81
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %15, align 8
-  store ptr %71, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  br label %76
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %15, align 8
+  %70 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %69, i32 0, i32 0
+  %71 = load i32, ptr %70, align 8
+  %72 = load i32, ptr %14, align 4
+  %73 = icmp eq i32 %71, %72
+  br i1 %73, label %74, label %77
 
-72:                                               ; preds = %64
-  br label %73
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %15, align 8
+  %76 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  store ptr %75, ptr %76, align 8
+  br label %81
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %15, align 8
-  %75 = getelementptr %struct._h248_pkg_param_t, ptr %74, i32 1
-  store ptr %75, ptr %15, align 8
-  br label %59, !llvm.loop !33
+77:                                               ; preds = %68
+  br label %78
 
-76:                                               ; preds = %70, %59
-  br label %77
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %15, align 8
+  %80 = getelementptr %struct._h248_pkg_param_t, ptr %79, i32 1
+  store ptr %80, ptr %15, align 8
+  br label %63, !llvm.loop !33
 
-77:                                               ; preds = %76, %50, %47
-  %78 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %101
+81:                                               ; preds = %74, %63
+  br label %82
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %82 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %81, i32 0, i32 4
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %101
+82:                                               ; preds = %81, %52, %47
+  %83 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %109
 
-85:                                               ; preds = %80
-  %86 = load i32, ptr %14, align 4
-  %87 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7), align 8
-  %88 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %87, i32 0, i32 4
-  %89 = load ptr, ptr %88, align 8
-  %90 = call ptr @try_val_to_str(i32 noundef %86, ptr noundef %89)
-  store ptr %90, ptr %16, align 8
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %88, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8
   %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %101
+  br i1 %91, label %92, label %109
 
-92:                                               ; preds = %85
-  %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds %struct._asn1_ctx_t, ptr %93, i32 0, i32 3
+92:                                               ; preds = %86
+  %93 = load i32, ptr %14, align 4
+  %94 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 7
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 50
+  %96 = getelementptr inbounds %struct._h248_pkg_sig_t, ptr %95, i32 0, i32 4
   %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %16, align 8
-  %99 = load i32, ptr %14, align 4
-  %100 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %97, ptr noundef @.str.44, ptr noundef %98, i32 noundef %99)
-  store ptr %100, ptr %16, align 8
-  br label %109
+  %98 = call ptr @try_val_to_str(i32 noundef %93, ptr noundef %97)
+  store ptr %98, ptr %16, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %109
 
-101:                                              ; preds = %85, %80, %77
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds %struct._asn1_ctx_t, ptr %102, i32 0, i32 3
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 50
-  %106 = load ptr, ptr %105, align 8
+100:                                              ; preds = %92
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds %struct._asn1_ctx_t, ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %struct._packet_info, ptr %103, i32 0, i32 50
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %16, align 8
   %107 = load i32, ptr %14, align 4
-  %108 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %106, ptr noundef @.str.45, i32 noundef %107)
+  %108 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %105, ptr noundef @.str.44, ptr noundef %106, i32 noundef %107)
   store ptr %108, ptr %16, align 8
-  br label %109
+  br label %117
 
-109:                                              ; preds = %101, %92
-  %110 = load ptr, ptr %17, align 8
-  %111 = load ptr, ptr %16, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %110, ptr noundef @.str.1318, ptr noundef %111)
-  %112 = load i32, ptr %9, align 4
-  ret i32 %112
+109:                                              ; preds = %92, %86, %82
+  %110 = load ptr, ptr %10, align 8
+  %111 = getelementptr inbounds %struct._asn1_ctx_t, ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds %struct._packet_info, ptr %112, i32 0, i32 50
+  %114 = load ptr, ptr %113, align 8
+  %115 = load i32, ptr %14, align 4
+  %116 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %114, ptr noundef @.str.45, i32 noundef %115)
+  store ptr %116, ptr %16, align 8
+  br label %117
+
+117:                                              ; preds = %109, %100
+  %118 = load ptr, ptr %17, align 8
+  %119 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %118, ptr noundef @.str.1318, ptr noundef %119)
+  %120 = load i32, ptr %9, align 4
+  ret i32 %120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13094,7 +13231,7 @@ define internal i32 @dissect_h248_SigParamValue(i1 noundef zeroext %0, ptr nound
   %59 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %46, ptr noundef %49, ptr noundef @ei_h248_octet_string_expected, ptr noundef %50, i32 noundef %52, i32 noundef 2, ptr noundef @.str.1319, i32 noundef %54, i32 noundef %57, i32 noundef %58)
   %60 = load i32, ptr %14, align 4
   store i32 %60, ptr %7, align 4
-  br label %91
+  br label %96
 
 61:                                               ; preds = %42
   %62 = load ptr, ptr %9, align 8
@@ -13102,44 +13239,49 @@ define internal i32 @dissect_h248_SigParamValue(i1 noundef zeroext %0, ptr nound
   %64 = load i32, ptr %19, align 4
   %65 = call ptr @tvb_new_subset_length(ptr noundef %62, i32 noundef %63, i32 noundef %64)
   store ptr %65, ptr %20, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %89
+  %66 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %94
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %70 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %69, i32 0, i32 2
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
   %71 = load ptr, ptr %70, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %89
+  %72 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %94
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %75 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %12, align 8
-  %78 = load ptr, ptr %20, align 8
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct._asn1_ctx_t, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %83 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %82, i32 0, i32 1
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %12, align 8
+  %81 = load ptr, ptr %20, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds %struct._asn1_ctx_t, ptr %82, i32 0, i32 3
   %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %84, align 4
-  %86 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9), align 8
-  %87 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %86, i32 0, i32 3
+  %85 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %86, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
-  call void %76(ptr noundef %77, ptr noundef %78, ptr noundef %81, i32 noundef %85, ptr noundef @curr_info, ptr noundef %88)
-  br label %89
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 9
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct._h248_pkg_param_t, ptr %91, i32 0, i32 3
+  %93 = load ptr, ptr %92, align 8
+  call void %79(ptr noundef %80, ptr noundef %81, ptr noundef %84, i32 noundef %89, ptr noundef @curr_info, ptr noundef %93)
+  br label %94
 
-89:                                               ; preds = %73, %68, %61
-  %90 = load i32, ptr %14, align 4
-  store i32 %90, ptr %7, align 4
-  br label %91
+94:                                               ; preds = %75, %69, %61
+  %95 = load i32, ptr %14, align 4
+  store i32 %95, ptr %7, align 4
+  br label %96
 
-91:                                               ; preds = %89, %45
-  %92 = load i32, ptr %7, align 4
-  ret i32 %92
+96:                                               ; preds = %94, %45
+  %97 = load i32, ptr %7, align 4
+  ret i32 %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14391,17 +14533,19 @@ define internal i32 @dissect_h248_T_tpend_transactionId(i1 noundef zeroext %0, p
   %22 = load i32, ptr %9, align 4
   %23 = call i32 @dissect_h248_trx_id(i1 noundef zeroext %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %13)
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %25 = load i32, ptr %13, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct._asn1_ctx_t, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr @keep_persistent_data, align 4
-  %30 = call ptr @gcp_trx(ptr noundef %24, i32 noundef %25, i32 noundef 2, ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %13, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds %struct._asn1_ctx_t, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr @keep_persistent_data, align 4
+  %31 = call ptr @gcp_trx(ptr noundef %25, i32 noundef %26, i32 noundef 2, ptr noundef %29, i32 noundef %30)
+  %32 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
   store i32 0, ptr @error_code, align 4
-  %31 = load i32, ptr %9, align 4
-  ret i32 %31
+  %33 = load i32, ptr %9, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14431,17 +14575,19 @@ define internal i32 @dissect_h248_T_trep_transactionId(i1 noundef zeroext %0, pt
   %22 = load i32, ptr %9, align 4
   %23 = call i32 @dissect_h248_trx_id(i1 noundef zeroext %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %13)
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %25 = load i32, ptr %13, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct._asn1_ctx_t, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr @keep_persistent_data, align 4
-  %30 = call ptr @gcp_trx(ptr noundef %24, i32 noundef %25, i32 noundef 3, ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %13, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds %struct._asn1_ctx_t, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr @keep_persistent_data, align 4
+  %31 = call ptr @gcp_trx(ptr noundef %25, i32 noundef %26, i32 noundef 3, ptr noundef %29, i32 noundef %30)
+  %32 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
   store i32 0, ptr @error_code, align 4
-  %31 = load i32, ptr %9, align 4
-  ret i32 %31
+  %33 = load i32, ptr %9, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14553,51 +14699,57 @@ define internal i32 @dissect_h248_ActionReply(i1 noundef zeroext %0, ptr noundef
   %21 = load i32, ptr @ett_h248_ActionReply, align 4
   %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @ActionReply_sequence, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %9, align 4
-  %23 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %49, label %25
+  %23 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %55, label %26
 
-25:                                               ; preds = %6
-  %26 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %28 = load ptr, ptr @curr_info, align 8
-  %29 = load i32, ptr %9, align 4
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr @keep_persistent_data, align 4
-  %34 = call ptr @gcp_cmd(ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef 21, i32 noundef %29, ptr noundef %32, i32 noundef %33)
-  store ptr %34, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %35
-
-35:                                               ; preds = %25
+26:                                               ; preds = %6
+  %27 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr @curr_info, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._asn1_ctx_t, ptr %33, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @keep_persistent_data, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %47
+  %37 = call ptr @gcp_cmd(ptr noundef %28, ptr noundef %30, ptr noundef %31, i32 noundef 21, i32 noundef %32, ptr noundef %35, i32 noundef %36)
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %47
+39:                                               ; preds = %26
+  %40 = load i32, ptr @keep_persistent_data, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr @h248_tap, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct._asn1_ctx_t, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %42, ptr noundef %45, ptr noundef %46)
-  br label %47
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %53
 
-47:                                               ; preds = %41, %38, %35
-  br label %48
+46:                                               ; preds = %42
+  %47 = load i32, ptr @h248_tap, align 4
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds %struct._asn1_ctx_t, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %52 = load ptr, ptr %51, align 8
+  call void @tap_queue_packet(i32 noundef %47, ptr noundef %50, ptr noundef %52)
+  br label %53
 
-48:                                               ; preds = %47
-  br label %49
+53:                                               ; preds = %46, %42, %39
+  br label %54
 
-49:                                               ; preds = %48, %6
-  %50 = load i32, ptr %9, align 4
-  ret i32 %50
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54, %6
+  %56 = load i32, ptr %9, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14671,52 +14823,57 @@ define internal i32 @dissect_h248_T_addReply(i1 noundef zeroext %0, ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 12, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 12, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = load i32, ptr %9, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14734,52 +14891,57 @@ define internal i32 @dissect_h248_T_moveReply(i1 noundef zeroext %0, ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 13, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 13, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = load i32, ptr %9, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14797,52 +14959,57 @@ define internal i32 @dissect_h248_T_modReply(i1 noundef zeroext %0, ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 14, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 14, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = load i32, ptr %9, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14860,52 +15027,57 @@ define internal i32 @dissect_h248_T_subtractReply(i1 noundef zeroext %0, ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 15, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 15, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_AmmsReply(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = load i32, ptr %9, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14923,72 +15095,77 @@ define internal i32 @dissect_h248_T_auditCapReply(i1 noundef zeroext %0, ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 16, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 16, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr @h248_version, align 4
-  %38 = icmp ugt i32 %37, 1
-  br i1 %38, label %39, label %48
+40:                                               ; preds = %33, %29, %26
+  br label %41
 
-39:                                               ; preds = %36
-  %40 = load i8, ptr %7, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr %12, align 4
-  %47 = call i32 @dissect_h248_AuditReply(i1 noundef zeroext %41, ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46)
-  store i32 %47, ptr %9, align 4
-  br label %57
+41:                                               ; preds = %40
+  %42 = load i32, ptr @h248_version, align 4
+  %43 = icmp ugt i32 %42, 1
+  br i1 %43, label %44, label %53
 
-48:                                               ; preds = %36
-  %49 = load i8, ptr %7, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = load ptr, ptr %8, align 8
-  %52 = load i32, ptr %9, align 4
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr %12, align 4
-  %56 = call i32 @dissect_h248_AuditReplyV1(i1 noundef zeroext %50, ptr noundef %51, i32 noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55)
-  store i32 %56, ptr %9, align 4
-  br label %57
+44:                                               ; preds = %41
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load i32, ptr %12, align 4
+  %52 = call i32 @dissect_h248_AuditReply(i1 noundef zeroext %46, ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef %51)
+  store i32 %52, ptr %9, align 4
+  br label %62
 
-57:                                               ; preds = %48, %39
-  %58 = load i32, ptr %9, align 4
-  ret i32 %58
+53:                                               ; preds = %41
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = load ptr, ptr %8, align 8
+  %57 = load i32, ptr %9, align 4
+  %58 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr %12, align 4
+  %61 = call i32 @dissect_h248_AuditReplyV1(i1 noundef zeroext %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60)
+  store i32 %61, ptr %9, align 4
+  br label %62
+
+62:                                               ; preds = %53, %44
+  %63 = load i32, ptr %9, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15006,72 +15183,77 @@ define internal i32 @dissect_h248_T_auditValueReply(i1 noundef zeroext %0, ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 17, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 17, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr @h248_version, align 4
-  %38 = icmp ugt i32 %37, 1
-  br i1 %38, label %39, label %48
+40:                                               ; preds = %33, %29, %26
+  br label %41
 
-39:                                               ; preds = %36
-  %40 = load i8, ptr %7, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr %12, align 4
-  %47 = call i32 @dissect_h248_AuditReply(i1 noundef zeroext %41, ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46)
-  store i32 %47, ptr %9, align 4
-  br label %57
+41:                                               ; preds = %40
+  %42 = load i32, ptr @h248_version, align 4
+  %43 = icmp ugt i32 %42, 1
+  br i1 %43, label %44, label %53
 
-48:                                               ; preds = %36
-  %49 = load i8, ptr %7, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = load ptr, ptr %8, align 8
-  %52 = load i32, ptr %9, align 4
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr %12, align 4
-  %56 = call i32 @dissect_h248_AuditReplyV1(i1 noundef zeroext %50, ptr noundef %51, i32 noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55)
-  store i32 %56, ptr %9, align 4
-  br label %57
+44:                                               ; preds = %41
+  %45 = load i8, ptr %7, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load i32, ptr %12, align 4
+  %52 = call i32 @dissect_h248_AuditReply(i1 noundef zeroext %46, ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef %51)
+  store i32 %52, ptr %9, align 4
+  br label %62
 
-57:                                               ; preds = %48, %39
-  %58 = load i32, ptr %9, align 4
-  ret i32 %58
+53:                                               ; preds = %41
+  %54 = load i8, ptr %7, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = load ptr, ptr %8, align 8
+  %57 = load i32, ptr %9, align 4
+  %58 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr %12, align 4
+  %61 = call i32 @dissect_h248_AuditReplyV1(i1 noundef zeroext %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60)
+  store i32 %61, ptr %9, align 4
+  br label %62
+
+62:                                               ; preds = %53, %44
+  %63 = load i32, ptr %9, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15089,52 +15271,57 @@ define internal i32 @dissect_h248_T_notifyReply(i1 noundef zeroext %0, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 18, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 18, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load ptr, ptr %10, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = call i32 @dissect_h248_NotifyReply(i1 noundef zeroext %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %9, align 4
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %9, align 4
-  ret i32 %45
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @dissect_h248_NotifyReply(i1 noundef zeroext %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %9, align 4
+  %50 = load i32, ptr %9, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15152,53 +15339,58 @@ define internal i32 @dissect_h248_ServiceChangeReply(i1 noundef zeroext %0, ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
-  %16 = load ptr, ptr @curr_info, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._asn1_ctx_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr @keep_persistent_data, align 4
-  %22 = call ptr @gcp_cmd(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef 19, i32 noundef %17, ptr noundef %20, i32 noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  br label %23
+  %14 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @curr_info, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr @keep_persistent_data, align 4
+  %24 = call ptr @gcp_cmd(ptr noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef 19, i32 noundef %19, ptr noundef %22, i32 noundef %23)
+  %25 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr @keep_persistent_data, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %35
-
-26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %35
+26:                                               ; preds = %6
+  %27 = load i32, ptr @keep_persistent_data, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr @h248_tap, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4), align 8
-  call void @tap_queue_packet(i32 noundef %30, ptr noundef %33, ptr noundef %34)
-  br label %35
+  %30 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %29, %26, %23
-  br label %36
+33:                                               ; preds = %29
+  %34 = load i32, ptr @h248_tap, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct._asn1_ctx_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  call void @tap_queue_packet(i32 noundef %34, ptr noundef %37, ptr noundef %39)
+  br label %40
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %7, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = load i32, ptr %12, align 4
-  %44 = load i32, ptr @ett_h248_ServiceChangeReply, align 4
-  %45 = call i32 @dissect_ber_sequence(i1 noundef zeroext %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef @ServiceChangeReply_sequence, i32 noundef %43, i32 noundef %44)
-  store i32 %45, ptr %9, align 4
-  %46 = load i32, ptr %9, align 4
-  ret i32 %46
+40:                                               ; preds = %33, %29, %26
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = load i32, ptr %12, align 4
+  %49 = load i32, ptr @ett_h248_ServiceChangeReply, align 4
+  %50 = call i32 @dissect_ber_sequence(i1 noundef zeroext %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef @ServiceChangeReply_sequence, i32 noundef %48, i32 noundef %49)
+  store i32 %50, ptr %9, align 4
+  %51 = load i32, ptr %9, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15654,17 +15846,19 @@ define internal i32 @dissect_h248_T_seg_rep_transactionId(i1 noundef zeroext %0,
   %22 = load i32, ptr %9, align 4
   %23 = call i32 @dissect_h248_trx_id(i1 noundef zeroext %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %13)
   store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2), align 8
-  %25 = load i32, ptr %13, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct._asn1_ctx_t, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr @keep_persistent_data, align 4
-  %30 = call ptr @gcp_trx(ptr noundef %24, i32 noundef %25, i32 noundef 4, ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr getelementptr inbounds (%struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %13, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds %struct._asn1_ctx_t, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr @keep_persistent_data, align 4
+  %31 = call ptr @gcp_trx(ptr noundef %25, i32 noundef %26, i32 noundef 4, ptr noundef %29, i32 noundef %30)
+  %32 = getelementptr inbounds %struct._h248_curr_info_t, ptr @curr_info, i32 0, i32 1
+  store ptr %31, ptr %32, align 8
   store i32 0, ptr @error_code, align 4
-  %31 = load i32, ptr %9, align 4
-  ret i32 %31
+  %33 = load i32, ptr %9, align 4
+  ret i32 %33
 }
 
 declare void @dissect_tpkt_encap(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

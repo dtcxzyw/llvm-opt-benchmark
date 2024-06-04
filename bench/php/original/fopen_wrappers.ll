@@ -163,1404 +163,1408 @@ define i32 @OnUpdateBaseDir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 95:                                               ; preds = %92
   %96 = load i32, ptr %74, align 4
   %97 = icmp eq i32 %96, 8
-  br i1 %97, label %98, label %115
+  br i1 %97, label %98, label %117
 
 98:                                               ; preds = %95, %92, %89, %6
-  %99 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 19), align 8
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %104
+  %99 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 19
+  %100 = load i8, ptr %99, align 8
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %105
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %75, align 8
-  %103 = load ptr, ptr %102, align 8
-  call void @_efree(ptr noundef %103)
-  br label %104
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %75, align 8
+  %104 = load ptr, ptr %103, align 8
+  call void @_efree(ptr noundef %104)
+  br label %105
 
-104:                                              ; preds = %101, %98
-  %105 = load ptr, ptr %70, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %107, label %111
+105:                                              ; preds = %102, %98
+  %106 = load ptr, ptr %70, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %108, label %112
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %70, align 8
-  %109 = getelementptr inbounds %struct._zend_string, ptr %108, i32 0, i32 3
-  %110 = getelementptr inbounds [1 x i8], ptr %109, i64 0, i64 0
-  br label %112
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %70, align 8
+  %110 = getelementptr inbounds %struct._zend_string, ptr %109, i32 0, i32 3
+  %111 = getelementptr inbounds [1 x i8], ptr %110, i64 0, i64 0
+  br label %113
 
-111:                                              ; preds = %104
-  br label %112
+112:                                              ; preds = %105
+  br label %113
 
-112:                                              ; preds = %111, %107
-  %113 = phi ptr [ %110, %107 ], [ null, %111 ]
-  %114 = load ptr, ptr %75, align 8
-  store ptr %113, ptr %114, align 8
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 19), align 8
+113:                                              ; preds = %112, %108
+  %114 = phi ptr [ %111, %108 ], [ null, %112 ]
+  %115 = load ptr, ptr %75, align 8
+  store ptr %114, ptr %115, align 8
+  %116 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 19
+  store i8 0, ptr %116, align 8
   store i32 0, ptr %68, align 4
-  br label %986
+  br label %990
 
-115:                                              ; preds = %95
-  %116 = load ptr, ptr %70, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %124
+117:                                              ; preds = %95
+  %118 = load ptr, ptr %70, align 8
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %126
 
-118:                                              ; preds = %115
-  %119 = load ptr, ptr %70, align 8
-  %120 = getelementptr inbounds %struct._zend_string, ptr %119, i32 0, i32 3
-  %121 = getelementptr inbounds [1 x i8], ptr %120, i64 0, i64 0
-  %122 = load i8, ptr %121, align 8
-  %123 = icmp ne i8 %122, 0
-  br i1 %123, label %125, label %124
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %70, align 8
+  %122 = getelementptr inbounds %struct._zend_string, ptr %121, i32 0, i32 3
+  %123 = getelementptr inbounds [1 x i8], ptr %122, i64 0, i64 0
+  %124 = load i8, ptr %123, align 8
+  %125 = icmp ne i8 %124, 0
+  br i1 %125, label %127, label %126
 
-124:                                              ; preds = %118, %115
+126:                                              ; preds = %120, %117
   store i32 -1, ptr %68, align 4
-  br label %986
+  br label %990
 
-125:                                              ; preds = %118
+127:                                              ; preds = %120
   call void @llvm.memset.p0.i64(ptr align 8 %79, i8 0, i64 16, i1 false)
-  %126 = load ptr, ptr %70, align 8
-  %127 = getelementptr inbounds %struct._zend_string, ptr %126, i32 0, i32 3
-  %128 = getelementptr inbounds [1 x i8], ptr %127, i64 0, i64 0
-  %129 = call noalias ptr @_estrdup(ptr noundef %128)
-  store ptr %129, ptr %76, align 8
-  store ptr %129, ptr %77, align 8
-  br label %130
+  %128 = load ptr, ptr %70, align 8
+  %129 = getelementptr inbounds %struct._zend_string, ptr %128, i32 0, i32 3
+  %130 = getelementptr inbounds [1 x i8], ptr %129, i64 0, i64 0
+  %131 = call noalias ptr @_estrdup(ptr noundef %130)
+  store ptr %131, ptr %76, align 8
+  store ptr %131, ptr %77, align 8
+  br label %132
 
-130:                                              ; preds = %342, %125
-  %131 = load ptr, ptr %77, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %138
+132:                                              ; preds = %344, %127
+  %133 = load ptr, ptr %77, align 8
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %135, label %140
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %77, align 8
-  %135 = load i8, ptr %134, align 1
-  %136 = sext i8 %135 to i32
-  %137 = icmp ne i32 %136, 0
-  br label %138
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %77, align 8
+  %137 = load i8, ptr %136, align 1
+  %138 = sext i8 %137 to i32
+  %139 = icmp ne i32 %138, 0
+  br label %140
 
-138:                                              ; preds = %133, %130
-  %139 = phi i1 [ false, %130 ], [ %137, %133 ]
-  br i1 %139, label %140, label %359
+140:                                              ; preds = %135, %132
+  %141 = phi i1 [ false, %132 ], [ %139, %135 ]
+  br i1 %141, label %142, label %361
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %77, align 8
-  %142 = call ptr @strchr(ptr noundef %141, i32 noundef 58) #11
-  store ptr %142, ptr %78, align 8
-  %143 = load ptr, ptr %78, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %149
+142:                                              ; preds = %140
+  %143 = load ptr, ptr %77, align 8
+  %144 = call ptr @strchr(ptr noundef %143, i32 noundef 58) #11
+  store ptr %144, ptr %78, align 8
+  %145 = load ptr, ptr %78, align 8
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %151
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %78, align 8
-  store i8 0, ptr %146, align 1
-  %147 = load ptr, ptr %78, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i32 1
-  store ptr %148, ptr %78, align 8
-  br label %149
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %78, align 8
+  store i8 0, ptr %148, align 1
+  %149 = load ptr, ptr %78, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i32 1
+  store ptr %150, ptr %78, align 8
+  br label %151
 
-149:                                              ; preds = %145, %140
-  %150 = load ptr, ptr %77, align 8
-  %151 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
-  %152 = call ptr @expand_filepath(ptr noundef %150, ptr noundef %151)
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %196
+151:                                              ; preds = %147, %142
+  %152 = load ptr, ptr %77, align 8
+  %153 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
+  %154 = call ptr @expand_filepath(ptr noundef %152, ptr noundef %153)
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %156, label %198
 
-154:                                              ; preds = %149
-  %155 = load ptr, ptr %76, align 8
-  call void @_efree(ptr noundef %155)
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %76, align 8
+  call void @_efree(ptr noundef %157)
   store ptr %79, ptr %66, align 8
-  %156 = load ptr, ptr %66, align 8
-  store ptr %156, ptr %57, align 8
+  %158 = load ptr, ptr %66, align 8
+  store ptr %158, ptr %57, align 8
   store i8 0, ptr %58, align 1
-  %157 = load ptr, ptr %57, align 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = icmp ne ptr %158, null
-  br i1 %159, label %160, label %193
+  %159 = load ptr, ptr %57, align 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp ne ptr %160, null
+  br i1 %161, label %162, label %195
 
-160:                                              ; preds = %154
-  %161 = load ptr, ptr %57, align 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = load i8, ptr %58, align 1
-  %164 = trunc i8 %163 to i1
-  store ptr %162, ptr %55, align 8
-  %165 = zext i1 %164 to i8
-  store i8 %165, ptr %56, align 1
-  %166 = load ptr, ptr %55, align 8
-  %167 = getelementptr inbounds %struct._zend_refcounted_h, ptr %166, i32 0, i32 1
-  %168 = load i32, ptr %167, align 4
-  store i32 %168, ptr %17, align 4
-  %169 = load i32, ptr %17, align 4
-  %170 = and i32 %169, 1008
-  %171 = and i32 %170, 64
-  %172 = icmp ne i32 %171, 0
-  br i1 %172, label %191, label %173
+162:                                              ; preds = %156
+  %163 = load ptr, ptr %57, align 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = load i8, ptr %58, align 1
+  %166 = trunc i8 %165 to i1
+  store ptr %164, ptr %55, align 8
+  %167 = zext i1 %166 to i8
+  store i8 %167, ptr %56, align 1
+  %168 = load ptr, ptr %55, align 8
+  %169 = getelementptr inbounds %struct._zend_refcounted_h, ptr %168, i32 0, i32 1
+  %170 = load i32, ptr %169, align 4
+  store i32 %170, ptr %17, align 4
+  %171 = load i32, ptr %17, align 4
+  %172 = and i32 %171, 1008
+  %173 = and i32 %172, 64
+  %174 = icmp ne i32 %173, 0
+  br i1 %174, label %193, label %175
 
-173:                                              ; preds = %160
-  %174 = load ptr, ptr %55, align 8
-  store ptr %174, ptr %10, align 8
-  %175 = load ptr, ptr %10, align 8
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp ugt i32 %176, 0
-  call void @llvm.assume(i1 %177)
-  %178 = load ptr, ptr %10, align 8
-  %179 = load i32, ptr %178, align 4
-  %180 = add i32 %179, -1
-  store i32 %180, ptr %178, align 4
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %190
+175:                                              ; preds = %162
+  %176 = load ptr, ptr %55, align 8
+  store ptr %176, ptr %10, align 8
+  %177 = load ptr, ptr %10, align 8
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp ugt i32 %178, 0
+  call void @llvm.assume(i1 %179)
+  %180 = load ptr, ptr %10, align 8
+  %181 = load i32, ptr %180, align 4
+  %182 = add i32 %181, -1
+  store i32 %182, ptr %180, align 4
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %192
 
-182:                                              ; preds = %173
-  %183 = load i8, ptr %56, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %185, label %187
+184:                                              ; preds = %175
+  %185 = load i8, ptr %56, align 1
+  %186 = trunc i8 %185 to i1
+  br i1 %186, label %187, label %189
 
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %55, align 8
-  call void @free(ptr noundef %186) #12
-  br label %189
-
-187:                                              ; preds = %182
+187:                                              ; preds = %184
   %188 = load ptr, ptr %55, align 8
-  call void @_efree(ptr noundef %188) #12
-  br label %189
-
-189:                                              ; preds = %187, %185
-  br label %190
-
-190:                                              ; preds = %189, %173
+  call void @free(ptr noundef %188) #12
   br label %191
 
-191:                                              ; preds = %190, %160
-  %192 = load ptr, ptr %57, align 8
-  store ptr null, ptr %192, align 8
+189:                                              ; preds = %184
+  %190 = load ptr, ptr %55, align 8
+  call void @_efree(ptr noundef %190) #12
+  br label %191
+
+191:                                              ; preds = %189, %187
+  br label %192
+
+192:                                              ; preds = %191, %175
   br label %193
 
-193:                                              ; preds = %191, %154
+193:                                              ; preds = %192, %162
   %194 = load ptr, ptr %57, align 8
-  %195 = getelementptr inbounds %struct.smart_str, ptr %194, i32 0, i32 1
-  store i64 0, ptr %195, align 8
+  store ptr null, ptr %194, align 8
+  br label %195
+
+195:                                              ; preds = %193, %156
+  %196 = load ptr, ptr %57, align 8
+  %197 = getelementptr inbounds %struct.smart_str, ptr %196, i32 0, i32 1
+  store i64 0, ptr %197, align 8
   store i32 -1, ptr %68, align 4
-  br label %986
+  br label %990
 
-196:                                              ; preds = %149
-  %197 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
-  %198 = call i32 @php_check_open_basedir_ex(ptr noundef %197, i32 noundef 0)
-  %199 = icmp ne i32 %198, 0
-  br i1 %199, label %200, label %242
+198:                                              ; preds = %151
+  %199 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
+  %200 = call i32 @php_check_open_basedir_ex(ptr noundef %199, i32 noundef 0)
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %244
 
-200:                                              ; preds = %196
-  %201 = load ptr, ptr %76, align 8
-  call void @_efree(ptr noundef %201)
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %76, align 8
+  call void @_efree(ptr noundef %203)
   store ptr %79, ptr %67, align 8
-  %202 = load ptr, ptr %67, align 8
-  store ptr %202, ptr %53, align 8
+  %204 = load ptr, ptr %67, align 8
+  store ptr %204, ptr %53, align 8
   store i8 0, ptr %54, align 1
-  %203 = load ptr, ptr %53, align 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp ne ptr %204, null
-  br i1 %205, label %206, label %239
+  %205 = load ptr, ptr %53, align 8
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %241
 
-206:                                              ; preds = %200
-  %207 = load ptr, ptr %53, align 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = load i8, ptr %54, align 1
-  %210 = trunc i8 %209 to i1
-  store ptr %208, ptr %51, align 8
-  %211 = zext i1 %210 to i8
-  store i8 %211, ptr %52, align 1
-  %212 = load ptr, ptr %51, align 8
-  %213 = getelementptr inbounds %struct._zend_refcounted_h, ptr %212, i32 0, i32 1
-  %214 = load i32, ptr %213, align 4
-  store i32 %214, ptr %18, align 4
-  %215 = load i32, ptr %18, align 4
-  %216 = and i32 %215, 1008
-  %217 = and i32 %216, 64
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %237, label %219
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %53, align 8
+  %210 = load ptr, ptr %209, align 8
+  %211 = load i8, ptr %54, align 1
+  %212 = trunc i8 %211 to i1
+  store ptr %210, ptr %51, align 8
+  %213 = zext i1 %212 to i8
+  store i8 %213, ptr %52, align 1
+  %214 = load ptr, ptr %51, align 8
+  %215 = getelementptr inbounds %struct._zend_refcounted_h, ptr %214, i32 0, i32 1
+  %216 = load i32, ptr %215, align 4
+  store i32 %216, ptr %18, align 4
+  %217 = load i32, ptr %18, align 4
+  %218 = and i32 %217, 1008
+  %219 = and i32 %218, 64
+  %220 = icmp ne i32 %219, 0
+  br i1 %220, label %239, label %221
 
-219:                                              ; preds = %206
-  %220 = load ptr, ptr %51, align 8
-  store ptr %220, ptr %11, align 8
-  %221 = load ptr, ptr %11, align 8
-  %222 = load i32, ptr %221, align 4
-  %223 = icmp ugt i32 %222, 0
-  call void @llvm.assume(i1 %223)
-  %224 = load ptr, ptr %11, align 8
-  %225 = load i32, ptr %224, align 4
-  %226 = add i32 %225, -1
-  store i32 %226, ptr %224, align 4
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %236
+221:                                              ; preds = %208
+  %222 = load ptr, ptr %51, align 8
+  store ptr %222, ptr %11, align 8
+  %223 = load ptr, ptr %11, align 8
+  %224 = load i32, ptr %223, align 4
+  %225 = icmp ugt i32 %224, 0
+  call void @llvm.assume(i1 %225)
+  %226 = load ptr, ptr %11, align 8
+  %227 = load i32, ptr %226, align 4
+  %228 = add i32 %227, -1
+  store i32 %228, ptr %226, align 4
+  %229 = icmp eq i32 %228, 0
+  br i1 %229, label %230, label %238
 
-228:                                              ; preds = %219
-  %229 = load i8, ptr %52, align 1
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %231, label %233
+230:                                              ; preds = %221
+  %231 = load i8, ptr %52, align 1
+  %232 = trunc i8 %231 to i1
+  br i1 %232, label %233, label %235
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr %51, align 8
-  call void @free(ptr noundef %232) #12
-  br label %235
-
-233:                                              ; preds = %228
+233:                                              ; preds = %230
   %234 = load ptr, ptr %51, align 8
-  call void @_efree(ptr noundef %234) #12
-  br label %235
-
-235:                                              ; preds = %233, %231
-  br label %236
-
-236:                                              ; preds = %235, %219
+  call void @free(ptr noundef %234) #12
   br label %237
 
-237:                                              ; preds = %236, %206
-  %238 = load ptr, ptr %53, align 8
-  store ptr null, ptr %238, align 8
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %51, align 8
+  call void @_efree(ptr noundef %236) #12
+  br label %237
+
+237:                                              ; preds = %235, %233
+  br label %238
+
+238:                                              ; preds = %237, %221
   br label %239
 
-239:                                              ; preds = %237, %200
+239:                                              ; preds = %238, %208
   %240 = load ptr, ptr %53, align 8
-  %241 = getelementptr inbounds %struct.smart_str, ptr %240, i32 0, i32 1
-  store i64 0, ptr %241, align 8
+  store ptr null, ptr %240, align 8
+  br label %241
+
+241:                                              ; preds = %239, %202
+  %242 = load ptr, ptr %53, align 8
+  %243 = getelementptr inbounds %struct.smart_str, ptr %242, i32 0, i32 1
+  store i64 0, ptr %243, align 8
   store i32 -1, ptr %68, align 4
-  br label %986
+  br label %990
 
-242:                                              ; preds = %196
+244:                                              ; preds = %198
   store ptr %79, ptr %65, align 8
-  %243 = load ptr, ptr %65, align 8
-  %244 = load ptr, ptr %243, align 8
-  %245 = icmp ne ptr %244, null
-  br i1 %245, label %246, label %251
+  %245 = load ptr, ptr %65, align 8
+  %246 = load ptr, ptr %245, align 8
+  %247 = icmp ne ptr %246, null
+  br i1 %247, label %248, label %253
 
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %65, align 8
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds %struct._zend_string, ptr %248, i32 0, i32 2
-  %250 = load i64, ptr %249, align 8
-  br label %252
+248:                                              ; preds = %244
+  %249 = load ptr, ptr %65, align 8
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds %struct._zend_string, ptr %250, i32 0, i32 2
+  %252 = load i64, ptr %251, align 8
+  br label %254
 
-251:                                              ; preds = %242
-  br label %252
+253:                                              ; preds = %244
+  br label %254
 
-252:                                              ; preds = %251, %246
-  %253 = phi i64 [ %250, %246 ], [ 0, %251 ]
-  %254 = icmp ne i64 %253, 0
-  br i1 %254, label %255, label %303
+254:                                              ; preds = %253, %248
+  %255 = phi i64 [ %252, %248 ], [ 0, %253 ]
+  %256 = icmp ne i64 %255, 0
+  br i1 %256, label %257, label %305
 
-255:                                              ; preds = %252
+257:                                              ; preds = %254
   store ptr %79, ptr %63, align 8
   store i8 58, ptr %64, align 1
-  %256 = load ptr, ptr %63, align 8
-  %257 = load i8, ptr %64, align 1
-  store ptr %256, ptr %47, align 8
-  store i8 %257, ptr %48, align 1
+  %258 = load ptr, ptr %63, align 8
+  %259 = load i8, ptr %64, align 1
+  store ptr %258, ptr %47, align 8
+  store i8 %259, ptr %48, align 1
   store i8 0, ptr %49, align 1
-  %258 = load ptr, ptr %47, align 8
-  %259 = load i8, ptr %49, align 1
-  %260 = trunc i8 %259 to i1
-  store ptr %258, ptr %44, align 8
+  %260 = load ptr, ptr %47, align 8
+  %261 = load i8, ptr %49, align 1
+  %262 = trunc i8 %261 to i1
+  store ptr %260, ptr %44, align 8
   store i64 1, ptr %45, align 8
-  %261 = zext i1 %260 to i8
-  store i8 %261, ptr %46, align 1
-  %262 = load ptr, ptr %44, align 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = icmp ne ptr %263, null
-  %265 = xor i1 %264, true
-  br i1 %265, label %266, label %267
+  %263 = zext i1 %262 to i8
+  store i8 %263, ptr %46, align 1
+  %264 = load ptr, ptr %44, align 8
+  %265 = load ptr, ptr %264, align 8
+  %266 = icmp ne ptr %265, null
+  %267 = xor i1 %266, true
+  br i1 %267, label %268, label %269
 
-266:                                              ; preds = %255
-  br label %280
+268:                                              ; preds = %257
+  br label %282
 
-267:                                              ; preds = %255
-  %268 = load ptr, ptr %44, align 8
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %struct._zend_string, ptr %269, i32 0, i32 2
-  %271 = load i64, ptr %270, align 8
-  %272 = load i64, ptr %45, align 8
-  %273 = add i64 %272, %271
-  store i64 %273, ptr %45, align 8
+269:                                              ; preds = %257
+  %270 = load ptr, ptr %44, align 8
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds %struct._zend_string, ptr %271, i32 0, i32 2
+  %273 = load i64, ptr %272, align 8
   %274 = load i64, ptr %45, align 8
-  %275 = load ptr, ptr %44, align 8
-  %276 = getelementptr inbounds %struct.smart_str, ptr %275, i32 0, i32 1
-  %277 = load i64, ptr %276, align 8
-  %278 = icmp uge i64 %274, %277
-  br i1 %278, label %279, label %290
+  %275 = add i64 %274, %273
+  store i64 %275, ptr %45, align 8
+  %276 = load i64, ptr %45, align 8
+  %277 = load ptr, ptr %44, align 8
+  %278 = getelementptr inbounds %struct.smart_str, ptr %277, i32 0, i32 1
+  %279 = load i64, ptr %278, align 8
+  %280 = icmp uge i64 %276, %279
+  br i1 %280, label %281, label %292
 
-279:                                              ; preds = %267
-  br label %280
+281:                                              ; preds = %269
+  br label %282
 
-280:                                              ; preds = %279, %266
-  %281 = load i8, ptr %46, align 1
-  %282 = trunc i8 %281 to i1
-  br i1 %282, label %283, label %286
+282:                                              ; preds = %281, %268
+  %283 = load i8, ptr %46, align 1
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %285, label %288
 
-283:                                              ; preds = %280
-  %284 = load ptr, ptr %44, align 8
-  %285 = load i64, ptr %45, align 8
-  call void @smart_str_realloc(ptr noundef %284, i64 noundef %285) #12
-  br label %289
+285:                                              ; preds = %282
+  %286 = load ptr, ptr %44, align 8
+  %287 = load i64, ptr %45, align 8
+  call void @smart_str_realloc(ptr noundef %286, i64 noundef %287) #12
+  br label %291
 
-286:                                              ; preds = %280
-  %287 = load ptr, ptr %44, align 8
-  %288 = load i64, ptr %45, align 8
-  call void @smart_str_erealloc(ptr noundef %287, i64 noundef %288) #12
-  br label %289
+288:                                              ; preds = %282
+  %289 = load ptr, ptr %44, align 8
+  %290 = load i64, ptr %45, align 8
+  call void @smart_str_erealloc(ptr noundef %289, i64 noundef %290) #12
+  br label %291
 
-289:                                              ; preds = %286, %283
-  br label %290
+291:                                              ; preds = %288, %285
+  br label %292
 
-290:                                              ; preds = %289, %267
-  %291 = load i64, ptr %45, align 8
-  store i64 %291, ptr %50, align 8
-  %292 = load i8, ptr %48, align 1
-  %293 = load ptr, ptr %47, align 8
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds %struct._zend_string, ptr %294, i32 0, i32 3
-  %296 = load i64, ptr %50, align 8
-  %297 = sub i64 %296, 1
-  %298 = getelementptr inbounds [1 x i8], ptr %295, i64 0, i64 %297
-  store i8 %292, ptr %298, align 1
-  %299 = load i64, ptr %50, align 8
-  %300 = load ptr, ptr %47, align 8
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds %struct._zend_string, ptr %301, i32 0, i32 2
-  store i64 %299, ptr %302, align 8
-  br label %303
+292:                                              ; preds = %291, %269
+  %293 = load i64, ptr %45, align 8
+  store i64 %293, ptr %50, align 8
+  %294 = load i8, ptr %48, align 1
+  %295 = load ptr, ptr %47, align 8
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds %struct._zend_string, ptr %296, i32 0, i32 3
+  %298 = load i64, ptr %50, align 8
+  %299 = sub i64 %298, 1
+  %300 = getelementptr inbounds [1 x i8], ptr %297, i64 0, i64 %299
+  store i8 %294, ptr %300, align 1
+  %301 = load i64, ptr %50, align 8
+  %302 = load ptr, ptr %47, align 8
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds %struct._zend_string, ptr %303, i32 0, i32 2
+  store i64 %301, ptr %304, align 8
+  br label %305
 
-303:                                              ; preds = %290, %252
-  %304 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
+305:                                              ; preds = %292, %254
+  %306 = getelementptr inbounds [4097 x i8], ptr %80, i64 0, i64 0
   store ptr %79, ptr %61, align 8
-  store ptr %304, ptr %62, align 8
-  %305 = load ptr, ptr %61, align 8
-  %306 = load ptr, ptr %62, align 8
-  %307 = load ptr, ptr %62, align 8
-  %308 = call i64 @strlen(ptr noundef %307) #11
-  store ptr %305, ptr %39, align 8
-  store ptr %306, ptr %40, align 8
-  store i64 %308, ptr %41, align 8
+  store ptr %306, ptr %62, align 8
+  %307 = load ptr, ptr %61, align 8
+  %308 = load ptr, ptr %62, align 8
+  %309 = load ptr, ptr %62, align 8
+  %310 = call i64 @strlen(ptr noundef %309) #11
+  store ptr %307, ptr %39, align 8
+  store ptr %308, ptr %40, align 8
+  store i64 %310, ptr %41, align 8
   store i8 0, ptr %42, align 1
-  %309 = load ptr, ptr %39, align 8
-  %310 = load i64, ptr %41, align 8
-  %311 = load i8, ptr %42, align 1
-  %312 = trunc i8 %311 to i1
-  store ptr %309, ptr %36, align 8
-  store i64 %310, ptr %37, align 8
-  %313 = zext i1 %312 to i8
-  store i8 %313, ptr %38, align 1
-  %314 = load ptr, ptr %36, align 8
-  %315 = load ptr, ptr %314, align 8
-  %316 = icmp ne ptr %315, null
-  %317 = xor i1 %316, true
-  br i1 %317, label %318, label %319
+  %311 = load ptr, ptr %39, align 8
+  %312 = load i64, ptr %41, align 8
+  %313 = load i8, ptr %42, align 1
+  %314 = trunc i8 %313 to i1
+  store ptr %311, ptr %36, align 8
+  store i64 %312, ptr %37, align 8
+  %315 = zext i1 %314 to i8
+  store i8 %315, ptr %38, align 1
+  %316 = load ptr, ptr %36, align 8
+  %317 = load ptr, ptr %316, align 8
+  %318 = icmp ne ptr %317, null
+  %319 = xor i1 %318, true
+  br i1 %319, label %320, label %321
 
-318:                                              ; preds = %303
-  br label %332
+320:                                              ; preds = %305
+  br label %334
 
-319:                                              ; preds = %303
-  %320 = load ptr, ptr %36, align 8
-  %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds %struct._zend_string, ptr %321, i32 0, i32 2
-  %323 = load i64, ptr %322, align 8
-  %324 = load i64, ptr %37, align 8
-  %325 = add i64 %324, %323
-  store i64 %325, ptr %37, align 8
+321:                                              ; preds = %305
+  %322 = load ptr, ptr %36, align 8
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds %struct._zend_string, ptr %323, i32 0, i32 2
+  %325 = load i64, ptr %324, align 8
   %326 = load i64, ptr %37, align 8
-  %327 = load ptr, ptr %36, align 8
-  %328 = getelementptr inbounds %struct.smart_str, ptr %327, i32 0, i32 1
-  %329 = load i64, ptr %328, align 8
-  %330 = icmp uge i64 %326, %329
-  br i1 %330, label %331, label %342
+  %327 = add i64 %326, %325
+  store i64 %327, ptr %37, align 8
+  %328 = load i64, ptr %37, align 8
+  %329 = load ptr, ptr %36, align 8
+  %330 = getelementptr inbounds %struct.smart_str, ptr %329, i32 0, i32 1
+  %331 = load i64, ptr %330, align 8
+  %332 = icmp uge i64 %328, %331
+  br i1 %332, label %333, label %344
 
-331:                                              ; preds = %319
-  br label %332
+333:                                              ; preds = %321
+  br label %334
 
-332:                                              ; preds = %331, %318
-  %333 = load i8, ptr %38, align 1
-  %334 = trunc i8 %333 to i1
-  br i1 %334, label %335, label %338
+334:                                              ; preds = %333, %320
+  %335 = load i8, ptr %38, align 1
+  %336 = trunc i8 %335 to i1
+  br i1 %336, label %337, label %340
 
-335:                                              ; preds = %332
-  %336 = load ptr, ptr %36, align 8
-  %337 = load i64, ptr %37, align 8
-  call void @smart_str_realloc(ptr noundef %336, i64 noundef %337) #12
-  br label %341
+337:                                              ; preds = %334
+  %338 = load ptr, ptr %36, align 8
+  %339 = load i64, ptr %37, align 8
+  call void @smart_str_realloc(ptr noundef %338, i64 noundef %339) #12
+  br label %343
 
-338:                                              ; preds = %332
-  %339 = load ptr, ptr %36, align 8
-  %340 = load i64, ptr %37, align 8
-  call void @smart_str_erealloc(ptr noundef %339, i64 noundef %340) #12
-  br label %341
+340:                                              ; preds = %334
+  %341 = load ptr, ptr %36, align 8
+  %342 = load i64, ptr %37, align 8
+  call void @smart_str_erealloc(ptr noundef %341, i64 noundef %342) #12
+  br label %343
 
-341:                                              ; preds = %338, %335
-  br label %342
+343:                                              ; preds = %340, %337
+  br label %344
 
-342:                                              ; preds = %341, %319
-  %343 = load i64, ptr %37, align 8
-  store i64 %343, ptr %43, align 8
-  %344 = load ptr, ptr %39, align 8
-  %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds %struct._zend_string, ptr %345, i32 0, i32 3
-  %347 = load ptr, ptr %39, align 8
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds %struct._zend_string, ptr %348, i32 0, i32 2
-  %350 = load i64, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %346, i64 %350
-  %352 = load ptr, ptr %40, align 8
-  %353 = load i64, ptr %41, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %351, ptr align 1 %352, i64 %353, i1 false)
-  %354 = load i64, ptr %43, align 8
-  %355 = load ptr, ptr %39, align 8
-  %356 = load ptr, ptr %355, align 8
-  %357 = getelementptr inbounds %struct._zend_string, ptr %356, i32 0, i32 2
-  store i64 %354, ptr %357, align 8
-  %358 = load ptr, ptr %78, align 8
-  store ptr %358, ptr %77, align 8
-  br label %130
+344:                                              ; preds = %343, %321
+  %345 = load i64, ptr %37, align 8
+  store i64 %345, ptr %43, align 8
+  %346 = load ptr, ptr %39, align 8
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds %struct._zend_string, ptr %347, i32 0, i32 3
+  %349 = load ptr, ptr %39, align 8
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds %struct._zend_string, ptr %350, i32 0, i32 2
+  %352 = load i64, ptr %351, align 8
+  %353 = getelementptr inbounds i8, ptr %348, i64 %352
+  %354 = load ptr, ptr %40, align 8
+  %355 = load i64, ptr %41, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %353, ptr align 1 %354, i64 %355, i1 false)
+  %356 = load i64, ptr %43, align 8
+  %357 = load ptr, ptr %39, align 8
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %struct._zend_string, ptr %358, i32 0, i32 2
+  store i64 %356, ptr %359, align 8
+  %360 = load ptr, ptr %78, align 8
+  store ptr %360, ptr %77, align 8
+  br label %132
 
-359:                                              ; preds = %138
-  %360 = load ptr, ptr %76, align 8
-  call void @_efree(ptr noundef %360)
+361:                                              ; preds = %140
+  %362 = load ptr, ptr %76, align 8
+  call void @_efree(ptr noundef %362)
   store ptr %79, ptr %60, align 8
-  %361 = load ptr, ptr %60, align 8
-  store ptr %361, ptr %33, align 8
+  %363 = load ptr, ptr %60, align 8
+  store ptr %363, ptr %33, align 8
   store i8 0, ptr %34, align 1
-  %362 = load ptr, ptr %33, align 8
-  %363 = load ptr, ptr %362, align 8
-  %364 = icmp ne ptr %363, null
-  br i1 %364, label %365, label %938
+  %364 = load ptr, ptr %33, align 8
+  %365 = load ptr, ptr %364, align 8
+  %366 = icmp ne ptr %365, null
+  br i1 %366, label %367, label %940
 
-365:                                              ; preds = %359
-  %366 = load ptr, ptr %33, align 8
-  store ptr %366, ptr %31, align 8
-  %367 = load ptr, ptr %31, align 8
-  %368 = load ptr, ptr %367, align 8
-  %369 = icmp ne ptr %368, null
-  br i1 %369, label %370, label %379
+367:                                              ; preds = %361
+  %368 = load ptr, ptr %33, align 8
+  store ptr %368, ptr %31, align 8
+  %369 = load ptr, ptr %31, align 8
+  %370 = load ptr, ptr %369, align 8
+  %371 = icmp ne ptr %370, null
+  br i1 %371, label %372, label %381
 
-370:                                              ; preds = %365
-  %371 = load ptr, ptr %31, align 8
-  %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds %struct._zend_string, ptr %372, i32 0, i32 3
-  %374 = load ptr, ptr %31, align 8
-  %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds %struct._zend_string, ptr %375, i32 0, i32 2
-  %377 = load i64, ptr %376, align 8
-  %378 = getelementptr inbounds [1 x i8], ptr %373, i64 0, i64 %377
-  store i8 0, ptr %378, align 1
-  br label %379
+372:                                              ; preds = %367
+  %373 = load ptr, ptr %31, align 8
+  %374 = load ptr, ptr %373, align 8
+  %375 = getelementptr inbounds %struct._zend_string, ptr %374, i32 0, i32 3
+  %376 = load ptr, ptr %31, align 8
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds %struct._zend_string, ptr %377, i32 0, i32 2
+  %379 = load i64, ptr %378, align 8
+  %380 = getelementptr inbounds [1 x i8], ptr %375, i64 0, i64 %379
+  store i8 0, ptr %380, align 1
+  br label %381
 
-379:                                              ; preds = %370, %365
-  %380 = load ptr, ptr %33, align 8
-  %381 = load i8, ptr %34, align 1
-  %382 = trunc i8 %381 to i1
-  store ptr %380, ptr %29, align 8
-  %383 = zext i1 %382 to i8
-  store i8 %383, ptr %30, align 1
-  %384 = load ptr, ptr %29, align 8
-  %385 = load ptr, ptr %384, align 8
-  %386 = icmp ne ptr %385, null
-  br i1 %386, label %387, label %933
+381:                                              ; preds = %372, %367
+  %382 = load ptr, ptr %33, align 8
+  %383 = load i8, ptr %34, align 1
+  %384 = trunc i8 %383 to i1
+  store ptr %382, ptr %29, align 8
+  %385 = zext i1 %384 to i8
+  store i8 %385, ptr %30, align 1
+  %386 = load ptr, ptr %29, align 8
+  %387 = load ptr, ptr %386, align 8
+  %388 = icmp ne ptr %387, null
+  br i1 %388, label %389, label %935
 
-387:                                              ; preds = %379
-  %388 = load ptr, ptr %29, align 8
-  %389 = getelementptr inbounds %struct.smart_str, ptr %388, i32 0, i32 1
-  %390 = load i64, ptr %389, align 8
-  %391 = load ptr, ptr %29, align 8
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds %struct._zend_string, ptr %392, i32 0, i32 2
-  %394 = load i64, ptr %393, align 8
-  %395 = icmp ugt i64 %390, %394
-  br i1 %395, label %396, label %933
+389:                                              ; preds = %381
+  %390 = load ptr, ptr %29, align 8
+  %391 = getelementptr inbounds %struct.smart_str, ptr %390, i32 0, i32 1
+  %392 = load i64, ptr %391, align 8
+  %393 = load ptr, ptr %29, align 8
+  %394 = load ptr, ptr %393, align 8
+  %395 = getelementptr inbounds %struct._zend_string, ptr %394, i32 0, i32 2
+  %396 = load i64, ptr %395, align 8
+  %397 = icmp ugt i64 %392, %396
+  br i1 %397, label %398, label %935
 
-396:                                              ; preds = %387
-  %397 = load ptr, ptr %29, align 8
-  %398 = load ptr, ptr %397, align 8
+398:                                              ; preds = %389
   %399 = load ptr, ptr %29, align 8
   %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds %struct._zend_string, ptr %400, i32 0, i32 2
-  %402 = load i64, ptr %401, align 8
-  %403 = load i8, ptr %30, align 1
-  %404 = trunc i8 %403 to i1
-  store ptr %398, ptr %25, align 8
-  store i64 %402, ptr %26, align 8
-  %405 = zext i1 %404 to i8
-  store i8 %405, ptr %27, align 1
-  %406 = load ptr, ptr %25, align 8
-  %407 = getelementptr inbounds %struct._zend_refcounted_h, ptr %406, i32 0, i32 1
-  %408 = load i32, ptr %407, align 4
-  store i32 %408, ptr %19, align 4
-  %409 = load i32, ptr %19, align 4
-  %410 = and i32 %409, 1008
-  %411 = and i32 %410, 64
-  %412 = icmp ne i32 %411, 0
-  br i1 %412, label %453, label %413
+  %401 = load ptr, ptr %29, align 8
+  %402 = load ptr, ptr %401, align 8
+  %403 = getelementptr inbounds %struct._zend_string, ptr %402, i32 0, i32 2
+  %404 = load i64, ptr %403, align 8
+  %405 = load i8, ptr %30, align 1
+  %406 = trunc i8 %405 to i1
+  store ptr %400, ptr %25, align 8
+  store i64 %404, ptr %26, align 8
+  %407 = zext i1 %406 to i8
+  store i8 %407, ptr %27, align 1
+  %408 = load ptr, ptr %25, align 8
+  %409 = getelementptr inbounds %struct._zend_refcounted_h, ptr %408, i32 0, i32 1
+  %410 = load i32, ptr %409, align 4
+  store i32 %410, ptr %19, align 4
+  %411 = load i32, ptr %19, align 4
+  %412 = and i32 %411, 1008
+  %413 = and i32 %412, 64
+  %414 = icmp ne i32 %413, 0
+  br i1 %414, label %455, label %415
 
-413:                                              ; preds = %396
-  %414 = load ptr, ptr %25, align 8
-  store ptr %414, ptr %14, align 8
-  %415 = load ptr, ptr %14, align 8
-  %416 = load i32, ptr %415, align 4
-  %417 = icmp eq i32 %416, 1
-  br i1 %417, label %418, label %452
+415:                                              ; preds = %398
+  %416 = load ptr, ptr %25, align 8
+  store ptr %416, ptr %14, align 8
+  %417 = load ptr, ptr %14, align 8
+  %418 = load i32, ptr %417, align 4
+  %419 = icmp eq i32 %418, 1
+  br i1 %419, label %420, label %454
 
-418:                                              ; preds = %413
-  %419 = load i8, ptr %27, align 1
-  %420 = trunc i8 %419 to i1
-  br i1 %420, label %421, label %430
+420:                                              ; preds = %415
+  %421 = load i8, ptr %27, align 1
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %423, label %432
 
-421:                                              ; preds = %418
-  %422 = load ptr, ptr %25, align 8
-  %423 = load i64, ptr %26, align 8
-  %424 = add i64 24, %423
-  %425 = add i64 %424, 1
-  %426 = add i64 %425, 8
-  %427 = sub i64 %426, 1
-  %428 = and i64 %427, -8
-  %429 = call ptr @__zend_realloc(ptr noundef %422, i64 noundef %428) #13
-  br label %439
+423:                                              ; preds = %420
+  %424 = load ptr, ptr %25, align 8
+  %425 = load i64, ptr %26, align 8
+  %426 = add i64 24, %425
+  %427 = add i64 %426, 1
+  %428 = add i64 %427, 8
+  %429 = sub i64 %428, 1
+  %430 = and i64 %429, -8
+  %431 = call ptr @__zend_realloc(ptr noundef %424, i64 noundef %430) #13
+  br label %441
 
-430:                                              ; preds = %418
-  %431 = load ptr, ptr %25, align 8
-  %432 = load i64, ptr %26, align 8
-  %433 = add i64 24, %432
-  %434 = add i64 %433, 1
-  %435 = add i64 %434, 8
-  %436 = sub i64 %435, 1
-  %437 = and i64 %436, -8
-  %438 = call ptr @_erealloc(ptr noundef %431, i64 noundef %437) #13
-  br label %439
+432:                                              ; preds = %420
+  %433 = load ptr, ptr %25, align 8
+  %434 = load i64, ptr %26, align 8
+  %435 = add i64 24, %434
+  %436 = add i64 %435, 1
+  %437 = add i64 %436, 8
+  %438 = sub i64 %437, 1
+  %439 = and i64 %438, -8
+  %440 = call ptr @_erealloc(ptr noundef %433, i64 noundef %439) #13
+  br label %441
 
-439:                                              ; preds = %430, %421
-  %440 = phi ptr [ %429, %421 ], [ %438, %430 ]
-  store ptr %440, ptr %28, align 8
-  %441 = load i64, ptr %26, align 8
-  %442 = load ptr, ptr %28, align 8
-  %443 = getelementptr inbounds %struct._zend_string, ptr %442, i32 0, i32 2
-  store i64 %441, ptr %443, align 8
+441:                                              ; preds = %432, %423
+  %442 = phi ptr [ %431, %423 ], [ %440, %432 ]
+  store ptr %442, ptr %28, align 8
+  %443 = load i64, ptr %26, align 8
   %444 = load ptr, ptr %28, align 8
-  store ptr %444, ptr %13, align 8
-  %445 = load ptr, ptr %13, align 8
-  %446 = getelementptr inbounds %struct._zend_string, ptr %445, i32 0, i32 1
-  store i64 0, ptr %446, align 8
+  %445 = getelementptr inbounds %struct._zend_string, ptr %444, i32 0, i32 2
+  store i64 %443, ptr %445, align 8
+  %446 = load ptr, ptr %28, align 8
+  store ptr %446, ptr %13, align 8
   %447 = load ptr, ptr %13, align 8
-  %448 = getelementptr inbounds %struct._zend_refcounted_h, ptr %447, i32 0, i32 1
-  %449 = load i32, ptr %448, align 4
-  %450 = and i32 %449, -513
-  store i32 %450, ptr %448, align 4
-  %451 = load ptr, ptr %28, align 8
-  store ptr %451, ptr %24, align 8
-  br label %924
+  %448 = getelementptr inbounds %struct._zend_string, ptr %447, i32 0, i32 1
+  store i64 0, ptr %448, align 8
+  %449 = load ptr, ptr %13, align 8
+  %450 = getelementptr inbounds %struct._zend_refcounted_h, ptr %449, i32 0, i32 1
+  %451 = load i32, ptr %450, align 4
+  %452 = and i32 %451, -513
+  store i32 %452, ptr %450, align 4
+  %453 = load ptr, ptr %28, align 8
+  store ptr %453, ptr %24, align 8
+  br label %926
 
-452:                                              ; preds = %413
-  br label %453
+454:                                              ; preds = %415
+  br label %455
 
-453:                                              ; preds = %452, %396
-  %454 = load i64, ptr %26, align 8
-  %455 = load i8, ptr %27, align 1
-  %456 = trunc i8 %455 to i1
-  store i64 %454, ptr %21, align 8
-  %457 = zext i1 %456 to i8
-  store i8 %457, ptr %22, align 1
-  %458 = load i8, ptr %22, align 1
-  %459 = trunc i8 %458 to i1
-  br i1 %459, label %460, label %468
+455:                                              ; preds = %454, %398
+  %456 = load i64, ptr %26, align 8
+  %457 = load i8, ptr %27, align 1
+  %458 = trunc i8 %457 to i1
+  store i64 %456, ptr %21, align 8
+  %459 = zext i1 %458 to i8
+  store i8 %459, ptr %22, align 1
+  %460 = load i8, ptr %22, align 1
+  %461 = trunc i8 %460 to i1
+  br i1 %461, label %462, label %470
 
-460:                                              ; preds = %453
-  %461 = load i64, ptr %21, align 8
-  %462 = add i64 24, %461
-  %463 = add i64 %462, 1
-  %464 = add i64 %463, 8
-  %465 = sub i64 %464, 1
-  %466 = and i64 %465, -8
-  %467 = call noalias ptr @__zend_malloc(i64 noundef %466) #14
-  br label %872
+462:                                              ; preds = %455
+  %463 = load i64, ptr %21, align 8
+  %464 = add i64 24, %463
+  %465 = add i64 %464, 1
+  %466 = add i64 %465, 8
+  %467 = sub i64 %466, 1
+  %468 = and i64 %467, -8
+  %469 = call noalias ptr @__zend_malloc(i64 noundef %468) #14
+  br label %874
 
-468:                                              ; preds = %453
-  %469 = load i64, ptr %21, align 8
-  %470 = add i64 24, %469
-  %471 = add i64 %470, 1
-  %472 = add i64 %471, 8
-  %473 = sub i64 %472, 1
-  %474 = and i64 %473, -8
-  %475 = call i1 @llvm.is.constant.i64(i64 %474)
-  br i1 %475, label %476, label %862
+470:                                              ; preds = %455
+  %471 = load i64, ptr %21, align 8
+  %472 = add i64 24, %471
+  %473 = add i64 %472, 1
+  %474 = add i64 %473, 8
+  %475 = sub i64 %474, 1
+  %476 = and i64 %475, -8
+  %477 = call i1 @llvm.is.constant.i64(i64 %476)
+  br i1 %477, label %478, label %864
 
-476:                                              ; preds = %468
-  %477 = load i64, ptr %21, align 8
-  %478 = add i64 24, %477
-  %479 = add i64 %478, 1
-  %480 = add i64 %479, 8
-  %481 = sub i64 %480, 1
-  %482 = and i64 %481, -8
-  %483 = icmp ule i64 %482, 8
-  br i1 %483, label %484, label %486
+478:                                              ; preds = %470
+  %479 = load i64, ptr %21, align 8
+  %480 = add i64 24, %479
+  %481 = add i64 %480, 1
+  %482 = add i64 %481, 8
+  %483 = sub i64 %482, 1
+  %484 = and i64 %483, -8
+  %485 = icmp ule i64 %484, 8
+  br i1 %485, label %486, label %488
 
-484:                                              ; preds = %476
-  %485 = call noalias ptr @_emalloc_8() #12
+486:                                              ; preds = %478
+  %487 = call noalias ptr @_emalloc_8() #12
+  br label %862
+
+488:                                              ; preds = %478
+  %489 = load i64, ptr %21, align 8
+  %490 = add i64 24, %489
+  %491 = add i64 %490, 1
+  %492 = add i64 %491, 8
+  %493 = sub i64 %492, 1
+  %494 = and i64 %493, -8
+  %495 = icmp ule i64 %494, 16
+  br i1 %495, label %496, label %498
+
+496:                                              ; preds = %488
+  %497 = call noalias ptr @_emalloc_16() #12
   br label %860
 
-486:                                              ; preds = %476
-  %487 = load i64, ptr %21, align 8
-  %488 = add i64 24, %487
-  %489 = add i64 %488, 1
-  %490 = add i64 %489, 8
-  %491 = sub i64 %490, 1
-  %492 = and i64 %491, -8
-  %493 = icmp ule i64 %492, 16
-  br i1 %493, label %494, label %496
+498:                                              ; preds = %488
+  %499 = load i64, ptr %21, align 8
+  %500 = add i64 24, %499
+  %501 = add i64 %500, 1
+  %502 = add i64 %501, 8
+  %503 = sub i64 %502, 1
+  %504 = and i64 %503, -8
+  %505 = icmp ule i64 %504, 24
+  br i1 %505, label %506, label %508
 
-494:                                              ; preds = %486
-  %495 = call noalias ptr @_emalloc_16() #12
+506:                                              ; preds = %498
+  %507 = call noalias ptr @_emalloc_24() #12
   br label %858
 
-496:                                              ; preds = %486
-  %497 = load i64, ptr %21, align 8
-  %498 = add i64 24, %497
-  %499 = add i64 %498, 1
-  %500 = add i64 %499, 8
-  %501 = sub i64 %500, 1
-  %502 = and i64 %501, -8
-  %503 = icmp ule i64 %502, 24
-  br i1 %503, label %504, label %506
+508:                                              ; preds = %498
+  %509 = load i64, ptr %21, align 8
+  %510 = add i64 24, %509
+  %511 = add i64 %510, 1
+  %512 = add i64 %511, 8
+  %513 = sub i64 %512, 1
+  %514 = and i64 %513, -8
+  %515 = icmp ule i64 %514, 32
+  br i1 %515, label %516, label %518
 
-504:                                              ; preds = %496
-  %505 = call noalias ptr @_emalloc_24() #12
+516:                                              ; preds = %508
+  %517 = call noalias ptr @_emalloc_32() #12
   br label %856
 
-506:                                              ; preds = %496
-  %507 = load i64, ptr %21, align 8
-  %508 = add i64 24, %507
-  %509 = add i64 %508, 1
-  %510 = add i64 %509, 8
-  %511 = sub i64 %510, 1
-  %512 = and i64 %511, -8
-  %513 = icmp ule i64 %512, 32
-  br i1 %513, label %514, label %516
+518:                                              ; preds = %508
+  %519 = load i64, ptr %21, align 8
+  %520 = add i64 24, %519
+  %521 = add i64 %520, 1
+  %522 = add i64 %521, 8
+  %523 = sub i64 %522, 1
+  %524 = and i64 %523, -8
+  %525 = icmp ule i64 %524, 40
+  br i1 %525, label %526, label %528
 
-514:                                              ; preds = %506
-  %515 = call noalias ptr @_emalloc_32() #12
+526:                                              ; preds = %518
+  %527 = call noalias ptr @_emalloc_40() #12
   br label %854
 
-516:                                              ; preds = %506
-  %517 = load i64, ptr %21, align 8
-  %518 = add i64 24, %517
-  %519 = add i64 %518, 1
-  %520 = add i64 %519, 8
-  %521 = sub i64 %520, 1
-  %522 = and i64 %521, -8
-  %523 = icmp ule i64 %522, 40
-  br i1 %523, label %524, label %526
+528:                                              ; preds = %518
+  %529 = load i64, ptr %21, align 8
+  %530 = add i64 24, %529
+  %531 = add i64 %530, 1
+  %532 = add i64 %531, 8
+  %533 = sub i64 %532, 1
+  %534 = and i64 %533, -8
+  %535 = icmp ule i64 %534, 48
+  br i1 %535, label %536, label %538
 
-524:                                              ; preds = %516
-  %525 = call noalias ptr @_emalloc_40() #12
+536:                                              ; preds = %528
+  %537 = call noalias ptr @_emalloc_48() #12
   br label %852
 
-526:                                              ; preds = %516
-  %527 = load i64, ptr %21, align 8
-  %528 = add i64 24, %527
-  %529 = add i64 %528, 1
-  %530 = add i64 %529, 8
-  %531 = sub i64 %530, 1
-  %532 = and i64 %531, -8
-  %533 = icmp ule i64 %532, 48
-  br i1 %533, label %534, label %536
+538:                                              ; preds = %528
+  %539 = load i64, ptr %21, align 8
+  %540 = add i64 24, %539
+  %541 = add i64 %540, 1
+  %542 = add i64 %541, 8
+  %543 = sub i64 %542, 1
+  %544 = and i64 %543, -8
+  %545 = icmp ule i64 %544, 56
+  br i1 %545, label %546, label %548
 
-534:                                              ; preds = %526
-  %535 = call noalias ptr @_emalloc_48() #12
+546:                                              ; preds = %538
+  %547 = call noalias ptr @_emalloc_56() #12
   br label %850
 
-536:                                              ; preds = %526
-  %537 = load i64, ptr %21, align 8
-  %538 = add i64 24, %537
-  %539 = add i64 %538, 1
-  %540 = add i64 %539, 8
-  %541 = sub i64 %540, 1
-  %542 = and i64 %541, -8
-  %543 = icmp ule i64 %542, 56
-  br i1 %543, label %544, label %546
+548:                                              ; preds = %538
+  %549 = load i64, ptr %21, align 8
+  %550 = add i64 24, %549
+  %551 = add i64 %550, 1
+  %552 = add i64 %551, 8
+  %553 = sub i64 %552, 1
+  %554 = and i64 %553, -8
+  %555 = icmp ule i64 %554, 64
+  br i1 %555, label %556, label %558
 
-544:                                              ; preds = %536
-  %545 = call noalias ptr @_emalloc_56() #12
+556:                                              ; preds = %548
+  %557 = call noalias ptr @_emalloc_64() #12
   br label %848
 
-546:                                              ; preds = %536
-  %547 = load i64, ptr %21, align 8
-  %548 = add i64 24, %547
-  %549 = add i64 %548, 1
-  %550 = add i64 %549, 8
-  %551 = sub i64 %550, 1
-  %552 = and i64 %551, -8
-  %553 = icmp ule i64 %552, 64
-  br i1 %553, label %554, label %556
+558:                                              ; preds = %548
+  %559 = load i64, ptr %21, align 8
+  %560 = add i64 24, %559
+  %561 = add i64 %560, 1
+  %562 = add i64 %561, 8
+  %563 = sub i64 %562, 1
+  %564 = and i64 %563, -8
+  %565 = icmp ule i64 %564, 80
+  br i1 %565, label %566, label %568
 
-554:                                              ; preds = %546
-  %555 = call noalias ptr @_emalloc_64() #12
+566:                                              ; preds = %558
+  %567 = call noalias ptr @_emalloc_80() #12
   br label %846
 
-556:                                              ; preds = %546
-  %557 = load i64, ptr %21, align 8
-  %558 = add i64 24, %557
-  %559 = add i64 %558, 1
-  %560 = add i64 %559, 8
-  %561 = sub i64 %560, 1
-  %562 = and i64 %561, -8
-  %563 = icmp ule i64 %562, 80
-  br i1 %563, label %564, label %566
+568:                                              ; preds = %558
+  %569 = load i64, ptr %21, align 8
+  %570 = add i64 24, %569
+  %571 = add i64 %570, 1
+  %572 = add i64 %571, 8
+  %573 = sub i64 %572, 1
+  %574 = and i64 %573, -8
+  %575 = icmp ule i64 %574, 96
+  br i1 %575, label %576, label %578
 
-564:                                              ; preds = %556
-  %565 = call noalias ptr @_emalloc_80() #12
+576:                                              ; preds = %568
+  %577 = call noalias ptr @_emalloc_96() #12
   br label %844
 
-566:                                              ; preds = %556
-  %567 = load i64, ptr %21, align 8
-  %568 = add i64 24, %567
-  %569 = add i64 %568, 1
-  %570 = add i64 %569, 8
-  %571 = sub i64 %570, 1
-  %572 = and i64 %571, -8
-  %573 = icmp ule i64 %572, 96
-  br i1 %573, label %574, label %576
+578:                                              ; preds = %568
+  %579 = load i64, ptr %21, align 8
+  %580 = add i64 24, %579
+  %581 = add i64 %580, 1
+  %582 = add i64 %581, 8
+  %583 = sub i64 %582, 1
+  %584 = and i64 %583, -8
+  %585 = icmp ule i64 %584, 112
+  br i1 %585, label %586, label %588
 
-574:                                              ; preds = %566
-  %575 = call noalias ptr @_emalloc_96() #12
+586:                                              ; preds = %578
+  %587 = call noalias ptr @_emalloc_112() #12
   br label %842
 
-576:                                              ; preds = %566
-  %577 = load i64, ptr %21, align 8
-  %578 = add i64 24, %577
-  %579 = add i64 %578, 1
-  %580 = add i64 %579, 8
-  %581 = sub i64 %580, 1
-  %582 = and i64 %581, -8
-  %583 = icmp ule i64 %582, 112
-  br i1 %583, label %584, label %586
+588:                                              ; preds = %578
+  %589 = load i64, ptr %21, align 8
+  %590 = add i64 24, %589
+  %591 = add i64 %590, 1
+  %592 = add i64 %591, 8
+  %593 = sub i64 %592, 1
+  %594 = and i64 %593, -8
+  %595 = icmp ule i64 %594, 128
+  br i1 %595, label %596, label %598
 
-584:                                              ; preds = %576
-  %585 = call noalias ptr @_emalloc_112() #12
+596:                                              ; preds = %588
+  %597 = call noalias ptr @_emalloc_128() #12
   br label %840
 
-586:                                              ; preds = %576
-  %587 = load i64, ptr %21, align 8
-  %588 = add i64 24, %587
-  %589 = add i64 %588, 1
-  %590 = add i64 %589, 8
-  %591 = sub i64 %590, 1
-  %592 = and i64 %591, -8
-  %593 = icmp ule i64 %592, 128
-  br i1 %593, label %594, label %596
+598:                                              ; preds = %588
+  %599 = load i64, ptr %21, align 8
+  %600 = add i64 24, %599
+  %601 = add i64 %600, 1
+  %602 = add i64 %601, 8
+  %603 = sub i64 %602, 1
+  %604 = and i64 %603, -8
+  %605 = icmp ule i64 %604, 160
+  br i1 %605, label %606, label %608
 
-594:                                              ; preds = %586
-  %595 = call noalias ptr @_emalloc_128() #12
+606:                                              ; preds = %598
+  %607 = call noalias ptr @_emalloc_160() #12
   br label %838
 
-596:                                              ; preds = %586
-  %597 = load i64, ptr %21, align 8
-  %598 = add i64 24, %597
-  %599 = add i64 %598, 1
-  %600 = add i64 %599, 8
-  %601 = sub i64 %600, 1
-  %602 = and i64 %601, -8
-  %603 = icmp ule i64 %602, 160
-  br i1 %603, label %604, label %606
+608:                                              ; preds = %598
+  %609 = load i64, ptr %21, align 8
+  %610 = add i64 24, %609
+  %611 = add i64 %610, 1
+  %612 = add i64 %611, 8
+  %613 = sub i64 %612, 1
+  %614 = and i64 %613, -8
+  %615 = icmp ule i64 %614, 192
+  br i1 %615, label %616, label %618
 
-604:                                              ; preds = %596
-  %605 = call noalias ptr @_emalloc_160() #12
+616:                                              ; preds = %608
+  %617 = call noalias ptr @_emalloc_192() #12
   br label %836
 
-606:                                              ; preds = %596
-  %607 = load i64, ptr %21, align 8
-  %608 = add i64 24, %607
-  %609 = add i64 %608, 1
-  %610 = add i64 %609, 8
-  %611 = sub i64 %610, 1
-  %612 = and i64 %611, -8
-  %613 = icmp ule i64 %612, 192
-  br i1 %613, label %614, label %616
+618:                                              ; preds = %608
+  %619 = load i64, ptr %21, align 8
+  %620 = add i64 24, %619
+  %621 = add i64 %620, 1
+  %622 = add i64 %621, 8
+  %623 = sub i64 %622, 1
+  %624 = and i64 %623, -8
+  %625 = icmp ule i64 %624, 224
+  br i1 %625, label %626, label %628
 
-614:                                              ; preds = %606
-  %615 = call noalias ptr @_emalloc_192() #12
+626:                                              ; preds = %618
+  %627 = call noalias ptr @_emalloc_224() #12
   br label %834
 
-616:                                              ; preds = %606
-  %617 = load i64, ptr %21, align 8
-  %618 = add i64 24, %617
-  %619 = add i64 %618, 1
-  %620 = add i64 %619, 8
-  %621 = sub i64 %620, 1
-  %622 = and i64 %621, -8
-  %623 = icmp ule i64 %622, 224
-  br i1 %623, label %624, label %626
+628:                                              ; preds = %618
+  %629 = load i64, ptr %21, align 8
+  %630 = add i64 24, %629
+  %631 = add i64 %630, 1
+  %632 = add i64 %631, 8
+  %633 = sub i64 %632, 1
+  %634 = and i64 %633, -8
+  %635 = icmp ule i64 %634, 256
+  br i1 %635, label %636, label %638
 
-624:                                              ; preds = %616
-  %625 = call noalias ptr @_emalloc_224() #12
+636:                                              ; preds = %628
+  %637 = call noalias ptr @_emalloc_256() #12
   br label %832
 
-626:                                              ; preds = %616
-  %627 = load i64, ptr %21, align 8
-  %628 = add i64 24, %627
-  %629 = add i64 %628, 1
-  %630 = add i64 %629, 8
-  %631 = sub i64 %630, 1
-  %632 = and i64 %631, -8
-  %633 = icmp ule i64 %632, 256
-  br i1 %633, label %634, label %636
+638:                                              ; preds = %628
+  %639 = load i64, ptr %21, align 8
+  %640 = add i64 24, %639
+  %641 = add i64 %640, 1
+  %642 = add i64 %641, 8
+  %643 = sub i64 %642, 1
+  %644 = and i64 %643, -8
+  %645 = icmp ule i64 %644, 320
+  br i1 %645, label %646, label %648
 
-634:                                              ; preds = %626
-  %635 = call noalias ptr @_emalloc_256() #12
+646:                                              ; preds = %638
+  %647 = call noalias ptr @_emalloc_320() #12
   br label %830
 
-636:                                              ; preds = %626
-  %637 = load i64, ptr %21, align 8
-  %638 = add i64 24, %637
-  %639 = add i64 %638, 1
-  %640 = add i64 %639, 8
-  %641 = sub i64 %640, 1
-  %642 = and i64 %641, -8
-  %643 = icmp ule i64 %642, 320
-  br i1 %643, label %644, label %646
+648:                                              ; preds = %638
+  %649 = load i64, ptr %21, align 8
+  %650 = add i64 24, %649
+  %651 = add i64 %650, 1
+  %652 = add i64 %651, 8
+  %653 = sub i64 %652, 1
+  %654 = and i64 %653, -8
+  %655 = icmp ule i64 %654, 384
+  br i1 %655, label %656, label %658
 
-644:                                              ; preds = %636
-  %645 = call noalias ptr @_emalloc_320() #12
+656:                                              ; preds = %648
+  %657 = call noalias ptr @_emalloc_384() #12
   br label %828
 
-646:                                              ; preds = %636
-  %647 = load i64, ptr %21, align 8
-  %648 = add i64 24, %647
-  %649 = add i64 %648, 1
-  %650 = add i64 %649, 8
-  %651 = sub i64 %650, 1
-  %652 = and i64 %651, -8
-  %653 = icmp ule i64 %652, 384
-  br i1 %653, label %654, label %656
+658:                                              ; preds = %648
+  %659 = load i64, ptr %21, align 8
+  %660 = add i64 24, %659
+  %661 = add i64 %660, 1
+  %662 = add i64 %661, 8
+  %663 = sub i64 %662, 1
+  %664 = and i64 %663, -8
+  %665 = icmp ule i64 %664, 448
+  br i1 %665, label %666, label %668
 
-654:                                              ; preds = %646
-  %655 = call noalias ptr @_emalloc_384() #12
+666:                                              ; preds = %658
+  %667 = call noalias ptr @_emalloc_448() #12
   br label %826
 
-656:                                              ; preds = %646
-  %657 = load i64, ptr %21, align 8
-  %658 = add i64 24, %657
-  %659 = add i64 %658, 1
-  %660 = add i64 %659, 8
-  %661 = sub i64 %660, 1
-  %662 = and i64 %661, -8
-  %663 = icmp ule i64 %662, 448
-  br i1 %663, label %664, label %666
+668:                                              ; preds = %658
+  %669 = load i64, ptr %21, align 8
+  %670 = add i64 24, %669
+  %671 = add i64 %670, 1
+  %672 = add i64 %671, 8
+  %673 = sub i64 %672, 1
+  %674 = and i64 %673, -8
+  %675 = icmp ule i64 %674, 512
+  br i1 %675, label %676, label %678
 
-664:                                              ; preds = %656
-  %665 = call noalias ptr @_emalloc_448() #12
+676:                                              ; preds = %668
+  %677 = call noalias ptr @_emalloc_512() #12
   br label %824
 
-666:                                              ; preds = %656
-  %667 = load i64, ptr %21, align 8
-  %668 = add i64 24, %667
-  %669 = add i64 %668, 1
-  %670 = add i64 %669, 8
-  %671 = sub i64 %670, 1
-  %672 = and i64 %671, -8
-  %673 = icmp ule i64 %672, 512
-  br i1 %673, label %674, label %676
+678:                                              ; preds = %668
+  %679 = load i64, ptr %21, align 8
+  %680 = add i64 24, %679
+  %681 = add i64 %680, 1
+  %682 = add i64 %681, 8
+  %683 = sub i64 %682, 1
+  %684 = and i64 %683, -8
+  %685 = icmp ule i64 %684, 640
+  br i1 %685, label %686, label %688
 
-674:                                              ; preds = %666
-  %675 = call noalias ptr @_emalloc_512() #12
+686:                                              ; preds = %678
+  %687 = call noalias ptr @_emalloc_640() #12
   br label %822
 
-676:                                              ; preds = %666
-  %677 = load i64, ptr %21, align 8
-  %678 = add i64 24, %677
-  %679 = add i64 %678, 1
-  %680 = add i64 %679, 8
-  %681 = sub i64 %680, 1
-  %682 = and i64 %681, -8
-  %683 = icmp ule i64 %682, 640
-  br i1 %683, label %684, label %686
+688:                                              ; preds = %678
+  %689 = load i64, ptr %21, align 8
+  %690 = add i64 24, %689
+  %691 = add i64 %690, 1
+  %692 = add i64 %691, 8
+  %693 = sub i64 %692, 1
+  %694 = and i64 %693, -8
+  %695 = icmp ule i64 %694, 768
+  br i1 %695, label %696, label %698
 
-684:                                              ; preds = %676
-  %685 = call noalias ptr @_emalloc_640() #12
+696:                                              ; preds = %688
+  %697 = call noalias ptr @_emalloc_768() #12
   br label %820
 
-686:                                              ; preds = %676
-  %687 = load i64, ptr %21, align 8
-  %688 = add i64 24, %687
-  %689 = add i64 %688, 1
-  %690 = add i64 %689, 8
-  %691 = sub i64 %690, 1
-  %692 = and i64 %691, -8
-  %693 = icmp ule i64 %692, 768
-  br i1 %693, label %694, label %696
+698:                                              ; preds = %688
+  %699 = load i64, ptr %21, align 8
+  %700 = add i64 24, %699
+  %701 = add i64 %700, 1
+  %702 = add i64 %701, 8
+  %703 = sub i64 %702, 1
+  %704 = and i64 %703, -8
+  %705 = icmp ule i64 %704, 896
+  br i1 %705, label %706, label %708
 
-694:                                              ; preds = %686
-  %695 = call noalias ptr @_emalloc_768() #12
+706:                                              ; preds = %698
+  %707 = call noalias ptr @_emalloc_896() #12
   br label %818
 
-696:                                              ; preds = %686
-  %697 = load i64, ptr %21, align 8
-  %698 = add i64 24, %697
-  %699 = add i64 %698, 1
-  %700 = add i64 %699, 8
-  %701 = sub i64 %700, 1
-  %702 = and i64 %701, -8
-  %703 = icmp ule i64 %702, 896
-  br i1 %703, label %704, label %706
+708:                                              ; preds = %698
+  %709 = load i64, ptr %21, align 8
+  %710 = add i64 24, %709
+  %711 = add i64 %710, 1
+  %712 = add i64 %711, 8
+  %713 = sub i64 %712, 1
+  %714 = and i64 %713, -8
+  %715 = icmp ule i64 %714, 1024
+  br i1 %715, label %716, label %718
 
-704:                                              ; preds = %696
-  %705 = call noalias ptr @_emalloc_896() #12
+716:                                              ; preds = %708
+  %717 = call noalias ptr @_emalloc_1024() #12
   br label %816
 
-706:                                              ; preds = %696
-  %707 = load i64, ptr %21, align 8
-  %708 = add i64 24, %707
-  %709 = add i64 %708, 1
-  %710 = add i64 %709, 8
-  %711 = sub i64 %710, 1
-  %712 = and i64 %711, -8
-  %713 = icmp ule i64 %712, 1024
-  br i1 %713, label %714, label %716
+718:                                              ; preds = %708
+  %719 = load i64, ptr %21, align 8
+  %720 = add i64 24, %719
+  %721 = add i64 %720, 1
+  %722 = add i64 %721, 8
+  %723 = sub i64 %722, 1
+  %724 = and i64 %723, -8
+  %725 = icmp ule i64 %724, 1280
+  br i1 %725, label %726, label %728
 
-714:                                              ; preds = %706
-  %715 = call noalias ptr @_emalloc_1024() #12
+726:                                              ; preds = %718
+  %727 = call noalias ptr @_emalloc_1280() #12
   br label %814
 
-716:                                              ; preds = %706
-  %717 = load i64, ptr %21, align 8
-  %718 = add i64 24, %717
-  %719 = add i64 %718, 1
-  %720 = add i64 %719, 8
-  %721 = sub i64 %720, 1
-  %722 = and i64 %721, -8
-  %723 = icmp ule i64 %722, 1280
-  br i1 %723, label %724, label %726
+728:                                              ; preds = %718
+  %729 = load i64, ptr %21, align 8
+  %730 = add i64 24, %729
+  %731 = add i64 %730, 1
+  %732 = add i64 %731, 8
+  %733 = sub i64 %732, 1
+  %734 = and i64 %733, -8
+  %735 = icmp ule i64 %734, 1536
+  br i1 %735, label %736, label %738
 
-724:                                              ; preds = %716
-  %725 = call noalias ptr @_emalloc_1280() #12
+736:                                              ; preds = %728
+  %737 = call noalias ptr @_emalloc_1536() #12
   br label %812
 
-726:                                              ; preds = %716
-  %727 = load i64, ptr %21, align 8
-  %728 = add i64 24, %727
-  %729 = add i64 %728, 1
-  %730 = add i64 %729, 8
-  %731 = sub i64 %730, 1
-  %732 = and i64 %731, -8
-  %733 = icmp ule i64 %732, 1536
-  br i1 %733, label %734, label %736
+738:                                              ; preds = %728
+  %739 = load i64, ptr %21, align 8
+  %740 = add i64 24, %739
+  %741 = add i64 %740, 1
+  %742 = add i64 %741, 8
+  %743 = sub i64 %742, 1
+  %744 = and i64 %743, -8
+  %745 = icmp ule i64 %744, 1792
+  br i1 %745, label %746, label %748
 
-734:                                              ; preds = %726
-  %735 = call noalias ptr @_emalloc_1536() #12
+746:                                              ; preds = %738
+  %747 = call noalias ptr @_emalloc_1792() #12
   br label %810
 
-736:                                              ; preds = %726
-  %737 = load i64, ptr %21, align 8
-  %738 = add i64 24, %737
-  %739 = add i64 %738, 1
-  %740 = add i64 %739, 8
-  %741 = sub i64 %740, 1
-  %742 = and i64 %741, -8
-  %743 = icmp ule i64 %742, 1792
-  br i1 %743, label %744, label %746
+748:                                              ; preds = %738
+  %749 = load i64, ptr %21, align 8
+  %750 = add i64 24, %749
+  %751 = add i64 %750, 1
+  %752 = add i64 %751, 8
+  %753 = sub i64 %752, 1
+  %754 = and i64 %753, -8
+  %755 = icmp ule i64 %754, 2048
+  br i1 %755, label %756, label %758
 
-744:                                              ; preds = %736
-  %745 = call noalias ptr @_emalloc_1792() #12
+756:                                              ; preds = %748
+  %757 = call noalias ptr @_emalloc_2048() #12
   br label %808
 
-746:                                              ; preds = %736
-  %747 = load i64, ptr %21, align 8
-  %748 = add i64 24, %747
-  %749 = add i64 %748, 1
-  %750 = add i64 %749, 8
-  %751 = sub i64 %750, 1
-  %752 = and i64 %751, -8
-  %753 = icmp ule i64 %752, 2048
-  br i1 %753, label %754, label %756
+758:                                              ; preds = %748
+  %759 = load i64, ptr %21, align 8
+  %760 = add i64 24, %759
+  %761 = add i64 %760, 1
+  %762 = add i64 %761, 8
+  %763 = sub i64 %762, 1
+  %764 = and i64 %763, -8
+  %765 = icmp ule i64 %764, 2560
+  br i1 %765, label %766, label %768
 
-754:                                              ; preds = %746
-  %755 = call noalias ptr @_emalloc_2048() #12
+766:                                              ; preds = %758
+  %767 = call noalias ptr @_emalloc_2560() #12
   br label %806
 
-756:                                              ; preds = %746
-  %757 = load i64, ptr %21, align 8
-  %758 = add i64 24, %757
-  %759 = add i64 %758, 1
-  %760 = add i64 %759, 8
-  %761 = sub i64 %760, 1
-  %762 = and i64 %761, -8
-  %763 = icmp ule i64 %762, 2560
-  br i1 %763, label %764, label %766
+768:                                              ; preds = %758
+  %769 = load i64, ptr %21, align 8
+  %770 = add i64 24, %769
+  %771 = add i64 %770, 1
+  %772 = add i64 %771, 8
+  %773 = sub i64 %772, 1
+  %774 = and i64 %773, -8
+  %775 = icmp ule i64 %774, 3072
+  br i1 %775, label %776, label %778
 
-764:                                              ; preds = %756
-  %765 = call noalias ptr @_emalloc_2560() #12
+776:                                              ; preds = %768
+  %777 = call noalias ptr @_emalloc_3072() #12
   br label %804
 
-766:                                              ; preds = %756
-  %767 = load i64, ptr %21, align 8
-  %768 = add i64 24, %767
-  %769 = add i64 %768, 1
-  %770 = add i64 %769, 8
-  %771 = sub i64 %770, 1
-  %772 = and i64 %771, -8
-  %773 = icmp ule i64 %772, 3072
-  br i1 %773, label %774, label %776
+778:                                              ; preds = %768
+  %779 = load i64, ptr %21, align 8
+  %780 = add i64 24, %779
+  %781 = add i64 %780, 1
+  %782 = add i64 %781, 8
+  %783 = sub i64 %782, 1
+  %784 = and i64 %783, -8
+  %785 = icmp ule i64 %784, 2093056
+  br i1 %785, label %786, label %794
 
-774:                                              ; preds = %766
-  %775 = call noalias ptr @_emalloc_3072() #12
+786:                                              ; preds = %778
+  %787 = load i64, ptr %21, align 8
+  %788 = add i64 24, %787
+  %789 = add i64 %788, 1
+  %790 = add i64 %789, 8
+  %791 = sub i64 %790, 1
+  %792 = and i64 %791, -8
+  %793 = call noalias ptr @_emalloc_large(i64 noundef %792) #14
   br label %802
 
-776:                                              ; preds = %766
-  %777 = load i64, ptr %21, align 8
-  %778 = add i64 24, %777
-  %779 = add i64 %778, 1
-  %780 = add i64 %779, 8
-  %781 = sub i64 %780, 1
-  %782 = and i64 %781, -8
-  %783 = icmp ule i64 %782, 2093056
-  br i1 %783, label %784, label %792
-
-784:                                              ; preds = %776
-  %785 = load i64, ptr %21, align 8
-  %786 = add i64 24, %785
-  %787 = add i64 %786, 1
-  %788 = add i64 %787, 8
-  %789 = sub i64 %788, 1
-  %790 = and i64 %789, -8
-  %791 = call noalias ptr @_emalloc_large(i64 noundef %790) #14
-  br label %800
-
-792:                                              ; preds = %776
-  %793 = load i64, ptr %21, align 8
-  %794 = add i64 24, %793
-  %795 = add i64 %794, 1
-  %796 = add i64 %795, 8
-  %797 = sub i64 %796, 1
-  %798 = and i64 %797, -8
-  %799 = call noalias ptr @_emalloc_huge(i64 noundef %798) #14
-  br label %800
-
-800:                                              ; preds = %792, %784
-  %801 = phi ptr [ %791, %784 ], [ %799, %792 ]
+794:                                              ; preds = %778
+  %795 = load i64, ptr %21, align 8
+  %796 = add i64 24, %795
+  %797 = add i64 %796, 1
+  %798 = add i64 %797, 8
+  %799 = sub i64 %798, 1
+  %800 = and i64 %799, -8
+  %801 = call noalias ptr @_emalloc_huge(i64 noundef %800) #14
   br label %802
 
-802:                                              ; preds = %800, %774
-  %803 = phi ptr [ %775, %774 ], [ %801, %800 ]
+802:                                              ; preds = %794, %786
+  %803 = phi ptr [ %793, %786 ], [ %801, %794 ]
   br label %804
 
-804:                                              ; preds = %802, %764
-  %805 = phi ptr [ %765, %764 ], [ %803, %802 ]
+804:                                              ; preds = %802, %776
+  %805 = phi ptr [ %777, %776 ], [ %803, %802 ]
   br label %806
 
-806:                                              ; preds = %804, %754
-  %807 = phi ptr [ %755, %754 ], [ %805, %804 ]
+806:                                              ; preds = %804, %766
+  %807 = phi ptr [ %767, %766 ], [ %805, %804 ]
   br label %808
 
-808:                                              ; preds = %806, %744
-  %809 = phi ptr [ %745, %744 ], [ %807, %806 ]
+808:                                              ; preds = %806, %756
+  %809 = phi ptr [ %757, %756 ], [ %807, %806 ]
   br label %810
 
-810:                                              ; preds = %808, %734
-  %811 = phi ptr [ %735, %734 ], [ %809, %808 ]
+810:                                              ; preds = %808, %746
+  %811 = phi ptr [ %747, %746 ], [ %809, %808 ]
   br label %812
 
-812:                                              ; preds = %810, %724
-  %813 = phi ptr [ %725, %724 ], [ %811, %810 ]
+812:                                              ; preds = %810, %736
+  %813 = phi ptr [ %737, %736 ], [ %811, %810 ]
   br label %814
 
-814:                                              ; preds = %812, %714
-  %815 = phi ptr [ %715, %714 ], [ %813, %812 ]
+814:                                              ; preds = %812, %726
+  %815 = phi ptr [ %727, %726 ], [ %813, %812 ]
   br label %816
 
-816:                                              ; preds = %814, %704
-  %817 = phi ptr [ %705, %704 ], [ %815, %814 ]
+816:                                              ; preds = %814, %716
+  %817 = phi ptr [ %717, %716 ], [ %815, %814 ]
   br label %818
 
-818:                                              ; preds = %816, %694
-  %819 = phi ptr [ %695, %694 ], [ %817, %816 ]
+818:                                              ; preds = %816, %706
+  %819 = phi ptr [ %707, %706 ], [ %817, %816 ]
   br label %820
 
-820:                                              ; preds = %818, %684
-  %821 = phi ptr [ %685, %684 ], [ %819, %818 ]
+820:                                              ; preds = %818, %696
+  %821 = phi ptr [ %697, %696 ], [ %819, %818 ]
   br label %822
 
-822:                                              ; preds = %820, %674
-  %823 = phi ptr [ %675, %674 ], [ %821, %820 ]
+822:                                              ; preds = %820, %686
+  %823 = phi ptr [ %687, %686 ], [ %821, %820 ]
   br label %824
 
-824:                                              ; preds = %822, %664
-  %825 = phi ptr [ %665, %664 ], [ %823, %822 ]
+824:                                              ; preds = %822, %676
+  %825 = phi ptr [ %677, %676 ], [ %823, %822 ]
   br label %826
 
-826:                                              ; preds = %824, %654
-  %827 = phi ptr [ %655, %654 ], [ %825, %824 ]
+826:                                              ; preds = %824, %666
+  %827 = phi ptr [ %667, %666 ], [ %825, %824 ]
   br label %828
 
-828:                                              ; preds = %826, %644
-  %829 = phi ptr [ %645, %644 ], [ %827, %826 ]
+828:                                              ; preds = %826, %656
+  %829 = phi ptr [ %657, %656 ], [ %827, %826 ]
   br label %830
 
-830:                                              ; preds = %828, %634
-  %831 = phi ptr [ %635, %634 ], [ %829, %828 ]
+830:                                              ; preds = %828, %646
+  %831 = phi ptr [ %647, %646 ], [ %829, %828 ]
   br label %832
 
-832:                                              ; preds = %830, %624
-  %833 = phi ptr [ %625, %624 ], [ %831, %830 ]
+832:                                              ; preds = %830, %636
+  %833 = phi ptr [ %637, %636 ], [ %831, %830 ]
   br label %834
 
-834:                                              ; preds = %832, %614
-  %835 = phi ptr [ %615, %614 ], [ %833, %832 ]
+834:                                              ; preds = %832, %626
+  %835 = phi ptr [ %627, %626 ], [ %833, %832 ]
   br label %836
 
-836:                                              ; preds = %834, %604
-  %837 = phi ptr [ %605, %604 ], [ %835, %834 ]
+836:                                              ; preds = %834, %616
+  %837 = phi ptr [ %617, %616 ], [ %835, %834 ]
   br label %838
 
-838:                                              ; preds = %836, %594
-  %839 = phi ptr [ %595, %594 ], [ %837, %836 ]
+838:                                              ; preds = %836, %606
+  %839 = phi ptr [ %607, %606 ], [ %837, %836 ]
   br label %840
 
-840:                                              ; preds = %838, %584
-  %841 = phi ptr [ %585, %584 ], [ %839, %838 ]
+840:                                              ; preds = %838, %596
+  %841 = phi ptr [ %597, %596 ], [ %839, %838 ]
   br label %842
 
-842:                                              ; preds = %840, %574
-  %843 = phi ptr [ %575, %574 ], [ %841, %840 ]
+842:                                              ; preds = %840, %586
+  %843 = phi ptr [ %587, %586 ], [ %841, %840 ]
   br label %844
 
-844:                                              ; preds = %842, %564
-  %845 = phi ptr [ %565, %564 ], [ %843, %842 ]
+844:                                              ; preds = %842, %576
+  %845 = phi ptr [ %577, %576 ], [ %843, %842 ]
   br label %846
 
-846:                                              ; preds = %844, %554
-  %847 = phi ptr [ %555, %554 ], [ %845, %844 ]
+846:                                              ; preds = %844, %566
+  %847 = phi ptr [ %567, %566 ], [ %845, %844 ]
   br label %848
 
-848:                                              ; preds = %846, %544
-  %849 = phi ptr [ %545, %544 ], [ %847, %846 ]
+848:                                              ; preds = %846, %556
+  %849 = phi ptr [ %557, %556 ], [ %847, %846 ]
   br label %850
 
-850:                                              ; preds = %848, %534
-  %851 = phi ptr [ %535, %534 ], [ %849, %848 ]
+850:                                              ; preds = %848, %546
+  %851 = phi ptr [ %547, %546 ], [ %849, %848 ]
   br label %852
 
-852:                                              ; preds = %850, %524
-  %853 = phi ptr [ %525, %524 ], [ %851, %850 ]
+852:                                              ; preds = %850, %536
+  %853 = phi ptr [ %537, %536 ], [ %851, %850 ]
   br label %854
 
-854:                                              ; preds = %852, %514
-  %855 = phi ptr [ %515, %514 ], [ %853, %852 ]
+854:                                              ; preds = %852, %526
+  %855 = phi ptr [ %527, %526 ], [ %853, %852 ]
   br label %856
 
-856:                                              ; preds = %854, %504
-  %857 = phi ptr [ %505, %504 ], [ %855, %854 ]
+856:                                              ; preds = %854, %516
+  %857 = phi ptr [ %517, %516 ], [ %855, %854 ]
   br label %858
 
-858:                                              ; preds = %856, %494
-  %859 = phi ptr [ %495, %494 ], [ %857, %856 ]
+858:                                              ; preds = %856, %506
+  %859 = phi ptr [ %507, %506 ], [ %857, %856 ]
   br label %860
 
-860:                                              ; preds = %858, %484
-  %861 = phi ptr [ %485, %484 ], [ %859, %858 ]
-  br label %870
+860:                                              ; preds = %858, %496
+  %861 = phi ptr [ %497, %496 ], [ %859, %858 ]
+  br label %862
 
-862:                                              ; preds = %468
-  %863 = load i64, ptr %21, align 8
-  %864 = add i64 24, %863
-  %865 = add i64 %864, 1
-  %866 = add i64 %865, 8
-  %867 = sub i64 %866, 1
-  %868 = and i64 %867, -8
-  %869 = call noalias ptr @_emalloc(i64 noundef %868) #14
-  br label %870
-
-870:                                              ; preds = %862, %860
-  %871 = phi ptr [ %861, %860 ], [ %869, %862 ]
+862:                                              ; preds = %860, %486
+  %863 = phi ptr [ %487, %486 ], [ %861, %860 ]
   br label %872
 
-872:                                              ; preds = %870, %460
-  %873 = phi ptr [ %467, %460 ], [ %871, %870 ]
-  store ptr %873, ptr %23, align 8
-  %874 = load ptr, ptr %23, align 8
-  store ptr %874, ptr %7, align 8
+864:                                              ; preds = %470
+  %865 = load i64, ptr %21, align 8
+  %866 = add i64 24, %865
+  %867 = add i64 %866, 1
+  %868 = add i64 %867, 8
+  %869 = sub i64 %868, 1
+  %870 = and i64 %869, -8
+  %871 = call noalias ptr @_emalloc(i64 noundef %870) #14
+  br label %872
+
+872:                                              ; preds = %864, %862
+  %873 = phi ptr [ %863, %862 ], [ %871, %864 ]
+  br label %874
+
+874:                                              ; preds = %872, %462
+  %875 = phi ptr [ %469, %462 ], [ %873, %872 ]
+  store ptr %875, ptr %23, align 8
+  %876 = load ptr, ptr %23, align 8
+  store ptr %876, ptr %7, align 8
   store i32 1, ptr %8, align 4
-  %875 = load i32, ptr %8, align 4
-  %876 = load ptr, ptr %7, align 8
-  store i32 %875, ptr %876, align 4
-  %877 = load i8, ptr %22, align 1
-  %878 = trunc i8 %877 to i1
-  %879 = select i1 %878, i32 128, i32 0
-  %880 = or i32 22, %879
-  %881 = load ptr, ptr %23, align 8
-  %882 = getelementptr inbounds %struct._zend_refcounted_h, ptr %881, i32 0, i32 1
-  store i32 %880, ptr %882, align 4
+  %877 = load i32, ptr %8, align 4
+  %878 = load ptr, ptr %7, align 8
+  store i32 %877, ptr %878, align 4
+  %879 = load i8, ptr %22, align 1
+  %880 = trunc i8 %879 to i1
+  %881 = select i1 %880, i32 128, i32 0
+  %882 = or i32 22, %881
   %883 = load ptr, ptr %23, align 8
-  %884 = getelementptr inbounds %struct._zend_string, ptr %883, i32 0, i32 1
-  store i64 0, ptr %884, align 8
-  %885 = load i64, ptr %21, align 8
-  %886 = load ptr, ptr %23, align 8
-  %887 = getelementptr inbounds %struct._zend_string, ptr %886, i32 0, i32 2
-  store i64 %885, ptr %887, align 8
+  %884 = getelementptr inbounds %struct._zend_refcounted_h, ptr %883, i32 0, i32 1
+  store i32 %882, ptr %884, align 4
+  %885 = load ptr, ptr %23, align 8
+  %886 = getelementptr inbounds %struct._zend_string, ptr %885, i32 0, i32 1
+  store i64 0, ptr %886, align 8
+  %887 = load i64, ptr %21, align 8
   %888 = load ptr, ptr %23, align 8
-  store ptr %888, ptr %28, align 8
-  %889 = load ptr, ptr %28, align 8
-  %890 = getelementptr inbounds %struct._zend_string, ptr %889, i32 0, i32 3
-  %891 = load ptr, ptr %25, align 8
+  %889 = getelementptr inbounds %struct._zend_string, ptr %888, i32 0, i32 2
+  store i64 %887, ptr %889, align 8
+  %890 = load ptr, ptr %23, align 8
+  store ptr %890, ptr %28, align 8
+  %891 = load ptr, ptr %28, align 8
   %892 = getelementptr inbounds %struct._zend_string, ptr %891, i32 0, i32 3
-  %893 = load i64, ptr %26, align 8
-  %894 = load ptr, ptr %25, align 8
-  %895 = getelementptr inbounds %struct._zend_string, ptr %894, i32 0, i32 2
-  %896 = load i64, ptr %895, align 8
-  %897 = icmp ult i64 %893, %896
-  br i1 %897, label %898, label %900
+  %893 = load ptr, ptr %25, align 8
+  %894 = getelementptr inbounds %struct._zend_string, ptr %893, i32 0, i32 3
+  %895 = load i64, ptr %26, align 8
+  %896 = load ptr, ptr %25, align 8
+  %897 = getelementptr inbounds %struct._zend_string, ptr %896, i32 0, i32 2
+  %898 = load i64, ptr %897, align 8
+  %899 = icmp ult i64 %895, %898
+  br i1 %899, label %900, label %902
 
-898:                                              ; preds = %872
-  %899 = load i64, ptr %26, align 8
-  br label %904
+900:                                              ; preds = %874
+  %901 = load i64, ptr %26, align 8
+  br label %906
 
-900:                                              ; preds = %872
-  %901 = load ptr, ptr %25, align 8
-  %902 = getelementptr inbounds %struct._zend_string, ptr %901, i32 0, i32 2
-  %903 = load i64, ptr %902, align 8
-  br label %904
+902:                                              ; preds = %874
+  %903 = load ptr, ptr %25, align 8
+  %904 = getelementptr inbounds %struct._zend_string, ptr %903, i32 0, i32 2
+  %905 = load i64, ptr %904, align 8
+  br label %906
 
-904:                                              ; preds = %900, %898
-  %905 = phi i64 [ %899, %898 ], [ %903, %900 ]
-  %906 = add i64 %905, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %890, ptr align 8 %892, i64 %906, i1 false)
-  %907 = load ptr, ptr %25, align 8
-  %908 = getelementptr inbounds %struct._zend_refcounted_h, ptr %907, i32 0, i32 1
-  %909 = load i32, ptr %908, align 4
-  store i32 %909, ptr %20, align 4
-  %910 = load i32, ptr %20, align 4
-  %911 = and i32 %910, 1008
-  %912 = and i32 %911, 64
-  %913 = icmp ne i32 %912, 0
-  br i1 %913, label %922, label %914
+906:                                              ; preds = %902, %900
+  %907 = phi i64 [ %901, %900 ], [ %905, %902 ]
+  %908 = add i64 %907, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %892, ptr align 8 %894, i64 %908, i1 false)
+  %909 = load ptr, ptr %25, align 8
+  %910 = getelementptr inbounds %struct._zend_refcounted_h, ptr %909, i32 0, i32 1
+  %911 = load i32, ptr %910, align 4
+  store i32 %911, ptr %20, align 4
+  %912 = load i32, ptr %20, align 4
+  %913 = and i32 %912, 1008
+  %914 = and i32 %913, 64
+  %915 = icmp ne i32 %914, 0
+  br i1 %915, label %924, label %916
 
-914:                                              ; preds = %904
-  %915 = load ptr, ptr %25, align 8
-  store ptr %915, ptr %12, align 8
-  %916 = load ptr, ptr %12, align 8
-  %917 = load i32, ptr %916, align 4
-  %918 = icmp ugt i32 %917, 0
-  call void @llvm.assume(i1 %918)
-  %919 = load ptr, ptr %12, align 8
-  %920 = load i32, ptr %919, align 4
-  %921 = add i32 %920, -1
-  store i32 %921, ptr %919, align 4
-  br label %922
-
-922:                                              ; preds = %914, %904
-  %923 = load ptr, ptr %28, align 8
-  store ptr %923, ptr %24, align 8
+916:                                              ; preds = %906
+  %917 = load ptr, ptr %25, align 8
+  store ptr %917, ptr %12, align 8
+  %918 = load ptr, ptr %12, align 8
+  %919 = load i32, ptr %918, align 4
+  %920 = icmp ugt i32 %919, 0
+  call void @llvm.assume(i1 %920)
+  %921 = load ptr, ptr %12, align 8
+  %922 = load i32, ptr %921, align 4
+  %923 = add i32 %922, -1
+  store i32 %923, ptr %921, align 4
   br label %924
 
-924:                                              ; preds = %922, %439
-  %925 = load ptr, ptr %24, align 8
-  %926 = load ptr, ptr %29, align 8
-  store ptr %925, ptr %926, align 8
-  %927 = load ptr, ptr %29, align 8
-  %928 = load ptr, ptr %927, align 8
-  %929 = getelementptr inbounds %struct._zend_string, ptr %928, i32 0, i32 2
-  %930 = load i64, ptr %929, align 8
-  %931 = load ptr, ptr %29, align 8
-  %932 = getelementptr inbounds %struct.smart_str, ptr %931, i32 0, i32 1
-  store i64 %930, ptr %932, align 8
-  br label %933
+924:                                              ; preds = %916, %906
+  %925 = load ptr, ptr %28, align 8
+  store ptr %925, ptr %24, align 8
+  br label %926
 
-933:                                              ; preds = %924, %387, %379
-  %934 = load ptr, ptr %33, align 8
-  %935 = load ptr, ptr %934, align 8
-  store ptr %935, ptr %35, align 8
+926:                                              ; preds = %924, %441
+  %927 = load ptr, ptr %24, align 8
+  %928 = load ptr, ptr %29, align 8
+  store ptr %927, ptr %928, align 8
+  %929 = load ptr, ptr %29, align 8
+  %930 = load ptr, ptr %929, align 8
+  %931 = getelementptr inbounds %struct._zend_string, ptr %930, i32 0, i32 2
+  %932 = load i64, ptr %931, align 8
+  %933 = load ptr, ptr %29, align 8
+  %934 = getelementptr inbounds %struct.smart_str, ptr %933, i32 0, i32 1
+  store i64 %932, ptr %934, align 8
+  br label %935
+
+935:                                              ; preds = %926, %389, %381
   %936 = load ptr, ptr %33, align 8
-  store ptr null, ptr %936, align 8
-  %937 = load ptr, ptr %35, align 8
-  store ptr %937, ptr %32, align 8
-  br label %940
-
-938:                                              ; preds = %359
-  %939 = load ptr, ptr @zend_empty_string, align 8
+  %937 = load ptr, ptr %936, align 8
+  store ptr %937, ptr %35, align 8
+  %938 = load ptr, ptr %33, align 8
+  store ptr null, ptr %938, align 8
+  %939 = load ptr, ptr %35, align 8
   store ptr %939, ptr %32, align 8
-  br label %940
+  br label %942
 
-940:                                              ; preds = %938, %933
-  %941 = load ptr, ptr %32, align 8
-  store ptr %941, ptr %81, align 8
-  %942 = load ptr, ptr %81, align 8
-  %943 = getelementptr inbounds %struct._zend_string, ptr %942, i32 0, i32 3
-  %944 = getelementptr inbounds [1 x i8], ptr %943, i64 0, i64 0
-  %945 = call noalias ptr @_estrdup(ptr noundef %944)
-  store ptr %945, ptr %82, align 8
-  %946 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 19), align 8
-  %947 = trunc i8 %946 to i1
-  br i1 %947, label %948, label %951
+940:                                              ; preds = %361
+  %941 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %941, ptr %32, align 8
+  br label %942
 
-948:                                              ; preds = %940
-  %949 = load ptr, ptr %75, align 8
-  %950 = load ptr, ptr %949, align 8
-  call void @_efree(ptr noundef %950)
-  br label %951
+942:                                              ; preds = %940, %935
+  %943 = load ptr, ptr %32, align 8
+  store ptr %943, ptr %81, align 8
+  %944 = load ptr, ptr %81, align 8
+  %945 = getelementptr inbounds %struct._zend_string, ptr %944, i32 0, i32 3
+  %946 = getelementptr inbounds [1 x i8], ptr %945, i64 0, i64 0
+  %947 = call noalias ptr @_estrdup(ptr noundef %946)
+  store ptr %947, ptr %82, align 8
+  %948 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 19
+  %949 = load i8, ptr %948, align 8
+  %950 = trunc i8 %949 to i1
+  br i1 %950, label %951, label %954
 
-951:                                              ; preds = %948, %940
-  %952 = load ptr, ptr %82, align 8
-  %953 = load ptr, ptr %75, align 8
-  store ptr %952, ptr %953, align 8
-  store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 19), align 8
-  %954 = load ptr, ptr %81, align 8
-  store ptr %954, ptr %59, align 8
-  %955 = load ptr, ptr %59, align 8
-  %956 = getelementptr inbounds %struct._zend_refcounted_h, ptr %955, i32 0, i32 1
-  %957 = load i32, ptr %956, align 4
-  store i32 %957, ptr %15, align 4
-  %958 = load i32, ptr %15, align 4
-  %959 = and i32 %958, 1008
-  %960 = and i32 %959, 64
-  %961 = icmp ne i32 %960, 0
-  br i1 %961, label %985, label %962
+951:                                              ; preds = %942
+  %952 = load ptr, ptr %75, align 8
+  %953 = load ptr, ptr %952, align 8
+  call void @_efree(ptr noundef %953)
+  br label %954
 
-962:                                              ; preds = %951
-  %963 = load ptr, ptr %59, align 8
-  store ptr %963, ptr %9, align 8
-  %964 = load ptr, ptr %9, align 8
-  %965 = load i32, ptr %964, align 4
-  %966 = icmp ugt i32 %965, 0
-  call void @llvm.assume(i1 %966)
-  %967 = load ptr, ptr %9, align 8
-  %968 = load i32, ptr %967, align 4
-  %969 = add i32 %968, -1
-  store i32 %969, ptr %967, align 4
-  %970 = icmp eq i32 %969, 0
-  br i1 %970, label %971, label %984
+954:                                              ; preds = %951, %942
+  %955 = load ptr, ptr %82, align 8
+  %956 = load ptr, ptr %75, align 8
+  store ptr %955, ptr %956, align 8
+  %957 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 19
+  store i8 1, ptr %957, align 8
+  %958 = load ptr, ptr %81, align 8
+  store ptr %958, ptr %59, align 8
+  %959 = load ptr, ptr %59, align 8
+  %960 = getelementptr inbounds %struct._zend_refcounted_h, ptr %959, i32 0, i32 1
+  %961 = load i32, ptr %960, align 4
+  store i32 %961, ptr %15, align 4
+  %962 = load i32, ptr %15, align 4
+  %963 = and i32 %962, 1008
+  %964 = and i32 %963, 64
+  %965 = icmp ne i32 %964, 0
+  br i1 %965, label %989, label %966
 
-971:                                              ; preds = %962
-  %972 = load ptr, ptr %59, align 8
-  %973 = getelementptr inbounds %struct._zend_refcounted_h, ptr %972, i32 0, i32 1
-  %974 = load i32, ptr %973, align 4
-  store i32 %974, ptr %16, align 4
-  %975 = load i32, ptr %16, align 4
-  %976 = and i32 %975, 1008
-  %977 = and i32 %976, 128
-  %978 = icmp ne i32 %977, 0
-  br i1 %978, label %979, label %981
+966:                                              ; preds = %954
+  %967 = load ptr, ptr %59, align 8
+  store ptr %967, ptr %9, align 8
+  %968 = load ptr, ptr %9, align 8
+  %969 = load i32, ptr %968, align 4
+  %970 = icmp ugt i32 %969, 0
+  call void @llvm.assume(i1 %970)
+  %971 = load ptr, ptr %9, align 8
+  %972 = load i32, ptr %971, align 4
+  %973 = add i32 %972, -1
+  store i32 %973, ptr %971, align 4
+  %974 = icmp eq i32 %973, 0
+  br i1 %974, label %975, label %988
 
-979:                                              ; preds = %971
-  %980 = load ptr, ptr %59, align 8
-  call void @free(ptr noundef %980) #12
-  br label %983
+975:                                              ; preds = %966
+  %976 = load ptr, ptr %59, align 8
+  %977 = getelementptr inbounds %struct._zend_refcounted_h, ptr %976, i32 0, i32 1
+  %978 = load i32, ptr %977, align 4
+  store i32 %978, ptr %16, align 4
+  %979 = load i32, ptr %16, align 4
+  %980 = and i32 %979, 1008
+  %981 = and i32 %980, 128
+  %982 = icmp ne i32 %981, 0
+  br i1 %982, label %983, label %985
 
-981:                                              ; preds = %971
-  %982 = load ptr, ptr %59, align 8
-  call void @_efree(ptr noundef %982) #12
-  br label %983
+983:                                              ; preds = %975
+  %984 = load ptr, ptr %59, align 8
+  call void @free(ptr noundef %984) #12
+  br label %987
 
-983:                                              ; preds = %981, %979
-  br label %984
+985:                                              ; preds = %975
+  %986 = load ptr, ptr %59, align 8
+  call void @_efree(ptr noundef %986) #12
+  br label %987
 
-984:                                              ; preds = %983, %962
-  br label %985
+987:                                              ; preds = %985, %983
+  br label %988
 
-985:                                              ; preds = %984, %951
+988:                                              ; preds = %987, %966
+  br label %989
+
+989:                                              ; preds = %988, %954
   store i32 0, ptr %68, align 4
-  br label %986
+  br label %990
 
-986:                                              ; preds = %985, %239, %193, %124, %112
-  %987 = load i32, ptr %68, align 4
-  ret i32 %987
+990:                                              ; preds = %989, %241, %195, %126, %113
+  %991 = load i32, ptr %68, align 4
+  ret i32 %991
 }
 
 declare void @_efree(ptr noundef) #1
@@ -1595,115 +1599,119 @@ define i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) #0 {
   %8 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %9 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %64
+  %9 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %68
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %13 = load i8, ptr %12, align 1
-  %14 = sext i8 %13 to i32
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %64
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %68
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i64 @strlen(ptr noundef %17) #11
-  %19 = icmp ugt i64 %18, 4095
-  br i1 %19, label %20, label %23
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %4, align 8
+  %20 = call i64 @strlen(ptr noundef %19) #11
+  %21 = icmp ugt i64 %20, 4095
+  br i1 %21, label %22, label %25
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %4, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.1, i32 noundef 4096, ptr noundef %21)
-  %22 = call ptr @__errno_location() #15
-  store i32 22, ptr %22, align 4
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %4, align 8
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.1, i32 noundef 4096, ptr noundef %23)
+  %24 = call ptr @__errno_location() #15
+  store i32 22, ptr %24, align 4
   store i32 -1, ptr %3, align 4
-  br label %65
+  br label %69
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  %25 = call noalias ptr @_estrdup(ptr noundef %24)
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %7, align 8
-  br label %27
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noalias ptr @_estrdup(ptr noundef %27)
+  store ptr %28, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8
+  store ptr %29, ptr %7, align 8
+  br label %30
 
-27:                                               ; preds = %53, %23
-  %28 = load ptr, ptr %7, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %35
-
-30:                                               ; preds = %27
+30:                                               ; preds = %56, %25
   %31 = load ptr, ptr %7, align 8
-  %32 = load i8, ptr %31, align 1
-  %33 = sext i8 %32 to i32
-  %34 = icmp ne i32 %33, 0
-  br label %35
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %38
 
-35:                                               ; preds = %30, %27
-  %36 = phi i1 [ false, %27 ], [ %34, %30 ]
-  br i1 %36, label %37, label %55
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i8, ptr %34, align 1
+  %36 = sext i8 %35 to i32
+  %37 = icmp ne i32 %36, 0
+  br label %38
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8
-  %39 = call ptr @strchr(ptr noundef %38, i32 noundef 58) #11
-  store ptr %39, ptr %8, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+38:                                               ; preds = %33, %30
+  %39 = phi i1 [ false, %30 ], [ %37, %33 ]
+  br i1 %39, label %40, label %58
 
-42:                                               ; preds = %37
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %7, align 8
+  %42 = call ptr @strchr(ptr noundef %41, i32 noundef 58) #11
+  store ptr %42, ptr %8, align 8
   %43 = load ptr, ptr %8, align 8
-  store i8 0, ptr %43, align 1
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %45, ptr %8, align 8
-  br label %46
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %49
 
-46:                                               ; preds = %42, %37
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = call i32 @php_check_specific_open_basedir(ptr noundef %47, ptr noundef %48)
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %53
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %8, align 8
+  store i8 0, ptr %46, align 1
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i32 1
+  store ptr %48, ptr %8, align 8
+  br label %49
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %52)
+49:                                               ; preds = %45, %40
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = call i32 @php_check_specific_open_basedir(ptr noundef %50, ptr noundef %51)
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %56
+
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %55)
   store i32 0, ptr %3, align 4
+  br label %69
+
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %8, align 8
+  store ptr %57, ptr %7, align 8
+  br label %30
+
+58:                                               ; preds = %38
+  %59 = load i32, ptr %5, align 4
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %65
+
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 18
+  %64 = load ptr, ptr %63, align 8
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.2, ptr noundef %62, ptr noundef %64)
   br label %65
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %8, align 8
-  store ptr %54, ptr %7, align 8
-  br label %27
-
-55:                                               ; preds = %35
-  %56 = load i32, ptr %5, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %61
-
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 18), align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.2, ptr noundef %59, ptr noundef %60)
-  br label %61
-
-61:                                               ; preds = %58, %55
-  %62 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %62)
-  %63 = call ptr @__errno_location() #15
-  store i32 1, ptr %63, align 4
+65:                                               ; preds = %61, %58
+  %66 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %66)
+  %67 = call ptr @__errno_location() #15
+  store i32 1, ptr %67, align 4
   store i32 -1, ptr %3, align 4
-  br label %65
+  br label %69
 
-64:                                               ; preds = %11, %2
+68:                                               ; preds = %12, %2
   store i32 0, ptr %3, align 4
-  br label %65
+  br label %69
 
-65:                                               ; preds = %64, %61, %51, %20
-  %66 = load i32, ptr %3, align 4
-  ret i32 %66
+69:                                               ; preds = %68, %65, %54, %22
+  %70 = load i32, ptr %3, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2115,863 +2123,859 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   store ptr null, ptr %41, align 8
   %48 = load ptr, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 80, i1 false)
-  %49 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 5), align 8
-  store ptr %49, ptr %39, align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 16), align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %566
+  %49 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 5
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %39, align 8
+  %51 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %573
 
-52:                                               ; preds = %1
-  %53 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 16), align 8
-  %54 = load i8, ptr %53, align 1
-  %55 = sext i8 %54 to i32
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %566
+54:                                               ; preds = %1
+  %55 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i8, ptr %56, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %573
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %39, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %566
-
-60:                                               ; preds = %57
+60:                                               ; preds = %54
   %61 = load ptr, ptr %39, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 0
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
-  %65 = icmp eq i32 47, %64
-  br i1 %65, label %66, label %566
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %573
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %39, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
-  %69 = load i8, ptr %68, align 1
-  %70 = sext i8 %69 to i32
-  %71 = icmp eq i32 126, %70
-  br i1 %71, label %72, label %566
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %39, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 0
+  %66 = load i8, ptr %65, align 1
+  %67 = sext i8 %66 to i32
+  %68 = icmp eq i32 47, %67
+  br i1 %68, label %69, label %573
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr %39, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 2
-  %75 = call ptr @strchr(ptr noundef %74, i32 noundef 47) #11
-  store ptr %75, ptr %44, align 8
-  %76 = load ptr, ptr %44, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %565
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %39, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = load i8, ptr %71, align 1
+  %73 = sext i8 %72 to i32
+  %74 = icmp eq i32 126, %73
+  br i1 %74, label %75, label %573
 
-78:                                               ; preds = %72
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %39, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 2
+  %78 = call ptr @strchr(ptr noundef %77, i32 noundef 47) #11
+  store ptr %78, ptr %44, align 8
   %79 = load ptr, ptr %44, align 8
-  %80 = load ptr, ptr %39, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 2
-  %82 = ptrtoint ptr %79 to i64
-  %83 = ptrtoint ptr %81 to i64
-  %84 = sub i64 %82, %83
-  store i64 %84, ptr %42, align 8
-  %85 = load i64, ptr %42, align 8
-  %86 = icmp ugt i64 %85, 31
-  br i1 %86, label %87, label %88
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %572
 
-87:                                               ; preds = %78
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %44, align 8
+  %83 = load ptr, ptr %39, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 2
+  %85 = ptrtoint ptr %82 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  store i64 %87, ptr %42, align 8
+  %88 = load i64, ptr %42, align 8
+  %89 = icmp ugt i64 %88, 31
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %81
   store i64 31, ptr %42, align 8
-  br label %88
+  br label %91
 
-88:                                               ; preds = %87, %78
-  %89 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 0
-  %90 = load ptr, ptr %39, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 2
-  %92 = load i64, ptr %42, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %89, ptr align 1 %91, i64 %92, i1 false)
-  %93 = load i64, ptr %42, align 8
-  %94 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 %93
-  store i8 0, ptr %94, align 1
-  %95 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 0
-  %96 = call ptr @getpwnam(ptr noundef %95)
-  store ptr %96, ptr %46, align 8
-  %97 = load ptr, ptr %46, align 8
-  %98 = icmp ne ptr %97, null
-  br i1 %98, label %99, label %112
-
-99:                                               ; preds = %88
+91:                                               ; preds = %90, %81
+  %92 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 0
+  %93 = load ptr, ptr %39, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 2
+  %95 = load i64, ptr %42, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %92, ptr align 1 %94, i64 %95, i1 false)
+  %96 = load i64, ptr %42, align 8
+  %97 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 %96
+  store i8 0, ptr %97, align 1
+  %98 = getelementptr inbounds [32 x i8], ptr %45, i64 0, i64 0
+  %99 = call ptr @getpwnam(ptr noundef %98)
+  store ptr %99, ptr %46, align 8
   %100 = load ptr, ptr %46, align 8
-  %101 = getelementptr inbounds %struct.passwd, ptr %100, i32 0, i32 5
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %112
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %116
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %46, align 8
-  %106 = getelementptr inbounds %struct.passwd, ptr %105, i32 0, i32 5
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 16), align 8
-  %109 = load ptr, ptr %44, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1
-  %111 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef @.str.3, ptr noundef %107, i32 noundef 47, ptr noundef %108, i32 noundef 47, ptr noundef %110)
-  store ptr %111, ptr %40, align 8
-  br label %564
+102:                                              ; preds = %91
+  %103 = load ptr, ptr %46, align 8
+  %104 = getelementptr inbounds %struct.passwd, ptr %103, i32 0, i32 5
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %116
 
-112:                                              ; preds = %99, %88
-  %113 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %114 = icmp ne ptr %113, null
-  br i1 %114, label %115, label %563
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %46, align 8
+  %109 = getelementptr inbounds %struct.passwd, ptr %108, i32 0, i32 5
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 16
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %44, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 1
+  %115 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef @.str.3, ptr noundef %110, i32 noundef 47, ptr noundef %112, i32 noundef 47, ptr noundef %114)
+  store ptr %115, ptr %40, align 8
+  br label %571
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %117 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %118 = call i64 @strlen(ptr noundef %117) #11
-  store ptr %116, ptr %28, align 8
-  store i64 %118, ptr %29, align 8
+116:                                              ; preds = %102, %91
+  %117 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %570
+
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i64 @strlen(ptr noundef %124) #11
+  store ptr %122, ptr %28, align 8
+  store i64 %125, ptr %29, align 8
   store i8 0, ptr %30, align 1
-  %119 = load i64, ptr %29, align 8
-  %120 = load i8, ptr %30, align 1
-  %121 = trunc i8 %120 to i1
-  store i64 %119, ptr %25, align 8
-  %122 = zext i1 %121 to i8
-  store i8 %122, ptr %26, align 1
-  %123 = load i8, ptr %26, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %125, label %133
-
-125:                                              ; preds = %115
-  %126 = load i64, ptr %25, align 8
-  %127 = add i64 24, %126
-  %128 = add i64 %127, 1
-  %129 = add i64 %128, 8
-  %130 = sub i64 %129, 1
-  %131 = and i64 %130, -8
-  %132 = call noalias ptr @__zend_malloc(i64 noundef %131) #14
-  br label %537
-
-133:                                              ; preds = %115
-  %134 = load i64, ptr %25, align 8
-  %135 = add i64 24, %134
-  %136 = add i64 %135, 1
-  %137 = add i64 %136, 8
-  %138 = sub i64 %137, 1
-  %139 = and i64 %138, -8
-  %140 = call i1 @llvm.is.constant.i64(i64 %139)
-  br i1 %140, label %141, label %527
-
-141:                                              ; preds = %133
-  %142 = load i64, ptr %25, align 8
-  %143 = add i64 24, %142
-  %144 = add i64 %143, 1
-  %145 = add i64 %144, 8
-  %146 = sub i64 %145, 1
-  %147 = and i64 %146, -8
-  %148 = icmp ule i64 %147, 8
-  br i1 %148, label %149, label %151
-
-149:                                              ; preds = %141
-  %150 = call noalias ptr @_emalloc_8() #12
-  br label %525
-
-151:                                              ; preds = %141
-  %152 = load i64, ptr %25, align 8
-  %153 = add i64 24, %152
-  %154 = add i64 %153, 1
-  %155 = add i64 %154, 8
-  %156 = sub i64 %155, 1
-  %157 = and i64 %156, -8
-  %158 = icmp ule i64 %157, 16
-  br i1 %158, label %159, label %161
-
-159:                                              ; preds = %151
-  %160 = call noalias ptr @_emalloc_16() #12
-  br label %523
-
-161:                                              ; preds = %151
-  %162 = load i64, ptr %25, align 8
-  %163 = add i64 24, %162
-  %164 = add i64 %163, 1
-  %165 = add i64 %164, 8
-  %166 = sub i64 %165, 1
-  %167 = and i64 %166, -8
-  %168 = icmp ule i64 %167, 24
-  br i1 %168, label %169, label %171
-
-169:                                              ; preds = %161
-  %170 = call noalias ptr @_emalloc_24() #12
-  br label %521
-
-171:                                              ; preds = %161
-  %172 = load i64, ptr %25, align 8
-  %173 = add i64 24, %172
-  %174 = add i64 %173, 1
-  %175 = add i64 %174, 8
-  %176 = sub i64 %175, 1
-  %177 = and i64 %176, -8
-  %178 = icmp ule i64 %177, 32
-  br i1 %178, label %179, label %181
-
-179:                                              ; preds = %171
-  %180 = call noalias ptr @_emalloc_32() #12
-  br label %519
-
-181:                                              ; preds = %171
-  %182 = load i64, ptr %25, align 8
-  %183 = add i64 24, %182
-  %184 = add i64 %183, 1
-  %185 = add i64 %184, 8
-  %186 = sub i64 %185, 1
-  %187 = and i64 %186, -8
-  %188 = icmp ule i64 %187, 40
-  br i1 %188, label %189, label %191
-
-189:                                              ; preds = %181
-  %190 = call noalias ptr @_emalloc_40() #12
-  br label %517
-
-191:                                              ; preds = %181
-  %192 = load i64, ptr %25, align 8
-  %193 = add i64 24, %192
-  %194 = add i64 %193, 1
-  %195 = add i64 %194, 8
-  %196 = sub i64 %195, 1
-  %197 = and i64 %196, -8
-  %198 = icmp ule i64 %197, 48
-  br i1 %198, label %199, label %201
-
-199:                                              ; preds = %191
-  %200 = call noalias ptr @_emalloc_48() #12
-  br label %515
-
-201:                                              ; preds = %191
-  %202 = load i64, ptr %25, align 8
-  %203 = add i64 24, %202
-  %204 = add i64 %203, 1
-  %205 = add i64 %204, 8
-  %206 = sub i64 %205, 1
-  %207 = and i64 %206, -8
-  %208 = icmp ule i64 %207, 56
-  br i1 %208, label %209, label %211
-
-209:                                              ; preds = %201
-  %210 = call noalias ptr @_emalloc_56() #12
-  br label %513
-
-211:                                              ; preds = %201
-  %212 = load i64, ptr %25, align 8
-  %213 = add i64 24, %212
-  %214 = add i64 %213, 1
-  %215 = add i64 %214, 8
-  %216 = sub i64 %215, 1
-  %217 = and i64 %216, -8
-  %218 = icmp ule i64 %217, 64
-  br i1 %218, label %219, label %221
-
-219:                                              ; preds = %211
-  %220 = call noalias ptr @_emalloc_64() #12
-  br label %511
-
-221:                                              ; preds = %211
-  %222 = load i64, ptr %25, align 8
-  %223 = add i64 24, %222
-  %224 = add i64 %223, 1
-  %225 = add i64 %224, 8
-  %226 = sub i64 %225, 1
-  %227 = and i64 %226, -8
-  %228 = icmp ule i64 %227, 80
-  br i1 %228, label %229, label %231
-
-229:                                              ; preds = %221
-  %230 = call noalias ptr @_emalloc_80() #12
-  br label %509
-
-231:                                              ; preds = %221
-  %232 = load i64, ptr %25, align 8
-  %233 = add i64 24, %232
-  %234 = add i64 %233, 1
-  %235 = add i64 %234, 8
-  %236 = sub i64 %235, 1
-  %237 = and i64 %236, -8
-  %238 = icmp ule i64 %237, 96
-  br i1 %238, label %239, label %241
-
-239:                                              ; preds = %231
-  %240 = call noalias ptr @_emalloc_96() #12
-  br label %507
-
-241:                                              ; preds = %231
-  %242 = load i64, ptr %25, align 8
-  %243 = add i64 24, %242
-  %244 = add i64 %243, 1
-  %245 = add i64 %244, 8
-  %246 = sub i64 %245, 1
-  %247 = and i64 %246, -8
-  %248 = icmp ule i64 %247, 112
-  br i1 %248, label %249, label %251
-
-249:                                              ; preds = %241
-  %250 = call noalias ptr @_emalloc_112() #12
-  br label %505
-
-251:                                              ; preds = %241
-  %252 = load i64, ptr %25, align 8
-  %253 = add i64 24, %252
-  %254 = add i64 %253, 1
-  %255 = add i64 %254, 8
-  %256 = sub i64 %255, 1
-  %257 = and i64 %256, -8
-  %258 = icmp ule i64 %257, 128
-  br i1 %258, label %259, label %261
-
-259:                                              ; preds = %251
-  %260 = call noalias ptr @_emalloc_128() #12
-  br label %503
-
-261:                                              ; preds = %251
-  %262 = load i64, ptr %25, align 8
-  %263 = add i64 24, %262
-  %264 = add i64 %263, 1
-  %265 = add i64 %264, 8
-  %266 = sub i64 %265, 1
-  %267 = and i64 %266, -8
-  %268 = icmp ule i64 %267, 160
-  br i1 %268, label %269, label %271
-
-269:                                              ; preds = %261
-  %270 = call noalias ptr @_emalloc_160() #12
-  br label %501
-
-271:                                              ; preds = %261
-  %272 = load i64, ptr %25, align 8
-  %273 = add i64 24, %272
-  %274 = add i64 %273, 1
-  %275 = add i64 %274, 8
-  %276 = sub i64 %275, 1
-  %277 = and i64 %276, -8
-  %278 = icmp ule i64 %277, 192
-  br i1 %278, label %279, label %281
-
-279:                                              ; preds = %271
-  %280 = call noalias ptr @_emalloc_192() #12
-  br label %499
-
-281:                                              ; preds = %271
-  %282 = load i64, ptr %25, align 8
-  %283 = add i64 24, %282
-  %284 = add i64 %283, 1
-  %285 = add i64 %284, 8
-  %286 = sub i64 %285, 1
-  %287 = and i64 %286, -8
-  %288 = icmp ule i64 %287, 224
-  br i1 %288, label %289, label %291
-
-289:                                              ; preds = %281
-  %290 = call noalias ptr @_emalloc_224() #12
-  br label %497
-
-291:                                              ; preds = %281
-  %292 = load i64, ptr %25, align 8
-  %293 = add i64 24, %292
-  %294 = add i64 %293, 1
-  %295 = add i64 %294, 8
-  %296 = sub i64 %295, 1
-  %297 = and i64 %296, -8
-  %298 = icmp ule i64 %297, 256
-  br i1 %298, label %299, label %301
-
-299:                                              ; preds = %291
-  %300 = call noalias ptr @_emalloc_256() #12
-  br label %495
-
-301:                                              ; preds = %291
-  %302 = load i64, ptr %25, align 8
-  %303 = add i64 24, %302
-  %304 = add i64 %303, 1
-  %305 = add i64 %304, 8
-  %306 = sub i64 %305, 1
-  %307 = and i64 %306, -8
-  %308 = icmp ule i64 %307, 320
-  br i1 %308, label %309, label %311
-
-309:                                              ; preds = %301
-  %310 = call noalias ptr @_emalloc_320() #12
-  br label %493
-
-311:                                              ; preds = %301
-  %312 = load i64, ptr %25, align 8
-  %313 = add i64 24, %312
-  %314 = add i64 %313, 1
-  %315 = add i64 %314, 8
-  %316 = sub i64 %315, 1
-  %317 = and i64 %316, -8
-  %318 = icmp ule i64 %317, 384
-  br i1 %318, label %319, label %321
-
-319:                                              ; preds = %311
-  %320 = call noalias ptr @_emalloc_384() #12
-  br label %491
-
-321:                                              ; preds = %311
-  %322 = load i64, ptr %25, align 8
-  %323 = add i64 24, %322
-  %324 = add i64 %323, 1
-  %325 = add i64 %324, 8
-  %326 = sub i64 %325, 1
-  %327 = and i64 %326, -8
-  %328 = icmp ule i64 %327, 448
-  br i1 %328, label %329, label %331
-
-329:                                              ; preds = %321
-  %330 = call noalias ptr @_emalloc_448() #12
-  br label %489
-
-331:                                              ; preds = %321
-  %332 = load i64, ptr %25, align 8
-  %333 = add i64 24, %332
-  %334 = add i64 %333, 1
-  %335 = add i64 %334, 8
-  %336 = sub i64 %335, 1
-  %337 = and i64 %336, -8
-  %338 = icmp ule i64 %337, 512
-  br i1 %338, label %339, label %341
-
-339:                                              ; preds = %331
-  %340 = call noalias ptr @_emalloc_512() #12
-  br label %487
-
-341:                                              ; preds = %331
-  %342 = load i64, ptr %25, align 8
-  %343 = add i64 24, %342
-  %344 = add i64 %343, 1
-  %345 = add i64 %344, 8
-  %346 = sub i64 %345, 1
-  %347 = and i64 %346, -8
-  %348 = icmp ule i64 %347, 640
-  br i1 %348, label %349, label %351
-
-349:                                              ; preds = %341
-  %350 = call noalias ptr @_emalloc_640() #12
-  br label %485
-
-351:                                              ; preds = %341
-  %352 = load i64, ptr %25, align 8
-  %353 = add i64 24, %352
-  %354 = add i64 %353, 1
-  %355 = add i64 %354, 8
-  %356 = sub i64 %355, 1
-  %357 = and i64 %356, -8
-  %358 = icmp ule i64 %357, 768
-  br i1 %358, label %359, label %361
-
-359:                                              ; preds = %351
-  %360 = call noalias ptr @_emalloc_768() #12
-  br label %483
-
-361:                                              ; preds = %351
-  %362 = load i64, ptr %25, align 8
-  %363 = add i64 24, %362
-  %364 = add i64 %363, 1
-  %365 = add i64 %364, 8
-  %366 = sub i64 %365, 1
-  %367 = and i64 %366, -8
-  %368 = icmp ule i64 %367, 896
-  br i1 %368, label %369, label %371
-
-369:                                              ; preds = %361
-  %370 = call noalias ptr @_emalloc_896() #12
-  br label %481
-
-371:                                              ; preds = %361
-  %372 = load i64, ptr %25, align 8
-  %373 = add i64 24, %372
-  %374 = add i64 %373, 1
-  %375 = add i64 %374, 8
-  %376 = sub i64 %375, 1
-  %377 = and i64 %376, -8
-  %378 = icmp ule i64 %377, 1024
-  br i1 %378, label %379, label %381
-
-379:                                              ; preds = %371
-  %380 = call noalias ptr @_emalloc_1024() #12
-  br label %479
-
-381:                                              ; preds = %371
-  %382 = load i64, ptr %25, align 8
-  %383 = add i64 24, %382
-  %384 = add i64 %383, 1
-  %385 = add i64 %384, 8
-  %386 = sub i64 %385, 1
-  %387 = and i64 %386, -8
-  %388 = icmp ule i64 %387, 1280
-  br i1 %388, label %389, label %391
-
-389:                                              ; preds = %381
-  %390 = call noalias ptr @_emalloc_1280() #12
-  br label %477
-
-391:                                              ; preds = %381
-  %392 = load i64, ptr %25, align 8
-  %393 = add i64 24, %392
-  %394 = add i64 %393, 1
-  %395 = add i64 %394, 8
-  %396 = sub i64 %395, 1
-  %397 = and i64 %396, -8
-  %398 = icmp ule i64 %397, 1536
-  br i1 %398, label %399, label %401
-
-399:                                              ; preds = %391
-  %400 = call noalias ptr @_emalloc_1536() #12
-  br label %475
-
-401:                                              ; preds = %391
-  %402 = load i64, ptr %25, align 8
-  %403 = add i64 24, %402
-  %404 = add i64 %403, 1
-  %405 = add i64 %404, 8
-  %406 = sub i64 %405, 1
-  %407 = and i64 %406, -8
-  %408 = icmp ule i64 %407, 1792
-  br i1 %408, label %409, label %411
-
-409:                                              ; preds = %401
-  %410 = call noalias ptr @_emalloc_1792() #12
-  br label %473
-
-411:                                              ; preds = %401
-  %412 = load i64, ptr %25, align 8
-  %413 = add i64 24, %412
-  %414 = add i64 %413, 1
-  %415 = add i64 %414, 8
-  %416 = sub i64 %415, 1
-  %417 = and i64 %416, -8
-  %418 = icmp ule i64 %417, 2048
-  br i1 %418, label %419, label %421
-
-419:                                              ; preds = %411
-  %420 = call noalias ptr @_emalloc_2048() #12
-  br label %471
-
-421:                                              ; preds = %411
-  %422 = load i64, ptr %25, align 8
-  %423 = add i64 24, %422
-  %424 = add i64 %423, 1
-  %425 = add i64 %424, 8
-  %426 = sub i64 %425, 1
-  %427 = and i64 %426, -8
-  %428 = icmp ule i64 %427, 2560
-  br i1 %428, label %429, label %431
-
-429:                                              ; preds = %421
-  %430 = call noalias ptr @_emalloc_2560() #12
-  br label %469
-
-431:                                              ; preds = %421
-  %432 = load i64, ptr %25, align 8
-  %433 = add i64 24, %432
-  %434 = add i64 %433, 1
-  %435 = add i64 %434, 8
-  %436 = sub i64 %435, 1
-  %437 = and i64 %436, -8
-  %438 = icmp ule i64 %437, 3072
-  br i1 %438, label %439, label %441
-
-439:                                              ; preds = %431
-  %440 = call noalias ptr @_emalloc_3072() #12
-  br label %467
-
-441:                                              ; preds = %431
-  %442 = load i64, ptr %25, align 8
-  %443 = add i64 24, %442
-  %444 = add i64 %443, 1
-  %445 = add i64 %444, 8
-  %446 = sub i64 %445, 1
-  %447 = and i64 %446, -8
-  %448 = icmp ule i64 %447, 2093056
-  br i1 %448, label %449, label %457
-
-449:                                              ; preds = %441
-  %450 = load i64, ptr %25, align 8
-  %451 = add i64 24, %450
-  %452 = add i64 %451, 1
-  %453 = add i64 %452, 8
-  %454 = sub i64 %453, 1
-  %455 = and i64 %454, -8
-  %456 = call noalias ptr @_emalloc_large(i64 noundef %455) #14
-  br label %465
-
-457:                                              ; preds = %441
-  %458 = load i64, ptr %25, align 8
-  %459 = add i64 24, %458
-  %460 = add i64 %459, 1
-  %461 = add i64 %460, 8
-  %462 = sub i64 %461, 1
-  %463 = and i64 %462, -8
-  %464 = call noalias ptr @_emalloc_huge(i64 noundef %463) #14
-  br label %465
-
-465:                                              ; preds = %457, %449
-  %466 = phi ptr [ %456, %449 ], [ %464, %457 ]
-  br label %467
-
-467:                                              ; preds = %465, %439
-  %468 = phi ptr [ %440, %439 ], [ %466, %465 ]
-  br label %469
-
-469:                                              ; preds = %467, %429
-  %470 = phi ptr [ %430, %429 ], [ %468, %467 ]
-  br label %471
-
-471:                                              ; preds = %469, %419
-  %472 = phi ptr [ %420, %419 ], [ %470, %469 ]
-  br label %473
-
-473:                                              ; preds = %471, %409
-  %474 = phi ptr [ %410, %409 ], [ %472, %471 ]
-  br label %475
-
-475:                                              ; preds = %473, %399
-  %476 = phi ptr [ %400, %399 ], [ %474, %473 ]
-  br label %477
-
-477:                                              ; preds = %475, %389
-  %478 = phi ptr [ %390, %389 ], [ %476, %475 ]
-  br label %479
-
-479:                                              ; preds = %477, %379
-  %480 = phi ptr [ %380, %379 ], [ %478, %477 ]
-  br label %481
-
-481:                                              ; preds = %479, %369
-  %482 = phi ptr [ %370, %369 ], [ %480, %479 ]
-  br label %483
-
-483:                                              ; preds = %481, %359
-  %484 = phi ptr [ %360, %359 ], [ %482, %481 ]
-  br label %485
-
-485:                                              ; preds = %483, %349
-  %486 = phi ptr [ %350, %349 ], [ %484, %483 ]
-  br label %487
-
-487:                                              ; preds = %485, %339
-  %488 = phi ptr [ %340, %339 ], [ %486, %485 ]
-  br label %489
-
-489:                                              ; preds = %487, %329
-  %490 = phi ptr [ %330, %329 ], [ %488, %487 ]
-  br label %491
-
-491:                                              ; preds = %489, %319
-  %492 = phi ptr [ %320, %319 ], [ %490, %489 ]
-  br label %493
-
-493:                                              ; preds = %491, %309
-  %494 = phi ptr [ %310, %309 ], [ %492, %491 ]
-  br label %495
-
-495:                                              ; preds = %493, %299
-  %496 = phi ptr [ %300, %299 ], [ %494, %493 ]
-  br label %497
-
-497:                                              ; preds = %495, %289
-  %498 = phi ptr [ %290, %289 ], [ %496, %495 ]
-  br label %499
-
-499:                                              ; preds = %497, %279
-  %500 = phi ptr [ %280, %279 ], [ %498, %497 ]
-  br label %501
-
-501:                                              ; preds = %499, %269
-  %502 = phi ptr [ %270, %269 ], [ %500, %499 ]
-  br label %503
-
-503:                                              ; preds = %501, %259
-  %504 = phi ptr [ %260, %259 ], [ %502, %501 ]
-  br label %505
-
-505:                                              ; preds = %503, %249
-  %506 = phi ptr [ %250, %249 ], [ %504, %503 ]
-  br label %507
-
-507:                                              ; preds = %505, %239
-  %508 = phi ptr [ %240, %239 ], [ %506, %505 ]
-  br label %509
-
-509:                                              ; preds = %507, %229
-  %510 = phi ptr [ %230, %229 ], [ %508, %507 ]
-  br label %511
-
-511:                                              ; preds = %509, %219
-  %512 = phi ptr [ %220, %219 ], [ %510, %509 ]
-  br label %513
-
-513:                                              ; preds = %511, %209
-  %514 = phi ptr [ %210, %209 ], [ %512, %511 ]
-  br label %515
-
-515:                                              ; preds = %513, %199
-  %516 = phi ptr [ %200, %199 ], [ %514, %513 ]
-  br label %517
-
-517:                                              ; preds = %515, %189
-  %518 = phi ptr [ %190, %189 ], [ %516, %515 ]
-  br label %519
-
-519:                                              ; preds = %517, %179
-  %520 = phi ptr [ %180, %179 ], [ %518, %517 ]
-  br label %521
-
-521:                                              ; preds = %519, %169
-  %522 = phi ptr [ %170, %169 ], [ %520, %519 ]
-  br label %523
-
-523:                                              ; preds = %521, %159
-  %524 = phi ptr [ %160, %159 ], [ %522, %521 ]
-  br label %525
-
-525:                                              ; preds = %523, %149
-  %526 = phi ptr [ %150, %149 ], [ %524, %523 ]
-  br label %535
-
-527:                                              ; preds = %133
-  %528 = load i64, ptr %25, align 8
-  %529 = add i64 24, %528
-  %530 = add i64 %529, 1
-  %531 = add i64 %530, 8
-  %532 = sub i64 %531, 1
-  %533 = and i64 %532, -8
-  %534 = call noalias ptr @_emalloc(i64 noundef %533) #14
-  br label %535
-
-535:                                              ; preds = %527, %525
-  %536 = phi ptr [ %526, %525 ], [ %534, %527 ]
-  br label %537
-
-537:                                              ; preds = %535, %125
-  %538 = phi ptr [ %132, %125 ], [ %536, %535 ]
-  store ptr %538, ptr %27, align 8
-  %539 = load ptr, ptr %27, align 8
-  store ptr %539, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %540 = load i32, ptr %3, align 4
-  %541 = load ptr, ptr %2, align 8
-  store i32 %540, ptr %541, align 4
-  %542 = load i8, ptr %26, align 1
-  %543 = trunc i8 %542 to i1
-  %544 = select i1 %543, i32 128, i32 0
-  %545 = or i32 22, %544
+  %126 = load i64, ptr %29, align 8
+  %127 = load i8, ptr %30, align 1
+  %128 = trunc i8 %127 to i1
+  store i64 %126, ptr %25, align 8
+  %129 = zext i1 %128 to i8
+  store i8 %129, ptr %26, align 1
+  %130 = load i8, ptr %26, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %140
+
+132:                                              ; preds = %120
+  %133 = load i64, ptr %25, align 8
+  %134 = add i64 24, %133
+  %135 = add i64 %134, 1
+  %136 = add i64 %135, 8
+  %137 = sub i64 %136, 1
+  %138 = and i64 %137, -8
+  %139 = call noalias ptr @__zend_malloc(i64 noundef %138) #14
+  br label %544
+
+140:                                              ; preds = %120
+  %141 = load i64, ptr %25, align 8
+  %142 = add i64 24, %141
+  %143 = add i64 %142, 1
+  %144 = add i64 %143, 8
+  %145 = sub i64 %144, 1
+  %146 = and i64 %145, -8
+  %147 = call i1 @llvm.is.constant.i64(i64 %146)
+  br i1 %147, label %148, label %534
+
+148:                                              ; preds = %140
+  %149 = load i64, ptr %25, align 8
+  %150 = add i64 24, %149
+  %151 = add i64 %150, 1
+  %152 = add i64 %151, 8
+  %153 = sub i64 %152, 1
+  %154 = and i64 %153, -8
+  %155 = icmp ule i64 %154, 8
+  br i1 %155, label %156, label %158
+
+156:                                              ; preds = %148
+  %157 = call noalias ptr @_emalloc_8() #12
+  br label %532
+
+158:                                              ; preds = %148
+  %159 = load i64, ptr %25, align 8
+  %160 = add i64 24, %159
+  %161 = add i64 %160, 1
+  %162 = add i64 %161, 8
+  %163 = sub i64 %162, 1
+  %164 = and i64 %163, -8
+  %165 = icmp ule i64 %164, 16
+  br i1 %165, label %166, label %168
+
+166:                                              ; preds = %158
+  %167 = call noalias ptr @_emalloc_16() #12
+  br label %530
+
+168:                                              ; preds = %158
+  %169 = load i64, ptr %25, align 8
+  %170 = add i64 24, %169
+  %171 = add i64 %170, 1
+  %172 = add i64 %171, 8
+  %173 = sub i64 %172, 1
+  %174 = and i64 %173, -8
+  %175 = icmp ule i64 %174, 24
+  br i1 %175, label %176, label %178
+
+176:                                              ; preds = %168
+  %177 = call noalias ptr @_emalloc_24() #12
+  br label %528
+
+178:                                              ; preds = %168
+  %179 = load i64, ptr %25, align 8
+  %180 = add i64 24, %179
+  %181 = add i64 %180, 1
+  %182 = add i64 %181, 8
+  %183 = sub i64 %182, 1
+  %184 = and i64 %183, -8
+  %185 = icmp ule i64 %184, 32
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %178
+  %187 = call noalias ptr @_emalloc_32() #12
+  br label %526
+
+188:                                              ; preds = %178
+  %189 = load i64, ptr %25, align 8
+  %190 = add i64 24, %189
+  %191 = add i64 %190, 1
+  %192 = add i64 %191, 8
+  %193 = sub i64 %192, 1
+  %194 = and i64 %193, -8
+  %195 = icmp ule i64 %194, 40
+  br i1 %195, label %196, label %198
+
+196:                                              ; preds = %188
+  %197 = call noalias ptr @_emalloc_40() #12
+  br label %524
+
+198:                                              ; preds = %188
+  %199 = load i64, ptr %25, align 8
+  %200 = add i64 24, %199
+  %201 = add i64 %200, 1
+  %202 = add i64 %201, 8
+  %203 = sub i64 %202, 1
+  %204 = and i64 %203, -8
+  %205 = icmp ule i64 %204, 48
+  br i1 %205, label %206, label %208
+
+206:                                              ; preds = %198
+  %207 = call noalias ptr @_emalloc_48() #12
+  br label %522
+
+208:                                              ; preds = %198
+  %209 = load i64, ptr %25, align 8
+  %210 = add i64 24, %209
+  %211 = add i64 %210, 1
+  %212 = add i64 %211, 8
+  %213 = sub i64 %212, 1
+  %214 = and i64 %213, -8
+  %215 = icmp ule i64 %214, 56
+  br i1 %215, label %216, label %218
+
+216:                                              ; preds = %208
+  %217 = call noalias ptr @_emalloc_56() #12
+  br label %520
+
+218:                                              ; preds = %208
+  %219 = load i64, ptr %25, align 8
+  %220 = add i64 24, %219
+  %221 = add i64 %220, 1
+  %222 = add i64 %221, 8
+  %223 = sub i64 %222, 1
+  %224 = and i64 %223, -8
+  %225 = icmp ule i64 %224, 64
+  br i1 %225, label %226, label %228
+
+226:                                              ; preds = %218
+  %227 = call noalias ptr @_emalloc_64() #12
+  br label %518
+
+228:                                              ; preds = %218
+  %229 = load i64, ptr %25, align 8
+  %230 = add i64 24, %229
+  %231 = add i64 %230, 1
+  %232 = add i64 %231, 8
+  %233 = sub i64 %232, 1
+  %234 = and i64 %233, -8
+  %235 = icmp ule i64 %234, 80
+  br i1 %235, label %236, label %238
+
+236:                                              ; preds = %228
+  %237 = call noalias ptr @_emalloc_80() #12
+  br label %516
+
+238:                                              ; preds = %228
+  %239 = load i64, ptr %25, align 8
+  %240 = add i64 24, %239
+  %241 = add i64 %240, 1
+  %242 = add i64 %241, 8
+  %243 = sub i64 %242, 1
+  %244 = and i64 %243, -8
+  %245 = icmp ule i64 %244, 96
+  br i1 %245, label %246, label %248
+
+246:                                              ; preds = %238
+  %247 = call noalias ptr @_emalloc_96() #12
+  br label %514
+
+248:                                              ; preds = %238
+  %249 = load i64, ptr %25, align 8
+  %250 = add i64 24, %249
+  %251 = add i64 %250, 1
+  %252 = add i64 %251, 8
+  %253 = sub i64 %252, 1
+  %254 = and i64 %253, -8
+  %255 = icmp ule i64 %254, 112
+  br i1 %255, label %256, label %258
+
+256:                                              ; preds = %248
+  %257 = call noalias ptr @_emalloc_112() #12
+  br label %512
+
+258:                                              ; preds = %248
+  %259 = load i64, ptr %25, align 8
+  %260 = add i64 24, %259
+  %261 = add i64 %260, 1
+  %262 = add i64 %261, 8
+  %263 = sub i64 %262, 1
+  %264 = and i64 %263, -8
+  %265 = icmp ule i64 %264, 128
+  br i1 %265, label %266, label %268
+
+266:                                              ; preds = %258
+  %267 = call noalias ptr @_emalloc_128() #12
+  br label %510
+
+268:                                              ; preds = %258
+  %269 = load i64, ptr %25, align 8
+  %270 = add i64 24, %269
+  %271 = add i64 %270, 1
+  %272 = add i64 %271, 8
+  %273 = sub i64 %272, 1
+  %274 = and i64 %273, -8
+  %275 = icmp ule i64 %274, 160
+  br i1 %275, label %276, label %278
+
+276:                                              ; preds = %268
+  %277 = call noalias ptr @_emalloc_160() #12
+  br label %508
+
+278:                                              ; preds = %268
+  %279 = load i64, ptr %25, align 8
+  %280 = add i64 24, %279
+  %281 = add i64 %280, 1
+  %282 = add i64 %281, 8
+  %283 = sub i64 %282, 1
+  %284 = and i64 %283, -8
+  %285 = icmp ule i64 %284, 192
+  br i1 %285, label %286, label %288
+
+286:                                              ; preds = %278
+  %287 = call noalias ptr @_emalloc_192() #12
+  br label %506
+
+288:                                              ; preds = %278
+  %289 = load i64, ptr %25, align 8
+  %290 = add i64 24, %289
+  %291 = add i64 %290, 1
+  %292 = add i64 %291, 8
+  %293 = sub i64 %292, 1
+  %294 = and i64 %293, -8
+  %295 = icmp ule i64 %294, 224
+  br i1 %295, label %296, label %298
+
+296:                                              ; preds = %288
+  %297 = call noalias ptr @_emalloc_224() #12
+  br label %504
+
+298:                                              ; preds = %288
+  %299 = load i64, ptr %25, align 8
+  %300 = add i64 24, %299
+  %301 = add i64 %300, 1
+  %302 = add i64 %301, 8
+  %303 = sub i64 %302, 1
+  %304 = and i64 %303, -8
+  %305 = icmp ule i64 %304, 256
+  br i1 %305, label %306, label %308
+
+306:                                              ; preds = %298
+  %307 = call noalias ptr @_emalloc_256() #12
+  br label %502
+
+308:                                              ; preds = %298
+  %309 = load i64, ptr %25, align 8
+  %310 = add i64 24, %309
+  %311 = add i64 %310, 1
+  %312 = add i64 %311, 8
+  %313 = sub i64 %312, 1
+  %314 = and i64 %313, -8
+  %315 = icmp ule i64 %314, 320
+  br i1 %315, label %316, label %318
+
+316:                                              ; preds = %308
+  %317 = call noalias ptr @_emalloc_320() #12
+  br label %500
+
+318:                                              ; preds = %308
+  %319 = load i64, ptr %25, align 8
+  %320 = add i64 24, %319
+  %321 = add i64 %320, 1
+  %322 = add i64 %321, 8
+  %323 = sub i64 %322, 1
+  %324 = and i64 %323, -8
+  %325 = icmp ule i64 %324, 384
+  br i1 %325, label %326, label %328
+
+326:                                              ; preds = %318
+  %327 = call noalias ptr @_emalloc_384() #12
+  br label %498
+
+328:                                              ; preds = %318
+  %329 = load i64, ptr %25, align 8
+  %330 = add i64 24, %329
+  %331 = add i64 %330, 1
+  %332 = add i64 %331, 8
+  %333 = sub i64 %332, 1
+  %334 = and i64 %333, -8
+  %335 = icmp ule i64 %334, 448
+  br i1 %335, label %336, label %338
+
+336:                                              ; preds = %328
+  %337 = call noalias ptr @_emalloc_448() #12
+  br label %496
+
+338:                                              ; preds = %328
+  %339 = load i64, ptr %25, align 8
+  %340 = add i64 24, %339
+  %341 = add i64 %340, 1
+  %342 = add i64 %341, 8
+  %343 = sub i64 %342, 1
+  %344 = and i64 %343, -8
+  %345 = icmp ule i64 %344, 512
+  br i1 %345, label %346, label %348
+
+346:                                              ; preds = %338
+  %347 = call noalias ptr @_emalloc_512() #12
+  br label %494
+
+348:                                              ; preds = %338
+  %349 = load i64, ptr %25, align 8
+  %350 = add i64 24, %349
+  %351 = add i64 %350, 1
+  %352 = add i64 %351, 8
+  %353 = sub i64 %352, 1
+  %354 = and i64 %353, -8
+  %355 = icmp ule i64 %354, 640
+  br i1 %355, label %356, label %358
+
+356:                                              ; preds = %348
+  %357 = call noalias ptr @_emalloc_640() #12
+  br label %492
+
+358:                                              ; preds = %348
+  %359 = load i64, ptr %25, align 8
+  %360 = add i64 24, %359
+  %361 = add i64 %360, 1
+  %362 = add i64 %361, 8
+  %363 = sub i64 %362, 1
+  %364 = and i64 %363, -8
+  %365 = icmp ule i64 %364, 768
+  br i1 %365, label %366, label %368
+
+366:                                              ; preds = %358
+  %367 = call noalias ptr @_emalloc_768() #12
+  br label %490
+
+368:                                              ; preds = %358
+  %369 = load i64, ptr %25, align 8
+  %370 = add i64 24, %369
+  %371 = add i64 %370, 1
+  %372 = add i64 %371, 8
+  %373 = sub i64 %372, 1
+  %374 = and i64 %373, -8
+  %375 = icmp ule i64 %374, 896
+  br i1 %375, label %376, label %378
+
+376:                                              ; preds = %368
+  %377 = call noalias ptr @_emalloc_896() #12
+  br label %488
+
+378:                                              ; preds = %368
+  %379 = load i64, ptr %25, align 8
+  %380 = add i64 24, %379
+  %381 = add i64 %380, 1
+  %382 = add i64 %381, 8
+  %383 = sub i64 %382, 1
+  %384 = and i64 %383, -8
+  %385 = icmp ule i64 %384, 1024
+  br i1 %385, label %386, label %388
+
+386:                                              ; preds = %378
+  %387 = call noalias ptr @_emalloc_1024() #12
+  br label %486
+
+388:                                              ; preds = %378
+  %389 = load i64, ptr %25, align 8
+  %390 = add i64 24, %389
+  %391 = add i64 %390, 1
+  %392 = add i64 %391, 8
+  %393 = sub i64 %392, 1
+  %394 = and i64 %393, -8
+  %395 = icmp ule i64 %394, 1280
+  br i1 %395, label %396, label %398
+
+396:                                              ; preds = %388
+  %397 = call noalias ptr @_emalloc_1280() #12
+  br label %484
+
+398:                                              ; preds = %388
+  %399 = load i64, ptr %25, align 8
+  %400 = add i64 24, %399
+  %401 = add i64 %400, 1
+  %402 = add i64 %401, 8
+  %403 = sub i64 %402, 1
+  %404 = and i64 %403, -8
+  %405 = icmp ule i64 %404, 1536
+  br i1 %405, label %406, label %408
+
+406:                                              ; preds = %398
+  %407 = call noalias ptr @_emalloc_1536() #12
+  br label %482
+
+408:                                              ; preds = %398
+  %409 = load i64, ptr %25, align 8
+  %410 = add i64 24, %409
+  %411 = add i64 %410, 1
+  %412 = add i64 %411, 8
+  %413 = sub i64 %412, 1
+  %414 = and i64 %413, -8
+  %415 = icmp ule i64 %414, 1792
+  br i1 %415, label %416, label %418
+
+416:                                              ; preds = %408
+  %417 = call noalias ptr @_emalloc_1792() #12
+  br label %480
+
+418:                                              ; preds = %408
+  %419 = load i64, ptr %25, align 8
+  %420 = add i64 24, %419
+  %421 = add i64 %420, 1
+  %422 = add i64 %421, 8
+  %423 = sub i64 %422, 1
+  %424 = and i64 %423, -8
+  %425 = icmp ule i64 %424, 2048
+  br i1 %425, label %426, label %428
+
+426:                                              ; preds = %418
+  %427 = call noalias ptr @_emalloc_2048() #12
+  br label %478
+
+428:                                              ; preds = %418
+  %429 = load i64, ptr %25, align 8
+  %430 = add i64 24, %429
+  %431 = add i64 %430, 1
+  %432 = add i64 %431, 8
+  %433 = sub i64 %432, 1
+  %434 = and i64 %433, -8
+  %435 = icmp ule i64 %434, 2560
+  br i1 %435, label %436, label %438
+
+436:                                              ; preds = %428
+  %437 = call noalias ptr @_emalloc_2560() #12
+  br label %476
+
+438:                                              ; preds = %428
+  %439 = load i64, ptr %25, align 8
+  %440 = add i64 24, %439
+  %441 = add i64 %440, 1
+  %442 = add i64 %441, 8
+  %443 = sub i64 %442, 1
+  %444 = and i64 %443, -8
+  %445 = icmp ule i64 %444, 3072
+  br i1 %445, label %446, label %448
+
+446:                                              ; preds = %438
+  %447 = call noalias ptr @_emalloc_3072() #12
+  br label %474
+
+448:                                              ; preds = %438
+  %449 = load i64, ptr %25, align 8
+  %450 = add i64 24, %449
+  %451 = add i64 %450, 1
+  %452 = add i64 %451, 8
+  %453 = sub i64 %452, 1
+  %454 = and i64 %453, -8
+  %455 = icmp ule i64 %454, 2093056
+  br i1 %455, label %456, label %464
+
+456:                                              ; preds = %448
+  %457 = load i64, ptr %25, align 8
+  %458 = add i64 24, %457
+  %459 = add i64 %458, 1
+  %460 = add i64 %459, 8
+  %461 = sub i64 %460, 1
+  %462 = and i64 %461, -8
+  %463 = call noalias ptr @_emalloc_large(i64 noundef %462) #14
+  br label %472
+
+464:                                              ; preds = %448
+  %465 = load i64, ptr %25, align 8
+  %466 = add i64 24, %465
+  %467 = add i64 %466, 1
+  %468 = add i64 %467, 8
+  %469 = sub i64 %468, 1
+  %470 = and i64 %469, -8
+  %471 = call noalias ptr @_emalloc_huge(i64 noundef %470) #14
+  br label %472
+
+472:                                              ; preds = %464, %456
+  %473 = phi ptr [ %463, %456 ], [ %471, %464 ]
+  br label %474
+
+474:                                              ; preds = %472, %446
+  %475 = phi ptr [ %447, %446 ], [ %473, %472 ]
+  br label %476
+
+476:                                              ; preds = %474, %436
+  %477 = phi ptr [ %437, %436 ], [ %475, %474 ]
+  br label %478
+
+478:                                              ; preds = %476, %426
+  %479 = phi ptr [ %427, %426 ], [ %477, %476 ]
+  br label %480
+
+480:                                              ; preds = %478, %416
+  %481 = phi ptr [ %417, %416 ], [ %479, %478 ]
+  br label %482
+
+482:                                              ; preds = %480, %406
+  %483 = phi ptr [ %407, %406 ], [ %481, %480 ]
+  br label %484
+
+484:                                              ; preds = %482, %396
+  %485 = phi ptr [ %397, %396 ], [ %483, %482 ]
+  br label %486
+
+486:                                              ; preds = %484, %386
+  %487 = phi ptr [ %387, %386 ], [ %485, %484 ]
+  br label %488
+
+488:                                              ; preds = %486, %376
+  %489 = phi ptr [ %377, %376 ], [ %487, %486 ]
+  br label %490
+
+490:                                              ; preds = %488, %366
+  %491 = phi ptr [ %367, %366 ], [ %489, %488 ]
+  br label %492
+
+492:                                              ; preds = %490, %356
+  %493 = phi ptr [ %357, %356 ], [ %491, %490 ]
+  br label %494
+
+494:                                              ; preds = %492, %346
+  %495 = phi ptr [ %347, %346 ], [ %493, %492 ]
+  br label %496
+
+496:                                              ; preds = %494, %336
+  %497 = phi ptr [ %337, %336 ], [ %495, %494 ]
+  br label %498
+
+498:                                              ; preds = %496, %326
+  %499 = phi ptr [ %327, %326 ], [ %497, %496 ]
+  br label %500
+
+500:                                              ; preds = %498, %316
+  %501 = phi ptr [ %317, %316 ], [ %499, %498 ]
+  br label %502
+
+502:                                              ; preds = %500, %306
+  %503 = phi ptr [ %307, %306 ], [ %501, %500 ]
+  br label %504
+
+504:                                              ; preds = %502, %296
+  %505 = phi ptr [ %297, %296 ], [ %503, %502 ]
+  br label %506
+
+506:                                              ; preds = %504, %286
+  %507 = phi ptr [ %287, %286 ], [ %505, %504 ]
+  br label %508
+
+508:                                              ; preds = %506, %276
+  %509 = phi ptr [ %277, %276 ], [ %507, %506 ]
+  br label %510
+
+510:                                              ; preds = %508, %266
+  %511 = phi ptr [ %267, %266 ], [ %509, %508 ]
+  br label %512
+
+512:                                              ; preds = %510, %256
+  %513 = phi ptr [ %257, %256 ], [ %511, %510 ]
+  br label %514
+
+514:                                              ; preds = %512, %246
+  %515 = phi ptr [ %247, %246 ], [ %513, %512 ]
+  br label %516
+
+516:                                              ; preds = %514, %236
+  %517 = phi ptr [ %237, %236 ], [ %515, %514 ]
+  br label %518
+
+518:                                              ; preds = %516, %226
+  %519 = phi ptr [ %227, %226 ], [ %517, %516 ]
+  br label %520
+
+520:                                              ; preds = %518, %216
+  %521 = phi ptr [ %217, %216 ], [ %519, %518 ]
+  br label %522
+
+522:                                              ; preds = %520, %206
+  %523 = phi ptr [ %207, %206 ], [ %521, %520 ]
+  br label %524
+
+524:                                              ; preds = %522, %196
+  %525 = phi ptr [ %197, %196 ], [ %523, %522 ]
+  br label %526
+
+526:                                              ; preds = %524, %186
+  %527 = phi ptr [ %187, %186 ], [ %525, %524 ]
+  br label %528
+
+528:                                              ; preds = %526, %176
+  %529 = phi ptr [ %177, %176 ], [ %527, %526 ]
+  br label %530
+
+530:                                              ; preds = %528, %166
+  %531 = phi ptr [ %167, %166 ], [ %529, %528 ]
+  br label %532
+
+532:                                              ; preds = %530, %156
+  %533 = phi ptr [ %157, %156 ], [ %531, %530 ]
+  br label %542
+
+534:                                              ; preds = %140
+  %535 = load i64, ptr %25, align 8
+  %536 = add i64 24, %535
+  %537 = add i64 %536, 1
+  %538 = add i64 %537, 8
+  %539 = sub i64 %538, 1
+  %540 = and i64 %539, -8
+  %541 = call noalias ptr @_emalloc(i64 noundef %540) #14
+  br label %542
+
+542:                                              ; preds = %534, %532
+  %543 = phi ptr [ %533, %532 ], [ %541, %534 ]
+  br label %544
+
+544:                                              ; preds = %542, %132
+  %545 = phi ptr [ %139, %132 ], [ %543, %542 ]
+  store ptr %545, ptr %27, align 8
   %546 = load ptr, ptr %27, align 8
-  %547 = getelementptr inbounds %struct._zend_refcounted_h, ptr %546, i32 0, i32 1
-  store i32 %545, ptr %547, align 4
-  %548 = load ptr, ptr %27, align 8
-  %549 = getelementptr inbounds %struct._zend_string, ptr %548, i32 0, i32 1
-  store i64 0, ptr %549, align 8
-  %550 = load i64, ptr %25, align 8
-  %551 = load ptr, ptr %27, align 8
-  %552 = getelementptr inbounds %struct._zend_string, ptr %551, i32 0, i32 2
-  store i64 %550, ptr %552, align 8
+  store ptr %546, ptr %2, align 8
+  store i32 1, ptr %3, align 4
+  %547 = load i32, ptr %3, align 4
+  %548 = load ptr, ptr %2, align 8
+  store i32 %547, ptr %548, align 4
+  %549 = load i8, ptr %26, align 1
+  %550 = trunc i8 %549 to i1
+  %551 = select i1 %550, i32 128, i32 0
+  %552 = or i32 22, %551
   %553 = load ptr, ptr %27, align 8
-  store ptr %553, ptr %31, align 8
-  %554 = load ptr, ptr %31, align 8
-  %555 = getelementptr inbounds %struct._zend_string, ptr %554, i32 0, i32 3
-  %556 = load ptr, ptr %28, align 8
-  %557 = load i64, ptr %29, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %555, ptr align 1 %556, i64 %557, i1 false)
-  %558 = load ptr, ptr %31, align 8
-  %559 = getelementptr inbounds %struct._zend_string, ptr %558, i32 0, i32 3
-  %560 = load i64, ptr %29, align 8
-  %561 = getelementptr inbounds [1 x i8], ptr %559, i64 0, i64 %560
-  store i8 0, ptr %561, align 1
-  %562 = load ptr, ptr %31, align 8
-  store ptr %562, ptr %40, align 8
-  br label %563
+  %554 = getelementptr inbounds %struct._zend_refcounted_h, ptr %553, i32 0, i32 1
+  store i32 %552, ptr %554, align 4
+  %555 = load ptr, ptr %27, align 8
+  %556 = getelementptr inbounds %struct._zend_string, ptr %555, i32 0, i32 1
+  store i64 0, ptr %556, align 8
+  %557 = load i64, ptr %25, align 8
+  %558 = load ptr, ptr %27, align 8
+  %559 = getelementptr inbounds %struct._zend_string, ptr %558, i32 0, i32 2
+  store i64 %557, ptr %559, align 8
+  %560 = load ptr, ptr %27, align 8
+  store ptr %560, ptr %31, align 8
+  %561 = load ptr, ptr %31, align 8
+  %562 = getelementptr inbounds %struct._zend_string, ptr %561, i32 0, i32 3
+  %563 = load ptr, ptr %28, align 8
+  %564 = load i64, ptr %29, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %562, ptr align 1 %563, i64 %564, i1 false)
+  %565 = load ptr, ptr %31, align 8
+  %566 = getelementptr inbounds %struct._zend_string, ptr %565, i32 0, i32 3
+  %567 = load i64, ptr %29, align 8
+  %568 = getelementptr inbounds [1 x i8], ptr %566, i64 0, i64 %567
+  store i8 0, ptr %568, align 1
+  %569 = load ptr, ptr %31, align 8
+  store ptr %569, ptr %40, align 8
+  br label %570
 
-563:                                              ; preds = %537, %112
-  br label %564
+570:                                              ; preds = %544, %116
+  br label %571
 
-564:                                              ; preds = %563, %104
-  br label %565
+571:                                              ; preds = %570, %107
+  br label %572
 
-565:                                              ; preds = %564, %72
-  br label %1516
+572:                                              ; preds = %571, %75
+  br label %1530
 
-566:                                              ; preds = %66, %60, %57, %52, %1
-  %567 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 15), align 8
-  %568 = icmp ne ptr %567, null
-  br i1 %568, label %569, label %1063
+573:                                              ; preds = %69, %63, %60, %54, %1
+  %574 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 15
+  %575 = load ptr, ptr %574, align 8
+  %576 = icmp ne ptr %575, null
+  br i1 %576, label %577, label %1074
 
-569:                                              ; preds = %566
-  %570 = load ptr, ptr %39, align 8
-  %571 = icmp ne ptr %570, null
-  br i1 %571, label %572, label %1063
+577:                                              ; preds = %573
+  %578 = load ptr, ptr %39, align 8
+  %579 = icmp ne ptr %578, null
+  br i1 %579, label %580, label %1074
 
-572:                                              ; preds = %569
-  %573 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 15), align 8
-  %574 = call i64 @strlen(ptr noundef %573) #11
-  store i64 %574, ptr %42, align 8
-  %575 = icmp ne i64 %574, 0
-  br i1 %575, label %576, label %1063
+580:                                              ; preds = %577
+  %581 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 15
+  %582 = load ptr, ptr %581, align 8
+  %583 = call i64 @strlen(ptr noundef %582) #11
+  store i64 %583, ptr %42, align 8
+  %584 = icmp ne i64 %583, 0
+  br i1 %584, label %585, label %1074
 
-576:                                              ; preds = %572
-  %577 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 15), align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 0
-  %579 = load i8, ptr %578, align 1
-  %580 = sext i8 %579 to i32
-  %581 = icmp eq i32 %580, 47
-  br i1 %581, label %582, label %1063
+585:                                              ; preds = %580
+  %586 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 15
+  %587 = load ptr, ptr %586, align 8
+  %588 = getelementptr inbounds i8, ptr %587, i64 0
+  %589 = load i8, ptr %588, align 1
+  %590 = sext i8 %589 to i32
+  %591 = icmp eq i32 %590, 47
+  br i1 %591, label %592, label %1074
 
-582:                                              ; preds = %576
-  %583 = load ptr, ptr %39, align 8
-  %584 = call i64 @strlen(ptr noundef %583) #11
-  store i64 %584, ptr %47, align 8
-  %585 = load i64, ptr %42, align 8
-  %586 = load i64, ptr %47, align 8
-  %587 = add i64 %585, %586
-  %588 = add i64 %587, 2
-  store i64 %588, ptr %19, align 8
+592:                                              ; preds = %585
+  %593 = load ptr, ptr %39, align 8
+  %594 = call i64 @strlen(ptr noundef %593) #11
+  store i64 %594, ptr %47, align 8
+  %595 = load i64, ptr %42, align 8
+  %596 = load i64, ptr %47, align 8
+  %597 = add i64 %595, %596
+  %598 = add i64 %597, 2
+  store i64 %598, ptr %19, align 8
   store i8 0, ptr %20, align 1
-  %589 = load i8, ptr %20, align 1
-  %590 = trunc i8 %589 to i1
-  br i1 %590, label %591, label %599
+  %599 = load i8, ptr %20, align 1
+  %600 = trunc i8 %599 to i1
+  br i1 %600, label %601, label %609
 
-591:                                              ; preds = %582
-  %592 = load i64, ptr %19, align 8
-  %593 = add i64 24, %592
-  %594 = add i64 %593, 1
-  %595 = add i64 %594, 8
-  %596 = sub i64 %595, 1
-  %597 = and i64 %596, -8
-  %598 = call noalias ptr @__zend_malloc(i64 noundef %597) #14
-  br label %1003
+601:                                              ; preds = %592
+  %602 = load i64, ptr %19, align 8
+  %603 = add i64 24, %602
+  %604 = add i64 %603, 1
+  %605 = add i64 %604, 8
+  %606 = sub i64 %605, 1
+  %607 = and i64 %606, -8
+  %608 = call noalias ptr @__zend_malloc(i64 noundef %607) #14
+  br label %1013
 
-599:                                              ; preds = %582
-  %600 = load i64, ptr %19, align 8
-  %601 = add i64 24, %600
-  %602 = add i64 %601, 1
-  %603 = add i64 %602, 8
-  %604 = sub i64 %603, 1
-  %605 = and i64 %604, -8
-  %606 = call i1 @llvm.is.constant.i64(i64 %605)
-  br i1 %606, label %607, label %993
+609:                                              ; preds = %592
+  %610 = load i64, ptr %19, align 8
+  %611 = add i64 24, %610
+  %612 = add i64 %611, 1
+  %613 = add i64 %612, 8
+  %614 = sub i64 %613, 1
+  %615 = and i64 %614, -8
+  %616 = call i1 @llvm.is.constant.i64(i64 %615)
+  br i1 %616, label %617, label %1003
 
-607:                                              ; preds = %599
-  %608 = load i64, ptr %19, align 8
-  %609 = add i64 24, %608
-  %610 = add i64 %609, 1
-  %611 = add i64 %610, 8
-  %612 = sub i64 %611, 1
-  %613 = and i64 %612, -8
-  %614 = icmp ule i64 %613, 8
-  br i1 %614, label %615, label %617
-
-615:                                              ; preds = %607
-  %616 = call noalias ptr @_emalloc_8() #12
-  br label %991
-
-617:                                              ; preds = %607
+617:                                              ; preds = %609
   %618 = load i64, ptr %19, align 8
   %619 = add i64 24, %618
   %620 = add i64 %619, 1
   %621 = add i64 %620, 8
   %622 = sub i64 %621, 1
   %623 = and i64 %622, -8
-  %624 = icmp ule i64 %623, 16
+  %624 = icmp ule i64 %623, 8
   br i1 %624, label %625, label %627
 
 625:                                              ; preds = %617
-  %626 = call noalias ptr @_emalloc_16() #12
-  br label %989
+  %626 = call noalias ptr @_emalloc_8() #12
+  br label %1001
 
 627:                                              ; preds = %617
   %628 = load i64, ptr %19, align 8
@@ -2980,12 +2984,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %631 = add i64 %630, 8
   %632 = sub i64 %631, 1
   %633 = and i64 %632, -8
-  %634 = icmp ule i64 %633, 24
+  %634 = icmp ule i64 %633, 16
   br i1 %634, label %635, label %637
 
 635:                                              ; preds = %627
-  %636 = call noalias ptr @_emalloc_24() #12
-  br label %987
+  %636 = call noalias ptr @_emalloc_16() #12
+  br label %999
 
 637:                                              ; preds = %627
   %638 = load i64, ptr %19, align 8
@@ -2994,12 +2998,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %641 = add i64 %640, 8
   %642 = sub i64 %641, 1
   %643 = and i64 %642, -8
-  %644 = icmp ule i64 %643, 32
+  %644 = icmp ule i64 %643, 24
   br i1 %644, label %645, label %647
 
 645:                                              ; preds = %637
-  %646 = call noalias ptr @_emalloc_32() #12
-  br label %985
+  %646 = call noalias ptr @_emalloc_24() #12
+  br label %997
 
 647:                                              ; preds = %637
   %648 = load i64, ptr %19, align 8
@@ -3008,12 +3012,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %651 = add i64 %650, 8
   %652 = sub i64 %651, 1
   %653 = and i64 %652, -8
-  %654 = icmp ule i64 %653, 40
+  %654 = icmp ule i64 %653, 32
   br i1 %654, label %655, label %657
 
 655:                                              ; preds = %647
-  %656 = call noalias ptr @_emalloc_40() #12
-  br label %983
+  %656 = call noalias ptr @_emalloc_32() #12
+  br label %995
 
 657:                                              ; preds = %647
   %658 = load i64, ptr %19, align 8
@@ -3022,12 +3026,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %661 = add i64 %660, 8
   %662 = sub i64 %661, 1
   %663 = and i64 %662, -8
-  %664 = icmp ule i64 %663, 48
+  %664 = icmp ule i64 %663, 40
   br i1 %664, label %665, label %667
 
 665:                                              ; preds = %657
-  %666 = call noalias ptr @_emalloc_48() #12
-  br label %981
+  %666 = call noalias ptr @_emalloc_40() #12
+  br label %993
 
 667:                                              ; preds = %657
   %668 = load i64, ptr %19, align 8
@@ -3036,12 +3040,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %671 = add i64 %670, 8
   %672 = sub i64 %671, 1
   %673 = and i64 %672, -8
-  %674 = icmp ule i64 %673, 56
+  %674 = icmp ule i64 %673, 48
   br i1 %674, label %675, label %677
 
 675:                                              ; preds = %667
-  %676 = call noalias ptr @_emalloc_56() #12
-  br label %979
+  %676 = call noalias ptr @_emalloc_48() #12
+  br label %991
 
 677:                                              ; preds = %667
   %678 = load i64, ptr %19, align 8
@@ -3050,12 +3054,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %681 = add i64 %680, 8
   %682 = sub i64 %681, 1
   %683 = and i64 %682, -8
-  %684 = icmp ule i64 %683, 64
+  %684 = icmp ule i64 %683, 56
   br i1 %684, label %685, label %687
 
 685:                                              ; preds = %677
-  %686 = call noalias ptr @_emalloc_64() #12
-  br label %977
+  %686 = call noalias ptr @_emalloc_56() #12
+  br label %989
 
 687:                                              ; preds = %677
   %688 = load i64, ptr %19, align 8
@@ -3064,12 +3068,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %691 = add i64 %690, 8
   %692 = sub i64 %691, 1
   %693 = and i64 %692, -8
-  %694 = icmp ule i64 %693, 80
+  %694 = icmp ule i64 %693, 64
   br i1 %694, label %695, label %697
 
 695:                                              ; preds = %687
-  %696 = call noalias ptr @_emalloc_80() #12
-  br label %975
+  %696 = call noalias ptr @_emalloc_64() #12
+  br label %987
 
 697:                                              ; preds = %687
   %698 = load i64, ptr %19, align 8
@@ -3078,12 +3082,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %701 = add i64 %700, 8
   %702 = sub i64 %701, 1
   %703 = and i64 %702, -8
-  %704 = icmp ule i64 %703, 96
+  %704 = icmp ule i64 %703, 80
   br i1 %704, label %705, label %707
 
 705:                                              ; preds = %697
-  %706 = call noalias ptr @_emalloc_96() #12
-  br label %973
+  %706 = call noalias ptr @_emalloc_80() #12
+  br label %985
 
 707:                                              ; preds = %697
   %708 = load i64, ptr %19, align 8
@@ -3092,12 +3096,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %711 = add i64 %710, 8
   %712 = sub i64 %711, 1
   %713 = and i64 %712, -8
-  %714 = icmp ule i64 %713, 112
+  %714 = icmp ule i64 %713, 96
   br i1 %714, label %715, label %717
 
 715:                                              ; preds = %707
-  %716 = call noalias ptr @_emalloc_112() #12
-  br label %971
+  %716 = call noalias ptr @_emalloc_96() #12
+  br label %983
 
 717:                                              ; preds = %707
   %718 = load i64, ptr %19, align 8
@@ -3106,12 +3110,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %721 = add i64 %720, 8
   %722 = sub i64 %721, 1
   %723 = and i64 %722, -8
-  %724 = icmp ule i64 %723, 128
+  %724 = icmp ule i64 %723, 112
   br i1 %724, label %725, label %727
 
 725:                                              ; preds = %717
-  %726 = call noalias ptr @_emalloc_128() #12
-  br label %969
+  %726 = call noalias ptr @_emalloc_112() #12
+  br label %981
 
 727:                                              ; preds = %717
   %728 = load i64, ptr %19, align 8
@@ -3120,12 +3124,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %731 = add i64 %730, 8
   %732 = sub i64 %731, 1
   %733 = and i64 %732, -8
-  %734 = icmp ule i64 %733, 160
+  %734 = icmp ule i64 %733, 128
   br i1 %734, label %735, label %737
 
 735:                                              ; preds = %727
-  %736 = call noalias ptr @_emalloc_160() #12
-  br label %967
+  %736 = call noalias ptr @_emalloc_128() #12
+  br label %979
 
 737:                                              ; preds = %727
   %738 = load i64, ptr %19, align 8
@@ -3134,12 +3138,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %741 = add i64 %740, 8
   %742 = sub i64 %741, 1
   %743 = and i64 %742, -8
-  %744 = icmp ule i64 %743, 192
+  %744 = icmp ule i64 %743, 160
   br i1 %744, label %745, label %747
 
 745:                                              ; preds = %737
-  %746 = call noalias ptr @_emalloc_192() #12
-  br label %965
+  %746 = call noalias ptr @_emalloc_160() #12
+  br label %977
 
 747:                                              ; preds = %737
   %748 = load i64, ptr %19, align 8
@@ -3148,12 +3152,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %751 = add i64 %750, 8
   %752 = sub i64 %751, 1
   %753 = and i64 %752, -8
-  %754 = icmp ule i64 %753, 224
+  %754 = icmp ule i64 %753, 192
   br i1 %754, label %755, label %757
 
 755:                                              ; preds = %747
-  %756 = call noalias ptr @_emalloc_224() #12
-  br label %963
+  %756 = call noalias ptr @_emalloc_192() #12
+  br label %975
 
 757:                                              ; preds = %747
   %758 = load i64, ptr %19, align 8
@@ -3162,12 +3166,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %761 = add i64 %760, 8
   %762 = sub i64 %761, 1
   %763 = and i64 %762, -8
-  %764 = icmp ule i64 %763, 256
+  %764 = icmp ule i64 %763, 224
   br i1 %764, label %765, label %767
 
 765:                                              ; preds = %757
-  %766 = call noalias ptr @_emalloc_256() #12
-  br label %961
+  %766 = call noalias ptr @_emalloc_224() #12
+  br label %973
 
 767:                                              ; preds = %757
   %768 = load i64, ptr %19, align 8
@@ -3176,12 +3180,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %771 = add i64 %770, 8
   %772 = sub i64 %771, 1
   %773 = and i64 %772, -8
-  %774 = icmp ule i64 %773, 320
+  %774 = icmp ule i64 %773, 256
   br i1 %774, label %775, label %777
 
 775:                                              ; preds = %767
-  %776 = call noalias ptr @_emalloc_320() #12
-  br label %959
+  %776 = call noalias ptr @_emalloc_256() #12
+  br label %971
 
 777:                                              ; preds = %767
   %778 = load i64, ptr %19, align 8
@@ -3190,12 +3194,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %781 = add i64 %780, 8
   %782 = sub i64 %781, 1
   %783 = and i64 %782, -8
-  %784 = icmp ule i64 %783, 384
+  %784 = icmp ule i64 %783, 320
   br i1 %784, label %785, label %787
 
 785:                                              ; preds = %777
-  %786 = call noalias ptr @_emalloc_384() #12
-  br label %957
+  %786 = call noalias ptr @_emalloc_320() #12
+  br label %969
 
 787:                                              ; preds = %777
   %788 = load i64, ptr %19, align 8
@@ -3204,12 +3208,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %791 = add i64 %790, 8
   %792 = sub i64 %791, 1
   %793 = and i64 %792, -8
-  %794 = icmp ule i64 %793, 448
+  %794 = icmp ule i64 %793, 384
   br i1 %794, label %795, label %797
 
 795:                                              ; preds = %787
-  %796 = call noalias ptr @_emalloc_448() #12
-  br label %955
+  %796 = call noalias ptr @_emalloc_384() #12
+  br label %967
 
 797:                                              ; preds = %787
   %798 = load i64, ptr %19, align 8
@@ -3218,12 +3222,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %801 = add i64 %800, 8
   %802 = sub i64 %801, 1
   %803 = and i64 %802, -8
-  %804 = icmp ule i64 %803, 512
+  %804 = icmp ule i64 %803, 448
   br i1 %804, label %805, label %807
 
 805:                                              ; preds = %797
-  %806 = call noalias ptr @_emalloc_512() #12
-  br label %953
+  %806 = call noalias ptr @_emalloc_448() #12
+  br label %965
 
 807:                                              ; preds = %797
   %808 = load i64, ptr %19, align 8
@@ -3232,12 +3236,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %811 = add i64 %810, 8
   %812 = sub i64 %811, 1
   %813 = and i64 %812, -8
-  %814 = icmp ule i64 %813, 640
+  %814 = icmp ule i64 %813, 512
   br i1 %814, label %815, label %817
 
 815:                                              ; preds = %807
-  %816 = call noalias ptr @_emalloc_640() #12
-  br label %951
+  %816 = call noalias ptr @_emalloc_512() #12
+  br label %963
 
 817:                                              ; preds = %807
   %818 = load i64, ptr %19, align 8
@@ -3246,12 +3250,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %821 = add i64 %820, 8
   %822 = sub i64 %821, 1
   %823 = and i64 %822, -8
-  %824 = icmp ule i64 %823, 768
+  %824 = icmp ule i64 %823, 640
   br i1 %824, label %825, label %827
 
 825:                                              ; preds = %817
-  %826 = call noalias ptr @_emalloc_768() #12
-  br label %949
+  %826 = call noalias ptr @_emalloc_640() #12
+  br label %961
 
 827:                                              ; preds = %817
   %828 = load i64, ptr %19, align 8
@@ -3260,12 +3264,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %831 = add i64 %830, 8
   %832 = sub i64 %831, 1
   %833 = and i64 %832, -8
-  %834 = icmp ule i64 %833, 896
+  %834 = icmp ule i64 %833, 768
   br i1 %834, label %835, label %837
 
 835:                                              ; preds = %827
-  %836 = call noalias ptr @_emalloc_896() #12
-  br label %947
+  %836 = call noalias ptr @_emalloc_768() #12
+  br label %959
 
 837:                                              ; preds = %827
   %838 = load i64, ptr %19, align 8
@@ -3274,12 +3278,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %841 = add i64 %840, 8
   %842 = sub i64 %841, 1
   %843 = and i64 %842, -8
-  %844 = icmp ule i64 %843, 1024
+  %844 = icmp ule i64 %843, 896
   br i1 %844, label %845, label %847
 
 845:                                              ; preds = %837
-  %846 = call noalias ptr @_emalloc_1024() #12
-  br label %945
+  %846 = call noalias ptr @_emalloc_896() #12
+  br label %957
 
 847:                                              ; preds = %837
   %848 = load i64, ptr %19, align 8
@@ -3288,12 +3292,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %851 = add i64 %850, 8
   %852 = sub i64 %851, 1
   %853 = and i64 %852, -8
-  %854 = icmp ule i64 %853, 1280
+  %854 = icmp ule i64 %853, 1024
   br i1 %854, label %855, label %857
 
 855:                                              ; preds = %847
-  %856 = call noalias ptr @_emalloc_1280() #12
-  br label %943
+  %856 = call noalias ptr @_emalloc_1024() #12
+  br label %955
 
 857:                                              ; preds = %847
   %858 = load i64, ptr %19, align 8
@@ -3302,12 +3306,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %861 = add i64 %860, 8
   %862 = sub i64 %861, 1
   %863 = and i64 %862, -8
-  %864 = icmp ule i64 %863, 1536
+  %864 = icmp ule i64 %863, 1280
   br i1 %864, label %865, label %867
 
 865:                                              ; preds = %857
-  %866 = call noalias ptr @_emalloc_1536() #12
-  br label %941
+  %866 = call noalias ptr @_emalloc_1280() #12
+  br label %953
 
 867:                                              ; preds = %857
   %868 = load i64, ptr %19, align 8
@@ -3316,12 +3320,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %871 = add i64 %870, 8
   %872 = sub i64 %871, 1
   %873 = and i64 %872, -8
-  %874 = icmp ule i64 %873, 1792
+  %874 = icmp ule i64 %873, 1536
   br i1 %874, label %875, label %877
 
 875:                                              ; preds = %867
-  %876 = call noalias ptr @_emalloc_1792() #12
-  br label %939
+  %876 = call noalias ptr @_emalloc_1536() #12
+  br label %951
 
 877:                                              ; preds = %867
   %878 = load i64, ptr %19, align 8
@@ -3330,12 +3334,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %881 = add i64 %880, 8
   %882 = sub i64 %881, 1
   %883 = and i64 %882, -8
-  %884 = icmp ule i64 %883, 2048
+  %884 = icmp ule i64 %883, 1792
   br i1 %884, label %885, label %887
 
 885:                                              ; preds = %877
-  %886 = call noalias ptr @_emalloc_2048() #12
-  br label %937
+  %886 = call noalias ptr @_emalloc_1792() #12
+  br label %949
 
 887:                                              ; preds = %877
   %888 = load i64, ptr %19, align 8
@@ -3344,12 +3348,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %891 = add i64 %890, 8
   %892 = sub i64 %891, 1
   %893 = and i64 %892, -8
-  %894 = icmp ule i64 %893, 2560
+  %894 = icmp ule i64 %893, 2048
   br i1 %894, label %895, label %897
 
 895:                                              ; preds = %887
-  %896 = call noalias ptr @_emalloc_2560() #12
-  br label %935
+  %896 = call noalias ptr @_emalloc_2048() #12
+  br label %947
 
 897:                                              ; preds = %887
   %898 = load i64, ptr %19, align 8
@@ -3358,12 +3362,12 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %901 = add i64 %900, 8
   %902 = sub i64 %901, 1
   %903 = and i64 %902, -8
-  %904 = icmp ule i64 %903, 3072
+  %904 = icmp ule i64 %903, 2560
   br i1 %904, label %905, label %907
 
 905:                                              ; preds = %897
-  %906 = call noalias ptr @_emalloc_3072() #12
-  br label %933
+  %906 = call noalias ptr @_emalloc_2560() #12
+  br label %945
 
 907:                                              ; preds = %897
   %908 = load i64, ptr %19, align 8
@@ -3372,1154 +3376,1182 @@ define i32 @php_fopen_primary_script(ptr noundef %0) #0 {
   %911 = add i64 %910, 8
   %912 = sub i64 %911, 1
   %913 = and i64 %912, -8
-  %914 = icmp ule i64 %913, 2093056
-  br i1 %914, label %915, label %923
+  %914 = icmp ule i64 %913, 3072
+  br i1 %914, label %915, label %917
 
 915:                                              ; preds = %907
-  %916 = load i64, ptr %19, align 8
-  %917 = add i64 24, %916
-  %918 = add i64 %917, 1
-  %919 = add i64 %918, 8
-  %920 = sub i64 %919, 1
-  %921 = and i64 %920, -8
-  %922 = call noalias ptr @_emalloc_large(i64 noundef %921) #14
-  br label %931
-
-923:                                              ; preds = %907
-  %924 = load i64, ptr %19, align 8
-  %925 = add i64 24, %924
-  %926 = add i64 %925, 1
-  %927 = add i64 %926, 8
-  %928 = sub i64 %927, 1
-  %929 = and i64 %928, -8
-  %930 = call noalias ptr @_emalloc_huge(i64 noundef %929) #14
-  br label %931
-
-931:                                              ; preds = %923, %915
-  %932 = phi ptr [ %922, %915 ], [ %930, %923 ]
-  br label %933
-
-933:                                              ; preds = %931, %905
-  %934 = phi ptr [ %906, %905 ], [ %932, %931 ]
-  br label %935
-
-935:                                              ; preds = %933, %895
-  %936 = phi ptr [ %896, %895 ], [ %934, %933 ]
-  br label %937
-
-937:                                              ; preds = %935, %885
-  %938 = phi ptr [ %886, %885 ], [ %936, %935 ]
-  br label %939
-
-939:                                              ; preds = %937, %875
-  %940 = phi ptr [ %876, %875 ], [ %938, %937 ]
-  br label %941
-
-941:                                              ; preds = %939, %865
-  %942 = phi ptr [ %866, %865 ], [ %940, %939 ]
+  %916 = call noalias ptr @_emalloc_3072() #12
   br label %943
 
-943:                                              ; preds = %941, %855
-  %944 = phi ptr [ %856, %855 ], [ %942, %941 ]
+917:                                              ; preds = %907
+  %918 = load i64, ptr %19, align 8
+  %919 = add i64 24, %918
+  %920 = add i64 %919, 1
+  %921 = add i64 %920, 8
+  %922 = sub i64 %921, 1
+  %923 = and i64 %922, -8
+  %924 = icmp ule i64 %923, 2093056
+  br i1 %924, label %925, label %933
+
+925:                                              ; preds = %917
+  %926 = load i64, ptr %19, align 8
+  %927 = add i64 24, %926
+  %928 = add i64 %927, 1
+  %929 = add i64 %928, 8
+  %930 = sub i64 %929, 1
+  %931 = and i64 %930, -8
+  %932 = call noalias ptr @_emalloc_large(i64 noundef %931) #14
+  br label %941
+
+933:                                              ; preds = %917
+  %934 = load i64, ptr %19, align 8
+  %935 = add i64 24, %934
+  %936 = add i64 %935, 1
+  %937 = add i64 %936, 8
+  %938 = sub i64 %937, 1
+  %939 = and i64 %938, -8
+  %940 = call noalias ptr @_emalloc_huge(i64 noundef %939) #14
+  br label %941
+
+941:                                              ; preds = %933, %925
+  %942 = phi ptr [ %932, %925 ], [ %940, %933 ]
+  br label %943
+
+943:                                              ; preds = %941, %915
+  %944 = phi ptr [ %916, %915 ], [ %942, %941 ]
   br label %945
 
-945:                                              ; preds = %943, %845
-  %946 = phi ptr [ %846, %845 ], [ %944, %943 ]
+945:                                              ; preds = %943, %905
+  %946 = phi ptr [ %906, %905 ], [ %944, %943 ]
   br label %947
 
-947:                                              ; preds = %945, %835
-  %948 = phi ptr [ %836, %835 ], [ %946, %945 ]
+947:                                              ; preds = %945, %895
+  %948 = phi ptr [ %896, %895 ], [ %946, %945 ]
   br label %949
 
-949:                                              ; preds = %947, %825
-  %950 = phi ptr [ %826, %825 ], [ %948, %947 ]
+949:                                              ; preds = %947, %885
+  %950 = phi ptr [ %886, %885 ], [ %948, %947 ]
   br label %951
 
-951:                                              ; preds = %949, %815
-  %952 = phi ptr [ %816, %815 ], [ %950, %949 ]
+951:                                              ; preds = %949, %875
+  %952 = phi ptr [ %876, %875 ], [ %950, %949 ]
   br label %953
 
-953:                                              ; preds = %951, %805
-  %954 = phi ptr [ %806, %805 ], [ %952, %951 ]
+953:                                              ; preds = %951, %865
+  %954 = phi ptr [ %866, %865 ], [ %952, %951 ]
   br label %955
 
-955:                                              ; preds = %953, %795
-  %956 = phi ptr [ %796, %795 ], [ %954, %953 ]
+955:                                              ; preds = %953, %855
+  %956 = phi ptr [ %856, %855 ], [ %954, %953 ]
   br label %957
 
-957:                                              ; preds = %955, %785
-  %958 = phi ptr [ %786, %785 ], [ %956, %955 ]
+957:                                              ; preds = %955, %845
+  %958 = phi ptr [ %846, %845 ], [ %956, %955 ]
   br label %959
 
-959:                                              ; preds = %957, %775
-  %960 = phi ptr [ %776, %775 ], [ %958, %957 ]
+959:                                              ; preds = %957, %835
+  %960 = phi ptr [ %836, %835 ], [ %958, %957 ]
   br label %961
 
-961:                                              ; preds = %959, %765
-  %962 = phi ptr [ %766, %765 ], [ %960, %959 ]
+961:                                              ; preds = %959, %825
+  %962 = phi ptr [ %826, %825 ], [ %960, %959 ]
   br label %963
 
-963:                                              ; preds = %961, %755
-  %964 = phi ptr [ %756, %755 ], [ %962, %961 ]
+963:                                              ; preds = %961, %815
+  %964 = phi ptr [ %816, %815 ], [ %962, %961 ]
   br label %965
 
-965:                                              ; preds = %963, %745
-  %966 = phi ptr [ %746, %745 ], [ %964, %963 ]
+965:                                              ; preds = %963, %805
+  %966 = phi ptr [ %806, %805 ], [ %964, %963 ]
   br label %967
 
-967:                                              ; preds = %965, %735
-  %968 = phi ptr [ %736, %735 ], [ %966, %965 ]
+967:                                              ; preds = %965, %795
+  %968 = phi ptr [ %796, %795 ], [ %966, %965 ]
   br label %969
 
-969:                                              ; preds = %967, %725
-  %970 = phi ptr [ %726, %725 ], [ %968, %967 ]
+969:                                              ; preds = %967, %785
+  %970 = phi ptr [ %786, %785 ], [ %968, %967 ]
   br label %971
 
-971:                                              ; preds = %969, %715
-  %972 = phi ptr [ %716, %715 ], [ %970, %969 ]
+971:                                              ; preds = %969, %775
+  %972 = phi ptr [ %776, %775 ], [ %970, %969 ]
   br label %973
 
-973:                                              ; preds = %971, %705
-  %974 = phi ptr [ %706, %705 ], [ %972, %971 ]
+973:                                              ; preds = %971, %765
+  %974 = phi ptr [ %766, %765 ], [ %972, %971 ]
   br label %975
 
-975:                                              ; preds = %973, %695
-  %976 = phi ptr [ %696, %695 ], [ %974, %973 ]
+975:                                              ; preds = %973, %755
+  %976 = phi ptr [ %756, %755 ], [ %974, %973 ]
   br label %977
 
-977:                                              ; preds = %975, %685
-  %978 = phi ptr [ %686, %685 ], [ %976, %975 ]
+977:                                              ; preds = %975, %745
+  %978 = phi ptr [ %746, %745 ], [ %976, %975 ]
   br label %979
 
-979:                                              ; preds = %977, %675
-  %980 = phi ptr [ %676, %675 ], [ %978, %977 ]
+979:                                              ; preds = %977, %735
+  %980 = phi ptr [ %736, %735 ], [ %978, %977 ]
   br label %981
 
-981:                                              ; preds = %979, %665
-  %982 = phi ptr [ %666, %665 ], [ %980, %979 ]
+981:                                              ; preds = %979, %725
+  %982 = phi ptr [ %726, %725 ], [ %980, %979 ]
   br label %983
 
-983:                                              ; preds = %981, %655
-  %984 = phi ptr [ %656, %655 ], [ %982, %981 ]
+983:                                              ; preds = %981, %715
+  %984 = phi ptr [ %716, %715 ], [ %982, %981 ]
   br label %985
 
-985:                                              ; preds = %983, %645
-  %986 = phi ptr [ %646, %645 ], [ %984, %983 ]
+985:                                              ; preds = %983, %705
+  %986 = phi ptr [ %706, %705 ], [ %984, %983 ]
   br label %987
 
-987:                                              ; preds = %985, %635
-  %988 = phi ptr [ %636, %635 ], [ %986, %985 ]
+987:                                              ; preds = %985, %695
+  %988 = phi ptr [ %696, %695 ], [ %986, %985 ]
   br label %989
 
-989:                                              ; preds = %987, %625
-  %990 = phi ptr [ %626, %625 ], [ %988, %987 ]
+989:                                              ; preds = %987, %685
+  %990 = phi ptr [ %686, %685 ], [ %988, %987 ]
   br label %991
 
-991:                                              ; preds = %989, %615
-  %992 = phi ptr [ %616, %615 ], [ %990, %989 ]
+991:                                              ; preds = %989, %675
+  %992 = phi ptr [ %676, %675 ], [ %990, %989 ]
+  br label %993
+
+993:                                              ; preds = %991, %665
+  %994 = phi ptr [ %666, %665 ], [ %992, %991 ]
+  br label %995
+
+995:                                              ; preds = %993, %655
+  %996 = phi ptr [ %656, %655 ], [ %994, %993 ]
+  br label %997
+
+997:                                              ; preds = %995, %645
+  %998 = phi ptr [ %646, %645 ], [ %996, %995 ]
+  br label %999
+
+999:                                              ; preds = %997, %635
+  %1000 = phi ptr [ %636, %635 ], [ %998, %997 ]
   br label %1001
 
-993:                                              ; preds = %599
-  %994 = load i64, ptr %19, align 8
-  %995 = add i64 24, %994
-  %996 = add i64 %995, 1
-  %997 = add i64 %996, 8
-  %998 = sub i64 %997, 1
-  %999 = and i64 %998, -8
-  %1000 = call noalias ptr @_emalloc(i64 noundef %999) #14
-  br label %1001
+1001:                                             ; preds = %999, %625
+  %1002 = phi ptr [ %626, %625 ], [ %1000, %999 ]
+  br label %1011
 
-1001:                                             ; preds = %993, %991
-  %1002 = phi ptr [ %992, %991 ], [ %1000, %993 ]
-  br label %1003
+1003:                                             ; preds = %609
+  %1004 = load i64, ptr %19, align 8
+  %1005 = add i64 24, %1004
+  %1006 = add i64 %1005, 1
+  %1007 = add i64 %1006, 8
+  %1008 = sub i64 %1007, 1
+  %1009 = and i64 %1008, -8
+  %1010 = call noalias ptr @_emalloc(i64 noundef %1009) #14
+  br label %1011
 
-1003:                                             ; preds = %1001, %591
-  %1004 = phi ptr [ %598, %591 ], [ %1002, %1001 ]
-  store ptr %1004, ptr %21, align 8
-  %1005 = load ptr, ptr %21, align 8
-  store ptr %1005, ptr %6, align 8
+1011:                                             ; preds = %1003, %1001
+  %1012 = phi ptr [ %1002, %1001 ], [ %1010, %1003 ]
+  br label %1013
+
+1013:                                             ; preds = %1011, %601
+  %1014 = phi ptr [ %608, %601 ], [ %1012, %1011 ]
+  store ptr %1014, ptr %21, align 8
+  %1015 = load ptr, ptr %21, align 8
+  store ptr %1015, ptr %6, align 8
   store i32 1, ptr %7, align 4
-  %1006 = load i32, ptr %7, align 4
-  %1007 = load ptr, ptr %6, align 8
-  store i32 %1006, ptr %1007, align 4
-  %1008 = load i8, ptr %20, align 1
-  %1009 = trunc i8 %1008 to i1
-  %1010 = select i1 %1009, i32 128, i32 0
-  %1011 = or i32 22, %1010
-  %1012 = load ptr, ptr %21, align 8
-  %1013 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1012, i32 0, i32 1
-  store i32 %1011, ptr %1013, align 4
-  %1014 = load ptr, ptr %21, align 8
-  %1015 = getelementptr inbounds %struct._zend_string, ptr %1014, i32 0, i32 1
-  store i64 0, ptr %1015, align 8
-  %1016 = load i64, ptr %19, align 8
-  %1017 = load ptr, ptr %21, align 8
-  %1018 = getelementptr inbounds %struct._zend_string, ptr %1017, i32 0, i32 2
-  store i64 %1016, ptr %1018, align 8
-  %1019 = load ptr, ptr %21, align 8
-  store ptr %1019, ptr %40, align 8
-  %1020 = load ptr, ptr %40, align 8
-  %1021 = getelementptr inbounds %struct._zend_string, ptr %1020, i32 0, i32 3
-  %1022 = getelementptr inbounds [1 x i8], ptr %1021, i64 0, i64 0
-  %1023 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 15), align 8
-  %1024 = load i64, ptr %42, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1022, ptr align 1 %1023, i64 %1024, i1 false)
-  %1025 = load ptr, ptr %40, align 8
-  %1026 = getelementptr inbounds %struct._zend_string, ptr %1025, i32 0, i32 3
-  %1027 = load i64, ptr %42, align 8
-  %1028 = sub i64 %1027, 1
-  %1029 = getelementptr inbounds [1 x i8], ptr %1026, i64 0, i64 %1028
-  %1030 = load i8, ptr %1029, align 1
-  %1031 = sext i8 %1030 to i32
-  %1032 = icmp eq i32 %1031, 47
-  br i1 %1032, label %1039, label %1033
+  %1016 = load i32, ptr %7, align 4
+  %1017 = load ptr, ptr %6, align 8
+  store i32 %1016, ptr %1017, align 4
+  %1018 = load i8, ptr %20, align 1
+  %1019 = trunc i8 %1018 to i1
+  %1020 = select i1 %1019, i32 128, i32 0
+  %1021 = or i32 22, %1020
+  %1022 = load ptr, ptr %21, align 8
+  %1023 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1022, i32 0, i32 1
+  store i32 %1021, ptr %1023, align 4
+  %1024 = load ptr, ptr %21, align 8
+  %1025 = getelementptr inbounds %struct._zend_string, ptr %1024, i32 0, i32 1
+  store i64 0, ptr %1025, align 8
+  %1026 = load i64, ptr %19, align 8
+  %1027 = load ptr, ptr %21, align 8
+  %1028 = getelementptr inbounds %struct._zend_string, ptr %1027, i32 0, i32 2
+  store i64 %1026, ptr %1028, align 8
+  %1029 = load ptr, ptr %21, align 8
+  store ptr %1029, ptr %40, align 8
+  %1030 = load ptr, ptr %40, align 8
+  %1031 = getelementptr inbounds %struct._zend_string, ptr %1030, i32 0, i32 3
+  %1032 = getelementptr inbounds [1 x i8], ptr %1031, i64 0, i64 0
+  %1033 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 15
+  %1034 = load ptr, ptr %1033, align 8
+  %1035 = load i64, ptr %42, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1032, ptr align 1 %1034, i64 %1035, i1 false)
+  %1036 = load ptr, ptr %40, align 8
+  %1037 = getelementptr inbounds %struct._zend_string, ptr %1036, i32 0, i32 3
+  %1038 = load i64, ptr %42, align 8
+  %1039 = sub i64 %1038, 1
+  %1040 = getelementptr inbounds [1 x i8], ptr %1037, i64 0, i64 %1039
+  %1041 = load i8, ptr %1040, align 1
+  %1042 = sext i8 %1041 to i32
+  %1043 = icmp eq i32 %1042, 47
+  br i1 %1043, label %1050, label %1044
 
-1033:                                             ; preds = %1003
-  %1034 = load ptr, ptr %40, align 8
-  %1035 = getelementptr inbounds %struct._zend_string, ptr %1034, i32 0, i32 3
-  %1036 = load i64, ptr %42, align 8
-  %1037 = add i64 %1036, 1
-  store i64 %1037, ptr %42, align 8
-  %1038 = getelementptr inbounds [1 x i8], ptr %1035, i64 0, i64 %1036
-  store i8 47, ptr %1038, align 1
-  br label %1039
+1044:                                             ; preds = %1013
+  %1045 = load ptr, ptr %40, align 8
+  %1046 = getelementptr inbounds %struct._zend_string, ptr %1045, i32 0, i32 3
+  %1047 = load i64, ptr %42, align 8
+  %1048 = add i64 %1047, 1
+  store i64 %1048, ptr %42, align 8
+  %1049 = getelementptr inbounds [1 x i8], ptr %1046, i64 0, i64 %1047
+  store i8 47, ptr %1049, align 1
+  br label %1050
 
-1039:                                             ; preds = %1033, %1003
-  %1040 = load ptr, ptr %39, align 8
-  %1041 = getelementptr inbounds i8, ptr %1040, i64 0
-  %1042 = load i8, ptr %1041, align 1
-  %1043 = sext i8 %1042 to i32
-  %1044 = icmp eq i32 %1043, 47
-  br i1 %1044, label %1045, label %1048
+1050:                                             ; preds = %1044, %1013
+  %1051 = load ptr, ptr %39, align 8
+  %1052 = getelementptr inbounds i8, ptr %1051, i64 0
+  %1053 = load i8, ptr %1052, align 1
+  %1054 = sext i8 %1053 to i32
+  %1055 = icmp eq i32 %1054, 47
+  br i1 %1055, label %1056, label %1059
 
-1045:                                             ; preds = %1039
-  %1046 = load i64, ptr %42, align 8
-  %1047 = add i64 %1046, -1
-  store i64 %1047, ptr %42, align 8
-  br label %1048
+1056:                                             ; preds = %1050
+  %1057 = load i64, ptr %42, align 8
+  %1058 = add i64 %1057, -1
+  store i64 %1058, ptr %42, align 8
+  br label %1059
 
-1048:                                             ; preds = %1045, %1039
-  %1049 = load ptr, ptr %40, align 8
-  %1050 = getelementptr inbounds %struct._zend_string, ptr %1049, i32 0, i32 3
-  %1051 = getelementptr inbounds [1 x i8], ptr %1050, i64 0, i64 0
-  %1052 = load i64, ptr %42, align 8
-  %1053 = getelementptr inbounds i8, ptr %1051, i64 %1052
-  %1054 = load ptr, ptr %39, align 8
-  %1055 = load i64, ptr %47, align 8
-  %1056 = add i64 %1055, 1
-  %1057 = call ptr @strncpy(ptr noundef %1053, ptr noundef %1054, i64 noundef %1056) #12
-  %1058 = load i64, ptr %42, align 8
-  %1059 = load i64, ptr %47, align 8
-  %1060 = add i64 %1058, %1059
-  %1061 = load ptr, ptr %40, align 8
-  %1062 = getelementptr inbounds %struct._zend_string, ptr %1061, i32 0, i32 2
-  store i64 %1060, ptr %1062, align 8
-  br label %1515
+1059:                                             ; preds = %1056, %1050
+  %1060 = load ptr, ptr %40, align 8
+  %1061 = getelementptr inbounds %struct._zend_string, ptr %1060, i32 0, i32 3
+  %1062 = getelementptr inbounds [1 x i8], ptr %1061, i64 0, i64 0
+  %1063 = load i64, ptr %42, align 8
+  %1064 = getelementptr inbounds i8, ptr %1062, i64 %1063
+  %1065 = load ptr, ptr %39, align 8
+  %1066 = load i64, ptr %47, align 8
+  %1067 = add i64 %1066, 1
+  %1068 = call ptr @strncpy(ptr noundef %1064, ptr noundef %1065, i64 noundef %1067) #12
+  %1069 = load i64, ptr %42, align 8
+  %1070 = load i64, ptr %47, align 8
+  %1071 = add i64 %1069, %1070
+  %1072 = load ptr, ptr %40, align 8
+  %1073 = getelementptr inbounds %struct._zend_string, ptr %1072, i32 0, i32 2
+  store i64 %1071, ptr %1073, align 8
+  br label %1529
 
-1063:                                             ; preds = %576, %572, %569, %566
-  %1064 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %1065 = icmp ne ptr %1064, null
-  br i1 %1065, label %1066, label %1514
+1074:                                             ; preds = %585, %580, %577, %573
+  %1075 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1076 = load ptr, ptr %1075, align 8
+  %1077 = icmp ne ptr %1076, null
+  br i1 %1077, label %1078, label %1528
 
-1066:                                             ; preds = %1063
-  %1067 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %1068 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %1069 = call i64 @strlen(ptr noundef %1068) #11
-  store ptr %1067, ptr %32, align 8
-  store i64 %1069, ptr %33, align 8
+1078:                                             ; preds = %1074
+  %1079 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1082 = load ptr, ptr %1081, align 8
+  %1083 = call i64 @strlen(ptr noundef %1082) #11
+  store ptr %1080, ptr %32, align 8
+  store i64 %1083, ptr %33, align 8
   store i8 0, ptr %34, align 1
-  %1070 = load i64, ptr %33, align 8
-  %1071 = load i8, ptr %34, align 1
-  %1072 = trunc i8 %1071 to i1
-  store i64 %1070, ptr %22, align 8
-  %1073 = zext i1 %1072 to i8
-  store i8 %1073, ptr %23, align 1
-  %1074 = load i8, ptr %23, align 1
-  %1075 = trunc i8 %1074 to i1
-  br i1 %1075, label %1076, label %1084
+  %1084 = load i64, ptr %33, align 8
+  %1085 = load i8, ptr %34, align 1
+  %1086 = trunc i8 %1085 to i1
+  store i64 %1084, ptr %22, align 8
+  %1087 = zext i1 %1086 to i8
+  store i8 %1087, ptr %23, align 1
+  %1088 = load i8, ptr %23, align 1
+  %1089 = trunc i8 %1088 to i1
+  br i1 %1089, label %1090, label %1098
 
-1076:                                             ; preds = %1066
-  %1077 = load i64, ptr %22, align 8
-  %1078 = add i64 24, %1077
-  %1079 = add i64 %1078, 1
-  %1080 = add i64 %1079, 8
-  %1081 = sub i64 %1080, 1
-  %1082 = and i64 %1081, -8
-  %1083 = call noalias ptr @__zend_malloc(i64 noundef %1082) #14
+1090:                                             ; preds = %1078
+  %1091 = load i64, ptr %22, align 8
+  %1092 = add i64 24, %1091
+  %1093 = add i64 %1092, 1
+  %1094 = add i64 %1093, 8
+  %1095 = sub i64 %1094, 1
+  %1096 = and i64 %1095, -8
+  %1097 = call noalias ptr @__zend_malloc(i64 noundef %1096) #14
+  br label %1502
+
+1098:                                             ; preds = %1078
+  %1099 = load i64, ptr %22, align 8
+  %1100 = add i64 24, %1099
+  %1101 = add i64 %1100, 1
+  %1102 = add i64 %1101, 8
+  %1103 = sub i64 %1102, 1
+  %1104 = and i64 %1103, -8
+  %1105 = call i1 @llvm.is.constant.i64(i64 %1104)
+  br i1 %1105, label %1106, label %1492
+
+1106:                                             ; preds = %1098
+  %1107 = load i64, ptr %22, align 8
+  %1108 = add i64 24, %1107
+  %1109 = add i64 %1108, 1
+  %1110 = add i64 %1109, 8
+  %1111 = sub i64 %1110, 1
+  %1112 = and i64 %1111, -8
+  %1113 = icmp ule i64 %1112, 8
+  br i1 %1113, label %1114, label %1116
+
+1114:                                             ; preds = %1106
+  %1115 = call noalias ptr @_emalloc_8() #12
+  br label %1490
+
+1116:                                             ; preds = %1106
+  %1117 = load i64, ptr %22, align 8
+  %1118 = add i64 24, %1117
+  %1119 = add i64 %1118, 1
+  %1120 = add i64 %1119, 8
+  %1121 = sub i64 %1120, 1
+  %1122 = and i64 %1121, -8
+  %1123 = icmp ule i64 %1122, 16
+  br i1 %1123, label %1124, label %1126
+
+1124:                                             ; preds = %1116
+  %1125 = call noalias ptr @_emalloc_16() #12
   br label %1488
 
-1084:                                             ; preds = %1066
-  %1085 = load i64, ptr %22, align 8
-  %1086 = add i64 24, %1085
-  %1087 = add i64 %1086, 1
-  %1088 = add i64 %1087, 8
-  %1089 = sub i64 %1088, 1
-  %1090 = and i64 %1089, -8
-  %1091 = call i1 @llvm.is.constant.i64(i64 %1090)
-  br i1 %1091, label %1092, label %1478
-
-1092:                                             ; preds = %1084
-  %1093 = load i64, ptr %22, align 8
-  %1094 = add i64 24, %1093
-  %1095 = add i64 %1094, 1
-  %1096 = add i64 %1095, 8
-  %1097 = sub i64 %1096, 1
-  %1098 = and i64 %1097, -8
-  %1099 = icmp ule i64 %1098, 8
-  br i1 %1099, label %1100, label %1102
-
-1100:                                             ; preds = %1092
-  %1101 = call noalias ptr @_emalloc_8() #12
-  br label %1476
-
-1102:                                             ; preds = %1092
-  %1103 = load i64, ptr %22, align 8
-  %1104 = add i64 24, %1103
-  %1105 = add i64 %1104, 1
-  %1106 = add i64 %1105, 8
-  %1107 = sub i64 %1106, 1
-  %1108 = and i64 %1107, -8
-  %1109 = icmp ule i64 %1108, 16
-  br i1 %1109, label %1110, label %1112
-
-1110:                                             ; preds = %1102
-  %1111 = call noalias ptr @_emalloc_16() #12
-  br label %1474
-
-1112:                                             ; preds = %1102
-  %1113 = load i64, ptr %22, align 8
-  %1114 = add i64 24, %1113
-  %1115 = add i64 %1114, 1
-  %1116 = add i64 %1115, 8
-  %1117 = sub i64 %1116, 1
-  %1118 = and i64 %1117, -8
-  %1119 = icmp ule i64 %1118, 24
-  br i1 %1119, label %1120, label %1122
-
-1120:                                             ; preds = %1112
-  %1121 = call noalias ptr @_emalloc_24() #12
-  br label %1472
-
-1122:                                             ; preds = %1112
-  %1123 = load i64, ptr %22, align 8
-  %1124 = add i64 24, %1123
-  %1125 = add i64 %1124, 1
-  %1126 = add i64 %1125, 8
-  %1127 = sub i64 %1126, 1
-  %1128 = and i64 %1127, -8
-  %1129 = icmp ule i64 %1128, 32
-  br i1 %1129, label %1130, label %1132
-
-1130:                                             ; preds = %1122
-  %1131 = call noalias ptr @_emalloc_32() #12
-  br label %1470
-
-1132:                                             ; preds = %1122
-  %1133 = load i64, ptr %22, align 8
-  %1134 = add i64 24, %1133
-  %1135 = add i64 %1134, 1
-  %1136 = add i64 %1135, 8
-  %1137 = sub i64 %1136, 1
-  %1138 = and i64 %1137, -8
-  %1139 = icmp ule i64 %1138, 40
-  br i1 %1139, label %1140, label %1142
-
-1140:                                             ; preds = %1132
-  %1141 = call noalias ptr @_emalloc_40() #12
-  br label %1468
-
-1142:                                             ; preds = %1132
-  %1143 = load i64, ptr %22, align 8
-  %1144 = add i64 24, %1143
-  %1145 = add i64 %1144, 1
-  %1146 = add i64 %1145, 8
-  %1147 = sub i64 %1146, 1
-  %1148 = and i64 %1147, -8
-  %1149 = icmp ule i64 %1148, 48
-  br i1 %1149, label %1150, label %1152
-
-1150:                                             ; preds = %1142
-  %1151 = call noalias ptr @_emalloc_48() #12
-  br label %1466
-
-1152:                                             ; preds = %1142
-  %1153 = load i64, ptr %22, align 8
-  %1154 = add i64 24, %1153
-  %1155 = add i64 %1154, 1
-  %1156 = add i64 %1155, 8
-  %1157 = sub i64 %1156, 1
-  %1158 = and i64 %1157, -8
-  %1159 = icmp ule i64 %1158, 56
-  br i1 %1159, label %1160, label %1162
-
-1160:                                             ; preds = %1152
-  %1161 = call noalias ptr @_emalloc_56() #12
-  br label %1464
-
-1162:                                             ; preds = %1152
-  %1163 = load i64, ptr %22, align 8
-  %1164 = add i64 24, %1163
-  %1165 = add i64 %1164, 1
-  %1166 = add i64 %1165, 8
-  %1167 = sub i64 %1166, 1
-  %1168 = and i64 %1167, -8
-  %1169 = icmp ule i64 %1168, 64
-  br i1 %1169, label %1170, label %1172
-
-1170:                                             ; preds = %1162
-  %1171 = call noalias ptr @_emalloc_64() #12
-  br label %1462
-
-1172:                                             ; preds = %1162
-  %1173 = load i64, ptr %22, align 8
-  %1174 = add i64 24, %1173
-  %1175 = add i64 %1174, 1
-  %1176 = add i64 %1175, 8
-  %1177 = sub i64 %1176, 1
-  %1178 = and i64 %1177, -8
-  %1179 = icmp ule i64 %1178, 80
-  br i1 %1179, label %1180, label %1182
-
-1180:                                             ; preds = %1172
-  %1181 = call noalias ptr @_emalloc_80() #12
-  br label %1460
-
-1182:                                             ; preds = %1172
-  %1183 = load i64, ptr %22, align 8
-  %1184 = add i64 24, %1183
-  %1185 = add i64 %1184, 1
-  %1186 = add i64 %1185, 8
-  %1187 = sub i64 %1186, 1
-  %1188 = and i64 %1187, -8
-  %1189 = icmp ule i64 %1188, 96
-  br i1 %1189, label %1190, label %1192
-
-1190:                                             ; preds = %1182
-  %1191 = call noalias ptr @_emalloc_96() #12
-  br label %1458
-
-1192:                                             ; preds = %1182
-  %1193 = load i64, ptr %22, align 8
-  %1194 = add i64 24, %1193
-  %1195 = add i64 %1194, 1
-  %1196 = add i64 %1195, 8
-  %1197 = sub i64 %1196, 1
-  %1198 = and i64 %1197, -8
-  %1199 = icmp ule i64 %1198, 112
-  br i1 %1199, label %1200, label %1202
-
-1200:                                             ; preds = %1192
-  %1201 = call noalias ptr @_emalloc_112() #12
-  br label %1456
-
-1202:                                             ; preds = %1192
-  %1203 = load i64, ptr %22, align 8
-  %1204 = add i64 24, %1203
-  %1205 = add i64 %1204, 1
-  %1206 = add i64 %1205, 8
-  %1207 = sub i64 %1206, 1
-  %1208 = and i64 %1207, -8
-  %1209 = icmp ule i64 %1208, 128
-  br i1 %1209, label %1210, label %1212
-
-1210:                                             ; preds = %1202
-  %1211 = call noalias ptr @_emalloc_128() #12
-  br label %1454
-
-1212:                                             ; preds = %1202
-  %1213 = load i64, ptr %22, align 8
-  %1214 = add i64 24, %1213
-  %1215 = add i64 %1214, 1
-  %1216 = add i64 %1215, 8
-  %1217 = sub i64 %1216, 1
-  %1218 = and i64 %1217, -8
-  %1219 = icmp ule i64 %1218, 160
-  br i1 %1219, label %1220, label %1222
-
-1220:                                             ; preds = %1212
-  %1221 = call noalias ptr @_emalloc_160() #12
-  br label %1452
-
-1222:                                             ; preds = %1212
-  %1223 = load i64, ptr %22, align 8
-  %1224 = add i64 24, %1223
-  %1225 = add i64 %1224, 1
-  %1226 = add i64 %1225, 8
-  %1227 = sub i64 %1226, 1
-  %1228 = and i64 %1227, -8
-  %1229 = icmp ule i64 %1228, 192
-  br i1 %1229, label %1230, label %1232
-
-1230:                                             ; preds = %1222
-  %1231 = call noalias ptr @_emalloc_192() #12
-  br label %1450
-
-1232:                                             ; preds = %1222
-  %1233 = load i64, ptr %22, align 8
-  %1234 = add i64 24, %1233
-  %1235 = add i64 %1234, 1
-  %1236 = add i64 %1235, 8
-  %1237 = sub i64 %1236, 1
-  %1238 = and i64 %1237, -8
-  %1239 = icmp ule i64 %1238, 224
-  br i1 %1239, label %1240, label %1242
-
-1240:                                             ; preds = %1232
-  %1241 = call noalias ptr @_emalloc_224() #12
-  br label %1448
-
-1242:                                             ; preds = %1232
-  %1243 = load i64, ptr %22, align 8
-  %1244 = add i64 24, %1243
-  %1245 = add i64 %1244, 1
-  %1246 = add i64 %1245, 8
-  %1247 = sub i64 %1246, 1
-  %1248 = and i64 %1247, -8
-  %1249 = icmp ule i64 %1248, 256
-  br i1 %1249, label %1250, label %1252
-
-1250:                                             ; preds = %1242
-  %1251 = call noalias ptr @_emalloc_256() #12
-  br label %1446
-
-1252:                                             ; preds = %1242
-  %1253 = load i64, ptr %22, align 8
-  %1254 = add i64 24, %1253
-  %1255 = add i64 %1254, 1
-  %1256 = add i64 %1255, 8
-  %1257 = sub i64 %1256, 1
-  %1258 = and i64 %1257, -8
-  %1259 = icmp ule i64 %1258, 320
-  br i1 %1259, label %1260, label %1262
-
-1260:                                             ; preds = %1252
-  %1261 = call noalias ptr @_emalloc_320() #12
-  br label %1444
-
-1262:                                             ; preds = %1252
-  %1263 = load i64, ptr %22, align 8
-  %1264 = add i64 24, %1263
-  %1265 = add i64 %1264, 1
-  %1266 = add i64 %1265, 8
-  %1267 = sub i64 %1266, 1
-  %1268 = and i64 %1267, -8
-  %1269 = icmp ule i64 %1268, 384
-  br i1 %1269, label %1270, label %1272
-
-1270:                                             ; preds = %1262
-  %1271 = call noalias ptr @_emalloc_384() #12
-  br label %1442
-
-1272:                                             ; preds = %1262
-  %1273 = load i64, ptr %22, align 8
-  %1274 = add i64 24, %1273
-  %1275 = add i64 %1274, 1
-  %1276 = add i64 %1275, 8
-  %1277 = sub i64 %1276, 1
-  %1278 = and i64 %1277, -8
-  %1279 = icmp ule i64 %1278, 448
-  br i1 %1279, label %1280, label %1282
-
-1280:                                             ; preds = %1272
-  %1281 = call noalias ptr @_emalloc_448() #12
-  br label %1440
-
-1282:                                             ; preds = %1272
-  %1283 = load i64, ptr %22, align 8
-  %1284 = add i64 24, %1283
-  %1285 = add i64 %1284, 1
-  %1286 = add i64 %1285, 8
-  %1287 = sub i64 %1286, 1
-  %1288 = and i64 %1287, -8
-  %1289 = icmp ule i64 %1288, 512
-  br i1 %1289, label %1290, label %1292
-
-1290:                                             ; preds = %1282
-  %1291 = call noalias ptr @_emalloc_512() #12
-  br label %1438
-
-1292:                                             ; preds = %1282
-  %1293 = load i64, ptr %22, align 8
-  %1294 = add i64 24, %1293
-  %1295 = add i64 %1294, 1
-  %1296 = add i64 %1295, 8
-  %1297 = sub i64 %1296, 1
-  %1298 = and i64 %1297, -8
-  %1299 = icmp ule i64 %1298, 640
-  br i1 %1299, label %1300, label %1302
-
-1300:                                             ; preds = %1292
-  %1301 = call noalias ptr @_emalloc_640() #12
-  br label %1436
-
-1302:                                             ; preds = %1292
-  %1303 = load i64, ptr %22, align 8
-  %1304 = add i64 24, %1303
-  %1305 = add i64 %1304, 1
-  %1306 = add i64 %1305, 8
-  %1307 = sub i64 %1306, 1
-  %1308 = and i64 %1307, -8
-  %1309 = icmp ule i64 %1308, 768
-  br i1 %1309, label %1310, label %1312
-
-1310:                                             ; preds = %1302
-  %1311 = call noalias ptr @_emalloc_768() #12
-  br label %1434
-
-1312:                                             ; preds = %1302
-  %1313 = load i64, ptr %22, align 8
-  %1314 = add i64 24, %1313
-  %1315 = add i64 %1314, 1
-  %1316 = add i64 %1315, 8
-  %1317 = sub i64 %1316, 1
-  %1318 = and i64 %1317, -8
-  %1319 = icmp ule i64 %1318, 896
-  br i1 %1319, label %1320, label %1322
-
-1320:                                             ; preds = %1312
-  %1321 = call noalias ptr @_emalloc_896() #12
-  br label %1432
-
-1322:                                             ; preds = %1312
-  %1323 = load i64, ptr %22, align 8
-  %1324 = add i64 24, %1323
-  %1325 = add i64 %1324, 1
-  %1326 = add i64 %1325, 8
-  %1327 = sub i64 %1326, 1
-  %1328 = and i64 %1327, -8
-  %1329 = icmp ule i64 %1328, 1024
-  br i1 %1329, label %1330, label %1332
-
-1330:                                             ; preds = %1322
-  %1331 = call noalias ptr @_emalloc_1024() #12
-  br label %1430
-
-1332:                                             ; preds = %1322
-  %1333 = load i64, ptr %22, align 8
-  %1334 = add i64 24, %1333
-  %1335 = add i64 %1334, 1
-  %1336 = add i64 %1335, 8
-  %1337 = sub i64 %1336, 1
-  %1338 = and i64 %1337, -8
-  %1339 = icmp ule i64 %1338, 1280
-  br i1 %1339, label %1340, label %1342
-
-1340:                                             ; preds = %1332
-  %1341 = call noalias ptr @_emalloc_1280() #12
-  br label %1428
-
-1342:                                             ; preds = %1332
-  %1343 = load i64, ptr %22, align 8
-  %1344 = add i64 24, %1343
-  %1345 = add i64 %1344, 1
-  %1346 = add i64 %1345, 8
-  %1347 = sub i64 %1346, 1
-  %1348 = and i64 %1347, -8
-  %1349 = icmp ule i64 %1348, 1536
-  br i1 %1349, label %1350, label %1352
-
-1350:                                             ; preds = %1342
-  %1351 = call noalias ptr @_emalloc_1536() #12
-  br label %1426
-
-1352:                                             ; preds = %1342
-  %1353 = load i64, ptr %22, align 8
-  %1354 = add i64 24, %1353
-  %1355 = add i64 %1354, 1
-  %1356 = add i64 %1355, 8
-  %1357 = sub i64 %1356, 1
-  %1358 = and i64 %1357, -8
-  %1359 = icmp ule i64 %1358, 1792
-  br i1 %1359, label %1360, label %1362
-
-1360:                                             ; preds = %1352
-  %1361 = call noalias ptr @_emalloc_1792() #12
-  br label %1424
-
-1362:                                             ; preds = %1352
-  %1363 = load i64, ptr %22, align 8
-  %1364 = add i64 24, %1363
-  %1365 = add i64 %1364, 1
-  %1366 = add i64 %1365, 8
-  %1367 = sub i64 %1366, 1
-  %1368 = and i64 %1367, -8
-  %1369 = icmp ule i64 %1368, 2048
-  br i1 %1369, label %1370, label %1372
-
-1370:                                             ; preds = %1362
-  %1371 = call noalias ptr @_emalloc_2048() #12
-  br label %1422
-
-1372:                                             ; preds = %1362
-  %1373 = load i64, ptr %22, align 8
-  %1374 = add i64 24, %1373
-  %1375 = add i64 %1374, 1
-  %1376 = add i64 %1375, 8
-  %1377 = sub i64 %1376, 1
-  %1378 = and i64 %1377, -8
-  %1379 = icmp ule i64 %1378, 2560
-  br i1 %1379, label %1380, label %1382
-
-1380:                                             ; preds = %1372
-  %1381 = call noalias ptr @_emalloc_2560() #12
-  br label %1420
-
-1382:                                             ; preds = %1372
-  %1383 = load i64, ptr %22, align 8
-  %1384 = add i64 24, %1383
-  %1385 = add i64 %1384, 1
-  %1386 = add i64 %1385, 8
-  %1387 = sub i64 %1386, 1
-  %1388 = and i64 %1387, -8
-  %1389 = icmp ule i64 %1388, 3072
-  br i1 %1389, label %1390, label %1392
-
-1390:                                             ; preds = %1382
-  %1391 = call noalias ptr @_emalloc_3072() #12
-  br label %1418
-
-1392:                                             ; preds = %1382
-  %1393 = load i64, ptr %22, align 8
-  %1394 = add i64 24, %1393
-  %1395 = add i64 %1394, 1
-  %1396 = add i64 %1395, 8
-  %1397 = sub i64 %1396, 1
-  %1398 = and i64 %1397, -8
-  %1399 = icmp ule i64 %1398, 2093056
-  br i1 %1399, label %1400, label %1408
-
-1400:                                             ; preds = %1392
-  %1401 = load i64, ptr %22, align 8
-  %1402 = add i64 24, %1401
-  %1403 = add i64 %1402, 1
-  %1404 = add i64 %1403, 8
-  %1405 = sub i64 %1404, 1
-  %1406 = and i64 %1405, -8
-  %1407 = call noalias ptr @_emalloc_large(i64 noundef %1406) #14
-  br label %1416
-
-1408:                                             ; preds = %1392
-  %1409 = load i64, ptr %22, align 8
-  %1410 = add i64 24, %1409
-  %1411 = add i64 %1410, 1
-  %1412 = add i64 %1411, 8
-  %1413 = sub i64 %1412, 1
-  %1414 = and i64 %1413, -8
-  %1415 = call noalias ptr @_emalloc_huge(i64 noundef %1414) #14
-  br label %1416
-
-1416:                                             ; preds = %1408, %1400
-  %1417 = phi ptr [ %1407, %1400 ], [ %1415, %1408 ]
-  br label %1418
-
-1418:                                             ; preds = %1416, %1390
-  %1419 = phi ptr [ %1391, %1390 ], [ %1417, %1416 ]
-  br label %1420
-
-1420:                                             ; preds = %1418, %1380
-  %1421 = phi ptr [ %1381, %1380 ], [ %1419, %1418 ]
-  br label %1422
-
-1422:                                             ; preds = %1420, %1370
-  %1423 = phi ptr [ %1371, %1370 ], [ %1421, %1420 ]
-  br label %1424
-
-1424:                                             ; preds = %1422, %1360
-  %1425 = phi ptr [ %1361, %1360 ], [ %1423, %1422 ]
-  br label %1426
-
-1426:                                             ; preds = %1424, %1350
-  %1427 = phi ptr [ %1351, %1350 ], [ %1425, %1424 ]
-  br label %1428
-
-1428:                                             ; preds = %1426, %1340
-  %1429 = phi ptr [ %1341, %1340 ], [ %1427, %1426 ]
-  br label %1430
-
-1430:                                             ; preds = %1428, %1330
-  %1431 = phi ptr [ %1331, %1330 ], [ %1429, %1428 ]
-  br label %1432
-
-1432:                                             ; preds = %1430, %1320
-  %1433 = phi ptr [ %1321, %1320 ], [ %1431, %1430 ]
-  br label %1434
-
-1434:                                             ; preds = %1432, %1310
-  %1435 = phi ptr [ %1311, %1310 ], [ %1433, %1432 ]
-  br label %1436
-
-1436:                                             ; preds = %1434, %1300
-  %1437 = phi ptr [ %1301, %1300 ], [ %1435, %1434 ]
-  br label %1438
-
-1438:                                             ; preds = %1436, %1290
-  %1439 = phi ptr [ %1291, %1290 ], [ %1437, %1436 ]
-  br label %1440
-
-1440:                                             ; preds = %1438, %1280
-  %1441 = phi ptr [ %1281, %1280 ], [ %1439, %1438 ]
-  br label %1442
-
-1442:                                             ; preds = %1440, %1270
-  %1443 = phi ptr [ %1271, %1270 ], [ %1441, %1440 ]
-  br label %1444
-
-1444:                                             ; preds = %1442, %1260
-  %1445 = phi ptr [ %1261, %1260 ], [ %1443, %1442 ]
-  br label %1446
-
-1446:                                             ; preds = %1444, %1250
-  %1447 = phi ptr [ %1251, %1250 ], [ %1445, %1444 ]
-  br label %1448
-
-1448:                                             ; preds = %1446, %1240
-  %1449 = phi ptr [ %1241, %1240 ], [ %1447, %1446 ]
-  br label %1450
-
-1450:                                             ; preds = %1448, %1230
-  %1451 = phi ptr [ %1231, %1230 ], [ %1449, %1448 ]
-  br label %1452
-
-1452:                                             ; preds = %1450, %1220
-  %1453 = phi ptr [ %1221, %1220 ], [ %1451, %1450 ]
-  br label %1454
-
-1454:                                             ; preds = %1452, %1210
-  %1455 = phi ptr [ %1211, %1210 ], [ %1453, %1452 ]
-  br label %1456
-
-1456:                                             ; preds = %1454, %1200
-  %1457 = phi ptr [ %1201, %1200 ], [ %1455, %1454 ]
-  br label %1458
-
-1458:                                             ; preds = %1456, %1190
-  %1459 = phi ptr [ %1191, %1190 ], [ %1457, %1456 ]
-  br label %1460
-
-1460:                                             ; preds = %1458, %1180
-  %1461 = phi ptr [ %1181, %1180 ], [ %1459, %1458 ]
-  br label %1462
-
-1462:                                             ; preds = %1460, %1170
-  %1463 = phi ptr [ %1171, %1170 ], [ %1461, %1460 ]
-  br label %1464
-
-1464:                                             ; preds = %1462, %1160
-  %1465 = phi ptr [ %1161, %1160 ], [ %1463, %1462 ]
-  br label %1466
-
-1466:                                             ; preds = %1464, %1150
-  %1467 = phi ptr [ %1151, %1150 ], [ %1465, %1464 ]
-  br label %1468
-
-1468:                                             ; preds = %1466, %1140
-  %1469 = phi ptr [ %1141, %1140 ], [ %1467, %1466 ]
-  br label %1470
-
-1470:                                             ; preds = %1468, %1130
-  %1471 = phi ptr [ %1131, %1130 ], [ %1469, %1468 ]
-  br label %1472
-
-1472:                                             ; preds = %1470, %1120
-  %1473 = phi ptr [ %1121, %1120 ], [ %1471, %1470 ]
-  br label %1474
-
-1474:                                             ; preds = %1472, %1110
-  %1475 = phi ptr [ %1111, %1110 ], [ %1473, %1472 ]
-  br label %1476
-
-1476:                                             ; preds = %1474, %1100
-  %1477 = phi ptr [ %1101, %1100 ], [ %1475, %1474 ]
+1126:                                             ; preds = %1116
+  %1127 = load i64, ptr %22, align 8
+  %1128 = add i64 24, %1127
+  %1129 = add i64 %1128, 1
+  %1130 = add i64 %1129, 8
+  %1131 = sub i64 %1130, 1
+  %1132 = and i64 %1131, -8
+  %1133 = icmp ule i64 %1132, 24
+  br i1 %1133, label %1134, label %1136
+
+1134:                                             ; preds = %1126
+  %1135 = call noalias ptr @_emalloc_24() #12
   br label %1486
 
-1478:                                             ; preds = %1084
-  %1479 = load i64, ptr %22, align 8
-  %1480 = add i64 24, %1479
-  %1481 = add i64 %1480, 1
-  %1482 = add i64 %1481, 8
-  %1483 = sub i64 %1482, 1
-  %1484 = and i64 %1483, -8
-  %1485 = call noalias ptr @_emalloc(i64 noundef %1484) #14
+1136:                                             ; preds = %1126
+  %1137 = load i64, ptr %22, align 8
+  %1138 = add i64 24, %1137
+  %1139 = add i64 %1138, 1
+  %1140 = add i64 %1139, 8
+  %1141 = sub i64 %1140, 1
+  %1142 = and i64 %1141, -8
+  %1143 = icmp ule i64 %1142, 32
+  br i1 %1143, label %1144, label %1146
+
+1144:                                             ; preds = %1136
+  %1145 = call noalias ptr @_emalloc_32() #12
+  br label %1484
+
+1146:                                             ; preds = %1136
+  %1147 = load i64, ptr %22, align 8
+  %1148 = add i64 24, %1147
+  %1149 = add i64 %1148, 1
+  %1150 = add i64 %1149, 8
+  %1151 = sub i64 %1150, 1
+  %1152 = and i64 %1151, -8
+  %1153 = icmp ule i64 %1152, 40
+  br i1 %1153, label %1154, label %1156
+
+1154:                                             ; preds = %1146
+  %1155 = call noalias ptr @_emalloc_40() #12
+  br label %1482
+
+1156:                                             ; preds = %1146
+  %1157 = load i64, ptr %22, align 8
+  %1158 = add i64 24, %1157
+  %1159 = add i64 %1158, 1
+  %1160 = add i64 %1159, 8
+  %1161 = sub i64 %1160, 1
+  %1162 = and i64 %1161, -8
+  %1163 = icmp ule i64 %1162, 48
+  br i1 %1163, label %1164, label %1166
+
+1164:                                             ; preds = %1156
+  %1165 = call noalias ptr @_emalloc_48() #12
+  br label %1480
+
+1166:                                             ; preds = %1156
+  %1167 = load i64, ptr %22, align 8
+  %1168 = add i64 24, %1167
+  %1169 = add i64 %1168, 1
+  %1170 = add i64 %1169, 8
+  %1171 = sub i64 %1170, 1
+  %1172 = and i64 %1171, -8
+  %1173 = icmp ule i64 %1172, 56
+  br i1 %1173, label %1174, label %1176
+
+1174:                                             ; preds = %1166
+  %1175 = call noalias ptr @_emalloc_56() #12
+  br label %1478
+
+1176:                                             ; preds = %1166
+  %1177 = load i64, ptr %22, align 8
+  %1178 = add i64 24, %1177
+  %1179 = add i64 %1178, 1
+  %1180 = add i64 %1179, 8
+  %1181 = sub i64 %1180, 1
+  %1182 = and i64 %1181, -8
+  %1183 = icmp ule i64 %1182, 64
+  br i1 %1183, label %1184, label %1186
+
+1184:                                             ; preds = %1176
+  %1185 = call noalias ptr @_emalloc_64() #12
+  br label %1476
+
+1186:                                             ; preds = %1176
+  %1187 = load i64, ptr %22, align 8
+  %1188 = add i64 24, %1187
+  %1189 = add i64 %1188, 1
+  %1190 = add i64 %1189, 8
+  %1191 = sub i64 %1190, 1
+  %1192 = and i64 %1191, -8
+  %1193 = icmp ule i64 %1192, 80
+  br i1 %1193, label %1194, label %1196
+
+1194:                                             ; preds = %1186
+  %1195 = call noalias ptr @_emalloc_80() #12
+  br label %1474
+
+1196:                                             ; preds = %1186
+  %1197 = load i64, ptr %22, align 8
+  %1198 = add i64 24, %1197
+  %1199 = add i64 %1198, 1
+  %1200 = add i64 %1199, 8
+  %1201 = sub i64 %1200, 1
+  %1202 = and i64 %1201, -8
+  %1203 = icmp ule i64 %1202, 96
+  br i1 %1203, label %1204, label %1206
+
+1204:                                             ; preds = %1196
+  %1205 = call noalias ptr @_emalloc_96() #12
+  br label %1472
+
+1206:                                             ; preds = %1196
+  %1207 = load i64, ptr %22, align 8
+  %1208 = add i64 24, %1207
+  %1209 = add i64 %1208, 1
+  %1210 = add i64 %1209, 8
+  %1211 = sub i64 %1210, 1
+  %1212 = and i64 %1211, -8
+  %1213 = icmp ule i64 %1212, 112
+  br i1 %1213, label %1214, label %1216
+
+1214:                                             ; preds = %1206
+  %1215 = call noalias ptr @_emalloc_112() #12
+  br label %1470
+
+1216:                                             ; preds = %1206
+  %1217 = load i64, ptr %22, align 8
+  %1218 = add i64 24, %1217
+  %1219 = add i64 %1218, 1
+  %1220 = add i64 %1219, 8
+  %1221 = sub i64 %1220, 1
+  %1222 = and i64 %1221, -8
+  %1223 = icmp ule i64 %1222, 128
+  br i1 %1223, label %1224, label %1226
+
+1224:                                             ; preds = %1216
+  %1225 = call noalias ptr @_emalloc_128() #12
+  br label %1468
+
+1226:                                             ; preds = %1216
+  %1227 = load i64, ptr %22, align 8
+  %1228 = add i64 24, %1227
+  %1229 = add i64 %1228, 1
+  %1230 = add i64 %1229, 8
+  %1231 = sub i64 %1230, 1
+  %1232 = and i64 %1231, -8
+  %1233 = icmp ule i64 %1232, 160
+  br i1 %1233, label %1234, label %1236
+
+1234:                                             ; preds = %1226
+  %1235 = call noalias ptr @_emalloc_160() #12
+  br label %1466
+
+1236:                                             ; preds = %1226
+  %1237 = load i64, ptr %22, align 8
+  %1238 = add i64 24, %1237
+  %1239 = add i64 %1238, 1
+  %1240 = add i64 %1239, 8
+  %1241 = sub i64 %1240, 1
+  %1242 = and i64 %1241, -8
+  %1243 = icmp ule i64 %1242, 192
+  br i1 %1243, label %1244, label %1246
+
+1244:                                             ; preds = %1236
+  %1245 = call noalias ptr @_emalloc_192() #12
+  br label %1464
+
+1246:                                             ; preds = %1236
+  %1247 = load i64, ptr %22, align 8
+  %1248 = add i64 24, %1247
+  %1249 = add i64 %1248, 1
+  %1250 = add i64 %1249, 8
+  %1251 = sub i64 %1250, 1
+  %1252 = and i64 %1251, -8
+  %1253 = icmp ule i64 %1252, 224
+  br i1 %1253, label %1254, label %1256
+
+1254:                                             ; preds = %1246
+  %1255 = call noalias ptr @_emalloc_224() #12
+  br label %1462
+
+1256:                                             ; preds = %1246
+  %1257 = load i64, ptr %22, align 8
+  %1258 = add i64 24, %1257
+  %1259 = add i64 %1258, 1
+  %1260 = add i64 %1259, 8
+  %1261 = sub i64 %1260, 1
+  %1262 = and i64 %1261, -8
+  %1263 = icmp ule i64 %1262, 256
+  br i1 %1263, label %1264, label %1266
+
+1264:                                             ; preds = %1256
+  %1265 = call noalias ptr @_emalloc_256() #12
+  br label %1460
+
+1266:                                             ; preds = %1256
+  %1267 = load i64, ptr %22, align 8
+  %1268 = add i64 24, %1267
+  %1269 = add i64 %1268, 1
+  %1270 = add i64 %1269, 8
+  %1271 = sub i64 %1270, 1
+  %1272 = and i64 %1271, -8
+  %1273 = icmp ule i64 %1272, 320
+  br i1 %1273, label %1274, label %1276
+
+1274:                                             ; preds = %1266
+  %1275 = call noalias ptr @_emalloc_320() #12
+  br label %1458
+
+1276:                                             ; preds = %1266
+  %1277 = load i64, ptr %22, align 8
+  %1278 = add i64 24, %1277
+  %1279 = add i64 %1278, 1
+  %1280 = add i64 %1279, 8
+  %1281 = sub i64 %1280, 1
+  %1282 = and i64 %1281, -8
+  %1283 = icmp ule i64 %1282, 384
+  br i1 %1283, label %1284, label %1286
+
+1284:                                             ; preds = %1276
+  %1285 = call noalias ptr @_emalloc_384() #12
+  br label %1456
+
+1286:                                             ; preds = %1276
+  %1287 = load i64, ptr %22, align 8
+  %1288 = add i64 24, %1287
+  %1289 = add i64 %1288, 1
+  %1290 = add i64 %1289, 8
+  %1291 = sub i64 %1290, 1
+  %1292 = and i64 %1291, -8
+  %1293 = icmp ule i64 %1292, 448
+  br i1 %1293, label %1294, label %1296
+
+1294:                                             ; preds = %1286
+  %1295 = call noalias ptr @_emalloc_448() #12
+  br label %1454
+
+1296:                                             ; preds = %1286
+  %1297 = load i64, ptr %22, align 8
+  %1298 = add i64 24, %1297
+  %1299 = add i64 %1298, 1
+  %1300 = add i64 %1299, 8
+  %1301 = sub i64 %1300, 1
+  %1302 = and i64 %1301, -8
+  %1303 = icmp ule i64 %1302, 512
+  br i1 %1303, label %1304, label %1306
+
+1304:                                             ; preds = %1296
+  %1305 = call noalias ptr @_emalloc_512() #12
+  br label %1452
+
+1306:                                             ; preds = %1296
+  %1307 = load i64, ptr %22, align 8
+  %1308 = add i64 24, %1307
+  %1309 = add i64 %1308, 1
+  %1310 = add i64 %1309, 8
+  %1311 = sub i64 %1310, 1
+  %1312 = and i64 %1311, -8
+  %1313 = icmp ule i64 %1312, 640
+  br i1 %1313, label %1314, label %1316
+
+1314:                                             ; preds = %1306
+  %1315 = call noalias ptr @_emalloc_640() #12
+  br label %1450
+
+1316:                                             ; preds = %1306
+  %1317 = load i64, ptr %22, align 8
+  %1318 = add i64 24, %1317
+  %1319 = add i64 %1318, 1
+  %1320 = add i64 %1319, 8
+  %1321 = sub i64 %1320, 1
+  %1322 = and i64 %1321, -8
+  %1323 = icmp ule i64 %1322, 768
+  br i1 %1323, label %1324, label %1326
+
+1324:                                             ; preds = %1316
+  %1325 = call noalias ptr @_emalloc_768() #12
+  br label %1448
+
+1326:                                             ; preds = %1316
+  %1327 = load i64, ptr %22, align 8
+  %1328 = add i64 24, %1327
+  %1329 = add i64 %1328, 1
+  %1330 = add i64 %1329, 8
+  %1331 = sub i64 %1330, 1
+  %1332 = and i64 %1331, -8
+  %1333 = icmp ule i64 %1332, 896
+  br i1 %1333, label %1334, label %1336
+
+1334:                                             ; preds = %1326
+  %1335 = call noalias ptr @_emalloc_896() #12
+  br label %1446
+
+1336:                                             ; preds = %1326
+  %1337 = load i64, ptr %22, align 8
+  %1338 = add i64 24, %1337
+  %1339 = add i64 %1338, 1
+  %1340 = add i64 %1339, 8
+  %1341 = sub i64 %1340, 1
+  %1342 = and i64 %1341, -8
+  %1343 = icmp ule i64 %1342, 1024
+  br i1 %1343, label %1344, label %1346
+
+1344:                                             ; preds = %1336
+  %1345 = call noalias ptr @_emalloc_1024() #12
+  br label %1444
+
+1346:                                             ; preds = %1336
+  %1347 = load i64, ptr %22, align 8
+  %1348 = add i64 24, %1347
+  %1349 = add i64 %1348, 1
+  %1350 = add i64 %1349, 8
+  %1351 = sub i64 %1350, 1
+  %1352 = and i64 %1351, -8
+  %1353 = icmp ule i64 %1352, 1280
+  br i1 %1353, label %1354, label %1356
+
+1354:                                             ; preds = %1346
+  %1355 = call noalias ptr @_emalloc_1280() #12
+  br label %1442
+
+1356:                                             ; preds = %1346
+  %1357 = load i64, ptr %22, align 8
+  %1358 = add i64 24, %1357
+  %1359 = add i64 %1358, 1
+  %1360 = add i64 %1359, 8
+  %1361 = sub i64 %1360, 1
+  %1362 = and i64 %1361, -8
+  %1363 = icmp ule i64 %1362, 1536
+  br i1 %1363, label %1364, label %1366
+
+1364:                                             ; preds = %1356
+  %1365 = call noalias ptr @_emalloc_1536() #12
+  br label %1440
+
+1366:                                             ; preds = %1356
+  %1367 = load i64, ptr %22, align 8
+  %1368 = add i64 24, %1367
+  %1369 = add i64 %1368, 1
+  %1370 = add i64 %1369, 8
+  %1371 = sub i64 %1370, 1
+  %1372 = and i64 %1371, -8
+  %1373 = icmp ule i64 %1372, 1792
+  br i1 %1373, label %1374, label %1376
+
+1374:                                             ; preds = %1366
+  %1375 = call noalias ptr @_emalloc_1792() #12
+  br label %1438
+
+1376:                                             ; preds = %1366
+  %1377 = load i64, ptr %22, align 8
+  %1378 = add i64 24, %1377
+  %1379 = add i64 %1378, 1
+  %1380 = add i64 %1379, 8
+  %1381 = sub i64 %1380, 1
+  %1382 = and i64 %1381, -8
+  %1383 = icmp ule i64 %1382, 2048
+  br i1 %1383, label %1384, label %1386
+
+1384:                                             ; preds = %1376
+  %1385 = call noalias ptr @_emalloc_2048() #12
+  br label %1436
+
+1386:                                             ; preds = %1376
+  %1387 = load i64, ptr %22, align 8
+  %1388 = add i64 24, %1387
+  %1389 = add i64 %1388, 1
+  %1390 = add i64 %1389, 8
+  %1391 = sub i64 %1390, 1
+  %1392 = and i64 %1391, -8
+  %1393 = icmp ule i64 %1392, 2560
+  br i1 %1393, label %1394, label %1396
+
+1394:                                             ; preds = %1386
+  %1395 = call noalias ptr @_emalloc_2560() #12
+  br label %1434
+
+1396:                                             ; preds = %1386
+  %1397 = load i64, ptr %22, align 8
+  %1398 = add i64 24, %1397
+  %1399 = add i64 %1398, 1
+  %1400 = add i64 %1399, 8
+  %1401 = sub i64 %1400, 1
+  %1402 = and i64 %1401, -8
+  %1403 = icmp ule i64 %1402, 3072
+  br i1 %1403, label %1404, label %1406
+
+1404:                                             ; preds = %1396
+  %1405 = call noalias ptr @_emalloc_3072() #12
+  br label %1432
+
+1406:                                             ; preds = %1396
+  %1407 = load i64, ptr %22, align 8
+  %1408 = add i64 24, %1407
+  %1409 = add i64 %1408, 1
+  %1410 = add i64 %1409, 8
+  %1411 = sub i64 %1410, 1
+  %1412 = and i64 %1411, -8
+  %1413 = icmp ule i64 %1412, 2093056
+  br i1 %1413, label %1414, label %1422
+
+1414:                                             ; preds = %1406
+  %1415 = load i64, ptr %22, align 8
+  %1416 = add i64 24, %1415
+  %1417 = add i64 %1416, 1
+  %1418 = add i64 %1417, 8
+  %1419 = sub i64 %1418, 1
+  %1420 = and i64 %1419, -8
+  %1421 = call noalias ptr @_emalloc_large(i64 noundef %1420) #14
+  br label %1430
+
+1422:                                             ; preds = %1406
+  %1423 = load i64, ptr %22, align 8
+  %1424 = add i64 24, %1423
+  %1425 = add i64 %1424, 1
+  %1426 = add i64 %1425, 8
+  %1427 = sub i64 %1426, 1
+  %1428 = and i64 %1427, -8
+  %1429 = call noalias ptr @_emalloc_huge(i64 noundef %1428) #14
+  br label %1430
+
+1430:                                             ; preds = %1422, %1414
+  %1431 = phi ptr [ %1421, %1414 ], [ %1429, %1422 ]
+  br label %1432
+
+1432:                                             ; preds = %1430, %1404
+  %1433 = phi ptr [ %1405, %1404 ], [ %1431, %1430 ]
+  br label %1434
+
+1434:                                             ; preds = %1432, %1394
+  %1435 = phi ptr [ %1395, %1394 ], [ %1433, %1432 ]
+  br label %1436
+
+1436:                                             ; preds = %1434, %1384
+  %1437 = phi ptr [ %1385, %1384 ], [ %1435, %1434 ]
+  br label %1438
+
+1438:                                             ; preds = %1436, %1374
+  %1439 = phi ptr [ %1375, %1374 ], [ %1437, %1436 ]
+  br label %1440
+
+1440:                                             ; preds = %1438, %1364
+  %1441 = phi ptr [ %1365, %1364 ], [ %1439, %1438 ]
+  br label %1442
+
+1442:                                             ; preds = %1440, %1354
+  %1443 = phi ptr [ %1355, %1354 ], [ %1441, %1440 ]
+  br label %1444
+
+1444:                                             ; preds = %1442, %1344
+  %1445 = phi ptr [ %1345, %1344 ], [ %1443, %1442 ]
+  br label %1446
+
+1446:                                             ; preds = %1444, %1334
+  %1447 = phi ptr [ %1335, %1334 ], [ %1445, %1444 ]
+  br label %1448
+
+1448:                                             ; preds = %1446, %1324
+  %1449 = phi ptr [ %1325, %1324 ], [ %1447, %1446 ]
+  br label %1450
+
+1450:                                             ; preds = %1448, %1314
+  %1451 = phi ptr [ %1315, %1314 ], [ %1449, %1448 ]
+  br label %1452
+
+1452:                                             ; preds = %1450, %1304
+  %1453 = phi ptr [ %1305, %1304 ], [ %1451, %1450 ]
+  br label %1454
+
+1454:                                             ; preds = %1452, %1294
+  %1455 = phi ptr [ %1295, %1294 ], [ %1453, %1452 ]
+  br label %1456
+
+1456:                                             ; preds = %1454, %1284
+  %1457 = phi ptr [ %1285, %1284 ], [ %1455, %1454 ]
+  br label %1458
+
+1458:                                             ; preds = %1456, %1274
+  %1459 = phi ptr [ %1275, %1274 ], [ %1457, %1456 ]
+  br label %1460
+
+1460:                                             ; preds = %1458, %1264
+  %1461 = phi ptr [ %1265, %1264 ], [ %1459, %1458 ]
+  br label %1462
+
+1462:                                             ; preds = %1460, %1254
+  %1463 = phi ptr [ %1255, %1254 ], [ %1461, %1460 ]
+  br label %1464
+
+1464:                                             ; preds = %1462, %1244
+  %1465 = phi ptr [ %1245, %1244 ], [ %1463, %1462 ]
+  br label %1466
+
+1466:                                             ; preds = %1464, %1234
+  %1467 = phi ptr [ %1235, %1234 ], [ %1465, %1464 ]
+  br label %1468
+
+1468:                                             ; preds = %1466, %1224
+  %1469 = phi ptr [ %1225, %1224 ], [ %1467, %1466 ]
+  br label %1470
+
+1470:                                             ; preds = %1468, %1214
+  %1471 = phi ptr [ %1215, %1214 ], [ %1469, %1468 ]
+  br label %1472
+
+1472:                                             ; preds = %1470, %1204
+  %1473 = phi ptr [ %1205, %1204 ], [ %1471, %1470 ]
+  br label %1474
+
+1474:                                             ; preds = %1472, %1194
+  %1475 = phi ptr [ %1195, %1194 ], [ %1473, %1472 ]
+  br label %1476
+
+1476:                                             ; preds = %1474, %1184
+  %1477 = phi ptr [ %1185, %1184 ], [ %1475, %1474 ]
+  br label %1478
+
+1478:                                             ; preds = %1476, %1174
+  %1479 = phi ptr [ %1175, %1174 ], [ %1477, %1476 ]
+  br label %1480
+
+1480:                                             ; preds = %1478, %1164
+  %1481 = phi ptr [ %1165, %1164 ], [ %1479, %1478 ]
+  br label %1482
+
+1482:                                             ; preds = %1480, %1154
+  %1483 = phi ptr [ %1155, %1154 ], [ %1481, %1480 ]
+  br label %1484
+
+1484:                                             ; preds = %1482, %1144
+  %1485 = phi ptr [ %1145, %1144 ], [ %1483, %1482 ]
   br label %1486
 
-1486:                                             ; preds = %1478, %1476
-  %1487 = phi ptr [ %1477, %1476 ], [ %1485, %1478 ]
+1486:                                             ; preds = %1484, %1134
+  %1487 = phi ptr [ %1135, %1134 ], [ %1485, %1484 ]
   br label %1488
 
-1488:                                             ; preds = %1486, %1076
-  %1489 = phi ptr [ %1083, %1076 ], [ %1487, %1486 ]
-  store ptr %1489, ptr %24, align 8
-  %1490 = load ptr, ptr %24, align 8
-  store ptr %1490, ptr %4, align 8
-  store i32 1, ptr %5, align 4
-  %1491 = load i32, ptr %5, align 4
-  %1492 = load ptr, ptr %4, align 8
-  store i32 %1491, ptr %1492, align 4
-  %1493 = load i8, ptr %23, align 1
-  %1494 = trunc i8 %1493 to i1
-  %1495 = select i1 %1494, i32 128, i32 0
-  %1496 = or i32 22, %1495
-  %1497 = load ptr, ptr %24, align 8
-  %1498 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1497, i32 0, i32 1
-  store i32 %1496, ptr %1498, align 4
-  %1499 = load ptr, ptr %24, align 8
-  %1500 = getelementptr inbounds %struct._zend_string, ptr %1499, i32 0, i32 1
-  store i64 0, ptr %1500, align 8
-  %1501 = load i64, ptr %22, align 8
-  %1502 = load ptr, ptr %24, align 8
-  %1503 = getelementptr inbounds %struct._zend_string, ptr %1502, i32 0, i32 2
-  store i64 %1501, ptr %1503, align 8
+1488:                                             ; preds = %1486, %1124
+  %1489 = phi ptr [ %1125, %1124 ], [ %1487, %1486 ]
+  br label %1490
+
+1490:                                             ; preds = %1488, %1114
+  %1491 = phi ptr [ %1115, %1114 ], [ %1489, %1488 ]
+  br label %1500
+
+1492:                                             ; preds = %1098
+  %1493 = load i64, ptr %22, align 8
+  %1494 = add i64 24, %1493
+  %1495 = add i64 %1494, 1
+  %1496 = add i64 %1495, 8
+  %1497 = sub i64 %1496, 1
+  %1498 = and i64 %1497, -8
+  %1499 = call noalias ptr @_emalloc(i64 noundef %1498) #14
+  br label %1500
+
+1500:                                             ; preds = %1492, %1490
+  %1501 = phi ptr [ %1491, %1490 ], [ %1499, %1492 ]
+  br label %1502
+
+1502:                                             ; preds = %1500, %1090
+  %1503 = phi ptr [ %1097, %1090 ], [ %1501, %1500 ]
+  store ptr %1503, ptr %24, align 8
   %1504 = load ptr, ptr %24, align 8
-  store ptr %1504, ptr %35, align 8
-  %1505 = load ptr, ptr %35, align 8
-  %1506 = getelementptr inbounds %struct._zend_string, ptr %1505, i32 0, i32 3
-  %1507 = load ptr, ptr %32, align 8
-  %1508 = load i64, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1506, ptr align 1 %1507, i64 %1508, i1 false)
-  %1509 = load ptr, ptr %35, align 8
-  %1510 = getelementptr inbounds %struct._zend_string, ptr %1509, i32 0, i32 3
-  %1511 = load i64, ptr %33, align 8
-  %1512 = getelementptr inbounds [1 x i8], ptr %1510, i64 0, i64 %1511
-  store i8 0, ptr %1512, align 1
-  %1513 = load ptr, ptr %35, align 8
-  store ptr %1513, ptr %40, align 8
-  br label %1514
+  store ptr %1504, ptr %4, align 8
+  store i32 1, ptr %5, align 4
+  %1505 = load i32, ptr %5, align 4
+  %1506 = load ptr, ptr %4, align 8
+  store i32 %1505, ptr %1506, align 4
+  %1507 = load i8, ptr %23, align 1
+  %1508 = trunc i8 %1507 to i1
+  %1509 = select i1 %1508, i32 128, i32 0
+  %1510 = or i32 22, %1509
+  %1511 = load ptr, ptr %24, align 8
+  %1512 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1511, i32 0, i32 1
+  store i32 %1510, ptr %1512, align 4
+  %1513 = load ptr, ptr %24, align 8
+  %1514 = getelementptr inbounds %struct._zend_string, ptr %1513, i32 0, i32 1
+  store i64 0, ptr %1514, align 8
+  %1515 = load i64, ptr %22, align 8
+  %1516 = load ptr, ptr %24, align 8
+  %1517 = getelementptr inbounds %struct._zend_string, ptr %1516, i32 0, i32 2
+  store i64 %1515, ptr %1517, align 8
+  %1518 = load ptr, ptr %24, align 8
+  store ptr %1518, ptr %35, align 8
+  %1519 = load ptr, ptr %35, align 8
+  %1520 = getelementptr inbounds %struct._zend_string, ptr %1519, i32 0, i32 3
+  %1521 = load ptr, ptr %32, align 8
+  %1522 = load i64, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1520, ptr align 1 %1521, i64 %1522, i1 false)
+  %1523 = load ptr, ptr %35, align 8
+  %1524 = getelementptr inbounds %struct._zend_string, ptr %1523, i32 0, i32 3
+  %1525 = load i64, ptr %33, align 8
+  %1526 = getelementptr inbounds [1 x i8], ptr %1524, i64 0, i64 %1525
+  store i8 0, ptr %1526, align 1
+  %1527 = load ptr, ptr %35, align 8
+  store ptr %1527, ptr %40, align 8
+  br label %1528
 
-1514:                                             ; preds = %1488, %1063
-  br label %1515
+1528:                                             ; preds = %1502, %1074
+  br label %1529
 
-1515:                                             ; preds = %1514, %1048
-  br label %1516
+1529:                                             ; preds = %1528, %1059
+  br label %1530
 
-1516:                                             ; preds = %1515, %565
-  %1517 = load ptr, ptr %40, align 8
-  %1518 = icmp ne ptr %1517, null
-  br i1 %1518, label %1519, label %1523
+1530:                                             ; preds = %1529, %572
+  %1531 = load ptr, ptr %40, align 8
+  %1532 = icmp ne ptr %1531, null
+  br i1 %1532, label %1533, label %1537
 
-1519:                                             ; preds = %1516
-  %1520 = load ptr, ptr @zend_resolve_path, align 8
-  %1521 = load ptr, ptr %40, align 8
-  %1522 = call ptr %1520(ptr noundef %1521)
-  store ptr %1522, ptr %41, align 8
-  br label %1523
+1533:                                             ; preds = %1530
+  %1534 = load ptr, ptr @zend_resolve_path, align 8
+  %1535 = load ptr, ptr %40, align 8
+  %1536 = call ptr %1534(ptr noundef %1535)
+  store ptr %1536, ptr %41, align 8
+  br label %1537
 
-1523:                                             ; preds = %1519, %1516
-  %1524 = load ptr, ptr %41, align 8
-  %1525 = icmp ne ptr %1524, null
-  br i1 %1525, label %1568, label %1526
+1537:                                             ; preds = %1533, %1530
+  %1538 = load ptr, ptr %41, align 8
+  %1539 = icmp ne ptr %1538, null
+  br i1 %1539, label %1585, label %1540
 
-1526:                                             ; preds = %1523
-  %1527 = load ptr, ptr %40, align 8
-  %1528 = icmp ne ptr %1527, null
-  br i1 %1528, label %1529, label %1562
+1540:                                             ; preds = %1537
+  %1541 = load ptr, ptr %40, align 8
+  %1542 = icmp ne ptr %1541, null
+  br i1 %1542, label %1543, label %1576
 
-1529:                                             ; preds = %1526
-  %1530 = load ptr, ptr %40, align 8
-  store ptr %1530, ptr %36, align 8
-  %1531 = load ptr, ptr %36, align 8
-  %1532 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1531, i32 0, i32 1
-  %1533 = load i32, ptr %1532, align 4
-  store i32 %1533, ptr %11, align 4
-  %1534 = load i32, ptr %11, align 4
-  %1535 = and i32 %1534, 1008
-  %1536 = and i32 %1535, 64
-  %1537 = icmp ne i32 %1536, 0
-  br i1 %1537, label %1561, label %1538
+1543:                                             ; preds = %1540
+  %1544 = load ptr, ptr %40, align 8
+  store ptr %1544, ptr %36, align 8
+  %1545 = load ptr, ptr %36, align 8
+  %1546 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1545, i32 0, i32 1
+  %1547 = load i32, ptr %1546, align 4
+  store i32 %1547, ptr %11, align 4
+  %1548 = load i32, ptr %11, align 4
+  %1549 = and i32 %1548, 1008
+  %1550 = and i32 %1549, 64
+  %1551 = icmp ne i32 %1550, 0
+  br i1 %1551, label %1575, label %1552
 
-1538:                                             ; preds = %1529
-  %1539 = load ptr, ptr %36, align 8
-  store ptr %1539, ptr %8, align 8
-  %1540 = load ptr, ptr %8, align 8
-  %1541 = load i32, ptr %1540, align 4
-  %1542 = icmp ugt i32 %1541, 0
-  call void @llvm.assume(i1 %1542)
-  %1543 = load ptr, ptr %8, align 8
-  %1544 = load i32, ptr %1543, align 4
-  %1545 = add i32 %1544, -1
-  store i32 %1545, ptr %1543, align 4
-  %1546 = icmp eq i32 %1545, 0
-  br i1 %1546, label %1547, label %1560
+1552:                                             ; preds = %1543
+  %1553 = load ptr, ptr %36, align 8
+  store ptr %1553, ptr %8, align 8
+  %1554 = load ptr, ptr %8, align 8
+  %1555 = load i32, ptr %1554, align 4
+  %1556 = icmp ugt i32 %1555, 0
+  call void @llvm.assume(i1 %1556)
+  %1557 = load ptr, ptr %8, align 8
+  %1558 = load i32, ptr %1557, align 4
+  %1559 = add i32 %1558, -1
+  store i32 %1559, ptr %1557, align 4
+  %1560 = icmp eq i32 %1559, 0
+  br i1 %1560, label %1561, label %1574
 
-1547:                                             ; preds = %1538
-  %1548 = load ptr, ptr %36, align 8
-  %1549 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1548, i32 0, i32 1
-  %1550 = load i32, ptr %1549, align 4
-  store i32 %1550, ptr %12, align 4
-  %1551 = load i32, ptr %12, align 4
-  %1552 = and i32 %1551, 1008
-  %1553 = and i32 %1552, 128
-  %1554 = icmp ne i32 %1553, 0
-  br i1 %1554, label %1555, label %1557
+1561:                                             ; preds = %1552
+  %1562 = load ptr, ptr %36, align 8
+  %1563 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1562, i32 0, i32 1
+  %1564 = load i32, ptr %1563, align 4
+  store i32 %1564, ptr %12, align 4
+  %1565 = load i32, ptr %12, align 4
+  %1566 = and i32 %1565, 1008
+  %1567 = and i32 %1566, 128
+  %1568 = icmp ne i32 %1567, 0
+  br i1 %1568, label %1569, label %1571
 
-1555:                                             ; preds = %1547
-  %1556 = load ptr, ptr %36, align 8
-  call void @free(ptr noundef %1556) #12
-  br label %1559
+1569:                                             ; preds = %1561
+  %1570 = load ptr, ptr %36, align 8
+  call void @free(ptr noundef %1570) #12
+  br label %1573
 
-1557:                                             ; preds = %1547
-  %1558 = load ptr, ptr %36, align 8
-  call void @_efree(ptr noundef %1558) #12
-  br label %1559
+1571:                                             ; preds = %1561
+  %1572 = load ptr, ptr %36, align 8
+  call void @_efree(ptr noundef %1572) #12
+  br label %1573
 
-1559:                                             ; preds = %1557, %1555
-  br label %1560
+1573:                                             ; preds = %1571, %1569
+  br label %1574
 
-1560:                                             ; preds = %1559, %1538
-  br label %1561
+1574:                                             ; preds = %1573, %1552
+  br label %1575
 
-1561:                                             ; preds = %1560, %1529
-  br label %1562
+1575:                                             ; preds = %1574, %1543
+  br label %1576
 
-1562:                                             ; preds = %1561, %1526
-  %1563 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %1564 = icmp ne ptr %1563, null
-  br i1 %1564, label %1565, label %1567
+1576:                                             ; preds = %1575, %1540
+  %1577 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1578 = load ptr, ptr %1577, align 8
+  %1579 = icmp ne ptr %1578, null
+  br i1 %1579, label %1580, label %1584
 
-1565:                                             ; preds = %1562
-  %1566 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  call void @_efree(ptr noundef %1566)
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  br label %1567
+1580:                                             ; preds = %1576
+  %1581 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1582 = load ptr, ptr %1581, align 8
+  call void @_efree(ptr noundef %1582)
+  %1583 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  store ptr null, ptr %1583, align 8
+  br label %1584
 
-1567:                                             ; preds = %1565, %1562
+1584:                                             ; preds = %1580, %1576
   store i32 -1, ptr %37, align 4
-  br label %1641
+  br label %1665
 
-1568:                                             ; preds = %1523
-  %1569 = load ptr, ptr %41, align 8
-  store ptr %1569, ptr %17, align 8
+1585:                                             ; preds = %1537
+  %1586 = load ptr, ptr %41, align 8
+  store ptr %1586, ptr %17, align 8
   store i8 0, ptr %18, align 1
-  %1570 = load ptr, ptr %17, align 8
-  %1571 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1570, i32 0, i32 1
-  %1572 = load i32, ptr %1571, align 4
-  store i32 %1572, ptr %13, align 4
-  %1573 = load i32, ptr %13, align 4
-  %1574 = and i32 %1573, 1008
-  %1575 = and i32 %1574, 64
-  %1576 = icmp ne i32 %1575, 0
-  br i1 %1576, label %1595, label %1577
+  %1587 = load ptr, ptr %17, align 8
+  %1588 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1587, i32 0, i32 1
+  %1589 = load i32, ptr %1588, align 4
+  store i32 %1589, ptr %13, align 4
+  %1590 = load i32, ptr %13, align 4
+  %1591 = and i32 %1590, 1008
+  %1592 = and i32 %1591, 64
+  %1593 = icmp ne i32 %1592, 0
+  br i1 %1593, label %1612, label %1594
 
-1577:                                             ; preds = %1568
-  %1578 = load ptr, ptr %17, align 8
-  store ptr %1578, ptr %9, align 8
-  %1579 = load ptr, ptr %9, align 8
-  %1580 = load i32, ptr %1579, align 4
-  %1581 = icmp ugt i32 %1580, 0
-  call void @llvm.assume(i1 %1581)
-  %1582 = load ptr, ptr %9, align 8
-  %1583 = load i32, ptr %1582, align 4
-  %1584 = add i32 %1583, -1
-  store i32 %1584, ptr %1582, align 4
-  %1585 = icmp eq i32 %1584, 0
-  br i1 %1585, label %1586, label %1594
+1594:                                             ; preds = %1585
+  %1595 = load ptr, ptr %17, align 8
+  store ptr %1595, ptr %9, align 8
+  %1596 = load ptr, ptr %9, align 8
+  %1597 = load i32, ptr %1596, align 4
+  %1598 = icmp ugt i32 %1597, 0
+  call void @llvm.assume(i1 %1598)
+  %1599 = load ptr, ptr %9, align 8
+  %1600 = load i32, ptr %1599, align 4
+  %1601 = add i32 %1600, -1
+  store i32 %1601, ptr %1599, align 4
+  %1602 = icmp eq i32 %1601, 0
+  br i1 %1602, label %1603, label %1611
 
-1586:                                             ; preds = %1577
-  %1587 = load i8, ptr %18, align 1
-  %1588 = trunc i8 %1587 to i1
-  br i1 %1588, label %1589, label %1591
+1603:                                             ; preds = %1594
+  %1604 = load i8, ptr %18, align 1
+  %1605 = trunc i8 %1604 to i1
+  br i1 %1605, label %1606, label %1608
 
-1589:                                             ; preds = %1586
-  %1590 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %1590) #12
-  br label %1593
+1606:                                             ; preds = %1603
+  %1607 = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %1607) #12
+  br label %1610
 
-1591:                                             ; preds = %1586
-  %1592 = load ptr, ptr %17, align 8
-  call void @_efree(ptr noundef %1592) #12
-  br label %1593
+1608:                                             ; preds = %1603
+  %1609 = load ptr, ptr %17, align 8
+  call void @_efree(ptr noundef %1609) #12
+  br label %1610
 
-1593:                                             ; preds = %1591, %1589
-  br label %1594
+1610:                                             ; preds = %1608, %1606
+  br label %1611
 
-1594:                                             ; preds = %1593, %1577
-  br label %1595
+1611:                                             ; preds = %1610, %1594
+  br label %1612
 
-1595:                                             ; preds = %1594, %1568
-  %1596 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 3), align 2
-  %1597 = icmp ne i8 %1596, 0
-  %1598 = zext i1 %1597 to i8
-  store i8 %1598, ptr %43, align 1
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 3), align 2
-  %1599 = load ptr, ptr %38, align 8
-  %1600 = load ptr, ptr %40, align 8
-  call void @zend_stream_init_filename_ex(ptr noundef %1599, ptr noundef %1600)
-  %1601 = load ptr, ptr %38, align 8
-  %1602 = getelementptr inbounds %struct._zend_file_handle, ptr %1601, i32 0, i32 4
-  store i8 1, ptr %1602, align 1
-  %1603 = load ptr, ptr %40, align 8
-  %1604 = icmp ne ptr %1603, null
-  br i1 %1604, label %1605, label %1624
+1612:                                             ; preds = %1611, %1585
+  %1613 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 3
+  %1614 = load i8, ptr %1613, align 2
+  %1615 = icmp ne i8 %1614, 0
+  %1616 = zext i1 %1615 to i8
+  store i8 %1616, ptr %43, align 1
+  %1617 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 3
+  store i8 0, ptr %1617, align 2
+  %1618 = load ptr, ptr %38, align 8
+  %1619 = load ptr, ptr %40, align 8
+  call void @zend_stream_init_filename_ex(ptr noundef %1618, ptr noundef %1619)
+  %1620 = load ptr, ptr %38, align 8
+  %1621 = getelementptr inbounds %struct._zend_file_handle, ptr %1620, i32 0, i32 4
+  store i8 1, ptr %1621, align 1
+  %1622 = load ptr, ptr %40, align 8
+  %1623 = icmp ne ptr %1622, null
+  br i1 %1623, label %1624, label %1643
 
-1605:                                             ; preds = %1595
-  %1606 = load ptr, ptr %40, align 8
-  store ptr %1606, ptr %16, align 8
-  %1607 = load ptr, ptr %16, align 8
-  %1608 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1607, i32 0, i32 1
-  %1609 = load i32, ptr %1608, align 4
-  store i32 %1609, ptr %14, align 4
-  %1610 = load i32, ptr %14, align 4
-  %1611 = and i32 %1610, 1008
-  %1612 = and i32 %1611, 64
-  %1613 = icmp ne i32 %1612, 0
-  br i1 %1613, label %1622, label %1614
+1624:                                             ; preds = %1612
+  %1625 = load ptr, ptr %40, align 8
+  store ptr %1625, ptr %16, align 8
+  %1626 = load ptr, ptr %16, align 8
+  %1627 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1626, i32 0, i32 1
+  %1628 = load i32, ptr %1627, align 4
+  store i32 %1628, ptr %14, align 4
+  %1629 = load i32, ptr %14, align 4
+  %1630 = and i32 %1629, 1008
+  %1631 = and i32 %1630, 64
+  %1632 = icmp ne i32 %1631, 0
+  br i1 %1632, label %1641, label %1633
 
-1614:                                             ; preds = %1605
-  %1615 = load ptr, ptr %16, align 8
-  store ptr %1615, ptr %10, align 8
-  %1616 = load ptr, ptr %10, align 8
-  %1617 = load i32, ptr %1616, align 4
-  %1618 = icmp ugt i32 %1617, 0
-  call void @llvm.assume(i1 %1618)
-  %1619 = load ptr, ptr %10, align 8
-  %1620 = load i32, ptr %1619, align 4
-  %1621 = add i32 %1620, -1
-  store i32 %1621, ptr %1619, align 4
-  store i32 %1621, ptr %15, align 4
-  br label %1623
+1633:                                             ; preds = %1624
+  %1634 = load ptr, ptr %16, align 8
+  store ptr %1634, ptr %10, align 8
+  %1635 = load ptr, ptr %10, align 8
+  %1636 = load i32, ptr %1635, align 4
+  %1637 = icmp ugt i32 %1636, 0
+  call void @llvm.assume(i1 %1637)
+  %1638 = load ptr, ptr %10, align 8
+  %1639 = load i32, ptr %1638, align 4
+  %1640 = add i32 %1639, -1
+  store i32 %1640, ptr %1638, align 4
+  store i32 %1640, ptr %15, align 4
+  br label %1642
 
-1622:                                             ; preds = %1605
+1641:                                             ; preds = %1624
   store i32 1, ptr %15, align 4
-  br label %1623
+  br label %1642
 
-1623:                                             ; preds = %1622, %1614
-  br label %1624
+1642:                                             ; preds = %1641, %1633
+  br label %1643
 
-1624:                                             ; preds = %1623, %1595
-  %1625 = load ptr, ptr %38, align 8
-  %1626 = call i32 @zend_stream_open(ptr noundef %1625)
-  %1627 = icmp eq i32 %1626, -1
-  br i1 %1627, label %1628, label %1637
+1643:                                             ; preds = %1642, %1612
+  %1644 = load ptr, ptr %38, align 8
+  %1645 = call i32 @zend_stream_open(ptr noundef %1644)
+  %1646 = icmp eq i32 %1645, -1
+  br i1 %1646, label %1647, label %1660
 
-1628:                                             ; preds = %1624
-  %1629 = load i8, ptr %43, align 1
-  %1630 = trunc i8 %1629 to i1
-  %1631 = zext i1 %1630 to i8
-  store i8 %1631, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 3), align 2
-  %1632 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  %1633 = icmp ne ptr %1632, null
-  br i1 %1633, label %1634, label %1636
+1647:                                             ; preds = %1643
+  %1648 = load i8, ptr %43, align 1
+  %1649 = trunc i8 %1648 to i1
+  %1650 = zext i1 %1649 to i8
+  %1651 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 3
+  store i8 %1650, ptr %1651, align 2
+  %1652 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1653 = load ptr, ptr %1652, align 8
+  %1654 = icmp ne ptr %1653, null
+  br i1 %1654, label %1655, label %1659
 
-1634:                                             ; preds = %1628
-  %1635 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  call void @_efree(ptr noundef %1635)
-  store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  br label %1636
+1655:                                             ; preds = %1647
+  %1656 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %1657 = load ptr, ptr %1656, align 8
+  call void @_efree(ptr noundef %1657)
+  %1658 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  store ptr null, ptr %1658, align 8
+  br label %1659
 
-1636:                                             ; preds = %1634, %1628
+1659:                                             ; preds = %1655, %1647
   store i32 -1, ptr %37, align 4
-  br label %1641
+  br label %1665
 
-1637:                                             ; preds = %1624
-  %1638 = load i8, ptr %43, align 1
-  %1639 = trunc i8 %1638 to i1
-  %1640 = zext i1 %1639 to i8
-  store i8 %1640, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 3), align 2
+1660:                                             ; preds = %1643
+  %1661 = load i8, ptr %43, align 1
+  %1662 = trunc i8 %1661 to i1
+  %1663 = zext i1 %1662 to i8
+  %1664 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 3
+  store i8 %1663, ptr %1664, align 2
   store i32 0, ptr %37, align 4
-  br label %1641
+  br label %1665
 
-1641:                                             ; preds = %1637, %1636, %1567
-  %1642 = load i32, ptr %37, align 4
-  ret i32 %1642
+1665:                                             ; preds = %1660, %1659, %1584
+  %1666 = load i32, ptr %37, align 4
+  ret i32 %1666
 }
 
 declare ptr @getpwnam(ptr noundef) #1
@@ -4593,7 +4625,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
 
 51:                                               ; preds = %44, %3
   store ptr null, ptr %24, align 8
-  br label %1431
+  br label %1433
 
 52:                                               ; preds = %44
   %53 = load ptr, ptr %25, align 8
@@ -4698,14 +4730,14 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
 120:                                              ; preds = %116
   %121 = load ptr, ptr %28, align 8
   store ptr %121, ptr %24, align 8
-  br label %1431
+  br label %1433
 
 122:                                              ; preds = %116
   br label %123
 
 123:                                              ; preds = %122, %111
   store ptr null, ptr %24, align 8
-  br label %1431
+  br label %1433
 
 124:                                              ; preds = %105, %99, %92, %87
   %125 = load ptr, ptr %25, align 8
@@ -4761,14 +4793,14 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
   %161 = load ptr, ptr %25, align 8
   %162 = call ptr @tsrm_realpath_str(ptr noundef %161)
   store ptr %162, ptr %24, align 8
-  br label %1431
+  br label %1433
 
 163:                                              ; preds = %156
   %164 = load ptr, ptr %27, align 8
   store ptr %164, ptr %30, align 8
   br label %165
 
-165:                                              ; preds = %832, %823, %349, %281, %163
+165:                                              ; preds = %833, %824, %349, %281, %163
   %166 = load ptr, ptr %30, align 8
   %167 = icmp ne ptr %166, null
   br i1 %167, label %168, label %173
@@ -4782,7 +4814,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
 
 173:                                              ; preds = %168, %165
   %174 = phi i1 [ false, %165 ], [ %172, %168 ]
-  br i1 %174, label %175, label %833
+  br i1 %174, label %175, label %834
 
 175:                                              ; preds = %173
   store i32 0, ptr %36, align 4
@@ -5000,7 +5032,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
   br i1 %325, label %326, label %327
 
 326:                                              ; preds = %319, %316, %311
-  br label %833
+  br label %834
 
 327:                                              ; preds = %319
   %328 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
@@ -5026,7 +5058,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
   store ptr %341, ptr %33, align 8
   %342 = load i32, ptr %36, align 4
   %343 = icmp ne i32 %342, 0
-  br i1 %343, label %344, label %826
+  br i1 %343, label %344, label %827
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
@@ -5042,7 +5074,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
 350:                                              ; preds = %344
   %351 = load ptr, ptr %34, align 8
   %352 = icmp ne ptr %351, @php_plain_files_wrapper
-  br i1 %352, label %353, label %824
+  br i1 %352, label %353, label %825
 
 353:                                              ; preds = %350
   %354 = load ptr, ptr %34, align 8
@@ -5051,7 +5083,7 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
   %357 = getelementptr inbounds %struct._php_stream_wrapper_ops, ptr %356, i32 0, i32 3
   %358 = load ptr, ptr %357, align 8
   %359 = icmp ne ptr %358, null
-  br i1 %359, label %360, label %823
+  br i1 %359, label %360, label %824
 
 360:                                              ; preds = %353
   %361 = load ptr, ptr %34, align 8
@@ -5727,948 +5759,950 @@ define ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 
   store i8 0, ptr %816, align 1
   %817 = load ptr, ptr %19, align 8
   store ptr %817, ptr %24, align 8
-  br label %1431
+  br label %1433
 
 818:                                              ; preds = %360
-  %819 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %820 = icmp ne ptr %819, null
-  br i1 %820, label %821, label %822
-
-821:                                              ; preds = %818
-  store ptr null, ptr %24, align 8
-  br label %1431
+  %819 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %820 = load ptr, ptr %819, align 8
+  %821 = icmp ne ptr %820, null
+  br i1 %821, label %822, label %823
 
 822:                                              ; preds = %818
-  br label %823
+  store ptr null, ptr %24, align 8
+  br label %1433
 
-823:                                              ; preds = %822, %353
+823:                                              ; preds = %818
+  br label %824
+
+824:                                              ; preds = %823, %353
   br label %165
 
-824:                                              ; preds = %350
-  br label %825
-
-825:                                              ; preds = %824
+825:                                              ; preds = %350
   br label %826
 
-826:                                              ; preds = %825, %340
-  %827 = load ptr, ptr %33, align 8
-  %828 = call ptr @tsrm_realpath_str(ptr noundef %827)
-  store ptr %828, ptr %28, align 8
-  %829 = icmp ne ptr %828, null
-  br i1 %829, label %830, label %832
+826:                                              ; preds = %825
+  br label %827
 
-830:                                              ; preds = %826
-  %831 = load ptr, ptr %28, align 8
-  store ptr %831, ptr %24, align 8
-  br label %1431
+827:                                              ; preds = %826, %340
+  %828 = load ptr, ptr %33, align 8
+  %829 = call ptr @tsrm_realpath_str(ptr noundef %828)
+  store ptr %829, ptr %28, align 8
+  %830 = icmp ne ptr %829, null
+  br i1 %830, label %831, label %833
 
-832:                                              ; preds = %826
+831:                                              ; preds = %827
+  %832 = load ptr, ptr %28, align 8
+  store ptr %832, ptr %24, align 8
+  br label %1433
+
+833:                                              ; preds = %827
   br label %165
 
-833:                                              ; preds = %326, %173
-  %834 = call zeroext i1 @zend_is_executing()
-  br i1 %834, label %835, label %1430
+834:                                              ; preds = %326, %173
+  %835 = call zeroext i1 @zend_is_executing()
+  br i1 %835, label %836, label %1432
 
-835:                                              ; preds = %833
-  %836 = call ptr @zend_get_executed_filename_ex()
-  store ptr %836, ptr %35, align 8
-  %837 = icmp ne ptr %836, null
-  br i1 %837, label %838, label %1430
+836:                                              ; preds = %834
+  %837 = call ptr @zend_get_executed_filename_ex()
+  store ptr %837, ptr %35, align 8
+  %838 = icmp ne ptr %837, null
+  br i1 %838, label %839, label %1432
 
-838:                                              ; preds = %835
-  %839 = load ptr, ptr %35, align 8
-  %840 = getelementptr inbounds %struct._zend_string, ptr %839, i32 0, i32 3
-  %841 = getelementptr inbounds [1 x i8], ptr %840, i64 0, i64 0
-  store ptr %841, ptr %39, align 8
-  %842 = load ptr, ptr %35, align 8
-  %843 = getelementptr inbounds %struct._zend_string, ptr %842, i32 0, i32 2
-  %844 = load i64, ptr %843, align 8
-  store i64 %844, ptr %40, align 8
-  br label %845
+839:                                              ; preds = %836
+  %840 = load ptr, ptr %35, align 8
+  %841 = getelementptr inbounds %struct._zend_string, ptr %840, i32 0, i32 3
+  %842 = getelementptr inbounds [1 x i8], ptr %841, i64 0, i64 0
+  store ptr %842, ptr %39, align 8
+  %843 = load ptr, ptr %35, align 8
+  %844 = getelementptr inbounds %struct._zend_string, ptr %843, i32 0, i32 2
+  %845 = load i64, ptr %844, align 8
+  store i64 %845, ptr %40, align 8
+  br label %846
 
-845:                                              ; preds = %859, %838
-  %846 = load i64, ptr %40, align 8
-  %847 = add i64 %846, -1
-  store i64 %847, ptr %40, align 8
-  %848 = icmp ult i64 %847, -1
-  br i1 %848, label %849, label %857
+846:                                              ; preds = %860, %839
+  %847 = load i64, ptr %40, align 8
+  %848 = add i64 %847, -1
+  store i64 %848, ptr %40, align 8
+  %849 = icmp ult i64 %848, -1
+  br i1 %849, label %850, label %858
 
-849:                                              ; preds = %845
-  %850 = load ptr, ptr %39, align 8
-  %851 = load i64, ptr %40, align 8
-  %852 = getelementptr inbounds i8, ptr %850, i64 %851
-  %853 = load i8, ptr %852, align 1
-  %854 = sext i8 %853 to i32
-  %855 = icmp eq i32 %854, 47
-  %856 = xor i1 %855, true
-  br label %857
+850:                                              ; preds = %846
+  %851 = load ptr, ptr %39, align 8
+  %852 = load i64, ptr %40, align 8
+  %853 = getelementptr inbounds i8, ptr %851, i64 %852
+  %854 = load i8, ptr %853, align 1
+  %855 = sext i8 %854 to i32
+  %856 = icmp eq i32 %855, 47
+  %857 = xor i1 %856, true
+  br label %858
 
-857:                                              ; preds = %849, %845
-  %858 = phi i1 [ false, %845 ], [ %856, %849 ]
-  br i1 %858, label %859, label %860
+858:                                              ; preds = %850, %846
+  %859 = phi i1 [ false, %846 ], [ %857, %850 ]
+  br i1 %859, label %860, label %861
 
-859:                                              ; preds = %857
-  br label %845
+860:                                              ; preds = %858
+  br label %846
 
-860:                                              ; preds = %857
-  %861 = load i64, ptr %40, align 8
-  %862 = icmp ugt i64 %861, 0
-  br i1 %862, label %863, label %1429
+861:                                              ; preds = %858
+  %862 = load i64, ptr %40, align 8
+  %863 = icmp ugt i64 %862, 0
+  br i1 %863, label %864, label %1431
 
-863:                                              ; preds = %860
-  %864 = load i64, ptr %26, align 8
-  %865 = icmp ult i64 %864, 4094
-  br i1 %865, label %866, label %1429
+864:                                              ; preds = %861
+  %865 = load i64, ptr %26, align 8
+  %866 = icmp ult i64 %865, 4094
+  br i1 %866, label %867, label %1431
 
-866:                                              ; preds = %863
-  %867 = load i64, ptr %40, align 8
-  %868 = add i64 %867, 1
-  %869 = load i64, ptr %26, align 8
-  %870 = add i64 %868, %869
-  %871 = add i64 %870, 1
-  %872 = icmp ult i64 %871, 4096
-  br i1 %872, label %873, label %1429
+867:                                              ; preds = %864
+  %868 = load i64, ptr %40, align 8
+  %869 = add i64 %868, 1
+  %870 = load i64, ptr %26, align 8
+  %871 = add i64 %869, %870
+  %872 = add i64 %871, 1
+  %873 = icmp ult i64 %872, 4096
+  br i1 %873, label %874, label %1431
 
-873:                                              ; preds = %866
-  %874 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %875 = load ptr, ptr %39, align 8
-  %876 = load i64, ptr %40, align 8
-  %877 = add i64 %876, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %874, ptr align 1 %875, i64 %877, i1 false)
-  %878 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %879 = load i64, ptr %40, align 8
-  %880 = getelementptr inbounds i8, ptr %878, i64 %879
-  %881 = getelementptr inbounds i8, ptr %880, i64 1
-  %882 = load ptr, ptr %25, align 8
-  %883 = load i64, ptr %26, align 8
-  %884 = add i64 %883, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %881, ptr align 1 %882, i64 %884, i1 false)
-  %885 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  store ptr %885, ptr %33, align 8
+874:                                              ; preds = %867
+  %875 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  %876 = load ptr, ptr %39, align 8
+  %877 = load i64, ptr %40, align 8
+  %878 = add i64 %877, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %875, ptr align 1 %876, i64 %878, i1 false)
+  %879 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  %880 = load i64, ptr %40, align 8
+  %881 = getelementptr inbounds i8, ptr %879, i64 %880
+  %882 = getelementptr inbounds i8, ptr %881, i64 1
+  %883 = load ptr, ptr %25, align 8
+  %884 = load i64, ptr %26, align 8
+  %885 = add i64 %884, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %882, ptr align 1 %883, i64 %885, i1 false)
   %886 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  store ptr %886, ptr %32, align 8
-  br label %887
+  store ptr %886, ptr %33, align 8
+  %887 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  store ptr %887, ptr %32, align 8
+  br label %888
 
-887:                                              ; preds = %917, %873
-  %888 = call ptr @__ctype_b_loc() #15
-  %889 = load ptr, ptr %888, align 8
-  %890 = load ptr, ptr %32, align 8
-  %891 = load i8, ptr %890, align 1
-  %892 = sext i8 %891 to i32
-  %893 = sext i32 %892 to i64
-  %894 = getelementptr inbounds i16, ptr %889, i64 %893
-  %895 = load i16, ptr %894, align 2
-  %896 = zext i16 %895 to i32
-  %897 = and i32 %896, 8
-  %898 = icmp ne i32 %897, 0
-  br i1 %898, label %914, label %899
+888:                                              ; preds = %918, %874
+  %889 = call ptr @__ctype_b_loc() #15
+  %890 = load ptr, ptr %889, align 8
+  %891 = load ptr, ptr %32, align 8
+  %892 = load i8, ptr %891, align 1
+  %893 = sext i8 %892 to i32
+  %894 = sext i32 %893 to i64
+  %895 = getelementptr inbounds i16, ptr %890, i64 %894
+  %896 = load i16, ptr %895, align 2
+  %897 = zext i16 %896 to i32
+  %898 = and i32 %897, 8
+  %899 = icmp ne i32 %898, 0
+  br i1 %899, label %915, label %900
 
-899:                                              ; preds = %887
-  %900 = load ptr, ptr %32, align 8
-  %901 = load i8, ptr %900, align 1
-  %902 = sext i8 %901 to i32
-  %903 = icmp eq i32 %902, 43
-  br i1 %903, label %914, label %904
+900:                                              ; preds = %888
+  %901 = load ptr, ptr %32, align 8
+  %902 = load i8, ptr %901, align 1
+  %903 = sext i8 %902 to i32
+  %904 = icmp eq i32 %903, 43
+  br i1 %904, label %915, label %905
 
-904:                                              ; preds = %899
-  %905 = load ptr, ptr %32, align 8
-  %906 = load i8, ptr %905, align 1
-  %907 = sext i8 %906 to i32
-  %908 = icmp eq i32 %907, 45
-  br i1 %908, label %914, label %909
+905:                                              ; preds = %900
+  %906 = load ptr, ptr %32, align 8
+  %907 = load i8, ptr %906, align 1
+  %908 = sext i8 %907 to i32
+  %909 = icmp eq i32 %908, 45
+  br i1 %909, label %915, label %910
 
-909:                                              ; preds = %904
-  %910 = load ptr, ptr %32, align 8
-  %911 = load i8, ptr %910, align 1
-  %912 = sext i8 %911 to i32
-  %913 = icmp eq i32 %912, 46
-  br label %914
+910:                                              ; preds = %905
+  %911 = load ptr, ptr %32, align 8
+  %912 = load i8, ptr %911, align 1
+  %913 = sext i8 %912 to i32
+  %914 = icmp eq i32 %913, 46
+  br label %915
 
-914:                                              ; preds = %909, %904, %899, %887
-  %915 = phi i1 [ true, %904 ], [ true, %899 ], [ true, %887 ], [ %913, %909 ]
-  br i1 %915, label %916, label %920
+915:                                              ; preds = %910, %905, %900, %888
+  %916 = phi i1 [ true, %905 ], [ true, %900 ], [ true, %888 ], [ %914, %910 ]
+  br i1 %916, label %917, label %921
 
-916:                                              ; preds = %914
-  br label %917
+917:                                              ; preds = %915
+  br label %918
 
-917:                                              ; preds = %916
-  %918 = load ptr, ptr %32, align 8
-  %919 = getelementptr inbounds i8, ptr %918, i32 1
-  store ptr %919, ptr %32, align 8
-  br label %887
+918:                                              ; preds = %917
+  %919 = load ptr, ptr %32, align 8
+  %920 = getelementptr inbounds i8, ptr %919, i32 1
+  store ptr %920, ptr %32, align 8
+  br label %888
 
-920:                                              ; preds = %914
-  %921 = load ptr, ptr %32, align 8
-  %922 = load i8, ptr %921, align 1
-  %923 = sext i8 %922 to i32
-  %924 = icmp eq i32 %923, 58
-  br i1 %924, label %925, label %1426
+921:                                              ; preds = %915
+  %922 = load ptr, ptr %32, align 8
+  %923 = load i8, ptr %922, align 1
+  %924 = sext i8 %923 to i32
+  %925 = icmp eq i32 %924, 58
+  br i1 %925, label %926, label %1428
 
-925:                                              ; preds = %920
-  %926 = load ptr, ptr %32, align 8
-  %927 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %928 = ptrtoint ptr %926 to i64
+926:                                              ; preds = %921
+  %927 = load ptr, ptr %32, align 8
+  %928 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
   %929 = ptrtoint ptr %927 to i64
-  %930 = sub i64 %928, %929
-  %931 = icmp sgt i64 %930, 1
-  br i1 %931, label %932, label %1426
+  %930 = ptrtoint ptr %928 to i64
+  %931 = sub i64 %929, %930
+  %932 = icmp sgt i64 %931, 1
+  br i1 %932, label %933, label %1428
 
-932:                                              ; preds = %925
-  %933 = load ptr, ptr %32, align 8
-  %934 = getelementptr inbounds i8, ptr %933, i64 1
-  %935 = load i8, ptr %934, align 1
-  %936 = sext i8 %935 to i32
-  %937 = icmp eq i32 %936, 47
-  br i1 %937, label %938, label %1426
+933:                                              ; preds = %926
+  %934 = load ptr, ptr %32, align 8
+  %935 = getelementptr inbounds i8, ptr %934, i64 1
+  %936 = load i8, ptr %935, align 1
+  %937 = sext i8 %936 to i32
+  %938 = icmp eq i32 %937, 47
+  br i1 %938, label %939, label %1428
 
-938:                                              ; preds = %932
-  %939 = load ptr, ptr %32, align 8
-  %940 = getelementptr inbounds i8, ptr %939, i64 2
-  %941 = load i8, ptr %940, align 1
-  %942 = sext i8 %941 to i32
-  %943 = icmp eq i32 %942, 47
-  br i1 %943, label %944, label %1426
+939:                                              ; preds = %933
+  %940 = load ptr, ptr %32, align 8
+  %941 = getelementptr inbounds i8, ptr %940, i64 2
+  %942 = load i8, ptr %941, align 1
+  %943 = sext i8 %942 to i32
+  %944 = icmp eq i32 %943, 47
+  br i1 %944, label %945, label %1428
 
-944:                                              ; preds = %938
-  %945 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %946 = call ptr @php_stream_locate_url_wrapper(ptr noundef %945, ptr noundef %33, i32 noundef 128)
-  store ptr %946, ptr %34, align 8
-  %947 = load ptr, ptr %34, align 8
-  %948 = icmp ne ptr %947, null
-  br i1 %948, label %950, label %949
+945:                                              ; preds = %939
+  %946 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  %947 = call ptr @php_stream_locate_url_wrapper(ptr noundef %946, ptr noundef %33, i32 noundef 128)
+  store ptr %947, ptr %34, align 8
+  %948 = load ptr, ptr %34, align 8
+  %949 = icmp ne ptr %948, null
+  br i1 %949, label %951, label %950
 
-949:                                              ; preds = %944
+950:                                              ; preds = %945
   store ptr null, ptr %24, align 8
-  br label %1431
+  br label %1433
 
-950:                                              ; preds = %944
-  %951 = load ptr, ptr %34, align 8
-  %952 = icmp ne ptr %951, @php_plain_files_wrapper
-  br i1 %952, label %953, label %1424
+951:                                              ; preds = %945
+  %952 = load ptr, ptr %34, align 8
+  %953 = icmp ne ptr %952, @php_plain_files_wrapper
+  br i1 %953, label %954, label %1426
 
-953:                                              ; preds = %950
-  %954 = load ptr, ptr %34, align 8
-  %955 = getelementptr inbounds %struct._php_stream_wrapper, ptr %954, i32 0, i32 0
-  %956 = load ptr, ptr %955, align 8
-  %957 = getelementptr inbounds %struct._php_stream_wrapper_ops, ptr %956, i32 0, i32 3
-  %958 = load ptr, ptr %957, align 8
-  %959 = icmp ne ptr %958, null
-  br i1 %959, label %960, label %1423
+954:                                              ; preds = %951
+  %955 = load ptr, ptr %34, align 8
+  %956 = getelementptr inbounds %struct._php_stream_wrapper, ptr %955, i32 0, i32 0
+  %957 = load ptr, ptr %956, align 8
+  %958 = getelementptr inbounds %struct._php_stream_wrapper_ops, ptr %957, i32 0, i32 3
+  %959 = load ptr, ptr %958, align 8
+  %960 = icmp ne ptr %959, null
+  br i1 %960, label %961, label %1425
 
-960:                                              ; preds = %953
-  %961 = load ptr, ptr %34, align 8
-  %962 = getelementptr inbounds %struct._php_stream_wrapper, ptr %961, i32 0, i32 0
-  %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds %struct._php_stream_wrapper_ops, ptr %963, i32 0, i32 3
-  %965 = load ptr, ptr %964, align 8
-  %966 = load ptr, ptr %34, align 8
-  %967 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %968 = call i32 %965(ptr noundef %966, ptr noundef %967, i32 noundef 2, ptr noundef %41, ptr noundef null)
-  %969 = icmp eq i32 0, %968
-  br i1 %969, label %970, label %1418
+961:                                              ; preds = %954
+  %962 = load ptr, ptr %34, align 8
+  %963 = getelementptr inbounds %struct._php_stream_wrapper, ptr %962, i32 0, i32 0
+  %964 = load ptr, ptr %963, align 8
+  %965 = getelementptr inbounds %struct._php_stream_wrapper_ops, ptr %964, i32 0, i32 3
+  %966 = load ptr, ptr %965, align 8
+  %967 = load ptr, ptr %34, align 8
+  %968 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  %969 = call i32 %966(ptr noundef %967, ptr noundef %968, i32 noundef 2, ptr noundef %41, ptr noundef null)
+  %970 = icmp eq i32 0, %969
+  br i1 %970, label %971, label %1419
 
-970:                                              ; preds = %960
-  %971 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+971:                                              ; preds = %961
   %972 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
-  %973 = call i64 @strlen(ptr noundef %972) #11
-  store ptr %971, ptr %20, align 8
-  store i64 %973, ptr %21, align 8
+  %973 = getelementptr inbounds [4096 x i8], ptr %29, i64 0, i64 0
+  %974 = call i64 @strlen(ptr noundef %973) #11
+  store ptr %972, ptr %20, align 8
+  store i64 %974, ptr %21, align 8
   store i8 0, ptr %22, align 1
-  %974 = load i64, ptr %21, align 8
-  %975 = load i8, ptr %22, align 1
-  %976 = trunc i8 %975 to i1
-  store i64 %974, ptr %10, align 8
-  %977 = zext i1 %976 to i8
-  store i8 %977, ptr %11, align 1
-  %978 = load i8, ptr %11, align 1
-  %979 = trunc i8 %978 to i1
-  br i1 %979, label %980, label %988
-
-980:                                              ; preds = %970
-  %981 = load i64, ptr %10, align 8
-  %982 = add i64 24, %981
-  %983 = add i64 %982, 1
-  %984 = add i64 %983, 8
-  %985 = sub i64 %984, 1
-  %986 = and i64 %985, -8
-  %987 = call noalias ptr @__zend_malloc(i64 noundef %986) #14
-  br label %1392
-
-988:                                              ; preds = %970
-  %989 = load i64, ptr %10, align 8
-  %990 = add i64 24, %989
-  %991 = add i64 %990, 1
-  %992 = add i64 %991, 8
-  %993 = sub i64 %992, 1
-  %994 = and i64 %993, -8
-  %995 = call i1 @llvm.is.constant.i64(i64 %994)
-  br i1 %995, label %996, label %1382
-
-996:                                              ; preds = %988
-  %997 = load i64, ptr %10, align 8
-  %998 = add i64 24, %997
-  %999 = add i64 %998, 1
-  %1000 = add i64 %999, 8
-  %1001 = sub i64 %1000, 1
-  %1002 = and i64 %1001, -8
-  %1003 = icmp ule i64 %1002, 8
-  br i1 %1003, label %1004, label %1006
-
-1004:                                             ; preds = %996
-  %1005 = call noalias ptr @_emalloc_8() #12
-  br label %1380
-
-1006:                                             ; preds = %996
-  %1007 = load i64, ptr %10, align 8
-  %1008 = add i64 24, %1007
-  %1009 = add i64 %1008, 1
-  %1010 = add i64 %1009, 8
-  %1011 = sub i64 %1010, 1
-  %1012 = and i64 %1011, -8
-  %1013 = icmp ule i64 %1012, 16
-  br i1 %1013, label %1014, label %1016
-
-1014:                                             ; preds = %1006
-  %1015 = call noalias ptr @_emalloc_16() #12
-  br label %1378
-
-1016:                                             ; preds = %1006
-  %1017 = load i64, ptr %10, align 8
-  %1018 = add i64 24, %1017
-  %1019 = add i64 %1018, 1
-  %1020 = add i64 %1019, 8
-  %1021 = sub i64 %1020, 1
-  %1022 = and i64 %1021, -8
-  %1023 = icmp ule i64 %1022, 24
-  br i1 %1023, label %1024, label %1026
-
-1024:                                             ; preds = %1016
-  %1025 = call noalias ptr @_emalloc_24() #12
-  br label %1376
-
-1026:                                             ; preds = %1016
-  %1027 = load i64, ptr %10, align 8
-  %1028 = add i64 24, %1027
-  %1029 = add i64 %1028, 1
-  %1030 = add i64 %1029, 8
-  %1031 = sub i64 %1030, 1
-  %1032 = and i64 %1031, -8
-  %1033 = icmp ule i64 %1032, 32
-  br i1 %1033, label %1034, label %1036
-
-1034:                                             ; preds = %1026
-  %1035 = call noalias ptr @_emalloc_32() #12
-  br label %1374
-
-1036:                                             ; preds = %1026
-  %1037 = load i64, ptr %10, align 8
-  %1038 = add i64 24, %1037
-  %1039 = add i64 %1038, 1
-  %1040 = add i64 %1039, 8
-  %1041 = sub i64 %1040, 1
-  %1042 = and i64 %1041, -8
-  %1043 = icmp ule i64 %1042, 40
-  br i1 %1043, label %1044, label %1046
-
-1044:                                             ; preds = %1036
-  %1045 = call noalias ptr @_emalloc_40() #12
-  br label %1372
-
-1046:                                             ; preds = %1036
-  %1047 = load i64, ptr %10, align 8
-  %1048 = add i64 24, %1047
-  %1049 = add i64 %1048, 1
-  %1050 = add i64 %1049, 8
-  %1051 = sub i64 %1050, 1
-  %1052 = and i64 %1051, -8
-  %1053 = icmp ule i64 %1052, 48
-  br i1 %1053, label %1054, label %1056
-
-1054:                                             ; preds = %1046
-  %1055 = call noalias ptr @_emalloc_48() #12
-  br label %1370
-
-1056:                                             ; preds = %1046
-  %1057 = load i64, ptr %10, align 8
-  %1058 = add i64 24, %1057
-  %1059 = add i64 %1058, 1
-  %1060 = add i64 %1059, 8
-  %1061 = sub i64 %1060, 1
-  %1062 = and i64 %1061, -8
-  %1063 = icmp ule i64 %1062, 56
-  br i1 %1063, label %1064, label %1066
-
-1064:                                             ; preds = %1056
-  %1065 = call noalias ptr @_emalloc_56() #12
-  br label %1368
-
-1066:                                             ; preds = %1056
-  %1067 = load i64, ptr %10, align 8
-  %1068 = add i64 24, %1067
-  %1069 = add i64 %1068, 1
-  %1070 = add i64 %1069, 8
-  %1071 = sub i64 %1070, 1
-  %1072 = and i64 %1071, -8
-  %1073 = icmp ule i64 %1072, 64
-  br i1 %1073, label %1074, label %1076
-
-1074:                                             ; preds = %1066
-  %1075 = call noalias ptr @_emalloc_64() #12
-  br label %1366
-
-1076:                                             ; preds = %1066
-  %1077 = load i64, ptr %10, align 8
-  %1078 = add i64 24, %1077
-  %1079 = add i64 %1078, 1
-  %1080 = add i64 %1079, 8
-  %1081 = sub i64 %1080, 1
-  %1082 = and i64 %1081, -8
-  %1083 = icmp ule i64 %1082, 80
-  br i1 %1083, label %1084, label %1086
-
-1084:                                             ; preds = %1076
-  %1085 = call noalias ptr @_emalloc_80() #12
-  br label %1364
-
-1086:                                             ; preds = %1076
-  %1087 = load i64, ptr %10, align 8
-  %1088 = add i64 24, %1087
-  %1089 = add i64 %1088, 1
-  %1090 = add i64 %1089, 8
-  %1091 = sub i64 %1090, 1
-  %1092 = and i64 %1091, -8
-  %1093 = icmp ule i64 %1092, 96
-  br i1 %1093, label %1094, label %1096
-
-1094:                                             ; preds = %1086
-  %1095 = call noalias ptr @_emalloc_96() #12
-  br label %1362
-
-1096:                                             ; preds = %1086
-  %1097 = load i64, ptr %10, align 8
-  %1098 = add i64 24, %1097
-  %1099 = add i64 %1098, 1
-  %1100 = add i64 %1099, 8
-  %1101 = sub i64 %1100, 1
-  %1102 = and i64 %1101, -8
-  %1103 = icmp ule i64 %1102, 112
-  br i1 %1103, label %1104, label %1106
-
-1104:                                             ; preds = %1096
-  %1105 = call noalias ptr @_emalloc_112() #12
-  br label %1360
-
-1106:                                             ; preds = %1096
-  %1107 = load i64, ptr %10, align 8
-  %1108 = add i64 24, %1107
-  %1109 = add i64 %1108, 1
-  %1110 = add i64 %1109, 8
-  %1111 = sub i64 %1110, 1
-  %1112 = and i64 %1111, -8
-  %1113 = icmp ule i64 %1112, 128
-  br i1 %1113, label %1114, label %1116
-
-1114:                                             ; preds = %1106
-  %1115 = call noalias ptr @_emalloc_128() #12
-  br label %1358
-
-1116:                                             ; preds = %1106
-  %1117 = load i64, ptr %10, align 8
-  %1118 = add i64 24, %1117
-  %1119 = add i64 %1118, 1
-  %1120 = add i64 %1119, 8
-  %1121 = sub i64 %1120, 1
-  %1122 = and i64 %1121, -8
-  %1123 = icmp ule i64 %1122, 160
-  br i1 %1123, label %1124, label %1126
-
-1124:                                             ; preds = %1116
-  %1125 = call noalias ptr @_emalloc_160() #12
-  br label %1356
-
-1126:                                             ; preds = %1116
-  %1127 = load i64, ptr %10, align 8
-  %1128 = add i64 24, %1127
-  %1129 = add i64 %1128, 1
-  %1130 = add i64 %1129, 8
-  %1131 = sub i64 %1130, 1
-  %1132 = and i64 %1131, -8
-  %1133 = icmp ule i64 %1132, 192
-  br i1 %1133, label %1134, label %1136
-
-1134:                                             ; preds = %1126
-  %1135 = call noalias ptr @_emalloc_192() #12
-  br label %1354
-
-1136:                                             ; preds = %1126
-  %1137 = load i64, ptr %10, align 8
-  %1138 = add i64 24, %1137
-  %1139 = add i64 %1138, 1
-  %1140 = add i64 %1139, 8
-  %1141 = sub i64 %1140, 1
-  %1142 = and i64 %1141, -8
-  %1143 = icmp ule i64 %1142, 224
-  br i1 %1143, label %1144, label %1146
-
-1144:                                             ; preds = %1136
-  %1145 = call noalias ptr @_emalloc_224() #12
-  br label %1352
-
-1146:                                             ; preds = %1136
-  %1147 = load i64, ptr %10, align 8
-  %1148 = add i64 24, %1147
-  %1149 = add i64 %1148, 1
-  %1150 = add i64 %1149, 8
-  %1151 = sub i64 %1150, 1
-  %1152 = and i64 %1151, -8
-  %1153 = icmp ule i64 %1152, 256
-  br i1 %1153, label %1154, label %1156
-
-1154:                                             ; preds = %1146
-  %1155 = call noalias ptr @_emalloc_256() #12
-  br label %1350
-
-1156:                                             ; preds = %1146
-  %1157 = load i64, ptr %10, align 8
-  %1158 = add i64 24, %1157
-  %1159 = add i64 %1158, 1
-  %1160 = add i64 %1159, 8
-  %1161 = sub i64 %1160, 1
-  %1162 = and i64 %1161, -8
-  %1163 = icmp ule i64 %1162, 320
-  br i1 %1163, label %1164, label %1166
-
-1164:                                             ; preds = %1156
-  %1165 = call noalias ptr @_emalloc_320() #12
-  br label %1348
-
-1166:                                             ; preds = %1156
-  %1167 = load i64, ptr %10, align 8
-  %1168 = add i64 24, %1167
-  %1169 = add i64 %1168, 1
-  %1170 = add i64 %1169, 8
-  %1171 = sub i64 %1170, 1
-  %1172 = and i64 %1171, -8
-  %1173 = icmp ule i64 %1172, 384
-  br i1 %1173, label %1174, label %1176
-
-1174:                                             ; preds = %1166
-  %1175 = call noalias ptr @_emalloc_384() #12
-  br label %1346
-
-1176:                                             ; preds = %1166
-  %1177 = load i64, ptr %10, align 8
-  %1178 = add i64 24, %1177
-  %1179 = add i64 %1178, 1
-  %1180 = add i64 %1179, 8
-  %1181 = sub i64 %1180, 1
-  %1182 = and i64 %1181, -8
-  %1183 = icmp ule i64 %1182, 448
-  br i1 %1183, label %1184, label %1186
-
-1184:                                             ; preds = %1176
-  %1185 = call noalias ptr @_emalloc_448() #12
-  br label %1344
-
-1186:                                             ; preds = %1176
-  %1187 = load i64, ptr %10, align 8
-  %1188 = add i64 24, %1187
-  %1189 = add i64 %1188, 1
-  %1190 = add i64 %1189, 8
-  %1191 = sub i64 %1190, 1
-  %1192 = and i64 %1191, -8
-  %1193 = icmp ule i64 %1192, 512
-  br i1 %1193, label %1194, label %1196
-
-1194:                                             ; preds = %1186
-  %1195 = call noalias ptr @_emalloc_512() #12
-  br label %1342
-
-1196:                                             ; preds = %1186
-  %1197 = load i64, ptr %10, align 8
-  %1198 = add i64 24, %1197
-  %1199 = add i64 %1198, 1
-  %1200 = add i64 %1199, 8
-  %1201 = sub i64 %1200, 1
-  %1202 = and i64 %1201, -8
-  %1203 = icmp ule i64 %1202, 640
-  br i1 %1203, label %1204, label %1206
-
-1204:                                             ; preds = %1196
-  %1205 = call noalias ptr @_emalloc_640() #12
-  br label %1340
-
-1206:                                             ; preds = %1196
-  %1207 = load i64, ptr %10, align 8
-  %1208 = add i64 24, %1207
-  %1209 = add i64 %1208, 1
-  %1210 = add i64 %1209, 8
-  %1211 = sub i64 %1210, 1
-  %1212 = and i64 %1211, -8
-  %1213 = icmp ule i64 %1212, 768
-  br i1 %1213, label %1214, label %1216
-
-1214:                                             ; preds = %1206
-  %1215 = call noalias ptr @_emalloc_768() #12
-  br label %1338
-
-1216:                                             ; preds = %1206
-  %1217 = load i64, ptr %10, align 8
-  %1218 = add i64 24, %1217
-  %1219 = add i64 %1218, 1
-  %1220 = add i64 %1219, 8
-  %1221 = sub i64 %1220, 1
-  %1222 = and i64 %1221, -8
-  %1223 = icmp ule i64 %1222, 896
-  br i1 %1223, label %1224, label %1226
-
-1224:                                             ; preds = %1216
-  %1225 = call noalias ptr @_emalloc_896() #12
-  br label %1336
-
-1226:                                             ; preds = %1216
-  %1227 = load i64, ptr %10, align 8
-  %1228 = add i64 24, %1227
-  %1229 = add i64 %1228, 1
-  %1230 = add i64 %1229, 8
-  %1231 = sub i64 %1230, 1
-  %1232 = and i64 %1231, -8
-  %1233 = icmp ule i64 %1232, 1024
-  br i1 %1233, label %1234, label %1236
-
-1234:                                             ; preds = %1226
-  %1235 = call noalias ptr @_emalloc_1024() #12
-  br label %1334
-
-1236:                                             ; preds = %1226
-  %1237 = load i64, ptr %10, align 8
-  %1238 = add i64 24, %1237
-  %1239 = add i64 %1238, 1
-  %1240 = add i64 %1239, 8
-  %1241 = sub i64 %1240, 1
-  %1242 = and i64 %1241, -8
-  %1243 = icmp ule i64 %1242, 1280
-  br i1 %1243, label %1244, label %1246
-
-1244:                                             ; preds = %1236
-  %1245 = call noalias ptr @_emalloc_1280() #12
-  br label %1332
-
-1246:                                             ; preds = %1236
-  %1247 = load i64, ptr %10, align 8
-  %1248 = add i64 24, %1247
-  %1249 = add i64 %1248, 1
-  %1250 = add i64 %1249, 8
-  %1251 = sub i64 %1250, 1
-  %1252 = and i64 %1251, -8
-  %1253 = icmp ule i64 %1252, 1536
-  br i1 %1253, label %1254, label %1256
-
-1254:                                             ; preds = %1246
-  %1255 = call noalias ptr @_emalloc_1536() #12
-  br label %1330
-
-1256:                                             ; preds = %1246
-  %1257 = load i64, ptr %10, align 8
-  %1258 = add i64 24, %1257
-  %1259 = add i64 %1258, 1
-  %1260 = add i64 %1259, 8
-  %1261 = sub i64 %1260, 1
-  %1262 = and i64 %1261, -8
-  %1263 = icmp ule i64 %1262, 1792
-  br i1 %1263, label %1264, label %1266
-
-1264:                                             ; preds = %1256
-  %1265 = call noalias ptr @_emalloc_1792() #12
-  br label %1328
-
-1266:                                             ; preds = %1256
-  %1267 = load i64, ptr %10, align 8
-  %1268 = add i64 24, %1267
-  %1269 = add i64 %1268, 1
-  %1270 = add i64 %1269, 8
-  %1271 = sub i64 %1270, 1
-  %1272 = and i64 %1271, -8
-  %1273 = icmp ule i64 %1272, 2048
-  br i1 %1273, label %1274, label %1276
-
-1274:                                             ; preds = %1266
-  %1275 = call noalias ptr @_emalloc_2048() #12
-  br label %1326
-
-1276:                                             ; preds = %1266
-  %1277 = load i64, ptr %10, align 8
-  %1278 = add i64 24, %1277
-  %1279 = add i64 %1278, 1
-  %1280 = add i64 %1279, 8
-  %1281 = sub i64 %1280, 1
-  %1282 = and i64 %1281, -8
-  %1283 = icmp ule i64 %1282, 2560
-  br i1 %1283, label %1284, label %1286
-
-1284:                                             ; preds = %1276
-  %1285 = call noalias ptr @_emalloc_2560() #12
-  br label %1324
-
-1286:                                             ; preds = %1276
-  %1287 = load i64, ptr %10, align 8
-  %1288 = add i64 24, %1287
-  %1289 = add i64 %1288, 1
-  %1290 = add i64 %1289, 8
-  %1291 = sub i64 %1290, 1
-  %1292 = and i64 %1291, -8
-  %1293 = icmp ule i64 %1292, 3072
-  br i1 %1293, label %1294, label %1296
-
-1294:                                             ; preds = %1286
-  %1295 = call noalias ptr @_emalloc_3072() #12
-  br label %1322
-
-1296:                                             ; preds = %1286
-  %1297 = load i64, ptr %10, align 8
-  %1298 = add i64 24, %1297
-  %1299 = add i64 %1298, 1
-  %1300 = add i64 %1299, 8
-  %1301 = sub i64 %1300, 1
-  %1302 = and i64 %1301, -8
-  %1303 = icmp ule i64 %1302, 2093056
-  br i1 %1303, label %1304, label %1312
-
-1304:                                             ; preds = %1296
-  %1305 = load i64, ptr %10, align 8
-  %1306 = add i64 24, %1305
-  %1307 = add i64 %1306, 1
-  %1308 = add i64 %1307, 8
-  %1309 = sub i64 %1308, 1
-  %1310 = and i64 %1309, -8
-  %1311 = call noalias ptr @_emalloc_large(i64 noundef %1310) #14
-  br label %1320
-
-1312:                                             ; preds = %1296
-  %1313 = load i64, ptr %10, align 8
-  %1314 = add i64 24, %1313
-  %1315 = add i64 %1314, 1
-  %1316 = add i64 %1315, 8
-  %1317 = sub i64 %1316, 1
-  %1318 = and i64 %1317, -8
-  %1319 = call noalias ptr @_emalloc_huge(i64 noundef %1318) #14
-  br label %1320
-
-1320:                                             ; preds = %1312, %1304
-  %1321 = phi ptr [ %1311, %1304 ], [ %1319, %1312 ]
-  br label %1322
-
-1322:                                             ; preds = %1320, %1294
-  %1323 = phi ptr [ %1295, %1294 ], [ %1321, %1320 ]
-  br label %1324
-
-1324:                                             ; preds = %1322, %1284
-  %1325 = phi ptr [ %1285, %1284 ], [ %1323, %1322 ]
-  br label %1326
-
-1326:                                             ; preds = %1324, %1274
-  %1327 = phi ptr [ %1275, %1274 ], [ %1325, %1324 ]
-  br label %1328
-
-1328:                                             ; preds = %1326, %1264
-  %1329 = phi ptr [ %1265, %1264 ], [ %1327, %1326 ]
-  br label %1330
-
-1330:                                             ; preds = %1328, %1254
-  %1331 = phi ptr [ %1255, %1254 ], [ %1329, %1328 ]
-  br label %1332
-
-1332:                                             ; preds = %1330, %1244
-  %1333 = phi ptr [ %1245, %1244 ], [ %1331, %1330 ]
-  br label %1334
-
-1334:                                             ; preds = %1332, %1234
-  %1335 = phi ptr [ %1235, %1234 ], [ %1333, %1332 ]
-  br label %1336
-
-1336:                                             ; preds = %1334, %1224
-  %1337 = phi ptr [ %1225, %1224 ], [ %1335, %1334 ]
-  br label %1338
-
-1338:                                             ; preds = %1336, %1214
-  %1339 = phi ptr [ %1215, %1214 ], [ %1337, %1336 ]
-  br label %1340
-
-1340:                                             ; preds = %1338, %1204
-  %1341 = phi ptr [ %1205, %1204 ], [ %1339, %1338 ]
-  br label %1342
-
-1342:                                             ; preds = %1340, %1194
-  %1343 = phi ptr [ %1195, %1194 ], [ %1341, %1340 ]
-  br label %1344
-
-1344:                                             ; preds = %1342, %1184
-  %1345 = phi ptr [ %1185, %1184 ], [ %1343, %1342 ]
-  br label %1346
-
-1346:                                             ; preds = %1344, %1174
-  %1347 = phi ptr [ %1175, %1174 ], [ %1345, %1344 ]
-  br label %1348
-
-1348:                                             ; preds = %1346, %1164
-  %1349 = phi ptr [ %1165, %1164 ], [ %1347, %1346 ]
-  br label %1350
-
-1350:                                             ; preds = %1348, %1154
-  %1351 = phi ptr [ %1155, %1154 ], [ %1349, %1348 ]
-  br label %1352
-
-1352:                                             ; preds = %1350, %1144
-  %1353 = phi ptr [ %1145, %1144 ], [ %1351, %1350 ]
-  br label %1354
-
-1354:                                             ; preds = %1352, %1134
-  %1355 = phi ptr [ %1135, %1134 ], [ %1353, %1352 ]
-  br label %1356
-
-1356:                                             ; preds = %1354, %1124
-  %1357 = phi ptr [ %1125, %1124 ], [ %1355, %1354 ]
-  br label %1358
-
-1358:                                             ; preds = %1356, %1114
-  %1359 = phi ptr [ %1115, %1114 ], [ %1357, %1356 ]
-  br label %1360
-
-1360:                                             ; preds = %1358, %1104
-  %1361 = phi ptr [ %1105, %1104 ], [ %1359, %1358 ]
-  br label %1362
-
-1362:                                             ; preds = %1360, %1094
-  %1363 = phi ptr [ %1095, %1094 ], [ %1361, %1360 ]
-  br label %1364
-
-1364:                                             ; preds = %1362, %1084
-  %1365 = phi ptr [ %1085, %1084 ], [ %1363, %1362 ]
-  br label %1366
-
-1366:                                             ; preds = %1364, %1074
-  %1367 = phi ptr [ %1075, %1074 ], [ %1365, %1364 ]
-  br label %1368
-
-1368:                                             ; preds = %1366, %1064
-  %1369 = phi ptr [ %1065, %1064 ], [ %1367, %1366 ]
-  br label %1370
-
-1370:                                             ; preds = %1368, %1054
-  %1371 = phi ptr [ %1055, %1054 ], [ %1369, %1368 ]
-  br label %1372
-
-1372:                                             ; preds = %1370, %1044
-  %1373 = phi ptr [ %1045, %1044 ], [ %1371, %1370 ]
-  br label %1374
-
-1374:                                             ; preds = %1372, %1034
-  %1375 = phi ptr [ %1035, %1034 ], [ %1373, %1372 ]
-  br label %1376
-
-1376:                                             ; preds = %1374, %1024
-  %1377 = phi ptr [ %1025, %1024 ], [ %1375, %1374 ]
-  br label %1378
-
-1378:                                             ; preds = %1376, %1014
-  %1379 = phi ptr [ %1015, %1014 ], [ %1377, %1376 ]
-  br label %1380
-
-1380:                                             ; preds = %1378, %1004
-  %1381 = phi ptr [ %1005, %1004 ], [ %1379, %1378 ]
-  br label %1390
-
-1382:                                             ; preds = %988
-  %1383 = load i64, ptr %10, align 8
-  %1384 = add i64 24, %1383
-  %1385 = add i64 %1384, 1
-  %1386 = add i64 %1385, 8
-  %1387 = sub i64 %1386, 1
-  %1388 = and i64 %1387, -8
-  %1389 = call noalias ptr @_emalloc(i64 noundef %1388) #14
-  br label %1390
-
-1390:                                             ; preds = %1382, %1380
-  %1391 = phi ptr [ %1381, %1380 ], [ %1389, %1382 ]
-  br label %1392
-
-1392:                                             ; preds = %1390, %980
-  %1393 = phi ptr [ %987, %980 ], [ %1391, %1390 ]
-  store ptr %1393, ptr %12, align 8
-  %1394 = load ptr, ptr %12, align 8
-  store ptr %1394, ptr %6, align 8
+  %975 = load i64, ptr %21, align 8
+  %976 = load i8, ptr %22, align 1
+  %977 = trunc i8 %976 to i1
+  store i64 %975, ptr %10, align 8
+  %978 = zext i1 %977 to i8
+  store i8 %978, ptr %11, align 1
+  %979 = load i8, ptr %11, align 1
+  %980 = trunc i8 %979 to i1
+  br i1 %980, label %981, label %989
+
+981:                                              ; preds = %971
+  %982 = load i64, ptr %10, align 8
+  %983 = add i64 24, %982
+  %984 = add i64 %983, 1
+  %985 = add i64 %984, 8
+  %986 = sub i64 %985, 1
+  %987 = and i64 %986, -8
+  %988 = call noalias ptr @__zend_malloc(i64 noundef %987) #14
+  br label %1393
+
+989:                                              ; preds = %971
+  %990 = load i64, ptr %10, align 8
+  %991 = add i64 24, %990
+  %992 = add i64 %991, 1
+  %993 = add i64 %992, 8
+  %994 = sub i64 %993, 1
+  %995 = and i64 %994, -8
+  %996 = call i1 @llvm.is.constant.i64(i64 %995)
+  br i1 %996, label %997, label %1383
+
+997:                                              ; preds = %989
+  %998 = load i64, ptr %10, align 8
+  %999 = add i64 24, %998
+  %1000 = add i64 %999, 1
+  %1001 = add i64 %1000, 8
+  %1002 = sub i64 %1001, 1
+  %1003 = and i64 %1002, -8
+  %1004 = icmp ule i64 %1003, 8
+  br i1 %1004, label %1005, label %1007
+
+1005:                                             ; preds = %997
+  %1006 = call noalias ptr @_emalloc_8() #12
+  br label %1381
+
+1007:                                             ; preds = %997
+  %1008 = load i64, ptr %10, align 8
+  %1009 = add i64 24, %1008
+  %1010 = add i64 %1009, 1
+  %1011 = add i64 %1010, 8
+  %1012 = sub i64 %1011, 1
+  %1013 = and i64 %1012, -8
+  %1014 = icmp ule i64 %1013, 16
+  br i1 %1014, label %1015, label %1017
+
+1015:                                             ; preds = %1007
+  %1016 = call noalias ptr @_emalloc_16() #12
+  br label %1379
+
+1017:                                             ; preds = %1007
+  %1018 = load i64, ptr %10, align 8
+  %1019 = add i64 24, %1018
+  %1020 = add i64 %1019, 1
+  %1021 = add i64 %1020, 8
+  %1022 = sub i64 %1021, 1
+  %1023 = and i64 %1022, -8
+  %1024 = icmp ule i64 %1023, 24
+  br i1 %1024, label %1025, label %1027
+
+1025:                                             ; preds = %1017
+  %1026 = call noalias ptr @_emalloc_24() #12
+  br label %1377
+
+1027:                                             ; preds = %1017
+  %1028 = load i64, ptr %10, align 8
+  %1029 = add i64 24, %1028
+  %1030 = add i64 %1029, 1
+  %1031 = add i64 %1030, 8
+  %1032 = sub i64 %1031, 1
+  %1033 = and i64 %1032, -8
+  %1034 = icmp ule i64 %1033, 32
+  br i1 %1034, label %1035, label %1037
+
+1035:                                             ; preds = %1027
+  %1036 = call noalias ptr @_emalloc_32() #12
+  br label %1375
+
+1037:                                             ; preds = %1027
+  %1038 = load i64, ptr %10, align 8
+  %1039 = add i64 24, %1038
+  %1040 = add i64 %1039, 1
+  %1041 = add i64 %1040, 8
+  %1042 = sub i64 %1041, 1
+  %1043 = and i64 %1042, -8
+  %1044 = icmp ule i64 %1043, 40
+  br i1 %1044, label %1045, label %1047
+
+1045:                                             ; preds = %1037
+  %1046 = call noalias ptr @_emalloc_40() #12
+  br label %1373
+
+1047:                                             ; preds = %1037
+  %1048 = load i64, ptr %10, align 8
+  %1049 = add i64 24, %1048
+  %1050 = add i64 %1049, 1
+  %1051 = add i64 %1050, 8
+  %1052 = sub i64 %1051, 1
+  %1053 = and i64 %1052, -8
+  %1054 = icmp ule i64 %1053, 48
+  br i1 %1054, label %1055, label %1057
+
+1055:                                             ; preds = %1047
+  %1056 = call noalias ptr @_emalloc_48() #12
+  br label %1371
+
+1057:                                             ; preds = %1047
+  %1058 = load i64, ptr %10, align 8
+  %1059 = add i64 24, %1058
+  %1060 = add i64 %1059, 1
+  %1061 = add i64 %1060, 8
+  %1062 = sub i64 %1061, 1
+  %1063 = and i64 %1062, -8
+  %1064 = icmp ule i64 %1063, 56
+  br i1 %1064, label %1065, label %1067
+
+1065:                                             ; preds = %1057
+  %1066 = call noalias ptr @_emalloc_56() #12
+  br label %1369
+
+1067:                                             ; preds = %1057
+  %1068 = load i64, ptr %10, align 8
+  %1069 = add i64 24, %1068
+  %1070 = add i64 %1069, 1
+  %1071 = add i64 %1070, 8
+  %1072 = sub i64 %1071, 1
+  %1073 = and i64 %1072, -8
+  %1074 = icmp ule i64 %1073, 64
+  br i1 %1074, label %1075, label %1077
+
+1075:                                             ; preds = %1067
+  %1076 = call noalias ptr @_emalloc_64() #12
+  br label %1367
+
+1077:                                             ; preds = %1067
+  %1078 = load i64, ptr %10, align 8
+  %1079 = add i64 24, %1078
+  %1080 = add i64 %1079, 1
+  %1081 = add i64 %1080, 8
+  %1082 = sub i64 %1081, 1
+  %1083 = and i64 %1082, -8
+  %1084 = icmp ule i64 %1083, 80
+  br i1 %1084, label %1085, label %1087
+
+1085:                                             ; preds = %1077
+  %1086 = call noalias ptr @_emalloc_80() #12
+  br label %1365
+
+1087:                                             ; preds = %1077
+  %1088 = load i64, ptr %10, align 8
+  %1089 = add i64 24, %1088
+  %1090 = add i64 %1089, 1
+  %1091 = add i64 %1090, 8
+  %1092 = sub i64 %1091, 1
+  %1093 = and i64 %1092, -8
+  %1094 = icmp ule i64 %1093, 96
+  br i1 %1094, label %1095, label %1097
+
+1095:                                             ; preds = %1087
+  %1096 = call noalias ptr @_emalloc_96() #12
+  br label %1363
+
+1097:                                             ; preds = %1087
+  %1098 = load i64, ptr %10, align 8
+  %1099 = add i64 24, %1098
+  %1100 = add i64 %1099, 1
+  %1101 = add i64 %1100, 8
+  %1102 = sub i64 %1101, 1
+  %1103 = and i64 %1102, -8
+  %1104 = icmp ule i64 %1103, 112
+  br i1 %1104, label %1105, label %1107
+
+1105:                                             ; preds = %1097
+  %1106 = call noalias ptr @_emalloc_112() #12
+  br label %1361
+
+1107:                                             ; preds = %1097
+  %1108 = load i64, ptr %10, align 8
+  %1109 = add i64 24, %1108
+  %1110 = add i64 %1109, 1
+  %1111 = add i64 %1110, 8
+  %1112 = sub i64 %1111, 1
+  %1113 = and i64 %1112, -8
+  %1114 = icmp ule i64 %1113, 128
+  br i1 %1114, label %1115, label %1117
+
+1115:                                             ; preds = %1107
+  %1116 = call noalias ptr @_emalloc_128() #12
+  br label %1359
+
+1117:                                             ; preds = %1107
+  %1118 = load i64, ptr %10, align 8
+  %1119 = add i64 24, %1118
+  %1120 = add i64 %1119, 1
+  %1121 = add i64 %1120, 8
+  %1122 = sub i64 %1121, 1
+  %1123 = and i64 %1122, -8
+  %1124 = icmp ule i64 %1123, 160
+  br i1 %1124, label %1125, label %1127
+
+1125:                                             ; preds = %1117
+  %1126 = call noalias ptr @_emalloc_160() #12
+  br label %1357
+
+1127:                                             ; preds = %1117
+  %1128 = load i64, ptr %10, align 8
+  %1129 = add i64 24, %1128
+  %1130 = add i64 %1129, 1
+  %1131 = add i64 %1130, 8
+  %1132 = sub i64 %1131, 1
+  %1133 = and i64 %1132, -8
+  %1134 = icmp ule i64 %1133, 192
+  br i1 %1134, label %1135, label %1137
+
+1135:                                             ; preds = %1127
+  %1136 = call noalias ptr @_emalloc_192() #12
+  br label %1355
+
+1137:                                             ; preds = %1127
+  %1138 = load i64, ptr %10, align 8
+  %1139 = add i64 24, %1138
+  %1140 = add i64 %1139, 1
+  %1141 = add i64 %1140, 8
+  %1142 = sub i64 %1141, 1
+  %1143 = and i64 %1142, -8
+  %1144 = icmp ule i64 %1143, 224
+  br i1 %1144, label %1145, label %1147
+
+1145:                                             ; preds = %1137
+  %1146 = call noalias ptr @_emalloc_224() #12
+  br label %1353
+
+1147:                                             ; preds = %1137
+  %1148 = load i64, ptr %10, align 8
+  %1149 = add i64 24, %1148
+  %1150 = add i64 %1149, 1
+  %1151 = add i64 %1150, 8
+  %1152 = sub i64 %1151, 1
+  %1153 = and i64 %1152, -8
+  %1154 = icmp ule i64 %1153, 256
+  br i1 %1154, label %1155, label %1157
+
+1155:                                             ; preds = %1147
+  %1156 = call noalias ptr @_emalloc_256() #12
+  br label %1351
+
+1157:                                             ; preds = %1147
+  %1158 = load i64, ptr %10, align 8
+  %1159 = add i64 24, %1158
+  %1160 = add i64 %1159, 1
+  %1161 = add i64 %1160, 8
+  %1162 = sub i64 %1161, 1
+  %1163 = and i64 %1162, -8
+  %1164 = icmp ule i64 %1163, 320
+  br i1 %1164, label %1165, label %1167
+
+1165:                                             ; preds = %1157
+  %1166 = call noalias ptr @_emalloc_320() #12
+  br label %1349
+
+1167:                                             ; preds = %1157
+  %1168 = load i64, ptr %10, align 8
+  %1169 = add i64 24, %1168
+  %1170 = add i64 %1169, 1
+  %1171 = add i64 %1170, 8
+  %1172 = sub i64 %1171, 1
+  %1173 = and i64 %1172, -8
+  %1174 = icmp ule i64 %1173, 384
+  br i1 %1174, label %1175, label %1177
+
+1175:                                             ; preds = %1167
+  %1176 = call noalias ptr @_emalloc_384() #12
+  br label %1347
+
+1177:                                             ; preds = %1167
+  %1178 = load i64, ptr %10, align 8
+  %1179 = add i64 24, %1178
+  %1180 = add i64 %1179, 1
+  %1181 = add i64 %1180, 8
+  %1182 = sub i64 %1181, 1
+  %1183 = and i64 %1182, -8
+  %1184 = icmp ule i64 %1183, 448
+  br i1 %1184, label %1185, label %1187
+
+1185:                                             ; preds = %1177
+  %1186 = call noalias ptr @_emalloc_448() #12
+  br label %1345
+
+1187:                                             ; preds = %1177
+  %1188 = load i64, ptr %10, align 8
+  %1189 = add i64 24, %1188
+  %1190 = add i64 %1189, 1
+  %1191 = add i64 %1190, 8
+  %1192 = sub i64 %1191, 1
+  %1193 = and i64 %1192, -8
+  %1194 = icmp ule i64 %1193, 512
+  br i1 %1194, label %1195, label %1197
+
+1195:                                             ; preds = %1187
+  %1196 = call noalias ptr @_emalloc_512() #12
+  br label %1343
+
+1197:                                             ; preds = %1187
+  %1198 = load i64, ptr %10, align 8
+  %1199 = add i64 24, %1198
+  %1200 = add i64 %1199, 1
+  %1201 = add i64 %1200, 8
+  %1202 = sub i64 %1201, 1
+  %1203 = and i64 %1202, -8
+  %1204 = icmp ule i64 %1203, 640
+  br i1 %1204, label %1205, label %1207
+
+1205:                                             ; preds = %1197
+  %1206 = call noalias ptr @_emalloc_640() #12
+  br label %1341
+
+1207:                                             ; preds = %1197
+  %1208 = load i64, ptr %10, align 8
+  %1209 = add i64 24, %1208
+  %1210 = add i64 %1209, 1
+  %1211 = add i64 %1210, 8
+  %1212 = sub i64 %1211, 1
+  %1213 = and i64 %1212, -8
+  %1214 = icmp ule i64 %1213, 768
+  br i1 %1214, label %1215, label %1217
+
+1215:                                             ; preds = %1207
+  %1216 = call noalias ptr @_emalloc_768() #12
+  br label %1339
+
+1217:                                             ; preds = %1207
+  %1218 = load i64, ptr %10, align 8
+  %1219 = add i64 24, %1218
+  %1220 = add i64 %1219, 1
+  %1221 = add i64 %1220, 8
+  %1222 = sub i64 %1221, 1
+  %1223 = and i64 %1222, -8
+  %1224 = icmp ule i64 %1223, 896
+  br i1 %1224, label %1225, label %1227
+
+1225:                                             ; preds = %1217
+  %1226 = call noalias ptr @_emalloc_896() #12
+  br label %1337
+
+1227:                                             ; preds = %1217
+  %1228 = load i64, ptr %10, align 8
+  %1229 = add i64 24, %1228
+  %1230 = add i64 %1229, 1
+  %1231 = add i64 %1230, 8
+  %1232 = sub i64 %1231, 1
+  %1233 = and i64 %1232, -8
+  %1234 = icmp ule i64 %1233, 1024
+  br i1 %1234, label %1235, label %1237
+
+1235:                                             ; preds = %1227
+  %1236 = call noalias ptr @_emalloc_1024() #12
+  br label %1335
+
+1237:                                             ; preds = %1227
+  %1238 = load i64, ptr %10, align 8
+  %1239 = add i64 24, %1238
+  %1240 = add i64 %1239, 1
+  %1241 = add i64 %1240, 8
+  %1242 = sub i64 %1241, 1
+  %1243 = and i64 %1242, -8
+  %1244 = icmp ule i64 %1243, 1280
+  br i1 %1244, label %1245, label %1247
+
+1245:                                             ; preds = %1237
+  %1246 = call noalias ptr @_emalloc_1280() #12
+  br label %1333
+
+1247:                                             ; preds = %1237
+  %1248 = load i64, ptr %10, align 8
+  %1249 = add i64 24, %1248
+  %1250 = add i64 %1249, 1
+  %1251 = add i64 %1250, 8
+  %1252 = sub i64 %1251, 1
+  %1253 = and i64 %1252, -8
+  %1254 = icmp ule i64 %1253, 1536
+  br i1 %1254, label %1255, label %1257
+
+1255:                                             ; preds = %1247
+  %1256 = call noalias ptr @_emalloc_1536() #12
+  br label %1331
+
+1257:                                             ; preds = %1247
+  %1258 = load i64, ptr %10, align 8
+  %1259 = add i64 24, %1258
+  %1260 = add i64 %1259, 1
+  %1261 = add i64 %1260, 8
+  %1262 = sub i64 %1261, 1
+  %1263 = and i64 %1262, -8
+  %1264 = icmp ule i64 %1263, 1792
+  br i1 %1264, label %1265, label %1267
+
+1265:                                             ; preds = %1257
+  %1266 = call noalias ptr @_emalloc_1792() #12
+  br label %1329
+
+1267:                                             ; preds = %1257
+  %1268 = load i64, ptr %10, align 8
+  %1269 = add i64 24, %1268
+  %1270 = add i64 %1269, 1
+  %1271 = add i64 %1270, 8
+  %1272 = sub i64 %1271, 1
+  %1273 = and i64 %1272, -8
+  %1274 = icmp ule i64 %1273, 2048
+  br i1 %1274, label %1275, label %1277
+
+1275:                                             ; preds = %1267
+  %1276 = call noalias ptr @_emalloc_2048() #12
+  br label %1327
+
+1277:                                             ; preds = %1267
+  %1278 = load i64, ptr %10, align 8
+  %1279 = add i64 24, %1278
+  %1280 = add i64 %1279, 1
+  %1281 = add i64 %1280, 8
+  %1282 = sub i64 %1281, 1
+  %1283 = and i64 %1282, -8
+  %1284 = icmp ule i64 %1283, 2560
+  br i1 %1284, label %1285, label %1287
+
+1285:                                             ; preds = %1277
+  %1286 = call noalias ptr @_emalloc_2560() #12
+  br label %1325
+
+1287:                                             ; preds = %1277
+  %1288 = load i64, ptr %10, align 8
+  %1289 = add i64 24, %1288
+  %1290 = add i64 %1289, 1
+  %1291 = add i64 %1290, 8
+  %1292 = sub i64 %1291, 1
+  %1293 = and i64 %1292, -8
+  %1294 = icmp ule i64 %1293, 3072
+  br i1 %1294, label %1295, label %1297
+
+1295:                                             ; preds = %1287
+  %1296 = call noalias ptr @_emalloc_3072() #12
+  br label %1323
+
+1297:                                             ; preds = %1287
+  %1298 = load i64, ptr %10, align 8
+  %1299 = add i64 24, %1298
+  %1300 = add i64 %1299, 1
+  %1301 = add i64 %1300, 8
+  %1302 = sub i64 %1301, 1
+  %1303 = and i64 %1302, -8
+  %1304 = icmp ule i64 %1303, 2093056
+  br i1 %1304, label %1305, label %1313
+
+1305:                                             ; preds = %1297
+  %1306 = load i64, ptr %10, align 8
+  %1307 = add i64 24, %1306
+  %1308 = add i64 %1307, 1
+  %1309 = add i64 %1308, 8
+  %1310 = sub i64 %1309, 1
+  %1311 = and i64 %1310, -8
+  %1312 = call noalias ptr @_emalloc_large(i64 noundef %1311) #14
+  br label %1321
+
+1313:                                             ; preds = %1297
+  %1314 = load i64, ptr %10, align 8
+  %1315 = add i64 24, %1314
+  %1316 = add i64 %1315, 1
+  %1317 = add i64 %1316, 8
+  %1318 = sub i64 %1317, 1
+  %1319 = and i64 %1318, -8
+  %1320 = call noalias ptr @_emalloc_huge(i64 noundef %1319) #14
+  br label %1321
+
+1321:                                             ; preds = %1313, %1305
+  %1322 = phi ptr [ %1312, %1305 ], [ %1320, %1313 ]
+  br label %1323
+
+1323:                                             ; preds = %1321, %1295
+  %1324 = phi ptr [ %1296, %1295 ], [ %1322, %1321 ]
+  br label %1325
+
+1325:                                             ; preds = %1323, %1285
+  %1326 = phi ptr [ %1286, %1285 ], [ %1324, %1323 ]
+  br label %1327
+
+1327:                                             ; preds = %1325, %1275
+  %1328 = phi ptr [ %1276, %1275 ], [ %1326, %1325 ]
+  br label %1329
+
+1329:                                             ; preds = %1327, %1265
+  %1330 = phi ptr [ %1266, %1265 ], [ %1328, %1327 ]
+  br label %1331
+
+1331:                                             ; preds = %1329, %1255
+  %1332 = phi ptr [ %1256, %1255 ], [ %1330, %1329 ]
+  br label %1333
+
+1333:                                             ; preds = %1331, %1245
+  %1334 = phi ptr [ %1246, %1245 ], [ %1332, %1331 ]
+  br label %1335
+
+1335:                                             ; preds = %1333, %1235
+  %1336 = phi ptr [ %1236, %1235 ], [ %1334, %1333 ]
+  br label %1337
+
+1337:                                             ; preds = %1335, %1225
+  %1338 = phi ptr [ %1226, %1225 ], [ %1336, %1335 ]
+  br label %1339
+
+1339:                                             ; preds = %1337, %1215
+  %1340 = phi ptr [ %1216, %1215 ], [ %1338, %1337 ]
+  br label %1341
+
+1341:                                             ; preds = %1339, %1205
+  %1342 = phi ptr [ %1206, %1205 ], [ %1340, %1339 ]
+  br label %1343
+
+1343:                                             ; preds = %1341, %1195
+  %1344 = phi ptr [ %1196, %1195 ], [ %1342, %1341 ]
+  br label %1345
+
+1345:                                             ; preds = %1343, %1185
+  %1346 = phi ptr [ %1186, %1185 ], [ %1344, %1343 ]
+  br label %1347
+
+1347:                                             ; preds = %1345, %1175
+  %1348 = phi ptr [ %1176, %1175 ], [ %1346, %1345 ]
+  br label %1349
+
+1349:                                             ; preds = %1347, %1165
+  %1350 = phi ptr [ %1166, %1165 ], [ %1348, %1347 ]
+  br label %1351
+
+1351:                                             ; preds = %1349, %1155
+  %1352 = phi ptr [ %1156, %1155 ], [ %1350, %1349 ]
+  br label %1353
+
+1353:                                             ; preds = %1351, %1145
+  %1354 = phi ptr [ %1146, %1145 ], [ %1352, %1351 ]
+  br label %1355
+
+1355:                                             ; preds = %1353, %1135
+  %1356 = phi ptr [ %1136, %1135 ], [ %1354, %1353 ]
+  br label %1357
+
+1357:                                             ; preds = %1355, %1125
+  %1358 = phi ptr [ %1126, %1125 ], [ %1356, %1355 ]
+  br label %1359
+
+1359:                                             ; preds = %1357, %1115
+  %1360 = phi ptr [ %1116, %1115 ], [ %1358, %1357 ]
+  br label %1361
+
+1361:                                             ; preds = %1359, %1105
+  %1362 = phi ptr [ %1106, %1105 ], [ %1360, %1359 ]
+  br label %1363
+
+1363:                                             ; preds = %1361, %1095
+  %1364 = phi ptr [ %1096, %1095 ], [ %1362, %1361 ]
+  br label %1365
+
+1365:                                             ; preds = %1363, %1085
+  %1366 = phi ptr [ %1086, %1085 ], [ %1364, %1363 ]
+  br label %1367
+
+1367:                                             ; preds = %1365, %1075
+  %1368 = phi ptr [ %1076, %1075 ], [ %1366, %1365 ]
+  br label %1369
+
+1369:                                             ; preds = %1367, %1065
+  %1370 = phi ptr [ %1066, %1065 ], [ %1368, %1367 ]
+  br label %1371
+
+1371:                                             ; preds = %1369, %1055
+  %1372 = phi ptr [ %1056, %1055 ], [ %1370, %1369 ]
+  br label %1373
+
+1373:                                             ; preds = %1371, %1045
+  %1374 = phi ptr [ %1046, %1045 ], [ %1372, %1371 ]
+  br label %1375
+
+1375:                                             ; preds = %1373, %1035
+  %1376 = phi ptr [ %1036, %1035 ], [ %1374, %1373 ]
+  br label %1377
+
+1377:                                             ; preds = %1375, %1025
+  %1378 = phi ptr [ %1026, %1025 ], [ %1376, %1375 ]
+  br label %1379
+
+1379:                                             ; preds = %1377, %1015
+  %1380 = phi ptr [ %1016, %1015 ], [ %1378, %1377 ]
+  br label %1381
+
+1381:                                             ; preds = %1379, %1005
+  %1382 = phi ptr [ %1006, %1005 ], [ %1380, %1379 ]
+  br label %1391
+
+1383:                                             ; preds = %989
+  %1384 = load i64, ptr %10, align 8
+  %1385 = add i64 24, %1384
+  %1386 = add i64 %1385, 1
+  %1387 = add i64 %1386, 8
+  %1388 = sub i64 %1387, 1
+  %1389 = and i64 %1388, -8
+  %1390 = call noalias ptr @_emalloc(i64 noundef %1389) #14
+  br label %1391
+
+1391:                                             ; preds = %1383, %1381
+  %1392 = phi ptr [ %1382, %1381 ], [ %1390, %1383 ]
+  br label %1393
+
+1393:                                             ; preds = %1391, %981
+  %1394 = phi ptr [ %988, %981 ], [ %1392, %1391 ]
+  store ptr %1394, ptr %12, align 8
+  %1395 = load ptr, ptr %12, align 8
+  store ptr %1395, ptr %6, align 8
   store i32 1, ptr %7, align 4
-  %1395 = load i32, ptr %7, align 4
-  %1396 = load ptr, ptr %6, align 8
-  store i32 %1395, ptr %1396, align 4
-  %1397 = load i8, ptr %11, align 1
-  %1398 = trunc i8 %1397 to i1
-  %1399 = select i1 %1398, i32 128, i32 0
-  %1400 = or i32 22, %1399
-  %1401 = load ptr, ptr %12, align 8
-  %1402 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1401, i32 0, i32 1
-  store i32 %1400, ptr %1402, align 4
-  %1403 = load ptr, ptr %12, align 8
-  %1404 = getelementptr inbounds %struct._zend_string, ptr %1403, i32 0, i32 1
-  store i64 0, ptr %1404, align 8
-  %1405 = load i64, ptr %10, align 8
-  %1406 = load ptr, ptr %12, align 8
-  %1407 = getelementptr inbounds %struct._zend_string, ptr %1406, i32 0, i32 2
-  store i64 %1405, ptr %1407, align 8
-  %1408 = load ptr, ptr %12, align 8
-  store ptr %1408, ptr %23, align 8
-  %1409 = load ptr, ptr %23, align 8
-  %1410 = getelementptr inbounds %struct._zend_string, ptr %1409, i32 0, i32 3
-  %1411 = load ptr, ptr %20, align 8
-  %1412 = load i64, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1410, ptr align 1 %1411, i64 %1412, i1 false)
-  %1413 = load ptr, ptr %23, align 8
-  %1414 = getelementptr inbounds %struct._zend_string, ptr %1413, i32 0, i32 3
-  %1415 = load i64, ptr %21, align 8
-  %1416 = getelementptr inbounds [1 x i8], ptr %1414, i64 0, i64 %1415
-  store i8 0, ptr %1416, align 1
-  %1417 = load ptr, ptr %23, align 8
-  store ptr %1417, ptr %24, align 8
-  br label %1431
+  %1396 = load i32, ptr %7, align 4
+  %1397 = load ptr, ptr %6, align 8
+  store i32 %1396, ptr %1397, align 4
+  %1398 = load i8, ptr %11, align 1
+  %1399 = trunc i8 %1398 to i1
+  %1400 = select i1 %1399, i32 128, i32 0
+  %1401 = or i32 22, %1400
+  %1402 = load ptr, ptr %12, align 8
+  %1403 = getelementptr inbounds %struct._zend_refcounted_h, ptr %1402, i32 0, i32 1
+  store i32 %1401, ptr %1403, align 4
+  %1404 = load ptr, ptr %12, align 8
+  %1405 = getelementptr inbounds %struct._zend_string, ptr %1404, i32 0, i32 1
+  store i64 0, ptr %1405, align 8
+  %1406 = load i64, ptr %10, align 8
+  %1407 = load ptr, ptr %12, align 8
+  %1408 = getelementptr inbounds %struct._zend_string, ptr %1407, i32 0, i32 2
+  store i64 %1406, ptr %1408, align 8
+  %1409 = load ptr, ptr %12, align 8
+  store ptr %1409, ptr %23, align 8
+  %1410 = load ptr, ptr %23, align 8
+  %1411 = getelementptr inbounds %struct._zend_string, ptr %1410, i32 0, i32 3
+  %1412 = load ptr, ptr %20, align 8
+  %1413 = load i64, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1411, ptr align 1 %1412, i64 %1413, i1 false)
+  %1414 = load ptr, ptr %23, align 8
+  %1415 = getelementptr inbounds %struct._zend_string, ptr %1414, i32 0, i32 3
+  %1416 = load i64, ptr %21, align 8
+  %1417 = getelementptr inbounds [1 x i8], ptr %1415, i64 0, i64 %1416
+  store i8 0, ptr %1417, align 1
+  %1418 = load ptr, ptr %23, align 8
+  store ptr %1418, ptr %24, align 8
+  br label %1433
 
-1418:                                             ; preds = %960
-  %1419 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %1420 = icmp ne ptr %1419, null
-  br i1 %1420, label %1421, label %1422
+1419:                                             ; preds = %961
+  %1420 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %1421 = load ptr, ptr %1420, align 8
+  %1422 = icmp ne ptr %1421, null
+  br i1 %1422, label %1423, label %1424
 
-1421:                                             ; preds = %1418
+1423:                                             ; preds = %1419
   store ptr null, ptr %24, align 8
-  br label %1431
+  br label %1433
 
-1422:                                             ; preds = %1418
-  br label %1423
-
-1423:                                             ; preds = %1422, %953
-  store ptr null, ptr %24, align 8
-  br label %1431
-
-1424:                                             ; preds = %950
+1424:                                             ; preds = %1419
   br label %1425
 
-1425:                                             ; preds = %1424
-  br label %1426
-
-1426:                                             ; preds = %1425, %938, %932, %925, %920
-  %1427 = load ptr, ptr %33, align 8
-  %1428 = call ptr @tsrm_realpath_str(ptr noundef %1427)
-  store ptr %1428, ptr %24, align 8
-  br label %1431
-
-1429:                                             ; preds = %866, %863, %860
-  br label %1430
-
-1430:                                             ; preds = %1429, %835, %833
+1425:                                             ; preds = %1424, %954
   store ptr null, ptr %24, align 8
-  br label %1431
+  br label %1433
 
-1431:                                             ; preds = %1430, %1426, %1423, %1421, %1392, %949, %830, %821, %792, %160, %123, %120, %51
-  %1432 = load ptr, ptr %24, align 8
-  ret ptr %1432
+1426:                                             ; preds = %951
+  br label %1427
+
+1427:                                             ; preds = %1426
+  br label %1428
+
+1428:                                             ; preds = %1427, %939, %933, %926, %921
+  %1429 = load ptr, ptr %33, align 8
+  %1430 = call ptr @tsrm_realpath_str(ptr noundef %1429)
+  store ptr %1430, ptr %24, align 8
+  br label %1433
+
+1431:                                             ; preds = %867, %864, %861
+  br label %1432
+
+1432:                                             ; preds = %1431, %836, %834
+  store ptr null, ptr %24, align 8
+  br label %1433
+
+1433:                                             ; preds = %1432, %1428, %1425, %1423, %1393, %950, %831, %822, %792, %160, %123, %120, %51
+  %1434 = load ptr, ptr %24, align 8
+  ret ptr %1434
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
@@ -9217,7 +9251,7 @@ define ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef %1, ptr nounde
 
 23:                                               ; preds = %5
   store ptr null, ptr %6, align 8
-  br label %142
+  br label %143
 
 24:                                               ; preds = %5
   %25 = load ptr, ptr %7, align 8
@@ -9233,203 +9267,204 @@ define ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef %1, ptr nounde
 32:                                               ; preds = %24
   %33 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
   store i8 0, ptr %33, align 16
-  br label %98
+  br label %99
 
 34:                                               ; preds = %24
-  %35 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4), align 8
-  store ptr %35, ptr %16, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %48
+  %35 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 4
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %16, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %49
 
-38:                                               ; preds = %34
-  %39 = load i64, ptr %10, align 8
-  %40 = icmp ugt i64 %39, 4095
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %34
+  %40 = load i64, ptr %10, align 8
+  %41 = icmp ugt i64 %40, 4095
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   store ptr null, ptr %6, align 8
-  br label %142
+  br label %143
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %9, align 8
-  store ptr %43, ptr %17, align 8
-  %44 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i64, ptr %10, align 8
-  %47 = add i64 %46, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %44, ptr align 1 %45, i64 %47, i1 false)
-  br label %51
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %9, align 8
+  store ptr %44, ptr %17, align 8
+  %45 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %46 = load ptr, ptr %9, align 8
+  %47 = load i64, ptr %10, align 8
+  %48 = add i64 %47, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %45, ptr align 1 %46, i64 %48, i1 false)
+  br label %52
 
-48:                                               ; preds = %34
-  %49 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %50 = call ptr @getcwd(ptr noundef %49, i64 noundef 4096) #12
-  store ptr %50, ptr %17, align 8
-  br label %51
+49:                                               ; preds = %34
+  %50 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %51 = call ptr @getcwd(ptr noundef %50, i64 noundef 4096) #12
+  store ptr %51, ptr %17, align 8
+  br label %52
 
-51:                                               ; preds = %48, %42
-  %52 = load ptr, ptr %17, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %91, label %54
+52:                                               ; preds = %49, %43
+  %53 = load ptr, ptr %17, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %92, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %16, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = icmp ne ptr %55, %56
-  br i1 %57, label %58, label %91
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %16, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = icmp ne ptr %56, %57
+  br i1 %58, label %59, label %92
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   store i32 -1, ptr %18, align 4
-  %59 = load ptr, ptr %7, align 8
-  %60 = call i32 (ptr, i32, ...) @open(ptr noundef %59, i32 noundef 0)
-  store i32 %60, ptr %18, align 4
-  %61 = load i32, ptr %18, align 4
-  %62 = icmp ne i32 %61, -1
-  br i1 %62, label %63, label %88
+  %60 = load ptr, ptr %7, align 8
+  %61 = call i32 (ptr, i32, ...) @open(ptr noundef %60, i32 noundef 0)
+  store i32 %61, ptr %18, align 4
+  %62 = load i32, ptr %18, align 4
+  %63 = icmp ne i32 %62, -1
+  br i1 %63, label %64, label %89
 
-63:                                               ; preds = %58
-  %64 = load i64, ptr %15, align 8
-  %65 = icmp ugt i64 %64, 4095
-  br i1 %65, label %66, label %67
+64:                                               ; preds = %59
+  %65 = load i64, ptr %15, align 8
+  %66 = icmp ugt i64 %65, 4095
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %63
-  br label %69
+67:                                               ; preds = %64
+  br label %70
 
-67:                                               ; preds = %63
-  %68 = load i64, ptr %15, align 8
-  br label %69
+68:                                               ; preds = %64
+  %69 = load i64, ptr %15, align 8
+  br label %70
 
-69:                                               ; preds = %67, %66
-  %70 = phi i64 [ 4095, %66 ], [ %68, %67 ]
-  store i64 %70, ptr %14, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %80
+70:                                               ; preds = %68, %67
+  %71 = phi i64 [ 4095, %67 ], [ %69, %68 ]
+  store i64 %71, ptr %14, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %81
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i64, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %75, i64 %76, i1 false)
-  %77 = load ptr, ptr %8, align 8
-  %78 = load i64, ptr %14, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 %78
-  store i8 0, ptr %79, align 1
-  br label %84
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %8, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i64, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %76, i64 %77, i1 false)
+  %78 = load ptr, ptr %8, align 8
+  %79 = load i64, ptr %14, align 8
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  store i8 0, ptr %80, align 1
+  br label %85
 
-80:                                               ; preds = %69
-  %81 = load ptr, ptr %7, align 8
-  %82 = load i64, ptr %14, align 8
-  %83 = call noalias ptr @_estrndup(ptr noundef %81, i64 noundef %82)
-  store ptr %83, ptr %8, align 8
-  br label %84
+81:                                               ; preds = %70
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i64, ptr %14, align 8
+  %84 = call noalias ptr @_estrndup(ptr noundef %82, i64 noundef %83)
+  store ptr %84, ptr %8, align 8
+  br label %85
 
-84:                                               ; preds = %80, %73
-  %85 = load i32, ptr %18, align 4
-  %86 = call i32 @close(i32 noundef %85)
-  %87 = load ptr, ptr %8, align 8
-  store ptr %87, ptr %6, align 8
-  br label %142
+85:                                               ; preds = %81, %74
+  %86 = load i32, ptr %18, align 4
+  %87 = call i32 @close(i32 noundef %86)
+  %88 = load ptr, ptr %8, align 8
+  store ptr %88, ptr %6, align 8
+  br label %143
 
-88:                                               ; preds = %58
-  %89 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  store i8 0, ptr %89, align 16
-  br label %90
+89:                                               ; preds = %59
+  %90 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  store i8 0, ptr %90, align 16
+  br label %91
 
-90:                                               ; preds = %88
-  br label %97
-
-91:                                               ; preds = %54, %51
-  %92 = load ptr, ptr %17, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %96, label %94
-
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  store i8 0, ptr %95, align 16
-  br label %96
-
-96:                                               ; preds = %94, %91
-  br label %97
-
-97:                                               ; preds = %96, %90
+91:                                               ; preds = %89
   br label %98
 
-98:                                               ; preds = %97, %32
-  %99 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %100 = call noalias ptr @_estrdup(ptr noundef %99)
-  %101 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
-  store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
-  %103 = call i64 @strlen(ptr noundef %102) #11
-  %104 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
-  store i64 %103, ptr %104, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr %11, align 4
-  %107 = call i32 @virtual_file_ex(ptr noundef %12, ptr noundef %105, ptr noundef null, i32 noundef %106)
-  %108 = icmp ne i32 %107, 0
-  br i1 %108, label %109, label %112
+92:                                               ; preds = %55, %52
+  %93 = load ptr, ptr %17, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %97, label %95
 
-109:                                              ; preds = %98
-  %110 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  call void @_efree(ptr noundef %111)
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  store i8 0, ptr %96, align 16
+  br label %97
+
+97:                                               ; preds = %95, %92
+  br label %98
+
+98:                                               ; preds = %97, %91
+  br label %99
+
+99:                                               ; preds = %98, %32
+  %100 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %101 = call noalias ptr @_estrdup(ptr noundef %100)
+  %102 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
+  store ptr %101, ptr %102, align 8
+  %103 = getelementptr inbounds [4096 x i8], ptr %13, i64 0, i64 0
+  %104 = call i64 @strlen(ptr noundef %103) #11
+  %105 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
+  store i64 %104, ptr %105, align 8
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr %11, align 4
+  %108 = call i32 @virtual_file_ex(ptr noundef %12, ptr noundef %106, ptr noundef null, i32 noundef %107)
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %113
+
+110:                                              ; preds = %99
+  %111 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  call void @_efree(ptr noundef %112)
   store ptr null, ptr %6, align 8
-  br label %142
+  br label %143
 
-112:                                              ; preds = %98
-  %113 = load ptr, ptr %8, align 8
-  %114 = icmp ne ptr %113, null
-  br i1 %114, label %115, label %132
+113:                                              ; preds = %99
+  %114 = load ptr, ptr %8, align 8
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %133
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp ugt i64 %117, 4095
-  br i1 %118, label %119, label %120
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp ugt i64 %118, 4095
+  br i1 %119, label %120, label %121
 
-119:                                              ; preds = %115
-  br label %123
+120:                                              ; preds = %116
+  br label %124
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
-  %122 = load i64, ptr %121, align 8
-  br label %123
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
+  %123 = load i64, ptr %122, align 8
+  br label %124
 
-123:                                              ; preds = %120, %119
-  %124 = phi i64 [ 4095, %119 ], [ %122, %120 ]
-  store i64 %124, ptr %14, align 8
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i64, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 1 %127, i64 %128, i1 false)
-  %129 = load ptr, ptr %8, align 8
-  %130 = load i64, ptr %14, align 8
-  %131 = getelementptr inbounds i8, ptr %129, i64 %130
-  store i8 0, ptr %131, align 1
-  br label %138
+124:                                              ; preds = %121, %120
+  %125 = phi i64 [ 4095, %120 ], [ %123, %121 ]
+  store i64 %125, ptr %14, align 8
+  %126 = load ptr, ptr %8, align 8
+  %127 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
+  %128 = load ptr, ptr %127, align 8
+  %129 = load i64, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %128, i64 %129, i1 false)
+  %130 = load ptr, ptr %8, align 8
+  %131 = load i64, ptr %14, align 8
+  %132 = getelementptr inbounds i8, ptr %130, i64 %131
+  store i8 0, ptr %132, align 1
+  br label %139
 
-132:                                              ; preds = %112
-  %133 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
-  %136 = load i64, ptr %135, align 8
-  %137 = call noalias ptr @_estrndup(ptr noundef %134, i64 noundef %136)
-  store ptr %137, ptr %8, align 8
-  br label %138
+133:                                              ; preds = %113
+  %134 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 1
+  %137 = load i64, ptr %136, align 8
+  %138 = call noalias ptr @_estrndup(ptr noundef %135, i64 noundef %137)
+  store ptr %138, ptr %8, align 8
+  br label %139
 
-138:                                              ; preds = %132, %123
-  %139 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
-  %140 = load ptr, ptr %139, align 8
-  call void @_efree(ptr noundef %140)
-  %141 = load ptr, ptr %8, align 8
-  store ptr %141, ptr %6, align 8
-  br label %142
+139:                                              ; preds = %133, %124
+  %140 = getelementptr inbounds %struct._cwd_state, ptr %12, i32 0, i32 0
+  %141 = load ptr, ptr %140, align 8
+  call void @_efree(ptr noundef %141)
+  %142 = load ptr, ptr %8, align 8
+  store ptr %142, ptr %6, align 8
+  br label %143
 
-142:                                              ; preds = %138, %109, %84, %41, %23
-  %143 = load ptr, ptr %6, align 8
-  ret ptr %143
+143:                                              ; preds = %139, %110, %85, %42, %23
+  %144 = load ptr, ptr %6, align 8
+  ret ptr %144
 }
 
 declare i32 @open(ptr noundef, i32 noundef, ...) #1

@@ -103,18 +103,21 @@ do.body:                                          ; preds = %entry
   %4 = load ptr, ptr %e, align 8
   %node = getelementptr inbounds %struct.ModuleEntry, ptr %4, i32 0, i32 1
   store ptr null, ptr %node, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %e, align 8
-  %node2 = getelementptr inbounds %struct.ModuleEntry, ptr %6, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node2, i32 0, i32 1
-  store ptr %5, ptr %tql_prev, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %e, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %tql_next, align 8
-  %9 = load ptr, ptr %e, align 8
-  %node3 = getelementptr inbounds %struct.ModuleEntry, ptr %9, i32 0, i32 1
-  store ptr %node3, ptr getelementptr inbounds (%struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1), align 8
+  %node2 = getelementptr inbounds %struct.ModuleEntry, ptr %7, i32 0, i32 1
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node2, i32 0, i32 1
+  store ptr %6, ptr %tql_prev, align 8
+  %8 = load ptr, ptr %e, align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
+  store ptr %8, ptr %tql_next, align 8
+  %11 = load ptr, ptr %e, align 8
+  %node3 = getelementptr inbounds %struct.ModuleEntry, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1
+  store ptr %node3, ptr %12, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -173,7 +176,8 @@ for.end:                                          ; preds = %for.cond
 
 do.body5:                                         ; preds = %for.end
   store ptr null, ptr @dso_init_list, align 8
-  store ptr @dso_init_list, ptr getelementptr inbounds (%struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.QTailQLink, ptr @dso_init_list, i32 0, i32 1
+  store ptr @dso_init_list, ptr %6, align 8
   br label %do.end6
 
 do.end6:                                          ; preds = %do.body5

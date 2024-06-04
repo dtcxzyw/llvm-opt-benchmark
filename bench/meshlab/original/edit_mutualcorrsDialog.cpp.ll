@@ -5724,110 +5724,112 @@ define void @_ZN22edit_mutualcorrsDialogC2EP7QWidgetP21EditMutualCorrsPlugin(ptr
   %16 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %17 = load i32, ptr %16, align 4
   call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, i32 %17)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2), ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
-  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 304) #16
-          to label %21 unwind label %60
-
-21:                                               ; preds = %3
+  %18 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2
+  store ptr %18, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2
   store ptr %20, ptr %19, align 8
-  %22 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  invoke void @_ZN25Ui_edit_mutualcorrsDialog7setupUiEP7QWidget(ptr noundef nonnull align 8 dereferenceable(304) %23, ptr noundef %14)
-          to label %24 unwind label %60
+  %21 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 304) #16
+          to label %23 unwind label %62
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %class.Ui_edit_mutualcorrsDialog, ptr %26, i32 0, i32 1
+23:                                               ; preds = %3
+  store ptr %22, ptr %21, align 8
+  %24 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  invoke void @_ZN25Ui_edit_mutualcorrsDialog7setupUiEP7QWidget(ptr noundef nonnull align 8 dereferenceable(304) %25, ptr noundef %14)
+          to label %26 unwind label %62
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
-  invoke void @_ZN11QDockWidget9setWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %28)
-          to label %29 unwind label %60
+  %29 = getelementptr inbounds %class.Ui_edit_mutualcorrsDialog, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  invoke void @_ZN11QDockWidget9setWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %30)
+          to label %31 unwind label %62
 
-29:                                               ; preds = %24
+31:                                               ; preds = %26
   call void @_ZN6QFlagsIN11QDockWidget17DockWidgetFeatureEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 7) #3
-  %30 = getelementptr inbounds %class.QFlags.16, ptr %10, i32 0, i32 0
-  %31 = load i32, ptr %30, align 4
-  invoke void @_ZN11QDockWidget11setFeaturesE6QFlagsINS_17DockWidgetFeatureEE(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 %31)
-          to label %32 unwind label %60
+  %32 = getelementptr inbounds %class.QFlags.16, ptr %10, i32 0, i32 0
+  %33 = load i32, ptr %32, align 4
+  invoke void @_ZN11QDockWidget11setFeaturesE6QFlagsINS_17DockWidgetFeatureEE(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 %33)
+          to label %34 unwind label %62
 
-32:                                               ; preds = %29
+34:                                               ; preds = %31
   call void @_ZN6QFlagsIN2Qt14DockWidgetAreaEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef 1) #3
-  %33 = getelementptr inbounds %class.QFlags.17, ptr %11, i32 0, i32 0
-  %34 = load i32, ptr %33, align 4
-  invoke void @_ZN11QDockWidget15setAllowedAreasE6QFlagsIN2Qt14DockWidgetAreaEE(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 %34)
-          to label %35 unwind label %60
+  %35 = getelementptr inbounds %class.QFlags.17, ptr %11, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4
+  invoke void @_ZN11QDockWidget15setAllowedAreasE6QFlagsIN2Qt14DockWidgetAreaEE(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 %36)
+          to label %37 unwind label %62
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %5, align 8
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %5, align 8
   invoke void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %13, i32 noundef 0, i32 noundef 0)
-          to label %37 unwind label %60
-
-37:                                               ; preds = %35
-  %38 = invoke i64 @_ZNK7QWidget11mapToGlobalERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 4 dereferenceable(8) %13)
-          to label %39 unwind label %60
+          to label %39 unwind label %62
 
 39:                                               ; preds = %37
-  store i64 %38, ptr %12, align 4
+  %40 = invoke i64 @_ZNK7QWidget11mapToGlobalERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 4 dereferenceable(8) %13)
+          to label %41 unwind label %62
+
+41:                                               ; preds = %39
+  store i64 %40, ptr %12, align 4
   invoke void @_ZN11QDockWidget11setFloatingEb(ptr noundef nonnull align 8 dereferenceable(48) %14, i1 noundef zeroext true)
-          to label %40 unwind label %60
+          to label %42 unwind label %62
 
-40:                                               ; preds = %39
-  %41 = invoke noundef i32 @_ZNK6QPoint1xEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-          to label %42 unwind label %60
+42:                                               ; preds = %41
+  %43 = invoke noundef i32 @_ZNK6QPoint1xEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
+          to label %44 unwind label %62
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %5, align 8
-  %44 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %43)
-          to label %45 unwind label %60
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %5, align 8
+  %46 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
+          to label %47 unwind label %62
 
-45:                                               ; preds = %42
-  %46 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
-          to label %47 unwind label %60
+47:                                               ; preds = %44
+  %48 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %49 unwind label %62
 
-47:                                               ; preds = %45
-  %48 = sub nsw i32 %44, %46
-  %49 = add nsw i32 %41, %48
-  %50 = invoke noundef i32 @_ZNK6QPoint1yEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-          to label %51 unwind label %60
+49:                                               ; preds = %47
+  %50 = sub nsw i32 %46, %48
+  %51 = add nsw i32 %43, %50
+  %52 = invoke noundef i32 @_ZNK6QPoint1yEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
+          to label %53 unwind label %62
 
-51:                                               ; preds = %47
-  %52 = add nsw i32 %50, 40
-  %53 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
-          to label %54 unwind label %60
+53:                                               ; preds = %49
+  %54 = add nsw i32 %52, 40
+  %55 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %56 unwind label %62
 
-54:                                               ; preds = %51
-  %55 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
-          to label %56 unwind label %60
+56:                                               ; preds = %53
+  %57 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %58 unwind label %62
 
-56:                                               ; preds = %54
-  invoke void @_ZN7QWidget11setGeometryEiiii(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 noundef %49, i32 noundef %52, i32 noundef %53, i32 noundef %55)
-          to label %57 unwind label %60
+58:                                               ; preds = %56
+  invoke void @_ZN7QWidget11setGeometryEiiii(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 noundef %51, i32 noundef %54, i32 noundef %55, i32 noundef %57)
+          to label %59 unwind label %62
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 3
-  store ptr %58, ptr %59, align 8
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 3
+  store ptr %60, ptr %61, align 8
   ret void
 
-60:                                               ; preds = %56, %54, %51, %47, %45, %42, %40, %39, %37, %35, %32, %29, %24, %21, %3
-  %61 = landingpad { ptr, i32 }
+62:                                               ; preds = %58, %56, %53, %49, %47, %44, %42, %41, %39, %37, %34, %31, %26, %23, %3
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %8, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %9, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %8, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %9, align 4
   call void @_ZN11QDockWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  br label %64
+  br label %66
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %8, align 8
-  %66 = load i32, ptr %9, align 4
-  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
-  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
-  resume { ptr, i32 } %68
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr %9, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9753,19 +9755,21 @@ define void @_ZN22edit_mutualcorrsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #17
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #17
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN11QDockWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }

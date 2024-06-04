@@ -632,101 +632,102 @@ define void @_ZN16ExpertPacketItemC2ERK13expert_info_sP16epan_column_infoPS_(ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.expert_info_s, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 2
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.expert_info_s, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %16, align 4
-  %20 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 3
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.expert_info_s, ptr %21, i32 0, i32 2
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %20, align 8
-  %24 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.expert_info_s, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %24, align 4
-  %28 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 5
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.expert_info_s, ptr %29, i32 0, i32 4
-  %31 = load ptr, ptr %30, align 8
-  call void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %31, i64 noundef -1)
-  %32 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 6
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.expert_info_s, ptr %33, i32 0, i32 5
-  %35 = load ptr, ptr %34, align 8
-  invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %35, i64 noundef -1)
-          to label %36 unwind label %51
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds %struct.expert_info_s, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  store i32 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds %struct.expert_info_s, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %17, align 4
+  %21 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 3
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds %struct.expert_info_s, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8
+  store i32 %24, ptr %21, align 8
+  %25 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 4
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds %struct.expert_info_s, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %25, align 4
+  %29 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 5
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.expert_info_s, ptr %30, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8
+  call void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef %32, i64 noundef -1)
+  %33 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 6
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %struct.expert_info_s, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8
+  invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef %36, i64 noundef -1)
+          to label %37 unwind label %52
 
-36:                                               ; preds = %4
-  %37 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 7
-  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #6
-  %38 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 8
-  call void @_ZN5QListIP16ExpertPacketItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #6
-  %39 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 9
-  %40 = load ptr, ptr %8, align 8
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 10
-  call void @_ZN5QHashI7QStringP16ExpertPacketItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #6
-  %42 = load ptr, ptr %7, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %59
+37:                                               ; preds = %4
+  %38 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 7
+  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #6
+  %39 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 8
+  call void @_ZN5QListIP16ExpertPacketItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #6
+  %40 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 9
+  %41 = load ptr, ptr %8, align 8
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 10
+  call void @_ZN5QHashI7QStringP16ExpertPacketItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #6
+  %43 = load ptr, ptr %7, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %60
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %7, align 8
-  %46 = invoke ptr @col_get_text(ptr noundef %45, i32 noundef 25)
-          to label %47 unwind label %55
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %7, align 8
+  %47 = invoke ptr @col_get_text(ptr noundef %46, i32 noundef 25)
+          to label %48 unwind label %56
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 7
-  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArrayaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef %46)
-          to label %50 unwind label %55
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 7
+  %50 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArrayaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef %47)
+          to label %51 unwind label %56
 
-50:                                               ; preds = %47
-  br label %59
-
-51:                                               ; preds = %4
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %9, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %10, align 4
+51:                                               ; preds = %48
   br label %60
 
-55:                                               ; preds = %47, %44
-  %56 = landingpad { ptr, i32 }
+52:                                               ; preds = %4
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %9, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %10, align 4
-  call void @_ZN5QHashI7QStringP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #6
-  call void @_ZN5QListIP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #6
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #6
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #6
-  br label %60
-
-59:                                               ; preds = %50, %36
-  ret void
-
-60:                                               ; preds = %55, %51
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #6
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %9, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %10, align 4
   br label %61
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i32, ptr %10, align 4
-  %64 = insertvalue { ptr, i32 } poison, ptr %62, 0
-  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
-  resume { ptr, i32 } %65
+56:                                               ; preds = %48, %45
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %9, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %10, align 4
+  call void @_ZN5QHashI7QStringP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #6
+  call void @_ZN5QListIP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #6
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #6
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #6
+  br label %61
+
+60:                                               ; preds = %51, %37
+  ret void
+
+61:                                               ; preds = %56, %52
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #6
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i32, ptr %10, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
 }
 
 declare void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #1
@@ -828,68 +829,69 @@ define void @_ZN16ExpertPacketItemD2Ev(ptr noundef nonnull align 8 dereferenceab
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2), ptr %4, align 8
+  %5 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
   store i32 0, ptr %3, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %23, %1
-  %6 = load i32, ptr %3, align 4
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
-  %9 = call noundef i64 @_ZNK5QListIP16ExpertPacketItemE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #6
-  %10 = icmp slt i64 %7, %9
-  br i1 %10, label %11, label %26
+6:                                                ; preds = %24, %1
+  %7 = load i32, ptr %3, align 4
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
+  %10 = call noundef i64 @_ZNK5QListIP16ExpertPacketItemE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #6
+  %11 = icmp slt i64 %8, %10
+  br i1 %11, label %12, label %27
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
-  %13 = load i32, ptr %3, align 4
-  %14 = sext i32 %13 to i64
-  %15 = invoke noundef ptr @_ZNK5QListIP16ExpertPacketItemE5valueEx(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %14)
-          to label %16 unwind label %34
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
+  %14 = load i32, ptr %3, align 4
+  %15 = sext i32 %14 to i64
+  %16 = invoke noundef ptr @_ZNK5QListIP16ExpertPacketItemE5valueEx(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %15)
+          to label %17 unwind label %35
 
-16:                                               ; preds = %11
-  %17 = icmp eq ptr %15, null
-  br i1 %17, label %22, label %18
+17:                                               ; preds = %12
+  %18 = icmp eq ptr %16, null
+  br i1 %18, label %23, label %19
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 1
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(136) %15) #6
-  br label %22
-
-22:                                               ; preds = %18, %16
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %16, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 1
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(136) %16) #6
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load i32, ptr %3, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %3, align 4
-  br label %5, !llvm.loop !4
+23:                                               ; preds = %19, %17
+  br label %24
 
-26:                                               ; preds = %5
-  %27 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
-  invoke void @_ZN5QListIP16ExpertPacketItemE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %28 unwind label %34
+24:                                               ; preds = %23
+  %25 = load i32, ptr %3, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %3, align 4
+  br label %6, !llvm.loop !4
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 10
-  call void @_ZN5QHashI7QStringP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #6
-  %30 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
-  call void @_ZN5QListIP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #6
-  %31 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 7
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #6
-  %32 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 6
+27:                                               ; preds = %6
+  %28 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
+  invoke void @_ZN5QListIP16ExpertPacketItemE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %29 unwind label %35
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 10
+  call void @_ZN5QHashI7QStringP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #6
+  %31 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 8
+  call void @_ZN5QListIP16ExpertPacketItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #6
+  %32 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 7
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #6
-  %33 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 5
+  %33 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 6
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #6
+  %34 = getelementptr inbounds %class.ExpertPacketItem, ptr %4, i32 0, i32 5
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #6
   ret void
 
-34:                                               ; preds = %26, %11
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %27, %12
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #17
   unreachable
 }
 
@@ -1560,38 +1562,39 @@ define void @_ZN15ExpertInfoModelC2ER11CaptureFileP7QObject(ptr noundef nonnull 
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 2
-  store i8 1, ptr %13, align 8
-  %14 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 3
-  %15 = invoke noundef ptr @_ZN15ExpertInfoModel14createRootItemEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %16 unwind label %18
+  %11 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 2
+  store i8 1, ptr %14, align 8
+  %15 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 3
+  %16 = invoke noundef ptr @_ZN15ExpertInfoModel14createRootItemEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+          to label %17 unwind label %19
 
-16:                                               ; preds = %3
-  store ptr %15, ptr %14, align 8
-  %17 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 4
-  call void @_ZN5QHashIN15ExpertInfoModel14ExpertSeverityEiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #6
+17:                                               ; preds = %3
+  store ptr %16, ptr %15, align 8
+  %18 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 4
+  call void @_ZN5QHashIN15ExpertInfoModel14ExpertSeverityEiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #6
   ret void
 
-18:                                               ; preds = %3
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %3
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %7, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %8, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %7, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %8, align 4
   call void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #6
-  br label %22
+  br label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 declare void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -1604,50 +1607,56 @@ define noundef ptr @_ZN15ExpertInfoModel14createRootItemEv(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %5 = load atomic i8, ptr @_ZGVZN15ExpertInfoModel14createRootItemEvE11root_expert acquire, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %13, !prof !6
+  br i1 %6, label %7, label %19, !prof !6
 
 7:                                                ; preds = %1
   %8 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN15ExpertInfoModel14createRootItemEvE11root_expert) #6
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %13
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %7
   store i32 0, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 1), align 4
-  store i32 -1, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 2), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 3), align 4
-  %11 = load ptr, ptr @_ZZN15ExpertInfoModel14createRootItemEvE8rootName, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 4), align 8
-  %12 = load ptr, ptr @_ZZN15ExpertInfoModel14createRootItemEvE8rootName, align 8
-  store ptr %12, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 5), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 6), align 8
+  %11 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 1
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 2
+  store i32 -1, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 3
+  store i32 -1, ptr %13, align 4
+  %14 = load ptr, ptr @_ZZN15ExpertInfoModel14createRootItemEvE8rootName, align 8
+  %15 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 4
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr @_ZZN15ExpertInfoModel14createRootItemEvE8rootName, align 8
+  %17 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 5
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.expert_info_s, ptr @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, i32 0, i32 6
+  store ptr null, ptr %18, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN15ExpertInfoModel14createRootItemEvE11root_expert) #6
-  br label %13
+  br label %19
 
-13:                                               ; preds = %10, %7, %1
-  %14 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #18
-  invoke void @_ZN16ExpertPacketItemC1ERK13expert_info_sP16epan_column_infoPS_(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 8 dereferenceable(40) @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, ptr noundef null, ptr noundef null)
-          to label %15 unwind label %16
+19:                                               ; preds = %10, %7, %1
+  %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #18
+  invoke void @_ZN16ExpertPacketItemC1ERK13expert_info_sP16epan_column_infoPS_(ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(40) @_ZZN15ExpertInfoModel14createRootItemEvE11root_expert, ptr noundef null, ptr noundef null)
+          to label %21 unwind label %22
 
-15:                                               ; preds = %13
-  ret ptr %14
+21:                                               ; preds = %19
+  ret ptr %20
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %14) #16
-  br label %20
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %20) #16
+  br label %26
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %3, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1668,22 +1677,23 @@ define void @_ZN15ExpertInfoModelD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ExpertInfoModel, ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ExpertInfoModel, ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(136) %5) #6
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(136) %6) #6
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %class.ExpertInfoModel, ptr %3, i32 0, i32 4
-  call void @_ZN5QHashIN15ExpertInfoModel14ExpertSeverityEiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %class.ExpertInfoModel, ptr %3, i32 0, i32 4
+  call void @_ZN5QHashIN15ExpertInfoModel14ExpertSeverityEiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
   call void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   ret void
 }

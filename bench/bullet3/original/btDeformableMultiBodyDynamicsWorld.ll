@@ -1294,51 +1294,63 @@ entry:
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
   store float 0.000000e+00, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
+  %0 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 1
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
   store float 0.000000e+00, ptr %ref.tmp6, align 4
   store float 0.000000e+00, ptr %ref.tmp7, align 4
   store float 1.000000e+00, ptr %ref.tmp8, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  %1 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 2
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
   store float 1.000000e+00, ptr %ref.tmp9, align 4
   store float 1.000000e+00, ptr %ref.tmp10, align 4
   store float 0.000000e+00, ptr %ref.tmp11, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 3), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
+  %2 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 3
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
   store float 1.000000e+00, ptr %ref.tmp12, align 4
   store float 0.000000e+00, ptr %ref.tmp13, align 4
   store float 1.000000e+00, ptr %ref.tmp14, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 4), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
+  %3 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 4
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
   store float 0.000000e+00, ptr %ref.tmp15, align 4
   store float 1.000000e+00, ptr %ref.tmp16, align 4
   store float 1.000000e+00, ptr %ref.tmp17, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 5), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
+  %4 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 5
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
   store float 1.000000e+00, ptr %ref.tmp18, align 4
   store float -1.000000e+00, ptr %ref.tmp19, align 4
   store float 0.000000e+00, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 6), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
+  %5 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 6
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
   store float 1.000000e+00, ptr %ref.tmp21, align 4
   store float 0.000000e+00, ptr %ref.tmp22, align 4
   store float -1.000000e+00, ptr %ref.tmp23, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 7), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
+  %6 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 7
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
   store float 0.000000e+00, ptr %ref.tmp24, align 4
   store float 1.000000e+00, ptr %ref.tmp25, align 4
   store float -1.000000e+00, ptr %ref.tmp26, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 8), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
+  %7 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 8
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
   store float 1.000000e+00, ptr %ref.tmp27, align 4
   store float 1.000000e+00, ptr %ref.tmp28, align 4
   store float 1.000000e+00, ptr %ref.tmp29, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 9), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  %8 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 9
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
   store float 1.000000e+00, ptr %ref.tmp30, align 4
   store float -1.000000e+00, ptr %ref.tmp31, align 4
   store float 1.000000e+00, ptr %ref.tmp32, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 10), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
+  %9 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 10
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
   store float 1.000000e+00, ptr %ref.tmp33, align 4
   store float 1.000000e+00, ptr %ref.tmp34, align 4
   store float -1.000000e+00, ptr %ref.tmp35, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 11), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
+  %10 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 11
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
   store float 1.000000e+00, ptr %ref.tmp36, align 4
   store float -1.000000e+00, ptr %ref.tmp37, align 4
   store float -1.000000e+00, ptr %ref.tmp38, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 12), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
+  %11 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 12
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
   ret void
 }
 
@@ -2722,10 +2734,11 @@ entry:
   %2 = load ptr, ptr %constraintSolver.addr, align 8
   %3 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN24btMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP27btMultiBodyConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(848) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_deformableBodySolver = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %deformableBodySolver.addr, align 8
-  store ptr %4, ptr %m_deformableBodySolver, align 8
+  %5 = load ptr, ptr %deformableBodySolver.addr, align 8
+  store ptr %5, ptr %m_deformableBodySolver, align 8
   %m_softBodies = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -2746,14 +2759,14 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store i8 0, ptr %m_drawFaceTree, align 1
   %m_drawClusterTree = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 6
   store i8 0, ptr %m_drawClusterTree, align 2
-  %5 = load ptr, ptr %pairCache.addr, align 8
+  %6 = load ptr, ptr %pairCache.addr, align 8
   %m_sbi4 = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 7
   %m_broadphase = getelementptr inbounds %struct.btSoftBodyWorldInfo, ptr %m_sbi4, i32 0, i32 5
-  store ptr %5, ptr %m_broadphase, align 8
-  %6 = load ptr, ptr %dispatcher.addr, align 8
+  store ptr %6, ptr %m_broadphase, align 8
+  %7 = load ptr, ptr %dispatcher.addr, align 8
   %m_sbi5 = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 7
   %m_dispatcher = getelementptr inbounds %struct.btSoftBodyWorldInfo, ptr %m_sbi5, i32 0, i32 6
-  store ptr %6, ptr %m_dispatcher, align 8
+  store ptr %7, ptr %m_dispatcher, align 8
   %m_sbi6 = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 7
   %m_sparsesdf = getelementptr inbounds %struct.btSoftBodyWorldInfo, ptr %m_sbi6, i32 0, i32 8
   invoke void @_ZN11btSparseSdfILi3EE10InitializeEii(ptr noundef nonnull align 8 dereferenceable(60) %m_sparsesdf, i32 noundef 2383, i32 noundef 262144)
@@ -2814,9 +2827,9 @@ invoke.cont27:                                    ; preds = %invoke.cont21
           to label %invoke.cont28 unwind label %lpad7
 
 invoke.cont28:                                    ; preds = %invoke.cont27
-  %7 = load ptr, ptr %constraintSolver.addr, align 8
-  %8 = load ptr, ptr %dispatcher.addr, align 8
-  invoke void @_ZN41DeformableBodyInplaceSolverIslandCallbackC2EP37btDeformableMultiBodyConstraintSolverP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(272) %call, ptr noundef %7, ptr noundef %8)
+  %8 = load ptr, ptr %constraintSolver.addr, align 8
+  %9 = load ptr, ptr %dispatcher.addr, align 8
+  invoke void @_ZN41DeformableBodyInplaceSolverIslandCallbackC2EP37btDeformableMultiBodyConstraintSolverP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(272) %call, ptr noundef %8, ptr noundef %9)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
@@ -2825,39 +2838,39 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad7:                                            ; preds = %invoke.cont27, %invoke.cont21, %invoke.cont14, %invoke.cont11, %invoke.cont8, %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont28
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #16
   br label %ehcleanup
 
@@ -3106,10 +3119,11 @@ entry:
   %0 = load ptr, ptr %solver.addr, align 8
   %1 = load ptr, ptr %dispatcher.addr, align 8
   call void @_ZN36MultiBodyInplaceSolverIslandCallbackC2EP27btMultiBodyConstraintSolverP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_deformableSolver = getelementptr inbounds %struct.DeformableBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %solver.addr, align 8
-  store ptr %2, ptr %m_deformableSolver, align 8
+  %3 = load ptr, ptr %solver.addr, align 8
+  store ptr %3, ptr %m_deformableSolver, align 8
   ret void
 }
 
@@ -3156,17 +3170,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_solverDeformableBodyIslandCallback = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 13
-  %0 = load ptr, ptr %m_solverDeformableBodyIslandCallback, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_solverDeformableBodyIslandCallback, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(272) %0) #4
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(272) %1) #4
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -9167,7 +9182,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11172,12 +11188,13 @@ entry:
   store ptr %dispatcher, ptr %dispatcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btSimulationIslandManager14IslandCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_solverInfo = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_solverInfo, align 8
   %m_solver = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %solver.addr, align 8
-  store ptr %0, ptr %m_solver, align 8
+  %1 = load ptr, ptr %solver.addr, align 8
+  store ptr %1, ptr %m_solver, align 8
   %m_multiBodySortedConstraints = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_multiBodySortedConstraints, align 8
   %m_numConstraints = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 6
@@ -11185,8 +11202,8 @@ entry:
   %m_debugDrawer = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 7
   store ptr null, ptr %m_debugDrawer, align 8
   %m_dispatcher = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 8
-  %1 = load ptr, ptr %dispatcher.addr, align 8
-  store ptr %1, ptr %m_dispatcher, align 8
+  %2 = load ptr, ptr %dispatcher.addr, align 8
+  store ptr %2, ptr %m_dispatcher, align 8
   %m_bodies = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 9
   invoke void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_bodies)
           to label %invoke.cont unwind label %lpad
@@ -11220,57 +11237,57 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad4:                                            ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad8:                                            ; preds = %invoke.cont7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_multiBodyConstraints) #4
   br label %ehcleanup
 
@@ -11956,7 +11973,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btSimulationIslandManager14IslandCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN25btSimulationIslandManager14IslandCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12106,7 +12124,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_islandAnalyticsData = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 14
   call void @_ZN20btAlignedObjectArrayI21btSolverAnalyticsDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_islandAnalyticsData) #4
   %m_multiBodyConstraints = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 13
@@ -17217,13 +17236,14 @@ entry:
   store ptr %resultCallback, ptr %resultCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btBroadphaseRayCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_rayFromWorld = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rayFromWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayFromWorld, ptr align 4 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %rayFromWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayFromWorld, ptr align 4 %1, i64 16, i1 false)
   %m_rayToWorld = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %rayToWorld.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayToWorld, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %rayToWorld.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayToWorld, ptr align 4 %2, i64 16, i1 false)
   %m_rayFromTrans = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 3
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_rayFromTrans)
           to label %invoke.cont unwind label %lpad
@@ -17240,11 +17260,11 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_world = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %world.addr, align 8
-  store ptr %2, ptr %m_world, align 8
+  %3 = load ptr, ptr %world.addr, align 8
+  store ptr %3, ptr %m_world, align 8
   %m_resultCallback = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %resultCallback.addr, align 8
-  store ptr %3, ptr %m_resultCallback, align 8
+  %4 = load ptr, ptr %resultCallback.addr, align 8
+  store ptr %4, ptr %m_resultCallback, align 8
   %m_rayFromTrans4 = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 3
   invoke void @_ZN11btTransform11setIdentityEv(ptr noundef nonnull align 4 dereferenceable(64) %m_rayFromTrans4)
           to label %invoke.cont5 unwind label %lpad
@@ -17261,27 +17281,27 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   %m_rayToTrans10 = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 4
   %m_rayToWorld11 = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 2
   call void @_ZN11btTransform9setOriginERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %m_rayToTrans10, ptr noundef nonnull align 4 dereferenceable(16) %m_rayToWorld11)
-  %4 = load ptr, ptr %rayToWorld.addr, align 8
-  %5 = load ptr, ptr %rayFromWorld.addr, align 8
-  %call = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %5 = load ptr, ptr %rayToWorld.addr, align 8
+  %6 = load ptr, ptr %rayFromWorld.addr, align 8
+  %call = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %rayDir, i32 0, i32 0
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %7 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %7, ptr %6, align 4
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %9 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %9, ptr %8, align 4
+  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %8 = extractvalue { <2 x float>, <2 x float> } %call, 0
+  store <2 x float> %8, ptr %7, align 4
+  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %10 = extractvalue { <2 x float>, <2 x float> } %call, 1
+  store <2 x float> %10, ptr %9, align 4
   %call14 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
   %call15 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx = getelementptr inbounds float, ptr %call15, i64 0
-  %10 = load float, ptr %arrayidx, align 4
-  %cmp = fcmp oeq float %10, 0.000000e+00
+  %11 = load float, ptr %arrayidx, align 4
+  %cmp = fcmp oeq float %11, 0.000000e+00
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont13
@@ -17290,8 +17310,8 @@ cond.true:                                        ; preds = %invoke.cont13
 cond.false:                                       ; preds = %invoke.cont13
   %call16 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx17 = getelementptr inbounds float, ptr %call16, i64 0
-  %11 = load float, ptr %arrayidx17, align 4
-  %div = fdiv float 1.000000e+00, %11
+  %12 = load float, ptr %arrayidx17, align 4
+  %div = fdiv float 1.000000e+00, %12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -17302,8 +17322,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store float %cond, ptr %arrayidx19, align 4
   %call20 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx21 = getelementptr inbounds float, ptr %call20, i64 1
-  %12 = load float, ptr %arrayidx21, align 4
-  %cmp22 = fcmp oeq float %12, 0.000000e+00
+  %13 = load float, ptr %arrayidx21, align 4
+  %cmp22 = fcmp oeq float %13, 0.000000e+00
   br i1 %cmp22, label %cond.true23, label %cond.false24
 
 cond.true23:                                      ; preds = %cond.end
@@ -17312,8 +17332,8 @@ cond.true23:                                      ; preds = %cond.end
 cond.false24:                                     ; preds = %cond.end
   %call25 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx26 = getelementptr inbounds float, ptr %call25, i64 1
-  %13 = load float, ptr %arrayidx26, align 4
-  %div27 = fdiv float 1.000000e+00, %13
+  %14 = load float, ptr %arrayidx26, align 4
+  %div27 = fdiv float 1.000000e+00, %14
   br label %cond.end28
 
 cond.end28:                                       ; preds = %cond.false24, %cond.true23
@@ -17324,8 +17344,8 @@ cond.end28:                                       ; preds = %cond.false24, %cond
   store float %cond29, ptr %arrayidx32, align 4
   %call33 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx34 = getelementptr inbounds float, ptr %call33, i64 2
-  %14 = load float, ptr %arrayidx34, align 4
-  %cmp35 = fcmp oeq float %14, 0.000000e+00
+  %15 = load float, ptr %arrayidx34, align 4
+  %cmp35 = fcmp oeq float %15, 0.000000e+00
   br i1 %cmp35, label %cond.true36, label %cond.false37
 
 cond.true36:                                      ; preds = %cond.end28
@@ -17334,8 +17354,8 @@ cond.true36:                                      ; preds = %cond.end28
 cond.false37:                                     ; preds = %cond.end28
   %call38 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %rayDir)
   %arrayidx39 = getelementptr inbounds float, ptr %call38, i64 2
-  %15 = load float, ptr %arrayidx39, align 4
-  %div40 = fdiv float 1.000000e+00, %15
+  %16 = load float, ptr %arrayidx39, align 4
+  %div40 = fdiv float 1.000000e+00, %16
   br label %cond.end41
 
 cond.end41:                                       ; preds = %cond.false37, %cond.true36
@@ -17347,8 +17367,8 @@ cond.end41:                                       ; preds = %cond.false37, %cond
   %m_rayDirectionInverse46 = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   %call47 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse46)
   %arrayidx48 = getelementptr inbounds float, ptr %call47, i64 0
-  %16 = load float, ptr %arrayidx48, align 4
-  %conv = fpext float %16 to double
+  %17 = load float, ptr %arrayidx48, align 4
+  %conv = fpext float %17 to double
   %cmp49 = fcmp olt double %conv, 0.000000e+00
   %conv50 = zext i1 %cmp49 to i32
   %m_signs = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 2
@@ -17357,8 +17377,8 @@ cond.end41:                                       ; preds = %cond.false37, %cond
   %m_rayDirectionInverse52 = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   %call53 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse52)
   %arrayidx54 = getelementptr inbounds float, ptr %call53, i64 1
-  %17 = load float, ptr %arrayidx54, align 4
-  %conv55 = fpext float %17 to double
+  %18 = load float, ptr %arrayidx54, align 4
+  %conv55 = fpext float %18 to double
   %cmp56 = fcmp olt double %conv55, 0.000000e+00
   %conv57 = zext i1 %cmp56 to i32
   %m_signs58 = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 2
@@ -17367,8 +17387,8 @@ cond.end41:                                       ; preds = %cond.false37, %cond
   %m_rayDirectionInverse60 = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   %call61 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse60)
   %arrayidx62 = getelementptr inbounds float, ptr %call61, i64 2
-  %18 = load float, ptr %arrayidx62, align 4
-  %conv63 = fpext float %18 to double
+  %19 = load float, ptr %arrayidx62, align 4
+  %conv63 = fpext float %19 to double
   %cmp64 = fcmp olt double %conv63, 0.000000e+00
   %conv65 = zext i1 %cmp64 to i32
   %m_signs66 = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 2
@@ -17381,24 +17401,24 @@ cond.end41:                                       ; preds = %cond.false37, %cond
 
 invoke.cont70:                                    ; preds = %cond.end41
   %coerce.dive72 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive72, i32 0, i32 0
-  %20 = extractvalue { <2 x float>, <2 x float> } %call71, 0
-  store <2 x float> %20, ptr %19, align 4
-  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive72, i32 0, i32 1
-  %22 = extractvalue { <2 x float>, <2 x float> } %call71, 1
-  store <2 x float> %22, ptr %21, align 4
+  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive72, i32 0, i32 0
+  %21 = extractvalue { <2 x float>, <2 x float> } %call71, 0
+  store <2 x float> %21, ptr %20, align 4
+  %22 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive72, i32 0, i32 1
+  %23 = extractvalue { <2 x float>, <2 x float> } %call71, 1
+  store <2 x float> %23, ptr %22, align 4
   %call73 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %rayDir, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
   %m_lambda_max = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 3
   store float %call73, ptr %m_lambda_max, align 4
   ret void
 
 lpad:                                             ; preds = %cond.end41, %invoke.cont12, %invoke.cont9, %invoke.cont5, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZN23btBroadphaseRayCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
   br label %eh.resume
 
@@ -17429,7 +17449,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24btBroadphaseAabbCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_rayDirectionInverse = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse)
           to label %invoke.cont unwind label %lpad
@@ -17438,12 +17459,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN24btBroadphaseAabbCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
   br label %eh.resume
 
@@ -17564,7 +17585,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

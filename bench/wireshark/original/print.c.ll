@@ -266,264 +266,265 @@ define internal void @proto_tree_print_node(ptr noundef %0, ptr noundef %1) #0 {
   %16 = load ptr, ptr %3, align 8
   %17 = call i32 @proto_item_is_hidden(ptr noundef %16)
   %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %23
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 74), align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+  %20 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 74
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
-  br label %188
+23:                                               ; preds = %19
+  br label %189
 
-23:                                               ; preds = %19, %15
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.print_data, ptr %24, i32 0, i32 2
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %29, label %28
+24:                                               ; preds = %19, %15
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct.print_data, ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
 
-28:                                               ; preds = %23
-  br label %188
+29:                                               ; preds = %24
+  br label %189
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.field_info, ptr %30, i32 0, i32 7
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %40
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct.field_info, ptr %31, i32 0, i32 7
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %41
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.field_info, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._item_label_t, ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds [240 x i8], ptr %38, i64 0, i64 0
-  store ptr %39, ptr %9, align 8
-  br label %44
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %struct.field_info, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct._item_label_t, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds [240 x i8], ptr %39, i64 0, i64 0
+  store ptr %40, ptr %9, align 8
+  br label %45
 
-40:                                               ; preds = %29
-  %41 = getelementptr inbounds [240 x i8], ptr %8, i64 0, i64 0
-  store ptr %41, ptr %9, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds [240 x i8], ptr %8, i64 0, i64 0
-  call void @proto_item_fill_label(ptr noundef %42, ptr noundef %43)
-  br label %44
+41:                                               ; preds = %30
+  %42 = getelementptr inbounds [240 x i8], ptr %8, i64 0, i64 0
+  store ptr %42, ptr %9, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds [240 x i8], ptr %8, i64 0, i64 0
+  call void @proto_item_fill_label(ptr noundef %43, ptr noundef %44)
+  br label %45
 
-44:                                               ; preds = %40, %34
-  %45 = load ptr, ptr %3, align 8
-  %46 = call i32 @proto_item_is_generated(ptr noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %41, %35
+  %46 = load ptr, ptr %3, align 8
+  %47 = call i32 @proto_item_is_generated(ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %9, align 8
-  %50 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef @.str.58, ptr noundef %49, ptr noundef @.str.59, ptr noundef null)
-  store ptr %50, ptr %9, align 8
-  br label %51
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %9, align 8
+  %51 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef @.str.58, ptr noundef %50, ptr noundef @.str.59, ptr noundef null)
+  store ptr %51, ptr %9, align 8
+  br label %52
 
-51:                                               ; preds = %48, %44
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.print_data, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.print_data, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = call i32 @print_line(ptr noundef %54, i32 noundef %57, ptr noundef %58)
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.print_data, ptr %60, i32 0, i32 2
-  store i32 %59, ptr %61, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = call i32 @proto_item_is_generated(ptr noundef %62)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %67
+52:                                               ; preds = %49, %45
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.print_data, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct.print_data, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = call i32 @print_line(ptr noundef %55, i32 noundef %58, ptr noundef %59)
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct.print_data, ptr %61, i32 0, i32 2
+  store i32 %60, ptr %62, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = call i32 @proto_item_is_generated(ptr noundef %63)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %51
-  %66 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %66)
-  br label %67
+66:                                               ; preds = %52
+  %67 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %67)
+  br label %68
 
-67:                                               ; preds = %65, %51
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.print_data, ptr %68, i32 0, i32 2
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %73, label %72
+68:                                               ; preds = %66, %52
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.print_data, ptr %69, i32 0, i32 2
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %74, label %73
 
-72:                                               ; preds = %67
-  br label %188
+73:                                               ; preds = %68
+  br label %189
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.print_data, ptr %74, i32 0, i32 7
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %95
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct.print_data, ptr %75, i32 0, i32 7
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %96
 
-78:                                               ; preds = %73
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.print_data, ptr %79, i32 0, i32 0
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %95
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct.print_data, ptr %80, i32 0, i32 0
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %96
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct.print_data, ptr %84, i32 0, i32 7
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds %struct.field_info, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct._header_field_info, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  %92 = call ptr @g_hash_table_lookup(ptr noundef %86, ptr noundef %91)
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %6, align 8
+  %86 = getelementptr inbounds %struct.print_data, ptr %85, i32 0, i32 7
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds %struct.field_info, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct._header_field_info, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @g_hash_table_lookup(ptr noundef %87, ptr noundef %92)
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %83
-  br label %188
+95:                                               ; preds = %84
+  br label %189
 
-95:                                               ; preds = %83, %78, %73
-  %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds %struct.field_info, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._header_field_info, ptr %98, i32 0, i32 7
-  %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr @proto_data, align 4
-  %102 = icmp eq i32 %100, %101
-  br i1 %102, label %103, label %142
+96:                                               ; preds = %84, %79, %74
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds %struct.field_info, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct._header_field_info, ptr %99, i32 0, i32 7
+  %101 = load i32, ptr %100, align 8
+  %102 = load i32, ptr @proto_data, align 4
+  %103 = icmp eq i32 %101, %102
+  br i1 %103, label %104, label %143
 
-103:                                              ; preds = %95
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.print_data, ptr %104, i32 0, i32 5
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %142
+104:                                              ; preds = %96
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds %struct.print_data, ptr %105, i32 0, i32 5
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %143
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.print_data, ptr %109, i32 0, i32 3
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %5, align 8
-  %113 = call ptr @get_field_data(ptr noundef %111, ptr noundef %112)
-  store ptr %113, ptr %7, align 8
-  %114 = load ptr, ptr %7, align 8
-  %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %141
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds %struct.print_data, ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %5, align 8
+  %114 = call ptr @get_field_data(ptr noundef %112, ptr noundef %113)
+  store ptr %114, ptr %7, align 8
+  %115 = load ptr, ptr %7, align 8
+  %116 = icmp ne ptr %115, null
+  br i1 %116, label %117, label %142
 
-116:                                              ; preds = %108
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds %struct.print_data, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = call i32 @print_line(ptr noundef %119, i32 noundef 0, ptr noundef @.str.60)
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %125, label %122
+117:                                              ; preds = %109
+  %118 = load ptr, ptr %6, align 8
+  %119 = getelementptr inbounds %struct.print_data, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %121 = call i32 @print_line(ptr noundef %120, i32 noundef 0, ptr noundef @.str.60)
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %126, label %123
 
-122:                                              ; preds = %116
-  %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.print_data, ptr %123, i32 0, i32 2
-  store i32 0, ptr %124, align 8
-  br label %188
+123:                                              ; preds = %117
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds %struct.print_data, ptr %124, i32 0, i32 2
+  store i32 0, ptr %125, align 8
+  br label %189
 
-125:                                              ; preds = %116
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds %struct.print_data, ptr %126, i32 0, i32 1
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %7, align 8
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds %struct.field_info, ptr %130, i32 0, i32 2
-  %132 = load i32, ptr %131, align 4
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.print_data, ptr %133, i32 0, i32 6
-  %135 = load i32, ptr %134, align 8
-  %136 = call zeroext i1 @print_hex_data_buffer(ptr noundef %128, ptr noundef %129, i32 noundef %132, i32 noundef %135, i32 noundef 0)
-  br i1 %136, label %140, label %137
+126:                                              ; preds = %117
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds %struct.print_data, ptr %127, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %7, align 8
+  %131 = load ptr, ptr %5, align 8
+  %132 = getelementptr inbounds %struct.field_info, ptr %131, i32 0, i32 2
+  %133 = load i32, ptr %132, align 4
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds %struct.print_data, ptr %134, i32 0, i32 6
+  %136 = load i32, ptr %135, align 8
+  %137 = call zeroext i1 @print_hex_data_buffer(ptr noundef %129, ptr noundef %130, i32 noundef %133, i32 noundef %136, i32 noundef 0)
+  br i1 %137, label %141, label %138
 
-137:                                              ; preds = %125
-  %138 = load ptr, ptr %6, align 8
-  %139 = getelementptr inbounds %struct.print_data, ptr %138, i32 0, i32 2
-  store i32 0, ptr %139, align 8
-  br label %188
+138:                                              ; preds = %126
+  %139 = load ptr, ptr %6, align 8
+  %140 = getelementptr inbounds %struct.print_data, ptr %139, i32 0, i32 2
+  store i32 0, ptr %140, align 8
+  br label %189
 
-140:                                              ; preds = %125
-  br label %141
-
-141:                                              ; preds = %140, %108
+141:                                              ; preds = %126
   br label %142
 
-142:                                              ; preds = %141, %103, %95
+142:                                              ; preds = %141, %109
   br label %143
 
-143:                                              ; preds = %142
+143:                                              ; preds = %142, %104, %96
   br label %144
 
 144:                                              ; preds = %143
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds %struct.print_data, ptr %145, i32 0, i32 4
-  %147 = load i32, ptr %146, align 8
-  %148 = icmp eq i32 %147, 3
-  br i1 %148, label %165, label %149
+  br label %145
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds %struct.print_data, ptr %150, i32 0, i32 4
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, 2
-  br i1 %153, label %154, label %188
+145:                                              ; preds = %144
+  %146 = load ptr, ptr %6, align 8
+  %147 = getelementptr inbounds %struct.print_data, ptr %146, i32 0, i32 4
+  %148 = load i32, ptr %147, align 8
+  %149 = icmp eq i32 %148, 3
+  br i1 %149, label %166, label %150
 
-154:                                              ; preds = %149
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct.field_info, ptr %155, i32 0, i32 5
-  %157 = load i32, ptr %156, align 8
-  %158 = icmp sge i32 %157, 0
-  br i1 %158, label %159, label %188
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %6, align 8
+  %152 = getelementptr inbounds %struct.print_data, ptr %151, i32 0, i32 4
+  %153 = load i32, ptr %152, align 8
+  %154 = icmp eq i32 %153, 2
+  br i1 %154, label %155, label %189
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds %struct.field_info, ptr %160, i32 0, i32 5
-  %162 = load i32, ptr %161, align 8
-  %163 = call i32 @tree_expanded(i32 noundef %162)
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %165, label %188
+155:                                              ; preds = %150
+  %156 = load ptr, ptr %5, align 8
+  %157 = getelementptr inbounds %struct.field_info, ptr %156, i32 0, i32 5
+  %158 = load i32, ptr %157, align 8
+  %159 = icmp sge i32 %158, 0
+  br i1 %159, label %160, label %189
 
-165:                                              ; preds = %159, %144
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct._proto_node, ptr %166, i32 0, i32 0
-  %168 = load ptr, ptr %167, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %187
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %5, align 8
+  %162 = getelementptr inbounds %struct.field_info, ptr %161, i32 0, i32 5
+  %163 = load i32, ptr %162, align 8
+  %164 = call i32 @tree_expanded(i32 noundef %163)
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %189
 
-170:                                              ; preds = %165
-  %171 = load ptr, ptr %6, align 8
-  %172 = getelementptr inbounds %struct.print_data, ptr %171, i32 0, i32 0
-  %173 = load i32, ptr %172, align 8
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %172, align 8
-  %175 = load ptr, ptr %3, align 8
-  %176 = load ptr, ptr %6, align 8
-  call void @proto_tree_children_foreach(ptr noundef %175, ptr noundef @proto_tree_print_node, ptr noundef %176)
+166:                                              ; preds = %160, %145
+  %167 = load ptr, ptr %3, align 8
+  %168 = getelementptr inbounds %struct._proto_node, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %171, label %188
+
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %6, align 8
+  %173 = getelementptr inbounds %struct.print_data, ptr %172, i32 0, i32 0
+  %174 = load i32, ptr %173, align 8
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %173, align 8
+  %176 = load ptr, ptr %3, align 8
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds %struct.print_data, ptr %177, i32 0, i32 0
-  %179 = load i32, ptr %178, align 8
-  %180 = add i32 %179, -1
-  store i32 %180, ptr %178, align 8
-  %181 = load ptr, ptr %6, align 8
-  %182 = getelementptr inbounds %struct.print_data, ptr %181, i32 0, i32 2
-  %183 = load i32, ptr %182, align 8
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %186, label %185
+  call void @proto_tree_children_foreach(ptr noundef %176, ptr noundef @proto_tree_print_node, ptr noundef %177)
+  %178 = load ptr, ptr %6, align 8
+  %179 = getelementptr inbounds %struct.print_data, ptr %178, i32 0, i32 0
+  %180 = load i32, ptr %179, align 8
+  %181 = add i32 %180, -1
+  store i32 %181, ptr %179, align 8
+  %182 = load ptr, ptr %6, align 8
+  %183 = getelementptr inbounds %struct.print_data, ptr %182, i32 0, i32 2
+  %184 = load i32, ptr %183, align 8
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %187, label %186
 
-185:                                              ; preds = %170
+186:                                              ; preds = %171
+  br label %189
+
+187:                                              ; preds = %171
   br label %188
 
-186:                                              ; preds = %170
-  br label %187
+188:                                              ; preds = %187, %166
+  br label %189
 
-187:                                              ; preds = %186, %165
-  br label %188
-
-188:                                              ; preds = %187, %185, %159, %154, %149, %137, %122, %94, %72, %28, %22
+189:                                              ; preds = %188, %186, %160, %155, %150, %138, %123, %95, %73, %29, %23
   ret void
 }
 
@@ -1331,7 +1332,7 @@ define internal void @proto_tree_write_node_pdml(ptr noundef %0, ptr noundef %1)
   br label %180
 
 180:                                              ; preds = %175, %170
-  br label %465
+  br label %466
 
 181:                                              ; preds = %66
   %182 = load ptr, ptr %5, align 8
@@ -1355,7 +1356,7 @@ define internal void @proto_tree_write_node_pdml(ptr noundef %0, ptr noundef %1)
   %197 = getelementptr inbounds %struct.write_pdml_data, ptr %196, i32 0, i32 1
   %198 = load ptr, ptr %197, align 8
   %199 = call i32 @fputs(ptr noundef @.str.9, ptr noundef %198)
-  br label %464
+  br label %465
 
 200:                                              ; preds = %181
   %201 = load ptr, ptr %5, align 8
@@ -1443,508 +1444,509 @@ define internal void @proto_tree_write_node_pdml(ptr noundef %0, ptr noundef %1)
   %264 = load ptr, ptr %3, align 8
   %265 = call i32 @proto_item_is_hidden(ptr noundef %264)
   %266 = icmp ne i32 %265, 0
-  br i1 %266, label %267, label %275
+  br i1 %266, label %267, label %276
 
 267:                                              ; preds = %263
-  %268 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 74), align 4
-  %269 = icmp eq i32 %268, 0
-  br i1 %269, label %270, label %275
+  %268 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 74
+  %269 = load i32, ptr %268, align 4
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %271, label %276
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr %6, align 8
-  %272 = getelementptr inbounds %struct.write_pdml_data, ptr %271, i32 0, i32 1
-  %273 = load ptr, ptr %272, align 8
-  %274 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef @.str.71) #8
-  br label %275
+271:                                              ; preds = %267
+  %272 = load ptr, ptr %6, align 8
+  %273 = getelementptr inbounds %struct.write_pdml_data, ptr %272, i32 0, i32 1
+  %274 = load ptr, ptr %273, align 8
+  %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef @.str.71) #8
+  br label %276
 
-275:                                              ; preds = %270, %267, %263
-  %276 = load ptr, ptr %6, align 8
-  %277 = getelementptr inbounds %struct.write_pdml_data, ptr %276, i32 0, i32 1
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %5, align 8
-  %280 = getelementptr inbounds %struct.field_info, ptr %279, i32 0, i32 2
-  %281 = load i32, ptr %280, align 4
-  %282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef @.str.64, i32 noundef %281) #8
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct._proto_node, ptr %283, i32 0, i32 3
-  %285 = load ptr, ptr %284, align 8
-  %286 = icmp ne ptr %285, null
-  br i1 %286, label %287, label %322
+276:                                              ; preds = %271, %267, %263
+  %277 = load ptr, ptr %6, align 8
+  %278 = getelementptr inbounds %struct.write_pdml_data, ptr %277, i32 0, i32 1
+  %279 = load ptr, ptr %278, align 8
+  %280 = load ptr, ptr %5, align 8
+  %281 = getelementptr inbounds %struct.field_info, ptr %280, i32 0, i32 2
+  %282 = load i32, ptr %281, align 4
+  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef @.str.64, i32 noundef %282) #8
+  %284 = load ptr, ptr %3, align 8
+  %285 = getelementptr inbounds %struct._proto_node, ptr %284, i32 0, i32 3
+  %286 = load ptr, ptr %285, align 8
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %323
 
-287:                                              ; preds = %275
-  %288 = load ptr, ptr %3, align 8
-  %289 = getelementptr inbounds %struct._proto_node, ptr %288, i32 0, i32 3
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds %struct._proto_node, ptr %290, i32 0, i32 4
-  %292 = load ptr, ptr %291, align 8
-  %293 = icmp ne ptr %292, null
-  br i1 %293, label %294, label %322
+288:                                              ; preds = %276
+  %289 = load ptr, ptr %3, align 8
+  %290 = getelementptr inbounds %struct._proto_node, ptr %289, i32 0, i32 3
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds %struct._proto_node, ptr %291, i32 0, i32 4
+  %293 = load ptr, ptr %292, align 8
+  %294 = icmp ne ptr %293, null
+  br i1 %294, label %295, label %323
 
-294:                                              ; preds = %287
-  %295 = load ptr, ptr %5, align 8
-  %296 = getelementptr inbounds %struct.field_info, ptr %295, i32 0, i32 1
-  %297 = load i32, ptr %296, align 8
-  %298 = load ptr, ptr %3, align 8
-  %299 = getelementptr inbounds %struct._proto_node, ptr %298, i32 0, i32 3
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds %struct._proto_node, ptr %300, i32 0, i32 4
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %struct.field_info, ptr %302, i32 0, i32 1
-  %304 = load i32, ptr %303, align 8
-  %305 = icmp slt i32 %297, %304
-  br i1 %305, label %306, label %322
+295:                                              ; preds = %288
+  %296 = load ptr, ptr %5, align 8
+  %297 = getelementptr inbounds %struct.field_info, ptr %296, i32 0, i32 1
+  %298 = load i32, ptr %297, align 8
+  %299 = load ptr, ptr %3, align 8
+  %300 = getelementptr inbounds %struct._proto_node, ptr %299, i32 0, i32 3
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds %struct._proto_node, ptr %301, i32 0, i32 4
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds %struct.field_info, ptr %303, i32 0, i32 1
+  %305 = load i32, ptr %304, align 8
+  %306 = icmp slt i32 %298, %305
+  br i1 %306, label %307, label %323
 
-306:                                              ; preds = %294
-  %307 = load ptr, ptr %6, align 8
-  %308 = getelementptr inbounds %struct.write_pdml_data, ptr %307, i32 0, i32 1
-  %309 = load ptr, ptr %308, align 8
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct._proto_node, ptr %310, i32 0, i32 3
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct._proto_node, ptr %312, i32 0, i32 4
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.field_info, ptr %314, i32 0, i32 1
-  %316 = load i32, ptr %315, align 8
-  %317 = load ptr, ptr %5, align 8
-  %318 = getelementptr inbounds %struct.field_info, ptr %317, i32 0, i32 1
-  %319 = load i32, ptr %318, align 8
-  %320 = add i32 %316, %319
-  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef @.str.65, i32 noundef %320) #8
-  br label %330
+307:                                              ; preds = %295
+  %308 = load ptr, ptr %6, align 8
+  %309 = getelementptr inbounds %struct.write_pdml_data, ptr %308, i32 0, i32 1
+  %310 = load ptr, ptr %309, align 8
+  %311 = load ptr, ptr %3, align 8
+  %312 = getelementptr inbounds %struct._proto_node, ptr %311, i32 0, i32 3
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds %struct._proto_node, ptr %313, i32 0, i32 4
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds %struct.field_info, ptr %315, i32 0, i32 1
+  %317 = load i32, ptr %316, align 8
+  %318 = load ptr, ptr %5, align 8
+  %319 = getelementptr inbounds %struct.field_info, ptr %318, i32 0, i32 1
+  %320 = load i32, ptr %319, align 8
+  %321 = add i32 %317, %320
+  %322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef @.str.65, i32 noundef %321) #8
+  br label %331
 
-322:                                              ; preds = %294, %287, %275
-  %323 = load ptr, ptr %6, align 8
-  %324 = getelementptr inbounds %struct.write_pdml_data, ptr %323, i32 0, i32 1
-  %325 = load ptr, ptr %324, align 8
-  %326 = load ptr, ptr %5, align 8
-  %327 = getelementptr inbounds %struct.field_info, ptr %326, i32 0, i32 1
-  %328 = load i32, ptr %327, align 8
-  %329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %325, ptr noundef @.str.65, i32 noundef %328) #8
-  br label %330
+323:                                              ; preds = %295, %288, %276
+  %324 = load ptr, ptr %6, align 8
+  %325 = getelementptr inbounds %struct.write_pdml_data, ptr %324, i32 0, i32 1
+  %326 = load ptr, ptr %325, align 8
+  %327 = load ptr, ptr %5, align 8
+  %328 = getelementptr inbounds %struct.field_info, ptr %327, i32 0, i32 1
+  %329 = load i32, ptr %328, align 8
+  %330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef @.str.65, i32 noundef %329) #8
+  br label %331
 
-330:                                              ; preds = %322, %306
-  %331 = load ptr, ptr %5, align 8
-  %332 = getelementptr inbounds %struct.field_info, ptr %331, i32 0, i32 0
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds %struct._header_field_info, ptr %333, i32 0, i32 2
-  %335 = load i32, ptr %334, align 8
-  switch i32 %335, label %342 [
-    i32 1, label %336
-    i32 0, label %337
+331:                                              ; preds = %323, %307
+  %332 = load ptr, ptr %5, align 8
+  %333 = getelementptr inbounds %struct.field_info, ptr %332, i32 0, i32 0
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds %struct._header_field_info, ptr %334, i32 0, i32 2
+  %336 = load i32, ptr %335, align 8
+  switch i32 %336, label %343 [
+    i32 1, label %337
+    i32 0, label %338
   ]
 
-336:                                              ; preds = %330
-  br label %434
+337:                                              ; preds = %331
+  br label %435
 
-337:                                              ; preds = %330
-  %338 = load ptr, ptr %6, align 8
-  %339 = getelementptr inbounds %struct.write_pdml_data, ptr %338, i32 0, i32 1
-  %340 = load ptr, ptr %339, align 8
-  %341 = call i32 @fputs(ptr noundef @.str.72, ptr noundef %340)
-  br label %434
+338:                                              ; preds = %331
+  %339 = load ptr, ptr %6, align 8
+  %340 = getelementptr inbounds %struct.write_pdml_data, ptr %339, i32 0, i32 1
+  %341 = load ptr, ptr %340, align 8
+  %342 = call i32 @fputs(ptr noundef @.str.72, ptr noundef %341)
+  br label %435
 
-342:                                              ; preds = %330
-  %343 = load ptr, ptr %5, align 8
-  %344 = getelementptr inbounds %struct.field_info, ptr %343, i32 0, i32 9
-  %345 = load ptr, ptr %344, align 8
-  %346 = load ptr, ptr %5, align 8
-  %347 = getelementptr inbounds %struct.field_info, ptr %346, i32 0, i32 0
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds %struct._header_field_info, ptr %348, i32 0, i32 3
-  %350 = load i32, ptr %349, align 4
-  %351 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %345, i32 noundef 0, i32 noundef %350)
-  store ptr %351, ptr %9, align 8
-  %352 = load ptr, ptr %9, align 8
-  %353 = icmp ne ptr %352, null
-  br i1 %353, label %354, label %363
+343:                                              ; preds = %331
+  %344 = load ptr, ptr %5, align 8
+  %345 = getelementptr inbounds %struct.field_info, ptr %344, i32 0, i32 9
+  %346 = load ptr, ptr %345, align 8
+  %347 = load ptr, ptr %5, align 8
+  %348 = getelementptr inbounds %struct.field_info, ptr %347, i32 0, i32 0
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds %struct._header_field_info, ptr %349, i32 0, i32 3
+  %351 = load i32, ptr %350, align 4
+  %352 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %346, i32 noundef 0, i32 noundef %351)
+  store ptr %352, ptr %9, align 8
+  %353 = load ptr, ptr %9, align 8
+  %354 = icmp ne ptr %353, null
+  br i1 %354, label %355, label %364
 
-354:                                              ; preds = %342
-  %355 = load ptr, ptr %6, align 8
-  %356 = getelementptr inbounds %struct.write_pdml_data, ptr %355, i32 0, i32 1
-  %357 = load ptr, ptr %356, align 8
-  %358 = call i32 @fputs(ptr noundef @.str.63, ptr noundef %357)
-  %359 = load ptr, ptr %6, align 8
-  %360 = getelementptr inbounds %struct.write_pdml_data, ptr %359, i32 0, i32 1
-  %361 = load ptr, ptr %360, align 8
-  %362 = load ptr, ptr %9, align 8
-  call void @print_escaped_xml(ptr noundef %361, ptr noundef %362)
-  br label %363
+355:                                              ; preds = %343
+  %356 = load ptr, ptr %6, align 8
+  %357 = getelementptr inbounds %struct.write_pdml_data, ptr %356, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8
+  %359 = call i32 @fputs(ptr noundef @.str.63, ptr noundef %358)
+  %360 = load ptr, ptr %6, align 8
+  %361 = getelementptr inbounds %struct.write_pdml_data, ptr %360, i32 0, i32 1
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %9, align 8
+  call void @print_escaped_xml(ptr noundef %362, ptr noundef %363)
+  br label %364
 
-363:                                              ; preds = %354, %342
-  %364 = load ptr, ptr %9, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %364)
-  %365 = load ptr, ptr %5, align 8
-  %366 = getelementptr inbounds %struct.field_info, ptr %365, i32 0, i32 2
-  %367 = load i32, ptr %366, align 4
-  %368 = icmp sgt i32 %367, 0
-  br i1 %368, label %369, label %433
+364:                                              ; preds = %355, %343
+  %365 = load ptr, ptr %9, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %365)
+  %366 = load ptr, ptr %5, align 8
+  %367 = getelementptr inbounds %struct.field_info, ptr %366, i32 0, i32 2
+  %368 = load i32, ptr %367, align 4
+  %369 = icmp sgt i32 %368, 0
+  br i1 %369, label %370, label %434
 
-369:                                              ; preds = %363
-  %370 = load ptr, ptr %6, align 8
-  %371 = getelementptr inbounds %struct.write_pdml_data, ptr %370, i32 0, i32 1
-  %372 = load ptr, ptr %371, align 8
-  %373 = call i32 @fputs(ptr noundef @.str.66, ptr noundef %372)
-  %374 = load ptr, ptr %5, align 8
-  %375 = getelementptr inbounds %struct.field_info, ptr %374, i32 0, i32 0
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %struct._header_field_info, ptr %376, i32 0, i32 5
-  %378 = load i64, ptr %377, align 8
-  %379 = icmp ne i64 %378, 0
-  br i1 %379, label %380, label %429
+370:                                              ; preds = %364
+  %371 = load ptr, ptr %6, align 8
+  %372 = getelementptr inbounds %struct.write_pdml_data, ptr %371, i32 0, i32 1
+  %373 = load ptr, ptr %372, align 8
+  %374 = call i32 @fputs(ptr noundef @.str.66, ptr noundef %373)
+  %375 = load ptr, ptr %5, align 8
+  %376 = getelementptr inbounds %struct.field_info, ptr %375, i32 0, i32 0
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds %struct._header_field_info, ptr %377, i32 0, i32 5
+  %379 = load i64, ptr %378, align 8
+  %380 = icmp ne i64 %379, 0
+  br i1 %380, label %381, label %430
 
-380:                                              ; preds = %369
-  %381 = load ptr, ptr %5, align 8
-  %382 = getelementptr inbounds %struct.field_info, ptr %381, i32 0, i32 9
-  %383 = load ptr, ptr %382, align 8
-  %384 = call i32 @fvalue_type_ftenum(ptr noundef %383)
-  switch i32 %384, label %421 [
-    i32 12, label %385
-    i32 13, label %385
-    i32 14, label %385
-    i32 15, label %385
-    i32 3, label %394
-    i32 4, label %394
-    i32 5, label %394
-    i32 6, label %394
-    i32 7, label %394
-    i32 16, label %403
-    i32 17, label %403
-    i32 18, label %403
-    i32 19, label %403
-    i32 8, label %412
-    i32 9, label %412
-    i32 10, label %412
-    i32 11, label %412
-    i32 2, label %412
+381:                                              ; preds = %370
+  %382 = load ptr, ptr %5, align 8
+  %383 = getelementptr inbounds %struct.field_info, ptr %382, i32 0, i32 9
+  %384 = load ptr, ptr %383, align 8
+  %385 = call i32 @fvalue_type_ftenum(ptr noundef %384)
+  switch i32 %385, label %422 [
+    i32 12, label %386
+    i32 13, label %386
+    i32 14, label %386
+    i32 15, label %386
+    i32 3, label %395
+    i32 4, label %395
+    i32 5, label %395
+    i32 6, label %395
+    i32 7, label %395
+    i32 16, label %404
+    i32 17, label %404
+    i32 18, label %404
+    i32 19, label %404
+    i32 8, label %413
+    i32 9, label %413
+    i32 10, label %413
+    i32 11, label %413
+    i32 2, label %413
   ]
 
-385:                                              ; preds = %380, %380, %380, %380
-  %386 = load ptr, ptr %6, align 8
-  %387 = getelementptr inbounds %struct.write_pdml_data, ptr %386, i32 0, i32 1
-  %388 = load ptr, ptr %387, align 8
-  %389 = load ptr, ptr %5, align 8
-  %390 = getelementptr inbounds %struct.field_info, ptr %389, i32 0, i32 9
-  %391 = load ptr, ptr %390, align 8
-  %392 = call i32 @fvalue_get_sinteger(ptr noundef %391)
-  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef @.str.73, i32 noundef %392) #8
-  br label %422
+386:                                              ; preds = %381, %381, %381, %381
+  %387 = load ptr, ptr %6, align 8
+  %388 = getelementptr inbounds %struct.write_pdml_data, ptr %387, i32 0, i32 1
+  %389 = load ptr, ptr %388, align 8
+  %390 = load ptr, ptr %5, align 8
+  %391 = getelementptr inbounds %struct.field_info, ptr %390, i32 0, i32 9
+  %392 = load ptr, ptr %391, align 8
+  %393 = call i32 @fvalue_get_sinteger(ptr noundef %392)
+  %394 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef @.str.73, i32 noundef %393) #8
+  br label %423
 
-394:                                              ; preds = %380, %380, %380, %380, %380
-  %395 = load ptr, ptr %6, align 8
-  %396 = getelementptr inbounds %struct.write_pdml_data, ptr %395, i32 0, i32 1
-  %397 = load ptr, ptr %396, align 8
-  %398 = load ptr, ptr %5, align 8
-  %399 = getelementptr inbounds %struct.field_info, ptr %398, i32 0, i32 9
-  %400 = load ptr, ptr %399, align 8
-  %401 = call i32 @fvalue_get_uinteger(ptr noundef %400)
-  %402 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.73, i32 noundef %401) #8
-  br label %422
+395:                                              ; preds = %381, %381, %381, %381, %381
+  %396 = load ptr, ptr %6, align 8
+  %397 = getelementptr inbounds %struct.write_pdml_data, ptr %396, i32 0, i32 1
+  %398 = load ptr, ptr %397, align 8
+  %399 = load ptr, ptr %5, align 8
+  %400 = getelementptr inbounds %struct.field_info, ptr %399, i32 0, i32 9
+  %401 = load ptr, ptr %400, align 8
+  %402 = call i32 @fvalue_get_uinteger(ptr noundef %401)
+  %403 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %398, ptr noundef @.str.73, i32 noundef %402) #8
+  br label %423
 
-403:                                              ; preds = %380, %380, %380, %380
-  %404 = load ptr, ptr %6, align 8
-  %405 = getelementptr inbounds %struct.write_pdml_data, ptr %404, i32 0, i32 1
-  %406 = load ptr, ptr %405, align 8
-  %407 = load ptr, ptr %5, align 8
-  %408 = getelementptr inbounds %struct.field_info, ptr %407, i32 0, i32 9
-  %409 = load ptr, ptr %408, align 8
-  %410 = call i64 @fvalue_get_sinteger64(ptr noundef %409)
-  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef @.str.74, i64 noundef %410) #8
-  br label %422
+404:                                              ; preds = %381, %381, %381, %381
+  %405 = load ptr, ptr %6, align 8
+  %406 = getelementptr inbounds %struct.write_pdml_data, ptr %405, i32 0, i32 1
+  %407 = load ptr, ptr %406, align 8
+  %408 = load ptr, ptr %5, align 8
+  %409 = getelementptr inbounds %struct.field_info, ptr %408, i32 0, i32 9
+  %410 = load ptr, ptr %409, align 8
+  %411 = call i64 @fvalue_get_sinteger64(ptr noundef %410)
+  %412 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %407, ptr noundef @.str.74, i64 noundef %411) #8
+  br label %423
 
-412:                                              ; preds = %380, %380, %380, %380, %380
-  %413 = load ptr, ptr %6, align 8
-  %414 = getelementptr inbounds %struct.write_pdml_data, ptr %413, i32 0, i32 1
-  %415 = load ptr, ptr %414, align 8
-  %416 = load ptr, ptr %5, align 8
-  %417 = getelementptr inbounds %struct.field_info, ptr %416, i32 0, i32 9
-  %418 = load ptr, ptr %417, align 8
-  %419 = call i64 @fvalue_get_uinteger64(ptr noundef %418)
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %415, ptr noundef @.str.74, i64 noundef %419) #8
-  br label %422
+413:                                              ; preds = %381, %381, %381, %381, %381
+  %414 = load ptr, ptr %6, align 8
+  %415 = getelementptr inbounds %struct.write_pdml_data, ptr %414, i32 0, i32 1
+  %416 = load ptr, ptr %415, align 8
+  %417 = load ptr, ptr %5, align 8
+  %418 = getelementptr inbounds %struct.field_info, ptr %417, i32 0, i32 9
+  %419 = load ptr, ptr %418, align 8
+  %420 = call i64 @fvalue_get_uinteger64(ptr noundef %419)
+  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %416, ptr noundef @.str.74, i64 noundef %420) #8
+  br label %423
 
-421:                                              ; preds = %380
+422:                                              ; preds = %381
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.60, i32 noundef 7, ptr noundef @.str.75, i64 noundef 625, ptr noundef @__func__.proto_tree_write_node_pdml, ptr noundef @.str.76) #10
   unreachable
 
-422:                                              ; preds = %412, %403, %394, %385
-  %423 = load ptr, ptr %6, align 8
-  %424 = getelementptr inbounds %struct.write_pdml_data, ptr %423, i32 0, i32 1
-  %425 = load ptr, ptr %424, align 8
-  %426 = call i32 @fputs(ptr noundef @.str.77, ptr noundef %425)
-  %427 = load ptr, ptr %6, align 8
-  %428 = load ptr, ptr %5, align 8
-  call void @pdml_write_field_hex_value(ptr noundef %427, ptr noundef %428)
-  br label %432
-
-429:                                              ; preds = %369
-  %430 = load ptr, ptr %6, align 8
-  %431 = load ptr, ptr %5, align 8
-  call void @pdml_write_field_hex_value(ptr noundef %430, ptr noundef %431)
-  br label %432
-
-432:                                              ; preds = %429, %422
+423:                                              ; preds = %413, %404, %395, %386
+  %424 = load ptr, ptr %6, align 8
+  %425 = getelementptr inbounds %struct.write_pdml_data, ptr %424, i32 0, i32 1
+  %426 = load ptr, ptr %425, align 8
+  %427 = call i32 @fputs(ptr noundef @.str.77, ptr noundef %426)
+  %428 = load ptr, ptr %6, align 8
+  %429 = load ptr, ptr %5, align 8
+  call void @pdml_write_field_hex_value(ptr noundef %428, ptr noundef %429)
   br label %433
 
-433:                                              ; preds = %432, %363
+430:                                              ; preds = %370
+  %431 = load ptr, ptr %6, align 8
+  %432 = load ptr, ptr %5, align 8
+  call void @pdml_write_field_hex_value(ptr noundef %431, ptr noundef %432)
+  br label %433
+
+433:                                              ; preds = %430, %423
   br label %434
 
-434:                                              ; preds = %433, %337, %336
-  %435 = load ptr, ptr %3, align 8
-  %436 = getelementptr inbounds %struct._proto_node, ptr %435, i32 0, i32 0
-  %437 = load ptr, ptr %436, align 8
-  %438 = icmp ne ptr %437, null
-  br i1 %438, label %439, label %444
+434:                                              ; preds = %433, %364
+  br label %435
 
-439:                                              ; preds = %434
-  %440 = load ptr, ptr %6, align 8
-  %441 = getelementptr inbounds %struct.write_pdml_data, ptr %440, i32 0, i32 1
-  %442 = load ptr, ptr %441, align 8
-  %443 = call i32 @fputs(ptr noundef @.str.9, ptr noundef %442)
-  br label %463
+435:                                              ; preds = %434, %338, %337
+  %436 = load ptr, ptr %3, align 8
+  %437 = getelementptr inbounds %struct._proto_node, ptr %436, i32 0, i32 0
+  %438 = load ptr, ptr %437, align 8
+  %439 = icmp ne ptr %438, null
+  br i1 %439, label %440, label %445
 
-444:                                              ; preds = %434
-  %445 = load ptr, ptr %5, align 8
-  %446 = getelementptr inbounds %struct.field_info, ptr %445, i32 0, i32 0
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds %struct._header_field_info, ptr %447, i32 0, i32 7
-  %449 = load i32, ptr %448, align 8
-  %450 = load i32, ptr @proto_data, align 4
-  %451 = icmp eq i32 %449, %450
-  br i1 %451, label %452, label %457
-
-452:                                              ; preds = %444
-  %453 = load ptr, ptr %6, align 8
-  %454 = getelementptr inbounds %struct.write_pdml_data, ptr %453, i32 0, i32 1
-  %455 = load ptr, ptr %454, align 8
-  %456 = call i32 @fputs(ptr noundef @.str.9, ptr noundef %455)
-  br label %462
-
-457:                                              ; preds = %444
-  %458 = load ptr, ptr %6, align 8
-  %459 = getelementptr inbounds %struct.write_pdml_data, ptr %458, i32 0, i32 1
-  %460 = load ptr, ptr %459, align 8
-  %461 = call i32 @fputs(ptr noundef @.str.67, ptr noundef %460)
-  br label %462
-
-462:                                              ; preds = %457, %452
-  br label %463
-
-463:                                              ; preds = %462, %439
+440:                                              ; preds = %435
+  %441 = load ptr, ptr %6, align 8
+  %442 = getelementptr inbounds %struct.write_pdml_data, ptr %441, i32 0, i32 1
+  %443 = load ptr, ptr %442, align 8
+  %444 = call i32 @fputs(ptr noundef @.str.9, ptr noundef %443)
   br label %464
 
-464:                                              ; preds = %463, %189
+445:                                              ; preds = %435
+  %446 = load ptr, ptr %5, align 8
+  %447 = getelementptr inbounds %struct.field_info, ptr %446, i32 0, i32 0
+  %448 = load ptr, ptr %447, align 8
+  %449 = getelementptr inbounds %struct._header_field_info, ptr %448, i32 0, i32 7
+  %450 = load i32, ptr %449, align 8
+  %451 = load i32, ptr @proto_data, align 4
+  %452 = icmp eq i32 %450, %451
+  br i1 %452, label %453, label %458
+
+453:                                              ; preds = %445
+  %454 = load ptr, ptr %6, align 8
+  %455 = getelementptr inbounds %struct.write_pdml_data, ptr %454, i32 0, i32 1
+  %456 = load ptr, ptr %455, align 8
+  %457 = call i32 @fputs(ptr noundef @.str.9, ptr noundef %456)
+  br label %463
+
+458:                                              ; preds = %445
+  %459 = load ptr, ptr %6, align 8
+  %460 = getelementptr inbounds %struct.write_pdml_data, ptr %459, i32 0, i32 1
+  %461 = load ptr, ptr %460, align 8
+  %462 = call i32 @fputs(ptr noundef @.str.67, ptr noundef %461)
+  br label %463
+
+463:                                              ; preds = %458, %453
+  br label %464
+
+464:                                              ; preds = %463, %440
   br label %465
 
-465:                                              ; preds = %464, %180
-  %466 = load ptr, ptr %3, align 8
-  %467 = getelementptr inbounds %struct._proto_node, ptr %466, i32 0, i32 0
-  %468 = load ptr, ptr %467, align 8
-  %469 = icmp ne ptr %468, null
-  br i1 %469, label %470, label %540
+465:                                              ; preds = %464, %189
+  br label %466
 
-470:                                              ; preds = %465
+466:                                              ; preds = %465, %180
+  %467 = load ptr, ptr %3, align 8
+  %468 = getelementptr inbounds %struct._proto_node, ptr %467, i32 0, i32 0
+  %469 = load ptr, ptr %468, align 8
+  %470 = icmp ne ptr %469, null
+  br i1 %470, label %471, label %541
+
+471:                                              ; preds = %466
   store i32 0, ptr %11, align 4
-  %471 = load ptr, ptr %6, align 8
-  %472 = getelementptr inbounds %struct.write_pdml_data, ptr %471, i32 0, i32 3
-  %473 = load ptr, ptr %472, align 8
-  %474 = icmp eq ptr %473, null
-  br i1 %474, label %486, label %475
+  %472 = load ptr, ptr %6, align 8
+  %473 = getelementptr inbounds %struct.write_pdml_data, ptr %472, i32 0, i32 3
+  %474 = load ptr, ptr %473, align 8
+  %475 = icmp eq ptr %474, null
+  br i1 %475, label %487, label %476
 
-475:                                              ; preds = %470
-  %476 = load ptr, ptr %6, align 8
-  %477 = getelementptr inbounds %struct.write_pdml_data, ptr %476, i32 0, i32 3
-  %478 = load ptr, ptr %477, align 8
-  %479 = load ptr, ptr %5, align 8
-  %480 = getelementptr inbounds %struct.field_info, ptr %479, i32 0, i32 0
-  %481 = load ptr, ptr %480, align 8
-  %482 = getelementptr inbounds %struct._header_field_info, ptr %481, i32 0, i32 1
-  %483 = load ptr, ptr %482, align 8
-  %484 = call i32 @check_protocolfilter(ptr noundef %478, ptr noundef %483, ptr noundef %11)
-  %485 = icmp ne i32 %484, 0
-  br i1 %485, label %486, label %515
+476:                                              ; preds = %471
+  %477 = load ptr, ptr %6, align 8
+  %478 = getelementptr inbounds %struct.write_pdml_data, ptr %477, i32 0, i32 3
+  %479 = load ptr, ptr %478, align 8
+  %480 = load ptr, ptr %5, align 8
+  %481 = getelementptr inbounds %struct.field_info, ptr %480, i32 0, i32 0
+  %482 = load ptr, ptr %481, align 8
+  %483 = getelementptr inbounds %struct._header_field_info, ptr %482, i32 0, i32 1
+  %484 = load ptr, ptr %483, align 8
+  %485 = call i32 @check_protocolfilter(ptr noundef %479, ptr noundef %484, ptr noundef %11)
+  %486 = icmp ne i32 %485, 0
+  br i1 %486, label %487, label %516
 
-486:                                              ; preds = %475, %470
+487:                                              ; preds = %476, %471
   store ptr null, ptr %12, align 8
-  %487 = load i32, ptr %11, align 4
-  %488 = and i32 %487, 1
-  %489 = icmp eq i32 %488, 1
-  br i1 %489, label %490, label %496
+  %488 = load i32, ptr %11, align 4
+  %489 = and i32 %488, 1
+  %490 = icmp eq i32 %489, 1
+  br i1 %490, label %491, label %497
 
-490:                                              ; preds = %486
-  %491 = load ptr, ptr %6, align 8
-  %492 = getelementptr inbounds %struct.write_pdml_data, ptr %491, i32 0, i32 3
-  %493 = load ptr, ptr %492, align 8
-  store ptr %493, ptr %12, align 8
-  %494 = load ptr, ptr %6, align 8
-  %495 = getelementptr inbounds %struct.write_pdml_data, ptr %494, i32 0, i32 3
-  store ptr null, ptr %495, align 8
-  br label %496
+491:                                              ; preds = %487
+  %492 = load ptr, ptr %6, align 8
+  %493 = getelementptr inbounds %struct.write_pdml_data, ptr %492, i32 0, i32 3
+  %494 = load ptr, ptr %493, align 8
+  store ptr %494, ptr %12, align 8
+  %495 = load ptr, ptr %6, align 8
+  %496 = getelementptr inbounds %struct.write_pdml_data, ptr %495, i32 0, i32 3
+  store ptr null, ptr %496, align 8
+  br label %497
 
-496:                                              ; preds = %490, %486
-  %497 = load ptr, ptr %6, align 8
-  %498 = getelementptr inbounds %struct.write_pdml_data, ptr %497, i32 0, i32 0
-  %499 = load i32, ptr %498, align 8
-  %500 = add i32 %499, 1
-  store i32 %500, ptr %498, align 8
-  %501 = load ptr, ptr %3, align 8
-  %502 = load ptr, ptr %6, align 8
-  call void @proto_tree_children_foreach(ptr noundef %501, ptr noundef @proto_tree_write_node_pdml, ptr noundef %502)
+497:                                              ; preds = %491, %487
+  %498 = load ptr, ptr %6, align 8
+  %499 = getelementptr inbounds %struct.write_pdml_data, ptr %498, i32 0, i32 0
+  %500 = load i32, ptr %499, align 8
+  %501 = add i32 %500, 1
+  store i32 %501, ptr %499, align 8
+  %502 = load ptr, ptr %3, align 8
   %503 = load ptr, ptr %6, align 8
-  %504 = getelementptr inbounds %struct.write_pdml_data, ptr %503, i32 0, i32 0
-  %505 = load i32, ptr %504, align 8
-  %506 = add i32 %505, -1
-  store i32 %506, ptr %504, align 8
-  %507 = load i32, ptr %11, align 4
-  %508 = and i32 %507, 1
-  %509 = icmp eq i32 %508, 1
-  br i1 %509, label %510, label %514
+  call void @proto_tree_children_foreach(ptr noundef %502, ptr noundef @proto_tree_write_node_pdml, ptr noundef %503)
+  %504 = load ptr, ptr %6, align 8
+  %505 = getelementptr inbounds %struct.write_pdml_data, ptr %504, i32 0, i32 0
+  %506 = load i32, ptr %505, align 8
+  %507 = add i32 %506, -1
+  store i32 %507, ptr %505, align 8
+  %508 = load i32, ptr %11, align 4
+  %509 = and i32 %508, 1
+  %510 = icmp eq i32 %509, 1
+  br i1 %510, label %511, label %515
 
-510:                                              ; preds = %496
-  %511 = load ptr, ptr %12, align 8
-  %512 = load ptr, ptr %6, align 8
-  %513 = getelementptr inbounds %struct.write_pdml_data, ptr %512, i32 0, i32 3
-  store ptr %511, ptr %513, align 8
-  br label %514
+511:                                              ; preds = %497
+  %512 = load ptr, ptr %12, align 8
+  %513 = load ptr, ptr %6, align 8
+  %514 = getelementptr inbounds %struct.write_pdml_data, ptr %513, i32 0, i32 3
+  store ptr %512, ptr %514, align 8
+  br label %515
 
-514:                                              ; preds = %510, %496
-  br label %539
-
-515:                                              ; preds = %475
-  %516 = load ptr, ptr %6, align 8
-  %517 = getelementptr inbounds %struct.write_pdml_data, ptr %516, i32 0, i32 0
-  %518 = load i32, ptr %517, align 8
-  %519 = add i32 %518, 2
-  %520 = load ptr, ptr %6, align 8
-  %521 = getelementptr inbounds %struct.write_pdml_data, ptr %520, i32 0, i32 1
-  %522 = load ptr, ptr %521, align 8
-  call void @print_indent(i32 noundef %519, ptr noundef %522)
-  %523 = load ptr, ptr %6, align 8
-  %524 = getelementptr inbounds %struct.write_pdml_data, ptr %523, i32 0, i32 1
-  %525 = load ptr, ptr %524, align 8
-  %526 = call i32 @fputs(ptr noundef @.str.78, ptr noundef %525)
-  %527 = load ptr, ptr %6, align 8
-  %528 = getelementptr inbounds %struct.write_pdml_data, ptr %527, i32 0, i32 1
-  %529 = load ptr, ptr %528, align 8
-  %530 = load ptr, ptr %5, align 8
-  %531 = getelementptr inbounds %struct.field_info, ptr %530, i32 0, i32 0
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds %struct._header_field_info, ptr %532, i32 0, i32 1
-  %534 = load ptr, ptr %533, align 8
-  call void @print_escaped_xml(ptr noundef %529, ptr noundef %534)
-  %535 = load ptr, ptr %6, align 8
-  %536 = getelementptr inbounds %struct.write_pdml_data, ptr %535, i32 0, i32 1
-  %537 = load ptr, ptr %536, align 8
-  %538 = call i32 @fputs(ptr noundef @.str.79, ptr noundef %537)
-  br label %539
-
-539:                                              ; preds = %515, %514
+515:                                              ; preds = %511, %497
   br label %540
 
-540:                                              ; preds = %539, %465
-  %541 = load i32, ptr %10, align 4
-  %542 = icmp ne i32 %541, 0
-  br i1 %542, label %543, label %548
+516:                                              ; preds = %476
+  %517 = load ptr, ptr %6, align 8
+  %518 = getelementptr inbounds %struct.write_pdml_data, ptr %517, i32 0, i32 0
+  %519 = load i32, ptr %518, align 8
+  %520 = add i32 %519, 2
+  %521 = load ptr, ptr %6, align 8
+  %522 = getelementptr inbounds %struct.write_pdml_data, ptr %521, i32 0, i32 1
+  %523 = load ptr, ptr %522, align 8
+  call void @print_indent(i32 noundef %520, ptr noundef %523)
+  %524 = load ptr, ptr %6, align 8
+  %525 = getelementptr inbounds %struct.write_pdml_data, ptr %524, i32 0, i32 1
+  %526 = load ptr, ptr %525, align 8
+  %527 = call i32 @fputs(ptr noundef @.str.78, ptr noundef %526)
+  %528 = load ptr, ptr %6, align 8
+  %529 = getelementptr inbounds %struct.write_pdml_data, ptr %528, i32 0, i32 1
+  %530 = load ptr, ptr %529, align 8
+  %531 = load ptr, ptr %5, align 8
+  %532 = getelementptr inbounds %struct.field_info, ptr %531, i32 0, i32 0
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds %struct._header_field_info, ptr %533, i32 0, i32 1
+  %535 = load ptr, ptr %534, align 8
+  call void @print_escaped_xml(ptr noundef %530, ptr noundef %535)
+  %536 = load ptr, ptr %6, align 8
+  %537 = getelementptr inbounds %struct.write_pdml_data, ptr %536, i32 0, i32 1
+  %538 = load ptr, ptr %537, align 8
+  %539 = call i32 @fputs(ptr noundef @.str.79, ptr noundef %538)
+  br label %540
 
-543:                                              ; preds = %540
-  %544 = load ptr, ptr %6, align 8
-  %545 = getelementptr inbounds %struct.write_pdml_data, ptr %544, i32 0, i32 0
-  %546 = load i32, ptr %545, align 8
-  %547 = add i32 %546, -1
-  store i32 %547, ptr %545, align 8
-  br label %548
+540:                                              ; preds = %516, %515
+  br label %541
 
-548:                                              ; preds = %543, %540
-  %549 = load ptr, ptr %3, align 8
-  %550 = getelementptr inbounds %struct._proto_node, ptr %549, i32 0, i32 0
-  %551 = load ptr, ptr %550, align 8
-  %552 = icmp ne ptr %551, null
-  br i1 %552, label %553, label %600
+541:                                              ; preds = %540, %466
+  %542 = load i32, ptr %10, align 4
+  %543 = icmp ne i32 %542, 0
+  br i1 %543, label %544, label %549
 
-553:                                              ; preds = %548
-  %554 = load ptr, ptr %6, align 8
-  %555 = getelementptr inbounds %struct.write_pdml_data, ptr %554, i32 0, i32 0
-  %556 = load i32, ptr %555, align 8
-  %557 = add i32 %556, 1
-  %558 = load ptr, ptr %6, align 8
-  %559 = getelementptr inbounds %struct.write_pdml_data, ptr %558, i32 0, i32 1
-  %560 = load ptr, ptr %559, align 8
-  call void @print_indent(i32 noundef %557, ptr noundef %560)
-  %561 = load ptr, ptr %5, align 8
-  %562 = getelementptr inbounds %struct.field_info, ptr %561, i32 0, i32 0
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds %struct._header_field_info, ptr %563, i32 0, i32 7
-  %565 = load i32, ptr %564, align 8
-  %566 = load i32, ptr @proto_data, align 4
-  %567 = icmp ne i32 %565, %566
-  br i1 %567, label %568, label %594
+544:                                              ; preds = %541
+  %545 = load ptr, ptr %6, align 8
+  %546 = getelementptr inbounds %struct.write_pdml_data, ptr %545, i32 0, i32 0
+  %547 = load i32, ptr %546, align 8
+  %548 = add i32 %547, -1
+  store i32 %548, ptr %546, align 8
+  br label %549
 
-568:                                              ; preds = %553
-  %569 = load ptr, ptr %5, align 8
-  %570 = getelementptr inbounds %struct.field_info, ptr %569, i32 0, i32 0
-  %571 = load ptr, ptr %570, align 8
-  %572 = getelementptr inbounds %struct._header_field_info, ptr %571, i32 0, i32 7
-  %573 = load i32, ptr %572, align 8
-  %574 = load i32, ptr @proto_expert, align 4
-  %575 = icmp ne i32 %573, %574
-  br i1 %575, label %576, label %594
+549:                                              ; preds = %544, %541
+  %550 = load ptr, ptr %3, align 8
+  %551 = getelementptr inbounds %struct._proto_node, ptr %550, i32 0, i32 0
+  %552 = load ptr, ptr %551, align 8
+  %553 = icmp ne ptr %552, null
+  br i1 %553, label %554, label %601
 
-576:                                              ; preds = %568
-  %577 = load ptr, ptr %5, align 8
-  %578 = getelementptr inbounds %struct.field_info, ptr %577, i32 0, i32 0
-  %579 = load ptr, ptr %578, align 8
-  %580 = getelementptr inbounds %struct._header_field_info, ptr %579, i32 0, i32 2
-  %581 = load i32, ptr %580, align 8
-  %582 = icmp eq i32 %581, 1
-  br i1 %582, label %583, label %588
+554:                                              ; preds = %549
+  %555 = load ptr, ptr %6, align 8
+  %556 = getelementptr inbounds %struct.write_pdml_data, ptr %555, i32 0, i32 0
+  %557 = load i32, ptr %556, align 8
+  %558 = add i32 %557, 1
+  %559 = load ptr, ptr %6, align 8
+  %560 = getelementptr inbounds %struct.write_pdml_data, ptr %559, i32 0, i32 1
+  %561 = load ptr, ptr %560, align 8
+  call void @print_indent(i32 noundef %558, ptr noundef %561)
+  %562 = load ptr, ptr %5, align 8
+  %563 = getelementptr inbounds %struct.field_info, ptr %562, i32 0, i32 0
+  %564 = load ptr, ptr %563, align 8
+  %565 = getelementptr inbounds %struct._header_field_info, ptr %564, i32 0, i32 7
+  %566 = load i32, ptr %565, align 8
+  %567 = load i32, ptr @proto_data, align 4
+  %568 = icmp ne i32 %566, %567
+  br i1 %568, label %569, label %595
 
-583:                                              ; preds = %576
-  %584 = load ptr, ptr %6, align 8
-  %585 = getelementptr inbounds %struct.write_pdml_data, ptr %584, i32 0, i32 1
-  %586 = load ptr, ptr %585, align 8
-  %587 = call i32 @fputs(ptr noundef @.str.80, ptr noundef %586)
-  br label %593
+569:                                              ; preds = %554
+  %570 = load ptr, ptr %5, align 8
+  %571 = getelementptr inbounds %struct.field_info, ptr %570, i32 0, i32 0
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr inbounds %struct._header_field_info, ptr %572, i32 0, i32 7
+  %574 = load i32, ptr %573, align 8
+  %575 = load i32, ptr @proto_expert, align 4
+  %576 = icmp ne i32 %574, %575
+  br i1 %576, label %577, label %595
 
-588:                                              ; preds = %576
-  %589 = load ptr, ptr %6, align 8
-  %590 = getelementptr inbounds %struct.write_pdml_data, ptr %589, i32 0, i32 1
-  %591 = load ptr, ptr %590, align 8
-  %592 = call i32 @fputs(ptr noundef @.str.81, ptr noundef %591)
-  br label %593
+577:                                              ; preds = %569
+  %578 = load ptr, ptr %5, align 8
+  %579 = getelementptr inbounds %struct.field_info, ptr %578, i32 0, i32 0
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds %struct._header_field_info, ptr %580, i32 0, i32 2
+  %582 = load i32, ptr %581, align 8
+  %583 = icmp eq i32 %582, 1
+  br i1 %583, label %584, label %589
 
-593:                                              ; preds = %588, %583
-  br label %599
+584:                                              ; preds = %577
+  %585 = load ptr, ptr %6, align 8
+  %586 = getelementptr inbounds %struct.write_pdml_data, ptr %585, i32 0, i32 1
+  %587 = load ptr, ptr %586, align 8
+  %588 = call i32 @fputs(ptr noundef @.str.80, ptr noundef %587)
+  br label %594
 
-594:                                              ; preds = %568, %553
-  %595 = load ptr, ptr %6, align 8
-  %596 = getelementptr inbounds %struct.write_pdml_data, ptr %595, i32 0, i32 1
-  %597 = load ptr, ptr %596, align 8
-  %598 = call i32 @fputs(ptr noundef @.str.81, ptr noundef %597)
-  br label %599
+589:                                              ; preds = %577
+  %590 = load ptr, ptr %6, align 8
+  %591 = getelementptr inbounds %struct.write_pdml_data, ptr %590, i32 0, i32 1
+  %592 = load ptr, ptr %591, align 8
+  %593 = call i32 @fputs(ptr noundef @.str.81, ptr noundef %592)
+  br label %594
 
-599:                                              ; preds = %594, %593
+594:                                              ; preds = %589, %584
   br label %600
 
-600:                                              ; preds = %599, %548
-  %601 = load i32, ptr %10, align 4
-  %602 = icmp ne i32 %601, 0
-  br i1 %602, label %603, label %615
+595:                                              ; preds = %569, %554
+  %596 = load ptr, ptr %6, align 8
+  %597 = getelementptr inbounds %struct.write_pdml_data, ptr %596, i32 0, i32 1
+  %598 = load ptr, ptr %597, align 8
+  %599 = call i32 @fputs(ptr noundef @.str.81, ptr noundef %598)
+  br label %600
 
-603:                                              ; preds = %600
-  %604 = load ptr, ptr %6, align 8
-  %605 = getelementptr inbounds %struct.write_pdml_data, ptr %604, i32 0, i32 0
-  %606 = load i32, ptr %605, align 8
-  %607 = add i32 %606, 1
-  %608 = load ptr, ptr %6, align 8
-  %609 = getelementptr inbounds %struct.write_pdml_data, ptr %608, i32 0, i32 1
-  %610 = load ptr, ptr %609, align 8
-  call void @print_indent(i32 noundef %607, ptr noundef %610)
-  %611 = load ptr, ptr %6, align 8
-  %612 = getelementptr inbounds %struct.write_pdml_data, ptr %611, i32 0, i32 1
-  %613 = load ptr, ptr %612, align 8
-  %614 = call i32 @fputs(ptr noundef @.str.80, ptr noundef %613)
-  br label %615
+600:                                              ; preds = %595, %594
+  br label %601
 
-615:                                              ; preds = %603, %600
+601:                                              ; preds = %600, %549
+  %602 = load i32, ptr %10, align 4
+  %603 = icmp ne i32 %602, 0
+  br i1 %603, label %604, label %616
+
+604:                                              ; preds = %601
+  %605 = load ptr, ptr %6, align 8
+  %606 = getelementptr inbounds %struct.write_pdml_data, ptr %605, i32 0, i32 0
+  %607 = load i32, ptr %606, align 8
+  %608 = add i32 %607, 1
+  %609 = load ptr, ptr %6, align 8
+  %610 = getelementptr inbounds %struct.write_pdml_data, ptr %609, i32 0, i32 1
+  %611 = load ptr, ptr %610, align 8
+  call void @print_indent(i32 noundef %608, ptr noundef %611)
+  %612 = load ptr, ptr %6, align 8
+  %613 = getelementptr inbounds %struct.write_pdml_data, ptr %612, i32 0, i32 1
+  %614 = load ptr, ptr %613, align 8
+  %615 = call i32 @fputs(ptr noundef @.str.80, ptr noundef %614)
+  br label %616
+
+616:                                              ; preds = %604, %601
   ret void
 }
 

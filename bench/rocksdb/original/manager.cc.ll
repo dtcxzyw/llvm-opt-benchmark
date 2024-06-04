@@ -2232,31 +2232,40 @@ entry:
   call void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status)
   %m_current_lock_memory = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %m_current_lock_memory, align 8
-  store i64 %0, ptr getelementptr inbounds (%struct.__toku_engine_status_row, ptr @ltm_status, i32 0, i32 5), align 8
+  %1 = getelementptr inbounds %struct.__toku_engine_status_row, ptr @ltm_status, i32 0, i32 5
+  store i64 %0, ptr %1, align 8
   %m_max_lock_memory = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %m_max_lock_memory, align 8
-  store i64 %1, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 1, i32 5), align 8
+  %2 = load i64, ptr %m_max_lock_memory, align 8
+  %3 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 1, i32 5
+  store i64 %2, ptr %3, align 8
   %m_escalation_count = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 11
-  %2 = load i64, ptr %m_escalation_count, align 8
-  store i64 %2, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 2, i32 5), align 8
+  %4 = load i64, ptr %m_escalation_count, align 8
+  %5 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 2, i32 5
+  store i64 %4, ptr %5, align 8
   %m_escalation_time = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 12
-  %3 = load i64, ptr %m_escalation_time, align 8
-  store i64 %3, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 3, i32 5), align 8
+  %6 = load i64, ptr %m_escalation_time, align 8
+  %7 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 3, i32 5
+  store i64 %6, ptr %7, align 8
   %m_escalation_latest_result = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 13
-  %4 = load i64, ptr %m_escalation_latest_result, align 8
-  store i64 %4, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 4, i32 5), align 8
+  %8 = load i64, ptr %m_escalation_latest_result, align 8
+  %9 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 4, i32 5
+  store i64 %8, ptr %9, align 8
   %m_wait_escalation_count = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 14
-  %5 = load i64, ptr %m_wait_escalation_count, align 8
-  store i64 %5, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 15, i32 5), align 8
+  %10 = load i64, ptr %m_wait_escalation_count, align 8
+  %11 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 15, i32 5
+  store i64 %10, ptr %11, align 8
   %m_wait_escalation_time = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 15
-  %6 = load i64, ptr %m_wait_escalation_time, align 8
-  store i64 %6, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 16, i32 5), align 8
+  %12 = load i64, ptr %m_wait_escalation_time, align 8
+  %13 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 16, i32 5
+  store i64 %12, ptr %13, align 8
   %m_long_wait_escalation_count = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 16
-  %7 = load i64, ptr %m_long_wait_escalation_count, align 8
-  store i64 %7, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 17, i32 5), align 8
+  %14 = load i64, ptr %m_long_wait_escalation_count, align 8
+  %15 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 17, i32 5
+  store i64 %14, ptr %15, align 8
   %m_long_wait_escalation_time = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 17
-  %8 = load i64, ptr %m_long_wait_escalation_time, align 8
-  store i64 %8, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 18, i32 5), align 8
+  %16 = load i64, ptr %m_long_wait_escalation_time, align 8
+  %17 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 18, i32 5
+  store i64 %16, ptr %17, align 8
   store i64 0, ptr %lock_requests_pending, align 8
   store i64 0, ptr %sto_num_eligible, align 8
   store i64 0, ptr %sto_end_early_count, align 8
@@ -2284,75 +2293,75 @@ if.then:                                          ; preds = %do.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr %num_locktrees, align 4
-  %cmp3 = icmp ult i32 %9, %10
+  %18 = load i32, ptr %i, align 4
+  %19 = load i32, ptr %num_locktrees, align 4
+  %cmp3 = icmp ult i32 %18, %19
   br i1 %cmp3, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_locktree_map4 = getelementptr inbounds %"class.toku::locktree_manager", ptr %this1, i32 0, i32 7
-  %11 = load i32, ptr %i, align 4
-  %call5 = call noundef i32 @_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE5fetchEjPS2_(ptr noundef nonnull align 8 dereferenceable(24) %m_locktree_map4, i32 noundef %11, ptr noundef %lt)
+  %20 = load i32, ptr %i, align 4
+  %call5 = call noundef i32 @_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE5fetchEjPS2_(ptr noundef nonnull align 8 dereferenceable(24) %m_locktree_map4, i32 noundef %20, ptr noundef %lt)
   store i32 %call5, ptr %r, align 4
-  %12 = load i32, ptr %r, align 4
-  %cmp6 = icmp eq i32 %12, 22
+  %21 = load i32, ptr %r, align 4
+  %cmp6 = icmp eq i32 %21, 22
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %for.body
   br label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %13 = load ptr, ptr %lt, align 8
-  %m_lock_request_info = getelementptr inbounds %"class.toku::locktree", ptr %13, i32 0, i32 9
+  %22 = load ptr, ptr %lt, align 8
+  %m_lock_request_info = getelementptr inbounds %"class.toku::locktree", ptr %22, i32 0, i32 9
   %mutex = getelementptr inbounds %"struct.toku::lt_lock_request_info", ptr %m_lock_request_info, i32 0, i32 3
   %call8 = call noundef i32 @_Z27toku_external_mutex_trylockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE(ptr noundef %mutex)
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %if.end
-  %14 = load ptr, ptr %lt, align 8
-  %m_lock_request_info11 = getelementptr inbounds %"class.toku::locktree", ptr %14, i32 0, i32 9
+  %23 = load ptr, ptr %lt, align 8
+  %m_lock_request_info11 = getelementptr inbounds %"class.toku::locktree", ptr %23, i32 0, i32 9
   %pending_lock_requests = getelementptr inbounds %"struct.toku::lt_lock_request_info", ptr %m_lock_request_info11, i32 0, i32 0
   %call12 = call noundef i32 @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %pending_lock_requests)
   %conv = zext i32 %call12 to i64
-  %15 = load i64, ptr %lock_requests_pending, align 8
-  %add = add i64 %15, %conv
+  %24 = load i64, ptr %lock_requests_pending, align 8
+  %add = add i64 %24, %conv
   store i64 %add, ptr %lock_requests_pending, align 8
-  %16 = load ptr, ptr %lt, align 8
-  %call13 = call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %16)
+  %25 = load ptr, ptr %lt, align 8
+  %call13 = call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %25)
   %counters = getelementptr inbounds %"struct.toku::lt_lock_request_info", ptr %call13, i32 0, i32 6
   call void @_ZN4toku11lt_counters3addERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %lt_counters, ptr noundef nonnull align 8 dereferenceable(40) %counters)
-  %17 = load ptr, ptr %lt, align 8
-  %m_lock_request_info14 = getelementptr inbounds %"class.toku::locktree", ptr %17, i32 0, i32 9
+  %26 = load ptr, ptr %lt, align 8
+  %m_lock_request_info14 = getelementptr inbounds %"class.toku::locktree", ptr %26, i32 0, i32 9
   %mutex15 = getelementptr inbounds %"struct.toku::lt_lock_request_info", ptr %m_lock_request_info14, i32 0, i32 3
   call void @_Z26toku_external_mutex_unlockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE(ptr noundef %mutex15)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then10, %if.end
-  %18 = load ptr, ptr %lt, align 8
-  %call17 = call noundef zeroext i1 @_ZNK4toku8locktree25sto_txnid_is_valid_unsafeEv(ptr noundef nonnull align 8 dereferenceable(400) %18)
+  %27 = load ptr, ptr %lt, align 8
+  %call17 = call noundef zeroext i1 @_ZNK4toku8locktree25sto_txnid_is_valid_unsafeEv(ptr noundef nonnull align 8 dereferenceable(400) %27)
   %cond = select i1 %call17, i32 1, i32 0
   %conv18 = sext i32 %cond to i64
-  %19 = load i64, ptr %sto_num_eligible, align 8
-  %add19 = add i64 %19, %conv18
+  %28 = load i64, ptr %sto_num_eligible, align 8
+  %add19 = add i64 %28, %conv18
   store i64 %add19, ptr %sto_num_eligible, align 8
-  %20 = load ptr, ptr %lt, align 8
-  %m_sto_end_early_count = getelementptr inbounds %"class.toku::locktree", ptr %20, i32 0, i32 13
-  %21 = load i64, ptr %m_sto_end_early_count, align 8
-  %22 = load i64, ptr %sto_end_early_count, align 8
-  %add20 = add i64 %22, %21
+  %29 = load ptr, ptr %lt, align 8
+  %m_sto_end_early_count = getelementptr inbounds %"class.toku::locktree", ptr %29, i32 0, i32 13
+  %30 = load i64, ptr %m_sto_end_early_count, align 8
+  %31 = load i64, ptr %sto_end_early_count, align 8
+  %add20 = add i64 %31, %30
   store i64 %add20, ptr %sto_end_early_count, align 8
-  %23 = load ptr, ptr %lt, align 8
-  %m_sto_end_early_time = getelementptr inbounds %"class.toku::locktree", ptr %23, i32 0, i32 14
-  %24 = load i64, ptr %m_sto_end_early_time, align 8
-  %25 = load i64, ptr %sto_end_early_time, align 8
-  %add21 = add i64 %25, %24
+  %32 = load ptr, ptr %lt, align 8
+  %m_sto_end_early_time = getelementptr inbounds %"class.toku::locktree", ptr %32, i32 0, i32 14
+  %33 = load i64, ptr %m_sto_end_early_time, align 8
+  %34 = load i64, ptr %sto_end_early_time, align 8
+  %add21 = add i64 %34, %33
   store i64 %add21, ptr %sto_end_early_time, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16, %if.then7
-  %26 = load i32, ptr %i, align 4
-  %inc = add i32 %26, 1
+  %35 = load i32, ptr %i, align 4
+  %inc = add i32 %35, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
@@ -2361,34 +2370,44 @@ for.end:                                          ; preds = %for.cond
   br label %if.end22
 
 if.end22:                                         ; preds = %for.end, %do.end
-  %27 = load i32, ptr %num_locktrees, align 4
-  %conv23 = zext i32 %27 to i64
-  store i64 %conv23, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 5, i32 5), align 8
-  %28 = load i64, ptr %lock_requests_pending, align 8
-  store i64 %28, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 6, i32 5), align 8
-  %29 = load i64, ptr %sto_num_eligible, align 8
-  store i64 %29, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 7, i32 5), align 8
-  %30 = load i64, ptr %sto_end_early_count, align 8
-  store i64 %30, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 8, i32 5), align 8
-  %31 = load i64, ptr %sto_end_early_time, align 8
-  store i64 %31, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 9, i32 5), align 8
+  %36 = load i32, ptr %num_locktrees, align 4
+  %conv23 = zext i32 %36 to i64
+  %37 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 5, i32 5
+  store i64 %conv23, ptr %37, align 8
+  %38 = load i64, ptr %lock_requests_pending, align 8
+  %39 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 6, i32 5
+  store i64 %38, ptr %39, align 8
+  %40 = load i64, ptr %sto_num_eligible, align 8
+  %41 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 7, i32 5
+  store i64 %40, ptr %41, align 8
+  %42 = load i64, ptr %sto_end_early_count, align 8
+  %43 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 8, i32 5
+  store i64 %42, ptr %43, align 8
+  %44 = load i64, ptr %sto_end_early_time, align 8
+  %45 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 9, i32 5
+  store i64 %44, ptr %45, align 8
   %wait_count = getelementptr inbounds %"struct.toku::lt_counters", ptr %lt_counters, i32 0, i32 0
-  %32 = load i64, ptr %wait_count, align 8
-  store i64 %32, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 10, i32 5), align 8
+  %46 = load i64, ptr %wait_count, align 8
+  %47 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 10, i32 5
+  store i64 %46, ptr %47, align 8
   %wait_time = getelementptr inbounds %"struct.toku::lt_counters", ptr %lt_counters, i32 0, i32 1
-  %33 = load i64, ptr %wait_time, align 8
-  store i64 %33, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 11, i32 5), align 8
+  %48 = load i64, ptr %wait_time, align 8
+  %49 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 11, i32 5
+  store i64 %48, ptr %49, align 8
   %long_wait_count = getelementptr inbounds %"struct.toku::lt_counters", ptr %lt_counters, i32 0, i32 2
-  %34 = load i64, ptr %long_wait_count, align 8
-  store i64 %34, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 12, i32 5), align 8
+  %50 = load i64, ptr %long_wait_count, align 8
+  %51 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 12, i32 5
+  store i64 %50, ptr %51, align 8
   %long_wait_time = getelementptr inbounds %"struct.toku::lt_counters", ptr %lt_counters, i32 0, i32 3
-  %35 = load i64, ptr %long_wait_time, align 8
-  store i64 %35, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 13, i32 5), align 8
+  %52 = load i64, ptr %long_wait_time, align 8
+  %53 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 13, i32 5
+  store i64 %52, ptr %53, align 8
   %timeout_count = getelementptr inbounds %"struct.toku::lt_counters", ptr %lt_counters, i32 0, i32 4
-  %36 = load i64, ptr %timeout_count, align 8
-  store i64 %36, ptr getelementptr inbounds ([19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 14, i32 5), align 8
-  %37 = load ptr, ptr %statp.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 @ltm_status, i64 1217, i1 false)
+  %54 = load i64, ptr %timeout_count, align 8
+  %55 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr @ltm_status, i64 0, i64 14, i32 5
+  store i64 %54, ptr %55, align 8
+  %56 = load ptr, ptr %statp.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 @ltm_status, i64 1217, i1 false)
   ret void
 }
 

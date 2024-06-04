@@ -1183,8 +1183,10 @@ declare void @register_init_routine(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @proto_init_6lowpan() #0 {
   store i32 0, ptr @lowpan_context_local, align 4
-  store i8 10, ptr getelementptr inbounds (%struct.lowpan_context_data, ptr @lowpan_context_local, i32 0, i32 1), align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 getelementptr inbounds (%struct.lowpan_context_data, ptr @lowpan_context_local, i32 0, i32 2), ptr align 1 @lowpan_llprefix, i64 8, i1 false)
+  %1 = getelementptr inbounds %struct.lowpan_context_data, ptr @lowpan_context_local, i32 0, i32 1
+  store i8 10, ptr %1, align 4
+  %2 = getelementptr inbounds %struct.lowpan_context_data, ptr @lowpan_context_local, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 @lowpan_llprefix, i64 8, i1 false)
   call void @prefs_6lowpan_apply()
   ret void
 }

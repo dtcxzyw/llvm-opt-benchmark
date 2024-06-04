@@ -269,51 +269,53 @@ define { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h3c611f32119
   ret { i32, i32 } %140
 
 141:                                              ; preds = %32
-  br i1 false, label %151, label %143
+  br i1 false, label %152, label %143
 
 142:                                              ; preds = %32
-  br i1 false, label %160, label %152
+  br i1 false, label %162, label %153
 
 143:                                              ; preds = %141
   store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.1, ptr %8, align 8
   %144 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 1, ptr %144, align 8
   %145 = load ptr, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, align 8, !align !7, !noundef !4
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, i64 8), align 8
-  %147 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %8, i32 0, i32 2
-  store ptr %145, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
-  store i64 %146, ptr %148, align 8
-  %149 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %8, i32 0, i32 1
-  store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.2, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
-  store i64 0, ptr %150, align 8
+  %146 = getelementptr inbounds i8, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, i64 8
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %8, i32 0, i32 2
+  store ptr %145, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  store i64 %147, ptr %149, align 8
+  %150 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %8, i32 0, i32 1
+  store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.2, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  store i64 0, ptr %151, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %8, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.5) #2
   unreachable
 
-151:                                              ; preds = %141
+152:                                              ; preds = %141
   call void @_ZN4core3fmt9Arguments9new_const17haa819980d22ccd1aE(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.7, i64 1)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %7, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.9) #2
   unreachable
 
-152:                                              ; preds = %142
+153:                                              ; preds = %142
   store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.11, ptr %9, align 8
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 1, ptr %153, align 8
-  %154 = load ptr, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, align 8, !align !7, !noundef !4
-  %155 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, i64 8), align 8
-  %156 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 2
-  store ptr %154, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
-  store i64 %155, ptr %157, align 8
-  %158 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 1
-  store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.2, ptr %158, align 8
+  %154 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 1, ptr %154, align 8
+  %155 = load ptr, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, align 8, !align !7, !noundef !4
+  %156 = getelementptr inbounds i8, ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.3, i64 8
+  %157 = load i64, ptr %156, align 8
+  %158 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 2
+  store ptr %155, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 8
-  store i64 0, ptr %159, align 8
+  store i64 %157, ptr %159, align 8
+  %160 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 1
+  store ptr @anon.a7fffdc7f7e6d431755c0e940be27f38.2, ptr %160, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  store i64 0, ptr %161, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %9, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.12) #2
   unreachable
 
-160:                                              ; preds = %142
+162:                                              ; preds = %142
   call void @_ZN4core3fmt9Arguments9new_const17haa819980d22ccd1aE(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.7, i64 1)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %6, ptr align 8 @anon.a7fffdc7f7e6d431755c0e940be27f38.9) #2
   unreachable

@@ -7002,40 +7002,41 @@ define void @_ZN4SSAOC2Ef(ptr noundef nonnull align 8 dereferenceable(100) %0, f
   store float %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14DecorateShaderC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV4SSAO, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = load float, ptr %4, align 4
-  %7 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 1
-  store float %6, ptr %7, align 8
-  %8 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 9
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 5
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV4SSAO, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = load float, ptr %4, align 4
+  %8 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 1
+  store float %7, ptr %8, align 8
+  %9 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 9
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 13
+  %10 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 5
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 12
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 11
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 8
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 6
+  %11 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 13
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 12
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 11
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 8
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 15
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 16
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 14
+  %15 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 6
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 15
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 16
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 18
+  %18 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 14
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 19
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 17
+  %19 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 18
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 19
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %class.DecorateShader, ptr %5, i32 0, i32 4
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 10
+  %21 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 17
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %class.DecorateShader, ptr %5, i32 0, i32 4
   store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds %class.SSAO, ptr %5, i32 0, i32 10
+  store i32 0, ptr %23, align 4
   ret void
 }
 
@@ -7044,13 +7045,14 @@ define linkonce_odr void @_ZN14DecorateShaderC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14DecorateShader, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 2
-  store i32 1024, ptr %5, align 4
-  %6 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 3
-  store i32 1024, ptr %6, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV14DecorateShader, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 2
+  store i32 1024, ptr %6, align 4
+  %7 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 3
+  store i32 1024, ptr %7, align 8
   ret void
 }
 
@@ -7076,170 +7078,171 @@ define void @_ZN4SSAOD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) u
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV4SSAO, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr @__glewDetachShader, align 8
-  %5 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 12
-  %8 = load i32, ptr %7, align 4
-  invoke void %4(i32 noundef %6, i32 noundef %8)
-          to label %9 unwind label %93
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV4SSAO, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr @__glewDetachShader, align 8
+  %6 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 12
+  %9 = load i32, ptr %8, align 4
+  invoke void %5(i32 noundef %7, i32 noundef %9)
+          to label %10 unwind label %94
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr @__glewDetachShader, align 8
-  %11 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 13
-  %14 = load i32, ptr %13, align 8
-  invoke void %10(i32 noundef %12, i32 noundef %14)
-          to label %15 unwind label %93
+10:                                               ; preds = %1
+  %11 = load ptr, ptr @__glewDetachShader, align 8
+  %12 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 13
+  %15 = load i32, ptr %14, align 8
+  invoke void %11(i32 noundef %13, i32 noundef %15)
+          to label %16 unwind label %94
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr @__glewDeleteShader, align 8
-  %17 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 12
-  %18 = load i32, ptr %17, align 4
-  invoke void %16(i32 noundef %18)
-          to label %19 unwind label %93
+16:                                               ; preds = %10
+  %17 = load ptr, ptr @__glewDeleteShader, align 8
+  %18 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 12
+  %19 = load i32, ptr %18, align 4
+  invoke void %17(i32 noundef %19)
+          to label %20 unwind label %94
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr @__glewDeleteShader, align 8
-  %21 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 13
-  %22 = load i32, ptr %21, align 8
-  invoke void %20(i32 noundef %22)
-          to label %23 unwind label %93
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @__glewDeleteShader, align 8
+  %22 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 13
+  %23 = load i32, ptr %22, align 8
+  invoke void %21(i32 noundef %23)
+          to label %24 unwind label %94
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr @__glewDeleteProgram, align 8
-  %25 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
-  %26 = load i32, ptr %25, align 8
-  invoke void %24(i32 noundef %26)
-          to label %27 unwind label %93
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @__glewDeleteProgram, align 8
+  %26 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 11
+  %27 = load i32, ptr %26, align 8
+  invoke void %25(i32 noundef %27)
+          to label %28 unwind label %94
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr @__glewDetachShader, align 8
-  %29 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 15
-  %32 = load i32, ptr %31, align 8
-  invoke void %28(i32 noundef %30, i32 noundef %32)
-          to label %33 unwind label %93
+28:                                               ; preds = %24
+  %29 = load ptr, ptr @__glewDetachShader, align 8
+  %30 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 15
+  %33 = load i32, ptr %32, align 8
+  invoke void %29(i32 noundef %31, i32 noundef %33)
+          to label %34 unwind label %94
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr @__glewDetachShader, align 8
-  %35 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 16
-  %38 = load i32, ptr %37, align 4
-  invoke void %34(i32 noundef %36, i32 noundef %38)
-          to label %39 unwind label %93
+34:                                               ; preds = %28
+  %35 = load ptr, ptr @__glewDetachShader, align 8
+  %36 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 16
+  %39 = load i32, ptr %38, align 4
+  invoke void %35(i32 noundef %37, i32 noundef %39)
+          to label %40 unwind label %94
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr @__glewDeleteShader, align 8
-  %41 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 15
-  %42 = load i32, ptr %41, align 8
-  invoke void %40(i32 noundef %42)
-          to label %43 unwind label %93
+40:                                               ; preds = %34
+  %41 = load ptr, ptr @__glewDeleteShader, align 8
+  %42 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 15
+  %43 = load i32, ptr %42, align 8
+  invoke void %41(i32 noundef %43)
+          to label %44 unwind label %94
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr @__glewDeleteShader, align 8
-  %45 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 16
-  %46 = load i32, ptr %45, align 4
-  invoke void %44(i32 noundef %46)
-          to label %47 unwind label %93
+44:                                               ; preds = %40
+  %45 = load ptr, ptr @__glewDeleteShader, align 8
+  %46 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 16
+  %47 = load i32, ptr %46, align 4
+  invoke void %45(i32 noundef %47)
+          to label %48 unwind label %94
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr @__glewDeleteProgram, align 8
-  %49 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
-  %50 = load i32, ptr %49, align 4
-  invoke void %48(i32 noundef %50)
-          to label %51 unwind label %93
+48:                                               ; preds = %44
+  %49 = load ptr, ptr @__glewDeleteProgram, align 8
+  %50 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 14
+  %51 = load i32, ptr %50, align 4
+  invoke void %49(i32 noundef %51)
+          to label %52 unwind label %94
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr @__glewDetachShader, align 8
-  %53 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 18
-  %56 = load i32, ptr %55, align 4
-  invoke void %52(i32 noundef %54, i32 noundef %56)
-          to label %57 unwind label %93
+52:                                               ; preds = %48
+  %53 = load ptr, ptr @__glewDetachShader, align 8
+  %54 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 18
+  %57 = load i32, ptr %56, align 4
+  invoke void %53(i32 noundef %55, i32 noundef %57)
+          to label %58 unwind label %94
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr @__glewDetachShader, align 8
-  %59 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 19
-  %62 = load i32, ptr %61, align 8
-  invoke void %58(i32 noundef %60, i32 noundef %62)
-          to label %63 unwind label %93
+58:                                               ; preds = %52
+  %59 = load ptr, ptr @__glewDetachShader, align 8
+  %60 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 19
+  %63 = load i32, ptr %62, align 8
+  invoke void %59(i32 noundef %61, i32 noundef %63)
+          to label %64 unwind label %94
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr @__glewDeleteShader, align 8
-  %65 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 18
-  %66 = load i32, ptr %65, align 4
-  invoke void %64(i32 noundef %66)
-          to label %67 unwind label %93
+64:                                               ; preds = %58
+  %65 = load ptr, ptr @__glewDeleteShader, align 8
+  %66 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 18
+  %67 = load i32, ptr %66, align 4
+  invoke void %65(i32 noundef %67)
+          to label %68 unwind label %94
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr @__glewDeleteShader, align 8
-  %69 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 19
-  %70 = load i32, ptr %69, align 8
-  invoke void %68(i32 noundef %70)
-          to label %71 unwind label %93
+68:                                               ; preds = %64
+  %69 = load ptr, ptr @__glewDeleteShader, align 8
+  %70 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 19
+  %71 = load i32, ptr %70, align 8
+  invoke void %69(i32 noundef %71)
+          to label %72 unwind label %94
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @__glewDeleteProgram, align 8
-  %73 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
-  %74 = load i32, ptr %73, align 8
-  invoke void %72(i32 noundef %74)
-          to label %75 unwind label %93
+72:                                               ; preds = %68
+  %73 = load ptr, ptr @__glewDeleteProgram, align 8
+  %74 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 17
+  %75 = load i32, ptr %74, align 8
+  invoke void %73(i32 noundef %75)
+          to label %76 unwind label %94
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 5
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %76)
-          to label %77 unwind label %93
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 5
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %77)
+          to label %78 unwind label %94
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 8
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %78)
-          to label %79 unwind label %93
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 8
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %79)
+          to label %80 unwind label %94
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr @__glewDeleteFramebuffers, align 8
-  %81 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 9
-  invoke void %80(i32 noundef 1, ptr noundef %81)
-          to label %82 unwind label %93
+80:                                               ; preds = %78
+  %81 = load ptr, ptr @__glewDeleteFramebuffers, align 8
+  %82 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 9
+  invoke void %81(i32 noundef 1, ptr noundef %82)
+          to label %83 unwind label %94
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 6
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %83)
-          to label %84 unwind label %93
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 6
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %84)
+          to label %85 unwind label %94
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 6
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %85)
-          to label %86 unwind label %93
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 6
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %86)
+          to label %87 unwind label %94
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr @__glewDeleteFramebuffers, align 8
-  %88 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 4
-  invoke void %87(i32 noundef 1, ptr noundef %88)
-          to label %89 unwind label %93
+87:                                               ; preds = %85
+  %88 = load ptr, ptr @__glewDeleteFramebuffers, align 8
+  %89 = getelementptr inbounds %class.DecorateShader, ptr %3, i32 0, i32 4
+  invoke void %88(i32 noundef 1, ptr noundef %89)
+          to label %90 unwind label %94
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr @__glewDeleteFramebuffers, align 8
-  %91 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 10
-  invoke void %90(i32 noundef 1, ptr noundef %91)
-          to label %92 unwind label %93
+90:                                               ; preds = %87
+  %91 = load ptr, ptr @__glewDeleteFramebuffers, align 8
+  %92 = getelementptr inbounds %class.SSAO, ptr %3, i32 0, i32 10
+  invoke void %91(i32 noundef 1, ptr noundef %92)
+          to label %93 unwind label %94
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   call void @_ZN14DecorateShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
   ret void
 
-93:                                               ; preds = %89, %86, %84, %82, %79, %77, %75, %71, %67, %63, %57, %51, %47, %43, %39, %33, %27, %23, %19, %15, %9, %1
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %90, %87, %85, %83, %80, %78, %76, %72, %68, %64, %58, %52, %48, %44, %40, %34, %28, %24, %20, %16, %10, %1
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #19
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #19
   unreachable
 }
 
@@ -11113,34 +11116,35 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionC2EPKc(ptr noun
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -11150,9 +11154,10 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -11164,7 +11169,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

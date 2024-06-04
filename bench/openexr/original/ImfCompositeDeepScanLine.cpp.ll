@@ -1955,7 +1955,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_Data = getelementptr inbounds %"class.Imf_3_2::CompositeDeepScanLine", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #14
   invoke void @_ZN7Imf_3_221CompositeDeepScanLine4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %call)
@@ -1966,12 +1967,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #15
   br label %eh.resume
 
@@ -1997,15 +1998,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_Data = getelementptr inbounds %"class.Imf_3_2::CompositeDeepScanLine", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_Data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_Data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN7Imf_3_221CompositeDeepScanLine4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #3
-  call void @_ZdlPv(ptr noundef %0) #15
+  call void @_ZN7Imf_3_221CompositeDeepScanLine4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %1) #3
+  call void @_ZdlPv(ptr noundef %1) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -5491,28 +5493,29 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %group.addr, align 8
   call void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineCompositeTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineCompositeTaskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_Data = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %_Data, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %_Data, align 8
   %_y = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %y.addr, align 4
-  store i32 %2, ptr %_y, align 8
+  %3 = load i32, ptr %y.addr, align 4
+  store i32 %3, ptr %_y, align 8
   %_start = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %start.addr, align 4
-  store i32 %3, ptr %_start, align 4
+  %4 = load i32, ptr %start.addr, align 4
+  store i32 %4, ptr %_start, align 4
   %_names = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %names.addr, align 8
-  store ptr %4, ptr %_names, align 8
+  %5 = load ptr, ptr %names.addr, align 8
+  store ptr %5, ptr %_names, align 8
   %_pointers = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %pointers.addr, align 8
-  store ptr %5, ptr %_pointers, align 8
+  %6 = load ptr, ptr %pointers.addr, align 8
+  store ptr %6, ptr %_pointers, align 8
   %_total_sizes = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %total_sizes.addr, align 8
-  store ptr %6, ptr %_total_sizes, align 8
+  %7 = load ptr, ptr %total_sizes.addr, align 8
+  store ptr %7, ptr %_total_sizes, align 8
   %_num_sources = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineCompositeTask", ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %num_sources.addr, align 8
-  store ptr %7, ptr %_num_sources, align 8
+  %8 = load ptr, ptr %num_sources.addr, align 8
+  store ptr %8, ptr %_num_sources, align 8
   ret void
 }
 

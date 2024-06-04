@@ -1657,18 +1657,19 @@ while.body:                                       ; preds = %land.end
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %while.body
-  %11 = load i8, ptr getelementptr inbounds ([256 x i8], ptr @_ZL15ebcdicFromAscii, i64 0, i64 63), align 1
-  store i8 %11, ptr %ch, align 1
+  %11 = getelementptr inbounds [256 x i8], ptr @_ZL15ebcdicFromAscii, i64 0, i64 63
+  %12 = load i8, ptr %11, align 1
+  store i8 %12, ptr %ch, align 1
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %while.body
-  %12 = load i8, ptr %ch, align 1
-  %13 = load ptr, ptr %dst.addr, align 8
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %13, i32 1
+  %13 = load i8, ptr %ch, align 1
+  %14 = load ptr, ptr %dst.addr, align 8
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %14, i32 1
   store ptr %incdec.ptr6, ptr %dst.addr, align 8
-  store i8 %12, ptr %13, align 1
-  %14 = load i32, ptr %n.addr, align 4
-  %dec = add nsw i32 %14, -1
+  store i8 %13, ptr %14, align 1
+  %15 = load i32, ptr %n.addr, align 4
+  %dec = add nsw i32 %15, -1
   store i32 %dec, ptr %n.addr, align 4
   br label %while.cond, !llvm.loop !18
 
@@ -1676,23 +1677,23 @@ while.end:                                        ; preds = %land.end
   br label %while.cond7
 
 while.cond7:                                      ; preds = %while.body9, %while.end
-  %15 = load i32, ptr %n.addr, align 4
-  %cmp8 = icmp sgt i32 %15, 0
+  %16 = load i32, ptr %n.addr, align 4
+  %cmp8 = icmp sgt i32 %16, 0
   br i1 %cmp8, label %while.body9, label %while.end12
 
 while.body9:                                      ; preds = %while.cond7
-  %16 = load ptr, ptr %dst.addr, align 8
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %16, i32 1
+  %17 = load ptr, ptr %dst.addr, align 8
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %17, i32 1
   store ptr %incdec.ptr10, ptr %dst.addr, align 8
-  store i8 0, ptr %16, align 1
-  %17 = load i32, ptr %n.addr, align 4
-  %dec11 = add nsw i32 %17, -1
+  store i8 0, ptr %17, align 1
+  %18 = load i32, ptr %n.addr, align 4
+  %dec11 = add nsw i32 %18, -1
   store i32 %dec11, ptr %n.addr, align 4
   br label %while.cond7, !llvm.loop !19
 
 while.end12:                                      ; preds = %while.cond7
-  %18 = load ptr, ptr %orig_dst, align 8
-  ret ptr %18
+  %19 = load ptr, ptr %orig_dst, align 8
+  ret ptr %19
 }
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -76,7 +76,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %delegate, ptr %delegate.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %delegate_, ptr noundef nonnull align 8 dereferenceable(8) %delegate)
   %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
@@ -89,12 +90,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #8
   br label %eh.resume
 
@@ -163,7 +164,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #8
   ret void

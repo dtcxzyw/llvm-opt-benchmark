@@ -22,9 +22,10 @@ entry:
   store i32 %enabled, ptr %enabled.addr, align 4
   store float %min_skip, ptr %min_skip.addr, align 4
   %0 = load float, ptr %min_skip.addr, align 4
-  store float %0, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 2), align 8
-  %1 = load i32, ptr %enabled.addr, align 4
-  %tobool = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 2
+  store float %0, ptr %1, align 8
+  %2 = load i32, ptr %enabled.addr, align 4
+  %tobool = icmp ne i32 %2, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -42,8 +43,10 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @progress_simple_init() #0 {
 entry:
-  store ptr @progress_simple_print, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 3), align 8
-  store ptr @progress_simple_end, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 4), align 8
+  %0 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 3
+  store ptr @progress_simple_print, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 4
+  store ptr @progress_simple_end, ptr %1, align 8
   ret void
 }
 
@@ -63,16 +66,19 @@ entry:
   %call2 = call i32 @sigemptyset(ptr noundef %set) #5
   %call3 = call i32 @sigaddset(ptr noundef %set, i32 noundef 10) #5
   %call4 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef %set, ptr noundef null) #5
-  store ptr @progress_dummy_print, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 3), align 8
-  store ptr @progress_dummy_end, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 4), align 8
+  %0 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 3
+  store ptr @progress_dummy_print, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 4
+  store ptr @progress_dummy_end, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_progress_end() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 4), align 8
-  call void %0()
+  %0 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  call void %1()
   ret void
 }
 
@@ -116,35 +122,41 @@ if.end4:                                          ; preds = %if.then3, %if.end
   %7 = load float, ptr %current, align 4
   store float %7, ptr @state, align 8
   %8 = load float, ptr %current, align 4
-  %9 = load float, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 1), align 4
-  %10 = load float, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 2), align 8
-  %add = fadd float %9, %10
+  %9 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 1
+  %10 = load float, ptr %9, align 4
+  %11 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 2
+  %12 = load float, ptr %11, align 8
+  %add = fadd float %10, %12
   %cmp5 = fcmp ogt float %8, %add
   br i1 %cmp5, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %11 = load float, ptr %current, align 4
-  %12 = load float, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 1), align 4
-  %13 = load float, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 2), align 8
-  %sub = fsub float %12, %13
-  %cmp7 = fcmp olt float %11, %sub
+  %13 = load float, ptr %current, align 4
+  %14 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 1
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 2
+  %17 = load float, ptr %16, align 8
+  %sub = fsub float %15, %17
+  %cmp7 = fcmp olt float %13, %sub
   br i1 %cmp7, label %if.then15, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %14 = load float, ptr %current, align 4
-  %cmp10 = fcmp oeq float %14, 1.000000e+02
+  %18 = load float, ptr %current, align 4
+  %cmp10 = fcmp oeq float %18, 1.000000e+02
   br i1 %cmp10, label %if.then15, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false9
-  %15 = load float, ptr %current, align 4
-  %cmp13 = fcmp oeq float %15, 0.000000e+00
+  %19 = load float, ptr %current, align 4
+  %cmp13 = fcmp oeq float %19, 0.000000e+00
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %lor.lhs.false12, %lor.lhs.false9, %lor.lhs.false, %if.end4
-  %16 = load float, ptr @state, align 8
-  store float %16, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 1), align 4
-  %17 = load ptr, ptr getelementptr inbounds (%struct.progress_state, ptr @state, i32 0, i32 3), align 8
-  call void %17()
+  %20 = load float, ptr @state, align 8
+  %21 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 1
+  store float %20, ptr %21, align 4
+  %22 = getelementptr inbounds %struct.progress_state, ptr @state, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8
+  call void %23()
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %lor.lhs.false12

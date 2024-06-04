@@ -1643,35 +1643,36 @@ define dso_local void @_ZN23cmCommonTargetGeneratorC2EP17cmGeneratorTarget(ptr n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23cmCommonTargetGenerator, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 2
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.cmGeneratorTarget, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 3
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.cmGeneratorTarget, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %class.cmGeneratorTarget, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef ptr @_ZN16cmLocalGenerator18GetGlobalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(824) %19)
-  store ptr %20, ptr %16, align 8
-  %21 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 5
-  %22 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 3
-  %23 = load ptr, ptr %22, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK22cmLocalCommonGenerator14GetConfigNamesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(848) %23)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %24)
-  %25 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 6
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN23cmCommonTargetGenerator8ByConfigESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %26) #3
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV23cmCommonTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %class.cmGeneratorTarget, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 3
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %class.cmGeneratorTarget, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %class.cmGeneratorTarget, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr @_ZN16cmLocalGenerator18GetGlobalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(824) %20)
+  store ptr %21, ptr %17, align 8
+  %22 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 5
+  %23 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK22cmLocalCommonGenerator14GetConfigNamesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(848) %24)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %26 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 6
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %5, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN23cmCommonTargetGenerator8ByConfigESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #3
   ret void
 }
 
@@ -1784,11 +1785,12 @@ define dso_local void @_ZN23cmCommonTargetGeneratorD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23cmCommonTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %3, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN23cmCommonTargetGenerator8ByConfigESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV23cmCommonTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %3, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN23cmCommonTargetGenerator8ByConfigESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmCommonTargetGenerator, ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 

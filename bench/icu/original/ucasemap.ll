@@ -3991,128 +3991,130 @@ lor.rhs278:                                       ; preds = %lor.lhs.false272
   %arrayidx281 = getelementptr inbounds i8, ptr %146, i64 %idxprom280
   %148 = load i8, ptr %arrayidx281, align 1
   %conv282 = zext i8 %148 to i32
-  %149 = load i8, ptr getelementptr inbounds ([3 x i8], ptr @.str.2, i64 0, i64 1), align 1
-  %conv283 = zext i8 %149 to i32
+  %149 = getelementptr inbounds [3 x i8], ptr @.str.2, i64 0, i64 1
+  %150 = load i8, ptr %149, align 1
+  %conv283 = zext i8 %150 to i32
   %cmp284 = icmp ne i32 %conv282, %conv283
   br label %lor.end285
 
 lor.end285:                                       ; preds = %lor.rhs278, %lor.lhs.false272, %if.then269
-  %150 = phi i1 [ true, %lor.lhs.false272 ], [ true, %if.then269 ], [ %cmp284, %lor.rhs278 ]
-  %conv286 = zext i1 %150 to i32
-  %151 = load i8, ptr %change, align 1
-  %conv287 = sext i8 %151 to i32
+  %151 = phi i1 [ true, %lor.lhs.false272 ], [ true, %if.then269 ], [ %cmp284, %lor.rhs278 ]
+  %conv286 = zext i1 %151 to i32
+  %152 = load i8, ptr %change, align 1
+  %conv287 = sext i8 %152 to i32
   %or288 = or i32 %conv287, %conv286
   %conv289 = trunc i32 %or288 to i8
   store i8 %conv289, ptr %change, align 1
-  %152 = load i32, ptr %i2, align 4
-  %add290 = add nsw i32 %152, 2
+  %153 = load i32, ptr %i2, align 4
+  %add290 = add nsw i32 %153, 2
   store i32 %add290, ptr %i2, align 4
   br label %if.end291
 
 if.end291:                                        ; preds = %lor.end285, %lor.end
-  %153 = load i8, ptr %addTonos, align 1
-  %tobool292 = icmp ne i8 %153, 0
+  %154 = load i8, ptr %addTonos, align 1
+  %tobool292 = icmp ne i8 %154, 0
   br i1 %tobool292, label %if.then293, label %if.end315
 
 if.then293:                                       ; preds = %if.end291
-  %154 = load i32, ptr %i2, align 4
-  %add294 = add nsw i32 %154, 2
-  %155 = load i32, ptr %nextIndex, align 4
-  %cmp295 = icmp sgt i32 %add294, %155
+  %155 = load i32, ptr %i2, align 4
+  %add294 = add nsw i32 %155, 2
+  %156 = load i32, ptr %nextIndex, align 4
+  %cmp295 = icmp sgt i32 %add294, %156
   br i1 %cmp295, label %lor.end309, label %lor.lhs.false296
 
 lor.lhs.false296:                                 ; preds = %if.then293
-  %156 = load ptr, ptr %src.addr, align 8
-  %157 = load i32, ptr %i2, align 4
-  %idxprom297 = sext i32 %157 to i64
-  %arrayidx298 = getelementptr inbounds i8, ptr %156, i64 %idxprom297
-  %158 = load i8, ptr %arrayidx298, align 1
-  %conv299 = zext i8 %158 to i32
-  %159 = load i8, ptr @.str.3, align 1
-  %conv300 = zext i8 %159 to i32
+  %157 = load ptr, ptr %src.addr, align 8
+  %158 = load i32, ptr %i2, align 4
+  %idxprom297 = sext i32 %158 to i64
+  %arrayidx298 = getelementptr inbounds i8, ptr %157, i64 %idxprom297
+  %159 = load i8, ptr %arrayidx298, align 1
+  %conv299 = zext i8 %159 to i32
+  %160 = load i8, ptr @.str.3, align 1
+  %conv300 = zext i8 %160 to i32
   %cmp301 = icmp ne i32 %conv299, %conv300
   br i1 %cmp301, label %lor.end309, label %lor.rhs302
 
 lor.rhs302:                                       ; preds = %lor.lhs.false296
-  %160 = load ptr, ptr %src.addr, align 8
-  %161 = load i32, ptr %i2, align 4
-  %add303 = add nsw i32 %161, 1
+  %161 = load ptr, ptr %src.addr, align 8
+  %162 = load i32, ptr %i2, align 4
+  %add303 = add nsw i32 %162, 1
   %idxprom304 = sext i32 %add303 to i64
-  %arrayidx305 = getelementptr inbounds i8, ptr %160, i64 %idxprom304
-  %162 = load i8, ptr %arrayidx305, align 1
-  %conv306 = zext i8 %162 to i32
-  %163 = load i8, ptr getelementptr inbounds ([3 x i8], ptr @.str.3, i64 0, i64 1), align 1
-  %conv307 = zext i8 %163 to i32
+  %arrayidx305 = getelementptr inbounds i8, ptr %161, i64 %idxprom304
+  %163 = load i8, ptr %arrayidx305, align 1
+  %conv306 = zext i8 %163 to i32
+  %164 = getelementptr inbounds [3 x i8], ptr @.str.3, i64 0, i64 1
+  %165 = load i8, ptr %164, align 1
+  %conv307 = zext i8 %165 to i32
   %cmp308 = icmp ne i32 %conv306, %conv307
   br label %lor.end309
 
 lor.end309:                                       ; preds = %lor.rhs302, %lor.lhs.false296, %if.then293
-  %164 = phi i1 [ true, %lor.lhs.false296 ], [ true, %if.then293 ], [ %cmp308, %lor.rhs302 ]
-  %conv310 = zext i1 %164 to i32
-  %165 = load i8, ptr %change, align 1
-  %conv311 = sext i8 %165 to i32
+  %166 = phi i1 [ true, %lor.lhs.false296 ], [ true, %if.then293 ], [ %cmp308, %lor.rhs302 ]
+  %conv310 = zext i1 %166 to i32
+  %167 = load i8, ptr %change, align 1
+  %conv311 = sext i8 %167 to i32
   %or312 = or i32 %conv311, %conv310
   %conv313 = trunc i32 %or312 to i8
   store i8 %conv313, ptr %change, align 1
-  %166 = load i32, ptr %i2, align 4
-  %add314 = add nsw i32 %166, 2
+  %168 = load i32, ptr %i2, align 4
+  %add314 = add nsw i32 %168, 2
   store i32 %add314, ptr %i2, align 4
   br label %if.end315
 
 if.end315:                                        ; preds = %lor.end309, %if.end291
-  %167 = load i32, ptr %nextIndex, align 4
-  %168 = load i32, ptr %i, align 4
-  %sub316 = sub nsw i32 %167, %168
-  store i32 %sub316, ptr %oldLength, align 4
-  %169 = load i32, ptr %i2, align 4
+  %169 = load i32, ptr %nextIndex, align 4
   %170 = load i32, ptr %i, align 4
-  %sub317 = sub nsw i32 %169, %170
-  %171 = load i32, ptr %numYpogegrammeni, align 4
-  %mul = mul nsw i32 %171, 2
+  %sub316 = sub nsw i32 %169, %170
+  store i32 %sub316, ptr %oldLength, align 4
+  %171 = load i32, ptr %i2, align 4
+  %172 = load i32, ptr %i, align 4
+  %sub317 = sub nsw i32 %171, %172
+  %173 = load i32, ptr %numYpogegrammeni, align 4
+  %mul = mul nsw i32 %173, 2
   %add318 = add nsw i32 %sub317, %mul
   store i32 %add318, ptr %newLength, align 4
-  %172 = load i32, ptr %oldLength, align 4
-  %173 = load i32, ptr %newLength, align 4
-  %cmp319 = icmp ne i32 %172, %173
+  %174 = load i32, ptr %oldLength, align 4
+  %175 = load i32, ptr %newLength, align 4
+  %cmp319 = icmp ne i32 %174, %175
   %conv320 = zext i1 %cmp319 to i32
-  %174 = load i8, ptr %change, align 1
-  %conv321 = sext i8 %174 to i32
+  %176 = load i8, ptr %change, align 1
+  %conv321 = sext i8 %176 to i32
   %or322 = or i32 %conv321, %conv320
   %conv323 = trunc i32 %or322 to i8
   store i8 %conv323, ptr %change, align 1
-  %175 = load i8, ptr %change, align 1
-  %tobool324 = icmp ne i8 %175, 0
+  %177 = load i8, ptr %change, align 1
+  %tobool324 = icmp ne i8 %177, 0
   br i1 %tobool324, label %if.then325, label %if.else329
 
 if.then325:                                       ; preds = %if.end315
-  %176 = load ptr, ptr %edits.addr, align 8
-  %cmp326 = icmp ne ptr %176, null
+  %178 = load ptr, ptr %edits.addr, align 8
+  %cmp326 = icmp ne ptr %178, null
   br i1 %cmp326, label %if.then327, label %if.end328
 
 if.then327:                                       ; preds = %if.then325
-  %177 = load ptr, ptr %edits.addr, align 8
-  %178 = load i32, ptr %oldLength, align 4
-  %179 = load i32, ptr %newLength, align 4
-  call void @_ZN6icu_755Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %177, i32 noundef %178, i32 noundef %179)
+  %179 = load ptr, ptr %edits.addr, align 8
+  %180 = load i32, ptr %oldLength, align 4
+  %181 = load i32, ptr %newLength, align 4
+  call void @_ZN6icu_755Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %179, i32 noundef %180, i32 noundef %181)
   br label %if.end328
 
 if.end328:                                        ; preds = %if.then327, %if.then325
   br label %if.end336
 
 if.else329:                                       ; preds = %if.end315
-  %180 = load ptr, ptr %edits.addr, align 8
-  %cmp330 = icmp ne ptr %180, null
+  %182 = load ptr, ptr %edits.addr, align 8
+  %cmp330 = icmp ne ptr %182, null
   br i1 %cmp330, label %if.then331, label %if.end332
 
 if.then331:                                       ; preds = %if.else329
-  %181 = load ptr, ptr %edits.addr, align 8
-  %182 = load i32, ptr %oldLength, align 4
-  call void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %181, i32 noundef %182)
+  %183 = load ptr, ptr %edits.addr, align 8
+  %184 = load i32, ptr %oldLength, align 4
+  call void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %183, i32 noundef %184)
   br label %if.end332
 
 if.end332:                                        ; preds = %if.then331, %if.else329
-  %183 = load i32, ptr %options.addr, align 4
-  %and333 = and i32 %183, 16384
+  %185 = load i32, ptr %options.addr, align 4
+  %and333 = and i32 %185, 16384
   %cmp334 = icmp eq i32 %and333, 0
   %conv335 = zext i1 %cmp334 to i8
   store i8 %conv335, ptr %change, align 1
@@ -4122,47 +4124,47 @@ if.end336:                                        ; preds = %if.end332, %if.end3
   br label %if.end337
 
 if.end337:                                        ; preds = %if.end336, %if.then246
-  %184 = load i8, ptr %change, align 1
-  %tobool338 = icmp ne i8 %184, 0
+  %186 = load i8, ptr %change, align 1
+  %tobool338 = icmp ne i8 %186, 0
   br i1 %tobool338, label %if.then339, label %if.end351
 
 if.then339:                                       ; preds = %if.end337
-  %185 = load i32, ptr %upper, align 4
-  %186 = load ptr, ptr %sink.addr, align 8
-  call void @_ZN6icu_7512ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %185, ptr noundef nonnull align 8 dereferenceable(8) %186)
-  %187 = load i32, ptr %data, align 4
-  %and340 = and i32 %187, 98304
+  %187 = load i32, ptr %upper, align 4
+  %188 = load ptr, ptr %sink.addr, align 8
+  call void @_ZN6icu_7512ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %187, ptr noundef nonnull align 8 dereferenceable(8) %188)
+  %189 = load i32, ptr %data, align 4
+  %and340 = and i32 %189, 98304
   %cmp341 = icmp ne i32 %and340, 0
   br i1 %cmp341, label %if.then342, label %if.end343
 
 if.then342:                                       ; preds = %if.then339
-  %188 = load ptr, ptr %sink.addr, align 8
-  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef @.str.2, i32 noundef 2)
+  %190 = load ptr, ptr %sink.addr, align 8
+  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef @.str.2, i32 noundef 2)
   br label %if.end343
 
 if.end343:                                        ; preds = %if.then342, %if.then339
-  %189 = load i8, ptr %addTonos, align 1
-  %tobool344 = icmp ne i8 %189, 0
+  %191 = load i8, ptr %addTonos, align 1
+  %tobool344 = icmp ne i8 %191, 0
   br i1 %tobool344, label %if.then345, label %if.end346
 
 if.then345:                                       ; preds = %if.end343
-  %190 = load ptr, ptr %sink.addr, align 8
-  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef @.str.3, i32 noundef 2)
+  %192 = load ptr, ptr %sink.addr, align 8
+  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef @.str.3, i32 noundef 2)
   br label %if.end346
 
 if.end346:                                        ; preds = %if.then345, %if.end343
   br label %while.cond347
 
 while.cond347:                                    ; preds = %while.body349, %if.end346
-  %191 = load i32, ptr %numYpogegrammeni, align 4
-  %cmp348 = icmp sgt i32 %191, 0
+  %193 = load i32, ptr %numYpogegrammeni, align 4
+  %cmp348 = icmp sgt i32 %193, 0
   br i1 %cmp348, label %while.body349, label %while.end350
 
 while.body349:                                    ; preds = %while.cond347
-  %192 = load ptr, ptr %sink.addr, align 8
-  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef @.str.4, i32 noundef 2)
-  %193 = load i32, ptr %numYpogegrammeni, align 4
-  %dec = add nsw i32 %193, -1
+  %194 = load ptr, ptr %sink.addr, align 8
+  call void @_ZN6icu_758ByteSink8AppendU8EPKci(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef @.str.4, i32 noundef 2)
+  %195 = load i32, ptr %numYpogegrammeni, align 4
+  %dec = add nsw i32 %195, -1
   store i32 %dec, ptr %numYpogegrammeni, align 4
   br label %while.cond347, !llvm.loop !11
 
@@ -4173,24 +4175,24 @@ if.end351:                                        ; preds = %while.end350, %if.e
   br label %if.end368
 
 if.else352:                                       ; preds = %if.end79
-  %194 = load i32, ptr %c, align 4
-  %cmp353 = icmp sge i32 %194, 0
+  %196 = load i32, ptr %c, align 4
+  %cmp353 = icmp sge i32 %196, 0
   br i1 %cmp353, label %if.then354, label %if.else361
 
 if.then354:                                       ; preds = %if.else352
-  %195 = load i32, ptr %c, align 4
-  %call355 = call i32 @ucase_toFullUpper_75(i32 noundef %195, ptr noundef null, ptr noundef null, ptr noundef %s, i32 noundef 4)
+  %197 = load i32, ptr %c, align 4
+  %call355 = call i32 @ucase_toFullUpper_75(i32 noundef %197, ptr noundef null, ptr noundef null, ptr noundef %s, i32 noundef 4)
   store i32 %call355, ptr %c, align 4
-  %196 = load i32, ptr %nextIndex, align 4
-  %197 = load i32, ptr %i, align 4
-  %sub356 = sub nsw i32 %196, %197
-  %198 = load i32, ptr %c, align 4
-  %199 = load ptr, ptr %s, align 8
-  %200 = load ptr, ptr %sink.addr, align 8
-  %201 = load i32, ptr %options.addr, align 4
-  %202 = load ptr, ptr %edits.addr, align 8
-  %203 = load ptr, ptr %errorCode.addr, align 8
-  %call357 = call noundef signext i8 @_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode(i32 noundef %sub356, i32 noundef %198, ptr noundef %199, ptr noundef nonnull align 8 dereferenceable(8) %200, i32 noundef %201, ptr noundef %202, ptr noundef nonnull align 4 dereferenceable(4) %203)
+  %198 = load i32, ptr %nextIndex, align 4
+  %199 = load i32, ptr %i, align 4
+  %sub356 = sub nsw i32 %198, %199
+  %200 = load i32, ptr %c, align 4
+  %201 = load ptr, ptr %s, align 8
+  %202 = load ptr, ptr %sink.addr, align 8
+  %203 = load i32, ptr %options.addr, align 4
+  %204 = load ptr, ptr %edits.addr, align 8
+  %205 = load ptr, ptr %errorCode.addr, align 8
+  %call357 = call noundef signext i8 @_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode(i32 noundef %sub356, i32 noundef %200, ptr noundef %201, ptr noundef nonnull align 8 dereferenceable(8) %202, i32 noundef %203, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %205)
   %tobool358 = icmp ne i8 %call357, 0
   br i1 %tobool358, label %if.end360, label %if.then359
 
@@ -4201,18 +4203,18 @@ if.end360:                                        ; preds = %if.then354
   br label %if.end367
 
 if.else361:                                       ; preds = %if.else352
-  %204 = load ptr, ptr %src.addr, align 8
-  %205 = load i32, ptr %i, align 4
-  %idx.ext = sext i32 %205 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %204, i64 %idx.ext
-  %206 = load i32, ptr %nextIndex, align 4
+  %206 = load ptr, ptr %src.addr, align 8
   %207 = load i32, ptr %i, align 4
-  %sub362 = sub nsw i32 %206, %207
-  %208 = load ptr, ptr %sink.addr, align 8
-  %209 = load i32, ptr %options.addr, align 4
-  %210 = load ptr, ptr %edits.addr, align 8
-  %211 = load ptr, ptr %errorCode.addr, align 8
-  %call363 = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode(ptr noundef %add.ptr, i32 noundef %sub362, ptr noundef nonnull align 8 dereferenceable(8) %208, i32 noundef %209, ptr noundef %210, ptr noundef nonnull align 4 dereferenceable(4) %211)
+  %idx.ext = sext i32 %207 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %206, i64 %idx.ext
+  %208 = load i32, ptr %nextIndex, align 4
+  %209 = load i32, ptr %i, align 4
+  %sub362 = sub nsw i32 %208, %209
+  %210 = load ptr, ptr %sink.addr, align 8
+  %211 = load i32, ptr %options.addr, align 4
+  %212 = load ptr, ptr %edits.addr, align 8
+  %213 = load ptr, ptr %errorCode.addr, align 8
+  %call363 = call noundef signext i8 @_ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode(ptr noundef %add.ptr, i32 noundef %sub362, ptr noundef nonnull align 8 dereferenceable(8) %210, i32 noundef %211, ptr noundef %212, ptr noundef nonnull align 4 dereferenceable(4) %213)
   %tobool364 = icmp ne i8 %call363, 0
   br i1 %tobool364, label %if.end366, label %if.then365
 
@@ -4226,10 +4228,10 @@ if.end367:                                        ; preds = %if.end366, %if.end3
   br label %if.end368
 
 if.end368:                                        ; preds = %if.end367, %if.end351
-  %212 = load i32, ptr %nextIndex, align 4
-  store i32 %212, ptr %i, align 4
-  %213 = load i32, ptr %nextState, align 4
-  store i32 %213, ptr %state, align 4
+  %214 = load i32, ptr %nextIndex, align 4
+  store i32 %214, ptr %i, align 4
+  %215 = load i32, ptr %nextState, align 4
+  store i32 %215, ptr %state, align 4
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %if.then365, %if.then359, %for.cond

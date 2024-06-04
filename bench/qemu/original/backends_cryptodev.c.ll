@@ -310,23 +310,26 @@ do.body:                                          ; preds = %entry
   %0 = load ptr, ptr %cc, align 8
   %next = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %0, i32 0, i32 4
   store ptr null, ptr %next, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %cc, align 8
-  %next1 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %2, i32 0, i32 4
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next1, i32 0, i32 1
-  store ptr %1, ptr %tql_prev, align 8
+  %1 = getelementptr inbounds %struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %cc, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %4, i32 0, i32 0
-  store ptr %3, ptr %tql_next, align 8
-  %5 = load ptr, ptr %cc, align 8
-  %next2 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %5, i32 0, i32 4
-  store ptr %next2, ptr getelementptr inbounds (%struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1), align 8
+  %next1 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %3, i32 0, i32 4
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next1, i32 0, i32 1
+  store ptr %2, ptr %tql_prev, align 8
+  %4 = load ptr, ptr %cc, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %6, i32 0, i32 0
+  store ptr %4, ptr %tql_next, align 8
+  %7 = load ptr, ptr %cc, align 8
+  %next2 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1
+  store ptr %next2, ptr %8, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %6 = load ptr, ptr %cc, align 8
-  ret ptr %6
+  %9 = load ptr, ptr %cc, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -364,39 +367,40 @@ if.else:                                          ; preds = %do.body
   %next5 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %6, i32 0, i32 4
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %next5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %cc.addr, align 8
-  %next7 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %next7, align 8
-  %10 = load ptr, ptr %cc.addr, align 8
-  %next8 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %10, i32 0, i32 4
+  %9 = load ptr, ptr %cc.addr, align 8
+  %next7 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %9, i32 0, i32 4
+  %10 = load ptr, ptr %next7, align 8
+  %11 = load ptr, ptr %cc.addr, align 8
+  %next8 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %11, i32 0, i32 4
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %next8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %cc.addr, align 8
-  %next10 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %12, i32 0, i32 4
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %cc.addr, align 8
+  %next10 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %13, i32 0, i32 4
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %next10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %cc.addr, align 8
-  %next12 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %13, i32 0, i32 4
+  %14 = load ptr, ptr %cc.addr, align 8
+  %next12 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %14, i32 0, i32 4
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %cc.addr, align 8
-  %next14 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %cc.addr, align 8
+  %next14 = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %15, i32 0, i32 4
   store ptr null, ptr %next14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %15 = load ptr, ptr %cc.addr, align 8
-  %info_str = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %info_str, align 8
-  call void @g_free(ptr noundef %16)
-  %17 = load ptr, ptr %cc.addr, align 8
+  %16 = load ptr, ptr %cc.addr, align 8
+  %info_str = getelementptr inbounds %struct.CryptoDevBackendClient, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %info_str, align 8
   call void @g_free(ptr noundef %17)
+  %18 = load ptr, ptr %cc.addr, align 8
+  call void @g_free(ptr noundef %18)
   ret void
 }
 
@@ -1133,16 +1137,17 @@ entry:
 
 do.body:                                          ; preds = %entry
   store ptr null, ptr @crypto_clients, align 8
-  store ptr @crypto_clients, ptr getelementptr inbounds (%struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.QTailQLink, ptr @crypto_clients, i32 0, i32 1
+  store ptr @crypto_clients, ptr %3, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %3 = load ptr, ptr %oc.addr, align 8
-  %call1 = call ptr @object_class_property_add(ptr noundef %3, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef @cryptodev_backend_get_queues, ptr noundef @cryptodev_backend_set_queues, ptr noundef null, ptr noundef null)
   %4 = load ptr, ptr %oc.addr, align 8
-  %call2 = call ptr @object_class_property_add(ptr noundef %4, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @cryptodev_backend_get_bps, ptr noundef @cryptodev_backend_set_bps, ptr noundef null, ptr noundef null)
+  %call1 = call ptr @object_class_property_add(ptr noundef %4, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef @cryptodev_backend_get_queues, ptr noundef @cryptodev_backend_set_queues, ptr noundef null, ptr noundef null)
   %5 = load ptr, ptr %oc.addr, align 8
-  %call3 = call ptr @object_class_property_add(ptr noundef %5, ptr noundef @.str.12, ptr noundef @.str.11, ptr noundef @cryptodev_backend_get_ops, ptr noundef @cryptodev_backend_set_ops, ptr noundef null, ptr noundef null)
+  %call2 = call ptr @object_class_property_add(ptr noundef %5, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @cryptodev_backend_get_bps, ptr noundef @cryptodev_backend_set_bps, ptr noundef null, ptr noundef null)
+  %6 = load ptr, ptr %oc.addr, align 8
+  %call3 = call ptr @object_class_property_add(ptr noundef %6, ptr noundef @.str.12, ptr noundef @.str.11, ptr noundef @cryptodev_backend_get_ops, ptr noundef @cryptodev_backend_set_ops, ptr noundef null, ptr noundef null)
   call void @add_stats_callbacks(i32 noundef 1, ptr noundef @cryptodev_backend_stats_cb, ptr noundef @cryptodev_backend_schemas_cb)
   ret void
 }

@@ -3965,7 +3965,7 @@ define dso_local ptr @GetSnapshotData(ptr noundef %0) #0 {
   call void @LWLockRelease(ptr noundef %105)
   %106 = load ptr, ptr %3, align 8
   store ptr %106, ptr %2, align 8
-  br label %406
+  br label %413
 
 107:                                              ; preds = %97
   %108 = load ptr, ptr @TransamVariables, align 8
@@ -4348,82 +4348,89 @@ define dso_local ptr @GetSnapshotData(ptr noundef %0) #0 {
   br label %355
 
 355:                                              ; preds = %354, %348
-  %356 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1), align 8
-  %357 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
-  %358 = load i64, ptr %357, align 8
-  %359 = call i64 @FullTransactionIdNewer(i64 %356, i64 %358)
-  %360 = getelementptr inbounds %struct.FullTransactionId, ptr %41, i32 0, i32 0
-  store i64 %359, ptr %360, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1), ptr align 8 %41, i64 8, i1 false)
-  %361 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1), align 8
-  %362 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
-  %363 = load i64, ptr %362, align 8
-  %364 = call i64 @FullTransactionIdNewer(i64 %361, i64 %363)
-  %365 = getelementptr inbounds %struct.FullTransactionId, ptr %42, i32 0, i32 0
-  store i64 %364, ptr %365, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1), ptr align 8 %42, i64 8, i1 false)
-  %366 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1), align 8
-  %367 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
-  %368 = load i64, ptr %367, align 8
-  %369 = call i64 @FullTransactionIdNewer(i64 %366, i64 %368)
-  %370 = getelementptr inbounds %struct.FullTransactionId, ptr %43, i32 0, i32 0
-  store i64 %369, ptr %370, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1), ptr align 8 %43, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1), ptr align 8 @GlobalVisTempRels, i64 8, i1 false)
-  %371 = load i32, ptr %6, align 4
-  store i32 %371, ptr @RecentXmin, align 4
-  %372 = load i32, ptr %6, align 4
-  %373 = load ptr, ptr %3, align 8
-  %374 = getelementptr inbounds %struct.SnapshotData, ptr %373, i32 0, i32 1
-  store i32 %372, ptr %374, align 4
-  %375 = load i32, ptr %7, align 4
-  %376 = load ptr, ptr %3, align 8
-  %377 = getelementptr inbounds %struct.SnapshotData, ptr %376, i32 0, i32 2
-  store i32 %375, ptr %377, align 8
-  %378 = load i32, ptr %8, align 4
-  %379 = load ptr, ptr %3, align 8
-  %380 = getelementptr inbounds %struct.SnapshotData, ptr %379, i32 0, i32 4
-  store i32 %378, ptr %380, align 8
-  %381 = load i32, ptr %9, align 4
-  %382 = load ptr, ptr %3, align 8
-  %383 = getelementptr inbounds %struct.SnapshotData, ptr %382, i32 0, i32 6
-  store i32 %381, ptr %383, align 8
-  %384 = load i8, ptr %10, align 1
-  %385 = trunc i8 %384 to i1
+  %356 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1
+  %357 = load i64, ptr %356, align 8
+  %358 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
+  %359 = load i64, ptr %358, align 8
+  %360 = call i64 @FullTransactionIdNewer(i64 %357, i64 %359)
+  %361 = getelementptr inbounds %struct.FullTransactionId, ptr %41, i32 0, i32 0
+  store i64 %360, ptr %361, align 8
+  %362 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %362, ptr align 8 %41, i64 8, i1 false)
+  %363 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1
+  %364 = load i64, ptr %363, align 8
+  %365 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
+  %366 = load i64, ptr %365, align 8
+  %367 = call i64 @FullTransactionIdNewer(i64 %364, i64 %366)
+  %368 = getelementptr inbounds %struct.FullTransactionId, ptr %42, i32 0, i32 0
+  store i64 %367, ptr %368, align 8
+  %369 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %369, ptr align 8 %42, i64 8, i1 false)
+  %370 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1
+  %371 = load i64, ptr %370, align 8
+  %372 = getelementptr inbounds %struct.FullTransactionId, ptr %33, i32 0, i32 0
+  %373 = load i64, ptr %372, align 8
+  %374 = call i64 @FullTransactionIdNewer(i64 %371, i64 %373)
+  %375 = getelementptr inbounds %struct.FullTransactionId, ptr %43, i32 0, i32 0
+  store i64 %374, ptr %375, align 8
+  %376 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %376, ptr align 8 %43, i64 8, i1 false)
+  %377 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %377, ptr align 8 @GlobalVisTempRels, i64 8, i1 false)
+  %378 = load i32, ptr %6, align 4
+  store i32 %378, ptr @RecentXmin, align 4
+  %379 = load i32, ptr %6, align 4
+  %380 = load ptr, ptr %3, align 8
+  %381 = getelementptr inbounds %struct.SnapshotData, ptr %380, i32 0, i32 1
+  store i32 %379, ptr %381, align 4
+  %382 = load i32, ptr %7, align 4
+  %383 = load ptr, ptr %3, align 8
+  %384 = getelementptr inbounds %struct.SnapshotData, ptr %383, i32 0, i32 2
+  store i32 %382, ptr %384, align 8
+  %385 = load i32, ptr %8, align 4
   %386 = load ptr, ptr %3, align 8
-  %387 = getelementptr inbounds %struct.SnapshotData, ptr %386, i32 0, i32 7
-  %388 = zext i1 %385 to i8
-  store i8 %388, ptr %387, align 4
-  %389 = load i64, ptr %15, align 8
-  %390 = load ptr, ptr %3, align 8
-  %391 = getelementptr inbounds %struct.SnapshotData, ptr %390, i32 0, i32 18
-  store i64 %389, ptr %391, align 8
-  %392 = call i32 @GetCurrentCommandId(i1 noundef zeroext false)
+  %387 = getelementptr inbounds %struct.SnapshotData, ptr %386, i32 0, i32 4
+  store i32 %385, ptr %387, align 8
+  %388 = load i32, ptr %9, align 4
+  %389 = load ptr, ptr %3, align 8
+  %390 = getelementptr inbounds %struct.SnapshotData, ptr %389, i32 0, i32 6
+  store i32 %388, ptr %390, align 8
+  %391 = load i8, ptr %10, align 1
+  %392 = trunc i8 %391 to i1
   %393 = load ptr, ptr %3, align 8
-  %394 = getelementptr inbounds %struct.SnapshotData, ptr %393, i32 0, i32 10
-  store i32 %392, ptr %394, align 8
-  %395 = load ptr, ptr %3, align 8
-  %396 = getelementptr inbounds %struct.SnapshotData, ptr %395, i32 0, i32 13
-  store i32 0, ptr %396, align 8
+  %394 = getelementptr inbounds %struct.SnapshotData, ptr %393, i32 0, i32 7
+  %395 = zext i1 %392 to i8
+  store i8 %395, ptr %394, align 4
+  %396 = load i64, ptr %15, align 8
   %397 = load ptr, ptr %3, align 8
-  %398 = getelementptr inbounds %struct.SnapshotData, ptr %397, i32 0, i32 14
-  store i32 0, ptr %398, align 4
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.SnapshotData, ptr %399, i32 0, i32 9
-  store i8 0, ptr %400, align 2
-  %401 = load ptr, ptr %3, align 8
-  %402 = getelementptr inbounds %struct.SnapshotData, ptr %401, i32 0, i32 17
-  store i64 0, ptr %402, align 8
-  %403 = load ptr, ptr %3, align 8
-  %404 = getelementptr inbounds %struct.SnapshotData, ptr %403, i32 0, i32 16
-  store i64 0, ptr %404, align 8
-  %405 = load ptr, ptr %3, align 8
-  store ptr %405, ptr %2, align 8
-  br label %406
+  %398 = getelementptr inbounds %struct.SnapshotData, ptr %397, i32 0, i32 18
+  store i64 %396, ptr %398, align 8
+  %399 = call i32 @GetCurrentCommandId(i1 noundef zeroext false)
+  %400 = load ptr, ptr %3, align 8
+  %401 = getelementptr inbounds %struct.SnapshotData, ptr %400, i32 0, i32 10
+  store i32 %399, ptr %401, align 8
+  %402 = load ptr, ptr %3, align 8
+  %403 = getelementptr inbounds %struct.SnapshotData, ptr %402, i32 0, i32 13
+  store i32 0, ptr %403, align 8
+  %404 = load ptr, ptr %3, align 8
+  %405 = getelementptr inbounds %struct.SnapshotData, ptr %404, i32 0, i32 14
+  store i32 0, ptr %405, align 4
+  %406 = load ptr, ptr %3, align 8
+  %407 = getelementptr inbounds %struct.SnapshotData, ptr %406, i32 0, i32 9
+  store i8 0, ptr %407, align 2
+  %408 = load ptr, ptr %3, align 8
+  %409 = getelementptr inbounds %struct.SnapshotData, ptr %408, i32 0, i32 17
+  store i64 0, ptr %409, align 8
+  %410 = load ptr, ptr %3, align 8
+  %411 = getelementptr inbounds %struct.SnapshotData, ptr %410, i32 0, i32 16
+  store i64 0, ptr %411, align 8
+  %412 = load ptr, ptr %3, align 8
+  store ptr %412, ptr %2, align 8
+  br label %413
 
-406:                                              ; preds = %355, %103
-  %407 = load ptr, ptr %2, align 8
-  ret ptr %407
+413:                                              ; preds = %355, %103
+  %414 = load ptr, ptr %2, align 8
+  ret ptr %414
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9195,61 +9202,69 @@ define internal void @GlobalVisUpdateApply(ptr noundef %0) #0 {
   %17 = call i64 @FullXidRelativeTo(i64 %16, i32 noundef %14)
   %18 = getelementptr inbounds %struct.FullTransactionId, ptr %3, i32 0, i32 0
   store i64 %17, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1), ptr align 8 %3, i64 8, i1 false)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %21, i32 0, i32 6
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds %struct.FullTransactionId, ptr %20, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = call i64 @FullXidRelativeTo(i64 %25, i32 noundef %23)
-  %27 = getelementptr inbounds %struct.FullTransactionId, ptr %4, i32 0, i32 0
-  store i64 %26, ptr %27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1), ptr align 8 %4, i64 8, i1 false)
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %28, i32 0, i32 0
+  %19 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %3, i64 8, i1 false)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %22, i32 0, i32 6
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds %struct.FullTransactionId, ptr %21, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = call i64 @FullXidRelativeTo(i64 %26, i32 noundef %24)
+  %28 = getelementptr inbounds %struct.FullTransactionId, ptr %4, i32 0, i32 0
+  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %4, i64 8, i1 false)
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %30, i32 0, i32 7
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.FullTransactionId, ptr %29, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = call i64 @FullXidRelativeTo(i64 %34, i32 noundef %32)
-  %36 = getelementptr inbounds %struct.FullTransactionId, ptr %5, i32 0, i32 0
-  store i64 %35, ptr %36, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1), ptr align 8 %5, i64 8, i1 false)
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %39, i32 0, i32 8
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds %struct.FullTransactionId, ptr %38, i32 0, i32 0
-  %43 = load i64, ptr %42, align 8
-  %44 = call i64 @FullXidRelativeTo(i64 %43, i32 noundef %41)
-  %45 = getelementptr inbounds %struct.FullTransactionId, ptr %6, i32 0, i32 0
-  store i64 %44, ptr %45, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1), ptr align 8 %6, i64 8, i1 false)
-  %46 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1), align 8
-  %47 = load i64, ptr @GlobalVisSharedRels, align 8
-  %48 = call i64 @FullTransactionIdNewer(i64 %46, i64 %47)
-  %49 = getelementptr inbounds %struct.FullTransactionId, ptr %7, i32 0, i32 0
-  store i64 %48, ptr %49, align 8
+  %31 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %32, i32 0, i32 7
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.FullTransactionId, ptr %31, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = call i64 @FullXidRelativeTo(i64 %36, i32 noundef %34)
+  %38 = getelementptr inbounds %struct.FullTransactionId, ptr %5, i32 0, i32 0
+  store i64 %37, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 8, i1 false)
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.ComputeXidHorizonsResult, ptr %42, i32 0, i32 8
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds %struct.FullTransactionId, ptr %41, i32 0, i32 0
+  %46 = load i64, ptr %45, align 8
+  %47 = call i64 @FullXidRelativeTo(i64 %46, i32 noundef %44)
+  %48 = getelementptr inbounds %struct.FullTransactionId, ptr %6, i32 0, i32 0
+  store i64 %47, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %6, i64 8, i1 false)
+  %50 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisSharedRels, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  %52 = load i64, ptr @GlobalVisSharedRels, align 8
+  %53 = call i64 @FullTransactionIdNewer(i64 %51, i64 %52)
+  %54 = getelementptr inbounds %struct.FullTransactionId, ptr %7, i32 0, i32 0
+  store i64 %53, ptr %54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @GlobalVisSharedRels, ptr align 8 %7, i64 8, i1 false)
-  %50 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1), align 8
-  %51 = load i64, ptr @GlobalVisCatalogRels, align 8
-  %52 = call i64 @FullTransactionIdNewer(i64 %50, i64 %51)
-  %53 = getelementptr inbounds %struct.FullTransactionId, ptr %8, i32 0, i32 0
-  store i64 %52, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisCatalogRels, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
+  %57 = load i64, ptr @GlobalVisCatalogRels, align 8
+  %58 = call i64 @FullTransactionIdNewer(i64 %56, i64 %57)
+  %59 = getelementptr inbounds %struct.FullTransactionId, ptr %8, i32 0, i32 0
+  store i64 %58, ptr %59, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @GlobalVisCatalogRels, ptr align 8 %8, i64 8, i1 false)
-  %54 = load i64, ptr getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1), align 8
-  %55 = load i64, ptr @GlobalVisDataRels, align 8
-  %56 = call i64 @FullTransactionIdNewer(i64 %54, i64 %55)
-  %57 = getelementptr inbounds %struct.FullTransactionId, ptr %9, i32 0, i32 0
-  store i64 %56, ptr %57, align 8
+  %60 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisDataRels, i32 0, i32 1
+  %61 = load i64, ptr %60, align 8
+  %62 = load i64, ptr @GlobalVisDataRels, align 8
+  %63 = call i64 @FullTransactionIdNewer(i64 %61, i64 %62)
+  %64 = getelementptr inbounds %struct.FullTransactionId, ptr %9, i32 0, i32 0
+  store i64 %63, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @GlobalVisDataRels, ptr align 8 %9, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @GlobalVisTempRels, ptr align 8 getelementptr inbounds (%struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1), i64 8, i1 false)
-  %58 = load i32, ptr @RecentXmin, align 4
-  store i32 %58, ptr @ComputeXidHorizonsResultLastXmin, align 4
+  %65 = getelementptr inbounds %struct.GlobalVisState, ptr @GlobalVisTempRels, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @GlobalVisTempRels, ptr align 8 %65, i64 8, i1 false)
+  %66 = load i32, ptr @RecentXmin, align 4
+  store i32 %66, ptr @ComputeXidHorizonsResultLastXmin, align 4
   ret void
 }
 

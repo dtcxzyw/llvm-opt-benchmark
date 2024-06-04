@@ -10885,7 +10885,8 @@ define linkonce_odr void @_ZNSt19bad_optional_accessC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10905,7 +10906,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13039,7 +13041,7 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %7
-  br label %646
+  br label %647
 
 70:                                               ; preds = %7
   %71 = load i32, ptr %10, align 4
@@ -13875,7 +13877,7 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
   %587 = extractvalue { ptr, i32 } %585, 1
   store i32 %587, ptr %58, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %56) #14
-  br label %647
+  br label %648
 
 588:                                              ; preds = %583, %569
   br label %589
@@ -13928,7 +13930,7 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
   %616 = extractvalue { ptr, i32 } %614, 1
   store i32 %616, ptr %58, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %60) #14
-  br label %647
+  br label %648
 
 617:                                              ; preds = %612, %598
   br label %618
@@ -13936,7 +13938,7 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
 618:                                              ; preds = %617, %589
   %619 = load i32, ptr %14, align 4
   %620 = icmp ne i32 %619, 0
-  br i1 %620, label %621, label %646
+  br i1 %620, label %621, label %647
 
 621:                                              ; preds = %618
   %622 = load ptr, ptr %12, align 8
@@ -13948,7 +13950,7 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
   br i1 %626, label %627, label %628
 
 627:                                              ; preds = %621
-  br label %645
+  br label %646
 
 628:                                              ; preds = %621
   call void @llvm.memset.p0.i64(ptr align 8 %62, i8 0, i64 40, i1 false)
@@ -13960,40 +13962,41 @@ define internal void @_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeE
   %633 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %632
   %634 = getelementptr inbounds %struct.t_interaction_function, ptr %633, i32 0, i32 1
   %635 = load ptr, ptr %634, align 8
-  %636 = load ptr, ptr getelementptr inbounds ([94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 71, i32 1), align 8
-  %637 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %629, ptr noundef @.str.43, i32 noundef %630, ptr noundef %635, ptr noundef %636)
-          to label %638 unwind label %641
+  %636 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 71, i32 1
+  %637 = load ptr, ptr %636, align 8
+  %638 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %629, ptr noundef @.str.43, i32 noundef %630, ptr noundef %635, ptr noundef %637)
+          to label %639 unwind label %642
 
-638:                                              ; preds = %628
-  %639 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(40) %637)
-          to label %640 unwind label %641
+639:                                              ; preds = %628
+  %640 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(40) %638)
+          to label %641 unwind label %642
 
-640:                                              ; preds = %638
+641:                                              ; preds = %639
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %62) #14
-  br label %645
-
-641:                                              ; preds = %638, %628
-  %642 = landingpad { ptr, i32 }
-          cleanup
-  %643 = extractvalue { ptr, i32 } %642, 0
-  store ptr %643, ptr %57, align 8
-  %644 = extractvalue { ptr, i32 } %642, 1
-  store i32 %644, ptr %58, align 4
-  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %62) #14
-  br label %647
-
-645:                                              ; preds = %640, %627
   br label %646
 
-646:                                              ; preds = %645, %618, %69
+642:                                              ; preds = %639, %628
+  %643 = landingpad { ptr, i32 }
+          cleanup
+  %644 = extractvalue { ptr, i32 } %643, 0
+  store ptr %644, ptr %57, align 8
+  %645 = extractvalue { ptr, i32 } %643, 1
+  store i32 %645, ptr %58, align 4
+  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %62) #14
+  br label %648
+
+646:                                              ; preds = %641, %627
+  br label %647
+
+647:                                              ; preds = %646, %618, %69
   ret void
 
-647:                                              ; preds = %641, %613, %584
-  %648 = load ptr, ptr %57, align 8
-  %649 = load i32, ptr %58, align 4
-  %650 = insertvalue { ptr, i32 } poison, ptr %648, 0
-  %651 = insertvalue { ptr, i32 } %650, i32 %649, 1
-  resume { ptr, i32 } %651
+648:                                              ; preds = %642, %613, %584
+  %649 = load ptr, ptr %57, align 8
+  %650 = load i32, ptr %58, align 4
+  %651 = insertvalue { ptr, i32 } poison, ptr %649, 0
+  %652 = insertvalue { ptr, i32 } %651, i32 %650, 1
+  resume { ptr, i32 } %652
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -143,22 +143,30 @@ _ZN5folly10rtmEnabledEv.exit.thread.i:            ; preds = %entry
 
 _ZN5folly10rtmEnabledEv.exit.i:                   ; preds = %entry
   %tobool.i.not.i = icmp eq i32 %0, 0
+  %1 = ptrtoint ptr @_ZN5follyL12rtmBeginFuncEv to i64
+  %2 = ptrtoint ptr @_ZN5follyL10rtmEndFuncEv to i64
+  %3 = ptrtoint ptr @_ZN5follyL11rtmTestFuncEv to i64
+  %4 = ptrtoint ptr @_ZN5follyL12rtmAbortFuncEh to i64
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZN5folly6detailL7rewriteEv.exit
 
 if.else.i:                                        ; preds = %_ZN5folly10rtmEnabledEv.exit.i, %_ZN5folly10rtmEnabledEv.exit.thread.i
+  %5 = ptrtoint ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64
+  %6 = ptrtoint ptr @_ZN5folly6detail14rtmEndDisabledEv to i64
+  %7 = ptrtoint ptr @_ZN5folly6detail15rtmTestDisabledEv to i64
+  %8 = ptrtoint ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64
   br label %_ZN5folly6detailL7rewriteEv.exit
 
 _ZN5folly6detailL7rewriteEv.exit:                 ; preds = %if.else.i, %_ZN5folly10rtmEnabledEv.exit.i
-  %.sink5.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmBeginFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink4.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail14rtmEndDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL10rtmEndFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink3.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail15rtmTestDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL11rtmTestFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmAbortFuncEh to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink5.i = phi i64 [ %5, %if.else.i ], [ %1, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink4.i = phi i64 [ %6, %if.else.i ], [ %2, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink3.i = phi i64 [ %7, %if.else.i ], [ %3, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink.i = phi i64 [ %8, %if.else.i ], [ %4, %_ZN5folly10rtmEnabledEv.exit.i ]
   store atomic i64 %.sink5.i, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
   store atomic i64 %.sink4.i, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
   store atomic i64 %.sink3.i, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
   store atomic i64 %.sink.i, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
-  %1 = load atomic i64, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %1 to ptr
+  %9 = load atomic i64, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %9 to ptr
   %call1 = tail call noundef i32 %atomic-temp.0.i.i()
   ret i32 %call1
 }
@@ -200,22 +208,30 @@ _ZN5folly10rtmEnabledEv.exit.thread.i:            ; preds = %entry
 
 _ZN5folly10rtmEnabledEv.exit.i:                   ; preds = %entry
   %tobool.i.not.i = icmp eq i32 %0, 0
+  %1 = ptrtoint ptr @_ZN5follyL12rtmBeginFuncEv to i64
+  %2 = ptrtoint ptr @_ZN5follyL10rtmEndFuncEv to i64
+  %3 = ptrtoint ptr @_ZN5follyL11rtmTestFuncEv to i64
+  %4 = ptrtoint ptr @_ZN5follyL12rtmAbortFuncEh to i64
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZN5folly6detailL7rewriteEv.exit
 
 if.else.i:                                        ; preds = %_ZN5folly10rtmEnabledEv.exit.i, %_ZN5folly10rtmEnabledEv.exit.thread.i
+  %5 = ptrtoint ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64
+  %6 = ptrtoint ptr @_ZN5folly6detail14rtmEndDisabledEv to i64
+  %7 = ptrtoint ptr @_ZN5folly6detail15rtmTestDisabledEv to i64
+  %8 = ptrtoint ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64
   br label %_ZN5folly6detailL7rewriteEv.exit
 
 _ZN5folly6detailL7rewriteEv.exit:                 ; preds = %if.else.i, %_ZN5folly10rtmEnabledEv.exit.i
-  %.sink5.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmBeginFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink4.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail14rtmEndDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL10rtmEndFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink3.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail15rtmTestDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL11rtmTestFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmAbortFuncEh to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink5.i = phi i64 [ %5, %if.else.i ], [ %1, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink4.i = phi i64 [ %6, %if.else.i ], [ %2, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink3.i = phi i64 [ %7, %if.else.i ], [ %3, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink.i = phi i64 [ %8, %if.else.i ], [ %4, %_ZN5folly10rtmEnabledEv.exit.i ]
   store atomic i64 %.sink5.i, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
   store atomic i64 %.sink4.i, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
   store atomic i64 %.sink3.i, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
   store atomic i64 %.sink.i, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
-  %1 = load atomic i64, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %1 to ptr
+  %9 = load atomic i64, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %9 to ptr
   tail call void %atomic-temp.0.i.i()
   ret void
 }
@@ -233,22 +249,30 @@ _ZN5folly10rtmEnabledEv.exit.thread.i:            ; preds = %entry
 
 _ZN5folly10rtmEnabledEv.exit.i:                   ; preds = %entry
   %tobool.i.not.i = icmp eq i32 %0, 0
+  %1 = ptrtoint ptr @_ZN5follyL12rtmBeginFuncEv to i64
+  %2 = ptrtoint ptr @_ZN5follyL10rtmEndFuncEv to i64
+  %3 = ptrtoint ptr @_ZN5follyL11rtmTestFuncEv to i64
+  %4 = ptrtoint ptr @_ZN5follyL12rtmAbortFuncEh to i64
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZN5folly6detailL7rewriteEv.exit
 
 if.else.i:                                        ; preds = %_ZN5folly10rtmEnabledEv.exit.i, %_ZN5folly10rtmEnabledEv.exit.thread.i
+  %5 = ptrtoint ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64
+  %6 = ptrtoint ptr @_ZN5folly6detail14rtmEndDisabledEv to i64
+  %7 = ptrtoint ptr @_ZN5folly6detail15rtmTestDisabledEv to i64
+  %8 = ptrtoint ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64
   br label %_ZN5folly6detailL7rewriteEv.exit
 
 _ZN5folly6detailL7rewriteEv.exit:                 ; preds = %if.else.i, %_ZN5folly10rtmEnabledEv.exit.i
-  %.sink5.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmBeginFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink4.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail14rtmEndDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL10rtmEndFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink3.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail15rtmTestDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL11rtmTestFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmAbortFuncEh to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink5.i = phi i64 [ %5, %if.else.i ], [ %1, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink4.i = phi i64 [ %6, %if.else.i ], [ %2, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink3.i = phi i64 [ %7, %if.else.i ], [ %3, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink.i = phi i64 [ %8, %if.else.i ], [ %4, %_ZN5folly10rtmEnabledEv.exit.i ]
   store atomic i64 %.sink5.i, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
   store atomic i64 %.sink4.i, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
   store atomic i64 %.sink3.i, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
   store atomic i64 %.sink.i, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
-  %1 = load atomic i64, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %1 to ptr
+  %9 = load atomic i64, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %9 to ptr
   %call1 = tail call noundef zeroext i1 %atomic-temp.0.i.i()
   ret i1 %call1
 }
@@ -266,22 +290,30 @@ _ZN5folly10rtmEnabledEv.exit.thread.i:            ; preds = %entry
 
 _ZN5folly10rtmEnabledEv.exit.i:                   ; preds = %entry
   %tobool.i.not.i = icmp eq i32 %0, 0
+  %1 = ptrtoint ptr @_ZN5follyL12rtmBeginFuncEv to i64
+  %2 = ptrtoint ptr @_ZN5follyL10rtmEndFuncEv to i64
+  %3 = ptrtoint ptr @_ZN5follyL11rtmTestFuncEv to i64
+  %4 = ptrtoint ptr @_ZN5follyL12rtmAbortFuncEh to i64
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZN5folly6detailL7rewriteEv.exit
 
 if.else.i:                                        ; preds = %_ZN5folly10rtmEnabledEv.exit.i, %_ZN5folly10rtmEnabledEv.exit.thread.i
+  %5 = ptrtoint ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64
+  %6 = ptrtoint ptr @_ZN5folly6detail14rtmEndDisabledEv to i64
+  %7 = ptrtoint ptr @_ZN5folly6detail15rtmTestDisabledEv to i64
+  %8 = ptrtoint ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64
   br label %_ZN5folly6detailL7rewriteEv.exit
 
 _ZN5folly6detailL7rewriteEv.exit:                 ; preds = %if.else.i, %_ZN5folly10rtmEnabledEv.exit.i
-  %.sink5.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmBeginDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmBeginFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink4.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail14rtmEndDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL10rtmEndFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink3.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail15rtmTestDisabledEv to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL11rtmTestFuncEv to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
-  %.sink.i = phi i64 [ ptrtoint (ptr @_ZN5folly6detail16rtmAbortDisabledEh to i64), %if.else.i ], [ ptrtoint (ptr @_ZN5follyL12rtmAbortFuncEh to i64), %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink5.i = phi i64 [ %5, %if.else.i ], [ %1, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink4.i = phi i64 [ %6, %if.else.i ], [ %2, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink3.i = phi i64 [ %7, %if.else.i ], [ %3, %_ZN5folly10rtmEnabledEv.exit.i ]
+  %.sink.i = phi i64 [ %8, %if.else.i ], [ %4, %_ZN5folly10rtmEnabledEv.exit.i ]
   store atomic i64 %.sink5.i, ptr @_ZN5folly6detail9rtmBeginVE monotonic, align 8
   store atomic i64 %.sink4.i, ptr @_ZN5folly6detail7rtmEndVE monotonic, align 8
   store atomic i64 %.sink3.i, ptr @_ZN5folly6detail8rtmTestVE monotonic, align 8
   store atomic i64 %.sink.i, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
-  %1 = load atomic i64, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %1 to ptr
+  %9 = load atomic i64, ptr @_ZN5folly6detail9rtmAbortVE monotonic, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %9 to ptr
   tail call void %atomic-temp.0.i.i(i8 noundef zeroext %status)
   ret void
 }

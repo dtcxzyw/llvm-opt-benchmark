@@ -516,9 +516,10 @@ define dso_local void @_ZN25cmBinUtilsWindowsPELinkerC2EP26cmRuntimeDependencyAr
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16cmBinUtilsLinkerC2EP26cmRuntimeDependencyArchive(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25cmBinUtilsWindowsPELinker, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.cmBinUtilsWindowsPELinker, ptr %5, i32 0, i32 1
-  call void @_ZNSt10unique_ptrI45cmBinUtilsWindowsPEGetRuntimeDependenciesToolSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV25cmBinUtilsWindowsPELinker, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.cmBinUtilsWindowsPELinker, ptr %5, i32 0, i32 1
+  call void @_ZNSt10unique_ptrI45cmBinUtilsWindowsPEGetRuntimeDependenciesToolSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   ret void
 }
 
@@ -2196,9 +2197,10 @@ define linkonce_odr dso_local void @_ZN25cmBinUtilsWindowsPELinkerD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25cmBinUtilsWindowsPELinker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmBinUtilsWindowsPELinker, ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrI45cmBinUtilsWindowsPEGetRuntimeDependenciesToolSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV25cmBinUtilsWindowsPELinker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmBinUtilsWindowsPELinker, ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrI45cmBinUtilsWindowsPEGetRuntimeDependenciesToolSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN16cmBinUtilsLinkerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }

@@ -1826,7 +1826,7 @@ define internal i32 @_set_cond(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   store i32 %640, ptr %641, align 4
   %642 = load i32, ptr %16, align 4
   %643 = icmp ne i32 %642, 0
-  br i1 %643, label %656, label %644
+  br i1 %643, label %657, label %644
 
 644:                                              ; preds = %639
   %645 = load ptr, ptr %10, align 8
@@ -1834,85 +1834,86 @@ define internal i32 @_set_cond(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %647 = load ptr, ptr %646, align 8
   %648 = call i32 @list_count(ptr noundef %647)
   %649 = icmp ne i32 %648, 0
-  br i1 %649, label %656, label %650
+  br i1 %649, label %657, label %650
 
 650:                                              ; preds = %644
   %651 = load ptr, ptr %10, align 8
   %652 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %651, i32 0, i32 0
   %653 = load ptr, ptr %652, align 8
-  %654 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %655 = call ptr @xstrdup(ptr noundef %654)
-  call void @list_append(ptr noundef %653, ptr noundef %655)
-  br label %656
+  %654 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %655 = load ptr, ptr %654, align 8
+  %656 = call ptr @xstrdup(ptr noundef %655)
+  call void @list_append(ptr noundef %653, ptr noundef %656)
+  br label %657
 
-656:                                              ; preds = %650, %644, %639
-  %657 = load i32, ptr %17, align 4
-  %658 = icmp ne i32 %657, 0
-  br i1 %658, label %694, label %659
+657:                                              ; preds = %650, %644, %639
+  %658 = load i32, ptr %17, align 4
+  %659 = icmp ne i32 %658, 0
+  br i1 %659, label %695, label %660
 
-659:                                              ; preds = %656
-  %660 = load ptr, ptr %10, align 8
-  %661 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %660, i32 0, i32 8
-  %662 = load i64, ptr %661, align 8
-  %663 = icmp ne i64 %662, 0
-  br i1 %663, label %694, label %664
+660:                                              ; preds = %657
+  %661 = load ptr, ptr %10, align 8
+  %662 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %661, i32 0, i32 8
+  %663 = load i64, ptr %662, align 8
+  %664 = icmp ne i64 %663, 0
+  br i1 %664, label %695, label %665
 
-664:                                              ; preds = %659
-  %665 = call i64 @time(ptr noundef null) #7
-  %666 = load ptr, ptr %10, align 8
-  %667 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %666, i32 0, i32 8
-  store i64 %665, ptr %667, align 8
-  %668 = load ptr, ptr %10, align 8
-  %669 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %668, i32 0, i32 11
-  %670 = load ptr, ptr %669, align 8
-  %671 = icmp ne ptr %670, null
-  br i1 %671, label %693, label %672
+665:                                              ; preds = %660
+  %666 = call i64 @time(ptr noundef null) #7
+  %667 = load ptr, ptr %10, align 8
+  %668 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %667, i32 0, i32 8
+  store i64 %666, ptr %668, align 8
+  %669 = load ptr, ptr %10, align 8
+  %670 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %669, i32 0, i32 11
+  %671 = load ptr, ptr %670, align 8
+  %672 = icmp ne ptr %671, null
+  br i1 %672, label %694, label %673
 
-672:                                              ; preds = %664
-  %673 = load ptr, ptr %10, align 8
-  %674 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %673, i32 0, i32 8
-  %675 = call ptr @localtime_r(ptr noundef %674, ptr noundef %21) #7
-  %676 = icmp ne ptr %675, null
-  br i1 %676, label %683, label %677
+673:                                              ; preds = %665
+  %674 = load ptr, ptr %10, align 8
+  %675 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %674, i32 0, i32 8
+  %676 = call ptr @localtime_r(ptr noundef %675, ptr noundef %21) #7
+  %677 = icmp ne ptr %676, null
+  br i1 %677, label %684, label %678
 
-677:                                              ; preds = %672
-  %678 = load ptr, ptr @stderr, align 8
-  %679 = load ptr, ptr %10, align 8
-  %680 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %679, i32 0, i32 8
-  %681 = load i64, ptr %680, align 8
-  %682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %678, ptr noundef @.str.1, i64 noundef %681) #7
+678:                                              ; preds = %673
+  %679 = load ptr, ptr @stderr, align 8
+  %680 = load ptr, ptr %10, align 8
+  %681 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %680, i32 0, i32 8
+  %682 = load i64, ptr %681, align 8
+  %683 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef @.str.1, i64 noundef %682) #7
   store i32 1, ptr @exit_code, align 4
   store i32 0, ptr %6, align 4
-  br label %696
+  br label %697
 
-683:                                              ; preds = %672
-  %684 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 0
-  store i32 0, ptr %684, align 8
-  %685 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 1
-  store i32 0, ptr %685, align 4
-  %686 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 2
-  store i32 0, ptr %686, align 8
-  %687 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 3
-  %688 = load i32, ptr %687, align 4
-  %689 = add nsw i32 %688, -1
-  store i32 %689, ptr %687, align 4
-  %690 = call i64 @slurm_mktime(ptr noundef %21)
-  %691 = load ptr, ptr %10, align 8
-  %692 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %691, i32 0, i32 8
-  store i64 %690, ptr %692, align 8
-  br label %693
-
-693:                                              ; preds = %683, %664
+684:                                              ; preds = %673
+  %685 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 0
+  store i32 0, ptr %685, align 8
+  %686 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 1
+  store i32 0, ptr %686, align 4
+  %687 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 2
+  store i32 0, ptr %687, align 8
+  %688 = getelementptr inbounds %struct.tm, ptr %21, i32 0, i32 3
+  %689 = load i32, ptr %688, align 4
+  %690 = add nsw i32 %689, -1
+  store i32 %690, ptr %688, align 4
+  %691 = call i64 @slurm_mktime(ptr noundef %21)
+  %692 = load ptr, ptr %10, align 8
+  %693 = getelementptr inbounds %struct.slurmdb_event_cond_t, ptr %692, i32 0, i32 8
+  store i64 %691, ptr %693, align 8
   br label %694
 
-694:                                              ; preds = %693, %659, %656
-  %695 = load i32, ptr %14, align 4
-  store i32 %695, ptr %6, align 4
-  br label %696
+694:                                              ; preds = %684, %665
+  br label %695
 
-696:                                              ; preds = %694, %677
-  %697 = load i32, ptr %6, align 4
-  ret i32 %697
+695:                                              ; preds = %694, %660, %657
+  %696 = load i32, ptr %14, align 4
+  store i32 %696, ptr %6, align 4
+  br label %697
+
+697:                                              ; preds = %695, %678
+  %698 = load i32, ptr %6, align 4
+  ret i32 %698
 }
 
 declare void @list_destroy(ptr noundef) #1

@@ -439,49 +439,50 @@ define dso_local void @_ZN17cmOutputConverterC2ERK15cmStateSnapshot(ptr noundef 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 24, i1 false)
-  %10 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 2
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 5
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 24, i1 false)
+  %11 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 2
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 6
-  store i32 0, ptr %13, align 8
+  %13 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %class.cmOutputConverter, ptr %7, i32 0, i32 6
+  store i32 0, ptr %14, align 8
   invoke void @_ZN17cmOutputConverter28ComputeRelativePathTopSourceEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
-          to label %14 unwind label %17
+          to label %15 unwind label %18
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   invoke void @_ZN17cmOutputConverter28ComputeRelativePathTopBinaryEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
-          to label %15 unwind label %17
-
-15:                                               ; preds = %14
-  invoke void @_ZN17cmOutputConverter30ComputeRelativePathTopRelationEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
-          to label %16 unwind label %17
+          to label %16 unwind label %18
 
 16:                                               ; preds = %15
+  invoke void @_ZN17cmOutputConverter30ComputeRelativePathTopRelationEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
   ret void
 
-17:                                               ; preds = %15, %14, %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %16, %15, %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3536,11 +3537,12 @@ define linkonce_odr dso_local void @_ZN17cmOutputConverterD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   ret void
 }
 

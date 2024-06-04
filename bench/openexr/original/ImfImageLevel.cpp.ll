@@ -80,16 +80,17 @@ entry:
   store i32 %xLevelNumber, ptr %xLevelNumber.addr, align 4
   store i32 %yLevelNumber, ptr %yLevelNumber.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_210ImageLevelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7Imf_3_210ImageLevelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_image = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %image.addr, align 8
-  store ptr %0, ptr %_image, align 8
+  %1 = load ptr, ptr %image.addr, align 8
+  store ptr %1, ptr %_image, align 8
   %_xLevelNumber = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %xLevelNumber.addr, align 4
-  store i32 %1, ptr %_xLevelNumber, align 8
+  %2 = load i32, ptr %xLevelNumber.addr, align 4
+  store i32 %2, ptr %_xLevelNumber, align 8
   %_yLevelNumber = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %yLevelNumber.addr, align 4
-  store i32 %2, ptr %_yLevelNumber, align 4
+  %3 = load i32, ptr %yLevelNumber.addr, align 4
+  store i32 %3, ptr %_yLevelNumber, align 4
   %_dataWindow = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %this1, i32 0, i32 4
   call void @_ZN9Imath_3_24Vec2IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef 0, i32 noundef 0) #3
   call void @_ZN9Imath_3_24Vec2IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2, i32 noundef -1, i32 noundef -1) #3

@@ -472,21 +472,22 @@ define dso_local void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmState
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV18cmLinkLineComputer, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 40, i1 false)
-  %10 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 3
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 4
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 5
-  store i8 0, ptr %14, align 2
-  %15 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 6
-  store i8 0, ptr %15, align 1
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV18cmLinkLineComputer, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 40, i1 false)
+  %11 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 3
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 4
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 5
+  store i8 0, ptr %15, align 2
+  %16 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 6
+  store i8 0, ptr %16, align 1
   ret void
 }
 

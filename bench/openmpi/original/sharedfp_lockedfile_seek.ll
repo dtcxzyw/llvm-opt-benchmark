@@ -61,247 +61,252 @@ define i32 @mca_sharedfp_lockedfile_seek(ptr noundef %0, i64 noundef %1, i32 nou
   %17 = getelementptr inbounds %struct.ompio_file_t, ptr %16, i32 0, i32 25
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %3
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %21, ptr noundef @.str)
+  %21 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %22 = load i32, ptr %21, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef @.str)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.ompio_file_t, ptr %23, i32 0, i32 25
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %9, align 8
-  %26 = load i64, ptr %6, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.ompio_file_t, ptr %27, i32 0, i32 26
-  %29 = getelementptr inbounds %struct.ompio_fview_t, ptr %28, i32 0, i32 10
-  %30 = load i64, ptr %29, align 8
-  %31 = mul i64 %26, %30
-  store i64 %31, ptr %13, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.ompio_file_t, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 0, %34
-  br i1 %35, label %36, label %140
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.ompio_file_t, ptr %24, i32 0, i32 25
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %9, align 8
+  %27 = load i64, ptr %6, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct.ompio_file_t, ptr %28, i32 0, i32 26
+  %30 = getelementptr inbounds %struct.ompio_fview_t, ptr %29, i32 0, i32 10
+  %31 = load i64, ptr %30, align 8
+  %32 = mul i64 %27, %31
+  store i64 %32, ptr %13, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.ompio_file_t, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 0, %35
+  br i1 %36, label %37, label %145
 
-36:                                               ; preds = %22
-  %37 = load i32, ptr %7, align 4
-  %38 = icmp eq i32 600, %37
-  br i1 %38, label %39, label %45
+37:                                               ; preds = %23
+  %38 = load i32, ptr %7, align 4
+  %39 = icmp eq i32 600, %38
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %36
-  %40 = load i64, ptr %13, align 8
-  %41 = icmp slt i64 %40, 0
-  br i1 %41, label %42, label %44
+40:                                               ; preds = %37
+  %41 = load i64, ptr %13, align 8
+  %42 = icmp slt i64 %41, 0
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %39
-  %43 = load i64, ptr %13, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, i64 noundef %43)
+43:                                               ; preds = %40
+  %44 = load i64, ptr %13, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1, i64 noundef %44)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
+  br label %84
+
+46:                                               ; preds = %37
+  %47 = load i32, ptr %7, align 4
+  %48 = icmp eq i32 602, %47
+  br i1 %48, label %49, label %66
+
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %5, align 8
+  %51 = call i32 @mca_sharedfp_lockedfile_get_position(ptr noundef %50, ptr noundef %15)
+  store i32 %51, ptr %8, align 4
+  %52 = load i32, ptr %8, align 4
+  %53 = icmp ne i32 0, %52
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %49
+  store i32 -1, ptr %4, align 4
+  br label %164
+
+55:                                               ; preds = %49
+  %56 = load i64, ptr %15, align 8
+  %57 = load i64, ptr %13, align 8
+  %58 = add nsw i64 %56, %57
+  store i64 %58, ptr %13, align 8
+  %59 = load ptr, ptr @stdout, align 8
+  %60 = call i32 @fflush(ptr noundef %59)
+  %61 = load i64, ptr %13, align 8
+  %62 = icmp slt i64 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %55
+  %64 = load i64, ptr %13, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, i64 noundef %64)
+  store i32 -1, ptr %4, align 4
+  br label %164
+
+65:                                               ; preds = %55
   br label %83
 
-45:                                               ; preds = %36
-  %46 = load i32, ptr %7, align 4
-  %47 = icmp eq i32 602, %46
-  br i1 %47, label %48, label %65
+66:                                               ; preds = %46
+  %67 = load i32, ptr %7, align 4
+  %68 = icmp eq i32 604, %67
+  br i1 %68, label %69, label %80
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %5, align 8
-  %50 = call i32 @mca_sharedfp_lockedfile_get_position(ptr noundef %49, ptr noundef %15)
-  store i32 %50, ptr %8, align 4
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp ne i32 0, %51
-  br i1 %52, label %53, label %54
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %5, align 8
+  %71 = call i32 @mca_common_ompio_file_get_size(ptr noundef %70, ptr noundef %14)
+  %72 = load i64, ptr %14, align 8
+  %73 = load i64, ptr %13, align 8
+  %74 = add nsw i64 %72, %73
+  store i64 %74, ptr %13, align 8
+  %75 = load i64, ptr %13, align 8
+  %76 = icmp slt i64 %75, 0
+  br i1 %76, label %77, label %79
 
-53:                                               ; preds = %48
+77:                                               ; preds = %69
+  %78 = load i64, ptr %13, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, i64 noundef %78)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-54:                                               ; preds = %48
-  %55 = load i64, ptr %15, align 8
-  %56 = load i64, ptr %13, align 8
-  %57 = add nsw i64 %55, %56
-  store i64 %57, ptr %13, align 8
-  %58 = load ptr, ptr @stdout, align 8
-  %59 = call i32 @fflush(ptr noundef %58)
-  %60 = load i64, ptr %13, align 8
-  %61 = icmp slt i64 %60, 0
-  br i1 %61, label %62, label %64
-
-62:                                               ; preds = %54
-  %63 = load i64, ptr %13, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, i64 noundef %63)
-  store i32 -1, ptr %4, align 4
-  br label %159
-
-64:                                               ; preds = %54
+79:                                               ; preds = %69
   br label %82
 
-65:                                               ; preds = %45
-  %66 = load i32, ptr %7, align 4
-  %67 = icmp eq i32 604, %66
-  br i1 %67, label %68, label %79
-
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %5, align 8
-  %70 = call i32 @mca_common_ompio_file_get_size(ptr noundef %69, ptr noundef %14)
-  %71 = load i64, ptr %14, align 8
-  %72 = load i64, ptr %13, align 8
-  %73 = add nsw i64 %71, %72
-  store i64 %73, ptr %13, align 8
-  %74 = load i64, ptr %13, align 8
-  %75 = icmp slt i64 %74, 0
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %68
-  %77 = load i64, ptr %13, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2, i64 noundef %77)
+80:                                               ; preds = %66
+  %81 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.3, i32 noundef %81)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-78:                                               ; preds = %68
-  br label %81
-
-79:                                               ; preds = %65
-  %80 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.3, i32 noundef %80)
-  store i32 -1, ptr %4, align 4
-  br label %159
-
-81:                                               ; preds = %78
-  br label %82
-
-82:                                               ; preds = %81, %64
+82:                                               ; preds = %79
   br label %83
 
-83:                                               ; preds = %82, %44
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds %struct.mca_sharedfp_base_data_t, ptr %84, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %10, align 8
-  %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds %struct.mca_sharedfp_lockedfile_data, ptr %87, i32 0, i32 0
-  %89 = load i32, ptr %88, align 8
-  store i32 %89, ptr %11, align 4
-  %90 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %90, ptr noundef @.str.4)
-  %91 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 0
-  store i16 1, ptr %91, align 8
-  %92 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 1
-  store i16 0, ptr %92, align 2
-  %93 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 2
-  store i64 0, ptr %93, align 8
-  %94 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 3
-  store i64 0, ptr %94, align 8
-  %95 = call i32 @getpid() #4
-  %96 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 4
-  store i32 %95, ptr %96, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = call i32 (i32, i32, ...) @fcntl(i32 noundef %97, i32 noundef 7, ptr noundef %12)
-  %99 = icmp eq i32 %98, -1
-  br i1 %99, label %100, label %107
+83:                                               ; preds = %82, %65
+  br label %84
 
-100:                                              ; preds = %83
-  %101 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.5, i32 noundef %101)
-  %102 = call ptr @__errno_location() #5
-  %103 = load i32, ptr %102, align 4
+84:                                               ; preds = %83, %45
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds %struct.mca_sharedfp_base_data_t, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %10, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds %struct.mca_sharedfp_lockedfile_data, ptr %88, i32 0, i32 0
+  %90 = load i32, ptr %89, align 8
+  store i32 %90, ptr %11, align 4
+  %91 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %92 = load i32, ptr %91, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %92, ptr noundef @.str.4)
+  %93 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 0
+  store i16 1, ptr %93, align 8
+  %94 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 1
+  store i16 0, ptr %94, align 2
+  %95 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 2
+  store i64 0, ptr %95, align 8
+  %96 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 3
+  store i64 0, ptr %96, align 8
+  %97 = call i32 @getpid() #4
+  %98 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 4
+  store i32 %97, ptr %98, align 8
+  %99 = load i32, ptr %11, align 4
+  %100 = call i32 (i32, i32, ...) @fcntl(i32 noundef %99, i32 noundef 7, ptr noundef %12)
+  %101 = icmp eq i32 %100, -1
+  br i1 %101, label %102, label %109
+
+102:                                              ; preds = %84
+  %103 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.5, i32 noundef %103)
   %104 = call ptr @__errno_location() #5
   %105 = load i32, ptr %104, align 4
-  %106 = call ptr @strerror(i32 noundef %105) #4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, i32 noundef %103, ptr noundef %106)
+  %106 = call ptr @__errno_location() #5
+  %107 = load i32, ptr %106, align 4
+  %108 = call ptr @strerror(i32 noundef %107) #4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, i32 noundef %105, ptr noundef %108)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-107:                                              ; preds = %83
-  %108 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %109 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %108, ptr noundef @.str.7, i32 noundef %109)
-  br label %110
+109:                                              ; preds = %84
+  %110 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %111 = load i32, ptr %110, align 4
+  %112 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %111, ptr noundef @.str.7, i32 noundef %112)
+  br label %113
 
-110:                                              ; preds = %107
-  %111 = load i32, ptr %11, align 4
-  %112 = call i64 @lseek(i32 noundef %111, i64 noundef 0, i32 noundef 0) #4
-  %113 = load i32, ptr %11, align 4
-  %114 = call i32 @opal_fd_write(i32 noundef %113, i32 noundef 8, ptr noundef %13)
-  %115 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %119
+113:                                              ; preds = %109
+  %114 = load i32, ptr %11, align 4
+  %115 = call i64 @lseek(i32 noundef %114, i64 noundef 0, i32 noundef 0) #4
+  %116 = load i32, ptr %11, align 4
+  %117 = call i32 @opal_fd_write(i32 noundef %116, i32 noundef 8, ptr noundef %13)
+  %118 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %123
 
-117:                                              ; preds = %110
-  %118 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %118, ptr noundef @.str.8)
-  br label %119
+120:                                              ; preds = %113
+  %121 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %122 = load i32, ptr %121, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %122, ptr noundef @.str.8)
+  br label %123
 
-119:                                              ; preds = %117, %110
-  %120 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 0
-  store i16 2, ptr %120, align 8
-  %121 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 1
-  store i16 0, ptr %121, align 2
-  %122 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 2
-  store i64 0, ptr %122, align 8
-  %123 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 3
-  store i64 0, ptr %123, align 8
-  %124 = call i32 @getpid() #4
-  %125 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 4
-  store i32 %124, ptr %125, align 8
-  %126 = load i32, ptr %11, align 4
-  %127 = call i32 (i32, i32, ...) @fcntl(i32 noundef %126, i32 noundef 6, ptr noundef %12)
-  %128 = icmp eq i32 %127, -1
-  br i1 %128, label %129, label %136
-
-129:                                              ; preds = %119
+123:                                              ; preds = %120, %113
+  %124 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 0
+  store i16 2, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 1
+  store i16 0, ptr %125, align 2
+  %126 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 2
+  store i64 0, ptr %126, align 8
+  %127 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 3
+  store i64 0, ptr %127, align 8
+  %128 = call i32 @getpid() #4
+  %129 = getelementptr inbounds %struct.flock, ptr %12, i32 0, i32 4
+  store i32 %128, ptr %129, align 8
   %130 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.9, i32 noundef %130)
-  %131 = call ptr @__errno_location() #5
-  %132 = load i32, ptr %131, align 4
-  %133 = call ptr @__errno_location() #5
-  %134 = load i32, ptr %133, align 4
-  %135 = call ptr @strerror(i32 noundef %134) #4
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, i32 noundef %132, ptr noundef %135)
+  %131 = call i32 (i32, i32, ...) @fcntl(i32 noundef %130, i32 noundef 6, ptr noundef %12)
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %133, label %140
+
+133:                                              ; preds = %123
+  %134 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.9, i32 noundef %134)
+  %135 = call ptr @__errno_location() #5
+  %136 = load i32, ptr %135, align 4
+  %137 = call ptr @__errno_location() #5
+  %138 = load i32, ptr %137, align 4
+  %139 = call ptr @strerror(i32 noundef %138) #4
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.6, i32 noundef %136, ptr noundef %139)
   store i32 -1, ptr %4, align 4
-  br label %159
+  br label %164
 
-136:                                              ; preds = %119
-  %137 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %138 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %137, ptr noundef @.str.10, i32 noundef %138)
-  br label %139
+140:                                              ; preds = %123
+  %141 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %142 = load i32, ptr %141, align 4
+  %143 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %142, ptr noundef @.str.10, i32 noundef %143)
+  br label %144
 
-139:                                              ; preds = %136
-  br label %140
+144:                                              ; preds = %140
+  br label %145
 
-140:                                              ; preds = %139, %22
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.ompio_file_t, ptr %141, i32 0, i32 7
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %struct.ompi_communicator_t, ptr %143, i32 0, i32 23
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %145, i32 0, i32 12
-  %147 = load ptr, ptr %146, align 8
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds %struct.ompio_file_t, ptr %148, i32 0, i32 7
+145:                                              ; preds = %144, %23
+  %146 = load ptr, ptr %5, align 8
+  %147 = getelementptr inbounds %struct.ompio_file_t, ptr %146, i32 0, i32 7
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds %struct.ompi_communicator_t, ptr %148, i32 0, i32 23
   %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds %struct.ompio_file_t, ptr %151, i32 0, i32 7
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct.ompi_communicator_t, ptr %153, i32 0, i32 23
+  %151 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %150, i32 0, i32 12
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %5, align 8
+  %154 = getelementptr inbounds %struct.ompio_file_t, ptr %153, i32 0, i32 7
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %155, i32 0, i32 13
-  %157 = load ptr, ptr %156, align 8
-  %158 = call i32 %147(ptr noundef %150, ptr noundef %157)
+  %156 = load ptr, ptr %5, align 8
+  %157 = getelementptr inbounds %struct.ompio_file_t, ptr %156, i32 0, i32 7
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %struct.ompi_communicator_t, ptr %158, i32 0, i32 23
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %160, i32 0, i32 13
+  %162 = load ptr, ptr %161, align 8
+  %163 = call i32 %152(ptr noundef %155, ptr noundef %162)
   store i32 0, ptr %4, align 4
-  br label %159
+  br label %164
 
-159:                                              ; preds = %140, %129, %100, %79, %76, %62, %53, %42, %20
-  %160 = load i32, ptr %4, align 4
-  ret i32 %160
+164:                                              ; preds = %145, %133, %102, %80, %77, %63, %54, %43, %20
+  %165 = load i32, ptr %4, align 4
+  ret i32 %165
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) #1

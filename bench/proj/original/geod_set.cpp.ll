@@ -263,175 +263,183 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef %1) #0 {
   %141 = call double @sqrt(double noundef %140) #6
   %142 = fadd double 1.000000e+00, %141
   %143 = fdiv double %138, %142
-  store double %143, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 1), align 8
+  %144 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 1
+  store double %143, ptr %144, align 8
   call void @geod_ini()
-  %144 = load ptr, ptr %5, align 8
-  %145 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %144, ptr noundef @.str.6)
-  %146 = getelementptr inbounds %union.PROJVALUE, ptr %14, i32 0, i32 0
-  store i64 %145, ptr %146, align 8
-  %147 = load i32, ptr %14, align 8
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %222
+  %145 = load ptr, ptr %5, align 8
+  %146 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %145, ptr noundef @.str.6)
+  %147 = getelementptr inbounds %union.PROJVALUE, ptr %14, i32 0, i32 0
+  store i64 %146, ptr %147, align 8
+  %148 = load i32, ptr %14, align 8
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %230
 
-149:                                              ; preds = %137
-  %150 = load ptr, ptr %5, align 8
-  %151 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %150, ptr noundef @.str.7)
-  %152 = getelementptr inbounds %union.PROJVALUE, ptr %16, i32 0, i32 0
-  store i64 %151, ptr %152, align 8
-  %153 = load double, ptr %16, align 8
-  store double %153, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 3), align 8
-  %154 = load ptr, ptr %5, align 8
-  %155 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %154, ptr noundef @.str.8)
-  %156 = getelementptr inbounds %union.PROJVALUE, ptr %17, i32 0, i32 0
-  store i64 %155, ptr %156, align 8
-  %157 = load double, ptr %17, align 8
-  store double %157, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 2), align 8
-  %158 = load ptr, ptr %5, align 8
-  %159 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %158, ptr noundef @.str.9)
-  %160 = getelementptr inbounds %union.PROJVALUE, ptr %18, i32 0, i32 0
-  store i64 %159, ptr %160, align 8
-  %161 = load i32, ptr %18, align 8
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %172
+150:                                              ; preds = %137
+  %151 = load ptr, ptr %5, align 8
+  %152 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %151, ptr noundef @.str.7)
+  %153 = getelementptr inbounds %union.PROJVALUE, ptr %16, i32 0, i32 0
+  store i64 %152, ptr %153, align 8
+  %154 = load double, ptr %16, align 8
+  %155 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 3
+  store double %154, ptr %155, align 8
+  %156 = load ptr, ptr %5, align 8
+  %157 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %156, ptr noundef @.str.8)
+  %158 = getelementptr inbounds %union.PROJVALUE, ptr %17, i32 0, i32 0
+  store i64 %157, ptr %158, align 8
+  %159 = load double, ptr %17, align 8
+  %160 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 2
+  store double %159, ptr %160, align 8
+  %161 = load ptr, ptr %5, align 8
+  %162 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %161, ptr noundef @.str.9)
+  %163 = getelementptr inbounds %union.PROJVALUE, ptr %18, i32 0, i32 0
+  store i64 %162, ptr %163, align 8
+  %164 = load i32, ptr %18, align 8
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %177
 
-163:                                              ; preds = %149
-  %164 = load ptr, ptr %5, align 8
-  %165 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %164, ptr noundef @.str.10)
-  %166 = getelementptr inbounds %union.PROJVALUE, ptr %19, i32 0, i32 0
-  store i64 %165, ptr %166, align 8
-  %167 = load double, ptr %19, align 8
-  store double %167, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 6), align 8
-  %168 = load ptr, ptr %5, align 8
-  %169 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %168, ptr noundef @.str.11)
-  %170 = getelementptr inbounds %union.PROJVALUE, ptr %20, i32 0, i32 0
-  store i64 %169, ptr %170, align 8
-  %171 = load double, ptr %20, align 8
-  store double %171, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 5), align 8
+166:                                              ; preds = %150
+  %167 = load ptr, ptr %5, align 8
+  %168 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %167, ptr noundef @.str.10)
+  %169 = getelementptr inbounds %union.PROJVALUE, ptr %19, i32 0, i32 0
+  store i64 %168, ptr %169, align 8
+  %170 = load double, ptr %19, align 8
+  %171 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 6
+  store double %170, ptr %171, align 8
+  %172 = load ptr, ptr %5, align 8
+  %173 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %172, ptr noundef @.str.11)
+  %174 = getelementptr inbounds %union.PROJVALUE, ptr %20, i32 0, i32 0
+  store i64 %173, ptr %174, align 8
+  %175 = load double, ptr %20, align 8
+  %176 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 5
+  store double %175, ptr %176, align 8
   call void @geod_inv()
   call void @geod_pre()
-  br label %185
+  br label %192
 
-172:                                              ; preds = %149
-  %173 = load ptr, ptr %5, align 8
-  %174 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %173, ptr noundef @.str.12)
-  %175 = getelementptr inbounds %union.PROJVALUE, ptr %21, i32 0, i32 0
-  store i64 %174, ptr %175, align 8
-  %176 = load double, ptr %21, align 8
-  store double %176, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 8), align 8
-  %177 = fcmp une double %176, 0.000000e+00
-  br i1 %177, label %178, label %183
+177:                                              ; preds = %150
+  %178 = load ptr, ptr %5, align 8
+  %179 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %178, ptr noundef @.str.12)
+  %180 = getelementptr inbounds %union.PROJVALUE, ptr %21, i32 0, i32 0
+  store i64 %179, ptr %180, align 8
+  %181 = load double, ptr %21, align 8
+  %182 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 8
+  store double %181, ptr %182, align 8
+  %183 = fcmp une double %181, 0.000000e+00
+  br i1 %183, label %184, label %190
 
-178:                                              ; preds = %172
-  %179 = load ptr, ptr %5, align 8
-  %180 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %179, ptr noundef @.str.13)
-  %181 = getelementptr inbounds %union.PROJVALUE, ptr %22, i32 0, i32 0
-  store i64 %180, ptr %181, align 8
-  %182 = load double, ptr %22, align 8
-  store double %182, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 4), align 8
+184:                                              ; preds = %177
+  %185 = load ptr, ptr %5, align 8
+  %186 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %185, ptr noundef @.str.13)
+  %187 = getelementptr inbounds %union.PROJVALUE, ptr %22, i32 0, i32 0
+  store i64 %186, ptr %187, align 8
+  %188 = load double, ptr %22, align 8
+  %189 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 4
+  store double %188, ptr %189, align 8
   call void @geod_pre()
   call void @geod_for()
-  br label %184
+  br label %191
 
-183:                                              ; preds = %172
+190:                                              ; preds = %177
   call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef @.str.14)
-  br label %184
+  br label %191
 
-184:                                              ; preds = %183, %178
-  br label %185
+191:                                              ; preds = %190, %184
+  br label %192
 
-185:                                              ; preds = %184, %163
-  %186 = load ptr, ptr %5, align 8
-  %187 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %186, ptr noundef @.str.15)
-  %188 = getelementptr inbounds %union.PROJVALUE, ptr %23, i32 0, i32 0
-  store i64 %187, ptr %188, align 8
-  %189 = load i32, ptr %23, align 8
-  store i32 %189, ptr @n_alpha, align 4
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %191, label %199
+192:                                              ; preds = %191, %166
+  %193 = load ptr, ptr %5, align 8
+  %194 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %193, ptr noundef @.str.15)
+  %195 = getelementptr inbounds %union.PROJVALUE, ptr %23, i32 0, i32 0
+  store i64 %194, ptr %195, align 8
+  %196 = load i32, ptr %23, align 8
+  store i32 %196, ptr @n_alpha, align 4
+  %197 = icmp sgt i32 %196, 0
+  br i1 %197, label %198, label %206
 
-191:                                              ; preds = %185
-  %192 = load ptr, ptr %5, align 8
-  %193 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %192, ptr noundef @.str.16)
-  %194 = getelementptr inbounds %union.PROJVALUE, ptr %24, i32 0, i32 0
-  store i64 %193, ptr %194, align 8
-  %195 = load double, ptr %24, align 8
-  store double %195, ptr @del_alpha, align 8
-  %196 = fcmp oeq double %195, 0.000000e+00
-  br i1 %196, label %197, label %198
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %5, align 8
+  %200 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %199, ptr noundef @.str.16)
+  %201 = getelementptr inbounds %union.PROJVALUE, ptr %24, i32 0, i32 0
+  store i64 %200, ptr %201, align 8
+  %202 = load double, ptr %24, align 8
+  store double %202, ptr @del_alpha, align 8
+  %203 = fcmp oeq double %202, 0.000000e+00
+  br i1 %203, label %204, label %205
 
-197:                                              ; preds = %191
+204:                                              ; preds = %198
   call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef @.str.17)
-  br label %198
+  br label %205
 
-198:                                              ; preds = %197, %191
-  br label %221
+205:                                              ; preds = %204, %198
+  br label %229
 
-199:                                              ; preds = %185
-  %200 = load ptr, ptr %5, align 8
-  %201 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %200, ptr noundef @.str.18)
-  %202 = getelementptr inbounds %union.PROJVALUE, ptr %25, i32 0, i32 0
-  store i64 %201, ptr %202, align 8
-  %203 = load double, ptr %25, align 8
-  %204 = call double @llvm.fabs.f64(double %203)
-  store double %204, ptr %15, align 8
-  %205 = fcmp une double %204, 0.000000e+00
-  br i1 %205, label %206, label %212
+206:                                              ; preds = %192
+  %207 = load ptr, ptr %5, align 8
+  %208 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %207, ptr noundef @.str.18)
+  %209 = getelementptr inbounds %union.PROJVALUE, ptr %25, i32 0, i32 0
+  store i64 %208, ptr %209, align 8
+  %210 = load double, ptr %25, align 8
+  %211 = call double @llvm.fabs.f64(double %210)
+  store double %211, ptr %15, align 8
+  %212 = fcmp une double %211, 0.000000e+00
+  br i1 %212, label %213, label %220
 
-206:                                              ; preds = %199
-  %207 = load double, ptr getelementptr inbounds (%struct.geodesic, ptr @GEODESIC, i32 0, i32 8), align 8
-  %208 = load double, ptr %15, align 8
-  %209 = fdiv double %207, %208
-  %210 = fadd double %209, 5.000000e-01
-  %211 = fptosi double %210 to i32
-  store i32 %211, ptr @n_S, align 4
-  br label %220
+213:                                              ; preds = %206
+  %214 = getelementptr inbounds %struct.geodesic, ptr @GEODESIC, i32 0, i32 8
+  %215 = load double, ptr %214, align 8
+  %216 = load double, ptr %15, align 8
+  %217 = fdiv double %215, %216
+  %218 = fadd double %217, 5.000000e-01
+  %219 = fptosi double %218 to i32
+  store i32 %219, ptr @n_S, align 4
+  br label %228
 
-212:                                              ; preds = %199
-  %213 = load ptr, ptr %5, align 8
-  %214 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %213, ptr noundef @.str.19)
-  %215 = getelementptr inbounds %union.PROJVALUE, ptr %26, i32 0, i32 0
-  store i64 %214, ptr %215, align 8
-  %216 = load i32, ptr %26, align 8
-  store i32 %216, ptr @n_S, align 4
-  %217 = icmp sle i32 %216, 0
-  br i1 %217, label %218, label %219
+220:                                              ; preds = %206
+  %221 = load ptr, ptr %5, align 8
+  %222 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %221, ptr noundef @.str.19)
+  %223 = getelementptr inbounds %union.PROJVALUE, ptr %26, i32 0, i32 0
+  store i64 %222, ptr %223, align 8
+  %224 = load i32, ptr %26, align 8
+  store i32 %224, ptr @n_S, align 4
+  %225 = icmp sle i32 %224, 0
+  br i1 %225, label %226, label %227
 
-218:                                              ; preds = %212
+226:                                              ; preds = %220
   call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef @.str.20)
-  br label %219
+  br label %227
 
-219:                                              ; preds = %218, %212
-  br label %220
+227:                                              ; preds = %226, %220
+  br label %228
 
-220:                                              ; preds = %219, %206
-  br label %221
+228:                                              ; preds = %227, %213
+  br label %229
 
-221:                                              ; preds = %220, %198
-  br label %222
+229:                                              ; preds = %228, %205
+  br label %230
 
-222:                                              ; preds = %221, %137
-  br label %223
-
-223:                                              ; preds = %231, %222
-  %224 = load ptr, ptr %5, align 8
-  %225 = icmp ne ptr %224, null
-  br i1 %225, label %226, label %233
-
-226:                                              ; preds = %223
-  %227 = load ptr, ptr %5, align 8
-  %228 = getelementptr inbounds %struct.ARG_list, ptr %227, i32 0, i32 0
-  %229 = load ptr, ptr %228, align 8
-  store ptr %229, ptr %6, align 8
-  %230 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %230) #6
+230:                                              ; preds = %229, %137
   br label %231
 
-231:                                              ; preds = %226
-  %232 = load ptr, ptr %6, align 8
-  store ptr %232, ptr %5, align 8
-  br label %223, !llvm.loop !8
+231:                                              ; preds = %239, %230
+  %232 = load ptr, ptr %5, align 8
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %241
 
-233:                                              ; preds = %223
+234:                                              ; preds = %231
+  %235 = load ptr, ptr %5, align 8
+  %236 = getelementptr inbounds %struct.ARG_list, ptr %235, i32 0, i32 0
+  %237 = load ptr, ptr %236, align 8
+  store ptr %237, ptr %6, align 8
+  %238 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %238) #6
+  br label %239
+
+239:                                              ; preds = %234
+  %240 = load ptr, ptr %6, align 8
+  store ptr %240, ptr %5, align 8
+  br label %231, !llvm.loop !8
+
+241:                                              ; preds = %231
   ret void
 }
 

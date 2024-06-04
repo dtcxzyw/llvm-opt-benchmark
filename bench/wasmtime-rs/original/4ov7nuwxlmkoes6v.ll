@@ -1098,32 +1098,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 0, i64 1
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %9 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %10, ptr %12, align 8
-  br label %18
+  %10 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %11, ptr %13, align 8
+  br label %20
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %16 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %15, ptr %17, align 8
-  br label %18
+  %15 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %16 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  br label %20
 
-18:                                               ; preds = %13, %8
+20:                                               ; preds = %14, %8
   ret void
 
-19:                                               ; No predecessors!
+21:                                               ; No predecessors!
   unreachable
 }
 
@@ -1134,32 +1136,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 0, i64 1
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %9 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %10, ptr %12, align 8
-  br label %18
+  %10 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %11, ptr %13, align 8
+  br label %20
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %16 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %15, ptr %17, align 8
-  br label %18
+  %15 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %16 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  br label %20
 
-18:                                               ; preds = %13, %8
+20:                                               ; preds = %14, %8
   ret void
 
-19:                                               ; No predecessors!
+21:                                               ; No predecessors!
   unreachable
 }
 
@@ -1169,32 +1173,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp eq i64 %3, -9223372036854775800
   %5 = select i1 %4, i64 0, i64 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %8 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %10 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  br label %17
+  %9 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  br label %19
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %13 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %15 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %14, ptr %16, align 8
-  br label %17
+  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %15 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %12, %7
+19:                                               ; preds = %13, %7
   ret void
 
-18:                                               ; No predecessors!
+20:                                               ; No predecessors!
   unreachable
 }
 
@@ -1204,32 +1210,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp eq i64 %3, -9223372036854775808
   %5 = select i1 %4, i64 0, i64 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %8 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %10 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  br label %17
+  %9 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  br label %19
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %13 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %15 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %14, ptr %16, align 8
-  br label %17
+  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %15 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %12, %7
+19:                                               ; preds = %13, %7
   ret void
 
-18:                                               ; No predecessors!
+20:                                               ; No predecessors!
   unreachable
 }
 
@@ -1239,32 +1247,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp eq i64 %3, -9223372036854775807
   %5 = select i1 %4, i64 0, i64 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %8 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %10 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  br label %17
+  %9 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  br label %19
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %13 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %15 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %14, ptr %16, align 8
-  br label %17
+  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %15 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %12, %7
+19:                                               ; preds = %13, %7
   ret void
 
-18:                                               ; No predecessors!
+20:                                               ; No predecessors!
   unreachable
 }
 
@@ -1274,32 +1284,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp eq i64 %3, -9223372036854775799
   %5 = select i1 %4, i64 0, i64 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %8 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.8, align 8, !range !5, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8), align 8
-  %10 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  br label %17
+  %9 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.8, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  br label %19
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %13 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8), align 8
-  %15 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %14, ptr %16, align 8
-  br label %17
+  %14 = load i64, ptr @anon.61230b66b54592690548a1486ed018c9.9, align 8, !range !5, !noundef !3
+  %15 = getelementptr inbounds i8, ptr @anon.61230b66b54592690548a1486ed018c9.9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %12, %7
+19:                                               ; preds = %13, %7
   ret void
 
-18:                                               ; No predecessors!
+20:                                               ; No predecessors!
   unreachable
 }
 

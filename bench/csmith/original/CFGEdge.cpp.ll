@@ -46,23 +46,24 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr noundef nonnull align
   %12 = zext i1 %4 to i8
   store i8 %12, ptr %10, align 1
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 3
-  %19 = load i8, ptr %9, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = zext i1 %20 to i8
-  store i8 %21, ptr %18, align 8
-  %22 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 4
-  %23 = load i8, ptr %10, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %22, align 1
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 3
+  %20 = load i8, ptr %9, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %19, align 8
+  %23 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 4
+  %24 = load i8, ptr %10, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %23, align 1
   ret void
 }
 
@@ -73,31 +74,32 @@ define dso_local void @_ZN7CFGEdgeC2ERKS_(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.CFGEdge, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %class.CFGEdge, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %class.CFGEdge, ptr %15, i32 0, i32 3
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %14, align 8
-  %20 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %class.CFGEdge, ptr %21, i32 0, i32 4
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %20, align 1
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.CFGEdge, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %class.CFGEdge, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %class.CFGEdge, ptr %16, i32 0, i32 3
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %15, align 8
+  %21 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %class.CFGEdge, ptr %22, i32 0, i32 4
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %21, align 1
   ret void
 }
 

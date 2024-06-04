@@ -4003,8 +4003,9 @@ entry:
   %tok.addr = alloca ptr, align 8
   %i = alloca i32, align 4
   store ptr %tok, ptr %tok.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.HashMap, ptr @is_typename.map, i32 0, i32 1), align 8
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.HashMap, ptr @is_typename.map, i32 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4012,22 +4013,23 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %i, align 4
-  %conv = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %conv = sext i32 %2 to i64
   %cmp1 = icmp ult i64 %conv, 30
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds [30 x ptr], ptr @is_typename.kw, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  call void @hashmap_put(ptr noundef @is_typename.map, ptr noundef %3, ptr noundef inttoptr (i64 1 to ptr))
+  %4 = load ptr, ptr %arrayidx, align 8
+  %5 = inttoptr i64 1 to ptr
+  call void @hashmap_put(ptr noundef @is_typename.map, ptr noundef %4, ptr noundef %5)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !21
 
@@ -4035,25 +4037,25 @@ for.end:                                          ; preds = %for.cond
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %5 = load ptr, ptr %tok.addr, align 8
-  %loc = getelementptr inbounds %struct.Token, ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %loc, align 16
   %7 = load ptr, ptr %tok.addr, align 8
-  %len = getelementptr inbounds %struct.Token, ptr %7, i32 0, i32 5
-  %8 = load i32, ptr %len, align 8
-  %call = call ptr @hashmap_get2(ptr noundef @is_typename.map, ptr noundef %6, i32 noundef %8)
+  %loc = getelementptr inbounds %struct.Token, ptr %7, i32 0, i32 4
+  %8 = load ptr, ptr %loc, align 16
+  %9 = load ptr, ptr %tok.addr, align 8
+  %len = getelementptr inbounds %struct.Token, ptr %9, i32 0, i32 5
+  %10 = load i32, ptr %len, align 8
+  %call = call ptr @hashmap_get2(ptr noundef @is_typename.map, ptr noundef %8, i32 noundef %10)
   %tobool = icmp ne ptr %call, null
   br i1 %tobool, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end
-  %9 = load ptr, ptr %tok.addr, align 8
-  %call3 = call ptr @find_typedef(ptr noundef %9)
+  %11 = load ptr, ptr %tok.addr, align 8
+  %call3 = call ptr @find_typedef(ptr noundef %11)
   %tobool4 = icmp ne ptr %call3, null
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end
-  %10 = phi i1 [ true, %if.end ], [ %tobool4, %lor.rhs ]
-  ret i1 %10
+  %12 = phi i1 [ true, %if.end ], [ %tobool4, %lor.rhs ]
+  ret i1 %12
 }
 
 ; Function Attrs: nounwind uwtable

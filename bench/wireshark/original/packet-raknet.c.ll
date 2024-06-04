@@ -499,51 +499,55 @@ define internal void @raknet_init_message_names() #0 {
   br label %2, !llvm.loop !4
 
 30:                                               ; preds = %2
-  store i32 0, ptr getelementptr inbounds ([15 x %struct._value_string], ptr @raknet_offline_message_names, i64 0, i64 14), align 16
-  store ptr null, ptr getelementptr inbounds ([15 x %struct._value_string], ptr @raknet_offline_message_names, i64 0, i64 14, i32 1), align 8
+  %31 = getelementptr inbounds [15 x %struct._value_string], ptr @raknet_offline_message_names, i64 0, i64 14
+  store i32 0, ptr %31, align 16
+  %32 = getelementptr inbounds [15 x %struct._value_string], ptr @raknet_offline_message_names, i64 0, i64 14, i32 1
+  store ptr null, ptr %32, align 8
   store i32 0, ptr %1, align 4
-  br label %31
+  br label %33
 
-31:                                               ; preds = %56, %30
-  %32 = load i32, ptr %1, align 4
-  %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %33, 5
-  br i1 %34, label %35, label %59
+33:                                               ; preds = %58, %30
+  %34 = load i32, ptr %1, align 4
+  %35 = zext i32 %34 to i64
+  %36 = icmp ult i64 %35, 5
+  br i1 %36, label %37, label %61
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %1, align 4
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr [5 x %struct.raknet_handler_entry], ptr @raknet_system_message_handlers, i64 0, i64 %37
-  %39 = getelementptr inbounds %struct.raknet_handler_entry, ptr %38, i32 0, i32 0
-  %40 = getelementptr inbounds %struct._value_string, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 8
-  %42 = load i32, ptr %1, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 %43
-  %45 = getelementptr inbounds %struct._value_string, ptr %44, i32 0, i32 0
-  store i32 %41, ptr %45, align 16
-  %46 = load i32, ptr %1, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr [5 x %struct.raknet_handler_entry], ptr @raknet_system_message_handlers, i64 0, i64 %47
-  %49 = getelementptr inbounds %struct.raknet_handler_entry, ptr %48, i32 0, i32 0
-  %50 = getelementptr inbounds %struct._value_string, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %1, align 4
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 %53
-  %55 = getelementptr inbounds %struct._value_string, ptr %54, i32 0, i32 1
-  store ptr %51, ptr %55, align 8
-  br label %56
+37:                                               ; preds = %33
+  %38 = load i32, ptr %1, align 4
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr [5 x %struct.raknet_handler_entry], ptr @raknet_system_message_handlers, i64 0, i64 %39
+  %41 = getelementptr inbounds %struct.raknet_handler_entry, ptr %40, i32 0, i32 0
+  %42 = getelementptr inbounds %struct._value_string, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 8
+  %44 = load i32, ptr %1, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 %45
+  %47 = getelementptr inbounds %struct._value_string, ptr %46, i32 0, i32 0
+  store i32 %43, ptr %47, align 16
+  %48 = load i32, ptr %1, align 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr [5 x %struct.raknet_handler_entry], ptr @raknet_system_message_handlers, i64 0, i64 %49
+  %51 = getelementptr inbounds %struct.raknet_handler_entry, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds %struct._value_string, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %1, align 4
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 %55
+  %57 = getelementptr inbounds %struct._value_string, ptr %56, i32 0, i32 1
+  store ptr %53, ptr %57, align 8
+  br label %58
 
-56:                                               ; preds = %35
-  %57 = load i32, ptr %1, align 4
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %1, align 4
-  br label %31, !llvm.loop !6
+58:                                               ; preds = %37
+  %59 = load i32, ptr %1, align 4
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %1, align 4
+  br label %33, !llvm.loop !6
 
-59:                                               ; preds = %31
-  store i32 0, ptr getelementptr inbounds ([6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 5), align 16
-  store ptr null, ptr getelementptr inbounds ([6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 5, i32 1), align 8
+61:                                               ; preds = %33
+  %62 = getelementptr inbounds [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 5
+  store i32 0, ptr %62, align 16
+  %63 = getelementptr inbounds [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 5, i32 1
+  store ptr null, ptr %63, align 8
   ret void
 }
 

@@ -20545,7 +20545,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, ptr align 16 @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11base_ranges, i64 24, i1 false)
-  call void @_ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt(i32 noundef 19968, ptr noundef @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE32accumulative_offsets_from_0x4E00, i32 noundef 2500, ptr noundef getelementptr inbounds (i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, i64 12))
+  %1 = getelementptr inbounds i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, i64 12
+  call void @_ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt(i32 noundef 19968, ptr noundef @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE32accumulative_offsets_from_0x4E00, i32 noundef 2500, ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -20627,7 +20628,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, ptr align 16 @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11base_ranges, i64 20, i1 false)
-  call void @_ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt(i32 noundef 19968, ptr noundef @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE32accumulative_offsets_from_0x4E00, i32 noundef 2999, ptr noundef getelementptr inbounds (i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, i64 10))
+  %1 = getelementptr inbounds i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, i64 10
+  call void @_ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt(i32 noundef 19968, ptr noundef @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE32accumulative_offsets_from_0x4E00, i32 noundef 2999, ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -27274,53 +27276,56 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx3 = getelementptr inbounds i8, ptr %5, i64 1
   %6 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %6 to i32
-  %7 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 1), align 1
-  %conv5 = sext i8 %7 to i32
+  %7 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %conv5 = sext i8 %8 to i32
   %cmp6 = icmp eq i32 %conv4, %conv5
   br i1 %cmp6, label %land.lhs.true7, label %if.end33
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %8, i64 2
-  %9 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %9 to i32
-  %10 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 2), align 1
-  %conv10 = sext i8 %10 to i32
+  %9 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %9, i64 2
+  %10 = load i8, ptr %arrayidx8, align 1
+  %conv9 = zext i8 %10 to i32
+  %11 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %conv10 = sext i8 %12 to i32
   %cmp11 = icmp eq i32 %conv9, %conv10
   br i1 %cmp11, label %land.lhs.true12, label %if.end33
 
 land.lhs.true12:                                  ; preds = %land.lhs.true7
-  %11 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %11, i64 3
-  %12 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %12 to i32
-  %13 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 3), align 1
-  %conv15 = sext i8 %13 to i32
+  %13 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx13 = getelementptr inbounds i8, ptr %13, i64 3
+  %14 = load i8, ptr %arrayidx13, align 1
+  %conv14 = zext i8 %14 to i32
+  %15 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 3
+  %16 = load i8, ptr %15, align 1
+  %conv15 = sext i8 %16 to i32
   %cmp16 = icmp eq i32 %conv14, %conv15
   br i1 %cmp16, label %if.then17, label %if.end33
 
 if.then17:                                        ; preds = %land.lhs.true12
-  %14 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %17, i64 4
   %call18 = call noundef i32 @_ZL7ttULONGPh(ptr noundef %add.ptr)
   %cmp19 = icmp eq i32 %call18, 65536
   br i1 %cmp19, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then17
-  %15 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr20 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr20 = getelementptr inbounds i8, ptr %18, i64 4
   %call21 = call noundef i32 @_ZL7ttULONGPh(ptr noundef %add.ptr20)
   %cmp22 = icmp eq i32 %call21, 131072
   br i1 %cmp22, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %lor.lhs.false, %if.then17
-  %16 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr24 = getelementptr inbounds i8, ptr %19, i64 8
   %call25 = call noundef i32 @_ZL6ttLONGPh(ptr noundef %add.ptr24)
   store i32 %call25, ptr %n, align 4
-  %17 = load i32, ptr %index.addr, align 4
-  %18 = load i32, ptr %n, align 4
-  %cmp26 = icmp sge i32 %17, %18
+  %20 = load i32, ptr %index.addr, align 4
+  %21 = load i32, ptr %n, align 4
+  %cmp26 = icmp sge i32 %20, %21
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.then23
@@ -27328,10 +27333,10 @@ if.then27:                                        ; preds = %if.then23
   br label %return
 
 if.end28:                                         ; preds = %if.then23
-  %19 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr29 = getelementptr inbounds i8, ptr %19, i64 12
-  %20 = load i32, ptr %index.addr, align 4
-  %mul = mul nsw i32 %20, 4
+  %22 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr29 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load i32, ptr %index.addr, align 4
+  %mul = mul nsw i32 %23, 4
   %idx.ext = sext i32 %mul to i64
   %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr29, i64 %idx.ext
   %call31 = call noundef i32 @_ZL7ttULONGPh(ptr noundef %add.ptr30)
@@ -27346,8 +27351,8 @@ if.end33:                                         ; preds = %if.end32, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end33, %if.end28, %if.then27, %if.then
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+  %24 = load i32, ptr %retval, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27406,28 +27411,31 @@ land.lhs.true16:                                  ; preds = %if.end
   %arrayidx17 = getelementptr inbounds i8, ptr %11, i64 1
   %12 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %12 to i32
-  %13 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
-  %conv19 = sext i8 %13 to i32
+  %13 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %14 = load i8, ptr %13, align 1
+  %conv19 = sext i8 %14 to i32
   %cmp20 = icmp eq i32 %conv18, %conv19
   br i1 %cmp20, label %land.lhs.true21, label %if.end32
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %14 = load ptr, ptr %font.addr, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %14, i64 2
-  %15 = load i8, ptr %arrayidx22, align 1
-  %conv23 = zext i8 %15 to i32
-  %16 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
-  %conv24 = sext i8 %16 to i32
+  %15 = load ptr, ptr %font.addr, align 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %15, i64 2
+  %16 = load i8, ptr %arrayidx22, align 1
+  %conv23 = zext i8 %16 to i32
+  %17 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %18 = load i8, ptr %17, align 1
+  %conv24 = sext i8 %18 to i32
   %cmp25 = icmp eq i32 %conv23, %conv24
   br i1 %cmp25, label %land.lhs.true26, label %if.end32
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21
-  %17 = load ptr, ptr %font.addr, align 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %17, i64 3
-  %18 = load i8, ptr %arrayidx27, align 1
-  %conv28 = zext i8 %18 to i32
-  %19 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %conv29 = sext i8 %19 to i32
+  %19 = load ptr, ptr %font.addr, align 8
+  %arrayidx27 = getelementptr inbounds i8, ptr %19, i64 3
+  %20 = load i8, ptr %arrayidx27, align 1
+  %conv28 = zext i8 %20 to i32
+  %21 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %22 = load i8, ptr %21, align 1
+  %conv29 = sext i8 %22 to i32
   %cmp30 = icmp eq i32 %conv28, %conv29
   br i1 %cmp30, label %if.then31, label %if.end32
 
@@ -27436,42 +27444,45 @@ if.then31:                                        ; preds = %land.lhs.true26
   br label %return
 
 if.end32:                                         ; preds = %land.lhs.true26, %land.lhs.true21, %land.lhs.true16, %if.end
-  %20 = load ptr, ptr %font.addr, align 8
-  %arrayidx33 = getelementptr inbounds i8, ptr %20, i64 0
-  %21 = load i8, ptr %arrayidx33, align 1
-  %conv34 = zext i8 %21 to i32
-  %22 = load i8, ptr @.str.5, align 1
-  %conv35 = sext i8 %22 to i32
+  %23 = load ptr, ptr %font.addr, align 8
+  %arrayidx33 = getelementptr inbounds i8, ptr %23, i64 0
+  %24 = load i8, ptr %arrayidx33, align 1
+  %conv34 = zext i8 %24 to i32
+  %25 = load i8, ptr @.str.5, align 1
+  %conv35 = sext i8 %25 to i32
   %cmp36 = icmp eq i32 %conv34, %conv35
   br i1 %cmp36, label %land.lhs.true37, label %if.end53
 
 land.lhs.true37:                                  ; preds = %if.end32
-  %23 = load ptr, ptr %font.addr, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %23, i64 1
-  %24 = load i8, ptr %arrayidx38, align 1
-  %conv39 = zext i8 %24 to i32
-  %25 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 1), align 1
-  %conv40 = sext i8 %25 to i32
+  %26 = load ptr, ptr %font.addr, align 8
+  %arrayidx38 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = load i8, ptr %arrayidx38, align 1
+  %conv39 = zext i8 %27 to i32
+  %28 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 1
+  %29 = load i8, ptr %28, align 1
+  %conv40 = sext i8 %29 to i32
   %cmp41 = icmp eq i32 %conv39, %conv40
   br i1 %cmp41, label %land.lhs.true42, label %if.end53
 
 land.lhs.true42:                                  ; preds = %land.lhs.true37
-  %26 = load ptr, ptr %font.addr, align 8
-  %arrayidx43 = getelementptr inbounds i8, ptr %26, i64 2
-  %27 = load i8, ptr %arrayidx43, align 1
-  %conv44 = zext i8 %27 to i32
-  %28 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 2), align 1
-  %conv45 = sext i8 %28 to i32
+  %30 = load ptr, ptr %font.addr, align 8
+  %arrayidx43 = getelementptr inbounds i8, ptr %30, i64 2
+  %31 = load i8, ptr %arrayidx43, align 1
+  %conv44 = zext i8 %31 to i32
+  %32 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 2
+  %33 = load i8, ptr %32, align 1
+  %conv45 = sext i8 %33 to i32
   %cmp46 = icmp eq i32 %conv44, %conv45
   br i1 %cmp46, label %land.lhs.true47, label %if.end53
 
 land.lhs.true47:                                  ; preds = %land.lhs.true42
-  %29 = load ptr, ptr %font.addr, align 8
-  %arrayidx48 = getelementptr inbounds i8, ptr %29, i64 3
-  %30 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %30 to i32
-  %31 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 3), align 1
-  %conv50 = sext i8 %31 to i32
+  %34 = load ptr, ptr %font.addr, align 8
+  %arrayidx48 = getelementptr inbounds i8, ptr %34, i64 3
+  %35 = load i8, ptr %arrayidx48, align 1
+  %conv49 = zext i8 %35 to i32
+  %36 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 3
+  %37 = load i8, ptr %36, align 1
+  %conv50 = sext i8 %37 to i32
   %cmp51 = icmp eq i32 %conv49, %conv50
   br i1 %cmp51, label %if.then52, label %if.end53
 
@@ -27480,34 +27491,34 @@ if.then52:                                        ; preds = %land.lhs.true47
   br label %return
 
 if.end53:                                         ; preds = %land.lhs.true47, %land.lhs.true42, %land.lhs.true37, %if.end32
-  %32 = load ptr, ptr %font.addr, align 8
-  %arrayidx54 = getelementptr inbounds i8, ptr %32, i64 0
-  %33 = load i8, ptr %arrayidx54, align 1
-  %conv55 = zext i8 %33 to i32
+  %38 = load ptr, ptr %font.addr, align 8
+  %arrayidx54 = getelementptr inbounds i8, ptr %38, i64 0
+  %39 = load i8, ptr %arrayidx54, align 1
+  %conv55 = zext i8 %39 to i32
   %cmp56 = icmp eq i32 %conv55, 0
   br i1 %cmp56, label %land.lhs.true57, label %if.end70
 
 land.lhs.true57:                                  ; preds = %if.end53
-  %34 = load ptr, ptr %font.addr, align 8
-  %arrayidx58 = getelementptr inbounds i8, ptr %34, i64 1
-  %35 = load i8, ptr %arrayidx58, align 1
-  %conv59 = zext i8 %35 to i32
+  %40 = load ptr, ptr %font.addr, align 8
+  %arrayidx58 = getelementptr inbounds i8, ptr %40, i64 1
+  %41 = load i8, ptr %arrayidx58, align 1
+  %conv59 = zext i8 %41 to i32
   %cmp60 = icmp eq i32 %conv59, 1
   br i1 %cmp60, label %land.lhs.true61, label %if.end70
 
 land.lhs.true61:                                  ; preds = %land.lhs.true57
-  %36 = load ptr, ptr %font.addr, align 8
-  %arrayidx62 = getelementptr inbounds i8, ptr %36, i64 2
-  %37 = load i8, ptr %arrayidx62, align 1
-  %conv63 = zext i8 %37 to i32
+  %42 = load ptr, ptr %font.addr, align 8
+  %arrayidx62 = getelementptr inbounds i8, ptr %42, i64 2
+  %43 = load i8, ptr %arrayidx62, align 1
+  %conv63 = zext i8 %43 to i32
   %cmp64 = icmp eq i32 %conv63, 0
   br i1 %cmp64, label %land.lhs.true65, label %if.end70
 
 land.lhs.true65:                                  ; preds = %land.lhs.true61
-  %38 = load ptr, ptr %font.addr, align 8
-  %arrayidx66 = getelementptr inbounds i8, ptr %38, i64 3
-  %39 = load i8, ptr %arrayidx66, align 1
-  %conv67 = zext i8 %39 to i32
+  %44 = load ptr, ptr %font.addr, align 8
+  %arrayidx66 = getelementptr inbounds i8, ptr %44, i64 3
+  %45 = load i8, ptr %arrayidx66, align 1
+  %conv67 = zext i8 %45 to i32
   %cmp68 = icmp eq i32 %conv67, 0
   br i1 %cmp68, label %if.then69, label %if.end70
 
@@ -27516,42 +27527,45 @@ if.then69:                                        ; preds = %land.lhs.true65
   br label %return
 
 if.end70:                                         ; preds = %land.lhs.true65, %land.lhs.true61, %land.lhs.true57, %if.end53
-  %40 = load ptr, ptr %font.addr, align 8
-  %arrayidx71 = getelementptr inbounds i8, ptr %40, i64 0
-  %41 = load i8, ptr %arrayidx71, align 1
-  %conv72 = zext i8 %41 to i32
-  %42 = load i8, ptr @.str.6, align 1
-  %conv73 = sext i8 %42 to i32
+  %46 = load ptr, ptr %font.addr, align 8
+  %arrayidx71 = getelementptr inbounds i8, ptr %46, i64 0
+  %47 = load i8, ptr %arrayidx71, align 1
+  %conv72 = zext i8 %47 to i32
+  %48 = load i8, ptr @.str.6, align 1
+  %conv73 = sext i8 %48 to i32
   %cmp74 = icmp eq i32 %conv72, %conv73
   br i1 %cmp74, label %land.lhs.true75, label %if.end91
 
 land.lhs.true75:                                  ; preds = %if.end70
-  %43 = load ptr, ptr %font.addr, align 8
-  %arrayidx76 = getelementptr inbounds i8, ptr %43, i64 1
-  %44 = load i8, ptr %arrayidx76, align 1
-  %conv77 = zext i8 %44 to i32
-  %45 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 1), align 1
-  %conv78 = sext i8 %45 to i32
+  %49 = load ptr, ptr %font.addr, align 8
+  %arrayidx76 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = load i8, ptr %arrayidx76, align 1
+  %conv77 = zext i8 %50 to i32
+  %51 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 1
+  %52 = load i8, ptr %51, align 1
+  %conv78 = sext i8 %52 to i32
   %cmp79 = icmp eq i32 %conv77, %conv78
   br i1 %cmp79, label %land.lhs.true80, label %if.end91
 
 land.lhs.true80:                                  ; preds = %land.lhs.true75
-  %46 = load ptr, ptr %font.addr, align 8
-  %arrayidx81 = getelementptr inbounds i8, ptr %46, i64 2
-  %47 = load i8, ptr %arrayidx81, align 1
-  %conv82 = zext i8 %47 to i32
-  %48 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 2), align 1
-  %conv83 = sext i8 %48 to i32
+  %53 = load ptr, ptr %font.addr, align 8
+  %arrayidx81 = getelementptr inbounds i8, ptr %53, i64 2
+  %54 = load i8, ptr %arrayidx81, align 1
+  %conv82 = zext i8 %54 to i32
+  %55 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 2
+  %56 = load i8, ptr %55, align 1
+  %conv83 = sext i8 %56 to i32
   %cmp84 = icmp eq i32 %conv82, %conv83
   br i1 %cmp84, label %land.lhs.true85, label %if.end91
 
 land.lhs.true85:                                  ; preds = %land.lhs.true80
-  %49 = load ptr, ptr %font.addr, align 8
-  %arrayidx86 = getelementptr inbounds i8, ptr %49, i64 3
-  %50 = load i8, ptr %arrayidx86, align 1
-  %conv87 = zext i8 %50 to i32
-  %51 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 3), align 1
-  %conv88 = sext i8 %51 to i32
+  %57 = load ptr, ptr %font.addr, align 8
+  %arrayidx86 = getelementptr inbounds i8, ptr %57, i64 3
+  %58 = load i8, ptr %arrayidx86, align 1
+  %conv87 = zext i8 %58 to i32
+  %59 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 3
+  %60 = load i8, ptr %59, align 1
+  %conv88 = sext i8 %60 to i32
   %cmp89 = icmp eq i32 %conv87, %conv88
   br i1 %cmp89, label %if.then90, label %if.end91
 
@@ -27564,8 +27578,8 @@ if.end91:                                         ; preds = %land.lhs.true85, %l
   br label %return
 
 return:                                           ; preds = %if.end91, %if.then90, %if.then69, %if.then52, %if.then31, %if.then
-  %52 = load i32, ptr %retval, align 4
-  ret i32 %52
+  %61 = load i32, ptr %retval, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -44,10 +44,11 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %j, align 4
-  %1 = load i16, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i32 0, i32 1), align 2
-  %conv = zext i16 %1 to i32
-  %2 = load i16, ptr @ws, align 2
-  %conv1 = zext i16 %2 to i32
+  %1 = getelementptr inbounds %struct.winsize, ptr @ws, i32 0, i32 1
+  %2 = load i16, ptr %1, align 2
+  %conv = zext i16 %2 to i32
+  %3 = load i16, ptr @ws, align 2
+  %conv1 = zext i16 %3 to i32
   %sub = sub nsw i32 %conv1, 2
   %mul = mul nsw i32 %conv, %sub
   %cmp = icmp slt i32 %0, %mul
@@ -58,8 +59,8 @@ for.body:                                         ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -67,20 +68,21 @@ for.end:                                          ; preds = %for.cond
   %call4 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
   %call5 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
   %call6 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  %4 = load ptr, ptr %title.addr, align 8
-  %5 = load i32, ptr %pass.addr, align 4
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %4, i32 noundef %5)
+  %5 = load ptr, ptr %title.addr, align 8
+  %6 = load i32, ptr %pass.addr, align 4
+  %call7 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %5, i32 noundef %6)
   store i64 0, ptr @progress_printed, align 8
-  %6 = load i16, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i32 0, i32 1), align 2
-  %conv8 = zext i16 %6 to i64
-  %7 = load i16, ptr @ws, align 2
-  %conv9 = zext i16 %7 to i32
+  %7 = getelementptr inbounds %struct.winsize, ptr @ws, i32 0, i32 1
+  %8 = load i16, ptr %7, align 2
+  %conv8 = zext i16 %8 to i64
+  %9 = load i16, ptr @ws, align 2
+  %conv9 = zext i16 %9 to i32
   %sub10 = sub nsw i32 %conv9, 3
   %conv11 = sext i32 %sub10 to i64
   %mul12 = mul i64 %conv8, %conv11
   store i64 %mul12, ptr @progress_full, align 8
-  %8 = load ptr, ptr @stdout, align 8
-  %call13 = call i32 @fflush(ptr noundef %8)
+  %10 = load ptr, ptr @stdout, align 8
+  %call13 = call i32 @fflush(ptr noundef %10)
   ret void
 }
 
@@ -1241,14 +1243,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i16 80, ptr getelementptr inbounds (%struct.winsize, ptr @ws, i32 0, i32 1), align 2
+  %0 = getelementptr inbounds %struct.winsize, ptr @ws, i32 0, i32 1
+  store i16 80, ptr %0, align 2
   store i16 20, ptr @ws, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %0 = load i64, ptr %megabytes.addr, align 8
-  %1 = load i32, ptr %passes.addr, align 4
-  call void @memtest_alloc_and_test(i64 noundef %0, i32 noundef %1)
+  %1 = load i64, ptr %megabytes.addr, align 8
+  %2 = load i32, ptr %passes.addr, align 4
+  call void @memtest_alloc_and_test(i64 noundef %1, i32 noundef %2)
   %call1 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
   %call2 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
   %call3 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)

@@ -5096,41 +5096,44 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
-  %3 = load ptr, ptr %e.addr, align 8
-  invoke void @_ZN5boost10wrapexceptISt11logic_errorE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %3)
+  %5 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 2, i32 2
+  store ptr %5, ptr %add.ptr2, align 8
+  %6 = load ptr, ptr %e.addr, align 8
+  invoke void @_ZN5boost10wrapexceptISt11logic_errorE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %6)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = extractvalue { ptr, i32 } %7, 0
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #2
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #2
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %11 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #2
+  %14 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 
@@ -5166,7 +5169,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5179,7 +5183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_)
   %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 2
@@ -5207,7 +5212,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_) #2
   ret void
@@ -5481,22 +5487,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 1, i32 2), ptr %add.ptr3, align 8
+  %7 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
+  %8 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %add.ptr4, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #2
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 
@@ -5640,7 +5649,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5652,14 +5662,15 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %data_2 = getelementptr inbounds %"class.boost::exception", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %data_2 = getelementptr inbounds %"class.boost::exception", ptr %2, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %data_, ptr noundef nonnull align 8 dereferenceable(8) %data_2)
   %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %throw_function_3 = getelementptr inbounds %"class.boost::exception", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %throw_function_3 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %throw_function_, ptr align 8 %throw_function_3, i64 20, i1 false)
   ret void
 }
@@ -6767,10 +6778,12 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %3 = load ptr, ptr %k.addr, align 8
-  %call = call ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call = call ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %mpos, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %call1 = call ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1)) #2
+  %5 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call1 = call ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #2
   %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %ref.tmp, i32 0, i32 0
   store ptr %call1, ptr %coerce.dive2, align 8
   %call3 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorIS0_INS1_10shared_ptrIKNS2_31cpp_regex_traits_implementationIcEEEEPS5_EEEESI_(ptr noundef nonnull align 8 dereferenceable(8) %mpos, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #2
@@ -6796,10 +6809,10 @@ if.then10:                                        ; preds = %if.then
   %second16 = getelementptr inbounds %"struct.std::pair.20", ptr %call15, i32 0, i32 1
   call void @_ZNSt20_List_const_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEC2ERKSt14_List_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %second16) #2
   %coerce.dive17 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive17, align 8
+  %6 = load ptr, ptr %coerce.dive17, align 8
   %coerce.dive18 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp14, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive18, align 8
-  call void @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_(ptr noundef nonnull align 8 dereferenceable(24) %temp, ptr %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %5) #2
+  %7 = load ptr, ptr %coerce.dive18, align 8
+  call void @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_(ptr noundef nonnull align 8 dereferenceable(24) %temp, ptr %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %7) #2
   %call21 = call ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data) #2
   %coerce.dive22 = getelementptr inbounds %"struct.std::_List_iterator", ptr %ref.tmp20, i32 0, i32 0
   store ptr %call21, ptr %coerce.dive22, align 8
@@ -6809,10 +6822,10 @@ if.then10:                                        ; preds = %if.then
   store ptr %call25, ptr %coerce.dive26, align 8
   call void @_ZNSt20_List_const_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEC2ERKSt14_List_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #2
   %coerce.dive27 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp19, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive27, align 8
+  %8 = load ptr, ptr %coerce.dive27, align 8
   %coerce.dive28 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp23, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive28, align 8
-  call void @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %6, ptr noundef nonnull align 8 dereferenceable(24) %temp, ptr %7) #2
+  %9 = load ptr, ptr %coerce.dive28, align 8
+  call void @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %8, ptr noundef nonnull align 8 dereferenceable(24) %temp, ptr %9) #2
   %call30 = call ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data) #2
   %coerce.dive31 = getelementptr inbounds %"struct.std::_List_iterator", ptr %ref.tmp29, i32 0, i32 0
   store ptr %call30, ptr %coerce.dive31, align 8
@@ -6832,8 +6845,8 @@ if.end:                                           ; preds = %if.then10, %if.then
 if.end36:                                         ; preds = %init.end
   store i1 false, ptr %nrvo, align 1
   %call37 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 440) #20
-  %8 = load ptr, ptr %k.addr, align 8
-  invoke void @_ZN5boost16re_detail_10740031cpp_regex_traits_implementationIcEC2ERKNS0_21cpp_regex_traits_baseIcEE(ptr noundef nonnull align 8 dereferenceable(437) %call37, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %10 = load ptr, ptr %k.addr, align 8
+  invoke void @_ZN5boost16re_detail_10740031cpp_regex_traits_implementationIcEC2ERKNS0_21cpp_regex_traits_baseIcEE(ptr noundef nonnull align 8 dereferenceable(437) %call37, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end36
@@ -6848,28 +6861,30 @@ invoke.cont41:                                    ; preds = %invoke.cont
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   call void @_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp38) #2
-  %9 = load ptr, ptr %k.addr, align 8
+  %11 = load ptr, ptr %k.addr, align 8
   %call46 = call ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data) #2
   %coerce.dive47 = getelementptr inbounds %"struct.std::_List_iterator", ptr %ref.tmp45, i32 0, i32 0
   store ptr %call46, ptr %coerce.dive47, align 8
   %call48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #2
-  invoke void @_ZSt9make_pairIRKN5boost16re_detail_10740021cpp_regex_traits_baseIcEERSt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS4_EEES7_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSH_INSI_IT0_E4typeEE6__typeEEOSJ_OSO_(ptr sret(%"struct.std::pair.47") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %call48)
+  invoke void @_ZSt9make_pairIRKN5boost16re_detail_10740021cpp_regex_traits_baseIcEERSt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS4_EEES7_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSH_INSI_IT0_E4typeEE6__typeEEOSJ_OSO_(ptr sret(%"struct.std::pair.47") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %call48)
           to label %invoke.cont49 unwind label %lpad40
 
 invoke.cont49:                                    ; preds = %invoke.cont43
-  %call52 = invoke { ptr, i8 } @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE6insertIS5_IS3_SE_EEENSt9enable_ifIXsr16is_constructibleISH_T_EE5valueES5_ISt17_Rb_tree_iteratorISH_EbEE4typeEOSN_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp44)
+  %12 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call52 = invoke { ptr, i8 } @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE6insertIS5_IS3_SE_EEENSt9enable_ifIXsr16is_constructibleISH_T_EE5valueES5_ISt17_Rb_tree_iteratorISH_EbEE4typeEOSN_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp44)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
-  %10 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
-  %11 = extractvalue { ptr, i8 } %call52, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
-  %13 = extractvalue { ptr, i8 } %call52, 1
-  store i8 %13, ptr %12, align 8
+  %13 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
+  %14 = extractvalue { ptr, i8 } %call52, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
+  %16 = extractvalue { ptr, i8 } %call52, 1
+  store i8 %16, ptr %15, align 8
   call void @_ZNSt4pairIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorIS_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp44) #2
-  %14 = load ptr, ptr %k.addr, align 8
-  %call55 = invoke ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %17 = load ptr, ptr %k.addr, align 8
+  %18 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call55 = invoke ptr @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %invoke.cont54 unwind label %lpad40
 
 invoke.cont54:                                    ; preds = %invoke.cont51
@@ -6880,11 +6895,12 @@ invoke.cont54:                                    ; preds = %invoke.cont51
   %call59 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data) #2
   %second60 = getelementptr inbounds %"struct.std::pair.22", ptr %call59, i32 0, i32 1
   store ptr %first58, ptr %second60, align 8
-  %call61 = call noundef i64 @_ZNKSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1)) #2
+  %19 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call61 = call noundef i64 @_ZNKSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #2
   store i64 %call61, ptr %s, align 8
-  %15 = load i64, ptr %s, align 8
-  %16 = load i64, ptr %l_max_cache_size.addr, align 8
-  %cmp = icmp ugt i64 %15, %16
+  %20 = load i64, ptr %s, align 8
+  %21 = load i64, ptr %l_max_cache_size.addr, align 8
+  %cmp = icmp ugt i64 %20, %21
   br i1 %cmp, label %if.then62, label %if.end85
 
 if.then62:                                        ; preds = %invoke.cont54
@@ -6901,14 +6917,14 @@ while.cond:                                       ; preds = %if.end84, %if.then6
   br i1 %call67, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %17 = load i64, ptr %s, align 8
-  %18 = load i64, ptr %l_max_cache_size.addr, align 8
-  %cmp68 = icmp ugt i64 %17, %18
+  %22 = load i64, ptr %s, align 8
+  %23 = load i64, ptr %l_max_cache_size.addr, align 8
+  %cmp68 = icmp ugt i64 %22, %23
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %19 = phi i1 [ false, %while.cond ], [ %cmp68, %land.rhs ]
-  br i1 %19, label %while.body, label %while.end
+  %24 = phi i1 [ false, %while.cond ], [ %cmp68, %land.rhs ]
+  br i1 %24, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
   %call69 = call noundef ptr @_ZNKSt14_List_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %pos) #2
@@ -6921,58 +6937,59 @@ if.then72:                                        ; preds = %while.body
   %call73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %pos) #2
   %call74 = call noundef ptr @_ZNKSt14_List_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %condemmed) #2
   %second75 = getelementptr inbounds %"struct.std::pair.22", ptr %call74, i32 0, i32 1
-  %20 = load ptr, ptr %second75, align 8
-  %call77 = invoke noundef i64 @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE5eraseERSB_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %25 = load ptr, ptr %second75, align 8
+  %26 = getelementptr inbounds %"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i32 0, i32 1
+  %call77 = invoke noundef i64 @_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE5eraseERSB_(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %invoke.cont76 unwind label %lpad40
 
 invoke.cont76:                                    ; preds = %if.then72
   call void @_ZNSt20_List_const_iteratorISt4pairIN5boost10shared_ptrIKNS1_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS3_21cpp_regex_traits_baseIcEEEEC2ERKSt14_List_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp78, ptr noundef nonnull align 8 dereferenceable(8) %condemmed) #2
   %coerce.dive79 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp78, i32 0, i32 0
-  %21 = load ptr, ptr %coerce.dive79, align 8
-  %call80 = call ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %21) #2
+  %27 = load ptr, ptr %coerce.dive79, align 8
+  %call80 = call ptr @_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, ptr %27) #2
   %coerce.dive82 = getelementptr inbounds %"struct.std::_List_iterator", ptr %coerce81, i32 0, i32 0
   store ptr %call80, ptr %coerce.dive82, align 8
-  %22 = load i64, ptr %s, align 8
-  %dec = add i64 %22, -1
+  %28 = load i64, ptr %s, align 8
+  %dec = add i64 %28, -1
   store i64 %dec, ptr %s, align 8
   br label %if.end84
 
 lpad:                                             ; preds = %if.end36
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call37) #21
-  br label %eh.resume
-
-lpad40:                                           ; preds = %if.then72, %invoke.cont51, %invoke.cont43, %invoke.cont
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad42:                                           ; preds = %invoke.cont41
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = extractvalue { ptr, i32 } %29, 0
   store ptr %30, ptr %exn.slot, align 8
   %31 = extractvalue { ptr, i32 } %29, 1
   store i32 %31, ptr %ehselector.slot, align 4
-  call void @_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp38) #2
-  br label %ehcleanup
+  call void @_ZdlPv(ptr noundef %call37) #21
+  br label %eh.resume
 
-lpad50:                                           ; preds = %invoke.cont49
+lpad40:                                           ; preds = %if.then72, %invoke.cont51, %invoke.cont43, %invoke.cont
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = extractvalue { ptr, i32 } %32, 0
   store ptr %33, ptr %exn.slot, align 8
   %34 = extractvalue { ptr, i32 } %32, 1
   store i32 %34, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad42:                                           ; preds = %invoke.cont41
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
+  call void @_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp38) #2
+  br label %ehcleanup
+
+lpad50:                                           ; preds = %invoke.cont49
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   call void @_ZNSt4pairIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorIS_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp44) #2
   br label %ehcleanup
 
@@ -14629,10 +14646,11 @@ entry:
   store ptr %px, ptr %px.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740031cpp_regex_traits_implementationIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740031cpp_regex_traits_implementationIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %px_ = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %px.addr, align 8
-  store ptr %0, ptr %px_, align 8
+  %1 = load ptr, ptr %px.addr, align 8
+  store ptr %1, ptr %px_, align 8
   ret void
 }
 
@@ -14660,7 +14678,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %use_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %use_count_, align 8
   %weak_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 2
@@ -16682,41 +16701,44 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
-  %3 = load ptr, ptr %e.addr, align 8
-  invoke void @_ZN5boost10wrapexceptISt13runtime_errorE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %3)
+  %5 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 2, i32 2
+  store ptr %5, ptr %add.ptr2, align 8
+  %6 = load ptr, ptr %e.addr, align 8
+  invoke void @_ZN5boost10wrapexceptISt13runtime_errorE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %6)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = extractvalue { ptr, i32 } %7, 0
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #2
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #2
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %11 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #2
+  %14 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 
@@ -16941,22 +16963,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 1, i32 2), ptr %add.ptr3, align 8
+  %7 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
+  %8 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %add.ptr4, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #2
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 
@@ -17107,10 +17132,11 @@ entry:
   store ptr %px, ptr %px.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_20regex_traits_wrapperINS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_20regex_traits_wrapperINS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %px_ = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p.87", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %px.addr, align 8
-  store ptr %0, ptr %px_, align 8
+  %1 = load ptr, ptr %px.addr, align 8
+  store ptr %1, ptr %px_, align 8
   ret void
 }
 
@@ -17590,10 +17616,11 @@ entry:
   store ptr %px, ptr %px.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %px_ = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p.88", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %px.addr, align 8
-  store ptr %0, ptr %px_, align 8
+  %1 = load ptr, ptr %px.addr, align 8
+  store ptr %1, ptr %px_, align 8
   ret void
 }
 
@@ -18338,59 +18365,64 @@ invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %m_status, align 4
   %m_traits4 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %m_traits4, align 8
-  %call6 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1w, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1w, i64 1))
+  %5 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1w, i64 1
+  %call6 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1w, ptr noundef %5)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %m_word_mask7 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 13
   store i32 %call6, ptr %m_word_mask7, align 8
   %m_traits8 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_traits8, align 8
-  %call10 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1s, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1s, i64 1))
+  %6 = load ptr, ptr %m_traits8, align 8
+  %7 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1s, i64 1
+  %call10 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1s, ptr noundef %7)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   %m_mask_space11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 14
   store i32 %call10, ptr %m_mask_space11, align 4
   %m_traits12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %m_traits12, align 8
-  %call14 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1l, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1l, i64 5))
+  %8 = load ptr, ptr %m_traits12, align 8
+  %9 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1l, i64 5
+  %call14 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1l, ptr noundef %9)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_lower_mask15 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 15
   store i32 %call14, ptr %m_lower_mask15, align 8
   %m_traits16 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_traits16, align 8
-  %call18 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1u, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1u, i64 5))
+  %10 = load ptr, ptr %m_traits16, align 8
+  %11 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1u, i64 5
+  %call18 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1u, ptr noundef %11)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %m_upper_mask19 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 16
   store i32 %call18, ptr %m_upper_mask19, align 4
   %m_traits20 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_traits20, align 8
-  %call22 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1a, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1a, i64 5))
+  %12 = load ptr, ptr %m_traits20, align 8
+  %13 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1a, i64 5
+  %call22 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @_ZZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC1EPNS0_10regex_dataIcS5_EEE1a, ptr noundef %13)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %m_alpha_mask23 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 17
   store i32 %call22, ptr %m_alpha_mask23, align 8
   %m_word_mask24 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 13
-  %9 = load i32, ptr %m_word_mask24, align 8
+  %14 = load i32, ptr %m_word_mask24, align 8
   %m_pdata25 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 0
-  %10 = load ptr, ptr %m_pdata25, align 8
-  %m_word_mask26 = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %10, i32 0, i32 12
-  store i32 %9, ptr %m_word_mask26, align 8
+  %15 = load ptr, ptr %m_pdata25, align 8
+  %m_word_mask26 = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %15, i32 0, i32 12
+  store i32 %14, ptr %m_word_mask26, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont13, %invoke.cont9, %invoke.cont5, %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_recursion_checks) #2
   call void @_ZN5boost16re_detail_10740016indexed_bit_flagD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_backrefs) #2
   br label %eh.resume
@@ -18993,31 +19025,33 @@ entry:
   store ptr %p1, ptr %p1.addr, align 8
   store ptr %p2, ptr %p2.addr, align 8
   store ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, ptr %ranges_begin, align 8
-  store ptr getelementptr inbounds (%"struct.boost::re_detail_107400::character_pointer_range", ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, i64 21), ptr %ranges_end, align 8
+  %0 = getelementptr inbounds %"struct.boost::re_detail_107400::character_pointer_range", ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, i64 21
+  store ptr %0, ptr %ranges_end, align 8
   %p11 = getelementptr inbounds %"struct.boost::re_detail_107400::character_pointer_range", ptr %t, i32 0, i32 0
-  %0 = load ptr, ptr %p1.addr, align 8
-  store ptr %0, ptr %p11, align 8
+  %1 = load ptr, ptr %p1.addr, align 8
+  store ptr %1, ptr %p11, align 8
   %p22 = getelementptr inbounds %"struct.boost::re_detail_107400::character_pointer_range", ptr %t, i32 0, i32 1
-  %1 = load ptr, ptr %p2.addr, align 8
-  store ptr %1, ptr %p22, align 8
-  %2 = load ptr, ptr %ranges_begin, align 8
-  %3 = load ptr, ptr %ranges_end, align 8
-  %call = call noundef ptr @_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_(ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %t)
+  %2 = load ptr, ptr %p2.addr, align 8
+  store ptr %2, ptr %p22, align 8
+  %3 = load ptr, ptr %ranges_begin, align 8
+  %4 = load ptr, ptr %ranges_end, align 8
+  %call = call noundef ptr @_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_(ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %t)
   store ptr %call, ptr %p, align 8
-  %4 = load ptr, ptr %p, align 8
-  %5 = load ptr, ptr %ranges_end, align 8
-  %cmp = icmp ne ptr %4, %5
+  %5 = load ptr, ptr %p, align 8
+  %6 = load ptr, ptr %ranges_end, align 8
+  %cmp = icmp ne ptr %5, %6
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %6 = load ptr, ptr %p, align 8
-  %call3 = call noundef zeroext i1 @_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %t, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = load ptr, ptr %p, align 8
+  %call3 = call noundef zeroext i1 @_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %t, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br i1 %call3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %7 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges to i64)
+  %8 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
+  %9 = ptrtoint ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %9
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 16
   %conv = trunc i64 %sub.ptr.div to i32
   store i32 %conv, ptr %retval, align 4
@@ -19028,8 +19062,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31002,23 +31036,24 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %0 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef null, i64 noundef 0)
+  %1 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef null, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #2
   br label %eh.resume
 
@@ -46007,7 +46042,8 @@ lpad:                                             ; preds = %if.then101, %sw.epi
 sw.bb37:                                          ; preds = %if.end10
   %m_traits38 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_creator", ptr %this1, i32 0, i32 1
   %17 = load ptr, ptr %m_traits38, align 8
-  %call40 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @_ZZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14add_emacs_codeEbE7s_punct, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14add_emacs_codeEbE7s_punct, i64 5))
+  %18 = getelementptr inbounds i8, ptr @_ZZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14add_emacs_codeEbE7s_punct, i64 5
+  %call40 = invoke noundef i32 @_ZNK5boost16cpp_regex_traitsIcE16lookup_classnameEPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @_ZZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14add_emacs_codeEbE7s_punct, ptr noundef %18)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %sw.bb37
@@ -46154,11 +46190,11 @@ invoke.cont91:                                    ; preds = %invoke.cont90
 
 sw.default:                                       ; preds = %if.end10
   %m_position92 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this1, i32 0, i32 4
-  %18 = load ptr, ptr %m_position92, align 8
+  %19 = load ptr, ptr %m_position92, align 8
   %m_base93 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this1, i32 0, i32 2
-  %19 = load ptr, ptr %m_base93, align 8
-  %sub.ptr.lhs.cast94 = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast95 = ptrtoint ptr %19 to i64
+  %20 = load ptr, ptr %m_base93, align 8
+  %sub.ptr.lhs.cast94 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast95 = ptrtoint ptr %20 to i64
   %sub.ptr.sub96 = sub i64 %sub.ptr.lhs.cast94, %sub.ptr.rhs.cast95
   invoke void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl(ptr noundef nonnull align 8 dereferenceable(264) %this1, i32 noundef 4, i64 noundef %sub.ptr.sub96)
           to label %invoke.cont97 unwind label %lpad
@@ -46178,11 +46214,11 @@ invoke.cont98:                                    ; preds = %sw.epilog
 
 if.then101:                                       ; preds = %invoke.cont98
   %m_position102 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this1, i32 0, i32 4
-  %20 = load ptr, ptr %m_position102, align 8
+  %21 = load ptr, ptr %m_position102, align 8
   %m_base103 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this1, i32 0, i32 2
-  %21 = load ptr, ptr %m_base103, align 8
-  %sub.ptr.lhs.cast104 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast105 = ptrtoint ptr %21 to i64
+  %22 = load ptr, ptr %m_base103, align 8
+  %sub.ptr.lhs.cast104 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast105 = ptrtoint ptr %22 to i64
   %sub.ptr.sub106 = sub i64 %sub.ptr.lhs.cast104, %sub.ptr.rhs.cast105
   invoke void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl(ptr noundef nonnull align 8 dereferenceable(264) %this1, i32 noundef 4, i64 noundef %sub.ptr.sub106)
           to label %invoke.cont107 unwind label %lpad
@@ -46194,8 +46230,8 @@ invoke.cont107:                                   ; preds = %if.then101
 
 if.end108:                                        ; preds = %invoke.cont98
   %m_position109 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this1, i32 0, i32 4
-  %22 = load ptr, ptr %m_position109, align 8
-  %incdec.ptr110 = getelementptr inbounds i8, ptr %22, i32 1
+  %23 = load ptr, ptr %m_position109, align 8
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %23, i32 1
   store ptr %incdec.ptr110, ptr %m_position109, align 8
   store i1 true, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
@@ -46206,8 +46242,8 @@ cleanup:                                          ; preds = %if.end108, %invoke.
   br label %return
 
 return:                                           ; preds = %cleanup, %while.end
-  %23 = load i1, ptr %retval, align 1
-  ret i1 %23
+  %24 = load i1, ptr %retval, align 1
+  ret i1 %24
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -53767,41 +53803,44 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
-  %3 = load ptr, ptr %e.addr, align 8
-  invoke void @_ZN5boost10wrapexceptISt16invalid_argumentE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %3)
+  %5 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 2, i32 2
+  store ptr %5, ptr %add.ptr2, align 8
+  %6 = load ptr, ptr %e.addr, align 8
+  invoke void @_ZN5boost10wrapexceptISt16invalid_argumentE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %6)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = extractvalue { ptr, i32 } %7, 0
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #2
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #2
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %11 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt16invalid_argumentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #2
+  %14 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt16invalid_argumentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 
@@ -53837,7 +53876,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -54034,22 +54074,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 1, i32 2), ptr %add.ptr3, align 8
+  %7 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
+  %8 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %add.ptr4, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt16invalid_argumentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #2
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt16invalid_argumentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #2
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
   br label %eh.resume
 

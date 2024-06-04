@@ -900,387 +900,389 @@ define void @_ZN22BluetoothDevicesDialogC2ER7QWidgetR11CaptureFileP10PacketList(
   %28 = load ptr, ptr %6, align 8
   %29 = load ptr, ptr %7, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %27, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(48) %29)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 0, i32 2), ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 1, i32 2), ptr %30, align 8
-  %31 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #15
-          to label %33 unwind label %158
-
-33:                                               ; preds = %4
+  %30 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 0, i32 2
+  store ptr %30, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 1, i32 2
   store ptr %32, ptr %31, align 8
-  %34 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef null)
-          to label %35 unwind label %158
+  %33 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
+  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #15
+          to label %35 unwind label %160
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  invoke void @_ZN25Ui_BluetoothDevicesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(104) %37, ptr noundef %27)
-          to label %38 unwind label %162
+35:                                               ; preds = %4
+  store ptr %34, ptr %33, align 8
+  %36 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef null)
+          to label %37 unwind label %160
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %6, align 8
-  %40 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %39)
-          to label %41 unwind label %162
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  invoke void @_ZN25Ui_BluetoothDevicesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(104) %39, ptr noundef %27)
+          to label %40 unwind label %164
 
-41:                                               ; preds = %38
-  %42 = mul i32 %40, 4
-  %43 = sdiv i32 %42, 5
-  %44 = load ptr, ptr %6, align 8
-  %45 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %44)
-          to label %46 unwind label %162
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %6, align 8
+  %42 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %41)
+          to label %43 unwind label %164
 
-46:                                               ; preds = %41
-  %47 = mul i32 %45, 2
-  %48 = sdiv i32 %47, 3
+43:                                               ; preds = %40
+  %44 = mul i32 %42, 4
+  %45 = sdiv i32 %44, 5
+  %46 = load ptr, ptr %6, align 8
+  %47 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %46)
+          to label %48 unwind label %164
+
+48:                                               ; preds = %43
+  %49 = mul i32 %47, 2
+  %50 = sdiv i32 %49, 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %43, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %49 unwind label %166
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %45, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %51 unwind label %168
 
-49:                                               ; preds = %46
+51:                                               ; preds = %48
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 2
-  store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %53, i32 0, i32 7
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 2
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %55, ptr noundef @.str, ptr noundef %27, ptr noundef @.str.1, i32 noundef 0)
-          to label %56 unwind label %162
+  %56 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %55, i32 0, i32 7
+  %57 = load ptr, ptr %56, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %57, ptr noundef @.str, ptr noundef %27, ptr noundef @.str.1, i32 noundef 0)
+          to label %58 unwind label %164
 
-56:                                               ; preds = %49
+58:                                               ; preds = %51
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  %57 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %58, i32 0, i32 7
+  %59 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %60 = load ptr, ptr %59, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %60, ptr noundef @.str.2, ptr noundef %27, ptr noundef @.str.3, i32 noundef 0)
-          to label %61 unwind label %162
+  %61 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %60, i32 0, i32 7
+  %62 = load ptr, ptr %61, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %62, ptr noundef @.str.2, ptr noundef %27, ptr noundef @.str.3, i32 noundef 0)
+          to label %63 unwind label %164
 
-61:                                               ; preds = %56
+63:                                               ; preds = %58
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
-  %62 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %63, i32 0, i32 9
+  %64 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %65, ptr noundef @.str.4, ptr noundef %27, ptr noundef @.str.5, i32 noundef 0)
-          to label %66 unwind label %162
+  %66 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %65, i32 0, i32 9
+  %67 = load ptr, ptr %66, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %67, ptr noundef @.str.4, ptr noundef %27, ptr noundef @.str.5, i32 noundef 0)
+          to label %68 unwind label %164
 
-66:                                               ; preds = %61
+68:                                               ; preds = %63
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  %67 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %68, i32 0, i32 10
+  %69 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %70 = load ptr, ptr %69, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %70, ptr noundef @.str.6, ptr noundef %27, ptr noundef @.str.7, i32 noundef 0)
-          to label %71 unwind label %162
+  %71 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %70, i32 0, i32 10
+  %72 = load ptr, ptr %71, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %72, ptr noundef @.str.6, ptr noundef %27, ptr noundef @.str.7, i32 noundef 0)
+          to label %73 unwind label %164
 
-71:                                               ; preds = %66
+73:                                               ; preds = %68
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
-  %72 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %73, i32 0, i32 7
+  %74 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %75 = load ptr, ptr %74, align 8
-  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %75, i32 noundef 0, i32 noundef 0)
-          to label %76 unwind label %162
+  %76 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %75, i32 0, i32 7
+  %77 = load ptr, ptr %76, align 8
+  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %77, i32 noundef 0, i32 noundef 0)
+          to label %78 unwind label %164
 
-76:                                               ; preds = %71
-  %77 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %78, i32 0, i32 7
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %80, i32 0, i32 7
+  %82 = load ptr, ptr %81, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str.8)
-          to label %81 unwind label %162
+          to label %83 unwind label %164
 
-81:                                               ; preds = %76
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %82 unwind label %170
+83:                                               ; preds = %78
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %84 unwind label %172
 
-82:                                               ; preds = %81
+84:                                               ; preds = %83
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
-  %83 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %85 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
-  %84 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %85, i32 0, i32 5
+  %86 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %87 = load ptr, ptr %86, align 8
-  %88 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %87)
-          to label %89 unwind label %174
+  %88 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %87, i32 0, i32 5
+  %89 = load ptr, ptr %88, align 8
+  %90 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %89)
+          to label %91 unwind label %176
 
-89:                                               ; preds = %82
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef nonnull align 8 dereferenceable(24) %88)
-          to label %90 unwind label %174
+91:                                               ; preds = %84
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(24) %90)
+          to label %92 unwind label %176
 
-90:                                               ; preds = %89
+92:                                               ; preds = %91
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
-  %91 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %93 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
-  %92 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %93, i32 0, i32 4
+  %94 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %95 = load ptr, ptr %94, align 8
-  %96 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %95)
-          to label %97 unwind label %178
+  %96 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %95, i32 0, i32 4
+  %97 = load ptr, ptr %96, align 8
+  %98 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %97)
+          to label %99 unwind label %180
 
-97:                                               ; preds = %90
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %91, ptr noundef nonnull align 8 dereferenceable(24) %96)
-          to label %98 unwind label %178
+99:                                               ; preds = %92
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull align 8 dereferenceable(24) %98)
+          to label %100 unwind label %180
 
-98:                                               ; preds = %97
+100:                                              ; preds = %99
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
-  %99 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %101 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
-  %100 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %101, i32 0, i32 0
+  %102 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %103 = load ptr, ptr %102, align 8
-  %104 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %103)
-          to label %105 unwind label %182
+  %104 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8
+  %106 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %105)
+          to label %107 unwind label %184
 
-105:                                              ; preds = %98
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull align 8 dereferenceable(24) %104)
-          to label %106 unwind label %182
+107:                                              ; preds = %100
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(24) %106)
+          to label %108 unwind label %184
 
-106:                                              ; preds = %105
+108:                                              ; preds = %107
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
-  %107 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %109 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
-  %108 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %109, i32 0, i32 1
+  %110 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %111 = load ptr, ptr %110, align 8
-  %112 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %111)
-          to label %113 unwind label %186
+  %112 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %113)
+          to label %115 unwind label %188
 
-113:                                              ; preds = %106
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(24) %112)
-          to label %114 unwind label %186
+115:                                              ; preds = %108
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(24) %114)
+          to label %116 unwind label %188
 
-114:                                              ; preds = %113
+116:                                              ; preds = %115
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
-  %115 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %117 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
-  %116 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %117, i32 0, i32 2
+  %118 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %119 = load ptr, ptr %118, align 8
-  %120 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef %119)
-          to label %121 unwind label %190
+  %120 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  %122 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef %121)
+          to label %123 unwind label %192
 
-121:                                              ; preds = %114
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %115, ptr noundef nonnull align 8 dereferenceable(24) %120)
-          to label %122 unwind label %190
+123:                                              ; preds = %116
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %117, ptr noundef nonnull align 8 dereferenceable(24) %122)
+          to label %124 unwind label %192
 
-122:                                              ; preds = %121
+124:                                              ; preds = %123
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
-  %123 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
+  %125 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 24, i1 false)
   call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
-  %124 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %125, i32 0, i32 3
+  %126 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %127 = load ptr, ptr %126, align 8
-  %128 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %127)
-          to label %129 unwind label %194
+  %128 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %127, i32 0, i32 3
+  %129 = load ptr, ptr %128, align 8
+  %130 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIP7QActionElsES1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %129)
+          to label %131 unwind label %196
 
-129:                                              ; preds = %122
-  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(24) %128)
-          to label %130 unwind label %194
+131:                                              ; preds = %124
+  invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(24) %130)
+          to label %132 unwind label %196
 
-130:                                              ; preds = %129
+132:                                              ; preds = %131
   call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
-  %131 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 3
-  %132 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %131, i32 0, i32 1
-  store ptr @_ZN22BluetoothDevicesDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj, ptr %132, align 8
   %133 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 3
-  %134 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %133, i32 0, i32 0
-  store ptr @_ZN22BluetoothDevicesDialog8tapResetEPv, ptr %134, align 8
+  %134 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %133, i32 0, i32 1
+  store ptr @_ZN22BluetoothDevicesDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj, ptr %134, align 8
   %135 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 3
-  %136 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %135, i32 0, i32 2
-  store ptr %27, ptr %136, align 8
+  %136 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %135, i32 0, i32 0
+  store ptr @_ZN22BluetoothDevicesDialog8tapResetEPv, ptr %136, align 8
   %137 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 3
-  %138 = invoke noundef zeroext i1 @_ZN15WiresharkDialog19registerTapListenerEPKcPvS1_jPFvS2_EPF17tap_packet_statusS2_P12_packet_infoP12epan_dissectPKvjES4_(ptr noundef nonnull align 8 dereferenceable(133) %27, ptr noundef @.str.9, ptr noundef %137, ptr noundef null, i32 noundef 0, ptr noundef @_ZL26bluetooth_device_tap_resetPv, ptr noundef @_ZL27bluetooth_device_tap_packetPvP12_packet_infoP12epan_dissectPKvj, ptr noundef null)
-          to label %139 unwind label %162
+  %138 = getelementptr inbounds %struct._bluetooth_devices_tapinfo_t, ptr %137, i32 0, i32 2
+  store ptr %27, ptr %138, align 8
+  %139 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 3
+  %140 = invoke noundef zeroext i1 @_ZN15WiresharkDialog19registerTapListenerEPKcPvS1_jPFvS2_EPF17tap_packet_statusS2_P12_packet_infoP12epan_dissectPKvjES4_(ptr noundef nonnull align 8 dereferenceable(133) %27, ptr noundef @.str.9, ptr noundef %139, ptr noundef null, i32 noundef 0, ptr noundef @_ZL26bluetooth_device_tap_resetPv, ptr noundef @_ZL27bluetooth_device_tap_packetPvP12_packet_infoP12epan_dissectPKvj, ptr noundef null)
+          to label %141 unwind label %164
 
-139:                                              ; preds = %130
-  %140 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %141, i32 0, i32 11
+141:                                              ; preds = %132
+  %142 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
+  %144 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %143, i32 0, i32 11
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %145, i32 0, i32 11
+  %146 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %27, i32 0, i32 1
   %147 = load ptr, ptr %146, align 8
-  invoke void @_ZNK6QLabel4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %147)
-          to label %148 unwind label %162
+  %148 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %147, i32 0, i32 11
+  %149 = load ptr, ptr %148, align 8
+  invoke void @_ZNK6QLabel4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %149)
+          to label %150 unwind label %164
 
-148:                                              ; preds = %139
+150:                                              ; preds = %141
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %26, i8 noundef signext 32) #16
-  %149 = getelementptr inbounds %struct.QLatin1Char, ptr %26, i32 0, i32 0
-  %150 = load i8, ptr %149, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %25, i8 %150) #16
-  %151 = getelementptr inbounds %class.QChar, ptr %25, i32 0, i32 0
-  %152 = load i16, ptr %151, align 2
-  invoke void @_ZNK7QString3argEiii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef 0, i32 noundef 0, i32 noundef 10, i16 %152)
-          to label %153 unwind label %198
+  %151 = getelementptr inbounds %struct.QLatin1Char, ptr %26, i32 0, i32 0
+  %152 = load i8, ptr %151, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %25, i8 %152) #16
+  %153 = getelementptr inbounds %class.QChar, ptr %25, i32 0, i32 0
+  %154 = load i16, ptr %153, align 2
+  invoke void @_ZNK7QString3argEiii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef 0, i32 noundef 0, i32 noundef 10, i16 %154)
+          to label %155 unwind label %200
 
-153:                                              ; preds = %148
-  invoke void @_ZN6QLabel7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %143, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %154 unwind label %202
+155:                                              ; preds = %150
+  invoke void @_ZN6QLabel7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %156 unwind label %204
 
-154:                                              ; preds = %153
+156:                                              ; preds = %155
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
-  %155 = getelementptr inbounds %class.WiresharkDialog, ptr %27, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  invoke void @_ZN11CaptureFile12retapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48) %156)
-          to label %157 unwind label %162
+  %157 = getelementptr inbounds %class.WiresharkDialog, ptr %27, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  invoke void @_ZN11CaptureFile12retapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48) %158)
+          to label %159 unwind label %164
 
-157:                                              ; preds = %154
+159:                                              ; preds = %156
   ret void
 
-158:                                              ; preds = %33, %4
-  %159 = landingpad { ptr, i32 }
+160:                                              ; preds = %35, %4
+  %161 = landingpad { ptr, i32 }
           cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %9, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %10, align 4
-  br label %208
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %9, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %10, align 4
+  br label %210
 
-162:                                              ; preds = %154, %139, %130, %76, %71, %66, %61, %56, %49, %41, %38, %35
-  %163 = landingpad { ptr, i32 }
+164:                                              ; preds = %156, %141, %132, %78, %73, %68, %63, %58, %51, %43, %40, %37
+  %165 = landingpad { ptr, i32 }
           cleanup
-  %164 = extractvalue { ptr, i32 } %163, 0
-  store ptr %164, ptr %9, align 8
-  %165 = extractvalue { ptr, i32 } %163, 1
-  store i32 %165, ptr %10, align 4
-  br label %207
-
-166:                                              ; preds = %46
-  %167 = landingpad { ptr, i32 }
-          cleanup
-  %168 = extractvalue { ptr, i32 } %167, 0
-  store ptr %168, ptr %9, align 8
-  %169 = extractvalue { ptr, i32 } %167, 1
-  store i32 %169, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
-  br label %207
-
-170:                                              ; preds = %81
-  %171 = landingpad { ptr, i32 }
-          cleanup
-  %172 = extractvalue { ptr, i32 } %171, 0
-  store ptr %172, ptr %9, align 8
-  %173 = extractvalue { ptr, i32 } %171, 1
-  store i32 %173, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
-  br label %207
-
-174:                                              ; preds = %89, %82
-  %175 = landingpad { ptr, i32 }
-          cleanup
-  %176 = extractvalue { ptr, i32 } %175, 0
-  store ptr %176, ptr %9, align 8
-  %177 = extractvalue { ptr, i32 } %175, 1
-  store i32 %177, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
-  br label %207
-
-178:                                              ; preds = %97, %90
-  %179 = landingpad { ptr, i32 }
-          cleanup
-  %180 = extractvalue { ptr, i32 } %179, 0
-  store ptr %180, ptr %9, align 8
-  %181 = extractvalue { ptr, i32 } %179, 1
-  store i32 %181, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
-  br label %207
-
-182:                                              ; preds = %105, %98
-  %183 = landingpad { ptr, i32 }
-          cleanup
-  %184 = extractvalue { ptr, i32 } %183, 0
-  store ptr %184, ptr %9, align 8
-  %185 = extractvalue { ptr, i32 } %183, 1
-  store i32 %185, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
-  br label %207
-
-186:                                              ; preds = %113, %106
-  %187 = landingpad { ptr, i32 }
-          cleanup
-  %188 = extractvalue { ptr, i32 } %187, 0
-  store ptr %188, ptr %9, align 8
-  %189 = extractvalue { ptr, i32 } %187, 1
-  store i32 %189, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
-  br label %207
-
-190:                                              ; preds = %121, %114
-  %191 = landingpad { ptr, i32 }
-          cleanup
-  %192 = extractvalue { ptr, i32 } %191, 0
-  store ptr %192, ptr %9, align 8
-  %193 = extractvalue { ptr, i32 } %191, 1
-  store i32 %193, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
-  br label %207
-
-194:                                              ; preds = %129, %122
-  %195 = landingpad { ptr, i32 }
-          cleanup
-  %196 = extractvalue { ptr, i32 } %195, 0
-  store ptr %196, ptr %9, align 8
-  %197 = extractvalue { ptr, i32 } %195, 1
-  store i32 %197, ptr %10, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
-  br label %207
-
-198:                                              ; preds = %148
-  %199 = landingpad { ptr, i32 }
-          cleanup
-  %200 = extractvalue { ptr, i32 } %199, 0
-  store ptr %200, ptr %9, align 8
-  %201 = extractvalue { ptr, i32 } %199, 1
-  store i32 %201, ptr %10, align 4
-  br label %206
-
-202:                                              ; preds = %153
-  %203 = landingpad { ptr, i32 }
-          cleanup
-  %204 = extractvalue { ptr, i32 } %203, 0
-  store ptr %204, ptr %9, align 8
-  %205 = extractvalue { ptr, i32 } %203, 1
-  store i32 %205, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
-  br label %206
-
-206:                                              ; preds = %202, %198
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
-  br label %207
-
-207:                                              ; preds = %206, %194, %190, %186, %182, %178, %174, %170, %166, %162
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %34) #16
-  br label %208
-
-208:                                              ; preds = %207, %158
-  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %27) #16
+  %166 = extractvalue { ptr, i32 } %165, 0
+  store ptr %166, ptr %9, align 8
+  %167 = extractvalue { ptr, i32 } %165, 1
+  store i32 %167, ptr %10, align 4
   br label %209
 
-209:                                              ; preds = %208
-  %210 = load ptr, ptr %9, align 8
-  %211 = load i32, ptr %10, align 4
-  %212 = insertvalue { ptr, i32 } poison, ptr %210, 0
-  %213 = insertvalue { ptr, i32 } %212, i32 %211, 1
-  resume { ptr, i32 } %213
+168:                                              ; preds = %48
+  %169 = landingpad { ptr, i32 }
+          cleanup
+  %170 = extractvalue { ptr, i32 } %169, 0
+  store ptr %170, ptr %9, align 8
+  %171 = extractvalue { ptr, i32 } %169, 1
+  store i32 %171, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
+  br label %209
+
+172:                                              ; preds = %83
+  %173 = landingpad { ptr, i32 }
+          cleanup
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %9, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
+  br label %209
+
+176:                                              ; preds = %91, %84
+  %177 = landingpad { ptr, i32 }
+          cleanup
+  %178 = extractvalue { ptr, i32 } %177, 0
+  store ptr %178, ptr %9, align 8
+  %179 = extractvalue { ptr, i32 } %177, 1
+  store i32 %179, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
+  br label %209
+
+180:                                              ; preds = %99, %92
+  %181 = landingpad { ptr, i32 }
+          cleanup
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %9, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
+  br label %209
+
+184:                                              ; preds = %107, %100
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %9, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
+  br label %209
+
+188:                                              ; preds = %115, %108
+  %189 = landingpad { ptr, i32 }
+          cleanup
+  %190 = extractvalue { ptr, i32 } %189, 0
+  store ptr %190, ptr %9, align 8
+  %191 = extractvalue { ptr, i32 } %189, 1
+  store i32 %191, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
+  br label %209
+
+192:                                              ; preds = %123, %116
+  %193 = landingpad { ptr, i32 }
+          cleanup
+  %194 = extractvalue { ptr, i32 } %193, 0
+  store ptr %194, ptr %9, align 8
+  %195 = extractvalue { ptr, i32 } %193, 1
+  store i32 %195, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
+  br label %209
+
+196:                                              ; preds = %131, %124
+  %197 = landingpad { ptr, i32 }
+          cleanup
+  %198 = extractvalue { ptr, i32 } %197, 0
+  store ptr %198, ptr %9, align 8
+  %199 = extractvalue { ptr, i32 } %197, 1
+  store i32 %199, ptr %10, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
+  br label %209
+
+200:                                              ; preds = %150
+  %201 = landingpad { ptr, i32 }
+          cleanup
+  %202 = extractvalue { ptr, i32 } %201, 0
+  store ptr %202, ptr %9, align 8
+  %203 = extractvalue { ptr, i32 } %201, 1
+  store i32 %203, ptr %10, align 4
+  br label %208
+
+204:                                              ; preds = %155
+  %205 = landingpad { ptr, i32 }
+          cleanup
+  %206 = extractvalue { ptr, i32 } %205, 0
+  store ptr %206, ptr %9, align 8
+  %207 = extractvalue { ptr, i32 } %205, 1
+  store i32 %207, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
+  br label %208
+
+208:                                              ; preds = %204, %200
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
+  br label %209
+
+209:                                              ; preds = %208, %196, %192, %188, %184, %180, %176, %172, %168, %164
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %36) #16
+  br label %210
+
+210:                                              ; preds = %209, %160
+  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %27) #16
+  br label %211
+
+211:                                              ; preds = %210
+  %212 = load ptr, ptr %9, align 8
+  %213 = load i32, ptr %10, align 4
+  %214 = insertvalue { ptr, i32 } poison, ptr %212, 0
+  %215 = insertvalue { ptr, i32 } %214, i32 %213, 1
+  resume { ptr, i32 } %215
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -3630,13 +3632,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #16
   ret void
 }
@@ -3646,21 +3650,23 @@ define void @_ZN22BluetoothDevicesDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV22BluetoothDevicesDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #17
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #17
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %3, i32 0, i32 4
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #16
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %3, i32 0, i32 4
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %3) #16
   ret void
 }
@@ -4307,25 +4313,25 @@ define void @_ZN22BluetoothDevicesDialog34on_actionMark_Unmark_Row_triggeredEv(p
   %19 = load ptr, ptr %2, align 8
   call void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %20 unwind label %49
+          to label %20 unwind label %50
 
 20:                                               ; preds = %1
   store i8 1, ptr %7, align 1
   store i32 0, ptr %8, align 4
   br label %21
 
-21:                                               ; preds = %67, %20
+21:                                               ; preds = %68, %20
   %22 = load i32, ptr %8, align 4
   %23 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %24, i32 0, i32 7
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
-          to label %28 unwind label %53
+          to label %28 unwind label %54
 
 28:                                               ; preds = %21
   %29 = icmp slt i32 %22, %27
-  br i1 %29, label %30, label %70
+  br i1 %29, label %30, label %71
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
@@ -4333,216 +4339,219 @@ define void @_ZN22BluetoothDevicesDialog34on_actionMark_Unmark_Row_triggeredEv(p
   %33 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %32, i32 0, i32 7
   %34 = load ptr, ptr %33, align 8
   %35 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %34)
-          to label %36 unwind label %53
+          to label %36 unwind label %54
 
 36:                                               ; preds = %30
   %37 = load i32, ptr %8, align 4
   invoke void @_ZNK15QTreeWidgetItem10backgroundEi(ptr dead_on_unwind writable sret(%class.QBrush) align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %35, i32 noundef %37)
-          to label %38 unwind label %53
+          to label %38 unwind label %54
 
 38:                                               ; preds = %36
-  %39 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-          to label %40 unwind label %57
+  %39 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  %40 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %39)
+          to label %41 unwind label %58
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
-  %42 = extractvalue { i64, i64 } %39, 0
-  store i64 %42, ptr %41, align 4
-  %43 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
-  %44 = extractvalue { i64, i64 } %39, 1
-  store i64 %44, ptr %43, align 4
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
+  %43 = extractvalue { i64, i64 } %40, 0
+  store i64 %43, ptr %42, align 4
+  %44 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %45 = extractvalue { i64, i64 } %40, 1
+  store i64 %45, ptr %44, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(14) %11, i32 noundef 1)
-          to label %45 unwind label %57
+          to label %46 unwind label %58
 
-45:                                               ; preds = %40
-  %46 = invoke noundef zeroext i1 @_ZNK6QBrushneERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %47 unwind label %61
+46:                                               ; preds = %41
+  %47 = invoke noundef zeroext i1 @_ZNK6QBrushneERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %48 unwind label %62
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  br i1 %46, label %48, label %66
+  br i1 %47, label %49, label %67
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   store i8 0, ptr %7, align 1
-  br label %66
-
-49:                                               ; preds = %1
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %127
-
-53:                                               ; preds = %119, %113, %111, %105, %96, %88, %85, %80, %78, %74, %73, %36, %30, %21
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  br label %126
-
-57:                                               ; preds = %40, %38
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %5, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %6, align 4
-  br label %65
-
-61:                                               ; preds = %45
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %5, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %6, align 4
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
-  br label %65
-
-65:                                               ; preds = %61, %57
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  br label %126
-
-66:                                               ; preds = %48, %47
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %8, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %8, align 4
+50:                                               ; preds = %1
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %130
+
+54:                                               ; preds = %122, %116, %114, %108, %99, %91, %87, %82, %79, %75, %74, %36, %30, %21
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  br label %129
+
+58:                                               ; preds = %41, %38
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %5, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %6, align 4
+  br label %66
+
+62:                                               ; preds = %46
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %5, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %6, align 4
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
+  br label %129
+
+67:                                               ; preds = %49, %48
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i32, ptr %8, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %8, align 4
   br label %21, !llvm.loop !8
 
-70:                                               ; preds = %28
-  %71 = load i8, ptr %7, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %78
+71:                                               ; preds = %28
+  %72 = load i8, ptr %7, align 1
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %79
 
-73:                                               ; preds = %70
+74:                                               ; preds = %71
   invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %74 unwind label %53
+          to label %75 unwind label %54
 
-74:                                               ; preds = %73
-  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %12) #16
+75:                                               ; preds = %74
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %76 unwind label %53
+          to label %77 unwind label %54
 
-76:                                               ; preds = %74
-  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %13) #16
+77:                                               ; preds = %75
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %13) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
-  br label %95
+  br label %98
 
-78:                                               ; preds = %70
-  %79 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18))
-          to label %80 unwind label %53
+79:                                               ; preds = %71
+  %80 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18
+  %81 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %80)
+          to label %82 unwind label %54
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %82 = extractvalue { i64, i64 } %79, 0
-  store i64 %82, ptr %81, align 4
-  %83 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
-  %84 = extractvalue { i64, i64 } %79, 1
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %84 = extractvalue { i64, i64 } %81, 0
   store i64 %84, ptr %83, align 4
+  %85 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %86 = extractvalue { i64, i64 } %81, 1
+  store i64 %86, ptr %85, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(14) %15, i32 noundef 1)
-          to label %85 unwind label %53
+          to label %87 unwind label %54
 
-85:                                               ; preds = %80
-  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+87:                                               ; preds = %82
+  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %14) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  %87 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-          to label %88 unwind label %53
+  %89 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  %90 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %89)
+          to label %91 unwind label %54
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 0
-  %90 = extractvalue { i64, i64 } %87, 0
-  store i64 %90, ptr %89, align 4
-  %91 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 1
-  %92 = extractvalue { i64, i64 } %87, 1
-  store i64 %92, ptr %91, align 4
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 0
+  %93 = extractvalue { i64, i64 } %90, 0
+  store i64 %93, ptr %92, align 4
+  %94 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 1
+  %95 = extractvalue { i64, i64 } %90, 1
+  store i64 %95, ptr %94, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(14) %17, i32 noundef 1)
-          to label %93 unwind label %53
+          to label %96 unwind label %54
 
-93:                                               ; preds = %88
-  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %16) #16
+96:                                               ; preds = %91
+  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
-  br label %95
+  br label %98
 
-95:                                               ; preds = %93, %76
+98:                                               ; preds = %96, %77
   store i32 0, ptr %18, align 4
-  br label %96
+  br label %99
 
-96:                                               ; preds = %122, %95
-  %97 = load i32, ptr %18, align 4
-  %98 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %99, i32 0, i32 7
-  %101 = load ptr, ptr %100, align 8
-  %102 = invoke noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %101)
-          to label %103 unwind label %53
+99:                                               ; preds = %125, %98
+  %100 = load i32, ptr %18, align 4
+  %101 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %102, i32 0, i32 7
+  %104 = load ptr, ptr %103, align 8
+  %105 = invoke noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %104)
+          to label %106 unwind label %54
 
-103:                                              ; preds = %96
-  %104 = icmp slt i32 %97, %102
-  br i1 %104, label %105, label %125
+106:                                              ; preds = %99
+  %107 = icmp slt i32 %100, %105
+  br i1 %107, label %108, label %128
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %107, i32 0, i32 7
-  %109 = load ptr, ptr %108, align 8
-  %110 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %109)
-          to label %111 unwind label %53
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %110, i32 0, i32 7
+  %112 = load ptr, ptr %111, align 8
+  %113 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %112)
+          to label %114 unwind label %54
 
-111:                                              ; preds = %105
-  %112 = load i32, ptr %18, align 4
-  invoke void @_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %110, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %113 unwind label %53
+114:                                              ; preds = %108
+  %115 = load i32, ptr %18, align 4
+  invoke void @_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %113, i32 noundef %115, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %116 unwind label %54
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %115, i32 0, i32 7
-  %117 = load ptr, ptr %116, align 8
-  %118 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %117)
-          to label %119 unwind label %53
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %19, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %118, i32 0, i32 7
+  %120 = load ptr, ptr %119, align 8
+  %121 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %120)
+          to label %122 unwind label %54
 
-119:                                              ; preds = %113
-  %120 = load i32, ptr %18, align 4
-  invoke void @_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %118, i32 noundef %120, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %121 unwind label %53
-
-121:                                              ; preds = %119
-  br label %122
-
-122:                                              ; preds = %121
+122:                                              ; preds = %116
   %123 = load i32, ptr %18, align 4
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %18, align 4
-  br label %96, !llvm.loop !9
+  invoke void @_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %121, i32 noundef %123, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %124 unwind label %54
 
-125:                                              ; preds = %103
+124:                                              ; preds = %122
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = load i32, ptr %18, align 4
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %18, align 4
+  br label %99, !llvm.loop !9
+
+128:                                              ; preds = %106
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret void
 
-126:                                              ; preds = %65, %53
+129:                                              ; preds = %66, %54
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
-  br label %127
+  br label %130
 
-127:                                              ; preds = %126, %49
+130:                                              ; preds = %129, %50
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  br label %128
+  br label %131
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %5, align 8
-  %130 = load i32, ptr %6, align 4
-  %131 = insertvalue { ptr, i32 } poison, ptr %129, 0
-  %132 = insertvalue { ptr, i32 } %131, i32 %130, 1
-  resume { ptr, i32 } %132
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %5, align 8
+  %133 = load i32, ptr %6, align 4
+  %134 = insertvalue { ptr, i32 } poison, ptr %132, 0
+  %135 = insertvalue { ptr, i32 } %134, i32 %133, 1
+  resume { ptr, i32 } %135
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4814,7 +4823,7 @@ define void @_ZN22BluetoothDevicesDialog35on_actionMark_Unmark_Cell_triggeredEv(
   %16 = load ptr, ptr %2, align 8
   call void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %17 unwind label %45
+          to label %17 unwind label %46
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
@@ -4822,7 +4831,7 @@ define void @_ZN22BluetoothDevicesDialog35on_actionMark_Unmark_Cell_triggeredEv(
   %20 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %19, i32 0, i32 7
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
-          to label %23 unwind label %49
+          to label %23 unwind label %50
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
@@ -4830,185 +4839,188 @@ define void @_ZN22BluetoothDevicesDialog35on_actionMark_Unmark_Cell_triggeredEv(
   %26 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %25, i32 0, i32 7
   %27 = load ptr, ptr %26, align 8
   %28 = invoke noundef i32 @_ZNK11QTreeWidget13currentColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
-          to label %29 unwind label %49
+          to label %29 unwind label %50
 
 29:                                               ; preds = %23
   invoke void @_ZNK15QTreeWidgetItem10backgroundEi(ptr dead_on_unwind writable sret(%class.QBrush) align 8 %7, ptr noundef nonnull align 8 dereferenceable(92) %22, i32 noundef %28)
-          to label %30 unwind label %49
+          to label %30 unwind label %50
 
 30:                                               ; preds = %29
-  %31 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-          to label %32 unwind label %53
+  %31 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  %32 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %31)
+          to label %33 unwind label %54
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %34 = extractvalue { i64, i64 } %31, 0
-  store i64 %34, ptr %33, align 4
-  %35 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
-  %36 = extractvalue { i64, i64 } %31, 1
-  store i64 %36, ptr %35, align 4
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %35 = extractvalue { i64, i64 } %32, 0
+  store i64 %35, ptr %34, align 4
+  %36 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %37 = extractvalue { i64, i64 } %32, 1
+  store i64 %37, ptr %36, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(14) %9, i32 noundef 1)
-          to label %37 unwind label %53
+          to label %38 unwind label %54
 
-37:                                               ; preds = %32
-  %38 = invoke noundef zeroext i1 @_ZNK6QBrusheqERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %39 unwind label %57
+38:                                               ; preds = %33
+  %39 = invoke noundef zeroext i1 @_ZNK6QBrusheqERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %40 unwind label %58
 
-39:                                               ; preds = %37
+40:                                               ; preds = %38
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  br i1 %38, label %40, label %62
-
-40:                                               ; preds = %39
-  invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %41 unwind label %49
+  br i1 %39, label %41, label %63
 
 41:                                               ; preds = %40
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %42 unwind label %50
+
+42:                                               ; preds = %41
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   invoke void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %43 unwind label %49
+          to label %44 unwind label %50
 
-43:                                               ; preds = %41
-  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #16
+44:                                               ; preds = %42
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #16
-  br label %79
+  br label %82
 
-45:                                               ; preds = %1
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %1
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %107
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %110
 
-49:                                               ; preds = %104, %98, %92, %91, %85, %79, %72, %69, %64, %62, %41, %40, %29, %23, %17
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %107, %101, %95, %94, %88, %82, %75, %71, %66, %63, %42, %41, %29, %23, %17
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %106
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %109
 
-53:                                               ; preds = %32, %30
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %33, %30
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  br label %61
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  br label %62
 
-57:                                               ; preds = %37
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %38
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %5, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %6, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %5, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %6, align 4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
-  br label %61
+  br label %62
 
-61:                                               ; preds = %57, %53
+62:                                               ; preds = %58, %54
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  br label %106
+  br label %109
 
-62:                                               ; preds = %39
-  %63 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18))
-          to label %64 unwind label %49
+63:                                               ; preds = %40
+  %64 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18
+  %65 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %64)
+          to label %66 unwind label %50
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
-  %66 = extractvalue { i64, i64 } %63, 0
-  store i64 %66, ptr %65, align 4
-  %67 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
-  %68 = extractvalue { i64, i64 } %63, 1
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
+  %68 = extractvalue { i64, i64 } %65, 0
   store i64 %68, ptr %67, align 4
+  %69 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
+  %70 = extractvalue { i64, i64 } %65, 1
+  store i64 %70, ptr %69, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(14) %13, i32 noundef 1)
-          to label %69 unwind label %49
+          to label %71 unwind label %50
 
-69:                                               ; preds = %64
-  %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %12) #16
+71:                                               ; preds = %66
+  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  %71 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-          to label %72 unwind label %49
+  %73 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  %74 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %73)
+          to label %75 unwind label %50
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %74 = extractvalue { i64, i64 } %71, 0
-  store i64 %74, ptr %73, align 4
-  %75 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
-  %76 = extractvalue { i64, i64 } %71, 1
-  store i64 %76, ptr %75, align 4
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
+  %77 = extractvalue { i64, i64 } %74, 0
+  store i64 %77, ptr %76, align 4
+  %78 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %79 = extractvalue { i64, i64 } %74, 1
+  store i64 %79, ptr %78, align 4
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(14) %15, i32 noundef 1)
-          to label %77 unwind label %49
+          to label %80 unwind label %50
 
-77:                                               ; preds = %72
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %14) #16
+80:                                               ; preds = %75
+  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QBrushaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %14) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  br label %79
+  br label %82
 
-79:                                               ; preds = %77, %43
-  %80 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %81, i32 0, i32 7
-  %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %83)
-          to label %85 unwind label %49
+82:                                               ; preds = %80, %44
+  %83 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %84, i32 0, i32 7
+  %86 = load ptr, ptr %85, align 8
+  %87 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %86)
+          to label %88 unwind label %50
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %87, i32 0, i32 7
-  %89 = load ptr, ptr %88, align 8
-  %90 = invoke noundef i32 @_ZNK11QTreeWidget13currentColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %89)
-          to label %91 unwind label %49
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %90, i32 0, i32 7
+  %92 = load ptr, ptr %91, align 8
+  %93 = invoke noundef i32 @_ZNK11QTreeWidget13currentColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %92)
+          to label %94 unwind label %50
 
-91:                                               ; preds = %85
-  invoke void @_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %84, i32 noundef %90, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %92 unwind label %49
+94:                                               ; preds = %88
+  invoke void @_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %87, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %95 unwind label %50
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %94, i32 0, i32 7
-  %96 = load ptr, ptr %95, align 8
-  %97 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %96)
-          to label %98 unwind label %49
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %97, i32 0, i32 7
+  %99 = load ptr, ptr %98, align 8
+  %100 = invoke noundef ptr @_ZNK11QTreeWidget11currentItemEv(ptr noundef nonnull align 8 dereferenceable(40) %99)
+          to label %101 unwind label %50
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %100, i32 0, i32 7
-  %102 = load ptr, ptr %101, align 8
-  %103 = invoke noundef i32 @_ZNK11QTreeWidget13currentColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %102)
-          to label %104 unwind label %49
+101:                                              ; preds = %95
+  %102 = getelementptr inbounds %class.BluetoothDevicesDialog, ptr %16, i32 0, i32 1
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %class.Ui_BluetoothDevicesDialog, ptr %103, i32 0, i32 7
+  %105 = load ptr, ptr %104, align 8
+  %106 = invoke noundef i32 @_ZNK11QTreeWidget13currentColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
+          to label %107 unwind label %50
 
-104:                                              ; preds = %98
-  invoke void @_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %97, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %105 unwind label %49
+107:                                              ; preds = %101
+  invoke void @_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush(ptr noundef nonnull align 8 dereferenceable(92) %100, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %108 unwind label %50
 
-105:                                              ; preds = %104
+108:                                              ; preds = %107
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret void
 
-106:                                              ; preds = %61, %49
+109:                                              ; preds = %62, %50
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
-  br label %107
+  br label %110
 
-107:                                              ; preds = %106, %45
+110:                                              ; preds = %109, %46
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  br label %108
+  br label %111
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i32, ptr %6, align 4
-  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
-  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
-  resume { ptr, i32 } %112
+111:                                              ; preds = %110
+  %112 = load ptr, ptr %5, align 8
+  %113 = load i32, ptr %6, align 4
+  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
+  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
+  resume { ptr, i32 } %115
 }
 
 declare void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -10824,11 +10836,12 @@ define linkonce_odr void @_ZN7QPixmapC2EOS_(ptr noundef nonnull align 8 derefere
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #16
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.QPixmap, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QPixmap, ptr %7, i32 0, i32 1
-  call void @_ZN28QExplicitlySharedDataPointerI15QPlatformPixmapEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #16
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.QPixmap, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.QPixmap, ptr %8, i32 0, i32 1
+  call void @_ZN28QExplicitlySharedDataPointerI15QPlatformPixmapEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   ret void
 }
 

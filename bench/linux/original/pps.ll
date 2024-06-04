@@ -69,11 +69,11 @@ define dso_local i32 @pps_register_cdev(ptr noundef %0) local_unnamed_addr #0 al
 
 4:                                                ; preds = %1
   %5 = icmp eq i32 %2, -28
-  br i1 %5, label %6, label %43
+  br i1 %5, label %6, label %44
 
 6:                                                ; preds = %4
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0) #10
-  br label %43
+  br label %44
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 208
@@ -98,7 +98,7 @@ define dso_local i32 @pps_register_cdev(ptr noundef %0) local_unnamed_addr #0 al
   %22 = lshr i32 %21, 20
   %23 = load i32, ptr %9, align 8
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %22, i32 noundef %23) #10
-  br label %38
+  br label %39
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr @pps_class, align 8
@@ -108,36 +108,37 @@ define dso_local i32 @pps_register_cdev(ptr noundef %0) local_unnamed_addr #0 al
   %30 = tail call ptr (ptr, ptr, i32, ptr, ptr, ...) @device_create(ptr noundef %26, ptr noundef %28, i32 noundef %13, ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %29) #9
   %31 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %30, ptr %31, align 8
-  %32 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %30, %32
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %25
-  %34 = ptrtoint ptr %30 to i64
-  %35 = trunc i64 %34 to i32
+34:                                               ; preds = %25
+  %35 = ptrtoint ptr %30 to i64
+  %36 = trunc i64 %35 to i32
   tail call void @cdev_del(ptr noundef %14) #9
-  br label %38
+  br label %39
 
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %30, i64 688
-  store ptr @pps_device_destruct, ptr %37, align 8
-  br label %45
+37:                                               ; preds = %25
+  %38 = getelementptr inbounds i8, ptr %30, i64 688
+  store ptr @pps_device_destruct, ptr %38, align 8
+  br label %46
 
-38:                                               ; preds = %33, %20
-  %39 = phi i32 [ %18, %20 ], [ %35, %33 ]
+39:                                               ; preds = %34, %20
+  %40 = phi i32 [ %18, %20 ], [ %36, %34 ]
   tail call void @mutex_lock(ptr noundef nonnull @pps_idr_lock) #9
-  %40 = load i32, ptr %9, align 8
-  %41 = zext i32 %40 to i64
-  %42 = tail call ptr @idr_remove(ptr noundef nonnull @pps_idr, i64 noundef %41) #9
-  br label %43
+  %41 = load i32, ptr %9, align 8
+  %42 = zext i32 %41 to i64
+  %43 = tail call ptr @idr_remove(ptr noundef nonnull @pps_idr, i64 noundef %42) #9
+  br label %44
 
-43:                                               ; preds = %38, %6, %4
-  %44 = phi i32 [ -16, %6 ], [ %2, %4 ], [ %39, %38 ]
+44:                                               ; preds = %39, %6, %4
+  %45 = phi i32 [ -16, %6 ], [ %2, %4 ], [ %40, %39 ]
   tail call void @mutex_unlock(ptr noundef nonnull @pps_idr_lock) #9
-  br label %45
+  br label %46
 
-45:                                               ; preds = %43, %36
-  %46 = phi i32 [ %44, %43 ], [ 0, %36 ]
-  ret i32 %46
+46:                                               ; preds = %44, %37
+  %47 = phi i32 [ %45, %44 ], [ 0, %37 ]
+  ret i32 %47
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -261,37 +262,38 @@ declare dso_local void @unregister_chrdev_region(i32 noundef, i32 noundef) local
 define internal i32 @pps_init() #4 section ".init.text" align 16 {
   %1 = tail call ptr @class_create(ptr noundef nonnull @.str.6) #9
   store ptr %1, ptr @pps_class, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %8
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %9
 
-3:                                                ; preds = %0
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #10
-  %5 = load ptr, ptr @pps_class, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %7 = trunc i64 %6 to i32
-  br label %18
+4:                                                ; preds = %0
+  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #10
+  %6 = load ptr, ptr @pps_class, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = trunc i64 %7 to i32
+  br label %19
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr @pps_groups, ptr %9, align 8
-  %10 = tail call i32 @alloc_chrdev_region(ptr noundef nonnull @pps_devt, i32 noundef 0, i32 noundef 16, ptr noundef nonnull @.str.6) #9
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %15
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr @pps_groups, ptr %10, align 8
+  %11 = tail call i32 @alloc_chrdev_region(ptr noundef nonnull @pps_devt, i32 noundef 0, i32 noundef 16, ptr noundef nonnull @.str.6) #9
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %8
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #10
-  %14 = load ptr, ptr @pps_class, align 8
-  tail call void @class_destroy(ptr noundef %14) #9
-  br label %18
+13:                                               ; preds = %9
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #10
+  %15 = load ptr, ptr @pps_class, align 8
+  tail call void @class_destroy(ptr noundef %15) #9
+  br label %19
 
-15:                                               ; preds = %8
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef 1) #10
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #10
-  br label %18
+16:                                               ; preds = %9
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef 1) #10
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #10
+  br label %19
 
-18:                                               ; preds = %15, %12, %3
-  %19 = phi i32 [ %7, %3 ], [ %10, %12 ], [ 0, %15 ]
-  ret i32 %19
+19:                                               ; preds = %16, %13, %4
+  %20 = phi i32 [ %8, %4 ], [ %11, %13 ], [ 0, %16 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

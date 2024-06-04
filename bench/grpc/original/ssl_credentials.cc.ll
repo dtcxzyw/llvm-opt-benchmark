@@ -400,24 +400,25 @@ entry:
   store ptr %verify_options, ptr %verify_options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24grpc_channel_credentialsC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20grpc_ssl_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV20grpc_ssl_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   call void @_ZN15grpc_ssl_configC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %config_) #3
   %client_handshaker_factory_ = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 2
   store ptr null, ptr %client_handshaker_factory_, align 8
   %root_store_ = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 3
   store ptr null, ptr %root_store_, align 8
-  %0 = load ptr, ptr %pem_root_certs.addr, align 8
-  %1 = load ptr, ptr %pem_key_cert_pair.addr, align 8
-  %2 = load ptr, ptr %verify_options.addr, align 8
-  invoke void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %1 = load ptr, ptr %pem_root_certs.addr, align 8
+  %2 = load ptr, ptr %pem_key_cert_pair.addr, align 8
+  %3 = load ptr, ptr %verify_options.addr, align 8
+  invoke void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef %1, ptr noundef %2, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %config_2 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs3 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_2, i32 0, i32 1
-  %3 = load ptr, ptr %pem_root_certs3, align 8
-  %cmp = icmp eq ptr %3, null
+  %4 = load ptr, ptr %pem_root_certs3, align 8
+  %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %if.then, label %if.else16
 
 if.then:                                          ; preds = %invoke.cont
@@ -426,8 +427,8 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %if.then
   store ptr %call, ptr %pem_root_certs4, align 8
-  %4 = load ptr, ptr %pem_root_certs4, align 8
-  %cmp6 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %pem_root_certs4, align 8
+  %cmp6 = icmp eq ptr %5, null
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %invoke.cont5
@@ -438,26 +439,26 @@ invoke.cont8:                                     ; preds = %if.then7
   br label %if.end
 
 lpad:                                             ; preds = %if.end22, %invoke.cont9, %if.else, %if.then7, %if.then, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN24grpc_channel_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont5
-  %8 = load ptr, ptr %pem_root_certs4, align 8
-  %call10 = invoke ptr @gpr_strdup(ptr noundef %8)
+  %9 = load ptr, ptr %pem_root_certs4, align 8
+  %call10 = invoke ptr @gpr_strdup(ptr noundef %9)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.else
   store ptr %call10, ptr %default_roots, align 8
-  %9 = load ptr, ptr %default_roots, align 8
+  %10 = load ptr, ptr %default_roots, align 8
   %config_11 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs12 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_11, i32 0, i32 1
-  store ptr %9, ptr %pem_root_certs12, align 8
+  store ptr %10, ptr %pem_root_certs12, align 8
   %call14 = invoke noundef ptr @_ZN9grpc_core19DefaultSslRootStore12GetRootStoreEv()
           to label %invoke.cont13 unwind label %lpad
 
@@ -472,10 +473,10 @@ if.end:                                           ; preds = %invoke.cont13, %inv
 if.else16:                                        ; preds = %invoke.cont
   %config_17 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs18 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_17, i32 0, i32 1
-  %10 = load ptr, ptr %pem_root_certs18, align 8
+  %11 = load ptr, ptr %pem_root_certs18, align 8
   %config_19 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs20 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_19, i32 0, i32 1
-  store ptr %10, ptr %pem_root_certs20, align 8
+  store ptr %11, ptr %pem_root_certs20, align 8
   %root_store_21 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 3
   store ptr null, ptr %root_store_21, align 8
   br label %if.end22
@@ -484,11 +485,11 @@ if.end22:                                         ; preds = %if.else16, %if.end
   %config_23 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %config_24 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs25 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_24, i32 0, i32 1
-  %11 = load ptr, ptr %pem_root_certs25, align 8
+  %12 = load ptr, ptr %pem_root_certs25, align 8
   %root_store_26 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %root_store_26, align 8
+  %13 = load ptr, ptr %root_store_26, align 8
   %client_handshaker_factory_27 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 2
-  %call29 = invoke noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef %config_23, ptr noundef %11, ptr noundef %12, ptr noundef null, ptr noundef %client_handshaker_factory_27)
+  %call29 = invoke noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef %config_23, ptr noundef %12, ptr noundef %13, ptr noundef null, ptr noundef %client_handshaker_factory_27)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %if.end22
@@ -511,7 +512,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24grpc_channel_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV24grpc_channel_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -849,38 +851,39 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20grpc_ssl_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV20grpc_ssl_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_root_certs = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_, i32 0, i32 1
-  %0 = load ptr, ptr %pem_root_certs, align 8
-  invoke void @gpr_free(ptr noundef %0)
+  %1 = load ptr, ptr %pem_root_certs, align 8
+  invoke void @gpr_free(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %config_2 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %pem_key_cert_pair = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_2, i32 0, i32 0
-  %1 = load ptr, ptr %pem_key_cert_pair, align 8
-  invoke void @_Z39grpc_tsi_ssl_pem_key_cert_pairs_destroyP25tsi_ssl_pem_key_cert_pairm(ptr noundef %1, i64 noundef 1)
+  %2 = load ptr, ptr %pem_key_cert_pair, align 8
+  invoke void @_Z39grpc_tsi_ssl_pem_key_cert_pairs_destroyP25tsi_ssl_pem_key_cert_pairm(ptr noundef %2, i64 noundef 1)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %config_4 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %verify_options = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_4, i32 0, i32 2
   %verify_peer_destruct = getelementptr inbounds %struct.verify_peer_options, ptr %verify_options, i32 0, i32 2
-  %2 = load ptr, ptr %verify_peer_destruct, align 8
-  %cmp = icmp ne ptr %2, null
+  %3 = load ptr, ptr %verify_peer_destruct, align 8
+  %cmp = icmp ne ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont3
   %config_5 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %verify_options6 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_5, i32 0, i32 2
   %verify_peer_destruct7 = getelementptr inbounds %struct.verify_peer_options, ptr %verify_options6, i32 0, i32 2
-  %3 = load ptr, ptr %verify_peer_destruct7, align 8
+  %4 = load ptr, ptr %verify_peer_destruct7, align 8
   %config_8 = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 1
   %verify_options9 = getelementptr inbounds %struct.grpc_ssl_config, ptr %config_8, i32 0, i32 2
   %verify_peer_callback_userdata = getelementptr inbounds %struct.verify_peer_options, ptr %verify_options9, i32 0, i32 1
-  %4 = load ptr, ptr %verify_peer_callback_userdata, align 8
-  invoke void %3(ptr noundef %4)
+  %5 = load ptr, ptr %verify_peer_callback_userdata, align 8
+  invoke void %4(ptr noundef %5)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %if.then
@@ -888,8 +891,8 @@ invoke.cont10:                                    ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont10, %invoke.cont3
   %client_handshaker_factory_ = getelementptr inbounds %class.grpc_ssl_credentials, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %client_handshaker_factory_, align 8
-  invoke void @_Z39tsi_ssl_client_handshaker_factory_unrefP33tsi_ssl_client_handshaker_factory(ptr noundef %5)
+  %6 = load ptr, ptr %client_handshaker_factory_, align 8
+  invoke void @_Z39tsi_ssl_client_handshaker_factory_unrefP33tsi_ssl_client_handshaker_factory(ptr noundef %6)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %if.end
@@ -897,10 +900,10 @@ invoke.cont11:                                    ; preds = %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.end, %if.then, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
@@ -1934,63 +1937,64 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23grpc_server_credentialsC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV27grpc_ssl_server_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV27grpc_ssl_server_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %class.grpc_ssl_server_credentials, ptr %this1, i32 0, i32 1
   call void @_ZN22grpc_ssl_server_configC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %config_) #3
   %certificate_config_fetcher_ = getelementptr inbounds %class.grpc_ssl_server_credentials, ptr %this1, i32 0, i32 2
   call void @_ZN42grpc_ssl_server_certificate_config_fetcherC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %certificate_config_fetcher_) #3
-  %0 = load ptr, ptr %options.addr, align 8
-  %certificate_config_fetcher = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %certificate_config_fetcher, align 8
-  %cmp = icmp ne ptr %1, null
+  %1 = load ptr, ptr %options.addr, align 8
+  %certificate_config_fetcher = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %certificate_config_fetcher, align 8
+  %cmp = icmp ne ptr %2, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %options.addr, align 8
-  %client_certificate_request = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %client_certificate_request, align 8
+  %3 = load ptr, ptr %options.addr, align 8
+  %client_certificate_request = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %3, i32 0, i32 0
+  %4 = load i32, ptr %client_certificate_request, align 8
   %config_2 = getelementptr inbounds %class.grpc_ssl_server_credentials, ptr %this1, i32 0, i32 1
   %client_certificate_request3 = getelementptr inbounds %struct.grpc_ssl_server_config, ptr %config_2, i32 0, i32 3
-  store i32 %3, ptr %client_certificate_request3, align 8
-  %4 = load ptr, ptr %options.addr, align 8
-  %certificate_config_fetcher4 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %certificate_config_fetcher4, align 8
+  store i32 %4, ptr %client_certificate_request3, align 8
+  %5 = load ptr, ptr %options.addr, align 8
+  %certificate_config_fetcher4 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %certificate_config_fetcher4, align 8
   %certificate_config_fetcher_5 = getelementptr inbounds %class.grpc_ssl_server_credentials, ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %certificate_config_fetcher_5, ptr align 8 %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %certificate_config_fetcher_5, ptr align 8 %6, i64 16, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %options.addr, align 8
-  %certificate_config = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %certificate_config, align 8
-  %pem_root_certs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %pem_root_certs, align 8
-  %9 = load ptr, ptr %options.addr, align 8
-  %certificate_config6 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %certificate_config6, align 8
-  %pem_key_cert_pairs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %pem_key_cert_pairs, align 8
-  %12 = load ptr, ptr %options.addr, align 8
-  %certificate_config7 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %certificate_config7, align 8
-  %num_key_cert_pairs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %13, i32 0, i32 1
-  %14 = load i64, ptr %num_key_cert_pairs, align 8
-  %15 = load ptr, ptr %options.addr, align 8
-  %client_certificate_request8 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %15, i32 0, i32 0
-  %16 = load i32, ptr %client_certificate_request8, align 8
-  invoke void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %8, ptr noundef %11, i64 noundef %14, i32 noundef %16)
+  %7 = load ptr, ptr %options.addr, align 8
+  %certificate_config = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %certificate_config, align 8
+  %pem_root_certs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %pem_root_certs, align 8
+  %10 = load ptr, ptr %options.addr, align 8
+  %certificate_config6 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %certificate_config6, align 8
+  %pem_key_cert_pairs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %pem_key_cert_pairs, align 8
+  %13 = load ptr, ptr %options.addr, align 8
+  %certificate_config7 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %certificate_config7, align 8
+  %num_key_cert_pairs = getelementptr inbounds %struct.grpc_ssl_server_certificate_config, ptr %14, i32 0, i32 1
+  %15 = load i64, ptr %num_key_cert_pairs, align 8
+  %16 = load ptr, ptr %options.addr, align 8
+  %client_certificate_request8 = getelementptr inbounds %struct.grpc_ssl_server_credentials_options, ptr %16, i32 0, i32 0
+  %17 = load i32, ptr %client_certificate_request8, align 8
+  invoke void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %9, ptr noundef %12, i64 noundef %15, i32 noundef %17)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
   br label %if.end
 
 lpad:                                             ; preds = %if.else
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -2012,7 +2016,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %processor_ = getelementptr inbounds %struct.grpc_server_credentials, ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %processor_, i8 0, i64 24, i1 false)
   ret void
@@ -3019,23 +3024,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -3074,7 +3080,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3751,23 +3758,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.11", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -3785,7 +3793,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN23grpc_server_credentials16DestroyProcessorEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3794,10 +3803,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -3925,7 +3934,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3935,7 +3945,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

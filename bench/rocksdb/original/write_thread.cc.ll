@@ -665,50 +665,51 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %db_options, ptr %db_options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %max_yield_usec_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %db_options.addr, align 8
-  %enable_write_thread_adaptive_yield = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %0, i32 0, i32 52
-  %1 = load i8, ptr %enable_write_thread_adaptive_yield, align 4
-  %tobool = trunc i8 %1 to i1
+  %1 = load ptr, ptr %db_options.addr, align 8
+  %enable_write_thread_adaptive_yield = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %1, i32 0, i32 52
+  %2 = load i8, ptr %enable_write_thread_adaptive_yield, align 4
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %db_options.addr, align 8
-  %write_thread_max_yield_usec = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %2, i32 0, i32 54
-  %3 = load i64, ptr %write_thread_max_yield_usec, align 8
+  %3 = load ptr, ptr %db_options.addr, align 8
+  %write_thread_max_yield_usec = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %3, i32 0, i32 54
+  %4 = load i64, ptr %write_thread_max_yield_usec, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %3, %cond.true ], [ 0, %cond.false ]
+  %cond = phi i64 [ %4, %cond.true ], [ 0, %cond.false ]
   store i64 %cond, ptr %max_yield_usec_, align 8
   %slow_yield_usec_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %db_options.addr, align 8
-  %write_thread_slow_yield_usec = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %4, i32 0, i32 55
-  %5 = load i64, ptr %write_thread_slow_yield_usec, align 8
-  store i64 %5, ptr %slow_yield_usec_, align 16
+  %5 = load ptr, ptr %db_options.addr, align 8
+  %write_thread_slow_yield_usec = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %5, i32 0, i32 55
+  %6 = load i64, ptr %write_thread_slow_yield_usec, align 8
+  store i64 %6, ptr %slow_yield_usec_, align 16
   %allow_concurrent_memtable_write_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %db_options.addr, align 8
-  %allow_concurrent_memtable_write = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %6, i32 0, i32 51
-  %7 = load i8, ptr %allow_concurrent_memtable_write, align 1
-  %tobool2 = trunc i8 %7 to i1
+  %7 = load ptr, ptr %db_options.addr, align 8
+  %allow_concurrent_memtable_write = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %7, i32 0, i32 51
+  %8 = load i8, ptr %allow_concurrent_memtable_write, align 1
+  %tobool2 = trunc i8 %8 to i1
   %frombool = zext i1 %tobool2 to i8
   store i8 %frombool, ptr %allow_concurrent_memtable_write_, align 8
   %enable_pipelined_write_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 4
-  %8 = load ptr, ptr %db_options.addr, align 8
-  %enable_pipelined_write = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %8, i32 0, i32 49
-  %9 = load i8, ptr %enable_pipelined_write, align 1
-  %tobool3 = trunc i8 %9 to i1
+  %9 = load ptr, ptr %db_options.addr, align 8
+  %enable_pipelined_write = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %9, i32 0, i32 49
+  %10 = load i8, ptr %enable_pipelined_write, align 1
+  %tobool3 = trunc i8 %10 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %enable_pipelined_write_, align 1
   %max_write_batch_group_size_bytes = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 5
-  %10 = load ptr, ptr %db_options.addr, align 8
-  %max_write_batch_group_size_bytes5 = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %10, i32 0, i32 30
-  %11 = load i64, ptr %max_write_batch_group_size_bytes5, align 8
-  store i64 %11, ptr %max_write_batch_group_size_bytes, align 16
+  %11 = load ptr, ptr %db_options.addr, align 8
+  %max_write_batch_group_size_bytes5 = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %11, i32 0, i32 30
+  %12 = load i64, ptr %max_write_batch_group_size_bytes5, align 8
+  store i64 %12, ptr %max_write_batch_group_size_bytes, align 16
   %newest_writer_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 6
   call void @_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %newest_writer_, ptr noundef null) #3
   %newest_memtable_writer_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 7
@@ -718,8 +719,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %write_stall_dummy_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 9
   call void @_ZN7rocksdb11WriteThread6WriterC2Ev(ptr noundef nonnull align 16 dereferenceable(256) %write_stall_dummy_)
   %stall_mu_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 10
-  %12 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %tobool6 = trunc i8 %12 to i1
+  %13 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool6 = trunc i8 %13 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_, i1 noundef zeroext %tobool6)
           to label %invoke.cont unwind label %lpad
 
@@ -737,21 +738,21 @@ invoke.cont9:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %cond.end
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_) #3
   br label %ehcleanup
 
@@ -1984,15 +1985,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #6 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5695,7 +5697,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %stall_cv_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 11
   call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #3
   %stall_mu_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 10
@@ -5718,15 +5721,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #6 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -500,40 +500,44 @@ do.end31:                                         ; preds = %while.end
   br i1 %tobool32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end31
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @virtio_free_region_cache to i64), i64 ptrtoint (ptr @virtio_free_region_cache to i64)) to i8), ptr %func_type_invalid, align 1
-  %47 = load ptr, ptr %old, align 8
-  %rcu = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %47, i32 0, i32 0
+  %47 = ptrtoint ptr @virtio_free_region_cache to i64
+  %48 = ptrtoint ptr @virtio_free_region_cache to i64
+  %49 = sub i64 %47, %48
+  %50 = trunc i64 %49 to i8
+  store i8 %50, ptr %func_type_invalid, align 1
+  %51 = load ptr, ptr %old, align 8
+  %rcu = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %51, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %48 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %48, ptr noundef @virtio_free_region_cache)
+  %52 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %52, ptr noundef @virtio_free_region_cache)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %do.end31
   br label %return
 
 err_avail:                                        ; preds = %if.then26
-  %49 = load ptr, ptr %new, align 8
-  %avail35 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %49, i32 0, i32 2
+  %53 = load ptr, ptr %new, align 8
+  %avail35 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %53, i32 0, i32 2
   call void @address_space_cache_destroy(ptr noundef %avail35)
   br label %err_used
 
 err_used:                                         ; preds = %err_avail, %if.then18
-  %50 = load ptr, ptr %new, align 8
-  %used36 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %50, i32 0, i32 3
+  %54 = load ptr, ptr %new, align 8
+  %used36 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %54, i32 0, i32 3
   call void @address_space_cache_destroy(ptr noundef %used36)
   br label %err_desc
 
 err_desc:                                         ; preds = %err_used, %if.then10
-  %51 = load ptr, ptr %new, align 8
-  %desc37 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %51, i32 0, i32 1
+  %55 = load ptr, ptr %new, align 8
+  %desc37 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %55, i32 0, i32 1
   call void @address_space_cache_destroy(ptr noundef %desc37)
   br label %out_no_cache
 
 out_no_cache:                                     ; preds = %err_desc, %if.then
-  %52 = load ptr, ptr %new, align 8
-  call void @g_free(ptr noundef %52)
-  %53 = load ptr, ptr %vq, align 8
-  call void @virtio_virtqueue_reset_region_cache(ptr noundef %53)
+  %56 = load ptr, ptr %new, align 8
+  call void @g_free(ptr noundef %56)
+  %57 = load ptr, ptr %vq, align 8
+  call void @virtio_virtqueue_reset_region_cache(ptr noundef %57)
   br label %return
 
 return:                                           ; preds = %out_no_cache, %if.end34
@@ -590,12 +594,12 @@ entry:
   store ptr %vdev, ptr %vdev.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @error_vreport(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load ptr, ptr %vdev.addr, align 8
   %call = call zeroext i1 @virtio_vdev_has_feature(ptr noundef %1, i32 noundef 32)
   br i1 %call, label %if.then, label %if.end
@@ -820,12 +824,16 @@ do.end10:                                         ; preds = %while.end7
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end10
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @virtio_free_region_cache to i64), i64 ptrtoint (ptr @virtio_free_region_cache to i64)) to i8), ptr %func_type_invalid, align 1
-  %7 = load ptr, ptr %caches, align 8
-  %rcu = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %7, i32 0, i32 0
+  %7 = ptrtoint ptr @virtio_free_region_cache to i64
+  %8 = ptrtoint ptr @virtio_free_region_cache to i64
+  %9 = sub i64 %7, %8
+  %10 = trunc i64 %9 to i8
+  store i8 %10, ptr %func_type_invalid, align 1
+  %11 = load ptr, ptr %caches, align 8
+  %rcu = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %11, i32 0, i32 0
   store ptr %rcu, ptr %tmp11, align 8
-  %8 = load ptr, ptr %tmp11, align 8
-  call void @call_rcu1(ptr noundef %8, ptr noundef @virtio_free_region_cache)
+  %12 = load ptr, ptr %tmp11, align 8
+  call void @call_rcu1(ptr noundef %12, ptr noundef @virtio_free_region_cache)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.end10
@@ -2130,7 +2138,8 @@ entry:
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10132,13 +10141,7 @@ entry:
 
 declare noalias ptr @g_strdup(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare void @error_vreport(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_device_start_ioeventfd(ptr noundef %vdev) #0 {
@@ -11634,7 +11637,7 @@ entry:
 declare i16 @llvm.bswap.i16(i16) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i16 @address_space_lduw_le_cached(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) #0 {
@@ -12504,7 +12507,7 @@ if.end11:                                         ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #10
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #9
 
 declare i32 @qemu_get_thread_id() #2
 
@@ -15871,6 +15874,12 @@ declare void @memory_region_transaction_commit() #2
 
 declare void @virtio_bus_cleanup_host_notifier(ptr noundef, i32 noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15879,9 +15888,9 @@ attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { allocsize(0,1) }
 attributes #12 = { noreturn }
 attributes #13 = { noreturn nounwind }

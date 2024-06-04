@@ -13089,942 +13089,944 @@ define internal i32 @dissect_config_attribute(ptr noundef %0, ptr noundef %1, pt
   store i32 %5, ptr %13, align 4
   %22 = load i32, ptr %12, align 4
   %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %26
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %6
   store ptr @vs_v1_cfgattr, ptr %14, align 8
   %25 = load i32, ptr @hf_isakmp_cfg_attr_type_v1, align 4
-  store i32 %25, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_cfg_attr, i32 0, i32 2), align 4
-  br label %33
+  %26 = getelementptr inbounds %struct._attribute_common_fields, ptr @hf_isakmp_cfg_attr, i32 0, i32 2
+  store i32 %25, ptr %26, align 4
+  br label %35
 
-26:                                               ; preds = %6
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %29, label %31
+27:                                               ; preds = %6
+  %28 = load i32, ptr %12, align 4
+  %29 = icmp eq i32 %28, 2
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   store ptr @vs_v2_cfgattr, ptr %14, align 8
-  %30 = load i32, ptr @hf_isakmp_cfg_attr_type_v2, align 4
-  store i32 %30, ptr getelementptr inbounds (%struct._attribute_common_fields, ptr @hf_isakmp_cfg_attr, i32 0, i32 2), align 4
-  br label %32
+  %31 = load i32, ptr @hf_isakmp_cfg_attr_type_v2, align 4
+  %32 = getelementptr inbounds %struct._attribute_common_fields, ptr @hf_isakmp_cfg_attr, i32 0, i32 2
+  store i32 %31, ptr %32, align 4
+  br label %34
 
-31:                                               ; preds = %26
+33:                                               ; preds = %27
   store i32 4, ptr %7, align 4
-  br label %600
+  br label %602
 
-32:                                               ; preds = %29
-  br label %33
+34:                                               ; preds = %30
+  br label %35
 
-33:                                               ; preds = %32, %24
-  %34 = load ptr, ptr %8, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = load i32, ptr %11, align 4
-  %37 = load ptr, ptr %14, align 8
-  call void @dissect_attribute_header(ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef byval(%struct._attribute_common_fields) align 8 @hf_isakmp_cfg_attr, ptr noundef %37, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  %38 = load i32, ptr %15, align 4
-  %39 = load i32, ptr %11, align 4
-  %40 = add i32 %39, %38
-  store i32 %40, ptr %11, align 4
-  %41 = load i32, ptr %16, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %52
+35:                                               ; preds = %34, %24
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i32, ptr %11, align 4
+  %39 = load ptr, ptr %14, align 8
+  call void @dissect_attribute_header(ptr noundef %36, ptr noundef %37, i32 noundef %38, ptr noundef byval(%struct._attribute_common_fields) align 8 @hf_isakmp_cfg_attr, ptr noundef %39, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  %40 = load i32, ptr %15, align 4
+  %41 = load i32, ptr %11, align 4
+  %42 = add i32 %41, %40
+  store i32 %42, ptr %11, align 4
+  %43 = load i32, ptr %16, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %54
 
-43:                                               ; preds = %33
-  %44 = load i32, ptr %13, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %50, label %46
+45:                                               ; preds = %35
+  %46 = load i32, ptr %13, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %52, label %48
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %9, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = call ptr @expert_add_info(ptr noundef %47, ptr noundef %48, ptr noundef @ei_isakmp_attribute_value_empty)
-  br label %50
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %18, align 8
+  %51 = call ptr @expert_add_info(ptr noundef %49, ptr noundef %50, ptr noundef @ei_isakmp_attribute_value_empty)
+  br label %52
 
-50:                                               ; preds = %46, %43
-  %51 = load i32, ptr %15, align 4
-  store i32 %51, ptr %7, align 4
-  br label %600
+52:                                               ; preds = %48, %45
+  %53 = load i32, ptr %15, align 4
+  store i32 %53, ptr %7, align 4
+  br label %602
 
-52:                                               ; preds = %33
-  %53 = load i32, ptr %17, align 4
-  switch i32 %53, label %595 [
-    i32 1, label %54
-    i32 2, label %77
-    i32 3, label %83
-    i32 4, label %106
-    i32 5, label %129
-    i32 6, label %135
-    i32 7, label %158
-    i32 8, label %170
-    i32 9, label %200
-    i32 10, label %206
-    i32 11, label %229
-    i32 12, label %252
-    i32 13, label %275
-    i32 14, label %305
-    i32 15, label %328
-    i32 17, label %358
-    i32 18, label %373
-    i32 20, label %403
-    i32 21, label %426
-    i32 16520, label %449
-    i32 16521, label %462
-    i32 16522, label %474
-    i32 16523, label %486
-    i32 16524, label %498
-    i32 16525, label %510
-    i32 16526, label %522
-    i32 16527, label %534
-    i32 16528, label %547
-    i32 16529, label %559
-    i32 28672, label %571
-    i32 28674, label %583
+54:                                               ; preds = %35
+  %55 = load i32, ptr %17, align 4
+  switch i32 %55, label %597 [
+    i32 1, label %56
+    i32 2, label %79
+    i32 3, label %85
+    i32 4, label %108
+    i32 5, label %131
+    i32 6, label %137
+    i32 7, label %160
+    i32 8, label %172
+    i32 9, label %202
+    i32 10, label %208
+    i32 11, label %231
+    i32 12, label %254
+    i32 13, label %277
+    i32 14, label %307
+    i32 15, label %330
+    i32 17, label %360
+    i32 18, label %375
+    i32 20, label %405
+    i32 21, label %428
+    i32 16520, label %451
+    i32 16521, label %464
+    i32 16522, label %476
+    i32 16523, label %488
+    i32 16524, label %500
+    i32 16525, label %512
+    i32 16526, label %524
+    i32 16527, label %536
+    i32 16528, label %549
+    i32 16529, label %561
+    i32 28672, label %573
+    i32 28674, label %585
   ]
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %16, align 4
-  %56 = urem i32 %55, 4
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %76
+56:                                               ; preds = %54
+  %57 = load i32, ptr %16, align 4
+  %58 = urem i32 %57, 4
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %78
 
-58:                                               ; preds = %54
+60:                                               ; preds = %56
   store i32 0, ptr %20, align 4
-  br label %59
+  br label %61
 
-59:                                               ; preds = %72, %58
-  %60 = load i32, ptr %20, align 4
-  %61 = load i32, ptr %16, align 4
-  %62 = udiv i32 %61, 4
-  %63 = icmp ult i32 %60, %62
-  br i1 %63, label %64, label %75
+61:                                               ; preds = %74, %60
+  %62 = load i32, ptr %20, align 4
+  %63 = load i32, ptr %16, align 4
+  %64 = udiv i32 %63, 4
+  %65 = icmp ult i32 %62, %64
+  br i1 %65, label %66, label %77
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %19, align 8
-  %66 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_address, align 4
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr %11, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef 0)
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %19, align 8
+  %68 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_address, align 4
+  %69 = load ptr, ptr %8, align 8
   %70 = load i32, ptr %11, align 4
-  %71 = add i32 %70, 4
-  store i32 %71, ptr %11, align 4
-  br label %72
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef 0)
+  %72 = load i32, ptr %11, align 4
+  %73 = add i32 %72, 4
+  store i32 %73, ptr %11, align 4
+  br label %74
 
-72:                                               ; preds = %64
-  %73 = load i32, ptr %20, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %20, align 4
-  br label %59, !llvm.loop !29
+74:                                               ; preds = %66
+  %75 = load i32, ptr %20, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %20, align 4
+  br label %61, !llvm.loop !29
 
-75:                                               ; preds = %59
-  br label %76
+77:                                               ; preds = %61
+  br label %78
 
-76:                                               ; preds = %75, %54
-  br label %596
+78:                                               ; preds = %77, %56
+  br label %598
 
-77:                                               ; preds = %52
-  %78 = load ptr, ptr %19, align 8
-  %79 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_netmask, align 4
-  %80 = load ptr, ptr %8, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 4, i32 noundef 0)
-  br label %596
+79:                                               ; preds = %54
+  %80 = load ptr, ptr %19, align 8
+  %81 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_netmask, align 4
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i32, ptr %11, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 4, i32 noundef 0)
+  br label %598
 
-83:                                               ; preds = %52
-  %84 = load i32, ptr %16, align 4
-  %85 = urem i32 %84, 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %105
+85:                                               ; preds = %54
+  %86 = load i32, ptr %16, align 4
+  %87 = urem i32 %86, 4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %107
 
-87:                                               ; preds = %83
+89:                                               ; preds = %85
   store i32 0, ptr %20, align 4
-  br label %88
+  br label %90
 
-88:                                               ; preds = %101, %87
-  %89 = load i32, ptr %20, align 4
-  %90 = load i32, ptr %16, align 4
-  %91 = udiv i32 %90, 4
-  %92 = icmp ult i32 %89, %91
-  br i1 %92, label %93, label %104
+90:                                               ; preds = %103, %89
+  %91 = load i32, ptr %20, align 4
+  %92 = load i32, ptr %16, align 4
+  %93 = udiv i32 %92, 4
+  %94 = icmp ult i32 %91, %93
+  br i1 %94, label %95, label %106
 
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %19, align 8
-  %95 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_dns, align 4
-  %96 = load ptr, ptr %8, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 4, i32 noundef 0)
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %19, align 8
+  %97 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_dns, align 4
+  %98 = load ptr, ptr %8, align 8
   %99 = load i32, ptr %11, align 4
-  %100 = add i32 %99, 4
-  store i32 %100, ptr %11, align 4
-  br label %101
+  %100 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef 4, i32 noundef 0)
+  %101 = load i32, ptr %11, align 4
+  %102 = add i32 %101, 4
+  store i32 %102, ptr %11, align 4
+  br label %103
 
-101:                                              ; preds = %93
-  %102 = load i32, ptr %20, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %20, align 4
-  br label %88, !llvm.loop !30
+103:                                              ; preds = %95
+  %104 = load i32, ptr %20, align 4
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %20, align 4
+  br label %90, !llvm.loop !30
 
-104:                                              ; preds = %88
-  br label %105
+106:                                              ; preds = %90
+  br label %107
 
-105:                                              ; preds = %104, %83
-  br label %596
+107:                                              ; preds = %106, %85
+  br label %598
 
-106:                                              ; preds = %52
-  %107 = load i32, ptr %16, align 4
-  %108 = urem i32 %107, 4
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %128
+108:                                              ; preds = %54
+  %109 = load i32, ptr %16, align 4
+  %110 = urem i32 %109, 4
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %130
 
-110:                                              ; preds = %106
+112:                                              ; preds = %108
   store i32 0, ptr %20, align 4
-  br label %111
+  br label %113
 
-111:                                              ; preds = %124, %110
-  %112 = load i32, ptr %20, align 4
-  %113 = load i32, ptr %16, align 4
-  %114 = udiv i32 %113, 4
-  %115 = icmp ult i32 %112, %114
-  br i1 %115, label %116, label %127
+113:                                              ; preds = %126, %112
+  %114 = load i32, ptr %20, align 4
+  %115 = load i32, ptr %16, align 4
+  %116 = udiv i32 %115, 4
+  %117 = icmp ult i32 %114, %116
+  br i1 %117, label %118, label %129
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %19, align 8
-  %118 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_nbns, align 4
-  %119 = load ptr, ptr %8, align 8
-  %120 = load i32, ptr %11, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 4, i32 noundef 0)
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %19, align 8
+  %120 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_nbns, align 4
+  %121 = load ptr, ptr %8, align 8
   %122 = load i32, ptr %11, align 4
-  %123 = add i32 %122, 4
-  store i32 %123, ptr %11, align 4
-  br label %124
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 4, i32 noundef 0)
+  %124 = load i32, ptr %11, align 4
+  %125 = add i32 %124, 4
+  store i32 %125, ptr %11, align 4
+  br label %126
 
-124:                                              ; preds = %116
-  %125 = load i32, ptr %20, align 4
-  %126 = add i32 %125, 1
-  store i32 %126, ptr %20, align 4
-  br label %111, !llvm.loop !31
+126:                                              ; preds = %118
+  %127 = load i32, ptr %20, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %20, align 4
+  br label %113, !llvm.loop !31
 
-127:                                              ; preds = %111
-  br label %128
+129:                                              ; preds = %113
+  br label %130
 
-128:                                              ; preds = %127, %106
-  br label %596
+130:                                              ; preds = %129, %108
+  br label %598
 
-129:                                              ; preds = %52
-  %130 = load ptr, ptr %19, align 8
-  %131 = load i32, ptr @hf_isakmp_cfg_attr_internal_address_expiry, align 4
-  %132 = load ptr, ptr %8, align 8
-  %133 = load i32, ptr %11, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 4, i32 noundef 0)
-  br label %596
+131:                                              ; preds = %54
+  %132 = load ptr, ptr %19, align 8
+  %133 = load i32, ptr @hf_isakmp_cfg_attr_internal_address_expiry, align 4
+  %134 = load ptr, ptr %8, align 8
+  %135 = load i32, ptr %11, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 4, i32 noundef 0)
+  br label %598
 
-135:                                              ; preds = %52
-  %136 = load i32, ptr %16, align 4
-  %137 = urem i32 %136, 4
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %157
+137:                                              ; preds = %54
+  %138 = load i32, ptr %16, align 4
+  %139 = urem i32 %138, 4
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %159
 
-139:                                              ; preds = %135
+141:                                              ; preds = %137
   store i32 0, ptr %20, align 4
-  br label %140
+  br label %142
 
-140:                                              ; preds = %153, %139
-  %141 = load i32, ptr %20, align 4
-  %142 = load i32, ptr %16, align 4
-  %143 = udiv i32 %142, 4
-  %144 = icmp ult i32 %141, %143
-  br i1 %144, label %145, label %156
+142:                                              ; preds = %155, %141
+  %143 = load i32, ptr %20, align 4
+  %144 = load i32, ptr %16, align 4
+  %145 = udiv i32 %144, 4
+  %146 = icmp ult i32 %143, %145
+  br i1 %146, label %147, label %158
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %19, align 8
-  %147 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_dhcp, align 4
-  %148 = load ptr, ptr %8, align 8
-  %149 = load i32, ptr %11, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 4, i32 noundef 0)
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %19, align 8
+  %149 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_dhcp, align 4
+  %150 = load ptr, ptr %8, align 8
   %151 = load i32, ptr %11, align 4
-  %152 = add i32 %151, 4
-  store i32 %152, ptr %11, align 4
-  br label %153
+  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 4, i32 noundef 0)
+  %153 = load i32, ptr %11, align 4
+  %154 = add i32 %153, 4
+  store i32 %154, ptr %11, align 4
+  br label %155
 
-153:                                              ; preds = %145
-  %154 = load i32, ptr %20, align 4
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %20, align 4
-  br label %140, !llvm.loop !32
+155:                                              ; preds = %147
+  %156 = load i32, ptr %20, align 4
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %20, align 4
+  br label %142, !llvm.loop !32
 
-156:                                              ; preds = %140
-  br label %157
+158:                                              ; preds = %142
+  br label %159
 
-157:                                              ; preds = %156, %135
-  br label %596
+159:                                              ; preds = %158, %137
+  br label %598
 
-158:                                              ; preds = %52
-  %159 = load ptr, ptr %19, align 8
-  %160 = load i32, ptr @hf_isakmp_cfg_attr_application_version, align 4
-  %161 = load ptr, ptr %8, align 8
-  %162 = load i32, ptr %11, align 4
-  %163 = load i32, ptr %16, align 4
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds %struct._packet_info, ptr %164, i32 0, i32 50
-  %166 = load ptr, ptr %165, align 8
-  %167 = call ptr @proto_tree_add_item_ret_string(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef %163, i32 noundef 0, ptr noundef %166, ptr noundef %21)
-  %168 = load ptr, ptr %18, align 8
-  %169 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef @.str.846, ptr noundef %169)
-  br label %596
+160:                                              ; preds = %54
+  %161 = load ptr, ptr %19, align 8
+  %162 = load i32, ptr @hf_isakmp_cfg_attr_application_version, align 4
+  %163 = load ptr, ptr %8, align 8
+  %164 = load i32, ptr %11, align 4
+  %165 = load i32, ptr %16, align 4
+  %166 = load ptr, ptr %9, align 8
+  %167 = getelementptr inbounds %struct._packet_info, ptr %166, i32 0, i32 50
+  %168 = load ptr, ptr %167, align 8
+  %169 = call ptr @proto_tree_add_item_ret_string(ptr noundef %161, i32 noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef %165, i32 noundef 0, ptr noundef %168, ptr noundef %21)
+  %170 = load ptr, ptr %18, align 8
+  %171 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef @.str.846, ptr noundef %171)
+  br label %598
 
-170:                                              ; preds = %52
-  %171 = load i32, ptr %16, align 4
-  %172 = urem i32 %171, 17
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %199
+172:                                              ; preds = %54
+  %173 = load i32, ptr %16, align 4
+  %174 = urem i32 %173, 17
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %201
 
-174:                                              ; preds = %170
+176:                                              ; preds = %172
   store i32 0, ptr %20, align 4
-  br label %175
+  br label %177
 
-175:                                              ; preds = %195, %174
-  %176 = load i32, ptr %20, align 4
-  %177 = load i32, ptr %16, align 4
-  %178 = udiv i32 %177, 17
-  %179 = icmp ult i32 %176, %178
-  br i1 %179, label %180, label %198
+177:                                              ; preds = %197, %176
+  %178 = load i32, ptr %20, align 4
+  %179 = load i32, ptr %16, align 4
+  %180 = udiv i32 %179, 17
+  %181 = icmp ult i32 %178, %180
+  br i1 %181, label %182, label %200
 
-180:                                              ; preds = %175
-  %181 = load ptr, ptr %19, align 8
-  %182 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_address_ip, align 4
-  %183 = load ptr, ptr %8, align 8
-  %184 = load i32, ptr %11, align 4
-  %185 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef 16, i32 noundef 0)
+182:                                              ; preds = %177
+  %183 = load ptr, ptr %19, align 8
+  %184 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_address_ip, align 4
+  %185 = load ptr, ptr %8, align 8
   %186 = load i32, ptr %11, align 4
-  %187 = add i32 %186, 16
-  store i32 %187, ptr %11, align 4
-  %188 = load ptr, ptr %19, align 8
-  %189 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_address_prefix, align 4
-  %190 = load ptr, ptr %8, align 8
-  %191 = load i32, ptr %11, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef 1, i32 noundef 0)
+  %187 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef 16, i32 noundef 0)
+  %188 = load i32, ptr %11, align 4
+  %189 = add i32 %188, 16
+  store i32 %189, ptr %11, align 4
+  %190 = load ptr, ptr %19, align 8
+  %191 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_address_prefix, align 4
+  %192 = load ptr, ptr %8, align 8
   %193 = load i32, ptr %11, align 4
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %11, align 4
-  br label %195
+  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %192, i32 noundef %193, i32 noundef 1, i32 noundef 0)
+  %195 = load i32, ptr %11, align 4
+  %196 = add i32 %195, 1
+  store i32 %196, ptr %11, align 4
+  br label %197
 
-195:                                              ; preds = %180
-  %196 = load i32, ptr %20, align 4
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %20, align 4
-  br label %175, !llvm.loop !33
+197:                                              ; preds = %182
+  %198 = load i32, ptr %20, align 4
+  %199 = add i32 %198, 1
+  store i32 %199, ptr %20, align 4
+  br label %177, !llvm.loop !33
 
-198:                                              ; preds = %175
-  br label %199
+200:                                              ; preds = %177
+  br label %201
 
-199:                                              ; preds = %198, %170
-  br label %596
+201:                                              ; preds = %200, %172
+  br label %598
 
-200:                                              ; preds = %52
-  %201 = load ptr, ptr %19, align 8
-  %202 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_netmask, align 4
-  %203 = load ptr, ptr %8, align 8
-  %204 = load i32, ptr %11, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef %203, i32 noundef %204, i32 noundef 18, i32 noundef 0)
-  br label %596
+202:                                              ; preds = %54
+  %203 = load ptr, ptr %19, align 8
+  %204 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_netmask, align 4
+  %205 = load ptr, ptr %8, align 8
+  %206 = load i32, ptr %11, align 4
+  %207 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef 18, i32 noundef 0)
+  br label %598
 
-206:                                              ; preds = %52
-  %207 = load i32, ptr %16, align 4
-  %208 = urem i32 %207, 16
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %228
+208:                                              ; preds = %54
+  %209 = load i32, ptr %16, align 4
+  %210 = urem i32 %209, 16
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %212, label %230
 
-210:                                              ; preds = %206
+212:                                              ; preds = %208
   store i32 0, ptr %20, align 4
-  br label %211
+  br label %213
 
-211:                                              ; preds = %224, %210
-  %212 = load i32, ptr %20, align 4
-  %213 = load i32, ptr %16, align 4
-  %214 = udiv i32 %213, 16
-  %215 = icmp ult i32 %212, %214
-  br i1 %215, label %216, label %227
+213:                                              ; preds = %226, %212
+  %214 = load i32, ptr %20, align 4
+  %215 = load i32, ptr %16, align 4
+  %216 = udiv i32 %215, 16
+  %217 = icmp ult i32 %214, %216
+  br i1 %217, label %218, label %229
 
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %19, align 8
-  %218 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_dns, align 4
-  %219 = load ptr, ptr %8, align 8
-  %220 = load i32, ptr %11, align 4
-  %221 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef %219, i32 noundef %220, i32 noundef 16, i32 noundef 0)
+218:                                              ; preds = %213
+  %219 = load ptr, ptr %19, align 8
+  %220 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_dns, align 4
+  %221 = load ptr, ptr %8, align 8
   %222 = load i32, ptr %11, align 4
-  %223 = add i32 %222, 16
-  store i32 %223, ptr %11, align 4
-  br label %224
+  %223 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef 16, i32 noundef 0)
+  %224 = load i32, ptr %11, align 4
+  %225 = add i32 %224, 16
+  store i32 %225, ptr %11, align 4
+  br label %226
 
-224:                                              ; preds = %216
-  %225 = load i32, ptr %20, align 4
-  %226 = add i32 %225, 1
-  store i32 %226, ptr %20, align 4
-  br label %211, !llvm.loop !34
+226:                                              ; preds = %218
+  %227 = load i32, ptr %20, align 4
+  %228 = add i32 %227, 1
+  store i32 %228, ptr %20, align 4
+  br label %213, !llvm.loop !34
 
-227:                                              ; preds = %211
-  br label %228
+229:                                              ; preds = %213
+  br label %230
 
-228:                                              ; preds = %227, %206
-  br label %596
+230:                                              ; preds = %229, %208
+  br label %598
 
-229:                                              ; preds = %52
-  %230 = load i32, ptr %16, align 4
-  %231 = urem i32 %230, 16
-  %232 = icmp eq i32 %231, 0
-  br i1 %232, label %233, label %251
+231:                                              ; preds = %54
+  %232 = load i32, ptr %16, align 4
+  %233 = urem i32 %232, 16
+  %234 = icmp eq i32 %233, 0
+  br i1 %234, label %235, label %253
 
-233:                                              ; preds = %229
+235:                                              ; preds = %231
   store i32 0, ptr %20, align 4
-  br label %234
+  br label %236
 
-234:                                              ; preds = %247, %233
-  %235 = load i32, ptr %20, align 4
-  %236 = load i32, ptr %16, align 4
-  %237 = udiv i32 %236, 16
-  %238 = icmp ult i32 %235, %237
-  br i1 %238, label %239, label %250
+236:                                              ; preds = %249, %235
+  %237 = load i32, ptr %20, align 4
+  %238 = load i32, ptr %16, align 4
+  %239 = udiv i32 %238, 16
+  %240 = icmp ult i32 %237, %239
+  br i1 %240, label %241, label %252
 
-239:                                              ; preds = %234
-  %240 = load ptr, ptr %19, align 8
-  %241 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_nbns, align 4
-  %242 = load ptr, ptr %8, align 8
-  %243 = load i32, ptr %11, align 4
-  %244 = call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef 16, i32 noundef 0)
+241:                                              ; preds = %236
+  %242 = load ptr, ptr %19, align 8
+  %243 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_nbns, align 4
+  %244 = load ptr, ptr %8, align 8
   %245 = load i32, ptr %11, align 4
-  %246 = add i32 %245, 16
-  store i32 %246, ptr %11, align 4
-  br label %247
+  %246 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %244, i32 noundef %245, i32 noundef 16, i32 noundef 0)
+  %247 = load i32, ptr %11, align 4
+  %248 = add i32 %247, 16
+  store i32 %248, ptr %11, align 4
+  br label %249
 
-247:                                              ; preds = %239
-  %248 = load i32, ptr %20, align 4
-  %249 = add i32 %248, 1
-  store i32 %249, ptr %20, align 4
-  br label %234, !llvm.loop !35
+249:                                              ; preds = %241
+  %250 = load i32, ptr %20, align 4
+  %251 = add i32 %250, 1
+  store i32 %251, ptr %20, align 4
+  br label %236, !llvm.loop !35
 
-250:                                              ; preds = %234
-  br label %251
+252:                                              ; preds = %236
+  br label %253
 
-251:                                              ; preds = %250, %229
-  br label %596
+253:                                              ; preds = %252, %231
+  br label %598
 
-252:                                              ; preds = %52
-  %253 = load i32, ptr %16, align 4
-  %254 = urem i32 %253, 16
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %274
+254:                                              ; preds = %54
+  %255 = load i32, ptr %16, align 4
+  %256 = urem i32 %255, 16
+  %257 = icmp eq i32 %256, 0
+  br i1 %257, label %258, label %276
 
-256:                                              ; preds = %252
+258:                                              ; preds = %254
   store i32 0, ptr %20, align 4
-  br label %257
+  br label %259
 
-257:                                              ; preds = %270, %256
-  %258 = load i32, ptr %20, align 4
-  %259 = load i32, ptr %16, align 4
-  %260 = udiv i32 %259, 16
-  %261 = icmp ult i32 %258, %260
-  br i1 %261, label %262, label %273
+259:                                              ; preds = %272, %258
+  %260 = load i32, ptr %20, align 4
+  %261 = load i32, ptr %16, align 4
+  %262 = udiv i32 %261, 16
+  %263 = icmp ult i32 %260, %262
+  br i1 %263, label %264, label %275
 
-262:                                              ; preds = %257
-  %263 = load ptr, ptr %19, align 8
-  %264 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_dhcp, align 4
-  %265 = load ptr, ptr %8, align 8
-  %266 = load i32, ptr %11, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %263, i32 noundef %264, ptr noundef %265, i32 noundef %266, i32 noundef 16, i32 noundef 0)
+264:                                              ; preds = %259
+  %265 = load ptr, ptr %19, align 8
+  %266 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_dhcp, align 4
+  %267 = load ptr, ptr %8, align 8
   %268 = load i32, ptr %11, align 4
-  %269 = add i32 %268, 16
-  store i32 %269, ptr %11, align 4
-  br label %270
+  %269 = call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %267, i32 noundef %268, i32 noundef 16, i32 noundef 0)
+  %270 = load i32, ptr %11, align 4
+  %271 = add i32 %270, 16
+  store i32 %271, ptr %11, align 4
+  br label %272
 
-270:                                              ; preds = %262
-  %271 = load i32, ptr %20, align 4
-  %272 = add i32 %271, 1
-  store i32 %272, ptr %20, align 4
-  br label %257, !llvm.loop !36
+272:                                              ; preds = %264
+  %273 = load i32, ptr %20, align 4
+  %274 = add i32 %273, 1
+  store i32 %274, ptr %20, align 4
+  br label %259, !llvm.loop !36
 
-273:                                              ; preds = %257
-  br label %274
+275:                                              ; preds = %259
+  br label %276
 
-274:                                              ; preds = %273, %252
-  br label %596
+276:                                              ; preds = %275, %254
+  br label %598
 
-275:                                              ; preds = %52
-  %276 = load i32, ptr %16, align 4
-  %277 = urem i32 %276, 8
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %279, label %304
+277:                                              ; preds = %54
+  %278 = load i32, ptr %16, align 4
+  %279 = urem i32 %278, 8
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %306
 
-279:                                              ; preds = %275
+281:                                              ; preds = %277
   store i32 0, ptr %20, align 4
-  br label %280
+  br label %282
 
-280:                                              ; preds = %300, %279
-  %281 = load i32, ptr %20, align 4
-  %282 = load i32, ptr %16, align 4
-  %283 = udiv i32 %282, 8
-  %284 = icmp ult i32 %281, %283
-  br i1 %284, label %285, label %303
+282:                                              ; preds = %302, %281
+  %283 = load i32, ptr %20, align 4
+  %284 = load i32, ptr %16, align 4
+  %285 = udiv i32 %284, 8
+  %286 = icmp ult i32 %283, %285
+  br i1 %286, label %287, label %305
 
-285:                                              ; preds = %280
-  %286 = load ptr, ptr %19, align 8
-  %287 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_subnet_ip, align 4
-  %288 = load ptr, ptr %8, align 8
-  %289 = load i32, ptr %11, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %287, ptr noundef %288, i32 noundef %289, i32 noundef 4, i32 noundef 0)
+287:                                              ; preds = %282
+  %288 = load ptr, ptr %19, align 8
+  %289 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_subnet_ip, align 4
+  %290 = load ptr, ptr %8, align 8
   %291 = load i32, ptr %11, align 4
-  %292 = add i32 %291, 4
-  store i32 %292, ptr %11, align 4
-  %293 = load ptr, ptr %19, align 8
-  %294 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_subnet_netmask, align 4
-  %295 = load ptr, ptr %8, align 8
-  %296 = load i32, ptr %11, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %295, i32 noundef %296, i32 noundef 4, i32 noundef 0)
+  %292 = call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %289, ptr noundef %290, i32 noundef %291, i32 noundef 4, i32 noundef 0)
+  %293 = load i32, ptr %11, align 4
+  %294 = add i32 %293, 4
+  store i32 %294, ptr %11, align 4
+  %295 = load ptr, ptr %19, align 8
+  %296 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip4_subnet_netmask, align 4
+  %297 = load ptr, ptr %8, align 8
   %298 = load i32, ptr %11, align 4
-  %299 = add i32 %298, 4
-  store i32 %299, ptr %11, align 4
-  br label %300
+  %299 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %296, ptr noundef %297, i32 noundef %298, i32 noundef 4, i32 noundef 0)
+  %300 = load i32, ptr %11, align 4
+  %301 = add i32 %300, 4
+  store i32 %301, ptr %11, align 4
+  br label %302
 
-300:                                              ; preds = %285
-  %301 = load i32, ptr %20, align 4
-  %302 = add i32 %301, 1
-  store i32 %302, ptr %20, align 4
-  br label %280, !llvm.loop !37
+302:                                              ; preds = %287
+  %303 = load i32, ptr %20, align 4
+  %304 = add i32 %303, 1
+  store i32 %304, ptr %20, align 4
+  br label %282, !llvm.loop !37
 
-303:                                              ; preds = %280
-  br label %304
+305:                                              ; preds = %282
+  br label %306
 
-304:                                              ; preds = %303, %275
-  br label %596
+306:                                              ; preds = %305, %277
+  br label %598
 
-305:                                              ; preds = %52
-  %306 = load i32, ptr %16, align 4
-  %307 = urem i32 %306, 2
-  %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %327
+307:                                              ; preds = %54
+  %308 = load i32, ptr %16, align 4
+  %309 = urem i32 %308, 2
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %311, label %329
 
-309:                                              ; preds = %305
+311:                                              ; preds = %307
   store i32 0, ptr %20, align 4
-  br label %310
+  br label %312
 
-310:                                              ; preds = %323, %309
-  %311 = load i32, ptr %20, align 4
-  %312 = load i32, ptr %16, align 4
-  %313 = udiv i32 %312, 2
-  %314 = icmp ult i32 %311, %313
-  br i1 %314, label %315, label %326
+312:                                              ; preds = %325, %311
+  %313 = load i32, ptr %20, align 4
+  %314 = load i32, ptr %16, align 4
+  %315 = udiv i32 %314, 2
+  %316 = icmp ult i32 %313, %315
+  br i1 %316, label %317, label %328
 
-315:                                              ; preds = %310
-  %316 = load ptr, ptr %19, align 8
-  %317 = load i32, ptr @hf_isakmp_cfg_attr_supported_attributes, align 4
-  %318 = load ptr, ptr %8, align 8
-  %319 = load i32, ptr %11, align 4
-  %320 = call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %317, ptr noundef %318, i32 noundef %319, i32 noundef 2, i32 noundef 0)
+317:                                              ; preds = %312
+  %318 = load ptr, ptr %19, align 8
+  %319 = load i32, ptr @hf_isakmp_cfg_attr_supported_attributes, align 4
+  %320 = load ptr, ptr %8, align 8
   %321 = load i32, ptr %11, align 4
-  %322 = add i32 %321, 2
-  store i32 %322, ptr %11, align 4
-  br label %323
+  %322 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %319, ptr noundef %320, i32 noundef %321, i32 noundef 2, i32 noundef 0)
+  %323 = load i32, ptr %11, align 4
+  %324 = add i32 %323, 2
+  store i32 %324, ptr %11, align 4
+  br label %325
 
-323:                                              ; preds = %315
-  %324 = load i32, ptr %20, align 4
-  %325 = add i32 %324, 1
-  store i32 %325, ptr %20, align 4
-  br label %310, !llvm.loop !38
+325:                                              ; preds = %317
+  %326 = load i32, ptr %20, align 4
+  %327 = add i32 %326, 1
+  store i32 %327, ptr %20, align 4
+  br label %312, !llvm.loop !38
 
-326:                                              ; preds = %310
-  br label %327
+328:                                              ; preds = %312
+  br label %329
 
-327:                                              ; preds = %326, %305
-  br label %596
+329:                                              ; preds = %328, %307
+  br label %598
 
-328:                                              ; preds = %52
-  %329 = load i32, ptr %16, align 4
-  %330 = urem i32 %329, 17
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %332, label %357
+330:                                              ; preds = %54
+  %331 = load i32, ptr %16, align 4
+  %332 = urem i32 %331, 17
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %359
 
-332:                                              ; preds = %328
+334:                                              ; preds = %330
   store i32 0, ptr %20, align 4
-  br label %333
+  br label %335
 
-333:                                              ; preds = %353, %332
-  %334 = load i32, ptr %20, align 4
-  %335 = load i32, ptr %16, align 4
-  %336 = udiv i32 %335, 17
-  %337 = icmp ult i32 %334, %336
-  br i1 %337, label %338, label %356
+335:                                              ; preds = %355, %334
+  %336 = load i32, ptr %20, align 4
+  %337 = load i32, ptr %16, align 4
+  %338 = udiv i32 %337, 17
+  %339 = icmp ult i32 %336, %338
+  br i1 %339, label %340, label %358
 
-338:                                              ; preds = %333
-  %339 = load ptr, ptr %19, align 8
-  %340 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_subnet_ip, align 4
-  %341 = load ptr, ptr %8, align 8
-  %342 = load i32, ptr %11, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %339, i32 noundef %340, ptr noundef %341, i32 noundef %342, i32 noundef 16, i32 noundef 0)
+340:                                              ; preds = %335
+  %341 = load ptr, ptr %19, align 8
+  %342 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_subnet_ip, align 4
+  %343 = load ptr, ptr %8, align 8
   %344 = load i32, ptr %11, align 4
-  %345 = add i32 %344, 16
-  store i32 %345, ptr %11, align 4
-  %346 = load ptr, ptr %19, align 8
-  %347 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_subnet_prefix, align 4
-  %348 = load ptr, ptr %8, align 8
-  %349 = load i32, ptr %11, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %347, ptr noundef %348, i32 noundef %349, i32 noundef 1, i32 noundef 0)
+  %345 = call ptr @proto_tree_add_item(ptr noundef %341, i32 noundef %342, ptr noundef %343, i32 noundef %344, i32 noundef 16, i32 noundef 0)
+  %346 = load i32, ptr %11, align 4
+  %347 = add i32 %346, 16
+  store i32 %347, ptr %11, align 4
+  %348 = load ptr, ptr %19, align 8
+  %349 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_subnet_prefix, align 4
+  %350 = load ptr, ptr %8, align 8
   %351 = load i32, ptr %11, align 4
-  %352 = add i32 %351, 1
-  store i32 %352, ptr %11, align 4
-  br label %353
+  %352 = call ptr @proto_tree_add_item(ptr noundef %348, i32 noundef %349, ptr noundef %350, i32 noundef %351, i32 noundef 1, i32 noundef 0)
+  %353 = load i32, ptr %11, align 4
+  %354 = add i32 %353, 1
+  store i32 %354, ptr %11, align 4
+  br label %355
 
-353:                                              ; preds = %338
-  %354 = load i32, ptr %20, align 4
-  %355 = add i32 %354, 1
-  store i32 %355, ptr %20, align 4
-  br label %333, !llvm.loop !39
+355:                                              ; preds = %340
+  %356 = load i32, ptr %20, align 4
+  %357 = add i32 %356, 1
+  store i32 %357, ptr %20, align 4
+  br label %335, !llvm.loop !39
 
-356:                                              ; preds = %333
-  br label %357
+358:                                              ; preds = %335
+  br label %359
 
-357:                                              ; preds = %356, %328
-  br label %596
+359:                                              ; preds = %358, %330
+  br label %598
 
-358:                                              ; preds = %52
-  %359 = load ptr, ptr %19, align 8
-  %360 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_link_interface, align 4
-  %361 = load ptr, ptr %8, align 8
-  %362 = load i32, ptr %11, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %360, ptr noundef %361, i32 noundef %362, i32 noundef 8, i32 noundef 0)
+360:                                              ; preds = %54
+  %361 = load ptr, ptr %19, align 8
+  %362 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_link_interface, align 4
+  %363 = load ptr, ptr %8, align 8
   %364 = load i32, ptr %11, align 4
-  %365 = add i32 %364, 8
-  store i32 %365, ptr %11, align 4
-  %366 = load ptr, ptr %19, align 8
-  %367 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_link_id, align 4
-  %368 = load ptr, ptr %8, align 8
-  %369 = load i32, ptr %11, align 4
-  %370 = load i32, ptr %16, align 4
-  %371 = sub i32 %370, 8
-  %372 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %367, ptr noundef %368, i32 noundef %369, i32 noundef %371, i32 noundef 0)
-  br label %596
+  %365 = call ptr @proto_tree_add_item(ptr noundef %361, i32 noundef %362, ptr noundef %363, i32 noundef %364, i32 noundef 8, i32 noundef 0)
+  %366 = load i32, ptr %11, align 4
+  %367 = add i32 %366, 8
+  store i32 %367, ptr %11, align 4
+  %368 = load ptr, ptr %19, align 8
+  %369 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_link_id, align 4
+  %370 = load ptr, ptr %8, align 8
+  %371 = load i32, ptr %11, align 4
+  %372 = load i32, ptr %16, align 4
+  %373 = sub i32 %372, 8
+  %374 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef %373, i32 noundef 0)
+  br label %598
 
-373:                                              ; preds = %52
-  %374 = load i32, ptr %16, align 4
-  %375 = urem i32 %374, 17
-  %376 = icmp eq i32 %375, 0
-  br i1 %376, label %377, label %402
+375:                                              ; preds = %54
+  %376 = load i32, ptr %16, align 4
+  %377 = urem i32 %376, 17
+  %378 = icmp eq i32 %377, 0
+  br i1 %378, label %379, label %404
 
-377:                                              ; preds = %373
+379:                                              ; preds = %375
   store i32 0, ptr %20, align 4
-  br label %378
+  br label %380
 
-378:                                              ; preds = %398, %377
-  %379 = load i32, ptr %20, align 4
-  %380 = load i32, ptr %16, align 4
-  %381 = udiv i32 %380, 17
-  %382 = icmp ult i32 %379, %381
-  br i1 %382, label %383, label %401
+380:                                              ; preds = %400, %379
+  %381 = load i32, ptr %20, align 4
+  %382 = load i32, ptr %16, align 4
+  %383 = udiv i32 %382, 17
+  %384 = icmp ult i32 %381, %383
+  br i1 %384, label %385, label %403
 
-383:                                              ; preds = %378
-  %384 = load ptr, ptr %19, align 8
-  %385 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_prefix_ip, align 4
-  %386 = load ptr, ptr %8, align 8
-  %387 = load i32, ptr %11, align 4
-  %388 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %385, ptr noundef %386, i32 noundef %387, i32 noundef 16, i32 noundef 0)
+385:                                              ; preds = %380
+  %386 = load ptr, ptr %19, align 8
+  %387 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_prefix_ip, align 4
+  %388 = load ptr, ptr %8, align 8
   %389 = load i32, ptr %11, align 4
-  %390 = add i32 %389, 16
-  store i32 %390, ptr %11, align 4
-  %391 = load ptr, ptr %19, align 8
-  %392 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_prefix_length, align 4
-  %393 = load ptr, ptr %8, align 8
-  %394 = load i32, ptr %11, align 4
-  %395 = call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %392, ptr noundef %393, i32 noundef %394, i32 noundef 1, i32 noundef 0)
+  %390 = call ptr @proto_tree_add_item(ptr noundef %386, i32 noundef %387, ptr noundef %388, i32 noundef %389, i32 noundef 16, i32 noundef 0)
+  %391 = load i32, ptr %11, align 4
+  %392 = add i32 %391, 16
+  store i32 %392, ptr %11, align 4
+  %393 = load ptr, ptr %19, align 8
+  %394 = load i32, ptr @hf_isakmp_cfg_attr_internal_ip6_prefix_length, align 4
+  %395 = load ptr, ptr %8, align 8
   %396 = load i32, ptr %11, align 4
-  %397 = add i32 %396, 1
-  store i32 %397, ptr %11, align 4
-  br label %398
+  %397 = call ptr @proto_tree_add_item(ptr noundef %393, i32 noundef %394, ptr noundef %395, i32 noundef %396, i32 noundef 1, i32 noundef 0)
+  %398 = load i32, ptr %11, align 4
+  %399 = add i32 %398, 1
+  store i32 %399, ptr %11, align 4
+  br label %400
 
-398:                                              ; preds = %383
-  %399 = load i32, ptr %20, align 4
-  %400 = add i32 %399, 1
-  store i32 %400, ptr %20, align 4
-  br label %378, !llvm.loop !40
+400:                                              ; preds = %385
+  %401 = load i32, ptr %20, align 4
+  %402 = add i32 %401, 1
+  store i32 %402, ptr %20, align 4
+  br label %380, !llvm.loop !40
 
-401:                                              ; preds = %378
-  br label %402
+403:                                              ; preds = %380
+  br label %404
 
-402:                                              ; preds = %401, %373
-  br label %596
+404:                                              ; preds = %403, %375
+  br label %598
 
-403:                                              ; preds = %52
-  %404 = load i32, ptr %16, align 4
-  %405 = urem i32 %404, 4
-  %406 = icmp eq i32 %405, 0
-  br i1 %406, label %407, label %425
+405:                                              ; preds = %54
+  %406 = load i32, ptr %16, align 4
+  %407 = urem i32 %406, 4
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %427
 
-407:                                              ; preds = %403
+409:                                              ; preds = %405
   store i32 0, ptr %20, align 4
-  br label %408
+  br label %410
 
-408:                                              ; preds = %421, %407
-  %409 = load i32, ptr %20, align 4
-  %410 = load i32, ptr %16, align 4
-  %411 = udiv i32 %410, 4
-  %412 = icmp ult i32 %409, %411
-  br i1 %412, label %413, label %424
+410:                                              ; preds = %423, %409
+  %411 = load i32, ptr %20, align 4
+  %412 = load i32, ptr %16, align 4
+  %413 = udiv i32 %412, 4
+  %414 = icmp ult i32 %411, %413
+  br i1 %414, label %415, label %426
 
-413:                                              ; preds = %408
-  %414 = load ptr, ptr %19, align 8
-  %415 = load i32, ptr @hf_isakmp_cfg_attr_p_cscf_ip4_address, align 4
-  %416 = load ptr, ptr %8, align 8
-  %417 = load i32, ptr %11, align 4
-  %418 = call ptr @proto_tree_add_item(ptr noundef %414, i32 noundef %415, ptr noundef %416, i32 noundef %417, i32 noundef 4, i32 noundef 0)
+415:                                              ; preds = %410
+  %416 = load ptr, ptr %19, align 8
+  %417 = load i32, ptr @hf_isakmp_cfg_attr_p_cscf_ip4_address, align 4
+  %418 = load ptr, ptr %8, align 8
   %419 = load i32, ptr %11, align 4
-  %420 = add i32 %419, 4
-  store i32 %420, ptr %11, align 4
-  br label %421
+  %420 = call ptr @proto_tree_add_item(ptr noundef %416, i32 noundef %417, ptr noundef %418, i32 noundef %419, i32 noundef 4, i32 noundef 0)
+  %421 = load i32, ptr %11, align 4
+  %422 = add i32 %421, 4
+  store i32 %422, ptr %11, align 4
+  br label %423
 
-421:                                              ; preds = %413
-  %422 = load i32, ptr %20, align 4
-  %423 = add i32 %422, 1
-  store i32 %423, ptr %20, align 4
-  br label %408, !llvm.loop !41
+423:                                              ; preds = %415
+  %424 = load i32, ptr %20, align 4
+  %425 = add i32 %424, 1
+  store i32 %425, ptr %20, align 4
+  br label %410, !llvm.loop !41
 
-424:                                              ; preds = %408
-  br label %425
+426:                                              ; preds = %410
+  br label %427
 
-425:                                              ; preds = %424, %403
-  br label %596
+427:                                              ; preds = %426, %405
+  br label %598
 
-426:                                              ; preds = %52
-  %427 = load i32, ptr %16, align 4
-  %428 = urem i32 %427, 16
-  %429 = icmp eq i32 %428, 0
-  br i1 %429, label %430, label %448
+428:                                              ; preds = %54
+  %429 = load i32, ptr %16, align 4
+  %430 = urem i32 %429, 16
+  %431 = icmp eq i32 %430, 0
+  br i1 %431, label %432, label %450
 
-430:                                              ; preds = %426
+432:                                              ; preds = %428
   store i32 0, ptr %20, align 4
-  br label %431
+  br label %433
 
-431:                                              ; preds = %444, %430
-  %432 = load i32, ptr %20, align 4
-  %433 = load i32, ptr %16, align 4
-  %434 = udiv i32 %433, 16
-  %435 = icmp ult i32 %432, %434
-  br i1 %435, label %436, label %447
+433:                                              ; preds = %446, %432
+  %434 = load i32, ptr %20, align 4
+  %435 = load i32, ptr %16, align 4
+  %436 = udiv i32 %435, 16
+  %437 = icmp ult i32 %434, %436
+  br i1 %437, label %438, label %449
 
-436:                                              ; preds = %431
-  %437 = load ptr, ptr %19, align 8
-  %438 = load i32, ptr @hf_isakmp_cfg_attr_p_cscf_ip6_address, align 4
-  %439 = load ptr, ptr %8, align 8
-  %440 = load i32, ptr %11, align 4
-  %441 = call ptr @proto_tree_add_item(ptr noundef %437, i32 noundef %438, ptr noundef %439, i32 noundef %440, i32 noundef 16, i32 noundef 0)
+438:                                              ; preds = %433
+  %439 = load ptr, ptr %19, align 8
+  %440 = load i32, ptr @hf_isakmp_cfg_attr_p_cscf_ip6_address, align 4
+  %441 = load ptr, ptr %8, align 8
   %442 = load i32, ptr %11, align 4
-  %443 = add i32 %442, 16
-  store i32 %443, ptr %11, align 4
-  br label %444
+  %443 = call ptr @proto_tree_add_item(ptr noundef %439, i32 noundef %440, ptr noundef %441, i32 noundef %442, i32 noundef 16, i32 noundef 0)
+  %444 = load i32, ptr %11, align 4
+  %445 = add i32 %444, 16
+  store i32 %445, ptr %11, align 4
+  br label %446
 
-444:                                              ; preds = %436
-  %445 = load i32, ptr %20, align 4
-  %446 = add i32 %445, 1
-  store i32 %446, ptr %20, align 4
-  br label %431, !llvm.loop !42
+446:                                              ; preds = %438
+  %447 = load i32, ptr %20, align 4
+  %448 = add i32 %447, 1
+  store i32 %448, ptr %20, align 4
+  br label %433, !llvm.loop !42
 
-447:                                              ; preds = %431
-  br label %448
+449:                                              ; preds = %433
+  br label %450
 
-448:                                              ; preds = %447, %426
-  br label %596
+450:                                              ; preds = %449, %428
+  br label %598
 
-449:                                              ; preds = %52
-  %450 = load ptr, ptr %19, align 8
-  %451 = load i32, ptr @hf_isakmp_cfg_attr_xauth_type, align 4
-  %452 = load ptr, ptr %8, align 8
-  %453 = load i32, ptr %11, align 4
-  %454 = load i32, ptr %16, align 4
-  %455 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %451, ptr noundef %452, i32 noundef %453, i32 noundef %454, i32 noundef 0)
-  %456 = load ptr, ptr %18, align 8
-  %457 = load ptr, ptr %8, align 8
-  %458 = load i32, ptr %11, align 4
-  %459 = call zeroext i16 @tvb_get_ntohs(ptr noundef %457, i32 noundef %458)
-  %460 = zext i16 %459 to i32
-  %461 = call ptr @rval_to_str(i32 noundef %460, ptr noundef @cfgattr_xauth_type, ptr noundef @.str.847)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %456, ptr noundef @.str.846, ptr noundef %461)
-  br label %596
+451:                                              ; preds = %54
+  %452 = load ptr, ptr %19, align 8
+  %453 = load i32, ptr @hf_isakmp_cfg_attr_xauth_type, align 4
+  %454 = load ptr, ptr %8, align 8
+  %455 = load i32, ptr %11, align 4
+  %456 = load i32, ptr %16, align 4
+  %457 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %453, ptr noundef %454, i32 noundef %455, i32 noundef %456, i32 noundef 0)
+  %458 = load ptr, ptr %18, align 8
+  %459 = load ptr, ptr %8, align 8
+  %460 = load i32, ptr %11, align 4
+  %461 = call zeroext i16 @tvb_get_ntohs(ptr noundef %459, i32 noundef %460)
+  %462 = zext i16 %461 to i32
+  %463 = call ptr @rval_to_str(i32 noundef %462, ptr noundef @cfgattr_xauth_type, ptr noundef @.str.847)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %458, ptr noundef @.str.846, ptr noundef %463)
+  br label %598
 
-462:                                              ; preds = %52
-  %463 = load ptr, ptr %19, align 8
-  %464 = load i32, ptr @hf_isakmp_cfg_attr_xauth_user_name, align 4
-  %465 = load ptr, ptr %8, align 8
-  %466 = load i32, ptr %11, align 4
-  %467 = load i32, ptr %16, align 4
-  %468 = load ptr, ptr %9, align 8
-  %469 = getelementptr inbounds %struct._packet_info, ptr %468, i32 0, i32 50
-  %470 = load ptr, ptr %469, align 8
-  %471 = call ptr @proto_tree_add_item_ret_string(ptr noundef %463, i32 noundef %464, ptr noundef %465, i32 noundef %466, i32 noundef %467, i32 noundef 0, ptr noundef %470, ptr noundef %21)
-  %472 = load ptr, ptr %18, align 8
-  %473 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %472, ptr noundef @.str.846, ptr noundef %473)
-  br label %596
+464:                                              ; preds = %54
+  %465 = load ptr, ptr %19, align 8
+  %466 = load i32, ptr @hf_isakmp_cfg_attr_xauth_user_name, align 4
+  %467 = load ptr, ptr %8, align 8
+  %468 = load i32, ptr %11, align 4
+  %469 = load i32, ptr %16, align 4
+  %470 = load ptr, ptr %9, align 8
+  %471 = getelementptr inbounds %struct._packet_info, ptr %470, i32 0, i32 50
+  %472 = load ptr, ptr %471, align 8
+  %473 = call ptr @proto_tree_add_item_ret_string(ptr noundef %465, i32 noundef %466, ptr noundef %467, i32 noundef %468, i32 noundef %469, i32 noundef 0, ptr noundef %472, ptr noundef %21)
+  %474 = load ptr, ptr %18, align 8
+  %475 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %474, ptr noundef @.str.846, ptr noundef %475)
+  br label %598
 
-474:                                              ; preds = %52
-  %475 = load ptr, ptr %19, align 8
-  %476 = load i32, ptr @hf_isakmp_cfg_attr_xauth_user_password, align 4
-  %477 = load ptr, ptr %8, align 8
-  %478 = load i32, ptr %11, align 4
-  %479 = load i32, ptr %16, align 4
-  %480 = load ptr, ptr %9, align 8
-  %481 = getelementptr inbounds %struct._packet_info, ptr %480, i32 0, i32 50
-  %482 = load ptr, ptr %481, align 8
-  %483 = call ptr @proto_tree_add_item_ret_string(ptr noundef %475, i32 noundef %476, ptr noundef %477, i32 noundef %478, i32 noundef %479, i32 noundef 0, ptr noundef %482, ptr noundef %21)
-  %484 = load ptr, ptr %18, align 8
-  %485 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %484, ptr noundef @.str.846, ptr noundef %485)
-  br label %596
+476:                                              ; preds = %54
+  %477 = load ptr, ptr %19, align 8
+  %478 = load i32, ptr @hf_isakmp_cfg_attr_xauth_user_password, align 4
+  %479 = load ptr, ptr %8, align 8
+  %480 = load i32, ptr %11, align 4
+  %481 = load i32, ptr %16, align 4
+  %482 = load ptr, ptr %9, align 8
+  %483 = getelementptr inbounds %struct._packet_info, ptr %482, i32 0, i32 50
+  %484 = load ptr, ptr %483, align 8
+  %485 = call ptr @proto_tree_add_item_ret_string(ptr noundef %477, i32 noundef %478, ptr noundef %479, i32 noundef %480, i32 noundef %481, i32 noundef 0, ptr noundef %484, ptr noundef %21)
+  %486 = load ptr, ptr %18, align 8
+  %487 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %486, ptr noundef @.str.846, ptr noundef %487)
+  br label %598
 
-486:                                              ; preds = %52
-  %487 = load ptr, ptr %19, align 8
-  %488 = load i32, ptr @hf_isakmp_cfg_attr_xauth_passcode, align 4
-  %489 = load ptr, ptr %8, align 8
-  %490 = load i32, ptr %11, align 4
-  %491 = load i32, ptr %16, align 4
-  %492 = load ptr, ptr %9, align 8
-  %493 = getelementptr inbounds %struct._packet_info, ptr %492, i32 0, i32 50
-  %494 = load ptr, ptr %493, align 8
-  %495 = call ptr @proto_tree_add_item_ret_string(ptr noundef %487, i32 noundef %488, ptr noundef %489, i32 noundef %490, i32 noundef %491, i32 noundef 0, ptr noundef %494, ptr noundef %21)
-  %496 = load ptr, ptr %18, align 8
-  %497 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %496, ptr noundef @.str.846, ptr noundef %497)
-  br label %596
+488:                                              ; preds = %54
+  %489 = load ptr, ptr %19, align 8
+  %490 = load i32, ptr @hf_isakmp_cfg_attr_xauth_passcode, align 4
+  %491 = load ptr, ptr %8, align 8
+  %492 = load i32, ptr %11, align 4
+  %493 = load i32, ptr %16, align 4
+  %494 = load ptr, ptr %9, align 8
+  %495 = getelementptr inbounds %struct._packet_info, ptr %494, i32 0, i32 50
+  %496 = load ptr, ptr %495, align 8
+  %497 = call ptr @proto_tree_add_item_ret_string(ptr noundef %489, i32 noundef %490, ptr noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef 0, ptr noundef %496, ptr noundef %21)
+  %498 = load ptr, ptr %18, align 8
+  %499 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %498, ptr noundef @.str.846, ptr noundef %499)
+  br label %598
 
-498:                                              ; preds = %52
-  %499 = load ptr, ptr %19, align 8
-  %500 = load i32, ptr @hf_isakmp_cfg_attr_xauth_message, align 4
-  %501 = load ptr, ptr %8, align 8
-  %502 = load i32, ptr %11, align 4
-  %503 = load i32, ptr %16, align 4
-  %504 = load ptr, ptr %9, align 8
-  %505 = getelementptr inbounds %struct._packet_info, ptr %504, i32 0, i32 50
-  %506 = load ptr, ptr %505, align 8
-  %507 = call ptr @proto_tree_add_item_ret_string(ptr noundef %499, i32 noundef %500, ptr noundef %501, i32 noundef %502, i32 noundef %503, i32 noundef 0, ptr noundef %506, ptr noundef %21)
-  %508 = load ptr, ptr %18, align 8
-  %509 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %508, ptr noundef @.str.846, ptr noundef %509)
-  br label %596
+500:                                              ; preds = %54
+  %501 = load ptr, ptr %19, align 8
+  %502 = load i32, ptr @hf_isakmp_cfg_attr_xauth_message, align 4
+  %503 = load ptr, ptr %8, align 8
+  %504 = load i32, ptr %11, align 4
+  %505 = load i32, ptr %16, align 4
+  %506 = load ptr, ptr %9, align 8
+  %507 = getelementptr inbounds %struct._packet_info, ptr %506, i32 0, i32 50
+  %508 = load ptr, ptr %507, align 8
+  %509 = call ptr @proto_tree_add_item_ret_string(ptr noundef %501, i32 noundef %502, ptr noundef %503, i32 noundef %504, i32 noundef %505, i32 noundef 0, ptr noundef %508, ptr noundef %21)
+  %510 = load ptr, ptr %18, align 8
+  %511 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %510, ptr noundef @.str.846, ptr noundef %511)
+  br label %598
 
-510:                                              ; preds = %52
-  %511 = load ptr, ptr %19, align 8
-  %512 = load i32, ptr @hf_isakmp_cfg_attr_xauth_challenge, align 4
-  %513 = load ptr, ptr %8, align 8
-  %514 = load i32, ptr %11, align 4
-  %515 = load i32, ptr %16, align 4
-  %516 = load ptr, ptr %9, align 8
-  %517 = getelementptr inbounds %struct._packet_info, ptr %516, i32 0, i32 50
-  %518 = load ptr, ptr %517, align 8
-  %519 = call ptr @proto_tree_add_item_ret_string(ptr noundef %511, i32 noundef %512, ptr noundef %513, i32 noundef %514, i32 noundef %515, i32 noundef 0, ptr noundef %518, ptr noundef %21)
-  %520 = load ptr, ptr %18, align 8
-  %521 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %520, ptr noundef @.str.846, ptr noundef %521)
-  br label %596
+512:                                              ; preds = %54
+  %513 = load ptr, ptr %19, align 8
+  %514 = load i32, ptr @hf_isakmp_cfg_attr_xauth_challenge, align 4
+  %515 = load ptr, ptr %8, align 8
+  %516 = load i32, ptr %11, align 4
+  %517 = load i32, ptr %16, align 4
+  %518 = load ptr, ptr %9, align 8
+  %519 = getelementptr inbounds %struct._packet_info, ptr %518, i32 0, i32 50
+  %520 = load ptr, ptr %519, align 8
+  %521 = call ptr @proto_tree_add_item_ret_string(ptr noundef %513, i32 noundef %514, ptr noundef %515, i32 noundef %516, i32 noundef %517, i32 noundef 0, ptr noundef %520, ptr noundef %21)
+  %522 = load ptr, ptr %18, align 8
+  %523 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %522, ptr noundef @.str.846, ptr noundef %523)
+  br label %598
 
-522:                                              ; preds = %52
-  %523 = load ptr, ptr %19, align 8
-  %524 = load i32, ptr @hf_isakmp_cfg_attr_xauth_domain, align 4
-  %525 = load ptr, ptr %8, align 8
-  %526 = load i32, ptr %11, align 4
-  %527 = load i32, ptr %16, align 4
-  %528 = load ptr, ptr %9, align 8
-  %529 = getelementptr inbounds %struct._packet_info, ptr %528, i32 0, i32 50
-  %530 = load ptr, ptr %529, align 8
-  %531 = call ptr @proto_tree_add_item_ret_string(ptr noundef %523, i32 noundef %524, ptr noundef %525, i32 noundef %526, i32 noundef %527, i32 noundef 0, ptr noundef %530, ptr noundef %21)
-  %532 = load ptr, ptr %18, align 8
-  %533 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %532, ptr noundef @.str.846, ptr noundef %533)
-  br label %596
+524:                                              ; preds = %54
+  %525 = load ptr, ptr %19, align 8
+  %526 = load i32, ptr @hf_isakmp_cfg_attr_xauth_domain, align 4
+  %527 = load ptr, ptr %8, align 8
+  %528 = load i32, ptr %11, align 4
+  %529 = load i32, ptr %16, align 4
+  %530 = load ptr, ptr %9, align 8
+  %531 = getelementptr inbounds %struct._packet_info, ptr %530, i32 0, i32 50
+  %532 = load ptr, ptr %531, align 8
+  %533 = call ptr @proto_tree_add_item_ret_string(ptr noundef %525, i32 noundef %526, ptr noundef %527, i32 noundef %528, i32 noundef %529, i32 noundef 0, ptr noundef %532, ptr noundef %21)
+  %534 = load ptr, ptr %18, align 8
+  %535 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %534, ptr noundef @.str.846, ptr noundef %535)
+  br label %598
 
-534:                                              ; preds = %52
-  %535 = load ptr, ptr %19, align 8
-  %536 = load i32, ptr @hf_isakmp_cfg_attr_xauth_status, align 4
-  %537 = load ptr, ptr %8, align 8
-  %538 = load i32, ptr %11, align 4
-  %539 = load i32, ptr %16, align 4
-  %540 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %536, ptr noundef %537, i32 noundef %538, i32 noundef %539, i32 noundef 0)
-  %541 = load ptr, ptr %18, align 8
-  %542 = load ptr, ptr %8, align 8
-  %543 = load i32, ptr %11, align 4
-  %544 = call zeroext i16 @tvb_get_ntohs(ptr noundef %542, i32 noundef %543)
-  %545 = zext i16 %544 to i32
-  %546 = call ptr @val_to_str(i32 noundef %545, ptr noundef @cfgattr_xauth_status, ptr noundef @.str.847)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %541, ptr noundef @.str.846, ptr noundef %546)
-  br label %596
+536:                                              ; preds = %54
+  %537 = load ptr, ptr %19, align 8
+  %538 = load i32, ptr @hf_isakmp_cfg_attr_xauth_status, align 4
+  %539 = load ptr, ptr %8, align 8
+  %540 = load i32, ptr %11, align 4
+  %541 = load i32, ptr %16, align 4
+  %542 = call ptr @proto_tree_add_item(ptr noundef %537, i32 noundef %538, ptr noundef %539, i32 noundef %540, i32 noundef %541, i32 noundef 0)
+  %543 = load ptr, ptr %18, align 8
+  %544 = load ptr, ptr %8, align 8
+  %545 = load i32, ptr %11, align 4
+  %546 = call zeroext i16 @tvb_get_ntohs(ptr noundef %544, i32 noundef %545)
+  %547 = zext i16 %546 to i32
+  %548 = call ptr @val_to_str(i32 noundef %547, ptr noundef @cfgattr_xauth_status, ptr noundef @.str.847)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %543, ptr noundef @.str.846, ptr noundef %548)
+  br label %598
 
-547:                                              ; preds = %52
-  %548 = load ptr, ptr %19, align 8
-  %549 = load i32, ptr @hf_isakmp_cfg_attr_xauth_next_pin, align 4
-  %550 = load ptr, ptr %8, align 8
-  %551 = load i32, ptr %11, align 4
-  %552 = load i32, ptr %16, align 4
-  %553 = load ptr, ptr %9, align 8
-  %554 = getelementptr inbounds %struct._packet_info, ptr %553, i32 0, i32 50
-  %555 = load ptr, ptr %554, align 8
-  %556 = call ptr @proto_tree_add_item_ret_string(ptr noundef %548, i32 noundef %549, ptr noundef %550, i32 noundef %551, i32 noundef %552, i32 noundef 0, ptr noundef %555, ptr noundef %21)
-  %557 = load ptr, ptr %18, align 8
-  %558 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %557, ptr noundef @.str.846, ptr noundef %558)
-  br label %596
+549:                                              ; preds = %54
+  %550 = load ptr, ptr %19, align 8
+  %551 = load i32, ptr @hf_isakmp_cfg_attr_xauth_next_pin, align 4
+  %552 = load ptr, ptr %8, align 8
+  %553 = load i32, ptr %11, align 4
+  %554 = load i32, ptr %16, align 4
+  %555 = load ptr, ptr %9, align 8
+  %556 = getelementptr inbounds %struct._packet_info, ptr %555, i32 0, i32 50
+  %557 = load ptr, ptr %556, align 8
+  %558 = call ptr @proto_tree_add_item_ret_string(ptr noundef %550, i32 noundef %551, ptr noundef %552, i32 noundef %553, i32 noundef %554, i32 noundef 0, ptr noundef %557, ptr noundef %21)
+  %559 = load ptr, ptr %18, align 8
+  %560 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %559, ptr noundef @.str.846, ptr noundef %560)
+  br label %598
 
-559:                                              ; preds = %52
-  %560 = load ptr, ptr %19, align 8
-  %561 = load i32, ptr @hf_isakmp_cfg_attr_xauth_answer, align 4
-  %562 = load ptr, ptr %8, align 8
-  %563 = load i32, ptr %11, align 4
-  %564 = load i32, ptr %16, align 4
-  %565 = load ptr, ptr %9, align 8
-  %566 = getelementptr inbounds %struct._packet_info, ptr %565, i32 0, i32 50
-  %567 = load ptr, ptr %566, align 8
-  %568 = call ptr @proto_tree_add_item_ret_string(ptr noundef %560, i32 noundef %561, ptr noundef %562, i32 noundef %563, i32 noundef %564, i32 noundef 0, ptr noundef %567, ptr noundef %21)
-  %569 = load ptr, ptr %18, align 8
-  %570 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %569, ptr noundef @.str.846, ptr noundef %570)
-  br label %596
+561:                                              ; preds = %54
+  %562 = load ptr, ptr %19, align 8
+  %563 = load i32, ptr @hf_isakmp_cfg_attr_xauth_answer, align 4
+  %564 = load ptr, ptr %8, align 8
+  %565 = load i32, ptr %11, align 4
+  %566 = load i32, ptr %16, align 4
+  %567 = load ptr, ptr %9, align 8
+  %568 = getelementptr inbounds %struct._packet_info, ptr %567, i32 0, i32 50
+  %569 = load ptr, ptr %568, align 8
+  %570 = call ptr @proto_tree_add_item_ret_string(ptr noundef %562, i32 noundef %563, ptr noundef %564, i32 noundef %565, i32 noundef %566, i32 noundef 0, ptr noundef %569, ptr noundef %21)
+  %571 = load ptr, ptr %18, align 8
+  %572 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %571, ptr noundef @.str.846, ptr noundef %572)
+  br label %598
 
-571:                                              ; preds = %52
-  %572 = load ptr, ptr %19, align 8
-  %573 = load i32, ptr @hf_isakmp_cfg_attr_unity_banner, align 4
-  %574 = load ptr, ptr %8, align 8
-  %575 = load i32, ptr %11, align 4
-  %576 = load i32, ptr %16, align 4
-  %577 = load ptr, ptr %9, align 8
-  %578 = getelementptr inbounds %struct._packet_info, ptr %577, i32 0, i32 50
-  %579 = load ptr, ptr %578, align 8
-  %580 = call ptr @proto_tree_add_item_ret_string(ptr noundef %572, i32 noundef %573, ptr noundef %574, i32 noundef %575, i32 noundef %576, i32 noundef 0, ptr noundef %579, ptr noundef %21)
-  %581 = load ptr, ptr %18, align 8
-  %582 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %581, ptr noundef @.str.846, ptr noundef %582)
-  br label %596
+573:                                              ; preds = %54
+  %574 = load ptr, ptr %19, align 8
+  %575 = load i32, ptr @hf_isakmp_cfg_attr_unity_banner, align 4
+  %576 = load ptr, ptr %8, align 8
+  %577 = load i32, ptr %11, align 4
+  %578 = load i32, ptr %16, align 4
+  %579 = load ptr, ptr %9, align 8
+  %580 = getelementptr inbounds %struct._packet_info, ptr %579, i32 0, i32 50
+  %581 = load ptr, ptr %580, align 8
+  %582 = call ptr @proto_tree_add_item_ret_string(ptr noundef %574, i32 noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef 0, ptr noundef %581, ptr noundef %21)
+  %583 = load ptr, ptr %18, align 8
+  %584 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %583, ptr noundef @.str.846, ptr noundef %584)
+  br label %598
 
-583:                                              ; preds = %52
-  %584 = load ptr, ptr %19, align 8
-  %585 = load i32, ptr @hf_isakmp_cfg_attr_unity_def_domain, align 4
-  %586 = load ptr, ptr %8, align 8
-  %587 = load i32, ptr %11, align 4
-  %588 = load i32, ptr %16, align 4
-  %589 = load ptr, ptr %9, align 8
-  %590 = getelementptr inbounds %struct._packet_info, ptr %589, i32 0, i32 50
-  %591 = load ptr, ptr %590, align 8
-  %592 = call ptr @proto_tree_add_item_ret_string(ptr noundef %584, i32 noundef %585, ptr noundef %586, i32 noundef %587, i32 noundef %588, i32 noundef 0, ptr noundef %591, ptr noundef %21)
-  %593 = load ptr, ptr %18, align 8
-  %594 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %593, ptr noundef @.str.846, ptr noundef %594)
-  br label %596
+585:                                              ; preds = %54
+  %586 = load ptr, ptr %19, align 8
+  %587 = load i32, ptr @hf_isakmp_cfg_attr_unity_def_domain, align 4
+  %588 = load ptr, ptr %8, align 8
+  %589 = load i32, ptr %11, align 4
+  %590 = load i32, ptr %16, align 4
+  %591 = load ptr, ptr %9, align 8
+  %592 = getelementptr inbounds %struct._packet_info, ptr %591, i32 0, i32 50
+  %593 = load ptr, ptr %592, align 8
+  %594 = call ptr @proto_tree_add_item_ret_string(ptr noundef %586, i32 noundef %587, ptr noundef %588, i32 noundef %589, i32 noundef %590, i32 noundef 0, ptr noundef %593, ptr noundef %21)
+  %595 = load ptr, ptr %18, align 8
+  %596 = load ptr, ptr %21, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %595, ptr noundef @.str.846, ptr noundef %596)
+  br label %598
 
-595:                                              ; preds = %52
-  br label %596
+597:                                              ; preds = %54
+  br label %598
 
-596:                                              ; preds = %595, %583, %571, %559, %547, %534, %522, %510, %498, %486, %474, %462, %449, %448, %425, %402, %358, %357, %327, %304, %274, %251, %228, %200, %199, %158, %157, %129, %128, %105, %77, %76
-  %597 = load i32, ptr %15, align 4
-  %598 = load i32, ptr %16, align 4
-  %599 = add i32 %597, %598
-  store i32 %599, ptr %7, align 4
-  br label %600
+598:                                              ; preds = %597, %585, %573, %561, %549, %536, %524, %512, %500, %488, %476, %464, %451, %450, %427, %404, %360, %359, %329, %306, %276, %253, %230, %202, %201, %160, %159, %131, %130, %107, %79, %78
+  %599 = load i32, ptr %15, align 4
+  %600 = load i32, ptr %16, align 4
+  %601 = add i32 %599, %600
+  store i32 %601, ptr %7, align 4
+  br label %602
 
-600:                                              ; preds = %596, %50, %31
-  %601 = load i32, ptr %7, align 4
-  ret i32 %601
+602:                                              ; preds = %598, %52, %33
+  %603 = load i32, ptr %7, align 4
+  ret i32 %603
 }
 
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1

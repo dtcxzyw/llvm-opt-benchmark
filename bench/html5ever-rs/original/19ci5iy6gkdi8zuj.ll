@@ -1532,28 +1532,29 @@ define internal noundef i64 @_ZN7tendril5buf3221bytes_to_vec_capacity17hf5369a9f
 
 15:                                               ; preds = %14, %12
   %16 = load ptr, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, align 8, !nonnull !4, !align !10, !noundef !4
-  %17 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, i32 0, i32 1), align 8, !noundef !4
-  %18 = load i64, ptr %3, align 8, !range !5, !noundef !4
-  switch i64 %18, label %19 [
-    i64 0, label %20
-    i64 1, label %21
+  %17 = getelementptr inbounds { ptr, i64 }, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !noundef !4
+  %19 = load i64, ptr %3, align 8, !range !5, !noundef !4
+  switch i64 %19, label %20 [
+    i64 0, label %21
+    i64 1, label %22
   ]
 
-19:                                               ; preds = %15
-  unreachable
-
 20:                                               ; preds = %15
-  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d79ff1f6283cc0236d0b2c31f51cecc.3) #13
   unreachable
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8, !noundef !4
+  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d79ff1f6283cc0236d0b2c31f51cecc.3) #13
+  unreachable
+
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %3)
-  %24 = sub i64 %23, 1
-  %25 = udiv i64 %24, 16
-  %26 = add i64 1, %25
-  ret i64 %26
+  %25 = sub i64 %24, 1
+  %26 = udiv i64 %25, 16
+  %27 = add i64 1, %26
+  ret i64 %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

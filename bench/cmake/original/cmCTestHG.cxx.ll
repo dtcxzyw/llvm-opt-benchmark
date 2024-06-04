@@ -903,31 +903,32 @@ define dso_local void @_ZN9cmCTestHGC2EP7cmCTestRSo(ptr noundef nonnull align 8 
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN15cmCTestGlobalVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(784) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV9cmCTestHG, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
-  %13 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 4
-  %14 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN9cmCTestVC8RevisionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %12)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %12 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV9cmCTestHG, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
+  %14 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 4
+  %15 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN9cmCTestVC8RevisionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %14, ptr noundef nonnull align 8 dereferenceable(256) %13)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  call void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %9) #3
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
+  call void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %9) #3
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN15cmCTestGlobalVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(784), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -1388,59 +1389,60 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG14IdentifyParserC2EPS_PKcRNSt7_
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %11, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 2
-  invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %14)
-          to label %15 unwind label %24
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 2
+  invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %15)
+          to label %16 unwind label %25
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %class.cmCTestVC, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %7, align 8
-  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %11, ptr noundef %18, ptr noundef %19)
-          to label %20 unwind label %28
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds %class.cmCTestVC, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %7, align 8
+  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %11, ptr noundef %19, ptr noundef %20)
+          to label %21 unwind label %29
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 2
-  %22 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %21, ptr noundef @.str.30)
-          to label %23 unwind label %28
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 2
+  %23 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %22, ptr noundef @.str.30)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   ret void
 
-24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %4
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %9, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %10, align 4
-  br label %32
-
-28:                                               ; preds = %20, %15
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %9, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %10, align 4
-  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %14) #3
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %11) #3
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %9, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %10, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %9, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+29:                                               ; preds = %21, %16
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %15) #3
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %11) #3
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1455,31 +1457,32 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools12OutputLoggerC2ERSoPKc(p
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %10, ptr noundef %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %11, ptr noundef %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %3
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %7, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %8, align 4
-  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare noundef zeroext i1 @_ZN9cmCTestVC8RunChildERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPN14cmProcessTools12OutputParserESD_S6_N15cmProcessOutput8EncodingE(ptr noundef nonnull align 8 dereferenceable(388), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
@@ -1498,9 +1501,10 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG14IdentifyParserD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %3, i32 0, i32 2
-  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %3, i32 0, i32 2
+  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %5) #3
   call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %3) #3
   ret void
 }
@@ -2769,82 +2773,84 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG9LogParserC2EPS_PKc(ptr noundef
   call void @_ZN14cmProcessTools12OutputLoggerC2ERSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13)
   %14 = getelementptr inbounds i8, ptr %9, i64 64
   invoke void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14)
-          to label %15 unwind label %30
+          to label %15 unwind label %32
 
 15:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 64
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 2
-  %18 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds { [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %9, align 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 64
+  %18 = getelementptr inbounds { [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2
   store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 3
-  call void @_ZN9cmCTestVC8RevisionC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #3
-  %20 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 4
-  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  %21 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 5
-  invoke void @_ZN15cmCTestGlobalVC6ChangeC2Ec(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 noundef signext 63)
-          to label %22 unwind label %34
+  %19 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 2
+  %20 = load ptr, ptr %5, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 3
+  call void @_ZN9cmCTestVC8RevisionC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %21) #3
+  %22 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 4
+  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %23 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 5
+  invoke void @_ZN15cmCTestGlobalVC6ChangeC2Ec(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 noundef signext 63)
+          to label %24 unwind label %36
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 6
-  call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = getelementptr inbounds i8, ptr %9, i64 64
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 4
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 6
+  call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds i8, ptr %9, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = invoke noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(40) %24)
-          to label %29 unwind label %38
+  %28 = getelementptr inbounds ptr, ptr %27, i64 4
+  %29 = load ptr, ptr %28, align 8
+  %30 = invoke noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(40) %26)
+          to label %31 unwind label %40
 
-29:                                               ; preds = %22
+31:                                               ; preds = %24
   ret void
 
-30:                                               ; preds = %3
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %7, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %8, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %7, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %8, align 4
+  br label %46
+
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %7, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %8, align 4
   br label %44
 
-34:                                               ; preds = %15
-  %35 = landingpad { ptr, i32 }
+40:                                               ; preds = %24
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %7, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %8, align 4
-  br label %42
-
-38:                                               ; preds = %22
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %7, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %8, align 4
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  call void @_ZN15cmCTestGlobalVC6ChangeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #3
-  br label %42
-
-42:                                               ; preds = %38, %34
-  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #3
-  %43 = getelementptr inbounds i8, ptr %9, i64 64
-  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #3
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %7, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %8, align 4
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @_ZN15cmCTestGlobalVC6ChangeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #3
   br label %44
 
-44:                                               ; preds = %42, %30
+44:                                               ; preds = %40, %36
+  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %21) #3
+  %45 = getelementptr inbounds i8, ptr %9, i64 64
+  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #3
+  br label %46
+
+46:                                               ; preds = %44, %32
   call void @_ZN14cmProcessTools12OutputLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
-  br label %45
+  br label %47
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %7, align 8
+  %49 = load i32, ptr %8, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2867,35 +2873,37 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG9LogParserD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 64
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 6
+  %6 = getelementptr inbounds { [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = invoke noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %10 unwind label %16
+  %9 = getelementptr inbounds ptr, ptr %8, i64 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %12 unwind label %18
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 5
-  call void @_ZN15cmCTestGlobalVC6ChangeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 3
-  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %14) #3
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #3
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 5
+  call void @_ZN15cmCTestGlobalVC6ChangeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
+  %15 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %3, i32 0, i32 3
+  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %16) #3
+  %17 = getelementptr inbounds i8, ptr %3, i64 64
+  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
   call void @_ZN14cmProcessTools12OutputLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %3) #3
   ret void
 
-16:                                               ; preds = %1
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #18
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #18
   unreachable
 }
 
@@ -3111,59 +3119,60 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG12StatusParserC2EPS_PKc(ptr nou
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 2
-  invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %12)
-          to label %13 unwind label %22
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 2
+  invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %13)
+          to label %14 unwind label %23
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %class.cmCTestVC, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %16, ptr noundef %17)
-          to label %18 unwind label %26
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds %class.cmCTestVC, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %6, align 8
+  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %17, ptr noundef %18)
+          to label %19 unwind label %27
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 2
-  %20 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %19, ptr noundef @.str.43)
-          to label %21 unwind label %26
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 2
+  %21 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %20, ptr noundef @.str.43)
+          to label %22 unwind label %27
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %7, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %8, align 4
-  br label %30
-
-26:                                               ; preds = %18, %13
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %7, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %8, align 4
-  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %12) #3
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+27:                                               ; preds = %19, %14
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %7, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %8, align 4
+  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %13) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3171,9 +3180,10 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG12StatusParserD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %3, i32 0, i32 2
-  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %3, i32 0, i32 2
+  call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %5) #3
   call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %3) #3
   ret void
 }
@@ -3241,9 +3251,10 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools10LineParserD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN14cmProcessTools12OutputParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

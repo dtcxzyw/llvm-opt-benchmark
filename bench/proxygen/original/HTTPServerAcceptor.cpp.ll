@@ -4526,16 +4526,20 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN8proxygen16HTTPCodecFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %4 = getelementptr inbounds { [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 2, i32 2
+  store ptr %4, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 1856
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %5 = getelementptr inbounds { [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i32 0, i32 3, i32 2
+  store ptr %5, ptr %add.ptr3, align 8
   %serverOptions_ = getelementptr inbounds %"class.proxygen::HTTPServerAcceptor", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %options.addr, align 8
-  store ptr %2, ptr %serverOptions_, align 8
+  %6 = load ptr, ptr %options.addr, align 8
+  store ptr %6, ptr %serverOptions_, align 8
   %completionCallback_ = getelementptr inbounds %"class.proxygen::HTTPServerAcceptor", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %completionCallback_) #3
   %handlerFactories_ = getelementptr inbounds %"class.proxygen::HTTPServerAcceptor", ptr %this1, i32 0, i32 3
@@ -4546,22 +4550,22 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN8proxygen16HTTPCodecFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %completionCallback_) #3
   call void @_ZN8proxygen19HTTPSessionAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1928) %this1) #3
   br label %eh.resume
@@ -5177,7 +5181,7 @@ lpad:                                             ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %eh.resume
 
@@ -5400,9 +5404,6 @@ entry:
   %call = call noundef ptr @_ZNKSt15__uniq_ptr_implIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #3
   ret ptr %call
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
@@ -8579,7 +8580,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat {
@@ -8769,10 +8770,10 @@ if.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #12
+declare void @_ZSt17__throw_bad_allocv() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZSt12__relocate_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #4 comdat {
@@ -9466,7 +9467,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN6wangle12CustomConfigEEELb1EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #4 comdat align 2 {
@@ -11639,7 +11640,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %sessionContext = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 22
   call void @_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %sessionContext) #3
   %domains = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 21
@@ -14371,7 +14373,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #13 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   %exn.slot = alloca ptr, align 8
@@ -14402,7 +14404,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #14 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #13 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -14420,7 +14422,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14446,7 +14449,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -14917,7 +14921,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #15
+declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__result) #5 comdat {
@@ -16541,7 +16545,7 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #16
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPMessage7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(202) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17570,7 +17574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define linkonce_odr void @_ZN5boost6detail7variant13forced_returnIvEET_v() #17 comdat {
+define linkonce_odr void @_ZN5boost6detail7variant13forced_returnIvEET_v() #16 comdat {
 entry:
   %dummy = alloca ptr, align 8
   store ptr null, ptr %dummy, align 8
@@ -17956,7 +17960,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #18 comdat {
+define linkonce_odr noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #17 comdat {
 entry:
   ret i1 true
 }
@@ -18152,7 +18156,7 @@ lpad.i:                                           ; preds = %entry
   %7 = extractvalue { ptr, i32 } %5, 1
   store i32 %7, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches.i = icmp eq i32 %sel.i, %8
   br i1 %matches.i, label %catch.i, label %eh.resume.i
 
@@ -18296,7 +18300,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #12
+declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__other) unnamed_addr #4 comdat align 2 {
@@ -18375,7 +18379,7 @@ entry:
 declare noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #2
 
 ; Function Attrs: cold noreturn nounwind
-declare void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef, ...) #19
+declare void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef, ...) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN6wangle16SSLCacheProviderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
@@ -19836,7 +19840,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #12
+declare void @_ZSt25__throw_bad_function_callv() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
@@ -20593,198 +20597,199 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %certificates = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %certificates2 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %certificates2 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %2, i32 0, i32 1
   call void @_ZNSt6vectorIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %certificates, ptr noundef nonnull align 8 dereferenceable(24) %certificates2)
   %sslVersion = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %sslVersion3 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %sslVersion3 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %sslVersion, ptr align 8 %sslVersion3, i64 6, i1 false)
   %sslCiphers = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %.addr, align 8
-  %sslCiphers4 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %3, i32 0, i32 6
+  %4 = load ptr, ptr %.addr, align 8
+  %sslCiphers4 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %4, i32 0, i32 6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %sslCiphers, ptr noundef nonnull align 8 dereferenceable(32) %sslCiphers4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %sslCiphersuites = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %.addr, align 8
-  %sslCiphersuites5 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %4, i32 0, i32 7
+  %5 = load ptr, ptr %.addr, align 8
+  %sslCiphersuites5 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %5, i32 0, i32 7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %sslCiphersuites, ptr noundef nonnull align 8 dereferenceable(32) %sslCiphersuites5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %sigAlgs = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %.addr, align 8
-  %sigAlgs8 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %5, i32 0, i32 8
+  %6 = load ptr, ptr %.addr, align 8
+  %sigAlgs8 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %6, i32 0, i32 8
   invoke void @_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(40) %sigAlgs, ptr noundef nonnull align 8 dereferenceable(40) %sigAlgs8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %eccCurveName = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 9
-  %6 = load ptr, ptr %.addr, align 8
-  %eccCurveName11 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %6, i32 0, i32 9
+  %7 = load ptr, ptr %.addr, align 8
+  %eccCurveName11 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %7, i32 0, i32 9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %eccCurveName, ptr noundef nonnull align 8 dereferenceable(32) %eccCurveName11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %nextProtocols = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 10
-  %7 = load ptr, ptr %.addr, align 8
-  %nextProtocols14 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %7, i32 0, i32 10
+  %8 = load ptr, ptr %.addr, align 8
+  %nextProtocols14 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %8, i32 0, i32 10
   invoke void @_ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %nextProtocols, ptr noundef nonnull align 8 dereferenceable(24) %nextProtocols14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   %isLocalPrivateKey = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 11
-  %8 = load ptr, ptr %.addr, align 8
-  %isLocalPrivateKey17 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %8, i32 0, i32 11
+  %9 = load ptr, ptr %.addr, align 8
+  %isLocalPrivateKey17 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %9, i32 0, i32 11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %isLocalPrivateKey, ptr align 8 %isLocalPrivateKey17, i64 2, i1 false)
   %clientCAFile = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 14
-  %9 = load ptr, ptr %.addr, align 8
-  %clientCAFile18 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %9, i32 0, i32 14
+  %10 = load ptr, ptr %.addr, align 8
+  %clientCAFile18 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %10, i32 0, i32 14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %clientCAFile, ptr noundef nonnull align 8 dereferenceable(32) %clientCAFile18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   %clientCAFiles = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 15
-  %10 = load ptr, ptr %.addr, align 8
-  %clientCAFiles21 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %10, i32 0, i32 15
+  %11 = load ptr, ptr %.addr, align 8
+  %clientCAFiles21 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %11, i32 0, i32 15
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %clientCAFiles, ptr noundef nonnull align 8 dereferenceable(24) %clientCAFiles21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   %clientVerification = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 16
-  %11 = load ptr, ptr %.addr, align 8
-  %clientVerification24 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %11, i32 0, i32 16
-  %12 = load i32, ptr %clientVerification24, align 8
-  store i32 %12, ptr %clientVerification, align 8
+  %12 = load ptr, ptr %.addr, align 8
+  %clientVerification24 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %12, i32 0, i32 16
+  %13 = load i32, ptr %clientVerification24, align 8
+  store i32 %13, ptr %clientVerification, align 8
   %keyOffloadParams = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 18
-  %13 = load ptr, ptr %.addr, align 8
-  %keyOffloadParams25 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %13, i32 0, i32 18
+  %14 = load ptr, ptr %.addr, align 8
+  %keyOffloadParams25 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %14, i32 0, i32 18
   invoke void @_ZN6wangle16SSLContextConfig16KeyOffloadParamsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(81) %keyOffloadParams, ptr noundef nonnull align 8 dereferenceable(81) %keyOffloadParams25)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont23
   %offloadDisabled = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 19
-  %14 = load ptr, ptr %.addr, align 8
-  %offloadDisabled28 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %14, i32 0, i32 19
-  %15 = load i8, ptr %offloadDisabled28, align 8
-  %tobool = trunc i8 %15 to i1
+  %15 = load ptr, ptr %.addr, align 8
+  %offloadDisabled28 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %15, i32 0, i32 19
+  %16 = load i8, ptr %offloadDisabled28, align 8
+  %tobool = trunc i8 %16 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %offloadDisabled, align 8
   %domains = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 21
-  %16 = load ptr, ptr %.addr, align 8
-  %domains29 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %16, i32 0, i32 21
+  %17 = load ptr, ptr %.addr, align 8
+  %domains29 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %17, i32 0, i32 21
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %domains, ptr noundef nonnull align 8 dereferenceable(24) %domains29)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont27
   %sessionContext = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 22
-  %17 = load ptr, ptr %.addr, align 8
-  %sessionContext32 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %17, i32 0, i32 22
+  %18 = load ptr, ptr %.addr, align 8
+  %sessionContext32 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %18, i32 0, i32 22
   invoke void @_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(40) %sessionContext, ptr noundef nonnull align 8 dereferenceable(40) %sessionContext32)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   %alpnAllowMismatch = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %this1, i32 0, i32 23
-  %18 = load ptr, ptr %.addr, align 8
-  %alpnAllowMismatch35 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %18, i32 0, i32 23
-  %19 = load i8, ptr %alpnAllowMismatch35, align 8
-  %tobool36 = trunc i8 %19 to i1
+  %19 = load ptr, ptr %.addr, align 8
+  %alpnAllowMismatch35 = getelementptr inbounds %"struct.wangle::SSLContextConfig", ptr %19, i32 0, i32 23
+  %20 = load i8, ptr %alpnAllowMismatch35, align 8
+  %tobool36 = trunc i8 %20 to i1
   %frombool37 = zext i1 %tobool36 to i8
   store i8 %frombool37, ptr %alpnAllowMismatch, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup45
 
 lpad6:                                            ; preds = %invoke.cont
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup44
 
 lpad9:                                            ; preds = %invoke.cont7
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup43
 
 lpad12:                                           ; preds = %invoke.cont10
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup42
 
 lpad15:                                           ; preds = %invoke.cont13
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   br label %ehcleanup41
 
 lpad19:                                           ; preds = %invoke.cont16
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad22:                                           ; preds = %invoke.cont20
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad26:                                           ; preds = %invoke.cont23
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad30:                                           ; preds = %invoke.cont27
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad33:                                           ; preds = %invoke.cont31
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %domains) #3
   br label %ehcleanup
 
@@ -26502,7 +26507,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #16
+declare void @abort() #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) #2
@@ -30777,6 +30782,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -30788,15 +30796,15 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(none) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { builtin allocsize(0) }
 attributes #21 = { builtin nounwind }
 attributes #22 = { noreturn nounwind }

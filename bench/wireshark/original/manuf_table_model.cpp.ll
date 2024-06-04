@@ -653,71 +653,72 @@ define void @_ZN15ManufTableModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.ManufTableModel, ptr %9, i32 0, i32 1
-  call void @_ZN5QListIP14ManufTableItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %11 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.ManufTableModel, ptr %9, i32 0, i32 1
+  call void @_ZN5QListIP14ManufTableItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
   invoke void @ws_manuf_iter_init(ptr noundef %5)
-          to label %12 unwind label %22
+          to label %13 unwind label %23
 
-12:                                               ; preds = %2
-  br label %13
+13:                                               ; preds = %2
+  br label %14
 
-13:                                               ; preds = %21, %12
-  %14 = invoke zeroext i1 @ws_manuf_iter_next(ptr noundef %5, ptr noundef %6)
-          to label %15 unwind label %22
+14:                                               ; preds = %22, %13
+  %15 = invoke zeroext i1 @ws_manuf_iter_next(ptr noundef %5, ptr noundef %6)
+          to label %16 unwind label %23
 
-15:                                               ; preds = %13
-  br i1 %14, label %16, label %30
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %31
 
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds %class.ManufTableModel, ptr %9, i32 0, i32 1
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #15
-          to label %19 unwind label %22
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds %class.ManufTableModel, ptr %9, i32 0, i32 1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #15
+          to label %20 unwind label %23
 
-19:                                               ; preds = %16
-  invoke void @_ZN14ManufTableItemC1EP8ws_manuf(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef %6)
-          to label %20 unwind label %26
-
-20:                                               ; preds = %19
-  invoke void @_ZN5QListIP14ManufTableItemE6appendES1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %18)
-          to label %21 unwind label %22
+20:                                               ; preds = %17
+  invoke void @_ZN14ManufTableItemC1EP8ws_manuf(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef %6)
+          to label %21 unwind label %27
 
 21:                                               ; preds = %20
-  br label %13, !llvm.loop !4
+  invoke void @_ZN5QListIP14ManufTableItemE6appendES1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %19)
+          to label %22 unwind label %23
 
-22:                                               ; preds = %20, %16, %13, %2
-  %23 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  br label %14, !llvm.loop !4
+
+23:                                               ; preds = %21, %17, %14, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %7, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %8, align 4
-  br label %31
-
-26:                                               ; preds = %19
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %7, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %18) #16
-  br label %31
-
-30:                                               ; preds = %15
-  ret void
-
-31:                                               ; preds = %26, %22
-  call void @_ZN5QListIP14ManufTableItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i32, ptr %8, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %7, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %19) #16
+  br label %32
+
+31:                                               ; preds = %16
+  ret void
+
+32:                                               ; preds = %27, %23
+  call void @_ZN5QListIP14ManufTableItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
@@ -771,21 +772,22 @@ define void @_ZN15ManufTableModelD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN15ManufTableModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %4 unwind label %6
+          to label %5 unwind label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.ManufTableModel, ptr %3, i32 0, i32 1
-  call void @_ZN5QListIP14ManufTableItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.ManufTableModel, ptr %3, i32 0, i32 1
+  call void @_ZN5QListIP14ManufTableItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #14
   unreachable
 }
 
@@ -1454,35 +1456,36 @@ define void @_ZN25ManufSortFilterProxyModelC2EP7QObject(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25ManufSortFilterProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 1
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 2
-  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %11 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 3
-  invoke void @_ZN18QRegularExpressionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV25ManufSortFilterProxyModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 1
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 2
+  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %12 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 3
+  invoke void @_ZN18QRegularExpressionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2

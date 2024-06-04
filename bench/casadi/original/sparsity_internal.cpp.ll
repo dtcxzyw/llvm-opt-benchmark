@@ -4093,113 +4093,114 @@ define void @_ZN6casadi16SparsityInternalC2ExxPKxS2_(ptr noundef nonnull align 8
   store ptr %4, ptr %10, align 8
   %22 = load ptr, ptr %6, align 8
   call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi16SparsityInternalE, i32 0, i32 0, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
-  %24 = load i64, ptr %8, align 8
-  %25 = add nsw i64 2, %24
-  %26 = add nsw i64 %25, 1
-  %27 = load ptr, ptr %9, align 8
-  %28 = load i64, ptr %8, align 8
-  %29 = getelementptr inbounds i64, ptr %27, i64 %28
-  %30 = load i64, ptr %29, align 8
-  %31 = add nsw i64 %26, %30
+  %23 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi16SparsityInternalE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
+  %25 = load i64, ptr %8, align 8
+  %26 = add nsw i64 2, %25
+  %27 = add nsw i64 %26, 1
+  %28 = load ptr, ptr %9, align 8
+  %29 = load i64, ptr %8, align 8
+  %30 = getelementptr inbounds i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = add nsw i64 %27, %31
   call void @_ZNSaIxEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  invoke void @_ZNSt6vectorIxSaIxEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %32 unwind label %77
+  invoke void @_ZNSt6vectorIxSaIxEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %33 unwind label %78
 
-32:                                               ; preds = %5
+33:                                               ; preds = %5
   call void @_ZNSaIxED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %33 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 2
-  store ptr null, ptr %33, align 8
-  %34 = load i64, ptr %7, align 8
-  %35 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
-  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIxSaIxEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 0) #3
-  store i64 %34, ptr %36, align 8
-  %37 = load i64, ptr %8, align 8
-  %38 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIxSaIxEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef 1) #3
-  store i64 %37, ptr %39, align 8
-  %40 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 2
+  store ptr null, ptr %34, align 8
+  %35 = load i64, ptr %7, align 8
+  %36 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIxSaIxEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef 0) #3
+  store i64 %35, ptr %37, align 8
+  %38 = load i64, ptr %8, align 8
+  %39 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIxSaIxEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 1) #3
+  store i64 %38, ptr %40, align 8
   %41 = load ptr, ptr %9, align 8
-  %42 = load i64, ptr %8, align 8
-  %43 = getelementptr inbounds i64, ptr %41, i64 %42
-  %44 = getelementptr inbounds i64, ptr %43, i64 1
-  %45 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
-  %46 = call ptr @_ZNSt6vectorIxSaIxEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #3
-  %47 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
-  store ptr %46, ptr %47, align 8
-  %48 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 2) #3
-  %49 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  store ptr %48, ptr %49, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i64, ptr %8, align 8
+  %44 = getelementptr inbounds i64, ptr %42, i64 %43
+  %45 = getelementptr inbounds i64, ptr %44, i64 1
+  %46 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
+  %47 = call ptr @_ZNSt6vectorIxSaIxEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #3
+  %48 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
+  store ptr %47, ptr %48, align 8
+  %49 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 2) #3
   %50 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = invoke ptr @_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_(ptr noundef %40, ptr noundef %44, ptr %51)
-          to label %53 unwind label %81
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = invoke ptr @_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_(ptr noundef %41, ptr noundef %45, ptr %52)
+          to label %54 unwind label %82
 
-53:                                               ; preds = %32
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %10, align 8
+54:                                               ; preds = %33
+  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
   %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i64, ptr %8, align 8
-  %59 = getelementptr inbounds i64, ptr %57, i64 %58
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i64, ptr %56, i64 %60
-  %62 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
-  %63 = call ptr @_ZNSt6vectorIxSaIxEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #3
-  %64 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %20, i32 0, i32 0
-  store ptr %63, ptr %64, align 8
-  %65 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 2) #3
-  %66 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %19, i32 0, i32 0
-  store ptr %65, ptr %66, align 8
-  %67 = load i64, ptr %8, align 8
-  %68 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %67) #3
-  %69 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
-  store ptr %68, ptr %69, align 8
-  %70 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 1) #3
-  %71 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
-  store ptr %70, ptr %71, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i64, ptr %8, align 8
+  %60 = getelementptr inbounds i64, ptr %58, i64 %59
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i64, ptr %57, i64 %61
+  %63 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %22, i32 0, i32 1
+  %64 = call ptr @_ZNSt6vectorIxSaIxEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #3
+  %65 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %20, i32 0, i32 0
+  store ptr %64, ptr %65, align 8
+  %66 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 2) #3
+  %67 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %19, i32 0, i32 0
+  store ptr %66, ptr %67, align 8
+  %68 = load i64, ptr %8, align 8
+  %69 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %68) #3
+  %70 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
+  store ptr %69, ptr %70, align 8
+  %71 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 1) #3
   %72 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = invoke ptr @_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_(ptr noundef %55, ptr noundef %61, ptr %73)
-          to label %75 unwind label %81
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = invoke ptr @_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_(ptr noundef %56, ptr noundef %62, ptr %74)
+          to label %76 unwind label %82
 
-75:                                               ; preds = %53
-  %76 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
-  store ptr %74, ptr %76, align 8
+76:                                               ; preds = %54
+  %77 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
   ret void
 
-77:                                               ; preds = %5
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %5
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %12, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %13, align 4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %12, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %13, align 4
   call void @_ZNSaIxED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  br label %85
-
-81:                                               ; preds = %53, %32
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %12, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %13, align 4
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  br label %85
-
-85:                                               ; preds = %81, %77
-  call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %12, align 8
-  %88 = load i32, ptr %13, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+82:                                               ; preds = %54, %33
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %12, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %13, align 4
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  br label %86
+
+86:                                               ; preds = %82, %78
+  call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr %13, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 declare void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -4375,20 +4376,21 @@ define void @_ZN6casadi16SparsityInternalD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi16SparsityInternalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi16SparsityInternalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZN6casadi16SparsityInternal3BtfD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #3
-  call void @_ZdlPv(ptr noundef %5) #17
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZN6casadi16SparsityInternal3BtfD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %6) #3
+  call void @_ZdlPv(ptr noundef %6) #17
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.casadi::SparsityInternal", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   call void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
@@ -8965,31 +8967,32 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8997,9 +9000,10 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -37061,7 +37065,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

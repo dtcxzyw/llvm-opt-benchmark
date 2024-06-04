@@ -44,14 +44,17 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %cmp1 = icmp ne i32 %2, -1
+  %2 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %3 = load i32, ptr %2, align 4
+  %cmp1 = icmp ne i32 %3, -1
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %call3 = call i32 @uv__close(i32 noundef %3)
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
+  %4 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %5 = load i32, ptr %4, align 4
+  %call3 = call i32 @uv__close(i32 noundef %5)
+  %6 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  store i32 -1, ptr %6, align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -820,30 +823,31 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %land.end, %entry
-  %0 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1), align 4
-  %call = call i64 @write(i32 noundef %0, ptr noundef %data, i64 noundef 1)
+  %0 = getelementptr inbounds [2 x i32], ptr @uv__signal_lock_pipefd, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %call = call i64 @write(i32 noundef %1, ptr noundef %data, i64 noundef 1)
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %r, align 4
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %1 = load i32, ptr %r, align 4
-  %cmp = icmp slt i32 %1, 0
+  %2 = load i32, ptr %r, align 4
+  %cmp = icmp slt i32 %2, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.cond
   %call2 = call ptr @__errno_location() #9
-  %2 = load i32, ptr %call2, align 4
-  %cmp3 = icmp eq i32 %2, 4
+  %3 = load i32, ptr %call2, align 4
+  %cmp3 = icmp eq i32 %3, 4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %do.cond
-  %3 = phi i1 [ false, %do.cond ], [ %cmp3, %land.rhs ]
-  br i1 %3, label %do.body, label %do.end
+  %4 = phi i1 [ false, %do.cond ], [ %cmp3, %land.rhs ]
+  br i1 %4, label %do.body, label %do.end
 
 do.end:                                           ; preds = %land.end
-  %4 = load i32, ptr %r, align 4
-  %cmp5 = icmp slt i32 %4, 0
+  %5 = load i32, ptr %r, align 4
+  %cmp5 = icmp slt i32 %5, 0
   %cond = select i1 %cmp5, i32 -1, i32 0
   ret i32 %cond
 }
@@ -1743,7 +1747,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 8 %1, i64 152, i1 false)
   %2 = load i32, ptr %signum.addr, align 4
   %idxprom1 = sext i32 %2 to i64
-  %arrayidx2 = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (%struct.uv__sigactions_t, ptr @uv__sigactions, i32 0, i32 1), i64 0, i64 %idxprom1
+  %3 = getelementptr inbounds %struct.uv__sigactions_t, ptr @uv__sigactions, i32 0, i32 1
+  %arrayidx2 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %idxprom1
   store i8 1, ptr %arrayidx2, align 1
   ret void
 }

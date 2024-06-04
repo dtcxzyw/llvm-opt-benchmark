@@ -8966,18 +8966,20 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %9 = load ptr, ptr %elm.addr, align 8
   %10 = getelementptr inbounds %struct.tcaches_s, ptr %9, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %10, align 8
+  %11 = inttoptr i64 1 to ptr
+  store ptr %11, ptr %10, align 8
   br label %if.end2
 
 if.else:                                          ; preds = %if.end
-  %11 = load ptr, ptr %elm.addr, align 8
-  %12 = getelementptr inbounds %struct.tcaches_s, ptr %11, i32 0, i32 0
-  store ptr null, ptr %12, align 8
+  %12 = load ptr, ptr %elm.addr, align 8
+  %13 = getelementptr inbounds %struct.tcaches_s, ptr %12, i32 0, i32 0
+  store ptr null, ptr %13, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.else, %if.then1
-  %13 = load ptr, ptr %tcache, align 8
-  %cmp3 = icmp eq ptr %13, inttoptr (i64 1 to ptr)
+  %14 = load ptr, ptr %tcache, align 8
+  %15 = inttoptr i64 1 to ptr
+  %cmp3 = icmp eq ptr %14, %15
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
@@ -8985,13 +8987,13 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %14 = load ptr, ptr %tcache, align 8
-  store ptr %14, ptr %retval, align 8
+  %16 = load ptr, ptr %tcache, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable

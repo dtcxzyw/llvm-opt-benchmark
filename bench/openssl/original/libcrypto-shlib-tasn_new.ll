@@ -808,7 +808,8 @@ sw.bb23:                                          ; preds = %if.end21
 
 sw.bb25:                                          ; preds = %if.end21
   %27 = load ptr, ptr %pval.addr, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %27, align 8
+  %28 = inttoptr i64 1 to ptr
+  store ptr %28, ptr %27, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -823,64 +824,64 @@ if.then30:                                        ; preds = %sw.bb26
   br label %return
 
 if.end31:                                         ; preds = %sw.bb26
-  %28 = load ptr, ptr %typ, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %28, i32 0, i32 1
-  store ptr null, ptr %value, align 8
   %29 = load ptr, ptr %typ, align 8
-  %type = getelementptr inbounds %struct.asn1_type_st, ptr %29, i32 0, i32 0
-  store i32 -1, ptr %type, align 8
+  %value = getelementptr inbounds %struct.asn1_type_st, ptr %29, i32 0, i32 1
+  store ptr null, ptr %value, align 8
   %30 = load ptr, ptr %typ, align 8
-  %31 = load ptr, ptr %pval.addr, align 8
-  store ptr %30, ptr %31, align 8
+  %type = getelementptr inbounds %struct.asn1_type_st, ptr %30, i32 0, i32 0
+  store i32 -1, ptr %type, align 8
+  %31 = load ptr, ptr %typ, align 8
+  %32 = load ptr, ptr %pval.addr, align 8
+  store ptr %31, ptr %32, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end21
-  %32 = load i32, ptr %embed.addr, align 4
-  %tobool32 = icmp ne i32 %32, 0
+  %33 = load i32, ptr %embed.addr, align 4
+  %tobool32 = icmp ne i32 %33, 0
   br i1 %tobool32, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %sw.default
-  %33 = load ptr, ptr %pval.addr, align 8
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %str, align 8
-  %35 = load ptr, ptr %str, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 24, i1 false)
-  %36 = load i32, ptr %utype, align 4
-  %37 = load ptr, ptr %str, align 8
-  %type34 = getelementptr inbounds %struct.asn1_string_st, ptr %37, i32 0, i32 1
-  store i32 %36, ptr %type34, align 4
+  %34 = load ptr, ptr %pval.addr, align 8
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %str, align 8
+  %36 = load ptr, ptr %str, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %36, i8 0, i64 24, i1 false)
+  %37 = load i32, ptr %utype, align 4
   %38 = load ptr, ptr %str, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %38, i32 0, i32 3
+  %type34 = getelementptr inbounds %struct.asn1_string_st, ptr %38, i32 0, i32 1
+  store i32 %37, ptr %type34, align 4
+  %39 = load ptr, ptr %str, align 8
+  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %39, i32 0, i32 3
   store i64 128, ptr %flags, align 8
   br label %if.end37
 
 if.else35:                                        ; preds = %sw.default
-  %39 = load i32, ptr %utype, align 4
-  %call36 = call ptr @ASN1_STRING_type_new(i32 noundef %39)
+  %40 = load i32, ptr %utype, align 4
+  %call36 = call ptr @ASN1_STRING_type_new(i32 noundef %40)
   store ptr %call36, ptr %str, align 8
-  %40 = load ptr, ptr %str, align 8
-  %41 = load ptr, ptr %pval.addr, align 8
-  store ptr %40, ptr %41, align 8
+  %41 = load ptr, ptr %str, align 8
+  %42 = load ptr, ptr %pval.addr, align 8
+  store ptr %41, ptr %42, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else35, %if.then33
-  %42 = load ptr, ptr %it.addr, align 8
-  %itype38 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %42, i32 0, i32 0
-  %43 = load i8, ptr %itype38, align 8
-  %conv39 = sext i8 %43 to i32
+  %43 = load ptr, ptr %it.addr, align 8
+  %itype38 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %43, i32 0, i32 0
+  %44 = load i8, ptr %itype38, align 8
+  %conv39 = sext i8 %44 to i32
   %cmp40 = icmp eq i32 %conv39, 5
   br i1 %cmp40, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end37
-  %44 = load ptr, ptr %str, align 8
-  %tobool42 = icmp ne ptr %44, null
+  %45 = load ptr, ptr %str, align 8
+  %tobool42 = icmp ne ptr %45, null
   br i1 %tobool42, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %land.lhs.true
-  %45 = load ptr, ptr %str, align 8
-  %flags44 = getelementptr inbounds %struct.asn1_string_st, ptr %45, i32 0, i32 3
-  %46 = load i64, ptr %flags44, align 8
-  %or = or i64 %46, 64
+  %46 = load ptr, ptr %str, align 8
+  %flags44 = getelementptr inbounds %struct.asn1_string_st, ptr %46, i32 0, i32 3
+  %47 = load i64, ptr %flags44, align 8
+  %or = or i64 %47, 64
   store i64 %or, ptr %flags44, align 8
   br label %if.end45
 
@@ -888,9 +889,9 @@ if.end45:                                         ; preds = %if.then43, %land.lh
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end45, %if.end31
-  %47 = load ptr, ptr %pval.addr, align 8
-  %48 = load ptr, ptr %47, align 8
-  %tobool46 = icmp ne ptr %48, null
+  %48 = load ptr, ptr %pval.addr, align 8
+  %49 = load ptr, ptr %48, align 8
+  %tobool46 = icmp ne ptr %49, null
   br i1 %tobool46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %sw.epilog
@@ -902,8 +903,8 @@ if.end48:                                         ; preds = %sw.epilog
   br label %return
 
 return:                                           ; preds = %if.end48, %if.then47, %if.then30, %sw.bb25, %sw.bb23, %sw.bb, %if.then11, %if.then7, %if.then
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+  %50 = load i32, ptr %retval, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

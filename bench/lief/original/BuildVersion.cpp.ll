@@ -312,11 +312,12 @@ define void @_ZN4LIEF5MachO12BuildVersionC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   ret void
 }
 
@@ -568,36 +569,37 @@ define void @_ZN4LIEF5MachO12BuildVersionC2ERKS1_(ptr noundef nonnull align 8 de
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %10, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 28, i1 false)
-  %12 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %7, i32 0, i32 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 4
-  invoke void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 28, i1 false)
+  %13 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %7, i32 0, i32 4
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %14, i32 0, i32 4
+  invoke void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #11
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #11
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
@@ -685,9 +687,10 @@ define void @_ZN4LIEF5MachO12BuildVersionD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
   ret void
 }
@@ -747,60 +750,61 @@ define void @_ZN4LIEF5MachO12BuildVersionC2ERKNS0_7details21build_version_comman
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 2
-  %18 = getelementptr inbounds %"struct.std::array", ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 4
-  %23 = lshr i32 %22, 16
-  %24 = and i32 %23, 65535
-  store i32 %24, ptr %19, align 4
-  %25 = getelementptr inbounds i32, ptr %19, i64 1
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %26, i32 0, i32 3
-  %28 = load i32, ptr %27, align 4
-  %29 = lshr i32 %28, 8
-  %30 = and i32 %29, 255
-  store i32 %30, ptr %25, align 4
-  %31 = getelementptr inbounds i32, ptr %25, i64 1
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 4
-  %35 = lshr i32 %34, 0
-  %36 = and i32 %35, 255
-  store i32 %36, ptr %31, align 4
-  %37 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 3
-  %38 = getelementptr inbounds %"struct.std::array", ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds [3 x i32], ptr %38, i64 0, i64 0
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %40, i32 0, i32 4
-  %42 = load i32, ptr %41, align 4
-  %43 = lshr i32 %42, 16
-  %44 = and i32 %43, 65535
-  store i32 %44, ptr %39, align 4
-  %45 = getelementptr inbounds i32, ptr %39, i64 1
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %46, i32 0, i32 4
-  %48 = load i32, ptr %47, align 4
-  %49 = lshr i32 %48, 8
-  %50 = and i32 %49, 255
-  store i32 %50, ptr %45, align 4
-  %51 = getelementptr inbounds i32, ptr %45, i64 1
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %52, i32 0, i32 4
-  %54 = load i32, ptr %53, align 4
-  %55 = lshr i32 %54, 0
-  %56 = and i32 %55, 255
-  store i32 %56, ptr %51, align 4
-  %57 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #11
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 2
+  %19 = getelementptr inbounds %"struct.std::array", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 0
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %21, i32 0, i32 3
+  %23 = load i32, ptr %22, align 4
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 65535
+  store i32 %25, ptr %20, align 4
+  %26 = getelementptr inbounds i32, ptr %20, i64 1
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 4
+  %30 = lshr i32 %29, 8
+  %31 = and i32 %30, 255
+  store i32 %31, ptr %26, align 4
+  %32 = getelementptr inbounds i32, ptr %26, i64 1
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = lshr i32 %35, 0
+  %37 = and i32 %36, 255
+  store i32 %37, ptr %32, align 4
+  %38 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 3
+  %39 = getelementptr inbounds %"struct.std::array", ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds [3 x i32], ptr %39, i64 0, i64 0
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %41, i32 0, i32 4
+  %43 = load i32, ptr %42, align 4
+  %44 = lshr i32 %43, 16
+  %45 = and i32 %44, 65535
+  store i32 %45, ptr %40, align 4
+  %46 = getelementptr inbounds i32, ptr %40, i64 1
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %47, i32 0, i32 4
+  %49 = load i32, ptr %48, align 4
+  %50 = lshr i32 %49, 8
+  %51 = and i32 %50, 255
+  store i32 %51, ptr %46, align 4
+  %52 = getelementptr inbounds i32, ptr %46, i64 1
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds %"struct.LIEF::MachO::details::build_version_command", ptr %53, i32 0, i32 4
+  %55 = load i32, ptr %54, align 4
+  %56 = lshr i32 %55, 0
+  %57 = and i32 %56, 255
+  store i32 %57, ptr %52, align 4
+  %58 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #11
   ret void
 }
 
@@ -827,63 +831,64 @@ define void @_ZN4LIEF5MachO12BuildVersionC2ENS1_9PLATFORMSERKSt5arrayIjLm3EES6_R
   %17 = add i64 24, %16
   %18 = trunc i64 %17 to i32
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef 50, i32 noundef %18)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 1
-  %20 = load i32, ptr %7, align 4
-  store i32 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 2
-  %22 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %22, i64 12, i1 false)
-  %23 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 3
-  %24 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 4 %24, i64 12, i1 false)
-  %25 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %27 unwind label %33
+  %19 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %13, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 1
+  %21 = load i32, ptr %7, align 4
+  store i32 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 2
+  %23 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %23, i64 12, i1 false)
+  %24 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 3
+  %25 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 4 %25, i64 12, i1 false)
+  %26 = getelementptr inbounds %"class.LIEF::MachO::BuildVersion", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %28 unwind label %34
 
-27:                                               ; preds = %5
-  %28 = getelementptr inbounds %"class.LIEF::MachO::LoadCommand", ptr %13, i32 0, i32 1
-  %29 = invoke noundef i32 @_ZNK4LIEF5MachO11LoadCommand4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
-          to label %30 unwind label %37
+28:                                               ; preds = %5
+  %29 = getelementptr inbounds %"class.LIEF::MachO::LoadCommand", ptr %13, i32 0, i32 1
+  %30 = invoke noundef i32 @_ZNK4LIEF5MachO11LoadCommand4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+          to label %31 unwind label %38
 
-30:                                               ; preds = %27
-  %31 = zext i32 %29 to i64
-  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %31)
-          to label %32 unwind label %37
+31:                                               ; preds = %28
+  %32 = zext i32 %30 to i64
+  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %32)
+          to label %33 unwind label %38
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   ret void
 
-33:                                               ; preds = %5
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %11, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %12, align 4
-  br label %41
-
-37:                                               ; preds = %30, %27
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %11, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %12, align 4
-  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #11
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %11, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %12, align 4
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %11, align 8
-  %44 = load i32, ptr %12, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+38:                                               ; preds = %31, %28
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %11, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %12, align 4
+  call void @_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #11
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #11
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %11, align 8
+  %45 = load i32, ptr %12, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2308,11 +2313,12 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO16BuildToolVersionC2ERKS1_(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO16BuildToolVersionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO16BuildToolVersionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 

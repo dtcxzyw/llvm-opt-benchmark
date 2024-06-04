@@ -402,67 +402,74 @@ do.body:                                          ; preds = %do.cond, %if.then
   store i64 %xor6, ptr %crcw, align 8
   %17 = load i64, ptr %crcw, align 8
   %and7 = and i64 %17, 255
-  %arrayidx8 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 7), i64 0, i64 %and7
-  %18 = load i32, ptr %arrayidx8, align 4
-  %19 = load i64, ptr %crcw, align 8
-  %shr9 = lshr i64 %19, 8
+  %18 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 7
+  %arrayidx8 = getelementptr inbounds [256 x i32], ptr %18, i64 0, i64 %and7
+  %19 = load i32, ptr %arrayidx8, align 4
+  %20 = load i64, ptr %crcw, align 8
+  %shr9 = lshr i64 %20, 8
   %and10 = and i64 %shr9, 255
-  %arrayidx11 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 6), i64 0, i64 %and10
-  %20 = load i32, ptr %arrayidx11, align 4
-  %xor12 = xor i32 %18, %20
-  %21 = load i64, ptr %crcw, align 8
-  %shr13 = lshr i64 %21, 16
-  %and14 = and i64 %shr13, 255
-  %arrayidx15 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 5), i64 0, i64 %and14
-  %22 = load i32, ptr %arrayidx15, align 4
-  %xor16 = xor i32 %xor12, %22
+  %21 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 6
+  %arrayidx11 = getelementptr inbounds [256 x i32], ptr %21, i64 0, i64 %and10
+  %22 = load i32, ptr %arrayidx11, align 4
+  %xor12 = xor i32 %19, %22
   %23 = load i64, ptr %crcw, align 8
-  %shr17 = lshr i64 %23, 24
+  %shr13 = lshr i64 %23, 16
+  %and14 = and i64 %shr13, 255
+  %24 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 5
+  %arrayidx15 = getelementptr inbounds [256 x i32], ptr %24, i64 0, i64 %and14
+  %25 = load i32, ptr %arrayidx15, align 4
+  %xor16 = xor i32 %xor12, %25
+  %26 = load i64, ptr %crcw, align 8
+  %shr17 = lshr i64 %26, 24
   %and18 = and i64 %shr17, 255
-  %arrayidx19 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 4), i64 0, i64 %and18
-  %24 = load i32, ptr %arrayidx19, align 4
-  %xor20 = xor i32 %xor16, %24
-  %25 = load i64, ptr %crcw, align 8
-  %shr21 = lshr i64 %25, 32
-  %and22 = and i64 %shr21, 255
-  %arrayidx23 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 3), i64 0, i64 %and22
-  %26 = load i32, ptr %arrayidx23, align 4
-  %xor24 = xor i32 %xor20, %26
-  %27 = load i64, ptr %crcw, align 8
-  %shr25 = lshr i64 %27, 40
-  %and26 = and i64 %shr25, 255
-  %arrayidx27 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 2), i64 0, i64 %and26
-  %28 = load i32, ptr %arrayidx27, align 4
-  %xor28 = xor i32 %xor24, %28
+  %27 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 4
+  %arrayidx19 = getelementptr inbounds [256 x i32], ptr %27, i64 0, i64 %and18
+  %28 = load i32, ptr %arrayidx19, align 4
+  %xor20 = xor i32 %xor16, %28
   %29 = load i64, ptr %crcw, align 8
-  %shr29 = lshr i64 %29, 48
+  %shr21 = lshr i64 %29, 32
+  %and22 = and i64 %shr21, 255
+  %30 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 3
+  %arrayidx23 = getelementptr inbounds [256 x i32], ptr %30, i64 0, i64 %and22
+  %31 = load i32, ptr %arrayidx23, align 4
+  %xor24 = xor i32 %xor20, %31
+  %32 = load i64, ptr %crcw, align 8
+  %shr25 = lshr i64 %32, 40
+  %and26 = and i64 %shr25, 255
+  %33 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 2
+  %arrayidx27 = getelementptr inbounds [256 x i32], ptr %33, i64 0, i64 %and26
+  %34 = load i32, ptr %arrayidx27, align 4
+  %xor28 = xor i32 %xor24, %34
+  %35 = load i64, ptr %crcw, align 8
+  %shr29 = lshr i64 %35, 48
   %and30 = and i64 %shr29, 255
-  %arrayidx31 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 1), i64 0, i64 %and30
-  %30 = load i32, ptr %arrayidx31, align 4
-  %xor32 = xor i32 %xor28, %30
-  %31 = load i64, ptr %crcw, align 8
-  %shr33 = lshr i64 %31, 56
+  %36 = getelementptr inbounds [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 1
+  %arrayidx31 = getelementptr inbounds [256 x i32], ptr %36, i64 0, i64 %and30
+  %37 = load i32, ptr %arrayidx31, align 4
+  %xor32 = xor i32 %xor28, %37
+  %38 = load i64, ptr %crcw, align 8
+  %shr33 = lshr i64 %38, 56
   %arrayidx34 = getelementptr inbounds [256 x i32], ptr @crc32c_table_little, i64 0, i64 %shr33
-  %32 = load i32, ptr %arrayidx34, align 4
-  %xor35 = xor i32 %xor32, %32
+  %39 = load i32, ptr %arrayidx34, align 4
+  %xor35 = xor i32 %xor32, %39
   %conv36 = zext i32 %xor35 to i64
   store i64 %conv36, ptr %crcw, align 8
-  %33 = load ptr, ptr %next, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = load ptr, ptr %next, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %add.ptr, ptr %next, align 8
-  %34 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %34, 8
+  %41 = load i64, ptr %len.addr, align 8
+  %sub = sub i64 %41, 8
   store i64 %sub, ptr %len.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %35 = load i64, ptr %len.addr, align 8
-  %cmp37 = icmp uge i64 %35, 8
+  %42 = load i64, ptr %len.addr, align 8
+  %cmp37 = icmp uge i64 %42, 8
   br i1 %cmp37, label %do.body, label %do.end, !llvm.loop !20
 
 do.end:                                           ; preds = %do.cond
-  %36 = load i64, ptr %crcw, align 8
-  %conv39 = trunc i64 %36 to i32
+  %43 = load i64, ptr %crcw, align 8
+  %conv39 = trunc i64 %43 to i32
   store i32 %conv39, ptr %crc.addr, align 4
   br label %if.end
 
@@ -470,34 +477,34 @@ if.end:                                           ; preds = %do.end, %while.end
   br label %while.cond40
 
 while.cond40:                                     ; preds = %while.body42, %if.end
-  %37 = load i64, ptr %len.addr, align 8
-  %tobool41 = icmp ne i64 %37, 0
+  %44 = load i64, ptr %len.addr, align 8
+  %tobool41 = icmp ne i64 %44, 0
   br i1 %tobool41, label %while.body42, label %while.end52
 
 while.body42:                                     ; preds = %while.cond40
-  %38 = load i32, ptr %crc.addr, align 4
-  %39 = load ptr, ptr %next, align 8
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %39, i32 1
+  %45 = load i32, ptr %crc.addr, align 4
+  %46 = load ptr, ptr %next, align 8
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %46, i32 1
   store ptr %incdec.ptr43, ptr %next, align 8
-  %40 = load i8, ptr %39, align 1
-  %conv44 = zext i8 %40 to i32
-  %xor45 = xor i32 %38, %conv44
+  %47 = load i8, ptr %46, align 1
+  %conv44 = zext i8 %47 to i32
+  %xor45 = xor i32 %45, %conv44
   %and46 = and i32 %xor45, 255
   %idxprom47 = zext i32 %and46 to i64
   %arrayidx48 = getelementptr inbounds [256 x i32], ptr @crc32c_table_little, i64 0, i64 %idxprom47
-  %41 = load i32, ptr %arrayidx48, align 4
-  %42 = load i32, ptr %crc.addr, align 4
-  %shr49 = lshr i32 %42, 8
-  %xor50 = xor i32 %41, %shr49
+  %48 = load i32, ptr %arrayidx48, align 4
+  %49 = load i32, ptr %crc.addr, align 4
+  %shr49 = lshr i32 %49, 8
+  %xor50 = xor i32 %48, %shr49
   store i32 %xor50, ptr %crc.addr, align 4
-  %43 = load i64, ptr %len.addr, align 8
-  %dec51 = add i64 %43, -1
+  %50 = load i64, ptr %len.addr, align 8
+  %dec51 = add i64 %50, -1
   store i64 %dec51, ptr %len.addr, align 8
   br label %while.cond40, !llvm.loop !21
 
 while.end52:                                      ; preds = %while.cond40
-  %44 = load i32, ptr %crc.addr, align 4
-  %not53 = xor i32 %44, -1
+  %51 = load i32, ptr %crc.addr, align 4
+  %not53 = xor i32 %51, -1
   ret i32 %not53
 }
 
@@ -830,62 +837,69 @@ do.body:                                          ; preds = %do.cond, %if.then
   %20 = load i64, ptr %crcw, align 8
   %shr9 = lshr i64 %20, 8
   %and10 = and i64 %shr9, 255
-  %arrayidx11 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 1), i64 0, i64 %and10
-  %21 = load i64, ptr %arrayidx11, align 8
-  %xor12 = xor i64 %19, %21
-  %22 = load i64, ptr %crcw, align 8
-  %shr13 = lshr i64 %22, 16
+  %21 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds [256 x i64], ptr %21, i64 0, i64 %and10
+  %22 = load i64, ptr %arrayidx11, align 8
+  %xor12 = xor i64 %19, %22
+  %23 = load i64, ptr %crcw, align 8
+  %shr13 = lshr i64 %23, 16
   %and14 = and i64 %shr13, 255
-  %arrayidx15 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 2), i64 0, i64 %and14
-  %23 = load i64, ptr %arrayidx15, align 8
-  %xor16 = xor i64 %xor12, %23
-  %24 = load i64, ptr %crcw, align 8
-  %shr17 = lshr i64 %24, 24
-  %and18 = and i64 %shr17, 255
-  %arrayidx19 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 3), i64 0, i64 %and18
-  %25 = load i64, ptr %arrayidx19, align 8
-  %xor20 = xor i64 %xor16, %25
+  %24 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds [256 x i64], ptr %24, i64 0, i64 %and14
+  %25 = load i64, ptr %arrayidx15, align 8
+  %xor16 = xor i64 %xor12, %25
   %26 = load i64, ptr %crcw, align 8
-  %shr21 = lshr i64 %26, 32
+  %shr17 = lshr i64 %26, 24
+  %and18 = and i64 %shr17, 255
+  %27 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 3
+  %arrayidx19 = getelementptr inbounds [256 x i64], ptr %27, i64 0, i64 %and18
+  %28 = load i64, ptr %arrayidx19, align 8
+  %xor20 = xor i64 %xor16, %28
+  %29 = load i64, ptr %crcw, align 8
+  %shr21 = lshr i64 %29, 32
   %and22 = and i64 %shr21, 255
-  %arrayidx23 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 4), i64 0, i64 %and22
-  %27 = load i64, ptr %arrayidx23, align 8
-  %xor24 = xor i64 %xor20, %27
-  %28 = load i64, ptr %crcw, align 8
-  %shr25 = lshr i64 %28, 40
-  %and26 = and i64 %shr25, 255
-  %arrayidx27 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 5), i64 0, i64 %and26
-  %29 = load i64, ptr %arrayidx27, align 8
-  %xor28 = xor i64 %xor24, %29
-  %30 = load i64, ptr %crcw, align 8
-  %shr29 = lshr i64 %30, 48
-  %and30 = and i64 %shr29, 255
-  %arrayidx31 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 6), i64 0, i64 %and30
-  %31 = load i64, ptr %arrayidx31, align 8
-  %xor32 = xor i64 %xor28, %31
+  %30 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 4
+  %arrayidx23 = getelementptr inbounds [256 x i64], ptr %30, i64 0, i64 %and22
+  %31 = load i64, ptr %arrayidx23, align 8
+  %xor24 = xor i64 %xor20, %31
   %32 = load i64, ptr %crcw, align 8
-  %shr33 = lshr i64 %32, 56
-  %arrayidx34 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 7), i64 0, i64 %shr33
-  %33 = load i64, ptr %arrayidx34, align 8
-  %xor35 = xor i64 %xor32, %33
+  %shr25 = lshr i64 %32, 40
+  %and26 = and i64 %shr25, 255
+  %33 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 5
+  %arrayidx27 = getelementptr inbounds [256 x i64], ptr %33, i64 0, i64 %and26
+  %34 = load i64, ptr %arrayidx27, align 8
+  %xor28 = xor i64 %xor24, %34
+  %35 = load i64, ptr %crcw, align 8
+  %shr29 = lshr i64 %35, 48
+  %and30 = and i64 %shr29, 255
+  %36 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 6
+  %arrayidx31 = getelementptr inbounds [256 x i64], ptr %36, i64 0, i64 %and30
+  %37 = load i64, ptr %arrayidx31, align 8
+  %xor32 = xor i64 %xor28, %37
+  %38 = load i64, ptr %crcw, align 8
+  %shr33 = lshr i64 %38, 56
+  %39 = getelementptr inbounds [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 7
+  %arrayidx34 = getelementptr inbounds [256 x i64], ptr %39, i64 0, i64 %shr33
+  %40 = load i64, ptr %arrayidx34, align 8
+  %xor35 = xor i64 %xor32, %40
   store i64 %xor35, ptr %crcw, align 8
-  %34 = load ptr, ptr %next, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %34, i64 8
+  %41 = load ptr, ptr %next, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %add.ptr, ptr %next, align 8
-  %35 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %35, 8
+  %42 = load i64, ptr %len.addr, align 8
+  %sub = sub i64 %42, 8
   store i64 %sub, ptr %len.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %36 = load i64, ptr %len.addr, align 8
-  %cmp36 = icmp uge i64 %36, 8
+  %43 = load i64, ptr %len.addr, align 8
+  %cmp36 = icmp uge i64 %43, 8
   br i1 %cmp36, label %do.body, label %do.end, !llvm.loop !26
 
 do.end:                                           ; preds = %do.cond
-  %37 = load i64, ptr %crcw, align 8
-  %38 = call i64 @llvm.bswap.i64(i64 %37)
-  %conv38 = trunc i64 %38 to i32
+  %44 = load i64, ptr %crcw, align 8
+  %45 = call i64 @llvm.bswap.i64(i64 %44)
+  %conv38 = trunc i64 %45 to i32
   store i32 %conv38, ptr %crc.addr, align 4
   br label %if.end
 
@@ -893,34 +907,34 @@ if.end:                                           ; preds = %do.end, %while.end
   br label %while.cond39
 
 while.cond39:                                     ; preds = %while.body41, %if.end
-  %39 = load i64, ptr %len.addr, align 8
-  %tobool40 = icmp ne i64 %39, 0
+  %46 = load i64, ptr %len.addr, align 8
+  %tobool40 = icmp ne i64 %46, 0
   br i1 %tobool40, label %while.body41, label %while.end51
 
 while.body41:                                     ; preds = %while.cond39
-  %40 = load i32, ptr %crc.addr, align 4
-  %41 = load ptr, ptr %next, align 8
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %41, i32 1
+  %47 = load i32, ptr %crc.addr, align 4
+  %48 = load ptr, ptr %next, align 8
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %48, i32 1
   store ptr %incdec.ptr42, ptr %next, align 8
-  %42 = load i8, ptr %41, align 1
-  %conv43 = zext i8 %42 to i32
-  %xor44 = xor i32 %40, %conv43
+  %49 = load i8, ptr %48, align 1
+  %conv43 = zext i8 %49 to i32
+  %xor44 = xor i32 %47, %conv43
   %and45 = and i32 %xor44, 255
   %idxprom46 = zext i32 %and45 to i64
   %arrayidx47 = getelementptr inbounds [256 x i32], ptr @crc32c_table_big_byte, i64 0, i64 %idxprom46
-  %43 = load i32, ptr %arrayidx47, align 4
-  %44 = load i32, ptr %crc.addr, align 4
-  %shr48 = lshr i32 %44, 8
-  %xor49 = xor i32 %43, %shr48
+  %50 = load i32, ptr %arrayidx47, align 4
+  %51 = load i32, ptr %crc.addr, align 4
+  %shr48 = lshr i32 %51, 8
+  %xor49 = xor i32 %50, %shr48
   store i32 %xor49, ptr %crc.addr, align 4
-  %45 = load i64, ptr %len.addr, align 8
-  %dec50 = add i64 %45, -1
+  %52 = load i64, ptr %len.addr, align 8
+  %dec50 = add i64 %52, -1
   store i64 %dec50, ptr %len.addr, align 8
   br label %while.cond39, !llvm.loop !27
 
 while.end51:                                      ; preds = %while.cond39
-  %46 = load i32, ptr %crc.addr, align 4
-  %not52 = xor i32 %46, -1
+  %53 = load i32, ptr %crc.addr, align 4
+  %not52 = xor i32 %53, -1
   ret i32 %not52
 }
 

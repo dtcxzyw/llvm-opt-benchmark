@@ -2516,7 +2516,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
 
 70:                                               ; preds = %6
   store i32 42, ptr %7, align 4
-  br label %355
+  br label %356
 
 71:                                               ; preds = %6
   %72 = load ptr, ptr %8, align 8
@@ -2604,7 +2604,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   %116 = load i32, ptr %17, align 4
   %117 = call i32 @close(i32 noundef %116)
   store i32 -1, ptr %7, align 4
-  br label %355
+  br label %356
 
 118:                                              ; preds = %111
   br label %119
@@ -2667,7 +2667,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   %145 = load i32, ptr %17, align 4
   %146 = call i32 @close(i32 noundef %145)
   store i32 24, ptr %7, align 4
-  br label %355
+  br label %356
 
 147:                                              ; preds = %139
   %148 = load i32, ptr %17, align 4
@@ -2688,7 +2688,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   %155 = load i32, ptr %17, align 4
   %156 = call i32 @close(i32 noundef %155)
   store i32 30, ptr %7, align 4
-  br label %355
+  br label %356
 
 157:                                              ; preds = %147
   %158 = load ptr, ptr @capture_android_logcat_text.wireshark_protocol_logcat_text, align 8
@@ -2775,10 +2775,10 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   store i64 0, ptr %16, align 8
   br label %229
 
-229:                                              ; preds = %351, %249, %157
+229:                                              ; preds = %352, %249, %157
   %230 = load i32, ptr @endless_loop, align 4
   %231 = icmp ne i32 %230, 0
-  br i1 %231, label %232, label %352
+  br i1 %231, label %232, label %353
 
 232:                                              ; preds = %229
   %233 = call ptr @__errno_location() #14
@@ -2824,7 +2824,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   %260 = load i32, ptr %17, align 4
   %261 = call i32 @close(i32 noundef %260)
   store i32 -1, ptr %7, align 4
-  br label %355
+  br label %356
 
 262:                                              ; preds = %250
   br label %263
@@ -2845,7 +2845,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   %269 = load i32, ptr %17, align 4
   %270 = call i32 @close(i32 noundef %269)
   store i32 -1, ptr %7, align 4
-  br label %355
+  br label %356
 
 271:                                              ; preds = %263
   %272 = load i64, ptr %15, align 8
@@ -2854,7 +2854,7 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
   store i64 %274, ptr %16, align 8
   br label %275
 
-275:                                              ; preds = %325, %295, %271
+275:                                              ; preds = %326, %296, %271
   %276 = load i64, ptr %16, align 8
   %277 = icmp ugt i64 %276, 0
   br i1 %277, label %278, label %284
@@ -2870,108 +2870,109 @@ define internal i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1,
 
 284:                                              ; preds = %278, %275
   %285 = phi i1 [ false, %275 ], [ %283, %278 ]
-  br i1 %285, label %286, label %351
+  br i1 %285, label %286, label %352
 
 286:                                              ; preds = %284
   store i64 0, ptr %33, align 8
   store i32 0, ptr %34, align 4
   %287 = load ptr, ptr %26, align 8
   %288 = ptrtoint ptr %287 to i64
-  %289 = sub i64 %288, ptrtoint (ptr @capture_android_logcat_text.packet to i64)
-  %290 = add i64 %289, 1
-  store i64 %290, ptr %15, align 8
-  %291 = call i64 @time(ptr noundef null) #13
-  store i64 %291, ptr %35, align 8
-  %292 = call ptr @localtime(ptr noundef %35) #13
-  store ptr %292, ptr %31, align 8
-  %293 = load ptr, ptr %31, align 8
-  %294 = icmp ne ptr %293, null
-  br i1 %294, label %296, label %295
-
-295:                                              ; preds = %286
-  br label %275, !llvm.loop !10
+  %289 = ptrtoint ptr @capture_android_logcat_text.packet to i64
+  %290 = sub i64 %288, %289
+  %291 = add i64 %290, 1
+  store i64 %291, ptr %15, align 8
+  %292 = call i64 @time(ptr noundef null) #13
+  store i64 %292, ptr %35, align 8
+  %293 = call ptr @localtime(ptr noundef %35) #13
+  store ptr %293, ptr %31, align 8
+  %294 = load ptr, ptr %31, align 8
+  %295 = icmp ne ptr %294, null
+  br i1 %295, label %297, label %296
 
 296:                                              ; preds = %286
-  %297 = load i64, ptr %19, align 8
-  %298 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %297
-  %299 = load ptr, ptr %31, align 8
-  %300 = getelementptr inbounds %struct.tm, ptr %299, i32 0, i32 4
-  %301 = load ptr, ptr %31, align 8
-  %302 = getelementptr inbounds %struct.tm, ptr %301, i32 0, i32 3
-  %303 = load ptr, ptr %31, align 8
-  %304 = getelementptr inbounds %struct.tm, ptr %303, i32 0, i32 2
-  %305 = load ptr, ptr %31, align 8
-  %306 = getelementptr inbounds %struct.tm, ptr %305, i32 0, i32 1
-  %307 = load ptr, ptr %31, align 8
-  %308 = getelementptr inbounds %struct.tm, ptr %307, i32 0, i32 0
-  %309 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %298, ptr noundef @.str.164, ptr noundef %300, ptr noundef %302, ptr noundef %304, ptr noundef %306, ptr noundef %308, ptr noundef %30) #13
-  %310 = icmp eq i32 6, %309
-  br i1 %310, label %311, label %325
-
-311:                                              ; preds = %296
-  %312 = load ptr, ptr %31, align 8
-  %313 = getelementptr inbounds %struct.tm, ptr %312, i32 0, i32 4
-  %314 = load i32, ptr %313, align 8
-  %315 = sub i32 %314, 1
-  store i32 %315, ptr %313, align 8
-  %316 = load ptr, ptr %31, align 8
-  %317 = getelementptr inbounds %struct.tm, ptr %316, i32 0, i32 8
-  store i32 -1, ptr %317, align 8
-  %318 = load ptr, ptr %31, align 8
-  %319 = call i64 @mktime(ptr noundef %318) #13
-  store i64 %319, ptr %32, align 8
-  %320 = load i64, ptr %32, align 8
-  store i64 %320, ptr %33, align 8
-  %321 = load i32, ptr %30, align 4
-  %322 = sitofp i32 %321 to double
-  %323 = fmul double %322, 1.000000e+06
-  %324 = fptosi double %323 to i32
-  store i32 %324, ptr %34, align 4
-  br label %325
-
-325:                                              ; preds = %311, %296
-  %326 = load ptr, ptr %9, align 8
-  %327 = load i64, ptr %15, align 8
-  %328 = load i64, ptr %15, align 8
-  %329 = load i64, ptr %33, align 8
-  %330 = load i32, ptr %34, align 4
-  %331 = getelementptr inbounds { i32, ptr }, ptr %14, i32 0, i32 0
-  %332 = load i32, ptr %331, align 8
-  %333 = getelementptr inbounds { i32, ptr }, ptr %14, i32 0, i32 1
-  %334 = load ptr, ptr %333, align 8
-  %335 = call zeroext i1 @extcap_dumper_dump(i32 %332, ptr %334, ptr noundef %326, ptr noundef @capture_android_logcat_text.packet, i64 noundef %327, i64 noundef %328, i64 noundef %329, i32 noundef %330)
-  %336 = zext i1 %335 to i32
-  store i32 %336, ptr @endless_loop, align 4
-  %337 = load i64, ptr %19, align 8
-  %338 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %337
-  %339 = load i64, ptr %15, align 8
-  %340 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %339
-  %341 = load i64, ptr %16, align 8
-  %342 = load i64, ptr %19, align 8
-  %343 = add i64 %341, %342
-  %344 = load i64, ptr %15, align 8
-  %345 = sub i64 %343, %344
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %338, ptr align 1 %340, i64 %345, i1 false)
-  %346 = load i64, ptr %15, align 8
-  %347 = load i64, ptr %19, align 8
-  %348 = sub i64 %346, %347
-  %349 = load i64, ptr %16, align 8
-  %350 = sub i64 %349, %348
-  store i64 %350, ptr %16, align 8
   br label %275, !llvm.loop !10
 
-351:                                              ; preds = %284
+297:                                              ; preds = %286
+  %298 = load i64, ptr %19, align 8
+  %299 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %298
+  %300 = load ptr, ptr %31, align 8
+  %301 = getelementptr inbounds %struct.tm, ptr %300, i32 0, i32 4
+  %302 = load ptr, ptr %31, align 8
+  %303 = getelementptr inbounds %struct.tm, ptr %302, i32 0, i32 3
+  %304 = load ptr, ptr %31, align 8
+  %305 = getelementptr inbounds %struct.tm, ptr %304, i32 0, i32 2
+  %306 = load ptr, ptr %31, align 8
+  %307 = getelementptr inbounds %struct.tm, ptr %306, i32 0, i32 1
+  %308 = load ptr, ptr %31, align 8
+  %309 = getelementptr inbounds %struct.tm, ptr %308, i32 0, i32 0
+  %310 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %299, ptr noundef @.str.164, ptr noundef %301, ptr noundef %303, ptr noundef %305, ptr noundef %307, ptr noundef %309, ptr noundef %30) #13
+  %311 = icmp eq i32 6, %310
+  br i1 %311, label %312, label %326
+
+312:                                              ; preds = %297
+  %313 = load ptr, ptr %31, align 8
+  %314 = getelementptr inbounds %struct.tm, ptr %313, i32 0, i32 4
+  %315 = load i32, ptr %314, align 8
+  %316 = sub i32 %315, 1
+  store i32 %316, ptr %314, align 8
+  %317 = load ptr, ptr %31, align 8
+  %318 = getelementptr inbounds %struct.tm, ptr %317, i32 0, i32 8
+  store i32 -1, ptr %318, align 8
+  %319 = load ptr, ptr %31, align 8
+  %320 = call i64 @mktime(ptr noundef %319) #13
+  store i64 %320, ptr %32, align 8
+  %321 = load i64, ptr %32, align 8
+  store i64 %321, ptr %33, align 8
+  %322 = load i32, ptr %30, align 4
+  %323 = sitofp i32 %322 to double
+  %324 = fmul double %323, 1.000000e+06
+  %325 = fptosi double %324 to i32
+  store i32 %325, ptr %34, align 4
+  br label %326
+
+326:                                              ; preds = %312, %297
+  %327 = load ptr, ptr %9, align 8
+  %328 = load i64, ptr %15, align 8
+  %329 = load i64, ptr %15, align 8
+  %330 = load i64, ptr %33, align 8
+  %331 = load i32, ptr %34, align 4
+  %332 = getelementptr inbounds { i32, ptr }, ptr %14, i32 0, i32 0
+  %333 = load i32, ptr %332, align 8
+  %334 = getelementptr inbounds { i32, ptr }, ptr %14, i32 0, i32 1
+  %335 = load ptr, ptr %334, align 8
+  %336 = call zeroext i1 @extcap_dumper_dump(i32 %333, ptr %335, ptr noundef %327, ptr noundef @capture_android_logcat_text.packet, i64 noundef %328, i64 noundef %329, i64 noundef %330, i32 noundef %331)
+  %337 = zext i1 %336 to i32
+  store i32 %337, ptr @endless_loop, align 4
+  %338 = load i64, ptr %19, align 8
+  %339 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %338
+  %340 = load i64, ptr %15, align 8
+  %341 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %340
+  %342 = load i64, ptr %16, align 8
+  %343 = load i64, ptr %19, align 8
+  %344 = add i64 %342, %343
+  %345 = load i64, ptr %15, align 8
+  %346 = sub i64 %344, %345
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %339, ptr align 1 %341, i64 %346, i1 false)
+  %347 = load i64, ptr %15, align 8
+  %348 = load i64, ptr %19, align 8
+  %349 = sub i64 %347, %348
+  %350 = load i64, ptr %16, align 8
+  %351 = sub i64 %350, %349
+  store i64 %351, ptr %16, align 8
+  br label %275, !llvm.loop !10
+
+352:                                              ; preds = %284
   br label %229, !llvm.loop !9
 
-352:                                              ; preds = %229
-  %353 = load i32, ptr %17, align 4
-  %354 = call i32 @close(i32 noundef %353)
+353:                                              ; preds = %229
+  %354 = load i32, ptr %17, align 4
+  %355 = call i32 @close(i32 noundef %354)
   store i32 0, ptr %7, align 4
-  br label %355
+  br label %356
 
-355:                                              ; preds = %352, %268, %259, %154, %144, %115, %70
-  %356 = load i32, ptr %7, align 4
-  ret i32 %356
+356:                                              ; preds = %353, %268, %259, %154, %144, %115, %70
+  %357 = load i32, ptr %7, align 4
+  ret i32 %357
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3623,7 +3624,7 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
 
 49:                                               ; preds = %4
   store i32 37, ptr %5, align 4
-  br label %617
+  br label %624
 
 50:                                               ; preds = %4
   %51 = load i32, ptr %13, align 4
@@ -3646,15 +3647,15 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   %60 = load i32, ptr %13, align 4
   %61 = call i32 @close(i32 noundef %60)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
 62:                                               ; preds = %50
   br label %63
 
-63:                                               ; preds = %157, %79, %62
+63:                                               ; preds = %159, %79, %62
   %64 = load i32, ptr @endless_loop, align 4
   %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %158
+  br i1 %65, label %66, label %160
 
 66:                                               ; preds = %63
   %67 = call ptr @__errno_location() #14
@@ -3696,7 +3697,7 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   %90 = load i32, ptr %13, align 4
   %91 = call i32 @close(i32 noundef %90)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
 92:                                               ; preds = %80
   br label %93
@@ -3717,7 +3718,7 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   %99 = load i32, ptr %13, align 4
   %100 = call i32 @close(i32 noundef %99)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
 101:                                              ; preds = %93
   %102 = load i64, ptr %11, align 8
@@ -3729,14 +3730,14 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   store ptr %106, ptr %31, align 8
   %107 = load ptr, ptr %31, align 8
   %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %157
+  br i1 %108, label %109, label %159
 
 109:                                              ; preds = %101
   %110 = load ptr, ptr %31, align 8
   %111 = load i64, ptr %12, align 8
   %112 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %111
   %113 = icmp ult ptr %110, %112
-  br i1 %113, label %114, label %157
+  br i1 %113, label %114, label %159
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %31, align 8
@@ -3758,7 +3759,7 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   %123 = load i32, ptr %13, align 4
   %124 = call i32 @close(i32 noundef %123)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
 125:                                              ; preds = %114
   %126 = load ptr, ptr %31, align 8
@@ -3768,7 +3769,7 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   store ptr %129, ptr %31, align 8
   %130 = load ptr, ptr %31, align 8
   %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %156
+  br i1 %131, label %132, label %158
 
 132:                                              ; preds = %125
   %133 = load ptr, ptr %31, align 8
@@ -3792,791 +3793,798 @@ define internal i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr nound
   %142 = load i32, ptr %13, align 4
   %143 = call i32 @close(i32 noundef %142)
   store i32 -1, ptr %13, align 4
-  br label %158
+  br label %160
 
 144:                                              ; preds = %132
   %145 = load ptr, ptr %31, align 8
   %146 = load i64, ptr %12, align 8
   %147 = load ptr, ptr %31, align 8
   %148 = ptrtoint ptr %147 to i64
-  %149 = sub i64 %148, ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)
-  %150 = sub i64 %146, %149
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %145, i64 %150, i1 false)
-  %151 = load i64, ptr %12, align 8
-  %152 = load ptr, ptr %31, align 8
-  %153 = ptrtoint ptr %152 to i64
-  %154 = sub i64 %153, ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)
-  %155 = sub i64 %151, %154
-  store i64 %155, ptr %12, align 8
-  br label %158
+  %149 = ptrtoint ptr @capture_android_bluetooth_hcidump.data to i64
+  %150 = sub i64 %148, %149
+  %151 = sub i64 %146, %150
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %145, i64 %151, i1 false)
+  %152 = load i64, ptr %12, align 8
+  %153 = load ptr, ptr %31, align 8
+  %154 = ptrtoint ptr %153 to i64
+  %155 = ptrtoint ptr @capture_android_bluetooth_hcidump.data to i64
+  %156 = sub i64 %154, %155
+  %157 = sub i64 %152, %156
+  store i64 %157, ptr %12, align 8
+  br label %160
 
-156:                                              ; preds = %125
-  br label %157
+158:                                              ; preds = %125
+  br label %159
 
-157:                                              ; preds = %156, %109, %101
+159:                                              ; preds = %158, %109, %101
   br label %63, !llvm.loop !14
 
-158:                                              ; preds = %144, %141, %63
-  %159 = load i32, ptr %13, align 4
-  %160 = icmp eq i32 %159, -1
-  br i1 %160, label %161, label %266
+160:                                              ; preds = %144, %141, %63
+  %161 = load i32, ptr %13, align 4
+  %162 = icmp eq i32 %161, -1
+  br i1 %162, label %163, label %270
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %8, align 8
-  %163 = load ptr, ptr %9, align 8
-  %164 = load ptr, ptr %17, align 8
-  %165 = call i32 @adb_connect_transport(ptr noundef %162, ptr noundef %163, ptr noundef %164)
-  store i32 %165, ptr %13, align 4
-  %166 = load i32, ptr %13, align 4
-  %167 = icmp eq i32 %166, -1
-  br i1 %167, label %168, label %169
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %8, align 8
+  %165 = load ptr, ptr %9, align 8
+  %166 = load ptr, ptr %17, align 8
+  %167 = call i32 @adb_connect_transport(ptr noundef %164, ptr noundef %165, ptr noundef %166)
+  store i32 %167, ptr %13, align 4
+  %168 = load i32, ptr %13, align 4
+  %169 = icmp eq i32 %168, -1
+  br i1 %169, label %170, label %171
 
-168:                                              ; preds = %161
+170:                                              ; preds = %163
   store i32 38, ptr %5, align 4
-  br label %617
+  br label %624
 
-169:                                              ; preds = %161
-  %170 = load i32, ptr %13, align 4
-  %171 = load ptr, ptr %15, align 8
-  %172 = call i32 @adb_send(i32 noundef %170, ptr noundef %171)
-  store i32 %172, ptr %16, align 4
-  %173 = load i32, ptr %16, align 4
-  %174 = icmp ne i32 %173, 0
-  br i1 %174, label %175, label %181
+171:                                              ; preds = %163
+  %172 = load i32, ptr %13, align 4
+  %173 = load ptr, ptr %15, align 8
+  %174 = call i32 @adb_send(i32 noundef %172, ptr noundef %173)
+  store i32 %174, ptr %16, align 4
+  %175 = load i32, ptr %16, align 4
+  %176 = icmp ne i32 %175, 0
+  br i1 %176, label %177, label %183
 
-175:                                              ; preds = %169
-  br label %176
-
-176:                                              ; preds = %175
-  %177 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1426, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.180, ptr noundef %177)
+177:                                              ; preds = %171
   br label %178
 
-178:                                              ; preds = %176
-  %179 = load i32, ptr %13, align 4
-  %180 = call i32 @close(i32 noundef %179)
-  store i32 -1, ptr %5, align 4
-  br label %617
+178:                                              ; preds = %177
+  %179 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1426, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.180, ptr noundef %179)
+  br label %180
 
-181:                                              ; preds = %169
+180:                                              ; preds = %178
+  %181 = load i32, ptr %13, align 4
+  %182 = call i32 @close(i32 noundef %181)
+  store i32 -1, ptr %5, align 4
+  br label %624
+
+183:                                              ; preds = %171
   store i64 0, ptr %12, align 8
-  br label %182
+  br label %184
 
-182:                                              ; preds = %264, %198, %181
-  %183 = load i32, ptr @endless_loop, align 4
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %265
+184:                                              ; preds = %268, %200, %183
+  %185 = load i32, ptr @endless_loop, align 4
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %187, label %269
 
-185:                                              ; preds = %182
-  %186 = call ptr @__errno_location() #14
-  store i32 0, ptr %186, align 4
-  %187 = load i32, ptr %13, align 4
-  %188 = load i64, ptr %12, align 8
-  %189 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %188
+187:                                              ; preds = %184
+  %188 = call ptr @__errno_location() #14
+  store i32 0, ptr %188, align 4
+  %189 = load i32, ptr %13, align 4
   %190 = load i64, ptr %12, align 8
-  %191 = sub i64 65535, %190
-  %192 = trunc i64 %191 to i32
-  %193 = sext i32 %192 to i64
-  %194 = call i64 @recv(i32 noundef %187, ptr noundef %189, i64 noundef %193, i32 noundef 0)
-  store i64 %194, ptr %11, align 8
-  %195 = call ptr @__errno_location() #14
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp eq i32 %196, 11
-  br i1 %197, label %198, label %199
+  %191 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %190
+  %192 = load i64, ptr %12, align 8
+  %193 = sub i64 65535, %192
+  %194 = trunc i64 %193 to i32
+  %195 = sext i32 %194 to i64
+  %196 = call i64 @recv(i32 noundef %189, ptr noundef %191, i64 noundef %195, i32 noundef 0)
+  store i64 %196, ptr %11, align 8
+  %197 = call ptr @__errno_location() #14
+  %198 = load i32, ptr %197, align 4
+  %199 = icmp eq i32 %198, 11
+  br i1 %199, label %200, label %201
 
-198:                                              ; preds = %185
-  br label %182, !llvm.loop !15
+200:                                              ; preds = %187
+  br label %184, !llvm.loop !15
 
-199:                                              ; preds = %185
-  %200 = call ptr @__errno_location() #14
-  %201 = load i32, ptr %200, align 4
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %211
+201:                                              ; preds = %187
+  %202 = call ptr @__errno_location() #14
+  %203 = load i32, ptr %202, align 4
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %213
 
-203:                                              ; preds = %199
-  br label %204
+205:                                              ; preds = %201
+  br label %206
 
-204:                                              ; preds = %203
-  %205 = call ptr @__errno_location() #14
-  %206 = load i32, ptr %205, align 4
-  %207 = call ptr @strerror(i32 noundef %206) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1445, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.162, ptr noundef %207)
-  br label %208
+206:                                              ; preds = %205
+  %207 = call ptr @__errno_location() #14
+  %208 = load i32, ptr %207, align 4
+  %209 = call ptr @strerror(i32 noundef %208) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1445, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.162, ptr noundef %209)
+  br label %210
 
-208:                                              ; preds = %204
-  %209 = load i32, ptr %13, align 4
-  %210 = call i32 @close(i32 noundef %209)
+210:                                              ; preds = %206
+  %211 = load i32, ptr %13, align 4
+  %212 = call i32 @close(i32 noundef %211)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-211:                                              ; preds = %199
-  br label %212
+213:                                              ; preds = %201
+  br label %214
 
-212:                                              ; preds = %211
-  %213 = load i64, ptr %11, align 8
-  %214 = icmp sle i64 %213, 0
-  br i1 %214, label %215, label %220
+214:                                              ; preds = %213
+  %215 = load i64, ptr %11, align 8
+  %216 = icmp sle i64 %215, 0
+  br i1 %216, label %217, label %222
 
-215:                                              ; preds = %212
-  br label %216
+217:                                              ; preds = %214
+  br label %218
 
-216:                                              ; preds = %215
+218:                                              ; preds = %217
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1451, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.175)
-  br label %217
+  br label %219
 
-217:                                              ; preds = %216
-  %218 = load i32, ptr %13, align 4
-  %219 = call i32 @close(i32 noundef %218)
+219:                                              ; preds = %218
+  %220 = load i32, ptr %13, align 4
+  %221 = call i32 @close(i32 noundef %220)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-220:                                              ; preds = %212
-  %221 = load i64, ptr %11, align 8
-  %222 = load i64, ptr %12, align 8
-  %223 = add i64 %222, %221
-  store i64 %223, ptr %12, align 8
+222:                                              ; preds = %214
+  %223 = load i64, ptr %11, align 8
   %224 = load i64, ptr %12, align 8
-  %225 = call ptr @memchr(ptr noundef @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %224) #12
-  store ptr %225, ptr %33, align 8
-  %226 = load ptr, ptr %33, align 8
-  %227 = icmp ne ptr %226, null
-  br i1 %227, label %228, label %264
+  %225 = add i64 %224, %223
+  store i64 %225, ptr %12, align 8
+  %226 = load i64, ptr %12, align 8
+  %227 = call ptr @memchr(ptr noundef @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %226) #12
+  store ptr %227, ptr %33, align 8
+  %228 = load ptr, ptr %33, align 8
+  %229 = icmp ne ptr %228, null
+  br i1 %229, label %230, label %268
 
-228:                                              ; preds = %220
-  %229 = load ptr, ptr %33, align 8
-  %230 = load i64, ptr %12, align 8
-  %231 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %230
-  %232 = icmp ult ptr %229, %231
-  br i1 %232, label %233, label %264
+230:                                              ; preds = %222
+  %231 = load ptr, ptr %33, align 8
+  %232 = load i64, ptr %12, align 8
+  %233 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %232
+  %234 = icmp ult ptr %231, %233
+  br i1 %234, label %235, label %268
 
-233:                                              ; preds = %228
-  %234 = call i32 @strncmp(ptr noundef @capture_android_bluetooth_hcidump.data, ptr noundef @.str.181, i64 noundef 29) #12
-  %235 = icmp ne i32 %234, 0
-  br i1 %235, label %242, label %236
+235:                                              ; preds = %230
+  %236 = call i32 @strncmp(ptr noundef @capture_android_bluetooth_hcidump.data, ptr noundef @.str.181, i64 noundef 29) #12
+  %237 = icmp ne i32 %236, 0
+  br i1 %237, label %244, label %238
 
-236:                                              ; preds = %233
-  br label %237
-
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1460, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.182, ptr noundef %238)
+238:                                              ; preds = %235
   br label %239
 
-239:                                              ; preds = %237
-  %240 = load i32, ptr %13, align 4
-  %241 = call i32 @close(i32 noundef %240)
+239:                                              ; preds = %238
+  %240 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1460, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.182, ptr noundef %240)
+  br label %241
+
+241:                                              ; preds = %239
+  %242 = load i32, ptr %13, align 4
+  %243 = call i32 @close(i32 noundef %242)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-242:                                              ; preds = %233
-  %243 = load ptr, ptr %33, align 8
-  %244 = getelementptr i8, ptr %243, i64 1
-  %245 = load i64, ptr %12, align 8
-  %246 = call ptr @memchr(ptr noundef %244, i32 noundef 10, i64 noundef %245) #12
-  store ptr %246, ptr %33, align 8
-  %247 = load ptr, ptr %33, align 8
-  %248 = icmp ne ptr %247, null
-  br i1 %248, label %249, label %263
+244:                                              ; preds = %235
+  %245 = load ptr, ptr %33, align 8
+  %246 = getelementptr i8, ptr %245, i64 1
+  %247 = load i64, ptr %12, align 8
+  %248 = call ptr @memchr(ptr noundef %246, i32 noundef 10, i64 noundef %247) #12
+  store ptr %248, ptr %33, align 8
+  %249 = load ptr, ptr %33, align 8
+  %250 = icmp ne ptr %249, null
+  br i1 %250, label %251, label %267
 
-249:                                              ; preds = %242
-  %250 = load ptr, ptr %33, align 8
-  %251 = getelementptr i8, ptr %250, i64 1
-  store ptr %251, ptr %33, align 8
+251:                                              ; preds = %244
   %252 = load ptr, ptr %33, align 8
-  %253 = load i64, ptr %12, align 8
+  %253 = getelementptr i8, ptr %252, i64 1
+  store ptr %253, ptr %33, align 8
   %254 = load ptr, ptr %33, align 8
-  %255 = ptrtoint ptr %254 to i64
-  %256 = sub i64 %255, ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)
-  %257 = sub i64 %253, %256
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %252, i64 %257, i1 false)
-  %258 = load i64, ptr %12, align 8
-  %259 = load ptr, ptr %33, align 8
-  %260 = ptrtoint ptr %259 to i64
-  %261 = sub i64 %260, ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)
-  %262 = sub i64 %258, %261
-  store i64 %262, ptr %12, align 8
-  br label %265
+  %255 = load i64, ptr %12, align 8
+  %256 = load ptr, ptr %33, align 8
+  %257 = ptrtoint ptr %256 to i64
+  %258 = ptrtoint ptr @capture_android_bluetooth_hcidump.data to i64
+  %259 = sub i64 %257, %258
+  %260 = sub i64 %255, %259
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %254, i64 %260, i1 false)
+  %261 = load i64, ptr %12, align 8
+  %262 = load ptr, ptr %33, align 8
+  %263 = ptrtoint ptr %262 to i64
+  %264 = ptrtoint ptr @capture_android_bluetooth_hcidump.data to i64
+  %265 = sub i64 %263, %264
+  %266 = sub i64 %261, %265
+  store i64 %266, ptr %12, align 8
+  br label %269
 
-263:                                              ; preds = %242
-  br label %264
+267:                                              ; preds = %244
+  br label %268
 
-264:                                              ; preds = %263, %228, %220
-  br label %182, !llvm.loop !15
+268:                                              ; preds = %267, %230, %222
+  br label %184, !llvm.loop !15
 
-265:                                              ; preds = %249, %182
-  br label %266
+269:                                              ; preds = %251, %184
+  br label %270
 
-266:                                              ; preds = %265, %158
-  br label %267
+270:                                              ; preds = %269, %160
+  br label %271
 
-267:                                              ; preds = %613, %283, %266
-  %268 = load i32, ptr @endless_loop, align 4
-  %269 = icmp ne i32 %268, 0
-  br i1 %269, label %270, label %614
+271:                                              ; preds = %620, %287, %270
+  %272 = load i32, ptr @endless_loop, align 4
+  %273 = icmp ne i32 %272, 0
+  br i1 %273, label %274, label %621
 
-270:                                              ; preds = %267
-  %271 = call ptr @__errno_location() #14
-  store i32 0, ptr %271, align 4
-  %272 = load i32, ptr %13, align 4
-  %273 = load i64, ptr %12, align 8
-  %274 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %273
-  %275 = load i64, ptr %12, align 8
-  %276 = sub i64 65535, %275
-  %277 = trunc i64 %276 to i32
-  %278 = sext i32 %277 to i64
-  %279 = call i64 @recv(i32 noundef %272, ptr noundef %274, i64 noundef %278, i32 noundef 0)
-  store i64 %279, ptr %11, align 8
-  %280 = call ptr @__errno_location() #14
-  %281 = load i32, ptr %280, align 4
-  %282 = icmp eq i32 %281, 11
-  br i1 %282, label %283, label %284
+274:                                              ; preds = %271
+  %275 = call ptr @__errno_location() #14
+  store i32 0, ptr %275, align 4
+  %276 = load i32, ptr %13, align 4
+  %277 = load i64, ptr %12, align 8
+  %278 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %277
+  %279 = load i64, ptr %12, align 8
+  %280 = sub i64 65535, %279
+  %281 = trunc i64 %280 to i32
+  %282 = sext i32 %281 to i64
+  %283 = call i64 @recv(i32 noundef %276, ptr noundef %278, i64 noundef %282, i32 noundef 0)
+  store i64 %283, ptr %11, align 8
+  %284 = call ptr @__errno_location() #14
+  %285 = load i32, ptr %284, align 4
+  %286 = icmp eq i32 %285, 11
+  br i1 %286, label %287, label %288
 
-283:                                              ; preds = %270
-  br label %267, !llvm.loop !16
+287:                                              ; preds = %274
+  br label %271, !llvm.loop !16
 
-284:                                              ; preds = %270
-  %285 = call ptr @__errno_location() #14
-  %286 = load i32, ptr %285, align 4
-  %287 = icmp ne i32 %286, 0
-  br i1 %287, label %288, label %296
+288:                                              ; preds = %274
+  %289 = call ptr @__errno_location() #14
+  %290 = load i32, ptr %289, align 4
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %292, label %300
 
-288:                                              ; preds = %284
-  br label %289
-
-289:                                              ; preds = %288
-  %290 = call ptr @__errno_location() #14
-  %291 = load i32, ptr %290, align 4
-  %292 = call ptr @strerror(i32 noundef %291) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1487, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.162, ptr noundef %292)
+292:                                              ; preds = %288
   br label %293
 
-293:                                              ; preds = %289
-  %294 = load i32, ptr %13, align 4
-  %295 = call i32 @close(i32 noundef %294)
-  store i32 -1, ptr %5, align 4
-  br label %617
-
-296:                                              ; preds = %284
+293:                                              ; preds = %292
+  %294 = call ptr @__errno_location() #14
+  %295 = load i32, ptr %294, align 4
+  %296 = call ptr @strerror(i32 noundef %295) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1487, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.162, ptr noundef %296)
   br label %297
 
-297:                                              ; preds = %296
-  %298 = load i64, ptr %11, align 8
-  %299 = icmp sle i64 %298, 0
-  br i1 %299, label %300, label %305
+297:                                              ; preds = %293
+  %298 = load i32, ptr %13, align 4
+  %299 = call i32 @close(i32 noundef %298)
+  store i32 -1, ptr %5, align 4
+  br label %624
 
-300:                                              ; preds = %297
+300:                                              ; preds = %288
   br label %301
 
 301:                                              ; preds = %300
+  %302 = load i64, ptr %11, align 8
+  %303 = icmp sle i64 %302, 0
+  br i1 %303, label %304, label %309
+
+304:                                              ; preds = %301
+  br label %305
+
+305:                                              ; preds = %304
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1493, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.175)
-  br label %302
-
-302:                                              ; preds = %301
-  %303 = load i32, ptr %13, align 4
-  %304 = call i32 @close(i32 noundef %303)
-  store i32 -1, ptr %5, align 4
-  br label %617
-
-305:                                              ; preds = %297
   br label %306
 
-306:                                              ; preds = %555, %305
-  %307 = load i32, ptr @endless_loop, align 4
-  %308 = icmp ne i32 %307, 0
-  br i1 %308, label %309, label %613
-
-309:                                              ; preds = %306
-  %310 = load i64, ptr %12, align 8
-  %311 = load i64, ptr %11, align 8
-  %312 = add i64 %310, %311
-  %313 = icmp sge i64 %312, 1
-  br i1 %313, label %314, label %488
-
-314:                                              ; preds = %309
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr %21, align 8
-  %315 = load ptr, ptr %21, align 8
-  %316 = call i64 @g_ascii_strtoll(ptr noundef %315, ptr noundef %22, i32 noundef 16)
-  store i64 %316, ptr %20, align 8
-  %317 = load i64, ptr %20, align 8
-  %318 = icmp eq i64 %317, 1
-  br i1 %318, label %319, label %324
-
-319:                                              ; preds = %314
-  %320 = load i64, ptr %12, align 8
-  %321 = load i64, ptr %11, align 8
-  %322 = add i64 %320, %321
-  %323 = icmp sge i64 %322, 4
-  br i1 %323, label %340, label %324
-
-324:                                              ; preds = %319, %314
-  %325 = load i64, ptr %20, align 8
-  %326 = icmp eq i64 %325, 2
-  br i1 %326, label %327, label %332
-
-327:                                              ; preds = %324
-  %328 = load i64, ptr %12, align 8
-  %329 = load i64, ptr %11, align 8
-  %330 = add i64 %328, %329
-  %331 = icmp sge i64 %330, 5
-  br i1 %331, label %340, label %332
-
-332:                                              ; preds = %327, %324
-  %333 = load i64, ptr %20, align 8
-  %334 = icmp eq i64 %333, 4
-  br i1 %334, label %335, label %482
-
-335:                                              ; preds = %332
-  %336 = load i64, ptr %12, align 8
-  %337 = load i64, ptr %11, align 8
-  %338 = add i64 %336, %337
-  %339 = icmp sge i64 %338, 3
-  br i1 %339, label %340, label %482
-
-340:                                              ; preds = %335, %327, %319
-  %341 = load i64, ptr %20, align 8
-  %342 = icmp eq i64 %341, 1
-  br i1 %342, label %343, label %391
-
-343:                                              ; preds = %340
-  %344 = load ptr, ptr %22, align 8
-  store ptr %344, ptr %21, align 8
-  %345 = load ptr, ptr %21, align 8
-  %346 = call i64 @g_ascii_strtoll(ptr noundef %345, ptr noundef %22, i32 noundef 16)
-  store i64 %346, ptr %20, align 8
-  %347 = load i64, ptr %20, align 8
-  %348 = icmp slt i64 %347, 0
-  br i1 %348, label %356, label %349
-
-349:                                              ; preds = %343
-  %350 = load i64, ptr %20, align 8
-  %351 = icmp sge i64 %350, 256
-  br i1 %351, label %356, label %352
-
-352:                                              ; preds = %349
-  %353 = load ptr, ptr %21, align 8
-  %354 = load ptr, ptr %22, align 8
-  %355 = icmp eq ptr %353, %354
-  br i1 %355, label %356, label %364
-
-356:                                              ; preds = %352, %349, %343
-  br label %357
-
-357:                                              ; preds = %356
-  %358 = call ptr @__errno_location() #14
-  %359 = load i32, ptr %358, align 4
-  %360 = call ptr @strerror(i32 noundef %359) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1511, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %360)
-  br label %361
-
-361:                                              ; preds = %357
-  %362 = load i32, ptr %13, align 4
-  %363 = call i32 @close(i32 noundef %362)
+306:                                              ; preds = %305
+  %307 = load i32, ptr %13, align 4
+  %308 = call i32 @close(i32 noundef %307)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-364:                                              ; preds = %352
-  %365 = load ptr, ptr %22, align 8
-  store ptr %365, ptr %21, align 8
-  %366 = load ptr, ptr %21, align 8
-  %367 = call i64 @g_ascii_strtoll(ptr noundef %366, ptr noundef %22, i32 noundef 16)
-  store i64 %367, ptr %20, align 8
-  %368 = load i64, ptr %20, align 8
-  %369 = icmp slt i64 %368, 0
-  br i1 %369, label %377, label %370
+309:                                              ; preds = %301
+  br label %310
 
-370:                                              ; preds = %364
-  %371 = load i64, ptr %20, align 8
-  %372 = icmp sge i64 %371, 256
-  br i1 %372, label %377, label %373
+310:                                              ; preds = %562, %309
+  %311 = load i32, ptr @endless_loop, align 4
+  %312 = icmp ne i32 %311, 0
+  br i1 %312, label %313, label %620
 
-373:                                              ; preds = %370
-  %374 = load ptr, ptr %21, align 8
-  %375 = load ptr, ptr %22, align 8
-  %376 = icmp eq ptr %374, %375
-  br i1 %376, label %377, label %385
+313:                                              ; preds = %310
+  %314 = load i64, ptr %12, align 8
+  %315 = load i64, ptr %11, align 8
+  %316 = add i64 %314, %315
+  %317 = icmp sge i64 %316, 1
+  br i1 %317, label %318, label %493
 
-377:                                              ; preds = %373, %370, %364
-  br label %378
+318:                                              ; preds = %313
+  %319 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 29
+  store ptr %319, ptr %21, align 8
+  %320 = load ptr, ptr %21, align 8
+  %321 = call i64 @g_ascii_strtoll(ptr noundef %320, ptr noundef %22, i32 noundef 16)
+  store i64 %321, ptr %20, align 8
+  %322 = load i64, ptr %20, align 8
+  %323 = icmp eq i64 %322, 1
+  br i1 %323, label %324, label %329
 
-378:                                              ; preds = %377
-  %379 = call ptr @__errno_location() #14
-  %380 = load i32, ptr %379, align 4
-  %381 = call ptr @strerror(i32 noundef %380) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1519, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %381)
-  br label %382
+324:                                              ; preds = %318
+  %325 = load i64, ptr %12, align 8
+  %326 = load i64, ptr %11, align 8
+  %327 = add i64 %325, %326
+  %328 = icmp sge i64 %327, 4
+  br i1 %328, label %345, label %329
 
-382:                                              ; preds = %378
-  %383 = load i32, ptr %13, align 4
-  %384 = call i32 @close(i32 noundef %383)
+329:                                              ; preds = %324, %318
+  %330 = load i64, ptr %20, align 8
+  %331 = icmp eq i64 %330, 2
+  br i1 %331, label %332, label %337
+
+332:                                              ; preds = %329
+  %333 = load i64, ptr %12, align 8
+  %334 = load i64, ptr %11, align 8
+  %335 = add i64 %333, %334
+  %336 = icmp sge i64 %335, 5
+  br i1 %336, label %345, label %337
+
+337:                                              ; preds = %332, %329
+  %338 = load i64, ptr %20, align 8
+  %339 = icmp eq i64 %338, 4
+  br i1 %339, label %340, label %487
+
+340:                                              ; preds = %337
+  %341 = load i64, ptr %12, align 8
+  %342 = load i64, ptr %11, align 8
+  %343 = add i64 %341, %342
+  %344 = icmp sge i64 %343, 3
+  br i1 %344, label %345, label %487
+
+345:                                              ; preds = %340, %332, %324
+  %346 = load i64, ptr %20, align 8
+  %347 = icmp eq i64 %346, 1
+  br i1 %347, label %348, label %396
+
+348:                                              ; preds = %345
+  %349 = load ptr, ptr %22, align 8
+  store ptr %349, ptr %21, align 8
+  %350 = load ptr, ptr %21, align 8
+  %351 = call i64 @g_ascii_strtoll(ptr noundef %350, ptr noundef %22, i32 noundef 16)
+  store i64 %351, ptr %20, align 8
+  %352 = load i64, ptr %20, align 8
+  %353 = icmp slt i64 %352, 0
+  br i1 %353, label %361, label %354
+
+354:                                              ; preds = %348
+  %355 = load i64, ptr %20, align 8
+  %356 = icmp sge i64 %355, 256
+  br i1 %356, label %361, label %357
+
+357:                                              ; preds = %354
+  %358 = load ptr, ptr %21, align 8
+  %359 = load ptr, ptr %22, align 8
+  %360 = icmp eq ptr %358, %359
+  br i1 %360, label %361, label %369
+
+361:                                              ; preds = %357, %354, %348
+  br label %362
+
+362:                                              ; preds = %361
+  %363 = call ptr @__errno_location() #14
+  %364 = load i32, ptr %363, align 4
+  %365 = call ptr @strerror(i32 noundef %364) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1511, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %365)
+  br label %366
+
+366:                                              ; preds = %362
+  %367 = load i32, ptr %13, align 4
+  %368 = call i32 @close(i32 noundef %367)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-385:                                              ; preds = %373
-  %386 = load ptr, ptr %22, align 8
-  store ptr %386, ptr %21, align 8
-  %387 = load ptr, ptr %21, align 8
-  %388 = call i64 @g_ascii_strtoll(ptr noundef %387, ptr noundef %22, i32 noundef 16)
-  store i64 %388, ptr %20, align 8
-  %389 = load i64, ptr %20, align 8
-  %390 = add i64 %389, 4
-  store i64 %390, ptr %24, align 8
-  br label %481
+369:                                              ; preds = %357
+  %370 = load ptr, ptr %22, align 8
+  store ptr %370, ptr %21, align 8
+  %371 = load ptr, ptr %21, align 8
+  %372 = call i64 @g_ascii_strtoll(ptr noundef %371, ptr noundef %22, i32 noundef 16)
+  store i64 %372, ptr %20, align 8
+  %373 = load i64, ptr %20, align 8
+  %374 = icmp slt i64 %373, 0
+  br i1 %374, label %382, label %375
 
-391:                                              ; preds = %340
-  %392 = load i64, ptr %20, align 8
-  %393 = icmp eq i64 %392, 4
-  br i1 %393, label %394, label %421
+375:                                              ; preds = %369
+  %376 = load i64, ptr %20, align 8
+  %377 = icmp sge i64 %376, 256
+  br i1 %377, label %382, label %378
 
-394:                                              ; preds = %391
-  %395 = load ptr, ptr %22, align 8
-  store ptr %395, ptr %21, align 8
-  %396 = load ptr, ptr %21, align 8
-  %397 = call i64 @g_ascii_strtoll(ptr noundef %396, ptr noundef %22, i32 noundef 16)
-  store i64 %397, ptr %20, align 8
-  %398 = load i64, ptr %20, align 8
-  %399 = icmp slt i64 %398, 0
-  br i1 %399, label %407, label %400
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %21, align 8
+  %380 = load ptr, ptr %22, align 8
+  %381 = icmp eq ptr %379, %380
+  br i1 %381, label %382, label %390
 
-400:                                              ; preds = %394
-  %401 = load i64, ptr %20, align 8
-  %402 = icmp sge i64 %401, 256
-  br i1 %402, label %407, label %403
+382:                                              ; preds = %378, %375, %369
+  br label %383
 
-403:                                              ; preds = %400
-  %404 = load ptr, ptr %21, align 8
-  %405 = load ptr, ptr %22, align 8
-  %406 = icmp eq ptr %404, %405
-  br i1 %406, label %407, label %415
+383:                                              ; preds = %382
+  %384 = call ptr @__errno_location() #14
+  %385 = load i32, ptr %384, align 4
+  %386 = call ptr @strerror(i32 noundef %385) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1519, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %386)
+  br label %387
 
-407:                                              ; preds = %403, %400, %394
-  br label %408
-
-408:                                              ; preds = %407
-  %409 = call ptr @__errno_location() #14
-  %410 = load i32, ptr %409, align 4
-  %411 = call ptr @strerror(i32 noundef %410) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1532, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %411)
-  br label %412
-
-412:                                              ; preds = %408
-  %413 = load i32, ptr %13, align 4
-  %414 = call i32 @close(i32 noundef %413)
+387:                                              ; preds = %383
+  %388 = load i32, ptr %13, align 4
+  %389 = call i32 @close(i32 noundef %388)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-415:                                              ; preds = %403
-  %416 = load ptr, ptr %22, align 8
-  store ptr %416, ptr %21, align 8
-  %417 = load ptr, ptr %21, align 8
-  %418 = call i64 @g_ascii_strtoll(ptr noundef %417, ptr noundef %22, i32 noundef 16)
-  store i64 %418, ptr %20, align 8
-  %419 = load i64, ptr %20, align 8
-  %420 = add i64 %419, 3
-  store i64 %420, ptr %24, align 8
-  br label %480
+390:                                              ; preds = %378
+  %391 = load ptr, ptr %22, align 8
+  store ptr %391, ptr %21, align 8
+  %392 = load ptr, ptr %21, align 8
+  %393 = call i64 @g_ascii_strtoll(ptr noundef %392, ptr noundef %22, i32 noundef 16)
+  store i64 %393, ptr %20, align 8
+  %394 = load i64, ptr %20, align 8
+  %395 = add i64 %394, 4
+  store i64 %395, ptr %24, align 8
+  br label %486
 
-421:                                              ; preds = %391
-  %422 = load i64, ptr %20, align 8
-  %423 = icmp eq i64 %422, 2
-  br i1 %423, label %424, label %479
+396:                                              ; preds = %345
+  %397 = load i64, ptr %20, align 8
+  %398 = icmp eq i64 %397, 4
+  br i1 %398, label %399, label %426
 
-424:                                              ; preds = %421
-  %425 = load ptr, ptr %22, align 8
-  store ptr %425, ptr %21, align 8
-  %426 = load ptr, ptr %21, align 8
-  %427 = call i64 @g_ascii_strtoll(ptr noundef %426, ptr noundef %22, i32 noundef 16)
-  store i64 %427, ptr %20, align 8
-  %428 = load i64, ptr %20, align 8
-  %429 = icmp slt i64 %428, 0
-  br i1 %429, label %437, label %430
+399:                                              ; preds = %396
+  %400 = load ptr, ptr %22, align 8
+  store ptr %400, ptr %21, align 8
+  %401 = load ptr, ptr %21, align 8
+  %402 = call i64 @g_ascii_strtoll(ptr noundef %401, ptr noundef %22, i32 noundef 16)
+  store i64 %402, ptr %20, align 8
+  %403 = load i64, ptr %20, align 8
+  %404 = icmp slt i64 %403, 0
+  br i1 %404, label %412, label %405
 
-430:                                              ; preds = %424
-  %431 = load i64, ptr %20, align 8
-  %432 = icmp sge i64 %431, 256
-  br i1 %432, label %437, label %433
+405:                                              ; preds = %399
+  %406 = load i64, ptr %20, align 8
+  %407 = icmp sge i64 %406, 256
+  br i1 %407, label %412, label %408
 
-433:                                              ; preds = %430
-  %434 = load ptr, ptr %21, align 8
-  %435 = load ptr, ptr %22, align 8
-  %436 = icmp eq ptr %434, %435
-  br i1 %436, label %437, label %445
+408:                                              ; preds = %405
+  %409 = load ptr, ptr %21, align 8
+  %410 = load ptr, ptr %22, align 8
+  %411 = icmp eq ptr %409, %410
+  br i1 %411, label %412, label %420
 
-437:                                              ; preds = %433, %430, %424
-  br label %438
+412:                                              ; preds = %408, %405, %399
+  br label %413
 
-438:                                              ; preds = %437
-  %439 = call ptr @__errno_location() #14
-  %440 = load i32, ptr %439, align 4
-  %441 = call ptr @strerror(i32 noundef %440) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1545, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %441)
-  br label %442
+413:                                              ; preds = %412
+  %414 = call ptr @__errno_location() #14
+  %415 = load i32, ptr %414, align 4
+  %416 = call ptr @strerror(i32 noundef %415) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1532, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %416)
+  br label %417
 
-442:                                              ; preds = %438
-  %443 = load i32, ptr %13, align 4
-  %444 = call i32 @close(i32 noundef %443)
+417:                                              ; preds = %413
+  %418 = load i32, ptr %13, align 4
+  %419 = call i32 @close(i32 noundef %418)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-445:                                              ; preds = %433
-  %446 = load ptr, ptr %22, align 8
-  store ptr %446, ptr %21, align 8
-  %447 = load ptr, ptr %21, align 8
-  %448 = call i64 @g_ascii_strtoll(ptr noundef %447, ptr noundef %22, i32 noundef 16)
-  store i64 %448, ptr %20, align 8
-  %449 = load i64, ptr %20, align 8
-  %450 = icmp slt i64 %449, 0
-  br i1 %450, label %458, label %451
+420:                                              ; preds = %408
+  %421 = load ptr, ptr %22, align 8
+  store ptr %421, ptr %21, align 8
+  %422 = load ptr, ptr %21, align 8
+  %423 = call i64 @g_ascii_strtoll(ptr noundef %422, ptr noundef %22, i32 noundef 16)
+  store i64 %423, ptr %20, align 8
+  %424 = load i64, ptr %20, align 8
+  %425 = add i64 %424, 3
+  store i64 %425, ptr %24, align 8
+  br label %485
 
-451:                                              ; preds = %445
-  %452 = load i64, ptr %20, align 8
-  %453 = icmp sge i64 %452, 256
-  br i1 %453, label %458, label %454
+426:                                              ; preds = %396
+  %427 = load i64, ptr %20, align 8
+  %428 = icmp eq i64 %427, 2
+  br i1 %428, label %429, label %484
 
-454:                                              ; preds = %451
-  %455 = load ptr, ptr %21, align 8
-  %456 = load ptr, ptr %22, align 8
-  %457 = icmp eq ptr %455, %456
-  br i1 %457, label %458, label %466
+429:                                              ; preds = %426
+  %430 = load ptr, ptr %22, align 8
+  store ptr %430, ptr %21, align 8
+  %431 = load ptr, ptr %21, align 8
+  %432 = call i64 @g_ascii_strtoll(ptr noundef %431, ptr noundef %22, i32 noundef 16)
+  store i64 %432, ptr %20, align 8
+  %433 = load i64, ptr %20, align 8
+  %434 = icmp slt i64 %433, 0
+  br i1 %434, label %442, label %435
 
-458:                                              ; preds = %454, %451, %445
-  br label %459
+435:                                              ; preds = %429
+  %436 = load i64, ptr %20, align 8
+  %437 = icmp sge i64 %436, 256
+  br i1 %437, label %442, label %438
 
-459:                                              ; preds = %458
-  %460 = call ptr @__errno_location() #14
-  %461 = load i32, ptr %460, align 4
-  %462 = call ptr @strerror(i32 noundef %461) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1553, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %462)
-  br label %463
+438:                                              ; preds = %435
+  %439 = load ptr, ptr %21, align 8
+  %440 = load ptr, ptr %22, align 8
+  %441 = icmp eq ptr %439, %440
+  br i1 %441, label %442, label %450
 
-463:                                              ; preds = %459
-  %464 = load i32, ptr %13, align 4
-  %465 = call i32 @close(i32 noundef %464)
+442:                                              ; preds = %438, %435, %429
+  br label %443
+
+443:                                              ; preds = %442
+  %444 = call ptr @__errno_location() #14
+  %445 = load i32, ptr %444, align 4
+  %446 = call ptr @strerror(i32 noundef %445) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1545, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %446)
+  br label %447
+
+447:                                              ; preds = %443
+  %448 = load i32, ptr %13, align 4
+  %449 = call i32 @close(i32 noundef %448)
   store i32 -1, ptr %5, align 4
-  br label %617
+  br label %624
 
-466:                                              ; preds = %454
-  %467 = load ptr, ptr %22, align 8
-  store ptr %467, ptr %21, align 8
-  %468 = load ptr, ptr %21, align 8
-  %469 = call i64 @g_ascii_strtoll(ptr noundef %468, ptr noundef %22, i32 noundef 16)
-  store i64 %469, ptr %20, align 8
-  %470 = load i64, ptr %20, align 8
-  %471 = add i64 %470, 5
-  store i64 %471, ptr %24, align 8
+450:                                              ; preds = %438
+  %451 = load ptr, ptr %22, align 8
+  store ptr %451, ptr %21, align 8
+  %452 = load ptr, ptr %21, align 8
+  %453 = call i64 @g_ascii_strtoll(ptr noundef %452, ptr noundef %22, i32 noundef 16)
+  store i64 %453, ptr %20, align 8
+  %454 = load i64, ptr %20, align 8
+  %455 = icmp slt i64 %454, 0
+  br i1 %455, label %463, label %456
+
+456:                                              ; preds = %450
+  %457 = load i64, ptr %20, align 8
+  %458 = icmp sge i64 %457, 256
+  br i1 %458, label %463, label %459
+
+459:                                              ; preds = %456
+  %460 = load ptr, ptr %21, align 8
+  %461 = load ptr, ptr %22, align 8
+  %462 = icmp eq ptr %460, %461
+  br i1 %462, label %463, label %471
+
+463:                                              ; preds = %459, %456, %450
+  br label %464
+
+464:                                              ; preds = %463
+  %465 = call ptr @__errno_location() #14
+  %466 = load i32, ptr %465, align 4
+  %467 = call ptr @strerror(i32 noundef %466) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1553, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.183, ptr noundef %467)
+  br label %468
+
+468:                                              ; preds = %464
+  %469 = load i32, ptr %13, align 4
+  %470 = call i32 @close(i32 noundef %469)
+  store i32 -1, ptr %5, align 4
+  br label %624
+
+471:                                              ; preds = %459
   %472 = load ptr, ptr %22, align 8
   store ptr %472, ptr %21, align 8
   %473 = load ptr, ptr %21, align 8
   %474 = call i64 @g_ascii_strtoll(ptr noundef %473, ptr noundef %22, i32 noundef 16)
   store i64 %474, ptr %20, align 8
   %475 = load i64, ptr %20, align 8
-  %476 = shl i64 %475, 8
-  %477 = load i64, ptr %24, align 8
-  %478 = add i64 %477, %476
-  store i64 %478, ptr %24, align 8
-  br label %479
-
-479:                                              ; preds = %466, %421
-  br label %480
-
-480:                                              ; preds = %479, %415
-  br label %481
-
-481:                                              ; preds = %480, %385
-  br label %487
-
-482:                                              ; preds = %335, %332
-  br label %483
-
-483:                                              ; preds = %482
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1568, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.184)
+  %476 = add i64 %475, 5
+  store i64 %476, ptr %24, align 8
+  %477 = load ptr, ptr %22, align 8
+  store ptr %477, ptr %21, align 8
+  %478 = load ptr, ptr %21, align 8
+  %479 = call i64 @g_ascii_strtoll(ptr noundef %478, ptr noundef %22, i32 noundef 16)
+  store i64 %479, ptr %20, align 8
+  %480 = load i64, ptr %20, align 8
+  %481 = shl i64 %480, 8
+  %482 = load i64, ptr %24, align 8
+  %483 = add i64 %482, %481
+  store i64 %483, ptr %24, align 8
   br label %484
 
-484:                                              ; preds = %483
-  %485 = load i32, ptr %13, align 4
-  %486 = call i32 @close(i32 noundef %485)
-  store i32 -1, ptr %5, align 4
-  br label %617
+484:                                              ; preds = %471, %426
+  br label %485
 
-487:                                              ; preds = %481
+485:                                              ; preds = %484, %420
+  br label %486
+
+486:                                              ; preds = %485, %390
   br label %492
 
-488:                                              ; preds = %309
-  %489 = load i64, ptr %11, align 8
-  %490 = load i64, ptr %12, align 8
-  %491 = add i64 %490, %489
-  store i64 %491, ptr %12, align 8
-  br label %613
+487:                                              ; preds = %340, %337
+  br label %488
 
-492:                                              ; preds = %487
-  %493 = load i64, ptr %24, align 8
-  %494 = mul i64 %493, 3
-  %495 = load i64, ptr %24, align 8
-  %496 = sdiv i64 %495, 20
-  %497 = mul i64 %496, 4
-  %498 = add i64 %494, %497
-  %499 = load i64, ptr %24, align 8
-  %500 = srem i64 %499, 20
-  %501 = icmp ne i64 %500, 0
-  %502 = select i1 %501, i32 2, i32 -2
-  %503 = sext i32 %502 to i64
-  %504 = add i64 %498, %503
-  %505 = add i64 %504, 29
-  store i64 %505, ptr %25, align 8
-  %506 = load i64, ptr %12, align 8
-  %507 = load i64, ptr %11, align 8
-  %508 = add i64 %506, %507
-  %509 = load i64, ptr %25, align 8
-  %510 = icmp slt i64 %508, %509
-  br i1 %510, label %511, label %515
+488:                                              ; preds = %487
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1568, ptr noundef @__func__.capture_android_bluetooth_hcidump, ptr noundef @.str.184)
+  br label %489
 
-511:                                              ; preds = %492
+489:                                              ; preds = %488
+  %490 = load i32, ptr %13, align 4
+  %491 = call i32 @close(i32 noundef %490)
+  store i32 -1, ptr %5, align 4
+  br label %624
+
+492:                                              ; preds = %486
+  br label %497
+
+493:                                              ; preds = %313
+  %494 = load i64, ptr %11, align 8
+  %495 = load i64, ptr %12, align 8
+  %496 = add i64 %495, %494
+  store i64 %496, ptr %12, align 8
+  br label %620
+
+497:                                              ; preds = %492
+  %498 = load i64, ptr %24, align 8
+  %499 = mul i64 %498, 3
+  %500 = load i64, ptr %24, align 8
+  %501 = sdiv i64 %500, 20
+  %502 = mul i64 %501, 4
+  %503 = add i64 %499, %502
+  %504 = load i64, ptr %24, align 8
+  %505 = srem i64 %504, 20
+  %506 = icmp ne i64 %505, 0
+  %507 = select i1 %506, i32 2, i32 -2
+  %508 = sext i32 %507 to i64
+  %509 = add i64 %503, %508
+  %510 = add i64 %509, 29
+  store i64 %510, ptr %25, align 8
+  %511 = load i64, ptr %12, align 8
   %512 = load i64, ptr %11, align 8
-  %513 = load i64, ptr %12, align 8
-  %514 = add i64 %513, %512
-  store i64 %514, ptr %12, align 8
-  br label %613
+  %513 = add i64 %511, %512
+  %514 = load i64, ptr %25, align 8
+  %515 = icmp slt i64 %513, %514
+  br i1 %515, label %516, label %520
 
-515:                                              ; preds = %492
-  %516 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
-  %517 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 4
-  %518 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 3
-  %519 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 2
-  %520 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 1
-  %521 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 0
-  %522 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef @capture_android_bluetooth_hcidump.data, ptr noundef @.str.185, ptr noundef %516, ptr noundef %517, ptr noundef %518, ptr noundef %519, ptr noundef %520, ptr noundef %521, ptr noundef %26, ptr noundef %28) #13
-  %523 = icmp eq i32 8, %522
-  br i1 %523, label %524, label %535
+516:                                              ; preds = %497
+  %517 = load i64, ptr %11, align 8
+  %518 = load i64, ptr %12, align 8
+  %519 = add i64 %518, %517
+  store i64 %519, ptr %12, align 8
+  br label %620
 
-524:                                              ; preds = %515
-  br label %525
+520:                                              ; preds = %497
+  %521 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
+  %522 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 4
+  %523 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 3
+  %524 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 2
+  %525 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 1
+  %526 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 0
+  %527 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef @capture_android_bluetooth_hcidump.data, ptr noundef @.str.185, ptr noundef %521, ptr noundef %522, ptr noundef %523, ptr noundef %524, ptr noundef %525, ptr noundef %526, ptr noundef %26, ptr noundef %28) #13
+  %528 = icmp eq i32 8, %527
+  br i1 %528, label %529, label %541
 
-525:                                              ; preds = %524
-  br label %526
+529:                                              ; preds = %520
+  br label %530
 
-526:                                              ; preds = %525
-  %527 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 4
-  %528 = load i32, ptr %527, align 8
-  %529 = sub i32 %528, 1
-  store i32 %529, ptr %527, align 8
-  %530 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
-  %531 = load i32, ptr %530, align 4
-  %532 = sub i32 %531, 1900
-  store i32 %532, ptr %530, align 4
-  %533 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 8
-  store i32 -1, ptr %533, align 8
-  %534 = call i64 @mktime(ptr noundef %27) #13
-  store i64 %534, ptr %18, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr %22, align 8
-  br label %535
+530:                                              ; preds = %529
+  br label %531
 
-535:                                              ; preds = %526, %515
+531:                                              ; preds = %530
+  %532 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 4
+  %533 = load i32, ptr %532, align 8
+  %534 = sub i32 %533, 1
+  store i32 %534, ptr %532, align 8
+  %535 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
+  %536 = load i32, ptr %535, align 4
+  %537 = sub i32 %536, 1900
+  store i32 %537, ptr %535, align 4
+  %538 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 8
+  store i32 -1, ptr %538, align 8
+  %539 = call i64 @mktime(ptr noundef %27) #13
+  store i64 %539, ptr %18, align 8
+  %540 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 29
+  store ptr %540, ptr %22, align 8
+  br label %541
+
+541:                                              ; preds = %531, %520
   store i32 0, ptr %19, align 4
-  br label %536
+  br label %542
 
-536:                                              ; preds = %543, %535
-  %537 = load ptr, ptr %22, align 8
-  %538 = ptrtoint ptr %537 to i64
-  %539 = sub i64 %538, ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)
-  %540 = add i64 %539, 4
-  %541 = load i64, ptr %25, align 8
-  %542 = icmp slt i64 %540, %541
-  br i1 %542, label %543, label %555
+542:                                              ; preds = %550, %541
+  %543 = load ptr, ptr %22, align 8
+  %544 = ptrtoint ptr %543 to i64
+  %545 = ptrtoint ptr @capture_android_bluetooth_hcidump.data to i64
+  %546 = sub i64 %544, %545
+  %547 = add i64 %546, 4
+  %548 = load i64, ptr %25, align 8
+  %549 = icmp slt i64 %547, %548
+  br i1 %549, label %550, label %562
 
-543:                                              ; preds = %536
-  %544 = load ptr, ptr %22, align 8
-  store ptr %544, ptr %21, align 8
-  %545 = load ptr, ptr %21, align 8
-  %546 = call i64 @g_ascii_strtoll(ptr noundef %545, ptr noundef %22, i32 noundef 16)
-  store i64 %546, ptr %20, align 8
-  %547 = load i64, ptr %20, align 8
-  %548 = trunc i64 %547 to i8
-  %549 = load i32, ptr %19, align 4
-  %550 = zext i32 %549 to i64
-  %551 = add i64 4, %550
-  %552 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %551
-  store i8 %548, ptr %552, align 1
-  %553 = load i32, ptr %19, align 4
-  %554 = add i32 %553, 1
-  store i32 %554, ptr %19, align 4
-  br label %536, !llvm.loop !17
+550:                                              ; preds = %542
+  %551 = load ptr, ptr %22, align 8
+  store ptr %551, ptr %21, align 8
+  %552 = load ptr, ptr %21, align 8
+  %553 = call i64 @g_ascii_strtoll(ptr noundef %552, ptr noundef %22, i32 noundef 16)
+  store i64 %553, ptr %20, align 8
+  %554 = load i64, ptr %20, align 8
+  %555 = trunc i64 %554 to i8
+  %556 = load i32, ptr %19, align 4
+  %557 = zext i32 %556 to i64
+  %558 = add i64 4, %557
+  %559 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %558
+  store i8 %555, ptr %559, align 1
+  %560 = load i32, ptr %19, align 4
+  %561 = add i32 %560, 1
+  store i32 %561, ptr %19, align 4
+  br label %542, !llvm.loop !17
 
-555:                                              ; preds = %536
-  %556 = load i8, ptr %28, align 1
-  %557 = sext i8 %556 to i32
-  %558 = icmp eq i32 %557, 62
-  %559 = zext i1 %558 to i32
-  %560 = and i32 %559, 255
-  %561 = shl i32 %560, 24
-  %562 = load i8, ptr %28, align 1
-  %563 = sext i8 %562 to i32
-  %564 = icmp eq i32 %563, 62
-  %565 = zext i1 %564 to i32
-  %566 = and i32 %565, 65280
-  %567 = shl i32 %566, 8
-  %568 = or i32 %561, %567
+562:                                              ; preds = %542
+  %563 = load i8, ptr %28, align 1
+  %564 = sext i8 %563 to i32
+  %565 = icmp eq i32 %564, 62
+  %566 = zext i1 %565 to i32
+  %567 = and i32 %566, 255
+  %568 = shl i32 %567, 24
   %569 = load i8, ptr %28, align 1
   %570 = sext i8 %569 to i32
   %571 = icmp eq i32 %570, 62
   %572 = zext i1 %571 to i32
-  %573 = and i32 %572, 16711680
-  %574 = lshr i32 %573, 8
+  %573 = and i32 %572, 65280
+  %574 = shl i32 %573, 8
   %575 = or i32 %568, %574
   %576 = load i8, ptr %28, align 1
   %577 = sext i8 %576 to i32
   %578 = icmp eq i32 %577, 62
   %579 = zext i1 %578 to i32
-  %580 = and i32 %579, -16777216
-  %581 = lshr i32 %580, 24
+  %580 = and i32 %579, 16711680
+  %581 = lshr i32 %580, 8
   %582 = or i32 %575, %581
-  %583 = load ptr, ptr %23, align 8
-  %584 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %583, i32 0, i32 0
-  store i32 %582, ptr %584, align 4
-  %585 = load ptr, ptr %7, align 8
-  %586 = load i32, ptr %19, align 4
-  %587 = zext i32 %586 to i64
-  %588 = add i64 %587, 4
-  %589 = load i32, ptr %19, align 4
-  %590 = zext i32 %589 to i64
-  %591 = add i64 %590, 4
-  %592 = load i64, ptr %18, align 8
-  %593 = load i32, ptr %26, align 4
-  %594 = mul i32 %593, 1000
-  %595 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 0
-  %596 = load i32, ptr %595, align 8
-  %597 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 1
-  %598 = load ptr, ptr %597, align 8
-  %599 = call zeroext i1 @extcap_dumper_dump(i32 %596, ptr %598, ptr noundef %585, ptr noundef @capture_android_bluetooth_hcidump.packet, i64 noundef %588, i64 noundef %591, i64 noundef %592, i32 noundef %594)
-  %600 = zext i1 %599 to i32
-  store i32 %600, ptr @endless_loop, align 4
-  %601 = load i64, ptr %25, align 8
-  %602 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %601
-  %603 = load i64, ptr %12, align 8
-  %604 = load i64, ptr %11, align 8
-  %605 = add i64 %603, %604
-  %606 = load i64, ptr %25, align 8
-  %607 = sub i64 %605, %606
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %602, i64 %607, i1 false)
-  %608 = load i64, ptr %12, align 8
-  %609 = load i64, ptr %11, align 8
-  %610 = add i64 %608, %609
-  %611 = load i64, ptr %25, align 8
-  %612 = sub i64 %610, %611
-  store i64 %612, ptr %12, align 8
+  %583 = load i8, ptr %28, align 1
+  %584 = sext i8 %583 to i32
+  %585 = icmp eq i32 %584, 62
+  %586 = zext i1 %585 to i32
+  %587 = and i32 %586, -16777216
+  %588 = lshr i32 %587, 24
+  %589 = or i32 %582, %588
+  %590 = load ptr, ptr %23, align 8
+  %591 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %590, i32 0, i32 0
+  store i32 %589, ptr %591, align 4
+  %592 = load ptr, ptr %7, align 8
+  %593 = load i32, ptr %19, align 4
+  %594 = zext i32 %593 to i64
+  %595 = add i64 %594, 4
+  %596 = load i32, ptr %19, align 4
+  %597 = zext i32 %596 to i64
+  %598 = add i64 %597, 4
+  %599 = load i64, ptr %18, align 8
+  %600 = load i32, ptr %26, align 4
+  %601 = mul i32 %600, 1000
+  %602 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 0
+  %603 = load i32, ptr %602, align 8
+  %604 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 1
+  %605 = load ptr, ptr %604, align 8
+  %606 = call zeroext i1 @extcap_dumper_dump(i32 %603, ptr %605, ptr noundef %592, ptr noundef @capture_android_bluetooth_hcidump.packet, i64 noundef %595, i64 noundef %598, i64 noundef %599, i32 noundef %601)
+  %607 = zext i1 %606 to i32
+  store i32 %607, ptr @endless_loop, align 4
+  %608 = load i64, ptr %25, align 8
+  %609 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %608
+  %610 = load i64, ptr %12, align 8
+  %611 = load i64, ptr %11, align 8
+  %612 = add i64 %610, %611
+  %613 = load i64, ptr %25, align 8
+  %614 = sub i64 %612, %613
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %609, i64 %614, i1 false)
+  %615 = load i64, ptr %12, align 8
+  %616 = load i64, ptr %11, align 8
+  %617 = add i64 %615, %616
+  %618 = load i64, ptr %25, align 8
+  %619 = sub i64 %617, %618
+  store i64 %619, ptr %12, align 8
   store i64 0, ptr %11, align 8
-  br label %306, !llvm.loop !18
+  br label %310, !llvm.loop !18
 
-613:                                              ; preds = %511, %488, %306
-  br label %267, !llvm.loop !16
+620:                                              ; preds = %516, %493, %310
+  br label %271, !llvm.loop !16
 
-614:                                              ; preds = %267
-  %615 = load i32, ptr %13, align 4
-  %616 = call i32 @close(i32 noundef %615)
+621:                                              ; preds = %271
+  %622 = load i32, ptr %13, align 4
+  %623 = call i32 @close(i32 noundef %622)
   store i32 0, ptr %5, align 4
-  br label %617
+  br label %624
 
-617:                                              ; preds = %614, %484, %463, %442, %412, %382, %361, %302, %293, %239, %217, %208, %178, %168, %122, %98, %89, %59, %49
-  %618 = load i32, ptr %5, align 4
-  ret i32 %618
+624:                                              ; preds = %621, %489, %468, %447, %417, %387, %366, %306, %297, %241, %219, %210, %180, %170, %122, %98, %89, %59, %49
+  %625 = load i32, ptr %5, align 4
+  ret i32 %625
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4618,805 +4626,806 @@ define internal i32 @capture_android_bluetooth_external_parser(ptr noundef %0, p
   store i32 %5, ptr %15, align 4
   store ptr %6, ptr %16, align 8
   store ptr %7, ptr %17, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 4), ptr %20, align 8
-  %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr i8, ptr %38, i64 4
-  store ptr %39, ptr %22, align 8
+  %38 = getelementptr i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 4
+  store ptr %38, ptr %20, align 8
+  %39 = load ptr, ptr %20, align 8
+  %40 = getelementptr i8, ptr %39, i64 4
+  store ptr %40, ptr %22, align 8
   store ptr @.str.186, ptr %23, align 8
   store i64 0, ptr %26, align 8
   store ptr @capture_android_bluetooth_external_parser.buffer, ptr %33, align 8
-  %40 = load ptr, ptr %33, align 8
-  store ptr %40, ptr %19, align 8
-  %41 = load ptr, ptr %20, align 8
-  store ptr %41, ptr %34, align 8
-  %42 = load ptr, ptr %34, align 8
-  store ptr %42, ptr %21, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = call { i32, ptr } @extcap_dumper_open(ptr noundef %43, i32 noundef 99)
-  %45 = getelementptr inbounds { i32, ptr }, ptr %35, i32 0, i32 0
-  %46 = extractvalue { i32, ptr } %44, 0
-  store i32 %46, ptr %45, align 8
-  %47 = getelementptr inbounds { i32, ptr }, ptr %35, i32 0, i32 1
-  %48 = extractvalue { i32, ptr } %44, 1
-  store ptr %48, ptr %47, align 8
+  %41 = load ptr, ptr %33, align 8
+  store ptr %41, ptr %19, align 8
+  %42 = load ptr, ptr %20, align 8
+  store ptr %42, ptr %34, align 8
+  %43 = load ptr, ptr %34, align 8
+  store ptr %43, ptr %21, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = call { i32, ptr } @extcap_dumper_open(ptr noundef %44, i32 noundef 99)
+  %46 = getelementptr inbounds { i32, ptr }, ptr %35, i32 0, i32 0
+  %47 = extractvalue { i32, ptr } %45, 0
+  store i32 %47, ptr %46, align 8
+  %48 = getelementptr inbounds { i32, ptr }, ptr %35, i32 0, i32 1
+  %49 = extractvalue { i32, ptr } %45, 1
+  store ptr %49, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %35, i64 16, i1 false)
-  %49 = load ptr, ptr %10, align 8
-  %50 = call ptr @get_serial_from_interface(ptr noundef %49)
-  store ptr %50, ptr %31, align 8
-  %51 = load i32, ptr %15, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %137
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @get_serial_from_interface(ptr noundef %50)
+  store ptr %51, ptr %31, align 8
+  %52 = load i32, ptr %15, align 4
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %138
 
-53:                                               ; preds = %8
-  %54 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #13
-  store i32 %54, ptr %28, align 4
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %56, label %62
+54:                                               ; preds = %8
+  %55 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #13
+  store i32 %55, ptr %28, align 4
+  %56 = icmp eq i32 %55, -1
+  br i1 %56, label %57, label %63
 
-56:                                               ; preds = %53
-  br label %57
+57:                                               ; preds = %54
+  br label %58
 
-57:                                               ; preds = %56
-  %58 = call ptr @__errno_location() #14
-  %59 = load i32, ptr %58, align 4
-  %60 = call ptr @strerror(i32 noundef %59) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1699, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.104, ptr noundef %60)
-  br label %61
+58:                                               ; preds = %57
+  %59 = call ptr @__errno_location() #14
+  %60 = load i32, ptr %59, align 4
+  %61 = call ptr @strerror(i32 noundef %60) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1699, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.104, ptr noundef %61)
+  br label %62
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-62:                                               ; preds = %53
-  br label %63
-
-63:                                               ; preds = %62
+63:                                               ; preds = %54
   br label %64
 
 64:                                               ; preds = %63
-  %65 = load ptr, ptr %17, align 8
-  %66 = load i16, ptr %65, align 2
-  %67 = zext i16 %66 to i32
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %80
+  br label %65
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %31, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = load ptr, ptr %13, align 8
-  %73 = load ptr, ptr %17, align 8
-  %74 = load i16, ptr %73, align 2
-  %75 = load ptr, ptr %14, align 8
-  %76 = load i16, ptr %75, align 2
-  %77 = call i32 @adb_forward(ptr noundef %70, ptr noundef %71, ptr noundef %72, i16 noundef zeroext %74, i16 noundef zeroext %76)
-  store i32 %77, ptr %36, align 4
-  br label %78
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %17, align 8
+  %67 = load i16, ptr %66, align 2
+  %68 = zext i16 %67 to i32
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %81
 
-78:                                               ; preds = %69
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %31, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = load ptr, ptr %13, align 8
+  %74 = load ptr, ptr %17, align 8
+  %75 = load i16, ptr %74, align 2
+  %76 = load ptr, ptr %14, align 8
+  %77 = load i16, ptr %76, align 2
+  %78 = call i32 @adb_forward(ptr noundef %71, ptr noundef %72, ptr noundef %73, i16 noundef zeroext %75, i16 noundef zeroext %77)
+  store i32 %78, ptr %36, align 4
   br label %79
 
-79:                                               ; preds = %78
+79:                                               ; preds = %70
   br label %80
 
-80:                                               ; preds = %79, %64
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80, %65
   call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 16, i1 false)
-  %81 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 0
-  store i16 2, ptr %81, align 4
-  %82 = load ptr, ptr %17, align 8
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i32
-  %85 = ashr i32 %84, 8
-  %86 = trunc i32 %85 to i16
-  %87 = zext i16 %86 to i32
-  %88 = load ptr, ptr %17, align 8
-  %89 = load i16, ptr %88, align 2
-  %90 = zext i16 %89 to i32
-  %91 = shl i32 %90, 8
-  %92 = trunc i32 %91 to i16
-  %93 = zext i16 %92 to i32
-  %94 = or i32 %87, %93
-  %95 = trunc i32 %94 to i16
-  %96 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 1
-  store i16 %95, ptr %96, align 2
-  %97 = load ptr, ptr %16, align 8
-  %98 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 2
-  %99 = getelementptr inbounds %struct.in_addr, ptr %98, i32 0, i32 0
-  %100 = call zeroext i1 @ws_inet_pton4(ptr noundef %97, ptr noundef %99)
-  %101 = load i32, ptr %28, align 4
-  call void @useSndTimeout(i32 noundef %101)
+  %82 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 0
+  store i16 2, ptr %82, align 4
+  %83 = load ptr, ptr %17, align 8
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i32
+  %86 = ashr i32 %85, 8
+  %87 = trunc i32 %86 to i16
+  %88 = zext i16 %87 to i32
+  %89 = load ptr, ptr %17, align 8
+  %90 = load i16, ptr %89, align 2
+  %91 = zext i16 %90 to i32
+  %92 = shl i32 %91, 8
+  %93 = trunc i32 %92 to i16
+  %94 = zext i16 %93 to i32
+  %95 = or i32 %88, %94
+  %96 = trunc i32 %95 to i16
+  %97 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 1
+  store i16 %96, ptr %97, align 2
+  %98 = load ptr, ptr %16, align 8
+  %99 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 2
+  %100 = getelementptr inbounds %struct.in_addr, ptr %99, i32 0, i32 0
+  %101 = call zeroext i1 @ws_inet_pton4(ptr noundef %98, ptr noundef %100)
   %102 = load i32, ptr %28, align 4
-  %103 = call i32 @connect(i32 noundef %102, ptr noundef %29, i32 noundef 16)
-  %104 = icmp eq i32 %103, -1
-  br i1 %104, label %105, label %113
+  call void @useSndTimeout(i32 noundef %102)
+  %103 = load i32, ptr %28, align 4
+  %104 = call i32 @connect(i32 noundef %103, ptr noundef %29, i32 noundef 16)
+  %105 = icmp eq i32 %104, -1
+  br i1 %105, label %106, label %114
 
-105:                                              ; preds = %80
-  br label %106
+106:                                              ; preds = %81
+  br label %107
 
-106:                                              ; preds = %105
-  %107 = call ptr @__errno_location() #14
-  %108 = load i32, ptr %107, align 4
-  %109 = call ptr @strerror(i32 noundef %108) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1722, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.187, ptr noundef %109)
-  br label %110
+107:                                              ; preds = %106
+  %108 = call ptr @__errno_location() #14
+  %109 = load i32, ptr %108, align 4
+  %110 = call ptr @strerror(i32 noundef %109) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1722, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.187, ptr noundef %110)
+  br label %111
 
-110:                                              ; preds = %106
-  %111 = load i32, ptr %28, align 4
-  %112 = call i32 @close(i32 noundef %111)
+111:                                              ; preds = %107
+  %112 = load i32, ptr %28, align 4
+  %113 = call i32 @close(i32 noundef %112)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-113:                                              ; preds = %80
+114:                                              ; preds = %81
   store i32 16, ptr %24, align 4
-  %114 = load i32, ptr %28, align 4
-  %115 = call i32 @getsockname(i32 noundef %114, ptr noundef %32, ptr noundef %24) #13
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %125
+  %115 = load i32, ptr %28, align 4
+  %116 = call i32 @getsockname(i32 noundef %115, ptr noundef %32, ptr noundef %24) #13
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %126
 
-117:                                              ; preds = %113
-  br label %118
+118:                                              ; preds = %114
+  br label %119
 
-118:                                              ; preds = %117
-  %119 = call ptr @__errno_location() #14
-  %120 = load i32, ptr %119, align 4
-  %121 = call ptr @strerror(i32 noundef %120) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1729, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.105, ptr noundef %121)
-  br label %122
+119:                                              ; preds = %118
+  %120 = call ptr @__errno_location() #14
+  %121 = load i32, ptr %120, align 4
+  %122 = call ptr @strerror(i32 noundef %121) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1729, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.105, ptr noundef %122)
+  br label %123
 
-122:                                              ; preds = %118
-  %123 = load i32, ptr %28, align 4
-  %124 = call i32 @close(i32 noundef %123)
+123:                                              ; preds = %119
+  %124 = load i32, ptr %28, align 4
+  %125 = call i32 @close(i32 noundef %124)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-125:                                              ; preds = %113
-  %126 = load i32, ptr %24, align 4
-  %127 = zext i32 %126 to i64
-  %128 = icmp ne i64 %127, 16
-  br i1 %128, label %129, label %134
+126:                                              ; preds = %114
+  %127 = load i32, ptr %24, align 4
+  %128 = zext i32 %127 to i64
+  %129 = icmp ne i64 %128, 16
+  br i1 %129, label %130, label %135
 
-129:                                              ; preds = %125
-  br label %130
-
-130:                                              ; preds = %129
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1735, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.106)
+130:                                              ; preds = %126
   br label %131
 
 131:                                              ; preds = %130
-  %132 = load i32, ptr %28, align 4
-  %133 = call i32 @close(i32 noundef %132)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1735, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.106)
+  br label %132
+
+132:                                              ; preds = %131
+  %133 = load i32, ptr %28, align 4
+  %134 = call i32 @close(i32 noundef %133)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-134:                                              ; preds = %125
-  br label %135
-
-135:                                              ; preds = %134
+135:                                              ; preds = %126
   br label %136
 
 136:                                              ; preds = %135
-  br label %172
+  br label %137
 
-137:                                              ; preds = %8
-  %138 = load ptr, ptr %12, align 8
-  %139 = load ptr, ptr %13, align 8
-  %140 = load ptr, ptr %31, align 8
-  %141 = call i32 @adb_connect_transport(ptr noundef %138, ptr noundef %139, ptr noundef %140)
-  store i32 %141, ptr %28, align 4
-  %142 = load i32, ptr %28, align 4
-  %143 = icmp eq i32 %142, -1
-  br i1 %143, label %144, label %145
+137:                                              ; preds = %136
+  br label %173
 
-144:                                              ; preds = %137
+138:                                              ; preds = %8
+  %139 = load ptr, ptr %12, align 8
+  %140 = load ptr, ptr %13, align 8
+  %141 = load ptr, ptr %31, align 8
+  %142 = call i32 @adb_connect_transport(ptr noundef %139, ptr noundef %140, ptr noundef %141)
+  store i32 %142, ptr %28, align 4
+  %143 = load i32, ptr %28, align 4
+  %144 = icmp eq i32 %143, -1
+  br i1 %144, label %145, label %146
+
+145:                                              ; preds = %138
   store i32 40, ptr %9, align 4
-  br label %549
+  br label %550
 
-145:                                              ; preds = %137
-  %146 = load ptr, ptr %23, align 8
-  %147 = load ptr, ptr %14, align 8
-  %148 = load i16, ptr %147, align 2
-  %149 = zext i16 %148 to i32
-  %150 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @capture_android_bluetooth_external_parser.buffer, i64 noundef 65535, ptr noundef %146, i32 noundef %149) #13
-  store i32 %150, ptr %37, align 4
-  %151 = load i32, ptr %37, align 4
-  %152 = icmp sle i32 %151, 0
-  br i1 %152, label %156, label %153
+146:                                              ; preds = %138
+  %147 = load ptr, ptr %23, align 8
+  %148 = load ptr, ptr %14, align 8
+  %149 = load i16, ptr %148, align 2
+  %150 = zext i16 %149 to i32
+  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @capture_android_bluetooth_external_parser.buffer, i64 noundef 65535, ptr noundef %147, i32 noundef %150) #13
+  store i32 %151, ptr %37, align 4
+  %152 = load i32, ptr %37, align 4
+  %153 = icmp sle i32 %152, 0
+  br i1 %153, label %157, label %154
 
-153:                                              ; preds = %145
-  %154 = load i32, ptr %37, align 4
-  %155 = icmp sgt i32 %154, 65535
-  br i1 %155, label %156, label %161
+154:                                              ; preds = %146
+  %155 = load i32, ptr %37, align 4
+  %156 = icmp sgt i32 %155, 65535
+  br i1 %156, label %157, label %162
 
-156:                                              ; preds = %153, %145
-  br label %157
-
-157:                                              ; preds = %156
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1750, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.98)
+157:                                              ; preds = %154, %146
   br label %158
 
 158:                                              ; preds = %157
-  %159 = load i32, ptr %28, align 4
-  %160 = call i32 @close(i32 noundef %159)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1750, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.98)
+  br label %159
+
+159:                                              ; preds = %158
+  %160 = load i32, ptr %28, align 4
+  %161 = call i32 @close(i32 noundef %160)
   store i32 21, ptr %9, align 4
-  br label %549
+  br label %550
 
-161:                                              ; preds = %153
-  %162 = load i32, ptr %28, align 4
-  %163 = call i32 @adb_send(i32 noundef %162, ptr noundef @capture_android_bluetooth_external_parser.buffer)
-  store i32 %163, ptr %37, align 4
-  %164 = load i32, ptr %37, align 4
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %166, label %171
+162:                                              ; preds = %154
+  %163 = load i32, ptr %28, align 4
+  %164 = call i32 @adb_send(i32 noundef %163, ptr noundef @capture_android_bluetooth_external_parser.buffer)
+  store i32 %164, ptr %37, align 4
+  %165 = load i32, ptr %37, align 4
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %172
 
-166:                                              ; preds = %161
-  br label %167
-
-167:                                              ; preds = %166
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1757, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.188)
+167:                                              ; preds = %162
   br label %168
 
 168:                                              ; preds = %167
-  %169 = load i32, ptr %28, align 4
-  %170 = call i32 @close(i32 noundef %169)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1757, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.188)
+  br label %169
+
+169:                                              ; preds = %168
+  %170 = load i32, ptr %28, align 4
+  %171 = call i32 @close(i32 noundef %170)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-171:                                              ; preds = %161
-  br label %172
-
-172:                                              ; preds = %171, %136
+172:                                              ; preds = %162
   br label %173
 
-173:                                              ; preds = %545, %261, %189, %172
-  %174 = load i32, ptr @endless_loop, align 4
-  %175 = icmp ne i32 %174, 0
-  br i1 %175, label %176, label %546
+173:                                              ; preds = %172, %137
+  br label %174
 
-176:                                              ; preds = %173
-  %177 = call ptr @__errno_location() #14
-  store i32 0, ptr %177, align 4
-  %178 = load i32, ptr %28, align 4
-  %179 = load i64, ptr %26, align 8
-  %180 = getelementptr i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 %179
-  %181 = load i64, ptr %26, align 8
-  %182 = sub i64 65535, %181
-  %183 = trunc i64 %182 to i32
-  %184 = sext i32 %183 to i64
-  %185 = call i64 @recv(i32 noundef %178, ptr noundef %180, i64 noundef %184, i32 noundef 0)
-  store i64 %185, ptr %25, align 8
-  %186 = call ptr @__errno_location() #14
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp eq i32 %187, 11
-  br i1 %188, label %189, label %190
+174:                                              ; preds = %546, %262, %190, %173
+  %175 = load i32, ptr @endless_loop, align 4
+  %176 = icmp ne i32 %175, 0
+  br i1 %176, label %177, label %547
 
-189:                                              ; preds = %176
-  br label %173, !llvm.loop !19
+177:                                              ; preds = %174
+  %178 = call ptr @__errno_location() #14
+  store i32 0, ptr %178, align 4
+  %179 = load i32, ptr %28, align 4
+  %180 = load i64, ptr %26, align 8
+  %181 = getelementptr i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 %180
+  %182 = load i64, ptr %26, align 8
+  %183 = sub i64 65535, %182
+  %184 = trunc i64 %183 to i32
+  %185 = sext i32 %184 to i64
+  %186 = call i64 @recv(i32 noundef %179, ptr noundef %181, i64 noundef %185, i32 noundef 0)
+  store i64 %186, ptr %25, align 8
+  %187 = call ptr @__errno_location() #14
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %188, 11
+  br i1 %189, label %190, label %191
 
-190:                                              ; preds = %176
-  %191 = call ptr @__errno_location() #14
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %202
+190:                                              ; preds = %177
+  br label %174, !llvm.loop !19
 
-194:                                              ; preds = %190
-  br label %195
+191:                                              ; preds = %177
+  %192 = call ptr @__errno_location() #14
+  %193 = load i32, ptr %192, align 4
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %203
 
-195:                                              ; preds = %194
-  %196 = call ptr @__errno_location() #14
-  %197 = load i32, ptr %196, align 4
-  %198 = call ptr @strerror(i32 noundef %197) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1774, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.162, ptr noundef %198)
-  br label %199
+195:                                              ; preds = %191
+  br label %196
 
-199:                                              ; preds = %195
-  %200 = load i32, ptr %28, align 4
-  %201 = call i32 @close(i32 noundef %200)
+196:                                              ; preds = %195
+  %197 = call ptr @__errno_location() #14
+  %198 = load i32, ptr %197, align 4
+  %199 = call ptr @strerror(i32 noundef %198) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1774, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.162, ptr noundef %199)
+  br label %200
+
+200:                                              ; preds = %196
+  %201 = load i32, ptr %28, align 4
+  %202 = call i32 @close(i32 noundef %201)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-202:                                              ; preds = %190
-  br label %203
+203:                                              ; preds = %191
+  br label %204
 
-203:                                              ; preds = %202
-  %204 = load i64, ptr %25, align 8
-  %205 = icmp sle i64 %204, 0
-  br i1 %205, label %206, label %262
+204:                                              ; preds = %203
+  %205 = load i64, ptr %25, align 8
+  %206 = icmp sle i64 %205, 0
+  br i1 %206, label %207, label %263
 
-206:                                              ; preds = %203
-  %207 = load i32, ptr %15, align 4
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %256
+207:                                              ; preds = %204
+  %208 = load i32, ptr %15, align 4
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %210, label %257
 
-209:                                              ; preds = %206
-  br label %210
-
-210:                                              ; preds = %209
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1782, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.163)
+210:                                              ; preds = %207
   br label %211
 
 211:                                              ; preds = %210
-  %212 = load i32, ptr %28, align 4
-  %213 = call i32 @close(i32 noundef %212)
-  %214 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #13
-  store i32 %214, ptr %28, align 4
-  %215 = icmp eq i32 %214, -1
-  br i1 %215, label %216, label %222
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1782, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.163)
+  br label %212
 
-216:                                              ; preds = %211
-  br label %217
+212:                                              ; preds = %211
+  %213 = load i32, ptr %28, align 4
+  %214 = call i32 @close(i32 noundef %213)
+  %215 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #13
+  store i32 %215, ptr %28, align 4
+  %216 = icmp eq i32 %215, -1
+  br i1 %216, label %217, label %223
 
-217:                                              ; preds = %216
-  %218 = call ptr @__errno_location() #14
-  %219 = load i32, ptr %218, align 4
-  %220 = call ptr @strerror(i32 noundef %219) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1786, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.38, ptr noundef %220)
-  br label %221
+217:                                              ; preds = %212
+  br label %218
 
-221:                                              ; preds = %217
+218:                                              ; preds = %217
+  %219 = call ptr @__errno_location() #14
+  %220 = load i32, ptr %219, align 4
+  %221 = call ptr @strerror(i32 noundef %220) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1786, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.38, ptr noundef %221)
+  br label %222
+
+222:                                              ; preds = %218
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-222:                                              ; preds = %211
-  %223 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 0
-  store i16 2, ptr %223, align 4
-  %224 = load ptr, ptr %17, align 8
-  %225 = load i16, ptr %224, align 2
-  %226 = zext i16 %225 to i32
-  %227 = ashr i32 %226, 8
-  %228 = trunc i32 %227 to i16
-  %229 = zext i16 %228 to i32
-  %230 = load ptr, ptr %17, align 8
-  %231 = load i16, ptr %230, align 2
-  %232 = zext i16 %231 to i32
-  %233 = shl i32 %232, 8
-  %234 = trunc i32 %233 to i16
-  %235 = zext i16 %234 to i32
-  %236 = or i32 %229, %235
-  %237 = trunc i32 %236 to i16
-  %238 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 1
-  store i16 %237, ptr %238, align 2
-  %239 = load ptr, ptr %16, align 8
-  %240 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 2
-  %241 = getelementptr inbounds %struct.in_addr, ptr %240, i32 0, i32 0
-  %242 = call zeroext i1 @ws_inet_pton4(ptr noundef %239, ptr noundef %241)
-  %243 = load i32, ptr %28, align 4
-  call void @useSndTimeout(i32 noundef %243)
+223:                                              ; preds = %212
+  %224 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 0
+  store i16 2, ptr %224, align 4
+  %225 = load ptr, ptr %17, align 8
+  %226 = load i16, ptr %225, align 2
+  %227 = zext i16 %226 to i32
+  %228 = ashr i32 %227, 8
+  %229 = trunc i32 %228 to i16
+  %230 = zext i16 %229 to i32
+  %231 = load ptr, ptr %17, align 8
+  %232 = load i16, ptr %231, align 2
+  %233 = zext i16 %232 to i32
+  %234 = shl i32 %233, 8
+  %235 = trunc i32 %234 to i16
+  %236 = zext i16 %235 to i32
+  %237 = or i32 %230, %236
+  %238 = trunc i32 %237 to i16
+  %239 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 1
+  store i16 %238, ptr %239, align 2
+  %240 = load ptr, ptr %16, align 8
+  %241 = getelementptr inbounds %struct.sockaddr_in, ptr %29, i32 0, i32 2
+  %242 = getelementptr inbounds %struct.in_addr, ptr %241, i32 0, i32 0
+  %243 = call zeroext i1 @ws_inet_pton4(ptr noundef %240, ptr noundef %242)
   %244 = load i32, ptr %28, align 4
-  %245 = call i32 @connect(i32 noundef %244, ptr noundef %29, i32 noundef 16)
-  %246 = icmp eq i32 %245, -1
-  br i1 %246, label %247, label %255
+  call void @useSndTimeout(i32 noundef %244)
+  %245 = load i32, ptr %28, align 4
+  %246 = call i32 @connect(i32 noundef %245, ptr noundef %29, i32 noundef 16)
+  %247 = icmp eq i32 %246, -1
+  br i1 %247, label %248, label %256
 
-247:                                              ; preds = %222
-  br label %248
+248:                                              ; preds = %223
+  br label %249
 
-248:                                              ; preds = %247
-  %249 = call ptr @__errno_location() #14
-  %250 = load i32, ptr %249, align 4
-  %251 = call ptr @strerror(i32 noundef %250) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1797, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.189, ptr noundef %251)
-  br label %252
+249:                                              ; preds = %248
+  %250 = call ptr @__errno_location() #14
+  %251 = load i32, ptr %250, align 4
+  %252 = call ptr @strerror(i32 noundef %251) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1797, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.189, ptr noundef %252)
+  br label %253
 
-252:                                              ; preds = %248
-  %253 = load i32, ptr %28, align 4
-  %254 = call i32 @close(i32 noundef %253)
+253:                                              ; preds = %249
+  %254 = load i32, ptr %28, align 4
+  %255 = call i32 @close(i32 noundef %254)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-255:                                              ; preds = %222
-  br label %261
+256:                                              ; preds = %223
+  br label %262
 
-256:                                              ; preds = %206
-  br label %257
-
-257:                                              ; preds = %256
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1802, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.175)
+257:                                              ; preds = %207
   br label %258
 
 258:                                              ; preds = %257
-  %259 = load i32, ptr %28, align 4
-  %260 = call i32 @close(i32 noundef %259)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1802, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.175)
+  br label %259
+
+259:                                              ; preds = %258
+  %260 = load i32, ptr %28, align 4
+  %261 = call i32 @close(i32 noundef %260)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-261:                                              ; preds = %255
-  br label %173, !llvm.loop !19
+262:                                              ; preds = %256
+  br label %174, !llvm.loop !19
 
-262:                                              ; preds = %203
-  %263 = load i64, ptr %25, align 8
-  %264 = load i64, ptr %26, align 8
-  %265 = add i64 %264, %263
-  store i64 %265, ptr %26, align 8
-  br label %266
-
-266:                                              ; preds = %262
+263:                                              ; preds = %204
+  %264 = load i64, ptr %25, align 8
+  %265 = load i64, ptr %26, align 8
+  %266 = add i64 %265, %264
+  store i64 %266, ptr %26, align 8
   br label %267
 
-267:                                              ; preds = %266
+267:                                              ; preds = %263
   br label %268
 
-268:                                              ; preds = %540, %267
-  %269 = load ptr, ptr %22, align 8
-  %270 = getelementptr i8, ptr %269, i64 0
-  %271 = load i8, ptr %270, align 1
-  %272 = zext i8 %271 to i32
-  %273 = icmp eq i32 %272, 1
-  br i1 %273, label %280, label %274
+268:                                              ; preds = %267
+  br label %269
 
-274:                                              ; preds = %268
-  %275 = load ptr, ptr %22, align 8
-  %276 = getelementptr i8, ptr %275, i64 0
-  %277 = load i8, ptr %276, align 1
-  %278 = zext i8 %277 to i32
-  %279 = icmp eq i32 %278, 3
-  br i1 %279, label %280, label %293
+269:                                              ; preds = %541, %268
+  %270 = load ptr, ptr %22, align 8
+  %271 = getelementptr i8, ptr %270, i64 0
+  %272 = load i8, ptr %271, align 1
+  %273 = zext i8 %272 to i32
+  %274 = icmp eq i32 %273, 1
+  br i1 %274, label %281, label %275
 
-280:                                              ; preds = %274, %268
-  %281 = load i64, ptr %26, align 8
-  %282 = icmp sge i64 %281, 12
-  br i1 %282, label %283, label %293
+275:                                              ; preds = %269
+  %276 = load ptr, ptr %22, align 8
+  %277 = getelementptr i8, ptr %276, i64 0
+  %278 = load i8, ptr %277, align 1
+  %279 = zext i8 %278 to i32
+  %280 = icmp eq i32 %279, 3
+  br i1 %280, label %281, label %294
 
-283:                                              ; preds = %280
-  %284 = load ptr, ptr %22, align 8
-  %285 = getelementptr i8, ptr %284, i64 3
-  %286 = load i8, ptr %285, align 1
-  %287 = zext i8 %286 to i32
-  %288 = add i32 11, %287
-  %289 = add i32 %288, 1
-  %290 = sext i32 %289 to i64
-  %291 = load i64, ptr %26, align 8
-  %292 = icmp sle i64 %290, %291
-  br i1 %292, label %358, label %293
+281:                                              ; preds = %275, %269
+  %282 = load i64, ptr %26, align 8
+  %283 = icmp sge i64 %282, 12
+  br i1 %283, label %284, label %294
 
-293:                                              ; preds = %283, %280, %274
-  %294 = load ptr, ptr %22, align 8
-  %295 = getelementptr i8, ptr %294, i64 0
-  %296 = load i8, ptr %295, align 1
-  %297 = zext i8 %296 to i32
-  %298 = icmp eq i32 %297, 2
-  br i1 %298, label %299, label %318
+284:                                              ; preds = %281
+  %285 = load ptr, ptr %22, align 8
+  %286 = getelementptr i8, ptr %285, i64 3
+  %287 = load i8, ptr %286, align 1
+  %288 = zext i8 %287 to i32
+  %289 = add i32 11, %288
+  %290 = add i32 %289, 1
+  %291 = sext i32 %290 to i64
+  %292 = load i64, ptr %26, align 8
+  %293 = icmp sle i64 %291, %292
+  br i1 %293, label %359, label %294
 
-299:                                              ; preds = %293
-  %300 = load i64, ptr %26, align 8
-  %301 = icmp sge i64 %300, 13
-  br i1 %301, label %302, label %318
+294:                                              ; preds = %284, %281, %275
+  %295 = load ptr, ptr %22, align 8
+  %296 = getelementptr i8, ptr %295, i64 0
+  %297 = load i8, ptr %296, align 1
+  %298 = zext i8 %297 to i32
+  %299 = icmp eq i32 %298, 2
+  br i1 %299, label %300, label %319
 
-302:                                              ; preds = %299
-  %303 = load ptr, ptr %22, align 8
-  %304 = getelementptr i8, ptr %303, i64 3
-  %305 = load i8, ptr %304, align 1
-  %306 = zext i8 %305 to i32
-  %307 = add i32 11, %306
-  %308 = load ptr, ptr %22, align 8
-  %309 = getelementptr i8, ptr %308, i64 4
-  %310 = load i8, ptr %309, align 1
-  %311 = zext i8 %310 to i32
-  %312 = shl i32 %311, 8
-  %313 = add i32 %307, %312
-  %314 = add i32 %313, 2
-  %315 = sext i32 %314 to i64
-  %316 = load i64, ptr %26, align 8
-  %317 = icmp sle i64 %315, %316
-  br i1 %317, label %358, label %318
+300:                                              ; preds = %294
+  %301 = load i64, ptr %26, align 8
+  %302 = icmp sge i64 %301, 13
+  br i1 %302, label %303, label %319
 
-318:                                              ; preds = %302, %299, %293
-  %319 = load ptr, ptr %22, align 8
-  %320 = getelementptr i8, ptr %319, i64 0
-  %321 = load i8, ptr %320, align 1
-  %322 = zext i8 %321 to i32
-  %323 = icmp eq i32 %322, 3
-  br i1 %323, label %324, label %337
+303:                                              ; preds = %300
+  %304 = load ptr, ptr %22, align 8
+  %305 = getelementptr i8, ptr %304, i64 3
+  %306 = load i8, ptr %305, align 1
+  %307 = zext i8 %306 to i32
+  %308 = add i32 11, %307
+  %309 = load ptr, ptr %22, align 8
+  %310 = getelementptr i8, ptr %309, i64 4
+  %311 = load i8, ptr %310, align 1
+  %312 = zext i8 %311 to i32
+  %313 = shl i32 %312, 8
+  %314 = add i32 %308, %313
+  %315 = add i32 %314, 2
+  %316 = sext i32 %315 to i64
+  %317 = load i64, ptr %26, align 8
+  %318 = icmp sle i64 %316, %317
+  br i1 %318, label %359, label %319
 
-324:                                              ; preds = %318
-  %325 = load i64, ptr %26, align 8
-  %326 = icmp sge i64 %325, 12
-  br i1 %326, label %327, label %337
+319:                                              ; preds = %303, %300, %294
+  %320 = load ptr, ptr %22, align 8
+  %321 = getelementptr i8, ptr %320, i64 0
+  %322 = load i8, ptr %321, align 1
+  %323 = zext i8 %322 to i32
+  %324 = icmp eq i32 %323, 3
+  br i1 %324, label %325, label %338
 
-327:                                              ; preds = %324
-  %328 = load ptr, ptr %22, align 8
-  %329 = getelementptr i8, ptr %328, i64 3
-  %330 = load i8, ptr %329, align 1
-  %331 = zext i8 %330 to i32
-  %332 = add i32 11, %331
-  %333 = add i32 %332, 1
-  %334 = sext i32 %333 to i64
-  %335 = load i64, ptr %26, align 8
-  %336 = icmp sle i64 %334, %335
-  br i1 %336, label %358, label %337
+325:                                              ; preds = %319
+  %326 = load i64, ptr %26, align 8
+  %327 = icmp sge i64 %326, 12
+  br i1 %327, label %328, label %338
 
-337:                                              ; preds = %327, %324, %318
-  %338 = load ptr, ptr %22, align 8
-  %339 = getelementptr i8, ptr %338, i64 0
-  %340 = load i8, ptr %339, align 1
-  %341 = zext i8 %340 to i32
-  %342 = icmp eq i32 %341, 4
-  br i1 %342, label %343, label %356
+328:                                              ; preds = %325
+  %329 = load ptr, ptr %22, align 8
+  %330 = getelementptr i8, ptr %329, i64 3
+  %331 = load i8, ptr %330, align 1
+  %332 = zext i8 %331 to i32
+  %333 = add i32 11, %332
+  %334 = add i32 %333, 1
+  %335 = sext i32 %334 to i64
+  %336 = load i64, ptr %26, align 8
+  %337 = icmp sle i64 %335, %336
+  br i1 %337, label %359, label %338
 
-343:                                              ; preds = %337
-  %344 = load i64, ptr %26, align 8
-  %345 = icmp sge i64 %344, 11
-  br i1 %345, label %346, label %356
+338:                                              ; preds = %328, %325, %319
+  %339 = load ptr, ptr %22, align 8
+  %340 = getelementptr i8, ptr %339, i64 0
+  %341 = load i8, ptr %340, align 1
+  %342 = zext i8 %341 to i32
+  %343 = icmp eq i32 %342, 4
+  br i1 %343, label %344, label %357
 
-346:                                              ; preds = %343
-  %347 = load ptr, ptr %22, align 8
-  %348 = getelementptr i8, ptr %347, i64 2
-  %349 = load i8, ptr %348, align 1
-  %350 = zext i8 %349 to i32
-  %351 = add i32 10, %350
-  %352 = add i32 %351, 1
-  %353 = sext i32 %352 to i64
-  %354 = load i64, ptr %26, align 8
-  %355 = icmp sle i64 %353, %354
-  br label %356
+344:                                              ; preds = %338
+  %345 = load i64, ptr %26, align 8
+  %346 = icmp sge i64 %345, 11
+  br i1 %346, label %347, label %357
 
-356:                                              ; preds = %346, %343, %337
-  %357 = phi i1 [ false, %343 ], [ false, %337 ], [ %355, %346 ]
-  br label %358
+347:                                              ; preds = %344
+  %348 = load ptr, ptr %22, align 8
+  %349 = getelementptr i8, ptr %348, i64 2
+  %350 = load i8, ptr %349, align 1
+  %351 = zext i8 %350 to i32
+  %352 = add i32 10, %351
+  %353 = add i32 %352, 1
+  %354 = sext i32 %353 to i64
+  %355 = load i64, ptr %26, align 8
+  %356 = icmp sle i64 %354, %355
+  br label %357
 
-358:                                              ; preds = %356, %327, %302, %283
-  %359 = phi i1 [ true, %327 ], [ true, %302 ], [ true, %283 ], [ %357, %356 ]
-  br i1 %359, label %360, label %545
+357:                                              ; preds = %347, %344, %338
+  %358 = phi i1 [ false, %344 ], [ false, %338 ], [ %356, %347 ]
+  br label %359
 
-360:                                              ; preds = %358
-  %361 = load ptr, ptr %19, align 8
-  %362 = load i64, ptr %361, align 8
-  %363 = and i64 %362, 255
-  %364 = shl i64 %363, 56
-  %365 = load ptr, ptr %19, align 8
-  %366 = load i64, ptr %365, align 8
-  %367 = and i64 %366, 65280
-  %368 = shl i64 %367, 40
-  %369 = or i64 %364, %368
-  %370 = load ptr, ptr %19, align 8
-  %371 = load i64, ptr %370, align 8
-  %372 = and i64 %371, 16711680
-  %373 = shl i64 %372, 24
-  %374 = or i64 %369, %373
-  %375 = load ptr, ptr %19, align 8
-  %376 = load i64, ptr %375, align 8
-  %377 = and i64 %376, 4278190080
-  %378 = shl i64 %377, 8
-  %379 = or i64 %374, %378
-  %380 = load ptr, ptr %19, align 8
-  %381 = load i64, ptr %380, align 8
-  %382 = and i64 %381, 1095216660480
-  %383 = lshr i64 %382, 8
-  %384 = or i64 %379, %383
-  %385 = load ptr, ptr %19, align 8
-  %386 = load i64, ptr %385, align 8
-  %387 = and i64 %386, 280375465082880
-  %388 = lshr i64 %387, 24
-  %389 = or i64 %384, %388
-  %390 = load ptr, ptr %19, align 8
-  %391 = load i64, ptr %390, align 8
-  %392 = and i64 %391, 71776119061217280
-  %393 = lshr i64 %392, 40
-  %394 = or i64 %389, %393
-  %395 = load ptr, ptr %19, align 8
-  %396 = load i64, ptr %395, align 8
-  %397 = and i64 %396, -72057594037927936
-  %398 = lshr i64 %397, 56
-  %399 = or i64 %394, %398
-  store i64 %399, ptr %27, align 8
-  %400 = load ptr, ptr %22, align 8
-  %401 = getelementptr i8, ptr %400, i64 0
-  %402 = load i8, ptr %401, align 1
-  %403 = zext i8 %402 to i32
-  switch i32 %403, label %487 [
-    i32 1, label %404
-    i32 2, label %418
-    i32 3, label %452
-    i32 4, label %473
+359:                                              ; preds = %357, %328, %303, %284
+  %360 = phi i1 [ true, %328 ], [ true, %303 ], [ true, %284 ], [ %358, %357 ]
+  br i1 %360, label %361, label %546
+
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %19, align 8
+  %363 = load i64, ptr %362, align 8
+  %364 = and i64 %363, 255
+  %365 = shl i64 %364, 56
+  %366 = load ptr, ptr %19, align 8
+  %367 = load i64, ptr %366, align 8
+  %368 = and i64 %367, 65280
+  %369 = shl i64 %368, 40
+  %370 = or i64 %365, %369
+  %371 = load ptr, ptr %19, align 8
+  %372 = load i64, ptr %371, align 8
+  %373 = and i64 %372, 16711680
+  %374 = shl i64 %373, 24
+  %375 = or i64 %370, %374
+  %376 = load ptr, ptr %19, align 8
+  %377 = load i64, ptr %376, align 8
+  %378 = and i64 %377, 4278190080
+  %379 = shl i64 %378, 8
+  %380 = or i64 %375, %379
+  %381 = load ptr, ptr %19, align 8
+  %382 = load i64, ptr %381, align 8
+  %383 = and i64 %382, 1095216660480
+  %384 = lshr i64 %383, 8
+  %385 = or i64 %380, %384
+  %386 = load ptr, ptr %19, align 8
+  %387 = load i64, ptr %386, align 8
+  %388 = and i64 %387, 280375465082880
+  %389 = lshr i64 %388, 24
+  %390 = or i64 %385, %389
+  %391 = load ptr, ptr %19, align 8
+  %392 = load i64, ptr %391, align 8
+  %393 = and i64 %392, 71776119061217280
+  %394 = lshr i64 %393, 40
+  %395 = or i64 %390, %394
+  %396 = load ptr, ptr %19, align 8
+  %397 = load i64, ptr %396, align 8
+  %398 = and i64 %397, -72057594037927936
+  %399 = lshr i64 %398, 56
+  %400 = or i64 %395, %399
+  store i64 %400, ptr %27, align 8
+  %401 = load ptr, ptr %22, align 8
+  %402 = getelementptr i8, ptr %401, i64 0
+  %403 = load i8, ptr %402, align 1
+  %404 = zext i8 %403 to i32
+  switch i32 %404, label %488 [
+    i32 1, label %405
+    i32 2, label %419
+    i32 3, label %453
+    i32 4, label %474
   ]
 
-404:                                              ; preds = %360
-  %405 = load ptr, ptr %21, align 8
-  %406 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %405, i32 0, i32 0
-  store i32 0, ptr %406, align 4
-  %407 = load ptr, ptr %22, align 8
-  %408 = getelementptr i8, ptr %407, i64 3
-  %409 = load i8, ptr %408, align 1
-  %410 = zext i8 %409 to i32
-  %411 = add i32 4, %410
-  %412 = add i32 %411, 4
-  store i32 %412, ptr %30, align 4
-  %413 = load ptr, ptr %22, align 8
-  %414 = getelementptr i8, ptr %413, i64 3
-  %415 = load i8, ptr %414, align 1
-  %416 = zext i8 %415 to i64
-  %417 = add i64 8, %416
-  store i64 %417, ptr %25, align 8
-  br label %492
+405:                                              ; preds = %361
+  %406 = load ptr, ptr %21, align 8
+  %407 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %406, i32 0, i32 0
+  store i32 0, ptr %407, align 4
+  %408 = load ptr, ptr %22, align 8
+  %409 = getelementptr i8, ptr %408, i64 3
+  %410 = load i8, ptr %409, align 1
+  %411 = zext i8 %410 to i32
+  %412 = add i32 4, %411
+  %413 = add i32 %412, 4
+  store i32 %413, ptr %30, align 4
+  %414 = load ptr, ptr %22, align 8
+  %415 = getelementptr i8, ptr %414, i64 3
+  %416 = load i8, ptr %415, align 1
+  %417 = zext i8 %416 to i64
+  %418 = add i64 8, %417
+  store i64 %418, ptr %25, align 8
+  br label %493
 
-418:                                              ; preds = %360
-  %419 = load ptr, ptr %22, align 8
-  %420 = getelementptr i8, ptr %419, i64 2
-  %421 = load i8, ptr %420, align 1
-  %422 = zext i8 %421 to i32
-  %423 = and i32 %422, 128
-  %424 = icmp ne i32 %423, 0
-  %425 = select i1 %424, i32 16777216, i32 0
-  %426 = load ptr, ptr %21, align 8
-  %427 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %426, i32 0, i32 0
-  store i32 %425, ptr %427, align 4
-  %428 = load ptr, ptr %22, align 8
-  %429 = getelementptr i8, ptr %428, i64 3
-  %430 = load i8, ptr %429, align 1
-  %431 = zext i8 %430 to i32
-  %432 = add i32 4, %431
-  %433 = load ptr, ptr %22, align 8
-  %434 = getelementptr i8, ptr %433, i64 4
-  %435 = load i8, ptr %434, align 1
-  %436 = zext i8 %435 to i32
-  %437 = shl i32 %436, 8
-  %438 = add i32 %432, %437
-  %439 = add i32 %438, 5
-  store i32 %439, ptr %30, align 4
-  %440 = load ptr, ptr %22, align 8
-  %441 = getelementptr i8, ptr %440, i64 3
-  %442 = load i8, ptr %441, align 1
-  %443 = zext i8 %442 to i64
-  %444 = add i64 9, %443
-  %445 = load ptr, ptr %22, align 8
-  %446 = getelementptr i8, ptr %445, i64 4
-  %447 = load i8, ptr %446, align 1
-  %448 = zext i8 %447 to i32
-  %449 = shl i32 %448, 8
-  %450 = sext i32 %449 to i64
-  %451 = add i64 %444, %450
-  store i64 %451, ptr %25, align 8
-  br label %492
+419:                                              ; preds = %361
+  %420 = load ptr, ptr %22, align 8
+  %421 = getelementptr i8, ptr %420, i64 2
+  %422 = load i8, ptr %421, align 1
+  %423 = zext i8 %422 to i32
+  %424 = and i32 %423, 128
+  %425 = icmp ne i32 %424, 0
+  %426 = select i1 %425, i32 16777216, i32 0
+  %427 = load ptr, ptr %21, align 8
+  %428 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %427, i32 0, i32 0
+  store i32 %426, ptr %428, align 4
+  %429 = load ptr, ptr %22, align 8
+  %430 = getelementptr i8, ptr %429, i64 3
+  %431 = load i8, ptr %430, align 1
+  %432 = zext i8 %431 to i32
+  %433 = add i32 4, %432
+  %434 = load ptr, ptr %22, align 8
+  %435 = getelementptr i8, ptr %434, i64 4
+  %436 = load i8, ptr %435, align 1
+  %437 = zext i8 %436 to i32
+  %438 = shl i32 %437, 8
+  %439 = add i32 %433, %438
+  %440 = add i32 %439, 5
+  store i32 %440, ptr %30, align 4
+  %441 = load ptr, ptr %22, align 8
+  %442 = getelementptr i8, ptr %441, i64 3
+  %443 = load i8, ptr %442, align 1
+  %444 = zext i8 %443 to i64
+  %445 = add i64 9, %444
+  %446 = load ptr, ptr %22, align 8
+  %447 = getelementptr i8, ptr %446, i64 4
+  %448 = load i8, ptr %447, align 1
+  %449 = zext i8 %448 to i32
+  %450 = shl i32 %449, 8
+  %451 = sext i32 %450 to i64
+  %452 = add i64 %445, %451
+  store i64 %452, ptr %25, align 8
+  br label %493
 
-452:                                              ; preds = %360
-  %453 = load ptr, ptr %22, align 8
-  %454 = getelementptr i8, ptr %453, i64 2
-  %455 = load i8, ptr %454, align 1
-  %456 = zext i8 %455 to i32
-  %457 = and i32 %456, 128
-  %458 = icmp ne i32 %457, 0
-  %459 = select i1 %458, i32 16777216, i32 0
-  %460 = load ptr, ptr %21, align 8
-  %461 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %460, i32 0, i32 0
-  store i32 %459, ptr %461, align 4
-  %462 = load ptr, ptr %22, align 8
-  %463 = getelementptr i8, ptr %462, i64 3
-  %464 = load i8, ptr %463, align 1
-  %465 = zext i8 %464 to i32
-  %466 = add i32 4, %465
-  %467 = add i32 %466, 4
-  store i32 %467, ptr %30, align 4
-  %468 = load ptr, ptr %22, align 8
-  %469 = getelementptr i8, ptr %468, i64 3
-  %470 = load i8, ptr %469, align 1
-  %471 = zext i8 %470 to i64
-  %472 = add i64 8, %471
-  store i64 %472, ptr %25, align 8
-  br label %492
+453:                                              ; preds = %361
+  %454 = load ptr, ptr %22, align 8
+  %455 = getelementptr i8, ptr %454, i64 2
+  %456 = load i8, ptr %455, align 1
+  %457 = zext i8 %456 to i32
+  %458 = and i32 %457, 128
+  %459 = icmp ne i32 %458, 0
+  %460 = select i1 %459, i32 16777216, i32 0
+  %461 = load ptr, ptr %21, align 8
+  %462 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %461, i32 0, i32 0
+  store i32 %460, ptr %462, align 4
+  %463 = load ptr, ptr %22, align 8
+  %464 = getelementptr i8, ptr %463, i64 3
+  %465 = load i8, ptr %464, align 1
+  %466 = zext i8 %465 to i32
+  %467 = add i32 4, %466
+  %468 = add i32 %467, 4
+  store i32 %468, ptr %30, align 4
+  %469 = load ptr, ptr %22, align 8
+  %470 = getelementptr i8, ptr %469, i64 3
+  %471 = load i8, ptr %470, align 1
+  %472 = zext i8 %471 to i64
+  %473 = add i64 8, %472
+  store i64 %473, ptr %25, align 8
+  br label %493
 
-473:                                              ; preds = %360
-  %474 = load ptr, ptr %21, align 8
-  %475 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %474, i32 0, i32 0
-  store i32 16777216, ptr %475, align 4
-  %476 = load ptr, ptr %22, align 8
-  %477 = getelementptr i8, ptr %476, i64 2
-  %478 = load i8, ptr %477, align 1
-  %479 = zext i8 %478 to i32
-  %480 = add i32 4, %479
-  %481 = add i32 %480, 3
-  store i32 %481, ptr %30, align 4
-  %482 = load ptr, ptr %22, align 8
-  %483 = getelementptr i8, ptr %482, i64 2
-  %484 = load i8, ptr %483, align 1
-  %485 = zext i8 %484 to i64
-  %486 = add i64 7, %485
-  store i64 %486, ptr %25, align 8
-  br label %492
+474:                                              ; preds = %361
+  %475 = load ptr, ptr %21, align 8
+  %476 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %475, i32 0, i32 0
+  store i32 16777216, ptr %476, align 4
+  %477 = load ptr, ptr %22, align 8
+  %478 = getelementptr i8, ptr %477, i64 2
+  %479 = load i8, ptr %478, align 1
+  %480 = zext i8 %479 to i32
+  %481 = add i32 4, %480
+  %482 = add i32 %481, 3
+  store i32 %482, ptr %30, align 4
+  %483 = load ptr, ptr %22, align 8
+  %484 = getelementptr i8, ptr %483, i64 2
+  %485 = load i8, ptr %484, align 1
+  %486 = zext i8 %485 to i64
+  %487 = add i64 7, %486
+  store i64 %487, ptr %25, align 8
+  br label %493
 
-487:                                              ; preds = %360
-  br label %488
-
-488:                                              ; preds = %487
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1863, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.190)
+488:                                              ; preds = %361
   br label %489
 
 489:                                              ; preds = %488
-  %490 = load i32, ptr %28, align 4
-  %491 = call i32 @close(i32 noundef %490)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1863, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.190)
+  br label %490
+
+490:                                              ; preds = %489
+  %491 = load i32, ptr %28, align 4
+  %492 = call i32 @close(i32 noundef %491)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-492:                                              ; preds = %473, %452, %418, %404
-  br label %493
-
-493:                                              ; preds = %492
+493:                                              ; preds = %474, %453, %419, %405
   br label %494
 
 494:                                              ; preds = %493
-  %495 = load ptr, ptr %22, align 8
-  %496 = getelementptr i8, ptr %495, i64 0
-  %497 = load i8, ptr %496, align 1
-  %498 = zext i8 %497 to i32
-  %499 = icmp eq i32 %498, 4
-  br i1 %499, label %500, label %503
+  br label %495
 
-500:                                              ; preds = %494
-  br label %501
+495:                                              ; preds = %494
+  %496 = load ptr, ptr %22, align 8
+  %497 = getelementptr i8, ptr %496, i64 0
+  %498 = load i8, ptr %497, align 1
+  %499 = zext i8 %498 to i32
+  %500 = icmp eq i32 %499, 4
+  br i1 %500, label %501, label %504
 
-501:                                              ; preds = %500
+501:                                              ; preds = %495
   br label %502
 
 502:                                              ; preds = %501
   br label %503
 
-503:                                              ; preds = %502, %494
-  %504 = load i32, ptr @capture_android_bluetooth_external_parser.id, align 4
-  %505 = add i32 %504, 1
-  store i32 %505, ptr @capture_android_bluetooth_external_parser.id, align 4
-  %506 = load i64, ptr %27, align 8
-  %507 = sub i64 %506, 62168256000000000
-  store i64 %507, ptr %27, align 8
-  %508 = load ptr, ptr %11, align 8
-  %509 = load ptr, ptr %20, align 8
-  %510 = load i32, ptr %30, align 4
-  %511 = sext i32 %510 to i64
-  %512 = load i32, ptr %30, align 4
-  %513 = sext i32 %512 to i64
-  %514 = load i64, ptr %27, align 8
-  %515 = udiv i64 %514, 1000000
-  %516 = trunc i64 %515 to i32
-  %517 = zext i32 %516 to i64
-  %518 = load i64, ptr %27, align 8
-  %519 = urem i64 %518, 1000000
-  %520 = trunc i64 %519 to i32
-  %521 = mul i32 %520, 1000
-  %522 = getelementptr inbounds { i32, ptr }, ptr %18, i32 0, i32 0
-  %523 = load i32, ptr %522, align 8
-  %524 = getelementptr inbounds { i32, ptr }, ptr %18, i32 0, i32 1
-  %525 = load ptr, ptr %524, align 8
-  %526 = call zeroext i1 @extcap_dumper_dump(i32 %523, ptr %525, ptr noundef %508, ptr noundef %509, i64 noundef %511, i64 noundef %513, i64 noundef %517, i32 noundef %521)
-  %527 = zext i1 %526 to i32
-  store i32 %527, ptr @endless_loop, align 4
-  %528 = load i64, ptr %25, align 8
-  %529 = sub i64 %528, 4
-  %530 = add i64 %529, 8
-  %531 = load i64, ptr %26, align 8
-  %532 = sub i64 %531, %530
-  store i64 %532, ptr %26, align 8
-  %533 = load i64, ptr %26, align 8
-  %534 = icmp slt i64 %533, 0
-  br i1 %534, label %535, label %540
+503:                                              ; preds = %502
+  br label %504
 
-535:                                              ; preds = %503
-  br label %536
+504:                                              ; preds = %503, %495
+  %505 = load i32, ptr @capture_android_bluetooth_external_parser.id, align 4
+  %506 = add i32 %505, 1
+  store i32 %506, ptr @capture_android_bluetooth_external_parser.id, align 4
+  %507 = load i64, ptr %27, align 8
+  %508 = sub i64 %507, 62168256000000000
+  store i64 %508, ptr %27, align 8
+  %509 = load ptr, ptr %11, align 8
+  %510 = load ptr, ptr %20, align 8
+  %511 = load i32, ptr %30, align 4
+  %512 = sext i32 %511 to i64
+  %513 = load i32, ptr %30, align 4
+  %514 = sext i32 %513 to i64
+  %515 = load i64, ptr %27, align 8
+  %516 = udiv i64 %515, 1000000
+  %517 = trunc i64 %516 to i32
+  %518 = zext i32 %517 to i64
+  %519 = load i64, ptr %27, align 8
+  %520 = urem i64 %519, 1000000
+  %521 = trunc i64 %520 to i32
+  %522 = mul i32 %521, 1000
+  %523 = getelementptr inbounds { i32, ptr }, ptr %18, i32 0, i32 0
+  %524 = load i32, ptr %523, align 8
+  %525 = getelementptr inbounds { i32, ptr }, ptr %18, i32 0, i32 1
+  %526 = load ptr, ptr %525, align 8
+  %527 = call zeroext i1 @extcap_dumper_dump(i32 %524, ptr %526, ptr noundef %509, ptr noundef %510, i64 noundef %512, i64 noundef %514, i64 noundef %518, i32 noundef %522)
+  %528 = zext i1 %527 to i32
+  store i32 %528, ptr @endless_loop, align 4
+  %529 = load i64, ptr %25, align 8
+  %530 = sub i64 %529, 4
+  %531 = add i64 %530, 8
+  %532 = load i64, ptr %26, align 8
+  %533 = sub i64 %532, %531
+  store i64 %533, ptr %26, align 8
+  %534 = load i64, ptr %26, align 8
+  %535 = icmp slt i64 %534, 0
+  br i1 %535, label %536, label %541
 
-536:                                              ; preds = %535
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1883, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.191)
+536:                                              ; preds = %504
   br label %537
 
 537:                                              ; preds = %536
-  %538 = load i32, ptr %28, align 4
-  %539 = call i32 @close(i32 noundef %538)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1883, ptr noundef @__func__.capture_android_bluetooth_external_parser, ptr noundef @.str.191)
+  br label %538
+
+538:                                              ; preds = %537
+  %539 = load i32, ptr %28, align 4
+  %540 = call i32 @close(i32 noundef %539)
   store i32 -1, ptr %9, align 4
-  br label %549
+  br label %550
 
-540:                                              ; preds = %503
-  %541 = load ptr, ptr %20, align 8
-  %542 = load i64, ptr %25, align 8
-  %543 = getelementptr i8, ptr %541, i64 %542
-  %544 = load i64, ptr %26, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_external_parser.buffer, ptr align 1 %543, i64 %544, i1 false)
-  br label %268, !llvm.loop !20
+541:                                              ; preds = %504
+  %542 = load ptr, ptr %20, align 8
+  %543 = load i64, ptr %25, align 8
+  %544 = getelementptr i8, ptr %542, i64 %543
+  %545 = load i64, ptr %26, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 @capture_android_bluetooth_external_parser.buffer, ptr align 1 %544, i64 %545, i1 false)
+  br label %269, !llvm.loop !20
 
-545:                                              ; preds = %358
-  br label %173, !llvm.loop !19
+546:                                              ; preds = %359
+  br label %174, !llvm.loop !19
 
-546:                                              ; preds = %173
-  %547 = load i32, ptr %28, align 4
-  %548 = call i32 @close(i32 noundef %547)
+547:                                              ; preds = %174
+  %548 = load i32, ptr %28, align 4
+  %549 = call i32 @close(i32 noundef %548)
   store i32 0, ptr %9, align 4
-  br label %549
+  br label %550
 
-549:                                              ; preds = %546, %537, %489, %258, %252, %221, %199, %168, %158, %144, %131, %122, %110, %61
-  %550 = load i32, ptr %9, align 4
-  ret i32 %550
+550:                                              ; preds = %547, %538, %490, %259, %253, %222, %200, %169, %159, %145, %132, %123, %111, %62
+  %551 = load i32, ptr %9, align 4
+  ret i32 %551
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5453,460 +5462,466 @@ define internal i32 @capture_android_bluetooth_btsnoop_net(ptr noundef %0, ptr n
   store ptr %3, ptr %9, align 8
   store i64 0, ptr %12, align 8
   store ptr @.str.195, ptr %14, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28), ptr %22, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr %24, align 8
-  %31 = load ptr, ptr %24, align 8
-  store ptr %31, ptr %18, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8), ptr %25, align 8
-  %32 = load ptr, ptr %25, align 8
-  store ptr %32, ptr %19, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 12), ptr %26, align 8
-  %33 = load ptr, ptr %26, align 8
-  store ptr %33, ptr %20, align 8
-  store ptr getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 20), ptr %27, align 8
-  %34 = load ptr, ptr %27, align 8
-  store ptr %34, ptr %21, align 8
-  %35 = load ptr, ptr %22, align 8
-  %36 = getelementptr i8, ptr %35, i64 -4
-  store ptr %36, ptr %28, align 8
-  %37 = load ptr, ptr %28, align 8
-  store ptr %37, ptr %23, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = call { i32, ptr } @extcap_dumper_open(ptr noundef %38, i32 noundef 99)
-  %40 = getelementptr inbounds { i32, ptr }, ptr %29, i32 0, i32 0
-  %41 = extractvalue { i32, ptr } %39, 0
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds { i32, ptr }, ptr %29, i32 0, i32 1
-  %43 = extractvalue { i32, ptr } %39, 1
-  store ptr %43, ptr %42, align 8
+  %31 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28
+  store ptr %31, ptr %22, align 8
+  %32 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4
+  store ptr %32, ptr %24, align 8
+  %33 = load ptr, ptr %24, align 8
+  store ptr %33, ptr %18, align 8
+  %34 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8
+  store ptr %34, ptr %25, align 8
+  %35 = load ptr, ptr %25, align 8
+  store ptr %35, ptr %19, align 8
+  %36 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 12
+  store ptr %36, ptr %26, align 8
+  %37 = load ptr, ptr %26, align 8
+  store ptr %37, ptr %20, align 8
+  %38 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 20
+  store ptr %38, ptr %27, align 8
+  %39 = load ptr, ptr %27, align 8
+  store ptr %39, ptr %21, align 8
+  %40 = load ptr, ptr %22, align 8
+  %41 = getelementptr i8, ptr %40, i64 -4
+  store ptr %41, ptr %28, align 8
+  %42 = load ptr, ptr %28, align 8
+  store ptr %42, ptr %23, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = call { i32, ptr } @extcap_dumper_open(ptr noundef %43, i32 noundef 99)
+  %45 = getelementptr inbounds { i32, ptr }, ptr %29, i32 0, i32 0
+  %46 = extractvalue { i32, ptr } %44, 0
+  store i32 %46, ptr %45, align 8
+  %47 = getelementptr inbounds { i32, ptr }, ptr %29, i32 0, i32 1
+  %48 = extractvalue { i32, ptr } %44, 1
+  store ptr %48, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %29, i64 16, i1 false)
-  %44 = load ptr, ptr %6, align 8
-  %45 = call ptr @get_serial_from_interface(ptr noundef %44)
-  store ptr %45, ptr %16, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load ptr, ptr %16, align 8
-  %49 = call i32 @adb_connect_transport(ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  store i32 %49, ptr %13, align 4
-  %50 = load i32, ptr %13, align 4
-  %51 = icmp eq i32 %50, -1
-  br i1 %51, label %52, label %53
+  %49 = load ptr, ptr %6, align 8
+  %50 = call ptr @get_serial_from_interface(ptr noundef %49)
+  store ptr %50, ptr %16, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %16, align 8
+  %54 = call i32 @adb_connect_transport(ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  store i32 %54, ptr %13, align 4
+  %55 = load i32, ptr %13, align 4
+  %56 = icmp eq i32 %55, -1
+  br i1 %56, label %57, label %58
 
-52:                                               ; preds = %4
+57:                                               ; preds = %4
   store i32 41, ptr %5, align 4
-  br label %362
+  br label %368
 
-53:                                               ; preds = %4
-  %54 = load i32, ptr %13, align 4
-  %55 = load ptr, ptr %14, align 8
-  %56 = call i32 @adb_send(i32 noundef %54, ptr noundef %55)
-  store i32 %56, ptr %15, align 4
-  %57 = load i32, ptr %15, align 4
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %65
+58:                                               ; preds = %4
+  %59 = load i32, ptr %13, align 4
+  %60 = load ptr, ptr %14, align 8
+  %61 = call i32 @adb_send(i32 noundef %59, ptr noundef %60)
+  store i32 %61, ptr %15, align 4
+  %62 = load i32, ptr %15, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %70
 
-59:                                               ; preds = %53
-  br label %60
+64:                                               ; preds = %58
+  br label %65
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1934, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.161, ptr noundef %61)
-  br label %62
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1934, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.161, ptr noundef %66)
+  br label %67
 
-62:                                               ; preds = %60
-  %63 = load i32, ptr %13, align 4
-  %64 = call i32 @close(i32 noundef %63)
+67:                                               ; preds = %65
+  %68 = load i32, ptr %13, align 4
+  %69 = call i32 @close(i32 noundef %68)
   store i32 29, ptr %5, align 4
-  br label %362
+  br label %368
 
-65:                                               ; preds = %53
-  br label %66
+70:                                               ; preds = %58
+  br label %71
 
-66:                                               ; preds = %85, %65
-  %67 = load i64, ptr %12, align 8
-  %68 = icmp slt i64 %67, 16
-  br i1 %68, label %69, label %89
+71:                                               ; preds = %90, %70
+  %72 = load i64, ptr %12, align 8
+  %73 = icmp slt i64 %72, 16
+  br i1 %73, label %74, label %94
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %13, align 4
-  %71 = load i64, ptr %12, align 8
-  %72 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %71
-  %73 = load i64, ptr %12, align 8
-  %74 = sub i64 16, %73
-  %75 = trunc i64 %74 to i32
-  %76 = sext i32 %75 to i64
-  %77 = call i64 @recv(i32 noundef %70, ptr noundef %72, i64 noundef %76, i32 noundef 0)
-  store i64 %77, ptr %11, align 8
-  %78 = load i64, ptr %11, align 8
-  %79 = icmp sle i64 %78, 0
-  br i1 %79, label %80, label %85
+74:                                               ; preds = %71
+  %75 = load i32, ptr %13, align 4
+  %76 = load i64, ptr %12, align 8
+  %77 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %76
+  %78 = load i64, ptr %12, align 8
+  %79 = sub i64 16, %78
+  %80 = trunc i64 %79 to i32
+  %81 = sext i32 %80 to i64
+  %82 = call i64 @recv(i32 noundef %75, ptr noundef %77, i64 noundef %81, i32 noundef 0)
+  store i64 %82, ptr %11, align 8
+  %83 = load i64, ptr %11, align 8
+  %84 = icmp sle i64 %83, 0
+  br i1 %84, label %85, label %90
 
-80:                                               ; preds = %69
-  br label %81
+85:                                               ; preds = %74
+  br label %86
 
-81:                                               ; preds = %80
+86:                                               ; preds = %85
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1943, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.175)
-  br label %82
+  br label %87
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %13, align 4
-  %84 = call i32 @close(i32 noundef %83)
+87:                                               ; preds = %86
+  %88 = load i32, ptr %13, align 4
+  %89 = call i32 @close(i32 noundef %88)
   store i32 -1, ptr %5, align 4
-  br label %362
+  br label %368
 
-85:                                               ; preds = %69
-  %86 = load i64, ptr %11, align 8
-  %87 = load i64, ptr %12, align 8
-  %88 = add i64 %87, %86
-  store i64 %88, ptr %12, align 8
-  br label %66, !llvm.loop !21
+90:                                               ; preds = %74
+  %91 = load i64, ptr %11, align 8
+  %92 = load i64, ptr %12, align 8
+  %93 = add i64 %92, %91
+  store i64 %93, ptr %12, align 8
+  br label %71, !llvm.loop !21
 
-89:                                               ; preds = %66
+94:                                               ; preds = %71
   store i64 0, ptr %12, align 8
-  br label %90
+  br label %95
 
-90:                                               ; preds = %358, %107, %89
-  %91 = load i32, ptr @endless_loop, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %359
+95:                                               ; preds = %364, %112, %94
+  %96 = load i32, ptr @endless_loop, align 4
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %365
 
-93:                                               ; preds = %90
-  %94 = call ptr @__errno_location() #14
-  store i32 0, ptr %94, align 4
-  %95 = load i32, ptr %13, align 4
-  %96 = load i64, ptr %12, align 8
-  %97 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %96
-  %98 = getelementptr i8, ptr %97, i64 4
-  %99 = load i64, ptr %12, align 8
-  %100 = sub i64 65531, %99
-  %101 = trunc i64 %100 to i32
-  %102 = sext i32 %101 to i64
-  %103 = call i64 @recv(i32 noundef %95, ptr noundef %98, i64 noundef %102, i32 noundef 0)
-  store i64 %103, ptr %11, align 8
-  %104 = call ptr @__errno_location() #14
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, 11
-  br i1 %106, label %107, label %108
-
-107:                                              ; preds = %93
-  br label %90, !llvm.loop !22
-
-108:                                              ; preds = %93
+98:                                               ; preds = %95
+  %99 = call ptr @__errno_location() #14
+  store i32 0, ptr %99, align 4
+  %100 = load i32, ptr %13, align 4
+  %101 = load i64, ptr %12, align 8
+  %102 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 4
+  %104 = load i64, ptr %12, align 8
+  %105 = sub i64 65531, %104
+  %106 = trunc i64 %105 to i32
+  %107 = sext i32 %106 to i64
+  %108 = call i64 @recv(i32 noundef %100, ptr noundef %103, i64 noundef %107, i32 noundef 0)
+  store i64 %108, ptr %11, align 8
   %109 = call ptr @__errno_location() #14
   %110 = load i32, ptr %109, align 4
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %120
+  %111 = icmp eq i32 %110, 11
+  br i1 %111, label %112, label %113
 
-112:                                              ; preds = %108
-  br label %113
+112:                                              ; preds = %98
+  br label %95, !llvm.loop !22
 
-113:                                              ; preds = %112
+113:                                              ; preds = %98
   %114 = call ptr @__errno_location() #14
   %115 = load i32, ptr %114, align 4
-  %116 = call ptr @strerror(i32 noundef %115) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1963, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.162, ptr noundef %116)
-  br label %117
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %125
 
 117:                                              ; preds = %113
-  %118 = load i32, ptr %13, align 4
-  %119 = call i32 @close(i32 noundef %118)
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = call ptr @__errno_location() #14
+  %120 = load i32, ptr %119, align 4
+  %121 = call ptr @strerror(i32 noundef %120) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1963, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.162, ptr noundef %121)
+  br label %122
+
+122:                                              ; preds = %118
+  %123 = load i32, ptr %13, align 4
+  %124 = call i32 @close(i32 noundef %123)
   store i32 -1, ptr %5, align 4
-  br label %362
+  br label %368
 
-120:                                              ; preds = %108
-  br label %121
-
-121:                                              ; preds = %120
-  %122 = load i64, ptr %11, align 8
-  %123 = icmp sle i64 %122, 0
-  br i1 %123, label %124, label %129
-
-124:                                              ; preds = %121
-  br label %125
-
-125:                                              ; preds = %124
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1969, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.175)
+125:                                              ; preds = %113
   br label %126
 
 126:                                              ; preds = %125
-  %127 = load i32, ptr %13, align 4
-  %128 = call i32 @close(i32 noundef %127)
+  %127 = load i64, ptr %11, align 8
+  %128 = icmp sle i64 %127, 0
+  br i1 %128, label %129, label %134
+
+129:                                              ; preds = %126
+  br label %130
+
+130:                                              ; preds = %129
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1969, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.175)
+  br label %131
+
+131:                                              ; preds = %130
+  %132 = load i32, ptr %13, align 4
+  %133 = call i32 @close(i32 noundef %132)
   store i32 -1, ptr %5, align 4
-  br label %362
+  br label %368
 
-129:                                              ; preds = %121
-  %130 = load i64, ptr %11, align 8
-  %131 = load i64, ptr %12, align 8
-  %132 = add i64 %131, %130
-  store i64 %132, ptr %12, align 8
-  br label %133
+134:                                              ; preds = %126
+  %135 = load i64, ptr %11, align 8
+  %136 = load i64, ptr %12, align 8
+  %137 = add i64 %136, %135
+  store i64 %137, ptr %12, align 8
+  br label %138
 
-133:                                              ; preds = %357, %129
-  %134 = load i64, ptr %12, align 8
-  %135 = icmp sge i64 %134, 24
-  br i1 %135, label %136, label %160
+138:                                              ; preds = %363, %134
+  %139 = load i64, ptr %12, align 8
+  %140 = icmp sge i64 %139, 24
+  br i1 %140, label %141, label %165
 
-136:                                              ; preds = %133
-  %137 = load i64, ptr %12, align 8
-  %138 = load ptr, ptr %19, align 8
-  %139 = load i32, ptr %138, align 4
-  %140 = and i32 %139, 255
-  %141 = shl i32 %140, 24
-  %142 = load ptr, ptr %19, align 8
-  %143 = load i32, ptr %142, align 4
-  %144 = and i32 %143, 65280
-  %145 = shl i32 %144, 8
-  %146 = or i32 %141, %145
+141:                                              ; preds = %138
+  %142 = load i64, ptr %12, align 8
+  %143 = load ptr, ptr %19, align 8
+  %144 = load i32, ptr %143, align 4
+  %145 = and i32 %144, 255
+  %146 = shl i32 %145, 24
   %147 = load ptr, ptr %19, align 8
   %148 = load i32, ptr %147, align 4
-  %149 = and i32 %148, 16711680
-  %150 = lshr i32 %149, 8
+  %149 = and i32 %148, 65280
+  %150 = shl i32 %149, 8
   %151 = or i32 %146, %150
   %152 = load ptr, ptr %19, align 8
   %153 = load i32, ptr %152, align 4
-  %154 = and i32 %153, -16777216
-  %155 = lshr i32 %154, 24
+  %154 = and i32 %153, 16711680
+  %155 = lshr i32 %154, 8
   %156 = or i32 %151, %155
-  %157 = add i32 24, %156
-  %158 = sext i32 %157 to i64
-  %159 = icmp sge i64 %137, %158
-  br label %160
+  %157 = load ptr, ptr %19, align 8
+  %158 = load i32, ptr %157, align 4
+  %159 = and i32 %158, -16777216
+  %160 = lshr i32 %159, 24
+  %161 = or i32 %156, %160
+  %162 = add i32 24, %161
+  %163 = sext i32 %162 to i64
+  %164 = icmp sge i64 %142, %163
+  br label %165
 
-160:                                              ; preds = %136, %133
-  %161 = phi i1 [ false, %133 ], [ %159, %136 ]
-  br i1 %161, label %162, label %358
+165:                                              ; preds = %141, %138
+  %166 = phi i1 [ false, %138 ], [ %164, %141 ]
+  br i1 %166, label %167, label %364
 
-162:                                              ; preds = %160
-  %163 = load ptr, ptr %21, align 8
-  %164 = load i64, ptr %163, align 8
-  %165 = and i64 %164, 255
-  %166 = shl i64 %165, 56
-  %167 = load ptr, ptr %21, align 8
-  %168 = load i64, ptr %167, align 8
-  %169 = and i64 %168, 65280
-  %170 = shl i64 %169, 40
-  %171 = or i64 %166, %170
+167:                                              ; preds = %165
+  %168 = load ptr, ptr %21, align 8
+  %169 = load i64, ptr %168, align 8
+  %170 = and i64 %169, 255
+  %171 = shl i64 %170, 56
   %172 = load ptr, ptr %21, align 8
   %173 = load i64, ptr %172, align 8
-  %174 = and i64 %173, 16711680
-  %175 = shl i64 %174, 24
+  %174 = and i64 %173, 65280
+  %175 = shl i64 %174, 40
   %176 = or i64 %171, %175
   %177 = load ptr, ptr %21, align 8
   %178 = load i64, ptr %177, align 8
-  %179 = and i64 %178, 4278190080
-  %180 = shl i64 %179, 8
+  %179 = and i64 %178, 16711680
+  %180 = shl i64 %179, 24
   %181 = or i64 %176, %180
   %182 = load ptr, ptr %21, align 8
   %183 = load i64, ptr %182, align 8
-  %184 = and i64 %183, 1095216660480
-  %185 = lshr i64 %184, 8
+  %184 = and i64 %183, 4278190080
+  %185 = shl i64 %184, 8
   %186 = or i64 %181, %185
   %187 = load ptr, ptr %21, align 8
   %188 = load i64, ptr %187, align 8
-  %189 = and i64 %188, 280375465082880
-  %190 = lshr i64 %189, 24
+  %189 = and i64 %188, 1095216660480
+  %190 = lshr i64 %189, 8
   %191 = or i64 %186, %190
   %192 = load ptr, ptr %21, align 8
   %193 = load i64, ptr %192, align 8
-  %194 = and i64 %193, 71776119061217280
-  %195 = lshr i64 %194, 40
+  %194 = and i64 %193, 280375465082880
+  %195 = lshr i64 %194, 24
   %196 = or i64 %191, %195
   %197 = load ptr, ptr %21, align 8
   %198 = load i64, ptr %197, align 8
-  %199 = and i64 %198, -72057594037927936
-  %200 = lshr i64 %199, 56
+  %199 = and i64 %198, 71776119061217280
+  %200 = lshr i64 %199, 40
   %201 = or i64 %196, %200
-  store i64 %201, ptr %17, align 8
-  %202 = load i64, ptr %17, align 8
-  %203 = sub i64 %202, 62168256000000000
-  store i64 %203, ptr %17, align 8
-  %204 = load ptr, ptr %20, align 8
-  %205 = load i32, ptr %204, align 4
-  %206 = and i32 %205, 255
-  %207 = shl i32 %206, 24
-  %208 = load ptr, ptr %20, align 8
-  %209 = load i32, ptr %208, align 4
-  %210 = and i32 %209, 65280
-  %211 = shl i32 %210, 8
-  %212 = or i32 %207, %211
+  %202 = load ptr, ptr %21, align 8
+  %203 = load i64, ptr %202, align 8
+  %204 = and i64 %203, -72057594037927936
+  %205 = lshr i64 %204, 56
+  %206 = or i64 %201, %205
+  store i64 %206, ptr %17, align 8
+  %207 = load i64, ptr %17, align 8
+  %208 = sub i64 %207, 62168256000000000
+  store i64 %208, ptr %17, align 8
+  %209 = load ptr, ptr %20, align 8
+  %210 = load i32, ptr %209, align 4
+  %211 = and i32 %210, 255
+  %212 = shl i32 %211, 24
   %213 = load ptr, ptr %20, align 8
   %214 = load i32, ptr %213, align 4
-  %215 = and i32 %214, 16711680
-  %216 = lshr i32 %215, 8
+  %215 = and i32 %214, 65280
+  %216 = shl i32 %215, 8
   %217 = or i32 %212, %216
   %218 = load ptr, ptr %20, align 8
   %219 = load i32, ptr %218, align 4
-  %220 = and i32 %219, -16777216
-  %221 = lshr i32 %220, 24
+  %220 = and i32 %219, 16711680
+  %221 = lshr i32 %220, 8
   %222 = or i32 %217, %221
-  %223 = and i32 %222, 1
-  store i32 %223, ptr %30, align 4
-  %224 = load i32, ptr %30, align 4
-  %225 = and i32 %224, 255
-  %226 = shl i32 %225, 24
-  %227 = load i32, ptr %30, align 4
-  %228 = and i32 %227, 65280
-  %229 = shl i32 %228, 8
-  %230 = or i32 %226, %229
-  %231 = load i32, ptr %30, align 4
-  %232 = and i32 %231, 16711680
-  %233 = lshr i32 %232, 8
-  %234 = or i32 %230, %233
-  %235 = load i32, ptr %30, align 4
-  %236 = and i32 %235, -16777216
-  %237 = lshr i32 %236, 24
-  %238 = or i32 %234, %237
-  %239 = load ptr, ptr %23, align 8
-  %240 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %239, i32 0, i32 0
-  store i32 %238, ptr %240, align 4
-  %241 = load ptr, ptr %7, align 8
-  %242 = load ptr, ptr %22, align 8
-  %243 = getelementptr i8, ptr %242, i64 -4
-  %244 = load ptr, ptr %19, align 8
-  %245 = load i32, ptr %244, align 4
-  %246 = and i32 %245, 255
-  %247 = shl i32 %246, 24
-  %248 = load ptr, ptr %19, align 8
-  %249 = load i32, ptr %248, align 4
-  %250 = and i32 %249, 65280
-  %251 = shl i32 %250, 8
-  %252 = or i32 %247, %251
+  %223 = load ptr, ptr %20, align 8
+  %224 = load i32, ptr %223, align 4
+  %225 = and i32 %224, -16777216
+  %226 = lshr i32 %225, 24
+  %227 = or i32 %222, %226
+  %228 = and i32 %227, 1
+  store i32 %228, ptr %30, align 4
+  %229 = load i32, ptr %30, align 4
+  %230 = and i32 %229, 255
+  %231 = shl i32 %230, 24
+  %232 = load i32, ptr %30, align 4
+  %233 = and i32 %232, 65280
+  %234 = shl i32 %233, 8
+  %235 = or i32 %231, %234
+  %236 = load i32, ptr %30, align 4
+  %237 = and i32 %236, 16711680
+  %238 = lshr i32 %237, 8
+  %239 = or i32 %235, %238
+  %240 = load i32, ptr %30, align 4
+  %241 = and i32 %240, -16777216
+  %242 = lshr i32 %241, 24
+  %243 = or i32 %239, %242
+  %244 = load ptr, ptr %23, align 8
+  %245 = getelementptr inbounds %struct._own_pcap_bluetooth_h4_header, ptr %244, i32 0, i32 0
+  store i32 %243, ptr %245, align 4
+  %246 = load ptr, ptr %7, align 8
+  %247 = load ptr, ptr %22, align 8
+  %248 = getelementptr i8, ptr %247, i64 -4
+  %249 = load ptr, ptr %19, align 8
+  %250 = load i32, ptr %249, align 4
+  %251 = and i32 %250, 255
+  %252 = shl i32 %251, 24
   %253 = load ptr, ptr %19, align 8
   %254 = load i32, ptr %253, align 4
-  %255 = and i32 %254, 16711680
-  %256 = lshr i32 %255, 8
+  %255 = and i32 %254, 65280
+  %256 = shl i32 %255, 8
   %257 = or i32 %252, %256
   %258 = load ptr, ptr %19, align 8
   %259 = load i32, ptr %258, align 4
-  %260 = and i32 %259, -16777216
-  %261 = lshr i32 %260, 24
+  %260 = and i32 %259, 16711680
+  %261 = lshr i32 %260, 8
   %262 = or i32 %257, %261
-  %263 = sext i32 %262 to i64
-  %264 = add i64 %263, 4
-  %265 = load ptr, ptr %18, align 8
-  %266 = load i32, ptr %265, align 4
-  %267 = and i32 %266, 255
-  %268 = shl i32 %267, 24
-  %269 = load ptr, ptr %18, align 8
-  %270 = load i32, ptr %269, align 4
-  %271 = and i32 %270, 65280
-  %272 = shl i32 %271, 8
-  %273 = or i32 %268, %272
+  %263 = load ptr, ptr %19, align 8
+  %264 = load i32, ptr %263, align 4
+  %265 = and i32 %264, -16777216
+  %266 = lshr i32 %265, 24
+  %267 = or i32 %262, %266
+  %268 = sext i32 %267 to i64
+  %269 = add i64 %268, 4
+  %270 = load ptr, ptr %18, align 8
+  %271 = load i32, ptr %270, align 4
+  %272 = and i32 %271, 255
+  %273 = shl i32 %272, 24
   %274 = load ptr, ptr %18, align 8
   %275 = load i32, ptr %274, align 4
-  %276 = and i32 %275, 16711680
-  %277 = lshr i32 %276, 8
+  %276 = and i32 %275, 65280
+  %277 = shl i32 %276, 8
   %278 = or i32 %273, %277
   %279 = load ptr, ptr %18, align 8
   %280 = load i32, ptr %279, align 4
-  %281 = and i32 %280, -16777216
-  %282 = lshr i32 %281, 24
+  %281 = and i32 %280, 16711680
+  %282 = lshr i32 %281, 8
   %283 = or i32 %278, %282
-  %284 = sext i32 %283 to i64
-  %285 = add i64 %284, 4
-  %286 = load i64, ptr %17, align 8
-  %287 = udiv i64 %286, 1000000
-  %288 = trunc i64 %287 to i32
-  %289 = zext i32 %288 to i64
-  %290 = load i64, ptr %17, align 8
-  %291 = urem i64 %290, 1000000
-  %292 = trunc i64 %291 to i32
-  %293 = mul i32 %292, 1000
-  %294 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 0
-  %295 = load i32, ptr %294, align 8
-  %296 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 1
-  %297 = load ptr, ptr %296, align 8
-  %298 = call zeroext i1 @extcap_dumper_dump(i32 %295, ptr %297, ptr noundef %241, ptr noundef %243, i64 noundef %264, i64 noundef %285, i64 noundef %289, i32 noundef %293)
-  %299 = zext i1 %298 to i32
-  store i32 %299, ptr @endless_loop, align 4
-  %300 = load ptr, ptr %19, align 8
-  %301 = load i32, ptr %300, align 4
-  %302 = and i32 %301, 255
-  %303 = shl i32 %302, 24
-  %304 = load ptr, ptr %19, align 8
-  %305 = load i32, ptr %304, align 4
-  %306 = and i32 %305, 65280
-  %307 = shl i32 %306, 8
-  %308 = or i32 %303, %307
+  %284 = load ptr, ptr %18, align 8
+  %285 = load i32, ptr %284, align 4
+  %286 = and i32 %285, -16777216
+  %287 = lshr i32 %286, 24
+  %288 = or i32 %283, %287
+  %289 = sext i32 %288 to i64
+  %290 = add i64 %289, 4
+  %291 = load i64, ptr %17, align 8
+  %292 = udiv i64 %291, 1000000
+  %293 = trunc i64 %292 to i32
+  %294 = zext i32 %293 to i64
+  %295 = load i64, ptr %17, align 8
+  %296 = urem i64 %295, 1000000
+  %297 = trunc i64 %296 to i32
+  %298 = mul i32 %297, 1000
+  %299 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 0
+  %300 = load i32, ptr %299, align 8
+  %301 = getelementptr inbounds { i32, ptr }, ptr %10, i32 0, i32 1
+  %302 = load ptr, ptr %301, align 8
+  %303 = call zeroext i1 @extcap_dumper_dump(i32 %300, ptr %302, ptr noundef %246, ptr noundef %248, i64 noundef %269, i64 noundef %290, i64 noundef %294, i32 noundef %298)
+  %304 = zext i1 %303 to i32
+  store i32 %304, ptr @endless_loop, align 4
+  %305 = load ptr, ptr %19, align 8
+  %306 = load i32, ptr %305, align 4
+  %307 = and i32 %306, 255
+  %308 = shl i32 %307, 24
   %309 = load ptr, ptr %19, align 8
   %310 = load i32, ptr %309, align 4
-  %311 = and i32 %310, 16711680
-  %312 = lshr i32 %311, 8
+  %311 = and i32 %310, 65280
+  %312 = shl i32 %311, 8
   %313 = or i32 %308, %312
   %314 = load ptr, ptr %19, align 8
   %315 = load i32, ptr %314, align 4
-  %316 = and i32 %315, -16777216
-  %317 = lshr i32 %316, 24
+  %316 = and i32 %315, 16711680
+  %317 = lshr i32 %316, 8
   %318 = or i32 %313, %317
-  %319 = add i32 24, %318
-  %320 = sext i32 %319 to i64
-  %321 = load i64, ptr %12, align 8
-  %322 = sub i64 %321, %320
-  store i64 %322, ptr %12, align 8
-  %323 = load i64, ptr %12, align 8
-  %324 = icmp slt i64 %323, 0
-  br i1 %324, label %325, label %330
+  %319 = load ptr, ptr %19, align 8
+  %320 = load i32, ptr %319, align 4
+  %321 = and i32 %320, -16777216
+  %322 = lshr i32 %321, 24
+  %323 = or i32 %318, %322
+  %324 = add i32 24, %323
+  %325 = sext i32 %324 to i64
+  %326 = load i64, ptr %12, align 8
+  %327 = sub i64 %326, %325
+  store i64 %327, ptr %12, align 8
+  %328 = load i64, ptr %12, align 8
+  %329 = icmp slt i64 %328, 0
+  br i1 %329, label %330, label %335
 
-325:                                              ; preds = %162
-  br label %326
+330:                                              ; preds = %167
+  br label %331
 
-326:                                              ; preds = %325
+331:                                              ; preds = %330
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.1, i32 noundef 5, ptr noundef @.str.2, i64 noundef 1995, ptr noundef @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef @.str.191)
-  br label %327
+  br label %332
 
-327:                                              ; preds = %326
-  %328 = load i32, ptr %13, align 4
-  %329 = call i32 @close(i32 noundef %328)
+332:                                              ; preds = %331
+  %333 = load i32, ptr %13, align 4
+  %334 = call i32 @close(i32 noundef %333)
   store i32 -1, ptr %5, align 4
-  br label %362
+  br label %368
 
-330:                                              ; preds = %162
-  %331 = load i64, ptr %12, align 8
-  %332 = icmp sgt i64 %331, 0
-  br i1 %332, label %333, label %357
+335:                                              ; preds = %167
+  %336 = load i64, ptr %12, align 8
+  %337 = icmp sgt i64 %336, 0
+  br i1 %337, label %338, label %363
 
-333:                                              ; preds = %330
-  %334 = load ptr, ptr %22, align 8
-  %335 = load ptr, ptr %19, align 8
-  %336 = load i32, ptr %335, align 4
-  %337 = and i32 %336, 255
-  %338 = shl i32 %337, 24
-  %339 = load ptr, ptr %19, align 8
-  %340 = load i32, ptr %339, align 4
-  %341 = and i32 %340, 65280
-  %342 = shl i32 %341, 8
-  %343 = or i32 %338, %342
+338:                                              ; preds = %335
+  %339 = load ptr, ptr %22, align 8
+  %340 = load ptr, ptr %19, align 8
+  %341 = load i32, ptr %340, align 4
+  %342 = and i32 %341, 255
+  %343 = shl i32 %342, 24
   %344 = load ptr, ptr %19, align 8
   %345 = load i32, ptr %344, align 4
-  %346 = and i32 %345, 16711680
-  %347 = lshr i32 %346, 8
+  %346 = and i32 %345, 65280
+  %347 = shl i32 %346, 8
   %348 = or i32 %343, %347
   %349 = load ptr, ptr %19, align 8
   %350 = load i32, ptr %349, align 4
-  %351 = and i32 %350, -16777216
-  %352 = lshr i32 %351, 24
+  %351 = and i32 %350, 16711680
+  %352 = lshr i32 %351, 8
   %353 = or i32 %348, %352
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr i8, ptr %334, i64 %354
-  %356 = load i64, ptr %12, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 getelementptr (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr align 1 %355, i64 %356, i1 false)
-  br label %357
+  %354 = load ptr, ptr %19, align 8
+  %355 = load i32, ptr %354, align 4
+  %356 = and i32 %355, -16777216
+  %357 = lshr i32 %356, 24
+  %358 = or i32 %353, %357
+  %359 = sext i32 %358 to i64
+  %360 = getelementptr i8, ptr %339, i64 %359
+  %361 = load i64, ptr %12, align 8
+  %362 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %362, ptr align 1 %360, i64 %361, i1 false)
+  br label %363
 
-357:                                              ; preds = %333, %330
-  br label %133, !llvm.loop !23
+363:                                              ; preds = %338, %335
+  br label %138, !llvm.loop !23
 
-358:                                              ; preds = %160
-  br label %90, !llvm.loop !22
+364:                                              ; preds = %165
+  br label %95, !llvm.loop !22
 
-359:                                              ; preds = %90
-  %360 = load i32, ptr %13, align 4
-  %361 = call i32 @close(i32 noundef %360)
+365:                                              ; preds = %95
+  %366 = load i32, ptr %13, align 4
+  %367 = call i32 @close(i32 noundef %366)
   store i32 0, ptr %5, align 4
-  br label %362
+  br label %368
 
-362:                                              ; preds = %359, %327, %126, %117, %82, %62, %52
-  %363 = load i32, ptr %5, align 4
-  ret i32 %363
+368:                                              ; preds = %365, %332, %131, %122, %87, %67, %57
+  %369 = load i32, ptr %5, align 4
+  ret i32 %369
 }
 
 ; Function Attrs: nounwind uwtable

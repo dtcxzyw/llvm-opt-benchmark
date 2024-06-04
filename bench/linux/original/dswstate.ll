@@ -379,38 +379,39 @@ define dso_local noundef ptr @acpi_ds_create_walk_state(i16 noundef zeroext %0, 
   %7 = and i64 %6, 512
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i32 2336, i32 3520
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %11 = call noalias noundef align 8 dereferenceable_or_null(1128) ptr @kmalloc_trace(ptr noundef %10, i32 noundef %9, i64 noundef 1128) #8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %24, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noalias noundef align 8 dereferenceable_or_null(1128) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %9, i64 noundef 1128) #8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %25, label %14
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  store i8 12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 1008
-  store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
-  store i16 %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1048
-  store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 1104
-  store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr %1, ptr %19, align 8
-  call void @acpi_ds_method_data_init(ptr noundef nonnull %11) #7
-  %20 = icmp eq ptr %3, null
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store i8 12, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 1008
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  store i16 %0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 1048
+  store ptr %1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 1104
+  store ptr %3, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %12, i64 96
+  store ptr %1, ptr %20, align 8
+  call void @acpi_ds_method_data_init(ptr noundef nonnull %12) #7
+  %21 = icmp eq ptr %3, null
+  br i1 %21, label %25, label %22
 
-21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %11, align 8
-  store ptr %11, ptr %22, align 8
-  br label %24
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %12, align 8
+  store ptr %12, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %21, %13, %4
-  %25 = phi ptr [ null, %4 ], [ %11, %21 ], [ %11, %13 ]
-  ret ptr %25
+25:                                               ; preds = %22, %14, %4
+  %26 = phi ptr [ null, %4 ], [ %12, %22 ], [ %12, %14 ]
+  ret ptr %26
 }
 
 ; Function Attrs: null_pointer_is_valid

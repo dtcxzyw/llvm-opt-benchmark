@@ -99,7 +99,7 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
   %6 = getelementptr inbounds i8, ptr %5, i64 392
   %7 = load i16, ptr %6, align 8
   %8 = icmp ugt i16 %7, %1
-  br i1 %8, label %9, label %74
+  br i1 %8, label %9, label %76
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 384
@@ -115,7 +115,7 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
   %20 = getelementptr inbounds i8, ptr %13, i64 344
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %73, label %23
+  br i1 %22, label %75, label %23
 
 23:                                               ; preds = %9
   %24 = and i32 %2, 32768
@@ -125,7 +125,7 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %21, i64 148
   store i32 3, ptr %27, align 4
-  br label %73
+  br label %75
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %21, i64 144
@@ -137,7 +137,7 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
 
 34:                                               ; preds = %28
   tail call fastcc void @hsu_dma_start_channel(ptr noundef %13)
-  br label %73
+  br label %75
 
 35:                                               ; preds = %28
   %36 = load i32, ptr %21, align 8
@@ -195,7 +195,7 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
 
 67:                                               ; preds = %54
   store ptr null, ptr %20, align 8
-  br label %73
+  br label %75
 
 68:                                               ; preds = %54
   %69 = getelementptr inbounds i8, ptr %62, i64 8
@@ -204,19 +204,21 @@ define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, 
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %70, ptr %72, align 8
   store volatile ptr %71, ptr %70, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %62, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %69, align 8
+  %73 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %73, ptr %62, align 8
+  %74 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %74, ptr %69, align 8
   store ptr %64, ptr %20, align 8
   tail call fastcc void @hsu_dma_start_channel(ptr noundef %13)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %68, %67, %34, %26, %9
+75:                                               ; preds = %68, %67, %34, %26, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %19) #12
-  br label %74
+  br label %76
 
-74:                                               ; preds = %73, %3
-  %75 = phi i32 [ 1, %73 ], [ 0, %3 ]
-  ret i32 %75
+76:                                               ; preds = %75, %3
+  %77 = phi i32 [ 1, %75 ], [ 0, %3 ]
+  ret i32 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -592,98 +594,99 @@ define internal void @hsu_dma_free_chan_resources(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture readnone %5) #0 align 16 {
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 10496, i64 noundef 152) #16
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %17, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 10496, i64 noundef 152) #16
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %6
-  %11 = zext i32 %2 to i64
-  %12 = shl nuw nsw i64 %11, 4
-  %13 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %12, i32 noundef 10496) #17
-  %14 = getelementptr inbounds i8, ptr %8, i64 120
-  store ptr %13, ptr %14, align 8
-  %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17
+11:                                               ; preds = %6
+  %12 = zext i32 %2 to i64
+  %13 = shl nuw nsw i64 %12, 4
+  %14 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %13, i32 noundef 10496) #17
+  %15 = getelementptr inbounds i8, ptr %9, i64 120
+  store ptr %14, ptr %15, align 8
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %10
-  tail call void @kfree(ptr noundef nonnull %8) #12
-  br label %17
+17:                                               ; preds = %11
+  tail call void @kfree(ptr noundef nonnull %9) #12
+  br label %18
 
-17:                                               ; preds = %16, %10, %6
-  %18 = phi ptr [ null, %16 ], [ null, %6 ], [ %8, %10 ]
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %61, label %20
+18:                                               ; preds = %17, %11, %6
+  %19 = phi ptr [ null, %17 ], [ null, %6 ], [ %9, %11 ]
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %62, label %21
 
-20:                                               ; preds = %17
-  %21 = icmp eq i32 %2, 0
-  br i1 %21, label %44, label %22
+21:                                               ; preds = %18
+  %22 = icmp eq i32 %2, 0
+  br i1 %22, label %45, label %23
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %18, i64 120
-  %24 = getelementptr inbounds i8, ptr %18, i64 136
-  %25 = zext i32 %2 to i64
-  br label %26
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %19, i64 120
+  %25 = getelementptr inbounds i8, ptr %19, i64 136
+  %26 = zext i32 %2 to i64
+  br label %27
 
-26:                                               ; preds = %26, %22
-  %27 = phi i64 [ 0, %22 ], [ %41, %26 ]
-  %28 = phi ptr [ %1, %22 ], [ %42, %26 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr %struct.hsu_dma_sg, ptr %31, i64 %27
-  store i64 %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr %struct.hsu_dma_sg, ptr %35, i64 %27, i32 1
-  store i32 %34, ptr %36, align 8
-  %37 = load i32, ptr %33, align 8
-  %38 = zext i32 %37 to i64
-  %39 = load i64, ptr %24, align 8
-  %40 = add i64 %39, %38
-  store i64 %40, ptr %24, align 8
-  %41 = add nuw nsw i64 %27, 1
-  %42 = tail call ptr @sg_next(ptr noundef %28) #12
-  %43 = icmp eq i64 %41, %25
-  br i1 %43, label %44, label %26, !llvm.loop !19
+27:                                               ; preds = %27, %23
+  %28 = phi i64 [ 0, %23 ], [ %42, %27 ]
+  %29 = phi ptr [ %1, %23 ], [ %43, %27 ]
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr %struct.hsu_dma_sg, ptr %32, i64 %28
+  store i64 %31, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %29, i64 24
+  %35 = load i32, ptr %34, align 8
+  %36 = load ptr, ptr %24, align 8
+  %37 = getelementptr %struct.hsu_dma_sg, ptr %36, i64 %28, i32 1
+  store i32 %35, ptr %37, align 8
+  %38 = load i32, ptr %34, align 8
+  %39 = zext i32 %38 to i64
+  %40 = load i64, ptr %25, align 8
+  %41 = add i64 %40, %39
+  store i64 %41, ptr %25, align 8
+  %42 = add nuw nsw i64 %28, 1
+  %43 = tail call ptr @sg_next(ptr noundef %29) #12
+  %44 = icmp eq i64 %42, %26
+  br i1 %44, label %45, label %27, !llvm.loop !19
 
-44:                                               ; preds = %26, %20
-  %45 = getelementptr inbounds i8, ptr %18, i64 128
-  store i32 %2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %18, i64 112
-  store i32 %3, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 148
-  store i32 1, ptr %47, align 4
-  tail call void @dma_async_tx_descriptor_init(ptr noundef nonnull %18, ptr noundef %0) #12
-  %48 = trunc i64 %4 to i32
-  %49 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %18, i64 24
-  store ptr @vchan_tx_submit, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr @vchan_tx_desc_free, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %18, i64 88
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %18, i64 92
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 160
-  %55 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %54) #12
-  %56 = getelementptr inbounds i8, ptr %18, i64 96
-  %57 = getelementptr inbounds i8, ptr %0, i64 168
-  %58 = getelementptr inbounds i8, ptr %0, i64 176
-  %59 = load ptr, ptr %58, align 8
-  store ptr %56, ptr %58, align 8
-  store ptr %57, ptr %56, align 8
-  %60 = getelementptr inbounds i8, ptr %18, i64 104
-  store ptr %59, ptr %60, align 8
-  store volatile ptr %56, ptr %59, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %55) #12
-  br label %61
+45:                                               ; preds = %27, %21
+  %46 = getelementptr inbounds i8, ptr %19, i64 128
+  store i32 %2, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %19, i64 112
+  store i32 %3, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %19, i64 148
+  store i32 1, ptr %48, align 4
+  tail call void @dma_async_tx_descriptor_init(ptr noundef nonnull %19, ptr noundef %0) #12
+  %49 = trunc i64 %4 to i32
+  %50 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr @vchan_tx_submit, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr @vchan_tx_desc_free, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %19, i64 88
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %19, i64 92
+  store i32 0, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 160
+  %56 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %55) #12
+  %57 = getelementptr inbounds i8, ptr %19, i64 96
+  %58 = getelementptr inbounds i8, ptr %0, i64 168
+  %59 = getelementptr inbounds i8, ptr %0, i64 176
+  %60 = load ptr, ptr %59, align 8
+  store ptr %57, ptr %59, align 8
+  store ptr %58, ptr %57, align 8
+  %61 = getelementptr inbounds i8, ptr %19, i64 104
+  store ptr %60, ptr %61, align 8
+  store volatile ptr %57, ptr %60, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %55, i64 noundef %56) #12
+  br label %62
 
-61:                                               ; preds = %44, %17
-  %62 = phi ptr [ %18, %44 ], [ null, %17 ]
-  ret ptr %62
+62:                                               ; preds = %45, %18
+  %63 = phi ptr [ %19, %45 ], [ null, %18 ]
+  ret ptr %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -713,13 +716,13 @@ define internal void @hsu_dma_issue_pending(ptr noundef %0) #0 align 16 {
 14:                                               ; preds = %8, %1
   %15 = load volatile ptr, ptr %5, align 8
   %16 = icmp eq ptr %15, %5
-  br i1 %16, label %33, label %17
+  br i1 %16, label %35, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 344
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %33
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %17
   %22 = load volatile ptr, ptr %5, align 8
@@ -731,7 +734,7 @@ define internal void @hsu_dma_issue_pending(ptr noundef %0) #0 align 16 {
 
 27:                                               ; preds = %21
   store ptr null, ptr %18, align 8
-  br label %33
+  br label %35
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %22, i64 8
@@ -740,13 +743,15 @@ define internal void @hsu_dma_issue_pending(ptr noundef %0) #0 align 16 {
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %32, align 8
   store volatile ptr %31, ptr %30, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %22, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %29, align 8
+  %33 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %33, ptr %22, align 8
+  %34 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %34, ptr %29, align 8
   store ptr %24, ptr %18, align 8
   tail call fastcc void @hsu_dma_start_channel(ptr noundef %0)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %28, %27, %17, %14
+35:                                               ; preds = %28, %27, %17, %14
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #12
   ret void
 }

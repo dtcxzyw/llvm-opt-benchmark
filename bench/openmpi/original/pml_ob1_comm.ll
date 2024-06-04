@@ -58,65 +58,67 @@ define internal void @mca_pml_ob1_comm_proc_construct(ptr noundef %0) #0 {
 
 14:                                               ; preds = %13
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %17 = icmp ne i32 %15, %16
-  br i1 %17, label %18, label %19
+  %16 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ne i32 %15, %17
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %14
+19:                                               ; preds = %14
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %14
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %20, i32 0, i32 6
-  %22 = getelementptr inbounds %struct.opal_object_t, ptr %21, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %22, align 8
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %23, i32 0, i32 6
-  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
-  store volatile i32 1, ptr %25, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %26, i32 0, i32 6
-  call void @opal_obj_run_constructors(ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %19
+20:                                               ; preds = %19, %14
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %21, i32 0, i32 6
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr %22, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %23, align 8
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %24, i32 0, i32 6
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr %25, i32 0, i32 1
+  store volatile i32 1, ptr %26, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %27, i32 0, i32 6
+  call void @opal_obj_run_constructors(ptr noundef %28)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %20
   br label %30
 
 30:                                               ; preds = %29
   br label %31
 
 31:                                               ; preds = %30
-  %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %34 = icmp ne i32 %32, %33
-  br i1 %34, label %35, label %36
+  br label %32
 
-35:                                               ; preds = %31
+32:                                               ; preds = %31
+  %33 = load i32, ptr @opal_class_init_epoch, align 4
+  %34 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ne i32 %33, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %36
+  br label %38
 
-36:                                               ; preds = %35, %31
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %37, i32 0, i32 7
-  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %39, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %40, i32 0, i32 7
-  %42 = getelementptr inbounds %struct.opal_object_t, ptr %41, i32 0, i32 1
-  store volatile i32 1, ptr %42, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %43, i32 0, i32 7
-  call void @opal_obj_run_constructors(ptr noundef %44)
-  br label %45
+38:                                               ; preds = %37, %32
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %39, i32 0, i32 7
+  %41 = getelementptr inbounds %struct.opal_object_t, ptr %40, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %41, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %42, i32 0, i32 7
+  %44 = getelementptr inbounds %struct.opal_object_t, ptr %43, i32 0, i32 1
+  store volatile i32 1, ptr %44, align 8
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds %struct.mca_pml_ob1_comm_proc_t, ptr %45, i32 0, i32 7
+  call void @opal_obj_run_constructors(ptr noundef %46)
+  br label %47
 
-45:                                               ; preds = %36
-  br label %46
+47:                                               ; preds = %38
+  br label %48
 
-46:                                               ; preds = %45
+48:                                               ; preds = %47
   ret void
 }
 
@@ -201,110 +203,113 @@ define internal void @mca_pml_ob1_comm_construct(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %10, i32 0, i32 3
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %13, i32 0, i32 3
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %16, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %11, i32 0, i32 3
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %17, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
+19:                                               ; preds = %10
   br label %20
 
 20:                                               ; preds = %19
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  br label %22
 
-25:                                               ; preds = %21
+22:                                               ; preds = %21
+  %23 = load i32, ptr @opal_class_init_epoch, align 4
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %27, i32 0, i32 2
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %30, i32 0, i32 2
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %33, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
-
-35:                                               ; preds = %26
-  br label %36
-
-36:                                               ; preds = %35
+28:                                               ; preds = %27, %22
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %29, i32 0, i32 2
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %31, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %32, i32 0, i32 2
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %35, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %36)
   br label %37
 
-37:                                               ; preds = %36
+37:                                               ; preds = %28
   br label %38
 
 38:                                               ; preds = %37
-  %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %42, label %43
+  br label %39
 
-42:                                               ; preds = %38
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i32, ptr @opal_class_init_epoch, align 4
+  %42 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 %41, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %40
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %43
+  br label %46
 
-43:                                               ; preds = %42, %38
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %44, i32 0, i32 4
-  %46 = getelementptr inbounds %struct.opal_object_t, ptr %45, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %46, align 8
+46:                                               ; preds = %45, %40
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %47, i32 0, i32 4
-  %49 = getelementptr inbounds %struct.opal_object_t, ptr %48, i32 0, i32 1
-  store volatile i32 1, ptr %49, align 8
+  %49 = getelementptr inbounds %struct.opal_object_t, ptr %48, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %49, align 8
   %50 = load ptr, ptr %2, align 8
   %51 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %50, i32 0, i32 4
-  call void @opal_obj_run_constructors(ptr noundef %51)
-  br label %52
+  %52 = getelementptr inbounds %struct.opal_object_t, ptr %51, i32 0, i32 1
+  store volatile i32 1, ptr %52, align 8
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %53, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %54)
+  br label %55
 
-52:                                               ; preds = %43
-  br label %53
+55:                                               ; preds = %46
+  br label %56
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %54, i32 0, i32 1
-  store volatile i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %56, i32 0, i32 5
-  store ptr null, ptr %57, align 8
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %58, i32 0, i32 7
-  store i64 0, ptr %59, align 8
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %60, i32 0, i32 6
-  store i64 0, ptr %61, align 8
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %2, align 8
+  %58 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %57, i32 0, i32 1
+  store volatile i32 0, ptr %58, align 8
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %59, i32 0, i32 5
+  store ptr null, ptr %60, align 8
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %61, i32 0, i32 7
+  store i64 0, ptr %62, align 8
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds %struct.mca_pml_comm_t, ptr %63, i32 0, i32 6
+  store i64 0, ptr %64, align 8
   ret void
 }
 

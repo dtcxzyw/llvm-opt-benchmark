@@ -1581,126 +1581,128 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 672
   %4 = load i32, ptr %3, align 16, !tbaa !115
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %84, label %6
+  br i1 %5, label %86, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %8 = getelementptr inbounds i8, ptr %7, i64 2696
-  %9 = load ptr, ptr %8, align 8, !tbaa !123
-  %10 = getelementptr inbounds i8, ptr %9, i64 344
-  %11 = load i32, ptr %10, align 8, !tbaa !124
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %84
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %8 = load ptr, ptr %7, align 8, !tbaa !116
+  %9 = getelementptr inbounds i8, ptr %8, i64 2696
+  %10 = load ptr, ptr %9, align 8, !tbaa !123
+  %11 = getelementptr inbounds i8, ptr %10, i64 344
+  %12 = load i32, ptr %11, align 8, !tbaa !124
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %86
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 704
-  %15 = load ptr, ptr %14, align 16, !tbaa !114
-  %16 = icmp eq i32 %1, 0
-  br i1 %16, label %59, label %17
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds i8, ptr %0, i64 704
+  %16 = load ptr, ptr %15, align 16, !tbaa !114
+  %17 = icmp eq i32 %1, 0
+  br i1 %17, label %61, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 776
-  %19 = load ptr, ptr %18, align 8, !tbaa !125
-  %20 = getelementptr inbounds i8, ptr %0, i64 760
-  %21 = load ptr, ptr %20, align 8, !tbaa !35
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = load i32, ptr %22, align 4, !tbaa !41
-  %24 = tail call ptr @dt_masks_get_from_id(ptr noundef nonnull %7, i32 noundef %23) #18
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %54, label %26
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %0, i64 776
+  %20 = load ptr, ptr %19, align 8, !tbaa !125
+  %21 = getelementptr inbounds i8, ptr %0, i64 760
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = load i32, ptr %23, align 4, !tbaa !41
+  %25 = tail call ptr @dt_masks_get_from_id(ptr noundef nonnull %8, i32 noundef %24) #18
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %56, label %27
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !40
-  %29 = and i32 %28, 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %54, label %31
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !40
+  %30 = and i32 %29, 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %56, label %32
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %24, align 8, !tbaa !30
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %54, label %34
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %25, align 8, !tbaa !30
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %56, label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %19, i64 600
-  %36 = load i32, ptr %35, align 8, !tbaa !126
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %39
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %20, i64 600
+  %37 = load i32, ptr %36, align 8, !tbaa !126
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %0, i32 noundef 1) #18
-  br label %39
+  br label %40
 
-39:                                               ; preds = %38, %34
-  %40 = getelementptr inbounds i8, ptr %15, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !128
-  %42 = tail call i64 @gtk_toggle_button_get_type() #22
-  %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %42) #18
-  %44 = load i32, ptr %35, align 8, !tbaa !126
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %52, label %46
+40:                                               ; preds = %39, %35
+  %41 = getelementptr inbounds i8, ptr %16, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !128
+  %43 = tail call i64 @gtk_toggle_button_get_type() #22
+  %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %43) #18
+  %45 = load i32, ptr %36, align 8, !tbaa !126
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %54, label %47
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %48 = getelementptr inbounds i8, ptr %47, i64 88
-  %49 = load ptr, ptr %48, align 8, !tbaa !130
-  %50 = icmp eq ptr %49, %0
-  %51 = zext i1 %50 to i32
-  br label %52
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %49 = load ptr, ptr %48, align 8, !tbaa !116
+  %50 = getelementptr inbounds i8, ptr %49, i64 88
+  %51 = load ptr, ptr %50, align 8, !tbaa !130
+  %52 = icmp eq ptr %51, %0
+  %53 = zext i1 %52 to i32
+  br label %54
 
-52:                                               ; preds = %46, %39
-  %53 = phi i32 [ 0, %39 ], [ %51, %46 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %43, i32 noundef %53) #18
-  br label %84
+54:                                               ; preds = %47, %40
+  %55 = phi i32 [ 0, %40 ], [ %53, %47 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %44, i32 noundef %55) #18
+  br label %86
 
-54:                                               ; preds = %31, %26, %17
-  %55 = getelementptr inbounds i8, ptr %15, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !128
-  %57 = tail call i64 @gtk_toggle_button_get_type() #22
-  %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %58, i32 noundef 0) #18
-  br label %84
+56:                                               ; preds = %32, %27, %18
+  %57 = getelementptr inbounds i8, ptr %16, i64 32
+  %58 = load ptr, ptr %57, align 8, !tbaa !128
+  %59 = tail call i64 @gtk_toggle_button_get_type() #22
+  %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %59) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %60, i32 noundef 0) #18
+  br label %86
 
-59:                                               ; preds = %13
-  %60 = getelementptr inbounds i8, ptr %7, i64 2136
-  %61 = load ptr, ptr %60, align 8, !tbaa !131
-  %62 = getelementptr inbounds i8, ptr %61, i64 152
-  %63 = load i32, ptr %62, align 8, !tbaa !132
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %70, label %65
+61:                                               ; preds = %14
+  %62 = getelementptr inbounds i8, ptr %8, i64 2136
+  %63 = load ptr, ptr %62, align 8, !tbaa !131
+  %64 = getelementptr inbounds i8, ptr %63, i64 152
+  %65 = load i32, ptr %64, align 8, !tbaa !132
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %72, label %67
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %61, i64 168
-  %67 = load ptr, ptr %66, align 8, !tbaa !134
-  %68 = icmp eq ptr %67, %0
-  br i1 %68, label %69, label %70
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %63, i64 168
+  %69 = load ptr, ptr %68, align 8, !tbaa !134
+  %70 = icmp eq ptr %69, %0
+  br i1 %70, label %71, label %72
 
-69:                                               ; preds = %65
+71:                                               ; preds = %67
   tail call void @dt_masks_change_form_gui(ptr noundef null) #18
-  br label %70
+  br label %72
 
-70:                                               ; preds = %69, %65, %59
-  %71 = getelementptr inbounds i8, ptr %15, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !135
-  %73 = tail call i64 @gtk_toggle_button_get_type() #22
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %73) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %74, i32 noundef 0) #18
-  %75 = getelementptr inbounds i8, ptr %15, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !136
-  %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %76, i64 noundef %73) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %77, i32 noundef 0) #18
-  %78 = getelementptr inbounds i8, ptr %15, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !137
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %73) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %80, i32 noundef 0) #18
-  %81 = getelementptr inbounds i8, ptr %15, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !128
-  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %73) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %83, i32 noundef 0) #18
+72:                                               ; preds = %71, %67, %61
+  %73 = getelementptr inbounds i8, ptr %16, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !135
+  %75 = tail call i64 @gtk_toggle_button_get_type() #22
+  %76 = tail call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %76, i32 noundef 0) #18
+  %77 = getelementptr inbounds i8, ptr %16, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !136
+  %79 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %75) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %79, i32 noundef 0) #18
+  %80 = getelementptr inbounds i8, ptr %16, i64 24
+  %81 = load ptr, ptr %80, align 8, !tbaa !137
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef %75) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %82, i32 noundef 0) #18
+  %83 = getelementptr inbounds i8, ptr %16, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !128
+  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %75) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %85, i32 noundef 0) #18
   tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %0, i32 noundef 0) #18
-  br label %84
+  br label %86
 
-84:                                               ; preds = %70, %54, %52, %6, %2
+86:                                               ; preds = %72, %56, %54, %6, %2
   ret void
 }
 
@@ -1749,803 +1751,809 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   store i32 2, ptr %3, align 16
-  %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %11 = tail call ptr @dt_masks_get_from_id(ptr noundef %10, i32 noundef %9) #18
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %303, label %13
-
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !40
-  %16 = and i32 %15, 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %303, label %18
-
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %11, align 8, !tbaa !20
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %303, label %21
-
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %5, i64 256
-  %23 = load i32, ptr %5, align 4, !tbaa !34
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 20
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = getelementptr inbounds i8, ptr %5, i64 28
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
-  %32 = getelementptr inbounds i8, ptr %5, i64 36
-  %33 = getelementptr inbounds i8, ptr %5, i64 40
-  %34 = getelementptr inbounds i8, ptr %5, i64 44
-  %35 = getelementptr inbounds i8, ptr %5, i64 48
-  %36 = getelementptr inbounds i8, ptr %5, i64 52
-  %37 = getelementptr inbounds i8, ptr %5, i64 56
-  %38 = getelementptr inbounds i8, ptr %5, i64 60
-  %39 = getelementptr inbounds i8, ptr %5, i64 64
-  %40 = getelementptr inbounds i8, ptr %5, i64 68
-  %41 = getelementptr inbounds i8, ptr %5, i64 72
-  %42 = getelementptr inbounds i8, ptr %5, i64 76
-  %43 = getelementptr inbounds i8, ptr %5, i64 80
-  %44 = getelementptr inbounds i8, ptr %5, i64 84
-  %45 = getelementptr inbounds i8, ptr %5, i64 88
-  %46 = getelementptr inbounds i8, ptr %5, i64 92
-  %47 = getelementptr inbounds i8, ptr %5, i64 96
-  %48 = getelementptr inbounds i8, ptr %5, i64 100
-  %49 = getelementptr inbounds i8, ptr %5, i64 104
-  %50 = getelementptr inbounds i8, ptr %5, i64 108
-  %51 = getelementptr inbounds i8, ptr %5, i64 112
-  %52 = getelementptr inbounds i8, ptr %5, i64 116
-  %53 = getelementptr inbounds i8, ptr %5, i64 120
-  %54 = getelementptr inbounds i8, ptr %5, i64 124
-  %55 = getelementptr inbounds i8, ptr %5, i64 128
-  %56 = getelementptr inbounds i8, ptr %5, i64 132
-  %57 = getelementptr inbounds i8, ptr %5, i64 136
-  %58 = getelementptr inbounds i8, ptr %5, i64 140
-  %59 = getelementptr inbounds i8, ptr %5, i64 144
-  %60 = getelementptr inbounds i8, ptr %5, i64 148
-  %61 = getelementptr inbounds i8, ptr %5, i64 152
-  %62 = getelementptr inbounds i8, ptr %5, i64 156
-  %63 = getelementptr inbounds i8, ptr %5, i64 160
-  %64 = getelementptr inbounds i8, ptr %5, i64 164
-  %65 = getelementptr inbounds i8, ptr %5, i64 168
-  %66 = getelementptr inbounds i8, ptr %5, i64 172
-  %67 = getelementptr inbounds i8, ptr %5, i64 176
-  %68 = getelementptr inbounds i8, ptr %5, i64 180
-  %69 = getelementptr inbounds i8, ptr %5, i64 184
-  %70 = getelementptr inbounds i8, ptr %5, i64 188
-  %71 = getelementptr inbounds i8, ptr %5, i64 192
-  %72 = getelementptr inbounds i8, ptr %5, i64 196
-  %73 = getelementptr inbounds i8, ptr %5, i64 200
-  %74 = getelementptr inbounds i8, ptr %5, i64 204
-  %75 = getelementptr inbounds i8, ptr %5, i64 208
-  %76 = getelementptr inbounds i8, ptr %5, i64 212
-  %77 = getelementptr inbounds i8, ptr %5, i64 216
-  %78 = getelementptr inbounds i8, ptr %5, i64 220
-  %79 = getelementptr inbounds i8, ptr %5, i64 224
-  %80 = getelementptr inbounds i8, ptr %5, i64 228
-  %81 = getelementptr inbounds i8, ptr %5, i64 232
-  %82 = getelementptr inbounds i8, ptr %5, i64 236
-  %83 = getelementptr inbounds i8, ptr %5, i64 240
-  %84 = getelementptr inbounds i8, ptr %5, i64 244
-  %85 = getelementptr inbounds i8, ptr %5, i64 248
-  %86 = getelementptr inbounds i8, ptr %5, i64 252
-  br label %87
-
-87:                                               ; preds = %288, %21
-  %88 = phi i64 [ 0, %21 ], [ %289, %288 ]
-  %89 = phi ptr [ %19, %21 ], [ %291, %288 ]
-  %90 = load ptr, ptr %89, align 8, !tbaa !36
-  %91 = load i32, ptr %90, align 4, !tbaa !74
-  %92 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %88
-  store i32 %91, ptr %92, align 4, !tbaa !34
-  %93 = icmp eq i32 %23, %91
-  br i1 %93, label %283, label %94
-
-94:                                               ; preds = %87
-  %95 = load i32, ptr %24, align 4, !tbaa !34
-  %96 = icmp eq i32 %95, %91
-  br i1 %96, label %283, label %97
-
-97:                                               ; preds = %94
-  %98 = load i32, ptr %25, align 4, !tbaa !34
-  %99 = icmp eq i32 %98, %91
-  br i1 %99, label %283, label %100
-
-100:                                              ; preds = %97
-  %101 = load i32, ptr %26, align 4, !tbaa !34
-  %102 = icmp eq i32 %101, %91
-  br i1 %102, label %283, label %103
-
-103:                                              ; preds = %100
-  %104 = load i32, ptr %27, align 4, !tbaa !34
-  %105 = icmp eq i32 %104, %91
-  br i1 %105, label %283, label %106
-
-106:                                              ; preds = %103
-  %107 = load i32, ptr %28, align 4, !tbaa !34
-  %108 = icmp eq i32 %107, %91
-  br i1 %108, label %283, label %109
-
-109:                                              ; preds = %106
-  %110 = load i32, ptr %29, align 4, !tbaa !34
-  %111 = icmp eq i32 %110, %91
-  br i1 %111, label %283, label %112
-
-112:                                              ; preds = %109
-  %113 = load i32, ptr %30, align 4, !tbaa !34
-  %114 = icmp eq i32 %113, %91
-  br i1 %114, label %283, label %115
-
-115:                                              ; preds = %112
-  %116 = load i32, ptr %31, align 4, !tbaa !34
-  %117 = icmp eq i32 %116, %91
-  br i1 %117, label %283, label %118
-
-118:                                              ; preds = %115
-  %119 = load i32, ptr %32, align 4, !tbaa !34
-  %120 = icmp eq i32 %119, %91
-  br i1 %120, label %283, label %121
-
-121:                                              ; preds = %118
-  %122 = load i32, ptr %33, align 4, !tbaa !34
-  %123 = icmp eq i32 %122, %91
-  br i1 %123, label %283, label %124
-
-124:                                              ; preds = %121
-  %125 = load i32, ptr %34, align 4, !tbaa !34
-  %126 = icmp eq i32 %125, %91
-  br i1 %126, label %283, label %127
-
-127:                                              ; preds = %124
-  %128 = load i32, ptr %35, align 4, !tbaa !34
-  %129 = icmp eq i32 %128, %91
-  br i1 %129, label %283, label %130
-
-130:                                              ; preds = %127
-  %131 = load i32, ptr %36, align 4, !tbaa !34
-  %132 = icmp eq i32 %131, %91
-  br i1 %132, label %283, label %133
-
-133:                                              ; preds = %130
-  %134 = load i32, ptr %37, align 4, !tbaa !34
-  %135 = icmp eq i32 %134, %91
-  br i1 %135, label %283, label %136
-
-136:                                              ; preds = %133
-  %137 = load i32, ptr %38, align 4, !tbaa !34
-  %138 = icmp eq i32 %137, %91
-  br i1 %138, label %283, label %139
-
-139:                                              ; preds = %136
-  %140 = load i32, ptr %39, align 4, !tbaa !34
-  %141 = icmp eq i32 %140, %91
-  br i1 %141, label %283, label %142
-
-142:                                              ; preds = %139
-  %143 = load i32, ptr %40, align 4, !tbaa !34
-  %144 = icmp eq i32 %143, %91
-  br i1 %144, label %283, label %145
-
-145:                                              ; preds = %142
-  %146 = load i32, ptr %41, align 4, !tbaa !34
-  %147 = icmp eq i32 %146, %91
-  br i1 %147, label %283, label %148
-
-148:                                              ; preds = %145
-  %149 = load i32, ptr %42, align 4, !tbaa !34
-  %150 = icmp eq i32 %149, %91
-  br i1 %150, label %283, label %151
-
-151:                                              ; preds = %148
-  %152 = load i32, ptr %43, align 4, !tbaa !34
-  %153 = icmp eq i32 %152, %91
-  br i1 %153, label %283, label %154
-
-154:                                              ; preds = %151
-  %155 = load i32, ptr %44, align 4, !tbaa !34
-  %156 = icmp eq i32 %155, %91
-  br i1 %156, label %283, label %157
-
-157:                                              ; preds = %154
-  %158 = load i32, ptr %45, align 4, !tbaa !34
-  %159 = icmp eq i32 %158, %91
-  br i1 %159, label %283, label %160
-
-160:                                              ; preds = %157
-  %161 = load i32, ptr %46, align 4, !tbaa !34
-  %162 = icmp eq i32 %161, %91
-  br i1 %162, label %283, label %163
-
-163:                                              ; preds = %160
-  %164 = load i32, ptr %47, align 4, !tbaa !34
-  %165 = icmp eq i32 %164, %91
-  br i1 %165, label %283, label %166
-
-166:                                              ; preds = %163
-  %167 = load i32, ptr %48, align 4, !tbaa !34
-  %168 = icmp eq i32 %167, %91
-  br i1 %168, label %283, label %169
-
-169:                                              ; preds = %166
-  %170 = load i32, ptr %49, align 4, !tbaa !34
-  %171 = icmp eq i32 %170, %91
-  br i1 %171, label %283, label %172
-
-172:                                              ; preds = %169
-  %173 = load i32, ptr %50, align 4, !tbaa !34
-  %174 = icmp eq i32 %173, %91
-  br i1 %174, label %283, label %175
-
-175:                                              ; preds = %172
-  %176 = load i32, ptr %51, align 4, !tbaa !34
-  %177 = icmp eq i32 %176, %91
-  br i1 %177, label %283, label %178
-
-178:                                              ; preds = %175
-  %179 = load i32, ptr %52, align 4, !tbaa !34
-  %180 = icmp eq i32 %179, %91
-  br i1 %180, label %283, label %181
-
-181:                                              ; preds = %178
-  %182 = load i32, ptr %53, align 4, !tbaa !34
-  %183 = icmp eq i32 %182, %91
-  br i1 %183, label %283, label %184
-
-184:                                              ; preds = %181
-  %185 = load i32, ptr %54, align 4, !tbaa !34
-  %186 = icmp eq i32 %185, %91
-  br i1 %186, label %283, label %187
-
-187:                                              ; preds = %184
-  %188 = load i32, ptr %55, align 4, !tbaa !34
-  %189 = icmp eq i32 %188, %91
-  br i1 %189, label %283, label %190
-
-190:                                              ; preds = %187
-  %191 = load i32, ptr %56, align 4, !tbaa !34
-  %192 = icmp eq i32 %191, %91
-  br i1 %192, label %283, label %193
-
-193:                                              ; preds = %190
-  %194 = load i32, ptr %57, align 4, !tbaa !34
-  %195 = icmp eq i32 %194, %91
-  br i1 %195, label %283, label %196
-
-196:                                              ; preds = %193
-  %197 = load i32, ptr %58, align 4, !tbaa !34
-  %198 = icmp eq i32 %197, %91
-  br i1 %198, label %283, label %199
-
-199:                                              ; preds = %196
-  %200 = load i32, ptr %59, align 4, !tbaa !34
-  %201 = icmp eq i32 %200, %91
-  br i1 %201, label %283, label %202
-
-202:                                              ; preds = %199
-  %203 = load i32, ptr %60, align 4, !tbaa !34
-  %204 = icmp eq i32 %203, %91
-  br i1 %204, label %283, label %205
-
-205:                                              ; preds = %202
-  %206 = load i32, ptr %61, align 4, !tbaa !34
-  %207 = icmp eq i32 %206, %91
-  br i1 %207, label %283, label %208
-
-208:                                              ; preds = %205
-  %209 = load i32, ptr %62, align 4, !tbaa !34
-  %210 = icmp eq i32 %209, %91
-  br i1 %210, label %283, label %211
-
-211:                                              ; preds = %208
-  %212 = load i32, ptr %63, align 4, !tbaa !34
-  %213 = icmp eq i32 %212, %91
-  br i1 %213, label %283, label %214
-
-214:                                              ; preds = %211
-  %215 = load i32, ptr %64, align 4, !tbaa !34
-  %216 = icmp eq i32 %215, %91
-  br i1 %216, label %283, label %217
-
-217:                                              ; preds = %214
-  %218 = load i32, ptr %65, align 4, !tbaa !34
-  %219 = icmp eq i32 %218, %91
-  br i1 %219, label %283, label %220
-
-220:                                              ; preds = %217
-  %221 = load i32, ptr %66, align 4, !tbaa !34
-  %222 = icmp eq i32 %221, %91
-  br i1 %222, label %283, label %223
-
-223:                                              ; preds = %220
-  %224 = load i32, ptr %67, align 4, !tbaa !34
-  %225 = icmp eq i32 %224, %91
-  br i1 %225, label %283, label %226
-
-226:                                              ; preds = %223
-  %227 = load i32, ptr %68, align 4, !tbaa !34
-  %228 = icmp eq i32 %227, %91
-  br i1 %228, label %283, label %229
-
-229:                                              ; preds = %226
-  %230 = load i32, ptr %69, align 4, !tbaa !34
-  %231 = icmp eq i32 %230, %91
-  br i1 %231, label %283, label %232
-
-232:                                              ; preds = %229
-  %233 = load i32, ptr %70, align 4, !tbaa !34
-  %234 = icmp eq i32 %233, %91
-  br i1 %234, label %283, label %235
-
-235:                                              ; preds = %232
-  %236 = load i32, ptr %71, align 4, !tbaa !34
-  %237 = icmp eq i32 %236, %91
-  br i1 %237, label %283, label %238
-
-238:                                              ; preds = %235
-  %239 = load i32, ptr %72, align 4, !tbaa !34
-  %240 = icmp eq i32 %239, %91
-  br i1 %240, label %283, label %241
-
-241:                                              ; preds = %238
-  %242 = load i32, ptr %73, align 4, !tbaa !34
-  %243 = icmp eq i32 %242, %91
-  br i1 %243, label %283, label %244
-
-244:                                              ; preds = %241
-  %245 = load i32, ptr %74, align 4, !tbaa !34
-  %246 = icmp eq i32 %245, %91
-  br i1 %246, label %283, label %247
-
-247:                                              ; preds = %244
-  %248 = load i32, ptr %75, align 4, !tbaa !34
-  %249 = icmp eq i32 %248, %91
-  br i1 %249, label %283, label %250
-
-250:                                              ; preds = %247
-  %251 = load i32, ptr %76, align 4, !tbaa !34
-  %252 = icmp eq i32 %251, %91
-  br i1 %252, label %283, label %253
-
-253:                                              ; preds = %250
-  %254 = load i32, ptr %77, align 4, !tbaa !34
-  %255 = icmp eq i32 %254, %91
-  br i1 %255, label %283, label %256
-
-256:                                              ; preds = %253
-  %257 = load i32, ptr %78, align 4, !tbaa !34
-  %258 = icmp eq i32 %257, %91
-  br i1 %258, label %283, label %259
-
-259:                                              ; preds = %256
-  %260 = load i32, ptr %79, align 4, !tbaa !34
-  %261 = icmp eq i32 %260, %91
-  br i1 %261, label %283, label %262
-
-262:                                              ; preds = %259
-  %263 = load i32, ptr %80, align 4, !tbaa !34
-  %264 = icmp eq i32 %263, %91
-  br i1 %264, label %283, label %265
-
-265:                                              ; preds = %262
-  %266 = load i32, ptr %81, align 4, !tbaa !34
-  %267 = icmp eq i32 %266, %91
-  br i1 %267, label %283, label %268
-
-268:                                              ; preds = %265
-  %269 = load i32, ptr %82, align 4, !tbaa !34
-  %270 = icmp eq i32 %269, %91
-  br i1 %270, label %283, label %271
-
-271:                                              ; preds = %268
-  %272 = load i32, ptr %83, align 4, !tbaa !34
-  %273 = icmp eq i32 %272, %91
-  br i1 %273, label %283, label %274
-
-274:                                              ; preds = %271
-  %275 = load i32, ptr %84, align 4, !tbaa !34
-  %276 = icmp eq i32 %275, %91
-  br i1 %276, label %283, label %277
-
-277:                                              ; preds = %274
-  %278 = load i32, ptr %85, align 4, !tbaa !34
-  %279 = icmp eq i32 %278, %91
-  br i1 %279, label %283, label %280
-
-280:                                              ; preds = %277
-  %281 = load i32, ptr %86, align 4, !tbaa !34
-  %282 = icmp eq i32 %281, %91
-  br i1 %282, label %283, label %288
-
-283:                                              ; preds = %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %211, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %87
-  %284 = phi i64 [ 0, %87 ], [ 1, %94 ], [ 2, %97 ], [ 3, %100 ], [ 4, %103 ], [ 5, %106 ], [ 6, %109 ], [ 7, %112 ], [ 8, %115 ], [ 9, %118 ], [ 10, %121 ], [ 11, %124 ], [ 12, %127 ], [ 13, %130 ], [ 14, %133 ], [ 15, %136 ], [ 16, %139 ], [ 17, %142 ], [ 18, %145 ], [ 19, %148 ], [ 20, %151 ], [ 21, %154 ], [ 22, %157 ], [ 23, %160 ], [ 24, %163 ], [ 25, %166 ], [ 26, %169 ], [ 27, %172 ], [ 28, %175 ], [ 29, %178 ], [ 30, %181 ], [ 31, %184 ], [ 32, %187 ], [ 33, %190 ], [ 34, %193 ], [ 35, %196 ], [ 36, %199 ], [ 37, %202 ], [ 38, %205 ], [ 39, %208 ], [ 40, %211 ], [ 41, %214 ], [ 42, %217 ], [ 43, %220 ], [ 44, %223 ], [ 45, %226 ], [ 46, %229 ], [ 47, %232 ], [ 48, %235 ], [ 49, %238 ], [ 50, %241 ], [ 51, %244 ], [ 52, %247 ], [ 53, %250 ], [ 54, %253 ], [ 55, %256 ], [ 56, %259 ], [ 57, %262 ], [ 58, %265 ], [ 59, %268 ], [ 60, %271 ], [ 61, %274 ], [ 62, %277 ], [ 63, %280 ]
-  %285 = getelementptr inbounds [64 x i32], ptr %22, i64 0, i64 %284
-  %286 = load i32, ptr %285, align 4, !tbaa !34
-  %287 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %88
-  store i32 %286, ptr %287, align 4, !tbaa !34
-  br label %288
-
-288:                                              ; preds = %283, %280
-  %289 = add nuw nsw i64 %88, 1
-  %290 = getelementptr inbounds i8, ptr %89, i64 8
-  %291 = load ptr, ptr %290, align 8, !tbaa !20
-  %292 = icmp ult i64 %88, 63
-  %293 = icmp ne ptr %291, null
-  %294 = select i1 %292, i1 %293, i1 false
-  br i1 %294, label %87, label %295
-
-295:                                              ; preds = %288
-  %296 = load <8 x i32>, ptr %3, align 16, !tbaa !34
-  %297 = getelementptr inbounds i8, ptr %3, i64 32
-  %298 = load <8 x i32>, ptr %297, align 16, !tbaa !34
-  %299 = getelementptr inbounds i8, ptr %3, i64 64
-  %300 = load <8 x i32>, ptr %299, align 16, !tbaa !34
-  %301 = getelementptr inbounds i8, ptr %3, i64 96
-  %302 = load i32, ptr %301, align 16, !tbaa !34
-  br label %303
-
-303:                                              ; preds = %295, %18, %13, %1
-  %304 = phi i32 [ %302, %295 ], [ 0, %18 ], [ 0, %13 ], [ 0, %1 ]
-  %305 = phi <8 x i32> [ %296, %295 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %18 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %13 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %1 ]
-  %306 = phi <8 x i32> [ %298, %295 ], [ zeroinitializer, %18 ], [ zeroinitializer, %13 ], [ zeroinitializer, %1 ]
-  %307 = phi <8 x i32> [ %300, %295 ], [ zeroinitializer, %18 ], [ zeroinitializer, %13 ], [ zeroinitializer, %1 ]
-  %308 = getelementptr inbounds i8, ptr %5, i64 256
+  %10 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %11 = load ptr, ptr %10, align 8, !tbaa !116
+  %12 = tail call ptr @dt_masks_get_from_id(ptr noundef %11, i32 noundef %9) #18
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %304, label %14
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i32, ptr %15, align 8, !tbaa !40
+  %17 = and i32 %16, 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %304, label %19
+
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %12, align 8, !tbaa !20
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %304, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %5, i64 256
+  %24 = load i32, ptr %5, align 4, !tbaa !34
+  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 12
+  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds i8, ptr %5, i64 20
+  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds i8, ptr %5, i64 28
+  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %33 = getelementptr inbounds i8, ptr %5, i64 36
+  %34 = getelementptr inbounds i8, ptr %5, i64 40
+  %35 = getelementptr inbounds i8, ptr %5, i64 44
+  %36 = getelementptr inbounds i8, ptr %5, i64 48
+  %37 = getelementptr inbounds i8, ptr %5, i64 52
+  %38 = getelementptr inbounds i8, ptr %5, i64 56
+  %39 = getelementptr inbounds i8, ptr %5, i64 60
+  %40 = getelementptr inbounds i8, ptr %5, i64 64
+  %41 = getelementptr inbounds i8, ptr %5, i64 68
+  %42 = getelementptr inbounds i8, ptr %5, i64 72
+  %43 = getelementptr inbounds i8, ptr %5, i64 76
+  %44 = getelementptr inbounds i8, ptr %5, i64 80
+  %45 = getelementptr inbounds i8, ptr %5, i64 84
+  %46 = getelementptr inbounds i8, ptr %5, i64 88
+  %47 = getelementptr inbounds i8, ptr %5, i64 92
+  %48 = getelementptr inbounds i8, ptr %5, i64 96
+  %49 = getelementptr inbounds i8, ptr %5, i64 100
+  %50 = getelementptr inbounds i8, ptr %5, i64 104
+  %51 = getelementptr inbounds i8, ptr %5, i64 108
+  %52 = getelementptr inbounds i8, ptr %5, i64 112
+  %53 = getelementptr inbounds i8, ptr %5, i64 116
+  %54 = getelementptr inbounds i8, ptr %5, i64 120
+  %55 = getelementptr inbounds i8, ptr %5, i64 124
+  %56 = getelementptr inbounds i8, ptr %5, i64 128
+  %57 = getelementptr inbounds i8, ptr %5, i64 132
+  %58 = getelementptr inbounds i8, ptr %5, i64 136
+  %59 = getelementptr inbounds i8, ptr %5, i64 140
+  %60 = getelementptr inbounds i8, ptr %5, i64 144
+  %61 = getelementptr inbounds i8, ptr %5, i64 148
+  %62 = getelementptr inbounds i8, ptr %5, i64 152
+  %63 = getelementptr inbounds i8, ptr %5, i64 156
+  %64 = getelementptr inbounds i8, ptr %5, i64 160
+  %65 = getelementptr inbounds i8, ptr %5, i64 164
+  %66 = getelementptr inbounds i8, ptr %5, i64 168
+  %67 = getelementptr inbounds i8, ptr %5, i64 172
+  %68 = getelementptr inbounds i8, ptr %5, i64 176
+  %69 = getelementptr inbounds i8, ptr %5, i64 180
+  %70 = getelementptr inbounds i8, ptr %5, i64 184
+  %71 = getelementptr inbounds i8, ptr %5, i64 188
+  %72 = getelementptr inbounds i8, ptr %5, i64 192
+  %73 = getelementptr inbounds i8, ptr %5, i64 196
+  %74 = getelementptr inbounds i8, ptr %5, i64 200
+  %75 = getelementptr inbounds i8, ptr %5, i64 204
+  %76 = getelementptr inbounds i8, ptr %5, i64 208
+  %77 = getelementptr inbounds i8, ptr %5, i64 212
+  %78 = getelementptr inbounds i8, ptr %5, i64 216
+  %79 = getelementptr inbounds i8, ptr %5, i64 220
+  %80 = getelementptr inbounds i8, ptr %5, i64 224
+  %81 = getelementptr inbounds i8, ptr %5, i64 228
+  %82 = getelementptr inbounds i8, ptr %5, i64 232
+  %83 = getelementptr inbounds i8, ptr %5, i64 236
+  %84 = getelementptr inbounds i8, ptr %5, i64 240
+  %85 = getelementptr inbounds i8, ptr %5, i64 244
+  %86 = getelementptr inbounds i8, ptr %5, i64 248
+  %87 = getelementptr inbounds i8, ptr %5, i64 252
+  br label %88
+
+88:                                               ; preds = %289, %22
+  %89 = phi i64 [ 0, %22 ], [ %290, %289 ]
+  %90 = phi ptr [ %20, %22 ], [ %292, %289 ]
+  %91 = load ptr, ptr %90, align 8, !tbaa !36
+  %92 = load i32, ptr %91, align 4, !tbaa !74
+  %93 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %89
+  store i32 %92, ptr %93, align 4, !tbaa !34
+  %94 = icmp eq i32 %24, %92
+  br i1 %94, label %284, label %95
+
+95:                                               ; preds = %88
+  %96 = load i32, ptr %25, align 4, !tbaa !34
+  %97 = icmp eq i32 %96, %92
+  br i1 %97, label %284, label %98
+
+98:                                               ; preds = %95
+  %99 = load i32, ptr %26, align 4, !tbaa !34
+  %100 = icmp eq i32 %99, %92
+  br i1 %100, label %284, label %101
+
+101:                                              ; preds = %98
+  %102 = load i32, ptr %27, align 4, !tbaa !34
+  %103 = icmp eq i32 %102, %92
+  br i1 %103, label %284, label %104
+
+104:                                              ; preds = %101
+  %105 = load i32, ptr %28, align 4, !tbaa !34
+  %106 = icmp eq i32 %105, %92
+  br i1 %106, label %284, label %107
+
+107:                                              ; preds = %104
+  %108 = load i32, ptr %29, align 4, !tbaa !34
+  %109 = icmp eq i32 %108, %92
+  br i1 %109, label %284, label %110
+
+110:                                              ; preds = %107
+  %111 = load i32, ptr %30, align 4, !tbaa !34
+  %112 = icmp eq i32 %111, %92
+  br i1 %112, label %284, label %113
+
+113:                                              ; preds = %110
+  %114 = load i32, ptr %31, align 4, !tbaa !34
+  %115 = icmp eq i32 %114, %92
+  br i1 %115, label %284, label %116
+
+116:                                              ; preds = %113
+  %117 = load i32, ptr %32, align 4, !tbaa !34
+  %118 = icmp eq i32 %117, %92
+  br i1 %118, label %284, label %119
+
+119:                                              ; preds = %116
+  %120 = load i32, ptr %33, align 4, !tbaa !34
+  %121 = icmp eq i32 %120, %92
+  br i1 %121, label %284, label %122
+
+122:                                              ; preds = %119
+  %123 = load i32, ptr %34, align 4, !tbaa !34
+  %124 = icmp eq i32 %123, %92
+  br i1 %124, label %284, label %125
+
+125:                                              ; preds = %122
+  %126 = load i32, ptr %35, align 4, !tbaa !34
+  %127 = icmp eq i32 %126, %92
+  br i1 %127, label %284, label %128
+
+128:                                              ; preds = %125
+  %129 = load i32, ptr %36, align 4, !tbaa !34
+  %130 = icmp eq i32 %129, %92
+  br i1 %130, label %284, label %131
+
+131:                                              ; preds = %128
+  %132 = load i32, ptr %37, align 4, !tbaa !34
+  %133 = icmp eq i32 %132, %92
+  br i1 %133, label %284, label %134
+
+134:                                              ; preds = %131
+  %135 = load i32, ptr %38, align 4, !tbaa !34
+  %136 = icmp eq i32 %135, %92
+  br i1 %136, label %284, label %137
+
+137:                                              ; preds = %134
+  %138 = load i32, ptr %39, align 4, !tbaa !34
+  %139 = icmp eq i32 %138, %92
+  br i1 %139, label %284, label %140
+
+140:                                              ; preds = %137
+  %141 = load i32, ptr %40, align 4, !tbaa !34
+  %142 = icmp eq i32 %141, %92
+  br i1 %142, label %284, label %143
+
+143:                                              ; preds = %140
+  %144 = load i32, ptr %41, align 4, !tbaa !34
+  %145 = icmp eq i32 %144, %92
+  br i1 %145, label %284, label %146
+
+146:                                              ; preds = %143
+  %147 = load i32, ptr %42, align 4, !tbaa !34
+  %148 = icmp eq i32 %147, %92
+  br i1 %148, label %284, label %149
+
+149:                                              ; preds = %146
+  %150 = load i32, ptr %43, align 4, !tbaa !34
+  %151 = icmp eq i32 %150, %92
+  br i1 %151, label %284, label %152
+
+152:                                              ; preds = %149
+  %153 = load i32, ptr %44, align 4, !tbaa !34
+  %154 = icmp eq i32 %153, %92
+  br i1 %154, label %284, label %155
+
+155:                                              ; preds = %152
+  %156 = load i32, ptr %45, align 4, !tbaa !34
+  %157 = icmp eq i32 %156, %92
+  br i1 %157, label %284, label %158
+
+158:                                              ; preds = %155
+  %159 = load i32, ptr %46, align 4, !tbaa !34
+  %160 = icmp eq i32 %159, %92
+  br i1 %160, label %284, label %161
+
+161:                                              ; preds = %158
+  %162 = load i32, ptr %47, align 4, !tbaa !34
+  %163 = icmp eq i32 %162, %92
+  br i1 %163, label %284, label %164
+
+164:                                              ; preds = %161
+  %165 = load i32, ptr %48, align 4, !tbaa !34
+  %166 = icmp eq i32 %165, %92
+  br i1 %166, label %284, label %167
+
+167:                                              ; preds = %164
+  %168 = load i32, ptr %49, align 4, !tbaa !34
+  %169 = icmp eq i32 %168, %92
+  br i1 %169, label %284, label %170
+
+170:                                              ; preds = %167
+  %171 = load i32, ptr %50, align 4, !tbaa !34
+  %172 = icmp eq i32 %171, %92
+  br i1 %172, label %284, label %173
+
+173:                                              ; preds = %170
+  %174 = load i32, ptr %51, align 4, !tbaa !34
+  %175 = icmp eq i32 %174, %92
+  br i1 %175, label %284, label %176
+
+176:                                              ; preds = %173
+  %177 = load i32, ptr %52, align 4, !tbaa !34
+  %178 = icmp eq i32 %177, %92
+  br i1 %178, label %284, label %179
+
+179:                                              ; preds = %176
+  %180 = load i32, ptr %53, align 4, !tbaa !34
+  %181 = icmp eq i32 %180, %92
+  br i1 %181, label %284, label %182
+
+182:                                              ; preds = %179
+  %183 = load i32, ptr %54, align 4, !tbaa !34
+  %184 = icmp eq i32 %183, %92
+  br i1 %184, label %284, label %185
+
+185:                                              ; preds = %182
+  %186 = load i32, ptr %55, align 4, !tbaa !34
+  %187 = icmp eq i32 %186, %92
+  br i1 %187, label %284, label %188
+
+188:                                              ; preds = %185
+  %189 = load i32, ptr %56, align 4, !tbaa !34
+  %190 = icmp eq i32 %189, %92
+  br i1 %190, label %284, label %191
+
+191:                                              ; preds = %188
+  %192 = load i32, ptr %57, align 4, !tbaa !34
+  %193 = icmp eq i32 %192, %92
+  br i1 %193, label %284, label %194
+
+194:                                              ; preds = %191
+  %195 = load i32, ptr %58, align 4, !tbaa !34
+  %196 = icmp eq i32 %195, %92
+  br i1 %196, label %284, label %197
+
+197:                                              ; preds = %194
+  %198 = load i32, ptr %59, align 4, !tbaa !34
+  %199 = icmp eq i32 %198, %92
+  br i1 %199, label %284, label %200
+
+200:                                              ; preds = %197
+  %201 = load i32, ptr %60, align 4, !tbaa !34
+  %202 = icmp eq i32 %201, %92
+  br i1 %202, label %284, label %203
+
+203:                                              ; preds = %200
+  %204 = load i32, ptr %61, align 4, !tbaa !34
+  %205 = icmp eq i32 %204, %92
+  br i1 %205, label %284, label %206
+
+206:                                              ; preds = %203
+  %207 = load i32, ptr %62, align 4, !tbaa !34
+  %208 = icmp eq i32 %207, %92
+  br i1 %208, label %284, label %209
+
+209:                                              ; preds = %206
+  %210 = load i32, ptr %63, align 4, !tbaa !34
+  %211 = icmp eq i32 %210, %92
+  br i1 %211, label %284, label %212
+
+212:                                              ; preds = %209
+  %213 = load i32, ptr %64, align 4, !tbaa !34
+  %214 = icmp eq i32 %213, %92
+  br i1 %214, label %284, label %215
+
+215:                                              ; preds = %212
+  %216 = load i32, ptr %65, align 4, !tbaa !34
+  %217 = icmp eq i32 %216, %92
+  br i1 %217, label %284, label %218
+
+218:                                              ; preds = %215
+  %219 = load i32, ptr %66, align 4, !tbaa !34
+  %220 = icmp eq i32 %219, %92
+  br i1 %220, label %284, label %221
+
+221:                                              ; preds = %218
+  %222 = load i32, ptr %67, align 4, !tbaa !34
+  %223 = icmp eq i32 %222, %92
+  br i1 %223, label %284, label %224
+
+224:                                              ; preds = %221
+  %225 = load i32, ptr %68, align 4, !tbaa !34
+  %226 = icmp eq i32 %225, %92
+  br i1 %226, label %284, label %227
+
+227:                                              ; preds = %224
+  %228 = load i32, ptr %69, align 4, !tbaa !34
+  %229 = icmp eq i32 %228, %92
+  br i1 %229, label %284, label %230
+
+230:                                              ; preds = %227
+  %231 = load i32, ptr %70, align 4, !tbaa !34
+  %232 = icmp eq i32 %231, %92
+  br i1 %232, label %284, label %233
+
+233:                                              ; preds = %230
+  %234 = load i32, ptr %71, align 4, !tbaa !34
+  %235 = icmp eq i32 %234, %92
+  br i1 %235, label %284, label %236
+
+236:                                              ; preds = %233
+  %237 = load i32, ptr %72, align 4, !tbaa !34
+  %238 = icmp eq i32 %237, %92
+  br i1 %238, label %284, label %239
+
+239:                                              ; preds = %236
+  %240 = load i32, ptr %73, align 4, !tbaa !34
+  %241 = icmp eq i32 %240, %92
+  br i1 %241, label %284, label %242
+
+242:                                              ; preds = %239
+  %243 = load i32, ptr %74, align 4, !tbaa !34
+  %244 = icmp eq i32 %243, %92
+  br i1 %244, label %284, label %245
+
+245:                                              ; preds = %242
+  %246 = load i32, ptr %75, align 4, !tbaa !34
+  %247 = icmp eq i32 %246, %92
+  br i1 %247, label %284, label %248
+
+248:                                              ; preds = %245
+  %249 = load i32, ptr %76, align 4, !tbaa !34
+  %250 = icmp eq i32 %249, %92
+  br i1 %250, label %284, label %251
+
+251:                                              ; preds = %248
+  %252 = load i32, ptr %77, align 4, !tbaa !34
+  %253 = icmp eq i32 %252, %92
+  br i1 %253, label %284, label %254
+
+254:                                              ; preds = %251
+  %255 = load i32, ptr %78, align 4, !tbaa !34
+  %256 = icmp eq i32 %255, %92
+  br i1 %256, label %284, label %257
+
+257:                                              ; preds = %254
+  %258 = load i32, ptr %79, align 4, !tbaa !34
+  %259 = icmp eq i32 %258, %92
+  br i1 %259, label %284, label %260
+
+260:                                              ; preds = %257
+  %261 = load i32, ptr %80, align 4, !tbaa !34
+  %262 = icmp eq i32 %261, %92
+  br i1 %262, label %284, label %263
+
+263:                                              ; preds = %260
+  %264 = load i32, ptr %81, align 4, !tbaa !34
+  %265 = icmp eq i32 %264, %92
+  br i1 %265, label %284, label %266
+
+266:                                              ; preds = %263
+  %267 = load i32, ptr %82, align 4, !tbaa !34
+  %268 = icmp eq i32 %267, %92
+  br i1 %268, label %284, label %269
+
+269:                                              ; preds = %266
+  %270 = load i32, ptr %83, align 4, !tbaa !34
+  %271 = icmp eq i32 %270, %92
+  br i1 %271, label %284, label %272
+
+272:                                              ; preds = %269
+  %273 = load i32, ptr %84, align 4, !tbaa !34
+  %274 = icmp eq i32 %273, %92
+  br i1 %274, label %284, label %275
+
+275:                                              ; preds = %272
+  %276 = load i32, ptr %85, align 4, !tbaa !34
+  %277 = icmp eq i32 %276, %92
+  br i1 %277, label %284, label %278
+
+278:                                              ; preds = %275
+  %279 = load i32, ptr %86, align 4, !tbaa !34
+  %280 = icmp eq i32 %279, %92
+  br i1 %280, label %284, label %281
+
+281:                                              ; preds = %278
+  %282 = load i32, ptr %87, align 4, !tbaa !34
+  %283 = icmp eq i32 %282, %92
+  br i1 %283, label %284, label %289
+
+284:                                              ; preds = %281, %278, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %212, %209, %206, %203, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %88
+  %285 = phi i64 [ 0, %88 ], [ 1, %95 ], [ 2, %98 ], [ 3, %101 ], [ 4, %104 ], [ 5, %107 ], [ 6, %110 ], [ 7, %113 ], [ 8, %116 ], [ 9, %119 ], [ 10, %122 ], [ 11, %125 ], [ 12, %128 ], [ 13, %131 ], [ 14, %134 ], [ 15, %137 ], [ 16, %140 ], [ 17, %143 ], [ 18, %146 ], [ 19, %149 ], [ 20, %152 ], [ 21, %155 ], [ 22, %158 ], [ 23, %161 ], [ 24, %164 ], [ 25, %167 ], [ 26, %170 ], [ 27, %173 ], [ 28, %176 ], [ 29, %179 ], [ 30, %182 ], [ 31, %185 ], [ 32, %188 ], [ 33, %191 ], [ 34, %194 ], [ 35, %197 ], [ 36, %200 ], [ 37, %203 ], [ 38, %206 ], [ 39, %209 ], [ 40, %212 ], [ 41, %215 ], [ 42, %218 ], [ 43, %221 ], [ 44, %224 ], [ 45, %227 ], [ 46, %230 ], [ 47, %233 ], [ 48, %236 ], [ 49, %239 ], [ 50, %242 ], [ 51, %245 ], [ 52, %248 ], [ 53, %251 ], [ 54, %254 ], [ 55, %257 ], [ 56, %260 ], [ 57, %263 ], [ 58, %266 ], [ 59, %269 ], [ 60, %272 ], [ 61, %275 ], [ 62, %278 ], [ 63, %281 ]
+  %286 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %285
+  %287 = load i32, ptr %286, align 4, !tbaa !34
+  %288 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %89
+  store i32 %287, ptr %288, align 4, !tbaa !34
+  br label %289
+
+289:                                              ; preds = %284, %281
+  %290 = add nuw nsw i64 %89, 1
+  %291 = getelementptr inbounds i8, ptr %90, i64 8
+  %292 = load ptr, ptr %291, align 8, !tbaa !20
+  %293 = icmp ult i64 %89, 63
+  %294 = icmp ne ptr %292, null
+  %295 = select i1 %293, i1 %294, i1 false
+  br i1 %295, label %88, label %296
+
+296:                                              ; preds = %289
+  %297 = load <8 x i32>, ptr %3, align 16, !tbaa !34
+  %298 = getelementptr inbounds i8, ptr %3, i64 32
+  %299 = load <8 x i32>, ptr %298, align 16, !tbaa !34
+  %300 = getelementptr inbounds i8, ptr %3, i64 64
+  %301 = load <8 x i32>, ptr %300, align 16, !tbaa !34
+  %302 = getelementptr inbounds i8, ptr %3, i64 96
+  %303 = load i32, ptr %302, align 16, !tbaa !34
+  br label %304
+
+304:                                              ; preds = %296, %19, %14, %1
+  %305 = phi i32 [ %303, %296 ], [ 0, %19 ], [ 0, %14 ], [ 0, %1 ]
+  %306 = phi <8 x i32> [ %297, %296 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %19 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %14 ], [ <i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>, %1 ]
+  %307 = phi <8 x i32> [ %299, %296 ], [ zeroinitializer, %19 ], [ zeroinitializer, %14 ], [ zeroinitializer, %1 ]
+  %308 = phi <8 x i32> [ %301, %296 ], [ zeroinitializer, %19 ], [ zeroinitializer, %14 ], [ zeroinitializer, %1 ]
+  %309 = getelementptr inbounds i8, ptr %5, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %5, ptr noundef nonnull align 16 dereferenceable(256) %2, i64 256, i1 false), !tbaa !34
-  store <8 x i32> %305, ptr %308, align 4, !tbaa !34
-  %309 = getelementptr inbounds i8, ptr %5, i64 288
   store <8 x i32> %306, ptr %309, align 4, !tbaa !34
-  %310 = getelementptr inbounds i8, ptr %5, i64 320
+  %310 = getelementptr inbounds i8, ptr %5, i64 288
   store <8 x i32> %307, ptr %310, align 4, !tbaa !34
-  %311 = getelementptr inbounds i8, ptr %5, i64 352
-  store i32 %304, ptr %311, align 4, !tbaa !34
-  %312 = getelementptr inbounds i8, ptr %3, i64 100
-  %313 = getelementptr inbounds i8, ptr %5, i64 356
-  %314 = load <8 x i32>, ptr %312, align 4, !tbaa !34
-  store <8 x i32> %314, ptr %313, align 4, !tbaa !34
-  %315 = getelementptr inbounds i8, ptr %3, i64 132
-  %316 = getelementptr inbounds i8, ptr %5, i64 388
-  %317 = load <8 x i32>, ptr %315, align 4, !tbaa !34
-  store <8 x i32> %317, ptr %316, align 4, !tbaa !34
-  %318 = getelementptr inbounds i8, ptr %3, i64 164
-  %319 = getelementptr inbounds i8, ptr %5, i64 420
-  %320 = load <8 x i32>, ptr %318, align 4, !tbaa !34
-  store <8 x i32> %320, ptr %319, align 4, !tbaa !34
-  %321 = getelementptr inbounds i8, ptr %3, i64 196
-  %322 = getelementptr inbounds i8, ptr %5, i64 452
-  %323 = load <8 x i32>, ptr %321, align 4, !tbaa !34
-  store <8 x i32> %323, ptr %322, align 4, !tbaa !34
-  %324 = getelementptr inbounds i8, ptr %3, i64 228
-  %325 = getelementptr inbounds i8, ptr %5, i64 484
-  %326 = load <4 x i32>, ptr %324, align 4, !tbaa !34
-  store <4 x i32> %326, ptr %325, align 4, !tbaa !34
-  %327 = getelementptr inbounds i8, ptr %3, i64 244
-  %328 = getelementptr inbounds i8, ptr %5, i64 500
-  %329 = load <2 x i32>, ptr %327, align 4, !tbaa !34
-  store <2 x i32> %329, ptr %328, align 4, !tbaa !34
-  %330 = getelementptr inbounds i8, ptr %3, i64 252
-  %331 = load i32, ptr %330, align 4, !tbaa !34
-  %332 = getelementptr inbounds i8, ptr %5, i64 508
-  store i32 %331, ptr %332, align 4, !tbaa !34
+  %311 = getelementptr inbounds i8, ptr %5, i64 320
+  store <8 x i32> %308, ptr %311, align 4, !tbaa !34
+  %312 = getelementptr inbounds i8, ptr %5, i64 352
+  store i32 %305, ptr %312, align 4, !tbaa !34
+  %313 = getelementptr inbounds i8, ptr %3, i64 100
+  %314 = getelementptr inbounds i8, ptr %5, i64 356
+  %315 = load <8 x i32>, ptr %313, align 4, !tbaa !34
+  store <8 x i32> %315, ptr %314, align 4, !tbaa !34
+  %316 = getelementptr inbounds i8, ptr %3, i64 132
+  %317 = getelementptr inbounds i8, ptr %5, i64 388
+  %318 = load <8 x i32>, ptr %316, align 4, !tbaa !34
+  store <8 x i32> %318, ptr %317, align 4, !tbaa !34
+  %319 = getelementptr inbounds i8, ptr %3, i64 164
+  %320 = getelementptr inbounds i8, ptr %5, i64 420
+  %321 = load <8 x i32>, ptr %319, align 4, !tbaa !34
+  store <8 x i32> %321, ptr %320, align 4, !tbaa !34
+  %322 = getelementptr inbounds i8, ptr %3, i64 196
+  %323 = getelementptr inbounds i8, ptr %5, i64 452
+  %324 = load <8 x i32>, ptr %322, align 4, !tbaa !34
+  store <8 x i32> %324, ptr %323, align 4, !tbaa !34
+  %325 = getelementptr inbounds i8, ptr %3, i64 228
+  %326 = getelementptr inbounds i8, ptr %5, i64 484
+  %327 = load <4 x i32>, ptr %325, align 4, !tbaa !34
+  store <4 x i32> %327, ptr %326, align 4, !tbaa !34
+  %328 = getelementptr inbounds i8, ptr %3, i64 244
+  %329 = getelementptr inbounds i8, ptr %5, i64 500
+  %330 = load <2 x i32>, ptr %328, align 4, !tbaa !34
+  store <2 x i32> %330, ptr %329, align 4, !tbaa !34
+  %331 = getelementptr inbounds i8, ptr %3, i64 252
+  %332 = load i32, ptr %331, align 4, !tbaa !34
+  %333 = getelementptr inbounds i8, ptr %5, i64 508
+  store i32 %332, ptr %333, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #18
-  %333 = getelementptr inbounds i8, ptr %0, i64 704
-  %334 = load ptr, ptr %333, align 16, !tbaa !114
-  %335 = getelementptr inbounds i8, ptr %0, i64 664
-  %336 = load ptr, ptr %335, align 8, !tbaa !11
-  %337 = load ptr, ptr %6, align 8, !tbaa !35
-  %338 = getelementptr inbounds i8, ptr %337, i64 24
-  %339 = load i32, ptr %338, align 4, !tbaa !41
-  %340 = tail call ptr @dt_masks_get_from_id(ptr noundef %336, i32 noundef %339) #18
-  %341 = icmp eq ptr %340, null
-  br i1 %341, label %350, label %342
+  %334 = getelementptr inbounds i8, ptr %0, i64 704
+  %335 = load ptr, ptr %334, align 16, !tbaa !114
+  %336 = getelementptr inbounds i8, ptr %0, i64 664
+  %337 = load ptr, ptr %336, align 8, !tbaa !11
+  %338 = load ptr, ptr %6, align 8, !tbaa !35
+  %339 = getelementptr inbounds i8, ptr %338, i64 24
+  %340 = load i32, ptr %339, align 4, !tbaa !41
+  %341 = tail call ptr @dt_masks_get_from_id(ptr noundef %337, i32 noundef %340) #18
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %351, label %343
 
-342:                                              ; preds = %303
-  %343 = getelementptr inbounds i8, ptr %340, i64 8
-  %344 = load i32, ptr %343, align 8, !tbaa !40
-  %345 = and i32 %344, 4
-  %346 = icmp eq i32 %345, 0
-  br i1 %346, label %350, label %347
+343:                                              ; preds = %304
+  %344 = getelementptr inbounds i8, ptr %341, i64 8
+  %345 = load i32, ptr %344, align 8, !tbaa !40
+  %346 = and i32 %345, 4
+  %347 = icmp eq i32 %346, 0
+  br i1 %347, label %351, label %348
 
-347:                                              ; preds = %342
-  %348 = load ptr, ptr %340, align 8, !tbaa !30
-  %349 = tail call i32 @g_list_length(ptr noundef %348) #18
-  br label %350
+348:                                              ; preds = %343
+  %349 = load ptr, ptr %341, align 8, !tbaa !30
+  %350 = tail call i32 @g_list_length(ptr noundef %349) #18
+  br label %351
 
-350:                                              ; preds = %347, %342, %303
-  %351 = phi i32 [ %349, %347 ], [ 0, %342 ], [ 0, %303 ]
-  %352 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, i32 noundef %351) #18
-  %353 = load ptr, ptr %334, align 8, !tbaa !138
-  tail call void @gtk_label_set_text(ptr noundef %353, ptr noundef %352) #18
-  tail call void @g_free(ptr noundef %352) #18
-  %354 = getelementptr inbounds i8, ptr %334, i64 16
-  %355 = load ptr, ptr %354, align 8, !tbaa !136
-  %356 = tail call i64 @gtk_toggle_button_get_type() #22
-  %357 = tail call ptr @g_type_check_instance_cast(ptr noundef %355, i64 noundef %356) #18
-  %358 = load ptr, ptr %335, align 8, !tbaa !11
-  %359 = getelementptr inbounds i8, ptr %358, i64 2136
-  %360 = load ptr, ptr %359, align 8, !tbaa !131
-  %361 = icmp eq ptr %360, null
-  br i1 %361, label %404, label %362
+351:                                              ; preds = %348, %343, %304
+  %352 = phi i32 [ %350, %348 ], [ 0, %343 ], [ 0, %304 ]
+  %353 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, i32 noundef %352) #18
+  %354 = load ptr, ptr %335, align 8, !tbaa !138
+  tail call void @gtk_label_set_text(ptr noundef %354, ptr noundef %353) #18
+  tail call void @g_free(ptr noundef %353) #18
+  %355 = getelementptr inbounds i8, ptr %335, i64 16
+  %356 = load ptr, ptr %355, align 8, !tbaa !136
+  %357 = tail call i64 @gtk_toggle_button_get_type() #22
+  %358 = tail call ptr @g_type_check_instance_cast(ptr noundef %356, i64 noundef %357) #18
+  %359 = load ptr, ptr %336, align 8, !tbaa !11
+  %360 = getelementptr inbounds i8, ptr %359, i64 2136
+  %361 = load ptr, ptr %360, align 8, !tbaa !131
+  %362 = icmp eq ptr %361, null
+  br i1 %362, label %406, label %363
 
-362:                                              ; preds = %350
-  %363 = getelementptr inbounds i8, ptr %358, i64 2128
-  %364 = load ptr, ptr %363, align 16, !tbaa !139
-  %365 = icmp eq ptr %364, null
-  br i1 %365, label %404, label %366
+363:                                              ; preds = %351
+  %364 = getelementptr inbounds i8, ptr %359, i64 2128
+  %365 = load ptr, ptr %364, align 16, !tbaa !139
+  %366 = icmp eq ptr %365, null
+  br i1 %366, label %406, label %367
 
-366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %360, i64 152
-  %368 = load i32, ptr %367, align 8, !tbaa !132
-  %369 = icmp eq i32 %368, 0
-  br i1 %369, label %374, label %370
+367:                                              ; preds = %363
+  %368 = getelementptr inbounds i8, ptr %361, i64 152
+  %369 = load i32, ptr %368, align 8, !tbaa !132
+  %370 = icmp eq i32 %369, 0
+  br i1 %370, label %375, label %371
 
-370:                                              ; preds = %366
-  %371 = getelementptr inbounds i8, ptr %360, i64 168
-  %372 = load ptr, ptr %371, align 8, !tbaa !134
-  %373 = icmp eq ptr %372, %0
-  br i1 %373, label %382, label %374
+371:                                              ; preds = %367
+  %372 = getelementptr inbounds i8, ptr %361, i64 168
+  %373 = load ptr, ptr %372, align 8, !tbaa !134
+  %374 = icmp eq ptr %373, %0
+  br i1 %374, label %383, label %375
 
-374:                                              ; preds = %370, %366
-  %375 = getelementptr inbounds i8, ptr %360, i64 156
-  %376 = load i32, ptr %375, align 4, !tbaa !140
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %404, label %378
+375:                                              ; preds = %371, %367
+  %376 = getelementptr inbounds i8, ptr %361, i64 156
+  %377 = load i32, ptr %376, align 4, !tbaa !140
+  %378 = icmp eq i32 %377, 0
+  br i1 %378, label %406, label %379
 
-378:                                              ; preds = %374
-  %379 = getelementptr inbounds i8, ptr %360, i64 176
-  %380 = load ptr, ptr %379, align 8, !tbaa !141
-  %381 = icmp eq ptr %380, %0
-  br i1 %381, label %382, label %404
+379:                                              ; preds = %375
+  %380 = getelementptr inbounds i8, ptr %361, i64 176
+  %381 = load ptr, ptr %380, align 8, !tbaa !141
+  %382 = icmp eq ptr %381, %0
+  br i1 %382, label %383, label %406
 
-382:                                              ; preds = %378, %370
-  %383 = getelementptr inbounds i8, ptr %364, i64 8
-  %384 = load i32, ptr %383, align 8, !tbaa !40
-  %385 = and i32 %384, 4
-  %386 = icmp eq i32 %385, 0
-  br i1 %386, label %402, label %387
+383:                                              ; preds = %379, %371
+  %384 = getelementptr inbounds i8, ptr %365, i64 8
+  %385 = load i32, ptr %384, align 8, !tbaa !40
+  %386 = and i32 %385, 4
+  %387 = icmp eq i32 %386, 0
+  br i1 %387, label %404, label %388
 
-387:                                              ; preds = %382
-  %388 = load ptr, ptr %364, align 8, !tbaa !30
-  %389 = icmp eq ptr %388, null
-  br i1 %389, label %404, label %390
+388:                                              ; preds = %383
+  %389 = load ptr, ptr %365, align 8, !tbaa !30
+  %390 = icmp eq ptr %389, null
+  br i1 %390, label %406, label %391
 
-390:                                              ; preds = %387
-  %391 = load ptr, ptr %388, align 8, !tbaa !36
-  %392 = icmp eq ptr %391, null
-  br i1 %392, label %404, label %393
+391:                                              ; preds = %388
+  %392 = load ptr, ptr %389, align 8, !tbaa !36
+  %393 = icmp eq ptr %392, null
+  br i1 %393, label %406, label %394
 
-393:                                              ; preds = %390
-  %394 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %395 = load i32, ptr %391, align 4, !tbaa !74
-  %396 = tail call ptr @dt_masks_get_from_id(ptr noundef %394, i32 noundef %395) #18
-  %397 = icmp eq ptr %396, null
-  br i1 %397, label %404, label %398
+394:                                              ; preds = %391
+  %395 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %396 = load ptr, ptr %395, align 8, !tbaa !116
+  %397 = load i32, ptr %392, align 4, !tbaa !74
+  %398 = tail call ptr @dt_masks_get_from_id(ptr noundef %396, i32 noundef %397) #18
+  %399 = icmp eq ptr %398, null
+  br i1 %399, label %406, label %400
 
-398:                                              ; preds = %393
-  %399 = getelementptr inbounds i8, ptr %396, i64 8
-  %400 = load i32, ptr %399, align 8, !tbaa !40
-  %401 = and i32 %400, 1
-  br label %404
+400:                                              ; preds = %394
+  %401 = getelementptr inbounds i8, ptr %398, i64 8
+  %402 = load i32, ptr %401, align 8, !tbaa !40
+  %403 = and i32 %402, 1
+  br label %406
 
-402:                                              ; preds = %382
-  %403 = and i32 %384, 1
-  br label %404
+404:                                              ; preds = %383
+  %405 = and i32 %385, 1
+  br label %406
 
-404:                                              ; preds = %402, %398, %393, %390, %387, %378, %374, %362, %350
-  %405 = phi i32 [ %403, %402 ], [ 0, %378 ], [ 0, %374 ], [ 0, %362 ], [ 0, %350 ], [ 0, %387 ], [ 0, %390 ], [ %401, %398 ], [ 0, %393 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %357, i32 noundef %405) #18
-  %406 = getelementptr inbounds i8, ptr %334, i64 8
-  %407 = load ptr, ptr %406, align 8, !tbaa !135
-  %408 = tail call ptr @g_type_check_instance_cast(ptr noundef %407, i64 noundef %356) #18
-  %409 = load ptr, ptr %335, align 8, !tbaa !11
-  %410 = getelementptr inbounds i8, ptr %409, i64 2136
-  %411 = load ptr, ptr %410, align 8, !tbaa !131
-  %412 = icmp eq ptr %411, null
-  br i1 %412, label %455, label %413
+406:                                              ; preds = %404, %400, %394, %391, %388, %379, %375, %363, %351
+  %407 = phi i32 [ %405, %404 ], [ 0, %379 ], [ 0, %375 ], [ 0, %363 ], [ 0, %351 ], [ 0, %388 ], [ 0, %391 ], [ %403, %400 ], [ 0, %394 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %358, i32 noundef %407) #18
+  %408 = getelementptr inbounds i8, ptr %335, i64 8
+  %409 = load ptr, ptr %408, align 8, !tbaa !135
+  %410 = tail call ptr @g_type_check_instance_cast(ptr noundef %409, i64 noundef %357) #18
+  %411 = load ptr, ptr %336, align 8, !tbaa !11
+  %412 = getelementptr inbounds i8, ptr %411, i64 2136
+  %413 = load ptr, ptr %412, align 8, !tbaa !131
+  %414 = icmp eq ptr %413, null
+  br i1 %414, label %458, label %415
 
-413:                                              ; preds = %404
-  %414 = getelementptr inbounds i8, ptr %409, i64 2128
-  %415 = load ptr, ptr %414, align 16, !tbaa !139
-  %416 = icmp eq ptr %415, null
-  br i1 %416, label %455, label %417
+415:                                              ; preds = %406
+  %416 = getelementptr inbounds i8, ptr %411, i64 2128
+  %417 = load ptr, ptr %416, align 16, !tbaa !139
+  %418 = icmp eq ptr %417, null
+  br i1 %418, label %458, label %419
 
-417:                                              ; preds = %413
-  %418 = getelementptr inbounds i8, ptr %411, i64 152
-  %419 = load i32, ptr %418, align 8, !tbaa !132
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %425, label %421
+419:                                              ; preds = %415
+  %420 = getelementptr inbounds i8, ptr %413, i64 152
+  %421 = load i32, ptr %420, align 8, !tbaa !132
+  %422 = icmp eq i32 %421, 0
+  br i1 %422, label %427, label %423
 
-421:                                              ; preds = %417
-  %422 = getelementptr inbounds i8, ptr %411, i64 168
-  %423 = load ptr, ptr %422, align 8, !tbaa !134
-  %424 = icmp eq ptr %423, %0
-  br i1 %424, label %433, label %425
+423:                                              ; preds = %419
+  %424 = getelementptr inbounds i8, ptr %413, i64 168
+  %425 = load ptr, ptr %424, align 8, !tbaa !134
+  %426 = icmp eq ptr %425, %0
+  br i1 %426, label %435, label %427
 
-425:                                              ; preds = %421, %417
-  %426 = getelementptr inbounds i8, ptr %411, i64 156
-  %427 = load i32, ptr %426, align 4, !tbaa !140
-  %428 = icmp eq i32 %427, 0
-  br i1 %428, label %455, label %429
+427:                                              ; preds = %423, %419
+  %428 = getelementptr inbounds i8, ptr %413, i64 156
+  %429 = load i32, ptr %428, align 4, !tbaa !140
+  %430 = icmp eq i32 %429, 0
+  br i1 %430, label %458, label %431
 
-429:                                              ; preds = %425
-  %430 = getelementptr inbounds i8, ptr %411, i64 176
-  %431 = load ptr, ptr %430, align 8, !tbaa !141
-  %432 = icmp eq ptr %431, %0
-  br i1 %432, label %433, label %455
+431:                                              ; preds = %427
+  %432 = getelementptr inbounds i8, ptr %413, i64 176
+  %433 = load ptr, ptr %432, align 8, !tbaa !141
+  %434 = icmp eq ptr %433, %0
+  br i1 %434, label %435, label %458
 
-433:                                              ; preds = %429, %421
-  %434 = getelementptr inbounds i8, ptr %415, i64 8
-  %435 = load i32, ptr %434, align 8, !tbaa !40
-  %436 = and i32 %435, 4
-  %437 = icmp eq i32 %436, 0
-  br i1 %437, label %453, label %438
+435:                                              ; preds = %431, %423
+  %436 = getelementptr inbounds i8, ptr %417, i64 8
+  %437 = load i32, ptr %436, align 8, !tbaa !40
+  %438 = and i32 %437, 4
+  %439 = icmp eq i32 %438, 0
+  br i1 %439, label %456, label %440
 
-438:                                              ; preds = %433
-  %439 = load ptr, ptr %415, align 8, !tbaa !30
-  %440 = icmp eq ptr %439, null
-  br i1 %440, label %455, label %441
+440:                                              ; preds = %435
+  %441 = load ptr, ptr %417, align 8, !tbaa !30
+  %442 = icmp eq ptr %441, null
+  br i1 %442, label %458, label %443
 
-441:                                              ; preds = %438
-  %442 = load ptr, ptr %439, align 8, !tbaa !36
-  %443 = icmp eq ptr %442, null
-  br i1 %443, label %455, label %444
+443:                                              ; preds = %440
+  %444 = load ptr, ptr %441, align 8, !tbaa !36
+  %445 = icmp eq ptr %444, null
+  br i1 %445, label %458, label %446
 
-444:                                              ; preds = %441
-  %445 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %446 = load i32, ptr %442, align 4, !tbaa !74
-  %447 = tail call ptr @dt_masks_get_from_id(ptr noundef %445, i32 noundef %446) #18
-  %448 = icmp eq ptr %447, null
-  br i1 %448, label %455, label %449
+446:                                              ; preds = %443
+  %447 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %448 = load ptr, ptr %447, align 8, !tbaa !116
+  %449 = load i32, ptr %444, align 4, !tbaa !74
+  %450 = tail call ptr @dt_masks_get_from_id(ptr noundef %448, i32 noundef %449) #18
+  %451 = icmp eq ptr %450, null
+  br i1 %451, label %458, label %452
 
-449:                                              ; preds = %444
-  %450 = getelementptr inbounds i8, ptr %447, i64 8
-  %451 = load i32, ptr %450, align 8, !tbaa !40
-  %452 = and i32 %451, 2
-  br label %455
+452:                                              ; preds = %446
+  %453 = getelementptr inbounds i8, ptr %450, i64 8
+  %454 = load i32, ptr %453, align 8, !tbaa !40
+  %455 = and i32 %454, 2
+  br label %458
 
-453:                                              ; preds = %433
-  %454 = and i32 %435, 2
-  br label %455
+456:                                              ; preds = %435
+  %457 = and i32 %437, 2
+  br label %458
 
-455:                                              ; preds = %453, %449, %444, %441, %438, %429, %425, %413, %404
-  %456 = phi i32 [ %454, %453 ], [ 0, %429 ], [ 0, %425 ], [ 0, %413 ], [ 0, %404 ], [ 0, %438 ], [ 0, %441 ], [ %452, %449 ], [ 0, %444 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %408, i32 noundef %456) #18
-  %457 = getelementptr inbounds i8, ptr %334, i64 24
-  %458 = load ptr, ptr %457, align 8, !tbaa !137
-  %459 = tail call ptr @g_type_check_instance_cast(ptr noundef %458, i64 noundef %356) #18
-  %460 = load ptr, ptr %335, align 8, !tbaa !11
-  %461 = getelementptr inbounds i8, ptr %460, i64 2136
-  %462 = load ptr, ptr %461, align 8, !tbaa !131
-  %463 = icmp eq ptr %462, null
-  br i1 %463, label %506, label %464
+458:                                              ; preds = %456, %452, %446, %443, %440, %431, %427, %415, %406
+  %459 = phi i32 [ %457, %456 ], [ 0, %431 ], [ 0, %427 ], [ 0, %415 ], [ 0, %406 ], [ 0, %440 ], [ 0, %443 ], [ %455, %452 ], [ 0, %446 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %410, i32 noundef %459) #18
+  %460 = getelementptr inbounds i8, ptr %335, i64 24
+  %461 = load ptr, ptr %460, align 8, !tbaa !137
+  %462 = tail call ptr @g_type_check_instance_cast(ptr noundef %461, i64 noundef %357) #18
+  %463 = load ptr, ptr %336, align 8, !tbaa !11
+  %464 = getelementptr inbounds i8, ptr %463, i64 2136
+  %465 = load ptr, ptr %464, align 8, !tbaa !131
+  %466 = icmp eq ptr %465, null
+  br i1 %466, label %510, label %467
 
-464:                                              ; preds = %455
-  %465 = getelementptr inbounds i8, ptr %460, i64 2128
-  %466 = load ptr, ptr %465, align 16, !tbaa !139
-  %467 = icmp eq ptr %466, null
-  br i1 %467, label %506, label %468
+467:                                              ; preds = %458
+  %468 = getelementptr inbounds i8, ptr %463, i64 2128
+  %469 = load ptr, ptr %468, align 16, !tbaa !139
+  %470 = icmp eq ptr %469, null
+  br i1 %470, label %510, label %471
 
-468:                                              ; preds = %464
-  %469 = getelementptr inbounds i8, ptr %462, i64 152
-  %470 = load i32, ptr %469, align 8, !tbaa !132
-  %471 = icmp eq i32 %470, 0
-  br i1 %471, label %476, label %472
+471:                                              ; preds = %467
+  %472 = getelementptr inbounds i8, ptr %465, i64 152
+  %473 = load i32, ptr %472, align 8, !tbaa !132
+  %474 = icmp eq i32 %473, 0
+  br i1 %474, label %479, label %475
 
-472:                                              ; preds = %468
-  %473 = getelementptr inbounds i8, ptr %462, i64 168
-  %474 = load ptr, ptr %473, align 8, !tbaa !134
-  %475 = icmp eq ptr %474, %0
-  br i1 %475, label %484, label %476
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds i8, ptr %465, i64 168
+  %477 = load ptr, ptr %476, align 8, !tbaa !134
+  %478 = icmp eq ptr %477, %0
+  br i1 %478, label %487, label %479
 
-476:                                              ; preds = %472, %468
-  %477 = getelementptr inbounds i8, ptr %462, i64 156
-  %478 = load i32, ptr %477, align 4, !tbaa !140
-  %479 = icmp eq i32 %478, 0
-  br i1 %479, label %506, label %480
+479:                                              ; preds = %475, %471
+  %480 = getelementptr inbounds i8, ptr %465, i64 156
+  %481 = load i32, ptr %480, align 4, !tbaa !140
+  %482 = icmp eq i32 %481, 0
+  br i1 %482, label %510, label %483
 
-480:                                              ; preds = %476
-  %481 = getelementptr inbounds i8, ptr %462, i64 176
-  %482 = load ptr, ptr %481, align 8, !tbaa !141
-  %483 = icmp eq ptr %482, %0
-  br i1 %483, label %484, label %506
+483:                                              ; preds = %479
+  %484 = getelementptr inbounds i8, ptr %465, i64 176
+  %485 = load ptr, ptr %484, align 8, !tbaa !141
+  %486 = icmp eq ptr %485, %0
+  br i1 %486, label %487, label %510
 
-484:                                              ; preds = %480, %472
-  %485 = getelementptr inbounds i8, ptr %466, i64 8
-  %486 = load i32, ptr %485, align 8, !tbaa !40
-  %487 = and i32 %486, 4
-  %488 = icmp eq i32 %487, 0
-  br i1 %488, label %504, label %489
+487:                                              ; preds = %483, %475
+  %488 = getelementptr inbounds i8, ptr %469, i64 8
+  %489 = load i32, ptr %488, align 8, !tbaa !40
+  %490 = and i32 %489, 4
+  %491 = icmp eq i32 %490, 0
+  br i1 %491, label %508, label %492
 
-489:                                              ; preds = %484
-  %490 = load ptr, ptr %466, align 8, !tbaa !30
-  %491 = icmp eq ptr %490, null
-  br i1 %491, label %506, label %492
-
-492:                                              ; preds = %489
-  %493 = load ptr, ptr %490, align 8, !tbaa !36
+492:                                              ; preds = %487
+  %493 = load ptr, ptr %469, align 8, !tbaa !30
   %494 = icmp eq ptr %493, null
-  br i1 %494, label %506, label %495
+  br i1 %494, label %510, label %495
 
 495:                                              ; preds = %492
-  %496 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %497 = load i32, ptr %493, align 4, !tbaa !74
-  %498 = tail call ptr @dt_masks_get_from_id(ptr noundef %496, i32 noundef %497) #18
-  %499 = icmp eq ptr %498, null
-  br i1 %499, label %506, label %500
+  %496 = load ptr, ptr %493, align 8, !tbaa !36
+  %497 = icmp eq ptr %496, null
+  br i1 %497, label %510, label %498
 
-500:                                              ; preds = %495
-  %501 = getelementptr inbounds i8, ptr %498, i64 8
-  %502 = load i32, ptr %501, align 8, !tbaa !40
-  %503 = and i32 %502, 32
-  br label %506
+498:                                              ; preds = %495
+  %499 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %500 = load ptr, ptr %499, align 8, !tbaa !116
+  %501 = load i32, ptr %496, align 4, !tbaa !74
+  %502 = tail call ptr @dt_masks_get_from_id(ptr noundef %500, i32 noundef %501) #18
+  %503 = icmp eq ptr %502, null
+  br i1 %503, label %510, label %504
 
-504:                                              ; preds = %484
-  %505 = and i32 %486, 32
-  br label %506
+504:                                              ; preds = %498
+  %505 = getelementptr inbounds i8, ptr %502, i64 8
+  %506 = load i32, ptr %505, align 8, !tbaa !40
+  %507 = and i32 %506, 32
+  br label %510
 
-506:                                              ; preds = %504, %500, %495, %492, %489, %480, %476, %464, %455
-  %507 = phi i32 [ %505, %504 ], [ 0, %480 ], [ 0, %476 ], [ 0, %464 ], [ 0, %455 ], [ 0, %489 ], [ 0, %492 ], [ %503, %500 ], [ 0, %495 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %459, i32 noundef %507) #18
-  %508 = getelementptr inbounds i8, ptr %0, i64 776
-  %509 = load ptr, ptr %508, align 8, !tbaa !125
-  %510 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %511 = getelementptr inbounds i8, ptr %510, i64 44
-  %512 = load i32, ptr %511, align 4, !tbaa !142
-  %513 = icmp eq i32 %512, 0
-  br i1 %513, label %516, label %514
+508:                                              ; preds = %487
+  %509 = and i32 %489, 32
+  br label %510
 
-514:                                              ; preds = %506
-  %515 = getelementptr inbounds i8, ptr %509, i64 600
-  store i32 0, ptr %515, align 8, !tbaa !126
-  br label %516
+510:                                              ; preds = %508, %504, %498, %495, %492, %483, %479, %467, %458
+  %511 = phi i32 [ %509, %508 ], [ 0, %483 ], [ 0, %479 ], [ 0, %467 ], [ 0, %458 ], [ 0, %492 ], [ 0, %495 ], [ %507, %504 ], [ 0, %498 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %462, i32 noundef %511) #18
+  %512 = getelementptr inbounds i8, ptr %0, i64 776
+  %513 = load ptr, ptr %512, align 8, !tbaa !125
+  %514 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %515 = load ptr, ptr %514, align 8, !tbaa !116
+  %516 = getelementptr inbounds i8, ptr %515, i64 44
+  %517 = load i32, ptr %516, align 4, !tbaa !142
+  %518 = icmp eq i32 %517, 0
+  br i1 %518, label %521, label %519
 
-516:                                              ; preds = %514, %506
-  br i1 %341, label %540, label %517
+519:                                              ; preds = %510
+  %520 = getelementptr inbounds i8, ptr %513, i64 600
+  store i32 0, ptr %520, align 8, !tbaa !126
+  br label %521
 
-517:                                              ; preds = %516
-  %518 = getelementptr inbounds i8, ptr %340, i64 8
-  %519 = load i32, ptr %518, align 8, !tbaa !40
-  %520 = and i32 %519, 4
-  %521 = icmp eq i32 %520, 0
-  br i1 %521, label %540, label %522
+521:                                              ; preds = %519, %510
+  br i1 %342, label %546, label %522
 
-522:                                              ; preds = %517
-  %523 = load ptr, ptr %340, align 8, !tbaa !30
-  %524 = icmp eq ptr %523, null
-  br i1 %524, label %540, label %525
+522:                                              ; preds = %521
+  %523 = getelementptr inbounds i8, ptr %341, i64 8
+  %524 = load i32, ptr %523, align 8, !tbaa !40
+  %525 = and i32 %524, 4
+  %526 = icmp eq i32 %525, 0
+  br i1 %526, label %546, label %527
 
-525:                                              ; preds = %522
-  %526 = getelementptr inbounds i8, ptr %334, i64 32
-  %527 = load ptr, ptr %526, align 8, !tbaa !128
-  %528 = tail call ptr @g_type_check_instance_cast(ptr noundef %527, i64 noundef %356) #18
-  %529 = getelementptr inbounds i8, ptr %509, i64 600
-  %530 = load i32, ptr %529, align 8, !tbaa !126
-  %531 = icmp eq i32 %530, 0
-  br i1 %531, label %538, label %532
+527:                                              ; preds = %522
+  %528 = load ptr, ptr %341, align 8, !tbaa !30
+  %529 = icmp eq ptr %528, null
+  br i1 %529, label %546, label %530
 
-532:                                              ; preds = %525
-  %533 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %534 = getelementptr inbounds i8, ptr %533, i64 88
-  %535 = load ptr, ptr %534, align 8, !tbaa !130
-  %536 = icmp eq ptr %535, %0
-  %537 = zext i1 %536 to i32
-  br label %538
+530:                                              ; preds = %527
+  %531 = getelementptr inbounds i8, ptr %335, i64 32
+  %532 = load ptr, ptr %531, align 8, !tbaa !128
+  %533 = tail call ptr @g_type_check_instance_cast(ptr noundef %532, i64 noundef %357) #18
+  %534 = getelementptr inbounds i8, ptr %513, i64 600
+  %535 = load i32, ptr %534, align 8, !tbaa !126
+  %536 = icmp eq i32 %535, 0
+  br i1 %536, label %544, label %537
 
-538:                                              ; preds = %532, %525
-  %539 = phi i32 [ 0, %525 ], [ %537, %532 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %528, i32 noundef %539) #18
+537:                                              ; preds = %530
+  %538 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %539 = load ptr, ptr %538, align 8, !tbaa !116
+  %540 = getelementptr inbounds i8, ptr %539, i64 88
+  %541 = load ptr, ptr %540, align 8, !tbaa !130
+  %542 = icmp eq ptr %541, %0
+  %543 = zext i1 %542 to i32
   br label %544
 
-540:                                              ; preds = %522, %517, %516
-  %541 = getelementptr inbounds i8, ptr %334, i64 32
-  %542 = load ptr, ptr %541, align 8, !tbaa !128
-  %543 = tail call ptr @g_type_check_instance_cast(ptr noundef %542, i64 noundef %356) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %543, i32 noundef 0) #18
-  br label %544
+544:                                              ; preds = %537, %530
+  %545 = phi i32 [ 0, %530 ], [ %543, %537 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %533, i32 noundef %545) #18
+  br label %550
 
-544:                                              ; preds = %540, %538
+546:                                              ; preds = %527, %522, %521
+  %547 = getelementptr inbounds i8, ptr %335, i64 32
+  %548 = load ptr, ptr %547, align 8, !tbaa !128
+  %549 = tail call ptr @g_type_check_instance_cast(ptr noundef %548, i64 noundef %357) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %549, i32 noundef 0) #18
+  br label %550
+
+550:                                              ; preds = %546, %544
   tail call void (...) @dt_control_queue_redraw_center() #18
   ret void
 }
@@ -2640,572 +2648,584 @@ declare ptr @dt_iop_togglebutton_new(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_edit_masks(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
-  %6 = load i32, ptr %5, align 8, !tbaa !145
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %101
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %5 = load ptr, ptr %4, align 8, !tbaa !144
+  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %7 = load i32, ptr %6, align 8, !tbaa !145
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %108
 
-8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !130
-  %12 = icmp eq ptr %11, %2
-  br i1 %12, label %14, label %13
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %11 = load ptr, ptr %10, align 8, !tbaa !116
+  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %13 = load ptr, ptr %12, align 8, !tbaa !130
+  %14 = icmp eq ptr %13, %2
+  br i1 %14, label %16, label %15
 
-13:                                               ; preds = %8
+15:                                               ; preds = %9
   tail call void @dt_iop_request_focus(ptr noundef %2) #18
-  br label %101
+  br label %108
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %2, i64 776
-  %16 = load ptr, ptr %15, align 8, !tbaa !125
-  %17 = getelementptr inbounds i8, ptr %2, i64 704
-  %18 = load ptr, ptr %17, align 16, !tbaa !114
-  %19 = getelementptr inbounds i8, ptr %9, i64 2136
-  %20 = load ptr, ptr %19, align 8, !tbaa !131
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
-  %22 = load i32, ptr %21, align 8, !tbaa !132
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %32, label %24
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds i8, ptr %2, i64 776
+  %18 = load ptr, ptr %17, align 8, !tbaa !125
+  %19 = getelementptr inbounds i8, ptr %2, i64 704
+  %20 = load ptr, ptr %19, align 16, !tbaa !114
+  %21 = getelementptr inbounds i8, ptr %11, i64 2136
+  %22 = load ptr, ptr %21, align 8, !tbaa !131
+  %23 = getelementptr inbounds i8, ptr %22, i64 152
+  %24 = load i32, ptr %23, align 8, !tbaa !132
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %35, label %26
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %20, i64 168
-  %26 = load ptr, ptr %25, align 8, !tbaa !134
-  %27 = icmp eq ptr %26, %2
-  br i1 %27, label %28, label %32
+26:                                               ; preds = %16
+  %27 = getelementptr inbounds i8, ptr %22, i64 168
+  %28 = load ptr, ptr %27, align 8, !tbaa !134
+  %29 = icmp eq ptr %28, %2
+  br i1 %29, label %30, label %35
 
-28:                                               ; preds = %24
+30:                                               ; preds = %26
   tail call void @dt_masks_change_form_gui(ptr noundef null) #18
-  %29 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %30 = getelementptr inbounds i8, ptr %29, i64 2136
-  %31 = load ptr, ptr %30, align 8, !tbaa !131
-  br label %32
+  %31 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %32 = load ptr, ptr %31, align 8, !tbaa !116
+  %33 = getelementptr inbounds i8, ptr %32, i64 2136
+  %34 = load ptr, ptr %33, align 8, !tbaa !131
+  br label %35
 
-32:                                               ; preds = %28, %24, %14
-  %33 = phi ptr [ %31, %28 ], [ %20, %24 ], [ %20, %14 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !141
-  %36 = icmp eq ptr %35, %2
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30, %26, %16
+  %36 = phi ptr [ %34, %30 ], [ %22, %26 ], [ %22, %16 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 176
+  %38 = load ptr, ptr %37, align 8, !tbaa !141
+  %39 = icmp eq ptr %38, %2
+  br i1 %39, label %40, label %42
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %33, i64 156
-  store i32 0, ptr %38, align 4, !tbaa !140
-  store ptr null, ptr %34, align 8, !tbaa !141
-  br label %39
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %36, i64 156
+  store i32 0, ptr %41, align 4, !tbaa !140
+  store ptr null, ptr %37, align 8, !tbaa !141
+  br label %42
 
-39:                                               ; preds = %37, %32
-  %40 = getelementptr inbounds i8, ptr %18, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !135
-  %42 = tail call i64 @gtk_toggle_button_get_type() #22
-  %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %42) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %43, i32 noundef 0) #18
-  %44 = getelementptr inbounds i8, ptr %18, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !136
-  %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %42) #18
+42:                                               ; preds = %40, %35
+  %43 = getelementptr inbounds i8, ptr %20, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !135
+  %45 = tail call i64 @gtk_toggle_button_get_type() #22
+  %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %45) #18
   tail call void @gtk_toggle_button_set_active(ptr noundef %46, i32 noundef 0) #18
-  %47 = getelementptr inbounds i8, ptr %18, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !137
-  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %42) #18
+  %47 = getelementptr inbounds i8, ptr %20, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !136
+  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %45) #18
   tail call void @gtk_toggle_button_set_active(ptr noundef %49, i32 noundef 0) #18
-  %50 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
-  %51 = getelementptr inbounds i8, ptr %50, i64 120
-  %52 = load i32, ptr %51, align 8, !tbaa !145
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 8, !tbaa !145
+  %50 = getelementptr inbounds i8, ptr %20, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !137
+  %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %45) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %52, i32 noundef 0) #18
+  %53 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %54 = load ptr, ptr %53, align 8, !tbaa !144
+  %55 = getelementptr inbounds i8, ptr %54, i64 120
+  %56 = load i32, ptr %55, align 8, !tbaa !145
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %55, align 8, !tbaa !145
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #18
-  %54 = getelementptr inbounds i8, ptr %2, i64 664
-  %55 = load ptr, ptr %54, align 8, !tbaa !11
-  %56 = getelementptr inbounds i8, ptr %55, i64 2136
-  %57 = load ptr, ptr %56, align 8, !tbaa !131
-  %58 = getelementptr inbounds i8, ptr %57, i64 76
-  %59 = load i32, ptr %58, align 4, !tbaa !149
-  %60 = icmp ne i32 %59, 1
-  %61 = zext i1 %60 to i32
-  tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %2, i32 noundef %61) #18
-  %62 = getelementptr inbounds i8, ptr %2, i64 760
-  %63 = load ptr, ptr %62, align 8, !tbaa !35
-  %64 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %65 = getelementptr inbounds i8, ptr %63, i64 24
-  %66 = load i32, ptr %65, align 4, !tbaa !41
-  %67 = tail call ptr @dt_masks_get_from_id(ptr noundef %64, i32 noundef %66) #18
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %92, label %69
+  %58 = getelementptr inbounds i8, ptr %2, i64 664
+  %59 = load ptr, ptr %58, align 8, !tbaa !11
+  %60 = getelementptr inbounds i8, ptr %59, i64 2136
+  %61 = load ptr, ptr %60, align 8, !tbaa !131
+  %62 = getelementptr inbounds i8, ptr %61, i64 76
+  %63 = load i32, ptr %62, align 4, !tbaa !149
+  %64 = icmp ne i32 %63, 1
+  %65 = zext i1 %64 to i32
+  tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %2, i32 noundef %65) #18
+  %66 = getelementptr inbounds i8, ptr %2, i64 760
+  %67 = load ptr, ptr %66, align 8, !tbaa !35
+  %68 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %69 = load ptr, ptr %68, align 8, !tbaa !116
+  %70 = getelementptr inbounds i8, ptr %67, i64 24
+  %71 = load i32, ptr %70, align 4, !tbaa !41
+  %72 = tail call ptr @dt_masks_get_from_id(ptr noundef %69, i32 noundef %71) #18
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %98, label %74
 
-69:                                               ; preds = %39
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !40
-  %72 = and i32 %71, 4
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %92, label %74
+74:                                               ; preds = %42
+  %75 = getelementptr inbounds i8, ptr %72, i64 8
+  %76 = load i32, ptr %75, align 8, !tbaa !40
+  %77 = and i32 %76, 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %98, label %79
 
-74:                                               ; preds = %69
-  %75 = load ptr, ptr %67, align 8, !tbaa !30
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %92, label %77
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %72, align 8, !tbaa !30
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %98, label %82
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %18, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !128
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %42) #18
-  %81 = getelementptr inbounds i8, ptr %16, i64 600
-  %82 = load i32, ptr %81, align 8, !tbaa !126
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %90, label %84
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %20, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !128
+  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %45) #18
+  %86 = getelementptr inbounds i8, ptr %18, i64 600
+  %87 = load i32, ptr %86, align 8, !tbaa !126
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %96, label %89
 
-84:                                               ; preds = %77
-  %85 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %86 = getelementptr inbounds i8, ptr %85, i64 88
-  %87 = load ptr, ptr %86, align 8, !tbaa !130
-  %88 = icmp eq ptr %87, %2
-  %89 = zext i1 %88 to i32
-  br label %90
-
-90:                                               ; preds = %84, %77
-  %91 = phi i32 [ 0, %77 ], [ %89, %84 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %80, i32 noundef %91) #18
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %91 = load ptr, ptr %90, align 8, !tbaa !116
+  %92 = getelementptr inbounds i8, ptr %91, i64 88
+  %93 = load ptr, ptr %92, align 8, !tbaa !130
+  %94 = icmp eq ptr %93, %2
+  %95 = zext i1 %94 to i32
   br label %96
 
-92:                                               ; preds = %74, %69, %39
-  %93 = getelementptr inbounds i8, ptr %18, i64 32
-  %94 = load ptr, ptr %93, align 8, !tbaa !128
-  %95 = tail call ptr @g_type_check_instance_cast(ptr noundef %94, i64 noundef %42) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %95, i32 noundef 0) #18
-  br label %96
+96:                                               ; preds = %89, %82
+  %97 = phi i32 [ 0, %82 ], [ %95, %89 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %85, i32 noundef %97) #18
+  br label %102
 
-96:                                               ; preds = %92, %90
-  %97 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
-  %98 = getelementptr inbounds i8, ptr %97, i64 120
-  %99 = load i32, ptr %98, align 8, !tbaa !145
-  %100 = add nsw i32 %99, -1
-  store i32 %100, ptr %98, align 8, !tbaa !145
+98:                                               ; preds = %79, %74, %42
+  %99 = getelementptr inbounds i8, ptr %20, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !128
+  %101 = tail call ptr @g_type_check_instance_cast(ptr noundef %100, i64 noundef %45) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %101, i32 noundef 0) #18
+  br label %102
+
+102:                                              ; preds = %98, %96
+  %103 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %104 = load ptr, ptr %103, align 8, !tbaa !144
+  %105 = getelementptr inbounds i8, ptr %104, i64 120
+  %106 = load i32, ptr %105, align 8, !tbaa !145
+  %107 = add nsw i32 %106, -1
+  store i32 %107, ptr %105, align 8, !tbaa !145
   tail call void (...) @dt_control_queue_redraw_center() #18
-  br label %101
+  br label %108
 
-101:                                              ; preds = %96, %13, %3
-  %102 = phi i32 [ 0, %13 ], [ 1, %96 ], [ 0, %3 ]
-  ret i32 %102
+108:                                              ; preds = %102, %15, %3
+  %109 = phi i32 [ 0, %15 ], [ 1, %102 ], [ 0, %3 ]
+  ret i32 %109
 }
 
 declare void @dtgtk_cairo_paint_masks_eye(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
-  %6 = load i32, ptr %5, align 8, !tbaa !145
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %278
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %5 = load ptr, ptr %4, align 8, !tbaa !144
+  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %7 = load i32, ptr %6, align 8, !tbaa !145
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %283
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 704
-  %10 = load ptr, ptr %9, align 16, !tbaa !114
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !150
-  %13 = tail call i32 @gtk_accelerator_get_default_mod_mask() #18
-  %14 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !34
-  %15 = or i32 %14, %12
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 824
-  %19 = load ptr, ptr %18, align 8, !tbaa !152
-  %20 = tail call i64 @gtk_toggle_button_get_type() #22
-  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %21, i32 noundef 1) #18
-  %22 = getelementptr inbounds i8, ptr %2, i64 776
-  %23 = load ptr, ptr %22, align 8, !tbaa !125
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %27, label %25
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %2, i64 704
+  %11 = load ptr, ptr %10, align 16, !tbaa !114
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = load i32, ptr %12, align 8, !tbaa !150
+  %14 = tail call i32 @gtk_accelerator_get_default_mod_mask() #18
+  %15 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !34
+  %16 = or i32 %15, %13
+  %17 = and i32 %16, %14
+  %18 = icmp eq i32 %17, 4
+  %19 = getelementptr inbounds i8, ptr %2, i64 824
+  %20 = load ptr, ptr %19, align 8, !tbaa !152
+  %21 = tail call i64 @gtk_toggle_button_get_type() #22
+  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %22, i32 noundef 1) #18
+  %23 = getelementptr inbounds i8, ptr %2, i64 776
+  %24 = load ptr, ptr %23, align 8, !tbaa !125
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %28, label %26
 
-25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %23, i64 600
-  store i32 0, ptr %26, align 8, !tbaa !126
-  br label %27
+26:                                               ; preds = %9
+  %27 = getelementptr inbounds i8, ptr %24, i64 600
+  store i32 0, ptr %27, align 8, !tbaa !126
+  br label %28
 
-27:                                               ; preds = %25, %8
-  %28 = load ptr, ptr %9, align 16, !tbaa !114
-  %29 = getelementptr inbounds i8, ptr %2, i64 664
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = getelementptr inbounds i8, ptr %2, i64 760
-  %32 = load ptr, ptr %31, align 8, !tbaa !35
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = load i32, ptr %33, align 4, !tbaa !41
-  %35 = tail call ptr @dt_masks_get_from_id(ptr noundef %30, i32 noundef %34) #18
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %50, label %37
+28:                                               ; preds = %26, %9
+  %29 = load ptr, ptr %10, align 16, !tbaa !114
+  %30 = getelementptr inbounds i8, ptr %2, i64 664
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = getelementptr inbounds i8, ptr %2, i64 760
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %35 = load i32, ptr %34, align 4, !tbaa !41
+  %36 = tail call ptr @dt_masks_get_from_id(ptr noundef %31, i32 noundef %35) #18
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %51, label %38
 
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !40
-  %40 = and i32 %39, 4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %50, label %42
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !40
+  %41 = and i32 %40, 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %51, label %43
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %35, align 8, !tbaa !30
-  %44 = tail call i32 @g_list_length(ptr noundef %43) #18
-  %45 = icmp ugt i32 %44, 63
-  br i1 %45, label %46, label %50
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %36, align 8, !tbaa !30
+  %45 = tail call i32 @g_list_length(ptr noundef %44) #18
+  %46 = icmp ugt i32 %45, 63
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %42
-  %47 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #18
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %47) #18
-  %48 = getelementptr inbounds i8, ptr %28, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !135
-  br label %72
+47:                                               ; preds = %43
+  %48 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #18
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %48) #18
+  %49 = getelementptr inbounds i8, ptr %29, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !135
+  br label %73
 
-50:                                               ; preds = %42, %37, %27
-  %51 = getelementptr inbounds i8, ptr %28, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !135
-  %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %20) #18
-  %54 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %53) #18
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %68
+51:                                               ; preds = %43, %38, %28
+  %52 = getelementptr inbounds i8, ptr %29, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !135
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %21) #18
+  %55 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %54) #18
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %69
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %28, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !136
-  %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %20) #18
-  %60 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %59) #18
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %68
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %29, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !136
+  %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %21) #18
+  %61 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %60) #18
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %69
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %28, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !137
-  %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %20) #18
-  %66 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %65) #18
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %69, label %68
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds i8, ptr %29, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !137
+  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %21) #18
+  %67 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %66) #18
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %70, label %69
 
-68:                                               ; preds = %62, %56, %50
+69:                                               ; preds = %63, %57, %51
   tail call void @dt_masks_change_form_gui(ptr noundef null) #18
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %62
-  %70 = load ptr, ptr %51, align 8, !tbaa !135
-  %71 = icmp eq ptr %70, %0
-  br i1 %71, label %76, label %72
+70:                                               ; preds = %69, %63
+  %71 = load ptr, ptr %52, align 8, !tbaa !135
+  %72 = icmp eq ptr %71, %0
+  br i1 %72, label %77, label %73
 
-72:                                               ; preds = %69, %46
-  %73 = phi ptr [ %49, %46 ], [ %70, %69 ]
-  %74 = phi i1 [ true, %46 ], [ false, %69 ]
-  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef %20) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %75, i32 noundef 0) #18
-  br label %76
+73:                                               ; preds = %70, %47
+  %74 = phi ptr [ %50, %47 ], [ %71, %70 ]
+  %75 = phi i1 [ true, %47 ], [ false, %70 ]
+  %76 = tail call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %21) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %76, i32 noundef 0) #18
+  br label %77
 
-76:                                               ; preds = %72, %69
-  %77 = phi i1 [ false, %69 ], [ %74, %72 ]
-  %78 = getelementptr inbounds i8, ptr %28, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !136
-  %80 = icmp ne ptr %79, %0
-  %81 = or i1 %77, %80
-  br i1 %81, label %82, label %84
+77:                                               ; preds = %73, %70
+  %78 = phi i1 [ false, %70 ], [ %75, %73 ]
+  %79 = getelementptr inbounds i8, ptr %29, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !136
+  %81 = icmp ne ptr %80, %0
+  %82 = or i1 %78, %81
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %76
-  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %20) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %83, i32 noundef 0) #18
-  br label %84
+83:                                               ; preds = %77
+  %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef %21) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %84, i32 noundef 0) #18
+  br label %85
 
-84:                                               ; preds = %82, %76
-  %85 = getelementptr inbounds i8, ptr %28, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !137
-  %87 = icmp ne ptr %86, %0
-  %88 = or i1 %77, %87
-  br i1 %88, label %89, label %91
+85:                                               ; preds = %83, %77
+  %86 = getelementptr inbounds i8, ptr %29, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !137
+  %88 = icmp ne ptr %87, %0
+  %89 = or i1 %78, %88
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %84
-  %90 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %20) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %90, i32 noundef 0) #18
-  br label %91
+90:                                               ; preds = %85
+  %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %21) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %91, i32 noundef 0) #18
+  br label %92
 
-91:                                               ; preds = %89, %84
-  %92 = getelementptr inbounds i8, ptr %28, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !128
-  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %20) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %94, i32 noundef 0) #18
-  br i1 %77, label %124, label %95
+92:                                               ; preds = %90, %85
+  %93 = getelementptr inbounds i8, ptr %29, i64 32
+  %94 = load ptr, ptr %93, align 8, !tbaa !128
+  %95 = tail call ptr @g_type_check_instance_cast(ptr noundef %94, i64 noundef %21) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %95, i32 noundef 0) #18
+  br i1 %78, label %126, label %96
 
-95:                                               ; preds = %91
-  %96 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %20) #18
-  %97 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %96) #18
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %124
+96:                                               ; preds = %92
+  %97 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %21) #18
+  %98 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %97) #18
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %126
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %9, align 16, !tbaa !114
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %10, align 16, !tbaa !114
   tail call void @dt_iop_request_focus(ptr noundef nonnull %2) #18
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !135
-  %103 = icmp eq ptr %102, %0
-  br i1 %103, label %113, label %104
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !135
+  %104 = icmp eq ptr %103, %0
+  br i1 %104, label %114, label %105
 
-104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %100, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !136
-  %107 = icmp eq ptr %106, %0
-  br i1 %107, label %113, label %108
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds i8, ptr %101, i64 16
+  %107 = load ptr, ptr %106, align 8, !tbaa !136
+  %108 = icmp eq ptr %107, %0
+  br i1 %108, label %114, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %100, i64 24
-  %110 = load ptr, ptr %109, align 8, !tbaa !137
-  %111 = icmp eq ptr %110, %0
-  %112 = select i1 %111, i32 40, i32 9
-  br label %113
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds i8, ptr %101, i64 24
+  %111 = load ptr, ptr %110, align 8, !tbaa !137
+  %112 = icmp eq ptr %111, %0
+  %113 = select i1 %112, i32 40, i32 9
+  br label %114
 
-113:                                              ; preds = %108, %104, %99
-  %114 = phi i32 [ 10, %99 ], [ 9, %104 ], [ %112, %108 ]
-  %115 = tail call ptr @dt_masks_create(i32 noundef %114) #18
-  tail call void @dt_masks_change_form_gui(ptr noundef %115) #18
-  %116 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %117 = getelementptr inbounds i8, ptr %116, i64 2136
-  %118 = load ptr, ptr %117, align 8, !tbaa !131
-  %119 = getelementptr inbounds i8, ptr %118, i64 168
-  store ptr %2, ptr %119, align 8, !tbaa !134
-  %120 = zext i1 %17 to i32
-  %121 = select i1 %17, ptr %2, ptr null
-  %122 = getelementptr inbounds i8, ptr %118, i64 156
-  store i32 %120, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %118, i64 176
-  store ptr %121, ptr %123, align 8
+114:                                              ; preds = %109, %105, %100
+  %115 = phi i32 [ 10, %100 ], [ 9, %105 ], [ %113, %109 ]
+  %116 = tail call ptr @dt_masks_create(i32 noundef %115) #18
+  tail call void @dt_masks_change_form_gui(ptr noundef %116) #18
+  %117 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %118 = load ptr, ptr %117, align 8, !tbaa !116
+  %119 = getelementptr inbounds i8, ptr %118, i64 2136
+  %120 = load ptr, ptr %119, align 8, !tbaa !131
+  %121 = getelementptr inbounds i8, ptr %120, i64 168
+  store ptr %2, ptr %121, align 8, !tbaa !134
+  %122 = zext i1 %18 to i32
+  %123 = select i1 %18, ptr %2, ptr null
+  %124 = getelementptr inbounds i8, ptr %120, i64 156
+  store i32 %122, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %120, i64 176
+  store ptr %123, ptr %125, align 8
   tail call void (...) @dt_control_queue_redraw_center() #18
-  br label %124
+  br label %126
 
-124:                                              ; preds = %113, %95, %91
-  %125 = getelementptr inbounds i8, ptr %10, i64 16
-  %126 = load ptr, ptr %125, align 8, !tbaa !136
-  %127 = tail call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef %20) #18
-  %128 = load ptr, ptr %29, align 8, !tbaa !11
-  %129 = getelementptr inbounds i8, ptr %128, i64 2136
-  %130 = load ptr, ptr %129, align 8, !tbaa !131
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %174, label %132
+126:                                              ; preds = %114, %96, %92
+  %127 = getelementptr inbounds i8, ptr %11, i64 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !136
+  %129 = tail call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %21) #18
+  %130 = load ptr, ptr %30, align 8, !tbaa !11
+  %131 = getelementptr inbounds i8, ptr %130, i64 2136
+  %132 = load ptr, ptr %131, align 8, !tbaa !131
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %177, label %134
 
-132:                                              ; preds = %124
-  %133 = getelementptr inbounds i8, ptr %128, i64 2128
-  %134 = load ptr, ptr %133, align 16, !tbaa !139
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %174, label %136
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds i8, ptr %130, i64 2128
+  %136 = load ptr, ptr %135, align 16, !tbaa !139
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %177, label %138
 
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %130, i64 152
-  %138 = load i32, ptr %137, align 8, !tbaa !132
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %144, label %140
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds i8, ptr %132, i64 152
+  %140 = load i32, ptr %139, align 8, !tbaa !132
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %146, label %142
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %130, i64 168
-  %142 = load ptr, ptr %141, align 8, !tbaa !134
-  %143 = icmp eq ptr %142, %2
-  br i1 %143, label %152, label %144
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds i8, ptr %132, i64 168
+  %144 = load ptr, ptr %143, align 8, !tbaa !134
+  %145 = icmp eq ptr %144, %2
+  br i1 %145, label %154, label %146
 
-144:                                              ; preds = %140, %136
-  %145 = getelementptr inbounds i8, ptr %130, i64 156
-  %146 = load i32, ptr %145, align 4, !tbaa !140
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %174, label %148
+146:                                              ; preds = %142, %138
+  %147 = getelementptr inbounds i8, ptr %132, i64 156
+  %148 = load i32, ptr %147, align 4, !tbaa !140
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %177, label %150
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %130, i64 176
-  %150 = load ptr, ptr %149, align 8, !tbaa !141
-  %151 = icmp eq ptr %150, %2
-  br i1 %151, label %152, label %174
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds i8, ptr %132, i64 176
+  %152 = load ptr, ptr %151, align 8, !tbaa !141
+  %153 = icmp eq ptr %152, %2
+  br i1 %153, label %154, label %177
 
-152:                                              ; preds = %148, %140
-  %153 = getelementptr inbounds i8, ptr %134, i64 8
-  %154 = load i32, ptr %153, align 8, !tbaa !40
-  %155 = and i32 %154, 4
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %172, label %157
+154:                                              ; preds = %150, %142
+  %155 = getelementptr inbounds i8, ptr %136, i64 8
+  %156 = load i32, ptr %155, align 8, !tbaa !40
+  %157 = and i32 %156, 4
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %175, label %159
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %134, align 8, !tbaa !30
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %174, label %160
+159:                                              ; preds = %154
+  %160 = load ptr, ptr %136, align 8, !tbaa !30
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %177, label %162
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %158, align 8, !tbaa !36
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %174, label %163
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %160, align 8, !tbaa !36
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %177, label %165
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %165 = load i32, ptr %161, align 4, !tbaa !74
-  %166 = tail call ptr @dt_masks_get_from_id(ptr noundef %164, i32 noundef %165) #18
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %174, label %168
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %167 = load ptr, ptr %166, align 8, !tbaa !116
+  %168 = load i32, ptr %163, align 4, !tbaa !74
+  %169 = tail call ptr @dt_masks_get_from_id(ptr noundef %167, i32 noundef %168) #18
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %177, label %171
 
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds i8, ptr %166, i64 8
-  %170 = load i32, ptr %169, align 8, !tbaa !40
-  %171 = and i32 %170, 1
-  br label %174
+171:                                              ; preds = %165
+  %172 = getelementptr inbounds i8, ptr %169, i64 8
+  %173 = load i32, ptr %172, align 8, !tbaa !40
+  %174 = and i32 %173, 1
+  br label %177
 
-172:                                              ; preds = %152
-  %173 = and i32 %154, 1
-  br label %174
+175:                                              ; preds = %154
+  %176 = and i32 %156, 1
+  br label %177
 
-174:                                              ; preds = %172, %168, %163, %160, %157, %148, %144, %132, %124
-  %175 = phi i32 [ %173, %172 ], [ 0, %148 ], [ 0, %144 ], [ 0, %132 ], [ 0, %124 ], [ 0, %157 ], [ 0, %160 ], [ %171, %168 ], [ 0, %163 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %127, i32 noundef %175) #18
-  %176 = getelementptr inbounds i8, ptr %10, i64 24
-  %177 = load ptr, ptr %176, align 8, !tbaa !137
-  %178 = tail call ptr @g_type_check_instance_cast(ptr noundef %177, i64 noundef %20) #18
-  %179 = load ptr, ptr %29, align 8, !tbaa !11
-  %180 = getelementptr inbounds i8, ptr %179, i64 2136
-  %181 = load ptr, ptr %180, align 8, !tbaa !131
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %225, label %183
+177:                                              ; preds = %175, %171, %165, %162, %159, %150, %146, %134, %126
+  %178 = phi i32 [ %176, %175 ], [ 0, %150 ], [ 0, %146 ], [ 0, %134 ], [ 0, %126 ], [ 0, %159 ], [ 0, %162 ], [ %174, %171 ], [ 0, %165 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %129, i32 noundef %178) #18
+  %179 = getelementptr inbounds i8, ptr %11, i64 24
+  %180 = load ptr, ptr %179, align 8, !tbaa !137
+  %181 = tail call ptr @g_type_check_instance_cast(ptr noundef %180, i64 noundef %21) #18
+  %182 = load ptr, ptr %30, align 8, !tbaa !11
+  %183 = getelementptr inbounds i8, ptr %182, i64 2136
+  %184 = load ptr, ptr %183, align 8, !tbaa !131
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %229, label %186
 
-183:                                              ; preds = %174
-  %184 = getelementptr inbounds i8, ptr %179, i64 2128
-  %185 = load ptr, ptr %184, align 16, !tbaa !139
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %225, label %187
+186:                                              ; preds = %177
+  %187 = getelementptr inbounds i8, ptr %182, i64 2128
+  %188 = load ptr, ptr %187, align 16, !tbaa !139
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %229, label %190
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %181, i64 152
-  %189 = load i32, ptr %188, align 8, !tbaa !132
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %195, label %191
+190:                                              ; preds = %186
+  %191 = getelementptr inbounds i8, ptr %184, i64 152
+  %192 = load i32, ptr %191, align 8, !tbaa !132
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %198, label %194
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %181, i64 168
-  %193 = load ptr, ptr %192, align 8, !tbaa !134
-  %194 = icmp eq ptr %193, %2
-  br i1 %194, label %203, label %195
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds i8, ptr %184, i64 168
+  %196 = load ptr, ptr %195, align 8, !tbaa !134
+  %197 = icmp eq ptr %196, %2
+  br i1 %197, label %206, label %198
 
-195:                                              ; preds = %191, %187
-  %196 = getelementptr inbounds i8, ptr %181, i64 156
-  %197 = load i32, ptr %196, align 4, !tbaa !140
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %225, label %199
+198:                                              ; preds = %194, %190
+  %199 = getelementptr inbounds i8, ptr %184, i64 156
+  %200 = load i32, ptr %199, align 4, !tbaa !140
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %229, label %202
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %181, i64 176
-  %201 = load ptr, ptr %200, align 8, !tbaa !141
-  %202 = icmp eq ptr %201, %2
-  br i1 %202, label %203, label %225
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds i8, ptr %184, i64 176
+  %204 = load ptr, ptr %203, align 8, !tbaa !141
+  %205 = icmp eq ptr %204, %2
+  br i1 %205, label %206, label %229
 
-203:                                              ; preds = %199, %191
-  %204 = getelementptr inbounds i8, ptr %185, i64 8
-  %205 = load i32, ptr %204, align 8, !tbaa !40
-  %206 = and i32 %205, 4
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %223, label %208
+206:                                              ; preds = %202, %194
+  %207 = getelementptr inbounds i8, ptr %188, i64 8
+  %208 = load i32, ptr %207, align 8, !tbaa !40
+  %209 = and i32 %208, 4
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %227, label %211
 
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %185, align 8, !tbaa !30
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %225, label %211
-
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %209, align 8, !tbaa !36
+211:                                              ; preds = %206
+  %212 = load ptr, ptr %188, align 8, !tbaa !30
   %213 = icmp eq ptr %212, null
-  br i1 %213, label %225, label %214
+  br i1 %213, label %229, label %214
 
 214:                                              ; preds = %211
-  %215 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %216 = load i32, ptr %212, align 4, !tbaa !74
-  %217 = tail call ptr @dt_masks_get_from_id(ptr noundef %215, i32 noundef %216) #18
-  %218 = icmp eq ptr %217, null
-  br i1 %218, label %225, label %219
+  %215 = load ptr, ptr %212, align 8, !tbaa !36
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %229, label %217
 
-219:                                              ; preds = %214
-  %220 = getelementptr inbounds i8, ptr %217, i64 8
-  %221 = load i32, ptr %220, align 8, !tbaa !40
-  %222 = and i32 %221, 32
-  br label %225
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %219 = load ptr, ptr %218, align 8, !tbaa !116
+  %220 = load i32, ptr %215, align 4, !tbaa !74
+  %221 = tail call ptr @dt_masks_get_from_id(ptr noundef %219, i32 noundef %220) #18
+  %222 = icmp eq ptr %221, null
+  br i1 %222, label %229, label %223
 
-223:                                              ; preds = %203
-  %224 = and i32 %205, 32
-  br label %225
+223:                                              ; preds = %217
+  %224 = getelementptr inbounds i8, ptr %221, i64 8
+  %225 = load i32, ptr %224, align 8, !tbaa !40
+  %226 = and i32 %225, 32
+  br label %229
 
-225:                                              ; preds = %223, %219, %214, %211, %208, %199, %195, %183, %174
-  %226 = phi i32 [ %224, %223 ], [ 0, %199 ], [ 0, %195 ], [ 0, %183 ], [ 0, %174 ], [ 0, %208 ], [ 0, %211 ], [ %222, %219 ], [ 0, %214 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %178, i32 noundef %226) #18
-  %227 = getelementptr inbounds i8, ptr %10, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !135
-  %229 = tail call ptr @g_type_check_instance_cast(ptr noundef %228, i64 noundef %20) #18
-  %230 = load ptr, ptr %29, align 8, !tbaa !11
-  %231 = getelementptr inbounds i8, ptr %230, i64 2136
-  %232 = load ptr, ptr %231, align 8, !tbaa !131
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %276, label %234
+227:                                              ; preds = %206
+  %228 = and i32 %208, 32
+  br label %229
 
-234:                                              ; preds = %225
-  %235 = getelementptr inbounds i8, ptr %230, i64 2128
-  %236 = load ptr, ptr %235, align 16, !tbaa !139
+229:                                              ; preds = %227, %223, %217, %214, %211, %202, %198, %186, %177
+  %230 = phi i32 [ %228, %227 ], [ 0, %202 ], [ 0, %198 ], [ 0, %186 ], [ 0, %177 ], [ 0, %211 ], [ 0, %214 ], [ %226, %223 ], [ 0, %217 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %181, i32 noundef %230) #18
+  %231 = getelementptr inbounds i8, ptr %11, i64 8
+  %232 = load ptr, ptr %231, align 8, !tbaa !135
+  %233 = tail call ptr @g_type_check_instance_cast(ptr noundef %232, i64 noundef %21) #18
+  %234 = load ptr, ptr %30, align 8, !tbaa !11
+  %235 = getelementptr inbounds i8, ptr %234, i64 2136
+  %236 = load ptr, ptr %235, align 8, !tbaa !131
   %237 = icmp eq ptr %236, null
-  br i1 %237, label %276, label %238
+  br i1 %237, label %281, label %238
 
-238:                                              ; preds = %234
-  %239 = getelementptr inbounds i8, ptr %232, i64 152
-  %240 = load i32, ptr %239, align 8, !tbaa !132
-  %241 = icmp eq i32 %240, 0
-  br i1 %241, label %246, label %242
+238:                                              ; preds = %229
+  %239 = getelementptr inbounds i8, ptr %234, i64 2128
+  %240 = load ptr, ptr %239, align 16, !tbaa !139
+  %241 = icmp eq ptr %240, null
+  br i1 %241, label %281, label %242
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds i8, ptr %232, i64 168
-  %244 = load ptr, ptr %243, align 8, !tbaa !134
-  %245 = icmp eq ptr %244, %2
-  br i1 %245, label %254, label %246
+  %243 = getelementptr inbounds i8, ptr %236, i64 152
+  %244 = load i32, ptr %243, align 8, !tbaa !132
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %250, label %246
 
-246:                                              ; preds = %242, %238
-  %247 = getelementptr inbounds i8, ptr %232, i64 156
-  %248 = load i32, ptr %247, align 4, !tbaa !140
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %276, label %250
+246:                                              ; preds = %242
+  %247 = getelementptr inbounds i8, ptr %236, i64 168
+  %248 = load ptr, ptr %247, align 8, !tbaa !134
+  %249 = icmp eq ptr %248, %2
+  br i1 %249, label %258, label %250
 
-250:                                              ; preds = %246
-  %251 = getelementptr inbounds i8, ptr %232, i64 176
-  %252 = load ptr, ptr %251, align 8, !tbaa !141
-  %253 = icmp eq ptr %252, %2
-  br i1 %253, label %254, label %276
+250:                                              ; preds = %246, %242
+  %251 = getelementptr inbounds i8, ptr %236, i64 156
+  %252 = load i32, ptr %251, align 4, !tbaa !140
+  %253 = icmp eq i32 %252, 0
+  br i1 %253, label %281, label %254
 
-254:                                              ; preds = %250, %242
-  %255 = getelementptr inbounds i8, ptr %236, i64 8
-  %256 = load i32, ptr %255, align 8, !tbaa !40
-  %257 = and i32 %256, 4
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %274, label %259
+254:                                              ; preds = %250
+  %255 = getelementptr inbounds i8, ptr %236, i64 176
+  %256 = load ptr, ptr %255, align 8, !tbaa !141
+  %257 = icmp eq ptr %256, %2
+  br i1 %257, label %258, label %281
 
-259:                                              ; preds = %254
-  %260 = load ptr, ptr %236, align 8, !tbaa !30
-  %261 = icmp eq ptr %260, null
-  br i1 %261, label %276, label %262
+258:                                              ; preds = %254, %246
+  %259 = getelementptr inbounds i8, ptr %240, i64 8
+  %260 = load i32, ptr %259, align 8, !tbaa !40
+  %261 = and i32 %260, 4
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %279, label %263
 
-262:                                              ; preds = %259
-  %263 = load ptr, ptr %260, align 8, !tbaa !36
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %276, label %265
+263:                                              ; preds = %258
+  %264 = load ptr, ptr %240, align 8, !tbaa !30
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %281, label %266
 
-265:                                              ; preds = %262
-  %266 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !116
-  %267 = load i32, ptr %263, align 4, !tbaa !74
-  %268 = tail call ptr @dt_masks_get_from_id(ptr noundef %266, i32 noundef %267) #18
-  %269 = icmp eq ptr %268, null
-  br i1 %269, label %276, label %270
+266:                                              ; preds = %263
+  %267 = load ptr, ptr %264, align 8, !tbaa !36
+  %268 = icmp eq ptr %267, null
+  br i1 %268, label %281, label %269
 
-270:                                              ; preds = %265
-  %271 = getelementptr inbounds i8, ptr %268, i64 8
-  %272 = load i32, ptr %271, align 8, !tbaa !40
-  %273 = and i32 %272, 2
-  br label %276
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %271 = load ptr, ptr %270, align 8, !tbaa !116
+  %272 = load i32, ptr %267, align 4, !tbaa !74
+  %273 = tail call ptr @dt_masks_get_from_id(ptr noundef %271, i32 noundef %272) #18
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %281, label %275
 
-274:                                              ; preds = %254
-  %275 = and i32 %256, 2
-  br label %276
+275:                                              ; preds = %269
+  %276 = getelementptr inbounds i8, ptr %273, i64 8
+  %277 = load i32, ptr %276, align 8, !tbaa !40
+  %278 = and i32 %277, 2
+  br label %281
 
-276:                                              ; preds = %274, %270, %265, %262, %259, %250, %246, %234, %225
-  %277 = phi i32 [ %275, %274 ], [ 0, %250 ], [ 0, %246 ], [ 0, %234 ], [ 0, %225 ], [ 0, %259 ], [ 0, %262 ], [ %273, %270 ], [ 0, %265 ]
-  tail call void @gtk_toggle_button_set_active(ptr noundef %229, i32 noundef %277) #18
-  br label %278
+279:                                              ; preds = %258
+  %280 = and i32 %260, 2
+  br label %281
 
-278:                                              ; preds = %276, %3
-  %279 = phi i32 [ 1, %276 ], [ 0, %3 ]
-  ret i32 %279
+281:                                              ; preds = %279, %275, %269, %266, %263, %254, %250, %238, %229
+  %282 = phi i32 [ %280, %279 ], [ 0, %254 ], [ 0, %250 ], [ 0, %238 ], [ 0, %229 ], [ 0, %263 ], [ 0, %266 ], [ %278, %275 ], [ 0, %269 ]
+  tail call void @gtk_toggle_button_set_active(ptr noundef %233, i32 noundef %282) #18
+  br label %283
+
+283:                                              ; preds = %281, %3
+  %284 = phi i32 [ 1, %281 ], [ 0, %3 ]
+  ret i32 %284
 }
 
 declare void @dtgtk_cairo_paint_masks_path(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
@@ -3241,21 +3261,28 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %6 = or i1 %5, %4
-  br i1 %6, label %8, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !155
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 7), align 16, !tbaa !155
-  store ptr @introspection_init.f4, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 2), align 8, !tbaa !155
-  br label %8
+  %8 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7
+  store ptr %0, ptr %8, align 8, !tbaa !155
+  %9 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7
+  store ptr %0, ptr %9, align 16, !tbaa !155
+  %10 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7
+  store ptr %0, ptr %10, align 8, !tbaa !155
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7
+  store ptr %0, ptr %11, align 16, !tbaa !155
+  %12 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7
+  store ptr %0, ptr %12, align 8, !tbaa !155
+  %13 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 7
+  store ptr %0, ptr %13, align 16, !tbaa !155
+  %14 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 2
+  store ptr @introspection_init.f4, ptr %14, align 8, !tbaa !155
+  br label %15
 
-8:                                                ; preds = %7, %2
-  %9 = phi i32 [ 0, %7 ], [ 1, %2 ]
-  ret i32 %9
+15:                                               ; preds = %7, %2
+  %16 = phi i32 [ 0, %7 ], [ 1, %2 ]
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -3294,27 +3321,30 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.19) #18
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %14, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.20) #18
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %14, label %7
+  %7 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0
+  br i1 %6, label %17, label %8
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.21) #18
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10
+8:                                                ; preds = %4
+  %9 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.21) #18
+  %10 = icmp eq i32 %9, 0
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0
+  br i1 %10, label %17, label %12
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #18
-  %12 = icmp eq i32 %11, 0
-  %13 = select i1 %12, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), ptr null
-  br label %14
+12:                                               ; preds = %8
+  %13 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #18
+  %14 = icmp eq i32 %13, 0
+  %15 = getelementptr inbounds <{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0
+  %16 = select i1 %14, ptr %15, ptr null
+  br label %17
 
-14:                                               ; preds = %10, %7, %4, %1
-  %15 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_int_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ %13, %10 ]
-  ret ptr %15
+17:                                               ; preds = %12, %8, %4, %1
+  %18 = phi ptr [ @introspection_linear, %1 ], [ %7, %4 ], [ %11, %8 ], [ %16, %12 ]
+  ret ptr %18
 }
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3

@@ -39,7 +39,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd253972d5
 20:                                               ; preds = %23
   %21 = load i8, ptr %7, align 1, !range !5, !noundef !3
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %64, label %61
+  br i1 %22, label %65, label %62
 
 23:                                               ; preds = %38, %28, %4
   %24 = landingpad { ptr, i32 }
@@ -82,83 +82,84 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd253972d5
   %41 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %11, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %9, i64 32, i1 false)
   %42 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h373aae5d40708634E"(ptr align 8 %1, i64 %19, i64 %40, ptr align 8 %11)
-          to label %57 unwind label %23
+          to label %58 unwind label %23
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %48, label %46
+  br i1 false, label %49, label %47
 
 45:                                               ; preds = %35
-  store ptr inttoptr (i64 8 to ptr), ptr %6, align 8
+  %46 = inttoptr i64 8 to ptr
+  store ptr %46, ptr %6, align 8
+  br label %51
+
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %44, i64 -1
+  store ptr %48, ptr %6, align 8
   br label %50
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %44, i64 -1
-  store ptr %47, ptr %6, align 8
-  br label %49
-
-48:                                               ; preds = %43
+49:                                               ; preds = %43
   store ptr %44, ptr %6, align 8
-  br label %49
-
-49:                                               ; preds = %48, %46
   br label %50
 
-50:                                               ; preds = %49, %45
-  %51 = load ptr, ptr %6, align 8, !noundef !3
+50:                                               ; preds = %49, %47
+  br label %51
+
+51:                                               ; preds = %50, %45
+  %52 = load ptr, ptr %6, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %3, i64 32, i1 false)
-  %52 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %51, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %52, i64 32, i1 false)
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %51, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %12, i64 32, i1 false)
+  %53 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %52, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %53, i64 32, i1 false)
+  %54 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [31 x i8] } }, ptr %52, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %12, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %13, i64 32, i1 false)
-  br label %54
+  br label %55
 
-54:                                               ; preds = %57, %50
-  %55 = load i8, ptr %8, align 1, !range !5, !noundef !3
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %59, label %58
+55:                                               ; preds = %58, %51
+  %56 = load i8, ptr %8, align 1, !range !5, !noundef !3
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %60, label %59
 
-57:                                               ; preds = %38
+58:                                               ; preds = %38
   store i8 6, ptr %0, align 8
-  br label %54
+  br label %55
 
-58:                                               ; preds = %59, %54
+59:                                               ; preds = %60, %55
   ret void
 
-59:                                               ; preds = %54
+60:                                               ; preds = %55
   call void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h78cc398942601fa0E"(ptr align 8 %2)
-  br label %58
+  br label %59
 
-60:                                               ; No predecessors!
+61:                                               ; No predecessors!
   unreachable
 
-61:                                               ; preds = %64, %20
-  %62 = load i8, ptr %8, align 1, !range !5, !noundef !3
-  %63 = trunc i8 %62 to i1
-  br i1 %63, label %73, label %67
+62:                                               ; preds = %65, %20
+  %63 = load i8, ptr %8, align 1, !range !5, !noundef !3
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %74, label %68
 
-64:                                               ; preds = %20
+65:                                               ; preds = %20
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h993e3e932aec489cE"(ptr align 8 %3) #4
-          to label %61 unwind label %65
+          to label %62 unwind label %66
 
-65:                                               ; preds = %73, %64
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %74, %65
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #5
   unreachable
 
-67:                                               ; preds = %73, %61
-  %68 = load ptr, ptr %5, align 8, !noundef !3
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
-  %70 = load i32, ptr %69, align 8, !noundef !3
-  %71 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+68:                                               ; preds = %74, %62
+  %69 = load ptr, ptr %5, align 8, !noundef !3
+  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %71 = load i32, ptr %70, align 8, !noundef !3
+  %72 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 
-73:                                               ; preds = %61
+74:                                               ; preds = %62
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h78cc398942601fa0E"(ptr align 8 %2) #4
-          to label %67 unwind label %65
+          to label %68 unwind label %66
 }
 
 ; Function Attrs: nonlazybind uwtable

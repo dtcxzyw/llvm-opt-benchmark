@@ -1988,812 +1988,814 @@ define void @_ZN22LteMacStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nounde
   %36 = load ptr, ptr %6, align 8
   %37 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef 229)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2), ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2), ptr %38, align 8
-  %39 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 6
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #4
-  %40 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 8
-  store i8 0, ptr %40, align 8
+  %38 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %38, ptr %35, align 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 6
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #4
+  %42 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 8
+  store i8 0, ptr %42, align 8
   invoke void @_ZN22LteMacStatisticsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.35, ptr noundef null, i32 noundef -1)
-          to label %41 unwind label %204
+          to label %43 unwind label %206
 
-41:                                               ; preds = %4
+43:                                               ; preds = %4
   invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %35, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %42 unwind label %208
+          to label %44 unwind label %210
 
-42:                                               ; preds = %41
+44:                                               ; preds = %43
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  %43 = load ptr, ptr %6, align 8
-  %44 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %43)
-          to label %45 unwind label %204
+  %45 = load ptr, ptr %6, align 8
+  %46 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %45)
+          to label %47 unwind label %206
 
-45:                                               ; preds = %42
-  %46 = mul i32 %44, 1
-  %47 = load ptr, ptr %6, align 8
-  %48 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %47)
-          to label %49 unwind label %204
+47:                                               ; preds = %44
+  %48 = mul i32 %46, 1
+  %49 = load ptr, ptr %6, align 8
+  %50 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %49)
+          to label %51 unwind label %206
 
-49:                                               ; preds = %45
-  %50 = mul i32 %48, 3
-  %51 = sdiv i32 %50, 4
+51:                                               ; preds = %47
+  %52 = mul i32 %50, 3
+  %53 = sdiv i32 %52, 4
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str.36)
-          to label %52 unwind label %204
+          to label %54 unwind label %206
 
-52:                                               ; preds = %49
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %35, i32 noundef %46, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %53 unwind label %212
+54:                                               ; preds = %51
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %35, i32 noundef %48, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %55 unwind label %214
 
-53:                                               ; preds = %52
+55:                                               ; preds = %54
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
   invoke void @_ZN22LteMacStatisticsDialog16clearCommonStatsEv(ptr noundef nonnull align 8 dereferenceable(329) %35)
-          to label %54 unwind label %204
+          to label %56 unwind label %206
 
-54:                                               ; preds = %53
-  %55 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %56 unwind label %204
-
-56:                                               ; preds = %54
-  %57 = invoke noundef ptr @_ZN18TapParameterDialog12filterLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %58 unwind label %204
+56:                                               ; preds = %55
+  %57 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %58 unwind label %206
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 13
+  %59 = invoke noundef ptr @_ZN18TapParameterDialog12filterLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %60 unwind label %206
+
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds i8, ptr %59, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = invoke noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(12) %59)
-          to label %64 unwind label %204
+  %63 = getelementptr inbounds ptr, ptr %62, i64 13
+  %64 = load ptr, ptr %63, align 8
+  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(12) %61)
+          to label %66 unwind label %206
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %55, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 23
-  %67 = load ptr, ptr %66, align 8
-  %68 = invoke noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(28) %55, ptr noundef %63)
-          to label %69 unwind label %204
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %57, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 23
+  %69 = load ptr, ptr %68, align 8
+  %70 = invoke noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(28) %57, ptr noundef %65)
+          to label %71 unwind label %206
 
-69:                                               ; preds = %64
-  store i32 %68, ptr %13, align 4
-  %70 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
-          to label %71 unwind label %204
+71:                                               ; preds = %66
+  store i32 %70, ptr %13, align 4
+  %72 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
+          to label %73 unwind label %206
 
-71:                                               ; preds = %69
-  invoke void @_ZN11QGridLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef null)
-          to label %72 unwind label %216
+73:                                               ; preds = %71
+  invoke void @_ZN11QGridLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %72, ptr noundef null)
+          to label %74 unwind label %218
 
-72:                                               ; preds = %71
-  store ptr %70, ptr %14, align 8
-  %73 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %74 unwind label %204
+74:                                               ; preds = %73
+  store ptr %72, ptr %14, align 8
+  %75 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %76 unwind label %206
 
-74:                                               ; preds = %72
-  %75 = load i32, ptr %13, align 4
-  %76 = load ptr, ptr %14, align 8
-  invoke void @_ZN10QBoxLayout12insertLayoutEiP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %73, i32 noundef %75, ptr noundef %76, i32 noundef 0)
-          to label %77 unwind label %204
+76:                                               ; preds = %74
+  %77 = load i32, ptr %13, align 4
+  %78 = load ptr, ptr %14, align 8
+  invoke void @_ZN10QBoxLayout12insertLayoutEiP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %75, i32 noundef %77, ptr noundef %78, i32 noundef 0)
+          to label %79 unwind label %206
 
-77:                                               ; preds = %74
+79:                                               ; preds = %76
   invoke void @_ZNK7QWidget11fontMetricsEv(ptr dead_on_unwind writable sret(%class.QFontMetrics) align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %35)
-          to label %78 unwind label %204
+          to label %80 unwind label %206
 
-78:                                               ; preds = %77
-  %79 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %80 unwind label %220
+80:                                               ; preds = %79
+  %81 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %82 unwind label %222
 
-80:                                               ; preds = %78
+82:                                               ; preds = %80
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #4
-  store i32 %79, ptr %15, align 4
-  %81 = load ptr, ptr %14, align 8
-  %82 = load i32, ptr %15, align 4
-  %83 = mul i32 %82, 2
-  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %81, i32 noundef 2, i32 noundef %83)
-          to label %84 unwind label %204
+  store i32 %81, ptr %15, align 4
+  %83 = load ptr, ptr %14, align 8
+  %84 = load i32, ptr %15, align 4
+  %85 = mul i32 %84, 2
+  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %83, i32 noundef 2, i32 noundef %85)
+          to label %86 unwind label %206
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %14, align 8
-  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %85, i32 noundef 2, i32 noundef 1)
-          to label %86 unwind label %204
-
-86:                                               ; preds = %84
+86:                                               ; preds = %82
   %87 = load ptr, ptr %14, align 8
-  %88 = load i32, ptr %15, align 4
-  %89 = mul i32 %88, 2
-  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %87, i32 noundef 5, i32 noundef %89)
-          to label %90 unwind label %204
+  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %87, i32 noundef 2, i32 noundef 1)
+          to label %88 unwind label %206
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %14, align 8
-  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %91, i32 noundef 5, i32 noundef 1)
-          to label %92 unwind label %204
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %14, align 8
+  %90 = load i32, ptr %15, align 4
+  %91 = mul i32 %90, 2
+  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %89, i32 noundef 5, i32 noundef %91)
+          to label %92 unwind label %206
 
-92:                                               ; preds = %90
-  %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
-          to label %94 unwind label %204
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %14, align 8
+  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %93, i32 noundef 5, i32 noundef 1)
+          to label %94 unwind label %206
 
 94:                                               ; preds = %92
+  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
+          to label %96 unwind label %206
+
+96:                                               ; preds = %94
   call void @_ZN6QFlagsIN2Qt10WindowTypeEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #4
-  %95 = getelementptr inbounds %class.QFlags.9, ptr %17, i32 0, i32 0
-  %96 = load i32, ptr %95, align 4
-  invoke void @_ZN6QLabelC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef %35, i32 %96)
-          to label %97 unwind label %224
+  %97 = getelementptr inbounds %class.QFlags.9, ptr %17, i32 0, i32 0
+  %98 = load i32, ptr %97, align 4
+  invoke void @_ZN6QLabelC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef %35, i32 %98)
+          to label %99 unwind label %226
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
-  store ptr %93, ptr %98, align 8
-  %99 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
+  store ptr %95, ptr %100, align 8
+  %101 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.37)
-          to label %101 unwind label %204
+          to label %103 unwind label %206
 
-101:                                              ; preds = %97
-  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %102 unwind label %228
+103:                                              ; preds = %99
+  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %104 unwind label %230
 
-102:                                              ; preds = %101
+104:                                              ; preds = %103
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  %103 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  invoke void @_ZN6QLabel13setTextFormatEN2Qt10TextFormatE(ptr noundef nonnull align 8 dereferenceable(40) %104, i32 noundef 1)
-          to label %105 unwind label %204
+  %105 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  invoke void @_ZN6QLabel13setTextFormatEN2Qt10TextFormatE(ptr noundef nonnull align 8 dereferenceable(40) %106, i32 noundef 1)
+          to label %107 unwind label %206
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = call i32 @_ZN2QtorENS_19TextInteractionFlagES0_(i32 noundef 4, i32 noundef 2) #4
-  %109 = getelementptr inbounds %class.QFlags.10, ptr %20, i32 0, i32 0
-  store i32 %108, ptr %109, align 4
-  %110 = call i32 @_ZNK6QFlagsIN2Qt19TextInteractionFlagEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 1) #4
-  %111 = getelementptr inbounds %class.QFlags.10, ptr %19, i32 0, i32 0
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  %110 = call i32 @_ZN2QtorENS_19TextInteractionFlagES0_(i32 noundef 4, i32 noundef 2) #4
+  %111 = getelementptr inbounds %class.QFlags.10, ptr %20, i32 0, i32 0
   store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds %class.QFlags.10, ptr %19, i32 0, i32 0
-  %113 = load i32, ptr %112, align 4
-  invoke void @_ZN6QLabel23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE(ptr noundef nonnull align 8 dereferenceable(40) %107, i32 %113)
-          to label %114 unwind label %204
+  %112 = call i32 @_ZNK6QFlagsIN2Qt19TextInteractionFlagEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 1) #4
+  %113 = getelementptr inbounds %class.QFlags.10, ptr %19, i32 0, i32 0
+  store i32 %112, ptr %113, align 4
+  %114 = getelementptr inbounds %class.QFlags.10, ptr %19, i32 0, i32 0
+  %115 = load i32, ptr %114, align 4
+  invoke void @_ZN6QLabel23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE(ptr noundef nonnull align 8 dereferenceable(40) %109, i32 %115)
+          to label %116 unwind label %206
 
-114:                                              ; preds = %105
-  %115 = load ptr, ptr %14, align 8
-  %116 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %115, ptr noundef %117)
-          to label %118 unwind label %204
+116:                                              ; preds = %107
+  %117 = load ptr, ptr %14, align 8
+  %118 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %117, ptr noundef %119)
+          to label %120 unwind label %206
 
-118:                                              ; preds = %114
-  %119 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %120 unwind label %204
-
-120:                                              ; preds = %118
-  %121 = invoke noundef ptr @_ZN18TapParameterDialog12filterLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %122 unwind label %204
+120:                                              ; preds = %116
+  %121 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %122 unwind label %206
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %121, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %124, i64 13
+  %123 = invoke noundef ptr @_ZN18TapParameterDialog12filterLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %124 unwind label %206
+
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds i8, ptr %123, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = invoke noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(12) %123)
-          to label %128 unwind label %204
+  %127 = getelementptr inbounds ptr, ptr %126, i64 13
+  %128 = load ptr, ptr %127, align 8
+  %129 = invoke noundef ptr %128(ptr noundef nonnull align 8 dereferenceable(12) %125)
+          to label %130 unwind label %206
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %119, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 23
-  %131 = load ptr, ptr %130, align 8
-  %132 = invoke noundef i32 %131(ptr noundef nonnull align 8 dereferenceable(28) %119, ptr noundef %127)
-          to label %133 unwind label %204
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %121, align 8
+  %132 = getelementptr inbounds ptr, ptr %131, i64 23
+  %133 = load ptr, ptr %132, align 8
+  %134 = invoke noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(28) %121, ptr noundef %129)
+          to label %135 unwind label %206
 
-133:                                              ; preds = %128
-  store i32 %132, ptr %21, align 4
-  %134 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
-          to label %135 unwind label %204
+135:                                              ; preds = %130
+  store i32 %134, ptr %21, align 4
+  %136 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
+          to label %137 unwind label %206
 
-135:                                              ; preds = %133
-  invoke void @_ZN11QGridLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %134, ptr noundef null)
-          to label %136 unwind label %232
+137:                                              ; preds = %135
+  invoke void @_ZN11QGridLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %136, ptr noundef null)
+          to label %138 unwind label %234
 
-136:                                              ; preds = %135
-  store ptr %134, ptr %22, align 8
-  %137 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %138 unwind label %204
+138:                                              ; preds = %137
+  store ptr %136, ptr %22, align 8
+  %139 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %140 unwind label %206
 
-138:                                              ; preds = %136
-  %139 = load i32, ptr %21, align 4
-  %140 = load ptr, ptr %22, align 8
-  invoke void @_ZN10QBoxLayout12insertLayoutEiP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %137, i32 noundef %139, ptr noundef %140, i32 noundef 0)
-          to label %141 unwind label %204
-
-141:                                              ; preds = %138
+140:                                              ; preds = %138
+  %141 = load i32, ptr %21, align 4
   %142 = load ptr, ptr %22, align 8
-  %143 = load i32, ptr %15, align 4
-  %144 = mul i32 %143, 2
-  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %142, i32 noundef 2, i32 noundef %144)
-          to label %145 unwind label %204
+  invoke void @_ZN10QBoxLayout12insertLayoutEiP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %139, i32 noundef %141, ptr noundef %142, i32 noundef 0)
+          to label %143 unwind label %206
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %22, align 8
-  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %146, i32 noundef 2, i32 noundef 1)
-          to label %147 unwind label %204
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %22, align 8
+  %145 = load i32, ptr %15, align 4
+  %146 = mul i32 %145, 2
+  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %144, i32 noundef 2, i32 noundef %146)
+          to label %147 unwind label %206
 
-147:                                              ; preds = %145
+147:                                              ; preds = %143
   %148 = load ptr, ptr %22, align 8
-  %149 = load i32, ptr %15, align 4
-  %150 = mul i32 %149, 2
-  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %148, i32 noundef 5, i32 noundef %150)
-          to label %151 unwind label %204
+  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %148, i32 noundef 2, i32 noundef 1)
+          to label %149 unwind label %206
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %22, align 8
-  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %152, i32 noundef 5, i32 noundef 1)
-          to label %153 unwind label %204
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %22, align 8
+  %151 = load i32, ptr %15, align 4
+  %152 = mul i32 %151, 2
+  invoke void @_ZN11QGridLayout21setColumnMinimumWidthEii(ptr noundef nonnull align 8 dereferenceable(28) %150, i32 noundef 5, i32 noundef %152)
+          to label %153 unwind label %206
 
-153:                                              ; preds = %151
-  %154 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
-          to label %155 unwind label %204
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %22, align 8
+  invoke void @_ZN11QGridLayout16setColumnStretchEii(ptr noundef nonnull align 8 dereferenceable(28) %154, i32 noundef 5, i32 noundef 1)
+          to label %155 unwind label %206
 
 155:                                              ; preds = %153
+  %156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
+          to label %157 unwind label %206
+
+157:                                              ; preds = %155
   store i1 true, ptr %24, align 1
   invoke void @_ZN22LteMacStatisticsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef @.str.38, ptr noundef null, i32 noundef -1)
-          to label %156 unwind label %236
+          to label %158 unwind label %238
 
-156:                                              ; preds = %155
-  invoke void @_ZN9QCheckBoxC1ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %154, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef null)
-          to label %157 unwind label %240
+158:                                              ; preds = %157
+  invoke void @_ZN9QCheckBoxC1ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %156, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef null)
+          to label %159 unwind label %242
 
-157:                                              ; preds = %156
+159:                                              ; preds = %158
   store i1 false, ptr %24, align 1
-  %158 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 2
-  store ptr %154, ptr %158, align 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
-  %159 = load ptr, ptr %22, align 8
   %160 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 2
-  %161 = load ptr, ptr %160, align 8
-  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %159, ptr noundef %161)
-          to label %162 unwind label %204
+  store ptr %156, ptr %160, align 8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
+  %161 = load ptr, ptr %22, align 8
+  %162 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 2
+  %163 = load ptr, ptr %162, align 8
+  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %161, ptr noundef %163)
+          to label %164 unwind label %206
 
-162:                                              ; preds = %157
-  %163 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
-          to label %164 unwind label %204
+164:                                              ; preds = %159
+  %165 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
+          to label %166 unwind label %206
 
-164:                                              ; preds = %162
+166:                                              ; preds = %164
   store i1 true, ptr %26, align 1
   invoke void @_ZN22LteMacStatisticsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %25, ptr noundef @.str.39, ptr noundef null, i32 noundef -1)
-          to label %165 unwind label %248
+          to label %167 unwind label %250
 
-165:                                              ; preds = %164
-  invoke void @_ZN9QCheckBoxC1ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %163, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef null)
-          to label %166 unwind label %252
+167:                                              ; preds = %166
+  invoke void @_ZN9QCheckBoxC1ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %165, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef null)
+          to label %168 unwind label %254
 
-166:                                              ; preds = %165
+168:                                              ; preds = %167
   store i1 false, ptr %26, align 1
-  %167 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 3
-  store ptr %163, ptr %167, align 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #4
-  %168 = load ptr, ptr %22, align 8
   %169 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 3
-  %170 = load ptr, ptr %169, align 8
-  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %168, ptr noundef %170)
-          to label %171 unwind label %204
+  store ptr %165, ptr %169, align 8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #4
+  %170 = load ptr, ptr %22, align 8
+  %171 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 3
+  %172 = load ptr, ptr %171, align 8
+  invoke void @_ZN11QGridLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %170, ptr noundef %172)
+          to label %173 unwind label %206
 
-171:                                              ; preds = %166
+173:                                              ; preds = %168
   invoke void @_ZN22LteMacStatisticsDialog18updateHeaderLabelsEv(ptr noundef nonnull align 8 dereferenceable(329) %35)
-          to label %172 unwind label %204
+          to label %174 unwind label %206
 
-172:                                              ; preds = %171
-  %173 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #17
-          to label %174 unwind label %204
+174:                                              ; preds = %173
+  %175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #17
+          to label %176 unwind label %206
 
-174:                                              ; preds = %172
-  invoke void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef null)
-          to label %175 unwind label %260
+176:                                              ; preds = %174
+  invoke void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef null)
+          to label %177 unwind label %262
 
-175:                                              ; preds = %174
-  %176 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 4
-  store ptr %173, ptr %176, align 8
-  %177 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %178 unwind label %204
+177:                                              ; preds = %176
+  %178 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 4
+  store ptr %175, ptr %178, align 8
+  %179 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %180 unwind label %206
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 4
-  %180 = load ptr, ptr %179, align 8
-  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %177, i32 noundef 7, ptr noundef %180)
-          to label %181 unwind label %204
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 4
+  %182 = load ptr, ptr %181, align 8
+  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %179, i32 noundef 7, ptr noundef %182)
+          to label %183 unwind label %206
 
-181:                                              ; preds = %178
-  %182 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #17
-          to label %183 unwind label %204
+183:                                              ; preds = %180
+  %184 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #17
+          to label %185 unwind label %206
 
-183:                                              ; preds = %181
-  invoke void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef null)
-          to label %184 unwind label %264
+185:                                              ; preds = %183
+  invoke void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef null)
+          to label %186 unwind label %266
 
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 5
-  store ptr %182, ptr %185, align 8
-  %186 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %187 unwind label %204
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 5
+  store ptr %184, ptr %187, align 8
+  %188 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %189 unwind label %206
 
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 5
-  %189 = load ptr, ptr %188, align 8
-  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %186, i32 noundef 12, ptr noundef %189)
-          to label %190 unwind label %204
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 5
+  %191 = load ptr, ptr %190, align 8
+  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %188, i32 noundef 12, ptr noundef %191)
+          to label %192 unwind label %206
 
-190:                                              ; preds = %187
-  %191 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %192 unwind label %204
+192:                                              ; preds = %189
+  %193 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %194 unwind label %206
 
-192:                                              ; preds = %190
-  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %191, i32 noundef 1, i32 noundef 0)
-          to label %193 unwind label %204
+194:                                              ; preds = %192
+  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %193, i32 noundef 1, i32 noundef 0)
+          to label %195 unwind label %206
 
-193:                                              ; preds = %192
+195:                                              ; preds = %194
   store i32 0, ptr %27, align 4
-  br label %194
+  br label %196
 
-194:                                              ; preds = %366, %193
-  %195 = load i32, ptr %27, align 4
-  %196 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %197 unwind label %204
+196:                                              ; preds = %368, %195
+  %197 = load i32, ptr %27, align 4
+  %198 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %199 unwind label %206
 
-197:                                              ; preds = %194
-  %198 = invoke noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %196)
-          to label %199 unwind label %204
+199:                                              ; preds = %196
+  %200 = invoke noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %198)
+          to label %201 unwind label %206
 
-199:                                              ; preds = %197
-  %200 = sub i32 %198, 1
-  %201 = icmp slt i32 %195, %200
-  br i1 %201, label %202, label %369
+201:                                              ; preds = %199
+  %202 = sub i32 %200, 1
+  %203 = icmp slt i32 %197, %202
+  br i1 %203, label %204, label %371
 
-202:                                              ; preds = %199
-  %203 = load i32, ptr %27, align 4
-  switch i32 %203, label %352 [
-    i32 1, label %268
-    i32 4, label %275
-    i32 5, label %282
-    i32 6, label %289
-    i32 7, label %296
-    i32 8, label %303
-    i32 9, label %310
-    i32 10, label %317
-    i32 11, label %324
-    i32 12, label %331
-    i32 13, label %338
-    i32 14, label %345
+204:                                              ; preds = %201
+  %205 = load i32, ptr %27, align 4
+  switch i32 %205, label %354 [
+    i32 1, label %270
+    i32 4, label %277
+    i32 5, label %284
+    i32 6, label %291
+    i32 7, label %298
+    i32 8, label %305
+    i32 9, label %312
+    i32 10, label %319
+    i32 11, label %326
+    i32 12, label %333
+    i32 13, label %340
+    i32 14, label %347
   ]
 
-204:                                              ; preds = %388, %383, %381, %373, %369, %362, %360, %358, %354, %352, %347, %345, %340, %338, %333, %331, %326, %324, %319, %317, %312, %310, %305, %303, %298, %296, %291, %289, %284, %282, %277, %275, %270, %268, %197, %194, %192, %190, %187, %184, %181, %178, %175, %172, %171, %166, %162, %157, %153, %151, %147, %145, %141, %138, %136, %133, %128, %122, %120, %118, %114, %105, %102, %97, %92, %90, %86, %84, %80, %77, %74, %72, %69, %64, %58, %56, %54, %53, %49, %45, %42, %4
-  %205 = landingpad { ptr, i32 }
+206:                                              ; preds = %390, %385, %383, %375, %371, %364, %362, %360, %356, %354, %349, %347, %342, %340, %335, %333, %328, %326, %321, %319, %314, %312, %307, %305, %300, %298, %293, %291, %286, %284, %279, %277, %272, %270, %199, %196, %194, %192, %189, %186, %183, %180, %177, %174, %173, %168, %164, %159, %155, %153, %149, %147, %143, %140, %138, %135, %130, %124, %122, %120, %116, %107, %104, %99, %94, %92, %88, %86, %82, %79, %76, %74, %71, %66, %60, %58, %56, %55, %51, %47, %44, %4
+  %207 = landingpad { ptr, i32 }
           cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %10, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %11, align 4
-  br label %394
+  %208 = extractvalue { ptr, i32 } %207, 0
+  store ptr %208, ptr %10, align 8
+  %209 = extractvalue { ptr, i32 } %207, 1
+  store i32 %209, ptr %11, align 4
+  br label %396
 
-208:                                              ; preds = %41
-  %209 = landingpad { ptr, i32 }
+210:                                              ; preds = %43
+  %211 = landingpad { ptr, i32 }
           cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %10, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %11, align 4
+  %212 = extractvalue { ptr, i32 } %211, 0
+  store ptr %212, ptr %10, align 8
+  %213 = extractvalue { ptr, i32 } %211, 1
+  store i32 %213, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  br label %394
+  br label %396
 
-212:                                              ; preds = %52
-  %213 = landingpad { ptr, i32 }
+214:                                              ; preds = %54
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %10, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %11, align 4
+  %216 = extractvalue { ptr, i32 } %215, 0
+  store ptr %216, ptr %10, align 8
+  %217 = extractvalue { ptr, i32 } %215, 1
+  store i32 %217, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  br label %394
+  br label %396
 
-216:                                              ; preds = %71
-  %217 = landingpad { ptr, i32 }
+218:                                              ; preds = %73
+  %219 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %10, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %70) #18
-  br label %394
+  %220 = extractvalue { ptr, i32 } %219, 0
+  store ptr %220, ptr %10, align 8
+  %221 = extractvalue { ptr, i32 } %219, 1
+  store i32 %221, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %72) #18
+  br label %396
 
-220:                                              ; preds = %78
-  %221 = landingpad { ptr, i32 }
+222:                                              ; preds = %80
+  %223 = landingpad { ptr, i32 }
           cleanup
-  %222 = extractvalue { ptr, i32 } %221, 0
-  store ptr %222, ptr %10, align 8
-  %223 = extractvalue { ptr, i32 } %221, 1
-  store i32 %223, ptr %11, align 4
+  %224 = extractvalue { ptr, i32 } %223, 0
+  store ptr %224, ptr %10, align 8
+  %225 = extractvalue { ptr, i32 } %223, 1
+  store i32 %225, ptr %11, align 4
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #4
-  br label %394
+  br label %396
 
-224:                                              ; preds = %94
-  %225 = landingpad { ptr, i32 }
+226:                                              ; preds = %96
+  %227 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %10, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %93) #18
-  br label %394
+  %228 = extractvalue { ptr, i32 } %227, 0
+  store ptr %228, ptr %10, align 8
+  %229 = extractvalue { ptr, i32 } %227, 1
+  store i32 %229, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %95) #18
+  br label %396
 
-228:                                              ; preds = %101
-  %229 = landingpad { ptr, i32 }
+230:                                              ; preds = %103
+  %231 = landingpad { ptr, i32 }
           cleanup
-  %230 = extractvalue { ptr, i32 } %229, 0
-  store ptr %230, ptr %10, align 8
-  %231 = extractvalue { ptr, i32 } %229, 1
-  store i32 %231, ptr %11, align 4
+  %232 = extractvalue { ptr, i32 } %231, 0
+  store ptr %232, ptr %10, align 8
+  %233 = extractvalue { ptr, i32 } %231, 1
+  store i32 %233, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  br label %394
+  br label %396
 
-232:                                              ; preds = %135
-  %233 = landingpad { ptr, i32 }
+234:                                              ; preds = %137
+  %235 = landingpad { ptr, i32 }
           cleanup
-  %234 = extractvalue { ptr, i32 } %233, 0
-  store ptr %234, ptr %10, align 8
-  %235 = extractvalue { ptr, i32 } %233, 1
-  store i32 %235, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %134) #18
-  br label %394
+  %236 = extractvalue { ptr, i32 } %235, 0
+  store ptr %236, ptr %10, align 8
+  %237 = extractvalue { ptr, i32 } %235, 1
+  store i32 %237, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %136) #18
+  br label %396
 
-236:                                              ; preds = %155
-  %237 = landingpad { ptr, i32 }
+238:                                              ; preds = %157
+  %239 = landingpad { ptr, i32 }
           cleanup
-  %238 = extractvalue { ptr, i32 } %237, 0
-  store ptr %238, ptr %10, align 8
-  %239 = extractvalue { ptr, i32 } %237, 1
-  store i32 %239, ptr %11, align 4
-  br label %244
+  %240 = extractvalue { ptr, i32 } %239, 0
+  store ptr %240, ptr %10, align 8
+  %241 = extractvalue { ptr, i32 } %239, 1
+  store i32 %241, ptr %11, align 4
+  br label %246
 
-240:                                              ; preds = %156
-  %241 = landingpad { ptr, i32 }
+242:                                              ; preds = %158
+  %243 = landingpad { ptr, i32 }
           cleanup
-  %242 = extractvalue { ptr, i32 } %241, 0
-  store ptr %242, ptr %10, align 8
-  %243 = extractvalue { ptr, i32 } %241, 1
-  store i32 %243, ptr %11, align 4
+  %244 = extractvalue { ptr, i32 } %243, 0
+  store ptr %244, ptr %10, align 8
+  %245 = extractvalue { ptr, i32 } %243, 1
+  store i32 %245, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
-  br label %244
+  br label %246
 
-244:                                              ; preds = %240, %236
-  %245 = load i1, ptr %24, align 1
-  br i1 %245, label %246, label %247
+246:                                              ; preds = %242, %238
+  %247 = load i1, ptr %24, align 1
+  br i1 %247, label %248, label %249
 
-246:                                              ; preds = %244
-  call void @_ZdlPv(ptr noundef %154) #18
-  br label %247
+248:                                              ; preds = %246
+  call void @_ZdlPv(ptr noundef %156) #18
+  br label %249
 
-247:                                              ; preds = %246, %244
-  br label %394
+249:                                              ; preds = %248, %246
+  br label %396
 
-248:                                              ; preds = %164
-  %249 = landingpad { ptr, i32 }
+250:                                              ; preds = %166
+  %251 = landingpad { ptr, i32 }
           cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %10, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %11, align 4
-  br label %256
+  %252 = extractvalue { ptr, i32 } %251, 0
+  store ptr %252, ptr %10, align 8
+  %253 = extractvalue { ptr, i32 } %251, 1
+  store i32 %253, ptr %11, align 4
+  br label %258
 
-252:                                              ; preds = %165
-  %253 = landingpad { ptr, i32 }
+254:                                              ; preds = %167
+  %255 = landingpad { ptr, i32 }
           cleanup
-  %254 = extractvalue { ptr, i32 } %253, 0
-  store ptr %254, ptr %10, align 8
-  %255 = extractvalue { ptr, i32 } %253, 1
-  store i32 %255, ptr %11, align 4
+  %256 = extractvalue { ptr, i32 } %255, 0
+  store ptr %256, ptr %10, align 8
+  %257 = extractvalue { ptr, i32 } %255, 1
+  store i32 %257, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #4
-  br label %256
+  br label %258
 
-256:                                              ; preds = %252, %248
-  %257 = load i1, ptr %26, align 1
-  br i1 %257, label %258, label %259
+258:                                              ; preds = %254, %250
+  %259 = load i1, ptr %26, align 1
+  br i1 %259, label %260, label %261
 
-258:                                              ; preds = %256
-  call void @_ZdlPv(ptr noundef %163) #18
-  br label %259
+260:                                              ; preds = %258
+  call void @_ZdlPv(ptr noundef %165) #18
+  br label %261
 
-259:                                              ; preds = %258, %256
-  br label %394
+261:                                              ; preds = %260, %258
+  br label %396
 
-260:                                              ; preds = %174
-  %261 = landingpad { ptr, i32 }
+262:                                              ; preds = %176
+  %263 = landingpad { ptr, i32 }
           cleanup
-  %262 = extractvalue { ptr, i32 } %261, 0
-  store ptr %262, ptr %10, align 8
-  %263 = extractvalue { ptr, i32 } %261, 1
-  store i32 %263, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %173) #18
-  br label %394
+  %264 = extractvalue { ptr, i32 } %263, 0
+  store ptr %264, ptr %10, align 8
+  %265 = extractvalue { ptr, i32 } %263, 1
+  store i32 %265, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %175) #18
+  br label %396
 
-264:                                              ; preds = %183
-  %265 = landingpad { ptr, i32 }
+266:                                              ; preds = %185
+  %267 = landingpad { ptr, i32 }
           cleanup
-  %266 = extractvalue { ptr, i32 } %265, 0
-  store ptr %266, ptr %10, align 8
-  %267 = extractvalue { ptr, i32 } %265, 1
-  store i32 %267, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %182) #18
-  br label %394
+  %268 = extractvalue { ptr, i32 } %267, 0
+  store ptr %268, ptr %10, align 8
+  %269 = extractvalue { ptr, i32 } %267, 1
+  store i32 %269, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %184) #18
+  br label %396
 
-268:                                              ; preds = %202
-  %269 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %270 unwind label %204
+270:                                              ; preds = %204
+  %271 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %272 unwind label %206
 
-270:                                              ; preds = %268
-  %271 = load i32, ptr %27, align 4
-  %272 = load i32, ptr %15, align 4
-  %273 = mul i32 %272, 8
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %269, i32 noundef %271, i32 noundef %273)
-          to label %274 unwind label %204
+272:                                              ; preds = %270
+  %273 = load i32, ptr %27, align 4
+  %274 = load i32, ptr %15, align 4
+  %275 = mul i32 %274, 8
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %271, i32 noundef %273, i32 noundef %275)
+          to label %276 unwind label %206
 
-274:                                              ; preds = %270
-  br label %365
+276:                                              ; preds = %272
+  br label %367
 
-275:                                              ; preds = %202
-  %276 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %277 unwind label %204
+277:                                              ; preds = %204
+  %278 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %279 unwind label %206
 
-277:                                              ; preds = %275
-  %278 = load i32, ptr %27, align 4
-  %279 = load i32, ptr %15, align 4
-  %280 = mul i32 %279, 5
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %276, i32 noundef %278, i32 noundef %280)
-          to label %281 unwind label %204
+279:                                              ; preds = %277
+  %280 = load i32, ptr %27, align 4
+  %281 = load i32, ptr %15, align 4
+  %282 = mul i32 %281, 5
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %278, i32 noundef %280, i32 noundef %282)
+          to label %283 unwind label %206
 
-281:                                              ; preds = %277
-  br label %365
+283:                                              ; preds = %279
+  br label %367
 
-282:                                              ; preds = %202
-  %283 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %284 unwind label %204
+284:                                              ; preds = %204
+  %285 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %286 unwind label %206
 
-284:                                              ; preds = %282
-  %285 = load i32, ptr %27, align 4
-  %286 = load i32, ptr %15, align 4
-  %287 = mul i32 %286, 5
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %283, i32 noundef %285, i32 noundef %287)
-          to label %288 unwind label %204
+286:                                              ; preds = %284
+  %287 = load i32, ptr %27, align 4
+  %288 = load i32, ptr %15, align 4
+  %289 = mul i32 %288, 5
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %285, i32 noundef %287, i32 noundef %289)
+          to label %290 unwind label %206
 
-288:                                              ; preds = %284
-  br label %365
+290:                                              ; preds = %286
+  br label %367
 
-289:                                              ; preds = %202
-  %290 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %291 unwind label %204
+291:                                              ; preds = %204
+  %292 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %293 unwind label %206
 
-291:                                              ; preds = %289
-  %292 = load i32, ptr %27, align 4
-  %293 = load i32, ptr %15, align 4
-  %294 = mul i32 %293, 4
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %290, i32 noundef %292, i32 noundef %294)
-          to label %295 unwind label %204
+293:                                              ; preds = %291
+  %294 = load i32, ptr %27, align 4
+  %295 = load i32, ptr %15, align 4
+  %296 = mul i32 %295, 4
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %292, i32 noundef %294, i32 noundef %296)
+          to label %297 unwind label %206
 
-295:                                              ; preds = %291
-  br label %365
+297:                                              ; preds = %293
+  br label %367
 
-296:                                              ; preds = %202
-  %297 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %298 unwind label %204
+298:                                              ; preds = %204
+  %299 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %300 unwind label %206
 
-298:                                              ; preds = %296
-  %299 = load i32, ptr %27, align 4
-  %300 = load i32, ptr %15, align 4
-  %301 = mul i32 %300, 6
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %297, i32 noundef %299, i32 noundef %301)
-          to label %302 unwind label %204
+300:                                              ; preds = %298
+  %301 = load i32, ptr %27, align 4
+  %302 = load i32, ptr %15, align 4
+  %303 = mul i32 %302, 6
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %299, i32 noundef %301, i32 noundef %303)
+          to label %304 unwind label %206
 
-302:                                              ; preds = %298
-  br label %365
+304:                                              ; preds = %300
+  br label %367
 
-303:                                              ; preds = %202
-  %304 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %305 unwind label %204
+305:                                              ; preds = %204
+  %306 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %307 unwind label %206
 
-305:                                              ; preds = %303
-  %306 = load i32, ptr %27, align 4
-  %307 = load i32, ptr %15, align 4
-  %308 = mul i32 %307, 6
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %304, i32 noundef %306, i32 noundef %308)
-          to label %309 unwind label %204
+307:                                              ; preds = %305
+  %308 = load i32, ptr %27, align 4
+  %309 = load i32, ptr %15, align 4
+  %310 = mul i32 %309, 6
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %306, i32 noundef %308, i32 noundef %310)
+          to label %311 unwind label %206
 
-309:                                              ; preds = %305
-  br label %365
+311:                                              ; preds = %307
+  br label %367
 
-310:                                              ; preds = %202
-  %311 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %312 unwind label %204
+312:                                              ; preds = %204
+  %313 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %314 unwind label %206
 
-312:                                              ; preds = %310
-  %313 = load i32, ptr %27, align 4
-  %314 = load i32, ptr %15, align 4
-  %315 = mul i32 %314, 5
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %311, i32 noundef %313, i32 noundef %315)
-          to label %316 unwind label %204
+314:                                              ; preds = %312
+  %315 = load i32, ptr %27, align 4
+  %316 = load i32, ptr %15, align 4
+  %317 = mul i32 %316, 5
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %313, i32 noundef %315, i32 noundef %317)
+          to label %318 unwind label %206
 
-316:                                              ; preds = %312
-  br label %365
+318:                                              ; preds = %314
+  br label %367
 
-317:                                              ; preds = %202
-  %318 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %319 unwind label %204
+319:                                              ; preds = %204
+  %320 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %321 unwind label %206
 
-319:                                              ; preds = %317
-  %320 = load i32, ptr %27, align 4
-  %321 = load i32, ptr %15, align 4
-  %322 = mul i32 %321, 5
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %318, i32 noundef %320, i32 noundef %322)
-          to label %323 unwind label %204
+321:                                              ; preds = %319
+  %322 = load i32, ptr %27, align 4
+  %323 = load i32, ptr %15, align 4
+  %324 = mul i32 %323, 5
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %320, i32 noundef %322, i32 noundef %324)
+          to label %325 unwind label %206
 
-323:                                              ; preds = %319
-  br label %365
+325:                                              ; preds = %321
+  br label %367
 
-324:                                              ; preds = %202
-  %325 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %326 unwind label %204
+326:                                              ; preds = %204
+  %327 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %328 unwind label %206
 
-326:                                              ; preds = %324
-  %327 = load i32, ptr %27, align 4
-  %328 = load i32, ptr %15, align 4
-  %329 = mul i32 %328, 4
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %325, i32 noundef %327, i32 noundef %329)
-          to label %330 unwind label %204
+328:                                              ; preds = %326
+  %329 = load i32, ptr %27, align 4
+  %330 = load i32, ptr %15, align 4
+  %331 = mul i32 %330, 4
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %327, i32 noundef %329, i32 noundef %331)
+          to label %332 unwind label %206
 
-330:                                              ; preds = %326
-  br label %365
+332:                                              ; preds = %328
+  br label %367
 
-331:                                              ; preds = %202
-  %332 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %333 unwind label %204
+333:                                              ; preds = %204
+  %334 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %335 unwind label %206
 
-333:                                              ; preds = %331
-  %334 = load i32, ptr %27, align 4
-  %335 = load i32, ptr %15, align 4
-  %336 = mul i32 %335, 6
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %332, i32 noundef %334, i32 noundef %336)
-          to label %337 unwind label %204
+335:                                              ; preds = %333
+  %336 = load i32, ptr %27, align 4
+  %337 = load i32, ptr %15, align 4
+  %338 = mul i32 %337, 6
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %334, i32 noundef %336, i32 noundef %338)
+          to label %339 unwind label %206
 
-337:                                              ; preds = %333
-  br label %365
+339:                                              ; preds = %335
+  br label %367
 
-338:                                              ; preds = %202
-  %339 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %340 unwind label %204
+340:                                              ; preds = %204
+  %341 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %342 unwind label %206
 
-340:                                              ; preds = %338
-  %341 = load i32, ptr %27, align 4
-  %342 = load i32, ptr %15, align 4
-  %343 = mul i32 %342, 6
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %339, i32 noundef %341, i32 noundef %343)
-          to label %344 unwind label %204
+342:                                              ; preds = %340
+  %343 = load i32, ptr %27, align 4
+  %344 = load i32, ptr %15, align 4
+  %345 = mul i32 %344, 6
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %341, i32 noundef %343, i32 noundef %345)
+          to label %346 unwind label %206
 
-344:                                              ; preds = %340
-  br label %365
+346:                                              ; preds = %342
+  br label %367
 
-345:                                              ; preds = %202
-  %346 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %347 unwind label %204
+347:                                              ; preds = %204
+  %348 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %349 unwind label %206
 
-347:                                              ; preds = %345
-  %348 = load i32, ptr %27, align 4
-  %349 = load i32, ptr %15, align 4
-  %350 = mul i32 %349, 6
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %346, i32 noundef %348, i32 noundef %350)
-          to label %351 unwind label %204
+349:                                              ; preds = %347
+  %350 = load i32, ptr %27, align 4
+  %351 = load i32, ptr %15, align 4
+  %352 = mul i32 %351, 6
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %348, i32 noundef %350, i32 noundef %352)
+          to label %353 unwind label %206
 
-351:                                              ; preds = %347
-  br label %365
+353:                                              ; preds = %349
+  br label %367
 
-352:                                              ; preds = %202
-  %353 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %354 unwind label %204
+354:                                              ; preds = %204
+  %355 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %356 unwind label %206
 
-354:                                              ; preds = %352
-  %355 = load i32, ptr %27, align 4
-  %356 = load i32, ptr %15, align 4
-  %357 = mul i32 %356, 4
-  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %353, i32 noundef %355, i32 noundef %357)
-          to label %358 unwind label %204
+356:                                              ; preds = %354
+  %357 = load i32, ptr %27, align 4
+  %358 = load i32, ptr %15, align 4
+  %359 = mul i32 %358, 4
+  invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef nonnull align 8 dereferenceable(40) %355, i32 noundef %357, i32 noundef %359)
+          to label %360 unwind label %206
 
-358:                                              ; preds = %354
-  %359 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %360 unwind label %204
-
-360:                                              ; preds = %358
-  %361 = invoke noundef ptr @_ZNK11QTreeWidget10headerItemEv(ptr noundef nonnull align 8 dereferenceable(40) %359)
-          to label %362 unwind label %204
+360:                                              ; preds = %356
+  %361 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %362 unwind label %206
 
 362:                                              ; preds = %360
-  %363 = load i32, ptr %27, align 4
-  invoke void @_ZN15QTreeWidgetItem16setTextAlignmentEii(ptr noundef nonnull align 8 dereferenceable(92) %361, i32 noundef %363, i32 noundef 2)
-          to label %364 unwind label %204
+  %363 = invoke noundef ptr @_ZNK11QTreeWidget10headerItemEv(ptr noundef nonnull align 8 dereferenceable(40) %361)
+          to label %364 unwind label %206
 
 364:                                              ; preds = %362
-  br label %365
+  %365 = load i32, ptr %27, align 4
+  invoke void @_ZN15QTreeWidgetItem16setTextAlignmentEii(ptr noundef nonnull align 8 dereferenceable(92) %363, i32 noundef %365, i32 noundef 2)
+          to label %366 unwind label %206
 
-365:                                              ; preds = %364, %351, %344, %337, %330, %323, %316, %309, %302, %295, %288, %281, %274
-  br label %366
+366:                                              ; preds = %364
+  br label %367
 
-366:                                              ; preds = %365
-  %367 = load i32, ptr %27, align 4
-  %368 = add i32 %367, 1
-  store i32 %368, ptr %27, align 4
-  br label %194, !llvm.loop !4
+367:                                              ; preds = %366, %353, %346, %339, %332, %325, %318, %311, %304, %297, %290, %283, %276
+  br label %368
 
-369:                                              ; preds = %199
+368:                                              ; preds = %367
+  %369 = load i32, ptr %27, align 4
+  %370 = add i32 %369, 1
+  store i32 %370, ptr %27, align 4
+  br label %196, !llvm.loop !4
+
+371:                                              ; preds = %201
   invoke void @_ZN18TapParameterDialog16addFilterActionsEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %370 unwind label %204
+          to label %372 unwind label %206
 
-370:                                              ; preds = %369
-  %371 = load ptr, ptr %8, align 8
-  %372 = icmp ne ptr %371, null
-  br i1 %372, label %373, label %381
+372:                                              ; preds = %371
+  %373 = load ptr, ptr %8, align 8
+  %374 = icmp ne ptr %373, null
+  br i1 %374, label %375, label %383
 
-373:                                              ; preds = %370
-  %374 = load ptr, ptr %8, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %374)
-          to label %375 unwind label %204
-
-375:                                              ; preds = %373
-  invoke void @_ZN18TapParameterDialog16setDisplayFilterERK7QString(ptr noundef nonnull align 8 dereferenceable(224) %35, ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %376 unwind label %377
-
-376:                                              ; preds = %375
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #4
-  br label %381
+375:                                              ; preds = %372
+  %376 = load ptr, ptr %8, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %376)
+          to label %377 unwind label %206
 
 377:                                              ; preds = %375
-  %378 = landingpad { ptr, i32 }
-          cleanup
-  %379 = extractvalue { ptr, i32 } %378, 0
-  store ptr %379, ptr %10, align 8
-  %380 = extractvalue { ptr, i32 } %378, 1
-  store i32 %380, ptr %11, align 4
+  invoke void @_ZN18TapParameterDialog16setDisplayFilterERK7QString(ptr noundef nonnull align 8 dereferenceable(224) %35, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %378 unwind label %379
+
+378:                                              ; preds = %377
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #4
-  br label %394
+  br label %383
 
-381:                                              ; preds = %376, %370
-  %382 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
-          to label %383 unwind label %204
+379:                                              ; preds = %377
+  %380 = landingpad { ptr, i32 }
+          cleanup
+  %381 = extractvalue { ptr, i32 } %380, 0
+  store ptr %381, ptr %10, align 8
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store i32 %382, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #4
+  br label %396
 
-383:                                              ; preds = %381
+383:                                              ; preds = %378, %372
+  %384 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %35)
+          to label %385 unwind label %206
+
+385:                                              ; preds = %383
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN11QTreeWidget20itemSelectionChangedEv to i64), i64 0 }, ptr %30, align 8
-  %384 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 0
-  %385 = load i64, ptr %384, align 8
-  %386 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 1
+  %386 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 0
   %387 = load i64, ptr %386, align 8
+  %388 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 1
+  %389 = load i64, ptr %388, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN22LteMacStatisticsDialog18updateHeaderLabelsEv to i64), i64 0 }, ptr %31, align 8
-  invoke void @_ZN7QObject7connectIM11QTreeWidgetFvvEM22LteMacStatisticsDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %29, ptr noundef %382, i64 %385, i64 %387, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %31, i32 noundef 0)
-          to label %388 unwind label %204
+  invoke void @_ZN7QObject7connectIM11QTreeWidgetFvvEM22LteMacStatisticsDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %29, ptr noundef %384, i64 %387, i64 %389, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %31, i32 noundef 0)
+          to label %390 unwind label %206
 
-388:                                              ; preds = %383
+390:                                              ; preds = %385
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #4
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18TapParameterDialog12updateFilterE7QString to i64), i64 0 }, ptr %33, align 8
-  %389 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 0
-  %390 = load i64, ptr %389, align 8
-  %391 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 1
+  %391 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 0
   %392 = load i64, ptr %391, align 8
+  %393 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 1
+  %394 = load i64, ptr %393, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN22LteMacStatisticsDialog13filterUpdatedE7QString to i64), i64 0 }, ptr %34, align 8
-  invoke void @_ZN7QObject7connectIM18TapParameterDialogFv7QStringEM22LteMacStatisticsDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %32, ptr noundef %35, i64 %390, i64 %392, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %34, i32 noundef 0)
-          to label %393 unwind label %204
+  invoke void @_ZN7QObject7connectIM18TapParameterDialogFv7QStringEM22LteMacStatisticsDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %32, ptr noundef %35, i64 %392, i64 %394, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %34, i32 noundef 0)
+          to label %395 unwind label %206
 
-393:                                              ; preds = %388
+395:                                              ; preds = %390
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #4
   ret void
 
-394:                                              ; preds = %377, %264, %260, %259, %247, %232, %228, %224, %220, %216, %212, %208, %204
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #4
+396:                                              ; preds = %379, %266, %262, %261, %249, %234, %230, %226, %222, %218, %214, %210, %206
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #4
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %35) #4
-  br label %395
+  br label %397
 
-395:                                              ; preds = %394
-  %396 = load ptr, ptr %10, align 8
-  %397 = load i32, ptr %11, align 4
-  %398 = insertvalue { ptr, i32 } poison, ptr %396, 0
-  %399 = insertvalue { ptr, i32 } %398, i32 %397, 1
-  resume { ptr, i32 } %399
+397:                                              ; preds = %396
+  %398 = load ptr, ptr %10, align 8
+  %399 = load i32, ptr %11, align 4
+  %400 = insertvalue { ptr, i32 } poison, ptr %398, 0
+  %401 = insertvalue { ptr, i32 } %400, i32 %399, 1
+  resume { ptr, i32 } %401
 }
 
 declare void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) unnamed_addr #5
@@ -3159,7 +3161,8 @@ define linkonce_odr void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3403,37 +3406,39 @@ define void @_ZN22LteMacStatisticsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %12, label %8
+  %4 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %14, label %10
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 4
-  %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %6) #4
-  br label %12
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 4
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %8) #4
+  br label %14
 
-12:                                               ; preds = %8, %1
-  %13 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %20, label %16
+14:                                               ; preds = %10, %1
+  %15 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 4
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %14) #4
-  br label %20
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 4
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #4
+  br label %22
 
-20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 6
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #4
+22:                                               ; preds = %18, %14
+  %23 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 6
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #4
   ret void
 }
@@ -4599,197 +4604,198 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItemC2EP11QTreeWidgetPK17mac_3gpp_
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %13, ptr noundef %14, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MacUETreeWidgetItem, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
-  store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 5
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 6
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 7
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 8
-  store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 11
+  %15 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV19MacUETreeWidgetItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 5
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 6
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 7
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 8
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 12
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 13
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 14
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 15
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 18
+  %23 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 11
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 12
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 13
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 14
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 15
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 19
-  store i32 0, ptr %28, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %29, i32 0, i32 1
-  %31 = load i16, ptr %30, align 2
-  %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
-  store i32 %32, ptr %33, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %34, i32 0, i32 3
-  %36 = load i8, ptr %35, align 2
-  %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
-  store i32 %37, ptr %38, align 4
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %39, i32 0, i32 2
-  %41 = load i16, ptr %40, align 4
-  %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
-  store i32 %42, ptr %43, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %44, i32 0, i32 0
-  %46 = load i8, ptr %45, align 8
-  %47 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 1
-  store i8 %46, ptr %47, align 4
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %48, i32 0, i32 0
-  %50 = load i8, ptr %49, align 8
-  %51 = zext i8 %50 to i32
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %55
+  %28 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 18
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 19
+  store i32 0, ptr %29, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %30, i32 0, i32 1
+  %32 = load i16, ptr %31, align 2
+  %33 = zext i16 %32 to i32
+  %34 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
+  store i32 %33, ptr %34, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %35, i32 0, i32 3
+  %37 = load i8, ptr %36, align 2
+  %38 = zext i8 %37 to i32
+  %39 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
+  store i32 %38, ptr %39, align 4
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %40, i32 0, i32 2
+  %42 = load i16, ptr %41, align 4
+  %43 = zext i16 %42 to i32
+  %44 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
+  store i32 %43, ptr %44, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %45, i32 0, i32 0
+  %47 = load i8, ptr %46, align 8
+  %48 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 1
+  store i8 %47, ptr %48, align 4
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds %struct.mac_3gpp_tap_info, ptr %49, i32 0, i32 0
+  %51 = load i8, ptr %50, align 8
+  %52 = zext i8 %51 to i32
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %3
+54:                                               ; preds = %3
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef @.str.52, ptr noundef null, i32 noundef -1)
-          to label %54 unwind label %77
+          to label %55 unwind label %78
 
-54:                                               ; preds = %53
-  br label %57
+55:                                               ; preds = %54
+  br label %58
 
-55:                                               ; preds = %3
+56:                                               ; preds = %3
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef @.str.53, ptr noundef null, i32 noundef -1)
-          to label %56 unwind label %77
+          to label %57 unwind label %78
 
-56:                                               ; preds = %55
-  br label %57
+57:                                               ; preds = %56
+  br label %58
 
-57:                                               ; preds = %56, %54
+58:                                               ; preds = %57, %55
   invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %13, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %58 unwind label %81
+          to label %59 unwind label %82
 
-58:                                               ; preds = %57
+59:                                               ; preds = %58
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  %59 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
-  %60 = load i32, ptr %59, align 8
-  invoke void @_ZN7QString6numberEji(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, i32 noundef %60, i32 noundef 10)
-          to label %61 unwind label %77
+  %60 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
+  %61 = load i32, ptr %60, align 8
+  invoke void @_ZN7QString6numberEji(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, i32 noundef %61, i32 noundef 10)
+          to label %62 unwind label %78
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %13, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %62 unwind label %85
+          to label %63 unwind label %86
 
-62:                                               ; preds = %61
+63:                                               ; preds = %62
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %63 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 3
-  br i1 %65, label %66, label %68
+  %64 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 3
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef @.str.54, ptr noundef null, i32 noundef -1)
-          to label %67 unwind label %77
+          to label %68 unwind label %78
 
-67:                                               ; preds = %66
-  br label %70
+68:                                               ; preds = %67
+  br label %71
 
-68:                                               ; preds = %62
+69:                                               ; preds = %63
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef @.str.55, ptr noundef null, i32 noundef -1)
-          to label %69 unwind label %77
+          to label %70 unwind label %78
 
-69:                                               ; preds = %68
-  br label %70
+70:                                               ; preds = %69
+  br label %71
 
-70:                                               ; preds = %69, %67
+71:                                               ; preds = %70, %68
   invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %13, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %71 unwind label %89
+          to label %72 unwind label %90
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %72 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
-  %73 = load i32, ptr %72, align 8
-  invoke void @_ZN7QString6numberEji(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, i32 noundef %73, i32 noundef 10)
-          to label %74 unwind label %77
+  %73 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 4
+  %74 = load i32, ptr %73, align 8
+  invoke void @_ZN7QString6numberEji(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, i32 noundef %74, i32 noundef 10)
+          to label %75 unwind label %78
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %13, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %75 unwind label %93
-
-75:                                               ; preds = %74
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  invoke void @_ZN19MacUETreeWidgetItem10addDetailsEv(ptr noundef nonnull align 8 dereferenceable(256) %13)
-          to label %76 unwind label %77
+          to label %76 unwind label %94
 
 76:                                               ; preds = %75
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
+  invoke void @_ZN19MacUETreeWidgetItem10addDetailsEv(ptr noundef nonnull align 8 dereferenceable(256) %13)
+          to label %77 unwind label %78
+
+77:                                               ; preds = %76
   ret void
 
-77:                                               ; preds = %75, %71, %68, %66, %58, %55, %53
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %76, %72, %69, %67, %59, %56, %54
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %8, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %9, align 4
-  br label %97
-
-81:                                               ; preds = %57
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %8, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  br label %97
-
-85:                                               ; preds = %61
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %8, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  br label %97
-
-89:                                               ; preds = %70
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %8, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  br label %97
-
-93:                                               ; preds = %74
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %8, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  br label %97
-
-97:                                               ; preds = %93, %89, %85, %81, %77
-  call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %13) #4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %8, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %9, align 4
   br label %98
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %8, align 8
-  %100 = load i32, ptr %9, align 4
-  %101 = insertvalue { ptr, i32 } poison, ptr %99, 0
-  %102 = insertvalue { ptr, i32 } %101, i32 %100, 1
-  resume { ptr, i32 } %102
+82:                                               ; preds = %58
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %8, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
+  br label %98
+
+86:                                               ; preds = %62
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %8, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  br label %98
+
+90:                                               ; preds = %71
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %8, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  br label %98
+
+94:                                               ; preds = %75
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %8, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
+  br label %98
+
+98:                                               ; preds = %94, %90, %86, %82, %78
+  call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %13) #4
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i32, ptr %9, align 4
+  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
+  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
+  resume { ptr, i32 } %103
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8497,160 +8503,161 @@ define linkonce_odr void @_ZN21MacULDLTreeWidgetItemC2EP15QTreeWidgetItemjjji(pt
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr %12, align 4
   call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %20, ptr noundef %21, i32 noundef %22)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21MacULDLTreeWidgetItem, i32 0, i32 0, i32 2), ptr %20, align 8
-  %23 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 1
-  %24 = load i32, ptr %9, align 4
-  store i32 %24, ptr %23, align 4
-  %25 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 2
-  %26 = load i32, ptr %10, align 4
-  store i32 %26, ptr %25, align 8
-  %27 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 3
-  %28 = load i32, ptr %11, align 4
-  store i32 %28, ptr %27, align 4
+  %23 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV21MacULDLTreeWidgetItem, i32 0, i32 0, i32 2
+  store ptr %23, ptr %20, align 8
+  %24 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 1
+  %25 = load i32, ptr %9, align 4
+  store i32 %25, ptr %24, align 4
+  %26 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 2
+  %27 = load i32, ptr %10, align 4
+  store i32 %27, ptr %26, align 8
+  %28 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 3
+  %29 = load i32, ptr %11, align 4
+  store i32 %29, ptr %28, align 4
   store i32 0, ptr %13, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %37, %6
-  %30 = load i32, ptr %13, align 4
-  %31 = icmp slt i32 %30, 33
-  br i1 %31, label %32, label %40
+30:                                               ; preds = %38, %6
+  %31 = load i32, ptr %13, align 4
+  %32 = icmp slt i32 %31, 33
+  br i1 %32, label %33, label %41
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 4
-  %34 = load i32, ptr %13, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr [33 x i32], ptr %33, i64 0, i64 %35
-  store i32 0, ptr %36, align 4
-  br label %37
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 4
+  %35 = load i32, ptr %13, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr [33 x i32], ptr %34, i64 0, i64 %36
+  store i32 0, ptr %37, align 4
+  br label %38
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %13, align 4
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %13, align 4
-  br label %29, !llvm.loop !12
+38:                                               ; preds = %33
+  %39 = load i32, ptr %13, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %13, align 4
+  br label %30, !llvm.loop !12
 
-40:                                               ; preds = %29
-  %41 = load i32, ptr %12, align 4
-  switch i32 %41, label %74 [
-    i32 1001, label %42
-    i32 1002, label %53
-    i32 1003, label %60
-    i32 1004, label %67
+41:                                               ; preds = %30
+  %42 = load i32, ptr %12, align 4
+  switch i32 %42, label %75 [
+    i32 1001, label %43
+    i32 1002, label %54
+    i32 1003, label %61
+    i32 1004, label %68
   ]
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @.str.56)
-          to label %43 unwind label %45
-
-43:                                               ; preds = %42
-  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %44 unwind label %49
+          to label %44 unwind label %46
 
 44:                                               ; preds = %43
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  br label %75
+  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %45 unwind label %50
 
-45:                                               ; preds = %67, %60, %53, %42
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %15, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %16, align 4
-  br label %76
-
-49:                                               ; preds = %43
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %15, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %16, align 4
+45:                                               ; preds = %44
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
   br label %76
 
-53:                                               ; preds = %40
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef @.str.5)
-          to label %54 unwind label %45
-
-54:                                               ; preds = %53
-  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %55 unwind label %56
-
-55:                                               ; preds = %54
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
-  br label %75
-
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+46:                                               ; preds = %68, %61, %54, %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %15, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %16, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
-  br label %76
-
-60:                                               ; preds = %40
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.57)
-          to label %61 unwind label %45
-
-61:                                               ; preds = %60
-  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %62 unwind label %63
-
-62:                                               ; preds = %61
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  br label %75
-
-63:                                               ; preds = %61
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %15, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %16, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  br label %76
-
-67:                                               ; preds = %40
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef @.str.10)
-          to label %68 unwind label %45
-
-68:                                               ; preds = %67
-  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %69 unwind label %70
-
-69:                                               ; preds = %68
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %75
-
-70:                                               ; preds = %68
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %15, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %16, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %76
-
-74:                                               ; preds = %40
-  br label %75
-
-75:                                               ; preds = %74, %69, %62, %55, %44
-  ret void
-
-76:                                               ; preds = %70, %63, %56, %49, %45
-  call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %20) #4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %15, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %16, align 4
   br label %77
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %15, align 8
-  %79 = load i32, ptr %16, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %15, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
+  br label %77
+
+54:                                               ; preds = %41
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef @.str.5)
+          to label %55 unwind label %46
+
+55:                                               ; preds = %54
+  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %56 unwind label %57
+
+56:                                               ; preds = %55
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
+  br label %76
+
+57:                                               ; preds = %55
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %15, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
+  br label %77
+
+61:                                               ; preds = %41
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.57)
+          to label %62 unwind label %46
+
+62:                                               ; preds = %61
+  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %63 unwind label %64
+
+63:                                               ; preds = %62
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
+  br label %76
+
+64:                                               ; preds = %62
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %15, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
+  br label %77
+
+68:                                               ; preds = %41
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef @.str.10)
+          to label %69 unwind label %46
+
+69:                                               ; preds = %68
+  invoke void @_ZN15QTreeWidgetItem7setTextEiRK7QString(ptr noundef nonnull align 8 dereferenceable(92) %20, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %70 unwind label %71
+
+70:                                               ; preds = %69
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
+  br label %76
+
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %15, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
+  br label %77
+
+75:                                               ; preds = %41
+  br label %76
+
+76:                                               ; preds = %75, %70, %63, %56, %45
+  ret void
+
+77:                                               ; preds = %71, %64, %57, %50, %46
+  call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %20) #4
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %15, align 8
+  %80 = load i32, ptr %16, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 declare void @_ZN15QTreeWidgetItem11setExpandedEb(ptr noundef nonnull align 8 dereferenceable(92), i1 noundef zeroext) #5

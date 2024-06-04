@@ -963,427 +963,428 @@ define weak_odr void @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %4, align 8
   call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %19 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %20 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.mitsuba::ref", ptr %20, i64 2
-  br label %22
+  %19 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %21 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.mitsuba::ref", ptr %21, i64 2
+  br label %23
 
-22:                                               ; preds = %24, %2
-  %23 = phi ptr [ %20, %2 ], [ %25, %24 ]
-  invoke void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %24 unwind label %40
+23:                                               ; preds = %25, %2
+  %24 = phi ptr [ %21, %2 ], [ %26, %25 ]
+  invoke void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %25 unwind label %41
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds %"class.mitsuba::ref", ptr %23, i64 1
-  %26 = icmp eq ptr %25, %21
-  br i1 %26, label %27, label %22
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds %"class.mitsuba::ref", ptr %24, i64 1
+  %27 = icmp eq ptr %26, %22
+  br i1 %27, label %28, label %23
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %4, align 8
-  invoke void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind writable sret(%"class.std::__1::vector.12") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %28, i1 noundef zeroext true)
-          to label %29 unwind label %50
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %4, align 8
+  invoke void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind writable sret(%"class.std::__1::vector.12") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %29, i1 noundef zeroext true)
+          to label %30 unwind label %51
 
-29:                                               ; preds = %27
-  %30 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  %31 = icmp ugt i64 %30, 0
-  br i1 %31, label %32, label %64
+30:                                               ; preds = %28
+  %31 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %32 = icmp ugt i64 %31, 0
+  br i1 %32, label %33, label %65
 
-32:                                               ; preds = %29
-  %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0) #20
-  %34 = getelementptr inbounds %"struct.std::__1::pair", ptr %33, i32 0, i32 1
-  %35 = invoke noundef ptr @_ZN7mitsuba3refINS_6ObjectEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %36 unwind label %54
+33:                                               ; preds = %30
+  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0) #20
+  %35 = getelementptr inbounds %"struct.std::__1::pair", ptr %34, i32 0, i32 1
+  %36 = invoke noundef ptr @_ZN7mitsuba3refINS_6ObjectEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %37 unwind label %55
 
-36:                                               ; preds = %32
-  %37 = icmp eq ptr %35, null
-  br i1 %37, label %58, label %38
+37:                                               ; preds = %33
+  %38 = icmp eq ptr %36, null
+  br i1 %38, label %59, label %39
 
-38:                                               ; preds = %36
-  %39 = call ptr @__dynamic_cast(ptr %35, ptr @_ZTIN7mitsuba6ObjectE, ptr @_ZTIN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 0) #20
-  br label %59
+39:                                               ; preds = %37
+  %40 = call ptr @__dynamic_cast(ptr %36, ptr @_ZTIN7mitsuba6ObjectE, ptr @_ZTIN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 0) #20
+  br label %60
 
-40:                                               ; preds = %22
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %23
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %5, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %6, align 4
-  %44 = icmp eq ptr %20, %23
-  br i1 %44, label %49, label %45
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  %45 = icmp eq ptr %21, %24
+  br i1 %45, label %50, label %46
 
-45:                                               ; preds = %45, %40
-  %46 = phi ptr [ %23, %40 ], [ %47, %45 ]
-  %47 = getelementptr inbounds %"class.mitsuba::ref", ptr %46, i64 -1
-  call void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #20
-  %48 = icmp eq ptr %47, %20
-  br i1 %48, label %49, label %45
+46:                                               ; preds = %46, %41
+  %47 = phi ptr [ %24, %41 ], [ %48, %46 ]
+  %48 = getelementptr inbounds %"class.mitsuba::ref", ptr %47, i64 -1
+  call void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #20
+  %49 = icmp eq ptr %48, %21
+  br i1 %49, label %50, label %46
 
-49:                                               ; preds = %45, %40
-  br label %225
+50:                                               ; preds = %46, %41
+  br label %226
 
-50:                                               ; preds = %27
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %28
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %5, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %6, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %5, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %6, align 4
+  br label %218
+
+55:                                               ; preds = %206, %200, %198, %186, %181, %179, %176, %172, %168, %163, %150, %145, %143, %140, %136, %132, %127, %114, %104, %97, %86, %68, %33
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %5, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %6, align 4
   br label %217
 
-54:                                               ; preds = %205, %199, %197, %185, %180, %178, %175, %171, %167, %162, %149, %144, %142, %139, %135, %131, %126, %113, %103, %96, %85, %67, %32
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %5, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %6, align 4
-  br label %216
+59:                                               ; preds = %37
+  br label %60
 
-58:                                               ; preds = %36
-  br label %59
+60:                                               ; preds = %59, %39
+  %61 = phi ptr [ %40, %39 ], [ null, %59 ]
+  %62 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %63 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %62, i64 0, i64 0
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_EERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %61) #20
+  br label %65
 
-59:                                               ; preds = %58, %38
-  %60 = phi ptr [ %39, %38 ], [ null, %58 ]
-  %61 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %62 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %61, i64 0, i64 0
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_EERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %60) #20
-  br label %64
+65:                                               ; preds = %60, %30
+  %66 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %67 = icmp eq i64 %66, 2
+  br i1 %67, label %68, label %82
 
-64:                                               ; preds = %59, %29
-  %65 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  %66 = icmp eq i64 %65, 2
-  br i1 %66, label %67, label %81
+68:                                               ; preds = %65
+  %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1) #20
+  %70 = getelementptr inbounds %"struct.std::__1::pair", ptr %69, i32 0, i32 1
+  %71 = invoke noundef ptr @_ZN7mitsuba3refINS_6ObjectEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %70)
+          to label %72 unwind label %55
 
-67:                                               ; preds = %64
-  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1) #20
-  %69 = getelementptr inbounds %"struct.std::__1::pair", ptr %68, i32 0, i32 1
-  %70 = invoke noundef ptr @_ZN7mitsuba3refINS_6ObjectEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %69)
-          to label %71 unwind label %54
+72:                                               ; preds = %68
+  %73 = icmp eq ptr %71, null
+  br i1 %73, label %76, label %74
 
-71:                                               ; preds = %67
-  %72 = icmp eq ptr %70, null
-  br i1 %72, label %75, label %73
+74:                                               ; preds = %72
+  %75 = call ptr @__dynamic_cast(ptr %71, ptr @_ZTIN7mitsuba6ObjectE, ptr @_ZTIN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 0) #20
+  br label %77
 
-73:                                               ; preds = %71
-  %74 = call ptr @__dynamic_cast(ptr %70, ptr @_ZTIN7mitsuba6ObjectE, ptr @_ZTIN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 0) #20
-  br label %76
+76:                                               ; preds = %72
+  br label %77
 
-75:                                               ; preds = %71
-  br label %76
+77:                                               ; preds = %76, %74
+  %78 = phi ptr [ %75, %74 ], [ null, %76 ]
+  %79 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %80 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %79, i64 0, i64 1
+  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_EERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %78) #20
+  br label %97
 
-76:                                               ; preds = %75, %73
-  %77 = phi ptr [ %74, %73 ], [ null, %75 ]
-  %78 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %79 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %78, i64 0, i64 1
-  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_EERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %77) #20
-  br label %96
+82:                                               ; preds = %65
+  %83 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %84 = icmp ugt i64 %83, 2
+  br i1 %84, label %85, label %96
 
-81:                                               ; preds = %64
-  %82 = call noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  %83 = icmp ugt i64 %82, 2
-  br i1 %83, label %84, label %95
+85:                                               ; preds = %82
+  br label %86
 
-84:                                               ; preds = %81
-  br label %85
-
-85:                                               ; preds = %84
-  %86 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+86:                                               ; preds = %85
+  %87 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %8, ptr noundef @.str.1)
-          to label %87 unwind label %54
+          to label %88 unwind label %55
 
-87:                                               ; preds = %85
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %86, ptr noundef @.str, i32 noundef 81, ptr noundef nonnull align 8 dereferenceable(24) %8) #21
-          to label %88 unwind label %89
+88:                                               ; preds = %86
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %87, ptr noundef @.str, i32 noundef 81, ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+          to label %89 unwind label %90
 
-88:                                               ; preds = %87
+89:                                               ; preds = %88
   unreachable
 
-89:                                               ; preds = %87
-  %90 = landingpad { ptr, i32 }
+90:                                               ; preds = %88
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %5, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %6, align 4
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %5, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
-  br label %216
+  br label %217
 
-93:                                               ; No predecessors!
-  br label %94
-
-94:                                               ; preds = %93
+94:                                               ; No predecessors!
   br label %95
 
-95:                                               ; preds = %94, %81
+95:                                               ; preds = %94
   br label %96
 
-96:                                               ; preds = %95, %76
-  %97 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %98 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %97, i64 0, i64 0
-  %99 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEcvPS7_Ev(ptr noundef nonnull align 8 dereferenceable(8) %98)
-          to label %100 unwind label %54
+96:                                               ; preds = %95, %82
+  br label %97
 
-100:                                              ; preds = %96
-  %101 = icmp ne ptr %99, null
-  br i1 %101, label %113, label %102
+97:                                               ; preds = %96, %77
+  %98 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %99 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %98, i64 0, i64 0
+  %100 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEcvPS7_Ev(ptr noundef nonnull align 8 dereferenceable(8) %99)
+          to label %101 unwind label %55
 
-102:                                              ; preds = %100
-  br label %103
+101:                                              ; preds = %97
+  %102 = icmp ne ptr %100, null
+  br i1 %102, label %114, label %103
 
-103:                                              ; preds = %102
-  %104 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+103:                                              ; preds = %101
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %9, ptr noundef @.str.2)
-          to label %105 unwind label %54
+          to label %106 unwind label %55
 
-105:                                              ; preds = %103
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %104, ptr noundef @.str, i32 noundef 84, ptr noundef nonnull align 8 dereferenceable(24) %9) #21
-          to label %106 unwind label %107
+106:                                              ; preds = %104
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %105, ptr noundef @.str, i32 noundef 84, ptr noundef nonnull align 8 dereferenceable(24) %9) #21
+          to label %107 unwind label %108
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   unreachable
 
-107:                                              ; preds = %105
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %106
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %5, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %6, align 4
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %5, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
-  br label %216
+  br label %217
 
-111:                                              ; No predecessors!
-  br label %112
-
-112:                                              ; preds = %111
+112:                                              ; No predecessors!
   br label %113
 
-113:                                              ; preds = %112, %100
-  %114 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %115 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %114, i64 0, i64 1
-  %116 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEcvPS7_Ev(ptr noundef nonnull align 8 dereferenceable(8) %115)
-          to label %117 unwind label %54
+113:                                              ; preds = %112
+  br label %114
 
-117:                                              ; preds = %113
-  %118 = icmp ne ptr %116, null
-  br i1 %118, label %125, label %119
+114:                                              ; preds = %113, %101
+  %115 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %116 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %115, i64 0, i64 1
+  %117 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEcvPS7_Ev(ptr noundef nonnull align 8 dereferenceable(8) %116)
+          to label %118 unwind label %55
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %121 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %120, i64 0, i64 0
-  %122 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %123 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %122, i64 0, i64 1
-  %124 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull align 8 dereferenceable(8) %121) #20
-  br label %125
+118:                                              ; preds = %114
+  %119 = icmp ne ptr %117, null
+  br i1 %119, label %126, label %120
 
-125:                                              ; preds = %119, %117
-  store i64 0, ptr %10, align 8
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %122 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %121, i64 0, i64 0
+  %123 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %124 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %123, i64 0, i64 1
+  %125 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 8 dereferenceable(8) %122) #20
   br label %126
 
-126:                                              ; preds = %158, %125
-  %127 = load i64, ptr %10, align 8
-  %128 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %129 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %128, i64 0, i64 0
-  %130 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
-          to label %131 unwind label %54
+126:                                              ; preds = %120, %118
+  store i64 0, ptr %10, align 8
+  br label %127
 
-131:                                              ; preds = %126
-  %132 = invoke noundef i64 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15component_countEb(ptr noundef nonnull align 8 dereferenceable(64) %130, i1 noundef zeroext true)
-          to label %133 unwind label %54
+127:                                              ; preds = %159, %126
+  %128 = load i64, ptr %10, align 8
+  %129 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %130 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %129, i64 0, i64 0
+  %131 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %130)
+          to label %132 unwind label %55
 
-133:                                              ; preds = %131
-  %134 = icmp ult i64 %127, %132
-  br i1 %134, label %135, label %161
+132:                                              ; preds = %127
+  %133 = invoke noundef i64 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15component_countEb(ptr noundef nonnull align 8 dereferenceable(64) %131, i1 noundef zeroext true)
+          to label %134 unwind label %55
 
-135:                                              ; preds = %133
-  %136 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %137 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %136, i64 0, i64 0
-  %138 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %137)
-          to label %139 unwind label %54
+134:                                              ; preds = %132
+  %135 = icmp ult i64 %128, %133
+  br i1 %135, label %136, label %162
 
-139:                                              ; preds = %135
-  %140 = load i64, ptr %10, align 8
-  %141 = invoke noundef i32 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5flagsEmb(ptr noundef nonnull align 8 dereferenceable(64) %138, i64 noundef %140, i1 noundef zeroext true)
-          to label %142 unwind label %54
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %138 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %137, i64 0, i64 0
+  %139 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %138)
+          to label %140 unwind label %55
 
-142:                                              ; preds = %139
-  %143 = invoke noundef i32 @_ZN7mitsubacoENS_9BSDFFlagsE(i32 noundef 65536)
-          to label %144 unwind label %54
+140:                                              ; preds = %136
+  %141 = load i64, ptr %10, align 8
+  %142 = invoke noundef i32 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5flagsEmb(ptr noundef nonnull align 8 dereferenceable(64) %139, i64 noundef %141, i1 noundef zeroext true)
+          to label %143 unwind label %55
 
-144:                                              ; preds = %142
-  %145 = and i32 %141, %143
-  store i32 %145, ptr %11, align 4
-  %146 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
-  %147 = load i32, ptr %11, align 4
-  %148 = invoke noundef i32 @_ZN7mitsubaorEjNS_9BSDFFlagsE(i32 noundef %147, i32 noundef 32768)
-          to label %149 unwind label %54
+143:                                              ; preds = %140
+  %144 = invoke noundef i32 @_ZN7mitsubacoENS_9BSDFFlagsE(i32 noundef 65536)
+          to label %145 unwind label %55
 
-149:                                              ; preds = %144
-  store i32 %148, ptr %12, align 4
-  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %146, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %150 unwind label %54
+145:                                              ; preds = %143
+  %146 = and i32 %142, %144
+  store i32 %146, ptr %11, align 4
+  %147 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
+  %148 = load i32, ptr %11, align 4
+  %149 = invoke noundef i32 @_ZN7mitsubaorEjNS_9BSDFFlagsE(i32 noundef %148, i32 noundef 32768)
+          to label %150 unwind label %55
 
-150:                                              ; preds = %149
-  %151 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
-  %154 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %153) #20
-  %155 = load i32, ptr %154, align 4
-  %156 = or i32 %152, %155
-  %157 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  store i32 %156, ptr %157, align 4
-  br label %158
+150:                                              ; preds = %145
+  store i32 %149, ptr %12, align 4
+  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %151 unwind label %55
 
-158:                                              ; preds = %150
-  %159 = load i64, ptr %10, align 8
-  %160 = add i64 %159, 1
-  store i64 %160, ptr %10, align 8
-  br label %126, !llvm.loop !4
+151:                                              ; preds = %150
+  %152 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  %153 = load i32, ptr %152, align 4
+  %154 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
+  %155 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #20
+  %156 = load i32, ptr %155, align 4
+  %157 = or i32 %153, %156
+  %158 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  store i32 %157, ptr %158, align 4
+  br label %159
 
-161:                                              ; preds = %133
+159:                                              ; preds = %151
+  %160 = load i64, ptr %10, align 8
+  %161 = add i64 %160, 1
+  store i64 %161, ptr %10, align 8
+  br label %127, !llvm.loop !4
+
+162:                                              ; preds = %134
   store i64 0, ptr %13, align 8
-  br label %162
+  br label %163
 
-162:                                              ; preds = %194, %161
-  %163 = load i64, ptr %13, align 8
-  %164 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %165 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %164, i64 0, i64 1
-  %166 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %165)
-          to label %167 unwind label %54
+163:                                              ; preds = %195, %162
+  %164 = load i64, ptr %13, align 8
+  %165 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %166 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %165, i64 0, i64 1
+  %167 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %166)
+          to label %168 unwind label %55
 
-167:                                              ; preds = %162
-  %168 = invoke noundef i64 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15component_countEb(ptr noundef nonnull align 8 dereferenceable(64) %166, i1 noundef zeroext true)
-          to label %169 unwind label %54
+168:                                              ; preds = %163
+  %169 = invoke noundef i64 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15component_countEb(ptr noundef nonnull align 8 dereferenceable(64) %167, i1 noundef zeroext true)
+          to label %170 unwind label %55
 
-169:                                              ; preds = %167
-  %170 = icmp ult i64 %163, %168
-  br i1 %170, label %171, label %197
+170:                                              ; preds = %168
+  %171 = icmp ult i64 %164, %169
+  br i1 %171, label %172, label %198
 
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
-  %173 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %172, i64 0, i64 1
-  %174 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %173)
-          to label %175 unwind label %54
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds %"class.mitsuba::TwoSidedBRDF", ptr %17, i32 0, i32 1
+  %174 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %173, i64 0, i64 1
+  %175 = invoke noundef ptr @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %174)
+          to label %176 unwind label %55
 
-175:                                              ; preds = %171
-  %176 = load i64, ptr %13, align 8
-  %177 = invoke noundef i32 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5flagsEmb(ptr noundef nonnull align 8 dereferenceable(64) %174, i64 noundef %176, i1 noundef zeroext true)
-          to label %178 unwind label %54
+176:                                              ; preds = %172
+  %177 = load i64, ptr %13, align 8
+  %178 = invoke noundef i32 @_ZNK7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5flagsEmb(ptr noundef nonnull align 8 dereferenceable(64) %175, i64 noundef %177, i1 noundef zeroext true)
+          to label %179 unwind label %55
 
-178:                                              ; preds = %175
-  %179 = invoke noundef i32 @_ZN7mitsubacoENS_9BSDFFlagsE(i32 noundef 32768)
-          to label %180 unwind label %54
+179:                                              ; preds = %176
+  %180 = invoke noundef i32 @_ZN7mitsubacoENS_9BSDFFlagsE(i32 noundef 32768)
+          to label %181 unwind label %55
 
-180:                                              ; preds = %178
-  %181 = and i32 %177, %179
-  store i32 %181, ptr %14, align 4
-  %182 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
-  %183 = load i32, ptr %14, align 4
-  %184 = invoke noundef i32 @_ZN7mitsubaorEjNS_9BSDFFlagsE(i32 noundef %183, i32 noundef 65536)
-          to label %185 unwind label %54
+181:                                              ; preds = %179
+  %182 = and i32 %178, %180
+  store i32 %182, ptr %14, align 4
+  %183 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
+  %184 = load i32, ptr %14, align 4
+  %185 = invoke noundef i32 @_ZN7mitsubaorEjNS_9BSDFFlagsE(i32 noundef %184, i32 noundef 65536)
+          to label %186 unwind label %55
 
-185:                                              ; preds = %180
-  store i32 %184, ptr %15, align 4
-  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %186 unwind label %54
+186:                                              ; preds = %181
+  store i32 %185, ptr %15, align 4
+  invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE9push_backB8ne190000EOj(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %187 unwind label %55
 
-186:                                              ; preds = %185
-  %187 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
-  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #20
-  %191 = load i32, ptr %190, align 4
-  %192 = or i32 %188, %191
-  %193 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  store i32 %192, ptr %193, align 4
-  br label %194
+187:                                              ; preds = %186
+  %188 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  %189 = load i32, ptr %188, align 4
+  %190 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 2
+  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__16vectorIjNS_9allocatorIjEEE4backB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %190) #20
+  %192 = load i32, ptr %191, align 4
+  %193 = or i32 %189, %192
+  %194 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  store i32 %193, ptr %194, align 4
+  br label %195
 
-194:                                              ; preds = %186
-  %195 = load i64, ptr %13, align 8
-  %196 = add i64 %195, 1
-  store i64 %196, ptr %13, align 8
-  br label %162, !llvm.loop !6
+195:                                              ; preds = %187
+  %196 = load i64, ptr %13, align 8
+  %197 = add i64 %196, 1
+  store i64 %197, ptr %13, align 8
+  br label %163, !llvm.loop !6
 
-197:                                              ; preds = %169
-  %198 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  invoke void @_ZN5drjit8set_attrIN7mitsuba12TwoSidedBRDFIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEjEEvPT_PKcRKT0_(ptr noundef %17, ptr noundef @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %198)
-          to label %199 unwind label %54
+198:                                              ; preds = %170
+  %199 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  invoke void @_ZN5drjit8set_attrIN7mitsuba12TwoSidedBRDFIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEjEEvPT_PKcRKT0_(ptr noundef %17, ptr noundef @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %199)
+          to label %200 unwind label %55
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
-  %201 = load i32, ptr %200, align 4
-  %202 = invoke noundef zeroext i1 @_ZN7mitsuba8has_flagIjEEDaT_NS_9BSDFFlagsE(i32 noundef %201, i32 noundef 341)
-          to label %203 unwind label %54
+200:                                              ; preds = %198
+  %201 = getelementptr inbounds %"class.mitsuba::BSDF", ptr %17, i32 0, i32 1
+  %202 = load i32, ptr %201, align 4
+  %203 = invoke noundef zeroext i1 @_ZN7mitsuba8has_flagIjEEDaT_NS_9BSDFFlagsE(i32 noundef %202, i32 noundef 341)
+          to label %204 unwind label %55
 
-203:                                              ; preds = %199
-  br i1 %202, label %204, label %215
-
-204:                                              ; preds = %203
-  br label %205
+204:                                              ; preds = %200
+  br i1 %203, label %205, label %216
 
 205:                                              ; preds = %204
-  %206 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  br label %206
+
+206:                                              ; preds = %205
+  %207 = load ptr, ptr @_ZN7mitsuba12TwoSidedBRDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %16, ptr noundef @.str.4)
-          to label %207 unwind label %54
+          to label %208 unwind label %55
 
-207:                                              ; preds = %205
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %206, ptr noundef @.str, i32 noundef 103, ptr noundef nonnull align 8 dereferenceable(24) %16) #21
-          to label %208 unwind label %209
+208:                                              ; preds = %206
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %207, ptr noundef @.str, i32 noundef 103, ptr noundef nonnull align 8 dereferenceable(24) %16) #21
+          to label %209 unwind label %210
 
-208:                                              ; preds = %207
+209:                                              ; preds = %208
   unreachable
 
-209:                                              ; preds = %207
-  %210 = landingpad { ptr, i32 }
+210:                                              ; preds = %208
+  %211 = landingpad { ptr, i32 }
           cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %5, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %6, align 4
+  %212 = extractvalue { ptr, i32 } %211, 0
+  store ptr %212, ptr %5, align 8
+  %213 = extractvalue { ptr, i32 } %211, 1
+  store i32 %213, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
-  br label %216
+  br label %217
 
-213:                                              ; No predecessors!
-  br label %214
-
-214:                                              ; preds = %213
+214:                                              ; No predecessors!
   br label %215
 
-215:                                              ; preds = %214, %203
+215:                                              ; preds = %214
+  br label %216
+
+216:                                              ; preds = %215, %204
   call void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   ret void
 
-216:                                              ; preds = %209, %107, %89, %54
+217:                                              ; preds = %210, %108, %90, %55
   call void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  br label %217
+  br label %218
 
-217:                                              ; preds = %216, %50
-  %218 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %19, i32 0, i32 0
-  %219 = getelementptr inbounds %"class.mitsuba::ref", ptr %218, i64 2
-  br label %220
+218:                                              ; preds = %217, %51
+  %219 = getelementptr inbounds [2 x %"class.mitsuba::ref"], ptr %20, i32 0, i32 0
+  %220 = getelementptr inbounds %"class.mitsuba::ref", ptr %219, i64 2
+  br label %221
 
-220:                                              ; preds = %220, %217
-  %221 = phi ptr [ %219, %217 ], [ %222, %220 ]
-  %222 = getelementptr inbounds %"class.mitsuba::ref", ptr %221, i64 -1
-  call void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %222) #20
-  %223 = icmp eq ptr %222, %218
-  br i1 %223, label %224, label %220
+221:                                              ; preds = %221, %218
+  %222 = phi ptr [ %220, %218 ], [ %223, %221 ]
+  %223 = getelementptr inbounds %"class.mitsuba::ref", ptr %222, i64 -1
+  call void @_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %223) #20
+  %224 = icmp eq ptr %223, %219
+  br i1 %224, label %225, label %221
 
-224:                                              ; preds = %220
-  br label %225
-
-225:                                              ; preds = %224, %49
-  call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #20
+225:                                              ; preds = %221
   br label %226
 
-226:                                              ; preds = %225
-  %227 = load ptr, ptr %5, align 8
-  %228 = load i32, ptr %6, align 4
-  %229 = insertvalue { ptr, i32 } poison, ptr %227, 0
-  %230 = insertvalue { ptr, i32 } %229, i32 %228, 1
-  resume { ptr, i32 } %230
+226:                                              ; preds = %225, %50
+  call void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #20
+  br label %227
+
+227:                                              ; preds = %226
+  %228 = load ptr, ptr %5, align 8
+  %229 = load i32, ptr %6, align 4
+  %230 = insertvalue { ptr, i32 } poison, ptr %228, 0
+  %231 = insertvalue { ptr, i32 } %230, i32 %229, 1
+  resume { ptr, i32 } %231
 }
 
 declare void @_ZN7mitsuba4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -5819,54 +5820,60 @@ define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_trait
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
-          to label %9 unwind label %13
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %10)
+          to label %12 unwind label %18
 
-9:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
-          to label %12 unwind label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %16, i32 noundef 16)
+          to label %17 unwind label %22
 
-12:                                               ; preds = %9
+17:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #20
-  br label %21
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %26) #20
+  br label %27
 
-21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #20
-  br label %23
+27:                                               ; preds = %22, %18
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %28) #20
+  br label %29
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %4, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6692,9 +6699,10 @@ define linkonce_odr void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #20
   ret void
 }
@@ -6714,7 +6722,8 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6754,14 +6763,15 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
-  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
   ret void
 }
 
@@ -6770,9 +6780,10 @@ define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -10350,7 +10361,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -11441,32 +11453,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11481,7 +11494,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6Object
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12009,32 +12023,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12464,32 +12479,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_12TwoSidedBRDFIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable

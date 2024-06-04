@@ -159,7 +159,7 @@ define internal ptr @timer_allocate() #0 {
 13:                                               ; preds = %11, %10
   %14 = load ptr, ptr %1, align 8
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %39
+  br i1 %15, label %16, label %42
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8
@@ -180,35 +180,38 @@ define internal ptr @timer_allocate() #0 {
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr @g_alloctimers, align 8
   %27 = icmp ne ptr %26, null
-  br i1 %27, label %31, label %28
+  br i1 %27, label %32, label %28
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %4, align 8
   store ptr %29, ptr @g_alloctimers, align 8
   %30 = load ptr, ptr %4, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1), align 8
-  br label %36
-
-31:                                               ; preds = %22
-  %32 = load ptr, ptr %4, align 8
-  %33 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1), align 8
-  %34 = getelementptr inbounds %struct.sq_entry_s, ptr %33, i32 0, i32 0
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %4, align 8
-  store ptr %35, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1), align 8
-  br label %36
-
-36:                                               ; preds = %31, %28
-  br label %37
-
-37:                                               ; preds = %36
-  %38 = load i64, ptr %2, align 8
-  call void @up_irq_restore(i64 noundef %38)
+  %31 = getelementptr inbounds %struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1
+  store ptr %30, ptr %31, align 8
   br label %39
 
-39:                                               ; preds = %37, %13
-  %40 = load ptr, ptr %1, align 8
-  ret ptr %40
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct.sq_entry_s, ptr %35, i32 0, i32 0
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1
+  store ptr %37, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %32, %28
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i64, ptr %2, align 8
+  call void @up_irq_restore(i64 noundef %41)
+  br label %42
+
+42:                                               ; preds = %40, %13
+  %43 = load ptr, ptr %1, align 8
+  ret ptr %43
 }
 
 declare i32 @nxsched_getpid() #1

@@ -351,68 +351,69 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderC2Ev(pt
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #3
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 6
-  invoke void @_ZN4absl7debian25MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %8 unwind label %19
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #3
+  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 6
+  invoke void @_ZN4absl7debian25MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %9 unwind label %20
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  %10 = invoke noundef ptr @_ZN4i18n12phonenumbers25get_country_calling_codesEv()
-          to label %11 unwind label %23
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  %11 = invoke noundef ptr @_ZN4i18n12phonenumbers25get_country_calling_codesEv()
+          to label %12 unwind label %24
 
-11:                                               ; preds = %8
-  %12 = invoke noundef i32 @_ZN4i18n12phonenumbers30get_country_calling_codes_sizeEv()
-          to label %13 unwind label %23
+12:                                               ; preds = %9
+  %13 = invoke noundef i32 @_ZN4i18n12phonenumbers30get_country_calling_codes_sizeEv()
+          to label %14 unwind label %24
 
-13:                                               ; preds = %11
-  %14 = invoke noundef ptr @_ZN4i18n12phonenumbers30get_prefix_language_code_pairsEv()
-          to label %15 unwind label %23
+14:                                               ; preds = %12
+  %15 = invoke noundef ptr @_ZN4i18n12phonenumbers30get_prefix_language_code_pairsEv()
+          to label %16 unwind label %24
 
-15:                                               ; preds = %13
-  %16 = invoke noundef i32 @_ZN4i18n12phonenumbers35get_prefix_language_code_pairs_sizeEv()
-          to label %17 unwind label %23
+16:                                               ; preds = %14
+  %17 = invoke noundef i32 @_ZN4i18n12phonenumbers35get_prefix_language_code_pairs_sizeEv()
+          to label %18 unwind label %24
 
-17:                                               ; preds = %15
-  invoke void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoder4InitEPKiiPFPKNS0_16CountryLanguagesEiEPPKciPFPKNS0_18PrefixDescriptionsEiE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %10, i32 noundef %12, ptr noundef @_ZN4i18n12phonenumbers21get_country_languagesEi, ptr noundef %14, i32 noundef %16, ptr noundef @_ZN4i18n12phonenumbers23get_prefix_descriptionsEi)
-          to label %18 unwind label %23
+18:                                               ; preds = %16
+  invoke void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoder4InitEPKiiPFPKNS0_16CountryLanguagesEiEPPKciPFPKNS0_18PrefixDescriptionsEiE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %11, i32 noundef %13, ptr noundef @_ZN4i18n12phonenumbers21get_country_languagesEi, ptr noundef %15, i32 noundef %17, ptr noundef @_ZN4i18n12phonenumbers23get_prefix_descriptionsEi)
+          to label %19 unwind label %24
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %27
-
-23:                                               ; preds = %17, %15, %13, %11, %8
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %3, align 8
-  %30 = load i32, ptr %4, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %18, %16, %14, %12, %9
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -566,58 +567,59 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderC2EPKii
   store i32 %5, ptr %13, align 4
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef null) #3
-  %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 6
-  invoke void @_ZN4absl7debian25MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %20 unwind label %29
+  %18 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef null) #3
+  %20 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 6
+  invoke void @_ZN4absl7debian25MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %7
-  %21 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = load ptr, ptr %11, align 8
-  %25 = load ptr, ptr %12, align 8
-  %26 = load i32, ptr %13, align 4
-  %27 = load ptr, ptr %14, align 8
-  invoke void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoder4InitEPKiiPFPKNS0_16CountryLanguagesEiEPPKciPFPKNS0_18PrefixDescriptionsEiE(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %27)
-          to label %28 unwind label %33
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr %13, align 4
+  %28 = load ptr, ptr %14, align 8
+  invoke void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoder4InitEPKiiPFPKNS0_16CountryLanguagesEiEPPKciPFPKNS0_18PrefixDescriptionsEiE(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28)
+          to label %29 unwind label %34
 
-28:                                               ; preds = %20
+29:                                               ; preds = %21
   ret void
 
-29:                                               ; preds = %7
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %7
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %15, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %16, align 4
-  br label %37
-
-33:                                               ; preds = %20
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %15, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %16, align 4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %15, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %16, align 4
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %15, align 8
-  %40 = load i32, ptr %16, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+34:                                               ; preds = %21
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %15, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %16, align 4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %38
+
+38:                                               ; preds = %34, %30
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %15, align 8
+  %41 = load i32, ptr %16, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 declare noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv() #1
@@ -653,38 +655,39 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderD2Ev(pt
   %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 6
-  invoke void @_ZN4absl7debian29MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %7)
-          to label %8 unwind label %19
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 6
+  invoke void @_ZN4absl7debian29MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8)
+          to label %9 unwind label %20
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
-  %10 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  %11 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
-  %13 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %14 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
+  %11 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  %12 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
+  %14 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %15 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
   invoke void @_ZN4i18n12phonenumbers3gtl36STLDeleteContainerPairSecondPointersISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_11AreaCodeMapEEEEEvRKT_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %15 unwind label %19
+          to label %16 unwind label %20
 
-15:                                               ; preds = %8
+16:                                               ; preds = %9
   call void @_ZN4absl7debian29MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
-  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 6
-  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers11AreaCodeMapESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 6
+  call void @_ZN4absl7debian25MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
   ret void
 
-19:                                               ; preds = %8, %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %9, %1
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #15
   unreachable
 }
 
@@ -1474,10 +1477,11 @@ define linkonce_odr dso_local void @_ZN6icu_7013UnicodeStringC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.icu_70::UnicodeString", ptr %3, i32 0, i32 1
-  %5 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
-  store i16 2, ptr %5, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.icu_70::UnicodeString", ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
+  store i16 2, ptr %6, align 8
   ret void
 }
 
@@ -2632,7 +2636,8 @@ define linkonce_odr dso_local void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2641,7 +2646,8 @@ define linkonce_odr dso_local void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4015,57 +4021,58 @@ define linkonce_odr dso_local void @_ZN6icu_7014StringByteSinkINSt7__cxx1112basi
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.icu_70::StringByteSink", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %35
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.icu_70::StringByteSink", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %15, label %36
 
-14:                                               ; preds = %3
-  %15 = load i32, ptr %6, align 4
-  %16 = zext i32 %15 to i64
-  %17 = load ptr, ptr %5, align 8
-  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  %19 = load ptr, ptr %5, align 8
-  %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %21 = sub i64 %18, %20
-  %22 = icmp ugt i64 %16, %21
-  br i1 %22, label %23, label %35
+15:                                               ; preds = %3
+  %16 = load i32, ptr %6, align 4
+  %17 = zext i32 %16 to i64
+  %18 = load ptr, ptr %5, align 8
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %20 = load ptr, ptr %5, align 8
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  %22 = sub i64 %19, %21
+  %23 = icmp ugt i64 %17, %22
+  br i1 %23, label %24, label %36
 
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %5, align 8
+24:                                               ; preds = %15
   %25 = load ptr, ptr %5, align 8
-  %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
-  %27 = load i32, ptr %6, align 4
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %26, %28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %29)
-          to label %30 unwind label %31
+  %26 = load ptr, ptr %5, align 8
+  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  %28 = load i32, ptr %6, align 4
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %27, %29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %30)
+          to label %31 unwind label %32
 
-30:                                               ; preds = %23
-  br label %35
-
-31:                                               ; preds = %23
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %7, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %8, align 4
-  call void @_ZN6icu_708ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+31:                                               ; preds = %24
   br label %36
 
-35:                                               ; preds = %30, %14, %3
+32:                                               ; preds = %24
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %7, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %8, align 4
+  call void @_ZN6icu_708ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %37
+
+36:                                               ; preds = %31, %15, %3
   ret void
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr %8, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZNK6icu_7013UnicodeString6toUTF8ERNS_8ByteSinkE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) #1
@@ -4111,7 +4118,8 @@ define linkonce_odr dso_local void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

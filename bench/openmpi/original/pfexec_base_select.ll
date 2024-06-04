@@ -24,34 +24,38 @@ define i32 @pmix_pfexec_base_select() #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i8, ptr getelementptr inbounds (%struct.pmix_pfexec_globals_t, ptr @pmix_pfexec_globals, i32 0, i32 5), align 8
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %14
+  %4 = getelementptr inbounds %struct.pmix_pfexec_globals_t, ptr @pmix_pfexec_globals, i32 0, i32 5
+  %5 = load i8, ptr %4, align 8
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_pfexec_globals_t, ptr @pmix_pfexec_globals, i32 0, i32 5), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pfexec_base_framework, i32 0, i32 11), align 4
-  %9 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %8, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pfexec_base_framework, i32 0, i32 12), ptr noundef %3, ptr noundef %2, ptr noundef null)
-  %10 = icmp ne i32 0, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %7
-  store i32 -46, ptr %1, align 4
-  br label %14
-
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_pfexec, ptr align 8 %13, i64 24, i1 false)
   store i32 0, ptr %1, align 4
-  br label %14
+  br label %18
 
-14:                                               ; preds = %12, %11, %6
-  %15 = load i32, ptr %1, align 4
-  ret i32 %15
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds %struct.pmix_pfexec_globals_t, ptr @pmix_pfexec_globals, i32 0, i32 5
+  store i8 1, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pfexec_base_framework, i32 0, i32 11
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pfexec_base_framework, i32 0, i32 12
+  %13 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %11, ptr noundef %12, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  %14 = icmp ne i32 0, %13
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %8
+  store i32 -46, ptr %1, align 4
+  br label %18
+
+16:                                               ; preds = %8
+  %17 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_pfexec, ptr align 8 %17, i64 24, i1 false)
+  store i32 0, ptr %1, align 4
+  br label %18
+
+18:                                               ; preds = %16, %15, %7
+  %19 = load i32, ptr %1, align 4
+  ret i32 %19
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

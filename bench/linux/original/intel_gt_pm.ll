@@ -853,34 +853,38 @@ define internal noundef i32 @__gt_unpark(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
   %8 = getelementptr i8, ptr %0, i64 720
   %9 = getelementptr i8, ptr %0, i64 724
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !26
+  %10 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %11 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, ptr nonnull elementtype(i32) %11) #7, !srcloc !26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !27
-  %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, 1
-  store i32 %11, ptr %9, align 4
+  %12 = load i32, ptr %9, align 4
+  %13 = add i32 %12, 1
+  store i32 %13, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
-  %12 = tail call i64 @ktime_get() #7
-  %13 = getelementptr i8, ptr %0, i64 736
-  store i64 %12, ptr %13, align 8
+  %14 = tail call i64 @ktime_get() #7
+  %15 = getelementptr i8, ptr %0, i64 736
+  store i64 %14, ptr %15, align 8
   store i8 1, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !29
-  %14 = load i32, ptr %9, align 4
-  %15 = add i32 %14, 1
-  store i32 %15, ptr %9, align 4
+  %16 = load i32, ptr %9, align 4
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !30
-  %16 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !31
-  %17 = icmp ult i8 %16, 2
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp eq i8 %16, 0
-  br i1 %18, label %22, label %19, !prof !12
+  %18 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %19 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %20 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, ptr nonnull elementtype(i32) %19) #7, !srcloc !31
+  %21 = icmp ult i8 %20, 2
+  tail call void @llvm.assume(i1 %21)
+  %22 = icmp eq i8 %20, 0
+  br i1 %22, label %26, label %23, !prof !12
 
-19:                                               ; preds = %1
-  %20 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %21 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %20) #7, !srcloc !32
-  tail call void @llvm.write_register.i64(metadata !0, i64 %21)
-  br label %22
+23:                                               ; preds = %1
+  %24 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %25 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %24) #7, !srcloc !32
+  tail call void @llvm.write_register.i64(metadata !0, i64 %25)
+  br label %26
 
-22:                                               ; preds = %19, %1
+26:                                               ; preds = %23, %1
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !33
   ret i32 0
 }
@@ -894,48 +898,52 @@ define internal noundef i32 @__gt_park(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
   %5 = getelementptr i8, ptr %0, i64 720
   %6 = getelementptr i8, ptr %0, i64 724
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !26
+  %7 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %8 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %8) #7, !srcloc !26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !34
-  %7 = load i32, ptr %6, align 4
-  %8 = add i32 %7, 1
-  store i32 %8, ptr %6, align 4
+  %9 = load i32, ptr %6, align 4
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
   store i8 0, ptr %5, align 8
-  %9 = getelementptr i8, ptr %0, i64 728
-  %10 = load i64, ptr %9, align 8
-  %11 = tail call i64 @ktime_get() #7
-  %12 = getelementptr i8, ptr %0, i64 736
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %11, %10
-  %15 = sub i64 %14, %13
-  store i64 %15, ptr %9, align 8
+  %11 = getelementptr i8, ptr %0, i64 728
+  %12 = load i64, ptr %11, align 8
+  %13 = tail call i64 @ktime_get() #7
+  %14 = getelementptr i8, ptr %0, i64 736
+  %15 = load i64, ptr %14, align 8
+  %16 = add i64 %13, %12
+  %17 = sub i64 %16, %15
+  store i64 %17, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !29
-  %16 = load i32, ptr %6, align 4
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %6, align 4
+  %18 = load i32, ptr %6, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !35
-  %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !31
-  %19 = icmp ult i8 %18, 2
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %24, label %21, !prof !12
+  %20 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %21 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %22 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, ptr nonnull elementtype(i32) %21) #7, !srcloc !31
+  %23 = icmp ult i8 %22, 2
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp eq i8 %22, 0
+  br i1 %24, label %28, label %25, !prof !12
 
-21:                                               ; preds = %1
-  %22 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #7, !srcloc !36
-  tail call void @llvm.write_register.i64(metadata !0, i64 %23)
-  br label %24
+25:                                               ; preds = %1
+  %26 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %27 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %26) #7, !srcloc !36
+  tail call void @llvm.write_register.i64(metadata !0, i64 %27)
+  br label %28
 
-24:                                               ; preds = %21, %1
+28:                                               ; preds = %25, %1
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !33
   tail call void @intel_gt_park_requests(ptr noundef %2) #7
   tail call void @intel_guc_busyness_park(ptr noundef %2) #7
   tail call void @i915_vma_parked(ptr noundef %2) #7
   tail call void @i915_pmu_gt_parked(ptr noundef %2) #7
-  %25 = getelementptr i8, ptr %0, i64 400
-  tail call void @intel_rps_park(ptr noundef %25) #7
-  %26 = getelementptr i8, ptr %0, i64 296
-  tail call void @intel_rc6_park(ptr noundef %26) #7
+  %29 = getelementptr i8, ptr %0, i64 400
+  tail call void @intel_rps_park(ptr noundef %29) #7
+  %30 = getelementptr i8, ptr %0, i64 296
+  tail call void @intel_rc6_park(ptr noundef %30) #7
   tail call void @intel_synchronize_irq(ptr noundef %4) #7
   tail call void @__intel_display_power_put_async(ptr noundef %4, i32 noundef 72, i64 noundef -1, i32 noundef -1) #7
   ret i32 0

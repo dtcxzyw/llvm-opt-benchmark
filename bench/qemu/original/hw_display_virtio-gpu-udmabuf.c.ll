@@ -421,16 +421,17 @@ entry:
   %5 = load ptr, ptr %res.addr, align 8
   %remapped1 = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %5, i32 0, i32 13
   %6 = load ptr, ptr %remapped1, align 8
-  %cmp = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
+  %7 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call2 = call ptr @__errno_location() #10
-  %7 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %7) #9
+  %8 = load i32, ptr %call2, align 4
+  %call3 = call ptr @strerror(i32 noundef %8) #9
   call void (ptr, ...) @warn_report(ptr noundef @.str.6, ptr noundef @__func__.virtio_gpu_remap_udmabuf, ptr noundef %call3)
-  %8 = load ptr, ptr %res.addr, align 8
-  %remapped4 = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %8, i32 0, i32 13
+  %9 = load ptr, ptr %res.addr, align 8
+  %remapped4 = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %9, i32 0, i32 13
   store ptr null, ptr %remapped4, align 8
   br label %if.end
 

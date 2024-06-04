@@ -62,395 +62,398 @@ define i32 @nxsig_action(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noun
 
 25:                                               ; preds = %4
   store i32 -22, ptr %5, align 4
-  br label %270
+  br label %273
 
 26:                                               ; preds = %4
   %27 = load ptr, ptr %7, align 8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %41
+  br i1 %28, label %29, label %42
 
 29:                                               ; preds = %26
   %30 = load i8, ptr %9, align 1
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %41, label %32
+  br i1 %31, label %42, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds %struct.sigaction, ptr %33, i32 0, i32 0
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, inttoptr (i64 1 to ptr)
-  br i1 %36, label %37, label %41
+  %36 = inttoptr i64 1 to ptr
+  %37 = icmp ne ptr %35, %36
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %6, align 4
-  %39 = call zeroext i1 @nxsig_iscatchable(i32 noundef %38)
-  br i1 %39, label %41, label %40
+38:                                               ; preds = %32
+  %39 = load i32, ptr %6, align 4
+  %40 = call zeroext i1 @nxsig_iscatchable(i32 noundef %39)
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %37
+41:                                               ; preds = %38
   store i32 -22, ptr %5, align 4
-  br label %270
+  br label %273
 
-41:                                               ; preds = %37, %32, %29, %26
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = call ptr @nxsig_find_action(ptr noundef %42, i32 noundef %43)
-  store ptr %44, ptr %12, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %90
+42:                                               ; preds = %38, %32, %29, %26
+  %43 = load ptr, ptr %11, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = call ptr @nxsig_find_action(ptr noundef %43, i32 noundef %44)
+  store ptr %45, ptr %12, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %92
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %10, align 8
-  %49 = load i32, ptr %6, align 4
-  %50 = call zeroext i1 @nxsig_isdefault(ptr noundef %48, i32 noundef %49)
-  br i1 %50, label %51, label %59
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %10, align 8
+  %50 = load i32, ptr %6, align 4
+  %51 = call zeroext i1 @nxsig_isdefault(ptr noundef %49, i32 noundef %50)
+  br i1 %51, label %52, label %61
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.sigaction, ptr %52, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %53, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.sigaction, ptr %54, i32 0, i32 2
-  store i32 2, ptr %55, align 8
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.sigaction, ptr %53, i32 0, i32 0
+  %55 = inttoptr i64 1 to ptr
+  store ptr %55, ptr %54, align 8
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.sigaction, ptr %56, i32 0, i32 1
-  %58 = call i32 @sigemptyset(ptr noundef %57)
-  br label %89
+  %57 = getelementptr inbounds %struct.sigaction, ptr %56, i32 0, i32 2
+  store i32 2, ptr %57, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct.sigaction, ptr %58, i32 0, i32 1
+  %60 = call i32 @sigemptyset(ptr noundef %59)
+  br label %91
 
-59:                                               ; preds = %47
-  %60 = load ptr, ptr %12, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %80
+61:                                               ; preds = %48
+  %62 = load ptr, ptr %12, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %82
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.sigactq, ptr %63, i32 0, i32 1
-  %65 = getelementptr inbounds %struct.sigaction, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.sigaction, ptr %67, i32 0, i32 0
-  store ptr %66, ptr %68, align 8
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %12, align 8
+  %66 = getelementptr inbounds %struct.sigactq, ptr %65, i32 0, i32 1
+  %67 = getelementptr inbounds %struct.sigaction, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.sigaction, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.sigactq, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds %struct.sigaction, ptr %72, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %73, i64 8, i1 false)
-  %74 = load ptr, ptr %12, align 8
-  %75 = getelementptr inbounds %struct.sigactq, ptr %74, i32 0, i32 1
-  %76 = getelementptr inbounds %struct.sigaction, ptr %75, i32 0, i32 2
-  %77 = load i32, ptr %76, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.sigaction, ptr %78, i32 0, i32 2
-  store i32 %77, ptr %79, align 8
-  br label %88
-
-80:                                               ; preds = %59
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct.sigaction, ptr %81, i32 0, i32 0
-  store ptr null, ptr %82, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.sigaction, ptr %83, i32 0, i32 2
-  store i32 0, ptr %84, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.sigaction, ptr %85, i32 0, i32 1
-  %87 = call i32 @sigemptyset(ptr noundef %86)
-  br label %88
-
-88:                                               ; preds = %80, %62
-  br label %89
-
-89:                                               ; preds = %88, %51
+  %70 = getelementptr inbounds %struct.sigaction, ptr %69, i32 0, i32 0
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds %struct.sigaction, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %12, align 8
+  %74 = getelementptr inbounds %struct.sigactq, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds %struct.sigaction, ptr %74, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %75, i64 8, i1 false)
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds %struct.sigactq, ptr %76, i32 0, i32 1
+  %78 = getelementptr inbounds %struct.sigaction, ptr %77, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds %struct.sigaction, ptr %80, i32 0, i32 2
+  store i32 %79, ptr %81, align 8
   br label %90
 
-90:                                               ; preds = %89, %41
-  %91 = load ptr, ptr %7, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %94
+82:                                               ; preds = %61
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds %struct.sigaction, ptr %83, i32 0, i32 0
+  store ptr null, ptr %84, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds %struct.sigaction, ptr %85, i32 0, i32 2
+  store i32 0, ptr %86, align 8
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds %struct.sigaction, ptr %87, i32 0, i32 1
+  %89 = call i32 @sigemptyset(ptr noundef %88)
+  br label %90
 
-93:                                               ; preds = %90
+90:                                               ; preds = %82, %64
+  br label %91
+
+91:                                               ; preds = %90, %52
+  br label %92
+
+92:                                               ; preds = %91, %42
+  %93 = load ptr, ptr %7, align 8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %92
   store i32 0, ptr %5, align 4
-  br label %270
+  br label %273
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %6, align 4
-  %96 = icmp eq i32 %95, 17
-  br i1 %96, label %97, label %117
+96:                                               ; preds = %92
+  %97 = load i32, ptr %6, align 4
+  %98 = icmp eq i32 %97, 17
+  br i1 %98, label %99, label %119
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct.sigaction, ptr %98, i32 0, i32 2
-  %100 = load i32, ptr %99, align 8
-  %101 = and i32 %100, 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %117
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds %struct.sigaction, ptr %100, i32 0, i32 2
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, 4
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %119
 
-103:                                              ; preds = %97
-  %104 = call i64 @up_irq_save()
-  store i64 %104, ptr %14, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.tcb_s, ptr %105, i32 0, i32 2
-  %107 = load ptr, ptr %106, align 16
-  %108 = getelementptr inbounds %struct.task_group_s, ptr %107, i32 0, i32 3
-  %109 = load i8, ptr %108, align 8
-  %110 = zext i8 %109 to i32
-  %111 = or i32 %110, 1
-  %112 = trunc i32 %111 to i8
-  store i8 %112, ptr %108, align 8
-  %113 = load ptr, ptr %10, align 8
-  %114 = getelementptr inbounds %struct.tcb_s, ptr %113, i32 0, i32 2
-  %115 = load ptr, ptr %114, align 16
-  call void @group_remove_children(ptr noundef %115)
-  %116 = load i64, ptr %14, align 8
-  call void @up_irq_restore(i64 noundef %116)
-  br label %117
+105:                                              ; preds = %99
+  %106 = call i64 @up_irq_save()
+  store i64 %106, ptr %14, align 8
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds %struct.tcb_s, ptr %107, i32 0, i32 2
+  %109 = load ptr, ptr %108, align 16
+  %110 = getelementptr inbounds %struct.task_group_s, ptr %109, i32 0, i32 3
+  %111 = load i8, ptr %110, align 8
+  %112 = zext i8 %111 to i32
+  %113 = or i32 %112, 1
+  %114 = trunc i32 %113 to i8
+  store i8 %114, ptr %110, align 8
+  %115 = load ptr, ptr %10, align 8
+  %116 = getelementptr inbounds %struct.tcb_s, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 16
+  call void @group_remove_children(ptr noundef %117)
+  %118 = load i64, ptr %14, align 8
+  call void @up_irq_restore(i64 noundef %118)
+  br label %119
 
-117:                                              ; preds = %103, %97, %94
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.sigaction, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %13, align 8
-  %121 = load ptr, ptr %13, align 8
-  %122 = icmp eq ptr %121, inttoptr (i64 1 to ptr)
-  br i1 %122, label %123, label %127
+119:                                              ; preds = %105, %99, %96
+  %120 = load ptr, ptr %7, align 8
+  %121 = getelementptr inbounds %struct.sigaction, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  store ptr %122, ptr %13, align 8
+  %123 = load ptr, ptr %13, align 8
+  %124 = inttoptr i64 1 to ptr
+  %125 = icmp eq ptr %123, %124
+  br i1 %125, label %126, label %130
 
-123:                                              ; preds = %117
-  %124 = load ptr, ptr %10, align 8
-  %125 = load i32, ptr %6, align 4
-  %126 = call ptr @nxsig_default(ptr noundef %124, i32 noundef %125, i1 noundef zeroext true)
-  store ptr %126, ptr %13, align 8
-  br label %131
+126:                                              ; preds = %119
+  %127 = load ptr, ptr %10, align 8
+  %128 = load i32, ptr %6, align 4
+  %129 = call ptr @nxsig_default(ptr noundef %127, i32 noundef %128, i1 noundef zeroext true)
+  store ptr %129, ptr %13, align 8
+  br label %134
 
-127:                                              ; preds = %117
-  %128 = load ptr, ptr %10, align 8
-  %129 = load i32, ptr %6, align 4
-  %130 = call ptr @nxsig_default(ptr noundef %128, i32 noundef %129, i1 noundef zeroext false)
-  br label %131
+130:                                              ; preds = %119
+  %131 = load ptr, ptr %10, align 8
+  %132 = load i32, ptr %6, align 4
+  %133 = call ptr @nxsig_default(ptr noundef %131, i32 noundef %132, i1 noundef zeroext false)
+  br label %134
 
-131:                                              ; preds = %127, %123
-  %132 = load ptr, ptr %13, align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %134, label %203
-
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %12, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %202
+134:                                              ; preds = %130, %126
+  %135 = load ptr, ptr %13, align 8
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %137, label %206
 
 137:                                              ; preds = %134
-  br label %138
+  %138 = load ptr, ptr %12, align 8
+  %139 = icmp ne ptr %138, null
+  br i1 %139, label %140, label %205
 
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %12, align 8
-  store ptr %139, ptr %15, align 8
-  %140 = load ptr, ptr %11, align 8
-  %141 = getelementptr inbounds %struct.task_group_s, ptr %140, i32 0, i32 14
-  %142 = getelementptr inbounds %struct.sq_queue_s, ptr %141, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %199
+140:                                              ; preds = %137
+  br label %141
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %15, align 8
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %12, align 8
+  store ptr %142, ptr %15, align 8
+  %143 = load ptr, ptr %11, align 8
+  %144 = getelementptr inbounds %struct.task_group_s, ptr %143, i32 0, i32 14
+  %145 = getelementptr inbounds %struct.sq_queue_s, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
   %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %199
+  br i1 %147, label %148, label %202
 
-148:                                              ; preds = %145
+148:                                              ; preds = %141
   %149 = load ptr, ptr %15, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = getelementptr inbounds %struct.task_group_s, ptr %150, i32 0, i32 14
-  %152 = getelementptr inbounds %struct.sq_queue_s, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %149, %153
-  br i1 %154, label %155, label %173
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %202
 
-155:                                              ; preds = %148
-  %156 = load ptr, ptr %15, align 8
-  %157 = getelementptr inbounds %struct.sq_entry_s, ptr %156, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  %159 = load ptr, ptr %11, align 8
-  %160 = getelementptr inbounds %struct.task_group_s, ptr %159, i32 0, i32 14
-  %161 = getelementptr inbounds %struct.sq_queue_s, ptr %160, i32 0, i32 0
-  store ptr %158, ptr %161, align 8
-  %162 = load ptr, ptr %15, align 8
-  %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr inbounds %struct.task_group_s, ptr %163, i32 0, i32 14
-  %165 = getelementptr inbounds %struct.sq_queue_s, ptr %164, i32 0, i32 1
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %162, %166
-  br i1 %167, label %168, label %172
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %15, align 8
+  %153 = load ptr, ptr %11, align 8
+  %154 = getelementptr inbounds %struct.task_group_s, ptr %153, i32 0, i32 14
+  %155 = getelementptr inbounds %struct.sq_queue_s, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp eq ptr %152, %156
+  br i1 %157, label %158, label %176
 
-168:                                              ; preds = %155
-  %169 = load ptr, ptr %11, align 8
-  %170 = getelementptr inbounds %struct.task_group_s, ptr %169, i32 0, i32 14
-  %171 = getelementptr inbounds %struct.sq_queue_s, ptr %170, i32 0, i32 1
-  store ptr null, ptr %171, align 8
-  br label %172
+158:                                              ; preds = %151
+  %159 = load ptr, ptr %15, align 8
+  %160 = getelementptr inbounds %struct.sq_entry_s, ptr %159, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %11, align 8
+  %163 = getelementptr inbounds %struct.task_group_s, ptr %162, i32 0, i32 14
+  %164 = getelementptr inbounds %struct.sq_queue_s, ptr %163, i32 0, i32 0
+  store ptr %161, ptr %164, align 8
+  %165 = load ptr, ptr %15, align 8
+  %166 = load ptr, ptr %11, align 8
+  %167 = getelementptr inbounds %struct.task_group_s, ptr %166, i32 0, i32 14
+  %168 = getelementptr inbounds %struct.sq_queue_s, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %168, align 8
+  %170 = icmp eq ptr %165, %169
+  br i1 %170, label %171, label %175
 
-172:                                              ; preds = %168, %155
-  br label %198
+171:                                              ; preds = %158
+  %172 = load ptr, ptr %11, align 8
+  %173 = getelementptr inbounds %struct.task_group_s, ptr %172, i32 0, i32 14
+  %174 = getelementptr inbounds %struct.sq_queue_s, ptr %173, i32 0, i32 1
+  store ptr null, ptr %174, align 8
+  br label %175
 
-173:                                              ; preds = %148
-  %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr inbounds %struct.task_group_s, ptr %174, i32 0, i32 14
-  %176 = getelementptr inbounds %struct.sq_queue_s, ptr %175, i32 0, i32 0
-  %177 = load ptr, ptr %176, align 8
-  store ptr %177, ptr %16, align 8
-  br label %178
+175:                                              ; preds = %171, %158
+  br label %201
 
-178:                                              ; preds = %193, %173
-  %179 = load ptr, ptr %16, align 8
-  %180 = icmp ne ptr %179, null
-  br i1 %180, label %181, label %197
+176:                                              ; preds = %151
+  %177 = load ptr, ptr %11, align 8
+  %178 = getelementptr inbounds %struct.task_group_s, ptr %177, i32 0, i32 14
+  %179 = getelementptr inbounds %struct.sq_queue_s, ptr %178, i32 0, i32 0
+  %180 = load ptr, ptr %179, align 8
+  store ptr %180, ptr %16, align 8
+  br label %181
 
-181:                                              ; preds = %178
+181:                                              ; preds = %196, %176
   %182 = load ptr, ptr %16, align 8
-  %183 = getelementptr inbounds %struct.sq_entry_s, ptr %182, i32 0, i32 0
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr %15, align 8
-  %186 = icmp eq ptr %184, %185
-  br i1 %186, label %187, label %192
+  %183 = icmp ne ptr %182, null
+  br i1 %183, label %184, label %200
 
-187:                                              ; preds = %181
-  %188 = load ptr, ptr %16, align 8
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct.task_group_s, ptr %189, i32 0, i32 14
-  %191 = call ptr @sq_remafter(ptr noundef %188, ptr noundef %190)
-  br label %192
+184:                                              ; preds = %181
+  %185 = load ptr, ptr %16, align 8
+  %186 = getelementptr inbounds %struct.sq_entry_s, ptr %185, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = load ptr, ptr %15, align 8
+  %189 = icmp eq ptr %187, %188
+  br i1 %189, label %190, label %195
 
-192:                                              ; preds = %187, %181
-  br label %193
+190:                                              ; preds = %184
+  %191 = load ptr, ptr %16, align 8
+  %192 = load ptr, ptr %11, align 8
+  %193 = getelementptr inbounds %struct.task_group_s, ptr %192, i32 0, i32 14
+  %194 = call ptr @sq_remafter(ptr noundef %191, ptr noundef %193)
+  br label %195
 
-193:                                              ; preds = %192
-  %194 = load ptr, ptr %16, align 8
-  %195 = getelementptr inbounds %struct.sq_entry_s, ptr %194, i32 0, i32 0
-  %196 = load ptr, ptr %195, align 8
-  store ptr %196, ptr %16, align 8
-  br label %178, !llvm.loop !6
+195:                                              ; preds = %190, %184
+  br label %196
 
-197:                                              ; preds = %178
-  br label %198
+196:                                              ; preds = %195
+  %197 = load ptr, ptr %16, align 8
+  %198 = getelementptr inbounds %struct.sq_entry_s, ptr %197, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8
+  store ptr %199, ptr %16, align 8
+  br label %181, !llvm.loop !6
 
-198:                                              ; preds = %197, %172
-  br label %199
+200:                                              ; preds = %181
+  br label %201
 
-199:                                              ; preds = %198, %145, %138
-  br label %200
-
-200:                                              ; preds = %199
-  %201 = load ptr, ptr %12, align 8
-  call void @nxsig_release_action(ptr noundef %201)
+201:                                              ; preds = %200, %175
   br label %202
 
-202:                                              ; preds = %200, %134
-  br label %269
+202:                                              ; preds = %201, %148, %141
+  br label %203
 
-203:                                              ; preds = %131
+203:                                              ; preds = %202
   %204 = load ptr, ptr %12, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %247
+  call void @nxsig_release_action(ptr noundef %204)
+  br label %205
 
-206:                                              ; preds = %203
-  %207 = call ptr @nxsig_alloc_action()
-  store ptr %207, ptr %12, align 8
-  %208 = load ptr, ptr %12, align 8
-  %209 = icmp ne ptr %208, null
-  br i1 %209, label %211, label %210
+205:                                              ; preds = %203, %137
+  br label %272
 
-210:                                              ; preds = %206
+206:                                              ; preds = %134
+  %207 = load ptr, ptr %12, align 8
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %209, label %250
+
+209:                                              ; preds = %206
+  %210 = call ptr @nxsig_alloc_action()
+  store ptr %210, ptr %12, align 8
+  %211 = load ptr, ptr %12, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %214, label %213
+
+213:                                              ; preds = %209
   store i32 -12, ptr %5, align 4
-  br label %270
+  br label %273
 
-211:                                              ; preds = %206
-  %212 = load i32, ptr %6, align 4
-  %213 = trunc i32 %212 to i8
-  %214 = load ptr, ptr %12, align 8
-  %215 = getelementptr inbounds %struct.sigactq, ptr %214, i32 0, i32 2
-  store i8 %213, ptr %215, align 8
-  br label %216
-
-216:                                              ; preds = %211
+214:                                              ; preds = %209
+  %215 = load i32, ptr %6, align 4
+  %216 = trunc i32 %215 to i8
   %217 = load ptr, ptr %12, align 8
-  store ptr %217, ptr %17, align 8
-  %218 = load ptr, ptr %17, align 8
-  %219 = getelementptr inbounds %struct.sq_entry_s, ptr %218, i32 0, i32 0
-  store ptr null, ptr %219, align 8
-  %220 = load ptr, ptr %11, align 8
-  %221 = getelementptr inbounds %struct.task_group_s, ptr %220, i32 0, i32 14
-  %222 = getelementptr inbounds %struct.sq_queue_s, ptr %221, i32 0, i32 0
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp ne ptr %223, null
-  br i1 %224, label %234, label %225
+  %218 = getelementptr inbounds %struct.sigactq, ptr %217, i32 0, i32 2
+  store i8 %216, ptr %218, align 8
+  br label %219
 
-225:                                              ; preds = %216
-  %226 = load ptr, ptr %17, align 8
-  %227 = load ptr, ptr %11, align 8
-  %228 = getelementptr inbounds %struct.task_group_s, ptr %227, i32 0, i32 14
-  %229 = getelementptr inbounds %struct.sq_queue_s, ptr %228, i32 0, i32 0
-  store ptr %226, ptr %229, align 8
-  %230 = load ptr, ptr %17, align 8
-  %231 = load ptr, ptr %11, align 8
-  %232 = getelementptr inbounds %struct.task_group_s, ptr %231, i32 0, i32 14
-  %233 = getelementptr inbounds %struct.sq_queue_s, ptr %232, i32 0, i32 1
-  store ptr %230, ptr %233, align 8
-  br label %245
+219:                                              ; preds = %214
+  %220 = load ptr, ptr %12, align 8
+  store ptr %220, ptr %17, align 8
+  %221 = load ptr, ptr %17, align 8
+  %222 = getelementptr inbounds %struct.sq_entry_s, ptr %221, i32 0, i32 0
+  store ptr null, ptr %222, align 8
+  %223 = load ptr, ptr %11, align 8
+  %224 = getelementptr inbounds %struct.task_group_s, ptr %223, i32 0, i32 14
+  %225 = getelementptr inbounds %struct.sq_queue_s, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8
+  %227 = icmp ne ptr %226, null
+  br i1 %227, label %237, label %228
 
-234:                                              ; preds = %216
-  %235 = load ptr, ptr %17, align 8
-  %236 = load ptr, ptr %11, align 8
-  %237 = getelementptr inbounds %struct.task_group_s, ptr %236, i32 0, i32 14
-  %238 = getelementptr inbounds %struct.sq_queue_s, ptr %237, i32 0, i32 1
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds %struct.sq_entry_s, ptr %239, i32 0, i32 0
-  store ptr %235, ptr %240, align 8
-  %241 = load ptr, ptr %17, align 8
-  %242 = load ptr, ptr %11, align 8
-  %243 = getelementptr inbounds %struct.task_group_s, ptr %242, i32 0, i32 14
-  %244 = getelementptr inbounds %struct.sq_queue_s, ptr %243, i32 0, i32 1
-  store ptr %241, ptr %244, align 8
-  br label %245
+228:                                              ; preds = %219
+  %229 = load ptr, ptr %17, align 8
+  %230 = load ptr, ptr %11, align 8
+  %231 = getelementptr inbounds %struct.task_group_s, ptr %230, i32 0, i32 14
+  %232 = getelementptr inbounds %struct.sq_queue_s, ptr %231, i32 0, i32 0
+  store ptr %229, ptr %232, align 8
+  %233 = load ptr, ptr %17, align 8
+  %234 = load ptr, ptr %11, align 8
+  %235 = getelementptr inbounds %struct.task_group_s, ptr %234, i32 0, i32 14
+  %236 = getelementptr inbounds %struct.sq_queue_s, ptr %235, i32 0, i32 1
+  store ptr %233, ptr %236, align 8
+  br label %248
 
-245:                                              ; preds = %234, %225
-  br label %246
+237:                                              ; preds = %219
+  %238 = load ptr, ptr %17, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = getelementptr inbounds %struct.task_group_s, ptr %239, i32 0, i32 14
+  %241 = getelementptr inbounds %struct.sq_queue_s, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds %struct.sq_entry_s, ptr %242, i32 0, i32 0
+  store ptr %238, ptr %243, align 8
+  %244 = load ptr, ptr %17, align 8
+  %245 = load ptr, ptr %11, align 8
+  %246 = getelementptr inbounds %struct.task_group_s, ptr %245, i32 0, i32 14
+  %247 = getelementptr inbounds %struct.sq_queue_s, ptr %246, i32 0, i32 1
+  store ptr %244, ptr %247, align 8
+  br label %248
 
-246:                                              ; preds = %245
-  br label %247
+248:                                              ; preds = %237, %228
+  br label %249
 
-247:                                              ; preds = %246, %203
-  %248 = load ptr, ptr %13, align 8
-  %249 = load ptr, ptr %12, align 8
-  %250 = getelementptr inbounds %struct.sigactq, ptr %249, i32 0, i32 1
-  %251 = getelementptr inbounds %struct.sigaction, ptr %250, i32 0, i32 0
-  store ptr %248, ptr %251, align 8
+249:                                              ; preds = %248
+  br label %250
+
+250:                                              ; preds = %249, %206
+  %251 = load ptr, ptr %13, align 8
   %252 = load ptr, ptr %12, align 8
   %253 = getelementptr inbounds %struct.sigactq, ptr %252, i32 0, i32 1
-  %254 = getelementptr inbounds %struct.sigaction, ptr %253, i32 0, i32 1
-  %255 = load ptr, ptr %7, align 8
-  %256 = getelementptr inbounds %struct.sigaction, ptr %255, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %254, ptr align 8 %256, i64 8, i1 false)
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct.sigaction, ptr %257, i32 0, i32 2
-  %259 = load i32, ptr %258, align 8
-  %260 = load ptr, ptr %12, align 8
-  %261 = getelementptr inbounds %struct.sigactq, ptr %260, i32 0, i32 1
-  %262 = getelementptr inbounds %struct.sigaction, ptr %261, i32 0, i32 2
-  store i32 %259, ptr %262, align 8
-  %263 = load ptr, ptr %7, align 8
-  %264 = getelementptr inbounds %struct.sigaction, ptr %263, i32 0, i32 3
-  %265 = load ptr, ptr %264, align 8
-  %266 = load ptr, ptr %12, align 8
-  %267 = getelementptr inbounds %struct.sigactq, ptr %266, i32 0, i32 1
-  %268 = getelementptr inbounds %struct.sigaction, ptr %267, i32 0, i32 3
-  store ptr %265, ptr %268, align 8
-  br label %269
+  %254 = getelementptr inbounds %struct.sigaction, ptr %253, i32 0, i32 0
+  store ptr %251, ptr %254, align 8
+  %255 = load ptr, ptr %12, align 8
+  %256 = getelementptr inbounds %struct.sigactq, ptr %255, i32 0, i32 1
+  %257 = getelementptr inbounds %struct.sigaction, ptr %256, i32 0, i32 1
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds %struct.sigaction, ptr %258, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %257, ptr align 8 %259, i64 8, i1 false)
+  %260 = load ptr, ptr %7, align 8
+  %261 = getelementptr inbounds %struct.sigaction, ptr %260, i32 0, i32 2
+  %262 = load i32, ptr %261, align 8
+  %263 = load ptr, ptr %12, align 8
+  %264 = getelementptr inbounds %struct.sigactq, ptr %263, i32 0, i32 1
+  %265 = getelementptr inbounds %struct.sigaction, ptr %264, i32 0, i32 2
+  store i32 %262, ptr %265, align 8
+  %266 = load ptr, ptr %7, align 8
+  %267 = getelementptr inbounds %struct.sigaction, ptr %266, i32 0, i32 3
+  %268 = load ptr, ptr %267, align 8
+  %269 = load ptr, ptr %12, align 8
+  %270 = getelementptr inbounds %struct.sigactq, ptr %269, i32 0, i32 1
+  %271 = getelementptr inbounds %struct.sigaction, ptr %270, i32 0, i32 3
+  store ptr %268, ptr %271, align 8
+  br label %272
 
-269:                                              ; preds = %247, %202
+272:                                              ; preds = %250, %205
   store i32 0, ptr %5, align 4
-  br label %270
+  br label %273
 
-270:                                              ; preds = %269, %210, %93, %40, %25
-  %271 = load i32, ptr %5, align 4
-  ret i32 %271
+273:                                              ; preds = %272, %213, %95, %41, %25
+  %274 = load i32, ptr %5, align 4
+  ret i32 %274
 }
 
 declare zeroext i1 @nxsig_iscatchable(i32 noundef) #1
@@ -514,30 +517,33 @@ define void @nxsig_release_action(ptr noundef %0) #0 {
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr @g_sigfreeaction, align 8
   %11 = icmp ne ptr %10, null
-  br i1 %11, label %15, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %4, align 8
   store ptr %13, ptr @g_sigfreeaction, align 8
   %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  br label %20
+  %15 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  store ptr %14, ptr %15, align 8
+  br label %23
 
-15:                                               ; preds = %6
-  %16 = load ptr, ptr %4, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  %18 = getelementptr inbounds %struct.sq_entry_s, ptr %17, i32 0, i32 0
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  store ptr %19, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  br label %20
+16:                                               ; preds = %6
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.sq_entry_s, ptr %19, i32 0, i32 0
+  store ptr %17, ptr %20, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  store ptr %21, ptr %22, align 8
+  br label %23
 
-20:                                               ; preds = %15, %12
-  br label %21
+23:                                               ; preds = %16, %12
+  br label %24
 
-21:                                               ; preds = %20
-  %22 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %22)
+24:                                               ; preds = %23
+  %25 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %25)
   ret void
 }
 
@@ -660,7 +666,7 @@ define internal void @nxsig_alloc_actionblock() #0 {
   store ptr %5, ptr %1, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %36
+  br i1 %7, label %8, label %39
 
 8:                                                ; preds = %0
   %9 = call i64 @up_irq_save()
@@ -668,10 +674,10 @@ define internal void @nxsig_alloc_actionblock() #0 {
   store i32 0, ptr %3, align 4
   br label %10
 
-10:                                               ; preds = %31, %8
+10:                                               ; preds = %34, %8
   %11 = load i32, ptr %3, align 4
   %12 = icmp slt i32 %11, 4
-  br i1 %12, label %13, label %34
+  br i1 %12, label %13, label %37
 
 13:                                               ; preds = %10
   br label %14
@@ -686,42 +692,45 @@ define internal void @nxsig_alloc_actionblock() #0 {
   store ptr null, ptr %18, align 8
   %19 = load ptr, ptr @g_sigfreeaction, align 8
   %20 = icmp ne ptr %19, null
-  br i1 %20, label %24, label %21
+  br i1 %20, label %25, label %21
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %4, align 8
   store ptr %22, ptr @g_sigfreeaction, align 8
   %23 = load ptr, ptr %4, align 8
-  store ptr %23, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  br label %29
+  %24 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  store ptr %23, ptr %24, align 8
+  br label %32
 
-24:                                               ; preds = %14
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  %27 = getelementptr inbounds %struct.sq_entry_s, ptr %26, i32 0, i32 0
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %4, align 8
-  store ptr %28, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1), align 8
-  br label %29
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.sq_entry_s, ptr %28, i32 0, i32 0
+  store ptr %26, ptr %29, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigfreeaction, i32 0, i32 1
+  store ptr %30, ptr %31, align 8
+  br label %32
 
-29:                                               ; preds = %24, %21
-  br label %30
+32:                                               ; preds = %25, %21
+  br label %33
 
-30:                                               ; preds = %29
-  br label %31
+33:                                               ; preds = %32
+  br label %34
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %3, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %3, align 4
+34:                                               ; preds = %33
+  %35 = load i32, ptr %3, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %3, align 4
   br label %10, !llvm.loop !12
 
-34:                                               ; preds = %10
-  %35 = load i64, ptr %2, align 8
-  call void @up_irq_restore(i64 noundef %35)
-  br label %36
+37:                                               ; preds = %10
+  %38 = load i64, ptr %2, align 8
+  call void @up_irq_restore(i64 noundef %38)
+  br label %39
 
-36:                                               ; preds = %34, %0
+39:                                               ; preds = %37, %0
   ret void
 }
 

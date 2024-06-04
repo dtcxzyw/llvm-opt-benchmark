@@ -300,13 +300,15 @@ if.then12:                                        ; preds = %do.end
   br label %return
 
 if.end13:                                         ; preds = %do.end
-  %27 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %tobool14 = icmp ne ptr %27, null
+  %27 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %tobool14 = icmp ne ptr %28, null
   br i1 %tobool14, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end13
-  %28 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %call15 = call ptr %28(i32 noundef 1)
+  %29 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %call15 = call ptr %30(i32 noundef 1)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end13
@@ -314,16 +316,16 @@ cond.false:                                       ; preds = %if.end13
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call15, %cond.true ], [ null, %cond.false ]
-  %29 = load ptr, ptr %port, align 8
-  %lock = getelementptr inbounds %struct.evdns_server_port, ptr %29, i32 0, i32 14
+  %31 = load ptr, ptr %port, align 8
+  %lock = getelementptr inbounds %struct.evdns_server_port, ptr %31, i32 0, i32 14
   store ptr %cond, ptr %lock, align 8
-  %30 = load ptr, ptr %port, align 8
-  store ptr %30, ptr %retval, align 8
+  %32 = load ptr, ptr %port, align 8
+  store ptr %32, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then12, %if.then2, %if.then
-  %31 = load ptr, ptr %retval, align 8
-  ret ptr %31
+  %33 = load ptr, ptr %retval, align 8
+  ret ptr %33
 }
 
 declare ptr @event_mm_malloc_(i64 noundef) #1
@@ -355,59 +357,61 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %port, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %4, i32 0, i32 14
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %port, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %5, i32 0, i32 14
+  %6 = load ptr, ptr %lock1, align 8
+  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %6 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %6 to i32
+  %7 = load i16, ptr %events.addr, align 2
+  %conv = sext i16 %7 to i32
   %and = and i32 %conv, 4
   %tobool2 = icmp ne i32 %and, 0
   br i1 %tobool2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %do.end
-  %7 = load ptr, ptr %port, align 8
-  %choked = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 2
-  store i8 0, ptr %choked, align 8
   %8 = load ptr, ptr %port, align 8
-  call void @server_port_flush(ptr noundef %8)
+  %choked = getelementptr inbounds %struct.evdns_server_port, ptr %8, i32 0, i32 2
+  store i8 0, ptr %choked, align 8
+  %9 = load ptr, ptr %port, align 8
+  call void @server_port_flush(ptr noundef %9)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %do.end
-  %9 = load i16, ptr %events.addr, align 2
-  %conv5 = sext i16 %9 to i32
+  %10 = load i16, ptr %events.addr, align 2
+  %conv5 = sext i16 %10 to i32
   %and6 = and i32 %conv5, 2
   %tobool7 = icmp ne i32 %and6, 0
   br i1 %tobool7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %port, align 8
-  call void @server_udp_port_read(ptr noundef %10)
+  %11 = load ptr, ptr %port, align 8
+  call void @server_udp_port_read(ptr noundef %11)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end4
   br label %do.body10
 
 do.body10:                                        ; preds = %if.end9
-  %11 = load ptr, ptr %port, align 8
-  %lock11 = getelementptr inbounds %struct.evdns_server_port, ptr %11, i32 0, i32 14
-  %12 = load ptr, ptr %lock11, align 8
-  %tobool12 = icmp ne ptr %12, null
+  %12 = load ptr, ptr %port, align 8
+  %lock11 = getelementptr inbounds %struct.evdns_server_port, ptr %12, i32 0, i32 14
+  %13 = load ptr, ptr %lock11, align 8
+  %tobool12 = icmp ne ptr %13, null
   br i1 %tobool12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %do.body10
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %14 = load ptr, ptr %port, align 8
-  %lock14 = getelementptr inbounds %struct.evdns_server_port, ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %lock14, align 8
-  %call15 = call i32 %13(i32 noundef 0, ptr noundef %15)
+  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %port, align 8
+  %lock14 = getelementptr inbounds %struct.evdns_server_port, ptr %16, i32 0, i32 14
+  %17 = load ptr, ptr %lock14, align 8
+  %call15 = call i32 %15(i32 noundef 0, ptr noundef %17)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %do.body10
@@ -516,13 +520,15 @@ do.end:                                           ; preds = %do.body
   %19 = load ptr, ptr %listener9, align 8
   %20 = load ptr, ptr %port, align 8
   call void @evconnlistener_set_cb(ptr noundef %19, ptr noundef @incoming_conn_cb, ptr noundef %20)
-  %21 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %tobool10 = icmp ne ptr %21, null
+  %21 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %tobool10 = icmp ne ptr %22, null
   br i1 %tobool10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.end
-  %22 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %call11 = call ptr %22(i32 noundef 1)
+  %23 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %call11 = call ptr %24(i32 noundef 1)
   br label %cond.end
 
 cond.false:                                       ; preds = %do.end
@@ -530,16 +536,16 @@ cond.false:                                       ; preds = %do.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call11, %cond.true ], [ null, %cond.false ]
-  %23 = load ptr, ptr %port, align 8
-  %lock = getelementptr inbounds %struct.evdns_server_port, ptr %23, i32 0, i32 14
+  %25 = load ptr, ptr %port, align 8
+  %lock = getelementptr inbounds %struct.evdns_server_port, ptr %25, i32 0, i32 14
   store ptr %cond, ptr %lock, align 8
-  %24 = load ptr, ptr %port, align 8
-  store ptr %24, ptr %retval, align 8
+  %26 = load ptr, ptr %port, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then5, %if.then2, %if.then
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
+  %27 = load ptr, ptr %retval, align 8
+  ret ptr %27
 }
 
 declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #1
@@ -667,23 +673,24 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %port.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %3, i32 0, i32 14
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %port.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %4, i32 0, i32 14
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %port.addr, align 8
-  call void @evdns_remove_all_tcp_clients(ptr noundef %5)
   %6 = load ptr, ptr %port.addr, align 8
-  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %refcnt, align 4
-  %dec = add nsw i32 %7, -1
+  call void @evdns_remove_all_tcp_clients(ptr noundef %6)
+  %7 = load ptr, ptr %port.addr, align 8
+  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 1
+  %8 = load i32, ptr %refcnt, align 4
+  %dec = add nsw i32 %8, -1
   store i32 %dec, ptr %refcnt, align 4
   %cmp = icmp eq i32 %dec, 0
   br i1 %cmp, label %if.then2, label %if.else
@@ -692,47 +699,49 @@ if.then2:                                         ; preds = %do.end
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then2
-  %8 = load ptr, ptr %port.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evdns_server_port, ptr %8, i32 0, i32 14
-  %9 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %port.addr, align 8
+  %lock4 = getelementptr inbounds %struct.evdns_server_port, ptr %9, i32 0, i32 14
+  %10 = load ptr, ptr %lock4, align 8
+  %tobool5 = icmp ne ptr %10, null
   br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body3
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %11 = load ptr, ptr %port.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_server_port, ptr %11, i32 0, i32 14
-  %12 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %10(i32 noundef 0, ptr noundef %12)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %port.addr, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_server_port, ptr %13, i32 0, i32 14
+  %14 = load ptr, ptr %lock7, align 8
+  %call8 = call i32 %12(i32 noundef 0, ptr noundef %14)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %do.body3
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end9
-  %13 = load ptr, ptr %port.addr, align 8
-  call void @server_port_free(ptr noundef %13)
+  %15 = load ptr, ptr %port.addr, align 8
+  call void @server_port_free(ptr noundef %15)
   br label %if.end19
 
 if.else:                                          ; preds = %do.end
-  %14 = load ptr, ptr %port.addr, align 8
-  %closing = getelementptr inbounds %struct.evdns_server_port, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %port.addr, align 8
+  %closing = getelementptr inbounds %struct.evdns_server_port, ptr %16, i32 0, i32 3
   store i8 1, ptr %closing, align 1
   br label %do.body11
 
 do.body11:                                        ; preds = %if.else
-  %15 = load ptr, ptr %port.addr, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_server_port, ptr %15, i32 0, i32 14
-  %16 = load ptr, ptr %lock12, align 8
-  %tobool13 = icmp ne ptr %16, null
+  %17 = load ptr, ptr %port.addr, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_server_port, ptr %17, i32 0, i32 14
+  %18 = load ptr, ptr %lock12, align 8
+  %tobool13 = icmp ne ptr %18, null
   br i1 %tobool13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %do.body11
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %18 = load ptr, ptr %port.addr, align 8
-  %lock15 = getelementptr inbounds %struct.evdns_server_port, ptr %18, i32 0, i32 14
-  %19 = load ptr, ptr %lock15, align 8
-  %call16 = call i32 %17(i32 noundef 0, ptr noundef %19)
+  %19 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %port.addr, align 8
+  %lock15 = getelementptr inbounds %struct.evdns_server_port, ptr %21, i32 0, i32 14
+  %22 = load ptr, ptr %lock15, align 8
+  %call16 = call i32 %20(i32 noundef 0, ptr noundef %22)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %do.body11
@@ -848,22 +857,24 @@ do.body12:                                        ; preds = %if.end11
   br i1 %tobool13, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %do.body12
-  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %tobool14 = icmp ne ptr %14, null
+  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8
+  %tobool14 = icmp ne ptr %15, null
   br i1 %tobool14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %land.lhs.true
-  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %16 = load ptr, ptr %lock_tmp_, align 8
-  call void %15(ptr noundef %16, i32 noundef 1)
+  %16 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %lock_tmp_, align 8
+  call void %17(ptr noundef %18, i32 noundef 1)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %land.lhs.true, %do.body12
   br label %do.end17
 
 do.end17:                                         ; preds = %if.end16
-  %17 = load ptr, ptr %port.addr, align 8
-  call void @event_mm_free_(ptr noundef %17)
+  %19 = load ptr, ptr %port.addr, align 8
+  call void @event_mm_free_(ptr noundef %19)
   ret void
 }
 
@@ -909,60 +920,61 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %req, align 8
-  %port1 = getelementptr inbounds %struct.server_request, ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %port1, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_server_port, ptr %6, i32 0, i32 14
-  %7 = load ptr, ptr %lock2, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %7)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %req, align 8
+  %port1 = getelementptr inbounds %struct.server_request, ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %port1, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 14
+  %8 = load ptr, ptr %lock2, align 8
+  %call = call i32 %5(i32 noundef 0, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %8 = load ptr, ptr %req, align 8
-  %response = getelementptr inbounds %struct.server_request, ptr %8, i32 0, i32 14
-  %9 = load ptr, ptr %response, align 8
-  %tobool3 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %req, align 8
+  %response = getelementptr inbounds %struct.server_request, ptr %9, i32 0, i32 14
+  %10 = load ptr, ptr %response, align 8
+  %tobool3 = icmp ne ptr %10, null
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %do.end
   br label %done
 
 if.end5:                                          ; preds = %do.end
-  %10 = load i32, ptr %section.addr, align 4
-  switch i32 %10, label %sw.default [
+  %11 = load i32, ptr %section.addr, align 4
+  switch i32 %11, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
     i32 2, label %sw.bb7
   ]
 
 sw.bb:                                            ; preds = %if.end5
-  %11 = load ptr, ptr %req, align 8
-  %answer = getelementptr inbounds %struct.server_request, ptr %11, i32 0, i32 11
-  store ptr %answer, ptr %itemp, align 8
   %12 = load ptr, ptr %req, align 8
-  %n_answer = getelementptr inbounds %struct.server_request, ptr %12, i32 0, i32 8
+  %answer = getelementptr inbounds %struct.server_request, ptr %12, i32 0, i32 11
+  store ptr %answer, ptr %itemp, align 8
+  %13 = load ptr, ptr %req, align 8
+  %n_answer = getelementptr inbounds %struct.server_request, ptr %13, i32 0, i32 8
   store ptr %n_answer, ptr %countp, align 8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end5
-  %13 = load ptr, ptr %req, align 8
-  %authority = getelementptr inbounds %struct.server_request, ptr %13, i32 0, i32 12
-  store ptr %authority, ptr %itemp, align 8
   %14 = load ptr, ptr %req, align 8
-  %n_authority = getelementptr inbounds %struct.server_request, ptr %14, i32 0, i32 9
+  %authority = getelementptr inbounds %struct.server_request, ptr %14, i32 0, i32 12
+  store ptr %authority, ptr %itemp, align 8
+  %15 = load ptr, ptr %req, align 8
+  %n_authority = getelementptr inbounds %struct.server_request, ptr %15, i32 0, i32 9
   store ptr %n_authority, ptr %countp, align 8
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end5
-  %15 = load ptr, ptr %req, align 8
-  %additional = getelementptr inbounds %struct.server_request, ptr %15, i32 0, i32 13
-  store ptr %additional, ptr %itemp, align 8
   %16 = load ptr, ptr %req, align 8
-  %n_additional = getelementptr inbounds %struct.server_request, ptr %16, i32 0, i32 10
+  %additional = getelementptr inbounds %struct.server_request, ptr %16, i32 0, i32 13
+  store ptr %additional, ptr %itemp, align 8
+  %17 = load ptr, ptr %req, align 8
+  %n_additional = getelementptr inbounds %struct.server_request, ptr %17, i32 0, i32 10
   store ptr %n_additional, ptr %countp, align 8
   br label %sw.epilog
 
@@ -973,153 +985,153 @@ sw.epilog:                                        ; preds = %sw.bb7, %sw.bb6, %s
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %sw.epilog
-  %17 = load ptr, ptr %itemp, align 8
-  %18 = load ptr, ptr %17, align 8
-  %tobool8 = icmp ne ptr %18, null
+  %18 = load ptr, ptr %itemp, align 8
+  %19 = load ptr, ptr %18, align 8
+  %tobool8 = icmp ne ptr %19, null
   br i1 %tobool8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %19 = load ptr, ptr %itemp, align 8
-  %20 = load ptr, ptr %19, align 8
-  %next = getelementptr inbounds %struct.server_reply_item, ptr %20, i32 0, i32 0
+  %20 = load ptr, ptr %itemp, align 8
+  %21 = load ptr, ptr %20, align 8
+  %next = getelementptr inbounds %struct.server_reply_item, ptr %21, i32 0, i32 0
   store ptr %next, ptr %itemp, align 8
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
   %call9 = call ptr @event_mm_malloc_(i64 noundef 40)
   store ptr %call9, ptr %item, align 8
-  %21 = load ptr, ptr %item, align 8
-  %tobool10 = icmp ne ptr %21, null
+  %22 = load ptr, ptr %item, align 8
+  %tobool10 = icmp ne ptr %22, null
   br i1 %tobool10, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %while.end
   br label %done
 
 if.end12:                                         ; preds = %while.end
-  %22 = load ptr, ptr %item, align 8
-  %next13 = getelementptr inbounds %struct.server_reply_item, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %item, align 8
+  %next13 = getelementptr inbounds %struct.server_reply_item, ptr %23, i32 0, i32 0
   store ptr null, ptr %next13, align 8
-  %23 = load ptr, ptr %name.addr, align 8
-  %call14 = call ptr @event_mm_strdup_(ptr noundef %23)
-  %24 = load ptr, ptr %item, align 8
-  %name15 = getelementptr inbounds %struct.server_reply_item, ptr %24, i32 0, i32 1
+  %24 = load ptr, ptr %name.addr, align 8
+  %call14 = call ptr @event_mm_strdup_(ptr noundef %24)
+  %25 = load ptr, ptr %item, align 8
+  %name15 = getelementptr inbounds %struct.server_reply_item, ptr %25, i32 0, i32 1
   store ptr %call14, ptr %name15, align 8
   %tobool16 = icmp ne ptr %call14, null
   br i1 %tobool16, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
-  %25 = load ptr, ptr %item, align 8
-  call void @event_mm_free_(ptr noundef %25)
+  %26 = load ptr, ptr %item, align 8
+  call void @event_mm_free_(ptr noundef %26)
   br label %done
 
 if.end18:                                         ; preds = %if.end12
-  %26 = load i32, ptr %type.addr, align 4
-  %conv = trunc i32 %26 to i16
-  %27 = load ptr, ptr %item, align 8
-  %type19 = getelementptr inbounds %struct.server_reply_item, ptr %27, i32 0, i32 2
+  %27 = load i32, ptr %type.addr, align 4
+  %conv = trunc i32 %27 to i16
+  %28 = load ptr, ptr %item, align 8
+  %type19 = getelementptr inbounds %struct.server_reply_item, ptr %28, i32 0, i32 2
   store i16 %conv, ptr %type19, align 8
-  %28 = load i32, ptr %class.addr, align 4
-  %conv20 = trunc i32 %28 to i16
-  %29 = load ptr, ptr %item, align 8
-  %class21 = getelementptr inbounds %struct.server_reply_item, ptr %29, i32 0, i32 3
+  %29 = load i32, ptr %class.addr, align 4
+  %conv20 = trunc i32 %29 to i16
+  %30 = load ptr, ptr %item, align 8
+  %class21 = getelementptr inbounds %struct.server_reply_item, ptr %30, i32 0, i32 3
   store i16 %conv20, ptr %class21, align 2
-  %30 = load i32, ptr %ttl.addr, align 4
-  %31 = load ptr, ptr %item, align 8
-  %ttl22 = getelementptr inbounds %struct.server_reply_item, ptr %31, i32 0, i32 4
-  store i32 %30, ptr %ttl22, align 4
-  %32 = load i32, ptr %is_name.addr, align 4
-  %cmp = icmp ne i32 %32, 0
+  %31 = load i32, ptr %ttl.addr, align 4
+  %32 = load ptr, ptr %item, align 8
+  %ttl22 = getelementptr inbounds %struct.server_reply_item, ptr %32, i32 0, i32 4
+  store i32 %31, ptr %ttl22, align 4
+  %33 = load i32, ptr %is_name.addr, align 4
+  %cmp = icmp ne i32 %33, 0
   %conv23 = zext i1 %cmp to i32
   %conv24 = trunc i32 %conv23 to i8
-  %33 = load ptr, ptr %item, align 8
-  %is_name25 = getelementptr inbounds %struct.server_reply_item, ptr %33, i32 0, i32 5
-  store i8 %conv24, ptr %is_name25, align 8
   %34 = load ptr, ptr %item, align 8
-  %datalen26 = getelementptr inbounds %struct.server_reply_item, ptr %34, i32 0, i32 6
-  store i16 0, ptr %datalen26, align 2
+  %is_name25 = getelementptr inbounds %struct.server_reply_item, ptr %34, i32 0, i32 5
+  store i8 %conv24, ptr %is_name25, align 8
   %35 = load ptr, ptr %item, align 8
-  %data27 = getelementptr inbounds %struct.server_reply_item, ptr %35, i32 0, i32 7
+  %datalen26 = getelementptr inbounds %struct.server_reply_item, ptr %35, i32 0, i32 6
+  store i16 0, ptr %datalen26, align 2
+  %36 = load ptr, ptr %item, align 8
+  %data27 = getelementptr inbounds %struct.server_reply_item, ptr %36, i32 0, i32 7
   store ptr null, ptr %data27, align 8
-  %36 = load ptr, ptr %data.addr, align 8
-  %tobool28 = icmp ne ptr %36, null
+  %37 = load ptr, ptr %data.addr, align 8
+  %tobool28 = icmp ne ptr %37, null
   br i1 %tobool28, label %if.then29, label %if.end52
 
 if.then29:                                        ; preds = %if.end18
-  %37 = load ptr, ptr %item, align 8
-  %is_name30 = getelementptr inbounds %struct.server_reply_item, ptr %37, i32 0, i32 5
-  %38 = load i8, ptr %is_name30, align 8
-  %tobool31 = icmp ne i8 %38, 0
+  %38 = load ptr, ptr %item, align 8
+  %is_name30 = getelementptr inbounds %struct.server_reply_item, ptr %38, i32 0, i32 5
+  %39 = load i8, ptr %is_name30, align 8
+  %tobool31 = icmp ne i8 %39, 0
   br i1 %tobool31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then29
-  %39 = load ptr, ptr %data.addr, align 8
-  %call33 = call ptr @event_mm_strdup_(ptr noundef %39)
-  %40 = load ptr, ptr %item, align 8
-  %data34 = getelementptr inbounds %struct.server_reply_item, ptr %40, i32 0, i32 7
+  %40 = load ptr, ptr %data.addr, align 8
+  %call33 = call ptr @event_mm_strdup_(ptr noundef %40)
+  %41 = load ptr, ptr %item, align 8
+  %data34 = getelementptr inbounds %struct.server_reply_item, ptr %41, i32 0, i32 7
   store ptr %call33, ptr %data34, align 8
   %tobool35 = icmp ne ptr %call33, null
   br i1 %tobool35, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.then32
-  %41 = load ptr, ptr %item, align 8
-  %name37 = getelementptr inbounds %struct.server_reply_item, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %name37, align 8
-  call void @event_mm_free_(ptr noundef %42)
-  %43 = load ptr, ptr %item, align 8
+  %42 = load ptr, ptr %item, align 8
+  %name37 = getelementptr inbounds %struct.server_reply_item, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %name37, align 8
   call void @event_mm_free_(ptr noundef %43)
+  %44 = load ptr, ptr %item, align 8
+  call void @event_mm_free_(ptr noundef %44)
   br label %done
 
 if.end38:                                         ; preds = %if.then32
-  %44 = load ptr, ptr %item, align 8
-  %datalen39 = getelementptr inbounds %struct.server_reply_item, ptr %44, i32 0, i32 6
+  %45 = load ptr, ptr %item, align 8
+  %datalen39 = getelementptr inbounds %struct.server_reply_item, ptr %45, i32 0, i32 6
   store i16 -1, ptr %datalen39, align 2
   br label %if.end51
 
 if.else:                                          ; preds = %if.then29
-  %45 = load i32, ptr %datalen.addr, align 4
-  %conv40 = sext i32 %45 to i64
+  %46 = load i32, ptr %datalen.addr, align 4
+  %conv40 = sext i32 %46 to i64
   %call41 = call ptr @event_mm_malloc_(i64 noundef %conv40)
-  %46 = load ptr, ptr %item, align 8
-  %data42 = getelementptr inbounds %struct.server_reply_item, ptr %46, i32 0, i32 7
+  %47 = load ptr, ptr %item, align 8
+  %data42 = getelementptr inbounds %struct.server_reply_item, ptr %47, i32 0, i32 7
   store ptr %call41, ptr %data42, align 8
   %tobool43 = icmp ne ptr %call41, null
   br i1 %tobool43, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.else
-  %47 = load ptr, ptr %item, align 8
-  %name45 = getelementptr inbounds %struct.server_reply_item, ptr %47, i32 0, i32 1
-  %48 = load ptr, ptr %name45, align 8
-  call void @event_mm_free_(ptr noundef %48)
-  %49 = load ptr, ptr %item, align 8
+  %48 = load ptr, ptr %item, align 8
+  %name45 = getelementptr inbounds %struct.server_reply_item, ptr %48, i32 0, i32 1
+  %49 = load ptr, ptr %name45, align 8
   call void @event_mm_free_(ptr noundef %49)
+  %50 = load ptr, ptr %item, align 8
+  call void @event_mm_free_(ptr noundef %50)
   br label %done
 
 if.end46:                                         ; preds = %if.else
-  %50 = load i32, ptr %datalen.addr, align 4
-  %conv47 = trunc i32 %50 to i16
-  %51 = load ptr, ptr %item, align 8
-  %datalen48 = getelementptr inbounds %struct.server_reply_item, ptr %51, i32 0, i32 6
-  store i16 %conv47, ptr %datalen48, align 2
+  %51 = load i32, ptr %datalen.addr, align 4
+  %conv47 = trunc i32 %51 to i16
   %52 = load ptr, ptr %item, align 8
-  %data49 = getelementptr inbounds %struct.server_reply_item, ptr %52, i32 0, i32 7
-  %53 = load ptr, ptr %data49, align 8
-  %54 = load ptr, ptr %data.addr, align 8
-  %55 = load i32, ptr %datalen.addr, align 4
-  %conv50 = sext i32 %55 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %54, i64 %conv50, i1 false)
+  %datalen48 = getelementptr inbounds %struct.server_reply_item, ptr %52, i32 0, i32 6
+  store i16 %conv47, ptr %datalen48, align 2
+  %53 = load ptr, ptr %item, align 8
+  %data49 = getelementptr inbounds %struct.server_reply_item, ptr %53, i32 0, i32 7
+  %54 = load ptr, ptr %data49, align 8
+  %55 = load ptr, ptr %data.addr, align 8
+  %56 = load i32, ptr %datalen.addr, align 4
+  %conv50 = sext i32 %56 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %55, i64 %conv50, i1 false)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end46, %if.end38
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end51, %if.end18
-  %56 = load ptr, ptr %item, align 8
-  %57 = load ptr, ptr %itemp, align 8
-  store ptr %56, ptr %57, align 8
-  %58 = load ptr, ptr %countp, align 8
-  %59 = load i32, ptr %58, align 4
-  %inc = add nsw i32 %59, 1
-  store i32 %inc, ptr %58, align 4
+  %57 = load ptr, ptr %item, align 8
+  %58 = load ptr, ptr %itemp, align 8
+  store ptr %57, ptr %58, align 8
+  %59 = load ptr, ptr %countp, align 8
+  %60 = load i32, ptr %59, align 4
+  %inc = add nsw i32 %60, 1
+  store i32 %inc, ptr %59, align 4
   store i32 0, ptr %result, align 4
   br label %done
 
@@ -1127,30 +1139,31 @@ done:                                             ; preds = %if.end52, %if.then4
   br label %do.body53
 
 do.body53:                                        ; preds = %done
-  %60 = load ptr, ptr %req, align 8
-  %port54 = getelementptr inbounds %struct.server_request, ptr %60, i32 0, i32 3
-  %61 = load ptr, ptr %port54, align 8
-  %lock55 = getelementptr inbounds %struct.evdns_server_port, ptr %61, i32 0, i32 14
-  %62 = load ptr, ptr %lock55, align 8
-  %tobool56 = icmp ne ptr %62, null
+  %61 = load ptr, ptr %req, align 8
+  %port54 = getelementptr inbounds %struct.server_request, ptr %61, i32 0, i32 3
+  %62 = load ptr, ptr %port54, align 8
+  %lock55 = getelementptr inbounds %struct.evdns_server_port, ptr %62, i32 0, i32 14
+  %63 = load ptr, ptr %lock55, align 8
+  %tobool56 = icmp ne ptr %63, null
   br i1 %tobool56, label %if.then57, label %if.end61
 
 if.then57:                                        ; preds = %do.body53
-  %63 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %64 = load ptr, ptr %req, align 8
-  %port58 = getelementptr inbounds %struct.server_request, ptr %64, i32 0, i32 3
-  %65 = load ptr, ptr %port58, align 8
-  %lock59 = getelementptr inbounds %struct.evdns_server_port, ptr %65, i32 0, i32 14
-  %66 = load ptr, ptr %lock59, align 8
-  %call60 = call i32 %63(i32 noundef 0, ptr noundef %66)
+  %64 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %req, align 8
+  %port58 = getelementptr inbounds %struct.server_request, ptr %66, i32 0, i32 3
+  %67 = load ptr, ptr %port58, align 8
+  %lock59 = getelementptr inbounds %struct.evdns_server_port, ptr %67, i32 0, i32 14
+  %68 = load ptr, ptr %lock59, align 8
+  %call60 = call i32 %65(i32 noundef 0, ptr noundef %68)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then57, %do.body53
   br label %do.end62
 
 do.end62:                                         ; preds = %if.end61
-  %67 = load i32, ptr %result, align 4
-  ret i32 %67
+  %69 = load i32, ptr %result, align 4
+  ret i32 %69
 }
 
 declare ptr @event_mm_strdup_(ptr noundef) #1
@@ -1380,27 +1393,28 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %6 = load ptr, ptr %port, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_server_port, ptr %6, i32 0, i32 14
-  %7 = load ptr, ptr %lock2, align 8
-  %call = call i32 %5(i32 noundef 0, ptr noundef %7)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %port, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 14
+  %8 = load ptr, ptr %lock2, align 8
+  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %8 = load ptr, ptr %req, align 8
-  %response = getelementptr inbounds %struct.server_request, ptr %8, i32 0, i32 14
-  %9 = load ptr, ptr %response, align 8
-  %tobool3 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %req, align 8
+  %response = getelementptr inbounds %struct.server_request, ptr %9, i32 0, i32 14
+  %10 = load ptr, ptr %response, align 8
+  %tobool3 = icmp ne ptr %10, null
   br i1 %tobool3, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %do.end
-  %10 = load ptr, ptr %req, align 8
-  %11 = load i32, ptr %err.addr, align 4
-  %call5 = call i32 @evdns_server_request_format_response(ptr noundef %10, i32 noundef %11)
+  %11 = load ptr, ptr %req, align 8
+  %12 = load i32, ptr %err.addr, align 4
+  %call5 = call i32 @evdns_server_request_format_response(ptr noundef %11, i32 noundef %12)
   store i32 %call5, ptr %r, align 4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %if.end7
@@ -1412,111 +1426,111 @@ if.end7:                                          ; preds = %if.then4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end7, %do.end
-  %12 = load ptr, ptr %port, align 8
-  %13 = load ptr, ptr %req, align 8
-  %call9 = call i32 @server_send_response(ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %port, align 8
+  %14 = load ptr, ptr %req, align 8
+  %call9 = call i32 @server_send_response(ptr noundef %13, ptr noundef %14)
   store i32 %call9, ptr %r, align 4
-  %14 = load i32, ptr %r, align 4
-  %cmp10 = icmp slt i32 %14, 0
+  %15 = load i32, ptr %r, align 4
+  %cmp10 = icmp slt i32 %15, 0
   br i1 %cmp10, label %land.lhs.true, label %if.end43
 
 land.lhs.true:                                    ; preds = %if.end8
-  %15 = load ptr, ptr %req, align 8
-  %client = getelementptr inbounds %struct.server_request, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %client, align 8
-  %tobool11 = icmp ne ptr %16, null
+  %16 = load ptr, ptr %req, align 8
+  %client = getelementptr inbounds %struct.server_request, ptr %16, i32 0, i32 4
+  %17 = load ptr, ptr %client, align 8
+  %tobool11 = icmp ne ptr %17, null
   br i1 %tobool11, label %if.then12, label %if.end43
 
 if.then12:                                        ; preds = %land.lhs.true
   %call13 = call ptr @__errno_location() #8
-  %17 = load i32, ptr %call13, align 4
-  store i32 %17, ptr %sock_err, align 4
-  %18 = load i32, ptr %sock_err, align 4
-  %cmp14 = icmp eq i32 %18, 4
+  %18 = load i32, ptr %call13, align 4
+  store i32 %18, ptr %sock_err, align 4
+  %19 = load i32, ptr %sock_err, align 4
+  %cmp14 = icmp eq i32 %19, 4
   br i1 %cmp14, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then12
-  %19 = load i32, ptr %sock_err, align 4
-  %cmp15 = icmp eq i32 %19, 11
+  %20 = load i32, ptr %sock_err, align 4
+  %cmp15 = icmp eq i32 %20, 11
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.then12
   br label %done
 
 if.end17:                                         ; preds = %lor.lhs.false
-  %20 = load ptr, ptr %port, align 8
-  %pending_replies = getelementptr inbounds %struct.evdns_server_port, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %pending_replies, align 8
-  %tobool18 = icmp ne ptr %21, null
+  %21 = load ptr, ptr %port, align 8
+  %pending_replies = getelementptr inbounds %struct.evdns_server_port, ptr %21, i32 0, i32 7
+  %22 = load ptr, ptr %pending_replies, align 8
+  %tobool18 = icmp ne ptr %22, null
   br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end17
-  %22 = load ptr, ptr %port, align 8
-  %pending_replies20 = getelementptr inbounds %struct.evdns_server_port, ptr %22, i32 0, i32 7
-  %23 = load ptr, ptr %pending_replies20, align 8
-  %prev_pending = getelementptr inbounds %struct.server_request, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %prev_pending, align 8
-  %25 = load ptr, ptr %req, align 8
-  %prev_pending21 = getelementptr inbounds %struct.server_request, ptr %25, i32 0, i32 1
-  store ptr %24, ptr %prev_pending21, align 8
-  %26 = load ptr, ptr %port, align 8
-  %pending_replies22 = getelementptr inbounds %struct.evdns_server_port, ptr %26, i32 0, i32 7
-  %27 = load ptr, ptr %pending_replies22, align 8
-  %28 = load ptr, ptr %req, align 8
-  %next_pending = getelementptr inbounds %struct.server_request, ptr %28, i32 0, i32 0
-  store ptr %27, ptr %next_pending, align 8
+  %23 = load ptr, ptr %port, align 8
+  %pending_replies20 = getelementptr inbounds %struct.evdns_server_port, ptr %23, i32 0, i32 7
+  %24 = load ptr, ptr %pending_replies20, align 8
+  %prev_pending = getelementptr inbounds %struct.server_request, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %prev_pending, align 8
+  %26 = load ptr, ptr %req, align 8
+  %prev_pending21 = getelementptr inbounds %struct.server_request, ptr %26, i32 0, i32 1
+  store ptr %25, ptr %prev_pending21, align 8
+  %27 = load ptr, ptr %port, align 8
+  %pending_replies22 = getelementptr inbounds %struct.evdns_server_port, ptr %27, i32 0, i32 7
+  %28 = load ptr, ptr %pending_replies22, align 8
   %29 = load ptr, ptr %req, align 8
+  %next_pending = getelementptr inbounds %struct.server_request, ptr %29, i32 0, i32 0
+  store ptr %28, ptr %next_pending, align 8
   %30 = load ptr, ptr %req, align 8
-  %next_pending23 = getelementptr inbounds %struct.server_request, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %next_pending23, align 8
-  %prev_pending24 = getelementptr inbounds %struct.server_request, ptr %31, i32 0, i32 1
-  store ptr %29, ptr %prev_pending24, align 8
-  %32 = load ptr, ptr %req, align 8
-  %prev_pending25 = getelementptr inbounds %struct.server_request, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %prev_pending25, align 8
-  %next_pending26 = getelementptr inbounds %struct.server_request, ptr %33, i32 0, i32 0
-  store ptr %29, ptr %next_pending26, align 8
+  %31 = load ptr, ptr %req, align 8
+  %next_pending23 = getelementptr inbounds %struct.server_request, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %next_pending23, align 8
+  %prev_pending24 = getelementptr inbounds %struct.server_request, ptr %32, i32 0, i32 1
+  store ptr %30, ptr %prev_pending24, align 8
+  %33 = load ptr, ptr %req, align 8
+  %prev_pending25 = getelementptr inbounds %struct.server_request, ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %prev_pending25, align 8
+  %next_pending26 = getelementptr inbounds %struct.server_request, ptr %34, i32 0, i32 0
+  store ptr %30, ptr %next_pending26, align 8
   br label %if.end42
 
 if.else:                                          ; preds = %if.end17
-  %34 = load ptr, ptr %req, align 8
   %35 = load ptr, ptr %req, align 8
-  %next_pending27 = getelementptr inbounds %struct.server_request, ptr %35, i32 0, i32 0
-  store ptr %34, ptr %next_pending27, align 8
   %36 = load ptr, ptr %req, align 8
-  %prev_pending28 = getelementptr inbounds %struct.server_request, ptr %36, i32 0, i32 1
-  store ptr %34, ptr %prev_pending28, align 8
+  %next_pending27 = getelementptr inbounds %struct.server_request, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %next_pending27, align 8
   %37 = load ptr, ptr %req, align 8
-  %38 = load ptr, ptr %port, align 8
-  %pending_replies29 = getelementptr inbounds %struct.evdns_server_port, ptr %38, i32 0, i32 7
-  store ptr %37, ptr %pending_replies29, align 8
+  %prev_pending28 = getelementptr inbounds %struct.server_request, ptr %37, i32 0, i32 1
+  store ptr %35, ptr %prev_pending28, align 8
+  %38 = load ptr, ptr %req, align 8
   %39 = load ptr, ptr %port, align 8
-  %choked = getelementptr inbounds %struct.evdns_server_port, ptr %39, i32 0, i32 2
-  store i8 1, ptr %choked, align 8
+  %pending_replies29 = getelementptr inbounds %struct.evdns_server_port, ptr %39, i32 0, i32 7
+  store ptr %38, ptr %pending_replies29, align 8
   %40 = load ptr, ptr %port, align 8
-  %event = getelementptr inbounds %struct.evdns_server_port, ptr %40, i32 0, i32 6
-  %call30 = call i32 @event_del(ptr noundef %event)
+  %choked = getelementptr inbounds %struct.evdns_server_port, ptr %40, i32 0, i32 2
+  store i8 1, ptr %choked, align 8
   %41 = load ptr, ptr %port, align 8
-  %event31 = getelementptr inbounds %struct.evdns_server_port, ptr %41, i32 0, i32 6
+  %event = getelementptr inbounds %struct.evdns_server_port, ptr %41, i32 0, i32 6
+  %call30 = call i32 @event_del(ptr noundef %event)
   %42 = load ptr, ptr %port, align 8
-  %event_base = getelementptr inbounds %struct.evdns_server_port, ptr %42, i32 0, i32 8
-  %43 = load ptr, ptr %event_base, align 8
-  %44 = load ptr, ptr %port, align 8
-  %socket = getelementptr inbounds %struct.evdns_server_port, ptr %44, i32 0, i32 0
-  %45 = load i32, ptr %socket, align 8
-  %46 = load ptr, ptr %port, align 8
-  %closing = getelementptr inbounds %struct.evdns_server_port, ptr %46, i32 0, i32 3
-  %47 = load i8, ptr %closing, align 1
-  %conv = sext i8 %47 to i32
+  %event31 = getelementptr inbounds %struct.evdns_server_port, ptr %42, i32 0, i32 6
+  %43 = load ptr, ptr %port, align 8
+  %event_base = getelementptr inbounds %struct.evdns_server_port, ptr %43, i32 0, i32 8
+  %44 = load ptr, ptr %event_base, align 8
+  %45 = load ptr, ptr %port, align 8
+  %socket = getelementptr inbounds %struct.evdns_server_port, ptr %45, i32 0, i32 0
+  %46 = load i32, ptr %socket, align 8
+  %47 = load ptr, ptr %port, align 8
+  %closing = getelementptr inbounds %struct.evdns_server_port, ptr %47, i32 0, i32 3
+  %48 = load i8, ptr %closing, align 1
+  %conv = sext i8 %48 to i32
   %tobool32 = icmp ne i32 %conv, 0
   %cond = select i1 %tobool32, i32 0, i32 2
   %or = or i32 %cond, 4
   %or33 = or i32 %or, 16
   %conv34 = trunc i32 %or33 to i16
-  %48 = load ptr, ptr %port, align 8
-  %call35 = call i32 @event_assign(ptr noundef %event31, ptr noundef %43, i32 noundef %45, i16 noundef signext %conv34, ptr noundef @server_port_ready_callback, ptr noundef %48)
   %49 = load ptr, ptr %port, align 8
-  %event36 = getelementptr inbounds %struct.evdns_server_port, ptr %49, i32 0, i32 6
+  %call35 = call i32 @event_assign(ptr noundef %event31, ptr noundef %44, i32 noundef %46, i16 noundef signext %conv34, ptr noundef @server_port_ready_callback, ptr noundef %49)
+  %50 = load ptr, ptr %port, align 8
+  %event36 = getelementptr inbounds %struct.evdns_server_port, ptr %50, i32 0, i32 6
   %call37 = call i32 @event_add(ptr noundef %event36, ptr noundef null)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %if.then40, label %if.end41
@@ -1533,8 +1547,8 @@ if.end42:                                         ; preds = %if.end41, %if.then1
   br label %done
 
 if.end43:                                         ; preds = %land.lhs.true, %if.end8
-  %50 = load ptr, ptr %req, align 8
-  %call44 = call i32 @server_request_free(ptr noundef %50)
+  %51 = load ptr, ptr %req, align 8
+  %call44 = call i32 @server_request_free(ptr noundef %51)
   %tobool45 = icmp ne i32 %call44, 0
   br i1 %tobool45, label %if.then46, label %if.end47
 
@@ -1543,15 +1557,15 @@ if.then46:                                        ; preds = %if.end43
   br label %done
 
 if.end47:                                         ; preds = %if.end43
-  %51 = load ptr, ptr %port, align 8
-  %pending_replies48 = getelementptr inbounds %struct.evdns_server_port, ptr %51, i32 0, i32 7
-  %52 = load ptr, ptr %pending_replies48, align 8
-  %tobool49 = icmp ne ptr %52, null
+  %52 = load ptr, ptr %port, align 8
+  %pending_replies48 = getelementptr inbounds %struct.evdns_server_port, ptr %52, i32 0, i32 7
+  %53 = load ptr, ptr %pending_replies48, align 8
+  %tobool49 = icmp ne ptr %53, null
   br i1 %tobool49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end47
-  %53 = load ptr, ptr %port, align 8
-  call void @server_port_flush(ptr noundef %53)
+  %54 = load ptr, ptr %port, align 8
+  call void @server_port_flush(ptr noundef %54)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %if.end47
@@ -1562,26 +1576,27 @@ done:                                             ; preds = %if.end51, %if.then4
   br label %do.body52
 
 do.body52:                                        ; preds = %done
-  %54 = load ptr, ptr %port, align 8
-  %lock53 = getelementptr inbounds %struct.evdns_server_port, ptr %54, i32 0, i32 14
-  %55 = load ptr, ptr %lock53, align 8
-  %tobool54 = icmp ne ptr %55, null
+  %55 = load ptr, ptr %port, align 8
+  %lock53 = getelementptr inbounds %struct.evdns_server_port, ptr %55, i32 0, i32 14
+  %56 = load ptr, ptr %lock53, align 8
+  %tobool54 = icmp ne ptr %56, null
   br i1 %tobool54, label %if.then55, label %if.end58
 
 if.then55:                                        ; preds = %do.body52
-  %56 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %57 = load ptr, ptr %port, align 8
-  %lock56 = getelementptr inbounds %struct.evdns_server_port, ptr %57, i32 0, i32 14
-  %58 = load ptr, ptr %lock56, align 8
-  %call57 = call i32 %56(i32 noundef 0, ptr noundef %58)
+  %57 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %port, align 8
+  %lock56 = getelementptr inbounds %struct.evdns_server_port, ptr %59, i32 0, i32 14
+  %60 = load ptr, ptr %lock56, align 8
+  %call57 = call i32 %58(i32 noundef 0, ptr noundef %60)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then55, %do.body52
   br label %do.end59
 
 do.end59:                                         ; preds = %if.end58
-  %59 = load i32, ptr %r, align 4
-  ret i32 %59
+  %61 = load i32, ptr %r, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2448,7 +2463,7 @@ entry:
   store i32 %severity, ptr %severity.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @evdns_log_fn, align 8
   %tobool = icmp ne ptr %0, null
   br i1 %tobool, label %if.then, label %if.else
@@ -2477,7 +2492,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   ret void
 }
 
@@ -2570,13 +2585,14 @@ do.body:                                          ; preds = %if.then13
   br i1 %tobool16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %do.body
-  %21 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %port18 = getelementptr inbounds %struct.server_request, ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %port18, align 8
-  %lock19 = getelementptr inbounds %struct.evdns_server_port, ptr %23, i32 0, i32 14
-  %24 = load ptr, ptr %lock19, align 8
-  %call = call i32 %21(i32 noundef 0, ptr noundef %24)
+  %21 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %req.addr, align 8
+  %port18 = getelementptr inbounds %struct.server_request, ptr %23, i32 0, i32 3
+  %24 = load ptr, ptr %port18, align 8
+  %lock19 = getelementptr inbounds %struct.evdns_server_port, ptr %24, i32 0, i32 14
+  %25 = load ptr, ptr %lock19, align 8
+  %call = call i32 %22(i32 noundef 0, ptr noundef %25)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %do.body
@@ -2584,46 +2600,46 @@ if.end20:                                         ; preds = %if.then17, %do.body
 
 do.end:                                           ; preds = %if.end20
   store i32 1, ptr %lock, align 4
-  %25 = load ptr, ptr %req.addr, align 8
-  %port21 = getelementptr inbounds %struct.server_request, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %port21, align 8
-  %pending_replies = getelementptr inbounds %struct.evdns_server_port, ptr %26, i32 0, i32 7
-  %27 = load ptr, ptr %pending_replies, align 8
-  %28 = load ptr, ptr %req.addr, align 8
-  %cmp22 = icmp eq ptr %27, %28
+  %26 = load ptr, ptr %req.addr, align 8
+  %port21 = getelementptr inbounds %struct.server_request, ptr %26, i32 0, i32 3
+  %27 = load ptr, ptr %port21, align 8
+  %pending_replies = getelementptr inbounds %struct.evdns_server_port, ptr %27, i32 0, i32 7
+  %28 = load ptr, ptr %pending_replies, align 8
+  %29 = load ptr, ptr %req.addr, align 8
+  %cmp22 = icmp eq ptr %28, %29
   br i1 %cmp22, label %if.then23, label %if.end34
 
 if.then23:                                        ; preds = %do.end
-  %29 = load ptr, ptr %req.addr, align 8
-  %next_pending = getelementptr inbounds %struct.server_request, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %next_pending, align 8
-  %tobool24 = icmp ne ptr %30, null
+  %30 = load ptr, ptr %req.addr, align 8
+  %next_pending = getelementptr inbounds %struct.server_request, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %next_pending, align 8
+  %tobool24 = icmp ne ptr %31, null
   br i1 %tobool24, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then23
-  %31 = load ptr, ptr %req.addr, align 8
-  %next_pending25 = getelementptr inbounds %struct.server_request, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %next_pending25, align 8
-  %33 = load ptr, ptr %req.addr, align 8
-  %cmp26 = icmp ne ptr %32, %33
+  %32 = load ptr, ptr %req.addr, align 8
+  %next_pending25 = getelementptr inbounds %struct.server_request, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %next_pending25, align 8
+  %34 = load ptr, ptr %req.addr, align 8
+  %cmp26 = icmp ne ptr %33, %34
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %land.lhs.true
-  %34 = load ptr, ptr %req.addr, align 8
-  %next_pending28 = getelementptr inbounds %struct.server_request, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %next_pending28, align 8
-  %36 = load ptr, ptr %req.addr, align 8
-  %port29 = getelementptr inbounds %struct.server_request, ptr %36, i32 0, i32 3
-  %37 = load ptr, ptr %port29, align 8
-  %pending_replies30 = getelementptr inbounds %struct.evdns_server_port, ptr %37, i32 0, i32 7
-  store ptr %35, ptr %pending_replies30, align 8
+  %35 = load ptr, ptr %req.addr, align 8
+  %next_pending28 = getelementptr inbounds %struct.server_request, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %next_pending28, align 8
+  %37 = load ptr, ptr %req.addr, align 8
+  %port29 = getelementptr inbounds %struct.server_request, ptr %37, i32 0, i32 3
+  %38 = load ptr, ptr %port29, align 8
+  %pending_replies30 = getelementptr inbounds %struct.evdns_server_port, ptr %38, i32 0, i32 7
+  store ptr %36, ptr %pending_replies30, align 8
   br label %if.end33
 
 if.else:                                          ; preds = %land.lhs.true, %if.then23
-  %38 = load ptr, ptr %req.addr, align 8
-  %port31 = getelementptr inbounds %struct.server_request, ptr %38, i32 0, i32 3
-  %39 = load ptr, ptr %port31, align 8
-  %pending_replies32 = getelementptr inbounds %struct.evdns_server_port, ptr %39, i32 0, i32 7
+  %39 = load ptr, ptr %req.addr, align 8
+  %port31 = getelementptr inbounds %struct.server_request, ptr %39, i32 0, i32 3
+  %40 = load ptr, ptr %port31, align 8
+  %pending_replies32 = getelementptr inbounds %struct.evdns_server_port, ptr %40, i32 0, i32 7
   store ptr null, ptr %pending_replies32, align 8
   br label %if.end33
 
@@ -2631,134 +2647,136 @@ if.end33:                                         ; preds = %if.else, %if.then27
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end33, %do.end
-  %40 = load ptr, ptr %req.addr, align 8
-  %port35 = getelementptr inbounds %struct.server_request, ptr %40, i32 0, i32 3
-  %41 = load ptr, ptr %port35, align 8
-  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %41, i32 0, i32 1
-  %42 = load i32, ptr %refcnt, align 4
-  %dec = add nsw i32 %42, -1
+  %41 = load ptr, ptr %req.addr, align 8
+  %port35 = getelementptr inbounds %struct.server_request, ptr %41, i32 0, i32 3
+  %42 = load ptr, ptr %port35, align 8
+  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %42, i32 0, i32 1
+  %43 = load i32, ptr %refcnt, align 4
+  %dec = add nsw i32 %43, -1
   store i32 %dec, ptr %refcnt, align 4
   store i32 %dec, ptr %rc, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end34, %if.end
-  %43 = load ptr, ptr %req.addr, align 8
-  %response = getelementptr inbounds %struct.server_request, ptr %43, i32 0, i32 14
-  %44 = load ptr, ptr %response, align 8
-  %tobool37 = icmp ne ptr %44, null
+  %44 = load ptr, ptr %req.addr, align 8
+  %response = getelementptr inbounds %struct.server_request, ptr %44, i32 0, i32 14
+  %45 = load ptr, ptr %response, align 8
+  %tobool37 = icmp ne ptr %45, null
   br i1 %tobool37, label %if.then38, label %if.end41
 
 if.then38:                                        ; preds = %if.end36
-  %45 = load ptr, ptr %req.addr, align 8
-  %response39 = getelementptr inbounds %struct.server_request, ptr %45, i32 0, i32 14
-  %46 = load ptr, ptr %response39, align 8
-  call void @event_mm_free_(ptr noundef %46)
-  %47 = load ptr, ptr %req.addr, align 8
-  %response40 = getelementptr inbounds %struct.server_request, ptr %47, i32 0, i32 14
+  %46 = load ptr, ptr %req.addr, align 8
+  %response39 = getelementptr inbounds %struct.server_request, ptr %46, i32 0, i32 14
+  %47 = load ptr, ptr %response39, align 8
+  call void @event_mm_free_(ptr noundef %47)
+  %48 = load ptr, ptr %req.addr, align 8
+  %response40 = getelementptr inbounds %struct.server_request, ptr %48, i32 0, i32 14
   store ptr null, ptr %response40, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %if.end36
-  %48 = load ptr, ptr %req.addr, align 8
-  call void @server_request_free_answers(ptr noundef %48)
   %49 = load ptr, ptr %req.addr, align 8
-  %next_pending42 = getelementptr inbounds %struct.server_request, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %next_pending42, align 8
-  %tobool43 = icmp ne ptr %50, null
+  call void @server_request_free_answers(ptr noundef %49)
+  %50 = load ptr, ptr %req.addr, align 8
+  %next_pending42 = getelementptr inbounds %struct.server_request, ptr %50, i32 0, i32 0
+  %51 = load ptr, ptr %next_pending42, align 8
+  %tobool43 = icmp ne ptr %51, null
   br i1 %tobool43, label %land.lhs.true44, label %if.end53
 
 land.lhs.true44:                                  ; preds = %if.end41
-  %51 = load ptr, ptr %req.addr, align 8
-  %next_pending45 = getelementptr inbounds %struct.server_request, ptr %51, i32 0, i32 0
-  %52 = load ptr, ptr %next_pending45, align 8
-  %53 = load ptr, ptr %req.addr, align 8
-  %cmp46 = icmp ne ptr %52, %53
+  %52 = load ptr, ptr %req.addr, align 8
+  %next_pending45 = getelementptr inbounds %struct.server_request, ptr %52, i32 0, i32 0
+  %53 = load ptr, ptr %next_pending45, align 8
+  %54 = load ptr, ptr %req.addr, align 8
+  %cmp46 = icmp ne ptr %53, %54
   br i1 %cmp46, label %if.then47, label %if.end53
 
 if.then47:                                        ; preds = %land.lhs.true44
-  %54 = load ptr, ptr %req.addr, align 8
-  %prev_pending = getelementptr inbounds %struct.server_request, ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %prev_pending, align 8
-  %56 = load ptr, ptr %req.addr, align 8
-  %next_pending48 = getelementptr inbounds %struct.server_request, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %next_pending48, align 8
-  %prev_pending49 = getelementptr inbounds %struct.server_request, ptr %57, i32 0, i32 1
-  store ptr %55, ptr %prev_pending49, align 8
-  %58 = load ptr, ptr %req.addr, align 8
-  %next_pending50 = getelementptr inbounds %struct.server_request, ptr %58, i32 0, i32 0
-  %59 = load ptr, ptr %next_pending50, align 8
-  %60 = load ptr, ptr %req.addr, align 8
-  %prev_pending51 = getelementptr inbounds %struct.server_request, ptr %60, i32 0, i32 1
-  %61 = load ptr, ptr %prev_pending51, align 8
-  %next_pending52 = getelementptr inbounds %struct.server_request, ptr %61, i32 0, i32 0
-  store ptr %59, ptr %next_pending52, align 8
+  %55 = load ptr, ptr %req.addr, align 8
+  %prev_pending = getelementptr inbounds %struct.server_request, ptr %55, i32 0, i32 1
+  %56 = load ptr, ptr %prev_pending, align 8
+  %57 = load ptr, ptr %req.addr, align 8
+  %next_pending48 = getelementptr inbounds %struct.server_request, ptr %57, i32 0, i32 0
+  %58 = load ptr, ptr %next_pending48, align 8
+  %prev_pending49 = getelementptr inbounds %struct.server_request, ptr %58, i32 0, i32 1
+  store ptr %56, ptr %prev_pending49, align 8
+  %59 = load ptr, ptr %req.addr, align 8
+  %next_pending50 = getelementptr inbounds %struct.server_request, ptr %59, i32 0, i32 0
+  %60 = load ptr, ptr %next_pending50, align 8
+  %61 = load ptr, ptr %req.addr, align 8
+  %prev_pending51 = getelementptr inbounds %struct.server_request, ptr %61, i32 0, i32 1
+  %62 = load ptr, ptr %prev_pending51, align 8
+  %next_pending52 = getelementptr inbounds %struct.server_request, ptr %62, i32 0, i32 0
+  store ptr %60, ptr %next_pending52, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then47, %land.lhs.true44, %if.end41
-  %62 = load i32, ptr %rc, align 4
-  %cmp54 = icmp eq i32 %62, 0
+  %63 = load i32, ptr %rc, align 4
+  %cmp54 = icmp eq i32 %63, 0
   br i1 %cmp54, label %if.then55, label %if.end67
 
 if.then55:                                        ; preds = %if.end53
   br label %do.body56
 
 do.body56:                                        ; preds = %if.then55
-  %63 = load ptr, ptr %req.addr, align 8
-  %port57 = getelementptr inbounds %struct.server_request, ptr %63, i32 0, i32 3
-  %64 = load ptr, ptr %port57, align 8
-  %lock58 = getelementptr inbounds %struct.evdns_server_port, ptr %64, i32 0, i32 14
-  %65 = load ptr, ptr %lock58, align 8
-  %tobool59 = icmp ne ptr %65, null
+  %64 = load ptr, ptr %req.addr, align 8
+  %port57 = getelementptr inbounds %struct.server_request, ptr %64, i32 0, i32 3
+  %65 = load ptr, ptr %port57, align 8
+  %lock58 = getelementptr inbounds %struct.evdns_server_port, ptr %65, i32 0, i32 14
+  %66 = load ptr, ptr %lock58, align 8
+  %tobool59 = icmp ne ptr %66, null
   br i1 %tobool59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %do.body56
-  %66 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %67 = load ptr, ptr %req.addr, align 8
-  %port61 = getelementptr inbounds %struct.server_request, ptr %67, i32 0, i32 3
-  %68 = load ptr, ptr %port61, align 8
-  %lock62 = getelementptr inbounds %struct.evdns_server_port, ptr %68, i32 0, i32 14
-  %69 = load ptr, ptr %lock62, align 8
-  %call63 = call i32 %66(i32 noundef 0, ptr noundef %69)
+  %67 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %req.addr, align 8
+  %port61 = getelementptr inbounds %struct.server_request, ptr %69, i32 0, i32 3
+  %70 = load ptr, ptr %port61, align 8
+  %lock62 = getelementptr inbounds %struct.evdns_server_port, ptr %70, i32 0, i32 14
+  %71 = load ptr, ptr %lock62, align 8
+  %call63 = call i32 %68(i32 noundef 0, ptr noundef %71)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then60, %do.body56
   br label %do.end65
 
 do.end65:                                         ; preds = %if.end64
-  %70 = load ptr, ptr %req.addr, align 8
-  %port66 = getelementptr inbounds %struct.server_request, ptr %70, i32 0, i32 3
-  %71 = load ptr, ptr %port66, align 8
-  call void @server_port_free(ptr noundef %71)
   %72 = load ptr, ptr %req.addr, align 8
-  call void @event_mm_free_(ptr noundef %72)
+  %port66 = getelementptr inbounds %struct.server_request, ptr %72, i32 0, i32 3
+  %73 = load ptr, ptr %port66, align 8
+  call void @server_port_free(ptr noundef %73)
+  %74 = load ptr, ptr %req.addr, align 8
+  call void @event_mm_free_(ptr noundef %74)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end67:                                         ; preds = %if.end53
-  %73 = load i32, ptr %lock, align 4
-  %tobool68 = icmp ne i32 %73, 0
+  %75 = load i32, ptr %lock, align 4
+  %tobool68 = icmp ne i32 %75, 0
   br i1 %tobool68, label %if.then69, label %if.end80
 
 if.then69:                                        ; preds = %if.end67
   br label %do.body70
 
 do.body70:                                        ; preds = %if.then69
-  %74 = load ptr, ptr %req.addr, align 8
-  %port71 = getelementptr inbounds %struct.server_request, ptr %74, i32 0, i32 3
-  %75 = load ptr, ptr %port71, align 8
-  %lock72 = getelementptr inbounds %struct.evdns_server_port, ptr %75, i32 0, i32 14
-  %76 = load ptr, ptr %lock72, align 8
-  %tobool73 = icmp ne ptr %76, null
+  %76 = load ptr, ptr %req.addr, align 8
+  %port71 = getelementptr inbounds %struct.server_request, ptr %76, i32 0, i32 3
+  %77 = load ptr, ptr %port71, align 8
+  %lock72 = getelementptr inbounds %struct.evdns_server_port, ptr %77, i32 0, i32 14
+  %78 = load ptr, ptr %lock72, align 8
+  %tobool73 = icmp ne ptr %78, null
   br i1 %tobool73, label %if.then74, label %if.end78
 
 if.then74:                                        ; preds = %do.body70
-  %77 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %78 = load ptr, ptr %req.addr, align 8
-  %port75 = getelementptr inbounds %struct.server_request, ptr %78, i32 0, i32 3
-  %79 = load ptr, ptr %port75, align 8
-  %lock76 = getelementptr inbounds %struct.evdns_server_port, ptr %79, i32 0, i32 14
-  %80 = load ptr, ptr %lock76, align 8
-  %call77 = call i32 %77(i32 noundef 0, ptr noundef %80)
+  %79 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %req.addr, align 8
+  %port75 = getelementptr inbounds %struct.server_request, ptr %81, i32 0, i32 3
+  %82 = load ptr, ptr %port75, align 8
+  %lock76 = getelementptr inbounds %struct.evdns_server_port, ptr %82, i32 0, i32 14
+  %83 = load ptr, ptr %lock76, align 8
+  %call77 = call i32 %80(i32 noundef 0, ptr noundef %83)
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then74, %do.body70
@@ -2768,14 +2786,14 @@ do.end79:                                         ; preds = %if.end78
   br label %if.end80
 
 if.end80:                                         ; preds = %do.end79, %if.end67
-  %81 = load ptr, ptr %req.addr, align 8
-  call void @event_mm_free_(ptr noundef %81)
+  %84 = load ptr, ptr %req.addr, align 8
+  call void @event_mm_free_(ptr noundef %84)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end80, %do.end65
-  %82 = load i32, ptr %retval, align 4
-  ret i32 %82
+  %85 = load i32, ptr %retval, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2986,23 +3004,24 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %server_head = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %server_head, align 8
-  store ptr %6, ptr %server, align 8
-  %7 = load ptr, ptr %server, align 8
-  %tobool2 = icmp ne ptr %7, null
+  %6 = load ptr, ptr %base.addr, align 8
+  %server_head = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %server_head, align 8
+  store ptr %7, ptr %server, align 8
+  %8 = load ptr, ptr %server, align 8
+  %tobool2 = icmp ne ptr %8, null
   br i1 %tobool2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %do.end
@@ -3012,21 +3031,21 @@ if.end4:                                          ; preds = %do.end
   br label %do.body5
 
 do.body5:                                         ; preds = %do.cond, %if.end4
-  %8 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %8, 1
+  %9 = load i32, ptr %n, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %n, align 4
-  %9 = load ptr, ptr %server, align 8
-  %next = getelementptr inbounds %struct.nameserver, ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %next, align 8
-  store ptr %10, ptr %server, align 8
+  %10 = load ptr, ptr %server, align 8
+  %next = getelementptr inbounds %struct.nameserver, ptr %10, i32 0, i32 7
+  %11 = load ptr, ptr %next, align 8
+  store ptr %11, ptr %server, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body5
-  %11 = load ptr, ptr %server, align 8
-  %12 = load ptr, ptr %base.addr, align 8
-  %server_head6 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %server_head6, align 8
-  %cmp = icmp ne ptr %11, %13
+  %12 = load ptr, ptr %server, align 8
+  %13 = load ptr, ptr %base.addr, align 8
+  %server_head6 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %server_head6, align 8
+  %cmp = icmp ne ptr %12, %14
   br i1 %cmp, label %do.body5, label %do.end7, !llvm.loop !12
 
 do.end7:                                          ; preds = %do.cond
@@ -3036,26 +3055,27 @@ done:                                             ; preds = %do.end7, %if.then3
   br label %do.body8
 
 do.body8:                                         ; preds = %done
-  %14 = load ptr, ptr %base.addr, align 8
-  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
-  %15 = load ptr, ptr %lock9, align 8
-  %tobool10 = icmp ne ptr %15, null
+  %15 = load ptr, ptr %base.addr, align 8
+  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
+  %16 = load ptr, ptr %lock9, align 8
+  %tobool10 = icmp ne ptr %16, null
   br i1 %tobool10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %do.body8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %17 = load ptr, ptr %base.addr, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 29
-  %18 = load ptr, ptr %lock12, align 8
-  %call13 = call i32 %16(i32 noundef 0, ptr noundef %18)
+  %17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %base.addr, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 29
+  %20 = load ptr, ptr %lock12, align 8
+  %call13 = call i32 %18(i32 noundef 0, ptr noundef %20)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %do.body8
   br label %do.end16
 
 do.end16:                                         ; preds = %if.end14
-  %19 = load i32, ptr %n, align 4
-  ret i32 %19
+  %21 = load i32, ptr %n, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3089,45 +3109,47 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %server_head = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %server_head, align 8
-  store ptr %6, ptr %server, align 8
-  %7 = load ptr, ptr %base.addr, align 8
-  %server_head2 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %server_head2, align 8
-  store ptr %8, ptr %started_at, align 8
-  %9 = load ptr, ptr %server, align 8
-  %tobool3 = icmp ne ptr %9, null
+  %6 = load ptr, ptr %base.addr, align 8
+  %server_head = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %server_head, align 8
+  store ptr %7, ptr %server, align 8
+  %8 = load ptr, ptr %base.addr, align 8
+  %server_head2 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %server_head2, align 8
+  store ptr %9, ptr %started_at, align 8
+  %10 = load ptr, ptr %server, align 8
+  %tobool3 = icmp ne ptr %10, null
   br i1 %tobool3, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %do.end
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then4
-  %10 = load ptr, ptr %base.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
-  %11 = load ptr, ptr %lock6, align 8
-  %tobool7 = icmp ne ptr %11, null
+  %11 = load ptr, ptr %base.addr, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
+  %12 = load ptr, ptr %lock6, align 8
+  %tobool7 = icmp ne ptr %12, null
   br i1 %tobool7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %do.body5
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %13 = load ptr, ptr %base.addr, align 8
-  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
-  %14 = load ptr, ptr %lock9, align 8
-  %call10 = call i32 %12(i32 noundef 0, ptr noundef %14)
+  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %base.addr, align 8
+  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
+  %16 = load ptr, ptr %lock9, align 8
+  %call10 = call i32 %14(i32 noundef 0, ptr noundef %16)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %do.body5
@@ -3141,208 +3163,209 @@ if.end13:                                         ; preds = %do.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end35, %if.end13
-  %15 = load ptr, ptr %server, align 8
-  %next14 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 7
-  %16 = load ptr, ptr %next14, align 8
-  store ptr %16, ptr %next, align 8
   %17 = load ptr, ptr %server, align 8
-  %connection = getelementptr inbounds %struct.nameserver, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %connection, align 8
-  call void @disconnect_and_free_connection(ptr noundef %18)
+  %next14 = getelementptr inbounds %struct.nameserver, ptr %17, i32 0, i32 7
+  %18 = load ptr, ptr %next14, align 8
+  store ptr %18, ptr %next, align 8
   %19 = load ptr, ptr %server, align 8
-  %connection15 = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 1
-  store ptr null, ptr %connection15, align 8
-  %20 = load ptr, ptr %server, align 8
-  %event = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 6
-  %call16 = call i32 @event_del(ptr noundef %event)
+  %connection = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %connection, align 8
+  call void @disconnect_and_free_connection(ptr noundef %20)
   %21 = load ptr, ptr %server, align 8
-  %timeout_event = getelementptr inbounds %struct.nameserver, ptr %21, i32 0, i32 9
+  %connection15 = getelementptr inbounds %struct.nameserver, ptr %21, i32 0, i32 1
+  store ptr null, ptr %connection15, align 8
+  %22 = load ptr, ptr %server, align 8
+  %event = getelementptr inbounds %struct.nameserver, ptr %22, i32 0, i32 6
+  %call16 = call i32 @event_del(ptr noundef %event)
+  %23 = load ptr, ptr %server, align 8
+  %timeout_event = getelementptr inbounds %struct.nameserver, ptr %23, i32 0, i32 9
   %call17 = call i32 @event_initialized(ptr noundef %timeout_event)
   %tobool18 = icmp ne i32 %call17, 0
   br i1 %tobool18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %while.body
-  %22 = load ptr, ptr %server, align 8
-  %timeout_event20 = getelementptr inbounds %struct.nameserver, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %server, align 8
+  %timeout_event20 = getelementptr inbounds %struct.nameserver, ptr %24, i32 0, i32 9
   %call21 = call i32 @event_del(ptr noundef %timeout_event20)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %while.body
-  %23 = load ptr, ptr %server, align 8
-  %probe_request = getelementptr inbounds %struct.nameserver, ptr %23, i32 0, i32 10
-  %24 = load ptr, ptr %probe_request, align 8
-  %tobool23 = icmp ne ptr %24, null
+  %25 = load ptr, ptr %server, align 8
+  %probe_request = getelementptr inbounds %struct.nameserver, ptr %25, i32 0, i32 10
+  %26 = load ptr, ptr %probe_request, align 8
+  %tobool23 = icmp ne ptr %26, null
   br i1 %tobool23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %25 = load ptr, ptr %server, align 8
-  %base25 = getelementptr inbounds %struct.nameserver, ptr %25, i32 0, i32 14
-  %26 = load ptr, ptr %base25, align 8
   %27 = load ptr, ptr %server, align 8
-  %probe_request26 = getelementptr inbounds %struct.nameserver, ptr %27, i32 0, i32 10
-  %28 = load ptr, ptr %probe_request26, align 8
-  call void @evdns_cancel_request(ptr noundef %26, ptr noundef %28)
+  %base25 = getelementptr inbounds %struct.nameserver, ptr %27, i32 0, i32 14
+  %28 = load ptr, ptr %base25, align 8
   %29 = load ptr, ptr %server, align 8
-  %probe_request27 = getelementptr inbounds %struct.nameserver, ptr %29, i32 0, i32 10
+  %probe_request26 = getelementptr inbounds %struct.nameserver, ptr %29, i32 0, i32 10
+  %30 = load ptr, ptr %probe_request26, align 8
+  call void @evdns_cancel_request(ptr noundef %28, ptr noundef %30)
+  %31 = load ptr, ptr %server, align 8
+  %probe_request27 = getelementptr inbounds %struct.nameserver, ptr %31, i32 0, i32 10
   store ptr null, ptr %probe_request27, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %30 = load ptr, ptr %server, align 8
-  %socket = getelementptr inbounds %struct.nameserver, ptr %30, i32 0, i32 0
-  %31 = load i32, ptr %socket, align 8
-  %cmp = icmp sge i32 %31, 0
+  %32 = load ptr, ptr %server, align 8
+  %socket = getelementptr inbounds %struct.nameserver, ptr %32, i32 0, i32 0
+  %33 = load i32, ptr %socket, align 8
+  %cmp = icmp sge i32 %33, 0
   br i1 %cmp, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %if.end28
-  %32 = load ptr, ptr %server, align 8
-  %socket30 = getelementptr inbounds %struct.nameserver, ptr %32, i32 0, i32 0
-  %33 = load i32, ptr %socket30, align 8
-  %call31 = call i32 @evutil_closesocket(i32 noundef %33)
+  %34 = load ptr, ptr %server, align 8
+  %socket30 = getelementptr inbounds %struct.nameserver, ptr %34, i32 0, i32 0
+  %35 = load i32, ptr %socket30, align 8
+  %call31 = call i32 @evutil_closesocket(i32 noundef %35)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then29, %if.end28
-  %34 = load ptr, ptr %server, align 8
-  call void @event_mm_free_(ptr noundef %34)
-  %35 = load ptr, ptr %next, align 8
-  %36 = load ptr, ptr %started_at, align 8
-  %cmp33 = icmp eq ptr %35, %36
+  %36 = load ptr, ptr %server, align 8
+  call void @event_mm_free_(ptr noundef %36)
+  %37 = load ptr, ptr %next, align 8
+  %38 = load ptr, ptr %started_at, align 8
+  %cmp33 = icmp eq ptr %37, %38
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end32
   br label %while.end
 
 if.end35:                                         ; preds = %if.end32
-  %37 = load ptr, ptr %next, align 8
-  store ptr %37, ptr %server, align 8
+  %39 = load ptr, ptr %next, align 8
+  store ptr %39, ptr %server, align 8
   br label %while.body
 
 while.end:                                        ; preds = %if.then34
-  %38 = load ptr, ptr %base.addr, align 8
-  %server_head36 = getelementptr inbounds %struct.evdns_base, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %base.addr, align 8
+  %server_head36 = getelementptr inbounds %struct.evdns_base, ptr %40, i32 0, i32 2
   store ptr null, ptr %server_head36, align 8
-  %39 = load ptr, ptr %base.addr, align 8
-  %global_good_nameservers = getelementptr inbounds %struct.evdns_base, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %base.addr, align 8
+  %global_good_nameservers = getelementptr inbounds %struct.evdns_base, ptr %41, i32 0, i32 5
   store i32 0, ptr %global_good_nameservers, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.end
-  %40 = load i32, ptr %i, align 4
-  %41 = load ptr, ptr %base.addr, align 8
-  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %41, i32 0, i32 3
-  %42 = load i32, ptr %n_req_heads, align 8
-  %cmp37 = icmp slt i32 %40, %42
+  %42 = load i32, ptr %i, align 4
+  %43 = load ptr, ptr %base.addr, align 8
+  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %43, i32 0, i32 3
+  %44 = load i32, ptr %n_req_heads, align 8
+  %cmp37 = icmp slt i32 %42, %44
   br i1 %cmp37, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %43 = load ptr, ptr %base.addr, align 8
-  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %req_heads, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %45 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %44, i64 %idxprom
-  %46 = load ptr, ptr %arrayidx, align 8
-  store ptr %46, ptr %req_started_at, align 8
-  store ptr %46, ptr %req, align 8
+  %45 = load ptr, ptr %base.addr, align 8
+  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %45, i32 0, i32 0
+  %46 = load ptr, ptr %req_heads, align 8
+  %47 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %47 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %46, i64 %idxprom
+  %48 = load ptr, ptr %arrayidx, align 8
+  store ptr %48, ptr %req_started_at, align 8
+  store ptr %48, ptr %req, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end48, %for.body
-  %47 = load ptr, ptr %req, align 8
-  %tobool38 = icmp ne ptr %47, null
+  %49 = load ptr, ptr %req, align 8
+  %tobool38 = icmp ne ptr %49, null
   br i1 %tobool38, label %while.body39, label %while.end49
 
 while.body39:                                     ; preds = %while.cond
-  %48 = load ptr, ptr %req, align 8
-  %next41 = getelementptr inbounds %struct.request, ptr %48, i32 0, i32 7
-  %49 = load ptr, ptr %next41, align 8
-  store ptr %49, ptr %next40, align 8
   %50 = load ptr, ptr %req, align 8
-  %reissue_count = getelementptr inbounds %struct.request, ptr %50, i32 0, i32 4
-  store i32 0, ptr %reissue_count, align 8
-  %51 = load ptr, ptr %req, align 8
-  %tx_count = getelementptr inbounds %struct.request, ptr %51, i32 0, i32 5
-  store i32 0, ptr %tx_count, align 4
+  %next41 = getelementptr inbounds %struct.request, ptr %50, i32 0, i32 7
+  %51 = load ptr, ptr %next41, align 8
+  store ptr %51, ptr %next40, align 8
   %52 = load ptr, ptr %req, align 8
-  %ns = getelementptr inbounds %struct.request, ptr %52, i32 0, i32 6
-  store ptr null, ptr %ns, align 8
+  %reissue_count = getelementptr inbounds %struct.request, ptr %52, i32 0, i32 4
+  store i32 0, ptr %reissue_count, align 8
   %53 = load ptr, ptr %req, align 8
-  %timeout_event42 = getelementptr inbounds %struct.request, ptr %53, i32 0, i32 9
-  %call43 = call i32 @event_del(ptr noundef %timeout_event42)
+  %tx_count = getelementptr inbounds %struct.request, ptr %53, i32 0, i32 5
+  store i32 0, ptr %tx_count, align 4
   %54 = load ptr, ptr %req, align 8
-  %trans_id = getelementptr inbounds %struct.request, ptr %54, i32 0, i32 10
-  store i16 0, ptr %trans_id, align 8
+  %ns = getelementptr inbounds %struct.request, ptr %54, i32 0, i32 6
+  store ptr null, ptr %ns, align 8
   %55 = load ptr, ptr %req, align 8
-  %transmit_me = getelementptr inbounds %struct.request, ptr %55, i32 0, i32 11
+  %timeout_event42 = getelementptr inbounds %struct.request, ptr %55, i32 0, i32 9
+  %call43 = call i32 @event_del(ptr noundef %timeout_event42)
+  %56 = load ptr, ptr %req, align 8
+  %trans_id = getelementptr inbounds %struct.request, ptr %56, i32 0, i32 10
+  store i16 0, ptr %trans_id, align 8
+  %57 = load ptr, ptr %req, align 8
+  %transmit_me = getelementptr inbounds %struct.request, ptr %57, i32 0, i32 11
   %bf.load = load i8, ptr %transmit_me, align 2
   %bf.clear = and i8 %bf.load, -3
   %bf.set = or i8 %bf.clear, 0
   store i8 %bf.set, ptr %transmit_me, align 2
-  %56 = load ptr, ptr %base.addr, align 8
-  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %56, i32 0, i32 7
-  %57 = load i32, ptr %global_requests_waiting, align 8
-  %inc = add nsw i32 %57, 1
+  %58 = load ptr, ptr %base.addr, align 8
+  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %58, i32 0, i32 7
+  %59 = load i32, ptr %global_requests_waiting, align 8
+  %inc = add nsw i32 %59, 1
   store i32 %inc, ptr %global_requests_waiting, align 8
-  %58 = load ptr, ptr %req, align 8
-  %59 = load ptr, ptr %base.addr, align 8
-  %req_waiting_head = getelementptr inbounds %struct.evdns_base, ptr %59, i32 0, i32 1
-  call void @evdns_request_insert(ptr noundef %58, ptr noundef %req_waiting_head)
-  %60 = load ptr, ptr %base.addr, align 8
-  %req_waiting_head44 = getelementptr inbounds %struct.evdns_base, ptr %60, i32 0, i32 1
-  %61 = load ptr, ptr %req_waiting_head44, align 8
-  %prev = getelementptr inbounds %struct.request, ptr %61, i32 0, i32 8
-  %62 = load ptr, ptr %prev, align 8
-  %63 = load ptr, ptr %base.addr, align 8
-  %req_waiting_head45 = getelementptr inbounds %struct.evdns_base, ptr %63, i32 0, i32 1
-  store ptr %62, ptr %req_waiting_head45, align 8
-  %64 = load ptr, ptr %next40, align 8
-  %65 = load ptr, ptr %req_started_at, align 8
-  %cmp46 = icmp eq ptr %64, %65
+  %60 = load ptr, ptr %req, align 8
+  %61 = load ptr, ptr %base.addr, align 8
+  %req_waiting_head = getelementptr inbounds %struct.evdns_base, ptr %61, i32 0, i32 1
+  call void @evdns_request_insert(ptr noundef %60, ptr noundef %req_waiting_head)
+  %62 = load ptr, ptr %base.addr, align 8
+  %req_waiting_head44 = getelementptr inbounds %struct.evdns_base, ptr %62, i32 0, i32 1
+  %63 = load ptr, ptr %req_waiting_head44, align 8
+  %prev = getelementptr inbounds %struct.request, ptr %63, i32 0, i32 8
+  %64 = load ptr, ptr %prev, align 8
+  %65 = load ptr, ptr %base.addr, align 8
+  %req_waiting_head45 = getelementptr inbounds %struct.evdns_base, ptr %65, i32 0, i32 1
+  store ptr %64, ptr %req_waiting_head45, align 8
+  %66 = load ptr, ptr %next40, align 8
+  %67 = load ptr, ptr %req_started_at, align 8
+  %cmp46 = icmp eq ptr %66, %67
   br i1 %cmp46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %while.body39
   br label %while.end49
 
 if.end48:                                         ; preds = %while.body39
-  %66 = load ptr, ptr %next40, align 8
-  store ptr %66, ptr %req, align 8
+  %68 = load ptr, ptr %next40, align 8
+  store ptr %68, ptr %req, align 8
   br label %while.cond, !llvm.loop !13
 
 while.end49:                                      ; preds = %if.then47, %while.cond
-  %67 = load ptr, ptr %base.addr, align 8
-  %req_heads50 = getelementptr inbounds %struct.evdns_base, ptr %67, i32 0, i32 0
-  %68 = load ptr, ptr %req_heads50, align 8
-  %69 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %69 to i64
-  %arrayidx52 = getelementptr inbounds ptr, ptr %68, i64 %idxprom51
+  %69 = load ptr, ptr %base.addr, align 8
+  %req_heads50 = getelementptr inbounds %struct.evdns_base, ptr %69, i32 0, i32 0
+  %70 = load ptr, ptr %req_heads50, align 8
+  %71 = load i32, ptr %i, align 4
+  %idxprom51 = sext i32 %71 to i64
+  %arrayidx52 = getelementptr inbounds ptr, ptr %70, i64 %idxprom51
   store ptr null, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end49
-  %70 = load i32, ptr %i, align 4
-  %inc53 = add nsw i32 %70, 1
+  %72 = load i32, ptr %i, align 4
+  %inc53 = add nsw i32 %72, 1
   store i32 %inc53, ptr %i, align 4
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %for.cond
-  %71 = load ptr, ptr %base.addr, align 8
-  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %71, i32 0, i32 6
+  %73 = load ptr, ptr %base.addr, align 8
+  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %73, i32 0, i32 6
   store i32 0, ptr %global_requests_inflight, align 4
   br label %do.body54
 
 do.body54:                                        ; preds = %for.end
-  %72 = load ptr, ptr %base.addr, align 8
-  %lock55 = getelementptr inbounds %struct.evdns_base, ptr %72, i32 0, i32 29
-  %73 = load ptr, ptr %lock55, align 8
-  %tobool56 = icmp ne ptr %73, null
+  %74 = load ptr, ptr %base.addr, align 8
+  %lock55 = getelementptr inbounds %struct.evdns_base, ptr %74, i32 0, i32 29
+  %75 = load ptr, ptr %lock55, align 8
+  %tobool56 = icmp ne ptr %75, null
   br i1 %tobool56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %do.body54
-  %74 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %75 = load ptr, ptr %base.addr, align 8
-  %lock58 = getelementptr inbounds %struct.evdns_base, ptr %75, i32 0, i32 29
-  %76 = load ptr, ptr %lock58, align 8
-  %call59 = call i32 %74(i32 noundef 0, ptr noundef %76)
+  %76 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %base.addr, align 8
+  %lock58 = getelementptr inbounds %struct.evdns_base, ptr %78, i32 0, i32 29
+  %79 = load ptr, ptr %lock58, align 8
+  %call59 = call i32 %77(i32 noundef 0, ptr noundef %79)
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then57, %do.body54
@@ -3353,8 +3376,8 @@ do.end61:                                         ; preds = %if.end60
   br label %return
 
 return:                                           ; preds = %do.end61, %do.end12
-  %77 = load i32, ptr %retval, align 4
-  ret i32 %77
+  %80 = load i32, ptr %retval, align 4
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3436,39 +3459,41 @@ do.body:                                          ; preds = %if.end9
   br i1 %tobool10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %do.body
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %12 = load ptr, ptr %base.addr, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
-  %13 = load ptr, ptr %lock12, align 8
-  %call = call i32 %11(i32 noundef 0, ptr noundef %13)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %base.addr, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %lock12, align 8
+  %call = call i32 %12(i32 noundef 0, ptr noundef %14)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end13
-  %14 = load ptr, ptr %handle.addr, align 8
-  %pending_cb = getelementptr inbounds %struct.evdns_request, ptr %14, i32 0, i32 2
-  %15 = load i32, ptr %pending_cb, align 8
-  %tobool14 = icmp ne i32 %15, 0
+  %15 = load ptr, ptr %handle.addr, align 8
+  %pending_cb = getelementptr inbounds %struct.evdns_request, ptr %15, i32 0, i32 2
+  %16 = load i32, ptr %pending_cb, align 8
+  %tobool14 = icmp ne i32 %16, 0
   br i1 %tobool14, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %do.end
   br label %do.body16
 
 do.body16:                                        ; preds = %if.then15
-  %16 = load ptr, ptr %base.addr, align 8
-  %lock17 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
-  %17 = load ptr, ptr %lock17, align 8
-  %tobool18 = icmp ne ptr %17, null
+  %17 = load ptr, ptr %base.addr, align 8
+  %lock17 = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 29
+  %18 = load ptr, ptr %lock17, align 8
+  %tobool18 = icmp ne ptr %18, null
   br i1 %tobool18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %do.body16
-  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %19 = load ptr, ptr %base.addr, align 8
-  %lock20 = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 29
-  %20 = load ptr, ptr %lock20, align 8
-  %call21 = call i32 %18(i32 noundef 0, ptr noundef %20)
+  %19 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %base.addr, align 8
+  %lock20 = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 29
+  %22 = load ptr, ptr %lock20, align 8
+  %call21 = call i32 %20(i32 noundef 0, ptr noundef %22)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %do.body16
@@ -3478,65 +3503,66 @@ do.end23:                                         ; preds = %if.end22
   br label %do.end38
 
 if.end24:                                         ; preds = %do.end
-  %21 = load ptr, ptr %handle.addr, align 8
-  %current_req25 = getelementptr inbounds %struct.evdns_request, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %current_req25, align 8
-  store ptr %22, ptr %req, align 8
+  %23 = load ptr, ptr %handle.addr, align 8
+  %current_req25 = getelementptr inbounds %struct.evdns_request, ptr %23, i32 0, i32 0
+  %24 = load ptr, ptr %current_req25, align 8
+  store ptr %24, ptr %req, align 8
   br label %do.body26
 
 do.body26:                                        ; preds = %if.end24
   br label %do.end27
 
 do.end27:                                         ; preds = %do.body26
-  %23 = load ptr, ptr %req, align 8
-  call void @reply_schedule_callback(ptr noundef %23, i32 noundef 0, i32 noundef 69, ptr noundef null)
-  %24 = load ptr, ptr %req, align 8
-  %ns = getelementptr inbounds %struct.request, ptr %24, i32 0, i32 6
-  %25 = load ptr, ptr %ns, align 8
-  %tobool28 = icmp ne ptr %25, null
+  %25 = load ptr, ptr %req, align 8
+  call void @reply_schedule_callback(ptr noundef %25, i32 noundef 0, i32 noundef 69, ptr noundef null)
+  %26 = load ptr, ptr %req, align 8
+  %ns = getelementptr inbounds %struct.request, ptr %26, i32 0, i32 6
+  %27 = load ptr, ptr %ns, align 8
+  %tobool28 = icmp ne ptr %27, null
   br i1 %tobool28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %do.end27
-  %26 = load ptr, ptr %req, align 8
-  %27 = load ptr, ptr %base.addr, align 8
-  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %req_heads, align 8
-  %29 = load ptr, ptr %req, align 8
-  %trans_id = getelementptr inbounds %struct.request, ptr %29, i32 0, i32 10
-  %30 = load i16, ptr %trans_id, align 8
-  %conv = zext i16 %30 to i32
-  %31 = load ptr, ptr %base.addr, align 8
-  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 3
-  %32 = load i32, ptr %n_req_heads, align 8
-  %rem = srem i32 %conv, %32
+  %28 = load ptr, ptr %req, align 8
+  %29 = load ptr, ptr %base.addr, align 8
+  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %req_heads, align 8
+  %31 = load ptr, ptr %req, align 8
+  %trans_id = getelementptr inbounds %struct.request, ptr %31, i32 0, i32 10
+  %32 = load i16, ptr %trans_id, align 8
+  %conv = zext i16 %32 to i32
+  %33 = load ptr, ptr %base.addr, align 8
+  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 3
+  %34 = load i32, ptr %n_req_heads, align 8
+  %rem = srem i32 %conv, %34
   %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %28, i64 %idxprom
-  call void @request_finished(ptr noundef %26, ptr noundef %arrayidx, i32 noundef 1)
+  %arrayidx = getelementptr inbounds ptr, ptr %30, i64 %idxprom
+  call void @request_finished(ptr noundef %28, ptr noundef %arrayidx, i32 noundef 1)
   br label %if.end30
 
 if.else:                                          ; preds = %do.end27
-  %33 = load ptr, ptr %req, align 8
-  %34 = load ptr, ptr %base.addr, align 8
-  %req_waiting_head = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 1
-  call void @request_finished(ptr noundef %33, ptr noundef %req_waiting_head, i32 noundef 1)
+  %35 = load ptr, ptr %req, align 8
+  %36 = load ptr, ptr %base.addr, align 8
+  %req_waiting_head = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 1
+  call void @request_finished(ptr noundef %35, ptr noundef %req_waiting_head, i32 noundef 1)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then29
   br label %do.body31
 
 do.body31:                                        ; preds = %if.end30
-  %35 = load ptr, ptr %base.addr, align 8
-  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 29
-  %36 = load ptr, ptr %lock32, align 8
-  %tobool33 = icmp ne ptr %36, null
+  %37 = load ptr, ptr %base.addr, align 8
+  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %37, i32 0, i32 29
+  %38 = load ptr, ptr %lock32, align 8
+  %tobool33 = icmp ne ptr %38, null
   br i1 %tobool33, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %do.body31
-  %37 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %38 = load ptr, ptr %base.addr, align 8
-  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %38, i32 0, i32 29
-  %39 = load ptr, ptr %lock35, align 8
-  %call36 = call i32 %37(i32 noundef 0, ptr noundef %39)
+  %39 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %base.addr, align 8
+  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %41, i32 0, i32 29
+  %42 = load ptr, ptr %lock35, align 8
+  %call36 = call i32 %40(i32 noundef 0, ptr noundef %42)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %do.body31
@@ -3661,34 +3687,36 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  call void @evdns_requests_pump_waiting_queue(ptr noundef %5)
+  %6 = load ptr, ptr %base.addr, align 8
+  call void @evdns_requests_pump_waiting_queue(ptr noundef %6)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %6 = load ptr, ptr %base.addr, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %lock3, align 8
-  %tobool4 = icmp ne ptr %7, null
+  %7 = load ptr, ptr %base.addr, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
+  %8 = load ptr, ptr %lock3, align 8
+  %tobool4 = icmp ne ptr %8, null
   br i1 %tobool4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %do.body2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %9 = load ptr, ptr %base.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock6, align 8
-  %call7 = call i32 %8(i32 noundef 0, ptr noundef %10)
+  %9 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %base.addr, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
+  %12 = load ptr, ptr %lock6, align 8
+  %call7 = call i32 %10(i32 noundef 0, ptr noundef %12)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %do.body2
@@ -3868,43 +3896,45 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
-  %5 = load ptr, ptr %lock1, align 8
-  %call2 = call i32 %3(i32 noundef 0, ptr noundef %5)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 29
+  %6 = load ptr, ptr %lock1, align 8
+  %call2 = call i32 %4(i32 noundef 0, ptr noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %base.addr, align 8
-  %call3 = call i32 @evdns_nameserver_add_impl_(ptr noundef %6, ptr noundef %sin, i32 noundef 16)
+  %7 = load ptr, ptr %base.addr, align 8
+  %call3 = call i32 @evdns_nameserver_add_impl_(ptr noundef %7, ptr noundef %sin, i32 noundef 16)
   store i32 %call3, ptr %res, align 4
   br label %do.body4
 
 do.body4:                                         ; preds = %do.end
-  %7 = load ptr, ptr %base.addr, align 8
-  %lock5 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock5, align 8
-  %tobool6 = icmp ne ptr %8, null
+  %8 = load ptr, ptr %base.addr, align 8
+  %lock5 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock5, align 8
+  %tobool6 = icmp ne ptr %9, null
   br i1 %tobool6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %do.body4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %10 = load ptr, ptr %base.addr, align 8
-  %lock8 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
-  %11 = load ptr, ptr %lock8, align 8
-  %call9 = call i32 %9(i32 noundef 0, ptr noundef %11)
+  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %base.addr, align 8
+  %lock8 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
+  %13 = load ptr, ptr %lock8, align 8
+  %call9 = call i32 %11(i32 noundef 0, ptr noundef %13)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %do.body4
   br label %do.end11
 
 do.end11:                                         ; preds = %if.end10
-  %12 = load i32, ptr %res, align 4
-  ret i32 %12
+  %14 = load i32, ptr %res, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
@@ -4343,13 +4373,15 @@ if.end4:                                          ; preds = %if.end
   %2 = load ptr, ptr %base, align 8
   %req_waiting_head = getelementptr inbounds %struct.evdns_base, ptr %2, i32 0, i32 1
   store ptr null, ptr %req_waiting_head, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %tobool = icmp ne ptr %3, null
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
-  %call5 = call ptr %4(i32 noundef 1)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %call5 = call ptr %6(i32 noundef 1)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end4
@@ -4357,122 +4389,123 @@ cond.false:                                       ; preds = %if.end4
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call5, %cond.true ], [ null, %cond.false ]
-  %5 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 29
+  %7 = load ptr, ptr %base, align 8
+  %lock = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
   store ptr %cond, ptr %lock, align 8
   br label %do.body
 
 do.body:                                          ; preds = %cond.end
-  %6 = load ptr, ptr %base, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %lock6, align 8
-  %tobool7 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %base, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock6, align 8
+  %tobool7 = icmp ne ptr %9, null
   br i1 %tobool7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %do.body
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %9 = load ptr, ptr %base, align 8
-  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock9, align 8
-  %call10 = call i32 %8(i32 noundef 0, ptr noundef %10)
+  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %base, align 8
+  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
+  %13 = load ptr, ptr %lock9, align 8
+  %call10 = call i32 %11(i32 noundef 0, ptr noundef %13)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end11
-  %11 = load ptr, ptr %base, align 8
-  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 0
+  %14 = load ptr, ptr %base, align 8
+  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 0
   store ptr null, ptr %req_heads, align 8
-  %12 = load ptr, ptr %base, align 8
-  %call12 = call i32 @evdns_base_set_max_requests_inflight(ptr noundef %12, i32 noundef 64)
-  %13 = load ptr, ptr %base, align 8
-  %server_head = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 2
-  store ptr null, ptr %server_head, align 8
-  %14 = load ptr, ptr %event_base.addr, align 8
   %15 = load ptr, ptr %base, align 8
-  %event_base13 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 4
-  store ptr %14, ptr %event_base13, align 8
+  %call12 = call i32 @evdns_base_set_max_requests_inflight(ptr noundef %15, i32 noundef 64)
   %16 = load ptr, ptr %base, align 8
-  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 7
-  store i32 0, ptr %global_requests_waiting, align 8
-  %17 = load ptr, ptr %base, align 8
-  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 6
-  store i32 0, ptr %global_requests_inflight, align 4
+  %server_head = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 2
+  store ptr null, ptr %server_head, align 8
+  %17 = load ptr, ptr %event_base.addr, align 8
   %18 = load ptr, ptr %base, align 8
-  %global_good_nameservers = getelementptr inbounds %struct.evdns_base, ptr %18, i32 0, i32 5
-  store i32 0, ptr %global_good_nameservers, align 8
+  %event_base13 = getelementptr inbounds %struct.evdns_base, ptr %18, i32 0, i32 4
+  store ptr %17, ptr %event_base13, align 8
   %19 = load ptr, ptr %base, align 8
-  %global_timeout = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 9
+  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 7
+  store i32 0, ptr %global_requests_waiting, align 8
+  %20 = load ptr, ptr %base, align 8
+  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 6
+  store i32 0, ptr %global_requests_inflight, align 4
+  %21 = load ptr, ptr %base, align 8
+  %global_good_nameservers = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 5
+  store i32 0, ptr %global_good_nameservers, align 8
+  %22 = load ptr, ptr %base, align 8
+  %global_timeout = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 9
   %tv_sec = getelementptr inbounds %struct.timeval, ptr %global_timeout, i32 0, i32 0
   store i64 5, ptr %tv_sec, align 8
-  %20 = load ptr, ptr %base, align 8
-  %global_timeout14 = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 9
+  %23 = load ptr, ptr %base, align 8
+  %global_timeout14 = getelementptr inbounds %struct.evdns_base, ptr %23, i32 0, i32 9
   %tv_usec = getelementptr inbounds %struct.timeval, ptr %global_timeout14, i32 0, i32 1
   store i64 0, ptr %tv_usec, align 8
-  %21 = load ptr, ptr %base, align 8
-  %global_max_reissues = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 10
-  store i32 1, ptr %global_max_reissues, align 8
-  %22 = load ptr, ptr %base, align 8
-  %global_max_retransmits = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 11
-  store i32 3, ptr %global_max_retransmits, align 4
-  %23 = load ptr, ptr %base, align 8
-  %global_max_nameserver_timeout = getelementptr inbounds %struct.evdns_base, ptr %23, i32 0, i32 12
-  store i32 3, ptr %global_max_nameserver_timeout, align 8
   %24 = load ptr, ptr %base, align 8
-  %global_search_state = getelementptr inbounds %struct.evdns_base, ptr %24, i32 0, i32 27
-  store ptr null, ptr %global_search_state, align 8
+  %global_max_reissues = getelementptr inbounds %struct.evdns_base, ptr %24, i32 0, i32 10
+  store i32 1, ptr %global_max_reissues, align 8
   %25 = load ptr, ptr %base, align 8
-  %global_randomize_case = getelementptr inbounds %struct.evdns_base, ptr %25, i32 0, i32 13
-  store i32 1, ptr %global_randomize_case, align 4
+  %global_max_retransmits = getelementptr inbounds %struct.evdns_base, ptr %25, i32 0, i32 11
+  store i32 3, ptr %global_max_retransmits, align 4
   %26 = load ptr, ptr %base, align 8
-  %global_max_udp_size = getelementptr inbounds %struct.evdns_base, ptr %26, i32 0, i32 14
-  store i16 512, ptr %global_max_udp_size, align 8
+  %global_max_nameserver_timeout = getelementptr inbounds %struct.evdns_base, ptr %26, i32 0, i32 12
+  store i32 3, ptr %global_max_nameserver_timeout, align 8
   %27 = load ptr, ptr %base, align 8
-  %global_getaddrinfo_allow_skew = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 20
+  %global_search_state = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 27
+  store ptr null, ptr %global_search_state, align 8
+  %28 = load ptr, ptr %base, align 8
+  %global_randomize_case = getelementptr inbounds %struct.evdns_base, ptr %28, i32 0, i32 13
+  store i32 1, ptr %global_randomize_case, align 4
+  %29 = load ptr, ptr %base, align 8
+  %global_max_udp_size = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 14
+  store i16 512, ptr %global_max_udp_size, align 8
+  %30 = load ptr, ptr %base, align 8
+  %global_getaddrinfo_allow_skew = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 20
   %tv_sec15 = getelementptr inbounds %struct.timeval, ptr %global_getaddrinfo_allow_skew, i32 0, i32 0
   store i64 3, ptr %tv_sec15, align 8
-  %28 = load ptr, ptr %base, align 8
-  %global_getaddrinfo_allow_skew16 = getelementptr inbounds %struct.evdns_base, ptr %28, i32 0, i32 20
+  %31 = load ptr, ptr %base, align 8
+  %global_getaddrinfo_allow_skew16 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 20
   %tv_usec17 = getelementptr inbounds %struct.timeval, ptr %global_getaddrinfo_allow_skew16, i32 0, i32 1
   store i64 0, ptr %tv_usec17, align 8
-  %29 = load ptr, ptr %base, align 8
-  %global_nameserver_probe_initial_timeout = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 15
+  %32 = load ptr, ptr %base, align 8
+  %global_nameserver_probe_initial_timeout = getelementptr inbounds %struct.evdns_base, ptr %32, i32 0, i32 15
   %tv_sec18 = getelementptr inbounds %struct.timeval, ptr %global_nameserver_probe_initial_timeout, i32 0, i32 0
   store i64 10, ptr %tv_sec18, align 8
-  %30 = load ptr, ptr %base, align 8
-  %global_nameserver_probe_initial_timeout19 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 15
+  %33 = load ptr, ptr %base, align 8
+  %global_nameserver_probe_initial_timeout19 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 15
   %tv_usec20 = getelementptr inbounds %struct.timeval, ptr %global_nameserver_probe_initial_timeout19, i32 0, i32 1
   store i64 0, ptr %tv_usec20, align 8
-  %31 = load ptr, ptr %base, align 8
-  %ns_max_probe_timeout = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 31
+  %34 = load ptr, ptr %base, align 8
+  %ns_max_probe_timeout = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 31
   store i32 3600, ptr %ns_max_probe_timeout, align 4
-  %32 = load ptr, ptr %base, align 8
-  %ns_timeout_backoff_factor = getelementptr inbounds %struct.evdns_base, ptr %32, i32 0, i32 32
+  %35 = load ptr, ptr %base, align 8
+  %ns_timeout_backoff_factor = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 32
   store i32 3, ptr %ns_timeout_backoff_factor, align 8
-  %33 = load ptr, ptr %base, align 8
-  %global_tcp_idle_timeout = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 17
+  %36 = load ptr, ptr %base, align 8
+  %global_tcp_idle_timeout = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 17
   %tv_sec21 = getelementptr inbounds %struct.timeval, ptr %global_tcp_idle_timeout, i32 0, i32 0
   store i64 5, ptr %tv_sec21, align 8
   br label %do.body22
 
 do.body22:                                        ; preds = %do.end
-  %34 = load ptr, ptr %base, align 8
-  %hostsdb = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 28
+  %37 = load ptr, ptr %base, align 8
+  %hostsdb = getelementptr inbounds %struct.evdns_base, ptr %37, i32 0, i32 28
   %tqh_first = getelementptr inbounds %struct.hosts_list, ptr %hostsdb, i32 0, i32 0
   store ptr null, ptr %tqh_first, align 8
-  %35 = load ptr, ptr %base, align 8
-  %hostsdb23 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 28
+  %38 = load ptr, ptr %base, align 8
+  %hostsdb23 = getelementptr inbounds %struct.evdns_base, ptr %38, i32 0, i32 28
   %tqh_first24 = getelementptr inbounds %struct.hosts_list, ptr %hostsdb23, i32 0, i32 0
-  %36 = load ptr, ptr %base, align 8
-  %hostsdb25 = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 28
+  %39 = load ptr, ptr %base, align 8
+  %hostsdb25 = getelementptr inbounds %struct.evdns_base, ptr %39, i32 0, i32 28
   %tqh_last = getelementptr inbounds %struct.hosts_list, ptr %hostsdb25, i32 0, i32 1
   store ptr %tqh_first24, ptr %tqh_last, align 8
   br label %do.end26
 
 do.end26:                                         ; preds = %do.body22
-  %37 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %37, -98306
+  %40 = load i32, ptr %flags.addr, align 4
+  %and = and i32 %40, -98306
   %tobool27 = icmp ne i32 %and, 0
   br i1 %tobool27, label %if.then28, label %if.end29
 
@@ -4482,54 +4515,54 @@ if.then28:                                        ; preds = %do.end26
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %do.end26
-  %38 = load i32, ptr %flags.addr, align 4
-  %and30 = and i32 %38, 32768
+  %41 = load i32, ptr %flags.addr, align 4
+  %and30 = and i32 %41, 32768
   %tobool31 = icmp ne i32 %and30, 0
   br i1 %tobool31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end29
-  %39 = load ptr, ptr %base, align 8
-  %disable_when_inactive = getelementptr inbounds %struct.evdns_base, ptr %39, i32 0, i32 30
+  %42 = load ptr, ptr %base, align 8
+  %disable_when_inactive = getelementptr inbounds %struct.evdns_base, ptr %42, i32 0, i32 30
   store i32 1, ptr %disable_when_inactive, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.end29
-  %40 = load i32, ptr %flags.addr, align 4
-  %and34 = and i32 %40, 1
+  %43 = load i32, ptr %flags.addr, align 4
+  %and34 = and i32 %43, 1
   %tobool35 = icmp ne i32 %and34, 0
   br i1 %tobool35, label %if.then36, label %if.end47
 
 if.then36:                                        ; preds = %if.end33
   store i32 15, ptr %opts, align 4
-  %41 = load i32, ptr %flags.addr, align 4
-  %and37 = and i32 %41, 65536
+  %44 = load i32, ptr %flags.addr, align 4
+  %and37 = and i32 %44, 65536
   %tobool38 = icmp ne i32 %and37, 0
   br i1 %tobool38, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.then36
-  %42 = load i32, ptr %opts, align 4
-  %or = or i32 %42, 16
+  %45 = load i32, ptr %opts, align 4
+  %or = or i32 %45, 16
   store i32 %or, ptr %opts, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.then36
-  %43 = load ptr, ptr %base, align 8
-  %44 = load i32, ptr %opts, align 4
+  %46 = load ptr, ptr %base, align 8
+  %47 = load i32, ptr %opts, align 4
   %call41 = call ptr @evutil_resolvconf_filename_()
-  %call42 = call i32 @evdns_base_resolv_conf_parse(ptr noundef %43, i32 noundef %44, ptr noundef %call41)
+  %call42 = call i32 @evdns_base_resolv_conf_parse(ptr noundef %46, i32 noundef %47, ptr noundef %call41)
   store i32 %call42, ptr %r, align 4
-  %45 = load i32, ptr %r, align 4
-  %tobool43 = icmp ne i32 %45, 0
+  %48 = load i32, ptr %r, align 4
+  %tobool43 = icmp ne i32 %48, 0
   br i1 %tobool43, label %land.lhs.true, label %if.end46
 
 land.lhs.true:                                    ; preds = %if.end40
-  %46 = load i32, ptr %r, align 4
-  %cmp44 = icmp ne i32 6, %46
+  %49 = load i32, ptr %r, align 4
+  %cmp44 = icmp ne i32 6, %49
   br i1 %cmp44, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %land.lhs.true
-  %47 = load ptr, ptr %base, align 8
-  call void @evdns_base_free_and_unlock(ptr noundef %47, i32 noundef 0)
+  %50 = load ptr, ptr %base, align 8
+  call void @evdns_base_free_and_unlock(ptr noundef %50, i32 noundef 0)
   store ptr null, ptr %retval, align 8
   br label %return
 
@@ -4540,31 +4573,32 @@ if.end47:                                         ; preds = %if.end46, %if.end33
   br label %do.body48
 
 do.body48:                                        ; preds = %if.end47
-  %48 = load ptr, ptr %base, align 8
-  %lock49 = getelementptr inbounds %struct.evdns_base, ptr %48, i32 0, i32 29
-  %49 = load ptr, ptr %lock49, align 8
-  %tobool50 = icmp ne ptr %49, null
+  %51 = load ptr, ptr %base, align 8
+  %lock49 = getelementptr inbounds %struct.evdns_base, ptr %51, i32 0, i32 29
+  %52 = load ptr, ptr %lock49, align 8
+  %tobool50 = icmp ne ptr %52, null
   br i1 %tobool50, label %if.then51, label %if.end54
 
 if.then51:                                        ; preds = %do.body48
-  %50 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %51 = load ptr, ptr %base, align 8
-  %lock52 = getelementptr inbounds %struct.evdns_base, ptr %51, i32 0, i32 29
-  %52 = load ptr, ptr %lock52, align 8
-  %call53 = call i32 %50(i32 noundef 0, ptr noundef %52)
+  %53 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %base, align 8
+  %lock52 = getelementptr inbounds %struct.evdns_base, ptr %55, i32 0, i32 29
+  %56 = load ptr, ptr %lock52, align 8
+  %call53 = call i32 %54(i32 noundef 0, ptr noundef %56)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %do.body48
   br label %do.end55
 
 do.end55:                                         ; preds = %if.end54
-  %53 = load ptr, ptr %base, align 8
-  store ptr %53, ptr %retval, align 8
+  %57 = load ptr, ptr %base, align 8
+  store ptr %57, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end55, %if.then45, %if.then3, %if.then
-  %54 = load ptr, ptr %retval, align 8
-  ret ptr %54
+  %58 = load ptr, ptr %retval, align 8
+  ret ptr %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4615,50 +4649,52 @@ do.body:                                          ; preds = %if.end4
   br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %base.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %base.addr, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock7, align 8
+  %call8 = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end9
-  %9 = load ptr, ptr %base.addr, align 8
-  %10 = load ptr, ptr %sa, align 8
-  %11 = load i32, ptr %len, align 4
-  %call10 = call i32 @evdns_nameserver_add_impl_(ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %10 = load ptr, ptr %base.addr, align 8
+  %11 = load ptr, ptr %sa, align 8
+  %12 = load i32, ptr %len, align 4
+  %call10 = call i32 @evdns_nameserver_add_impl_(ptr noundef %10, ptr noundef %11, i32 noundef %12)
   store i32 %call10, ptr %res, align 4
   br label %do.body11
 
 do.body11:                                        ; preds = %do.end
-  %12 = load ptr, ptr %base.addr, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
-  %13 = load ptr, ptr %lock12, align 8
-  %tobool13 = icmp ne ptr %13, null
+  %13 = load ptr, ptr %base.addr, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %lock12, align 8
+  %tobool13 = icmp ne ptr %14, null
   br i1 %tobool13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %do.body11
-  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %15 = load ptr, ptr %base.addr, align 8
-  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
-  %16 = load ptr, ptr %lock15, align 8
-  %call16 = call i32 %14(i32 noundef 0, ptr noundef %16)
+  %15 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %base.addr, align 8
+  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 29
+  %18 = load ptr, ptr %lock15, align 8
+  %call16 = call i32 %16(i32 noundef 0, ptr noundef %18)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %do.body11
   br label %do.end18
 
 do.end18:                                         ; preds = %if.end17
-  %17 = load i32, ptr %res, align 4
-  store i32 %17, ptr %retval, align 4
+  %19 = load i32, ptr %res, align 4
+  store i32 %19, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %do.end18, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+  %20 = load i32, ptr %retval, align 4
+  ret i32 %20
 }
 
 declare i32 @evutil_parse_sockaddr_port(ptr noundef, ptr noundef, ptr noundef) #1
@@ -4803,45 +4839,47 @@ do.body1:                                         ; preds = %do.end
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock2, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock2, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
   br label %do.end3
 
 do.end3:                                          ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %6 = load ptr, ptr %sa.addr, align 8
-  %7 = load i32, ptr %len.addr, align 4
-  %call4 = call i32 @evdns_nameserver_add_impl_(ptr noundef %5, ptr noundef %6, i32 noundef %7)
+  %6 = load ptr, ptr %base.addr, align 8
+  %7 = load ptr, ptr %sa.addr, align 8
+  %8 = load i32, ptr %len.addr, align 4
+  %call4 = call i32 @evdns_nameserver_add_impl_(ptr noundef %6, ptr noundef %7, i32 noundef %8)
   store i32 %call4, ptr %res, align 4
   br label %do.body5
 
 do.body5:                                         ; preds = %do.end3
-  %8 = load ptr, ptr %base.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %lock6, align 8
-  %tobool7 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %base.addr, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
+  %10 = load ptr, ptr %lock6, align 8
+  %tobool7 = icmp ne ptr %10, null
   br i1 %tobool7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %do.body5
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %11 = load ptr, ptr %base.addr, align 8
-  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
-  %12 = load ptr, ptr %lock9, align 8
-  %call10 = call i32 %10(i32 noundef 0, ptr noundef %12)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %base.addr, align 8
+  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %lock9, align 8
+  %call10 = call i32 %12(i32 noundef 0, ptr noundef %14)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %do.body5
   br label %do.end12
 
 do.end12:                                         ; preds = %if.end11
-  %13 = load i32, ptr %res, align 4
-  ret i32 %13
+  %15 = load i32, ptr %res, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4869,47 +4907,48 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %server_head = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %server_head, align 8
-  store ptr %6, ptr %server, align 8
+  %6 = load ptr, ptr %base.addr, align 8
+  %server_head = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %server_head, align 8
+  store ptr %7, ptr %server, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %idx.addr, align 4
-  %cmp = icmp slt i32 %7, %8
+  %8 = load i32, ptr %i, align 4
+  %9 = load i32, ptr %idx.addr, align 4
+  %cmp = icmp slt i32 %8, %9
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %server, align 8
-  %tobool2 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %server, align 8
+  %tobool2 = icmp ne ptr %10, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %10 = phi i1 [ false, %for.cond ], [ %tobool2, %land.rhs ]
-  br i1 %10, label %for.body, label %for.end
+  %11 = phi i1 [ false, %for.cond ], [ %tobool2, %land.rhs ]
+  br i1 %11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %11 = load ptr, ptr %server, align 8
-  %next = getelementptr inbounds %struct.nameserver, ptr %11, i32 0, i32 7
-  %12 = load ptr, ptr %next, align 8
-  %13 = load ptr, ptr %base.addr, align 8
-  %server_head3 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %server_head3, align 8
-  %cmp4 = icmp eq ptr %12, %14
+  %12 = load ptr, ptr %server, align 8
+  %next = getelementptr inbounds %struct.nameserver, ptr %12, i32 0, i32 7
+  %13 = load ptr, ptr %next, align 8
+  %14 = load ptr, ptr %base.addr, align 8
+  %server_head3 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %server_head3, align 8
+  %cmp4 = icmp eq ptr %13, %15
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %for.body
@@ -4919,77 +4958,78 @@ if.end6:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end6
-  %15 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %15, 1
+  %16 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %i, align 4
-  %16 = load ptr, ptr %server, align 8
-  %next7 = getelementptr inbounds %struct.nameserver, ptr %16, i32 0, i32 7
-  %17 = load ptr, ptr %next7, align 8
-  store ptr %17, ptr %server, align 8
+  %17 = load ptr, ptr %server, align 8
+  %next7 = getelementptr inbounds %struct.nameserver, ptr %17, i32 0, i32 7
+  %18 = load ptr, ptr %next7, align 8
+  store ptr %18, ptr %server, align 8
   br label %for.cond, !llvm.loop !17
 
 for.end:                                          ; preds = %land.end
-  %18 = load ptr, ptr %server, align 8
-  %tobool8 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %server, align 8
+  %tobool8 = icmp ne ptr %19, null
   br i1 %tobool8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %for.end
   br label %done
 
 if.end10:                                         ; preds = %for.end
-  %19 = load ptr, ptr %server, align 8
-  %addrlen = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %addrlen, align 8
-  %21 = load i32, ptr %len.addr, align 4
-  %cmp11 = icmp ugt i32 %20, %21
+  %20 = load ptr, ptr %server, align 8
+  %addrlen = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 3
+  %21 = load i32, ptr %addrlen, align 8
+  %22 = load i32, ptr %len.addr, align 4
+  %cmp11 = icmp ugt i32 %21, %22
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
-  %22 = load ptr, ptr %server, align 8
-  %addrlen13 = getelementptr inbounds %struct.nameserver, ptr %22, i32 0, i32 3
-  %23 = load i32, ptr %addrlen13, align 8
-  store i32 %23, ptr %result, align 4
+  %23 = load ptr, ptr %server, align 8
+  %addrlen13 = getelementptr inbounds %struct.nameserver, ptr %23, i32 0, i32 3
+  %24 = load i32, ptr %addrlen13, align 8
+  store i32 %24, ptr %result, align 4
   br label %done
 
 if.end14:                                         ; preds = %if.end10
-  %24 = load ptr, ptr %sa.addr, align 8
-  %25 = load ptr, ptr %server, align 8
-  %address = getelementptr inbounds %struct.nameserver, ptr %25, i32 0, i32 2
+  %25 = load ptr, ptr %sa.addr, align 8
   %26 = load ptr, ptr %server, align 8
-  %addrlen15 = getelementptr inbounds %struct.nameserver, ptr %26, i32 0, i32 3
-  %27 = load i32, ptr %addrlen15, align 8
-  %conv = zext i32 %27 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %24, ptr align 8 %address, i64 %conv, i1 false)
-  %28 = load ptr, ptr %server, align 8
-  %addrlen16 = getelementptr inbounds %struct.nameserver, ptr %28, i32 0, i32 3
-  %29 = load i32, ptr %addrlen16, align 8
-  store i32 %29, ptr %result, align 4
+  %address = getelementptr inbounds %struct.nameserver, ptr %26, i32 0, i32 2
+  %27 = load ptr, ptr %server, align 8
+  %addrlen15 = getelementptr inbounds %struct.nameserver, ptr %27, i32 0, i32 3
+  %28 = load i32, ptr %addrlen15, align 8
+  %conv = zext i32 %28 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %25, ptr align 8 %address, i64 %conv, i1 false)
+  %29 = load ptr, ptr %server, align 8
+  %addrlen16 = getelementptr inbounds %struct.nameserver, ptr %29, i32 0, i32 3
+  %30 = load i32, ptr %addrlen16, align 8
+  store i32 %30, ptr %result, align 4
   br label %done
 
 done:                                             ; preds = %if.end14, %if.then12, %if.then9, %if.then5
   br label %do.body17
 
 do.body17:                                        ; preds = %done
-  %30 = load ptr, ptr %base.addr, align 8
-  %lock18 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 29
-  %31 = load ptr, ptr %lock18, align 8
-  %tobool19 = icmp ne ptr %31, null
+  %31 = load ptr, ptr %base.addr, align 8
+  %lock18 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
+  %32 = load ptr, ptr %lock18, align 8
+  %tobool19 = icmp ne ptr %32, null
   br i1 %tobool19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %do.body17
-  %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %33 = load ptr, ptr %base.addr, align 8
-  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 29
-  %34 = load ptr, ptr %lock21, align 8
-  %call22 = call i32 %32(i32 noundef 0, ptr noundef %34)
+  %33 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %base.addr, align 8
+  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 29
+  %36 = load ptr, ptr %lock21, align 8
+  %call22 = call i32 %34(i32 noundef 0, ptr noundef %36)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %do.body17
   br label %do.end24
 
 do.end24:                                         ; preds = %if.end23
-  %35 = load i32, ptr %result, align 4
-  ret i32 %35
+  %37 = load i32, ptr %result, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5013,47 +5053,48 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %server_head = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %server_head, align 8
-  store ptr %6, ptr %server, align 8
+  %6 = load ptr, ptr %base.addr, align 8
+  %server_head = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %server_head, align 8
+  store ptr %7, ptr %server, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %idx.addr, align 4
-  %cmp = icmp slt i32 %7, %8
+  %8 = load i32, ptr %i, align 4
+  %9 = load i32, ptr %idx.addr, align 4
+  %cmp = icmp slt i32 %8, %9
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %server, align 8
-  %tobool2 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %server, align 8
+  %tobool2 = icmp ne ptr %10, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %10 = phi i1 [ false, %for.cond ], [ %tobool2, %land.rhs ]
-  br i1 %10, label %for.body, label %for.end
+  %11 = phi i1 [ false, %for.cond ], [ %tobool2, %land.rhs ]
+  br i1 %11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %11 = load ptr, ptr %server, align 8
-  %next = getelementptr inbounds %struct.nameserver, ptr %11, i32 0, i32 7
-  %12 = load ptr, ptr %next, align 8
-  %13 = load ptr, ptr %base.addr, align 8
-  %server_head3 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %server_head3, align 8
-  %cmp4 = icmp eq ptr %12, %14
+  %12 = load ptr, ptr %server, align 8
+  %next = getelementptr inbounds %struct.nameserver, ptr %12, i32 0, i32 7
+  %13 = load ptr, ptr %next, align 8
+  %14 = load ptr, ptr %base.addr, align 8
+  %server_head3 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %server_head3, align 8
+  %cmp4 = icmp eq ptr %13, %15
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %for.body
@@ -5063,54 +5104,55 @@ if.end6:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end6
-  %15 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %15, 1
+  %16 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %i, align 4
-  %16 = load ptr, ptr %server, align 8
-  %next7 = getelementptr inbounds %struct.nameserver, ptr %16, i32 0, i32 7
-  %17 = load ptr, ptr %next7, align 8
-  store ptr %17, ptr %server, align 8
+  %17 = load ptr, ptr %server, align 8
+  %next7 = getelementptr inbounds %struct.nameserver, ptr %17, i32 0, i32 7
+  %18 = load ptr, ptr %next7, align 8
+  store ptr %18, ptr %server, align 8
   br label %for.cond, !llvm.loop !18
 
 for.end:                                          ; preds = %land.end
-  %18 = load ptr, ptr %server, align 8
-  %tobool8 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %server, align 8
+  %tobool8 = icmp ne ptr %19, null
   br i1 %tobool8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %for.end
   br label %done
 
 if.end10:                                         ; preds = %for.end
-  %19 = load ptr, ptr %server, align 8
-  %socket = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 0
-  %20 = load i32, ptr %socket, align 8
-  store i32 %20, ptr %result, align 4
+  %20 = load ptr, ptr %server, align 8
+  %socket = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 0
+  %21 = load i32, ptr %socket, align 8
+  store i32 %21, ptr %result, align 4
   br label %done
 
 done:                                             ; preds = %if.end10, %if.then9, %if.then5
   br label %do.body11
 
 do.body11:                                        ; preds = %done
-  %21 = load ptr, ptr %base.addr, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 29
-  %22 = load ptr, ptr %lock12, align 8
-  %tobool13 = icmp ne ptr %22, null
+  %22 = load ptr, ptr %base.addr, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 29
+  %23 = load ptr, ptr %lock12, align 8
+  %tobool13 = icmp ne ptr %23, null
   br i1 %tobool13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %do.body11
-  %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %24 = load ptr, ptr %base.addr, align 8
-  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %24, i32 0, i32 29
-  %25 = load ptr, ptr %lock15, align 8
-  %call16 = call i32 %23(i32 noundef 0, ptr noundef %25)
+  %24 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %base.addr, align 8
+  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %26, i32 0, i32 29
+  %27 = load ptr, ptr %lock15, align 8
+  %call16 = call i32 %25(i32 noundef 0, ptr noundef %27)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %do.body11
   br label %do.end18
 
 do.end18:                                         ; preds = %if.end17
-  %26 = load i32, ptr %result, align 4
-  ret i32 %26
+  %28 = load i32, ptr %result, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5245,11 +5287,12 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %base, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock2, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %base, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock2, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -5262,93 +5305,93 @@ do.body3:                                         ; preds = %do.end
   br label %do.end4
 
 do.end4:                                          ; preds = %do.body3
-  %9 = load ptr, ptr %head.addr, align 8
-  %tobool5 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %head.addr, align 8
+  %tobool5 = icmp ne ptr %10, null
   br i1 %tobool5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %do.end4
-  %10 = load ptr, ptr %req.addr, align 8
-  %11 = load ptr, ptr %head.addr, align 8
-  call void @evdns_request_remove(ptr noundef %10, ptr noundef %11)
+  %11 = load ptr, ptr %req.addr, align 8
+  %12 = load ptr, ptr %head.addr, align 8
+  call void @evdns_request_remove(ptr noundef %11, ptr noundef %12)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %do.end4
-  %12 = load ptr, ptr %req.addr, align 8
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.72, ptr noundef %12)
-  %13 = load i32, ptr %was_inflight, align 4
-  %tobool8 = icmp ne i32 %13, 0
+  %13 = load ptr, ptr %req.addr, align 8
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.72, ptr noundef %13)
+  %14 = load i32, ptr %was_inflight, align 4
+  %tobool8 = icmp ne i32 %14, 0
   br i1 %tobool8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
-  %14 = load ptr, ptr %req.addr, align 8
-  %timeout_event = getelementptr inbounds %struct.request, ptr %14, i32 0, i32 9
+  %15 = load ptr, ptr %req.addr, align 8
+  %timeout_event = getelementptr inbounds %struct.request, ptr %15, i32 0, i32 9
   %call10 = call i32 @event_del(ptr noundef %timeout_event)
-  %15 = load ptr, ptr %base, align 8
-  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 6
-  %16 = load i32, ptr %global_requests_inflight, align 4
-  %dec = add nsw i32 %16, -1
+  %16 = load ptr, ptr %base, align 8
+  %global_requests_inflight = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 6
+  %17 = load i32, ptr %global_requests_inflight, align 4
+  %dec = add nsw i32 %17, -1
   store i32 %dec, ptr %global_requests_inflight, align 4
-  %17 = load ptr, ptr %req.addr, align 8
-  %ns = getelementptr inbounds %struct.request, ptr %17, i32 0, i32 6
-  %18 = load ptr, ptr %ns, align 8
-  %requests_inflight = getelementptr inbounds %struct.nameserver, ptr %18, i32 0, i32 15
-  %19 = load i32, ptr %requests_inflight, align 8
-  %dec11 = add nsw i32 %19, -1
+  %18 = load ptr, ptr %req.addr, align 8
+  %ns = getelementptr inbounds %struct.request, ptr %18, i32 0, i32 6
+  %19 = load ptr, ptr %ns, align 8
+  %requests_inflight = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 15
+  %20 = load i32, ptr %requests_inflight, align 8
+  %dec11 = add nsw i32 %20, -1
   store i32 %dec11, ptr %requests_inflight, align 8
   br label %if.end13
 
 if.else:                                          ; preds = %if.end7
-  %20 = load ptr, ptr %base, align 8
-  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 7
-  %21 = load i32, ptr %global_requests_waiting, align 8
-  %dec12 = add nsw i32 %21, -1
+  %21 = load ptr, ptr %base, align 8
+  %global_requests_waiting = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 7
+  %22 = load i32, ptr %global_requests_waiting, align 8
+  %dec12 = add nsw i32 %22, -1
   store i32 %dec12, ptr %global_requests_waiting, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then9
-  %22 = load ptr, ptr %req.addr, align 8
-  %timeout_event14 = getelementptr inbounds %struct.request, ptr %22, i32 0, i32 9
-  call void @event_debug_unassign(ptr noundef %timeout_event14)
   %23 = load ptr, ptr %req.addr, align 8
-  %ns15 = getelementptr inbounds %struct.request, ptr %23, i32 0, i32 6
-  %24 = load ptr, ptr %ns15, align 8
-  %tobool16 = icmp ne ptr %24, null
+  %timeout_event14 = getelementptr inbounds %struct.request, ptr %23, i32 0, i32 9
+  call void @event_debug_unassign(ptr noundef %timeout_event14)
+  %24 = load ptr, ptr %req.addr, align 8
+  %ns15 = getelementptr inbounds %struct.request, ptr %24, i32 0, i32 6
+  %25 = load ptr, ptr %ns15, align 8
+  %tobool16 = icmp ne ptr %25, null
   br i1 %tobool16, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %if.end13
-  %25 = load ptr, ptr %req.addr, align 8
-  %ns17 = getelementptr inbounds %struct.request, ptr %25, i32 0, i32 6
-  %26 = load ptr, ptr %ns17, align 8
-  %requests_inflight18 = getelementptr inbounds %struct.nameserver, ptr %26, i32 0, i32 15
-  %27 = load i32, ptr %requests_inflight18, align 8
-  %cmp19 = icmp eq i32 %27, 0
+  %26 = load ptr, ptr %req.addr, align 8
+  %ns17 = getelementptr inbounds %struct.request, ptr %26, i32 0, i32 6
+  %27 = load ptr, ptr %ns17, align 8
+  %requests_inflight18 = getelementptr inbounds %struct.nameserver, ptr %27, i32 0, i32 15
+  %28 = load i32, ptr %requests_inflight18, align 8
+  %cmp19 = icmp eq i32 %28, 0
   br i1 %cmp19, label %land.lhs.true21, label %if.end30
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %28 = load ptr, ptr %req.addr, align 8
-  %base22 = getelementptr inbounds %struct.request, ptr %28, i32 0, i32 13
-  %29 = load ptr, ptr %base22, align 8
-  %disable_when_inactive = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 30
-  %30 = load i32, ptr %disable_when_inactive, align 8
-  %tobool23 = icmp ne i32 %30, 0
+  %29 = load ptr, ptr %req.addr, align 8
+  %base22 = getelementptr inbounds %struct.request, ptr %29, i32 0, i32 13
+  %30 = load ptr, ptr %base22, align 8
+  %disable_when_inactive = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 30
+  %31 = load i32, ptr %disable_when_inactive, align 8
+  %tobool23 = icmp ne i32 %31, 0
   br i1 %tobool23, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %land.lhs.true21
-  %31 = load ptr, ptr %req.addr, align 8
-  %ns25 = getelementptr inbounds %struct.request, ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %ns25, align 8
-  %event = getelementptr inbounds %struct.nameserver, ptr %32, i32 0, i32 6
+  %32 = load ptr, ptr %req.addr, align 8
+  %ns25 = getelementptr inbounds %struct.request, ptr %32, i32 0, i32 6
+  %33 = load ptr, ptr %ns25, align 8
+  %event = getelementptr inbounds %struct.nameserver, ptr %33, i32 0, i32 6
   %call26 = call i32 @event_del(ptr noundef %event)
-  %33 = load ptr, ptr %req.addr, align 8
-  %ns27 = getelementptr inbounds %struct.request, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %ns27, align 8
-  %timeout_event28 = getelementptr inbounds %struct.nameserver, ptr %34, i32 0, i32 9
+  %34 = load ptr, ptr %req.addr, align 8
+  %ns27 = getelementptr inbounds %struct.request, ptr %34, i32 0, i32 6
+  %35 = load ptr, ptr %ns27, align 8
+  %timeout_event28 = getelementptr inbounds %struct.nameserver, ptr %35, i32 0, i32 9
   %call29 = call i32 @event_del(ptr noundef %timeout_event28)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then24, %land.lhs.true21, %land.lhs.true, %if.end13
-  %35 = load ptr, ptr %req.addr, align 8
-  %request_appended = getelementptr inbounds %struct.request, ptr %35, i32 0, i32 11
+  %36 = load ptr, ptr %req.addr, align 8
+  %request_appended = getelementptr inbounds %struct.request, ptr %36, i32 0, i32 11
   %bf.load = load i8, ptr %request_appended, align 2
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
@@ -5356,20 +5399,20 @@ if.end30:                                         ; preds = %if.then24, %land.lh
   br i1 %tobool31, label %if.else33, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %36 = load ptr, ptr %req.addr, align 8
-  %request = getelementptr inbounds %struct.request, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %request, align 8
-  call void @event_mm_free_(ptr noundef %37)
+  %37 = load ptr, ptr %req.addr, align 8
+  %request = getelementptr inbounds %struct.request, ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %request, align 8
+  call void @event_mm_free_(ptr noundef %38)
   br label %if.end34
 
 if.else33:                                        ; preds = %if.end30
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else33, %if.then32
-  %38 = load ptr, ptr %req.addr, align 8
-  %handle = getelementptr inbounds %struct.request, ptr %38, i32 0, i32 14
-  %39 = load ptr, ptr %handle, align 8
-  %tobool35 = icmp ne ptr %39, null
+  %39 = load ptr, ptr %req.addr, align 8
+  %handle = getelementptr inbounds %struct.request, ptr %39, i32 0, i32 14
+  %40 = load ptr, ptr %handle, align 8
+  %tobool35 = icmp ne ptr %40, null
   br i1 %tobool35, label %if.then36, label %if.end53
 
 if.then36:                                        ; preds = %if.end34
@@ -5379,46 +5422,46 @@ do.body37:                                        ; preds = %if.then36
   br label %do.end38
 
 do.end38:                                         ; preds = %do.body37
-  %40 = load i32, ptr %free_handle.addr, align 4
-  %tobool39 = icmp ne i32 %40, 0
+  %41 = load i32, ptr %free_handle.addr, align 4
+  %tobool39 = icmp ne i32 %41, 0
   br i1 %tobool39, label %if.then40, label %if.else49
 
 if.then40:                                        ; preds = %do.end38
-  %41 = load ptr, ptr %req.addr, align 8
-  %handle41 = getelementptr inbounds %struct.request, ptr %41, i32 0, i32 14
-  %42 = load ptr, ptr %handle41, align 8
-  call void @search_request_finished(ptr noundef %42)
-  %43 = load ptr, ptr %req.addr, align 8
-  %handle42 = getelementptr inbounds %struct.request, ptr %43, i32 0, i32 14
-  %44 = load ptr, ptr %handle42, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %44, i32 0, i32 0
+  %42 = load ptr, ptr %req.addr, align 8
+  %handle41 = getelementptr inbounds %struct.request, ptr %42, i32 0, i32 14
+  %43 = load ptr, ptr %handle41, align 8
+  call void @search_request_finished(ptr noundef %43)
+  %44 = load ptr, ptr %req.addr, align 8
+  %handle42 = getelementptr inbounds %struct.request, ptr %44, i32 0, i32 14
+  %45 = load ptr, ptr %handle42, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %45, i32 0, i32 0
   store ptr null, ptr %current_req, align 8
-  %45 = load ptr, ptr %req.addr, align 8
-  %handle43 = getelementptr inbounds %struct.request, ptr %45, i32 0, i32 14
-  %46 = load ptr, ptr %handle43, align 8
-  %pending_cb = getelementptr inbounds %struct.evdns_request, ptr %46, i32 0, i32 2
-  %47 = load i32, ptr %pending_cb, align 8
-  %tobool44 = icmp ne i32 %47, 0
+  %46 = load ptr, ptr %req.addr, align 8
+  %handle43 = getelementptr inbounds %struct.request, ptr %46, i32 0, i32 14
+  %47 = load ptr, ptr %handle43, align 8
+  %pending_cb = getelementptr inbounds %struct.evdns_request, ptr %47, i32 0, i32 2
+  %48 = load i32, ptr %pending_cb, align 8
+  %tobool44 = icmp ne i32 %48, 0
   br i1 %tobool44, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.then40
-  %48 = load ptr, ptr %req.addr, align 8
-  %handle46 = getelementptr inbounds %struct.request, ptr %48, i32 0, i32 14
-  %49 = load ptr, ptr %handle46, align 8
-  call void @event_mm_free_(ptr noundef %49)
+  %49 = load ptr, ptr %req.addr, align 8
+  %handle46 = getelementptr inbounds %struct.request, ptr %49, i32 0, i32 14
+  %50 = load ptr, ptr %handle46, align 8
+  call void @event_mm_free_(ptr noundef %50)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then45, %if.then40
-  %50 = load ptr, ptr %req.addr, align 8
-  %handle48 = getelementptr inbounds %struct.request, ptr %50, i32 0, i32 14
+  %51 = load ptr, ptr %req.addr, align 8
+  %handle48 = getelementptr inbounds %struct.request, ptr %51, i32 0, i32 14
   store ptr null, ptr %handle48, align 8
   br label %if.end52
 
 if.else49:                                        ; preds = %do.end38
-  %51 = load ptr, ptr %req.addr, align 8
-  %handle50 = getelementptr inbounds %struct.request, ptr %51, i32 0, i32 14
-  %52 = load ptr, ptr %handle50, align 8
-  %current_req51 = getelementptr inbounds %struct.evdns_request, ptr %52, i32 0, i32 0
+  %52 = load ptr, ptr %req.addr, align 8
+  %handle50 = getelementptr inbounds %struct.request, ptr %52, i32 0, i32 14
+  %53 = load ptr, ptr %handle50, align 8
+  %current_req51 = getelementptr inbounds %struct.evdns_request, ptr %53, i32 0, i32 0
   store ptr null, ptr %current_req51, align 8
   br label %if.end52
 
@@ -5426,25 +5469,26 @@ if.end52:                                         ; preds = %if.else49, %if.end4
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end52, %if.end34
-  %53 = load ptr, ptr %req.addr, align 8
-  call void @event_mm_free_(ptr noundef %53)
-  %54 = load ptr, ptr %base, align 8
-  call void @evdns_requests_pump_waiting_queue(ptr noundef %54)
+  %54 = load ptr, ptr %req.addr, align 8
+  call void @event_mm_free_(ptr noundef %54)
+  %55 = load ptr, ptr %base, align 8
+  call void @evdns_requests_pump_waiting_queue(ptr noundef %55)
   br label %do.body54
 
 do.body54:                                        ; preds = %if.end53
-  %55 = load ptr, ptr %base, align 8
-  %lock55 = getelementptr inbounds %struct.evdns_base, ptr %55, i32 0, i32 29
-  %56 = load ptr, ptr %lock55, align 8
-  %tobool56 = icmp ne ptr %56, null
+  %56 = load ptr, ptr %base, align 8
+  %lock55 = getelementptr inbounds %struct.evdns_base, ptr %56, i32 0, i32 29
+  %57 = load ptr, ptr %lock55, align 8
+  %tobool56 = icmp ne ptr %57, null
   br i1 %tobool56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %do.body54
-  %57 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %58 = load ptr, ptr %base, align 8
-  %lock58 = getelementptr inbounds %struct.evdns_base, ptr %58, i32 0, i32 29
-  %59 = load ptr, ptr %lock58, align 8
-  %call59 = call i32 %57(i32 noundef 0, ptr noundef %59)
+  %58 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %base, align 8
+  %lock58 = getelementptr inbounds %struct.evdns_base, ptr %60, i32 0, i32 29
+  %61 = load ptr, ptr %lock58, align 8
+  %call59 = call i32 %59(i32 noundef 0, ptr noundef %61)
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then57, %do.body54
@@ -5501,74 +5545,75 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %do.body
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %9 = load ptr, ptr %base.addr, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock2, align 8
-  %call3 = call i32 %8(i32 noundef 0, ptr noundef %10)
+  %8 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %base.addr, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
+  %11 = load ptr, ptr %lock2, align 8
+  %call3 = call i32 %9(i32 noundef 0, ptr noundef %11)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end4
-  %11 = load ptr, ptr %base.addr, align 8
-  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 16
-  %12 = load i16, ptr %global_tcp_flags, align 8
-  %13 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %13, i32 0, i32 15
-  store i16 %12, ptr %tcp_flags, align 4
-  %14 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %14, 6
-  %15 = load ptr, ptr %handle, align 8
-  %tcp_flags5 = getelementptr inbounds %struct.evdns_request, ptr %15, i32 0, i32 15
-  %16 = load i16, ptr %tcp_flags5, align 4
-  %conv = zext i16 %16 to i32
+  %12 = load ptr, ptr %base.addr, align 8
+  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 16
+  %13 = load i16, ptr %global_tcp_flags, align 8
+  %14 = load ptr, ptr %handle, align 8
+  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %14, i32 0, i32 15
+  store i16 %13, ptr %tcp_flags, align 4
+  %15 = load i32, ptr %flags.addr, align 4
+  %and = and i32 %15, 6
+  %16 = load ptr, ptr %handle, align 8
+  %tcp_flags5 = getelementptr inbounds %struct.evdns_request, ptr %16, i32 0, i32 15
+  %17 = load i16, ptr %tcp_flags5, align 4
+  %conv = zext i16 %17 to i32
   %or = or i32 %conv, %and
   %conv6 = trunc i32 %or to i16
   store i16 %conv6, ptr %tcp_flags5, align 4
-  %17 = load i32, ptr %flags.addr, align 4
-  %and7 = and i32 %17, 1
+  %18 = load i32, ptr %flags.addr, align 4
+  %and7 = and i32 %18, 1
   %tobool8 = icmp ne i32 %and7, 0
   br i1 %tobool8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %do.end
-  %18 = load ptr, ptr %base.addr, align 8
-  %19 = load ptr, ptr %handle, align 8
-  %20 = load ptr, ptr %name.addr, align 8
-  %21 = load i32, ptr %flags.addr, align 4
-  %call10 = call ptr @request_new(ptr noundef %18, ptr noundef %19, i32 noundef 1, ptr noundef %20, i32 noundef %21)
+  %19 = load ptr, ptr %base.addr, align 8
+  %20 = load ptr, ptr %handle, align 8
+  %21 = load ptr, ptr %name.addr, align 8
+  %22 = load i32, ptr %flags.addr, align 4
+  %call10 = call ptr @request_new(ptr noundef %19, ptr noundef %20, i32 noundef 1, ptr noundef %21, i32 noundef %22)
   store ptr %call10, ptr %req, align 8
-  %22 = load ptr, ptr %req, align 8
-  %tobool11 = icmp ne ptr %22, null
+  %23 = load ptr, ptr %req, align 8
+  %tobool11 = icmp ne ptr %23, null
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then9
-  %23 = load ptr, ptr %req, align 8
-  call void @request_submit(ptr noundef %23)
+  %24 = load ptr, ptr %req, align 8
+  call void @request_submit(ptr noundef %24)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then9
   br label %if.end15
 
 if.else:                                          ; preds = %do.end
-  %24 = load ptr, ptr %base.addr, align 8
-  %25 = load ptr, ptr %handle, align 8
-  %26 = load ptr, ptr %name.addr, align 8
-  %27 = load i32, ptr %flags.addr, align 4
-  %call14 = call ptr @search_request_new(ptr noundef %24, ptr noundef %25, i32 noundef 1, ptr noundef %26, i32 noundef %27)
+  %25 = load ptr, ptr %base.addr, align 8
+  %26 = load ptr, ptr %handle, align 8
+  %27 = load ptr, ptr %name.addr, align 8
+  %28 = load i32, ptr %flags.addr, align 4
+  %call14 = call ptr @search_request_new(ptr noundef %25, ptr noundef %26, i32 noundef 1, ptr noundef %27, i32 noundef %28)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end13
-  %28 = load ptr, ptr %handle, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %current_req, align 8
-  %cmp16 = icmp eq ptr %29, null
+  %29 = load ptr, ptr %handle, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %current_req, align 8
+  %cmp16 = icmp eq ptr %30, null
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end15
-  %30 = load ptr, ptr %handle, align 8
-  call void @event_mm_free_(ptr noundef %30)
+  %31 = load ptr, ptr %handle, align 8
+  call void @event_mm_free_(ptr noundef %31)
   store ptr null, ptr %handle, align 8
   br label %if.end19
 
@@ -5576,31 +5621,32 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   br label %do.body20
 
 do.body20:                                        ; preds = %if.end19
-  %31 = load ptr, ptr %base.addr, align 8
-  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
-  %32 = load ptr, ptr %lock21, align 8
-  %tobool22 = icmp ne ptr %32, null
+  %32 = load ptr, ptr %base.addr, align 8
+  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %32, i32 0, i32 29
+  %33 = load ptr, ptr %lock21, align 8
+  %tobool22 = icmp ne ptr %33, null
   br i1 %tobool22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %do.body20
-  %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %34 = load ptr, ptr %base.addr, align 8
-  %lock24 = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 29
-  %35 = load ptr, ptr %lock24, align 8
-  %call25 = call i32 %33(i32 noundef 0, ptr noundef %35)
+  %34 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %base.addr, align 8
+  %lock24 = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 29
+  %37 = load ptr, ptr %lock24, align 8
+  %call25 = call i32 %35(i32 noundef 0, ptr noundef %37)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %do.body20
   br label %do.end27
 
 do.end27:                                         ; preds = %if.end26
-  %36 = load ptr, ptr %handle, align 8
-  store ptr %36, ptr %retval, align 8
+  %38 = load ptr, ptr %handle, align 8
+  store ptr %38, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end27, %if.then
-  %37 = load ptr, ptr %retval, align 8
-  ret ptr %37
+  %39 = load ptr, ptr %retval, align 8
+  ret ptr %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6341,74 +6387,75 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %do.body
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %9 = load ptr, ptr %base.addr, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock2, align 8
-  %call3 = call i32 %8(i32 noundef 0, ptr noundef %10)
+  %8 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %base.addr, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
+  %11 = load ptr, ptr %lock2, align 8
+  %call3 = call i32 %9(i32 noundef 0, ptr noundef %11)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end4
-  %11 = load ptr, ptr %base.addr, align 8
-  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 16
-  %12 = load i16, ptr %global_tcp_flags, align 8
-  %13 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %13, i32 0, i32 15
-  store i16 %12, ptr %tcp_flags, align 4
-  %14 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %14, 6
-  %15 = load ptr, ptr %handle, align 8
-  %tcp_flags5 = getelementptr inbounds %struct.evdns_request, ptr %15, i32 0, i32 15
-  %16 = load i16, ptr %tcp_flags5, align 4
-  %conv = zext i16 %16 to i32
+  %12 = load ptr, ptr %base.addr, align 8
+  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 16
+  %13 = load i16, ptr %global_tcp_flags, align 8
+  %14 = load ptr, ptr %handle, align 8
+  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %14, i32 0, i32 15
+  store i16 %13, ptr %tcp_flags, align 4
+  %15 = load i32, ptr %flags.addr, align 4
+  %and = and i32 %15, 6
+  %16 = load ptr, ptr %handle, align 8
+  %tcp_flags5 = getelementptr inbounds %struct.evdns_request, ptr %16, i32 0, i32 15
+  %17 = load i16, ptr %tcp_flags5, align 4
+  %conv = zext i16 %17 to i32
   %or = or i32 %conv, %and
   %conv6 = trunc i32 %or to i16
   store i16 %conv6, ptr %tcp_flags5, align 4
-  %17 = load i32, ptr %flags.addr, align 4
-  %and7 = and i32 %17, 1
+  %18 = load i32, ptr %flags.addr, align 4
+  %and7 = and i32 %18, 1
   %tobool8 = icmp ne i32 %and7, 0
   br i1 %tobool8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %do.end
-  %18 = load ptr, ptr %base.addr, align 8
-  %19 = load ptr, ptr %handle, align 8
-  %20 = load ptr, ptr %name.addr, align 8
-  %21 = load i32, ptr %flags.addr, align 4
-  %call10 = call ptr @request_new(ptr noundef %18, ptr noundef %19, i32 noundef 28, ptr noundef %20, i32 noundef %21)
+  %19 = load ptr, ptr %base.addr, align 8
+  %20 = load ptr, ptr %handle, align 8
+  %21 = load ptr, ptr %name.addr, align 8
+  %22 = load i32, ptr %flags.addr, align 4
+  %call10 = call ptr @request_new(ptr noundef %19, ptr noundef %20, i32 noundef 28, ptr noundef %21, i32 noundef %22)
   store ptr %call10, ptr %req, align 8
-  %22 = load ptr, ptr %req, align 8
-  %tobool11 = icmp ne ptr %22, null
+  %23 = load ptr, ptr %req, align 8
+  %tobool11 = icmp ne ptr %23, null
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then9
-  %23 = load ptr, ptr %req, align 8
-  call void @request_submit(ptr noundef %23)
+  %24 = load ptr, ptr %req, align 8
+  call void @request_submit(ptr noundef %24)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then9
   br label %if.end15
 
 if.else:                                          ; preds = %do.end
-  %24 = load ptr, ptr %base.addr, align 8
-  %25 = load ptr, ptr %handle, align 8
-  %26 = load ptr, ptr %name.addr, align 8
-  %27 = load i32, ptr %flags.addr, align 4
-  %call14 = call ptr @search_request_new(ptr noundef %24, ptr noundef %25, i32 noundef 28, ptr noundef %26, i32 noundef %27)
+  %25 = load ptr, ptr %base.addr, align 8
+  %26 = load ptr, ptr %handle, align 8
+  %27 = load ptr, ptr %name.addr, align 8
+  %28 = load i32, ptr %flags.addr, align 4
+  %call14 = call ptr @search_request_new(ptr noundef %25, ptr noundef %26, i32 noundef 28, ptr noundef %27, i32 noundef %28)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end13
-  %28 = load ptr, ptr %handle, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %current_req, align 8
-  %cmp16 = icmp eq ptr %29, null
+  %29 = load ptr, ptr %handle, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %current_req, align 8
+  %cmp16 = icmp eq ptr %30, null
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end15
-  %30 = load ptr, ptr %handle, align 8
-  call void @event_mm_free_(ptr noundef %30)
+  %31 = load ptr, ptr %handle, align 8
+  call void @event_mm_free_(ptr noundef %31)
   store ptr null, ptr %handle, align 8
   br label %if.end19
 
@@ -6416,31 +6463,32 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   br label %do.body20
 
 do.body20:                                        ; preds = %if.end19
-  %31 = load ptr, ptr %base.addr, align 8
-  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
-  %32 = load ptr, ptr %lock21, align 8
-  %tobool22 = icmp ne ptr %32, null
+  %32 = load ptr, ptr %base.addr, align 8
+  %lock21 = getelementptr inbounds %struct.evdns_base, ptr %32, i32 0, i32 29
+  %33 = load ptr, ptr %lock21, align 8
+  %tobool22 = icmp ne ptr %33, null
   br i1 %tobool22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %do.body20
-  %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %34 = load ptr, ptr %base.addr, align 8
-  %lock24 = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 29
-  %35 = load ptr, ptr %lock24, align 8
-  %call25 = call i32 %33(i32 noundef 0, ptr noundef %35)
+  %34 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %base.addr, align 8
+  %lock24 = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 29
+  %37 = load ptr, ptr %lock24, align 8
+  %call25 = call i32 %35(i32 noundef 0, ptr noundef %37)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %do.body20
   br label %do.end27
 
 do.end27:                                         ; preds = %if.end26
-  %36 = load ptr, ptr %handle, align 8
-  store ptr %36, ptr %retval, align 8
+  %38 = load ptr, ptr %handle, align 8
+  store ptr %38, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end27, %if.then
-  %37 = load ptr, ptr %retval, align 8
-  ret ptr %37
+  %39 = load ptr, ptr %retval, align 8
+  ret ptr %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6546,57 +6594,58 @@ do.body17:                                        ; preds = %if.end
   br i1 %tobool, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %do.body17
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %14 = load ptr, ptr %base.addr, align 8
-  %lock19 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
-  %15 = load ptr, ptr %lock19, align 8
-  %call20 = call i32 %13(i32 noundef 0, ptr noundef %15)
+  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %base.addr, align 8
+  %lock19 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
+  %16 = load ptr, ptr %lock19, align 8
+  %call20 = call i32 %14(i32 noundef 0, ptr noundef %16)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %do.body17
   br label %do.end22
 
 do.end22:                                         ; preds = %if.end21
-  %16 = load ptr, ptr %base.addr, align 8
-  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 16
-  %17 = load i16, ptr %global_tcp_flags, align 8
-  %18 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %18, i32 0, i32 15
-  store i16 %17, ptr %tcp_flags, align 4
-  %19 = load i32, ptr %flags.addr, align 4
-  %and23 = and i32 %19, 6
-  %20 = load ptr, ptr %handle, align 8
-  %tcp_flags24 = getelementptr inbounds %struct.evdns_request, ptr %20, i32 0, i32 15
-  %21 = load i16, ptr %tcp_flags24, align 4
-  %conv25 = zext i16 %21 to i32
+  %17 = load ptr, ptr %base.addr, align 8
+  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 16
+  %18 = load i16, ptr %global_tcp_flags, align 8
+  %19 = load ptr, ptr %handle, align 8
+  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %19, i32 0, i32 15
+  store i16 %18, ptr %tcp_flags, align 4
+  %20 = load i32, ptr %flags.addr, align 4
+  %and23 = and i32 %20, 6
+  %21 = load ptr, ptr %handle, align 8
+  %tcp_flags24 = getelementptr inbounds %struct.evdns_request, ptr %21, i32 0, i32 15
+  %22 = load i16, ptr %tcp_flags24, align 4
+  %conv25 = zext i16 %22 to i32
   %or = or i32 %conv25, %and23
   %conv26 = trunc i32 %or to i16
   store i16 %conv26, ptr %tcp_flags24, align 4
-  %22 = load ptr, ptr %base.addr, align 8
-  %23 = load ptr, ptr %handle, align 8
+  %23 = load ptr, ptr %base.addr, align 8
+  %24 = load ptr, ptr %handle, align 8
   %arraydecay27 = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 0
-  %24 = load i32, ptr %flags.addr, align 4
-  %call28 = call ptr @request_new(ptr noundef %22, ptr noundef %23, i32 noundef 12, ptr noundef %arraydecay27, i32 noundef %24)
+  %25 = load i32, ptr %flags.addr, align 4
+  %call28 = call ptr @request_new(ptr noundef %23, ptr noundef %24, i32 noundef 12, ptr noundef %arraydecay27, i32 noundef %25)
   store ptr %call28, ptr %req, align 8
-  %25 = load ptr, ptr %req, align 8
-  %tobool29 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %req, align 8
+  %tobool29 = icmp ne ptr %26, null
   br i1 %tobool29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %do.end22
-  %26 = load ptr, ptr %req, align 8
-  call void @request_submit(ptr noundef %26)
+  %27 = load ptr, ptr %req, align 8
+  call void @request_submit(ptr noundef %27)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %do.end22
-  %27 = load ptr, ptr %handle, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %current_req, align 8
-  %cmp32 = icmp eq ptr %28, null
+  %28 = load ptr, ptr %handle, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %current_req, align 8
+  %cmp32 = icmp eq ptr %29, null
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end31
-  %29 = load ptr, ptr %handle, align 8
-  call void @event_mm_free_(ptr noundef %29)
+  %30 = load ptr, ptr %handle, align 8
+  call void @event_mm_free_(ptr noundef %30)
   store ptr null, ptr %handle, align 8
   br label %if.end35
 
@@ -6604,31 +6653,32 @@ if.end35:                                         ; preds = %if.then34, %if.end3
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end35
-  %30 = load ptr, ptr %base.addr, align 8
-  %lock37 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 29
-  %31 = load ptr, ptr %lock37, align 8
-  %tobool38 = icmp ne ptr %31, null
+  %31 = load ptr, ptr %base.addr, align 8
+  %lock37 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
+  %32 = load ptr, ptr %lock37, align 8
+  %tobool38 = icmp ne ptr %32, null
   br i1 %tobool38, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %do.body36
-  %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %33 = load ptr, ptr %base.addr, align 8
-  %lock40 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 29
-  %34 = load ptr, ptr %lock40, align 8
-  %call41 = call i32 %32(i32 noundef 0, ptr noundef %34)
+  %33 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %base.addr, align 8
+  %lock40 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 29
+  %36 = load ptr, ptr %lock40, align 8
+  %call41 = call i32 %34(i32 noundef 0, ptr noundef %36)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then39, %do.body36
   br label %do.end43
 
 do.end43:                                         ; preds = %if.end42
-  %35 = load ptr, ptr %handle, align 8
-  store ptr %35, ptr %retval, align 8
+  %37 = load ptr, ptr %handle, align 8
+  store ptr %37, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end43, %if.then
-  %36 = load ptr, ptr %retval, align 8
-  ret ptr %36
+  %38 = load ptr, ptr %retval, align 8
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6773,57 +6823,58 @@ do.body14:                                        ; preds = %if.end
   br i1 %tobool, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.body14
-  %21 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %22 = load ptr, ptr %base.addr, align 8
-  %lock16 = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 29
-  %23 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %21(i32 noundef 0, ptr noundef %23)
+  %21 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %base.addr, align 8
+  %lock16 = getelementptr inbounds %struct.evdns_base, ptr %23, i32 0, i32 29
+  %24 = load ptr, ptr %lock16, align 8
+  %call17 = call i32 %22(i32 noundef 0, ptr noundef %24)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.body14
   br label %do.end19
 
 do.end19:                                         ; preds = %if.end18
-  %24 = load ptr, ptr %base.addr, align 8
-  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %24, i32 0, i32 16
-  %25 = load i16, ptr %global_tcp_flags, align 8
-  %26 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %26, i32 0, i32 15
-  store i16 %25, ptr %tcp_flags, align 4
-  %27 = load i32, ptr %flags.addr, align 4
-  %and20 = and i32 %27, 6
-  %28 = load ptr, ptr %handle, align 8
-  %tcp_flags21 = getelementptr inbounds %struct.evdns_request, ptr %28, i32 0, i32 15
-  %29 = load i16, ptr %tcp_flags21, align 4
-  %conv22 = zext i16 %29 to i32
+  %25 = load ptr, ptr %base.addr, align 8
+  %global_tcp_flags = getelementptr inbounds %struct.evdns_base, ptr %25, i32 0, i32 16
+  %26 = load i16, ptr %global_tcp_flags, align 8
+  %27 = load ptr, ptr %handle, align 8
+  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %27, i32 0, i32 15
+  store i16 %26, ptr %tcp_flags, align 4
+  %28 = load i32, ptr %flags.addr, align 4
+  %and20 = and i32 %28, 6
+  %29 = load ptr, ptr %handle, align 8
+  %tcp_flags21 = getelementptr inbounds %struct.evdns_request, ptr %29, i32 0, i32 15
+  %30 = load i16, ptr %tcp_flags21, align 4
+  %conv22 = zext i16 %30 to i32
   %or = or i32 %conv22, %and20
   %conv23 = trunc i32 %or to i16
   store i16 %conv23, ptr %tcp_flags21, align 4
-  %30 = load ptr, ptr %base.addr, align 8
-  %31 = load ptr, ptr %handle, align 8
+  %31 = load ptr, ptr %base.addr, align 8
+  %32 = load ptr, ptr %handle, align 8
   %arraydecay24 = getelementptr inbounds [73 x i8], ptr %buf, i64 0, i64 0
-  %32 = load i32, ptr %flags.addr, align 4
-  %call25 = call ptr @request_new(ptr noundef %30, ptr noundef %31, i32 noundef 12, ptr noundef %arraydecay24, i32 noundef %32)
+  %33 = load i32, ptr %flags.addr, align 4
+  %call25 = call ptr @request_new(ptr noundef %31, ptr noundef %32, i32 noundef 12, ptr noundef %arraydecay24, i32 noundef %33)
   store ptr %call25, ptr %req, align 8
-  %33 = load ptr, ptr %req, align 8
-  %tobool26 = icmp ne ptr %33, null
+  %34 = load ptr, ptr %req, align 8
+  %tobool26 = icmp ne ptr %34, null
   br i1 %tobool26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %do.end19
-  %34 = load ptr, ptr %req, align 8
-  call void @request_submit(ptr noundef %34)
+  %35 = load ptr, ptr %req, align 8
+  call void @request_submit(ptr noundef %35)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %do.end19
-  %35 = load ptr, ptr %handle, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %current_req, align 8
-  %cmp29 = icmp eq ptr %36, null
+  %36 = load ptr, ptr %handle, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %current_req, align 8
+  %cmp29 = icmp eq ptr %37, null
   br i1 %cmp29, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end28
-  %37 = load ptr, ptr %handle, align 8
-  call void @event_mm_free_(ptr noundef %37)
+  %38 = load ptr, ptr %handle, align 8
+  call void @event_mm_free_(ptr noundef %38)
   store ptr null, ptr %handle, align 8
   br label %if.end32
 
@@ -6831,31 +6882,32 @@ if.end32:                                         ; preds = %if.then31, %if.end2
   br label %do.body33
 
 do.body33:                                        ; preds = %if.end32
-  %38 = load ptr, ptr %base.addr, align 8
-  %lock34 = getelementptr inbounds %struct.evdns_base, ptr %38, i32 0, i32 29
-  %39 = load ptr, ptr %lock34, align 8
-  %tobool35 = icmp ne ptr %39, null
+  %39 = load ptr, ptr %base.addr, align 8
+  %lock34 = getelementptr inbounds %struct.evdns_base, ptr %39, i32 0, i32 29
+  %40 = load ptr, ptr %lock34, align 8
+  %tobool35 = icmp ne ptr %40, null
   br i1 %tobool35, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %do.body33
-  %40 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %41 = load ptr, ptr %base.addr, align 8
-  %lock37 = getelementptr inbounds %struct.evdns_base, ptr %41, i32 0, i32 29
-  %42 = load ptr, ptr %lock37, align 8
-  %call38 = call i32 %40(i32 noundef 0, ptr noundef %42)
+  %41 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %base.addr, align 8
+  %lock37 = getelementptr inbounds %struct.evdns_base, ptr %43, i32 0, i32 29
+  %44 = load ptr, ptr %lock37, align 8
+  %call38 = call i32 %42(i32 noundef 0, ptr noundef %44)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then36, %do.body33
   br label %do.end40
 
 do.end40:                                         ; preds = %if.end39
-  %43 = load ptr, ptr %handle, align 8
-  store ptr %43, ptr %retval, align 8
+  %45 = load ptr, ptr %handle, align 8
+  store ptr %45, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end40, %if.then
-  %44 = load ptr, ptr %retval, align 8
-  ret ptr %44
+  %46 = load ptr, ptr %retval, align 8
+  ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6895,34 +6947,36 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  call void @search_postfix_clear(ptr noundef %5)
+  %6 = load ptr, ptr %base.addr, align 8
+  call void @search_postfix_clear(ptr noundef %6)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %6 = load ptr, ptr %base.addr, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %lock3, align 8
-  %tobool4 = icmp ne ptr %7, null
+  %7 = load ptr, ptr %base.addr, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
+  %8 = load ptr, ptr %lock3, align 8
+  %tobool4 = icmp ne ptr %8, null
   br i1 %tobool4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %do.body2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %9 = load ptr, ptr %base.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock6, align 8
-  %call7 = call i32 %8(i32 noundef 0, ptr noundef %10)
+  %9 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %base.addr, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
+  %12 = load ptr, ptr %lock6, align 8
+  %call7 = call i32 %10(i32 noundef 0, ptr noundef %12)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %do.body2
@@ -6973,35 +7027,37 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %6 = load ptr, ptr %domain.addr, align 8
-  call void @search_postfix_add(ptr noundef %5, ptr noundef %6)
+  %6 = load ptr, ptr %base.addr, align 8
+  %7 = load ptr, ptr %domain.addr, align 8
+  call void @search_postfix_add(ptr noundef %6, ptr noundef %7)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %7 = load ptr, ptr %base.addr, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock3, align 8
-  %tobool4 = icmp ne ptr %8, null
+  %8 = load ptr, ptr %base.addr, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock3, align 8
+  %tobool4 = icmp ne ptr %9, null
   br i1 %tobool4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %do.body2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %10 = load ptr, ptr %base.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
-  %11 = load ptr, ptr %lock6, align 8
-  %call7 = call i32 %9(i32 noundef 0, ptr noundef %11)
+  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %base.addr, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
+  %13 = load ptr, ptr %lock6, align 8
+  %call7 = call i32 %11(i32 noundef 0, ptr noundef %13)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %do.body2
@@ -7168,62 +7224,64 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %global_search_state = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 27
-  %6 = load ptr, ptr %global_search_state, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %6 = load ptr, ptr %base.addr, align 8
+  %global_search_state = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 27
+  %7 = load ptr, ptr %global_search_state, align 8
+  %tobool2 = icmp ne ptr %7, null
   br i1 %tobool2, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %do.end
   %call4 = call ptr @search_state_new()
-  %7 = load ptr, ptr %base.addr, align 8
-  %global_search_state5 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 27
+  %8 = load ptr, ptr %base.addr, align 8
+  %global_search_state5 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 27
   store ptr %call4, ptr %global_search_state5, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %do.end
-  %8 = load ptr, ptr %base.addr, align 8
-  %global_search_state7 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 27
-  %9 = load ptr, ptr %global_search_state7, align 8
-  %tobool8 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %base.addr, align 8
+  %global_search_state7 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 27
+  %10 = load ptr, ptr %global_search_state7, align 8
+  %tobool8 = icmp ne ptr %10, null
   br i1 %tobool8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end6
-  %10 = load i32, ptr %ndots.addr, align 4
-  %11 = load ptr, ptr %base.addr, align 8
-  %global_search_state10 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 27
-  %12 = load ptr, ptr %global_search_state10, align 8
-  %ndots11 = getelementptr inbounds %struct.search_state, ptr %12, i32 0, i32 1
-  store i32 %10, ptr %ndots11, align 4
+  %11 = load i32, ptr %ndots.addr, align 4
+  %12 = load ptr, ptr %base.addr, align 8
+  %global_search_state10 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 27
+  %13 = load ptr, ptr %global_search_state10, align 8
+  %ndots11 = getelementptr inbounds %struct.search_state, ptr %13, i32 0, i32 1
+  store i32 %11, ptr %ndots11, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.end6
   br label %do.body13
 
 do.body13:                                        ; preds = %if.end12
-  %13 = load ptr, ptr %base.addr, align 8
-  %lock14 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
-  %14 = load ptr, ptr %lock14, align 8
-  %tobool15 = icmp ne ptr %14, null
+  %14 = load ptr, ptr %base.addr, align 8
+  %lock14 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
+  %15 = load ptr, ptr %lock14, align 8
+  %tobool15 = icmp ne ptr %15, null
   br i1 %tobool15, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %do.body13
-  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %16 = load ptr, ptr %base.addr, align 8
-  %lock17 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
-  %17 = load ptr, ptr %lock17, align 8
-  %call18 = call i32 %15(i32 noundef 0, ptr noundef %17)
+  %16 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %base.addr, align 8
+  %lock17 = getelementptr inbounds %struct.evdns_base, ptr %18, i32 0, i32 29
+  %19 = load ptr, ptr %lock17, align 8
+  %call18 = call i32 %17(i32 noundef 0, ptr noundef %19)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %do.body13
@@ -7297,45 +7355,47 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %6 = load ptr, ptr %option.addr, align 8
-  %7 = load ptr, ptr %val.addr, align 8
-  %call2 = call i32 @evdns_base_set_option_impl(ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef 15)
+  %6 = load ptr, ptr %base.addr, align 8
+  %7 = load ptr, ptr %option.addr, align 8
+  %8 = load ptr, ptr %val.addr, align 8
+  %call2 = call i32 @evdns_base_set_option_impl(ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef 15)
   store i32 %call2, ptr %res, align 4
   br label %do.body3
 
 do.body3:                                         ; preds = %do.end
-  %8 = load ptr, ptr %base.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %base.addr, align 8
+  %lock4 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
+  %10 = load ptr, ptr %lock4, align 8
+  %tobool5 = icmp ne ptr %10, null
   br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body3
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %11 = load ptr, ptr %base.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
-  %12 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %10(i32 noundef 0, ptr noundef %12)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %base.addr, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %lock7, align 8
+  %call8 = call i32 %12(i32 noundef 0, ptr noundef %14)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %do.body3
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end9
-  %13 = load i32, ptr %res, align 4
-  ret i32 %13
+  %15 = load i32, ptr %res, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8165,28 +8225,29 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %port.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %3, i32 0, i32 14
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %port.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_server_port, ptr %4, i32 0, i32 14
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load i32, ptr %option.addr, align 4
-  switch i32 %5, label %sw.default [
+  %6 = load i32, ptr %option.addr, align 4
+  switch i32 %6, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %do.end
-  %6 = load ptr, ptr %port.addr, align 8
-  %listener = getelementptr inbounds %struct.evdns_server_port, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %listener, align 8
-  %tobool2 = icmp ne ptr %7, null
+  %7 = load ptr, ptr %port.addr, align 8
+  %listener = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 9
+  %8 = load ptr, ptr %listener, align 8
+  %tobool2 = icmp ne ptr %8, null
   br i1 %tobool2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb
@@ -8195,22 +8256,22 @@ if.then3:                                         ; preds = %sw.bb
   br label %end
 
 if.end4:                                          ; preds = %sw.bb
-  %8 = load i64, ptr %value.addr, align 8
-  %conv = trunc i64 %8 to i32
-  %9 = load ptr, ptr %port.addr, align 8
-  %max_client_connections = getelementptr inbounds %struct.evdns_server_port, ptr %9, i32 0, i32 12
-  store i32 %conv, ptr %max_client_connections, align 4
+  %9 = load i64, ptr %value.addr, align 8
+  %conv = trunc i64 %9 to i32
   %10 = load ptr, ptr %port.addr, align 8
-  %max_client_connections5 = getelementptr inbounds %struct.evdns_server_port, ptr %10, i32 0, i32 12
-  %11 = load i32, ptr %max_client_connections5, align 4
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.8, i32 noundef %11)
+  %max_client_connections = getelementptr inbounds %struct.evdns_server_port, ptr %10, i32 0, i32 12
+  store i32 %conv, ptr %max_client_connections, align 4
+  %11 = load ptr, ptr %port.addr, align 8
+  %max_client_connections5 = getelementptr inbounds %struct.evdns_server_port, ptr %11, i32 0, i32 12
+  %12 = load i32, ptr %max_client_connections5, align 4
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.8, i32 noundef %12)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %do.end
-  %12 = load ptr, ptr %port.addr, align 8
-  %listener7 = getelementptr inbounds %struct.evdns_server_port, ptr %12, i32 0, i32 9
-  %13 = load ptr, ptr %listener7, align 8
-  %tobool8 = icmp ne ptr %13, null
+  %13 = load ptr, ptr %port.addr, align 8
+  %listener7 = getelementptr inbounds %struct.evdns_server_port, ptr %13, i32 0, i32 9
+  %14 = load ptr, ptr %listener7, align 8
+  %tobool8 = icmp ne ptr %14, null
   br i1 %tobool8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %sw.bb6
@@ -8219,26 +8280,26 @@ if.then9:                                         ; preds = %sw.bb6
   br label %end
 
 if.end10:                                         ; preds = %sw.bb6
-  %14 = load i64, ptr %value.addr, align 8
-  %15 = load ptr, ptr %port.addr, align 8
-  %tcp_idle_timeout = getelementptr inbounds %struct.evdns_server_port, ptr %15, i32 0, i32 13
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %tcp_idle_timeout, i32 0, i32 0
-  store i64 %14, ptr %tv_sec, align 8
+  %15 = load i64, ptr %value.addr, align 8
   %16 = load ptr, ptr %port.addr, align 8
-  %tcp_idle_timeout11 = getelementptr inbounds %struct.evdns_server_port, ptr %16, i32 0, i32 13
+  %tcp_idle_timeout = getelementptr inbounds %struct.evdns_server_port, ptr %16, i32 0, i32 13
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %tcp_idle_timeout, i32 0, i32 0
+  store i64 %15, ptr %tv_sec, align 8
+  %17 = load ptr, ptr %port.addr, align 8
+  %tcp_idle_timeout11 = getelementptr inbounds %struct.evdns_server_port, ptr %17, i32 0, i32 13
   %tv_usec = getelementptr inbounds %struct.timeval, ptr %tcp_idle_timeout11, i32 0, i32 1
   store i64 0, ptr %tv_usec, align 8
-  %17 = load ptr, ptr %port.addr, align 8
-  %tcp_idle_timeout12 = getelementptr inbounds %struct.evdns_server_port, ptr %17, i32 0, i32 13
+  %18 = load ptr, ptr %port.addr, align 8
+  %tcp_idle_timeout12 = getelementptr inbounds %struct.evdns_server_port, ptr %18, i32 0, i32 13
   %tv_sec13 = getelementptr inbounds %struct.timeval, ptr %tcp_idle_timeout12, i32 0, i32 0
-  %18 = load i64, ptr %tv_sec13, align 8
-  %conv14 = trunc i64 %18 to i32
+  %19 = load i64, ptr %tv_sec13, align 8
+  %conv14 = trunc i64 %19 to i32
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.10, i32 noundef %conv14)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %do.end
-  %19 = load i32, ptr %option.addr, align 4
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef @.str.11, i32 noundef %19)
+  %20 = load i32, ptr %option.addr, align 4
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef @.str.11, i32 noundef %20)
   store i32 -1, ptr %res, align 4
   br label %sw.epilog
 
@@ -8249,26 +8310,27 @@ end:                                              ; preds = %sw.epilog, %if.then
   br label %do.body15
 
 do.body15:                                        ; preds = %end
-  %20 = load ptr, ptr %port.addr, align 8
-  %lock16 = getelementptr inbounds %struct.evdns_server_port, ptr %20, i32 0, i32 14
-  %21 = load ptr, ptr %lock16, align 8
-  %tobool17 = icmp ne ptr %21, null
+  %21 = load ptr, ptr %port.addr, align 8
+  %lock16 = getelementptr inbounds %struct.evdns_server_port, ptr %21, i32 0, i32 14
+  %22 = load ptr, ptr %lock16, align 8
+  %tobool17 = icmp ne ptr %22, null
   br i1 %tobool17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %do.body15
-  %22 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %23 = load ptr, ptr %port.addr, align 8
-  %lock19 = getelementptr inbounds %struct.evdns_server_port, ptr %23, i32 0, i32 14
-  %24 = load ptr, ptr %lock19, align 8
-  %call20 = call i32 %22(i32 noundef 0, ptr noundef %24)
+  %23 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %port.addr, align 8
+  %lock19 = getelementptr inbounds %struct.evdns_server_port, ptr %25, i32 0, i32 14
+  %26 = load ptr, ptr %lock19, align 8
+  %call20 = call i32 %24(i32 noundef 0, ptr noundef %26)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %do.body15
   br label %do.end22
 
 do.end22:                                         ; preds = %if.end21
-  %25 = load i32, ptr %res, align 4
-  ret i32 %25
+  %27 = load i32, ptr %res, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8317,45 +8379,47 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %6 = load i32, ptr %flags.addr, align 4
-  %7 = load ptr, ptr %filename.addr, align 8
-  %call2 = call i32 @evdns_base_resolv_conf_parse_impl(ptr noundef %5, i32 noundef %6, ptr noundef %7)
+  %6 = load ptr, ptr %base.addr, align 8
+  %7 = load i32, ptr %flags.addr, align 4
+  %8 = load ptr, ptr %filename.addr, align 8
+  %call2 = call i32 @evdns_base_resolv_conf_parse_impl(ptr noundef %6, i32 noundef %7, ptr noundef %8)
   store i32 %call2, ptr %res, align 4
   br label %do.body3
 
 do.body3:                                         ; preds = %do.end
-  %8 = load ptr, ptr %base.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %base.addr, align 8
+  %lock4 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
+  %10 = load ptr, ptr %lock4, align 8
+  %tobool5 = icmp ne ptr %10, null
   br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body3
-  %10 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %11 = load ptr, ptr %base.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
-  %12 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %10(i32 noundef 0, ptr noundef %12)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %base.addr, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
+  %14 = load ptr, ptr %lock7, align 8
+  %call8 = call i32 %12(i32 noundef 0, ptr noundef %14)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %do.body3
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end9
-  %13 = load i32, ptr %res, align 4
-  ret i32 %13
+  %15 = load i32, ptr %res, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8755,11 +8819,12 @@ do.body:                                          ; preds = %if.end21
   br i1 %tobool28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %do.body
-  %47 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %48 = load ptr, ptr %dns_base.addr, align 8
-  %lock30 = getelementptr inbounds %struct.evdns_base, ptr %48, i32 0, i32 29
-  %49 = load ptr, ptr %lock30, align 8
-  %call31 = call i32 %47(i32 noundef 0, ptr noundef %49)
+  %47 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %dns_base.addr, align 8
+  %lock30 = getelementptr inbounds %struct.evdns_base, ptr %49, i32 0, i32 29
+  %50 = load ptr, ptr %lock30, align 8
+  %call31 = call i32 %48(i32 noundef 0, ptr noundef %50)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then29, %do.body
@@ -8767,46 +8832,46 @@ if.end32:                                         ; preds = %if.then29, %do.body
 
 do.end:                                           ; preds = %if.end32
   %ai_family33 = getelementptr inbounds %struct.addrinfo, ptr %hints, i32 0, i32 1
-  %50 = load i32, ptr %ai_family33, align 4
-  %cmp34 = icmp ne i32 %50, 10
+  %51 = load i32, ptr %ai_family33, align 4
+  %cmp34 = icmp ne i32 %51, 10
   br i1 %cmp34, label %if.then36, label %if.end50
 
 if.then36:                                        ; preds = %do.end
-  %51 = load ptr, ptr %nodename.addr, align 8
-  %52 = load ptr, ptr %data, align 8
-  %ipv4_request37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %52, i32 0, i32 5
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.28, ptr noundef %51, ptr noundef %ipv4_request37)
-  %53 = load ptr, ptr %dns_base.addr, align 8
-  %54 = load ptr, ptr %nodename.addr, align 8
-  %55 = load ptr, ptr %data, align 8
-  %ipv4_request38 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %55, i32 0, i32 5
-  %call39 = call ptr @evdns_base_resolve_ipv4(ptr noundef %53, ptr noundef %54, i32 noundef 0, ptr noundef @evdns_getaddrinfo_gotresolve, ptr noundef %ipv4_request38)
+  %52 = load ptr, ptr %nodename.addr, align 8
+  %53 = load ptr, ptr %data, align 8
+  %ipv4_request37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %53, i32 0, i32 5
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.28, ptr noundef %52, ptr noundef %ipv4_request37)
+  %54 = load ptr, ptr %dns_base.addr, align 8
+  %55 = load ptr, ptr %nodename.addr, align 8
   %56 = load ptr, ptr %data, align 8
-  %ipv4_request40 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %56, i32 0, i32 5
+  %ipv4_request38 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %56, i32 0, i32 5
+  %call39 = call ptr @evdns_base_resolve_ipv4(ptr noundef %54, ptr noundef %55, i32 noundef 0, ptr noundef @evdns_getaddrinfo_gotresolve, ptr noundef %ipv4_request38)
+  %57 = load ptr, ptr %data, align 8
+  %ipv4_request40 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %57, i32 0, i32 5
   %r = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request40, i32 0, i32 0
   store ptr %call39, ptr %r, align 8
-  %57 = load i32, ptr %want_cname, align 4
-  %tobool41 = icmp ne i32 %57, 0
+  %58 = load i32, ptr %want_cname, align 4
+  %tobool41 = icmp ne i32 %58, 0
   br i1 %tobool41, label %land.lhs.true42, label %if.end49
 
 land.lhs.true42:                                  ; preds = %if.then36
-  %58 = load ptr, ptr %data, align 8
-  %ipv4_request43 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %58, i32 0, i32 5
+  %59 = load ptr, ptr %data, align 8
+  %ipv4_request43 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %59, i32 0, i32 5
   %r44 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request43, i32 0, i32 0
-  %59 = load ptr, ptr %r44, align 8
-  %tobool45 = icmp ne ptr %59, null
+  %60 = load ptr, ptr %r44, align 8
+  %tobool45 = icmp ne ptr %60, null
   br i1 %tobool45, label %if.then46, label %if.end49
 
 if.then46:                                        ; preds = %land.lhs.true42
-  %60 = load ptr, ptr %data, align 8
-  %cname_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %60, i32 0, i32 7
   %61 = load ptr, ptr %data, align 8
-  %ipv4_request47 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %61, i32 0, i32 5
+  %cname_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %61, i32 0, i32 7
+  %62 = load ptr, ptr %data, align 8
+  %ipv4_request47 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %62, i32 0, i32 5
   %r48 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request47, i32 0, i32 0
-  %62 = load ptr, ptr %r48, align 8
-  %current_req = getelementptr inbounds %struct.evdns_request, ptr %62, i32 0, i32 0
-  %63 = load ptr, ptr %current_req, align 8
-  %put_cname_in_ptr = getelementptr inbounds %struct.request, ptr %63, i32 0, i32 12
+  %63 = load ptr, ptr %r48, align 8
+  %current_req = getelementptr inbounds %struct.evdns_request, ptr %63, i32 0, i32 0
+  %64 = load ptr, ptr %current_req, align 8
+  %put_cname_in_ptr = getelementptr inbounds %struct.request, ptr %64, i32 0, i32 12
   store ptr %cname_result, ptr %put_cname_in_ptr, align 8
   br label %if.end49
 
@@ -8815,46 +8880,46 @@ if.end49:                                         ; preds = %if.then46, %land.lh
 
 if.end50:                                         ; preds = %if.end49, %do.end
   %ai_family51 = getelementptr inbounds %struct.addrinfo, ptr %hints, i32 0, i32 1
-  %64 = load i32, ptr %ai_family51, align 4
-  %cmp52 = icmp ne i32 %64, 2
+  %65 = load i32, ptr %ai_family51, align 4
+  %cmp52 = icmp ne i32 %65, 2
   br i1 %cmp52, label %if.then54, label %if.end72
 
 if.then54:                                        ; preds = %if.end50
-  %65 = load ptr, ptr %nodename.addr, align 8
-  %66 = load ptr, ptr %data, align 8
-  %ipv6_request55 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %66, i32 0, i32 6
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.29, ptr noundef %65, ptr noundef %ipv6_request55)
-  %67 = load ptr, ptr %dns_base.addr, align 8
-  %68 = load ptr, ptr %nodename.addr, align 8
-  %69 = load ptr, ptr %data, align 8
-  %ipv6_request56 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %69, i32 0, i32 6
-  %call57 = call ptr @evdns_base_resolve_ipv6(ptr noundef %67, ptr noundef %68, i32 noundef 0, ptr noundef @evdns_getaddrinfo_gotresolve, ptr noundef %ipv6_request56)
+  %66 = load ptr, ptr %nodename.addr, align 8
+  %67 = load ptr, ptr %data, align 8
+  %ipv6_request55 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %67, i32 0, i32 6
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.29, ptr noundef %66, ptr noundef %ipv6_request55)
+  %68 = load ptr, ptr %dns_base.addr, align 8
+  %69 = load ptr, ptr %nodename.addr, align 8
   %70 = load ptr, ptr %data, align 8
-  %ipv6_request58 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %70, i32 0, i32 6
+  %ipv6_request56 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %70, i32 0, i32 6
+  %call57 = call ptr @evdns_base_resolve_ipv6(ptr noundef %68, ptr noundef %69, i32 noundef 0, ptr noundef @evdns_getaddrinfo_gotresolve, ptr noundef %ipv6_request56)
+  %71 = load ptr, ptr %data, align 8
+  %ipv6_request58 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %71, i32 0, i32 6
   %r59 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request58, i32 0, i32 0
   store ptr %call57, ptr %r59, align 8
-  %71 = load i32, ptr %want_cname, align 4
-  %tobool60 = icmp ne i32 %71, 0
+  %72 = load i32, ptr %want_cname, align 4
+  %tobool60 = icmp ne i32 %72, 0
   br i1 %tobool60, label %land.lhs.true61, label %if.end71
 
 land.lhs.true61:                                  ; preds = %if.then54
-  %72 = load ptr, ptr %data, align 8
-  %ipv6_request62 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %72, i32 0, i32 6
+  %73 = load ptr, ptr %data, align 8
+  %ipv6_request62 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %73, i32 0, i32 6
   %r63 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request62, i32 0, i32 0
-  %73 = load ptr, ptr %r63, align 8
-  %tobool64 = icmp ne ptr %73, null
+  %74 = load ptr, ptr %r63, align 8
+  %tobool64 = icmp ne ptr %74, null
   br i1 %tobool64, label %if.then65, label %if.end71
 
 if.then65:                                        ; preds = %land.lhs.true61
-  %74 = load ptr, ptr %data, align 8
-  %cname_result66 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %74, i32 0, i32 7
   %75 = load ptr, ptr %data, align 8
-  %ipv6_request67 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %75, i32 0, i32 6
+  %cname_result66 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %75, i32 0, i32 7
+  %76 = load ptr, ptr %data, align 8
+  %ipv6_request67 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %76, i32 0, i32 6
   %r68 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request67, i32 0, i32 0
-  %76 = load ptr, ptr %r68, align 8
-  %current_req69 = getelementptr inbounds %struct.evdns_request, ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %current_req69, align 8
-  %put_cname_in_ptr70 = getelementptr inbounds %struct.request, ptr %77, i32 0, i32 12
+  %77 = load ptr, ptr %r68, align 8
+  %current_req69 = getelementptr inbounds %struct.evdns_request, ptr %77, i32 0, i32 0
+  %78 = load ptr, ptr %current_req69, align 8
+  %put_cname_in_ptr70 = getelementptr inbounds %struct.request, ptr %78, i32 0, i32 12
   store ptr %cname_result66, ptr %put_cname_in_ptr70, align 8
   br label %if.end71
 
@@ -8862,74 +8927,75 @@ if.end71:                                         ; preds = %if.then65, %land.lh
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end71, %if.end50
-  %78 = load ptr, ptr %data, align 8
-  %timeout = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %78, i32 0, i32 9
-  %79 = load ptr, ptr %dns_base.addr, align 8
-  %event_base = getelementptr inbounds %struct.evdns_base, ptr %79, i32 0, i32 4
-  %80 = load ptr, ptr %event_base, align 8
-  %81 = load ptr, ptr %data, align 8
-  %call73 = call i32 @event_assign(ptr noundef %timeout, ptr noundef %80, i32 noundef -1, i16 noundef signext 0, ptr noundef @evdns_getaddrinfo_timeout_cb, ptr noundef %81)
+  %79 = load ptr, ptr %data, align 8
+  %timeout = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %79, i32 0, i32 9
+  %80 = load ptr, ptr %dns_base.addr, align 8
+  %event_base = getelementptr inbounds %struct.evdns_base, ptr %80, i32 0, i32 4
+  %81 = load ptr, ptr %event_base, align 8
   %82 = load ptr, ptr %data, align 8
-  %ipv4_request74 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %82, i32 0, i32 5
+  %call73 = call i32 @event_assign(ptr noundef %timeout, ptr noundef %81, i32 noundef -1, i16 noundef signext 0, ptr noundef @evdns_getaddrinfo_timeout_cb, ptr noundef %82)
+  %83 = load ptr, ptr %data, align 8
+  %ipv4_request74 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %83, i32 0, i32 5
   %r75 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request74, i32 0, i32 0
-  %83 = load ptr, ptr %r75, align 8
-  %tobool76 = icmp ne ptr %83, null
+  %84 = load ptr, ptr %r75, align 8
+  %tobool76 = icmp ne ptr %84, null
   br i1 %tobool76, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end72
-  %84 = load ptr, ptr %data, align 8
-  %ipv6_request77 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %84, i32 0, i32 6
+  %85 = load ptr, ptr %data, align 8
+  %ipv6_request77 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %85, i32 0, i32 6
   %r78 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request77, i32 0, i32 0
-  %85 = load ptr, ptr %r78, align 8
-  %tobool79 = icmp ne ptr %85, null
+  %86 = load ptr, ptr %r78, align 8
+  %tobool79 = icmp ne ptr %86, null
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end72
-  %86 = phi i1 [ true, %if.end72 ], [ %tobool79, %lor.rhs ]
-  %lor.ext = zext i1 %86 to i32
+  %87 = phi i1 [ true, %if.end72 ], [ %tobool79, %lor.rhs ]
+  %lor.ext = zext i1 %87 to i32
   store i32 %lor.ext, ptr %started, align 4
   br label %do.body80
 
 do.body80:                                        ; preds = %lor.end
-  %87 = load ptr, ptr %dns_base.addr, align 8
-  %lock81 = getelementptr inbounds %struct.evdns_base, ptr %87, i32 0, i32 29
-  %88 = load ptr, ptr %lock81, align 8
-  %tobool82 = icmp ne ptr %88, null
+  %88 = load ptr, ptr %dns_base.addr, align 8
+  %lock81 = getelementptr inbounds %struct.evdns_base, ptr %88, i32 0, i32 29
+  %89 = load ptr, ptr %lock81, align 8
+  %tobool82 = icmp ne ptr %89, null
   br i1 %tobool82, label %if.then83, label %if.end86
 
 if.then83:                                        ; preds = %do.body80
-  %89 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %90 = load ptr, ptr %dns_base.addr, align 8
-  %lock84 = getelementptr inbounds %struct.evdns_base, ptr %90, i32 0, i32 29
-  %91 = load ptr, ptr %lock84, align 8
-  %call85 = call i32 %89(i32 noundef 0, ptr noundef %91)
+  %90 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %dns_base.addr, align 8
+  %lock84 = getelementptr inbounds %struct.evdns_base, ptr %92, i32 0, i32 29
+  %93 = load ptr, ptr %lock84, align 8
+  %call85 = call i32 %91(i32 noundef 0, ptr noundef %93)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then83, %do.body80
   br label %do.end87
 
 do.end87:                                         ; preds = %if.end86
-  %92 = load i32, ptr %started, align 4
-  %tobool88 = icmp ne i32 %92, 0
+  %94 = load i32, ptr %started, align 4
+  %tobool88 = icmp ne i32 %94, 0
   br i1 %tobool88, label %if.then89, label %if.else90
 
 if.then89:                                        ; preds = %do.end87
-  %93 = load ptr, ptr %data, align 8
-  store ptr %93, ptr %retval, align 8
+  %95 = load ptr, ptr %data, align 8
+  store ptr %95, ptr %retval, align 8
   br label %return
 
 if.else90:                                        ; preds = %do.end87
-  %94 = load ptr, ptr %data, align 8
-  call void @event_mm_free_(ptr noundef %94)
-  %95 = load ptr, ptr %cb.addr, align 8
-  %96 = load ptr, ptr %arg.addr, align 8
-  call void %95(i32 noundef -4, ptr noundef null, ptr noundef %96)
+  %96 = load ptr, ptr %data, align 8
+  call void @event_mm_free_(ptr noundef %96)
+  %97 = load ptr, ptr %cb.addr, align 8
+  %98 = load ptr, ptr %arg.addr, align 8
+  call void %97(i32 noundef -4, ptr noundef null, ptr noundef %98)
   store ptr null, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else90, %if.then89, %if.then20, %if.then16, %if.then12, %if.then6, %if.then2
-  %97 = load ptr, ptr %retval, align 8
-  ret ptr %97
+  %99 = load ptr, ptr %retval, align 8
+  ret ptr %99
 }
 
 declare void @evutil_set_evdns_getaddrinfo_cancel_fn_(ptr noundef) #1
@@ -8951,21 +9017,22 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %data.addr, align 8
-  %evdns_base1 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %evdns_base1, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 29
-  %6 = load ptr, ptr %lock2, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %6)
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %data.addr, align 8
+  %evdns_base1 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %evdns_base1, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
+  %7 = load ptr, ptr %lock2, align 8
+  %call = call i32 %4(i32 noundef 0, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %7 = load ptr, ptr %data.addr, align 8
-  %request_done = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %7, i32 0, i32 11
+  %8 = load ptr, ptr %data.addr, align 8
+  %request_done = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %8, i32 0, i32 11
   %bf.load = load i8, ptr %request_done, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
@@ -8977,22 +9044,23 @@ if.then4:                                         ; preds = %do.end
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then4
-  %8 = load ptr, ptr %data.addr, align 8
-  %evdns_base6 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %evdns_base6, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock7, align 8
-  %tobool8 = icmp ne ptr %10, null
+  %9 = load ptr, ptr %data.addr, align 8
+  %evdns_base6 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %evdns_base6, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
+  %11 = load ptr, ptr %lock7, align 8
+  %tobool8 = icmp ne ptr %11, null
   br i1 %tobool8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %do.body5
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %12 = load ptr, ptr %data.addr, align 8
-  %evdns_base10 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %evdns_base10, align 8
-  %lock11 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
-  %14 = load ptr, ptr %lock11, align 8
-  %call12 = call i32 %11(i32 noundef 0, ptr noundef %14)
+  %12 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %data.addr, align 8
+  %evdns_base10 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %evdns_base10, align 8
+  %lock11 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
+  %16 = load ptr, ptr %lock11, align 8
+  %call12 = call i32 %13(i32 noundef 0, ptr noundef %16)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %do.body5
@@ -9002,72 +9070,73 @@ do.end14:                                         ; preds = %if.end13
   br label %do.end41
 
 if.end15:                                         ; preds = %do.end
-  %15 = load ptr, ptr %data.addr, align 8
-  %timeout = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %15, i32 0, i32 9
+  %17 = load ptr, ptr %data.addr, align 8
+  %timeout = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %17, i32 0, i32 9
   %call16 = call i32 @event_del(ptr noundef %timeout)
-  %16 = load ptr, ptr %data.addr, align 8
-  %user_canceled = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %16, i32 0, i32 11
+  %18 = load ptr, ptr %data.addr, align 8
+  %user_canceled = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %18, i32 0, i32 11
   %bf.load17 = load i8, ptr %user_canceled, align 4
   %bf.clear18 = and i8 %bf.load17, -2
   %bf.set = or i8 %bf.clear18, 1
   store i8 %bf.set, ptr %user_canceled, align 4
-  %17 = load ptr, ptr %data.addr, align 8
-  %ipv4_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %17, i32 0, i32 5
+  %19 = load ptr, ptr %data.addr, align 8
+  %ipv4_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %19, i32 0, i32 5
   %r = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request, i32 0, i32 0
-  %18 = load ptr, ptr %r, align 8
-  %tobool19 = icmp ne ptr %18, null
+  %20 = load ptr, ptr %r, align 8
+  %tobool19 = icmp ne ptr %20, null
   br i1 %tobool19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end15
-  %19 = load ptr, ptr %data.addr, align 8
-  %evdns_base21 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %evdns_base21, align 8
   %21 = load ptr, ptr %data.addr, align 8
-  %ipv4_request22 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %21, i32 0, i32 5
+  %evdns_base21 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %evdns_base21, align 8
+  %23 = load ptr, ptr %data.addr, align 8
+  %ipv4_request22 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %23, i32 0, i32 5
   %r23 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv4_request22, i32 0, i32 0
-  %22 = load ptr, ptr %r23, align 8
-  call void @evdns_cancel_request(ptr noundef %20, ptr noundef %22)
+  %24 = load ptr, ptr %r23, align 8
+  call void @evdns_cancel_request(ptr noundef %22, ptr noundef %24)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end15
-  %23 = load ptr, ptr %data.addr, align 8
-  %ipv6_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %23, i32 0, i32 6
+  %25 = load ptr, ptr %data.addr, align 8
+  %ipv6_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %25, i32 0, i32 6
   %r25 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request, i32 0, i32 0
-  %24 = load ptr, ptr %r25, align 8
-  %tobool26 = icmp ne ptr %24, null
+  %26 = load ptr, ptr %r25, align 8
+  %tobool26 = icmp ne ptr %26, null
   br i1 %tobool26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end24
-  %25 = load ptr, ptr %data.addr, align 8
-  %evdns_base28 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %evdns_base28, align 8
   %27 = load ptr, ptr %data.addr, align 8
-  %ipv6_request29 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %27, i32 0, i32 6
+  %evdns_base28 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %evdns_base28, align 8
+  %29 = load ptr, ptr %data.addr, align 8
+  %ipv6_request29 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %29, i32 0, i32 6
   %r30 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request29, i32 0, i32 0
-  %28 = load ptr, ptr %r30, align 8
-  call void @evdns_cancel_request(ptr noundef %26, ptr noundef %28)
+  %30 = load ptr, ptr %r30, align 8
+  call void @evdns_cancel_request(ptr noundef %28, ptr noundef %30)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.end24
   br label %do.body32
 
 do.body32:                                        ; preds = %if.end31
-  %29 = load ptr, ptr %data.addr, align 8
-  %evdns_base33 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %evdns_base33, align 8
-  %lock34 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 29
-  %31 = load ptr, ptr %lock34, align 8
-  %tobool35 = icmp ne ptr %31, null
+  %31 = load ptr, ptr %data.addr, align 8
+  %evdns_base33 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %evdns_base33, align 8
+  %lock34 = getelementptr inbounds %struct.evdns_base, ptr %32, i32 0, i32 29
+  %33 = load ptr, ptr %lock34, align 8
+  %tobool35 = icmp ne ptr %33, null
   br i1 %tobool35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %do.body32
-  %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %33 = load ptr, ptr %data.addr, align 8
-  %evdns_base37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %evdns_base37, align 8
-  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 29
-  %35 = load ptr, ptr %lock38, align 8
-  %call39 = call i32 %32(i32 noundef 0, ptr noundef %35)
+  %34 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %data.addr, align 8
+  %evdns_base37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %evdns_base37, align 8
+  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %37, i32 0, i32 29
+  %38 = load ptr, ptr %lock38, align 8
+  %call39 = call i32 %35(i32 noundef 0, ptr noundef %38)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then36, %do.body32
@@ -9549,11 +9618,12 @@ do.body70:                                        ; preds = %while.end68
   br i1 %tobool71, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %do.body70
-  %82 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %83 = load ptr, ptr %base.addr, align 8
-  %lock73 = getelementptr inbounds %struct.evdns_base, ptr %83, i32 0, i32 29
-  %84 = load ptr, ptr %lock73, align 8
-  %call = call i32 %82(i32 noundef 0, ptr noundef %84)
+  %82 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %base.addr, align 8
+  %lock73 = getelementptr inbounds %struct.evdns_base, ptr %84, i32 0, i32 29
+  %85 = load ptr, ptr %lock73, align 8
+  %call = call i32 %83(i32 noundef 0, ptr noundef %85)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %do.body70
@@ -9563,31 +9633,33 @@ do.end75:                                         ; preds = %if.end74
   br label %do.body76
 
 do.body76:                                        ; preds = %do.end75
-  %85 = load ptr, ptr %base.addr, align 8
-  %lock77 = getelementptr inbounds %struct.evdns_base, ptr %85, i32 0, i32 29
-  %86 = load ptr, ptr %lock77, align 8
-  store ptr %86, ptr %lock_tmp_, align 8
-  %87 = load ptr, ptr %lock_tmp_, align 8
-  %tobool78 = icmp ne ptr %87, null
+  %86 = load ptr, ptr %base.addr, align 8
+  %lock77 = getelementptr inbounds %struct.evdns_base, ptr %86, i32 0, i32 29
+  %87 = load ptr, ptr %lock77, align 8
+  store ptr %87, ptr %lock_tmp_, align 8
+  %88 = load ptr, ptr %lock_tmp_, align 8
+  %tobool78 = icmp ne ptr %88, null
   br i1 %tobool78, label %land.lhs.true, label %if.end81
 
 land.lhs.true:                                    ; preds = %do.body76
-  %88 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %tobool79 = icmp ne ptr %88, null
+  %89 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %90 = load ptr, ptr %89, align 8
+  %tobool79 = icmp ne ptr %90, null
   br i1 %tobool79, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %land.lhs.true
-  %89 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %90 = load ptr, ptr %lock_tmp_, align 8
-  call void %89(ptr noundef %90, i32 noundef 1)
+  %91 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %lock_tmp_, align 8
+  call void %92(ptr noundef %93, i32 noundef 1)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then80, %land.lhs.true, %do.body76
   br label %do.end82
 
 do.end82:                                         ; preds = %if.end81
-  %91 = load ptr, ptr %base.addr, align 8
-  call void @event_mm_free_(ptr noundef %91)
+  %94 = load ptr, ptr %base.addr, align 8
+  call void @event_mm_free_(ptr noundef %94)
   ret void
 }
 
@@ -9713,20 +9785,21 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %6 = load i32, ptr %fail_requests.addr, align 4
-  call void @evdns_base_free_and_unlock(ptr noundef %5, i32 noundef %6)
+  %6 = load ptr, ptr %base.addr, align 8
+  %7 = load i32, ptr %fail_requests.addr, align 4
+  call void @evdns_base_free_and_unlock(ptr noundef %6, i32 noundef %7)
   ret void
 }
 
@@ -9746,11 +9819,12 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %3, i32 0, i32 29
-  %4 = load ptr, ptr %lock1, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %4)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %4, i32 0, i32 29
+  %5 = load ptr, ptr %lock1, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -9760,83 +9834,84 @@ do.end:                                           ; preds = %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %do.end18, %do.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %hostsdb = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 28
+  %6 = load ptr, ptr %base.addr, align 8
+  %hostsdb = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 28
   %tqh_first = getelementptr inbounds %struct.hosts_list, ptr %hostsdb, i32 0, i32 0
-  %6 = load ptr, ptr %tqh_first, align 8
-  store ptr %6, ptr %victim, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %tqh_first, align 8
+  store ptr %7, ptr %victim, align 8
+  %tobool2 = icmp ne ptr %7, null
   br i1 %tobool2, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   br label %do.body3
 
 do.body3:                                         ; preds = %while.body
-  %7 = load ptr, ptr %victim, align 8
-  %next = getelementptr inbounds %struct.hosts_entry, ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %victim, align 8
+  %next = getelementptr inbounds %struct.hosts_entry, ptr %8, i32 0, i32 0
   %tqe_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
-  %8 = load ptr, ptr %tqe_next, align 8
-  %cmp = icmp ne ptr %8, null
+  %9 = load ptr, ptr %tqe_next, align 8
+  %cmp = icmp ne ptr %9, null
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %do.body3
-  %9 = load ptr, ptr %victim, align 8
-  %next5 = getelementptr inbounds %struct.hosts_entry, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %victim, align 8
+  %next5 = getelementptr inbounds %struct.hosts_entry, ptr %10, i32 0, i32 0
   %tqe_prev = getelementptr inbounds %struct.anon.9, ptr %next5, i32 0, i32 1
-  %10 = load ptr, ptr %tqe_prev, align 8
-  %11 = load ptr, ptr %victim, align 8
-  %next6 = getelementptr inbounds %struct.hosts_entry, ptr %11, i32 0, i32 0
+  %11 = load ptr, ptr %tqe_prev, align 8
+  %12 = load ptr, ptr %victim, align 8
+  %next6 = getelementptr inbounds %struct.hosts_entry, ptr %12, i32 0, i32 0
   %tqe_next7 = getelementptr inbounds %struct.anon.9, ptr %next6, i32 0, i32 0
-  %12 = load ptr, ptr %tqe_next7, align 8
-  %next8 = getelementptr inbounds %struct.hosts_entry, ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %tqe_next7, align 8
+  %next8 = getelementptr inbounds %struct.hosts_entry, ptr %13, i32 0, i32 0
   %tqe_prev9 = getelementptr inbounds %struct.anon.9, ptr %next8, i32 0, i32 1
-  store ptr %10, ptr %tqe_prev9, align 8
+  store ptr %11, ptr %tqe_prev9, align 8
   br label %if.end13
 
 if.else:                                          ; preds = %do.body3
-  %13 = load ptr, ptr %victim, align 8
-  %next10 = getelementptr inbounds %struct.hosts_entry, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %victim, align 8
+  %next10 = getelementptr inbounds %struct.hosts_entry, ptr %14, i32 0, i32 0
   %tqe_prev11 = getelementptr inbounds %struct.anon.9, ptr %next10, i32 0, i32 1
-  %14 = load ptr, ptr %tqe_prev11, align 8
-  %15 = load ptr, ptr %base.addr, align 8
-  %hostsdb12 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 28
+  %15 = load ptr, ptr %tqe_prev11, align 8
+  %16 = load ptr, ptr %base.addr, align 8
+  %hostsdb12 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 28
   %tqh_last = getelementptr inbounds %struct.hosts_list, ptr %hostsdb12, i32 0, i32 1
-  store ptr %14, ptr %tqh_last, align 8
+  store ptr %15, ptr %tqh_last, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then4
-  %16 = load ptr, ptr %victim, align 8
-  %next14 = getelementptr inbounds %struct.hosts_entry, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %victim, align 8
+  %next14 = getelementptr inbounds %struct.hosts_entry, ptr %17, i32 0, i32 0
   %tqe_next15 = getelementptr inbounds %struct.anon.9, ptr %next14, i32 0, i32 0
-  %17 = load ptr, ptr %tqe_next15, align 8
-  %18 = load ptr, ptr %victim, align 8
-  %next16 = getelementptr inbounds %struct.hosts_entry, ptr %18, i32 0, i32 0
+  %18 = load ptr, ptr %tqe_next15, align 8
+  %19 = load ptr, ptr %victim, align 8
+  %next16 = getelementptr inbounds %struct.hosts_entry, ptr %19, i32 0, i32 0
   %tqe_prev17 = getelementptr inbounds %struct.anon.9, ptr %next16, i32 0, i32 1
-  %19 = load ptr, ptr %tqe_prev17, align 8
-  store ptr %17, ptr %19, align 8
+  %20 = load ptr, ptr %tqe_prev17, align 8
+  store ptr %18, ptr %20, align 8
   br label %do.end18
 
 do.end18:                                         ; preds = %if.end13
-  %20 = load ptr, ptr %victim, align 8
-  call void @event_mm_free_(ptr noundef %20)
+  %21 = load ptr, ptr %victim, align 8
+  call void @event_mm_free_(ptr noundef %21)
   br label %while.cond, !llvm.loop !30
 
 while.end:                                        ; preds = %while.cond
   br label %do.body19
 
 do.body19:                                        ; preds = %while.end
-  %21 = load ptr, ptr %base.addr, align 8
-  %lock20 = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 29
-  %22 = load ptr, ptr %lock20, align 8
-  %tobool21 = icmp ne ptr %22, null
+  %22 = load ptr, ptr %base.addr, align 8
+  %lock20 = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 29
+  %23 = load ptr, ptr %lock20, align 8
+  %tobool21 = icmp ne ptr %23, null
   br i1 %tobool21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %do.body19
-  %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %24 = load ptr, ptr %base.addr, align 8
-  %lock23 = getelementptr inbounds %struct.evdns_base, ptr %24, i32 0, i32 29
-  %25 = load ptr, ptr %lock23, align 8
-  %call24 = call i32 %23(i32 noundef 0, ptr noundef %25)
+  %24 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %base.addr, align 8
+  %lock23 = getelementptr inbounds %struct.evdns_base, ptr %26, i32 0, i32 29
+  %27 = load ptr, ptr %lock23, align 8
+  %call24 = call i32 %25(i32 noundef 0, ptr noundef %27)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %do.body19
@@ -9898,44 +9973,46 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %do.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %base.addr, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 29
-  %6 = load ptr, ptr %lock3, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %base.addr, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
+  %7 = load ptr, ptr %lock3, align 8
+  %call = call i32 %5(i32 noundef 0, ptr noundef %7)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end4
-  %7 = load ptr, ptr %base.addr, align 8
-  %8 = load ptr, ptr %hosts_fname.addr, align 8
-  %call5 = call i32 @evdns_base_load_hosts_impl(ptr noundef %7, ptr noundef %8)
+  %8 = load ptr, ptr %base.addr, align 8
+  %9 = load ptr, ptr %hosts_fname.addr, align 8
+  %call5 = call i32 @evdns_base_load_hosts_impl(ptr noundef %8, ptr noundef %9)
   store i32 %call5, ptr %res, align 4
   br label %do.body6
 
 do.body6:                                         ; preds = %do.end
-  %9 = load ptr, ptr %base.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
-  %10 = load ptr, ptr %lock7, align 8
-  %tobool8 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %base.addr, align 8
+  %lock7 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
+  %11 = load ptr, ptr %lock7, align 8
+  %tobool8 = icmp ne ptr %11, null
   br i1 %tobool8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %do.body6
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %12 = load ptr, ptr %base.addr, align 8
-  %lock10 = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 29
-  %13 = load ptr, ptr %lock10, align 8
-  %call11 = call i32 %11(i32 noundef 0, ptr noundef %13)
+  %12 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %base.addr, align 8
+  %lock10 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
+  %15 = load ptr, ptr %lock10, align 8
+  %call11 = call i32 %13(i32 noundef 0, ptr noundef %15)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %do.body6
   br label %do.end13
 
 do.end13:                                         ; preds = %if.end12
-  %14 = load i32, ptr %res, align 4
-  ret i32 %14
+  %16 = load i32, ptr %res, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10094,73 +10171,74 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %base.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %5, i32 0, i32 29
-  %6 = load ptr, ptr %lock1, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %base.addr, align 8
+  %lock1 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
+  %7 = load ptr, ptr %lock1, align 8
+  %call = call i32 %5(i32 noundef 0, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %7 = load ptr, ptr %base.addr, align 8
-  %8 = load ptr, ptr %nodename.addr, align 8
-  %call2 = call ptr @find_hosts_entry(ptr noundef %7, ptr noundef %8, ptr noundef null)
+  %8 = load ptr, ptr %base.addr, align 8
+  %9 = load ptr, ptr %nodename.addr, align 8
+  %call2 = call ptr @find_hosts_entry(ptr noundef %8, ptr noundef %9, ptr noundef null)
   store ptr %call2, ptr %e, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %9 = load ptr, ptr %e, align 8
-  %tobool3 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %e, align 8
+  %tobool3 = icmp ne ptr %10, null
   br i1 %tobool3, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %10 = load i32, ptr %n_found, align 4
-  %inc = add nsw i32 %10, 1
+  %11 = load i32, ptr %n_found, align 4
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %n_found, align 4
-  %11 = load ptr, ptr %e, align 8
-  %addr = getelementptr inbounds %struct.hosts_entry, ptr %11, i32 0, i32 1
+  %12 = load ptr, ptr %e, align 8
+  %addr = getelementptr inbounds %struct.hosts_entry, ptr %12, i32 0, i32 1
   %sa_family = getelementptr inbounds %struct.sockaddr, ptr %addr, i32 0, i32 0
-  %12 = load i16, ptr %sa_family, align 8
-  %conv = zext i16 %12 to i32
+  %13 = load i16, ptr %sa_family, align 8
+  %conv = zext i16 %13 to i32
   %cmp = icmp eq i32 %conv, 2
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %for.body
-  %13 = load i32, ptr %f, align 4
-  %cmp5 = icmp eq i32 %13, 10
+  %14 = load i32, ptr %f, align 4
+  %cmp5 = icmp eq i32 %14, 10
   br i1 %cmp5, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %for.body
-  %14 = load ptr, ptr %e, align 8
-  %addr7 = getelementptr inbounds %struct.hosts_entry, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %e, align 8
+  %addr7 = getelementptr inbounds %struct.hosts_entry, ptr %15, i32 0, i32 1
   %sa_family8 = getelementptr inbounds %struct.sockaddr, ptr %addr7, i32 0, i32 0
-  %15 = load i16, ptr %sa_family8, align 8
-  %conv9 = zext i16 %15 to i32
+  %16 = load i16, ptr %sa_family8, align 8
+  %conv9 = zext i16 %16 to i32
   %cmp10 = icmp eq i32 %conv9, 10
   br i1 %cmp10, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false
-  %16 = load i32, ptr %f, align 4
-  %cmp13 = icmp eq i32 %16, 2
+  %17 = load i32, ptr %f, align 4
+  %cmp13 = icmp eq i32 %17, 2
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %land.lhs.true12, %land.lhs.true
   br label %for.inc
 
 if.end16:                                         ; preds = %land.lhs.true12, %lor.lhs.false
-  %17 = load ptr, ptr %e, align 8
-  %addr17 = getelementptr inbounds %struct.hosts_entry, ptr %17, i32 0, i32 1
   %18 = load ptr, ptr %e, align 8
-  %addrlen = getelementptr inbounds %struct.hosts_entry, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %addrlen, align 4
-  %20 = load ptr, ptr %hints.addr, align 8
-  %call18 = call ptr @evutil_new_addrinfo_(ptr noundef %addr17, i32 noundef %19, ptr noundef %20)
+  %addr17 = getelementptr inbounds %struct.hosts_entry, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %e, align 8
+  %addrlen = getelementptr inbounds %struct.hosts_entry, ptr %19, i32 0, i32 2
+  %20 = load i32, ptr %addrlen, align 4
+  %21 = load ptr, ptr %hints.addr, align 8
+  %call18 = call ptr @evutil_new_addrinfo_(ptr noundef %addr17, i32 noundef %20, ptr noundef %21)
   store ptr %call18, ptr %ai_new, align 8
-  %21 = load ptr, ptr %ai_new, align 8
-  %tobool19 = icmp ne ptr %21, null
+  %22 = load ptr, ptr %ai_new, align 8
+  %tobool19 = icmp ne ptr %22, null
   br i1 %tobool19, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
@@ -10168,22 +10246,22 @@ if.then20:                                        ; preds = %if.end16
   br label %out
 
 if.end21:                                         ; preds = %if.end16
-  %22 = load ptr, ptr %ai_new, align 8
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %22, i32 0, i32 5
-  %23 = load ptr, ptr %ai_addr, align 8
-  %24 = load i16, ptr %port.addr, align 2
-  call void @sockaddr_setport(ptr noundef %23, i16 noundef zeroext %24)
-  %25 = load ptr, ptr %ai, align 8
-  %26 = load ptr, ptr %ai_new, align 8
-  %call22 = call ptr @evutil_addrinfo_append_(ptr noundef %25, ptr noundef %26)
+  %23 = load ptr, ptr %ai_new, align 8
+  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %23, i32 0, i32 5
+  %24 = load ptr, ptr %ai_addr, align 8
+  %25 = load i16, ptr %port.addr, align 2
+  call void @sockaddr_setport(ptr noundef %24, i16 noundef zeroext %25)
+  %26 = load ptr, ptr %ai, align 8
+  %27 = load ptr, ptr %ai_new, align 8
+  %call22 = call ptr @evutil_addrinfo_append_(ptr noundef %26, ptr noundef %27)
   store ptr %call22, ptr %ai, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21, %if.then15
-  %27 = load ptr, ptr %base.addr, align 8
-  %28 = load ptr, ptr %nodename.addr, align 8
-  %29 = load ptr, ptr %e, align 8
-  %call23 = call ptr @find_hosts_entry(ptr noundef %27, ptr noundef %28, ptr noundef %29)
+  %28 = load ptr, ptr %base.addr, align 8
+  %29 = load ptr, ptr %nodename.addr, align 8
+  %30 = load ptr, ptr %e, align 8
+  %call23 = call ptr @find_hosts_entry(ptr noundef %28, ptr noundef %29, ptr noundef %30)
   store ptr %call23, ptr %e, align 8
   br label %for.cond, !llvm.loop !31
 
@@ -10191,18 +10269,19 @@ for.end:                                          ; preds = %for.cond
   br label %do.body24
 
 do.body24:                                        ; preds = %for.end
-  %30 = load ptr, ptr %base.addr, align 8
-  %lock25 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 29
-  %31 = load ptr, ptr %lock25, align 8
-  %tobool26 = icmp ne ptr %31, null
+  %31 = load ptr, ptr %base.addr, align 8
+  %lock25 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
+  %32 = load ptr, ptr %lock25, align 8
+  %tobool26 = icmp ne ptr %32, null
   br i1 %tobool26, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %do.body24
-  %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %33 = load ptr, ptr %base.addr, align 8
-  %lock28 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 29
-  %34 = load ptr, ptr %lock28, align 8
-  %call29 = call i32 %32(i32 noundef 0, ptr noundef %34)
+  %33 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %base.addr, align 8
+  %lock28 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 29
+  %36 = load ptr, ptr %lock28, align 8
+  %call29 = call i32 %34(i32 noundef 0, ptr noundef %36)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %do.body24
@@ -10212,25 +10291,25 @@ do.end31:                                         ; preds = %if.end30
   br label %out
 
 out:                                              ; preds = %do.end31, %if.then20
-  %35 = load i32, ptr %n_found, align 4
-  %tobool32 = icmp ne i32 %35, 0
+  %37 = load i32, ptr %n_found, align 4
+  %tobool32 = icmp ne i32 %37, 0
   br i1 %tobool32, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %out
-  %36 = load ptr, ptr %ai, align 8
-  %37 = load ptr, ptr %res.addr, align 8
-  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr %ai, align 8
+  %39 = load ptr, ptr %res.addr, align 8
+  store ptr %38, ptr %39, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %out
-  %38 = load ptr, ptr %ai, align 8
-  %tobool34 = icmp ne ptr %38, null
+  %40 = load ptr, ptr %ai, align 8
+  %tobool34 = icmp ne ptr %40, null
   br i1 %tobool34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.else
-  %39 = load ptr, ptr %ai, align 8
-  call void @evutil_freeaddrinfo(ptr noundef %39)
+  %41 = load ptr, ptr %ai, align 8
+  call void @evutil_freeaddrinfo(ptr noundef %41)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.else
@@ -10238,8 +10317,8 @@ if.end36:                                         ; preds = %if.then35, %if.else
   br label %return
 
 return:                                           ; preds = %if.end36, %if.then33
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
+  %42 = load i32, ptr %retval, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10321,48 +10400,49 @@ do.body5:                                         ; preds = %if.then4
   br i1 %tobool, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body5
-  %11 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %12 = load ptr, ptr %data, align 8
-  %evdns_base7 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %evdns_base7, align 8
-  %lock8 = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 29
-  %14 = load ptr, ptr %lock8, align 8
-  %call = call i32 %11(i32 noundef 0, ptr noundef %14)
+  %11 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %data, align 8
+  %evdns_base7 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %evdns_base7, align 8
+  %lock8 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
+  %15 = load ptr, ptr %lock8, align 8
+  %call = call i32 %12(i32 noundef 0, ptr noundef %15)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %do.body5
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end9
-  %15 = load i32, ptr %result.addr, align 4
-  %call11 = call i32 @evdns_result_is_answer(i32 noundef %15)
+  %16 = load i32, ptr %result.addr, align 4
+  %call11 = call i32 @evdns_result_is_answer(i32 noundef %16)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.end22
 
 if.then13:                                        ; preds = %do.end10
-  %16 = load ptr, ptr %req, align 8
-  %type14 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %16, i32 0, i32 1
-  %17 = load i32, ptr %type14, align 8
-  %cmp15 = icmp eq i32 %17, 1
+  %17 = load ptr, ptr %req, align 8
+  %type14 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %17, i32 0, i32 1
+  %18 = load i32, ptr %type14, align 8
+  %cmp15 = icmp eq i32 %18, 1
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.then13
-  %18 = load ptr, ptr %data, align 8
-  %evdns_base17 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %evdns_base17, align 8
-  %getaddrinfo_ipv4_answered = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 25
-  %20 = load i32, ptr %getaddrinfo_ipv4_answered, align 8
-  %inc = add nsw i32 %20, 1
+  %19 = load ptr, ptr %data, align 8
+  %evdns_base17 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %evdns_base17, align 8
+  %getaddrinfo_ipv4_answered = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 25
+  %21 = load i32, ptr %getaddrinfo_ipv4_answered, align 8
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %getaddrinfo_ipv4_answered, align 8
   br label %if.end21
 
 if.else18:                                        ; preds = %if.then13
-  %21 = load ptr, ptr %data, align 8
-  %evdns_base19 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %evdns_base19, align 8
-  %getaddrinfo_ipv6_answered = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 26
-  %23 = load i32, ptr %getaddrinfo_ipv6_answered, align 4
-  %inc20 = add nsw i32 %23, 1
+  %22 = load ptr, ptr %data, align 8
+  %evdns_base19 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %evdns_base19, align 8
+  %getaddrinfo_ipv6_answered = getelementptr inbounds %struct.evdns_base, ptr %23, i32 0, i32 26
+  %24 = load i32, ptr %getaddrinfo_ipv6_answered, align 4
+  %inc20 = add nsw i32 %24, 1
   store i32 %inc20, ptr %getaddrinfo_ipv6_answered, align 4
   br label %if.end21
 
@@ -10370,21 +10450,21 @@ if.end21:                                         ; preds = %if.else18, %if.then
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end21, %do.end10
-  %24 = load ptr, ptr %data, align 8
-  %user_canceled23 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %24, i32 0, i32 11
+  %25 = load ptr, ptr %data, align 8
+  %user_canceled23 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %25, i32 0, i32 11
   %bf.load = load i8, ptr %user_canceled23, align 4
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
   store i32 %bf.cast, ptr %user_canceled, align 4
-  %25 = load ptr, ptr %other_req, align 8
-  %r = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %r, align 8
-  %cmp24 = icmp eq ptr %26, null
+  %26 = load ptr, ptr %other_req, align 8
+  %r = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %r, align 8
+  %cmp24 = icmp eq ptr %27, null
   br i1 %cmp24, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.end22
-  %27 = load ptr, ptr %data, align 8
-  %request_done = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %27, i32 0, i32 11
+  %28 = load ptr, ptr %data, align 8
+  %request_done = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %28, i32 0, i32 11
   %bf.load26 = load i8, ptr %request_done, align 4
   %bf.clear27 = and i8 %bf.load26, -3
   %bf.set = or i8 %bf.clear27, 2
@@ -10395,22 +10475,23 @@ if.end28:                                         ; preds = %if.then25, %if.end2
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end28
-  %28 = load ptr, ptr %data, align 8
-  %evdns_base30 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %evdns_base30, align 8
-  %lock31 = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 29
-  %30 = load ptr, ptr %lock31, align 8
-  %tobool32 = icmp ne ptr %30, null
+  %29 = load ptr, ptr %data, align 8
+  %evdns_base30 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %evdns_base30, align 8
+  %lock31 = getelementptr inbounds %struct.evdns_base, ptr %30, i32 0, i32 29
+  %31 = load ptr, ptr %lock31, align 8
+  %tobool32 = icmp ne ptr %31, null
   br i1 %tobool32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %do.body29
-  %31 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %32 = load ptr, ptr %data, align 8
-  %evdns_base34 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %evdns_base34, align 8
-  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 29
-  %34 = load ptr, ptr %lock35, align 8
-  %call36 = call i32 %31(i32 noundef 0, ptr noundef %34)
+  %32 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %data, align 8
+  %evdns_base34 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %evdns_base34, align 8
+  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %35, i32 0, i32 29
+  %36 = load ptr, ptr %lock35, align 8
+  %call36 = call i32 %33(i32 noundef 0, ptr noundef %36)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %do.body29
@@ -10420,11 +10501,11 @@ do.end38:                                         ; preds = %if.end37
   br label %if.end45
 
 if.else39:                                        ; preds = %if.end
-  %35 = load ptr, ptr %data, align 8
-  %evdns_base40 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %data, align 8
+  %evdns_base40 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %37, i32 0, i32 0
   store ptr null, ptr %evdns_base40, align 8
-  %36 = load ptr, ptr %data, align 8
-  %user_canceled41 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %36, i32 0, i32 11
+  %38 = load ptr, ptr %data, align 8
+  %user_canceled41 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %38, i32 0, i32 11
   %bf.load42 = load i8, ptr %user_canceled41, align 4
   %bf.clear43 = and i8 %bf.load42, 1
   %bf.cast44 = zext i8 %bf.clear43 to i32
@@ -10432,53 +10513,53 @@ if.else39:                                        ; preds = %if.end
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else39, %do.end38
-  %37 = load ptr, ptr %req, align 8
-  %r46 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %req, align 8
+  %r46 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %39, i32 0, i32 0
   store ptr null, ptr %r46, align 8
-  %38 = load i32, ptr %result.addr, align 4
-  %cmp47 = icmp eq i32 %38, 69
+  %40 = load i32, ptr %result.addr, align 4
+  %cmp47 = icmp eq i32 %40, 69
   br i1 %cmp47, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %if.end45
-  %39 = load i32, ptr %user_canceled, align 4
-  %tobool48 = icmp ne i32 %39, 0
+  %41 = load i32, ptr %user_canceled, align 4
+  %tobool48 = icmp ne i32 %41, 0
   br i1 %tobool48, label %if.end54, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true
-  %40 = load ptr, ptr %other_req, align 8
-  %r50 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %r50, align 8
-  %cmp51 = icmp eq ptr %41, null
+  %42 = load ptr, ptr %other_req, align 8
+  %r50 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %42, i32 0, i32 0
+  %43 = load ptr, ptr %r50, align 8
+  %cmp51 = icmp eq ptr %43, null
   br i1 %cmp51, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.then49
-  %42 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %42)
+  %44 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %44)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.then49
   br label %if.end170
 
 if.end54:                                         ; preds = %land.lhs.true, %if.end45
-  %43 = load ptr, ptr %data, align 8
-  %user_cb = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %43, i32 0, i32 2
-  %44 = load ptr, ptr %user_cb, align 8
-  %cmp55 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %data, align 8
+  %user_cb = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %45, i32 0, i32 2
+  %46 = load ptr, ptr %user_cb, align 8
+  %cmp55 = icmp eq ptr %46, null
   br i1 %cmp55, label %if.then56, label %if.end57
 
 if.then56:                                        ; preds = %if.end54
-  %45 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %45)
+  %47 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %47)
   br label %if.end170
 
 if.end57:                                         ; preds = %if.end54
-  %46 = load i32, ptr %result.addr, align 4
-  %cmp58 = icmp eq i32 %46, 0
+  %48 = load i32, ptr %result.addr, align 4
+  %cmp58 = icmp eq i32 %48, 0
   br i1 %cmp58, label %if.then59, label %if.else64
 
 if.then59:                                        ; preds = %if.end57
-  %47 = load i32, ptr %count.addr, align 4
-  %cmp60 = icmp eq i32 %47, 0
+  %49 = load i32, ptr %count.addr, align 4
+  %cmp60 = icmp eq i32 %49, 0
   br i1 %cmp60, label %if.then61, label %if.else62
 
 if.then61:                                        ; preds = %if.then59
@@ -10493,146 +10574,146 @@ if.end63:                                         ; preds = %if.else62, %if.then
   br label %if.end66
 
 if.else64:                                        ; preds = %if.end57
-  %48 = load i32, ptr %result.addr, align 4
-  %call65 = call i32 @evdns_err_to_getaddrinfo_err(i32 noundef %48)
+  %50 = load i32, ptr %result.addr, align 4
+  %call65 = call i32 @evdns_err_to_getaddrinfo_err(i32 noundef %50)
   store i32 %call65, ptr %err, align 4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.else64, %if.end63
-  %49 = load i32, ptr %err, align 4
-  %tobool67 = icmp ne i32 %49, 0
+  %51 = load i32, ptr %err, align 4
+  %tobool67 = icmp ne i32 %51, 0
   br i1 %tobool67, label %if.then68, label %if.else100
 
 if.then68:                                        ; preds = %if.end66
-  %50 = load ptr, ptr %other_req, align 8
-  %r69 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %50, i32 0, i32 0
-  %51 = load ptr, ptr %r69, align 8
-  %tobool70 = icmp ne ptr %51, null
+  %52 = load ptr, ptr %other_req, align 8
+  %r69 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %52, i32 0, i32 0
+  %53 = load ptr, ptr %r69, align 8
+  %tobool70 = icmp ne ptr %53, null
   br i1 %tobool70, label %if.then71, label %if.end77
 
 if.then71:                                        ; preds = %if.then68
-  %52 = load i32, ptr %result.addr, align 4
-  %cmp72 = icmp ne i32 %52, 68
+  %54 = load i32, ptr %result.addr, align 4
+  %cmp72 = icmp ne i32 %54, 68
   br i1 %cmp72, label %if.then73, label %if.end76
 
 if.then73:                                        ; preds = %if.then71
-  %53 = load ptr, ptr %data, align 8
-  %evdns_base74 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %53, i32 0, i32 0
-  %54 = load ptr, ptr %evdns_base74, align 8
   %55 = load ptr, ptr %data, align 8
-  %call75 = call i32 @evdns_getaddrinfo_set_timeout(ptr noundef %54, ptr noundef %55)
+  %evdns_base74 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %55, i32 0, i32 0
+  %56 = load ptr, ptr %evdns_base74, align 8
+  %57 = load ptr, ptr %data, align 8
+  %call75 = call i32 @evdns_getaddrinfo_set_timeout(ptr noundef %56, ptr noundef %57)
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then73, %if.then71
-  %56 = load i32, ptr %err, align 4
-  %57 = load ptr, ptr %data, align 8
-  %pending_error = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %57, i32 0, i32 10
-  store i32 %56, ptr %pending_error, align 8
+  %58 = load i32, ptr %err, align 4
+  %59 = load ptr, ptr %data, align 8
+  %pending_error = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %59, i32 0, i32 10
+  store i32 %58, ptr %pending_error, align 8
   br label %if.end170
 
 if.end77:                                         ; preds = %if.then68
-  %58 = load i32, ptr %user_canceled, align 4
-  %tobool78 = icmp ne i32 %58, 0
+  %60 = load i32, ptr %user_canceled, align 4
+  %tobool78 = icmp ne i32 %60, 0
   br i1 %tobool78, label %if.then79, label %if.else81
 
 if.then79:                                        ; preds = %if.end77
-  %59 = load ptr, ptr %data, align 8
-  %user_cb80 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %59, i32 0, i32 2
-  %60 = load ptr, ptr %user_cb80, align 8
   %61 = load ptr, ptr %data, align 8
-  %user_data = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %61, i32 0, i32 3
-  %62 = load ptr, ptr %user_data, align 8
-  call void %60(i32 noundef -90001, ptr noundef null, ptr noundef %62)
+  %user_cb80 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %61, i32 0, i32 2
+  %62 = load ptr, ptr %user_cb80, align 8
+  %63 = load ptr, ptr %data, align 8
+  %user_data = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %63, i32 0, i32 3
+  %64 = load ptr, ptr %user_data, align 8
+  call void %62(i32 noundef -90001, ptr noundef null, ptr noundef %64)
   br label %if.end99
 
 if.else81:                                        ; preds = %if.end77
-  %63 = load ptr, ptr %data, align 8
-  %pending_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %63, i32 0, i32 8
-  %64 = load ptr, ptr %pending_result, align 8
-  %tobool82 = icmp ne ptr %64, null
+  %65 = load ptr, ptr %data, align 8
+  %pending_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %65, i32 0, i32 8
+  %66 = load ptr, ptr %pending_result, align 8
+  %tobool82 = icmp ne ptr %66, null
   br i1 %tobool82, label %if.then83, label %if.else89
 
 if.then83:                                        ; preds = %if.else81
-  %65 = load ptr, ptr %data, align 8
-  %66 = load ptr, ptr %data, align 8
-  %pending_result84 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %66, i32 0, i32 8
-  %67 = load ptr, ptr %pending_result84, align 8
-  call void @add_cname_to_reply(ptr noundef %65, ptr noundef %67)
+  %67 = load ptr, ptr %data, align 8
   %68 = load ptr, ptr %data, align 8
-  %user_cb85 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %68, i32 0, i32 2
-  %69 = load ptr, ptr %user_cb85, align 8
+  %pending_result84 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %68, i32 0, i32 8
+  %69 = load ptr, ptr %pending_result84, align 8
+  call void @add_cname_to_reply(ptr noundef %67, ptr noundef %69)
   %70 = load ptr, ptr %data, align 8
-  %pending_result86 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %70, i32 0, i32 8
-  %71 = load ptr, ptr %pending_result86, align 8
+  %user_cb85 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %70, i32 0, i32 2
+  %71 = load ptr, ptr %user_cb85, align 8
   %72 = load ptr, ptr %data, align 8
-  %user_data87 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %72, i32 0, i32 3
-  %73 = load ptr, ptr %user_data87, align 8
-  call void %69(i32 noundef 0, ptr noundef %71, ptr noundef %73)
+  %pending_result86 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %72, i32 0, i32 8
+  %73 = load ptr, ptr %pending_result86, align 8
   %74 = load ptr, ptr %data, align 8
-  %pending_result88 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %74, i32 0, i32 8
+  %user_data87 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %74, i32 0, i32 3
+  %75 = load ptr, ptr %user_data87, align 8
+  call void %71(i32 noundef 0, ptr noundef %73, ptr noundef %75)
+  %76 = load ptr, ptr %data, align 8
+  %pending_result88 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %76, i32 0, i32 8
   store ptr null, ptr %pending_result88, align 8
   br label %if.end98
 
 if.else89:                                        ; preds = %if.else81
-  %75 = load ptr, ptr %data, align 8
-  %pending_error90 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %75, i32 0, i32 10
-  %76 = load i32, ptr %pending_error90, align 8
-  %tobool91 = icmp ne i32 %76, 0
+  %77 = load ptr, ptr %data, align 8
+  %pending_error90 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %77, i32 0, i32 10
+  %78 = load i32, ptr %pending_error90, align 8
+  %tobool91 = icmp ne i32 %78, 0
   br i1 %tobool91, label %if.then92, label %if.end95
 
 if.then92:                                        ; preds = %if.else89
-  %77 = load i32, ptr %err, align 4
-  %78 = load ptr, ptr %data, align 8
-  %pending_error93 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %78, i32 0, i32 10
-  %79 = load i32, ptr %pending_error93, align 8
-  %call94 = call i32 @getaddrinfo_merge_err(i32 noundef %77, i32 noundef %79)
+  %79 = load i32, ptr %err, align 4
+  %80 = load ptr, ptr %data, align 8
+  %pending_error93 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %80, i32 0, i32 10
+  %81 = load i32, ptr %pending_error93, align 8
+  %call94 = call i32 @getaddrinfo_merge_err(i32 noundef %79, i32 noundef %81)
   store i32 %call94, ptr %err, align 4
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then92, %if.else89
-  %80 = load ptr, ptr %data, align 8
-  %user_cb96 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %80, i32 0, i32 2
-  %81 = load ptr, ptr %user_cb96, align 8
-  %82 = load i32, ptr %err, align 4
-  %83 = load ptr, ptr %data, align 8
-  %user_data97 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %83, i32 0, i32 3
-  %84 = load ptr, ptr %user_data97, align 8
-  call void %81(i32 noundef %82, ptr noundef null, ptr noundef %84)
+  %82 = load ptr, ptr %data, align 8
+  %user_cb96 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %82, i32 0, i32 2
+  %83 = load ptr, ptr %user_cb96, align 8
+  %84 = load i32, ptr %err, align 4
+  %85 = load ptr, ptr %data, align 8
+  %user_data97 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %85, i32 0, i32 3
+  %86 = load ptr, ptr %user_data97, align 8
+  call void %83(i32 noundef %84, ptr noundef null, ptr noundef %86)
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end95, %if.then83
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end98, %if.then79
-  %85 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %85)
+  %87 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %87)
   br label %if.end170
 
 if.else100:                                       ; preds = %if.end66
-  %86 = load i32, ptr %user_canceled, align 4
-  %tobool101 = icmp ne i32 %86, 0
+  %88 = load i32, ptr %user_canceled, align 4
+  %tobool101 = icmp ne i32 %88, 0
   br i1 %tobool101, label %if.then102, label %if.end109
 
 if.then102:                                       ; preds = %if.else100
-  %87 = load ptr, ptr %other_req, align 8
-  %r103 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %87, i32 0, i32 0
-  %88 = load ptr, ptr %r103, align 8
-  %tobool104 = icmp ne ptr %88, null
+  %89 = load ptr, ptr %other_req, align 8
+  %r103 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %89, i32 0, i32 0
+  %90 = load ptr, ptr %r103, align 8
+  %tobool104 = icmp ne ptr %90, null
   br i1 %tobool104, label %if.then105, label %if.end106
 
 if.then105:                                       ; preds = %if.then102
   br label %if.end170
 
 if.end106:                                        ; preds = %if.then102
-  %89 = load ptr, ptr %data, align 8
-  %user_cb107 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %89, i32 0, i32 2
-  %90 = load ptr, ptr %user_cb107, align 8
   %91 = load ptr, ptr %data, align 8
-  %user_data108 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %91, i32 0, i32 3
-  %92 = load ptr, ptr %user_data108, align 8
-  call void %90(i32 noundef -90001, ptr noundef null, ptr noundef %92)
+  %user_cb107 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %91, i32 0, i32 2
+  %92 = load ptr, ptr %user_cb107, align 8
   %93 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %93)
+  %user_data108 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %93, i32 0, i32 3
+  %94 = load ptr, ptr %user_data108, align 8
+  call void %92(i32 noundef -90001, ptr noundef null, ptr noundef %94)
+  %95 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %95)
   br label %if.end170
 
 if.end109:                                        ; preds = %if.else100
@@ -10645,8 +10726,8 @@ do.body111:                                       ; preds = %if.end110
   br label %do.end112
 
 do.end112:                                        ; preds = %do.body111
-  %94 = load i8, ptr %type.addr, align 1
-  %conv = sext i8 %94 to i32
+  %96 = load i8, ptr %type.addr, align 1
+  %conv = sext i8 %96 to i32
   %cmp113 = icmp eq i32 %conv, 1
   br i1 %cmp113, label %if.then115, label %if.else117
 
@@ -10654,10 +10735,10 @@ if.then115:                                       ; preds = %do.end112
   call void @llvm.memset.p0.i64(ptr align 4 %sin, i8 0, i64 16, i1 false)
   %sin_family = getelementptr inbounds %struct.sockaddr_in, ptr %sin, i32 0, i32 0
   store i16 2, ptr %sin_family, align 4
-  %95 = load ptr, ptr %data, align 8
-  %port = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %95, i32 0, i32 4
-  %96 = load i16, ptr %port, align 8
-  %call116 = call zeroext i16 @htons(i16 noundef zeroext %96) #8
+  %97 = load ptr, ptr %data, align 8
+  %port = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %97, i32 0, i32 4
+  %98 = load i16, ptr %port, align 8
+  %call116 = call zeroext i16 @htons(i16 noundef zeroext %98) #8
   %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %sin, i32 0, i32 1
   store i16 %call116, ptr %sin_port, align 2
   store ptr %sin, ptr %sa, align 8
@@ -10672,10 +10753,10 @@ if.else117:                                       ; preds = %do.end112
   call void @llvm.memset.p0.i64(ptr align 4 %sin6, i8 0, i64 28, i1 false)
   %sin6_family = getelementptr inbounds %struct.sockaddr_in6, ptr %sin6, i32 0, i32 0
   store i16 10, ptr %sin6_family, align 4
-  %97 = load ptr, ptr %data, align 8
-  %port118 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %97, i32 0, i32 4
-  %98 = load i16, ptr %port118, align 8
-  %call119 = call zeroext i16 @htons(i16 noundef zeroext %98) #8
+  %99 = load ptr, ptr %data, align 8
+  %port118 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %99, i32 0, i32 4
+  %100 = load i16, ptr %port118, align 8
+  %call119 = call zeroext i16 @htons(i16 noundef zeroext %100) #8
   %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %sin6, i32 0, i32 1
   store i16 %call119, ptr %sin6_port, align 2
   store ptr %sin6, ptr %sa, align 8
@@ -10692,162 +10773,162 @@ if.end120:                                        ; preds = %if.else117, %if.the
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end120
-  %99 = load i32, ptr %i, align 4
-  %100 = load i32, ptr %count.addr, align 4
-  %cmp121 = icmp slt i32 %99, %100
+  %101 = load i32, ptr %i, align 4
+  %102 = load i32, ptr %count.addr, align 4
+  %cmp121 = icmp slt i32 %101, %102
   br i1 %cmp121, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %101 = load ptr, ptr %addrp, align 8
-  %102 = load ptr, ptr %addresses.addr, align 8
-  %103 = load i32, ptr %i, align 4
-  %104 = load i32, ptr %addrlen, align 4
-  %mul = mul nsw i32 %103, %104
+  %103 = load ptr, ptr %addrp, align 8
+  %104 = load ptr, ptr %addresses.addr, align 8
+  %105 = load i32, ptr %i, align 4
+  %106 = load i32, ptr %addrlen, align 4
+  %mul = mul nsw i32 %105, %106
   %idx.ext = sext i32 %mul to i64
-  %add.ptr123 = getelementptr inbounds i8, ptr %102, i64 %idx.ext
-  %105 = load i32, ptr %addrlen, align 4
-  %conv124 = sext i32 %105 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %add.ptr123, i64 %conv124, i1 false)
-  %106 = load ptr, ptr %sa, align 8
-  %107 = load i32, ptr %socklen, align 4
-  %108 = load ptr, ptr %data, align 8
-  %hints = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %108, i32 0, i32 1
-  %call125 = call ptr @evutil_new_addrinfo_(ptr noundef %106, i32 noundef %107, ptr noundef %hints)
+  %add.ptr123 = getelementptr inbounds i8, ptr %104, i64 %idx.ext
+  %107 = load i32, ptr %addrlen, align 4
+  %conv124 = sext i32 %107 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %add.ptr123, i64 %conv124, i1 false)
+  %108 = load ptr, ptr %sa, align 8
+  %109 = load i32, ptr %socklen, align 4
+  %110 = load ptr, ptr %data, align 8
+  %hints = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %110, i32 0, i32 1
+  %call125 = call ptr @evutil_new_addrinfo_(ptr noundef %108, i32 noundef %109, ptr noundef %hints)
   store ptr %call125, ptr %ai, align 8
-  %109 = load ptr, ptr %ai, align 8
-  %tobool126 = icmp ne ptr %109, null
+  %111 = load ptr, ptr %ai, align 8
+  %tobool126 = icmp ne ptr %111, null
   br i1 %tobool126, label %if.end143, label %if.then127
 
 if.then127:                                       ; preds = %for.body
-  %110 = load ptr, ptr %other_req, align 8
-  %r128 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %110, i32 0, i32 0
-  %111 = load ptr, ptr %r128, align 8
-  %tobool129 = icmp ne ptr %111, null
+  %112 = load ptr, ptr %other_req, align 8
+  %r128 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %112, i32 0, i32 0
+  %113 = load ptr, ptr %r128, align 8
+  %tobool129 = icmp ne ptr %113, null
   br i1 %tobool129, label %if.then130, label %if.end132
 
 if.then130:                                       ; preds = %if.then127
-  %112 = load ptr, ptr %other_req, align 8
-  %r131 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %112, i32 0, i32 0
-  %113 = load ptr, ptr %r131, align 8
-  call void @evdns_cancel_request(ptr noundef null, ptr noundef %113)
+  %114 = load ptr, ptr %other_req, align 8
+  %r131 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %114, i32 0, i32 0
+  %115 = load ptr, ptr %r131, align 8
+  call void @evdns_cancel_request(ptr noundef null, ptr noundef %115)
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then130, %if.then127
-  %114 = load ptr, ptr %data, align 8
-  %user_cb133 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %114, i32 0, i32 2
-  %115 = load ptr, ptr %user_cb133, align 8
   %116 = load ptr, ptr %data, align 8
-  %user_data134 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %116, i32 0, i32 3
-  %117 = load ptr, ptr %user_data134, align 8
-  call void %115(i32 noundef -10, ptr noundef null, ptr noundef %117)
-  %118 = load ptr, ptr %res, align 8
-  %tobool135 = icmp ne ptr %118, null
+  %user_cb133 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %116, i32 0, i32 2
+  %117 = load ptr, ptr %user_cb133, align 8
+  %118 = load ptr, ptr %data, align 8
+  %user_data134 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %118, i32 0, i32 3
+  %119 = load ptr, ptr %user_data134, align 8
+  call void %117(i32 noundef -10, ptr noundef null, ptr noundef %119)
+  %120 = load ptr, ptr %res, align 8
+  %tobool135 = icmp ne ptr %120, null
   br i1 %tobool135, label %if.then136, label %if.end137
 
 if.then136:                                       ; preds = %if.end132
-  %119 = load ptr, ptr %res, align 8
-  call void @evutil_freeaddrinfo(ptr noundef %119)
+  %121 = load ptr, ptr %res, align 8
+  call void @evutil_freeaddrinfo(ptr noundef %121)
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then136, %if.end132
-  %120 = load ptr, ptr %other_req, align 8
-  %r138 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %120, i32 0, i32 0
-  %121 = load ptr, ptr %r138, align 8
-  %cmp139 = icmp eq ptr %121, null
+  %122 = load ptr, ptr %other_req, align 8
+  %r138 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %122, i32 0, i32 0
+  %123 = load ptr, ptr %r138, align 8
+  %cmp139 = icmp eq ptr %123, null
   br i1 %cmp139, label %if.then141, label %if.end142
 
 if.then141:                                       ; preds = %if.end137
-  %122 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %122)
+  %124 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %124)
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then141, %if.end137
   br label %if.end170
 
 if.end143:                                        ; preds = %for.body
-  %123 = load ptr, ptr %res, align 8
-  %124 = load ptr, ptr %ai, align 8
-  %call144 = call ptr @evutil_addrinfo_append_(ptr noundef %123, ptr noundef %124)
+  %125 = load ptr, ptr %res, align 8
+  %126 = load ptr, ptr %ai, align 8
+  %call144 = call ptr @evutil_addrinfo_append_(ptr noundef %125, ptr noundef %126)
   store ptr %call144, ptr %res, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end143
-  %125 = load i32, ptr %i, align 4
-  %inc145 = add nsw i32 %125, 1
+  %127 = load i32, ptr %i, align 4
+  %inc145 = add nsw i32 %127, 1
   store i32 %inc145, ptr %i, align 4
   br label %for.cond, !llvm.loop !32
 
 for.end:                                          ; preds = %for.cond
-  %126 = load ptr, ptr %other_req, align 8
-  %r146 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %126, i32 0, i32 0
-  %127 = load ptr, ptr %r146, align 8
-  %tobool147 = icmp ne ptr %127, null
+  %128 = load ptr, ptr %other_req, align 8
+  %r146 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %128, i32 0, i32 0
+  %129 = load ptr, ptr %r146, align 8
+  %tobool147 = icmp ne ptr %129, null
   br i1 %tobool147, label %if.then148, label %if.else152
 
 if.then148:                                       ; preds = %for.end
-  %128 = load ptr, ptr %data, align 8
-  %evdns_base149 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %128, i32 0, i32 0
-  %129 = load ptr, ptr %evdns_base149, align 8
   %130 = load ptr, ptr %data, align 8
-  %call150 = call i32 @evdns_getaddrinfo_set_timeout(ptr noundef %129, ptr noundef %130)
-  %131 = load ptr, ptr %res, align 8
+  %evdns_base149 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %130, i32 0, i32 0
+  %131 = load ptr, ptr %evdns_base149, align 8
   %132 = load ptr, ptr %data, align 8
-  %pending_result151 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %132, i32 0, i32 8
-  store ptr %131, ptr %pending_result151, align 8
+  %call150 = call i32 @evdns_getaddrinfo_set_timeout(ptr noundef %131, ptr noundef %132)
+  %133 = load ptr, ptr %res, align 8
+  %134 = load ptr, ptr %data, align 8
+  %pending_result151 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %134, i32 0, i32 8
+  store ptr %133, ptr %pending_result151, align 8
   br label %if.end170
 
 if.else152:                                       ; preds = %for.end
-  %133 = load ptr, ptr %data, align 8
-  %pending_result153 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %133, i32 0, i32 8
-  %134 = load ptr, ptr %pending_result153, align 8
-  %tobool154 = icmp ne ptr %134, null
+  %135 = load ptr, ptr %data, align 8
+  %pending_result153 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %135, i32 0, i32 8
+  %136 = load ptr, ptr %pending_result153, align 8
+  %tobool154 = icmp ne ptr %136, null
   br i1 %tobool154, label %if.then155, label %if.end167
 
 if.then155:                                       ; preds = %if.else152
-  %135 = load ptr, ptr %req, align 8
-  %type156 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %135, i32 0, i32 1
-  %136 = load i32, ptr %type156, align 8
-  %cmp157 = icmp eq i32 %136, 1
+  %137 = load ptr, ptr %req, align 8
+  %type156 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %137, i32 0, i32 1
+  %138 = load i32, ptr %type156, align 8
+  %cmp157 = icmp eq i32 %138, 1
   br i1 %cmp157, label %if.then159, label %if.else162
 
 if.then159:                                       ; preds = %if.then155
-  %137 = load ptr, ptr %res, align 8
-  %138 = load ptr, ptr %data, align 8
-  %pending_result160 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %138, i32 0, i32 8
-  %139 = load ptr, ptr %pending_result160, align 8
-  %call161 = call ptr @evutil_addrinfo_append_(ptr noundef %137, ptr noundef %139)
+  %139 = load ptr, ptr %res, align 8
+  %140 = load ptr, ptr %data, align 8
+  %pending_result160 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %140, i32 0, i32 8
+  %141 = load ptr, ptr %pending_result160, align 8
+  %call161 = call ptr @evutil_addrinfo_append_(ptr noundef %139, ptr noundef %141)
   store ptr %call161, ptr %res, align 8
   br label %if.end165
 
 if.else162:                                       ; preds = %if.then155
-  %140 = load ptr, ptr %data, align 8
-  %pending_result163 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %140, i32 0, i32 8
-  %141 = load ptr, ptr %pending_result163, align 8
-  %142 = load ptr, ptr %res, align 8
-  %call164 = call ptr @evutil_addrinfo_append_(ptr noundef %141, ptr noundef %142)
+  %142 = load ptr, ptr %data, align 8
+  %pending_result163 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %142, i32 0, i32 8
+  %143 = load ptr, ptr %pending_result163, align 8
+  %144 = load ptr, ptr %res, align 8
+  %call164 = call ptr @evutil_addrinfo_append_(ptr noundef %143, ptr noundef %144)
   store ptr %call164, ptr %res, align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.else162, %if.then159
-  %143 = load ptr, ptr %data, align 8
-  %pending_result166 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %143, i32 0, i32 8
+  %145 = load ptr, ptr %data, align 8
+  %pending_result166 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %145, i32 0, i32 8
   store ptr null, ptr %pending_result166, align 8
   br label %if.end167
 
 if.end167:                                        ; preds = %if.end165, %if.else152
-  %144 = load ptr, ptr %data, align 8
-  %145 = load ptr, ptr %res, align 8
-  call void @add_cname_to_reply(ptr noundef %144, ptr noundef %145)
   %146 = load ptr, ptr %data, align 8
-  %user_cb168 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %146, i32 0, i32 2
-  %147 = load ptr, ptr %user_cb168, align 8
-  %148 = load ptr, ptr %res, align 8
-  %149 = load ptr, ptr %data, align 8
-  %user_data169 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %149, i32 0, i32 3
-  %150 = load ptr, ptr %user_data169, align 8
-  call void %147(i32 noundef 0, ptr noundef %148, ptr noundef %150)
+  %147 = load ptr, ptr %res, align 8
+  call void @add_cname_to_reply(ptr noundef %146, ptr noundef %147)
+  %148 = load ptr, ptr %data, align 8
+  %user_cb168 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %148, i32 0, i32 2
+  %149 = load ptr, ptr %user_cb168, align 8
+  %150 = load ptr, ptr %res, align 8
   %151 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %151)
+  %user_data169 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %151, i32 0, i32 3
+  %152 = load ptr, ptr %user_data169, align 8
+  call void %149(i32 noundef 0, ptr noundef %150, ptr noundef %152)
+  %153 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %153)
   br label %if.end170
 
 if.end170:                                        ; preds = %if.end167, %if.then148, %if.end142, %if.end106, %if.then105, %if.end99, %if.end76, %if.then56, %if.end53
@@ -10897,45 +10978,47 @@ do.body:                                          ; preds = %if.then
   br i1 %tobool3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %do.body
-  %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %9 = load ptr, ptr %data, align 8
-  %evdns_base5 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %evdns_base5, align 8
-  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
-  %11 = load ptr, ptr %lock6, align 8
-  %call = call i32 %8(i32 noundef 0, ptr noundef %11)
+  %8 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %data, align 8
+  %evdns_base5 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %evdns_base5, align 8
+  %lock6 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
+  %12 = load ptr, ptr %lock6, align 8
+  %call = call i32 %9(i32 noundef 0, ptr noundef %12)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %12 = load ptr, ptr %data, align 8
-  %evdns_base7 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %evdns_base7, align 8
-  %getaddrinfo_ipv4_timeouts = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 23
-  %14 = load i32, ptr %getaddrinfo_ipv4_timeouts, align 8
-  %inc = add nsw i32 %14, 1
+  %13 = load ptr, ptr %data, align 8
+  %evdns_base7 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %evdns_base7, align 8
+  %getaddrinfo_ipv4_timeouts = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 23
+  %15 = load i32, ptr %getaddrinfo_ipv4_timeouts, align 8
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %getaddrinfo_ipv4_timeouts, align 8
   br label %do.body8
 
 do.body8:                                         ; preds = %do.end
-  %15 = load ptr, ptr %data, align 8
-  %evdns_base9 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %evdns_base9, align 8
-  %lock10 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
-  %17 = load ptr, ptr %lock10, align 8
-  %tobool11 = icmp ne ptr %17, null
+  %16 = load ptr, ptr %data, align 8
+  %evdns_base9 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %evdns_base9, align 8
+  %lock10 = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 29
+  %18 = load ptr, ptr %lock10, align 8
+  %tobool11 = icmp ne ptr %18, null
   br i1 %tobool11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %do.body8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %19 = load ptr, ptr %data, align 8
-  %evdns_base13 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %evdns_base13, align 8
-  %lock14 = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 29
-  %21 = load ptr, ptr %lock14, align 8
-  %call15 = call i32 %18(i32 noundef 0, ptr noundef %21)
+  %19 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %data, align 8
+  %evdns_base13 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %evdns_base13, align 8
+  %lock14 = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 29
+  %23 = load ptr, ptr %lock14, align 8
+  %call15 = call i32 %20(i32 noundef 0, ptr noundef %23)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %do.body8
@@ -10945,71 +11028,73 @@ do.end17:                                         ; preds = %if.end16
   br label %if.end18
 
 if.end18:                                         ; preds = %do.end17, %entry
-  %22 = load ptr, ptr %data, align 8
-  %ipv6_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %data, align 8
+  %ipv6_request = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %24, i32 0, i32 6
   %r19 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request, i32 0, i32 0
-  %23 = load ptr, ptr %r19, align 8
-  %tobool20 = icmp ne ptr %23, null
+  %25 = load ptr, ptr %r19, align 8
+  %tobool20 = icmp ne ptr %25, null
   br i1 %tobool20, label %if.then21, label %if.end46
 
 if.then21:                                        ; preds = %if.end18
-  %24 = load ptr, ptr %data, align 8
-  %ipv6_request22 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %24, i32 0, i32 6
+  %26 = load ptr, ptr %data, align 8
+  %ipv6_request22 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %26, i32 0, i32 6
   %r23 = getelementptr inbounds %struct.getaddrinfo_subrequest, ptr %ipv6_request22, i32 0, i32 0
-  %25 = load ptr, ptr %r23, align 8
-  call void @evdns_cancel_request(ptr noundef null, ptr noundef %25)
+  %27 = load ptr, ptr %r23, align 8
+  call void @evdns_cancel_request(ptr noundef null, ptr noundef %27)
   store i32 1, ptr %v6_timedout, align 4
   br label %do.body24
 
 do.body24:                                        ; preds = %if.then21
-  %26 = load ptr, ptr %data, align 8
-  %evdns_base25 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %evdns_base25, align 8
-  %lock26 = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 29
-  %28 = load ptr, ptr %lock26, align 8
-  %tobool27 = icmp ne ptr %28, null
+  %28 = load ptr, ptr %data, align 8
+  %evdns_base25 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %evdns_base25, align 8
+  %lock26 = getelementptr inbounds %struct.evdns_base, ptr %29, i32 0, i32 29
+  %30 = load ptr, ptr %lock26, align 8
+  %tobool27 = icmp ne ptr %30, null
   br i1 %tobool27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %do.body24
-  %29 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %30 = load ptr, ptr %data, align 8
-  %evdns_base29 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %evdns_base29, align 8
-  %lock30 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
-  %32 = load ptr, ptr %lock30, align 8
-  %call31 = call i32 %29(i32 noundef 0, ptr noundef %32)
+  %31 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %data, align 8
+  %evdns_base29 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %evdns_base29, align 8
+  %lock30 = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 29
+  %35 = load ptr, ptr %lock30, align 8
+  %call31 = call i32 %32(i32 noundef 0, ptr noundef %35)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then28, %do.body24
   br label %do.end33
 
 do.end33:                                         ; preds = %if.end32
-  %33 = load ptr, ptr %data, align 8
-  %evdns_base34 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %evdns_base34, align 8
-  %getaddrinfo_ipv6_timeouts = getelementptr inbounds %struct.evdns_base, ptr %34, i32 0, i32 24
-  %35 = load i32, ptr %getaddrinfo_ipv6_timeouts, align 4
-  %inc35 = add nsw i32 %35, 1
+  %36 = load ptr, ptr %data, align 8
+  %evdns_base34 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %evdns_base34, align 8
+  %getaddrinfo_ipv6_timeouts = getelementptr inbounds %struct.evdns_base, ptr %37, i32 0, i32 24
+  %38 = load i32, ptr %getaddrinfo_ipv6_timeouts, align 4
+  %inc35 = add nsw i32 %38, 1
   store i32 %inc35, ptr %getaddrinfo_ipv6_timeouts, align 4
   br label %do.body36
 
 do.body36:                                        ; preds = %do.end33
-  %36 = load ptr, ptr %data, align 8
-  %evdns_base37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %evdns_base37, align 8
-  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %37, i32 0, i32 29
-  %38 = load ptr, ptr %lock38, align 8
-  %tobool39 = icmp ne ptr %38, null
+  %39 = load ptr, ptr %data, align 8
+  %evdns_base37 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %39, i32 0, i32 0
+  %40 = load ptr, ptr %evdns_base37, align 8
+  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %40, i32 0, i32 29
+  %41 = load ptr, ptr %lock38, align 8
+  %tobool39 = icmp ne ptr %41, null
   br i1 %tobool39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %do.body36
-  %39 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %40 = load ptr, ptr %data, align 8
-  %evdns_base41 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %evdns_base41, align 8
-  %lock42 = getelementptr inbounds %struct.evdns_base, ptr %41, i32 0, i32 29
-  %42 = load ptr, ptr %lock42, align 8
-  %call43 = call i32 %39(i32 noundef 0, ptr noundef %42)
+  %42 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %data, align 8
+  %evdns_base41 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %44, i32 0, i32 0
+  %45 = load ptr, ptr %evdns_base41, align 8
+  %lock42 = getelementptr inbounds %struct.evdns_base, ptr %45, i32 0, i32 29
+  %46 = load ptr, ptr %lock42, align 8
+  %call43 = call i32 %43(i32 noundef 0, ptr noundef %46)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then40, %do.body36
@@ -11025,40 +11110,40 @@ do.body47:                                        ; preds = %if.end46
   br label %do.end48
 
 do.end48:                                         ; preds = %do.body47
-  %43 = load ptr, ptr %data, align 8
-  %pending_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %43, i32 0, i32 8
-  %44 = load ptr, ptr %pending_result, align 8
-  %tobool49 = icmp ne ptr %44, null
+  %47 = load ptr, ptr %data, align 8
+  %pending_result = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %47, i32 0, i32 8
+  %48 = load ptr, ptr %pending_result, align 8
+  %tobool49 = icmp ne ptr %48, null
   br i1 %tobool49, label %if.then50, label %if.else
 
 if.then50:                                        ; preds = %do.end48
-  %45 = load ptr, ptr %data, align 8
-  %46 = load ptr, ptr %data, align 8
-  %pending_result51 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %46, i32 0, i32 8
-  %47 = load ptr, ptr %pending_result51, align 8
-  call void @add_cname_to_reply(ptr noundef %45, ptr noundef %47)
-  %48 = load ptr, ptr %data, align 8
-  %user_cb = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %48, i32 0, i32 2
-  %49 = load ptr, ptr %user_cb, align 8
+  %49 = load ptr, ptr %data, align 8
   %50 = load ptr, ptr %data, align 8
-  %pending_result52 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %50, i32 0, i32 8
-  %51 = load ptr, ptr %pending_result52, align 8
+  %pending_result51 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %50, i32 0, i32 8
+  %51 = load ptr, ptr %pending_result51, align 8
+  call void @add_cname_to_reply(ptr noundef %49, ptr noundef %51)
   %52 = load ptr, ptr %data, align 8
-  %user_data = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %52, i32 0, i32 3
-  %53 = load ptr, ptr %user_data, align 8
-  call void %49(i32 noundef 0, ptr noundef %51, ptr noundef %53)
+  %user_cb = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %52, i32 0, i32 2
+  %53 = load ptr, ptr %user_cb, align 8
   %54 = load ptr, ptr %data, align 8
-  %pending_result53 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %54, i32 0, i32 8
+  %pending_result52 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %54, i32 0, i32 8
+  %55 = load ptr, ptr %pending_result52, align 8
+  %56 = load ptr, ptr %data, align 8
+  %user_data = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %56, i32 0, i32 3
+  %57 = load ptr, ptr %user_data, align 8
+  call void %53(i32 noundef 0, ptr noundef %55, ptr noundef %57)
+  %58 = load ptr, ptr %data, align 8
+  %pending_result53 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %58, i32 0, i32 8
   store ptr null, ptr %pending_result53, align 8
   br label %if.end59
 
 if.else:                                          ; preds = %do.end48
-  %55 = load ptr, ptr %data, align 8
-  %pending_error = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %55, i32 0, i32 10
-  %56 = load i32, ptr %pending_error, align 8
-  store i32 %56, ptr %e, align 4
-  %57 = load i32, ptr %e, align 4
-  %tobool54 = icmp ne i32 %57, 0
+  %59 = load ptr, ptr %data, align 8
+  %pending_error = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %59, i32 0, i32 10
+  %60 = load i32, ptr %pending_error, align 8
+  store i32 %60, ptr %e, align 4
+  %61 = load i32, ptr %e, align 4
+  %tobool54 = icmp ne i32 %61, 0
   br i1 %tobool54, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %if.else
@@ -11066,32 +11151,32 @@ if.then55:                                        ; preds = %if.else
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then55, %if.else
-  %58 = load ptr, ptr %data, align 8
-  %user_cb57 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %58, i32 0, i32 2
-  %59 = load ptr, ptr %user_cb57, align 8
-  %60 = load i32, ptr %e, align 4
-  %61 = load ptr, ptr %data, align 8
-  %user_data58 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %61, i32 0, i32 3
-  %62 = load ptr, ptr %user_data58, align 8
-  call void %59(i32 noundef %60, ptr noundef null, ptr noundef %62)
+  %62 = load ptr, ptr %data, align 8
+  %user_cb57 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %62, i32 0, i32 2
+  %63 = load ptr, ptr %user_cb57, align 8
+  %64 = load i32, ptr %e, align 4
+  %65 = load ptr, ptr %data, align 8
+  %user_data58 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %65, i32 0, i32 3
+  %66 = load ptr, ptr %user_data58, align 8
+  call void %63(i32 noundef %64, ptr noundef null, ptr noundef %66)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end56, %if.then50
-  %63 = load ptr, ptr %data, align 8
-  %user_cb60 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %63, i32 0, i32 2
+  %67 = load ptr, ptr %data, align 8
+  %user_cb60 = getelementptr inbounds %struct.evdns_getaddrinfo_request, ptr %67, i32 0, i32 2
   store ptr null, ptr %user_cb60, align 8
-  %64 = load i32, ptr %v4_timedout, align 4
-  %tobool61 = icmp ne i32 %64, 0
+  %68 = load i32, ptr %v4_timedout, align 4
+  %tobool61 = icmp ne i32 %68, 0
   br i1 %tobool61, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end59
-  %65 = load i32, ptr %v6_timedout, align 4
-  %tobool62 = icmp ne i32 %65, 0
+  %69 = load i32, ptr %v6_timedout, align 4
+  %tobool62 = icmp ne i32 %69, 0
   br i1 %tobool62, label %if.end64, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true
-  %66 = load ptr, ptr %data, align 8
-  call void @free_getaddrinfo_request(ptr noundef %66)
+  %70 = load ptr, ptr %data, align 8
+  call void @free_getaddrinfo_request(ptr noundef %70)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then63, %land.lhs.true, %if.end59
@@ -12520,11 +12605,12 @@ do.body2:                                         ; preds = %do.end
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %port, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 14
-  %8 = load ptr, ptr %lock3, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %port, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_server_port, ptr %8, i32 0, i32 14
+  %9 = load ptr, ptr %lock3, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body2
@@ -12534,90 +12620,91 @@ do.end4:                                          ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end23, %do.end4
-  %9 = load ptr, ptr %conn, align 8
-  %call5 = call i32 @tcp_read_message(ptr noundef %9, ptr noundef %msg, ptr noundef %msg_len)
+  %10 = load ptr, ptr %conn, align 8
+  %call5 = call i32 @tcp_read_message(ptr noundef %10, ptr noundef %msg, ptr noundef %msg_len)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %while.body
-  %10 = load ptr, ptr %bev.addr, align 8
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef @.str.33, ptr noundef %10)
-  %11 = load ptr, ptr %port, align 8
-  %12 = load ptr, ptr %client, align 8
-  %call8 = call i32 @evdns_remove_tcp_client(ptr noundef %11, ptr noundef %12)
-  %13 = load ptr, ptr %port, align 8
-  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %refcnt, align 4
-  store i32 %14, ptr %rc, align 4
+  %11 = load ptr, ptr %bev.addr, align 8
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef @.str.33, ptr noundef %11)
+  %12 = load ptr, ptr %port, align 8
+  %13 = load ptr, ptr %client, align 8
+  %call8 = call i32 @evdns_remove_tcp_client(ptr noundef %12, ptr noundef %13)
+  %14 = load ptr, ptr %port, align 8
+  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %14, i32 0, i32 1
+  %15 = load i32, ptr %refcnt, align 4
+  store i32 %15, ptr %rc, align 4
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then7
-  %15 = load ptr, ptr %port, align 8
-  %lock10 = getelementptr inbounds %struct.evdns_server_port, ptr %15, i32 0, i32 14
-  %16 = load ptr, ptr %lock10, align 8
-  %tobool11 = icmp ne ptr %16, null
+  %16 = load ptr, ptr %port, align 8
+  %lock10 = getelementptr inbounds %struct.evdns_server_port, ptr %16, i32 0, i32 14
+  %17 = load ptr, ptr %lock10, align 8
+  %tobool11 = icmp ne ptr %17, null
   br i1 %tobool11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %do.body9
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %18 = load ptr, ptr %port, align 8
-  %lock13 = getelementptr inbounds %struct.evdns_server_port, ptr %18, i32 0, i32 14
-  %19 = load ptr, ptr %lock13, align 8
-  %call14 = call i32 %17(i32 noundef 0, ptr noundef %19)
+  %18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %port, align 8
+  %lock13 = getelementptr inbounds %struct.evdns_server_port, ptr %20, i32 0, i32 14
+  %21 = load ptr, ptr %lock13, align 8
+  %call14 = call i32 %19(i32 noundef 0, ptr noundef %21)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %do.body9
   br label %do.end16
 
 do.end16:                                         ; preds = %if.end15
-  %20 = load i32, ptr %rc, align 4
-  %tobool17 = icmp ne i32 %20, 0
+  %22 = load i32, ptr %rc, align 4
+  %tobool17 = icmp ne i32 %22, 0
   br i1 %tobool17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %do.end16
-  %21 = load ptr, ptr %port, align 8
-  call void @server_port_free(ptr noundef %21)
+  %23 = load ptr, ptr %port, align 8
+  call void @server_port_free(ptr noundef %23)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %do.end16
   br label %do.end36
 
 if.end20:                                         ; preds = %while.body
-  %22 = load ptr, ptr %msg, align 8
-  %tobool21 = icmp ne ptr %22, null
+  %24 = load ptr, ptr %msg, align 8
+  %tobool21 = icmp ne ptr %24, null
   br i1 %tobool21, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
   br label %while.end
 
 if.end23:                                         ; preds = %if.end20
-  %23 = load ptr, ptr %msg, align 8
-  %24 = load i32, ptr %msg_len, align 4
-  %25 = load ptr, ptr %port, align 8
-  %26 = load ptr, ptr %client, align 8
-  %call24 = call i32 @request_parse(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef null, i32 noundef 0, ptr noundef %26)
-  %27 = load ptr, ptr %msg, align 8
-  call void @event_mm_free_(ptr noundef %27)
+  %25 = load ptr, ptr %msg, align 8
+  %26 = load i32, ptr %msg_len, align 4
+  %27 = load ptr, ptr %port, align 8
+  %28 = load ptr, ptr %client, align 8
+  %call24 = call i32 @request_parse(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef null, i32 noundef 0, ptr noundef %28)
+  %29 = load ptr, ptr %msg, align 8
+  call void @event_mm_free_(ptr noundef %29)
   store ptr null, ptr %msg, align 8
-  %28 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size = getelementptr inbounds %struct.tcp_connection, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size = getelementptr inbounds %struct.tcp_connection, ptr %30, i32 0, i32 2
   store i16 0, ptr %awaiting_packet_size, align 4
   br label %while.body
 
 while.end:                                        ; preds = %if.then22
-  %29 = load ptr, ptr %bev.addr, align 8
-  %30 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size25 = getelementptr inbounds %struct.tcp_connection, ptr %30, i32 0, i32 2
-  %31 = load i16, ptr %awaiting_packet_size25, align 4
-  %conv = zext i16 %31 to i32
+  %31 = load ptr, ptr %bev.addr, align 8
+  %32 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size25 = getelementptr inbounds %struct.tcp_connection, ptr %32, i32 0, i32 2
+  %33 = load i16, ptr %awaiting_packet_size25, align 4
+  %conv = zext i16 %33 to i32
   %tobool26 = icmp ne i32 %conv, 0
   br i1 %tobool26, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.end
-  %32 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size27 = getelementptr inbounds %struct.tcp_connection, ptr %32, i32 0, i32 2
-  %33 = load i16, ptr %awaiting_packet_size27, align 4
-  %conv28 = zext i16 %33 to i64
+  %34 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size27 = getelementptr inbounds %struct.tcp_connection, ptr %34, i32 0, i32 2
+  %35 = load i16, ptr %awaiting_packet_size27, align 4
+  %conv28 = zext i16 %35 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %while.end
@@ -12625,25 +12712,26 @@ cond.false:                                       ; preds = %while.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %conv28, %cond.true ], [ 2, %cond.false ]
-  call void @bufferevent_setwatermark(ptr noundef %29, i16 noundef signext 2, i64 noundef %cond, i64 noundef 0)
-  %34 = load ptr, ptr %bev.addr, align 8
-  %35 = load ptr, ptr %ctx.addr, align 8
-  call void @bufferevent_setcb(ptr noundef %34, ptr noundef @server_tcp_read_packet_cb, ptr noundef null, ptr noundef @server_tcp_event_cb, ptr noundef %35)
+  call void @bufferevent_setwatermark(ptr noundef %31, i16 noundef signext 2, i64 noundef %cond, i64 noundef 0)
+  %36 = load ptr, ptr %bev.addr, align 8
+  %37 = load ptr, ptr %ctx.addr, align 8
+  call void @bufferevent_setcb(ptr noundef %36, ptr noundef @server_tcp_read_packet_cb, ptr noundef null, ptr noundef @server_tcp_event_cb, ptr noundef %37)
   br label %do.body29
 
 do.body29:                                        ; preds = %cond.end
-  %36 = load ptr, ptr %port, align 8
-  %lock30 = getelementptr inbounds %struct.evdns_server_port, ptr %36, i32 0, i32 14
-  %37 = load ptr, ptr %lock30, align 8
-  %tobool31 = icmp ne ptr %37, null
+  %38 = load ptr, ptr %port, align 8
+  %lock30 = getelementptr inbounds %struct.evdns_server_port, ptr %38, i32 0, i32 14
+  %39 = load ptr, ptr %lock30, align 8
+  %tobool31 = icmp ne ptr %39, null
   br i1 %tobool31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %do.body29
-  %38 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %39 = load ptr, ptr %port, align 8
-  %lock33 = getelementptr inbounds %struct.evdns_server_port, ptr %39, i32 0, i32 14
-  %40 = load ptr, ptr %lock33, align 8
-  %call34 = call i32 %38(i32 noundef 0, ptr noundef %40)
+  %40 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %port, align 8
+  %lock33 = getelementptr inbounds %struct.evdns_server_port, ptr %42, i32 0, i32 14
+  %43 = load ptr, ptr %lock33, align 8
+  %call34 = call i32 %41(i32 noundef 0, ptr noundef %43)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then32, %do.body29
@@ -12687,64 +12775,66 @@ do.body2:                                         ; preds = %do.end
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body2
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %6 = load ptr, ptr %port, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_server_port, ptr %6, i32 0, i32 14
-  %7 = load ptr, ptr %lock3, align 8
-  %call = call i32 %5(i32 noundef 0, ptr noundef %7)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %port, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_server_port, ptr %7, i32 0, i32 14
+  %8 = load ptr, ptr %lock3, align 8
+  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body2
   br label %do.end4
 
 do.end4:                                          ; preds = %if.end
-  %8 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %8 to i32
+  %9 = load i16, ptr %events.addr, align 2
+  %conv = sext i16 %9 to i32
   %and = and i32 %conv, 112
   %tobool5 = icmp ne i32 %and, 0
   br i1 %tobool5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %do.end4
-  %9 = load ptr, ptr %bev.addr, align 8
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.34, ptr noundef %9)
-  %10 = load ptr, ptr %port, align 8
-  %11 = load ptr, ptr %client, align 8
-  %call7 = call i32 @evdns_remove_tcp_client(ptr noundef %10, ptr noundef %11)
+  %10 = load ptr, ptr %bev.addr, align 8
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.34, ptr noundef %10)
+  %11 = load ptr, ptr %port, align 8
+  %12 = load ptr, ptr %client, align 8
+  %call7 = call i32 @evdns_remove_tcp_client(ptr noundef %11, ptr noundef %12)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %do.end4
-  %12 = load ptr, ptr %port, align 8
-  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %refcnt, align 4
-  store i32 %13, ptr %rc, align 4
+  %13 = load ptr, ptr %port, align 8
+  %refcnt = getelementptr inbounds %struct.evdns_server_port, ptr %13, i32 0, i32 1
+  %14 = load i32, ptr %refcnt, align 4
+  store i32 %14, ptr %rc, align 4
   br label %do.body9
 
 do.body9:                                         ; preds = %if.end8
-  %14 = load ptr, ptr %port, align 8
-  %lock10 = getelementptr inbounds %struct.evdns_server_port, ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %lock10, align 8
-  %tobool11 = icmp ne ptr %15, null
+  %15 = load ptr, ptr %port, align 8
+  %lock10 = getelementptr inbounds %struct.evdns_server_port, ptr %15, i32 0, i32 14
+  %16 = load ptr, ptr %lock10, align 8
+  %tobool11 = icmp ne ptr %16, null
   br i1 %tobool11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %do.body9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %17 = load ptr, ptr %port, align 8
-  %lock13 = getelementptr inbounds %struct.evdns_server_port, ptr %17, i32 0, i32 14
-  %18 = load ptr, ptr %lock13, align 8
-  %call14 = call i32 %16(i32 noundef 0, ptr noundef %18)
+  %17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %port, align 8
+  %lock13 = getelementptr inbounds %struct.evdns_server_port, ptr %19, i32 0, i32 14
+  %20 = load ptr, ptr %lock13, align 8
+  %call14 = call i32 %18(i32 noundef 0, ptr noundef %20)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %do.body9
   br label %do.end16
 
 do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %rc, align 4
-  %tobool17 = icmp ne i32 %19, 0
+  %21 = load i32, ptr %rc, align 4
+  %tobool17 = icmp ne i32 %21, 0
   br i1 %tobool17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %do.end16
-  %20 = load ptr, ptr %port, align 8
-  call void @server_port_free(ptr noundef %20)
+  %22 = load ptr, ptr %port, align 8
+  call void @server_port_free(ptr noundef %22)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %do.end16
@@ -13621,15 +13711,9 @@ declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) #1
 
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @evutil_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 declare void @event_logv_(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare void @evconnlistener_free(ptr noundef) #1
 
@@ -14908,13 +14992,14 @@ do.body1:                                         ; preds = %do.end
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %server, align 8
-  %base2 = getelementptr inbounds %struct.nameserver, ptr %7, i32 0, i32 14
-  %8 = load ptr, ptr %base2, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %lock3, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %9)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %server, align 8
+  %base2 = getelementptr inbounds %struct.nameserver, ptr %8, i32 0, i32 14
+  %9 = load ptr, ptr %base2, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
+  %10 = load ptr, ptr %lock3, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %10)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
@@ -14924,38 +15009,39 @@ do.end4:                                          ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end23, %do.end4
-  %10 = load ptr, ptr %conn, align 8
-  %call5 = call i32 @tcp_read_message(ptr noundef %10, ptr noundef %msg, ptr noundef %msg_len)
+  %11 = load ptr, ptr %conn, align 8
+  %call5 = call i32 @tcp_read_message(ptr noundef %11, ptr noundef %msg, ptr noundef %msg_len)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %while.body
-  %11 = load ptr, ptr %server, align 8
-  %connection8 = getelementptr inbounds %struct.nameserver, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %connection8, align 8
-  call void @disconnect_and_free_connection(ptr noundef %12)
-  %13 = load ptr, ptr %server, align 8
-  %connection9 = getelementptr inbounds %struct.nameserver, ptr %13, i32 0, i32 1
+  %12 = load ptr, ptr %server, align 8
+  %connection8 = getelementptr inbounds %struct.nameserver, ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %connection8, align 8
+  call void @disconnect_and_free_connection(ptr noundef %13)
+  %14 = load ptr, ptr %server, align 8
+  %connection9 = getelementptr inbounds %struct.nameserver, ptr %14, i32 0, i32 1
   store ptr null, ptr %connection9, align 8
   br label %do.body10
 
 do.body10:                                        ; preds = %if.then7
-  %14 = load ptr, ptr %server, align 8
-  %base11 = getelementptr inbounds %struct.nameserver, ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %base11, align 8
-  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
-  %16 = load ptr, ptr %lock12, align 8
-  %tobool13 = icmp ne ptr %16, null
+  %15 = load ptr, ptr %server, align 8
+  %base11 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 14
+  %16 = load ptr, ptr %base11, align 8
+  %lock12 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
+  %17 = load ptr, ptr %lock12, align 8
+  %tobool13 = icmp ne ptr %17, null
   br i1 %tobool13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %do.body10
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %18 = load ptr, ptr %server, align 8
-  %base15 = getelementptr inbounds %struct.nameserver, ptr %18, i32 0, i32 14
-  %19 = load ptr, ptr %base15, align 8
-  %lock16 = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 29
-  %20 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %17(i32 noundef 0, ptr noundef %20)
+  %18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %server, align 8
+  %base15 = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 14
+  %21 = load ptr, ptr %base15, align 8
+  %lock16 = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 29
+  %22 = load ptr, ptr %lock16, align 8
+  %call17 = call i32 %19(i32 noundef 0, ptr noundef %22)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %do.body10
@@ -14965,42 +15051,42 @@ do.end19:                                         ; preds = %if.end18
   br label %do.end39
 
 if.end20:                                         ; preds = %while.body
-  %21 = load ptr, ptr %msg, align 8
-  %tobool21 = icmp ne ptr %21, null
+  %23 = load ptr, ptr %msg, align 8
+  %tobool21 = icmp ne ptr %23, null
   br i1 %tobool21, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
   br label %while.end
 
 if.end23:                                         ; preds = %if.end20
-  %22 = load ptr, ptr %server, align 8
-  %base24 = getelementptr inbounds %struct.nameserver, ptr %22, i32 0, i32 14
-  %23 = load ptr, ptr %base24, align 8
-  %24 = load ptr, ptr %msg, align 8
-  %25 = load i32, ptr %msg_len, align 4
-  %call25 = call i32 @reply_parse(ptr noundef %23, ptr noundef %24, i32 noundef %25)
+  %24 = load ptr, ptr %server, align 8
+  %base24 = getelementptr inbounds %struct.nameserver, ptr %24, i32 0, i32 14
+  %25 = load ptr, ptr %base24, align 8
   %26 = load ptr, ptr %msg, align 8
-  call void @event_mm_free_(ptr noundef %26)
+  %27 = load i32, ptr %msg_len, align 4
+  %call25 = call i32 @reply_parse(ptr noundef %25, ptr noundef %26, i32 noundef %27)
+  %28 = load ptr, ptr %msg, align 8
+  call void @event_mm_free_(ptr noundef %28)
   store ptr null, ptr %msg, align 8
-  %27 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size = getelementptr inbounds %struct.tcp_connection, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size = getelementptr inbounds %struct.tcp_connection, ptr %29, i32 0, i32 2
   store i16 0, ptr %awaiting_packet_size, align 4
   br label %while.body
 
 while.end:                                        ; preds = %if.then22
-  %28 = load ptr, ptr %bev.addr, align 8
-  %29 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size26 = getelementptr inbounds %struct.tcp_connection, ptr %29, i32 0, i32 2
-  %30 = load i16, ptr %awaiting_packet_size26, align 4
-  %conv = zext i16 %30 to i32
+  %30 = load ptr, ptr %bev.addr, align 8
+  %31 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size26 = getelementptr inbounds %struct.tcp_connection, ptr %31, i32 0, i32 2
+  %32 = load i16, ptr %awaiting_packet_size26, align 4
+  %conv = zext i16 %32 to i32
   %tobool27 = icmp ne i32 %conv, 0
   br i1 %tobool27, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.end
-  %31 = load ptr, ptr %conn, align 8
-  %awaiting_packet_size28 = getelementptr inbounds %struct.tcp_connection, ptr %31, i32 0, i32 2
-  %32 = load i16, ptr %awaiting_packet_size28, align 4
-  %conv29 = zext i16 %32 to i64
+  %33 = load ptr, ptr %conn, align 8
+  %awaiting_packet_size28 = getelementptr inbounds %struct.tcp_connection, ptr %33, i32 0, i32 2
+  %34 = load i16, ptr %awaiting_packet_size28, align 4
+  %conv29 = zext i16 %34 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %while.end
@@ -15008,29 +15094,30 @@ cond.false:                                       ; preds = %while.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %conv29, %cond.true ], [ 2, %cond.false ]
-  call void @bufferevent_setwatermark(ptr noundef %28, i16 noundef signext 2, i64 noundef %cond, i64 noundef 0)
-  %33 = load ptr, ptr %bev.addr, align 8
-  %34 = load ptr, ptr %ctx.addr, align 8
-  call void @bufferevent_setcb(ptr noundef %33, ptr noundef @client_tcp_read_packet_cb, ptr noundef null, ptr noundef @client_tcp_event_cb, ptr noundef %34)
+  call void @bufferevent_setwatermark(ptr noundef %30, i16 noundef signext 2, i64 noundef %cond, i64 noundef 0)
+  %35 = load ptr, ptr %bev.addr, align 8
+  %36 = load ptr, ptr %ctx.addr, align 8
+  call void @bufferevent_setcb(ptr noundef %35, ptr noundef @client_tcp_read_packet_cb, ptr noundef null, ptr noundef @client_tcp_event_cb, ptr noundef %36)
   br label %do.body30
 
 do.body30:                                        ; preds = %cond.end
-  %35 = load ptr, ptr %server, align 8
-  %base31 = getelementptr inbounds %struct.nameserver, ptr %35, i32 0, i32 14
-  %36 = load ptr, ptr %base31, align 8
-  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %36, i32 0, i32 29
-  %37 = load ptr, ptr %lock32, align 8
-  %tobool33 = icmp ne ptr %37, null
+  %37 = load ptr, ptr %server, align 8
+  %base31 = getelementptr inbounds %struct.nameserver, ptr %37, i32 0, i32 14
+  %38 = load ptr, ptr %base31, align 8
+  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %38, i32 0, i32 29
+  %39 = load ptr, ptr %lock32, align 8
+  %tobool33 = icmp ne ptr %39, null
   br i1 %tobool33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %do.body30
-  %38 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %39 = load ptr, ptr %server, align 8
-  %base35 = getelementptr inbounds %struct.nameserver, ptr %39, i32 0, i32 14
-  %40 = load ptr, ptr %base35, align 8
-  %lock36 = getelementptr inbounds %struct.evdns_base, ptr %40, i32 0, i32 29
-  %41 = load ptr, ptr %lock36, align 8
-  %call37 = call i32 %38(i32 noundef 0, ptr noundef %41)
+  %40 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %server, align 8
+  %base35 = getelementptr inbounds %struct.nameserver, ptr %42, i32 0, i32 14
+  %43 = load ptr, ptr %base35, align 8
+  %lock36 = getelementptr inbounds %struct.evdns_base, ptr %43, i32 0, i32 29
+  %44 = load ptr, ptr %lock36, align 8
+  %call37 = call i32 %41(i32 noundef 0, ptr noundef %44)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then34, %do.body30
@@ -15075,13 +15162,14 @@ do.body1:                                         ; preds = %do.end
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %server, align 8
-  %base2 = getelementptr inbounds %struct.nameserver, ptr %7, i32 0, i32 14
-  %8 = load ptr, ptr %base2, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %lock3, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %9)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %server, align 8
+  %base2 = getelementptr inbounds %struct.nameserver, ptr %8, i32 0, i32 14
+  %9 = load ptr, ptr %base2, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %9, i32 0, i32 29
+  %10 = load ptr, ptr %lock3, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %10)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body1
@@ -15094,46 +15182,46 @@ do.body5:                                         ; preds = %do.end4
   br label %do.end6
 
 do.end6:                                          ; preds = %do.body5
-  %10 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %10 to i32
-  %11 = load ptr, ptr %conn, align 8
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.63, i32 noundef %conv, ptr noundef %11)
-  %12 = load i16, ptr %events.addr, align 2
-  %conv7 = sext i16 %12 to i32
+  %11 = load i16, ptr %events.addr, align 2
+  %conv = sext i16 %11 to i32
+  %12 = load ptr, ptr %conn, align 8
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.63, i32 noundef %conv, ptr noundef %12)
+  %13 = load i16, ptr %events.addr, align 2
+  %conv7 = sext i16 %13 to i32
   %and = and i32 %conv7, 64
   %tobool8 = icmp ne i32 %and, 0
   br i1 %tobool8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %do.end6
-  %13 = load ptr, ptr %server, align 8
-  %connection10 = getelementptr inbounds %struct.nameserver, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %connection10, align 8
-  call void @disconnect_and_free_connection(ptr noundef %14)
-  %15 = load ptr, ptr %server, align 8
-  %connection11 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 1
+  %14 = load ptr, ptr %server, align 8
+  %connection10 = getelementptr inbounds %struct.nameserver, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %connection10, align 8
+  call void @disconnect_and_free_connection(ptr noundef %15)
+  %16 = load ptr, ptr %server, align 8
+  %connection11 = getelementptr inbounds %struct.nameserver, ptr %16, i32 0, i32 1
   store ptr null, ptr %connection11, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %do.end6
-  %16 = load i16, ptr %events.addr, align 2
-  %conv12 = sext i16 %16 to i32
+  %17 = load i16, ptr %events.addr, align 2
+  %conv12 = sext i16 %17 to i32
   %and13 = and i32 %conv12, 48
   %tobool14 = icmp ne i32 %and13, 0
   br i1 %tobool14, label %if.then15, label %if.else18
 
 if.then15:                                        ; preds = %if.else
-  %17 = load ptr, ptr %server, align 8
-  %connection16 = getelementptr inbounds %struct.nameserver, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %connection16, align 8
-  call void @disconnect_and_free_connection(ptr noundef %18)
-  %19 = load ptr, ptr %server, align 8
-  %connection17 = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 1
+  %18 = load ptr, ptr %server, align 8
+  %connection16 = getelementptr inbounds %struct.nameserver, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %connection16, align 8
+  call void @disconnect_and_free_connection(ptr noundef %19)
+  %20 = load ptr, ptr %server, align 8
+  %connection17 = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 1
   store ptr null, ptr %connection17, align 8
   br label %if.end28
 
 if.else18:                                        ; preds = %if.else
-  %20 = load i16, ptr %events.addr, align 2
-  %conv19 = sext i16 %20 to i32
+  %21 = load i16, ptr %events.addr, align 2
+  %conv19 = sext i16 %21 to i32
   %and20 = and i32 %conv19, 128
   %tobool21 = icmp ne i32 %and20, 0
   br i1 %tobool21, label %if.then22, label %if.end27
@@ -15145,17 +15233,17 @@ do.body23:                                        ; preds = %if.then22
   br label %do.end24
 
 do.end24:                                         ; preds = %do.body23
-  %21 = load ptr, ptr %conn, align 8
-  %state = getelementptr inbounds %struct.tcp_connection, ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %conn, align 8
+  %state = getelementptr inbounds %struct.tcp_connection, ptr %22, i32 0, i32 1
   store i32 2, ptr %state, align 8
-  %22 = load ptr, ptr %bev.addr, align 8
-  %call25 = call i32 @bufferevent_getfd(ptr noundef %22)
-  %call26 = call i32 @evutil_make_socket_nonblocking(i32 noundef %call25)
   %23 = load ptr, ptr %bev.addr, align 8
-  %24 = load ptr, ptr %server, align 8
-  call void @bufferevent_setcb(ptr noundef %23, ptr noundef @client_tcp_read_packet_cb, ptr noundef null, ptr noundef @client_tcp_event_cb, ptr noundef %24)
-  %25 = load ptr, ptr %bev.addr, align 8
-  call void @bufferevent_setwatermark(ptr noundef %25, i16 noundef signext 2, i64 noundef 2, i64 noundef 0)
+  %call25 = call i32 @bufferevent_getfd(ptr noundef %23)
+  %call26 = call i32 @evutil_make_socket_nonblocking(i32 noundef %call25)
+  %24 = load ptr, ptr %bev.addr, align 8
+  %25 = load ptr, ptr %server, align 8
+  call void @bufferevent_setcb(ptr noundef %24, ptr noundef @client_tcp_read_packet_cb, ptr noundef null, ptr noundef @client_tcp_event_cb, ptr noundef %25)
+  %26 = load ptr, ptr %bev.addr, align 8
+  call void @bufferevent_setwatermark(ptr noundef %26, i16 noundef signext 2, i64 noundef 2, i64 noundef 0)
   br label %if.end27
 
 if.end27:                                         ; preds = %do.end24, %if.else18
@@ -15168,22 +15256,23 @@ if.end29:                                         ; preds = %if.end28, %if.then9
   br label %do.body30
 
 do.body30:                                        ; preds = %if.end29
-  %26 = load ptr, ptr %server, align 8
-  %base31 = getelementptr inbounds %struct.nameserver, ptr %26, i32 0, i32 14
-  %27 = load ptr, ptr %base31, align 8
-  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 29
-  %28 = load ptr, ptr %lock32, align 8
-  %tobool33 = icmp ne ptr %28, null
+  %27 = load ptr, ptr %server, align 8
+  %base31 = getelementptr inbounds %struct.nameserver, ptr %27, i32 0, i32 14
+  %28 = load ptr, ptr %base31, align 8
+  %lock32 = getelementptr inbounds %struct.evdns_base, ptr %28, i32 0, i32 29
+  %29 = load ptr, ptr %lock32, align 8
+  %tobool33 = icmp ne ptr %29, null
   br i1 %tobool33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %do.body30
-  %29 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %30 = load ptr, ptr %server, align 8
-  %base35 = getelementptr inbounds %struct.nameserver, ptr %30, i32 0, i32 14
-  %31 = load ptr, ptr %base35, align 8
-  %lock36 = getelementptr inbounds %struct.evdns_base, ptr %31, i32 0, i32 29
-  %32 = load ptr, ptr %lock36, align 8
-  %call37 = call i32 %29(i32 noundef 0, ptr noundef %32)
+  %30 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %server, align 8
+  %base35 = getelementptr inbounds %struct.nameserver, ptr %32, i32 0, i32 14
+  %33 = load ptr, ptr %base35, align 8
+  %lock36 = getelementptr inbounds %struct.evdns_base, ptr %33, i32 0, i32 29
+  %34 = load ptr, ptr %lock36, align 8
+  %call37 = call i32 %31(i32 noundef 0, ptr noundef %34)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then34, %do.body30
@@ -17421,137 +17510,138 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %base, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock2, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %base, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock2, align 8
+  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %9 = load ptr, ptr %req, align 8
-  %tx_count = getelementptr inbounds %struct.request, ptr %9, i32 0, i32 5
-  %10 = load i32, ptr %tx_count, align 4
-  %11 = load ptr, ptr %req, align 8
-  %base3 = getelementptr inbounds %struct.request, ptr %11, i32 0, i32 13
-  %12 = load ptr, ptr %base3, align 8
-  %global_max_retransmits = getelementptr inbounds %struct.evdns_base, ptr %12, i32 0, i32 11
-  %13 = load i32, ptr %global_max_retransmits, align 4
-  %cmp = icmp sge i32 %10, %13
+  %10 = load ptr, ptr %req, align 8
+  %tx_count = getelementptr inbounds %struct.request, ptr %10, i32 0, i32 5
+  %11 = load i32, ptr %tx_count, align 4
+  %12 = load ptr, ptr %req, align 8
+  %base3 = getelementptr inbounds %struct.request, ptr %12, i32 0, i32 13
+  %13 = load ptr, ptr %base3, align 8
+  %global_max_retransmits = getelementptr inbounds %struct.evdns_base, ptr %13, i32 0, i32 11
+  %14 = load i32, ptr %global_max_retransmits, align 4
+  %cmp = icmp sge i32 %11, %14
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %do.end
-  %14 = load ptr, ptr %req, align 8
-  %ns5 = getelementptr inbounds %struct.request, ptr %14, i32 0, i32 6
-  %15 = load ptr, ptr %ns5, align 8
-  store ptr %15, ptr %ns, align 8
-  %16 = load ptr, ptr %arg.addr, align 8
-  %17 = load ptr, ptr %req, align 8
-  %tx_count6 = getelementptr inbounds %struct.request, ptr %17, i32 0, i32 5
-  %18 = load i32, ptr %tx_count6, align 4
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.56, ptr noundef %16, i32 noundef %18)
-  %19 = load ptr, ptr %req, align 8
-  call void @reply_schedule_callback(ptr noundef %19, i32 noundef 0, i32 noundef 67, ptr noundef null)
+  %15 = load ptr, ptr %req, align 8
+  %ns5 = getelementptr inbounds %struct.request, ptr %15, i32 0, i32 6
+  %16 = load ptr, ptr %ns5, align 8
+  store ptr %16, ptr %ns, align 8
+  %17 = load ptr, ptr %arg.addr, align 8
+  %18 = load ptr, ptr %req, align 8
+  %tx_count6 = getelementptr inbounds %struct.request, ptr %18, i32 0, i32 5
+  %19 = load i32, ptr %tx_count6, align 4
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.56, ptr noundef %17, i32 noundef %19)
   %20 = load ptr, ptr %req, align 8
+  call void @reply_schedule_callback(ptr noundef %20, i32 noundef 0, i32 noundef 67, ptr noundef null)
   %21 = load ptr, ptr %req, align 8
-  %base7 = getelementptr inbounds %struct.request, ptr %21, i32 0, i32 13
-  %22 = load ptr, ptr %base7, align 8
-  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %req_heads, align 8
-  %24 = load ptr, ptr %req, align 8
-  %trans_id = getelementptr inbounds %struct.request, ptr %24, i32 0, i32 10
-  %25 = load i16, ptr %trans_id, align 8
-  %conv = zext i16 %25 to i32
-  %26 = load ptr, ptr %req, align 8
-  %base8 = getelementptr inbounds %struct.request, ptr %26, i32 0, i32 13
-  %27 = load ptr, ptr %base8, align 8
-  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %27, i32 0, i32 3
-  %28 = load i32, ptr %n_req_heads, align 8
-  %rem = srem i32 %conv, %28
+  %22 = load ptr, ptr %req, align 8
+  %base7 = getelementptr inbounds %struct.request, ptr %22, i32 0, i32 13
+  %23 = load ptr, ptr %base7, align 8
+  %req_heads = getelementptr inbounds %struct.evdns_base, ptr %23, i32 0, i32 0
+  %24 = load ptr, ptr %req_heads, align 8
+  %25 = load ptr, ptr %req, align 8
+  %trans_id = getelementptr inbounds %struct.request, ptr %25, i32 0, i32 10
+  %26 = load i16, ptr %trans_id, align 8
+  %conv = zext i16 %26 to i32
+  %27 = load ptr, ptr %req, align 8
+  %base8 = getelementptr inbounds %struct.request, ptr %27, i32 0, i32 13
+  %28 = load ptr, ptr %base8, align 8
+  %n_req_heads = getelementptr inbounds %struct.evdns_base, ptr %28, i32 0, i32 3
+  %29 = load i32, ptr %n_req_heads, align 8
+  %rem = srem i32 %conv, %29
   %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %23, i64 %idxprom
-  call void @request_finished(ptr noundef %20, ptr noundef %arrayidx, i32 noundef 1)
-  %29 = load ptr, ptr %ns, align 8
-  call void @nameserver_failed(ptr noundef %29, ptr noundef @.str.57, i32 noundef 0)
+  %arrayidx = getelementptr inbounds ptr, ptr %24, i64 %idxprom
+  call void @request_finished(ptr noundef %21, ptr noundef %arrayidx, i32 noundef 1)
+  %30 = load ptr, ptr %ns, align 8
+  call void @nameserver_failed(ptr noundef %30, ptr noundef @.str.57, i32 noundef 0)
   br label %if.end33
 
 if.else:                                          ; preds = %do.end
-  %30 = load ptr, ptr %req, align 8
-  %handle = getelementptr inbounds %struct.request, ptr %30, i32 0, i32 14
-  %31 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %31, i32 0, i32 15
-  %32 = load i16, ptr %tcp_flags, align 4
-  %conv9 = zext i16 %32 to i32
+  %31 = load ptr, ptr %req, align 8
+  %handle = getelementptr inbounds %struct.request, ptr %31, i32 0, i32 14
+  %32 = load ptr, ptr %handle, align 8
+  %tcp_flags = getelementptr inbounds %struct.evdns_request, ptr %32, i32 0, i32 15
+  %33 = load i16, ptr %tcp_flags, align 4
+  %conv9 = zext i16 %33 to i32
   %and = and i32 %conv9, 2
   %tobool10 = icmp ne i32 %and, 0
   br i1 %tobool10, label %if.then11, label %if.else16
 
 if.then11:                                        ; preds = %if.else
-  %33 = load ptr, ptr %req, align 8
-  %ns12 = getelementptr inbounds %struct.request, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %ns12, align 8
-  %connection = getelementptr inbounds %struct.nameserver, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %connection, align 8
-  call void @disconnect_and_free_connection(ptr noundef %35)
-  %36 = load ptr, ptr %req, align 8
-  %ns13 = getelementptr inbounds %struct.request, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %ns13, align 8
-  %connection14 = getelementptr inbounds %struct.nameserver, ptr %37, i32 0, i32 1
+  %34 = load ptr, ptr %req, align 8
+  %ns12 = getelementptr inbounds %struct.request, ptr %34, i32 0, i32 6
+  %35 = load ptr, ptr %ns12, align 8
+  %connection = getelementptr inbounds %struct.nameserver, ptr %35, i32 0, i32 1
+  %36 = load ptr, ptr %connection, align 8
+  call void @disconnect_and_free_connection(ptr noundef %36)
+  %37 = load ptr, ptr %req, align 8
+  %ns13 = getelementptr inbounds %struct.request, ptr %37, i32 0, i32 6
+  %38 = load ptr, ptr %ns13, align 8
+  %connection14 = getelementptr inbounds %struct.nameserver, ptr %38, i32 0, i32 1
   store ptr null, ptr %connection14, align 8
-  %38 = load ptr, ptr %req, align 8
-  %ns15 = getelementptr inbounds %struct.request, ptr %38, i32 0, i32 6
-  %39 = load ptr, ptr %ns15, align 8
-  call void @retransmit_all_tcp_requests_for(ptr noundef %39)
+  %39 = load ptr, ptr %req, align 8
+  %ns15 = getelementptr inbounds %struct.request, ptr %39, i32 0, i32 6
+  %40 = load ptr, ptr %ns15, align 8
+  call void @retransmit_all_tcp_requests_for(ptr noundef %40)
   br label %if.end32
 
 if.else16:                                        ; preds = %if.else
-  %40 = load ptr, ptr %arg.addr, align 8
-  %41 = load ptr, ptr %req, align 8
-  %tx_count17 = getelementptr inbounds %struct.request, ptr %41, i32 0, i32 5
-  %42 = load i32, ptr %tx_count17, align 4
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.58, ptr noundef %40, i32 noundef %42)
-  %43 = load ptr, ptr %req, align 8
-  %timeout_event = getelementptr inbounds %struct.request, ptr %43, i32 0, i32 9
-  %call18 = call i32 @event_del(ptr noundef %timeout_event)
+  %41 = load ptr, ptr %arg.addr, align 8
+  %42 = load ptr, ptr %req, align 8
+  %tx_count17 = getelementptr inbounds %struct.request, ptr %42, i32 0, i32 5
+  %43 = load i32, ptr %tx_count17, align 4
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef @.str.58, ptr noundef %41, i32 noundef %43)
   %44 = load ptr, ptr %req, align 8
-  %45 = load ptr, ptr %base, align 8
-  %call19 = call ptr @nameserver_pick(ptr noundef %45)
-  call void @request_swap_ns(ptr noundef %44, ptr noundef %call19)
-  %46 = load ptr, ptr %req, align 8
-  %call20 = call i32 @evdns_request_transmit(ptr noundef %46)
+  %timeout_event = getelementptr inbounds %struct.request, ptr %44, i32 0, i32 9
+  %call18 = call i32 @event_del(ptr noundef %timeout_event)
+  %45 = load ptr, ptr %req, align 8
+  %46 = load ptr, ptr %base, align 8
+  %call19 = call ptr @nameserver_pick(ptr noundef %46)
+  call void @request_swap_ns(ptr noundef %45, ptr noundef %call19)
   %47 = load ptr, ptr %req, align 8
-  %ns21 = getelementptr inbounds %struct.request, ptr %47, i32 0, i32 6
-  %48 = load ptr, ptr %ns21, align 8
-  %timedout = getelementptr inbounds %struct.nameserver, ptr %48, i32 0, i32 5
-  %49 = load i32, ptr %timedout, align 8
-  %inc = add nsw i32 %49, 1
+  %call20 = call i32 @evdns_request_transmit(ptr noundef %47)
+  %48 = load ptr, ptr %req, align 8
+  %ns21 = getelementptr inbounds %struct.request, ptr %48, i32 0, i32 6
+  %49 = load ptr, ptr %ns21, align 8
+  %timedout = getelementptr inbounds %struct.nameserver, ptr %49, i32 0, i32 5
+  %50 = load i32, ptr %timedout, align 8
+  %inc = add nsw i32 %50, 1
   store i32 %inc, ptr %timedout, align 8
-  %50 = load ptr, ptr %req, align 8
-  %ns22 = getelementptr inbounds %struct.request, ptr %50, i32 0, i32 6
-  %51 = load ptr, ptr %ns22, align 8
-  %timedout23 = getelementptr inbounds %struct.nameserver, ptr %51, i32 0, i32 5
-  %52 = load i32, ptr %timedout23, align 8
-  %53 = load ptr, ptr %req, align 8
-  %base24 = getelementptr inbounds %struct.request, ptr %53, i32 0, i32 13
-  %54 = load ptr, ptr %base24, align 8
-  %global_max_nameserver_timeout = getelementptr inbounds %struct.evdns_base, ptr %54, i32 0, i32 12
-  %55 = load i32, ptr %global_max_nameserver_timeout, align 8
-  %cmp25 = icmp sgt i32 %52, %55
+  %51 = load ptr, ptr %req, align 8
+  %ns22 = getelementptr inbounds %struct.request, ptr %51, i32 0, i32 6
+  %52 = load ptr, ptr %ns22, align 8
+  %timedout23 = getelementptr inbounds %struct.nameserver, ptr %52, i32 0, i32 5
+  %53 = load i32, ptr %timedout23, align 8
+  %54 = load ptr, ptr %req, align 8
+  %base24 = getelementptr inbounds %struct.request, ptr %54, i32 0, i32 13
+  %55 = load ptr, ptr %base24, align 8
+  %global_max_nameserver_timeout = getelementptr inbounds %struct.evdns_base, ptr %55, i32 0, i32 12
+  %56 = load i32, ptr %global_max_nameserver_timeout, align 8
+  %cmp25 = icmp sgt i32 %53, %56
   br i1 %cmp25, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.else16
-  %56 = load ptr, ptr %req, align 8
-  %ns28 = getelementptr inbounds %struct.request, ptr %56, i32 0, i32 6
-  %57 = load ptr, ptr %ns28, align 8
-  %timedout29 = getelementptr inbounds %struct.nameserver, ptr %57, i32 0, i32 5
+  %57 = load ptr, ptr %req, align 8
+  %ns28 = getelementptr inbounds %struct.request, ptr %57, i32 0, i32 6
+  %58 = load ptr, ptr %ns28, align 8
+  %timedout29 = getelementptr inbounds %struct.nameserver, ptr %58, i32 0, i32 5
   store i32 0, ptr %timedout29, align 8
-  %58 = load ptr, ptr %req, align 8
-  %ns30 = getelementptr inbounds %struct.request, ptr %58, i32 0, i32 6
-  %59 = load ptr, ptr %ns30, align 8
-  call void @nameserver_failed(ptr noundef %59, ptr noundef @.str.57, i32 noundef 0)
+  %59 = load ptr, ptr %req, align 8
+  %ns30 = getelementptr inbounds %struct.request, ptr %59, i32 0, i32 6
+  %60 = load ptr, ptr %ns30, align 8
+  call void @nameserver_failed(ptr noundef %60, ptr noundef @.str.57, i32 noundef 0)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.else16
@@ -17564,18 +17654,19 @@ if.end33:                                         ; preds = %if.end32, %if.then4
   br label %do.body34
 
 do.body34:                                        ; preds = %if.end33
-  %60 = load ptr, ptr %base, align 8
-  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %60, i32 0, i32 29
-  %61 = load ptr, ptr %lock35, align 8
-  %tobool36 = icmp ne ptr %61, null
+  %61 = load ptr, ptr %base, align 8
+  %lock35 = getelementptr inbounds %struct.evdns_base, ptr %61, i32 0, i32 29
+  %62 = load ptr, ptr %lock35, align 8
+  %tobool36 = icmp ne ptr %62, null
   br i1 %tobool36, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %do.body34
-  %62 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %63 = load ptr, ptr %base, align 8
-  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %63, i32 0, i32 29
-  %64 = load ptr, ptr %lock38, align 8
-  %call39 = call i32 %62(i32 noundef 0, ptr noundef %64)
+  %63 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %base, align 8
+  %lock38 = getelementptr inbounds %struct.evdns_base, ptr %65, i32 0, i32 29
+  %66 = load ptr, ptr %lock38, align 8
+  %call39 = call i32 %64(i32 noundef 0, ptr noundef %66)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %do.body34
@@ -18012,76 +18103,78 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %ns, align 8
-  %base1 = getelementptr inbounds %struct.nameserver, ptr %5, i32 0, i32 14
-  %6 = load ptr, ptr %base1, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %lock2, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %7)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %ns, align 8
+  %base1 = getelementptr inbounds %struct.nameserver, ptr %6, i32 0, i32 14
+  %7 = load ptr, ptr %base1, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
+  %8 = load ptr, ptr %lock2, align 8
+  %call = call i32 %5(i32 noundef 0, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %8 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %8 to i32
+  %9 = load i16, ptr %events.addr, align 2
+  %conv = sext i16 %9 to i32
   %and = and i32 %conv, 4
   %tobool3 = icmp ne i32 %and, 0
   br i1 %tobool3, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %do.end
-  %9 = load ptr, ptr %ns, align 8
-  %choked = getelementptr inbounds %struct.nameserver, ptr %9, i32 0, i32 12
-  store i8 0, ptr %choked, align 1
   %10 = load ptr, ptr %ns, align 8
-  %base5 = getelementptr inbounds %struct.nameserver, ptr %10, i32 0, i32 14
-  %11 = load ptr, ptr %base5, align 8
-  %call6 = call i32 @evdns_transmit(ptr noundef %11)
+  %choked = getelementptr inbounds %struct.nameserver, ptr %10, i32 0, i32 12
+  store i8 0, ptr %choked, align 1
+  %11 = load ptr, ptr %ns, align 8
+  %base5 = getelementptr inbounds %struct.nameserver, ptr %11, i32 0, i32 14
+  %12 = load ptr, ptr %base5, align 8
+  %call6 = call i32 @evdns_transmit(ptr noundef %12)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.then4
-  %12 = load ptr, ptr %ns, align 8
-  call void @nameserver_write_waiting(ptr noundef %12, i8 noundef signext 0)
+  %13 = load ptr, ptr %ns, align 8
+  call void @nameserver_write_waiting(ptr noundef %13, i8 noundef signext 0)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.then4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %do.end
-  %13 = load i16, ptr %events.addr, align 2
-  %conv11 = sext i16 %13 to i32
+  %14 = load i16, ptr %events.addr, align 2
+  %conv11 = sext i16 %14 to i32
   %and12 = and i32 %conv11, 2
   %tobool13 = icmp ne i32 %and12, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end10
-  %14 = load ptr, ptr %ns, align 8
-  call void @nameserver_read(ptr noundef %14)
+  %15 = load ptr, ptr %ns, align 8
+  call void @nameserver_read(ptr noundef %15)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end10
   br label %do.body16
 
 do.body16:                                        ; preds = %if.end15
-  %15 = load ptr, ptr %ns, align 8
-  %base17 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 14
-  %16 = load ptr, ptr %base17, align 8
-  %lock18 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
-  %17 = load ptr, ptr %lock18, align 8
-  %tobool19 = icmp ne ptr %17, null
+  %16 = load ptr, ptr %ns, align 8
+  %base17 = getelementptr inbounds %struct.nameserver, ptr %16, i32 0, i32 14
+  %17 = load ptr, ptr %base17, align 8
+  %lock18 = getelementptr inbounds %struct.evdns_base, ptr %17, i32 0, i32 29
+  %18 = load ptr, ptr %lock18, align 8
+  %tobool19 = icmp ne ptr %18, null
   br i1 %tobool19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %do.body16
-  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %19 = load ptr, ptr %ns, align 8
-  %base21 = getelementptr inbounds %struct.nameserver, ptr %19, i32 0, i32 14
-  %20 = load ptr, ptr %base21, align 8
-  %lock22 = getelementptr inbounds %struct.evdns_base, ptr %20, i32 0, i32 29
-  %21 = load ptr, ptr %lock22, align 8
-  %call23 = call i32 %18(i32 noundef 0, ptr noundef %21)
+  %19 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %ns, align 8
+  %base21 = getelementptr inbounds %struct.nameserver, ptr %21, i32 0, i32 14
+  %22 = load ptr, ptr %base21, align 8
+  %lock22 = getelementptr inbounds %struct.evdns_base, ptr %22, i32 0, i32 29
+  %23 = load ptr, ptr %lock22, align 8
+  %call23 = call i32 %20(i32 noundef 0, ptr noundef %23)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %do.body16
@@ -18922,40 +19015,42 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %5 = load ptr, ptr %ns, align 8
-  %base1 = getelementptr inbounds %struct.nameserver, ptr %5, i32 0, i32 14
-  %6 = load ptr, ptr %base1, align 8
-  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %lock2, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %7)
+  %4 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %ns, align 8
+  %base1 = getelementptr inbounds %struct.nameserver, ptr %6, i32 0, i32 14
+  %7 = load ptr, ptr %base1, align 8
+  %lock2 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
+  %8 = load ptr, ptr %lock2, align 8
+  %call = call i32 %5(i32 noundef 0, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %8 = load ptr, ptr %ns, align 8
-  call void @nameserver_send_probe(ptr noundef %8)
+  %9 = load ptr, ptr %ns, align 8
+  call void @nameserver_send_probe(ptr noundef %9)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.end
-  %9 = load ptr, ptr %ns, align 8
-  %base4 = getelementptr inbounds %struct.nameserver, ptr %9, i32 0, i32 14
-  %10 = load ptr, ptr %base4, align 8
-  %lock5 = getelementptr inbounds %struct.evdns_base, ptr %10, i32 0, i32 29
-  %11 = load ptr, ptr %lock5, align 8
-  %tobool6 = icmp ne ptr %11, null
+  %10 = load ptr, ptr %ns, align 8
+  %base4 = getelementptr inbounds %struct.nameserver, ptr %10, i32 0, i32 14
+  %11 = load ptr, ptr %base4, align 8
+  %lock5 = getelementptr inbounds %struct.evdns_base, ptr %11, i32 0, i32 29
+  %12 = load ptr, ptr %lock5, align 8
+  %tobool6 = icmp ne ptr %12, null
   br i1 %tobool6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %do.body3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %13 = load ptr, ptr %ns, align 8
-  %base8 = getelementptr inbounds %struct.nameserver, ptr %13, i32 0, i32 14
-  %14 = load ptr, ptr %base8, align 8
-  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %14, i32 0, i32 29
-  %15 = load ptr, ptr %lock9, align 8
-  %call10 = call i32 %12(i32 noundef 0, ptr noundef %15)
+  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %ns, align 8
+  %base8 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 14
+  %16 = load ptr, ptr %base8, align 8
+  %lock9 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
+  %17 = load ptr, ptr %lock9, align 8
+  %call10 = call i32 %14(i32 noundef 0, ptr noundef %17)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %do.body3
@@ -19103,61 +19198,63 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %do.body
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %6 = load ptr, ptr %ns, align 8
-  %base2 = getelementptr inbounds %struct.nameserver, ptr %6, i32 0, i32 14
-  %7 = load ptr, ptr %base2, align 8
-  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %7, i32 0, i32 29
-  %8 = load ptr, ptr %lock3, align 8
-  %call = call i32 %5(i32 noundef 0, ptr noundef %8)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %ns, align 8
+  %base2 = getelementptr inbounds %struct.nameserver, ptr %7, i32 0, i32 14
+  %8 = load ptr, ptr %base2, align 8
+  %lock3 = getelementptr inbounds %struct.evdns_base, ptr %8, i32 0, i32 29
+  %9 = load ptr, ptr %lock3, align 8
+  %call = call i32 %6(i32 noundef 0, ptr noundef %9)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end4
-  %9 = load ptr, ptr %ns, align 8
-  %probe_request = getelementptr inbounds %struct.nameserver, ptr %9, i32 0, i32 10
+  %10 = load ptr, ptr %ns, align 8
+  %probe_request = getelementptr inbounds %struct.nameserver, ptr %10, i32 0, i32 10
   store ptr null, ptr %probe_request, align 8
-  %10 = load i32, ptr %result.addr, align 4
-  %cmp5 = icmp eq i32 %10, 0
+  %11 = load i32, ptr %result.addr, align 4
+  %cmp5 = icmp eq i32 %11, 0
   br i1 %cmp5, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %11 = load i32, ptr %result.addr, align 4
-  %cmp6 = icmp eq i32 %11, 3
+  %12 = load i32, ptr %result.addr, align 4
+  %cmp6 = icmp eq i32 %12, 3
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %lor.lhs.false, %do.end
-  %12 = load ptr, ptr %ns, align 8
-  call void @nameserver_up(ptr noundef %12)
+  %13 = load ptr, ptr %ns, align 8
+  call void @nameserver_up(ptr noundef %13)
   br label %if.end8
 
 if.else:                                          ; preds = %lor.lhs.false
-  %13 = load ptr, ptr %ns, align 8
-  call void @nameserver_probe_failed(ptr noundef %13)
+  %14 = load ptr, ptr %ns, align 8
+  call void @nameserver_probe_failed(ptr noundef %14)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then7
   br label %do.body9
 
 do.body9:                                         ; preds = %if.end8
-  %14 = load ptr, ptr %ns, align 8
-  %base10 = getelementptr inbounds %struct.nameserver, ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %base10, align 8
-  %lock11 = getelementptr inbounds %struct.evdns_base, ptr %15, i32 0, i32 29
-  %16 = load ptr, ptr %lock11, align 8
-  %tobool12 = icmp ne ptr %16, null
+  %15 = load ptr, ptr %ns, align 8
+  %base10 = getelementptr inbounds %struct.nameserver, ptr %15, i32 0, i32 14
+  %16 = load ptr, ptr %base10, align 8
+  %lock11 = getelementptr inbounds %struct.evdns_base, ptr %16, i32 0, i32 29
+  %17 = load ptr, ptr %lock11, align 8
+  %tobool12 = icmp ne ptr %17, null
   br i1 %tobool12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %do.body9
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %18 = load ptr, ptr %ns, align 8
-  %base14 = getelementptr inbounds %struct.nameserver, ptr %18, i32 0, i32 14
-  %19 = load ptr, ptr %base14, align 8
-  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %19, i32 0, i32 29
-  %20 = load ptr, ptr %lock15, align 8
-  %call16 = call i32 %17(i32 noundef 0, ptr noundef %20)
+  %18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %ns, align 8
+  %base14 = getelementptr inbounds %struct.nameserver, ptr %20, i32 0, i32 14
+  %21 = load ptr, ptr %base14, align 8
+  %lock15 = getelementptr inbounds %struct.evdns_base, ptr %21, i32 0, i32 29
+  %22 = load ptr, ptr %lock15, align 8
+  %call16 = call i32 %19(i32 noundef 0, ptr noundef %22)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then13, %do.body9
@@ -21217,6 +21314,12 @@ return:                                           ; preds = %if.else, %if.then
   %3 = load i32, ptr %retval, align 4
   ret i32 %3
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

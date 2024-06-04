@@ -240,42 +240,44 @@ define internal void @_ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt1
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #4
-  br label %30
+  br label %32
 
 11:                                               ; preds = %2
   br label %12
 
-12:                                               ; preds = %24, %11
+12:                                               ; preds = %26, %11
   %13 = load i64, ptr %5, align 8
   %14 = icmp ugt i64 %13, 0
-  br i1 %14, label %15, label %22
+  br i1 %14, label %15, label %24
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %4, align 8
   %17 = load i64, ptr %5, align 8
   %18 = sub i64 %17, 1
   %19 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %18) #4
-  %20 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, ptr noundef getelementptr (i8, ptr @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, i64 1), ptr noundef nonnull align 1 dereferenceable(1) %19)
-  %21 = icmp ne ptr %20, getelementptr (i8, ptr @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, i64 1)
-  br label %22
+  %20 = getelementptr i8, ptr @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, i64 1
+  %21 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  %22 = getelementptr i8, ptr @_ZZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15kPathSeparators, i64 1
+  %23 = icmp ne ptr %21, %22
+  br label %24
 
-22:                                               ; preds = %15, %12
-  %23 = phi i1 [ false, %12 ], [ %21, %15 ]
-  br i1 %23, label %24, label %27
+24:                                               ; preds = %15, %12
+  %25 = phi i1 [ false, %12 ], [ %23, %15 ]
+  br i1 %25, label %26, label %29
 
-24:                                               ; preds = %22
-  %25 = load i64, ptr %5, align 8
-  %26 = add i64 %25, -1
-  store i64 %26, ptr %5, align 8
+26:                                               ; preds = %24
+  %27 = load i64, ptr %5, align 8
+  %28 = add i64 %27, -1
+  store i64 %28, ptr %5, align 8
   br label %12, !llvm.loop !5
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i64, ptr %5, align 8
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, i64 noundef %29)
-  br label %30
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %4, align 8
+  %31 = load i64, ptr %5, align 8
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0, i64 noundef %31)
+  br label %32
 
-30:                                               ; preds = %27, %10
+32:                                               ; preds = %29, %10
   ret void
 }
 
@@ -301,7 +303,8 @@ define dso_local void @_ZN17RealDiskInterfaceC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17RealDiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17RealDiskInterface, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -311,7 +314,8 @@ define linkonce_odr dso_local void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10FileReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1273,7 +1277,8 @@ define linkonce_odr dso_local void @_ZN10FileReaderC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

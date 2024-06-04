@@ -17,45 +17,50 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @selinux_kernel_status_page() local_unnamed_addr #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
-  %1 = load ptr, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 3), align 8
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %3, label %23
+  %1 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_lock(ptr noundef nonnull %1) #2
+  %2 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %26
 
-3:                                                ; preds = %0
-  %4 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #2
-  store ptr %4, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 3), align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %23, label %6
+5:                                                ; preds = %0
+  %6 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #2
+  %7 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 3
+  store ptr %6, ptr %7, align 8
+  %8 = icmp eq ptr %6, null
+  br i1 %8, label %26, label %9
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr @vmemmap_base, align 8
-  %8 = ptrtoint ptr %4 to i64
-  %9 = sub i64 %8, %7
-  %10 = shl i64 %9, 6
-  %11 = load i64, ptr @page_offset_base, align 8
-  %12 = add i64 %10, %11
-  %13 = inttoptr i64 %12 to ptr
-  store i32 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 0, ptr %14, align 1
-  %15 = load volatile i8, ptr @selinux_state, align 8, !range !5, !noundef !6
-  %16 = zext nneg i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 0, ptr %18, align 1
-  %19 = tail call i32 @security_get_allow_unknown() #2
-  %20 = icmp eq i32 %19, 0
-  %21 = zext i1 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 %21, ptr %22, align 1
-  br label %23
+9:                                                ; preds = %5
+  %10 = load i64, ptr @vmemmap_base, align 8
+  %11 = ptrtoint ptr %6 to i64
+  %12 = sub i64 %11, %10
+  %13 = shl i64 %12, 6
+  %14 = load i64, ptr @page_offset_base, align 8
+  %15 = add i64 %13, %14
+  %16 = inttoptr i64 %15 to ptr
+  store i32 1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 0, ptr %17, align 1
+  %18 = load volatile i8, ptr @selinux_state, align 8, !range !5, !noundef !6
+  %19 = zext nneg i8 %18 to i32
+  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 %19, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 0, ptr %21, align 1
+  %22 = tail call i32 @security_get_allow_unknown() #2
+  %23 = icmp eq i32 %22, 0
+  %24 = zext i1 %23 to i32
+  %25 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 %24, ptr %25, align 1
+  br label %26
 
-23:                                               ; preds = %6, %3, %0
-  %24 = load ptr, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 3), align 8
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
-  ret ptr %24
+26:                                               ; preds = %9, %5, %0
+  %27 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_unlock(ptr noundef nonnull %29) #2
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -72,73 +77,79 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @selinux_status_update_setenforce(i1 noundef zeroext %0) local_unnamed_addr #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
-  %2 = load ptr, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 3), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %19, label %4
+  %2 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_lock(ptr noundef nonnull %2) #2
+  %3 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %21, label %6
 
-4:                                                ; preds = %1
-  %5 = load i64, ptr @vmemmap_base, align 8
-  %6 = ptrtoint ptr %2 to i64
-  %7 = sub i64 %6, %5
-  %8 = shl i64 %7, 6
-  %9 = load i64, ptr @page_offset_base, align 8
-  %10 = add i64 %8, %9
-  %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 1
-  %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 1
+6:                                                ; preds = %1
+  %7 = load i64, ptr @vmemmap_base, align 8
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %8, %7
+  %10 = shl i64 %9, 6
+  %11 = load i64, ptr @page_offset_base, align 8
+  %12 = add i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 1
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %14, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !7
-  %15 = zext i1 %0 to i32
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 %15, ptr %16, align 1
+  %17 = zext i1 %0 to i32
+  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %17, ptr %18, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !8
-  %17 = load i32, ptr %12, align 1
-  %18 = add i32 %17, 1
-  store i32 %18, ptr %12, align 1
-  br label %19
+  %19 = load i32, ptr %14, align 1
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %14, align 1
+  br label %21
 
-19:                                               ; preds = %4, %1
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
+21:                                               ; preds = %6, %1
+  %22 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_unlock(ptr noundef nonnull %22) #2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @selinux_status_update_policyload(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
-  %2 = load ptr, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 3), align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %22, label %4
+  %2 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_lock(ptr noundef nonnull %2) #2
+  %3 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %24, label %6
 
-4:                                                ; preds = %1
-  %5 = load i64, ptr @vmemmap_base, align 8
-  %6 = ptrtoint ptr %2 to i64
-  %7 = sub i64 %6, %5
-  %8 = shl i64 %7, 6
-  %9 = load i64, ptr @page_offset_base, align 8
-  %10 = add i64 %8, %9
-  %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 1
-  %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 1
+6:                                                ; preds = %1
+  %7 = load i64, ptr @vmemmap_base, align 8
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %8, %7
+  %10 = shl i64 %9, 6
+  %11 = load i64, ptr @page_offset_base, align 8
+  %12 = add i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 1
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %14, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !9
-  %15 = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 %0, ptr %15, align 1
-  %16 = tail call i32 @security_get_allow_unknown() #2
-  %17 = icmp eq i32 %16, 0
-  %18 = zext i1 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 %18, ptr %19, align 1
+  %17 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 %0, ptr %17, align 1
+  %18 = tail call i32 @security_get_allow_unknown() #2
+  %19 = icmp eq i32 %18, 0
+  %20 = zext i1 %19 to i32
+  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 %20, ptr %21, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
-  %20 = load i32, ptr %12, align 1
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %12, align 1
-  br label %22
+  %22 = load i32, ptr %14, align 1
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %14, align 1
+  br label %24
 
-22:                                               ; preds = %4, %1
-  tail call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 4)) #2
+24:                                               ; preds = %6, %1
+  %25 = getelementptr inbounds %struct.selinux_state, ptr @selinux_state, i64 0, i32 4
+  tail call void @mutex_unlock(ptr noundef nonnull %25) #2
   ret void
 }
 

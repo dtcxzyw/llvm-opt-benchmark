@@ -12811,10 +12811,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl9ActionSetIbEC2EPb(p
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIbEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIbEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -12987,9 +12988,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 
@@ -13081,7 +13083,8 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser9ActionIfsE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser9ActionIfsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14558,10 +14561,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl9ActionSetI11VOption
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetI11VOptionBoolEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.55", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetI11VOptionBoolEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.55", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -15466,10 +15470,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl9ActionSetIiEC2EPi(p
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIiEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.68", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetIiEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.68", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -15619,9 +15624,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.69", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.69", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 
@@ -16441,10 +16447,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl9ActionSetINSt7__cxx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.83", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionSet.83", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -17336,10 +17343,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl12ActionFOnOffIbEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE1ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionFOnOffIbEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionFOnOff", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionFOnOffIbEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionFOnOff", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -17489,9 +17497,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE1ELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.96", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE1ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.96", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 
@@ -18310,10 +18319,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl11ActionOnOffIbEC2EP
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE2ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffIbEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionOnOff", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffIbEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionOnOff", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18463,9 +18473,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE2ELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.110", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE2ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.110", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 
@@ -19284,10 +19295,11 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl11ActionOnOffI11VOpt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE2ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionOnOff.124", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionOnOff.124", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -20220,9 +20232,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl12ActionCbCallC2ESt8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbCall", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvvEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl12ActionCbCallE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbCall", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvvEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -21220,9 +21233,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl14ActionCbFOnOffC2ES
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE1ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbFOnOff", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvbEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl14ActionCbFOnOffE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbFOnOff", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvbEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -22148,9 +22162,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl13ActionCbOnOffC2ESt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE2ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbOnOff", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvbEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl13ActionCbOnOffE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbOnOff", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvbEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -23084,9 +23099,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl11ActionCbValIiEC2ES
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbVal", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFviEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIiEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbVal", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFviEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -24051,9 +24067,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl11ActionCbValIPKcEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbVal.185", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvPKcEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl11ActionCbValIPKcEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbVal.185", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvPKcEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -25028,9 +25045,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl20ActionCbPartialMat
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl20ActionCbPartialMatchE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbPartialMatch", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvPKcEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl20ActionCbPartialMatchE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbPartialMatch", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvPKcEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -25495,9 +25513,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.198", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE0ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.198", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 
@@ -26376,9 +26395,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl23ActionCbPartialMat
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl23ActionCbPartialMatchValE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbPartialMatchVal", ptr %5, i32 0, i32 1
-  call void @_ZNSt8functionIFvPKcS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl23ActionCbPartialMatchValE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionCbPartialMatchVal", ptr %5, i32 0, i32 1
+  call void @_ZNSt8functionIFvPKcS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -26894,9 +26914,10 @@ define linkonce_odr dso_local void @_ZN14V3OptionParser4Impl10ActionBaseILNS0_2e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14V3OptionParser9ActionIfsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.212", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN14V3OptionParser4Impl10ActionBaseILNS0_2enE3ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.V3OptionParser::Impl::ActionBase.212", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
   ret void
 }
 

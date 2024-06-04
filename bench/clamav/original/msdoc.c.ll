@@ -2667,7 +2667,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
 28:                                               ; preds = %4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.91)
   store ptr null, ptr %5, align 8
-  br label %309
+  br label %310
 
 29:                                               ; preds = %4
   %30 = load i64, ptr %8, align 8
@@ -2678,7 +2678,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.92)
   %33 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 1) #8
   store ptr %33, ptr %5, align 8
-  br label %309
+  br label %310
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %6, align 8
@@ -2707,7 +2707,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
 
 52:                                               ; preds = %46
   store ptr null, ptr %5, align 8
-  br label %309
+  br label %310
 
 53:                                               ; preds = %46
   %54 = load ptr, ptr %10, align 8
@@ -2839,7 +2839,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
 127:                                              ; preds = %126, %66, %53
   %128 = load ptr, ptr %10, align 8
   store ptr %128, ptr %5, align 8
-  br label %309
+  br label %310
 
 129:                                              ; preds = %40
   %130 = load i64, ptr %8, align 8
@@ -2852,7 +2852,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
 
 134:                                              ; preds = %129
   store ptr null, ptr %5, align 8
-  br label %309
+  br label %310
 
 135:                                              ; preds = %129
   %136 = load ptr, ptr %11, align 8
@@ -2942,7 +2942,7 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
   %191 = load ptr, ptr %11, align 8
   call void @free(ptr noundef %191) #7
   store ptr null, ptr %5, align 8
-  br label %309
+  br label %310
 
 192:                                              ; preds = %179
   br label %193
@@ -2952,192 +2952,193 @@ define internal ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %1, i64 nounde
   %195 = call ptr @iconv_open(ptr noundef @.str.95, ptr noundef %194)
   store ptr %195, ptr %21, align 8
   %196 = load ptr, ptr %21, align 8
-  %197 = icmp eq ptr %196, inttoptr (i64 -1 to ptr)
-  br i1 %197, label %198, label %209
+  %197 = inttoptr i64 -1 to ptr
+  %198 = icmp eq ptr %196, %197
+  br i1 %198, label %199, label %210
 
-198:                                              ; preds = %193
-  %199 = call ptr @__errno_location() #9
-  %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds [128 x i8], ptr %25, i64 0, i64 0
-  %202 = call ptr @cli_strerror(i32 noundef %200, ptr noundef %201, i64 noundef 128)
-  %203 = load ptr, ptr %9, align 8
-  %204 = getelementptr inbounds [128 x i8], ptr %25, i64 0, i64 0
-  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.96, ptr noundef %203, ptr noundef %204)
-  %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds %struct.summary_ctx, ptr %205, i32 0, i32 5
-  %207 = load i32, ptr %206, align 8
-  %208 = or i32 %207, 2048
-  store i32 %208, ptr %206, align 8
-  br label %304
+199:                                              ; preds = %193
+  %200 = call ptr @__errno_location() #9
+  %201 = load i32, ptr %200, align 4
+  %202 = getelementptr inbounds [128 x i8], ptr %25, i64 0, i64 0
+  %203 = call ptr @cli_strerror(i32 noundef %201, ptr noundef %202, i64 noundef 128)
+  %204 = load ptr, ptr %9, align 8
+  %205 = getelementptr inbounds [128 x i8], ptr %25, i64 0, i64 0
+  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.96, ptr noundef %204, ptr noundef %205)
+  %206 = load ptr, ptr %6, align 8
+  %207 = getelementptr inbounds %struct.summary_ctx, ptr %206, i32 0, i32 5
+  %208 = load i32, ptr %207, align 8
+  %209 = or i32 %208, 2048
+  store i32 %209, ptr %207, align 8
+  br label %305
 
-209:                                              ; preds = %193
+210:                                              ; preds = %193
   store i64 0, ptr %14, align 8
   store i32 1, ptr %20, align 4
-  br label %210
+  br label %211
 
-210:                                              ; preds = %283, %209
-  %211 = load i32, ptr %20, align 4
-  %212 = icmp sle i32 %211, 3
-  br i1 %212, label %213, label %286
+211:                                              ; preds = %284, %210
+  %212 = load i32, ptr %20, align 4
+  %213 = icmp sle i32 %212, 3
+  br i1 %213, label %214, label %287
 
-213:                                              ; preds = %210
-  %214 = load i32, ptr %20, align 4
-  %215 = mul nsw i32 %214, 2
-  %216 = sext i32 %215 to i64
-  %217 = load i64, ptr %8, align 8
-  %218 = mul i64 %216, %217
-  store i64 %218, ptr %18, align 8
-  %219 = load ptr, ptr %10, align 8
-  %220 = load i64, ptr %18, align 8
-  %221 = add i64 %220, 1
-  %222 = call ptr @cli_max_realloc(ptr noundef %219, i64 noundef %221)
-  store ptr %222, ptr %10, align 8
-  %223 = load ptr, ptr %10, align 8
-  %224 = icmp ne ptr %223, null
-  br i1 %224, label %229, label %225
+214:                                              ; preds = %211
+  %215 = load i32, ptr %20, align 4
+  %216 = mul nsw i32 %215, 2
+  %217 = sext i32 %216 to i64
+  %218 = load i64, ptr %8, align 8
+  %219 = mul i64 %217, %218
+  store i64 %219, ptr %18, align 8
+  %220 = load ptr, ptr %10, align 8
+  %221 = load i64, ptr %18, align 8
+  %222 = add i64 %221, 1
+  %223 = call ptr @cli_max_realloc(ptr noundef %220, i64 noundef %222)
+  store ptr %223, ptr %10, align 8
+  %224 = load ptr, ptr %10, align 8
+  %225 = icmp ne ptr %224, null
+  br i1 %225, label %230, label %226
 
-225:                                              ; preds = %213
-  %226 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %226) #7
-  %227 = load ptr, ptr %21, align 8
-  %228 = call i32 @iconv_close(ptr noundef %227)
+226:                                              ; preds = %214
+  %227 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %227) #7
+  %228 = load ptr, ptr %21, align 8
+  %229 = call i32 @iconv_close(ptr noundef %228)
   store ptr null, ptr %5, align 8
-  br label %309
+  br label %310
 
-229:                                              ; preds = %213
-  %230 = load i64, ptr %18, align 8
-  %231 = load i64, ptr %14, align 8
-  %232 = sub i64 %230, %231
-  store i64 %232, ptr %16, align 8
-  %233 = load ptr, ptr %10, align 8
-  %234 = load i64, ptr %14, align 8
-  %235 = getelementptr inbounds i8, ptr %233, i64 %234
-  store ptr %235, ptr %13, align 8
-  %236 = load ptr, ptr %21, align 8
-  %237 = call i64 @iconv(ptr noundef %236, ptr noundef %12, ptr noundef %15, ptr noundef %13, ptr noundef %16)
-  store i64 %237, ptr %17, align 8
-  %238 = call ptr @__errno_location() #9
-  %239 = load i32, ptr %238, align 4
-  %240 = icmp eq i32 %239, 84
-  br i1 %240, label %241, label %246
+230:                                              ; preds = %214
+  %231 = load i64, ptr %18, align 8
+  %232 = load i64, ptr %14, align 8
+  %233 = sub i64 %231, %232
+  store i64 %233, ptr %16, align 8
+  %234 = load ptr, ptr %10, align 8
+  %235 = load i64, ptr %14, align 8
+  %236 = getelementptr inbounds i8, ptr %234, i64 %235
+  store ptr %236, ptr %13, align 8
+  %237 = load ptr, ptr %21, align 8
+  %238 = call i64 @iconv(ptr noundef %237, ptr noundef %12, ptr noundef %15, ptr noundef %13, ptr noundef %16)
+  store i64 %238, ptr %17, align 8
+  %239 = call ptr @__errno_location() #9
+  %240 = load i32, ptr %239, align 4
+  %241 = icmp eq i32 %240, 84
+  br i1 %241, label %242, label %247
 
-241:                                              ; preds = %229
+242:                                              ; preds = %230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.97)
-  %242 = load ptr, ptr %6, align 8
-  %243 = getelementptr inbounds %struct.summary_ctx, ptr %242, i32 0, i32 5
-  %244 = load i32, ptr %243, align 8
-  %245 = or i32 %244, 4096
-  store i32 %245, ptr %243, align 8
-  br label %286
+  %243 = load ptr, ptr %6, align 8
+  %244 = getelementptr inbounds %struct.summary_ctx, ptr %243, i32 0, i32 5
+  %245 = load i32, ptr %244, align 8
+  %246 = or i32 %245, 4096
+  store i32 %246, ptr %244, align 8
+  br label %287
 
-246:                                              ; preds = %229
-  %247 = call ptr @__errno_location() #9
-  %248 = load i32, ptr %247, align 4
-  %249 = icmp eq i32 %248, 22
-  br i1 %249, label %250, label %258
+247:                                              ; preds = %230
+  %248 = call ptr @__errno_location() #9
+  %249 = load i32, ptr %248, align 4
+  %250 = icmp eq i32 %249, 22
+  br i1 %250, label %251, label %259
 
-250:                                              ; preds = %246
-  %251 = load i64, ptr %17, align 8
-  %252 = icmp eq i64 %251, -1
-  br i1 %252, label %253, label %258
+251:                                              ; preds = %247
+  %252 = load i64, ptr %17, align 8
+  %253 = icmp eq i64 %252, -1
+  br i1 %253, label %254, label %259
 
-253:                                              ; preds = %250
+254:                                              ; preds = %251
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.98)
-  %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds %struct.summary_ctx, ptr %254, i32 0, i32 5
-  %256 = load i32, ptr %255, align 8
-  %257 = or i32 %256, 8192
-  store i32 %257, ptr %255, align 8
-  br label %286
+  %255 = load ptr, ptr %6, align 8
+  %256 = getelementptr inbounds %struct.summary_ctx, ptr %255, i32 0, i32 5
+  %257 = load i32, ptr %256, align 8
+  %258 = or i32 %257, 8192
+  store i32 %258, ptr %256, align 8
+  br label %287
 
-258:                                              ; preds = %250, %246
-  %259 = load i64, ptr %15, align 8
-  %260 = icmp eq i64 %259, 0
-  br i1 %260, label %261, label %262
+259:                                              ; preds = %251, %247
+  %260 = load i64, ptr %15, align 8
+  %261 = icmp eq i64 %260, 0
+  br i1 %261, label %262, label %263
 
-261:                                              ; preds = %258
-  br label %286
+262:                                              ; preds = %259
+  br label %287
 
-262:                                              ; preds = %258
-  br label %263
-
-263:                                              ; preds = %262
+263:                                              ; preds = %259
   br label %264
 
 264:                                              ; preds = %263
-  %265 = load i64, ptr %18, align 8
-  %266 = load i64, ptr %16, align 8
-  %267 = sub i64 %265, %266
-  store i64 %267, ptr %14, align 8
-  %268 = load i32, ptr %20, align 4
-  %269 = icmp slt i32 %268, 3
-  br i1 %269, label %270, label %282
+  br label %265
 
-270:                                              ; preds = %264
-  %271 = load i32, ptr %20, align 4
-  %272 = mul nsw i32 %271, 2
-  %273 = sext i32 %272 to i64
-  %274 = load i64, ptr %8, align 8
-  %275 = mul i64 %273, %274
-  %276 = load i32, ptr %20, align 4
-  %277 = add nsw i32 %276, 1
-  %278 = mul nsw i32 %277, 2
-  %279 = sext i32 %278 to i64
-  %280 = load i64, ptr %8, align 8
-  %281 = mul i64 %279, %280
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.99, i64 noundef %275, i64 noundef %281)
-  br label %282
+265:                                              ; preds = %264
+  %266 = load i64, ptr %18, align 8
+  %267 = load i64, ptr %16, align 8
+  %268 = sub i64 %266, %267
+  store i64 %268, ptr %14, align 8
+  %269 = load i32, ptr %20, align 4
+  %270 = icmp slt i32 %269, 3
+  br i1 %270, label %271, label %283
 
-282:                                              ; preds = %270, %264
+271:                                              ; preds = %265
+  %272 = load i32, ptr %20, align 4
+  %273 = mul nsw i32 %272, 2
+  %274 = sext i32 %273 to i64
+  %275 = load i64, ptr %8, align 8
+  %276 = mul i64 %274, %275
+  %277 = load i32, ptr %20, align 4
+  %278 = add nsw i32 %277, 1
+  %279 = mul nsw i32 %278, 2
+  %280 = sext i32 %279 to i64
+  %281 = load i64, ptr %8, align 8
+  %282 = mul i64 %280, %281
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.99, i64 noundef %276, i64 noundef %282)
   br label %283
 
-283:                                              ; preds = %282
-  %284 = load i32, ptr %20, align 4
-  %285 = add nsw i32 %284, 1
-  store i32 %285, ptr %20, align 4
-  br label %210
+283:                                              ; preds = %271, %265
+  br label %284
 
-286:                                              ; preds = %261, %253, %241, %210
-  %287 = call ptr @__errno_location() #9
-  %288 = load i32, ptr %287, align 4
-  %289 = icmp eq i32 %288, 7
-  br i1 %289, label %290, label %298
+284:                                              ; preds = %283
+  %285 = load i32, ptr %20, align 4
+  %286 = add nsw i32 %285, 1
+  store i32 %286, ptr %20, align 4
+  br label %211
 
-290:                                              ; preds = %286
-  %291 = load i64, ptr %17, align 8
-  %292 = icmp eq i64 %291, -1
-  br i1 %292, label %293, label %298
+287:                                              ; preds = %262, %254, %242, %211
+  %288 = call ptr @__errno_location() #9
+  %289 = load i32, ptr %288, align 4
+  %290 = icmp eq i32 %289, 7
+  br i1 %290, label %291, label %299
 
-293:                                              ; preds = %290
+291:                                              ; preds = %287
+  %292 = load i64, ptr %17, align 8
+  %293 = icmp eq i64 %292, -1
+  br i1 %293, label %294, label %299
+
+294:                                              ; preds = %291
   call void (ptr, ...) @cli_dbgmsg(ptr noundef @.str.100)
-  %294 = load ptr, ptr %6, align 8
-  %295 = getelementptr inbounds %struct.summary_ctx, ptr %294, i32 0, i32 5
-  %296 = load i32, ptr %295, align 8
-  %297 = or i32 %296, 8192
-  store i32 %297, ptr %295, align 8
-  br label %298
+  %295 = load ptr, ptr %6, align 8
+  %296 = getelementptr inbounds %struct.summary_ctx, ptr %295, i32 0, i32 5
+  %297 = load i32, ptr %296, align 8
+  %298 = or i32 %297, 8192
+  store i32 %298, ptr %296, align 8
+  br label %299
 
-298:                                              ; preds = %293, %290, %286
-  %299 = load ptr, ptr %10, align 8
-  %300 = load i64, ptr %18, align 8
-  %301 = load i64, ptr %16, align 8
-  %302 = sub i64 %300, %301
-  %303 = getelementptr inbounds i8, ptr %299, i64 %302
-  store i8 0, ptr %303, align 1
-  br label %304
+299:                                              ; preds = %294, %291, %287
+  %300 = load ptr, ptr %10, align 8
+  %301 = load i64, ptr %18, align 8
+  %302 = load i64, ptr %16, align 8
+  %303 = sub i64 %301, %302
+  %304 = getelementptr inbounds i8, ptr %300, i64 %303
+  store i8 0, ptr %304, align 1
+  br label %305
 
-304:                                              ; preds = %298, %198
-  %305 = load ptr, ptr %21, align 8
-  %306 = call i32 @iconv_close(ptr noundef %305)
-  %307 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %307) #7
-  %308 = load ptr, ptr %10, align 8
-  store ptr %308, ptr %5, align 8
-  br label %309
+305:                                              ; preds = %299, %199
+  %306 = load ptr, ptr %21, align 8
+  %307 = call i32 @iconv_close(ptr noundef %306)
+  %308 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %308) #7
+  %309 = load ptr, ptr %10, align 8
+  store ptr %309, ptr %5, align 8
+  br label %310
 
-309:                                              ; preds = %304, %225, %182, %134, %127, %52, %32, %28
-  %310 = load ptr, ptr %5, align 8
-  ret ptr %310
+310:                                              ; preds = %305, %226, %182, %134, %127, %52, %32, %28
+  %311 = load ptr, ptr %5, align 8
+  ret ptr %311
 }
 
 declare ptr @cl_base64_encode(ptr noundef, i64 noundef) #1

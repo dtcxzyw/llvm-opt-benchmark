@@ -19,84 +19,86 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @option_ms_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 36) #5
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %28, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 36) #5
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %29, label %6
 
-5:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %3, ptr noundef nonnull align 16 dereferenceable(31) @option_inquiry.inquiry_msg, i64 31, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %3, i32 noundef 31, ptr noundef null) #6
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %26
+6:                                                ; preds = %1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %4, ptr noundef nonnull align 16 dereferenceable(31) @option_inquiry.inquiry_msg, i64 31, i1 false)
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = load i32, ptr %7, align 8
+  %9 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4, i32 noundef 31, ptr noundef null) #6
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %27
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 76
-  %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %3, i32 noundef 36, ptr noundef null) #6
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %26
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %0, i64 76
+  %13 = load i32, ptr %12, align 4
+  %14 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %4, i32 noundef 36, ptr noundef null) #6
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %10
-  %16 = getelementptr i8, ptr %3, i64 8
-  %17 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %16, ptr noundef nonnull dereferenceable(6) @.str, i64 6)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %22, label %19
+16:                                               ; preds = %11
+  %17 = getelementptr i8, ptr %4, i64 8
+  %18 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %17, ptr noundef nonnull dereferenceable(6) @.str, i64 6)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %23, label %20
 
-19:                                               ; preds = %15
-  %20 = load i64, ptr %16, align 8
-  %21 = icmp eq i64 %20, 5642809484591973210
-  br label %22
+20:                                               ; preds = %16
+  %21 = load i64, ptr %17, align 8
+  %22 = icmp eq i64 %21, 5642809484591973210
+  br label %23
 
-22:                                               ; preds = %19, %15
-  %23 = phi i1 [ %21, %19 ], [ true, %15 ]
-  %24 = load i32, ptr %11, align 4
-  %25 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %3, i32 noundef 13, ptr noundef null) #6
-  br label %26
+23:                                               ; preds = %20, %16
+  %24 = phi i1 [ %22, %20 ], [ true, %16 ]
+  %25 = load i32, ptr %12, align 4
+  %26 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %4, i32 noundef 13, ptr noundef null) #6
+  br label %27
 
-26:                                               ; preds = %22, %10, %5
-  %27 = phi i1 [ %23, %22 ], [ false, %5 ], [ false, %10 ]
-  tail call void @kfree(ptr noundef nonnull %3) #6
-  br label %28
+27:                                               ; preds = %23, %11, %6
+  %28 = phi i1 [ %24, %23 ], [ false, %6 ], [ false, %11 ]
+  tail call void @kfree(ptr noundef nonnull %4) #6
+  br label %29
 
-28:                                               ; preds = %26, %1
-  %29 = phi i1 [ %27, %26 ], [ false, %1 ]
-  %30 = load i32, ptr @option_zero_cd, align 4
-  %31 = icmp eq i32 %30, 1
-  %32 = select i1 %29, i1 %31, i1 false
-  br i1 %32, label %33, label %49
+29:                                               ; preds = %27, %1
+  %30 = phi i1 [ %28, %27 ], [ false, %1 ]
+  %31 = load i32, ptr @option_zero_cd, align 4
+  %32 = icmp eq i32 %31, 1
+  %33 = select i1 %30, i1 %32, i1 false
+  br i1 %33, label %34, label %51
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %35 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 3520, i64 noundef 1024) #5
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %49, label %37
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %36 = load ptr, ptr %35, align 16
+  %37 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3520, i64 noundef 1024) #5
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %51, label %39
 
-37:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %35, ptr noundef nonnull align 16 dereferenceable(31) @option_rezero.rezero_msg, i64 31, i1 false)
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
-  %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %39, ptr noundef nonnull %35, i32 noundef 31, ptr noundef null) #6
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %48
+39:                                               ; preds = %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %37, ptr noundef nonnull align 16 dereferenceable(31) @option_rezero.rezero_msg, i64 31, i1 false)
+  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = load i32, ptr %40, align 8
+  %42 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %37, i32 noundef 31, ptr noundef null) #6
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %50
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 76
-  %44 = load i32, ptr %43, align 4
-  %45 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %44, ptr noundef nonnull %35, i32 noundef 1024, ptr noundef null) #6
-  %46 = load i32, ptr %43, align 4
-  %47 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %46, ptr noundef nonnull %35, i32 noundef 13, ptr noundef null) #6
-  br label %48
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %0, i64 76
+  %46 = load i32, ptr %45, align 4
+  %47 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %46, ptr noundef nonnull %37, i32 noundef 1024, ptr noundef null) #6
+  %48 = load i32, ptr %45, align 4
+  %49 = tail call i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %48, ptr noundef nonnull %37, i32 noundef 13, ptr noundef null) #6
+  br label %50
 
-48:                                               ; preds = %42, %37
-  tail call void @kfree(ptr noundef nonnull %35) #6
-  br label %49
+50:                                               ; preds = %44, %39
+  tail call void @kfree(ptr noundef nonnull %37) #6
+  br label %51
 
-49:                                               ; preds = %48, %33, %28
-  %50 = phi i32 [ 0, %28 ], [ -5, %33 ], [ -5, %48 ]
-  ret i32 %50
+51:                                               ; preds = %50, %34, %29
+  %52 = phi i32 [ 0, %29 ], [ -5, %34 ], [ -5, %50 ]
+  ret i32 %52
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

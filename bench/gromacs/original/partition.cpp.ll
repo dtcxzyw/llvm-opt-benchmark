@@ -10578,13 +10578,13 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   store i32 0, ptr %17, align 4
   br label %107
 
-107:                                              ; preds = %673, %106
+107:                                              ; preds = %674, %106
   %108 = load i32, ptr %17, align 4
   %109 = load ptr, ptr %7, align 8
   %110 = getelementptr inbounds %struct.gmx_domdec_t, ptr %109, i32 0, i32 13
   %111 = load i32, ptr %110, align 8
   %112 = icmp slt i32 %108, %111
-  br i1 %112, label %113, label %676
+  br i1 %112, label %113, label %677
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %7, align 8
@@ -10843,11 +10843,11 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   store i32 %327, ptr %16, align 4
   br label %328
 
-328:                                              ; preds = %563, %326
+328:                                              ; preds = %564, %326
   %329 = load i32, ptr %16, align 4
   %330 = load i32, ptr %11, align 4
   %331 = icmp slt i32 %329, %330
-  br i1 %331, label %332, label %566
+  br i1 %331, label %332, label %567
 
 332:                                              ; preds = %328
   %333 = load ptr, ptr %14, align 8
@@ -10860,7 +10860,7 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   %340 = getelementptr inbounds [3 x i32], ptr %337, i64 0, i64 %339
   %341 = load i32, ptr %340, align 4
   %342 = icmp sgt i32 %341, 0
-  br i1 %342, label %343, label %562
+  br i1 %342, label %343, label %563
 
 343:                                              ; preds = %332
   %344 = load ptr, ptr %7, align 8
@@ -10912,7 +10912,7 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   %384 = load i32, ptr %18, align 4
   %385 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %383, i32 noundef %384)
   store float %377, ptr %385, align 4
-  br label %561
+  br label %562
 
 386:                                              ; preds = %354
   %387 = load i32, ptr %16, align 4
@@ -10949,12 +10949,12 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   %416 = load i32, ptr %18, align 4
   %417 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %415, i32 noundef %416)
   store float %409, ptr %417, align 4
-  br label %489
+  br label %490
 
 418:                                              ; preds = %386
   %419 = load i32, ptr %17, align 4
   %420 = icmp eq i32 %419, 1
-  br i1 %420, label %421, label %443
+  br i1 %420, label %421, label %444
 
 421:                                              ; preds = %418
   %422 = load ptr, ptr %14, align 8
@@ -10962,944 +10962,945 @@ define internal void @_ZL14set_zones_sizeP12gmx_domdec_tPA3_fPK11gmx_ddbox_tiii(
   %424 = load i32, ptr %16, align 4
   %425 = sub nsw i32 %424, 4
   %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds ([3 x [4 x i32]], ptr @_ZL9zone_perm, i64 0, i64 2), i64 0, i64 %426
-  %428 = load i32, ptr %427, align 4
-  %429 = sext i32 %428 to i64
-  %430 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %423, i64 noundef %429) #14
-  %431 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %430, i32 0, i32 0
-  %432 = load i32, ptr %18, align 4
-  %433 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %431, i32 noundef %432)
-  %434 = load float, ptr %433, align 4
-  %435 = load ptr, ptr %14, align 8
-  %436 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %435, i32 0, i32 4
-  %437 = load i32, ptr %16, align 4
-  %438 = sext i32 %437 to i64
-  %439 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %436, i64 noundef %438) #14
-  %440 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %439, i32 0, i32 0
-  %441 = load i32, ptr %18, align 4
-  %442 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %440, i32 noundef %441)
-  store float %434, ptr %442, align 4
-  br label %488
-
-443:                                              ; preds = %418
-  %444 = load ptr, ptr %13, align 8
-  %445 = getelementptr inbounds %struct.gmx_domdec_comm_t, ptr %444, i32 0, i32 26
-  %446 = load ptr, ptr %14, align 8
-  %447 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %446, i32 0, i32 1
-  %448 = load i32, ptr %16, align 4
-  %449 = sext i32 %448 to i64
-  %450 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %447, i64 noundef %449) #14
-  %451 = load ptr, ptr %7, align 8
-  %452 = getelementptr inbounds %struct.gmx_domdec_t, ptr %451, i32 0, i32 14
-  %453 = load i32, ptr %17, align 4
-  %454 = sub nsw i32 %453, 2
-  %455 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %452, i32 noundef %454)
-  %456 = load i32, ptr %455, align 4
-  %457 = sext i32 %456 to i64
-  %458 = getelementptr inbounds [3 x i32], ptr %450, i64 0, i64 %457
-  %459 = load i32, ptr %458, align 4
-  %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds [2 x [2 x %struct.gmx_ddzone_t]], ptr %445, i64 0, i64 %460
-  %462 = load ptr, ptr %14, align 8
-  %463 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %462, i32 0, i32 1
-  %464 = load i32, ptr %16, align 4
-  %465 = sext i32 %464 to i64
-  %466 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %463, i64 noundef %465) #14
-  %467 = load ptr, ptr %7, align 8
-  %468 = getelementptr inbounds %struct.gmx_domdec_t, ptr %467, i32 0, i32 14
-  %469 = load i32, ptr %17, align 4
-  %470 = sub nsw i32 %469, 1
-  %471 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %468, i32 noundef %470)
-  %472 = load i32, ptr %471, align 4
-  %473 = sext i32 %472 to i64
-  %474 = getelementptr inbounds [3 x i32], ptr %466, i64 0, i64 %473
-  %475 = load i32, ptr %474, align 4
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds [2 x %struct.gmx_ddzone_t], ptr %461, i64 0, i64 %476
-  %478 = getelementptr inbounds %struct.gmx_ddzone_t, ptr %477, i32 0, i32 2
-  %479 = load float, ptr %478, align 8
-  %480 = load ptr, ptr %14, align 8
-  %481 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %480, i32 0, i32 4
-  %482 = load i32, ptr %16, align 4
-  %483 = sext i32 %482 to i64
-  %484 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %481, i64 noundef %483) #14
-  %485 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %484, i32 0, i32 0
-  %486 = load i32, ptr %18, align 4
-  %487 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %485, i32 noundef %486)
-  store float %479, ptr %487, align 4
-  br label %488
-
-488:                                              ; preds = %443, %421
+  %427 = getelementptr inbounds [3 x [4 x i32]], ptr @_ZL9zone_perm, i64 0, i64 2
+  %428 = getelementptr inbounds [4 x i32], ptr %427, i64 0, i64 %426
+  %429 = load i32, ptr %428, align 4
+  %430 = sext i32 %429 to i64
+  %431 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %423, i64 noundef %430) #14
+  %432 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %431, i32 0, i32 0
+  %433 = load i32, ptr %18, align 4
+  %434 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %432, i32 noundef %433)
+  %435 = load float, ptr %434, align 4
+  %436 = load ptr, ptr %14, align 8
+  %437 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %436, i32 0, i32 4
+  %438 = load i32, ptr %16, align 4
+  %439 = sext i32 %438 to i64
+  %440 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %437, i64 noundef %439) #14
+  %441 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %440, i32 0, i32 0
+  %442 = load i32, ptr %18, align 4
+  %443 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %441, i32 noundef %442)
+  store float %435, ptr %443, align 4
   br label %489
 
-489:                                              ; preds = %488, %389
-  %490 = load ptr, ptr %14, align 8
-  %491 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %490, i32 0, i32 4
-  %492 = load i32, ptr %16, align 4
-  %493 = sext i32 %492 to i64
-  %494 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %491, i64 noundef %493) #14
-  %495 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %494, i32 0, i32 0
-  %496 = load i32, ptr %18, align 4
-  %497 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %495, i32 noundef %496)
-  %498 = load float, ptr %497, align 4
-  %499 = load ptr, ptr %14, align 8
-  %500 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %499, i32 0, i32 4
-  %501 = load i32, ptr %16, align 4
-  %502 = sext i32 %501 to i64
-  %503 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %500, i64 noundef %502) #14
-  %504 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %503, i32 0, i32 1
-  %505 = load i32, ptr %18, align 4
-  %506 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %504, i32 noundef %505)
-  store float %498, ptr %506, align 4
-  %507 = load i8, ptr %15, align 1
-  %508 = trunc i8 %507 to i1
-  br i1 %508, label %509, label %560
+444:                                              ; preds = %418
+  %445 = load ptr, ptr %13, align 8
+  %446 = getelementptr inbounds %struct.gmx_domdec_comm_t, ptr %445, i32 0, i32 26
+  %447 = load ptr, ptr %14, align 8
+  %448 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %447, i32 0, i32 1
+  %449 = load i32, ptr %16, align 4
+  %450 = sext i32 %449 to i64
+  %451 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %448, i64 noundef %450) #14
+  %452 = load ptr, ptr %7, align 8
+  %453 = getelementptr inbounds %struct.gmx_domdec_t, ptr %452, i32 0, i32 14
+  %454 = load i32, ptr %17, align 4
+  %455 = sub nsw i32 %454, 2
+  %456 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %453, i32 noundef %455)
+  %457 = load i32, ptr %456, align 4
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr inbounds [3 x i32], ptr %451, i64 0, i64 %458
+  %460 = load i32, ptr %459, align 4
+  %461 = sext i32 %460 to i64
+  %462 = getelementptr inbounds [2 x [2 x %struct.gmx_ddzone_t]], ptr %446, i64 0, i64 %461
+  %463 = load ptr, ptr %14, align 8
+  %464 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %463, i32 0, i32 1
+  %465 = load i32, ptr %16, align 4
+  %466 = sext i32 %465 to i64
+  %467 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %464, i64 noundef %466) #14
+  %468 = load ptr, ptr %7, align 8
+  %469 = getelementptr inbounds %struct.gmx_domdec_t, ptr %468, i32 0, i32 14
+  %470 = load i32, ptr %17, align 4
+  %471 = sub nsw i32 %470, 1
+  %472 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %469, i32 noundef %471)
+  %473 = load i32, ptr %472, align 4
+  %474 = sext i32 %473 to i64
+  %475 = getelementptr inbounds [3 x i32], ptr %467, i64 0, i64 %474
+  %476 = load i32, ptr %475, align 4
+  %477 = sext i32 %476 to i64
+  %478 = getelementptr inbounds [2 x %struct.gmx_ddzone_t], ptr %462, i64 0, i64 %477
+  %479 = getelementptr inbounds %struct.gmx_ddzone_t, ptr %478, i32 0, i32 2
+  %480 = load float, ptr %479, align 8
+  %481 = load ptr, ptr %14, align 8
+  %482 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %481, i32 0, i32 4
+  %483 = load i32, ptr %16, align 4
+  %484 = sext i32 %483 to i64
+  %485 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %482, i64 noundef %484) #14
+  %486 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %485, i32 0, i32 0
+  %487 = load i32, ptr %18, align 4
+  %488 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %486, i32 noundef %487)
+  store float %480, ptr %488, align 4
+  br label %489
 
-509:                                              ; preds = %489
+489:                                              ; preds = %444, %421
+  br label %490
+
+490:                                              ; preds = %489, %389
+  %491 = load ptr, ptr %14, align 8
+  %492 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %491, i32 0, i32 4
+  %493 = load i32, ptr %16, align 4
+  %494 = sext i32 %493 to i64
+  %495 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %492, i64 noundef %494) #14
+  %496 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %495, i32 0, i32 0
+  %497 = load i32, ptr %18, align 4
+  %498 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %496, i32 noundef %497)
+  %499 = load float, ptr %498, align 4
+  %500 = load ptr, ptr %14, align 8
+  %501 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %500, i32 0, i32 4
+  %502 = load i32, ptr %16, align 4
+  %503 = sext i32 %502 to i64
+  %504 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %501, i64 noundef %503) #14
+  %505 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %504, i32 0, i32 1
+  %506 = load i32, ptr %18, align 4
+  %507 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %505, i32 noundef %506)
+  store float %499, ptr %507, align 4
+  %508 = load i8, ptr %15, align 1
+  %509 = trunc i8 %508 to i1
+  br i1 %509, label %510, label %561
+
+510:                                              ; preds = %490
   store i64 0, ptr %24, align 8
-  br label %510
+  br label %511
 
-510:                                              ; preds = %556, %509
-  %511 = load i64, ptr %24, align 8
-  %512 = load ptr, ptr %14, align 8
-  %513 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %512, i32 0, i32 3
-  %514 = call noundef i64 @_ZNKSt6vectorI23DDPairInteractionRangesSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %513) #14
-  %515 = icmp ult i64 %511, %514
-  br i1 %515, label %516, label %559
+511:                                              ; preds = %557, %510
+  %512 = load i64, ptr %24, align 8
+  %513 = load ptr, ptr %14, align 8
+  %514 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %513, i32 0, i32 3
+  %515 = call noundef i64 @_ZNKSt6vectorI23DDPairInteractionRangesSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %514) #14
+  %516 = icmp ult i64 %512, %515
+  br i1 %516, label %517, label %560
 
-516:                                              ; preds = %510
-  %517 = load ptr, ptr %14, align 8
-  %518 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %517, i32 0, i32 1
-  %519 = load i64, ptr %24, align 8
-  %520 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %518, i64 noundef %519) #14
-  %521 = load i32, ptr %18, align 4
-  %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds [3 x i32], ptr %520, i64 0, i64 %522
-  %524 = load i32, ptr %523, align 4
-  %525 = icmp eq i32 %524, 0
-  br i1 %525, label %526, label %555
+517:                                              ; preds = %511
+  %518 = load ptr, ptr %14, align 8
+  %519 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %518, i32 0, i32 1
+  %520 = load i64, ptr %24, align 8
+  %521 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %519, i64 noundef %520) #14
+  %522 = load i32, ptr %18, align 4
+  %523 = sext i32 %522 to i64
+  %524 = getelementptr inbounds [3 x i32], ptr %521, i64 0, i64 %523
+  %525 = load i32, ptr %524, align 4
+  %526 = icmp eq i32 %525, 0
+  br i1 %526, label %527, label %556
 
-526:                                              ; preds = %516
-  %527 = load ptr, ptr %14, align 8
-  %528 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %527, i32 0, i32 4
-  %529 = load i32, ptr %16, align 4
-  %530 = sext i32 %529 to i64
-  %531 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %528, i64 noundef %530) #14
-  %532 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %531, i32 0, i32 1
-  %533 = load i32, ptr %18, align 4
-  %534 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %532, i32 noundef %533)
-  %535 = load ptr, ptr %14, align 8
-  %536 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %535, i32 0, i32 4
-  %537 = load i64, ptr %24, align 8
-  %538 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %536, i64 noundef %537) #14
-  %539 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %538, i32 0, i32 1
-  %540 = load i32, ptr %18, align 4
-  %541 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %539, i32 noundef %540)
-  %542 = load float, ptr %541, align 4
-  %543 = load float, ptr %20, align 4
-  %544 = fadd float %542, %543
-  store float %544, ptr %25, align 4
-  %545 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %534, ptr noundef nonnull align 4 dereferenceable(4) %25)
-  %546 = load float, ptr %545, align 4
-  %547 = load ptr, ptr %14, align 8
-  %548 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %547, i32 0, i32 4
-  %549 = load i32, ptr %16, align 4
-  %550 = sext i32 %549 to i64
-  %551 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %548, i64 noundef %550) #14
-  %552 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %551, i32 0, i32 1
-  %553 = load i32, ptr %18, align 4
-  %554 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %552, i32 noundef %553)
-  store float %546, ptr %554, align 4
-  br label %555
-
-555:                                              ; preds = %526, %516
+527:                                              ; preds = %517
+  %528 = load ptr, ptr %14, align 8
+  %529 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %528, i32 0, i32 4
+  %530 = load i32, ptr %16, align 4
+  %531 = sext i32 %530 to i64
+  %532 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %529, i64 noundef %531) #14
+  %533 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %532, i32 0, i32 1
+  %534 = load i32, ptr %18, align 4
+  %535 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %533, i32 noundef %534)
+  %536 = load ptr, ptr %14, align 8
+  %537 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %536, i32 0, i32 4
+  %538 = load i64, ptr %24, align 8
+  %539 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %537, i64 noundef %538) #14
+  %540 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %539, i32 0, i32 1
+  %541 = load i32, ptr %18, align 4
+  %542 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %540, i32 noundef %541)
+  %543 = load float, ptr %542, align 4
+  %544 = load float, ptr %20, align 4
+  %545 = fadd float %543, %544
+  store float %545, ptr %25, align 4
+  %546 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %535, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %547 = load float, ptr %546, align 4
+  %548 = load ptr, ptr %14, align 8
+  %549 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %548, i32 0, i32 4
+  %550 = load i32, ptr %16, align 4
+  %551 = sext i32 %550 to i64
+  %552 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %549, i64 noundef %551) #14
+  %553 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %552, i32 0, i32 1
+  %554 = load i32, ptr %18, align 4
+  %555 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %553, i32 noundef %554)
+  store float %547, ptr %555, align 4
   br label %556
 
-556:                                              ; preds = %555
-  %557 = load i64, ptr %24, align 8
-  %558 = add i64 %557, 1
-  store i64 %558, ptr %24, align 8
-  br label %510, !llvm.loop !28
+556:                                              ; preds = %527, %517
+  br label %557
 
-559:                                              ; preds = %510
-  br label %560
+557:                                              ; preds = %556
+  %558 = load i64, ptr %24, align 8
+  %559 = add i64 %558, 1
+  store i64 %559, ptr %24, align 8
+  br label %511, !llvm.loop !28
 
-560:                                              ; preds = %559, %489
+560:                                              ; preds = %511
   br label %561
 
-561:                                              ; preds = %560, %357
+561:                                              ; preds = %560, %490
   br label %562
 
-562:                                              ; preds = %561, %332
+562:                                              ; preds = %561, %357
   br label %563
 
-563:                                              ; preds = %562
-  %564 = load i32, ptr %16, align 4
-  %565 = add nsw i32 %564, 1
-  store i32 %565, ptr %16, align 4
+563:                                              ; preds = %562, %332
+  br label %564
+
+564:                                              ; preds = %563
+  %565 = load i32, ptr %16, align 4
+  %566 = add nsw i32 %565, 1
+  store i32 %566, ptr %16, align 4
   br label %328, !llvm.loop !29
 
-566:                                              ; preds = %328
-  %567 = load ptr, ptr %14, align 8
-  %568 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %567, i32 0, i32 3
-  store ptr %568, ptr %26, align 8
-  %569 = load ptr, ptr %26, align 8
-  %570 = call ptr @_ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %569) #14
-  %571 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.756", ptr %27, i32 0, i32 0
-  store ptr %570, ptr %571, align 8
-  %572 = load ptr, ptr %26, align 8
-  %573 = call ptr @_ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %572) #14
-  %574 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.756", ptr %28, i32 0, i32 0
-  store ptr %573, ptr %574, align 8
-  br label %575
+567:                                              ; preds = %328
+  %568 = load ptr, ptr %14, align 8
+  %569 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %568, i32 0, i32 3
+  store ptr %569, ptr %26, align 8
+  %570 = load ptr, ptr %26, align 8
+  %571 = call ptr @_ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %570) #14
+  %572 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.756", ptr %27, i32 0, i32 0
+  store ptr %571, ptr %572, align 8
+  %573 = load ptr, ptr %26, align 8
+  %574 = call ptr @_ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %573) #14
+  %575 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.756", ptr %28, i32 0, i32 0
+  store ptr %574, ptr %575, align 8
+  br label %576
 
-575:                                              ; preds = %670, %566
-  %576 = call noundef zeroext i1 @_ZN9__gnu_cxxneIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #14
-  br i1 %576, label %577, label %672
+576:                                              ; preds = %671, %567
+  %577 = call noundef zeroext i1 @_ZN9__gnu_cxxneIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #14
+  br i1 %577, label %578, label %673
 
-577:                                              ; preds = %575
-  %578 = call noundef nonnull align 4 dereferenceable(52) ptr @_ZNK9__gnu_cxx17__normal_iteratorIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #14
-  store ptr %578, ptr %29, align 8
-  %579 = load ptr, ptr %29, align 8
-  %580 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %579, i32 0, i32 0
-  %581 = load i32, ptr %580, align 4
-  store i32 %581, ptr %30, align 4
-  %582 = load ptr, ptr %14, align 8
-  %583 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %582, i32 0, i32 1
-  %584 = load i32, ptr %30, align 4
-  %585 = sext i32 %584 to i64
-  %586 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %583, i64 noundef %585) #14
-  %587 = load i32, ptr %18, align 4
-  %588 = sext i32 %587 to i64
-  %589 = getelementptr inbounds [3 x i32], ptr %586, i64 0, i64 %588
-  %590 = load i32, ptr %589, align 4
-  %591 = icmp eq i32 %590, 0
-  br i1 %591, label %592, label %669
+578:                                              ; preds = %576
+  %579 = call noundef nonnull align 4 dereferenceable(52) ptr @_ZNK9__gnu_cxx17__normal_iteratorIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #14
+  store ptr %579, ptr %29, align 8
+  %580 = load ptr, ptr %29, align 8
+  %581 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %580, i32 0, i32 0
+  %582 = load i32, ptr %581, align 4
+  store i32 %582, ptr %30, align 4
+  %583 = load ptr, ptr %14, align 8
+  %584 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %583, i32 0, i32 1
+  %585 = load i32, ptr %30, align 4
+  %586 = sext i32 %585 to i64
+  %587 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %584, i64 noundef %586) #14
+  %588 = load i32, ptr %18, align 4
+  %589 = sext i32 %588 to i64
+  %590 = getelementptr inbounds [3 x i32], ptr %587, i64 0, i64 %589
+  %591 = load i32, ptr %590, align 4
+  %592 = icmp eq i32 %591, 0
+  br i1 %592, label %593, label %670
 
-592:                                              ; preds = %577
-  %593 = load ptr, ptr %29, align 8
-  %594 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %593, i32 0, i32 1
-  store ptr %594, ptr %31, align 8
-  %595 = load i32, ptr %11, align 4
-  %596 = load ptr, ptr %31, align 8
-  %597 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %596)
-  %598 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %32, i32 0, i32 0
-  store i32 %597, ptr %598, align 4
-  %599 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %32)
-  %600 = icmp sle i32 %595, %599
-  br i1 %600, label %601, label %602
+593:                                              ; preds = %578
+  %594 = load ptr, ptr %29, align 8
+  %595 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %594, i32 0, i32 1
+  store ptr %595, ptr %31, align 8
+  %596 = load i32, ptr %11, align 4
+  %597 = load ptr, ptr %31, align 8
+  %598 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %597)
+  %599 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %32, i32 0, i32 0
+  store i32 %598, ptr %599, align 4
+  %600 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %32)
+  %601 = icmp sle i32 %596, %600
+  br i1 %601, label %602, label %603
 
-601:                                              ; preds = %592
-  br label %670
+602:                                              ; preds = %593
+  br label %671
 
-602:                                              ; preds = %592
-  %603 = load ptr, ptr %31, align 8
-  %604 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %603)
-  %605 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %34, i32 0, i32 0
-  store i32 %604, ptr %605, align 4
-  %606 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %34)
-  %607 = load ptr, ptr %31, align 8
-  %608 = call i32 @_ZNK3gmx5RangeIiE3endEv(ptr noundef nonnull align 4 dereferenceable(8) %607)
-  %609 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %36, i32 0, i32 0
-  store i32 %608, ptr %609, align 4
-  %610 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %36)
-  store i32 %610, ptr %35, align 4
-  %611 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 4 dereferenceable(4) %11)
-  %612 = load i32, ptr %611, align 4
-  call void @_ZN3gmx5RangeIiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %33, i32 noundef %606, i32 noundef %612)
+603:                                              ; preds = %593
+  %604 = load ptr, ptr %31, align 8
+  %605 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %604)
+  %606 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %34, i32 0, i32 0
+  store i32 %605, ptr %606, align 4
+  %607 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %34)
+  %608 = load ptr, ptr %31, align 8
+  %609 = call i32 @_ZNK3gmx5RangeIiE3endEv(ptr noundef nonnull align 4 dereferenceable(8) %608)
+  %610 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %36, i32 0, i32 0
+  store i32 %609, ptr %610, align 4
+  %611 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %36)
+  store i32 %611, ptr %35, align 4
+  %612 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %613 = load i32, ptr %612, align 4
+  call void @_ZN3gmx5RangeIiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %33, i32 noundef %607, i32 noundef %613)
   store ptr %33, ptr %37, align 8
-  %613 = load ptr, ptr %37, align 8
-  %614 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %613)
-  %615 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %38, i32 0, i32 0
-  store i32 %614, ptr %615, align 4
-  %616 = load ptr, ptr %37, align 8
-  %617 = call i32 @_ZNK3gmx5RangeIiE3endEv(ptr noundef nonnull align 4 dereferenceable(8) %616)
-  %618 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %39, i32 0, i32 0
-  store i32 %617, ptr %618, align 4
-  br label %619
+  %614 = load ptr, ptr %37, align 8
+  %615 = call i32 @_ZNK3gmx5RangeIiE5beginEv(ptr noundef nonnull align 4 dereferenceable(8) %614)
+  %616 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %38, i32 0, i32 0
+  store i32 %615, ptr %616, align 4
+  %617 = load ptr, ptr %37, align 8
+  %618 = call i32 @_ZNK3gmx5RangeIiE3endEv(ptr noundef nonnull align 4 dereferenceable(8) %617)
+  %619 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %39, i32 0, i32 0
+  store i32 %618, ptr %619, align 4
+  br label %620
 
-619:                                              ; preds = %666, %602
+620:                                              ; preds = %667, %603
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %39, i64 4, i1 false)
-  %620 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %40, i32 0, i32 0
-  %621 = load i32, ptr %620, align 4
-  %622 = call noundef zeroext i1 @_ZN3gmx5RangeIiE8iteratorneES2_(ptr noundef nonnull align 4 dereferenceable(4) %38, i32 %621)
-  br i1 %622, label %623, label %668
+  %621 = getelementptr inbounds %"struct.gmx::Range<int>::iterator", ptr %40, i32 0, i32 0
+  %622 = load i32, ptr %621, align 4
+  %623 = call noundef zeroext i1 @_ZN3gmx5RangeIiE8iteratorneES2_(ptr noundef nonnull align 4 dereferenceable(4) %38, i32 %622)
+  br i1 %623, label %624, label %669
 
-623:                                              ; preds = %619
-  %624 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %38)
-  store i32 %624, ptr %41, align 4
-  %625 = load ptr, ptr %14, align 8
-  %626 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %625, i32 0, i32 1
-  %627 = load i32, ptr %41, align 4
-  %628 = sext i32 %627 to i64
-  %629 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %626, i64 noundef %628) #14
-  %630 = load i32, ptr %18, align 4
-  %631 = sext i32 %630 to i64
-  %632 = getelementptr inbounds [3 x i32], ptr %629, i64 0, i64 %631
-  %633 = load i32, ptr %632, align 4
-  %634 = icmp sgt i32 %633, 0
-  br i1 %634, label %635, label %665
+624:                                              ; preds = %620
+  %625 = call noundef i32 @_ZNK3gmx5RangeIiE8iteratordeEv(ptr noundef nonnull align 4 dereferenceable(4) %38)
+  store i32 %625, ptr %41, align 4
+  %626 = load ptr, ptr %14, align 8
+  %627 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %626, i32 0, i32 1
+  %628 = load i32, ptr %41, align 4
+  %629 = sext i32 %628 to i64
+  %630 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt5arrayIA3_iLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(96) %627, i64 noundef %629) #14
+  %631 = load i32, ptr %18, align 4
+  %632 = sext i32 %631 to i64
+  %633 = getelementptr inbounds [3 x i32], ptr %630, i64 0, i64 %632
+  %634 = load i32, ptr %633, align 4
+  %635 = icmp sgt i32 %634, 0
+  br i1 %635, label %636, label %666
 
-635:                                              ; preds = %623
-  %636 = load ptr, ptr %14, align 8
-  %637 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %636, i32 0, i32 4
-  %638 = load i32, ptr %41, align 4
-  %639 = sext i32 %638 to i64
-  %640 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %637, i64 noundef %639) #14
-  %641 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %640, i32 0, i32 1
-  %642 = load i32, ptr %18, align 4
-  %643 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %641, i32 noundef %642)
-  %644 = load ptr, ptr %14, align 8
-  %645 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %644, i32 0, i32 4
-  %646 = load i32, ptr %30, align 4
-  %647 = sext i32 %646 to i64
-  %648 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %645, i64 noundef %647) #14
-  %649 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %648, i32 0, i32 1
-  %650 = load i32, ptr %18, align 4
-  %651 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %649, i32 noundef %650)
-  %652 = load float, ptr %651, align 4
-  %653 = load float, ptr %19, align 4
-  %654 = fadd float %652, %653
-  store float %654, ptr %42, align 4
-  %655 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %643, ptr noundef nonnull align 4 dereferenceable(4) %42)
-  %656 = load float, ptr %655, align 4
-  %657 = load ptr, ptr %14, align 8
-  %658 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %657, i32 0, i32 4
-  %659 = load i32, ptr %41, align 4
-  %660 = sext i32 %659 to i64
-  %661 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %658, i64 noundef %660) #14
-  %662 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %661, i32 0, i32 1
-  %663 = load i32, ptr %18, align 4
-  %664 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %662, i32 noundef %663)
-  store float %656, ptr %664, align 4
-  br label %665
-
-665:                                              ; preds = %635, %623
+636:                                              ; preds = %624
+  %637 = load ptr, ptr %14, align 8
+  %638 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %637, i32 0, i32 4
+  %639 = load i32, ptr %41, align 4
+  %640 = sext i32 %639 to i64
+  %641 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %638, i64 noundef %640) #14
+  %642 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %641, i32 0, i32 1
+  %643 = load i32, ptr %18, align 4
+  %644 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %642, i32 noundef %643)
+  %645 = load ptr, ptr %14, align 8
+  %646 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %645, i32 0, i32 4
+  %647 = load i32, ptr %30, align 4
+  %648 = sext i32 %647 to i64
+  %649 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %646, i64 noundef %648) #14
+  %650 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %649, i32 0, i32 1
+  %651 = load i32, ptr %18, align 4
+  %652 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %650, i32 noundef %651)
+  %653 = load float, ptr %652, align 4
+  %654 = load float, ptr %19, align 4
+  %655 = fadd float %653, %654
+  store float %655, ptr %42, align 4
+  %656 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %644, ptr noundef nonnull align 4 dereferenceable(4) %42)
+  %657 = load float, ptr %656, align 4
+  %658 = load ptr, ptr %14, align 8
+  %659 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %658, i32 0, i32 4
+  %660 = load i32, ptr %41, align 4
+  %661 = sext i32 %660 to i64
+  %662 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %659, i64 noundef %661) #14
+  %663 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %662, i32 0, i32 1
+  %664 = load i32, ptr %18, align 4
+  %665 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %663, i32 noundef %664)
+  store float %657, ptr %665, align 4
   br label %666
 
-666:                                              ; preds = %665
-  %667 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx5RangeIiE8iteratorppEv(ptr noundef nonnull align 4 dereferenceable(4) %38)
-  br label %619
+666:                                              ; preds = %636, %624
+  br label %667
 
-668:                                              ; preds = %619
-  br label %669
+667:                                              ; preds = %666
+  %668 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx5RangeIiE8iteratorppEv(ptr noundef nonnull align 4 dereferenceable(4) %38)
+  br label %620
 
-669:                                              ; preds = %668, %577
+669:                                              ; preds = %620
   br label %670
 
-670:                                              ; preds = %669, %601
-  %671 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #14
-  br label %575
+670:                                              ; preds = %669, %578
+  br label %671
 
-672:                                              ; preds = %575
-  br label %673
+671:                                              ; preds = %670, %602
+  %672 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIP23DDPairInteractionRangesSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #14
+  br label %576
 
-673:                                              ; preds = %672
-  %674 = load i32, ptr %17, align 4
-  %675 = add nsw i32 %674, 1
-  store i32 %675, ptr %17, align 4
+673:                                              ; preds = %576
+  br label %674
+
+674:                                              ; preds = %673
+  %675 = load i32, ptr %17, align 4
+  %676 = add nsw i32 %675, 1
+  store i32 %676, ptr %17, align 4
   br label %107, !llvm.loop !30
 
-676:                                              ; preds = %107
-  %677 = load i32, ptr %10, align 4
-  store i32 %677, ptr %16, align 4
-  br label %678
+677:                                              ; preds = %107
+  %678 = load i32, ptr %10, align 4
+  store i32 %678, ptr %16, align 4
+  br label %679
 
-678:                                              ; preds = %957, %676
-  %679 = load i32, ptr %16, align 4
-  %680 = load i32, ptr %11, align 4
-  %681 = icmp slt i32 %679, %680
-  br i1 %681, label %682, label %960
+679:                                              ; preds = %958, %677
+  %680 = load i32, ptr %16, align 4
+  %681 = load i32, ptr %11, align 4
+  %682 = icmp slt i32 %680, %681
+  br i1 %682, label %683, label %961
 
-682:                                              ; preds = %678
+683:                                              ; preds = %679
   call void @llvm.memset.p0.i64(ptr align 4 %43, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 12, i1 false)
-  %683 = load ptr, ptr %9, align 8
-  %684 = getelementptr inbounds %struct.gmx_ddbox_t, ptr %683, i32 0, i32 1
-  %685 = load i32, ptr %684, align 4
-  %686 = sub nsw i32 %685, 1
-  %687 = shl i32 1, %686
-  store i32 %687, ptr %46, align 4
+  %684 = load ptr, ptr %9, align 8
+  %685 = getelementptr inbounds %struct.gmx_ddbox_t, ptr %684, i32 0, i32 1
+  %686 = load i32, ptr %685, align 4
+  %687 = sub nsw i32 %686, 1
+  %688 = shl i32 1, %687
+  store i32 %688, ptr %46, align 4
   store i32 0, ptr %47, align 4
-  br label %688
+  br label %689
 
-688:                                              ; preds = %887, %682
-  %689 = load i32, ptr %47, align 4
-  %690 = load i32, ptr %46, align 4
-  %691 = icmp slt i32 %689, %690
-  br i1 %691, label %692, label %890
+689:                                              ; preds = %888, %683
+  %690 = load i32, ptr %47, align 4
+  %691 = load i32, ptr %46, align 4
+  %692 = icmp slt i32 %690, %691
+  br i1 %692, label %693, label %891
 
-692:                                              ; preds = %688
-  %693 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
-  store float 0.000000e+00, ptr %693, align 4
-  %694 = load i32, ptr %47, align 4
-  %695 = and i32 %694, 1
-  %696 = icmp eq i32 %695, 0
-  br i1 %696, label %697, label %707
+693:                                              ; preds = %689
+  %694 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
+  store float 0.000000e+00, ptr %694, align 4
+  %695 = load i32, ptr %47, align 4
+  %696 = and i32 %695, 1
+  %697 = icmp eq i32 %696, 0
+  br i1 %697, label %698, label %708
 
-697:                                              ; preds = %692
-  %698 = load ptr, ptr %14, align 8
-  %699 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %698, i32 0, i32 4
-  %700 = load i32, ptr %16, align 4
-  %701 = sext i32 %700 to i64
-  %702 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %699, i64 noundef %701) #14
-  %703 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %702, i32 0, i32 0
-  %704 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %703, i32 noundef 1)
-  %705 = load float, ptr %704, align 4
-  %706 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 1
-  store float %705, ptr %706, align 4
-  br label %717
+698:                                              ; preds = %693
+  %699 = load ptr, ptr %14, align 8
+  %700 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %699, i32 0, i32 4
+  %701 = load i32, ptr %16, align 4
+  %702 = sext i32 %701 to i64
+  %703 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %700, i64 noundef %702) #14
+  %704 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %703, i32 0, i32 0
+  %705 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %704, i32 noundef 1)
+  %706 = load float, ptr %705, align 4
+  %707 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 1
+  store float %706, ptr %707, align 4
+  br label %718
 
-707:                                              ; preds = %692
-  %708 = load ptr, ptr %14, align 8
-  %709 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %708, i32 0, i32 4
-  %710 = load i32, ptr %16, align 4
-  %711 = sext i32 %710 to i64
-  %712 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %709, i64 noundef %711) #14
-  %713 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %712, i32 0, i32 1
-  %714 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %713, i32 noundef 1)
-  %715 = load float, ptr %714, align 4
-  %716 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 1
-  store float %715, ptr %716, align 4
-  br label %717
+708:                                              ; preds = %693
+  %709 = load ptr, ptr %14, align 8
+  %710 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %709, i32 0, i32 4
+  %711 = load i32, ptr %16, align 4
+  %712 = sext i32 %711 to i64
+  %713 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %710, i64 noundef %712) #14
+  %714 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %713, i32 0, i32 1
+  %715 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %714, i32 noundef 1)
+  %716 = load float, ptr %715, align 4
+  %717 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 1
+  store float %716, ptr %717, align 4
+  br label %718
 
-717:                                              ; preds = %707, %697
-  %718 = load i32, ptr %47, align 4
-  %719 = and i32 %718, 2
-  %720 = icmp eq i32 %719, 0
-  br i1 %720, label %721, label %731
+718:                                              ; preds = %708, %698
+  %719 = load i32, ptr %47, align 4
+  %720 = and i32 %719, 2
+  %721 = icmp eq i32 %720, 0
+  br i1 %721, label %722, label %732
 
-721:                                              ; preds = %717
-  %722 = load ptr, ptr %14, align 8
-  %723 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %722, i32 0, i32 4
-  %724 = load i32, ptr %16, align 4
-  %725 = sext i32 %724 to i64
-  %726 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %723, i64 noundef %725) #14
-  %727 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %726, i32 0, i32 0
-  %728 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %727, i32 noundef 2)
-  %729 = load float, ptr %728, align 4
-  %730 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
-  store float %729, ptr %730, align 4
-  br label %741
+722:                                              ; preds = %718
+  %723 = load ptr, ptr %14, align 8
+  %724 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %723, i32 0, i32 4
+  %725 = load i32, ptr %16, align 4
+  %726 = sext i32 %725 to i64
+  %727 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %724, i64 noundef %726) #14
+  %728 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %727, i32 0, i32 0
+  %729 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %728, i32 noundef 2)
+  %730 = load float, ptr %729, align 4
+  %731 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
+  store float %730, ptr %731, align 4
+  br label %742
 
-731:                                              ; preds = %717
-  %732 = load ptr, ptr %14, align 8
-  %733 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %732, i32 0, i32 4
-  %734 = load i32, ptr %16, align 4
-  %735 = sext i32 %734 to i64
-  %736 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %733, i64 noundef %735) #14
-  %737 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %736, i32 0, i32 1
-  %738 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %737, i32 noundef 2)
-  %739 = load float, ptr %738, align 4
-  %740 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
-  store float %739, ptr %740, align 4
-  br label %741
+732:                                              ; preds = %718
+  %733 = load ptr, ptr %14, align 8
+  %734 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %733, i32 0, i32 4
+  %735 = load i32, ptr %16, align 4
+  %736 = sext i32 %735 to i64
+  %737 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %734, i64 noundef %736) #14
+  %738 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %737, i32 0, i32 1
+  %739 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %738, i32 noundef 2)
+  %740 = load float, ptr %739, align 4
+  %741 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
+  store float %740, ptr %741, align 4
+  br label %742
 
-741:                                              ; preds = %731, %721
-  %742 = load ptr, ptr %7, align 8
-  %743 = getelementptr inbounds %struct.gmx_domdec_t, ptr %742, i32 0, i32 13
-  %744 = load i32, ptr %743, align 8
-  %745 = icmp eq i32 %744, 1
-  br i1 %745, label %746, label %795
+742:                                              ; preds = %732, %722
+  %743 = load ptr, ptr %7, align 8
+  %744 = getelementptr inbounds %struct.gmx_domdec_t, ptr %743, i32 0, i32 13
+  %745 = load i32, ptr %744, align 8
+  %746 = icmp eq i32 %745, 1
+  br i1 %746, label %747, label %796
 
-746:                                              ; preds = %741
-  %747 = load ptr, ptr %7, align 8
-  %748 = getelementptr inbounds %struct.gmx_domdec_t, ptr %747, i32 0, i32 14
-  %749 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %748, i32 noundef 0)
-  %750 = load i32, ptr %749, align 4
-  %751 = icmp slt i32 %750, 2
-  br i1 %751, label %752, label %795
+747:                                              ; preds = %742
+  %748 = load ptr, ptr %7, align 8
+  %749 = getelementptr inbounds %struct.gmx_domdec_t, ptr %748, i32 0, i32 14
+  %750 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %749, i32 noundef 0)
+  %751 = load i32, ptr %750, align 4
+  %752 = icmp slt i32 %751, 2
+  br i1 %752, label %753, label %796
 
-752:                                              ; preds = %746
-  %753 = load ptr, ptr %7, align 8
-  %754 = getelementptr inbounds %struct.gmx_domdec_t, ptr %753, i32 0, i32 11
-  %755 = getelementptr inbounds %struct.UnitCellInfo, ptr %754, i32 0, i32 0
-  %756 = load i32, ptr %755, align 8
-  %757 = icmp slt i32 2, %756
-  br i1 %757, label %758, label %795
+753:                                              ; preds = %747
+  %754 = load ptr, ptr %7, align 8
+  %755 = getelementptr inbounds %struct.gmx_domdec_t, ptr %754, i32 0, i32 11
+  %756 = getelementptr inbounds %struct.UnitCellInfo, ptr %755, i32 0, i32 0
+  %757 = load i32, ptr %756, align 8
+  %758 = icmp slt i32 2, %757
+  br i1 %758, label %759, label %796
 
-758:                                              ; preds = %752
-  %759 = load ptr, ptr %8, align 8
-  %760 = getelementptr inbounds [3 x float], ptr %759, i64 2
-  %761 = load ptr, ptr %7, align 8
-  %762 = getelementptr inbounds %struct.gmx_domdec_t, ptr %761, i32 0, i32 14
-  %763 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %762, i32 noundef 0)
-  %764 = load i32, ptr %763, align 4
-  %765 = sub nsw i32 1, %764
-  %766 = sext i32 %765 to i64
-  %767 = getelementptr inbounds [3 x float], ptr %760, i64 0, i64 %766
-  %768 = load float, ptr %767, align 4
-  %769 = fcmp une float %768, 0.000000e+00
-  br i1 %769, label %770, label %795
+759:                                              ; preds = %753
+  %760 = load ptr, ptr %8, align 8
+  %761 = getelementptr inbounds [3 x float], ptr %760, i64 2
+  %762 = load ptr, ptr %7, align 8
+  %763 = getelementptr inbounds %struct.gmx_domdec_t, ptr %762, i32 0, i32 14
+  %764 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %763, i32 noundef 0)
+  %765 = load i32, ptr %764, align 4
+  %766 = sub nsw i32 1, %765
+  %767 = sext i32 %766 to i64
+  %768 = getelementptr inbounds [3 x float], ptr %761, i64 0, i64 %767
+  %769 = load float, ptr %768, align 4
+  %770 = fcmp une float %769, 0.000000e+00
+  br i1 %770, label %771, label %796
 
-770:                                              ; preds = %758
-  %771 = load ptr, ptr %7, align 8
-  %772 = getelementptr inbounds %struct.gmx_domdec_t, ptr %771, i32 0, i32 14
-  %773 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %772, i32 noundef 0)
-  %774 = load i32, ptr %773, align 4
-  %775 = sub nsw i32 1, %774
-  store i32 %775, ptr %48, align 4
-  %776 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
-  %777 = load float, ptr %776, align 4
-  %778 = load ptr, ptr %8, align 8
-  %779 = getelementptr inbounds [3 x float], ptr %778, i64 2
-  %780 = load i32, ptr %48, align 4
-  %781 = sext i32 %780 to i64
-  %782 = getelementptr inbounds [3 x float], ptr %779, i64 0, i64 %781
-  %783 = load float, ptr %782, align 4
-  %784 = fmul float %777, %783
-  %785 = load ptr, ptr %8, align 8
-  %786 = getelementptr inbounds [3 x float], ptr %785, i64 2
-  %787 = getelementptr inbounds [3 x float], ptr %786, i64 0, i64 2
-  %788 = load float, ptr %787, align 4
-  %789 = fdiv float %784, %788
-  %790 = load i32, ptr %48, align 4
-  %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %791
-  %793 = load float, ptr %792, align 4
-  %794 = fsub float %793, %789
-  store float %794, ptr %792, align 4
-  br label %795
-
-795:                                              ; preds = %770, %758, %752, %746, %741
-  store i32 1, ptr %21, align 4
+771:                                              ; preds = %759
+  %772 = load ptr, ptr %7, align 8
+  %773 = getelementptr inbounds %struct.gmx_domdec_t, ptr %772, i32 0, i32 14
+  %774 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIiEixEi(ptr noundef nonnull align 4 dereferenceable(12) %773, i32 noundef 0)
+  %775 = load i32, ptr %774, align 4
+  %776 = sub nsw i32 1, %775
+  store i32 %776, ptr %48, align 4
+  %777 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 2
+  %778 = load float, ptr %777, align 4
+  %779 = load ptr, ptr %8, align 8
+  %780 = getelementptr inbounds [3 x float], ptr %779, i64 2
+  %781 = load i32, ptr %48, align 4
+  %782 = sext i32 %781 to i64
+  %783 = getelementptr inbounds [3 x float], ptr %780, i64 0, i64 %782
+  %784 = load float, ptr %783, align 4
+  %785 = fmul float %778, %784
+  %786 = load ptr, ptr %8, align 8
+  %787 = getelementptr inbounds [3 x float], ptr %786, i64 2
+  %788 = getelementptr inbounds [3 x float], ptr %787, i64 0, i64 2
+  %789 = load float, ptr %788, align 4
+  %790 = fdiv float %785, %789
+  %791 = load i32, ptr %48, align 4
+  %792 = sext i32 %791 to i64
+  %793 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %792
+  %794 = load float, ptr %793, align 4
+  %795 = fsub float %794, %790
+  store float %795, ptr %793, align 4
   br label %796
 
-796:                                              ; preds = %844, %795
-  %797 = load i32, ptr %21, align 4
-  %798 = load ptr, ptr %9, align 8
-  %799 = getelementptr inbounds %struct.gmx_ddbox_t, ptr %798, i32 0, i32 0
-  %800 = load i32, ptr %799, align 4
-  %801 = icmp slt i32 %797, %800
-  br i1 %801, label %802, label %805
+796:                                              ; preds = %771, %759, %753, %747, %742
+  store i32 1, ptr %21, align 4
+  br label %797
 
-802:                                              ; preds = %796
-  %803 = load i32, ptr %21, align 4
-  %804 = icmp slt i32 %803, 3
-  br label %805
+797:                                              ; preds = %845, %796
+  %798 = load i32, ptr %21, align 4
+  %799 = load ptr, ptr %9, align 8
+  %800 = getelementptr inbounds %struct.gmx_ddbox_t, ptr %799, i32 0, i32 0
+  %801 = load i32, ptr %800, align 4
+  %802 = icmp slt i32 %798, %801
+  br i1 %802, label %803, label %806
 
-805:                                              ; preds = %802, %796
-  %806 = phi i1 [ false, %796 ], [ %804, %802 ]
-  br i1 %806, label %807, label %847
+803:                                              ; preds = %797
+  %804 = load i32, ptr %21, align 4
+  %805 = icmp slt i32 %804, 3
+  br label %806
 
-807:                                              ; preds = %805
+806:                                              ; preds = %803, %797
+  %807 = phi i1 [ false, %797 ], [ %805, %803 ]
+  br i1 %807, label %808, label %848
+
+808:                                              ; preds = %806
   store i32 0, ptr %22, align 4
-  br label %808
+  br label %809
 
-808:                                              ; preds = %840, %807
-  %809 = load i32, ptr %22, align 4
-  %810 = load i32, ptr %21, align 4
-  %811 = icmp slt i32 %809, %810
-  br i1 %811, label %812, label %843
+809:                                              ; preds = %841, %808
+  %810 = load i32, ptr %22, align 4
+  %811 = load i32, ptr %21, align 4
+  %812 = icmp slt i32 %810, %811
+  br i1 %812, label %813, label %844
 
-812:                                              ; preds = %808
-  %813 = load i32, ptr %21, align 4
-  %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %814
-  %816 = load float, ptr %815, align 4
-  %817 = load ptr, ptr %8, align 8
-  %818 = load i32, ptr %21, align 4
-  %819 = sext i32 %818 to i64
-  %820 = getelementptr inbounds [3 x float], ptr %817, i64 %819
-  %821 = load i32, ptr %22, align 4
-  %822 = sext i32 %821 to i64
-  %823 = getelementptr inbounds [3 x float], ptr %820, i64 0, i64 %822
-  %824 = load float, ptr %823, align 4
-  %825 = fmul float %816, %824
-  %826 = load ptr, ptr %8, align 8
-  %827 = load i32, ptr %21, align 4
-  %828 = sext i32 %827 to i64
-  %829 = getelementptr inbounds [3 x float], ptr %826, i64 %828
-  %830 = load i32, ptr %21, align 4
-  %831 = sext i32 %830 to i64
-  %832 = getelementptr inbounds [3 x float], ptr %829, i64 0, i64 %831
-  %833 = load float, ptr %832, align 4
-  %834 = fdiv float %825, %833
-  %835 = load i32, ptr %22, align 4
-  %836 = sext i32 %835 to i64
-  %837 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %836
-  %838 = load float, ptr %837, align 4
-  %839 = fadd float %838, %834
-  store float %839, ptr %837, align 4
-  br label %840
+813:                                              ; preds = %809
+  %814 = load i32, ptr %21, align 4
+  %815 = sext i32 %814 to i64
+  %816 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %815
+  %817 = load float, ptr %816, align 4
+  %818 = load ptr, ptr %8, align 8
+  %819 = load i32, ptr %21, align 4
+  %820 = sext i32 %819 to i64
+  %821 = getelementptr inbounds [3 x float], ptr %818, i64 %820
+  %822 = load i32, ptr %22, align 4
+  %823 = sext i32 %822 to i64
+  %824 = getelementptr inbounds [3 x float], ptr %821, i64 0, i64 %823
+  %825 = load float, ptr %824, align 4
+  %826 = fmul float %817, %825
+  %827 = load ptr, ptr %8, align 8
+  %828 = load i32, ptr %21, align 4
+  %829 = sext i32 %828 to i64
+  %830 = getelementptr inbounds [3 x float], ptr %827, i64 %829
+  %831 = load i32, ptr %21, align 4
+  %832 = sext i32 %831 to i64
+  %833 = getelementptr inbounds [3 x float], ptr %830, i64 0, i64 %832
+  %834 = load float, ptr %833, align 4
+  %835 = fdiv float %826, %834
+  %836 = load i32, ptr %22, align 4
+  %837 = sext i32 %836 to i64
+  %838 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %837
+  %839 = load float, ptr %838, align 4
+  %840 = fadd float %839, %835
+  store float %840, ptr %838, align 4
+  br label %841
 
-840:                                              ; preds = %812
-  %841 = load i32, ptr %22, align 4
-  %842 = add nsw i32 %841, 1
-  store i32 %842, ptr %22, align 4
-  br label %808, !llvm.loop !31
+841:                                              ; preds = %813
+  %842 = load i32, ptr %22, align 4
+  %843 = add nsw i32 %842, 1
+  store i32 %843, ptr %22, align 4
+  br label %809, !llvm.loop !31
 
-843:                                              ; preds = %808
-  br label %844
+844:                                              ; preds = %809
+  br label %845
 
-844:                                              ; preds = %843
-  %845 = load i32, ptr %21, align 4
-  %846 = add nsw i32 %845, 1
-  store i32 %846, ptr %21, align 4
-  br label %796, !llvm.loop !32
+845:                                              ; preds = %844
+  %846 = load i32, ptr %21, align 4
+  %847 = add nsw i32 %846, 1
+  store i32 %847, ptr %21, align 4
+  br label %797, !llvm.loop !32
 
-847:                                              ; preds = %805
-  %848 = load i32, ptr %47, align 4
-  %849 = icmp eq i32 %848, 0
-  br i1 %849, label %850, label %855
+848:                                              ; preds = %806
+  %849 = load i32, ptr %47, align 4
+  %850 = icmp eq i32 %849, 0
+  br i1 %850, label %851, label %856
 
-850:                                              ; preds = %847
-  %851 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
-  %852 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 0
-  call void @_ZL9copy_rvecPKfPf(ptr noundef %851, ptr noundef %852)
-  %853 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
-  %854 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 0
-  call void @_ZL9copy_rvecPKfPf(ptr noundef %853, ptr noundef %854)
-  br label %886
-
-855:                                              ; preds = %847
-  store i32 0, ptr %21, align 4
-  br label %856
-
-856:                                              ; preds = %882, %855
-  %857 = load i32, ptr %21, align 4
-  %858 = icmp slt i32 %857, 3
-  br i1 %858, label %859, label %885
-
-859:                                              ; preds = %856
-  %860 = load i32, ptr %21, align 4
-  %861 = sext i32 %860 to i64
-  %862 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %861
-  %863 = load i32, ptr %21, align 4
-  %864 = sext i32 %863 to i64
-  %865 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %864
-  %866 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %862, ptr noundef nonnull align 4 dereferenceable(4) %865)
-  %867 = load float, ptr %866, align 4
-  %868 = load i32, ptr %21, align 4
-  %869 = sext i32 %868 to i64
-  %870 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %869
-  store float %867, ptr %870, align 4
-  %871 = load i32, ptr %21, align 4
-  %872 = sext i32 %871 to i64
-  %873 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %872
-  %874 = load i32, ptr %21, align 4
-  %875 = sext i32 %874 to i64
-  %876 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %875
-  %877 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %873, ptr noundef nonnull align 4 dereferenceable(4) %876)
-  %878 = load float, ptr %877, align 4
-  %879 = load i32, ptr %21, align 4
-  %880 = sext i32 %879 to i64
-  %881 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %880
-  store float %878, ptr %881, align 4
-  br label %882
-
-882:                                              ; preds = %859
-  %883 = load i32, ptr %21, align 4
-  %884 = add nsw i32 %883, 1
-  store i32 %884, ptr %21, align 4
-  br label %856, !llvm.loop !33
-
-885:                                              ; preds = %856
-  br label %886
-
-886:                                              ; preds = %885, %850
+851:                                              ; preds = %848
+  %852 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
+  %853 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 0
+  call void @_ZL9copy_rvecPKfPf(ptr noundef %852, ptr noundef %853)
+  %854 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 0
+  %855 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 0
+  call void @_ZL9copy_rvecPKfPf(ptr noundef %854, ptr noundef %855)
   br label %887
 
-887:                                              ; preds = %886
-  %888 = load i32, ptr %47, align 4
-  %889 = add nsw i32 %888, 1
-  store i32 %889, ptr %47, align 4
-  br label %688, !llvm.loop !34
-
-890:                                              ; preds = %688
+856:                                              ; preds = %848
   store i32 0, ptr %21, align 4
-  br label %891
+  br label %857
 
-891:                                              ; preds = %919, %890
-  %892 = load i32, ptr %21, align 4
-  %893 = icmp slt i32 %892, 3
-  br i1 %893, label %894, label %922
+857:                                              ; preds = %883, %856
+  %858 = load i32, ptr %21, align 4
+  %859 = icmp slt i32 %858, 3
+  br i1 %859, label %860, label %886
 
-894:                                              ; preds = %891
-  %895 = load i32, ptr %21, align 4
-  %896 = sext i32 %895 to i64
-  %897 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %896
-  %898 = load float, ptr %897, align 4
-  %899 = load ptr, ptr %14, align 8
-  %900 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %899, i32 0, i32 4
-  %901 = load i32, ptr %16, align 4
-  %902 = sext i32 %901 to i64
-  %903 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %900, i64 noundef %902) #14
-  %904 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %903, i32 0, i32 2
-  %905 = load i32, ptr %21, align 4
-  %906 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %904, i32 noundef %905)
-  store float %898, ptr %906, align 4
-  %907 = load i32, ptr %21, align 4
-  %908 = sext i32 %907 to i64
-  %909 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %908
-  %910 = load float, ptr %909, align 4
-  %911 = load ptr, ptr %14, align 8
-  %912 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %911, i32 0, i32 4
-  %913 = load i32, ptr %16, align 4
-  %914 = sext i32 %913 to i64
-  %915 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %912, i64 noundef %914) #14
-  %916 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %915, i32 0, i32 3
-  %917 = load i32, ptr %21, align 4
-  %918 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %916, i32 noundef %917)
-  store float %910, ptr %918, align 4
-  br label %919
+860:                                              ; preds = %857
+  %861 = load i32, ptr %21, align 4
+  %862 = sext i32 %861 to i64
+  %863 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %862
+  %864 = load i32, ptr %21, align 4
+  %865 = sext i32 %864 to i64
+  %866 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %865
+  %867 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %863, ptr noundef nonnull align 4 dereferenceable(4) %866)
+  %868 = load float, ptr %867, align 4
+  %869 = load i32, ptr %21, align 4
+  %870 = sext i32 %869 to i64
+  %871 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %870
+  store float %868, ptr %871, align 4
+  %872 = load i32, ptr %21, align 4
+  %873 = sext i32 %872 to i64
+  %874 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %873
+  %875 = load i32, ptr %21, align 4
+  %876 = sext i32 %875 to i64
+  %877 = getelementptr inbounds [3 x float], ptr %45, i64 0, i64 %876
+  %878 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %874, ptr noundef nonnull align 4 dereferenceable(4) %877)
+  %879 = load float, ptr %878, align 4
+  %880 = load i32, ptr %21, align 4
+  %881 = sext i32 %880 to i64
+  %882 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %881
+  store float %879, ptr %882, align 4
+  br label %883
 
-919:                                              ; preds = %894
-  %920 = load i32, ptr %21, align 4
-  %921 = add nsw i32 %920, 1
-  store i32 %921, ptr %21, align 4
-  br label %891, !llvm.loop !35
+883:                                              ; preds = %860
+  %884 = load i32, ptr %21, align 4
+  %885 = add nsw i32 %884, 1
+  store i32 %885, ptr %21, align 4
+  br label %857, !llvm.loop !33
 
-922:                                              ; preds = %891
-  %923 = load ptr, ptr %14, align 8
-  %924 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %923, i32 0, i32 4
-  %925 = load i32, ptr %16, align 4
-  %926 = sext i32 %925 to i64
-  %927 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %924, i64 noundef %926) #14
-  %928 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %927, i32 0, i32 0
-  %929 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %928, i32 noundef 0)
-  %930 = load float, ptr %929, align 4
-  %931 = load ptr, ptr %14, align 8
-  %932 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %931, i32 0, i32 4
-  %933 = load i32, ptr %16, align 4
-  %934 = sext i32 %933 to i64
-  %935 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %932, i64 noundef %934) #14
-  %936 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %935, i32 0, i32 2
-  %937 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %936, i32 noundef 0)
-  %938 = load float, ptr %937, align 4
-  %939 = fadd float %938, %930
-  store float %939, ptr %937, align 4
-  %940 = load ptr, ptr %14, align 8
-  %941 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %940, i32 0, i32 4
-  %942 = load i32, ptr %16, align 4
-  %943 = sext i32 %942 to i64
-  %944 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %941, i64 noundef %943) #14
-  %945 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %944, i32 0, i32 1
-  %946 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %945, i32 noundef 0)
-  %947 = load float, ptr %946, align 4
-  %948 = load ptr, ptr %14, align 8
-  %949 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %948, i32 0, i32 4
-  %950 = load i32, ptr %16, align 4
-  %951 = sext i32 %950 to i64
-  %952 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %949, i64 noundef %951) #14
-  %953 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %952, i32 0, i32 3
-  %954 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %953, i32 noundef 0)
-  %955 = load float, ptr %954, align 4
-  %956 = fadd float %955, %947
-  store float %956, ptr %954, align 4
-  br label %957
+886:                                              ; preds = %857
+  br label %887
 
-957:                                              ; preds = %922
-  %958 = load i32, ptr %16, align 4
-  %959 = add nsw i32 %958, 1
-  store i32 %959, ptr %16, align 4
-  br label %678, !llvm.loop !36
+887:                                              ; preds = %886, %851
+  br label %888
 
-960:                                              ; preds = %678
-  %961 = load i32, ptr %10, align 4
-  %962 = icmp eq i32 %961, 0
-  br i1 %962, label %963, label %1005
+888:                                              ; preds = %887
+  %889 = load i32, ptr %47, align 4
+  %890 = add nsw i32 %889, 1
+  store i32 %890, ptr %47, align 4
+  br label %689, !llvm.loop !34
 
-963:                                              ; preds = %960
+891:                                              ; preds = %689
+  store i32 0, ptr %21, align 4
+  br label %892
+
+892:                                              ; preds = %920, %891
+  %893 = load i32, ptr %21, align 4
+  %894 = icmp slt i32 %893, 3
+  br i1 %894, label %895, label %923
+
+895:                                              ; preds = %892
+  %896 = load i32, ptr %21, align 4
+  %897 = sext i32 %896 to i64
+  %898 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %897
+  %899 = load float, ptr %898, align 4
+  %900 = load ptr, ptr %14, align 8
+  %901 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %900, i32 0, i32 4
+  %902 = load i32, ptr %16, align 4
+  %903 = sext i32 %902 to i64
+  %904 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %901, i64 noundef %903) #14
+  %905 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %904, i32 0, i32 2
+  %906 = load i32, ptr %21, align 4
+  %907 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %905, i32 noundef %906)
+  store float %899, ptr %907, align 4
+  %908 = load i32, ptr %21, align 4
+  %909 = sext i32 %908 to i64
+  %910 = getelementptr inbounds [3 x float], ptr %44, i64 0, i64 %909
+  %911 = load float, ptr %910, align 4
+  %912 = load ptr, ptr %14, align 8
+  %913 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %912, i32 0, i32 4
+  %914 = load i32, ptr %16, align 4
+  %915 = sext i32 %914 to i64
+  %916 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %913, i64 noundef %915) #14
+  %917 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %916, i32 0, i32 3
+  %918 = load i32, ptr %21, align 4
+  %919 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %917, i32 noundef %918)
+  store float %911, ptr %919, align 4
+  br label %920
+
+920:                                              ; preds = %895
+  %921 = load i32, ptr %21, align 4
+  %922 = add nsw i32 %921, 1
+  store i32 %922, ptr %21, align 4
+  br label %892, !llvm.loop !35
+
+923:                                              ; preds = %892
+  %924 = load ptr, ptr %14, align 8
+  %925 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %924, i32 0, i32 4
+  %926 = load i32, ptr %16, align 4
+  %927 = sext i32 %926 to i64
+  %928 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %925, i64 noundef %927) #14
+  %929 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %928, i32 0, i32 0
+  %930 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %929, i32 noundef 0)
+  %931 = load float, ptr %930, align 4
+  %932 = load ptr, ptr %14, align 8
+  %933 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %932, i32 0, i32 4
+  %934 = load i32, ptr %16, align 4
+  %935 = sext i32 %934 to i64
+  %936 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %933, i64 noundef %935) #14
+  %937 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %936, i32 0, i32 2
+  %938 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %937, i32 noundef 0)
+  %939 = load float, ptr %938, align 4
+  %940 = fadd float %939, %931
+  store float %940, ptr %938, align 4
+  %941 = load ptr, ptr %14, align 8
+  %942 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %941, i32 0, i32 4
+  %943 = load i32, ptr %16, align 4
+  %944 = sext i32 %943 to i64
+  %945 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %942, i64 noundef %944) #14
+  %946 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %945, i32 0, i32 1
+  %947 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %946, i32 noundef 0)
+  %948 = load float, ptr %947, align 4
+  %949 = load ptr, ptr %14, align 8
+  %950 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %949, i32 0, i32 4
+  %951 = load i32, ptr %16, align 4
+  %952 = sext i32 %951 to i64
+  %953 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %950, i64 noundef %952) #14
+  %954 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %953, i32 0, i32 3
+  %955 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %954, i32 noundef 0)
+  %956 = load float, ptr %955, align 4
+  %957 = fadd float %956, %948
+  store float %957, ptr %955, align 4
+  br label %958
+
+958:                                              ; preds = %923
+  %959 = load i32, ptr %16, align 4
+  %960 = add nsw i32 %959, 1
+  store i32 %960, ptr %16, align 4
+  br label %679, !llvm.loop !36
+
+961:                                              ; preds = %679
+  %962 = load i32, ptr %10, align 4
+  %963 = icmp eq i32 %962, 0
+  br i1 %963, label %964, label %1006
+
+964:                                              ; preds = %961
   store float 1.000000e+00, ptr %23, align 4
   store i32 0, ptr %18, align 4
-  br label %964
+  br label %965
 
-964:                                              ; preds = %985, %963
-  %965 = load i32, ptr %18, align 4
-  %966 = icmp slt i32 %965, 3
-  br i1 %966, label %967, label %988
+965:                                              ; preds = %986, %964
+  %966 = load i32, ptr %18, align 4
+  %967 = icmp slt i32 %966, 3
+  br i1 %967, label %968, label %989
 
-967:                                              ; preds = %964
-  %968 = load ptr, ptr %14, align 8
-  %969 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %968, i32 0, i32 4
-  %970 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %969, i64 noundef 0) #14
-  %971 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %970, i32 0, i32 1
-  %972 = load i32, ptr %18, align 4
-  %973 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %971, i32 noundef %972)
-  %974 = load float, ptr %973, align 4
-  %975 = load ptr, ptr %14, align 8
-  %976 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %975, i32 0, i32 4
-  %977 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %976, i64 noundef 0) #14
-  %978 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %977, i32 0, i32 0
-  %979 = load i32, ptr %18, align 4
-  %980 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %978, i32 noundef %979)
-  %981 = load float, ptr %980, align 4
-  %982 = fsub float %974, %981
-  %983 = load float, ptr %23, align 4
-  %984 = fmul float %983, %982
-  store float %984, ptr %23, align 4
-  br label %985
+968:                                              ; preds = %965
+  %969 = load ptr, ptr %14, align 8
+  %970 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %969, i32 0, i32 4
+  %971 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %970, i64 noundef 0) #14
+  %972 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %971, i32 0, i32 1
+  %973 = load i32, ptr %18, align 4
+  %974 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %972, i32 noundef %973)
+  %975 = load float, ptr %974, align 4
+  %976 = load ptr, ptr %14, align 8
+  %977 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %976, i32 0, i32 4
+  %978 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %977, i64 noundef 0) #14
+  %979 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %978, i32 0, i32 0
+  %980 = load i32, ptr %18, align 4
+  %981 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %979, i32 noundef %980)
+  %982 = load float, ptr %981, align 4
+  %983 = fsub float %975, %982
+  %984 = load float, ptr %23, align 4
+  %985 = fmul float %984, %983
+  store float %985, ptr %23, align 4
+  br label %986
 
-985:                                              ; preds = %967
-  %986 = load i32, ptr %18, align 4
-  %987 = add nsw i32 %986, 1
-  store i32 %987, ptr %18, align 4
-  br label %964, !llvm.loop !37
+986:                                              ; preds = %968
+  %987 = load i32, ptr %18, align 4
+  %988 = add nsw i32 %987, 1
+  store i32 %988, ptr %18, align 4
+  br label %965, !llvm.loop !37
 
-988:                                              ; preds = %964
-  %989 = load ptr, ptr %14, align 8
-  %990 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %989, i32 0, i32 2
-  %991 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIiLm9EEixEm(ptr noundef nonnull align 4 dereferenceable(36) %990, i64 noundef 1) #14
-  %992 = load i32, ptr %991, align 4
-  %993 = load ptr, ptr %14, align 8
-  %994 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %993, i32 0, i32 2
-  %995 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIiLm9EEixEm(ptr noundef nonnull align 4 dereferenceable(36) %994, i64 noundef 0) #14
-  %996 = load i32, ptr %995, align 4
-  %997 = sub nsw i32 %992, %996
-  %998 = load i32, ptr %12, align 4
-  %999 = sub nsw i32 %997, %998
-  %1000 = sitofp i32 %999 to float
-  %1001 = load float, ptr %23, align 4
-  %1002 = fdiv float %1000, %1001
-  %1003 = load ptr, ptr %14, align 8
-  %1004 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1003, i32 0, i32 5
-  store float %1002, ptr %1004, align 8
-  br label %1005
+989:                                              ; preds = %965
+  %990 = load ptr, ptr %14, align 8
+  %991 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %990, i32 0, i32 2
+  %992 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIiLm9EEixEm(ptr noundef nonnull align 4 dereferenceable(36) %991, i64 noundef 1) #14
+  %993 = load i32, ptr %992, align 4
+  %994 = load ptr, ptr %14, align 8
+  %995 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %994, i32 0, i32 2
+  %996 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIiLm9EEixEm(ptr noundef nonnull align 4 dereferenceable(36) %995, i64 noundef 0) #14
+  %997 = load i32, ptr %996, align 4
+  %998 = sub nsw i32 %993, %997
+  %999 = load i32, ptr %12, align 4
+  %1000 = sub nsw i32 %998, %999
+  %1001 = sitofp i32 %1000 to float
+  %1002 = load float, ptr %23, align 4
+  %1003 = fdiv float %1001, %1002
+  %1004 = load ptr, ptr %14, align 8
+  %1005 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1004, i32 0, i32 5
+  store float %1003, ptr %1005, align 8
+  br label %1006
 
-1005:                                             ; preds = %988, %960
-  %1006 = load ptr, ptr @debug, align 8
-  %1007 = icmp ne ptr %1006, null
-  br i1 %1007, label %1008, label %1133
+1006:                                             ; preds = %989, %961
+  %1007 = load ptr, ptr @debug, align 8
+  %1008 = icmp ne ptr %1007, null
+  br i1 %1008, label %1009, label %1134
 
-1008:                                             ; preds = %1005
-  %1009 = load i32, ptr %10, align 4
-  store i32 %1009, ptr %16, align 4
-  br label %1010
+1009:                                             ; preds = %1006
+  %1010 = load i32, ptr %10, align 4
+  store i32 %1010, ptr %16, align 4
+  br label %1011
 
-1010:                                             ; preds = %1129, %1008
-  %1011 = load i32, ptr %16, align 4
-  %1012 = load i32, ptr %11, align 4
-  %1013 = icmp slt i32 %1011, %1012
-  br i1 %1013, label %1014, label %1132
+1011:                                             ; preds = %1130, %1009
+  %1012 = load i32, ptr %16, align 4
+  %1013 = load i32, ptr %11, align 4
+  %1014 = icmp slt i32 %1012, %1013
+  br i1 %1014, label %1015, label %1133
 
-1014:                                             ; preds = %1010
-  %1015 = load ptr, ptr @debug, align 8
-  %1016 = load i32, ptr %16, align 4
-  %1017 = load ptr, ptr %14, align 8
-  %1018 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1017, i32 0, i32 4
-  %1019 = load i32, ptr %16, align 4
-  %1020 = sext i32 %1019 to i64
-  %1021 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1018, i64 noundef %1020) #14
-  %1022 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1021, i32 0, i32 0
-  %1023 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1022, i32 noundef 0)
-  %1024 = load float, ptr %1023, align 4
-  %1025 = fpext float %1024 to double
-  %1026 = load ptr, ptr %14, align 8
-  %1027 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1026, i32 0, i32 4
-  %1028 = load i32, ptr %16, align 4
-  %1029 = sext i32 %1028 to i64
-  %1030 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1027, i64 noundef %1029) #14
-  %1031 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1030, i32 0, i32 1
-  %1032 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1031, i32 noundef 0)
-  %1033 = load float, ptr %1032, align 4
-  %1034 = fpext float %1033 to double
-  %1035 = load ptr, ptr %14, align 8
-  %1036 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1035, i32 0, i32 4
-  %1037 = load i32, ptr %16, align 4
-  %1038 = sext i32 %1037 to i64
-  %1039 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1036, i64 noundef %1038) #14
-  %1040 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1039, i32 0, i32 0
-  %1041 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1040, i32 noundef 1)
-  %1042 = load float, ptr %1041, align 4
-  %1043 = fpext float %1042 to double
-  %1044 = load ptr, ptr %14, align 8
-  %1045 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1044, i32 0, i32 4
-  %1046 = load i32, ptr %16, align 4
-  %1047 = sext i32 %1046 to i64
-  %1048 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1045, i64 noundef %1047) #14
-  %1049 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1048, i32 0, i32 1
-  %1050 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1049, i32 noundef 1)
-  %1051 = load float, ptr %1050, align 4
-  %1052 = fpext float %1051 to double
-  %1053 = load ptr, ptr %14, align 8
-  %1054 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1053, i32 0, i32 4
-  %1055 = load i32, ptr %16, align 4
-  %1056 = sext i32 %1055 to i64
-  %1057 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1054, i64 noundef %1056) #14
-  %1058 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1057, i32 0, i32 0
-  %1059 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1058, i32 noundef 2)
-  %1060 = load float, ptr %1059, align 4
-  %1061 = fpext float %1060 to double
-  %1062 = load ptr, ptr %14, align 8
-  %1063 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1062, i32 0, i32 4
-  %1064 = load i32, ptr %16, align 4
-  %1065 = sext i32 %1064 to i64
-  %1066 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1063, i64 noundef %1065) #14
-  %1067 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1066, i32 0, i32 1
-  %1068 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1067, i32 noundef 2)
-  %1069 = load float, ptr %1068, align 4
-  %1070 = fpext float %1069 to double
-  %1071 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1015, ptr noundef @.str.128, i32 noundef %1016, double noundef %1025, double noundef %1034, double noundef %1043, double noundef %1052, double noundef %1061, double noundef %1070) #14
-  %1072 = load ptr, ptr @debug, align 8
-  %1073 = load i32, ptr %16, align 4
-  %1074 = load ptr, ptr %14, align 8
-  %1075 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1074, i32 0, i32 4
-  %1076 = load i32, ptr %16, align 4
-  %1077 = sext i32 %1076 to i64
-  %1078 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1075, i64 noundef %1077) #14
-  %1079 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1078, i32 0, i32 2
-  %1080 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1079, i32 noundef 0)
-  %1081 = load float, ptr %1080, align 4
-  %1082 = fpext float %1081 to double
-  %1083 = load ptr, ptr %14, align 8
-  %1084 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1083, i32 0, i32 4
-  %1085 = load i32, ptr %16, align 4
-  %1086 = sext i32 %1085 to i64
-  %1087 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1084, i64 noundef %1086) #14
-  %1088 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1087, i32 0, i32 3
-  %1089 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1088, i32 noundef 0)
-  %1090 = load float, ptr %1089, align 4
-  %1091 = fpext float %1090 to double
-  %1092 = load ptr, ptr %14, align 8
-  %1093 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1092, i32 0, i32 4
-  %1094 = load i32, ptr %16, align 4
-  %1095 = sext i32 %1094 to i64
-  %1096 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1093, i64 noundef %1095) #14
-  %1097 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1096, i32 0, i32 2
-  %1098 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1097, i32 noundef 1)
-  %1099 = load float, ptr %1098, align 4
-  %1100 = fpext float %1099 to double
-  %1101 = load ptr, ptr %14, align 8
-  %1102 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1101, i32 0, i32 4
-  %1103 = load i32, ptr %16, align 4
-  %1104 = sext i32 %1103 to i64
-  %1105 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1102, i64 noundef %1104) #14
-  %1106 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1105, i32 0, i32 3
-  %1107 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1106, i32 noundef 1)
-  %1108 = load float, ptr %1107, align 4
-  %1109 = fpext float %1108 to double
-  %1110 = load ptr, ptr %14, align 8
-  %1111 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1110, i32 0, i32 4
-  %1112 = load i32, ptr %16, align 4
-  %1113 = sext i32 %1112 to i64
-  %1114 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1111, i64 noundef %1113) #14
-  %1115 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1114, i32 0, i32 2
-  %1116 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1115, i32 noundef 2)
-  %1117 = load float, ptr %1116, align 4
-  %1118 = fpext float %1117 to double
-  %1119 = load ptr, ptr %14, align 8
-  %1120 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1119, i32 0, i32 4
-  %1121 = load i32, ptr %16, align 4
-  %1122 = sext i32 %1121 to i64
-  %1123 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1120, i64 noundef %1122) #14
-  %1124 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1123, i32 0, i32 3
-  %1125 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1124, i32 noundef 2)
-  %1126 = load float, ptr %1125, align 4
-  %1127 = fpext float %1126 to double
-  %1128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1072, ptr noundef @.str.129, i32 noundef %1073, double noundef %1082, double noundef %1091, double noundef %1100, double noundef %1109, double noundef %1118, double noundef %1127) #14
-  br label %1129
+1015:                                             ; preds = %1011
+  %1016 = load ptr, ptr @debug, align 8
+  %1017 = load i32, ptr %16, align 4
+  %1018 = load ptr, ptr %14, align 8
+  %1019 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1018, i32 0, i32 4
+  %1020 = load i32, ptr %16, align 4
+  %1021 = sext i32 %1020 to i64
+  %1022 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1019, i64 noundef %1021) #14
+  %1023 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1022, i32 0, i32 0
+  %1024 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1023, i32 noundef 0)
+  %1025 = load float, ptr %1024, align 4
+  %1026 = fpext float %1025 to double
+  %1027 = load ptr, ptr %14, align 8
+  %1028 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1027, i32 0, i32 4
+  %1029 = load i32, ptr %16, align 4
+  %1030 = sext i32 %1029 to i64
+  %1031 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1028, i64 noundef %1030) #14
+  %1032 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1031, i32 0, i32 1
+  %1033 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1032, i32 noundef 0)
+  %1034 = load float, ptr %1033, align 4
+  %1035 = fpext float %1034 to double
+  %1036 = load ptr, ptr %14, align 8
+  %1037 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1036, i32 0, i32 4
+  %1038 = load i32, ptr %16, align 4
+  %1039 = sext i32 %1038 to i64
+  %1040 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1037, i64 noundef %1039) #14
+  %1041 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1040, i32 0, i32 0
+  %1042 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1041, i32 noundef 1)
+  %1043 = load float, ptr %1042, align 4
+  %1044 = fpext float %1043 to double
+  %1045 = load ptr, ptr %14, align 8
+  %1046 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1045, i32 0, i32 4
+  %1047 = load i32, ptr %16, align 4
+  %1048 = sext i32 %1047 to i64
+  %1049 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1046, i64 noundef %1048) #14
+  %1050 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1049, i32 0, i32 1
+  %1051 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1050, i32 noundef 1)
+  %1052 = load float, ptr %1051, align 4
+  %1053 = fpext float %1052 to double
+  %1054 = load ptr, ptr %14, align 8
+  %1055 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1054, i32 0, i32 4
+  %1056 = load i32, ptr %16, align 4
+  %1057 = sext i32 %1056 to i64
+  %1058 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1055, i64 noundef %1057) #14
+  %1059 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1058, i32 0, i32 0
+  %1060 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1059, i32 noundef 2)
+  %1061 = load float, ptr %1060, align 4
+  %1062 = fpext float %1061 to double
+  %1063 = load ptr, ptr %14, align 8
+  %1064 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1063, i32 0, i32 4
+  %1065 = load i32, ptr %16, align 4
+  %1066 = sext i32 %1065 to i64
+  %1067 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1064, i64 noundef %1066) #14
+  %1068 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1067, i32 0, i32 1
+  %1069 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1068, i32 noundef 2)
+  %1070 = load float, ptr %1069, align 4
+  %1071 = fpext float %1070 to double
+  %1072 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1016, ptr noundef @.str.128, i32 noundef %1017, double noundef %1026, double noundef %1035, double noundef %1044, double noundef %1053, double noundef %1062, double noundef %1071) #14
+  %1073 = load ptr, ptr @debug, align 8
+  %1074 = load i32, ptr %16, align 4
+  %1075 = load ptr, ptr %14, align 8
+  %1076 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1075, i32 0, i32 4
+  %1077 = load i32, ptr %16, align 4
+  %1078 = sext i32 %1077 to i64
+  %1079 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1076, i64 noundef %1078) #14
+  %1080 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1079, i32 0, i32 2
+  %1081 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1080, i32 noundef 0)
+  %1082 = load float, ptr %1081, align 4
+  %1083 = fpext float %1082 to double
+  %1084 = load ptr, ptr %14, align 8
+  %1085 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1084, i32 0, i32 4
+  %1086 = load i32, ptr %16, align 4
+  %1087 = sext i32 %1086 to i64
+  %1088 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1085, i64 noundef %1087) #14
+  %1089 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1088, i32 0, i32 3
+  %1090 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1089, i32 noundef 0)
+  %1091 = load float, ptr %1090, align 4
+  %1092 = fpext float %1091 to double
+  %1093 = load ptr, ptr %14, align 8
+  %1094 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1093, i32 0, i32 4
+  %1095 = load i32, ptr %16, align 4
+  %1096 = sext i32 %1095 to i64
+  %1097 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1094, i64 noundef %1096) #14
+  %1098 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1097, i32 0, i32 2
+  %1099 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1098, i32 noundef 1)
+  %1100 = load float, ptr %1099, align 4
+  %1101 = fpext float %1100 to double
+  %1102 = load ptr, ptr %14, align 8
+  %1103 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1102, i32 0, i32 4
+  %1104 = load i32, ptr %16, align 4
+  %1105 = sext i32 %1104 to i64
+  %1106 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1103, i64 noundef %1105) #14
+  %1107 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1106, i32 0, i32 3
+  %1108 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1107, i32 noundef 1)
+  %1109 = load float, ptr %1108, align 4
+  %1110 = fpext float %1109 to double
+  %1111 = load ptr, ptr %14, align 8
+  %1112 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1111, i32 0, i32 4
+  %1113 = load i32, ptr %16, align 4
+  %1114 = sext i32 %1113 to i64
+  %1115 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1112, i64 noundef %1114) #14
+  %1116 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1115, i32 0, i32 2
+  %1117 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1116, i32 noundef 2)
+  %1118 = load float, ptr %1117, align 4
+  %1119 = fpext float %1118 to double
+  %1120 = load ptr, ptr %14, align 8
+  %1121 = getelementptr inbounds %struct.gmx_domdec_zones_t, ptr %1120, i32 0, i32 4
+  %1122 = load i32, ptr %16, align 4
+  %1123 = sext i32 %1122 to i64
+  %1124 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt5arrayI20gmx_domdec_zone_sizeLm8EEixEm(ptr noundef nonnull align 4 dereferenceable(384) %1121, i64 noundef %1123) #14
+  %1125 = getelementptr inbounds %struct.gmx_domdec_zone_size, ptr %1124, i32 0, i32 3
+  %1126 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx11BasicVectorIfEixEi(ptr noundef nonnull align 4 dereferenceable(12) %1125, i32 noundef 2)
+  %1127 = load float, ptr %1126, align 4
+  %1128 = fpext float %1127 to double
+  %1129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1073, ptr noundef @.str.129, i32 noundef %1074, double noundef %1083, double noundef %1092, double noundef %1101, double noundef %1110, double noundef %1119, double noundef %1128) #14
+  br label %1130
 
-1129:                                             ; preds = %1014
-  %1130 = load i32, ptr %16, align 4
-  %1131 = add nsw i32 %1130, 1
-  store i32 %1131, ptr %16, align 4
-  br label %1010, !llvm.loop !38
+1130:                                             ; preds = %1015
+  %1131 = load i32, ptr %16, align 4
+  %1132 = add nsw i32 %1131, 1
+  store i32 %1132, ptr %16, align 4
+  br label %1011, !llvm.loop !38
 
-1132:                                             ; preds = %1010
-  br label %1133
+1133:                                             ; preds = %1011
+  br label %1134
 
-1133:                                             ; preds = %1132, %1005
+1134:                                             ; preds = %1133, %1006
   ret void
 }
 
@@ -15729,9 +15730,10 @@ define linkonce_odr void @_ZN3gmx18StringOutputStreamC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx16TextOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   ret void
 }
 
@@ -15872,9 +15874,10 @@ define linkonce_odr void @_ZN3gmx18StringOutputStreamD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZN3gmx16TextOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }
@@ -15884,7 +15887,8 @@ define linkonce_odr void @_ZN3gmx16TextOutputStreamC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16TextOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16TextOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28036,7 +28040,7 @@ define internal void @_ZL22setup_dd_communicationP12gmx_domdec_tPA3_fP11gmx_ddbo
 
 159:                                              ; preds = %155
   %160 = load i32, ptr %78, align 4
-  %161 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %161 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %162 = icmp eq i32 %160, %161
   br i1 %162, label %163, label %252
 
@@ -29328,9 +29332,6 @@ define internal void @_ZL21get_zone_pulse_groupsP12gmx_domdec_tiiiiN3gmx8ArrayRe
   store i32 %870, ptr %872, align 4
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
 
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) #4
@@ -34455,7 +34456,7 @@ define linkonce_odr void @_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6ve
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #16
+declare i1 @llvm.is.constant.i64(i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
@@ -37593,6 +37594,9 @@ define internal void @_ZL13traceRangeEndv() #0 {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -37608,8 +37612,8 @@ attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #12 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { nounwind }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { nounwind willreturn memory(read) }

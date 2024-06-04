@@ -2003,47 +2003,49 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2EPNS_5IndexEPNS_17Add
   %20 = load i64, ptr %12, align 8
   %21 = load i32, ptr %13, align 4
   call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %17, ptr noundef %18, i64 noundef %19, i64 noundef %20, i64 noundef 0, i32 noundef %21)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 2
-  store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 3
-  store i32 1, ptr %24, align 4
-  %25 = load ptr, ptr %10, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %37
+  %22 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %17, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 2
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 3
+  store i32 1, ptr %26, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %39
 
-27:                                               ; preds = %7
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i64, ptr %12, align 8
-  %30 = load i32, ptr %13, align 4
-  %31 = load i32, ptr %14, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %17, ptr noundef %28, i64 noundef %29, i32 noundef %30, i32 noundef %31)
-          to label %32 unwind label %33
+29:                                               ; preds = %7
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i64, ptr %12, align 8
+  %32 = load i32, ptr %13, align 4
+  %33 = load i32, ptr %14, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %17, ptr noundef %30, i64 noundef %31, i32 noundef %32, i32 noundef %33)
+          to label %34 unwind label %35
 
-32:                                               ; preds = %27
-  br label %37
+34:                                               ; preds = %29
+  br label %39
 
-33:                                               ; preds = %27
-  %34 = landingpad { ptr, i32 }
+35:                                               ; preds = %29
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %15, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %16, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %15, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %16, align 4
   call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %17) #12
-  br label %38
+  br label %40
 
-37:                                               ; preds = %32, %7
+39:                                               ; preds = %34, %7
   ret void
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %15, align 8
-  %40 = load i32, ptr %16, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %15, align 8
+  %42 = load i32, ptr %16, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 declare void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) unnamed_addr #1
@@ -2508,9 +2510,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -2659,297 +2662,299 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKNS_25IndexIVFAddit
   %31 = getelementptr inbounds %"struct.faiss::Index", ptr %30, i32 0, i32 7
   %32 = load i32, ptr %31, align 4
   call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %17, ptr noundef %21, i64 noundef %25, i64 noundef %29, i64 noundef 0, i32 noundef %32)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %33 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %33, align 8
-  %34 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 1
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizer", ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %34, align 8
-  %38 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 2
-  store i8 0, ptr %38, align 8
-  %39 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 3
-  store i32 1, ptr %39, align 4
-  br label %40
+  %33 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %33, ptr %17, align 8
+  %34 = getelementptr inbounds i8, ptr %17, i64 40
+  %35 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 1
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizer", ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %36, align 8
+  %40 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 2
+  store i8 0, ptr %40, align 8
+  %41 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 3
+  store i32 1, ptr %41, align 4
+  br label %42
 
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 7
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %73, label %44
+42:                                               ; preds = %3
+  %43 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 7
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %75, label %46
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %45, i32 0, i32 10
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %73
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %47, i32 0, i32 10
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %75
 
-49:                                               ; preds = %44
-  br label %50
+51:                                               ; preds = %46
+  br label %52
 
-50:                                               ; preds = %49
+52:                                               ; preds = %51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.9) #12
-  store i32 %51, ptr %8, align 4
-  %52 = load i32, ptr %8, align 4
-  %53 = add nsw i32 %52, 1
-  %54 = sext i32 %53 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %54)
-          to label %55 unwind label %62
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.9) #12
+  store i32 %53, ptr %8, align 4
+  %54 = load i32, ptr %8, align 4
+  %55 = add nsw i32 %54, 1
+  %56 = sext i32 %55 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %56)
+          to label %57 unwind label %64
 
-55:                                               ; preds = %50
-  %56 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %57 unwind label %62
+57:                                               ; preds = %52
+  %58 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %59 unwind label %64
 
-57:                                               ; preds = %55
-  %58 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %56, i64 noundef %58, ptr noundef @.str, ptr noundef @.str.9) #12
-  %60 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKNS_25IndexIVFAdditiveQuantizerEi, ptr noundef @.str.2, i32 noundef 90)
-          to label %61 unwind label %66
+59:                                               ; preds = %57
+  %60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %58, i64 noundef %60, ptr noundef @.str, ptr noundef @.str.9) #12
+  %62 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKNS_25IndexIVFAdditiveQuantizerEi, ptr noundef @.str.2, i32 noundef 90)
+          to label %63 unwind label %68
 
-61:                                               ; preds = %57
-  invoke void @__cxa_throw(ptr %60, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
-          to label %195 unwind label %62
+63:                                               ; preds = %59
+  invoke void @__cxa_throw(ptr %62, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
+          to label %197 unwind label %64
 
-62:                                               ; preds = %61, %55, %50
-  %63 = landingpad { ptr, i32 }
+64:                                               ; preds = %63, %57, %52
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %9, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %10, align 4
-  br label %70
-
-66:                                               ; preds = %57
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %9, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %10, align 4
-  call void @__cxa_free_exception(ptr %60) #12
-  br label %70
-
-70:                                               ; preds = %66, %62
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %189
-
-71:                                               ; No predecessors!
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %9, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %10, align 4
   br label %72
 
-72:                                               ; preds = %71
-  br label %73
+68:                                               ; preds = %59
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %9, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %10, align 4
+  call void @__cxa_free_exception(ptr %62) #12
+  br label %72
 
-73:                                               ; preds = %72, %44, %40
+72:                                               ; preds = %68, %64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  br label %191
+
+73:                                               ; No predecessors!
   br label %74
 
 74:                                               ; preds = %73
   br label %75
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %17, i64 48
-  %79 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %78, i32 0, i32 1
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 7
-  %82 = load i32, ptr %81, align 4
-  %83 = load i32, ptr %6, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %17, ptr noundef %77, i64 noundef %80, i32 noundef %82, i32 noundef %83)
-          to label %84 unwind label %167
+75:                                               ; preds = %74, %46, %42
+  br label %76
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %"struct.faiss::Index", ptr %85, i32 0, i32 5
-  %87 = load i8, ptr %86, align 1
-  %88 = trunc i8 %87 to i1
-  %89 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
-  %90 = zext i1 %88 to i8
-  store i8 %90, ptr %89, align 1
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %"struct.faiss::Index", ptr %91, i32 0, i32 3
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 3
-  store i64 %93, ptr %94, align 8
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
-  %97 = getelementptr inbounds %"struct.faiss::IndexIVFInterface", ptr %96, i32 0, i32 2
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %17, i64 40
-  %100 = getelementptr inbounds %"struct.faiss::IndexIVFInterface", ptr %99, i32 0, i32 2
-  store i64 %98, ptr %100, align 8
+76:                                               ; preds = %75
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %17, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %17, i64 48
+  %81 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %80, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  %83 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 7
+  %84 = load i32, ptr %83, align 4
+  %85 = load i32, ptr %6, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %17, ptr noundef %79, i64 noundef %82, i32 noundef %84, i32 noundef %85)
+          to label %86 unwind label %169
+
+86:                                               ; preds = %77
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %"struct.faiss::Index", ptr %87, i32 0, i32 5
+  %89 = load i8, ptr %88, align 1
+  %90 = trunc i8 %89 to i1
+  %91 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
+  %92 = zext i1 %90 to i8
+  store i8 %92, ptr %91, align 1
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds %"struct.faiss::Index", ptr %93, i32 0, i32 3
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 3
+  store i64 %95, ptr %96, align 8
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 40
+  %99 = getelementptr inbounds %"struct.faiss::IndexIVFInterface", ptr %98, i32 0, i32 2
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %17, i64 40
+  %102 = getelementptr inbounds %"struct.faiss::IndexIVFInterface", ptr %101, i32 0, i32 2
+  store i64 %100, ptr %102, align 8
   store i64 0, ptr %11, align 8
-  br label %101
+  br label %103
 
-101:                                              ; preds = %164, %84
-  %102 = load i64, ptr %11, align 8
-  %103 = getelementptr inbounds i8, ptr %17, i64 48
-  %104 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %103, i32 0, i32 1
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp ult i64 %102, %105
-  br i1 %106, label %107, label %184
+103:                                              ; preds = %166, %86
+  %104 = load i64, ptr %11, align 8
+  %105 = getelementptr inbounds i8, ptr %17, i64 48
+  %106 = getelementptr inbounds %"struct.faiss::Level1Quantizer", ptr %105, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp ult i64 %104, %107
+  br i1 %108, label %109, label %186
 
-107:                                              ; preds = %101
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %108, i32 0, i32 3
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i64, ptr %11, align 8
-  %112 = load ptr, ptr %110, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 2
-  %114 = load ptr, ptr %113, align 8
-  %115 = invoke noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(25) %110, i64 noundef %111)
-          to label %116 unwind label %167
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %5, align 8
+  %111 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i64, ptr %11, align 8
+  %114 = load ptr, ptr %112, align 8
+  %115 = getelementptr inbounds ptr, ptr %114, i64 2
+  %116 = load ptr, ptr %115, align 8
+  %117 = invoke noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(25) %112, i64 noundef %113)
+          to label %118 unwind label %169
 
-116:                                              ; preds = %107
-  store i64 %115, ptr %12, align 8
-  %117 = load i64, ptr %12, align 8
-  %118 = load i32, ptr %6, align 4
-  %119 = sext i32 %118 to i64
-  %120 = invoke noundef i64 @_ZN5faiss7roundupEmm(i64 noundef %117, i64 noundef %119)
-          to label %121 unwind label %167
+118:                                              ; preds = %109
+  store i64 %117, ptr %12, align 8
+  %119 = load i64, ptr %12, align 8
+  %120 = load i32, ptr %6, align 4
+  %121 = sext i32 %120 to i64
+  %122 = invoke noundef i64 @_ZN5faiss7roundupEmm(i64 noundef %119, i64 noundef %121)
+          to label %123 unwind label %169
 
-121:                                              ; preds = %116
-  store i64 %120, ptr %13, align 8
-  %122 = load i64, ptr %13, align 8
-  %123 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 5
-  %124 = load i64, ptr %123, align 8
-  %125 = mul i64 %122, %124
-  %126 = udiv i64 %125, 2
-  invoke void @_ZN5faiss12AlignedTableIhLi32EEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %126)
-          to label %127 unwind label %167
+123:                                              ; preds = %118
+  store i64 %122, ptr %13, align 8
+  %124 = load i64, ptr %13, align 8
+  %125 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 5
+  %126 = load i64, ptr %125, align 8
+  %127 = mul i64 %124, %126
+  %128 = udiv i64 %127, 2
+  invoke void @_ZN5faiss12AlignedTableIhLi32EEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %128)
+          to label %129 unwind label %169
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %128, i32 0, i32 3
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i64, ptr %11, align 8
-  invoke void @_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %130, i64 noundef %131)
-          to label %132 unwind label %171
+129:                                              ; preds = %123
+  %130 = load ptr, ptr %5, align 8
+  %131 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %130, i32 0, i32 3
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i64, ptr %11, align 8
+  invoke void @_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %132, i64 noundef %133)
+          to label %134 unwind label %173
 
-132:                                              ; preds = %127
-  %133 = invoke noundef ptr @_ZN5faiss13InvertedLists11ScopedCodes3getEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %134 unwind label %175
+134:                                              ; preds = %129
+  %135 = invoke noundef ptr @_ZN5faiss13InvertedLists11ScopedCodes3getEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %136 unwind label %177
 
-134:                                              ; preds = %132
-  %135 = load i64, ptr %12, align 8
-  %136 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 2
-  %137 = load i64, ptr %136, align 8
-  %138 = load i64, ptr %13, align 8
-  %139 = load i32, ptr %6, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 5
-  %142 = load i64, ptr %141, align 8
-  %143 = invoke noundef ptr @_ZN5faiss12AlignedTableIhLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %144 unwind label %175
+136:                                              ; preds = %134
+  %137 = load i64, ptr %12, align 8
+  %138 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 2
+  %139 = load i64, ptr %138, align 8
+  %140 = load i64, ptr %13, align 8
+  %141 = load i32, ptr %6, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 5
+  %144 = load i64, ptr %143, align 8
+  %145 = invoke noundef ptr @_ZN5faiss12AlignedTableIhLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %146 unwind label %177
 
-144:                                              ; preds = %134
-  invoke void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef %133, i64 noundef %135, i64 noundef %137, i64 noundef %138, i64 noundef %140, i64 noundef %142, ptr noundef %143)
-          to label %145 unwind label %175
+146:                                              ; preds = %136
+  invoke void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef %135, i64 noundef %137, i64 noundef %139, i64 noundef %140, i64 noundef %142, i64 noundef %144, ptr noundef %145)
+          to label %147 unwind label %177
 
-145:                                              ; preds = %144
+147:                                              ; preds = %146
   call void @_ZN5faiss13InvertedLists11ScopedCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %146 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 3
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i64, ptr %11, align 8
-  %149 = load i64, ptr %12, align 8
-  %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %150, i32 0, i32 3
-  %152 = load ptr, ptr %151, align 8
-  %153 = load i64, ptr %11, align 8
-  invoke void @_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %152, i64 noundef %153)
-          to label %154 unwind label %171
+  %148 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 3
+  %149 = load ptr, ptr %148, align 8
+  %150 = load i64, ptr %11, align 8
+  %151 = load i64, ptr %12, align 8
+  %152 = load ptr, ptr %5, align 8
+  %153 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %152, i32 0, i32 3
+  %154 = load ptr, ptr %153, align 8
+  %155 = load i64, ptr %11, align 8
+  invoke void @_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %154, i64 noundef %155)
+          to label %156 unwind label %173
 
-154:                                              ; preds = %145
-  %155 = invoke noundef ptr @_ZN5faiss13InvertedLists9ScopedIds3getEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %156 unwind label %179
-
-156:                                              ; preds = %154
-  %157 = invoke noundef ptr @_ZN5faiss12AlignedTableIhLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %158 unwind label %179
+156:                                              ; preds = %147
+  %157 = invoke noundef ptr @_ZN5faiss13InvertedLists9ScopedIds3getEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %158 unwind label %181
 
 158:                                              ; preds = %156
-  %159 = load ptr, ptr %147, align 8
-  %160 = getelementptr inbounds ptr, ptr %159, i64 12
-  %161 = load ptr, ptr %160, align 8
-  %162 = invoke noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(25) %147, i64 noundef %148, i64 noundef %149, ptr noundef %155, ptr noundef %157)
-          to label %163 unwind label %179
+  %159 = invoke noundef ptr @_ZN5faiss12AlignedTableIhLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %160 unwind label %181
 
-163:                                              ; preds = %158
+160:                                              ; preds = %158
+  %161 = load ptr, ptr %149, align 8
+  %162 = getelementptr inbounds ptr, ptr %161, i64 12
+  %163 = load ptr, ptr %162, align 8
+  %164 = invoke noundef i64 %163(ptr noundef nonnull align 8 dereferenceable(25) %149, i64 noundef %150, i64 noundef %151, ptr noundef %157, ptr noundef %159)
+          to label %165 unwind label %181
+
+165:                                              ; preds = %160
   call void @_ZN5faiss13InvertedLists9ScopedIdsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
   call void @_ZN5faiss12AlignedTableIhLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
-  br label %164
+  br label %166
 
-164:                                              ; preds = %163
-  %165 = load i64, ptr %11, align 8
-  %166 = add i64 %165, 1
-  store i64 %166, ptr %11, align 8
-  br label %101, !llvm.loop !10
+166:                                              ; preds = %165
+  %167 = load i64, ptr %11, align 8
+  %168 = add i64 %167, 1
+  store i64 %168, ptr %11, align 8
+  br label %103, !llvm.loop !10
 
-167:                                              ; preds = %121, %116, %107, %75
-  %168 = landingpad { ptr, i32 }
+169:                                              ; preds = %123, %118, %109, %77
+  %170 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %9, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %10, align 4
-  br label %189
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %9, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %10, align 4
+  br label %191
 
-171:                                              ; preds = %145, %127
-  %172 = landingpad { ptr, i32 }
+173:                                              ; preds = %147, %129
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %9, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %10, align 4
-  br label %183
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %9, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %10, align 4
+  br label %185
 
-175:                                              ; preds = %144, %134, %132
-  %176 = landingpad { ptr, i32 }
+177:                                              ; preds = %146, %136, %134
+  %178 = landingpad { ptr, i32 }
           cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %9, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %10, align 4
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %9, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %10, align 4
   call void @_ZN5faiss13InvertedLists11ScopedCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  br label %183
+  br label %185
 
-179:                                              ; preds = %158, %156, %154
-  %180 = landingpad { ptr, i32 }
+181:                                              ; preds = %160, %158, %156
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %9, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %10, align 4
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %9, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %10, align 4
   call void @_ZN5faiss13InvertedLists9ScopedIdsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
-  br label %183
+  br label %185
 
-183:                                              ; preds = %179, %175, %171
+185:                                              ; preds = %181, %177, %173
   call void @_ZN5faiss12AlignedTableIhLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
-  br label %189
+  br label %191
 
-184:                                              ; preds = %101
-  %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %185, i32 0, i32 3
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 10
-  store ptr %187, ptr %188, align 8
+186:                                              ; preds = %103
+  %187 = load ptr, ptr %5, align 8
+  %188 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %187, i32 0, i32 3
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %17, i32 0, i32 10
+  store ptr %189, ptr %190, align 8
   ret void
 
-189:                                              ; preds = %183, %167, %70
+191:                                              ; preds = %185, %169, %72
   call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %17) #12
-  br label %190
+  br label %192
 
-190:                                              ; preds = %189
-  %191 = load ptr, ptr %9, align 8
-  %192 = load i32, ptr %10, align 4
-  %193 = insertvalue { ptr, i32 } poison, ptr %191, 0
-  %194 = insertvalue { ptr, i32 } %193, i32 %192, 1
-  resume { ptr, i32 } %194
+192:                                              ; preds = %191
+  %193 = load ptr, ptr %9, align 8
+  %194 = load i32, ptr %10, align 4
+  %195 = insertvalue { ptr, i32 } poison, ptr %193, 0
+  %196 = insertvalue { ptr, i32 } %195, i32 %194, 1
+  resume { ptr, i32 } %196
 
-195:                                              ; preds = %61
+197:                                              ; preds = %63
   unreachable
 }
 
@@ -3289,7 +3294,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3336,7 +3342,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3378,21 +3385,23 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %3)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 2
-  store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 3
-  store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %3, i32 0, i32 1
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %3, i32 0, i32 5
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 1
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::Index", ptr %3, i32 0, i32 5
-  store i8 0, ptr %10, align 1
+  %4 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFAdditiveQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 2
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 3
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %3, i32 0, i32 1
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"struct.faiss::IndexIVFFastScan", ptr %3, i32 0, i32 5
+  store i64 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %3, i32 0, i32 1
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %3, i32 0, i32 5
+  store i8 0, ptr %12, align 1
   ret void
 }
 
@@ -7973,133 +7982,135 @@ define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS
   %27 = load i32, ptr %16, align 4
   %28 = load i32, ptr %18, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2EPNS_5IndexEPNS_17AdditiveQuantizerEmmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %24, ptr noundef null, i64 noundef %25, i64 noundef %26, i32 noundef %27, i32 noundef %28)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %23, i32 0, i32 1
-  %31 = load i64, ptr %12, align 8
-  %32 = load i64, ptr %14, align 8
-  %33 = load i64, ptr %15, align 8
-  %34 = load i32, ptr %17, align 4
-  invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %30, i64 noundef %31, i64 noundef %32, i64 noundef %33, i32 noundef %34)
-          to label %35 unwind label %52
+  %29 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %29, ptr %23, align 8
+  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  %31 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %23, i32 0, i32 1
+  %33 = load i64, ptr %12, align 8
+  %34 = load i64, ptr %14, align 8
+  %35 = load i64, ptr %15, align 8
+  %36 = load i32, ptr %17, align 4
+  invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i32 noundef %36)
+          to label %37 unwind label %54
 
-35:                                               ; preds = %9
-  br label %36
+37:                                               ; preds = %9
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = load i64, ptr %15, align 8
-  %38 = icmp eq i64 %37, 4
-  br i1 %38, label %67, label %39
+38:                                               ; preds = %37
+  %39 = load i64, ptr %15, align 8
+  %40 = icmp eq i64 %39, 4
+  br i1 %40, label %69, label %41
 
-39:                                               ; preds = %36
-  br label %40
+41:                                               ; preds = %38
+  br label %42
 
-40:                                               ; preds = %39
+42:                                               ; preds = %41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
-  store i32 %41, ptr %22, align 4
-  %42 = load i32, ptr %22, align 4
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %44)
-          to label %45 unwind label %56
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
+  store i32 %43, ptr %22, align 4
+  %44 = load i32, ptr %22, align 4
+  %45 = add nsw i32 %44, 1
+  %46 = sext i32 %45 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %46)
+          to label %47 unwind label %58
 
-45:                                               ; preds = %40
-  %46 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0)
-          to label %47 unwind label %56
+47:                                               ; preds = %42
+  %48 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0)
+          to label %49 unwind label %58
 
-47:                                               ; preds = %45
-  %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef %48, ptr noundef @.str, ptr noundef @.str.23) #12
-  %50 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 471)
-          to label %51 unwind label %60
+49:                                               ; preds = %47
+  %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef %50, ptr noundef @.str, ptr noundef @.str.23) #12
+  %52 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 471)
+          to label %53 unwind label %62
 
-51:                                               ; preds = %47
-  invoke void @__cxa_throw(ptr %50, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
-          to label %86 unwind label %56
+53:                                               ; preds = %49
+  invoke void @__cxa_throw(ptr %52, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
+          to label %88 unwind label %58
 
-52:                                               ; preds = %9
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %9
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %19, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %20, align 4
-  br label %80
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %19, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %20, align 4
+  br label %82
 
-56:                                               ; preds = %51, %45, %40
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %53, %47, %42
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %19, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %20, align 4
-  br label %64
-
-60:                                               ; preds = %47
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %19, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %20, align 4
-  call void @__cxa_free_exception(ptr %50) #12
-  br label %64
-
-64:                                               ; preds = %60, %56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  br label %79
-
-65:                                               ; No predecessors!
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %19, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %20, align 4
   br label %66
 
-66:                                               ; preds = %65
-  br label %67
+62:                                               ; preds = %49
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %19, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %20, align 4
+  call void @__cxa_free_exception(ptr %52) #12
+  br label %66
 
-67:                                               ; preds = %66, %36
+66:                                               ; preds = %62, %58
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
+  br label %81
+
+67:                                               ; No predecessors!
   br label %68
 
 68:                                               ; preds = %67
   br label %69
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %23, i32 0, i32 1
-  %71 = load i64, ptr %13, align 8
-  %72 = load i32, ptr %16, align 4
-  %73 = load i32, ptr %18, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %70, i64 noundef %71, i32 noundef %72, i32 noundef %73)
-          to label %74 unwind label %75
+69:                                               ; preds = %68, %38
+  br label %70
 
-74:                                               ; preds = %69
+70:                                               ; preds = %69
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %23, i32 0, i32 1
+  %73 = load i64, ptr %13, align 8
+  %74 = load i32, ptr %16, align 4
+  %75 = load i32, ptr %18, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %72, i64 noundef %73, i32 noundef %74, i32 noundef %75)
+          to label %76 unwind label %77
+
+76:                                               ; preds = %71
   ret void
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+77:                                               ; preds = %71
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %19, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %20, align 4
-  br label %79
-
-79:                                               ; preds = %75, %64
-  call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %30) #12
-  br label %80
-
-80:                                               ; preds = %79, %52
-  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %23) #12
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %19, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %20, align 4
   br label %81
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %19, align 8
-  %83 = load i32, ptr %20, align 4
-  %84 = insertvalue { ptr, i32 } poison, ptr %82, 0
-  %85 = insertvalue { ptr, i32 } %84, i32 %83, 1
-  resume { ptr, i32 } %85
+81:                                               ; preds = %77, %66
+  call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %32) #12
+  br label %82
 
-86:                                               ; preds = %51
+82:                                               ; preds = %81, %54
+  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %23) #12
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %19, align 8
+  %85 = load i32, ptr %20, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
+
+88:                                               ; preds = %53
   unreachable
 }
 
@@ -8113,11 +8124,13 @@ define linkonce_odr void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %5) #12
+  %4 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %7) #12
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #12
   ret void
 }
@@ -8160,35 +8173,37 @@ define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
-  invoke void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(393) %7)
-          to label %8 unwind label %11
-
-8:                                                ; preds = %1
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
+  invoke void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(393) %9)
+          to label %10 unwind label %13
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
+  %12 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #12
-  br label %15
+  br label %17
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(393)) unnamed_addr #1
@@ -8224,133 +8239,135 @@ define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10
   %27 = load i32, ptr %16, align 4
   %28 = load i32, ptr %18, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2EPNS_5IndexEPNS_17AdditiveQuantizerEmmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %24, ptr noundef null, i64 noundef %25, i64 noundef %26, i32 noundef %27, i32 noundef %28)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %23, i32 0, i32 1
-  %31 = load i64, ptr %12, align 8
-  %32 = load i64, ptr %14, align 8
-  %33 = load i64, ptr %15, align 8
-  %34 = load i32, ptr %17, align 4
-  invoke void @_ZN5faiss17ResidualQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %30, i64 noundef %31, i64 noundef %32, i64 noundef %33, i32 noundef %34)
-          to label %35 unwind label %52
+  %29 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %29, ptr %23, align 8
+  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  %31 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %23, i32 0, i32 1
+  %33 = load i64, ptr %12, align 8
+  %34 = load i64, ptr %14, align 8
+  %35 = load i64, ptr %15, align 8
+  %36 = load i32, ptr %17, align 4
+  invoke void @_ZN5faiss17ResidualQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i32 noundef %36)
+          to label %37 unwind label %54
 
-35:                                               ; preds = %9
-  br label %36
+37:                                               ; preds = %9
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = load i64, ptr %15, align 8
-  %38 = icmp eq i64 %37, 4
-  br i1 %38, label %67, label %39
+38:                                               ; preds = %37
+  %39 = load i64, ptr %15, align 8
+  %40 = icmp eq i64 %39, 4
+  br i1 %40, label %69, label %41
 
-39:                                               ; preds = %36
-  br label %40
+41:                                               ; preds = %38
+  br label %42
 
-40:                                               ; preds = %39
+42:                                               ; preds = %41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
-  store i32 %41, ptr %22, align 4
-  %42 = load i32, ptr %22, align 4
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %44)
-          to label %45 unwind label %56
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
+  store i32 %43, ptr %22, align 4
+  %44 = load i32, ptr %22, align 4
+  %45 = add nsw i32 %44, 1
+  %46 = sext i32 %45 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %46)
+          to label %47 unwind label %58
 
-45:                                               ; preds = %40
-  %46 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0)
-          to label %47 unwind label %56
+47:                                               ; preds = %42
+  %48 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0)
+          to label %49 unwind label %58
 
-47:                                               ; preds = %45
-  %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef %48, ptr noundef @.str, ptr noundef @.str.23) #12
-  %50 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 497)
-          to label %51 unwind label %60
+49:                                               ; preds = %47
+  %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef %50, ptr noundef @.str, ptr noundef @.str.23) #12
+  %52 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 497)
+          to label %53 unwind label %62
 
-51:                                               ; preds = %47
-  invoke void @__cxa_throw(ptr %50, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
-          to label %86 unwind label %56
+53:                                               ; preds = %49
+  invoke void @__cxa_throw(ptr %52, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
+          to label %88 unwind label %58
 
-52:                                               ; preds = %9
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %9
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %19, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %20, align 4
-  br label %80
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %19, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %20, align 4
+  br label %82
 
-56:                                               ; preds = %51, %45, %40
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %53, %47, %42
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %19, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %20, align 4
-  br label %64
-
-60:                                               ; preds = %47
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %19, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %20, align 4
-  call void @__cxa_free_exception(ptr %50) #12
-  br label %64
-
-64:                                               ; preds = %60, %56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  br label %79
-
-65:                                               ; No predecessors!
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %19, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %20, align 4
   br label %66
 
-66:                                               ; preds = %65
-  br label %67
+62:                                               ; preds = %49
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %19, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %20, align 4
+  call void @__cxa_free_exception(ptr %52) #12
+  br label %66
 
-67:                                               ; preds = %66, %36
+66:                                               ; preds = %62, %58
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
+  br label %81
+
+67:                                               ; No predecessors!
   br label %68
 
 68:                                               ; preds = %67
   br label %69
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %23, i32 0, i32 1
-  %71 = load i64, ptr %13, align 8
-  %72 = load i32, ptr %16, align 4
-  %73 = load i32, ptr %18, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %70, i64 noundef %71, i32 noundef %72, i32 noundef %73)
-          to label %74 unwind label %75
+69:                                               ; preds = %68, %38
+  br label %70
 
-74:                                               ; preds = %69
+70:                                               ; preds = %69
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %23, i32 0, i32 1
+  %73 = load i64, ptr %13, align 8
+  %74 = load i32, ptr %16, align 4
+  %75 = load i32, ptr %18, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %72, i64 noundef %73, i32 noundef %74, i32 noundef %75)
+          to label %76 unwind label %77
+
+76:                                               ; preds = %71
   ret void
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+77:                                               ; preds = %71
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %19, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %20, align 4
-  br label %79
-
-79:                                               ; preds = %75, %64
-  call void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %30) #12
-  br label %80
-
-80:                                               ; preds = %79, %52
-  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %23) #12
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %19, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %20, align 4
   br label %81
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %19, align 8
-  %83 = load i32, ptr %20, align 4
-  %84 = insertvalue { ptr, i32 } poison, ptr %82, 0
-  %85 = insertvalue { ptr, i32 } %84, i32 %83, 1
-  resume { ptr, i32 } %85
+81:                                               ; preds = %77, %66
+  call void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %32) #12
+  br label %82
 
-86:                                               ; preds = %51
+82:                                               ; preds = %81, %54
+  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %23) #12
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %19, align 8
+  %85 = load i32, ptr %20, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
+
+88:                                               ; preds = %53
   unreachable
 }
 
@@ -8361,11 +8378,12 @@ define linkonce_odr void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss17ResidualQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ResidualQuantizer", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"struct.faiss::ResidualQuantizer", ptr %3, i32 0, i32 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5faiss17ResidualQuantizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ResidualQuantizer", ptr %3, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"struct.faiss::ResidualQuantizer", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #12
   ret void
 }
@@ -8375,11 +8393,13 @@ define linkonce_odr void @_ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %5) #12
+  %4 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %7) #12
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #12
   ret void
 }
@@ -8425,35 +8445,37 @@ define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %5, i32 0, i32 1
-  invoke void @_ZN5faiss17ResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(432) %7)
-          to label %8 unwind label %11
-
-8:                                                ; preds = %1
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss33IndexIVFResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
+  invoke void @_ZN5faiss17ResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(432) %9)
+          to label %10 unwind label %13
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFResidualQuantizerFastScan", ptr %5, i32 0, i32 1
+  %12 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #12
-  br label %15
+  br label %17
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN5faiss17ResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #1
@@ -8491,134 +8513,136 @@ define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5Index
   %29 = load i32, ptr %18, align 4
   %30 = load i32, ptr %20, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2EPNS_5IndexEPNS_17AdditiveQuantizerEmmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %26, ptr noundef null, i64 noundef %27, i64 noundef %28, i32 noundef %29, i32 noundef %30)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %31, align 8
-  %32 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %25, i32 0, i32 1
-  %33 = load i64, ptr %13, align 8
-  %34 = load i64, ptr %15, align 8
-  %35 = load i64, ptr %16, align 8
-  %36 = load i64, ptr %17, align 8
-  %37 = load i32, ptr %19, align 4
-  invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef %37)
-          to label %38 unwind label %55
+  %31 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %25, align 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 40
+  %33 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %25, i32 0, i32 1
+  %35 = load i64, ptr %13, align 8
+  %36 = load i64, ptr %15, align 8
+  %37 = load i64, ptr %16, align 8
+  %38 = load i64, ptr %17, align 8
+  %39 = load i32, ptr %19, align 4
+  invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %34, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38, i32 noundef %39)
+          to label %40 unwind label %57
 
-38:                                               ; preds = %10
-  br label %39
+40:                                               ; preds = %10
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load i64, ptr %17, align 8
-  %41 = icmp eq i64 %40, 4
-  br i1 %41, label %70, label %42
+41:                                               ; preds = %40
+  %42 = load i64, ptr %17, align 8
+  %43 = icmp eq i64 %42, 4
+  br i1 %43, label %72, label %44
 
-42:                                               ; preds = %39
-  br label %43
+44:                                               ; preds = %41
+  br label %45
 
-43:                                               ; preds = %42
+45:                                               ; preds = %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
-  store i32 %44, ptr %24, align 4
-  %45 = load i32, ptr %24, align 4
-  %46 = add nsw i32 %45, 1
-  %47 = sext i32 %46 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %47)
-          to label %48 unwind label %59
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
+  store i32 %46, ptr %24, align 4
+  %47 = load i32, ptr %24, align 4
+  %48 = add nsw i32 %47, 1
+  %49 = sext i32 %48 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %49)
+          to label %50 unwind label %61
 
-48:                                               ; preds = %43
-  %49 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0)
-          to label %50 unwind label %59
+50:                                               ; preds = %45
+  %51 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0)
+          to label %52 unwind label %61
 
-50:                                               ; preds = %48
-  %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %49, i64 noundef %51, ptr noundef @.str, ptr noundef @.str.23) #12
-  %53 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 525)
-          to label %54 unwind label %63
+52:                                               ; preds = %50
+  %53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %51, i64 noundef %53, ptr noundef @.str, ptr noundef @.str.23) #12
+  %55 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 525)
+          to label %56 unwind label %65
 
-54:                                               ; preds = %50
-  invoke void @__cxa_throw(ptr %53, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
-          to label %89 unwind label %59
+56:                                               ; preds = %52
+  invoke void @__cxa_throw(ptr %55, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
+          to label %91 unwind label %61
 
-55:                                               ; preds = %10
-  %56 = landingpad { ptr, i32 }
+57:                                               ; preds = %10
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %21, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %22, align 4
-  br label %83
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %21, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %22, align 4
+  br label %85
 
-59:                                               ; preds = %54, %48, %43
-  %60 = landingpad { ptr, i32 }
+61:                                               ; preds = %56, %50, %45
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %21, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %22, align 4
-  br label %67
-
-63:                                               ; preds = %50
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %21, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %22, align 4
-  call void @__cxa_free_exception(ptr %53) #12
-  br label %67
-
-67:                                               ; preds = %63, %59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  br label %82
-
-68:                                               ; No predecessors!
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %21, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %22, align 4
   br label %69
 
-69:                                               ; preds = %68
-  br label %70
+65:                                               ; preds = %52
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %21, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %22, align 4
+  call void @__cxa_free_exception(ptr %55) #12
+  br label %69
 
-70:                                               ; preds = %69, %39
+69:                                               ; preds = %65, %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  br label %84
+
+70:                                               ; No predecessors!
   br label %71
 
 71:                                               ; preds = %70
   br label %72
 
-72:                                               ; preds = %71
-  %73 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %25, i32 0, i32 1
-  %74 = load i64, ptr %14, align 8
-  %75 = load i32, ptr %18, align 4
-  %76 = load i32, ptr %20, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %73, i64 noundef %74, i32 noundef %75, i32 noundef %76)
-          to label %77 unwind label %78
+72:                                               ; preds = %71, %41
+  br label %73
 
-77:                                               ; preds = %72
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %25, i32 0, i32 1
+  %76 = load i64, ptr %14, align 8
+  %77 = load i32, ptr %18, align 4
+  %78 = load i32, ptr %20, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %75, i64 noundef %76, i32 noundef %77, i32 noundef %78)
+          to label %79 unwind label %80
+
+79:                                               ; preds = %74
   ret void
 
-78:                                               ; preds = %72
-  %79 = landingpad { ptr, i32 }
+80:                                               ; preds = %74
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %21, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %22, align 4
-  br label %82
-
-82:                                               ; preds = %78, %67
-  call void @_ZN5faiss27ProductLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %32) #12
-  br label %83
-
-83:                                               ; preds = %82, %55
-  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %25) #12
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %21, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %22, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %21, align 8
-  %86 = load i32, ptr %22, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+84:                                               ; preds = %80, %69
+  call void @_ZN5faiss27ProductLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %34) #12
+  br label %85
 
-89:                                               ; preds = %54
+85:                                               ; preds = %84, %57
+  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %25) #12
+  br label %86
+
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %21, align 8
+  %88 = load i32, ptr %22, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
+
+91:                                               ; preds = %56
   unreachable
 }
 
@@ -8638,11 +8662,13 @@ define linkonce_odr void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScan
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss27ProductLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %5) #12
+  %4 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss27ProductLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #12
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #12
   ret void
 }
@@ -8688,35 +8714,37 @@ define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
-  invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344) %7)
-          to label %8 unwind label %11
-
-8:                                                ; preds = %1
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
+  invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344) %9)
+          to label %10 unwind label %13
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFProductLocalSearchQuantizerFastScan", ptr %5, i32 0, i32 1
+  %12 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #12
-  br label %15
+  br label %17
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN5faiss27ProductLocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344)) unnamed_addr #1
@@ -8754,134 +8782,136 @@ define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmm
   %29 = load i32, ptr %18, align 4
   %30 = load i32, ptr %20, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2EPNS_5IndexEPNS_17AdditiveQuantizerEmmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %26, ptr noundef null, i64 noundef %27, i64 noundef %28, i32 noundef %29, i32 noundef %30)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %31, align 8
-  %32 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %25, i32 0, i32 1
-  %33 = load i64, ptr %13, align 8
-  %34 = load i64, ptr %15, align 8
-  %35 = load i64, ptr %16, align 8
-  %36 = load i64, ptr %17, align 8
-  %37 = load i32, ptr %19, align 4
-  invoke void @_ZN5faiss24ProductResidualQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef %37)
-          to label %38 unwind label %55
+  %31 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %25, align 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 40
+  %33 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %25, i32 0, i32 1
+  %35 = load i64, ptr %13, align 8
+  %36 = load i64, ptr %15, align 8
+  %37 = load i64, ptr %16, align 8
+  %38 = load i64, ptr %17, align 8
+  %39 = load i32, ptr %19, align 4
+  invoke void @_ZN5faiss24ProductResidualQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %34, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38, i32 noundef %39)
+          to label %40 unwind label %57
 
-38:                                               ; preds = %10
-  br label %39
+40:                                               ; preds = %10
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load i64, ptr %17, align 8
-  %41 = icmp eq i64 %40, 4
-  br i1 %41, label %70, label %42
+41:                                               ; preds = %40
+  %42 = load i64, ptr %17, align 8
+  %43 = icmp eq i64 %42, 4
+  br i1 %43, label %72, label %44
 
-42:                                               ; preds = %39
-  br label %43
+44:                                               ; preds = %41
+  br label %45
 
-43:                                               ; preds = %42
+45:                                               ; preds = %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
-  store i32 %44, ptr %24, align 4
-  %45 = load i32, ptr %24, align 4
-  %46 = add nsw i32 %45, 1
-  %47 = sext i32 %46 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %47)
-          to label %48 unwind label %59
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.23) #12
+  store i32 %46, ptr %24, align 4
+  %47 = load i32, ptr %24, align 4
+  %48 = add nsw i32 %47, 1
+  %49 = sext i32 %48 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %49)
+          to label %50 unwind label %61
 
-48:                                               ; preds = %43
-  %49 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0)
-          to label %50 unwind label %59
+50:                                               ; preds = %45
+  %51 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0)
+          to label %52 unwind label %61
 
-50:                                               ; preds = %48
-  %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %49, i64 noundef %51, ptr noundef @.str, ptr noundef @.str.23) #12
-  %53 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 554)
-          to label %54 unwind label %63
+52:                                               ; preds = %50
+  %53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %51, i64 noundef %53, ptr noundef @.str, ptr noundef @.str.23) #12
+  %55 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi, ptr noundef @.str.2, i32 noundef 554)
+          to label %56 unwind label %65
 
-54:                                               ; preds = %50
-  invoke void @__cxa_throw(ptr %53, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
-          to label %89 unwind label %59
+56:                                               ; preds = %52
+  invoke void @__cxa_throw(ptr %55, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #17
+          to label %91 unwind label %61
 
-55:                                               ; preds = %10
-  %56 = landingpad { ptr, i32 }
+57:                                               ; preds = %10
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %21, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %22, align 4
-  br label %83
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %21, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %22, align 4
+  br label %85
 
-59:                                               ; preds = %54, %48, %43
-  %60 = landingpad { ptr, i32 }
+61:                                               ; preds = %56, %50, %45
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %21, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %22, align 4
-  br label %67
-
-63:                                               ; preds = %50
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %21, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %22, align 4
-  call void @__cxa_free_exception(ptr %53) #12
-  br label %67
-
-67:                                               ; preds = %63, %59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
-  br label %82
-
-68:                                               ; No predecessors!
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %21, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %22, align 4
   br label %69
 
-69:                                               ; preds = %68
-  br label %70
+65:                                               ; preds = %52
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %21, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %22, align 4
+  call void @__cxa_free_exception(ptr %55) #12
+  br label %69
 
-70:                                               ; preds = %69, %39
+69:                                               ; preds = %65, %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  br label %84
+
+70:                                               ; No predecessors!
   br label %71
 
 71:                                               ; preds = %70
   br label %72
 
-72:                                               ; preds = %71
-  %73 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %25, i32 0, i32 1
-  %74 = load i64, ptr %14, align 8
-  %75 = load i32, ptr %18, align 4
-  %76 = load i32, ptr %20, align 4
-  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %73, i64 noundef %74, i32 noundef %75, i32 noundef %76)
-          to label %77 unwind label %78
+72:                                               ; preds = %71, %41
+  br label %73
 
-77:                                               ; preds = %72
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %25, i32 0, i32 1
+  %76 = load i64, ptr %14, align 8
+  %77 = load i32, ptr %18, align 4
+  %78 = load i32, ptr %20, align 4
+  invoke void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerEmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(352) %25, ptr noundef %75, i64 noundef %76, i32 noundef %77, i32 noundef %78)
+          to label %79 unwind label %80
+
+79:                                               ; preds = %74
   ret void
 
-78:                                               ; preds = %72
-  %79 = landingpad { ptr, i32 }
+80:                                               ; preds = %74
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %21, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %22, align 4
-  br label %82
-
-82:                                               ; preds = %78, %67
-  call void @_ZN5faiss24ProductResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %32) #12
-  br label %83
-
-83:                                               ; preds = %82, %55
-  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %25) #12
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %21, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %22, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %21, align 8
-  %86 = load i32, ptr %22, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+84:                                               ; preds = %80, %69
+  call void @_ZN5faiss24ProductResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %34) #12
+  br label %85
 
-89:                                               ; preds = %54
+85:                                               ; preds = %84, %57
+  call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %25) #12
+  br label %86
+
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %21, align 8
+  %88 = load i32, ptr %22, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
+
+91:                                               ; preds = %56
   unreachable
 }
 
@@ -8901,11 +8931,13 @@ define linkonce_odr void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss24ProductResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %5) #12
+  %4 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss24ProductResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %7) #12
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #12
   ret void
 }
@@ -8948,35 +8980,37 @@ define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5)
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %5, i32 0, i32 1
-  invoke void @_ZN5faiss24ProductResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344) %7)
-          to label %8 unwind label %11
-
-8:                                                ; preds = %1
+  %6 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds { [37 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
+  invoke void @_ZN5faiss24ProductResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344) %9)
+          to label %10 unwind label %13
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFProductResidualQuantizerFastScan", ptr %5, i32 0, i32 1
+  %12 = getelementptr inbounds %"struct.faiss::IndexIVFAdditiveQuantizerFastScan", ptr %5, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #12
-  br label %15
+  br label %17
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN5faiss24ProductResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(344)) unnamed_addr #1

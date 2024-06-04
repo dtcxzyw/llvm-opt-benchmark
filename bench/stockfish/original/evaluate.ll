@@ -1137,18 +1137,19 @@ define internal void @_ZZN9Stockfish4Eval4NNUE13load_networksERKNSt7__cxx1112bas
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVZN9Stockfish4Eval4NNUE13load_networksERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10OptionsMapESt13unordered_mapINS1_7NetSizeENS0_8EvalFileESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEEE12MemoryBuffer, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVZN9Stockfish4Eval4NNUE13load_networksERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10OptionsMapESt13unordered_mapINS1_7NetSizeENS0_8EvalFileESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEEE12MemoryBuffer, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %8, ptr noundef %9, ptr noundef %12)
-  %13 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %9, ptr noundef %10, ptr noundef %13)
   %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %13, ptr noundef %16)
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i64, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %14, ptr noundef %17)
   ret void
 }
 

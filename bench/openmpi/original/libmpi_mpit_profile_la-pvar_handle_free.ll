@@ -20,7 +20,7 @@ define i32 @PMPI_T_pvar_handle_free(ptr noundef %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %2
   store i32 55, ptr %3, align 4
-  br label %31
+  br label %32
 
 10:                                               ; preds = %2
   call void @ompi_mpit_lock()
@@ -30,45 +30,46 @@ define i32 @PMPI_T_pvar_handle_free(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr null, %13
-  br i1 %14, label %19, label %15
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr inttoptr (i64 -1 to ptr), %17
-  br i1 %18, label %19, label %20
+  %18 = inttoptr i64 -1 to ptr
+  %19 = icmp eq ptr %18, %17
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %15, %11
+20:                                               ; preds = %15, %11
   store i32 59, ptr %6, align 4
-  br label %29
+  br label %30
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @mca_base_pvar_handle_free(ptr noundef %22)
-  store i32 %23, ptr %6, align 4
-  %24 = load i32, ptr %6, align 4
-  %25 = icmp ne i32 0, %24
-  br i1 %25, label %26, label %27
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 @mca_base_pvar_handle_free(ptr noundef %23)
+  store i32 %24, ptr %6, align 4
+  %25 = load i32, ptr %6, align 4
+  %26 = icmp ne i32 0, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %20
+27:                                               ; preds = %21
   store i32 72, ptr %6, align 4
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %20
-  %28 = load ptr, ptr %5, align 8
-  store ptr null, ptr %28, align 8
-  br label %29
+28:                                               ; preds = %27, %21
+  %29 = load ptr, ptr %5, align 8
+  store ptr null, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %27, %19
+30:                                               ; preds = %28, %20
   call void @ompi_mpit_unlock()
-  %30 = load i32, ptr %6, align 4
-  store i32 %30, ptr %3, align 4
-  br label %31
+  %31 = load i32, ptr %6, align 4
+  store i32 %31, ptr %3, align 4
+  br label %32
 
-31:                                               ; preds = %29, %9
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %30, %9
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable

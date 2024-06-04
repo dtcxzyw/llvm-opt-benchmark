@@ -313,7 +313,8 @@ entry:
   %callback104 = getelementptr inbounds %struct.option, ptr %arrayinit.element96, i32 0, i32 7
   store ptr @parse_opt_color_flag_cb, ptr %callback104, align 8
   %defval105 = getelementptr inbounds %struct.option, ptr %arrayinit.element96, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.19 to i64), ptr %defval105, align 8
+  %4 = ptrtoint ptr @.str.19 to i64
+  store i64 %4, ptr %defval105, align 8
   %ll_callback106 = getelementptr inbounds %struct.option, ptr %arrayinit.element96, i32 0, i32 9
   store ptr null, ptr %ll_callback106, align 8
   %extra107 = getelementptr inbounds %struct.option, ptr %arrayinit.element96, i32 0, i32 10
@@ -415,7 +416,8 @@ entry:
   %callback156 = getelementptr inbounds %struct.option, ptr %arrayinit.element148, i32 0, i32 7
   store ptr @parse_opt_merge_filter, ptr %callback156, align 8
   %defval157 = getelementptr inbounds %struct.option, ptr %arrayinit.element148, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.32 to i64), ptr %defval157, align 8
+  %5 = ptrtoint ptr @.str.32 to i64
+  store i64 %5, ptr %defval157, align 8
   %ll_callback158 = getelementptr inbounds %struct.option, ptr %arrayinit.element148, i32 0, i32 9
   store ptr null, ptr %ll_callback158, align 8
   %extra159 = getelementptr inbounds %struct.option, ptr %arrayinit.element148, i32 0, i32 10
@@ -440,7 +442,8 @@ entry:
   %callback169 = getelementptr inbounds %struct.option, ptr %arrayinit.element161, i32 0, i32 7
   store ptr @parse_opt_merge_filter, ptr %callback169, align 8
   %defval170 = getelementptr inbounds %struct.option, ptr %arrayinit.element161, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.32 to i64), ptr %defval170, align 8
+  %6 = ptrtoint ptr @.str.32 to i64
+  store i64 %6, ptr %defval170, align 8
   %ll_callback171 = getelementptr inbounds %struct.option, ptr %arrayinit.element161, i32 0, i32 9
   store ptr null, ptr %ll_callback171, align 8
   %extra172 = getelementptr inbounds %struct.option, ptr %arrayinit.element161, i32 0, i32 10
@@ -466,7 +469,8 @@ entry:
   %callback182 = getelementptr inbounds %struct.option, ptr %arrayinit.element174, i32 0, i32 7
   store ptr @parse_opt_commits, ptr %callback182, align 8
   %defval183 = getelementptr inbounds %struct.option, ptr %arrayinit.element174, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.32 to i64), ptr %defval183, align 8
+  %7 = ptrtoint ptr @.str.32 to i64
+  store i64 %7, ptr %defval183, align 8
   %ll_callback184 = getelementptr inbounds %struct.option, ptr %arrayinit.element174, i32 0, i32 9
   store ptr null, ptr %ll_callback184, align 8
   %extra185 = getelementptr inbounds %struct.option, ptr %arrayinit.element174, i32 0, i32 10
@@ -492,7 +496,8 @@ entry:
   %callback195 = getelementptr inbounds %struct.option, ptr %arrayinit.element187, i32 0, i32 7
   store ptr @parse_opt_commits, ptr %callback195, align 8
   %defval196 = getelementptr inbounds %struct.option, ptr %arrayinit.element187, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.32 to i64), ptr %defval196, align 8
+  %8 = ptrtoint ptr @.str.32 to i64
+  store i64 %8, ptr %defval196, align 8
   %ll_callback197 = getelementptr inbounds %struct.option, ptr %arrayinit.element187, i32 0, i32 9
   store ptr null, ptr %ll_callback197, align 8
   %extra198 = getelementptr inbounds %struct.option, ptr %arrayinit.element187, i32 0, i32 10
@@ -557,22 +562,22 @@ entry:
   store ptr @.str.43, ptr %format239, align 8
   call void @git_config(ptr noundef @git_default_config, ptr noundef null)
   %call = call ptr @string_list_append(ptr noundef %sorting_options, ptr noundef @.str.44)
-  %4 = load i32, ptr %argc.addr, align 4
-  %5 = load ptr, ptr %argv.addr, align 8
-  %6 = load ptr, ptr %prefix.addr, align 8
+  %9 = load i32, ptr %argc.addr, align 4
+  %10 = load ptr, ptr %argv.addr, align 8
+  %11 = load ptr, ptr %prefix.addr, align 8
   %arraydecay = getelementptr inbounds [19 x %struct.option], ptr %opts, i64 0, i64 0
-  %call240 = call i32 @parse_options(i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay, ptr noundef @for_each_ref_usage, i32 noundef 0)
+  %call240 = call i32 @parse_options(i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %arraydecay, ptr noundef @for_each_ref_usage, i32 noundef 0)
   %array_opts241 = getelementptr inbounds %struct.ref_format, ptr %format, i32 0, i32 6
   %max_count242 = getelementptr inbounds %struct.anon.0, ptr %array_opts241, i32 0, i32 0
-  %7 = load i32, ptr %max_count242, align 8
-  %cmp = icmp slt i32 %7, 0
+  %12 = load i32, ptr %max_count242, align 8
+  %cmp = icmp slt i32 %12, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %array_opts243 = getelementptr inbounds %struct.ref_format, ptr %format, i32 0, i32 6
   %max_count244 = getelementptr inbounds %struct.anon.0, ptr %array_opts243, i32 0, i32 0
-  %8 = load i32, ptr %max_count244, align 8
-  %call245 = call i32 (ptr, ...) @error(ptr noundef @.str.45, i32 noundef %8)
+  %13 = load i32, ptr %max_count244, align 8
+  %call245 = call i32 (ptr, ...) @error(ptr noundef @.str.45, i32 noundef %13)
   %call246 = call i32 @const_error()
   %arraydecay247 = getelementptr inbounds [19 x %struct.option], ptr %opts, i64 0, i64 0
   call void @usage_with_options(ptr noundef @for_each_ref_usage, ptr noundef %arraydecay247) #6
@@ -580,11 +585,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %quote_style248 = getelementptr inbounds %struct.ref_format, ptr %format, i32 0, i32 2
-  %9 = load i32, ptr %quote_style248, align 8
+  %14 = load i32, ptr %quote_style248, align 8
   %quote_style249 = getelementptr inbounds %struct.ref_format, ptr %format, i32 0, i32 2
-  %10 = load i32, ptr %quote_style249, align 8
-  %sub = sub nsw i32 %10, 1
-  %and = and i32 %9, %sub
+  %15 = load i32, ptr %quote_style249, align 8
+  %sub = sub nsw i32 %15, 1
+  %and = and i32 %14, %sub
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then250, label %if.end254
 
@@ -608,28 +613,28 @@ if.then257:                                       ; preds = %if.end254
 if.end259:                                        ; preds = %if.end254
   %call260 = call ptr @ref_sorting_options(ptr noundef %sorting_options)
   store ptr %call260, ptr %sorting, align 8
-  %11 = load ptr, ptr %sorting, align 8
-  %12 = load i32, ptr %icase, align 4
-  call void @ref_sorting_set_sort_flags_all(ptr noundef %11, i32 noundef 2, i32 noundef %12)
-  %13 = load i32, ptr %icase, align 4
+  %16 = load ptr, ptr %sorting, align 8
+  %17 = load i32, ptr %icase, align 4
+  call void @ref_sorting_set_sort_flags_all(ptr noundef %16, i32 noundef 2, i32 noundef %17)
+  %18 = load i32, ptr %icase, align 4
   %ignore_case = getelementptr inbounds %struct.ref_filter, ptr %filter, i32 0, i32 7
-  %14 = trunc i32 %13 to i8
+  %19 = trunc i32 %18 to i8
   %bf.load = load i8, ptr %ignore_case, align 8
-  %bf.value = and i8 %14, 1
+  %bf.value = and i8 %19, 1
   %bf.shl = shl i8 %bf.value, 2
   %bf.clear = and i8 %bf.load, -5
   %bf.set = or i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %ignore_case, align 8
-  %15 = load i32, ptr %from_stdin, align 4
-  %tobool261 = icmp ne i32 %15, 0
+  %20 = load i32, ptr %from_stdin, align 4
+  %tobool261 = icmp ne i32 %20, 0
   br i1 %tobool261, label %if.then262, label %if.else
 
 if.then262:                                       ; preds = %if.end259
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %line, ptr align 8 @__const.cmd_for_each_ref.line, i64 24, i1 false)
-  %16 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %16, i64 0
-  %17 = load ptr, ptr %arrayidx, align 8
-  %tobool263 = icmp ne ptr %17, null
+  %21 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %21, i64 0
+  %22 = load ptr, ptr %arrayidx, align 8
+  %tobool263 = icmp ne ptr %22, null
   br i1 %tobool263, label %if.then264, label %if.end266
 
 if.then264:                                       ; preds = %if.then262
@@ -641,29 +646,29 @@ if.end266:                                        ; preds = %if.then262
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end266
-  %18 = load ptr, ptr @stdin, align 8
-  %call267 = call i32 @strbuf_getline(ptr noundef %line, ptr noundef %18)
+  %23 = load ptr, ptr @stdin, align 8
+  %call267 = call i32 @strbuf_getline(ptr noundef %line, ptr noundef %23)
   %cmp268 = icmp ne i32 %call267, -1
   br i1 %cmp268, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %buf = getelementptr inbounds %struct.strbuf, ptr %line, i32 0, i32 2
-  %19 = load ptr, ptr %buf, align 8
-  %call269 = call ptr @strvec_push(ptr noundef %vec, ptr noundef %19)
+  %24 = load ptr, ptr %buf, align 8
+  %call269 = call ptr @strvec_push(ptr noundef %vec, ptr noundef %24)
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
   call void @strbuf_release(ptr noundef %line)
   %v = getelementptr inbounds %struct.strvec, ptr %vec, i32 0, i32 0
-  %20 = load ptr, ptr %v, align 8
+  %25 = load ptr, ptr %v, align 8
   %name_patterns = getelementptr inbounds %struct.ref_filter, ptr %filter, i32 0, i32 0
-  store ptr %20, ptr %name_patterns, align 8
+  store ptr %25, ptr %name_patterns, align 8
   br label %if.end271
 
 if.else:                                          ; preds = %if.end259
-  %21 = load ptr, ptr %argv.addr, align 8
+  %26 = load ptr, ptr %argv.addr, align 8
   %name_patterns270 = getelementptr inbounds %struct.ref_filter, ptr %filter, i32 0, i32 0
-  store ptr %21, ptr %name_patterns270, align 8
+  store ptr %26, ptr %name_patterns270, align 8
   br label %if.end271
 
 if.end271:                                        ; preds = %if.else, %while.end
@@ -672,11 +677,11 @@ if.end271:                                        ; preds = %if.else, %while.end
   %bf.clear273 = and i8 %bf.load272, -3
   %bf.set274 = or i8 %bf.clear273, 2
   store i8 %bf.set274, ptr %match_as_path, align 8
-  %22 = load ptr, ptr %sorting, align 8
-  call void @filter_and_format_refs(ptr noundef %filter, i32 noundef 30, ptr noundef %22, ptr noundef %format)
+  %27 = load ptr, ptr %sorting, align 8
+  call void @filter_and_format_refs(ptr noundef %filter, i32 noundef 30, ptr noundef %27, ptr noundef %format)
   call void @ref_filter_clear(ptr noundef %filter)
-  %23 = load ptr, ptr %sorting, align 8
-  call void @ref_sorting_release(ptr noundef %23)
+  %28 = load ptr, ptr %sorting, align 8
+  call void @ref_sorting_release(ptr noundef %28)
   call void @strvec_clear(ptr noundef %vec)
   ret i32 0
 }

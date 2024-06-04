@@ -118,415 +118,416 @@ define hidden void @_ZN7nanogui5ThemeC2EP10NVGcontext(ptr noundef nonnull align 
   store ptr %1, ptr %4, align 8
   %27 = load ptr, ptr %3, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui5ThemeE, i32 0, i32 0, i32 2), ptr %27, align 8
-  %28 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 20
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %28)
-          to label %29 unwind label %191
+  %28 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui5ThemeE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 20
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %29)
+          to label %30 unwind label %192
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 21
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %30)
-          to label %31 unwind label %191
+30:                                               ; preds = %2
+  %31 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 21
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %31)
+          to label %32 unwind label %192
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
-          to label %33 unwind label %191
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %33)
+          to label %34 unwind label %192
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %34)
-          to label %35 unwind label %191
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %35)
+          to label %36 unwind label %192
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 24
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %36)
-          to label %37 unwind label %191
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 24
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %37)
+          to label %38 unwind label %192
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %38)
-          to label %39 unwind label %191
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %39)
+          to label %40 unwind label %192
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 26
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %40)
-          to label %41 unwind label %191
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 26
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %41)
+          to label %42 unwind label %192
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 27
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %42)
-          to label %43 unwind label %191
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 27
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %43)
+          to label %44 unwind label %192
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 28
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %44)
-          to label %45 unwind label %191
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 28
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %45)
+          to label %46 unwind label %192
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 29
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %46)
-          to label %47 unwind label %191
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 29
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %47)
+          to label %48 unwind label %192
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 30
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %48)
-          to label %49 unwind label %191
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 30
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %49)
+          to label %50 unwind label %192
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %50)
-          to label %51 unwind label %191
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %51)
+          to label %52 unwind label %192
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %52)
-          to label %53 unwind label %191
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %53)
+          to label %54 unwind label %192
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 33
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %54)
-          to label %55 unwind label %191
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 33
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %55)
+          to label %56 unwind label %192
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 34
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %56)
-          to label %57 unwind label %191
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 34
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %57)
+          to label %58 unwind label %192
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 35
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %58)
-          to label %59 unwind label %191
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 35
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %59)
+          to label %60 unwind label %192
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 36
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %60)
-          to label %61 unwind label %191
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 36
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %61)
+          to label %62 unwind label %192
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 37
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %62)
-          to label %63 unwind label %191
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 37
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %63)
+          to label %64 unwind label %192
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 38
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %64)
-          to label %65 unwind label %191
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 38
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %65)
+          to label %66 unwind label %192
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 39
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %66)
-          to label %67 unwind label %191
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 39
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %67)
+          to label %68 unwind label %192
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 40
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %68)
-          to label %69 unwind label %191
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 40
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %69)
+          to label %70 unwind label %192
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 41
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %70)
-          to label %71 unwind label %191
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 41
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %71)
+          to label %72 unwind label %192
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 42
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %72)
-          to label %73 unwind label %191
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 42
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %73)
+          to label %74 unwind label %192
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 43
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %74)
-          to label %75 unwind label %191
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 43
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %75)
+          to label %76 unwind label %192
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 44
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %76)
-          to label %77 unwind label %191
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 44
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %77)
+          to label %78 unwind label %192
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 6
-  store i32 16, ptr %78, align 8
-  %79 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 7
-  store i32 20, ptr %79, align 4
-  %80 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 8
-  store i32 20, ptr %80, align 8
-  %81 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 5
-  store float 0x3FE3333340000000, ptr %81, align 4
-  %82 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 9
-  store i32 2, ptr %82, align 4
-  %83 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 10
-  store i32 30, ptr %83, align 8
-  %84 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 11
-  store i32 10, ptr %84, align 4
-  %85 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 12
-  store i32 2, ptr %85, align 8
-  %86 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 13
-  store float 7.500000e-01, ptr %86, align 4
-  %87 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 14
-  store i32 5, ptr %87, align 8
-  %88 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 15
-  store i32 20, ptr %88, align 4
-  %89 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 16
-  store i32 160, ptr %89, align 8
-  %90 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 17
-  store i32 20, ptr %90, align 4
-  %91 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 18
-  store i32 10, ptr %91, align 8
-  %92 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 19
-  store i32 2, ptr %92, align 4
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 6
+  store i32 16, ptr %79, align 8
+  %80 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 7
+  store i32 20, ptr %80, align 4
+  %81 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 8
+  store i32 20, ptr %81, align 8
+  %82 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 5
+  store float 0x3FE3333340000000, ptr %82, align 4
+  %83 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 9
+  store i32 2, ptr %83, align 4
+  %84 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 10
+  store i32 30, ptr %84, align 8
+  %85 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 11
+  store i32 10, ptr %85, align 4
+  %86 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 12
+  store i32 2, ptr %86, align 8
+  %87 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 13
+  store float 7.500000e-01, ptr %87, align 4
+  %88 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 14
+  store i32 5, ptr %88, align 8
+  %89 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 15
+  store i32 20, ptr %89, align 4
+  %90 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 16
+  store i32 160, ptr %90, align 8
+  %91 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 17
+  store i32 20, ptr %91, align 4
+  %92 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 18
+  store i32 10, ptr %92, align 8
+  %93 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 19
+  store i32 2, ptr %93, align 4
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef 0, i32 noundef 128)
-          to label %93 unwind label %191
+          to label %94 unwind label %192
 
-93:                                               ; preds = %77
-  %94 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 20
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %94, ptr align 4 %7, i64 16, i1 false)
+94:                                               ; preds = %78
+  %95 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %95, ptr align 4 %7, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef 0, i32 noundef 0)
-          to label %95 unwind label %191
+          to label %96 unwind label %192
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 4 %8, i64 16, i1 false)
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr align 4 %8, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 29, i32 noundef 255)
-          to label %97 unwind label %191
+          to label %98 unwind label %192
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr align 4 %9, i64 16, i1 false)
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 4 %9, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef 92, i32 noundef 255)
-          to label %99 unwind label %191
+          to label %100 unwind label %192
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %100, ptr align 4 %10, i64 16, i1 false)
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 4 %10, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 35, i32 noundef 255)
-          to label %101 unwind label %191
+          to label %102 unwind label %192
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 4 %11, i64 16, i1 false)
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 4 %11, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %12, i32 noundef 255, i32 noundef 160)
-          to label %103 unwind label %191
+          to label %104 unwind label %192
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %104, ptr align 4 %12, i64 16, i1 false)
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 4 %12, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %13, i32 noundef 255, i32 noundef 80)
-          to label %105 unwind label %191
+          to label %106 unwind label %192
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 4 %13, i64 16, i1 false)
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %107, ptr align 4 %13, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %14, i32 noundef 0, i32 noundef 160)
-          to label %107 unwind label %191
+          to label %108 unwind label %192
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 27
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %108, ptr align 4 %14, i64 16, i1 false)
-  %109 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
-  %110 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %109, i64 16, i1 false)
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %109, ptr align 4 %14, i64 16, i1 false)
+  %110 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 25
+  %111 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 28
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %111, ptr align 8 %110, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %15, i32 noundef 64, i32 noundef 255)
-          to label %111 unwind label %191
+          to label %112 unwind label %192
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 29
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %112, ptr align 4 %15, i64 16, i1 false)
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 4 %15, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %16, i32 noundef 48, i32 noundef 255)
-          to label %113 unwind label %191
+          to label %114 unwind label %192
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %114, ptr align 4 %16, i64 16, i1 false)
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %115, ptr align 4 %16, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %17, i32 noundef 74, i32 noundef 255)
-          to label %115 unwind label %191
+          to label %116 unwind label %192
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 4 %17, i64 16, i1 false)
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 4 %17, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %18, i32 noundef 58, i32 noundef 255)
-          to label %117 unwind label %191
+          to label %118 unwind label %192
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 4 %18, i64 16, i1 false)
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %119, ptr align 4 %18, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %19, i32 noundef 41, i32 noundef 255)
-          to label %119 unwind label %191
+          to label %120 unwind label %192
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %120, ptr align 4 %19, i64 16, i1 false)
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %121, ptr align 4 %19, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %20, i32 noundef 29, i32 noundef 255)
-          to label %121 unwind label %191
+          to label %122 unwind label %192
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %122, ptr align 4 %20, i64 16, i1 false)
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr align 4 %20, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %21, i32 noundef 43, i32 noundef 230)
-          to label %123 unwind label %191
+          to label %124 unwind label %192
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr align 4 %21, i64 16, i1 false)
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %125, ptr align 4 %21, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %22, i32 noundef 45, i32 noundef 230)
-          to label %125 unwind label %191
+          to label %126 unwind label %192
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %126, ptr align 4 %22, i64 16, i1 false)
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 36
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %127, ptr align 4 %22, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %23, i32 noundef 220, i32 noundef 160)
-          to label %127 unwind label %191
+          to label %128 unwind label %192
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 37
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %128, ptr align 4 %23, i64 16, i1 false)
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %129, ptr align 4 %23, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %24, i32 noundef 255, i32 noundef 190)
-          to label %129 unwind label %191
+          to label %130 unwind label %192
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %130, ptr align 4 %24, i64 16, i1 false)
-  %131 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
-  %132 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr align 8 %131, i64 16, i1 false)
-  %133 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
-  %134 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %134, ptr align 8 %133, i64 16, i1 false)
-  %135 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
-  %136 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %136, ptr align 8 %135, i64 16, i1 false)
-  %137 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
-  %138 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 42
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %138, ptr align 8 %137, i64 16, i1 false)
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %131, ptr align 4 %24, i64 16, i1 false)
+  %132 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 31
+  %133 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 39
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %133, ptr align 8 %132, i64 16, i1 false)
+  %134 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 32
+  %135 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 40
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %135, ptr align 8 %134, i64 16, i1 false)
+  %136 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 23
+  %137 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 41
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %137, ptr align 8 %136, i64 16, i1 false)
+  %138 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 22
+  %139 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 42
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %139, ptr align 8 %138, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %25, i32 noundef 50, i32 noundef 255)
-          to label %139 unwind label %191
+          to label %140 unwind label %192
 
-139:                                              ; preds = %129
-  %140 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 43
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %140, ptr align 4 %25, i64 16, i1 false)
+140:                                              ; preds = %130
+  %141 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 43
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %141, ptr align 4 %25, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %26, i32 noundef 50, i32 noundef 0)
-          to label %141 unwind label %191
+          to label %142 unwind label %192
 
-141:                                              ; preds = %139
-  %142 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 44
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %142, ptr align 4 %26, i64 16, i1 false)
-  %143 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 45
-  store i32 61452, ptr %143, align 8
-  %144 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 46
-  store i32 61530, ptr %144, align 4
-  %145 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 47
-  store i32 61529, ptr %145, align 8
-  %146 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 48
-  store i32 61553, ptr %146, align 4
-  %147 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 49
-  store i32 61527, ptr %147, align 8
-  %148 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 50
-  store i32 61452, ptr %148, align 4
-  %149 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 51
-  store i32 61524, ptr %149, align 8
-  %150 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 52
-  store i32 61523, ptr %150, align 4
-  %151 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 53
-  store i32 61559, ptr %151, align 8
-  %152 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 54
-  store i32 61560, ptr %152, align 4
-  %153 = load ptr, ptr %4, align 8
-  %154 = load i32, ptr @roboto_regular_ttf_size, align 4
-  %155 = invoke i32 @nvgCreateFontMem(ptr noundef %153, ptr noundef @.str, ptr noundef @roboto_regular_ttf, i32 noundef %154, i32 noundef 0)
-          to label %156 unwind label %191
+142:                                              ; preds = %140
+  %143 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %143, ptr align 4 %26, i64 16, i1 false)
+  %144 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 45
+  store i32 61452, ptr %144, align 8
+  %145 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 46
+  store i32 61530, ptr %145, align 4
+  %146 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 47
+  store i32 61529, ptr %146, align 8
+  %147 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 48
+  store i32 61553, ptr %147, align 4
+  %148 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 49
+  store i32 61527, ptr %148, align 8
+  %149 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 50
+  store i32 61452, ptr %149, align 4
+  %150 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 51
+  store i32 61524, ptr %150, align 8
+  %151 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 52
+  store i32 61523, ptr %151, align 4
+  %152 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 53
+  store i32 61559, ptr %152, align 8
+  %153 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 54
+  store i32 61560, ptr %153, align 4
+  %154 = load ptr, ptr %4, align 8
+  %155 = load i32, ptr @roboto_regular_ttf_size, align 4
+  %156 = invoke i32 @nvgCreateFontMem(ptr noundef %154, ptr noundef @.str, ptr noundef @roboto_regular_ttf, i32 noundef %155, i32 noundef 0)
+          to label %157 unwind label %192
 
-156:                                              ; preds = %141
-  %157 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 1
-  store i32 %155, ptr %157, align 4
-  %158 = load ptr, ptr %4, align 8
-  %159 = load i32, ptr @roboto_bold_ttf_size, align 4
-  %160 = invoke i32 @nvgCreateFontMem(ptr noundef %158, ptr noundef @.str.1, ptr noundef @roboto_bold_ttf, i32 noundef %159, i32 noundef 0)
-          to label %161 unwind label %191
+157:                                              ; preds = %142
+  %158 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 1
+  store i32 %156, ptr %158, align 4
+  %159 = load ptr, ptr %4, align 8
+  %160 = load i32, ptr @roboto_bold_ttf_size, align 4
+  %161 = invoke i32 @nvgCreateFontMem(ptr noundef %159, ptr noundef @.str.1, ptr noundef @roboto_bold_ttf, i32 noundef %160, i32 noundef 0)
+          to label %162 unwind label %192
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 2
-  store i32 %160, ptr %162, align 8
-  %163 = load ptr, ptr %4, align 8
-  %164 = load i32, ptr @fontawesome_solid_ttf_size, align 4
-  %165 = invoke i32 @nvgCreateFontMem(ptr noundef %163, ptr noundef @.str.2, ptr noundef @fontawesome_solid_ttf, i32 noundef %164, i32 noundef 0)
-          to label %166 unwind label %191
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 2
+  store i32 %161, ptr %163, align 8
+  %164 = load ptr, ptr %4, align 8
+  %165 = load i32, ptr @fontawesome_solid_ttf_size, align 4
+  %166 = invoke i32 @nvgCreateFontMem(ptr noundef %164, ptr noundef @.str.2, ptr noundef @fontawesome_solid_ttf, i32 noundef %165, i32 noundef 0)
+          to label %167 unwind label %192
 
-166:                                              ; preds = %161
-  %167 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 3
-  store i32 %165, ptr %167, align 4
-  %168 = load ptr, ptr %4, align 8
-  %169 = load i32, ptr @inconsolata_regular_ttf_size, align 4
-  %170 = invoke i32 @nvgCreateFontMem(ptr noundef %168, ptr noundef @.str.3, ptr noundef @inconsolata_regular_ttf, i32 noundef %169, i32 noundef 0)
-          to label %171 unwind label %191
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 3
+  store i32 %166, ptr %168, align 4
+  %169 = load ptr, ptr %4, align 8
+  %170 = load i32, ptr @inconsolata_regular_ttf_size, align 4
+  %171 = invoke i32 @nvgCreateFontMem(ptr noundef %169, ptr noundef @.str.3, ptr noundef @inconsolata_regular_ttf, i32 noundef %170, i32 noundef 0)
+          to label %172 unwind label %192
 
-171:                                              ; preds = %166
-  %172 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 4
-  store i32 %170, ptr %172, align 8
-  %173 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 1
-  %174 = load i32, ptr %173, align 4
-  %175 = icmp eq i32 %174, -1
-  br i1 %175, label %188, label %176
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 4
+  store i32 %171, ptr %173, align 8
+  %174 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 1
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp eq i32 %175, -1
+  br i1 %176, label %189, label %177
 
-176:                                              ; preds = %171
-  %177 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 2
-  %178 = load i32, ptr %177, align 8
-  %179 = icmp eq i32 %178, -1
-  br i1 %179, label %188, label %180
+177:                                              ; preds = %172
+  %178 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 2
+  %179 = load i32, ptr %178, align 8
+  %180 = icmp eq i32 %179, -1
+  br i1 %180, label %189, label %181
 
-180:                                              ; preds = %176
-  %181 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 3
-  %182 = load i32, ptr %181, align 4
-  %183 = icmp eq i32 %182, -1
-  br i1 %183, label %188, label %184
+181:                                              ; preds = %177
+  %182 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 3
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp eq i32 %183, -1
+  br i1 %184, label %189, label %185
 
-184:                                              ; preds = %180
-  %185 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 4
-  %186 = load i32, ptr %185, align 8
-  %187 = icmp eq i32 %186, -1
-  br i1 %187, label %188, label %199
+185:                                              ; preds = %181
+  %186 = getelementptr inbounds %"class.nanogui::Theme", ptr %27, i32 0, i32 4
+  %187 = load i32, ptr %186, align 8
+  %188 = icmp eq i32 %187, -1
+  br i1 %188, label %189, label %200
 
-188:                                              ; preds = %184, %180, %176, %171
-  %189 = call ptr @__cxa_allocate_exception(i64 16) #7
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef @.str.4)
-          to label %190 unwind label %195
+189:                                              ; preds = %185, %181, %177, %172
+  %190 = call ptr @__cxa_allocate_exception(i64 16) #7
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef @.str.4)
+          to label %191 unwind label %196
 
-190:                                              ; preds = %188
-  invoke void @__cxa_throw(ptr %189, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #8
-          to label %206 unwind label %191
+191:                                              ; preds = %189
+  invoke void @__cxa_throw(ptr %190, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #8
+          to label %207 unwind label %192
 
-191:                                              ; preds = %190, %166, %161, %156, %141, %139, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %107, %105, %103, %101, %99, %97, %95, %93, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %2
-  %192 = landingpad { ptr, i32 }
+192:                                              ; preds = %191, %167, %162, %157, %142, %140, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %108, %106, %104, %102, %100, %98, %96, %94, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %2
+  %193 = landingpad { ptr, i32 }
           cleanup
-  %193 = extractvalue { ptr, i32 } %192, 0
-  store ptr %193, ptr %5, align 8
-  %194 = extractvalue { ptr, i32 } %192, 1
-  store i32 %194, ptr %6, align 4
-  br label %200
-
-195:                                              ; preds = %188
-  %196 = landingpad { ptr, i32 }
-          cleanup
-  %197 = extractvalue { ptr, i32 } %196, 0
-  store ptr %197, ptr %5, align 8
-  %198 = extractvalue { ptr, i32 } %196, 1
-  store i32 %198, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %189) #7
-  br label %200
-
-199:                                              ; preds = %184
-  ret void
-
-200:                                              ; preds = %195, %191
-  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #7
+  %194 = extractvalue { ptr, i32 } %193, 0
+  store ptr %194, ptr %5, align 8
+  %195 = extractvalue { ptr, i32 } %193, 1
+  store i32 %195, ptr %6, align 4
   br label %201
 
-201:                                              ; preds = %200
-  %202 = load ptr, ptr %5, align 8
-  %203 = load i32, ptr %6, align 4
-  %204 = insertvalue { ptr, i32 } poison, ptr %202, 0
-  %205 = insertvalue { ptr, i32 } %204, i32 %203, 1
-  resume { ptr, i32 } %205
+196:                                              ; preds = %189
+  %197 = landingpad { ptr, i32 }
+          cleanup
+  %198 = extractvalue { ptr, i32 } %197, 0
+  store ptr %198, ptr %5, align 8
+  %199 = extractvalue { ptr, i32 } %197, 1
+  store i32 %199, ptr %6, align 4
+  call void @__cxa_free_exception(ptr %190) #7
+  br label %201
 
-206:                                              ; preds = %190
+200:                                              ; preds = %185
+  ret void
+
+201:                                              ; preds = %196, %192
+  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #7
+  br label %202
+
+202:                                              ; preds = %201
+  %203 = load ptr, ptr %5, align 8
+  %204 = load i32, ptr %6, align 4
+  %205 = insertvalue { ptr, i32 } poison, ptr %203, 0
+  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
+  resume { ptr, i32 } %206
+
+207:                                              ; preds = %191
   unreachable
 }
 
@@ -535,9 +536,10 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #7
   ret void
 }
 

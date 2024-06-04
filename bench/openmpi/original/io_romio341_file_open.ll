@@ -53,50 +53,51 @@ define i32 @mca_io_romio341_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4), align 8
-  %19 = icmp ne i32 %17, %18
-  br i1 %19, label %20, label %21
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @ompi_info_t_class)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %22 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 0
-  store ptr @ompi_info_t_class, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 1
-  store volatile i32 1, ptr %23, align 8
+22:                                               ; preds = %21, %16
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 0
+  store ptr @ompi_info_t_class, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 1
+  store volatile i32 1, ptr %24, align 8
   call void @opal_obj_run_constructors(ptr noundef %13)
-  br label %24
-
-24:                                               ; preds = %21
   br label %25
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds %struct.ompi_info_t, ptr %13, i32 0, i32 0
-  store ptr %26, ptr %14, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = call i32 @opal_info_dup(ptr noundef %27, ptr noundef %14)
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.ompi_file_t, ptr %29, i32 0, i32 12
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %12, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i32, ptr %8, align 4
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds %struct.mca_io_romio341_data_t, ptr %35, i32 0, i32 0
-  %37 = call i32 @mca_io_romio_dist_MPI_File_open(ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13, ptr noundef %36)
-  store i32 %37, ptr %11, align 4
-  br label %38
+25:                                               ; preds = %22
+  br label %26
 
-38:                                               ; preds = %25
-  call void @opal_obj_run_destructors(ptr noundef %13)
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds %struct.ompi_info_t, ptr %13, i32 0, i32 0
+  store ptr %27, ptr %14, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = call i32 @opal_info_dup(ptr noundef %28, ptr noundef %14)
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds %struct.ompi_file_t, ptr %30, i32 0, i32 12
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %12, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %12, align 8
+  %37 = getelementptr inbounds %struct.mca_io_romio341_data_t, ptr %36, i32 0, i32 0
+  %38 = call i32 @mca_io_romio_dist_MPI_File_open(ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %13, ptr noundef %37)
+  store i32 %38, ptr %11, align 4
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr %11, align 4
-  ret i32 %40
+39:                                               ; preds = %26
+  call void @opal_obj_run_destructors(ptr noundef %13)
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i32, ptr %11, align 4
+  ret i32 %41
 }
 
 declare void @opal_class_initialize(ptr noundef) #1
@@ -741,92 +742,93 @@ define i32 @mca_io_romio341_file_set_view(ptr noundef %0, i64 noundef %1, ptr no
 
 18:                                               ; preds = %17
   %19 = load i32, ptr @opal_class_init_epoch, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4), align 8
-  %21 = icmp ne i32 %19, %20
-  br i1 %21, label %22, label %23
+  %20 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %19, %21
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %18
+23:                                               ; preds = %18
   call void @opal_class_initialize(ptr noundef @ompi_info_t_class)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
-  store ptr @ompi_info_t_class, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
-  store volatile i32 1, ptr %25, align 8
+24:                                               ; preds = %23, %18
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
+  store ptr @ompi_info_t_class, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %26, align 8
   call void @opal_obj_run_constructors(ptr noundef %15)
-  br label %26
-
-26:                                               ; preds = %23
   br label %27
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds %struct.ompi_info_t, ptr %15, i32 0, i32 0
-  store ptr %28, ptr %16, align 8
-  %29 = load ptr, ptr %12, align 8
-  %30 = call i32 @opal_info_dup(ptr noundef %29, ptr noundef %16)
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.ompi_file_t, ptr %31, i32 0, i32 12
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %14, align 8
-  br label %34
+27:                                               ; preds = %24
+  br label %28
 
-34:                                               ; preds = %27
-  %35 = load i8, ptr @opal_uses_threads, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = xor i1 %36, true
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds %struct.ompi_info_t, ptr %15, i32 0, i32 0
+  store ptr %29, ptr %16, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = call i32 @opal_info_dup(ptr noundef %30, ptr noundef %16)
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds %struct.ompi_file_t, ptr %32, i32 0, i32 12
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %14, align 8
+  br label %35
+
+35:                                               ; preds = %28
+  %36 = load i8, ptr @opal_uses_threads, align 1
+  %37 = trunc i8 %36 to i1
   %38 = xor i1 %37, true
-  %39 = zext i1 %38 to i32
-  %40 = sext i32 %39 to i64
-  %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %43
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i32
+  %41 = sext i32 %40 to i64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %34
+43:                                               ; preds = %35
   call void @opal_mutex_lock(ptr noundef @mca_io_romio341_mutex)
-  br label %43
-
-43:                                               ; preds = %42, %34
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds %struct.mca_io_romio341_data_t, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i64, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %11, align 8
-  %52 = call i32 @mca_io_romio_dist_MPI_File_set_view(ptr noundef %47, i64 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %15)
-  store i32 %52, ptr %13, align 4
-  br label %53
+44:                                               ; preds = %43, %35
+  br label %45
 
-53:                                               ; preds = %44
-  %54 = load i8, ptr @opal_uses_threads, align 1
-  %55 = trunc i8 %54 to i1
-  %56 = xor i1 %55, true
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %14, align 8
+  %47 = getelementptr inbounds %struct.mca_io_romio341_data_t, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i64, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = call i32 @mca_io_romio_dist_MPI_File_set_view(ptr noundef %48, i64 noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %15)
+  store i32 %53, ptr %13, align 4
+  br label %54
+
+54:                                               ; preds = %45
+  %55 = load i8, ptr @opal_uses_threads, align 1
+  %56 = trunc i8 %55 to i1
   %57 = xor i1 %56, true
-  %58 = zext i1 %57 to i32
-  %59 = sext i32 %58 to i64
-  %60 = icmp ne i64 %59, 0
-  br i1 %60, label %61, label %62
+  %58 = xor i1 %57, true
+  %59 = zext i1 %58 to i32
+  %60 = sext i32 %59 to i64
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %53
+62:                                               ; preds = %54
   call void @opal_mutex_unlock(ptr noundef @mca_io_romio341_mutex)
-  br label %62
-
-62:                                               ; preds = %61, %53
   br label %63
 
-63:                                               ; preds = %62
+63:                                               ; preds = %62, %54
   br label %64
 
 64:                                               ; preds = %63
-  call void @opal_obj_run_destructors(ptr noundef %15)
   br label %65
 
 65:                                               ; preds = %64
-  %66 = load i32, ptr %13, align 4
-  ret i32 %66
+  call void @opal_obj_run_destructors(ptr noundef %15)
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i32, ptr %13, align 4
+  ret i32 %67
 }
 
 declare i32 @mca_io_romio_dist_MPI_File_set_view(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

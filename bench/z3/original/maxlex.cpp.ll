@@ -1157,29 +1157,30 @@ entry:
   %1 = load ptr, ptr %s.addr, align 8
   %2 = load i32, ptr %id.addr, align 4
   call void @_ZN3opt18maxsmt_solver_baseC2ERNS_14maxsat_contextER6vectorINS_4softELb1EjEj(ptr noundef nonnull align 8 dereferenceable(160) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3opt6maxlexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3opt6maxlexE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m = getelementptr inbounds %"class.opt::maxlex", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %c.addr, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %c.addr, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %m, align 8
   %m_c = getelementptr inbounds %"class.opt::maxlex", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %c.addr, align 8
-  store ptr %5, ptr %m_c, align 8
+  %6 = load ptr, ptr %c.addr, align 8
+  store ptr %6, ptr %m_c, align 8
   %m_soft = getelementptr inbounds %"class.opt::maxsmt_solver_base", ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %m_soft, align 8
-  %call3 = invoke noundef ptr @_ZN6vectorIN3opt4softELb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = load ptr, ptr %m_soft, align 8
+  %call3 = invoke noundef ptr @_ZN6vectorIN3opt4softELb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_soft4 = getelementptr inbounds %"class.opt::maxsmt_solver_base", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %m_soft4, align 8
-  %call6 = invoke noundef ptr @_ZN6vectorIN3opt4softELb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %8 = load ptr, ptr %m_soft4, align 8
+  %call6 = invoke noundef ptr @_ZN6vectorIN3opt4softELb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont2
@@ -1190,12 +1191,12 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN3opt18maxsmt_solver_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this1) #3
   br label %eh.resume
 
@@ -1872,7 +1873,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3opt18maxsmt_solver_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3opt18maxsmt_solver_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_params = getelementptr inbounds %"class.opt::maxsmt_solver_base", ptr %this1, i32 0, i32 11
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #3
   %m_labels = getelementptr inbounds %"class.opt::maxsmt_solver_base", ptr %this1, i32 0, i32 10
@@ -5765,10 +5767,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -5778,7 +5781,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -6016,7 +6020,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

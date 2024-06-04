@@ -102,65 +102,66 @@ define internal fastcc noundef i32 @root_nfs_data() unnamed_addr #0 section ".in
   %1 = alloca [30 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %1) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %1, i8 0, i64 30, i1 false), !annotation !5
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(1025) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1025) #14
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %34, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(1025) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1025) #14
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %35, label %6
 
-5:                                                ; preds = %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false) #11
-  %6 = load i8, ptr @root_server_path, align 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %11, label %8
+6:                                                ; preds = %0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false) #11
+  %7 = load i8, ptr @root_server_path, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %5
-  %9 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @root_server_path, ptr noundef nonnull %3) #13
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %34
+9:                                                ; preds = %6
+  %10 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @root_server_path, ptr noundef nonnull %4) #13
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %35
 
-11:                                               ; preds = %8, %5
-  %12 = load i8, ptr @nfs_root_parms, align 16
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %17, label %14
+12:                                               ; preds = %9, %6
+  %13 = load i8, ptr @nfs_root_parms, align 16
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @nfs_root_parms, ptr noundef nonnull %3) #13
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %34
+15:                                               ; preds = %12
+  %16 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @nfs_root_parms, ptr noundef nonnull %4) #13
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %35
 
-17:                                               ; preds = %14, %11
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 30, ptr noundef nonnull @.str.2, ptr noundef nonnull @servaddr) #11
-  %19 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %1) #13
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %34
+18:                                               ; preds = %15, %12
+  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 30, ptr noundef nonnull @.str.2, ptr noundef nonnull @servaddr) #11
+  %20 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %1) #13
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %35
 
-21:                                               ; preds = %17
-  %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !6
-  %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1872
-  %25 = load ptr, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 65
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_export_path, i64 noundef 1025, ptr noundef nonnull %3, ptr noundef %28) #11
-  %30 = icmp sgt i32 %29, 1024
-  br i1 %30, label %34, label %31
+22:                                               ; preds = %18
+  %23 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !6
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds i8, ptr %24, i64 1872
+  %26 = load ptr, ptr %25, align 16
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 65
+  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_export_path, i64 noundef 1025, ptr noundef nonnull %4, ptr noundef %29) #11
+  %31 = icmp sgt i32 %30, 1024
+  br i1 %31, label %35, label %32
 
-31:                                               ; preds = %21
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_root_device, i64 noundef 1025, ptr noundef nonnull @.str.3, ptr noundef nonnull @servaddr, ptr noundef nonnull @nfs_export_path) #11
-  %33 = icmp sgt i32 %32, 1024
-  br i1 %33, label %34, label %37
+32:                                               ; preds = %22
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_root_device, i64 noundef 1025, ptr noundef nonnull @.str.3, ptr noundef nonnull @servaddr, ptr noundef nonnull @nfs_export_path) #11
+  %34 = icmp sgt i32 %33, 1024
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %31, %21, %17, %14, %8, %0
-  %35 = phi ptr [ @.str.4, %0 ], [ @.str.5, %8 ], [ @.str.5, %14 ], [ @.str.5, %17 ], [ @.str.6, %21 ], [ @.str.6, %31 ]
-  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %35) #12
-  br label %37
+35:                                               ; preds = %32, %22, %18, %15, %9, %0
+  %36 = phi ptr [ @.str.4, %0 ], [ @.str.5, %9 ], [ @.str.5, %15 ], [ @.str.5, %18 ], [ @.str.6, %22 ], [ @.str.6, %32 ]
+  %37 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %36) #12
+  br label %38
 
-37:                                               ; preds = %34, %31
-  %38 = phi i32 [ 0, %31 ], [ -1, %34 ]
-  call void @kfree(ptr noundef %3) #11
+38:                                               ; preds = %35, %32
+  %39 = phi i32 [ 0, %32 ], [ -1, %35 ]
+  call void @kfree(ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %1) #11
-  ret i32 %38
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

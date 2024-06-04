@@ -398,477 +398,482 @@ define dso_local ptr @XmlInitUnknownEncoding(ptr noundef %0, ptr noundef %1, ptr
   store i32 0, ptr %10, align 4
   br label %15
 
-15:                                               ; preds = %42, %4
+15:                                               ; preds = %44, %4
   %16 = load i32, ptr %10, align 4
   %17 = icmp slt i32 %16, 128
-  br i1 %17, label %18, label %45
+  br i1 %17, label %18, label %47
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %10, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp ne i32 %23, 28
-  br i1 %24, label %25, label %41
+  %21 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %22 = getelementptr inbounds [256 x i8], ptr %21, i64 0, i64 %20
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = icmp ne i32 %24, 28
+  br i1 %25, label %26, label %43
 
-25:                                               ; preds = %18
-  %26 = load i32, ptr %10, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %41
+26:                                               ; preds = %18
+  %27 = load i32, ptr %10, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %30 = getelementptr inbounds [256 x i8], ptr %29, i64 0, i64 %28
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %43
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i32, ptr %10, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %33, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp ne i32 %37, %38
-  br i1 %39, label %40, label %41
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %35, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = load i32, ptr %10, align 4
+  %41 = icmp ne i32 %39, %40
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %32
+42:                                               ; preds = %34
   store ptr null, ptr %5, align 8
-  br label %350
+  br label %355
 
-41:                                               ; preds = %32, %25, %18
-  br label %42
+43:                                               ; preds = %34, %26, %18
+  br label %44
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %10, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %10, align 4
+44:                                               ; preds = %43
+  %45 = load i32, ptr %10, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %10, align 4
   br label %15, !llvm.loop !7
 
-45:                                               ; preds = %15
+47:                                               ; preds = %15
   store i32 0, ptr %10, align 4
-  br label %46
+  br label %48
 
-46:                                               ; preds = %298, %45
-  %47 = load i32, ptr %10, align 4
-  %48 = icmp slt i32 %47, 256
-  br i1 %48, label %49, label %301
+48:                                               ; preds = %303, %47
+  %49 = load i32, ptr %10, align 4
+  %50 = icmp slt i32 %49, 256
+  br i1 %50, label %51, label %306
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %50, i64 %52
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %12, align 4
-  %55 = load i32, ptr %12, align 4
-  %56 = icmp eq i32 %55, -1
-  br i1 %56, label %57, label %81
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %56 = load i32, ptr %55, align 4
+  store i32 %56, ptr %12, align 4
+  %57 = load i32, ptr %12, align 4
+  %58 = icmp eq i32 %57, -1
+  br i1 %58, label %59, label %83
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct.unknown_encoding, ptr %58, i32 0, i32 0
-  %60 = getelementptr inbounds %struct.normal_encoding, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %10, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [256 x i8], ptr %60, i64 0, i64 %62
-  store i8 1, ptr %63, align 1
-  %64 = load ptr, ptr %11, align 8
-  %65 = getelementptr inbounds %struct.unknown_encoding, ptr %64, i32 0, i32 3
-  %66 = load i32, ptr %10, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [256 x i16], ptr %65, i64 0, i64 %67
-  store i16 -1, ptr %68, align 2
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.unknown_encoding, ptr %69, i32 0, i32 4
-  %71 = load i32, ptr %10, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [256 x [4 x i8]], ptr %70, i64 0, i64 %72
-  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 0, i64 0
-  store i8 1, ptr %74, align 4
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct.unknown_encoding, ptr %75, i32 0, i32 4
-  %77 = load i32, ptr %10, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [256 x [4 x i8]], ptr %76, i64 0, i64 %78
-  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 0, i64 1
-  store i8 0, ptr %80, align 1
-  br label %297
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds %struct.unknown_encoding, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds %struct.normal_encoding, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %10, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds [256 x i8], ptr %62, i64 0, i64 %64
+  store i8 1, ptr %65, align 1
+  %66 = load ptr, ptr %11, align 8
+  %67 = getelementptr inbounds %struct.unknown_encoding, ptr %66, i32 0, i32 3
+  %68 = load i32, ptr %10, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds [256 x i16], ptr %67, i64 0, i64 %69
+  store i16 -1, ptr %70, align 2
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds %struct.unknown_encoding, ptr %71, i32 0, i32 4
+  %73 = load i32, ptr %10, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [256 x [4 x i8]], ptr %72, i64 0, i64 %74
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 0, i64 0
+  store i8 1, ptr %76, align 4
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct.unknown_encoding, ptr %77, i32 0, i32 4
+  %79 = load i32, ptr %10, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds [256 x [4 x i8]], ptr %78, i64 0, i64 %80
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 0, i64 1
+  store i8 0, ptr %82, align 1
+  br label %302
 
-81:                                               ; preds = %49
-  %82 = load i32, ptr %12, align 4
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %114
+83:                                               ; preds = %51
+  %84 = load i32, ptr %12, align 4
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %86, label %116
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr %12, align 4
-  %86 = icmp slt i32 %85, -4
-  br i1 %86, label %87, label %88
+86:                                               ; preds = %83
+  %87 = load i32, ptr %12, align 4
+  %88 = icmp slt i32 %87, -4
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %84
+89:                                               ; preds = %86
   store ptr null, ptr %5, align 8
-  br label %350
+  br label %355
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %8, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %92, label %91
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %8, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %94, label %93
 
-91:                                               ; preds = %88
+93:                                               ; preds = %90
   store ptr null, ptr %5, align 8
-  br label %350
+  br label %355
 
-92:                                               ; preds = %88
-  %93 = load i32, ptr %12, align 4
-  %94 = add nsw i32 %93, 2
-  %95 = sub nsw i32 5, %94
-  %96 = trunc i32 %95 to i8
-  %97 = load ptr, ptr %11, align 8
-  %98 = getelementptr inbounds %struct.unknown_encoding, ptr %97, i32 0, i32 0
-  %99 = getelementptr inbounds %struct.normal_encoding, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %10, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [256 x i8], ptr %99, i64 0, i64 %101
-  store i8 %96, ptr %102, align 1
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds %struct.unknown_encoding, ptr %103, i32 0, i32 4
-  %105 = load i32, ptr %10, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [256 x [4 x i8]], ptr %104, i64 0, i64 %106
-  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 0, i64 0
-  store i8 0, ptr %108, align 4
-  %109 = load ptr, ptr %11, align 8
-  %110 = getelementptr inbounds %struct.unknown_encoding, ptr %109, i32 0, i32 3
-  %111 = load i32, ptr %10, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [256 x i16], ptr %110, i64 0, i64 %112
-  store i16 0, ptr %113, align 2
-  br label %296
+94:                                               ; preds = %90
+  %95 = load i32, ptr %12, align 4
+  %96 = add nsw i32 %95, 2
+  %97 = sub nsw i32 5, %96
+  %98 = trunc i32 %97 to i8
+  %99 = load ptr, ptr %11, align 8
+  %100 = getelementptr inbounds %struct.unknown_encoding, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds %struct.normal_encoding, ptr %100, i32 0, i32 1
+  %102 = load i32, ptr %10, align 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds [256 x i8], ptr %101, i64 0, i64 %103
+  store i8 %98, ptr %104, align 1
+  %105 = load ptr, ptr %11, align 8
+  %106 = getelementptr inbounds %struct.unknown_encoding, ptr %105, i32 0, i32 4
+  %107 = load i32, ptr %10, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [256 x [4 x i8]], ptr %106, i64 0, i64 %108
+  %110 = getelementptr inbounds [4 x i8], ptr %109, i64 0, i64 0
+  store i8 0, ptr %110, align 4
+  %111 = load ptr, ptr %11, align 8
+  %112 = getelementptr inbounds %struct.unknown_encoding, ptr %111, i32 0, i32 3
+  %113 = load i32, ptr %10, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds [256 x i16], ptr %112, i64 0, i64 %114
+  store i16 0, ptr %115, align 2
+  br label %301
 
-114:                                              ; preds = %81
-  %115 = load i32, ptr %12, align 4
-  %116 = icmp slt i32 %115, 128
-  br i1 %116, label %117, label %174
+116:                                              ; preds = %83
+  %117 = load i32, ptr %12, align 4
+  %118 = icmp slt i32 %117, 128
+  br i1 %118, label %119, label %179
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr %12, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %119
-  %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i32
-  %123 = icmp ne i32 %122, 28
-  br i1 %123, label %124, label %136
+119:                                              ; preds = %116
+  %120 = load i32, ptr %12, align 4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %123 = getelementptr inbounds [256 x i8], ptr %122, i64 0, i64 %121
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i32
+  %126 = icmp ne i32 %125, 28
+  br i1 %126, label %127, label %140
 
-124:                                              ; preds = %117
-  %125 = load i32, ptr %12, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %126
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %136
+127:                                              ; preds = %119
+  %128 = load i32, ptr %12, align 4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %131 = getelementptr inbounds [256 x i8], ptr %130, i64 0, i64 %129
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %140
 
-131:                                              ; preds = %124
-  %132 = load i32, ptr %12, align 4
-  %133 = load i32, ptr %10, align 4
-  %134 = icmp ne i32 %132, %133
-  br i1 %134, label %135, label %136
+135:                                              ; preds = %127
+  %136 = load i32, ptr %12, align 4
+  %137 = load i32, ptr %10, align 4
+  %138 = icmp ne i32 %136, %137
+  br i1 %138, label %139, label %140
 
-135:                                              ; preds = %131
+139:                                              ; preds = %135
   store ptr null, ptr %5, align 8
-  br label %350
+  br label %355
 
-136:                                              ; preds = %131, %124, %117
-  %137 = load i32, ptr %12, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %138
-  %140 = load i8, ptr %139, align 1
-  %141 = load ptr, ptr %11, align 8
-  %142 = getelementptr inbounds %struct.unknown_encoding, ptr %141, i32 0, i32 0
-  %143 = getelementptr inbounds %struct.normal_encoding, ptr %142, i32 0, i32 1
-  %144 = load i32, ptr %10, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [256 x i8], ptr %143, i64 0, i64 %145
-  store i8 %140, ptr %146, align 1
-  %147 = load ptr, ptr %11, align 8
-  %148 = getelementptr inbounds %struct.unknown_encoding, ptr %147, i32 0, i32 4
+140:                                              ; preds = %135, %127, %119
+  %141 = load i32, ptr %12, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %144 = getelementptr inbounds [256 x i8], ptr %143, i64 0, i64 %142
+  %145 = load i8, ptr %144, align 1
+  %146 = load ptr, ptr %11, align 8
+  %147 = getelementptr inbounds %struct.unknown_encoding, ptr %146, i32 0, i32 0
+  %148 = getelementptr inbounds %struct.normal_encoding, ptr %147, i32 0, i32 1
   %149 = load i32, ptr %10, align 4
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [256 x [4 x i8]], ptr %148, i64 0, i64 %150
-  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 0, i64 0
-  store i8 1, ptr %152, align 4
-  %153 = load i32, ptr %12, align 4
-  %154 = trunc i32 %153 to i8
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.unknown_encoding, ptr %155, i32 0, i32 4
-  %157 = load i32, ptr %10, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [256 x [4 x i8]], ptr %156, i64 0, i64 %158
-  %160 = getelementptr inbounds [4 x i8], ptr %159, i64 0, i64 1
-  store i8 %154, ptr %160, align 1
-  %161 = load i32, ptr %12, align 4
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %164
+  %151 = getelementptr inbounds [256 x i8], ptr %148, i64 0, i64 %150
+  store i8 %145, ptr %151, align 1
+  %152 = load ptr, ptr %11, align 8
+  %153 = getelementptr inbounds %struct.unknown_encoding, ptr %152, i32 0, i32 4
+  %154 = load i32, ptr %10, align 4
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds [256 x [4 x i8]], ptr %153, i64 0, i64 %155
+  %157 = getelementptr inbounds [4 x i8], ptr %156, i64 0, i64 0
+  store i8 1, ptr %157, align 4
+  %158 = load i32, ptr %12, align 4
+  %159 = trunc i32 %158 to i8
+  %160 = load ptr, ptr %11, align 8
+  %161 = getelementptr inbounds %struct.unknown_encoding, ptr %160, i32 0, i32 4
+  %162 = load i32, ptr %10, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds [256 x [4 x i8]], ptr %161, i64 0, i64 %163
+  %165 = getelementptr inbounds [4 x i8], ptr %164, i64 0, i64 1
+  store i8 %159, ptr %165, align 1
+  %166 = load i32, ptr %12, align 4
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %169
 
-163:                                              ; preds = %136
-  br label %166
+168:                                              ; preds = %140
+  br label %171
 
-164:                                              ; preds = %136
-  %165 = load i32, ptr %12, align 4
-  br label %166
+169:                                              ; preds = %140
+  %170 = load i32, ptr %12, align 4
+  br label %171
 
-166:                                              ; preds = %164, %163
-  %167 = phi i32 [ 65535, %163 ], [ %165, %164 ]
-  %168 = trunc i32 %167 to i16
-  %169 = load ptr, ptr %11, align 8
-  %170 = getelementptr inbounds %struct.unknown_encoding, ptr %169, i32 0, i32 3
-  %171 = load i32, ptr %10, align 4
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [256 x i16], ptr %170, i64 0, i64 %172
-  store i16 %168, ptr %173, align 2
-  br label %295
+171:                                              ; preds = %169, %168
+  %172 = phi i32 [ 65535, %168 ], [ %170, %169 ]
+  %173 = trunc i32 %172 to i16
+  %174 = load ptr, ptr %11, align 8
+  %175 = getelementptr inbounds %struct.unknown_encoding, ptr %174, i32 0, i32 3
+  %176 = load i32, ptr %10, align 4
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds [256 x i16], ptr %175, i64 0, i64 %177
+  store i16 %173, ptr %178, align 2
+  br label %300
 
-174:                                              ; preds = %114
-  %175 = load i32, ptr %12, align 4
-  %176 = call i32 @checkCharRefNumber(i32 noundef %175)
-  %177 = icmp slt i32 %176, 0
-  br i1 %177, label %178, label %202
+179:                                              ; preds = %116
+  %180 = load i32, ptr %12, align 4
+  %181 = call i32 @checkCharRefNumber(i32 noundef %180)
+  %182 = icmp slt i32 %181, 0
+  br i1 %182, label %183, label %207
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %11, align 8
-  %180 = getelementptr inbounds %struct.unknown_encoding, ptr %179, i32 0, i32 0
-  %181 = getelementptr inbounds %struct.normal_encoding, ptr %180, i32 0, i32 1
-  %182 = load i32, ptr %10, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [256 x i8], ptr %181, i64 0, i64 %183
-  store i8 0, ptr %184, align 1
-  %185 = load ptr, ptr %11, align 8
-  %186 = getelementptr inbounds %struct.unknown_encoding, ptr %185, i32 0, i32 3
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr inbounds %struct.unknown_encoding, ptr %184, i32 0, i32 0
+  %186 = getelementptr inbounds %struct.normal_encoding, ptr %185, i32 0, i32 1
   %187 = load i32, ptr %10, align 4
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds [256 x i16], ptr %186, i64 0, i64 %188
-  store i16 -1, ptr %189, align 2
+  %189 = getelementptr inbounds [256 x i8], ptr %186, i64 0, i64 %188
+  store i8 0, ptr %189, align 1
   %190 = load ptr, ptr %11, align 8
-  %191 = getelementptr inbounds %struct.unknown_encoding, ptr %190, i32 0, i32 4
+  %191 = getelementptr inbounds %struct.unknown_encoding, ptr %190, i32 0, i32 3
   %192 = load i32, ptr %10, align 4
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [256 x [4 x i8]], ptr %191, i64 0, i64 %193
-  %195 = getelementptr inbounds [4 x i8], ptr %194, i64 0, i64 0
-  store i8 1, ptr %195, align 4
-  %196 = load ptr, ptr %11, align 8
-  %197 = getelementptr inbounds %struct.unknown_encoding, ptr %196, i32 0, i32 4
-  %198 = load i32, ptr %10, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds [256 x [4 x i8]], ptr %197, i64 0, i64 %199
-  %201 = getelementptr inbounds [4 x i8], ptr %200, i64 0, i64 1
-  store i8 0, ptr %201, align 1
-  br label %294
+  %194 = getelementptr inbounds [256 x i16], ptr %191, i64 0, i64 %193
+  store i16 -1, ptr %194, align 2
+  %195 = load ptr, ptr %11, align 8
+  %196 = getelementptr inbounds %struct.unknown_encoding, ptr %195, i32 0, i32 4
+  %197 = load i32, ptr %10, align 4
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds [256 x [4 x i8]], ptr %196, i64 0, i64 %198
+  %200 = getelementptr inbounds [4 x i8], ptr %199, i64 0, i64 0
+  store i8 1, ptr %200, align 4
+  %201 = load ptr, ptr %11, align 8
+  %202 = getelementptr inbounds %struct.unknown_encoding, ptr %201, i32 0, i32 4
+  %203 = load i32, ptr %10, align 4
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds [256 x [4 x i8]], ptr %202, i64 0, i64 %204
+  %206 = getelementptr inbounds [4 x i8], ptr %205, i64 0, i64 1
+  store i8 0, ptr %206, align 1
+  br label %299
 
-202:                                              ; preds = %174
-  %203 = load i32, ptr %12, align 4
-  %204 = icmp sgt i32 %203, 65535
-  br i1 %204, label %205, label %206
+207:                                              ; preds = %179
+  %208 = load i32, ptr %12, align 4
+  %209 = icmp sgt i32 %208, 65535
+  br i1 %209, label %210, label %211
 
-205:                                              ; preds = %202
+210:                                              ; preds = %207
   store ptr null, ptr %5, align 8
-  br label %350
+  br label %355
 
-206:                                              ; preds = %202
-  %207 = load i32, ptr %12, align 4
-  %208 = ashr i32 %207, 8
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1
-  %212 = zext i8 %211 to i32
-  %213 = shl i32 %212, 3
-  %214 = load i32, ptr %12, align 4
-  %215 = and i32 %214, 255
-  %216 = ashr i32 %215, 5
-  %217 = add nsw i32 %213, %216
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %218
-  %220 = load i32, ptr %219, align 4
-  %221 = load i32, ptr %12, align 4
-  %222 = and i32 %221, 255
-  %223 = and i32 %222, 31
-  %224 = shl i32 1, %223
-  %225 = and i32 %220, %224
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %227, label %234
+211:                                              ; preds = %207
+  %212 = load i32, ptr %12, align 4
+  %213 = ashr i32 %212, 8
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %214
+  %216 = load i8, ptr %215, align 1
+  %217 = zext i8 %216 to i32
+  %218 = shl i32 %217, 3
+  %219 = load i32, ptr %12, align 4
+  %220 = and i32 %219, 255
+  %221 = ashr i32 %220, 5
+  %222 = add nsw i32 %218, %221
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = load i32, ptr %12, align 4
+  %227 = and i32 %226, 255
+  %228 = and i32 %227, 31
+  %229 = shl i32 1, %228
+  %230 = and i32 %225, %229
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %232, label %239
 
-227:                                              ; preds = %206
-  %228 = load ptr, ptr %11, align 8
-  %229 = getelementptr inbounds %struct.unknown_encoding, ptr %228, i32 0, i32 0
-  %230 = getelementptr inbounds %struct.normal_encoding, ptr %229, i32 0, i32 1
-  %231 = load i32, ptr %10, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds [256 x i8], ptr %230, i64 0, i64 %232
-  store i8 22, ptr %233, align 1
-  br label %270
-
-234:                                              ; preds = %206
-  %235 = load i32, ptr %12, align 4
-  %236 = ashr i32 %235, 8
+232:                                              ; preds = %211
+  %233 = load ptr, ptr %11, align 8
+  %234 = getelementptr inbounds %struct.unknown_encoding, ptr %233, i32 0, i32 0
+  %235 = getelementptr inbounds %struct.normal_encoding, ptr %234, i32 0, i32 1
+  %236 = load i32, ptr %10, align 4
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %237
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i32
-  %241 = shl i32 %240, 3
-  %242 = load i32, ptr %12, align 4
-  %243 = and i32 %242, 255
-  %244 = ashr i32 %243, 5
-  %245 = add nsw i32 %241, %244
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %246
-  %248 = load i32, ptr %247, align 4
-  %249 = load i32, ptr %12, align 4
-  %250 = and i32 %249, 255
-  %251 = and i32 %250, 31
-  %252 = shl i32 1, %251
-  %253 = and i32 %248, %252
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %262
+  %238 = getelementptr inbounds [256 x i8], ptr %235, i64 0, i64 %237
+  store i8 22, ptr %238, align 1
+  br label %275
 
-255:                                              ; preds = %234
-  %256 = load ptr, ptr %11, align 8
-  %257 = getelementptr inbounds %struct.unknown_encoding, ptr %256, i32 0, i32 0
-  %258 = getelementptr inbounds %struct.normal_encoding, ptr %257, i32 0, i32 1
-  %259 = load i32, ptr %10, align 4
-  %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds [256 x i8], ptr %258, i64 0, i64 %260
-  store i8 26, ptr %261, align 1
-  br label %269
+239:                                              ; preds = %211
+  %240 = load i32, ptr %12, align 4
+  %241 = ashr i32 %240, 8
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %242
+  %244 = load i8, ptr %243, align 1
+  %245 = zext i8 %244 to i32
+  %246 = shl i32 %245, 3
+  %247 = load i32, ptr %12, align 4
+  %248 = and i32 %247, 255
+  %249 = ashr i32 %248, 5
+  %250 = add nsw i32 %246, %249
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %251
+  %253 = load i32, ptr %252, align 4
+  %254 = load i32, ptr %12, align 4
+  %255 = and i32 %254, 255
+  %256 = and i32 %255, 31
+  %257 = shl i32 1, %256
+  %258 = and i32 %253, %257
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %267
 
-262:                                              ; preds = %234
-  %263 = load ptr, ptr %11, align 8
-  %264 = getelementptr inbounds %struct.unknown_encoding, ptr %263, i32 0, i32 0
-  %265 = getelementptr inbounds %struct.normal_encoding, ptr %264, i32 0, i32 1
-  %266 = load i32, ptr %10, align 4
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds [256 x i8], ptr %265, i64 0, i64 %267
-  store i8 28, ptr %268, align 1
-  br label %269
+260:                                              ; preds = %239
+  %261 = load ptr, ptr %11, align 8
+  %262 = getelementptr inbounds %struct.unknown_encoding, ptr %261, i32 0, i32 0
+  %263 = getelementptr inbounds %struct.normal_encoding, ptr %262, i32 0, i32 1
+  %264 = load i32, ptr %10, align 4
+  %265 = sext i32 %264 to i64
+  %266 = getelementptr inbounds [256 x i8], ptr %263, i64 0, i64 %265
+  store i8 26, ptr %266, align 1
+  br label %274
 
-269:                                              ; preds = %262, %255
-  br label %270
+267:                                              ; preds = %239
+  %268 = load ptr, ptr %11, align 8
+  %269 = getelementptr inbounds %struct.unknown_encoding, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds %struct.normal_encoding, ptr %269, i32 0, i32 1
+  %271 = load i32, ptr %10, align 4
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds [256 x i8], ptr %270, i64 0, i64 %272
+  store i8 28, ptr %273, align 1
+  br label %274
 
-270:                                              ; preds = %269, %227
-  %271 = load i32, ptr %12, align 4
-  %272 = load ptr, ptr %11, align 8
-  %273 = getelementptr inbounds %struct.unknown_encoding, ptr %272, i32 0, i32 4
-  %274 = load i32, ptr %10, align 4
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds [256 x [4 x i8]], ptr %273, i64 0, i64 %275
-  %277 = getelementptr inbounds [4 x i8], ptr %276, i64 0, i64 0
-  %278 = getelementptr inbounds i8, ptr %277, i64 1
-  %279 = call i32 @XmlUtf8Encode(i32 noundef %271, ptr noundef %278)
-  %280 = trunc i32 %279 to i8
-  %281 = load ptr, ptr %11, align 8
-  %282 = getelementptr inbounds %struct.unknown_encoding, ptr %281, i32 0, i32 4
-  %283 = load i32, ptr %10, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds [256 x [4 x i8]], ptr %282, i64 0, i64 %284
-  %286 = getelementptr inbounds [4 x i8], ptr %285, i64 0, i64 0
-  store i8 %280, ptr %286, align 4
-  %287 = load i32, ptr %12, align 4
-  %288 = trunc i32 %287 to i16
-  %289 = load ptr, ptr %11, align 8
-  %290 = getelementptr inbounds %struct.unknown_encoding, ptr %289, i32 0, i32 3
-  %291 = load i32, ptr %10, align 4
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds [256 x i16], ptr %290, i64 0, i64 %292
-  store i16 %288, ptr %293, align 2
-  br label %294
+274:                                              ; preds = %267, %260
+  br label %275
 
-294:                                              ; preds = %270, %178
-  br label %295
+275:                                              ; preds = %274, %232
+  %276 = load i32, ptr %12, align 4
+  %277 = load ptr, ptr %11, align 8
+  %278 = getelementptr inbounds %struct.unknown_encoding, ptr %277, i32 0, i32 4
+  %279 = load i32, ptr %10, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds [256 x [4 x i8]], ptr %278, i64 0, i64 %280
+  %282 = getelementptr inbounds [4 x i8], ptr %281, i64 0, i64 0
+  %283 = getelementptr inbounds i8, ptr %282, i64 1
+  %284 = call i32 @XmlUtf8Encode(i32 noundef %276, ptr noundef %283)
+  %285 = trunc i32 %284 to i8
+  %286 = load ptr, ptr %11, align 8
+  %287 = getelementptr inbounds %struct.unknown_encoding, ptr %286, i32 0, i32 4
+  %288 = load i32, ptr %10, align 4
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds [256 x [4 x i8]], ptr %287, i64 0, i64 %289
+  %291 = getelementptr inbounds [4 x i8], ptr %290, i64 0, i64 0
+  store i8 %285, ptr %291, align 4
+  %292 = load i32, ptr %12, align 4
+  %293 = trunc i32 %292 to i16
+  %294 = load ptr, ptr %11, align 8
+  %295 = getelementptr inbounds %struct.unknown_encoding, ptr %294, i32 0, i32 3
+  %296 = load i32, ptr %10, align 4
+  %297 = sext i32 %296 to i64
+  %298 = getelementptr inbounds [256 x i16], ptr %295, i64 0, i64 %297
+  store i16 %293, ptr %298, align 2
+  br label %299
 
-295:                                              ; preds = %294, %166
-  br label %296
+299:                                              ; preds = %275, %183
+  br label %300
 
-296:                                              ; preds = %295, %92
-  br label %297
+300:                                              ; preds = %299, %171
+  br label %301
 
-297:                                              ; preds = %296, %57
-  br label %298
+301:                                              ; preds = %300, %94
+  br label %302
 
-298:                                              ; preds = %297
-  %299 = load i32, ptr %10, align 4
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %10, align 4
-  br label %46, !llvm.loop !8
+302:                                              ; preds = %301, %59
+  br label %303
 
-301:                                              ; preds = %46
-  %302 = load ptr, ptr %9, align 8
-  %303 = load ptr, ptr %11, align 8
-  %304 = getelementptr inbounds %struct.unknown_encoding, ptr %303, i32 0, i32 2
-  store ptr %302, ptr %304, align 8
-  %305 = load ptr, ptr %8, align 8
-  %306 = load ptr, ptr %11, align 8
-  %307 = getelementptr inbounds %struct.unknown_encoding, ptr %306, i32 0, i32 1
-  store ptr %305, ptr %307, align 8
-  %308 = load ptr, ptr %8, align 8
-  %309 = icmp ne ptr %308, null
-  br i1 %309, label %310, label %338
+303:                                              ; preds = %302
+  %304 = load i32, ptr %10, align 4
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %10, align 4
+  br label %48, !llvm.loop !8
 
-310:                                              ; preds = %301
+306:                                              ; preds = %48
+  %307 = load ptr, ptr %9, align 8
+  %308 = load ptr, ptr %11, align 8
+  %309 = getelementptr inbounds %struct.unknown_encoding, ptr %308, i32 0, i32 2
+  store ptr %307, ptr %309, align 8
+  %310 = load ptr, ptr %8, align 8
   %311 = load ptr, ptr %11, align 8
-  %312 = getelementptr inbounds %struct.unknown_encoding, ptr %311, i32 0, i32 0
-  %313 = getelementptr inbounds %struct.normal_encoding, ptr %312, i32 0, i32 2
-  store ptr @unknown_isName, ptr %313, align 8
-  %314 = load ptr, ptr %11, align 8
-  %315 = getelementptr inbounds %struct.unknown_encoding, ptr %314, i32 0, i32 0
-  %316 = getelementptr inbounds %struct.normal_encoding, ptr %315, i32 0, i32 3
-  store ptr @unknown_isName, ptr %316, align 8
-  %317 = load ptr, ptr %11, align 8
-  %318 = getelementptr inbounds %struct.unknown_encoding, ptr %317, i32 0, i32 0
-  %319 = getelementptr inbounds %struct.normal_encoding, ptr %318, i32 0, i32 4
-  store ptr @unknown_isName, ptr %319, align 8
-  %320 = load ptr, ptr %11, align 8
-  %321 = getelementptr inbounds %struct.unknown_encoding, ptr %320, i32 0, i32 0
-  %322 = getelementptr inbounds %struct.normal_encoding, ptr %321, i32 0, i32 5
-  store ptr @unknown_isNmstrt, ptr %322, align 8
-  %323 = load ptr, ptr %11, align 8
-  %324 = getelementptr inbounds %struct.unknown_encoding, ptr %323, i32 0, i32 0
-  %325 = getelementptr inbounds %struct.normal_encoding, ptr %324, i32 0, i32 6
-  store ptr @unknown_isNmstrt, ptr %325, align 8
-  %326 = load ptr, ptr %11, align 8
-  %327 = getelementptr inbounds %struct.unknown_encoding, ptr %326, i32 0, i32 0
-  %328 = getelementptr inbounds %struct.normal_encoding, ptr %327, i32 0, i32 7
-  store ptr @unknown_isNmstrt, ptr %328, align 8
-  %329 = load ptr, ptr %11, align 8
-  %330 = getelementptr inbounds %struct.unknown_encoding, ptr %329, i32 0, i32 0
-  %331 = getelementptr inbounds %struct.normal_encoding, ptr %330, i32 0, i32 8
-  store ptr @unknown_isInvalid, ptr %331, align 8
-  %332 = load ptr, ptr %11, align 8
-  %333 = getelementptr inbounds %struct.unknown_encoding, ptr %332, i32 0, i32 0
-  %334 = getelementptr inbounds %struct.normal_encoding, ptr %333, i32 0, i32 9
-  store ptr @unknown_isInvalid, ptr %334, align 8
-  %335 = load ptr, ptr %11, align 8
-  %336 = getelementptr inbounds %struct.unknown_encoding, ptr %335, i32 0, i32 0
-  %337 = getelementptr inbounds %struct.normal_encoding, ptr %336, i32 0, i32 10
-  store ptr @unknown_isInvalid, ptr %337, align 8
-  br label %338
+  %312 = getelementptr inbounds %struct.unknown_encoding, ptr %311, i32 0, i32 1
+  store ptr %310, ptr %312, align 8
+  %313 = load ptr, ptr %8, align 8
+  %314 = icmp ne ptr %313, null
+  br i1 %314, label %315, label %343
 
-338:                                              ; preds = %310, %301
-  %339 = load ptr, ptr %11, align 8
-  %340 = getelementptr inbounds %struct.unknown_encoding, ptr %339, i32 0, i32 0
-  %341 = getelementptr inbounds %struct.normal_encoding, ptr %340, i32 0, i32 0
-  %342 = getelementptr inbounds %struct.encoding, ptr %341, i32 0, i32 10
-  store ptr @unknown_toUtf8, ptr %342, align 8
-  %343 = load ptr, ptr %11, align 8
-  %344 = getelementptr inbounds %struct.unknown_encoding, ptr %343, i32 0, i32 0
-  %345 = getelementptr inbounds %struct.normal_encoding, ptr %344, i32 0, i32 0
-  %346 = getelementptr inbounds %struct.encoding, ptr %345, i32 0, i32 11
-  store ptr @unknown_toUtf16, ptr %346, align 8
-  %347 = load ptr, ptr %11, align 8
-  %348 = getelementptr inbounds %struct.unknown_encoding, ptr %347, i32 0, i32 0
-  %349 = getelementptr inbounds %struct.normal_encoding, ptr %348, i32 0, i32 0
-  store ptr %349, ptr %5, align 8
-  br label %350
+315:                                              ; preds = %306
+  %316 = load ptr, ptr %11, align 8
+  %317 = getelementptr inbounds %struct.unknown_encoding, ptr %316, i32 0, i32 0
+  %318 = getelementptr inbounds %struct.normal_encoding, ptr %317, i32 0, i32 2
+  store ptr @unknown_isName, ptr %318, align 8
+  %319 = load ptr, ptr %11, align 8
+  %320 = getelementptr inbounds %struct.unknown_encoding, ptr %319, i32 0, i32 0
+  %321 = getelementptr inbounds %struct.normal_encoding, ptr %320, i32 0, i32 3
+  store ptr @unknown_isName, ptr %321, align 8
+  %322 = load ptr, ptr %11, align 8
+  %323 = getelementptr inbounds %struct.unknown_encoding, ptr %322, i32 0, i32 0
+  %324 = getelementptr inbounds %struct.normal_encoding, ptr %323, i32 0, i32 4
+  store ptr @unknown_isName, ptr %324, align 8
+  %325 = load ptr, ptr %11, align 8
+  %326 = getelementptr inbounds %struct.unknown_encoding, ptr %325, i32 0, i32 0
+  %327 = getelementptr inbounds %struct.normal_encoding, ptr %326, i32 0, i32 5
+  store ptr @unknown_isNmstrt, ptr %327, align 8
+  %328 = load ptr, ptr %11, align 8
+  %329 = getelementptr inbounds %struct.unknown_encoding, ptr %328, i32 0, i32 0
+  %330 = getelementptr inbounds %struct.normal_encoding, ptr %329, i32 0, i32 6
+  store ptr @unknown_isNmstrt, ptr %330, align 8
+  %331 = load ptr, ptr %11, align 8
+  %332 = getelementptr inbounds %struct.unknown_encoding, ptr %331, i32 0, i32 0
+  %333 = getelementptr inbounds %struct.normal_encoding, ptr %332, i32 0, i32 7
+  store ptr @unknown_isNmstrt, ptr %333, align 8
+  %334 = load ptr, ptr %11, align 8
+  %335 = getelementptr inbounds %struct.unknown_encoding, ptr %334, i32 0, i32 0
+  %336 = getelementptr inbounds %struct.normal_encoding, ptr %335, i32 0, i32 8
+  store ptr @unknown_isInvalid, ptr %336, align 8
+  %337 = load ptr, ptr %11, align 8
+  %338 = getelementptr inbounds %struct.unknown_encoding, ptr %337, i32 0, i32 0
+  %339 = getelementptr inbounds %struct.normal_encoding, ptr %338, i32 0, i32 9
+  store ptr @unknown_isInvalid, ptr %339, align 8
+  %340 = load ptr, ptr %11, align 8
+  %341 = getelementptr inbounds %struct.unknown_encoding, ptr %340, i32 0, i32 0
+  %342 = getelementptr inbounds %struct.normal_encoding, ptr %341, i32 0, i32 10
+  store ptr @unknown_isInvalid, ptr %342, align 8
+  br label %343
 
-350:                                              ; preds = %338, %205, %135, %91, %87, %40
-  %351 = load ptr, ptr %5, align 8
-  ret ptr %351
+343:                                              ; preds = %315, %306
+  %344 = load ptr, ptr %11, align 8
+  %345 = getelementptr inbounds %struct.unknown_encoding, ptr %344, i32 0, i32 0
+  %346 = getelementptr inbounds %struct.normal_encoding, ptr %345, i32 0, i32 0
+  %347 = getelementptr inbounds %struct.encoding, ptr %346, i32 0, i32 10
+  store ptr @unknown_toUtf8, ptr %347, align 8
+  %348 = load ptr, ptr %11, align 8
+  %349 = getelementptr inbounds %struct.unknown_encoding, ptr %348, i32 0, i32 0
+  %350 = getelementptr inbounds %struct.normal_encoding, ptr %349, i32 0, i32 0
+  %351 = getelementptr inbounds %struct.encoding, ptr %350, i32 0, i32 11
+  store ptr @unknown_toUtf16, ptr %351, align 8
+  %352 = load ptr, ptr %11, align 8
+  %353 = getelementptr inbounds %struct.unknown_encoding, ptr %352, i32 0, i32 0
+  %354 = getelementptr inbounds %struct.normal_encoding, ptr %353, i32 0, i32 0
+  store ptr %354, ptr %5, align 8
+  br label %355
+
+355:                                              ; preds = %343, %210, %139, %93, %89, %42
+  %356 = load ptr, ptr %5, align 8
+  ret ptr %356
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -881,7 +886,7 @@ define internal i32 @checkCharRefNumber(i32 noundef %0) #0 {
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
   %5 = ashr i32 %4, 8
-  switch i32 %5, label %24 [
+  switch i32 %5, label %25 [
     i32 216, label %6
     i32 217, label %6
     i32 218, label %6
@@ -891,54 +896,55 @@ define internal i32 @checkCharRefNumber(i32 noundef %0) #0 {
     i32 222, label %6
     i32 223, label %6
     i32 0, label %7
-    i32 255, label %16
+    i32 255, label %17
   ]
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
   store i32 -1, ptr %2, align 4
-  br label %26
+  br label %27
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1), i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %7
-  store i32 -1, ptr %2, align 4
-  br label %26
+  %10 = getelementptr inbounds %struct.normal_encoding, ptr @latin1_encoding, i32 0, i32 1
+  %11 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %9
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7
-  br label %24
-
-16:                                               ; preds = %1
-  %17 = load i32, ptr %3, align 4
-  %18 = icmp eq i32 %17, 65534
-  br i1 %18, label %22, label %19
-
-19:                                               ; preds = %16
-  %20 = load i32, ptr %3, align 4
-  %21 = icmp eq i32 %20, 65535
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %19, %16
   store i32 -1, ptr %2, align 4
-  br label %26
+  br label %27
 
-23:                                               ; preds = %19
-  br label %24
+16:                                               ; preds = %7
+  br label %25
 
-24:                                               ; preds = %23, %15, %1
-  %25 = load i32, ptr %3, align 4
-  store i32 %25, ptr %2, align 4
-  br label %26
+17:                                               ; preds = %1
+  %18 = load i32, ptr %3, align 4
+  %19 = icmp eq i32 %18, 65534
+  br i1 %19, label %23, label %20
 
-26:                                               ; preds = %24, %22, %14, %6
-  %27 = load i32, ptr %2, align 4
-  ret i32 %27
+20:                                               ; preds = %17
+  %21 = load i32, ptr %3, align 4
+  %22 = icmp eq i32 %21, 65535
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20, %17
+  store i32 -1, ptr %2, align 4
+  br label %27
+
+24:                                               ; preds = %20
+  br label %25
+
+25:                                               ; preds = %24, %16, %1
+  %26 = load i32, ptr %3, align 4
+  store i32 %26, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %25, %23, %15, %6
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable

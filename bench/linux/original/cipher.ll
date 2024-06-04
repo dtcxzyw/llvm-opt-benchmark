@@ -165,32 +165,35 @@ define dso_local ptr @crypto_clone_cipher(ptr nocapture noundef readonly %0) #0 
   %4 = getelementptr inbounds i8, ptr %3, i64 352
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %18
+  %7 = inttoptr i64 -38 to ptr
+  br i1 %6, label %8, label %21
 
-7:                                                ; preds = %1
-  %8 = tail call ptr @crypto_mod_get(ptr noundef %3) #7
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %18, label %10, !prof !7
+8:                                                ; preds = %1
+  %9 = tail call ptr @crypto_mod_get(ptr noundef %3) #7
+  %10 = icmp eq ptr %9, null
+  %11 = inttoptr i64 -116 to ptr
+  br i1 %10, label %21, label %12, !prof !7
 
-10:                                               ; preds = %7
-  %11 = tail call ptr @__crypto_alloc_tfmgfp(ptr noundef %3, i32 noundef 1, i32 noundef 15, i32 noundef 2080) #7
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %14
+12:                                               ; preds = %8
+  %13 = tail call ptr @__crypto_alloc_tfmgfp(ptr noundef %3, i32 noundef 1, i32 noundef 15, i32 noundef 2080) #7
+  %14 = inttoptr i64 -4096 to ptr
+  %15 = icmp ugt ptr %13, %14
+  br i1 %15, label %16, label %17
 
-13:                                               ; preds = %10
+16:                                               ; preds = %12
   tail call void @crypto_mod_put(ptr noundef %3) #7
-  br label %18
+  br label %21
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %16, ptr %17, align 4
-  br label %18
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 %19, ptr %20, align 4
+  br label %21
 
-18:                                               ; preds = %14, %13, %7, %1
-  %19 = phi ptr [ %11, %13 ], [ %11, %14 ], [ inttoptr (i64 -38 to ptr), %1 ], [ inttoptr (i64 -116 to ptr), %7 ]
-  ret ptr %19
+21:                                               ; preds = %17, %16, %8, %1
+  %22 = phi ptr [ %13, %16 ], [ %13, %17 ], [ %7, %1 ], [ %11, %8 ]
+  ret ptr %22
 }
 
 ; Function Attrs: null_pointer_is_valid

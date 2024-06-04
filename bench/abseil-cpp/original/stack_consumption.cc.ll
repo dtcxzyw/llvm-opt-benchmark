@@ -58,7 +58,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %0 = load ptr, ptr %altstack, align 8
-  %cmp = icmp ne ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %0, %1
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
@@ -66,8 +67,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body1
 
 do.body1:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 118, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %2 = getelementptr i8, ptr @.str, i64 123
+  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
+  %3 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 118, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.body1
@@ -84,9 +87,9 @@ if.end:                                           ; preds = %do.end3, %do.body
 
 do.end4:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr align 8 %sigstk, i8 0, i64 24, i1 false)
-  %1 = load ptr, ptr %altstack, align 8
+  %4 = load ptr, ptr %altstack, align 8
   %ss_sp = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 0
-  store ptr %1, ptr %ss_sp, align 8
+  store ptr %4, ptr %ss_sp, align 8
   %ss_size = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 2
   store i64 65536, ptr %ss_size, align 8
   %ss_flags = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 1
@@ -104,8 +107,10 @@ if.then9:                                         ; preds = %do.body5
   br label %do.body10
 
 do.body10:                                        ; preds = %if.then9
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename11, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 129, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
+  %5 = getelementptr i8, ptr @.str, i64 123
+  store ptr %5, ptr %absl_raw_log_internal_basename11, align 8
+  %6 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 129, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @.str.5)
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body10
@@ -140,8 +145,10 @@ if.then22:                                        ; preds = %do.body18
   br label %do.body23
 
 do.body23:                                        ; preds = %if.then22
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename24, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 140, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
+  %7 = getelementptr i8, ptr @.str, i64 123
+  store ptr %7, ptr %absl_raw_log_internal_basename24, align 8
+  %8 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 140, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef @.str.7)
   br label %do.body25
 
 do.body25:                                        ; preds = %do.body23
@@ -157,9 +164,9 @@ if.end28:                                         ; preds = %do.end27, %do.body1
   br label %do.end29
 
 do.end29:                                         ; preds = %if.end28
-  %2 = load ptr, ptr %signal_handler.addr, align 8
+  %9 = load ptr, ptr %signal_handler.addr, align 8
   %__sigaction_handler30 = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 0
-  store ptr %2, ptr %__sigaction_handler30, align 8
+  store ptr %9, ptr %__sigaction_handler30, align 8
   br label %do.body31
 
 do.body31:                                        ; preds = %do.end29
@@ -172,8 +179,10 @@ if.then35:                                        ; preds = %do.body31
   br label %do.body36
 
 do.body36:                                        ; preds = %if.then35
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename37, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 144, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.7)
+  %10 = getelementptr i8, ptr @.str, i64 123
+  store ptr %10, ptr %absl_raw_log_internal_basename37, align 8
+  %11 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 144, ptr noundef @.str.1, ptr noundef @.str.8, ptr noundef @.str.7)
   br label %do.body38
 
 do.body38:                                        ; preds = %do.body36
@@ -202,8 +211,10 @@ if.then48:                                        ; preds = %do.body43
   br label %do.body49
 
 do.body49:                                        ; preds = %if.then48
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename50, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 150, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
+  %12 = getelementptr i8, ptr @.str, i64 123
+  store ptr %12, ptr %absl_raw_log_internal_basename50, align 8
+  %13 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %13, i32 noundef 150, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
   br label %do.body51
 
 do.body51:                                        ; preds = %do.body49
@@ -219,8 +230,8 @@ if.end54:                                         ; preds = %do.end53, %do.body4
   br label %do.end55
 
 do.end55:                                         ; preds = %if.end54
-  %3 = load ptr, ptr %altstack, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 85, i64 65536, i1 false)
+  %14 = load ptr, ptr %altstack, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 85, i64 65536, i1 false)
   br label %do.body56
 
 do.body56:                                        ; preds = %do.end55
@@ -234,8 +245,10 @@ if.then61:                                        ; preds = %do.body56
   br label %do.body62
 
 do.body62:                                        ; preds = %if.then61
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename63, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 153, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
+  %15 = getelementptr i8, ptr @.str, i64 123
+  store ptr %15, ptr %absl_raw_log_internal_basename63, align 8
+  %16 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %16, i32 noundef 153, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10)
   br label %do.body64
 
 do.body64:                                        ; preds = %do.body62
@@ -251,8 +264,8 @@ if.end67:                                         ; preds = %do.end66, %do.body5
   br label %do.end68
 
 do.end68:                                         ; preds = %if.end67
-  %4 = load ptr, ptr %altstack, align 8
-  %call69 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %4)
+  %17 = load ptr, ptr %altstack, align 8
+  %call69 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %17)
   store i32 %call69, ptr %base_stack_consumption, align 4
   br label %do.body70
 
@@ -267,8 +280,10 @@ if.then75:                                        ; preds = %do.body70
   br label %do.body76
 
 do.body76:                                        ; preds = %if.then75
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename77, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 157, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.10)
+  %18 = getelementptr i8, ptr @.str, i64 123
+  store ptr %18, ptr %absl_raw_log_internal_basename77, align 8
+  %19 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %19, i32 noundef 157, ptr noundef @.str.1, ptr noundef @.str.11, ptr noundef @.str.10)
   br label %do.body78
 
 do.body78:                                        ; preds = %do.body76
@@ -284,24 +299,24 @@ if.end81:                                         ; preds = %do.end80, %do.body7
   br label %do.end82
 
 do.end82:                                         ; preds = %if.end81
-  %5 = load ptr, ptr %altstack, align 8
-  %call83 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %5)
+  %20 = load ptr, ptr %altstack, align 8
+  %call83 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv(ptr noundef %20)
   store i32 %call83, ptr %signal_handler_stack_consumption, align 4
   %ss_sp84 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 0
-  %6 = load ptr, ptr %ss_sp84, align 8
-  %cmp85 = icmp eq ptr %6, null
+  %21 = load ptr, ptr %ss_sp84, align 8
+  %cmp85 = icmp eq ptr %21, null
   br i1 %cmp85, label %land.lhs.true, label %if.end93
 
 land.lhs.true:                                    ; preds = %do.end82
   %ss_size86 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 2
-  %7 = load i64, ptr %ss_size86, align 8
-  %cmp87 = icmp eq i64 %7, 0
+  %22 = load i64, ptr %ss_size86, align 8
+  %cmp87 = icmp eq i64 %22, 0
   br i1 %cmp87, label %land.lhs.true88, label %if.end93
 
 land.lhs.true88:                                  ; preds = %land.lhs.true
   %ss_flags89 = getelementptr inbounds %struct.stack_t, ptr %old_sigstk, i32 0, i32 1
-  %8 = load i32, ptr %ss_flags89, align 8
-  %and = and i32 %8, 2
+  %23 = load i32, ptr %ss_flags89, align 8
+  %and = and i32 %23, 2
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then90, label %if.end93
 
@@ -324,8 +339,10 @@ if.then98:                                        ; preds = %do.body94
   br label %do.body99
 
 do.body99:                                        ; preds = %if.then98
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename100, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 171, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.5)
+  %24 = getelementptr i8, ptr @.str, i64 123
+  store ptr %24, ptr %absl_raw_log_internal_basename100, align 8
+  %25 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %25, i32 noundef 171, ptr noundef @.str.1, ptr noundef @.str.12, ptr noundef @.str.5)
   br label %do.body101
 
 do.body101:                                       ; preds = %do.body99
@@ -353,8 +370,10 @@ if.then110:                                       ; preds = %do.body106
   br label %do.body111
 
 do.body111:                                       ; preds = %if.then110
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename112, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 173, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.7)
+  %26 = getelementptr i8, ptr @.str, i64 123
+  store ptr %26, ptr %absl_raw_log_internal_basename112, align 8
+  %27 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %27, i32 noundef 173, ptr noundef @.str.1, ptr noundef @.str.13, ptr noundef @.str.7)
   br label %do.body113
 
 do.body113:                                       ; preds = %do.body111
@@ -382,8 +401,10 @@ if.then122:                                       ; preds = %do.body118
   br label %do.body123
 
 do.body123:                                       ; preds = %if.then122
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename124, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 175, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.7)
+  %28 = getelementptr i8, ptr @.str, i64 123
+  store ptr %28, ptr %absl_raw_log_internal_basename124, align 8
+  %29 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %29, i32 noundef 175, ptr noundef @.str.1, ptr noundef @.str.14, ptr noundef @.str.7)
   br label %do.body125
 
 do.body125:                                       ; preds = %do.body123
@@ -402,8 +423,8 @@ do.end129:                                        ; preds = %if.end128
   br label %do.body130
 
 do.body130:                                       ; preds = %do.end129
-  %9 = load ptr, ptr %altstack, align 8
-  %call131 = call i32 @munmap(ptr noundef %9, i64 noundef 65536) #5
+  %30 = load ptr, ptr %altstack, align 8
+  %call131 = call i32 @munmap(ptr noundef %30, i64 noundef 65536) #5
   %cmp132 = icmp eq i32 %call131, 0
   %lnot133 = xor i1 %cmp132, true
   br i1 %lnot133, label %if.then134, label %if.end140
@@ -412,8 +433,10 @@ if.then134:                                       ; preds = %do.body130
   br label %do.body135
 
 do.body135:                                       ; preds = %if.then134
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename136, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 177, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
+  %31 = getelementptr i8, ptr @.str, i64 123
+  store ptr %31, ptr %absl_raw_log_internal_basename136, align 8
+  %32 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %32, i32 noundef 177, ptr noundef @.str.1, ptr noundef @.str.15, ptr noundef @.str.16)
   br label %do.body137
 
 do.body137:                                       ; preds = %do.body135
@@ -429,19 +452,19 @@ if.end140:                                        ; preds = %do.end139, %do.body
   br label %do.end141
 
 do.end141:                                        ; preds = %if.end140
-  %10 = load i32, ptr %signal_handler_stack_consumption, align 4
-  %cmp142 = icmp ne i32 %10, -1
+  %33 = load i32, ptr %signal_handler_stack_consumption, align 4
+  %cmp142 = icmp ne i32 %33, -1
   br i1 %cmp142, label %land.lhs.true143, label %if.end146
 
 land.lhs.true143:                                 ; preds = %do.end141
-  %11 = load i32, ptr %base_stack_consumption, align 4
-  %cmp144 = icmp ne i32 %11, -1
+  %34 = load i32, ptr %base_stack_consumption, align 4
+  %cmp144 = icmp ne i32 %34, -1
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %land.lhs.true143
-  %12 = load i32, ptr %signal_handler_stack_consumption, align 4
-  %13 = load i32, ptr %base_stack_consumption, align 4
-  %sub = sub nsw i32 %12, %13
+  %35 = load i32, ptr %signal_handler_stack_consumption, align 4
+  %36 = load i32, ptr %base_stack_consumption, align 4
+  %sub = sub nsw i32 %35, %36
   store i32 %sub, ptr %retval, align 4
   br label %return
 
@@ -450,8 +473,8 @@ if.end146:                                        ; preds = %land.lhs.true143, %
   br label %return
 
 return:                                           ; preds = %if.end146, %if.then145
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind
@@ -527,8 +550,10 @@ if.then4:                                         ; preds = %do.body
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then4
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 98, ptr noundef @.str.1, ptr noundef @.str.17, ptr noundef @.str.18)
+  %5 = getelementptr i8, ptr @.str, i64 123
+  store ptr %5, ptr %absl_raw_log_internal_basename, align 8
+  %6 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %6, i32 noundef 98, ptr noundef @.str.1, ptr noundef @.str.17, ptr noundef @.str.18)
   br label %do.body6
 
 do.body6:                                         ; preds = %do.body5
@@ -544,21 +569,21 @@ if.end:                                           ; preds = %do.end7, %do.body
   br label %do.end8
 
 do.end8:                                          ; preds = %if.end
-  %5 = load i32, ptr %usage_count, align 4
-  store i32 %5, ptr %retval, align 4
+  %7 = load i32, ptr %usage_count, align 4
+  store i32 %7, ptr %retval, align 4
   br label %return
 
 if.end9:                                          ; preds = %for.body
-  %6 = load i32, ptr %increment, align 4
-  %7 = load ptr, ptr %begin, align 8
-  %idx.ext = sext i32 %6 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %idx.ext
+  %8 = load i32, ptr %increment, align 4
+  %9 = load ptr, ptr %begin, align 8
+  %idx.ext = sext i32 %8 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
   store ptr %add.ptr, ptr %begin, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9
-  %8 = load i32, ptr %usage_count, align 4
-  %dec = add nsw i32 %8, -1
+  %10 = load i32, ptr %usage_count, align 4
+  %dec = add nsw i32 %10, -1
   store i32 %dec, ptr %usage_count, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -566,8 +591,10 @@ for.end:                                          ; preds = %for.cond
   br label %do.body10
 
 do.body10:                                        ; preds = %for.end
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename11, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 104, ptr noundef @.str.19)
+  %11 = getelementptr i8, ptr @.str, i64 123
+  store ptr %11, ptr %absl_raw_log_internal_basename11, align 8
+  %12 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %12, i32 noundef 104, ptr noundef @.str.19)
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body10
@@ -581,8 +608,8 @@ do.end14:                                         ; preds = %do.end13
   br label %return
 
 return:                                           ; preds = %do.end14, %do.end8
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind

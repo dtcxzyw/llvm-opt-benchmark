@@ -2106,7 +2106,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %8
-  br label %383
+  br label %385
 
 37:                                               ; preds = %8
   %38 = load i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE4init, align 1
@@ -2183,10 +2183,10 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   store i32 2, ptr %24, align 4
   br label %86
 
-86:                                               ; preds = %155, %67
+86:                                               ; preds = %156, %67
   %87 = load i32, ptr %24, align 4
   %88 = icmp slt i32 %87, 16
-  br i1 %88, label %89, label %158
+  br i1 %88, label %89, label %159
 
 89:                                               ; preds = %86
   store i32 0, ptr %25, align 4
@@ -2202,332 +2202,334 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %97 = call float @llvm.fmuladd.f32(float %95, float %96, float %94)
   %98 = load float, ptr %11, align 4
   %99 = load float, ptr %21, align 4
-  %100 = load float, ptr getelementptr inbounds ([32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1), align 4
-  %101 = load float, ptr %23, align 4
-  %102 = call float @llvm.fmuladd.f32(float %100, float %101, float %99)
-  %103 = load i32, ptr %19, align 4
-  %104 = load ptr, ptr %93, align 8
-  %105 = getelementptr inbounds ptr, ptr %104, i64 6
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(8) %93, float noundef %97, float noundef %98, float noundef %102, i32 noundef %103)
-  %107 = load ptr, ptr %9, align 8
-  %108 = load float, ptr %20, align 4
-  %109 = load i32, ptr %26, align 4
-  %110 = mul nsw i32 %109, 2
-  %111 = add nsw i32 %110, 0
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %112
-  %114 = load float, ptr %113, align 4
-  %115 = load float, ptr %22, align 4
-  %116 = call float @llvm.fmuladd.f32(float %114, float %115, float %108)
-  %117 = load float, ptr %11, align 4
-  %118 = load float, ptr %21, align 4
-  %119 = load i32, ptr %26, align 4
-  %120 = mul nsw i32 %119, 2
-  %121 = add nsw i32 %120, 1
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %122
-  %124 = load float, ptr %123, align 4
-  %125 = load float, ptr %23, align 4
-  %126 = call float @llvm.fmuladd.f32(float %124, float %125, float %118)
-  %127 = load i32, ptr %19, align 4
-  %128 = load ptr, ptr %107, align 8
-  %129 = getelementptr inbounds ptr, ptr %128, i64 6
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %107, float noundef %116, float noundef %117, float noundef %126, i32 noundef %127)
-  %131 = load ptr, ptr %9, align 8
-  %132 = load float, ptr %20, align 4
-  %133 = load i32, ptr %27, align 4
-  %134 = mul nsw i32 %133, 2
-  %135 = add nsw i32 %134, 0
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %136
-  %138 = load float, ptr %137, align 4
-  %139 = load float, ptr %22, align 4
-  %140 = call float @llvm.fmuladd.f32(float %138, float %139, float %132)
-  %141 = load float, ptr %11, align 4
-  %142 = load float, ptr %21, align 4
-  %143 = load i32, ptr %27, align 4
-  %144 = mul nsw i32 %143, 2
-  %145 = add nsw i32 %144, 1
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %146
-  %148 = load float, ptr %147, align 4
-  %149 = load float, ptr %23, align 4
-  %150 = call float @llvm.fmuladd.f32(float %148, float %149, float %142)
-  %151 = load i32, ptr %19, align 4
-  %152 = load ptr, ptr %131, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 6
-  %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %131, float noundef %140, float noundef %141, float noundef %150, i32 noundef %151)
-  br label %155
+  %100 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1
+  %101 = load float, ptr %100, align 4
+  %102 = load float, ptr %23, align 4
+  %103 = call float @llvm.fmuladd.f32(float %101, float %102, float %99)
+  %104 = load i32, ptr %19, align 4
+  %105 = load ptr, ptr %93, align 8
+  %106 = getelementptr inbounds ptr, ptr %105, i64 6
+  %107 = load ptr, ptr %106, align 8
+  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %93, float noundef %97, float noundef %98, float noundef %103, i32 noundef %104)
+  %108 = load ptr, ptr %9, align 8
+  %109 = load float, ptr %20, align 4
+  %110 = load i32, ptr %26, align 4
+  %111 = mul nsw i32 %110, 2
+  %112 = add nsw i32 %111, 0
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %113
+  %115 = load float, ptr %114, align 4
+  %116 = load float, ptr %22, align 4
+  %117 = call float @llvm.fmuladd.f32(float %115, float %116, float %109)
+  %118 = load float, ptr %11, align 4
+  %119 = load float, ptr %21, align 4
+  %120 = load i32, ptr %26, align 4
+  %121 = mul nsw i32 %120, 2
+  %122 = add nsw i32 %121, 1
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %123
+  %125 = load float, ptr %124, align 4
+  %126 = load float, ptr %23, align 4
+  %127 = call float @llvm.fmuladd.f32(float %125, float %126, float %119)
+  %128 = load i32, ptr %19, align 4
+  %129 = load ptr, ptr %108, align 8
+  %130 = getelementptr inbounds ptr, ptr %129, i64 6
+  %131 = load ptr, ptr %130, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(8) %108, float noundef %117, float noundef %118, float noundef %127, i32 noundef %128)
+  %132 = load ptr, ptr %9, align 8
+  %133 = load float, ptr %20, align 4
+  %134 = load i32, ptr %27, align 4
+  %135 = mul nsw i32 %134, 2
+  %136 = add nsw i32 %135, 0
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %137
+  %139 = load float, ptr %138, align 4
+  %140 = load float, ptr %22, align 4
+  %141 = call float @llvm.fmuladd.f32(float %139, float %140, float %133)
+  %142 = load float, ptr %11, align 4
+  %143 = load float, ptr %21, align 4
+  %144 = load i32, ptr %27, align 4
+  %145 = mul nsw i32 %144, 2
+  %146 = add nsw i32 %145, 1
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %147
+  %149 = load float, ptr %148, align 4
+  %150 = load float, ptr %23, align 4
+  %151 = call float @llvm.fmuladd.f32(float %149, float %150, float %143)
+  %152 = load i32, ptr %19, align 4
+  %153 = load ptr, ptr %132, align 8
+  %154 = getelementptr inbounds ptr, ptr %153, i64 6
+  %155 = load ptr, ptr %154, align 8
+  call void %155(ptr noundef nonnull align 8 dereferenceable(8) %132, float noundef %141, float noundef %142, float noundef %151, i32 noundef %152)
+  br label %156
 
-155:                                              ; preds = %89
-  %156 = load i32, ptr %24, align 4
-  %157 = add nsw i32 %156, 1
-  store i32 %157, ptr %24, align 4
+156:                                              ; preds = %89
+  %157 = load i32, ptr %24, align 4
+  %158 = add nsw i32 %157, 1
+  store i32 %158, ptr %24, align 4
   br label %86, !llvm.loop !13
 
-158:                                              ; preds = %86
+159:                                              ; preds = %86
   store i32 2, ptr %28, align 4
-  br label %159
+  br label %160
 
-159:                                              ; preds = %228, %158
-  %160 = load i32, ptr %28, align 4
-  %161 = icmp slt i32 %160, 16
-  br i1 %161, label %162, label %231
+160:                                              ; preds = %230, %159
+  %161 = load i32, ptr %28, align 4
+  %162 = icmp slt i32 %161, 16
+  br i1 %162, label %163, label %233
 
-162:                                              ; preds = %159
+163:                                              ; preds = %160
   store i32 0, ptr %29, align 4
-  %163 = load i32, ptr %28, align 4
-  store i32 %163, ptr %30, align 4
   %164 = load i32, ptr %28, align 4
-  %165 = sub nsw i32 %164, 1
-  store i32 %165, ptr %31, align 4
-  %166 = load ptr, ptr %9, align 8
-  %167 = load float, ptr %20, align 4
-  %168 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
-  %169 = load float, ptr %22, align 4
-  %170 = call float @llvm.fmuladd.f32(float %168, float %169, float %167)
-  %171 = load float, ptr %14, align 4
-  %172 = load float, ptr %21, align 4
-  %173 = load float, ptr getelementptr inbounds ([32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1), align 4
-  %174 = load float, ptr %23, align 4
-  %175 = call float @llvm.fmuladd.f32(float %173, float %174, float %172)
-  %176 = load i32, ptr %16, align 4
-  %177 = load ptr, ptr %166, align 8
-  %178 = getelementptr inbounds ptr, ptr %177, i64 6
-  %179 = load ptr, ptr %178, align 8
-  call void %179(ptr noundef nonnull align 8 dereferenceable(8) %166, float noundef %170, float noundef %171, float noundef %175, i32 noundef %176)
-  %180 = load ptr, ptr %9, align 8
-  %181 = load float, ptr %20, align 4
-  %182 = load i32, ptr %30, align 4
-  %183 = mul nsw i32 %182, 2
-  %184 = add nsw i32 %183, 0
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %185
-  %187 = load float, ptr %186, align 4
-  %188 = load float, ptr %22, align 4
-  %189 = call float @llvm.fmuladd.f32(float %187, float %188, float %181)
-  %190 = load float, ptr %14, align 4
-  %191 = load float, ptr %21, align 4
-  %192 = load i32, ptr %30, align 4
-  %193 = mul nsw i32 %192, 2
-  %194 = add nsw i32 %193, 1
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %195
-  %197 = load float, ptr %196, align 4
-  %198 = load float, ptr %23, align 4
-  %199 = call float @llvm.fmuladd.f32(float %197, float %198, float %191)
-  %200 = load i32, ptr %16, align 4
-  %201 = load ptr, ptr %180, align 8
-  %202 = getelementptr inbounds ptr, ptr %201, i64 6
-  %203 = load ptr, ptr %202, align 8
-  call void %203(ptr noundef nonnull align 8 dereferenceable(8) %180, float noundef %189, float noundef %190, float noundef %199, i32 noundef %200)
-  %204 = load ptr, ptr %9, align 8
-  %205 = load float, ptr %20, align 4
-  %206 = load i32, ptr %31, align 4
-  %207 = mul nsw i32 %206, 2
-  %208 = add nsw i32 %207, 0
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %209
-  %211 = load float, ptr %210, align 4
-  %212 = load float, ptr %22, align 4
-  %213 = call float @llvm.fmuladd.f32(float %211, float %212, float %205)
-  %214 = load float, ptr %14, align 4
-  %215 = load float, ptr %21, align 4
-  %216 = load i32, ptr %31, align 4
-  %217 = mul nsw i32 %216, 2
-  %218 = add nsw i32 %217, 1
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %219
-  %221 = load float, ptr %220, align 4
-  %222 = load float, ptr %23, align 4
-  %223 = call float @llvm.fmuladd.f32(float %221, float %222, float %215)
-  %224 = load i32, ptr %16, align 4
-  %225 = load ptr, ptr %204, align 8
-  %226 = getelementptr inbounds ptr, ptr %225, i64 6
-  %227 = load ptr, ptr %226, align 8
-  call void %227(ptr noundef nonnull align 8 dereferenceable(8) %204, float noundef %213, float noundef %214, float noundef %223, i32 noundef %224)
-  br label %228
+  store i32 %164, ptr %30, align 4
+  %165 = load i32, ptr %28, align 4
+  %166 = sub nsw i32 %165, 1
+  store i32 %166, ptr %31, align 4
+  %167 = load ptr, ptr %9, align 8
+  %168 = load float, ptr %20, align 4
+  %169 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
+  %170 = load float, ptr %22, align 4
+  %171 = call float @llvm.fmuladd.f32(float %169, float %170, float %168)
+  %172 = load float, ptr %14, align 4
+  %173 = load float, ptr %21, align 4
+  %174 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 1
+  %175 = load float, ptr %174, align 4
+  %176 = load float, ptr %23, align 4
+  %177 = call float @llvm.fmuladd.f32(float %175, float %176, float %173)
+  %178 = load i32, ptr %16, align 4
+  %179 = load ptr, ptr %167, align 8
+  %180 = getelementptr inbounds ptr, ptr %179, i64 6
+  %181 = load ptr, ptr %180, align 8
+  call void %181(ptr noundef nonnull align 8 dereferenceable(8) %167, float noundef %171, float noundef %172, float noundef %177, i32 noundef %178)
+  %182 = load ptr, ptr %9, align 8
+  %183 = load float, ptr %20, align 4
+  %184 = load i32, ptr %30, align 4
+  %185 = mul nsw i32 %184, 2
+  %186 = add nsw i32 %185, 0
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %187
+  %189 = load float, ptr %188, align 4
+  %190 = load float, ptr %22, align 4
+  %191 = call float @llvm.fmuladd.f32(float %189, float %190, float %183)
+  %192 = load float, ptr %14, align 4
+  %193 = load float, ptr %21, align 4
+  %194 = load i32, ptr %30, align 4
+  %195 = mul nsw i32 %194, 2
+  %196 = add nsw i32 %195, 1
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %197
+  %199 = load float, ptr %198, align 4
+  %200 = load float, ptr %23, align 4
+  %201 = call float @llvm.fmuladd.f32(float %199, float %200, float %193)
+  %202 = load i32, ptr %16, align 4
+  %203 = load ptr, ptr %182, align 8
+  %204 = getelementptr inbounds ptr, ptr %203, i64 6
+  %205 = load ptr, ptr %204, align 8
+  call void %205(ptr noundef nonnull align 8 dereferenceable(8) %182, float noundef %191, float noundef %192, float noundef %201, i32 noundef %202)
+  %206 = load ptr, ptr %9, align 8
+  %207 = load float, ptr %20, align 4
+  %208 = load i32, ptr %31, align 4
+  %209 = mul nsw i32 %208, 2
+  %210 = add nsw i32 %209, 0
+  %211 = sext i32 %210 to i64
+  %212 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %211
+  %213 = load float, ptr %212, align 4
+  %214 = load float, ptr %22, align 4
+  %215 = call float @llvm.fmuladd.f32(float %213, float %214, float %207)
+  %216 = load float, ptr %14, align 4
+  %217 = load float, ptr %21, align 4
+  %218 = load i32, ptr %31, align 4
+  %219 = mul nsw i32 %218, 2
+  %220 = add nsw i32 %219, 1
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %221
+  %223 = load float, ptr %222, align 4
+  %224 = load float, ptr %23, align 4
+  %225 = call float @llvm.fmuladd.f32(float %223, float %224, float %217)
+  %226 = load i32, ptr %16, align 4
+  %227 = load ptr, ptr %206, align 8
+  %228 = getelementptr inbounds ptr, ptr %227, i64 6
+  %229 = load ptr, ptr %228, align 8
+  call void %229(ptr noundef nonnull align 8 dereferenceable(8) %206, float noundef %215, float noundef %216, float noundef %225, i32 noundef %226)
+  br label %230
 
-228:                                              ; preds = %162
-  %229 = load i32, ptr %28, align 4
-  %230 = add nsw i32 %229, 1
-  store i32 %230, ptr %28, align 4
-  br label %159, !llvm.loop !14
+230:                                              ; preds = %163
+  %231 = load i32, ptr %28, align 4
+  %232 = add nsw i32 %231, 1
+  store i32 %232, ptr %28, align 4
+  br label %160, !llvm.loop !14
 
-231:                                              ; preds = %159
+233:                                              ; preds = %160
   store i32 0, ptr %32, align 4
   store i32 15, ptr %33, align 4
-  br label %232
+  br label %234
 
-232:                                              ; preds = %380, %231
-  %233 = load i32, ptr %32, align 4
-  %234 = icmp slt i32 %233, 16
-  br i1 %234, label %235, label %383
+234:                                              ; preds = %382, %233
+  %235 = load i32, ptr %32, align 4
+  %236 = icmp slt i32 %235, 16
+  br i1 %236, label %237, label %385
 
-235:                                              ; preds = %232
-  %236 = load ptr, ptr %9, align 8
-  %237 = load float, ptr %20, align 4
-  %238 = load i32, ptr %32, align 4
-  %239 = mul nsw i32 %238, 2
-  %240 = add nsw i32 %239, 0
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %241
-  %243 = load float, ptr %242, align 4
-  %244 = load float, ptr %22, align 4
-  %245 = call float @llvm.fmuladd.f32(float %243, float %244, float %237)
-  %246 = load float, ptr %11, align 4
-  %247 = load float, ptr %21, align 4
-  %248 = load i32, ptr %32, align 4
-  %249 = mul nsw i32 %248, 2
-  %250 = add nsw i32 %249, 1
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %251
-  %253 = load float, ptr %252, align 4
-  %254 = load float, ptr %23, align 4
-  %255 = call float @llvm.fmuladd.f32(float %253, float %254, float %247)
-  %256 = load i32, ptr %19, align 4
-  %257 = load ptr, ptr %236, align 8
-  %258 = getelementptr inbounds ptr, ptr %257, i64 6
-  %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull align 8 dereferenceable(8) %236, float noundef %245, float noundef %246, float noundef %255, i32 noundef %256)
-  %260 = load ptr, ptr %9, align 8
-  %261 = load float, ptr %20, align 4
-  %262 = load i32, ptr %33, align 4
-  %263 = mul nsw i32 %262, 2
-  %264 = add nsw i32 %263, 0
-  %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %265
-  %267 = load float, ptr %266, align 4
-  %268 = load float, ptr %22, align 4
-  %269 = call float @llvm.fmuladd.f32(float %267, float %268, float %261)
-  %270 = load float, ptr %11, align 4
-  %271 = load float, ptr %21, align 4
-  %272 = load i32, ptr %33, align 4
-  %273 = mul nsw i32 %272, 2
-  %274 = add nsw i32 %273, 1
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %275
-  %277 = load float, ptr %276, align 4
-  %278 = load float, ptr %23, align 4
-  %279 = call float @llvm.fmuladd.f32(float %277, float %278, float %271)
-  %280 = load i32, ptr %19, align 4
-  %281 = load ptr, ptr %260, align 8
-  %282 = getelementptr inbounds ptr, ptr %281, i64 6
-  %283 = load ptr, ptr %282, align 8
-  call void %283(ptr noundef nonnull align 8 dereferenceable(8) %260, float noundef %269, float noundef %270, float noundef %279, i32 noundef %280)
-  %284 = load ptr, ptr %9, align 8
-  %285 = load float, ptr %20, align 4
-  %286 = load i32, ptr %33, align 4
-  %287 = mul nsw i32 %286, 2
-  %288 = add nsw i32 %287, 0
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %289
-  %291 = load float, ptr %290, align 4
-  %292 = load float, ptr %22, align 4
-  %293 = call float @llvm.fmuladd.f32(float %291, float %292, float %285)
-  %294 = load float, ptr %14, align 4
-  %295 = load float, ptr %21, align 4
-  %296 = load i32, ptr %33, align 4
-  %297 = mul nsw i32 %296, 2
-  %298 = add nsw i32 %297, 1
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %299
-  %301 = load float, ptr %300, align 4
-  %302 = load float, ptr %23, align 4
-  %303 = call float @llvm.fmuladd.f32(float %301, float %302, float %295)
-  %304 = load i32, ptr %16, align 4
-  %305 = load ptr, ptr %284, align 8
-  %306 = getelementptr inbounds ptr, ptr %305, i64 6
-  %307 = load ptr, ptr %306, align 8
-  call void %307(ptr noundef nonnull align 8 dereferenceable(8) %284, float noundef %293, float noundef %294, float noundef %303, i32 noundef %304)
-  %308 = load ptr, ptr %9, align 8
-  %309 = load float, ptr %20, align 4
-  %310 = load i32, ptr %32, align 4
-  %311 = mul nsw i32 %310, 2
-  %312 = add nsw i32 %311, 0
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %313
-  %315 = load float, ptr %314, align 4
-  %316 = load float, ptr %22, align 4
-  %317 = call float @llvm.fmuladd.f32(float %315, float %316, float %309)
-  %318 = load float, ptr %11, align 4
-  %319 = load float, ptr %21, align 4
-  %320 = load i32, ptr %32, align 4
-  %321 = mul nsw i32 %320, 2
-  %322 = add nsw i32 %321, 1
-  %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %323
-  %325 = load float, ptr %324, align 4
-  %326 = load float, ptr %23, align 4
-  %327 = call float @llvm.fmuladd.f32(float %325, float %326, float %319)
-  %328 = load i32, ptr %19, align 4
-  %329 = load ptr, ptr %308, align 8
-  %330 = getelementptr inbounds ptr, ptr %329, i64 6
-  %331 = load ptr, ptr %330, align 8
-  call void %331(ptr noundef nonnull align 8 dereferenceable(8) %308, float noundef %317, float noundef %318, float noundef %327, i32 noundef %328)
-  %332 = load ptr, ptr %9, align 8
-  %333 = load float, ptr %20, align 4
-  %334 = load i32, ptr %33, align 4
-  %335 = mul nsw i32 %334, 2
-  %336 = add nsw i32 %335, 0
-  %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %337
-  %339 = load float, ptr %338, align 4
-  %340 = load float, ptr %22, align 4
-  %341 = call float @llvm.fmuladd.f32(float %339, float %340, float %333)
-  %342 = load float, ptr %14, align 4
-  %343 = load float, ptr %21, align 4
-  %344 = load i32, ptr %33, align 4
-  %345 = mul nsw i32 %344, 2
-  %346 = add nsw i32 %345, 1
-  %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %347
-  %349 = load float, ptr %348, align 4
-  %350 = load float, ptr %23, align 4
-  %351 = call float @llvm.fmuladd.f32(float %349, float %350, float %343)
-  %352 = load i32, ptr %16, align 4
-  %353 = load ptr, ptr %332, align 8
-  %354 = getelementptr inbounds ptr, ptr %353, i64 6
-  %355 = load ptr, ptr %354, align 8
-  call void %355(ptr noundef nonnull align 8 dereferenceable(8) %332, float noundef %341, float noundef %342, float noundef %351, i32 noundef %352)
-  %356 = load ptr, ptr %9, align 8
-  %357 = load float, ptr %20, align 4
-  %358 = load i32, ptr %32, align 4
-  %359 = mul nsw i32 %358, 2
-  %360 = add nsw i32 %359, 0
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %361
-  %363 = load float, ptr %362, align 4
-  %364 = load float, ptr %22, align 4
-  %365 = call float @llvm.fmuladd.f32(float %363, float %364, float %357)
-  %366 = load float, ptr %14, align 4
-  %367 = load float, ptr %21, align 4
-  %368 = load i32, ptr %32, align 4
-  %369 = mul nsw i32 %368, 2
-  %370 = add nsw i32 %369, 1
-  %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %371
-  %373 = load float, ptr %372, align 4
-  %374 = load float, ptr %23, align 4
-  %375 = call float @llvm.fmuladd.f32(float %373, float %374, float %367)
-  %376 = load i32, ptr %16, align 4
-  %377 = load ptr, ptr %356, align 8
-  %378 = getelementptr inbounds ptr, ptr %377, i64 6
-  %379 = load ptr, ptr %378, align 8
-  call void %379(ptr noundef nonnull align 8 dereferenceable(8) %356, float noundef %365, float noundef %366, float noundef %375, i32 noundef %376)
-  br label %380
+237:                                              ; preds = %234
+  %238 = load ptr, ptr %9, align 8
+  %239 = load float, ptr %20, align 4
+  %240 = load i32, ptr %32, align 4
+  %241 = mul nsw i32 %240, 2
+  %242 = add nsw i32 %241, 0
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %243
+  %245 = load float, ptr %244, align 4
+  %246 = load float, ptr %22, align 4
+  %247 = call float @llvm.fmuladd.f32(float %245, float %246, float %239)
+  %248 = load float, ptr %11, align 4
+  %249 = load float, ptr %21, align 4
+  %250 = load i32, ptr %32, align 4
+  %251 = mul nsw i32 %250, 2
+  %252 = add nsw i32 %251, 1
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %253
+  %255 = load float, ptr %254, align 4
+  %256 = load float, ptr %23, align 4
+  %257 = call float @llvm.fmuladd.f32(float %255, float %256, float %249)
+  %258 = load i32, ptr %19, align 4
+  %259 = load ptr, ptr %238, align 8
+  %260 = getelementptr inbounds ptr, ptr %259, i64 6
+  %261 = load ptr, ptr %260, align 8
+  call void %261(ptr noundef nonnull align 8 dereferenceable(8) %238, float noundef %247, float noundef %248, float noundef %257, i32 noundef %258)
+  %262 = load ptr, ptr %9, align 8
+  %263 = load float, ptr %20, align 4
+  %264 = load i32, ptr %33, align 4
+  %265 = mul nsw i32 %264, 2
+  %266 = add nsw i32 %265, 0
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %267
+  %269 = load float, ptr %268, align 4
+  %270 = load float, ptr %22, align 4
+  %271 = call float @llvm.fmuladd.f32(float %269, float %270, float %263)
+  %272 = load float, ptr %11, align 4
+  %273 = load float, ptr %21, align 4
+  %274 = load i32, ptr %33, align 4
+  %275 = mul nsw i32 %274, 2
+  %276 = add nsw i32 %275, 1
+  %277 = sext i32 %276 to i64
+  %278 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %277
+  %279 = load float, ptr %278, align 4
+  %280 = load float, ptr %23, align 4
+  %281 = call float @llvm.fmuladd.f32(float %279, float %280, float %273)
+  %282 = load i32, ptr %19, align 4
+  %283 = load ptr, ptr %262, align 8
+  %284 = getelementptr inbounds ptr, ptr %283, i64 6
+  %285 = load ptr, ptr %284, align 8
+  call void %285(ptr noundef nonnull align 8 dereferenceable(8) %262, float noundef %271, float noundef %272, float noundef %281, i32 noundef %282)
+  %286 = load ptr, ptr %9, align 8
+  %287 = load float, ptr %20, align 4
+  %288 = load i32, ptr %33, align 4
+  %289 = mul nsw i32 %288, 2
+  %290 = add nsw i32 %289, 0
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %291
+  %293 = load float, ptr %292, align 4
+  %294 = load float, ptr %22, align 4
+  %295 = call float @llvm.fmuladd.f32(float %293, float %294, float %287)
+  %296 = load float, ptr %14, align 4
+  %297 = load float, ptr %21, align 4
+  %298 = load i32, ptr %33, align 4
+  %299 = mul nsw i32 %298, 2
+  %300 = add nsw i32 %299, 1
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %301
+  %303 = load float, ptr %302, align 4
+  %304 = load float, ptr %23, align 4
+  %305 = call float @llvm.fmuladd.f32(float %303, float %304, float %297)
+  %306 = load i32, ptr %16, align 4
+  %307 = load ptr, ptr %286, align 8
+  %308 = getelementptr inbounds ptr, ptr %307, i64 6
+  %309 = load ptr, ptr %308, align 8
+  call void %309(ptr noundef nonnull align 8 dereferenceable(8) %286, float noundef %295, float noundef %296, float noundef %305, i32 noundef %306)
+  %310 = load ptr, ptr %9, align 8
+  %311 = load float, ptr %20, align 4
+  %312 = load i32, ptr %32, align 4
+  %313 = mul nsw i32 %312, 2
+  %314 = add nsw i32 %313, 0
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %315
+  %317 = load float, ptr %316, align 4
+  %318 = load float, ptr %22, align 4
+  %319 = call float @llvm.fmuladd.f32(float %317, float %318, float %311)
+  %320 = load float, ptr %11, align 4
+  %321 = load float, ptr %21, align 4
+  %322 = load i32, ptr %32, align 4
+  %323 = mul nsw i32 %322, 2
+  %324 = add nsw i32 %323, 1
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %325
+  %327 = load float, ptr %326, align 4
+  %328 = load float, ptr %23, align 4
+  %329 = call float @llvm.fmuladd.f32(float %327, float %328, float %321)
+  %330 = load i32, ptr %19, align 4
+  %331 = load ptr, ptr %310, align 8
+  %332 = getelementptr inbounds ptr, ptr %331, i64 6
+  %333 = load ptr, ptr %332, align 8
+  call void %333(ptr noundef nonnull align 8 dereferenceable(8) %310, float noundef %319, float noundef %320, float noundef %329, i32 noundef %330)
+  %334 = load ptr, ptr %9, align 8
+  %335 = load float, ptr %20, align 4
+  %336 = load i32, ptr %33, align 4
+  %337 = mul nsw i32 %336, 2
+  %338 = add nsw i32 %337, 0
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %339
+  %341 = load float, ptr %340, align 4
+  %342 = load float, ptr %22, align 4
+  %343 = call float @llvm.fmuladd.f32(float %341, float %342, float %335)
+  %344 = load float, ptr %14, align 4
+  %345 = load float, ptr %21, align 4
+  %346 = load i32, ptr %33, align 4
+  %347 = mul nsw i32 %346, 2
+  %348 = add nsw i32 %347, 1
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %349
+  %351 = load float, ptr %350, align 4
+  %352 = load float, ptr %23, align 4
+  %353 = call float @llvm.fmuladd.f32(float %351, float %352, float %345)
+  %354 = load i32, ptr %16, align 4
+  %355 = load ptr, ptr %334, align 8
+  %356 = getelementptr inbounds ptr, ptr %355, i64 6
+  %357 = load ptr, ptr %356, align 8
+  call void %357(ptr noundef nonnull align 8 dereferenceable(8) %334, float noundef %343, float noundef %344, float noundef %353, i32 noundef %354)
+  %358 = load ptr, ptr %9, align 8
+  %359 = load float, ptr %20, align 4
+  %360 = load i32, ptr %32, align 4
+  %361 = mul nsw i32 %360, 2
+  %362 = add nsw i32 %361, 0
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %363
+  %365 = load float, ptr %364, align 4
+  %366 = load float, ptr %22, align 4
+  %367 = call float @llvm.fmuladd.f32(float %365, float %366, float %359)
+  %368 = load float, ptr %14, align 4
+  %369 = load float, ptr %21, align 4
+  %370 = load i32, ptr %32, align 4
+  %371 = mul nsw i32 %370, 2
+  %372 = add nsw i32 %371, 1
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %373
+  %375 = load float, ptr %374, align 4
+  %376 = load float, ptr %23, align 4
+  %377 = call float @llvm.fmuladd.f32(float %375, float %376, float %369)
+  %378 = load i32, ptr %16, align 4
+  %379 = load ptr, ptr %358, align 8
+  %380 = getelementptr inbounds ptr, ptr %379, i64 6
+  %381 = load ptr, ptr %380, align 8
+  call void %381(ptr noundef nonnull align 8 dereferenceable(8) %358, float noundef %367, float noundef %368, float noundef %377, i32 noundef %378)
+  br label %382
 
-380:                                              ; preds = %235
-  %381 = load i32, ptr %32, align 4
-  %382 = add nsw i32 %381, 1
-  store i32 %382, ptr %32, align 4
-  store i32 %381, ptr %33, align 4
-  br label %232, !llvm.loop !15
+382:                                              ; preds = %237
+  %383 = load i32, ptr %32, align 4
+  %384 = add nsw i32 %383, 1
+  store i32 %384, ptr %32, align 4
+  store i32 %383, ptr %33, align 4
+  br label %234, !llvm.loop !15
 
-383:                                              ; preds = %232, %36
+385:                                              ; preds = %234, %36
   ret void
 }
 
@@ -3310,53 +3312,54 @@ define void @_ZN13duDisplayListC2Ei(ptr noundef nonnull align 8 dereferenceable(
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 1
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 2
+  %8 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 1
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 3
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 4
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 5
-  store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 6
-  store float 1.000000e+00, ptr %13, align 4
-  %14 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 7
-  store i8 1, ptr %14, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = icmp slt i32 %15, 8
-  br i1 %16, label %17, label %18
+  %10 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 2
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 3
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 4
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 5
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 6
+  store float 1.000000e+00, ptr %14, align 4
+  %15 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 7
+  store i8 1, ptr %15, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = icmp slt i32 %16, 8
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %2
+18:                                               ; preds = %2
   store i32 8, ptr %4, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %2
-  %19 = load i32, ptr %4, align 4
-  invoke void @_ZN13duDisplayList6resizeEi(ptr noundef nonnull align 8 dereferenceable(41) %7, i32 noundef %19)
-          to label %20 unwind label %21
+19:                                               ; preds = %18, %2
+  %20 = load i32, ptr %4, align 4
+  invoke void @_ZN13duDisplayList6resizeEi(ptr noundef nonnull align 8 dereferenceable(41) %7, i32 noundef %20)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   ret void
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
   call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3364,7 +3367,8 @@ define linkonce_odr void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3467,27 +3471,28 @@ define void @_ZN13duDisplayListD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.duDisplayList, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.duDisplayList, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #11
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #11
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %class.duDisplayList, ptr %3, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %class.duDisplayList, ptr %3, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %10) #11
-  br label %13
+13:                                               ; preds = %9
+  call void @_ZdaPv(ptr noundef %11) #11
+  br label %14
 
-13:                                               ; preds = %12, %8
+14:                                               ; preds = %13, %9
   call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }

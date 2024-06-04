@@ -737,71 +737,76 @@ define hidden ptr @rb_yjit_reserve_addr_space(i32 noundef %0) #0 {
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %4, align 4
   store ptr @rb_yjit_reserve_addr_space, ptr %5, align 8
-  store ptr getelementptr (i8, ptr @rb_yjit_reserve_addr_space, i64 2147483647), ptr %6, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = call ptr @align_ptr(ptr noundef @rb_yjit_reserve_addr_space, i32 noundef %10)
-  store ptr %11, ptr %7, align 8
-  br label %12
+  %10 = getelementptr i8, ptr @rb_yjit_reserve_addr_space, i64 2147483647
+  store ptr %10, ptr %6, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = call ptr @align_ptr(ptr noundef @rb_yjit_reserve_addr_space, i32 noundef %11)
+  store ptr %12, ptr %7, align 8
+  br label %13
 
-12:                                               ; preds = %23, %1
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i32, ptr %2, align 4
-  %15 = zext i32 %14 to i64
-  %16 = call ptr @mmap(ptr noundef %13, i64 noundef %15, i32 noundef 0, i32 noundef 1048610, i32 noundef -1, i64 noundef 0) #5
-  store ptr %16, ptr %3, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = icmp ne ptr %17, inttoptr (i64 -1 to ptr)
-  br i1 %18, label %19, label %20
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %2, align 4
+  %16 = zext i32 %15 to i64
+  %17 = call ptr @mmap(ptr noundef %14, i64 noundef %16, i32 noundef 0, i32 noundef 1048610, i32 noundef -1, i64 noundef 0) #5
+  store ptr %17, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp ne ptr %18, %19
+  br i1 %20, label %21, label %22
 
-19:                                               ; preds = %12
-  br label %26
+21:                                               ; preds = %13
+  br label %29
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr i8, ptr %21, i64 4194304
-  store ptr %22, ptr %7, align 8
-  br label %23
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr i8, ptr %23, i64 4194304
+  store ptr %24, ptr %7, align 8
+  br label %25
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp ult ptr %24, getelementptr (i8, ptr @rb_yjit_reserve_addr_space, i64 2147483647)
-  br i1 %25, label %12, label %26, !llvm.loop !11
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr i8, ptr @rb_yjit_reserve_addr_space, i64 2147483647
+  %28 = icmp ult ptr %26, %27
+  br i1 %28, label %13, label %29, !llvm.loop !11
 
-26:                                               ; preds = %23, %19
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
-  br i1 %28, label %29, label %33
+29:                                               ; preds = %25, %21
+  %30 = load ptr, ptr %3, align 8
+  %31 = inttoptr i64 -1 to ptr
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %37
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %2, align 4
-  %31 = zext i32 %30 to i64
-  %32 = call ptr @mmap(ptr noundef null, i64 noundef %31, i32 noundef 0, i32 noundef 34, i32 noundef -1, i64 noundef 0) #5
-  store ptr %32, ptr %3, align 8
-  br label %33
+33:                                               ; preds = %29
+  %34 = load i32, ptr %2, align 4
+  %35 = zext i32 %34 to i64
+  %36 = call ptr @mmap(ptr noundef null, i64 noundef %35, i32 noundef 0, i32 noundef 34, i32 noundef -1, i64 noundef 0) #5
+  store ptr %36, ptr %3, align 8
+  br label %37
 
-33:                                               ; preds = %29, %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %36, label %42
+37:                                               ; preds = %33, %29
+  %38 = load ptr, ptr %3, align 8
+  %39 = inttoptr i64 -1 to ptr
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %47
 
-36:                                               ; preds = %33
+41:                                               ; preds = %37
   call void @perror(ptr noundef @.str.8)
-  %37 = call ptr @rb_errno_ptr()
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 12
-  br i1 %39, label %40, label %41
+  %42 = call ptr @rb_errno_ptr()
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 12
+  br i1 %44, label %45, label %46
 
-40:                                               ; preds = %36
+45:                                               ; preds = %41
   call void @exit(i32 noundef 1) #22
   unreachable
 
-41:                                               ; preds = %36
+46:                                               ; preds = %41
   call void (ptr, ...) @rb_bug(ptr noundef @.str.9) #18
   unreachable
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %3, align 8
-  ret ptr %43
+47:                                               ; preds = %37
+  %48 = load ptr, ptr %3, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

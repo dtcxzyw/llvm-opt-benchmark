@@ -61,42 +61,43 @@ define void @Init_fiddle_handle() #0 {
   %7 = load i64, ptr @rb_cHandle, align 8
   call void @rb_define_singleton_method(i64 noundef %7, ptr noundef @.str.3, ptr noundef @rb_fiddle_handle_s_sym, i32 noundef 1)
   %8 = load i64, ptr @rb_cHandle, align 8
-  %9 = call i64 @predefined_fiddle_handle(ptr noundef inttoptr (i64 -1 to ptr))
-  call void @rb_define_const(i64 noundef %8, ptr noundef @.str.4, i64 noundef %9)
-  %10 = load i64, ptr @rb_cHandle, align 8
-  %11 = call i64 @predefined_fiddle_handle(ptr noundef null)
-  call void @rb_define_const(i64 noundef %10, ptr noundef @.str.5, i64 noundef %11)
-  %12 = load i64, ptr @rb_cHandle, align 8
-  %13 = call i64 @rb_int2num_inline(i32 noundef 256)
-  call void @rb_define_const(i64 noundef %12, ptr noundef @.str.6, i64 noundef %13)
-  %14 = load i64, ptr @rb_cHandle, align 8
-  %15 = call i64 @rb_int2num_inline(i32 noundef 1)
-  call void @rb_define_const(i64 noundef %14, ptr noundef @.str.7, i64 noundef %15)
-  %16 = load i64, ptr @rb_cHandle, align 8
-  %17 = call i64 @rb_int2num_inline(i32 noundef 2)
-  call void @rb_define_const(i64 noundef %16, ptr noundef @.str.8, i64 noundef %17)
-  %18 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %18, ptr noundef @.str.9, ptr noundef @rb_fiddle_handle_initialize, i32 noundef -1)
+  %9 = inttoptr i64 -1 to ptr
+  %10 = call i64 @predefined_fiddle_handle(ptr noundef %9)
+  call void @rb_define_const(i64 noundef %8, ptr noundef @.str.4, i64 noundef %10)
+  %11 = load i64, ptr @rb_cHandle, align 8
+  %12 = call i64 @predefined_fiddle_handle(ptr noundef null)
+  call void @rb_define_const(i64 noundef %11, ptr noundef @.str.5, i64 noundef %12)
+  %13 = load i64, ptr @rb_cHandle, align 8
+  %14 = call i64 @rb_int2num_inline(i32 noundef 256)
+  call void @rb_define_const(i64 noundef %13, ptr noundef @.str.6, i64 noundef %14)
+  %15 = load i64, ptr @rb_cHandle, align 8
+  %16 = call i64 @rb_int2num_inline(i32 noundef 1)
+  call void @rb_define_const(i64 noundef %15, ptr noundef @.str.7, i64 noundef %16)
+  %17 = load i64, ptr @rb_cHandle, align 8
+  %18 = call i64 @rb_int2num_inline(i32 noundef 2)
+  call void @rb_define_const(i64 noundef %17, ptr noundef @.str.8, i64 noundef %18)
   %19 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %19, ptr noundef @.str.10, ptr noundef @rb_fiddle_handle_to_i, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %19, ptr noundef @.str.9, ptr noundef @rb_fiddle_handle_initialize, i32 noundef -1)
   %20 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %20, ptr noundef @.str.11, ptr noundef @rb_fiddle_handle_to_ptr, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %20, ptr noundef @.str.10, ptr noundef @rb_fiddle_handle_to_i, i32 noundef 0)
   %21 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %21, ptr noundef @.str.12, ptr noundef @rb_fiddle_handle_close, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %21, ptr noundef @.str.11, ptr noundef @rb_fiddle_handle_to_ptr, i32 noundef 0)
   %22 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %22, ptr noundef @.str.1, ptr noundef @rb_fiddle_handle_sym, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %22, ptr noundef @.str.12, ptr noundef @rb_fiddle_handle_close, i32 noundef 0)
   %23 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %23, ptr noundef @.str.3, ptr noundef @rb_fiddle_handle_sym, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %23, ptr noundef @.str.1, ptr noundef @rb_fiddle_handle_sym, i32 noundef 1)
   %24 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %24, ptr noundef @.str.2, ptr noundef @rb_fiddle_handle_sym_defined, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %24, ptr noundef @.str.3, ptr noundef @rb_fiddle_handle_sym, i32 noundef 1)
   %25 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %25, ptr noundef @.str.13, ptr noundef @rb_fiddle_handle_file_name, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %25, ptr noundef @.str.2, ptr noundef @rb_fiddle_handle_sym_defined, i32 noundef 1)
   %26 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %26, ptr noundef @.str.14, ptr noundef @rb_fiddle_handle_disable_close, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %26, ptr noundef @.str.13, ptr noundef @rb_fiddle_handle_file_name, i32 noundef 0)
   %27 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %27, ptr noundef @.str.15, ptr noundef @rb_fiddle_handle_enable_close, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %27, ptr noundef @.str.14, ptr noundef @rb_fiddle_handle_disable_close, i32 noundef 0)
   %28 = load i64, ptr @rb_cHandle, align 8
-  call void @rb_define_method(i64 noundef %28, ptr noundef @.str.16, ptr noundef @rb_fiddle_handle_close_enabled_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %28, ptr noundef @.str.15, ptr noundef @rb_fiddle_handle_enable_close, i32 noundef 0)
+  %29 = load i64, ptr @rb_cHandle, align 8
+  call void @rb_define_method(i64 noundef %29, ptr noundef @.str.16, ptr noundef @rb_fiddle_handle_close_enabled_p, i32 noundef 0)
   ret void
 }
 
@@ -144,8 +145,9 @@ define internal i64 @rb_fiddle_handle_s_sym(i64 noundef %0, i64 noundef %1) #0 {
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load i64, ptr %4, align 8
-  %6 = call i64 @fiddle_handle_sym(ptr noundef inttoptr (i64 -1 to ptr), i64 noundef %5)
-  ret i64 %6
+  %6 = inttoptr i64 -1 to ptr
+  %7 = call i64 @fiddle_handle_sym(ptr noundef %6, i64 noundef %5)
+  ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -157,26 +159,27 @@ define internal i64 @rb_fiddle_handle_s_sym_defined(i64 noundef %0, i64 noundef 
   store i64 %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   %7 = load i64, ptr %5, align 8
-  %8 = call ptr @fiddle_handle_find_func(ptr noundef inttoptr (i64 -1 to ptr), i64 noundef %7)
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %15
+  %8 = inttoptr i64 -1 to ptr
+  %9 = call ptr @fiddle_handle_find_func(ptr noundef %8, i64 noundef %7)
+  store ptr %9, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %6, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = call i64 @rb_long2num_inline(i64 noundef %13)
-  store i64 %14, ptr %3, align 8
-  br label %16
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = call i64 @rb_long2num_inline(i64 noundef %14)
+  store i64 %15, ptr %3, align 8
+  br label %17
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   store i64 4, ptr %3, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %11
-  %17 = load i64, ptr %3, align 8
-  ret i64 %17
+17:                                               ; preds = %16, %12
+  %18 = load i64, ptr %3, align 8
+  ret i64 %18
 }
 
 declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) #1

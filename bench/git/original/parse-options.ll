@@ -3307,12 +3307,12 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %msg, ptr align 8 @__const.usage_msg_optf.msg, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %msg, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %buf = getelementptr inbounds %struct.strbuf, ptr %msg, i32 0, i32 2
   %1 = load ptr, ptr %buf, align 8
   %2 = load ptr, ptr %usagestr.addr, align 8
@@ -3324,13 +3324,7 @@ entry:
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @die_for_incompatible_opt4(i32 noundef %opt1, ptr noundef %opt1_name, i32 noundef %opt2, ptr noundef %opt2_name, i32 noundef %opt3, ptr noundef %opt3_name, i32 noundef %opt4, ptr noundef %opt4_name) #0 {
@@ -5069,8 +5063,9 @@ if.end8:                                          ; preds = %if.end, %if.then3
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %if.then
-  %10 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @optname.sb, i32 0, i32 2), align 8
-  ret ptr %10
+  %10 = getelementptr inbounds %struct.strbuf, ptr @optname.sb, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5914,6 +5909,12 @@ declare i32 @fputs(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @strpbrk(ptr noundef, ptr noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

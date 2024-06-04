@@ -4612,7 +4612,7 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #0 {
   %22 = and i64 %21, 1
   %23 = trunc i64 %22 to i32
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %33, label %25
+  br i1 %24, label %34, label %25
 
 25:                                               ; preds = %2
   %26 = load ptr, ptr %4, align 8
@@ -4622,11 +4622,12 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #0 {
   %30 = getelementptr inbounds %struct.sigpipe_ignore, ptr %29, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %30, i64 152, i1 false)
   %31 = getelementptr inbounds %struct.sigaction, ptr %5, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %31, align 8
-  %32 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #7
-  br label %33
+  %32 = inttoptr i64 1 to ptr
+  store ptr %32, ptr %31, align 8
+  %33 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #7
+  br label %34
 
-33:                                               ; preds = %25, %2
+34:                                               ; preds = %25, %2
   ret void
 }
 
@@ -7528,7 +7529,7 @@ define dso_local i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, ...) #0 
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %28)
+  call void @llvm.va_start.p0(ptr %28)
   %29 = load i32, ptr %5, align 4
   switch i32 %29, label %267 [
     i32 20001, label %30
@@ -7936,7 +7937,7 @@ define dso_local i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, ...) #0 
 
 268:                                              ; preds = %267, %262, %238, %237, %236, %235, %234, %229, %210, %195, %166, %147, %120, %101, %82, %63, %44
   %269 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %269)
+  call void @llvm.va_end.p0(ptr %269)
   %270 = load i32, ptr %6, align 4
   store i32 %270, ptr %3, align 4
   br label %271
@@ -7945,12 +7946,6 @@ define dso_local i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, ...) #0 
   %272 = load i32, ptr %3, align 4
   ret i32 %272
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -8518,14 +8513,14 @@ define internal i32 @multi_timeout(ptr noundef %0, ptr noundef %1) #0 {
   %16 = load ptr, ptr %5, align 8
   store i64 0, ptr %16, align 8
   store i32 0, ptr %3, align 4
-  br label %108
+  br label %109
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds %struct.Curl_multi, ptr %18, i32 0, i32 13
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %105
+  br i1 %21, label %22, label %106
 
 22:                                               ; preds = %17
   %23 = call { i64, i32 } @Curl_now()
@@ -8539,125 +8534,126 @@ define internal i32 @multi_timeout(ptr noundef %0, ptr noundef %1) #0 {
   %29 = getelementptr inbounds %struct.Curl_multi, ptr %28, i32 0, i32 13
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr @multi_timeout.tv_zero, align 8
-  %32 = load i32, ptr getelementptr inbounds ({ i64, i32 }, ptr @multi_timeout.tv_zero, i32 0, i32 1), align 8
-  %33 = call ptr @Curl_splay(i64 %31, i32 %32, ptr noundef %30)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.Curl_multi, ptr %34, i32 0, i32 13
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.Curl_multi, ptr %36, i32 0, i32 13
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.Curl_tree, ptr %38, i32 0, i32 4
-  %40 = getelementptr inbounds %struct.curltime, ptr %39, i32 0, i32 0
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp slt i64 %41, %43
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %22
-  br label %83
+  %32 = getelementptr inbounds { i64, i32 }, ptr @multi_timeout.tv_zero, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = call ptr @Curl_splay(i64 %31, i32 %33, ptr noundef %30)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.Curl_multi, ptr %35, i32 0, i32 13
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.Curl_multi, ptr %37, i32 0, i32 13
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.Curl_tree, ptr %39, i32 0, i32 4
+  %41 = getelementptr inbounds %struct.curltime, ptr %40, i32 0, i32 0
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp slt i64 %42, %44
+  br i1 %45, label %46, label %47
 
 46:                                               ; preds = %22
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.Curl_multi, ptr %47, i32 0, i32 13
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.Curl_tree, ptr %49, i32 0, i32 4
-  %51 = getelementptr inbounds %struct.curltime, ptr %50, i32 0, i32 0
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %54 = load i64, ptr %53, align 8
-  %55 = icmp sgt i64 %52, %54
-  br i1 %55, label %56, label %57
+  br label %84
 
-56:                                               ; preds = %46
-  br label %81
+47:                                               ; preds = %22
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.Curl_multi, ptr %48, i32 0, i32 13
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.Curl_tree, ptr %50, i32 0, i32 4
+  %52 = getelementptr inbounds %struct.curltime, ptr %51, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp sgt i64 %53, %55
+  br i1 %56, label %57, label %58
 
-57:                                               ; preds = %46
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.Curl_multi, ptr %58, i32 0, i32 13
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.Curl_tree, ptr %60, i32 0, i32 4
-  %62 = getelementptr inbounds %struct.curltime, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp slt i32 %63, %65
-  br i1 %66, label %67, label %68
+57:                                               ; preds = %47
+  br label %82
 
-67:                                               ; preds = %57
-  br label %79
+58:                                               ; preds = %47
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %struct.Curl_multi, ptr %59, i32 0, i32 13
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.Curl_tree, ptr %61, i32 0, i32 4
+  %63 = getelementptr inbounds %struct.curltime, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp slt i32 %64, %66
+  br i1 %67, label %68, label %69
 
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.Curl_multi, ptr %69, i32 0, i32 13
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.Curl_tree, ptr %71, i32 0, i32 4
-  %73 = getelementptr inbounds %struct.curltime, ptr %72, i32 0, i32 1
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp sgt i32 %74, %76
-  %78 = select i1 %77, i32 1, i32 0
-  br label %79
+68:                                               ; preds = %58
+  br label %80
 
-79:                                               ; preds = %68, %67
-  %80 = phi i32 [ -1, %67 ], [ %78, %68 ]
-  br label %81
+69:                                               ; preds = %58
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %struct.Curl_multi, ptr %70, i32 0, i32 13
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.Curl_tree, ptr %72, i32 0, i32 4
+  %74 = getelementptr inbounds %struct.curltime, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp sgt i32 %75, %77
+  %79 = select i1 %78, i32 1, i32 0
+  br label %80
 
-81:                                               ; preds = %79, %56
-  %82 = phi i32 [ 1, %56 ], [ %80, %79 ]
-  br label %83
+80:                                               ; preds = %69, %68
+  %81 = phi i32 [ -1, %68 ], [ %79, %69 ]
+  br label %82
 
-83:                                               ; preds = %81, %45
-  %84 = phi i32 [ -1, %45 ], [ %82, %81 ]
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %102
+82:                                               ; preds = %80, %57
+  %83 = phi i32 [ 1, %57 ], [ %81, %80 ]
+  br label %84
 
-86:                                               ; preds = %83
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.Curl_multi, ptr %87, i32 0, i32 13
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.Curl_tree, ptr %89, i32 0, i32 4
-  %91 = getelementptr inbounds { i64, i32 }, ptr %90, i32 0, i32 0
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds { i64, i32 }, ptr %90, i32 0, i32 1
-  %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
-  %98 = load i32, ptr %97, align 8
-  %99 = call i64 @Curl_timediff_ceil(i64 %92, i32 %94, i64 %96, i32 %98)
-  store i64 %99, ptr %7, align 8
-  %100 = load i64, ptr %7, align 8
-  %101 = load ptr, ptr %5, align 8
-  store i64 %100, ptr %101, align 8
-  br label %104
+84:                                               ; preds = %82, %46
+  %85 = phi i32 [ -1, %46 ], [ %83, %82 ]
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %103
 
-102:                                              ; preds = %83
-  %103 = load ptr, ptr %5, align 8
-  store i64 0, ptr %103, align 8
-  br label %104
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds %struct.Curl_multi, ptr %88, i32 0, i32 13
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.Curl_tree, ptr %90, i32 0, i32 4
+  %92 = getelementptr inbounds { i64, i32 }, ptr %91, i32 0, i32 0
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds { i64, i32 }, ptr %91, i32 0, i32 1
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
+  %99 = load i32, ptr %98, align 8
+  %100 = call i64 @Curl_timediff_ceil(i64 %93, i32 %95, i64 %97, i32 %99)
+  store i64 %100, ptr %7, align 8
+  %101 = load i64, ptr %7, align 8
+  %102 = load ptr, ptr %5, align 8
+  store i64 %101, ptr %102, align 8
+  br label %105
 
-104:                                              ; preds = %102, %86
-  br label %107
+103:                                              ; preds = %84
+  %104 = load ptr, ptr %5, align 8
+  store i64 0, ptr %104, align 8
+  br label %105
 
-105:                                              ; preds = %17
-  %106 = load ptr, ptr %5, align 8
-  store i64 -1, ptr %106, align 8
-  br label %107
-
-107:                                              ; preds = %105, %104
-  store i32 0, ptr %3, align 4
+105:                                              ; preds = %103, %87
   br label %108
 
-108:                                              ; preds = %107, %15
-  %109 = load i32, ptr %3, align 4
-  ret i32 %109
+106:                                              ; preds = %17
+  %107 = load ptr, ptr %5, align 8
+  store i64 -1, ptr %107, align 8
+  br label %108
+
+108:                                              ; preds = %106, %105
+  store i32 0, ptr %3, align 4
+  br label %109
+
+109:                                              ; preds = %108, %15
+  %110 = load i32, ptr %3, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @multi_deltimeout(ptr noundef %0, i32 noundef %1) #0 {
@@ -10698,13 +10694,19 @@ declare ptr @Curl_splay(i64, i32, ptr noundef) #1
 
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }
 

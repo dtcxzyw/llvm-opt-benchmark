@@ -143,32 +143,33 @@ entry:
   %4 = load ptr, ptr %vertexBase.addr, align 8
   %5 = load i32, ptr %vertexStride.addr, align 4
   call void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) %this1, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34btTriangleIndexVertexMaterialArray, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV34btTriangleIndexVertexMaterialArray, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %m_materials = getelementptr inbounds %class.btTriangleIndexVertexMaterialArray, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayI20btMaterialPropertiesEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %6 = load i32, ptr %numMaterials.addr, align 4
+  %7 = load i32, ptr %numMaterials.addr, align 4
   %m_numMaterials = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 0
-  store i32 %6, ptr %m_numMaterials, align 8
-  %7 = load ptr, ptr %materialBase.addr, align 8
+  store i32 %7, ptr %m_numMaterials, align 8
+  %8 = load ptr, ptr %materialBase.addr, align 8
   %m_materialBase = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 1
-  store ptr %7, ptr %m_materialBase, align 8
-  %8 = load i32, ptr %materialStride.addr, align 4
+  store ptr %8, ptr %m_materialBase, align 8
+  %9 = load i32, ptr %materialStride.addr, align 4
   %m_materialStride = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 2
-  store i32 %8, ptr %m_materialStride, align 8
+  store i32 %9, ptr %m_materialStride, align 8
   %m_materialType = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 3
   store i32 0, ptr %m_materialType, align 4
-  %9 = load i32, ptr %numTriangles.addr, align 4
+  %10 = load i32, ptr %numTriangles.addr, align 4
   %m_numTriangles = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 4
-  store i32 %9, ptr %m_numTriangles, align 8
-  %10 = load ptr, ptr %triangleMaterialsBase.addr, align 8
+  store i32 %10, ptr %m_numTriangles, align 8
+  %11 = load ptr, ptr %triangleMaterialsBase.addr, align 8
   %m_triangleMaterialsBase = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 5
-  store ptr %10, ptr %m_triangleMaterialsBase, align 8
-  %11 = load i32, ptr %materialIndexStride.addr, align 4
+  store ptr %11, ptr %m_triangleMaterialsBase, align 8
+  %12 = load i32, ptr %materialIndexStride.addr, align 4
   %m_triangleMaterialStride = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 6
-  store i32 %11, ptr %m_triangleMaterialStride, align 8
+  store i32 %12, ptr %m_triangleMaterialStride, align 8
   %m_triangleType = getelementptr inbounds %struct.btMaterialProperties, ptr %mat, i32 0, i32 7
   store i32 2, ptr %m_triangleType, align 4
   invoke void @_ZN34btTriangleIndexVertexMaterialArray21addMaterialPropertiesERK20btMaterialProperties14PHY_ScalarType(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(48) %mat, i32 noundef 2)
@@ -178,21 +179,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI20btMaterialPropertiesED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #7
   br label %ehcleanup
 
@@ -431,7 +432,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34btTriangleIndexVertexMaterialArray, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV34btTriangleIndexVertexMaterialArray, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_materials = getelementptr inbounds %class.btTriangleIndexVertexMaterialArray, ptr %this1, i32 0, i32 2
   call void @_ZN20btAlignedObjectArrayI20btMaterialPropertiesED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #7
   call void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this1) #7

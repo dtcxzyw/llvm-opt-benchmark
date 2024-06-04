@@ -85,13 +85,13 @@ define dso_local i32 @drm_atomic_helper_dirtyfb(ptr noundef readonly %0, ptr nou
   %10 = load ptr, ptr %0, align 8
   %11 = call ptr @drm_atomic_state_alloc(ptr noundef %10) #7
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %119, label %13
+  br i1 %12, label %121, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr %7, ptr %14, align 8
   %15 = icmp eq ptr %4, null
-  br i1 %15, label %60, label %16
+  br i1 %15, label %61, label %16
 
 16:                                               ; preds = %13
   %17 = and i32 %2, 1
@@ -102,7 +102,7 @@ define dso_local i32 @drm_atomic_helper_dirtyfb(ptr noundef readonly %0, ptr nou
   %22 = shl nuw nsw i64 %21, 4
   %23 = call noalias align 8 ptr @__kmalloc(i64 noundef %22, i32 noundef 3520) #8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %56, label %25
+  br i1 %24, label %57, label %25
 
 25:                                               ; preds = %16
   %26 = icmp eq i32 %20, 0
@@ -139,139 +139,141 @@ define dso_local i32 @drm_atomic_helper_dirtyfb(ptr noundef readonly %0, ptr nou
 49:                                               ; preds = %27, %25
   %50 = load ptr, ptr %0, align 8
   %51 = call ptr @drm_property_create_blob(ptr noundef %50, i64 noundef %22, ptr noundef nonnull %23) #7
-  %52 = icmp ugt ptr %51, inttoptr (i64 -4096 to ptr)
-  br i1 %52, label %53, label %56
+  %52 = inttoptr i64 -4096 to ptr
+  %53 = icmp ugt ptr %51, %52
+  br i1 %53, label %54, label %57
 
-53:                                               ; preds = %49
-  %54 = ptrtoint ptr %51 to i64
-  %55 = trunc i64 %54 to i32
-  br label %56
+54:                                               ; preds = %49
+  %55 = ptrtoint ptr %51 to i64
+  %56 = trunc i64 %55 to i32
+  br label %57
 
-56:                                               ; preds = %53, %49, %16
-  %57 = phi i32 [ %55, %53 ], [ -12, %16 ], [ 0, %49 ]
-  %58 = phi i32 [ 3, %53 ], [ 3, %16 ], [ 0, %49 ]
-  %59 = phi ptr [ null, %53 ], [ null, %16 ], [ %51, %49 ]
-  switch i32 %58, label %121 [
-    i32 0, label %60
-    i32 3, label %101
+57:                                               ; preds = %54, %49, %16
+  %58 = phi i32 [ %56, %54 ], [ -12, %16 ], [ 0, %49 ]
+  %59 = phi i32 [ 3, %54 ], [ 3, %16 ], [ 0, %49 ]
+  %60 = phi ptr [ null, %54 ], [ null, %16 ], [ %51, %49 ]
+  switch i32 %59, label %123 [
+    i32 0, label %61
+    i32 3, label %103
   ]
 
-60:                                               ; preds = %106, %56, %13
-  %61 = phi ptr [ %103, %106 ], [ %23, %56 ], [ null, %13 ]
-  %62 = phi ptr [ %104, %106 ], [ %59, %56 ], [ null, %13 ]
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 712
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 712
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %99, label %68
+61:                                               ; preds = %108, %57, %13
+  %62 = phi ptr [ %105, %108 ], [ %23, %57 ], [ null, %13 ]
+  %63 = phi ptr [ %106, %108 ], [ %60, %57 ], [ null, %13 ]
+  %64 = load ptr, ptr %0, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 712
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %64, i64 712
+  %68 = icmp eq ptr %66, %67
+  br i1 %68, label %101, label %69
 
-68:                                               ; preds = %94, %60
-  %69 = phi ptr [ %95, %94 ], [ %65, %60 ]
-  %70 = getelementptr i8, ptr %69, i64 -8
-  %71 = getelementptr i8, ptr %69, i64 24
-  %72 = load ptr, ptr %14, align 8
-  %73 = call i32 @drm_modeset_lock(ptr noundef %71, ptr noundef %72) #7
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %91
+69:                                               ; preds = %96, %61
+  %70 = phi ptr [ %97, %96 ], [ %66, %61 ]
+  %71 = getelementptr i8, ptr %70, i64 -8
+  %72 = getelementptr i8, ptr %70, i64 24
+  %73 = load ptr, ptr %14, align 8
+  %74 = call i32 @drm_modeset_lock(ptr noundef %72, ptr noundef %73) #7
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %93
 
-75:                                               ; preds = %68
-  %76 = getelementptr i8, ptr %69, i64 1232
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, %0
-  br i1 %80, label %82, label %81
+76:                                               ; preds = %69
+  %77 = getelementptr i8, ptr %70, i64 1232
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, %0
+  br i1 %81, label %83, label %82
 
-81:                                               ; preds = %75
-  call void @drm_modeset_unlock(ptr noundef %71) #7
-  br label %91
+82:                                               ; preds = %76
+  call void @drm_modeset_unlock(ptr noundef %72) #7
+  br label %93
 
-82:                                               ; preds = %75
-  %83 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %11, ptr noundef %70) #7
-  %84 = icmp ugt ptr %83, inttoptr (i64 -4096 to ptr)
-  br i1 %84, label %85, label %88
+83:                                               ; preds = %76
+  %84 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %11, ptr noundef %71) #7
+  %85 = inttoptr i64 -4096 to ptr
+  %86 = icmp ugt ptr %84, %85
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %82
-  %86 = ptrtoint ptr %83 to i64
-  %87 = trunc i64 %86 to i32
-  br label %91
+87:                                               ; preds = %83
+  %88 = ptrtoint ptr %84 to i64
+  %89 = trunc i64 %88 to i32
+  br label %93
 
-88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %83, i64 96
-  %90 = call zeroext i1 @drm_property_replace_blob(ptr noundef %89, ptr noundef %62) #7
-  br label %91
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds i8, ptr %84, i64 96
+  %92 = call zeroext i1 @drm_property_replace_blob(ptr noundef %91, ptr noundef %63) #7
+  br label %93
 
-91:                                               ; preds = %88, %85, %81, %68
-  %92 = phi i32 [ 0, %81 ], [ %87, %85 ], [ 0, %88 ], [ %73, %68 ]
-  %93 = phi i32 [ 7, %81 ], [ 3, %85 ], [ 0, %88 ], [ 3, %68 ]
-  switch i32 %93, label %121 [
-    i32 0, label %94
-    i32 7, label %94
-    i32 3, label %101
+93:                                               ; preds = %90, %87, %82, %69
+  %94 = phi i32 [ 0, %82 ], [ %89, %87 ], [ 0, %90 ], [ %74, %69 ]
+  %95 = phi i32 [ 7, %82 ], [ 3, %87 ], [ 0, %90 ], [ 3, %69 ]
+  switch i32 %95, label %123 [
+    i32 0, label %96
+    i32 7, label %96
+    i32 3, label %103
   ]
 
-94:                                               ; preds = %91, %91
-  %95 = load ptr, ptr %69, align 8
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 712
-  %98 = icmp eq ptr %95, %97
-  br i1 %98, label %99, label %68, !llvm.loop !13
+96:                                               ; preds = %93, %93
+  %97 = load ptr, ptr %70, align 8
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 712
+  %100 = icmp eq ptr %97, %99
+  br i1 %100, label %101, label %69, !llvm.loop !13
 
-99:                                               ; preds = %94, %60
-  %100 = call i32 @drm_atomic_commit(ptr noundef nonnull %11) #7
-  br label %101
+101:                                              ; preds = %96, %61
+  %102 = call i32 @drm_atomic_commit(ptr noundef nonnull %11) #7
+  br label %103
 
-101:                                              ; preds = %99, %91, %56
-  %102 = phi i32 [ %57, %56 ], [ %100, %99 ], [ %92, %91 ]
-  %103 = phi ptr [ %23, %56 ], [ %61, %99 ], [ %61, %91 ]
-  %104 = phi ptr [ %59, %56 ], [ %62, %99 ], [ %62, %91 ]
-  %105 = icmp eq i32 %102, -35
-  br i1 %105, label %106, label %109
+103:                                              ; preds = %101, %93, %57
+  %104 = phi i32 [ %58, %57 ], [ %102, %101 ], [ %94, %93 ]
+  %105 = phi ptr [ %23, %57 ], [ %62, %101 ], [ %62, %93 ]
+  %106 = phi ptr [ %60, %57 ], [ %63, %101 ], [ %63, %93 ]
+  %107 = icmp eq i32 %104, -35
+  br i1 %107, label %108, label %111
 
-106:                                              ; preds = %101
+108:                                              ; preds = %103
   call void @drm_atomic_state_clear(ptr noundef nonnull %11) #7
-  %107 = call i32 @drm_modeset_backoff(ptr noundef nonnull %7) #7
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %60, label %109
+  %109 = call i32 @drm_modeset_backoff(ptr noundef nonnull %7) #7
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %61, label %111
 
-109:                                              ; preds = %106, %101
-  %110 = phi i32 [ %107, %106 ], [ %102, %101 ]
-  call void @drm_property_blob_put(ptr noundef %104) #7
-  call void @kfree(ptr noundef %103) #7
-  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -1, ptr nonnull elementtype(i32) %11) #7, !srcloc !14
-  %112 = icmp eq i32 %111, 1
-  br i1 %112, label %113, label %114
+111:                                              ; preds = %108, %103
+  %112 = phi i32 [ %109, %108 ], [ %104, %103 ]
+  call void @drm_property_blob_put(ptr noundef %106) #7
+  call void @kfree(ptr noundef %105) #7
+  %113 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -1, ptr nonnull elementtype(i32) %11) #7, !srcloc !14
+  %114 = icmp eq i32 %113, 1
+  br i1 %114, label %115, label %116
 
-113:                                              ; preds = %109
+115:                                              ; preds = %111
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
-  br label %117
-
-114:                                              ; preds = %109
-  %115 = icmp sgt i32 %111, 0
-  br i1 %115, label %117, label %116, !prof !16
-
-116:                                              ; preds = %114
-  call void @refcount_warn_saturate(ptr noundef nonnull %11, i32 noundef 3) #7
-  br label %117
-
-117:                                              ; preds = %116, %114, %113
-  br i1 %112, label %118, label %119
-
-118:                                              ; preds = %117
-  call void @__drm_atomic_state_free(ptr noundef nonnull %11) #7
   br label %119
 
-119:                                              ; preds = %118, %117, %6
-  %120 = phi i32 [ -12, %6 ], [ %110, %117 ], [ %110, %118 ]
-  call void @drm_modeset_drop_locks(ptr noundef nonnull %7) #7
-  call void @drm_modeset_acquire_fini(ptr noundef nonnull %7) #7
+116:                                              ; preds = %111
+  %117 = icmp sgt i32 %113, 0
+  br i1 %117, label %119, label %118, !prof !16
+
+118:                                              ; preds = %116
+  call void @refcount_warn_saturate(ptr noundef nonnull %11, i32 noundef 3) #7
+  br label %119
+
+119:                                              ; preds = %118, %116, %115
+  br i1 %114, label %120, label %121
+
+120:                                              ; preds = %119
+  call void @__drm_atomic_state_free(ptr noundef nonnull %11) #7
   br label %121
 
-121:                                              ; preds = %119, %91, %56
-  %122 = phi i32 [ undef, %56 ], [ %120, %119 ], [ undef, %91 ]
+121:                                              ; preds = %120, %119, %6
+  %122 = phi i32 [ -12, %6 ], [ %112, %119 ], [ %112, %120 ]
+  call void @drm_modeset_drop_locks(ptr noundef nonnull %7) #7
+  call void @drm_modeset_acquire_fini(ptr noundef nonnull %7) #7
+  br label %123
+
+123:                                              ; preds = %121, %93, %57
+  %124 = phi i32 [ undef, %57 ], [ %122, %121 ], [ undef, %93 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  ret i32 %122
+  ret i32 %124
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

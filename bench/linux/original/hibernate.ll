@@ -32,49 +32,57 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @pfn_is_nosave(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr @phys_base, align 8
-  %3 = add i64 %2, sub (i64 ptrtoint (ptr @__nosave_begin to i64), i64 -2147483648)
-  %4 = lshr i64 %3, 12
-  %5 = add i64 %2, add (i64 sub (i64 ptrtoint (ptr @__nosave_end to i64), i64 -2147483648), i64 4095)
+  %3 = ptrtoint ptr @__nosave_begin to i64
+  %4 = sub i64 %3, -2147483648
+  %5 = add i64 %2, %4
   %6 = lshr i64 %5, 12
-  %7 = icmp ule i64 %4, %0
-  %8 = icmp ugt i64 %6, %0
-  %9 = select i1 %7, i1 %8, i1 false
-  %10 = zext i1 %9 to i32
-  ret i32 %10
+  %7 = ptrtoint ptr @__nosave_end to i64
+  %8 = sub i64 %7, -2147483648
+  %9 = add i64 %8, 4095
+  %10 = add i64 %2, %9
+  %11 = lshr i64 %10, 12
+  %12 = icmp ule i64 %6, %0
+  %13 = icmp ugt i64 %11, %0
+  %14 = select i1 %12, i1 %13, i1 false
+  %15 = zext i1 %14 to i32
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite)
 define dso_local noundef i32 @arch_hibernation_header_save(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ult i32 %1, 40
-  br i1 %3, label %21, label %4
+  br i1 %3, label %24, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2541551405711093506, ptr %5, align 8
-  store i64 ptrtoint (ptr @restore_registers to i64), ptr %0, align 8
-  %6 = load i64, ptr @phys_base, align 8
-  %7 = add i64 %6, sub (i64 ptrtoint (ptr @restore_registers to i64), i64 -2147483648)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8
-  %9 = load i64, ptr @restore_cr3, align 8
-  %10 = and i64 %9, -4096
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = ptrtoint ptr @restore_registers to i64
+  store i64 %6, ptr %0, align 8
+  %7 = load i64, ptr @phys_base, align 8
+  %8 = ptrtoint ptr @restore_registers to i64
+  %9 = sub i64 %8, -2147483648
+  %10 = add i64 %7, %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = load ptr, ptr @e820_table_firmware, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = mul i32 %13, 20
-  %15 = add i32 %14, 4
-  %16 = sext i32 %15 to i64
-  %17 = tail call i32 @crc32_le(i32 noundef -1, ptr noundef %12, i64 noundef %16) #7
-  %18 = xor i32 %17, -1
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %19, ptr %20, align 8
-  br label %21
+  %12 = load i64, ptr @restore_cr3, align 8
+  %13 = and i64 %12, -4096
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %13, ptr %14, align 8
+  %15 = load ptr, ptr @e820_table_firmware, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = mul i32 %16, 20
+  %18 = add i32 %17, 4
+  %19 = sext i32 %18 to i64
+  %20 = tail call i32 @crc32_le(i32 noundef -1, ptr noundef %15, i64 noundef %19) #7
+  %21 = xor i32 %20, -1
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %22, ptr %23, align 8
+  br label %24
 
-21:                                               ; preds = %4, %2
-  %22 = phi i32 [ 0, %4 ], [ -75, %2 ]
-  ret i32 %22
+24:                                               ; preds = %4, %2
+  %25 = phi i32 [ 0, %4 ], [ -75, %2 ]
+  ret i32 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -128,111 +136,113 @@ define dso_local noundef i32 @relocate_restore_code() local_unnamed_addr #2 alig
   %4 = tail call i64 @get_safe_page(i32 noundef 2080) #9
   store i64 %4, ptr @relocated_restore_code, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %76, label %6
+  br i1 %5, label %78, label %6
 
 6:                                                ; preds = %0
   %7 = inttoptr i64 %4 to ptr
   %8 = tail call ptr @__memcpy(ptr noundef nonnull %7, ptr noundef nonnull @core_restore_code, i64 noundef 4096) #9
-  %9 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #9, !srcloc !5
-  %10 = and i64 %9, 4503599627366400
-  %11 = load i64, ptr @page_offset_base, align 8
-  %12 = add i64 %10, %11
-  %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr @relocated_restore_code, align 8
-  %15 = load i32, ptr @pgdir_shift, align 4
-  %16 = zext nneg i32 %15 to i64
-  %17 = lshr i64 %14, %16
-  %18 = and i64 %17, 511
-  %19 = getelementptr %struct.pgd_t, ptr %13, i64 %18
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #9
-          to label %20 [label %20, label %32], !srcloc !6
+  %9 = inttoptr i64 4096 to ptr
+  %10 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9) #9, !srcloc !5
+  %11 = and i64 %10, 4503599627366400
+  %12 = load i64, ptr @page_offset_base, align 8
+  %13 = add i64 %11, %12
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load i64, ptr @relocated_restore_code, align 8
+  %16 = load i32, ptr @pgdir_shift, align 4
+  %17 = zext nneg i32 %16 to i64
+  %18 = lshr i64 %15, %17
+  %19 = and i64 %18, 511
+  %20 = getelementptr %struct.pgd_t, ptr %14, i64 %19
+  %21 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %21) #9
+          to label %22 [label %22, label %34], !srcloc !6
 
-20:                                               ; preds = %6, %6
-  %21 = load i64, ptr %19, align 8
-  %22 = and i64 %21, 4503599627366400
-  %23 = load i64, ptr @page_offset_base, align 8
-  %24 = add i64 %23, %22
-  %25 = inttoptr i64 %24 to ptr
-  %26 = lshr i64 %14, 39
-  %27 = load i32, ptr @ptrs_per_p4d, align 4
-  %28 = add i32 %27, -1
-  %29 = zext i32 %28 to i64
-  %30 = and i64 %26, %29
-  %31 = getelementptr %struct.p4d_t, ptr %25, i64 %30
-  br label %32
+22:                                               ; preds = %6, %6
+  %23 = load i64, ptr %20, align 8
+  %24 = and i64 %23, 4503599627366400
+  %25 = load i64, ptr @page_offset_base, align 8
+  %26 = add i64 %25, %24
+  %27 = inttoptr i64 %26 to ptr
+  %28 = lshr i64 %15, 39
+  %29 = load i32, ptr @ptrs_per_p4d, align 4
+  %30 = add i32 %29, -1
+  %31 = zext i32 %30 to i64
+  %32 = and i64 %28, %31
+  %33 = getelementptr %struct.p4d_t, ptr %27, i64 %32
+  br label %34
 
-32:                                               ; preds = %20, %6
-  %33 = phi ptr [ %31, %20 ], [ %19, %6 ]
-  %34 = load i64, ptr @relocated_restore_code, align 8
-  %35 = load i64, ptr %33, align 8
-  %36 = and i64 %35, 4503599627366400
-  %37 = load i64, ptr @page_offset_base, align 8
-  %38 = add i64 %37, %36
-  %39 = inttoptr i64 %38 to ptr
-  %40 = lshr i64 %34, 30
-  %41 = and i64 %40, 511
-  %42 = getelementptr %struct.pud_t, ptr %39, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, 129
-  %45 = icmp eq i64 %44, 129
-  br i1 %45, label %46, label %49
+34:                                               ; preds = %22, %6
+  %35 = phi ptr [ %33, %22 ], [ %20, %6 ]
+  %36 = load i64, ptr @relocated_restore_code, align 8
+  %37 = load i64, ptr %35, align 8
+  %38 = and i64 %37, 4503599627366400
+  %39 = load i64, ptr @page_offset_base, align 8
+  %40 = add i64 %39, %38
+  %41 = inttoptr i64 %40 to ptr
+  %42 = lshr i64 %36, 30
+  %43 = and i64 %42, 511
+  %44 = getelementptr %struct.pud_t, ptr %41, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = and i64 %45, 129
+  %47 = icmp eq i64 %46, 129
+  br i1 %47, label %48, label %51
 
-46:                                               ; preds = %32
-  %47 = and i64 %43, 9223372036854775807
+48:                                               ; preds = %34
+  %49 = and i64 %45, 9223372036854775807
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %47, ptr %3, align 8
-  %48 = load volatile i64, ptr %3, align 8
-  store volatile i64 %48, ptr %42, align 8
+  store i64 %49, ptr %3, align 8
+  %50 = load volatile i64, ptr %3, align 8
+  store volatile i64 %50, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %75
+  br label %77
 
-49:                                               ; preds = %32
-  %50 = and i64 %43, 128
-  %51 = icmp eq i64 %50, 0
-  %52 = select i1 %51, i64 4503599627366400, i64 4503598553628672
-  %53 = and i64 %52, %43
-  %54 = add i64 %53, %37
-  %55 = inttoptr i64 %54 to ptr
-  %56 = lshr i64 %34, 21
-  %57 = and i64 %56, 511
-  %58 = getelementptr %struct.pmd_t, ptr %55, i64 %57
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, 128
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %65, label %62
+51:                                               ; preds = %34
+  %52 = and i64 %45, 128
+  %53 = icmp eq i64 %52, 0
+  %54 = select i1 %53, i64 4503599627366400, i64 4503598553628672
+  %55 = and i64 %54, %45
+  %56 = add i64 %55, %39
+  %57 = inttoptr i64 %56 to ptr
+  %58 = lshr i64 %36, 21
+  %59 = and i64 %58, 511
+  %60 = getelementptr %struct.pmd_t, ptr %57, i64 %59
+  %61 = load i64, ptr %60, align 8
+  %62 = and i64 %61, 128
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %67, label %64
 
-62:                                               ; preds = %49
-  %63 = and i64 %59, 9223372036854775807
+64:                                               ; preds = %51
+  %65 = and i64 %61, 9223372036854775807
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i64 %63, ptr %2, align 8
-  %64 = load volatile i64, ptr %2, align 8
-  store volatile i64 %64, ptr %58, align 8
+  store i64 %65, ptr %2, align 8
+  %66 = load volatile i64, ptr %2, align 8
+  store volatile i64 %66, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %75
+  br label %77
 
-65:                                               ; preds = %49
-  %66 = and i64 %59, 4503599627366400
-  %67 = add i64 %66, %37
-  %68 = inttoptr i64 %67 to ptr
-  %69 = lshr i64 %34, 12
-  %70 = and i64 %69, 511
-  %71 = getelementptr %struct.pte_t, ptr %68, i64 %70
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 9223372036854775807
+67:                                               ; preds = %51
+  %68 = and i64 %61, 4503599627366400
+  %69 = add i64 %68, %39
+  %70 = inttoptr i64 %69 to ptr
+  %71 = lshr i64 %36, 12
+  %72 = and i64 %71, 511
+  %73 = getelementptr %struct.pte_t, ptr %70, i64 %72
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, 9223372036854775807
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %73, ptr %1, align 8
-  %74 = load volatile i64, ptr %1, align 8
-  store volatile i64 %74, ptr %71, align 8
+  store i64 %75, ptr %1, align 8
+  %76 = load volatile i64, ptr %1, align 8
+  store volatile i64 %76, ptr %73, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %75
+  br label %77
 
-75:                                               ; preds = %65, %62, %46
+77:                                               ; preds = %67, %64, %48
   tail call void @__flush_tlb_all() #9
-  br label %76
+  br label %78
 
-76:                                               ; preds = %75, %0
-  %77 = phi i32 [ 0, %75 ], [ -12, %0 ]
-  ret i32 %77
+78:                                               ; preds = %77, %0
+  %79 = phi i32 [ 0, %77 ], [ -12, %0 ]
+  ret i32 %79
 }
 
 ; Function Attrs: null_pointer_is_valid

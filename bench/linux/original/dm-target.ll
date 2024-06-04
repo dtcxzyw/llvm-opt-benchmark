@@ -255,8 +255,10 @@ define dso_local void @dm_unregister_target(ptr nocapture noundef %0) #0 align 1
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
+  %24 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %24, ptr %19, align 8
+  %25 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %25, ptr %20, align 8
   tail call void @up_write(ptr noundef nonnull @_lock) #10
   ret void
 }
@@ -287,73 +289,74 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   %6 = icmp eq i32 %1, 2
-  br i1 %6, label %7, label %35
+  br i1 %6, label %7, label %36
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store i64 0, ptr %4, align 8, !annotation !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   store i8 0, ptr %5, align 1, !annotation !12
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %9 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 16) #12
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %13
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 16) #12
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr @.str.5, ptr %12, align 8
-  br label %32
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr @.str.5, ptr %13, align 8
+  br label %33
 
-13:                                               ; preds = %7
-  %14 = getelementptr i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %15, ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %28
+14:                                               ; preds = %7
+  %15 = getelementptr i8, ptr %2, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %29
 
-18:                                               ; preds = %13
-  %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %19, ptr %20, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = call i32 @dm_table_get_mode(ptr noundef %22) #10
-  %24 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %21, i32 noundef %23, ptr noundef nonnull %9) #10
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %28
+19:                                               ; preds = %14
+  %20 = load i64, ptr %4, align 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %20, ptr %21, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = call i32 @dm_table_get_mode(ptr noundef %23) #10
+  %25 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %22, i32 noundef %24, ptr noundef nonnull %10) #10
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %9, ptr %27, align 8
-  br label %32
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %10, ptr %28, align 8
+  br label %33
 
-28:                                               ; preds = %18, %13
-  %29 = phi ptr [ @.str.7, %13 ], [ @.str.8, %18 ]
-  %30 = phi i32 [ -22, %13 ], [ %24, %18 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %29, ptr %31, align 8
-  call void @kfree(ptr noundef nonnull %9) #10
-  br label %32
+29:                                               ; preds = %19, %14
+  %30 = phi ptr [ @.str.7, %14 ], [ @.str.8, %19 ]
+  %31 = phi i32 [ -22, %14 ], [ %25, %19 ]
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %30, ptr %32, align 8
+  call void @kfree(ptr noundef nonnull %10) #10
+  br label %33
 
-32:                                               ; preds = %28, %26, %11
-  %33 = phi i32 [ %30, %28 ], [ 0, %26 ], [ -12, %11 ]
+33:                                               ; preds = %29, %27, %12
+  %34 = phi i32 [ %31, %29 ], [ 0, %27 ], [ -12, %12 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %40
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %32, %3
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
-  %38 = load i16, ptr %37, align 8
-  %39 = or i16 %38, 2
-  store i16 %39, ptr %37, align 8
-  br label %40
+36:                                               ; preds = %33, %3
+  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 1, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = load i16, ptr %38, align 8
+  %40 = or i16 %39, 2
+  store i16 %40, ptr %38, align 8
+  br label %41
 
-40:                                               ; preds = %35, %32
-  %41 = phi i32 [ %33, %32 ], [ 0, %35 ]
-  ret i32 %41
+41:                                               ; preds = %36, %33
+  %42 = phi i32 [ %34, %33 ], [ 0, %36 ]
+  ret i32 %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

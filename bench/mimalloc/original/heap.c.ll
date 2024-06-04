@@ -565,12 +565,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %pages_free_direct, i8 0, i64 1032, i1 false)
   %1 = load ptr, ptr %heap.addr, align 8
   %pages = getelementptr inbounds %struct.mi_heap_s, ptr %1, i32 0, i32 2
-  call void @_mi_memcpy_aligned(ptr noundef %pages, ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2), i64 noundef 1800) #6
-  %2 = load ptr, ptr %heap.addr, align 8
-  %thread_delayed_free = getelementptr inbounds %struct.mi_heap_s, ptr %2, i32 0, i32 3
-  store atomic i64 0, ptr %thread_delayed_free seq_cst, align 8
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2
+  call void @_mi_memcpy_aligned(ptr noundef %pages, ptr noundef %2, i64 noundef 1800) #6
   %3 = load ptr, ptr %heap.addr, align 8
-  %page_count = getelementptr inbounds %struct.mi_heap_s, ptr %3, i32 0, i32 9
+  %thread_delayed_free = getelementptr inbounds %struct.mi_heap_s, ptr %3, i32 0, i32 3
+  store atomic i64 0, ptr %thread_delayed_free seq_cst, align 8
+  %4 = load ptr, ptr %heap.addr, align 8
+  %page_count = getelementptr inbounds %struct.mi_heap_s, ptr %4, i32 0, i32 9
   store i64 0, ptr %page_count, align 8
   ret void
 }
@@ -1532,8 +1533,9 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %1 = ptrtoint ptr %0 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %xor = xor i64 %1, %2
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %3 = load i64, ptr %2, align 8
+  %xor = xor i64 %1, %3
   ret i64 %xor
 }
 

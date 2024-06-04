@@ -26,9 +26,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 2, ptr @console_in_gf, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.GuestFD, ptr @console_in_gf, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.GuestFD, ptr @console_in_gf, i32 0, i32 1
+  store i32 0, ptr %0, align 8
   store i32 2, ptr @console_out_gf, align 8
-  store i32 2, ptr getelementptr inbounds (%struct.GuestFD, ptr @console_out_gf, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.GuestFD, ptr @console_out_gf, i32 0, i32 1
+  store i32 2, ptr %1, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry

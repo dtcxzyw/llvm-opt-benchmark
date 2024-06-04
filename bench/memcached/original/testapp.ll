@@ -527,25 +527,26 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %action, i8 0, i64 152, i1 false)
   %1 = getelementptr inbounds %struct.sigaction, ptr %action, i32 0, i32 0
   %2 = getelementptr inbounds %union.anon, ptr %1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
+  %3 = inttoptr i64 1 to ptr
+  store ptr %3, ptr %2, align 8
   %sa_mask = getelementptr inbounds %struct.sigaction, ptr %action, i32 0, i32 1
   %call1 = call i32 @sigemptyset(ptr noundef %sa_mask) #11
   %call2 = call i32 @sigaction(i32 noundef 6, ptr noundef %action, ptr noundef %old_action) #11
-  %3 = load ptr, ptr %cache, align 8
-  %call3 = call ptr @cache_alloc(ptr noundef %3)
+  %4 = load ptr, ptr %cache, align 8
+  %call3 = call ptr @cache_alloc(ptr noundef %4)
   store ptr %call3, ptr %p, align 8
-  %4 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 -1
-  %5 = load i8, ptr %add.ptr, align 1
-  store i8 %5, ptr %old, align 1
-  %6 = load ptr, ptr %p, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -1
+  %5 = load ptr, ptr %p, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 -1
+  %6 = load i8, ptr %add.ptr, align 1
+  store i8 %6, ptr %old, align 1
+  %7 = load ptr, ptr %p, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -1
   store i8 0, ptr %add.ptr4, align 1
-  %7 = load ptr, ptr %cache, align 8
-  %8 = load ptr, ptr %p, align 8
-  call void @cache_free(ptr noundef %7, ptr noundef %8)
-  %9 = load i32, ptr @cache_error, align 4
-  %cmp5 = icmp eq i32 %9, -1
+  %8 = load ptr, ptr %cache, align 8
+  %9 = load ptr, ptr %p, align 8
+  call void @cache_free(ptr noundef %8, ptr noundef %9)
+  %10 = load i32, ptr @cache_error, align 4
+  %cmp5 = icmp eq i32 %10, -1
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
@@ -556,18 +557,18 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.then6
-  %10 = load i8, ptr %old, align 1
-  %11 = load ptr, ptr %p, align 8
-  %add.ptr8 = getelementptr inbounds i8, ptr %11, i64 -1
-  store i8 %10, ptr %add.ptr8, align 1
+  %11 = load i8, ptr %old, align 1
   %12 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 4
+  %add.ptr8 = getelementptr inbounds i8, ptr %12, i64 -1
+  store i8 %11, ptr %add.ptr8, align 1
+  %13 = load ptr, ptr %p, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %13, i64 4
   store i8 0, ptr %arrayidx, align 1
-  %13 = load ptr, ptr %cache, align 8
-  %14 = load ptr, ptr %p, align 8
-  call void @cache_free(ptr noundef %13, ptr noundef %14)
-  %15 = load i32, ptr @cache_error, align 4
-  %cmp9 = icmp eq i32 %15, 1
+  %14 = load ptr, ptr %cache, align 8
+  %15 = load ptr, ptr %p, align 8
+  call void @cache_free(ptr noundef %14, ptr noundef %15)
+  %16 = load i32, ptr @cache_error, align 4
+  %cmp9 = icmp eq i32 %16, 1
   br i1 %cmp9, label %if.then10, label %if.else11
 
 if.then10:                                        ; preds = %if.end7
@@ -579,14 +580,14 @@ if.else11:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.then10
   %call13 = call i32 @sigaction(i32 noundef 6, ptr noundef %old_action, ptr noundef null) #11
-  %16 = load ptr, ptr %cache, align 8
-  call void @cache_destroy(ptr noundef %16)
+  %17 = load ptr, ptr %cache, align 8
+  call void @cache_destroy(ptr noundef %17)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %18 = load i32, ptr %retval, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

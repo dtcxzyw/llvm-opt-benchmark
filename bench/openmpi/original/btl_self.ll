@@ -57,12 +57,12 @@ define internal i32 @mca_btl_self_add_procs(ptr noundef %0, i64 noundef %1, ptr 
   store i32 0, ptr %11, align 4
   br label %12
 
-12:                                               ; preds = %40, %5
+12:                                               ; preds = %41, %5
   %13 = load i32, ptr %11, align 4
   %14 = load i64, ptr %7, align 8
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %13, %15
-  br i1 %16, label %17, label %43
+  br i1 %16, label %17, label %44
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @opal_compare_proc, align 8
@@ -78,7 +78,7 @@ define internal i32 @mca_btl_self_add_procs(ptr noundef %0, i64 noundef %1, ptr 
   %28 = load i64, ptr %26, align 8
   %29 = call i32 %18(i64 %27, i64 %28)
   %30 = icmp eq i32 0, %29
-  br i1 %30, label %31, label %39
+  br i1 %30, label %31, label %40
 
 31:                                               ; preds = %17
   %32 = load ptr, ptr %10, align 8
@@ -88,19 +88,20 @@ define internal i32 @mca_btl_self_add_procs(ptr noundef %0, i64 noundef %1, ptr 
   %36 = load i32, ptr %11, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds ptr, ptr %35, i64 %37
-  store ptr inttoptr (i64 1 to ptr), ptr %38, align 8
-  br label %43
+  %39 = inttoptr i64 1 to ptr
+  store ptr %39, ptr %38, align 8
+  br label %44
 
-39:                                               ; preds = %17
-  br label %40
+40:                                               ; preds = %17
+  br label %41
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr %11, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %11, align 4
+41:                                               ; preds = %40
+  %42 = load i32, ptr %11, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %11, align 4
   br label %12, !llvm.loop !4
 
-43:                                               ; preds = %31, %12
+44:                                               ; preds = %31, %12
   ret i32 0
 }
 
@@ -141,81 +142,85 @@ define internal ptr @mca_btl_self_alloc(ptr noundef %0, ptr noundef %1, i8 nound
   store ptr null, ptr %12, align 8
   %13 = load i64, ptr %10, align 8
   %14 = icmp ule i64 %13, 128
-  br i1 %14, label %15, label %17
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %5
-  %16 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6))
-  store ptr %16, ptr %12, align 8
-  br label %33
+  %16 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  %17 = call ptr @opal_free_list_get(ptr noundef %16)
+  store ptr %17, ptr %12, align 8
+  br label %37
 
-17:                                               ; preds = %5
-  %18 = load i64, ptr %10, align 8
-  %19 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1), align 8
-  %20 = icmp ule i64 %18, %19
-  br i1 %20, label %21, label %23
+18:                                               ; preds = %5
+  %19 = load i64, ptr %10, align 8
+  %20 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp ule i64 %19, %21
+  br i1 %22, label %23, label %26
 
-21:                                               ; preds = %17
-  %22 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4))
-  store ptr %22, ptr %12, align 8
-  br label %32
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  %25 = call ptr @opal_free_list_get(ptr noundef %24)
+  store ptr %25, ptr %12, align 8
+  br label %36
 
-23:                                               ; preds = %17
-  %24 = load i64, ptr %10, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %25, i32 0, i32 3
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp ule i64 %24, %27
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %18
+  %27 = load i64, ptr %10, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %28, i32 0, i32 3
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp ule i64 %27, %30
+  br i1 %31, label %32, label %35
 
-29:                                               ; preds = %23
-  %30 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5))
-  store ptr %30, ptr %12, align 8
-  br label %31
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  %34 = call ptr @opal_free_list_get(ptr noundef %33)
+  store ptr %34, ptr %12, align 8
+  br label %35
 
-31:                                               ; preds = %29, %23
-  br label %32
+35:                                               ; preds = %32, %26
+  br label %36
 
-32:                                               ; preds = %31, %21
-  br label %33
+36:                                               ; preds = %35, %23
+  br label %37
 
-33:                                               ; preds = %32, %15
-  %34 = load ptr, ptr %12, align 8
-  %35 = icmp eq ptr null, %34
-  %36 = xor i1 %35, true
-  %37 = xor i1 %36, true
-  %38 = zext i1 %37 to i32
-  %39 = sext i32 %38 to i64
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %42
+37:                                               ; preds = %36, %15
+  %38 = load ptr, ptr %12, align 8
+  %39 = icmp eq ptr null, %38
+  %40 = xor i1 %39, true
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i32
+  %43 = sext i32 %42 to i64
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %46
 
-41:                                               ; preds = %33
+45:                                               ; preds = %37
   store ptr null, ptr %6, align 8
-  br label %57
+  br label %61
 
-42:                                               ; preds = %33
-  %43 = load i64, ptr %10, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %45, i64 0, i64 0
-  %47 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %46, i32 0, i32 1
-  store i64 %43, ptr %47, align 8
+46:                                               ; preds = %37
+  %47 = load i64, ptr %10, align 8
   %48 = load ptr, ptr %12, align 8
-  %49 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %48, i32 0, i32 0
-  %50 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %49, i32 0, i32 2
-  store i64 1, ptr %50, align 8
-  %51 = load i32, ptr %11, align 4
+  %49 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %48, i32 0, i32 1
+  %50 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %49, i64 0, i64 0
+  %51 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %50, i32 0, i32 1
+  store i64 %47, ptr %51, align 8
   %52 = load ptr, ptr %12, align 8
   %53 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %53, i32 0, i32 6
-  store i32 %51, ptr %54, align 8
-  %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %55, i32 0, i32 0
-  store ptr %56, ptr %6, align 8
-  br label %57
+  %54 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %53, i32 0, i32 2
+  store i64 1, ptr %54, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds %struct.mca_btl_base_descriptor_t, ptr %57, i32 0, i32 6
+  store i32 %55, ptr %58, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = getelementptr inbounds %struct.mca_btl_self_frag_t, ptr %59, i32 0, i32 0
+  store ptr %60, ptr %6, align 8
+  br label %61
 
-57:                                               ; preds = %42, %41
-  %58 = load ptr, ptr %6, align 8
-  ret ptr %58
+61:                                               ; preds = %46, %45
+  %62 = load ptr, ptr %6, align 8
+  ret ptr %62
 }
 
 ; Function Attrs: nounwind uwtable

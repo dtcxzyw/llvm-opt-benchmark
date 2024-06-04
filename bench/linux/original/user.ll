@@ -41,11 +41,12 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @is_hibernate_resume_dev(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @hibernation_available() #7
-  %3 = load i32, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 7), align 4
-  %4 = icmp eq i32 %3, %0
-  %5 = select i1 %2, i1 %4, i1 false
-  %6 = zext i1 %5 to i32
-  ret i32 %6
+  %3 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 7
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp eq i32 %4, %0
+  %6 = select i1 %2, i1 %5, i1 false
+  %7 = zext i1 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -481,12 +482,12 @@ define internal i64 @snapshot_compat_ioctl(ptr nocapture noundef readonly %0, i3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call zeroext i1 @hibernation_available() #7
-  br i1 %3, label %4, label %37
+  br i1 %3, label %4, label %47
 
 4:                                                ; preds = %2
   %5 = tail call i32 @lock_system_sleep() #7
   %6 = tail call zeroext i1 @hibernate_acquire() #7
-  br i1 %6, label %7, label %35
+  br i1 %6, label %7, label %45
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 72
@@ -497,7 +498,7 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 12:                                               ; preds = %7
   tail call void @hibernate_release() #7
-  br label %35
+  br label %45
 
 13:                                               ; preds = %7
   %14 = tail call i32 @nonseekable_open(ptr noundef %0, ptr noundef %1) #7
@@ -507,56 +508,66 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %16 = load i32, ptr %8, align 8
   %17 = and i32 %16, 3
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %23
+  br i1 %18, label %19, label %26
 
 19:                                               ; preds = %13
   %20 = load i32, ptr @swsusp_resume_device, align 4
   %21 = tail call i32 @swap_type_of(i32 noundef %20, i64 noundef 0) #7
-  store i32 %21, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 2), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 6), align 1
-  %22 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 1, i64 noundef 2) #7
-  br label %30
+  %22 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 1
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 2
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 6
+  store i8 0, ptr %24, align 1
+  %25 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 1, i64 noundef 2) #7
+  br label %36
 
-23:                                               ; preds = %13
+26:                                               ; preds = %13
   store i1 true, ptr @need_wait, align 1
-  store i32 -1, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 2), align 4
-  %24 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 5, i64 noundef 6) #7
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %30
+  %27 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 1
+  store i32 -1, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 2
+  store i32 1, ptr %28, align 4
+  %29 = tail call i32 @pm_notifier_call_chain_robust(i64 noundef 5, i64 noundef 6) #7
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %36
 
-26:                                               ; preds = %23
-  %27 = tail call i32 @create_basic_memory_bitmaps() #7
-  %28 = icmp eq i32 %27, 0
-  %29 = zext i1 %28 to i8
-  store i8 %29, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 6), align 1
-  br label %30
+31:                                               ; preds = %26
+  %32 = tail call i32 @create_basic_memory_bitmaps() #7
+  %33 = icmp eq i32 %32, 0
+  %34 = zext i1 %33 to i8
+  %35 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 6
+  store i8 %34, ptr %35, align 1
+  br label %36
 
-30:                                               ; preds = %26, %23, %19
-  %31 = phi i32 [ %22, %19 ], [ %24, %23 ], [ %27, %26 ]
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %34, label %33
+36:                                               ; preds = %31, %26, %19
+  %37 = phi i32 [ %25, %19 ], [ %29, %26 ], [ %32, %31 ]
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %40, label %39
 
-33:                                               ; preds = %30
+39:                                               ; preds = %36
   tail call void @hibernate_release() #7
-  br label %34
+  br label %40
 
-34:                                               ; preds = %33, %30
-  store i8 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 4), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 5), align 2
-  store i32 0, ptr getelementptr inbounds (%struct.snapshot_data, ptr @snapshot_state, i64 0, i32 7), align 4
-  br label %35
+40:                                               ; preds = %39, %36
+  %41 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 3
+  store i8 0, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 4
+  store i8 0, ptr %42, align 1
+  %43 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 5
+  store i8 0, ptr %43, align 2
+  %44 = getelementptr inbounds %struct.snapshot_data, ptr @snapshot_state, i64 0, i32 7
+  store i32 0, ptr %44, align 4
+  br label %45
 
-35:                                               ; preds = %34, %12, %4
-  %36 = phi i32 [ -38, %12 ], [ %31, %34 ], [ -16, %4 ]
+45:                                               ; preds = %40, %12, %4
+  %46 = phi i32 [ -38, %12 ], [ %37, %40 ], [ -16, %4 ]
   tail call void @unlock_system_sleep(i32 noundef %5) #7
-  br label %37
+  br label %47
 
-37:                                               ; preds = %35, %2
-  %38 = phi i32 [ %36, %35 ], [ -1, %2 ]
-  ret i32 %38
+47:                                               ; preds = %45, %2
+  %48 = phi i32 [ %46, %45 ], [ -1, %2 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

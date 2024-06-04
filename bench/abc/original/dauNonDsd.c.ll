@@ -2759,42 +2759,50 @@ define void @Dau_DecFindSetsTest2() #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %7 = xor i64 %6, -1
-  %8 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %9 = and i64 %7, %8
-  %10 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %11 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %12 = and i64 %10, %11
-  %13 = or i64 %9, %12
-  store i64 %13, ptr %2, align 8
-  %14 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %15 = xor i64 %14, -1
-  %16 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %17 = and i64 %15, %16
-  %18 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %19 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %20 = and i64 %18, %19
-  %21 = or i64 %17, %20
-  store i64 %21, ptr %3, align 8
-  %22 = load i64, ptr @s_Truths6, align 16
-  %23 = xor i64 %22, -1
-  %24 = load i64, ptr %2, align 8
-  %25 = and i64 %23, %24
-  %26 = load i64, ptr @s_Truths6, align 16
-  %27 = load i64, ptr %3, align 8
-  %28 = and i64 %26, %27
-  %29 = or i64 %25, %28
-  store i64 %29, ptr %4, align 8
+  %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %7 = load i64, ptr %6, align 8
+  %8 = xor i64 %7, -1
+  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %10 = load i64, ptr %9, align 16
+  %11 = and i64 %8, %10
+  %12 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %13, %15
+  %17 = or i64 %11, %16
+  store i64 %17, ptr %2, align 8
+  %18 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %19 = load i64, ptr %18, align 8
+  %20 = xor i64 %19, -1
+  %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %22 = load i64, ptr %21, align 16
+  %23 = and i64 %20, %22
+  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %25, %27
+  %29 = or i64 %23, %28
+  store i64 %29, ptr %3, align 8
+  %30 = load i64, ptr @s_Truths6, align 16
+  %31 = xor i64 %30, -1
+  %32 = load i64, ptr %2, align 8
+  %33 = and i64 %31, %32
+  %34 = load i64, ptr @s_Truths6, align 16
+  %35 = load i64, ptr %3, align 8
+  %36 = and i64 %34, %35
+  %37 = or i64 %33, %36
+  store i64 %37, ptr %4, align 8
   store i32 5, ptr %5, align 4
-  %30 = load i32, ptr %5, align 4
-  %31 = call ptr @Dau_DecFindSets(ptr noundef %4, i32 noundef %30)
-  store ptr %31, ptr %1, align 8
-  %32 = load ptr, ptr %1, align 8
-  %33 = load i32, ptr %5, align 4
-  call void @Dau_DecPrintSets(ptr noundef %32, i32 noundef %33)
-  %34 = load ptr, ptr %1, align 8
-  call void @Vec_IntFree(ptr noundef %34)
+  %38 = load i32, ptr %5, align 4
+  %39 = call ptr @Dau_DecFindSets(ptr noundef %4, i32 noundef %38)
+  store ptr %39, ptr %1, align 8
+  %40 = load ptr, ptr %1, align 8
+  %41 = load i32, ptr %5, align 4
+  call void @Dau_DecPrintSets(ptr noundef %40, i32 noundef %41)
+  %42 = load ptr, ptr %1, align 8
+  call void @Vec_IntFree(ptr noundef %42)
   ret void
 }
 
@@ -4680,41 +4688,49 @@ define void @Dau_DecFindSetsTest3() #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %8 = xor i64 %7, -1
-  %9 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %10 = and i64 %8, %9
-  %11 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %12 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %13 = and i64 %11, %12
-  %14 = or i64 %10, %13
-  store i64 %14, ptr %1, align 8
-  %15 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %16 = xor i64 %15, -1
-  %17 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %18 = and i64 %16, %17
-  %19 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %20 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %21 = and i64 %19, %20
-  %22 = or i64 %18, %21
-  store i64 %22, ptr %2, align 8
-  %23 = load i64, ptr @s_Truths6, align 16
-  %24 = xor i64 %23, -1
-  %25 = load i64, ptr %1, align 8
-  %26 = and i64 %24, %25
-  %27 = load i64, ptr @s_Truths6, align 16
-  %28 = load i64, ptr %2, align 8
-  %29 = and i64 %27, %28
-  %30 = or i64 %26, %29
-  store i64 %30, ptr %3, align 8
+  %7 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %8 = load i64, ptr %7, align 8
+  %9 = xor i64 %8, -1
+  %10 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %11 = load i64, ptr %10, align 16
+  %12 = and i64 %9, %11
+  %13 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %16 = load i64, ptr %15, align 8
+  %17 = and i64 %14, %16
+  %18 = or i64 %12, %17
+  store i64 %18, ptr %1, align 8
+  %19 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %20 = load i64, ptr %19, align 8
+  %21 = xor i64 %20, -1
+  %22 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %23 = load i64, ptr %22, align 16
+  %24 = and i64 %21, %23
+  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %26, %28
+  %30 = or i64 %24, %29
+  store i64 %30, ptr %2, align 8
+  %31 = load i64, ptr @s_Truths6, align 16
+  %32 = xor i64 %31, -1
+  %33 = load i64, ptr %1, align 8
+  %34 = and i64 %32, %33
+  %35 = load i64, ptr @s_Truths6, align 16
+  %36 = load i64, ptr %2, align 8
+  %37 = and i64 %35, %36
+  %38 = or i64 %34, %37
+  store i64 %38, ptr %3, align 8
   store i32 6, ptr %4, align 4
   store ptr @.str.14, ptr %5, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = call i32 @Dau_DecReadSet(ptr noundef %31)
-  store i32 %32, ptr %6, align 4
-  %33 = load i32, ptr %4, align 4
-  %34 = load i32, ptr %6, align 4
-  %35 = call i32 @Dau_DecPerform6(ptr noundef %3, i32 noundef %33, i32 noundef %34)
+  %39 = load ptr, ptr %5, align 8
+  %40 = call i32 @Dau_DecReadSet(ptr noundef %39)
+  store i32 %40, ptr %6, align 4
+  %41 = load i32, ptr %4, align 4
+  %42 = load i32, ptr %6, align 4
+  %43 = call i32 @Dau_DecPerform6(ptr noundef %3, i32 noundef %41, i32 noundef %42)
   ret void
 }
 

@@ -66,10 +66,11 @@ entry:
   store i64 %bufsize_, ptr %bufsize_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq9i_decoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3zmq13raw_decoder_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3zmq13raw_decoder_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_allocator = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %bufsize_.addr, align 8
-  invoke void @_ZN3zmq31shared_message_memory_allocatorC1Emm(ptr noundef nonnull align 8 dereferenceable(40) %_allocator, i64 noundef %0, i64 noundef 1)
+  %1 = load i64, ptr %bufsize_.addr, align 8
+  invoke void @_ZN3zmq31shared_message_memory_allocatorC1Emm(ptr noundef nonnull align 8 dereferenceable(40) %_allocator, i64 noundef %1, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -82,50 +83,50 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont4
-  %1 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %1, 0
+  %2 = load i32, ptr %rc, align 4
+  %cmp = icmp eq i32 %2, 0
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
   %call5 = call ptr @__errno_location() #9
-  %2 = load i32, ptr %call5, align 4
-  %call6 = call ptr @strerror(i32 noundef %2) #8
+  %3 = load i32, ptr %call5, align 4
+  %call6 = call ptr @strerror(i32 noundef %3) #8
   store ptr %call6, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call8 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef %4, ptr noundef @.str.1, i32 noundef 13)
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = load ptr, ptr %errstr, align 8
+  %call8 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %5, ptr noundef @.str.1, i32 noundef 13)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %if.then
-  %5 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 @fflush(ptr noundef %5)
+  %6 = load ptr, ptr @stderr, align 8
+  %call10 = invoke i32 @fflush(ptr noundef %6)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %6 = load ptr, ptr %errstr, align 8
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
+  %7 = load ptr, ptr %errstr, align 8
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont9, %invoke.cont7, %if.then, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN3zmq31shared_message_memory_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_allocator) #8
   br label %ehcleanup
 
@@ -156,7 +157,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3zmq9i_decoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3zmq9i_decoderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

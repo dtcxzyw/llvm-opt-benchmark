@@ -115,13 +115,14 @@ entry:
   store i32 %buffer_size, ptr %buffer_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %format_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %format.addr, align 4
-  store i32 %0, ptr %format_, align 8
+  %1 = load i32, ptr %format.addr, align 4
+  store i32 %1, ptr %format_, align 8
   %sub_stream_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %sub_stream.addr, align 8
-  store ptr %1, ptr %sub_stream_, align 8
+  %2 = load ptr, ptr %sub_stream.addr, align 8
+  store ptr %2, ptr %sub_stream_, align 8
   %zerror_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 4
   store i32 0, ptr %zerror_, align 8
   %byte_count_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 8
@@ -153,8 +154,8 @@ entry:
   %zcontext_10 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 3
   %msg = getelementptr inbounds %struct.z_stream_s, ptr %zcontext_10, i32 0, i32 6
   store ptr null, ptr %msg, align 8
-  %2 = load i32, ptr %buffer_size.addr, align 4
-  %cmp = icmp eq i32 %2, -1
+  %3 = load i32, ptr %buffer_size.addr, align 4
+  %cmp = icmp eq i32 %3, -1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -163,24 +164,24 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %buffer_size.addr, align 4
-  %conv = sext i32 %3 to i64
+  %4 = load i32, ptr %buffer_size.addr, align 4
+  %conv = sext i32 %4 to i64
   %output_buffer_length_11 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 7
   store i64 %conv, ptr %output_buffer_length_11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %output_buffer_length_12 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 7
-  %4 = load i64, ptr %output_buffer_length_12, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #11
+  %5 = load i64, ptr %output_buffer_length_12, align 8
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #11
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   %output_buffer_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 5
   store ptr %call, ptr %output_buffer_, align 8
   %output_buffer_13 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %output_buffer_13, align 8
-  %cmp14 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %output_buffer_13, align 8
+  %cmp14 = icmp ne ptr %6, null
   %lnot = xor i1 %cmp14, true
   store i1 false, ptr %cleanup.cond, align 1
   br i1 %lnot, label %cond.false, label %cond.true
@@ -190,11 +191,11 @@ cond.true:                                        ; preds = %invoke.cont
 
 cond.false:                                       ; preds = %invoke.cont
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.1) #3
-  %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef @.str, i32 noundef 46, i64 %7, ptr %9) #12
+  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef @.str, i32 noundef 46, i64 %8, ptr %10) #12
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %cond.false
@@ -218,53 +219,53 @@ cleanup.action:                                   ; preds = %cond.end
   unreachable
 
 lpad:                                             ; preds = %cond.false, %if.end
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont19, %invoke.cont17
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   %cleanup.is_active22 = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active22, label %cleanup.action23, label %cleanup.done24
 
-16:                                               ; No predecessors!
+17:                                               ; No predecessors!
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %16, %cond.end
+cleanup.done:                                     ; preds = %17, %cond.end
   %output_buffer_25 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 5
-  %17 = load ptr, ptr %output_buffer_25, align 8
+  %18 = load ptr, ptr %output_buffer_25, align 8
   %zcontext_26 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 3
   %next_out = getelementptr inbounds %struct.z_stream_s, ptr %zcontext_26, i32 0, i32 3
-  store ptr %17, ptr %next_out, align 8
+  store ptr %18, ptr %next_out, align 8
   %output_buffer_length_27 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 7
-  %18 = load i64, ptr %output_buffer_length_27, align 8
-  %conv28 = trunc i64 %18 to i32
+  %19 = load i64, ptr %output_buffer_length_27, align 8
+  %conv28 = trunc i64 %19 to i32
   %zcontext_29 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 3
   %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %zcontext_29, i32 0, i32 4
   store i32 %conv28, ptr %avail_out, align 8
   %output_buffer_30 = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 5
-  %19 = load ptr, ptr %output_buffer_30, align 8
+  %20 = load ptr, ptr %output_buffer_30, align 8
   %output_position_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 6
-  store ptr %19, ptr %output_position_, align 8
+  store ptr %20, ptr %output_position_, align 8
   ret void
 
 cleanup.action23:                                 ; preds = %lpad18
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #13
   unreachable
 
-20:                                               ; No predecessors!
+21:                                               ; No predecessors!
   br label %cleanup.done24
 
-cleanup.done24:                                   ; preds = %20, %lpad18
+cleanup.done24:                                   ; preds = %21, %lpad18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %cleanup.done24, %lpad
@@ -285,7 +286,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -974,25 +976,26 @@ entry:
   store ptr %sub_stream, ptr %sub_stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %sub_stream.addr, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %sub_stream.addr, align 8
   invoke void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1010,7 +1013,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1194,22 +1198,23 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %sub_stream.addr, align 8
-  %1 = load ptr, ptr %options.addr, align 8
-  invoke void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %sub_stream.addr, align 8
+  %2 = load ptr, ptr %options.addr, align 8
+  invoke void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 

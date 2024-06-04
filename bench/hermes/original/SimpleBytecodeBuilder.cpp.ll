@@ -1451,10 +1451,11 @@ entry:
   store ptr %bytecode, ptr %bytecode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes6BufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12VectorBuffer, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12VectorBuffer, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bytecode_ = getelementptr inbounds %class.VectorBuffer, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %bytecode.addr, align 8
-  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %bytecode_, ptr noundef nonnull align 8 dereferenceable(24) %0) #9
+  %1 = load ptr, ptr %bytecode.addr, align 8
+  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %bytecode_, ptr noundef nonnull align 8 dereferenceable(24) %1) #9
   %bytecode_2 = getelementptr inbounds %class.VectorBuffer, ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %bytecode_2) #9
   %data_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 1
@@ -1864,7 +1865,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 1
   store ptr null, ptr %data_, align 8
   %size_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 2

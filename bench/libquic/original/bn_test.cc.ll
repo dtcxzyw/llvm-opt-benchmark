@@ -10593,22 +10593,23 @@ entry:
   %cbb197 = alloca %struct.cbb_st, align 8
   store ptr @_ZL10kASN1Tests, ptr %__range1, align 8
   store ptr @_ZL10kASN1Tests, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.ASN1Test, ptr @_ZL10kASN1Tests, i64 7), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.ASN1Test, ptr @_ZL10kASN1Tests, i64 7
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %test, align 8
-  %3 = load ptr, ptr %test, align 8
-  %value_ascii = getelementptr inbounds %struct.ASN1Test, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %value_ascii, align 8
-  call void @_ZL13ASCIIToBIGNUMPKc(ptr sret(%"class.std::unique_ptr.10") align 8 %bn, ptr noundef %4)
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %test, align 8
+  %4 = load ptr, ptr %test, align 8
+  %value_ascii = getelementptr inbounds %struct.ASN1Test, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %value_ascii, align 8
+  call void @_ZL13ASCIIToBIGNUMPKc(ptr sret(%"class.std::unique_ptr.10") align 8 %bn, ptr noundef %5)
   %call = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %bn) #10
   br i1 %call, label %if.end, label %if.then
 
@@ -10632,22 +10633,22 @@ if.then3:                                         ; preds = %invoke.cont
   br label %cleanup79
 
 lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup81
 
 if.end4:                                          ; preds = %invoke.cont
-  %8 = load ptr, ptr %test, align 8
-  %der = getelementptr inbounds %struct.ASN1Test, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %der, align 8
-  %10 = load ptr, ptr %test, align 8
-  %der_len = getelementptr inbounds %struct.ASN1Test, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %der_len, align 8
-  invoke void @CBS_init(ptr noundef %cbs, ptr noundef %9, i64 noundef %11)
+  %9 = load ptr, ptr %test, align 8
+  %der = getelementptr inbounds %struct.ASN1Test, ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %der, align 8
+  %11 = load ptr, ptr %test, align 8
+  %der_len = getelementptr inbounds %struct.ASN1Test, ptr %11, i32 0, i32 2
+  %12 = load i64, ptr %der_len, align 8
+  invoke void @CBS_init(ptr noundef %cbs, ptr noundef %10, i64 noundef %12)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.end4
@@ -10668,8 +10669,8 @@ invoke.cont10:                                    ; preds = %lor.lhs.false
   br i1 %cmp12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %invoke.cont10, %invoke.cont8
-  %12 = load ptr, ptr @stderr, align 8
-  %call15 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.119)
+  %13 = load ptr, ptr @stderr, align 8
+  %call15 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.119)
           to label %invoke.cont14 unwind label %lpad5
 
 invoke.cont14:                                    ; preds = %if.then13
@@ -10678,12 +10679,12 @@ invoke.cont14:                                    ; preds = %if.then13
   br label %cleanup79
 
 lpad5:                                            ; preds = %if.then41, %lor.lhs.false37, %lor.lhs.false32, %invoke.cont28, %if.end25, %if.then22, %if.end16, %if.then13, %lor.lhs.false, %invoke.cont6, %if.end4
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end16:                                         ; preds = %invoke.cont10
@@ -10697,8 +10698,8 @@ invoke.cont19:                                    ; preds = %if.end16
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %invoke.cont19
-  %16 = load ptr, ptr @stderr, align 8
-  %call24 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.120)
+  %17 = load ptr, ptr @stderr, align 8
+  %call24 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.120)
           to label %invoke.cont23 unwind label %lpad5
 
 invoke.cont23:                                    ; preds = %if.then22
@@ -10745,28 +10746,28 @@ invoke.cont42:                                    ; preds = %if.then41
   br label %cleanup79
 
 if.end43:                                         ; preds = %invoke.cont38
-  %17 = load ptr, ptr %der26, align 8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %delete_der, ptr noundef %17) #10
-  %18 = load i64, ptr %der_len27, align 8
-  %19 = load ptr, ptr %test, align 8
-  %der_len44 = getelementptr inbounds %struct.ASN1Test, ptr %19, i32 0, i32 2
-  %20 = load i64, ptr %der_len44, align 8
-  %cmp45 = icmp ne i64 %18, %20
+  %18 = load ptr, ptr %der26, align 8
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %delete_der, ptr noundef %18) #10
+  %19 = load i64, ptr %der_len27, align 8
+  %20 = load ptr, ptr %test, align 8
+  %der_len44 = getelementptr inbounds %struct.ASN1Test, ptr %20, i32 0, i32 2
+  %21 = load i64, ptr %der_len44, align 8
+  %cmp45 = icmp ne i64 %19, %21
   br i1 %cmp45, label %if.then50, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.end43
-  %21 = load ptr, ptr %der26, align 8
-  %22 = load ptr, ptr %test, align 8
-  %der47 = getelementptr inbounds %struct.ASN1Test, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %der47, align 8
-  %24 = load i64, ptr %der_len27, align 8
-  %call48 = call i32 @memcmp(ptr noundef %21, ptr noundef %23, i64 noundef %24) #11
+  %22 = load ptr, ptr %der26, align 8
+  %23 = load ptr, ptr %test, align 8
+  %der47 = getelementptr inbounds %struct.ASN1Test, ptr %23, i32 0, i32 1
+  %24 = load ptr, ptr %der47, align 8
+  %25 = load i64, ptr %der_len27, align 8
+  %call48 = call i32 @memcmp(ptr noundef %22, ptr noundef %24, i64 noundef %25) #11
   %cmp49 = icmp ne i32 %call48, 0
   br i1 %cmp49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %lor.lhs.false46, %if.end43
-  %25 = load ptr, ptr @stderr, align 8
-  %call53 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.121)
+  %26 = load ptr, ptr @stderr, align 8
+  %call53 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.121)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.then50
@@ -10775,23 +10776,23 @@ invoke.cont52:                                    ; preds = %if.then50
   br label %cleanup
 
 lpad51:                                           ; preds = %if.then75, %if.end69, %if.then66, %lor.lhs.false62, %invoke.cont57, %if.end54, %if.then50
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delete_der) #10
   br label %ehcleanup
 
 if.end54:                                         ; preds = %lor.lhs.false46
-  %29 = load ptr, ptr %test, align 8
-  %der55 = getelementptr inbounds %struct.ASN1Test, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %der55, align 8
-  %31 = load ptr, ptr %test, align 8
-  %der_len56 = getelementptr inbounds %struct.ASN1Test, ptr %31, i32 0, i32 2
-  %32 = load i64, ptr %der_len56, align 8
-  invoke void @CBS_init(ptr noundef %cbs, ptr noundef %30, i64 noundef %32)
+  %30 = load ptr, ptr %test, align 8
+  %der55 = getelementptr inbounds %struct.ASN1Test, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %der55, align 8
+  %32 = load ptr, ptr %test, align 8
+  %der_len56 = getelementptr inbounds %struct.ASN1Test, ptr %32, i32 0, i32 2
+  %33 = load i64, ptr %der_len56, align 8
+  invoke void @CBS_init(ptr noundef %cbs, ptr noundef %31, i64 noundef %33)
           to label %invoke.cont57 unwind label %lpad51
 
 invoke.cont57:                                    ; preds = %if.end54
@@ -10812,8 +10813,8 @@ invoke.cont63:                                    ; preds = %lor.lhs.false62
   br i1 %cmp65, label %if.then66, label %if.end69
 
 if.then66:                                        ; preds = %invoke.cont63, %invoke.cont59
-  %33 = load ptr, ptr @stderr, align 8
-  %call68 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.119)
+  %34 = load ptr, ptr @stderr, align 8
+  %call68 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.119)
           to label %invoke.cont67 unwind label %lpad51
 
 invoke.cont67:                                    ; preds = %if.then66
@@ -10832,8 +10833,8 @@ invoke.cont72:                                    ; preds = %if.end69
   br i1 %cmp74, label %if.then75, label %if.end78
 
 if.then75:                                        ; preds = %invoke.cont72
-  %34 = load ptr, ptr @stderr, align 8
-  %call77 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.120)
+  %35 = load ptr, ptr @stderr, align 8
+  %call77 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.120)
           to label %invoke.cont76 unwind label %lpad51
 
 invoke.cont76:                                    ; preds = %if.then75
@@ -10865,8 +10866,8 @@ cleanup.cont:                                     ; preds = %cleanup80
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup.cont
-  %35 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.ASN1Test, ptr %35, i32 1
+  %36 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.ASN1Test, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -10881,18 +10882,19 @@ ehcleanup81:                                      ; preds = %ehcleanup, %lpad
 for.end:                                          ; preds = %for.cond
   store ptr @_ZL17kASN1InvalidTests, ptr %__range182, align 8
   store ptr @_ZL17kASN1InvalidTests, ptr %__begin183, align 8
-  store ptr getelementptr inbounds (%struct.ASN1InvalidTest, ptr @_ZL17kASN1InvalidTests, i64 2), ptr %__end184, align 8
+  %37 = getelementptr inbounds %struct.ASN1InvalidTest, ptr @_ZL17kASN1InvalidTests, i64 2
+  store ptr %37, ptr %__end184, align 8
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.inc124, %for.end
-  %36 = load ptr, ptr %__begin183, align 8
-  %37 = load ptr, ptr %__end184, align 8
-  %cmp86 = icmp ne ptr %36, %37
+  %38 = load ptr, ptr %__begin183, align 8
+  %39 = load ptr, ptr %__end184, align 8
+  %cmp86 = icmp ne ptr %38, %39
   br i1 %cmp86, label %for.body87, label %for.end126
 
 for.body87:                                       ; preds = %for.cond85
-  %38 = load ptr, ptr %__begin183, align 8
-  store ptr %38, ptr %test88, align 8
+  %40 = load ptr, ptr %__begin183, align 8
+  store ptr %40, ptr %test88, align 8
   %call90 = call ptr @BN_new()
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %bn89, ptr noundef %call90) #10
   %call91 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %bn89) #10
@@ -10904,13 +10906,13 @@ if.then92:                                        ; preds = %for.body87
   br label %cleanup120
 
 if.end93:                                         ; preds = %for.body87
-  %39 = load ptr, ptr %test88, align 8
-  %der95 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %der95, align 8
   %41 = load ptr, ptr %test88, align 8
-  %der_len96 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %41, i32 0, i32 1
-  %42 = load i64, ptr %der_len96, align 8
-  invoke void @CBS_init(ptr noundef %cbs94, ptr noundef %40, i64 noundef %42)
+  %der95 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %41, i32 0, i32 0
+  %42 = load ptr, ptr %der95, align 8
+  %43 = load ptr, ptr %test88, align 8
+  %der_len96 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %43, i32 0, i32 1
+  %44 = load i64, ptr %der_len96, align 8
+  invoke void @CBS_init(ptr noundef %cbs94, ptr noundef %42, i64 noundef %44)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %if.end93
@@ -10923,8 +10925,8 @@ invoke.cont100:                                   ; preds = %invoke.cont98
   br i1 %tobool102, label %if.then103, label %if.end106
 
 if.then103:                                       ; preds = %invoke.cont100
-  %43 = load ptr, ptr @stderr, align 8
-  %call105 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.122)
+  %45 = load ptr, ptr @stderr, align 8
+  %call105 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.122)
           to label %invoke.cont104 unwind label %lpad97
 
 invoke.cont104:                                   ; preds = %if.then103
@@ -10933,12 +10935,12 @@ invoke.cont104:                                   ; preds = %if.then103
   br label %cleanup120
 
 lpad97:                                           ; preds = %if.end118, %if.then115, %invoke.cont110, %invoke.cont107, %if.end106, %if.then103, %invoke.cont98, %if.end93
-  %44 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bn89) #10
   br label %eh.resume
 
@@ -10947,13 +10949,13 @@ if.end106:                                        ; preds = %invoke.cont100
           to label %invoke.cont107 unwind label %lpad97
 
 invoke.cont107:                                   ; preds = %if.end106
-  %47 = load ptr, ptr %test88, align 8
-  %der108 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %47, i32 0, i32 0
-  %48 = load ptr, ptr %der108, align 8
   %49 = load ptr, ptr %test88, align 8
-  %der_len109 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %49, i32 0, i32 1
-  %50 = load i64, ptr %der_len109, align 8
-  invoke void @CBS_init(ptr noundef %cbs94, ptr noundef %48, i64 noundef %50)
+  %der108 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %49, i32 0, i32 0
+  %50 = load ptr, ptr %der108, align 8
+  %51 = load ptr, ptr %test88, align 8
+  %der_len109 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %51, i32 0, i32 1
+  %52 = load i64, ptr %der_len109, align 8
+  invoke void @CBS_init(ptr noundef %cbs94, ptr noundef %50, i64 noundef %52)
           to label %invoke.cont110 unwind label %lpad97
 
 invoke.cont110:                                   ; preds = %invoke.cont107
@@ -10966,8 +10968,8 @@ invoke.cont112:                                   ; preds = %invoke.cont110
   br i1 %tobool114, label %if.then115, label %if.end118
 
 if.then115:                                       ; preds = %invoke.cont112
-  %51 = load ptr, ptr @stderr, align 8
-  %call117 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.122)
+  %53 = load ptr, ptr @stderr, align 8
+  %call117 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.122)
           to label %invoke.cont116 unwind label %lpad97
 
 invoke.cont116:                                   ; preds = %if.then115
@@ -10995,26 +10997,27 @@ cleanup.cont122:                                  ; preds = %cleanup120
   br label %for.inc124
 
 for.inc124:                                       ; preds = %cleanup.cont122
-  %52 = load ptr, ptr %__begin183, align 8
-  %incdec.ptr125 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %52, i32 1
+  %54 = load ptr, ptr %__begin183, align 8
+  %incdec.ptr125 = getelementptr inbounds %struct.ASN1InvalidTest, ptr %54, i32 1
   store ptr %incdec.ptr125, ptr %__begin183, align 8
   br label %for.cond85
 
 for.end126:                                       ; preds = %for.cond85
   store ptr @_ZL15kASN1BuggyTests, ptr %__range1127, align 8
   store ptr @_ZL15kASN1BuggyTests, ptr %__begin1128, align 8
-  store ptr getelementptr inbounds (%struct.ASN1Test, ptr @_ZL15kASN1BuggyTests, i64 3), ptr %__end1129, align 8
+  %55 = getelementptr inbounds %struct.ASN1Test, ptr @_ZL15kASN1BuggyTests, i64 3
+  store ptr %55, ptr %__end1129, align 8
   br label %for.cond130
 
 for.cond130:                                      ; preds = %for.inc190, %for.end126
-  %53 = load ptr, ptr %__begin1128, align 8
-  %54 = load ptr, ptr %__end1129, align 8
-  %cmp131 = icmp ne ptr %53, %54
+  %56 = load ptr, ptr %__begin1128, align 8
+  %57 = load ptr, ptr %__end1129, align 8
+  %cmp131 = icmp ne ptr %56, %57
   br i1 %cmp131, label %for.body132, label %for.end192
 
 for.body132:                                      ; preds = %for.cond130
-  %55 = load ptr, ptr %__begin1128, align 8
-  store ptr %55, ptr %test133, align 8
+  %58 = load ptr, ptr %__begin1128, align 8
+  store ptr %58, ptr %test133, align 8
   %call135 = call ptr @BN_new()
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %bn134, ptr noundef %call135) #10
   %call136 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %bn134) #10
@@ -11026,13 +11029,13 @@ if.then137:                                       ; preds = %for.body132
   br label %cleanup186
 
 if.end138:                                        ; preds = %for.body132
-  %56 = load ptr, ptr %test133, align 8
-  %der140 = getelementptr inbounds %struct.ASN1Test, ptr %56, i32 0, i32 1
-  %57 = load ptr, ptr %der140, align 8
-  %58 = load ptr, ptr %test133, align 8
-  %der_len141 = getelementptr inbounds %struct.ASN1Test, ptr %58, i32 0, i32 2
-  %59 = load i64, ptr %der_len141, align 8
-  invoke void @CBS_init(ptr noundef %cbs139, ptr noundef %57, i64 noundef %59)
+  %59 = load ptr, ptr %test133, align 8
+  %der140 = getelementptr inbounds %struct.ASN1Test, ptr %59, i32 0, i32 1
+  %60 = load ptr, ptr %der140, align 8
+  %61 = load ptr, ptr %test133, align 8
+  %der_len141 = getelementptr inbounds %struct.ASN1Test, ptr %61, i32 0, i32 2
+  %62 = load i64, ptr %der_len141, align 8
+  invoke void @CBS_init(ptr noundef %cbs139, ptr noundef %60, i64 noundef %62)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %if.end138
@@ -11045,8 +11048,8 @@ invoke.cont145:                                   ; preds = %invoke.cont143
   br i1 %tobool147, label %if.then148, label %if.end151
 
 if.then148:                                       ; preds = %invoke.cont145
-  %60 = load ptr, ptr @stderr, align 8
-  %call150 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.122)
+  %63 = load ptr, ptr @stderr, align 8
+  %call150 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef @.str.122)
           to label %invoke.cont149 unwind label %lpad142
 
 invoke.cont149:                                   ; preds = %if.then148
@@ -11055,12 +11058,12 @@ invoke.cont149:                                   ; preds = %if.then148
   br label %cleanup186
 
 lpad142:                                          ; preds = %invoke.cont152, %if.end151, %if.then148, %invoke.cont143, %if.end138
-  %61 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %exn.slot, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %ehselector.slot, align 4
   br label %ehcleanup189
 
 if.end151:                                        ; preds = %invoke.cont145
@@ -11068,10 +11071,10 @@ if.end151:                                        ; preds = %invoke.cont145
           to label %invoke.cont152 unwind label %lpad142
 
 invoke.cont152:                                   ; preds = %if.end151
-  %64 = load ptr, ptr %test133, align 8
-  %value_ascii154 = getelementptr inbounds %struct.ASN1Test, ptr %64, i32 0, i32 0
-  %65 = load ptr, ptr %value_ascii154, align 8
-  invoke void @_ZL13ASCIIToBIGNUMPKc(ptr sret(%"class.std::unique_ptr.10") align 8 %bn2153, ptr noundef %65)
+  %67 = load ptr, ptr %test133, align 8
+  %value_ascii154 = getelementptr inbounds %struct.ASN1Test, ptr %67, i32 0, i32 0
+  %68 = load ptr, ptr %value_ascii154, align 8
+  invoke void @_ZL13ASCIIToBIGNUMPKc(ptr sret(%"class.std::unique_ptr.10") align 8 %bn2153, ptr noundef %68)
           to label %invoke.cont155 unwind label %lpad142
 
 invoke.cont155:                                   ; preds = %invoke.cont152
@@ -11084,13 +11087,13 @@ if.then157:                                       ; preds = %invoke.cont155
   br label %cleanup184
 
 if.end158:                                        ; preds = %invoke.cont155
-  %66 = load ptr, ptr %test133, align 8
-  %der159 = getelementptr inbounds %struct.ASN1Test, ptr %66, i32 0, i32 1
-  %67 = load ptr, ptr %der159, align 8
-  %68 = load ptr, ptr %test133, align 8
-  %der_len160 = getelementptr inbounds %struct.ASN1Test, ptr %68, i32 0, i32 2
-  %69 = load i64, ptr %der_len160, align 8
-  invoke void @CBS_init(ptr noundef %cbs139, ptr noundef %67, i64 noundef %69)
+  %69 = load ptr, ptr %test133, align 8
+  %der159 = getelementptr inbounds %struct.ASN1Test, ptr %69, i32 0, i32 1
+  %70 = load ptr, ptr %der159, align 8
+  %71 = load ptr, ptr %test133, align 8
+  %der_len160 = getelementptr inbounds %struct.ASN1Test, ptr %71, i32 0, i32 2
+  %72 = load i64, ptr %der_len160, align 8
+  invoke void @CBS_init(ptr noundef %cbs139, ptr noundef %70, i64 noundef %72)
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %if.end158
@@ -11111,8 +11114,8 @@ invoke.cont168:                                   ; preds = %lor.lhs.false167
   br i1 %cmp170, label %if.then171, label %if.end174
 
 if.then171:                                       ; preds = %invoke.cont168, %invoke.cont164
-  %70 = load ptr, ptr @stderr, align 8
-  %call173 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.123)
+  %73 = load ptr, ptr @stderr, align 8
+  %call173 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.123)
           to label %invoke.cont172 unwind label %lpad161
 
 invoke.cont172:                                   ; preds = %if.then171
@@ -11121,12 +11124,12 @@ invoke.cont172:                                   ; preds = %if.then171
   br label %cleanup184
 
 lpad161:                                          ; preds = %if.then180, %if.end174, %if.then171, %lor.lhs.false167, %invoke.cont162, %if.end158
-  %71 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bn2153) #10
   br label %ehcleanup189
 
@@ -11141,8 +11144,8 @@ invoke.cont177:                                   ; preds = %if.end174
   br i1 %cmp179, label %if.then180, label %if.end183
 
 if.then180:                                       ; preds = %invoke.cont177
-  %74 = load ptr, ptr @stderr, align 8
-  %call182 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.124)
+  %77 = load ptr, ptr @stderr, align 8
+  %call182 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.124)
           to label %invoke.cont181 unwind label %lpad161
 
 invoke.cont181:                                   ; preds = %if.then180
@@ -11170,8 +11173,8 @@ cleanup.cont188:                                  ; preds = %cleanup186
   br label %for.inc190
 
 for.inc190:                                       ; preds = %cleanup.cont188
-  %75 = load ptr, ptr %__begin1128, align 8
-  %incdec.ptr191 = getelementptr inbounds %struct.ASN1Test, ptr %75, i32 1
+  %78 = load ptr, ptr %__begin1128, align 8
+  %incdec.ptr191 = getelementptr inbounds %struct.ASN1Test, ptr %78, i32 1
   store ptr %incdec.ptr191, ptr %__begin1128, align 8
   br label %for.cond130
 
@@ -11211,8 +11214,8 @@ invoke.cont205:                                   ; preds = %lor.lhs.false203
   br i1 %tobool207, label %if.then208, label %if.end212
 
 if.then208:                                       ; preds = %invoke.cont205, %invoke.cont200
-  %76 = load ptr, ptr @stderr, align 8
-  %call210 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.125)
+  %79 = load ptr, ptr @stderr, align 8
+  %call210 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.125)
           to label %invoke.cont209 unwind label %lpad198
 
 invoke.cont209:                                   ; preds = %if.then208
@@ -11225,12 +11228,12 @@ invoke.cont211:                                   ; preds = %invoke.cont209
   br label %cleanup214
 
 lpad198:                                          ; preds = %if.end212, %invoke.cont209, %if.then208, %lor.lhs.false203, %invoke.cont199, %if.end196
-  %77 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %exn.slot, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bn193) #10
   br label %eh.resume
 
@@ -11248,8 +11251,8 @@ cleanup214:                                       ; preds = %invoke.cont213, %in
   br label %return
 
 return:                                           ; preds = %cleanup214, %cleanup186, %cleanup120, %cleanup80
-  %80 = load i1, ptr %retval, align 1
-  ret i1 %80
+  %83 = load i1, ptr %retval, align 1
+  ret i1 %83
 
 eh.resume:                                        ; preds = %lpad198, %ehcleanup189, %lpad97, %ehcleanup81
   %exn = load ptr, ptr %exn.slot, align 8

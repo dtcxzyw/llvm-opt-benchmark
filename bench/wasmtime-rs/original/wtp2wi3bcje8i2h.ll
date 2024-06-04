@@ -1378,32 +1378,34 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp eq i64 %3, -9223372036854775808
   %5 = select i1 %4, i64 0, i64 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %8 = load i64, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.4, align 8, !range !13, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.4, i64 8), align 8
-  %10 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %9, ptr %11, align 8
-  br label %17
+  %9 = getelementptr inbounds i8, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.4, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  br label %19
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i64 1, ptr %0, align 8
-  %13 = load i64, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.5, align 8, !range !13, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.5, i64 8), align 8
-  %15 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %14, ptr %16, align 8
-  br label %17
+  %14 = load i64, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.5, align 8, !range !13, !noundef !3
+  %15 = getelementptr inbounds i8, ptr @anon.cc5ee6b74427a82da77754f9a155c9de.5, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %12, %7
+19:                                               ; preds = %13, %7
   ret void
 
-18:                                               ; No predecessors!
+20:                                               ; No predecessors!
   unreachable
 }
 

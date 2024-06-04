@@ -90,45 +90,46 @@ entry:
   %tobool = trunc i8 %2 to i1
   %3 = load ptr, ptr %stats.addr, align 8
   call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this1, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net21TcpCubicSenderPacketsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN3net21TcpCubicSenderPacketsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %clock.addr, align 8
-  invoke void @_ZN3net5CubicC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(96) %cubic_, ptr noundef %4)
+  %5 = load ptr, ptr %clock.addr, align 8
+  invoke void @_ZN3net5CubicC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(96) %cubic_, ptr noundef %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %congestion_window_count_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 2
   store i64 0, ptr %congestion_window_count_, align 8
   %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 3
-  %5 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
-  store i64 %5, ptr %congestion_window_, align 8
+  %6 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
+  store i64 %6, ptr %congestion_window_, align 8
   %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 4
   store i64 2, ptr %min_congestion_window_, align 8
   %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 5
-  %6 = load i64, ptr %max_tcp_congestion_window.addr, align 8
-  store i64 %6, ptr %slowstart_threshold_, align 8
-  %max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 6
   %7 = load i64, ptr %max_tcp_congestion_window.addr, align 8
-  store i64 %7, ptr %max_tcp_congestion_window_, align 8
+  store i64 %7, ptr %slowstart_threshold_, align 8
+  %max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 6
+  %8 = load i64, ptr %max_tcp_congestion_window.addr, align 8
+  store i64 %8, ptr %max_tcp_congestion_window_, align 8
   %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 7
-  %8 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
-  store i64 %8, ptr %initial_tcp_congestion_window_, align 8
+  %9 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
+  store i64 %9, ptr %initial_tcp_congestion_window_, align 8
   %initial_max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 8
-  %9 = load i64, ptr %max_tcp_congestion_window.addr, align 8
-  store i64 %9, ptr %initial_max_tcp_congestion_window_, align 8
+  %10 = load i64, ptr %max_tcp_congestion_window.addr, align 8
+  store i64 %10, ptr %initial_max_tcp_congestion_window_, align 8
   %min_slow_start_exit_window_ = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 9
   %min_congestion_window_2 = getelementptr inbounds %"class.net::TcpCubicSenderPackets", ptr %this1, i32 0, i32 4
-  %10 = load i64, ptr %min_congestion_window_2, align 8
-  store i64 %10, ptr %min_slow_start_exit_window_, align 8
+  %11 = load i64, ptr %min_congestion_window_2, align 8
+  store i64 %11, ptr %min_slow_start_exit_window_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %this1) #6
   br label %eh.resume
 

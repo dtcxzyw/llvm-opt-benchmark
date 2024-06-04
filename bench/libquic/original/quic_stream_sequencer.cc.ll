@@ -105,10 +105,11 @@ entry:
   store ptr %quic_stream, ptr %quic_stream.addr, align 8
   store ptr %clock, ptr %clock.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %quic_stream.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %quic_stream.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   %buffered_frames_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 2
   call void @_ZN3net25QuicStreamSequencerBufferC1Em(ptr noundef nonnull align 8 dereferenceable(120) %buffered_frames_, i64 noundef 16777216)
   %close_offset_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 3
@@ -121,8 +122,8 @@ entry:
   %num_duplicate_frames_received_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 7
   store i32 0, ptr %num_duplicate_frames_received_, align 8
   %clock_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 9
-  %1 = load ptr, ptr %clock.addr, align 8
-  store ptr %1, ptr %clock_, align 8
+  %2 = load ptr, ptr %clock.addr, align 8
+  store ptr %2, ptr %clock_, align 8
   %ignore_read_data_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 10
   store i8 0, ptr %ignore_read_data_, align 8
   ret void
@@ -142,7 +143,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffered_frames_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 2
   call void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %buffered_frames_) #5
   ret void

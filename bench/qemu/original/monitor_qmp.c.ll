@@ -1909,29 +1909,30 @@ if.else:                                          ; preds = %do.body10
   %entry17 = getelementptr inbounds %struct.Monitor, ptr %24, i32 0, i32 6
   %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %entry17, i32 0, i32 1
   %25 = load ptr, ptr %tql_prev18, align 8
-  store ptr %25, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
+  %26 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  store ptr %25, ptr %26, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then12
-  %26 = load ptr, ptr %mon, align 8
-  %entry20 = getelementptr inbounds %struct.Monitor, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %entry20, align 8
-  %28 = load ptr, ptr %mon, align 8
-  %entry21 = getelementptr inbounds %struct.Monitor, ptr %28, i32 0, i32 6
+  %27 = load ptr, ptr %mon, align 8
+  %entry20 = getelementptr inbounds %struct.Monitor, ptr %27, i32 0, i32 6
+  %28 = load ptr, ptr %entry20, align 8
+  %29 = load ptr, ptr %mon, align 8
+  %entry21 = getelementptr inbounds %struct.Monitor, ptr %29, i32 0, i32 6
   %tql_prev22 = getelementptr inbounds %struct.QTailQLink, ptr %entry21, i32 0, i32 1
-  %29 = load ptr, ptr %tql_prev22, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %29, i32 0, i32 0
-  store ptr %27, ptr %tql_next, align 8
-  %30 = load ptr, ptr %mon, align 8
-  %entry23 = getelementptr inbounds %struct.Monitor, ptr %30, i32 0, i32 6
+  %30 = load ptr, ptr %tql_prev22, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %30, i32 0, i32 0
+  store ptr %28, ptr %tql_next, align 8
+  %31 = load ptr, ptr %mon, align 8
+  %entry23 = getelementptr inbounds %struct.Monitor, ptr %31, i32 0, i32 6
   %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %entry23, i32 0, i32 1
   store ptr null, ptr %tql_prev24, align 8
-  %31 = load ptr, ptr %mon, align 8
-  %entry25 = getelementptr inbounds %struct.Monitor, ptr %31, i32 0, i32 6
+  %32 = load ptr, ptr %mon, align 8
+  %entry25 = getelementptr inbounds %struct.Monitor, ptr %32, i32 0, i32 6
   %tql_next26 = getelementptr inbounds %struct.QTailQLink, ptr %entry25, i32 0, i32 0
   store ptr null, ptr %tql_next26, align 8
-  %32 = load ptr, ptr %mon, align 8
-  %entry27 = getelementptr inbounds %struct.Monitor, ptr %32, i32 0, i32 6
+  %33 = load ptr, ptr %mon, align 8
+  %entry27 = getelementptr inbounds %struct.Monitor, ptr %33, i32 0, i32 6
   store ptr null, ptr %entry27, align 8
   br label %do.end28
 
@@ -1939,29 +1940,32 @@ do.end28:                                         ; preds = %if.end19
   br label %do.body29
 
 do.body29:                                        ; preds = %do.end28
-  %33 = load ptr, ptr %mon, align 8
-  %entry30 = getelementptr inbounds %struct.Monitor, ptr %33, i32 0, i32 6
+  %34 = load ptr, ptr %mon, align 8
+  %entry30 = getelementptr inbounds %struct.Monitor, ptr %34, i32 0, i32 6
   store ptr null, ptr %entry30, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
-  %35 = load ptr, ptr %mon, align 8
-  %entry31 = getelementptr inbounds %struct.Monitor, ptr %35, i32 0, i32 6
+  %35 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %mon, align 8
+  %entry31 = getelementptr inbounds %struct.Monitor, ptr %37, i32 0, i32 6
   %tql_prev32 = getelementptr inbounds %struct.QTailQLink, ptr %entry31, i32 0, i32 1
-  store ptr %34, ptr %tql_prev32, align 8
-  %36 = load ptr, ptr %mon, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
-  %tql_next33 = getelementptr inbounds %struct.QTailQLink, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %tql_next33, align 8
+  store ptr %36, ptr %tql_prev32, align 8
   %38 = load ptr, ptr %mon, align 8
-  %entry34 = getelementptr inbounds %struct.Monitor, ptr %38, i32 0, i32 6
-  store ptr %entry34, ptr getelementptr inbounds (%struct.QTailQLink, ptr @mon_list, i32 0, i32 1), align 8
+  %39 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %tql_next33 = getelementptr inbounds %struct.QTailQLink, ptr %40, i32 0, i32 0
+  store ptr %38, ptr %tql_next33, align 8
+  %41 = load ptr, ptr %mon, align 8
+  %entry34 = getelementptr inbounds %struct.Monitor, ptr %41, i32 0, i32 6
+  %42 = getelementptr inbounds %struct.QTailQLink, ptr @mon_list, i32 0, i32 1
+  store ptr %entry34, ptr %42, align 8
   br label %do.end35
 
 do.end35:                                         ; preds = %do.body29
   br label %if.end36
 
 if.end36:                                         ; preds = %do.end35, %for.end
-  %39 = load ptr, ptr %req_obj, align 8
-  ret ptr %39
+  %43 = load ptr, ptr %req_obj, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

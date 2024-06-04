@@ -1063,51 +1063,52 @@ if.end267:                                        ; preds = %if.end257
   store ptr @report_pack_garbage, ptr @report_garbage, align 8
   %61 = load ptr, ptr @the_repository, align 8
   call void @reprepare_packed_git(ptr noundef %61)
-  %62 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @pack_garbage, i32 0, i32 1), align 8
-  %cmp268 = icmp ugt i64 %62, 0
+  %62 = getelementptr inbounds %struct.string_list, ptr @pack_garbage, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8
+  %cmp268 = icmp ugt i64 %63, 0
   br i1 %cmp268, label %if.then270, label %if.end271
 
 if.then270:                                       ; preds = %if.end267
-  %63 = load ptr, ptr @the_repository, align 8
-  %objects = getelementptr inbounds %struct.repository, ptr %63, i32 0, i32 2
-  %64 = load ptr, ptr %objects, align 8
-  call void @close_object_store(ptr noundef %64)
+  %64 = load ptr, ptr @the_repository, align 8
+  %objects = getelementptr inbounds %struct.repository, ptr %64, i32 0, i32 2
+  %65 = load ptr, ptr %objects, align 8
+  call void @close_object_store(ptr noundef %65)
   call void @clean_pack_garbage()
   br label %if.end271
 
 if.end271:                                        ; preds = %if.then270, %if.end267
-  %65 = load ptr, ptr @the_repository, align 8
-  %settings = getelementptr inbounds %struct.repository, ptr %65, i32 0, i32 10
+  %66 = load ptr, ptr @the_repository, align 8
+  %settings = getelementptr inbounds %struct.repository, ptr %66, i32 0, i32 10
   %gc_write_commit_graph = getelementptr inbounds %struct.repo_settings, ptr %settings, i32 0, i32 4
-  %66 = load i32, ptr %gc_write_commit_graph, align 8
-  %cmp272 = icmp eq i32 %66, 1
+  %67 = load i32, ptr %gc_write_commit_graph, align 8
+  %cmp272 = icmp eq i32 %67, 1
   br i1 %cmp272, label %if.then274, label %if.end281
 
 if.then274:                                       ; preds = %if.end271
-  %67 = load ptr, ptr @the_repository, align 8
-  %objects275 = getelementptr inbounds %struct.repository, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %objects275, align 8
-  %odb = getelementptr inbounds %struct.raw_object_store, ptr %68, i32 0, i32 0
-  %69 = load ptr, ptr %odb, align 8
-  %70 = load i32, ptr %quiet, align 4
-  %tobool276 = icmp ne i32 %70, 0
+  %68 = load ptr, ptr @the_repository, align 8
+  %objects275 = getelementptr inbounds %struct.repository, ptr %68, i32 0, i32 2
+  %69 = load ptr, ptr %objects275, align 8
+  %odb = getelementptr inbounds %struct.raw_object_store, ptr %69, i32 0, i32 0
+  %70 = load ptr, ptr %odb, align 8
+  %71 = load i32, ptr %quiet, align 4
+  %tobool276 = icmp ne i32 %71, 0
   br i1 %tobool276, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then274
-  %71 = load i32, ptr %daemonized, align 4
-  %tobool277 = icmp ne i32 %71, 0
+  %72 = load i32, ptr %daemonized, align 4
+  %tobool277 = icmp ne i32 %72, 0
   %lnot278 = xor i1 %tobool277, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then274
-  %72 = phi i1 [ false, %if.then274 ], [ %lnot278, %land.rhs ]
-  %cond = select i1 %72, i32 2, i32 0
-  %call280 = call i32 @write_commit_graph_reachable(ptr noundef %69, i32 noundef %cond, ptr noundef null)
+  %73 = phi i1 [ false, %if.then274 ], [ %lnot278, %land.rhs ]
+  %cond = select i1 %73, i32 2, i32 0
+  %call280 = call i32 @write_commit_graph_reachable(ptr noundef %70, i32 noundef %cond, ptr noundef null)
   br label %if.end281
 
 if.end281:                                        ; preds = %land.end, %if.end271
-  %73 = load i32, ptr %auto_gc, align 4
-  %tobool282 = icmp ne i32 %73, 0
+  %74 = load i32, ptr %auto_gc, align 4
+  %tobool282 = icmp ne i32 %74, 0
   br i1 %tobool282, label %land.lhs.true283, label %if.end288
 
 land.lhs.true283:                                 ; preds = %if.end281
@@ -1121,8 +1122,8 @@ if.then286:                                       ; preds = %land.lhs.true283
   br label %if.end288
 
 if.end288:                                        ; preds = %if.then286, %land.lhs.true283, %if.end281
-  %74 = load i32, ptr %daemonized, align 4
-  %tobool289 = icmp ne i32 %74, 0
+  %75 = load i32, ptr %daemonized, align 4
+  %tobool289 = icmp ne i32 %75, 0
   br i1 %tobool289, label %if.end293, label %if.then290
 
 if.then290:                                       ; preds = %if.end288
@@ -1135,8 +1136,8 @@ if.end293:                                        ; preds = %if.then290, %if.end
   br label %return
 
 return:                                           ; preds = %if.end293, %if.then198, %if.then173, %if.then168, %if.then165, %if.then147
-  %75 = load i32, ptr %retval, align 4
-  ret i32 %75
+  %76 = load i32, ptr %retval, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2042,23 +2043,24 @@ entry:
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %i, align 4
   %conv = sext i32 %0 to i64
-  %1 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @pack_garbage, i32 0, i32 1), align 8
-  %cmp = icmp ult i64 %conv, %1
+  %1 = getelementptr inbounds %struct.string_list, ptr @pack_garbage, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %conv, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @pack_garbage, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom
+  %3 = load ptr, ptr @pack_garbage, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %3, i64 %idxprom
   %string = getelementptr inbounds %struct.string_list_item, ptr %arrayidx, i32 0, i32 0
-  %4 = load ptr, ptr %string, align 8
-  %call = call i32 @unlink_or_warn(ptr noundef %4)
+  %5 = load ptr, ptr %string, align 8
+  %call = call i32 @unlink_or_warn(ptr noundef %5)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -2792,29 +2794,30 @@ if.end29:                                         ; preds = %if.then25
 if.end30:                                         ; preds = %if.end29, %if.then23
   %22 = load ptr, ptr %config_file, align 8
   %23 = load ptr, ptr %maintpath, align 8
-  %call31 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %22, ptr noundef @.str.255, ptr noundef %23, ptr noundef inttoptr (i64 1 to ptr), i32 noundef 0)
+  %24 = inttoptr i64 1 to ptr
+  %call31 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %22, ptr noundef @.str.255, ptr noundef %23, ptr noundef %24, i32 noundef 0)
   store i32 %call31, ptr %rc, align 4
-  %24 = load ptr, ptr %user_config, align 8
-  call void @free(ptr noundef %24) #10
-  %25 = load ptr, ptr %xdg_config, align 8
+  %25 = load ptr, ptr %user_config, align 8
   call void @free(ptr noundef %25) #10
-  %26 = load i32, ptr %rc, align 4
-  %tobool32 = icmp ne i32 %26, 0
+  %26 = load ptr, ptr %xdg_config, align 8
+  call void @free(ptr noundef %26) #10
+  %27 = load i32, ptr %rc, align 4
+  %tobool32 = icmp ne i32 %27, 0
   br i1 %tobool32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end30
   %call34 = call ptr @_(ptr noundef @.str.259)
-  %27 = load ptr, ptr %key, align 8
-  %28 = load ptr, ptr %maintpath, align 8
-  call void (ptr, ...) @die(ptr noundef %call34, ptr noundef %27, ptr noundef %28) #9
+  %28 = load ptr, ptr %key, align 8
+  %29 = load ptr, ptr %maintpath, align 8
+  call void (ptr, ...) @die(ptr noundef %call34, ptr noundef %28, ptr noundef %29) #9
   unreachable
 
 if.end35:                                         ; preds = %if.end30
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %if.end21
-  %29 = load ptr, ptr %maintpath, align 8
-  call void @free(ptr noundef %29) #10
+  %30 = load ptr, ptr %maintpath, align 8
+  call void @free(ptr noundef %30) #10
   ret i32 0
 }
 
@@ -5411,32 +5414,48 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2, label %if.end16, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  store i32 0, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 3, i32 4), align 4
-  %bf.load = load i8, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 3), align 8
+  %1 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 3, i32 4
+  store i32 0, ptr %1, align 4
+  %2 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 3
+  %bf.load = load i8, ptr %2, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 3), align 8
-  store i32 3, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 4), align 4
-  %bf.load4 = load i8, ptr getelementptr inbounds (%struct.maintenance_task, ptr @tasks, i32 0, i32 3), align 8
+  %3 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 3
+  store i8 %bf.set, ptr %3, align 8
+  %4 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 4, i32 4
+  store i32 3, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.maintenance_task, ptr @tasks, i32 0, i32 3
+  %bf.load4 = load i8, ptr %5, align 8
   %bf.clear5 = and i8 %bf.load4, -2
   %bf.set6 = or i8 %bf.clear5, 1
-  store i8 %bf.set6, ptr getelementptr inbounds (%struct.maintenance_task, ptr @tasks, i32 0, i32 3), align 8
-  store i32 3, ptr getelementptr inbounds (%struct.maintenance_task, ptr @tasks, i32 0, i32 4), align 4
-  %bf.load7 = load i8, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 3), align 8
+  %6 = getelementptr inbounds %struct.maintenance_task, ptr @tasks, i32 0, i32 3
+  store i8 %bf.set6, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.maintenance_task, ptr @tasks, i32 0, i32 4
+  store i32 3, ptr %7, align 4
+  %8 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 3
+  %bf.load7 = load i8, ptr %8, align 8
   %bf.clear8 = and i8 %bf.load7, -2
   %bf.set9 = or i8 %bf.clear8, 1
-  store i8 %bf.set9, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 3), align 8
-  store i32 2, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 4), align 4
-  %bf.load10 = load i8, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 3), align 8
+  %9 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 3
+  store i8 %bf.set9, ptr %9, align 8
+  %10 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 2, i32 4
+  store i32 2, ptr %10, align 4
+  %11 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 3
+  %bf.load10 = load i8, ptr %11, align 8
   %bf.clear11 = and i8 %bf.load10, -2
   %bf.set12 = or i8 %bf.clear11, 1
-  store i8 %bf.set12, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 3), align 8
-  store i32 2, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 4), align 4
-  %bf.load13 = load i8, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 3), align 8
+  %12 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 3
+  store i8 %bf.set12, ptr %12, align 8
+  %13 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 1, i32 4
+  store i32 2, ptr %13, align 4
+  %14 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 3
+  %bf.load13 = load i8, ptr %14, align 8
   %bf.clear14 = and i8 %bf.load13, -2
   %bf.set15 = or i8 %bf.clear14, 1
-  store i8 %bf.set15, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 3), align 8
-  store i32 1, ptr getelementptr inbounds ([6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 4), align 4
+  %15 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 3
+  store i8 %bf.set15, ptr %15, align 8
+  %16 = getelementptr inbounds [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 5, i32 4
+  store i32 1, ptr %16, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then3, %if.end, %if.then

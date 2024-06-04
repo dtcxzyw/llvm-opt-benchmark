@@ -512,8 +512,9 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
   %2 = load ptr, ptr %bn2, align 8
-  %3 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 1), align 8
-  %call13 = call i32 @BN_set_word(ptr noundef %2, i64 noundef %3)
+  %3 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 1
+  %4 = load i64, ptr %3, align 8
+  %call13 = call i32 @BN_set_word(ptr noundef %2, i64 noundef %4)
   %cmp14 = icmp ne i32 %call13, 0
   %conv15 = zext i1 %cmp14 to i32
   %call16 = call i32 @test_true(ptr noundef @.str, i32 noundef 183, ptr noundef @.str.14, i32 noundef %conv15)
@@ -528,9 +529,10 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false12
   br i1 %tobool21, label %lor.lhs.false22, label %if.then34
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false18
-  %4 = load ptr, ptr %bn3, align 8
-  %5 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 2), align 16
-  %call23 = call i32 @BN_set_word(ptr noundef %4, i64 noundef %5)
+  %5 = load ptr, ptr %bn3, align 8
+  %6 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 2
+  %7 = load i64, ptr %6, align 16
+  %call23 = call i32 @BN_set_word(ptr noundef %5, i64 noundef %7)
   %cmp24 = icmp ne i32 %call23, 0
   %conv25 = zext i1 %cmp24 to i32
   %call26 = call i32 @test_true(ptr noundef @.str, i32 noundef 185, ptr noundef @.str.16, i32 noundef %conv25)
@@ -538,11 +540,11 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false18
   br i1 %tobool27, label %lor.lhs.false28, label %if.then34
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false22
-  %6 = load ptr, ptr %rsa, align 8
-  %7 = load ptr, ptr %bn1, align 8
-  %8 = load ptr, ptr %bn2, align 8
-  %9 = load ptr, ptr %bn3, align 8
-  %call29 = call i32 @RSA_set0_key(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %8 = load ptr, ptr %rsa, align 8
+  %9 = load ptr, ptr %bn1, align 8
+  %10 = load ptr, ptr %bn2, align 8
+  %11 = load ptr, ptr %bn3, align 8
+  %call29 = call i32 @RSA_set0_key(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %cmp30 = icmp ne i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i32
   %call32 = call i32 @test_true(ptr noundef @.str, i32 noundef 186, ptr noundef @.str.17, i32 noundef %conv31)
@@ -560,9 +562,10 @@ if.end35:                                         ; preds = %lor.lhs.false28
   br i1 %tobool38, label %lor.lhs.false39, label %if.then61
 
 lor.lhs.false39:                                  ; preds = %if.end35
-  %10 = load ptr, ptr %bn1, align 8
-  %11 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 3), align 8
-  %call40 = call i32 @BN_set_word(ptr noundef %10, i64 noundef %11)
+  %12 = load ptr, ptr %bn1, align 8
+  %13 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 3
+  %14 = load i64, ptr %13, align 8
+  %call40 = call i32 @BN_set_word(ptr noundef %12, i64 noundef %14)
   %cmp41 = icmp ne i32 %call40, 0
   %conv42 = zext i1 %cmp41 to i32
   %call43 = call i32 @test_true(ptr noundef @.str, i32 noundef 190, ptr noundef @.str.18, i32 noundef %conv42)
@@ -577,9 +580,10 @@ lor.lhs.false45:                                  ; preds = %lor.lhs.false39
   br i1 %tobool48, label %lor.lhs.false49, label %if.then61
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
-  %12 = load ptr, ptr %bn2, align 8
-  %13 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 4), align 16
-  %call50 = call i32 @BN_set_word(ptr noundef %12, i64 noundef %13)
+  %15 = load ptr, ptr %bn2, align 8
+  %16 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 4
+  %17 = load i64, ptr %16, align 16
+  %call50 = call i32 @BN_set_word(ptr noundef %15, i64 noundef %17)
   %cmp51 = icmp ne i32 %call50, 0
   %conv52 = zext i1 %cmp51 to i32
   %call53 = call i32 @test_true(ptr noundef @.str, i32 noundef 192, ptr noundef @.str.19, i32 noundef %conv52)
@@ -587,10 +591,10 @@ lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   br i1 %tobool54, label %lor.lhs.false55, label %if.then61
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr %rsa, align 8
-  %15 = load ptr, ptr %bn1, align 8
-  %16 = load ptr, ptr %bn2, align 8
-  %call56 = call i32 @RSA_set0_factors(ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %18 = load ptr, ptr %rsa, align 8
+  %19 = load ptr, ptr %bn1, align 8
+  %20 = load ptr, ptr %bn2, align 8
+  %call56 = call i32 @RSA_set0_factors(ptr noundef %18, ptr noundef %19, ptr noundef %20)
   %cmp57 = icmp ne i32 %call56, 0
   %conv58 = zext i1 %cmp57 to i32
   %call59 = call i32 @test_true(ptr noundef @.str, i32 noundef 193, ptr noundef @.str.20, i32 noundef %conv58)
@@ -608,9 +612,10 @@ if.end62:                                         ; preds = %lor.lhs.false55
   br i1 %tobool65, label %lor.lhs.false66, label %if.then98
 
 lor.lhs.false66:                                  ; preds = %if.end62
-  %17 = load ptr, ptr %bn1, align 8
-  %18 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 6), align 16
-  %call67 = call i32 @BN_set_word(ptr noundef %17, i64 noundef %18)
+  %21 = load ptr, ptr %bn1, align 8
+  %22 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 6
+  %23 = load i64, ptr %22, align 16
+  %call67 = call i32 @BN_set_word(ptr noundef %21, i64 noundef %23)
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = call i32 @test_true(ptr noundef @.str, i32 noundef 197, ptr noundef @.str.21, i32 noundef %conv69)
@@ -625,9 +630,10 @@ lor.lhs.false72:                                  ; preds = %lor.lhs.false66
   br i1 %tobool75, label %lor.lhs.false76, label %if.then98
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false72
-  %19 = load ptr, ptr %bn2, align 8
-  %20 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 7), align 8
-  %call77 = call i32 @BN_set_word(ptr noundef %19, i64 noundef %20)
+  %24 = load ptr, ptr %bn2, align 8
+  %25 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 7
+  %26 = load i64, ptr %25, align 8
+  %call77 = call i32 @BN_set_word(ptr noundef %24, i64 noundef %26)
   %cmp78 = icmp ne i32 %call77, 0
   %conv79 = zext i1 %cmp78 to i32
   %call80 = call i32 @test_true(ptr noundef @.str, i32 noundef 199, ptr noundef @.str.22, i32 noundef %conv79)
@@ -642,9 +648,10 @@ lor.lhs.false82:                                  ; preds = %lor.lhs.false76
   br i1 %tobool85, label %lor.lhs.false86, label %if.then98
 
 lor.lhs.false86:                                  ; preds = %lor.lhs.false82
-  %21 = load ptr, ptr %bn3, align 8
-  %22 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 9), align 8
-  %call87 = call i32 @BN_set_word(ptr noundef %21, i64 noundef %22)
+  %27 = load ptr, ptr %bn3, align 8
+  %28 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 9
+  %29 = load i64, ptr %28, align 8
+  %call87 = call i32 @BN_set_word(ptr noundef %27, i64 noundef %29)
   %cmp88 = icmp ne i32 %call87, 0
   %conv89 = zext i1 %cmp88 to i32
   %call90 = call i32 @test_true(ptr noundef @.str, i32 noundef 201, ptr noundef @.str.23, i32 noundef %conv89)
@@ -652,11 +659,11 @@ lor.lhs.false86:                                  ; preds = %lor.lhs.false82
   br i1 %tobool91, label %lor.lhs.false92, label %if.then98
 
 lor.lhs.false92:                                  ; preds = %lor.lhs.false86
-  %23 = load ptr, ptr %rsa, align 8
-  %24 = load ptr, ptr %bn1, align 8
-  %25 = load ptr, ptr %bn2, align 8
-  %26 = load ptr, ptr %bn3, align 8
-  %call93 = call i32 @RSA_set0_crt_params(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %30 = load ptr, ptr %rsa, align 8
+  %31 = load ptr, ptr %bn1, align 8
+  %32 = load ptr, ptr %bn2, align 8
+  %33 = load ptr, ptr %bn3, align 8
+  %call93 = call i32 @RSA_set0_crt_params(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33)
   %cmp94 = icmp ne i32 %call93, 0
   %conv95 = zext i1 %cmp94 to i32
   %call96 = call i32 @test_true(ptr noundef @.str, i32 noundef 202, ptr noundef @.str.24, i32 noundef %conv95)
@@ -679,9 +686,10 @@ if.end99:                                         ; preds = %lor.lhs.false92
 
 lor.lhs.false103:                                 ; preds = %if.end99
   %arrayidx104 = getelementptr inbounds [1 x ptr], ptr %bn_primes, i64 0, i64 0
-  %27 = load ptr, ptr %arrayidx104, align 8
-  %28 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 5), align 8
-  %call105 = call i32 @BN_set_word(ptr noundef %27, i64 noundef %28)
+  %34 = load ptr, ptr %arrayidx104, align 8
+  %35 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 5
+  %36 = load i64, ptr %35, align 8
+  %call105 = call i32 @BN_set_word(ptr noundef %34, i64 noundef %36)
   %cmp106 = icmp ne i32 %call105, 0
   %conv107 = zext i1 %cmp106 to i32
   %call108 = call i32 @test_true(ptr noundef @.str, i32 noundef 207, ptr noundef @.str.26, i32 noundef %conv107)
@@ -698,9 +706,10 @@ lor.lhs.false110:                                 ; preds = %lor.lhs.false103
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false110
   %arrayidx116 = getelementptr inbounds [1 x ptr], ptr %bn_exps, i64 0, i64 0
-  %29 = load ptr, ptr %arrayidx116, align 8
-  %30 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 8), align 16
-  %call117 = call i32 @BN_set_word(ptr noundef %29, i64 noundef %30)
+  %37 = load ptr, ptr %arrayidx116, align 8
+  %38 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 8
+  %39 = load i64, ptr %38, align 16
+  %call117 = call i32 @BN_set_word(ptr noundef %37, i64 noundef %39)
   %cmp118 = icmp ne i32 %call117, 0
   %conv119 = zext i1 %cmp118 to i32
   %call120 = call i32 @test_true(ptr noundef @.str, i32 noundef 209, ptr noundef @.str.28, i32 noundef %conv119)
@@ -717,9 +726,10 @@ lor.lhs.false122:                                 ; preds = %lor.lhs.false115
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false122
   %arrayidx128 = getelementptr inbounds [1 x ptr], ptr %bn_coeffs, i64 0, i64 0
-  %31 = load ptr, ptr %arrayidx128, align 8
-  %32 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 10), align 16
-  %call129 = call i32 @BN_set_word(ptr noundef %31, i64 noundef %32)
+  %40 = load ptr, ptr %arrayidx128, align 8
+  %41 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 10
+  %42 = load i64, ptr %41, align 16
+  %call129 = call i32 @BN_set_word(ptr noundef %40, i64 noundef %42)
   %cmp130 = icmp ne i32 %call129, 0
   %conv131 = zext i1 %cmp130 to i32
   %call132 = call i32 @test_true(ptr noundef @.str, i32 noundef 211, ptr noundef @.str.30, i32 noundef %conv131)
@@ -727,11 +737,11 @@ lor.lhs.false127:                                 ; preds = %lor.lhs.false122
   br i1 %tobool133, label %lor.lhs.false134, label %if.then142
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false127
-  %33 = load ptr, ptr %rsa, align 8
+  %43 = load ptr, ptr %rsa, align 8
   %arraydecay = getelementptr inbounds [1 x ptr], ptr %bn_primes, i64 0, i64 0
   %arraydecay135 = getelementptr inbounds [1 x ptr], ptr %bn_exps, i64 0, i64 0
   %arraydecay136 = getelementptr inbounds [1 x ptr], ptr %bn_coeffs, i64 0, i64 0
-  %call137 = call i32 @RSA_set0_multi_prime_params(ptr noundef %33, ptr noundef %arraydecay, ptr noundef %arraydecay135, ptr noundef %arraydecay136, i32 noundef 1)
+  %call137 = call i32 @RSA_set0_multi_prime_params(ptr noundef %43, ptr noundef %arraydecay, ptr noundef %arraydecay135, ptr noundef %arraydecay136, i32 noundef 1)
   %cmp138 = icmp ne i32 %call137, 0
   %conv139 = zext i1 %cmp138 to i32
   %call140 = call i32 @test_true(ptr noundef @.str, i32 noundef 213, ptr noundef @.str.31, i32 noundef %conv139)
@@ -749,9 +759,9 @@ if.end143:                                        ; preds = %lor.lhs.false134
   br i1 %tobool146, label %lor.lhs.false147, label %if.then153
 
 lor.lhs.false147:                                 ; preds = %if.end143
-  %34 = load ptr, ptr %pk, align 8
-  %35 = load ptr, ptr %rsa, align 8
-  %call148 = call i32 @EVP_PKEY_assign(ptr noundef %34, i32 noundef 6, ptr noundef %35)
+  %44 = load ptr, ptr %pk, align 8
+  %45 = load ptr, ptr %rsa, align 8
+  %call148 = call i32 @EVP_PKEY_assign(ptr noundef %44, i32 noundef 6, ptr noundef %45)
   %cmp149 = icmp ne i32 %call148, 0
   %conv150 = zext i1 %cmp149 to i32
   %call151 = call i32 @test_true(ptr noundef @.str, i32 noundef 217, ptr noundef @.str.33, i32 noundef %conv150)
@@ -763,39 +773,39 @@ if.then153:                                       ; preds = %lor.lhs.false147, %
 
 if.end154:                                        ; preds = %lor.lhs.false147
   store ptr null, ptr %rsa, align 8
-  %36 = load ptr, ptr %fixture.addr, align 8
-  %ctx1 = getelementptr inbounds %struct.FIXTURE, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %ctx1, align 8
-  %call155 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %37, ptr noundef @.str.35, ptr noundef null)
+  %46 = load ptr, ptr %fixture.addr, align 8
+  %ctx1 = getelementptr inbounds %struct.FIXTURE, ptr %46, i32 0, i32 0
+  %47 = load ptr, ptr %ctx1, align 8
+  %call155 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %47, ptr noundef @.str.35, ptr noundef null)
   store ptr %call155, ptr %km1, align 8
   %call156 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 221, ptr noundef @.str.34, ptr noundef %call155)
   %tobool157 = icmp ne i32 %call156, 0
   br i1 %tobool157, label %lor.lhs.false158, label %if.then170
 
 lor.lhs.false158:                                 ; preds = %if.end154
-  %38 = load ptr, ptr %fixture.addr, align 8
-  %ctx2 = getelementptr inbounds %struct.FIXTURE, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %ctx2, align 8
-  %call159 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %39, ptr noundef @.str.35, ptr noundef null)
+  %48 = load ptr, ptr %fixture.addr, align 8
+  %ctx2 = getelementptr inbounds %struct.FIXTURE, ptr %48, i32 0, i32 2
+  %49 = load ptr, ptr %ctx2, align 8
+  %call159 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %49, ptr noundef @.str.35, ptr noundef null)
   store ptr %call159, ptr %km2, align 8
   %call160 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 222, ptr noundef @.str.36, ptr noundef %call159)
   %tobool161 = icmp ne i32 %call160, 0
   br i1 %tobool161, label %lor.lhs.false162, label %if.then170
 
 lor.lhs.false162:                                 ; preds = %lor.lhs.false158
-  %40 = load ptr, ptr %fixture.addr, align 8
-  %ctx1163 = getelementptr inbounds %struct.FIXTURE, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %ctx1163, align 8
-  %call164 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %41, ptr noundef @.str.38, ptr noundef null)
+  %50 = load ptr, ptr %fixture.addr, align 8
+  %ctx1163 = getelementptr inbounds %struct.FIXTURE, ptr %50, i32 0, i32 0
+  %51 = load ptr, ptr %ctx1163, align 8
+  %call164 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %51, ptr noundef @.str.38, ptr noundef null)
   store ptr %call164, ptr %km3, align 8
   %call165 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 223, ptr noundef @.str.37, ptr noundef %call164)
   %tobool166 = icmp ne i32 %call165, 0
   br i1 %tobool166, label %lor.lhs.false167, label %if.then170
 
 lor.lhs.false167:                                 ; preds = %lor.lhs.false162
-  %42 = load ptr, ptr %km1, align 8
-  %43 = load ptr, ptr %km2, align 8
-  %call168 = call i32 @test_ptr_ne(ptr noundef @.str, i32 noundef 224, ptr noundef @.str.39, ptr noundef @.str.40, ptr noundef %42, ptr noundef %43)
+  %52 = load ptr, ptr %km1, align 8
+  %53 = load ptr, ptr %km2, align 8
+  %call168 = call i32 @test_ptr_ne(ptr noundef @.str, i32 noundef 224, ptr noundef @.str.39, ptr noundef @.str.40, ptr noundef %52, ptr noundef %53)
   %tobool169 = icmp ne i32 %call168, 0
   br i1 %tobool169, label %if.end171, label %if.then170
 
@@ -806,16 +816,16 @@ if.end171:                                        ; preds = %lor.lhs.false167
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end215, %if.end171
-  %44 = load ptr, ptr %dup_pk, align 8
-  %cmp172 = icmp eq ptr %44, null
+  %54 = load ptr, ptr %dup_pk, align 8
+  %cmp172 = icmp eq ptr %54, null
   br i1 %cmp172, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   store i32 0, ptr %ret, align 4
-  %45 = load ptr, ptr %km3, align 8
-  store ptr %45, ptr %km, align 8
-  %46 = load ptr, ptr %pk, align 8
-  %call174 = call ptr @evp_pkey_export_to_provider(ptr noundef %46, ptr noundef null, ptr noundef %km, ptr noundef null)
+  %55 = load ptr, ptr %km3, align 8
+  store ptr %55, ptr %km, align 8
+  %56 = load ptr, ptr %pk, align 8
+  %call174 = call ptr @evp_pkey_export_to_provider(ptr noundef %56, ptr noundef null, ptr noundef %km, ptr noundef null)
   store ptr %call174, ptr %provkey2, align 8
   %call175 = call i32 @test_ptr_null(ptr noundef @.str, i32 noundef 233, ptr noundef @.str.41, ptr noundef %call174)
   %tobool176 = icmp ne i32 %call175, 0
@@ -825,17 +835,17 @@ if.then177:                                       ; preds = %while.body
   br label %err
 
 if.end178:                                        ; preds = %while.body
-  %47 = load ptr, ptr %pk, align 8
-  %call179 = call ptr @evp_pkey_export_to_provider(ptr noundef %47, ptr noundef null, ptr noundef %km1, ptr noundef null)
+  %57 = load ptr, ptr %pk, align 8
+  %call179 = call ptr @evp_pkey_export_to_provider(ptr noundef %57, ptr noundef null, ptr noundef %km1, ptr noundef null)
   store ptr %call179, ptr %provkey, align 8
   %call180 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 237, ptr noundef @.str.42, ptr noundef %call179)
   %tobool181 = icmp ne i32 %call180, 0
   br i1 %tobool181, label %lor.lhs.false182, label %if.then188
 
 lor.lhs.false182:                                 ; preds = %if.end178
-  %48 = load ptr, ptr %km2, align 8
-  %49 = load ptr, ptr %provkey, align 8
-  %call183 = call i32 @evp_keymgmt_export(ptr noundef %48, ptr noundef %49, i32 noundef 3, ptr noundef @export_cb, ptr noundef @test_pass_rsa.keydata)
+  %58 = load ptr, ptr %km2, align 8
+  %59 = load ptr, ptr %provkey, align 8
+  %call183 = call i32 @evp_keymgmt_export(ptr noundef %58, ptr noundef %59, i32 noundef 3, ptr noundef @export_cb, ptr noundef @test_pass_rsa.keydata)
   %cmp184 = icmp ne i32 %call183, 0
   %conv185 = zext i1 %cmp184 to i32
   %call186 = call i32 @test_true(ptr noundef @.str, i32 noundef 240, ptr noundef @.str.43, i32 noundef %conv185)
@@ -850,33 +860,33 @@ if.end189:                                        ; preds = %lor.lhs.false182
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end189
-  %50 = load i64, ptr %i, align 8
-  %cmp190 = icmp ult i64 %50, 12
+  %60 = load i64, ptr %i, align 8
+  %cmp190 = icmp ult i64 %60, 12
   br i1 %cmp190, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %51 = load i64, ptr %i, align 8
-  %arrayidx192 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 %51
-  %52 = load i64, ptr %arrayidx192, align 8
-  %conv193 = trunc i64 %52 to i32
-  %53 = load i64, ptr %i, align 8
-  %arrayidx194 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.keydata, i64 0, i64 %53
-  %54 = load i64, ptr %arrayidx194, align 8
-  %conv195 = trunc i64 %54 to i32
+  %61 = load i64, ptr %i, align 8
+  %arrayidx192 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 %61
+  %62 = load i64, ptr %arrayidx192, align 8
+  %conv193 = trunc i64 %62 to i32
+  %63 = load i64, ptr %i, align 8
+  %arrayidx194 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.keydata, i64 0, i64 %63
+  %64 = load i64, ptr %arrayidx194, align 8
+  %conv195 = trunc i64 %64 to i32
   %call196 = call i32 @test_int_eq(ptr noundef @.str, i32 noundef 249, ptr noundef @.str.44, ptr noundef @.str.45, i32 noundef %conv193, i32 noundef %conv195)
   store i32 %call196, ptr %rv, align 4
-  %55 = load i32, ptr %rv, align 4
-  %tobool197 = icmp ne i32 %55, 0
+  %65 = load i32, ptr %rv, align 4
+  %tobool197 = icmp ne i32 %65, 0
   br i1 %tobool197, label %if.else, label %if.then198
 
 if.then198:                                       ; preds = %for.body
-  %56 = load i64, ptr %i, align 8
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str, i32 noundef 252, ptr noundef @.str.46, i64 noundef %56)
+  %66 = load i64, ptr %i, align 8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str, i32 noundef 252, ptr noundef @.str.46, i64 noundef %66)
   br label %if.end199
 
 if.else:                                          ; preds = %for.body
-  %57 = load i32, ptr %ret, align 4
-  %inc = add nsw i32 %57, 1
+  %67 = load i32, ptr %ret, align 4
+  %inc = add nsw i32 %67, 1
   store i32 %inc, ptr %ret, align 4
   br label %if.end199
 
@@ -884,24 +894,24 @@ if.end199:                                        ; preds = %if.else, %if.then19
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end199
-  %58 = load i64, ptr %i, align 8
-  %inc200 = add i64 %58, 1
+  %68 = load i64, ptr %i, align 8
+  %inc200 = add i64 %68, 1
   store i64 %inc200, ptr %i, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %59 = load i32, ptr %ret, align 4
-  %conv201 = sext i32 %59 to i64
+  %69 = load i32, ptr %ret, align 4
+  %conv201 = sext i32 %69 to i64
   %cmp202 = icmp eq i64 %conv201, 12
   %conv203 = zext i1 %cmp202 to i32
   store i32 %conv203, ptr %ret, align 4
-  %60 = load i32, ptr %ret, align 4
-  %tobool204 = icmp ne i32 %60, 0
+  %70 = load i32, ptr %ret, align 4
+  %tobool204 = icmp ne i32 %70, 0
   br i1 %tobool204, label %lor.lhs.false205, label %if.then209
 
 lor.lhs.false205:                                 ; preds = %for.end
-  %61 = load ptr, ptr %pk, align 8
-  %call206 = call ptr @EVP_PKEY_dup(ptr noundef %61)
+  %71 = load ptr, ptr %pk, align 8
+  %call206 = call ptr @EVP_PKEY_dup(ptr noundef %71)
   store ptr %call206, ptr %dup_pk, align 8
   %call207 = call i32 @test_ptr(ptr noundef @.str, i32 noundef 258, ptr noundef @.str.47, ptr noundef %call206)
   %tobool208 = icmp ne i32 %call207, 0
@@ -911,17 +921,17 @@ if.then209:                                       ; preds = %lor.lhs.false205, %
   br label %err
 
 if.end210:                                        ; preds = %lor.lhs.false205
-  %62 = load ptr, ptr %pk, align 8
-  %63 = load ptr, ptr %dup_pk, align 8
-  %call211 = call i32 @EVP_PKEY_eq(ptr noundef %62, ptr noundef %63)
+  %72 = load ptr, ptr %pk, align 8
+  %73 = load ptr, ptr %dup_pk, align 8
+  %call211 = call i32 @EVP_PKEY_eq(ptr noundef %72, ptr noundef %73)
   %call212 = call i32 @test_int_eq(ptr noundef @.str, i32 noundef 261, ptr noundef @.str.48, ptr noundef @.str.49, i32 noundef %call211, i32 noundef 1)
   store i32 %call212, ptr %ret, align 4
-  %64 = load ptr, ptr %pk, align 8
-  call void @EVP_PKEY_free(ptr noundef %64)
-  %65 = load ptr, ptr %dup_pk, align 8
-  store ptr %65, ptr %pk, align 8
-  %66 = load i32, ptr %ret, align 4
-  %tobool213 = icmp ne i32 %66, 0
+  %74 = load ptr, ptr %pk, align 8
+  call void @EVP_PKEY_free(ptr noundef %74)
+  %75 = load ptr, ptr %dup_pk, align 8
+  store ptr %75, ptr %pk, align 8
+  %76 = load i32, ptr %ret, align 4
+  %tobool213 = icmp ne i32 %76, 0
   br i1 %tobool213, label %if.end215, label %if.then214
 
 if.then214:                                       ; preds = %if.end210
@@ -934,24 +944,24 @@ while.end:                                        ; preds = %while.cond
   br label %err
 
 err:                                              ; preds = %while.end, %if.then214, %if.then209, %if.then188, %if.then177, %if.then170, %if.then153, %if.then142, %if.then98, %if.then61, %if.then34, %if.then
-  %67 = load ptr, ptr %rsa, align 8
-  call void @RSA_free(ptr noundef %67)
-  %68 = load ptr, ptr %bn1, align 8
-  call void @BN_free(ptr noundef %68)
-  %69 = load ptr, ptr %bn2, align 8
-  call void @BN_free(ptr noundef %69)
-  %70 = load ptr, ptr %bn3, align 8
-  call void @BN_free(ptr noundef %70)
-  %71 = load ptr, ptr %pk, align 8
-  call void @EVP_PKEY_free(ptr noundef %71)
-  %72 = load ptr, ptr %km1, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %72)
-  %73 = load ptr, ptr %km2, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %73)
-  %74 = load ptr, ptr %km3, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %74)
-  %75 = load i32, ptr %ret, align 4
-  ret i32 %75
+  %77 = load ptr, ptr %rsa, align 8
+  call void @RSA_free(ptr noundef %77)
+  %78 = load ptr, ptr %bn1, align 8
+  call void @BN_free(ptr noundef %78)
+  %79 = load ptr, ptr %bn2, align 8
+  call void @BN_free(ptr noundef %79)
+  %80 = load ptr, ptr %bn3, align 8
+  call void @BN_free(ptr noundef %80)
+  %81 = load ptr, ptr %pk, align 8
+  call void @EVP_PKEY_free(ptr noundef %81)
+  %82 = load ptr, ptr %km1, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %82)
+  %83 = load ptr, ptr %km2, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %83)
+  %84 = load ptr, ptr %km3, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %84)
+  %85 = load i32, ptr %ret, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

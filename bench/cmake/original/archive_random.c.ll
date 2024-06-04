@@ -191,41 +191,50 @@ define internal zeroext i8 @arc4_getbyte() #0 {
   store i8 %6, ptr @rs, align 1
   %7 = load i8, ptr @rs, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
-  store i8 %10, ptr %1, align 1
-  %11 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %1, align 1
+  %9 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %10 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %8
+  %11 = load i8, ptr %10, align 1
+  store i8 %11, ptr %1, align 1
+  %12 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %12, %14
-  %16 = trunc i32 %15 to i8
-  store i8 %16, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %17 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
-  store i8 %20, ptr %2, align 1
-  %21 = load i8, ptr %2, align 1
-  %22 = load i8, ptr @rs, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %23
-  store i8 %21, ptr %24, align 1
-  %25 = load i8, ptr %1, align 1
-  %26 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %27
-  store i8 %25, ptr %28, align 1
-  %29 = load i8, ptr %1, align 1
-  %30 = zext i8 %29 to i32
-  %31 = load i8, ptr %2, align 1
-  %32 = zext i8 %31 to i32
-  %33 = add nsw i32 %30, %32
-  %34 = and i32 %33, 255
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1
-  ret i8 %37
+  %15 = load i8, ptr %1, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %14, %16
+  %18 = trunc i32 %17 to i8
+  %19 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %18, ptr %19, align 1
+  %20 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %24 = getelementptr inbounds [256 x i8], ptr %23, i64 0, i64 %22
+  %25 = load i8, ptr %24, align 1
+  store i8 %25, ptr %2, align 1
+  %26 = load i8, ptr %2, align 1
+  %27 = load i8, ptr @rs, align 1
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %30 = getelementptr inbounds [256 x i8], ptr %29, i64 0, i64 %28
+  store i8 %26, ptr %30, align 1
+  %31 = load i8, ptr %1, align 1
+  %32 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %36 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %34
+  store i8 %31, ptr %36, align 1
+  %37 = load i8, ptr %1, align 1
+  %38 = zext i8 %37 to i32
+  %39 = load i8, ptr %2, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add nsw i32 %38, %40
+  %42 = and i32 %41, 255
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %45 = getelementptr inbounds [256 x i8], ptr %44, i64 0, i64 %43
+  %46 = load i8, ptr %45, align 1
+  ret i8 %46
 }
 
 ; Function Attrs: nounwind
@@ -240,29 +249,31 @@ define internal void @arc4_init() #0 {
   store i32 0, ptr %1, align 4
   br label %2
 
-2:                                                ; preds = %11, %0
+2:                                                ; preds = %12, %0
   %3 = load i32, ptr %1, align 4
   %4 = icmp slt i32 %3, 256
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4
   %7 = trunc i32 %6 to i8
   %8 = load i32, ptr %1, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %9
-  store i8 %7, ptr %10, align 1
-  br label %11
+  %10 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %11 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %9
+  store i8 %7, ptr %11, align 1
+  br label %12
 
-11:                                               ; preds = %5
-  %12 = load i32, ptr %1, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %1, align 4
+12:                                               ; preds = %5
+  %13 = load i32, ptr %1, align 4
+  %14 = add nsw i32 %13, 1
+  store i32 %14, ptr %1, align 4
   br label %2, !llvm.loop !8
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   store i8 0, ptr @rs, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
+  %16 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 0, ptr %16, align 1
   ret void
 }
 
@@ -289,10 +300,10 @@ define internal void @arc4_addrandom(ptr noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %5, align 4
   br label %9
 
-9:                                                ; preds = %47, %2
+9:                                                ; preds = %55, %2
   %10 = load i32, ptr %5, align 4
   %11 = icmp slt i32 %10, 256
-  br i1 %11, label %12, label %50
+  br i1 %11, label %12, label %58
 
 12:                                               ; preds = %9
   %13 = load i8, ptr @rs, align 1
@@ -302,49 +313,58 @@ define internal void @arc4_addrandom(ptr noundef %0, i32 noundef %1) #0 {
   store i8 %16, ptr @rs, align 1
   %17 = load i8, ptr @rs, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
-  store i8 %20, ptr %6, align 1
-  %21 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %22 = zext i8 %21 to i32
-  %23 = load i8, ptr %6, align 1
+  %19 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %20 = getelementptr inbounds [256 x i8], ptr %19, i64 0, i64 %18
+  %21 = load i8, ptr %20, align 1
+  store i8 %21, ptr %6, align 1
+  %22 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
-  %25 = add nsw i32 %22, %24
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %5, align 4
-  %28 = load i32, ptr %4, align 4
-  %29 = srem i32 %27, %28
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %26, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = add nsw i32 %25, %33
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %36 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1
-  %40 = load i8, ptr @rs, align 1
+  %25 = load i8, ptr %6, align 1
+  %26 = zext i8 %25 to i32
+  %27 = add nsw i32 %24, %26
+  %28 = load ptr, ptr %3, align 8
+  %29 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %4, align 4
+  %31 = srem i32 %29, %30
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %28, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = add nsw i32 %27, %35
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %37, ptr %38, align 1
+  %39 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %41
-  store i8 %39, ptr %42, align 1
-  %43 = load i8, ptr %6, align 1
-  %44 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %45
-  store i8 %43, ptr %46, align 1
-  br label %47
+  %42 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %43 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 %41
+  %44 = load i8, ptr %43, align 1
+  %45 = load i8, ptr @rs, align 1
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %48 = getelementptr inbounds [256 x i8], ptr %47, i64 0, i64 %46
+  store i8 %44, ptr %48, align 1
+  %49 = load i8, ptr %6, align 1
+  %50 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i64
+  %53 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %54 = getelementptr inbounds [256 x i8], ptr %53, i64 0, i64 %52
+  store i8 %49, ptr %54, align 1
+  br label %55
 
-47:                                               ; preds = %12
-  %48 = load i32, ptr %5, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %5, align 4
+55:                                               ; preds = %12
+  %56 = load i32, ptr %5, align 4
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %5, align 4
   br label %9, !llvm.loop !9
 
-50:                                               ; preds = %9
-  %51 = load i8, ptr @rs, align 1
-  store i8 %51, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
+58:                                               ; preds = %9
+  %59 = load i8, ptr @rs, align 1
+  %60 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %59, ptr %60, align 1
   ret void
 }
 

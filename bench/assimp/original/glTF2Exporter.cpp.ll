@@ -8122,15 +8122,16 @@ entry:
   %reg = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %EncodedRegion_List = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 7
   store ptr %EncodedRegion_List, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNSt7__cxx114listIPN5glTF26Buffer14SEncodedRegionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
+  %1 = load ptr, ptr %__range1, align 8
+  %call = call ptr @_ZNSt7__cxx114listIPN5glTF26Buffer14SEncodedRegionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #18
   %coerce.dive = getelementptr inbounds %"struct.std::_List_iterator", ptr %__begin1, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call2 = call ptr @_ZNSt7__cxx114listIPN5glTF26Buffer14SEncodedRegionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #18
+  %2 = load ptr, ptr %__range1, align 8
+  %call2 = call ptr @_ZNSt7__cxx114listIPN5glTF26Buffer14SEncodedRegionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   %coerce.dive3 = getelementptr inbounds %"struct.std::_List_iterator", ptr %__end1, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   br label %for.cond
@@ -8141,15 +8142,15 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.cond
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt14_List_iteratorIPN5glTF26Buffer14SEncodedRegionEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #18
-  %2 = load ptr, ptr %call5, align 8
-  store ptr %2, ptr %reg, align 8
-  %3 = load ptr, ptr %reg, align 8
-  %isnull = icmp eq ptr %3, null
+  %3 = load ptr, ptr %call5, align 8
+  store ptr %3, ptr %reg, align 8
+  %4 = load ptr, ptr %reg, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  call void @_ZN5glTF26Buffer14SEncodedRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #18
-  call void @_ZdlPv(ptr noundef %3) #19
+  call void @_ZN5glTF26Buffer14SEncodedRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
+  call void @_ZdlPv(ptr noundef %4) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
@@ -16749,32 +16750,34 @@ land.lhs.true6:                                   ; preds = %if.end
   %specularColorFactor7 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %7, i32 0, i32 1
   %arrayidx8 = getelementptr inbounds [3 x float], ptr %specularColorFactor7, i64 0, i64 1
   %8 = load float, ptr %arrayidx8, align 4
-  %9 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 1), align 4
-  %cmp9 = fcmp oeq float %8, %9
+  %9 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 1
+  %10 = load float, ptr %9, align 4
+  %cmp9 = fcmp oeq float %8, %10
   br i1 %cmp9, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %10 = load ptr, ptr %specular.addr, align 8
-  %specularColorFactor10 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %specular.addr, align 8
+  %specularColorFactor10 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %11, i32 0, i32 1
   %arrayidx11 = getelementptr inbounds [3 x float], ptr %specularColorFactor10, i64 0, i64 2
-  %11 = load float, ptr %arrayidx11, align 4
-  %12 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 2), align 4
-  %cmp12 = fcmp oeq float %11, %12
+  %12 = load float, ptr %arrayidx11, align 4
+  %13 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 2
+  %14 = load float, ptr %13, align 4
+  %cmp12 = fcmp oeq float %12, %14
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true6, %if.end
-  %13 = phi i1 [ false, %land.lhs.true6 ], [ false, %if.end ], [ %cmp12, %land.rhs ]
-  %frombool = zext i1 %13 to i8
+  %15 = phi i1 [ false, %land.lhs.true6 ], [ false, %if.end ], [ %cmp12, %land.rhs ]
+  %frombool = zext i1 %15 to i8
   store i8 %frombool, ptr %colorFactorIsZero, align 1
-  %14 = load ptr, ptr %specular.addr, align 8
-  %specularFactor13 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %14, i32 0, i32 0
-  %15 = load float, ptr %specularFactor13, align 8
-  %cmp14 = fcmp oeq float %15, 0.000000e+00
+  %16 = load ptr, ptr %specular.addr, align 8
+  %specularFactor13 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %16, i32 0, i32 0
+  %17 = load float, ptr %specularFactor13, align 8
+  %cmp14 = fcmp oeq float %17, 0.000000e+00
   br i1 %cmp14, label %land.lhs.true15, label %if.else
 
 land.lhs.true15:                                  ; preds = %land.end
-  %16 = load i8, ptr %colorFactorIsZero, align 1
-  %tobool = trunc i8 %16 to i1
+  %18 = load i8, ptr %colorFactorIsZero, align 1
+  %tobool = trunc i8 %18 to i1
   br i1 %tobool, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %land.lhs.true15
@@ -16782,34 +16785,34 @@ if.then16:                                        ; preds = %land.lhs.true15
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true15, %land.end
-  %17 = load ptr, ptr %specular.addr, align 8
-  %specularFactor17 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %17, i32 0, i32 0
-  %18 = load float, ptr %specularFactor17, align 8
-  %cmp18 = fcmp oeq float %18, 0.000000e+00
+  %19 = load ptr, ptr %specular.addr, align 8
+  %specularFactor17 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %19, i32 0, i32 0
+  %20 = load float, ptr %specularFactor17, align 8
+  %cmp18 = fcmp oeq float %20, 0.000000e+00
   br i1 %cmp18, label %if.then19, label %if.else21
 
 if.then19:                                        ; preds = %if.else
-  %19 = load ptr, ptr %specular.addr, align 8
-  %specularFactor20 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %specular.addr, align 8
+  %specularFactor20 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %21, i32 0, i32 0
   store float 1.000000e+00, ptr %specularFactor20, align 8
   br label %if.end31
 
 if.else21:                                        ; preds = %if.else
-  %20 = load i8, ptr %colorFactorIsZero, align 1
-  %tobool22 = trunc i8 %20 to i1
+  %22 = load i8, ptr %colorFactorIsZero, align 1
+  %tobool22 = trunc i8 %22 to i1
   br i1 %tobool22, label %if.then23, label %if.end30
 
 if.then23:                                        ; preds = %if.else21
-  %21 = load ptr, ptr %specular.addr, align 8
-  %specularColorFactor24 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %specular.addr, align 8
+  %specularColorFactor24 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %23, i32 0, i32 1
   %arrayidx25 = getelementptr inbounds [3 x float], ptr %specularColorFactor24, i64 0, i64 2
   store float 1.000000e+00, ptr %arrayidx25, align 4
-  %22 = load ptr, ptr %specular.addr, align 8
-  %specularColorFactor26 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %specular.addr, align 8
+  %specularColorFactor26 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %24, i32 0, i32 1
   %arrayidx27 = getelementptr inbounds [3 x float], ptr %specularColorFactor26, i64 0, i64 1
   store float 1.000000e+00, ptr %arrayidx27, align 4
-  %23 = load ptr, ptr %specular.addr, align 8
-  %specularColorFactor28 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %specular.addr, align 8
+  %specularColorFactor28 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %25, i32 0, i32 1
   %arrayidx29 = getelementptr inbounds [3 x float], ptr %specularColorFactor28, i64 0, i64 0
   store float 1.000000e+00, ptr %arrayidx29, align 4
   br label %if.end30
@@ -16821,20 +16824,20 @@ if.end31:                                         ; preds = %if.end30, %if.then1
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end31
-  %24 = load ptr, ptr %mat.addr, align 8
-  %25 = load ptr, ptr %specular.addr, align 8
-  %specularTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %25, i32 0, i32 2
-  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(48) %specularTexture, i32 noundef 2, i32 noundef 0)
   %26 = load ptr, ptr %mat.addr, align 8
   %27 = load ptr, ptr %specular.addr, align 8
-  %specularColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %27, i32 0, i32 3
-  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %specularColorTexture, i32 noundef 2, i32 noundef 1)
+  %specularTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %27, i32 0, i32 2
+  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %specularTexture, i32 noundef 2, i32 noundef 0)
+  %28 = load ptr, ptr %mat.addr, align 8
+  %29 = load ptr, ptr %specular.addr, align 8
+  %specularColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %29, i32 0, i32 3
+  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(48) %specularColorTexture, i32 noundef 2, i32 noundef 1)
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then16, %if.then
-  %28 = load i1, ptr %retval, align 1
-  ret i1 %28
+  %30 = load i1, ptr %retval, align 1
+  ret i1 %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16873,17 +16876,19 @@ land.lhs.true:                                    ; preds = %if.end
   %sheenColorFactor4 = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %5, i32 0, i32 0
   %arrayidx5 = getelementptr inbounds [3 x float], ptr %sheenColorFactor4, i64 0, i64 1
   %6 = load float, ptr %arrayidx5, align 4
-  %7 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L18defaultSheenFactorE, i64 0, i64 1), align 4
-  %cmp6 = fcmp oeq float %6, %7
+  %7 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L18defaultSheenFactorE, i64 0, i64 1
+  %8 = load float, ptr %7, align 4
+  %cmp6 = fcmp oeq float %6, %8
   br i1 %cmp6, label %land.lhs.true7, label %if.end12
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr %sheen.addr, align 8
-  %sheenColorFactor8 = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %sheen.addr, align 8
+  %sheenColorFactor8 = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %9, i32 0, i32 0
   %arrayidx9 = getelementptr inbounds [3 x float], ptr %sheenColorFactor8, i64 0, i64 2
-  %9 = load float, ptr %arrayidx9, align 8
-  %10 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L18defaultSheenFactorE, i64 0, i64 2), align 4
-  %cmp10 = fcmp oeq float %9, %10
+  %10 = load float, ptr %arrayidx9, align 8
+  %11 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L18defaultSheenFactorE, i64 0, i64 2
+  %12 = load float, ptr %11, align 4
+  %cmp10 = fcmp oeq float %10, %12
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %land.lhs.true7
@@ -16891,24 +16896,24 @@ if.then11:                                        ; preds = %land.lhs.true7
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true7, %land.lhs.true, %if.end
-  %11 = load ptr, ptr %mat.addr, align 8
-  %12 = load ptr, ptr %sheen.addr, align 8
-  %sheenRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %12, i32 0, i32 1
-  %call13 = call noundef i32 @_ZNK10aiMaterial3GetEPKcjjRf(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef @.str.33, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %sheenRoughnessFactor)
   %13 = load ptr, ptr %mat.addr, align 8
   %14 = load ptr, ptr %sheen.addr, align 8
-  %sheenColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %14, i32 0, i32 2
-  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(48) %sheenColorTexture, i32 noundef 19, i32 noundef 0)
+  %sheenRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %14, i32 0, i32 1
+  %call13 = call noundef i32 @_ZNK10aiMaterial3GetEPKcjjRf(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.33, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %sheenRoughnessFactor)
   %15 = load ptr, ptr %mat.addr, align 8
   %16 = load ptr, ptr %sheen.addr, align 8
-  %sheenRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %16, i32 0, i32 3
-  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(48) %sheenRoughnessTexture, i32 noundef 19, i32 noundef 1)
+  %sheenColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %16, i32 0, i32 2
+  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(48) %sheenColorTexture, i32 noundef 19, i32 noundef 0)
+  %17 = load ptr, ptr %mat.addr, align 8
+  %18 = load ptr, ptr %sheen.addr, align 8
+  %sheenRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %18, i32 0, i32 3
+  call void @_ZN6Assimp13glTF2Exporter9GetMatTexERK10aiMaterialRN5glTF211TextureInfoE13aiTextureTypej(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(48) %sheenRoughnessTexture, i32 noundef 19, i32 noundef 1)
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then11, %if.then
-  %17 = load i1, ptr %retval, align 1
-  ret i1 %17
+  %19 = load i1, ptr %retval, align 1
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24096,7 +24101,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #18
   ret void
@@ -24786,7 +24792,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %extras = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 6
   call void @_ZN5glTF26ExtrasD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %extras) #18
   %customExtensions = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 5
@@ -25233,7 +25240,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF28AccessorESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 2
@@ -25241,20 +25249,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25263,12 +25271,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25300,7 +25308,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF29AnimationESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 2
@@ -25308,20 +25317,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25330,12 +25339,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25367,7 +25376,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF26BufferESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 2
@@ -25375,20 +25385,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25397,12 +25407,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25434,7 +25444,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF210BufferViewESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 2
@@ -25442,20 +25453,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25464,12 +25475,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25501,7 +25512,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF26CameraESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 2
@@ -25509,20 +25521,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25531,12 +25543,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25568,7 +25580,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25LightESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 2
@@ -25576,20 +25589,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25598,12 +25611,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25635,7 +25648,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25ImageESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 2
@@ -25643,20 +25657,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25665,12 +25679,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25702,7 +25716,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF28MaterialESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 2
@@ -25710,20 +25725,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25732,12 +25747,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25769,7 +25784,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24MeshESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 2
@@ -25777,20 +25793,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25799,12 +25815,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25836,7 +25852,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24NodeESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 2
@@ -25844,20 +25861,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25866,12 +25883,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25903,7 +25920,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF27SamplerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 2
@@ -25911,20 +25929,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -25933,12 +25951,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -25970,7 +25988,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25SceneESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 2
@@ -25978,20 +25997,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -26000,12 +26019,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -26037,7 +26056,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24SkinESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 2
@@ -26045,20 +26065,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -26067,12 +26087,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -26104,7 +26124,8 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF27TextureESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 2
@@ -26112,20 +26133,20 @@ entry:
   %mObjsById = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   %mDictId = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %dictId.addr, align 8
-  store ptr %0, ptr %mDictId, align 8
+  %1 = load ptr, ptr %dictId.addr, align 8
+  store ptr %1, ptr %mDictId, align 8
   %mExtId = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %extId.addr, align 8
-  store ptr %1, ptr %mExtId, align 8
+  %2 = load ptr, ptr %extId.addr, align 8
+  store ptr %2, ptr %mExtId, align 8
   %mDict = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 6
   store ptr null, ptr %mDict, align 8
   %mAsset = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %asset.addr, align 8
-  store ptr %2, ptr %mAsset, align 8
+  %3 = load ptr, ptr %asset.addr, align 8
+  store ptr %3, ptr %mAsset, align 8
   %mRecursiveReferenceCheck = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIjSt4lessIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
-  %3 = load ptr, ptr %asset.addr, align 8
-  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %asset.addr, align 8
+  %mDicts = getelementptr inbounds %"class.glTF2::Asset", ptr %4, i32 0, i32 0
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN5glTF212LazyDictBaseESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %mDicts, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -26134,12 +26155,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRecursiveReferenceCheck) #18
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsById) #18
   call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mObjsByOIndex) #18
@@ -26210,38 +26231,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF27TextureESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF27TextureESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF27TextureESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(296) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(296) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !55
 
@@ -26265,38 +26287,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF24SkinESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24SkinESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24SkinESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(408) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !56
 
@@ -26320,38 +26343,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF25SceneESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25SceneESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25SceneESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(320) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(320) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !57
 
@@ -26375,38 +26399,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF27SamplerESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF27SamplerESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF27SamplerESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(280) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !58
 
@@ -26430,38 +26455,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF24NodeESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24NodeESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24NodeESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(552) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(552) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !59
 
@@ -26485,38 +26511,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF24MeshESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24MeshESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF24MeshESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(336) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(336) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !60
 
@@ -26540,38 +26567,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF28MaterialESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF28MaterialESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF28MaterialESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(1305) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(1305) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !61
 
@@ -26595,38 +26623,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF25ImageESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25ImageESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25ImageESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(368) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(368) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !62
 
@@ -26650,38 +26679,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF25LightESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25LightESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF25LightESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(300) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(300) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !63
 
@@ -26705,38 +26735,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF26CameraESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF26CameraESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF26CameraESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(284) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(284) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !64
 
@@ -26760,38 +26791,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF210BufferViewESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF210BufferViewESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF210BufferViewESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(304) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(304) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !65
 
@@ -26815,38 +26847,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF26BufferESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF26BufferESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF26BufferESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(344) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(344) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !66
 
@@ -26870,38 +26903,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF29AnimationESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF29AnimationESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF29AnimationESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(312) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(312) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !67
 
@@ -26925,38 +26959,39 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %i, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 1
   %call = call noundef i64 @_ZNKSt6vectorIPN5glTF28AccessorESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
-  %cmp = icmp ult i64 %0, %call
+  %cmp = icmp ult i64 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %mObjs2 = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF28AccessorESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %1) #18
-  %2 = load ptr, ptr %call3, align 8
-  %isnull = icmp eq ptr %2, null
+  %2 = load i64, ptr %i, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5glTF28AccessorESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %mObjs2, i64 noundef %2) #18
+  %3 = load ptr, ptr %call3, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(376) %2) #18
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(376) %3) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
+  %5 = load i64, ptr %i, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !68
 
@@ -27092,7 +27127,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF212LazyDictBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5glTF212LazyDictBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29684,16 +29720,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this11, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this11, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -30410,16 +30447,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this11, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this11, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -40446,49 +40484,51 @@ land.lhs.true:                                    ; preds = %if.end124
   %specularColorFactor126 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %115, i32 0, i32 1
   %arrayidx127 = getelementptr inbounds [3 x float], ptr %specularColorFactor126, i64 0, i64 1
   %116 = load float, ptr %arrayidx127, align 4
-  %117 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 1), align 4
-  %cmp128 = fcmp une float %116, %117
+  %117 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 1
+  %118 = load float, ptr %117, align 4
+  %cmp128 = fcmp une float %116, %118
   br i1 %cmp128, label %land.lhs.true129, label %if.end137
 
 land.lhs.true129:                                 ; preds = %land.lhs.true
-  %118 = load ptr, ptr %specular, align 8
-  %specularColorFactor130 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %118, i32 0, i32 1
+  %119 = load ptr, ptr %specular, align 8
+  %specularColorFactor130 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %119, i32 0, i32 1
   %arrayidx131 = getelementptr inbounds [3 x float], ptr %specularColorFactor130, i64 0, i64 2
-  %119 = load float, ptr %arrayidx131, align 4
-  %120 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 2), align 4
-  %cmp132 = fcmp une float %119, %120
+  %120 = load float, ptr %arrayidx131, align 4
+  %121 = getelementptr inbounds [3 x float], ptr @_ZN5glTF2L26defaultSpecularColorFactorE, i64 0, i64 2
+  %122 = load float, ptr %121, align 4
+  %cmp132 = fcmp une float %120, %122
   br i1 %cmp132, label %if.then133, label %if.end137
 
 if.then133:                                       ; preds = %land.lhs.true129
-  %121 = load ptr, ptr %specular, align 8
-  %specularColorFactor134 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %121, i32 0, i32 1
-  %122 = load ptr, ptr %w.addr, align 8
-  %mAl135 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %122, i32 0, i32 2
-  %123 = load ptr, ptr %mAl135, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef nonnull align 4 dereferenceable(12) %specularColorFactor134, ptr noundef @.str.160, ptr noundef nonnull align 8 dereferenceable(40) %123)
+  %123 = load ptr, ptr %specular, align 8
+  %specularColorFactor134 = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %123, i32 0, i32 1
+  %124 = load ptr, ptr %w.addr, align 8
+  %mAl135 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %124, i32 0, i32 2
+  %125 = load ptr, ptr %mAl135, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef nonnull align 4 dereferenceable(12) %specularColorFactor134, ptr noundef @.str.160, ptr noundef nonnull align 8 dereferenceable(40) %125)
           to label %invoke.cont136 unwind label %lpad122
 
 invoke.cont136:                                   ; preds = %if.then133
   br label %if.end137
 
 if.end137:                                        ; preds = %invoke.cont136, %land.lhs.true129, %land.lhs.true, %if.end124
-  %124 = load ptr, ptr %specular, align 8
-  %specularTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %124, i32 0, i32 2
+  %126 = load ptr, ptr %specular, align 8
+  %specularTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %126, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp138, ptr align 8 %specularTexture, i64 48, i1 false)
-  %125 = load ptr, ptr %w.addr, align 8
-  %mAl139 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %125, i32 0, i32 2
-  %126 = load ptr, ptr %mAl139, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp138, ptr noundef @.str.161, ptr noundef nonnull align 8 dereferenceable(40) %126)
+  %127 = load ptr, ptr %w.addr, align 8
+  %mAl139 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %127, i32 0, i32 2
+  %128 = load ptr, ptr %mAl139, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp138, ptr noundef @.str.161, ptr noundef nonnull align 8 dereferenceable(40) %128)
           to label %invoke.cont140 unwind label %lpad122
 
 invoke.cont140:                                   ; preds = %if.end137
-  %127 = load ptr, ptr %specular, align 8
-  %specularColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %127, i32 0, i32 3
+  %129 = load ptr, ptr %specular, align 8
+  %specularColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSpecular", ptr %129, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp141, ptr align 8 %specularColorTexture, i64 48, i1 false)
-  %128 = load ptr, ptr %w.addr, align 8
-  %mAl142 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %128, i32 0, i32 2
-  %129 = load ptr, ptr %mAl142, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp141, ptr noundef @.str.162, ptr noundef nonnull align 8 dereferenceable(40) %129)
+  %130 = load ptr, ptr %w.addr, align 8
+  %mAl142 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %130, i32 0, i32 2
+  %131 = load ptr, ptr %mAl142, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp141, ptr noundef @.str.162, ptr noundef nonnull align 8 dereferenceable(40) %131)
           to label %invoke.cont143 unwind label %lpad122
 
 invoke.cont143:                                   ; preds = %invoke.cont140
@@ -40500,10 +40540,10 @@ invoke.cont144:                                   ; preds = %invoke.cont143
 
 if.then146:                                       ; preds = %invoke.cont144
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj23EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp147, ptr noundef nonnull align 1 dereferenceable(23) @.str.163) #18
-  %130 = load ptr, ptr %w.addr, align 8
-  %mAl148 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %130, i32 0, i32 2
-  %131 = load ptr, ptr %mAl148, align 8
-  %call150 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp147, ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef nonnull align 8 dereferenceable(40) %131)
+  %132 = load ptr, ptr %w.addr, align 8
+  %mAl148 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %132, i32 0, i32 2
+  %133 = load ptr, ptr %mAl148, align 8
+  %call150 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp147, ptr noundef nonnull align 8 dereferenceable(16) %materialSpecular113, ptr noundef nonnull align 8 dereferenceable(40) %133)
           to label %invoke.cont149 unwind label %lpad122
 
 invoke.cont149:                                   ; preds = %if.then146
@@ -40514,75 +40554,75 @@ if.end151:                                        ; preds = %invoke.cont149, %in
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end151, %if.end109
-  %132 = load ptr, ptr %m.addr, align 8
-  %materialSheen = getelementptr inbounds %"struct.glTF2::Material", ptr %132, i32 0, i32 13
+  %134 = load ptr, ptr %m.addr, align 8
+  %materialSheen = getelementptr inbounds %"struct.glTF2::Material", ptr %134, i32 0, i32 13
   %isPresent153 = getelementptr inbounds %"struct.glTFCommon::Nullable.179", ptr %materialSheen, i32 0, i32 1
-  %133 = load i8, ptr %isPresent153, align 8
-  %tobool154 = trunc i8 %133 to i1
+  %135 = load i8, ptr %isPresent153, align 8
+  %tobool154 = trunc i8 %135 to i1
   br i1 %tobool154, label %if.then155, label %if.end182
 
 if.then155:                                       ; preds = %if.end152
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, i32 noundef 3) #18
-  %134 = load ptr, ptr %m.addr, align 8
-  %materialSheen157 = getelementptr inbounds %"struct.glTF2::Material", ptr %134, i32 0, i32 13
+  %136 = load ptr, ptr %m.addr, align 8
+  %materialSheen157 = getelementptr inbounds %"struct.glTF2::Material", ptr %136, i32 0, i32 13
   %value158 = getelementptr inbounds %"struct.glTFCommon::Nullable.179", ptr %materialSheen157, i32 0, i32 0
   store ptr %value158, ptr %sheen, align 8
-  %135 = load ptr, ptr %sheen, align 8
-  %sheenColorFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %135, i32 0, i32 0
-  %136 = load ptr, ptr %w.addr, align 8
-  %mAl159 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %136, i32 0, i32 2
-  %137 = load ptr, ptr %mAl159, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 4 dereferenceable(12) %sheenColorFactor, ptr noundef @.str.164, ptr noundef nonnull align 4 dereferenceable(12) @_ZN5glTF2L18defaultSheenFactorE, ptr noundef nonnull align 8 dereferenceable(40) %137)
+  %137 = load ptr, ptr %sheen, align 8
+  %sheenColorFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %137, i32 0, i32 0
+  %138 = load ptr, ptr %w.addr, align 8
+  %mAl159 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %138, i32 0, i32 2
+  %139 = load ptr, ptr %mAl159, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 4 dereferenceable(12) %sheenColorFactor, ptr noundef @.str.164, ptr noundef nonnull align 4 dereferenceable(12) @_ZN5glTF2L18defaultSheenFactorE, ptr noundef nonnull align 8 dereferenceable(40) %139)
           to label %invoke.cont161 unwind label %lpad160
 
 invoke.cont161:                                   ; preds = %if.then155
-  %138 = load ptr, ptr %sheen, align 8
-  %sheenRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %138, i32 0, i32 1
-  %139 = load float, ptr %sheenRoughnessFactor, align 4
-  %cmp162 = fcmp une float %139, 0.000000e+00
+  %140 = load ptr, ptr %sheen, align 8
+  %sheenRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %140, i32 0, i32 1
+  %141 = load float, ptr %sheenRoughnessFactor, align 4
+  %cmp162 = fcmp une float %141, 0.000000e+00
   br i1 %cmp162, label %if.then163, label %if.end167
 
 if.then163:                                       ; preds = %invoke.cont161
-  %140 = load ptr, ptr %sheen, align 8
-  %sheenRoughnessFactor164 = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %140, i32 0, i32 1
-  %141 = load float, ptr %sheenRoughnessFactor164, align 4
-  %142 = load ptr, ptr %w.addr, align 8
-  %mAl165 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %142, i32 0, i32 2
-  %143 = load ptr, ptr %mAl165, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, float noundef %141, ptr noundef @.str.165, ptr noundef nonnull align 8 dereferenceable(40) %143)
+  %142 = load ptr, ptr %sheen, align 8
+  %sheenRoughnessFactor164 = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %142, i32 0, i32 1
+  %143 = load float, ptr %sheenRoughnessFactor164, align 4
+  %144 = load ptr, ptr %w.addr, align 8
+  %mAl165 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %144, i32 0, i32 2
+  %145 = load ptr, ptr %mAl165, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, float noundef %143, ptr noundef @.str.165, ptr noundef nonnull align 8 dereferenceable(40) %145)
           to label %invoke.cont166 unwind label %lpad160
 
 invoke.cont166:                                   ; preds = %if.then163
   br label %if.end167
 
 lpad160:                                          ; preds = %if.then176, %invoke.cont173, %invoke.cont170, %if.end167, %if.then163, %if.then155
-  %144 = landingpad { ptr, i32 }
+  %146 = landingpad { ptr, i32 }
           cleanup
-  %145 = extractvalue { ptr, i32 } %144, 0
-  store ptr %145, ptr %exn.slot, align 8
-  %146 = extractvalue { ptr, i32 } %144, 1
-  store i32 %146, ptr %ehselector.slot, align 4
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %exn.slot, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156) #18
   br label %ehcleanup
 
 if.end167:                                        ; preds = %invoke.cont166, %invoke.cont161
-  %147 = load ptr, ptr %sheen, align 8
-  %sheenColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %147, i32 0, i32 2
+  %149 = load ptr, ptr %sheen, align 8
+  %sheenColorTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %149, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp168, ptr align 8 %sheenColorTexture, i64 48, i1 false)
-  %148 = load ptr, ptr %w.addr, align 8
-  %mAl169 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %148, i32 0, i32 2
-  %149 = load ptr, ptr %mAl169, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp168, ptr noundef @.str.166, ptr noundef nonnull align 8 dereferenceable(40) %149)
+  %150 = load ptr, ptr %w.addr, align 8
+  %mAl169 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %150, i32 0, i32 2
+  %151 = load ptr, ptr %mAl169, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp168, ptr noundef @.str.166, ptr noundef nonnull align 8 dereferenceable(40) %151)
           to label %invoke.cont170 unwind label %lpad160
 
 invoke.cont170:                                   ; preds = %if.end167
-  %150 = load ptr, ptr %sheen, align 8
-  %sheenRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %150, i32 0, i32 3
+  %152 = load ptr, ptr %sheen, align 8
+  %sheenRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialSheen", ptr %152, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp171, ptr align 8 %sheenRoughnessTexture, i64 48, i1 false)
-  %151 = load ptr, ptr %w.addr, align 8
-  %mAl172 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %151, i32 0, i32 2
-  %152 = load ptr, ptr %mAl172, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp171, ptr noundef @.str.167, ptr noundef nonnull align 8 dereferenceable(40) %152)
+  %153 = load ptr, ptr %w.addr, align 8
+  %mAl172 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %153, i32 0, i32 2
+  %154 = load ptr, ptr %mAl172, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp171, ptr noundef @.str.167, ptr noundef nonnull align 8 dereferenceable(40) %154)
           to label %invoke.cont173 unwind label %lpad160
 
 invoke.cont173:                                   ; preds = %invoke.cont170
@@ -40594,10 +40634,10 @@ invoke.cont174:                                   ; preds = %invoke.cont173
 
 if.then176:                                       ; preds = %invoke.cont174
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj20EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp177, ptr noundef nonnull align 1 dereferenceable(20) @.str.168) #18
-  %153 = load ptr, ptr %w.addr, align 8
-  %mAl178 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %153, i32 0, i32 2
-  %154 = load ptr, ptr %mAl178, align 8
-  %call180 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp177, ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 8 dereferenceable(40) %154)
+  %155 = load ptr, ptr %w.addr, align 8
+  %mAl178 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %155, i32 0, i32 2
+  %156 = load ptr, ptr %mAl178, align 8
+  %call180 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp177, ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 8 dereferenceable(40) %156)
           to label %invoke.cont179 unwind label %lpad160
 
 invoke.cont179:                                   ; preds = %if.then176
@@ -40608,96 +40648,96 @@ if.end181:                                        ; preds = %invoke.cont179, %in
   br label %if.end182
 
 if.end182:                                        ; preds = %if.end181, %if.end152
-  %155 = load ptr, ptr %m.addr, align 8
-  %materialClearcoat = getelementptr inbounds %"struct.glTF2::Material", ptr %155, i32 0, i32 14
+  %157 = load ptr, ptr %m.addr, align 8
+  %materialClearcoat = getelementptr inbounds %"struct.glTF2::Material", ptr %157, i32 0, i32 14
   %isPresent183 = getelementptr inbounds %"struct.glTFCommon::Nullable.181", ptr %materialClearcoat, i32 0, i32 1
-  %156 = load i8, ptr %isPresent183, align 8
-  %tobool184 = trunc i8 %156 to i1
+  %158 = load i8, ptr %isPresent183, align 8
+  %tobool184 = trunc i8 %158 to i1
   br i1 %tobool184, label %if.then185, label %if.end219
 
 if.then185:                                       ; preds = %if.end182
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, i32 noundef 3) #18
-  %157 = load ptr, ptr %m.addr, align 8
-  %materialClearcoat187 = getelementptr inbounds %"struct.glTF2::Material", ptr %157, i32 0, i32 14
+  %159 = load ptr, ptr %m.addr, align 8
+  %materialClearcoat187 = getelementptr inbounds %"struct.glTF2::Material", ptr %159, i32 0, i32 14
   %value188 = getelementptr inbounds %"struct.glTFCommon::Nullable.181", ptr %materialClearcoat187, i32 0, i32 0
   store ptr %value188, ptr %clearcoat, align 8
-  %158 = load ptr, ptr %clearcoat, align 8
-  %clearcoatFactor = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %158, i32 0, i32 0
-  %159 = load float, ptr %clearcoatFactor, align 8
-  %cmp189 = fcmp une float %159, 0.000000e+00
+  %160 = load ptr, ptr %clearcoat, align 8
+  %clearcoatFactor = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %160, i32 0, i32 0
+  %161 = load float, ptr %clearcoatFactor, align 8
+  %cmp189 = fcmp une float %161, 0.000000e+00
   br i1 %cmp189, label %if.then190, label %if.end195
 
 if.then190:                                       ; preds = %if.then185
-  %160 = load ptr, ptr %clearcoat, align 8
-  %clearcoatFactor191 = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %160, i32 0, i32 0
-  %161 = load float, ptr %clearcoatFactor191, align 8
-  %162 = load ptr, ptr %w.addr, align 8
-  %mAl192 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %162, i32 0, i32 2
-  %163 = load ptr, ptr %mAl192, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, float noundef %161, ptr noundef @.str.169, ptr noundef nonnull align 8 dereferenceable(40) %163)
+  %162 = load ptr, ptr %clearcoat, align 8
+  %clearcoatFactor191 = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %162, i32 0, i32 0
+  %163 = load float, ptr %clearcoatFactor191, align 8
+  %164 = load ptr, ptr %w.addr, align 8
+  %mAl192 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %164, i32 0, i32 2
+  %165 = load ptr, ptr %mAl192, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, float noundef %163, ptr noundef @.str.169, ptr noundef nonnull align 8 dereferenceable(40) %165)
           to label %invoke.cont194 unwind label %lpad193
 
 invoke.cont194:                                   ; preds = %if.then190
   br label %if.end195
 
 lpad193:                                          ; preds = %if.then213, %invoke.cont210, %invoke.cont207, %invoke.cont204, %if.end201, %if.then197, %if.then190
-  %164 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %165 = extractvalue { ptr, i32 } %164, 0
-  store ptr %165, ptr %exn.slot, align 8
-  %166 = extractvalue { ptr, i32 } %164, 1
-  store i32 %166, ptr %ehselector.slot, align 4
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %exn.slot, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186) #18
   br label %ehcleanup
 
 if.end195:                                        ; preds = %invoke.cont194, %if.then185
-  %167 = load ptr, ptr %clearcoat, align 8
-  %clearcoatRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %167, i32 0, i32 1
-  %168 = load float, ptr %clearcoatRoughnessFactor, align 4
-  %cmp196 = fcmp une float %168, 0.000000e+00
+  %169 = load ptr, ptr %clearcoat, align 8
+  %clearcoatRoughnessFactor = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %169, i32 0, i32 1
+  %170 = load float, ptr %clearcoatRoughnessFactor, align 4
+  %cmp196 = fcmp une float %170, 0.000000e+00
   br i1 %cmp196, label %if.then197, label %if.end201
 
 if.then197:                                       ; preds = %if.end195
-  %169 = load ptr, ptr %clearcoat, align 8
-  %clearcoatRoughnessFactor198 = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %169, i32 0, i32 1
-  %170 = load float, ptr %clearcoatRoughnessFactor198, align 4
-  %171 = load ptr, ptr %w.addr, align 8
-  %mAl199 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %171, i32 0, i32 2
-  %172 = load ptr, ptr %mAl199, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, float noundef %170, ptr noundef @.str.170, ptr noundef nonnull align 8 dereferenceable(40) %172)
+  %171 = load ptr, ptr %clearcoat, align 8
+  %clearcoatRoughnessFactor198 = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %171, i32 0, i32 1
+  %172 = load float, ptr %clearcoatRoughnessFactor198, align 4
+  %173 = load ptr, ptr %w.addr, align 8
+  %mAl199 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %173, i32 0, i32 2
+  %174 = load ptr, ptr %mAl199, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, float noundef %172, ptr noundef @.str.170, ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %invoke.cont200 unwind label %lpad193
 
 invoke.cont200:                                   ; preds = %if.then197
   br label %if.end201
 
 if.end201:                                        ; preds = %invoke.cont200, %if.end195
-  %173 = load ptr, ptr %clearcoat, align 8
-  %clearcoatTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %173, i32 0, i32 2
+  %175 = load ptr, ptr %clearcoat, align 8
+  %clearcoatTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %175, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp202, ptr align 8 %clearcoatTexture, i64 48, i1 false)
-  %174 = load ptr, ptr %w.addr, align 8
-  %mAl203 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %174, i32 0, i32 2
-  %175 = load ptr, ptr %mAl203, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp202, ptr noundef @.str.171, ptr noundef nonnull align 8 dereferenceable(40) %175)
+  %176 = load ptr, ptr %w.addr, align 8
+  %mAl203 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %176, i32 0, i32 2
+  %177 = load ptr, ptr %mAl203, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp202, ptr noundef @.str.171, ptr noundef nonnull align 8 dereferenceable(40) %177)
           to label %invoke.cont204 unwind label %lpad193
 
 invoke.cont204:                                   ; preds = %if.end201
-  %176 = load ptr, ptr %clearcoat, align 8
-  %clearcoatRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %176, i32 0, i32 3
+  %178 = load ptr, ptr %clearcoat, align 8
+  %clearcoatRoughnessTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %178, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp205, ptr align 8 %clearcoatRoughnessTexture, i64 48, i1 false)
-  %177 = load ptr, ptr %w.addr, align 8
-  %mAl206 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %177, i32 0, i32 2
-  %178 = load ptr, ptr %mAl206, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp205, ptr noundef @.str.172, ptr noundef nonnull align 8 dereferenceable(40) %178)
+  %179 = load ptr, ptr %w.addr, align 8
+  %mAl206 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %179, i32 0, i32 2
+  %180 = load ptr, ptr %mAl206, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp205, ptr noundef @.str.172, ptr noundef nonnull align 8 dereferenceable(40) %180)
           to label %invoke.cont207 unwind label %lpad193
 
 invoke.cont207:                                   ; preds = %invoke.cont204
-  %179 = load ptr, ptr %clearcoat, align 8
-  %clearcoatNormalTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %179, i32 0, i32 4
+  %181 = load ptr, ptr %clearcoat, align 8
+  %clearcoatNormalTexture = getelementptr inbounds %"struct.glTF2::MaterialClearcoat", ptr %181, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp208, ptr align 8 %clearcoatNormalTexture, i64 56, i1 false)
-  %180 = load ptr, ptr %w.addr, align 8
-  %mAl209 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %180, i32 0, i32 2
-  %181 = load ptr, ptr %mAl209, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_17NormalTextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::NormalTextureInfo") align 8 %agg.tmp208, ptr noundef @.str.173, ptr noundef nonnull align 8 dereferenceable(40) %181)
+  %182 = load ptr, ptr %w.addr, align 8
+  %mAl209 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %182, i32 0, i32 2
+  %183 = load ptr, ptr %mAl209, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_17NormalTextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef byval(%"struct.glTF2::NormalTextureInfo") align 8 %agg.tmp208, ptr noundef @.str.173, ptr noundef nonnull align 8 dereferenceable(40) %183)
           to label %invoke.cont210 unwind label %lpad193
 
 invoke.cont210:                                   ; preds = %invoke.cont207
@@ -40709,10 +40749,10 @@ invoke.cont211:                                   ; preds = %invoke.cont210
 
 if.then213:                                       ; preds = %invoke.cont211
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj24EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp214, ptr noundef nonnull align 1 dereferenceable(24) @.str.174) #18
-  %182 = load ptr, ptr %w.addr, align 8
-  %mAl215 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %182, i32 0, i32 2
-  %183 = load ptr, ptr %mAl215, align 8
-  %call217 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp214, ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef nonnull align 8 dereferenceable(40) %183)
+  %184 = load ptr, ptr %w.addr, align 8
+  %mAl215 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %184, i32 0, i32 2
+  %185 = load ptr, ptr %mAl215, align 8
+  %call217 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp214, ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, ptr noundef nonnull align 8 dereferenceable(40) %185)
           to label %invoke.cont216 unwind label %lpad193
 
 invoke.cont216:                                   ; preds = %if.then213
@@ -40723,56 +40763,56 @@ if.end218:                                        ; preds = %invoke.cont216, %in
   br label %if.end219
 
 if.end219:                                        ; preds = %if.end218, %if.end182
-  %184 = load ptr, ptr %m.addr, align 8
-  %materialTransmission = getelementptr inbounds %"struct.glTF2::Material", ptr %184, i32 0, i32 15
+  %186 = load ptr, ptr %m.addr, align 8
+  %materialTransmission = getelementptr inbounds %"struct.glTF2::Material", ptr %186, i32 0, i32 15
   %isPresent220 = getelementptr inbounds %"struct.glTFCommon::Nullable.183", ptr %materialTransmission, i32 0, i32 1
-  %185 = load i8, ptr %isPresent220, align 8
-  %tobool221 = trunc i8 %185 to i1
+  %187 = load i8, ptr %isPresent220, align 8
+  %tobool221 = trunc i8 %187 to i1
   br i1 %tobool221, label %if.then222, label %if.end244
 
 if.then222:                                       ; preds = %if.end219
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, i32 noundef 3) #18
-  %186 = load ptr, ptr %m.addr, align 8
-  %materialTransmission224 = getelementptr inbounds %"struct.glTF2::Material", ptr %186, i32 0, i32 15
+  %188 = load ptr, ptr %m.addr, align 8
+  %materialTransmission224 = getelementptr inbounds %"struct.glTF2::Material", ptr %188, i32 0, i32 15
   %value225 = getelementptr inbounds %"struct.glTFCommon::Nullable.183", ptr %materialTransmission224, i32 0, i32 0
   store ptr %value225, ptr %transmission, align 8
-  %187 = load ptr, ptr %transmission, align 8
-  %transmissionFactor = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %187, i32 0, i32 1
-  %188 = load float, ptr %transmissionFactor, align 8
-  %cmp226 = fcmp une float %188, 0.000000e+00
+  %189 = load ptr, ptr %transmission, align 8
+  %transmissionFactor = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %189, i32 0, i32 1
+  %190 = load float, ptr %transmissionFactor, align 8
+  %cmp226 = fcmp une float %190, 0.000000e+00
   br i1 %cmp226, label %if.then227, label %if.end232
 
 if.then227:                                       ; preds = %if.then222
-  %189 = load ptr, ptr %transmission, align 8
-  %transmissionFactor228 = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %189, i32 0, i32 1
-  %190 = load float, ptr %transmissionFactor228, align 8
-  %191 = load ptr, ptr %w.addr, align 8
-  %mAl229 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %191, i32 0, i32 2
-  %192 = load ptr, ptr %mAl229, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, float noundef %190, ptr noundef @.str.175, ptr noundef nonnull align 8 dereferenceable(40) %192)
+  %191 = load ptr, ptr %transmission, align 8
+  %transmissionFactor228 = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %191, i32 0, i32 1
+  %192 = load float, ptr %transmissionFactor228, align 8
+  %193 = load ptr, ptr %w.addr, align 8
+  %mAl229 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %193, i32 0, i32 2
+  %194 = load ptr, ptr %mAl229, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, float noundef %192, ptr noundef @.str.175, ptr noundef nonnull align 8 dereferenceable(40) %194)
           to label %invoke.cont231 unwind label %lpad230
 
 invoke.cont231:                                   ; preds = %if.then227
   br label %if.end232
 
 lpad230:                                          ; preds = %if.then238, %invoke.cont235, %if.end232, %if.then227
-  %193 = landingpad { ptr, i32 }
+  %195 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %exn.slot, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %ehselector.slot, align 4
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %exn.slot, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223) #18
   br label %ehcleanup
 
 if.end232:                                        ; preds = %invoke.cont231, %if.then222
-  %196 = load ptr, ptr %transmission, align 8
-  %transmissionTexture = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %196, i32 0, i32 0
+  %198 = load ptr, ptr %transmission, align 8
+  %transmissionTexture = getelementptr inbounds %"struct.glTF2::MaterialTransmission", ptr %198, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp233, ptr align 8 %transmissionTexture, i64 48, i1 false)
-  %197 = load ptr, ptr %w.addr, align 8
-  %mAl234 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %197, i32 0, i32 2
-  %198 = load ptr, ptr %mAl234, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp233, ptr noundef @.str.176, ptr noundef nonnull align 8 dereferenceable(40) %198)
+  %199 = load ptr, ptr %w.addr, align 8
+  %mAl234 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %199, i32 0, i32 2
+  %200 = load ptr, ptr %mAl234, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp233, ptr noundef @.str.176, ptr noundef nonnull align 8 dereferenceable(40) %200)
           to label %invoke.cont235 unwind label %lpad230
 
 invoke.cont235:                                   ; preds = %if.end232
@@ -40784,10 +40824,10 @@ invoke.cont236:                                   ; preds = %invoke.cont235
 
 if.then238:                                       ; preds = %invoke.cont236
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj27EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp239, ptr noundef nonnull align 1 dereferenceable(27) @.str.177) #18
-  %199 = load ptr, ptr %w.addr, align 8
-  %mAl240 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %199, i32 0, i32 2
-  %200 = load ptr, ptr %mAl240, align 8
-  %call242 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp239, ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, ptr noundef nonnull align 8 dereferenceable(40) %200)
+  %201 = load ptr, ptr %w.addr, align 8
+  %mAl240 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %201, i32 0, i32 2
+  %202 = load ptr, ptr %mAl240, align 8
+  %call242 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp239, ptr noundef nonnull align 8 dereferenceable(16) %materialTransmission223, ptr noundef nonnull align 8 dereferenceable(40) %202)
           to label %invoke.cont241 unwind label %lpad230
 
 invoke.cont241:                                   ; preds = %if.then238
@@ -40798,85 +40838,85 @@ if.end243:                                        ; preds = %invoke.cont241, %in
   br label %if.end244
 
 if.end244:                                        ; preds = %if.end243, %if.end219
-  %201 = load ptr, ptr %m.addr, align 8
-  %materialVolume = getelementptr inbounds %"struct.glTF2::Material", ptr %201, i32 0, i32 16
+  %203 = load ptr, ptr %m.addr, align 8
+  %materialVolume = getelementptr inbounds %"struct.glTF2::Material", ptr %203, i32 0, i32 16
   %isPresent245 = getelementptr inbounds %"struct.glTFCommon::Nullable.185", ptr %materialVolume, i32 0, i32 1
-  %202 = load i8, ptr %isPresent245, align 8
-  %tobool246 = trunc i8 %202 to i1
+  %204 = load i8, ptr %isPresent245, align 8
+  %tobool246 = trunc i8 %204 to i1
   br i1 %tobool246, label %if.then247, label %if.end277
 
 if.then247:                                       ; preds = %if.end244
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, i32 noundef 3) #18
-  %203 = load ptr, ptr %m.addr, align 8
-  %materialVolume249 = getelementptr inbounds %"struct.glTF2::Material", ptr %203, i32 0, i32 16
+  %205 = load ptr, ptr %m.addr, align 8
+  %materialVolume249 = getelementptr inbounds %"struct.glTF2::Material", ptr %205, i32 0, i32 16
   %value250 = getelementptr inbounds %"struct.glTFCommon::Nullable.185", ptr %materialVolume249, i32 0, i32 0
   store ptr %value250, ptr %volume, align 8
-  %204 = load ptr, ptr %volume, align 8
-  %thicknessFactor = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %204, i32 0, i32 0
-  %205 = load float, ptr %thicknessFactor, align 8
-  %cmp251 = fcmp une float %205, 0.000000e+00
+  %206 = load ptr, ptr %volume, align 8
+  %thicknessFactor = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %206, i32 0, i32 0
+  %207 = load float, ptr %thicknessFactor, align 8
+  %cmp251 = fcmp une float %207, 0.000000e+00
   br i1 %cmp251, label %if.then252, label %if.end257
 
 if.then252:                                       ; preds = %if.then247
-  %206 = load ptr, ptr %volume, align 8
-  %thicknessFactor253 = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %206, i32 0, i32 0
-  %207 = load float, ptr %thicknessFactor253, align 8
-  %208 = load ptr, ptr %w.addr, align 8
-  %mAl254 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %208, i32 0, i32 2
-  %209 = load ptr, ptr %mAl254, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, float noundef %207, ptr noundef @.str.178, ptr noundef nonnull align 8 dereferenceable(40) %209)
+  %208 = load ptr, ptr %volume, align 8
+  %thicknessFactor253 = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %208, i32 0, i32 0
+  %209 = load float, ptr %thicknessFactor253, align 8
+  %210 = load ptr, ptr %w.addr, align 8
+  %mAl254 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %210, i32 0, i32 2
+  %211 = load ptr, ptr %mAl254, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, float noundef %209, ptr noundef @.str.178, ptr noundef nonnull align 8 dereferenceable(40) %211)
           to label %invoke.cont256 unwind label %lpad255
 
 invoke.cont256:                                   ; preds = %if.then252
   br label %if.end257
 
 lpad255:                                          ; preds = %if.then271, %invoke.cont268, %if.end266, %if.then262, %if.end257, %if.then252
-  %210 = landingpad { ptr, i32 }
+  %212 = landingpad { ptr, i32 }
           cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %exn.slot, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %ehselector.slot, align 4
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %exn.slot, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248) #18
   br label %ehcleanup
 
 if.end257:                                        ; preds = %invoke.cont256, %if.then247
-  %213 = load ptr, ptr %volume, align 8
-  %thicknessTexture = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %213, i32 0, i32 2
+  %215 = load ptr, ptr %volume, align 8
+  %thicknessTexture = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %215, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp258, ptr align 8 %thicknessTexture, i64 48, i1 false)
-  %214 = load ptr, ptr %w.addr, align 8
-  %mAl259 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %214, i32 0, i32 2
-  %215 = load ptr, ptr %mAl259, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp258, ptr noundef @.str.179, ptr noundef nonnull align 8 dereferenceable(40) %215)
+  %216 = load ptr, ptr %w.addr, align 8
+  %mAl259 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %216, i32 0, i32 2
+  %217 = load ptr, ptr %mAl259, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef byval(%"struct.glTF2::TextureInfo") align 8 %agg.tmp258, ptr noundef @.str.179, ptr noundef nonnull align 8 dereferenceable(40) %217)
           to label %invoke.cont260 unwind label %lpad255
 
 invoke.cont260:                                   ; preds = %if.end257
-  %216 = load ptr, ptr %volume, align 8
-  %attenuationDistance = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %216, i32 0, i32 3
-  %217 = load float, ptr %attenuationDistance, align 8
-  %cmp261 = fcmp une float %217, 0x7FF0000000000000
+  %218 = load ptr, ptr %volume, align 8
+  %attenuationDistance = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %218, i32 0, i32 3
+  %219 = load float, ptr %attenuationDistance, align 8
+  %cmp261 = fcmp une float %219, 0x7FF0000000000000
   br i1 %cmp261, label %if.then262, label %if.end266
 
 if.then262:                                       ; preds = %invoke.cont260
-  %218 = load ptr, ptr %volume, align 8
-  %attenuationDistance263 = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %218, i32 0, i32 3
-  %219 = load float, ptr %attenuationDistance263, align 8
-  %220 = load ptr, ptr %w.addr, align 8
-  %mAl264 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %220, i32 0, i32 2
-  %221 = load ptr, ptr %mAl264, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, float noundef %219, ptr noundef @.str.180, ptr noundef nonnull align 8 dereferenceable(40) %221)
+  %220 = load ptr, ptr %volume, align 8
+  %attenuationDistance263 = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %220, i32 0, i32 3
+  %221 = load float, ptr %attenuationDistance263, align 8
+  %222 = load ptr, ptr %w.addr, align 8
+  %mAl264 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %222, i32 0, i32 2
+  %223 = load ptr, ptr %mAl264, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, float noundef %221, ptr noundef @.str.180, ptr noundef nonnull align 8 dereferenceable(40) %223)
           to label %invoke.cont265 unwind label %lpad255
 
 invoke.cont265:                                   ; preds = %if.then262
   br label %if.end266
 
 if.end266:                                        ; preds = %invoke.cont265, %invoke.cont260
-  %222 = load ptr, ptr %volume, align 8
-  %attenuationColor = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %222, i32 0, i32 4
-  %223 = load ptr, ptr %w.addr, align 8
-  %mAl267 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %223, i32 0, i32 2
-  %224 = load ptr, ptr %mAl267, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 4 dereferenceable(12) %attenuationColor, ptr noundef @.str.181, ptr noundef nonnull align 4 dereferenceable(12) @_ZN5glTF2L23defaultAttenuationColorE, ptr noundef nonnull align 8 dereferenceable(40) %224)
+  %224 = load ptr, ptr %volume, align 8
+  %attenuationColor = getelementptr inbounds %"struct.glTF2::MaterialVolume", ptr %224, i32 0, i32 4
+  %225 = load ptr, ptr %w.addr, align 8
+  %mAl267 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %225, i32 0, i32 2
+  %226 = load ptr, ptr %mAl267, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 4 dereferenceable(12) %attenuationColor, ptr noundef @.str.181, ptr noundef nonnull align 4 dereferenceable(12) @_ZN5glTF2L23defaultAttenuationColorE, ptr noundef nonnull align 8 dereferenceable(40) %226)
           to label %invoke.cont268 unwind label %lpad255
 
 invoke.cont268:                                   ; preds = %if.end266
@@ -40888,10 +40928,10 @@ invoke.cont269:                                   ; preds = %invoke.cont268
 
 if.then271:                                       ; preds = %invoke.cont269
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj21EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp272, ptr noundef nonnull align 1 dereferenceable(21) @.str.182) #18
-  %225 = load ptr, ptr %w.addr, align 8
-  %mAl273 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %225, i32 0, i32 2
-  %226 = load ptr, ptr %mAl273, align 8
-  %call275 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp272, ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 8 dereferenceable(40) %226)
+  %227 = load ptr, ptr %w.addr, align 8
+  %mAl273 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %227, i32 0, i32 2
+  %228 = load ptr, ptr %mAl273, align 8
+  %call275 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp272, ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 8 dereferenceable(40) %228)
           to label %invoke.cont274 unwind label %lpad255
 
 invoke.cont274:                                   ; preds = %if.then271
@@ -40902,45 +40942,45 @@ if.end276:                                        ; preds = %invoke.cont274, %in
   br label %if.end277
 
 if.end277:                                        ; preds = %if.end276, %if.end244
-  %227 = load ptr, ptr %m.addr, align 8
-  %materialIOR = getelementptr inbounds %"struct.glTF2::Material", ptr %227, i32 0, i32 17
+  %229 = load ptr, ptr %m.addr, align 8
+  %materialIOR = getelementptr inbounds %"struct.glTF2::Material", ptr %229, i32 0, i32 17
   %isPresent278 = getelementptr inbounds %"struct.glTFCommon::Nullable.187", ptr %materialIOR, i32 0, i32 1
-  %228 = load i8, ptr %isPresent278, align 4
-  %tobool279 = trunc i8 %228 to i1
+  %230 = load i8, ptr %isPresent278, align 4
+  %tobool279 = trunc i8 %230 to i1
   br i1 %tobool279, label %if.then280, label %if.end300
 
 if.then280:                                       ; preds = %if.end277
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281, i32 noundef 3) #18
-  %229 = load ptr, ptr %m.addr, align 8
-  %materialIOR282 = getelementptr inbounds %"struct.glTF2::Material", ptr %229, i32 0, i32 17
+  %231 = load ptr, ptr %m.addr, align 8
+  %materialIOR282 = getelementptr inbounds %"struct.glTF2::Material", ptr %231, i32 0, i32 17
   %value283 = getelementptr inbounds %"struct.glTFCommon::Nullable.187", ptr %materialIOR282, i32 0, i32 0
   store ptr %value283, ptr %ior, align 8
-  %230 = load ptr, ptr %ior, align 8
-  %ior284 = getelementptr inbounds %"struct.glTF2::MaterialIOR", ptr %230, i32 0, i32 0
-  %231 = load float, ptr %ior284, align 4
-  %cmp285 = fcmp une float %231, 1.500000e+00
+  %232 = load ptr, ptr %ior, align 8
+  %ior284 = getelementptr inbounds %"struct.glTF2::MaterialIOR", ptr %232, i32 0, i32 0
+  %233 = load float, ptr %ior284, align 4
+  %cmp285 = fcmp une float %233, 1.500000e+00
   br i1 %cmp285, label %if.then286, label %if.end291
 
 if.then286:                                       ; preds = %if.then280
-  %232 = load ptr, ptr %ior, align 8
-  %ior287 = getelementptr inbounds %"struct.glTF2::MaterialIOR", ptr %232, i32 0, i32 0
-  %233 = load float, ptr %ior287, align 4
-  %234 = load ptr, ptr %w.addr, align 8
-  %mAl288 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %234, i32 0, i32 2
-  %235 = load ptr, ptr %mAl288, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281, float noundef %233, ptr noundef @.str.183, ptr noundef nonnull align 8 dereferenceable(40) %235)
+  %234 = load ptr, ptr %ior, align 8
+  %ior287 = getelementptr inbounds %"struct.glTF2::MaterialIOR", ptr %234, i32 0, i32 0
+  %235 = load float, ptr %ior287, align 4
+  %236 = load ptr, ptr %w.addr, align 8
+  %mAl288 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %236, i32 0, i32 2
+  %237 = load ptr, ptr %mAl288, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281, float noundef %235, ptr noundef @.str.183, ptr noundef nonnull align 8 dereferenceable(40) %237)
           to label %invoke.cont290 unwind label %lpad289
 
 invoke.cont290:                                   ; preds = %if.then286
   br label %if.end291
 
 lpad289:                                          ; preds = %if.then294, %if.end291, %if.then286
-  %236 = landingpad { ptr, i32 }
+  %238 = landingpad { ptr, i32 }
           cleanup
-  %237 = extractvalue { ptr, i32 } %236, 0
-  store ptr %237, ptr %exn.slot, align 8
-  %238 = extractvalue { ptr, i32 } %236, 1
-  store i32 %238, ptr %ehselector.slot, align 4
+  %239 = extractvalue { ptr, i32 } %238, 0
+  store ptr %239, ptr %exn.slot, align 8
+  %240 = extractvalue { ptr, i32 } %238, 1
+  store i32 %240, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281) #18
   br label %ehcleanup
 
@@ -40953,10 +40993,10 @@ invoke.cont292:                                   ; preds = %if.end291
 
 if.then294:                                       ; preds = %invoke.cont292
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj18EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp295, ptr noundef nonnull align 1 dereferenceable(18) @.str.184) #18
-  %239 = load ptr, ptr %w.addr, align 8
-  %mAl296 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %239, i32 0, i32 2
-  %240 = load ptr, ptr %mAl296, align 8
-  %call298 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp295, ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281, ptr noundef nonnull align 8 dereferenceable(40) %240)
+  %241 = load ptr, ptr %w.addr, align 8
+  %mAl296 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %241, i32 0, i32 2
+  %242 = load ptr, ptr %mAl296, align 8
+  %call298 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp295, ptr noundef nonnull align 8 dereferenceable(16) %materialIOR281, ptr noundef nonnull align 8 dereferenceable(40) %242)
           to label %invoke.cont297 unwind label %lpad289
 
 invoke.cont297:                                   ; preds = %if.then294
@@ -40967,45 +41007,45 @@ if.end299:                                        ; preds = %invoke.cont297, %in
   br label %if.end300
 
 if.end300:                                        ; preds = %if.end299, %if.end277
-  %241 = load ptr, ptr %m.addr, align 8
-  %materialEmissiveStrength = getelementptr inbounds %"struct.glTF2::Material", ptr %241, i32 0, i32 18
+  %243 = load ptr, ptr %m.addr, align 8
+  %materialEmissiveStrength = getelementptr inbounds %"struct.glTF2::Material", ptr %243, i32 0, i32 18
   %isPresent301 = getelementptr inbounds %"struct.glTFCommon::Nullable.189", ptr %materialEmissiveStrength, i32 0, i32 1
-  %242 = load i8, ptr %isPresent301, align 4
-  %tobool302 = trunc i8 %242 to i1
+  %244 = load i8, ptr %isPresent301, align 4
+  %tobool302 = trunc i8 %244 to i1
   br i1 %tobool302, label %if.then303, label %if.end323
 
 if.then303:                                       ; preds = %if.end300
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2ENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304, i32 noundef 3) #18
-  %243 = load ptr, ptr %m.addr, align 8
-  %materialEmissiveStrength305 = getelementptr inbounds %"struct.glTF2::Material", ptr %243, i32 0, i32 18
+  %245 = load ptr, ptr %m.addr, align 8
+  %materialEmissiveStrength305 = getelementptr inbounds %"struct.glTF2::Material", ptr %245, i32 0, i32 18
   %value306 = getelementptr inbounds %"struct.glTFCommon::Nullable.189", ptr %materialEmissiveStrength305, i32 0, i32 0
   store ptr %value306, ptr %emissiveStrength, align 8
-  %244 = load ptr, ptr %emissiveStrength, align 8
-  %emissiveStrength307 = getelementptr inbounds %"struct.glTF2::MaterialEmissiveStrength", ptr %244, i32 0, i32 0
-  %245 = load float, ptr %emissiveStrength307, align 4
-  %cmp308 = fcmp une float %245, 0.000000e+00
+  %246 = load ptr, ptr %emissiveStrength, align 8
+  %emissiveStrength307 = getelementptr inbounds %"struct.glTF2::MaterialEmissiveStrength", ptr %246, i32 0, i32 0
+  %247 = load float, ptr %emissiveStrength307, align 4
+  %cmp308 = fcmp une float %247, 0.000000e+00
   br i1 %cmp308, label %if.then309, label %if.end314
 
 if.then309:                                       ; preds = %if.then303
-  %246 = load ptr, ptr %emissiveStrength, align 8
-  %emissiveStrength310 = getelementptr inbounds %"struct.glTF2::MaterialEmissiveStrength", ptr %246, i32 0, i32 0
-  %247 = load float, ptr %emissiveStrength310, align 4
-  %248 = load ptr, ptr %w.addr, align 8
-  %mAl311 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %248, i32 0, i32 2
-  %249 = load ptr, ptr %mAl311, align 8
-  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304, float noundef %247, ptr noundef @.str.185, ptr noundef nonnull align 8 dereferenceable(40) %249)
+  %248 = load ptr, ptr %emissiveStrength, align 8
+  %emissiveStrength310 = getelementptr inbounds %"struct.glTF2::MaterialEmissiveStrength", ptr %248, i32 0, i32 0
+  %249 = load float, ptr %emissiveStrength310, align 4
+  %250 = load ptr, ptr %w.addr, align 8
+  %mAl311 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %250, i32 0, i32 2
+  %251 = load ptr, ptr %mAl311, align 8
+  invoke void @_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304, float noundef %249, ptr noundef @.str.185, ptr noundef nonnull align 8 dereferenceable(40) %251)
           to label %invoke.cont313 unwind label %lpad312
 
 invoke.cont313:                                   ; preds = %if.then309
   br label %if.end314
 
 lpad312:                                          ; preds = %if.then317, %if.end314, %if.then309
-  %250 = landingpad { ptr, i32 }
+  %252 = landingpad { ptr, i32 }
           cleanup
-  %251 = extractvalue { ptr, i32 } %250, 0
-  store ptr %251, ptr %exn.slot, align 8
-  %252 = extractvalue { ptr, i32 } %250, 1
-  store i32 %252, ptr %ehselector.slot, align 4
+  %253 = extractvalue { ptr, i32 } %252, 0
+  store ptr %253, ptr %exn.slot, align 8
+  %254 = extractvalue { ptr, i32 } %252, 1
+  store i32 %254, ptr %ehselector.slot, align 4
   call void @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304) #18
   br label %ehcleanup
 
@@ -41018,10 +41058,10 @@ invoke.cont315:                                   ; preds = %if.end314
 
 if.then317:                                       ; preds = %invoke.cont315
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj32EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp318, ptr noundef nonnull align 1 dereferenceable(32) @.str.186) #18
-  %253 = load ptr, ptr %w.addr, align 8
-  %mAl319 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %253, i32 0, i32 2
-  %254 = load ptr, ptr %mAl319, align 8
-  %call321 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp318, ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304, ptr noundef nonnull align 8 dereferenceable(40) %254)
+  %255 = load ptr, ptr %w.addr, align 8
+  %mAl319 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %255, i32 0, i32 2
+  %256 = load ptr, ptr %mAl319, align 8
+  %call321 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef %agg.tmp318, ptr noundef nonnull align 8 dereferenceable(16) %materialEmissiveStrength304, ptr noundef nonnull align 8 dereferenceable(40) %256)
           to label %invoke.cont320 unwind label %lpad312
 
 invoke.cont320:                                   ; preds = %if.then317
@@ -41039,24 +41079,24 @@ invoke.cont325:                                   ; preds = %if.end323
   br i1 %call326, label %if.end332, label %if.then327
 
 if.then327:                                       ; preds = %invoke.cont325
-  %255 = load ptr, ptr %obj.addr, align 8
+  %257 = load ptr, ptr %obj.addr, align 8
   call void @_ZN9rapidjson16GenericStringRefIcEC2ILj11EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp328, ptr noundef nonnull align 1 dereferenceable(11) @.str.88) #18
-  %256 = load ptr, ptr %w.addr, align 8
-  %mAl329 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %256, i32 0, i32 2
-  %257 = load ptr, ptr %mAl329, align 8
-  %call331 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %255, ptr noundef %agg.tmp328, ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef nonnull align 8 dereferenceable(40) %257)
+  %258 = load ptr, ptr %w.addr, align 8
+  %mAl329 = getelementptr inbounds %"class.glTF2::AssetWriter", ptr %258, i32 0, i32 2
+  %259 = load ptr, ptr %mAl329, align 8
+  %call331 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef %agg.tmp328, ptr noundef nonnull align 8 dereferenceable(16) %exts, ptr noundef nonnull align 8 dereferenceable(40) %259)
           to label %invoke.cont330 unwind label %lpad324
 
 invoke.cont330:                                   ; preds = %if.then327
   br label %if.end332
 
 lpad324:                                          ; preds = %if.then327, %if.end323
-  %258 = landingpad { ptr, i32 }
+  %260 = landingpad { ptr, i32 }
           cleanup
-  %259 = extractvalue { ptr, i32 } %258, 0
-  store ptr %259, ptr %exn.slot, align 8
-  %260 = extractvalue { ptr, i32 } %258, 1
-  store i32 %260, ptr %ehselector.slot, align 4
+  %261 = extractvalue { ptr, i32 } %260, 0
+  store ptr %261, ptr %exn.slot, align 8
+  %262 = extractvalue { ptr, i32 } %260, 1
+  store i32 %262, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end332:                                        ; preds = %invoke.cont330, %invoke.cont325
@@ -50704,16 +50744,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -50732,7 +50773,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %byteLength = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 1
   store i64 0, ptr %byteLength, align 8
   %capacity = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 2
@@ -51110,7 +51152,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #18
   %name = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 4
@@ -51125,12 +51168,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #18
   br label %eh.resume
@@ -55819,16 +55862,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -56203,16 +56247,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -56263,16 +56308,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -56361,16 +56407,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -56400,16 +56447,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -56439,16 +56487,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -64865,7 +64914,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF210BufferViewE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF210BufferViewE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer = getelementptr inbounds %"struct.glTF2::BufferView", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF26BufferEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %buffer)
           to label %invoke.cont unwind label %lpad
@@ -64874,12 +64924,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
 
@@ -65852,11 +65902,12 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES0_S3_RKS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #18
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES0_S3_RKS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   ret void
 }
 
@@ -66033,7 +66084,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -67268,7 +67320,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bufferView = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF210BufferViewEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %bufferView)
           to label %invoke.cont unwind label %lpad
@@ -67285,12 +67338,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
 
@@ -67400,7 +67453,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %decodedBuffer = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 9
   call void @_ZNSt10unique_ptrIN5glTF26BufferESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %decodedBuffer) #18
   %sparse = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 8
@@ -70510,16 +70564,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
   br label %eh.resume
 
@@ -85836,10 +85891,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5glTF25AssetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5glTF25AssetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -86046,7 +86102,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27SamplerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF27SamplerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN5glTF27Sampler11SetDefaultsEv(ptr noundef nonnull align 8 dereferenceable(280) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -86054,12 +86111,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
 
@@ -87072,7 +87129,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27TextureE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF27TextureE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %sampler = getelementptr inbounds %"struct.glTF2::Texture", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF27SamplerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %sampler)
           to label %invoke.cont unwind label %lpad
@@ -87086,12 +87144,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
 
@@ -88862,7 +88920,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %uri = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri) #18
   %bufferView = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 2
@@ -88883,12 +88942,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri) #18
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
@@ -88964,7 +89023,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mData = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mData) #18
   %mimeType = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 3
@@ -89796,7 +89856,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pbrMetallicRoughness = getelementptr inbounds %"struct.glTF2::Material", ptr %this1, i32 0, i32 1
   invoke void @_ZN5glTF220PbrMetallicRoughnessC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %pbrMetallicRoughness)
           to label %invoke.cont unwind label %lpad
@@ -89866,21 +89927,21 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont13, %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont4
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alphaMode) #18
   br label %ehcleanup
 
@@ -90104,7 +90165,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alphaMode = getelementptr inbounds %"struct.glTF2::Material", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alphaMode) #18
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
@@ -95982,7 +96044,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bindShapeMatrix = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon8NullableIA16_fEC2Ev(ptr noundef nonnull align 4 dereferenceable(65) %bindShapeMatrix)
           to label %invoke.cont unwind label %lpad
@@ -96000,12 +96063,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
   br label %eh.resume
 
@@ -96089,7 +96152,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
   %jointNames = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 4
@@ -96982,7 +97046,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %primitives = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN5glTF24Mesh9PrimitiveESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %primitives) #18
   %weights = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 2
@@ -97063,7 +97128,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %targetNames = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %targetNames) #18
   %weights = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 2
@@ -106685,7 +106751,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %children = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN10glTFCommon3RefIN5glTF24NodeEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #18
   %meshes = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 2
@@ -106737,30 +106804,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad7:                                            ; preds = %invoke.cont6
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %jointName) #18
   br label %ehcleanup
 
@@ -106919,7 +106986,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %jointName = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %jointName) #18
   %skeletons = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 9
@@ -109187,7 +109255,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
   %nodes = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 2
@@ -109246,7 +109315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nodes = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN10glTFCommon3RefIN5glTF24NodeEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nodes) #18
   %name = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 1
@@ -110221,7 +110291,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %samplers = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN5glTF29Animation7SamplerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %samplers) #18
   %channels = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 2
@@ -110300,7 +110371,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %channels = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN5glTF29Animation7ChannelESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %channels) #18
   %samplers = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 1

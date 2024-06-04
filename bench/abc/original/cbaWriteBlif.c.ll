@@ -1360,11 +1360,13 @@ define internal ptr @Prs_BoxSignals(ptr noundef %0, i32 noundef %1) #0 {
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @Prs_BoxSize(ptr noundef %5, i32 noundef %6)
   store i32 %7, ptr @Prs_BoxSignals.V, align 8
-  store i32 %7, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 1), align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = call ptr @Prs_BoxArray(ptr noundef %8, i32 noundef %9)
-  store ptr %10, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 1
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = call ptr @Prs_BoxArray(ptr noundef %9, i32 noundef %10)
+  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Prs_BoxSignals.V, i32 0, i32 2
+  store ptr %11, ptr %12, align 8
   ret ptr @Prs_BoxSignals.V
 }
 

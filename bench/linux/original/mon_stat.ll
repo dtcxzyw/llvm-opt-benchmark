@@ -20,30 +20,31 @@ define internal i64 @mon_stat_read(ptr nocapture noundef readonly %0, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @mon_stat_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(84) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 84) #4
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %18, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(84) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 84) #4
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %19, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 592
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 72
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 100
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 104
-  %15 = load i32, ptr %14, align 8
-  %16 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %9, i64 noundef 80, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %13, i32 noundef %15) #3
-  store i32 %16, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr %4, ptr %17, align 8
-  br label %18
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 592
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 100
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %9, i64 104
+  %16 = load i32, ptr %15, align 8
+  %17 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %10, i64 noundef 80, ptr noundef nonnull @.str, i32 noundef %12, i32 noundef %14, i32 noundef %16) #3
+  store i32 %17, ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %5, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %6, %2
-  %19 = phi i32 [ 0, %6 ], [ -12, %2 ]
-  ret i32 %19
+19:                                               ; preds = %7, %2
+  %20 = phi i32 [ 0, %7 ], [ -12, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

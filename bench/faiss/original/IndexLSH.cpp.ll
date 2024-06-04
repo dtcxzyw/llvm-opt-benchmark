@@ -595,11 +595,12 @@ define linkonce_odr void @_ZN5faiss8IndexLSHD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %3, i32 0, i32 5
-  call void @_ZN5faiss20RandomRotationMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #11
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %3, i32 0, i32 5
+  call void @_ZN5faiss20RandomRotationMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %6) #11
   call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #11
   ret void
 }
@@ -1661,162 +1662,163 @@ define void @_ZN5faiss8IndexLSHC2Elibb(ptr noundef nonnull align 8 dereferenceab
   %21 = sext i32 %20 to i64
   %22 = load i64, ptr %7, align 8
   call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %17, i64 noundef %21, i64 noundef %22, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 1
-  %24 = load i32, ptr %8, align 4
-  store i32 %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 2
-  %26 = load i8, ptr %9, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr %25, align 4
-  %29 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 3
-  %30 = load i8, ptr %10, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %29, align 1
-  %33 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 5
-  %34 = load i64, ptr %7, align 8
-  %35 = trunc i64 %34 to i32
-  %36 = load i32, ptr %8, align 4
-  invoke void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(73) %33, i32 noundef %35, i32 noundef %36)
-          to label %37 unwind label %49
+  %23 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %17, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 1
+  %25 = load i32, ptr %8, align 4
+  store i32 %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 2
+  %27 = load i8, ptr %9, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %26, align 4
+  %30 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 3
+  %31 = load i8, ptr %10, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %30, align 1
+  %34 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 5
+  %35 = load i64, ptr %7, align 8
+  %36 = trunc i64 %35 to i32
+  %37 = load i32, ptr %8, align 4
+  invoke void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(73) %34, i32 noundef %36, i32 noundef %37)
+          to label %38 unwind label %50
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #11
-  %39 = load i8, ptr %10, align 1
-  %40 = trunc i8 %39 to i1
-  %41 = xor i1 %40, true
-  %42 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 1
-  %44 = load i8, ptr %9, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %57
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #11
+  %40 = load i8, ptr %10, align 1
+  %41 = trunc i8 %40 to i1
+  %42 = xor i1 %41, true
+  %43 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 1
+  %45 = load i8, ptr %9, align 1
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %58
 
-46:                                               ; preds = %37
-  %47 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 5
-  invoke void @_ZN5faiss20RandomRotationMatrix4initEi(ptr noundef nonnull align 8 dereferenceable(73) %47, i32 noundef 5)
-          to label %48 unwind label %53
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %17, i32 0, i32 5
+  invoke void @_ZN5faiss20RandomRotationMatrix4initEi(ptr noundef nonnull align 8 dereferenceable(73) %48, i32 noundef 5)
+          to label %49 unwind label %54
 
-48:                                               ; preds = %46
-  br label %90
+49:                                               ; preds = %47
+  br label %91
 
-49:                                               ; preds = %5
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %5
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %11, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %12, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %11, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %12, align 4
+  br label %93
+
+54:                                               ; preds = %47
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %11, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %12, align 4
   br label %92
 
-53:                                               ; preds = %46
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %11, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %12, align 4
-  br label %91
+58:                                               ; preds = %38
+  br label %59
 
-57:                                               ; preds = %37
-  br label %58
+59:                                               ; preds = %58
+  %60 = load i64, ptr %7, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp sge i64 %60, %62
+  br i1 %63, label %88, label %64
 
-58:                                               ; preds = %57
-  %59 = load i64, ptr %7, align 8
-  %60 = load i32, ptr %8, align 4
-  %61 = sext i32 %60 to i64
-  %62 = icmp sge i64 %59, %61
-  br i1 %62, label %87, label %63
+64:                                               ; preds = %59
+  br label %65
 
-63:                                               ; preds = %58
-  br label %64
-
-64:                                               ; preds = %63
+65:                                               ; preds = %64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #11
-  store i32 %65, ptr %14, align 4
-  %66 = load i32, ptr %14, align 4
-  %67 = add nsw i32 %66, 1
-  %68 = sext i32 %67 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %68)
-          to label %69 unwind label %76
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #11
+  store i32 %66, ptr %14, align 4
+  %67 = load i32, ptr %14, align 4
+  %68 = add nsw i32 %67, 1
+  %69 = sext i32 %68 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %69)
+          to label %70 unwind label %77
 
-69:                                               ; preds = %64
-  %70 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
-          to label %71 unwind label %76
+70:                                               ; preds = %65
+  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0)
+          to label %72 unwind label %77
 
-71:                                               ; preds = %69
-  %72 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %70, i64 noundef %72, ptr noundef @.str, ptr noundef @.str.1) #11
-  %74 = call ptr @__cxa_allocate_exception(i64 40) #11
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss8IndexLSHC2Elibb, ptr noundef @.str.2, i32 noundef 37)
-          to label %75 unwind label %80
+72:                                               ; preds = %70
+  %73 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %71, i64 noundef %73, ptr noundef @.str, ptr noundef @.str.1) #11
+  %75 = call ptr @__cxa_allocate_exception(i64 40) #11
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss8IndexLSHC2Elibb, ptr noundef @.str.2, i32 noundef 37)
+          to label %76 unwind label %81
 
-75:                                               ; preds = %71
-  invoke void @__cxa_throw(ptr %74, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
-          to label %98 unwind label %76
+76:                                               ; preds = %72
+  invoke void @__cxa_throw(ptr %75, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
+          to label %99 unwind label %77
 
-76:                                               ; preds = %75, %69, %64
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %76, %70, %65
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %11, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %12, align 4
-  br label %84
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %11, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %12, align 4
+  br label %85
 
-80:                                               ; preds = %71
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %72
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %11, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %74) #11
-  br label %84
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %11, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %75) #11
+  br label %85
 
-84:                                               ; preds = %80, %76
+85:                                               ; preds = %81, %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  br label %91
+  br label %92
 
-85:                                               ; No predecessors!
-  br label %86
-
-86:                                               ; preds = %85
+86:                                               ; No predecessors!
   br label %87
 
-87:                                               ; preds = %86, %58
+87:                                               ; preds = %86
   br label %88
 
-88:                                               ; preds = %87
+88:                                               ; preds = %87, %59
   br label %89
 
 89:                                               ; preds = %88
   br label %90
 
-90:                                               ; preds = %89, %48
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90, %49
   ret void
 
-91:                                               ; preds = %84, %53
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #11
-  call void @_ZN5faiss20RandomRotationMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %33) #11
-  br label %92
-
-92:                                               ; preds = %91, %49
-  call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #11
+92:                                               ; preds = %85, %54
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #11
+  call void @_ZN5faiss20RandomRotationMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %34) #11
   br label %93
 
-93:                                               ; preds = %92
-  %94 = load ptr, ptr %11, align 8
-  %95 = load i32, ptr %12, align 4
-  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
-  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
-  resume { ptr, i32 } %97
+93:                                               ; preds = %92, %50
+  call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #11
+  br label %94
 
-98:                                               ; preds = %75
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %11, align 8
+  %96 = load i32, ptr %12, align 4
+  %97 = insertvalue { ptr, i32 } poison, ptr %95, 0
+  %98 = insertvalue { ptr, i32 } %97, i32 %96, 1
+  resume { ptr, i32 } %98
+
+99:                                               ; preds = %76
   unreachable
 }
 
@@ -1834,7 +1836,8 @@ define linkonce_odr void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnu
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -1875,9 +1878,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -1928,9 +1932,10 @@ define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #11
   ret void
 }
@@ -2164,11 +2169,12 @@ define linkonce_odr void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN5faiss15VectorTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #11
   ret void
 }
@@ -2372,38 +2378,39 @@ define void @_ZN5faiss8IndexLSHC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss14IndexFlatCodesC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 2
-  store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 3
-  store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 5
-  invoke void @_ZN5faiss20RandomRotationMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %9)
-          to label %10 unwind label %12
+  %6 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss8IndexLSHE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 2
+  store i8 0, ptr %8, align 4
+  %9 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 3
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 5
+  invoke void @_ZN5faiss20RandomRotationMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %10)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %"struct.faiss::IndexLSH", ptr %5, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #11
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN5faiss14IndexFlatCodesC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
@@ -2414,7 +2421,8 @@ define linkonce_odr void @_ZN5faiss20RandomRotationMatrixC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

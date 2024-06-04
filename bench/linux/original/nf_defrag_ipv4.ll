@@ -171,13 +171,13 @@ define internal noundef i32 @ipv4_conntrack_defrag(ptr nocapture readnone %0, pt
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 131072
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %51
+  br i1 %22, label %23, label %53
 
 23:                                               ; preds = %18, %14, %7, %3
   %24 = getelementptr inbounds i8, ptr %1, i64 104
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 7
-  br i1 %26, label %51, label %27
+  br i1 %26, label %53, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %1, i64 192
@@ -190,7 +190,7 @@ define internal noundef i32 @ipv4_conntrack_defrag(ptr nocapture readnone %0, pt
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, -193
   %37 = icmp eq i16 %36, 0
-  br i1 %37, label %51, label %38
+  br i1 %37, label %53, label %38
 
 38:                                               ; preds = %27
   %39 = load i8, ptr %2, align 8
@@ -199,23 +199,25 @@ define internal noundef i32 @ipv4_conntrack_defrag(ptr nocapture readnone %0, pt
   %42 = getelementptr inbounds i8, ptr %2, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #3, !srcloc !7
+  %45 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %46 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 512, ptr nonnull elementtype(i32) %46) #3, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %45 = tail call i32 @ip_defrag(ptr noundef %43, ptr noundef %1, i32 noundef %41) #3
+  %47 = tail call i32 @ip_defrag(ptr noundef %43, ptr noundef %1, i32 noundef %41) #3
   tail call void @__local_bh_enable_ip(i64 noundef %44, i32 noundef 512) #3
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %51
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %53
 
-47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %1, i64 128
-  %49 = load i8, ptr %48, align 8
-  %50 = or i8 %49, 8
-  store i8 %50, ptr %48, align 8
-  br label %51
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds i8, ptr %1, i64 128
+  %51 = load i8, ptr %50, align 8
+  %52 = or i8 %51, 8
+  store i8 %52, ptr %50, align 8
+  br label %53
 
-51:                                               ; preds = %47, %38, %27, %23, %18
-  %52 = phi i32 [ 1, %18 ], [ 1, %23 ], [ 2, %38 ], [ 1, %47 ], [ 1, %27 ]
-  ret i32 %52
+53:                                               ; preds = %49, %38, %27, %23, %18
+  %54 = phi i32 [ 1, %18 ], [ 1, %23 ], [ 2, %38 ], [ 1, %49 ], [ 1, %27 ]
+  ret i32 %54
 }
 
 ; Function Attrs: null_pointer_is_valid

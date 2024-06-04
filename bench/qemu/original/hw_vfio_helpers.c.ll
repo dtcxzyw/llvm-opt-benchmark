@@ -1478,188 +1478,189 @@ for.body:                                         ; preds = %for.cond
   %arrayidx15 = getelementptr %struct.VFIOMmap, ptr %29, i64 %idxprom14
   %mmap16 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx15, i32 0, i32 1
   %31 = load ptr, ptr %mmap16, align 16
-  %cmp17 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
+  %32 = inttoptr i64 -1 to ptr
+  %cmp17 = icmp eq ptr %31, %32
   br i1 %cmp17, label %if.then18, label %if.end48
 
 if.then18:                                        ; preds = %for.body
   %call19 = call ptr @__errno_location() #9
-  %32 = load i32, ptr %call19, align 4
-  %sub = sub i32 0, %32
+  %33 = load i32, ptr %call19, align 4
+  %sub = sub i32 0, %33
   store i32 %sub, ptr %ret, align 4
-  %33 = load ptr, ptr %region.addr, align 8
-  %mem20 = getelementptr inbounds %struct.VFIORegion, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %mem20, align 8
-  %call21 = call ptr @memory_region_name(ptr noundef %34)
-  %35 = load i32, ptr %i, align 4
-  %36 = load ptr, ptr %region.addr, align 8
-  %fd_offset22 = getelementptr inbounds %struct.VFIORegion, ptr %36, i32 0, i32 1
-  %37 = load i64, ptr %fd_offset22, align 8
-  %38 = load ptr, ptr %region.addr, align 8
-  %mmaps23 = getelementptr inbounds %struct.VFIORegion, ptr %38, i32 0, i32 6
-  %39 = load ptr, ptr %mmaps23, align 8
-  %40 = load i32, ptr %i, align 4
-  %idxprom24 = sext i32 %40 to i64
-  %arrayidx25 = getelementptr %struct.VFIOMmap, ptr %39, i64 %idxprom24
+  %34 = load ptr, ptr %region.addr, align 8
+  %mem20 = getelementptr inbounds %struct.VFIORegion, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %mem20, align 8
+  %call21 = call ptr @memory_region_name(ptr noundef %35)
+  %36 = load i32, ptr %i, align 4
+  %37 = load ptr, ptr %region.addr, align 8
+  %fd_offset22 = getelementptr inbounds %struct.VFIORegion, ptr %37, i32 0, i32 1
+  %38 = load i64, ptr %fd_offset22, align 8
+  %39 = load ptr, ptr %region.addr, align 8
+  %mmaps23 = getelementptr inbounds %struct.VFIORegion, ptr %39, i32 0, i32 6
+  %40 = load ptr, ptr %mmaps23, align 8
+  %41 = load i32, ptr %i, align 4
+  %idxprom24 = sext i32 %41 to i64
+  %arrayidx25 = getelementptr %struct.VFIOMmap, ptr %40, i64 %idxprom24
   %offset26 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx25, i32 0, i32 2
-  %41 = load i64, ptr %offset26, align 8
-  %add27 = add i64 %37, %41
-  %42 = load ptr, ptr %region.addr, align 8
-  %fd_offset28 = getelementptr inbounds %struct.VFIORegion, ptr %42, i32 0, i32 1
-  %43 = load i64, ptr %fd_offset28, align 8
-  %44 = load ptr, ptr %region.addr, align 8
-  %mmaps29 = getelementptr inbounds %struct.VFIORegion, ptr %44, i32 0, i32 6
-  %45 = load ptr, ptr %mmaps29, align 8
-  %46 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %46 to i64
-  %arrayidx31 = getelementptr %struct.VFIOMmap, ptr %45, i64 %idxprom30
+  %42 = load i64, ptr %offset26, align 8
+  %add27 = add i64 %38, %42
+  %43 = load ptr, ptr %region.addr, align 8
+  %fd_offset28 = getelementptr inbounds %struct.VFIORegion, ptr %43, i32 0, i32 1
+  %44 = load i64, ptr %fd_offset28, align 8
+  %45 = load ptr, ptr %region.addr, align 8
+  %mmaps29 = getelementptr inbounds %struct.VFIORegion, ptr %45, i32 0, i32 6
+  %46 = load ptr, ptr %mmaps29, align 8
+  %47 = load i32, ptr %i, align 4
+  %idxprom30 = sext i32 %47 to i64
+  %arrayidx31 = getelementptr %struct.VFIOMmap, ptr %46, i64 %idxprom30
   %offset32 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx31, i32 0, i32 2
-  %47 = load i64, ptr %offset32, align 8
-  %add33 = add i64 %43, %47
-  %48 = load ptr, ptr %region.addr, align 8
-  %mmaps34 = getelementptr inbounds %struct.VFIORegion, ptr %48, i32 0, i32 6
-  %49 = load ptr, ptr %mmaps34, align 8
-  %50 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %50 to i64
-  %arrayidx36 = getelementptr %struct.VFIOMmap, ptr %49, i64 %idxprom35
+  %48 = load i64, ptr %offset32, align 8
+  %add33 = add i64 %44, %48
+  %49 = load ptr, ptr %region.addr, align 8
+  %mmaps34 = getelementptr inbounds %struct.VFIORegion, ptr %49, i32 0, i32 6
+  %50 = load ptr, ptr %mmaps34, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom35 = sext i32 %51 to i64
+  %arrayidx36 = getelementptr %struct.VFIOMmap, ptr %50, i64 %idxprom35
   %size37 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx36, i32 0, i32 3
-  %51 = load i64, ptr %size37, align 16
-  %add38 = add i64 %add33, %51
+  %52 = load i64, ptr %size37, align 16
+  %add38 = add i64 %add33, %52
   %sub39 = sub i64 %add38, 1
-  %52 = load i32, ptr %ret, align 4
-  call void @trace_vfio_region_mmap_fault(ptr noundef %call21, i32 noundef %35, i64 noundef %add27, i64 noundef %sub39, i32 noundef %52)
-  %53 = load ptr, ptr %region.addr, align 8
-  %mmaps40 = getelementptr inbounds %struct.VFIORegion, ptr %53, i32 0, i32 6
-  %54 = load ptr, ptr %mmaps40, align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %55 to i64
-  %arrayidx42 = getelementptr %struct.VFIOMmap, ptr %54, i64 %idxprom41
+  %53 = load i32, ptr %ret, align 4
+  call void @trace_vfio_region_mmap_fault(ptr noundef %call21, i32 noundef %36, i64 noundef %add27, i64 noundef %sub39, i32 noundef %53)
+  %54 = load ptr, ptr %region.addr, align 8
+  %mmaps40 = getelementptr inbounds %struct.VFIORegion, ptr %54, i32 0, i32 6
+  %55 = load ptr, ptr %mmaps40, align 8
+  %56 = load i32, ptr %i, align 4
+  %idxprom41 = sext i32 %56 to i64
+  %arrayidx42 = getelementptr %struct.VFIOMmap, ptr %55, i64 %idxprom41
   %mmap43 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx42, i32 0, i32 1
   store ptr null, ptr %mmap43, align 16
-  %56 = load i32, ptr %i, align 4
-  %dec = add i32 %56, -1
+  %57 = load i32, ptr %i, align 4
+  %dec = add i32 %57, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond44
 
 for.cond44:                                       ; preds = %for.inc, %if.then18
-  %57 = load i32, ptr %i, align 4
-  %cmp45 = icmp sge i32 %57, 0
+  %58 = load i32, ptr %i, align 4
+  %cmp45 = icmp sge i32 %58, 0
   br i1 %cmp45, label %for.body46, label %for.end
 
 for.body46:                                       ; preds = %for.cond44
-  %58 = load ptr, ptr %region.addr, align 8
-  %59 = load i32, ptr %i, align 4
-  call void @vfio_subregion_unmap(ptr noundef %58, i32 noundef %59)
+  %59 = load ptr, ptr %region.addr, align 8
+  %60 = load i32, ptr %i, align 4
+  call void @vfio_subregion_unmap(ptr noundef %59, i32 noundef %60)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body46
-  %60 = load i32, ptr %i, align 4
-  %dec47 = add i32 %60, -1
+  %61 = load i32, ptr %i, align 4
+  %dec47 = add i32 %61, -1
   store i32 %dec47, ptr %i, align 4
   br label %for.cond44, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond44
-  %61 = load i32, ptr %ret, align 4
-  store i32 %61, ptr %retval, align 4
+  %62 = load i32, ptr %ret, align 4
+  store i32 %62, ptr %retval, align 4
   br label %return
 
 if.end48:                                         ; preds = %for.body
-  %62 = load ptr, ptr %region.addr, align 8
-  %mem49 = getelementptr inbounds %struct.VFIORegion, ptr %62, i32 0, i32 2
-  %63 = load ptr, ptr %mem49, align 8
-  %call50 = call ptr @memory_region_name(ptr noundef %63)
-  %64 = load i32, ptr %i, align 4
-  %call51 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.11, ptr noundef %call50, i32 noundef %64)
+  %63 = load ptr, ptr %region.addr, align 8
+  %mem49 = getelementptr inbounds %struct.VFIORegion, ptr %63, i32 0, i32 2
+  %64 = load ptr, ptr %mem49, align 8
+  %call50 = call ptr @memory_region_name(ptr noundef %64)
+  %65 = load i32, ptr %i, align 4
+  %call51 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.11, ptr noundef %call50, i32 noundef %65)
   store ptr %call51, ptr %name, align 8
-  %65 = load ptr, ptr %region.addr, align 8
-  %mmaps52 = getelementptr inbounds %struct.VFIORegion, ptr %65, i32 0, i32 6
-  %66 = load ptr, ptr %mmaps52, align 8
-  %67 = load i32, ptr %i, align 4
-  %idxprom53 = sext i32 %67 to i64
-  %arrayidx54 = getelementptr %struct.VFIOMmap, ptr %66, i64 %idxprom53
+  %66 = load ptr, ptr %region.addr, align 8
+  %mmaps52 = getelementptr inbounds %struct.VFIORegion, ptr %66, i32 0, i32 6
+  %67 = load ptr, ptr %mmaps52, align 8
+  %68 = load i32, ptr %i, align 4
+  %idxprom53 = sext i32 %68 to i64
+  %arrayidx54 = getelementptr %struct.VFIOMmap, ptr %67, i64 %idxprom53
   %mem55 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx54, i32 0, i32 0
-  %68 = load ptr, ptr %region.addr, align 8
-  %mem56 = getelementptr inbounds %struct.VFIORegion, ptr %68, i32 0, i32 2
-  %69 = load ptr, ptr %mem56, align 8
-  %call57 = call ptr @memory_region_owner(ptr noundef %69)
-  %70 = load ptr, ptr %name, align 8
-  %71 = load ptr, ptr %region.addr, align 8
-  %mmaps58 = getelementptr inbounds %struct.VFIORegion, ptr %71, i32 0, i32 6
-  %72 = load ptr, ptr %mmaps58, align 8
-  %73 = load i32, ptr %i, align 4
-  %idxprom59 = sext i32 %73 to i64
-  %arrayidx60 = getelementptr %struct.VFIOMmap, ptr %72, i64 %idxprom59
+  %69 = load ptr, ptr %region.addr, align 8
+  %mem56 = getelementptr inbounds %struct.VFIORegion, ptr %69, i32 0, i32 2
+  %70 = load ptr, ptr %mem56, align 8
+  %call57 = call ptr @memory_region_owner(ptr noundef %70)
+  %71 = load ptr, ptr %name, align 8
+  %72 = load ptr, ptr %region.addr, align 8
+  %mmaps58 = getelementptr inbounds %struct.VFIORegion, ptr %72, i32 0, i32 6
+  %73 = load ptr, ptr %mmaps58, align 8
+  %74 = load i32, ptr %i, align 4
+  %idxprom59 = sext i32 %74 to i64
+  %arrayidx60 = getelementptr %struct.VFIOMmap, ptr %73, i64 %idxprom59
   %size61 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx60, i32 0, i32 3
-  %74 = load i64, ptr %size61, align 16
-  %75 = load ptr, ptr %region.addr, align 8
-  %mmaps62 = getelementptr inbounds %struct.VFIORegion, ptr %75, i32 0, i32 6
-  %76 = load ptr, ptr %mmaps62, align 8
-  %77 = load i32, ptr %i, align 4
-  %idxprom63 = sext i32 %77 to i64
-  %arrayidx64 = getelementptr %struct.VFIOMmap, ptr %76, i64 %idxprom63
+  %75 = load i64, ptr %size61, align 16
+  %76 = load ptr, ptr %region.addr, align 8
+  %mmaps62 = getelementptr inbounds %struct.VFIORegion, ptr %76, i32 0, i32 6
+  %77 = load ptr, ptr %mmaps62, align 8
+  %78 = load i32, ptr %i, align 4
+  %idxprom63 = sext i32 %78 to i64
+  %arrayidx64 = getelementptr %struct.VFIOMmap, ptr %77, i64 %idxprom63
   %mmap65 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx64, i32 0, i32 1
-  %78 = load ptr, ptr %mmap65, align 16
-  call void @memory_region_init_ram_device_ptr(ptr noundef %mem55, ptr noundef %call57, ptr noundef %70, i64 noundef %74, ptr noundef %78)
-  %79 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %79)
-  %80 = load ptr, ptr %region.addr, align 8
-  %mem66 = getelementptr inbounds %struct.VFIORegion, ptr %80, i32 0, i32 2
-  %81 = load ptr, ptr %mem66, align 8
-  %82 = load ptr, ptr %region.addr, align 8
-  %mmaps67 = getelementptr inbounds %struct.VFIORegion, ptr %82, i32 0, i32 6
-  %83 = load ptr, ptr %mmaps67, align 8
-  %84 = load i32, ptr %i, align 4
-  %idxprom68 = sext i32 %84 to i64
-  %arrayidx69 = getelementptr %struct.VFIOMmap, ptr %83, i64 %idxprom68
+  %79 = load ptr, ptr %mmap65, align 16
+  call void @memory_region_init_ram_device_ptr(ptr noundef %mem55, ptr noundef %call57, ptr noundef %71, i64 noundef %75, ptr noundef %79)
+  %80 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %80)
+  %81 = load ptr, ptr %region.addr, align 8
+  %mem66 = getelementptr inbounds %struct.VFIORegion, ptr %81, i32 0, i32 2
+  %82 = load ptr, ptr %mem66, align 8
+  %83 = load ptr, ptr %region.addr, align 8
+  %mmaps67 = getelementptr inbounds %struct.VFIORegion, ptr %83, i32 0, i32 6
+  %84 = load ptr, ptr %mmaps67, align 8
+  %85 = load i32, ptr %i, align 4
+  %idxprom68 = sext i32 %85 to i64
+  %arrayidx69 = getelementptr %struct.VFIOMmap, ptr %84, i64 %idxprom68
   %offset70 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx69, i32 0, i32 2
-  %85 = load i64, ptr %offset70, align 8
-  %86 = load ptr, ptr %region.addr, align 8
-  %mmaps71 = getelementptr inbounds %struct.VFIORegion, ptr %86, i32 0, i32 6
-  %87 = load ptr, ptr %mmaps71, align 8
-  %88 = load i32, ptr %i, align 4
-  %idxprom72 = sext i32 %88 to i64
-  %arrayidx73 = getelementptr %struct.VFIOMmap, ptr %87, i64 %idxprom72
+  %86 = load i64, ptr %offset70, align 8
+  %87 = load ptr, ptr %region.addr, align 8
+  %mmaps71 = getelementptr inbounds %struct.VFIORegion, ptr %87, i32 0, i32 6
+  %88 = load ptr, ptr %mmaps71, align 8
+  %89 = load i32, ptr %i, align 4
+  %idxprom72 = sext i32 %89 to i64
+  %arrayidx73 = getelementptr %struct.VFIOMmap, ptr %88, i64 %idxprom72
   %mem74 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx73, i32 0, i32 0
-  call void @memory_region_add_subregion(ptr noundef %81, i64 noundef %85, ptr noundef %mem74)
-  %89 = load ptr, ptr %region.addr, align 8
-  %mmaps75 = getelementptr inbounds %struct.VFIORegion, ptr %89, i32 0, i32 6
-  %90 = load ptr, ptr %mmaps75, align 8
-  %91 = load i32, ptr %i, align 4
-  %idxprom76 = sext i32 %91 to i64
-  %arrayidx77 = getelementptr %struct.VFIOMmap, ptr %90, i64 %idxprom76
+  call void @memory_region_add_subregion(ptr noundef %82, i64 noundef %86, ptr noundef %mem74)
+  %90 = load ptr, ptr %region.addr, align 8
+  %mmaps75 = getelementptr inbounds %struct.VFIORegion, ptr %90, i32 0, i32 6
+  %91 = load ptr, ptr %mmaps75, align 8
+  %92 = load i32, ptr %i, align 4
+  %idxprom76 = sext i32 %92 to i64
+  %arrayidx77 = getelementptr %struct.VFIOMmap, ptr %91, i64 %idxprom76
   %mem78 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx77, i32 0, i32 0
   %call79 = call ptr @memory_region_name(ptr noundef %mem78)
-  %92 = load ptr, ptr %region.addr, align 8
-  %mmaps80 = getelementptr inbounds %struct.VFIORegion, ptr %92, i32 0, i32 6
-  %93 = load ptr, ptr %mmaps80, align 8
-  %94 = load i32, ptr %i, align 4
-  %idxprom81 = sext i32 %94 to i64
-  %arrayidx82 = getelementptr %struct.VFIOMmap, ptr %93, i64 %idxprom81
+  %93 = load ptr, ptr %region.addr, align 8
+  %mmaps80 = getelementptr inbounds %struct.VFIORegion, ptr %93, i32 0, i32 6
+  %94 = load ptr, ptr %mmaps80, align 8
+  %95 = load i32, ptr %i, align 4
+  %idxprom81 = sext i32 %95 to i64
+  %arrayidx82 = getelementptr %struct.VFIOMmap, ptr %94, i64 %idxprom81
   %offset83 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx82, i32 0, i32 2
-  %95 = load i64, ptr %offset83, align 8
-  %96 = load ptr, ptr %region.addr, align 8
-  %mmaps84 = getelementptr inbounds %struct.VFIORegion, ptr %96, i32 0, i32 6
-  %97 = load ptr, ptr %mmaps84, align 8
-  %98 = load i32, ptr %i, align 4
-  %idxprom85 = sext i32 %98 to i64
-  %arrayidx86 = getelementptr %struct.VFIOMmap, ptr %97, i64 %idxprom85
+  %96 = load i64, ptr %offset83, align 8
+  %97 = load ptr, ptr %region.addr, align 8
+  %mmaps84 = getelementptr inbounds %struct.VFIORegion, ptr %97, i32 0, i32 6
+  %98 = load ptr, ptr %mmaps84, align 8
+  %99 = load i32, ptr %i, align 4
+  %idxprom85 = sext i32 %99 to i64
+  %arrayidx86 = getelementptr %struct.VFIOMmap, ptr %98, i64 %idxprom85
   %offset87 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx86, i32 0, i32 2
-  %99 = load i64, ptr %offset87, align 8
-  %100 = load ptr, ptr %region.addr, align 8
-  %mmaps88 = getelementptr inbounds %struct.VFIORegion, ptr %100, i32 0, i32 6
-  %101 = load ptr, ptr %mmaps88, align 8
-  %102 = load i32, ptr %i, align 4
-  %idxprom89 = sext i32 %102 to i64
-  %arrayidx90 = getelementptr %struct.VFIOMmap, ptr %101, i64 %idxprom89
+  %100 = load i64, ptr %offset87, align 8
+  %101 = load ptr, ptr %region.addr, align 8
+  %mmaps88 = getelementptr inbounds %struct.VFIORegion, ptr %101, i32 0, i32 6
+  %102 = load ptr, ptr %mmaps88, align 8
+  %103 = load i32, ptr %i, align 4
+  %idxprom89 = sext i32 %103 to i64
+  %arrayidx90 = getelementptr %struct.VFIOMmap, ptr %102, i64 %idxprom89
   %size91 = getelementptr inbounds %struct.VFIOMmap, ptr %arrayidx90, i32 0, i32 3
-  %103 = load i64, ptr %size91, align 16
-  %add92 = add i64 %99, %103
+  %104 = load i64, ptr %size91, align 16
+  %add92 = add i64 %100, %104
   %sub93 = sub i64 %add92, 1
-  call void @trace_vfio_region_mmap(ptr noundef %call79, i64 noundef %95, i64 noundef %sub93)
+  call void @trace_vfio_region_mmap(ptr noundef %call79, i64 noundef %96, i64 noundef %sub93)
   br label %for.inc94
 
 for.inc94:                                        ; preds = %if.end48
-  %104 = load i32, ptr %i, align 4
-  %inc = add i32 %104, 1
+  %105 = load i32, ptr %i, align 4
+  %inc = add i32 %105, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -1668,8 +1669,8 @@ for.end95:                                        ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end95, %for.end, %if.then
-  %105 = load i32, ptr %retval, align 4
-  ret i32 %105
+  %106 = load i32, ptr %retval, align 4
+  ret i32 %106
 }
 
 ; Function Attrs: nounwind

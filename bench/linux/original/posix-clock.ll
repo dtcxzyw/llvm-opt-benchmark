@@ -624,44 +624,45 @@ define internal i32 @posix_clock_open(ptr nocapture noundef readonly %0, ptr noc
   %7 = getelementptr i8, ptr %4, i64 152
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %30
+  br i1 %9, label %10, label %31
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %12 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 16) #6
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %30, label %14
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %12 = load ptr, ptr %11, align 16
+  %13 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 16) #6
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %31, label %15
 
-14:                                               ; preds = %10
-  store ptr %5, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr %12, ptr %15, align 8
-  %16 = getelementptr i8, ptr %4, i64 -32
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %23, label %19
+15:                                               ; preds = %10
+  store ptr %5, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %13, ptr %16, align 8
+  %17 = getelementptr i8, ptr %4, i64 -32
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %24, label %20
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 %17(ptr noundef nonnull %12, i32 noundef %21) #4
-  br label %23
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = load i32, ptr %21, align 4
+  %23 = tail call i32 %18(ptr noundef nonnull %13, i32 noundef %22) #4
+  br label %24
 
-23:                                               ; preds = %19, %14
-  %24 = phi i32 [ %22, %19 ], [ 0, %14 ]
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %30
+24:                                               ; preds = %20, %15
+  %25 = phi i32 [ %23, %20 ], [ 0, %15 ]
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %23
-  %27 = getelementptr i8, ptr %4, i64 104
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @get_device(ptr noundef %28) #4
-  br label %30
+27:                                               ; preds = %24
+  %28 = getelementptr i8, ptr %4, i64 104
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call ptr @get_device(ptr noundef %29) #4
+  br label %31
 
-30:                                               ; preds = %26, %23, %10, %2
-  %31 = phi i32 [ %24, %23 ], [ 0, %26 ], [ -19, %2 ], [ -12, %10 ]
+31:                                               ; preds = %27, %24, %10, %2
+  %32 = phi i32 [ %25, %24 ], [ 0, %27 ], [ -19, %2 ], [ -12, %10 ]
   tail call void @up_read(ptr noundef %6) #4
-  ret i32 %31
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1493,70 +1493,71 @@ define internal void @read_object_id_file() #0 {
   %6 = call noalias ptr @fopen(ptr noundef %5, ptr noundef @.str.714)
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %0
   store i32 0, ptr @object_id_strings, align 16
-  store ptr null, ptr getelementptr inbounds (%struct._value_string, ptr @object_id_strings, i32 0, i32 1), align 8
-  br label %50
+  %9 = getelementptr inbounds %struct._value_string, ptr @object_id_strings, i32 0, i32 1
+  store ptr null, ptr %9, align 8
+  br label %51
 
-9:                                                ; preds = %0
-  br label %10
+10:                                               ; preds = %0
+  br label %11
 
-10:                                               ; preds = %15, %9
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds [500 x i8], ptr %1, i64 0, i64 0
-  %13 = call i32 @vt_getline(ptr noundef %11, ptr noundef %12, i32 noundef 500)
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %39
+11:                                               ; preds = %16, %10
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds [500 x i8], ptr %1, i64 0, i64 0
+  %14 = call i32 @vt_getline(ptr noundef %12, ptr noundef %13, i32 noundef 500)
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %16, label %40
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds [500 x i8], ptr %1, i64 0, i64 0
-  %17 = call ptr @g_strsplit(ptr noundef %16, ptr noundef @.str.715, i32 noundef 2)
-  store ptr %17, ptr %4, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr ptr, ptr %18, i64 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = call i64 @g_ascii_strtoll(ptr noundef %20, ptr noundef null, i32 noundef 10)
-  %22 = trunc i64 %21 to i32
-  %23 = load i16, ptr %2, align 2
-  %24 = zext i16 %23 to i64
-  %25 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %24
-  %26 = getelementptr inbounds %struct._value_string, ptr %25, i32 0, i32 0
-  store i32 %22, ptr %26, align 16
-  %27 = call ptr @wmem_epan_scope()
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr ptr, ptr %28, i64 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noalias ptr @wmem_strdup(ptr noundef %27, ptr noundef %30)
-  %32 = load i16, ptr %2, align 2
-  %33 = zext i16 %32 to i64
-  %34 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %33
-  %35 = getelementptr inbounds %struct._value_string, ptr %34, i32 0, i32 1
-  store ptr %31, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  call void @g_strfreev(ptr noundef %36)
-  %37 = load i16, ptr %2, align 2
-  %38 = add i16 %37, 1
-  store i16 %38, ptr %2, align 2
-  br label %10, !llvm.loop !4
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds [500 x i8], ptr %1, i64 0, i64 0
+  %18 = call ptr @g_strsplit(ptr noundef %17, ptr noundef @.str.715, i32 noundef 2)
+  store ptr %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr ptr, ptr %19, i64 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i64 @g_ascii_strtoll(ptr noundef %21, ptr noundef null, i32 noundef 10)
+  %23 = trunc i64 %22 to i32
+  %24 = load i16, ptr %2, align 2
+  %25 = zext i16 %24 to i64
+  %26 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %25
+  %27 = getelementptr inbounds %struct._value_string, ptr %26, i32 0, i32 0
+  store i32 %23, ptr %27, align 16
+  %28 = call ptr @wmem_epan_scope()
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr ptr, ptr %29, i64 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noalias ptr @wmem_strdup(ptr noundef %28, ptr noundef %31)
+  %33 = load i16, ptr %2, align 2
+  %34 = zext i16 %33 to i64
+  %35 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %34
+  %36 = getelementptr inbounds %struct._value_string, ptr %35, i32 0, i32 1
+  store ptr %32, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  call void @g_strfreev(ptr noundef %37)
+  %38 = load i16, ptr %2, align 2
+  %39 = add i16 %38, 1
+  store i16 %39, ptr %2, align 2
+  br label %11, !llvm.loop !4
 
-39:                                               ; preds = %10
-  %40 = load ptr, ptr %3, align 8
-  %41 = call i32 @fclose(ptr noundef %40)
-  %42 = load i16, ptr %2, align 2
-  %43 = zext i16 %42 to i64
-  %44 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %43
-  %45 = getelementptr inbounds %struct._value_string, ptr %44, i32 0, i32 0
-  store i32 0, ptr %45, align 16
-  %46 = load i16, ptr %2, align 2
-  %47 = zext i16 %46 to i64
-  %48 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %47
-  %49 = getelementptr inbounds %struct._value_string, ptr %48, i32 0, i32 1
-  store ptr null, ptr %49, align 8
-  br label %50
+40:                                               ; preds = %11
+  %41 = load ptr, ptr %3, align 8
+  %42 = call i32 @fclose(ptr noundef %41)
+  %43 = load i16, ptr %2, align 2
+  %44 = zext i16 %43 to i64
+  %45 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %44
+  %46 = getelementptr inbounds %struct._value_string, ptr %45, i32 0, i32 0
+  store i32 0, ptr %46, align 16
+  %47 = load i16, ptr %2, align 2
+  %48 = zext i16 %47 to i64
+  %49 = getelementptr [10000 x %struct._value_string], ptr @object_id_strings, i64 0, i64 %48
+  %50 = getelementptr inbounds %struct._value_string, ptr %49, i32 0, i32 1
+  store ptr null, ptr %50, align 8
+  br label %51
 
-50:                                               ; preds = %39, %8
+51:                                               ; preds = %40, %8
   ret void
 }
 

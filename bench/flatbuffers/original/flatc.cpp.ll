@@ -5175,26 +5175,31 @@ invoke.cont:                                      ; preds = %entry
   store i1 true, ptr %cleanup.isactive10, align 1
   store i1 true, ptr %cleanup.isactive11, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  %0 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %1 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 3), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  %2 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   store i1 false, ptr %cleanup.isactive, align 1
   store i1 false, ptr %cleanup.isactive10, align 1
   store i1 false, ptr %cleanup.isactive11, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1), ptr %arrayinit.endOfInit, align 8
+  %3 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1
+  store ptr %3, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
+  %4 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont9
@@ -5202,26 +5207,31 @@ invoke.cont14:                                    ; preds = %invoke.cont9
   store i1 true, ptr %cleanup.isactive25, align 1
   store i1 true, ptr %cleanup.isactive26, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
+  %5 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  %6 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 3), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  %7 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   store i1 false, ptr %cleanup.isactive24, align 1
   store i1 false, ptr %cleanup.isactive25, align 1
   store i1 false, ptr %cleanup.isactive26, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2), ptr %arrayinit.endOfInit, align 8
+  %8 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2
+  store ptr %8, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2), ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
+  %9 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont23
@@ -5229,26 +5239,31 @@ invoke.cont29:                                    ; preds = %invoke.cont23
   store i1 true, ptr %cleanup.isactive40, align 1
   store i1 true, ptr %cleanup.isactive41, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
+  %10 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33)
+  %11 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 3), ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
+  %12 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
   store i1 false, ptr %cleanup.isactive39, align 1
   store i1 false, ptr %cleanup.isactive40, align 1
   store i1 false, ptr %cleanup.isactive41, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3), ptr %arrayinit.endOfInit, align 8
+  %13 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3
+  store ptr %13, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42)
+  %14 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont38
@@ -5256,26 +5271,31 @@ invoke.cont44:                                    ; preds = %invoke.cont38
   store i1 true, ptr %cleanup.isactive55, align 1
   store i1 true, ptr %cleanup.isactive56, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 1), ptr noundef @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45)
+  %15 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48)
+  %16 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 3), ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
+  %17 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont50
   store i1 false, ptr %cleanup.isactive54, align 1
   store i1 false, ptr %cleanup.isactive55, align 1
   store i1 false, ptr %cleanup.isactive56, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4), ptr %arrayinit.endOfInit, align 8
+  %18 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4
+  store ptr %18, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4), ptr noundef @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57)
+  %19 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont53
@@ -5283,26 +5303,31 @@ invoke.cont59:                                    ; preds = %invoke.cont53
   store i1 true, ptr %cleanup.isactive70, align 1
   store i1 true, ptr %cleanup.isactive71, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 1), ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60)
+  %20 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont59
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63)
+  %21 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont62
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 3), ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
+  %22 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont65
   store i1 false, ptr %cleanup.isactive69, align 1
   store i1 false, ptr %cleanup.isactive70, align 1
   store i1 false, ptr %cleanup.isactive71, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5), ptr %arrayinit.endOfInit, align 8
+  %23 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5
+  store ptr %23, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72)
+  %24 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72)
           to label %invoke.cont74 unwind label %lpad73
 
 invoke.cont74:                                    ; preds = %invoke.cont68
@@ -5310,26 +5335,31 @@ invoke.cont74:                                    ; preds = %invoke.cont68
   store i1 true, ptr %cleanup.isactive85, align 1
   store i1 true, ptr %cleanup.isactive86, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 1), ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75)
+  %25 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont74
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78)
+  %26 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78)
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %invoke.cont77
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 3), ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81)
+  %27 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %invoke.cont80
   store i1 false, ptr %cleanup.isactive84, align 1
   store i1 false, ptr %cleanup.isactive85, align 1
   store i1 false, ptr %cleanup.isactive86, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6), ptr %arrayinit.endOfInit, align 8
+  %28 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6
+  store ptr %28, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87)
+  %29 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont83
@@ -5337,26 +5367,31 @@ invoke.cont89:                                    ; preds = %invoke.cont83
   store i1 true, ptr %cleanup.isactive100, align 1
   store i1 true, ptr %cleanup.isactive101, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 1), ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90)
+  %30 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90)
           to label %invoke.cont92 unwind label %lpad91
 
 invoke.cont92:                                    ; preds = %invoke.cont89
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
+  %31 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %invoke.cont92
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp96) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 3), ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp96)
+  %32 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp96)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont95
   store i1 false, ptr %cleanup.isactive99, align 1
   store i1 false, ptr %cleanup.isactive100, align 1
   store i1 false, ptr %cleanup.isactive101, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7), ptr %arrayinit.endOfInit, align 8
+  %33 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7
+  store ptr %33, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102)
+  %34 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102)
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont98
@@ -5364,26 +5399,31 @@ invoke.cont104:                                   ; preds = %invoke.cont98
   store i1 true, ptr %cleanup.isactive115, align 1
   store i1 true, ptr %cleanup.isactive116, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp105) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 1), ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp105)
+  %35 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp105)
           to label %invoke.cont107 unwind label %lpad106
 
 invoke.cont107:                                   ; preds = %invoke.cont104
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108)
+  %36 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108)
           to label %invoke.cont110 unwind label %lpad109
 
 invoke.cont110:                                   ; preds = %invoke.cont107
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 3), ptr noundef @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111)
+  %37 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont110
   store i1 false, ptr %cleanup.isactive114, align 1
   store i1 false, ptr %cleanup.isactive115, align 1
   store i1 false, ptr %cleanup.isactive116, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8), ptr %arrayinit.endOfInit, align 8
+  %38 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8
+  store ptr %38, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117)
+  %39 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117)
           to label %invoke.cont119 unwind label %lpad118
 
 invoke.cont119:                                   ; preds = %invoke.cont113
@@ -5391,26 +5431,31 @@ invoke.cont119:                                   ; preds = %invoke.cont113
   store i1 true, ptr %cleanup.isactive130, align 1
   store i1 true, ptr %cleanup.isactive131, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp120) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 1), ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp120)
+  %40 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp120)
           to label %invoke.cont122 unwind label %lpad121
 
 invoke.cont122:                                   ; preds = %invoke.cont119
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp123) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp123)
+  %41 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp123)
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont122
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 3), ptr noundef @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126)
+  %42 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126)
           to label %invoke.cont128 unwind label %lpad127
 
 invoke.cont128:                                   ; preds = %invoke.cont125
   store i1 false, ptr %cleanup.isactive129, align 1
   store i1 false, ptr %cleanup.isactive130, align 1
   store i1 false, ptr %cleanup.isactive131, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9), ptr %arrayinit.endOfInit, align 8
+  %43 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9
+  store ptr %43, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp132) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp132)
+  %44 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp132)
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %invoke.cont128
@@ -5418,26 +5463,31 @@ invoke.cont134:                                   ; preds = %invoke.cont128
   store i1 true, ptr %cleanup.isactive145, align 1
   store i1 true, ptr %cleanup.isactive146, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 1), ptr noundef @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135)
+  %45 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135)
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %invoke.cont134
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp138) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp138)
+  %46 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp138)
           to label %invoke.cont140 unwind label %lpad139
 
 invoke.cont140:                                   ; preds = %invoke.cont137
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp141) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 3), ptr noundef @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp141)
+  %47 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp141)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont140
   store i1 false, ptr %cleanup.isactive144, align 1
   store i1 false, ptr %cleanup.isactive145, align 1
   store i1 false, ptr %cleanup.isactive146, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10), ptr %arrayinit.endOfInit, align 8
+  %48 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10
+  store ptr %48, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
+  %49 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %invoke.cont143
@@ -5445,26 +5495,31 @@ invoke.cont149:                                   ; preds = %invoke.cont143
   store i1 true, ptr %cleanup.isactive160, align 1
   store i1 true, ptr %cleanup.isactive161, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp150) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 1), ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp150)
+  %50 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp150)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %invoke.cont149
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp153) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp153)
+  %51 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp153)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont152
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp156) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 3), ptr noundef @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp156)
+  %52 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp156)
           to label %invoke.cont158 unwind label %lpad157
 
 invoke.cont158:                                   ; preds = %invoke.cont155
   store i1 false, ptr %cleanup.isactive159, align 1
   store i1 false, ptr %cleanup.isactive160, align 1
   store i1 false, ptr %cleanup.isactive161, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11), ptr %arrayinit.endOfInit, align 8
+  %53 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11
+  store ptr %53, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp162) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp162)
+  %54 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp162)
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %invoke.cont158
@@ -5472,26 +5527,31 @@ invoke.cont164:                                   ; preds = %invoke.cont158
   store i1 true, ptr %cleanup.isactive175, align 1
   store i1 true, ptr %cleanup.isactive176, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp165) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 1), ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp165)
+  %55 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp165)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %invoke.cont164
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp168) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp168)
+  %56 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp168)
           to label %invoke.cont170 unwind label %lpad169
 
 invoke.cont170:                                   ; preds = %invoke.cont167
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 3), ptr noundef @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171)
+  %57 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171)
           to label %invoke.cont173 unwind label %lpad172
 
 invoke.cont173:                                   ; preds = %invoke.cont170
   store i1 false, ptr %cleanup.isactive174, align 1
   store i1 false, ptr %cleanup.isactive175, align 1
   store i1 false, ptr %cleanup.isactive176, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12), ptr %arrayinit.endOfInit, align 8
+  %58 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12
+  store ptr %58, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177)
+  %59 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177)
           to label %invoke.cont179 unwind label %lpad178
 
 invoke.cont179:                                   ; preds = %invoke.cont173
@@ -5499,26 +5559,31 @@ invoke.cont179:                                   ; preds = %invoke.cont173
   store i1 true, ptr %cleanup.isactive190, align 1
   store i1 true, ptr %cleanup.isactive191, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 1), ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180)
+  %60 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180)
           to label %invoke.cont182 unwind label %lpad181
 
 invoke.cont182:                                   ; preds = %invoke.cont179
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp183) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp183)
+  %61 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp183)
           to label %invoke.cont185 unwind label %lpad184
 
 invoke.cont185:                                   ; preds = %invoke.cont182
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp186) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 3), ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp186)
+  %62 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp186)
           to label %invoke.cont188 unwind label %lpad187
 
 invoke.cont188:                                   ; preds = %invoke.cont185
   store i1 false, ptr %cleanup.isactive189, align 1
   store i1 false, ptr %cleanup.isactive190, align 1
   store i1 false, ptr %cleanup.isactive191, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13), ptr %arrayinit.endOfInit, align 8
+  %63 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13
+  store ptr %63, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp192) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp192)
+  %64 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp192)
           to label %invoke.cont194 unwind label %lpad193
 
 invoke.cont194:                                   ; preds = %invoke.cont188
@@ -5526,26 +5591,31 @@ invoke.cont194:                                   ; preds = %invoke.cont188
   store i1 true, ptr %cleanup.isactive205, align 1
   store i1 true, ptr %cleanup.isactive206, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp195) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 1), ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp195)
+  %65 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp195)
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont194
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp198) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp198)
+  %66 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp198)
           to label %invoke.cont200 unwind label %lpad199
 
 invoke.cont200:                                   ; preds = %invoke.cont197
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp201) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 3), ptr noundef @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp201)
+  %67 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp201)
           to label %invoke.cont203 unwind label %lpad202
 
 invoke.cont203:                                   ; preds = %invoke.cont200
   store i1 false, ptr %cleanup.isactive204, align 1
   store i1 false, ptr %cleanup.isactive205, align 1
   store i1 false, ptr %cleanup.isactive206, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14), ptr %arrayinit.endOfInit, align 8
+  %68 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14
+  store ptr %68, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207)
+  %69 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207)
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %invoke.cont203
@@ -5553,26 +5623,31 @@ invoke.cont209:                                   ; preds = %invoke.cont203
   store i1 true, ptr %cleanup.isactive220, align 1
   store i1 true, ptr %cleanup.isactive221, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp210) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 1), ptr noundef @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp210)
+  %70 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp210)
           to label %invoke.cont212 unwind label %lpad211
 
 invoke.cont212:                                   ; preds = %invoke.cont209
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp213) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp213)
+  %71 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp213)
           to label %invoke.cont215 unwind label %lpad214
 
 invoke.cont215:                                   ; preds = %invoke.cont212
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp216) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 3), ptr noundef @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp216)
+  %72 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp216)
           to label %invoke.cont218 unwind label %lpad217
 
 invoke.cont218:                                   ; preds = %invoke.cont215
   store i1 false, ptr %cleanup.isactive219, align 1
   store i1 false, ptr %cleanup.isactive220, align 1
   store i1 false, ptr %cleanup.isactive221, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15), ptr %arrayinit.endOfInit, align 8
+  %73 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15
+  store ptr %73, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp222) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp222)
+  %74 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp222)
           to label %invoke.cont224 unwind label %lpad223
 
 invoke.cont224:                                   ; preds = %invoke.cont218
@@ -5580,26 +5655,31 @@ invoke.cont224:                                   ; preds = %invoke.cont218
   store i1 true, ptr %cleanup.isactive235, align 1
   store i1 true, ptr %cleanup.isactive236, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 1), ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225)
+  %75 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225)
           to label %invoke.cont227 unwind label %lpad226
 
 invoke.cont227:                                   ; preds = %invoke.cont224
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228)
+  %76 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228)
           to label %invoke.cont230 unwind label %lpad229
 
 invoke.cont230:                                   ; preds = %invoke.cont227
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 3), ptr noundef @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231)
+  %77 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231)
           to label %invoke.cont233 unwind label %lpad232
 
 invoke.cont233:                                   ; preds = %invoke.cont230
   store i1 false, ptr %cleanup.isactive234, align 1
   store i1 false, ptr %cleanup.isactive235, align 1
   store i1 false, ptr %cleanup.isactive236, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16), ptr %arrayinit.endOfInit, align 8
+  %78 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16
+  store ptr %78, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237)
+  %79 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %invoke.cont233
@@ -5607,26 +5687,31 @@ invoke.cont239:                                   ; preds = %invoke.cont233
   store i1 true, ptr %cleanup.isactive250, align 1
   store i1 true, ptr %cleanup.isactive251, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp240) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 1), ptr noundef @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp240)
+  %80 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp240)
           to label %invoke.cont242 unwind label %lpad241
 
 invoke.cont242:                                   ; preds = %invoke.cont239
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp243) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp243)
+  %81 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp243)
           to label %invoke.cont245 unwind label %lpad244
 
 invoke.cont245:                                   ; preds = %invoke.cont242
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp246) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 3), ptr noundef @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp246)
+  %82 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp246)
           to label %invoke.cont248 unwind label %lpad247
 
 invoke.cont248:                                   ; preds = %invoke.cont245
   store i1 false, ptr %cleanup.isactive249, align 1
   store i1 false, ptr %cleanup.isactive250, align 1
   store i1 false, ptr %cleanup.isactive251, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17), ptr %arrayinit.endOfInit, align 8
+  %83 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17
+  store ptr %83, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp252) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp252)
+  %84 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp252)
           to label %invoke.cont254 unwind label %lpad253
 
 invoke.cont254:                                   ; preds = %invoke.cont248
@@ -5634,26 +5719,31 @@ invoke.cont254:                                   ; preds = %invoke.cont248
   store i1 true, ptr %cleanup.isactive265, align 1
   store i1 true, ptr %cleanup.isactive266, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp255) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 1), ptr noundef @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp255)
+  %85 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp255)
           to label %invoke.cont257 unwind label %lpad256
 
 invoke.cont257:                                   ; preds = %invoke.cont254
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp258) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp258)
+  %86 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp258)
           to label %invoke.cont260 unwind label %lpad259
 
 invoke.cont260:                                   ; preds = %invoke.cont257
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp261) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 3), ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp261)
+  %87 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp261)
           to label %invoke.cont263 unwind label %lpad262
 
 invoke.cont263:                                   ; preds = %invoke.cont260
   store i1 false, ptr %cleanup.isactive264, align 1
   store i1 false, ptr %cleanup.isactive265, align 1
   store i1 false, ptr %cleanup.isactive266, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18), ptr %arrayinit.endOfInit, align 8
+  %88 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18
+  store ptr %88, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267)
+  %89 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267)
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont263
@@ -5661,26 +5751,31 @@ invoke.cont269:                                   ; preds = %invoke.cont263
   store i1 true, ptr %cleanup.isactive280, align 1
   store i1 true, ptr %cleanup.isactive281, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp270) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 1), ptr noundef @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp270)
+  %90 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp270)
           to label %invoke.cont272 unwind label %lpad271
 
 invoke.cont272:                                   ; preds = %invoke.cont269
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp273) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp273)
+  %91 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp273)
           to label %invoke.cont275 unwind label %lpad274
 
 invoke.cont275:                                   ; preds = %invoke.cont272
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp276) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 3), ptr noundef @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp276)
+  %92 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp276)
           to label %invoke.cont278 unwind label %lpad277
 
 invoke.cont278:                                   ; preds = %invoke.cont275
   store i1 false, ptr %cleanup.isactive279, align 1
   store i1 false, ptr %cleanup.isactive280, align 1
   store i1 false, ptr %cleanup.isactive281, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19), ptr %arrayinit.endOfInit, align 8
+  %93 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19
+  store ptr %93, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp282) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp282)
+  %94 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp282)
           to label %invoke.cont284 unwind label %lpad283
 
 invoke.cont284:                                   ; preds = %invoke.cont278
@@ -5688,26 +5783,31 @@ invoke.cont284:                                   ; preds = %invoke.cont278
   store i1 true, ptr %cleanup.isactive295, align 1
   store i1 true, ptr %cleanup.isactive296, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp285) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 1), ptr noundef @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp285)
+  %95 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp285)
           to label %invoke.cont287 unwind label %lpad286
 
 invoke.cont287:                                   ; preds = %invoke.cont284
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp288) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp288)
+  %96 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp288)
           to label %invoke.cont290 unwind label %lpad289
 
 invoke.cont290:                                   ; preds = %invoke.cont287
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp291) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 3), ptr noundef @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp291)
+  %97 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp291)
           to label %invoke.cont293 unwind label %lpad292
 
 invoke.cont293:                                   ; preds = %invoke.cont290
   store i1 false, ptr %cleanup.isactive294, align 1
   store i1 false, ptr %cleanup.isactive295, align 1
   store i1 false, ptr %cleanup.isactive296, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20), ptr %arrayinit.endOfInit, align 8
+  %98 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20
+  store ptr %98, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297)
+  %99 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297)
           to label %invoke.cont299 unwind label %lpad298
 
 invoke.cont299:                                   ; preds = %invoke.cont293
@@ -5715,26 +5815,31 @@ invoke.cont299:                                   ; preds = %invoke.cont293
   store i1 true, ptr %cleanup.isactive310, align 1
   store i1 true, ptr %cleanup.isactive311, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp300) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 1), ptr noundef @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp300)
+  %100 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp300)
           to label %invoke.cont302 unwind label %lpad301
 
 invoke.cont302:                                   ; preds = %invoke.cont299
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp303) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp303)
+  %101 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp303)
           to label %invoke.cont305 unwind label %lpad304
 
 invoke.cont305:                                   ; preds = %invoke.cont302
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp306) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 3), ptr noundef @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp306)
+  %102 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp306)
           to label %invoke.cont308 unwind label %lpad307
 
 invoke.cont308:                                   ; preds = %invoke.cont305
   store i1 false, ptr %cleanup.isactive309, align 1
   store i1 false, ptr %cleanup.isactive310, align 1
   store i1 false, ptr %cleanup.isactive311, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21), ptr %arrayinit.endOfInit, align 8
+  %103 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21
+  store ptr %103, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp312) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp312)
+  %104 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp312)
           to label %invoke.cont314 unwind label %lpad313
 
 invoke.cont314:                                   ; preds = %invoke.cont308
@@ -5742,26 +5847,31 @@ invoke.cont314:                                   ; preds = %invoke.cont308
   store i1 true, ptr %cleanup.isactive325, align 1
   store i1 true, ptr %cleanup.isactive326, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp315) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 1), ptr noundef @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp315)
+  %105 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp315)
           to label %invoke.cont317 unwind label %lpad316
 
 invoke.cont317:                                   ; preds = %invoke.cont314
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp318) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp318)
+  %106 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp318)
           to label %invoke.cont320 unwind label %lpad319
 
 invoke.cont320:                                   ; preds = %invoke.cont317
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp321) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 3), ptr noundef @.str.47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp321)
+  %107 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef @.str.47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp321)
           to label %invoke.cont323 unwind label %lpad322
 
 invoke.cont323:                                   ; preds = %invoke.cont320
   store i1 false, ptr %cleanup.isactive324, align 1
   store i1 false, ptr %cleanup.isactive325, align 1
   store i1 false, ptr %cleanup.isactive326, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22), ptr %arrayinit.endOfInit, align 8
+  %108 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22
+  store ptr %108, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327)
+  %109 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327)
           to label %invoke.cont329 unwind label %lpad328
 
 invoke.cont329:                                   ; preds = %invoke.cont323
@@ -5769,26 +5879,31 @@ invoke.cont329:                                   ; preds = %invoke.cont323
   store i1 true, ptr %cleanup.isactive340, align 1
   store i1 true, ptr %cleanup.isactive341, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp330) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 1), ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp330)
+  %110 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp330)
           to label %invoke.cont332 unwind label %lpad331
 
 invoke.cont332:                                   ; preds = %invoke.cont329
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp333) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp333)
+  %111 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp333)
           to label %invoke.cont335 unwind label %lpad334
 
 invoke.cont335:                                   ; preds = %invoke.cont332
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp336) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 3), ptr noundef @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp336)
+  %112 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp336)
           to label %invoke.cont338 unwind label %lpad337
 
 invoke.cont338:                                   ; preds = %invoke.cont335
   store i1 false, ptr %cleanup.isactive339, align 1
   store i1 false, ptr %cleanup.isactive340, align 1
   store i1 false, ptr %cleanup.isactive341, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23), ptr %arrayinit.endOfInit, align 8
+  %113 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23
+  store ptr %113, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342)
+  %114 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342)
           to label %invoke.cont344 unwind label %lpad343
 
 invoke.cont344:                                   ; preds = %invoke.cont338
@@ -5796,26 +5911,31 @@ invoke.cont344:                                   ; preds = %invoke.cont338
   store i1 true, ptr %cleanup.isactive355, align 1
   store i1 true, ptr %cleanup.isactive356, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp345) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 1), ptr noundef @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp345)
+  %115 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp345)
           to label %invoke.cont347 unwind label %lpad346
 
 invoke.cont347:                                   ; preds = %invoke.cont344
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp348) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp348)
+  %116 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp348)
           to label %invoke.cont350 unwind label %lpad349
 
 invoke.cont350:                                   ; preds = %invoke.cont347
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp351) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 3), ptr noundef @.str.51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp351)
+  %117 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef @.str.51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp351)
           to label %invoke.cont353 unwind label %lpad352
 
 invoke.cont353:                                   ; preds = %invoke.cont350
   store i1 false, ptr %cleanup.isactive354, align 1
   store i1 false, ptr %cleanup.isactive355, align 1
   store i1 false, ptr %cleanup.isactive356, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24), ptr %arrayinit.endOfInit, align 8
+  %118 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24
+  store ptr %118, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357)
+  %119 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357)
           to label %invoke.cont359 unwind label %lpad358
 
 invoke.cont359:                                   ; preds = %invoke.cont353
@@ -5823,26 +5943,31 @@ invoke.cont359:                                   ; preds = %invoke.cont353
   store i1 true, ptr %cleanup.isactive370, align 1
   store i1 true, ptr %cleanup.isactive371, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp360) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 1), ptr noundef @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp360)
+  %120 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp360)
           to label %invoke.cont362 unwind label %lpad361
 
 invoke.cont362:                                   ; preds = %invoke.cont359
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp363) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp363)
+  %121 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp363)
           to label %invoke.cont365 unwind label %lpad364
 
 invoke.cont365:                                   ; preds = %invoke.cont362
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp366) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 3), ptr noundef @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp366)
+  %122 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp366)
           to label %invoke.cont368 unwind label %lpad367
 
 invoke.cont368:                                   ; preds = %invoke.cont365
   store i1 false, ptr %cleanup.isactive369, align 1
   store i1 false, ptr %cleanup.isactive370, align 1
   store i1 false, ptr %cleanup.isactive371, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25), ptr %arrayinit.endOfInit, align 8
+  %123 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25
+  store ptr %123, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp372) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp372)
+  %124 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp372)
           to label %invoke.cont374 unwind label %lpad373
 
 invoke.cont374:                                   ; preds = %invoke.cont368
@@ -5850,26 +5975,31 @@ invoke.cont374:                                   ; preds = %invoke.cont368
   store i1 true, ptr %cleanup.isactive385, align 1
   store i1 true, ptr %cleanup.isactive386, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp375) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 1), ptr noundef @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp375)
+  %125 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp375)
           to label %invoke.cont377 unwind label %lpad376
 
 invoke.cont377:                                   ; preds = %invoke.cont374
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp378) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp378)
+  %126 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp378)
           to label %invoke.cont380 unwind label %lpad379
 
 invoke.cont380:                                   ; preds = %invoke.cont377
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp381) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 3), ptr noundef @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp381)
+  %127 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp381)
           to label %invoke.cont383 unwind label %lpad382
 
 invoke.cont383:                                   ; preds = %invoke.cont380
   store i1 false, ptr %cleanup.isactive384, align 1
   store i1 false, ptr %cleanup.isactive385, align 1
   store i1 false, ptr %cleanup.isactive386, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26), ptr %arrayinit.endOfInit, align 8
+  %128 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26
+  store ptr %128, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387)
+  %129 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387)
           to label %invoke.cont389 unwind label %lpad388
 
 invoke.cont389:                                   ; preds = %invoke.cont383
@@ -5877,26 +6007,31 @@ invoke.cont389:                                   ; preds = %invoke.cont383
   store i1 true, ptr %cleanup.isactive400, align 1
   store i1 true, ptr %cleanup.isactive401, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp390) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 1), ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp390)
+  %130 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp390)
           to label %invoke.cont392 unwind label %lpad391
 
 invoke.cont392:                                   ; preds = %invoke.cont389
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp393) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp393)
+  %131 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp393)
           to label %invoke.cont395 unwind label %lpad394
 
 invoke.cont395:                                   ; preds = %invoke.cont392
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp396) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 3), ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp396)
+  %132 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp396)
           to label %invoke.cont398 unwind label %lpad397
 
 invoke.cont398:                                   ; preds = %invoke.cont395
   store i1 false, ptr %cleanup.isactive399, align 1
   store i1 false, ptr %cleanup.isactive400, align 1
   store i1 false, ptr %cleanup.isactive401, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27), ptr %arrayinit.endOfInit, align 8
+  %133 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27
+  store ptr %133, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp402) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp402)
+  %134 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp402)
           to label %invoke.cont404 unwind label %lpad403
 
 invoke.cont404:                                   ; preds = %invoke.cont398
@@ -5904,26 +6039,31 @@ invoke.cont404:                                   ; preds = %invoke.cont398
   store i1 true, ptr %cleanup.isactive415, align 1
   store i1 true, ptr %cleanup.isactive416, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp405) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 1), ptr noundef @.str.58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp405)
+  %135 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef @.str.58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp405)
           to label %invoke.cont407 unwind label %lpad406
 
 invoke.cont407:                                   ; preds = %invoke.cont404
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp408) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp408)
+  %136 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp408)
           to label %invoke.cont410 unwind label %lpad409
 
 invoke.cont410:                                   ; preds = %invoke.cont407
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp411) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 3), ptr noundef @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp411)
+  %137 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp411)
           to label %invoke.cont413 unwind label %lpad412
 
 invoke.cont413:                                   ; preds = %invoke.cont410
   store i1 false, ptr %cleanup.isactive414, align 1
   store i1 false, ptr %cleanup.isactive415, align 1
   store i1 false, ptr %cleanup.isactive416, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28), ptr %arrayinit.endOfInit, align 8
+  %138 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28
+  store ptr %138, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417)
+  %139 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417)
           to label %invoke.cont419 unwind label %lpad418
 
 invoke.cont419:                                   ; preds = %invoke.cont413
@@ -5931,26 +6071,31 @@ invoke.cont419:                                   ; preds = %invoke.cont413
   store i1 true, ptr %cleanup.isactive430, align 1
   store i1 true, ptr %cleanup.isactive431, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp420) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 1), ptr noundef @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp420)
+  %140 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp420)
           to label %invoke.cont422 unwind label %lpad421
 
 invoke.cont422:                                   ; preds = %invoke.cont419
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp423) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp423)
+  %141 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp423)
           to label %invoke.cont425 unwind label %lpad424
 
 invoke.cont425:                                   ; preds = %invoke.cont422
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp426) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 3), ptr noundef @.str.61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp426)
+  %142 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef @.str.61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp426)
           to label %invoke.cont428 unwind label %lpad427
 
 invoke.cont428:                                   ; preds = %invoke.cont425
   store i1 false, ptr %cleanup.isactive429, align 1
   store i1 false, ptr %cleanup.isactive430, align 1
   store i1 false, ptr %cleanup.isactive431, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29), ptr %arrayinit.endOfInit, align 8
+  %143 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29
+  store ptr %143, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp432) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp432)
+  %144 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp432)
           to label %invoke.cont434 unwind label %lpad433
 
 invoke.cont434:                                   ; preds = %invoke.cont428
@@ -5958,26 +6103,31 @@ invoke.cont434:                                   ; preds = %invoke.cont428
   store i1 true, ptr %cleanup.isactive445, align 1
   store i1 true, ptr %cleanup.isactive446, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 1), ptr noundef @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435)
+  %145 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435)
           to label %invoke.cont437 unwind label %lpad436
 
 invoke.cont437:                                   ; preds = %invoke.cont434
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp438) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 2), ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp438)
+  %146 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp438)
           to label %invoke.cont440 unwind label %lpad439
 
 invoke.cont440:                                   ; preds = %invoke.cont437
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp441) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 3), ptr noundef @.str.64, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp441)
+  %147 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef @.str.64, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp441)
           to label %invoke.cont443 unwind label %lpad442
 
 invoke.cont443:                                   ; preds = %invoke.cont440
   store i1 false, ptr %cleanup.isactive444, align 1
   store i1 false, ptr %cleanup.isactive445, align 1
   store i1 false, ptr %cleanup.isactive446, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30), ptr %arrayinit.endOfInit, align 8
+  %148 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30
+  store ptr %148, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447)
+  %149 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447)
           to label %invoke.cont449 unwind label %lpad448
 
 invoke.cont449:                                   ; preds = %invoke.cont443
@@ -5985,26 +6135,31 @@ invoke.cont449:                                   ; preds = %invoke.cont443
   store i1 true, ptr %cleanup.isactive460, align 1
   store i1 true, ptr %cleanup.isactive461, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp450) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 1), ptr noundef @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp450)
+  %150 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp450)
           to label %invoke.cont452 unwind label %lpad451
 
 invoke.cont452:                                   ; preds = %invoke.cont449
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 2), ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453)
+  %151 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453)
           to label %invoke.cont455 unwind label %lpad454
 
 invoke.cont455:                                   ; preds = %invoke.cont452
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp456) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 3), ptr noundef @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp456)
+  %152 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp456)
           to label %invoke.cont458 unwind label %lpad457
 
 invoke.cont458:                                   ; preds = %invoke.cont455
   store i1 false, ptr %cleanup.isactive459, align 1
   store i1 false, ptr %cleanup.isactive460, align 1
   store i1 false, ptr %cleanup.isactive461, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31), ptr %arrayinit.endOfInit, align 8
+  %153 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31
+  store ptr %153, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp462) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp462)
+  %154 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp462)
           to label %invoke.cont464 unwind label %lpad463
 
 invoke.cont464:                                   ; preds = %invoke.cont458
@@ -6012,26 +6167,31 @@ invoke.cont464:                                   ; preds = %invoke.cont458
   store i1 true, ptr %cleanup.isactive475, align 1
   store i1 true, ptr %cleanup.isactive476, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp465) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 1), ptr noundef @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp465)
+  %155 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp465)
           to label %invoke.cont467 unwind label %lpad466
 
 invoke.cont467:                                   ; preds = %invoke.cont464
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp468) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp468)
+  %156 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp468)
           to label %invoke.cont470 unwind label %lpad469
 
 invoke.cont470:                                   ; preds = %invoke.cont467
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp471) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 3), ptr noundef @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp471)
+  %157 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp471)
           to label %invoke.cont473 unwind label %lpad472
 
 invoke.cont473:                                   ; preds = %invoke.cont470
   store i1 false, ptr %cleanup.isactive474, align 1
   store i1 false, ptr %cleanup.isactive475, align 1
   store i1 false, ptr %cleanup.isactive476, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32), ptr %arrayinit.endOfInit, align 8
+  %158 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32
+  store ptr %158, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477)
+  %159 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477)
           to label %invoke.cont479 unwind label %lpad478
 
 invoke.cont479:                                   ; preds = %invoke.cont473
@@ -6039,26 +6199,31 @@ invoke.cont479:                                   ; preds = %invoke.cont473
   store i1 true, ptr %cleanup.isactive490, align 1
   store i1 true, ptr %cleanup.isactive491, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp480) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 1), ptr noundef @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp480)
+  %160 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp480)
           to label %invoke.cont482 unwind label %lpad481
 
 invoke.cont482:                                   ; preds = %invoke.cont479
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp483) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 2), ptr noundef @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp483)
+  %161 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp483)
           to label %invoke.cont485 unwind label %lpad484
 
 invoke.cont485:                                   ; preds = %invoke.cont482
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp486) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 3), ptr noundef @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp486)
+  %162 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp486)
           to label %invoke.cont488 unwind label %lpad487
 
 invoke.cont488:                                   ; preds = %invoke.cont485
   store i1 false, ptr %cleanup.isactive489, align 1
   store i1 false, ptr %cleanup.isactive490, align 1
   store i1 false, ptr %cleanup.isactive491, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33), ptr %arrayinit.endOfInit, align 8
+  %163 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33
+  store ptr %163, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp492) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp492)
+  %164 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp492)
           to label %invoke.cont494 unwind label %lpad493
 
 invoke.cont494:                                   ; preds = %invoke.cont488
@@ -6066,26 +6231,31 @@ invoke.cont494:                                   ; preds = %invoke.cont488
   store i1 true, ptr %cleanup.isactive505, align 1
   store i1 true, ptr %cleanup.isactive506, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp495) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 1), ptr noundef @.str.72, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp495)
+  %165 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef @.str.72, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp495)
           to label %invoke.cont497 unwind label %lpad496
 
 invoke.cont497:                                   ; preds = %invoke.cont494
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp498) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 2), ptr noundef @.str.73, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp498)
+  %166 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef @.str.73, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp498)
           to label %invoke.cont500 unwind label %lpad499
 
 invoke.cont500:                                   ; preds = %invoke.cont497
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp501) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 3), ptr noundef @.str.74, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp501)
+  %167 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef @.str.74, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp501)
           to label %invoke.cont503 unwind label %lpad502
 
 invoke.cont503:                                   ; preds = %invoke.cont500
   store i1 false, ptr %cleanup.isactive504, align 1
   store i1 false, ptr %cleanup.isactive505, align 1
   store i1 false, ptr %cleanup.isactive506, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34), ptr %arrayinit.endOfInit, align 8
+  %168 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34
+  store ptr %168, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507)
+  %169 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507)
           to label %invoke.cont509 unwind label %lpad508
 
 invoke.cont509:                                   ; preds = %invoke.cont503
@@ -6093,26 +6263,31 @@ invoke.cont509:                                   ; preds = %invoke.cont503
   store i1 true, ptr %cleanup.isactive520, align 1
   store i1 true, ptr %cleanup.isactive521, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp510) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 1), ptr noundef @.str.75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp510)
+  %170 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef @.str.75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp510)
           to label %invoke.cont512 unwind label %lpad511
 
 invoke.cont512:                                   ; preds = %invoke.cont509
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp513) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp513)
+  %171 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp513)
           to label %invoke.cont515 unwind label %lpad514
 
 invoke.cont515:                                   ; preds = %invoke.cont512
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp516) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 3), ptr noundef @.str.76, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp516)
+  %172 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef @.str.76, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp516)
           to label %invoke.cont518 unwind label %lpad517
 
 invoke.cont518:                                   ; preds = %invoke.cont515
   store i1 false, ptr %cleanup.isactive519, align 1
   store i1 false, ptr %cleanup.isactive520, align 1
   store i1 false, ptr %cleanup.isactive521, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35), ptr %arrayinit.endOfInit, align 8
+  %173 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35
+  store ptr %173, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp522) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp522)
+  %174 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp522)
           to label %invoke.cont524 unwind label %lpad523
 
 invoke.cont524:                                   ; preds = %invoke.cont518
@@ -6120,26 +6295,31 @@ invoke.cont524:                                   ; preds = %invoke.cont518
   store i1 true, ptr %cleanup.isactive535, align 1
   store i1 true, ptr %cleanup.isactive536, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp525) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 1), ptr noundef @.str.77, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp525)
+  %175 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef @.str.77, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp525)
           to label %invoke.cont527 unwind label %lpad526
 
 invoke.cont527:                                   ; preds = %invoke.cont524
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp528) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 2), ptr noundef @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp528)
+  %176 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp528)
           to label %invoke.cont530 unwind label %lpad529
 
 invoke.cont530:                                   ; preds = %invoke.cont527
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp531) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 3), ptr noundef @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp531)
+  %177 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp531)
           to label %invoke.cont533 unwind label %lpad532
 
 invoke.cont533:                                   ; preds = %invoke.cont530
   store i1 false, ptr %cleanup.isactive534, align 1
   store i1 false, ptr %cleanup.isactive535, align 1
   store i1 false, ptr %cleanup.isactive536, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36), ptr %arrayinit.endOfInit, align 8
+  %178 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36
+  store ptr %178, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537)
+  %179 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537)
           to label %invoke.cont539 unwind label %lpad538
 
 invoke.cont539:                                   ; preds = %invoke.cont533
@@ -6147,26 +6327,31 @@ invoke.cont539:                                   ; preds = %invoke.cont533
   store i1 true, ptr %cleanup.isactive550, align 1
   store i1 true, ptr %cleanup.isactive551, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp540) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 1), ptr noundef @.str.80, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp540)
+  %180 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef @.str.80, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp540)
           to label %invoke.cont542 unwind label %lpad541
 
 invoke.cont542:                                   ; preds = %invoke.cont539
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp543) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 2), ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp543)
+  %181 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp543)
           to label %invoke.cont545 unwind label %lpad544
 
 invoke.cont545:                                   ; preds = %invoke.cont542
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp546) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 3), ptr noundef @.str.82, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp546)
+  %182 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef @.str.82, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp546)
           to label %invoke.cont548 unwind label %lpad547
 
 invoke.cont548:                                   ; preds = %invoke.cont545
   store i1 false, ptr %cleanup.isactive549, align 1
   store i1 false, ptr %cleanup.isactive550, align 1
   store i1 false, ptr %cleanup.isactive551, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37), ptr %arrayinit.endOfInit, align 8
+  %183 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37
+  store ptr %183, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp552) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp552)
+  %184 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp552)
           to label %invoke.cont554 unwind label %lpad553
 
 invoke.cont554:                                   ; preds = %invoke.cont548
@@ -6174,26 +6359,31 @@ invoke.cont554:                                   ; preds = %invoke.cont548
   store i1 true, ptr %cleanup.isactive565, align 1
   store i1 true, ptr %cleanup.isactive566, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp555) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 1), ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp555)
+  %185 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp555)
           to label %invoke.cont557 unwind label %lpad556
 
 invoke.cont557:                                   ; preds = %invoke.cont554
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp558) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp558)
+  %186 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp558)
           to label %invoke.cont560 unwind label %lpad559
 
 invoke.cont560:                                   ; preds = %invoke.cont557
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp561) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 3), ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp561)
+  %187 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp561)
           to label %invoke.cont563 unwind label %lpad562
 
 invoke.cont563:                                   ; preds = %invoke.cont560
   store i1 false, ptr %cleanup.isactive564, align 1
   store i1 false, ptr %cleanup.isactive565, align 1
   store i1 false, ptr %cleanup.isactive566, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38), ptr %arrayinit.endOfInit, align 8
+  %188 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38
+  store ptr %188, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567)
+  %189 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567)
           to label %invoke.cont569 unwind label %lpad568
 
 invoke.cont569:                                   ; preds = %invoke.cont563
@@ -6201,26 +6391,31 @@ invoke.cont569:                                   ; preds = %invoke.cont563
   store i1 true, ptr %cleanup.isactive580, align 1
   store i1 true, ptr %cleanup.isactive581, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp570) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 1), ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp570)
+  %190 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp570)
           to label %invoke.cont572 unwind label %lpad571
 
 invoke.cont572:                                   ; preds = %invoke.cont569
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp573) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 2), ptr noundef @.str.86, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp573)
+  %191 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef @.str.86, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp573)
           to label %invoke.cont575 unwind label %lpad574
 
 invoke.cont575:                                   ; preds = %invoke.cont572
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp576) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 3), ptr noundef @.str.87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp576)
+  %192 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef @.str.87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp576)
           to label %invoke.cont578 unwind label %lpad577
 
 invoke.cont578:                                   ; preds = %invoke.cont575
   store i1 false, ptr %cleanup.isactive579, align 1
   store i1 false, ptr %cleanup.isactive580, align 1
   store i1 false, ptr %cleanup.isactive581, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39), ptr %arrayinit.endOfInit, align 8
+  %193 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39
+  store ptr %193, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp582) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp582)
+  %194 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp582)
           to label %invoke.cont584 unwind label %lpad583
 
 invoke.cont584:                                   ; preds = %invoke.cont578
@@ -6228,26 +6423,31 @@ invoke.cont584:                                   ; preds = %invoke.cont578
   store i1 true, ptr %cleanup.isactive595, align 1
   store i1 true, ptr %cleanup.isactive596, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp585) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 1), ptr noundef @.str.88, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp585)
+  %195 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef @.str.88, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp585)
           to label %invoke.cont587 unwind label %lpad586
 
 invoke.cont587:                                   ; preds = %invoke.cont584
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp588) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp588)
+  %196 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp588)
           to label %invoke.cont590 unwind label %lpad589
 
 invoke.cont590:                                   ; preds = %invoke.cont587
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp591) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 3), ptr noundef @.str.89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp591)
+  %197 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef @.str.89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp591)
           to label %invoke.cont593 unwind label %lpad592
 
 invoke.cont593:                                   ; preds = %invoke.cont590
   store i1 false, ptr %cleanup.isactive594, align 1
   store i1 false, ptr %cleanup.isactive595, align 1
   store i1 false, ptr %cleanup.isactive596, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40), ptr %arrayinit.endOfInit, align 8
+  %198 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40
+  store ptr %198, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597)
+  %199 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597)
           to label %invoke.cont599 unwind label %lpad598
 
 invoke.cont599:                                   ; preds = %invoke.cont593
@@ -6255,26 +6455,31 @@ invoke.cont599:                                   ; preds = %invoke.cont593
   store i1 true, ptr %cleanup.isactive610, align 1
   store i1 true, ptr %cleanup.isactive611, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp600) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 1), ptr noundef @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp600)
+  %200 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp600)
           to label %invoke.cont602 unwind label %lpad601
 
 invoke.cont602:                                   ; preds = %invoke.cont599
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp603) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp603)
+  %201 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp603)
           to label %invoke.cont605 unwind label %lpad604
 
 invoke.cont605:                                   ; preds = %invoke.cont602
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp606) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 3), ptr noundef @.str.91, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp606)
+  %202 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef @.str.91, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp606)
           to label %invoke.cont608 unwind label %lpad607
 
 invoke.cont608:                                   ; preds = %invoke.cont605
   store i1 false, ptr %cleanup.isactive609, align 1
   store i1 false, ptr %cleanup.isactive610, align 1
   store i1 false, ptr %cleanup.isactive611, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41), ptr %arrayinit.endOfInit, align 8
+  %203 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41
+  store ptr %203, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp612) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp612)
+  %204 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp612)
           to label %invoke.cont614 unwind label %lpad613
 
 invoke.cont614:                                   ; preds = %invoke.cont608
@@ -6282,26 +6487,31 @@ invoke.cont614:                                   ; preds = %invoke.cont608
   store i1 true, ptr %cleanup.isactive625, align 1
   store i1 true, ptr %cleanup.isactive626, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp615) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 1), ptr noundef @.str.92, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp615)
+  %205 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef @.str.92, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp615)
           to label %invoke.cont617 unwind label %lpad616
 
 invoke.cont617:                                   ; preds = %invoke.cont614
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp618) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp618)
+  %206 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp618)
           to label %invoke.cont620 unwind label %lpad619
 
 invoke.cont620:                                   ; preds = %invoke.cont617
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp621) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 3), ptr noundef @.str.93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp621)
+  %207 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef @.str.93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp621)
           to label %invoke.cont623 unwind label %lpad622
 
 invoke.cont623:                                   ; preds = %invoke.cont620
   store i1 false, ptr %cleanup.isactive624, align 1
   store i1 false, ptr %cleanup.isactive625, align 1
   store i1 false, ptr %cleanup.isactive626, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42), ptr %arrayinit.endOfInit, align 8
+  %208 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42
+  store ptr %208, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627)
+  %209 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627)
           to label %invoke.cont629 unwind label %lpad628
 
 invoke.cont629:                                   ; preds = %invoke.cont623
@@ -6309,26 +6519,31 @@ invoke.cont629:                                   ; preds = %invoke.cont623
   store i1 true, ptr %cleanup.isactive640, align 1
   store i1 true, ptr %cleanup.isactive641, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp630) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 1), ptr noundef @.str.94, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp630)
+  %210 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef @.str.94, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp630)
           to label %invoke.cont632 unwind label %lpad631
 
 invoke.cont632:                                   ; preds = %invoke.cont629
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp633) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 2), ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp633)
+  %211 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp633)
           to label %invoke.cont635 unwind label %lpad634
 
 invoke.cont635:                                   ; preds = %invoke.cont632
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp636) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 3), ptr noundef @.str.95, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp636)
+  %212 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef @.str.95, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp636)
           to label %invoke.cont638 unwind label %lpad637
 
 invoke.cont638:                                   ; preds = %invoke.cont635
   store i1 false, ptr %cleanup.isactive639, align 1
   store i1 false, ptr %cleanup.isactive640, align 1
   store i1 false, ptr %cleanup.isactive641, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43), ptr %arrayinit.endOfInit, align 8
+  %213 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43
+  store ptr %213, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp642) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp642)
+  %214 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %214, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp642)
           to label %invoke.cont644 unwind label %lpad643
 
 invoke.cont644:                                   ; preds = %invoke.cont638
@@ -6336,26 +6551,31 @@ invoke.cont644:                                   ; preds = %invoke.cont638
   store i1 true, ptr %cleanup.isactive655, align 1
   store i1 true, ptr %cleanup.isactive656, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp645) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 1), ptr noundef @.str.96, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp645)
+  %215 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %215, ptr noundef @.str.96, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp645)
           to label %invoke.cont647 unwind label %lpad646
 
 invoke.cont647:                                   ; preds = %invoke.cont644
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp648) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp648)
+  %216 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp648)
           to label %invoke.cont650 unwind label %lpad649
 
 invoke.cont650:                                   ; preds = %invoke.cont647
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 3), ptr noundef @.str.97, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651)
+  %217 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef @.str.97, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651)
           to label %invoke.cont653 unwind label %lpad652
 
 invoke.cont653:                                   ; preds = %invoke.cont650
   store i1 false, ptr %cleanup.isactive654, align 1
   store i1 false, ptr %cleanup.isactive655, align 1
   store i1 false, ptr %cleanup.isactive656, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44), ptr %arrayinit.endOfInit, align 8
+  %218 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44
+  store ptr %218, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657)
+  %219 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657)
           to label %invoke.cont659 unwind label %lpad658
 
 invoke.cont659:                                   ; preds = %invoke.cont653
@@ -6363,26 +6583,31 @@ invoke.cont659:                                   ; preds = %invoke.cont653
   store i1 true, ptr %cleanup.isactive670, align 1
   store i1 true, ptr %cleanup.isactive671, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp660) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 1), ptr noundef @.str.98, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp660)
+  %220 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %220, ptr noundef @.str.98, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp660)
           to label %invoke.cont662 unwind label %lpad661
 
 invoke.cont662:                                   ; preds = %invoke.cont659
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp663) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp663)
+  %221 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %221, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp663)
           to label %invoke.cont665 unwind label %lpad664
 
 invoke.cont665:                                   ; preds = %invoke.cont662
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp666) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 3), ptr noundef @.str.99, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp666)
+  %222 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef @.str.99, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp666)
           to label %invoke.cont668 unwind label %lpad667
 
 invoke.cont668:                                   ; preds = %invoke.cont665
   store i1 false, ptr %cleanup.isactive669, align 1
   store i1 false, ptr %cleanup.isactive670, align 1
   store i1 false, ptr %cleanup.isactive671, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45), ptr %arrayinit.endOfInit, align 8
+  %223 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45
+  store ptr %223, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp672) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp672)
+  %224 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp672)
           to label %invoke.cont674 unwind label %lpad673
 
 invoke.cont674:                                   ; preds = %invoke.cont668
@@ -6390,26 +6615,31 @@ invoke.cont674:                                   ; preds = %invoke.cont668
   store i1 true, ptr %cleanup.isactive685, align 1
   store i1 true, ptr %cleanup.isactive686, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp675) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 1), ptr noundef @.str.100, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp675)
+  %225 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %225, ptr noundef @.str.100, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp675)
           to label %invoke.cont677 unwind label %lpad676
 
 invoke.cont677:                                   ; preds = %invoke.cont674
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp678) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp678)
+  %226 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp678)
           to label %invoke.cont680 unwind label %lpad679
 
 invoke.cont680:                                   ; preds = %invoke.cont677
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp681) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 3), ptr noundef @.str.101, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp681)
+  %227 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef @.str.101, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp681)
           to label %invoke.cont683 unwind label %lpad682
 
 invoke.cont683:                                   ; preds = %invoke.cont680
   store i1 false, ptr %cleanup.isactive684, align 1
   store i1 false, ptr %cleanup.isactive685, align 1
   store i1 false, ptr %cleanup.isactive686, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46), ptr %arrayinit.endOfInit, align 8
+  %228 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46
+  store ptr %228, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687)
+  %229 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687)
           to label %invoke.cont689 unwind label %lpad688
 
 invoke.cont689:                                   ; preds = %invoke.cont683
@@ -6417,26 +6647,31 @@ invoke.cont689:                                   ; preds = %invoke.cont683
   store i1 true, ptr %cleanup.isactive700, align 1
   store i1 true, ptr %cleanup.isactive701, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp690) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 1), ptr noundef @.str.102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp690)
+  %230 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef @.str.102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp690)
           to label %invoke.cont692 unwind label %lpad691
 
 invoke.cont692:                                   ; preds = %invoke.cont689
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp693) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp693)
+  %231 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp693)
           to label %invoke.cont695 unwind label %lpad694
 
 invoke.cont695:                                   ; preds = %invoke.cont692
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp696) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 3), ptr noundef @.str.103, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp696)
+  %232 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef @.str.103, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp696)
           to label %invoke.cont698 unwind label %lpad697
 
 invoke.cont698:                                   ; preds = %invoke.cont695
   store i1 false, ptr %cleanup.isactive699, align 1
   store i1 false, ptr %cleanup.isactive700, align 1
   store i1 false, ptr %cleanup.isactive701, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47), ptr %arrayinit.endOfInit, align 8
+  %233 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47
+  store ptr %233, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp702) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp702)
+  %234 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp702)
           to label %invoke.cont704 unwind label %lpad703
 
 invoke.cont704:                                   ; preds = %invoke.cont698
@@ -6444,26 +6679,31 @@ invoke.cont704:                                   ; preds = %invoke.cont698
   store i1 true, ptr %cleanup.isactive715, align 1
   store i1 true, ptr %cleanup.isactive716, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp705) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 1), ptr noundef @.str.104, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp705)
+  %235 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef @.str.104, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp705)
           to label %invoke.cont707 unwind label %lpad706
 
 invoke.cont707:                                   ; preds = %invoke.cont704
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp708) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp708)
+  %236 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %236, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp708)
           to label %invoke.cont710 unwind label %lpad709
 
 invoke.cont710:                                   ; preds = %invoke.cont707
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp711) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 3), ptr noundef @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp711)
+  %237 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp711)
           to label %invoke.cont713 unwind label %lpad712
 
 invoke.cont713:                                   ; preds = %invoke.cont710
   store i1 false, ptr %cleanup.isactive714, align 1
   store i1 false, ptr %cleanup.isactive715, align 1
   store i1 false, ptr %cleanup.isactive716, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48), ptr %arrayinit.endOfInit, align 8
+  %238 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48
+  store ptr %238, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717)
+  %239 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717)
           to label %invoke.cont719 unwind label %lpad718
 
 invoke.cont719:                                   ; preds = %invoke.cont713
@@ -6471,26 +6711,31 @@ invoke.cont719:                                   ; preds = %invoke.cont713
   store i1 true, ptr %cleanup.isactive730, align 1
   store i1 true, ptr %cleanup.isactive731, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp720) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 1), ptr noundef @.str.106, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp720)
+  %240 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef @.str.106, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp720)
           to label %invoke.cont722 unwind label %lpad721
 
 invoke.cont722:                                   ; preds = %invoke.cont719
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp723) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp723)
+  %241 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp723)
           to label %invoke.cont725 unwind label %lpad724
 
 invoke.cont725:                                   ; preds = %invoke.cont722
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp726) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 3), ptr noundef @.str.107, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp726)
+  %242 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef @.str.107, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp726)
           to label %invoke.cont728 unwind label %lpad727
 
 invoke.cont728:                                   ; preds = %invoke.cont725
   store i1 false, ptr %cleanup.isactive729, align 1
   store i1 false, ptr %cleanup.isactive730, align 1
   store i1 false, ptr %cleanup.isactive731, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49), ptr %arrayinit.endOfInit, align 8
+  %243 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49
+  store ptr %243, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp732) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp732)
+  %244 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp732)
           to label %invoke.cont734 unwind label %lpad733
 
 invoke.cont734:                                   ; preds = %invoke.cont728
@@ -6498,26 +6743,31 @@ invoke.cont734:                                   ; preds = %invoke.cont728
   store i1 true, ptr %cleanup.isactive745, align 1
   store i1 true, ptr %cleanup.isactive746, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp735) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 1), ptr noundef @.str.108, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp735)
+  %245 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef @.str.108, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp735)
           to label %invoke.cont737 unwind label %lpad736
 
 invoke.cont737:                                   ; preds = %invoke.cont734
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp738) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp738)
+  %246 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp738)
           to label %invoke.cont740 unwind label %lpad739
 
 invoke.cont740:                                   ; preds = %invoke.cont737
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp741) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 3), ptr noundef @.str.109, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp741)
+  %247 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef @.str.109, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp741)
           to label %invoke.cont743 unwind label %lpad742
 
 invoke.cont743:                                   ; preds = %invoke.cont740
   store i1 false, ptr %cleanup.isactive744, align 1
   store i1 false, ptr %cleanup.isactive745, align 1
   store i1 false, ptr %cleanup.isactive746, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50), ptr %arrayinit.endOfInit, align 8
+  %248 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50
+  store ptr %248, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747)
+  %249 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747)
           to label %invoke.cont749 unwind label %lpad748
 
 invoke.cont749:                                   ; preds = %invoke.cont743
@@ -6525,26 +6775,31 @@ invoke.cont749:                                   ; preds = %invoke.cont743
   store i1 true, ptr %cleanup.isactive760, align 1
   store i1 true, ptr %cleanup.isactive761, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp750) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 1), ptr noundef @.str.110, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp750)
+  %250 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef @.str.110, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp750)
           to label %invoke.cont752 unwind label %lpad751
 
 invoke.cont752:                                   ; preds = %invoke.cont749
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp753) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp753)
+  %251 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp753)
           to label %invoke.cont755 unwind label %lpad754
 
 invoke.cont755:                                   ; preds = %invoke.cont752
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp756) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 3), ptr noundef @.str.111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp756)
+  %252 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %252, ptr noundef @.str.111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp756)
           to label %invoke.cont758 unwind label %lpad757
 
 invoke.cont758:                                   ; preds = %invoke.cont755
   store i1 false, ptr %cleanup.isactive759, align 1
   store i1 false, ptr %cleanup.isactive760, align 1
   store i1 false, ptr %cleanup.isactive761, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51), ptr %arrayinit.endOfInit, align 8
+  %253 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51
+  store ptr %253, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp762) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp762)
+  %254 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp762)
           to label %invoke.cont764 unwind label %lpad763
 
 invoke.cont764:                                   ; preds = %invoke.cont758
@@ -6552,26 +6807,31 @@ invoke.cont764:                                   ; preds = %invoke.cont758
   store i1 true, ptr %cleanup.isactive775, align 1
   store i1 true, ptr %cleanup.isactive776, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp765) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 1), ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp765)
+  %255 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef @.str.112, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp765)
           to label %invoke.cont767 unwind label %lpad766
 
 invoke.cont767:                                   ; preds = %invoke.cont764
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp768) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp768)
+  %256 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp768)
           to label %invoke.cont770 unwind label %lpad769
 
 invoke.cont770:                                   ; preds = %invoke.cont767
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp771) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 3), ptr noundef @.str.113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp771)
+  %257 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef @.str.113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp771)
           to label %invoke.cont773 unwind label %lpad772
 
 invoke.cont773:                                   ; preds = %invoke.cont770
   store i1 false, ptr %cleanup.isactive774, align 1
   store i1 false, ptr %cleanup.isactive775, align 1
   store i1 false, ptr %cleanup.isactive776, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52), ptr %arrayinit.endOfInit, align 8
+  %258 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52
+  store ptr %258, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777)
+  %259 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777)
           to label %invoke.cont779 unwind label %lpad778
 
 invoke.cont779:                                   ; preds = %invoke.cont773
@@ -6579,26 +6839,31 @@ invoke.cont779:                                   ; preds = %invoke.cont773
   store i1 true, ptr %cleanup.isactive790, align 1
   store i1 true, ptr %cleanup.isactive791, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp780) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 1), ptr noundef @.str.114, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp780)
+  %260 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef @.str.114, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp780)
           to label %invoke.cont782 unwind label %lpad781
 
 invoke.cont782:                                   ; preds = %invoke.cont779
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp783) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp783)
+  %261 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp783)
           to label %invoke.cont785 unwind label %lpad784
 
 invoke.cont785:                                   ; preds = %invoke.cont782
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp786) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 3), ptr noundef @.str.115, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp786)
+  %262 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %262, ptr noundef @.str.115, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp786)
           to label %invoke.cont788 unwind label %lpad787
 
 invoke.cont788:                                   ; preds = %invoke.cont785
   store i1 false, ptr %cleanup.isactive789, align 1
   store i1 false, ptr %cleanup.isactive790, align 1
   store i1 false, ptr %cleanup.isactive791, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53), ptr %arrayinit.endOfInit, align 8
+  %263 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53
+  store ptr %263, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp792) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp792)
+  %264 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %264, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp792)
           to label %invoke.cont794 unwind label %lpad793
 
 invoke.cont794:                                   ; preds = %invoke.cont788
@@ -6606,26 +6871,31 @@ invoke.cont794:                                   ; preds = %invoke.cont788
   store i1 true, ptr %cleanup.isactive805, align 1
   store i1 true, ptr %cleanup.isactive806, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp795) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 1), ptr noundef @.str.116, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp795)
+  %265 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef @.str.116, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp795)
           to label %invoke.cont797 unwind label %lpad796
 
 invoke.cont797:                                   ; preds = %invoke.cont794
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp798) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 2), ptr noundef @.str.117, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp798)
+  %266 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef @.str.117, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp798)
           to label %invoke.cont800 unwind label %lpad799
 
 invoke.cont800:                                   ; preds = %invoke.cont797
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp801) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 3), ptr noundef @.str.118, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp801)
+  %267 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef @.str.118, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp801)
           to label %invoke.cont803 unwind label %lpad802
 
 invoke.cont803:                                   ; preds = %invoke.cont800
   store i1 false, ptr %cleanup.isactive804, align 1
   store i1 false, ptr %cleanup.isactive805, align 1
   store i1 false, ptr %cleanup.isactive806, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54), ptr %arrayinit.endOfInit, align 8
+  %268 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54
+  store ptr %268, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807)
+  %269 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807)
           to label %invoke.cont809 unwind label %lpad808
 
 invoke.cont809:                                   ; preds = %invoke.cont803
@@ -6633,26 +6903,31 @@ invoke.cont809:                                   ; preds = %invoke.cont803
   store i1 true, ptr %cleanup.isactive820, align 1
   store i1 true, ptr %cleanup.isactive821, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp810) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 1), ptr noundef @.str.119, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp810)
+  %270 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef @.str.119, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp810)
           to label %invoke.cont812 unwind label %lpad811
 
 invoke.cont812:                                   ; preds = %invoke.cont809
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp813) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp813)
+  %271 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp813)
           to label %invoke.cont815 unwind label %lpad814
 
 invoke.cont815:                                   ; preds = %invoke.cont812
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp816) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 3), ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp816)
+  %272 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp816)
           to label %invoke.cont818 unwind label %lpad817
 
 invoke.cont818:                                   ; preds = %invoke.cont815
   store i1 false, ptr %cleanup.isactive819, align 1
   store i1 false, ptr %cleanup.isactive820, align 1
   store i1 false, ptr %cleanup.isactive821, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55), ptr %arrayinit.endOfInit, align 8
+  %273 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55
+  store ptr %273, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp822) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp822)
+  %274 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp822)
           to label %invoke.cont824 unwind label %lpad823
 
 invoke.cont824:                                   ; preds = %invoke.cont818
@@ -6660,26 +6935,31 @@ invoke.cont824:                                   ; preds = %invoke.cont818
   store i1 true, ptr %cleanup.isactive835, align 1
   store i1 true, ptr %cleanup.isactive836, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp825) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 1), ptr noundef @.str.121, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp825)
+  %275 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef @.str.121, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp825)
           to label %invoke.cont827 unwind label %lpad826
 
 invoke.cont827:                                   ; preds = %invoke.cont824
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp828) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 2), ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp828)
+  %276 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp828)
           to label %invoke.cont830 unwind label %lpad829
 
 invoke.cont830:                                   ; preds = %invoke.cont827
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp831) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 3), ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp831)
+  %277 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp831)
           to label %invoke.cont833 unwind label %lpad832
 
 invoke.cont833:                                   ; preds = %invoke.cont830
   store i1 false, ptr %cleanup.isactive834, align 1
   store i1 false, ptr %cleanup.isactive835, align 1
   store i1 false, ptr %cleanup.isactive836, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56), ptr %arrayinit.endOfInit, align 8
+  %278 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56
+  store ptr %278, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837)
+  %279 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837)
           to label %invoke.cont839 unwind label %lpad838
 
 invoke.cont839:                                   ; preds = %invoke.cont833
@@ -6687,26 +6967,31 @@ invoke.cont839:                                   ; preds = %invoke.cont833
   store i1 true, ptr %cleanup.isactive850, align 1
   store i1 true, ptr %cleanup.isactive851, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp840) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 1), ptr noundef @.str.123, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp840)
+  %280 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef @.str.123, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp840)
           to label %invoke.cont842 unwind label %lpad841
 
 invoke.cont842:                                   ; preds = %invoke.cont839
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp843) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 2), ptr noundef @.str.124, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp843)
+  %281 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef @.str.124, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp843)
           to label %invoke.cont845 unwind label %lpad844
 
 invoke.cont845:                                   ; preds = %invoke.cont842
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp846) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 3), ptr noundef @.str.125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp846)
+  %282 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef @.str.125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp846)
           to label %invoke.cont848 unwind label %lpad847
 
 invoke.cont848:                                   ; preds = %invoke.cont845
   store i1 false, ptr %cleanup.isactive849, align 1
   store i1 false, ptr %cleanup.isactive850, align 1
   store i1 false, ptr %cleanup.isactive851, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57), ptr %arrayinit.endOfInit, align 8
+  %283 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57
+  store ptr %283, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp852) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp852)
+  %284 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp852)
           to label %invoke.cont854 unwind label %lpad853
 
 invoke.cont854:                                   ; preds = %invoke.cont848
@@ -6714,26 +6999,31 @@ invoke.cont854:                                   ; preds = %invoke.cont848
   store i1 true, ptr %cleanup.isactive865, align 1
   store i1 true, ptr %cleanup.isactive866, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp855) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 1), ptr noundef @.str.126, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp855)
+  %285 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef @.str.126, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp855)
           to label %invoke.cont857 unwind label %lpad856
 
 invoke.cont857:                                   ; preds = %invoke.cont854
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp858) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp858)
+  %286 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp858)
           to label %invoke.cont860 unwind label %lpad859
 
 invoke.cont860:                                   ; preds = %invoke.cont857
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp861) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 3), ptr noundef @.str.127, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp861)
+  %287 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %287, ptr noundef @.str.127, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp861)
           to label %invoke.cont863 unwind label %lpad862
 
 invoke.cont863:                                   ; preds = %invoke.cont860
   store i1 false, ptr %cleanup.isactive864, align 1
   store i1 false, ptr %cleanup.isactive865, align 1
   store i1 false, ptr %cleanup.isactive866, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58), ptr %arrayinit.endOfInit, align 8
+  %288 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58
+  store ptr %288, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867)
+  %289 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867)
           to label %invoke.cont869 unwind label %lpad868
 
 invoke.cont869:                                   ; preds = %invoke.cont863
@@ -6741,26 +7031,31 @@ invoke.cont869:                                   ; preds = %invoke.cont863
   store i1 true, ptr %cleanup.isactive880, align 1
   store i1 true, ptr %cleanup.isactive881, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp870) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 1), ptr noundef @.str.128, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp870)
+  %290 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef @.str.128, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp870)
           to label %invoke.cont872 unwind label %lpad871
 
 invoke.cont872:                                   ; preds = %invoke.cont869
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp873) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp873)
+  %291 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp873)
           to label %invoke.cont875 unwind label %lpad874
 
 invoke.cont875:                                   ; preds = %invoke.cont872
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp876) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 3), ptr noundef @.str.129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp876)
+  %292 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef @.str.129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp876)
           to label %invoke.cont878 unwind label %lpad877
 
 invoke.cont878:                                   ; preds = %invoke.cont875
   store i1 false, ptr %cleanup.isactive879, align 1
   store i1 false, ptr %cleanup.isactive880, align 1
   store i1 false, ptr %cleanup.isactive881, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59), ptr %arrayinit.endOfInit, align 8
+  %293 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59
+  store ptr %293, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp882) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp882)
+  %294 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp882)
           to label %invoke.cont884 unwind label %lpad883
 
 invoke.cont884:                                   ; preds = %invoke.cont878
@@ -6768,26 +7063,31 @@ invoke.cont884:                                   ; preds = %invoke.cont878
   store i1 true, ptr %cleanup.isactive895, align 1
   store i1 true, ptr %cleanup.isactive896, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp885) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 1), ptr noundef @.str.130, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp885)
+  %295 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef @.str.130, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp885)
           to label %invoke.cont887 unwind label %lpad886
 
 invoke.cont887:                                   ; preds = %invoke.cont884
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp888) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp888)
+  %296 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %296, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp888)
           to label %invoke.cont890 unwind label %lpad889
 
 invoke.cont890:                                   ; preds = %invoke.cont887
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp891) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 3), ptr noundef @.str.131, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp891)
+  %297 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %297, ptr noundef @.str.131, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp891)
           to label %invoke.cont893 unwind label %lpad892
 
 invoke.cont893:                                   ; preds = %invoke.cont890
   store i1 false, ptr %cleanup.isactive894, align 1
   store i1 false, ptr %cleanup.isactive895, align 1
   store i1 false, ptr %cleanup.isactive896, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60), ptr %arrayinit.endOfInit, align 8
+  %298 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60
+  store ptr %298, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897)
+  %299 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %299, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897)
           to label %invoke.cont899 unwind label %lpad898
 
 invoke.cont899:                                   ; preds = %invoke.cont893
@@ -6795,26 +7095,31 @@ invoke.cont899:                                   ; preds = %invoke.cont893
   store i1 true, ptr %cleanup.isactive910, align 1
   store i1 true, ptr %cleanup.isactive911, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp900) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 1), ptr noundef @.str.132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp900)
+  %300 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %300, ptr noundef @.str.132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp900)
           to label %invoke.cont902 unwind label %lpad901
 
 invoke.cont902:                                   ; preds = %invoke.cont899
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp903) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp903)
+  %301 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %301, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp903)
           to label %invoke.cont905 unwind label %lpad904
 
 invoke.cont905:                                   ; preds = %invoke.cont902
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp906) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 3), ptr noundef @.str.133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp906)
+  %302 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %302, ptr noundef @.str.133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp906)
           to label %invoke.cont908 unwind label %lpad907
 
 invoke.cont908:                                   ; preds = %invoke.cont905
   store i1 false, ptr %cleanup.isactive909, align 1
   store i1 false, ptr %cleanup.isactive910, align 1
   store i1 false, ptr %cleanup.isactive911, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61), ptr %arrayinit.endOfInit, align 8
+  %303 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61
+  store ptr %303, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp912) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp912)
+  %304 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp912)
           to label %invoke.cont914 unwind label %lpad913
 
 invoke.cont914:                                   ; preds = %invoke.cont908
@@ -6822,26 +7127,31 @@ invoke.cont914:                                   ; preds = %invoke.cont908
   store i1 true, ptr %cleanup.isactive925, align 1
   store i1 true, ptr %cleanup.isactive926, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp915) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 1), ptr noundef @.str.134, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp915)
+  %305 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef @.str.134, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp915)
           to label %invoke.cont917 unwind label %lpad916
 
 invoke.cont917:                                   ; preds = %invoke.cont914
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp918) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp918)
+  %306 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp918)
           to label %invoke.cont920 unwind label %lpad919
 
 invoke.cont920:                                   ; preds = %invoke.cont917
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp921) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 3), ptr noundef @.str.135, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp921)
+  %307 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef @.str.135, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp921)
           to label %invoke.cont923 unwind label %lpad922
 
 invoke.cont923:                                   ; preds = %invoke.cont920
   store i1 false, ptr %cleanup.isactive924, align 1
   store i1 false, ptr %cleanup.isactive925, align 1
   store i1 false, ptr %cleanup.isactive926, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62), ptr %arrayinit.endOfInit, align 8
+  %308 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62
+  store ptr %308, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927)
+  %309 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %309, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927)
           to label %invoke.cont929 unwind label %lpad928
 
 invoke.cont929:                                   ; preds = %invoke.cont923
@@ -6849,26 +7159,31 @@ invoke.cont929:                                   ; preds = %invoke.cont923
   store i1 true, ptr %cleanup.isactive940, align 1
   store i1 true, ptr %cleanup.isactive941, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp930) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 1), ptr noundef @.str.136, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp930)
+  %310 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef @.str.136, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp930)
           to label %invoke.cont932 unwind label %lpad931
 
 invoke.cont932:                                   ; preds = %invoke.cont929
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp933) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp933)
+  %311 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp933)
           to label %invoke.cont935 unwind label %lpad934
 
 invoke.cont935:                                   ; preds = %invoke.cont932
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp936) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 3), ptr noundef @.str.137, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp936)
+  %312 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef @.str.137, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp936)
           to label %invoke.cont938 unwind label %lpad937
 
 invoke.cont938:                                   ; preds = %invoke.cont935
   store i1 false, ptr %cleanup.isactive939, align 1
   store i1 false, ptr %cleanup.isactive940, align 1
   store i1 false, ptr %cleanup.isactive941, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63), ptr %arrayinit.endOfInit, align 8
+  %313 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63
+  store ptr %313, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp942) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp942)
+  %314 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp942)
           to label %invoke.cont944 unwind label %lpad943
 
 invoke.cont944:                                   ; preds = %invoke.cont938
@@ -6876,26 +7191,31 @@ invoke.cont944:                                   ; preds = %invoke.cont938
   store i1 true, ptr %cleanup.isactive955, align 1
   store i1 true, ptr %cleanup.isactive956, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp945) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 1), ptr noundef @.str.138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp945)
+  %315 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %315, ptr noundef @.str.138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp945)
           to label %invoke.cont947 unwind label %lpad946
 
 invoke.cont947:                                   ; preds = %invoke.cont944
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp948) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 2), ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp948)
+  %316 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %316, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp948)
           to label %invoke.cont950 unwind label %lpad949
 
 invoke.cont950:                                   ; preds = %invoke.cont947
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp951) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 3), ptr noundef @.str.139, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp951)
+  %317 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef @.str.139, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp951)
           to label %invoke.cont953 unwind label %lpad952
 
 invoke.cont953:                                   ; preds = %invoke.cont950
   store i1 false, ptr %cleanup.isactive954, align 1
   store i1 false, ptr %cleanup.isactive955, align 1
   store i1 false, ptr %cleanup.isactive956, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64), ptr %arrayinit.endOfInit, align 8
+  %318 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64
+  store ptr %318, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957)
+  %319 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %319, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957)
           to label %invoke.cont959 unwind label %lpad958
 
 invoke.cont959:                                   ; preds = %invoke.cont953
@@ -6903,26 +7223,31 @@ invoke.cont959:                                   ; preds = %invoke.cont953
   store i1 true, ptr %cleanup.isactive970, align 1
   store i1 true, ptr %cleanup.isactive971, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp960) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 1), ptr noundef @.str.140, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp960)
+  %320 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef @.str.140, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp960)
           to label %invoke.cont962 unwind label %lpad961
 
 invoke.cont962:                                   ; preds = %invoke.cont959
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp963) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp963)
+  %321 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %321, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp963)
           to label %invoke.cont965 unwind label %lpad964
 
 invoke.cont965:                                   ; preds = %invoke.cont962
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp966) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 3), ptr noundef @.str.141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp966)
+  %322 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %322, ptr noundef @.str.141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp966)
           to label %invoke.cont968 unwind label %lpad967
 
 invoke.cont968:                                   ; preds = %invoke.cont965
   store i1 false, ptr %cleanup.isactive969, align 1
   store i1 false, ptr %cleanup.isactive970, align 1
   store i1 false, ptr %cleanup.isactive971, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65), ptr %arrayinit.endOfInit, align 8
+  %323 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65
+  store ptr %323, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp972) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp972)
+  %324 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %324, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp972)
           to label %invoke.cont974 unwind label %lpad973
 
 invoke.cont974:                                   ; preds = %invoke.cont968
@@ -6930,26 +7255,31 @@ invoke.cont974:                                   ; preds = %invoke.cont968
   store i1 true, ptr %cleanup.isactive985, align 1
   store i1 true, ptr %cleanup.isactive986, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp975) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 1), ptr noundef @.str.142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp975)
+  %325 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %325, ptr noundef @.str.142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp975)
           to label %invoke.cont977 unwind label %lpad976
 
 invoke.cont977:                                   ; preds = %invoke.cont974
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp978) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp978)
+  %326 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp978)
           to label %invoke.cont980 unwind label %lpad979
 
 invoke.cont980:                                   ; preds = %invoke.cont977
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp981) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 3), ptr noundef @.str.143, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp981)
+  %327 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef @.str.143, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp981)
           to label %invoke.cont983 unwind label %lpad982
 
 invoke.cont983:                                   ; preds = %invoke.cont980
   store i1 false, ptr %cleanup.isactive984, align 1
   store i1 false, ptr %cleanup.isactive985, align 1
   store i1 false, ptr %cleanup.isactive986, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66), ptr %arrayinit.endOfInit, align 8
+  %328 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66
+  store ptr %328, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987)
+  %329 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987)
           to label %invoke.cont989 unwind label %lpad988
 
 invoke.cont989:                                   ; preds = %invoke.cont983
@@ -6957,26 +7287,31 @@ invoke.cont989:                                   ; preds = %invoke.cont983
   store i1 true, ptr %cleanup.isactive1000, align 1
   store i1 true, ptr %cleanup.isactive1001, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp990) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 1), ptr noundef @.str.144, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp990)
+  %330 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %330, ptr noundef @.str.144, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp990)
           to label %invoke.cont992 unwind label %lpad991
 
 invoke.cont992:                                   ; preds = %invoke.cont989
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp993) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp993)
+  %331 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %331, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp993)
           to label %invoke.cont995 unwind label %lpad994
 
 invoke.cont995:                                   ; preds = %invoke.cont992
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp996) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 3), ptr noundef @.str.145, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp996)
+  %332 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %332, ptr noundef @.str.145, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp996)
           to label %invoke.cont998 unwind label %lpad997
 
 invoke.cont998:                                   ; preds = %invoke.cont995
   store i1 false, ptr %cleanup.isactive999, align 1
   store i1 false, ptr %cleanup.isactive1000, align 1
   store i1 false, ptr %cleanup.isactive1001, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67), ptr %arrayinit.endOfInit, align 8
+  %333 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67
+  store ptr %333, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1002) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1002)
+  %334 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1002)
           to label %invoke.cont1004 unwind label %lpad1003
 
 invoke.cont1004:                                  ; preds = %invoke.cont998
@@ -6984,26 +7319,31 @@ invoke.cont1004:                                  ; preds = %invoke.cont998
   store i1 true, ptr %cleanup.isactive1015, align 1
   store i1 true, ptr %cleanup.isactive1016, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1005) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 1), ptr noundef @.str.146, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1005)
+  %335 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %335, ptr noundef @.str.146, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1005)
           to label %invoke.cont1007 unwind label %lpad1006
 
 invoke.cont1007:                                  ; preds = %invoke.cont1004
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1008) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1008)
+  %336 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1008)
           to label %invoke.cont1010 unwind label %lpad1009
 
 invoke.cont1010:                                  ; preds = %invoke.cont1007
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1011) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 3), ptr noundef @.str.147, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1011)
+  %337 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %337, ptr noundef @.str.147, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1011)
           to label %invoke.cont1013 unwind label %lpad1012
 
 invoke.cont1013:                                  ; preds = %invoke.cont1010
   store i1 false, ptr %cleanup.isactive1014, align 1
   store i1 false, ptr %cleanup.isactive1015, align 1
   store i1 false, ptr %cleanup.isactive1016, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68), ptr %arrayinit.endOfInit, align 8
+  %338 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68
+  store ptr %338, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017)
+  %339 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %339, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017)
           to label %invoke.cont1019 unwind label %lpad1018
 
 invoke.cont1019:                                  ; preds = %invoke.cont1013
@@ -7011,26 +7351,31 @@ invoke.cont1019:                                  ; preds = %invoke.cont1013
   store i1 true, ptr %cleanup.isactive1030, align 1
   store i1 true, ptr %cleanup.isactive1031, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1020) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 1), ptr noundef @.str.148, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1020)
+  %340 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %340, ptr noundef @.str.148, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1020)
           to label %invoke.cont1022 unwind label %lpad1021
 
 invoke.cont1022:                                  ; preds = %invoke.cont1019
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1023) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1023)
+  %341 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %341, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1023)
           to label %invoke.cont1025 unwind label %lpad1024
 
 invoke.cont1025:                                  ; preds = %invoke.cont1022
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1026) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 3), ptr noundef @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1026)
+  %342 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1026)
           to label %invoke.cont1028 unwind label %lpad1027
 
 invoke.cont1028:                                  ; preds = %invoke.cont1025
   store i1 false, ptr %cleanup.isactive1029, align 1
   store i1 false, ptr %cleanup.isactive1030, align 1
   store i1 false, ptr %cleanup.isactive1031, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69), ptr %arrayinit.endOfInit, align 8
+  %343 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69
+  store ptr %343, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1032) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1032)
+  %344 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %344, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1032)
           to label %invoke.cont1034 unwind label %lpad1033
 
 invoke.cont1034:                                  ; preds = %invoke.cont1028
@@ -7038,26 +7383,31 @@ invoke.cont1034:                                  ; preds = %invoke.cont1028
   store i1 true, ptr %cleanup.isactive1045, align 1
   store i1 true, ptr %cleanup.isactive1046, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1035) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 1), ptr noundef @.str.150, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1035)
+  %345 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef @.str.150, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1035)
           to label %invoke.cont1037 unwind label %lpad1036
 
 invoke.cont1037:                                  ; preds = %invoke.cont1034
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1038) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1038)
+  %346 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %346, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1038)
           to label %invoke.cont1040 unwind label %lpad1039
 
 invoke.cont1040:                                  ; preds = %invoke.cont1037
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1041) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 3), ptr noundef @.str.151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1041)
+  %347 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %347, ptr noundef @.str.151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1041)
           to label %invoke.cont1043 unwind label %lpad1042
 
 invoke.cont1043:                                  ; preds = %invoke.cont1040
   store i1 false, ptr %cleanup.isactive1044, align 1
   store i1 false, ptr %cleanup.isactive1045, align 1
   store i1 false, ptr %cleanup.isactive1046, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70), ptr %arrayinit.endOfInit, align 8
+  %348 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70
+  store ptr %348, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047)
+  %349 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %349, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047)
           to label %invoke.cont1049 unwind label %lpad1048
 
 invoke.cont1049:                                  ; preds = %invoke.cont1043
@@ -7065,26 +7415,31 @@ invoke.cont1049:                                  ; preds = %invoke.cont1043
   store i1 true, ptr %cleanup.isactive1060, align 1
   store i1 true, ptr %cleanup.isactive1061, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1050) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 1), ptr noundef @.str.152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1050)
+  %350 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %350, ptr noundef @.str.152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1050)
           to label %invoke.cont1052 unwind label %lpad1051
 
 invoke.cont1052:                                  ; preds = %invoke.cont1049
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1053) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1053)
+  %351 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %351, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1053)
           to label %invoke.cont1055 unwind label %lpad1054
 
 invoke.cont1055:                                  ; preds = %invoke.cont1052
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1056) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 3), ptr noundef @.str.153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1056)
+  %352 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %352, ptr noundef @.str.153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1056)
           to label %invoke.cont1058 unwind label %lpad1057
 
 invoke.cont1058:                                  ; preds = %invoke.cont1055
   store i1 false, ptr %cleanup.isactive1059, align 1
   store i1 false, ptr %cleanup.isactive1060, align 1
   store i1 false, ptr %cleanup.isactive1061, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71), ptr %arrayinit.endOfInit, align 8
+  %353 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71
+  store ptr %353, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1062) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1062)
+  %354 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1062)
           to label %invoke.cont1064 unwind label %lpad1063
 
 invoke.cont1064:                                  ; preds = %invoke.cont1058
@@ -7092,26 +7447,31 @@ invoke.cont1064:                                  ; preds = %invoke.cont1058
   store i1 true, ptr %cleanup.isactive1075, align 1
   store i1 true, ptr %cleanup.isactive1076, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1065) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 1), ptr noundef @.str.154, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1065)
+  %355 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef @.str.154, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1065)
           to label %invoke.cont1067 unwind label %lpad1066
 
 invoke.cont1067:                                  ; preds = %invoke.cont1064
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1068) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1068)
+  %356 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %356, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1068)
           to label %invoke.cont1070 unwind label %lpad1069
 
 invoke.cont1070:                                  ; preds = %invoke.cont1067
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1071) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 3), ptr noundef @.str.155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1071)
+  %357 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %357, ptr noundef @.str.155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1071)
           to label %invoke.cont1073 unwind label %lpad1072
 
 invoke.cont1073:                                  ; preds = %invoke.cont1070
   store i1 false, ptr %cleanup.isactive1074, align 1
   store i1 false, ptr %cleanup.isactive1075, align 1
   store i1 false, ptr %cleanup.isactive1076, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72), ptr %arrayinit.endOfInit, align 8
+  %358 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72
+  store ptr %358, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077)
+  %359 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %359, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077)
           to label %invoke.cont1079 unwind label %lpad1078
 
 invoke.cont1079:                                  ; preds = %invoke.cont1073
@@ -7119,26 +7479,31 @@ invoke.cont1079:                                  ; preds = %invoke.cont1073
   store i1 true, ptr %cleanup.isactive1090, align 1
   store i1 true, ptr %cleanup.isactive1091, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1080) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 1), ptr noundef @.str.156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1080)
+  %360 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %360, ptr noundef @.str.156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1080)
           to label %invoke.cont1082 unwind label %lpad1081
 
 invoke.cont1082:                                  ; preds = %invoke.cont1079
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1083) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1083)
+  %361 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %361, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1083)
           to label %invoke.cont1085 unwind label %lpad1084
 
 invoke.cont1085:                                  ; preds = %invoke.cont1082
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1086) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 3), ptr noundef @.str.157, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1086)
+  %362 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %362, ptr noundef @.str.157, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1086)
           to label %invoke.cont1088 unwind label %lpad1087
 
 invoke.cont1088:                                  ; preds = %invoke.cont1085
   store i1 false, ptr %cleanup.isactive1089, align 1
   store i1 false, ptr %cleanup.isactive1090, align 1
   store i1 false, ptr %cleanup.isactive1091, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73), ptr %arrayinit.endOfInit, align 8
+  %363 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73
+  store ptr %363, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1092) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1092)
+  %364 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %364, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1092)
           to label %invoke.cont1094 unwind label %lpad1093
 
 invoke.cont1094:                                  ; preds = %invoke.cont1088
@@ -7146,26 +7511,31 @@ invoke.cont1094:                                  ; preds = %invoke.cont1088
   store i1 true, ptr %cleanup.isactive1105, align 1
   store i1 true, ptr %cleanup.isactive1106, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1095) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 1), ptr noundef @.str.158, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1095)
+  %365 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %365, ptr noundef @.str.158, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1095)
           to label %invoke.cont1097 unwind label %lpad1096
 
 invoke.cont1097:                                  ; preds = %invoke.cont1094
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1098) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1098)
+  %366 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1098)
           to label %invoke.cont1100 unwind label %lpad1099
 
 invoke.cont1100:                                  ; preds = %invoke.cont1097
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1101) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 3), ptr noundef @.str.159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1101)
+  %367 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %367, ptr noundef @.str.159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1101)
           to label %invoke.cont1103 unwind label %lpad1102
 
 invoke.cont1103:                                  ; preds = %invoke.cont1100
   store i1 false, ptr %cleanup.isactive1104, align 1
   store i1 false, ptr %cleanup.isactive1105, align 1
   store i1 false, ptr %cleanup.isactive1106, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74), ptr %arrayinit.endOfInit, align 8
+  %368 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74
+  store ptr %368, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107)
+  %369 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107)
           to label %invoke.cont1109 unwind label %lpad1108
 
 invoke.cont1109:                                  ; preds = %invoke.cont1103
@@ -7173,26 +7543,31 @@ invoke.cont1109:                                  ; preds = %invoke.cont1103
   store i1 true, ptr %cleanup.isactive1120, align 1
   store i1 true, ptr %cleanup.isactive1121, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1110) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 1), ptr noundef @.str.160, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1110)
+  %370 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef @.str.160, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1110)
           to label %invoke.cont1112 unwind label %lpad1111
 
 invoke.cont1112:                                  ; preds = %invoke.cont1109
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1113) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1113)
+  %371 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %371, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1113)
           to label %invoke.cont1115 unwind label %lpad1114
 
 invoke.cont1115:                                  ; preds = %invoke.cont1112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1116) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 3), ptr noundef @.str.161, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1116)
+  %372 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef @.str.161, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1116)
           to label %invoke.cont1118 unwind label %lpad1117
 
 invoke.cont1118:                                  ; preds = %invoke.cont1115
   store i1 false, ptr %cleanup.isactive1119, align 1
   store i1 false, ptr %cleanup.isactive1120, align 1
   store i1 false, ptr %cleanup.isactive1121, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75), ptr %arrayinit.endOfInit, align 8
+  %373 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75
+  store ptr %373, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1122) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1122)
+  %374 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %374, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1122)
           to label %invoke.cont1124 unwind label %lpad1123
 
 invoke.cont1124:                                  ; preds = %invoke.cont1118
@@ -7200,26 +7575,31 @@ invoke.cont1124:                                  ; preds = %invoke.cont1118
   store i1 true, ptr %cleanup.isactive1135, align 1
   store i1 true, ptr %cleanup.isactive1136, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1125) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 1), ptr noundef @.str.162, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1125)
+  %375 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef @.str.162, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1125)
           to label %invoke.cont1127 unwind label %lpad1126
 
 invoke.cont1127:                                  ; preds = %invoke.cont1124
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1128) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1128)
+  %376 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %376, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1128)
           to label %invoke.cont1130 unwind label %lpad1129
 
 invoke.cont1130:                                  ; preds = %invoke.cont1127
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1131) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 3), ptr noundef @.str.163, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1131)
+  %377 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef @.str.163, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1131)
           to label %invoke.cont1133 unwind label %lpad1132
 
 invoke.cont1133:                                  ; preds = %invoke.cont1130
   store i1 false, ptr %cleanup.isactive1134, align 1
   store i1 false, ptr %cleanup.isactive1135, align 1
   store i1 false, ptr %cleanup.isactive1136, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76), ptr %arrayinit.endOfInit, align 8
+  %378 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76
+  store ptr %378, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137)
+  %379 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %379, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137)
           to label %invoke.cont1139 unwind label %lpad1138
 
 invoke.cont1139:                                  ; preds = %invoke.cont1133
@@ -7227,26 +7607,31 @@ invoke.cont1139:                                  ; preds = %invoke.cont1133
   store i1 true, ptr %cleanup.isactive1150, align 1
   store i1 true, ptr %cleanup.isactive1151, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1140) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 1), ptr noundef @.str.164, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1140)
+  %380 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %380, ptr noundef @.str.164, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1140)
           to label %invoke.cont1142 unwind label %lpad1141
 
 invoke.cont1142:                                  ; preds = %invoke.cont1139
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1143) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1143)
+  %381 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %381, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1143)
           to label %invoke.cont1145 unwind label %lpad1144
 
 invoke.cont1145:                                  ; preds = %invoke.cont1142
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1146) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 3), ptr noundef @.str.165, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1146)
+  %382 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %382, ptr noundef @.str.165, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1146)
           to label %invoke.cont1148 unwind label %lpad1147
 
 invoke.cont1148:                                  ; preds = %invoke.cont1145
   store i1 false, ptr %cleanup.isactive1149, align 1
   store i1 false, ptr %cleanup.isactive1150, align 1
   store i1 false, ptr %cleanup.isactive1151, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77), ptr %arrayinit.endOfInit, align 8
+  %383 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77
+  store ptr %383, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1152) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1152)
+  %384 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %384, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1152)
           to label %invoke.cont1154 unwind label %lpad1153
 
 invoke.cont1154:                                  ; preds = %invoke.cont1148
@@ -7254,26 +7639,31 @@ invoke.cont1154:                                  ; preds = %invoke.cont1148
   store i1 true, ptr %cleanup.isactive1165, align 1
   store i1 true, ptr %cleanup.isactive1166, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1155) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 1), ptr noundef @.str.166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1155)
+  %385 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %385, ptr noundef @.str.166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1155)
           to label %invoke.cont1157 unwind label %lpad1156
 
 invoke.cont1157:                                  ; preds = %invoke.cont1154
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1158) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 2), ptr noundef @.str.167, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1158)
+  %386 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %386, ptr noundef @.str.167, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1158)
           to label %invoke.cont1160 unwind label %lpad1159
 
 invoke.cont1160:                                  ; preds = %invoke.cont1157
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1161) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 3), ptr noundef @.str.168, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1161)
+  %387 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %387, ptr noundef @.str.168, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1161)
           to label %invoke.cont1163 unwind label %lpad1162
 
 invoke.cont1163:                                  ; preds = %invoke.cont1160
   store i1 false, ptr %cleanup.isactive1164, align 1
   store i1 false, ptr %cleanup.isactive1165, align 1
   store i1 false, ptr %cleanup.isactive1166, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78), ptr %arrayinit.endOfInit, align 8
+  %388 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78
+  store ptr %388, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167)
+  %389 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %389, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167)
           to label %invoke.cont1169 unwind label %lpad1168
 
 invoke.cont1169:                                  ; preds = %invoke.cont1163
@@ -7281,26 +7671,31 @@ invoke.cont1169:                                  ; preds = %invoke.cont1163
   store i1 true, ptr %cleanup.isactive1180, align 1
   store i1 true, ptr %cleanup.isactive1181, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1170) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 1), ptr noundef @.str.169, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1170)
+  %390 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %390, ptr noundef @.str.169, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1170)
           to label %invoke.cont1172 unwind label %lpad1171
 
 invoke.cont1172:                                  ; preds = %invoke.cont1169
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1173) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1173)
+  %391 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %391, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1173)
           to label %invoke.cont1175 unwind label %lpad1174
 
 invoke.cont1175:                                  ; preds = %invoke.cont1172
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1176) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 3), ptr noundef @.str.170, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1176)
+  %392 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %392, ptr noundef @.str.170, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1176)
           to label %invoke.cont1178 unwind label %lpad1177
 
 invoke.cont1178:                                  ; preds = %invoke.cont1175
   store i1 false, ptr %cleanup.isactive1179, align 1
   store i1 false, ptr %cleanup.isactive1180, align 1
   store i1 false, ptr %cleanup.isactive1181, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79), ptr %arrayinit.endOfInit, align 8
+  %393 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79
+  store ptr %393, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1182) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1182)
+  %394 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %394, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1182)
           to label %invoke.cont1184 unwind label %lpad1183
 
 invoke.cont1184:                                  ; preds = %invoke.cont1178
@@ -7308,26 +7703,31 @@ invoke.cont1184:                                  ; preds = %invoke.cont1178
   store i1 true, ptr %cleanup.isactive1195, align 1
   store i1 true, ptr %cleanup.isactive1196, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1185) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 1), ptr noundef @.str.171, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1185)
+  %395 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %395, ptr noundef @.str.171, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1185)
           to label %invoke.cont1187 unwind label %lpad1186
 
 invoke.cont1187:                                  ; preds = %invoke.cont1184
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1188) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1188)
+  %396 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %396, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1188)
           to label %invoke.cont1190 unwind label %lpad1189
 
 invoke.cont1190:                                  ; preds = %invoke.cont1187
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1191) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 3), ptr noundef @.str.172, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1191)
+  %397 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %397, ptr noundef @.str.172, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1191)
           to label %invoke.cont1193 unwind label %lpad1192
 
 invoke.cont1193:                                  ; preds = %invoke.cont1190
   store i1 false, ptr %cleanup.isactive1194, align 1
   store i1 false, ptr %cleanup.isactive1195, align 1
   store i1 false, ptr %cleanup.isactive1196, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80), ptr %arrayinit.endOfInit, align 8
+  %398 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80
+  store ptr %398, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197)
+  %399 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %399, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197)
           to label %invoke.cont1199 unwind label %lpad1198
 
 invoke.cont1199:                                  ; preds = %invoke.cont1193
@@ -7335,26 +7735,31 @@ invoke.cont1199:                                  ; preds = %invoke.cont1193
   store i1 true, ptr %cleanup.isactive1210, align 1
   store i1 true, ptr %cleanup.isactive1211, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1200) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 1), ptr noundef @.str.173, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1200)
+  %400 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %400, ptr noundef @.str.173, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1200)
           to label %invoke.cont1202 unwind label %lpad1201
 
 invoke.cont1202:                                  ; preds = %invoke.cont1199
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1203) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1203)
+  %401 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %401, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1203)
           to label %invoke.cont1205 unwind label %lpad1204
 
 invoke.cont1205:                                  ; preds = %invoke.cont1202
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1206) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 3), ptr noundef @.str.174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1206)
+  %402 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %402, ptr noundef @.str.174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1206)
           to label %invoke.cont1208 unwind label %lpad1207
 
 invoke.cont1208:                                  ; preds = %invoke.cont1205
   store i1 false, ptr %cleanup.isactive1209, align 1
   store i1 false, ptr %cleanup.isactive1210, align 1
   store i1 false, ptr %cleanup.isactive1211, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81), ptr %arrayinit.endOfInit, align 8
+  %403 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81
+  store ptr %403, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1212) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1212)
+  %404 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %404, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1212)
           to label %invoke.cont1214 unwind label %lpad1213
 
 invoke.cont1214:                                  ; preds = %invoke.cont1208
@@ -7362,26 +7767,31 @@ invoke.cont1214:                                  ; preds = %invoke.cont1208
   store i1 true, ptr %cleanup.isactive1225, align 1
   store i1 true, ptr %cleanup.isactive1226, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1215) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 1), ptr noundef @.str.175, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1215)
+  %405 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %405, ptr noundef @.str.175, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1215)
           to label %invoke.cont1217 unwind label %lpad1216
 
 invoke.cont1217:                                  ; preds = %invoke.cont1214
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1218) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1218)
+  %406 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %406, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1218)
           to label %invoke.cont1220 unwind label %lpad1219
 
 invoke.cont1220:                                  ; preds = %invoke.cont1217
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1221) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 3), ptr noundef @.str.176, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1221)
+  %407 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %407, ptr noundef @.str.176, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1221)
           to label %invoke.cont1223 unwind label %lpad1222
 
 invoke.cont1223:                                  ; preds = %invoke.cont1220
   store i1 false, ptr %cleanup.isactive1224, align 1
   store i1 false, ptr %cleanup.isactive1225, align 1
   store i1 false, ptr %cleanup.isactive1226, align 1
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82), ptr %arrayinit.endOfInit, align 8
+  %408 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82
+  store ptr %408, ptr %arrayinit.endOfInit, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227)
+  %409 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %409, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227)
           to label %invoke.cont1229 unwind label %lpad1228
 
 invoke.cont1229:                                  ; preds = %invoke.cont1223
@@ -7389,17 +7799,20 @@ invoke.cont1229:                                  ; preds = %invoke.cont1223
   store i1 true, ptr %cleanup.isactive1240, align 1
   store i1 true, ptr %cleanup.isactive1241, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1230) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 1), ptr noundef @.str.177, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1230)
+  %410 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %410, ptr noundef @.str.177, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1230)
           to label %invoke.cont1232 unwind label %lpad1231
 
 invoke.cont1232:                                  ; preds = %invoke.cont1229
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1233) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1233)
+  %411 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %411, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1233)
           to label %invoke.cont1235 unwind label %lpad1234
 
 invoke.cont1235:                                  ; preds = %invoke.cont1232
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1236) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 3), ptr noundef @.str.178, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1236)
+  %412 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %412, ptr noundef @.str.178, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1236)
           to label %invoke.cont1238 unwind label %lpad1237
 
 invoke.cont1238:                                  ; preds = %invoke.cont1235
@@ -7739,3001 +8152,3002 @@ invoke.cont1238:                                  ; preds = %invoke.cont1235
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #5
-  %0 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #5
+  %413 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #5
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %414 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %415 = extractvalue { ptr, i32 } %414, 0
+  store ptr %415, ptr %exn.slot, align 8
+  %416 = extractvalue { ptr, i32 } %414, 1
+  store i32 %416, ptr %ehselector.slot, align 4
   br label %ehcleanup2564
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %417 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %418 = extractvalue { ptr, i32 } %417, 0
+  store ptr %418, ptr %exn.slot, align 8
+  %419 = extractvalue { ptr, i32 } %417, 1
+  store i32 %419, ptr %ehselector.slot, align 4
   br label %ehcleanup2559
 
 lpad5:                                            ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %420 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %421 = extractvalue { ptr, i32 } %420, 0
+  store ptr %421, ptr %exn.slot, align 8
+  %422 = extractvalue { ptr, i32 } %420, 1
+  store i32 %422, ptr %ehselector.slot, align 4
   br label %ehcleanup2554
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %423 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %424 = extractvalue { ptr, i32 } %423, 0
+  store ptr %424, ptr %exn.slot, align 8
+  %425 = extractvalue { ptr, i32 } %423, 1
+  store i32 %425, ptr %ehselector.slot, align 4
   br label %ehcleanup2549
 
 lpad13:                                           ; preds = %invoke.cont9
-  %13 = landingpad { ptr, i32 }
+  %426 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %427 = extractvalue { ptr, i32 } %426, 0
+  store ptr %427, ptr %exn.slot, align 8
+  %428 = extractvalue { ptr, i32 } %426, 1
+  store i32 %428, ptr %ehselector.slot, align 4
   br label %ehcleanup2548
 
 lpad16:                                           ; preds = %invoke.cont14
-  %16 = landingpad { ptr, i32 }
+  %429 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %430 = extractvalue { ptr, i32 } %429, 0
+  store ptr %430, ptr %exn.slot, align 8
+  %431 = extractvalue { ptr, i32 } %429, 1
+  store i32 %431, ptr %ehselector.slot, align 4
   br label %ehcleanup2543
 
 lpad19:                                           ; preds = %invoke.cont17
-  %19 = landingpad { ptr, i32 }
+  %432 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %433 = extractvalue { ptr, i32 } %432, 0
+  store ptr %433, ptr %exn.slot, align 8
+  %434 = extractvalue { ptr, i32 } %432, 1
+  store i32 %434, ptr %ehselector.slot, align 4
   br label %ehcleanup2538
 
 lpad22:                                           ; preds = %invoke.cont20
-  %22 = landingpad { ptr, i32 }
+  %435 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %436 = extractvalue { ptr, i32 } %435, 0
+  store ptr %436, ptr %exn.slot, align 8
+  %437 = extractvalue { ptr, i32 } %435, 1
+  store i32 %437, ptr %ehselector.slot, align 4
   br label %ehcleanup2533
 
 lpad28:                                           ; preds = %invoke.cont23
-  %25 = landingpad { ptr, i32 }
+  %438 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %439 = extractvalue { ptr, i32 } %438, 0
+  store ptr %439, ptr %exn.slot, align 8
+  %440 = extractvalue { ptr, i32 } %438, 1
+  store i32 %440, ptr %ehselector.slot, align 4
   br label %ehcleanup2532
 
 lpad31:                                           ; preds = %invoke.cont29
-  %28 = landingpad { ptr, i32 }
+  %441 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %442 = extractvalue { ptr, i32 } %441, 0
+  store ptr %442, ptr %exn.slot, align 8
+  %443 = extractvalue { ptr, i32 } %441, 1
+  store i32 %443, ptr %ehselector.slot, align 4
   br label %ehcleanup2527
 
 lpad34:                                           ; preds = %invoke.cont32
-  %31 = landingpad { ptr, i32 }
+  %444 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %445 = extractvalue { ptr, i32 } %444, 0
+  store ptr %445, ptr %exn.slot, align 8
+  %446 = extractvalue { ptr, i32 } %444, 1
+  store i32 %446, ptr %ehselector.slot, align 4
   br label %ehcleanup2522
 
 lpad37:                                           ; preds = %invoke.cont35
-  %34 = landingpad { ptr, i32 }
+  %447 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %448 = extractvalue { ptr, i32 } %447, 0
+  store ptr %448, ptr %exn.slot, align 8
+  %449 = extractvalue { ptr, i32 } %447, 1
+  store i32 %449, ptr %ehselector.slot, align 4
   br label %ehcleanup2517
 
 lpad43:                                           ; preds = %invoke.cont38
-  %37 = landingpad { ptr, i32 }
+  %450 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %451 = extractvalue { ptr, i32 } %450, 0
+  store ptr %451, ptr %exn.slot, align 8
+  %452 = extractvalue { ptr, i32 } %450, 1
+  store i32 %452, ptr %ehselector.slot, align 4
   br label %ehcleanup2516
 
 lpad46:                                           ; preds = %invoke.cont44
-  %40 = landingpad { ptr, i32 }
+  %453 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %454 = extractvalue { ptr, i32 } %453, 0
+  store ptr %454, ptr %exn.slot, align 8
+  %455 = extractvalue { ptr, i32 } %453, 1
+  store i32 %455, ptr %ehselector.slot, align 4
   br label %ehcleanup2511
 
 lpad49:                                           ; preds = %invoke.cont47
-  %43 = landingpad { ptr, i32 }
+  %456 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %457 = extractvalue { ptr, i32 } %456, 0
+  store ptr %457, ptr %exn.slot, align 8
+  %458 = extractvalue { ptr, i32 } %456, 1
+  store i32 %458, ptr %ehselector.slot, align 4
   br label %ehcleanup2506
 
 lpad52:                                           ; preds = %invoke.cont50
-  %46 = landingpad { ptr, i32 }
+  %459 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %460 = extractvalue { ptr, i32 } %459, 0
+  store ptr %460, ptr %exn.slot, align 8
+  %461 = extractvalue { ptr, i32 } %459, 1
+  store i32 %461, ptr %ehselector.slot, align 4
   br label %ehcleanup2501
 
 lpad58:                                           ; preds = %invoke.cont53
-  %49 = landingpad { ptr, i32 }
+  %462 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %463 = extractvalue { ptr, i32 } %462, 0
+  store ptr %463, ptr %exn.slot, align 8
+  %464 = extractvalue { ptr, i32 } %462, 1
+  store i32 %464, ptr %ehselector.slot, align 4
   br label %ehcleanup2500
 
 lpad61:                                           ; preds = %invoke.cont59
-  %52 = landingpad { ptr, i32 }
+  %465 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %466 = extractvalue { ptr, i32 } %465, 0
+  store ptr %466, ptr %exn.slot, align 8
+  %467 = extractvalue { ptr, i32 } %465, 1
+  store i32 %467, ptr %ehselector.slot, align 4
   br label %ehcleanup2495
 
 lpad64:                                           ; preds = %invoke.cont62
-  %55 = landingpad { ptr, i32 }
+  %468 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %469 = extractvalue { ptr, i32 } %468, 0
+  store ptr %469, ptr %exn.slot, align 8
+  %470 = extractvalue { ptr, i32 } %468, 1
+  store i32 %470, ptr %ehselector.slot, align 4
   br label %ehcleanup2490
 
 lpad67:                                           ; preds = %invoke.cont65
-  %58 = landingpad { ptr, i32 }
+  %471 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %472 = extractvalue { ptr, i32 } %471, 0
+  store ptr %472, ptr %exn.slot, align 8
+  %473 = extractvalue { ptr, i32 } %471, 1
+  store i32 %473, ptr %ehselector.slot, align 4
   br label %ehcleanup2485
 
 lpad73:                                           ; preds = %invoke.cont68
-  %61 = landingpad { ptr, i32 }
+  %474 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %475 = extractvalue { ptr, i32 } %474, 0
+  store ptr %475, ptr %exn.slot, align 8
+  %476 = extractvalue { ptr, i32 } %474, 1
+  store i32 %476, ptr %ehselector.slot, align 4
   br label %ehcleanup2484
 
 lpad76:                                           ; preds = %invoke.cont74
-  %64 = landingpad { ptr, i32 }
+  %477 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %478 = extractvalue { ptr, i32 } %477, 0
+  store ptr %478, ptr %exn.slot, align 8
+  %479 = extractvalue { ptr, i32 } %477, 1
+  store i32 %479, ptr %ehselector.slot, align 4
   br label %ehcleanup2479
 
 lpad79:                                           ; preds = %invoke.cont77
-  %67 = landingpad { ptr, i32 }
+  %480 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %481 = extractvalue { ptr, i32 } %480, 0
+  store ptr %481, ptr %exn.slot, align 8
+  %482 = extractvalue { ptr, i32 } %480, 1
+  store i32 %482, ptr %ehselector.slot, align 4
   br label %ehcleanup2474
 
 lpad82:                                           ; preds = %invoke.cont80
-  %70 = landingpad { ptr, i32 }
+  %483 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %484 = extractvalue { ptr, i32 } %483, 0
+  store ptr %484, ptr %exn.slot, align 8
+  %485 = extractvalue { ptr, i32 } %483, 1
+  store i32 %485, ptr %ehselector.slot, align 4
   br label %ehcleanup2469
 
 lpad88:                                           ; preds = %invoke.cont83
-  %73 = landingpad { ptr, i32 }
+  %486 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %487 = extractvalue { ptr, i32 } %486, 0
+  store ptr %487, ptr %exn.slot, align 8
+  %488 = extractvalue { ptr, i32 } %486, 1
+  store i32 %488, ptr %ehselector.slot, align 4
   br label %ehcleanup2468
 
 lpad91:                                           ; preds = %invoke.cont89
-  %76 = landingpad { ptr, i32 }
+  %489 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %490 = extractvalue { ptr, i32 } %489, 0
+  store ptr %490, ptr %exn.slot, align 8
+  %491 = extractvalue { ptr, i32 } %489, 1
+  store i32 %491, ptr %ehselector.slot, align 4
   br label %ehcleanup2463
 
 lpad94:                                           ; preds = %invoke.cont92
-  %79 = landingpad { ptr, i32 }
+  %492 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %493 = extractvalue { ptr, i32 } %492, 0
+  store ptr %493, ptr %exn.slot, align 8
+  %494 = extractvalue { ptr, i32 } %492, 1
+  store i32 %494, ptr %ehselector.slot, align 4
   br label %ehcleanup2458
 
 lpad97:                                           ; preds = %invoke.cont95
-  %82 = landingpad { ptr, i32 }
+  %495 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %exn.slot, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %ehselector.slot, align 4
+  %496 = extractvalue { ptr, i32 } %495, 0
+  store ptr %496, ptr %exn.slot, align 8
+  %497 = extractvalue { ptr, i32 } %495, 1
+  store i32 %497, ptr %ehselector.slot, align 4
   br label %ehcleanup2453
 
 lpad103:                                          ; preds = %invoke.cont98
-  %85 = landingpad { ptr, i32 }
+  %498 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %exn.slot, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %ehselector.slot, align 4
+  %499 = extractvalue { ptr, i32 } %498, 0
+  store ptr %499, ptr %exn.slot, align 8
+  %500 = extractvalue { ptr, i32 } %498, 1
+  store i32 %500, ptr %ehselector.slot, align 4
   br label %ehcleanup2452
 
 lpad106:                                          ; preds = %invoke.cont104
-  %88 = landingpad { ptr, i32 }
+  %501 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %exn.slot, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %ehselector.slot, align 4
+  %502 = extractvalue { ptr, i32 } %501, 0
+  store ptr %502, ptr %exn.slot, align 8
+  %503 = extractvalue { ptr, i32 } %501, 1
+  store i32 %503, ptr %ehselector.slot, align 4
   br label %ehcleanup2447
 
 lpad109:                                          ; preds = %invoke.cont107
-  %91 = landingpad { ptr, i32 }
+  %504 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %exn.slot, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %ehselector.slot, align 4
+  %505 = extractvalue { ptr, i32 } %504, 0
+  store ptr %505, ptr %exn.slot, align 8
+  %506 = extractvalue { ptr, i32 } %504, 1
+  store i32 %506, ptr %ehselector.slot, align 4
   br label %ehcleanup2442
 
 lpad112:                                          ; preds = %invoke.cont110
-  %94 = landingpad { ptr, i32 }
+  %507 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %exn.slot, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %ehselector.slot, align 4
+  %508 = extractvalue { ptr, i32 } %507, 0
+  store ptr %508, ptr %exn.slot, align 8
+  %509 = extractvalue { ptr, i32 } %507, 1
+  store i32 %509, ptr %ehselector.slot, align 4
   br label %ehcleanup2437
 
 lpad118:                                          ; preds = %invoke.cont113
-  %97 = landingpad { ptr, i32 }
+  %510 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %exn.slot, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %ehselector.slot, align 4
+  %511 = extractvalue { ptr, i32 } %510, 0
+  store ptr %511, ptr %exn.slot, align 8
+  %512 = extractvalue { ptr, i32 } %510, 1
+  store i32 %512, ptr %ehselector.slot, align 4
   br label %ehcleanup2436
 
 lpad121:                                          ; preds = %invoke.cont119
-  %100 = landingpad { ptr, i32 }
+  %513 = landingpad { ptr, i32 }
           cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %exn.slot, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %ehselector.slot, align 4
+  %514 = extractvalue { ptr, i32 } %513, 0
+  store ptr %514, ptr %exn.slot, align 8
+  %515 = extractvalue { ptr, i32 } %513, 1
+  store i32 %515, ptr %ehselector.slot, align 4
   br label %ehcleanup2431
 
 lpad124:                                          ; preds = %invoke.cont122
-  %103 = landingpad { ptr, i32 }
+  %516 = landingpad { ptr, i32 }
           cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %exn.slot, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %ehselector.slot, align 4
+  %517 = extractvalue { ptr, i32 } %516, 0
+  store ptr %517, ptr %exn.slot, align 8
+  %518 = extractvalue { ptr, i32 } %516, 1
+  store i32 %518, ptr %ehselector.slot, align 4
   br label %ehcleanup2426
 
 lpad127:                                          ; preds = %invoke.cont125
-  %106 = landingpad { ptr, i32 }
+  %519 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %exn.slot, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %ehselector.slot, align 4
+  %520 = extractvalue { ptr, i32 } %519, 0
+  store ptr %520, ptr %exn.slot, align 8
+  %521 = extractvalue { ptr, i32 } %519, 1
+  store i32 %521, ptr %ehselector.slot, align 4
   br label %ehcleanup2421
 
 lpad133:                                          ; preds = %invoke.cont128
-  %109 = landingpad { ptr, i32 }
+  %522 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %exn.slot, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %ehselector.slot, align 4
+  %523 = extractvalue { ptr, i32 } %522, 0
+  store ptr %523, ptr %exn.slot, align 8
+  %524 = extractvalue { ptr, i32 } %522, 1
+  store i32 %524, ptr %ehselector.slot, align 4
   br label %ehcleanup2420
 
 lpad136:                                          ; preds = %invoke.cont134
-  %112 = landingpad { ptr, i32 }
+  %525 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %exn.slot, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %ehselector.slot, align 4
+  %526 = extractvalue { ptr, i32 } %525, 0
+  store ptr %526, ptr %exn.slot, align 8
+  %527 = extractvalue { ptr, i32 } %525, 1
+  store i32 %527, ptr %ehselector.slot, align 4
   br label %ehcleanup2415
 
 lpad139:                                          ; preds = %invoke.cont137
-  %115 = landingpad { ptr, i32 }
+  %528 = landingpad { ptr, i32 }
           cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
+  %529 = extractvalue { ptr, i32 } %528, 0
+  store ptr %529, ptr %exn.slot, align 8
+  %530 = extractvalue { ptr, i32 } %528, 1
+  store i32 %530, ptr %ehselector.slot, align 4
   br label %ehcleanup2410
 
 lpad142:                                          ; preds = %invoke.cont140
-  %118 = landingpad { ptr, i32 }
+  %531 = landingpad { ptr, i32 }
           cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %exn.slot, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %ehselector.slot, align 4
+  %532 = extractvalue { ptr, i32 } %531, 0
+  store ptr %532, ptr %exn.slot, align 8
+  %533 = extractvalue { ptr, i32 } %531, 1
+  store i32 %533, ptr %ehselector.slot, align 4
   br label %ehcleanup2405
 
 lpad148:                                          ; preds = %invoke.cont143
-  %121 = landingpad { ptr, i32 }
+  %534 = landingpad { ptr, i32 }
           cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %exn.slot, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %ehselector.slot, align 4
+  %535 = extractvalue { ptr, i32 } %534, 0
+  store ptr %535, ptr %exn.slot, align 8
+  %536 = extractvalue { ptr, i32 } %534, 1
+  store i32 %536, ptr %ehselector.slot, align 4
   br label %ehcleanup2404
 
 lpad151:                                          ; preds = %invoke.cont149
-  %124 = landingpad { ptr, i32 }
+  %537 = landingpad { ptr, i32 }
           cleanup
-  %125 = extractvalue { ptr, i32 } %124, 0
-  store ptr %125, ptr %exn.slot, align 8
-  %126 = extractvalue { ptr, i32 } %124, 1
-  store i32 %126, ptr %ehselector.slot, align 4
+  %538 = extractvalue { ptr, i32 } %537, 0
+  store ptr %538, ptr %exn.slot, align 8
+  %539 = extractvalue { ptr, i32 } %537, 1
+  store i32 %539, ptr %ehselector.slot, align 4
   br label %ehcleanup2399
 
 lpad154:                                          ; preds = %invoke.cont152
-  %127 = landingpad { ptr, i32 }
+  %540 = landingpad { ptr, i32 }
           cleanup
-  %128 = extractvalue { ptr, i32 } %127, 0
-  store ptr %128, ptr %exn.slot, align 8
-  %129 = extractvalue { ptr, i32 } %127, 1
-  store i32 %129, ptr %ehselector.slot, align 4
+  %541 = extractvalue { ptr, i32 } %540, 0
+  store ptr %541, ptr %exn.slot, align 8
+  %542 = extractvalue { ptr, i32 } %540, 1
+  store i32 %542, ptr %ehselector.slot, align 4
   br label %ehcleanup2394
 
 lpad157:                                          ; preds = %invoke.cont155
-  %130 = landingpad { ptr, i32 }
+  %543 = landingpad { ptr, i32 }
           cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %exn.slot, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %ehselector.slot, align 4
+  %544 = extractvalue { ptr, i32 } %543, 0
+  store ptr %544, ptr %exn.slot, align 8
+  %545 = extractvalue { ptr, i32 } %543, 1
+  store i32 %545, ptr %ehselector.slot, align 4
   br label %ehcleanup2389
 
 lpad163:                                          ; preds = %invoke.cont158
-  %133 = landingpad { ptr, i32 }
+  %546 = landingpad { ptr, i32 }
           cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %exn.slot, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %ehselector.slot, align 4
+  %547 = extractvalue { ptr, i32 } %546, 0
+  store ptr %547, ptr %exn.slot, align 8
+  %548 = extractvalue { ptr, i32 } %546, 1
+  store i32 %548, ptr %ehselector.slot, align 4
   br label %ehcleanup2388
 
 lpad166:                                          ; preds = %invoke.cont164
-  %136 = landingpad { ptr, i32 }
+  %549 = landingpad { ptr, i32 }
           cleanup
-  %137 = extractvalue { ptr, i32 } %136, 0
-  store ptr %137, ptr %exn.slot, align 8
-  %138 = extractvalue { ptr, i32 } %136, 1
-  store i32 %138, ptr %ehselector.slot, align 4
+  %550 = extractvalue { ptr, i32 } %549, 0
+  store ptr %550, ptr %exn.slot, align 8
+  %551 = extractvalue { ptr, i32 } %549, 1
+  store i32 %551, ptr %ehselector.slot, align 4
   br label %ehcleanup2383
 
 lpad169:                                          ; preds = %invoke.cont167
-  %139 = landingpad { ptr, i32 }
+  %552 = landingpad { ptr, i32 }
           cleanup
-  %140 = extractvalue { ptr, i32 } %139, 0
-  store ptr %140, ptr %exn.slot, align 8
-  %141 = extractvalue { ptr, i32 } %139, 1
-  store i32 %141, ptr %ehselector.slot, align 4
+  %553 = extractvalue { ptr, i32 } %552, 0
+  store ptr %553, ptr %exn.slot, align 8
+  %554 = extractvalue { ptr, i32 } %552, 1
+  store i32 %554, ptr %ehselector.slot, align 4
   br label %ehcleanup2378
 
 lpad172:                                          ; preds = %invoke.cont170
-  %142 = landingpad { ptr, i32 }
+  %555 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %exn.slot, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %ehselector.slot, align 4
+  %556 = extractvalue { ptr, i32 } %555, 0
+  store ptr %556, ptr %exn.slot, align 8
+  %557 = extractvalue { ptr, i32 } %555, 1
+  store i32 %557, ptr %ehselector.slot, align 4
   br label %ehcleanup2373
 
 lpad178:                                          ; preds = %invoke.cont173
-  %145 = landingpad { ptr, i32 }
+  %558 = landingpad { ptr, i32 }
           cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %exn.slot, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %ehselector.slot, align 4
+  %559 = extractvalue { ptr, i32 } %558, 0
+  store ptr %559, ptr %exn.slot, align 8
+  %560 = extractvalue { ptr, i32 } %558, 1
+  store i32 %560, ptr %ehselector.slot, align 4
   br label %ehcleanup2372
 
 lpad181:                                          ; preds = %invoke.cont179
-  %148 = landingpad { ptr, i32 }
+  %561 = landingpad { ptr, i32 }
           cleanup
-  %149 = extractvalue { ptr, i32 } %148, 0
-  store ptr %149, ptr %exn.slot, align 8
-  %150 = extractvalue { ptr, i32 } %148, 1
-  store i32 %150, ptr %ehselector.slot, align 4
+  %562 = extractvalue { ptr, i32 } %561, 0
+  store ptr %562, ptr %exn.slot, align 8
+  %563 = extractvalue { ptr, i32 } %561, 1
+  store i32 %563, ptr %ehselector.slot, align 4
   br label %ehcleanup2367
 
 lpad184:                                          ; preds = %invoke.cont182
-  %151 = landingpad { ptr, i32 }
+  %564 = landingpad { ptr, i32 }
           cleanup
-  %152 = extractvalue { ptr, i32 } %151, 0
-  store ptr %152, ptr %exn.slot, align 8
-  %153 = extractvalue { ptr, i32 } %151, 1
-  store i32 %153, ptr %ehselector.slot, align 4
+  %565 = extractvalue { ptr, i32 } %564, 0
+  store ptr %565, ptr %exn.slot, align 8
+  %566 = extractvalue { ptr, i32 } %564, 1
+  store i32 %566, ptr %ehselector.slot, align 4
   br label %ehcleanup2362
 
 lpad187:                                          ; preds = %invoke.cont185
-  %154 = landingpad { ptr, i32 }
+  %567 = landingpad { ptr, i32 }
           cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %exn.slot, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %ehselector.slot, align 4
+  %568 = extractvalue { ptr, i32 } %567, 0
+  store ptr %568, ptr %exn.slot, align 8
+  %569 = extractvalue { ptr, i32 } %567, 1
+  store i32 %569, ptr %ehselector.slot, align 4
   br label %ehcleanup2357
 
 lpad193:                                          ; preds = %invoke.cont188
-  %157 = landingpad { ptr, i32 }
+  %570 = landingpad { ptr, i32 }
           cleanup
-  %158 = extractvalue { ptr, i32 } %157, 0
-  store ptr %158, ptr %exn.slot, align 8
-  %159 = extractvalue { ptr, i32 } %157, 1
-  store i32 %159, ptr %ehselector.slot, align 4
+  %571 = extractvalue { ptr, i32 } %570, 0
+  store ptr %571, ptr %exn.slot, align 8
+  %572 = extractvalue { ptr, i32 } %570, 1
+  store i32 %572, ptr %ehselector.slot, align 4
   br label %ehcleanup2356
 
 lpad196:                                          ; preds = %invoke.cont194
-  %160 = landingpad { ptr, i32 }
+  %573 = landingpad { ptr, i32 }
           cleanup
-  %161 = extractvalue { ptr, i32 } %160, 0
-  store ptr %161, ptr %exn.slot, align 8
-  %162 = extractvalue { ptr, i32 } %160, 1
-  store i32 %162, ptr %ehselector.slot, align 4
+  %574 = extractvalue { ptr, i32 } %573, 0
+  store ptr %574, ptr %exn.slot, align 8
+  %575 = extractvalue { ptr, i32 } %573, 1
+  store i32 %575, ptr %ehselector.slot, align 4
   br label %ehcleanup2351
 
 lpad199:                                          ; preds = %invoke.cont197
-  %163 = landingpad { ptr, i32 }
+  %576 = landingpad { ptr, i32 }
           cleanup
-  %164 = extractvalue { ptr, i32 } %163, 0
-  store ptr %164, ptr %exn.slot, align 8
-  %165 = extractvalue { ptr, i32 } %163, 1
-  store i32 %165, ptr %ehselector.slot, align 4
+  %577 = extractvalue { ptr, i32 } %576, 0
+  store ptr %577, ptr %exn.slot, align 8
+  %578 = extractvalue { ptr, i32 } %576, 1
+  store i32 %578, ptr %ehselector.slot, align 4
   br label %ehcleanup2346
 
 lpad202:                                          ; preds = %invoke.cont200
-  %166 = landingpad { ptr, i32 }
+  %579 = landingpad { ptr, i32 }
           cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %exn.slot, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %ehselector.slot, align 4
+  %580 = extractvalue { ptr, i32 } %579, 0
+  store ptr %580, ptr %exn.slot, align 8
+  %581 = extractvalue { ptr, i32 } %579, 1
+  store i32 %581, ptr %ehselector.slot, align 4
   br label %ehcleanup2341
 
 lpad208:                                          ; preds = %invoke.cont203
-  %169 = landingpad { ptr, i32 }
+  %582 = landingpad { ptr, i32 }
           cleanup
-  %170 = extractvalue { ptr, i32 } %169, 0
-  store ptr %170, ptr %exn.slot, align 8
-  %171 = extractvalue { ptr, i32 } %169, 1
-  store i32 %171, ptr %ehselector.slot, align 4
+  %583 = extractvalue { ptr, i32 } %582, 0
+  store ptr %583, ptr %exn.slot, align 8
+  %584 = extractvalue { ptr, i32 } %582, 1
+  store i32 %584, ptr %ehselector.slot, align 4
   br label %ehcleanup2340
 
 lpad211:                                          ; preds = %invoke.cont209
-  %172 = landingpad { ptr, i32 }
+  %585 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %exn.slot, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %ehselector.slot, align 4
+  %586 = extractvalue { ptr, i32 } %585, 0
+  store ptr %586, ptr %exn.slot, align 8
+  %587 = extractvalue { ptr, i32 } %585, 1
+  store i32 %587, ptr %ehselector.slot, align 4
   br label %ehcleanup2335
 
 lpad214:                                          ; preds = %invoke.cont212
-  %175 = landingpad { ptr, i32 }
+  %588 = landingpad { ptr, i32 }
           cleanup
-  %176 = extractvalue { ptr, i32 } %175, 0
-  store ptr %176, ptr %exn.slot, align 8
-  %177 = extractvalue { ptr, i32 } %175, 1
-  store i32 %177, ptr %ehselector.slot, align 4
+  %589 = extractvalue { ptr, i32 } %588, 0
+  store ptr %589, ptr %exn.slot, align 8
+  %590 = extractvalue { ptr, i32 } %588, 1
+  store i32 %590, ptr %ehselector.slot, align 4
   br label %ehcleanup2330
 
 lpad217:                                          ; preds = %invoke.cont215
-  %178 = landingpad { ptr, i32 }
+  %591 = landingpad { ptr, i32 }
           cleanup
-  %179 = extractvalue { ptr, i32 } %178, 0
-  store ptr %179, ptr %exn.slot, align 8
-  %180 = extractvalue { ptr, i32 } %178, 1
-  store i32 %180, ptr %ehselector.slot, align 4
+  %592 = extractvalue { ptr, i32 } %591, 0
+  store ptr %592, ptr %exn.slot, align 8
+  %593 = extractvalue { ptr, i32 } %591, 1
+  store i32 %593, ptr %ehselector.slot, align 4
   br label %ehcleanup2325
 
 lpad223:                                          ; preds = %invoke.cont218
-  %181 = landingpad { ptr, i32 }
+  %594 = landingpad { ptr, i32 }
           cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %exn.slot, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %ehselector.slot, align 4
+  %595 = extractvalue { ptr, i32 } %594, 0
+  store ptr %595, ptr %exn.slot, align 8
+  %596 = extractvalue { ptr, i32 } %594, 1
+  store i32 %596, ptr %ehselector.slot, align 4
   br label %ehcleanup2324
 
 lpad226:                                          ; preds = %invoke.cont224
-  %184 = landingpad { ptr, i32 }
+  %597 = landingpad { ptr, i32 }
           cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %exn.slot, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %ehselector.slot, align 4
+  %598 = extractvalue { ptr, i32 } %597, 0
+  store ptr %598, ptr %exn.slot, align 8
+  %599 = extractvalue { ptr, i32 } %597, 1
+  store i32 %599, ptr %ehselector.slot, align 4
   br label %ehcleanup2319
 
 lpad229:                                          ; preds = %invoke.cont227
-  %187 = landingpad { ptr, i32 }
+  %600 = landingpad { ptr, i32 }
           cleanup
-  %188 = extractvalue { ptr, i32 } %187, 0
-  store ptr %188, ptr %exn.slot, align 8
-  %189 = extractvalue { ptr, i32 } %187, 1
-  store i32 %189, ptr %ehselector.slot, align 4
+  %601 = extractvalue { ptr, i32 } %600, 0
+  store ptr %601, ptr %exn.slot, align 8
+  %602 = extractvalue { ptr, i32 } %600, 1
+  store i32 %602, ptr %ehselector.slot, align 4
   br label %ehcleanup2314
 
 lpad232:                                          ; preds = %invoke.cont230
-  %190 = landingpad { ptr, i32 }
+  %603 = landingpad { ptr, i32 }
           cleanup
-  %191 = extractvalue { ptr, i32 } %190, 0
-  store ptr %191, ptr %exn.slot, align 8
-  %192 = extractvalue { ptr, i32 } %190, 1
-  store i32 %192, ptr %ehselector.slot, align 4
+  %604 = extractvalue { ptr, i32 } %603, 0
+  store ptr %604, ptr %exn.slot, align 8
+  %605 = extractvalue { ptr, i32 } %603, 1
+  store i32 %605, ptr %ehselector.slot, align 4
   br label %ehcleanup2309
 
 lpad238:                                          ; preds = %invoke.cont233
-  %193 = landingpad { ptr, i32 }
+  %606 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %exn.slot, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %ehselector.slot, align 4
+  %607 = extractvalue { ptr, i32 } %606, 0
+  store ptr %607, ptr %exn.slot, align 8
+  %608 = extractvalue { ptr, i32 } %606, 1
+  store i32 %608, ptr %ehselector.slot, align 4
   br label %ehcleanup2308
 
 lpad241:                                          ; preds = %invoke.cont239
-  %196 = landingpad { ptr, i32 }
+  %609 = landingpad { ptr, i32 }
           cleanup
-  %197 = extractvalue { ptr, i32 } %196, 0
-  store ptr %197, ptr %exn.slot, align 8
-  %198 = extractvalue { ptr, i32 } %196, 1
-  store i32 %198, ptr %ehselector.slot, align 4
+  %610 = extractvalue { ptr, i32 } %609, 0
+  store ptr %610, ptr %exn.slot, align 8
+  %611 = extractvalue { ptr, i32 } %609, 1
+  store i32 %611, ptr %ehselector.slot, align 4
   br label %ehcleanup2303
 
 lpad244:                                          ; preds = %invoke.cont242
-  %199 = landingpad { ptr, i32 }
+  %612 = landingpad { ptr, i32 }
           cleanup
-  %200 = extractvalue { ptr, i32 } %199, 0
-  store ptr %200, ptr %exn.slot, align 8
-  %201 = extractvalue { ptr, i32 } %199, 1
-  store i32 %201, ptr %ehselector.slot, align 4
+  %613 = extractvalue { ptr, i32 } %612, 0
+  store ptr %613, ptr %exn.slot, align 8
+  %614 = extractvalue { ptr, i32 } %612, 1
+  store i32 %614, ptr %ehselector.slot, align 4
   br label %ehcleanup2298
 
 lpad247:                                          ; preds = %invoke.cont245
-  %202 = landingpad { ptr, i32 }
+  %615 = landingpad { ptr, i32 }
           cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %exn.slot, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %ehselector.slot, align 4
+  %616 = extractvalue { ptr, i32 } %615, 0
+  store ptr %616, ptr %exn.slot, align 8
+  %617 = extractvalue { ptr, i32 } %615, 1
+  store i32 %617, ptr %ehselector.slot, align 4
   br label %ehcleanup2293
 
 lpad253:                                          ; preds = %invoke.cont248
-  %205 = landingpad { ptr, i32 }
+  %618 = landingpad { ptr, i32 }
           cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %exn.slot, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %ehselector.slot, align 4
+  %619 = extractvalue { ptr, i32 } %618, 0
+  store ptr %619, ptr %exn.slot, align 8
+  %620 = extractvalue { ptr, i32 } %618, 1
+  store i32 %620, ptr %ehselector.slot, align 4
   br label %ehcleanup2292
 
 lpad256:                                          ; preds = %invoke.cont254
-  %208 = landingpad { ptr, i32 }
+  %621 = landingpad { ptr, i32 }
           cleanup
-  %209 = extractvalue { ptr, i32 } %208, 0
-  store ptr %209, ptr %exn.slot, align 8
-  %210 = extractvalue { ptr, i32 } %208, 1
-  store i32 %210, ptr %ehselector.slot, align 4
+  %622 = extractvalue { ptr, i32 } %621, 0
+  store ptr %622, ptr %exn.slot, align 8
+  %623 = extractvalue { ptr, i32 } %621, 1
+  store i32 %623, ptr %ehselector.slot, align 4
   br label %ehcleanup2287
 
 lpad259:                                          ; preds = %invoke.cont257
-  %211 = landingpad { ptr, i32 }
+  %624 = landingpad { ptr, i32 }
           cleanup
-  %212 = extractvalue { ptr, i32 } %211, 0
-  store ptr %212, ptr %exn.slot, align 8
-  %213 = extractvalue { ptr, i32 } %211, 1
-  store i32 %213, ptr %ehselector.slot, align 4
+  %625 = extractvalue { ptr, i32 } %624, 0
+  store ptr %625, ptr %exn.slot, align 8
+  %626 = extractvalue { ptr, i32 } %624, 1
+  store i32 %626, ptr %ehselector.slot, align 4
   br label %ehcleanup2282
 
 lpad262:                                          ; preds = %invoke.cont260
-  %214 = landingpad { ptr, i32 }
+  %627 = landingpad { ptr, i32 }
           cleanup
-  %215 = extractvalue { ptr, i32 } %214, 0
-  store ptr %215, ptr %exn.slot, align 8
-  %216 = extractvalue { ptr, i32 } %214, 1
-  store i32 %216, ptr %ehselector.slot, align 4
+  %628 = extractvalue { ptr, i32 } %627, 0
+  store ptr %628, ptr %exn.slot, align 8
+  %629 = extractvalue { ptr, i32 } %627, 1
+  store i32 %629, ptr %ehselector.slot, align 4
   br label %ehcleanup2277
 
 lpad268:                                          ; preds = %invoke.cont263
-  %217 = landingpad { ptr, i32 }
+  %630 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %exn.slot, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %ehselector.slot, align 4
+  %631 = extractvalue { ptr, i32 } %630, 0
+  store ptr %631, ptr %exn.slot, align 8
+  %632 = extractvalue { ptr, i32 } %630, 1
+  store i32 %632, ptr %ehselector.slot, align 4
   br label %ehcleanup2276
 
 lpad271:                                          ; preds = %invoke.cont269
-  %220 = landingpad { ptr, i32 }
+  %633 = landingpad { ptr, i32 }
           cleanup
-  %221 = extractvalue { ptr, i32 } %220, 0
-  store ptr %221, ptr %exn.slot, align 8
-  %222 = extractvalue { ptr, i32 } %220, 1
-  store i32 %222, ptr %ehselector.slot, align 4
+  %634 = extractvalue { ptr, i32 } %633, 0
+  store ptr %634, ptr %exn.slot, align 8
+  %635 = extractvalue { ptr, i32 } %633, 1
+  store i32 %635, ptr %ehselector.slot, align 4
   br label %ehcleanup2271
 
 lpad274:                                          ; preds = %invoke.cont272
-  %223 = landingpad { ptr, i32 }
+  %636 = landingpad { ptr, i32 }
           cleanup
-  %224 = extractvalue { ptr, i32 } %223, 0
-  store ptr %224, ptr %exn.slot, align 8
-  %225 = extractvalue { ptr, i32 } %223, 1
-  store i32 %225, ptr %ehselector.slot, align 4
+  %637 = extractvalue { ptr, i32 } %636, 0
+  store ptr %637, ptr %exn.slot, align 8
+  %638 = extractvalue { ptr, i32 } %636, 1
+  store i32 %638, ptr %ehselector.slot, align 4
   br label %ehcleanup2266
 
 lpad277:                                          ; preds = %invoke.cont275
-  %226 = landingpad { ptr, i32 }
+  %639 = landingpad { ptr, i32 }
           cleanup
-  %227 = extractvalue { ptr, i32 } %226, 0
-  store ptr %227, ptr %exn.slot, align 8
-  %228 = extractvalue { ptr, i32 } %226, 1
-  store i32 %228, ptr %ehselector.slot, align 4
+  %640 = extractvalue { ptr, i32 } %639, 0
+  store ptr %640, ptr %exn.slot, align 8
+  %641 = extractvalue { ptr, i32 } %639, 1
+  store i32 %641, ptr %ehselector.slot, align 4
   br label %ehcleanup2261
 
 lpad283:                                          ; preds = %invoke.cont278
-  %229 = landingpad { ptr, i32 }
+  %642 = landingpad { ptr, i32 }
           cleanup
-  %230 = extractvalue { ptr, i32 } %229, 0
-  store ptr %230, ptr %exn.slot, align 8
-  %231 = extractvalue { ptr, i32 } %229, 1
-  store i32 %231, ptr %ehselector.slot, align 4
+  %643 = extractvalue { ptr, i32 } %642, 0
+  store ptr %643, ptr %exn.slot, align 8
+  %644 = extractvalue { ptr, i32 } %642, 1
+  store i32 %644, ptr %ehselector.slot, align 4
   br label %ehcleanup2260
 
 lpad286:                                          ; preds = %invoke.cont284
-  %232 = landingpad { ptr, i32 }
+  %645 = landingpad { ptr, i32 }
           cleanup
-  %233 = extractvalue { ptr, i32 } %232, 0
-  store ptr %233, ptr %exn.slot, align 8
-  %234 = extractvalue { ptr, i32 } %232, 1
-  store i32 %234, ptr %ehselector.slot, align 4
+  %646 = extractvalue { ptr, i32 } %645, 0
+  store ptr %646, ptr %exn.slot, align 8
+  %647 = extractvalue { ptr, i32 } %645, 1
+  store i32 %647, ptr %ehselector.slot, align 4
   br label %ehcleanup2255
 
 lpad289:                                          ; preds = %invoke.cont287
-  %235 = landingpad { ptr, i32 }
+  %648 = landingpad { ptr, i32 }
           cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %exn.slot, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %ehselector.slot, align 4
+  %649 = extractvalue { ptr, i32 } %648, 0
+  store ptr %649, ptr %exn.slot, align 8
+  %650 = extractvalue { ptr, i32 } %648, 1
+  store i32 %650, ptr %ehselector.slot, align 4
   br label %ehcleanup2250
 
 lpad292:                                          ; preds = %invoke.cont290
-  %238 = landingpad { ptr, i32 }
+  %651 = landingpad { ptr, i32 }
           cleanup
-  %239 = extractvalue { ptr, i32 } %238, 0
-  store ptr %239, ptr %exn.slot, align 8
-  %240 = extractvalue { ptr, i32 } %238, 1
-  store i32 %240, ptr %ehselector.slot, align 4
+  %652 = extractvalue { ptr, i32 } %651, 0
+  store ptr %652, ptr %exn.slot, align 8
+  %653 = extractvalue { ptr, i32 } %651, 1
+  store i32 %653, ptr %ehselector.slot, align 4
   br label %ehcleanup2245
 
 lpad298:                                          ; preds = %invoke.cont293
-  %241 = landingpad { ptr, i32 }
+  %654 = landingpad { ptr, i32 }
           cleanup
-  %242 = extractvalue { ptr, i32 } %241, 0
-  store ptr %242, ptr %exn.slot, align 8
-  %243 = extractvalue { ptr, i32 } %241, 1
-  store i32 %243, ptr %ehselector.slot, align 4
+  %655 = extractvalue { ptr, i32 } %654, 0
+  store ptr %655, ptr %exn.slot, align 8
+  %656 = extractvalue { ptr, i32 } %654, 1
+  store i32 %656, ptr %ehselector.slot, align 4
   br label %ehcleanup2244
 
 lpad301:                                          ; preds = %invoke.cont299
-  %244 = landingpad { ptr, i32 }
+  %657 = landingpad { ptr, i32 }
           cleanup
-  %245 = extractvalue { ptr, i32 } %244, 0
-  store ptr %245, ptr %exn.slot, align 8
-  %246 = extractvalue { ptr, i32 } %244, 1
-  store i32 %246, ptr %ehselector.slot, align 4
+  %658 = extractvalue { ptr, i32 } %657, 0
+  store ptr %658, ptr %exn.slot, align 8
+  %659 = extractvalue { ptr, i32 } %657, 1
+  store i32 %659, ptr %ehselector.slot, align 4
   br label %ehcleanup2239
 
 lpad304:                                          ; preds = %invoke.cont302
-  %247 = landingpad { ptr, i32 }
+  %660 = landingpad { ptr, i32 }
           cleanup
-  %248 = extractvalue { ptr, i32 } %247, 0
-  store ptr %248, ptr %exn.slot, align 8
-  %249 = extractvalue { ptr, i32 } %247, 1
-  store i32 %249, ptr %ehselector.slot, align 4
+  %661 = extractvalue { ptr, i32 } %660, 0
+  store ptr %661, ptr %exn.slot, align 8
+  %662 = extractvalue { ptr, i32 } %660, 1
+  store i32 %662, ptr %ehselector.slot, align 4
   br label %ehcleanup2234
 
 lpad307:                                          ; preds = %invoke.cont305
-  %250 = landingpad { ptr, i32 }
+  %663 = landingpad { ptr, i32 }
           cleanup
-  %251 = extractvalue { ptr, i32 } %250, 0
-  store ptr %251, ptr %exn.slot, align 8
-  %252 = extractvalue { ptr, i32 } %250, 1
-  store i32 %252, ptr %ehselector.slot, align 4
+  %664 = extractvalue { ptr, i32 } %663, 0
+  store ptr %664, ptr %exn.slot, align 8
+  %665 = extractvalue { ptr, i32 } %663, 1
+  store i32 %665, ptr %ehselector.slot, align 4
   br label %ehcleanup2229
 
 lpad313:                                          ; preds = %invoke.cont308
-  %253 = landingpad { ptr, i32 }
+  %666 = landingpad { ptr, i32 }
           cleanup
-  %254 = extractvalue { ptr, i32 } %253, 0
-  store ptr %254, ptr %exn.slot, align 8
-  %255 = extractvalue { ptr, i32 } %253, 1
-  store i32 %255, ptr %ehselector.slot, align 4
+  %667 = extractvalue { ptr, i32 } %666, 0
+  store ptr %667, ptr %exn.slot, align 8
+  %668 = extractvalue { ptr, i32 } %666, 1
+  store i32 %668, ptr %ehselector.slot, align 4
   br label %ehcleanup2228
 
 lpad316:                                          ; preds = %invoke.cont314
-  %256 = landingpad { ptr, i32 }
+  %669 = landingpad { ptr, i32 }
           cleanup
-  %257 = extractvalue { ptr, i32 } %256, 0
-  store ptr %257, ptr %exn.slot, align 8
-  %258 = extractvalue { ptr, i32 } %256, 1
-  store i32 %258, ptr %ehselector.slot, align 4
+  %670 = extractvalue { ptr, i32 } %669, 0
+  store ptr %670, ptr %exn.slot, align 8
+  %671 = extractvalue { ptr, i32 } %669, 1
+  store i32 %671, ptr %ehselector.slot, align 4
   br label %ehcleanup2223
 
 lpad319:                                          ; preds = %invoke.cont317
-  %259 = landingpad { ptr, i32 }
+  %672 = landingpad { ptr, i32 }
           cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %exn.slot, align 8
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %ehselector.slot, align 4
+  %673 = extractvalue { ptr, i32 } %672, 0
+  store ptr %673, ptr %exn.slot, align 8
+  %674 = extractvalue { ptr, i32 } %672, 1
+  store i32 %674, ptr %ehselector.slot, align 4
   br label %ehcleanup2218
 
 lpad322:                                          ; preds = %invoke.cont320
-  %262 = landingpad { ptr, i32 }
+  %675 = landingpad { ptr, i32 }
           cleanup
-  %263 = extractvalue { ptr, i32 } %262, 0
-  store ptr %263, ptr %exn.slot, align 8
-  %264 = extractvalue { ptr, i32 } %262, 1
-  store i32 %264, ptr %ehselector.slot, align 4
+  %676 = extractvalue { ptr, i32 } %675, 0
+  store ptr %676, ptr %exn.slot, align 8
+  %677 = extractvalue { ptr, i32 } %675, 1
+  store i32 %677, ptr %ehselector.slot, align 4
   br label %ehcleanup2213
 
 lpad328:                                          ; preds = %invoke.cont323
-  %265 = landingpad { ptr, i32 }
+  %678 = landingpad { ptr, i32 }
           cleanup
-  %266 = extractvalue { ptr, i32 } %265, 0
-  store ptr %266, ptr %exn.slot, align 8
-  %267 = extractvalue { ptr, i32 } %265, 1
-  store i32 %267, ptr %ehselector.slot, align 4
+  %679 = extractvalue { ptr, i32 } %678, 0
+  store ptr %679, ptr %exn.slot, align 8
+  %680 = extractvalue { ptr, i32 } %678, 1
+  store i32 %680, ptr %ehselector.slot, align 4
   br label %ehcleanup2212
 
 lpad331:                                          ; preds = %invoke.cont329
-  %268 = landingpad { ptr, i32 }
+  %681 = landingpad { ptr, i32 }
           cleanup
-  %269 = extractvalue { ptr, i32 } %268, 0
-  store ptr %269, ptr %exn.slot, align 8
-  %270 = extractvalue { ptr, i32 } %268, 1
-  store i32 %270, ptr %ehselector.slot, align 4
+  %682 = extractvalue { ptr, i32 } %681, 0
+  store ptr %682, ptr %exn.slot, align 8
+  %683 = extractvalue { ptr, i32 } %681, 1
+  store i32 %683, ptr %ehselector.slot, align 4
   br label %ehcleanup2207
 
 lpad334:                                          ; preds = %invoke.cont332
-  %271 = landingpad { ptr, i32 }
+  %684 = landingpad { ptr, i32 }
           cleanup
-  %272 = extractvalue { ptr, i32 } %271, 0
-  store ptr %272, ptr %exn.slot, align 8
-  %273 = extractvalue { ptr, i32 } %271, 1
-  store i32 %273, ptr %ehselector.slot, align 4
+  %685 = extractvalue { ptr, i32 } %684, 0
+  store ptr %685, ptr %exn.slot, align 8
+  %686 = extractvalue { ptr, i32 } %684, 1
+  store i32 %686, ptr %ehselector.slot, align 4
   br label %ehcleanup2202
 
 lpad337:                                          ; preds = %invoke.cont335
-  %274 = landingpad { ptr, i32 }
+  %687 = landingpad { ptr, i32 }
           cleanup
-  %275 = extractvalue { ptr, i32 } %274, 0
-  store ptr %275, ptr %exn.slot, align 8
-  %276 = extractvalue { ptr, i32 } %274, 1
-  store i32 %276, ptr %ehselector.slot, align 4
+  %688 = extractvalue { ptr, i32 } %687, 0
+  store ptr %688, ptr %exn.slot, align 8
+  %689 = extractvalue { ptr, i32 } %687, 1
+  store i32 %689, ptr %ehselector.slot, align 4
   br label %ehcleanup2197
 
 lpad343:                                          ; preds = %invoke.cont338
-  %277 = landingpad { ptr, i32 }
+  %690 = landingpad { ptr, i32 }
           cleanup
-  %278 = extractvalue { ptr, i32 } %277, 0
-  store ptr %278, ptr %exn.slot, align 8
-  %279 = extractvalue { ptr, i32 } %277, 1
-  store i32 %279, ptr %ehselector.slot, align 4
+  %691 = extractvalue { ptr, i32 } %690, 0
+  store ptr %691, ptr %exn.slot, align 8
+  %692 = extractvalue { ptr, i32 } %690, 1
+  store i32 %692, ptr %ehselector.slot, align 4
   br label %ehcleanup2196
 
 lpad346:                                          ; preds = %invoke.cont344
-  %280 = landingpad { ptr, i32 }
+  %693 = landingpad { ptr, i32 }
           cleanup
-  %281 = extractvalue { ptr, i32 } %280, 0
-  store ptr %281, ptr %exn.slot, align 8
-  %282 = extractvalue { ptr, i32 } %280, 1
-  store i32 %282, ptr %ehselector.slot, align 4
+  %694 = extractvalue { ptr, i32 } %693, 0
+  store ptr %694, ptr %exn.slot, align 8
+  %695 = extractvalue { ptr, i32 } %693, 1
+  store i32 %695, ptr %ehselector.slot, align 4
   br label %ehcleanup2191
 
 lpad349:                                          ; preds = %invoke.cont347
-  %283 = landingpad { ptr, i32 }
+  %696 = landingpad { ptr, i32 }
           cleanup
-  %284 = extractvalue { ptr, i32 } %283, 0
-  store ptr %284, ptr %exn.slot, align 8
-  %285 = extractvalue { ptr, i32 } %283, 1
-  store i32 %285, ptr %ehselector.slot, align 4
+  %697 = extractvalue { ptr, i32 } %696, 0
+  store ptr %697, ptr %exn.slot, align 8
+  %698 = extractvalue { ptr, i32 } %696, 1
+  store i32 %698, ptr %ehselector.slot, align 4
   br label %ehcleanup2186
 
 lpad352:                                          ; preds = %invoke.cont350
-  %286 = landingpad { ptr, i32 }
+  %699 = landingpad { ptr, i32 }
           cleanup
-  %287 = extractvalue { ptr, i32 } %286, 0
-  store ptr %287, ptr %exn.slot, align 8
-  %288 = extractvalue { ptr, i32 } %286, 1
-  store i32 %288, ptr %ehselector.slot, align 4
+  %700 = extractvalue { ptr, i32 } %699, 0
+  store ptr %700, ptr %exn.slot, align 8
+  %701 = extractvalue { ptr, i32 } %699, 1
+  store i32 %701, ptr %ehselector.slot, align 4
   br label %ehcleanup2181
 
 lpad358:                                          ; preds = %invoke.cont353
-  %289 = landingpad { ptr, i32 }
+  %702 = landingpad { ptr, i32 }
           cleanup
-  %290 = extractvalue { ptr, i32 } %289, 0
-  store ptr %290, ptr %exn.slot, align 8
-  %291 = extractvalue { ptr, i32 } %289, 1
-  store i32 %291, ptr %ehselector.slot, align 4
+  %703 = extractvalue { ptr, i32 } %702, 0
+  store ptr %703, ptr %exn.slot, align 8
+  %704 = extractvalue { ptr, i32 } %702, 1
+  store i32 %704, ptr %ehselector.slot, align 4
   br label %ehcleanup2180
 
 lpad361:                                          ; preds = %invoke.cont359
-  %292 = landingpad { ptr, i32 }
+  %705 = landingpad { ptr, i32 }
           cleanup
-  %293 = extractvalue { ptr, i32 } %292, 0
-  store ptr %293, ptr %exn.slot, align 8
-  %294 = extractvalue { ptr, i32 } %292, 1
-  store i32 %294, ptr %ehselector.slot, align 4
+  %706 = extractvalue { ptr, i32 } %705, 0
+  store ptr %706, ptr %exn.slot, align 8
+  %707 = extractvalue { ptr, i32 } %705, 1
+  store i32 %707, ptr %ehselector.slot, align 4
   br label %ehcleanup2175
 
 lpad364:                                          ; preds = %invoke.cont362
-  %295 = landingpad { ptr, i32 }
+  %708 = landingpad { ptr, i32 }
           cleanup
-  %296 = extractvalue { ptr, i32 } %295, 0
-  store ptr %296, ptr %exn.slot, align 8
-  %297 = extractvalue { ptr, i32 } %295, 1
-  store i32 %297, ptr %ehselector.slot, align 4
+  %709 = extractvalue { ptr, i32 } %708, 0
+  store ptr %709, ptr %exn.slot, align 8
+  %710 = extractvalue { ptr, i32 } %708, 1
+  store i32 %710, ptr %ehselector.slot, align 4
   br label %ehcleanup2170
 
 lpad367:                                          ; preds = %invoke.cont365
-  %298 = landingpad { ptr, i32 }
+  %711 = landingpad { ptr, i32 }
           cleanup
-  %299 = extractvalue { ptr, i32 } %298, 0
-  store ptr %299, ptr %exn.slot, align 8
-  %300 = extractvalue { ptr, i32 } %298, 1
-  store i32 %300, ptr %ehselector.slot, align 4
+  %712 = extractvalue { ptr, i32 } %711, 0
+  store ptr %712, ptr %exn.slot, align 8
+  %713 = extractvalue { ptr, i32 } %711, 1
+  store i32 %713, ptr %ehselector.slot, align 4
   br label %ehcleanup2165
 
 lpad373:                                          ; preds = %invoke.cont368
-  %301 = landingpad { ptr, i32 }
+  %714 = landingpad { ptr, i32 }
           cleanup
-  %302 = extractvalue { ptr, i32 } %301, 0
-  store ptr %302, ptr %exn.slot, align 8
-  %303 = extractvalue { ptr, i32 } %301, 1
-  store i32 %303, ptr %ehselector.slot, align 4
+  %715 = extractvalue { ptr, i32 } %714, 0
+  store ptr %715, ptr %exn.slot, align 8
+  %716 = extractvalue { ptr, i32 } %714, 1
+  store i32 %716, ptr %ehselector.slot, align 4
   br label %ehcleanup2164
 
 lpad376:                                          ; preds = %invoke.cont374
-  %304 = landingpad { ptr, i32 }
+  %717 = landingpad { ptr, i32 }
           cleanup
-  %305 = extractvalue { ptr, i32 } %304, 0
-  store ptr %305, ptr %exn.slot, align 8
-  %306 = extractvalue { ptr, i32 } %304, 1
-  store i32 %306, ptr %ehselector.slot, align 4
+  %718 = extractvalue { ptr, i32 } %717, 0
+  store ptr %718, ptr %exn.slot, align 8
+  %719 = extractvalue { ptr, i32 } %717, 1
+  store i32 %719, ptr %ehselector.slot, align 4
   br label %ehcleanup2159
 
 lpad379:                                          ; preds = %invoke.cont377
-  %307 = landingpad { ptr, i32 }
+  %720 = landingpad { ptr, i32 }
           cleanup
-  %308 = extractvalue { ptr, i32 } %307, 0
-  store ptr %308, ptr %exn.slot, align 8
-  %309 = extractvalue { ptr, i32 } %307, 1
-  store i32 %309, ptr %ehselector.slot, align 4
+  %721 = extractvalue { ptr, i32 } %720, 0
+  store ptr %721, ptr %exn.slot, align 8
+  %722 = extractvalue { ptr, i32 } %720, 1
+  store i32 %722, ptr %ehselector.slot, align 4
   br label %ehcleanup2154
 
 lpad382:                                          ; preds = %invoke.cont380
-  %310 = landingpad { ptr, i32 }
+  %723 = landingpad { ptr, i32 }
           cleanup
-  %311 = extractvalue { ptr, i32 } %310, 0
-  store ptr %311, ptr %exn.slot, align 8
-  %312 = extractvalue { ptr, i32 } %310, 1
-  store i32 %312, ptr %ehselector.slot, align 4
+  %724 = extractvalue { ptr, i32 } %723, 0
+  store ptr %724, ptr %exn.slot, align 8
+  %725 = extractvalue { ptr, i32 } %723, 1
+  store i32 %725, ptr %ehselector.slot, align 4
   br label %ehcleanup2149
 
 lpad388:                                          ; preds = %invoke.cont383
-  %313 = landingpad { ptr, i32 }
+  %726 = landingpad { ptr, i32 }
           cleanup
-  %314 = extractvalue { ptr, i32 } %313, 0
-  store ptr %314, ptr %exn.slot, align 8
-  %315 = extractvalue { ptr, i32 } %313, 1
-  store i32 %315, ptr %ehselector.slot, align 4
+  %727 = extractvalue { ptr, i32 } %726, 0
+  store ptr %727, ptr %exn.slot, align 8
+  %728 = extractvalue { ptr, i32 } %726, 1
+  store i32 %728, ptr %ehselector.slot, align 4
   br label %ehcleanup2148
 
 lpad391:                                          ; preds = %invoke.cont389
-  %316 = landingpad { ptr, i32 }
+  %729 = landingpad { ptr, i32 }
           cleanup
-  %317 = extractvalue { ptr, i32 } %316, 0
-  store ptr %317, ptr %exn.slot, align 8
-  %318 = extractvalue { ptr, i32 } %316, 1
-  store i32 %318, ptr %ehselector.slot, align 4
+  %730 = extractvalue { ptr, i32 } %729, 0
+  store ptr %730, ptr %exn.slot, align 8
+  %731 = extractvalue { ptr, i32 } %729, 1
+  store i32 %731, ptr %ehselector.slot, align 4
   br label %ehcleanup2143
 
 lpad394:                                          ; preds = %invoke.cont392
-  %319 = landingpad { ptr, i32 }
+  %732 = landingpad { ptr, i32 }
           cleanup
-  %320 = extractvalue { ptr, i32 } %319, 0
-  store ptr %320, ptr %exn.slot, align 8
-  %321 = extractvalue { ptr, i32 } %319, 1
-  store i32 %321, ptr %ehselector.slot, align 4
+  %733 = extractvalue { ptr, i32 } %732, 0
+  store ptr %733, ptr %exn.slot, align 8
+  %734 = extractvalue { ptr, i32 } %732, 1
+  store i32 %734, ptr %ehselector.slot, align 4
   br label %ehcleanup2138
 
 lpad397:                                          ; preds = %invoke.cont395
-  %322 = landingpad { ptr, i32 }
+  %735 = landingpad { ptr, i32 }
           cleanup
-  %323 = extractvalue { ptr, i32 } %322, 0
-  store ptr %323, ptr %exn.slot, align 8
-  %324 = extractvalue { ptr, i32 } %322, 1
-  store i32 %324, ptr %ehselector.slot, align 4
+  %736 = extractvalue { ptr, i32 } %735, 0
+  store ptr %736, ptr %exn.slot, align 8
+  %737 = extractvalue { ptr, i32 } %735, 1
+  store i32 %737, ptr %ehselector.slot, align 4
   br label %ehcleanup2133
 
 lpad403:                                          ; preds = %invoke.cont398
-  %325 = landingpad { ptr, i32 }
+  %738 = landingpad { ptr, i32 }
           cleanup
-  %326 = extractvalue { ptr, i32 } %325, 0
-  store ptr %326, ptr %exn.slot, align 8
-  %327 = extractvalue { ptr, i32 } %325, 1
-  store i32 %327, ptr %ehselector.slot, align 4
+  %739 = extractvalue { ptr, i32 } %738, 0
+  store ptr %739, ptr %exn.slot, align 8
+  %740 = extractvalue { ptr, i32 } %738, 1
+  store i32 %740, ptr %ehselector.slot, align 4
   br label %ehcleanup2132
 
 lpad406:                                          ; preds = %invoke.cont404
-  %328 = landingpad { ptr, i32 }
+  %741 = landingpad { ptr, i32 }
           cleanup
-  %329 = extractvalue { ptr, i32 } %328, 0
-  store ptr %329, ptr %exn.slot, align 8
-  %330 = extractvalue { ptr, i32 } %328, 1
-  store i32 %330, ptr %ehselector.slot, align 4
+  %742 = extractvalue { ptr, i32 } %741, 0
+  store ptr %742, ptr %exn.slot, align 8
+  %743 = extractvalue { ptr, i32 } %741, 1
+  store i32 %743, ptr %ehselector.slot, align 4
   br label %ehcleanup2127
 
 lpad409:                                          ; preds = %invoke.cont407
-  %331 = landingpad { ptr, i32 }
+  %744 = landingpad { ptr, i32 }
           cleanup
-  %332 = extractvalue { ptr, i32 } %331, 0
-  store ptr %332, ptr %exn.slot, align 8
-  %333 = extractvalue { ptr, i32 } %331, 1
-  store i32 %333, ptr %ehselector.slot, align 4
+  %745 = extractvalue { ptr, i32 } %744, 0
+  store ptr %745, ptr %exn.slot, align 8
+  %746 = extractvalue { ptr, i32 } %744, 1
+  store i32 %746, ptr %ehselector.slot, align 4
   br label %ehcleanup2122
 
 lpad412:                                          ; preds = %invoke.cont410
-  %334 = landingpad { ptr, i32 }
+  %747 = landingpad { ptr, i32 }
           cleanup
-  %335 = extractvalue { ptr, i32 } %334, 0
-  store ptr %335, ptr %exn.slot, align 8
-  %336 = extractvalue { ptr, i32 } %334, 1
-  store i32 %336, ptr %ehselector.slot, align 4
+  %748 = extractvalue { ptr, i32 } %747, 0
+  store ptr %748, ptr %exn.slot, align 8
+  %749 = extractvalue { ptr, i32 } %747, 1
+  store i32 %749, ptr %ehselector.slot, align 4
   br label %ehcleanup2117
 
 lpad418:                                          ; preds = %invoke.cont413
-  %337 = landingpad { ptr, i32 }
+  %750 = landingpad { ptr, i32 }
           cleanup
-  %338 = extractvalue { ptr, i32 } %337, 0
-  store ptr %338, ptr %exn.slot, align 8
-  %339 = extractvalue { ptr, i32 } %337, 1
-  store i32 %339, ptr %ehselector.slot, align 4
+  %751 = extractvalue { ptr, i32 } %750, 0
+  store ptr %751, ptr %exn.slot, align 8
+  %752 = extractvalue { ptr, i32 } %750, 1
+  store i32 %752, ptr %ehselector.slot, align 4
   br label %ehcleanup2116
 
 lpad421:                                          ; preds = %invoke.cont419
-  %340 = landingpad { ptr, i32 }
+  %753 = landingpad { ptr, i32 }
           cleanup
-  %341 = extractvalue { ptr, i32 } %340, 0
-  store ptr %341, ptr %exn.slot, align 8
-  %342 = extractvalue { ptr, i32 } %340, 1
-  store i32 %342, ptr %ehselector.slot, align 4
+  %754 = extractvalue { ptr, i32 } %753, 0
+  store ptr %754, ptr %exn.slot, align 8
+  %755 = extractvalue { ptr, i32 } %753, 1
+  store i32 %755, ptr %ehselector.slot, align 4
   br label %ehcleanup2111
 
 lpad424:                                          ; preds = %invoke.cont422
-  %343 = landingpad { ptr, i32 }
+  %756 = landingpad { ptr, i32 }
           cleanup
-  %344 = extractvalue { ptr, i32 } %343, 0
-  store ptr %344, ptr %exn.slot, align 8
-  %345 = extractvalue { ptr, i32 } %343, 1
-  store i32 %345, ptr %ehselector.slot, align 4
+  %757 = extractvalue { ptr, i32 } %756, 0
+  store ptr %757, ptr %exn.slot, align 8
+  %758 = extractvalue { ptr, i32 } %756, 1
+  store i32 %758, ptr %ehselector.slot, align 4
   br label %ehcleanup2106
 
 lpad427:                                          ; preds = %invoke.cont425
-  %346 = landingpad { ptr, i32 }
+  %759 = landingpad { ptr, i32 }
           cleanup
-  %347 = extractvalue { ptr, i32 } %346, 0
-  store ptr %347, ptr %exn.slot, align 8
-  %348 = extractvalue { ptr, i32 } %346, 1
-  store i32 %348, ptr %ehselector.slot, align 4
+  %760 = extractvalue { ptr, i32 } %759, 0
+  store ptr %760, ptr %exn.slot, align 8
+  %761 = extractvalue { ptr, i32 } %759, 1
+  store i32 %761, ptr %ehselector.slot, align 4
   br label %ehcleanup2101
 
 lpad433:                                          ; preds = %invoke.cont428
-  %349 = landingpad { ptr, i32 }
+  %762 = landingpad { ptr, i32 }
           cleanup
-  %350 = extractvalue { ptr, i32 } %349, 0
-  store ptr %350, ptr %exn.slot, align 8
-  %351 = extractvalue { ptr, i32 } %349, 1
-  store i32 %351, ptr %ehselector.slot, align 4
+  %763 = extractvalue { ptr, i32 } %762, 0
+  store ptr %763, ptr %exn.slot, align 8
+  %764 = extractvalue { ptr, i32 } %762, 1
+  store i32 %764, ptr %ehselector.slot, align 4
   br label %ehcleanup2100
 
 lpad436:                                          ; preds = %invoke.cont434
-  %352 = landingpad { ptr, i32 }
+  %765 = landingpad { ptr, i32 }
           cleanup
-  %353 = extractvalue { ptr, i32 } %352, 0
-  store ptr %353, ptr %exn.slot, align 8
-  %354 = extractvalue { ptr, i32 } %352, 1
-  store i32 %354, ptr %ehselector.slot, align 4
+  %766 = extractvalue { ptr, i32 } %765, 0
+  store ptr %766, ptr %exn.slot, align 8
+  %767 = extractvalue { ptr, i32 } %765, 1
+  store i32 %767, ptr %ehselector.slot, align 4
   br label %ehcleanup2095
 
 lpad439:                                          ; preds = %invoke.cont437
-  %355 = landingpad { ptr, i32 }
+  %768 = landingpad { ptr, i32 }
           cleanup
-  %356 = extractvalue { ptr, i32 } %355, 0
-  store ptr %356, ptr %exn.slot, align 8
-  %357 = extractvalue { ptr, i32 } %355, 1
-  store i32 %357, ptr %ehselector.slot, align 4
+  %769 = extractvalue { ptr, i32 } %768, 0
+  store ptr %769, ptr %exn.slot, align 8
+  %770 = extractvalue { ptr, i32 } %768, 1
+  store i32 %770, ptr %ehselector.slot, align 4
   br label %ehcleanup2090
 
 lpad442:                                          ; preds = %invoke.cont440
-  %358 = landingpad { ptr, i32 }
+  %771 = landingpad { ptr, i32 }
           cleanup
-  %359 = extractvalue { ptr, i32 } %358, 0
-  store ptr %359, ptr %exn.slot, align 8
-  %360 = extractvalue { ptr, i32 } %358, 1
-  store i32 %360, ptr %ehselector.slot, align 4
+  %772 = extractvalue { ptr, i32 } %771, 0
+  store ptr %772, ptr %exn.slot, align 8
+  %773 = extractvalue { ptr, i32 } %771, 1
+  store i32 %773, ptr %ehselector.slot, align 4
   br label %ehcleanup2085
 
 lpad448:                                          ; preds = %invoke.cont443
-  %361 = landingpad { ptr, i32 }
+  %774 = landingpad { ptr, i32 }
           cleanup
-  %362 = extractvalue { ptr, i32 } %361, 0
-  store ptr %362, ptr %exn.slot, align 8
-  %363 = extractvalue { ptr, i32 } %361, 1
-  store i32 %363, ptr %ehselector.slot, align 4
+  %775 = extractvalue { ptr, i32 } %774, 0
+  store ptr %775, ptr %exn.slot, align 8
+  %776 = extractvalue { ptr, i32 } %774, 1
+  store i32 %776, ptr %ehselector.slot, align 4
   br label %ehcleanup2084
 
 lpad451:                                          ; preds = %invoke.cont449
-  %364 = landingpad { ptr, i32 }
+  %777 = landingpad { ptr, i32 }
           cleanup
-  %365 = extractvalue { ptr, i32 } %364, 0
-  store ptr %365, ptr %exn.slot, align 8
-  %366 = extractvalue { ptr, i32 } %364, 1
-  store i32 %366, ptr %ehselector.slot, align 4
+  %778 = extractvalue { ptr, i32 } %777, 0
+  store ptr %778, ptr %exn.slot, align 8
+  %779 = extractvalue { ptr, i32 } %777, 1
+  store i32 %779, ptr %ehselector.slot, align 4
   br label %ehcleanup2079
 
 lpad454:                                          ; preds = %invoke.cont452
-  %367 = landingpad { ptr, i32 }
+  %780 = landingpad { ptr, i32 }
           cleanup
-  %368 = extractvalue { ptr, i32 } %367, 0
-  store ptr %368, ptr %exn.slot, align 8
-  %369 = extractvalue { ptr, i32 } %367, 1
-  store i32 %369, ptr %ehselector.slot, align 4
+  %781 = extractvalue { ptr, i32 } %780, 0
+  store ptr %781, ptr %exn.slot, align 8
+  %782 = extractvalue { ptr, i32 } %780, 1
+  store i32 %782, ptr %ehselector.slot, align 4
   br label %ehcleanup2074
 
 lpad457:                                          ; preds = %invoke.cont455
-  %370 = landingpad { ptr, i32 }
+  %783 = landingpad { ptr, i32 }
           cleanup
-  %371 = extractvalue { ptr, i32 } %370, 0
-  store ptr %371, ptr %exn.slot, align 8
-  %372 = extractvalue { ptr, i32 } %370, 1
-  store i32 %372, ptr %ehselector.slot, align 4
+  %784 = extractvalue { ptr, i32 } %783, 0
+  store ptr %784, ptr %exn.slot, align 8
+  %785 = extractvalue { ptr, i32 } %783, 1
+  store i32 %785, ptr %ehselector.slot, align 4
   br label %ehcleanup2069
 
 lpad463:                                          ; preds = %invoke.cont458
-  %373 = landingpad { ptr, i32 }
+  %786 = landingpad { ptr, i32 }
           cleanup
-  %374 = extractvalue { ptr, i32 } %373, 0
-  store ptr %374, ptr %exn.slot, align 8
-  %375 = extractvalue { ptr, i32 } %373, 1
-  store i32 %375, ptr %ehselector.slot, align 4
+  %787 = extractvalue { ptr, i32 } %786, 0
+  store ptr %787, ptr %exn.slot, align 8
+  %788 = extractvalue { ptr, i32 } %786, 1
+  store i32 %788, ptr %ehselector.slot, align 4
   br label %ehcleanup2068
 
 lpad466:                                          ; preds = %invoke.cont464
-  %376 = landingpad { ptr, i32 }
+  %789 = landingpad { ptr, i32 }
           cleanup
-  %377 = extractvalue { ptr, i32 } %376, 0
-  store ptr %377, ptr %exn.slot, align 8
-  %378 = extractvalue { ptr, i32 } %376, 1
-  store i32 %378, ptr %ehselector.slot, align 4
+  %790 = extractvalue { ptr, i32 } %789, 0
+  store ptr %790, ptr %exn.slot, align 8
+  %791 = extractvalue { ptr, i32 } %789, 1
+  store i32 %791, ptr %ehselector.slot, align 4
   br label %ehcleanup2063
 
 lpad469:                                          ; preds = %invoke.cont467
-  %379 = landingpad { ptr, i32 }
+  %792 = landingpad { ptr, i32 }
           cleanup
-  %380 = extractvalue { ptr, i32 } %379, 0
-  store ptr %380, ptr %exn.slot, align 8
-  %381 = extractvalue { ptr, i32 } %379, 1
-  store i32 %381, ptr %ehselector.slot, align 4
+  %793 = extractvalue { ptr, i32 } %792, 0
+  store ptr %793, ptr %exn.slot, align 8
+  %794 = extractvalue { ptr, i32 } %792, 1
+  store i32 %794, ptr %ehselector.slot, align 4
   br label %ehcleanup2058
 
 lpad472:                                          ; preds = %invoke.cont470
-  %382 = landingpad { ptr, i32 }
+  %795 = landingpad { ptr, i32 }
           cleanup
-  %383 = extractvalue { ptr, i32 } %382, 0
-  store ptr %383, ptr %exn.slot, align 8
-  %384 = extractvalue { ptr, i32 } %382, 1
-  store i32 %384, ptr %ehselector.slot, align 4
+  %796 = extractvalue { ptr, i32 } %795, 0
+  store ptr %796, ptr %exn.slot, align 8
+  %797 = extractvalue { ptr, i32 } %795, 1
+  store i32 %797, ptr %ehselector.slot, align 4
   br label %ehcleanup2053
 
 lpad478:                                          ; preds = %invoke.cont473
-  %385 = landingpad { ptr, i32 }
+  %798 = landingpad { ptr, i32 }
           cleanup
-  %386 = extractvalue { ptr, i32 } %385, 0
-  store ptr %386, ptr %exn.slot, align 8
-  %387 = extractvalue { ptr, i32 } %385, 1
-  store i32 %387, ptr %ehselector.slot, align 4
+  %799 = extractvalue { ptr, i32 } %798, 0
+  store ptr %799, ptr %exn.slot, align 8
+  %800 = extractvalue { ptr, i32 } %798, 1
+  store i32 %800, ptr %ehselector.slot, align 4
   br label %ehcleanup2052
 
 lpad481:                                          ; preds = %invoke.cont479
-  %388 = landingpad { ptr, i32 }
+  %801 = landingpad { ptr, i32 }
           cleanup
-  %389 = extractvalue { ptr, i32 } %388, 0
-  store ptr %389, ptr %exn.slot, align 8
-  %390 = extractvalue { ptr, i32 } %388, 1
-  store i32 %390, ptr %ehselector.slot, align 4
+  %802 = extractvalue { ptr, i32 } %801, 0
+  store ptr %802, ptr %exn.slot, align 8
+  %803 = extractvalue { ptr, i32 } %801, 1
+  store i32 %803, ptr %ehselector.slot, align 4
   br label %ehcleanup2047
 
 lpad484:                                          ; preds = %invoke.cont482
-  %391 = landingpad { ptr, i32 }
+  %804 = landingpad { ptr, i32 }
           cleanup
-  %392 = extractvalue { ptr, i32 } %391, 0
-  store ptr %392, ptr %exn.slot, align 8
-  %393 = extractvalue { ptr, i32 } %391, 1
-  store i32 %393, ptr %ehselector.slot, align 4
+  %805 = extractvalue { ptr, i32 } %804, 0
+  store ptr %805, ptr %exn.slot, align 8
+  %806 = extractvalue { ptr, i32 } %804, 1
+  store i32 %806, ptr %ehselector.slot, align 4
   br label %ehcleanup2042
 
 lpad487:                                          ; preds = %invoke.cont485
-  %394 = landingpad { ptr, i32 }
+  %807 = landingpad { ptr, i32 }
           cleanup
-  %395 = extractvalue { ptr, i32 } %394, 0
-  store ptr %395, ptr %exn.slot, align 8
-  %396 = extractvalue { ptr, i32 } %394, 1
-  store i32 %396, ptr %ehselector.slot, align 4
+  %808 = extractvalue { ptr, i32 } %807, 0
+  store ptr %808, ptr %exn.slot, align 8
+  %809 = extractvalue { ptr, i32 } %807, 1
+  store i32 %809, ptr %ehselector.slot, align 4
   br label %ehcleanup2037
 
 lpad493:                                          ; preds = %invoke.cont488
-  %397 = landingpad { ptr, i32 }
+  %810 = landingpad { ptr, i32 }
           cleanup
-  %398 = extractvalue { ptr, i32 } %397, 0
-  store ptr %398, ptr %exn.slot, align 8
-  %399 = extractvalue { ptr, i32 } %397, 1
-  store i32 %399, ptr %ehselector.slot, align 4
+  %811 = extractvalue { ptr, i32 } %810, 0
+  store ptr %811, ptr %exn.slot, align 8
+  %812 = extractvalue { ptr, i32 } %810, 1
+  store i32 %812, ptr %ehselector.slot, align 4
   br label %ehcleanup2036
 
 lpad496:                                          ; preds = %invoke.cont494
-  %400 = landingpad { ptr, i32 }
+  %813 = landingpad { ptr, i32 }
           cleanup
-  %401 = extractvalue { ptr, i32 } %400, 0
-  store ptr %401, ptr %exn.slot, align 8
-  %402 = extractvalue { ptr, i32 } %400, 1
-  store i32 %402, ptr %ehselector.slot, align 4
+  %814 = extractvalue { ptr, i32 } %813, 0
+  store ptr %814, ptr %exn.slot, align 8
+  %815 = extractvalue { ptr, i32 } %813, 1
+  store i32 %815, ptr %ehselector.slot, align 4
   br label %ehcleanup2031
 
 lpad499:                                          ; preds = %invoke.cont497
-  %403 = landingpad { ptr, i32 }
+  %816 = landingpad { ptr, i32 }
           cleanup
-  %404 = extractvalue { ptr, i32 } %403, 0
-  store ptr %404, ptr %exn.slot, align 8
-  %405 = extractvalue { ptr, i32 } %403, 1
-  store i32 %405, ptr %ehselector.slot, align 4
+  %817 = extractvalue { ptr, i32 } %816, 0
+  store ptr %817, ptr %exn.slot, align 8
+  %818 = extractvalue { ptr, i32 } %816, 1
+  store i32 %818, ptr %ehselector.slot, align 4
   br label %ehcleanup2026
 
 lpad502:                                          ; preds = %invoke.cont500
-  %406 = landingpad { ptr, i32 }
+  %819 = landingpad { ptr, i32 }
           cleanup
-  %407 = extractvalue { ptr, i32 } %406, 0
-  store ptr %407, ptr %exn.slot, align 8
-  %408 = extractvalue { ptr, i32 } %406, 1
-  store i32 %408, ptr %ehselector.slot, align 4
+  %820 = extractvalue { ptr, i32 } %819, 0
+  store ptr %820, ptr %exn.slot, align 8
+  %821 = extractvalue { ptr, i32 } %819, 1
+  store i32 %821, ptr %ehselector.slot, align 4
   br label %ehcleanup2021
 
 lpad508:                                          ; preds = %invoke.cont503
-  %409 = landingpad { ptr, i32 }
+  %822 = landingpad { ptr, i32 }
           cleanup
-  %410 = extractvalue { ptr, i32 } %409, 0
-  store ptr %410, ptr %exn.slot, align 8
-  %411 = extractvalue { ptr, i32 } %409, 1
-  store i32 %411, ptr %ehselector.slot, align 4
+  %823 = extractvalue { ptr, i32 } %822, 0
+  store ptr %823, ptr %exn.slot, align 8
+  %824 = extractvalue { ptr, i32 } %822, 1
+  store i32 %824, ptr %ehselector.slot, align 4
   br label %ehcleanup2020
 
 lpad511:                                          ; preds = %invoke.cont509
-  %412 = landingpad { ptr, i32 }
+  %825 = landingpad { ptr, i32 }
           cleanup
-  %413 = extractvalue { ptr, i32 } %412, 0
-  store ptr %413, ptr %exn.slot, align 8
-  %414 = extractvalue { ptr, i32 } %412, 1
-  store i32 %414, ptr %ehselector.slot, align 4
+  %826 = extractvalue { ptr, i32 } %825, 0
+  store ptr %826, ptr %exn.slot, align 8
+  %827 = extractvalue { ptr, i32 } %825, 1
+  store i32 %827, ptr %ehselector.slot, align 4
   br label %ehcleanup2015
 
 lpad514:                                          ; preds = %invoke.cont512
-  %415 = landingpad { ptr, i32 }
+  %828 = landingpad { ptr, i32 }
           cleanup
-  %416 = extractvalue { ptr, i32 } %415, 0
-  store ptr %416, ptr %exn.slot, align 8
-  %417 = extractvalue { ptr, i32 } %415, 1
-  store i32 %417, ptr %ehselector.slot, align 4
+  %829 = extractvalue { ptr, i32 } %828, 0
+  store ptr %829, ptr %exn.slot, align 8
+  %830 = extractvalue { ptr, i32 } %828, 1
+  store i32 %830, ptr %ehselector.slot, align 4
   br label %ehcleanup2010
 
 lpad517:                                          ; preds = %invoke.cont515
-  %418 = landingpad { ptr, i32 }
+  %831 = landingpad { ptr, i32 }
           cleanup
-  %419 = extractvalue { ptr, i32 } %418, 0
-  store ptr %419, ptr %exn.slot, align 8
-  %420 = extractvalue { ptr, i32 } %418, 1
-  store i32 %420, ptr %ehselector.slot, align 4
+  %832 = extractvalue { ptr, i32 } %831, 0
+  store ptr %832, ptr %exn.slot, align 8
+  %833 = extractvalue { ptr, i32 } %831, 1
+  store i32 %833, ptr %ehselector.slot, align 4
   br label %ehcleanup2005
 
 lpad523:                                          ; preds = %invoke.cont518
-  %421 = landingpad { ptr, i32 }
+  %834 = landingpad { ptr, i32 }
           cleanup
-  %422 = extractvalue { ptr, i32 } %421, 0
-  store ptr %422, ptr %exn.slot, align 8
-  %423 = extractvalue { ptr, i32 } %421, 1
-  store i32 %423, ptr %ehselector.slot, align 4
+  %835 = extractvalue { ptr, i32 } %834, 0
+  store ptr %835, ptr %exn.slot, align 8
+  %836 = extractvalue { ptr, i32 } %834, 1
+  store i32 %836, ptr %ehselector.slot, align 4
   br label %ehcleanup2004
 
 lpad526:                                          ; preds = %invoke.cont524
-  %424 = landingpad { ptr, i32 }
+  %837 = landingpad { ptr, i32 }
           cleanup
-  %425 = extractvalue { ptr, i32 } %424, 0
-  store ptr %425, ptr %exn.slot, align 8
-  %426 = extractvalue { ptr, i32 } %424, 1
-  store i32 %426, ptr %ehselector.slot, align 4
+  %838 = extractvalue { ptr, i32 } %837, 0
+  store ptr %838, ptr %exn.slot, align 8
+  %839 = extractvalue { ptr, i32 } %837, 1
+  store i32 %839, ptr %ehselector.slot, align 4
   br label %ehcleanup1999
 
 lpad529:                                          ; preds = %invoke.cont527
-  %427 = landingpad { ptr, i32 }
+  %840 = landingpad { ptr, i32 }
           cleanup
-  %428 = extractvalue { ptr, i32 } %427, 0
-  store ptr %428, ptr %exn.slot, align 8
-  %429 = extractvalue { ptr, i32 } %427, 1
-  store i32 %429, ptr %ehselector.slot, align 4
+  %841 = extractvalue { ptr, i32 } %840, 0
+  store ptr %841, ptr %exn.slot, align 8
+  %842 = extractvalue { ptr, i32 } %840, 1
+  store i32 %842, ptr %ehselector.slot, align 4
   br label %ehcleanup1994
 
 lpad532:                                          ; preds = %invoke.cont530
-  %430 = landingpad { ptr, i32 }
+  %843 = landingpad { ptr, i32 }
           cleanup
-  %431 = extractvalue { ptr, i32 } %430, 0
-  store ptr %431, ptr %exn.slot, align 8
-  %432 = extractvalue { ptr, i32 } %430, 1
-  store i32 %432, ptr %ehselector.slot, align 4
+  %844 = extractvalue { ptr, i32 } %843, 0
+  store ptr %844, ptr %exn.slot, align 8
+  %845 = extractvalue { ptr, i32 } %843, 1
+  store i32 %845, ptr %ehselector.slot, align 4
   br label %ehcleanup1989
 
 lpad538:                                          ; preds = %invoke.cont533
-  %433 = landingpad { ptr, i32 }
+  %846 = landingpad { ptr, i32 }
           cleanup
-  %434 = extractvalue { ptr, i32 } %433, 0
-  store ptr %434, ptr %exn.slot, align 8
-  %435 = extractvalue { ptr, i32 } %433, 1
-  store i32 %435, ptr %ehselector.slot, align 4
+  %847 = extractvalue { ptr, i32 } %846, 0
+  store ptr %847, ptr %exn.slot, align 8
+  %848 = extractvalue { ptr, i32 } %846, 1
+  store i32 %848, ptr %ehselector.slot, align 4
   br label %ehcleanup1988
 
 lpad541:                                          ; preds = %invoke.cont539
-  %436 = landingpad { ptr, i32 }
+  %849 = landingpad { ptr, i32 }
           cleanup
-  %437 = extractvalue { ptr, i32 } %436, 0
-  store ptr %437, ptr %exn.slot, align 8
-  %438 = extractvalue { ptr, i32 } %436, 1
-  store i32 %438, ptr %ehselector.slot, align 4
+  %850 = extractvalue { ptr, i32 } %849, 0
+  store ptr %850, ptr %exn.slot, align 8
+  %851 = extractvalue { ptr, i32 } %849, 1
+  store i32 %851, ptr %ehselector.slot, align 4
   br label %ehcleanup1983
 
 lpad544:                                          ; preds = %invoke.cont542
-  %439 = landingpad { ptr, i32 }
+  %852 = landingpad { ptr, i32 }
           cleanup
-  %440 = extractvalue { ptr, i32 } %439, 0
-  store ptr %440, ptr %exn.slot, align 8
-  %441 = extractvalue { ptr, i32 } %439, 1
-  store i32 %441, ptr %ehselector.slot, align 4
+  %853 = extractvalue { ptr, i32 } %852, 0
+  store ptr %853, ptr %exn.slot, align 8
+  %854 = extractvalue { ptr, i32 } %852, 1
+  store i32 %854, ptr %ehselector.slot, align 4
   br label %ehcleanup1978
 
 lpad547:                                          ; preds = %invoke.cont545
-  %442 = landingpad { ptr, i32 }
+  %855 = landingpad { ptr, i32 }
           cleanup
-  %443 = extractvalue { ptr, i32 } %442, 0
-  store ptr %443, ptr %exn.slot, align 8
-  %444 = extractvalue { ptr, i32 } %442, 1
-  store i32 %444, ptr %ehselector.slot, align 4
+  %856 = extractvalue { ptr, i32 } %855, 0
+  store ptr %856, ptr %exn.slot, align 8
+  %857 = extractvalue { ptr, i32 } %855, 1
+  store i32 %857, ptr %ehselector.slot, align 4
   br label %ehcleanup1973
 
 lpad553:                                          ; preds = %invoke.cont548
-  %445 = landingpad { ptr, i32 }
+  %858 = landingpad { ptr, i32 }
           cleanup
-  %446 = extractvalue { ptr, i32 } %445, 0
-  store ptr %446, ptr %exn.slot, align 8
-  %447 = extractvalue { ptr, i32 } %445, 1
-  store i32 %447, ptr %ehselector.slot, align 4
+  %859 = extractvalue { ptr, i32 } %858, 0
+  store ptr %859, ptr %exn.slot, align 8
+  %860 = extractvalue { ptr, i32 } %858, 1
+  store i32 %860, ptr %ehselector.slot, align 4
   br label %ehcleanup1972
 
 lpad556:                                          ; preds = %invoke.cont554
-  %448 = landingpad { ptr, i32 }
+  %861 = landingpad { ptr, i32 }
           cleanup
-  %449 = extractvalue { ptr, i32 } %448, 0
-  store ptr %449, ptr %exn.slot, align 8
-  %450 = extractvalue { ptr, i32 } %448, 1
-  store i32 %450, ptr %ehselector.slot, align 4
+  %862 = extractvalue { ptr, i32 } %861, 0
+  store ptr %862, ptr %exn.slot, align 8
+  %863 = extractvalue { ptr, i32 } %861, 1
+  store i32 %863, ptr %ehselector.slot, align 4
   br label %ehcleanup1967
 
 lpad559:                                          ; preds = %invoke.cont557
-  %451 = landingpad { ptr, i32 }
+  %864 = landingpad { ptr, i32 }
           cleanup
-  %452 = extractvalue { ptr, i32 } %451, 0
-  store ptr %452, ptr %exn.slot, align 8
-  %453 = extractvalue { ptr, i32 } %451, 1
-  store i32 %453, ptr %ehselector.slot, align 4
+  %865 = extractvalue { ptr, i32 } %864, 0
+  store ptr %865, ptr %exn.slot, align 8
+  %866 = extractvalue { ptr, i32 } %864, 1
+  store i32 %866, ptr %ehselector.slot, align 4
   br label %ehcleanup1962
 
 lpad562:                                          ; preds = %invoke.cont560
-  %454 = landingpad { ptr, i32 }
+  %867 = landingpad { ptr, i32 }
           cleanup
-  %455 = extractvalue { ptr, i32 } %454, 0
-  store ptr %455, ptr %exn.slot, align 8
-  %456 = extractvalue { ptr, i32 } %454, 1
-  store i32 %456, ptr %ehselector.slot, align 4
+  %868 = extractvalue { ptr, i32 } %867, 0
+  store ptr %868, ptr %exn.slot, align 8
+  %869 = extractvalue { ptr, i32 } %867, 1
+  store i32 %869, ptr %ehselector.slot, align 4
   br label %ehcleanup1957
 
 lpad568:                                          ; preds = %invoke.cont563
-  %457 = landingpad { ptr, i32 }
+  %870 = landingpad { ptr, i32 }
           cleanup
-  %458 = extractvalue { ptr, i32 } %457, 0
-  store ptr %458, ptr %exn.slot, align 8
-  %459 = extractvalue { ptr, i32 } %457, 1
-  store i32 %459, ptr %ehselector.slot, align 4
+  %871 = extractvalue { ptr, i32 } %870, 0
+  store ptr %871, ptr %exn.slot, align 8
+  %872 = extractvalue { ptr, i32 } %870, 1
+  store i32 %872, ptr %ehselector.slot, align 4
   br label %ehcleanup1956
 
 lpad571:                                          ; preds = %invoke.cont569
-  %460 = landingpad { ptr, i32 }
+  %873 = landingpad { ptr, i32 }
           cleanup
-  %461 = extractvalue { ptr, i32 } %460, 0
-  store ptr %461, ptr %exn.slot, align 8
-  %462 = extractvalue { ptr, i32 } %460, 1
-  store i32 %462, ptr %ehselector.slot, align 4
+  %874 = extractvalue { ptr, i32 } %873, 0
+  store ptr %874, ptr %exn.slot, align 8
+  %875 = extractvalue { ptr, i32 } %873, 1
+  store i32 %875, ptr %ehselector.slot, align 4
   br label %ehcleanup1951
 
 lpad574:                                          ; preds = %invoke.cont572
-  %463 = landingpad { ptr, i32 }
+  %876 = landingpad { ptr, i32 }
           cleanup
-  %464 = extractvalue { ptr, i32 } %463, 0
-  store ptr %464, ptr %exn.slot, align 8
-  %465 = extractvalue { ptr, i32 } %463, 1
-  store i32 %465, ptr %ehselector.slot, align 4
+  %877 = extractvalue { ptr, i32 } %876, 0
+  store ptr %877, ptr %exn.slot, align 8
+  %878 = extractvalue { ptr, i32 } %876, 1
+  store i32 %878, ptr %ehselector.slot, align 4
   br label %ehcleanup1946
 
 lpad577:                                          ; preds = %invoke.cont575
-  %466 = landingpad { ptr, i32 }
+  %879 = landingpad { ptr, i32 }
           cleanup
-  %467 = extractvalue { ptr, i32 } %466, 0
-  store ptr %467, ptr %exn.slot, align 8
-  %468 = extractvalue { ptr, i32 } %466, 1
-  store i32 %468, ptr %ehselector.slot, align 4
+  %880 = extractvalue { ptr, i32 } %879, 0
+  store ptr %880, ptr %exn.slot, align 8
+  %881 = extractvalue { ptr, i32 } %879, 1
+  store i32 %881, ptr %ehselector.slot, align 4
   br label %ehcleanup1941
 
 lpad583:                                          ; preds = %invoke.cont578
-  %469 = landingpad { ptr, i32 }
+  %882 = landingpad { ptr, i32 }
           cleanup
-  %470 = extractvalue { ptr, i32 } %469, 0
-  store ptr %470, ptr %exn.slot, align 8
-  %471 = extractvalue { ptr, i32 } %469, 1
-  store i32 %471, ptr %ehselector.slot, align 4
+  %883 = extractvalue { ptr, i32 } %882, 0
+  store ptr %883, ptr %exn.slot, align 8
+  %884 = extractvalue { ptr, i32 } %882, 1
+  store i32 %884, ptr %ehselector.slot, align 4
   br label %ehcleanup1940
 
 lpad586:                                          ; preds = %invoke.cont584
-  %472 = landingpad { ptr, i32 }
+  %885 = landingpad { ptr, i32 }
           cleanup
-  %473 = extractvalue { ptr, i32 } %472, 0
-  store ptr %473, ptr %exn.slot, align 8
-  %474 = extractvalue { ptr, i32 } %472, 1
-  store i32 %474, ptr %ehselector.slot, align 4
+  %886 = extractvalue { ptr, i32 } %885, 0
+  store ptr %886, ptr %exn.slot, align 8
+  %887 = extractvalue { ptr, i32 } %885, 1
+  store i32 %887, ptr %ehselector.slot, align 4
   br label %ehcleanup1935
 
 lpad589:                                          ; preds = %invoke.cont587
-  %475 = landingpad { ptr, i32 }
+  %888 = landingpad { ptr, i32 }
           cleanup
-  %476 = extractvalue { ptr, i32 } %475, 0
-  store ptr %476, ptr %exn.slot, align 8
-  %477 = extractvalue { ptr, i32 } %475, 1
-  store i32 %477, ptr %ehselector.slot, align 4
+  %889 = extractvalue { ptr, i32 } %888, 0
+  store ptr %889, ptr %exn.slot, align 8
+  %890 = extractvalue { ptr, i32 } %888, 1
+  store i32 %890, ptr %ehselector.slot, align 4
   br label %ehcleanup1930
 
 lpad592:                                          ; preds = %invoke.cont590
-  %478 = landingpad { ptr, i32 }
+  %891 = landingpad { ptr, i32 }
           cleanup
-  %479 = extractvalue { ptr, i32 } %478, 0
-  store ptr %479, ptr %exn.slot, align 8
-  %480 = extractvalue { ptr, i32 } %478, 1
-  store i32 %480, ptr %ehselector.slot, align 4
+  %892 = extractvalue { ptr, i32 } %891, 0
+  store ptr %892, ptr %exn.slot, align 8
+  %893 = extractvalue { ptr, i32 } %891, 1
+  store i32 %893, ptr %ehselector.slot, align 4
   br label %ehcleanup1925
 
 lpad598:                                          ; preds = %invoke.cont593
-  %481 = landingpad { ptr, i32 }
+  %894 = landingpad { ptr, i32 }
           cleanup
-  %482 = extractvalue { ptr, i32 } %481, 0
-  store ptr %482, ptr %exn.slot, align 8
-  %483 = extractvalue { ptr, i32 } %481, 1
-  store i32 %483, ptr %ehselector.slot, align 4
+  %895 = extractvalue { ptr, i32 } %894, 0
+  store ptr %895, ptr %exn.slot, align 8
+  %896 = extractvalue { ptr, i32 } %894, 1
+  store i32 %896, ptr %ehselector.slot, align 4
   br label %ehcleanup1924
 
 lpad601:                                          ; preds = %invoke.cont599
-  %484 = landingpad { ptr, i32 }
+  %897 = landingpad { ptr, i32 }
           cleanup
-  %485 = extractvalue { ptr, i32 } %484, 0
-  store ptr %485, ptr %exn.slot, align 8
-  %486 = extractvalue { ptr, i32 } %484, 1
-  store i32 %486, ptr %ehselector.slot, align 4
+  %898 = extractvalue { ptr, i32 } %897, 0
+  store ptr %898, ptr %exn.slot, align 8
+  %899 = extractvalue { ptr, i32 } %897, 1
+  store i32 %899, ptr %ehselector.slot, align 4
   br label %ehcleanup1919
 
 lpad604:                                          ; preds = %invoke.cont602
-  %487 = landingpad { ptr, i32 }
+  %900 = landingpad { ptr, i32 }
           cleanup
-  %488 = extractvalue { ptr, i32 } %487, 0
-  store ptr %488, ptr %exn.slot, align 8
-  %489 = extractvalue { ptr, i32 } %487, 1
-  store i32 %489, ptr %ehselector.slot, align 4
+  %901 = extractvalue { ptr, i32 } %900, 0
+  store ptr %901, ptr %exn.slot, align 8
+  %902 = extractvalue { ptr, i32 } %900, 1
+  store i32 %902, ptr %ehselector.slot, align 4
   br label %ehcleanup1914
 
 lpad607:                                          ; preds = %invoke.cont605
-  %490 = landingpad { ptr, i32 }
+  %903 = landingpad { ptr, i32 }
           cleanup
-  %491 = extractvalue { ptr, i32 } %490, 0
-  store ptr %491, ptr %exn.slot, align 8
-  %492 = extractvalue { ptr, i32 } %490, 1
-  store i32 %492, ptr %ehselector.slot, align 4
+  %904 = extractvalue { ptr, i32 } %903, 0
+  store ptr %904, ptr %exn.slot, align 8
+  %905 = extractvalue { ptr, i32 } %903, 1
+  store i32 %905, ptr %ehselector.slot, align 4
   br label %ehcleanup1909
 
 lpad613:                                          ; preds = %invoke.cont608
-  %493 = landingpad { ptr, i32 }
+  %906 = landingpad { ptr, i32 }
           cleanup
-  %494 = extractvalue { ptr, i32 } %493, 0
-  store ptr %494, ptr %exn.slot, align 8
-  %495 = extractvalue { ptr, i32 } %493, 1
-  store i32 %495, ptr %ehselector.slot, align 4
+  %907 = extractvalue { ptr, i32 } %906, 0
+  store ptr %907, ptr %exn.slot, align 8
+  %908 = extractvalue { ptr, i32 } %906, 1
+  store i32 %908, ptr %ehselector.slot, align 4
   br label %ehcleanup1908
 
 lpad616:                                          ; preds = %invoke.cont614
-  %496 = landingpad { ptr, i32 }
+  %909 = landingpad { ptr, i32 }
           cleanup
-  %497 = extractvalue { ptr, i32 } %496, 0
-  store ptr %497, ptr %exn.slot, align 8
-  %498 = extractvalue { ptr, i32 } %496, 1
-  store i32 %498, ptr %ehselector.slot, align 4
+  %910 = extractvalue { ptr, i32 } %909, 0
+  store ptr %910, ptr %exn.slot, align 8
+  %911 = extractvalue { ptr, i32 } %909, 1
+  store i32 %911, ptr %ehselector.slot, align 4
   br label %ehcleanup1903
 
 lpad619:                                          ; preds = %invoke.cont617
-  %499 = landingpad { ptr, i32 }
+  %912 = landingpad { ptr, i32 }
           cleanup
-  %500 = extractvalue { ptr, i32 } %499, 0
-  store ptr %500, ptr %exn.slot, align 8
-  %501 = extractvalue { ptr, i32 } %499, 1
-  store i32 %501, ptr %ehselector.slot, align 4
+  %913 = extractvalue { ptr, i32 } %912, 0
+  store ptr %913, ptr %exn.slot, align 8
+  %914 = extractvalue { ptr, i32 } %912, 1
+  store i32 %914, ptr %ehselector.slot, align 4
   br label %ehcleanup1898
 
 lpad622:                                          ; preds = %invoke.cont620
-  %502 = landingpad { ptr, i32 }
+  %915 = landingpad { ptr, i32 }
           cleanup
-  %503 = extractvalue { ptr, i32 } %502, 0
-  store ptr %503, ptr %exn.slot, align 8
-  %504 = extractvalue { ptr, i32 } %502, 1
-  store i32 %504, ptr %ehselector.slot, align 4
+  %916 = extractvalue { ptr, i32 } %915, 0
+  store ptr %916, ptr %exn.slot, align 8
+  %917 = extractvalue { ptr, i32 } %915, 1
+  store i32 %917, ptr %ehselector.slot, align 4
   br label %ehcleanup1893
 
 lpad628:                                          ; preds = %invoke.cont623
-  %505 = landingpad { ptr, i32 }
+  %918 = landingpad { ptr, i32 }
           cleanup
-  %506 = extractvalue { ptr, i32 } %505, 0
-  store ptr %506, ptr %exn.slot, align 8
-  %507 = extractvalue { ptr, i32 } %505, 1
-  store i32 %507, ptr %ehselector.slot, align 4
+  %919 = extractvalue { ptr, i32 } %918, 0
+  store ptr %919, ptr %exn.slot, align 8
+  %920 = extractvalue { ptr, i32 } %918, 1
+  store i32 %920, ptr %ehselector.slot, align 4
   br label %ehcleanup1892
 
 lpad631:                                          ; preds = %invoke.cont629
-  %508 = landingpad { ptr, i32 }
+  %921 = landingpad { ptr, i32 }
           cleanup
-  %509 = extractvalue { ptr, i32 } %508, 0
-  store ptr %509, ptr %exn.slot, align 8
-  %510 = extractvalue { ptr, i32 } %508, 1
-  store i32 %510, ptr %ehselector.slot, align 4
+  %922 = extractvalue { ptr, i32 } %921, 0
+  store ptr %922, ptr %exn.slot, align 8
+  %923 = extractvalue { ptr, i32 } %921, 1
+  store i32 %923, ptr %ehselector.slot, align 4
   br label %ehcleanup1887
 
 lpad634:                                          ; preds = %invoke.cont632
-  %511 = landingpad { ptr, i32 }
+  %924 = landingpad { ptr, i32 }
           cleanup
-  %512 = extractvalue { ptr, i32 } %511, 0
-  store ptr %512, ptr %exn.slot, align 8
-  %513 = extractvalue { ptr, i32 } %511, 1
-  store i32 %513, ptr %ehselector.slot, align 4
+  %925 = extractvalue { ptr, i32 } %924, 0
+  store ptr %925, ptr %exn.slot, align 8
+  %926 = extractvalue { ptr, i32 } %924, 1
+  store i32 %926, ptr %ehselector.slot, align 4
   br label %ehcleanup1882
 
 lpad637:                                          ; preds = %invoke.cont635
-  %514 = landingpad { ptr, i32 }
+  %927 = landingpad { ptr, i32 }
           cleanup
-  %515 = extractvalue { ptr, i32 } %514, 0
-  store ptr %515, ptr %exn.slot, align 8
-  %516 = extractvalue { ptr, i32 } %514, 1
-  store i32 %516, ptr %ehselector.slot, align 4
+  %928 = extractvalue { ptr, i32 } %927, 0
+  store ptr %928, ptr %exn.slot, align 8
+  %929 = extractvalue { ptr, i32 } %927, 1
+  store i32 %929, ptr %ehselector.slot, align 4
   br label %ehcleanup1877
 
 lpad643:                                          ; preds = %invoke.cont638
-  %517 = landingpad { ptr, i32 }
+  %930 = landingpad { ptr, i32 }
           cleanup
-  %518 = extractvalue { ptr, i32 } %517, 0
-  store ptr %518, ptr %exn.slot, align 8
-  %519 = extractvalue { ptr, i32 } %517, 1
-  store i32 %519, ptr %ehselector.slot, align 4
+  %931 = extractvalue { ptr, i32 } %930, 0
+  store ptr %931, ptr %exn.slot, align 8
+  %932 = extractvalue { ptr, i32 } %930, 1
+  store i32 %932, ptr %ehselector.slot, align 4
   br label %ehcleanup1876
 
 lpad646:                                          ; preds = %invoke.cont644
-  %520 = landingpad { ptr, i32 }
+  %933 = landingpad { ptr, i32 }
           cleanup
-  %521 = extractvalue { ptr, i32 } %520, 0
-  store ptr %521, ptr %exn.slot, align 8
-  %522 = extractvalue { ptr, i32 } %520, 1
-  store i32 %522, ptr %ehselector.slot, align 4
+  %934 = extractvalue { ptr, i32 } %933, 0
+  store ptr %934, ptr %exn.slot, align 8
+  %935 = extractvalue { ptr, i32 } %933, 1
+  store i32 %935, ptr %ehselector.slot, align 4
   br label %ehcleanup1871
 
 lpad649:                                          ; preds = %invoke.cont647
-  %523 = landingpad { ptr, i32 }
+  %936 = landingpad { ptr, i32 }
           cleanup
-  %524 = extractvalue { ptr, i32 } %523, 0
-  store ptr %524, ptr %exn.slot, align 8
-  %525 = extractvalue { ptr, i32 } %523, 1
-  store i32 %525, ptr %ehselector.slot, align 4
+  %937 = extractvalue { ptr, i32 } %936, 0
+  store ptr %937, ptr %exn.slot, align 8
+  %938 = extractvalue { ptr, i32 } %936, 1
+  store i32 %938, ptr %ehselector.slot, align 4
   br label %ehcleanup1866
 
 lpad652:                                          ; preds = %invoke.cont650
-  %526 = landingpad { ptr, i32 }
+  %939 = landingpad { ptr, i32 }
           cleanup
-  %527 = extractvalue { ptr, i32 } %526, 0
-  store ptr %527, ptr %exn.slot, align 8
-  %528 = extractvalue { ptr, i32 } %526, 1
-  store i32 %528, ptr %ehselector.slot, align 4
+  %940 = extractvalue { ptr, i32 } %939, 0
+  store ptr %940, ptr %exn.slot, align 8
+  %941 = extractvalue { ptr, i32 } %939, 1
+  store i32 %941, ptr %ehselector.slot, align 4
   br label %ehcleanup1861
 
 lpad658:                                          ; preds = %invoke.cont653
-  %529 = landingpad { ptr, i32 }
+  %942 = landingpad { ptr, i32 }
           cleanup
-  %530 = extractvalue { ptr, i32 } %529, 0
-  store ptr %530, ptr %exn.slot, align 8
-  %531 = extractvalue { ptr, i32 } %529, 1
-  store i32 %531, ptr %ehselector.slot, align 4
+  %943 = extractvalue { ptr, i32 } %942, 0
+  store ptr %943, ptr %exn.slot, align 8
+  %944 = extractvalue { ptr, i32 } %942, 1
+  store i32 %944, ptr %ehselector.slot, align 4
   br label %ehcleanup1860
 
 lpad661:                                          ; preds = %invoke.cont659
-  %532 = landingpad { ptr, i32 }
+  %945 = landingpad { ptr, i32 }
           cleanup
-  %533 = extractvalue { ptr, i32 } %532, 0
-  store ptr %533, ptr %exn.slot, align 8
-  %534 = extractvalue { ptr, i32 } %532, 1
-  store i32 %534, ptr %ehselector.slot, align 4
+  %946 = extractvalue { ptr, i32 } %945, 0
+  store ptr %946, ptr %exn.slot, align 8
+  %947 = extractvalue { ptr, i32 } %945, 1
+  store i32 %947, ptr %ehselector.slot, align 4
   br label %ehcleanup1855
 
 lpad664:                                          ; preds = %invoke.cont662
-  %535 = landingpad { ptr, i32 }
+  %948 = landingpad { ptr, i32 }
           cleanup
-  %536 = extractvalue { ptr, i32 } %535, 0
-  store ptr %536, ptr %exn.slot, align 8
-  %537 = extractvalue { ptr, i32 } %535, 1
-  store i32 %537, ptr %ehselector.slot, align 4
+  %949 = extractvalue { ptr, i32 } %948, 0
+  store ptr %949, ptr %exn.slot, align 8
+  %950 = extractvalue { ptr, i32 } %948, 1
+  store i32 %950, ptr %ehselector.slot, align 4
   br label %ehcleanup1850
 
 lpad667:                                          ; preds = %invoke.cont665
-  %538 = landingpad { ptr, i32 }
+  %951 = landingpad { ptr, i32 }
           cleanup
-  %539 = extractvalue { ptr, i32 } %538, 0
-  store ptr %539, ptr %exn.slot, align 8
-  %540 = extractvalue { ptr, i32 } %538, 1
-  store i32 %540, ptr %ehselector.slot, align 4
+  %952 = extractvalue { ptr, i32 } %951, 0
+  store ptr %952, ptr %exn.slot, align 8
+  %953 = extractvalue { ptr, i32 } %951, 1
+  store i32 %953, ptr %ehselector.slot, align 4
   br label %ehcleanup1845
 
 lpad673:                                          ; preds = %invoke.cont668
-  %541 = landingpad { ptr, i32 }
+  %954 = landingpad { ptr, i32 }
           cleanup
-  %542 = extractvalue { ptr, i32 } %541, 0
-  store ptr %542, ptr %exn.slot, align 8
-  %543 = extractvalue { ptr, i32 } %541, 1
-  store i32 %543, ptr %ehselector.slot, align 4
+  %955 = extractvalue { ptr, i32 } %954, 0
+  store ptr %955, ptr %exn.slot, align 8
+  %956 = extractvalue { ptr, i32 } %954, 1
+  store i32 %956, ptr %ehselector.slot, align 4
   br label %ehcleanup1844
 
 lpad676:                                          ; preds = %invoke.cont674
-  %544 = landingpad { ptr, i32 }
+  %957 = landingpad { ptr, i32 }
           cleanup
-  %545 = extractvalue { ptr, i32 } %544, 0
-  store ptr %545, ptr %exn.slot, align 8
-  %546 = extractvalue { ptr, i32 } %544, 1
-  store i32 %546, ptr %ehselector.slot, align 4
+  %958 = extractvalue { ptr, i32 } %957, 0
+  store ptr %958, ptr %exn.slot, align 8
+  %959 = extractvalue { ptr, i32 } %957, 1
+  store i32 %959, ptr %ehselector.slot, align 4
   br label %ehcleanup1839
 
 lpad679:                                          ; preds = %invoke.cont677
-  %547 = landingpad { ptr, i32 }
+  %960 = landingpad { ptr, i32 }
           cleanup
-  %548 = extractvalue { ptr, i32 } %547, 0
-  store ptr %548, ptr %exn.slot, align 8
-  %549 = extractvalue { ptr, i32 } %547, 1
-  store i32 %549, ptr %ehselector.slot, align 4
+  %961 = extractvalue { ptr, i32 } %960, 0
+  store ptr %961, ptr %exn.slot, align 8
+  %962 = extractvalue { ptr, i32 } %960, 1
+  store i32 %962, ptr %ehselector.slot, align 4
   br label %ehcleanup1834
 
 lpad682:                                          ; preds = %invoke.cont680
-  %550 = landingpad { ptr, i32 }
+  %963 = landingpad { ptr, i32 }
           cleanup
-  %551 = extractvalue { ptr, i32 } %550, 0
-  store ptr %551, ptr %exn.slot, align 8
-  %552 = extractvalue { ptr, i32 } %550, 1
-  store i32 %552, ptr %ehselector.slot, align 4
+  %964 = extractvalue { ptr, i32 } %963, 0
+  store ptr %964, ptr %exn.slot, align 8
+  %965 = extractvalue { ptr, i32 } %963, 1
+  store i32 %965, ptr %ehselector.slot, align 4
   br label %ehcleanup1829
 
 lpad688:                                          ; preds = %invoke.cont683
-  %553 = landingpad { ptr, i32 }
+  %966 = landingpad { ptr, i32 }
           cleanup
-  %554 = extractvalue { ptr, i32 } %553, 0
-  store ptr %554, ptr %exn.slot, align 8
-  %555 = extractvalue { ptr, i32 } %553, 1
-  store i32 %555, ptr %ehselector.slot, align 4
+  %967 = extractvalue { ptr, i32 } %966, 0
+  store ptr %967, ptr %exn.slot, align 8
+  %968 = extractvalue { ptr, i32 } %966, 1
+  store i32 %968, ptr %ehselector.slot, align 4
   br label %ehcleanup1828
 
 lpad691:                                          ; preds = %invoke.cont689
-  %556 = landingpad { ptr, i32 }
+  %969 = landingpad { ptr, i32 }
           cleanup
-  %557 = extractvalue { ptr, i32 } %556, 0
-  store ptr %557, ptr %exn.slot, align 8
-  %558 = extractvalue { ptr, i32 } %556, 1
-  store i32 %558, ptr %ehselector.slot, align 4
+  %970 = extractvalue { ptr, i32 } %969, 0
+  store ptr %970, ptr %exn.slot, align 8
+  %971 = extractvalue { ptr, i32 } %969, 1
+  store i32 %971, ptr %ehselector.slot, align 4
   br label %ehcleanup1823
 
 lpad694:                                          ; preds = %invoke.cont692
-  %559 = landingpad { ptr, i32 }
+  %972 = landingpad { ptr, i32 }
           cleanup
-  %560 = extractvalue { ptr, i32 } %559, 0
-  store ptr %560, ptr %exn.slot, align 8
-  %561 = extractvalue { ptr, i32 } %559, 1
-  store i32 %561, ptr %ehselector.slot, align 4
+  %973 = extractvalue { ptr, i32 } %972, 0
+  store ptr %973, ptr %exn.slot, align 8
+  %974 = extractvalue { ptr, i32 } %972, 1
+  store i32 %974, ptr %ehselector.slot, align 4
   br label %ehcleanup1818
 
 lpad697:                                          ; preds = %invoke.cont695
-  %562 = landingpad { ptr, i32 }
+  %975 = landingpad { ptr, i32 }
           cleanup
-  %563 = extractvalue { ptr, i32 } %562, 0
-  store ptr %563, ptr %exn.slot, align 8
-  %564 = extractvalue { ptr, i32 } %562, 1
-  store i32 %564, ptr %ehselector.slot, align 4
+  %976 = extractvalue { ptr, i32 } %975, 0
+  store ptr %976, ptr %exn.slot, align 8
+  %977 = extractvalue { ptr, i32 } %975, 1
+  store i32 %977, ptr %ehselector.slot, align 4
   br label %ehcleanup1813
 
 lpad703:                                          ; preds = %invoke.cont698
-  %565 = landingpad { ptr, i32 }
+  %978 = landingpad { ptr, i32 }
           cleanup
-  %566 = extractvalue { ptr, i32 } %565, 0
-  store ptr %566, ptr %exn.slot, align 8
-  %567 = extractvalue { ptr, i32 } %565, 1
-  store i32 %567, ptr %ehselector.slot, align 4
+  %979 = extractvalue { ptr, i32 } %978, 0
+  store ptr %979, ptr %exn.slot, align 8
+  %980 = extractvalue { ptr, i32 } %978, 1
+  store i32 %980, ptr %ehselector.slot, align 4
   br label %ehcleanup1812
 
 lpad706:                                          ; preds = %invoke.cont704
-  %568 = landingpad { ptr, i32 }
+  %981 = landingpad { ptr, i32 }
           cleanup
-  %569 = extractvalue { ptr, i32 } %568, 0
-  store ptr %569, ptr %exn.slot, align 8
-  %570 = extractvalue { ptr, i32 } %568, 1
-  store i32 %570, ptr %ehselector.slot, align 4
+  %982 = extractvalue { ptr, i32 } %981, 0
+  store ptr %982, ptr %exn.slot, align 8
+  %983 = extractvalue { ptr, i32 } %981, 1
+  store i32 %983, ptr %ehselector.slot, align 4
   br label %ehcleanup1807
 
 lpad709:                                          ; preds = %invoke.cont707
-  %571 = landingpad { ptr, i32 }
+  %984 = landingpad { ptr, i32 }
           cleanup
-  %572 = extractvalue { ptr, i32 } %571, 0
-  store ptr %572, ptr %exn.slot, align 8
-  %573 = extractvalue { ptr, i32 } %571, 1
-  store i32 %573, ptr %ehselector.slot, align 4
+  %985 = extractvalue { ptr, i32 } %984, 0
+  store ptr %985, ptr %exn.slot, align 8
+  %986 = extractvalue { ptr, i32 } %984, 1
+  store i32 %986, ptr %ehselector.slot, align 4
   br label %ehcleanup1802
 
 lpad712:                                          ; preds = %invoke.cont710
-  %574 = landingpad { ptr, i32 }
+  %987 = landingpad { ptr, i32 }
           cleanup
-  %575 = extractvalue { ptr, i32 } %574, 0
-  store ptr %575, ptr %exn.slot, align 8
-  %576 = extractvalue { ptr, i32 } %574, 1
-  store i32 %576, ptr %ehselector.slot, align 4
+  %988 = extractvalue { ptr, i32 } %987, 0
+  store ptr %988, ptr %exn.slot, align 8
+  %989 = extractvalue { ptr, i32 } %987, 1
+  store i32 %989, ptr %ehselector.slot, align 4
   br label %ehcleanup1797
 
 lpad718:                                          ; preds = %invoke.cont713
-  %577 = landingpad { ptr, i32 }
+  %990 = landingpad { ptr, i32 }
           cleanup
-  %578 = extractvalue { ptr, i32 } %577, 0
-  store ptr %578, ptr %exn.slot, align 8
-  %579 = extractvalue { ptr, i32 } %577, 1
-  store i32 %579, ptr %ehselector.slot, align 4
+  %991 = extractvalue { ptr, i32 } %990, 0
+  store ptr %991, ptr %exn.slot, align 8
+  %992 = extractvalue { ptr, i32 } %990, 1
+  store i32 %992, ptr %ehselector.slot, align 4
   br label %ehcleanup1796
 
 lpad721:                                          ; preds = %invoke.cont719
-  %580 = landingpad { ptr, i32 }
+  %993 = landingpad { ptr, i32 }
           cleanup
-  %581 = extractvalue { ptr, i32 } %580, 0
-  store ptr %581, ptr %exn.slot, align 8
-  %582 = extractvalue { ptr, i32 } %580, 1
-  store i32 %582, ptr %ehselector.slot, align 4
+  %994 = extractvalue { ptr, i32 } %993, 0
+  store ptr %994, ptr %exn.slot, align 8
+  %995 = extractvalue { ptr, i32 } %993, 1
+  store i32 %995, ptr %ehselector.slot, align 4
   br label %ehcleanup1791
 
 lpad724:                                          ; preds = %invoke.cont722
-  %583 = landingpad { ptr, i32 }
+  %996 = landingpad { ptr, i32 }
           cleanup
-  %584 = extractvalue { ptr, i32 } %583, 0
-  store ptr %584, ptr %exn.slot, align 8
-  %585 = extractvalue { ptr, i32 } %583, 1
-  store i32 %585, ptr %ehselector.slot, align 4
+  %997 = extractvalue { ptr, i32 } %996, 0
+  store ptr %997, ptr %exn.slot, align 8
+  %998 = extractvalue { ptr, i32 } %996, 1
+  store i32 %998, ptr %ehselector.slot, align 4
   br label %ehcleanup1786
 
 lpad727:                                          ; preds = %invoke.cont725
-  %586 = landingpad { ptr, i32 }
+  %999 = landingpad { ptr, i32 }
           cleanup
-  %587 = extractvalue { ptr, i32 } %586, 0
-  store ptr %587, ptr %exn.slot, align 8
-  %588 = extractvalue { ptr, i32 } %586, 1
-  store i32 %588, ptr %ehselector.slot, align 4
+  %1000 = extractvalue { ptr, i32 } %999, 0
+  store ptr %1000, ptr %exn.slot, align 8
+  %1001 = extractvalue { ptr, i32 } %999, 1
+  store i32 %1001, ptr %ehselector.slot, align 4
   br label %ehcleanup1781
 
 lpad733:                                          ; preds = %invoke.cont728
-  %589 = landingpad { ptr, i32 }
+  %1002 = landingpad { ptr, i32 }
           cleanup
-  %590 = extractvalue { ptr, i32 } %589, 0
-  store ptr %590, ptr %exn.slot, align 8
-  %591 = extractvalue { ptr, i32 } %589, 1
-  store i32 %591, ptr %ehselector.slot, align 4
+  %1003 = extractvalue { ptr, i32 } %1002, 0
+  store ptr %1003, ptr %exn.slot, align 8
+  %1004 = extractvalue { ptr, i32 } %1002, 1
+  store i32 %1004, ptr %ehselector.slot, align 4
   br label %ehcleanup1780
 
 lpad736:                                          ; preds = %invoke.cont734
-  %592 = landingpad { ptr, i32 }
+  %1005 = landingpad { ptr, i32 }
           cleanup
-  %593 = extractvalue { ptr, i32 } %592, 0
-  store ptr %593, ptr %exn.slot, align 8
-  %594 = extractvalue { ptr, i32 } %592, 1
-  store i32 %594, ptr %ehselector.slot, align 4
+  %1006 = extractvalue { ptr, i32 } %1005, 0
+  store ptr %1006, ptr %exn.slot, align 8
+  %1007 = extractvalue { ptr, i32 } %1005, 1
+  store i32 %1007, ptr %ehselector.slot, align 4
   br label %ehcleanup1775
 
 lpad739:                                          ; preds = %invoke.cont737
-  %595 = landingpad { ptr, i32 }
+  %1008 = landingpad { ptr, i32 }
           cleanup
-  %596 = extractvalue { ptr, i32 } %595, 0
-  store ptr %596, ptr %exn.slot, align 8
-  %597 = extractvalue { ptr, i32 } %595, 1
-  store i32 %597, ptr %ehselector.slot, align 4
+  %1009 = extractvalue { ptr, i32 } %1008, 0
+  store ptr %1009, ptr %exn.slot, align 8
+  %1010 = extractvalue { ptr, i32 } %1008, 1
+  store i32 %1010, ptr %ehselector.slot, align 4
   br label %ehcleanup1770
 
 lpad742:                                          ; preds = %invoke.cont740
-  %598 = landingpad { ptr, i32 }
+  %1011 = landingpad { ptr, i32 }
           cleanup
-  %599 = extractvalue { ptr, i32 } %598, 0
-  store ptr %599, ptr %exn.slot, align 8
-  %600 = extractvalue { ptr, i32 } %598, 1
-  store i32 %600, ptr %ehselector.slot, align 4
+  %1012 = extractvalue { ptr, i32 } %1011, 0
+  store ptr %1012, ptr %exn.slot, align 8
+  %1013 = extractvalue { ptr, i32 } %1011, 1
+  store i32 %1013, ptr %ehselector.slot, align 4
   br label %ehcleanup1765
 
 lpad748:                                          ; preds = %invoke.cont743
-  %601 = landingpad { ptr, i32 }
+  %1014 = landingpad { ptr, i32 }
           cleanup
-  %602 = extractvalue { ptr, i32 } %601, 0
-  store ptr %602, ptr %exn.slot, align 8
-  %603 = extractvalue { ptr, i32 } %601, 1
-  store i32 %603, ptr %ehselector.slot, align 4
+  %1015 = extractvalue { ptr, i32 } %1014, 0
+  store ptr %1015, ptr %exn.slot, align 8
+  %1016 = extractvalue { ptr, i32 } %1014, 1
+  store i32 %1016, ptr %ehselector.slot, align 4
   br label %ehcleanup1764
 
 lpad751:                                          ; preds = %invoke.cont749
-  %604 = landingpad { ptr, i32 }
+  %1017 = landingpad { ptr, i32 }
           cleanup
-  %605 = extractvalue { ptr, i32 } %604, 0
-  store ptr %605, ptr %exn.slot, align 8
-  %606 = extractvalue { ptr, i32 } %604, 1
-  store i32 %606, ptr %ehselector.slot, align 4
+  %1018 = extractvalue { ptr, i32 } %1017, 0
+  store ptr %1018, ptr %exn.slot, align 8
+  %1019 = extractvalue { ptr, i32 } %1017, 1
+  store i32 %1019, ptr %ehselector.slot, align 4
   br label %ehcleanup1759
 
 lpad754:                                          ; preds = %invoke.cont752
-  %607 = landingpad { ptr, i32 }
+  %1020 = landingpad { ptr, i32 }
           cleanup
-  %608 = extractvalue { ptr, i32 } %607, 0
-  store ptr %608, ptr %exn.slot, align 8
-  %609 = extractvalue { ptr, i32 } %607, 1
-  store i32 %609, ptr %ehselector.slot, align 4
+  %1021 = extractvalue { ptr, i32 } %1020, 0
+  store ptr %1021, ptr %exn.slot, align 8
+  %1022 = extractvalue { ptr, i32 } %1020, 1
+  store i32 %1022, ptr %ehselector.slot, align 4
   br label %ehcleanup1754
 
 lpad757:                                          ; preds = %invoke.cont755
-  %610 = landingpad { ptr, i32 }
+  %1023 = landingpad { ptr, i32 }
           cleanup
-  %611 = extractvalue { ptr, i32 } %610, 0
-  store ptr %611, ptr %exn.slot, align 8
-  %612 = extractvalue { ptr, i32 } %610, 1
-  store i32 %612, ptr %ehselector.slot, align 4
+  %1024 = extractvalue { ptr, i32 } %1023, 0
+  store ptr %1024, ptr %exn.slot, align 8
+  %1025 = extractvalue { ptr, i32 } %1023, 1
+  store i32 %1025, ptr %ehselector.slot, align 4
   br label %ehcleanup1749
 
 lpad763:                                          ; preds = %invoke.cont758
-  %613 = landingpad { ptr, i32 }
+  %1026 = landingpad { ptr, i32 }
           cleanup
-  %614 = extractvalue { ptr, i32 } %613, 0
-  store ptr %614, ptr %exn.slot, align 8
-  %615 = extractvalue { ptr, i32 } %613, 1
-  store i32 %615, ptr %ehselector.slot, align 4
+  %1027 = extractvalue { ptr, i32 } %1026, 0
+  store ptr %1027, ptr %exn.slot, align 8
+  %1028 = extractvalue { ptr, i32 } %1026, 1
+  store i32 %1028, ptr %ehselector.slot, align 4
   br label %ehcleanup1748
 
 lpad766:                                          ; preds = %invoke.cont764
-  %616 = landingpad { ptr, i32 }
+  %1029 = landingpad { ptr, i32 }
           cleanup
-  %617 = extractvalue { ptr, i32 } %616, 0
-  store ptr %617, ptr %exn.slot, align 8
-  %618 = extractvalue { ptr, i32 } %616, 1
-  store i32 %618, ptr %ehselector.slot, align 4
+  %1030 = extractvalue { ptr, i32 } %1029, 0
+  store ptr %1030, ptr %exn.slot, align 8
+  %1031 = extractvalue { ptr, i32 } %1029, 1
+  store i32 %1031, ptr %ehselector.slot, align 4
   br label %ehcleanup1743
 
 lpad769:                                          ; preds = %invoke.cont767
-  %619 = landingpad { ptr, i32 }
+  %1032 = landingpad { ptr, i32 }
           cleanup
-  %620 = extractvalue { ptr, i32 } %619, 0
-  store ptr %620, ptr %exn.slot, align 8
-  %621 = extractvalue { ptr, i32 } %619, 1
-  store i32 %621, ptr %ehselector.slot, align 4
+  %1033 = extractvalue { ptr, i32 } %1032, 0
+  store ptr %1033, ptr %exn.slot, align 8
+  %1034 = extractvalue { ptr, i32 } %1032, 1
+  store i32 %1034, ptr %ehselector.slot, align 4
   br label %ehcleanup1738
 
 lpad772:                                          ; preds = %invoke.cont770
-  %622 = landingpad { ptr, i32 }
+  %1035 = landingpad { ptr, i32 }
           cleanup
-  %623 = extractvalue { ptr, i32 } %622, 0
-  store ptr %623, ptr %exn.slot, align 8
-  %624 = extractvalue { ptr, i32 } %622, 1
-  store i32 %624, ptr %ehselector.slot, align 4
+  %1036 = extractvalue { ptr, i32 } %1035, 0
+  store ptr %1036, ptr %exn.slot, align 8
+  %1037 = extractvalue { ptr, i32 } %1035, 1
+  store i32 %1037, ptr %ehselector.slot, align 4
   br label %ehcleanup1733
 
 lpad778:                                          ; preds = %invoke.cont773
-  %625 = landingpad { ptr, i32 }
+  %1038 = landingpad { ptr, i32 }
           cleanup
-  %626 = extractvalue { ptr, i32 } %625, 0
-  store ptr %626, ptr %exn.slot, align 8
-  %627 = extractvalue { ptr, i32 } %625, 1
-  store i32 %627, ptr %ehselector.slot, align 4
+  %1039 = extractvalue { ptr, i32 } %1038, 0
+  store ptr %1039, ptr %exn.slot, align 8
+  %1040 = extractvalue { ptr, i32 } %1038, 1
+  store i32 %1040, ptr %ehselector.slot, align 4
   br label %ehcleanup1732
 
 lpad781:                                          ; preds = %invoke.cont779
-  %628 = landingpad { ptr, i32 }
+  %1041 = landingpad { ptr, i32 }
           cleanup
-  %629 = extractvalue { ptr, i32 } %628, 0
-  store ptr %629, ptr %exn.slot, align 8
-  %630 = extractvalue { ptr, i32 } %628, 1
-  store i32 %630, ptr %ehselector.slot, align 4
+  %1042 = extractvalue { ptr, i32 } %1041, 0
+  store ptr %1042, ptr %exn.slot, align 8
+  %1043 = extractvalue { ptr, i32 } %1041, 1
+  store i32 %1043, ptr %ehselector.slot, align 4
   br label %ehcleanup1727
 
 lpad784:                                          ; preds = %invoke.cont782
-  %631 = landingpad { ptr, i32 }
+  %1044 = landingpad { ptr, i32 }
           cleanup
-  %632 = extractvalue { ptr, i32 } %631, 0
-  store ptr %632, ptr %exn.slot, align 8
-  %633 = extractvalue { ptr, i32 } %631, 1
-  store i32 %633, ptr %ehselector.slot, align 4
+  %1045 = extractvalue { ptr, i32 } %1044, 0
+  store ptr %1045, ptr %exn.slot, align 8
+  %1046 = extractvalue { ptr, i32 } %1044, 1
+  store i32 %1046, ptr %ehselector.slot, align 4
   br label %ehcleanup1722
 
 lpad787:                                          ; preds = %invoke.cont785
-  %634 = landingpad { ptr, i32 }
+  %1047 = landingpad { ptr, i32 }
           cleanup
-  %635 = extractvalue { ptr, i32 } %634, 0
-  store ptr %635, ptr %exn.slot, align 8
-  %636 = extractvalue { ptr, i32 } %634, 1
-  store i32 %636, ptr %ehselector.slot, align 4
+  %1048 = extractvalue { ptr, i32 } %1047, 0
+  store ptr %1048, ptr %exn.slot, align 8
+  %1049 = extractvalue { ptr, i32 } %1047, 1
+  store i32 %1049, ptr %ehselector.slot, align 4
   br label %ehcleanup1717
 
 lpad793:                                          ; preds = %invoke.cont788
-  %637 = landingpad { ptr, i32 }
+  %1050 = landingpad { ptr, i32 }
           cleanup
-  %638 = extractvalue { ptr, i32 } %637, 0
-  store ptr %638, ptr %exn.slot, align 8
-  %639 = extractvalue { ptr, i32 } %637, 1
-  store i32 %639, ptr %ehselector.slot, align 4
+  %1051 = extractvalue { ptr, i32 } %1050, 0
+  store ptr %1051, ptr %exn.slot, align 8
+  %1052 = extractvalue { ptr, i32 } %1050, 1
+  store i32 %1052, ptr %ehselector.slot, align 4
   br label %ehcleanup1716
 
 lpad796:                                          ; preds = %invoke.cont794
-  %640 = landingpad { ptr, i32 }
+  %1053 = landingpad { ptr, i32 }
           cleanup
-  %641 = extractvalue { ptr, i32 } %640, 0
-  store ptr %641, ptr %exn.slot, align 8
-  %642 = extractvalue { ptr, i32 } %640, 1
-  store i32 %642, ptr %ehselector.slot, align 4
+  %1054 = extractvalue { ptr, i32 } %1053, 0
+  store ptr %1054, ptr %exn.slot, align 8
+  %1055 = extractvalue { ptr, i32 } %1053, 1
+  store i32 %1055, ptr %ehselector.slot, align 4
   br label %ehcleanup1711
 
 lpad799:                                          ; preds = %invoke.cont797
-  %643 = landingpad { ptr, i32 }
+  %1056 = landingpad { ptr, i32 }
           cleanup
-  %644 = extractvalue { ptr, i32 } %643, 0
-  store ptr %644, ptr %exn.slot, align 8
-  %645 = extractvalue { ptr, i32 } %643, 1
-  store i32 %645, ptr %ehselector.slot, align 4
+  %1057 = extractvalue { ptr, i32 } %1056, 0
+  store ptr %1057, ptr %exn.slot, align 8
+  %1058 = extractvalue { ptr, i32 } %1056, 1
+  store i32 %1058, ptr %ehselector.slot, align 4
   br label %ehcleanup1706
 
 lpad802:                                          ; preds = %invoke.cont800
-  %646 = landingpad { ptr, i32 }
+  %1059 = landingpad { ptr, i32 }
           cleanup
-  %647 = extractvalue { ptr, i32 } %646, 0
-  store ptr %647, ptr %exn.slot, align 8
-  %648 = extractvalue { ptr, i32 } %646, 1
-  store i32 %648, ptr %ehselector.slot, align 4
+  %1060 = extractvalue { ptr, i32 } %1059, 0
+  store ptr %1060, ptr %exn.slot, align 8
+  %1061 = extractvalue { ptr, i32 } %1059, 1
+  store i32 %1061, ptr %ehselector.slot, align 4
   br label %ehcleanup1701
 
 lpad808:                                          ; preds = %invoke.cont803
-  %649 = landingpad { ptr, i32 }
+  %1062 = landingpad { ptr, i32 }
           cleanup
-  %650 = extractvalue { ptr, i32 } %649, 0
-  store ptr %650, ptr %exn.slot, align 8
-  %651 = extractvalue { ptr, i32 } %649, 1
-  store i32 %651, ptr %ehselector.slot, align 4
+  %1063 = extractvalue { ptr, i32 } %1062, 0
+  store ptr %1063, ptr %exn.slot, align 8
+  %1064 = extractvalue { ptr, i32 } %1062, 1
+  store i32 %1064, ptr %ehselector.slot, align 4
   br label %ehcleanup1700
 
 lpad811:                                          ; preds = %invoke.cont809
-  %652 = landingpad { ptr, i32 }
+  %1065 = landingpad { ptr, i32 }
           cleanup
-  %653 = extractvalue { ptr, i32 } %652, 0
-  store ptr %653, ptr %exn.slot, align 8
-  %654 = extractvalue { ptr, i32 } %652, 1
-  store i32 %654, ptr %ehselector.slot, align 4
+  %1066 = extractvalue { ptr, i32 } %1065, 0
+  store ptr %1066, ptr %exn.slot, align 8
+  %1067 = extractvalue { ptr, i32 } %1065, 1
+  store i32 %1067, ptr %ehselector.slot, align 4
   br label %ehcleanup1695
 
 lpad814:                                          ; preds = %invoke.cont812
-  %655 = landingpad { ptr, i32 }
+  %1068 = landingpad { ptr, i32 }
           cleanup
-  %656 = extractvalue { ptr, i32 } %655, 0
-  store ptr %656, ptr %exn.slot, align 8
-  %657 = extractvalue { ptr, i32 } %655, 1
-  store i32 %657, ptr %ehselector.slot, align 4
+  %1069 = extractvalue { ptr, i32 } %1068, 0
+  store ptr %1069, ptr %exn.slot, align 8
+  %1070 = extractvalue { ptr, i32 } %1068, 1
+  store i32 %1070, ptr %ehselector.slot, align 4
   br label %ehcleanup1690
 
 lpad817:                                          ; preds = %invoke.cont815
-  %658 = landingpad { ptr, i32 }
+  %1071 = landingpad { ptr, i32 }
           cleanup
-  %659 = extractvalue { ptr, i32 } %658, 0
-  store ptr %659, ptr %exn.slot, align 8
-  %660 = extractvalue { ptr, i32 } %658, 1
-  store i32 %660, ptr %ehselector.slot, align 4
+  %1072 = extractvalue { ptr, i32 } %1071, 0
+  store ptr %1072, ptr %exn.slot, align 8
+  %1073 = extractvalue { ptr, i32 } %1071, 1
+  store i32 %1073, ptr %ehselector.slot, align 4
   br label %ehcleanup1685
 
 lpad823:                                          ; preds = %invoke.cont818
-  %661 = landingpad { ptr, i32 }
+  %1074 = landingpad { ptr, i32 }
           cleanup
-  %662 = extractvalue { ptr, i32 } %661, 0
-  store ptr %662, ptr %exn.slot, align 8
-  %663 = extractvalue { ptr, i32 } %661, 1
-  store i32 %663, ptr %ehselector.slot, align 4
+  %1075 = extractvalue { ptr, i32 } %1074, 0
+  store ptr %1075, ptr %exn.slot, align 8
+  %1076 = extractvalue { ptr, i32 } %1074, 1
+  store i32 %1076, ptr %ehselector.slot, align 4
   br label %ehcleanup1684
 
 lpad826:                                          ; preds = %invoke.cont824
-  %664 = landingpad { ptr, i32 }
+  %1077 = landingpad { ptr, i32 }
           cleanup
-  %665 = extractvalue { ptr, i32 } %664, 0
-  store ptr %665, ptr %exn.slot, align 8
-  %666 = extractvalue { ptr, i32 } %664, 1
-  store i32 %666, ptr %ehselector.slot, align 4
+  %1078 = extractvalue { ptr, i32 } %1077, 0
+  store ptr %1078, ptr %exn.slot, align 8
+  %1079 = extractvalue { ptr, i32 } %1077, 1
+  store i32 %1079, ptr %ehselector.slot, align 4
   br label %ehcleanup1679
 
 lpad829:                                          ; preds = %invoke.cont827
-  %667 = landingpad { ptr, i32 }
+  %1080 = landingpad { ptr, i32 }
           cleanup
-  %668 = extractvalue { ptr, i32 } %667, 0
-  store ptr %668, ptr %exn.slot, align 8
-  %669 = extractvalue { ptr, i32 } %667, 1
-  store i32 %669, ptr %ehselector.slot, align 4
+  %1081 = extractvalue { ptr, i32 } %1080, 0
+  store ptr %1081, ptr %exn.slot, align 8
+  %1082 = extractvalue { ptr, i32 } %1080, 1
+  store i32 %1082, ptr %ehselector.slot, align 4
   br label %ehcleanup1674
 
 lpad832:                                          ; preds = %invoke.cont830
-  %670 = landingpad { ptr, i32 }
+  %1083 = landingpad { ptr, i32 }
           cleanup
-  %671 = extractvalue { ptr, i32 } %670, 0
-  store ptr %671, ptr %exn.slot, align 8
-  %672 = extractvalue { ptr, i32 } %670, 1
-  store i32 %672, ptr %ehselector.slot, align 4
+  %1084 = extractvalue { ptr, i32 } %1083, 0
+  store ptr %1084, ptr %exn.slot, align 8
+  %1085 = extractvalue { ptr, i32 } %1083, 1
+  store i32 %1085, ptr %ehselector.slot, align 4
   br label %ehcleanup1669
 
 lpad838:                                          ; preds = %invoke.cont833
-  %673 = landingpad { ptr, i32 }
+  %1086 = landingpad { ptr, i32 }
           cleanup
-  %674 = extractvalue { ptr, i32 } %673, 0
-  store ptr %674, ptr %exn.slot, align 8
-  %675 = extractvalue { ptr, i32 } %673, 1
-  store i32 %675, ptr %ehselector.slot, align 4
+  %1087 = extractvalue { ptr, i32 } %1086, 0
+  store ptr %1087, ptr %exn.slot, align 8
+  %1088 = extractvalue { ptr, i32 } %1086, 1
+  store i32 %1088, ptr %ehselector.slot, align 4
   br label %ehcleanup1668
 
 lpad841:                                          ; preds = %invoke.cont839
-  %676 = landingpad { ptr, i32 }
+  %1089 = landingpad { ptr, i32 }
           cleanup
-  %677 = extractvalue { ptr, i32 } %676, 0
-  store ptr %677, ptr %exn.slot, align 8
-  %678 = extractvalue { ptr, i32 } %676, 1
-  store i32 %678, ptr %ehselector.slot, align 4
+  %1090 = extractvalue { ptr, i32 } %1089, 0
+  store ptr %1090, ptr %exn.slot, align 8
+  %1091 = extractvalue { ptr, i32 } %1089, 1
+  store i32 %1091, ptr %ehselector.slot, align 4
   br label %ehcleanup1663
 
 lpad844:                                          ; preds = %invoke.cont842
-  %679 = landingpad { ptr, i32 }
+  %1092 = landingpad { ptr, i32 }
           cleanup
-  %680 = extractvalue { ptr, i32 } %679, 0
-  store ptr %680, ptr %exn.slot, align 8
-  %681 = extractvalue { ptr, i32 } %679, 1
-  store i32 %681, ptr %ehselector.slot, align 4
+  %1093 = extractvalue { ptr, i32 } %1092, 0
+  store ptr %1093, ptr %exn.slot, align 8
+  %1094 = extractvalue { ptr, i32 } %1092, 1
+  store i32 %1094, ptr %ehselector.slot, align 4
   br label %ehcleanup1658
 
 lpad847:                                          ; preds = %invoke.cont845
-  %682 = landingpad { ptr, i32 }
+  %1095 = landingpad { ptr, i32 }
           cleanup
-  %683 = extractvalue { ptr, i32 } %682, 0
-  store ptr %683, ptr %exn.slot, align 8
-  %684 = extractvalue { ptr, i32 } %682, 1
-  store i32 %684, ptr %ehselector.slot, align 4
+  %1096 = extractvalue { ptr, i32 } %1095, 0
+  store ptr %1096, ptr %exn.slot, align 8
+  %1097 = extractvalue { ptr, i32 } %1095, 1
+  store i32 %1097, ptr %ehselector.slot, align 4
   br label %ehcleanup1653
 
 lpad853:                                          ; preds = %invoke.cont848
-  %685 = landingpad { ptr, i32 }
+  %1098 = landingpad { ptr, i32 }
           cleanup
-  %686 = extractvalue { ptr, i32 } %685, 0
-  store ptr %686, ptr %exn.slot, align 8
-  %687 = extractvalue { ptr, i32 } %685, 1
-  store i32 %687, ptr %ehselector.slot, align 4
+  %1099 = extractvalue { ptr, i32 } %1098, 0
+  store ptr %1099, ptr %exn.slot, align 8
+  %1100 = extractvalue { ptr, i32 } %1098, 1
+  store i32 %1100, ptr %ehselector.slot, align 4
   br label %ehcleanup1652
 
 lpad856:                                          ; preds = %invoke.cont854
-  %688 = landingpad { ptr, i32 }
+  %1101 = landingpad { ptr, i32 }
           cleanup
-  %689 = extractvalue { ptr, i32 } %688, 0
-  store ptr %689, ptr %exn.slot, align 8
-  %690 = extractvalue { ptr, i32 } %688, 1
-  store i32 %690, ptr %ehselector.slot, align 4
+  %1102 = extractvalue { ptr, i32 } %1101, 0
+  store ptr %1102, ptr %exn.slot, align 8
+  %1103 = extractvalue { ptr, i32 } %1101, 1
+  store i32 %1103, ptr %ehselector.slot, align 4
   br label %ehcleanup1647
 
 lpad859:                                          ; preds = %invoke.cont857
-  %691 = landingpad { ptr, i32 }
+  %1104 = landingpad { ptr, i32 }
           cleanup
-  %692 = extractvalue { ptr, i32 } %691, 0
-  store ptr %692, ptr %exn.slot, align 8
-  %693 = extractvalue { ptr, i32 } %691, 1
-  store i32 %693, ptr %ehselector.slot, align 4
+  %1105 = extractvalue { ptr, i32 } %1104, 0
+  store ptr %1105, ptr %exn.slot, align 8
+  %1106 = extractvalue { ptr, i32 } %1104, 1
+  store i32 %1106, ptr %ehselector.slot, align 4
   br label %ehcleanup1642
 
 lpad862:                                          ; preds = %invoke.cont860
-  %694 = landingpad { ptr, i32 }
+  %1107 = landingpad { ptr, i32 }
           cleanup
-  %695 = extractvalue { ptr, i32 } %694, 0
-  store ptr %695, ptr %exn.slot, align 8
-  %696 = extractvalue { ptr, i32 } %694, 1
-  store i32 %696, ptr %ehselector.slot, align 4
+  %1108 = extractvalue { ptr, i32 } %1107, 0
+  store ptr %1108, ptr %exn.slot, align 8
+  %1109 = extractvalue { ptr, i32 } %1107, 1
+  store i32 %1109, ptr %ehselector.slot, align 4
   br label %ehcleanup1637
 
 lpad868:                                          ; preds = %invoke.cont863
-  %697 = landingpad { ptr, i32 }
+  %1110 = landingpad { ptr, i32 }
           cleanup
-  %698 = extractvalue { ptr, i32 } %697, 0
-  store ptr %698, ptr %exn.slot, align 8
-  %699 = extractvalue { ptr, i32 } %697, 1
-  store i32 %699, ptr %ehselector.slot, align 4
+  %1111 = extractvalue { ptr, i32 } %1110, 0
+  store ptr %1111, ptr %exn.slot, align 8
+  %1112 = extractvalue { ptr, i32 } %1110, 1
+  store i32 %1112, ptr %ehselector.slot, align 4
   br label %ehcleanup1636
 
 lpad871:                                          ; preds = %invoke.cont869
-  %700 = landingpad { ptr, i32 }
+  %1113 = landingpad { ptr, i32 }
           cleanup
-  %701 = extractvalue { ptr, i32 } %700, 0
-  store ptr %701, ptr %exn.slot, align 8
-  %702 = extractvalue { ptr, i32 } %700, 1
-  store i32 %702, ptr %ehselector.slot, align 4
+  %1114 = extractvalue { ptr, i32 } %1113, 0
+  store ptr %1114, ptr %exn.slot, align 8
+  %1115 = extractvalue { ptr, i32 } %1113, 1
+  store i32 %1115, ptr %ehselector.slot, align 4
   br label %ehcleanup1631
 
 lpad874:                                          ; preds = %invoke.cont872
-  %703 = landingpad { ptr, i32 }
+  %1116 = landingpad { ptr, i32 }
           cleanup
-  %704 = extractvalue { ptr, i32 } %703, 0
-  store ptr %704, ptr %exn.slot, align 8
-  %705 = extractvalue { ptr, i32 } %703, 1
-  store i32 %705, ptr %ehselector.slot, align 4
+  %1117 = extractvalue { ptr, i32 } %1116, 0
+  store ptr %1117, ptr %exn.slot, align 8
+  %1118 = extractvalue { ptr, i32 } %1116, 1
+  store i32 %1118, ptr %ehselector.slot, align 4
   br label %ehcleanup1626
 
 lpad877:                                          ; preds = %invoke.cont875
-  %706 = landingpad { ptr, i32 }
+  %1119 = landingpad { ptr, i32 }
           cleanup
-  %707 = extractvalue { ptr, i32 } %706, 0
-  store ptr %707, ptr %exn.slot, align 8
-  %708 = extractvalue { ptr, i32 } %706, 1
-  store i32 %708, ptr %ehselector.slot, align 4
+  %1120 = extractvalue { ptr, i32 } %1119, 0
+  store ptr %1120, ptr %exn.slot, align 8
+  %1121 = extractvalue { ptr, i32 } %1119, 1
+  store i32 %1121, ptr %ehselector.slot, align 4
   br label %ehcleanup1621
 
 lpad883:                                          ; preds = %invoke.cont878
-  %709 = landingpad { ptr, i32 }
+  %1122 = landingpad { ptr, i32 }
           cleanup
-  %710 = extractvalue { ptr, i32 } %709, 0
-  store ptr %710, ptr %exn.slot, align 8
-  %711 = extractvalue { ptr, i32 } %709, 1
-  store i32 %711, ptr %ehselector.slot, align 4
+  %1123 = extractvalue { ptr, i32 } %1122, 0
+  store ptr %1123, ptr %exn.slot, align 8
+  %1124 = extractvalue { ptr, i32 } %1122, 1
+  store i32 %1124, ptr %ehselector.slot, align 4
   br label %ehcleanup1620
 
 lpad886:                                          ; preds = %invoke.cont884
-  %712 = landingpad { ptr, i32 }
+  %1125 = landingpad { ptr, i32 }
           cleanup
-  %713 = extractvalue { ptr, i32 } %712, 0
-  store ptr %713, ptr %exn.slot, align 8
-  %714 = extractvalue { ptr, i32 } %712, 1
-  store i32 %714, ptr %ehselector.slot, align 4
+  %1126 = extractvalue { ptr, i32 } %1125, 0
+  store ptr %1126, ptr %exn.slot, align 8
+  %1127 = extractvalue { ptr, i32 } %1125, 1
+  store i32 %1127, ptr %ehselector.slot, align 4
   br label %ehcleanup1615
 
 lpad889:                                          ; preds = %invoke.cont887
-  %715 = landingpad { ptr, i32 }
+  %1128 = landingpad { ptr, i32 }
           cleanup
-  %716 = extractvalue { ptr, i32 } %715, 0
-  store ptr %716, ptr %exn.slot, align 8
-  %717 = extractvalue { ptr, i32 } %715, 1
-  store i32 %717, ptr %ehselector.slot, align 4
+  %1129 = extractvalue { ptr, i32 } %1128, 0
+  store ptr %1129, ptr %exn.slot, align 8
+  %1130 = extractvalue { ptr, i32 } %1128, 1
+  store i32 %1130, ptr %ehselector.slot, align 4
   br label %ehcleanup1610
 
 lpad892:                                          ; preds = %invoke.cont890
-  %718 = landingpad { ptr, i32 }
+  %1131 = landingpad { ptr, i32 }
           cleanup
-  %719 = extractvalue { ptr, i32 } %718, 0
-  store ptr %719, ptr %exn.slot, align 8
-  %720 = extractvalue { ptr, i32 } %718, 1
-  store i32 %720, ptr %ehselector.slot, align 4
+  %1132 = extractvalue { ptr, i32 } %1131, 0
+  store ptr %1132, ptr %exn.slot, align 8
+  %1133 = extractvalue { ptr, i32 } %1131, 1
+  store i32 %1133, ptr %ehselector.slot, align 4
   br label %ehcleanup1605
 
 lpad898:                                          ; preds = %invoke.cont893
-  %721 = landingpad { ptr, i32 }
+  %1134 = landingpad { ptr, i32 }
           cleanup
-  %722 = extractvalue { ptr, i32 } %721, 0
-  store ptr %722, ptr %exn.slot, align 8
-  %723 = extractvalue { ptr, i32 } %721, 1
-  store i32 %723, ptr %ehselector.slot, align 4
+  %1135 = extractvalue { ptr, i32 } %1134, 0
+  store ptr %1135, ptr %exn.slot, align 8
+  %1136 = extractvalue { ptr, i32 } %1134, 1
+  store i32 %1136, ptr %ehselector.slot, align 4
   br label %ehcleanup1604
 
 lpad901:                                          ; preds = %invoke.cont899
-  %724 = landingpad { ptr, i32 }
+  %1137 = landingpad { ptr, i32 }
           cleanup
-  %725 = extractvalue { ptr, i32 } %724, 0
-  store ptr %725, ptr %exn.slot, align 8
-  %726 = extractvalue { ptr, i32 } %724, 1
-  store i32 %726, ptr %ehselector.slot, align 4
+  %1138 = extractvalue { ptr, i32 } %1137, 0
+  store ptr %1138, ptr %exn.slot, align 8
+  %1139 = extractvalue { ptr, i32 } %1137, 1
+  store i32 %1139, ptr %ehselector.slot, align 4
   br label %ehcleanup1599
 
 lpad904:                                          ; preds = %invoke.cont902
-  %727 = landingpad { ptr, i32 }
+  %1140 = landingpad { ptr, i32 }
           cleanup
-  %728 = extractvalue { ptr, i32 } %727, 0
-  store ptr %728, ptr %exn.slot, align 8
-  %729 = extractvalue { ptr, i32 } %727, 1
-  store i32 %729, ptr %ehselector.slot, align 4
+  %1141 = extractvalue { ptr, i32 } %1140, 0
+  store ptr %1141, ptr %exn.slot, align 8
+  %1142 = extractvalue { ptr, i32 } %1140, 1
+  store i32 %1142, ptr %ehselector.slot, align 4
   br label %ehcleanup1594
 
 lpad907:                                          ; preds = %invoke.cont905
-  %730 = landingpad { ptr, i32 }
+  %1143 = landingpad { ptr, i32 }
           cleanup
-  %731 = extractvalue { ptr, i32 } %730, 0
-  store ptr %731, ptr %exn.slot, align 8
-  %732 = extractvalue { ptr, i32 } %730, 1
-  store i32 %732, ptr %ehselector.slot, align 4
+  %1144 = extractvalue { ptr, i32 } %1143, 0
+  store ptr %1144, ptr %exn.slot, align 8
+  %1145 = extractvalue { ptr, i32 } %1143, 1
+  store i32 %1145, ptr %ehselector.slot, align 4
   br label %ehcleanup1589
 
 lpad913:                                          ; preds = %invoke.cont908
-  %733 = landingpad { ptr, i32 }
+  %1146 = landingpad { ptr, i32 }
           cleanup
-  %734 = extractvalue { ptr, i32 } %733, 0
-  store ptr %734, ptr %exn.slot, align 8
-  %735 = extractvalue { ptr, i32 } %733, 1
-  store i32 %735, ptr %ehselector.slot, align 4
+  %1147 = extractvalue { ptr, i32 } %1146, 0
+  store ptr %1147, ptr %exn.slot, align 8
+  %1148 = extractvalue { ptr, i32 } %1146, 1
+  store i32 %1148, ptr %ehselector.slot, align 4
   br label %ehcleanup1588
 
 lpad916:                                          ; preds = %invoke.cont914
-  %736 = landingpad { ptr, i32 }
+  %1149 = landingpad { ptr, i32 }
           cleanup
-  %737 = extractvalue { ptr, i32 } %736, 0
-  store ptr %737, ptr %exn.slot, align 8
-  %738 = extractvalue { ptr, i32 } %736, 1
-  store i32 %738, ptr %ehselector.slot, align 4
+  %1150 = extractvalue { ptr, i32 } %1149, 0
+  store ptr %1150, ptr %exn.slot, align 8
+  %1151 = extractvalue { ptr, i32 } %1149, 1
+  store i32 %1151, ptr %ehselector.slot, align 4
   br label %ehcleanup1583
 
 lpad919:                                          ; preds = %invoke.cont917
-  %739 = landingpad { ptr, i32 }
+  %1152 = landingpad { ptr, i32 }
           cleanup
-  %740 = extractvalue { ptr, i32 } %739, 0
-  store ptr %740, ptr %exn.slot, align 8
-  %741 = extractvalue { ptr, i32 } %739, 1
-  store i32 %741, ptr %ehselector.slot, align 4
+  %1153 = extractvalue { ptr, i32 } %1152, 0
+  store ptr %1153, ptr %exn.slot, align 8
+  %1154 = extractvalue { ptr, i32 } %1152, 1
+  store i32 %1154, ptr %ehselector.slot, align 4
   br label %ehcleanup1578
 
 lpad922:                                          ; preds = %invoke.cont920
-  %742 = landingpad { ptr, i32 }
+  %1155 = landingpad { ptr, i32 }
           cleanup
-  %743 = extractvalue { ptr, i32 } %742, 0
-  store ptr %743, ptr %exn.slot, align 8
-  %744 = extractvalue { ptr, i32 } %742, 1
-  store i32 %744, ptr %ehselector.slot, align 4
+  %1156 = extractvalue { ptr, i32 } %1155, 0
+  store ptr %1156, ptr %exn.slot, align 8
+  %1157 = extractvalue { ptr, i32 } %1155, 1
+  store i32 %1157, ptr %ehselector.slot, align 4
   br label %ehcleanup1573
 
 lpad928:                                          ; preds = %invoke.cont923
-  %745 = landingpad { ptr, i32 }
+  %1158 = landingpad { ptr, i32 }
           cleanup
-  %746 = extractvalue { ptr, i32 } %745, 0
-  store ptr %746, ptr %exn.slot, align 8
-  %747 = extractvalue { ptr, i32 } %745, 1
-  store i32 %747, ptr %ehselector.slot, align 4
+  %1159 = extractvalue { ptr, i32 } %1158, 0
+  store ptr %1159, ptr %exn.slot, align 8
+  %1160 = extractvalue { ptr, i32 } %1158, 1
+  store i32 %1160, ptr %ehselector.slot, align 4
   br label %ehcleanup1572
 
 lpad931:                                          ; preds = %invoke.cont929
-  %748 = landingpad { ptr, i32 }
+  %1161 = landingpad { ptr, i32 }
           cleanup
-  %749 = extractvalue { ptr, i32 } %748, 0
-  store ptr %749, ptr %exn.slot, align 8
-  %750 = extractvalue { ptr, i32 } %748, 1
-  store i32 %750, ptr %ehselector.slot, align 4
+  %1162 = extractvalue { ptr, i32 } %1161, 0
+  store ptr %1162, ptr %exn.slot, align 8
+  %1163 = extractvalue { ptr, i32 } %1161, 1
+  store i32 %1163, ptr %ehselector.slot, align 4
   br label %ehcleanup1567
 
 lpad934:                                          ; preds = %invoke.cont932
-  %751 = landingpad { ptr, i32 }
+  %1164 = landingpad { ptr, i32 }
           cleanup
-  %752 = extractvalue { ptr, i32 } %751, 0
-  store ptr %752, ptr %exn.slot, align 8
-  %753 = extractvalue { ptr, i32 } %751, 1
-  store i32 %753, ptr %ehselector.slot, align 4
+  %1165 = extractvalue { ptr, i32 } %1164, 0
+  store ptr %1165, ptr %exn.slot, align 8
+  %1166 = extractvalue { ptr, i32 } %1164, 1
+  store i32 %1166, ptr %ehselector.slot, align 4
   br label %ehcleanup1562
 
 lpad937:                                          ; preds = %invoke.cont935
-  %754 = landingpad { ptr, i32 }
+  %1167 = landingpad { ptr, i32 }
           cleanup
-  %755 = extractvalue { ptr, i32 } %754, 0
-  store ptr %755, ptr %exn.slot, align 8
-  %756 = extractvalue { ptr, i32 } %754, 1
-  store i32 %756, ptr %ehselector.slot, align 4
+  %1168 = extractvalue { ptr, i32 } %1167, 0
+  store ptr %1168, ptr %exn.slot, align 8
+  %1169 = extractvalue { ptr, i32 } %1167, 1
+  store i32 %1169, ptr %ehselector.slot, align 4
   br label %ehcleanup1557
 
 lpad943:                                          ; preds = %invoke.cont938
-  %757 = landingpad { ptr, i32 }
+  %1170 = landingpad { ptr, i32 }
           cleanup
-  %758 = extractvalue { ptr, i32 } %757, 0
-  store ptr %758, ptr %exn.slot, align 8
-  %759 = extractvalue { ptr, i32 } %757, 1
-  store i32 %759, ptr %ehselector.slot, align 4
+  %1171 = extractvalue { ptr, i32 } %1170, 0
+  store ptr %1171, ptr %exn.slot, align 8
+  %1172 = extractvalue { ptr, i32 } %1170, 1
+  store i32 %1172, ptr %ehselector.slot, align 4
   br label %ehcleanup1556
 
 lpad946:                                          ; preds = %invoke.cont944
-  %760 = landingpad { ptr, i32 }
+  %1173 = landingpad { ptr, i32 }
           cleanup
-  %761 = extractvalue { ptr, i32 } %760, 0
-  store ptr %761, ptr %exn.slot, align 8
-  %762 = extractvalue { ptr, i32 } %760, 1
-  store i32 %762, ptr %ehselector.slot, align 4
+  %1174 = extractvalue { ptr, i32 } %1173, 0
+  store ptr %1174, ptr %exn.slot, align 8
+  %1175 = extractvalue { ptr, i32 } %1173, 1
+  store i32 %1175, ptr %ehselector.slot, align 4
   br label %ehcleanup1551
 
 lpad949:                                          ; preds = %invoke.cont947
-  %763 = landingpad { ptr, i32 }
+  %1176 = landingpad { ptr, i32 }
           cleanup
-  %764 = extractvalue { ptr, i32 } %763, 0
-  store ptr %764, ptr %exn.slot, align 8
-  %765 = extractvalue { ptr, i32 } %763, 1
-  store i32 %765, ptr %ehselector.slot, align 4
+  %1177 = extractvalue { ptr, i32 } %1176, 0
+  store ptr %1177, ptr %exn.slot, align 8
+  %1178 = extractvalue { ptr, i32 } %1176, 1
+  store i32 %1178, ptr %ehselector.slot, align 4
   br label %ehcleanup1546
 
 lpad952:                                          ; preds = %invoke.cont950
-  %766 = landingpad { ptr, i32 }
+  %1179 = landingpad { ptr, i32 }
           cleanup
-  %767 = extractvalue { ptr, i32 } %766, 0
-  store ptr %767, ptr %exn.slot, align 8
-  %768 = extractvalue { ptr, i32 } %766, 1
-  store i32 %768, ptr %ehselector.slot, align 4
+  %1180 = extractvalue { ptr, i32 } %1179, 0
+  store ptr %1180, ptr %exn.slot, align 8
+  %1181 = extractvalue { ptr, i32 } %1179, 1
+  store i32 %1181, ptr %ehselector.slot, align 4
   br label %ehcleanup1541
 
 lpad958:                                          ; preds = %invoke.cont953
-  %769 = landingpad { ptr, i32 }
+  %1182 = landingpad { ptr, i32 }
           cleanup
-  %770 = extractvalue { ptr, i32 } %769, 0
-  store ptr %770, ptr %exn.slot, align 8
-  %771 = extractvalue { ptr, i32 } %769, 1
-  store i32 %771, ptr %ehselector.slot, align 4
+  %1183 = extractvalue { ptr, i32 } %1182, 0
+  store ptr %1183, ptr %exn.slot, align 8
+  %1184 = extractvalue { ptr, i32 } %1182, 1
+  store i32 %1184, ptr %ehselector.slot, align 4
   br label %ehcleanup1540
 
 lpad961:                                          ; preds = %invoke.cont959
-  %772 = landingpad { ptr, i32 }
+  %1185 = landingpad { ptr, i32 }
           cleanup
-  %773 = extractvalue { ptr, i32 } %772, 0
-  store ptr %773, ptr %exn.slot, align 8
-  %774 = extractvalue { ptr, i32 } %772, 1
-  store i32 %774, ptr %ehselector.slot, align 4
+  %1186 = extractvalue { ptr, i32 } %1185, 0
+  store ptr %1186, ptr %exn.slot, align 8
+  %1187 = extractvalue { ptr, i32 } %1185, 1
+  store i32 %1187, ptr %ehselector.slot, align 4
   br label %ehcleanup1535
 
 lpad964:                                          ; preds = %invoke.cont962
-  %775 = landingpad { ptr, i32 }
+  %1188 = landingpad { ptr, i32 }
           cleanup
-  %776 = extractvalue { ptr, i32 } %775, 0
-  store ptr %776, ptr %exn.slot, align 8
-  %777 = extractvalue { ptr, i32 } %775, 1
-  store i32 %777, ptr %ehselector.slot, align 4
+  %1189 = extractvalue { ptr, i32 } %1188, 0
+  store ptr %1189, ptr %exn.slot, align 8
+  %1190 = extractvalue { ptr, i32 } %1188, 1
+  store i32 %1190, ptr %ehselector.slot, align 4
   br label %ehcleanup1530
 
 lpad967:                                          ; preds = %invoke.cont965
-  %778 = landingpad { ptr, i32 }
+  %1191 = landingpad { ptr, i32 }
           cleanup
-  %779 = extractvalue { ptr, i32 } %778, 0
-  store ptr %779, ptr %exn.slot, align 8
-  %780 = extractvalue { ptr, i32 } %778, 1
-  store i32 %780, ptr %ehselector.slot, align 4
+  %1192 = extractvalue { ptr, i32 } %1191, 0
+  store ptr %1192, ptr %exn.slot, align 8
+  %1193 = extractvalue { ptr, i32 } %1191, 1
+  store i32 %1193, ptr %ehselector.slot, align 4
   br label %ehcleanup1525
 
 lpad973:                                          ; preds = %invoke.cont968
-  %781 = landingpad { ptr, i32 }
+  %1194 = landingpad { ptr, i32 }
           cleanup
-  %782 = extractvalue { ptr, i32 } %781, 0
-  store ptr %782, ptr %exn.slot, align 8
-  %783 = extractvalue { ptr, i32 } %781, 1
-  store i32 %783, ptr %ehselector.slot, align 4
+  %1195 = extractvalue { ptr, i32 } %1194, 0
+  store ptr %1195, ptr %exn.slot, align 8
+  %1196 = extractvalue { ptr, i32 } %1194, 1
+  store i32 %1196, ptr %ehselector.slot, align 4
   br label %ehcleanup1524
 
 lpad976:                                          ; preds = %invoke.cont974
-  %784 = landingpad { ptr, i32 }
+  %1197 = landingpad { ptr, i32 }
           cleanup
-  %785 = extractvalue { ptr, i32 } %784, 0
-  store ptr %785, ptr %exn.slot, align 8
-  %786 = extractvalue { ptr, i32 } %784, 1
-  store i32 %786, ptr %ehselector.slot, align 4
+  %1198 = extractvalue { ptr, i32 } %1197, 0
+  store ptr %1198, ptr %exn.slot, align 8
+  %1199 = extractvalue { ptr, i32 } %1197, 1
+  store i32 %1199, ptr %ehselector.slot, align 4
   br label %ehcleanup1519
 
 lpad979:                                          ; preds = %invoke.cont977
-  %787 = landingpad { ptr, i32 }
+  %1200 = landingpad { ptr, i32 }
           cleanup
-  %788 = extractvalue { ptr, i32 } %787, 0
-  store ptr %788, ptr %exn.slot, align 8
-  %789 = extractvalue { ptr, i32 } %787, 1
-  store i32 %789, ptr %ehselector.slot, align 4
+  %1201 = extractvalue { ptr, i32 } %1200, 0
+  store ptr %1201, ptr %exn.slot, align 8
+  %1202 = extractvalue { ptr, i32 } %1200, 1
+  store i32 %1202, ptr %ehselector.slot, align 4
   br label %ehcleanup1514
 
 lpad982:                                          ; preds = %invoke.cont980
-  %790 = landingpad { ptr, i32 }
+  %1203 = landingpad { ptr, i32 }
           cleanup
-  %791 = extractvalue { ptr, i32 } %790, 0
-  store ptr %791, ptr %exn.slot, align 8
-  %792 = extractvalue { ptr, i32 } %790, 1
-  store i32 %792, ptr %ehselector.slot, align 4
+  %1204 = extractvalue { ptr, i32 } %1203, 0
+  store ptr %1204, ptr %exn.slot, align 8
+  %1205 = extractvalue { ptr, i32 } %1203, 1
+  store i32 %1205, ptr %ehselector.slot, align 4
   br label %ehcleanup1509
 
 lpad988:                                          ; preds = %invoke.cont983
-  %793 = landingpad { ptr, i32 }
+  %1206 = landingpad { ptr, i32 }
           cleanup
-  %794 = extractvalue { ptr, i32 } %793, 0
-  store ptr %794, ptr %exn.slot, align 8
-  %795 = extractvalue { ptr, i32 } %793, 1
-  store i32 %795, ptr %ehselector.slot, align 4
+  %1207 = extractvalue { ptr, i32 } %1206, 0
+  store ptr %1207, ptr %exn.slot, align 8
+  %1208 = extractvalue { ptr, i32 } %1206, 1
+  store i32 %1208, ptr %ehselector.slot, align 4
   br label %ehcleanup1508
 
 lpad991:                                          ; preds = %invoke.cont989
-  %796 = landingpad { ptr, i32 }
+  %1209 = landingpad { ptr, i32 }
           cleanup
-  %797 = extractvalue { ptr, i32 } %796, 0
-  store ptr %797, ptr %exn.slot, align 8
-  %798 = extractvalue { ptr, i32 } %796, 1
-  store i32 %798, ptr %ehselector.slot, align 4
+  %1210 = extractvalue { ptr, i32 } %1209, 0
+  store ptr %1210, ptr %exn.slot, align 8
+  %1211 = extractvalue { ptr, i32 } %1209, 1
+  store i32 %1211, ptr %ehselector.slot, align 4
   br label %ehcleanup1503
 
 lpad994:                                          ; preds = %invoke.cont992
-  %799 = landingpad { ptr, i32 }
+  %1212 = landingpad { ptr, i32 }
           cleanup
-  %800 = extractvalue { ptr, i32 } %799, 0
-  store ptr %800, ptr %exn.slot, align 8
-  %801 = extractvalue { ptr, i32 } %799, 1
-  store i32 %801, ptr %ehselector.slot, align 4
+  %1213 = extractvalue { ptr, i32 } %1212, 0
+  store ptr %1213, ptr %exn.slot, align 8
+  %1214 = extractvalue { ptr, i32 } %1212, 1
+  store i32 %1214, ptr %ehselector.slot, align 4
   br label %ehcleanup1498
 
 lpad997:                                          ; preds = %invoke.cont995
-  %802 = landingpad { ptr, i32 }
+  %1215 = landingpad { ptr, i32 }
           cleanup
-  %803 = extractvalue { ptr, i32 } %802, 0
-  store ptr %803, ptr %exn.slot, align 8
-  %804 = extractvalue { ptr, i32 } %802, 1
-  store i32 %804, ptr %ehselector.slot, align 4
+  %1216 = extractvalue { ptr, i32 } %1215, 0
+  store ptr %1216, ptr %exn.slot, align 8
+  %1217 = extractvalue { ptr, i32 } %1215, 1
+  store i32 %1217, ptr %ehselector.slot, align 4
   br label %ehcleanup1493
 
 lpad1003:                                         ; preds = %invoke.cont998
-  %805 = landingpad { ptr, i32 }
+  %1218 = landingpad { ptr, i32 }
           cleanup
-  %806 = extractvalue { ptr, i32 } %805, 0
-  store ptr %806, ptr %exn.slot, align 8
-  %807 = extractvalue { ptr, i32 } %805, 1
-  store i32 %807, ptr %ehselector.slot, align 4
+  %1219 = extractvalue { ptr, i32 } %1218, 0
+  store ptr %1219, ptr %exn.slot, align 8
+  %1220 = extractvalue { ptr, i32 } %1218, 1
+  store i32 %1220, ptr %ehselector.slot, align 4
   br label %ehcleanup1492
 
 lpad1006:                                         ; preds = %invoke.cont1004
-  %808 = landingpad { ptr, i32 }
+  %1221 = landingpad { ptr, i32 }
           cleanup
-  %809 = extractvalue { ptr, i32 } %808, 0
-  store ptr %809, ptr %exn.slot, align 8
-  %810 = extractvalue { ptr, i32 } %808, 1
-  store i32 %810, ptr %ehselector.slot, align 4
+  %1222 = extractvalue { ptr, i32 } %1221, 0
+  store ptr %1222, ptr %exn.slot, align 8
+  %1223 = extractvalue { ptr, i32 } %1221, 1
+  store i32 %1223, ptr %ehselector.slot, align 4
   br label %ehcleanup1487
 
 lpad1009:                                         ; preds = %invoke.cont1007
-  %811 = landingpad { ptr, i32 }
+  %1224 = landingpad { ptr, i32 }
           cleanup
-  %812 = extractvalue { ptr, i32 } %811, 0
-  store ptr %812, ptr %exn.slot, align 8
-  %813 = extractvalue { ptr, i32 } %811, 1
-  store i32 %813, ptr %ehselector.slot, align 4
+  %1225 = extractvalue { ptr, i32 } %1224, 0
+  store ptr %1225, ptr %exn.slot, align 8
+  %1226 = extractvalue { ptr, i32 } %1224, 1
+  store i32 %1226, ptr %ehselector.slot, align 4
   br label %ehcleanup1482
 
 lpad1012:                                         ; preds = %invoke.cont1010
-  %814 = landingpad { ptr, i32 }
+  %1227 = landingpad { ptr, i32 }
           cleanup
-  %815 = extractvalue { ptr, i32 } %814, 0
-  store ptr %815, ptr %exn.slot, align 8
-  %816 = extractvalue { ptr, i32 } %814, 1
-  store i32 %816, ptr %ehselector.slot, align 4
+  %1228 = extractvalue { ptr, i32 } %1227, 0
+  store ptr %1228, ptr %exn.slot, align 8
+  %1229 = extractvalue { ptr, i32 } %1227, 1
+  store i32 %1229, ptr %ehselector.slot, align 4
   br label %ehcleanup1477
 
 lpad1018:                                         ; preds = %invoke.cont1013
-  %817 = landingpad { ptr, i32 }
+  %1230 = landingpad { ptr, i32 }
           cleanup
-  %818 = extractvalue { ptr, i32 } %817, 0
-  store ptr %818, ptr %exn.slot, align 8
-  %819 = extractvalue { ptr, i32 } %817, 1
-  store i32 %819, ptr %ehselector.slot, align 4
+  %1231 = extractvalue { ptr, i32 } %1230, 0
+  store ptr %1231, ptr %exn.slot, align 8
+  %1232 = extractvalue { ptr, i32 } %1230, 1
+  store i32 %1232, ptr %ehselector.slot, align 4
   br label %ehcleanup1476
 
 lpad1021:                                         ; preds = %invoke.cont1019
-  %820 = landingpad { ptr, i32 }
+  %1233 = landingpad { ptr, i32 }
           cleanup
-  %821 = extractvalue { ptr, i32 } %820, 0
-  store ptr %821, ptr %exn.slot, align 8
-  %822 = extractvalue { ptr, i32 } %820, 1
-  store i32 %822, ptr %ehselector.slot, align 4
+  %1234 = extractvalue { ptr, i32 } %1233, 0
+  store ptr %1234, ptr %exn.slot, align 8
+  %1235 = extractvalue { ptr, i32 } %1233, 1
+  store i32 %1235, ptr %ehselector.slot, align 4
   br label %ehcleanup1471
 
 lpad1024:                                         ; preds = %invoke.cont1022
-  %823 = landingpad { ptr, i32 }
+  %1236 = landingpad { ptr, i32 }
           cleanup
-  %824 = extractvalue { ptr, i32 } %823, 0
-  store ptr %824, ptr %exn.slot, align 8
-  %825 = extractvalue { ptr, i32 } %823, 1
-  store i32 %825, ptr %ehselector.slot, align 4
+  %1237 = extractvalue { ptr, i32 } %1236, 0
+  store ptr %1237, ptr %exn.slot, align 8
+  %1238 = extractvalue { ptr, i32 } %1236, 1
+  store i32 %1238, ptr %ehselector.slot, align 4
   br label %ehcleanup1466
 
 lpad1027:                                         ; preds = %invoke.cont1025
-  %826 = landingpad { ptr, i32 }
+  %1239 = landingpad { ptr, i32 }
           cleanup
-  %827 = extractvalue { ptr, i32 } %826, 0
-  store ptr %827, ptr %exn.slot, align 8
-  %828 = extractvalue { ptr, i32 } %826, 1
-  store i32 %828, ptr %ehselector.slot, align 4
+  %1240 = extractvalue { ptr, i32 } %1239, 0
+  store ptr %1240, ptr %exn.slot, align 8
+  %1241 = extractvalue { ptr, i32 } %1239, 1
+  store i32 %1241, ptr %ehselector.slot, align 4
   br label %ehcleanup1461
 
 lpad1033:                                         ; preds = %invoke.cont1028
-  %829 = landingpad { ptr, i32 }
+  %1242 = landingpad { ptr, i32 }
           cleanup
-  %830 = extractvalue { ptr, i32 } %829, 0
-  store ptr %830, ptr %exn.slot, align 8
-  %831 = extractvalue { ptr, i32 } %829, 1
-  store i32 %831, ptr %ehselector.slot, align 4
+  %1243 = extractvalue { ptr, i32 } %1242, 0
+  store ptr %1243, ptr %exn.slot, align 8
+  %1244 = extractvalue { ptr, i32 } %1242, 1
+  store i32 %1244, ptr %ehselector.slot, align 4
   br label %ehcleanup1460
 
 lpad1036:                                         ; preds = %invoke.cont1034
-  %832 = landingpad { ptr, i32 }
+  %1245 = landingpad { ptr, i32 }
           cleanup
-  %833 = extractvalue { ptr, i32 } %832, 0
-  store ptr %833, ptr %exn.slot, align 8
-  %834 = extractvalue { ptr, i32 } %832, 1
-  store i32 %834, ptr %ehselector.slot, align 4
+  %1246 = extractvalue { ptr, i32 } %1245, 0
+  store ptr %1246, ptr %exn.slot, align 8
+  %1247 = extractvalue { ptr, i32 } %1245, 1
+  store i32 %1247, ptr %ehselector.slot, align 4
   br label %ehcleanup1455
 
 lpad1039:                                         ; preds = %invoke.cont1037
-  %835 = landingpad { ptr, i32 }
+  %1248 = landingpad { ptr, i32 }
           cleanup
-  %836 = extractvalue { ptr, i32 } %835, 0
-  store ptr %836, ptr %exn.slot, align 8
-  %837 = extractvalue { ptr, i32 } %835, 1
-  store i32 %837, ptr %ehselector.slot, align 4
+  %1249 = extractvalue { ptr, i32 } %1248, 0
+  store ptr %1249, ptr %exn.slot, align 8
+  %1250 = extractvalue { ptr, i32 } %1248, 1
+  store i32 %1250, ptr %ehselector.slot, align 4
   br label %ehcleanup1450
 
 lpad1042:                                         ; preds = %invoke.cont1040
-  %838 = landingpad { ptr, i32 }
+  %1251 = landingpad { ptr, i32 }
           cleanup
-  %839 = extractvalue { ptr, i32 } %838, 0
-  store ptr %839, ptr %exn.slot, align 8
-  %840 = extractvalue { ptr, i32 } %838, 1
-  store i32 %840, ptr %ehselector.slot, align 4
+  %1252 = extractvalue { ptr, i32 } %1251, 0
+  store ptr %1252, ptr %exn.slot, align 8
+  %1253 = extractvalue { ptr, i32 } %1251, 1
+  store i32 %1253, ptr %ehselector.slot, align 4
   br label %ehcleanup1445
 
 lpad1048:                                         ; preds = %invoke.cont1043
-  %841 = landingpad { ptr, i32 }
+  %1254 = landingpad { ptr, i32 }
           cleanup
-  %842 = extractvalue { ptr, i32 } %841, 0
-  store ptr %842, ptr %exn.slot, align 8
-  %843 = extractvalue { ptr, i32 } %841, 1
-  store i32 %843, ptr %ehselector.slot, align 4
+  %1255 = extractvalue { ptr, i32 } %1254, 0
+  store ptr %1255, ptr %exn.slot, align 8
+  %1256 = extractvalue { ptr, i32 } %1254, 1
+  store i32 %1256, ptr %ehselector.slot, align 4
   br label %ehcleanup1444
 
 lpad1051:                                         ; preds = %invoke.cont1049
-  %844 = landingpad { ptr, i32 }
+  %1257 = landingpad { ptr, i32 }
           cleanup
-  %845 = extractvalue { ptr, i32 } %844, 0
-  store ptr %845, ptr %exn.slot, align 8
-  %846 = extractvalue { ptr, i32 } %844, 1
-  store i32 %846, ptr %ehselector.slot, align 4
+  %1258 = extractvalue { ptr, i32 } %1257, 0
+  store ptr %1258, ptr %exn.slot, align 8
+  %1259 = extractvalue { ptr, i32 } %1257, 1
+  store i32 %1259, ptr %ehselector.slot, align 4
   br label %ehcleanup1439
 
 lpad1054:                                         ; preds = %invoke.cont1052
-  %847 = landingpad { ptr, i32 }
+  %1260 = landingpad { ptr, i32 }
           cleanup
-  %848 = extractvalue { ptr, i32 } %847, 0
-  store ptr %848, ptr %exn.slot, align 8
-  %849 = extractvalue { ptr, i32 } %847, 1
-  store i32 %849, ptr %ehselector.slot, align 4
+  %1261 = extractvalue { ptr, i32 } %1260, 0
+  store ptr %1261, ptr %exn.slot, align 8
+  %1262 = extractvalue { ptr, i32 } %1260, 1
+  store i32 %1262, ptr %ehselector.slot, align 4
   br label %ehcleanup1434
 
 lpad1057:                                         ; preds = %invoke.cont1055
-  %850 = landingpad { ptr, i32 }
+  %1263 = landingpad { ptr, i32 }
           cleanup
-  %851 = extractvalue { ptr, i32 } %850, 0
-  store ptr %851, ptr %exn.slot, align 8
-  %852 = extractvalue { ptr, i32 } %850, 1
-  store i32 %852, ptr %ehselector.slot, align 4
+  %1264 = extractvalue { ptr, i32 } %1263, 0
+  store ptr %1264, ptr %exn.slot, align 8
+  %1265 = extractvalue { ptr, i32 } %1263, 1
+  store i32 %1265, ptr %ehselector.slot, align 4
   br label %ehcleanup1429
 
 lpad1063:                                         ; preds = %invoke.cont1058
-  %853 = landingpad { ptr, i32 }
+  %1266 = landingpad { ptr, i32 }
           cleanup
-  %854 = extractvalue { ptr, i32 } %853, 0
-  store ptr %854, ptr %exn.slot, align 8
-  %855 = extractvalue { ptr, i32 } %853, 1
-  store i32 %855, ptr %ehselector.slot, align 4
+  %1267 = extractvalue { ptr, i32 } %1266, 0
+  store ptr %1267, ptr %exn.slot, align 8
+  %1268 = extractvalue { ptr, i32 } %1266, 1
+  store i32 %1268, ptr %ehselector.slot, align 4
   br label %ehcleanup1428
 
 lpad1066:                                         ; preds = %invoke.cont1064
-  %856 = landingpad { ptr, i32 }
+  %1269 = landingpad { ptr, i32 }
           cleanup
-  %857 = extractvalue { ptr, i32 } %856, 0
-  store ptr %857, ptr %exn.slot, align 8
-  %858 = extractvalue { ptr, i32 } %856, 1
-  store i32 %858, ptr %ehselector.slot, align 4
+  %1270 = extractvalue { ptr, i32 } %1269, 0
+  store ptr %1270, ptr %exn.slot, align 8
+  %1271 = extractvalue { ptr, i32 } %1269, 1
+  store i32 %1271, ptr %ehselector.slot, align 4
   br label %ehcleanup1423
 
 lpad1069:                                         ; preds = %invoke.cont1067
-  %859 = landingpad { ptr, i32 }
+  %1272 = landingpad { ptr, i32 }
           cleanup
-  %860 = extractvalue { ptr, i32 } %859, 0
-  store ptr %860, ptr %exn.slot, align 8
-  %861 = extractvalue { ptr, i32 } %859, 1
-  store i32 %861, ptr %ehselector.slot, align 4
+  %1273 = extractvalue { ptr, i32 } %1272, 0
+  store ptr %1273, ptr %exn.slot, align 8
+  %1274 = extractvalue { ptr, i32 } %1272, 1
+  store i32 %1274, ptr %ehselector.slot, align 4
   br label %ehcleanup1418
 
 lpad1072:                                         ; preds = %invoke.cont1070
-  %862 = landingpad { ptr, i32 }
+  %1275 = landingpad { ptr, i32 }
           cleanup
-  %863 = extractvalue { ptr, i32 } %862, 0
-  store ptr %863, ptr %exn.slot, align 8
-  %864 = extractvalue { ptr, i32 } %862, 1
-  store i32 %864, ptr %ehselector.slot, align 4
+  %1276 = extractvalue { ptr, i32 } %1275, 0
+  store ptr %1276, ptr %exn.slot, align 8
+  %1277 = extractvalue { ptr, i32 } %1275, 1
+  store i32 %1277, ptr %ehselector.slot, align 4
   br label %ehcleanup1413
 
 lpad1078:                                         ; preds = %invoke.cont1073
-  %865 = landingpad { ptr, i32 }
+  %1278 = landingpad { ptr, i32 }
           cleanup
-  %866 = extractvalue { ptr, i32 } %865, 0
-  store ptr %866, ptr %exn.slot, align 8
-  %867 = extractvalue { ptr, i32 } %865, 1
-  store i32 %867, ptr %ehselector.slot, align 4
+  %1279 = extractvalue { ptr, i32 } %1278, 0
+  store ptr %1279, ptr %exn.slot, align 8
+  %1280 = extractvalue { ptr, i32 } %1278, 1
+  store i32 %1280, ptr %ehselector.slot, align 4
   br label %ehcleanup1412
 
 lpad1081:                                         ; preds = %invoke.cont1079
-  %868 = landingpad { ptr, i32 }
+  %1281 = landingpad { ptr, i32 }
           cleanup
-  %869 = extractvalue { ptr, i32 } %868, 0
-  store ptr %869, ptr %exn.slot, align 8
-  %870 = extractvalue { ptr, i32 } %868, 1
-  store i32 %870, ptr %ehselector.slot, align 4
+  %1282 = extractvalue { ptr, i32 } %1281, 0
+  store ptr %1282, ptr %exn.slot, align 8
+  %1283 = extractvalue { ptr, i32 } %1281, 1
+  store i32 %1283, ptr %ehselector.slot, align 4
   br label %ehcleanup1407
 
 lpad1084:                                         ; preds = %invoke.cont1082
-  %871 = landingpad { ptr, i32 }
+  %1284 = landingpad { ptr, i32 }
           cleanup
-  %872 = extractvalue { ptr, i32 } %871, 0
-  store ptr %872, ptr %exn.slot, align 8
-  %873 = extractvalue { ptr, i32 } %871, 1
-  store i32 %873, ptr %ehselector.slot, align 4
+  %1285 = extractvalue { ptr, i32 } %1284, 0
+  store ptr %1285, ptr %exn.slot, align 8
+  %1286 = extractvalue { ptr, i32 } %1284, 1
+  store i32 %1286, ptr %ehselector.slot, align 4
   br label %ehcleanup1402
 
 lpad1087:                                         ; preds = %invoke.cont1085
-  %874 = landingpad { ptr, i32 }
+  %1287 = landingpad { ptr, i32 }
           cleanup
-  %875 = extractvalue { ptr, i32 } %874, 0
-  store ptr %875, ptr %exn.slot, align 8
-  %876 = extractvalue { ptr, i32 } %874, 1
-  store i32 %876, ptr %ehselector.slot, align 4
+  %1288 = extractvalue { ptr, i32 } %1287, 0
+  store ptr %1288, ptr %exn.slot, align 8
+  %1289 = extractvalue { ptr, i32 } %1287, 1
+  store i32 %1289, ptr %ehselector.slot, align 4
   br label %ehcleanup1397
 
 lpad1093:                                         ; preds = %invoke.cont1088
-  %877 = landingpad { ptr, i32 }
+  %1290 = landingpad { ptr, i32 }
           cleanup
-  %878 = extractvalue { ptr, i32 } %877, 0
-  store ptr %878, ptr %exn.slot, align 8
-  %879 = extractvalue { ptr, i32 } %877, 1
-  store i32 %879, ptr %ehselector.slot, align 4
+  %1291 = extractvalue { ptr, i32 } %1290, 0
+  store ptr %1291, ptr %exn.slot, align 8
+  %1292 = extractvalue { ptr, i32 } %1290, 1
+  store i32 %1292, ptr %ehselector.slot, align 4
   br label %ehcleanup1396
 
 lpad1096:                                         ; preds = %invoke.cont1094
-  %880 = landingpad { ptr, i32 }
+  %1293 = landingpad { ptr, i32 }
           cleanup
-  %881 = extractvalue { ptr, i32 } %880, 0
-  store ptr %881, ptr %exn.slot, align 8
-  %882 = extractvalue { ptr, i32 } %880, 1
-  store i32 %882, ptr %ehselector.slot, align 4
+  %1294 = extractvalue { ptr, i32 } %1293, 0
+  store ptr %1294, ptr %exn.slot, align 8
+  %1295 = extractvalue { ptr, i32 } %1293, 1
+  store i32 %1295, ptr %ehselector.slot, align 4
   br label %ehcleanup1391
 
 lpad1099:                                         ; preds = %invoke.cont1097
-  %883 = landingpad { ptr, i32 }
+  %1296 = landingpad { ptr, i32 }
           cleanup
-  %884 = extractvalue { ptr, i32 } %883, 0
-  store ptr %884, ptr %exn.slot, align 8
-  %885 = extractvalue { ptr, i32 } %883, 1
-  store i32 %885, ptr %ehselector.slot, align 4
+  %1297 = extractvalue { ptr, i32 } %1296, 0
+  store ptr %1297, ptr %exn.slot, align 8
+  %1298 = extractvalue { ptr, i32 } %1296, 1
+  store i32 %1298, ptr %ehselector.slot, align 4
   br label %ehcleanup1386
 
 lpad1102:                                         ; preds = %invoke.cont1100
-  %886 = landingpad { ptr, i32 }
+  %1299 = landingpad { ptr, i32 }
           cleanup
-  %887 = extractvalue { ptr, i32 } %886, 0
-  store ptr %887, ptr %exn.slot, align 8
-  %888 = extractvalue { ptr, i32 } %886, 1
-  store i32 %888, ptr %ehselector.slot, align 4
+  %1300 = extractvalue { ptr, i32 } %1299, 0
+  store ptr %1300, ptr %exn.slot, align 8
+  %1301 = extractvalue { ptr, i32 } %1299, 1
+  store i32 %1301, ptr %ehselector.slot, align 4
   br label %ehcleanup1381
 
 lpad1108:                                         ; preds = %invoke.cont1103
-  %889 = landingpad { ptr, i32 }
+  %1302 = landingpad { ptr, i32 }
           cleanup
-  %890 = extractvalue { ptr, i32 } %889, 0
-  store ptr %890, ptr %exn.slot, align 8
-  %891 = extractvalue { ptr, i32 } %889, 1
-  store i32 %891, ptr %ehselector.slot, align 4
+  %1303 = extractvalue { ptr, i32 } %1302, 0
+  store ptr %1303, ptr %exn.slot, align 8
+  %1304 = extractvalue { ptr, i32 } %1302, 1
+  store i32 %1304, ptr %ehselector.slot, align 4
   br label %ehcleanup1380
 
 lpad1111:                                         ; preds = %invoke.cont1109
-  %892 = landingpad { ptr, i32 }
+  %1305 = landingpad { ptr, i32 }
           cleanup
-  %893 = extractvalue { ptr, i32 } %892, 0
-  store ptr %893, ptr %exn.slot, align 8
-  %894 = extractvalue { ptr, i32 } %892, 1
-  store i32 %894, ptr %ehselector.slot, align 4
+  %1306 = extractvalue { ptr, i32 } %1305, 0
+  store ptr %1306, ptr %exn.slot, align 8
+  %1307 = extractvalue { ptr, i32 } %1305, 1
+  store i32 %1307, ptr %ehselector.slot, align 4
   br label %ehcleanup1375
 
 lpad1114:                                         ; preds = %invoke.cont1112
-  %895 = landingpad { ptr, i32 }
+  %1308 = landingpad { ptr, i32 }
           cleanup
-  %896 = extractvalue { ptr, i32 } %895, 0
-  store ptr %896, ptr %exn.slot, align 8
-  %897 = extractvalue { ptr, i32 } %895, 1
-  store i32 %897, ptr %ehselector.slot, align 4
+  %1309 = extractvalue { ptr, i32 } %1308, 0
+  store ptr %1309, ptr %exn.slot, align 8
+  %1310 = extractvalue { ptr, i32 } %1308, 1
+  store i32 %1310, ptr %ehselector.slot, align 4
   br label %ehcleanup1370
 
 lpad1117:                                         ; preds = %invoke.cont1115
-  %898 = landingpad { ptr, i32 }
+  %1311 = landingpad { ptr, i32 }
           cleanup
-  %899 = extractvalue { ptr, i32 } %898, 0
-  store ptr %899, ptr %exn.slot, align 8
-  %900 = extractvalue { ptr, i32 } %898, 1
-  store i32 %900, ptr %ehselector.slot, align 4
+  %1312 = extractvalue { ptr, i32 } %1311, 0
+  store ptr %1312, ptr %exn.slot, align 8
+  %1313 = extractvalue { ptr, i32 } %1311, 1
+  store i32 %1313, ptr %ehselector.slot, align 4
   br label %ehcleanup1365
 
 lpad1123:                                         ; preds = %invoke.cont1118
-  %901 = landingpad { ptr, i32 }
+  %1314 = landingpad { ptr, i32 }
           cleanup
-  %902 = extractvalue { ptr, i32 } %901, 0
-  store ptr %902, ptr %exn.slot, align 8
-  %903 = extractvalue { ptr, i32 } %901, 1
-  store i32 %903, ptr %ehselector.slot, align 4
+  %1315 = extractvalue { ptr, i32 } %1314, 0
+  store ptr %1315, ptr %exn.slot, align 8
+  %1316 = extractvalue { ptr, i32 } %1314, 1
+  store i32 %1316, ptr %ehselector.slot, align 4
   br label %ehcleanup1364
 
 lpad1126:                                         ; preds = %invoke.cont1124
-  %904 = landingpad { ptr, i32 }
+  %1317 = landingpad { ptr, i32 }
           cleanup
-  %905 = extractvalue { ptr, i32 } %904, 0
-  store ptr %905, ptr %exn.slot, align 8
-  %906 = extractvalue { ptr, i32 } %904, 1
-  store i32 %906, ptr %ehselector.slot, align 4
+  %1318 = extractvalue { ptr, i32 } %1317, 0
+  store ptr %1318, ptr %exn.slot, align 8
+  %1319 = extractvalue { ptr, i32 } %1317, 1
+  store i32 %1319, ptr %ehselector.slot, align 4
   br label %ehcleanup1359
 
 lpad1129:                                         ; preds = %invoke.cont1127
-  %907 = landingpad { ptr, i32 }
+  %1320 = landingpad { ptr, i32 }
           cleanup
-  %908 = extractvalue { ptr, i32 } %907, 0
-  store ptr %908, ptr %exn.slot, align 8
-  %909 = extractvalue { ptr, i32 } %907, 1
-  store i32 %909, ptr %ehselector.slot, align 4
+  %1321 = extractvalue { ptr, i32 } %1320, 0
+  store ptr %1321, ptr %exn.slot, align 8
+  %1322 = extractvalue { ptr, i32 } %1320, 1
+  store i32 %1322, ptr %ehselector.slot, align 4
   br label %ehcleanup1354
 
 lpad1132:                                         ; preds = %invoke.cont1130
-  %910 = landingpad { ptr, i32 }
+  %1323 = landingpad { ptr, i32 }
           cleanup
-  %911 = extractvalue { ptr, i32 } %910, 0
-  store ptr %911, ptr %exn.slot, align 8
-  %912 = extractvalue { ptr, i32 } %910, 1
-  store i32 %912, ptr %ehselector.slot, align 4
+  %1324 = extractvalue { ptr, i32 } %1323, 0
+  store ptr %1324, ptr %exn.slot, align 8
+  %1325 = extractvalue { ptr, i32 } %1323, 1
+  store i32 %1325, ptr %ehselector.slot, align 4
   br label %ehcleanup1349
 
 lpad1138:                                         ; preds = %invoke.cont1133
-  %913 = landingpad { ptr, i32 }
+  %1326 = landingpad { ptr, i32 }
           cleanup
-  %914 = extractvalue { ptr, i32 } %913, 0
-  store ptr %914, ptr %exn.slot, align 8
-  %915 = extractvalue { ptr, i32 } %913, 1
-  store i32 %915, ptr %ehselector.slot, align 4
+  %1327 = extractvalue { ptr, i32 } %1326, 0
+  store ptr %1327, ptr %exn.slot, align 8
+  %1328 = extractvalue { ptr, i32 } %1326, 1
+  store i32 %1328, ptr %ehselector.slot, align 4
   br label %ehcleanup1348
 
 lpad1141:                                         ; preds = %invoke.cont1139
-  %916 = landingpad { ptr, i32 }
+  %1329 = landingpad { ptr, i32 }
           cleanup
-  %917 = extractvalue { ptr, i32 } %916, 0
-  store ptr %917, ptr %exn.slot, align 8
-  %918 = extractvalue { ptr, i32 } %916, 1
-  store i32 %918, ptr %ehselector.slot, align 4
+  %1330 = extractvalue { ptr, i32 } %1329, 0
+  store ptr %1330, ptr %exn.slot, align 8
+  %1331 = extractvalue { ptr, i32 } %1329, 1
+  store i32 %1331, ptr %ehselector.slot, align 4
   br label %ehcleanup1343
 
 lpad1144:                                         ; preds = %invoke.cont1142
-  %919 = landingpad { ptr, i32 }
+  %1332 = landingpad { ptr, i32 }
           cleanup
-  %920 = extractvalue { ptr, i32 } %919, 0
-  store ptr %920, ptr %exn.slot, align 8
-  %921 = extractvalue { ptr, i32 } %919, 1
-  store i32 %921, ptr %ehselector.slot, align 4
+  %1333 = extractvalue { ptr, i32 } %1332, 0
+  store ptr %1333, ptr %exn.slot, align 8
+  %1334 = extractvalue { ptr, i32 } %1332, 1
+  store i32 %1334, ptr %ehselector.slot, align 4
   br label %ehcleanup1338
 
 lpad1147:                                         ; preds = %invoke.cont1145
-  %922 = landingpad { ptr, i32 }
+  %1335 = landingpad { ptr, i32 }
           cleanup
-  %923 = extractvalue { ptr, i32 } %922, 0
-  store ptr %923, ptr %exn.slot, align 8
-  %924 = extractvalue { ptr, i32 } %922, 1
-  store i32 %924, ptr %ehselector.slot, align 4
+  %1336 = extractvalue { ptr, i32 } %1335, 0
+  store ptr %1336, ptr %exn.slot, align 8
+  %1337 = extractvalue { ptr, i32 } %1335, 1
+  store i32 %1337, ptr %ehselector.slot, align 4
   br label %ehcleanup1333
 
 lpad1153:                                         ; preds = %invoke.cont1148
-  %925 = landingpad { ptr, i32 }
+  %1338 = landingpad { ptr, i32 }
           cleanup
-  %926 = extractvalue { ptr, i32 } %925, 0
-  store ptr %926, ptr %exn.slot, align 8
-  %927 = extractvalue { ptr, i32 } %925, 1
-  store i32 %927, ptr %ehselector.slot, align 4
+  %1339 = extractvalue { ptr, i32 } %1338, 0
+  store ptr %1339, ptr %exn.slot, align 8
+  %1340 = extractvalue { ptr, i32 } %1338, 1
+  store i32 %1340, ptr %ehselector.slot, align 4
   br label %ehcleanup1332
 
 lpad1156:                                         ; preds = %invoke.cont1154
-  %928 = landingpad { ptr, i32 }
+  %1341 = landingpad { ptr, i32 }
           cleanup
-  %929 = extractvalue { ptr, i32 } %928, 0
-  store ptr %929, ptr %exn.slot, align 8
-  %930 = extractvalue { ptr, i32 } %928, 1
-  store i32 %930, ptr %ehselector.slot, align 4
+  %1342 = extractvalue { ptr, i32 } %1341, 0
+  store ptr %1342, ptr %exn.slot, align 8
+  %1343 = extractvalue { ptr, i32 } %1341, 1
+  store i32 %1343, ptr %ehselector.slot, align 4
   br label %ehcleanup1327
 
 lpad1159:                                         ; preds = %invoke.cont1157
-  %931 = landingpad { ptr, i32 }
+  %1344 = landingpad { ptr, i32 }
           cleanup
-  %932 = extractvalue { ptr, i32 } %931, 0
-  store ptr %932, ptr %exn.slot, align 8
-  %933 = extractvalue { ptr, i32 } %931, 1
-  store i32 %933, ptr %ehselector.slot, align 4
+  %1345 = extractvalue { ptr, i32 } %1344, 0
+  store ptr %1345, ptr %exn.slot, align 8
+  %1346 = extractvalue { ptr, i32 } %1344, 1
+  store i32 %1346, ptr %ehselector.slot, align 4
   br label %ehcleanup1322
 
 lpad1162:                                         ; preds = %invoke.cont1160
-  %934 = landingpad { ptr, i32 }
+  %1347 = landingpad { ptr, i32 }
           cleanup
-  %935 = extractvalue { ptr, i32 } %934, 0
-  store ptr %935, ptr %exn.slot, align 8
-  %936 = extractvalue { ptr, i32 } %934, 1
-  store i32 %936, ptr %ehselector.slot, align 4
+  %1348 = extractvalue { ptr, i32 } %1347, 0
+  store ptr %1348, ptr %exn.slot, align 8
+  %1349 = extractvalue { ptr, i32 } %1347, 1
+  store i32 %1349, ptr %ehselector.slot, align 4
   br label %ehcleanup1317
 
 lpad1168:                                         ; preds = %invoke.cont1163
-  %937 = landingpad { ptr, i32 }
+  %1350 = landingpad { ptr, i32 }
           cleanup
-  %938 = extractvalue { ptr, i32 } %937, 0
-  store ptr %938, ptr %exn.slot, align 8
-  %939 = extractvalue { ptr, i32 } %937, 1
-  store i32 %939, ptr %ehselector.slot, align 4
+  %1351 = extractvalue { ptr, i32 } %1350, 0
+  store ptr %1351, ptr %exn.slot, align 8
+  %1352 = extractvalue { ptr, i32 } %1350, 1
+  store i32 %1352, ptr %ehselector.slot, align 4
   br label %ehcleanup1316
 
 lpad1171:                                         ; preds = %invoke.cont1169
-  %940 = landingpad { ptr, i32 }
+  %1353 = landingpad { ptr, i32 }
           cleanup
-  %941 = extractvalue { ptr, i32 } %940, 0
-  store ptr %941, ptr %exn.slot, align 8
-  %942 = extractvalue { ptr, i32 } %940, 1
-  store i32 %942, ptr %ehselector.slot, align 4
+  %1354 = extractvalue { ptr, i32 } %1353, 0
+  store ptr %1354, ptr %exn.slot, align 8
+  %1355 = extractvalue { ptr, i32 } %1353, 1
+  store i32 %1355, ptr %ehselector.slot, align 4
   br label %ehcleanup1311
 
 lpad1174:                                         ; preds = %invoke.cont1172
-  %943 = landingpad { ptr, i32 }
+  %1356 = landingpad { ptr, i32 }
           cleanup
-  %944 = extractvalue { ptr, i32 } %943, 0
-  store ptr %944, ptr %exn.slot, align 8
-  %945 = extractvalue { ptr, i32 } %943, 1
-  store i32 %945, ptr %ehselector.slot, align 4
+  %1357 = extractvalue { ptr, i32 } %1356, 0
+  store ptr %1357, ptr %exn.slot, align 8
+  %1358 = extractvalue { ptr, i32 } %1356, 1
+  store i32 %1358, ptr %ehselector.slot, align 4
   br label %ehcleanup1306
 
 lpad1177:                                         ; preds = %invoke.cont1175
-  %946 = landingpad { ptr, i32 }
+  %1359 = landingpad { ptr, i32 }
           cleanup
-  %947 = extractvalue { ptr, i32 } %946, 0
-  store ptr %947, ptr %exn.slot, align 8
-  %948 = extractvalue { ptr, i32 } %946, 1
-  store i32 %948, ptr %ehselector.slot, align 4
+  %1360 = extractvalue { ptr, i32 } %1359, 0
+  store ptr %1360, ptr %exn.slot, align 8
+  %1361 = extractvalue { ptr, i32 } %1359, 1
+  store i32 %1361, ptr %ehselector.slot, align 4
   br label %ehcleanup1301
 
 lpad1183:                                         ; preds = %invoke.cont1178
-  %949 = landingpad { ptr, i32 }
+  %1362 = landingpad { ptr, i32 }
           cleanup
-  %950 = extractvalue { ptr, i32 } %949, 0
-  store ptr %950, ptr %exn.slot, align 8
-  %951 = extractvalue { ptr, i32 } %949, 1
-  store i32 %951, ptr %ehselector.slot, align 4
+  %1363 = extractvalue { ptr, i32 } %1362, 0
+  store ptr %1363, ptr %exn.slot, align 8
+  %1364 = extractvalue { ptr, i32 } %1362, 1
+  store i32 %1364, ptr %ehselector.slot, align 4
   br label %ehcleanup1300
 
 lpad1186:                                         ; preds = %invoke.cont1184
-  %952 = landingpad { ptr, i32 }
+  %1365 = landingpad { ptr, i32 }
           cleanup
-  %953 = extractvalue { ptr, i32 } %952, 0
-  store ptr %953, ptr %exn.slot, align 8
-  %954 = extractvalue { ptr, i32 } %952, 1
-  store i32 %954, ptr %ehselector.slot, align 4
+  %1366 = extractvalue { ptr, i32 } %1365, 0
+  store ptr %1366, ptr %exn.slot, align 8
+  %1367 = extractvalue { ptr, i32 } %1365, 1
+  store i32 %1367, ptr %ehselector.slot, align 4
   br label %ehcleanup1295
 
 lpad1189:                                         ; preds = %invoke.cont1187
-  %955 = landingpad { ptr, i32 }
+  %1368 = landingpad { ptr, i32 }
           cleanup
-  %956 = extractvalue { ptr, i32 } %955, 0
-  store ptr %956, ptr %exn.slot, align 8
-  %957 = extractvalue { ptr, i32 } %955, 1
-  store i32 %957, ptr %ehselector.slot, align 4
+  %1369 = extractvalue { ptr, i32 } %1368, 0
+  store ptr %1369, ptr %exn.slot, align 8
+  %1370 = extractvalue { ptr, i32 } %1368, 1
+  store i32 %1370, ptr %ehselector.slot, align 4
   br label %ehcleanup1290
 
 lpad1192:                                         ; preds = %invoke.cont1190
-  %958 = landingpad { ptr, i32 }
+  %1371 = landingpad { ptr, i32 }
           cleanup
-  %959 = extractvalue { ptr, i32 } %958, 0
-  store ptr %959, ptr %exn.slot, align 8
-  %960 = extractvalue { ptr, i32 } %958, 1
-  store i32 %960, ptr %ehselector.slot, align 4
+  %1372 = extractvalue { ptr, i32 } %1371, 0
+  store ptr %1372, ptr %exn.slot, align 8
+  %1373 = extractvalue { ptr, i32 } %1371, 1
+  store i32 %1373, ptr %ehselector.slot, align 4
   br label %ehcleanup1285
 
 lpad1198:                                         ; preds = %invoke.cont1193
-  %961 = landingpad { ptr, i32 }
+  %1374 = landingpad { ptr, i32 }
           cleanup
-  %962 = extractvalue { ptr, i32 } %961, 0
-  store ptr %962, ptr %exn.slot, align 8
-  %963 = extractvalue { ptr, i32 } %961, 1
-  store i32 %963, ptr %ehselector.slot, align 4
+  %1375 = extractvalue { ptr, i32 } %1374, 0
+  store ptr %1375, ptr %exn.slot, align 8
+  %1376 = extractvalue { ptr, i32 } %1374, 1
+  store i32 %1376, ptr %ehselector.slot, align 4
   br label %ehcleanup1284
 
 lpad1201:                                         ; preds = %invoke.cont1199
-  %964 = landingpad { ptr, i32 }
+  %1377 = landingpad { ptr, i32 }
           cleanup
-  %965 = extractvalue { ptr, i32 } %964, 0
-  store ptr %965, ptr %exn.slot, align 8
-  %966 = extractvalue { ptr, i32 } %964, 1
-  store i32 %966, ptr %ehselector.slot, align 4
+  %1378 = extractvalue { ptr, i32 } %1377, 0
+  store ptr %1378, ptr %exn.slot, align 8
+  %1379 = extractvalue { ptr, i32 } %1377, 1
+  store i32 %1379, ptr %ehselector.slot, align 4
   br label %ehcleanup1279
 
 lpad1204:                                         ; preds = %invoke.cont1202
-  %967 = landingpad { ptr, i32 }
+  %1380 = landingpad { ptr, i32 }
           cleanup
-  %968 = extractvalue { ptr, i32 } %967, 0
-  store ptr %968, ptr %exn.slot, align 8
-  %969 = extractvalue { ptr, i32 } %967, 1
-  store i32 %969, ptr %ehselector.slot, align 4
+  %1381 = extractvalue { ptr, i32 } %1380, 0
+  store ptr %1381, ptr %exn.slot, align 8
+  %1382 = extractvalue { ptr, i32 } %1380, 1
+  store i32 %1382, ptr %ehselector.slot, align 4
   br label %ehcleanup1274
 
 lpad1207:                                         ; preds = %invoke.cont1205
-  %970 = landingpad { ptr, i32 }
+  %1383 = landingpad { ptr, i32 }
           cleanup
-  %971 = extractvalue { ptr, i32 } %970, 0
-  store ptr %971, ptr %exn.slot, align 8
-  %972 = extractvalue { ptr, i32 } %970, 1
-  store i32 %972, ptr %ehselector.slot, align 4
+  %1384 = extractvalue { ptr, i32 } %1383, 0
+  store ptr %1384, ptr %exn.slot, align 8
+  %1385 = extractvalue { ptr, i32 } %1383, 1
+  store i32 %1385, ptr %ehselector.slot, align 4
   br label %ehcleanup1269
 
 lpad1213:                                         ; preds = %invoke.cont1208
-  %973 = landingpad { ptr, i32 }
+  %1386 = landingpad { ptr, i32 }
           cleanup
-  %974 = extractvalue { ptr, i32 } %973, 0
-  store ptr %974, ptr %exn.slot, align 8
-  %975 = extractvalue { ptr, i32 } %973, 1
-  store i32 %975, ptr %ehselector.slot, align 4
+  %1387 = extractvalue { ptr, i32 } %1386, 0
+  store ptr %1387, ptr %exn.slot, align 8
+  %1388 = extractvalue { ptr, i32 } %1386, 1
+  store i32 %1388, ptr %ehselector.slot, align 4
   br label %ehcleanup1268
 
 lpad1216:                                         ; preds = %invoke.cont1214
-  %976 = landingpad { ptr, i32 }
+  %1389 = landingpad { ptr, i32 }
           cleanup
-  %977 = extractvalue { ptr, i32 } %976, 0
-  store ptr %977, ptr %exn.slot, align 8
-  %978 = extractvalue { ptr, i32 } %976, 1
-  store i32 %978, ptr %ehselector.slot, align 4
+  %1390 = extractvalue { ptr, i32 } %1389, 0
+  store ptr %1390, ptr %exn.slot, align 8
+  %1391 = extractvalue { ptr, i32 } %1389, 1
+  store i32 %1391, ptr %ehselector.slot, align 4
   br label %ehcleanup1263
 
 lpad1219:                                         ; preds = %invoke.cont1217
-  %979 = landingpad { ptr, i32 }
+  %1392 = landingpad { ptr, i32 }
           cleanup
-  %980 = extractvalue { ptr, i32 } %979, 0
-  store ptr %980, ptr %exn.slot, align 8
-  %981 = extractvalue { ptr, i32 } %979, 1
-  store i32 %981, ptr %ehselector.slot, align 4
+  %1393 = extractvalue { ptr, i32 } %1392, 0
+  store ptr %1393, ptr %exn.slot, align 8
+  %1394 = extractvalue { ptr, i32 } %1392, 1
+  store i32 %1394, ptr %ehselector.slot, align 4
   br label %ehcleanup1258
 
 lpad1222:                                         ; preds = %invoke.cont1220
-  %982 = landingpad { ptr, i32 }
+  %1395 = landingpad { ptr, i32 }
           cleanup
-  %983 = extractvalue { ptr, i32 } %982, 0
-  store ptr %983, ptr %exn.slot, align 8
-  %984 = extractvalue { ptr, i32 } %982, 1
-  store i32 %984, ptr %ehselector.slot, align 4
+  %1396 = extractvalue { ptr, i32 } %1395, 0
+  store ptr %1396, ptr %exn.slot, align 8
+  %1397 = extractvalue { ptr, i32 } %1395, 1
+  store i32 %1397, ptr %ehselector.slot, align 4
   br label %ehcleanup1253
 
 lpad1228:                                         ; preds = %invoke.cont1223
-  %985 = landingpad { ptr, i32 }
+  %1398 = landingpad { ptr, i32 }
           cleanup
-  %986 = extractvalue { ptr, i32 } %985, 0
-  store ptr %986, ptr %exn.slot, align 8
-  %987 = extractvalue { ptr, i32 } %985, 1
-  store i32 %987, ptr %ehselector.slot, align 4
+  %1399 = extractvalue { ptr, i32 } %1398, 0
+  store ptr %1399, ptr %exn.slot, align 8
+  %1400 = extractvalue { ptr, i32 } %1398, 1
+  store i32 %1400, ptr %ehselector.slot, align 4
   br label %ehcleanup1252
 
 lpad1231:                                         ; preds = %invoke.cont1229
-  %988 = landingpad { ptr, i32 }
+  %1401 = landingpad { ptr, i32 }
           cleanup
-  %989 = extractvalue { ptr, i32 } %988, 0
-  store ptr %989, ptr %exn.slot, align 8
-  %990 = extractvalue { ptr, i32 } %988, 1
-  store i32 %990, ptr %ehselector.slot, align 4
+  %1402 = extractvalue { ptr, i32 } %1401, 0
+  store ptr %1402, ptr %exn.slot, align 8
+  %1403 = extractvalue { ptr, i32 } %1401, 1
+  store i32 %1403, ptr %ehselector.slot, align 4
   br label %ehcleanup1247
 
 lpad1234:                                         ; preds = %invoke.cont1232
-  %991 = landingpad { ptr, i32 }
+  %1404 = landingpad { ptr, i32 }
           cleanup
-  %992 = extractvalue { ptr, i32 } %991, 0
-  store ptr %992, ptr %exn.slot, align 8
-  %993 = extractvalue { ptr, i32 } %991, 1
-  store i32 %993, ptr %ehselector.slot, align 4
+  %1405 = extractvalue { ptr, i32 } %1404, 0
+  store ptr %1405, ptr %exn.slot, align 8
+  %1406 = extractvalue { ptr, i32 } %1404, 1
+  store i32 %1406, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad1237:                                         ; preds = %invoke.cont1235
-  %994 = landingpad { ptr, i32 }
+  %1407 = landingpad { ptr, i32 }
           cleanup
-  %995 = extractvalue { ptr, i32 } %994, 0
-  store ptr %995, ptr %exn.slot, align 8
-  %996 = extractvalue { ptr, i32 } %994, 1
-  store i32 %996, ptr %ehselector.slot, align 4
+  %1408 = extractvalue { ptr, i32 } %1407, 0
+  store ptr %1408, ptr %exn.slot, align 8
+  %1409 = extractvalue { ptr, i32 } %1407, 1
+  store i32 %1409, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1236) #5
   %cleanup.is_active = load i1, ptr %cleanup.isactive1239, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad1237
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 2)) #5
+  %1410 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1410) #5
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad1237
@@ -10745,7 +11159,8 @@ ehcleanup:                                        ; preds = %cleanup.done, %lpad
   br i1 %cleanup.is_active1244, label %cleanup.action1245, label %cleanup.done1246
 
 cleanup.action1245:                               ; preds = %ehcleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 1)) #5
+  %1411 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1411) #5
   br label %cleanup.done1246
 
 cleanup.done1246:                                 ; preds = %cleanup.action1245, %ehcleanup
@@ -10757,7 +11172,8 @@ ehcleanup1247:                                    ; preds = %cleanup.done1246, %
   br i1 %cleanup.is_active1249, label %cleanup.action1250, label %cleanup.done1251
 
 cleanup.action1250:                               ; preds = %ehcleanup1247
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82)) #5
+  %1412 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 82
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1412) #5
   br label %cleanup.done1251
 
 cleanup.done1251:                                 ; preds = %cleanup.action1250, %ehcleanup1247
@@ -10773,7 +11189,8 @@ ehcleanup1253:                                    ; preds = %ehcleanup1252, %lpa
   br i1 %cleanup.is_active1255, label %cleanup.action1256, label %cleanup.done1257
 
 cleanup.action1256:                               ; preds = %ehcleanup1253
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 2)) #5
+  %1413 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1413) #5
   br label %cleanup.done1257
 
 cleanup.done1257:                                 ; preds = %cleanup.action1256, %ehcleanup1253
@@ -10785,7 +11202,8 @@ ehcleanup1258:                                    ; preds = %cleanup.done1257, %
   br i1 %cleanup.is_active1260, label %cleanup.action1261, label %cleanup.done1262
 
 cleanup.action1261:                               ; preds = %ehcleanup1258
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 1)) #5
+  %1414 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1414) #5
   br label %cleanup.done1262
 
 cleanup.done1262:                                 ; preds = %cleanup.action1261, %ehcleanup1258
@@ -10797,7 +11215,8 @@ ehcleanup1263:                                    ; preds = %cleanup.done1262, %
   br i1 %cleanup.is_active1265, label %cleanup.action1266, label %cleanup.done1267
 
 cleanup.action1266:                               ; preds = %ehcleanup1263
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81)) #5
+  %1415 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 81
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1415) #5
   br label %cleanup.done1267
 
 cleanup.done1267:                                 ; preds = %cleanup.action1266, %ehcleanup1263
@@ -10813,7 +11232,8 @@ ehcleanup1269:                                    ; preds = %ehcleanup1268, %lpa
   br i1 %cleanup.is_active1271, label %cleanup.action1272, label %cleanup.done1273
 
 cleanup.action1272:                               ; preds = %ehcleanup1269
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 2)) #5
+  %1416 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1416) #5
   br label %cleanup.done1273
 
 cleanup.done1273:                                 ; preds = %cleanup.action1272, %ehcleanup1269
@@ -10825,7 +11245,8 @@ ehcleanup1274:                                    ; preds = %cleanup.done1273, %
   br i1 %cleanup.is_active1276, label %cleanup.action1277, label %cleanup.done1278
 
 cleanup.action1277:                               ; preds = %ehcleanup1274
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 1)) #5
+  %1417 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1417) #5
   br label %cleanup.done1278
 
 cleanup.done1278:                                 ; preds = %cleanup.action1277, %ehcleanup1274
@@ -10837,7 +11258,8 @@ ehcleanup1279:                                    ; preds = %cleanup.done1278, %
   br i1 %cleanup.is_active1281, label %cleanup.action1282, label %cleanup.done1283
 
 cleanup.action1282:                               ; preds = %ehcleanup1279
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80)) #5
+  %1418 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1418) #5
   br label %cleanup.done1283
 
 cleanup.done1283:                                 ; preds = %cleanup.action1282, %ehcleanup1279
@@ -10853,7 +11275,8 @@ ehcleanup1285:                                    ; preds = %ehcleanup1284, %lpa
   br i1 %cleanup.is_active1287, label %cleanup.action1288, label %cleanup.done1289
 
 cleanup.action1288:                               ; preds = %ehcleanup1285
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 2)) #5
+  %1419 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1419) #5
   br label %cleanup.done1289
 
 cleanup.done1289:                                 ; preds = %cleanup.action1288, %ehcleanup1285
@@ -10865,7 +11288,8 @@ ehcleanup1290:                                    ; preds = %cleanup.done1289, %
   br i1 %cleanup.is_active1292, label %cleanup.action1293, label %cleanup.done1294
 
 cleanup.action1293:                               ; preds = %ehcleanup1290
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 1)) #5
+  %1420 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1420) #5
   br label %cleanup.done1294
 
 cleanup.done1294:                                 ; preds = %cleanup.action1293, %ehcleanup1290
@@ -10877,7 +11301,8 @@ ehcleanup1295:                                    ; preds = %cleanup.done1294, %
   br i1 %cleanup.is_active1297, label %cleanup.action1298, label %cleanup.done1299
 
 cleanup.action1298:                               ; preds = %ehcleanup1295
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79)) #5
+  %1421 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 79
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1421) #5
   br label %cleanup.done1299
 
 cleanup.done1299:                                 ; preds = %cleanup.action1298, %ehcleanup1295
@@ -10893,7 +11318,8 @@ ehcleanup1301:                                    ; preds = %ehcleanup1300, %lpa
   br i1 %cleanup.is_active1303, label %cleanup.action1304, label %cleanup.done1305
 
 cleanup.action1304:                               ; preds = %ehcleanup1301
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 2)) #5
+  %1422 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1422) #5
   br label %cleanup.done1305
 
 cleanup.done1305:                                 ; preds = %cleanup.action1304, %ehcleanup1301
@@ -10905,7 +11331,8 @@ ehcleanup1306:                                    ; preds = %cleanup.done1305, %
   br i1 %cleanup.is_active1308, label %cleanup.action1309, label %cleanup.done1310
 
 cleanup.action1309:                               ; preds = %ehcleanup1306
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 1)) #5
+  %1423 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1423) #5
   br label %cleanup.done1310
 
 cleanup.done1310:                                 ; preds = %cleanup.action1309, %ehcleanup1306
@@ -10917,7 +11344,8 @@ ehcleanup1311:                                    ; preds = %cleanup.done1310, %
   br i1 %cleanup.is_active1313, label %cleanup.action1314, label %cleanup.done1315
 
 cleanup.action1314:                               ; preds = %ehcleanup1311
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78)) #5
+  %1424 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 78
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1424) #5
   br label %cleanup.done1315
 
 cleanup.done1315:                                 ; preds = %cleanup.action1314, %ehcleanup1311
@@ -10933,7 +11361,8 @@ ehcleanup1317:                                    ; preds = %ehcleanup1316, %lpa
   br i1 %cleanup.is_active1319, label %cleanup.action1320, label %cleanup.done1321
 
 cleanup.action1320:                               ; preds = %ehcleanup1317
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 2)) #5
+  %1425 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1425) #5
   br label %cleanup.done1321
 
 cleanup.done1321:                                 ; preds = %cleanup.action1320, %ehcleanup1317
@@ -10945,7 +11374,8 @@ ehcleanup1322:                                    ; preds = %cleanup.done1321, %
   br i1 %cleanup.is_active1324, label %cleanup.action1325, label %cleanup.done1326
 
 cleanup.action1325:                               ; preds = %ehcleanup1322
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 1)) #5
+  %1426 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1426) #5
   br label %cleanup.done1326
 
 cleanup.done1326:                                 ; preds = %cleanup.action1325, %ehcleanup1322
@@ -10957,7 +11387,8 @@ ehcleanup1327:                                    ; preds = %cleanup.done1326, %
   br i1 %cleanup.is_active1329, label %cleanup.action1330, label %cleanup.done1331
 
 cleanup.action1330:                               ; preds = %ehcleanup1327
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77)) #5
+  %1427 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 77
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1427) #5
   br label %cleanup.done1331
 
 cleanup.done1331:                                 ; preds = %cleanup.action1330, %ehcleanup1327
@@ -10973,7 +11404,8 @@ ehcleanup1333:                                    ; preds = %ehcleanup1332, %lpa
   br i1 %cleanup.is_active1335, label %cleanup.action1336, label %cleanup.done1337
 
 cleanup.action1336:                               ; preds = %ehcleanup1333
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 2)) #5
+  %1428 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1428) #5
   br label %cleanup.done1337
 
 cleanup.done1337:                                 ; preds = %cleanup.action1336, %ehcleanup1333
@@ -10985,7 +11417,8 @@ ehcleanup1338:                                    ; preds = %cleanup.done1337, %
   br i1 %cleanup.is_active1340, label %cleanup.action1341, label %cleanup.done1342
 
 cleanup.action1341:                               ; preds = %ehcleanup1338
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 1)) #5
+  %1429 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1429) #5
   br label %cleanup.done1342
 
 cleanup.done1342:                                 ; preds = %cleanup.action1341, %ehcleanup1338
@@ -10997,7 +11430,8 @@ ehcleanup1343:                                    ; preds = %cleanup.done1342, %
   br i1 %cleanup.is_active1345, label %cleanup.action1346, label %cleanup.done1347
 
 cleanup.action1346:                               ; preds = %ehcleanup1343
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76)) #5
+  %1430 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1430) #5
   br label %cleanup.done1347
 
 cleanup.done1347:                                 ; preds = %cleanup.action1346, %ehcleanup1343
@@ -11013,7 +11447,8 @@ ehcleanup1349:                                    ; preds = %ehcleanup1348, %lpa
   br i1 %cleanup.is_active1351, label %cleanup.action1352, label %cleanup.done1353
 
 cleanup.action1352:                               ; preds = %ehcleanup1349
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 2)) #5
+  %1431 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1431) #5
   br label %cleanup.done1353
 
 cleanup.done1353:                                 ; preds = %cleanup.action1352, %ehcleanup1349
@@ -11025,7 +11460,8 @@ ehcleanup1354:                                    ; preds = %cleanup.done1353, %
   br i1 %cleanup.is_active1356, label %cleanup.action1357, label %cleanup.done1358
 
 cleanup.action1357:                               ; preds = %ehcleanup1354
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 1)) #5
+  %1432 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1432) #5
   br label %cleanup.done1358
 
 cleanup.done1358:                                 ; preds = %cleanup.action1357, %ehcleanup1354
@@ -11037,7 +11473,8 @@ ehcleanup1359:                                    ; preds = %cleanup.done1358, %
   br i1 %cleanup.is_active1361, label %cleanup.action1362, label %cleanup.done1363
 
 cleanup.action1362:                               ; preds = %ehcleanup1359
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75)) #5
+  %1433 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 75
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1433) #5
   br label %cleanup.done1363
 
 cleanup.done1363:                                 ; preds = %cleanup.action1362, %ehcleanup1359
@@ -11053,7 +11490,8 @@ ehcleanup1365:                                    ; preds = %ehcleanup1364, %lpa
   br i1 %cleanup.is_active1367, label %cleanup.action1368, label %cleanup.done1369
 
 cleanup.action1368:                               ; preds = %ehcleanup1365
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 2)) #5
+  %1434 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1434) #5
   br label %cleanup.done1369
 
 cleanup.done1369:                                 ; preds = %cleanup.action1368, %ehcleanup1365
@@ -11065,7 +11503,8 @@ ehcleanup1370:                                    ; preds = %cleanup.done1369, %
   br i1 %cleanup.is_active1372, label %cleanup.action1373, label %cleanup.done1374
 
 cleanup.action1373:                               ; preds = %ehcleanup1370
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 1)) #5
+  %1435 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1435) #5
   br label %cleanup.done1374
 
 cleanup.done1374:                                 ; preds = %cleanup.action1373, %ehcleanup1370
@@ -11077,7 +11516,8 @@ ehcleanup1375:                                    ; preds = %cleanup.done1374, %
   br i1 %cleanup.is_active1377, label %cleanup.action1378, label %cleanup.done1379
 
 cleanup.action1378:                               ; preds = %ehcleanup1375
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74)) #5
+  %1436 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 74
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1436) #5
   br label %cleanup.done1379
 
 cleanup.done1379:                                 ; preds = %cleanup.action1378, %ehcleanup1375
@@ -11093,7 +11533,8 @@ ehcleanup1381:                                    ; preds = %ehcleanup1380, %lpa
   br i1 %cleanup.is_active1383, label %cleanup.action1384, label %cleanup.done1385
 
 cleanup.action1384:                               ; preds = %ehcleanup1381
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 2)) #5
+  %1437 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1437) #5
   br label %cleanup.done1385
 
 cleanup.done1385:                                 ; preds = %cleanup.action1384, %ehcleanup1381
@@ -11105,7 +11546,8 @@ ehcleanup1386:                                    ; preds = %cleanup.done1385, %
   br i1 %cleanup.is_active1388, label %cleanup.action1389, label %cleanup.done1390
 
 cleanup.action1389:                               ; preds = %ehcleanup1386
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 1)) #5
+  %1438 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1438) #5
   br label %cleanup.done1390
 
 cleanup.done1390:                                 ; preds = %cleanup.action1389, %ehcleanup1386
@@ -11117,7 +11559,8 @@ ehcleanup1391:                                    ; preds = %cleanup.done1390, %
   br i1 %cleanup.is_active1393, label %cleanup.action1394, label %cleanup.done1395
 
 cleanup.action1394:                               ; preds = %ehcleanup1391
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73)) #5
+  %1439 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 73
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1439) #5
   br label %cleanup.done1395
 
 cleanup.done1395:                                 ; preds = %cleanup.action1394, %ehcleanup1391
@@ -11133,7 +11576,8 @@ ehcleanup1397:                                    ; preds = %ehcleanup1396, %lpa
   br i1 %cleanup.is_active1399, label %cleanup.action1400, label %cleanup.done1401
 
 cleanup.action1400:                               ; preds = %ehcleanup1397
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 2)) #5
+  %1440 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1440) #5
   br label %cleanup.done1401
 
 cleanup.done1401:                                 ; preds = %cleanup.action1400, %ehcleanup1397
@@ -11145,7 +11589,8 @@ ehcleanup1402:                                    ; preds = %cleanup.done1401, %
   br i1 %cleanup.is_active1404, label %cleanup.action1405, label %cleanup.done1406
 
 cleanup.action1405:                               ; preds = %ehcleanup1402
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 1)) #5
+  %1441 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1441) #5
   br label %cleanup.done1406
 
 cleanup.done1406:                                 ; preds = %cleanup.action1405, %ehcleanup1402
@@ -11157,7 +11602,8 @@ ehcleanup1407:                                    ; preds = %cleanup.done1406, %
   br i1 %cleanup.is_active1409, label %cleanup.action1410, label %cleanup.done1411
 
 cleanup.action1410:                               ; preds = %ehcleanup1407
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72)) #5
+  %1442 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1442) #5
   br label %cleanup.done1411
 
 cleanup.done1411:                                 ; preds = %cleanup.action1410, %ehcleanup1407
@@ -11173,7 +11619,8 @@ ehcleanup1413:                                    ; preds = %ehcleanup1412, %lpa
   br i1 %cleanup.is_active1415, label %cleanup.action1416, label %cleanup.done1417
 
 cleanup.action1416:                               ; preds = %ehcleanup1413
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 2)) #5
+  %1443 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1443) #5
   br label %cleanup.done1417
 
 cleanup.done1417:                                 ; preds = %cleanup.action1416, %ehcleanup1413
@@ -11185,7 +11632,8 @@ ehcleanup1418:                                    ; preds = %cleanup.done1417, %
   br i1 %cleanup.is_active1420, label %cleanup.action1421, label %cleanup.done1422
 
 cleanup.action1421:                               ; preds = %ehcleanup1418
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 1)) #5
+  %1444 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1444) #5
   br label %cleanup.done1422
 
 cleanup.done1422:                                 ; preds = %cleanup.action1421, %ehcleanup1418
@@ -11197,7 +11645,8 @@ ehcleanup1423:                                    ; preds = %cleanup.done1422, %
   br i1 %cleanup.is_active1425, label %cleanup.action1426, label %cleanup.done1427
 
 cleanup.action1426:                               ; preds = %ehcleanup1423
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71)) #5
+  %1445 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 71
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1445) #5
   br label %cleanup.done1427
 
 cleanup.done1427:                                 ; preds = %cleanup.action1426, %ehcleanup1423
@@ -11213,7 +11662,8 @@ ehcleanup1429:                                    ; preds = %ehcleanup1428, %lpa
   br i1 %cleanup.is_active1431, label %cleanup.action1432, label %cleanup.done1433
 
 cleanup.action1432:                               ; preds = %ehcleanup1429
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 2)) #5
+  %1446 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1446) #5
   br label %cleanup.done1433
 
 cleanup.done1433:                                 ; preds = %cleanup.action1432, %ehcleanup1429
@@ -11225,7 +11675,8 @@ ehcleanup1434:                                    ; preds = %cleanup.done1433, %
   br i1 %cleanup.is_active1436, label %cleanup.action1437, label %cleanup.done1438
 
 cleanup.action1437:                               ; preds = %ehcleanup1434
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 1)) #5
+  %1447 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1447) #5
   br label %cleanup.done1438
 
 cleanup.done1438:                                 ; preds = %cleanup.action1437, %ehcleanup1434
@@ -11237,7 +11688,8 @@ ehcleanup1439:                                    ; preds = %cleanup.done1438, %
   br i1 %cleanup.is_active1441, label %cleanup.action1442, label %cleanup.done1443
 
 cleanup.action1442:                               ; preds = %ehcleanup1439
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70)) #5
+  %1448 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 70
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1448) #5
   br label %cleanup.done1443
 
 cleanup.done1443:                                 ; preds = %cleanup.action1442, %ehcleanup1439
@@ -11253,7 +11705,8 @@ ehcleanup1445:                                    ; preds = %ehcleanup1444, %lpa
   br i1 %cleanup.is_active1447, label %cleanup.action1448, label %cleanup.done1449
 
 cleanup.action1448:                               ; preds = %ehcleanup1445
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 2)) #5
+  %1449 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1449) #5
   br label %cleanup.done1449
 
 cleanup.done1449:                                 ; preds = %cleanup.action1448, %ehcleanup1445
@@ -11265,7 +11718,8 @@ ehcleanup1450:                                    ; preds = %cleanup.done1449, %
   br i1 %cleanup.is_active1452, label %cleanup.action1453, label %cleanup.done1454
 
 cleanup.action1453:                               ; preds = %ehcleanup1450
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 1)) #5
+  %1450 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1450) #5
   br label %cleanup.done1454
 
 cleanup.done1454:                                 ; preds = %cleanup.action1453, %ehcleanup1450
@@ -11277,7 +11731,8 @@ ehcleanup1455:                                    ; preds = %cleanup.done1454, %
   br i1 %cleanup.is_active1457, label %cleanup.action1458, label %cleanup.done1459
 
 cleanup.action1458:                               ; preds = %ehcleanup1455
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69)) #5
+  %1451 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 69
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1451) #5
   br label %cleanup.done1459
 
 cleanup.done1459:                                 ; preds = %cleanup.action1458, %ehcleanup1455
@@ -11293,7 +11748,8 @@ ehcleanup1461:                                    ; preds = %ehcleanup1460, %lpa
   br i1 %cleanup.is_active1463, label %cleanup.action1464, label %cleanup.done1465
 
 cleanup.action1464:                               ; preds = %ehcleanup1461
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 2)) #5
+  %1452 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1452) #5
   br label %cleanup.done1465
 
 cleanup.done1465:                                 ; preds = %cleanup.action1464, %ehcleanup1461
@@ -11305,7 +11761,8 @@ ehcleanup1466:                                    ; preds = %cleanup.done1465, %
   br i1 %cleanup.is_active1468, label %cleanup.action1469, label %cleanup.done1470
 
 cleanup.action1469:                               ; preds = %ehcleanup1466
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 1)) #5
+  %1453 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1453) #5
   br label %cleanup.done1470
 
 cleanup.done1470:                                 ; preds = %cleanup.action1469, %ehcleanup1466
@@ -11317,7 +11774,8 @@ ehcleanup1471:                                    ; preds = %cleanup.done1470, %
   br i1 %cleanup.is_active1473, label %cleanup.action1474, label %cleanup.done1475
 
 cleanup.action1474:                               ; preds = %ehcleanup1471
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68)) #5
+  %1454 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 68
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1454) #5
   br label %cleanup.done1475
 
 cleanup.done1475:                                 ; preds = %cleanup.action1474, %ehcleanup1471
@@ -11333,7 +11791,8 @@ ehcleanup1477:                                    ; preds = %ehcleanup1476, %lpa
   br i1 %cleanup.is_active1479, label %cleanup.action1480, label %cleanup.done1481
 
 cleanup.action1480:                               ; preds = %ehcleanup1477
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 2)) #5
+  %1455 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1455) #5
   br label %cleanup.done1481
 
 cleanup.done1481:                                 ; preds = %cleanup.action1480, %ehcleanup1477
@@ -11345,7 +11804,8 @@ ehcleanup1482:                                    ; preds = %cleanup.done1481, %
   br i1 %cleanup.is_active1484, label %cleanup.action1485, label %cleanup.done1486
 
 cleanup.action1485:                               ; preds = %ehcleanup1482
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 1)) #5
+  %1456 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1456) #5
   br label %cleanup.done1486
 
 cleanup.done1486:                                 ; preds = %cleanup.action1485, %ehcleanup1482
@@ -11357,7 +11817,8 @@ ehcleanup1487:                                    ; preds = %cleanup.done1486, %
   br i1 %cleanup.is_active1489, label %cleanup.action1490, label %cleanup.done1491
 
 cleanup.action1490:                               ; preds = %ehcleanup1487
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67)) #5
+  %1457 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 67
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1457) #5
   br label %cleanup.done1491
 
 cleanup.done1491:                                 ; preds = %cleanup.action1490, %ehcleanup1487
@@ -11373,7 +11834,8 @@ ehcleanup1493:                                    ; preds = %ehcleanup1492, %lpa
   br i1 %cleanup.is_active1495, label %cleanup.action1496, label %cleanup.done1497
 
 cleanup.action1496:                               ; preds = %ehcleanup1493
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 2)) #5
+  %1458 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1458) #5
   br label %cleanup.done1497
 
 cleanup.done1497:                                 ; preds = %cleanup.action1496, %ehcleanup1493
@@ -11385,7 +11847,8 @@ ehcleanup1498:                                    ; preds = %cleanup.done1497, %
   br i1 %cleanup.is_active1500, label %cleanup.action1501, label %cleanup.done1502
 
 cleanup.action1501:                               ; preds = %ehcleanup1498
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 1)) #5
+  %1459 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1459) #5
   br label %cleanup.done1502
 
 cleanup.done1502:                                 ; preds = %cleanup.action1501, %ehcleanup1498
@@ -11397,7 +11860,8 @@ ehcleanup1503:                                    ; preds = %cleanup.done1502, %
   br i1 %cleanup.is_active1505, label %cleanup.action1506, label %cleanup.done1507
 
 cleanup.action1506:                               ; preds = %ehcleanup1503
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66)) #5
+  %1460 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 66
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1460) #5
   br label %cleanup.done1507
 
 cleanup.done1507:                                 ; preds = %cleanup.action1506, %ehcleanup1503
@@ -11413,7 +11877,8 @@ ehcleanup1509:                                    ; preds = %ehcleanup1508, %lpa
   br i1 %cleanup.is_active1511, label %cleanup.action1512, label %cleanup.done1513
 
 cleanup.action1512:                               ; preds = %ehcleanup1509
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 2)) #5
+  %1461 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1461) #5
   br label %cleanup.done1513
 
 cleanup.done1513:                                 ; preds = %cleanup.action1512, %ehcleanup1509
@@ -11425,7 +11890,8 @@ ehcleanup1514:                                    ; preds = %cleanup.done1513, %
   br i1 %cleanup.is_active1516, label %cleanup.action1517, label %cleanup.done1518
 
 cleanup.action1517:                               ; preds = %ehcleanup1514
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 1)) #5
+  %1462 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1462) #5
   br label %cleanup.done1518
 
 cleanup.done1518:                                 ; preds = %cleanup.action1517, %ehcleanup1514
@@ -11437,7 +11903,8 @@ ehcleanup1519:                                    ; preds = %cleanup.done1518, %
   br i1 %cleanup.is_active1521, label %cleanup.action1522, label %cleanup.done1523
 
 cleanup.action1522:                               ; preds = %ehcleanup1519
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65)) #5
+  %1463 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1463) #5
   br label %cleanup.done1523
 
 cleanup.done1523:                                 ; preds = %cleanup.action1522, %ehcleanup1519
@@ -11453,7 +11920,8 @@ ehcleanup1525:                                    ; preds = %ehcleanup1524, %lpa
   br i1 %cleanup.is_active1527, label %cleanup.action1528, label %cleanup.done1529
 
 cleanup.action1528:                               ; preds = %ehcleanup1525
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 2)) #5
+  %1464 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1464) #5
   br label %cleanup.done1529
 
 cleanup.done1529:                                 ; preds = %cleanup.action1528, %ehcleanup1525
@@ -11465,7 +11933,8 @@ ehcleanup1530:                                    ; preds = %cleanup.done1529, %
   br i1 %cleanup.is_active1532, label %cleanup.action1533, label %cleanup.done1534
 
 cleanup.action1533:                               ; preds = %ehcleanup1530
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 1)) #5
+  %1465 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1465) #5
   br label %cleanup.done1534
 
 cleanup.done1534:                                 ; preds = %cleanup.action1533, %ehcleanup1530
@@ -11477,7 +11946,8 @@ ehcleanup1535:                                    ; preds = %cleanup.done1534, %
   br i1 %cleanup.is_active1537, label %cleanup.action1538, label %cleanup.done1539
 
 cleanup.action1538:                               ; preds = %ehcleanup1535
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64)) #5
+  %1466 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1466) #5
   br label %cleanup.done1539
 
 cleanup.done1539:                                 ; preds = %cleanup.action1538, %ehcleanup1535
@@ -11493,7 +11963,8 @@ ehcleanup1541:                                    ; preds = %ehcleanup1540, %lpa
   br i1 %cleanup.is_active1543, label %cleanup.action1544, label %cleanup.done1545
 
 cleanup.action1544:                               ; preds = %ehcleanup1541
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 2)) #5
+  %1467 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1467) #5
   br label %cleanup.done1545
 
 cleanup.done1545:                                 ; preds = %cleanup.action1544, %ehcleanup1541
@@ -11505,7 +11976,8 @@ ehcleanup1546:                                    ; preds = %cleanup.done1545, %
   br i1 %cleanup.is_active1548, label %cleanup.action1549, label %cleanup.done1550
 
 cleanup.action1549:                               ; preds = %ehcleanup1546
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 1)) #5
+  %1468 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1468) #5
   br label %cleanup.done1550
 
 cleanup.done1550:                                 ; preds = %cleanup.action1549, %ehcleanup1546
@@ -11517,7 +11989,8 @@ ehcleanup1551:                                    ; preds = %cleanup.done1550, %
   br i1 %cleanup.is_active1553, label %cleanup.action1554, label %cleanup.done1555
 
 cleanup.action1554:                               ; preds = %ehcleanup1551
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63)) #5
+  %1469 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1469) #5
   br label %cleanup.done1555
 
 cleanup.done1555:                                 ; preds = %cleanup.action1554, %ehcleanup1551
@@ -11533,7 +12006,8 @@ ehcleanup1557:                                    ; preds = %ehcleanup1556, %lpa
   br i1 %cleanup.is_active1559, label %cleanup.action1560, label %cleanup.done1561
 
 cleanup.action1560:                               ; preds = %ehcleanup1557
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 2)) #5
+  %1470 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1470) #5
   br label %cleanup.done1561
 
 cleanup.done1561:                                 ; preds = %cleanup.action1560, %ehcleanup1557
@@ -11545,7 +12019,8 @@ ehcleanup1562:                                    ; preds = %cleanup.done1561, %
   br i1 %cleanup.is_active1564, label %cleanup.action1565, label %cleanup.done1566
 
 cleanup.action1565:                               ; preds = %ehcleanup1562
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 1)) #5
+  %1471 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1471) #5
   br label %cleanup.done1566
 
 cleanup.done1566:                                 ; preds = %cleanup.action1565, %ehcleanup1562
@@ -11557,7 +12032,8 @@ ehcleanup1567:                                    ; preds = %cleanup.done1566, %
   br i1 %cleanup.is_active1569, label %cleanup.action1570, label %cleanup.done1571
 
 cleanup.action1570:                               ; preds = %ehcleanup1567
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62)) #5
+  %1472 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 62
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1472) #5
   br label %cleanup.done1571
 
 cleanup.done1571:                                 ; preds = %cleanup.action1570, %ehcleanup1567
@@ -11573,7 +12049,8 @@ ehcleanup1573:                                    ; preds = %ehcleanup1572, %lpa
   br i1 %cleanup.is_active1575, label %cleanup.action1576, label %cleanup.done1577
 
 cleanup.action1576:                               ; preds = %ehcleanup1573
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 2)) #5
+  %1473 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1473) #5
   br label %cleanup.done1577
 
 cleanup.done1577:                                 ; preds = %cleanup.action1576, %ehcleanup1573
@@ -11585,7 +12062,8 @@ ehcleanup1578:                                    ; preds = %cleanup.done1577, %
   br i1 %cleanup.is_active1580, label %cleanup.action1581, label %cleanup.done1582
 
 cleanup.action1581:                               ; preds = %ehcleanup1578
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 1)) #5
+  %1474 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1474) #5
   br label %cleanup.done1582
 
 cleanup.done1582:                                 ; preds = %cleanup.action1581, %ehcleanup1578
@@ -11597,7 +12075,8 @@ ehcleanup1583:                                    ; preds = %cleanup.done1582, %
   br i1 %cleanup.is_active1585, label %cleanup.action1586, label %cleanup.done1587
 
 cleanup.action1586:                               ; preds = %ehcleanup1583
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61)) #5
+  %1475 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1475) #5
   br label %cleanup.done1587
 
 cleanup.done1587:                                 ; preds = %cleanup.action1586, %ehcleanup1583
@@ -11613,7 +12092,8 @@ ehcleanup1589:                                    ; preds = %ehcleanup1588, %lpa
   br i1 %cleanup.is_active1591, label %cleanup.action1592, label %cleanup.done1593
 
 cleanup.action1592:                               ; preds = %ehcleanup1589
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 2)) #5
+  %1476 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1476) #5
   br label %cleanup.done1593
 
 cleanup.done1593:                                 ; preds = %cleanup.action1592, %ehcleanup1589
@@ -11625,7 +12105,8 @@ ehcleanup1594:                                    ; preds = %cleanup.done1593, %
   br i1 %cleanup.is_active1596, label %cleanup.action1597, label %cleanup.done1598
 
 cleanup.action1597:                               ; preds = %ehcleanup1594
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 1)) #5
+  %1477 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1477) #5
   br label %cleanup.done1598
 
 cleanup.done1598:                                 ; preds = %cleanup.action1597, %ehcleanup1594
@@ -11637,7 +12118,8 @@ ehcleanup1599:                                    ; preds = %cleanup.done1598, %
   br i1 %cleanup.is_active1601, label %cleanup.action1602, label %cleanup.done1603
 
 cleanup.action1602:                               ; preds = %ehcleanup1599
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60)) #5
+  %1478 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 60
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1478) #5
   br label %cleanup.done1603
 
 cleanup.done1603:                                 ; preds = %cleanup.action1602, %ehcleanup1599
@@ -11653,7 +12135,8 @@ ehcleanup1605:                                    ; preds = %ehcleanup1604, %lpa
   br i1 %cleanup.is_active1607, label %cleanup.action1608, label %cleanup.done1609
 
 cleanup.action1608:                               ; preds = %ehcleanup1605
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 2)) #5
+  %1479 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1479) #5
   br label %cleanup.done1609
 
 cleanup.done1609:                                 ; preds = %cleanup.action1608, %ehcleanup1605
@@ -11665,7 +12148,8 @@ ehcleanup1610:                                    ; preds = %cleanup.done1609, %
   br i1 %cleanup.is_active1612, label %cleanup.action1613, label %cleanup.done1614
 
 cleanup.action1613:                               ; preds = %ehcleanup1610
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 1)) #5
+  %1480 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1480) #5
   br label %cleanup.done1614
 
 cleanup.done1614:                                 ; preds = %cleanup.action1613, %ehcleanup1610
@@ -11677,7 +12161,8 @@ ehcleanup1615:                                    ; preds = %cleanup.done1614, %
   br i1 %cleanup.is_active1617, label %cleanup.action1618, label %cleanup.done1619
 
 cleanup.action1618:                               ; preds = %ehcleanup1615
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59)) #5
+  %1481 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 59
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1481) #5
   br label %cleanup.done1619
 
 cleanup.done1619:                                 ; preds = %cleanup.action1618, %ehcleanup1615
@@ -11693,7 +12178,8 @@ ehcleanup1621:                                    ; preds = %ehcleanup1620, %lpa
   br i1 %cleanup.is_active1623, label %cleanup.action1624, label %cleanup.done1625
 
 cleanup.action1624:                               ; preds = %ehcleanup1621
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 2)) #5
+  %1482 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1482) #5
   br label %cleanup.done1625
 
 cleanup.done1625:                                 ; preds = %cleanup.action1624, %ehcleanup1621
@@ -11705,7 +12191,8 @@ ehcleanup1626:                                    ; preds = %cleanup.done1625, %
   br i1 %cleanup.is_active1628, label %cleanup.action1629, label %cleanup.done1630
 
 cleanup.action1629:                               ; preds = %ehcleanup1626
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 1)) #5
+  %1483 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1483) #5
   br label %cleanup.done1630
 
 cleanup.done1630:                                 ; preds = %cleanup.action1629, %ehcleanup1626
@@ -11717,7 +12204,8 @@ ehcleanup1631:                                    ; preds = %cleanup.done1630, %
   br i1 %cleanup.is_active1633, label %cleanup.action1634, label %cleanup.done1635
 
 cleanup.action1634:                               ; preds = %ehcleanup1631
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58)) #5
+  %1484 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 58
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1484) #5
   br label %cleanup.done1635
 
 cleanup.done1635:                                 ; preds = %cleanup.action1634, %ehcleanup1631
@@ -11733,7 +12221,8 @@ ehcleanup1637:                                    ; preds = %ehcleanup1636, %lpa
   br i1 %cleanup.is_active1639, label %cleanup.action1640, label %cleanup.done1641
 
 cleanup.action1640:                               ; preds = %ehcleanup1637
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 2)) #5
+  %1485 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1485) #5
   br label %cleanup.done1641
 
 cleanup.done1641:                                 ; preds = %cleanup.action1640, %ehcleanup1637
@@ -11745,7 +12234,8 @@ ehcleanup1642:                                    ; preds = %cleanup.done1641, %
   br i1 %cleanup.is_active1644, label %cleanup.action1645, label %cleanup.done1646
 
 cleanup.action1645:                               ; preds = %ehcleanup1642
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 1)) #5
+  %1486 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1486) #5
   br label %cleanup.done1646
 
 cleanup.done1646:                                 ; preds = %cleanup.action1645, %ehcleanup1642
@@ -11757,7 +12247,8 @@ ehcleanup1647:                                    ; preds = %cleanup.done1646, %
   br i1 %cleanup.is_active1649, label %cleanup.action1650, label %cleanup.done1651
 
 cleanup.action1650:                               ; preds = %ehcleanup1647
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57)) #5
+  %1487 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 57
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1487) #5
   br label %cleanup.done1651
 
 cleanup.done1651:                                 ; preds = %cleanup.action1650, %ehcleanup1647
@@ -11773,7 +12264,8 @@ ehcleanup1653:                                    ; preds = %ehcleanup1652, %lpa
   br i1 %cleanup.is_active1655, label %cleanup.action1656, label %cleanup.done1657
 
 cleanup.action1656:                               ; preds = %ehcleanup1653
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 2)) #5
+  %1488 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1488) #5
   br label %cleanup.done1657
 
 cleanup.done1657:                                 ; preds = %cleanup.action1656, %ehcleanup1653
@@ -11785,7 +12277,8 @@ ehcleanup1658:                                    ; preds = %cleanup.done1657, %
   br i1 %cleanup.is_active1660, label %cleanup.action1661, label %cleanup.done1662
 
 cleanup.action1661:                               ; preds = %ehcleanup1658
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 1)) #5
+  %1489 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1489) #5
   br label %cleanup.done1662
 
 cleanup.done1662:                                 ; preds = %cleanup.action1661, %ehcleanup1658
@@ -11797,7 +12290,8 @@ ehcleanup1663:                                    ; preds = %cleanup.done1662, %
   br i1 %cleanup.is_active1665, label %cleanup.action1666, label %cleanup.done1667
 
 cleanup.action1666:                               ; preds = %ehcleanup1663
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56)) #5
+  %1490 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 56
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1490) #5
   br label %cleanup.done1667
 
 cleanup.done1667:                                 ; preds = %cleanup.action1666, %ehcleanup1663
@@ -11813,7 +12307,8 @@ ehcleanup1669:                                    ; preds = %ehcleanup1668, %lpa
   br i1 %cleanup.is_active1671, label %cleanup.action1672, label %cleanup.done1673
 
 cleanup.action1672:                               ; preds = %ehcleanup1669
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 2)) #5
+  %1491 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1491) #5
   br label %cleanup.done1673
 
 cleanup.done1673:                                 ; preds = %cleanup.action1672, %ehcleanup1669
@@ -11825,7 +12320,8 @@ ehcleanup1674:                                    ; preds = %cleanup.done1673, %
   br i1 %cleanup.is_active1676, label %cleanup.action1677, label %cleanup.done1678
 
 cleanup.action1677:                               ; preds = %ehcleanup1674
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 1)) #5
+  %1492 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1492) #5
   br label %cleanup.done1678
 
 cleanup.done1678:                                 ; preds = %cleanup.action1677, %ehcleanup1674
@@ -11837,7 +12333,8 @@ ehcleanup1679:                                    ; preds = %cleanup.done1678, %
   br i1 %cleanup.is_active1681, label %cleanup.action1682, label %cleanup.done1683
 
 cleanup.action1682:                               ; preds = %ehcleanup1679
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55)) #5
+  %1493 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 55
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1493) #5
   br label %cleanup.done1683
 
 cleanup.done1683:                                 ; preds = %cleanup.action1682, %ehcleanup1679
@@ -11853,7 +12350,8 @@ ehcleanup1685:                                    ; preds = %ehcleanup1684, %lpa
   br i1 %cleanup.is_active1687, label %cleanup.action1688, label %cleanup.done1689
 
 cleanup.action1688:                               ; preds = %ehcleanup1685
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 2)) #5
+  %1494 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1494) #5
   br label %cleanup.done1689
 
 cleanup.done1689:                                 ; preds = %cleanup.action1688, %ehcleanup1685
@@ -11865,7 +12363,8 @@ ehcleanup1690:                                    ; preds = %cleanup.done1689, %
   br i1 %cleanup.is_active1692, label %cleanup.action1693, label %cleanup.done1694
 
 cleanup.action1693:                               ; preds = %ehcleanup1690
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 1)) #5
+  %1495 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1495) #5
   br label %cleanup.done1694
 
 cleanup.done1694:                                 ; preds = %cleanup.action1693, %ehcleanup1690
@@ -11877,7 +12376,8 @@ ehcleanup1695:                                    ; preds = %cleanup.done1694, %
   br i1 %cleanup.is_active1697, label %cleanup.action1698, label %cleanup.done1699
 
 cleanup.action1698:                               ; preds = %ehcleanup1695
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54)) #5
+  %1496 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1496) #5
   br label %cleanup.done1699
 
 cleanup.done1699:                                 ; preds = %cleanup.action1698, %ehcleanup1695
@@ -11893,7 +12393,8 @@ ehcleanup1701:                                    ; preds = %ehcleanup1700, %lpa
   br i1 %cleanup.is_active1703, label %cleanup.action1704, label %cleanup.done1705
 
 cleanup.action1704:                               ; preds = %ehcleanup1701
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 2)) #5
+  %1497 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1497) #5
   br label %cleanup.done1705
 
 cleanup.done1705:                                 ; preds = %cleanup.action1704, %ehcleanup1701
@@ -11905,7 +12406,8 @@ ehcleanup1706:                                    ; preds = %cleanup.done1705, %
   br i1 %cleanup.is_active1708, label %cleanup.action1709, label %cleanup.done1710
 
 cleanup.action1709:                               ; preds = %ehcleanup1706
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 1)) #5
+  %1498 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1498) #5
   br label %cleanup.done1710
 
 cleanup.done1710:                                 ; preds = %cleanup.action1709, %ehcleanup1706
@@ -11917,7 +12419,8 @@ ehcleanup1711:                                    ; preds = %cleanup.done1710, %
   br i1 %cleanup.is_active1713, label %cleanup.action1714, label %cleanup.done1715
 
 cleanup.action1714:                               ; preds = %ehcleanup1711
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53)) #5
+  %1499 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1499) #5
   br label %cleanup.done1715
 
 cleanup.done1715:                                 ; preds = %cleanup.action1714, %ehcleanup1711
@@ -11933,7 +12436,8 @@ ehcleanup1717:                                    ; preds = %ehcleanup1716, %lpa
   br i1 %cleanup.is_active1719, label %cleanup.action1720, label %cleanup.done1721
 
 cleanup.action1720:                               ; preds = %ehcleanup1717
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 2)) #5
+  %1500 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1500) #5
   br label %cleanup.done1721
 
 cleanup.done1721:                                 ; preds = %cleanup.action1720, %ehcleanup1717
@@ -11945,7 +12449,8 @@ ehcleanup1722:                                    ; preds = %cleanup.done1721, %
   br i1 %cleanup.is_active1724, label %cleanup.action1725, label %cleanup.done1726
 
 cleanup.action1725:                               ; preds = %ehcleanup1722
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 1)) #5
+  %1501 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1501) #5
   br label %cleanup.done1726
 
 cleanup.done1726:                                 ; preds = %cleanup.action1725, %ehcleanup1722
@@ -11957,7 +12462,8 @@ ehcleanup1727:                                    ; preds = %cleanup.done1726, %
   br i1 %cleanup.is_active1729, label %cleanup.action1730, label %cleanup.done1731
 
 cleanup.action1730:                               ; preds = %ehcleanup1727
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52)) #5
+  %1502 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1502) #5
   br label %cleanup.done1731
 
 cleanup.done1731:                                 ; preds = %cleanup.action1730, %ehcleanup1727
@@ -11973,7 +12479,8 @@ ehcleanup1733:                                    ; preds = %ehcleanup1732, %lpa
   br i1 %cleanup.is_active1735, label %cleanup.action1736, label %cleanup.done1737
 
 cleanup.action1736:                               ; preds = %ehcleanup1733
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 2)) #5
+  %1503 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1503) #5
   br label %cleanup.done1737
 
 cleanup.done1737:                                 ; preds = %cleanup.action1736, %ehcleanup1733
@@ -11985,7 +12492,8 @@ ehcleanup1738:                                    ; preds = %cleanup.done1737, %
   br i1 %cleanup.is_active1740, label %cleanup.action1741, label %cleanup.done1742
 
 cleanup.action1741:                               ; preds = %ehcleanup1738
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 1)) #5
+  %1504 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1504) #5
   br label %cleanup.done1742
 
 cleanup.done1742:                                 ; preds = %cleanup.action1741, %ehcleanup1738
@@ -11997,7 +12505,8 @@ ehcleanup1743:                                    ; preds = %cleanup.done1742, %
   br i1 %cleanup.is_active1745, label %cleanup.action1746, label %cleanup.done1747
 
 cleanup.action1746:                               ; preds = %ehcleanup1743
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51)) #5
+  %1505 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1505) #5
   br label %cleanup.done1747
 
 cleanup.done1747:                                 ; preds = %cleanup.action1746, %ehcleanup1743
@@ -12013,7 +12522,8 @@ ehcleanup1749:                                    ; preds = %ehcleanup1748, %lpa
   br i1 %cleanup.is_active1751, label %cleanup.action1752, label %cleanup.done1753
 
 cleanup.action1752:                               ; preds = %ehcleanup1749
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 2)) #5
+  %1506 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1506) #5
   br label %cleanup.done1753
 
 cleanup.done1753:                                 ; preds = %cleanup.action1752, %ehcleanup1749
@@ -12025,7 +12535,8 @@ ehcleanup1754:                                    ; preds = %cleanup.done1753, %
   br i1 %cleanup.is_active1756, label %cleanup.action1757, label %cleanup.done1758
 
 cleanup.action1757:                               ; preds = %ehcleanup1754
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 1)) #5
+  %1507 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1507) #5
   br label %cleanup.done1758
 
 cleanup.done1758:                                 ; preds = %cleanup.action1757, %ehcleanup1754
@@ -12037,7 +12548,8 @@ ehcleanup1759:                                    ; preds = %cleanup.done1758, %
   br i1 %cleanup.is_active1761, label %cleanup.action1762, label %cleanup.done1763
 
 cleanup.action1762:                               ; preds = %ehcleanup1759
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50)) #5
+  %1508 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1508) #5
   br label %cleanup.done1763
 
 cleanup.done1763:                                 ; preds = %cleanup.action1762, %ehcleanup1759
@@ -12053,7 +12565,8 @@ ehcleanup1765:                                    ; preds = %ehcleanup1764, %lpa
   br i1 %cleanup.is_active1767, label %cleanup.action1768, label %cleanup.done1769
 
 cleanup.action1768:                               ; preds = %ehcleanup1765
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 2)) #5
+  %1509 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1509) #5
   br label %cleanup.done1769
 
 cleanup.done1769:                                 ; preds = %cleanup.action1768, %ehcleanup1765
@@ -12065,7 +12578,8 @@ ehcleanup1770:                                    ; preds = %cleanup.done1769, %
   br i1 %cleanup.is_active1772, label %cleanup.action1773, label %cleanup.done1774
 
 cleanup.action1773:                               ; preds = %ehcleanup1770
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 1)) #5
+  %1510 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1510) #5
   br label %cleanup.done1774
 
 cleanup.done1774:                                 ; preds = %cleanup.action1773, %ehcleanup1770
@@ -12077,7 +12591,8 @@ ehcleanup1775:                                    ; preds = %cleanup.done1774, %
   br i1 %cleanup.is_active1777, label %cleanup.action1778, label %cleanup.done1779
 
 cleanup.action1778:                               ; preds = %ehcleanup1775
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49)) #5
+  %1511 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 49
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1511) #5
   br label %cleanup.done1779
 
 cleanup.done1779:                                 ; preds = %cleanup.action1778, %ehcleanup1775
@@ -12093,7 +12608,8 @@ ehcleanup1781:                                    ; preds = %ehcleanup1780, %lpa
   br i1 %cleanup.is_active1783, label %cleanup.action1784, label %cleanup.done1785
 
 cleanup.action1784:                               ; preds = %ehcleanup1781
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 2)) #5
+  %1512 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1512) #5
   br label %cleanup.done1785
 
 cleanup.done1785:                                 ; preds = %cleanup.action1784, %ehcleanup1781
@@ -12105,7 +12621,8 @@ ehcleanup1786:                                    ; preds = %cleanup.done1785, %
   br i1 %cleanup.is_active1788, label %cleanup.action1789, label %cleanup.done1790
 
 cleanup.action1789:                               ; preds = %ehcleanup1786
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 1)) #5
+  %1513 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1513) #5
   br label %cleanup.done1790
 
 cleanup.done1790:                                 ; preds = %cleanup.action1789, %ehcleanup1786
@@ -12117,7 +12634,8 @@ ehcleanup1791:                                    ; preds = %cleanup.done1790, %
   br i1 %cleanup.is_active1793, label %cleanup.action1794, label %cleanup.done1795
 
 cleanup.action1794:                               ; preds = %ehcleanup1791
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48)) #5
+  %1514 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1514) #5
   br label %cleanup.done1795
 
 cleanup.done1795:                                 ; preds = %cleanup.action1794, %ehcleanup1791
@@ -12133,7 +12651,8 @@ ehcleanup1797:                                    ; preds = %ehcleanup1796, %lpa
   br i1 %cleanup.is_active1799, label %cleanup.action1800, label %cleanup.done1801
 
 cleanup.action1800:                               ; preds = %ehcleanup1797
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 2)) #5
+  %1515 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1515) #5
   br label %cleanup.done1801
 
 cleanup.done1801:                                 ; preds = %cleanup.action1800, %ehcleanup1797
@@ -12145,7 +12664,8 @@ ehcleanup1802:                                    ; preds = %cleanup.done1801, %
   br i1 %cleanup.is_active1804, label %cleanup.action1805, label %cleanup.done1806
 
 cleanup.action1805:                               ; preds = %ehcleanup1802
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 1)) #5
+  %1516 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1516) #5
   br label %cleanup.done1806
 
 cleanup.done1806:                                 ; preds = %cleanup.action1805, %ehcleanup1802
@@ -12157,7 +12677,8 @@ ehcleanup1807:                                    ; preds = %cleanup.done1806, %
   br i1 %cleanup.is_active1809, label %cleanup.action1810, label %cleanup.done1811
 
 cleanup.action1810:                               ; preds = %ehcleanup1807
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47)) #5
+  %1517 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1517) #5
   br label %cleanup.done1811
 
 cleanup.done1811:                                 ; preds = %cleanup.action1810, %ehcleanup1807
@@ -12173,7 +12694,8 @@ ehcleanup1813:                                    ; preds = %ehcleanup1812, %lpa
   br i1 %cleanup.is_active1815, label %cleanup.action1816, label %cleanup.done1817
 
 cleanup.action1816:                               ; preds = %ehcleanup1813
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 2)) #5
+  %1518 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1518) #5
   br label %cleanup.done1817
 
 cleanup.done1817:                                 ; preds = %cleanup.action1816, %ehcleanup1813
@@ -12185,7 +12707,8 @@ ehcleanup1818:                                    ; preds = %cleanup.done1817, %
   br i1 %cleanup.is_active1820, label %cleanup.action1821, label %cleanup.done1822
 
 cleanup.action1821:                               ; preds = %ehcleanup1818
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 1)) #5
+  %1519 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1519) #5
   br label %cleanup.done1822
 
 cleanup.done1822:                                 ; preds = %cleanup.action1821, %ehcleanup1818
@@ -12197,7 +12720,8 @@ ehcleanup1823:                                    ; preds = %cleanup.done1822, %
   br i1 %cleanup.is_active1825, label %cleanup.action1826, label %cleanup.done1827
 
 cleanup.action1826:                               ; preds = %ehcleanup1823
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46)) #5
+  %1520 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1520) #5
   br label %cleanup.done1827
 
 cleanup.done1827:                                 ; preds = %cleanup.action1826, %ehcleanup1823
@@ -12213,7 +12737,8 @@ ehcleanup1829:                                    ; preds = %ehcleanup1828, %lpa
   br i1 %cleanup.is_active1831, label %cleanup.action1832, label %cleanup.done1833
 
 cleanup.action1832:                               ; preds = %ehcleanup1829
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 2)) #5
+  %1521 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1521) #5
   br label %cleanup.done1833
 
 cleanup.done1833:                                 ; preds = %cleanup.action1832, %ehcleanup1829
@@ -12225,7 +12750,8 @@ ehcleanup1834:                                    ; preds = %cleanup.done1833, %
   br i1 %cleanup.is_active1836, label %cleanup.action1837, label %cleanup.done1838
 
 cleanup.action1837:                               ; preds = %ehcleanup1834
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 1)) #5
+  %1522 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1522) #5
   br label %cleanup.done1838
 
 cleanup.done1838:                                 ; preds = %cleanup.action1837, %ehcleanup1834
@@ -12237,7 +12763,8 @@ ehcleanup1839:                                    ; preds = %cleanup.done1838, %
   br i1 %cleanup.is_active1841, label %cleanup.action1842, label %cleanup.done1843
 
 cleanup.action1842:                               ; preds = %ehcleanup1839
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45)) #5
+  %1523 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 45
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1523) #5
   br label %cleanup.done1843
 
 cleanup.done1843:                                 ; preds = %cleanup.action1842, %ehcleanup1839
@@ -12253,7 +12780,8 @@ ehcleanup1845:                                    ; preds = %ehcleanup1844, %lpa
   br i1 %cleanup.is_active1847, label %cleanup.action1848, label %cleanup.done1849
 
 cleanup.action1848:                               ; preds = %ehcleanup1845
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 2)) #5
+  %1524 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1524) #5
   br label %cleanup.done1849
 
 cleanup.done1849:                                 ; preds = %cleanup.action1848, %ehcleanup1845
@@ -12265,7 +12793,8 @@ ehcleanup1850:                                    ; preds = %cleanup.done1849, %
   br i1 %cleanup.is_active1852, label %cleanup.action1853, label %cleanup.done1854
 
 cleanup.action1853:                               ; preds = %ehcleanup1850
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 1)) #5
+  %1525 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1525) #5
   br label %cleanup.done1854
 
 cleanup.done1854:                                 ; preds = %cleanup.action1853, %ehcleanup1850
@@ -12277,7 +12806,8 @@ ehcleanup1855:                                    ; preds = %cleanup.done1854, %
   br i1 %cleanup.is_active1857, label %cleanup.action1858, label %cleanup.done1859
 
 cleanup.action1858:                               ; preds = %ehcleanup1855
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44)) #5
+  %1526 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 44
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1526) #5
   br label %cleanup.done1859
 
 cleanup.done1859:                                 ; preds = %cleanup.action1858, %ehcleanup1855
@@ -12293,7 +12823,8 @@ ehcleanup1861:                                    ; preds = %ehcleanup1860, %lpa
   br i1 %cleanup.is_active1863, label %cleanup.action1864, label %cleanup.done1865
 
 cleanup.action1864:                               ; preds = %ehcleanup1861
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 2)) #5
+  %1527 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1527) #5
   br label %cleanup.done1865
 
 cleanup.done1865:                                 ; preds = %cleanup.action1864, %ehcleanup1861
@@ -12305,7 +12836,8 @@ ehcleanup1866:                                    ; preds = %cleanup.done1865, %
   br i1 %cleanup.is_active1868, label %cleanup.action1869, label %cleanup.done1870
 
 cleanup.action1869:                               ; preds = %ehcleanup1866
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 1)) #5
+  %1528 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1528) #5
   br label %cleanup.done1870
 
 cleanup.done1870:                                 ; preds = %cleanup.action1869, %ehcleanup1866
@@ -12317,7 +12849,8 @@ ehcleanup1871:                                    ; preds = %cleanup.done1870, %
   br i1 %cleanup.is_active1873, label %cleanup.action1874, label %cleanup.done1875
 
 cleanup.action1874:                               ; preds = %ehcleanup1871
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43)) #5
+  %1529 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1529) #5
   br label %cleanup.done1875
 
 cleanup.done1875:                                 ; preds = %cleanup.action1874, %ehcleanup1871
@@ -12333,7 +12866,8 @@ ehcleanup1877:                                    ; preds = %ehcleanup1876, %lpa
   br i1 %cleanup.is_active1879, label %cleanup.action1880, label %cleanup.done1881
 
 cleanup.action1880:                               ; preds = %ehcleanup1877
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 2)) #5
+  %1530 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1530) #5
   br label %cleanup.done1881
 
 cleanup.done1881:                                 ; preds = %cleanup.action1880, %ehcleanup1877
@@ -12345,7 +12879,8 @@ ehcleanup1882:                                    ; preds = %cleanup.done1881, %
   br i1 %cleanup.is_active1884, label %cleanup.action1885, label %cleanup.done1886
 
 cleanup.action1885:                               ; preds = %ehcleanup1882
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 1)) #5
+  %1531 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1531) #5
   br label %cleanup.done1886
 
 cleanup.done1886:                                 ; preds = %cleanup.action1885, %ehcleanup1882
@@ -12357,7 +12892,8 @@ ehcleanup1887:                                    ; preds = %cleanup.done1886, %
   br i1 %cleanup.is_active1889, label %cleanup.action1890, label %cleanup.done1891
 
 cleanup.action1890:                               ; preds = %ehcleanup1887
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42)) #5
+  %1532 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 42
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1532) #5
   br label %cleanup.done1891
 
 cleanup.done1891:                                 ; preds = %cleanup.action1890, %ehcleanup1887
@@ -12373,7 +12909,8 @@ ehcleanup1893:                                    ; preds = %ehcleanup1892, %lpa
   br i1 %cleanup.is_active1895, label %cleanup.action1896, label %cleanup.done1897
 
 cleanup.action1896:                               ; preds = %ehcleanup1893
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 2)) #5
+  %1533 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1533) #5
   br label %cleanup.done1897
 
 cleanup.done1897:                                 ; preds = %cleanup.action1896, %ehcleanup1893
@@ -12385,7 +12922,8 @@ ehcleanup1898:                                    ; preds = %cleanup.done1897, %
   br i1 %cleanup.is_active1900, label %cleanup.action1901, label %cleanup.done1902
 
 cleanup.action1901:                               ; preds = %ehcleanup1898
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 1)) #5
+  %1534 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1534) #5
   br label %cleanup.done1902
 
 cleanup.done1902:                                 ; preds = %cleanup.action1901, %ehcleanup1898
@@ -12397,7 +12935,8 @@ ehcleanup1903:                                    ; preds = %cleanup.done1902, %
   br i1 %cleanup.is_active1905, label %cleanup.action1906, label %cleanup.done1907
 
 cleanup.action1906:                               ; preds = %ehcleanup1903
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41)) #5
+  %1535 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 41
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1535) #5
   br label %cleanup.done1907
 
 cleanup.done1907:                                 ; preds = %cleanup.action1906, %ehcleanup1903
@@ -12413,7 +12952,8 @@ ehcleanup1909:                                    ; preds = %ehcleanup1908, %lpa
   br i1 %cleanup.is_active1911, label %cleanup.action1912, label %cleanup.done1913
 
 cleanup.action1912:                               ; preds = %ehcleanup1909
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 2)) #5
+  %1536 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1536) #5
   br label %cleanup.done1913
 
 cleanup.done1913:                                 ; preds = %cleanup.action1912, %ehcleanup1909
@@ -12425,7 +12965,8 @@ ehcleanup1914:                                    ; preds = %cleanup.done1913, %
   br i1 %cleanup.is_active1916, label %cleanup.action1917, label %cleanup.done1918
 
 cleanup.action1917:                               ; preds = %ehcleanup1914
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 1)) #5
+  %1537 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1537) #5
   br label %cleanup.done1918
 
 cleanup.done1918:                                 ; preds = %cleanup.action1917, %ehcleanup1914
@@ -12437,7 +12978,8 @@ ehcleanup1919:                                    ; preds = %cleanup.done1918, %
   br i1 %cleanup.is_active1921, label %cleanup.action1922, label %cleanup.done1923
 
 cleanup.action1922:                               ; preds = %ehcleanup1919
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40)) #5
+  %1538 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1538) #5
   br label %cleanup.done1923
 
 cleanup.done1923:                                 ; preds = %cleanup.action1922, %ehcleanup1919
@@ -12453,7 +12995,8 @@ ehcleanup1925:                                    ; preds = %ehcleanup1924, %lpa
   br i1 %cleanup.is_active1927, label %cleanup.action1928, label %cleanup.done1929
 
 cleanup.action1928:                               ; preds = %ehcleanup1925
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 2)) #5
+  %1539 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1539) #5
   br label %cleanup.done1929
 
 cleanup.done1929:                                 ; preds = %cleanup.action1928, %ehcleanup1925
@@ -12465,7 +13008,8 @@ ehcleanup1930:                                    ; preds = %cleanup.done1929, %
   br i1 %cleanup.is_active1932, label %cleanup.action1933, label %cleanup.done1934
 
 cleanup.action1933:                               ; preds = %ehcleanup1930
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 1)) #5
+  %1540 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1540) #5
   br label %cleanup.done1934
 
 cleanup.done1934:                                 ; preds = %cleanup.action1933, %ehcleanup1930
@@ -12477,7 +13021,8 @@ ehcleanup1935:                                    ; preds = %cleanup.done1934, %
   br i1 %cleanup.is_active1937, label %cleanup.action1938, label %cleanup.done1939
 
 cleanup.action1938:                               ; preds = %ehcleanup1935
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39)) #5
+  %1541 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1541) #5
   br label %cleanup.done1939
 
 cleanup.done1939:                                 ; preds = %cleanup.action1938, %ehcleanup1935
@@ -12493,7 +13038,8 @@ ehcleanup1941:                                    ; preds = %ehcleanup1940, %lpa
   br i1 %cleanup.is_active1943, label %cleanup.action1944, label %cleanup.done1945
 
 cleanup.action1944:                               ; preds = %ehcleanup1941
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 2)) #5
+  %1542 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1542) #5
   br label %cleanup.done1945
 
 cleanup.done1945:                                 ; preds = %cleanup.action1944, %ehcleanup1941
@@ -12505,7 +13051,8 @@ ehcleanup1946:                                    ; preds = %cleanup.done1945, %
   br i1 %cleanup.is_active1948, label %cleanup.action1949, label %cleanup.done1950
 
 cleanup.action1949:                               ; preds = %ehcleanup1946
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 1)) #5
+  %1543 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1543) #5
   br label %cleanup.done1950
 
 cleanup.done1950:                                 ; preds = %cleanup.action1949, %ehcleanup1946
@@ -12517,7 +13064,8 @@ ehcleanup1951:                                    ; preds = %cleanup.done1950, %
   br i1 %cleanup.is_active1953, label %cleanup.action1954, label %cleanup.done1955
 
 cleanup.action1954:                               ; preds = %ehcleanup1951
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38)) #5
+  %1544 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 38
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1544) #5
   br label %cleanup.done1955
 
 cleanup.done1955:                                 ; preds = %cleanup.action1954, %ehcleanup1951
@@ -12533,7 +13081,8 @@ ehcleanup1957:                                    ; preds = %ehcleanup1956, %lpa
   br i1 %cleanup.is_active1959, label %cleanup.action1960, label %cleanup.done1961
 
 cleanup.action1960:                               ; preds = %ehcleanup1957
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 2)) #5
+  %1545 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1545) #5
   br label %cleanup.done1961
 
 cleanup.done1961:                                 ; preds = %cleanup.action1960, %ehcleanup1957
@@ -12545,7 +13094,8 @@ ehcleanup1962:                                    ; preds = %cleanup.done1961, %
   br i1 %cleanup.is_active1964, label %cleanup.action1965, label %cleanup.done1966
 
 cleanup.action1965:                               ; preds = %ehcleanup1962
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 1)) #5
+  %1546 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1546) #5
   br label %cleanup.done1966
 
 cleanup.done1966:                                 ; preds = %cleanup.action1965, %ehcleanup1962
@@ -12557,7 +13107,8 @@ ehcleanup1967:                                    ; preds = %cleanup.done1966, %
   br i1 %cleanup.is_active1969, label %cleanup.action1970, label %cleanup.done1971
 
 cleanup.action1970:                               ; preds = %ehcleanup1967
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37)) #5
+  %1547 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1547) #5
   br label %cleanup.done1971
 
 cleanup.done1971:                                 ; preds = %cleanup.action1970, %ehcleanup1967
@@ -12573,7 +13124,8 @@ ehcleanup1973:                                    ; preds = %ehcleanup1972, %lpa
   br i1 %cleanup.is_active1975, label %cleanup.action1976, label %cleanup.done1977
 
 cleanup.action1976:                               ; preds = %ehcleanup1973
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 2)) #5
+  %1548 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1548) #5
   br label %cleanup.done1977
 
 cleanup.done1977:                                 ; preds = %cleanup.action1976, %ehcleanup1973
@@ -12585,7 +13137,8 @@ ehcleanup1978:                                    ; preds = %cleanup.done1977, %
   br i1 %cleanup.is_active1980, label %cleanup.action1981, label %cleanup.done1982
 
 cleanup.action1981:                               ; preds = %ehcleanup1978
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 1)) #5
+  %1549 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1549) #5
   br label %cleanup.done1982
 
 cleanup.done1982:                                 ; preds = %cleanup.action1981, %ehcleanup1978
@@ -12597,7 +13150,8 @@ ehcleanup1983:                                    ; preds = %cleanup.done1982, %
   br i1 %cleanup.is_active1985, label %cleanup.action1986, label %cleanup.done1987
 
 cleanup.action1986:                               ; preds = %ehcleanup1983
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36)) #5
+  %1550 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1550) #5
   br label %cleanup.done1987
 
 cleanup.done1987:                                 ; preds = %cleanup.action1986, %ehcleanup1983
@@ -12613,7 +13167,8 @@ ehcleanup1989:                                    ; preds = %ehcleanup1988, %lpa
   br i1 %cleanup.is_active1991, label %cleanup.action1992, label %cleanup.done1993
 
 cleanup.action1992:                               ; preds = %ehcleanup1989
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 2)) #5
+  %1551 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1551) #5
   br label %cleanup.done1993
 
 cleanup.done1993:                                 ; preds = %cleanup.action1992, %ehcleanup1989
@@ -12625,7 +13180,8 @@ ehcleanup1994:                                    ; preds = %cleanup.done1993, %
   br i1 %cleanup.is_active1996, label %cleanup.action1997, label %cleanup.done1998
 
 cleanup.action1997:                               ; preds = %ehcleanup1994
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 1)) #5
+  %1552 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1552) #5
   br label %cleanup.done1998
 
 cleanup.done1998:                                 ; preds = %cleanup.action1997, %ehcleanup1994
@@ -12637,7 +13193,8 @@ ehcleanup1999:                                    ; preds = %cleanup.done1998, %
   br i1 %cleanup.is_active2001, label %cleanup.action2002, label %cleanup.done2003
 
 cleanup.action2002:                               ; preds = %ehcleanup1999
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35)) #5
+  %1553 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1553) #5
   br label %cleanup.done2003
 
 cleanup.done2003:                                 ; preds = %cleanup.action2002, %ehcleanup1999
@@ -12653,7 +13210,8 @@ ehcleanup2005:                                    ; preds = %ehcleanup2004, %lpa
   br i1 %cleanup.is_active2007, label %cleanup.action2008, label %cleanup.done2009
 
 cleanup.action2008:                               ; preds = %ehcleanup2005
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 2)) #5
+  %1554 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1554) #5
   br label %cleanup.done2009
 
 cleanup.done2009:                                 ; preds = %cleanup.action2008, %ehcleanup2005
@@ -12665,7 +13223,8 @@ ehcleanup2010:                                    ; preds = %cleanup.done2009, %
   br i1 %cleanup.is_active2012, label %cleanup.action2013, label %cleanup.done2014
 
 cleanup.action2013:                               ; preds = %ehcleanup2010
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 1)) #5
+  %1555 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1555) #5
   br label %cleanup.done2014
 
 cleanup.done2014:                                 ; preds = %cleanup.action2013, %ehcleanup2010
@@ -12677,7 +13236,8 @@ ehcleanup2015:                                    ; preds = %cleanup.done2014, %
   br i1 %cleanup.is_active2017, label %cleanup.action2018, label %cleanup.done2019
 
 cleanup.action2018:                               ; preds = %ehcleanup2015
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34)) #5
+  %1556 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 34
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1556) #5
   br label %cleanup.done2019
 
 cleanup.done2019:                                 ; preds = %cleanup.action2018, %ehcleanup2015
@@ -12693,7 +13253,8 @@ ehcleanup2021:                                    ; preds = %ehcleanup2020, %lpa
   br i1 %cleanup.is_active2023, label %cleanup.action2024, label %cleanup.done2025
 
 cleanup.action2024:                               ; preds = %ehcleanup2021
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 2)) #5
+  %1557 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1557) #5
   br label %cleanup.done2025
 
 cleanup.done2025:                                 ; preds = %cleanup.action2024, %ehcleanup2021
@@ -12705,7 +13266,8 @@ ehcleanup2026:                                    ; preds = %cleanup.done2025, %
   br i1 %cleanup.is_active2028, label %cleanup.action2029, label %cleanup.done2030
 
 cleanup.action2029:                               ; preds = %ehcleanup2026
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 1)) #5
+  %1558 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1558) #5
   br label %cleanup.done2030
 
 cleanup.done2030:                                 ; preds = %cleanup.action2029, %ehcleanup2026
@@ -12717,7 +13279,8 @@ ehcleanup2031:                                    ; preds = %cleanup.done2030, %
   br i1 %cleanup.is_active2033, label %cleanup.action2034, label %cleanup.done2035
 
 cleanup.action2034:                               ; preds = %ehcleanup2031
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33)) #5
+  %1559 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1559) #5
   br label %cleanup.done2035
 
 cleanup.done2035:                                 ; preds = %cleanup.action2034, %ehcleanup2031
@@ -12733,7 +13296,8 @@ ehcleanup2037:                                    ; preds = %ehcleanup2036, %lpa
   br i1 %cleanup.is_active2039, label %cleanup.action2040, label %cleanup.done2041
 
 cleanup.action2040:                               ; preds = %ehcleanup2037
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 2)) #5
+  %1560 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1560) #5
   br label %cleanup.done2041
 
 cleanup.done2041:                                 ; preds = %cleanup.action2040, %ehcleanup2037
@@ -12745,7 +13309,8 @@ ehcleanup2042:                                    ; preds = %cleanup.done2041, %
   br i1 %cleanup.is_active2044, label %cleanup.action2045, label %cleanup.done2046
 
 cleanup.action2045:                               ; preds = %ehcleanup2042
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 1)) #5
+  %1561 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1561) #5
   br label %cleanup.done2046
 
 cleanup.done2046:                                 ; preds = %cleanup.action2045, %ehcleanup2042
@@ -12757,7 +13322,8 @@ ehcleanup2047:                                    ; preds = %cleanup.done2046, %
   br i1 %cleanup.is_active2049, label %cleanup.action2050, label %cleanup.done2051
 
 cleanup.action2050:                               ; preds = %ehcleanup2047
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32)) #5
+  %1562 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1562) #5
   br label %cleanup.done2051
 
 cleanup.done2051:                                 ; preds = %cleanup.action2050, %ehcleanup2047
@@ -12773,7 +13339,8 @@ ehcleanup2053:                                    ; preds = %ehcleanup2052, %lpa
   br i1 %cleanup.is_active2055, label %cleanup.action2056, label %cleanup.done2057
 
 cleanup.action2056:                               ; preds = %ehcleanup2053
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 2)) #5
+  %1563 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1563) #5
   br label %cleanup.done2057
 
 cleanup.done2057:                                 ; preds = %cleanup.action2056, %ehcleanup2053
@@ -12785,7 +13352,8 @@ ehcleanup2058:                                    ; preds = %cleanup.done2057, %
   br i1 %cleanup.is_active2060, label %cleanup.action2061, label %cleanup.done2062
 
 cleanup.action2061:                               ; preds = %ehcleanup2058
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 1)) #5
+  %1564 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1564) #5
   br label %cleanup.done2062
 
 cleanup.done2062:                                 ; preds = %cleanup.action2061, %ehcleanup2058
@@ -12797,7 +13365,8 @@ ehcleanup2063:                                    ; preds = %cleanup.done2062, %
   br i1 %cleanup.is_active2065, label %cleanup.action2066, label %cleanup.done2067
 
 cleanup.action2066:                               ; preds = %ehcleanup2063
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31)) #5
+  %1565 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 31
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1565) #5
   br label %cleanup.done2067
 
 cleanup.done2067:                                 ; preds = %cleanup.action2066, %ehcleanup2063
@@ -12813,7 +13382,8 @@ ehcleanup2069:                                    ; preds = %ehcleanup2068, %lpa
   br i1 %cleanup.is_active2071, label %cleanup.action2072, label %cleanup.done2073
 
 cleanup.action2072:                               ; preds = %ehcleanup2069
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 2)) #5
+  %1566 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1566) #5
   br label %cleanup.done2073
 
 cleanup.done2073:                                 ; preds = %cleanup.action2072, %ehcleanup2069
@@ -12825,7 +13395,8 @@ ehcleanup2074:                                    ; preds = %cleanup.done2073, %
   br i1 %cleanup.is_active2076, label %cleanup.action2077, label %cleanup.done2078
 
 cleanup.action2077:                               ; preds = %ehcleanup2074
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 1)) #5
+  %1567 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1567) #5
   br label %cleanup.done2078
 
 cleanup.done2078:                                 ; preds = %cleanup.action2077, %ehcleanup2074
@@ -12837,7 +13408,8 @@ ehcleanup2079:                                    ; preds = %cleanup.done2078, %
   br i1 %cleanup.is_active2081, label %cleanup.action2082, label %cleanup.done2083
 
 cleanup.action2082:                               ; preds = %ehcleanup2079
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30)) #5
+  %1568 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1568) #5
   br label %cleanup.done2083
 
 cleanup.done2083:                                 ; preds = %cleanup.action2082, %ehcleanup2079
@@ -12853,7 +13425,8 @@ ehcleanup2085:                                    ; preds = %ehcleanup2084, %lpa
   br i1 %cleanup.is_active2087, label %cleanup.action2088, label %cleanup.done2089
 
 cleanup.action2088:                               ; preds = %ehcleanup2085
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 2)) #5
+  %1569 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1569) #5
   br label %cleanup.done2089
 
 cleanup.done2089:                                 ; preds = %cleanup.action2088, %ehcleanup2085
@@ -12865,7 +13438,8 @@ ehcleanup2090:                                    ; preds = %cleanup.done2089, %
   br i1 %cleanup.is_active2092, label %cleanup.action2093, label %cleanup.done2094
 
 cleanup.action2093:                               ; preds = %ehcleanup2090
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 1)) #5
+  %1570 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1570) #5
   br label %cleanup.done2094
 
 cleanup.done2094:                                 ; preds = %cleanup.action2093, %ehcleanup2090
@@ -12877,7 +13451,8 @@ ehcleanup2095:                                    ; preds = %cleanup.done2094, %
   br i1 %cleanup.is_active2097, label %cleanup.action2098, label %cleanup.done2099
 
 cleanup.action2098:                               ; preds = %ehcleanup2095
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29)) #5
+  %1571 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1571) #5
   br label %cleanup.done2099
 
 cleanup.done2099:                                 ; preds = %cleanup.action2098, %ehcleanup2095
@@ -12893,7 +13468,8 @@ ehcleanup2101:                                    ; preds = %ehcleanup2100, %lpa
   br i1 %cleanup.is_active2103, label %cleanup.action2104, label %cleanup.done2105
 
 cleanup.action2104:                               ; preds = %ehcleanup2101
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 2)) #5
+  %1572 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1572) #5
   br label %cleanup.done2105
 
 cleanup.done2105:                                 ; preds = %cleanup.action2104, %ehcleanup2101
@@ -12905,7 +13481,8 @@ ehcleanup2106:                                    ; preds = %cleanup.done2105, %
   br i1 %cleanup.is_active2108, label %cleanup.action2109, label %cleanup.done2110
 
 cleanup.action2109:                               ; preds = %ehcleanup2106
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 1)) #5
+  %1573 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1573) #5
   br label %cleanup.done2110
 
 cleanup.done2110:                                 ; preds = %cleanup.action2109, %ehcleanup2106
@@ -12917,7 +13494,8 @@ ehcleanup2111:                                    ; preds = %cleanup.done2110, %
   br i1 %cleanup.is_active2113, label %cleanup.action2114, label %cleanup.done2115
 
 cleanup.action2114:                               ; preds = %ehcleanup2111
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28)) #5
+  %1574 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1574) #5
   br label %cleanup.done2115
 
 cleanup.done2115:                                 ; preds = %cleanup.action2114, %ehcleanup2111
@@ -12933,7 +13511,8 @@ ehcleanup2117:                                    ; preds = %ehcleanup2116, %lpa
   br i1 %cleanup.is_active2119, label %cleanup.action2120, label %cleanup.done2121
 
 cleanup.action2120:                               ; preds = %ehcleanup2117
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 2)) #5
+  %1575 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1575) #5
   br label %cleanup.done2121
 
 cleanup.done2121:                                 ; preds = %cleanup.action2120, %ehcleanup2117
@@ -12945,7 +13524,8 @@ ehcleanup2122:                                    ; preds = %cleanup.done2121, %
   br i1 %cleanup.is_active2124, label %cleanup.action2125, label %cleanup.done2126
 
 cleanup.action2125:                               ; preds = %ehcleanup2122
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 1)) #5
+  %1576 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1576) #5
   br label %cleanup.done2126
 
 cleanup.done2126:                                 ; preds = %cleanup.action2125, %ehcleanup2122
@@ -12957,7 +13537,8 @@ ehcleanup2127:                                    ; preds = %cleanup.done2126, %
   br i1 %cleanup.is_active2129, label %cleanup.action2130, label %cleanup.done2131
 
 cleanup.action2130:                               ; preds = %ehcleanup2127
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27)) #5
+  %1577 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1577) #5
   br label %cleanup.done2131
 
 cleanup.done2131:                                 ; preds = %cleanup.action2130, %ehcleanup2127
@@ -12973,7 +13554,8 @@ ehcleanup2133:                                    ; preds = %ehcleanup2132, %lpa
   br i1 %cleanup.is_active2135, label %cleanup.action2136, label %cleanup.done2137
 
 cleanup.action2136:                               ; preds = %ehcleanup2133
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 2)) #5
+  %1578 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1578) #5
   br label %cleanup.done2137
 
 cleanup.done2137:                                 ; preds = %cleanup.action2136, %ehcleanup2133
@@ -12985,7 +13567,8 @@ ehcleanup2138:                                    ; preds = %cleanup.done2137, %
   br i1 %cleanup.is_active2140, label %cleanup.action2141, label %cleanup.done2142
 
 cleanup.action2141:                               ; preds = %ehcleanup2138
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 1)) #5
+  %1579 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1579) #5
   br label %cleanup.done2142
 
 cleanup.done2142:                                 ; preds = %cleanup.action2141, %ehcleanup2138
@@ -12997,7 +13580,8 @@ ehcleanup2143:                                    ; preds = %cleanup.done2142, %
   br i1 %cleanup.is_active2145, label %cleanup.action2146, label %cleanup.done2147
 
 cleanup.action2146:                               ; preds = %ehcleanup2143
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26)) #5
+  %1580 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1580) #5
   br label %cleanup.done2147
 
 cleanup.done2147:                                 ; preds = %cleanup.action2146, %ehcleanup2143
@@ -13013,7 +13597,8 @@ ehcleanup2149:                                    ; preds = %ehcleanup2148, %lpa
   br i1 %cleanup.is_active2151, label %cleanup.action2152, label %cleanup.done2153
 
 cleanup.action2152:                               ; preds = %ehcleanup2149
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 2)) #5
+  %1581 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1581) #5
   br label %cleanup.done2153
 
 cleanup.done2153:                                 ; preds = %cleanup.action2152, %ehcleanup2149
@@ -13025,7 +13610,8 @@ ehcleanup2154:                                    ; preds = %cleanup.done2153, %
   br i1 %cleanup.is_active2156, label %cleanup.action2157, label %cleanup.done2158
 
 cleanup.action2157:                               ; preds = %ehcleanup2154
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 1)) #5
+  %1582 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1582) #5
   br label %cleanup.done2158
 
 cleanup.done2158:                                 ; preds = %cleanup.action2157, %ehcleanup2154
@@ -13037,7 +13623,8 @@ ehcleanup2159:                                    ; preds = %cleanup.done2158, %
   br i1 %cleanup.is_active2161, label %cleanup.action2162, label %cleanup.done2163
 
 cleanup.action2162:                               ; preds = %ehcleanup2159
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25)) #5
+  %1583 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1583) #5
   br label %cleanup.done2163
 
 cleanup.done2163:                                 ; preds = %cleanup.action2162, %ehcleanup2159
@@ -13053,7 +13640,8 @@ ehcleanup2165:                                    ; preds = %ehcleanup2164, %lpa
   br i1 %cleanup.is_active2167, label %cleanup.action2168, label %cleanup.done2169
 
 cleanup.action2168:                               ; preds = %ehcleanup2165
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 2)) #5
+  %1584 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1584) #5
   br label %cleanup.done2169
 
 cleanup.done2169:                                 ; preds = %cleanup.action2168, %ehcleanup2165
@@ -13065,7 +13653,8 @@ ehcleanup2170:                                    ; preds = %cleanup.done2169, %
   br i1 %cleanup.is_active2172, label %cleanup.action2173, label %cleanup.done2174
 
 cleanup.action2173:                               ; preds = %ehcleanup2170
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 1)) #5
+  %1585 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1585) #5
   br label %cleanup.done2174
 
 cleanup.done2174:                                 ; preds = %cleanup.action2173, %ehcleanup2170
@@ -13077,7 +13666,8 @@ ehcleanup2175:                                    ; preds = %cleanup.done2174, %
   br i1 %cleanup.is_active2177, label %cleanup.action2178, label %cleanup.done2179
 
 cleanup.action2178:                               ; preds = %ehcleanup2175
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24)) #5
+  %1586 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1586) #5
   br label %cleanup.done2179
 
 cleanup.done2179:                                 ; preds = %cleanup.action2178, %ehcleanup2175
@@ -13093,7 +13683,8 @@ ehcleanup2181:                                    ; preds = %ehcleanup2180, %lpa
   br i1 %cleanup.is_active2183, label %cleanup.action2184, label %cleanup.done2185
 
 cleanup.action2184:                               ; preds = %ehcleanup2181
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 2)) #5
+  %1587 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1587) #5
   br label %cleanup.done2185
 
 cleanup.done2185:                                 ; preds = %cleanup.action2184, %ehcleanup2181
@@ -13105,7 +13696,8 @@ ehcleanup2186:                                    ; preds = %cleanup.done2185, %
   br i1 %cleanup.is_active2188, label %cleanup.action2189, label %cleanup.done2190
 
 cleanup.action2189:                               ; preds = %ehcleanup2186
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 1)) #5
+  %1588 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1588) #5
   br label %cleanup.done2190
 
 cleanup.done2190:                                 ; preds = %cleanup.action2189, %ehcleanup2186
@@ -13117,7 +13709,8 @@ ehcleanup2191:                                    ; preds = %cleanup.done2190, %
   br i1 %cleanup.is_active2193, label %cleanup.action2194, label %cleanup.done2195
 
 cleanup.action2194:                               ; preds = %ehcleanup2191
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23)) #5
+  %1589 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1589) #5
   br label %cleanup.done2195
 
 cleanup.done2195:                                 ; preds = %cleanup.action2194, %ehcleanup2191
@@ -13133,7 +13726,8 @@ ehcleanup2197:                                    ; preds = %ehcleanup2196, %lpa
   br i1 %cleanup.is_active2199, label %cleanup.action2200, label %cleanup.done2201
 
 cleanup.action2200:                               ; preds = %ehcleanup2197
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 2)) #5
+  %1590 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1590) #5
   br label %cleanup.done2201
 
 cleanup.done2201:                                 ; preds = %cleanup.action2200, %ehcleanup2197
@@ -13145,7 +13739,8 @@ ehcleanup2202:                                    ; preds = %cleanup.done2201, %
   br i1 %cleanup.is_active2204, label %cleanup.action2205, label %cleanup.done2206
 
 cleanup.action2205:                               ; preds = %ehcleanup2202
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 1)) #5
+  %1591 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1591) #5
   br label %cleanup.done2206
 
 cleanup.done2206:                                 ; preds = %cleanup.action2205, %ehcleanup2202
@@ -13157,7 +13752,8 @@ ehcleanup2207:                                    ; preds = %cleanup.done2206, %
   br i1 %cleanup.is_active2209, label %cleanup.action2210, label %cleanup.done2211
 
 cleanup.action2210:                               ; preds = %ehcleanup2207
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22)) #5
+  %1592 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1592) #5
   br label %cleanup.done2211
 
 cleanup.done2211:                                 ; preds = %cleanup.action2210, %ehcleanup2207
@@ -13173,7 +13769,8 @@ ehcleanup2213:                                    ; preds = %ehcleanup2212, %lpa
   br i1 %cleanup.is_active2215, label %cleanup.action2216, label %cleanup.done2217
 
 cleanup.action2216:                               ; preds = %ehcleanup2213
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 2)) #5
+  %1593 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1593) #5
   br label %cleanup.done2217
 
 cleanup.done2217:                                 ; preds = %cleanup.action2216, %ehcleanup2213
@@ -13185,7 +13782,8 @@ ehcleanup2218:                                    ; preds = %cleanup.done2217, %
   br i1 %cleanup.is_active2220, label %cleanup.action2221, label %cleanup.done2222
 
 cleanup.action2221:                               ; preds = %ehcleanup2218
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 1)) #5
+  %1594 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1594) #5
   br label %cleanup.done2222
 
 cleanup.done2222:                                 ; preds = %cleanup.action2221, %ehcleanup2218
@@ -13197,7 +13795,8 @@ ehcleanup2223:                                    ; preds = %cleanup.done2222, %
   br i1 %cleanup.is_active2225, label %cleanup.action2226, label %cleanup.done2227
 
 cleanup.action2226:                               ; preds = %ehcleanup2223
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21)) #5
+  %1595 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1595) #5
   br label %cleanup.done2227
 
 cleanup.done2227:                                 ; preds = %cleanup.action2226, %ehcleanup2223
@@ -13213,7 +13812,8 @@ ehcleanup2229:                                    ; preds = %ehcleanup2228, %lpa
   br i1 %cleanup.is_active2231, label %cleanup.action2232, label %cleanup.done2233
 
 cleanup.action2232:                               ; preds = %ehcleanup2229
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 2)) #5
+  %1596 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1596) #5
   br label %cleanup.done2233
 
 cleanup.done2233:                                 ; preds = %cleanup.action2232, %ehcleanup2229
@@ -13225,7 +13825,8 @@ ehcleanup2234:                                    ; preds = %cleanup.done2233, %
   br i1 %cleanup.is_active2236, label %cleanup.action2237, label %cleanup.done2238
 
 cleanup.action2237:                               ; preds = %ehcleanup2234
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 1)) #5
+  %1597 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1597) #5
   br label %cleanup.done2238
 
 cleanup.done2238:                                 ; preds = %cleanup.action2237, %ehcleanup2234
@@ -13237,7 +13838,8 @@ ehcleanup2239:                                    ; preds = %cleanup.done2238, %
   br i1 %cleanup.is_active2241, label %cleanup.action2242, label %cleanup.done2243
 
 cleanup.action2242:                               ; preds = %ehcleanup2239
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20)) #5
+  %1598 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1598) #5
   br label %cleanup.done2243
 
 cleanup.done2243:                                 ; preds = %cleanup.action2242, %ehcleanup2239
@@ -13253,7 +13855,8 @@ ehcleanup2245:                                    ; preds = %ehcleanup2244, %lpa
   br i1 %cleanup.is_active2247, label %cleanup.action2248, label %cleanup.done2249
 
 cleanup.action2248:                               ; preds = %ehcleanup2245
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 2)) #5
+  %1599 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1599) #5
   br label %cleanup.done2249
 
 cleanup.done2249:                                 ; preds = %cleanup.action2248, %ehcleanup2245
@@ -13265,7 +13868,8 @@ ehcleanup2250:                                    ; preds = %cleanup.done2249, %
   br i1 %cleanup.is_active2252, label %cleanup.action2253, label %cleanup.done2254
 
 cleanup.action2253:                               ; preds = %ehcleanup2250
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 1)) #5
+  %1600 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1600) #5
   br label %cleanup.done2254
 
 cleanup.done2254:                                 ; preds = %cleanup.action2253, %ehcleanup2250
@@ -13277,7 +13881,8 @@ ehcleanup2255:                                    ; preds = %cleanup.done2254, %
   br i1 %cleanup.is_active2257, label %cleanup.action2258, label %cleanup.done2259
 
 cleanup.action2258:                               ; preds = %ehcleanup2255
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19)) #5
+  %1601 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1601) #5
   br label %cleanup.done2259
 
 cleanup.done2259:                                 ; preds = %cleanup.action2258, %ehcleanup2255
@@ -13293,7 +13898,8 @@ ehcleanup2261:                                    ; preds = %ehcleanup2260, %lpa
   br i1 %cleanup.is_active2263, label %cleanup.action2264, label %cleanup.done2265
 
 cleanup.action2264:                               ; preds = %ehcleanup2261
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 2)) #5
+  %1602 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1602) #5
   br label %cleanup.done2265
 
 cleanup.done2265:                                 ; preds = %cleanup.action2264, %ehcleanup2261
@@ -13305,7 +13911,8 @@ ehcleanup2266:                                    ; preds = %cleanup.done2265, %
   br i1 %cleanup.is_active2268, label %cleanup.action2269, label %cleanup.done2270
 
 cleanup.action2269:                               ; preds = %ehcleanup2266
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 1)) #5
+  %1603 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1603) #5
   br label %cleanup.done2270
 
 cleanup.done2270:                                 ; preds = %cleanup.action2269, %ehcleanup2266
@@ -13317,7 +13924,8 @@ ehcleanup2271:                                    ; preds = %cleanup.done2270, %
   br i1 %cleanup.is_active2273, label %cleanup.action2274, label %cleanup.done2275
 
 cleanup.action2274:                               ; preds = %ehcleanup2271
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18)) #5
+  %1604 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1604) #5
   br label %cleanup.done2275
 
 cleanup.done2275:                                 ; preds = %cleanup.action2274, %ehcleanup2271
@@ -13333,7 +13941,8 @@ ehcleanup2277:                                    ; preds = %ehcleanup2276, %lpa
   br i1 %cleanup.is_active2279, label %cleanup.action2280, label %cleanup.done2281
 
 cleanup.action2280:                               ; preds = %ehcleanup2277
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 2)) #5
+  %1605 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1605) #5
   br label %cleanup.done2281
 
 cleanup.done2281:                                 ; preds = %cleanup.action2280, %ehcleanup2277
@@ -13345,7 +13954,8 @@ ehcleanup2282:                                    ; preds = %cleanup.done2281, %
   br i1 %cleanup.is_active2284, label %cleanup.action2285, label %cleanup.done2286
 
 cleanup.action2285:                               ; preds = %ehcleanup2282
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 1)) #5
+  %1606 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1606) #5
   br label %cleanup.done2286
 
 cleanup.done2286:                                 ; preds = %cleanup.action2285, %ehcleanup2282
@@ -13357,7 +13967,8 @@ ehcleanup2287:                                    ; preds = %cleanup.done2286, %
   br i1 %cleanup.is_active2289, label %cleanup.action2290, label %cleanup.done2291
 
 cleanup.action2290:                               ; preds = %ehcleanup2287
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17)) #5
+  %1607 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1607) #5
   br label %cleanup.done2291
 
 cleanup.done2291:                                 ; preds = %cleanup.action2290, %ehcleanup2287
@@ -13373,7 +13984,8 @@ ehcleanup2293:                                    ; preds = %ehcleanup2292, %lpa
   br i1 %cleanup.is_active2295, label %cleanup.action2296, label %cleanup.done2297
 
 cleanup.action2296:                               ; preds = %ehcleanup2293
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 2)) #5
+  %1608 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1608) #5
   br label %cleanup.done2297
 
 cleanup.done2297:                                 ; preds = %cleanup.action2296, %ehcleanup2293
@@ -13385,7 +13997,8 @@ ehcleanup2298:                                    ; preds = %cleanup.done2297, %
   br i1 %cleanup.is_active2300, label %cleanup.action2301, label %cleanup.done2302
 
 cleanup.action2301:                               ; preds = %ehcleanup2298
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 1)) #5
+  %1609 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1609) #5
   br label %cleanup.done2302
 
 cleanup.done2302:                                 ; preds = %cleanup.action2301, %ehcleanup2298
@@ -13397,7 +14010,8 @@ ehcleanup2303:                                    ; preds = %cleanup.done2302, %
   br i1 %cleanup.is_active2305, label %cleanup.action2306, label %cleanup.done2307
 
 cleanup.action2306:                               ; preds = %ehcleanup2303
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16)) #5
+  %1610 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1610) #5
   br label %cleanup.done2307
 
 cleanup.done2307:                                 ; preds = %cleanup.action2306, %ehcleanup2303
@@ -13413,7 +14027,8 @@ ehcleanup2309:                                    ; preds = %ehcleanup2308, %lpa
   br i1 %cleanup.is_active2311, label %cleanup.action2312, label %cleanup.done2313
 
 cleanup.action2312:                               ; preds = %ehcleanup2309
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 2)) #5
+  %1611 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1611) #5
   br label %cleanup.done2313
 
 cleanup.done2313:                                 ; preds = %cleanup.action2312, %ehcleanup2309
@@ -13425,7 +14040,8 @@ ehcleanup2314:                                    ; preds = %cleanup.done2313, %
   br i1 %cleanup.is_active2316, label %cleanup.action2317, label %cleanup.done2318
 
 cleanup.action2317:                               ; preds = %ehcleanup2314
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 1)) #5
+  %1612 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1612) #5
   br label %cleanup.done2318
 
 cleanup.done2318:                                 ; preds = %cleanup.action2317, %ehcleanup2314
@@ -13437,7 +14053,8 @@ ehcleanup2319:                                    ; preds = %cleanup.done2318, %
   br i1 %cleanup.is_active2321, label %cleanup.action2322, label %cleanup.done2323
 
 cleanup.action2322:                               ; preds = %ehcleanup2319
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15)) #5
+  %1613 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1613) #5
   br label %cleanup.done2323
 
 cleanup.done2323:                                 ; preds = %cleanup.action2322, %ehcleanup2319
@@ -13453,7 +14070,8 @@ ehcleanup2325:                                    ; preds = %ehcleanup2324, %lpa
   br i1 %cleanup.is_active2327, label %cleanup.action2328, label %cleanup.done2329
 
 cleanup.action2328:                               ; preds = %ehcleanup2325
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 2)) #5
+  %1614 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1614) #5
   br label %cleanup.done2329
 
 cleanup.done2329:                                 ; preds = %cleanup.action2328, %ehcleanup2325
@@ -13465,7 +14083,8 @@ ehcleanup2330:                                    ; preds = %cleanup.done2329, %
   br i1 %cleanup.is_active2332, label %cleanup.action2333, label %cleanup.done2334
 
 cleanup.action2333:                               ; preds = %ehcleanup2330
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 1)) #5
+  %1615 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1615) #5
   br label %cleanup.done2334
 
 cleanup.done2334:                                 ; preds = %cleanup.action2333, %ehcleanup2330
@@ -13477,7 +14096,8 @@ ehcleanup2335:                                    ; preds = %cleanup.done2334, %
   br i1 %cleanup.is_active2337, label %cleanup.action2338, label %cleanup.done2339
 
 cleanup.action2338:                               ; preds = %ehcleanup2335
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14)) #5
+  %1616 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1616) #5
   br label %cleanup.done2339
 
 cleanup.done2339:                                 ; preds = %cleanup.action2338, %ehcleanup2335
@@ -13493,7 +14113,8 @@ ehcleanup2341:                                    ; preds = %ehcleanup2340, %lpa
   br i1 %cleanup.is_active2343, label %cleanup.action2344, label %cleanup.done2345
 
 cleanup.action2344:                               ; preds = %ehcleanup2341
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 2)) #5
+  %1617 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1617) #5
   br label %cleanup.done2345
 
 cleanup.done2345:                                 ; preds = %cleanup.action2344, %ehcleanup2341
@@ -13505,7 +14126,8 @@ ehcleanup2346:                                    ; preds = %cleanup.done2345, %
   br i1 %cleanup.is_active2348, label %cleanup.action2349, label %cleanup.done2350
 
 cleanup.action2349:                               ; preds = %ehcleanup2346
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 1)) #5
+  %1618 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1618) #5
   br label %cleanup.done2350
 
 cleanup.done2350:                                 ; preds = %cleanup.action2349, %ehcleanup2346
@@ -13517,7 +14139,8 @@ ehcleanup2351:                                    ; preds = %cleanup.done2350, %
   br i1 %cleanup.is_active2353, label %cleanup.action2354, label %cleanup.done2355
 
 cleanup.action2354:                               ; preds = %ehcleanup2351
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13)) #5
+  %1619 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1619) #5
   br label %cleanup.done2355
 
 cleanup.done2355:                                 ; preds = %cleanup.action2354, %ehcleanup2351
@@ -13533,7 +14156,8 @@ ehcleanup2357:                                    ; preds = %ehcleanup2356, %lpa
   br i1 %cleanup.is_active2359, label %cleanup.action2360, label %cleanup.done2361
 
 cleanup.action2360:                               ; preds = %ehcleanup2357
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 2)) #5
+  %1620 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1620) #5
   br label %cleanup.done2361
 
 cleanup.done2361:                                 ; preds = %cleanup.action2360, %ehcleanup2357
@@ -13545,7 +14169,8 @@ ehcleanup2362:                                    ; preds = %cleanup.done2361, %
   br i1 %cleanup.is_active2364, label %cleanup.action2365, label %cleanup.done2366
 
 cleanup.action2365:                               ; preds = %ehcleanup2362
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 1)) #5
+  %1621 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1621) #5
   br label %cleanup.done2366
 
 cleanup.done2366:                                 ; preds = %cleanup.action2365, %ehcleanup2362
@@ -13557,7 +14182,8 @@ ehcleanup2367:                                    ; preds = %cleanup.done2366, %
   br i1 %cleanup.is_active2369, label %cleanup.action2370, label %cleanup.done2371
 
 cleanup.action2370:                               ; preds = %ehcleanup2367
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12)) #5
+  %1622 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1622) #5
   br label %cleanup.done2371
 
 cleanup.done2371:                                 ; preds = %cleanup.action2370, %ehcleanup2367
@@ -13573,7 +14199,8 @@ ehcleanup2373:                                    ; preds = %ehcleanup2372, %lpa
   br i1 %cleanup.is_active2375, label %cleanup.action2376, label %cleanup.done2377
 
 cleanup.action2376:                               ; preds = %ehcleanup2373
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 2)) #5
+  %1623 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1623) #5
   br label %cleanup.done2377
 
 cleanup.done2377:                                 ; preds = %cleanup.action2376, %ehcleanup2373
@@ -13585,7 +14212,8 @@ ehcleanup2378:                                    ; preds = %cleanup.done2377, %
   br i1 %cleanup.is_active2380, label %cleanup.action2381, label %cleanup.done2382
 
 cleanup.action2381:                               ; preds = %ehcleanup2378
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 1)) #5
+  %1624 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1624) #5
   br label %cleanup.done2382
 
 cleanup.done2382:                                 ; preds = %cleanup.action2381, %ehcleanup2378
@@ -13597,7 +14225,8 @@ ehcleanup2383:                                    ; preds = %cleanup.done2382, %
   br i1 %cleanup.is_active2385, label %cleanup.action2386, label %cleanup.done2387
 
 cleanup.action2386:                               ; preds = %ehcleanup2383
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11)) #5
+  %1625 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1625) #5
   br label %cleanup.done2387
 
 cleanup.done2387:                                 ; preds = %cleanup.action2386, %ehcleanup2383
@@ -13613,7 +14242,8 @@ ehcleanup2389:                                    ; preds = %ehcleanup2388, %lpa
   br i1 %cleanup.is_active2391, label %cleanup.action2392, label %cleanup.done2393
 
 cleanup.action2392:                               ; preds = %ehcleanup2389
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 2)) #5
+  %1626 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1626) #5
   br label %cleanup.done2393
 
 cleanup.done2393:                                 ; preds = %cleanup.action2392, %ehcleanup2389
@@ -13625,7 +14255,8 @@ ehcleanup2394:                                    ; preds = %cleanup.done2393, %
   br i1 %cleanup.is_active2396, label %cleanup.action2397, label %cleanup.done2398
 
 cleanup.action2397:                               ; preds = %ehcleanup2394
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 1)) #5
+  %1627 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1627) #5
   br label %cleanup.done2398
 
 cleanup.done2398:                                 ; preds = %cleanup.action2397, %ehcleanup2394
@@ -13637,7 +14268,8 @@ ehcleanup2399:                                    ; preds = %cleanup.done2398, %
   br i1 %cleanup.is_active2401, label %cleanup.action2402, label %cleanup.done2403
 
 cleanup.action2402:                               ; preds = %ehcleanup2399
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10)) #5
+  %1628 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1628) #5
   br label %cleanup.done2403
 
 cleanup.done2403:                                 ; preds = %cleanup.action2402, %ehcleanup2399
@@ -13653,7 +14285,8 @@ ehcleanup2405:                                    ; preds = %ehcleanup2404, %lpa
   br i1 %cleanup.is_active2407, label %cleanup.action2408, label %cleanup.done2409
 
 cleanup.action2408:                               ; preds = %ehcleanup2405
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 2)) #5
+  %1629 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1629) #5
   br label %cleanup.done2409
 
 cleanup.done2409:                                 ; preds = %cleanup.action2408, %ehcleanup2405
@@ -13665,7 +14298,8 @@ ehcleanup2410:                                    ; preds = %cleanup.done2409, %
   br i1 %cleanup.is_active2412, label %cleanup.action2413, label %cleanup.done2414
 
 cleanup.action2413:                               ; preds = %ehcleanup2410
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 1)) #5
+  %1630 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1630) #5
   br label %cleanup.done2414
 
 cleanup.done2414:                                 ; preds = %cleanup.action2413, %ehcleanup2410
@@ -13677,7 +14311,8 @@ ehcleanup2415:                                    ; preds = %cleanup.done2414, %
   br i1 %cleanup.is_active2417, label %cleanup.action2418, label %cleanup.done2419
 
 cleanup.action2418:                               ; preds = %ehcleanup2415
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9)) #5
+  %1631 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1631) #5
   br label %cleanup.done2419
 
 cleanup.done2419:                                 ; preds = %cleanup.action2418, %ehcleanup2415
@@ -13693,7 +14328,8 @@ ehcleanup2421:                                    ; preds = %ehcleanup2420, %lpa
   br i1 %cleanup.is_active2423, label %cleanup.action2424, label %cleanup.done2425
 
 cleanup.action2424:                               ; preds = %ehcleanup2421
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 2)) #5
+  %1632 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1632) #5
   br label %cleanup.done2425
 
 cleanup.done2425:                                 ; preds = %cleanup.action2424, %ehcleanup2421
@@ -13705,7 +14341,8 @@ ehcleanup2426:                                    ; preds = %cleanup.done2425, %
   br i1 %cleanup.is_active2428, label %cleanup.action2429, label %cleanup.done2430
 
 cleanup.action2429:                               ; preds = %ehcleanup2426
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 1)) #5
+  %1633 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1633) #5
   br label %cleanup.done2430
 
 cleanup.done2430:                                 ; preds = %cleanup.action2429, %ehcleanup2426
@@ -13717,7 +14354,8 @@ ehcleanup2431:                                    ; preds = %cleanup.done2430, %
   br i1 %cleanup.is_active2433, label %cleanup.action2434, label %cleanup.done2435
 
 cleanup.action2434:                               ; preds = %ehcleanup2431
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8)) #5
+  %1634 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1634) #5
   br label %cleanup.done2435
 
 cleanup.done2435:                                 ; preds = %cleanup.action2434, %ehcleanup2431
@@ -13733,7 +14371,8 @@ ehcleanup2437:                                    ; preds = %ehcleanup2436, %lpa
   br i1 %cleanup.is_active2439, label %cleanup.action2440, label %cleanup.done2441
 
 cleanup.action2440:                               ; preds = %ehcleanup2437
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 2)) #5
+  %1635 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1635) #5
   br label %cleanup.done2441
 
 cleanup.done2441:                                 ; preds = %cleanup.action2440, %ehcleanup2437
@@ -13745,7 +14384,8 @@ ehcleanup2442:                                    ; preds = %cleanup.done2441, %
   br i1 %cleanup.is_active2444, label %cleanup.action2445, label %cleanup.done2446
 
 cleanup.action2445:                               ; preds = %ehcleanup2442
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 1)) #5
+  %1636 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1636) #5
   br label %cleanup.done2446
 
 cleanup.done2446:                                 ; preds = %cleanup.action2445, %ehcleanup2442
@@ -13757,7 +14397,8 @@ ehcleanup2447:                                    ; preds = %cleanup.done2446, %
   br i1 %cleanup.is_active2449, label %cleanup.action2450, label %cleanup.done2451
 
 cleanup.action2450:                               ; preds = %ehcleanup2447
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7)) #5
+  %1637 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1637) #5
   br label %cleanup.done2451
 
 cleanup.done2451:                                 ; preds = %cleanup.action2450, %ehcleanup2447
@@ -13773,7 +14414,8 @@ ehcleanup2453:                                    ; preds = %ehcleanup2452, %lpa
   br i1 %cleanup.is_active2455, label %cleanup.action2456, label %cleanup.done2457
 
 cleanup.action2456:                               ; preds = %ehcleanup2453
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 2)) #5
+  %1638 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1638) #5
   br label %cleanup.done2457
 
 cleanup.done2457:                                 ; preds = %cleanup.action2456, %ehcleanup2453
@@ -13785,7 +14427,8 @@ ehcleanup2458:                                    ; preds = %cleanup.done2457, %
   br i1 %cleanup.is_active2460, label %cleanup.action2461, label %cleanup.done2462
 
 cleanup.action2461:                               ; preds = %ehcleanup2458
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 1)) #5
+  %1639 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1639) #5
   br label %cleanup.done2462
 
 cleanup.done2462:                                 ; preds = %cleanup.action2461, %ehcleanup2458
@@ -13797,7 +14440,8 @@ ehcleanup2463:                                    ; preds = %cleanup.done2462, %
   br i1 %cleanup.is_active2465, label %cleanup.action2466, label %cleanup.done2467
 
 cleanup.action2466:                               ; preds = %ehcleanup2463
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6)) #5
+  %1640 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1640) #5
   br label %cleanup.done2467
 
 cleanup.done2467:                                 ; preds = %cleanup.action2466, %ehcleanup2463
@@ -13813,7 +14457,8 @@ ehcleanup2469:                                    ; preds = %ehcleanup2468, %lpa
   br i1 %cleanup.is_active2471, label %cleanup.action2472, label %cleanup.done2473
 
 cleanup.action2472:                               ; preds = %ehcleanup2469
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 2)) #5
+  %1641 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1641) #5
   br label %cleanup.done2473
 
 cleanup.done2473:                                 ; preds = %cleanup.action2472, %ehcleanup2469
@@ -13825,7 +14470,8 @@ ehcleanup2474:                                    ; preds = %cleanup.done2473, %
   br i1 %cleanup.is_active2476, label %cleanup.action2477, label %cleanup.done2478
 
 cleanup.action2477:                               ; preds = %ehcleanup2474
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 1)) #5
+  %1642 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1642) #5
   br label %cleanup.done2478
 
 cleanup.done2478:                                 ; preds = %cleanup.action2477, %ehcleanup2474
@@ -13837,7 +14483,8 @@ ehcleanup2479:                                    ; preds = %cleanup.done2478, %
   br i1 %cleanup.is_active2481, label %cleanup.action2482, label %cleanup.done2483
 
 cleanup.action2482:                               ; preds = %ehcleanup2479
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5)) #5
+  %1643 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1643) #5
   br label %cleanup.done2483
 
 cleanup.done2483:                                 ; preds = %cleanup.action2482, %ehcleanup2479
@@ -13853,7 +14500,8 @@ ehcleanup2485:                                    ; preds = %ehcleanup2484, %lpa
   br i1 %cleanup.is_active2487, label %cleanup.action2488, label %cleanup.done2489
 
 cleanup.action2488:                               ; preds = %ehcleanup2485
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 2)) #5
+  %1644 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1644) #5
   br label %cleanup.done2489
 
 cleanup.done2489:                                 ; preds = %cleanup.action2488, %ehcleanup2485
@@ -13865,7 +14513,8 @@ ehcleanup2490:                                    ; preds = %cleanup.done2489, %
   br i1 %cleanup.is_active2492, label %cleanup.action2493, label %cleanup.done2494
 
 cleanup.action2493:                               ; preds = %ehcleanup2490
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 1)) #5
+  %1645 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1645) #5
   br label %cleanup.done2494
 
 cleanup.done2494:                                 ; preds = %cleanup.action2493, %ehcleanup2490
@@ -13877,7 +14526,8 @@ ehcleanup2495:                                    ; preds = %cleanup.done2494, %
   br i1 %cleanup.is_active2497, label %cleanup.action2498, label %cleanup.done2499
 
 cleanup.action2498:                               ; preds = %ehcleanup2495
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4)) #5
+  %1646 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1646) #5
   br label %cleanup.done2499
 
 cleanup.done2499:                                 ; preds = %cleanup.action2498, %ehcleanup2495
@@ -13893,7 +14543,8 @@ ehcleanup2501:                                    ; preds = %ehcleanup2500, %lpa
   br i1 %cleanup.is_active2503, label %cleanup.action2504, label %cleanup.done2505
 
 cleanup.action2504:                               ; preds = %ehcleanup2501
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 2)) #5
+  %1647 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1647) #5
   br label %cleanup.done2505
 
 cleanup.done2505:                                 ; preds = %cleanup.action2504, %ehcleanup2501
@@ -13905,7 +14556,8 @@ ehcleanup2506:                                    ; preds = %cleanup.done2505, %
   br i1 %cleanup.is_active2508, label %cleanup.action2509, label %cleanup.done2510
 
 cleanup.action2509:                               ; preds = %ehcleanup2506
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 1)) #5
+  %1648 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1648) #5
   br label %cleanup.done2510
 
 cleanup.done2510:                                 ; preds = %cleanup.action2509, %ehcleanup2506
@@ -13917,7 +14569,8 @@ ehcleanup2511:                                    ; preds = %cleanup.done2510, %
   br i1 %cleanup.is_active2513, label %cleanup.action2514, label %cleanup.done2515
 
 cleanup.action2514:                               ; preds = %ehcleanup2511
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3)) #5
+  %1649 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1649) #5
   br label %cleanup.done2515
 
 cleanup.done2515:                                 ; preds = %cleanup.action2514, %ehcleanup2511
@@ -13933,7 +14586,8 @@ ehcleanup2517:                                    ; preds = %ehcleanup2516, %lpa
   br i1 %cleanup.is_active2519, label %cleanup.action2520, label %cleanup.done2521
 
 cleanup.action2520:                               ; preds = %ehcleanup2517
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 2)) #5
+  %1650 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1650) #5
   br label %cleanup.done2521
 
 cleanup.done2521:                                 ; preds = %cleanup.action2520, %ehcleanup2517
@@ -13945,7 +14599,8 @@ ehcleanup2522:                                    ; preds = %cleanup.done2521, %
   br i1 %cleanup.is_active2524, label %cleanup.action2525, label %cleanup.done2526
 
 cleanup.action2525:                               ; preds = %ehcleanup2522
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 1)) #5
+  %1651 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1651) #5
   br label %cleanup.done2526
 
 cleanup.done2526:                                 ; preds = %cleanup.action2525, %ehcleanup2522
@@ -13957,7 +14612,8 @@ ehcleanup2527:                                    ; preds = %cleanup.done2526, %
   br i1 %cleanup.is_active2529, label %cleanup.action2530, label %cleanup.done2531
 
 cleanup.action2530:                               ; preds = %ehcleanup2527
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2)) #5
+  %1652 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1652) #5
   br label %cleanup.done2531
 
 cleanup.done2531:                                 ; preds = %cleanup.action2530, %ehcleanup2527
@@ -13973,7 +14629,8 @@ ehcleanup2533:                                    ; preds = %ehcleanup2532, %lpa
   br i1 %cleanup.is_active2535, label %cleanup.action2536, label %cleanup.done2537
 
 cleanup.action2536:                               ; preds = %ehcleanup2533
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 2)) #5
+  %1653 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1653) #5
   br label %cleanup.done2537
 
 cleanup.done2537:                                 ; preds = %cleanup.action2536, %ehcleanup2533
@@ -13985,7 +14642,8 @@ ehcleanup2538:                                    ; preds = %cleanup.done2537, %
   br i1 %cleanup.is_active2540, label %cleanup.action2541, label %cleanup.done2542
 
 cleanup.action2541:                               ; preds = %ehcleanup2538
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 1)) #5
+  %1654 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1654) #5
   br label %cleanup.done2542
 
 cleanup.done2542:                                 ; preds = %cleanup.action2541, %ehcleanup2538
@@ -13997,7 +14655,8 @@ ehcleanup2543:                                    ; preds = %cleanup.done2542, %
   br i1 %cleanup.is_active2545, label %cleanup.action2546, label %cleanup.done2547
 
 cleanup.action2546:                               ; preds = %ehcleanup2543
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1)) #5
+  %1655 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1655) #5
   br label %cleanup.done2547
 
 cleanup.done2547:                                 ; preds = %cleanup.action2546, %ehcleanup2543
@@ -14013,7 +14672,8 @@ ehcleanup2549:                                    ; preds = %ehcleanup2548, %lpa
   br i1 %cleanup.is_active2551, label %cleanup.action2552, label %cleanup.done2553
 
 cleanup.action2552:                               ; preds = %ehcleanup2549
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 2)) #5
+  %1656 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1656) #5
   br label %cleanup.done2553
 
 cleanup.done2553:                                 ; preds = %cleanup.action2552, %ehcleanup2549
@@ -14025,7 +14685,8 @@ ehcleanup2554:                                    ; preds = %cleanup.done2553, %
   br i1 %cleanup.is_active2556, label %cleanup.action2557, label %cleanup.done2558
 
 cleanup.action2557:                               ; preds = %ehcleanup2554
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 1)) #5
+  %1657 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1657) #5
   br label %cleanup.done2558
 
 cleanup.done2558:                                 ; preds = %cleanup.action2557, %ehcleanup2554
@@ -14049,12 +14710,12 @@ ehcleanup2564:                                    ; preds = %cleanup.done2563, %
   br i1 %cleanup.is_active2566, label %cleanup.action2567, label %cleanup.done2569
 
 cleanup.action2567:                               ; preds = %ehcleanup2564
-  %997 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZN11flatbuffersL13flatc_optionsE, %997
+  %1658 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZN11flatbuffersL13flatc_optionsE, %1658
   br i1 %arraydestroy.isempty, label %arraydestroy.done2568, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup.action2567
-  %arraydestroy.elementPast = phi ptr [ %997, %cleanup.action2567 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1658, %cleanup.action2567 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN11flatbuffers11FlatCOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %arraydestroy.element) #5
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN11flatbuffersL13flatc_optionsE
@@ -14165,10 +14826,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #4 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN11flatbuffers11FlatCOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %arraydestroy.element) #5
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN11flatbuffersL13flatc_optionsE
@@ -14368,20 +15030,21 @@ lpad:                                             ; preds = %invoke.cont32, %inv
 for.end:                                          ; preds = %for.cond
   store ptr @_ZN11flatbuffersL13flatc_optionsE, ptr %__range116, align 8
   store ptr @_ZN11flatbuffersL13flatc_optionsE, ptr %__begin117, align 8
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83), ptr %__end118, align 8
+  %5 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83
+  store ptr %5, ptr %__end118, align 8
   br label %for.cond19
 
 for.cond19:                                       ; preds = %for.inc26, %for.end
-  %5 = load ptr, ptr %__begin117, align 8
-  %6 = load ptr, ptr %__end118, align 8
-  %cmp = icmp ne ptr %5, %6
+  %6 = load ptr, ptr %__begin117, align 8
+  %7 = load ptr, ptr %__end118, align 8
+  %cmp = icmp ne ptr %6, %7
   br i1 %cmp, label %for.body20, label %for.end27
 
 for.body20:                                       ; preds = %for.cond19
-  %7 = load ptr, ptr %__begin117, align 8
-  store ptr %7, ptr %option21, align 8
-  %8 = load ptr, ptr %option21, align 8
-  invoke void @_ZN11flatbuffersL17AppendShortOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionE(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %8)
+  %8 = load ptr, ptr %__begin117, align 8
+  store ptr %8, ptr %option21, align 8
+  %9 = load ptr, ptr %option21, align 8
+  invoke void @_ZN11flatbuffersL17AppendShortOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionE(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %for.body20
@@ -14393,8 +15056,8 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   br label %for.inc26
 
 for.inc26:                                        ; preds = %invoke.cont24
-  %9 = load ptr, ptr %__begin117, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %9, i32 1
+  %10 = load ptr, ptr %__begin117, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin117, align 8
   br label %for.cond19
 
@@ -14431,21 +15094,21 @@ invoke.cont39:                                    ; preds = %invoke.cont38
   ret void
 
 lpad35:                                           ; preds = %invoke.cont34
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad37:                                           ; preds = %invoke.cont38, %invoke.cont36
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_textwrap) #5
   br label %ehcleanup
 
@@ -14860,28 +15523,29 @@ for.end:                                          ; preds = %for.cond
 invoke.cont14:                                    ; preds = %for.end
   store ptr @_ZN11flatbuffersL13flatc_optionsE, ptr %__range116, align 8
   store ptr @_ZN11flatbuffersL13flatc_optionsE, ptr %__begin117, align 8
-  store ptr getelementptr inbounds (%"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83), ptr %__end118, align 8
+  %5 = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr @_ZN11flatbuffersL13flatc_optionsE, i64 83
+  store ptr %5, ptr %__end118, align 8
   br label %for.cond19
 
 for.cond19:                                       ; preds = %for.inc23, %invoke.cont14
-  %5 = load ptr, ptr %__begin117, align 8
-  %6 = load ptr, ptr %__end118, align 8
-  %cmp = icmp ne ptr %5, %6
+  %6 = load ptr, ptr %__begin117, align 8
+  %7 = load ptr, ptr %__end118, align 8
+  %cmp = icmp ne ptr %6, %7
   br i1 %cmp, label %for.body20, label %for.end24
 
 for.body20:                                       ; preds = %for.cond19
-  %7 = load ptr, ptr %__begin117, align 8
-  store ptr %7, ptr %option21, align 8
-  %8 = load ptr, ptr %option21, align 8
-  invoke void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef 80, i64 noundef 25)
+  %8 = load ptr, ptr %__begin117, align 8
+  store ptr %8, ptr %option21, align 8
+  %9 = load ptr, ptr %option21, align 8
+  invoke void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 noundef 80, i64 noundef 25)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %for.body20
   br label %for.inc23
 
 for.inc23:                                        ; preds = %invoke.cont22
-  %9 = load ptr, ptr %__begin117, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %9, i32 1
+  %10 = load ptr, ptr %__begin117, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::FlatCOption", ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin117, align 8
   br label %for.cond19
 
@@ -14891,8 +15555,8 @@ for.end24:                                        ; preds = %for.cond19
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %for.end24
-  %10 = load ptr, ptr %program_name.addr, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.186, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %11 = load ptr, ptr %program_name.addr, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.186, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -14919,22 +15583,22 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   ret void
 
 lpad29:                                           ; preds = %invoke.cont28
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
   br label %ehcleanup
 
 lpad31:                                           ; preds = %invoke.cont34, %invoke.cont32, %invoke.cont30
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %files_description) #5
   br label %ehcleanup
 
@@ -38170,7 +38834,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11flatbuffers9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN11flatbuffers16DefaultAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN11flatbuffers16DefaultAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -38211,7 +38876,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN11flatbuffers9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN11flatbuffers9AllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

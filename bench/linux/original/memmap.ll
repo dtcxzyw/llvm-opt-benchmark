@@ -93,48 +93,52 @@ define dso_local i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef %1)
 
 10:                                               ; preds = %9, %5
   %11 = zext i32 %0 to i64
-  %12 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %13 = mul i64 %12, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %13, ptr %14, align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 4), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %15, ptr %16, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %13 = load i64, ptr %12, align 8
+  %14 = mul i64 %13, %11
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %14, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 4
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
   %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, -7
-  store i64 %21, ptr %19, align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 6), align 8
-  %23 = and i64 %22, 1
-  %24 = or i64 %23, %21
-  store i64 %24, ptr %19, align 8
-  %25 = tail call zeroext i1 @slab_is_available() #5
-  %26 = load i64, ptr %19, align 8
-  br i1 %25, label %27, label %31
-
-27:                                               ; preds = %10
-  %28 = or i64 %26, 4
-  store i64 %28, ptr %19, align 8
-  %29 = load i64, ptr %14, align 8
-  %30 = tail call fastcc i64 @__efi_memmap_alloc_late(i64 noundef %29) #7, !range !10
-  br label %35
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, -7
+  store i64 %24, ptr %22, align 8
+  %25 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 6
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 1
+  %28 = or i64 %27, %24
+  store i64 %28, ptr %22, align 8
+  %29 = tail call zeroext i1 @slab_is_available() #5
+  %30 = load i64, ptr %22, align 8
+  br i1 %29, label %31, label %35
 
 31:                                               ; preds = %10
-  %32 = or i64 %26, 2
-  store i64 %32, ptr %19, align 8
-  %33 = load i64, ptr %14, align 8
-  %34 = tail call i64 @memblock_phys_alloc_range(i64 noundef %33, i64 noundef 64, i64 noundef 0, i64 noundef 0) #5
-  br label %35
+  %32 = or i64 %30, 4
+  store i64 %32, ptr %22, align 8
+  %33 = load i64, ptr %15, align 8
+  %34 = tail call fastcc i64 @__efi_memmap_alloc_late(i64 noundef %33) #7, !range !10
+  br label %39
 
-35:                                               ; preds = %31, %27
-  %36 = phi i64 [ %34, %31 ], [ %30, %27 ]
-  store i64 %36, ptr %1, align 8
-  %37 = icmp eq i64 %36, 0
-  %38 = select i1 %37, i32 -12, i32 0
-  ret i32 %38
+35:                                               ; preds = %10
+  %36 = or i64 %30, 2
+  store i64 %36, ptr %22, align 8
+  %37 = load i64, ptr %15, align 8
+  %38 = tail call i64 @memblock_phys_alloc_range(i64 noundef %37, i64 noundef 64, i64 noundef 0, i64 noundef 0) #5
+  br label %39
+
+39:                                               ; preds = %35, %31
+  %40 = phi i64 [ %38, %35 ], [ %34, %31 ]
+  store i64 %40, ptr %1, align 8
+  %41 = icmp eq i64 %40, 0
+  %42 = select i1 %41, i32 -12, i32 0
+  ret i32 %42
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -156,18 +160,19 @@ define internal fastcc i64 @__efi_memmap_alloc_late(i64 noundef %0) unnamed_addr
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @efi_memmap_install(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   tail call void @efi_memmap_unmap() #8
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
-  %3 = and i64 %2, 64
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %7
+  %2 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 28
+  %3 = load volatile i64, ptr %2, align 8
+  %4 = and i64 %3, 64
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %6, label %8
 
-5:                                                ; preds = %1
-  %6 = tail call i32 @__efi_memmap_init(ptr noundef %0) #8
-  br label %7
+6:                                                ; preds = %1
+  %7 = tail call i32 @__efi_memmap_init(ptr noundef %0) #8
+  br label %8
 
-7:                                                ; preds = %5, %1
-  %8 = phi i32 [ %6, %5 ], [ 0, %1 ]
-  ret i32 %8
+8:                                                ; preds = %6, %1
+  %9 = phi i32 [ %7, %6 ], [ 0, %1 ]
+  ret i32 %9
 }
 
 ; Function Attrs: cold null_pointer_is_valid

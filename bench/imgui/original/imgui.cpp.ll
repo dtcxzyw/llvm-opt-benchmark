@@ -2434,7 +2434,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputQueueCharacters) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputQueueCharacters) #11
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
@@ -5394,7 +5394,7 @@ if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr %src.addr, align 8
   %4 = load i64, ptr %count.addr, align 8
   %sub = sub i64 %4, 1
-  %call = call ptr @strncpy(ptr noundef %2, ptr noundef %3, i64 noundef %sub) #12
+  %call = call ptr @strncpy(ptr noundef %2, ptr noundef %3, i64 noundef %sub) #11
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
@@ -6022,15 +6022,15 @@ entry:
   store i64 %buf_size, ptr %buf_size.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %buf.addr, align 8
   %1 = load i64, ptr %buf_size.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %arraydecay1) #12
+  %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %arraydecay1) #11
   store i32 %call, ptr %w, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load ptr, ptr %buf.addr, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
@@ -6074,14 +6074,8 @@ return:                                           ; preds = %if.end7, %if.then
   ret i32 %12
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noundef %buf, i64 noundef %buf_size, ptr noundef %fmt, ptr noundef %args) #1 {
@@ -6100,7 +6094,7 @@ entry:
   %1 = load i64, ptr %buf_size.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %3 = load ptr, ptr %args.addr, align 8
-  %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #12
+  %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #11
   store i32 %call, ptr %w, align 4
   %4 = load ptr, ptr %buf.addr, align 8
   %cmp = icmp eq ptr %4, null
@@ -6156,14 +6150,14 @@ entry:
   store ptr %out_buf_end, ptr %out_buf_end.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %out_buf.addr, align 8
   %1 = load ptr, ptr %out_buf_end.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -7861,7 +7855,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %5 = load float, ptr %h.addr, align 4
-  %call = call float @fmodf(float noundef %5, float noundef 1.000000e+00) #12
+  %call = call float @fmodf(float noundef %5, float noundef 1.000000e+00) #11
   %div = fdiv float %call, 0x3FC5555560000000
   store float %div, ptr %h.addr, align 4
   %6 = load float, ptr %h.addr, align 4
@@ -8895,7 +8889,7 @@ lpad:                                             ; preds = %if.then
   store ptr %3, ptr %exn.slot, align 8
   %4 = extractvalue { ptr, i32 } %2, 1
   store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Filters) #12
+  call void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Filters) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -9789,12 +9783,12 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   ret void
 }
 
@@ -9815,7 +9809,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
   %0 = load ptr, ptr %args.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %1 = load ptr, ptr %fmt.addr, align 8
   %2 = load ptr, ptr %args.addr, align 8
   %call = call noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef %2)
@@ -9826,7 +9820,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -9901,15 +9895,12 @@ if.end18:                                         ; preds = %cond.end16, %cond.e
   %arraydecay23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
   %call24 = call noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noundef %call21, i64 noundef %add22, ptr noundef %19, ptr noundef %arraydecay23)
   %arraydecay25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay25)
+  call void @llvm.va_end.p0(ptr %arraydecay25)
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14ImGuiTextIndex6appendEPKcii(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %base, i32 noundef %old_size, i32 noundef %new_size) #0 align 2 {
@@ -10223,8 +10214,8 @@ if.end17:                                         ; preds = %if.end15, %entry
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
   call void @_ZSt9terminatev() #14
   unreachable
 }
@@ -10357,7 +10348,7 @@ if.then13:                                        ; preds = %if.end11
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then13
-  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #12
+  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #11
   br label %if.end16
 
 lpad:                                             ; preds = %if.then13
@@ -10367,7 +10358,7 @@ lpad:                                             ; preds = %if.then13
   store ptr %28, ptr %exn.slot, align 8
   %29 = extractvalue { ptr, i32 } %27, 1
   store i32 %29, ptr %ehselector.slot, align 4
-  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #12
+  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #11
   br label %eh.resume
 
 if.end16:                                         ; preds = %invoke.cont, %if.end11
@@ -10416,12 +10407,12 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_ZN5ImGui9DebugLogVEPKcP13__va_list_tag(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -10514,7 +10505,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Ranges = getelementptr inbounds %struct.ImGuiListClipperData, ptr %this1, i32 0, i32 4
-  call void @_ZN8ImVectorI21ImGuiListClipperRangeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Ranges) #12
+  call void @_ZN8ImVectorI21ImGuiListClipperRangeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Ranges) #11
   ret void
 }
 
@@ -12181,7 +12172,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN13ImGuiStyleModC2Ei6ImVec2(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %idx, <2 x float> %v.coerce) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZN13ImGuiStyleModC2Ei6ImVec2(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %idx, <2 x float> %v.coerce) unnamed_addr #10 comdat align 2 {
 entry:
   %v = alloca %struct.ImVec2, align 4
   %this.addr = alloca ptr, align 8
@@ -12654,58 +12645,59 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 -1 to ptr), ptr %text_end.addr, align 8
+  %2 = inttoptr i64 -1 to ptr
+  store ptr %2, ptr %text_end.addr, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end
-  %2 = load ptr, ptr %text_display_end, align 8
-  %3 = load ptr, ptr %text_end.addr, align 8
-  %cmp = icmp ult ptr %2, %3
+  %3 = load ptr, ptr %text_display_end, align 8
+  %4 = load ptr, ptr %text_end.addr, align 8
+  %cmp = icmp ult ptr %3, %4
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %while.cond
-  %4 = load ptr, ptr %text_display_end, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv = sext i8 %5 to i32
+  %5 = load ptr, ptr %text_display_end, align 8
+  %6 = load i8, ptr %5, align 1
+  %conv = sext i8 %6 to i32
   %cmp1 = icmp ne i32 %conv, 0
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %6 = load ptr, ptr %text_display_end, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 0
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv2 = sext i8 %7 to i32
+  %7 = load ptr, ptr %text_display_end, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %7, i64 0
+  %8 = load i8, ptr %arrayidx, align 1
+  %conv2 = sext i8 %8 to i32
   %cmp3 = icmp ne i32 %conv2, 35
   br i1 %cmp3, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %8 = load ptr, ptr %text_display_end, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %8, i64 1
-  %9 = load i8, ptr %arrayidx4, align 1
-  %conv5 = sext i8 %9 to i32
+  %9 = load ptr, ptr %text_display_end, align 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = load i8, ptr %arrayidx4, align 1
+  %conv5 = sext i8 %10 to i32
   %cmp6 = icmp ne i32 %conv5, 35
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %10 = phi i1 [ true, %land.rhs ], [ %cmp6, %lor.rhs ]
+  %11 = phi i1 [ true, %land.rhs ], [ %cmp6, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %land.lhs.true, %while.cond
-  %11 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %10, %lor.end ]
-  br i1 %11, label %while.body, label %while.end
+  %12 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %11, %lor.end ]
+  br i1 %12, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %12 = load ptr, ptr %text_display_end, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %12, i32 1
+  %13 = load ptr, ptr %text_display_end, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
   store ptr %incdec.ptr, ptr %text_display_end, align 8
   br label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %land.end
-  %13 = load ptr, ptr %text_display_end, align 8
-  ret ptr %13
+  %14 = load ptr, ptr %text_display_end, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14739,7 +14731,7 @@ lpad:                                             ; preds = %entry
   store ptr %5, ptr %exn.slot, align 8
   %6 = extractvalue { ptr, i32 } %4, 1
   store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call2, ptr noundef %call1) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call2, ptr noundef %call1) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -15150,7 +15142,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
 
 invoke.cont112:                                   ; preds = %invoke.cont110
   %DebugMetricsConfig = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 244
-  call void @_ZN18ImGuiMetricsConfigC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %DebugMetricsConfig) #12
+  call void @_ZN18ImGuiMetricsConfigC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %DebugMetricsConfig) #11
   %DebugIDStackTool = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 245
   invoke void @_ZN16ImGuiIDStackToolC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %DebugIDStackTool)
           to label %invoke.cont113 unwind label %lpad111
@@ -15993,186 +15985,186 @@ lpad125:                                          ; preds = %invoke.cont122
 cleanup.action:                                   ; preds = %lpad125
   %138 = load ptr, ptr %saved-rvalue, align 8
   %139 = load ptr, ptr %saved-rvalue124, align 8
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %138, ptr noundef %139) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %138, ptr noundef %139) #11
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad125
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %cleanup.done, %lpad121
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #11
   br label %ehcleanup140
 
 ehcleanup140:                                     ; preds = %ehcleanup, %lpad114
-  call void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %DebugIDStackTool) #12
+  call void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %DebugIDStackTool) #11
   br label %ehcleanup141
 
 ehcleanup141:                                     ; preds = %ehcleanup140, %lpad111
-  call void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %DebugLogIndex) #12
+  call void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %DebugLogIndex) #11
   br label %ehcleanup142
 
 ehcleanup142:                                     ; preds = %ehcleanup141, %lpad109
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf) #11
   br label %ehcleanup143
 
 ehcleanup143:                                     ; preds = %ehcleanup142, %lpad107
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer) #11
   br label %ehcleanup144
 
 ehcleanup144:                                     ; preds = %ehcleanup143, %lpad105
-  call void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Hooks) #12
+  call void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Hooks) #11
   br label %ehcleanup145
 
 ehcleanup145:                                     ; preds = %ehcleanup144, %lpad103
-  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsTables) #12
+  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsTables) #11
   br label %ehcleanup146
 
 ehcleanup146:                                     ; preds = %ehcleanup145, %lpad101
-  call void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsWindows) #12
+  call void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsWindows) #11
   br label %ehcleanup147
 
 ehcleanup147:                                     ; preds = %ehcleanup146, %lpad99
-  call void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsHandlers) #12
+  call void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsHandlers) #11
   br label %ehcleanup148
 
 ehcleanup148:                                     ; preds = %ehcleanup147, %lpad97
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsIniData) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsIniData) #11
   br label %ehcleanup149
 
 ehcleanup149:                                     ; preds = %ehcleanup148, %lpad92
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %MenusIdSubmittedThisFrame) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %MenusIdSubmittedThisFrame) #11
   br label %ehcleanup150
 
 ehcleanup150:                                     ; preds = %ehcleanup149, %lpad90
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardHandlerData) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardHandlerData) #11
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %ehcleanup150, %lpad85
-  call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %InputTextPasswordFont) #12
+  call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %InputTextPasswordFont) #11
   br label %ehcleanup152
 
 ehcleanup152:                                     ; preds = %ehcleanup151, %lpad83
-  call void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %InputTextDeactivatedState) #12
+  call void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %InputTextDeactivatedState) #11
   br label %ehcleanup153
 
 ehcleanup153:                                     ; preds = %ehcleanup152, %lpad81
-  call void @_ZN19ImGuiInputTextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3724) %InputTextState) #12
+  call void @_ZN19ImGuiInputTextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3724) %InputTextState) #11
   br label %ehcleanup154
 
 ehcleanup154:                                     ; preds = %ehcleanup153, %lpad78
-  call void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ShrinkWidthBuffer) #12
+  call void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ShrinkWidthBuffer) #11
   br label %ehcleanup155
 
 ehcleanup155:                                     ; preds = %ehcleanup154, %lpad76
-  call void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentTabBarStack) #12
+  call void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentTabBarStack) #11
   br label %ehcleanup156
 
 ehcleanup156:                                     ; preds = %ehcleanup155, %lpad74
-  call void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %TabBars) #12
+  call void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %TabBars) #11
   br label %ehcleanup157
 
 ehcleanup157:                                     ; preds = %ehcleanup156, %lpad72
-  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DrawChannelsTempMergeBuffer) #12
+  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DrawChannelsTempMergeBuffer) #11
   br label %ehcleanup158
 
 ehcleanup158:                                     ; preds = %ehcleanup157, %lpad70
-  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesLastTimeActive) #12
+  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesLastTimeActive) #11
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %ehcleanup158, %lpad68
-  call void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %Tables) #12
+  call void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %Tables) #11
   br label %ehcleanup160
 
 ehcleanup160:                                     ; preds = %ehcleanup159, %lpad66
-  call void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesTempData) #12
+  call void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesTempData) #11
   br label %ehcleanup161
 
 ehcleanup161:                                     ; preds = %ehcleanup160, %lpad64
-  call void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipperTempData) #12
+  call void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipperTempData) #11
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %ehcleanup161, %lpad62
-  call void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DragDropPayloadBufHeap) #12
+  call void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DragDropPayloadBufHeap) #11
   br label %ehcleanup163
 
 ehcleanup163:                                     ; preds = %ehcleanup162, %lpad48
-  call void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Viewports) #12
+  call void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Viewports) #11
   br label %ehcleanup164
 
 ehcleanup164:                                     ; preds = %ehcleanup163, %lpad46
-  call void @_ZN8ImVectorI20ImGuiNavTreeNodeDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %NavTreeNodeStack) #12
+  call void @_ZN8ImVectorI20ImGuiNavTreeNodeDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %NavTreeNodeStack) #11
   br label %ehcleanup165
 
 ehcleanup165:                                     ; preds = %ehcleanup164, %lpad44
-  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %BeginPopupStack) #12
+  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %BeginPopupStack) #11
   br label %ehcleanup166
 
 ehcleanup166:                                     ; preds = %ehcleanup165, %lpad42
-  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %OpenPopupStack) #12
+  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %OpenPopupStack) #11
   br label %ehcleanup167
 
 ehcleanup167:                                     ; preds = %ehcleanup166, %lpad40
-  call void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %GroupStack) #12
+  call void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %GroupStack) #11
   br label %ehcleanup168
 
 ehcleanup168:                                     ; preds = %ehcleanup167, %lpad38
-  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemFlagsStack) #12
+  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemFlagsStack) #11
   br label %ehcleanup169
 
 ehcleanup169:                                     ; preds = %ehcleanup168, %lpad36
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FocusScopeStack) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FocusScopeStack) #11
   br label %ehcleanup170
 
 ehcleanup170:                                     ; preds = %ehcleanup169, %lpad34
-  call void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FontStack) #12
+  call void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FontStack) #11
   br label %ehcleanup171
 
 ehcleanup171:                                     ; preds = %ehcleanup170, %lpad32
-  call void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StyleVarStack) #12
+  call void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StyleVarStack) #11
   br label %ehcleanup172
 
 ehcleanup172:                                     ; preds = %ehcleanup171, %lpad30
-  call void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColorStack) #12
+  call void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColorStack) #11
   br label %ehcleanup173
 
 ehcleanup173:                                     ; preds = %ehcleanup172, %lpad25
-  call void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %KeysRoutingTable) #12
+  call void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %KeysRoutingTable) #11
   br label %ehcleanup174
 
 ehcleanup174:                                     ; preds = %ehcleanup173, %lpad17
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsById) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsById) #11
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %ehcleanup174, %lpad15
-  call void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentWindowStack) #12
+  call void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentWindowStack) #11
   br label %ehcleanup176
 
 ehcleanup176:                                     ; preds = %ehcleanup175, %lpad13
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsTempSortBuffer) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsTempSortBuffer) #11
   br label %ehcleanup177
 
 ehcleanup177:                                     ; preds = %ehcleanup176, %lpad11
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsFocusOrder) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsFocusOrder) #11
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %ehcleanup177, %lpad9
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Windows) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Windows) #11
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup178, %lpad7
-  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsTrail) #12
+  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsTrail) #11
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %ehcleanup179, %lpad5
-  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsQueue) #12
+  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsQueue) #11
   br label %ehcleanup181
 
 ehcleanup181:                                     ; preds = %ehcleanup180, %lpad3
-  call void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %DrawListSharedData) #12
+  call void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %DrawListSharedData) #11
   br label %ehcleanup182
 
 ehcleanup182:                                     ; preds = %ehcleanup181, %lpad
-  call void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 dereferenceable(14568) %IO) #12
+  call void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 dereferenceable(14568) %IO) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup182
@@ -16266,7 +16258,7 @@ lpad:                                             ; preds = %entry
   store ptr %10, ptr %exn.slot, align 8
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call5, ptr noundef %call4) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call5, ptr noundef %call4) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -16552,7 +16544,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  call void @_ZN12ImGuiContextD2Ev(ptr noundef nonnull align 8 dereferenceable(25032) %1) #12
+  call void @_ZN12ImGuiContextD2Ev(ptr noundef nonnull align 8 dereferenceable(25032) %1) #11
   %2 = load ptr, ptr %p.addr, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %2)
   br label %if.end
@@ -16690,7 +16682,7 @@ entry:
   %2 = load ptr, ptr %entry.addr, align 8
   store ptr %2, ptr %settings, align 8
   %3 = load ptr, ptr %line.addr, align 8
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef @.str.603, ptr noundef %x, ptr noundef %y) #12
+  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef @.str.603, ptr noundef %x, ptr noundef %y) #11
   %cmp = icmp eq i32 %call, 2
   br i1 %cmp, label %if.then, label %if.else
 
@@ -16707,7 +16699,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %7 = load ptr, ptr %line.addr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %7, ptr noundef @.str.604, ptr noundef %x, ptr noundef %y) #12
+  %call4 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %7, ptr noundef @.str.604, ptr noundef %x, ptr noundef %y) #11
   %cmp5 = icmp eq i32 %call4, 2
   br i1 %cmp5, label %if.then6, label %if.else10
 
@@ -16724,7 +16716,7 @@ if.then6:                                         ; preds = %if.else
 
 if.else10:                                        ; preds = %if.else
   %11 = load ptr, ptr %line.addr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %11, ptr noundef @.str.605, ptr noundef %i) #12
+  %call11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %11, ptr noundef @.str.605, ptr noundef %i) #11
   %cmp12 = icmp eq i32 %call11, 1
   br i1 %cmp12, label %if.then13, label %if.else15
 
@@ -16739,7 +16731,7 @@ if.then13:                                        ; preds = %if.else10
 
 if.else15:                                        ; preds = %if.else10
   %14 = load ptr, ptr %line.addr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %14, ptr noundef @.str.606, ptr noundef %i) #12
+  %call16 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %14, ptr noundef @.str.606, ptr noundef %i) #11
   %cmp17 = icmp eq i32 %call16, 1
   br i1 %cmp17, label %if.then18, label %if.end
 
@@ -17290,11 +17282,11 @@ lpad2:                                            ; preds = %invoke.cont5, %invo
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN17ImDrawDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %DrawDataBuilder) #12
+  call void @_ZN17ImDrawDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %DrawDataBuilder) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN10ImDrawDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %DrawDataP) #12
+  call void @_ZN10ImDrawDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %DrawDataP) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -17423,7 +17415,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  call void @_ZN11ImFontAtlasD1Ev(ptr noundef nonnull align 8 dereferenceable(1180) %1) #12
+  call void @_ZN11ImFontAtlasD1Ev(ptr noundef nonnull align 8 dereferenceable(1180) %1) #11
   %2 = load ptr, ptr %p.addr, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %2)
   br label %if.end
@@ -17919,7 +17911,7 @@ if.then:                                          ; preds = %for.body
   %Buf = getelementptr inbounds %struct.ImPool.21, ptr %this1, i32 0, i32 0
   %6 = load i32, ptr %idx, align 4
   %call5 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN8ImVectorI11ImGuiTabBarEixEi(ptr noundef nonnull align 8 dereferenceable(16) %Buf, i32 noundef %6)
-  call void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call5) #12
+  call void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call5) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
@@ -18020,7 +18012,7 @@ for.body:                                         ; preds = %for.cond
   %3 = load i32, ptr %n, align 4
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds %struct.ImGuiListClipperData, ptr %2, i64 %idxprom
-  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx) #12
+  call void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -18070,7 +18062,7 @@ if.then:                                          ; preds = %for.body
   %Buf = getelementptr inbounds %struct.ImPool, ptr %this1, i32 0, i32 0
   %6 = load i32, ptr %idx, align 4
   %call5 = call noundef nonnull align 8 dereferenceable(586) ptr @_ZN8ImVectorI10ImGuiTableEixEi(ptr noundef nonnull align 8 dereferenceable(16) %Buf, i32 noundef %6)
-  call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %call5) #12
+  call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %call5) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
@@ -18117,7 +18109,7 @@ for.body:                                         ; preds = %for.cond
   %3 = load i32, ptr %n, align 4
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds %struct.ImGuiTableTempData, ptr %2, i64 %idxprom
-  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %arrayidx) #12
+  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %arrayidx) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -18771,23 +18763,23 @@ lpad17:                                           ; preds = %invoke.cont47, %inv
   store ptr %21, ptr %exn.slot, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %DrawListInst) #12
+  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %DrawListInst) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad17, %lpad15
-  call void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsStorage) #12
+  call void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsStorage) #11
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup, %lpad13
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StateStorage) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StateStorage) #11
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %ehcleanup60, %lpad2
-  call void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %DC) #12
+  call void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %DC) #11
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup61, %lpad
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IDStack) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IDStack) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup62
@@ -18877,11 +18869,11 @@ lpad2:                                            ; preds = %invoke.cont
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemWidthStack) #12
+  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemWidthStack) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ChildWindows) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ChildWindows) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -19049,27 +19041,27 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
   store ptr %17, ptr %exn.slot, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Path) #12
+  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Path) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad10, %lpad8
-  call void @_ZN8ImVectorIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_TextureIdStack) #12
+  call void @_ZN8ImVectorIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_TextureIdStack) #11
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup, %lpad6
-  call void @_ZN8ImVectorI6ImVec4ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_ClipRectStack) #12
+  call void @_ZN8ImVectorI6ImVec4ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_ClipRectStack) #11
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup13, %lpad4
-  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %VtxBuffer) #12
+  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %VtxBuffer) #11
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %ehcleanup14, %lpad2
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IdxBuffer) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IdxBuffer) #11
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
-  call void @_ZN8ImVectorI9ImDrawCmdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdBuffer) #12
+  call void @_ZN8ImVectorI9ImDrawCmdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdBuffer) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup16
@@ -19190,19 +19182,19 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %_Splitter = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 13
-  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter) #12
+  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter) #11
   %_Path = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 11
-  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Path) #12
+  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Path) #11
   %_TextureIdStack = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 10
-  call void @_ZN8ImVectorIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_TextureIdStack) #12
+  call void @_ZN8ImVectorIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_TextureIdStack) #11
   %_ClipRectStack = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 9
-  call void @_ZN8ImVectorI6ImVec4ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_ClipRectStack) #12
+  call void @_ZN8ImVectorI6ImVec4ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_ClipRectStack) #11
   %VtxBuffer = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 2
-  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %VtxBuffer) #12
+  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %VtxBuffer) #11
   %IdxBuffer = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 1
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IdxBuffer) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IdxBuffer) #11
   %CmdBuffer = getelementptr inbounds %struct.ImDrawList, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorI9ImDrawCmdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdBuffer) #12
+  call void @_ZN8ImVectorI9ImDrawCmdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdBuffer) #11
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -19251,7 +19243,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Data = getelementptr inbounds %struct.ImGuiStorage, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorIN12ImGuiStorage16ImGuiStoragePairEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Data) #12
+  call void @_ZN8ImVectorIN12ImGuiStorage16ImGuiStoragePairEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Data) #11
   ret void
 }
 
@@ -19262,11 +19254,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %TextWrapPosStack = getelementptr inbounds %struct.ImGuiWindowTempData, ptr %this1, i32 0, i32 35
-  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextWrapPosStack) #12
+  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextWrapPosStack) #11
   %ItemWidthStack = getelementptr inbounds %struct.ImGuiWindowTempData, ptr %this1, i32 0, i32 34
-  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemWidthStack) #12
+  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemWidthStack) #11
   %ChildWindows = getelementptr inbounds %struct.ImGuiWindowTempData, ptr %this1, i32 0, i32 26
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ChildWindows) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ChildWindows) #11
   ret void
 }
 
@@ -19319,15 +19311,15 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %DrawListInst = getelementptr inbounds %struct.ImGuiWindow, ptr %this1, i32 0, i32 87
-  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %DrawListInst) #12
+  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %DrawListInst) #11
   %ColumnsStorage3 = getelementptr inbounds %struct.ImGuiWindow, ptr %this1, i32 0, i32 83
-  call void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsStorage3) #12
+  call void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsStorage3) #11
   %StateStorage = getelementptr inbounds %struct.ImGuiWindow, ptr %this1, i32 0, i32 82
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StateStorage) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StateStorage) #11
   %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %this1, i32 0, i32 68
-  call void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %DC) #12
+  call void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %DC) #11
   %IDStack = getelementptr inbounds %struct.ImGuiWindow, ptr %this1, i32 0, i32 67
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IDStack) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %IDStack) #11
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
@@ -19379,7 +19371,7 @@ for.body:                                         ; preds = %for.cond
   %3 = load i32, ptr %n, align 4
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 %idxprom
-  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %arrayidx) #12
+  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %arrayidx) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -21509,7 +21501,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @llvm.debugtrap() #12
+declare void @llvm.debugtrap() #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5ImGui11IsClippedExERK6ImRectj(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %id) #0 {
@@ -22000,7 +21992,7 @@ lpad:                                             ; preds = %if.then
   store ptr %12, ptr %exn.slot, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %ehselector.slot, align 4
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call1, ptr noundef %call) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call1, ptr noundef %call) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -30729,7 +30721,7 @@ if.end:                                           ; preds = %entry
   %DebugFlashStyleColorTime1 = getelementptr inbounds %struct.ImGuiContext, ptr %3, i32 0, i32 242
   %4 = load float, ptr %DebugFlashStyleColorTime1, align 4
   %mul = fmul float %4, 6.000000e+00
-  %call = call float @cosf(float noundef %mul) #12
+  %call = call float @cosf(float noundef %mul) #11
   %5 = call float @llvm.fmuladd.f32(float %call, float 5.000000e-01, float 5.000000e-01)
   %6 = load ptr, ptr %g, align 8
   %Style = getelementptr inbounds %struct.ImGuiContext, ptr %6, i32 0, i32 3
@@ -35854,12 +35846,12 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_ZN5ImGui11SetTooltipVEPKcP13__va_list_tag(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -37370,7 +37362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui14GetItemRectMinEv() #11 {
+define <2 x float> @_ZN5ImGui14GetItemRectMinEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %g = alloca ptr, align 8
@@ -37386,7 +37378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui14GetItemRectMaxEv() #11 {
+define <2 x float> @_ZN5ImGui14GetItemRectMaxEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %g = alloca ptr, align 8
@@ -39877,7 +39869,7 @@ lpad:                                             ; preds = %entry
   store ptr %15, ptr %exn.slot, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %ehselector.slot, align 4
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call1, ptr noundef %call) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call1, ptr noundef %call) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then3, %if.then
@@ -45929,7 +45921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui12GetWindowPosEv() #11 {
+define <2 x float> @_ZN5ImGui12GetWindowPosEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %g = alloca ptr, align 8
@@ -46524,7 +46516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui22GetFontTexUvWhitePixelEv() #11 {
+define <2 x float> @_ZN5ImGui22GetFontTexUvWhitePixelEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %0 = load ptr, ptr @GImGui, align 8
@@ -49987,7 +49979,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui11GetMousePosEv() #11 {
+define <2 x float> @_ZN5ImGui11GetMousePosEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %g = alloca ptr, align 8
@@ -53290,7 +53282,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define <2 x float> @_ZN5ImGui22GetContentRegionMaxAbsEv() #11 {
+define <2 x float> @_ZN5ImGui22GetContentRegionMaxAbsEv() #10 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %g = alloca ptr, align 8
@@ -54327,7 +54319,7 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %call = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 4096)
   br i1 %call, label %if.then, label %if.end
 
@@ -54339,7 +54331,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -59277,13 +59269,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %3 = load ptr, ptr %g, align 8
   %4 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(25032) %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -60682,7 +60674,7 @@ lpad:                                             ; preds = %if.end3
   store ptr %19, ptr %exn.slot, align 8
   %20 = extractvalue { ptr, i32 } %18, 1
   store i32 %20, ptr %ehselector.slot, align 4
-  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call7, ptr noundef %10) #12
+  call void @_ZdlPv12ImNewWrapperS_(ptr noundef %call7, ptr noundef %10) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -62129,7 +62121,7 @@ if.end7:                                          ; preds = %if.end
   %MetricsTotalSurface = getelementptr inbounds %struct.ImFont, ptr %31, i32 0, i32 19
   %32 = load i32, ptr %MetricsTotalSurface, align 8
   %conv25 = sitofp i32 %32 to float
-  %call26 = call float @sqrtf(float noundef %conv25) #12
+  %call26 = call float @sqrtf(float noundef %conv25) #11
   %conv27 = fptosi float %call26 to i32
   store i32 %conv27, ptr %surface_sqrt, align 4
   %33 = load ptr, ptr %font.addr, align 8
@@ -65441,7 +65433,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false60
 lor.lhs.false67:                                  ; preds = %land.lhs.true, %lor.lhs.false60
   %38 = load ptr, ptr %p, align 8
   %add.ptr68 = getelementptr inbounds i8, ptr %38, i64 2
-  %call69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %add.ptr68, ptr noundef @.str.419, ptr noundef %id) #12
+  %call69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %add.ptr68, ptr noundef @.str.419, ptr noundef %id) #11
   %cmp70 = icmp ne i32 %call69, 1
   br i1 %cmp70, label %if.then71, label %if.end72
 
@@ -65455,7 +65447,7 @@ lpad:                                             ; preds = %invoke.cont115, %if
   store ptr %40, ptr %exn.slot, align 8
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %ehselector.slot, align 4
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #12
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #11
   br label %eh.resume
 
 if.end72:                                         ; preds = %lor.lhs.false67
@@ -65582,7 +65574,7 @@ invoke.cont115:                                   ; preds = %if.end114
           to label %invoke.cont116 unwind label %lpad
 
 invoke.cont116:                                   ; preds = %invoke.cont115
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #12
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #11
   br label %return
 
 return:                                           ; preds = %invoke.cont116, %if.then3
@@ -65693,7 +65685,7 @@ land.lhs.true:                                    ; preds = %if.end4
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
   %19 = load float, ptr %time_since_copy, align 4
-  %call11 = call float @fmodf(float noundef %19, float noundef 2.500000e-01) #12
+  %call11 = call float @fmodf(float noundef %19, float noundef 2.500000e-01) #11
   %cmp12 = fcmp olt float %call11, 1.250000e-01
   br i1 %cmp12, label %cond.true, label %cond.false
 
@@ -67371,7 +67363,7 @@ lpad:                                             ; preds = %while.end, %if.then
   store ptr %147, ptr %exn.slot, align 8
   %148 = extractvalue { ptr, i32 } %146, 1
   store i32 %148, ptr %ehselector.slot, align 4
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #12
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #11
   br label %eh.resume
 
 for.end193:                                       ; preds = %for.cond152
@@ -67434,7 +67426,7 @@ while.end:                                        ; preds = %invoke.cont131
           to label %invoke.cont212 unwind label %lpad
 
 invoke.cont212:                                   ; preds = %while.end
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #12
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper) #11
   br label %for.inc213
 
 for.inc213:                                       ; preds = %invoke.cont212, %if.then75, %if.then44
@@ -71258,7 +71250,7 @@ entry:
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #13
+declare noalias ptr @malloc(i64 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL11FreeWrapperPvS_(ptr noundef %ptr, ptr noundef %user_data) #1 {
@@ -71268,7 +71260,7 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   store ptr %user_data, ptr %user_data.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
-  call void @free(ptr noundef %0) #12
+  call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -71376,11 +71368,11 @@ lpad2:                                            ; preds = %invoke.cont
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %EntriesNext) #12
+  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %EntriesNext) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Entries) #12
+  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Entries) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -71660,7 +71652,7 @@ lpad:                                             ; preds = %entry
   store ptr %1, ptr %exn.slot, align 8
   %2 = extractvalue { ptr, i32 } %0, 1
   store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -71729,7 +71721,7 @@ lpad:                                             ; preds = %entry
   store ptr %1, ptr %exn.slot, align 8
   %2 = extractvalue { ptr, i32 } %0, 1
   store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -71809,11 +71801,11 @@ lpad2:                                            ; preds = %invoke.cont
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextW) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextW) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -72068,7 +72060,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Results = getelementptr inbounds %struct.ImGuiIDStackTool, ptr %this1, i32 0, i32 3
-  call void @_ZN8ImVectorI19ImGuiStackLevelInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Results) #12
+  call void @_ZN8ImVectorI19ImGuiStackLevelInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Results) #11
   ret void
 }
 
@@ -72079,7 +72071,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %LineOffsets = getelementptr inbounds %struct.ImGuiTextIndex, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LineOffsets) #12
+  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LineOffsets) #11
   ret void
 }
 
@@ -72090,7 +72082,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Buf = getelementptr inbounds %struct.ImGuiTextBuffer, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   ret void
 }
 
@@ -72132,7 +72124,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Buf = getelementptr inbounds %struct.ImChunkStream.28, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   ret void
 }
 
@@ -72143,7 +72135,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Buf = getelementptr inbounds %struct.ImChunkStream, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   ret void
 }
 
@@ -72188,7 +72180,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %TextA = getelementptr inbounds %struct.ImGuiInputTextDeactivatedState, ptr %this1, i32 0, i32 1
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #11
   ret void
 }
 
@@ -72199,11 +72191,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %InitialTextA = getelementptr inbounds %struct.ImGuiInputTextState, ptr %this1, i32 0, i32 7
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InitialTextA) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InitialTextA) #11
   %TextA = getelementptr inbounds %struct.ImGuiInputTextState, ptr %this1, i32 0, i32 6
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextA) #11
   %TextW = getelementptr inbounds %struct.ImGuiInputTextState, ptr %this1, i32 0, i32 5
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextW) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TextW) #11
   ret void
 }
 
@@ -72280,9 +72272,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %Map = getelementptr inbounds %struct.ImPool.21, ptr %this1, i32 0, i32 1
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Map) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Map) #11
   %Buf = getelementptr inbounds %struct.ImPool.21, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -72366,9 +72358,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %Map = getelementptr inbounds %struct.ImPool, ptr %this1, i32 0, i32 1
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Map) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Map) #11
   %Buf = getelementptr inbounds %struct.ImPool, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #12
+  call void @_ZN8ImVectorI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Buf) #11
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -72727,9 +72719,9 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %EntriesNext = getelementptr inbounds %struct.ImGuiKeyRoutingTable, ptr %this1, i32 0, i32 2
-  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %EntriesNext) #12
+  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %EntriesNext) #11
   %Entries = getelementptr inbounds %struct.ImGuiKeyRoutingTable, ptr %this1, i32 0, i32 1
-  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Entries) #12
+  call void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Entries) #11
   ret void
 }
 
@@ -72833,7 +72825,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %TempBuffer = getelementptr inbounds %struct.ImDrawListSharedData, ptr %this1, i32 0, i32 7
-  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #12
+  call void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #11
   ret void
 }
 
@@ -72844,7 +72836,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %InputQueueCharacters = getelementptr inbounds %struct.ImGuiIO, ptr %this1, i32 0, i32 91
-  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputQueueCharacters) #12
+  call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputQueueCharacters) #11
   ret void
 }
 
@@ -73119,7 +73111,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
   store ptr %1, ptr %exn.slot, align 8
   %2 = extractvalue { ptr, i32 } %0, 1
   store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdLists) #12
+  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdLists) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -73149,7 +73141,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %LayerData1 = getelementptr inbounds %struct.ImDrawDataBuilder, ptr %this1, i32 0, i32 1
-  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LayerData1) #12
+  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LayerData1) #11
   ret void
 }
 
@@ -73160,7 +73152,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %CmdLists = getelementptr inbounds %struct.ImDrawData, ptr %this1, i32 0, i32 4
-  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdLists) #12
+  call void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CmdLists) #11
   ret void
 }
 
@@ -73562,7 +73554,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %_Channels = getelementptr inbounds %struct.ImDrawListSplitter, ptr %this1, i32 0, i32 2
-  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Channels) #12
+  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_Channels) #11
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -75149,7 +75141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <2 x float> @_ZNK6ImRect5GetBREv(ptr noundef nonnull align 4 dereferenceable(16) %this) #11 comdat align 2 {
+define linkonce_odr <2 x float> @_ZNK6ImRect5GetBREv(ptr noundef nonnull align 4 dereferenceable(16) %this) #10 comdat align 2 {
 entry:
   %retval = alloca %struct.ImVec2, align 4
   %this.addr = alloca ptr, align 8
@@ -82345,93 +82337,93 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %TempBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 254
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TempBuffer) #11
   %DebugIDStackTool = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 245
-  call void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %DebugIDStackTool) #12
+  call void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %DebugIDStackTool) #11
   %DebugLogIndex = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 235
-  call void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %DebugLogIndex) #12
+  call void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %DebugLogIndex) #11
   %DebugLogBuf = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 234
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DebugLogBuf) #11
   %LogBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 225
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %LogBuffer) #11
   %Hooks = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 219
-  call void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Hooks) #12
+  call void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Hooks) #11
   %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 218
-  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsTables) #12
+  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsTables) #11
   %SettingsWindows = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 217
-  call void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsWindows) #12
+  call void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsWindows) #11
   %SettingsHandlers = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 216
-  call void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsHandlers) #12
+  call void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsHandlers) #11
   %SettingsIniData = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 215
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsIniData) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SettingsIniData) #11
   %MenusIdSubmittedThisFrame = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 209
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %MenusIdSubmittedThisFrame) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %MenusIdSubmittedThisFrame) #11
   %ClipboardHandlerData = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 208
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardHandlerData) #12
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardHandlerData) #11
   %InputTextPasswordFont = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 185
-  call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %InputTextPasswordFont) #12
+  call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %InputTextPasswordFont) #11
   %InputTextDeactivatedState = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 184
-  call void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %InputTextDeactivatedState) #12
+  call void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %InputTextDeactivatedState) #11
   %InputTextState = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 183
-  call void @_ZN19ImGuiInputTextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3724) %InputTextState) #12
+  call void @_ZN19ImGuiInputTextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3724) %InputTextState) #11
   %ShrinkWidthBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 173
-  call void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ShrinkWidthBuffer) #12
+  call void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ShrinkWidthBuffer) #11
   %CurrentTabBarStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 172
-  call void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentTabBarStack) #12
+  call void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentTabBarStack) #11
   %TabBars = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 171
-  call void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %TabBars) #12
+  call void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %TabBars) #11
   %DrawChannelsTempMergeBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 169
-  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DrawChannelsTempMergeBuffer) #12
+  call void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DrawChannelsTempMergeBuffer) #11
   %TablesLastTimeActive = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 168
-  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesLastTimeActive) #12
+  call void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesLastTimeActive) #11
   %Tables = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 167
-  call void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %Tables) #12
+  call void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %Tables) #11
   %TablesTempData = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 166
-  call void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesTempData) #12
+  call void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TablesTempData) #11
   %ClipperTempData = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 163
-  call void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipperTempData) #12
+  call void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ClipperTempData) #11
   %DragDropPayloadBufHeap = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 160
-  call void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DragDropPayloadBufHeap) #12
+  call void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DragDropPayloadBufHeap) #11
   %Viewports = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 90
-  call void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Viewports) #12
+  call void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Viewports) #11
   %NavTreeNodeStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 88
-  call void @_ZN8ImVectorI20ImGuiNavTreeNodeDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %NavTreeNodeStack) #12
+  call void @_ZN8ImVectorI20ImGuiNavTreeNodeDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %NavTreeNodeStack) #11
   %BeginPopupStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 87
-  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %BeginPopupStack) #12
+  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %BeginPopupStack) #11
   %OpenPopupStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 86
-  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %OpenPopupStack) #12
+  call void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %OpenPopupStack) #11
   %GroupStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 85
-  call void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %GroupStack) #12
+  call void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %GroupStack) #11
   %ItemFlagsStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 84
-  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemFlagsStack) #12
+  call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ItemFlagsStack) #11
   %FocusScopeStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 83
-  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FocusScopeStack) #12
+  call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FocusScopeStack) #11
   %FontStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 82
-  call void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FontStack) #12
+  call void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %FontStack) #11
   %StyleVarStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 81
-  call void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StyleVarStack) #12
+  call void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StyleVarStack) #11
   %ColorStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 80
-  call void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColorStack) #12
+  call void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColorStack) #11
   %KeysRoutingTable = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 67
-  call void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %KeysRoutingTable) #12
+  call void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %KeysRoutingTable) #11
   %WindowsById = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 26
-  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsById) #12
+  call void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsById) #11
   %CurrentWindowStack = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 25
-  call void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentWindowStack) #12
+  call void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %CurrentWindowStack) #11
   %WindowsTempSortBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 24
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsTempSortBuffer) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsTempSortBuffer) #11
   %WindowsFocusOrder = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 23
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsFocusOrder) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %WindowsFocusOrder) #11
   %Windows = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 22
-  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Windows) #12
+  call void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Windows) #11
   %InputEventsTrail = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 19
-  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsTrail) #12
+  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsTrail) #11
   %InputEventsQueue = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 18
-  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsQueue) #12
+  call void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InputEventsQueue) #11
   %DrawListSharedData = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 7
-  call void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %DrawListSharedData) #12
+  call void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %DrawListSharedData) #11
   %IO = getelementptr inbounds %struct.ImGuiContext, ptr %this1, i32 0, i32 2
-  call void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 dereferenceable(14568) %IO) #12
+  call void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 dereferenceable(14568) %IO) #11
   ret void
 }
 
@@ -82552,7 +82544,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  call void @_ZN11ImGuiWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(1013) %1) #12
+  call void @_ZN11ImGuiWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(1013) %1) #11
   %2 = load ptr, ptr %p.addr, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %2)
   br label %if.end
@@ -82572,7 +82564,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  call void @_ZN14ImGuiViewportPD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #12
+  call void @_ZN14ImGuiViewportPD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #11
   %2 = load ptr, ptr %p.addr, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %2)
   br label %if.end
@@ -82649,9 +82641,9 @@ invoke.cont10:                                    ; preds = %if.then7
 
 if.end11:                                         ; preds = %invoke.cont10, %if.end
   %DrawDataBuilder = getelementptr inbounds %struct.ImGuiViewportP, ptr %this1, i32 0, i32 4
-  call void @_ZN17ImDrawDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %DrawDataBuilder) #12
+  call void @_ZN17ImDrawDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %DrawDataBuilder) #11
   %DrawDataP = getelementptr inbounds %struct.ImGuiViewportP, ptr %this1, i32 0, i32 3
-  call void @_ZN10ImDrawDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %DrawDataP) #12
+  call void @_ZN10ImDrawDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %DrawDataP) #11
   ret void
 
 terminate.lpad:                                   ; preds = %if.then7, %if.then
@@ -82673,7 +82665,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %1) #12
+  call void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %1) #11
   %2 = load ptr, ptr %p.addr, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %2)
   br label %if.end
@@ -82705,9 +82697,9 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %TabsNames = getelementptr inbounds %struct.ImGuiTabBar, ptr %this1, i32 0, i32 32
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TabsNames) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %TabsNames) #11
   %Tabs = getelementptr inbounds %struct.ImGuiTabBar, ptr %this1, i32 0, i32 0
-  call void @_ZN8ImVectorI12ImGuiTabItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Tabs) #12
+  call void @_ZN8ImVectorI12ImGuiTabItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Tabs) #11
   ret void
 }
 
@@ -82825,11 +82817,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %SortSpecsMulti = getelementptr inbounds %struct.ImGuiTable, ptr %this1, i32 0, i32 63
-  call void @_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SortSpecsMulti) #12
+  call void @_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %SortSpecsMulti) #11
   %InstanceDataExtra = getelementptr inbounds %struct.ImGuiTable, ptr %this1, i32 0, i32 60
-  call void @_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InstanceDataExtra) #12
+  call void @_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %InstanceDataExtra) #11
   %ColumnsNames = getelementptr inbounds %struct.ImGuiTable, ptr %this1, i32 0, i32 57
-  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsNames) #12
+  call void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsNames) #11
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -82936,7 +82928,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %DrawSplitter = getelementptr inbounds %struct.ImGuiTableTempData, ptr %this1, i32 0, i32 5
-  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %DrawSplitter) #12
+  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %DrawSplitter) #11
   ret void
 }
 
@@ -83077,9 +83069,9 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %this1, i32 0, i32 16
-  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Splitter) #12
+  call void @_ZN18ImDrawListSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Splitter) #11
   %Columns = getelementptr inbounds %struct.ImGuiOldColumns, ptr %this1, i32 0, i32 15
-  call void @_ZN8ImVectorI18ImGuiOldColumnDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Columns) #12
+  call void @_ZN8ImVectorI18ImGuiOldColumnDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Columns) #11
   ret void
 }
 
@@ -83972,6 +83964,15 @@ entry:
   ret ptr %add.ptr
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -83981,11 +83982,11 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { nounwind allocsize(0) }

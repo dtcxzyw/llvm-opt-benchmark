@@ -149,40 +149,42 @@ define void @_ZN19RangeSyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 de
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV19RangeSyntaxLineEdit, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV19RangeSyntaxLineEdit, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.RangeSyntaxLineEdit, ptr %10, i32 0, i32 1
-  store i32 -1, ptr %13, align 4
+  %12 = getelementptr inbounds { [56 x ptr], [10 x ptr] }, ptr @_ZTV19RangeSyntaxLineEdit, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds { [56 x ptr], [10 x ptr] }, ptr @_ZTV19RangeSyntaxLineEdit, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.RangeSyntaxLineEdit, ptr %10, i32 0, i32 1
+  store i32 -1, ptr %15, align 4
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), i64 0 }, ptr %6, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
+  %16 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN19RangeSyntaxLineEdit10checkRangeE7QString to i64), i64 0 }, ptr %7, align 8
-  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM19RangeSyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %10, i64 %15, i64 %17, ptr noundef %10, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
-          to label %18 unwind label %19
+  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM19RangeSyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %10, i64 %17, i64 %19, ptr noundef %10, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
+          to label %20 unwind label %21
 
-18:                                               ; preds = %2
+20:                                               ; preds = %2
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
   call void @_ZN14SyntaxLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %10) #7
-  br label %23
+  br label %25
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 declare void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185), ptr noundef) unnamed_addr #1
@@ -344,19 +346,21 @@ define linkonce_odr void @_ZN14SyntaxLineEditD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 9
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
-  %6 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
-  %7 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 9
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
-  %8 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 6
+  %8 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
-  %9 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 5
+  %9 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
+  %10 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 6
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
+  %11 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 5
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   call void @_ZN9QLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   ret void
 }

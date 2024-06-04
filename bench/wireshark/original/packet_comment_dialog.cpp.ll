@@ -373,134 +373,136 @@ define void @_ZN19PacketCommentDialogC2EbP7QWidget7QString(ptr noundef nonnull a
   %19 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %20 = load i32, ptr %19, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef %18, i32 %20)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 0, i32 2), ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 1, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-          to label %24 unwind label %44
-
-24:                                               ; preds = %4
+  %21 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 0, i32 2
+  store ptr %21, ptr %17, align 8
+  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 1, i32 2
   store ptr %23, ptr %22, align 8
-  %25 = load i8, ptr %6, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %29
+  %24 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+          to label %26 unwind label %46
 
-27:                                               ; preds = %24
+26:                                               ; preds = %4
+  store ptr %25, ptr %24, align 8
+  %27 = load i8, ptr %6, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %26
   invoke void @_ZN19PacketCommentDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %28 unwind label %44
-
-28:                                               ; preds = %27
-  br label %31
-
-29:                                               ; preds = %24
-  invoke void @_ZN19PacketCommentDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %30 unwind label %44
+          to label %30 unwind label %46
 
 30:                                               ; preds = %29
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %28
-  %32 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  invoke void @_ZN22Ui_PacketCommentDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef %17)
-          to label %34 unwind label %48
+31:                                               ; preds = %26
+  invoke void @_ZN19PacketCommentDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
+          to label %32 unwind label %46
 
-34:                                               ; preds = %31
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32, %30
+  %34 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  invoke void @_ZN22Ui_PacketCommentDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef %17)
+          to label %36 unwind label %50
+
+36:                                               ; preds = %33
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %35 unwind label %52
+          to label %37 unwind label %54
 
-35:                                               ; preds = %34
+37:                                               ; preds = %36
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %36 = load ptr, ptr @mainApp, align 8
+  %38 = load ptr, ptr @mainApp, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(216) %36, ptr noundef %15)
-          to label %37 unwind label %56
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(216) %38, ptr noundef %15)
+          to label %39 unwind label %58
 
-37:                                               ; preds = %35
+39:                                               ; preds = %37
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %38 unwind label %60
+          to label %40 unwind label %62
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
-  %39 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %class.Ui_PacketCommentDialog, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds %class.PacketCommentDialog, ptr %17, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %43 unwind label %48
+  %43 = getelementptr inbounds %class.Ui_PacketCommentDialog, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %45 unwind label %50
 
-43:                                               ; preds = %38
+45:                                               ; preds = %40
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   ret void
 
-44:                                               ; preds = %29, %27, %4
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %31, %29, %4
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %10, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %11, align 4
-  br label %66
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %10, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %11, align 4
+  br label %68
 
-48:                                               ; preds = %38, %31
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %40, %33
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %10, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %11, align 4
-  br label %65
-
-52:                                               ; preds = %34
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %10, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %65
-
-56:                                               ; preds = %35
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %10, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %11, align 4
-  br label %64
-
-60:                                               ; preds = %37
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %10, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
-  br label %64
-
-64:                                               ; preds = %60, %56
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
-  br label %65
-
-65:                                               ; preds = %64, %52, %48
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  br label %66
-
-66:                                               ; preds = %65, %44
-  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #13
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %10, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %11, align 4
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr %11, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+54:                                               ; preds = %36
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %10, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  br label %67
+
+58:                                               ; preds = %37
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %10, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %11, align 4
+  br label %66
+
+62:                                               ; preds = %39
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %10, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  br label %67
+
+67:                                               ; preds = %66, %54, %50
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
+  br label %68
+
+68:                                               ; preds = %67, %46
+  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #13
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %10, align 8
+  %71 = load i32, ptr %11, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -528,11 +530,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   ret void
 }
 
@@ -945,19 +949,21 @@ define void @_ZN19PacketCommentDialogD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.PacketCommentDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19PacketCommentDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.PacketCommentDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #15
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #15
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #13
   ret void
 }

@@ -153,95 +153,97 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, 4
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %19, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 62
   %12 = load i16, ptr %11, align 2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.i915_params, ptr @i915_modparams, i64 0, i32 11), align 8
-  %14 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %12, ptr noundef %13, i1 noundef zeroext false)
-  br i1 %14, label %19, label %15
+  %13 = getelementptr inbounds %struct.i915_params, ptr @i915_modparams, i64 0, i32 11
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %12, ptr noundef %14, i1 noundef zeroext false)
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
-  %17 = load i16, ptr %11, align 2
-  %18 = zext i16 %17 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.62, i32 noundef %18, i32 noundef %18, i32 noundef %18) #7
-  br label %66
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = load i16, ptr %11, align 2
+  %19 = zext i16 %18 to i32
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.62, i32 noundef %19, i32 noundef %19, i32 noundef %19) #7
+  br label %68
 
-19:                                               ; preds = %10, %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 62
-  %21 = load i16, ptr %20, align 2
-  %22 = load ptr, ptr getelementptr inbounds (%struct.i915_params, ptr @i915_modparams, i64 0, i32 11), align 8
-  %23 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %21, ptr noundef %22, i1 noundef zeroext true)
-  br i1 %23, label %24, label %28
+20:                                               ; preds = %10, %2
+  %21 = getelementptr inbounds i8, ptr %0, i64 62
+  %22 = load i16, ptr %21, align 2
+  %23 = getelementptr inbounds %struct.i915_params, ptr @i915_modparams, i64 0, i32 11
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %22, ptr noundef %24, i1 noundef zeroext true)
+  br i1 %25, label %26, label %30
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
-  %26 = load i16, ptr %20, align 2
-  %27 = zext i16 %26 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.63, i32 noundef %27) #7
-  br label %66
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %0, i64 184
+  %28 = load i16, ptr %21, align 2
+  %29 = zext i16 %28 to i32
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %27, ptr noundef nonnull @.str.63, i32 noundef %29) #7
+  br label %68
 
-28:                                               ; preds = %19
-  %29 = load i64, ptr %6, align 4
-  %30 = and i64 %29, 4
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %36, label %32
+30:                                               ; preds = %20
+  %31 = load i64, ptr %6, align 4
+  %32 = and i64 %31, 4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %38, label %34
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
-  %34 = load i16, ptr %20, align 2
-  %35 = zext i16 %34 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.64, i32 noundef %35) #7
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 184
+  %36 = load i16, ptr %21, align 2
+  %37 = zext i16 %36 to i32
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %35, ptr noundef nonnull @.str.64, i32 noundef %37) #7
   tail call void @add_taint(i32 noundef 6, i32 noundef 0) #6
-  br label %36
+  br label %38
 
-36:                                               ; preds = %32, %28
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 7
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %66
+38:                                               ; preds = %34, %30
+  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 7
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %68
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %5, i64 36
-  %43 = load i8, ptr %42, align 4
-  %44 = icmp eq i8 %43, 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 920
-  %46 = zext i1 %44 to i64
-  %47 = getelementptr [11 x %struct.resource], ptr %45, i64 0, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ne i64 %49, 0
-  %51 = and i64 %49, 536870912
-  %52 = icmp eq i64 %51, 0
-  %53 = and i1 %50, %52
-  br i1 %53, label %54, label %66
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %5, i64 36
+  %45 = load i8, ptr %44, align 4
+  %46 = icmp eq i8 %45, 2
+  %47 = getelementptr inbounds i8, ptr %0, i64 920
+  %48 = zext i1 %46 to i64
+  %49 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp ne i64 %51, 0
+  %53 = and i64 %51, 536870912
+  %54 = icmp eq i64 %53, 0
+  %55 = and i1 %52, %54
+  br i1 %55, label %56, label %68
 
-54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %47, i64 8
-  %56 = load i64, ptr %55, align 8
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %66, label %58
+56:                                               ; preds = %43
+  %57 = getelementptr inbounds i8, ptr %49, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %68, label %60
 
-58:                                               ; preds = %54
-  %59 = load i64, ptr %47, align 8
-  %60 = add i64 %56, 1
-  %61 = icmp eq i64 %60, %59
-  br i1 %61, label %66, label %62
+60:                                               ; preds = %56
+  %61 = load i64, ptr %49, align 8
+  %62 = add i64 %58, 1
+  %63 = icmp eq i64 %62, %61
+  br i1 %63, label %68, label %64
 
-62:                                               ; preds = %58
-  %63 = tail call zeroext i1 @intel_display_driver_probe_defer(ptr noundef %0) #6
-  br i1 %63, label %66, label %64
+64:                                               ; preds = %60
+  %65 = tail call zeroext i1 @intel_display_driver_probe_defer(ptr noundef %0) #6
+  br i1 %65, label %68, label %66
 
-64:                                               ; preds = %62
-  %65 = tail call i32 @i915_driver_probe(ptr noundef %0, ptr noundef %1) #6
-  br label %66
+66:                                               ; preds = %64
+  %67 = tail call i32 @i915_driver_probe(ptr noundef %0, ptr noundef %1) #6
+  br label %68
 
-66:                                               ; preds = %64, %62, %58, %54, %41, %36, %24, %15
-  %67 = phi i32 [ -19, %24 ], [ -19, %15 ], [ -19, %36 ], [ -6, %58 ], [ -517, %62 ], [ %65, %64 ], [ -6, %54 ], [ -6, %41 ]
-  ret i32 %67
+68:                                               ; preds = %66, %64, %60, %56, %43, %38, %26, %16
+  %69 = phi i32 [ -19, %26 ], [ -19, %16 ], [ -19, %38 ], [ -6, %60 ], [ -517, %64 ], [ %67, %66 ], [ -6, %56 ], [ -6, %43 ]
+  ret i32 %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

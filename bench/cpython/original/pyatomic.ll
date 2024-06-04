@@ -5488,10 +5488,12 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %obj, ptr %obj.addr, align 8
   store ptr null, ptr %x, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %y, align 8
-  store ptr inttoptr (i64 2 to ptr), ptr %z, align 8
-  %0 = load ptr, ptr %z, align 8
-  %call = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %0)
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %y, align 8
+  %1 = inttoptr i64 2 to ptr
+  store ptr %1, ptr %z, align 8
+  %2 = load ptr, ptr %z, align 8
+  %call = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %2)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
@@ -5502,12 +5504,12 @@ cond.false:                                       ; preds = %entry
   call void @__assert_fail(ptr noundef @.str.213, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-1:                                                ; No predecessors!
+3:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %1, %cond.true
-  %2 = load ptr, ptr %x, align 8
-  %cmp1 = icmp eq ptr %2, null
+cond.end:                                         ; preds = %3, %cond.true
+  %4 = load ptr, ptr %x, align 8
+  %cmp1 = icmp eq ptr %4, null
   br i1 %cmp1, label %cond.true2, label %cond.false3
 
 cond.true2:                                       ; preds = %cond.end
@@ -5517,12 +5519,12 @@ cond.false3:                                      ; preds = %cond.end
   call void @__assert_fail(ptr noundef @.str.70, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-3:                                                ; No predecessors!
+5:                                                ; No predecessors!
   br label %cond.end4
 
-cond.end4:                                        ; preds = %3, %cond.true2
-  %4 = load ptr, ptr %y, align 8
-  %cmp5 = icmp eq ptr %4, null
+cond.end4:                                        ; preds = %5, %cond.true2
+  %6 = load ptr, ptr %y, align 8
+  %cmp5 = icmp eq ptr %6, null
   br i1 %cmp5, label %cond.true6, label %cond.false7
 
 cond.true6:                                       ; preds = %cond.end4
@@ -5532,12 +5534,12 @@ cond.false7:                                      ; preds = %cond.end4
   call void @__assert_fail(ptr noundef @.str.185, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-5:                                                ; No predecessors!
+7:                                                ; No predecessors!
   br label %cond.end8
 
-cond.end8:                                        ; preds = %5, %cond.true6
-  %6 = load ptr, ptr %z, align 8
-  %call9 = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %6)
+cond.end8:                                        ; preds = %7, %cond.true6
+  %8 = load ptr, ptr %z, align 8
+  %call9 = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %8)
   %cmp10 = icmp eq i32 %call9, 1
   br i1 %cmp10, label %cond.true11, label %cond.false12
 
@@ -5548,13 +5550,13 @@ cond.false12:                                     ; preds = %cond.end8
   call void @__assert_fail(ptr noundef @.str.214, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-7:                                                ; No predecessors!
+9:                                                ; No predecessors!
   br label %cond.end13
 
-cond.end13:                                       ; preds = %7, %cond.true11
-  %8 = load ptr, ptr %x, align 8
-  %9 = load ptr, ptr %z, align 8
-  %cmp14 = icmp eq ptr %8, %9
+cond.end13:                                       ; preds = %9, %cond.true11
+  %10 = load ptr, ptr %x, align 8
+  %11 = load ptr, ptr %z, align 8
+  %cmp14 = icmp eq ptr %10, %11
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %cond.end13
@@ -5564,12 +5566,12 @@ cond.false16:                                     ; preds = %cond.end13
   call void @__assert_fail(ptr noundef @.str.187, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-10:                                               ; No predecessors!
+12:                                               ; No predecessors!
   br label %cond.end17
 
-cond.end17:                                       ; preds = %10, %cond.true15
-  %11 = load ptr, ptr %y, align 8
-  %cmp18 = icmp eq ptr %11, null
+cond.end17:                                       ; preds = %12, %cond.true15
+  %13 = load ptr, ptr %y, align 8
+  %cmp18 = icmp eq ptr %13, null
   br i1 %cmp18, label %cond.true19, label %cond.false20
 
 cond.true19:                                      ; preds = %cond.end17
@@ -5579,12 +5581,12 @@ cond.false20:                                     ; preds = %cond.end17
   call void @__assert_fail(ptr noundef @.str.185, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-12:                                               ; No predecessors!
+14:                                               ; No predecessors!
   br label %cond.end21
 
-cond.end21:                                       ; preds = %12, %cond.true19
-  %13 = load ptr, ptr %z, align 8
-  %call22 = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %13)
+cond.end21:                                       ; preds = %14, %cond.true19
+  %15 = load ptr, ptr %z, align 8
+  %call22 = call i32 @_Py_atomic_compare_exchange_ptr(ptr noundef %x, ptr noundef %y, ptr noundef %15)
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %cond.true24, label %cond.false25
 
@@ -5595,13 +5597,13 @@ cond.false25:                                     ; preds = %cond.end21
   call void @__assert_fail(ptr noundef @.str.213, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-14:                                               ; No predecessors!
+16:                                               ; No predecessors!
   br label %cond.end26
 
-cond.end26:                                       ; preds = %14, %cond.true24
-  %15 = load ptr, ptr %x, align 8
-  %16 = load ptr, ptr %z, align 8
-  %cmp27 = icmp eq ptr %15, %16
+cond.end26:                                       ; preds = %16, %cond.true24
+  %17 = load ptr, ptr %x, align 8
+  %18 = load ptr, ptr %z, align 8
+  %cmp27 = icmp eq ptr %17, %18
   br i1 %cmp27, label %cond.true28, label %cond.false29
 
 cond.true28:                                      ; preds = %cond.end26
@@ -5611,13 +5613,13 @@ cond.false29:                                     ; preds = %cond.end26
   call void @__assert_fail(ptr noundef @.str.187, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-17:                                               ; No predecessors!
+19:                                               ; No predecessors!
   br label %cond.end30
 
-cond.end30:                                       ; preds = %17, %cond.true28
-  %18 = load ptr, ptr %y, align 8
-  %19 = load ptr, ptr %z, align 8
-  %cmp31 = icmp eq ptr %18, %19
+cond.end30:                                       ; preds = %19, %cond.true28
+  %20 = load ptr, ptr %y, align 8
+  %21 = load ptr, ptr %z, align 8
+  %cmp31 = icmp eq ptr %20, %21
   br i1 %cmp31, label %cond.true32, label %cond.false33
 
 cond.true32:                                      ; preds = %cond.end30
@@ -5627,10 +5629,10 @@ cond.false33:                                     ; preds = %cond.end30
   call void @__assert_fail(ptr noundef @.str.188, ptr noundef @.str.64, i32 noundef 73, ptr noundef @__PRETTY_FUNCTION__.test_atomic_compare_exchange_ptr) #3
   unreachable
 
-20:                                               ; No predecessors!
+22:                                               ; No predecessors!
   br label %cond.end34
 
-cond.end34:                                       ; preds = %20, %cond.true32
+cond.end34:                                       ; preds = %22, %cond.true32
   ret ptr @_Py_NoneStruct
 }
 
@@ -7086,10 +7088,12 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %obj, ptr %obj.addr, align 8
   store ptr null, ptr %x, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %y, align 8
-  store ptr inttoptr (i64 2 to ptr), ptr %z, align 8
-  %0 = load ptr, ptr %y, align 8
-  %call = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %0)
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %y, align 8
+  %1 = inttoptr i64 2 to ptr
+  store ptr %1, ptr %z, align 8
+  %2 = load ptr, ptr %y, align 8
+  %call = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %2)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %cond.true, label %cond.false
 
@@ -7100,12 +7104,13 @@ cond.false:                                       ; preds = %entry
   call void @__assert_fail(ptr noundef @.str.280, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-1:                                                ; No predecessors!
+3:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %1, %cond.true
-  %2 = load ptr, ptr %x, align 8
-  %cmp1 = icmp eq ptr %2, inttoptr (i64 1 to ptr)
+cond.end:                                         ; preds = %3, %cond.true
+  %4 = load ptr, ptr %x, align 8
+  %5 = inttoptr i64 1 to ptr
+  %cmp1 = icmp eq ptr %4, %5
   br i1 %cmp1, label %cond.true2, label %cond.false3
 
 cond.true2:                                       ; preds = %cond.end
@@ -7115,13 +7120,14 @@ cond.false3:                                      ; preds = %cond.end
   call void @__assert_fail(ptr noundef @.str.281, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-3:                                                ; No predecessors!
+6:                                                ; No predecessors!
   br label %cond.end4
 
-cond.end4:                                        ; preds = %3, %cond.true2
-  %4 = load ptr, ptr %z, align 8
-  %call5 = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %4)
-  %cmp6 = icmp eq ptr %call5, inttoptr (i64 1 to ptr)
+cond.end4:                                        ; preds = %6, %cond.true2
+  %7 = load ptr, ptr %z, align 8
+  %call5 = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %7)
+  %8 = inttoptr i64 1 to ptr
+  %cmp6 = icmp eq ptr %call5, %8
   br i1 %cmp6, label %cond.true7, label %cond.false8
 
 cond.true7:                                       ; preds = %cond.end4
@@ -7131,12 +7137,13 @@ cond.false8:                                      ; preds = %cond.end4
   call void @__assert_fail(ptr noundef @.str.282, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-5:                                                ; No predecessors!
+9:                                                ; No predecessors!
   br label %cond.end9
 
-cond.end9:                                        ; preds = %5, %cond.true7
-  %6 = load ptr, ptr %x, align 8
-  %cmp10 = icmp eq ptr %6, inttoptr (i64 2 to ptr)
+cond.end9:                                        ; preds = %9, %cond.true7
+  %10 = load ptr, ptr %x, align 8
+  %11 = inttoptr i64 2 to ptr
+  %cmp10 = icmp eq ptr %10, %11
   br i1 %cmp10, label %cond.true11, label %cond.false12
 
 cond.true11:                                      ; preds = %cond.end9
@@ -7146,13 +7153,14 @@ cond.false12:                                     ; preds = %cond.end9
   call void @__assert_fail(ptr noundef @.str.283, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-7:                                                ; No predecessors!
+12:                                               ; No predecessors!
   br label %cond.end13
 
-cond.end13:                                       ; preds = %7, %cond.true11
-  %8 = load ptr, ptr %y, align 8
-  %call14 = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %8)
-  %cmp15 = icmp eq ptr %call14, inttoptr (i64 2 to ptr)
+cond.end13:                                       ; preds = %12, %cond.true11
+  %13 = load ptr, ptr %y, align 8
+  %call14 = call ptr @_Py_atomic_exchange_ptr(ptr noundef %x, ptr noundef %13)
+  %14 = inttoptr i64 2 to ptr
+  %cmp15 = icmp eq ptr %call14, %14
   br i1 %cmp15, label %cond.true16, label %cond.false17
 
 cond.true16:                                      ; preds = %cond.end13
@@ -7162,12 +7170,13 @@ cond.false17:                                     ; preds = %cond.end13
   call void @__assert_fail(ptr noundef @.str.284, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-9:                                                ; No predecessors!
+15:                                               ; No predecessors!
   br label %cond.end18
 
-cond.end18:                                       ; preds = %9, %cond.true16
-  %10 = load ptr, ptr %x, align 8
-  %cmp19 = icmp eq ptr %10, inttoptr (i64 1 to ptr)
+cond.end18:                                       ; preds = %15, %cond.true16
+  %16 = load ptr, ptr %x, align 8
+  %17 = inttoptr i64 1 to ptr
+  %cmp19 = icmp eq ptr %16, %17
   br i1 %cmp19, label %cond.true20, label %cond.false21
 
 cond.true20:                                      ; preds = %cond.end18
@@ -7177,10 +7186,10 @@ cond.false21:                                     ; preds = %cond.end18
   call void @__assert_fail(ptr noundef @.str.281, ptr noundef @.str.64, i32 noundef 89, ptr noundef @__PRETTY_FUNCTION__.test_atomic_exchange_ptr) #3
   unreachable
 
-11:                                               ; No predecessors!
+18:                                               ; No predecessors!
   br label %cond.end22
 
-cond.end22:                                       ; preds = %11, %cond.true20
+cond.end22:                                       ; preds = %18, %cond.true20
   ret ptr @_Py_NoneStruct
 }
 
@@ -8649,8 +8658,10 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %obj, ptr %obj.addr, align 8
   store ptr null, ptr %x, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %y, align 8
-  store ptr inttoptr (i64 2 to ptr), ptr %z, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %y, align 8
+  %1 = inttoptr i64 2 to ptr
+  store ptr %1, ptr %z, align 8
   %call = call ptr @_Py_atomic_load_ptr(ptr noundef %x)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %cond.true, label %cond.false
@@ -8662,12 +8673,12 @@ cond.false:                                       ; preds = %entry
   call void @__assert_fail(ptr noundef @.str.337, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-0:                                                ; No predecessors!
+2:                                                ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %0, %cond.true
-  %1 = load ptr, ptr %x, align 8
-  %cmp1 = icmp eq ptr %1, null
+cond.end:                                         ; preds = %2, %cond.true
+  %3 = load ptr, ptr %x, align 8
+  %cmp1 = icmp eq ptr %3, null
   br i1 %cmp1, label %cond.true2, label %cond.false3
 
 cond.true2:                                       ; preds = %cond.end
@@ -8677,14 +8688,15 @@ cond.false3:                                      ; preds = %cond.end
   call void @__assert_fail(ptr noundef @.str.338, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-2:                                                ; No predecessors!
+4:                                                ; No predecessors!
   br label %cond.end4
 
-cond.end4:                                        ; preds = %2, %cond.true2
-  %3 = load ptr, ptr %y, align 8
-  call void @_Py_atomic_store_ptr(ptr noundef %x, ptr noundef %3)
+cond.end4:                                        ; preds = %4, %cond.true2
+  %5 = load ptr, ptr %y, align 8
+  call void @_Py_atomic_store_ptr(ptr noundef %x, ptr noundef %5)
   %call5 = call ptr @_Py_atomic_load_ptr(ptr noundef %x)
-  %cmp6 = icmp eq ptr %call5, inttoptr (i64 1 to ptr)
+  %6 = inttoptr i64 1 to ptr
+  %cmp6 = icmp eq ptr %call5, %6
   br i1 %cmp6, label %cond.true7, label %cond.false8
 
 cond.true7:                                       ; preds = %cond.end4
@@ -8694,12 +8706,13 @@ cond.false8:                                      ; preds = %cond.end4
   call void @__assert_fail(ptr noundef @.str.339, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-4:                                                ; No predecessors!
+7:                                                ; No predecessors!
   br label %cond.end9
 
-cond.end9:                                        ; preds = %4, %cond.true7
-  %5 = load ptr, ptr %x, align 8
-  %cmp10 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
+cond.end9:                                        ; preds = %7, %cond.true7
+  %8 = load ptr, ptr %x, align 8
+  %9 = inttoptr i64 1 to ptr
+  %cmp10 = icmp eq ptr %8, %9
   br i1 %cmp10, label %cond.true11, label %cond.false12
 
 cond.true11:                                      ; preds = %cond.end9
@@ -8709,14 +8722,15 @@ cond.false12:                                     ; preds = %cond.end9
   call void @__assert_fail(ptr noundef @.str.281, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-6:                                                ; No predecessors!
+10:                                               ; No predecessors!
   br label %cond.end13
 
-cond.end13:                                       ; preds = %6, %cond.true11
-  %7 = load ptr, ptr %z, align 8
-  call void @_Py_atomic_store_ptr_relaxed(ptr noundef %x, ptr noundef %7)
+cond.end13:                                       ; preds = %10, %cond.true11
+  %11 = load ptr, ptr %z, align 8
+  call void @_Py_atomic_store_ptr_relaxed(ptr noundef %x, ptr noundef %11)
   %call14 = call ptr @_Py_atomic_load_ptr_relaxed(ptr noundef %x)
-  %cmp15 = icmp eq ptr %call14, inttoptr (i64 2 to ptr)
+  %12 = inttoptr i64 2 to ptr
+  %cmp15 = icmp eq ptr %call14, %12
   br i1 %cmp15, label %cond.true16, label %cond.false17
 
 cond.true16:                                      ; preds = %cond.end13
@@ -8726,12 +8740,13 @@ cond.false17:                                     ; preds = %cond.end13
   call void @__assert_fail(ptr noundef @.str.340, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-8:                                                ; No predecessors!
+13:                                               ; No predecessors!
   br label %cond.end18
 
-cond.end18:                                       ; preds = %8, %cond.true16
-  %9 = load ptr, ptr %x, align 8
-  %cmp19 = icmp eq ptr %9, inttoptr (i64 2 to ptr)
+cond.end18:                                       ; preds = %13, %cond.true16
+  %14 = load ptr, ptr %x, align 8
+  %15 = inttoptr i64 2 to ptr
+  %cmp19 = icmp eq ptr %14, %15
   br i1 %cmp19, label %cond.true20, label %cond.false21
 
 cond.true20:                                      ; preds = %cond.end18
@@ -8741,10 +8756,10 @@ cond.false21:                                     ; preds = %cond.end18
   call void @__assert_fail(ptr noundef @.str.283, ptr noundef @.str.64, i32 noundef 107, ptr noundef @__PRETTY_FUNCTION__.test_atomic_load_store_ptr) #3
   unreachable
 
-10:                                               ; No predecessors!
+16:                                               ; No predecessors!
   br label %cond.end22
 
-cond.end22:                                       ; preds = %10, %cond.true20
+cond.end22:                                       ; preds = %16, %cond.true20
   ret ptr @_Py_NoneStruct
 }
 

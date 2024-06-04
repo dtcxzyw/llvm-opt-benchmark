@@ -535,345 +535,455 @@ define hidden void @proto_reg_handoff_gsmtap() #0 {
   store ptr %1, ptr @sub_handles, align 16
   %2 = load i32, ptr @proto_gsmtap, align 4
   %3 = call ptr @find_dissector_add_dependency(ptr noundef @.str.58, i32 noundef %2)
-  store ptr %3, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %4 = load i32, ptr @proto_gsmtap, align 4
-  %5 = call ptr @find_dissector_add_dependency(ptr noundef @.str.59, i32 noundef %4)
-  store ptr %5, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %6 = load i32, ptr @proto_gsmtap, align 4
-  %7 = call ptr @find_dissector_add_dependency(ptr noundef @.str.60, i32 noundef %6)
-  store ptr %7, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
+  %4 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 1
+  store ptr %3, ptr %4, align 8
+  %5 = load i32, ptr @proto_gsmtap, align 4
+  %6 = call ptr @find_dissector_add_dependency(ptr noundef @.str.59, i32 noundef %5)
+  %7 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 2
+  store ptr %6, ptr %7, align 16
   %8 = load i32, ptr @proto_gsmtap, align 4
-  %9 = call ptr @find_dissector_add_dependency(ptr noundef @.str.61, i32 noundef %8)
-  store ptr %9, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 4), align 16
-  %10 = load i32, ptr @proto_gsmtap, align 4
-  %11 = call ptr @find_dissector_add_dependency(ptr noundef @.str.62, i32 noundef %10)
-  store ptr %11, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 5), align 8
-  %12 = load i32, ptr @proto_gsmtap, align 4
-  %13 = call ptr @find_dissector_add_dependency(ptr noundef @.str.63, i32 noundef %12)
-  store ptr %13, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 6), align 16
+  %9 = call ptr @find_dissector_add_dependency(ptr noundef @.str.60, i32 noundef %8)
+  %10 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 3
+  store ptr %9, ptr %10, align 8
+  %11 = load i32, ptr @proto_gsmtap, align 4
+  %12 = call ptr @find_dissector_add_dependency(ptr noundef @.str.61, i32 noundef %11)
+  %13 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 4
+  store ptr %12, ptr %13, align 16
   %14 = load i32, ptr @proto_gsmtap, align 4
-  %15 = call ptr @find_dissector_add_dependency(ptr noundef @.str.64, i32 noundef %14)
-  store ptr %15, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 7), align 8
-  %16 = load i32, ptr @proto_gsmtap, align 4
-  %17 = call ptr @find_dissector_add_dependency(ptr noundef @.str.65, i32 noundef %16)
-  store ptr %17, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 8), align 16
-  %18 = load i32, ptr @proto_gsmtap, align 4
-  %19 = call ptr @find_dissector_add_dependency(ptr noundef @.str.66, i32 noundef %18)
-  store ptr %19, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 9), align 8
+  %15 = call ptr @find_dissector_add_dependency(ptr noundef @.str.62, i32 noundef %14)
+  %16 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 5
+  store ptr %15, ptr %16, align 8
+  %17 = load i32, ptr @proto_gsmtap, align 4
+  %18 = call ptr @find_dissector_add_dependency(ptr noundef @.str.63, i32 noundef %17)
+  %19 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 6
+  store ptr %18, ptr %19, align 16
   %20 = load i32, ptr @proto_gsmtap, align 4
-  %21 = call ptr @find_dissector_add_dependency(ptr noundef @.str.67, i32 noundef %20)
-  store ptr %21, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 10), align 16
-  %22 = load i32, ptr @proto_gsmtap, align 4
-  %23 = call ptr @find_dissector_add_dependency(ptr noundef @.str.68, i32 noundef %22)
-  store ptr %23, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 11), align 8
-  %24 = load i32, ptr @proto_gsmtap, align 4
-  %25 = call ptr @find_dissector_add_dependency(ptr noundef @.str.69, i32 noundef %24)
-  store ptr %25, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 12), align 16
+  %21 = call ptr @find_dissector_add_dependency(ptr noundef @.str.64, i32 noundef %20)
+  %22 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 7
+  store ptr %21, ptr %22, align 8
+  %23 = load i32, ptr @proto_gsmtap, align 4
+  %24 = call ptr @find_dissector_add_dependency(ptr noundef @.str.65, i32 noundef %23)
+  %25 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 8
+  store ptr %24, ptr %25, align 16
   %26 = load i32, ptr @proto_gsmtap, align 4
-  %27 = call ptr @find_dissector_add_dependency(ptr noundef @.str.70, i32 noundef %26)
-  store ptr %27, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 13), align 8
-  %28 = load i32, ptr @proto_gsmtap, align 4
-  %29 = call ptr @find_dissector_add_dependency(ptr noundef @.str.71, i32 noundef %28)
-  store ptr %29, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 14), align 16
-  %30 = load i32, ptr @proto_gsmtap, align 4
-  %31 = call ptr @find_dissector_add_dependency(ptr noundef @.str.72, i32 noundef %30)
-  store ptr %31, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 16), align 16
+  %27 = call ptr @find_dissector_add_dependency(ptr noundef @.str.66, i32 noundef %26)
+  %28 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 9
+  store ptr %27, ptr %28, align 8
+  %29 = load i32, ptr @proto_gsmtap, align 4
+  %30 = call ptr @find_dissector_add_dependency(ptr noundef @.str.67, i32 noundef %29)
+  %31 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 10
+  store ptr %30, ptr %31, align 16
   %32 = load i32, ptr @proto_gsmtap, align 4
-  %33 = call ptr @find_dissector_add_dependency(ptr noundef @.str.73, i32 noundef %32)
-  store ptr %33, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 17), align 8
-  %34 = load i32, ptr @proto_gsmtap, align 4
-  %35 = call ptr @find_dissector_add_dependency(ptr noundef @.str.74, i32 noundef %34)
-  store ptr %35, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 18), align 16
-  %36 = load i32, ptr @proto_gsmtap, align 4
-  %37 = call ptr @find_dissector_add_dependency(ptr noundef @.str.75, i32 noundef %36)
-  store ptr %37, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 19), align 8
+  %33 = call ptr @find_dissector_add_dependency(ptr noundef @.str.68, i32 noundef %32)
+  %34 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 11
+  store ptr %33, ptr %34, align 8
+  %35 = load i32, ptr @proto_gsmtap, align 4
+  %36 = call ptr @find_dissector_add_dependency(ptr noundef @.str.69, i32 noundef %35)
+  %37 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 12
+  store ptr %36, ptr %37, align 16
   %38 = load i32, ptr @proto_gsmtap, align 4
-  %39 = call ptr @find_dissector_add_dependency(ptr noundef @.str.76, i32 noundef %38)
-  store ptr %39, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 21), align 8
-  %40 = load i32, ptr @proto_gsmtap, align 4
-  %41 = call ptr @find_dissector_add_dependency(ptr noundef @.str.77, i32 noundef %40)
-  store ptr %41, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 24), align 16
-  %42 = load i32, ptr @proto_gsmtap, align 4
-  %43 = call ptr @find_dissector_add_dependency(ptr noundef @.str.78, i32 noundef %42)
-  store ptr %43, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 25), align 8
+  %39 = call ptr @find_dissector_add_dependency(ptr noundef @.str.70, i32 noundef %38)
+  %40 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 13
+  store ptr %39, ptr %40, align 8
+  %41 = load i32, ptr @proto_gsmtap, align 4
+  %42 = call ptr @find_dissector_add_dependency(ptr noundef @.str.71, i32 noundef %41)
+  %43 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 14
+  store ptr %42, ptr %43, align 16
   %44 = load i32, ptr @proto_gsmtap, align 4
-  %45 = call ptr @find_dissector_add_dependency(ptr noundef @.str.79, i32 noundef %44)
-  store ptr %45, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 26), align 16
-  %46 = load i32, ptr @proto_gsmtap, align 4
-  %47 = call ptr @find_dissector_add_dependency(ptr noundef @.str.80, i32 noundef %46)
-  store ptr %47, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 27), align 8
-  %48 = load i32, ptr @proto_gsmtap, align 4
-  %49 = call ptr @find_dissector_add_dependency(ptr noundef @.str.81, i32 noundef %48)
-  store ptr %49, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 28), align 16
+  %45 = call ptr @find_dissector_add_dependency(ptr noundef @.str.72, i32 noundef %44)
+  %46 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 16
+  store ptr %45, ptr %46, align 16
+  %47 = load i32, ptr @proto_gsmtap, align 4
+  %48 = call ptr @find_dissector_add_dependency(ptr noundef @.str.73, i32 noundef %47)
+  %49 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 17
+  store ptr %48, ptr %49, align 8
   %50 = load i32, ptr @proto_gsmtap, align 4
-  %51 = call ptr @find_dissector_add_dependency(ptr noundef @.str.82, i32 noundef %50)
-  store ptr %51, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 29), align 8
-  %52 = load i32, ptr @proto_gsmtap, align 4
-  %53 = call ptr @find_dissector_add_dependency(ptr noundef @.str.83, i32 noundef %52)
-  store ptr %53, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 30), align 16
-  %54 = load i32, ptr @proto_gsmtap, align 4
-  %55 = call ptr @find_dissector_add_dependency(ptr noundef @.str.84, i32 noundef %54)
-  store ptr %55, ptr @rrc_sub_handles, align 16
+  %51 = call ptr @find_dissector_add_dependency(ptr noundef @.str.74, i32 noundef %50)
+  %52 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 18
+  store ptr %51, ptr %52, align 16
+  %53 = load i32, ptr @proto_gsmtap, align 4
+  %54 = call ptr @find_dissector_add_dependency(ptr noundef @.str.75, i32 noundef %53)
+  %55 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 19
+  store ptr %54, ptr %55, align 8
   %56 = load i32, ptr @proto_gsmtap, align 4
-  %57 = call ptr @find_dissector_add_dependency(ptr noundef @.str.85, i32 noundef %56)
-  store ptr %57, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 1), align 8
-  %58 = load i32, ptr @proto_gsmtap, align 4
-  %59 = call ptr @find_dissector_add_dependency(ptr noundef @.str.86, i32 noundef %58)
-  store ptr %59, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 2), align 16
-  %60 = load i32, ptr @proto_gsmtap, align 4
-  %61 = call ptr @find_dissector_add_dependency(ptr noundef @.str.87, i32 noundef %60)
-  store ptr %61, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 3), align 8
+  %57 = call ptr @find_dissector_add_dependency(ptr noundef @.str.76, i32 noundef %56)
+  %58 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 21
+  store ptr %57, ptr %58, align 8
+  %59 = load i32, ptr @proto_gsmtap, align 4
+  %60 = call ptr @find_dissector_add_dependency(ptr noundef @.str.77, i32 noundef %59)
+  %61 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 24
+  store ptr %60, ptr %61, align 16
   %62 = load i32, ptr @proto_gsmtap, align 4
-  %63 = call ptr @find_dissector_add_dependency(ptr noundef @.str.88, i32 noundef %62)
-  store ptr %63, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 4), align 16
-  %64 = load i32, ptr @proto_gsmtap, align 4
-  %65 = call ptr @find_dissector_add_dependency(ptr noundef @.str.89, i32 noundef %64)
-  store ptr %65, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 5), align 8
-  %66 = load i32, ptr @proto_gsmtap, align 4
-  %67 = call ptr @find_dissector_add_dependency(ptr noundef @.str.90, i32 noundef %66)
-  store ptr %67, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 6), align 16
+  %63 = call ptr @find_dissector_add_dependency(ptr noundef @.str.78, i32 noundef %62)
+  %64 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 25
+  store ptr %63, ptr %64, align 8
+  %65 = load i32, ptr @proto_gsmtap, align 4
+  %66 = call ptr @find_dissector_add_dependency(ptr noundef @.str.79, i32 noundef %65)
+  %67 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 26
+  store ptr %66, ptr %67, align 16
   %68 = load i32, ptr @proto_gsmtap, align 4
-  %69 = call ptr @find_dissector_add_dependency(ptr noundef @.str.91, i32 noundef %68)
-  store ptr %69, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 7), align 8
-  %70 = load i32, ptr @proto_gsmtap, align 4
-  %71 = call ptr @find_dissector_add_dependency(ptr noundef @.str.92, i32 noundef %70)
-  store ptr %71, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 8), align 16
-  %72 = load i32, ptr @proto_gsmtap, align 4
-  %73 = call ptr @find_dissector_add_dependency(ptr noundef @.str.93, i32 noundef %72)
-  store ptr %73, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 9), align 8
+  %69 = call ptr @find_dissector_add_dependency(ptr noundef @.str.80, i32 noundef %68)
+  %70 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 27
+  store ptr %69, ptr %70, align 8
+  %71 = load i32, ptr @proto_gsmtap, align 4
+  %72 = call ptr @find_dissector_add_dependency(ptr noundef @.str.81, i32 noundef %71)
+  %73 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 28
+  store ptr %72, ptr %73, align 16
   %74 = load i32, ptr @proto_gsmtap, align 4
-  %75 = call ptr @find_dissector_add_dependency(ptr noundef @.str.94, i32 noundef %74)
-  store ptr %75, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 10), align 16
-  %76 = load i32, ptr @proto_gsmtap, align 4
-  %77 = call ptr @find_dissector_add_dependency(ptr noundef @.str.95, i32 noundef %76)
-  store ptr %77, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 11), align 8
-  %78 = load i32, ptr @proto_gsmtap, align 4
-  %79 = call ptr @find_dissector_add_dependency(ptr noundef @.str.96, i32 noundef %78)
-  store ptr %79, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 12), align 16
+  %75 = call ptr @find_dissector_add_dependency(ptr noundef @.str.82, i32 noundef %74)
+  %76 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 29
+  store ptr %75, ptr %76, align 8
+  %77 = load i32, ptr @proto_gsmtap, align 4
+  %78 = call ptr @find_dissector_add_dependency(ptr noundef @.str.83, i32 noundef %77)
+  %79 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 30
+  store ptr %78, ptr %79, align 16
   %80 = load i32, ptr @proto_gsmtap, align 4
-  %81 = call ptr @find_dissector_add_dependency(ptr noundef @.str.97, i32 noundef %80)
-  store ptr %81, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 13), align 8
+  %81 = call ptr @find_dissector_add_dependency(ptr noundef @.str.84, i32 noundef %80)
+  store ptr %81, ptr @rrc_sub_handles, align 16
   %82 = load i32, ptr @proto_gsmtap, align 4
-  %83 = call ptr @find_dissector_add_dependency(ptr noundef @.str.98, i32 noundef %82)
-  store ptr %83, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 14), align 16
-  %84 = load i32, ptr @proto_gsmtap, align 4
-  %85 = call ptr @find_dissector_add_dependency(ptr noundef @.str.99, i32 noundef %84)
-  store ptr %85, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 15), align 8
-  %86 = load i32, ptr @proto_gsmtap, align 4
-  %87 = call ptr @find_dissector_add_dependency(ptr noundef @.str.100, i32 noundef %86)
-  store ptr %87, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 16), align 16
+  %83 = call ptr @find_dissector_add_dependency(ptr noundef @.str.85, i32 noundef %82)
+  %84 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 1
+  store ptr %83, ptr %84, align 8
+  %85 = load i32, ptr @proto_gsmtap, align 4
+  %86 = call ptr @find_dissector_add_dependency(ptr noundef @.str.86, i32 noundef %85)
+  %87 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 2
+  store ptr %86, ptr %87, align 16
   %88 = load i32, ptr @proto_gsmtap, align 4
-  %89 = call ptr @find_dissector_add_dependency(ptr noundef @.str.101, i32 noundef %88)
-  store ptr %89, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 17), align 8
-  %90 = load i32, ptr @proto_gsmtap, align 4
-  %91 = call ptr @find_dissector_add_dependency(ptr noundef @.str.102, i32 noundef %90)
-  store ptr %91, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 18), align 16
-  %92 = load i32, ptr @proto_gsmtap, align 4
-  %93 = call ptr @find_dissector_add_dependency(ptr noundef @.str.103, i32 noundef %92)
-  store ptr %93, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 19), align 8
+  %89 = call ptr @find_dissector_add_dependency(ptr noundef @.str.87, i32 noundef %88)
+  %90 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 3
+  store ptr %89, ptr %90, align 8
+  %91 = load i32, ptr @proto_gsmtap, align 4
+  %92 = call ptr @find_dissector_add_dependency(ptr noundef @.str.88, i32 noundef %91)
+  %93 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 4
+  store ptr %92, ptr %93, align 16
   %94 = load i32, ptr @proto_gsmtap, align 4
-  %95 = call ptr @find_dissector_add_dependency(ptr noundef @.str.104, i32 noundef %94)
-  store ptr %95, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 20), align 16
-  %96 = load i32, ptr @proto_gsmtap, align 4
-  %97 = call ptr @find_dissector_add_dependency(ptr noundef @.str.105, i32 noundef %96)
-  store ptr %97, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 21), align 8
-  %98 = load i32, ptr @proto_gsmtap, align 4
-  %99 = call ptr @find_dissector_add_dependency(ptr noundef @.str.106, i32 noundef %98)
-  store ptr %99, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 22), align 16
+  %95 = call ptr @find_dissector_add_dependency(ptr noundef @.str.89, i32 noundef %94)
+  %96 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 5
+  store ptr %95, ptr %96, align 8
+  %97 = load i32, ptr @proto_gsmtap, align 4
+  %98 = call ptr @find_dissector_add_dependency(ptr noundef @.str.90, i32 noundef %97)
+  %99 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 6
+  store ptr %98, ptr %99, align 16
   %100 = load i32, ptr @proto_gsmtap, align 4
-  %101 = call ptr @find_dissector_add_dependency(ptr noundef @.str.107, i32 noundef %100)
-  store ptr %101, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 23), align 8
-  %102 = load i32, ptr @proto_gsmtap, align 4
-  %103 = call ptr @find_dissector_add_dependency(ptr noundef @.str.108, i32 noundef %102)
-  store ptr %103, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 24), align 16
-  %104 = load i32, ptr @proto_gsmtap, align 4
-  %105 = call ptr @find_dissector_add_dependency(ptr noundef @.str.109, i32 noundef %104)
-  store ptr %105, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 25), align 8
+  %101 = call ptr @find_dissector_add_dependency(ptr noundef @.str.91, i32 noundef %100)
+  %102 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 7
+  store ptr %101, ptr %102, align 8
+  %103 = load i32, ptr @proto_gsmtap, align 4
+  %104 = call ptr @find_dissector_add_dependency(ptr noundef @.str.92, i32 noundef %103)
+  %105 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 8
+  store ptr %104, ptr %105, align 16
   %106 = load i32, ptr @proto_gsmtap, align 4
-  %107 = call ptr @find_dissector_add_dependency(ptr noundef @.str.110, i32 noundef %106)
-  store ptr %107, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 26), align 16
-  %108 = load i32, ptr @proto_gsmtap, align 4
-  %109 = call ptr @find_dissector_add_dependency(ptr noundef @.str.111, i32 noundef %108)
-  store ptr %109, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 27), align 8
-  %110 = load i32, ptr @proto_gsmtap, align 4
-  %111 = call ptr @find_dissector_add_dependency(ptr noundef @.str.112, i32 noundef %110)
-  store ptr %111, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 28), align 16
+  %107 = call ptr @find_dissector_add_dependency(ptr noundef @.str.93, i32 noundef %106)
+  %108 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 9
+  store ptr %107, ptr %108, align 8
+  %109 = load i32, ptr @proto_gsmtap, align 4
+  %110 = call ptr @find_dissector_add_dependency(ptr noundef @.str.94, i32 noundef %109)
+  %111 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 10
+  store ptr %110, ptr %111, align 16
   %112 = load i32, ptr @proto_gsmtap, align 4
-  %113 = call ptr @find_dissector_add_dependency(ptr noundef @.str.113, i32 noundef %112)
-  store ptr %113, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 29), align 8
-  %114 = load i32, ptr @proto_gsmtap, align 4
-  %115 = call ptr @find_dissector_add_dependency(ptr noundef @.str.114, i32 noundef %114)
-  store ptr %115, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 30), align 16
-  %116 = load i32, ptr @proto_gsmtap, align 4
-  %117 = call ptr @find_dissector_add_dependency(ptr noundef @.str.115, i32 noundef %116)
-  store ptr %117, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 31), align 8
+  %113 = call ptr @find_dissector_add_dependency(ptr noundef @.str.95, i32 noundef %112)
+  %114 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 11
+  store ptr %113, ptr %114, align 8
+  %115 = load i32, ptr @proto_gsmtap, align 4
+  %116 = call ptr @find_dissector_add_dependency(ptr noundef @.str.96, i32 noundef %115)
+  %117 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 12
+  store ptr %116, ptr %117, align 16
   %118 = load i32, ptr @proto_gsmtap, align 4
-  %119 = call ptr @find_dissector_add_dependency(ptr noundef @.str.116, i32 noundef %118)
-  store ptr %119, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 32), align 16
-  %120 = load i32, ptr @proto_gsmtap, align 4
-  %121 = call ptr @find_dissector_add_dependency(ptr noundef @.str.117, i32 noundef %120)
-  store ptr %121, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 33), align 8
-  %122 = load i32, ptr @proto_gsmtap, align 4
-  %123 = call ptr @find_dissector_add_dependency(ptr noundef @.str.118, i32 noundef %122)
-  store ptr %123, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 34), align 16
+  %119 = call ptr @find_dissector_add_dependency(ptr noundef @.str.97, i32 noundef %118)
+  %120 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 13
+  store ptr %119, ptr %120, align 8
+  %121 = load i32, ptr @proto_gsmtap, align 4
+  %122 = call ptr @find_dissector_add_dependency(ptr noundef @.str.98, i32 noundef %121)
+  %123 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 14
+  store ptr %122, ptr %123, align 16
   %124 = load i32, ptr @proto_gsmtap, align 4
-  %125 = call ptr @find_dissector_add_dependency(ptr noundef @.str.119, i32 noundef %124)
-  store ptr %125, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 35), align 8
-  %126 = load i32, ptr @proto_gsmtap, align 4
-  %127 = call ptr @find_dissector_add_dependency(ptr noundef @.str.120, i32 noundef %126)
-  store ptr %127, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 36), align 16
-  %128 = load i32, ptr @proto_gsmtap, align 4
-  %129 = call ptr @find_dissector_add_dependency(ptr noundef @.str.121, i32 noundef %128)
-  store ptr %129, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 37), align 8
+  %125 = call ptr @find_dissector_add_dependency(ptr noundef @.str.99, i32 noundef %124)
+  %126 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 15
+  store ptr %125, ptr %126, align 8
+  %127 = load i32, ptr @proto_gsmtap, align 4
+  %128 = call ptr @find_dissector_add_dependency(ptr noundef @.str.100, i32 noundef %127)
+  %129 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 16
+  store ptr %128, ptr %129, align 16
   %130 = load i32, ptr @proto_gsmtap, align 4
-  %131 = call ptr @find_dissector_add_dependency(ptr noundef @.str.122, i32 noundef %130)
-  store ptr %131, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 38), align 16
-  %132 = load i32, ptr @proto_gsmtap, align 4
-  %133 = call ptr @find_dissector_add_dependency(ptr noundef @.str.123, i32 noundef %132)
-  store ptr %133, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 39), align 8
-  %134 = load i32, ptr @proto_gsmtap, align 4
-  %135 = call ptr @find_dissector_add_dependency(ptr noundef @.str.124, i32 noundef %134)
-  store ptr %135, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 40), align 16
+  %131 = call ptr @find_dissector_add_dependency(ptr noundef @.str.101, i32 noundef %130)
+  %132 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 17
+  store ptr %131, ptr %132, align 8
+  %133 = load i32, ptr @proto_gsmtap, align 4
+  %134 = call ptr @find_dissector_add_dependency(ptr noundef @.str.102, i32 noundef %133)
+  %135 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 18
+  store ptr %134, ptr %135, align 16
   %136 = load i32, ptr @proto_gsmtap, align 4
-  %137 = call ptr @find_dissector_add_dependency(ptr noundef @.str.125, i32 noundef %136)
-  store ptr %137, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 41), align 8
-  %138 = load i32, ptr @proto_gsmtap, align 4
-  %139 = call ptr @find_dissector_add_dependency(ptr noundef @.str.126, i32 noundef %138)
-  store ptr %139, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 42), align 16
-  %140 = load i32, ptr @proto_gsmtap, align 4
-  %141 = call ptr @find_dissector_add_dependency(ptr noundef @.str.127, i32 noundef %140)
-  store ptr %141, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 43), align 8
+  %137 = call ptr @find_dissector_add_dependency(ptr noundef @.str.103, i32 noundef %136)
+  %138 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 19
+  store ptr %137, ptr %138, align 8
+  %139 = load i32, ptr @proto_gsmtap, align 4
+  %140 = call ptr @find_dissector_add_dependency(ptr noundef @.str.104, i32 noundef %139)
+  %141 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 20
+  store ptr %140, ptr %141, align 16
   %142 = load i32, ptr @proto_gsmtap, align 4
-  %143 = call ptr @find_dissector_add_dependency(ptr noundef @.str.128, i32 noundef %142)
-  store ptr %143, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 44), align 16
-  %144 = load i32, ptr @proto_gsmtap, align 4
-  %145 = call ptr @find_dissector_add_dependency(ptr noundef @.str.129, i32 noundef %144)
-  store ptr %145, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 45), align 8
-  %146 = load i32, ptr @proto_gsmtap, align 4
-  %147 = call ptr @find_dissector_add_dependency(ptr noundef @.str.130, i32 noundef %146)
-  store ptr %147, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 46), align 16
+  %143 = call ptr @find_dissector_add_dependency(ptr noundef @.str.105, i32 noundef %142)
+  %144 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 21
+  store ptr %143, ptr %144, align 8
+  %145 = load i32, ptr @proto_gsmtap, align 4
+  %146 = call ptr @find_dissector_add_dependency(ptr noundef @.str.106, i32 noundef %145)
+  %147 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 22
+  store ptr %146, ptr %147, align 16
   %148 = load i32, ptr @proto_gsmtap, align 4
-  %149 = call ptr @find_dissector_add_dependency(ptr noundef @.str.131, i32 noundef %148)
-  store ptr %149, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 47), align 8
-  %150 = load i32, ptr @proto_gsmtap, align 4
-  %151 = call ptr @find_dissector_add_dependency(ptr noundef @.str.132, i32 noundef %150)
-  store ptr %151, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 48), align 16
-  %152 = load i32, ptr @proto_gsmtap, align 4
-  %153 = call ptr @find_dissector_add_dependency(ptr noundef @.str.133, i32 noundef %152)
-  store ptr %153, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 49), align 8
+  %149 = call ptr @find_dissector_add_dependency(ptr noundef @.str.107, i32 noundef %148)
+  %150 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 23
+  store ptr %149, ptr %150, align 8
+  %151 = load i32, ptr @proto_gsmtap, align 4
+  %152 = call ptr @find_dissector_add_dependency(ptr noundef @.str.108, i32 noundef %151)
+  %153 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 24
+  store ptr %152, ptr %153, align 16
   %154 = load i32, ptr @proto_gsmtap, align 4
-  %155 = call ptr @find_dissector_add_dependency(ptr noundef @.str.134, i32 noundef %154)
-  store ptr %155, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 50), align 16
-  %156 = load i32, ptr @proto_gsmtap, align 4
-  %157 = call ptr @find_dissector_add_dependency(ptr noundef @.str.135, i32 noundef %156)
-  store ptr %157, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 51), align 8
-  %158 = load i32, ptr @proto_gsmtap, align 4
-  %159 = call ptr @find_dissector_add_dependency(ptr noundef @.str.136, i32 noundef %158)
-  store ptr %159, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 52), align 16
+  %155 = call ptr @find_dissector_add_dependency(ptr noundef @.str.109, i32 noundef %154)
+  %156 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 25
+  store ptr %155, ptr %156, align 8
+  %157 = load i32, ptr @proto_gsmtap, align 4
+  %158 = call ptr @find_dissector_add_dependency(ptr noundef @.str.110, i32 noundef %157)
+  %159 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 26
+  store ptr %158, ptr %159, align 16
   %160 = load i32, ptr @proto_gsmtap, align 4
-  %161 = call ptr @find_dissector_add_dependency(ptr noundef @.str.137, i32 noundef %160)
-  store ptr %161, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 53), align 8
-  %162 = load i32, ptr @proto_gsmtap, align 4
-  %163 = call ptr @find_dissector_add_dependency(ptr noundef @.str.138, i32 noundef %162)
-  store ptr %163, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 54), align 16
-  %164 = load i32, ptr @proto_gsmtap, align 4
-  %165 = call ptr @find_dissector_add_dependency(ptr noundef @.str.139, i32 noundef %164)
-  store ptr %165, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 55), align 8
+  %161 = call ptr @find_dissector_add_dependency(ptr noundef @.str.111, i32 noundef %160)
+  %162 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 27
+  store ptr %161, ptr %162, align 8
+  %163 = load i32, ptr @proto_gsmtap, align 4
+  %164 = call ptr @find_dissector_add_dependency(ptr noundef @.str.112, i32 noundef %163)
+  %165 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 28
+  store ptr %164, ptr %165, align 16
   %166 = load i32, ptr @proto_gsmtap, align 4
-  %167 = call ptr @find_dissector_add_dependency(ptr noundef @.str.140, i32 noundef %166)
-  store ptr %167, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 56), align 16
-  %168 = load i32, ptr @proto_gsmtap, align 4
-  %169 = call ptr @find_dissector_add_dependency(ptr noundef @.str.141, i32 noundef %168)
-  store ptr %169, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 57), align 8
-  %170 = load i32, ptr @proto_gsmtap, align 4
-  %171 = call ptr @find_dissector_add_dependency(ptr noundef @.str.142, i32 noundef %170)
-  store ptr %171, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 58), align 16
+  %167 = call ptr @find_dissector_add_dependency(ptr noundef @.str.113, i32 noundef %166)
+  %168 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 29
+  store ptr %167, ptr %168, align 8
+  %169 = load i32, ptr @proto_gsmtap, align 4
+  %170 = call ptr @find_dissector_add_dependency(ptr noundef @.str.114, i32 noundef %169)
+  %171 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 30
+  store ptr %170, ptr %171, align 16
   %172 = load i32, ptr @proto_gsmtap, align 4
-  %173 = call ptr @find_dissector_add_dependency(ptr noundef @.str.143, i32 noundef %172)
-  store ptr %173, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 59), align 8
-  %174 = load i32, ptr @proto_gsmtap, align 4
-  %175 = call ptr @find_dissector_add_dependency(ptr noundef @.str.144, i32 noundef %174)
-  store ptr %175, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 60), align 16
-  %176 = load i32, ptr @proto_gsmtap, align 4
-  %177 = call ptr @find_dissector_add_dependency(ptr noundef @.str.145, i32 noundef %176)
-  store ptr %177, ptr getelementptr inbounds ([62 x ptr], ptr @rrc_sub_handles, i64 0, i64 61), align 8
+  %173 = call ptr @find_dissector_add_dependency(ptr noundef @.str.115, i32 noundef %172)
+  %174 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 31
+  store ptr %173, ptr %174, align 8
+  %175 = load i32, ptr @proto_gsmtap, align 4
+  %176 = call ptr @find_dissector_add_dependency(ptr noundef @.str.116, i32 noundef %175)
+  %177 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 32
+  store ptr %176, ptr %177, align 16
   %178 = load i32, ptr @proto_gsmtap, align 4
-  %179 = call ptr @find_dissector_add_dependency(ptr noundef @.str.146, i32 noundef %178)
-  store ptr %179, ptr @lte_rrc_sub_handles, align 16
-  %180 = load i32, ptr @proto_gsmtap, align 4
-  %181 = call ptr @find_dissector_add_dependency(ptr noundef @.str.147, i32 noundef %180)
-  store ptr %181, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 1), align 8
-  %182 = load i32, ptr @proto_gsmtap, align 4
-  %183 = call ptr @find_dissector_add_dependency(ptr noundef @.str.148, i32 noundef %182)
-  store ptr %183, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 2), align 16
+  %179 = call ptr @find_dissector_add_dependency(ptr noundef @.str.117, i32 noundef %178)
+  %180 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 33
+  store ptr %179, ptr %180, align 8
+  %181 = load i32, ptr @proto_gsmtap, align 4
+  %182 = call ptr @find_dissector_add_dependency(ptr noundef @.str.118, i32 noundef %181)
+  %183 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 34
+  store ptr %182, ptr %183, align 16
   %184 = load i32, ptr @proto_gsmtap, align 4
-  %185 = call ptr @find_dissector_add_dependency(ptr noundef @.str.149, i32 noundef %184)
-  store ptr %185, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 3), align 8
-  %186 = load i32, ptr @proto_gsmtap, align 4
-  %187 = call ptr @find_dissector_add_dependency(ptr noundef @.str.150, i32 noundef %186)
-  store ptr %187, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 4), align 16
-  %188 = load i32, ptr @proto_gsmtap, align 4
-  %189 = call ptr @find_dissector_add_dependency(ptr noundef @.str.151, i32 noundef %188)
-  store ptr %189, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 5), align 8
+  %185 = call ptr @find_dissector_add_dependency(ptr noundef @.str.119, i32 noundef %184)
+  %186 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 35
+  store ptr %185, ptr %186, align 8
+  %187 = load i32, ptr @proto_gsmtap, align 4
+  %188 = call ptr @find_dissector_add_dependency(ptr noundef @.str.120, i32 noundef %187)
+  %189 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 36
+  store ptr %188, ptr %189, align 16
   %190 = load i32, ptr @proto_gsmtap, align 4
-  %191 = call ptr @find_dissector_add_dependency(ptr noundef @.str.152, i32 noundef %190)
-  store ptr %191, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 6), align 16
-  %192 = load i32, ptr @proto_gsmtap, align 4
-  %193 = call ptr @find_dissector_add_dependency(ptr noundef @.str.153, i32 noundef %192)
-  store ptr %193, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 7), align 8
-  %194 = load i32, ptr @proto_gsmtap, align 4
-  %195 = call ptr @find_dissector_add_dependency(ptr noundef @.str.154, i32 noundef %194)
-  store ptr %195, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 8), align 16
+  %191 = call ptr @find_dissector_add_dependency(ptr noundef @.str.121, i32 noundef %190)
+  %192 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 37
+  store ptr %191, ptr %192, align 8
+  %193 = load i32, ptr @proto_gsmtap, align 4
+  %194 = call ptr @find_dissector_add_dependency(ptr noundef @.str.122, i32 noundef %193)
+  %195 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 38
+  store ptr %194, ptr %195, align 16
   %196 = load i32, ptr @proto_gsmtap, align 4
-  %197 = call ptr @find_dissector_add_dependency(ptr noundef @.str.155, i32 noundef %196)
-  store ptr %197, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 9), align 8
-  %198 = load i32, ptr @proto_gsmtap, align 4
-  %199 = call ptr @find_dissector_add_dependency(ptr noundef @.str.156, i32 noundef %198)
-  store ptr %199, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 10), align 16
-  %200 = load i32, ptr @proto_gsmtap, align 4
-  %201 = call ptr @find_dissector_add_dependency(ptr noundef @.str.157, i32 noundef %200)
-  store ptr %201, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 11), align 8
+  %197 = call ptr @find_dissector_add_dependency(ptr noundef @.str.123, i32 noundef %196)
+  %198 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 39
+  store ptr %197, ptr %198, align 8
+  %199 = load i32, ptr @proto_gsmtap, align 4
+  %200 = call ptr @find_dissector_add_dependency(ptr noundef @.str.124, i32 noundef %199)
+  %201 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 40
+  store ptr %200, ptr %201, align 16
   %202 = load i32, ptr @proto_gsmtap, align 4
-  %203 = call ptr @find_dissector_add_dependency(ptr noundef @.str.158, i32 noundef %202)
-  store ptr %203, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 12), align 16
-  %204 = load i32, ptr @proto_gsmtap, align 4
-  %205 = call ptr @find_dissector_add_dependency(ptr noundef @.str.159, i32 noundef %204)
-  store ptr %205, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 13), align 8
-  %206 = load i32, ptr @proto_gsmtap, align 4
-  %207 = call ptr @find_dissector_add_dependency(ptr noundef @.str.160, i32 noundef %206)
-  store ptr %207, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 14), align 16
+  %203 = call ptr @find_dissector_add_dependency(ptr noundef @.str.125, i32 noundef %202)
+  %204 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 41
+  store ptr %203, ptr %204, align 8
+  %205 = load i32, ptr @proto_gsmtap, align 4
+  %206 = call ptr @find_dissector_add_dependency(ptr noundef @.str.126, i32 noundef %205)
+  %207 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 42
+  store ptr %206, ptr %207, align 16
   %208 = load i32, ptr @proto_gsmtap, align 4
-  %209 = call ptr @find_dissector_add_dependency(ptr noundef @.str.161, i32 noundef %208)
-  store ptr %209, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 15), align 8
-  %210 = load i32, ptr @proto_gsmtap, align 4
-  %211 = call ptr @find_dissector_add_dependency(ptr noundef @.str.162, i32 noundef %210)
-  store ptr %211, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 16), align 16
-  %212 = load i32, ptr @proto_gsmtap, align 4
-  %213 = call ptr @find_dissector_add_dependency(ptr noundef @.str.163, i32 noundef %212)
-  store ptr %213, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 17), align 8
+  %209 = call ptr @find_dissector_add_dependency(ptr noundef @.str.127, i32 noundef %208)
+  %210 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 43
+  store ptr %209, ptr %210, align 8
+  %211 = load i32, ptr @proto_gsmtap, align 4
+  %212 = call ptr @find_dissector_add_dependency(ptr noundef @.str.128, i32 noundef %211)
+  %213 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 44
+  store ptr %212, ptr %213, align 16
   %214 = load i32, ptr @proto_gsmtap, align 4
-  %215 = call ptr @find_dissector_add_dependency(ptr noundef @.str.164, i32 noundef %214)
-  store ptr %215, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 18), align 16
-  %216 = load i32, ptr @proto_gsmtap, align 4
-  %217 = call ptr @find_dissector_add_dependency(ptr noundef @.str.165, i32 noundef %216)
-  store ptr %217, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 19), align 8
-  %218 = load i32, ptr @proto_gsmtap, align 4
-  %219 = call ptr @find_dissector_add_dependency(ptr noundef @.str.166, i32 noundef %218)
-  store ptr %219, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 20), align 16
+  %215 = call ptr @find_dissector_add_dependency(ptr noundef @.str.129, i32 noundef %214)
+  %216 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 45
+  store ptr %215, ptr %216, align 8
+  %217 = load i32, ptr @proto_gsmtap, align 4
+  %218 = call ptr @find_dissector_add_dependency(ptr noundef @.str.130, i32 noundef %217)
+  %219 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 46
+  store ptr %218, ptr %219, align 16
   %220 = load i32, ptr @proto_gsmtap, align 4
-  %221 = call ptr @find_dissector_add_dependency(ptr noundef @.str.167, i32 noundef %220)
-  store ptr %221, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 21), align 8
-  %222 = load i32, ptr @proto_gsmtap, align 4
-  %223 = call ptr @find_dissector_add_dependency(ptr noundef @.str.168, i32 noundef %222)
-  store ptr %223, ptr getelementptr inbounds ([23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 22), align 16
-  %224 = load i32, ptr @proto_gsmtap, align 4
-  %225 = call ptr @find_dissector_add_dependency(ptr noundef @.str.169, i32 noundef %224)
-  store ptr %225, ptr @lte_nas_sub_handles, align 16
+  %221 = call ptr @find_dissector_add_dependency(ptr noundef @.str.131, i32 noundef %220)
+  %222 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 47
+  store ptr %221, ptr %222, align 8
+  %223 = load i32, ptr @proto_gsmtap, align 4
+  %224 = call ptr @find_dissector_add_dependency(ptr noundef @.str.132, i32 noundef %223)
+  %225 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 48
+  store ptr %224, ptr %225, align 16
   %226 = load i32, ptr @proto_gsmtap, align 4
-  %227 = call ptr @find_dissector_add_dependency(ptr noundef @.str.170, i32 noundef %226)
-  store ptr %227, ptr getelementptr inbounds ([2 x ptr], ptr @lte_nas_sub_handles, i64 0, i64 1), align 8
-  %228 = load ptr, ptr @gsmtap_handle, align 8
-  call void @dissector_add_uint_with_preference(ptr noundef @.str.171, i32 noundef 4729, ptr noundef %228)
+  %227 = call ptr @find_dissector_add_dependency(ptr noundef @.str.133, i32 noundef %226)
+  %228 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 49
+  store ptr %227, ptr %228, align 8
+  %229 = load i32, ptr @proto_gsmtap, align 4
+  %230 = call ptr @find_dissector_add_dependency(ptr noundef @.str.134, i32 noundef %229)
+  %231 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 50
+  store ptr %230, ptr %231, align 16
+  %232 = load i32, ptr @proto_gsmtap, align 4
+  %233 = call ptr @find_dissector_add_dependency(ptr noundef @.str.135, i32 noundef %232)
+  %234 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 51
+  store ptr %233, ptr %234, align 8
+  %235 = load i32, ptr @proto_gsmtap, align 4
+  %236 = call ptr @find_dissector_add_dependency(ptr noundef @.str.136, i32 noundef %235)
+  %237 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 52
+  store ptr %236, ptr %237, align 16
+  %238 = load i32, ptr @proto_gsmtap, align 4
+  %239 = call ptr @find_dissector_add_dependency(ptr noundef @.str.137, i32 noundef %238)
+  %240 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 53
+  store ptr %239, ptr %240, align 8
+  %241 = load i32, ptr @proto_gsmtap, align 4
+  %242 = call ptr @find_dissector_add_dependency(ptr noundef @.str.138, i32 noundef %241)
+  %243 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 54
+  store ptr %242, ptr %243, align 16
+  %244 = load i32, ptr @proto_gsmtap, align 4
+  %245 = call ptr @find_dissector_add_dependency(ptr noundef @.str.139, i32 noundef %244)
+  %246 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 55
+  store ptr %245, ptr %246, align 8
+  %247 = load i32, ptr @proto_gsmtap, align 4
+  %248 = call ptr @find_dissector_add_dependency(ptr noundef @.str.140, i32 noundef %247)
+  %249 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 56
+  store ptr %248, ptr %249, align 16
+  %250 = load i32, ptr @proto_gsmtap, align 4
+  %251 = call ptr @find_dissector_add_dependency(ptr noundef @.str.141, i32 noundef %250)
+  %252 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 57
+  store ptr %251, ptr %252, align 8
+  %253 = load i32, ptr @proto_gsmtap, align 4
+  %254 = call ptr @find_dissector_add_dependency(ptr noundef @.str.142, i32 noundef %253)
+  %255 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 58
+  store ptr %254, ptr %255, align 16
+  %256 = load i32, ptr @proto_gsmtap, align 4
+  %257 = call ptr @find_dissector_add_dependency(ptr noundef @.str.143, i32 noundef %256)
+  %258 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 59
+  store ptr %257, ptr %258, align 8
+  %259 = load i32, ptr @proto_gsmtap, align 4
+  %260 = call ptr @find_dissector_add_dependency(ptr noundef @.str.144, i32 noundef %259)
+  %261 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 60
+  store ptr %260, ptr %261, align 16
+  %262 = load i32, ptr @proto_gsmtap, align 4
+  %263 = call ptr @find_dissector_add_dependency(ptr noundef @.str.145, i32 noundef %262)
+  %264 = getelementptr inbounds [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 61
+  store ptr %263, ptr %264, align 8
+  %265 = load i32, ptr @proto_gsmtap, align 4
+  %266 = call ptr @find_dissector_add_dependency(ptr noundef @.str.146, i32 noundef %265)
+  store ptr %266, ptr @lte_rrc_sub_handles, align 16
+  %267 = load i32, ptr @proto_gsmtap, align 4
+  %268 = call ptr @find_dissector_add_dependency(ptr noundef @.str.147, i32 noundef %267)
+  %269 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 1
+  store ptr %268, ptr %269, align 8
+  %270 = load i32, ptr @proto_gsmtap, align 4
+  %271 = call ptr @find_dissector_add_dependency(ptr noundef @.str.148, i32 noundef %270)
+  %272 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 2
+  store ptr %271, ptr %272, align 16
+  %273 = load i32, ptr @proto_gsmtap, align 4
+  %274 = call ptr @find_dissector_add_dependency(ptr noundef @.str.149, i32 noundef %273)
+  %275 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 3
+  store ptr %274, ptr %275, align 8
+  %276 = load i32, ptr @proto_gsmtap, align 4
+  %277 = call ptr @find_dissector_add_dependency(ptr noundef @.str.150, i32 noundef %276)
+  %278 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 4
+  store ptr %277, ptr %278, align 16
+  %279 = load i32, ptr @proto_gsmtap, align 4
+  %280 = call ptr @find_dissector_add_dependency(ptr noundef @.str.151, i32 noundef %279)
+  %281 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 5
+  store ptr %280, ptr %281, align 8
+  %282 = load i32, ptr @proto_gsmtap, align 4
+  %283 = call ptr @find_dissector_add_dependency(ptr noundef @.str.152, i32 noundef %282)
+  %284 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 6
+  store ptr %283, ptr %284, align 16
+  %285 = load i32, ptr @proto_gsmtap, align 4
+  %286 = call ptr @find_dissector_add_dependency(ptr noundef @.str.153, i32 noundef %285)
+  %287 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 7
+  store ptr %286, ptr %287, align 8
+  %288 = load i32, ptr @proto_gsmtap, align 4
+  %289 = call ptr @find_dissector_add_dependency(ptr noundef @.str.154, i32 noundef %288)
+  %290 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 8
+  store ptr %289, ptr %290, align 16
+  %291 = load i32, ptr @proto_gsmtap, align 4
+  %292 = call ptr @find_dissector_add_dependency(ptr noundef @.str.155, i32 noundef %291)
+  %293 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 9
+  store ptr %292, ptr %293, align 8
+  %294 = load i32, ptr @proto_gsmtap, align 4
+  %295 = call ptr @find_dissector_add_dependency(ptr noundef @.str.156, i32 noundef %294)
+  %296 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 10
+  store ptr %295, ptr %296, align 16
+  %297 = load i32, ptr @proto_gsmtap, align 4
+  %298 = call ptr @find_dissector_add_dependency(ptr noundef @.str.157, i32 noundef %297)
+  %299 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 11
+  store ptr %298, ptr %299, align 8
+  %300 = load i32, ptr @proto_gsmtap, align 4
+  %301 = call ptr @find_dissector_add_dependency(ptr noundef @.str.158, i32 noundef %300)
+  %302 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 12
+  store ptr %301, ptr %302, align 16
+  %303 = load i32, ptr @proto_gsmtap, align 4
+  %304 = call ptr @find_dissector_add_dependency(ptr noundef @.str.159, i32 noundef %303)
+  %305 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 13
+  store ptr %304, ptr %305, align 8
+  %306 = load i32, ptr @proto_gsmtap, align 4
+  %307 = call ptr @find_dissector_add_dependency(ptr noundef @.str.160, i32 noundef %306)
+  %308 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 14
+  store ptr %307, ptr %308, align 16
+  %309 = load i32, ptr @proto_gsmtap, align 4
+  %310 = call ptr @find_dissector_add_dependency(ptr noundef @.str.161, i32 noundef %309)
+  %311 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 15
+  store ptr %310, ptr %311, align 8
+  %312 = load i32, ptr @proto_gsmtap, align 4
+  %313 = call ptr @find_dissector_add_dependency(ptr noundef @.str.162, i32 noundef %312)
+  %314 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 16
+  store ptr %313, ptr %314, align 16
+  %315 = load i32, ptr @proto_gsmtap, align 4
+  %316 = call ptr @find_dissector_add_dependency(ptr noundef @.str.163, i32 noundef %315)
+  %317 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 17
+  store ptr %316, ptr %317, align 8
+  %318 = load i32, ptr @proto_gsmtap, align 4
+  %319 = call ptr @find_dissector_add_dependency(ptr noundef @.str.164, i32 noundef %318)
+  %320 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 18
+  store ptr %319, ptr %320, align 16
+  %321 = load i32, ptr @proto_gsmtap, align 4
+  %322 = call ptr @find_dissector_add_dependency(ptr noundef @.str.165, i32 noundef %321)
+  %323 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 19
+  store ptr %322, ptr %323, align 8
+  %324 = load i32, ptr @proto_gsmtap, align 4
+  %325 = call ptr @find_dissector_add_dependency(ptr noundef @.str.166, i32 noundef %324)
+  %326 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 20
+  store ptr %325, ptr %326, align 16
+  %327 = load i32, ptr @proto_gsmtap, align 4
+  %328 = call ptr @find_dissector_add_dependency(ptr noundef @.str.167, i32 noundef %327)
+  %329 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 21
+  store ptr %328, ptr %329, align 8
+  %330 = load i32, ptr @proto_gsmtap, align 4
+  %331 = call ptr @find_dissector_add_dependency(ptr noundef @.str.168, i32 noundef %330)
+  %332 = getelementptr inbounds [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 22
+  store ptr %331, ptr %332, align 16
+  %333 = load i32, ptr @proto_gsmtap, align 4
+  %334 = call ptr @find_dissector_add_dependency(ptr noundef @.str.169, i32 noundef %333)
+  store ptr %334, ptr @lte_nas_sub_handles, align 16
+  %335 = load i32, ptr @proto_gsmtap, align 4
+  %336 = call ptr @find_dissector_add_dependency(ptr noundef @.str.170, i32 noundef %335)
+  %337 = getelementptr inbounds [2 x ptr], ptr @lte_nas_sub_handles, i64 0, i64 1
+  store ptr %336, ptr %337, align 8
+  %338 = load ptr, ptr @gsmtap_handle, align 8
+  call void @dissector_add_uint_with_preference(ptr noundef @.str.171, i32 noundef 4729, ptr noundef %338)
   ret void
 }
 
@@ -2071,11 +2181,12 @@ define internal void @handle_lapdm(i8 noundef zeroext %0, ptr noundef %1, ptr no
   %14 = zext i1 %13 to i32
   %15 = getelementptr inbounds %struct._lapdm_data_t, ptr %9, i32 0, i32 0
   store i32 %14, ptr %15, align 4
-  %16 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = call i32 @call_dissector_with_data(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %9)
+  %16 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 2
+  %17 = load ptr, ptr %16, align 16
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = call i32 @call_dissector_with_data(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %9)
   ret void
 }
 
@@ -2340,11 +2451,12 @@ define internal void @handle_rach(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   store i8 3, ptr %7, align 1
-  %8 = load ptr, ptr getelementptr inbounds ([31 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = call i32 @call_dissector_with_data(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %7)
+  %8 = getelementptr inbounds [31 x ptr], ptr @sub_handles, i64 0, i64 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call i32 @call_dissector_with_data(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %7)
   ret void
 }
 

@@ -450,83 +450,85 @@ define void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull 
   %16 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %17 = load i32, ptr %16, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef %15, i32 %17)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 1
-  %20 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %18, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
   store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 2
-  store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 4
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #11
-  %23 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 5
-  call void @_ZN5QListIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  %24 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 6
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 7
-  store i8 0, ptr %25, align 4
-  %26 = load ptr, ptr @mainApp, align 8
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN15MainApplication10normalIconEv(ptr noundef nonnull align 8 dereferenceable(216) %26)
-          to label %28 unwind label %38
+  %21 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 1
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 2
+  store i8 0, ptr %23, align 8
+  %24 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 4
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  %25 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 5
+  call void @_ZN5QListIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
+  %26 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 6
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 7
+  store i8 0, ptr %27, align 4
+  %28 = load ptr, ptr @mainApp, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN15MainApplication10normalIconEv(ptr noundef nonnull align 8 dereferenceable(216) %28)
+          to label %30 unwind label %40
 
-28:                                               ; preds = %3
-  invoke void @_ZN7QWidget13setWindowIconERK5QIcon(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %29 unwind label %38
+30:                                               ; preds = %3
+  invoke void @_ZN7QWidget13setWindowIconERK5QIcon(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %31 unwind label %40
 
-29:                                               ; preds = %28
+31:                                               ; preds = %30
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
   invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %14, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %30 unwind label %42
+          to label %32 unwind label %44
 
-30:                                               ; preds = %29
+32:                                               ; preds = %31
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %31 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %class.WiresharkDialog, ptr %14, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN11CaptureFile12captureEventE12CaptureEvent to i64), i64 0 }, ptr %12, align 8
-  %33 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %35 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
   %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15WiresharkDialog12captureEventE12CaptureEvent to i64), i64 0 }, ptr %13, align 8
-  invoke void @_ZN7QObject7connectIM11CaptureFileFv12CaptureEventEM15WiresharkDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %32, i64 %34, i64 %36, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
-          to label %37 unwind label %38
+  invoke void @_ZN7QObject7connectIM11CaptureFileFv12CaptureEventEM15WiresharkDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %34, i64 %36, i64 %38, ptr noundef %14, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
+          to label %39 unwind label %40
 
-37:                                               ; preds = %30
+39:                                               ; preds = %32
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
   ret void
 
-38:                                               ; preds = %30, %28, %3
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %32, %30, %3
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %8, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %9, align 4
-  br label %46
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %8, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %9, align 4
+  br label %48
 
-42:                                               ; preds = %29
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %31
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %8, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %9, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %8, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %9, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %46
+  br label %48
 
-46:                                               ; preds = %42, %38
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #11
+48:                                               ; preds = %44, %40
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #11
-  br label %47
+  br label %49
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr %9, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -557,11 +559,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
   ret void
 }
 

@@ -267,7 +267,7 @@ define i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
 
 16:                                               ; preds = %3
   store i32 -1, ptr %4, align 4
-  br label %127
+  br label %129
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %5, align 8
@@ -279,7 +279,7 @@ define i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
 
 22:                                               ; preds = %17
   store i32 -1, ptr %4, align 4
-  br label %127
+  br label %129
 
 23:                                               ; preds = %17
   br label %24
@@ -436,30 +436,32 @@ define i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
   br label %114
 
 114:                                              ; preds = %111, %93
-  %115 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 15), align 8
-  %116 = icmp eq ptr null, %115
-  br i1 %116, label %122, label %117
+  %115 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 15
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr null, %116
+  br i1 %117, label %124, label %118
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr %5, align 8
-  %119 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 15), align 8
-  %120 = call i32 @strcmp(ptr noundef %118, ptr noundef %119) #8
-  %121 = icmp ne i32 0, %120
-  br i1 %121, label %122, label %125
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 15
+  %121 = load ptr, ptr %120, align 8
+  %122 = call i32 @strcmp(ptr noundef %119, ptr noundef %121) #8
+  %123 = icmp ne i32 0, %122
+  br i1 %123, label %124, label %127
 
-122:                                              ; preds = %117, %114
-  %123 = load ptr, ptr %5, align 8
-  %124 = call i32 @rmdir(ptr noundef %123) #6
-  br label %125
-
-125:                                              ; preds = %122, %117
-  %126 = load i32, ptr %9, align 4
-  store i32 %126, ptr %4, align 4
+124:                                              ; preds = %118, %114
+  %125 = load ptr, ptr %5, align 8
+  %126 = call i32 @rmdir(ptr noundef %125) #6
   br label %127
 
-127:                                              ; preds = %125, %22, %16
-  %128 = load i32, ptr %4, align 4
-  ret i32 %128
+127:                                              ; preds = %124, %118
+  %128 = load i32, ptr %9, align 4
+  store i32 %128, ptr %4, align 4
+  br label %129
+
+129:                                              ; preds = %127, %22, %16
+  %130 = load i32, ptr %4, align 4
+  ret i32 %130
 }
 
 declare ptr @opendir(ptr noundef) #3

@@ -1714,7 +1714,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123CleanTest_CleanAll_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123CleanTest_CleanAll_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1846,7 +1847,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_129Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1959,7 +1961,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CleanTest_CleanTarget_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CleanTest_CleanTarget_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2072,7 +2075,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2185,7 +2189,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124CleanTest_CleanRule_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124CleanTest_CleanRule_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2298,7 +2303,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2411,7 +2417,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2524,7 +2531,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanDepFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanDepFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2637,7 +2645,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2750,7 +2759,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2863,7 +2873,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CleanTest_CleanDyndep_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126CleanTest_CleanDyndep_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2976,7 +2987,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3089,7 +3101,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanRspFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanRspFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3202,7 +3215,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123CleanTest_CleanRsp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123CleanTest_CleanRsp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3315,7 +3329,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanFailure_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127CleanTest_CleanFailure_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3428,7 +3443,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125CleanTest_CleanPhony_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125CleanTest_CleanPhony_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3541,7 +3557,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3851,7 +3868,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_128Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3964,7 +3982,8 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143Cle
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3975,7 +3994,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4055,7 +4075,8 @@ define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123CleanTest_CleanAll_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123CleanTest_CleanAll_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4067,48 +4088,49 @@ define internal void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %5, i32 0, i32 1
-  invoke void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(204) %6)
-          to label %7 unwind label %10
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %5, i32 0, i32 1
+  invoke void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(204) %7)
+          to label %8 unwind label %11
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %5, i32 0, i32 2
-  invoke void @_ZN11BuildConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8)
-          to label %9 unwind label %14
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %5, i32 0, i32 2
+  invoke void @_ZN11BuildConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9)
+          to label %10 unwind label %15
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  br label %18
-
-14:                                               ; preds = %7
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %3, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %4, align 4
-  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %6) #3
-  br label %18
-
-18:                                               ; preds = %14, %10
-  call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #3
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %3, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %4, align 4
+  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %7) #3
+  br label %19
+
+19:                                               ; preds = %15, %11
+  call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #3
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5629,19 +5651,20 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 6
-  store i32 1, ptr %9, align 8
+  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 6
+  store i32 1, ptr %10, align 8
   ret void
 }
 
@@ -5670,17 +5693,18 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   call void @_ZN13DiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -5690,9 +5714,10 @@ define internal void @_ZN12_GLOBAL__N_19CleanTestD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %3, i32 0, i32 1
-  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::CleanTest", ptr %3, i32 0, i32 1
+  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %5) #3
   call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #3
   ret void
 }
@@ -5711,7 +5736,8 @@ define linkonce_odr dso_local void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10FileReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5749,7 +5775,8 @@ define linkonce_odr dso_local void @_ZN10FileReaderC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6800,9 +6827,10 @@ define linkonce_odr dso_local void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %3, i32 0, i32 1
-  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %3, i32 0, i32 1
+  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -6849,11 +6877,12 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZN3EnvD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -10431,7 +10460,8 @@ define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12581,7 +12611,8 @@ define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126CleanTest_CleanTarget_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126CleanTest_CleanTarget_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14113,7 +14144,8 @@ define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15646,7 +15678,8 @@ define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124CleanTest_CleanRule_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124CleanTest_CleanRule_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17178,7 +17211,8 @@ define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18711,7 +18745,8 @@ define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -19589,7 +19624,8 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanDepFile_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanDepFile_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20171,7 +20207,8 @@ define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20753,7 +20790,8 @@ define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -21335,7 +21373,8 @@ define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126CleanTest_CleanDyndep_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126CleanTest_CleanDyndep_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -22366,7 +22405,8 @@ define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23337,7 +23377,8 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanRspFile_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanRspFile_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23919,7 +23960,8 @@ define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123CleanTest_CleanRsp_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123CleanTest_CleanRsp_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -25869,7 +25911,8 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanFailure_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127CleanTest_CleanFailure_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -26374,7 +26417,8 @@ define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125CleanTest_CleanPhony_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125CleanTest_CleanPhony_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27477,7 +27521,8 @@ define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28638,9 +28683,11 @@ define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_113CleanDeadTestC2Ev(ptr noundef nonnull align 8 dereferenceable(528) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 520
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 520
+  %6 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -28652,9 +28699,11 @@ define internal void @_ZN12_GLOBAL__N_113CleanDeadTestC2Ev(ptr noundef nonnull a
   call void @_ZN12_GLOBAL__N_19CleanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 520
   call void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113CleanDeadTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 520
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113CleanDeadTestE, i32 0, i32 1, i32 2), ptr %5, align 8
+  %5 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113CleanDeadTestE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 520
+  %7 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113CleanDeadTestE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
@@ -31980,7 +32029,8 @@ define linkonce_odr dso_local void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -32982,9 +33032,11 @@ define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_113CleanDeadTestC2Ev(ptr noundef nonnull align 8 dereferenceable(528) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 520
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 520
+  %6 = getelementptr inbounds { [9 x ptr], [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 

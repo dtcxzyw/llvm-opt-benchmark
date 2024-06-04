@@ -212,102 +212,106 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal void @_load_config() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105), align 8
-  %3 = zext i16 %2 to i32
-  %4 = sdiv i32 %3, 2
-  store i32 %4, ptr @sched_timeout, align 4
-  %5 = load i32, ptr @sched_timeout, align 4
-  %6 = icmp sgt i32 %5, 1
-  br i1 %6, label %7, label %9
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 105
+  %3 = load i16, ptr %2, align 8
+  %4 = zext i16 %3 to i32
+  %5 = sdiv i32 %4, 2
+  store i32 %5, ptr @sched_timeout, align 4
+  %6 = load i32, ptr @sched_timeout, align 4
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %0
-  %8 = load i32, ptr @sched_timeout, align 4
-  br label %10
+8:                                                ; preds = %0
+  %9 = load i32, ptr @sched_timeout, align 4
+  br label %11
 
-9:                                                ; preds = %0
-  br label %10
+10:                                               ; preds = %0
+  br label %11
 
-10:                                               ; preds = %9, %7
-  %11 = phi i32 [ %8, %7 ], [ 1, %9 ]
-  store i32 %11, ptr @sched_timeout, align 4
-  %12 = load i32, ptr @sched_timeout, align 4
-  %13 = icmp slt i32 %12, 10
-  br i1 %13, label %14, label %16
+11:                                               ; preds = %10, %8
+  %12 = phi i32 [ %9, %8 ], [ 1, %10 ]
+  store i32 %12, ptr @sched_timeout, align 4
+  %13 = load i32, ptr @sched_timeout, align 4
+  %14 = icmp slt i32 %13, 10
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr @sched_timeout, align 4
-  br label %17
+15:                                               ; preds = %11
+  %16 = load i32, ptr @sched_timeout, align 4
+  br label %18
 
-16:                                               ; preds = %10
-  br label %17
+17:                                               ; preds = %11
+  br label %18
 
-17:                                               ; preds = %16, %14
-  %18 = phi i32 [ %15, %14 ], [ 10, %16 ]
-  store i32 %18, ptr @sched_timeout, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %20 = call ptr @xstrcasestr(ptr noundef %19, ptr noundef @.str.4)
-  store ptr %20, ptr %1, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %26
+18:                                               ; preds = %17, %15
+  %19 = phi i32 [ %16, %15 ], [ 10, %17 ]
+  store i32 %19, ptr @sched_timeout, align 4
+  %20 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @xstrcasestr(ptr noundef %21, ptr noundef @.str.4)
+  store ptr %22, ptr %1, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %28
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
-  %25 = call i32 @atoi(ptr noundef %24) #11
-  store i32 %25, ptr @builtin_interval, align 4
-  br label %26
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 9
+  %27 = call i32 @atoi(ptr noundef %26) #11
+  store i32 %27, ptr @builtin_interval, align 4
+  br label %28
 
-26:                                               ; preds = %22, %17
-  %27 = load i32, ptr @builtin_interval, align 4
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %29, label %32
+28:                                               ; preds = %24, %18
+  %29 = load i32, ptr @builtin_interval, align 4
+  %30 = icmp slt i32 %29, 1
+  br i1 %30, label %31, label %34
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr @builtin_interval, align 4
-  %31 = call i32 (ptr, ...) @error(ptr noundef @.str.5, i32 noundef %30)
+31:                                               ; preds = %28
+  %32 = load i32, ptr @builtin_interval, align 4
+  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.5, i32 noundef %32)
   store i32 30, ptr @builtin_interval, align 4
-  br label %32
+  br label %34
 
-32:                                               ; preds = %29, %26
-  %33 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %34 = call ptr @xstrcasestr(ptr noundef %33, ptr noundef @.str.6)
-  store ptr %34, ptr %1, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %40
+34:                                               ; preds = %31, %28
+  %35 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr @xstrcasestr(ptr noundef %36, ptr noundef @.str.6)
+  store ptr %37, ptr %1, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %43
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 11
-  %39 = call i32 @atoi(ptr noundef %38) #11
-  store i32 %39, ptr @max_sched_job_cnt, align 4
-  br label %40
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 11
+  %42 = call i32 @atoi(ptr noundef %41) #11
+  store i32 %42, ptr @max_sched_job_cnt, align 4
+  br label %43
 
-40:                                               ; preds = %36, %32
-  %41 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %42 = call ptr @xstrcasestr(ptr noundef %41, ptr noundef @.str.7)
-  store ptr %42, ptr %1, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %48
+43:                                               ; preds = %39, %34
+  %44 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %45 = load ptr, ptr %44, align 8
+  %46 = call ptr @xstrcasestr(ptr noundef %45, ptr noundef @.str.7)
+  store ptr %46, ptr %1, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %52
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = call i32 @atoi(ptr noundef %46) #11
-  store i32 %47, ptr @max_sched_job_cnt, align 4
-  br label %48
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = call i32 @atoi(ptr noundef %50) #11
+  store i32 %51, ptr @max_sched_job_cnt, align 4
+  br label %52
 
-48:                                               ; preds = %44, %40
-  %49 = load i32, ptr @max_sched_job_cnt, align 4
-  %50 = icmp slt i32 %49, 1
-  br i1 %50, label %51, label %54
+52:                                               ; preds = %48, %43
+  %53 = load i32, ptr @max_sched_job_cnt, align 4
+  %54 = icmp slt i32 %53, 1
+  br i1 %54, label %55, label %58
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr @max_sched_job_cnt, align 4
-  %53 = call i32 (ptr, ...) @error(ptr noundef @.str.8, i32 noundef %52)
+55:                                               ; preds = %52
+  %56 = load i32, ptr @max_sched_job_cnt, align 4
+  %57 = call i32 (ptr, ...) @error(ptr noundef @.str.8, i32 noundef %56)
   store i32 50, ptr @max_sched_job_cnt, align 4
-  br label %54
+  br label %58
 
-54:                                               ; preds = %51, %48
+58:                                               ; preds = %55, %52
   ret void
 }
 

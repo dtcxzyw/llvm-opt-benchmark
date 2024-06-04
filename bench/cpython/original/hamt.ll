@@ -4734,15 +4734,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 7), ptr %retval, align 8
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %2 = getelementptr inbounds %struct.anon.44, ptr %1, i32 0, i32 7
+  store ptr %2, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call ptr @_PyObject_GC_NewVar(ptr noundef @_PyHamt_BitmapNode_Type, i64 noundef %1)
+  %3 = load i64, ptr %size.addr, align 8
+  %call = call ptr @_PyObject_GC_NewVar(ptr noundef @_PyHamt_BitmapNode_Type, i64 noundef %3)
   store ptr %call, ptr %node, align 8
-  %2 = load ptr, ptr %node, align 8
-  %cmp1 = icmp eq ptr %2, null
+  %4 = load ptr, ptr %node, align 8
+  %cmp1 = icmp eq ptr %4, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -4750,45 +4752,45 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %3 = load ptr, ptr %node, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  call void @Py_SET_SIZE(ptr noundef %3, i64 noundef %4)
+  %5 = load ptr, ptr %node, align 8
+  %6 = load i64, ptr %size.addr, align 8
+  call void @Py_SET_SIZE(ptr noundef %5, i64 noundef %6)
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end3
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %size.addr, align 8
-  %cmp4 = icmp slt i64 %5, %6
+  %7 = load i64, ptr %i, align 8
+  %8 = load i64, ptr %size.addr, align 8
+  %cmp4 = icmp slt i64 %7, %8
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %node, align 8
-  %b_array = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %7, i32 0, i32 2
-  %8 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %8
+  %9 = load ptr, ptr %node, align 8
+  %b_array = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %9, i32 0, i32 2
+  %10 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr [1 x ptr], ptr %b_array, i64 0, i64 %10
   store ptr null, ptr %arrayidx, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
+  %11 = load i64, ptr %i, align 8
+  %inc = add i64 %11, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %node, align 8
-  %b_bitmap = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %10, i32 0, i32 1
-  store i32 0, ptr %b_bitmap, align 8
-  %11 = load ptr, ptr %node, align 8
-  call void @_PyObject_GC_TRACK(ptr noundef %11)
   %12 = load ptr, ptr %node, align 8
-  store ptr %12, ptr %retval, align 8
+  %b_bitmap = getelementptr inbounds %struct.PyHamtNode_Bitmap, ptr %12, i32 0, i32 1
+  store i32 0, ptr %b_bitmap, align 8
+  %13 = load ptr, ptr %node, align 8
+  call void @_PyObject_GC_TRACK(ptr noundef %13)
+  %14 = load ptr, ptr %node, align 8
+  store ptr %14, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %for.end, %if.then2, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+  %15 = load ptr, ptr %retval, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable

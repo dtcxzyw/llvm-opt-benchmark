@@ -39,82 +39,88 @@ define ptr @opal_shmem_base_best_runnable_component_name() #0 {
   br label %4
 
 4:                                                ; preds = %0
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %6 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %5)
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %6 = load i32, ptr %5, align 4
+  %7 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %6)
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %8, ptr noundef @.str)
-  br label %9
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %10 = load i32, ptr %9, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef @.str)
+  br label %11
 
-9:                                                ; preds = %7, %4
-  br label %10
+11:                                               ; preds = %8, %4
+  br label %12
 
-10:                                               ; preds = %9
-  %11 = call i32 @opal_shmem_base_runtime_query(ptr noundef %3, ptr noundef %2)
-  %12 = icmp ne i32 0, %11
-  br i1 %12, label %13, label %14
+12:                                               ; preds = %11
+  %13 = call i32 @opal_shmem_base_runtime_query(ptr noundef %3, ptr noundef %2)
+  %14 = icmp ne i32 0, %13
+  br i1 %14, label %15, label %16
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   store ptr null, ptr %1, align 8
-  br label %40
+  br label %46
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %2, align 8
-  %16 = icmp ne ptr null, %15
-  br i1 %16, label %17, label %32
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %2, align 8
+  %18 = icmp ne ptr null, %17
+  br i1 %18, label %19, label %36
 
-17:                                               ; preds = %14
-  br label %18
+19:                                               ; preds = %16
+  br label %20
 
-18:                                               ; preds = %17
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %20 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %19)
-  br i1 %20, label %21, label %26
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %22 = load i32, ptr %21, align 4
+  %23 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %22)
+  br i1 %23, label %24, label %30
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %23, i32 0, i32 11
-  %25 = getelementptr inbounds [64 x i8], ptr %24, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef @.str.1, ptr noundef %25)
-  br label %26
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %26 = load i32, ptr %25, align 4
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %27, i32 0, i32 11
+  %29 = getelementptr inbounds [64 x i8], ptr %28, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %26, ptr noundef @.str.1, ptr noundef %29)
+  br label %30
 
-26:                                               ; preds = %21, %18
-  br label %27
+30:                                               ; preds = %24, %20
+  br label %31
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %28, i32 0, i32 11
-  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
-  %31 = call noalias ptr @strdup(ptr noundef %30) #3
-  store ptr %31, ptr %1, align 8
-  br label %40
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %32, i32 0, i32 11
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 0
+  %35 = call noalias ptr @strdup(ptr noundef %34) #3
+  store ptr %35, ptr %1, align 8
+  br label %46
 
-32:                                               ; preds = %14
-  br label %33
+36:                                               ; preds = %16
+  br label %37
 
-33:                                               ; preds = %32
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %35 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %34)
-  br i1 %35, label %36, label %38
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %39 = load i32, ptr %38, align 4
+  %40 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %39)
+  br i1 %40, label %41, label %44
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %37, ptr noundef @.str.2)
-  br label %38
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %43 = load i32, ptr %42, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %43, ptr noundef @.str.2)
+  br label %44
 
-38:                                               ; preds = %36, %33
-  br label %39
+44:                                               ; preds = %41, %37
+  br label %45
 
-39:                                               ; preds = %38
+45:                                               ; preds = %44
   store ptr null, ptr %1, align 8
-  br label %40
+  br label %46
 
-40:                                               ; preds = %39, %27, %13
-  %41 = load ptr, ptr %1, align 8
-  ret ptr %41
+46:                                               ; preds = %45, %31, %15
+  %47 = load ptr, ptr %1, align 8
+  ret ptr %47
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) #1
@@ -152,7 +158,7 @@ define internal i32 @opal_shmem_base_runtime_query(ptr noundef %0, ptr noundef %
   %19 = load ptr, ptr %4, align 8
   store ptr %18, ptr %19, align 8
   store i32 0, ptr %3, align 4
-  br label %139
+  br label %155
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %4, align 8
@@ -162,222 +168,238 @@ define internal i32 @opal_shmem_base_runtime_query(ptr noundef %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %25 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %24)
-  br i1 %25, label %26, label %28
+  %24 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %25 = load i32, ptr %24, align 4
+  %26 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %25)
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %27, ptr noundef @.str.3)
-  br label %28
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %29 = load i32, ptr %28, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %29, ptr noundef @.str.3)
+  br label %30
 
-28:                                               ; preds = %26, %23
-  br label %29
-
-29:                                               ; preds = %28
-  %30 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %30, ptr %6, align 8
+30:                                               ; preds = %27, %23
   br label %31
 
-31:                                               ; preds = %104, %29
-  %32 = load ptr, ptr %6, align 8
-  %33 = icmp ne ptr %32, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 12, i32 1)
-  br i1 %33, label %34, label %108
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 12, i32 1, i32 1
+  %33 = load volatile ptr, ptr %32, align 8
+  store ptr %33, ptr %6, align 8
+  br label %34
 
-34:                                               ; preds = %31
+34:                                               ; preds = %116, %31
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.opal_shmem_base_component_2_0_0_t, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr null, %40
-  br i1 %41, label %42, label %53
+  %36 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 12, i32 1
+  %37 = icmp ne ptr %35, %36
+  br i1 %37, label %38, label %120
 
-42:                                               ; preds = %34
-  br label %43
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %7, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct.opal_shmem_base_component_2_0_0_t, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr null, %44
+  br i1 %45, label %46, label %59
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %45 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %44)
-  br i1 %45, label %46, label %51
+46:                                               ; preds = %38
+  br label %47
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %48, i32 0, i32 11
-  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %47, ptr noundef @.str.4, ptr noundef %50)
-  br label %51
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %49 = load i32, ptr %48, align 4
+  %50 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %49)
+  br i1 %50, label %51, label %57
 
-51:                                               ; preds = %46, %43
-  br label %52
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %54, i32 0, i32 11
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef @.str.4, ptr noundef %56)
+  br label %57
 
-52:                                               ; preds = %51
-  br label %104
+57:                                               ; preds = %51, %47
+  br label %58
 
-53:                                               ; preds = %34
-  br label %54
+58:                                               ; preds = %57
+  br label %116
 
-54:                                               ; preds = %53
-  %55 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %56 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %55)
-  br i1 %56, label %57, label %62
+59:                                               ; preds = %38
+  br label %60
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %59, i32 0, i32 11
-  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %58, ptr noundef @.str.5, ptr noundef %61)
-  br label %62
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %62 = load i32, ptr %61, align 4
+  %63 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %62)
+  br i1 %63, label %64, label %70
 
-62:                                               ; preds = %57, %54
-  br label %63
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %66 = load i32, ptr %65, align 4
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %67, i32 0, i32 11
+  %69 = getelementptr inbounds [64 x i8], ptr %68, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %66, ptr noundef @.str.5, ptr noundef %69)
+  br label %70
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct.opal_shmem_base_component_2_0_0_t, ptr %64, i32 0, i32 2
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr @opal_shmem_base_RUNTIME_QUERY_hint, align 8
-  %68 = call i32 %66(ptr noundef %8, ptr noundef %9, ptr noundef %67)
-  %69 = load ptr, ptr %8, align 8
-  %70 = icmp eq ptr null, %69
-  br i1 %70, label %71, label %82
+70:                                               ; preds = %64, %60
+  br label %71
 
-71:                                               ; preds = %63
-  br label %72
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds %struct.opal_shmem_base_component_2_0_0_t, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr @opal_shmem_base_RUNTIME_QUERY_hint, align 8
+  %76 = call i32 %74(ptr noundef %8, ptr noundef %9, ptr noundef %75)
+  %77 = load ptr, ptr %8, align 8
+  %78 = icmp eq ptr null, %77
+  br i1 %78, label %79, label %92
 
-72:                                               ; preds = %71
-  %73 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %74 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %73)
-  br i1 %74, label %75, label %80
-
-75:                                               ; preds = %72
-  %76 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %77, i32 0, i32 11
-  %79 = getelementptr inbounds [64 x i8], ptr %78, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %76, ptr noundef @.str.6, ptr noundef %79)
+79:                                               ; preds = %71
   br label %80
 
-80:                                               ; preds = %75, %72
-  br label %81
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %82 = load i32, ptr %81, align 4
+  %83 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %82)
+  br i1 %83, label %84, label %90
 
-81:                                               ; preds = %80
-  br label %104
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %86 = load i32, ptr %85, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %87, i32 0, i32 11
+  %89 = getelementptr inbounds [64 x i8], ptr %88, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %86, ptr noundef @.str.6, ptr noundef %89)
+  br label %90
 
-82:                                               ; preds = %63
-  br label %83
+90:                                               ; preds = %84, %80
+  br label %91
 
-83:                                               ; preds = %82
-  %84 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %85 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %84)
-  br i1 %85, label %86, label %92
+91:                                               ; preds = %90
+  br label %116
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %88, i32 0, i32 11
-  %90 = getelementptr inbounds [64 x i8], ptr %89, i64 0, i64 0
-  %91 = load i32, ptr %9, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %87, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %90, i32 noundef %91)
-  br label %92
-
-92:                                               ; preds = %86, %83
+92:                                               ; preds = %71
   br label %93
 
 93:                                               ; preds = %92
-  %94 = load i32, ptr %9, align 4
-  %95 = load i32, ptr %10, align 4
-  %96 = icmp sgt i32 %94, %95
-  br i1 %96, label %97, label %103
+  %94 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %95 = load i32, ptr %94, align 4
+  %96 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %95)
+  br i1 %96, label %97, label %104
 
 97:                                               ; preds = %93
-  %98 = load i32, ptr %9, align 4
-  store i32 %98, ptr %10, align 4
-  %99 = load ptr, ptr %8, align 8
-  %100 = load ptr, ptr %4, align 8
-  store ptr %99, ptr %100, align 8
-  %101 = load ptr, ptr %7, align 8
-  %102 = load ptr, ptr %5, align 8
-  store ptr %101, ptr %102, align 8
-  br label %103
-
-103:                                              ; preds = %97, %93
+  %98 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %99 = load i32, ptr %98, align 4
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %100, i32 0, i32 11
+  %102 = getelementptr inbounds [64 x i8], ptr %101, i64 0, i64 0
+  %103 = load i32, ptr %9, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %99, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %102, i32 noundef %103)
   br label %104
 
-104:                                              ; preds = %103, %81, %52
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.opal_list_item_t, ptr %105, i32 0, i32 1
-  %107 = load volatile ptr, ptr %106, align 8
-  store ptr %107, ptr %6, align 8
-  br label %31, !llvm.loop !4
+104:                                              ; preds = %97, %93
+  br label %105
 
-108:                                              ; preds = %31
-  %109 = load ptr, ptr %5, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr null, %110
-  br i1 %111, label %112, label %120
+105:                                              ; preds = %104
+  %106 = load i32, ptr %9, align 4
+  %107 = load i32, ptr %10, align 4
+  %108 = icmp sgt i32 %106, %107
+  br i1 %108, label %109, label %115
 
-112:                                              ; preds = %108
-  br label %113
+109:                                              ; preds = %105
+  %110 = load i32, ptr %9, align 4
+  store i32 %110, ptr %10, align 4
+  %111 = load ptr, ptr %8, align 8
+  %112 = load ptr, ptr %4, align 8
+  store ptr %111, ptr %112, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %5, align 8
+  store ptr %113, ptr %114, align 8
+  br label %115
 
-113:                                              ; preds = %112
-  %114 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %115 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %114)
-  br i1 %115, label %116, label %118
+115:                                              ; preds = %109, %105
+  br label %116
 
-116:                                              ; preds = %113
-  %117 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %117, ptr noundef @.str.9, ptr noundef @.str.8)
-  br label %118
+116:                                              ; preds = %115, %91, %58
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %struct.opal_list_item_t, ptr %117, i32 0, i32 1
+  %119 = load volatile ptr, ptr %118, align 8
+  store ptr %119, ptr %6, align 8
+  br label %34, !llvm.loop !4
 
-118:                                              ; preds = %116, %113
-  br label %119
+120:                                              ; preds = %34
+  %121 = load ptr, ptr %5, align 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = icmp eq ptr null, %122
+  br i1 %123, label %124, label %134
 
-119:                                              ; preds = %118
+124:                                              ; preds = %120
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %127 = load i32, ptr %126, align 4
+  %128 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %127)
+  br i1 %128, label %129, label %132
+
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %131 = load i32, ptr %130, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %131, ptr noundef @.str.9, ptr noundef @.str.8)
+  br label %132
+
+132:                                              ; preds = %129, %125
+  br label %133
+
+133:                                              ; preds = %132
   store i32 -13, ptr %3, align 4
-  br label %139
+  br label %155
 
-120:                                              ; preds = %108
-  br label %121
+134:                                              ; preds = %120
+  br label %135
 
-121:                                              ; preds = %120
-  %122 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %123 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %122)
-  br i1 %123, label %124, label %130
+135:                                              ; preds = %134
+  %136 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %137 = load i32, ptr %136, align 4
+  %138 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %137)
+  br i1 %138, label %139, label %146
 
-124:                                              ; preds = %121
-  %125 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %126 = load ptr, ptr %5, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %127, i32 0, i32 11
-  %129 = getelementptr inbounds [64 x i8], ptr %128, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %125, ptr noundef @.str.10, ptr noundef @.str.8, ptr noundef %129)
-  br label %130
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %141 = load i32, ptr %140, align 4
+  %142 = load ptr, ptr %5, align 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %143, i32 0, i32 11
+  %145 = getelementptr inbounds [64 x i8], ptr %144, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %141, ptr noundef @.str.10, ptr noundef @.str.8, ptr noundef %145)
+  br label %146
 
-130:                                              ; preds = %124, %121
-  br label %131
+146:                                              ; preds = %139, %135
+  br label %147
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %5, align 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = call i32 @mca_base_framework_components_close(ptr noundef @opal_shmem_base_framework, ptr noundef %133)
-  %135 = load ptr, ptr %5, align 8
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr @opal_shmem_base_component, align 8
-  %137 = load ptr, ptr %4, align 8
-  %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr @opal_shmem_base_module, align 8
+147:                                              ; preds = %146
+  %148 = load ptr, ptr %5, align 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = call i32 @mca_base_framework_components_close(ptr noundef @opal_shmem_base_framework, ptr noundef %149)
+  %151 = load ptr, ptr %5, align 8
+  %152 = load ptr, ptr %151, align 8
+  store ptr %152, ptr @opal_shmem_base_component, align 8
+  %153 = load ptr, ptr %4, align 8
+  %154 = load ptr, ptr %153, align 8
+  store ptr %154, ptr @opal_shmem_base_module, align 8
   store i8 1, ptr @opal_shmem_base_selected, align 1
   store i32 0, ptr %3, align 4
-  br label %139
+  br label %155
 
-139:                                              ; preds = %131, %119, %13
-  %140 = load i32, ptr %3, align 4
-  ret i32 %140
+155:                                              ; preds = %147, %133, %13
+  %156 = load i32, ptr %3, align 4
+  ret i32 %156
 }
 
 ; Function Attrs: nounwind

@@ -459,22 +459,24 @@ if.end49:                                         ; preds = %if.end47, %if.end8
   br i1 %tobool54, label %lor.lhs.false55, label %if.then65
 
 lor.lhs.false55:                                  ; preds = %if.end49
-  %23 = load ptr, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2), align 16
-  store ptr %23, ptr %greeting, align 8
-  %call56 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 92, ptr noundef @.str.35, ptr noundef %23)
+  %23 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 16
+  store ptr %24, ptr %greeting, align 8
+  %call56 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 92, ptr noundef @.str.35, ptr noundef %24)
   %tobool57 = icmp ne i32 %call56, 0
   br i1 %tobool57, label %lor.lhs.false58, label %if.then65
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %24 = load i64, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3), align 8
-  %call59 = call i32 @test_size_t_gt(ptr noundef @.str.20, i32 noundef 93, ptr noundef @.str.36, ptr noundef @.str.37, i64 noundef %24, i64 noundef 0)
+  %25 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3
+  %26 = load i64, ptr %25, align 8
+  %call59 = call i32 @test_size_t_gt(ptr noundef @.str.20, i32 noundef 93, ptr noundef @.str.36, ptr noundef @.str.37, i64 noundef %26, i64 noundef 0)
   %tobool60 = icmp ne i32 %call59, 0
   br i1 %tobool60, label %lor.lhs.false61, label %if.then65
 
 lor.lhs.false61:                                  ; preds = %lor.lhs.false58
-  %25 = load ptr, ptr %greeting, align 8
+  %27 = load ptr, ptr %greeting, align 8
   %arraydecay62 = getelementptr inbounds [256 x i8], ptr %expected_greeting, i64 0, i64 0
-  %call63 = call i32 @test_str_eq(ptr noundef @.str.20, i32 noundef 94, ptr noundef @.str.38, ptr noundef @.str.39, ptr noundef %25, ptr noundef %arraydecay62)
+  %call63 = call i32 @test_str_eq(ptr noundef @.str.20, i32 noundef 94, ptr noundef @.str.38, ptr noundef @.str.39, ptr noundef %27, ptr noundef %arraydecay62)
   %tobool64 = icmp ne i32 %call63, 0
   br i1 %tobool64, label %if.end66, label %if.then65
 
@@ -484,15 +486,15 @@ if.then65:                                        ; preds = %lor.lhs.false61, %l
 if.end66:                                         ; preds = %lor.lhs.false61
   %call67 = call i64 @ERR_peek_last_error()
   store i64 %call67, ptr %err, align 8
-  %26 = load i64, ptr %err, align 8
-  %conv68 = trunc i64 %26 to i32
+  %28 = load i64, ptr %err, align 8
+  %conv68 = trunc i64 %28 to i32
   %call69 = call i32 @test_int_gt(ptr noundef @.str.20, i32 noundef 99, ptr noundef @.str.40, ptr noundef @.str.37, i32 noundef %conv68, i32 noundef 0)
   %tobool70 = icmp ne i32 %call69, 0
   br i1 %tobool70, label %lor.lhs.false71, label %if.then75
 
 lor.lhs.false71:                                  ; preds = %if.end66
-  %27 = load i64, ptr %err, align 8
-  %call72 = call i32 @ERR_GET_REASON(i64 noundef %27)
+  %29 = load i64, ptr %err, align 8
+  %call72 = call i32 @ERR_GET_REASON(i64 noundef %29)
   %call73 = call i32 @test_int_eq(ptr noundef @.str.20, i32 noundef 100, ptr noundef @.str.41, ptr noundef @.str.42, i32 noundef %call72, i32 noundef 1)
   %tobool74 = icmp ne i32 %call73, 0
   br i1 %tobool74, label %if.end76, label %if.then75
@@ -501,16 +503,16 @@ if.then75:                                        ; preds = %lor.lhs.false71, %i
   br label %err142
 
 if.end76:                                         ; preds = %lor.lhs.false71
-  %28 = load ptr, ptr %legacy.addr, align 8
-  %call77 = call i32 @OSSL_PROVIDER_unload(ptr noundef %28)
+  %30 = load ptr, ptr %legacy.addr, align 8
+  %call77 = call i32 @OSSL_PROVIDER_unload(ptr noundef %30)
   store ptr null, ptr %legacy.addr, align 8
-  %29 = load i32, ptr %dolegacycheck, align 4
-  %tobool78 = icmp ne i32 %29, 0
+  %31 = load i32, ptr %dolegacycheck, align 4
+  %tobool78 = icmp ne i32 %31, 0
   br i1 %tobool78, label %if.then79, label %if.end127
 
 if.then79:                                        ; preds = %if.end76
-  %30 = load ptr, ptr %prov, align 8
-  %call80 = call i32 @OSSL_PROVIDER_get_params(ptr noundef %30, ptr noundef @digest_check)
+  %32 = load ptr, ptr %prov, align 8
+  %call80 = call i32 @OSSL_PROVIDER_get_params(ptr noundef %32, ptr noundef @digest_check)
   %cmp81 = icmp ne i32 %call80, 0
   %conv82 = zext i1 %cmp81 to i32
   %call83 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 108, ptr noundef @.str.30, i32 noundef %conv82)
@@ -518,8 +520,8 @@ if.then79:                                        ; preds = %if.end76
   br i1 %tobool84, label %lor.lhs.false85, label %if.then90
 
 lor.lhs.false85:                                  ; preds = %if.then79
-  %31 = load i32, ptr @digestsuccess, align 4
-  %cmp86 = icmp ne i32 %31, 0
+  %33 = load i32, ptr @digestsuccess, align 4
+  %cmp86 = icmp ne i32 %33, 0
   %conv87 = zext i1 %cmp86 to i32
   %call88 = call i32 @test_false(ptr noundef @.str.20, i32 noundef 109, ptr noundef @.str.31, i32 noundef %conv87)
   %tobool89 = icmp ne i32 %call88, 0
@@ -529,23 +531,23 @@ if.then90:                                        ; preds = %lor.lhs.false85, %i
   br label %err142
 
 if.end91:                                         ; preds = %lor.lhs.false85
-  %32 = load ptr, ptr %libctx.addr, align 8
-  %33 = load ptr, ptr %32, align 8
-  %call92 = call ptr @OSSL_PROVIDER_load(ptr noundef %33, ptr noundef @.str.43)
-  store ptr %call92, ptr %legacy.addr, align 8
   %34 = load ptr, ptr %libctx.addr, align 8
   %35 = load ptr, ptr %34, align 8
-  %call93 = call ptr @OSSL_PROVIDER_load(ptr noundef %35, ptr noundef @.str.44)
+  %call92 = call ptr @OSSL_PROVIDER_load(ptr noundef %35, ptr noundef @.str.43)
+  store ptr %call92, ptr %legacy.addr, align 8
+  %36 = load ptr, ptr %libctx.addr, align 8
+  %37 = load ptr, ptr %36, align 8
+  %call93 = call ptr @OSSL_PROVIDER_load(ptr noundef %37, ptr noundef @.str.44)
   store ptr %call93, ptr %deflt, align 8
-  %36 = load ptr, ptr %deflt, align 8
-  %call94 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 119, ptr noundef @.str.45, ptr noundef %36)
+  %38 = load ptr, ptr %deflt, align 8
+  %call94 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 119, ptr noundef @.str.45, ptr noundef %38)
   %tobool95 = icmp ne i32 %call94, 0
   br i1 %tobool95, label %lor.lhs.false96, label %if.then102
 
 lor.lhs.false96:                                  ; preds = %if.end91
-  %37 = load ptr, ptr %libctx.addr, align 8
-  %38 = load ptr, ptr %37, align 8
-  %call97 = call i32 @OSSL_PROVIDER_available(ptr noundef %38, ptr noundef @.str.44)
+  %39 = load ptr, ptr %libctx.addr, align 8
+  %40 = load ptr, ptr %39, align 8
+  %call97 = call i32 @OSSL_PROVIDER_available(ptr noundef %40, ptr noundef @.str.44)
   %cmp98 = icmp ne i32 %call97, 0
   %conv99 = zext i1 %cmp98 to i32
   %call100 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 120, ptr noundef @.str.46, i32 noundef %conv99)
@@ -556,18 +558,18 @@ if.then102:                                       ; preds = %lor.lhs.false96, %i
   br label %err142
 
 if.end103:                                        ; preds = %lor.lhs.false96
-  %39 = load ptr, ptr %deflt, align 8
-  %call104 = call i32 @OSSL_PROVIDER_unload(ptr noundef %39)
+  %41 = load ptr, ptr %deflt, align 8
+  %call104 = call i32 @OSSL_PROVIDER_unload(ptr noundef %41)
   store ptr null, ptr %deflt, align 8
-  %40 = load ptr, ptr %legacy.addr, align 8
-  %call105 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 124, ptr noundef @.str.43, ptr noundef %40)
+  %42 = load ptr, ptr %legacy.addr, align 8
+  %call105 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 124, ptr noundef @.str.43, ptr noundef %42)
   %tobool106 = icmp ne i32 %call105, 0
   br i1 %tobool106, label %lor.lhs.false107, label %if.then124
 
 lor.lhs.false107:                                 ; preds = %if.end103
-  %41 = load ptr, ptr %libctx.addr, align 8
-  %42 = load ptr, ptr %41, align 8
-  %call108 = call i32 @OSSL_PROVIDER_available(ptr noundef %42, ptr noundef @.str.44)
+  %43 = load ptr, ptr %libctx.addr, align 8
+  %44 = load ptr, ptr %43, align 8
+  %call108 = call i32 @OSSL_PROVIDER_available(ptr noundef %44, ptr noundef @.str.44)
   %cmp109 = icmp ne i32 %call108, 0
   %conv110 = zext i1 %cmp109 to i32
   %call111 = call i32 @test_false(ptr noundef @.str.20, i32 noundef 125, ptr noundef @.str.46, i32 noundef %conv110)
@@ -575,8 +577,8 @@ lor.lhs.false107:                                 ; preds = %if.end103
   br i1 %tobool112, label %lor.lhs.false113, label %if.then124
 
 lor.lhs.false113:                                 ; preds = %lor.lhs.false107
-  %43 = load ptr, ptr %prov, align 8
-  %call114 = call i32 @OSSL_PROVIDER_get_params(ptr noundef %43, ptr noundef @digest_check)
+  %45 = load ptr, ptr %prov, align 8
+  %call114 = call i32 @OSSL_PROVIDER_get_params(ptr noundef %45, ptr noundef @digest_check)
   %cmp115 = icmp ne i32 %call114, 0
   %conv116 = zext i1 %cmp115 to i32
   %call117 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 126, ptr noundef @.str.30, i32 noundef %conv116)
@@ -584,8 +586,8 @@ lor.lhs.false113:                                 ; preds = %lor.lhs.false107
   br i1 %tobool118, label %lor.lhs.false119, label %if.then124
 
 lor.lhs.false119:                                 ; preds = %lor.lhs.false113
-  %44 = load i32, ptr @digestsuccess, align 4
-  %cmp120 = icmp ne i32 %44, 0
+  %46 = load i32, ptr @digestsuccess, align 4
+  %cmp120 = icmp ne i32 %46, 0
   %conv121 = zext i1 %cmp120 to i32
   %call122 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 127, ptr noundef @.str.31, i32 noundef %conv121)
   %tobool123 = icmp ne i32 %call122, 0
@@ -595,14 +597,14 @@ if.then124:                                       ; preds = %lor.lhs.false119, %
   br label %err142
 
 if.end125:                                        ; preds = %lor.lhs.false119
-  %45 = load ptr, ptr %legacy.addr, align 8
-  %call126 = call i32 @OSSL_PROVIDER_unload(ptr noundef %45)
+  %47 = load ptr, ptr %legacy.addr, align 8
+  %call126 = call i32 @OSSL_PROVIDER_unload(ptr noundef %47)
   store ptr null, ptr %legacy.addr, align 8
   br label %if.end127
 
 if.end127:                                        ; preds = %if.end125, %if.end76
-  %46 = load ptr, ptr %base, align 8
-  %call128 = call i32 @OSSL_PROVIDER_unload(ptr noundef %46)
+  %48 = load ptr, ptr %base, align 8
+  %call128 = call i32 @OSSL_PROVIDER_unload(ptr noundef %48)
   %cmp129 = icmp ne i32 %call128, 0
   %conv130 = zext i1 %cmp129 to i32
   %call131 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 133, ptr noundef @.str.47, i32 noundef %conv130)
@@ -614,8 +616,8 @@ if.then133:                                       ; preds = %if.end127
 
 if.end134:                                        ; preds = %if.end127
   store ptr null, ptr %base, align 8
-  %47 = load ptr, ptr %prov, align 8
-  %call135 = call i32 @OSSL_PROVIDER_unload(ptr noundef %47)
+  %49 = load ptr, ptr %prov, align 8
+  %call135 = call i32 @OSSL_PROVIDER_unload(ptr noundef %49)
   %cmp136 = icmp ne i32 %call135, 0
   %conv137 = zext i1 %cmp136 to i32
   %call138 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 136, ptr noundef @.str.48, i32 noundef %conv137)
@@ -627,33 +629,33 @@ if.then140:                                       ; preds = %if.end134
 
 if.end141:                                        ; preds = %if.end134
   store ptr null, ptr %prov, align 8
-  %48 = load ptr, ptr %libctx.addr, align 8
-  %49 = load ptr, ptr %48, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %49)
   %50 = load ptr, ptr %libctx.addr, align 8
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr @stderr, align 8
-  call void @ERR_print_errors_fp(ptr noundef %51)
+  %51 = load ptr, ptr %50, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %51)
+  %52 = load ptr, ptr %libctx.addr, align 8
+  store ptr null, ptr %52, align 8
+  %53 = load ptr, ptr @stderr, align 8
+  call void @ERR_print_errors_fp(ptr noundef %53)
   store i32 1, ptr %ok, align 4
   br label %err142
 
 err142:                                           ; preds = %if.end141, %if.then140, %if.then133, %if.then124, %if.then102, %if.then90, %if.then75, %if.then65, %if.then46, %if.then33, %if.then21, %if.then7, %if.then
-  %52 = load ptr, ptr %base, align 8
-  %call143 = call i32 @OSSL_PROVIDER_unload(ptr noundef %52)
-  %53 = load ptr, ptr %deflt, align 8
-  %call144 = call i32 @OSSL_PROVIDER_unload(ptr noundef %53)
-  %54 = load ptr, ptr %legacy.addr, align 8
-  %call145 = call i32 @OSSL_PROVIDER_unload(ptr noundef %54)
+  %54 = load ptr, ptr %base, align 8
+  %call143 = call i32 @OSSL_PROVIDER_unload(ptr noundef %54)
+  %55 = load ptr, ptr %deflt, align 8
+  %call144 = call i32 @OSSL_PROVIDER_unload(ptr noundef %55)
+  %56 = load ptr, ptr %legacy.addr, align 8
+  %call145 = call i32 @OSSL_PROVIDER_unload(ptr noundef %56)
   store ptr null, ptr %legacy.addr, align 8
-  %55 = load ptr, ptr %prov, align 8
-  %call146 = call i32 @OSSL_PROVIDER_unload(ptr noundef %55)
-  %56 = load ptr, ptr %libctx.addr, align 8
-  %57 = load ptr, ptr %56, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %57)
+  %57 = load ptr, ptr %prov, align 8
+  %call146 = call i32 @OSSL_PROVIDER_unload(ptr noundef %57)
   %58 = load ptr, ptr %libctx.addr, align 8
-  store ptr null, ptr %58, align 8
-  %59 = load i32, ptr %ok, align 4
-  ret i32 %59
+  %59 = load ptr, ptr %58, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %59)
+  %60 = load ptr, ptr %libctx.addr, align 8
+  store ptr null, ptr %60, align 8
+  %61 = load i32, ptr %ok, align 4
+  ret i32 %61
 }
 
 declare void @OSSL_LIB_CTX_free(ptr noundef) #1
@@ -785,22 +787,24 @@ if.end13:                                         ; preds = %if.end
   br i1 %tobool18, label %lor.lhs.false19, label %if.then29
 
 lor.lhs.false19:                                  ; preds = %if.end13
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2), align 16
-  store ptr %7, ptr %greeting, align 8
-  %call20 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 183, ptr noundef @.str.35, ptr noundef %7)
+  %7 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 16
+  store ptr %8, ptr %greeting, align 8
+  %call20 = call i32 @test_ptr(ptr noundef @.str.20, i32 noundef 183, ptr noundef @.str.35, ptr noundef %8)
   %tobool21 = icmp ne i32 %call20, 0
   br i1 %tobool21, label %lor.lhs.false22, label %if.then29
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false19
-  %8 = load i64, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3), align 8
-  %call23 = call i32 @test_size_t_gt(ptr noundef @.str.20, i32 noundef 184, ptr noundef @.str.36, ptr noundef @.str.37, i64 noundef %8, i64 noundef 0)
+  %9 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3
+  %10 = load i64, ptr %9, align 8
+  %call23 = call i32 @test_size_t_gt(ptr noundef @.str.20, i32 noundef 184, ptr noundef @.str.36, ptr noundef @.str.37, i64 noundef %10, i64 noundef 0)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %lor.lhs.false25, label %if.then29
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %9 = load ptr, ptr %greeting, align 8
+  %11 = load ptr, ptr %greeting, align 8
   %arraydecay26 = getelementptr inbounds [16 x i8], ptr %custom_buf, i64 0, i64 0
-  %call27 = call i32 @test_str_eq(ptr noundef @.str.20, i32 noundef 185, ptr noundef @.str.38, ptr noundef @.str.56, ptr noundef %9, ptr noundef %arraydecay26)
+  %call27 = call i32 @test_str_eq(ptr noundef @.str.20, i32 noundef 185, ptr noundef @.str.38, ptr noundef @.str.56, ptr noundef %11, ptr noundef %arraydecay26)
   %tobool28 = icmp ne i32 %call27, 0
   br i1 %tobool28, label %if.end30, label %if.then29
 
@@ -810,15 +814,15 @@ if.then29:                                        ; preds = %lor.lhs.false25, %l
 if.end30:                                         ; preds = %lor.lhs.false25
   %call31 = call i64 @ERR_peek_last_error()
   store i64 %call31, ptr %err, align 8
-  %10 = load i64, ptr %err, align 8
-  %conv32 = trunc i64 %10 to i32
+  %12 = load i64, ptr %err, align 8
+  %conv32 = trunc i64 %12 to i32
   %call33 = call i32 @test_int_gt(ptr noundef @.str.20, i32 noundef 190, ptr noundef @.str.40, ptr noundef @.str.37, i32 noundef %conv32, i32 noundef 0)
   %tobool34 = icmp ne i32 %call33, 0
   br i1 %tobool34, label %lor.lhs.false35, label %if.then39
 
 lor.lhs.false35:                                  ; preds = %if.end30
-  %11 = load i64, ptr %err, align 8
-  %call36 = call i32 @ERR_GET_REASON(i64 noundef %11)
+  %13 = load i64, ptr %err, align 8
+  %call36 = call i32 @ERR_GET_REASON(i64 noundef %13)
   %call37 = call i32 @test_int_eq(ptr noundef @.str.20, i32 noundef 191, ptr noundef @.str.41, ptr noundef @.str.42, i32 noundef %call36, i32 noundef 1)
   %tobool38 = icmp ne i32 %call37, 0
   br i1 %tobool38, label %if.end40, label %if.then39
@@ -827,8 +831,8 @@ if.then39:                                        ; preds = %lor.lhs.false35, %i
   br label %err48
 
 if.end40:                                         ; preds = %lor.lhs.false35
-  %12 = load ptr, ptr %prov, align 8
-  %call41 = call i32 @OSSL_PROVIDER_unload(ptr noundef %12)
+  %14 = load ptr, ptr %prov, align 8
+  %call41 = call i32 @OSSL_PROVIDER_unload(ptr noundef %14)
   %cmp42 = icmp ne i32 %call41, 0
   %conv43 = zext i1 %cmp42 to i32
   %call44 = call i32 @test_true(ptr noundef @.str.20, i32 noundef 194, ptr noundef @.str.48, i32 noundef %conv43)
@@ -840,30 +844,30 @@ if.then46:                                        ; preds = %if.end40
 
 if.end47:                                         ; preds = %if.end40
   store ptr null, ptr %prov, align 8
-  %13 = load ptr, ptr %libctx.addr, align 8
-  %14 = load ptr, ptr %13, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %14)
   %15 = load ptr, ptr %libctx.addr, align 8
-  store ptr null, ptr %15, align 8
-  %16 = load ptr, ptr @stderr, align 8
-  call void @ERR_print_errors_fp(ptr noundef %16)
+  %16 = load ptr, ptr %15, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %16)
+  %17 = load ptr, ptr %libctx.addr, align 8
+  store ptr null, ptr %17, align 8
+  %18 = load ptr, ptr @stderr, align 8
+  call void @ERR_print_errors_fp(ptr noundef %18)
   store i32 1, ptr %ok, align 4
   br label %err48
 
 err48:                                            ; preds = %if.end47, %if.then46, %if.then39, %if.then29, %if.then12, %if.then
-  %17 = load ptr, ptr %bld, align 8
-  call void @OSSL_PARAM_BLD_free(ptr noundef %17)
-  %18 = load ptr, ptr %params, align 8
-  call void @OSSL_PARAM_free(ptr noundef %18)
-  %19 = load ptr, ptr %prov, align 8
-  %call49 = call i32 @OSSL_PROVIDER_unload(ptr noundef %19)
-  %20 = load ptr, ptr %libctx.addr, align 8
-  %21 = load ptr, ptr %20, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %21)
+  %19 = load ptr, ptr %bld, align 8
+  call void @OSSL_PARAM_BLD_free(ptr noundef %19)
+  %20 = load ptr, ptr %params, align 8
+  call void @OSSL_PARAM_free(ptr noundef %20)
+  %21 = load ptr, ptr %prov, align 8
+  %call49 = call i32 @OSSL_PROVIDER_unload(ptr noundef %21)
   %22 = load ptr, ptr %libctx.addr, align 8
-  store ptr null, ptr %22, align 8
-  %23 = load i32, ptr %ok, align 4
-  ret i32 %23
+  %23 = load ptr, ptr %22, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %23)
+  %24 = load ptr, ptr %libctx.addr, align 8
+  store ptr null, ptr %24, align 8
+  %25 = load i32, ptr %ok, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -48,7 +48,7 @@ define ptr @opal_progress_thread_init(ptr noundef %0) #0 {
   store ptr %0, ptr %9, align 8
   %12 = load i8, ptr @inited, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %24, label %14
+  br i1 %13, label %26, label %14
 
 14:                                               ; preds = %1
   br label %15
@@ -58,271 +58,276 @@ define ptr @opal_progress_thread_init(ptr noundef %0) #0 {
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %19 = icmp ne i32 %17, %18
-  br i1 %19, label %20, label %21
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %21
-
-21:                                               ; preds = %20, %16
-  store ptr @opal_list_t_class, ptr @tracking, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @tracking, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @tracking)
   br label %22
 
-22:                                               ; preds = %21
-  br label %23
-
-23:                                               ; preds = %22
-  store i8 1, ptr @inited, align 1
+22:                                               ; preds = %21, %16
+  store ptr @opal_list_t_class, ptr @tracking, align 8
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr @tracking, i32 0, i32 1
+  store volatile i32 1, ptr %23, align 8
+  call void @opal_obj_run_constructors(ptr noundef @tracking)
   br label %24
 
-24:                                               ; preds = %23, %1
-  %25 = load ptr, ptr %9, align 8
-  %26 = icmp eq ptr null, %25
-  br i1 %26, label %27, label %29
+24:                                               ; preds = %22
+  br label %25
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr @shared_thread_name, align 8
-  store ptr %28, ptr %9, align 8
-  br label %29
+25:                                               ; preds = %24
+  store i8 1, ptr @inited, align 1
+  br label %26
 
-29:                                               ; preds = %27, %24
-  %30 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1), align 8
-  store ptr %30, ptr %10, align 8
+26:                                               ; preds = %25, %1
+  %27 = load ptr, ptr %9, align 8
+  %28 = icmp eq ptr null, %27
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @shared_thread_name, align 8
+  store ptr %30, ptr %9, align 8
   br label %31
 
-31:                                               ; preds = %50, %29
-  %32 = load ptr, ptr %10, align 8
-  %33 = icmp ne ptr %32, getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1)
-  br i1 %33, label %34, label %54
+31:                                               ; preds = %29, %26
+  %32 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1
+  %33 = load volatile ptr, ptr %32, align 8
+  store ptr %33, ptr %10, align 8
+  br label %34
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %9, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @strcmp(ptr noundef %35, ptr noundef %38) #5
-  %40 = icmp eq i32 0, %39
-  br i1 %40, label %41, label %49
+34:                                               ; preds = %54, %31
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1
+  %37 = icmp ne ptr %35, %36
+  br i1 %37, label %38, label %58
 
-41:                                               ; preds = %34
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 8
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 @strcmp(ptr noundef %39, ptr noundef %42) #5
+  %44 = icmp eq i32 0, %43
+  br i1 %44, label %45, label %53
+
+45:                                               ; preds = %38
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %46, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %8, align 8
-  br label %156
+  %47 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %47, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %8, align 8
+  br label %161
 
-49:                                               ; preds = %34
-  br label %50
+53:                                               ; preds = %38
+  br label %54
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.opal_list_item_t, ptr %51, i32 0, i32 1
-  %53 = load volatile ptr, ptr %52, align 8
-  store ptr %53, ptr %10, align 8
-  br label %31, !llvm.loop !4
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds %struct.opal_list_item_t, ptr %55, i32 0, i32 1
+  %57 = load volatile ptr, ptr %56, align 8
+  store ptr %57, ptr %10, align 8
+  br label %34, !llvm.loop !4
 
-54:                                               ; preds = %31
-  %55 = call ptr @opal_obj_new(ptr noundef @opal_progress_tracker_t_class)
-  store ptr %55, ptr %10, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = icmp eq ptr null, %56
-  br i1 %57, label %58, label %60
+58:                                               ; preds = %34
+  %59 = call ptr @opal_obj_new(ptr noundef @opal_progress_tracker_t_class)
+  store ptr %59, ptr %10, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = icmp eq ptr null, %60
+  br i1 %61, label %62, label %64
 
-58:                                               ; preds = %54
-  %59 = call ptr @opal_strerror(i32 noundef -2)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %59, ptr noundef @.str.1, i32 noundef 165)
+62:                                               ; preds = %58
+  %63 = call ptr @opal_strerror(i32 noundef -2)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %63, ptr noundef @.str.1, i32 noundef 165)
   store ptr null, ptr %8, align 8
-  br label %156
+  br label %161
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %9, align 8
-  %62 = call noalias ptr @strdup(ptr noundef %61) #6
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %63, i32 0, i32 2
-  store ptr %62, ptr %64, align 8
-  %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr null, %67
-  br i1 %68, label %69, label %83
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %9, align 8
+  %66 = call noalias ptr @strdup(ptr noundef %65) #6
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %67, i32 0, i32 2
+  store ptr %66, ptr %68, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr null, %71
+  br i1 %72, label %73, label %87
 
-69:                                               ; preds = %60
-  %70 = call ptr @opal_strerror(i32 noundef -2)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %70, ptr noundef @.str.1, i32 noundef 171)
-  br label %71
+73:                                               ; preds = %64
+  %74 = call ptr @opal_strerror(i32 noundef -2)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %74, ptr noundef @.str.1, i32 noundef 171)
+  br label %75
 
-71:                                               ; preds = %69
-  %72 = load ptr, ptr %10, align 8
-  store ptr %72, ptr %2, align 8
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %10, align 8
+  store ptr %76, ptr %2, align 8
   store i32 -1, ptr %3, align 4
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.opal_object_t, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %3, align 4
-  %76 = call i32 @opal_thread_add_fetch_32(ptr noundef %74, i32 noundef %75)
-  %77 = icmp eq i32 0, %76
-  br i1 %77, label %78, label %81
+  %77 = load ptr, ptr %2, align 8
+  %78 = getelementptr inbounds %struct.opal_object_t, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %3, align 4
+  %80 = call i32 @opal_thread_add_fetch_32(ptr noundef %78, i32 noundef %79)
+  %81 = icmp eq i32 0, %80
+  br i1 %81, label %82, label %85
 
-78:                                               ; preds = %71
-  %79 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_destructors(ptr noundef %79)
-  %80 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %80) #6
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %10, align 8
+  call void @opal_obj_run_destructors(ptr noundef %83)
+  %84 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %84) #6
   store ptr null, ptr %10, align 8
-  br label %81
+  br label %85
 
-81:                                               ; preds = %78, %71
-  br label %82
+85:                                               ; preds = %82, %75
+  br label %86
 
-82:                                               ; preds = %81
+86:                                               ; preds = %85
   store ptr null, ptr %8, align 8
-  br label %156
+  br label %161
 
-83:                                               ; preds = %60
-  %84 = call ptr @opal_event_base_create()
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %85, i32 0, i32 3
-  store ptr %84, ptr %86, align 8
-  %87 = icmp eq ptr null, %84
-  br i1 %87, label %88, label %102
+87:                                               ; preds = %64
+  %88 = call ptr @opal_event_base_create()
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %89, i32 0, i32 3
+  store ptr %88, ptr %90, align 8
+  %91 = icmp eq ptr null, %88
+  br i1 %91, label %92, label %106
 
-88:                                               ; preds = %83
-  %89 = call ptr @opal_strerror(i32 noundef -2)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %89, ptr noundef @.str.1, i32 noundef 177)
-  br label %90
+92:                                               ; preds = %87
+  %93 = call ptr @opal_strerror(i32 noundef -2)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %93, ptr noundef @.str.1, i32 noundef 177)
+  br label %94
 
-90:                                               ; preds = %88
-  %91 = load ptr, ptr %10, align 8
-  store ptr %91, ptr %4, align 8
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %10, align 8
+  store ptr %95, ptr %4, align 8
   store i32 -1, ptr %5, align 4
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.opal_object_t, ptr %92, i32 0, i32 1
-  %94 = load i32, ptr %5, align 4
-  %95 = call i32 @opal_thread_add_fetch_32(ptr noundef %93, i32 noundef %94)
-  %96 = icmp eq i32 0, %95
-  br i1 %96, label %97, label %100
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds %struct.opal_object_t, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %5, align 4
+  %99 = call i32 @opal_thread_add_fetch_32(ptr noundef %97, i32 noundef %98)
+  %100 = icmp eq i32 0, %99
+  br i1 %100, label %101, label %104
 
-97:                                               ; preds = %90
-  %98 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_destructors(ptr noundef %98)
-  %99 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %99) #6
-  store ptr null, ptr %10, align 8
-  br label %100
-
-100:                                              ; preds = %97, %90
-  br label %101
-
-101:                                              ; preds = %100
-  store ptr null, ptr %8, align 8
-  br label %156
-
-102:                                              ; preds = %83
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %10, align 8
+  call void @opal_obj_run_destructors(ptr noundef %102)
   %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %103, i32 0, i32 5
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %105, i32 0, i32 3
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %10, align 8
-  %109 = call i32 @event_assign(ptr noundef %104, ptr noundef %107, i32 noundef -1, i16 noundef signext 16, ptr noundef @dummy_timeout_cb, ptr noundef %108)
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %110, i32 0, i32 5
-  %112 = call i32 @event_add(ptr noundef %111, ptr noundef @long_timeout)
-  br label %113
-
-113:                                              ; preds = %102
-  br label %114
-
-114:                                              ; preds = %113
-  %115 = load i32, ptr @opal_class_init_epoch, align 4
-  %116 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_thread_t_class, i32 0, i32 4), align 8
-  %117 = icmp ne i32 %115, %116
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %114
-  call void @opal_class_initialize(ptr noundef @opal_thread_t_class)
-  br label %119
-
-119:                                              ; preds = %118, %114
-  %120 = load ptr, ptr %10, align 8
-  %121 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %120, i32 0, i32 7
-  %122 = getelementptr inbounds %struct.opal_object_t, ptr %121, i32 0, i32 0
-  store ptr @opal_thread_t_class, ptr %122, align 8
-  %123 = load ptr, ptr %10, align 8
-  %124 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %123, i32 0, i32 7
-  %125 = getelementptr inbounds %struct.opal_object_t, ptr %124, i32 0, i32 1
-  store volatile i32 1, ptr %125, align 8
-  %126 = load ptr, ptr %10, align 8
-  %127 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %126, i32 0, i32 7
-  call void @opal_obj_run_constructors(ptr noundef %127)
-  br label %128
-
-128:                                              ; preds = %119
-  br label %129
-
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %130, i32 0, i32 6
-  store i8 1, ptr %131, align 8
-  %132 = load ptr, ptr %10, align 8
-  %133 = call i32 @start_progress_engine(ptr noundef %132)
-  store i32 %133, ptr %11, align 4
-  %134 = icmp ne i32 0, %133
-  br i1 %134, label %135, label %150
-
-135:                                              ; preds = %129
-  %136 = load i32, ptr %11, align 4
-  %137 = call ptr @opal_strerror(i32 noundef %136)
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %137, ptr noundef @.str.1, i32 noundef 191)
-  br label %138
-
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %10, align 8
-  store ptr %139, ptr %6, align 8
-  store i32 -1, ptr %7, align 4
-  %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds %struct.opal_object_t, ptr %140, i32 0, i32 1
-  %142 = load i32, ptr %7, align 4
-  %143 = call i32 @opal_thread_add_fetch_32(ptr noundef %141, i32 noundef %142)
-  %144 = icmp eq i32 0, %143
-  br i1 %144, label %145, label %148
-
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_destructors(ptr noundef %146)
-  %147 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %147) #6
+  call void @free(ptr noundef %103) #6
   store ptr null, ptr %10, align 8
-  br label %148
+  br label %104
 
-148:                                              ; preds = %145, %138
-  br label %149
+104:                                              ; preds = %101, %94
+  br label %105
 
-149:                                              ; preds = %148
+105:                                              ; preds = %104
   store ptr null, ptr %8, align 8
-  br label %156
+  br label %161
 
-150:                                              ; preds = %129
+106:                                              ; preds = %87
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %107, i32 0, i32 5
+  %109 = load ptr, ptr %10, align 8
+  %110 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %109, i32 0, i32 3
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %10, align 8
+  %113 = call i32 @event_assign(ptr noundef %108, ptr noundef %111, i32 noundef -1, i16 noundef signext 16, ptr noundef @dummy_timeout_cb, ptr noundef %112)
+  %114 = load ptr, ptr %10, align 8
+  %115 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %114, i32 0, i32 5
+  %116 = call i32 @event_add(ptr noundef %115, ptr noundef @long_timeout)
+  br label %117
+
+117:                                              ; preds = %106
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = load i32, ptr @opal_class_init_epoch, align 4
+  %120 = getelementptr inbounds %struct.opal_class_t, ptr @opal_thread_t_class, i32 0, i32 4
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp ne i32 %119, %121
+  br i1 %122, label %123, label %124
+
+123:                                              ; preds = %118
+  call void @opal_class_initialize(ptr noundef @opal_thread_t_class)
+  br label %124
+
+124:                                              ; preds = %123, %118
+  %125 = load ptr, ptr %10, align 8
+  %126 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %125, i32 0, i32 7
+  %127 = getelementptr inbounds %struct.opal_object_t, ptr %126, i32 0, i32 0
+  store ptr @opal_thread_t_class, ptr %127, align 8
+  %128 = load ptr, ptr %10, align 8
+  %129 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %128, i32 0, i32 7
+  %130 = getelementptr inbounds %struct.opal_object_t, ptr %129, i32 0, i32 1
+  store volatile i32 1, ptr %130, align 8
+  %131 = load ptr, ptr %10, align 8
+  %132 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %131, i32 0, i32 7
+  call void @opal_obj_run_constructors(ptr noundef %132)
+  br label %133
+
+133:                                              ; preds = %124
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %10, align 8
+  %136 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %135, i32 0, i32 6
+  store i8 1, ptr %136, align 8
+  %137 = load ptr, ptr %10, align 8
+  %138 = call i32 @start_progress_engine(ptr noundef %137)
+  store i32 %138, ptr %11, align 4
+  %139 = icmp ne i32 0, %138
+  br i1 %139, label %140, label %155
+
+140:                                              ; preds = %134
+  %141 = load i32, ptr %11, align 4
+  %142 = call ptr @opal_strerror(i32 noundef %141)
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, ptr noundef %142, ptr noundef @.str.1, i32 noundef 191)
+  br label %143
+
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %10, align 8
+  store ptr %144, ptr %6, align 8
+  store i32 -1, ptr %7, align 4
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds %struct.opal_object_t, ptr %145, i32 0, i32 1
+  %147 = load i32, ptr %7, align 4
+  %148 = call i32 @opal_thread_add_fetch_32(ptr noundef %146, i32 noundef %147)
+  %149 = icmp eq i32 0, %148
+  br i1 %149, label %150, label %153
+
+150:                                              ; preds = %143
   %151 = load ptr, ptr %10, align 8
-  %152 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %151, i32 0, i32 0
-  call void @_opal_list_append(ptr noundef @tracking, ptr noundef %152)
-  %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %153, i32 0, i32 3
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr %8, align 8
-  br label %156
+  call void @opal_obj_run_destructors(ptr noundef %151)
+  %152 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %152) #6
+  store ptr null, ptr %10, align 8
+  br label %153
 
-156:                                              ; preds = %150, %149, %101, %82, %58, %41
-  %157 = load ptr, ptr %8, align 8
-  ret ptr %157
+153:                                              ; preds = %150, %143
+  br label %154
+
+154:                                              ; preds = %153
+  store ptr null, ptr %8, align 8
+  br label %161
+
+155:                                              ; preds = %134
+  %156 = load ptr, ptr %10, align 8
+  %157 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %156, i32 0, i32 0
+  call void @_opal_list_append(ptr noundef @tracking, ptr noundef %157)
+  %158 = load ptr, ptr %10, align 8
+  %159 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %158, i32 0, i32 3
+  %160 = load ptr, ptr %159, align 8
+  store ptr %160, ptr %8, align 8
+  br label %161
+
+161:                                              ; preds = %155, %154, %105, %86, %62, %45
+  %162 = load ptr, ptr %8, align 8
+  ret ptr %162
 }
 
 declare void @opal_class_initialize(ptr noundef) #1
@@ -561,7 +566,7 @@ define i32 @opal_progress_thread_finalize(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store i32 -13, ptr %4, align 4
-  br label %66
+  br label %68
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %5, align 8
@@ -574,101 +579,103 @@ define i32 @opal_progress_thread_finalize(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1), align 8
-  store ptr %16, ptr %6, align 8
-  br label %17
+  %16 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1
+  %17 = load volatile ptr, ptr %16, align 8
+  store ptr %17, ptr %6, align 8
+  br label %18
 
-17:                                               ; preds = %61, %15
-  %18 = load ptr, ptr %6, align 8
-  %19 = icmp ne ptr %18, getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1)
-  br i1 %19, label %20, label %65
+18:                                               ; preds = %63, %15
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %22, label %67
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %22, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @strcmp(ptr noundef %21, ptr noundef %24) #5
-  %26 = icmp eq i32 0, %25
-  br i1 %26, label %27, label %60
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @strcmp(ptr noundef %23, ptr noundef %26) #5
+  %28 = icmp eq i32 0, %27
+  br i1 %28, label %29, label %62
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 8
-  %31 = add nsw i32 %30, -1
-  store i32 %31, ptr %29, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %37
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr %31, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %27
+38:                                               ; preds = %29
   store i32 0, ptr %4, align 4
-  br label %66
+  br label %68
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %38, i32 0, i32 4
-  %40 = load volatile i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %40, i32 0, i32 4
+  %42 = load volatile i8, ptr %41, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %6, align 8
-  call void @stop_progress_engine(ptr noundef %43)
-  br label %44
-
-44:                                               ; preds = %42, %37
+44:                                               ; preds = %39
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %45, i32 0, i32 0
-  %47 = call ptr @opal_list_remove_item(ptr noundef @tracking, ptr noundef %46)
-  br label %48
+  call void @stop_progress_engine(ptr noundef %45)
+  br label %46
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %6, align 8
-  store ptr %49, ptr %2, align 8
+46:                                               ; preds = %44, %39
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %47, i32 0, i32 0
+  %49 = call ptr @opal_list_remove_item(ptr noundef @tracking, ptr noundef %48)
+  br label %50
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %6, align 8
+  store ptr %51, ptr %2, align 8
   store i32 -1, ptr %3, align 4
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.opal_object_t, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %3, align 4
-  %53 = call i32 @opal_thread_add_fetch_32(ptr noundef %51, i32 noundef %52)
-  %54 = icmp eq i32 0, %53
-  br i1 %54, label %55, label %58
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct.opal_object_t, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %3, align 4
+  %55 = call i32 @opal_thread_add_fetch_32(ptr noundef %53, i32 noundef %54)
+  %56 = icmp eq i32 0, %55
+  br i1 %56, label %57, label %60
 
-55:                                               ; preds = %48
-  %56 = load ptr, ptr %6, align 8
-  call void @opal_obj_run_destructors(ptr noundef %56)
-  %57 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %57) #6
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %6, align 8
+  call void @opal_obj_run_destructors(ptr noundef %58)
+  %59 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %59) #6
   store ptr null, ptr %6, align 8
-  br label %58
+  br label %60
 
-58:                                               ; preds = %55, %48
-  br label %59
-
-59:                                               ; preds = %58
-  store i32 0, ptr %4, align 4
-  br label %66
-
-60:                                               ; preds = %20
+60:                                               ; preds = %57, %50
   br label %61
 
 61:                                               ; preds = %60
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct.opal_list_item_t, ptr %62, i32 0, i32 1
-  %64 = load volatile ptr, ptr %63, align 8
-  store ptr %64, ptr %6, align 8
-  br label %17, !llvm.loop !8
+  store i32 0, ptr %4, align 4
+  br label %68
 
-65:                                               ; preds = %17
+62:                                               ; preds = %22
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds %struct.opal_list_item_t, ptr %64, i32 0, i32 1
+  %66 = load volatile ptr, ptr %65, align 8
+  store ptr %66, ptr %6, align 8
+  br label %18, !llvm.loop !8
+
+67:                                               ; preds = %18
   store i32 -13, ptr %4, align 4
-  br label %66
+  br label %68
 
-66:                                               ; preds = %65, %59, %36, %9
-  %67 = load i32, ptr %4, align 4
-  ret i32 %67
+68:                                               ; preds = %67, %61, %38, %9
+  %69 = load i32, ptr %4, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -733,7 +740,7 @@ define i32 @opal_progress_thread_pause(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store i32 -13, ptr %2, align 4
-  br label %39
+  br label %41
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -746,57 +753,59 @@ define i32 @opal_progress_thread_pause(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %11, %8
-  %14 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1), align 8
-  store ptr %14, ptr %4, align 8
-  br label %15
+  %14 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1
+  %15 = load volatile ptr, ptr %14, align 8
+  store ptr %15, ptr %4, align 8
+  br label %16
 
-15:                                               ; preds = %34, %13
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp ne ptr %16, getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1)
-  br i1 %17, label %18, label %38
+16:                                               ; preds = %36, %13
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %20, label %40
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @strcmp(ptr noundef %19, ptr noundef %22) #5
-  %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %33
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @strcmp(ptr noundef %21, ptr noundef %24) #5
+  %26 = icmp eq i32 0, %25
+  br i1 %26, label %27, label %35
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %26, i32 0, i32 4
-  %28 = load volatile i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %32
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %28, i32 0, i32 4
+  %30 = load volatile i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %4, align 8
-  call void @stop_progress_engine(ptr noundef %31)
-  br label %32
-
-32:                                               ; preds = %30, %25
-  store i32 0, ptr %2, align 4
-  br label %39
-
-33:                                               ; preds = %18
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %4, align 8
+  call void @stop_progress_engine(ptr noundef %33)
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.opal_list_item_t, ptr %35, i32 0, i32 1
-  %37 = load volatile ptr, ptr %36, align 8
-  store ptr %37, ptr %4, align 8
-  br label %15, !llvm.loop !9
+34:                                               ; preds = %32, %27
+  store i32 0, ptr %2, align 4
+  br label %41
 
-38:                                               ; preds = %15
+35:                                               ; preds = %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct.opal_list_item_t, ptr %37, i32 0, i32 1
+  %39 = load volatile ptr, ptr %38, align 8
+  store ptr %39, ptr %4, align 8
+  br label %16, !llvm.loop !9
+
+40:                                               ; preds = %16
   store i32 -13, ptr %2, align 4
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %32, %7
-  %40 = load i32, ptr %2, align 4
-  ret i32 %40
+41:                                               ; preds = %40, %34, %7
+  %42 = load i32, ptr %2, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -811,7 +820,7 @@ define i32 @opal_progress_thread_resume(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store i32 -13, ptr %2, align 4
-  br label %40
+  br label %42
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -824,58 +833,60 @@ define i32 @opal_progress_thread_resume(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %11, %8
-  %14 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1), align 8
-  store ptr %14, ptr %4, align 8
-  br label %15
+  %14 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1, i32 1
+  %15 = load volatile ptr, ptr %14, align 8
+  store ptr %15, ptr %4, align 8
+  br label %16
 
-15:                                               ; preds = %35, %13
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp ne ptr %16, getelementptr inbounds (%struct.opal_list_t, ptr @tracking, i32 0, i32 1)
-  br i1 %17, label %18, label %39
+16:                                               ; preds = %37, %13
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.opal_list_t, ptr @tracking, i32 0, i32 1
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %20, label %41
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @strcmp(ptr noundef %19, ptr noundef %22) #5
-  %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %34
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @strcmp(ptr noundef %21, ptr noundef %24) #5
+  %26 = icmp eq i32 0, %25
+  br i1 %26, label %27, label %36
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %26, i32 0, i32 4
-  %28 = load volatile i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.opal_progress_tracker_t, ptr %28, i32 0, i32 4
+  %30 = load volatile i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %25
+32:                                               ; preds = %27
   store i32 -4, ptr %2, align 4
-  br label %40
+  br label %42
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %4, align 8
-  %33 = call i32 @start_progress_engine(ptr noundef %32)
-  store i32 %33, ptr %2, align 4
-  br label %40
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %4, align 8
+  %35 = call i32 @start_progress_engine(ptr noundef %34)
+  store i32 %35, ptr %2, align 4
+  br label %42
 
-34:                                               ; preds = %18
-  br label %35
+36:                                               ; preds = %20
+  br label %37
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.opal_list_item_t, ptr %36, i32 0, i32 1
-  %38 = load volatile ptr, ptr %37, align 8
-  store ptr %38, ptr %4, align 8
-  br label %15, !llvm.loop !10
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.opal_list_item_t, ptr %38, i32 0, i32 1
+  %40 = load volatile ptr, ptr %39, align 8
+  store ptr %40, ptr %4, align 8
+  br label %16, !llvm.loop !10
 
-39:                                               ; preds = %15
+41:                                               ; preds = %16
   store i32 -13, ptr %2, align 4
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %31, %30, %7
-  %41 = load i32, ptr %2, align 4
-  ret i32 %41
+42:                                               ; preds = %41, %33, %32, %7
+  %43 = load i32, ptr %2, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -1052,7 +1063,8 @@ define internal ptr @progress_engine(ptr noundef %0) #0 {
   br label %9, !llvm.loop !11
 
 19:                                               ; preds = %9
-  ret ptr inttoptr (i64 1 to ptr)
+  %20 = inttoptr i64 1 to ptr
+  ret ptr %20
 }
 
 declare i32 @opal_thread_start(ptr noundef) #1

@@ -79,7 +79,7 @@ define internal i32 @nxtask_restart(i32 noundef %0) #0 {
 
 22:                                               ; preds = %16, %1
   store i32 -38, ptr %8, align 4
-  br label %169
+  br label %170
 
 23:                                               ; preds = %16
   %24 = call i64 @up_irq_save()
@@ -103,7 +103,7 @@ define internal i32 @nxtask_restart(i32 noundef %0) #0 {
 
 37:                                               ; preds = %29, %23
   store i32 -3, ptr %8, align 4
-  br label %167
+  br label %168
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %5, align 8
@@ -264,52 +264,53 @@ define internal i32 @nxtask_restart(i32 noundef %0) #0 {
   store ptr %147, ptr %149, align 8
   %150 = load ptr, ptr @g_inactivetasks, align 8
   %151 = icmp ne ptr %150, null
-  br i1 %151, label %155, label %152
+  br i1 %151, label %156, label %152
 
 152:                                              ; preds = %143
   %153 = load ptr, ptr %12, align 8
   store ptr %153, ptr @g_inactivetasks, align 8
   %154 = load ptr, ptr %12, align 8
-  store ptr %154, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1), align 8
-  br label %160
-
-155:                                              ; preds = %143
-  %156 = load ptr, ptr %12, align 8
-  %157 = load ptr, ptr @g_inactivetasks, align 8
-  %158 = getelementptr inbounds %struct.dq_entry_s, ptr %157, i32 0, i32 1
-  store ptr %156, ptr %158, align 8
-  %159 = load ptr, ptr %12, align 8
-  store ptr %159, ptr @g_inactivetasks, align 8
-  br label %160
-
-160:                                              ; preds = %155, %152
+  %155 = getelementptr inbounds %struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1
+  store ptr %154, ptr %155, align 8
   br label %161
 
-161:                                              ; preds = %160
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.task_tcb_s, ptr %162, i32 0, i32 0
-  %164 = getelementptr inbounds %struct.tcb_s, ptr %163, i32 0, i32 8
-  store i8 4, ptr %164, align 16
-  %165 = load i64, ptr %7, align 8
-  call void @up_irq_restore(i64 noundef %165)
-  %166 = load ptr, ptr %5, align 8
-  call void @nxtask_activate(ptr noundef %166)
+156:                                              ; preds = %143
+  %157 = load ptr, ptr %12, align 8
+  %158 = load ptr, ptr @g_inactivetasks, align 8
+  %159 = getelementptr inbounds %struct.dq_entry_s, ptr %158, i32 0, i32 1
+  store ptr %157, ptr %159, align 8
+  %160 = load ptr, ptr %12, align 8
+  store ptr %160, ptr @g_inactivetasks, align 8
+  br label %161
+
+161:                                              ; preds = %156, %152
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr inbounds %struct.task_tcb_s, ptr %163, i32 0, i32 0
+  %165 = getelementptr inbounds %struct.tcb_s, ptr %164, i32 0, i32 8
+  store i8 4, ptr %165, align 16
+  %166 = load i64, ptr %7, align 8
+  call void @up_irq_restore(i64 noundef %166)
+  %167 = load ptr, ptr %5, align 8
+  call void @nxtask_activate(ptr noundef %167)
   store i32 0, ptr %2, align 4
-  br label %171
+  br label %172
 
-167:                                              ; preds = %37
-  %168 = load i64, ptr %7, align 8
-  call void @up_irq_restore(i64 noundef %168)
-  br label %169
+168:                                              ; preds = %37
+  %169 = load i64, ptr %7, align 8
+  call void @up_irq_restore(i64 noundef %169)
+  br label %170
 
-169:                                              ; preds = %167, %22
-  %170 = load i32, ptr %8, align 4
-  store i32 %170, ptr %2, align 4
-  br label %171
+170:                                              ; preds = %168, %22
+  %171 = load i32, ptr %8, align 4
+  store i32 %171, ptr %2, align 4
+  br label %172
 
-171:                                              ; preds = %169, %161
-  %172 = load i32, ptr %2, align 4
-  ret i32 %172
+172:                                              ; preds = %170, %162
+  %173 = load i32, ptr %2, align 4
+  ret i32 %173
 }
 
 declare ptr @__errno() #1

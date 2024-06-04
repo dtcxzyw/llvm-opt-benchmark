@@ -2672,32 +2672,33 @@ define internal ptr @opal_convertor_accelerator_memcpy(ptr noundef %0, ptr nound
   %19 = load i64, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %18, i64 %19, i1 false)
   store ptr %17, ptr %5, align 8
-  br label %31
+  br label %32
 
 20:                                               ; preds = %4
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7), align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i64, ptr %8, align 8
-  %25 = call i32 %21(i32 noundef -1, i32 noundef -1, ptr noundef %22, ptr noundef %23, i64 noundef %24, i32 noundef 0)
-  store i32 %25, ptr %10, align 4
-  %26 = load i32, ptr %10, align 4
-  %27 = icmp ne i32 0, %26
-  br i1 %27, label %28, label %29
+  %21 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
+  %26 = call i32 %22(i32 noundef -1, i32 noundef -1, ptr noundef %23, ptr noundef %24, i64 noundef %25, i32 noundef 0)
+  store i32 %26, ptr %10, align 4
+  %27 = load i32, ptr %10, align 4
+  %28 = icmp ne i32 0, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %20
+29:                                               ; preds = %20
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.18)
   call void @abort() #8
   unreachable
 
-29:                                               ; preds = %20
-  %30 = load ptr, ptr %6, align 8
-  store ptr %30, ptr %5, align 8
-  br label %31
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %6, align 8
+  store ptr %31, ptr %5, align 8
+  br label %32
 
-31:                                               ; preds = %29, %16
-  %32 = load ptr, ptr %5, align 8
-  ret ptr %32
+32:                                               ; preds = %30, %16
+  %33 = load ptr, ptr %5, align 8
+  ret ptr %33
 }
 
 ; Function Attrs: noreturn nounwind

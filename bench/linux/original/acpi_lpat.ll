@@ -181,17 +181,17 @@ define dso_local noalias noundef ptr @acpi_lpat_get_conversion_table(ptr noundef
   store ptr null, ptr %3, align 8
   %4 = call i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %57
+  br i1 %5, label %6, label %58
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %54, label %9
+  br i1 %8, label %55, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 8
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %12, label %54
+  br i1 %11, label %12, label %55
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %7, i64 4
@@ -200,14 +200,14 @@ define dso_local noalias noundef ptr @acpi_lpat_get_conversion_table(ptr noundef
   %16 = icmp ne i32 %15, 0
   %17 = icmp ult i32 %14, 4
   %18 = or i1 %17, %16
-  br i1 %18, label %54, label %19
+  br i1 %18, label %55, label %19
 
 19:                                               ; preds = %12
   %20 = zext i32 %14 to i64
   %21 = shl nuw nsw i64 %20, 2
   %22 = call noalias align 8 ptr @__kmalloc(i64 noundef %21, i32 noundef 3520) #7
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %54, label %24
+  br i1 %23, label %55, label %24
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %13, align 4
@@ -229,7 +229,7 @@ define dso_local noalias noundef ptr @acpi_lpat_get_conversion_table(ptr noundef
 
 36:                                               ; preds = %29
   call void @kfree(ptr noundef nonnull %22) #6
-  br label %54
+  br label %55
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds i8, ptr %33, i64 8
@@ -243,33 +243,34 @@ define dso_local noalias noundef ptr @acpi_lpat_get_conversion_table(ptr noundef
   br i1 %44, label %29, label %45, !llvm.loop !9
 
 45:                                               ; preds = %37, %24
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %47 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 16) #8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %50
-
-49:                                               ; preds = %45
-  call void @kfree(ptr noundef nonnull %22) #6
-  br label %54
+  %46 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %47 = load ptr, ptr %46, align 16
+  %48 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3520, i64 noundef 16) #8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
 50:                                               ; preds = %45
-  store ptr %22, ptr %47, align 8
-  %51 = load i32, ptr %13, align 4
-  %52 = lshr i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
-  store i32 %52, ptr %53, align 8
-  br label %54
+  call void @kfree(ptr noundef nonnull %22) #6
+  br label %55
 
-54:                                               ; preds = %50, %49, %36, %19, %12, %9, %6
-  %55 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %36 ], [ %47, %50 ], [ null, %49 ], [ null, %19 ], [ null, %6 ]
-  %56 = load ptr, ptr %3, align 8
-  call void @kfree(ptr noundef %56) #6
-  br label %57
+51:                                               ; preds = %45
+  store ptr %22, ptr %48, align 8
+  %52 = load i32, ptr %13, align 4
+  %53 = lshr i32 %52, 1
+  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  store i32 %53, ptr %54, align 8
+  br label %55
 
-57:                                               ; preds = %54, %1
-  %58 = phi ptr [ %55, %54 ], [ null, %1 ]
+55:                                               ; preds = %51, %50, %36, %19, %12, %9, %6
+  %56 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %36 ], [ %48, %51 ], [ null, %50 ], [ null, %19 ], [ null, %6 ]
+  %57 = load ptr, ptr %3, align 8
+  call void @kfree(ptr noundef %57) #6
+  br label %58
+
+58:                                               ; preds = %55, %1
+  %59 = phi ptr [ %56, %55 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  ret ptr %58
+  ret ptr %59
 }
 
 ; Function Attrs: null_pointer_is_valid

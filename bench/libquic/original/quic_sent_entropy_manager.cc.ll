@@ -236,7 +236,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_)
   %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 2
@@ -254,12 +255,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt5dequeIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_) #10
   br label %eh.resume
 
@@ -328,7 +329,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_) #10
   ret void

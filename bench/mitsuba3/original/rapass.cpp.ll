@@ -396,39 +396,40 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_107RABlock16prependSuccessorEPS1_(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_1010BaseRAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_108FuncPassC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str) #15
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010BaseRAPassE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !22
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
-  %5 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(254) %2, i8 0, i64 254, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 152, i1 false)
-  store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %5, align 8, !tbaa !24
-  %6 = getelementptr inbounds i8, ptr %0, i64 488
-  store i32 1, ptr %6, align 8, !tbaa !24
-  %7 = getelementptr inbounds i8, ptr %0, i64 492
-  store i32 255, ptr %7, align 4, !tbaa !25
-  %8 = getelementptr inbounds i8, ptr %0, i64 496
-  %9 = getelementptr inbounds i8, ptr %0, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store i32 1, ptr %9, align 8, !tbaa !28
-  %10 = getelementptr inbounds i8, ptr %0, i64 528
-  %11 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  store i8 -1, ptr %11, align 8, !tbaa !31
-  %12 = getelementptr inbounds i8, ptr %0, i64 553
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(259) %12, i8 0, i64 259, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 816
-  %14 = getelementptr inbounds i8, ptr %0, i64 824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store i8 32, ptr %14, align 8, !tbaa !33
-  %15 = getelementptr inbounds i8, ptr %0, i64 840
-  store i64 87, ptr %15, align 8, !tbaa !33
-  %16 = getelementptr inbounds i8, ptr %0, i64 856
-  %17 = getelementptr inbounds i8, ptr %0, i64 848
-  store ptr %16, ptr %17, align 8, !tbaa !33
-  store i8 0, ptr %16, align 8, !tbaa !33
+  %2 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010BaseRAPassE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !22
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(254) %3, i8 0, i64 254, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 0, i64 152, i1 false)
+  store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %6, align 8, !tbaa !24
+  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  store i32 1, ptr %7, align 8, !tbaa !24
+  %8 = getelementptr inbounds i8, ptr %0, i64 492
+  store i32 255, ptr %8, align 4, !tbaa !25
+  %9 = getelementptr inbounds i8, ptr %0, i64 496
+  %10 = getelementptr inbounds i8, ptr %0, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  store i32 1, ptr %10, align 8, !tbaa !28
+  %11 = getelementptr inbounds i8, ptr %0, i64 528
+  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  store i8 -1, ptr %12, align 8, !tbaa !31
+  %13 = getelementptr inbounds i8, ptr %0, i64 553
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(259) %13, i8 0, i64 259, i1 false)
+  %14 = getelementptr inbounds i8, ptr %0, i64 816
+  %15 = getelementptr inbounds i8, ptr %0, i64 824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  store i8 32, ptr %15, align 8, !tbaa !33
+  %16 = getelementptr inbounds i8, ptr %0, i64 840
+  store i64 87, ptr %16, align 8, !tbaa !33
+  %17 = getelementptr inbounds i8, ptr %0, i64 856
+  %18 = getelementptr inbounds i8, ptr %0, i64 848
+  store ptr %17, ptr %18, align 8, !tbaa !33
+  store i8 0, ptr %17, align 8, !tbaa !33
   ret void
 }
 
@@ -440,11 +441,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010BaseRAPassE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !22
-  %2 = getelementptr inbounds i8, ptr %0, i64 824
-  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef null) #15
+  %2 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010BaseRAPassE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !22
+  %3 = getelementptr inbounds i8, ptr %0, i64 824
+  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef null) #15
   tail call void @_ZN6asmjit9_abi_1_104PassD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   ret void
 }

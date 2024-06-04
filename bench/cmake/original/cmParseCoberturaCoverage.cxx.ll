@@ -672,120 +672,121 @@ define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParserC2EP7
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 1
-  store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 2
-  store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 3
-  store i8 0, ptr %16, align 2
-  %17 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 4
-  %18 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 0
-  store ptr %18, ptr %9, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %class.cmCTestCoverageHandlerContainer, ptr %19, i32 0, i32 2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %21 unwind label %46
+  %14 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 1
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 2
+  store i8 0, ptr %16, align 1
+  %17 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 3
+  store i8 0, ptr %17, align 2
+  %18 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 4
+  %19 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 0
+  store ptr %19, ptr %9, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds %class.cmCTestCoverageHandlerContainer, ptr %20, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %22 unwind label %47
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 1
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %class.cmCTestCoverageHandlerContainer, ptr %23, i32 0, i32 3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %25 unwind label %46
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 1
+  store ptr %23, ptr %9, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds %class.cmCTestCoverageHandlerContainer, ptr %24, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %26 unwind label %47
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 0
-  %27 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 0
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 1
-  store i64 2, ptr %28, align 8
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 0
+  %28 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 0
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 1
+  store i64 2, ptr %29, align 8
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %32 = load i64, ptr %31, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %30, i64 %32, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %33 unwind label %57
+  %30 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %31, i64 %33, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %34 unwind label %58
 
-33:                                               ; preds = %25
+34:                                               ; preds = %26
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  %34 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i32 0, i32 0
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %34, i64 2
-  br label %36
+  %35 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i32 0, i32 0
+  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %35, i64 2
+  br label %37
 
-36:                                               ; preds = %36, %33
-  %37 = phi ptr [ %35, %33 ], [ %38, %36 ]
-  %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %37, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #3
-  %39 = icmp eq ptr %38, %34
-  br i1 %39, label %40, label %36
+37:                                               ; preds = %37, %34
+  %38 = phi ptr [ %36, %34 ], [ %39, %37 ]
+  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
+  %40 = icmp eq ptr %39, %35
+  br i1 %40, label %41, label %37
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 5
-  %42 = load ptr, ptr %5, align 8
-  store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 6
-  %44 = load ptr, ptr %6, align 8
-  store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #3
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 5
+  %43 = load ptr, ptr %5, align 8
+  store ptr %43, ptr %42, align 8
+  %44 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 6
+  %45 = load ptr, ptr %6, align 8
+  store ptr %45, ptr %44, align 8
+  %46 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %13, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
   ret void
 
-46:                                               ; preds = %21, %3
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %22, %3
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %10, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %11, align 4
-  %50 = load ptr, ptr %9, align 8
-  %51 = icmp eq ptr %18, %50
-  br i1 %51, label %56, label %52
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %10, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %11, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = icmp eq ptr %19, %51
+  br i1 %52, label %57, label %53
 
-52:                                               ; preds = %52, %46
-  %53 = phi ptr [ %50, %46 ], [ %54, %52 ]
-  %54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %53, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
-  %55 = icmp eq ptr %54, %18
-  br i1 %55, label %56, label %52
+53:                                               ; preds = %53, %47
+  %54 = phi ptr [ %51, %47 ], [ %55, %53 ]
+  %55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
+  %56 = icmp eq ptr %55, %19
+  br i1 %56, label %57, label %53
 
-56:                                               ; preds = %52, %46
-  br label %68
-
-57:                                               ; preds = %25
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %10, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %11, align 4
-  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  %61 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i32 0, i32 0
-  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %61, i64 2
-  br label %63
-
-63:                                               ; preds = %63, %57
-  %64 = phi ptr [ %62, %57 ], [ %65, %63 ]
-  %65 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %64, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #3
-  %66 = icmp eq ptr %65, %61
-  br i1 %66, label %67, label %63
-
-67:                                               ; preds = %63
-  br label %68
-
-68:                                               ; preds = %67, %56
-  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+57:                                               ; preds = %53, %47
   br label %69
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i32, ptr %11, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+58:                                               ; preds = %26
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %10, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %11, align 4
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  %62 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %8, i32 0, i32 0
+  %63 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %62, i64 2
+  br label %64
+
+64:                                               ; preds = %64, %58
+  %65 = phi ptr [ %63, %58 ], [ %66, %64 ]
+  %66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %65, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #3
+  %67 = icmp eq ptr %66, %62
+  br i1 %67, label %68, label %64
+
+68:                                               ; preds = %64
+  br label %69
+
+69:                                               ; preds = %68, %57
+  call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %10, align 8
+  %72 = load i32, ptr %11, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  resume { ptr, i32 } %74
 }
 
 declare noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -797,11 +798,12 @@ define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParserD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.cmParseCoberturaCoverage::XMLParser", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 }

@@ -2132,7 +2132,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #3
   call void @_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnectorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %mu_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont5 unwind label %lpad4
@@ -2150,19 +2151,19 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %target_name_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_name_) #3
   %overridden_target_name_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %overridden_target_name.addr, align 8
-  %cmp = icmp eq ptr %4, null
+  %5 = load ptr, ptr %overridden_target_name.addr, align 8
+  %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont7
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont7
-  %5 = load ptr, ptr %overridden_target_name.addr, align 8
+  %6 = load ptr, ptr %overridden_target_name.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ @.str.5, %cond.true ], [ %5, %cond.false ]
+  %cond = phi ptr [ @.str.5, %cond.true ], [ %6, %cond.false ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_, ptr noundef %cond, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
@@ -2172,8 +2173,8 @@ invoke.cont9:                                     ; preds = %cond.end
   %client_handshaker_factory_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 7
   store ptr null, ptr %client_handshaker_factory_, align 8
   %ssl_session_cache_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %ssl_session_cache.addr, align 8
-  store ptr %6, ptr %ssl_session_cache_, align 8
+  %7 = load ptr, ptr %ssl_session_cache.addr, align 8
+  store ptr %7, ptr %ssl_session_cache_, align 8
   %tls_session_key_logger_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 9
   invoke void @_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tls_session_key_logger_)
           to label %invoke.cont11 unwind label %lpad10
@@ -2195,13 +2196,13 @@ invoke.cont14:                                    ; preds = %invoke.cont11
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   store ptr %call16, ptr %tls_session_key_log_file_path, align 8
-  %7 = load ptr, ptr %tls_session_key_log_file_path, align 8
-  %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %8 = load ptr, ptr %tls_session_key_log_file_path, align 8
+  %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br i1 %call17, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont15
-  %8 = load ptr, ptr %tls_session_key_log_file_path, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = load ptr, ptr %tls_session_key_log_file_path, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %invoke.cont20 unwind label %lpad13
 
 invoke.cont20:                                    ; preds = %if.then
@@ -2216,82 +2217,82 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #3
   call void @_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup120
 
 lpad6:                                            ; preds = %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup119
 
 lpad8:                                            ; preds = %cond.end
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %ehcleanup116
 
 lpad10:                                           ; preds = %invoke.cont9
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup115
 
 lpad13:                                           ; preds = %invoke.cont37, %if.end30, %if.then27, %if.then, %invoke.cont14, %invoke.cont11
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup112
 
 lpad21:                                           ; preds = %invoke.cont20
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19) #3
   br label %ehcleanup112
 
 if.end:                                           ; preds = %invoke.cont22, %invoke.cont15
   %ssl_session_cache_25 = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 8
-  %30 = load ptr, ptr %ssl_session_cache_25, align 8
-  %cmp26 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %ssl_session_cache_25, align 8
+  %cmp26 = icmp ne ptr %31, null
   br i1 %cmp26, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %if.end
   %ssl_session_cache_28 = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector", ptr %this1, i32 0, i32 8
-  %31 = load ptr, ptr %ssl_session_cache_28, align 8
-  invoke void @_Z25tsi_ssl_session_cache_refP21tsi_ssl_session_cache(ptr noundef %31)
+  %32 = load ptr, ptr %ssl_session_cache_28, align 8
+  invoke void @_Z25tsi_ssl_session_cache_refP21tsi_ssl_session_cache(ptr noundef %32)
           to label %invoke.cont29 unwind label %lpad13
 
 invoke.cont29:                                    ; preds = %if.then27
@@ -2300,13 +2301,13 @@ invoke.cont29:                                    ; preds = %if.then27
 if.end30:                                         ; preds = %invoke.cont29, %if.end
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %host) #3
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %port) #3
-  %32 = load ptr, ptr %target_name.addr, align 8
-  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, ptr noundef %32) #3
-  %33 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp31, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp31, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %call33 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %34, ptr %36, ptr noundef %host, ptr noundef %port)
+  %33 = load ptr, ptr %target_name.addr, align 8
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, ptr noundef %33) #3
+  %34 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp31, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp31, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %call33 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %35, ptr %37, ptr noundef %host, ptr noundef %port)
           to label %invoke.cont32 unwind label %lpad13
 
 invoke.cont32:                                    ; preds = %if.end30
@@ -2366,31 +2367,31 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   br label %if.end64
 
 lpad36:                                           ; preds = %invoke.cont32
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #3
   br label %ehcleanup112
 
 lpad45:                                           ; preds = %invoke.cont46, %invoke.cont41
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup111
 
 lpad51:                                           ; preds = %invoke.cont60, %invoke.cont58, %if.then56, %invoke.cont52, %invoke.cont48
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup110
 
 if.end64:                                         ; preds = %invoke.cont62, %invoke.cont54
@@ -2423,12 +2424,12 @@ invoke.cont77:                                    ; preds = %invoke.cont75
   br label %if.end79
 
 lpad66:                                           ; preds = %invoke.cont86, %land.lhs.true, %invoke.cont81, %if.end79, %invoke.cont75, %invoke.cont73, %if.then71, %invoke.cont67, %if.end64
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup109
 
 if.end79:                                         ; preds = %invoke.cont77, %invoke.cont69
@@ -2444,8 +2445,8 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   %lnot = xor i1 %call84, true
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %use_default_roots, align 1
-  %49 = load i8, ptr %use_default_roots, align 1
-  %tobool = trunc i8 %49 to i1
+  %50 = load i8, ptr %use_default_roots, align 1
+  %tobool = trunc i8 %50 to i1
   br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont83
@@ -2466,8 +2467,8 @@ if.then90:                                        ; preds = %invoke.cont88
   call void @_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2ESt9nullopt_t(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp94) #3
   %vtable = load ptr, ptr %call91, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %50 = load ptr, ptr %vfn, align 8
-  invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %call91, ptr noundef byval(%"class.std::optional") align 8 %agg.tmp92, ptr noundef %agg.tmp94)
+  %51 = load ptr, ptr %vfn, align 8
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %call91, ptr noundef byval(%"class.std::optional") align 8 %agg.tmp92, ptr noundef %agg.tmp94)
           to label %invoke.cont97 unwind label %lpad96
 
 invoke.cont97:                                    ; preds = %if.then90
@@ -2475,17 +2476,17 @@ invoke.cont97:                                    ; preds = %if.then90
   br label %if.end108
 
 lpad96:                                           ; preds = %if.then90
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %exn.slot, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %ehselector.slot, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %exn.slot, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %ehselector.slot, align 4
   call void @_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp94) #3
   br label %ehcleanup109
 
 if.else:                                          ; preds = %invoke.cont88, %invoke.cont83
-  %54 = load ptr, ptr %distributor, align 8
+  %55 = load ptr, ptr %distributor, align 8
   call void @_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EEC2IN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherES2_IS8_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp98, ptr noundef nonnull align 8 dereferenceable(8) %watcher_ptr) #3
   invoke void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp99, ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name)
           to label %invoke.cont101 unwind label %lpad100
@@ -2495,7 +2496,7 @@ invoke.cont101:                                   ; preds = %if.else
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont101
-  invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %54, ptr noundef %agg.tmp98, ptr noundef %agg.tmp99, ptr noundef %agg.tmp102)
+  invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %55, ptr noundef %agg.tmp98, ptr noundef %agg.tmp99, ptr noundef %agg.tmp102)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont104
@@ -2505,30 +2506,30 @@ invoke.cont106:                                   ; preds = %invoke.cont104
   br label %if.end108
 
 lpad100:                                          ; preds = %if.else
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   br label %ehcleanup107
 
 lpad103:                                          ; preds = %invoke.cont101
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad105:                                          ; preds = %invoke.cont104
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp102) #3
   br label %ehcleanup
 
@@ -3420,7 +3421,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %channel_args_ = getelementptr inbounds %class.grpc_channel_security_connector, ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrI17grpc_channel_argsSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_) #3
   %request_metadata_creds_ = getelementptr inbounds %class.grpc_channel_security_connector, ptr %this1, i32 0, i32 2
@@ -7536,7 +7538,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnectorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %mu_ = getelementptr inbounds %"class.grpc_core::TlsServerSecurityConnector", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont4 unwind label %lpad3
@@ -7574,13 +7577,13 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 invoke.cont12:                                    ; preds = %invoke.cont11
   store ptr %call13, ptr %tls_session_key_log_file_path, align 8
-  %4 = load ptr, ptr %tls_session_key_log_file_path, align 8
-  %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %5 = load ptr, ptr %tls_session_key_log_file_path, align 8
+  %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   br i1 %call14, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont12
-  %5 = load ptr, ptr %tls_session_key_log_file_path, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %tls_session_key_log_file_path, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont16 unwind label %lpad10
 
 invoke.cont16:                                    ; preds = %if.then
@@ -7595,58 +7598,58 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup80
 
 lpad5:                                            ; preds = %invoke.cont4
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup79
 
 lpad7:                                            ; preds = %invoke.cont6
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup76
 
 lpad10:                                           ; preds = %if.end, %if.then, %invoke.cont11, %invoke.cont8
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup74
 
 lpad17:                                           ; preds = %invoke.cont16
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp15) #3
   br label %ehcleanup74
 
@@ -7698,21 +7701,21 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   br label %if.end45
 
 lpad26:                                           ; preds = %invoke.cont27, %invoke.cont22
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup73
 
 lpad32:                                           ; preds = %invoke.cont41, %invoke.cont39, %if.then37, %invoke.cont33, %invoke.cont29
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   br label %ehcleanup72
 
 if.end45:                                         ; preds = %invoke.cont43, %invoke.cont35
@@ -7745,16 +7748,16 @@ invoke.cont58:                                    ; preds = %invoke.cont56
   br label %if.end60
 
 lpad47:                                           ; preds = %invoke.cont56, %invoke.cont54, %if.then52, %invoke.cont48, %if.end45
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   br label %ehcleanup71
 
 if.end60:                                         ; preds = %invoke.cont58, %invoke.cont50
-  %33 = load ptr, ptr %distributor, align 8
+  %34 = load ptr, ptr %distributor, align 8
   call void @_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EEC2IN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherES2_IS8_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp61, ptr noundef nonnull align 8 dereferenceable(8) %watcher_ptr) #3
   invoke void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp62, ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name)
           to label %invoke.cont64 unwind label %lpad63
@@ -7764,7 +7767,7 @@ invoke.cont64:                                    ; preds = %if.end60
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont64
-  invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef %agg.tmp61, ptr noundef %agg.tmp62, ptr noundef %agg.tmp65)
+  invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %34, ptr noundef %agg.tmp61, ptr noundef %agg.tmp62, ptr noundef %agg.tmp65)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -7777,30 +7780,30 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   ret void
 
 lpad63:                                           ; preds = %if.end60
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup70
 
 lpad66:                                           ; preds = %invoke.cont64
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad68:                                           ; preds = %invoke.cont67
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp65) #3
   br label %ehcleanup
 
@@ -8046,7 +8049,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %server_creds_ = getelementptr inbounds %class.grpc_server_security_connector, ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %server_creds_) #3
   call void @_ZN23grpc_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -14577,7 +14581,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14587,7 +14592,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15383,10 +15389,11 @@ entry:
   store ptr %security_connector, ptr %security_connector.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %security_connector_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector::TlsChannelCertificateWatcher", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %security_connector.addr, align 8
-  store ptr %0, ptr %security_connector_, align 8
+  %1 = load ptr, ptr %security_connector.addr, align 8
+  store ptr %1, ptr %security_connector_, align 8
   ret void
 }
 
@@ -15420,7 +15427,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19235,10 +19243,11 @@ entry:
   store ptr %security_connector, ptr %security_connector.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %security_connector_ = getelementptr inbounds %"class.grpc_core::TlsServerSecurityConnector::TlsServerCertificateWatcher", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %security_connector.addr, align 8
-  store ptr %0, ptr %security_connector_, align 8
+  %1 = load ptr, ptr %security_connector.addr, align 8
+  store ptr %1, ptr %security_connector_, align 8
   ret void
 }
 

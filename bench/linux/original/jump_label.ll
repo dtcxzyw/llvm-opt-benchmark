@@ -164,9 +164,9 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
 19:                                               ; preds = %2, %2
   %20 = zext i8 %17 to i32
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #6
-  switch i8 %17, label %45 [
+  switch i8 %17, label %47 [
     i8 2, label %21
-    i8 5, label %35
+    i8 5, label %36
   ]
 
 21:                                               ; preds = %19
@@ -184,54 +184,56 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   %31 = ashr i32 %29, 31
   %32 = ashr i32 %29, 7
   %33 = icmp eq i32 %31, %32
-  br i1 %33, label %46, label %34, !prof !10
+  %34 = getelementptr [0 x ptr], ptr @x86_nops, i64 0, i64 2
+  br i1 %33, label %48, label %35, !prof !10
 
-34:                                               ; preds = %21
+35:                                               ; preds = %21
   call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #6, !srcloc !11
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 114, i32 0, i64 12) #6, !srcloc !12
   unreachable
 
-35:                                               ; preds = %19
-  %36 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @text_gen_insn.insn) #7, !srcloc !7
-  %37 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !8
-  %38 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %14) #7, !srcloc !9
-  store i8 -23, ptr %36, align 1
-  %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr i8, ptr %37, i64 5
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %39, %41
-  %43 = trunc i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %36, i64 1
-  store i32 %43, ptr %44, align 1
-  br label %46
+36:                                               ; preds = %19
+  %37 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @text_gen_insn.insn) #7, !srcloc !7
+  %38 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !8
+  %39 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %14) #7, !srcloc !9
+  store i8 -23, ptr %37, align 1
+  %40 = ptrtoint ptr %39 to i64
+  %41 = getelementptr i8, ptr %38, i64 5
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %40, %42
+  %44 = trunc i64 %43 to i32
+  %45 = getelementptr inbounds i8, ptr %37, i64 1
+  store i32 %44, ptr %45, align 1
+  %46 = getelementptr [0 x ptr], ptr @x86_nops, i64 0, i64 5
+  br label %48
 
-45:                                               ; preds = %19
+47:                                               ; preds = %19
   call void asm sideeffect "351: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 351b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 351) #6, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 57, i32 0, i64 12) #6, !srcloc !14
   unreachable
 
-46:                                               ; preds = %35, %21
-  %47 = phi ptr [ getelementptr ([0 x ptr], ptr @x86_nops, i64 0, i64 5), %35 ], [ getelementptr ([0 x ptr], ptr @x86_nops, i64 0, i64 2), %21 ]
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq i32 %1, 1
-  %50 = select i1 %49, ptr %48, ptr @text_gen_insn.insn
-  %51 = zext i8 %17 to i64
-  %52 = call i32 @bcmp(ptr %8, ptr %50, i64 %51)
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %56, label %54
+48:                                               ; preds = %36, %21
+  %49 = phi ptr [ %46, %36 ], [ %34, %21 ]
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq i32 %1, 1
+  %52 = select i1 %51, ptr %50, ptr @text_gen_insn.insn
+  %53 = zext i8 %17 to i64
+  %54 = call i32 @bcmp(ptr %8, ptr %52, i64 %53)
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %58, label %56
 
-54:                                               ; preds = %46
-  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef %8, ptr noundef %8, ptr noundef %50, i32 noundef %20, i32 noundef %1) #8
+56:                                               ; preds = %48
+  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef %8, ptr noundef %8, ptr noundef %52, i32 noundef %20, i32 noundef %1) #8
   call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #6, !srcloc !15
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 73, i32 0, i64 12) #6, !srcloc !16
   unreachable
 
-56:                                               ; preds = %46
-  %57 = icmp eq i32 %1, 0
-  %58 = select i1 %57, ptr %48, ptr @text_gen_insn.insn
-  %59 = insertvalue { ptr, i32 } poison, ptr %58, 0
-  %60 = insertvalue { ptr, i32 } %59, i32 %20, 1
-  ret { ptr, i32 } %60
+58:                                               ; preds = %48
+  %59 = icmp eq i32 %1, 0
+  %60 = select i1 %59, ptr %50, ptr @text_gen_insn.insn
+  %61 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %62 = insertvalue { ptr, i32 } %61, i32 %20, 1
+  ret { ptr, i32 } %62
 }
 
 ; Function Attrs: null_pointer_is_valid

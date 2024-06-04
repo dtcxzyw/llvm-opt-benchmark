@@ -301,65 +301,67 @@ define internal fastcc void @__usb_unanchor_urb(ptr noundef %0, ptr noundef %1) 
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  %9 = icmp eq ptr %0, null
-  br i1 %9, label %27, label %10
+  %9 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %9, ptr %4, align 8
+  %10 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %10, ptr %5, align 8
+  %11 = icmp eq ptr %0, null
+  br i1 %11, label %29, label %12
 
-10:                                               ; preds = %2
-  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #10, !srcloc !5
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %14
+12:                                               ; preds = %2
+  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #10, !srcloc !5
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %15, label %16
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  br label %17
+  br label %19
 
-14:                                               ; preds = %10
-  %15 = icmp sgt i32 %11, 0
-  br i1 %15, label %17, label %16, !prof !7
+16:                                               ; preds = %12
+  %17 = icmp sgt i32 %13, 0
+  br i1 %17, label %19, label %18, !prof !7
 
-16:                                               ; preds = %14
+18:                                               ; preds = %16
   tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #10
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %14, %13
-  br i1 %12, label %18, label %27
+19:                                               ; preds = %18, %16, %15
+  br i1 %14, label %20, label %29
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 92
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 256
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %26, label %23
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 92
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 256
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %28, label %25
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = load ptr, ptr %24, align 8
-  tail call void @kfree(ptr noundef %25) #10
-  br label %26
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = load ptr, ptr %26, align 8
+  tail call void @kfree(ptr noundef %27) #10
+  br label %28
 
-26:                                               ; preds = %23, %18
+28:                                               ; preds = %25, %20
   tail call void @kfree(ptr noundef nonnull %0) #10
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %17, %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 44
-  %29 = load volatile i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %37
+29:                                               ; preds = %28, %19, %2
+  %30 = getelementptr inbounds i8, ptr %1, i64 44
+  %31 = load volatile i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %39
 
-31:                                               ; preds = %27
-  %32 = load volatile ptr, ptr %1, align 8
-  %33 = icmp eq ptr %32, %1
-  br i1 %33, label %34, label %37
+33:                                               ; preds = %29
+  %34 = load volatile ptr, ptr %1, align 8
+  %35 = icmp eq ptr %34, %1
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
-  %36 = tail call i32 @__wake_up(ptr noundef %35, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
-  br label %37
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = tail call i32 @__wake_up(ptr noundef %37, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
+  br label %39
 
-37:                                               ; preds = %34, %31, %27
+39:                                               ; preds = %36, %33, %29
   ret void
 }
 

@@ -151,23 +151,24 @@ entry:
   store ptr %mode, ptr %mode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %loc = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %loc_in.addr, align 4
-  store i32 %0, ptr %loc, align 8
+  %1 = load i32, ptr %loc_in.addr, align 4
+  store i32 %1, ptr %loc, align 8
   %position = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  store i32 %1, ptr %position, align 4
+  %2 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
+  store i32 %2, ptr %position, align 4
   %negated = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %neg.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %neg.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %negated, align 8
   %ucp = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %mode.addr, align 8
-  %ucp3 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %3, i32 0, i32 4
-  %4 = load i8, ptr %ucp3, align 1
-  %tobool4 = trunc i8 %4 to i1
+  %4 = load ptr, ptr %mode.addr, align 8
+  %ucp3 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %4, i32 0, i32 4
+  %5 = load i8, ptr %ucp3, align 1
+  %tobool4 = trunc i8 %5 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %ucp, align 1
   %prefilter = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 5
@@ -250,36 +251,37 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3ue29ComponentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %loc = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %loc2 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %loc2, align 8
-  store i32 %2, ptr %loc, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %loc2 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %loc2, align 8
+  store i32 %3, ptr %loc, align 8
   %position = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %position3 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %position3, align 4
-  store i32 %4, ptr %position, align 4
+  %4 = load ptr, ptr %other.addr, align 8
+  %position3 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %position3, align 4
+  store i32 %5, ptr %position, align 4
   %negated = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %other.addr, align 8
-  %negated4 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %5, i32 0, i32 3
-  %6 = load i8, ptr %negated4, align 8
-  %tobool = trunc i8 %6 to i1
+  %6 = load ptr, ptr %other.addr, align 8
+  %negated4 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %6, i32 0, i32 3
+  %7 = load i8, ptr %negated4, align 8
+  %tobool = trunc i8 %7 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %negated, align 8
   %ucp = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %other.addr, align 8
-  %ucp5 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %7, i32 0, i32 4
-  %8 = load i8, ptr %ucp5, align 1
-  %tobool6 = trunc i8 %8 to i1
+  %8 = load ptr, ptr %other.addr, align 8
+  %ucp5 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %8, i32 0, i32 4
+  %9 = load i8, ptr %ucp5, align 1
+  %tobool6 = trunc i8 %9 to i1
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %ucp, align 1
   %prefilter = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %other.addr, align 8
-  %prefilter8 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %9, i32 0, i32 5
-  %10 = load i8, ptr %prefilter8, align 2
-  %tobool9 = trunc i8 %10 to i1
+  %10 = load ptr, ptr %other.addr, align 8
+  %prefilter8 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %10, i32 0, i32 5
+  %11 = load i8, ptr %prefilter8, align 2
+  %tobool9 = trunc i8 %11 to i1
   %frombool10 = zext i1 %tobool9 to i8
   store i8 %frombool10, ptr %prefilter, align 2
   ret void
@@ -613,17 +615,18 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %pos_begin2, align 8
-  store i32 %1, ptr %pos_begin, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %pos_begin2, align 8
+  store i32 %2, ptr %pos_begin, align 8
   %pos_end = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %pos_end3, align 4
-  store i32 %3, ptr %pos_end, align 4
+  %3 = load ptr, ptr %other.addr, align 8
+  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %pos_end3, align 4
+  store i32 %4, ptr %pos_end, align 4
   ret void
 }
 

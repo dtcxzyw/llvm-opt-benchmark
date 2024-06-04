@@ -235,42 +235,43 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 52), align 4
-  %call1 = call ptr @bipbuf_new(i32 noundef %1)
-  %2 = load ptr, ptr %l, align 8
-  %buf = getelementptr inbounds %struct._logger, ptr %2, i32 0, i32 9
-  store ptr %call1, ptr %buf, align 8
+  %1 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 52
+  %2 = load i32, ptr %1, align 4
+  %call1 = call ptr @bipbuf_new(i32 noundef %2)
   %3 = load ptr, ptr %l, align 8
-  %buf2 = getelementptr inbounds %struct._logger, ptr %3, i32 0, i32 9
-  %4 = load ptr, ptr %buf2, align 8
-  %cmp3 = icmp eq ptr %4, null
+  %buf = getelementptr inbounds %struct._logger, ptr %3, i32 0, i32 9
+  store ptr %call1, ptr %buf, align 8
+  %4 = load ptr, ptr %l, align 8
+  %buf2 = getelementptr inbounds %struct._logger, ptr %4, i32 0, i32 9
+  %5 = load ptr, ptr %buf2, align 8
+  %cmp3 = icmp eq ptr %5, null
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr %l, align 8
-  call void @free(ptr noundef %5) #9
+  %6 = load ptr, ptr %l, align 8
+  call void @free(ptr noundef %6) #9
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %l, align 8
-  %entry_map = getelementptr inbounds %struct._logger, ptr %6, i32 0, i32 10
-  store ptr @default_entries, ptr %entry_map, align 8
   %7 = load ptr, ptr %l, align 8
-  %mutex = getelementptr inbounds %struct._logger, ptr %7, i32 0, i32 2
+  %entry_map = getelementptr inbounds %struct._logger, ptr %7, i32 0, i32 10
+  store ptr @default_entries, ptr %entry_map, align 8
+  %8 = load ptr, ptr %l, align 8
+  %mutex = getelementptr inbounds %struct._logger, ptr %8, i32 0, i32 2
   %call6 = call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef null) #9
-  %8 = load i32, ptr @logger_key, align 4
-  %9 = load ptr, ptr %l, align 8
-  %call7 = call i32 @pthread_setspecific(i32 noundef %8, ptr noundef %9) #9
+  %9 = load i32, ptr @logger_key, align 4
   %10 = load ptr, ptr %l, align 8
-  call void @logger_link_q(ptr noundef %10)
+  %call7 = call i32 @pthread_setspecific(i32 noundef %9, ptr noundef %10) #9
   %11 = load ptr, ptr %l, align 8
-  store ptr %11, ptr %retval, align 8
+  call void @logger_link_q(ptr noundef %11)
+  %12 = load ptr, ptr %l, align 8
+  store ptr %12, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %13 = load ptr, ptr %retval, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -415,7 +416,7 @@ if.end:                                           ; preds = %entry
   %tv = getelementptr inbounds %struct._logentry, ptr %21, i32 0, i32 4
   %call12 = call i32 @gettimeofday(ptr noundef %tv, ptr noundef null) #9
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %22 = load ptr, ptr %d, align 8
   %log_cb = getelementptr inbounds %struct._entry_details, ptr %22, i32 0, i32 2
   %23 = load ptr, ptr %log_cb, align 8
@@ -425,7 +426,7 @@ if.end:                                           ; preds = %entry
   %arraydecay13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void %23(ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %arraydecay13)
   %arraydecay14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay14)
+  call void @llvm.va_end.p0(ptr %arraydecay14)
   %27 = load ptr, ptr %buf, align 8
   %28 = load ptr, ptr %e, align 8
   %size = getelementptr inbounds %struct._logentry, ptr %28, i32 0, i32 5
@@ -487,12 +488,6 @@ declare i32 @pthread_mutex_unlock(ptr noundef) #1
 
 ; Function Attrs: nounwind
 declare i32 @gettimeofday(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare i32 @bipbuf_push(ptr noundef, i32 noundef) #4
 
@@ -605,36 +600,37 @@ if.end17:                                         ; preds = %if.else, %if.then15
   %18 = load ptr, ptr %w, align 8
   %min_gid = getelementptr inbounds %struct.logger_watcher, ptr %18, i32 0, i32 4
   store i64 %call18, ptr %min_gid, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 51), align 8
-  %call19 = call ptr @bipbuf_new(i32 noundef %19)
-  %20 = load ptr, ptr %w, align 8
-  %buf = getelementptr inbounds %struct.logger_watcher, ptr %20, i32 0, i32 8
-  store ptr %call19, ptr %buf, align 8
+  %19 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 51
+  %20 = load i32, ptr %19, align 8
+  %call19 = call ptr @bipbuf_new(i32 noundef %20)
   %21 = load ptr, ptr %w, align 8
-  %buf20 = getelementptr inbounds %struct.logger_watcher, ptr %21, i32 0, i32 8
-  %22 = load ptr, ptr %buf20, align 8
-  %cmp21 = icmp eq ptr %22, null
+  %buf = getelementptr inbounds %struct.logger_watcher, ptr %21, i32 0, i32 8
+  store ptr %call19, ptr %buf, align 8
+  %22 = load ptr, ptr %w, align 8
+  %buf20 = getelementptr inbounds %struct.logger_watcher, ptr %22, i32 0, i32 8
+  %23 = load ptr, ptr %buf20, align 8
+  %cmp21 = icmp eq ptr %23, null
   br i1 %cmp21, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end17
-  %23 = load ptr, ptr %w, align 8
-  call void @free(ptr noundef %23) #9
+  %24 = load ptr, ptr %w, align 8
+  call void @free(ptr noundef %24) #9
   %call23 = call i32 @pthread_mutex_unlock(ptr noundef @logger_stack_lock) #9
   store i32 2, ptr %retval, align 4
   br label %return
 
 if.end24:                                         ; preds = %if.end17
-  %24 = load ptr, ptr %w, align 8
-  %buf25 = getelementptr inbounds %struct.logger_watcher, ptr %24, i32 0, i32 8
-  %25 = load ptr, ptr %buf25, align 8
-  %call26 = call i32 @bipbuf_offer(ptr noundef %25, ptr noundef @.str.1, i32 noundef 4)
-  %26 = load ptr, ptr %w, align 8
-  %27 = load i32, ptr %x, align 4
-  %idxprom27 = sext i32 %27 to i64
+  %25 = load ptr, ptr %w, align 8
+  %buf25 = getelementptr inbounds %struct.logger_watcher, ptr %25, i32 0, i32 8
+  %26 = load ptr, ptr %buf25, align 8
+  %call26 = call i32 @bipbuf_offer(ptr noundef %26, ptr noundef @.str.1, i32 noundef 4)
+  %27 = load ptr, ptr %w, align 8
+  %28 = load i32, ptr %x, align 4
+  %idxprom27 = sext i32 %28 to i64
   %arrayidx28 = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %idxprom27
-  store ptr %26, ptr %arrayidx28, align 8
-  %28 = load i32, ptr @watcher_count, align 4
-  %inc29 = add nsw i32 %28, 1
+  store ptr %27, ptr %arrayidx28, align 8
+  %29 = load i32, ptr @watcher_count, align 4
+  %inc29 = add nsw i32 %29, 1
   store i32 %inc29, ptr @watcher_count, align 4
   call void @logger_set_flags()
   %call30 = call i32 @pthread_cond_signal(ptr noundef @logger_stack_cond) #9
@@ -643,8 +639,8 @@ if.end24:                                         ; preds = %if.end17
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then22, %if.then8, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+  %30 = load i32, ptr %retval, align 4
+  ret i32 %30
 }
 
 declare i32 @bipbuf_offer(ptr noundef, ptr noundef, i32 noundef) #4
@@ -867,7 +863,7 @@ declare ptr @strerror(i32 noundef) #1
 declare void @thread_setname(i64 noundef, ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 declare i32 @usleep(i32 noundef) #4
 
@@ -1426,32 +1422,41 @@ entry:
   %0 = load ptr, ptr %ls.addr, align 8
   %worker_dropped = getelementptr inbounds %struct.logger_stats, ptr %0, i32 0, i32 0
   %1 = load i64, ptr %worker_dropped, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 15), align 8
-  %add = add i64 %2, %1
-  store i64 %add, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 15), align 8
-  %3 = load ptr, ptr %ls.addr, align 8
-  %worker_written = getelementptr inbounds %struct.logger_stats, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %worker_written, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 16), align 8
-  %add1 = add i64 %5, %4
-  store i64 %add1, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 16), align 8
-  %6 = load ptr, ptr %ls.addr, align 8
-  %watcher_skipped = getelementptr inbounds %struct.logger_stats, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %watcher_skipped, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 17), align 8
-  %add2 = add i64 %8, %7
-  store i64 %add2, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 17), align 8
-  %9 = load ptr, ptr %ls.addr, align 8
-  %watcher_sent = getelementptr inbounds %struct.logger_stats, ptr %9, i32 0, i32 3
-  %10 = load i64, ptr %watcher_sent, align 8
-  %11 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 18), align 8
-  %add3 = add i64 %11, %10
-  store i64 %add3, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 18), align 8
-  %12 = load ptr, ptr %ls.addr, align 8
-  %watcher_count = getelementptr inbounds %struct.logger_stats, ptr %12, i32 0, i32 4
-  %13 = load i64, ptr %watcher_count, align 8
-  %conv = trunc i64 %13 to i32
-  store i32 %conv, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 7), align 4
+  %2 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 15
+  %3 = load i64, ptr %2, align 8
+  %add = add i64 %3, %1
+  %4 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 15
+  store i64 %add, ptr %4, align 8
+  %5 = load ptr, ptr %ls.addr, align 8
+  %worker_written = getelementptr inbounds %struct.logger_stats, ptr %5, i32 0, i32 1
+  %6 = load i64, ptr %worker_written, align 8
+  %7 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 16
+  %8 = load i64, ptr %7, align 8
+  %add1 = add i64 %8, %6
+  %9 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 16
+  store i64 %add1, ptr %9, align 8
+  %10 = load ptr, ptr %ls.addr, align 8
+  %watcher_skipped = getelementptr inbounds %struct.logger_stats, ptr %10, i32 0, i32 2
+  %11 = load i64, ptr %watcher_skipped, align 8
+  %12 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 17
+  %13 = load i64, ptr %12, align 8
+  %add2 = add i64 %13, %11
+  %14 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 17
+  store i64 %add2, ptr %14, align 8
+  %15 = load ptr, ptr %ls.addr, align 8
+  %watcher_sent = getelementptr inbounds %struct.logger_stats, ptr %15, i32 0, i32 3
+  %16 = load i64, ptr %watcher_sent, align 8
+  %17 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 18
+  %18 = load i64, ptr %17, align 8
+  %add3 = add i64 %18, %16
+  %19 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 18
+  store i64 %add3, ptr %19, align 8
+  %20 = load ptr, ptr %ls.addr, align 8
+  %watcher_count = getelementptr inbounds %struct.logger_stats, ptr %20, i32 0, i32 4
+  %21 = load i64, ptr %watcher_count, align 8
+  %conv = trunc i64 %21 to i32
+  %22 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 7
+  store i32 %conv, ptr %22, align 4
   call void @STATS_UNLOCK()
   ret void
 }
@@ -1715,7 +1720,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #4
 declare void @perror(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #7
+declare ptr @__errno_location() #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @logger_thread_close_watcher(ptr noundef %w) #0 {
@@ -3362,7 +3367,7 @@ entry:
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 declare zeroext i1 @uriencode(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #4
 
@@ -3438,20 +3443,26 @@ sw.epilog:                                        ; preds = %sw.bb8, %sw.bb3, %s
 declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) #7
+declare zeroext i16 @ntohs(i16 noundef zeroext) #6
 
 ; Function Attrs: nounwind
 declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind allocsize(0,1) }

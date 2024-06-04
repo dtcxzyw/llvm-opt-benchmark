@@ -20,47 +20,48 @@ define dso_local ptr @decompress_method(ptr nocapture noundef readonly %0, i64 n
 5:                                                ; preds = %3
   %6 = tail call i32 @bcmp(ptr noundef dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @compressed_formats, i64 2)
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %20, label %15
+  br i1 %7, label %21, label %15
 
 8:                                                ; preds = %3
   %9 = icmp eq ptr %2, null
-  br i1 %9, label %28, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %8
   store ptr null, ptr %2, align 8
-  br label %28
+  br label %29
 
 11:                                               ; preds = %15
   %12 = getelementptr i8, ptr %16, i64 24
   %13 = tail call i32 @bcmp(ptr noundef dereferenceable(2) %0, ptr noundef dereferenceable(2) %12, i64 2)
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %20, label %15, !llvm.loop !5
+  br i1 %14, label %21, label %15, !llvm.loop !5
 
 15:                                               ; preds = %11, %5
   %16 = phi ptr [ %12, %11 ], [ @compressed_formats, %5 ]
   %17 = getelementptr i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %11, !llvm.loop !5
+  %20 = getelementptr inbounds [9 x %struct.compress_format], ptr @compressed_formats, i64 0, i64 8, i32 0, i64 0
+  br i1 %19, label %21, label %11, !llvm.loop !5
 
-20:                                               ; preds = %15, %11, %5
-  %21 = phi ptr [ @compressed_formats, %5 ], [ getelementptr inbounds ([9 x %struct.compress_format], ptr @compressed_formats, i64 0, i64 8, i32 0, i64 0), %15 ], [ %12, %11 ]
-  %22 = phi ptr [ @.str, %5 ], [ %18, %11 ], [ %18, %15 ]
-  %23 = icmp eq ptr %2, null
-  br i1 %23, label %25, label %24
+21:                                               ; preds = %15, %11, %5
+  %22 = phi ptr [ @compressed_formats, %5 ], [ %20, %15 ], [ %12, %11 ]
+  %23 = phi ptr [ @.str, %5 ], [ %18, %11 ], [ %18, %15 ]
+  %24 = icmp eq ptr %2, null
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %20
-  store ptr %22, ptr %2, align 8
-  br label %25
+25:                                               ; preds = %21
+  store ptr %23, ptr %2, align 8
+  br label %26
 
-25:                                               ; preds = %24, %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
-  %27 = load ptr, ptr %26, align 8
-  br label %28
+26:                                               ; preds = %25, %21
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %28 = load ptr, ptr %27, align 8
+  br label %29
 
-28:                                               ; preds = %25, %10, %8
-  %29 = phi ptr [ %27, %25 ], [ null, %10 ], [ null, %8 ]
-  ret ptr %29
+29:                                               ; preds = %26, %10, %8
+  %30 = phi ptr [ %28, %26 ], [ null, %10 ], [ null, %8 ]
+  ret ptr %30
 }
 
 ; Function Attrs: null_pointer_is_valid

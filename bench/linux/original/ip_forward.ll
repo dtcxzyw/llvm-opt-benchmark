@@ -595,97 +595,98 @@ declare dso_local void @ip_rt_send_redirect(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @NF_HOOK(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 16 {
   %5 = alloca %struct.nf_hook_state, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds ([11 x [5 x %struct.static_key]], ptr @nf_hooks_needed, i64 0, i64 2, i64 2), i32 2) #7
-          to label %20 [label %6], !srcloc !10
+  %6 = getelementptr inbounds [11 x [5 x %struct.static_key]], ptr @nf_hooks_needed, i64 0, i64 2, i64 2
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i32 2) #7
+          to label %21 [label %7], !srcloc !10
 
-6:                                                ; preds = %4
+7:                                                ; preds = %4
   tail call void @__rcu_read_lock() #7
-  %7 = getelementptr i8, ptr %0, i64 2360
-  %8 = load volatile ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %18, label %10
+  %8 = getelementptr i8, ptr %0, i64 2360
+  %9 = load volatile ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %19, label %11
 
-10:                                               ; preds = %6
+11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !11
   store i8 2, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 2, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr @ip_forward_finish, ptr %16, align 8
-  %17 = call i32 @nf_hook_slow(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 0) #7
+  %12 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 2, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %2, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %3, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr @ip_forward_finish, ptr %17, align 8
+  %18 = call i32 @nf_hook_slow(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #7
-  br label %18
+  br label %19
 
-18:                                               ; preds = %10, %6
-  %19 = phi i32 [ %17, %10 ], [ 1, %6 ]
+19:                                               ; preds = %11, %7
+  %20 = phi i32 [ %18, %11 ], [ 1, %7 ]
   call void @__rcu_read_unlock() #7
-  br label %20
+  br label %21
 
-20:                                               ; preds = %18, %4
-  %21 = phi i32 [ %19, %18 ], [ 1, %4 ]
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %51
+21:                                               ; preds = %19, %4
+  %22 = phi i32 [ %20, %19 ], [ 1, %4 ]
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %24, label %52
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
-  %25 = load i8, ptr %24, align 4
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %28, label %27, !prof !5
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %1, i64 52
+  %26 = load i8, ptr %25, align 4
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %29, label %28, !prof !5
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   call void @ip_forward_options(ptr noundef %1) #7
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds i8, ptr %1, i64 129
-  %30 = load i24, ptr %29, align 1
-  %31 = and i24 %30, 1
-  %32 = icmp eq i24 %31, 0
-  br i1 %32, label %33, label %35
+29:                                               ; preds = %28, %24
+  %30 = getelementptr inbounds i8, ptr %1, i64 129
+  %31 = load i24, ptr %30, align 1
+  %32 = and i24 %31, 1
+  %33 = icmp eq i24 %32, 0
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %34, align 8
-  br label %35
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %35, align 8
+  br label %36
 
-35:                                               ; preds = %33, %28
-  %36 = getelementptr inbounds i8, ptr %1, i64 88
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %37, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, @ip6_output
-  br i1 %42, label %43, label %45, !prof !5
+36:                                               ; preds = %34, %29
+  %37 = getelementptr inbounds i8, ptr %1, i64 88
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, -2
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, @ip6_output
+  br i1 %43, label %44, label %46, !prof !5
 
-43:                                               ; preds = %35
-  %44 = call i32 @ip6_output(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
-  br label %51
+44:                                               ; preds = %36
+  %45 = call i32 @ip6_output(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
+  br label %52
 
-45:                                               ; preds = %35
-  %46 = icmp eq ptr %41, @ip_output
-  br i1 %46, label %47, label %49, !prof !5
+46:                                               ; preds = %36
+  %47 = icmp eq ptr %42, @ip_output
+  br i1 %47, label %48, label %50, !prof !5
 
-47:                                               ; preds = %45
-  %48 = call i32 @ip_output(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
-  br label %51
+48:                                               ; preds = %46
+  %49 = call i32 @ip_output(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
+  br label %52
 
-49:                                               ; preds = %45
-  %50 = call i32 %41(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
-  br label %51
+50:                                               ; preds = %46
+  %51 = call i32 %42(ptr noundef %0, ptr noundef null, ptr noundef %1) #7
+  br label %52
 
-51:                                               ; preds = %49, %47, %43, %20
-  %52 = phi i32 [ %21, %20 ], [ %44, %43 ], [ %48, %47 ], [ %50, %49 ]
-  ret i32 %52
+52:                                               ; preds = %50, %48, %44, %21
+  %53 = phi i32 [ %22, %21 ], [ %45, %44 ], [ %49, %48 ], [ %51, %50 ]
+  ret i32 %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

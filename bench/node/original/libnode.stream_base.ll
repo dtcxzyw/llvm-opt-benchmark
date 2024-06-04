@@ -2916,7 +2916,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node30ReportWritesToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22CustomBufferJSListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node22CustomBufferJSListenerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.node::CustomBufferJSListener", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer, i64 16, i1 false)
   ret void
@@ -10448,61 +10449,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11ReadStartJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11ReadStartJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11ReadStartJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11ReadStartJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -10510,37 +10513,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -10832,61 +10835,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase10ReadStopJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase10ReadStopJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase10ReadStopJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase10ReadStopJSERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -10894,37 +10899,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -11216,61 +11221,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase8ShutdownERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase8ShutdownERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase8ShutdownERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase8ShutdownERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -11278,37 +11285,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -11600,61 +11607,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase13UseUserBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase13UseUserBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase13UseUserBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase13UseUserBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -11662,37 +11671,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -11984,61 +11993,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase6WritevERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase6WritevERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase6WritevERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase6WritevERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -12046,37 +12057,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -12368,61 +12379,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -12430,37 +12443,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -12752,61 +12765,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE0EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE0EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE0EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE0EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -12814,37 +12829,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -13136,61 +13151,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -13198,37 +13215,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -13520,61 +13537,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE3EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE3EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE3EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE3EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -13582,37 +13601,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -13904,61 +13923,63 @@ if.end16:                                         ; preds = %if.end
 
 memptr.virtual:                                   ; preds = %if.end16
   %vtable23 = load ptr, ptr %56, align 8
-  %57 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE4EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %57, align 8, !nosanitize !10
+  %57 = ptrtoint ptr @_ZN4node10StreamBase11WriteStringILNS_8encodingE4EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE to i64
+  %58 = sub i64 %57, 1
+  %59 = getelementptr i8, ptr %vtable23, i64 %58, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %59, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.end16
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %58 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE4EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
-  %59 = load ptr, ptr %args.addr, align 8
-  %call24 = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %59)
+  %60 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZN4node10StreamBase11WriteStringILNS_8encodingE4EEEiRKN2v820FunctionCallbackInfoINS3_5ValueEEE, %memptr.nonvirtual ]
+  %61 = load ptr, ptr %args.addr, align 8
+  %call24 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(20) %61)
   store ptr %ref.tmp20, ptr %this.addr.i32, align 8
   store i32 %call24, ptr %i.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i32, align 8
-  %60 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sext i32 %60 to i64
+  %62 = load i32, ptr %i.addr.i, align 4
+  %conv.i = sext i32 %62 to i64
   store i64 %conv.i, ptr %value.addr.i76, align 8
-  %61 = load i64, ptr %value.addr.i76, align 8
-  store i64 %61, ptr %value.addr.i115, align 8
-  %62 = load i64, ptr %value.addr.i115, align 8
-  %63 = load i64, ptr %value.addr.i115, align 8
-  %conv.i116 = trunc i64 %63 to i32
+  %63 = load i64, ptr %value.addr.i76, align 8
+  store i64 %63, ptr %value.addr.i115, align 8
+  %64 = load i64, ptr %value.addr.i115, align 8
+  %65 = load i64, ptr %value.addr.i115, align 8
+  %conv.i116 = trunc i64 %65 to i32
   %conv1.i = sext i32 %conv.i116 to i64
-  %cmp.i = icmp eq i64 %62, %conv1.i
+  %cmp.i = icmp eq i64 %64, %conv1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %memptr.end
-  %64 = load i32, ptr %i.addr.i, align 4
-  store i32 %64, ptr %value.addr.i80, align 4
-  %65 = load i32, ptr %value.addr.i80, align 4
-  store i32 %65, ptr %value.addr.i121, align 4
-  %66 = load i32, ptr %value.addr.i121, align 4
-  %conv.i122 = sext i32 %66 to i64
+  %66 = load i32, ptr %i.addr.i, align 4
+  store i32 %66, ptr %value.addr.i80, align 4
+  %67 = load i32, ptr %value.addr.i80, align 4
+  store i32 %67, ptr %value.addr.i121, align 4
+  %68 = load i32, ptr %value.addr.i121, align 4
+  %conv.i122 = sext i32 %68 to i64
   %shl.i = shl i64 %conv.i122, 32
-  %67 = load ptr, ptr %this1.i34, align 8
-  store i64 %shl.i, ptr %67, align 8
+  %69 = load ptr, ptr %this1.i34, align 8
+  store i64 %shl.i, ptr %69, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEi.exit
 
 if.end.i:                                         ; preds = %memptr.end
   store ptr %this1.i34, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
-  %68 = load ptr, ptr %this1.i69, align 8
-  %arrayidx.i70 = getelementptr inbounds i64, ptr %68, i64 -2
-  %69 = load ptr, ptr %arrayidx.i70, align 8
-  %70 = load i32, ptr %i.addr.i, align 4
-  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %69, i32 noundef %70) #3
+  %70 = load ptr, ptr %this1.i69, align 8
+  %arrayidx.i70 = getelementptr inbounds i64, ptr %70, i64 -2
+  %71 = load ptr, ptr %arrayidx.i70, align 8
+  %72 = load i32, ptr %i.addr.i, align 4
+  %call6.i = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %71, i32 noundef %72) #3
   store ptr %call6.i, ptr %agg.tmp.i33, align 8
-  %71 = load ptr, ptr %agg.tmp.i33, align 8
-  store ptr %71, ptr %handle.i97, align 8
+  %73 = load ptr, ptr %agg.tmp.i33, align 8
+  store ptr %73, ptr %handle.i97, align 8
   store ptr %this1.i34, ptr %this.addr.i98, align 8
   %this3.i99 = load ptr, ptr %this.addr.i98, align 8
   store ptr %handle.i97, ptr %this.addr.i.i96, align 8
   %this1.i.i100 = load ptr, ptr %this.addr.i.i96, align 8
-  %72 = load ptr, ptr %this1.i.i100, align 8
-  %cmp.i.i101 = icmp eq ptr %72, null
+  %74 = load ptr, ptr %this1.i.i100, align 8
+  %cmp.i.i101 = icmp eq ptr %74, null
   br i1 %cmp.i.i101, label %if.then.i106, label %if.else.i103
 
 if.then.i106:                                     ; preds = %if.end.i
@@ -13966,37 +13987,37 @@ if.then.i106:                                     ; preds = %if.end.i
   %this1.i9.i107 = load ptr, ptr %this.addr.i8.i95, align 8
   store ptr %this1.i9.i107, ptr %this.addr.i12.i88, align 8
   %this1.i13.i108 = load ptr, ptr %this.addr.i12.i88, align 8
-  %73 = load ptr, ptr %this1.i13.i108, align 8
-  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %73, i64 -2
-  %74 = load ptr, ptr %arrayidx.i.i109, align 8
-  store ptr %74, ptr %isolate.addr.i.i92, align 8
+  %75 = load ptr, ptr %this1.i13.i108, align 8
+  %arrayidx.i.i109 = getelementptr inbounds i64, ptr %75, i64 -2
+  %76 = load ptr, ptr %arrayidx.i.i109, align 8
+  store ptr %76, ptr %isolate.addr.i.i92, align 8
   store i32 5, ptr %index.addr.i.i93, align 4
-  %75 = load ptr, ptr %isolate.addr.i.i92, align 8
-  %76 = load i32, ptr %index.addr.i.i93, align 4
-  store ptr %75, ptr %isolate.addr.i.i.i89, align 8
-  store i32 %76, ptr %index.addr.i.i.i90, align 4
-  %77 = load ptr, ptr %isolate.addr.i.i.i89, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %add.i.i.i110 = add i64 %78, 576
-  %79 = load i32, ptr %index.addr.i.i.i90, align 4
-  %mul.i.i.i111 = mul nsw i32 %79, 8
+  %77 = load ptr, ptr %isolate.addr.i.i92, align 8
+  %78 = load i32, ptr %index.addr.i.i93, align 4
+  store ptr %77, ptr %isolate.addr.i.i.i89, align 8
+  store i32 %78, ptr %index.addr.i.i.i90, align 4
+  %79 = load ptr, ptr %isolate.addr.i.i.i89, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %add.i.i.i110 = add i64 %80, 576
+  %81 = load i32, ptr %index.addr.i.i.i90, align 4
+  %mul.i.i.i111 = mul nsw i32 %81, 8
   %conv.i.i.i112 = sext i32 %mul.i.i.i111 to i64
   %add1.i.i.i113 = add i64 %add.i.i.i110, %conv.i.i.i112
   store i64 %add1.i.i.i113, ptr %addr.i.i.i91, align 8
-  %80 = load i64, ptr %addr.i.i.i91, align 8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %this3.i99, align 8
-  store i64 %82, ptr %83, align 8
+  %82 = load i64, ptr %addr.i.i.i91, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %this3.i99, align 8
+  store i64 %84, ptr %85, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 if.else.i103:                                     ; preds = %if.end.i
   store ptr %handle.i97, ptr %this.addr.i10.i94, align 8
   %this1.i11.i104 = load ptr, ptr %this.addr.i10.i94, align 8
-  %84 = load ptr, ptr %this1.i11.i104, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %this3.i99, align 8
-  store i64 %85, ptr %86, align 8
+  %86 = load ptr, ptr %this1.i11.i104, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %this3.i99, align 8
+  store i64 %87, ptr %88, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_7IntegerEEEvNS_5LocalIT_EE.exit114: ; preds = %if.else.i103, %if.then.i106
@@ -14467,16 +14488,18 @@ do.body:                                          ; preds = %entry
 
 memptr.virtual:                                   ; preds = %do.body
   %vtable = load ptr, ptr %2, align 8
-  %3 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK2v85Value10IsFunctionEv to i64), i64 1), !nosanitize !10
-  %memptr.virtualfn = load ptr, ptr %3, align 8, !nosanitize !10
+  %3 = ptrtoint ptr @_ZNK2v85Value10IsFunctionEv to i64
+  %4 = sub i64 %3, 1
+  %5 = getelementptr i8, ptr %vtable, i64 %4, !nosanitize !10
+  %memptr.virtualfn = load ptr, ptr %5, align 8, !nosanitize !10
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %do.body
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %4 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK2v85Value10IsFunctionEv, %memptr.nonvirtual ]
-  %call6 = call noundef zeroext i1 %4(ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %6 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK2v85Value10IsFunctionEv, %memptr.nonvirtual ]
+  %call6 = call noundef zeroext i1 %6(ptr noundef nonnull align 1 dereferenceable(1) %2)
   %lnot = xor i1 %call6, true
   %lnot7 = xor i1 %lnot, true
   %lnot8 = xor i1 %lnot7, true
@@ -14497,65 +14520,65 @@ if.end:                                           ; preds = %do.end, %memptr.end
   br label %do.end10
 
 do.end10:                                         ; preds = %if.end
-  %5 = load ptr, ptr %info.addr, align 8
-  store ptr %5, ptr %this.addr.i31, align 8
+  %7 = load ptr, ptr %info.addr, align 8
+  store ptr %7, ptr %this.addr.i31, align 8
   %this1.i32 = load ptr, ptr %this.addr.i31, align 8
-  %6 = load ptr, ptr %this1.i32, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %6, i64 6
+  %8 = load ptr, ptr %this1.i32, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %8, i64 6
   store ptr %arrayidx.i, ptr %slot.addr.i.i30, align 8
-  %7 = load ptr, ptr %slot.addr.i.i30, align 8
-  store ptr %7, ptr %slot.addr.i9.i, align 8
-  %8 = load ptr, ptr %slot.addr.i9.i, align 8
+  %9 = load ptr, ptr %slot.addr.i.i30, align 8
+  store ptr %9, ptr %slot.addr.i9.i, align 8
+  %10 = load ptr, ptr %slot.addr.i9.i, align 8
   store ptr %retval.i8.i, ptr %this.addr.i.i7.i, align 8
-  store ptr %8, ptr %location.addr.i.i.i, align 8
+  store ptr %10, ptr %location.addr.i.i.i, align 8
   %this1.i.i10.i = load ptr, ptr %this.addr.i.i7.i, align 8
-  %9 = load ptr, ptr %location.addr.i.i.i, align 8
+  %11 = load ptr, ptr %location.addr.i.i.i, align 8
   store ptr %this1.i.i10.i, ptr %this.addr.i.i.i.i, align 8
-  store ptr %9, ptr %location.addr.i.i.i.i, align 8
+  store ptr %11, ptr %location.addr.i.i.i.i, align 8
   %this1.i.i.i.i = load ptr, ptr %this.addr.i.i.i.i, align 8
-  %10 = load ptr, ptr %location.addr.i.i.i.i, align 8
-  store ptr %10, ptr %this1.i.i.i.i, align 8
-  %11 = load ptr, ptr %retval.i8.i, align 8
-  store ptr %11, ptr %ref.tmp.i.i, align 8
+  %12 = load ptr, ptr %location.addr.i.i.i.i, align 8
+  store ptr %12, ptr %this1.i.i.i.i, align 8
+  %13 = load ptr, ptr %retval.i8.i, align 8
+  store ptr %13, ptr %ref.tmp.i.i, align 8
   store ptr %retval.i.i, ptr %this.addr.i.i.i29, align 8
   store ptr %ref.tmp.i.i, ptr %other.addr.i.i.i, align 8
   %this1.i.i.i33 = load ptr, ptr %this.addr.i.i.i29, align 8
-  %12 = load ptr, ptr %other.addr.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i.i.i33, ptr align 8 %12, i64 8, i1 false)
-  %13 = load ptr, ptr %retval.i.i, align 8
-  store ptr %13, ptr %retval.i, align 8
-  %14 = load ptr, ptr %retval.i, align 8
+  %14 = load ptr, ptr %other.addr.i.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i.i.i33, ptr align 8 %14, i64 8, i1 false)
+  %15 = load ptr, ptr %retval.i.i, align 8
+  store ptr %15, ptr %retval.i, align 8
+  %16 = load ptr, ptr %retval.i, align 8
   %coerce.dive12 = getelementptr inbounds %"class.v8::Local", ptr %ref.tmp, i32 0, i32 0
   %coerce.dive13 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive12, i32 0, i32 0
   %coerce.dive14 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive13, i32 0, i32 0
-  store ptr %14, ptr %coerce.dive14, align 8
+  store ptr %16, ptr %coerce.dive14, align 8
   store ptr %ref.tmp, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i23, align 8
   %this1.i24 = load ptr, ptr %this.addr.i23, align 8
   store ptr %this1.i24, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %15 = load ptr, ptr %this1.i.i, align 8
-  store ptr %15, ptr %slot.addr.i, align 8
-  %16 = load ptr, ptr %slot.addr.i, align 8
+  %17 = load ptr, ptr %this1.i.i, align 8
+  store ptr %17, ptr %slot.addr.i, align 8
+  %18 = load ptr, ptr %slot.addr.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp16, ptr align 8 %value, i64 8, i1 false)
   %coerce.dive17 = getelementptr inbounds %"class.v8::Local.256", ptr %agg.tmp16, i32 0, i32 0
   %coerce.dive18 = getelementptr inbounds %"class.v8::LocalBase.257", ptr %coerce.dive17, i32 0, i32 0
   %coerce.dive19 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive18, i32 0, i32 0
-  %17 = load ptr, ptr %coerce.dive19, align 8
-  store ptr %17, ptr %that.i, align 8
+  %19 = load ptr, ptr %coerce.dive19, align 8
+  store ptr %19, ptr %that.i, align 8
   store ptr %agg.tmp, ptr %this.addr.i34, align 8
   %this3.i = load ptr, ptr %this.addr.i34, align 8
   store ptr %this3.i, ptr %this.addr.i35, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i36 = load ptr, ptr %this.addr.i35, align 8
-  %18 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i36, ptr align 8 %18, i64 8, i1 false)
+  %20 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i36, ptr align 8 %20, i64 8, i1 false)
   %coerce.dive20 = getelementptr inbounds %"class.v8::Local.279", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive21 = getelementptr inbounds %"class.v8::LocalBase.280", ptr %coerce.dive20, i32 0, i32 0
   %coerce.dive22 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive21, i32 0, i32 0
-  %19 = load ptr, ptr %coerce.dive22, align 8
-  call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %16, i32 noundef 3, ptr %19)
+  %21 = load ptr, ptr %coerce.dive22, align 8
+  call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %18, i32 noundef 3, ptr %21)
   ret void
 }
 
@@ -16394,16 +16417,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %stream_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %stream_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %stream_2 = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %stream_2, align 8
-  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %this1)
+  %2 = load ptr, ptr %stream_2, align 8
+  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %this1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -16642,34 +16666,35 @@ entry:
   %listener = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
   %listener_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %listener_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %listener_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %listener_2 = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %listener_2, align 8
-  store ptr %1, ptr %listener, align 8
-  %2 = load ptr, ptr %listener, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %2 = load ptr, ptr %listener_2, align 8
+  store ptr %2, ptr %listener, align 8
+  %3 = load ptr, ptr %listener, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %4 = load ptr, ptr %listener, align 8
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %5 = load ptr, ptr %listener, align 8
   %listener_3 = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %listener_3, align 8
-  %cmp4 = icmp eq ptr %4, %5
+  %6 = load ptr, ptr %listener_3, align 8
+  %cmp4 = icmp eq ptr %5, %6
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %listener_5 = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %listener_5, align 8
-  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %6)
+  %7 = load ptr, ptr %listener_5, align 8
+  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
@@ -16747,9 +16772,11 @@ entry:
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   %4 = load ptr, ptr %coerce.dive10, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %call, ptr %4, i32 noundef 34, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_9AsyncWrapEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_9AsyncWrapEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_9AsyncWrapEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_9AsyncWrapEEE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   ret void
 }
 
@@ -16814,9 +16841,11 @@ entry:
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   %4 = load ptr, ptr %coerce.dive10, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %call, ptr %4, i32 noundef 47, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_9AsyncWrapEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_9AsyncWrapEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 24
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_9AsyncWrapEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [10 x ptr], [20 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_9AsyncWrapEEE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   ret void
 }
 
@@ -17101,7 +17130,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %backing_store_ = getelementptr inbounds %"class.node::WriteWrap", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %backing_store_) #3
   call void @_ZN4node9StreamReqD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -17152,7 +17182,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -24675,7 +24706,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24685,7 +24717,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -28602,10 +28635,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -28615,7 +28649,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -28965,7 +29000,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9StreamReqC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node12ShutdownWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node12ShutdownWrapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 }
 
@@ -29181,16 +29217,17 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %stream, ptr %stream.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamReq", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %stream.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %stream.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %req_wrap_obj, i64 8, i1 false)
   %coerce.dive4 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive4, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive6, align 8
-  call void @_ZN4node9StreamReq14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr %1)
+  %2 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN4node9StreamReq14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr %2)
   ret void
 }
 
@@ -29525,7 +29562,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9StreamReqC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %backing_store_ = getelementptr inbounds %"class.node::WriteWrap", ptr %this3, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %backing_store_) #3
   ret void

@@ -183,55 +183,56 @@ lpad:                                             ; preds = %if.then17, %invoke.
 if.end:                                           ; preds = %invoke.cont
   store ptr @_ZZL12TestChaCha20mE8kOffsets, ptr %__range1, align 8
   store ptr @_ZZL12TestChaCha20mE8kOffsets, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (i64, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 22), ptr %__end1, align 8
+  %9 = getelementptr inbounds i64, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 22
+  store ptr %9, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %9 = load ptr, ptr %__begin1, align 8
-  %10 = load ptr, ptr %__end1, align 8
-  %cmp6 = icmp ne ptr %9, %10
+  %10 = load ptr, ptr %__begin1, align 8
+  %11 = load ptr, ptr %__end1, align 8
+  %cmp6 = icmp ne ptr %10, %11
   br i1 %cmp6, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %__begin1, align 8
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %offset, align 8
-  %13 = load i64, ptr %len.addr, align 8
-  %14 = load i64, ptr %offset, align 8
-  %add = add i64 %13, %14
+  %12 = load ptr, ptr %__begin1, align 8
+  %13 = load i64, ptr %12, align 8
+  store i64 %13, ptr %offset, align 8
+  %14 = load i64, ptr %len.addr, align 8
+  %15 = load i64, ptr %offset, align 8
+  %add = add i64 %14, %15
   %call8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add) #9
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %for.body
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %buf, ptr noundef %call8) #10
   %call9 = call noundef ptr @_ZNKSt10unique_ptrIA_hSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %buf) #10
-  %15 = load i64, ptr %offset, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call9, i64 %15
-  %16 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 16 @_ZL6kInput, i64 %16, i1 false)
+  %16 = load i64, ptr %offset, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call9, i64 %16
+  %17 = load i64, ptr %len.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 16 @_ZL6kInput, i64 %17, i1 false)
   %call10 = call noundef ptr @_ZNKSt10unique_ptrIA_hSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %buf) #10
   %call11 = call noundef ptr @_ZNKSt10unique_ptrIA_hSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %buf) #10
-  %17 = load i64, ptr %offset, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %call11, i64 %17
-  %18 = load i64, ptr %len.addr, align 8
-  %19 = load i32, ptr @_ZL8kCounter, align 4
-  invoke void @CRYPTO_chacha_20(ptr noundef %call10, ptr noundef %add.ptr12, i64 noundef %18, ptr noundef @_ZL4kKey, ptr noundef @_ZL6kNonce, i32 noundef %19)
+  %18 = load i64, ptr %offset, align 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %call11, i64 %18
+  %19 = load i64, ptr %len.addr, align 8
+  %20 = load i32, ptr @_ZL8kCounter, align 4
+  invoke void @CRYPTO_chacha_20(ptr noundef %call10, ptr noundef %add.ptr12, i64 noundef %19, ptr noundef @_ZL4kKey, ptr noundef @_ZL6kNonce, i32 noundef %20)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont7
   %call14 = call noundef ptr @_ZNKSt10unique_ptrIA_hSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %buf) #10
-  %20 = load i64, ptr %len.addr, align 8
-  %call15 = call i32 @memcmp(ptr noundef %call14, ptr noundef @_ZL7kOutput, i64 noundef %20) #11
+  %21 = load i64, ptr %len.addr, align 8
+  %call15 = call i32 @memcmp(ptr noundef %call14, ptr noundef @_ZL7kOutput, i64 noundef %21) #11
   %cmp16 = icmp ne i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %invoke.cont13
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = load i64, ptr %len.addr, align 8
-  %conv18 = trunc i64 %22 to i32
-  %23 = load i64, ptr %offset, align 8
-  %conv19 = trunc i64 %23 to i32
-  %call21 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.2, i32 noundef %conv18, i32 noundef %conv19)
+  %22 = load ptr, ptr @stderr, align 8
+  %23 = load i64, ptr %len.addr, align 8
+  %conv18 = trunc i64 %23 to i32
+  %24 = load i64, ptr %offset, align 8
+  %conv19 = trunc i64 %24 to i32
+  %call21 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.2, i32 noundef %conv18, i32 noundef %conv19)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.then17
@@ -243,8 +244,8 @@ if.end22:                                         ; preds = %invoke.cont13
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22
-  %24 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds i64, ptr %24, i32 1
+  %25 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds i64, ptr %25, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -255,8 +256,8 @@ for.end:                                          ; preds = %for.cond
 
 cleanup:                                          ; preds = %for.end, %invoke.cont20, %invoke.cont4
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buf) #10
-  %25 = load i1, ptr %retval, align 1
-  ret i1 %25
+  %26 = load i1, ptr %retval, align 1
+  ret i1 %26
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

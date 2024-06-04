@@ -77,64 +77,65 @@ define internal i32 @request_free(ptr noundef %0) #0 {
   %8 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds %struct.ompi_request_t, ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr inttoptr (i64 1 to ptr), %10
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %1
-  store i32 7, ptr %2, align 4
-  br label %41
+  %11 = inttoptr i64 1 to ptr
+  %12 = icmp eq ptr %11, %10
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %1
-  br label %14
+  store i32 7, ptr %2, align 4
+  br label %42
 
-14:                                               ; preds = %13
+14:                                               ; preds = %1
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.ompi_request_t, ptr %17, i32 0, i32 4
-  store volatile i32 0, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.ompi_request_t, ptr %20, i32 0, i32 6
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 -32766, %22
-  br i1 %23, label %24, label %33
+  br label %16
 
-24:                                               ; preds = %15
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.ompi_request_t, ptr %26, i32 0, i32 6
-  %28 = load i32, ptr %27, align 8
-  %29 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %28, ptr noundef null)
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.ompi_request_t, ptr %31, i32 0, i32 6
-  store i32 -32766, ptr %32, align 8
-  br label %33
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds %struct.ompi_request_t, ptr %18, i32 0, i32 4
+  store volatile i32 0, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %struct.ompi_request_t, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp ne i32 -32766, %23
+  br i1 %24, label %25, label %34
 
-33:                                               ; preds = %24, %15
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds %struct.ompi_request_t, ptr %27, i32 0, i32 6
+  %29 = load i32, ptr %28, align 8
+  %30 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %29, ptr noundef null)
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.ompi_request_t, ptr %32, i32 0, i32 6
+  store i32 -32766, ptr %33, align 8
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %35, i32 0, i32 16
-  %37 = load ptr, ptr %36, align 8
-  call void @free(ptr noundef %37) #3
-  %38 = load ptr, ptr %4, align 8
+34:                                               ; preds = %25, %16
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.ompi_osc_rdma_request_t, ptr %36, i32 0, i32 16
+  %38 = load ptr, ptr %37, align 8
   call void @free(ptr noundef %38) #3
-  br label %39
+  %39 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %39) #3
+  br label %40
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %3, align 8
-  store ptr @ompi_request_null, ptr %40, align 8
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %3, align 8
+  store ptr @ompi_request_null, ptr %41, align 8
   store i32 0, ptr %2, align 4
-  br label %41
+  br label %42
 
-41:                                               ; preds = %39, %12
-  %42 = load i32, ptr %2, align 4
-  ret i32 %42
+42:                                               ; preds = %40, %13
+  %43 = load i32, ptr %2, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable

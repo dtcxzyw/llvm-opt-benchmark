@@ -10706,20 +10706,22 @@ define internal i32 @dissect_krb5_PAC_LOGON_INFO(ptr noundef %0, ptr noundef %1,
   %24 = load ptr, ptr %8, align 8
   %25 = call i32 @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %7, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_LOGON_INFO.di, i32 0, i32 4), align 4
-  store ptr @dissect_krb5_PAC_LOGON_INFO.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_LOGON_INFO.di, i32 0, i32 14), align 8
+  %26 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_LOGON_INFO.di, i32 0, i32 4
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_LOGON_INFO.di, i32 0, i32 14
+  store ptr @dissect_krb5_PAC_LOGON_INFO.call_data, ptr %27, align 8
   call void @init_ndr_pointer_list(ptr noundef @dissect_krb5_PAC_LOGON_INFO.di)
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %33 = call i32 @dissect_ndr_pointer(ptr noundef %26, i32 noundef %27, ptr noundef %30, ptr noundef %31, ptr noundef @dissect_krb5_PAC_LOGON_INFO.di, ptr noundef %32, ptr noundef @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef @.str.857, i32 noundef -1)
-  store i32 %33, ptr %7, align 4
-  %34 = load i32, ptr %7, align 4
-  ret i32 %34
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %35 = call i32 @dissect_ndr_pointer(ptr noundef %28, i32 noundef %29, ptr noundef %32, ptr noundef %33, ptr noundef @dissect_krb5_PAC_LOGON_INFO.di, ptr noundef %34, ptr noundef @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef @.str.857, i32 noundef -1)
+  store i32 %35, ptr %7, align 4
+  %36 = load i32, ptr %7, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10991,20 +10993,22 @@ define internal i32 @dissect_krb5_PAC_S4U_DELEGATION_INFO(ptr noundef %0, ptr no
   %24 = load ptr, ptr %8, align 8
   %25 = call i32 @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %7, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i32 0, i32 4), align 4
-  store ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i32 0, i32 14), align 8
+  %26 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i32 0, i32 4
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i32 0, i32 14
+  store ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.call_data, ptr %27, align 8
   call void @init_ndr_pointer_list(ptr noundef @dissect_krb5_PAC_S4U_DELEGATION_INFO.di)
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %33 = call i32 @dissect_ndr_pointer(ptr noundef %26, i32 noundef %27, ptr noundef %30, ptr noundef %31, ptr noundef @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, ptr noundef %32, ptr noundef @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef @.str.861, i32 noundef -1)
-  store i32 %33, ptr %7, align 4
-  %34 = load i32, ptr %7, align 4
-  ret i32 %34
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %35 = call i32 @dissect_ndr_pointer(ptr noundef %28, i32 noundef %29, ptr noundef %32, ptr noundef %33, ptr noundef @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, ptr noundef %34, ptr noundef @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef @.str.861, i32 noundef -1)
+  store i32 %35, ptr %7, align 4
+  %36 = load i32, ptr %7, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11298,20 +11302,22 @@ define internal i32 @dissect_krb5_PAC_DEVICE_INFO(ptr noundef %0, ptr noundef %1
   %24 = load ptr, ptr %8, align 8
   %25 = call i32 @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %7, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i32 0, i32 4), align 4
-  store ptr @dissect_krb5_PAC_DEVICE_INFO.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i32 0, i32 14), align 8
+  %26 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i32 0, i32 4
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i32 0, i32 14
+  store ptr @dissect_krb5_PAC_DEVICE_INFO.call_data, ptr %27, align 8
   call void @init_ndr_pointer_list(ptr noundef @dissect_krb5_PAC_DEVICE_INFO.di)
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %33 = call i32 @dissect_ndr_pointer(ptr noundef %26, i32 noundef %27, ptr noundef %30, ptr noundef %31, ptr noundef @dissect_krb5_PAC_DEVICE_INFO.di, ptr noundef %32, ptr noundef @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef @.str.863, i32 noundef -1)
-  store i32 %33, ptr %7, align 4
-  %34 = load i32, ptr %7, align 4
-  ret i32 %34
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %35 = call i32 @dissect_ndr_pointer(ptr noundef %28, i32 noundef %29, ptr noundef %32, ptr noundef %33, ptr noundef @dissect_krb5_PAC_DEVICE_INFO.di, ptr noundef %34, ptr noundef @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef @.str.863, i32 noundef -1)
+  store i32 %35, ptr %7, align 4
+  %36 = load i32, ptr %7, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable

@@ -221,7 +221,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx_.addr, align 8
   call void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this1, ptr noundef nonnull align 8 dereferenceable(136) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_retired) #13
   %call = call i32 @epoll_create1(i32 noundef 524288) #13
@@ -231,41 +232,41 @@ entry:
 
 do.body:                                          ; preds = %entry
   %_epoll_fd2 = getelementptr inbounds %"class.zmq::epoll_t", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %_epoll_fd2, align 8
-  %cmp = icmp ne i32 %1, -1
+  %2 = load i32, ptr %_epoll_fd2, align 8
+  %cmp = icmp ne i32 %2, -1
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
   %call3 = call ptr @__errno_location() #14
-  %2 = load i32, ptr %call3, align 4
-  %call4 = call ptr @strerror(i32 noundef %2) #13
+  %3 = load i32, ptr %call3, align 4
+  %call4 = call ptr @strerror(i32 noundef %3) #13
   store ptr %call4, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call5 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef %4, ptr noundef @.str.1, i32 noundef 38)
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = load ptr, ptr %errstr, align 8
+  %call5 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %5, ptr noundef @.str.1, i32 noundef 38)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %5 = load ptr, ptr @stderr, align 8
-  %call7 = invoke i32 @fflush(ptr noundef %5)
+  %6 = load ptr, ptr @stderr, align 8
+  %call7 = invoke i32 @fflush(ptr noundef %6)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %6 = load ptr, ptr %errstr, align 8
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
+  %7 = load ptr, ptr %errstr, align 8
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont, %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_retired) #13
   call void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this1) #13
   br label %eh.resume
@@ -1336,7 +1337,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this1, i32 0, i32 2
   call void @_ZN3zmq8thread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_worker) #13
   call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13

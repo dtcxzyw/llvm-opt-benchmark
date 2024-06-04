@@ -401,12 +401,12 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
   %161 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder8add_bool17h362ff60a00e7a47dE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.1, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.2, i64 21, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.3, i64 31, i1 zeroext false)
           to label %170 unwind label %165
 
-162:                                              ; preds = %1327, %1289, %1271, %1256, %1243, %1205, %1182, %1169, %1151, %1128, %1105, %1082, %1069, %1051, %1038, %1025, %1012, %991, %978, %965, %952, %939, %926, %913, %895, %862, %849, %836, %823, %795, %782, %744, %731, %718, %705, %667, %654, %641, %628, %610, %597, %584, %566, %553, %540, %507, %494, %481, %468, %455, %432, %419, %406, %393, %380, %367, %345, %325, %305, %290, %268, %242, %224, %208, %165
+162:                                              ; preds = %1332, %1294, %1276, %1261, %1248, %1210, %1187, %1174, %1156, %1133, %1110, %1087, %1074, %1056, %1043, %1030, %1017, %996, %983, %970, %957, %944, %931, %918, %900, %867, %854, %841, %828, %800, %787, %749, %736, %723, %710, %672, %659, %646, %633, %615, %602, %589, %571, %558, %545, %512, %499, %486, %473, %460, %437, %424, %411, %398, %385, %372, %349, %328, %307, %291, %268, %242, %224, %208, %165
   %163 = load i8, ptr %9, align 1, !range !4, !noundef !3
   %164 = trunc i8 %163 to i1
-  br i1 %164, label %1359, label %1353
+  br i1 %164, label %1364, label %1358
 
-165:                                              ; preds = %1349, %1348, %1346, %1323, %1285, %1267, %1265, %1252, %1239, %1201, %1178, %1165, %1147, %1124, %1101, %1078, %1065, %1047, %1034, %1021, %1008, %1006, %1004, %1002, %1000, %987, %974, %961, %948, %935, %922, %909, %891, %858, %845, %832, %819, %791, %778, %740, %727, %714, %701, %663, %650, %637, %624, %606, %593, %580, %562, %549, %536, %503, %490, %477, %464, %451, %428, %415, %402, %389, %376, %361, %359, %339, %319, %299, %285, %284, %283, %282, %281, %280, %276, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %250, %239, %238, %237, %236, %232, %221, %220, %216, %205, %204, %203, %202, %201, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %1
+165:                                              ; preds = %1354, %1353, %1351, %1328, %1290, %1272, %1270, %1257, %1244, %1206, %1183, %1170, %1152, %1129, %1106, %1083, %1070, %1052, %1039, %1026, %1013, %1011, %1009, %1007, %1005, %992, %979, %966, %953, %940, %927, %914, %896, %863, %850, %837, %824, %796, %783, %745, %732, %719, %706, %668, %655, %642, %629, %611, %598, %585, %567, %554, %541, %508, %495, %482, %469, %456, %433, %420, %407, %394, %381, %365, %363, %342, %321, %300, %285, %284, %283, %282, %281, %280, %276, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %250, %239, %238, %237, %236, %232, %221, %220, %216, %205, %204, %203, %202, %201, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %1
   %166 = landingpad { ptr, i32 }
           cleanup
   %167 = extractvalue { ptr, i32 } %166, 0
@@ -507,7 +507,7 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
 
 208:                                              ; preds = %209
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$GT$$GT$17h680d768ba12f0623E"(ptr align 8 %156) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
 209:                                              ; preds = %214, %207
   %210 = landingpad { ptr, i32 }
@@ -548,7 +548,7 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
 
 224:                                              ; preds = %225
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$GT$$GT$17h680d768ba12f0623E"(ptr align 8 %152) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
 225:                                              ; preds = %230, %223
   %226 = landingpad { ptr, i32 }
@@ -597,7 +597,7 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
 
 242:                                              ; preds = %243
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$GT$$GT$17h680d768ba12f0623E"(ptr align 8 %147) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
 243:                                              ; preds = %248, %241
   %244 = landingpad { ptr, i32 }
@@ -678,7 +678,7 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
 
 268:                                              ; preds = %269
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$GT$$GT$17h680d768ba12f0623E"(ptr align 8 %138) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
 269:                                              ; preds = %274, %267
   %270 = landingpad { ptr, i32 }
@@ -731,2404 +731,2409 @@ define hidden void @_ZN22cranelift_codegen_meta3isa3x866define17h76831288d48a97a
 286:                                              ; preds = %285
   store i64 0, ptr %131, align 8
   %287 = getelementptr inbounds i8, ptr %131, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %287, align 8
-  %288 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %131, i32 0, i32 1
-  store i64 0, ptr %288, align 8
-  %289 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %161)
-          to label %296 unwind label %291
+  %288 = inttoptr i64 8 to ptr
+  store ptr %288, ptr %287, align 8
+  %289 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %131, i32 0, i32 1
+  store i64 0, ptr %289, align 8
+  %290 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %161)
+          to label %297 unwind label %292
 
-290:                                              ; preds = %291
+291:                                              ; preds = %292
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %131) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-291:                                              ; preds = %296, %286
-  %292 = landingpad { ptr, i32 }
+292:                                              ; preds = %297, %286
+  %293 = landingpad { ptr, i32 }
           cleanup
-  %293 = extractvalue { ptr, i32 } %292, 0
-  %294 = extractvalue { ptr, i32 } %292, 1
-  store ptr %293, ptr %8, align 8
-  %295 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %294, ptr %295, align 8
-  br label %290
+  %294 = extractvalue { ptr, i32 } %293, 0
+  %295 = extractvalue { ptr, i32 } %293, 1
+  store ptr %294, ptr %8, align 8
+  %296 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %295, ptr %296, align 8
+  br label %291
 
-296:                                              ; preds = %286
-  %297 = extractvalue { i64, i64 } %289, 0
-  %298 = extractvalue { i64, i64 } %289, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %131, i64 %297, i64 %298)
-          to label %299 unwind label %291
+297:                                              ; preds = %286
+  %298 = extractvalue { i64, i64 } %290, 0
+  %299 = extractvalue { i64, i64 } %290, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %131, i64 %298, i64 %299)
+          to label %300 unwind label %292
 
-299:                                              ; preds = %296
+300:                                              ; preds = %297
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr align 8 %131, i64 24, i1 false)
-  %300 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.64, i64 4, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.65, i64 17, ptr align 8 %132)
-          to label %301 unwind label %165
+  %301 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.64, i64 4, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.65, i64 17, ptr align 8 %132)
+          to label %302 unwind label %165
 
-301:                                              ; preds = %299
+302:                                              ; preds = %300
   store i64 0, ptr %129, align 8
-  %302 = getelementptr inbounds i8, ptr %129, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %302, align 8
-  %303 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %129, i32 0, i32 1
-  store i64 0, ptr %303, align 8
-  %304 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %311 unwind label %306
+  %303 = getelementptr inbounds i8, ptr %129, i64 8
+  %304 = inttoptr i64 8 to ptr
+  store ptr %304, ptr %303, align 8
+  %305 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %129, i32 0, i32 1
+  store i64 0, ptr %305, align 8
+  %306 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %313 unwind label %308
 
-305:                                              ; preds = %306
+307:                                              ; preds = %308
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %129) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-306:                                              ; preds = %316, %314, %311, %301
-  %307 = landingpad { ptr, i32 }
+308:                                              ; preds = %318, %316, %313, %302
+  %309 = landingpad { ptr, i32 }
           cleanup
-  %308 = extractvalue { ptr, i32 } %307, 0
-  %309 = extractvalue { ptr, i32 } %307, 1
-  store ptr %308, ptr %8, align 8
-  %310 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %309, ptr %310, align 8
-  br label %305
+  %310 = extractvalue { ptr, i32 } %309, 0
+  %311 = extractvalue { ptr, i32 } %309, 1
+  store ptr %310, ptr %8, align 8
+  %312 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %311, ptr %312, align 8
+  br label %307
 
-311:                                              ; preds = %301
-  %312 = extractvalue { i64, i64 } %304, 0
-  %313 = extractvalue { i64, i64 } %304, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %129, i64 %312, i64 %313)
-          to label %314 unwind label %306
+313:                                              ; preds = %302
+  %314 = extractvalue { i64, i64 } %306, 0
+  %315 = extractvalue { i64, i64 } %306, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %129, i64 %314, i64 %315)
+          to label %316 unwind label %308
 
-314:                                              ; preds = %311
-  %315 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %171)
-          to label %316 unwind label %306
+316:                                              ; preds = %313
+  %317 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %171)
+          to label %318 unwind label %308
 
-316:                                              ; preds = %314
-  %317 = extractvalue { i64, i64 } %315, 0
-  %318 = extractvalue { i64, i64 } %315, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %129, i64 %317, i64 %318)
-          to label %319 unwind label %306
+318:                                              ; preds = %316
+  %319 = extractvalue { i64, i64 } %317, 0
+  %320 = extractvalue { i64, i64 } %317, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %129, i64 %319, i64 %320)
+          to label %321 unwind label %308
 
-319:                                              ; preds = %316
+321:                                              ; preds = %318
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %130, ptr align 8 %129, i64 24, i1 false)
-  %320 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.66, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.67, i64 18, ptr align 8 %130)
-          to label %321 unwind label %165
+  %322 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.66, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.67, i64 18, ptr align 8 %130)
+          to label %323 unwind label %165
 
-321:                                              ; preds = %319
+323:                                              ; preds = %321
   store i64 0, ptr %127, align 8
-  %322 = getelementptr inbounds i8, ptr %127, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %322, align 8
-  %323 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %127, i32 0, i32 1
-  store i64 0, ptr %323, align 8
-  %324 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %320)
-          to label %331 unwind label %326
+  %324 = getelementptr inbounds i8, ptr %127, i64 8
+  %325 = inttoptr i64 8 to ptr
+  store ptr %325, ptr %324, align 8
+  %326 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %127, i32 0, i32 1
+  store i64 0, ptr %326, align 8
+  %327 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %322)
+          to label %334 unwind label %329
 
-325:                                              ; preds = %326
+328:                                              ; preds = %329
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %127) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-326:                                              ; preds = %336, %334, %331, %321
-  %327 = landingpad { ptr, i32 }
+329:                                              ; preds = %339, %337, %334, %323
+  %330 = landingpad { ptr, i32 }
           cleanup
-  %328 = extractvalue { ptr, i32 } %327, 0
-  %329 = extractvalue { ptr, i32 } %327, 1
-  store ptr %328, ptr %8, align 8
-  %330 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %329, ptr %330, align 8
-  br label %325
+  %331 = extractvalue { ptr, i32 } %330, 0
+  %332 = extractvalue { ptr, i32 } %330, 1
+  store ptr %331, ptr %8, align 8
+  %333 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %332, ptr %333, align 8
+  br label %328
 
-331:                                              ; preds = %321
-  %332 = extractvalue { i64, i64 } %324, 0
-  %333 = extractvalue { i64, i64 } %324, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %127, i64 %332, i64 %333)
-          to label %334 unwind label %326
+334:                                              ; preds = %323
+  %335 = extractvalue { i64, i64 } %327, 0
+  %336 = extractvalue { i64, i64 } %327, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %127, i64 %335, i64 %336)
+          to label %337 unwind label %329
 
-334:                                              ; preds = %331
-  %335 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %173)
-          to label %336 unwind label %326
+337:                                              ; preds = %334
+  %338 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %173)
+          to label %339 unwind label %329
 
-336:                                              ; preds = %334
-  %337 = extractvalue { i64, i64 } %335, 0
-  %338 = extractvalue { i64, i64 } %335, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %127, i64 %337, i64 %338)
-          to label %339 unwind label %326
+339:                                              ; preds = %337
+  %340 = extractvalue { i64, i64 } %338, 0
+  %341 = extractvalue { i64, i64 } %338, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %127, i64 %340, i64 %341)
+          to label %342 unwind label %329
 
-339:                                              ; preds = %336
+342:                                              ; preds = %339
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %128, ptr align 8 %127, i64 24, i1 false)
-  %340 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.68, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.69, i64 19, ptr align 8 %128)
-          to label %341 unwind label %165
+  %343 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.68, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.69, i64 19, ptr align 8 %128)
+          to label %344 unwind label %165
 
-341:                                              ; preds = %339
+344:                                              ; preds = %342
   store i64 0, ptr %125, align 8
-  %342 = getelementptr inbounds i8, ptr %125, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %342, align 8
-  %343 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %125, i32 0, i32 1
-  store i64 0, ptr %343, align 8
-  %344 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %340)
-          to label %351 unwind label %346
+  %345 = getelementptr inbounds i8, ptr %125, i64 8
+  %346 = inttoptr i64 8 to ptr
+  store ptr %346, ptr %345, align 8
+  %347 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %125, i32 0, i32 1
+  store i64 0, ptr %347, align 8
+  %348 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %343)
+          to label %355 unwind label %350
 
-345:                                              ; preds = %346
+349:                                              ; preds = %350
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %125) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-346:                                              ; preds = %356, %354, %351, %341
-  %347 = landingpad { ptr, i32 }
+350:                                              ; preds = %360, %358, %355, %344
+  %351 = landingpad { ptr, i32 }
           cleanup
-  %348 = extractvalue { ptr, i32 } %347, 0
-  %349 = extractvalue { ptr, i32 } %347, 1
-  store ptr %348, ptr %8, align 8
-  %350 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %349, ptr %350, align 8
-  br label %345
+  %352 = extractvalue { ptr, i32 } %351, 0
+  %353 = extractvalue { ptr, i32 } %351, 1
+  store ptr %352, ptr %8, align 8
+  %354 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %353, ptr %354, align 8
+  br label %349
 
-351:                                              ; preds = %341
-  %352 = extractvalue { i64, i64 } %344, 0
-  %353 = extractvalue { i64, i64 } %344, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %125, i64 %352, i64 %353)
-          to label %354 unwind label %346
+355:                                              ; preds = %344
+  %356 = extractvalue { i64, i64 } %348, 0
+  %357 = extractvalue { i64, i64 } %348, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %125, i64 %356, i64 %357)
+          to label %358 unwind label %350
 
-354:                                              ; preds = %351
-  %355 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %175)
-          to label %356 unwind label %346
+358:                                              ; preds = %355
+  %359 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %175)
+          to label %360 unwind label %350
 
-356:                                              ; preds = %354
-  %357 = extractvalue { i64, i64 } %355, 0
-  %358 = extractvalue { i64, i64 } %355, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %125, i64 %357, i64 %358)
-          to label %359 unwind label %346
+360:                                              ; preds = %358
+  %361 = extractvalue { i64, i64 } %359, 0
+  %362 = extractvalue { i64, i64 } %359, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %125, i64 %361, i64 %362)
+          to label %363 unwind label %350
 
-359:                                              ; preds = %356
+363:                                              ; preds = %360
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %126, ptr align 8 %125, i64 24, i1 false)
-  %360 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.70, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.71, i64 19, ptr align 8 %126)
-          to label %361 unwind label %165
-
-361:                                              ; preds = %359
-  store i64 0, ptr %124, align 8
-  %362 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %362, align 8
-  %363 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %124, i32 0, i32 1
-  store i64 0, ptr %363, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %124, i64 24, i1 false)
-  %364 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.72, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.73, i64 45, ptr align 8 %7)
+  %364 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.70, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.71, i64 19, ptr align 8 %126)
           to label %365 unwind label %165
 
-365:                                              ; preds = %361
+365:                                              ; preds = %363
+  store i64 0, ptr %124, align 8
+  %366 = getelementptr inbounds i8, ptr %124, i64 8
+  %367 = inttoptr i64 8 to ptr
+  store ptr %367, ptr %366, align 8
+  %368 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %124, i32 0, i32 1
+  store i64 0, ptr %368, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %124, i64 24, i1 false)
+  %369 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.72, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.73, i64 45, ptr align 8 %7)
+          to label %370 unwind label %165
+
+370:                                              ; preds = %365
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %122, ptr align 8 %124, i64 24, i1 false)
-  %366 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %373 unwind label %368
+  %371 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %378 unwind label %373
 
-367:                                              ; preds = %368
+372:                                              ; preds = %373
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %122) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-368:                                              ; preds = %373, %365
-  %369 = landingpad { ptr, i32 }
+373:                                              ; preds = %378, %370
+  %374 = landingpad { ptr, i32 }
           cleanup
-  %370 = extractvalue { ptr, i32 } %369, 0
-  %371 = extractvalue { ptr, i32 } %369, 1
-  store ptr %370, ptr %8, align 8
-  %372 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %371, ptr %372, align 8
-  br label %367
+  %375 = extractvalue { ptr, i32 } %374, 0
+  %376 = extractvalue { ptr, i32 } %374, 1
+  store ptr %375, ptr %8, align 8
+  %377 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %376, ptr %377, align 8
+  br label %372
 
-373:                                              ; preds = %365
-  %374 = extractvalue { i64, i64 } %366, 0
-  %375 = extractvalue { i64, i64 } %366, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %122, i64 %374, i64 %375)
-          to label %376 unwind label %368
+378:                                              ; preds = %370
+  %379 = extractvalue { i64, i64 } %371, 0
+  %380 = extractvalue { i64, i64 } %371, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %122, i64 %379, i64 %380)
+          to label %381 unwind label %373
 
-376:                                              ; preds = %373
+381:                                              ; preds = %378
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %123, ptr align 8 %122, i64 24, i1 false)
-  %377 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.74, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.75, i64 25, ptr align 8 %123)
-          to label %378 unwind label %165
+  %382 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.74, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.75, i64 25, ptr align 8 %123)
+          to label %383 unwind label %165
 
-378:                                              ; preds = %376
+383:                                              ; preds = %381
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %120, ptr align 8 %124, i64 24, i1 false)
-  %379 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %386 unwind label %381
+  %384 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %391 unwind label %386
 
-380:                                              ; preds = %381
+385:                                              ; preds = %386
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %120) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-381:                                              ; preds = %386, %378
-  %382 = landingpad { ptr, i32 }
+386:                                              ; preds = %391, %383
+  %387 = landingpad { ptr, i32 }
           cleanup
-  %383 = extractvalue { ptr, i32 } %382, 0
-  %384 = extractvalue { ptr, i32 } %382, 1
-  store ptr %383, ptr %8, align 8
-  %385 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %384, ptr %385, align 8
-  br label %380
+  %388 = extractvalue { ptr, i32 } %387, 0
+  %389 = extractvalue { ptr, i32 } %387, 1
+  store ptr %388, ptr %8, align 8
+  %390 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %389, ptr %390, align 8
+  br label %385
 
-386:                                              ; preds = %378
-  %387 = extractvalue { i64, i64 } %379, 0
-  %388 = extractvalue { i64, i64 } %379, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %120, i64 %387, i64 %388)
-          to label %389 unwind label %381
+391:                                              ; preds = %383
+  %392 = extractvalue { i64, i64 } %384, 0
+  %393 = extractvalue { i64, i64 } %384, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %120, i64 %392, i64 %393)
+          to label %394 unwind label %386
 
-389:                                              ; preds = %386
+394:                                              ; preds = %391
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %121, ptr align 8 %120, i64 24, i1 false)
-  %390 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.76, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.77, i64 25, ptr align 8 %121)
-          to label %391 unwind label %165
+  %395 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.76, i64 5, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.77, i64 25, ptr align 8 %121)
+          to label %396 unwind label %165
 
-391:                                              ; preds = %389
+396:                                              ; preds = %394
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 8 %124, i64 24, i1 false)
-  %392 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %340)
-          to label %399 unwind label %394
+  %397 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %343)
+          to label %404 unwind label %399
 
-393:                                              ; preds = %394
+398:                                              ; preds = %399
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %118) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-394:                                              ; preds = %399, %391
-  %395 = landingpad { ptr, i32 }
+399:                                              ; preds = %404, %396
+  %400 = landingpad { ptr, i32 }
           cleanup
-  %396 = extractvalue { ptr, i32 } %395, 0
-  %397 = extractvalue { ptr, i32 } %395, 1
-  store ptr %396, ptr %8, align 8
-  %398 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %397, ptr %398, align 8
-  br label %393
+  %401 = extractvalue { ptr, i32 } %400, 0
+  %402 = extractvalue { ptr, i32 } %400, 1
+  store ptr %401, ptr %8, align 8
+  %403 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %402, ptr %403, align 8
+  br label %398
 
-399:                                              ; preds = %391
-  %400 = extractvalue { i64, i64 } %392, 0
-  %401 = extractvalue { i64, i64 } %392, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %118, i64 %400, i64 %401)
-          to label %402 unwind label %394
+404:                                              ; preds = %396
+  %405 = extractvalue { i64, i64 } %397, 0
+  %406 = extractvalue { i64, i64 } %397, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %118, i64 %405, i64 %406)
+          to label %407 unwind label %399
 
-402:                                              ; preds = %399
+407:                                              ; preds = %404
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %119, ptr align 8 %118, i64 24, i1 false)
-  %403 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.78, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.79, i64 25, ptr align 8 %119)
-          to label %404 unwind label %165
+  %408 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.78, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.79, i64 25, ptr align 8 %119)
+          to label %409 unwind label %165
 
-404:                                              ; preds = %402
+409:                                              ; preds = %407
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %124, i64 24, i1 false)
-  %405 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %320)
-          to label %412 unwind label %407
+  %410 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %322)
+          to label %417 unwind label %412
 
-406:                                              ; preds = %407
+411:                                              ; preds = %412
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %116) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-407:                                              ; preds = %412, %404
-  %408 = landingpad { ptr, i32 }
+412:                                              ; preds = %417, %409
+  %413 = landingpad { ptr, i32 }
           cleanup
-  %409 = extractvalue { ptr, i32 } %408, 0
-  %410 = extractvalue { ptr, i32 } %408, 1
-  store ptr %409, ptr %8, align 8
-  %411 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %410, ptr %411, align 8
-  br label %406
+  %414 = extractvalue { ptr, i32 } %413, 0
+  %415 = extractvalue { ptr, i32 } %413, 1
+  store ptr %414, ptr %8, align 8
+  %416 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %415, ptr %416, align 8
+  br label %411
 
-412:                                              ; preds = %404
-  %413 = extractvalue { i64, i64 } %405, 0
-  %414 = extractvalue { i64, i64 } %405, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %116, i64 %413, i64 %414)
-          to label %415 unwind label %407
+417:                                              ; preds = %409
+  %418 = extractvalue { i64, i64 } %410, 0
+  %419 = extractvalue { i64, i64 } %410, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %116, i64 %418, i64 %419)
+          to label %420 unwind label %412
 
-415:                                              ; preds = %412
+420:                                              ; preds = %417
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %116, i64 24, i1 false)
-  %416 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.80, i64 4, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.81, i64 23, ptr align 8 %117)
-          to label %417 unwind label %165
+  %421 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.80, i64 4, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.81, i64 23, ptr align 8 %117)
+          to label %422 unwind label %165
 
-417:                                              ; preds = %415
+422:                                              ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %114, ptr align 8 %124, i64 24, i1 false)
-  %418 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %416)
-          to label %425 unwind label %420
+  %423 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %421)
+          to label %430 unwind label %425
 
-419:                                              ; preds = %420
+424:                                              ; preds = %425
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %114) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-420:                                              ; preds = %425, %417
-  %421 = landingpad { ptr, i32 }
+425:                                              ; preds = %430, %422
+  %426 = landingpad { ptr, i32 }
           cleanup
-  %422 = extractvalue { ptr, i32 } %421, 0
-  %423 = extractvalue { ptr, i32 } %421, 1
-  store ptr %422, ptr %8, align 8
-  %424 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %423, ptr %424, align 8
-  br label %419
+  %427 = extractvalue { ptr, i32 } %426, 0
+  %428 = extractvalue { ptr, i32 } %426, 1
+  store ptr %427, ptr %8, align 8
+  %429 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %428, ptr %429, align 8
+  br label %424
 
-425:                                              ; preds = %417
-  %426 = extractvalue { i64, i64 } %418, 0
-  %427 = extractvalue { i64, i64 } %418, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %114, i64 %426, i64 %427)
-          to label %428 unwind label %420
+430:                                              ; preds = %422
+  %431 = extractvalue { i64, i64 } %423, 0
+  %432 = extractvalue { i64, i64 } %423, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %114, i64 %431, i64 %432)
+          to label %433 unwind label %425
 
-428:                                              ; preds = %425
+433:                                              ; preds = %430
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %115, ptr align 8 %114, i64 24, i1 false)
-  %429 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.82, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.83, i64 26, ptr align 8 %115)
-          to label %430 unwind label %165
+  %434 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.82, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.83, i64 26, ptr align 8 %115)
+          to label %435 unwind label %165
 
-430:                                              ; preds = %428
+435:                                              ; preds = %433
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %112, ptr align 8 %124, i64 24, i1 false)
-  %431 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %416)
-          to label %438 unwind label %433
+  %436 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %421)
+          to label %443 unwind label %438
 
-432:                                              ; preds = %433
+437:                                              ; preds = %438
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %112) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-433:                                              ; preds = %448, %446, %443, %441, %438, %430
-  %434 = landingpad { ptr, i32 }
+438:                                              ; preds = %453, %451, %448, %446, %443, %435
+  %439 = landingpad { ptr, i32 }
           cleanup
-  %435 = extractvalue { ptr, i32 } %434, 0
-  %436 = extractvalue { ptr, i32 } %434, 1
-  store ptr %435, ptr %8, align 8
-  %437 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %436, ptr %437, align 8
-  br label %432
+  %440 = extractvalue { ptr, i32 } %439, 0
+  %441 = extractvalue { ptr, i32 } %439, 1
+  store ptr %440, ptr %8, align 8
+  %442 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %441, ptr %442, align 8
+  br label %437
 
-438:                                              ; preds = %430
-  %439 = extractvalue { i64, i64 } %431, 0
-  %440 = extractvalue { i64, i64 } %431, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %112, i64 %439, i64 %440)
-          to label %441 unwind label %433
-
-441:                                              ; preds = %438
-  %442 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %360)
-          to label %443 unwind label %433
-
-443:                                              ; preds = %441
-  %444 = extractvalue { i64, i64 } %442, 0
-  %445 = extractvalue { i64, i64 } %442, 1
+443:                                              ; preds = %435
+  %444 = extractvalue { i64, i64 } %436, 0
+  %445 = extractvalue { i64, i64 } %436, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %112, i64 %444, i64 %445)
-          to label %446 unwind label %433
+          to label %446 unwind label %438
 
 446:                                              ; preds = %443
-  %447 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %448 unwind label %433
+  %447 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %364)
+          to label %448 unwind label %438
 
 448:                                              ; preds = %446
   %449 = extractvalue { i64, i64 } %447, 0
   %450 = extractvalue { i64, i64 } %447, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %112, i64 %449, i64 %450)
-          to label %451 unwind label %433
+          to label %451 unwind label %438
 
 451:                                              ; preds = %448
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %112, i64 24, i1 false)
-  %452 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.84, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.85, i64 29, ptr align 8 %113)
-          to label %453 unwind label %165
+  %452 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %453 unwind label %438
 
 453:                                              ; preds = %451
+  %454 = extractvalue { i64, i64 } %452, 0
+  %455 = extractvalue { i64, i64 } %452, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %112, i64 %454, i64 %455)
+          to label %456 unwind label %438
+
+456:                                              ; preds = %453
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %112, i64 24, i1 false)
+  %457 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.84, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.85, i64 29, ptr align 8 %113)
+          to label %458 unwind label %165
+
+458:                                              ; preds = %456
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %124, i64 24, i1 false)
-  %454 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %452)
-          to label %461 unwind label %456
+  %459 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %457)
+          to label %466 unwind label %461
 
-455:                                              ; preds = %456
+460:                                              ; preds = %461
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %110) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-456:                                              ; preds = %461, %453
-  %457 = landingpad { ptr, i32 }
+461:                                              ; preds = %466, %458
+  %462 = landingpad { ptr, i32 }
           cleanup
-  %458 = extractvalue { ptr, i32 } %457, 0
-  %459 = extractvalue { ptr, i32 } %457, 1
-  store ptr %458, ptr %8, align 8
-  %460 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %459, ptr %460, align 8
-  br label %455
+  %463 = extractvalue { ptr, i32 } %462, 0
+  %464 = extractvalue { ptr, i32 } %462, 1
+  store ptr %463, ptr %8, align 8
+  %465 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %464, ptr %465, align 8
+  br label %460
 
-461:                                              ; preds = %453
-  %462 = extractvalue { i64, i64 } %454, 0
-  %463 = extractvalue { i64, i64 } %454, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %110, i64 %462, i64 %463)
-          to label %464 unwind label %456
+466:                                              ; preds = %458
+  %467 = extractvalue { i64, i64 } %459, 0
+  %468 = extractvalue { i64, i64 } %459, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %110, i64 %467, i64 %468)
+          to label %469 unwind label %461
 
-464:                                              ; preds = %461
+469:                                              ; preds = %466
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %111, ptr align 8 %110, i64 24, i1 false)
-  %465 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.86, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.85, i64 29, ptr align 8 %111)
-          to label %466 unwind label %165
+  %470 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.86, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.85, i64 29, ptr align 8 %111)
+          to label %471 unwind label %165
 
-466:                                              ; preds = %464
+471:                                              ; preds = %469
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %108, ptr align 8 %124, i64 24, i1 false)
-  %467 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %452)
-          to label %474 unwind label %469
+  %472 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %457)
+          to label %479 unwind label %474
 
-468:                                              ; preds = %469
+473:                                              ; preds = %474
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %108) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-469:                                              ; preds = %474, %466
-  %470 = landingpad { ptr, i32 }
+474:                                              ; preds = %479, %471
+  %475 = landingpad { ptr, i32 }
           cleanup
-  %471 = extractvalue { ptr, i32 } %470, 0
-  %472 = extractvalue { ptr, i32 } %470, 1
-  store ptr %471, ptr %8, align 8
-  %473 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %472, ptr %473, align 8
-  br label %468
+  %476 = extractvalue { ptr, i32 } %475, 0
+  %477 = extractvalue { ptr, i32 } %475, 1
+  store ptr %476, ptr %8, align 8
+  %478 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %477, ptr %478, align 8
+  br label %473
 
-474:                                              ; preds = %466
-  %475 = extractvalue { i64, i64 } %467, 0
-  %476 = extractvalue { i64, i64 } %467, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %108, i64 %475, i64 %476)
-          to label %477 unwind label %469
+479:                                              ; preds = %471
+  %480 = extractvalue { i64, i64 } %472, 0
+  %481 = extractvalue { i64, i64 } %472, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %108, i64 %480, i64 %481)
+          to label %482 unwind label %474
 
-477:                                              ; preds = %474
+482:                                              ; preds = %479
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %109, ptr align 8 %108, i64 24, i1 false)
-  %478 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.87, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.88, i64 27, ptr align 8 %109)
-          to label %479 unwind label %165
+  %483 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.87, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.88, i64 27, ptr align 8 %109)
+          to label %484 unwind label %165
 
-479:                                              ; preds = %477
+484:                                              ; preds = %482
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 8 %124, i64 24, i1 false)
-  %480 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %478)
-          to label %487 unwind label %482
+  %485 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %483)
+          to label %492 unwind label %487
 
-481:                                              ; preds = %482
+486:                                              ; preds = %487
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %106) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-482:                                              ; preds = %487, %479
-  %483 = landingpad { ptr, i32 }
+487:                                              ; preds = %492, %484
+  %488 = landingpad { ptr, i32 }
           cleanup
-  %484 = extractvalue { ptr, i32 } %483, 0
-  %485 = extractvalue { ptr, i32 } %483, 1
-  store ptr %484, ptr %8, align 8
-  %486 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %485, ptr %486, align 8
-  br label %481
+  %489 = extractvalue { ptr, i32 } %488, 0
+  %490 = extractvalue { ptr, i32 } %488, 1
+  store ptr %489, ptr %8, align 8
+  %491 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %490, ptr %491, align 8
+  br label %486
 
-487:                                              ; preds = %479
-  %488 = extractvalue { i64, i64 } %480, 0
-  %489 = extractvalue { i64, i64 } %480, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %106, i64 %488, i64 %489)
-          to label %490 unwind label %482
+492:                                              ; preds = %484
+  %493 = extractvalue { i64, i64 } %485, 0
+  %494 = extractvalue { i64, i64 } %485, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %106, i64 %493, i64 %494)
+          to label %495 unwind label %487
 
-490:                                              ; preds = %487
+495:                                              ; preds = %492
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %107, ptr align 8 %106, i64 24, i1 false)
-  %491 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.89, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.90, i64 32, ptr align 8 %107)
-          to label %492 unwind label %165
+  %496 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.89, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.90, i64 32, ptr align 8 %107)
+          to label %497 unwind label %165
 
-492:                                              ; preds = %490
+497:                                              ; preds = %495
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %104, ptr align 8 %124, i64 24, i1 false)
-  %493 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %478)
-          to label %500 unwind label %495
+  %498 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %483)
+          to label %505 unwind label %500
 
-494:                                              ; preds = %495
+499:                                              ; preds = %500
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %104) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-495:                                              ; preds = %500, %492
-  %496 = landingpad { ptr, i32 }
+500:                                              ; preds = %505, %497
+  %501 = landingpad { ptr, i32 }
           cleanup
-  %497 = extractvalue { ptr, i32 } %496, 0
-  %498 = extractvalue { ptr, i32 } %496, 1
-  store ptr %497, ptr %8, align 8
-  %499 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %498, ptr %499, align 8
-  br label %494
+  %502 = extractvalue { ptr, i32 } %501, 0
+  %503 = extractvalue { ptr, i32 } %501, 1
+  store ptr %502, ptr %8, align 8
+  %504 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %503, ptr %504, align 8
+  br label %499
 
-500:                                              ; preds = %492
-  %501 = extractvalue { i64, i64 } %493, 0
-  %502 = extractvalue { i64, i64 } %493, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %104, i64 %501, i64 %502)
-          to label %503 unwind label %495
+505:                                              ; preds = %497
+  %506 = extractvalue { i64, i64 } %498, 0
+  %507 = extractvalue { i64, i64 } %498, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %104, i64 %506, i64 %507)
+          to label %508 unwind label %500
 
-503:                                              ; preds = %500
+508:                                              ; preds = %505
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %104, i64 24, i1 false)
-  %504 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.91, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.92, i64 26, ptr align 8 %105)
-          to label %505 unwind label %165
+  %509 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.91, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.92, i64 26, ptr align 8 %105)
+          to label %510 unwind label %165
 
-505:                                              ; preds = %503
+510:                                              ; preds = %508
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 8 %124, i64 24, i1 false)
-  %506 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %504)
-          to label %513 unwind label %508
+  %511 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %509)
+          to label %518 unwind label %513
 
-507:                                              ; preds = %508
+512:                                              ; preds = %513
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %102) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-508:                                              ; preds = %533, %531, %528, %526, %523, %521, %518, %516, %513, %505
-  %509 = landingpad { ptr, i32 }
+513:                                              ; preds = %538, %536, %533, %531, %528, %526, %523, %521, %518, %510
+  %514 = landingpad { ptr, i32 }
           cleanup
-  %510 = extractvalue { ptr, i32 } %509, 0
-  %511 = extractvalue { ptr, i32 } %509, 1
-  store ptr %510, ptr %8, align 8
-  %512 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %511, ptr %512, align 8
-  br label %507
+  %515 = extractvalue { ptr, i32 } %514, 0
+  %516 = extractvalue { ptr, i32 } %514, 1
+  store ptr %515, ptr %8, align 8
+  %517 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %516, ptr %517, align 8
+  br label %512
 
-513:                                              ; preds = %505
-  %514 = extractvalue { i64, i64 } %506, 0
-  %515 = extractvalue { i64, i64 } %506, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %514, i64 %515)
-          to label %516 unwind label %508
-
-516:                                              ; preds = %513
-  %517 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %518 unwind label %508
-
-518:                                              ; preds = %516
-  %519 = extractvalue { i64, i64 } %517, 0
-  %520 = extractvalue { i64, i64 } %517, 1
+518:                                              ; preds = %510
+  %519 = extractvalue { i64, i64 } %511, 0
+  %520 = extractvalue { i64, i64 } %511, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %519, i64 %520)
-          to label %521 unwind label %508
+          to label %521 unwind label %513
 
 521:                                              ; preds = %518
-  %522 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %523 unwind label %508
+  %522 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %523 unwind label %513
 
 523:                                              ; preds = %521
   %524 = extractvalue { i64, i64 } %522, 0
   %525 = extractvalue { i64, i64 } %522, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %524, i64 %525)
-          to label %526 unwind label %508
+          to label %526 unwind label %513
 
 526:                                              ; preds = %523
-  %527 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %528 unwind label %508
+  %527 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %528 unwind label %513
 
 528:                                              ; preds = %526
   %529 = extractvalue { i64, i64 } %527, 0
   %530 = extractvalue { i64, i64 } %527, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %529, i64 %530)
-          to label %531 unwind label %508
+          to label %531 unwind label %513
 
 531:                                              ; preds = %528
-  %532 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
-          to label %533 unwind label %508
+  %532 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %533 unwind label %513
 
 533:                                              ; preds = %531
   %534 = extractvalue { i64, i64 } %532, 0
   %535 = extractvalue { i64, i64 } %532, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %534, i64 %535)
-          to label %536 unwind label %508
+          to label %536 unwind label %513
 
 536:                                              ; preds = %533
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 8 %102, i64 24, i1 false)
-  %537 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.93, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.94, i64 28, ptr align 8 %103)
-          to label %538 unwind label %165
+  %537 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
+          to label %538 unwind label %513
 
 538:                                              ; preds = %536
+  %539 = extractvalue { i64, i64 } %537, 0
+  %540 = extractvalue { i64, i64 } %537, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %102, i64 %539, i64 %540)
+          to label %541 unwind label %513
+
+541:                                              ; preds = %538
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 8 %102, i64 24, i1 false)
+  %542 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.93, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.94, i64 28, ptr align 8 %103)
+          to label %543 unwind label %165
+
+543:                                              ; preds = %541
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %100, ptr align 8 %124, i64 24, i1 false)
-  %539 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %537)
-          to label %546 unwind label %541
+  %544 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %542)
+          to label %551 unwind label %546
 
-540:                                              ; preds = %541
+545:                                              ; preds = %546
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %100) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-541:                                              ; preds = %546, %538
-  %542 = landingpad { ptr, i32 }
+546:                                              ; preds = %551, %543
+  %547 = landingpad { ptr, i32 }
           cleanup
-  %543 = extractvalue { ptr, i32 } %542, 0
-  %544 = extractvalue { ptr, i32 } %542, 1
-  store ptr %543, ptr %8, align 8
-  %545 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %544, ptr %545, align 8
-  br label %540
+  %548 = extractvalue { ptr, i32 } %547, 0
+  %549 = extractvalue { ptr, i32 } %547, 1
+  store ptr %548, ptr %8, align 8
+  %550 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %549, ptr %550, align 8
+  br label %545
 
-546:                                              ; preds = %538
-  %547 = extractvalue { i64, i64 } %539, 0
-  %548 = extractvalue { i64, i64 } %539, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %100, i64 %547, i64 %548)
-          to label %549 unwind label %541
+551:                                              ; preds = %543
+  %552 = extractvalue { i64, i64 } %544, 0
+  %553 = extractvalue { i64, i64 } %544, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %100, i64 %552, i64 %553)
+          to label %554 unwind label %546
 
-549:                                              ; preds = %546
+554:                                              ; preds = %551
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 8 %100, i64 24, i1 false)
-  %550 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.95, i64 12, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.96, i64 32, ptr align 8 %101)
-          to label %551 unwind label %165
+  %555 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.95, i64 12, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.96, i64 32, ptr align 8 %101)
+          to label %556 unwind label %165
 
-551:                                              ; preds = %549
+556:                                              ; preds = %554
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr align 8 %124, i64 24, i1 false)
-  %552 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %550)
-          to label %559 unwind label %554
+  %557 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %555)
+          to label %564 unwind label %559
 
-553:                                              ; preds = %554
+558:                                              ; preds = %559
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %98) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-554:                                              ; preds = %559, %551
-  %555 = landingpad { ptr, i32 }
+559:                                              ; preds = %564, %556
+  %560 = landingpad { ptr, i32 }
           cleanup
-  %556 = extractvalue { ptr, i32 } %555, 0
-  %557 = extractvalue { ptr, i32 } %555, 1
-  store ptr %556, ptr %8, align 8
-  %558 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %557, ptr %558, align 8
-  br label %553
+  %561 = extractvalue { ptr, i32 } %560, 0
+  %562 = extractvalue { ptr, i32 } %560, 1
+  store ptr %561, ptr %8, align 8
+  %563 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %562, ptr %563, align 8
+  br label %558
 
-559:                                              ; preds = %551
-  %560 = extractvalue { i64, i64 } %552, 0
-  %561 = extractvalue { i64, i64 } %552, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %98, i64 %560, i64 %561)
-          to label %562 unwind label %554
+564:                                              ; preds = %556
+  %565 = extractvalue { i64, i64 } %557, 0
+  %566 = extractvalue { i64, i64 } %557, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %98, i64 %565, i64 %566)
+          to label %567 unwind label %559
 
-562:                                              ; preds = %559
+567:                                              ; preds = %564
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %98, i64 24, i1 false)
-  %563 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.97, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.98, i64 29, ptr align 8 %99)
-          to label %564 unwind label %165
+  %568 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.97, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.98, i64 29, ptr align 8 %99)
+          to label %569 unwind label %165
 
-564:                                              ; preds = %562
+569:                                              ; preds = %567
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 8 %124, i64 24, i1 false)
-  %565 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %360)
-          to label %572 unwind label %567
+  %570 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %364)
+          to label %577 unwind label %572
 
-566:                                              ; preds = %567
+571:                                              ; preds = %572
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %96) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-567:                                              ; preds = %577, %575, %572, %564
-  %568 = landingpad { ptr, i32 }
+572:                                              ; preds = %582, %580, %577, %569
+  %573 = landingpad { ptr, i32 }
           cleanup
-  %569 = extractvalue { ptr, i32 } %568, 0
-  %570 = extractvalue { ptr, i32 } %568, 1
-  store ptr %569, ptr %8, align 8
-  %571 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %570, ptr %571, align 8
-  br label %566
+  %574 = extractvalue { ptr, i32 } %573, 0
+  %575 = extractvalue { ptr, i32 } %573, 1
+  store ptr %574, ptr %8, align 8
+  %576 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %575, ptr %576, align 8
+  br label %571
 
-572:                                              ; preds = %564
-  %573 = extractvalue { i64, i64 } %565, 0
-  %574 = extractvalue { i64, i64 } %565, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %96, i64 %573, i64 %574)
-          to label %575 unwind label %567
-
-575:                                              ; preds = %572
-  %576 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %577 unwind label %567
-
-577:                                              ; preds = %575
-  %578 = extractvalue { i64, i64 } %576, 0
-  %579 = extractvalue { i64, i64 } %576, 1
+577:                                              ; preds = %569
+  %578 = extractvalue { i64, i64 } %570, 0
+  %579 = extractvalue { i64, i64 } %570, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %96, i64 %578, i64 %579)
-          to label %580 unwind label %567
+          to label %580 unwind label %572
 
 580:                                              ; preds = %577
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr align 8 %96, i64 24, i1 false)
-  %581 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.99, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.100, i64 26, ptr align 8 %97)
-          to label %582 unwind label %165
+  %581 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %582 unwind label %572
 
 582:                                              ; preds = %580
+  %583 = extractvalue { i64, i64 } %581, 0
+  %584 = extractvalue { i64, i64 } %581, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %96, i64 %583, i64 %584)
+          to label %585 unwind label %572
+
+585:                                              ; preds = %582
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr align 8 %96, i64 24, i1 false)
+  %586 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.99, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.100, i64 26, ptr align 8 %97)
+          to label %587 unwind label %165
+
+587:                                              ; preds = %585
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %94, ptr align 8 %124, i64 24, i1 false)
-  %583 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %581)
-          to label %590 unwind label %585
+  %588 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %586)
+          to label %595 unwind label %590
 
-584:                                              ; preds = %585
+589:                                              ; preds = %590
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %94) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-585:                                              ; preds = %590, %582
-  %586 = landingpad { ptr, i32 }
+590:                                              ; preds = %595, %587
+  %591 = landingpad { ptr, i32 }
           cleanup
-  %587 = extractvalue { ptr, i32 } %586, 0
-  %588 = extractvalue { ptr, i32 } %586, 1
-  store ptr %587, ptr %8, align 8
-  %589 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %588, ptr %589, align 8
-  br label %584
+  %592 = extractvalue { ptr, i32 } %591, 0
+  %593 = extractvalue { ptr, i32 } %591, 1
+  store ptr %592, ptr %8, align 8
+  %594 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %593, ptr %594, align 8
+  br label %589
 
-590:                                              ; preds = %582
-  %591 = extractvalue { i64, i64 } %583, 0
-  %592 = extractvalue { i64, i64 } %583, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %94, i64 %591, i64 %592)
-          to label %593 unwind label %585
+595:                                              ; preds = %587
+  %596 = extractvalue { i64, i64 } %588, 0
+  %597 = extractvalue { i64, i64 } %588, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %94, i64 %596, i64 %597)
+          to label %598 unwind label %590
 
-593:                                              ; preds = %590
+598:                                              ; preds = %595
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %95, ptr align 8 %94, i64 24, i1 false)
-  %594 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.101, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.102, i64 26, ptr align 8 %95)
-          to label %595 unwind label %165
+  %599 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.101, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.102, i64 26, ptr align 8 %95)
+          to label %600 unwind label %165
 
-595:                                              ; preds = %593
+600:                                              ; preds = %598
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %92, ptr align 8 %124, i64 24, i1 false)
-  %596 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %581)
-          to label %603 unwind label %598
+  %601 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %586)
+          to label %608 unwind label %603
 
-597:                                              ; preds = %598
+602:                                              ; preds = %603
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %92) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-598:                                              ; preds = %603, %595
-  %599 = landingpad { ptr, i32 }
+603:                                              ; preds = %608, %600
+  %604 = landingpad { ptr, i32 }
           cleanup
-  %600 = extractvalue { ptr, i32 } %599, 0
-  %601 = extractvalue { ptr, i32 } %599, 1
-  store ptr %600, ptr %8, align 8
-  %602 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %601, ptr %602, align 8
-  br label %597
+  %605 = extractvalue { ptr, i32 } %604, 0
+  %606 = extractvalue { ptr, i32 } %604, 1
+  store ptr %605, ptr %8, align 8
+  %607 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %606, ptr %607, align 8
+  br label %602
 
-603:                                              ; preds = %595
-  %604 = extractvalue { i64, i64 } %596, 0
-  %605 = extractvalue { i64, i64 } %596, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %92, i64 %604, i64 %605)
-          to label %606 unwind label %598
+608:                                              ; preds = %600
+  %609 = extractvalue { i64, i64 } %601, 0
+  %610 = extractvalue { i64, i64 } %601, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %92, i64 %609, i64 %610)
+          to label %611 unwind label %603
 
-606:                                              ; preds = %603
+611:                                              ; preds = %608
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %93, ptr align 8 %92, i64 24, i1 false)
-  %607 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.103, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.104, i64 27, ptr align 8 %93)
-          to label %608 unwind label %165
+  %612 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.103, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.104, i64 27, ptr align 8 %93)
+          to label %613 unwind label %165
 
-608:                                              ; preds = %606
+613:                                              ; preds = %611
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %90, ptr align 8 %124, i64 24, i1 false)
-  %609 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %607)
-          to label %616 unwind label %611
+  %614 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %612)
+          to label %621 unwind label %616
 
-610:                                              ; preds = %611
+615:                                              ; preds = %616
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %90) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-611:                                              ; preds = %621, %619, %616, %608
-  %612 = landingpad { ptr, i32 }
+616:                                              ; preds = %626, %624, %621, %613
+  %617 = landingpad { ptr, i32 }
           cleanup
-  %613 = extractvalue { ptr, i32 } %612, 0
-  %614 = extractvalue { ptr, i32 } %612, 1
-  store ptr %613, ptr %8, align 8
-  %615 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %614, ptr %615, align 8
-  br label %610
+  %618 = extractvalue { ptr, i32 } %617, 0
+  %619 = extractvalue { ptr, i32 } %617, 1
+  store ptr %618, ptr %8, align 8
+  %620 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %619, ptr %620, align 8
+  br label %615
 
-616:                                              ; preds = %608
-  %617 = extractvalue { i64, i64 } %609, 0
-  %618 = extractvalue { i64, i64 } %609, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %90, i64 %617, i64 %618)
-          to label %619 unwind label %611
-
-619:                                              ; preds = %616
-  %620 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %177)
-          to label %621 unwind label %611
-
-621:                                              ; preds = %619
-  %622 = extractvalue { i64, i64 } %620, 0
-  %623 = extractvalue { i64, i64 } %620, 1
+621:                                              ; preds = %613
+  %622 = extractvalue { i64, i64 } %614, 0
+  %623 = extractvalue { i64, i64 } %614, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %90, i64 %622, i64 %623)
-          to label %624 unwind label %611
+          to label %624 unwind label %616
 
 624:                                              ; preds = %621
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %91, ptr align 8 %90, i64 24, i1 false)
-  %625 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.105, i64 11, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.106, i64 31, ptr align 8 %91)
-          to label %626 unwind label %165
+  %625 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %177)
+          to label %626 unwind label %616
 
 626:                                              ; preds = %624
+  %627 = extractvalue { i64, i64 } %625, 0
+  %628 = extractvalue { i64, i64 } %625, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %90, i64 %627, i64 %628)
+          to label %629 unwind label %616
+
+629:                                              ; preds = %626
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %91, ptr align 8 %90, i64 24, i1 false)
+  %630 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.105, i64 11, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.106, i64 31, ptr align 8 %91)
+          to label %631 unwind label %165
+
+631:                                              ; preds = %629
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %88, ptr align 8 %124, i64 24, i1 false)
-  %627 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %625)
-          to label %634 unwind label %629
+  %632 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %630)
+          to label %639 unwind label %634
 
-628:                                              ; preds = %629
+633:                                              ; preds = %634
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %88) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-629:                                              ; preds = %634, %626
-  %630 = landingpad { ptr, i32 }
+634:                                              ; preds = %639, %631
+  %635 = landingpad { ptr, i32 }
           cleanup
-  %631 = extractvalue { ptr, i32 } %630, 0
-  %632 = extractvalue { ptr, i32 } %630, 1
-  store ptr %631, ptr %8, align 8
-  %633 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %632, ptr %633, align 8
-  br label %628
+  %636 = extractvalue { ptr, i32 } %635, 0
+  %637 = extractvalue { ptr, i32 } %635, 1
+  store ptr %636, ptr %8, align 8
+  %638 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %637, ptr %638, align 8
+  br label %633
 
-634:                                              ; preds = %626
-  %635 = extractvalue { i64, i64 } %627, 0
-  %636 = extractvalue { i64, i64 } %627, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %88, i64 %635, i64 %636)
-          to label %637 unwind label %629
+639:                                              ; preds = %631
+  %640 = extractvalue { i64, i64 } %632, 0
+  %641 = extractvalue { i64, i64 } %632, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %88, i64 %640, i64 %641)
+          to label %642 unwind label %634
 
-637:                                              ; preds = %634
+642:                                              ; preds = %639
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %88, i64 24, i1 false)
-  %638 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.107, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.108, i64 30, ptr align 8 %89)
-          to label %639 unwind label %165
+  %643 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.107, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.108, i64 30, ptr align 8 %89)
+          to label %644 unwind label %165
 
-639:                                              ; preds = %637
+644:                                              ; preds = %642
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %86, ptr align 8 %124, i64 24, i1 false)
-  %640 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %625)
-          to label %647 unwind label %642
+  %645 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %630)
+          to label %652 unwind label %647
 
-641:                                              ; preds = %642
+646:                                              ; preds = %647
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %86) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-642:                                              ; preds = %647, %639
-  %643 = landingpad { ptr, i32 }
+647:                                              ; preds = %652, %644
+  %648 = landingpad { ptr, i32 }
           cleanup
-  %644 = extractvalue { ptr, i32 } %643, 0
-  %645 = extractvalue { ptr, i32 } %643, 1
-  store ptr %644, ptr %8, align 8
-  %646 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %645, ptr %646, align 8
-  br label %641
+  %649 = extractvalue { ptr, i32 } %648, 0
+  %650 = extractvalue { ptr, i32 } %648, 1
+  store ptr %649, ptr %8, align 8
+  %651 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %650, ptr %651, align 8
+  br label %646
 
-647:                                              ; preds = %639
-  %648 = extractvalue { i64, i64 } %640, 0
-  %649 = extractvalue { i64, i64 } %640, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %86, i64 %648, i64 %649)
-          to label %650 unwind label %642
+652:                                              ; preds = %644
+  %653 = extractvalue { i64, i64 } %645, 0
+  %654 = extractvalue { i64, i64 } %645, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %86, i64 %653, i64 %654)
+          to label %655 unwind label %647
 
-650:                                              ; preds = %647
+655:                                              ; preds = %652
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %86, i64 24, i1 false)
-  %651 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.109, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.110, i64 29, ptr align 8 %87)
-          to label %652 unwind label %165
+  %656 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.109, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.110, i64 29, ptr align 8 %87)
+          to label %657 unwind label %165
 
-652:                                              ; preds = %650
+657:                                              ; preds = %655
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 8 %124, i64 24, i1 false)
-  %653 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %651)
-          to label %660 unwind label %655
+  %658 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %656)
+          to label %665 unwind label %660
 
-654:                                              ; preds = %655
+659:                                              ; preds = %660
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %84) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-655:                                              ; preds = %660, %652
-  %656 = landingpad { ptr, i32 }
+660:                                              ; preds = %665, %657
+  %661 = landingpad { ptr, i32 }
           cleanup
-  %657 = extractvalue { ptr, i32 } %656, 0
-  %658 = extractvalue { ptr, i32 } %656, 1
-  store ptr %657, ptr %8, align 8
-  %659 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %658, ptr %659, align 8
-  br label %654
+  %662 = extractvalue { ptr, i32 } %661, 0
+  %663 = extractvalue { ptr, i32 } %661, 1
+  store ptr %662, ptr %8, align 8
+  %664 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %663, ptr %664, align 8
+  br label %659
 
-660:                                              ; preds = %652
-  %661 = extractvalue { i64, i64 } %653, 0
-  %662 = extractvalue { i64, i64 } %653, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %84, i64 %661, i64 %662)
-          to label %663 unwind label %655
+665:                                              ; preds = %657
+  %666 = extractvalue { i64, i64 } %658, 0
+  %667 = extractvalue { i64, i64 } %658, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %84, i64 %666, i64 %667)
+          to label %668 unwind label %660
 
-663:                                              ; preds = %660
+668:                                              ; preds = %665
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 8 %84, i64 24, i1 false)
-  %664 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.111, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.112, i64 38, ptr align 8 %85)
-          to label %665 unwind label %165
+  %669 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.111, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.112, i64 38, ptr align 8 %85)
+          to label %670 unwind label %165
 
-665:                                              ; preds = %663
+670:                                              ; preds = %668
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %124, i64 24, i1 false)
-  %666 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %651)
-          to label %673 unwind label %668
+  %671 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %656)
+          to label %678 unwind label %673
 
-667:                                              ; preds = %668
+672:                                              ; preds = %673
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %82) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-668:                                              ; preds = %698, %696, %693, %691, %688, %686, %683, %681, %678, %676, %673, %665
-  %669 = landingpad { ptr, i32 }
+673:                                              ; preds = %703, %701, %698, %696, %693, %691, %688, %686, %683, %681, %678, %670
+  %674 = landingpad { ptr, i32 }
           cleanup
-  %670 = extractvalue { ptr, i32 } %669, 0
-  %671 = extractvalue { ptr, i32 } %669, 1
-  store ptr %670, ptr %8, align 8
-  %672 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %671, ptr %672, align 8
-  br label %667
+  %675 = extractvalue { ptr, i32 } %674, 0
+  %676 = extractvalue { ptr, i32 } %674, 1
+  store ptr %675, ptr %8, align 8
+  %677 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %676, ptr %677, align 8
+  br label %672
 
-673:                                              ; preds = %665
-  %674 = extractvalue { i64, i64 } %666, 0
-  %675 = extractvalue { i64, i64 } %666, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %674, i64 %675)
-          to label %676 unwind label %668
-
-676:                                              ; preds = %673
-  %677 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
-          to label %678 unwind label %668
-
-678:                                              ; preds = %676
-  %679 = extractvalue { i64, i64 } %677, 0
-  %680 = extractvalue { i64, i64 } %677, 1
+678:                                              ; preds = %670
+  %679 = extractvalue { i64, i64 } %671, 0
+  %680 = extractvalue { i64, i64 } %671, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %679, i64 %680)
-          to label %681 unwind label %668
+          to label %681 unwind label %673
 
 681:                                              ; preds = %678
-  %682 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %683 unwind label %668
+  %682 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
+          to label %683 unwind label %673
 
 683:                                              ; preds = %681
   %684 = extractvalue { i64, i64 } %682, 0
   %685 = extractvalue { i64, i64 } %682, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %684, i64 %685)
-          to label %686 unwind label %668
+          to label %686 unwind label %673
 
 686:                                              ; preds = %683
-  %687 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %688 unwind label %668
+  %687 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %688 unwind label %673
 
 688:                                              ; preds = %686
   %689 = extractvalue { i64, i64 } %687, 0
   %690 = extractvalue { i64, i64 } %687, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %689, i64 %690)
-          to label %691 unwind label %668
+          to label %691 unwind label %673
 
 691:                                              ; preds = %688
-  %692 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
-          to label %693 unwind label %668
+  %692 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %693 unwind label %673
 
 693:                                              ; preds = %691
   %694 = extractvalue { i64, i64 } %692, 0
   %695 = extractvalue { i64, i64 } %692, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %694, i64 %695)
-          to label %696 unwind label %668
+          to label %696 unwind label %673
 
 696:                                              ; preds = %693
-  %697 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %698 unwind label %668
+  %697 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
+          to label %698 unwind label %673
 
 698:                                              ; preds = %696
   %699 = extractvalue { i64, i64 } %697, 0
   %700 = extractvalue { i64, i64 } %697, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %699, i64 %700)
-          to label %701 unwind label %668
+          to label %701 unwind label %673
 
 701:                                              ; preds = %698
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %82, i64 24, i1 false)
-  %702 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.113, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.114, i64 26, ptr align 8 %83)
-          to label %703 unwind label %165
+  %702 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %703 unwind label %673
 
 703:                                              ; preds = %701
+  %704 = extractvalue { i64, i64 } %702, 0
+  %705 = extractvalue { i64, i64 } %702, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %82, i64 %704, i64 %705)
+          to label %706 unwind label %673
+
+706:                                              ; preds = %703
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %82, i64 24, i1 false)
+  %707 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.113, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.114, i64 26, ptr align 8 %83)
+          to label %708 unwind label %165
+
+708:                                              ; preds = %706
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %80, ptr align 8 %124, i64 24, i1 false)
-  %704 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %702)
-          to label %711 unwind label %706
+  %709 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %707)
+          to label %716 unwind label %711
 
-705:                                              ; preds = %706
+710:                                              ; preds = %711
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %80) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-706:                                              ; preds = %711, %703
-  %707 = landingpad { ptr, i32 }
+711:                                              ; preds = %716, %708
+  %712 = landingpad { ptr, i32 }
           cleanup
-  %708 = extractvalue { ptr, i32 } %707, 0
-  %709 = extractvalue { ptr, i32 } %707, 1
-  store ptr %708, ptr %8, align 8
-  %710 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %709, ptr %710, align 8
-  br label %705
+  %713 = extractvalue { ptr, i32 } %712, 0
+  %714 = extractvalue { ptr, i32 } %712, 1
+  store ptr %713, ptr %8, align 8
+  %715 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %714, ptr %715, align 8
+  br label %710
 
-711:                                              ; preds = %703
-  %712 = extractvalue { i64, i64 } %704, 0
-  %713 = extractvalue { i64, i64 } %704, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %80, i64 %712, i64 %713)
-          to label %714 unwind label %706
+716:                                              ; preds = %708
+  %717 = extractvalue { i64, i64 } %709, 0
+  %718 = extractvalue { i64, i64 } %709, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %80, i64 %717, i64 %718)
+          to label %719 unwind label %711
 
-714:                                              ; preds = %711
+719:                                              ; preds = %716
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %80, i64 24, i1 false)
-  %715 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.115, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.116, i64 36, ptr align 8 %81)
-          to label %716 unwind label %165
+  %720 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.115, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.116, i64 36, ptr align 8 %81)
+          to label %721 unwind label %165
 
-716:                                              ; preds = %714
+721:                                              ; preds = %719
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %124, i64 24, i1 false)
-  %717 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %702)
-          to label %724 unwind label %719
+  %722 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %707)
+          to label %729 unwind label %724
 
-718:                                              ; preds = %719
+723:                                              ; preds = %724
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %78) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-719:                                              ; preds = %724, %716
-  %720 = landingpad { ptr, i32 }
+724:                                              ; preds = %729, %721
+  %725 = landingpad { ptr, i32 }
           cleanup
-  %721 = extractvalue { ptr, i32 } %720, 0
-  %722 = extractvalue { ptr, i32 } %720, 1
-  store ptr %721, ptr %8, align 8
-  %723 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %722, ptr %723, align 8
-  br label %718
+  %726 = extractvalue { ptr, i32 } %725, 0
+  %727 = extractvalue { ptr, i32 } %725, 1
+  store ptr %726, ptr %8, align 8
+  %728 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %727, ptr %728, align 8
+  br label %723
 
-724:                                              ; preds = %716
-  %725 = extractvalue { i64, i64 } %717, 0
-  %726 = extractvalue { i64, i64 } %717, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %78, i64 %725, i64 %726)
-          to label %727 unwind label %719
+729:                                              ; preds = %721
+  %730 = extractvalue { i64, i64 } %722, 0
+  %731 = extractvalue { i64, i64 } %722, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %78, i64 %730, i64 %731)
+          to label %732 unwind label %724
 
-727:                                              ; preds = %724
+732:                                              ; preds = %729
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 24, i1 false)
-  %728 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.117, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.118, i64 28, ptr align 8 %79)
-          to label %729 unwind label %165
+  %733 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.117, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.118, i64 28, ptr align 8 %79)
+          to label %734 unwind label %165
 
-729:                                              ; preds = %727
+734:                                              ; preds = %732
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %124, i64 24, i1 false)
-  %730 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %728)
-          to label %737 unwind label %732
+  %735 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %733)
+          to label %742 unwind label %737
 
-731:                                              ; preds = %732
+736:                                              ; preds = %737
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %76) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-732:                                              ; preds = %737, %729
-  %733 = landingpad { ptr, i32 }
+737:                                              ; preds = %742, %734
+  %738 = landingpad { ptr, i32 }
           cleanup
-  %734 = extractvalue { ptr, i32 } %733, 0
-  %735 = extractvalue { ptr, i32 } %733, 1
-  store ptr %734, ptr %8, align 8
-  %736 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %735, ptr %736, align 8
-  br label %731
+  %739 = extractvalue { ptr, i32 } %738, 0
+  %740 = extractvalue { ptr, i32 } %738, 1
+  store ptr %739, ptr %8, align 8
+  %741 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %740, ptr %741, align 8
+  br label %736
 
-737:                                              ; preds = %729
-  %738 = extractvalue { i64, i64 } %730, 0
-  %739 = extractvalue { i64, i64 } %730, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %76, i64 %738, i64 %739)
-          to label %740 unwind label %732
+742:                                              ; preds = %734
+  %743 = extractvalue { i64, i64 } %735, 0
+  %744 = extractvalue { i64, i64 } %735, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %76, i64 %743, i64 %744)
+          to label %745 unwind label %737
 
-740:                                              ; preds = %737
+745:                                              ; preds = %742
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 24, i1 false)
-  %741 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.119, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.120, i64 26, ptr align 8 %77)
-          to label %742 unwind label %165
+  %746 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.119, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.120, i64 26, ptr align 8 %77)
+          to label %747 unwind label %165
 
-742:                                              ; preds = %740
+747:                                              ; preds = %745
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %124, i64 24, i1 false)
-  %743 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %750 unwind label %745
+  %748 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %755 unwind label %750
 
-744:                                              ; preds = %745
+749:                                              ; preds = %750
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %74) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-745:                                              ; preds = %775, %773, %770, %768, %765, %763, %760, %758, %755, %753, %750, %742
-  %746 = landingpad { ptr, i32 }
+750:                                              ; preds = %780, %778, %775, %773, %770, %768, %765, %763, %760, %758, %755, %747
+  %751 = landingpad { ptr, i32 }
           cleanup
-  %747 = extractvalue { ptr, i32 } %746, 0
-  %748 = extractvalue { ptr, i32 } %746, 1
-  store ptr %747, ptr %8, align 8
-  %749 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %748, ptr %749, align 8
-  br label %744
+  %752 = extractvalue { ptr, i32 } %751, 0
+  %753 = extractvalue { ptr, i32 } %751, 1
+  store ptr %752, ptr %8, align 8
+  %754 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %753, ptr %754, align 8
+  br label %749
 
-750:                                              ; preds = %742
-  %751 = extractvalue { i64, i64 } %743, 0
-  %752 = extractvalue { i64, i64 } %743, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %751, i64 %752)
-          to label %753 unwind label %745
-
-753:                                              ; preds = %750
-  %754 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
-          to label %755 unwind label %745
-
-755:                                              ; preds = %753
-  %756 = extractvalue { i64, i64 } %754, 0
-  %757 = extractvalue { i64, i64 } %754, 1
+755:                                              ; preds = %747
+  %756 = extractvalue { i64, i64 } %748, 0
+  %757 = extractvalue { i64, i64 } %748, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %756, i64 %757)
-          to label %758 unwind label %745
+          to label %758 unwind label %750
 
 758:                                              ; preds = %755
-  %759 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
-          to label %760 unwind label %745
+  %759 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
+          to label %760 unwind label %750
 
 760:                                              ; preds = %758
   %761 = extractvalue { i64, i64 } %759, 0
   %762 = extractvalue { i64, i64 } %759, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %761, i64 %762)
-          to label %763 unwind label %745
+          to label %763 unwind label %750
 
 763:                                              ; preds = %760
-  %764 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %765 unwind label %745
+  %764 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
+          to label %765 unwind label %750
 
 765:                                              ; preds = %763
   %766 = extractvalue { i64, i64 } %764, 0
   %767 = extractvalue { i64, i64 } %764, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %766, i64 %767)
-          to label %768 unwind label %745
+          to label %768 unwind label %750
 
 768:                                              ; preds = %765
-  %769 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %770 unwind label %745
+  %769 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %770 unwind label %750
 
 770:                                              ; preds = %768
   %771 = extractvalue { i64, i64 } %769, 0
   %772 = extractvalue { i64, i64 } %769, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %771, i64 %772)
-          to label %773 unwind label %745
+          to label %773 unwind label %750
 
 773:                                              ; preds = %770
-  %774 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %775 unwind label %745
+  %774 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %775 unwind label %750
 
 775:                                              ; preds = %773
   %776 = extractvalue { i64, i64 } %774, 0
   %777 = extractvalue { i64, i64 } %774, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %776, i64 %777)
-          to label %778 unwind label %745
+          to label %778 unwind label %750
 
 778:                                              ; preds = %775
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 24, i1 false)
-  %779 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.121, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.122, i64 34, ptr align 8 %75)
-          to label %780 unwind label %165
+  %779 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %780 unwind label %750
 
 780:                                              ; preds = %778
+  %781 = extractvalue { i64, i64 } %779, 0
+  %782 = extractvalue { i64, i64 } %779, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %74, i64 %781, i64 %782)
+          to label %783 unwind label %750
+
+783:                                              ; preds = %780
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 24, i1 false)
+  %784 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.121, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.122, i64 34, ptr align 8 %75)
+          to label %785 unwind label %165
+
+785:                                              ; preds = %783
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %124, i64 24, i1 false)
-  %781 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %779)
-          to label %788 unwind label %783
+  %786 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %784)
+          to label %793 unwind label %788
 
-782:                                              ; preds = %783
+787:                                              ; preds = %788
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %72) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-783:                                              ; preds = %788, %780
-  %784 = landingpad { ptr, i32 }
+788:                                              ; preds = %793, %785
+  %789 = landingpad { ptr, i32 }
           cleanup
-  %785 = extractvalue { ptr, i32 } %784, 0
-  %786 = extractvalue { ptr, i32 } %784, 1
-  store ptr %785, ptr %8, align 8
-  %787 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %786, ptr %787, align 8
-  br label %782
+  %790 = extractvalue { ptr, i32 } %789, 0
+  %791 = extractvalue { ptr, i32 } %789, 1
+  store ptr %790, ptr %8, align 8
+  %792 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %791, ptr %792, align 8
+  br label %787
 
-788:                                              ; preds = %780
-  %789 = extractvalue { i64, i64 } %781, 0
-  %790 = extractvalue { i64, i64 } %781, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %72, i64 %789, i64 %790)
-          to label %791 unwind label %783
+793:                                              ; preds = %785
+  %794 = extractvalue { i64, i64 } %786, 0
+  %795 = extractvalue { i64, i64 } %786, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %72, i64 %794, i64 %795)
+          to label %796 unwind label %788
 
-791:                                              ; preds = %788
+796:                                              ; preds = %793
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %73, ptr align 8 %72, i64 24, i1 false)
-  %792 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.123, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.124, i64 31, ptr align 8 %73)
-          to label %793 unwind label %165
+  %797 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.123, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.124, i64 31, ptr align 8 %73)
+          to label %798 unwind label %165
 
-793:                                              ; preds = %791
+798:                                              ; preds = %796
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %124, i64 24, i1 false)
-  %794 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %728)
-          to label %801 unwind label %796
+  %799 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %733)
+          to label %806 unwind label %801
 
-795:                                              ; preds = %796
+800:                                              ; preds = %801
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %70) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-796:                                              ; preds = %816, %814, %811, %809, %806, %804, %801, %793
-  %797 = landingpad { ptr, i32 }
+801:                                              ; preds = %821, %819, %816, %814, %811, %809, %806, %798
+  %802 = landingpad { ptr, i32 }
           cleanup
-  %798 = extractvalue { ptr, i32 } %797, 0
-  %799 = extractvalue { ptr, i32 } %797, 1
-  store ptr %798, ptr %8, align 8
-  %800 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %799, ptr %800, align 8
-  br label %795
+  %803 = extractvalue { ptr, i32 } %802, 0
+  %804 = extractvalue { ptr, i32 } %802, 1
+  store ptr %803, ptr %8, align 8
+  %805 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %804, ptr %805, align 8
+  br label %800
 
-801:                                              ; preds = %793
-  %802 = extractvalue { i64, i64 } %794, 0
-  %803 = extractvalue { i64, i64 } %794, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %70, i64 %802, i64 %803)
-          to label %804 unwind label %796
-
-804:                                              ; preds = %801
-  %805 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
-          to label %806 unwind label %796
-
-806:                                              ; preds = %804
-  %807 = extractvalue { i64, i64 } %805, 0
-  %808 = extractvalue { i64, i64 } %805, 1
+806:                                              ; preds = %798
+  %807 = extractvalue { i64, i64 } %799, 0
+  %808 = extractvalue { i64, i64 } %799, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %70, i64 %807, i64 %808)
-          to label %809 unwind label %796
+          to label %809 unwind label %801
 
 809:                                              ; preds = %806
-  %810 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
-          to label %811 unwind label %796
+  %810 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
+          to label %811 unwind label %801
 
 811:                                              ; preds = %809
   %812 = extractvalue { i64, i64 } %810, 0
   %813 = extractvalue { i64, i64 } %810, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %70, i64 %812, i64 %813)
-          to label %814 unwind label %796
+          to label %814 unwind label %801
 
 814:                                              ; preds = %811
-  %815 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
-          to label %816 unwind label %796
+  %815 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
+          to label %816 unwind label %801
 
 816:                                              ; preds = %814
   %817 = extractvalue { i64, i64 } %815, 0
   %818 = extractvalue { i64, i64 } %815, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %70, i64 %817, i64 %818)
-          to label %819 unwind label %796
+          to label %819 unwind label %801
 
 819:                                              ; preds = %816
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %71, ptr align 8 %70, i64 24, i1 false)
-  %820 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.125, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.126, i64 33, ptr align 8 %71)
-          to label %821 unwind label %165
+  %820 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
+          to label %821 unwind label %801
 
 821:                                              ; preds = %819
+  %822 = extractvalue { i64, i64 } %820, 0
+  %823 = extractvalue { i64, i64 } %820, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %70, i64 %822, i64 %823)
+          to label %824 unwind label %801
+
+824:                                              ; preds = %821
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %71, ptr align 8 %70, i64 24, i1 false)
+  %825 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.125, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.126, i64 33, ptr align 8 %71)
+          to label %826 unwind label %165
+
+826:                                              ; preds = %824
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %124, i64 24, i1 false)
-  %822 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %820)
-          to label %829 unwind label %824
+  %827 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %825)
+          to label %834 unwind label %829
 
-823:                                              ; preds = %824
+828:                                              ; preds = %829
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %68) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-824:                                              ; preds = %829, %821
-  %825 = landingpad { ptr, i32 }
+829:                                              ; preds = %834, %826
+  %830 = landingpad { ptr, i32 }
           cleanup
-  %826 = extractvalue { ptr, i32 } %825, 0
-  %827 = extractvalue { ptr, i32 } %825, 1
-  store ptr %826, ptr %8, align 8
-  %828 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %827, ptr %828, align 8
-  br label %823
+  %831 = extractvalue { ptr, i32 } %830, 0
+  %832 = extractvalue { ptr, i32 } %830, 1
+  store ptr %831, ptr %8, align 8
+  %833 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %832, ptr %833, align 8
+  br label %828
 
-829:                                              ; preds = %821
-  %830 = extractvalue { i64, i64 } %822, 0
-  %831 = extractvalue { i64, i64 } %822, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %68, i64 %830, i64 %831)
-          to label %832 unwind label %824
+834:                                              ; preds = %826
+  %835 = extractvalue { i64, i64 } %827, 0
+  %836 = extractvalue { i64, i64 } %827, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %68, i64 %835, i64 %836)
+          to label %837 unwind label %829
 
-832:                                              ; preds = %829
+837:                                              ; preds = %834
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %68, i64 24, i1 false)
-  %833 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.127, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.126, i64 33, ptr align 8 %69)
-          to label %834 unwind label %165
+  %838 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.127, i64 3, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.126, i64 33, ptr align 8 %69)
+          to label %839 unwind label %165
 
-834:                                              ; preds = %832
+839:                                              ; preds = %837
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 8 %124, i64 24, i1 false)
-  %835 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %820)
-          to label %842 unwind label %837
+  %840 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %825)
+          to label %847 unwind label %842
 
-836:                                              ; preds = %837
+841:                                              ; preds = %842
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %66) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-837:                                              ; preds = %842, %834
-  %838 = landingpad { ptr, i32 }
+842:                                              ; preds = %847, %839
+  %843 = landingpad { ptr, i32 }
           cleanup
-  %839 = extractvalue { ptr, i32 } %838, 0
-  %840 = extractvalue { ptr, i32 } %838, 1
-  store ptr %839, ptr %8, align 8
-  %841 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %840, ptr %841, align 8
-  br label %836
+  %844 = extractvalue { ptr, i32 } %843, 0
+  %845 = extractvalue { ptr, i32 } %843, 1
+  store ptr %844, ptr %8, align 8
+  %846 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %845, ptr %846, align 8
+  br label %841
 
-842:                                              ; preds = %834
-  %843 = extractvalue { i64, i64 } %835, 0
-  %844 = extractvalue { i64, i64 } %835, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %66, i64 %843, i64 %844)
-          to label %845 unwind label %837
+847:                                              ; preds = %839
+  %848 = extractvalue { i64, i64 } %840, 0
+  %849 = extractvalue { i64, i64 } %840, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %66, i64 %848, i64 %849)
+          to label %850 unwind label %842
 
-845:                                              ; preds = %842
+850:                                              ; preds = %847
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %66, i64 24, i1 false)
-  %846 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.128, i64 11, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.129, i64 31, ptr align 8 %67)
-          to label %847 unwind label %165
+  %851 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.128, i64 11, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.129, i64 31, ptr align 8 %67)
+          to label %852 unwind label %165
 
-847:                                              ; preds = %845
+852:                                              ; preds = %850
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %124, i64 24, i1 false)
-  %848 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %846)
-          to label %855 unwind label %850
+  %853 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %851)
+          to label %860 unwind label %855
 
-849:                                              ; preds = %850
+854:                                              ; preds = %855
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %64) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-850:                                              ; preds = %855, %847
-  %851 = landingpad { ptr, i32 }
+855:                                              ; preds = %860, %852
+  %856 = landingpad { ptr, i32 }
           cleanup
-  %852 = extractvalue { ptr, i32 } %851, 0
-  %853 = extractvalue { ptr, i32 } %851, 1
-  store ptr %852, ptr %8, align 8
-  %854 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %853, ptr %854, align 8
-  br label %849
+  %857 = extractvalue { ptr, i32 } %856, 0
+  %858 = extractvalue { ptr, i32 } %856, 1
+  store ptr %857, ptr %8, align 8
+  %859 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %858, ptr %859, align 8
+  br label %854
 
-855:                                              ; preds = %847
-  %856 = extractvalue { i64, i64 } %848, 0
-  %857 = extractvalue { i64, i64 } %848, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %64, i64 %856, i64 %857)
-          to label %858 unwind label %850
+860:                                              ; preds = %852
+  %861 = extractvalue { i64, i64 } %853, 0
+  %862 = extractvalue { i64, i64 } %853, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %64, i64 %861, i64 %862)
+          to label %863 unwind label %855
 
-858:                                              ; preds = %855
+863:                                              ; preds = %860
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 8 %64, i64 24, i1 false)
-  %859 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.130, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.131, i64 30, ptr align 8 %65)
-          to label %860 unwind label %165
+  %864 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.130, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.131, i64 30, ptr align 8 %65)
+          to label %865 unwind label %165
 
-860:                                              ; preds = %858
+865:                                              ; preds = %863
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 8 %124, i64 24, i1 false)
-  %861 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %741)
-          to label %868 unwind label %863
+  %866 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %746)
+          to label %873 unwind label %868
 
-862:                                              ; preds = %863
+867:                                              ; preds = %868
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %62) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-863:                                              ; preds = %888, %886, %883, %881, %878, %876, %873, %871, %868, %860
-  %864 = landingpad { ptr, i32 }
+868:                                              ; preds = %893, %891, %888, %886, %883, %881, %878, %876, %873, %865
+  %869 = landingpad { ptr, i32 }
           cleanup
-  %865 = extractvalue { ptr, i32 } %864, 0
-  %866 = extractvalue { ptr, i32 } %864, 1
-  store ptr %865, ptr %8, align 8
-  %867 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %866, ptr %867, align 8
-  br label %862
+  %870 = extractvalue { ptr, i32 } %869, 0
+  %871 = extractvalue { ptr, i32 } %869, 1
+  store ptr %870, ptr %8, align 8
+  %872 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %871, ptr %872, align 8
+  br label %867
 
-868:                                              ; preds = %860
-  %869 = extractvalue { i64, i64 } %861, 0
-  %870 = extractvalue { i64, i64 } %861, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %869, i64 %870)
-          to label %871 unwind label %863
-
-871:                                              ; preds = %868
-  %872 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
-          to label %873 unwind label %863
-
-873:                                              ; preds = %871
-  %874 = extractvalue { i64, i64 } %872, 0
-  %875 = extractvalue { i64, i64 } %872, 1
+873:                                              ; preds = %865
+  %874 = extractvalue { i64, i64 } %866, 0
+  %875 = extractvalue { i64, i64 } %866, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %874, i64 %875)
-          to label %876 unwind label %863
+          to label %876 unwind label %868
 
 876:                                              ; preds = %873
-  %877 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
-          to label %878 unwind label %863
+  %877 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %191)
+          to label %878 unwind label %868
 
 878:                                              ; preds = %876
   %879 = extractvalue { i64, i64 } %877, 0
   %880 = extractvalue { i64, i64 } %877, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %879, i64 %880)
-          to label %881 unwind label %863
+          to label %881 unwind label %868
 
 881:                                              ; preds = %878
-  %882 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
-          to label %883 unwind label %863
+  %882 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
+          to label %883 unwind label %868
 
 883:                                              ; preds = %881
   %884 = extractvalue { i64, i64 } %882, 0
   %885 = extractvalue { i64, i64 } %882, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %884, i64 %885)
-          to label %886 unwind label %863
+          to label %886 unwind label %868
 
 886:                                              ; preds = %883
-  %887 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %189)
-          to label %888 unwind label %863
+  %887 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
+          to label %888 unwind label %868
 
 888:                                              ; preds = %886
   %889 = extractvalue { i64, i64 } %887, 0
   %890 = extractvalue { i64, i64 } %887, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %889, i64 %890)
-          to label %891 unwind label %863
+          to label %891 unwind label %868
 
 891:                                              ; preds = %888
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %62, i64 24, i1 false)
-  %892 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.132, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.133, i64 29, ptr align 8 %63)
-          to label %893 unwind label %165
+  %892 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %189)
+          to label %893 unwind label %868
 
 893:                                              ; preds = %891
+  %894 = extractvalue { i64, i64 } %892, 0
+  %895 = extractvalue { i64, i64 } %892, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %62, i64 %894, i64 %895)
+          to label %896 unwind label %868
+
+896:                                              ; preds = %893
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %62, i64 24, i1 false)
+  %897 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.132, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.133, i64 29, ptr align 8 %63)
+          to label %898 unwind label %165
+
+898:                                              ; preds = %896
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %124, i64 24, i1 false)
-  %894 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %892)
-          to label %901 unwind label %896
+  %899 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %897)
+          to label %906 unwind label %901
 
-895:                                              ; preds = %896
+900:                                              ; preds = %901
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %60) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-896:                                              ; preds = %906, %904, %901, %893
-  %897 = landingpad { ptr, i32 }
+901:                                              ; preds = %911, %909, %906, %898
+  %902 = landingpad { ptr, i32 }
           cleanup
-  %898 = extractvalue { ptr, i32 } %897, 0
-  %899 = extractvalue { ptr, i32 } %897, 1
-  store ptr %898, ptr %8, align 8
-  %900 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %899, ptr %900, align 8
-  br label %895
+  %903 = extractvalue { ptr, i32 } %902, 0
+  %904 = extractvalue { ptr, i32 } %902, 1
+  store ptr %903, ptr %8, align 8
+  %905 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %904, ptr %905, align 8
+  br label %900
 
-901:                                              ; preds = %893
-  %902 = extractvalue { i64, i64 } %894, 0
-  %903 = extractvalue { i64, i64 } %894, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %60, i64 %902, i64 %903)
-          to label %904 unwind label %896
-
-904:                                              ; preds = %901
-  %905 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %183)
-          to label %906 unwind label %896
-
-906:                                              ; preds = %904
-  %907 = extractvalue { i64, i64 } %905, 0
-  %908 = extractvalue { i64, i64 } %905, 1
+906:                                              ; preds = %898
+  %907 = extractvalue { i64, i64 } %899, 0
+  %908 = extractvalue { i64, i64 } %899, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %60, i64 %907, i64 %908)
-          to label %909 unwind label %896
+          to label %909 unwind label %901
 
 909:                                              ; preds = %906
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %60, i64 24, i1 false)
-  %910 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.134, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.135, i64 27, ptr align 8 %61)
-          to label %911 unwind label %165
+  %910 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %183)
+          to label %911 unwind label %901
 
 911:                                              ; preds = %909
+  %912 = extractvalue { i64, i64 } %910, 0
+  %913 = extractvalue { i64, i64 } %910, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %60, i64 %912, i64 %913)
+          to label %914 unwind label %901
+
+914:                                              ; preds = %911
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %60, i64 24, i1 false)
+  %915 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.134, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.135, i64 27, ptr align 8 %61)
+          to label %916 unwind label %165
+
+916:                                              ; preds = %914
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 8 %124, i64 24, i1 false)
-  %912 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %910)
-          to label %919 unwind label %914
+  %917 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %915)
+          to label %924 unwind label %919
 
-913:                                              ; preds = %914
+918:                                              ; preds = %919
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %58) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-914:                                              ; preds = %919, %911
-  %915 = landingpad { ptr, i32 }
+919:                                              ; preds = %924, %916
+  %920 = landingpad { ptr, i32 }
           cleanup
-  %916 = extractvalue { ptr, i32 } %915, 0
-  %917 = extractvalue { ptr, i32 } %915, 1
-  store ptr %916, ptr %8, align 8
-  %918 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %917, ptr %918, align 8
-  br label %913
+  %921 = extractvalue { ptr, i32 } %920, 0
+  %922 = extractvalue { ptr, i32 } %920, 1
+  store ptr %921, ptr %8, align 8
+  %923 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %922, ptr %923, align 8
+  br label %918
 
-919:                                              ; preds = %911
-  %920 = extractvalue { i64, i64 } %912, 0
-  %921 = extractvalue { i64, i64 } %912, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %58, i64 %920, i64 %921)
-          to label %922 unwind label %914
+924:                                              ; preds = %916
+  %925 = extractvalue { i64, i64 } %917, 0
+  %926 = extractvalue { i64, i64 } %917, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %58, i64 %925, i64 %926)
+          to label %927 unwind label %919
 
-922:                                              ; preds = %919
+927:                                              ; preds = %924
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %58, i64 24, i1 false)
-  %923 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.136, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.137, i64 26, ptr align 8 %59)
-          to label %924 unwind label %165
+  %928 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.136, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.137, i64 26, ptr align 8 %59)
+          to label %929 unwind label %165
 
-924:                                              ; preds = %922
+929:                                              ; preds = %927
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %124, i64 24, i1 false)
-  %925 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %910)
-          to label %932 unwind label %927
+  %930 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %915)
+          to label %937 unwind label %932
 
-926:                                              ; preds = %927
+931:                                              ; preds = %932
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %56) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-927:                                              ; preds = %932, %924
-  %928 = landingpad { ptr, i32 }
+932:                                              ; preds = %937, %929
+  %933 = landingpad { ptr, i32 }
           cleanup
-  %929 = extractvalue { ptr, i32 } %928, 0
-  %930 = extractvalue { ptr, i32 } %928, 1
-  store ptr %929, ptr %8, align 8
-  %931 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %930, ptr %931, align 8
-  br label %926
+  %934 = extractvalue { ptr, i32 } %933, 0
+  %935 = extractvalue { ptr, i32 } %933, 1
+  store ptr %934, ptr %8, align 8
+  %936 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %935, ptr %936, align 8
+  br label %931
 
-932:                                              ; preds = %924
-  %933 = extractvalue { i64, i64 } %925, 0
-  %934 = extractvalue { i64, i64 } %925, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %56, i64 %933, i64 %934)
-          to label %935 unwind label %927
+937:                                              ; preds = %929
+  %938 = extractvalue { i64, i64 } %930, 0
+  %939 = extractvalue { i64, i64 } %930, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %56, i64 %938, i64 %939)
+          to label %940 unwind label %932
 
-935:                                              ; preds = %932
+940:                                              ; preds = %937
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %56, i64 24, i1 false)
-  %936 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.138, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.139, i64 36, ptr align 8 %57)
-          to label %937 unwind label %165
+  %941 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.138, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.139, i64 36, ptr align 8 %57)
+          to label %942 unwind label %165
 
-937:                                              ; preds = %935
+942:                                              ; preds = %940
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %124, i64 24, i1 false)
-  %938 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %910)
-          to label %945 unwind label %940
+  %943 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %915)
+          to label %950 unwind label %945
 
-939:                                              ; preds = %940
+944:                                              ; preds = %945
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %54) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-940:                                              ; preds = %945, %937
-  %941 = landingpad { ptr, i32 }
+945:                                              ; preds = %950, %942
+  %946 = landingpad { ptr, i32 }
           cleanup
-  %942 = extractvalue { ptr, i32 } %941, 0
-  %943 = extractvalue { ptr, i32 } %941, 1
-  store ptr %942, ptr %8, align 8
-  %944 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %943, ptr %944, align 8
-  br label %939
+  %947 = extractvalue { ptr, i32 } %946, 0
+  %948 = extractvalue { ptr, i32 } %946, 1
+  store ptr %947, ptr %8, align 8
+  %949 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %948, ptr %949, align 8
+  br label %944
 
-945:                                              ; preds = %937
-  %946 = extractvalue { i64, i64 } %938, 0
-  %947 = extractvalue { i64, i64 } %938, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %54, i64 %946, i64 %947)
-          to label %948 unwind label %940
+950:                                              ; preds = %942
+  %951 = extractvalue { i64, i64 } %943, 0
+  %952 = extractvalue { i64, i64 } %943, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %54, i64 %951, i64 %952)
+          to label %953 unwind label %945
 
-948:                                              ; preds = %945
+953:                                              ; preds = %950
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %54, i64 24, i1 false)
-  %949 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.140, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.141, i64 29, ptr align 8 %55)
-          to label %950 unwind label %165
+  %954 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.140, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.141, i64 29, ptr align 8 %55)
+          to label %955 unwind label %165
 
-950:                                              ; preds = %948
+955:                                              ; preds = %953
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %124, i64 24, i1 false)
-  %951 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %936)
-          to label %958 unwind label %953
+  %956 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %941)
+          to label %963 unwind label %958
 
-952:                                              ; preds = %953
+957:                                              ; preds = %958
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %52) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-953:                                              ; preds = %958, %950
-  %954 = landingpad { ptr, i32 }
+958:                                              ; preds = %963, %955
+  %959 = landingpad { ptr, i32 }
           cleanup
-  %955 = extractvalue { ptr, i32 } %954, 0
-  %956 = extractvalue { ptr, i32 } %954, 1
-  store ptr %955, ptr %8, align 8
-  %957 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %956, ptr %957, align 8
-  br label %952
+  %960 = extractvalue { ptr, i32 } %959, 0
+  %961 = extractvalue { ptr, i32 } %959, 1
+  store ptr %960, ptr %8, align 8
+  %962 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %961, ptr %962, align 8
+  br label %957
 
-958:                                              ; preds = %950
-  %959 = extractvalue { i64, i64 } %951, 0
-  %960 = extractvalue { i64, i64 } %951, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %52, i64 %959, i64 %960)
-          to label %961 unwind label %953
+963:                                              ; preds = %955
+  %964 = extractvalue { i64, i64 } %956, 0
+  %965 = extractvalue { i64, i64 } %956, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %52, i64 %964, i64 %965)
+          to label %966 unwind label %958
 
-961:                                              ; preds = %958
+966:                                              ; preds = %963
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %52, i64 24, i1 false)
-  %962 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.142, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.143, i64 33, ptr align 8 %53)
-          to label %963 unwind label %165
+  %967 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.142, i64 14, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.143, i64 33, ptr align 8 %53)
+          to label %968 unwind label %165
 
-963:                                              ; preds = %961
+968:                                              ; preds = %966
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %124, i64 24, i1 false)
-  %964 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %537)
-          to label %971 unwind label %966
+  %969 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %542)
+          to label %976 unwind label %971
 
-965:                                              ; preds = %966
+970:                                              ; preds = %971
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %50) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-966:                                              ; preds = %971, %963
-  %967 = landingpad { ptr, i32 }
+971:                                              ; preds = %976, %968
+  %972 = landingpad { ptr, i32 }
           cleanup
-  %968 = extractvalue { ptr, i32 } %967, 0
-  %969 = extractvalue { ptr, i32 } %967, 1
-  store ptr %968, ptr %8, align 8
-  %970 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %969, ptr %970, align 8
-  br label %965
+  %973 = extractvalue { ptr, i32 } %972, 0
+  %974 = extractvalue { ptr, i32 } %972, 1
+  store ptr %973, ptr %8, align 8
+  %975 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %974, ptr %975, align 8
+  br label %970
 
-971:                                              ; preds = %963
-  %972 = extractvalue { i64, i64 } %964, 0
-  %973 = extractvalue { i64, i64 } %964, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %50, i64 %972, i64 %973)
-          to label %974 unwind label %966
+976:                                              ; preds = %968
+  %977 = extractvalue { i64, i64 } %969, 0
+  %978 = extractvalue { i64, i64 } %969, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %50, i64 %977, i64 %978)
+          to label %979 unwind label %971
 
-974:                                              ; preds = %971
+979:                                              ; preds = %976
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 24, i1 false)
-  %975 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.144, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.145, i64 30, ptr align 8 %51)
-          to label %976 unwind label %165
+  %980 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.144, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.145, i64 30, ptr align 8 %51)
+          to label %981 unwind label %165
 
-976:                                              ; preds = %974
+981:                                              ; preds = %979
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %124, i64 24, i1 false)
-  %977 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %537)
-          to label %984 unwind label %979
+  %982 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %542)
+          to label %989 unwind label %984
 
-978:                                              ; preds = %979
+983:                                              ; preds = %984
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %48) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-979:                                              ; preds = %984, %976
-  %980 = landingpad { ptr, i32 }
+984:                                              ; preds = %989, %981
+  %985 = landingpad { ptr, i32 }
           cleanup
-  %981 = extractvalue { ptr, i32 } %980, 0
-  %982 = extractvalue { ptr, i32 } %980, 1
-  store ptr %981, ptr %8, align 8
-  %983 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %982, ptr %983, align 8
-  br label %978
+  %986 = extractvalue { ptr, i32 } %985, 0
+  %987 = extractvalue { ptr, i32 } %985, 1
+  store ptr %986, ptr %8, align 8
+  %988 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %987, ptr %988, align 8
+  br label %983
 
-984:                                              ; preds = %976
-  %985 = extractvalue { i64, i64 } %977, 0
-  %986 = extractvalue { i64, i64 } %977, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %48, i64 %985, i64 %986)
-          to label %987 unwind label %979
+989:                                              ; preds = %981
+  %990 = extractvalue { i64, i64 } %982, 0
+  %991 = extractvalue { i64, i64 } %982, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %48, i64 %990, i64 %991)
+          to label %992 unwind label %984
 
-987:                                              ; preds = %984
+992:                                              ; preds = %989
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %48, i64 24, i1 false)
-  %988 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.146, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.147, i64 30, ptr align 8 %49)
-          to label %989 unwind label %165
+  %993 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.146, i64 10, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.147, i64 30, ptr align 8 %49)
+          to label %994 unwind label %165
 
-989:                                              ; preds = %987
+994:                                              ; preds = %992
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %124, i64 24, i1 false)
-  %990 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %962)
-          to label %997 unwind label %992
+  %995 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %967)
+          to label %1002 unwind label %997
 
-991:                                              ; preds = %992
+996:                                              ; preds = %997
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %46) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-992:                                              ; preds = %997, %989
-  %993 = landingpad { ptr, i32 }
+997:                                              ; preds = %1002, %994
+  %998 = landingpad { ptr, i32 }
           cleanup
-  %994 = extractvalue { ptr, i32 } %993, 0
-  %995 = extractvalue { ptr, i32 } %993, 1
-  store ptr %994, ptr %8, align 8
-  %996 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %995, ptr %996, align 8
-  br label %991
+  %999 = extractvalue { ptr, i32 } %998, 0
+  %1000 = extractvalue { ptr, i32 } %998, 1
+  store ptr %999, ptr %8, align 8
+  %1001 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1000, ptr %1001, align 8
+  br label %996
 
-997:                                              ; preds = %989
-  %998 = extractvalue { i64, i64 } %990, 0
-  %999 = extractvalue { i64, i64 } %990, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %46, i64 %998, i64 %999)
-          to label %1000 unwind label %992
+1002:                                             ; preds = %994
+  %1003 = extractvalue { i64, i64 } %995, 0
+  %1004 = extractvalue { i64, i64 } %995, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %46, i64 %1003, i64 %1004)
+          to label %1005 unwind label %997
 
-1000:                                             ; preds = %997
+1005:                                             ; preds = %1002
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %46, i64 24, i1 false)
-  %1001 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.148, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.149, i64 33, ptr align 8 %47)
-          to label %1002 unwind label %165
+  %1006 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.148, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.149, i64 33, ptr align 8 %47)
+          to label %1007 unwind label %165
 
-1002:                                             ; preds = %1000
+1007:                                             ; preds = %1005
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %124, i64 24, i1 false)
-  %1003 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.150, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.151, i64 26, ptr align 8 %6)
-          to label %1004 unwind label %165
+  %1008 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.150, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.151, i64 26, ptr align 8 %6)
+          to label %1009 unwind label %165
 
-1004:                                             ; preds = %1002
+1009:                                             ; preds = %1007
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %124, i64 24, i1 false)
-  %1005 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.152, i64 2, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.153, i64 28, ptr align 8 %5)
-          to label %1006 unwind label %165
+  %1010 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.152, i64 2, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.153, i64 28, ptr align 8 %5)
+          to label %1011 unwind label %165
 
-1006:                                             ; preds = %1004
+1011:                                             ; preds = %1009
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %124, i64 24, i1 false)
-  %1007 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.154, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.155, i64 27, ptr align 8 %4)
-          to label %1008 unwind label %165
+  %1012 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.154, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.155, i64 27, ptr align 8 %4)
+          to label %1013 unwind label %165
 
-1008:                                             ; preds = %1006
+1013:                                             ; preds = %1011
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %124, i64 24, i1 false)
-  %1009 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.156, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.157, i64 28, ptr align 8 %3)
-          to label %1010 unwind label %165
+  %1014 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.156, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.157, i64 28, ptr align 8 %3)
+          to label %1015 unwind label %165
 
-1010:                                             ; preds = %1008
+1015:                                             ; preds = %1013
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %124, i64 24, i1 false)
-  %1011 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %1018 unwind label %1013
+  %1016 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %1023 unwind label %1018
 
-1012:                                             ; preds = %1013
+1017:                                             ; preds = %1018
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %44) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1013:                                             ; preds = %1018, %1010
-  %1014 = landingpad { ptr, i32 }
+1018:                                             ; preds = %1023, %1015
+  %1019 = landingpad { ptr, i32 }
           cleanup
-  %1015 = extractvalue { ptr, i32 } %1014, 0
-  %1016 = extractvalue { ptr, i32 } %1014, 1
-  store ptr %1015, ptr %8, align 8
-  %1017 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1016, ptr %1017, align 8
-  br label %1012
+  %1020 = extractvalue { ptr, i32 } %1019, 0
+  %1021 = extractvalue { ptr, i32 } %1019, 1
+  store ptr %1020, ptr %8, align 8
+  %1022 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1021, ptr %1022, align 8
+  br label %1017
 
-1018:                                             ; preds = %1010
-  %1019 = extractvalue { i64, i64 } %1011, 0
-  %1020 = extractvalue { i64, i64 } %1011, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %44, i64 %1019, i64 %1020)
-          to label %1021 unwind label %1013
+1023:                                             ; preds = %1015
+  %1024 = extractvalue { i64, i64 } %1016, 0
+  %1025 = extractvalue { i64, i64 } %1016, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %44, i64 %1024, i64 %1025)
+          to label %1026 unwind label %1018
 
-1021:                                             ; preds = %1018
+1026:                                             ; preds = %1023
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %44, i64 24, i1 false)
-  %1022 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.158, i64 12, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.159, i64 61, ptr align 8 %45)
-          to label %1023 unwind label %165
+  %1027 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.158, i64 12, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.159, i64 61, ptr align 8 %45)
+          to label %1028 unwind label %165
 
-1023:                                             ; preds = %1021
+1028:                                             ; preds = %1026
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %124, i64 24, i1 false)
-  %1024 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %1031 unwind label %1026
+  %1029 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %1036 unwind label %1031
 
-1025:                                             ; preds = %1026
+1030:                                             ; preds = %1031
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %42) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1026:                                             ; preds = %1031, %1023
-  %1027 = landingpad { ptr, i32 }
+1031:                                             ; preds = %1036, %1028
+  %1032 = landingpad { ptr, i32 }
           cleanup
-  %1028 = extractvalue { ptr, i32 } %1027, 0
-  %1029 = extractvalue { ptr, i32 } %1027, 1
-  store ptr %1028, ptr %8, align 8
-  %1030 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1029, ptr %1030, align 8
-  br label %1025
+  %1033 = extractvalue { ptr, i32 } %1032, 0
+  %1034 = extractvalue { ptr, i32 } %1032, 1
+  store ptr %1033, ptr %8, align 8
+  %1035 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1034, ptr %1035, align 8
+  br label %1030
 
-1031:                                             ; preds = %1023
-  %1032 = extractvalue { i64, i64 } %1024, 0
-  %1033 = extractvalue { i64, i64 } %1024, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %42, i64 %1032, i64 %1033)
-          to label %1034 unwind label %1026
+1036:                                             ; preds = %1028
+  %1037 = extractvalue { i64, i64 } %1029, 0
+  %1038 = extractvalue { i64, i64 } %1029, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %42, i64 %1037, i64 %1038)
+          to label %1039 unwind label %1031
 
-1034:                                             ; preds = %1031
+1039:                                             ; preds = %1036
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %42, i64 24, i1 false)
-  %1035 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.160, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.161, i64 63, ptr align 8 %43)
-          to label %1036 unwind label %165
+  %1040 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.160, i64 7, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.161, i64 63, ptr align 8 %43)
+          to label %1041 unwind label %165
 
-1036:                                             ; preds = %1034
+1041:                                             ; preds = %1039
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %124, i64 24, i1 false)
-  %1037 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %300)
-          to label %1044 unwind label %1039
+  %1042 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %301)
+          to label %1049 unwind label %1044
 
-1038:                                             ; preds = %1039
+1043:                                             ; preds = %1044
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %40) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1039:                                             ; preds = %1044, %1036
-  %1040 = landingpad { ptr, i32 }
+1044:                                             ; preds = %1049, %1041
+  %1045 = landingpad { ptr, i32 }
           cleanup
-  %1041 = extractvalue { ptr, i32 } %1040, 0
-  %1042 = extractvalue { ptr, i32 } %1040, 1
-  store ptr %1041, ptr %8, align 8
-  %1043 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1042, ptr %1043, align 8
-  br label %1038
+  %1046 = extractvalue { ptr, i32 } %1045, 0
+  %1047 = extractvalue { ptr, i32 } %1045, 1
+  store ptr %1046, ptr %8, align 8
+  %1048 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1047, ptr %1048, align 8
+  br label %1043
 
-1044:                                             ; preds = %1036
-  %1045 = extractvalue { i64, i64 } %1037, 0
-  %1046 = extractvalue { i64, i64 } %1037, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %40, i64 %1045, i64 %1046)
-          to label %1047 unwind label %1039
+1049:                                             ; preds = %1041
+  %1050 = extractvalue { i64, i64 } %1042, 0
+  %1051 = extractvalue { i64, i64 } %1042, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %40, i64 %1050, i64 %1051)
+          to label %1052 unwind label %1044
 
-1047:                                             ; preds = %1044
+1052:                                             ; preds = %1049
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %40, i64 24, i1 false)
-  %1048 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.162, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.163, i64 63, ptr align 8 %41)
-          to label %1049 unwind label %165
+  %1053 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.162, i64 13, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.163, i64 63, ptr align 8 %41)
+          to label %1054 unwind label %165
 
-1049:                                             ; preds = %1047
+1054:                                             ; preds = %1052
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %124, i64 24, i1 false)
-  %1050 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %1057 unwind label %1052
+  %1055 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %1062 unwind label %1057
 
-1051:                                             ; preds = %1052
+1056:                                             ; preds = %1057
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %38) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1052:                                             ; preds = %1062, %1060, %1057, %1049
-  %1053 = landingpad { ptr, i32 }
+1057:                                             ; preds = %1067, %1065, %1062, %1054
+  %1058 = landingpad { ptr, i32 }
           cleanup
-  %1054 = extractvalue { ptr, i32 } %1053, 0
-  %1055 = extractvalue { ptr, i32 } %1053, 1
-  store ptr %1054, ptr %8, align 8
-  %1056 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1055, ptr %1056, align 8
-  br label %1051
+  %1059 = extractvalue { ptr, i32 } %1058, 0
+  %1060 = extractvalue { ptr, i32 } %1058, 1
+  store ptr %1059, ptr %8, align 8
+  %1061 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1060, ptr %1061, align 8
+  br label %1056
 
-1057:                                             ; preds = %1049
-  %1058 = extractvalue { i64, i64 } %1050, 0
-  %1059 = extractvalue { i64, i64 } %1050, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %38, i64 %1058, i64 %1059)
-          to label %1060 unwind label %1052
-
-1060:                                             ; preds = %1057
-  %1061 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %1062 unwind label %1052
-
-1062:                                             ; preds = %1060
-  %1063 = extractvalue { i64, i64 } %1061, 0
-  %1064 = extractvalue { i64, i64 } %1061, 1
+1062:                                             ; preds = %1054
+  %1063 = extractvalue { i64, i64 } %1055, 0
+  %1064 = extractvalue { i64, i64 } %1055, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %38, i64 %1063, i64 %1064)
-          to label %1065 unwind label %1052
+          to label %1065 unwind label %1057
 
 1065:                                             ; preds = %1062
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %38, i64 24, i1 false)
-  %1066 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.164, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.165, i64 28, ptr align 8 %39)
-          to label %1067 unwind label %165
+  %1066 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %1067 unwind label %1057
 
 1067:                                             ; preds = %1065
+  %1068 = extractvalue { i64, i64 } %1066, 0
+  %1069 = extractvalue { i64, i64 } %1066, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %38, i64 %1068, i64 %1069)
+          to label %1070 unwind label %1057
+
+1070:                                             ; preds = %1067
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %38, i64 24, i1 false)
+  %1071 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.164, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.165, i64 28, ptr align 8 %39)
+          to label %1072 unwind label %165
+
+1072:                                             ; preds = %1070
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %124, i64 24, i1 false)
-  %1068 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1066)
-          to label %1075 unwind label %1070
+  %1073 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1071)
+          to label %1080 unwind label %1075
 
-1069:                                             ; preds = %1070
+1074:                                             ; preds = %1075
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %36) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1070:                                             ; preds = %1075, %1067
-  %1071 = landingpad { ptr, i32 }
+1075:                                             ; preds = %1080, %1072
+  %1076 = landingpad { ptr, i32 }
           cleanup
-  %1072 = extractvalue { ptr, i32 } %1071, 0
-  %1073 = extractvalue { ptr, i32 } %1071, 1
-  store ptr %1072, ptr %8, align 8
-  %1074 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1073, ptr %1074, align 8
-  br label %1069
+  %1077 = extractvalue { ptr, i32 } %1076, 0
+  %1078 = extractvalue { ptr, i32 } %1076, 1
+  store ptr %1077, ptr %8, align 8
+  %1079 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1078, ptr %1079, align 8
+  br label %1074
 
-1075:                                             ; preds = %1067
-  %1076 = extractvalue { i64, i64 } %1068, 0
-  %1077 = extractvalue { i64, i64 } %1068, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %36, i64 %1076, i64 %1077)
-          to label %1078 unwind label %1070
+1080:                                             ; preds = %1072
+  %1081 = extractvalue { i64, i64 } %1073, 0
+  %1082 = extractvalue { i64, i64 } %1073, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %36, i64 %1081, i64 %1082)
+          to label %1083 unwind label %1075
 
-1078:                                             ; preds = %1075
+1083:                                             ; preds = %1080
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %36, i64 24, i1 false)
-  %1079 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.166, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.167, i64 32, ptr align 8 %37)
-          to label %1080 unwind label %165
+  %1084 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.166, i64 8, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.167, i64 32, ptr align 8 %37)
+          to label %1085 unwind label %165
 
-1080:                                             ; preds = %1078
+1085:                                             ; preds = %1083
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %124, i64 24, i1 false)
-  %1081 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %320)
-          to label %1088 unwind label %1083
+  %1086 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %322)
+          to label %1093 unwind label %1088
 
-1082:                                             ; preds = %1083
+1087:                                             ; preds = %1088
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %34) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1083:                                             ; preds = %1098, %1096, %1093, %1091, %1088, %1080
-  %1084 = landingpad { ptr, i32 }
+1088:                                             ; preds = %1103, %1101, %1098, %1096, %1093, %1085
+  %1089 = landingpad { ptr, i32 }
           cleanup
-  %1085 = extractvalue { ptr, i32 } %1084, 0
-  %1086 = extractvalue { ptr, i32 } %1084, 1
-  store ptr %1085, ptr %8, align 8
-  %1087 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1086, ptr %1087, align 8
-  br label %1082
+  %1090 = extractvalue { ptr, i32 } %1089, 0
+  %1091 = extractvalue { ptr, i32 } %1089, 1
+  store ptr %1090, ptr %8, align 8
+  %1092 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1091, ptr %1092, align 8
+  br label %1087
 
-1088:                                             ; preds = %1080
-  %1089 = extractvalue { i64, i64 } %1081, 0
-  %1090 = extractvalue { i64, i64 } %1081, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %34, i64 %1089, i64 %1090)
-          to label %1091 unwind label %1083
-
-1091:                                             ; preds = %1088
-  %1092 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %1093 unwind label %1083
-
-1093:                                             ; preds = %1091
-  %1094 = extractvalue { i64, i64 } %1092, 0
-  %1095 = extractvalue { i64, i64 } %1092, 1
+1093:                                             ; preds = %1085
+  %1094 = extractvalue { i64, i64 } %1086, 0
+  %1095 = extractvalue { i64, i64 } %1086, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %34, i64 %1094, i64 %1095)
-          to label %1096 unwind label %1083
+          to label %1096 unwind label %1088
 
 1096:                                             ; preds = %1093
-  %1097 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %1098 unwind label %1083
+  %1097 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %1098 unwind label %1088
 
 1098:                                             ; preds = %1096
   %1099 = extractvalue { i64, i64 } %1097, 0
   %1100 = extractvalue { i64, i64 } %1097, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %34, i64 %1099, i64 %1100)
-          to label %1101 unwind label %1083
+          to label %1101 unwind label %1088
 
 1101:                                             ; preds = %1098
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 24, i1 false)
-  %1102 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.168, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.169, i64 25, ptr align 8 %35)
-          to label %1103 unwind label %165
+  %1102 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %1103 unwind label %1088
 
 1103:                                             ; preds = %1101
+  %1104 = extractvalue { i64, i64 } %1102, 0
+  %1105 = extractvalue { i64, i64 } %1102, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %34, i64 %1104, i64 %1105)
+          to label %1106 unwind label %1088
+
+1106:                                             ; preds = %1103
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 24, i1 false)
+  %1107 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.168, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.169, i64 25, ptr align 8 %35)
+          to label %1108 unwind label %165
+
+1108:                                             ; preds = %1106
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %124, i64 24, i1 false)
-  %1104 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1102)
-          to label %1111 unwind label %1106
+  %1109 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1107)
+          to label %1116 unwind label %1111
 
-1105:                                             ; preds = %1106
+1110:                                             ; preds = %1111
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %32) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1106:                                             ; preds = %1121, %1119, %1116, %1114, %1111, %1103
-  %1107 = landingpad { ptr, i32 }
+1111:                                             ; preds = %1126, %1124, %1121, %1119, %1116, %1108
+  %1112 = landingpad { ptr, i32 }
           cleanup
-  %1108 = extractvalue { ptr, i32 } %1107, 0
-  %1109 = extractvalue { ptr, i32 } %1107, 1
-  store ptr %1108, ptr %8, align 8
-  %1110 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1109, ptr %1110, align 8
-  br label %1105
+  %1113 = extractvalue { ptr, i32 } %1112, 0
+  %1114 = extractvalue { ptr, i32 } %1112, 1
+  store ptr %1113, ptr %8, align 8
+  %1115 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1114, ptr %1115, align 8
+  br label %1110
 
-1111:                                             ; preds = %1103
-  %1112 = extractvalue { i64, i64 } %1104, 0
-  %1113 = extractvalue { i64, i64 } %1104, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %32, i64 %1112, i64 %1113)
-          to label %1114 unwind label %1106
-
-1114:                                             ; preds = %1111
-  %1115 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %177)
-          to label %1116 unwind label %1106
-
-1116:                                             ; preds = %1114
-  %1117 = extractvalue { i64, i64 } %1115, 0
-  %1118 = extractvalue { i64, i64 } %1115, 1
+1116:                                             ; preds = %1108
+  %1117 = extractvalue { i64, i64 } %1109, 0
+  %1118 = extractvalue { i64, i64 } %1109, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %32, i64 %1117, i64 %1118)
-          to label %1119 unwind label %1106
+          to label %1119 unwind label %1111
 
 1119:                                             ; preds = %1116
-  %1120 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %1121 unwind label %1106
+  %1120 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %177)
+          to label %1121 unwind label %1111
 
 1121:                                             ; preds = %1119
   %1122 = extractvalue { i64, i64 } %1120, 0
   %1123 = extractvalue { i64, i64 } %1120, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %32, i64 %1122, i64 %1123)
-          to label %1124 unwind label %1106
+          to label %1124 unwind label %1111
 
 1124:                                             ; preds = %1121
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %32, i64 24, i1 false)
-  %1125 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.170, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.171, i64 25, ptr align 8 %33)
-          to label %1126 unwind label %165
+  %1125 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %1126 unwind label %1111
 
 1126:                                             ; preds = %1124
+  %1127 = extractvalue { i64, i64 } %1125, 0
+  %1128 = extractvalue { i64, i64 } %1125, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %32, i64 %1127, i64 %1128)
+          to label %1129 unwind label %1111
+
+1129:                                             ; preds = %1126
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %32, i64 24, i1 false)
+  %1130 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.170, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.171, i64 25, ptr align 8 %33)
+          to label %1131 unwind label %165
+
+1131:                                             ; preds = %1129
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %124, i64 24, i1 false)
-  %1127 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %1134 unwind label %1129
+  %1132 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %1139 unwind label %1134
 
-1128:                                             ; preds = %1129
+1133:                                             ; preds = %1134
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %30) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1129:                                             ; preds = %1144, %1142, %1139, %1137, %1134, %1126
-  %1130 = landingpad { ptr, i32 }
+1134:                                             ; preds = %1149, %1147, %1144, %1142, %1139, %1131
+  %1135 = landingpad { ptr, i32 }
           cleanup
-  %1131 = extractvalue { ptr, i32 } %1130, 0
-  %1132 = extractvalue { ptr, i32 } %1130, 1
-  store ptr %1131, ptr %8, align 8
-  %1133 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1132, ptr %1133, align 8
-  br label %1128
+  %1136 = extractvalue { ptr, i32 } %1135, 0
+  %1137 = extractvalue { ptr, i32 } %1135, 1
+  store ptr %1136, ptr %8, align 8
+  %1138 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1137, ptr %1138, align 8
+  br label %1133
 
-1134:                                             ; preds = %1126
-  %1135 = extractvalue { i64, i64 } %1127, 0
-  %1136 = extractvalue { i64, i64 } %1127, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %30, i64 %1135, i64 %1136)
-          to label %1137 unwind label %1129
-
-1137:                                             ; preds = %1134
-  %1138 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %1139 unwind label %1129
-
-1139:                                             ; preds = %1137
-  %1140 = extractvalue { i64, i64 } %1138, 0
-  %1141 = extractvalue { i64, i64 } %1138, 1
+1139:                                             ; preds = %1131
+  %1140 = extractvalue { i64, i64 } %1132, 0
+  %1141 = extractvalue { i64, i64 } %1132, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %30, i64 %1140, i64 %1141)
-          to label %1142 unwind label %1129
+          to label %1142 unwind label %1134
 
 1142:                                             ; preds = %1139
-  %1143 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %320)
-          to label %1144 unwind label %1129
+  %1143 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %1144 unwind label %1134
 
 1144:                                             ; preds = %1142
   %1145 = extractvalue { i64, i64 } %1143, 0
   %1146 = extractvalue { i64, i64 } %1143, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %30, i64 %1145, i64 %1146)
-          to label %1147 unwind label %1129
+          to label %1147 unwind label %1134
 
 1147:                                             ; preds = %1144
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %30, i64 24, i1 false)
-  %1148 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.172, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.173, i64 27, ptr align 8 %31)
-          to label %1149 unwind label %165
+  %1148 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %322)
+          to label %1149 unwind label %1134
 
 1149:                                             ; preds = %1147
+  %1150 = extractvalue { i64, i64 } %1148, 0
+  %1151 = extractvalue { i64, i64 } %1148, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %30, i64 %1150, i64 %1151)
+          to label %1152 unwind label %1134
+
+1152:                                             ; preds = %1149
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %30, i64 24, i1 false)
+  %1153 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.172, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.173, i64 27, ptr align 8 %31)
+          to label %1154 unwind label %165
+
+1154:                                             ; preds = %1152
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %124, i64 24, i1 false)
-  %1150 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1148)
-          to label %1157 unwind label %1152
+  %1155 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1153)
+          to label %1162 unwind label %1157
 
-1151:                                             ; preds = %1152
+1156:                                             ; preds = %1157
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %28) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1152:                                             ; preds = %1162, %1160, %1157, %1149
-  %1153 = landingpad { ptr, i32 }
+1157:                                             ; preds = %1167, %1165, %1162, %1154
+  %1158 = landingpad { ptr, i32 }
           cleanup
-  %1154 = extractvalue { ptr, i32 } %1153, 0
-  %1155 = extractvalue { ptr, i32 } %1153, 1
-  store ptr %1154, ptr %8, align 8
-  %1156 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1155, ptr %1156, align 8
-  br label %1151
+  %1159 = extractvalue { ptr, i32 } %1158, 0
+  %1160 = extractvalue { ptr, i32 } %1158, 1
+  store ptr %1159, ptr %8, align 8
+  %1161 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1160, ptr %1161, align 8
+  br label %1156
 
-1157:                                             ; preds = %1149
-  %1158 = extractvalue { i64, i64 } %1150, 0
-  %1159 = extractvalue { i64, i64 } %1150, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %28, i64 %1158, i64 %1159)
-          to label %1160 unwind label %1152
-
-1160:                                             ; preds = %1157
-  %1161 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %1162 unwind label %1152
-
-1162:                                             ; preds = %1160
-  %1163 = extractvalue { i64, i64 } %1161, 0
-  %1164 = extractvalue { i64, i64 } %1161, 1
+1162:                                             ; preds = %1154
+  %1163 = extractvalue { i64, i64 } %1155, 0
+  %1164 = extractvalue { i64, i64 } %1155, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %28, i64 %1163, i64 %1164)
-          to label %1165 unwind label %1152
+          to label %1165 unwind label %1157
 
 1165:                                             ; preds = %1162
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %28, i64 24, i1 false)
-  %1166 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.174, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.175, i64 29, ptr align 8 %29)
-          to label %1167 unwind label %165
+  %1166 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %1167 unwind label %1157
 
 1167:                                             ; preds = %1165
+  %1168 = extractvalue { i64, i64 } %1166, 0
+  %1169 = extractvalue { i64, i64 } %1166, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %28, i64 %1168, i64 %1169)
+          to label %1170 unwind label %1157
+
+1170:                                             ; preds = %1167
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %28, i64 24, i1 false)
+  %1171 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.174, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.175, i64 29, ptr align 8 %29)
+          to label %1172 unwind label %165
+
+1172:                                             ; preds = %1170
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %124, i64 24, i1 false)
-  %1168 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1166)
-          to label %1175 unwind label %1170
+  %1173 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1171)
+          to label %1180 unwind label %1175
 
-1169:                                             ; preds = %1170
+1174:                                             ; preds = %1175
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %26) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1170:                                             ; preds = %1175, %1167
-  %1171 = landingpad { ptr, i32 }
+1175:                                             ; preds = %1180, %1172
+  %1176 = landingpad { ptr, i32 }
           cleanup
-  %1172 = extractvalue { ptr, i32 } %1171, 0
-  %1173 = extractvalue { ptr, i32 } %1171, 1
-  store ptr %1172, ptr %8, align 8
-  %1174 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1173, ptr %1174, align 8
-  br label %1169
+  %1177 = extractvalue { ptr, i32 } %1176, 0
+  %1178 = extractvalue { ptr, i32 } %1176, 1
+  store ptr %1177, ptr %8, align 8
+  %1179 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1178, ptr %1179, align 8
+  br label %1174
 
-1175:                                             ; preds = %1167
-  %1176 = extractvalue { i64, i64 } %1168, 0
-  %1177 = extractvalue { i64, i64 } %1168, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %26, i64 %1176, i64 %1177)
-          to label %1178 unwind label %1170
+1180:                                             ; preds = %1172
+  %1181 = extractvalue { i64, i64 } %1173, 0
+  %1182 = extractvalue { i64, i64 } %1173, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %26, i64 %1181, i64 %1182)
+          to label %1183 unwind label %1175
 
-1178:                                             ; preds = %1175
+1183:                                             ; preds = %1180
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %26, i64 24, i1 false)
-  %1179 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.176, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.177, i64 30, ptr align 8 %27)
-          to label %1180 unwind label %165
+  %1184 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.176, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.177, i64 30, ptr align 8 %27)
+          to label %1185 unwind label %165
 
-1180:                                             ; preds = %1178
+1185:                                             ; preds = %1183
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %124, i64 24, i1 false)
-  %1181 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1179)
-          to label %1188 unwind label %1183
+  %1186 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1184)
+          to label %1193 unwind label %1188
 
-1182:                                             ; preds = %1183
+1187:                                             ; preds = %1188
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %24) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1183:                                             ; preds = %1198, %1196, %1193, %1191, %1188, %1180
-  %1184 = landingpad { ptr, i32 }
+1188:                                             ; preds = %1203, %1201, %1198, %1196, %1193, %1185
+  %1189 = landingpad { ptr, i32 }
           cleanup
-  %1185 = extractvalue { ptr, i32 } %1184, 0
-  %1186 = extractvalue { ptr, i32 } %1184, 1
-  store ptr %1185, ptr %8, align 8
-  %1187 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1186, ptr %1187, align 8
-  br label %1182
+  %1190 = extractvalue { ptr, i32 } %1189, 0
+  %1191 = extractvalue { ptr, i32 } %1189, 1
+  store ptr %1190, ptr %8, align 8
+  %1192 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1191, ptr %1192, align 8
+  br label %1187
 
-1188:                                             ; preds = %1180
-  %1189 = extractvalue { i64, i64 } %1181, 0
-  %1190 = extractvalue { i64, i64 } %1181, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %24, i64 %1189, i64 %1190)
-          to label %1191 unwind label %1183
-
-1191:                                             ; preds = %1188
-  %1192 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
-          to label %1193 unwind label %1183
-
-1193:                                             ; preds = %1191
-  %1194 = extractvalue { i64, i64 } %1192, 0
-  %1195 = extractvalue { i64, i64 } %1192, 1
+1193:                                             ; preds = %1185
+  %1194 = extractvalue { i64, i64 } %1186, 0
+  %1195 = extractvalue { i64, i64 } %1186, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %24, i64 %1194, i64 %1195)
-          to label %1196 unwind label %1183
+          to label %1196 unwind label %1188
 
 1196:                                             ; preds = %1193
-  %1197 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %1198 unwind label %1183
+  %1197 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
+          to label %1198 unwind label %1188
 
 1198:                                             ; preds = %1196
   %1199 = extractvalue { i64, i64 } %1197, 0
   %1200 = extractvalue { i64, i64 } %1197, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %24, i64 %1199, i64 %1200)
-          to label %1201 unwind label %1183
+          to label %1201 unwind label %1188
 
 1201:                                             ; preds = %1198
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %24, i64 24, i1 false)
-  %1202 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.178, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.179, i64 28, ptr align 8 %25)
-          to label %1203 unwind label %165
+  %1202 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %1203 unwind label %1188
 
 1203:                                             ; preds = %1201
+  %1204 = extractvalue { i64, i64 } %1202, 0
+  %1205 = extractvalue { i64, i64 } %1202, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %24, i64 %1204, i64 %1205)
+          to label %1206 unwind label %1188
+
+1206:                                             ; preds = %1203
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %24, i64 24, i1 false)
+  %1207 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.178, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.179, i64 28, ptr align 8 %25)
+          to label %1208 unwind label %165
+
+1208:                                             ; preds = %1206
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %124, i64 24, i1 false)
-  %1204 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %360)
-          to label %1211 unwind label %1206
+  %1209 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %364)
+          to label %1216 unwind label %1211
 
-1205:                                             ; preds = %1206
+1210:                                             ; preds = %1211
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %22) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1206:                                             ; preds = %1236, %1234, %1231, %1229, %1226, %1224, %1221, %1219, %1216, %1214, %1211, %1203
-  %1207 = landingpad { ptr, i32 }
+1211:                                             ; preds = %1241, %1239, %1236, %1234, %1231, %1229, %1226, %1224, %1221, %1219, %1216, %1208
+  %1212 = landingpad { ptr, i32 }
           cleanup
-  %1208 = extractvalue { ptr, i32 } %1207, 0
-  %1209 = extractvalue { ptr, i32 } %1207, 1
-  store ptr %1208, ptr %8, align 8
-  %1210 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1209, ptr %1210, align 8
-  br label %1205
+  %1213 = extractvalue { ptr, i32 } %1212, 0
+  %1214 = extractvalue { ptr, i32 } %1212, 1
+  store ptr %1213, ptr %8, align 8
+  %1215 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1214, ptr %1215, align 8
+  br label %1210
 
-1211:                                             ; preds = %1203
-  %1212 = extractvalue { i64, i64 } %1204, 0
-  %1213 = extractvalue { i64, i64 } %1204, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1212, i64 %1213)
-          to label %1214 unwind label %1206
-
-1214:                                             ; preds = %1211
-  %1215 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %1216 unwind label %1206
-
-1216:                                             ; preds = %1214
-  %1217 = extractvalue { i64, i64 } %1215, 0
-  %1218 = extractvalue { i64, i64 } %1215, 1
+1216:                                             ; preds = %1208
+  %1217 = extractvalue { i64, i64 } %1209, 0
+  %1218 = extractvalue { i64, i64 } %1209, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1217, i64 %1218)
-          to label %1219 unwind label %1206
+          to label %1219 unwind label %1211
 
 1219:                                             ; preds = %1216
-  %1220 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %1221 unwind label %1206
+  %1220 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %1221 unwind label %1211
 
 1221:                                             ; preds = %1219
   %1222 = extractvalue { i64, i64 } %1220, 0
   %1223 = extractvalue { i64, i64 } %1220, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1222, i64 %1223)
-          to label %1224 unwind label %1206
+          to label %1224 unwind label %1211
 
 1224:                                             ; preds = %1221
-  %1225 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %1226 unwind label %1206
+  %1225 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %1226 unwind label %1211
 
 1226:                                             ; preds = %1224
   %1227 = extractvalue { i64, i64 } %1225, 0
   %1228 = extractvalue { i64, i64 } %1225, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1227, i64 %1228)
-          to label %1229 unwind label %1206
+          to label %1229 unwind label %1211
 
 1229:                                             ; preds = %1226
-  %1230 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %1231 unwind label %1206
+  %1230 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %1231 unwind label %1211
 
 1231:                                             ; preds = %1229
   %1232 = extractvalue { i64, i64 } %1230, 0
   %1233 = extractvalue { i64, i64 } %1230, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1232, i64 %1233)
-          to label %1234 unwind label %1206
+          to label %1234 unwind label %1211
 
 1234:                                             ; preds = %1231
-  %1235 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
-          to label %1236 unwind label %1206
+  %1235 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %1236 unwind label %1211
 
 1236:                                             ; preds = %1234
   %1237 = extractvalue { i64, i64 } %1235, 0
   %1238 = extractvalue { i64, i64 } %1235, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1237, i64 %1238)
-          to label %1239 unwind label %1206
+          to label %1239 unwind label %1211
 
 1239:                                             ; preds = %1236
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %22, i64 24, i1 false)
-  %1240 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.180, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.181, i64 41, ptr align 8 %23)
-          to label %1241 unwind label %165
+  %1240 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
+          to label %1241 unwind label %1211
 
 1241:                                             ; preds = %1239
+  %1242 = extractvalue { i64, i64 } %1240, 0
+  %1243 = extractvalue { i64, i64 } %1240, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %22, i64 %1242, i64 %1243)
+          to label %1244 unwind label %1211
+
+1244:                                             ; preds = %1241
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %22, i64 24, i1 false)
+  %1245 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.180, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.181, i64 41, ptr align 8 %23)
+          to label %1246 unwind label %165
+
+1246:                                             ; preds = %1244
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %124, i64 24, i1 false)
-  %1242 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1240)
-          to label %1249 unwind label %1244
+  %1247 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1245)
+          to label %1254 unwind label %1249
 
-1243:                                             ; preds = %1244
+1248:                                             ; preds = %1249
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %20) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1244:                                             ; preds = %1249, %1241
-  %1245 = landingpad { ptr, i32 }
+1249:                                             ; preds = %1254, %1246
+  %1250 = landingpad { ptr, i32 }
           cleanup
-  %1246 = extractvalue { ptr, i32 } %1245, 0
-  %1247 = extractvalue { ptr, i32 } %1245, 1
-  store ptr %1246, ptr %8, align 8
-  %1248 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1247, ptr %1248, align 8
-  br label %1243
+  %1251 = extractvalue { ptr, i32 } %1250, 0
+  %1252 = extractvalue { ptr, i32 } %1250, 1
+  store ptr %1251, ptr %8, align 8
+  %1253 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1252, ptr %1253, align 8
+  br label %1248
 
-1249:                                             ; preds = %1241
-  %1250 = extractvalue { i64, i64 } %1242, 0
-  %1251 = extractvalue { i64, i64 } %1242, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %20, i64 %1250, i64 %1251)
-          to label %1252 unwind label %1244
+1254:                                             ; preds = %1246
+  %1255 = extractvalue { i64, i64 } %1247, 0
+  %1256 = extractvalue { i64, i64 } %1247, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %20, i64 %1255, i64 %1256)
+          to label %1257 unwind label %1249
 
-1252:                                             ; preds = %1249
+1257:                                             ; preds = %1254
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %20, i64 24, i1 false)
-  %1253 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.182, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.183, i64 42, ptr align 8 %21)
-          to label %1254 unwind label %165
+  %1258 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.182, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.183, i64 42, ptr align 8 %21)
+          to label %1259 unwind label %165
 
-1254:                                             ; preds = %1252
+1259:                                             ; preds = %1257
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %124, i64 24, i1 false)
-  %1255 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1253)
-          to label %1262 unwind label %1257
+  %1260 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1258)
+          to label %1267 unwind label %1262
 
-1256:                                             ; preds = %1257
+1261:                                             ; preds = %1262
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %18) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1257:                                             ; preds = %1262, %1254
-  %1258 = landingpad { ptr, i32 }
+1262:                                             ; preds = %1267, %1259
+  %1263 = landingpad { ptr, i32 }
           cleanup
-  %1259 = extractvalue { ptr, i32 } %1258, 0
-  %1260 = extractvalue { ptr, i32 } %1258, 1
-  store ptr %1259, ptr %8, align 8
-  %1261 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1260, ptr %1261, align 8
-  br label %1256
+  %1264 = extractvalue { ptr, i32 } %1263, 0
+  %1265 = extractvalue { ptr, i32 } %1263, 1
+  store ptr %1264, ptr %8, align 8
+  %1266 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1265, ptr %1266, align 8
+  br label %1261
 
-1262:                                             ; preds = %1254
-  %1263 = extractvalue { i64, i64 } %1255, 0
-  %1264 = extractvalue { i64, i64 } %1255, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %18, i64 %1263, i64 %1264)
-          to label %1265 unwind label %1257
+1267:                                             ; preds = %1259
+  %1268 = extractvalue { i64, i64 } %1260, 0
+  %1269 = extractvalue { i64, i64 } %1260, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %18, i64 %1268, i64 %1269)
+          to label %1270 unwind label %1262
 
-1265:                                             ; preds = %1262
+1270:                                             ; preds = %1267
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 24, i1 false)
-  %1266 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.184, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.185, i64 41, ptr align 8 %19)
-          to label %1267 unwind label %165
+  %1271 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.184, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.185, i64 41, ptr align 8 %19)
+          to label %1272 unwind label %165
 
-1267:                                             ; preds = %1265
+1272:                                             ; preds = %1270
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %124, i64 24, i1 false)
-  %1268 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.186, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.187, i64 33, ptr align 8 %2)
-          to label %1269 unwind label %165
+  %1273 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.186, i64 6, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.187, i64 33, ptr align 8 %2)
+          to label %1274 unwind label %165
 
-1269:                                             ; preds = %1267
+1274:                                             ; preds = %1272
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %124, i64 24, i1 false)
-  %1270 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %360)
-          to label %1277 unwind label %1272
+  %1275 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %364)
+          to label %1282 unwind label %1277
 
-1271:                                             ; preds = %1272
+1276:                                             ; preds = %1277
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %16) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1272:                                             ; preds = %1282, %1280, %1277, %1269
-  %1273 = landingpad { ptr, i32 }
+1277:                                             ; preds = %1287, %1285, %1282, %1274
+  %1278 = landingpad { ptr, i32 }
           cleanup
-  %1274 = extractvalue { ptr, i32 } %1273, 0
-  %1275 = extractvalue { ptr, i32 } %1273, 1
-  store ptr %1274, ptr %8, align 8
-  %1276 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1275, ptr %1276, align 8
-  br label %1271
+  %1279 = extractvalue { ptr, i32 } %1278, 0
+  %1280 = extractvalue { ptr, i32 } %1278, 1
+  store ptr %1279, ptr %8, align 8
+  %1281 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1280, ptr %1281, align 8
+  br label %1276
 
-1277:                                             ; preds = %1269
-  %1278 = extractvalue { i64, i64 } %1270, 0
-  %1279 = extractvalue { i64, i64 } %1270, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %16, i64 %1278, i64 %1279)
-          to label %1280 unwind label %1272
-
-1280:                                             ; preds = %1277
-  %1281 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
-          to label %1282 unwind label %1272
-
-1282:                                             ; preds = %1280
-  %1283 = extractvalue { i64, i64 } %1281, 0
-  %1284 = extractvalue { i64, i64 } %1281, 1
+1282:                                             ; preds = %1274
+  %1283 = extractvalue { i64, i64 } %1275, 0
+  %1284 = extractvalue { i64, i64 } %1275, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %16, i64 %1283, i64 %1284)
-          to label %1285 unwind label %1272
+          to label %1285 unwind label %1277
 
 1285:                                             ; preds = %1282
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %16, i64 24, i1 false)
-  %1286 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.188, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.189, i64 38, ptr align 8 %17)
-          to label %1287 unwind label %165
+  %1286 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %193)
+          to label %1287 unwind label %1277
 
 1287:                                             ; preds = %1285
+  %1288 = extractvalue { i64, i64 } %1286, 0
+  %1289 = extractvalue { i64, i64 } %1286, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %16, i64 %1288, i64 %1289)
+          to label %1290 unwind label %1277
+
+1290:                                             ; preds = %1287
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %16, i64 24, i1 false)
+  %1291 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.188, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.189, i64 38, ptr align 8 %17)
+          to label %1292 unwind label %165
+
+1292:                                             ; preds = %1290
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %124, i64 24, i1 false)
-  %1288 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1286)
-          to label %1295 unwind label %1290
+  %1293 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1291)
+          to label %1300 unwind label %1295
 
-1289:                                             ; preds = %1290
+1294:                                             ; preds = %1295
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %14) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1290:                                             ; preds = %1320, %1318, %1315, %1313, %1310, %1308, %1305, %1303, %1300, %1298, %1295, %1287
-  %1291 = landingpad { ptr, i32 }
+1295:                                             ; preds = %1325, %1323, %1320, %1318, %1315, %1313, %1310, %1308, %1305, %1303, %1300, %1292
+  %1296 = landingpad { ptr, i32 }
           cleanup
-  %1292 = extractvalue { ptr, i32 } %1291, 0
-  %1293 = extractvalue { ptr, i32 } %1291, 1
-  store ptr %1292, ptr %8, align 8
-  %1294 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1293, ptr %1294, align 8
-  br label %1289
+  %1297 = extractvalue { ptr, i32 } %1296, 0
+  %1298 = extractvalue { ptr, i32 } %1296, 1
+  store ptr %1297, ptr %8, align 8
+  %1299 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1298, ptr %1299, align 8
+  br label %1294
 
-1295:                                             ; preds = %1287
-  %1296 = extractvalue { i64, i64 } %1288, 0
-  %1297 = extractvalue { i64, i64 } %1288, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1296, i64 %1297)
-          to label %1298 unwind label %1290
-
-1298:                                             ; preds = %1295
-  %1299 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
-          to label %1300 unwind label %1290
-
-1300:                                             ; preds = %1298
-  %1301 = extractvalue { i64, i64 } %1299, 0
-  %1302 = extractvalue { i64, i64 } %1299, 1
+1300:                                             ; preds = %1292
+  %1301 = extractvalue { i64, i64 } %1293, 0
+  %1302 = extractvalue { i64, i64 } %1293, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1301, i64 %1302)
-          to label %1303 unwind label %1290
+          to label %1303 unwind label %1295
 
 1303:                                             ; preds = %1300
-  %1304 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
-          to label %1305 unwind label %1290
+  %1304 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %195)
+          to label %1305 unwind label %1295
 
 1305:                                             ; preds = %1303
   %1306 = extractvalue { i64, i64 } %1304, 0
   %1307 = extractvalue { i64, i64 } %1304, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1306, i64 %1307)
-          to label %1308 unwind label %1290
+          to label %1308 unwind label %1295
 
 1308:                                             ; preds = %1305
-  %1309 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
-          to label %1310 unwind label %1290
+  %1309 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %197)
+          to label %1310 unwind label %1295
 
 1310:                                             ; preds = %1308
   %1311 = extractvalue { i64, i64 } %1309, 0
   %1312 = extractvalue { i64, i64 } %1309, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1311, i64 %1312)
-          to label %1313 unwind label %1290
+          to label %1313 unwind label %1295
 
 1313:                                             ; preds = %1310
-  %1314 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
-          to label %1315 unwind label %1290
+  %1314 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %181)
+          to label %1315 unwind label %1295
 
 1315:                                             ; preds = %1313
   %1316 = extractvalue { i64, i64 } %1314, 0
   %1317 = extractvalue { i64, i64 } %1314, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1316, i64 %1317)
-          to label %1318 unwind label %1290
+          to label %1318 unwind label %1295
 
 1318:                                             ; preds = %1315
-  %1319 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
-          to label %1320 unwind label %1290
+  %1319 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %199)
+          to label %1320 unwind label %1295
 
 1320:                                             ; preds = %1318
   %1321 = extractvalue { i64, i64 } %1319, 0
   %1322 = extractvalue { i64, i64 } %1319, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1321, i64 %1322)
-          to label %1323 unwind label %1290
+          to label %1323 unwind label %1295
 
 1323:                                             ; preds = %1320
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %14, i64 24, i1 false)
-  %1324 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.190, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.191, i64 38, ptr align 8 %15)
-          to label %1325 unwind label %165
+  %1324 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %179)
+          to label %1325 unwind label %1295
 
 1325:                                             ; preds = %1323
+  %1326 = extractvalue { i64, i64 } %1324, 0
+  %1327 = extractvalue { i64, i64 } %1324, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %14, i64 %1326, i64 %1327)
+          to label %1328 unwind label %1295
+
+1328:                                             ; preds = %1325
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %14, i64 24, i1 false)
+  %1329 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.190, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.191, i64 38, ptr align 8 %15)
+          to label %1330 unwind label %165
+
+1330:                                             ; preds = %1328
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %124, i64 24, i1 false)
-  %1326 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1324)
-          to label %1333 unwind label %1328
+  %1331 = invoke { i64, i64 } @"_ZN149_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..PresetIndex$GT$$GT$4from17haa5c13b91dcec0bdE"(i64 %1329)
+          to label %1338 unwind label %1333
 
-1327:                                             ; preds = %1328
+1332:                                             ; preds = %1333
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..PresetType$GT$$GT$17h3b96ebe0e9eabdeeE"(ptr align 8 %12) #5
-          to label %162 unwind label %1351
+          to label %162 unwind label %1356
 
-1328:                                             ; preds = %1343, %1341, %1338, %1336, %1333, %1325
-  %1329 = landingpad { ptr, i32 }
+1333:                                             ; preds = %1348, %1346, %1343, %1341, %1338, %1330
+  %1334 = landingpad { ptr, i32 }
           cleanup
-  %1330 = extractvalue { ptr, i32 } %1329, 0
-  %1331 = extractvalue { ptr, i32 } %1329, 1
-  store ptr %1330, ptr %8, align 8
-  %1332 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %1331, ptr %1332, align 8
-  br label %1327
+  %1335 = extractvalue { ptr, i32 } %1334, 0
+  %1336 = extractvalue { ptr, i32 } %1334, 1
+  store ptr %1335, ptr %8, align 8
+  %1337 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %1336, ptr %1337, align 8
+  br label %1332
 
-1333:                                             ; preds = %1325
-  %1334 = extractvalue { i64, i64 } %1326, 0
-  %1335 = extractvalue { i64, i64 } %1326, 1
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %12, i64 %1334, i64 %1335)
-          to label %1336 unwind label %1328
-
-1336:                                             ; preds = %1333
-  %1337 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
-          to label %1338 unwind label %1328
-
-1338:                                             ; preds = %1336
-  %1339 = extractvalue { i64, i64 } %1337, 0
-  %1340 = extractvalue { i64, i64 } %1337, 1
+1338:                                             ; preds = %1330
+  %1339 = extractvalue { i64, i64 } %1331, 0
+  %1340 = extractvalue { i64, i64 } %1331, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %12, i64 %1339, i64 %1340)
-          to label %1341 unwind label %1328
+          to label %1341 unwind label %1333
 
 1341:                                             ; preds = %1338
-  %1342 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
-          to label %1343 unwind label %1328
+  %1342 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %185)
+          to label %1343 unwind label %1333
 
 1343:                                             ; preds = %1341
   %1344 = extractvalue { i64, i64 } %1342, 0
   %1345 = extractvalue { i64, i64 } %1342, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %12, i64 %1344, i64 %1345)
-          to label %1346 unwind label %1328
+          to label %1346 unwind label %1333
 
 1346:                                             ; preds = %1343
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 24, i1 false)
-  %1347 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.192, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.193, i64 38, ptr align 8 %13)
-          to label %1348 unwind label %165
+  %1347 = invoke { i64, i64 } @"_ZN154_$LT$cranelift_codegen_meta..cdsl..settings..PresetType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17h30c4e23c645a601cE"(i64 %187)
+          to label %1348 unwind label %1333
 
 1348:                                             ; preds = %1346
+  %1349 = extractvalue { i64, i64 } %1347, 0
+  %1350 = extractvalue { i64, i64 } %1347, 1
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7ee2938eac9ee56E"(ptr align 8 %12, i64 %1349, i64 %1350)
+          to label %1351 unwind label %1333
+
+1351:                                             ; preds = %1348
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 24, i1 false)
+  %1352 = invoke i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder10add_preset17h4ad7449c60cc761bE(ptr align 8 %160, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.192, i64 9, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.193, i64 38, ptr align 8 %13)
+          to label %1353 unwind label %165
+
+1353:                                             ; preds = %1351
   store i8 0, ptr %9, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %160, i64 88, i1 false)
   invoke void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build17hd4062d6ad0b2af0bE(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8 %11, ptr align 8 %10)
-          to label %1349 unwind label %165
+          to label %1354 unwind label %165
 
-1349:                                             ; preds = %1348
+1354:                                             ; preds = %1353
   invoke void @_ZN22cranelift_codegen_meta4cdsl3isa9TargetIsa3new17h2551ad0026c51a59E(ptr sret({ { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, { ptr, i64 } }) align 8 %0, ptr align 1 @anon.2c68caaf1f40f8815a8989a454e2b90c.0, i64 3, ptr align 8 %11)
-          to label %1350 unwind label %165
+          to label %1355 unwind label %165
 
-1350:                                             ; preds = %1349
+1355:                                             ; preds = %1354
   ret void
 
-1351:                                             ; preds = %1359, %1327, %1289, %1271, %1256, %1243, %1205, %1182, %1169, %1151, %1128, %1105, %1082, %1069, %1051, %1038, %1025, %1012, %991, %978, %965, %952, %939, %926, %913, %895, %862, %849, %836, %823, %795, %782, %744, %731, %718, %705, %667, %654, %641, %628, %610, %597, %584, %566, %553, %540, %507, %494, %481, %468, %455, %432, %419, %406, %393, %380, %367, %345, %325, %305, %290, %268, %242, %224, %208
-  %1352 = landingpad { ptr, i32 }
+1356:                                             ; preds = %1364, %1332, %1294, %1276, %1261, %1248, %1210, %1187, %1174, %1156, %1133, %1110, %1087, %1074, %1056, %1043, %1030, %1017, %996, %983, %970, %957, %944, %931, %918, %900, %867, %854, %841, %828, %800, %787, %749, %736, %723, %710, %672, %659, %646, %633, %615, %602, %589, %571, %558, %545, %512, %499, %486, %473, %460, %437, %424, %411, %398, %385, %372, %349, %328, %307, %291, %268, %242, %224, %208
+  %1357 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
   unreachable
 
-1353:                                             ; preds = %1359, %162
-  %1354 = load ptr, ptr %8, align 8, !noundef !3
-  %1355 = getelementptr inbounds i8, ptr %8, i64 8
-  %1356 = load i32, ptr %1355, align 8, !noundef !3
-  %1357 = insertvalue { ptr, i32 } poison, ptr %1354, 0
-  %1358 = insertvalue { ptr, i32 } %1357, i32 %1356, 1
-  resume { ptr, i32 } %1358
+1358:                                             ; preds = %1364, %162
+  %1359 = load ptr, ptr %8, align 8, !noundef !3
+  %1360 = getelementptr inbounds i8, ptr %8, i64 8
+  %1361 = load i32, ptr %1360, align 8, !noundef !3
+  %1362 = insertvalue { ptr, i32 } poison, ptr %1359, 0
+  %1363 = insertvalue { ptr, i32 } %1362, i32 %1361, 1
+  resume { ptr, i32 } %1363
 
-1359:                                             ; preds = %162
+1364:                                             ; preds = %162
   invoke void @"_ZN4core3ptr80drop_in_place$LT$cranelift_codegen_meta..cdsl..settings..SettingGroupBuilder$GT$17ha440d693d69fb655E"(ptr align 8 %160) #5
-          to label %1353 unwind label %1351
+          to label %1358 unwind label %1356
 }
 
 ; Function Attrs: nonlazybind uwtable

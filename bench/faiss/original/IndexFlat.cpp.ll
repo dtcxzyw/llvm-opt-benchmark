@@ -1189,9 +1189,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss9IndexFlatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   ret void
 }
@@ -1268,9 +1269,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlat1DD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlat1DE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlat1DE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   ret void
 }
@@ -1594,7 +1596,8 @@ define void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8
   %10 = load i64, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
   call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %9, i64 noundef %10, i32 noundef %11)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss9IndexFlatE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %12 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss9IndexFlatE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
   ret void
 }
 
@@ -1626,9 +1629,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -2130,27 +2134,28 @@ define internal void @_ZN5faiss12_GLOBAL__N_19FlatL2DisC2ERKNS_9IndexFlatEPKf(pt
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_19FlatL2DisE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = sext i32 %17 to i64
-  store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 2
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %19, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 3
-  %24 = load ptr, ptr %6, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 5
-  store i64 0, ptr %28, align 8
+  %14 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_19FlatL2DisE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = sext i32 %18 to i64
+  store i64 %19, ptr %15, align 8
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %"struct.faiss::Index", ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 3
+  %25 = load ptr, ptr %6, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2Dis", ptr %7, i32 0, i32 5
+  store i64 0, ptr %29, align 8
   ret void
 }
 
@@ -2173,27 +2178,28 @@ define internal void @_ZN5faiss12_GLOBAL__N_19FlatIPDisC2ERKNS_9IndexFlatEPKf(pt
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_19FlatIPDisE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = sext i32 %17 to i64
-  store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 2
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %19, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 3
-  %24 = load ptr, ptr %6, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 5
-  store i64 0, ptr %28, align 8
+  %14 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_19FlatIPDisE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = sext i32 %18 to i64
+  store i64 %19, ptr %15, align 8
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %"struct.faiss::Index", ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 3
+  %25 = load ptr, ptr %6, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatIPDis", ptr %7, i32 0, i32 5
+  store i64 0, ptr %29, align 8
   ret void
 }
 
@@ -2209,13 +2215,14 @@ define linkonce_odr void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr nounde
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -2419,7 +2426,8 @@ define linkonce_odr void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4777,34 +4785,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDisC2ERKNS_11Index
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118FlatL2WithNormsDisE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = sext i32 %17 to i64
-  store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 2
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"struct.faiss::Index", ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %19, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 3
-  %24 = load ptr, ptr %6, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 5
-  store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 6
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %30, i32 0, i32 1
-  %32 = call noundef ptr @_ZNKSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  store ptr %32, ptr %29, align 8
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 7
-  store float 0.000000e+00, ptr %33, align 8
+  %14 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118FlatL2WithNormsDisE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = sext i32 %18 to i64
+  store i64 %19, ptr %15, align 8
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %"struct.faiss::Index", ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 3
+  %25 = load ptr, ptr %6, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noundef ptr @_ZNK5faiss9IndexFlat6get_xbEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 5
+  store i64 0, ptr %29, align 8
+  %30 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 6
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %31, i32 0, i32 1
+  %33 = call noundef ptr @_ZNKSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  store ptr %33, ptr %30, align 8
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::FlatL2WithNormsDis", ptr %7, i32 0, i32 7
+  store float 0.000000e+00, ptr %34, align 8
   ret void
 }
 
@@ -5223,14 +5232,15 @@ define void @_ZN5faiss11IndexFlat1DC2Eb(ptr noundef nonnull align 8 dereferencea
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
   call void @_ZN5faiss11IndexFlatL2C2El(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlat1DE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %6, i32 0, i32 1
-  %8 = load i8, ptr %4, align 1
-  %9 = trunc i8 %8 to i1
-  %10 = zext i1 %9 to i8
-  store i8 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %6, i32 0, i32 2
-  call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlat1DE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %6, i32 0, i32 1
+  %9 = load i8, ptr %4, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = zext i1 %10 to i8
+  store i8 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"struct.faiss::IndexFlat1D", ptr %6, i32 0, i32 2
+  call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   ret void
 }
 
@@ -5243,9 +5253,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2C2El(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i64 noundef %6, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   ret void
 }
 
@@ -6807,9 +6818,10 @@ define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #13
   ret void
 }

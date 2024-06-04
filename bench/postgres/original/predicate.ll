@@ -790,40 +790,41 @@ define internal void @dlist_node_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @SerialInit() #0 {
   %1 = alloca i8, align 1
-  store ptr @SerialPagePrecedesLogically, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @SerialSlruCtlData, i32 0, i32 4), align 8
-  %2 = load i32, ptr @serializable_buffers, align 4
-  call void @SimpleLruInit(ptr noundef @SerialSlruCtlData, ptr noundef @.str.22, i32 noundef %2, i32 noundef 0, ptr noundef @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false)
-  br label %3
-
-3:                                                ; preds = %0
+  %2 = getelementptr inbounds %struct.SlruCtlData, ptr @SerialSlruCtlData, i32 0, i32 4
+  store ptr @SerialPagePrecedesLogically, ptr %2, align 8
+  %3 = load i32, ptr @serializable_buffers, align 4
+  call void @SimpleLruInit(ptr noundef @SerialSlruCtlData, ptr noundef @.str.22, i32 noundef %3, i32 noundef 0, ptr noundef @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false)
   br label %4
 
-4:                                                ; preds = %3
-  %5 = call ptr @ShmemInitStruct(ptr noundef @.str.24, i64 noundef 12, ptr noundef %1)
-  store ptr %5, ptr @serialControl, align 8
-  %6 = load i8, ptr %1, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %20, label %8
+4:                                                ; preds = %0
+  br label %5
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @MainLWLockArray, align 8
-  %10 = getelementptr %union.LWLockPadded, ptr %9, i64 52
-  %11 = call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 0)
-  %12 = load ptr, ptr @serialControl, align 8
-  %13 = getelementptr inbounds %struct.SerialControlData, ptr %12, i32 0, i32 0
-  store i32 -1, ptr %13, align 4
-  %14 = load ptr, ptr @serialControl, align 8
-  %15 = getelementptr inbounds %struct.SerialControlData, ptr %14, i32 0, i32 1
-  store i32 0, ptr %15, align 4
-  %16 = load ptr, ptr @serialControl, align 8
-  %17 = getelementptr inbounds %struct.SerialControlData, ptr %16, i32 0, i32 2
-  store i32 0, ptr %17, align 4
-  %18 = load ptr, ptr @MainLWLockArray, align 8
-  %19 = getelementptr %union.LWLockPadded, ptr %18, i64 52
-  call void @LWLockRelease(ptr noundef %19)
-  br label %20
+5:                                                ; preds = %4
+  %6 = call ptr @ShmemInitStruct(ptr noundef @.str.24, i64 noundef 12, ptr noundef %1)
+  store ptr %6, ptr @serialControl, align 8
+  %7 = load i8, ptr %1, align 1
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %21, label %9
 
-20:                                               ; preds = %8, %4
+9:                                                ; preds = %5
+  %10 = load ptr, ptr @MainLWLockArray, align 8
+  %11 = getelementptr %union.LWLockPadded, ptr %10, i64 52
+  %12 = call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0)
+  %13 = load ptr, ptr @serialControl, align 8
+  %14 = getelementptr inbounds %struct.SerialControlData, ptr %13, i32 0, i32 0
+  store i32 -1, ptr %14, align 4
+  %15 = load ptr, ptr @serialControl, align 8
+  %16 = getelementptr inbounds %struct.SerialControlData, ptr %15, i32 0, i32 1
+  store i32 0, ptr %16, align 4
+  %17 = load ptr, ptr @serialControl, align 8
+  %18 = getelementptr inbounds %struct.SerialControlData, ptr %17, i32 0, i32 2
+  store i32 0, ptr %18, align 4
+  %19 = load ptr, ptr @MainLWLockArray, align 8
+  %20 = getelementptr %union.LWLockPadded, ptr %19, i64 52
+  call void @LWLockRelease(ptr noundef %20)
+  br label %21
+
+21:                                               ; preds = %9, %5
   ret void
 }
 

@@ -967,7 +967,8 @@ define linkonce_odr void @_ZN24trap_illegal_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 2, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1011,7 +1012,8 @@ define linkonce_odr void @_ZN24trap_virtual_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 22, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1214,7 +1216,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
 
 110:                                              ; preds = %106, %84
   %111 = load i32, ptr %16, align 4
-  %112 = call i32 @llvm.eh.typeid.for(ptr @_ZTI28trap_load_address_misaligned) #3
+  %112 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI28trap_load_address_misaligned) #3
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %114, label %143
 
@@ -1263,7 +1265,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
           to label %283 unwind label %268
 
 143:                                              ; preds = %110
-  %144 = call i32 @llvm.eh.typeid.for(ptr @_ZTI20trap_load_page_fault) #3
+  %144 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI20trap_load_page_fault) #3
   %145 = icmp eq i32 %111, %144
   br i1 %145, label %146, label %175
 
@@ -1312,7 +1314,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
           to label %283 unwind label %258
 
 175:                                              ; preds = %143
-  %176 = call i32 @llvm.eh.typeid.for(ptr @_ZTI22trap_load_access_fault) #3
+  %176 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI22trap_load_access_fault) #3
   %177 = icmp eq i32 %111, %176
   br i1 %177, label %178, label %207
 
@@ -1361,7 +1363,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
           to label %283 unwind label %248
 
 207:                                              ; preds = %175
-  %208 = call i32 @llvm.eh.typeid.for(ptr @_ZTI26trap_load_guest_page_fault) #3
+  %208 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI26trap_load_guest_page_fault) #3
   %209 = icmp eq i32 %111, %208
   br i1 %209, label %210, label %275
 
@@ -4310,15 +4312,16 @@ define linkonce_odr void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
-  %13 = load i8, ptr %7, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
-  %17 = load i64, ptr %8, align 8
-  store i64 %17, ptr %16, align 8
+  %12 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
+  %14 = load i8, ptr %7, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
+  %18 = load i64, ptr %8, align 8
+  store i64 %18, ptr %17, align 8
   ret void
 }
 
@@ -4430,10 +4433,11 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -6847,7 +6851,8 @@ define linkonce_odr void @_ZN23trap_store_access_faultC2Ebmmm(ptr noundef nonnul
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 7, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -6859,9 +6864,6 @@ define linkonce_odr void @_ZN23trap_store_access_faultD2Ev(ptr noundef nonnull a
   call void @_ZN10mem_trap_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN27trap_store_guest_page_faultC2Emmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 comdat align 2 {
@@ -6878,7 +6880,8 @@ define linkonce_odr void @_ZN27trap_store_guest_page_faultC2Emmm(ptr noundef non
   %11 = load i64, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef 23, i1 noundef zeroext true, i64 noundef %10, i64 noundef %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -6913,7 +6916,8 @@ define linkonce_odr void @_ZN21trap_store_page_faultC2Ebmmm(ptr noundef nonnull 
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 15, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -6946,7 +6950,8 @@ define linkonce_odr void @_ZN29trap_store_address_misalignedC2Ebmmm(ptr noundef 
   %16 = load i64, ptr %9, align 8
   %17 = load i64, ptr %10, align 8
   call void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 6, i1 noundef zeroext %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i32 0, i32 0, i32 2), ptr %12, align 8
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i32 0, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
   ret void
 }
 
@@ -7212,21 +7217,22 @@ define linkonce_odr void @_ZN10mem_trap_tC2Embmmm(ptr noundef nonnull align 8 de
   %14 = load ptr, ptr %7, align 8
   %15 = load i64, ptr %8, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV10mem_trap_t, i32 0, i32 0, i32 2), ptr %14, align 8
-  %16 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 1
-  %17 = load i8, ptr %9, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 8
-  %20 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 2
-  %21 = load i64, ptr %10, align 8
-  store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 3
-  %23 = load i64, ptr %11, align 8
-  store i64 %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 4
-  %25 = load i64, ptr %12, align 8
-  store i64 %25, ptr %24, align 8
+  %16 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV10mem_trap_t, i32 0, i32 0, i32 2
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 1
+  %18 = load i8, ptr %9, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 8
+  %21 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 2
+  %22 = load i64, ptr %10, align 8
+  store i64 %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 3
+  %24 = load i64, ptr %11, align 8
+  store i64 %24, ptr %23, align 8
+  %25 = getelementptr inbounds %class.mem_trap_t, ptr %14, i32 0, i32 4
+  %26 = load i64, ptr %12, align 8
+  store i64 %26, ptr %25, align 8
   ret void
 }
 
@@ -7537,6 +7543,9 @@ define internal void @_GLOBAL__sub_I_cbo_inval.cc() #0 section ".text.startup" {
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

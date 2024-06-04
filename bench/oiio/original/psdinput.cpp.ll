@@ -5005,136 +5005,167 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp)
+  %0 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i32 0, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1), ptr %arrayinit.endOfInit, align 8
-  store i16 1006, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1), align 8
+  %1 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1
+  store ptr %1, ptr %arrayinit.endOfInit, align 8
+  %2 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1
+  store i16 1006, ptr %2, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1006Ej to i64), i64 0 }, ptr %ref.tmp4, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp3)
+  %3 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 1, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp3)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2), ptr %arrayinit.endOfInit, align 8
-  store i16 1010, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2), align 8
+  %4 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2
+  store ptr %4, ptr %arrayinit.endOfInit, align 8
+  %5 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2
+  store i16 1010, ptr %5, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1010Ej to i64), i64 0 }, ptr %ref.tmp8, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont6
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp7)
+  %6 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 2, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp7)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3), ptr %arrayinit.endOfInit, align 8
-  store i16 1033, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3), align 8
+  %7 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3
+  store ptr %7, ptr %arrayinit.endOfInit, align 8
+  %8 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3
+  store i16 1033, ptr %8, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1033Ej to i64), i64 0 }, ptr %ref.tmp12, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp11)
+  %9 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 3, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp11)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4), ptr %arrayinit.endOfInit, align 8
-  store i16 1036, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4), align 8
+  %10 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4
+  store ptr %10, ptr %arrayinit.endOfInit, align 8
+  %11 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4
+  store i16 1036, ptr %11, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1036Ej to i64), i64 0 }, ptr %ref.tmp16, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp15)
+  %12 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 4, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp15)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont17
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5), ptr %arrayinit.endOfInit, align 8
-  store i16 1039, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5), align 8
+  %13 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5
+  store ptr %13, ptr %arrayinit.endOfInit, align 8
+  %14 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5
+  store i16 1039, ptr %14, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1039Ej to i64), i64 0 }, ptr %ref.tmp20, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont18
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp19)
+  %15 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 5, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp19)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont21
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6), ptr %arrayinit.endOfInit, align 8
-  store i16 1047, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6), align 8
+  %16 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6
+  store ptr %16, ptr %arrayinit.endOfInit, align 8
+  %17 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6
+  store i16 1047, ptr %17, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1047Ej to i64), i64 0 }, ptr %ref.tmp24, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp23)
+  %18 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 6, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp23)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7), ptr %arrayinit.endOfInit, align 8
-  store i16 1058, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7), align 8
+  %19 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7
+  store ptr %19, ptr %arrayinit.endOfInit, align 8
+  %20 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7
+  store i16 1058, ptr %20, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1058Ej to i64), i64 0 }, ptr %ref.tmp28, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont26
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp27)
+  %21 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 7, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp27)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8), ptr %arrayinit.endOfInit, align 8
-  store i16 1059, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8), align 8
+  %22 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8
+  store ptr %22, ptr %arrayinit.endOfInit, align 8
+  %23 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8
+  store i16 1059, ptr %23, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1059Ej to i64), i64 0 }, ptr %ref.tmp32, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp31)
+  %24 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 8, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp31)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont33
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9), ptr %arrayinit.endOfInit, align 8
-  store i16 1060, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9), align 8
+  %25 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9
+  store ptr %25, ptr %arrayinit.endOfInit, align 8
+  %26 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9
+  store i16 1060, ptr %26, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1060Ej to i64), i64 0 }, ptr %ref.tmp36, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont34
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp35)
+  %27 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 9, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp35)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10), ptr %arrayinit.endOfInit, align 8
-  store i16 1064, ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10), align 8
+  %28 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10
+  store ptr %28, ptr %arrayinit.endOfInit, align 8
+  %29 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10
+  store i16 1064, ptr %29, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_08PSDInput18load_resource_1064Ej to i64), i64 0 }, ptr %ref.tmp40, align 8
   invoke void @_ZSt4bindIMN18OpenImageIO_v2_6_08PSDInputEFbjEJRKSt12_PlaceholderILi1EERKS4_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_(ptr sret(%"class.std::_Bind") align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_2E)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont38
-  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10, i32 1), ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp39)
+  %30 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 10, i32 1
+  invoke void @_ZNSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEC2ISt5_BindIFMS1_FbjESt12_PlaceholderILi1EES9_ILi2EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp39)
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %invoke.cont41
-  %0 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %31 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
 lpad:                                             ; preds = %invoke.cont41, %invoke.cont38, %invoke.cont37, %invoke.cont34, %invoke.cont33, %invoke.cont30, %invoke.cont29, %invoke.cont26, %invoke.cont25, %invoke.cont22, %invoke.cont21, %invoke.cont18, %invoke.cont17, %invoke.cont14, %invoke.cont13, %invoke.cont10, %invoke.cont9, %invoke.cont6, %invoke.cont5, %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %4 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, %4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
+  %35 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, %35
   br i1 %arraydestroy.isempty, label %arraydestroy.done43, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
-  %arraydestroy.elementPast = phi ptr [ %4, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %35, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08PSDInput14ResourceLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE
@@ -6185,10 +6216,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 11
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 11), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08PSDInput14ResourceLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE
@@ -6250,7 +6282,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this1)
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08PSDInputE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08PSDInputE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PSDInput", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_filename) #3
   %m_specs = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PSDInput", ptr %this1, i32 0, i32 4
@@ -6285,21 +6318,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_thumbnail) #3
   br label %ehcleanup
 
@@ -13643,22 +13676,23 @@ entry:
   call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKtN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockEEEC2ERKSt17_Rb_tree_iteratorIS5_E(ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   store ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, ptr %__range1, align 8
   store ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 11), ptr %__end1, align 8
+  %1 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 11
+  store ptr %1, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__begin1, align 8
-  %2 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %1, %2
+  %2 = load ptr, ptr %__begin1, align 8
+  %3 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__begin1, align 8
-  store ptr %3, ptr %loader, align 8
-  %4 = load ptr, ptr %resources.addr, align 8
-  %5 = load ptr, ptr %loader, align 8
-  %resource_id = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %5, i32 0, i32 0
-  %call3 = call ptr @_ZNSt3mapItN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS2_EEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 2 dereferenceable(2) %resource_id)
+  %4 = load ptr, ptr %__begin1, align 8
+  store ptr %4, ptr %loader, align 8
+  %5 = load ptr, ptr %resources.addr, align 8
+  %6 = load ptr, ptr %loader, align 8
+  %resource_id = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %6, i32 0, i32 0
+  %call3 = call ptr @_ZNSt3mapItN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS2_EEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 2 dereferenceable(2) %resource_id)
   %coerce.dive4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %ref.tmp2, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive4, align 8
   call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKtN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockEEEC2ERKSt17_Rb_tree_iteratorIS5_E(ptr noundef nonnull align 8 dereferenceable(8) %it, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2) #3
@@ -13669,18 +13703,18 @@ if.then:                                          ; preds = %for.body
   %call6 = call noundef ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKtN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %it) #3
   %second = getelementptr inbounds %"struct.std::pair.107", ptr %call6, i32 0, i32 1
   %pos = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::psd_pvt::ImageResourceBlock", ptr %second, i32 0, i32 4
-  %6 = load i64, ptr %pos, align 8
-  %call7 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this1, i64 noundef %6, i32 noundef 0)
+  %7 = load i64, ptr %pos, align 8
+  %call7 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this1, i64 noundef %7, i32 noundef 0)
   br i1 %call7, label %lor.lhs.false, label %if.then11
 
 lor.lhs.false:                                    ; preds = %if.then
-  %7 = load ptr, ptr %loader, align 8
-  %load = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %loader, align 8
+  %load = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %8, i32 0, i32 1
   %call8 = call noundef ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKtN18OpenImageIO_v2_6_07psd_pvt18ImageResourceBlockEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %it) #3
   %second9 = getelementptr inbounds %"struct.std::pair.107", ptr %call8, i32 0, i32 1
   %length = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::psd_pvt::ImageResourceBlock", ptr %second9, i32 0, i32 3
-  %8 = load i32, ptr %length, align 8
-  %call10 = call noundef zeroext i1 @_ZNKSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEclES2_j(ptr noundef nonnull align 8 dereferenceable(32) %load, ptr noundef %this1, i32 noundef %8)
+  %9 = load i32, ptr %length, align 8
+  %call10 = call noundef zeroext i1 @_ZNKSt8functionIFbPN18OpenImageIO_v2_6_08PSDInputEjEEclES2_j(ptr noundef nonnull align 8 dereferenceable(32) %load, ptr noundef %this1, i32 noundef %9)
   br i1 %call10, label %if.end, label %if.then11
 
 if.then11:                                        ; preds = %lor.lhs.false, %if.then
@@ -13694,8 +13728,8 @@ if.end12:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %9 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %9, i32 1
+  %10 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ResourceLoader", ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -13704,8 +13738,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then11
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %11 = load i1, ptr %retval, align 1
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15202,11 +15236,12 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.94) #3
   call void @_ZN18OpenImageIO_v2_6_010Filesystem7IOProxyC2ENS_17basic_string_viewIcSt11char_traitsIcEEENS1_4ModeE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %agg.tmp, i32 noundef 114)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem11IOMemReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem11IOMemReaderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_buf = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOMemReader", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  call void @_ZN18OpenImageIO_v2_6_04spanIKhLln1EEC2EPS1_l(ptr noundef nonnull align 8 dereferenceable(16) %m_buf, ptr noundef %0, i64 noundef %1) #3
+  %1 = load ptr, ptr %buf.addr, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  call void @_ZN18OpenImageIO_v2_6_04spanIKhLln1EEC2EPS1_l(ptr noundef nonnull align 8 dereferenceable(16) %m_buf, ptr noundef %1, i64 noundef %2) #3
   ret void
 }
 
@@ -23482,7 +23517,8 @@ entry:
   store ptr %filename, ptr %filename.indirect_addr, align 8
   store i32 %mode, ptr %mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem7IOProxyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem7IOProxyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN18OpenImageIO_v2_6_017basic_string_viewIcS2_EEvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_filename, ptr noundef nonnull align 8 dereferenceable(16) %filename, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -23493,19 +23529,19 @@ invoke.cont:                                      ; preds = %entry
   %m_pos = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 2
   store i64 0, ptr %m_pos, align 8
   %m_mode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %mode.addr, align 4
-  store i32 %0, ptr %m_mode, align 8
+  %1 = load i32, ptr %mode.addr, align 4
+  store i32 %1, ptr %m_mode, align 8
   %m_error = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_error) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %eh.resume
 
@@ -23673,7 +23709,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem7IOProxyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem7IOProxyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_error = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_error) #3
   %m_filename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filesystem::IOProxy", ptr %this1, i32 0, i32 1
@@ -28493,10 +28530,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -29078,16 +29116,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -29878,7 +29917,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %message.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -35033,10 +35073,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.172", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.172", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -35174,16 +35215,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.173", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.173", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.173", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -50133,10 +50175,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.205", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.205", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 32) #3
@@ -50173,16 +50216,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.206", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.206", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.206", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -50945,21 +50989,22 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.205", ptr %this1, i32 0, i32 2
   call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #3
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 

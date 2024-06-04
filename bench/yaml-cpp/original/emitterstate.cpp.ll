@@ -3938,13 +3938,14 @@ entry:
   store ptr %pSetting, ptr %pSetting.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4YAML17SettingChangeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pCurSetting = getelementptr inbounds %"class.YAML::SettingChange", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pSetting.addr, align 8
-  store ptr %0, ptr %m_pCurSetting, align 8
-  %m_oldSetting = getelementptr inbounds %"class.YAML::SettingChange", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %pSetting.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_oldSetting, ptr align 4 %1, i64 4, i1 false)
+  store ptr %1, ptr %m_pCurSetting, align 8
+  %m_oldSetting = getelementptr inbounds %"class.YAML::SettingChange", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %pSetting.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_oldSetting, ptr align 4 %2, i64 4, i1 false)
   ret void
 }
 
@@ -3978,7 +3979,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML17SettingChangeBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML17SettingChangeBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4204,13 +4206,14 @@ entry:
   store ptr %pSetting, ptr %pSetting.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4YAML17SettingChangeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML13SettingChangeImEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4YAML13SettingChangeImEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pCurSetting = getelementptr inbounds %"class.YAML::SettingChange.19", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pSetting.addr, align 8
-  store ptr %0, ptr %m_pCurSetting, align 8
-  %m_oldSetting = getelementptr inbounds %"class.YAML::SettingChange.19", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %pSetting.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_oldSetting, ptr align 8 %1, i64 8, i1 false)
+  store ptr %1, ptr %m_pCurSetting, align 8
+  %m_oldSetting = getelementptr inbounds %"class.YAML::SettingChange.19", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %pSetting.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_oldSetting, ptr align 8 %2, i64 8, i1 false)
   ret void
 }
 

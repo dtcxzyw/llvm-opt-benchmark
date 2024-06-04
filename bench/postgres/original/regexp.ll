@@ -199,11 +199,11 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   store i32 0, ptr %12, align 4
   br label %97
 
-97:                                               ; preds = %148, %95
+97:                                               ; preds = %150, %95
   %98 = load i32, ptr %12, align 4
   %99 = load i32, ptr @num_res, align 4
   %100 = icmp slt i32 %98, %99
-  br i1 %100, label %101, label %151
+  br i1 %100, label %101, label %153
 
 101:                                              ; preds = %97
   %102 = load i32, ptr %12, align 4
@@ -213,7 +213,7 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   %106 = load i32, ptr %105, align 16
   %107 = load i32, ptr %8, align 4
   %108 = icmp eq i32 %106, %107
-  br i1 %108, label %109, label %147
+  br i1 %108, label %109, label %149
 
 109:                                              ; preds = %101
   %110 = load i32, ptr %12, align 4
@@ -223,7 +223,7 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   %114 = load i32, ptr %113, align 4
   %115 = load i32, ptr %6, align 4
   %116 = icmp eq i32 %114, %115
-  br i1 %116, label %117, label %147
+  br i1 %116, label %117, label %149
 
 117:                                              ; preds = %109
   %118 = load i32, ptr %12, align 4
@@ -233,7 +233,7 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   %122 = load i32, ptr %121, align 8
   %123 = load i32, ptr %7, align 4
   %124 = icmp eq i32 %122, %123
-  br i1 %124, label %125, label %147
+  br i1 %124, label %125, label %149
 
 125:                                              ; preds = %117
   %126 = load i32, ptr %12, align 4
@@ -246,12 +246,12 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   %133 = sext i32 %132 to i64
   %134 = call i32 @memcmp(ptr noundef %130, ptr noundef %131, i64 noundef %133) #5
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %147
+  br i1 %135, label %136, label %149
 
 136:                                              ; preds = %125
   %137 = load i32, ptr %12, align 4
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %139, label %146
+  br i1 %138, label %139, label %147
 
 139:                                              ; preds = %136
   %140 = load i32, ptr %12, align 4
@@ -261,196 +261,200 @@ define dso_local ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %1, i32 n
   %143 = load i32, ptr %12, align 4
   %144 = sext i32 %143 to i64
   %145 = mul i64 %144, 96
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr align 16 @re_array, i64 %145, i1 false)
+  %146 = getelementptr inbounds [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 %146, ptr align 16 @re_array, i64 %145, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @re_array, ptr align 8 %14, i64 96, i1 false)
-  br label %146
+  br label %147
 
-146:                                              ; preds = %139, %136
-  store ptr getelementptr inbounds (%struct.cached_re_str, ptr @re_array, i32 0, i32 5), ptr %4, align 8
-  br label %259
+147:                                              ; preds = %139, %136
+  %148 = getelementptr inbounds %struct.cached_re_str, ptr @re_array, i32 0, i32 5
+  store ptr %148, ptr %4, align 8
+  br label %263
 
-147:                                              ; preds = %125, %117, %109, %101
-  br label %148
+149:                                              ; preds = %125, %117, %109, %101
+  br label %150
 
-148:                                              ; preds = %147
-  %149 = load i32, ptr %12, align 4
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %12, align 4
+150:                                              ; preds = %149
+  %151 = load i32, ptr %12, align 4
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %12, align 4
   br label %97, !llvm.loop !5
 
-151:                                              ; preds = %97
-  %152 = load ptr, ptr @RegexpCacheMemoryContext, align 8
-  %153 = icmp eq ptr %152, null
-  %154 = zext i1 %153 to i32
-  %155 = icmp ne i32 %154, 0
+153:                                              ; preds = %97
+  %154 = load ptr, ptr @RegexpCacheMemoryContext, align 8
+  %155 = icmp eq ptr %154, null
   %156 = zext i1 %155 to i32
-  %157 = sext i32 %156 to i64
-  %158 = icmp ne i64 %157, 0
-  br i1 %158, label %159, label %164
+  %157 = icmp ne i32 %156, 0
+  %158 = zext i1 %157 to i32
+  %159 = sext i32 %158 to i64
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %161, label %166
 
-159:                                              ; preds = %151
-  br label %160
+161:                                              ; preds = %153
+  br label %162
 
-160:                                              ; preds = %159
-  br label %161
+162:                                              ; preds = %161
+  br label %163
 
-161:                                              ; preds = %160
+163:                                              ; preds = %162
   store i32 1, ptr %17, align 4
-  %162 = load ptr, ptr @TopMemoryContext, align 8
-  %163 = call ptr @AllocSetContextCreateInternal(ptr noundef %162, ptr noundef @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
-  store ptr %163, ptr @RegexpCacheMemoryContext, align 8
-  br label %164
+  %164 = load ptr, ptr @TopMemoryContext, align 8
+  %165 = call ptr @AllocSetContextCreateInternal(ptr noundef %164, ptr noundef @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
+  store ptr %165, ptr @RegexpCacheMemoryContext, align 8
+  br label %166
 
-164:                                              ; preds = %161, %151
-  %165 = load i32, ptr %8, align 4
-  %166 = add i32 %165, 1
-  %167 = sext i32 %166 to i64
-  %168 = mul i64 %167, 4
-  %169 = call ptr @palloc(i64 noundef %168)
-  store ptr %169, ptr %10, align 8
-  %170 = load ptr, ptr %9, align 8
-  %171 = load ptr, ptr %10, align 8
-  %172 = load i32, ptr %8, align 4
-  %173 = call i32 @pg_mb2wchar_with_len(ptr noundef %170, ptr noundef %171, i32 noundef %172)
-  store i32 %173, ptr %11, align 4
-  br label %174
+166:                                              ; preds = %163, %153
+  %167 = load i32, ptr %8, align 4
+  %168 = add i32 %167, 1
+  %169 = sext i32 %168 to i64
+  %170 = mul i64 %169, 4
+  %171 = call ptr @palloc(i64 noundef %170)
+  store ptr %171, ptr %10, align 8
+  %172 = load ptr, ptr %9, align 8
+  %173 = load ptr, ptr %10, align 8
+  %174 = load i32, ptr %8, align 4
+  %175 = call i32 @pg_mb2wchar_with_len(ptr noundef %172, ptr noundef %173, i32 noundef %174)
+  store i32 %175, ptr %11, align 4
+  br label %176
 
-174:                                              ; preds = %164
-  br label %175
+176:                                              ; preds = %166
+  br label %177
 
-175:                                              ; preds = %174
+177:                                              ; preds = %176
   store i32 1, ptr %18, align 4
-  %176 = load ptr, ptr @CurrentMemoryContext, align 8
-  %177 = call ptr @AllocSetContextCreateInternal(ptr noundef %176, ptr noundef @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
-  %178 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
-  store ptr %177, ptr %178, align 8
-  %179 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = call ptr @MemoryContextSwitchTo(ptr noundef %180)
-  store ptr %181, ptr %16, align 8
-  %182 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 5
-  %183 = load ptr, ptr %10, align 8
-  %184 = load i32, ptr %11, align 4
-  %185 = sext i32 %184 to i64
-  %186 = load i32, ptr %6, align 4
-  %187 = load i32, ptr %7, align 4
-  %188 = call i32 @pg_regcomp(ptr noundef %182, ptr noundef %183, i64 noundef %185, i32 noundef %186, i32 noundef %187)
-  store i32 %188, ptr %13, align 4
-  %189 = load ptr, ptr %10, align 8
-  call void @pfree(ptr noundef %189)
-  %190 = load i32, ptr %13, align 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %192, label %208
+  %178 = load ptr, ptr @CurrentMemoryContext, align 8
+  %179 = call ptr @AllocSetContextCreateInternal(ptr noundef %178, ptr noundef @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
+  %180 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
+  store ptr %179, ptr %180, align 8
+  %181 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
+  %182 = load ptr, ptr %181, align 8
+  %183 = call ptr @MemoryContextSwitchTo(ptr noundef %182)
+  store ptr %183, ptr %16, align 8
+  %184 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 5
+  %185 = load ptr, ptr %10, align 8
+  %186 = load i32, ptr %11, align 4
+  %187 = sext i32 %186 to i64
+  %188 = load i32, ptr %6, align 4
+  %189 = load i32, ptr %7, align 4
+  %190 = call i32 @pg_regcomp(ptr noundef %184, ptr noundef %185, i64 noundef %187, i32 noundef %188, i32 noundef %189)
+  store i32 %190, ptr %13, align 4
+  %191 = load ptr, ptr %10, align 8
+  call void @pfree(ptr noundef %191)
+  %192 = load i32, ptr %13, align 4
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %194, label %210
 
-192:                                              ; preds = %175
-  %193 = load i32, ptr %13, align 4
-  %194 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 5
-  %195 = getelementptr inbounds [100 x i8], ptr %15, i64 0, i64 0
-  %196 = call i64 @pg_regerror(i32 noundef %193, ptr noundef %194, ptr noundef %195, i64 noundef 100)
-  br label %197
+194:                                              ; preds = %177
+  %195 = load i32, ptr %13, align 4
+  %196 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 5
+  %197 = getelementptr inbounds [100 x i8], ptr %15, i64 0, i64 0
+  %198 = call i64 @pg_regerror(i32 noundef %195, ptr noundef %196, ptr noundef %197, i64 noundef 100)
+  br label %199
 
-197:                                              ; preds = %192
-  br i1 true, label %198, label %200
+199:                                              ; preds = %194
+  br i1 true, label %200, label %202
 
-198:                                              ; preds = %197
-  %199 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %199, label %202, label %206
+200:                                              ; preds = %199
+  %201 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  br i1 %201, label %204, label %208
 
-200:                                              ; preds = %197
-  %201 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %201, label %202, label %206
+202:                                              ; preds = %199
+  %203 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %203, label %204, label %208
 
-202:                                              ; preds = %200, %198
-  %203 = call i32 @errcode(i32 noundef 302252162)
-  %204 = getelementptr inbounds [100 x i8], ptr %15, i64 0, i64 0
-  %205 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %204)
+204:                                              ; preds = %202, %200
+  %205 = call i32 @errcode(i32 noundef 302252162)
+  %206 = getelementptr inbounds [100 x i8], ptr %15, i64 0, i64 0
+  %207 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.2, ptr noundef %206)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 224, ptr noundef @__func__.RE_compile_and_cache)
-  br label %206
-
-206:                                              ; preds = %202, %200, %198
-  unreachable
-
-207:                                              ; No predecessors!
   br label %208
 
-208:                                              ; preds = %207, %175
-  %209 = load i32, ptr %8, align 4
-  %210 = add i32 %209, 1
-  %211 = sext i32 %210 to i64
-  %212 = call ptr @palloc(i64 noundef %211)
-  %213 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
-  store ptr %212, ptr %213, align 8
-  %214 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %9, align 8
-  %217 = load i32, ptr %8, align 4
-  %218 = sext i32 %217 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %215, ptr align 1 %216, i64 %218, i1 false)
-  %219 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
-  %220 = load ptr, ptr %219, align 8
-  %221 = load i32, ptr %8, align 4
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr i8, ptr %220, i64 %222
-  store i8 0, ptr %223, align 1
-  %224 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
+208:                                              ; preds = %204, %202, %200
+  unreachable
+
+209:                                              ; No predecessors!
+  br label %210
+
+210:                                              ; preds = %209, %177
+  %211 = load i32, ptr %8, align 4
+  %212 = add i32 %211, 1
+  %213 = sext i32 %212 to i64
+  %214 = call ptr @palloc(i64 noundef %213)
+  %215 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
+  store ptr %214, ptr %215, align 8
+  %216 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr %9, align 8
+  %219 = load i32, ptr %8, align 4
+  %220 = sext i32 %219 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr align 1 %218, i64 %220, i1 false)
+  %221 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
+  %222 = load ptr, ptr %221, align 8
+  %223 = load i32, ptr %8, align 4
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr i8, ptr %222, i64 %224
+  store i8 0, ptr %225, align 1
+  %226 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
   %227 = load ptr, ptr %226, align 8
-  call void @MemoryContextSetIdentifier(ptr noundef %225, ptr noundef %227)
-  %228 = load i32, ptr %8, align 4
-  %229 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 2
-  store i32 %228, ptr %229, align 8
-  %230 = load i32, ptr %6, align 4
-  %231 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 3
-  store i32 %230, ptr %231, align 4
-  %232 = load i32, ptr %7, align 4
-  %233 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 4
-  store i32 %232, ptr %233, align 8
-  %234 = load i32, ptr @num_res, align 4
-  %235 = icmp sge i32 %234, 32
-  br i1 %235, label %236, label %244
+  %228 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 1
+  %229 = load ptr, ptr %228, align 8
+  call void @MemoryContextSetIdentifier(ptr noundef %227, ptr noundef %229)
+  %230 = load i32, ptr %8, align 4
+  %231 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 2
+  store i32 %230, ptr %231, align 8
+  %232 = load i32, ptr %6, align 4
+  %233 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 3
+  store i32 %232, ptr %233, align 4
+  %234 = load i32, ptr %7, align 4
+  %235 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 4
+  store i32 %234, ptr %235, align 8
+  %236 = load i32, ptr @num_res, align 4
+  %237 = icmp sge i32 %236, 32
+  br i1 %237, label %238, label %246
 
-236:                                              ; preds = %208
-  %237 = load i32, ptr @num_res, align 4
-  %238 = add i32 %237, -1
-  store i32 %238, ptr @num_res, align 4
+238:                                              ; preds = %210
   %239 = load i32, ptr @num_res, align 4
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %240
-  %242 = getelementptr inbounds %struct.cached_re_str, ptr %241, i32 0, i32 0
-  %243 = load ptr, ptr %242, align 16
-  call void @MemoryContextDelete(ptr noundef %243)
-  br label %244
+  %240 = add i32 %239, -1
+  store i32 %240, ptr @num_res, align 4
+  %241 = load i32, ptr @num_res, align 4
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %242
+  %244 = getelementptr inbounds %struct.cached_re_str, ptr %243, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 16
+  call void @MemoryContextDelete(ptr noundef %245)
+  br label %246
 
-244:                                              ; preds = %236, %208
-  %245 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
-  %246 = load ptr, ptr %245, align 8
-  %247 = load ptr, ptr @RegexpCacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %246, ptr noundef %247)
-  %248 = load i32, ptr @num_res, align 4
-  %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %250, label %254
+246:                                              ; preds = %238, %210
+  %247 = getelementptr inbounds %struct.cached_re_str, ptr %14, i32 0, i32 0
+  %248 = load ptr, ptr %247, align 8
+  %249 = load ptr, ptr @RegexpCacheMemoryContext, align 8
+  call void @MemoryContextSetParent(ptr noundef %248, ptr noundef %249)
+  %250 = load i32, ptr @num_res, align 4
+  %251 = icmp sgt i32 %250, 0
+  br i1 %251, label %252, label %257
 
-250:                                              ; preds = %244
-  %251 = load i32, ptr @num_res, align 4
-  %252 = sext i32 %251 to i64
-  %253 = mul i64 %252, 96
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr align 16 @re_array, i64 %253, i1 false)
-  br label %254
+252:                                              ; preds = %246
+  %253 = load i32, ptr @num_res, align 4
+  %254 = sext i32 %253 to i64
+  %255 = mul i64 %254, 96
+  %256 = getelementptr inbounds [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 %256, ptr align 16 @re_array, i64 %255, i1 false)
+  br label %257
 
-254:                                              ; preds = %250, %244
+257:                                              ; preds = %252, %246
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @re_array, ptr align 8 %14, i64 96, i1 false)
-  %255 = load i32, ptr @num_res, align 4
-  %256 = add i32 %255, 1
-  store i32 %256, ptr @num_res, align 4
-  %257 = load ptr, ptr %16, align 8
-  %258 = call ptr @MemoryContextSwitchTo(ptr noundef %257)
-  store ptr getelementptr inbounds (%struct.cached_re_str, ptr @re_array, i32 0, i32 5), ptr %4, align 8
-  br label %259
+  %258 = load i32, ptr @num_res, align 4
+  %259 = add i32 %258, 1
+  store i32 %259, ptr @num_res, align 4
+  %260 = load ptr, ptr %16, align 8
+  %261 = call ptr @MemoryContextSwitchTo(ptr noundef %260)
+  %262 = getelementptr inbounds %struct.cached_re_str, ptr @re_array, i32 0, i32 5
+  store ptr %262, ptr %4, align 8
+  br label %263
 
-259:                                              ; preds = %254, %146
-  %260 = load ptr, ptr %4, align 8
-  ret ptr %260
+263:                                              ; preds = %257, %147
+  %264 = load ptr, ptr %4, align 8
+  ret ptr %264
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -392,14 +392,14 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 16
-  br i1 %11, label %377, label %12
+  br i1 %11, label %392, label %12
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %8, align 4
   %14 = icmp ult i32 %13, 16
   %15 = icmp ult i32 %10, %13
   %16 = or i1 %14, %15
-  br i1 %16, label %377, label %17
+  br i1 %16, label %392, label %17
 
 17:                                               ; preds = %12
   %18 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #9
@@ -407,13 +407,13 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 
 19:                                               ; preds = %17
   tail call void @netlink_ack(ptr noundef %0, ptr noundef %8, i32 noundef -1, ptr noundef null) #9
-  br label %377
+  br label %392
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, 16
-  br i1 %23, label %24, label %375
+  br i1 %23, label %24, label %390
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -424,7 +424,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %28 = load i32, ptr %9, align 8
   %29 = tail call i32 @llvm.umin.i32(i32 %27, i32 %28)
   %30 = icmp ult i32 %28, 20
-  br i1 %30, label %374, label %31
+  br i1 %30, label %389, label %31
 
 31:                                               ; preds = %24
   %32 = add i32 %25, -20
@@ -435,7 +435,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 
 36:                                               ; preds = %31
   call void @netlink_ack(ptr noundef %0, ptr noundef %8, i32 noundef %34, ptr noundef null) #9
-  br label %374
+  br label %389
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %6, i64 8
@@ -487,11 +487,11 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 
 71:                                               ; preds = %45
   call void @netlink_ack(ptr noundef %0, ptr noundef %8, i32 noundef -22, ptr noundef null) #9
-  br label %373
+  br label %388
 
-72:                                               ; preds = %353, %60
-  %73 = phi i32 [ 0, %60 ], [ %354, %353 ]
-  %74 = phi ptr [ %8, %60 ], [ %303, %353 ]
+72:                                               ; preds = %366, %60
+  %73 = phi i32 [ 0, %60 ], [ %367, %366 ]
+  %74 = phi ptr [ %8, %60 ], [ %312, %366 ]
   %75 = call ptr @skb_clone(ptr noundef %0, i32 noundef 3264) #9
   %76 = icmp eq ptr %75, null
   br i1 %76, label %83, label %77
@@ -514,7 +514,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 
 86:                                               ; preds = %83
   call void @netlink_ack(ptr noundef %0, ptr noundef %74, i32 noundef -12, ptr noundef null) #9
-  br label %373
+  br label %388
 
 87:                                               ; preds = %83
   call void @mutex_lock(ptr noundef %64) #9
@@ -534,7 +534,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   call void @mutex_unlock(ptr noundef %64) #9
   call void @netlink_ack(ptr noundef %0, ptr noundef %74, i32 noundef -95, ptr noundef null) #9
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  br label %373
+  br label %388
 
 95:                                               ; preds = %90, %87
   %96 = phi ptr [ %88, %87 ], [ %92, %90 ]
@@ -559,7 +559,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   call void @mutex_unlock(ptr noundef %64) #9
   call void @netlink_ack(ptr noundef %0, ptr noundef %74, i32 noundef -95, ptr noundef null) #9
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  br label %373
+  br label %388
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds i8, ptr %96, i64 24
@@ -571,7 +571,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   call void @mutex_unlock(ptr noundef %64) #9
   call void @netlink_ack(ptr noundef %0, ptr noundef %74, i32 noundef -95, ptr noundef null) #9
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  br label %373
+  br label %388
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %97, align 8
@@ -584,7 +584,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   call void @mutex_unlock(ptr noundef %64) #9
   call void @netlink_ack(ptr noundef %0, ptr noundef %74, i32 noundef -85, ptr noundef null) #9
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  br label %373
+  br label %388
 
 119:                                              ; preds = %114
   call void @mutex_unlock(ptr noundef %64) #9
@@ -594,12 +594,12 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %123 = getelementptr inbounds i8, ptr %96, i64 16
   br label %124
 
-124:                                              ; preds = %297, %119
-  %125 = phi i32 [ %73, %119 ], [ %298, %297 ]
-  %126 = phi ptr [ %74, %119 ], [ %300, %297 ]
+124:                                              ; preds = %306, %119
+  %125 = phi i32 [ %73, %119 ], [ %307, %306 ]
+  %126 = phi ptr [ %74, %119 ], [ %309, %306 ]
   %127 = load i32, ptr %120, align 8
   %128 = icmp ult i32 %127, 16
-  br i1 %128, label %301, label %129
+  br i1 %128, label %310, label %129
 
 129:                                              ; preds = %124
   %130 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
@@ -620,12 +620,12 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 141:                                              ; preds = %135, %129
   %142 = phi i32 [ 0, %129 ], [ %140, %135 ]
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %154, label %144
+  br i1 %143, label %156, label %144
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %3, align 8
   %146 = icmp eq ptr %145, %3
-  br i1 %146, label %297, label %147
+  br i1 %146, label %306, label %147
 
 147:                                              ; preds = %147, %144
   %148 = phi ptr [ %149, %147 ], [ %145, %144 ]
@@ -635,411 +635,426 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %152 = getelementptr inbounds i8, ptr %149, i64 8
   store ptr %151, ptr %152, align 8
   store volatile ptr %149, ptr %151, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %148, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %150, align 8
+  %153 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %153, ptr %148, align 8
+  %154 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %154, ptr %150, align 8
   call void @kfree(ptr noundef %148) #9
-  %153 = icmp eq ptr %149, %3
-  br i1 %153, label %297, label %147, !llvm.loop !17
+  %155 = icmp eq ptr %149, %3
+  br i1 %155, label %306, label %147, !llvm.loop !17
 
-154:                                              ; preds = %141
+156:                                              ; preds = %141
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
-  %155 = load ptr, ptr %121, align 8
-  %156 = load i32, ptr %155, align 4
-  %157 = icmp ult i32 %156, 16
-  br i1 %157, label %164, label %158
+  %157 = load ptr, ptr %121, align 8
+  %158 = load i32, ptr %157, align 4
+  %159 = icmp ult i32 %158, 16
+  br i1 %159, label %166, label %160
 
-158:                                              ; preds = %154
-  %159 = load i32, ptr %120, align 8
-  %160 = icmp ult i32 %159, %156
-  %161 = and i32 %156, -4
-  %162 = icmp eq i32 %161, 16
-  %163 = or i1 %162, %160
-  br i1 %163, label %164, label %176
+160:                                              ; preds = %156
+  %161 = load i32, ptr %120, align 8
+  %162 = icmp ult i32 %161, %158
+  %163 = and i32 %158, -4
+  %164 = icmp eq i32 %163, 16
+  %165 = or i1 %164, %162
+  br i1 %165, label %166, label %180
 
-164:                                              ; preds = %158, %154
-  %165 = load ptr, ptr %3, align 8
-  %166 = icmp eq ptr %165, %3
-  br i1 %166, label %174, label %167
+166:                                              ; preds = %160, %156
+  %167 = load ptr, ptr %3, align 8
+  %168 = icmp eq ptr %167, %3
+  br i1 %168, label %178, label %169
 
-167:                                              ; preds = %167, %164
-  %168 = phi ptr [ %169, %167 ], [ %165, %164 ]
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %168, i64 8
+169:                                              ; preds = %169, %166
+  %170 = phi ptr [ %171, %169 ], [ %167, %166 ]
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %169, i64 8
-  store ptr %171, ptr %172, align 8
-  store volatile ptr %169, ptr %171, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %168, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %170, align 8
-  call void @kfree(ptr noundef %168) #9
-  %173 = icmp eq ptr %169, %3
-  br i1 %173, label %174, label %167, !llvm.loop !17
+  %172 = getelementptr inbounds i8, ptr %170, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %171, i64 8
+  store ptr %173, ptr %174, align 8
+  store volatile ptr %171, ptr %173, align 8
+  %175 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %175, ptr %170, align 8
+  %176 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %176, ptr %172, align 8
+  call void @kfree(ptr noundef %170) #9
+  %177 = icmp eq ptr %171, %3
+  br i1 %177, label %178, label %169, !llvm.loop !17
 
-174:                                              ; preds = %167, %164
-  %175 = or i32 %125, 1
-  br label %297
+178:                                              ; preds = %169, %166
+  %179 = or i32 %125, 1
+  br label %306
 
-176:                                              ; preds = %158
-  %177 = getelementptr inbounds i8, ptr %155, i64 6
-  %178 = load i16, ptr %177, align 2
-  %179 = and i16 %178, 1
-  %180 = icmp eq i16 %179, 0
-  br i1 %180, label %254, label %181
+180:                                              ; preds = %160
+  %181 = getelementptr inbounds i8, ptr %157, i64 6
+  %182 = load i16, ptr %181, align 2
+  %183 = and i16 %182, 1
+  %184 = icmp eq i16 %183, 0
+  br i1 %184, label %260, label %185
 
-181:                                              ; preds = %176
-  %182 = getelementptr inbounds i8, ptr %155, i64 4
-  %183 = load i16, ptr %182, align 4
-  switch i16 %183, label %198 [
-    i16 16, label %184
-    i16 17, label %196
+185:                                              ; preds = %180
+  %186 = getelementptr inbounds i8, ptr %157, i64 4
+  %187 = load i16, ptr %186, align 4
+  switch i16 %187, label %204 [
+    i16 16, label %188
+    i16 17, label %202
   ]
 
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %3, align 8
-  %186 = icmp eq ptr %185, %3
-  br i1 %186, label %194, label %187
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %3, align 8
+  %190 = icmp eq ptr %189, %3
+  br i1 %190, label %200, label %191
 
-187:                                              ; preds = %187, %184
-  %188 = phi ptr [ %189, %187 ], [ %185, %184 ]
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %188, i64 8
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
-  store ptr %191, ptr %192, align 8
-  store volatile ptr %189, ptr %191, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %188, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %190, align 8
-  call void @kfree(ptr noundef %188) #9
-  %193 = icmp eq ptr %189, %3
-  br i1 %193, label %194, label %187, !llvm.loop !17
+191:                                              ; preds = %191, %188
+  %192 = phi ptr [ %193, %191 ], [ %189, %188 ]
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %192, i64 8
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %193, i64 8
+  store ptr %195, ptr %196, align 8
+  store volatile ptr %193, ptr %195, align 8
+  %197 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %197, ptr %192, align 8
+  %198 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %198, ptr %194, align 8
+  call void @kfree(ptr noundef %192) #9
+  %199 = icmp eq ptr %193, %3
+  br i1 %199, label %200, label %191, !llvm.loop !17
 
-194:                                              ; preds = %187, %184
-  %195 = or i32 %125, 1
-  br label %297
+200:                                              ; preds = %191, %188
+  %201 = or i32 %125, 1
+  br label %306
 
-196:                                              ; preds = %181
-  %197 = or i32 %125, 2
-  br label %297
+202:                                              ; preds = %185
+  %203 = or i32 %125, 2
+  br label %306
 
-198:                                              ; preds = %181
-  %199 = icmp ugt i16 %183, 15
-  %200 = lshr i16 %183, 8
-  %201 = icmp eq i16 %200, %52
-  %202 = and i1 %199, %201
-  br i1 %202, label %203, label %254
+204:                                              ; preds = %185
+  %205 = icmp ugt i16 %187, 15
+  %206 = lshr i16 %187, 8
+  %207 = icmp eq i16 %206, %52
+  %208 = and i1 %205, %207
+  br i1 %208, label %209, label %260
 
-203:                                              ; preds = %198
-  %204 = and i16 %183, 255
-  %205 = load i8, ptr %122, align 1
-  %206 = zext i8 %205 to i16
-  %207 = icmp ult i16 %204, %206
-  br i1 %207, label %208, label %212
+209:                                              ; preds = %204
+  %210 = and i16 %187, 255
+  %211 = load i8, ptr %122, align 1
+  %212 = zext i8 %211 to i16
+  %213 = icmp ult i16 %210, %212
+  br i1 %213, label %214, label %218
 
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %123, align 8
-  %210 = zext nneg i16 %204 to i64
-  %211 = getelementptr %struct.nfnl_callback, ptr %209, i64 %210
-  br label %212
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %123, align 8
+  %216 = zext nneg i16 %210 to i64
+  %217 = getelementptr %struct.nfnl_callback, ptr %215, i64 %216
+  br label %218
 
-212:                                              ; preds = %208, %203
-  %213 = phi ptr [ %211, %208 ], [ null, %203 ]
-  %214 = icmp eq ptr %213, null
-  br i1 %214, label %254, label %215
+218:                                              ; preds = %214, %209
+  %219 = phi ptr [ %217, %214 ], [ null, %209 ]
+  %220 = icmp eq ptr %219, null
+  br i1 %220, label %260, label %221
 
-215:                                              ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %213, i64 16
-  %217 = load i32, ptr %216, align 8
-  %218 = icmp eq i32 %217, 3
-  br i1 %218, label %219, label %254
+221:                                              ; preds = %218
+  %222 = getelementptr inbounds i8, ptr %219, i64 16
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp eq i32 %223, 3
+  br i1 %224, label %225, label %260
 
-219:                                              ; preds = %215
-  %220 = load i32, ptr @nfnetlink_pernet_id, align 4
+225:                                              ; preds = %221
+  %226 = load i32, ptr @nfnetlink_pernet_id, align 4
   call void @__rcu_read_lock() #9
-  %221 = load volatile ptr, ptr %66, align 8
-  %222 = zext i32 %220 to i64
-  %223 = getelementptr [0 x ptr], ptr %221, i64 0, i64 %222
-  %224 = load ptr, ptr %223, align 8
+  %227 = load volatile ptr, ptr %66, align 8
+  %228 = zext i32 %226 to i64
+  %229 = getelementptr [0 x ptr], ptr %227, i64 0, i64 %228
+  %230 = load ptr, ptr %229, align 8
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !15
-  %225 = load i16, ptr %182, align 4
-  %226 = load i32, ptr %155, align 4
+  %231 = load i16, ptr %186, align 4
+  %232 = load i32, ptr %157, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !15
   store ptr %56, ptr %5, align 8
-  %227 = load ptr, ptr %224, align 8
-  store ptr %227, ptr %67, align 8
-  store ptr %155, ptr %68, align 8
-  %228 = getelementptr i8, ptr %155, i64 16
-  store ptr %228, ptr %69, align 8
+  %233 = load ptr, ptr %230, align 8
+  store ptr %233, ptr %67, align 8
+  store ptr %157, ptr %68, align 8
+  %234 = getelementptr i8, ptr %157, i64 16
+  store ptr %234, ptr %69, align 8
   store ptr %2, ptr %70, align 8
-  %229 = load ptr, ptr %123, align 8
-  %230 = and i16 %225, 255
-  %231 = zext nneg i16 %230 to i64
-  %232 = getelementptr %struct.nfnl_callback, ptr %229, i64 %231
-  %233 = getelementptr inbounds i8, ptr %232, i64 20
-  %234 = load i16, ptr %233, align 4
-  %235 = icmp ugt i16 %234, 32
-  br i1 %235, label %250, label %236
+  %235 = load ptr, ptr %123, align 8
+  %236 = and i16 %231, 255
+  %237 = zext nneg i16 %236 to i64
+  %238 = getelementptr %struct.nfnl_callback, ptr %235, i64 %237
+  %239 = getelementptr inbounds i8, ptr %238, i64 20
+  %240 = load i16, ptr %239, align 4
+  %241 = icmp ugt i16 %240, 32
+  br i1 %241, label %256, label %242
 
-236:                                              ; preds = %219
-  %237 = zext nneg i16 %234 to i32
-  %238 = add i32 %226, -20
-  %239 = getelementptr i8, ptr %155, i64 20
-  %240 = getelementptr inbounds i8, ptr %232, i64 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %237, ptr noundef %239, i32 noundef %238, ptr noundef %241, i32 noundef 0, ptr noundef null) #9
-  %243 = icmp slt i32 %242, 0
-  br i1 %243, label %250, label %244
+242:                                              ; preds = %225
+  %243 = zext nneg i16 %240 to i32
+  %244 = add i32 %232, -20
+  %245 = getelementptr i8, ptr %157, i64 20
+  %246 = getelementptr inbounds i8, ptr %238, i64 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %243, ptr noundef %245, i32 noundef %244, ptr noundef %247, i32 noundef 0, ptr noundef null) #9
+  %249 = icmp slt i32 %248, 0
+  br i1 %249, label %256, label %250
 
-244:                                              ; preds = %236
-  %245 = load ptr, ptr %213, align 8
-  %246 = call i32 %245(ptr noundef nonnull %84, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
-  %247 = icmp eq i32 %246, -11
-  br i1 %247, label %248, label %250
+250:                                              ; preds = %242
+  %251 = load ptr, ptr %219, align 8
+  %252 = call i32 %251(ptr noundef nonnull %84, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
+  %253 = icmp eq i32 %252, -11
+  br i1 %253, label %254, label %256
 
-248:                                              ; preds = %244
-  %249 = or i32 %125, 4
-  br label %250
+254:                                              ; preds = %250
+  %255 = or i32 %125, 4
+  br label %256
 
-250:                                              ; preds = %248, %244, %236, %219
-  %251 = phi i32 [ %249, %248 ], [ %125, %219 ], [ %125, %236 ], [ %125, %244 ]
-  %252 = phi i32 [ -11, %248 ], [ -12, %219 ], [ %242, %236 ], [ %246, %244 ]
-  %253 = phi i32 [ 10, %248 ], [ 11, %219 ], [ 11, %236 ], [ 0, %244 ]
+256:                                              ; preds = %254, %250, %242, %225
+  %257 = phi i32 [ %255, %254 ], [ %125, %225 ], [ %125, %242 ], [ %125, %250 ]
+  %258 = phi i32 [ -11, %254 ], [ -12, %225 ], [ %248, %242 ], [ %252, %250 ]
+  %259 = phi i32 [ 10, %254 ], [ 11, %225 ], [ 11, %242 ], [ 0, %250 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #9
-  switch i32 %253, label %297 [
-    i32 0, label %254
-    i32 11, label %254
+  switch i32 %259, label %306 [
+    i32 0, label %260
+    i32 11, label %260
   ]
 
-254:                                              ; preds = %250, %250, %215, %212, %198, %176
-  %255 = phi i32 [ %251, %250 ], [ %251, %250 ], [ %125, %176 ], [ %125, %198 ], [ %125, %212 ], [ %125, %215 ]
-  %256 = phi i32 [ %252, %250 ], [ %252, %250 ], [ -22, %176 ], [ -22, %198 ], [ -22, %212 ], [ -22, %215 ]
-  %257 = load i16, ptr %177, align 2
-  %258 = and i16 %257, 4
-  %259 = icmp ne i16 %258, 0
-  %260 = icmp ne i32 %256, 0
-  %261 = or i1 %260, %259
-  br i1 %261, label %262, label %289
+260:                                              ; preds = %256, %256, %221, %218, %204, %180
+  %261 = phi i32 [ %257, %256 ], [ %257, %256 ], [ %125, %180 ], [ %125, %204 ], [ %125, %218 ], [ %125, %221 ]
+  %262 = phi i32 [ %258, %256 ], [ %258, %256 ], [ -22, %180 ], [ -22, %204 ], [ -22, %218 ], [ -22, %221 ]
+  %263 = load i16, ptr %181, align 2
+  %264 = and i16 %263, 4
+  %265 = icmp ne i16 %264, 0
+  %266 = icmp ne i32 %262, 0
+  %267 = or i1 %266, %265
+  br i1 %267, label %268, label %298
 
-262:                                              ; preds = %254
-  %263 = icmp eq i32 %256, -12
-  br i1 %263, label %276, label %264
+268:                                              ; preds = %260
+  %269 = icmp eq i32 %262, -12
+  br i1 %269, label %283, label %270
 
-264:                                              ; preds = %262
-  %265 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %266 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %265, i32 noundef 3264, i64 noundef 168) #11
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %276, label %268
+270:                                              ; preds = %268
+  %271 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %272 = load ptr, ptr %271, align 16
+  %273 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %272, i32 noundef 3264, i64 noundef 168) #11
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %283, label %275
 
-268:                                              ; preds = %264
-  %269 = getelementptr inbounds i8, ptr %266, i64 16
-  store ptr %155, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %266, i64 24
-  store i32 %256, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %266, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %271, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
-  %272 = load ptr, ptr %57, align 8
-  store ptr %266, ptr %57, align 8
-  store ptr %3, ptr %266, align 8
-  %273 = getelementptr inbounds i8, ptr %266, i64 8
-  store ptr %272, ptr %273, align 8
-  store volatile ptr %266, ptr %272, align 8
-  %274 = zext i1 %260 to i32
-  %275 = or i32 %255, %274
-  br label %289
+275:                                              ; preds = %270
+  %276 = getelementptr inbounds i8, ptr %273, i64 16
+  store ptr %157, ptr %276, align 8
+  %277 = getelementptr inbounds i8, ptr %273, i64 24
+  store i32 %262, ptr %277, align 8
+  %278 = getelementptr inbounds i8, ptr %273, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %278, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
+  %279 = load ptr, ptr %57, align 8
+  store ptr %273, ptr %57, align 8
+  store ptr %3, ptr %273, align 8
+  %280 = getelementptr inbounds i8, ptr %273, i64 8
+  store ptr %279, ptr %280, align 8
+  store volatile ptr %273, ptr %279, align 8
+  %281 = zext i1 %266 to i32
+  %282 = or i32 %261, %281
+  br label %298
 
-276:                                              ; preds = %264, %262
-  %277 = load ptr, ptr %3, align 8
-  %278 = icmp eq ptr %277, %3
-  br i1 %278, label %286, label %279
+283:                                              ; preds = %270, %268
+  %284 = load ptr, ptr %3, align 8
+  %285 = icmp eq ptr %284, %3
+  br i1 %285, label %295, label %286
 
-279:                                              ; preds = %279, %276
-  %280 = phi ptr [ %281, %279 ], [ %277, %276 ]
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %280, i64 8
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %281, i64 8
-  store ptr %283, ptr %284, align 8
-  store volatile ptr %281, ptr %283, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %280, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %282, align 8
-  call void @kfree(ptr noundef %280) #9
-  %285 = icmp eq ptr %281, %3
-  br i1 %285, label %286, label %279, !llvm.loop !17
+286:                                              ; preds = %286, %283
+  %287 = phi ptr [ %288, %286 ], [ %284, %283 ]
+  %288 = load ptr, ptr %287, align 8
+  %289 = getelementptr inbounds i8, ptr %287, i64 8
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds i8, ptr %288, i64 8
+  store ptr %290, ptr %291, align 8
+  store volatile ptr %288, ptr %290, align 8
+  %292 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %292, ptr %287, align 8
+  %293 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %293, ptr %289, align 8
+  call void @kfree(ptr noundef %287) #9
+  %294 = icmp eq ptr %288, %3
+  br i1 %294, label %295, label %286, !llvm.loop !17
 
-286:                                              ; preds = %279, %276
-  %287 = load ptr, ptr %7, align 8
-  call void @netlink_ack(ptr noundef %0, ptr noundef %287, i32 noundef -12, ptr noundef null) #9
-  %288 = or i32 %255, 1
-  br label %297
+295:                                              ; preds = %286, %283
+  %296 = load ptr, ptr %7, align 8
+  call void @netlink_ack(ptr noundef %0, ptr noundef %296, i32 noundef -12, ptr noundef null) #9
+  %297 = or i32 %261, 1
+  br label %306
 
-289:                                              ; preds = %268, %254
-  %290 = phi i32 [ %255, %254 ], [ %275, %268 ]
-  %291 = load i32, ptr %155, align 4
-  %292 = add i32 %291, 3
-  %293 = and i32 %292, -4
-  %294 = load i32, ptr %120, align 8
-  %295 = call i32 @llvm.umin.i32(i32 %293, i32 %294)
-  %296 = call ptr @skb_pull(ptr noundef nonnull %84, i32 noundef %295) #9
-  br label %297
+298:                                              ; preds = %275, %260
+  %299 = phi i32 [ %261, %260 ], [ %282, %275 ]
+  %300 = load i32, ptr %157, align 4
+  %301 = add i32 %300, 3
+  %302 = and i32 %301, -4
+  %303 = load i32, ptr %120, align 8
+  %304 = call i32 @llvm.umin.i32(i32 %302, i32 %303)
+  %305 = call ptr @skb_pull(ptr noundef nonnull %84, i32 noundef %304) #9
+  br label %306
 
-297:                                              ; preds = %289, %286, %250, %196, %194, %174, %147, %144
-  %298 = phi i32 [ %175, %174 ], [ %195, %194 ], [ %197, %196 ], [ %288, %286 ], [ %290, %289 ], [ %251, %250 ], [ 1, %144 ], [ 1, %147 ]
-  %299 = phi i32 [ 10, %174 ], [ 10, %194 ], [ 10, %196 ], [ 10, %286 ], [ 0, %289 ], [ %253, %250 ], [ 10, %144 ], [ 10, %147 ]
-  %300 = phi ptr [ %155, %174 ], [ %155, %194 ], [ %155, %196 ], [ %155, %286 ], [ %155, %289 ], [ %155, %250 ], [ %126, %144 ], [ %126, %147 ]
-  switch i32 %299, label %373 [
+306:                                              ; preds = %298, %295, %256, %202, %200, %178, %147, %144
+  %307 = phi i32 [ %179, %178 ], [ %201, %200 ], [ %203, %202 ], [ %297, %295 ], [ %299, %298 ], [ %257, %256 ], [ 1, %144 ], [ 1, %147 ]
+  %308 = phi i32 [ 10, %178 ], [ 10, %200 ], [ 10, %202 ], [ 10, %295 ], [ 0, %298 ], [ %259, %256 ], [ 10, %144 ], [ 10, %147 ]
+  %309 = phi ptr [ %157, %178 ], [ %157, %200 ], [ %157, %202 ], [ %157, %295 ], [ %157, %298 ], [ %157, %256 ], [ %126, %144 ], [ %126, %147 ]
+  switch i32 %308, label %388 [
     i32 0, label %124
-    i32 10, label %301
+    i32 10, label %310
   ], !llvm.loop !18
 
-301:                                              ; preds = %297, %124
-  %302 = phi i32 [ %125, %124 ], [ %298, %297 ]
-  %303 = phi ptr [ %126, %124 ], [ %300, %297 ]
-  br label %304
+310:                                              ; preds = %306, %124
+  %311 = phi i32 [ %125, %124 ], [ %307, %306 ]
+  %312 = phi ptr [ %126, %124 ], [ %309, %306 ]
+  br label %313
 
-304:                                              ; preds = %324, %301
-  %305 = phi i32 [ 6, %324 ], [ %302, %301 ]
-  %306 = and i32 %305, 4
-  %307 = icmp eq i32 %306, 0
-  br i1 %307, label %322, label %308
+313:                                              ; preds = %335, %310
+  %314 = phi i32 [ 6, %335 ], [ %311, %310 ]
+  %315 = and i32 %314, 4
+  %316 = icmp eq i32 %315, 0
+  br i1 %316, label %333, label %317
 
-308:                                              ; preds = %304
-  %309 = load ptr, ptr %105, align 8
-  %310 = call i32 %309(ptr noundef %56, ptr noundef %0, i32 noundef 1) #9
-  %311 = load ptr, ptr %3, align 8
-  %312 = icmp eq ptr %311, %3
-  br i1 %312, label %320, label %313
+317:                                              ; preds = %313
+  %318 = load ptr, ptr %105, align 8
+  %319 = call i32 %318(ptr noundef %56, ptr noundef %0, i32 noundef 1) #9
+  %320 = load ptr, ptr %3, align 8
+  %321 = icmp eq ptr %320, %3
+  br i1 %321, label %331, label %322
 
-313:                                              ; preds = %313, %308
-  %314 = phi ptr [ %315, %313 ], [ %311, %308 ]
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %314, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %315, i64 8
-  store ptr %317, ptr %318, align 8
-  store volatile ptr %315, ptr %317, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %314, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %316, align 8
-  call void @kfree(ptr noundef %314) #9
-  %319 = icmp eq ptr %315, %3
-  br i1 %319, label %320, label %313, !llvm.loop !17
+322:                                              ; preds = %322, %317
+  %323 = phi ptr [ %324, %322 ], [ %320, %317 ]
+  %324 = load ptr, ptr %323, align 8
+  %325 = getelementptr inbounds i8, ptr %323, i64 8
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds i8, ptr %324, i64 8
+  store ptr %326, ptr %327, align 8
+  store volatile ptr %324, ptr %326, align 8
+  %328 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %328, ptr %323, align 8
+  %329 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %329, ptr %325, align 8
+  call void @kfree(ptr noundef %323) #9
+  %330 = icmp eq ptr %324, %3
+  br i1 %330, label %331, label %322, !llvm.loop !17
 
-320:                                              ; preds = %313, %308
+331:                                              ; preds = %322, %317
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  %321 = load ptr, ptr %110, align 8
-  call void @module_put(ptr noundef %321) #9
-  br label %353
+  %332 = load ptr, ptr %110, align 8
+  call void @module_put(ptr noundef %332) #9
+  br label %366
 
-322:                                              ; preds = %304
-  %323 = icmp eq i32 %305, 2
-  br i1 %323, label %324, label %331
+333:                                              ; preds = %313
+  %334 = icmp eq i32 %314, 2
+  br i1 %334, label %335, label %342
 
-324:                                              ; preds = %322
-  %325 = load ptr, ptr %101, align 8
-  %326 = call i32 %325(ptr noundef %56, ptr noundef %0) #9
-  switch i32 %326, label %327 [
-    i32 -11, label %304
-    i32 0, label %355
+335:                                              ; preds = %333
+  %336 = load ptr, ptr %101, align 8
+  %337 = call i32 %336(ptr noundef %56, ptr noundef %0) #9
+  switch i32 %337, label %338 [
+    i32 -11, label %313
+    i32 0, label %368
   ]
 
-327:                                              ; preds = %324
-  %328 = load ptr, ptr %105, align 8
-  %329 = call i32 %328(ptr noundef %56, ptr noundef %0, i32 noundef 0) #9
-  %330 = load ptr, ptr %7, align 8
-  call void @netlink_ack(ptr noundef %0, ptr noundef %330, i32 noundef %326, ptr noundef null) #9
-  br label %355
+338:                                              ; preds = %335
+  %339 = load ptr, ptr %105, align 8
+  %340 = call i32 %339(ptr noundef %56, ptr noundef %0, i32 noundef 0) #9
+  %341 = load ptr, ptr %7, align 8
+  call void @netlink_ack(ptr noundef %0, ptr noundef %341, i32 noundef %337, ptr noundef null) #9
+  br label %368
 
-331:                                              ; preds = %322
-  %332 = shl i32 %305, 1
-  %333 = and i32 %332, 2
-  %334 = xor i32 %333, 2
-  %335 = load ptr, ptr %105, align 8
-  %336 = call i32 %335(ptr noundef %56, ptr noundef %0, i32 noundef %334) #9
-  %337 = icmp eq i32 %336, -11
-  br i1 %337, label %338, label %351
+342:                                              ; preds = %333
+  %343 = shl i32 %314, 1
+  %344 = and i32 %343, 2
+  %345 = xor i32 %344, 2
+  %346 = load ptr, ptr %105, align 8
+  %347 = call i32 %346(ptr noundef %56, ptr noundef %0, i32 noundef %345) #9
+  %348 = icmp eq i32 %347, -11
+  br i1 %348, label %349, label %364
 
-338:                                              ; preds = %331
-  %339 = load ptr, ptr %3, align 8
-  %340 = icmp eq ptr %339, %3
-  br i1 %340, label %348, label %341
+349:                                              ; preds = %342
+  %350 = load ptr, ptr %3, align 8
+  %351 = icmp eq ptr %350, %3
+  br i1 %351, label %361, label %352
 
-341:                                              ; preds = %341, %338
-  %342 = phi ptr [ %343, %341 ], [ %339, %338 ]
-  %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds i8, ptr %342, i64 8
-  %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %343, i64 8
-  store ptr %345, ptr %346, align 8
-  store volatile ptr %343, ptr %345, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %342, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %344, align 8
-  call void @kfree(ptr noundef %342) #9
-  %347 = icmp eq ptr %343, %3
-  br i1 %347, label %348, label %341, !llvm.loop !17
+352:                                              ; preds = %352, %349
+  %353 = phi ptr [ %354, %352 ], [ %350, %349 ]
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds i8, ptr %353, i64 8
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds i8, ptr %354, i64 8
+  store ptr %356, ptr %357, align 8
+  store volatile ptr %354, ptr %356, align 8
+  %358 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %358, ptr %353, align 8
+  %359 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %359, ptr %355, align 8
+  call void @kfree(ptr noundef %353) #9
+  %360 = icmp eq ptr %354, %3
+  br i1 %360, label %361, label %352, !llvm.loop !17
 
-348:                                              ; preds = %341, %338
+361:                                              ; preds = %352, %349
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  %349 = load ptr, ptr %110, align 8
-  call void @module_put(ptr noundef %349) #9
-  %350 = or i32 %305, 1
-  br label %351
+  %362 = load ptr, ptr %110, align 8
+  call void @module_put(ptr noundef %362) #9
+  %363 = or i32 %314, 1
+  br label %364
 
-351:                                              ; preds = %348, %331
-  %352 = phi i32 [ %350, %348 ], [ %305, %331 ]
-  br i1 %337, label %353, label %355
+364:                                              ; preds = %361, %342
+  %365 = phi i32 [ %363, %361 ], [ %314, %342 ]
+  br i1 %348, label %366, label %368
 
-353:                                              ; preds = %351, %320
-  %354 = phi i32 [ %352, %351 ], [ 0, %320 ]
+366:                                              ; preds = %364, %331
+  %367 = phi i32 [ %365, %364 ], [ 0, %331 ]
   br label %72
 
-355:                                              ; preds = %351, %327, %324
-  %356 = load ptr, ptr %3, align 8
-  %357 = icmp eq ptr %356, %3
-  br i1 %357, label %371, label %358
+368:                                              ; preds = %364, %338, %335
+  %369 = load ptr, ptr %3, align 8
+  %370 = icmp eq ptr %369, %3
+  br i1 %370, label %386, label %371
 
-358:                                              ; preds = %358, %355
-  %359 = phi ptr [ %360, %358 ], [ %356, %355 ]
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %359, i64 16
-  %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %359, i64 24
-  %364 = load i32, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %359, i64 32
-  call void @netlink_ack(ptr noundef %0, ptr noundef %362, i32 noundef %364, ptr noundef %365) #9
-  %366 = getelementptr inbounds i8, ptr %359, i64 8
-  %367 = load ptr, ptr %366, align 8
-  %368 = load ptr, ptr %359, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 8
-  store ptr %367, ptr %369, align 8
-  store volatile ptr %368, ptr %367, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %359, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %366, align 8
-  call void @kfree(ptr noundef %359) #9
-  %370 = icmp eq ptr %360, %3
-  br i1 %370, label %371, label %358, !llvm.loop !19
+371:                                              ; preds = %371, %368
+  %372 = phi ptr [ %373, %371 ], [ %369, %368 ]
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds i8, ptr %372, i64 16
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds i8, ptr %372, i64 24
+  %377 = load i32, ptr %376, align 8
+  %378 = getelementptr inbounds i8, ptr %372, i64 32
+  call void @netlink_ack(ptr noundef %0, ptr noundef %375, i32 noundef %377, ptr noundef %378) #9
+  %379 = getelementptr inbounds i8, ptr %372, i64 8
+  %380 = load ptr, ptr %379, align 8
+  %381 = load ptr, ptr %372, align 8
+  %382 = getelementptr inbounds i8, ptr %381, i64 8
+  store ptr %380, ptr %382, align 8
+  store volatile ptr %381, ptr %380, align 8
+  %383 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %383, ptr %372, align 8
+  %384 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %384, ptr %379, align 8
+  call void @kfree(ptr noundef %372) #9
+  %385 = icmp eq ptr %373, %3
+  br i1 %385, label %386, label %371, !llvm.loop !19
 
-371:                                              ; preds = %358, %355
+386:                                              ; preds = %371, %368
   call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 2) #9
-  %372 = load ptr, ptr %110, align 8
-  call void @module_put(ptr noundef %372) #9
-  br label %373
+  %387 = load ptr, ptr %110, align 8
+  call void @module_put(ptr noundef %387) #9
+  br label %388
 
-373:                                              ; preds = %371, %297, %117, %113, %108, %94, %86, %71
+388:                                              ; preds = %386, %306, %117, %113, %108, %94, %86, %71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #9
-  br label %374
+  br label %389
 
-374:                                              ; preds = %373, %36, %24
+389:                                              ; preds = %388, %36, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
-  br label %377
+  br label %392
 
-375:                                              ; preds = %20
-  %376 = tail call i32 @netlink_rcv_skb(ptr noundef %0, ptr noundef nonnull @nfnetlink_rcv_msg) #9
-  br label %377
+390:                                              ; preds = %20
+  %391 = tail call i32 @netlink_rcv_skb(ptr noundef %0, ptr noundef nonnull @nfnetlink_rcv_msg) #9
+  br label %392
 
-377:                                              ; preds = %375, %374, %19, %12, %1
+392:                                              ; preds = %390, %389, %19, %12, %1
   ret void
 }
 

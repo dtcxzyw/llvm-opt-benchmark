@@ -251,13 +251,14 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hcadbfbbe7266b
 
 129:                                              ; preds = %108
   %130 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
+  %131 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %132 = load i64, ptr %131, align 8
   store ptr %130, ptr %23, align 8
-  %132 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %131, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %132, ptr %133, align 8
   br label %50
 
-133:                                              ; No predecessors!
+134:                                              ; No predecessors!
   unreachable
 }
 
@@ -324,8 +325,8 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global9grow_impl17hb136bd4fda79aec
   %51 = icmp eq i64 %42, %47
   br i1 %51, label %67, label %53
 
-52:                                               ; preds = %150, %103, %32
-  br label %168
+52:                                               ; preds = %153, %104, %32
+  br label %171
 
 53:                                               ; preds = %40
   %54 = load i64, ptr %22, align 8, !noundef !4
@@ -371,7 +372,7 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global9grow_impl17hb136bd4fda79aec
   %85 = call ptr @__rust_realloc(ptr %1, i64 %79, i64 %81, i64 %70) #10
   %86 = ptrtoint ptr %85 to i64
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %117, label %118
+  br i1 %87, label %119, label %120
 
 88:                                               ; preds = %53
   %89 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
@@ -380,155 +381,158 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global9grow_impl17hb136bd4fda79aec
   store ptr %89, ptr %16, align 8
   %92 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %91, ptr %92, align 8
-  br label %97
+  br label %98
 
 93:                                               ; preds = %53
   %94 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %95 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
+  %95 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %96 = load i64, ptr %95, align 8
   store ptr %94, ptr %16, align 8
-  %96 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %95, ptr %96, align 8
-  br label %97
+  %97 = getelementptr inbounds i8, ptr %16, i64 8
+  store i64 %96, ptr %97, align 8
+  br label %98
 
-97:                                               ; preds = %93, %88
-  %98 = load ptr, ptr %16, align 8, !noundef !4
-  %99 = ptrtoint ptr %98 to i64
-  %100 = icmp eq i64 %99, 0
-  %101 = select i1 %100, i64 1, i64 0
-  %102 = icmp eq i64 %101, 0
-  br i1 %102, label %103, label %112
+98:                                               ; preds = %93, %88
+  %99 = load ptr, ptr %16, align 8, !noundef !4
+  %100 = ptrtoint ptr %99 to i64
+  %101 = icmp eq i64 %100, 0
+  %102 = select i1 %101, i64 1, i64 0
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %113
 
-103:                                              ; preds = %97
-  %104 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %105 = getelementptr inbounds i8, ptr %16, i64 8
-  %106 = load i64, ptr %105, align 8, !noundef !4
-  store ptr %104, ptr %8, align 8
-  %107 = mul i64 %54, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr align 1 %1, i64 %107, i1 false)
-  %108 = load i64, ptr %25, align 8, !range !3, !noundef !4
-  %109 = getelementptr inbounds i8, ptr %25, i64 8
-  %110 = load i64, ptr %109, align 8, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr align 1 %0, ptr %1, i64 %108, i64 %110)
-  store ptr %104, ptr %23, align 8
-  %111 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %106, ptr %111, align 8
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
+  %106 = getelementptr inbounds i8, ptr %16, i64 8
+  %107 = load i64, ptr %106, align 8, !noundef !4
+  store ptr %105, ptr %8, align 8
+  %108 = mul i64 %54, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %1, i64 %108, i1 false)
+  %109 = load i64, ptr %25, align 8, !range !3, !noundef !4
+  %110 = getelementptr inbounds i8, ptr %25, i64 8
+  %111 = load i64, ptr %110, align 8, !noundef !4
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr align 1 %0, ptr %1, i64 %109, i64 %111)
+  store ptr %105, ptr %23, align 8
+  %112 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %107, ptr %112, align 8
   br label %52
 
-112:                                              ; preds = %97
-  %113 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %114 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
-  store ptr %113, ptr %23, align 8
-  %115 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %114, ptr %115, align 8
-  br label %116
+113:                                              ; preds = %98
+  %114 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
+  %115 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %116 = load i64, ptr %115, align 8
+  store ptr %114, ptr %23, align 8
+  %117 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %116, ptr %117, align 8
+  br label %118
 
-116:                                              ; preds = %146, %112
-  br label %168
+118:                                              ; preds = %148, %113
+  br label %171
 
-117:                                              ; preds = %67
+119:                                              ; preds = %67
   store ptr null, ptr %18, align 8
-  br label %120
+  br label %122
 
-118:                                              ; preds = %67
+120:                                              ; preds = %67
   store ptr %85, ptr %11, align 8
-  %119 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  store ptr %119, ptr %18, align 8
-  br label %120
+  %121 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
+  store ptr %121, ptr %18, align 8
+  br label %122
 
-120:                                              ; preds = %118, %117
-  %121 = load ptr, ptr %18, align 8, !noundef !4
-  %122 = ptrtoint ptr %121 to i64
-  %123 = icmp eq i64 %122, 0
-  %124 = select i1 %123, i64 0, i64 1
+122:                                              ; preds = %120, %119
+  %123 = load ptr, ptr %18, align 8, !noundef !4
+  %124 = ptrtoint ptr %123 to i64
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %126, label %127
+  %126 = select i1 %125, i64 0, i64 1
+  %127 = icmp eq i64 %126, 0
+  br i1 %127, label %128, label %129
 
-126:                                              ; preds = %120
+128:                                              ; preds = %122
   store ptr null, ptr %19, align 8
-  br label %129
+  br label %131
 
-127:                                              ; preds = %120
-  %128 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  store ptr %128, ptr %19, align 8
-  br label %129
+129:                                              ; preds = %122
+  %130 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
+  store ptr %130, ptr %19, align 8
+  br label %131
 
-129:                                              ; preds = %127, %126
-  %130 = load ptr, ptr %19, align 8, !noundef !4
-  %131 = ptrtoint ptr %130 to i64
-  %132 = icmp eq i64 %131, 0
-  %133 = select i1 %132, i64 1, i64 0
+131:                                              ; preds = %129, %128
+  %132 = load ptr, ptr %19, align 8, !noundef !4
+  %133 = ptrtoint ptr %132 to i64
   %134 = icmp eq i64 %133, 0
-  br i1 %134, label %135, label %137
+  %135 = select i1 %134, i64 1, i64 0
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %137, label %139
 
-135:                                              ; preds = %129
-  %136 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  store ptr %136, ptr %20, align 8
-  br label %138
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  store ptr %138, ptr %20, align 8
+  br label %140
 
-137:                                              ; preds = %129
+139:                                              ; preds = %131
   store ptr null, ptr %20, align 8
-  br label %138
+  br label %140
 
-138:                                              ; preds = %137, %135
-  %139 = load ptr, ptr %20, align 8, !noundef !4
-  %140 = ptrtoint ptr %139 to i64
-  %141 = icmp eq i64 %140, 0
-  %142 = select i1 %141, i64 1, i64 0
+140:                                              ; preds = %139, %137
+  %141 = load ptr, ptr %20, align 8, !noundef !4
+  %142 = ptrtoint ptr %141 to i64
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %144, label %146
+  %144 = select i1 %143, i64 1, i64 0
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %146, label %148
 
-144:                                              ; preds = %138
-  %145 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  br i1 %6, label %164, label %150
+146:                                              ; preds = %140
+  %147 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  br i1 %6, label %167, label %153
 
-146:                                              ; preds = %138
-  %147 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %148 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
-  store ptr %147, ptr %23, align 8
-  %149 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %148, ptr %149, align 8
-  br label %116
+148:                                              ; preds = %140
+  %149 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
+  %150 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %151 = load i64, ptr %150, align 8
+  store ptr %149, ptr %23, align 8
+  %152 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %151, ptr %152, align 8
+  br label %118
 
-150:                                              ; preds = %164, %144
-  store ptr %145, ptr %9, align 8
-  %151 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %70, ptr %151, align 8
-  %152 = load ptr, ptr %9, align 8, !noundef !4
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
-  %154 = load i64, ptr %153, align 8, !noundef !4
-  store ptr %152, ptr %10, align 8
-  %155 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %154, ptr %155, align 8
-  %156 = load ptr, ptr %10, align 8, !noundef !4
-  %157 = getelementptr inbounds i8, ptr %10, i64 8
-  %158 = load i64, ptr %157, align 8, !noundef !4
-  store ptr %156, ptr %17, align 8
-  %159 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %158, ptr %159, align 8
-  %160 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %161 = getelementptr inbounds i8, ptr %17, i64 8
-  %162 = load i64, ptr %161, align 8, !noundef !4
-  store ptr %160, ptr %23, align 8
-  %163 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %162, ptr %163, align 8
+153:                                              ; preds = %167, %146
+  store ptr %147, ptr %9, align 8
+  %154 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %70, ptr %154, align 8
+  %155 = load ptr, ptr %9, align 8, !noundef !4
+  %156 = getelementptr inbounds i8, ptr %9, i64 8
+  %157 = load i64, ptr %156, align 8, !noundef !4
+  store ptr %155, ptr %10, align 8
+  %158 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %157, ptr %158, align 8
+  %159 = load ptr, ptr %10, align 8, !noundef !4
+  %160 = getelementptr inbounds i8, ptr %10, i64 8
+  %161 = load i64, ptr %160, align 8, !noundef !4
+  store ptr %159, ptr %17, align 8
+  %162 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %161, ptr %162, align 8
+  %163 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %164 = getelementptr inbounds i8, ptr %17, i64 8
+  %165 = load i64, ptr %164, align 8, !noundef !4
+  store ptr %163, ptr %23, align 8
+  %166 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %165, ptr %166, align 8
   br label %52
 
-164:                                              ; preds = %144
-  %165 = getelementptr inbounds i8, ptr %85, i64 %68
-  %166 = sub i64 %70, %68
-  %167 = mul i64 1, %166
-  call void @llvm.memset.p0.i64(ptr align 1 %165, i8 0, i64 %167, i1 false)
-  br label %150
+167:                                              ; preds = %146
+  %168 = getelementptr inbounds i8, ptr %85, i64 %68
+  %169 = sub i64 %70, %68
+  %170 = mul i64 1, %169
+  call void @llvm.memset.p0.i64(ptr align 1 %168, i8 0, i64 %170, i1 false)
+  br label %153
 
-168:                                              ; preds = %116, %52
-  %169 = load ptr, ptr %23, align 8, !noundef !4
-  %170 = getelementptr inbounds i8, ptr %23, i64 8
-  %171 = load i64, ptr %170, align 8
-  %172 = insertvalue { ptr, i64 } poison, ptr %169, 0
-  %173 = insertvalue { ptr, i64 } %172, i64 %171, 1
-  ret { ptr, i64 } %173
+171:                                              ; preds = %118, %52
+  %172 = load ptr, ptr %23, align 8, !noundef !4
+  %173 = getelementptr inbounds i8, ptr %23, i64 8
+  %174 = load i64, ptr %173, align 8
+  %175 = insertvalue { ptr, i64 } poison, ptr %172, 0
+  %176 = insertvalue { ptr, i64 } %175, i64 %174, 1
+  ret { ptr, i64 } %176
 
-174:                                              ; No predecessors!
+177:                                              ; No predecessors!
   unreachable
 }
 
@@ -684,8 +688,8 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %70 = icmp eq i64 %61, %66
   br i1 %70, label %86, label %72
 
-71:                                               ; preds = %161, %120, %36
-  br label %180
+71:                                               ; preds = %163, %121, %36
+  br label %183
 
 72:                                               ; preds = %59
   %73 = load i64, ptr %26, align 8, !noundef !4
@@ -729,7 +733,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %102 = call ptr @__rust_realloc(ptr %1, i64 %96, i64 %98, i64 %87) #10
   %103 = ptrtoint ptr %102 to i64
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %134, label %135
+  br i1 %104, label %136, label %137
 
 105:                                              ; preds = %72
   %106 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
@@ -738,145 +742,148 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   store ptr %106, ptr %18, align 8
   %109 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %108, ptr %109, align 8
-  br label %114
+  br label %115
 
 110:                                              ; preds = %72
   %111 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %112 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
+  %112 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %113 = load i64, ptr %112, align 8
   store ptr %111, ptr %18, align 8
-  %113 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %112, ptr %113, align 8
-  br label %114
+  %114 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %113, ptr %114, align 8
+  br label %115
 
-114:                                              ; preds = %110, %105
-  %115 = load ptr, ptr %18, align 8, !noundef !4
-  %116 = ptrtoint ptr %115 to i64
-  %117 = icmp eq i64 %116, 0
-  %118 = select i1 %117, i64 1, i64 0
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %129
+115:                                              ; preds = %110, %105
+  %116 = load ptr, ptr %18, align 8, !noundef !4
+  %117 = ptrtoint ptr %116 to i64
+  %118 = icmp eq i64 %117, 0
+  %119 = select i1 %118, i64 1, i64 0
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %130
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds i8, ptr %18, i64 8
-  %123 = load i64, ptr %122, align 8, !noundef !4
-  store ptr %121, ptr %7, align 8
-  %124 = mul i64 %73, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr align 1 %1, i64 %124, i1 false)
-  %125 = load i64, ptr %29, align 8, !range !3, !noundef !4
-  %126 = getelementptr inbounds i8, ptr %29, i64 8
-  %127 = load i64, ptr %126, align 8, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr align 1 %0, ptr %1, i64 %125, i64 %127)
-  store ptr %121, ptr %27, align 8
-  %128 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %123, ptr %128, align 8
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
+  %123 = getelementptr inbounds i8, ptr %18, i64 8
+  %124 = load i64, ptr %123, align 8, !noundef !4
+  store ptr %122, ptr %7, align 8
+  %125 = mul i64 %73, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 %1, i64 %125, i1 false)
+  %126 = load i64, ptr %29, align 8, !range !3, !noundef !4
+  %127 = getelementptr inbounds i8, ptr %29, i64 8
+  %128 = load i64, ptr %127, align 8, !noundef !4
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr align 1 %0, ptr %1, i64 %126, i64 %128)
+  store ptr %122, ptr %27, align 8
+  %129 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %124, ptr %129, align 8
   br label %71
 
-129:                                              ; preds = %114
-  %130 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
-  store ptr %130, ptr %27, align 8
-  %132 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %131, ptr %132, align 8
-  br label %133
+130:                                              ; preds = %115
+  %131 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
+  %132 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %133 = load i64, ptr %132, align 8
+  store ptr %131, ptr %27, align 8
+  %134 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %133, ptr %134, align 8
+  br label %135
 
-133:                                              ; preds = %176, %129
-  br label %180
+135:                                              ; preds = %178, %130
+  br label %183
 
-134:                                              ; preds = %86
+136:                                              ; preds = %86
   store ptr null, ptr %20, align 8
-  br label %137
+  br label %139
 
-135:                                              ; preds = %86
+137:                                              ; preds = %86
   store ptr %102, ptr %10, align 8
-  %136 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  store ptr %136, ptr %20, align 8
-  br label %137
+  %138 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  store ptr %138, ptr %20, align 8
+  br label %139
 
-137:                                              ; preds = %135, %134
-  %138 = load ptr, ptr %20, align 8, !noundef !4
-  %139 = ptrtoint ptr %138 to i64
-  %140 = icmp eq i64 %139, 0
-  %141 = select i1 %140, i64 0, i64 1
+139:                                              ; preds = %137, %136
+  %140 = load ptr, ptr %20, align 8, !noundef !4
+  %141 = ptrtoint ptr %140 to i64
   %142 = icmp eq i64 %141, 0
-  br i1 %142, label %143, label %144
+  %143 = select i1 %142, i64 0, i64 1
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %145, label %146
 
-143:                                              ; preds = %137
+145:                                              ; preds = %139
   store ptr null, ptr %21, align 8
-  br label %146
+  br label %148
 
-144:                                              ; preds = %137
-  %145 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  store ptr %145, ptr %21, align 8
-  br label %146
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  store ptr %147, ptr %21, align 8
+  br label %148
 
-146:                                              ; preds = %144, %143
-  %147 = load ptr, ptr %21, align 8, !noundef !4
-  %148 = ptrtoint ptr %147 to i64
-  %149 = icmp eq i64 %148, 0
-  %150 = select i1 %149, i64 1, i64 0
+148:                                              ; preds = %146, %145
+  %149 = load ptr, ptr %21, align 8, !noundef !4
+  %150 = ptrtoint ptr %149 to i64
   %151 = icmp eq i64 %150, 0
-  br i1 %151, label %152, label %154
+  %152 = select i1 %151, i64 1, i64 0
+  %153 = icmp eq i64 %152, 0
+  br i1 %153, label %154, label %156
 
-152:                                              ; preds = %146
-  %153 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  store ptr %153, ptr %22, align 8
-  br label %155
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
+  store ptr %155, ptr %22, align 8
+  br label %157
 
-154:                                              ; preds = %146
+156:                                              ; preds = %148
   store ptr null, ptr %22, align 8
-  br label %155
+  br label %157
 
-155:                                              ; preds = %154, %152
-  %156 = load ptr, ptr %22, align 8, !noundef !4
-  %157 = ptrtoint ptr %156 to i64
-  %158 = icmp eq i64 %157, 0
-  %159 = select i1 %158, i64 1, i64 0
+157:                                              ; preds = %156, %154
+  %158 = load ptr, ptr %22, align 8, !noundef !4
+  %159 = ptrtoint ptr %158 to i64
   %160 = icmp eq i64 %159, 0
-  br i1 %160, label %161, label %176
+  %161 = select i1 %160, i64 1, i64 0
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %163, label %178
 
-161:                                              ; preds = %155
-  %162 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
-  store ptr %162, ptr %8, align 8
-  %163 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %87, ptr %163, align 8
-  %164 = load ptr, ptr %8, align 8, !noundef !4
+163:                                              ; preds = %157
+  %164 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
+  store ptr %164, ptr %8, align 8
   %165 = getelementptr inbounds i8, ptr %8, i64 8
-  %166 = load i64, ptr %165, align 8, !noundef !4
-  store ptr %164, ptr %9, align 8
-  %167 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %166, ptr %167, align 8
-  %168 = load ptr, ptr %9, align 8, !noundef !4
+  store i64 %87, ptr %165, align 8
+  %166 = load ptr, ptr %8, align 8, !noundef !4
+  %167 = getelementptr inbounds i8, ptr %8, i64 8
+  %168 = load i64, ptr %167, align 8, !noundef !4
+  store ptr %166, ptr %9, align 8
   %169 = getelementptr inbounds i8, ptr %9, i64 8
-  %170 = load i64, ptr %169, align 8, !noundef !4
-  store ptr %168, ptr %19, align 8
-  %171 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 %170, ptr %171, align 8
-  %172 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  store i64 %168, ptr %169, align 8
+  %170 = load ptr, ptr %9, align 8, !noundef !4
+  %171 = getelementptr inbounds i8, ptr %9, i64 8
+  %172 = load i64, ptr %171, align 8, !noundef !4
+  store ptr %170, ptr %19, align 8
   %173 = getelementptr inbounds i8, ptr %19, i64 8
-  %174 = load i64, ptr %173, align 8, !noundef !4
-  store ptr %172, ptr %27, align 8
-  %175 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %174, ptr %175, align 8
+  store i64 %172, ptr %173, align 8
+  %174 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %175 = getelementptr inbounds i8, ptr %19, i64 8
+  %176 = load i64, ptr %175, align 8, !noundef !4
+  store ptr %174, ptr %27, align 8
+  %177 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %176, ptr %177, align 8
   br label %71
 
-176:                                              ; preds = %155
-  %177 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
-  %178 = load i64, ptr getelementptr inbounds (i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8), align 8
-  store ptr %177, ptr %27, align 8
-  %179 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %178, ptr %179, align 8
-  br label %133
-
-180:                                              ; preds = %133, %71
-  %181 = load ptr, ptr %27, align 8, !noundef !4
+178:                                              ; preds = %157
+  %179 = load ptr, ptr @anon.23e192774a299433773298130787e8fe.1, align 8, !noundef !4
+  %180 = getelementptr inbounds i8, ptr @anon.23e192774a299433773298130787e8fe.1, i64 8
+  %181 = load i64, ptr %180, align 8
+  store ptr %179, ptr %27, align 8
   %182 = getelementptr inbounds i8, ptr %27, i64 8
-  %183 = load i64, ptr %182, align 8
-  %184 = insertvalue { ptr, i64 } poison, ptr %181, 0
-  %185 = insertvalue { ptr, i64 } %184, i64 %183, 1
-  ret { ptr, i64 } %185
+  store i64 %181, ptr %182, align 8
+  br label %135
 
-186:                                              ; No predecessors!
+183:                                              ; preds = %135, %71
+  %184 = load ptr, ptr %27, align 8, !noundef !4
+  %185 = getelementptr inbounds i8, ptr %27, i64 8
+  %186 = load i64, ptr %185, align 8
+  %187 = insertvalue { ptr, i64 } poison, ptr %184, 0
+  %188 = insertvalue { ptr, i64 } %187, i64 %186, 1
+  ret { ptr, i64 } %188
+
+189:                                              ; No predecessors!
   unreachable
 }
 

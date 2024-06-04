@@ -1588,21 +1588,22 @@ entry:
   store ptr %parsed, ptr %parsed.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue210NFABuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rm_in.addr, align 8
-  store ptr %0, ptr %rm, align 8
+  %1 = load ptr, ptr %rm_in.addr, align 8
+  store ptr %1, ptr %rm, align 8
   %grey = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %grey_in.addr, align 8
-  store ptr %1, ptr %grey, align 8
+  %2 = load ptr, ptr %grey_in.addr, align 8
+  store ptr %2, ptr %grey, align 8
   %graph = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 3
   invoke void @_ZN5boost11make_uniqueIN3ue28NGHolderEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv(ptr sret(%"class.std::unique_ptr.85") align 8 %graph)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %expr = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %expr2 = getelementptr inbounds %"class.ue2::ParsedExpression", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %parsed.addr, align 8
+  %expr2 = getelementptr inbounds %"class.ue2::ParsedExpression", ptr %3, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %expr, ptr align 8 %expr2, i64 56, i1 false)
   %id2vertex = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex) #2
@@ -1645,21 +1646,21 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex) #2
   call void @_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %graph) #2
   br label %ehcleanup
@@ -1709,7 +1710,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue210NFABuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue210NFABuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1977,7 +1979,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id2vertex = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex) #2
   %graph = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 3

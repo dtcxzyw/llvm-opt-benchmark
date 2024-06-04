@@ -661,18 +661,19 @@ if.end69:                                         ; preds = %if.end68, %land.lhs
 
 if.end70:                                         ; preds = %do.end36
   %94 = load ptr, ptr %dss_prev, align 8
-  %cmp71 = icmp eq ptr %94, inttoptr (i64 -1 to ptr)
+  %95 = inttoptr i64 -1 to ptr
+  %cmp71 = icmp eq ptr %94, %95
   br i1 %cmp71, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.end70
   store ptr @dss_exhausted, ptr %a.addr.i83, align 8
   store i8 1, ptr %val.addr.i84, align 1
   store i32 2, ptr %mo.addr.i85, align 4
-  %95 = load ptr, ptr %a.addr.i83, align 8
-  %96 = load i32, ptr %mo.addr.i85, align 4
-  store i32 %96, ptr %mo.addr.i90, align 4
-  %97 = load i32, ptr %mo.addr.i90, align 4
-  switch i32 %97, label %sw.epilog.i [
+  %96 = load ptr, ptr %a.addr.i83, align 8
+  %97 = load i32, ptr %mo.addr.i85, align 4
+  store i32 %97, ptr %mo.addr.i90, align 4
+  %98 = load i32, ptr %mo.addr.i90, align 4
+  switch i32 %98, label %sw.epilog.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
@@ -704,25 +705,25 @@ sw.epilog.i:                                      ; preds = %if.then73
   unreachable
 
 atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %98 = load i32, ptr %retval.i, align 4
-  switch i32 %98, label %monotonic.i89 [
+  %99 = load i32, ptr %retval.i, align 4
+  switch i32 %99, label %monotonic.i89 [
     i32 3, label %release.i88
     i32 5, label %seqcst.i87
   ]
 
 monotonic.i89:                                    ; preds = %atomic_enum_to_builtin.exit
-  %99 = load i8, ptr %val.addr.i84, align 1
-  store atomic i8 %99, ptr %95 monotonic, align 1
+  %100 = load i8, ptr %val.addr.i84, align 1
+  store atomic i8 %100, ptr %96 monotonic, align 1
   br label %atomic_store_b.exit
 
 release.i88:                                      ; preds = %atomic_enum_to_builtin.exit
-  %100 = load i8, ptr %val.addr.i84, align 1
-  store atomic i8 %100, ptr %95 release, align 1
+  %101 = load i8, ptr %val.addr.i84, align 1
+  store atomic i8 %101, ptr %96 release, align 1
   br label %atomic_store_b.exit
 
 seqcst.i87:                                       ; preds = %atomic_enum_to_builtin.exit
-  %101 = load i8, ptr %val.addr.i84, align 1
-  store atomic i8 %101, ptr %95 seq_cst, align 1
+  %102 = load i8, ptr %val.addr.i84, align 1
+  store atomic i8 %102, ptr %96 seq_cst, align 1
   br label %atomic_store_b.exit
 
 atomic_store_b.exit:                              ; preds = %seqcst.i87, %release.i88, %monotonic.i89
@@ -736,18 +737,18 @@ if.end75:                                         ; preds = %atomic_load_b.exit
 
 label_oom:                                        ; preds = %if.end75, %atomic_store_b.exit, %if.then31, %if.then12
   call void @extent_dss_extending_finish()
-  %102 = load ptr, ptr %tsdn.addr, align 8
-  %103 = load ptr, ptr %arena.addr, align 8
-  %pa_shard76 = getelementptr inbounds %struct.arena_s, ptr %103, i32 0, i32 10
+  %103 = load ptr, ptr %tsdn.addr, align 8
+  %104 = load ptr, ptr %arena.addr, align 8
+  %pa_shard76 = getelementptr inbounds %struct.arena_s, ptr %104, i32 0, i32 10
   %edata_cache77 = getelementptr inbounds %struct.pa_shard_s, ptr %pa_shard76, i32 0, i32 7
-  %104 = load ptr, ptr %gap, align 8
-  call void @edata_cache_put(ptr noundef %102, ptr noundef %edata_cache77, ptr noundef %104)
+  %105 = load ptr, ptr %gap, align 8
+  call void @edata_cache_put(ptr noundef %103, ptr noundef %edata_cache77, ptr noundef %105)
   store ptr null, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %label_oom, %if.end69, %if.then6, %if.then
-  %105 = load ptr, ptr %retval, align 8
-  ret ptr %105
+  %106 = load ptr, ptr %retval, align 8
+  ret ptr %106
 }
 
 declare ptr @edata_cache_get(ptr noundef, ptr noundef) #1
@@ -1195,7 +1196,8 @@ entry:
   %call = call ptr @extent_dss_sbrk(i64 noundef 0)
   store ptr %call, ptr %max_cur, align 8
   %0 = load ptr, ptr %max_cur, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1203,15 +1205,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %max_cur, align 8
+  %2 = load ptr, ptr %max_cur, align 8
   store ptr @dss_max, ptr %a.addr.i, align 8
-  store ptr %1, ptr %val.addr.i, align 8
+  store ptr %2, ptr %val.addr.i, align 8
   store i32 2, ptr %mo.addr.i, align 4
-  %2 = load ptr, ptr %a.addr.i, align 8
-  %3 = load i32, ptr %mo.addr.i, align 4
-  store i32 %3, ptr %mo.addr.i5, align 4
-  %4 = load i32, ptr %mo.addr.i5, align 4
-  switch i32 %4, label %sw.epilog.i [
+  %3 = load ptr, ptr %a.addr.i, align 8
+  %4 = load i32, ptr %mo.addr.i, align 4
+  store i32 %4, ptr %mo.addr.i5, align 4
+  %5 = load i32, ptr %mo.addr.i5, align 4
+  switch i32 %5, label %sw.epilog.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
@@ -1243,36 +1245,36 @@ sw.epilog.i:                                      ; preds = %if.end
   unreachable
 
 atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %5 = load i32, ptr %retval.i, align 4
-  switch i32 %5, label %monotonic.i [
+  %6 = load i32, ptr %retval.i, align 4
+  switch i32 %6, label %monotonic.i [
     i32 3, label %release.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit
-  %6 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %6, ptr %2 monotonic, align 8
+  %7 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %7, ptr %3 monotonic, align 8
   br label %atomic_store_p.exit
 
 release.i:                                        ; preds = %atomic_enum_to_builtin.exit
-  %7 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %7, ptr %2 release, align 8
+  %8 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %8, ptr %3 release, align 8
   br label %atomic_store_p.exit
 
 seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  %8 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %8, ptr %2 seq_cst, align 8
+  %9 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %9, ptr %3 seq_cst, align 8
   br label %atomic_store_p.exit
 
 atomic_store_p.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  %9 = load ptr, ptr %new_addr.addr, align 8
-  %cmp1 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %new_addr.addr, align 8
+  %cmp1 = icmp ne ptr %10, null
   br i1 %cmp1, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %atomic_store_p.exit
-  %10 = load ptr, ptr %max_cur, align 8
-  %11 = load ptr, ptr %new_addr.addr, align 8
-  %cmp2 = icmp ne ptr %10, %11
+  %11 = load ptr, ptr %max_cur, align 8
+  %12 = load ptr, ptr %new_addr.addr, align 8
+  %cmp2 = icmp ne ptr %11, %12
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %land.lhs.true
@@ -1280,13 +1282,13 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end4:                                          ; preds = %land.lhs.true, %atomic_store_p.exit
-  %12 = load ptr, ptr %max_cur, align 8
-  store ptr %12, ptr %retval, align 8
+  %13 = load ptr, ptr %max_cur, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1799,16 +1801,17 @@ seqcst.i12:                                       ; preds = %atomic_enum_to_buil
 
 atomic_store_b.exit15:                            ; preds = %seqcst.i12, %release.i13, %monotonic.i14
   %7 = load ptr, ptr @dss_base, align 8
-  %cmp = icmp eq ptr %7, inttoptr (i64 -1 to ptr)
+  %8 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %7, %8
   store ptr @dss_exhausted, ptr %a.addr.i1, align 8
   %frombool.i = zext i1 %cmp to i8
   store i8 %frombool.i, ptr %val.addr.i2, align 1
   store i32 0, ptr %mo.addr.i3, align 4
-  %8 = load ptr, ptr %a.addr.i1, align 8
-  %9 = load i32, ptr %mo.addr.i3, align 4
-  store i32 %9, ptr %mo.addr.i18, align 4
-  %10 = load i32, ptr %mo.addr.i18, align 4
-  switch i32 %10, label %sw.epilog.i24 [
+  %9 = load ptr, ptr %a.addr.i1, align 8
+  %10 = load i32, ptr %mo.addr.i3, align 4
+  store i32 %10, ptr %mo.addr.i18, align 4
+  %11 = load i32, ptr %mo.addr.i18, align 4
+  switch i32 %11, label %sw.epilog.i24 [
     i32 0, label %sw.bb.i23
     i32 1, label %sw.bb1.i22
     i32 2, label %sw.bb2.i21
@@ -1840,37 +1843,37 @@ sw.epilog.i24:                                    ; preds = %atomic_store_b.exit
   unreachable
 
 atomic_enum_to_builtin.exit25:                    ; preds = %sw.bb4.i19, %sw.bb3.i20, %sw.bb2.i21, %sw.bb1.i22, %sw.bb.i23
-  %11 = load i32, ptr %retval.i17, align 4
-  switch i32 %11, label %monotonic.i7 [
+  %12 = load i32, ptr %retval.i17, align 4
+  switch i32 %12, label %monotonic.i7 [
     i32 3, label %release.i6
     i32 5, label %seqcst.i5
   ]
 
 monotonic.i7:                                     ; preds = %atomic_enum_to_builtin.exit25
-  %12 = load i8, ptr %val.addr.i2, align 1
-  store atomic i8 %12, ptr %8 monotonic, align 1
+  %13 = load i8, ptr %val.addr.i2, align 1
+  store atomic i8 %13, ptr %9 monotonic, align 1
   br label %atomic_store_b.exit
 
 release.i6:                                       ; preds = %atomic_enum_to_builtin.exit25
-  %13 = load i8, ptr %val.addr.i2, align 1
-  store atomic i8 %13, ptr %8 release, align 1
+  %14 = load i8, ptr %val.addr.i2, align 1
+  store atomic i8 %14, ptr %9 release, align 1
   br label %atomic_store_b.exit
 
 seqcst.i5:                                        ; preds = %atomic_enum_to_builtin.exit25
-  %14 = load i8, ptr %val.addr.i2, align 1
-  store atomic i8 %14, ptr %8 seq_cst, align 1
+  %15 = load i8, ptr %val.addr.i2, align 1
+  store atomic i8 %15, ptr %9 seq_cst, align 1
   br label %atomic_store_b.exit
 
 atomic_store_b.exit:                              ; preds = %seqcst.i5, %release.i6, %monotonic.i7
-  %15 = load ptr, ptr @dss_base, align 8
+  %16 = load ptr, ptr @dss_base, align 8
   store ptr @dss_max, ptr %a.addr.i, align 8
-  store ptr %15, ptr %val.addr.i, align 8
+  store ptr %16, ptr %val.addr.i, align 8
   store i32 0, ptr %mo.addr.i, align 4
-  %16 = load ptr, ptr %a.addr.i, align 8
-  %17 = load i32, ptr %mo.addr.i, align 4
-  store i32 %17, ptr %mo.addr.i27, align 4
-  %18 = load i32, ptr %mo.addr.i27, align 4
-  switch i32 %18, label %sw.epilog.i33 [
+  %17 = load ptr, ptr %a.addr.i, align 8
+  %18 = load i32, ptr %mo.addr.i, align 4
+  store i32 %18, ptr %mo.addr.i27, align 4
+  %19 = load i32, ptr %mo.addr.i27, align 4
+  switch i32 %19, label %sw.epilog.i33 [
     i32 0, label %sw.bb.i32
     i32 1, label %sw.bb1.i31
     i32 2, label %sw.bb2.i30
@@ -1902,25 +1905,25 @@ sw.epilog.i33:                                    ; preds = %atomic_store_b.exit
   unreachable
 
 atomic_enum_to_builtin.exit34:                    ; preds = %sw.bb4.i28, %sw.bb3.i29, %sw.bb2.i30, %sw.bb1.i31, %sw.bb.i32
-  %19 = load i32, ptr %retval.i26, align 4
-  switch i32 %19, label %monotonic.i [
+  %20 = load i32, ptr %retval.i26, align 4
+  switch i32 %20, label %monotonic.i [
     i32 3, label %release.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit34
-  %20 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %20, ptr %16 monotonic, align 8
+  %21 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %21, ptr %17 monotonic, align 8
   br label %atomic_store_p.exit
 
 release.i:                                        ; preds = %atomic_enum_to_builtin.exit34
-  %21 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %21, ptr %16 release, align 8
+  %22 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %22, ptr %17 release, align 8
   br label %atomic_store_p.exit
 
 seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit34
-  %22 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %22, ptr %16 seq_cst, align 8
+  %23 = load i64, ptr %val.addr.i, align 8
+  store atomic i64 %23, ptr %17 seq_cst, align 8
   br label %atomic_store_p.exit
 
 atomic_store_p.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i

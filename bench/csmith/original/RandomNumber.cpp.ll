@@ -247,62 +247,63 @@ define dso_local void @_ZN12RandomNumberC2Em(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 2
-  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %12 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 3
-  %13 = load i64, ptr %4, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = invoke noundef i32 @_ZN18AbsRndNumGenerator5countEv()
-          to label %15 unwind label %28
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 2
+  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %13 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 3
+  %14 = load i64, ptr %4, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = invoke noundef i32 @_ZN18AbsRndNumGenerator5countEv()
+          to label %16 unwind label %29
 
-15:                                               ; preds = %2
-  store i32 %14, ptr %5, align 4
+16:                                               ; preds = %2
+  store i32 %15, ptr %5, align 4
   store i32 0, ptr %8, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %25, %15
-  %17 = load i32, ptr %8, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp ult i32 %17, %18
-  br i1 %19, label %20, label %32
+17:                                               ; preds = %26, %16
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = icmp ult i32 %18, %19
+  br i1 %20, label %21, label %33
 
-20:                                               ; preds = %16
-  %21 = load i32, ptr %8, align 4
-  store i32 %21, ptr %9, align 4
-  %22 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 2
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %24 unwind label %28
+21:                                               ; preds = %17
+  %22 = load i32, ptr %8, align 4
+  store i32 %22, ptr %9, align 4
+  %23 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 2
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %25 unwind label %29
 
-24:                                               ; preds = %20
-  store ptr null, ptr %23, align 8
-  br label %25
+25:                                               ; preds = %21
+  store ptr null, ptr %24, align 8
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %8, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %8, align 4
-  br label %16, !llvm.loop !5
+26:                                               ; preds = %25
+  %27 = load i32, ptr %8, align 4
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %8, align 4
+  br label %17, !llvm.loop !5
 
-28:                                               ; preds = %20, %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %21, %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %6, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %7, align 4
-  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  br label %33
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %6, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %7, align 4
+  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  br label %34
 
-32:                                               ; preds = %16
+33:                                               ; preds = %17
   ret void
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %7, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %7, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -392,11 +393,12 @@ define dso_local void @_ZN12RandomNumberD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RandomNumber, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %class.RandomNumber, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.RandomNumber, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   ret void
 }
 

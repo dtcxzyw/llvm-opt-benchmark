@@ -694,15 +694,16 @@ sw.bb15:                                          ; preds = %if.end13
 
 sw.bb17:                                          ; preds = %if.end13
   %20 = load ptr, ptr %pval.addr, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %20, align 8
+  %21 = inttoptr i64 1 to ptr
+  store ptr %21, ptr %20, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 sw.bb18:                                          ; preds = %if.end13
   %call19 = call noalias ptr @malloc(i64 noundef 16) #4
   store ptr %call19, ptr %typ, align 8
-  %21 = load ptr, ptr %typ, align 8
-  %tobool20 = icmp ne ptr %21, null
+  %22 = load ptr, ptr %typ, align 8
+  %tobool20 = icmp ne ptr %22, null
   br i1 %tobool20, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %sw.bb18
@@ -710,51 +711,51 @@ if.then21:                                        ; preds = %sw.bb18
   br label %return
 
 if.end22:                                         ; preds = %sw.bb18
-  %22 = load ptr, ptr %typ, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %22, i32 0, i32 1
-  store ptr null, ptr %value, align 8
   %23 = load ptr, ptr %typ, align 8
-  %type = getelementptr inbounds %struct.asn1_type_st, ptr %23, i32 0, i32 0
-  store i32 -1, ptr %type, align 8
+  %value = getelementptr inbounds %struct.asn1_type_st, ptr %23, i32 0, i32 1
+  store ptr null, ptr %value, align 8
   %24 = load ptr, ptr %typ, align 8
-  %25 = load ptr, ptr %pval.addr, align 8
-  store ptr %24, ptr %25, align 8
+  %type = getelementptr inbounds %struct.asn1_type_st, ptr %24, i32 0, i32 0
+  store i32 -1, ptr %type, align 8
+  %25 = load ptr, ptr %typ, align 8
+  %26 = load ptr, ptr %pval.addr, align 8
+  store ptr %25, ptr %26, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end13
-  %26 = load i32, ptr %utype, align 4
-  %call23 = call ptr @ASN1_STRING_type_new(i32 noundef %26)
+  %27 = load i32, ptr %utype, align 4
+  %call23 = call ptr @ASN1_STRING_type_new(i32 noundef %27)
   store ptr %call23, ptr %str, align 8
-  %27 = load ptr, ptr %it.addr, align 8
-  %itype24 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %27, i32 0, i32 0
-  %28 = load i8, ptr %itype24, align 8
-  %conv25 = sext i8 %28 to i32
+  %28 = load ptr, ptr %it.addr, align 8
+  %itype24 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %28, i32 0, i32 0
+  %29 = load i8, ptr %itype24, align 8
+  %conv25 = sext i8 %29 to i32
   %cmp26 = icmp eq i32 %conv25, 5
   br i1 %cmp26, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %sw.default
-  %29 = load ptr, ptr %str, align 8
-  %tobool28 = icmp ne ptr %29, null
+  %30 = load ptr, ptr %str, align 8
+  %tobool28 = icmp ne ptr %30, null
   br i1 %tobool28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %land.lhs.true
-  %30 = load ptr, ptr %str, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %30, i32 0, i32 3
-  %31 = load i64, ptr %flags, align 8
-  %or = or i64 %31, 64
+  %31 = load ptr, ptr %str, align 8
+  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %31, i32 0, i32 3
+  %32 = load i64, ptr %flags, align 8
+  %or = or i64 %32, 64
   store i64 %or, ptr %flags, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %land.lhs.true, %sw.default
-  %32 = load ptr, ptr %str, align 8
-  %33 = load ptr, ptr %pval.addr, align 8
-  store ptr %32, ptr %33, align 8
+  %33 = load ptr, ptr %str, align 8
+  %34 = load ptr, ptr %pval.addr, align 8
+  store ptr %33, ptr %34, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end30, %if.end22
-  %34 = load ptr, ptr %pval.addr, align 8
-  %35 = load ptr, ptr %34, align 8
-  %tobool31 = icmp ne ptr %35, null
+  %35 = load ptr, ptr %pval.addr, align 8
+  %36 = load ptr, ptr %35, align 8
+  %tobool31 = icmp ne ptr %36, null
   br i1 %tobool31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %sw.epilog
@@ -766,8 +767,8 @@ if.end33:                                         ; preds = %sw.epilog
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then32, %if.then21, %sw.bb17, %sw.bb15, %sw.bb, %if.then5, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 declare ptr @OBJ_nid2obj(i32 noundef) #1

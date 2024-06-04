@@ -3198,7 +3198,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %derp, align 8
-  %call2 = call i32 @test_ptr_eq(ptr noundef @.str.16, i32 noundef 1900, ptr noundef @.str.209, ptr noundef @.str.210, ptr noundef %0, ptr noundef getelementptr inbounds (i8, ptr @kExampleBadECKeyDER, i64 104))
+  %1 = getelementptr inbounds i8, ptr @kExampleBadECKeyDER, i64 104
+  %call2 = call i32 @test_ptr_eq(ptr noundef @.str.16, i32 noundef 1900, ptr noundef @.str.209, ptr noundef @.str.210, ptr noundef %0, ptr noundef %1)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.end5, label %if.then4
 
@@ -3206,8 +3207,8 @@ if.then4:                                         ; preds = %if.end
   br label %done
 
 if.end5:                                          ; preds = %if.end
-  %1 = load ptr, ptr %p8inf, align 8
-  %call6 = call ptr @EVP_PKCS82PKEY(ptr noundef %1)
+  %2 = load ptr, ptr %p8inf, align 8
+  %call6 = call ptr @EVP_PKCS82PKEY(ptr noundef %2)
   store ptr %call6, ptr %pkey, align 8
   %call7 = call i32 @test_ptr_null(ptr noundef @.str.16, i32 noundef 1903, ptr noundef @.str.211, ptr noundef %call6)
   %tobool8 = icmp ne i32 %call7, 0
@@ -3221,12 +3222,12 @@ if.end10:                                         ; preds = %if.end5
   br label %done
 
 done:                                             ; preds = %if.end10, %if.then9, %if.then4, %if.then
-  %2 = load ptr, ptr %p8inf, align 8
-  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %2)
-  %3 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %3)
-  %4 = load i32, ptr %ret, align 4
-  ret i32 %4
+  %3 = load ptr, ptr %p8inf, align 8
+  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %3)
+  %4 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %4)
+  %5 = load i32, ptr %ret, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6932,7 +6933,8 @@ if.then15:                                        ; preds = %if.end11
   br label %err
 
 if.end16:                                         ; preds = %if.end11
-  %call17 = call ptr @BN_bin2bn(ptr noundef getelementptr inbounds ([65 x i8], ptr @ec_pub, i64 0, i64 1), i32 noundef 32, ptr noundef null)
+  %3 = getelementptr inbounds [65 x i8], ptr @ec_pub, i64 0, i64 1
+  %call17 = call ptr @BN_bin2bn(ptr noundef %3, i32 noundef 32, ptr noundef null)
   store ptr %call17, ptr %x, align 8
   %call18 = call i32 @test_ptr(ptr noundef @.str.16, i32 noundef 1213, ptr noundef @.str.482, ptr noundef %call17)
   %tobool19 = icmp ne i32 %call18, 0
@@ -6942,7 +6944,8 @@ if.then20:                                        ; preds = %if.end16
   br label %err
 
 if.end21:                                         ; preds = %if.end16
-  %call22 = call ptr @BN_bin2bn(ptr noundef getelementptr inbounds ([65 x i8], ptr @ec_pub, i64 0, i64 33), i32 noundef 32, ptr noundef null)
+  %4 = getelementptr inbounds [65 x i8], ptr @ec_pub, i64 0, i64 33
+  %call22 = call ptr @BN_bin2bn(ptr noundef %4, i32 noundef 32, ptr noundef null)
   store ptr %call22, ptr %y, align 8
   %call23 = call i32 @test_ptr(ptr noundef @.str.16, i32 noundef 1216, ptr noundef @.str.483, ptr noundef %call22)
   %tobool24 = icmp ne i32 %call23, 0
@@ -6952,10 +6955,10 @@ if.then25:                                        ; preds = %if.end21
   br label %err
 
 if.end26:                                         ; preds = %if.end21
-  %3 = load ptr, ptr %eckey, align 8
-  %4 = load ptr, ptr %x, align 8
-  %5 = load ptr, ptr %y, align 8
-  %call27 = call i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %5 = load ptr, ptr %eckey, align 8
+  %6 = load ptr, ptr %x, align 8
+  %7 = load ptr, ptr %y, align 8
+  %call27 = call i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %cmp28 = icmp ne i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call30 = call i32 @test_true(ptr noundef @.str.16, i32 noundef 1219, ptr noundef @.str.484, i32 noundef %conv29)
@@ -6976,9 +6979,9 @@ if.then37:                                        ; preds = %if.end33
   br label %err
 
 if.end38:                                         ; preds = %if.end33
-  %6 = load ptr, ptr %pkey, align 8
-  %7 = load ptr, ptr %eckey, align 8
-  %call39 = call i32 @EVP_PKEY_assign(ptr noundef %6, i32 noundef 408, ptr noundef %7)
+  %8 = load ptr, ptr %pkey, align 8
+  %9 = load ptr, ptr %eckey, align 8
+  %call39 = call i32 @EVP_PKEY_assign(ptr noundef %8, i32 noundef 408, ptr noundef %9)
   %cmp40 = icmp ne i32 %call39, 0
   %conv41 = zext i1 %cmp40 to i32
   %call42 = call i32 @test_true(ptr noundef @.str.16, i32 noundef 1226, ptr noundef @.str.475, i32 noundef %conv41)
@@ -6990,8 +6993,8 @@ if.then44:                                        ; preds = %if.end38
 
 if.end45:                                         ; preds = %if.end38
   store ptr null, ptr %eckey, align 8
-  %8 = load ptr, ptr %pkey, align 8
-  %call46 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %8, ptr noundef @.str.469, ptr noundef %x)
+  %10 = load ptr, ptr %pkey, align 8
+  %call46 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %10, ptr noundef @.str.469, ptr noundef %x)
   %cmp47 = icmp ne i32 %call46, 0
   %conv48 = zext i1 %cmp47 to i32
   %call49 = call i32 @test_true(ptr noundef @.str.16, i32 noundef 1230, ptr noundef @.str.486, i32 noundef %conv48)
@@ -6999,8 +7002,8 @@ if.end45:                                         ; preds = %if.end38
   br i1 %tobool50, label %lor.lhs.false, label %if.then56
 
 lor.lhs.false:                                    ; preds = %if.end45
-  %9 = load ptr, ptr %pkey, align 8
-  %call51 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %9, ptr noundef @.str.470, ptr noundef %y)
+  %11 = load ptr, ptr %pkey, align 8
+  %call51 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %11, ptr noundef @.str.470, ptr noundef %y)
   %cmp52 = icmp ne i32 %call51, 0
   %conv53 = zext i1 %cmp52 to i32
   %call54 = call i32 @test_true(ptr noundef @.str.16, i32 noundef 1231, ptr noundef @.str.487, i32 noundef %conv53)
@@ -7021,20 +7024,20 @@ if.then61:                                        ; preds = %if.end57
   br label %err
 
 if.end62:                                         ; preds = %if.end57
-  %10 = load i8, ptr @ec_pub, align 16
-  %11 = load ptr, ptr %pad, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %11, i64 0
-  store i8 %10, ptr %arrayidx, align 1
-  %12 = load ptr, ptr %x, align 8
+  %12 = load i8, ptr @ec_pub, align 16
   %13 = load ptr, ptr %pad, align 8
-  %arrayidx63 = getelementptr inbounds i8, ptr %13, i64 1
-  %call64 = call i32 @BN_bn2bin(ptr noundef %12, ptr noundef %arrayidx63)
-  %14 = load ptr, ptr %y, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %13, i64 0
+  store i8 %12, ptr %arrayidx, align 1
+  %14 = load ptr, ptr %x, align 8
   %15 = load ptr, ptr %pad, align 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %15, i64 33
-  %call66 = call i32 @BN_bn2bin(ptr noundef %14, ptr noundef %arrayidx65)
-  %16 = load ptr, ptr %pad, align 8
-  %call67 = call i32 @memcmp(ptr noundef @ec_pub, ptr noundef %16, i64 noundef 65) #6
+  %arrayidx63 = getelementptr inbounds i8, ptr %15, i64 1
+  %call64 = call i32 @BN_bn2bin(ptr noundef %14, ptr noundef %arrayidx63)
+  %16 = load ptr, ptr %y, align 8
+  %17 = load ptr, ptr %pad, align 8
+  %arrayidx65 = getelementptr inbounds i8, ptr %17, i64 33
+  %call66 = call i32 @BN_bn2bin(ptr noundef %16, ptr noundef %arrayidx65)
+  %18 = load ptr, ptr %pad, align 8
+  %call67 = call i32 @memcmp(ptr noundef @ec_pub, ptr noundef %18, i64 noundef 65) #6
   %cmp68 = icmp eq i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %cmp70 = icmp ne i32 %conv69, 0
@@ -7051,22 +7054,22 @@ if.end75:                                         ; preds = %if.end62
   br label %err
 
 err:                                              ; preds = %if.end75, %if.then74, %if.then61, %if.then56, %if.then44, %if.then37, %if.then32, %if.then25, %if.then20, %if.then15, %if.then10, %if.then5, %if.then
-  %17 = load ptr, ptr %libctx, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %17)
-  %18 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %18)
-  %19 = load ptr, ptr %eckey, align 8
-  call void @EC_KEY_free(ptr noundef %19)
-  %20 = load ptr, ptr %pad, align 8
-  call void @CRYPTO_free(ptr noundef %20, ptr noundef @.str.16, i32 noundef 1250)
-  %21 = load ptr, ptr %priv, align 8
-  call void @BN_free(ptr noundef %21)
-  %22 = load ptr, ptr %x, align 8
-  call void @BN_free(ptr noundef %22)
-  %23 = load ptr, ptr %y, align 8
+  %19 = load ptr, ptr %libctx, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %19)
+  %20 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %20)
+  %21 = load ptr, ptr %eckey, align 8
+  call void @EC_KEY_free(ptr noundef %21)
+  %22 = load ptr, ptr %pad, align 8
+  call void @CRYPTO_free(ptr noundef %22, ptr noundef @.str.16, i32 noundef 1250)
+  %23 = load ptr, ptr %priv, align 8
   call void @BN_free(ptr noundef %23)
-  %24 = load i32, ptr %ret, align 4
-  ret i32 %24
+  %24 = load ptr, ptr %x, align 8
+  call void @BN_free(ptr noundef %24)
+  %25 = load ptr, ptr %y, align 8
+  call void @BN_free(ptr noundef %25)
+  %26 = load i32, ptr %ret, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable

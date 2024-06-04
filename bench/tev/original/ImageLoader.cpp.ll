@@ -1733,7 +1733,8 @@ define linkonce_odr dso_local void @_ZN3tev14ExrImageLoaderC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14ExrImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev14ExrImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1783,7 +1784,8 @@ define linkonce_odr dso_local void @_ZN3tev14PfmImageLoaderC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14PfmImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev14PfmImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1833,7 +1835,8 @@ define linkonce_odr dso_local void @_ZN3tev20ClipboardImageLoaderC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev20ClipboardImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev20ClipboardImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1883,7 +1886,8 @@ define linkonce_odr dso_local void @_ZN3tev16EmptyImageLoaderC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev16EmptyImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev16EmptyImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1933,7 +1937,8 @@ define linkonce_odr dso_local void @_ZN3tev14QoiImageLoaderC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev14QoiImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev14QoiImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1983,7 +1988,8 @@ define linkonce_odr dso_local void @_ZN3tev15StbiImageLoaderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15StbiImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev15StbiImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2803,7 +2809,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3472,7 +3479,8 @@ define linkonce_odr dso_local void @_ZN3tev11ImageLoaderC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev11ImageLoaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tev11ImageLoaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

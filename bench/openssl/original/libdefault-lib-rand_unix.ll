@@ -393,24 +393,25 @@ entry:
   %buflen.addr = alloca i64, align 8
   store ptr %buf, ptr %buf.addr, align 8
   store i64 %buflen, ptr %buflen.addr, align 8
-  br i1 icmp ne (ptr @getentropy, ptr null), label %if.then, label %if.end6
+  %0 = icmp ne ptr @getentropy, null
+  br i1 %0, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %buf.addr, align 8
-  %1 = load i64, ptr %buflen.addr, align 8
-  %call = call i32 @getentropy(ptr noundef %0, i64 noundef %1)
+  %1 = load ptr, ptr %buf.addr, align 8
+  %2 = load i64, ptr %buflen.addr, align 8
+  %call = call i32 @getentropy(ptr noundef %1, i64 noundef %2)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
-  %2 = load i64, ptr %buflen.addr, align 8
-  store i64 %2, ptr %retval, align 8
+  %3 = load i64, ptr %buflen.addr, align 8
+  store i64 %3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
   %call2 = call ptr @__errno_location() #6
-  %3 = load i32, ptr %call2, align 4
-  %cmp3 = icmp ne i32 %3, 38
+  %4 = load i32, ptr %call2, align 4
+  %cmp3 = icmp ne i32 %4, 38
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -421,15 +422,15 @@ if.end5:                                          ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end5, %entry
-  %4 = load ptr, ptr %buf.addr, align 8
-  %5 = load i64, ptr %buflen.addr, align 8
-  %call7 = call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %4, i64 noundef %5, i32 noundef 0) #7
+  %5 = load ptr, ptr %buf.addr, align 8
+  %6 = load i64, ptr %buflen.addr, align 8
+  %call7 = call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %5, i64 noundef %6, i32 noundef 0) #7
   store i64 %call7, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then4, %if.then1
-  %6 = load i64, ptr %retval, align 8
-  ret i64 %6
+  %7 = load i64, ptr %retval, align 8
+  ret i64 %7
 }
 
 declare i32 @ossl_rand_pool_add_end(ptr noundef, i64 noundef, i64 noundef) #1
@@ -511,8 +512,9 @@ lor.lhs.false:                                    ; preds = %cond.end
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %arrayidx16 = getelementptr inbounds [2 x i32], ptr %kernel, i64 0, i64 1
   %7 = load i32, ptr %arrayidx16, align 4
-  %8 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @wait_random_seeded.kernel_version, i64 0, i64 1), align 4
-  %cmp17 = icmp sge i32 %7, %8
+  %8 = getelementptr inbounds [2 x i32], ptr @wait_random_seeded.kernel_version, i64 0, i64 1
+  %9 = load i32, ptr %8, align 4
+  %cmp17 = icmp sge i32 %7, %9
   br i1 %cmp17, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %land.lhs.true, %cond.end
@@ -529,8 +531,8 @@ if.end19:                                         ; preds = %if.end, %if.then1
   br i1 %cmp21, label %if.then22, label %if.end56
 
 if.then22:                                        ; preds = %if.end19
-  %9 = load i32, ptr %fd, align 4
-  %cmp23 = icmp slt i32 %9, 1024
+  %10 = load i32, ptr %fd, align 4
+  %cmp23 = icmp slt i32 %10, 1024
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.then22
@@ -542,23 +544,23 @@ do.body:                                          ; preds = %if.then24
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.body
-  %10 = load i32, ptr %__i, align 4
-  %conv = zext i32 %10 to i64
+  %11 = load i32, ptr %__i, align 4
+  %conv = zext i32 %11 to i64
   %cmp25 = icmp ult i64 %conv, 16
   br i1 %cmp25, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %__arr, align 8
-  %fds_bits = getelementptr inbounds %struct.fd_set, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %__i, align 4
-  %idxprom = zext i32 %12 to i64
+  %12 = load ptr, ptr %__arr, align 8
+  %fds_bits = getelementptr inbounds %struct.fd_set, ptr %12, i32 0, i32 0
+  %13 = load i32, ptr %__i, align 4
+  %idxprom = zext i32 %13 to i64
   %arrayidx27 = getelementptr inbounds [16 x i64], ptr %fds_bits, i64 0, i64 %idxprom
   store i64 0, ptr %arrayidx27, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %13 = load i32, ptr %__i, align 4
-  %inc = add i32 %13, 1
+  %14 = load i32, ptr %__i, align 4
+  %inc = add i32 %14, 1
   store i32 %inc, ptr %__i, align 4
   br label %for.cond, !llvm.loop !10
 
@@ -566,23 +568,23 @@ for.end:                                          ; preds = %for.cond
   br label %do.end
 
 do.end:                                           ; preds = %for.end
-  %14 = load i32, ptr %fd, align 4
-  %rem = srem i32 %14, 64
+  %15 = load i32, ptr %fd, align 4
+  %rem = srem i32 %15, 64
   %sh_prom = zext i32 %rem to i64
   %shl = shl i64 1, %sh_prom
   %fds_bits28 = getelementptr inbounds %struct.fd_set, ptr %fds, i32 0, i32 0
-  %15 = load i32, ptr %fd, align 4
-  %div = sdiv i32 %15, 64
+  %16 = load i32, ptr %fd, align 4
+  %div = sdiv i32 %16, 64
   %idxprom29 = sext i32 %div to i64
   %arrayidx30 = getelementptr inbounds [16 x i64], ptr %fds_bits28, i64 0, i64 %idxprom29
-  %16 = load i64, ptr %arrayidx30, align 8
-  %or = or i64 %16, %shl
+  %17 = load i64, ptr %arrayidx30, align 8
+  %or = or i64 %17, %shl
   store i64 %or, ptr %arrayidx30, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %do.end
-  %17 = load i32, ptr %fd, align 4
-  %add = add nsw i32 %17, 1
+  %18 = load i32, ptr %fd, align 4
+  %add = add nsw i32 %18, 1
   %call31 = call i32 @select(i32 noundef %add, ptr noundef %fds, ptr noundef null, ptr noundef null, ptr noundef null)
   store i32 %call31, ptr %r, align 4
   %cmp32 = icmp slt i32 %call31, 0
@@ -590,13 +592,13 @@ while.cond:                                       ; preds = %while.body, %do.end
 
 land.rhs:                                         ; preds = %while.cond
   %call34 = call ptr @__errno_location() #6
-  %18 = load i32, ptr %call34, align 4
-  %cmp35 = icmp eq i32 %18, 4
+  %19 = load i32, ptr %call34, align 4
+  %cmp35 = icmp eq i32 %19, 4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %19 = phi i1 [ false, %while.cond ], [ %cmp35, %land.rhs ]
-  br i1 %19, label %while.body, label %while.end
+  %20 = phi i1 [ false, %while.cond ], [ %cmp35, %land.rhs ]
+  br i1 %20, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
   br label %while.cond, !llvm.loop !11
@@ -608,8 +610,8 @@ if.else:                                          ; preds = %if.then22
   br label %while.cond37
 
 while.cond37:                                     ; preds = %while.body47, %if.else
-  %20 = load i32, ptr %fd, align 4
-  %call38 = call i64 @read(i32 noundef %20, ptr noundef %c, i64 noundef 1)
+  %21 = load i32, ptr %fd, align 4
+  %call38 = call i64 @read(i32 noundef %21, ptr noundef %c, i64 noundef 1)
   %conv39 = trunc i64 %call38 to i32
   store i32 %conv39, ptr %r, align 4
   %cmp40 = icmp slt i32 %conv39, 0
@@ -617,13 +619,13 @@ while.cond37:                                     ; preds = %while.body47, %if.e
 
 land.rhs42:                                       ; preds = %while.cond37
   %call43 = call ptr @__errno_location() #6
-  %21 = load i32, ptr %call43, align 4
-  %cmp44 = icmp eq i32 %21, 4
+  %22 = load i32, ptr %call43, align 4
+  %cmp44 = icmp eq i32 %22, 4
   br label %land.end46
 
 land.end46:                                       ; preds = %land.rhs42, %while.cond37
-  %22 = phi i1 [ false, %while.cond37 ], [ %cmp44, %land.rhs42 ]
-  br i1 %22, label %while.body47, label %while.end48
+  %23 = phi i1 [ false, %while.cond37 ], [ %cmp44, %land.rhs42 ]
+  br i1 %23, label %while.body47, label %while.end48
 
 while.body47:                                     ; preds = %land.end46
   br label %while.cond37, !llvm.loop !12
@@ -632,10 +634,10 @@ while.end48:                                      ; preds = %land.end46
   br label %if.end49
 
 if.end49:                                         ; preds = %while.end48, %while.end
-  %23 = load i32, ptr %fd, align 4
-  %call50 = call i32 @close(i32 noundef %23)
-  %24 = load i32, ptr %r, align 4
-  %cmp51 = icmp eq i32 %24, 1
+  %24 = load i32, ptr %fd, align 4
+  %call50 = call i32 @close(i32 noundef %24)
+  %25 = load i32, ptr %r, align 4
+  %cmp51 = icmp eq i32 %25, 1
   br i1 %cmp51, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %if.end49
@@ -651,17 +653,18 @@ if.end56:                                         ; preds = %if.end55, %if.end19
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end56, %if.then
-  %25 = load i32, ptr %shm_id, align 4
-  %cmp58 = icmp ne i32 %25, -1
+  %26 = load i32, ptr %shm_id, align 4
+  %cmp58 = icmp ne i32 %26, -1
   br i1 %cmp58, label %if.then60, label %if.end67
 
 if.then60:                                        ; preds = %if.end57
   store i32 1, ptr @wait_random_seeded.seeded, align 4
-  %26 = load i32, ptr %shm_id, align 4
-  %call61 = call ptr @shmat(i32 noundef %26, ptr noundef null, i32 noundef 4096) #7
+  %27 = load i32, ptr %shm_id, align 4
+  %call61 = call ptr @shmat(i32 noundef %27, ptr noundef null, i32 noundef 4096) #7
   store ptr %call61, ptr @shm_addr, align 8
-  %27 = load ptr, ptr @shm_addr, align 8
-  %cmp62 = icmp ne ptr %27, inttoptr (i64 -1 to ptr)
+  %28 = load ptr, ptr @shm_addr, align 8
+  %29 = inttoptr i64 -1 to ptr
+  %cmp62 = icmp ne ptr %28, %29
   br i1 %cmp62, label %if.then64, label %if.end66
 
 if.then64:                                        ; preds = %if.then60
@@ -675,13 +678,13 @@ if.end67:                                         ; preds = %if.end66, %if.end57
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end67, %entry
-  %28 = load i32, ptr @wait_random_seeded.seeded, align 4
-  store i32 %28, ptr %retval, align 4
+  %30 = load i32, ptr @wait_random_seeded.seeded, align 4
+  store i32 %30, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end68, %if.then18
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+  %31 = load i32, ptr %retval, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable

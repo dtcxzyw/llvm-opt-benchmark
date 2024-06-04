@@ -221,112 +221,115 @@ define dso_local i32 @register_qdisc(ptr noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = tail call i32 @strcmp(ptr noundef %2, ptr noundef %8) #19
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %65, label %3, !llvm.loop !6
+  br i1 %10, label %68, label %3, !llvm.loop !6
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds (%struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 5), align 8
-  store ptr %16, ptr %12, align 8
-  br label %17
+  %16 = getelementptr inbounds %struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 5
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %12, align 8
+  br label %18
 
-17:                                               ; preds = %15, %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %27
+18:                                               ; preds = %15, %11
+  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %65
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %68
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr getelementptr inbounds (%struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 7), align 8
-  store ptr %26, ptr %18, align 8
-  br label %27
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 7
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %19, align 8
+  br label %29
 
-27:                                               ; preds = %25, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
+29:                                               ; preds = %26, %18
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds (%struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 6), align 8
-  store ptr %32, ptr %28, align 8
-  br label %33
-
-33:                                               ; preds = %31, %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds %struct.Qdisc_ops, ptr @noop_qdisc_ops, i64 0, i32 6
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %64, label %37
+  store ptr %35, ptr %30, align 8
+  br label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 40
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %62, label %41
+36:                                               ; preds = %33, %29
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %67, label %40
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %35, i64 64
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %62, label %45
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %38, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %65, label %44
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %35, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %62, label %49
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %38, i64 64
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %65, label %48
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %35, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %61, label %53
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %38, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %65, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %35, i64 80
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %62, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %38, i64 72
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %64, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %35, i64 88
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %62, label %61
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %38, i64 80
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %65, label %60
 
-61:                                               ; preds = %57, %49
-  br label %62
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %38, i64 88
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %65, label %64
 
-62:                                               ; preds = %61, %57, %53, %45, %41, %37
-  %63 = phi i32 [ 0, %61 ], [ 6, %45 ], [ 6, %41 ], [ 6, %37 ], [ 6, %57 ], [ 6, %53 ]
-  switch i32 %63, label %67 [
-    i32 0, label %64
-    i32 6, label %65
-  ]
-
-64:                                               ; preds = %62, %33
-  store ptr null, ptr %0, align 8
-  store ptr %0, ptr %4, align 8
+64:                                               ; preds = %60, %52
   br label %65
 
-65:                                               ; preds = %64, %62, %21, %7
-  %66 = phi i32 [ 0, %64 ], [ -22, %21 ], [ -22, %62 ], [ -17, %7 ]
-  tail call void @_raw_write_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
-  br label %67
+65:                                               ; preds = %64, %60, %56, %48, %44, %40
+  %66 = phi i32 [ 0, %64 ], [ 6, %48 ], [ 6, %44 ], [ 6, %40 ], [ 6, %60 ], [ 6, %56 ]
+  switch i32 %66, label %70 [
+    i32 0, label %67
+    i32 6, label %68
+  ]
 
-67:                                               ; preds = %65, %62
-  %68 = phi i32 [ %66, %65 ], [ undef, %62 ]
-  ret i32 %68
+67:                                               ; preds = %65, %36
+  store ptr null, ptr %0, align 8
+  store ptr %0, ptr %4, align 8
+  br label %68
+
+68:                                               ; preds = %67, %65, %22, %7
+  %69 = phi i32 [ 0, %67 ], [ -22, %22 ], [ -22, %65 ], [ -17, %7 ]
+  tail call void @_raw_write_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
+  br label %70
+
+70:                                               ; preds = %68, %65
+  %71 = phi i32 [ %69, %68 ], [ undef, %65 ]
+  ret i32 %71
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -932,11 +935,11 @@ define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr nound
 21:                                               ; preds = %13, %9, %5, %3
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_rtab.__msg) #19
   %22 = icmp eq ptr %2, null
-  br i1 %22, label %59, label %23
+  br i1 %22, label %60, label %23
 
 23:                                               ; preds = %21
   store ptr @qdisc_get_rtab.__msg, ptr %2, align 8
-  br label %59
+  br label %60
 
 24:                                               ; preds = %36, %19
   %25 = phi ptr [ %17, %19 ], [ %38, %36 ]
@@ -955,7 +958,7 @@ define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr nound
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  br label %59
+  br label %60
 
 36:                                               ; preds = %28, %24
   %37 = getelementptr inbounds i8, ptr %25, i64 1040
@@ -964,47 +967,48 @@ define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr nound
   br i1 %39, label %40, label %24, !llvm.loop !29
 
 40:                                               ; preds = %36, %16
-  %41 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %42 = tail call noalias align 8 dereferenceable_or_null(1056) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 3264, i64 noundef 1056) #20
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %56, label %44
+  %41 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noalias align 8 dereferenceable_or_null(1056) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3264, i64 noundef 1056) #20
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %57, label %45
 
-44:                                               ; preds = %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %45 = getelementptr inbounds i8, ptr %42, i64 1048
-  store i32 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 12
-  %47 = getelementptr i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(1024) %46, ptr noundef align 1 dereferenceable(1024) %47, i64 1024, i1 false)
-  %48 = getelementptr inbounds i8, ptr %0, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %53
+45:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef align 4 dereferenceable(12) %0, i64 12, i1 false)
+  %46 = getelementptr inbounds i8, ptr %43, i64 1048
+  store i32 1, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %43, i64 12
+  %48 = getelementptr i8, ptr %1, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(1024) %47, ptr noundef align 1 dereferenceable(1024) %48, i64 1024, i1 false)
+  %49 = getelementptr inbounds i8, ptr %0, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %44
-  %52 = tail call fastcc zeroext i8 @__detect_linklayer(ptr noundef %0, ptr noundef %46), !range !30
-  store i8 %52, ptr %48, align 1
-  br label %53
+52:                                               ; preds = %45
+  %53 = tail call fastcc zeroext i8 @__detect_linklayer(ptr noundef %0, ptr noundef %47), !range !30
+  store i8 %53, ptr %49, align 1
+  br label %54
 
-53:                                               ; preds = %51, %44
-  %54 = load ptr, ptr @qdisc_rtab_list, align 8
-  %55 = getelementptr inbounds i8, ptr %42, i64 1040
-  store ptr %54, ptr %55, align 8
-  store ptr %42, ptr @qdisc_rtab_list, align 8
-  br label %59
+54:                                               ; preds = %52, %45
+  %55 = load ptr, ptr @qdisc_rtab_list, align 8
+  %56 = getelementptr inbounds i8, ptr %43, i64 1040
+  store ptr %55, ptr %56, align 8
+  store ptr %43, ptr @qdisc_rtab_list, align 8
+  br label %60
 
-56:                                               ; preds = %40
+57:                                               ; preds = %40
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_rtab.__msg.4) #19
-  %57 = icmp eq ptr %2, null
-  br i1 %57, label %59, label %58
+  %58 = icmp eq ptr %2, null
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %56
+59:                                               ; preds = %57
   store ptr @qdisc_get_rtab.__msg.4, ptr %2, align 8
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %56, %53, %32, %23, %21
-  %60 = phi ptr [ %25, %32 ], [ null, %23 ], [ null, %21 ], [ %42, %56 ], [ %42, %58 ], [ %42, %53 ]
-  ret ptr %60
+60:                                               ; preds = %59, %57, %54, %32, %23, %21
+  %61 = phi ptr [ %25, %32 ], [ null, %23 ], [ null, %21 ], [ %43, %57 ], [ %43, %59 ], [ %43, %54 ]
+  ret ptr %61
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1119,7 +1123,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @qdisc_put_stab(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %14, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1127,7 +1131,7 @@ define dso_local void @qdisc_put_stab(ptr noundef %0) #0 align 16 {
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1137,12 +1141,14 @@ define dso_local void @qdisc_put_stab(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %10, align 8
+  %14 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %14, ptr %9, align 8
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %10, align 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %0, ptr noundef nonnull %0) #19
-  br label %14
+  br label %16
 
-14:                                               ; preds = %8, %3, %1
+16:                                               ; preds = %8, %3, %1
   ret void
 }
 
@@ -1594,12 +1600,14 @@ define dso_local void @qdisc_class_hash_remove(ptr nocapture noundef %0, ptr noc
   br label %10
 
 10:                                               ; preds = %8, %2
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 8
-  %13 = add i32 %12, -1
-  store i32 %13, ptr %11, align 8
+  %11 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %11, ptr %3, align 8
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i32, ptr %13, align 8
+  %15 = add i32 %14, -1
+  store i32 %15, ptr %13, align 8
   ret void
 }
 
@@ -1869,7 +1877,7 @@ define internal i32 @pktsched_init() #10 section ".init.text" align 16 {
 
 3:                                                ; preds = %0
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #21
-  br label %13
+  br label %14
 
 5:                                                ; preds = %0
   %6 = tail call i32 @register_qdisc(ptr noundef nonnull @pfifo_fast_ops)
@@ -1884,16 +1892,17 @@ define internal i32 @pktsched_init() #10 section ".init.text" align 16 {
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 40, ptr noundef nonnull @tc_ctl_tclass, ptr noundef null, i32 noundef 0) #19
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 41, ptr noundef nonnull @tc_ctl_tclass, ptr noundef null, i32 noundef 0) #19
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 42, ptr noundef nonnull @tc_ctl_tclass, ptr noundef nonnull @tc_dump_tclass, i32 noundef 0) #19
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 364, i32 16, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 37)) #19
-          to label %13 [label %13, label %12], !srcloc !49
+  %12 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 37
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 364, i32 16, ptr nonnull %12) #19
+          to label %14 [label %14, label %13], !srcloc !49
 
-12:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @static_key_enable(ptr noundef nonnull @tc_skip_wrapper) #19
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %5, %5, %3
-  %14 = phi i32 [ %1, %3 ], [ 0, %5 ], [ 0, %5 ], [ 0, %12 ]
-  ret i32 %14
+14:                                               ; preds = %13, %5, %5, %3
+  %15 = phi i32 [ %1, %3 ], [ 0, %5 ], [ 0, %5 ], [ 0, %13 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1958,7 +1967,7 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = icmp eq ptr %2, null
   br label %22
 
-22:                                               ; preds = %335, %3
+22:                                               ; preds = %338, %3
   %23 = load i32, ptr %1, align 4
   %24 = icmp ult i32 %23, 36
   br i1 %24, label %25, label %27
@@ -1980,14 +1989,14 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
   %31 = phi i32 [ %29, %27 ], [ -22, %26 ], [ -22, %25 ]
   store i32 %31, ptr %5, align 4
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %344, label %33
+  br i1 %32, label %347, label %33
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %13, align 4
   %35 = load i32, ptr %14, align 4
   %36 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %35) #19
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %344, label %38
+  br i1 %37, label %347, label %38
 
 38:                                               ; preds = %33
   switch i32 %34, label %39 [
@@ -2005,11 +2014,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 43:                                               ; preds = %39
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg) #19
   %44 = icmp eq ptr %2, null
-  br i1 %44, label %344, label %45
+  br i1 %44, label %347, label %45
 
 45:                                               ; preds = %43
   store ptr @tc_modify_qdisc.__msg, ptr %2, align 8
-  br label %344
+  br label %347
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %41, i64 24
@@ -2095,11 +2104,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 99:                                               ; preds = %95
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.11) #19
   %100 = icmp eq ptr %2, null
-  br i1 %100, label %344, label %101
+  br i1 %100, label %347, label %101
 
 101:                                              ; preds = %99
   store ptr @tc_modify_qdisc.__msg.11, ptr %2, align 8
-  br label %344
+  br label %347
 
 102:                                              ; preds = %95, %94
   %103 = and i32 %92, 65535
@@ -2109,16 +2118,16 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 105:                                              ; preds = %102
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.12) #19
   %106 = icmp eq ptr %2, null
-  br i1 %106, label %344, label %107
+  br i1 %106, label %347, label %107
 
 107:                                              ; preds = %105
   store ptr @tc_modify_qdisc.__msg.12, ptr %2, align 8
-  br label %344
+  br label %347
 
 108:                                              ; preds = %102
   %109 = call ptr @qdisc_lookup(ptr noundef nonnull %36, i32 noundef %92)
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %286, label %111
+  br i1 %110, label %289, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds i8, ptr %1, i64 6
@@ -2130,11 +2139,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 116:                                              ; preds = %111
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.13) #19
   %117 = icmp eq ptr %2, null
-  br i1 %117, label %344, label %118
+  br i1 %117, label %347, label %118
 
 118:                                              ; preds = %116
   store ptr @tc_modify_qdisc.__msg.13, ptr %2, align 8
-  br label %344
+  br label %347
 
 119:                                              ; preds = %111
   %120 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2153,11 +2162,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 129:                                              ; preds = %123
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.14) #19
   %130 = icmp eq ptr %2, null
-  br i1 %130, label %344, label %131
+  br i1 %130, label %347, label %131
 
 131:                                              ; preds = %129
   store ptr @tc_modify_qdisc.__msg.14, ptr %2, align 8
-  br label %344
+  br label %347
 
 132:                                              ; preds = %123, %119
   %133 = getelementptr inbounds i8, ptr %109, i64 16
@@ -2169,11 +2178,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 137:                                              ; preds = %132
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.15) #19
   %138 = icmp eq ptr %2, null
-  br i1 %138, label %344, label %139
+  br i1 %138, label %347, label %139
 
 139:                                              ; preds = %137
   store ptr @tc_modify_qdisc.__msg.15, ptr %2, align 8
-  br label %344
+  br label %347
 
 140:                                              ; preds = %132
   %141 = icmp eq ptr %109, %74
@@ -2191,11 +2200,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 147:                                              ; preds = %144, %140
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.16) #19
   %148 = icmp eq ptr %2, null
-  br i1 %148, label %344, label %149
+  br i1 %148, label %347, label %149
 
 149:                                              ; preds = %147
   store ptr @tc_modify_qdisc.__msg.16, ptr %2, align 8
-  br label %344
+  br label %347
 
 150:                                              ; preds = %144, %142
   %151 = icmp eq i32 %34, -15
@@ -2204,18 +2213,18 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 152:                                              ; preds = %150
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.17) #19
   %153 = icmp eq ptr %2, null
-  br i1 %153, label %344, label %154
+  br i1 %153, label %347, label %154
 
 154:                                              ; preds = %152
   store ptr @tc_modify_qdisc.__msg.17, ptr %2, align 8
-  br label %344
+  br label %347
 
 155:                                              ; preds = %150
   call fastcc void @qdisc_refcount_inc(ptr noundef nonnull %109)
-  br label %338
+  br label %341
 
 156:                                              ; preds = %91
-  br i1 %83, label %286, label %157
+  br i1 %83, label %289, label %157
 
 157:                                              ; preds = %156
   %158 = load ptr, ptr %18, align 8
@@ -2237,12 +2246,12 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
   %170 = and i16 %167, 1536
   %171 = icmp eq i16 %170, 1536
   %172 = or i1 %169, %171
-  br i1 %172, label %286, label %173
+  br i1 %172, label %289, label %173
 
 173:                                              ; preds = %166
   %174 = and i16 %167, 1792
   %175 = icmp eq i16 %174, 0
-  br i1 %175, label %294, label %185
+  br i1 %175, label %297, label %185
 
 176:                                              ; preds = %38
   %177 = getelementptr i8, ptr %1, i64 24
@@ -2253,11 +2262,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 180:                                              ; preds = %176
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.18) #19
   %181 = icmp eq ptr %2, null
-  br i1 %181, label %344, label %182
+  br i1 %181, label %347, label %182
 
 182:                                              ; preds = %180
   store ptr @tc_modify_qdisc.__msg.18, ptr %2, align 8
-  br label %344
+  br label %347
 
 183:                                              ; preds = %176
   %184 = call ptr @qdisc_lookup(ptr noundef nonnull %36, i32 noundef %178)
@@ -2271,11 +2280,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 188:                                              ; preds = %185
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.19) #19
   %189 = icmp eq ptr %2, null
-  br i1 %189, label %344, label %190
+  br i1 %189, label %347, label %190
 
 190:                                              ; preds = %188
   store ptr @tc_modify_qdisc.__msg.19, ptr %2, align 8
-  br label %344
+  br label %347
 
 191:                                              ; preds = %185
   %192 = getelementptr inbounds i8, ptr %1, i64 6
@@ -2287,11 +2296,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 196:                                              ; preds = %191
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.20) #19
   %197 = icmp eq ptr %2, null
-  br i1 %197, label %344, label %198
+  br i1 %197, label %347, label %198
 
 198:                                              ; preds = %196
   store ptr @tc_modify_qdisc.__msg.20, ptr %2, align 8
-  br label %344
+  br label %347
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2310,11 +2319,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 209:                                              ; preds = %203
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.21) #19
   %210 = icmp eq ptr %2, null
-  br i1 %210, label %344, label %211
+  br i1 %210, label %347, label %211
 
 211:                                              ; preds = %209
   store ptr @tc_modify_qdisc.__msg.21, ptr %2, align 8
-  br label %344
+  br label %347
 
 212:                                              ; preds = %203, %199
   %213 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2333,11 +2342,11 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 222:                                              ; preds = %216
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_change.__msg) #19
   %223 = icmp eq ptr %2, null
-  br i1 %223, label %280, label %224
+  br i1 %223, label %283, label %224
 
 224:                                              ; preds = %222
   store ptr @qdisc_change.__msg, ptr %2, align 8
-  br label %280
+  br label %283
 
 225:                                              ; preds = %216
   %226 = getelementptr inbounds i8, ptr %4, i64 104
@@ -2352,208 +2361,211 @@ define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef
 233:                                              ; preds = %225
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_change.__msg.24) #19
   %234 = icmp eq ptr %2, null
-  br i1 %234, label %280, label %235
+  br i1 %234, label %283, label %235
 
 235:                                              ; preds = %233
   store ptr @qdisc_change.__msg.24, ptr %2, align 8
-  br label %280
+  br label %283
 
 236:                                              ; preds = %225
   %237 = call i32 %220(ptr noundef nonnull %186, ptr noundef nonnull %214, ptr noundef %2) #19
   %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %280
+  br i1 %238, label %239, label %283
 
 239:                                              ; preds = %236, %212
   %240 = getelementptr inbounds i8, ptr %4, i64 64
   %241 = load ptr, ptr %240, align 16
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %249, label %243
+  br i1 %242, label %250, label %243
 
 243:                                              ; preds = %239
   %244 = call fastcc ptr @qdisc_get_stab(ptr noundef nonnull %241, ptr noundef %2)
-  %245 = icmp ugt ptr %244, inttoptr (i64 -4096 to ptr)
-  br i1 %245, label %246, label %249
+  %245 = inttoptr i64 -4096 to ptr
+  %246 = icmp ugt ptr %244, %245
+  br i1 %246, label %247, label %250
 
-246:                                              ; preds = %243
-  %247 = ptrtoint ptr %244 to i64
-  %248 = trunc i64 %247 to i32
-  br label %280
+247:                                              ; preds = %243
+  %248 = ptrtoint ptr %244 to i64
+  %249 = trunc i64 %248 to i32
+  br label %283
 
-249:                                              ; preds = %243, %239
-  %250 = phi ptr [ %244, %243 ], [ null, %239 ]
-  %251 = getelementptr inbounds i8, ptr %186, i64 32
-  %252 = load ptr, ptr %251, align 32
+250:                                              ; preds = %243, %239
+  %251 = phi ptr [ %244, %243 ], [ null, %239 ]
+  %252 = getelementptr inbounds i8, ptr %186, i64 32
+  %253 = load ptr, ptr %252, align 32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !51
-  store volatile ptr %250, ptr %251, align 32
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %265, label %254
+  store volatile ptr %251, ptr %252, align 32
+  %254 = icmp eq ptr %253, null
+  br i1 %254, label %268, label %255
 
-254:                                              ; preds = %249
-  %255 = getelementptr inbounds i8, ptr %252, i64 56
-  %256 = load i32, ptr %255, align 8
-  %257 = add i32 %256, -1
-  store i32 %257, ptr %255, align 8
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %265
+255:                                              ; preds = %250
+  %256 = getelementptr inbounds i8, ptr %253, i64 56
+  %257 = load i32, ptr %256, align 8
+  %258 = add i32 %257, -1
+  store i32 %258, ptr %256, align 8
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %268
 
-259:                                              ; preds = %254
-  %260 = getelementptr inbounds i8, ptr %252, i64 16
-  %261 = getelementptr inbounds i8, ptr %252, i64 24
-  %262 = load ptr, ptr %261, align 8
-  %263 = load ptr, ptr %260, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
-  store ptr %262, ptr %264, align 8
-  store volatile ptr %263, ptr %262, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %260, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %261, align 8
-  call void @kvfree_call_rcu(ptr noundef nonnull %252, ptr noundef nonnull %252) #19
-  br label %265
+260:                                              ; preds = %255
+  %261 = getelementptr inbounds i8, ptr %253, i64 16
+  %262 = getelementptr inbounds i8, ptr %253, i64 24
+  %263 = load ptr, ptr %262, align 8
+  %264 = load ptr, ptr %261, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 8
+  store ptr %263, ptr %265, align 8
+  store volatile ptr %264, ptr %263, align 8
+  %266 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %266, ptr %261, align 8
+  %267 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %267, ptr %262, align 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %253, ptr noundef nonnull %253) #19
+  br label %268
 
-265:                                              ; preds = %259, %254, %249
-  %266 = getelementptr inbounds i8, ptr %4, i64 40
-  %267 = load ptr, ptr %266, align 8
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %280, label %269
+268:                                              ; preds = %260, %255, %250
+  %269 = getelementptr inbounds i8, ptr %4, i64 40
+  %270 = load ptr, ptr %269, align 8
+  %271 = icmp eq ptr %270, null
+  br i1 %271, label %283, label %272
 
-269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %186, i64 16
-  %271 = load i32, ptr %270, align 16
-  %272 = and i32 %271, 8
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %280
+272:                                              ; preds = %268
+  %273 = getelementptr inbounds i8, ptr %186, i64 16
+  %274 = load i32, ptr %273, align 16
+  %275 = and i32 %274, 8
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %277, label %283
 
-274:                                              ; preds = %269
-  %275 = getelementptr inbounds i8, ptr %186, i64 176
-  %276 = getelementptr inbounds i8, ptr %186, i64 80
-  %277 = load ptr, ptr %276, align 16
-  %278 = getelementptr inbounds i8, ptr %186, i64 72
-  %279 = call i32 @gen_replace_estimator(ptr noundef %275, ptr noundef %277, ptr noundef %278, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %267) #19
-  br label %280
+277:                                              ; preds = %272
+  %278 = getelementptr inbounds i8, ptr %186, i64 176
+  %279 = getelementptr inbounds i8, ptr %186, i64 80
+  %280 = load ptr, ptr %279, align 16
+  %281 = getelementptr inbounds i8, ptr %186, i64 72
+  %282 = call i32 @gen_replace_estimator(ptr noundef %278, ptr noundef %280, ptr noundef %281, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %270) #19
+  br label %283
 
-280:                                              ; preds = %274, %269, %265, %246, %236, %235, %233, %224, %222
-  %281 = phi i32 [ %248, %246 ], [ -22, %224 ], [ -22, %222 ], [ -95, %235 ], [ -95, %233 ], [ %237, %236 ], [ 0, %265 ], [ 0, %274 ], [ 0, %269 ]
-  store i32 %281, ptr %5, align 4
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %283, label %284
+283:                                              ; preds = %277, %272, %268, %247, %236, %235, %233, %224, %222
+  %284 = phi i32 [ %249, %247 ], [ -22, %224 ], [ -22, %222 ], [ -95, %235 ], [ -95, %233 ], [ %237, %236 ], [ 0, %268 ], [ 0, %277 ], [ 0, %272 ]
+  store i32 %284, ptr %5, align 4
+  %285 = icmp eq i32 %284, 0
+  br i1 %285, label %286, label %287
 
-283:                                              ; preds = %280
+286:                                              ; preds = %283
   call fastcc void @qdisc_notify(ptr noundef %9, ptr noundef %0, ptr noundef %1, i32 noundef %34, ptr noundef null, ptr noundef nonnull %186, ptr noundef %2)
-  br label %284
+  br label %287
 
-284:                                              ; preds = %283, %280
-  %285 = load i32, ptr %5, align 4
-  br label %344
+287:                                              ; preds = %286, %283
+  %288 = load i32, ptr %5, align 4
+  br label %347
 
-286:                                              ; preds = %166, %156, %108
-  %287 = phi ptr [ null, %108 ], [ %82, %166 ], [ null, %156 ]
-  %288 = load i16, ptr %20, align 2
-  %289 = and i16 %288, 1024
-  %290 = icmp eq i16 %289, 0
-  br i1 %290, label %291, label %294
+289:                                              ; preds = %166, %156, %108
+  %290 = phi ptr [ null, %108 ], [ %82, %166 ], [ null, %156 ]
+  %291 = load i16, ptr %20, align 2
+  %292 = and i16 %291, 1024
+  %293 = icmp eq i16 %292, 0
+  br i1 %293, label %294, label %297
 
-291:                                              ; preds = %286
+294:                                              ; preds = %289
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.22) #19
-  %292 = icmp eq ptr %2, null
-  br i1 %292, label %344, label %293
+  %295 = icmp eq ptr %2, null
+  br i1 %295, label %347, label %296
 
-293:                                              ; preds = %291
+296:                                              ; preds = %294
   store ptr @tc_modify_qdisc.__msg.22, ptr %2, align 8
-  br label %344
+  br label %347
 
-294:                                              ; preds = %286, %173
-  %295 = phi ptr [ %287, %286 ], [ %82, %173 ]
-  %296 = icmp eq i32 %34, -15
-  br i1 %296, label %297, label %307
+297:                                              ; preds = %289, %173
+  %298 = phi ptr [ %290, %289 ], [ %82, %173 ]
+  %299 = icmp eq i32 %34, -15
+  br i1 %299, label %300, label %310
 
-297:                                              ; preds = %294
-  %298 = getelementptr inbounds i8, ptr %36, i64 984
-  %299 = load ptr, ptr %298, align 8
-  %300 = icmp eq ptr %299, null
-  br i1 %300, label %304, label %301
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds i8, ptr %36, i64 984
+  %302 = load ptr, ptr %301, align 8
+  %303 = icmp eq ptr %302, null
+  br i1 %303, label %307, label %304
 
-301:                                              ; preds = %297
-  %302 = load i32, ptr %13, align 4
-  %303 = call fastcc ptr @qdisc_create(ptr noundef nonnull %36, ptr noundef nonnull %299, i32 noundef %302, i32 noundef %302, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
-  br label %332
+304:                                              ; preds = %300
+  %305 = load i32, ptr %13, align 4
+  %306 = call fastcc ptr @qdisc_create(ptr noundef nonnull %36, ptr noundef nonnull %302, i32 noundef %305, i32 noundef %305, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
+  br label %335
 
-304:                                              ; preds = %297
+307:                                              ; preds = %300
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_modify_qdisc.__msg.23) #19
-  br i1 %21, label %306, label %305
+  br i1 %21, label %309, label %308
 
-305:                                              ; preds = %304
+308:                                              ; preds = %307
   store ptr @tc_modify_qdisc.__msg.23, ptr %2, align 8
-  br label %306
+  br label %309
 
-306:                                              ; preds = %305, %304
+309:                                              ; preds = %308, %307
   store i32 -2, ptr %5, align 4
-  br label %332
+  br label %335
 
-307:                                              ; preds = %294
-  %308 = icmp eq ptr %74, null
-  br i1 %308, label %324, label %309
+310:                                              ; preds = %297
+  %311 = icmp eq ptr %74, null
+  br i1 %311, label %327, label %312
 
-309:                                              ; preds = %307
-  %310 = getelementptr inbounds i8, ptr %74, i64 24
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
-  %313 = load ptr, ptr %312, align 8
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %321, label %315
+312:                                              ; preds = %310
+  %313 = getelementptr inbounds i8, ptr %74, i64 24
+  %314 = load ptr, ptr %313, align 8
+  %315 = getelementptr inbounds i8, ptr %314, i64 8
+  %316 = load ptr, ptr %315, align 8
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %324, label %318
 
-315:                                              ; preds = %309
-  %316 = getelementptr inbounds i8, ptr %313, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %318 = icmp eq ptr %317, null
-  br i1 %318, label %321, label %319
+318:                                              ; preds = %312
+  %319 = getelementptr inbounds i8, ptr %316, i64 8
+  %320 = load ptr, ptr %319, align 8
+  %321 = icmp eq ptr %320, null
+  br i1 %321, label %324, label %322
 
-319:                                              ; preds = %315
-  %320 = call ptr %317(ptr noundef nonnull %74, ptr noundef %12) #19
-  br label %327
+322:                                              ; preds = %318
+  %323 = call ptr %320(ptr noundef nonnull %74, ptr noundef %12) #19
+  br label %330
 
-321:                                              ; preds = %315, %309
-  %322 = getelementptr inbounds i8, ptr %74, i64 64
-  %323 = load ptr, ptr %322, align 64
-  br label %327
+324:                                              ; preds = %318, %312
+  %325 = getelementptr inbounds i8, ptr %74, i64 64
+  %326 = load ptr, ptr %325, align 64
+  br label %330
 
-324:                                              ; preds = %307
-  %325 = getelementptr inbounds i8, ptr %36, i64 24
-  %326 = load ptr, ptr %325, align 8
-  br label %327
+327:                                              ; preds = %310
+  %328 = getelementptr inbounds i8, ptr %36, i64 24
+  %329 = load ptr, ptr %328, align 8
+  br label %330
 
-327:                                              ; preds = %324, %321, %319
-  %328 = phi ptr [ %320, %319 ], [ %323, %321 ], [ %326, %324 ]
-  %329 = load i32, ptr %13, align 4
-  %330 = load i32, ptr %16, align 4
-  %331 = call fastcc ptr @qdisc_create(ptr noundef nonnull %36, ptr noundef %328, i32 noundef %329, i32 noundef %330, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
-  br label %332
+330:                                              ; preds = %327, %324, %322
+  %331 = phi ptr [ %323, %322 ], [ %326, %324 ], [ %329, %327 ]
+  %332 = load i32, ptr %13, align 4
+  %333 = load i32, ptr %16, align 4
+  %334 = call fastcc ptr @qdisc_create(ptr noundef nonnull %36, ptr noundef %331, i32 noundef %332, i32 noundef %333, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
+  br label %335
 
-332:                                              ; preds = %327, %306, %301
-  %333 = phi ptr [ %303, %301 ], [ %295, %306 ], [ %331, %327 ]
-  %334 = icmp eq ptr %333, null
-  br i1 %334, label %335, label %338
+335:                                              ; preds = %330, %309, %304
+  %336 = phi ptr [ %306, %304 ], [ %298, %309 ], [ %334, %330 ]
+  %337 = icmp eq ptr %336, null
+  br i1 %337, label %338, label %341
 
-335:                                              ; preds = %332
-  %336 = load i32, ptr %5, align 4
-  %337 = icmp eq i32 %336, -11
-  br i1 %337, label %22, label %344
+338:                                              ; preds = %335
+  %339 = load i32, ptr %5, align 4
+  %340 = icmp eq i32 %339, -11
+  br i1 %340, label %22, label %347
 
-338:                                              ; preds = %332, %155
-  %339 = phi ptr [ %109, %155 ], [ %333, %332 ]
-  %340 = call fastcc i32 @qdisc_graft(ptr noundef nonnull %36, ptr noundef %74, ptr noundef %0, ptr noundef %1, i32 noundef %34, ptr noundef nonnull %339, ptr noundef null, ptr noundef %2)
-  store i32 %340, ptr %5, align 4
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %344, label %342
+341:                                              ; preds = %335, %155
+  %342 = phi ptr [ %109, %155 ], [ %336, %335 ]
+  %343 = call fastcc i32 @qdisc_graft(ptr noundef nonnull %36, ptr noundef %74, ptr noundef %0, ptr noundef %1, i32 noundef %34, ptr noundef nonnull %342, ptr noundef null, ptr noundef %2)
+  store i32 %343, ptr %5, align 4
+  %344 = icmp eq i32 %343, 0
+  br i1 %344, label %347, label %345
 
-342:                                              ; preds = %338
-  call void @qdisc_put(ptr noundef nonnull %339) #19
-  %343 = load i32, ptr %5, align 4
-  br label %344
+345:                                              ; preds = %341
+  call void @qdisc_put(ptr noundef nonnull %342) #19
+  %346 = load i32, ptr %5, align 4
+  br label %347
 
-344:                                              ; preds = %342, %338, %335, %293, %291, %284, %211, %209, %198, %196, %190, %188, %182, %180, %154, %152, %149, %147, %139, %137, %131, %129, %118, %116, %107, %105, %101, %99, %45, %43, %33, %30
-  %345 = phi i32 [ %343, %342 ], [ %285, %284 ], [ -2, %45 ], [ -2, %43 ], [ -17, %101 ], [ -17, %99 ], [ -22, %107 ], [ -22, %105 ], [ -17, %118 ], [ -17, %116 ], [ -22, %131 ], [ -22, %129 ], [ -22, %139 ], [ -22, %137 ], [ -40, %149 ], [ -40, %147 ], [ -22, %154 ], [ -22, %152 ], [ -22, %182 ], [ -22, %180 ], [ -2, %190 ], [ -2, %188 ], [ -17, %198 ], [ -17, %196 ], [ -22, %211 ], [ -22, %209 ], [ -2, %293 ], [ -2, %291 ], [ 0, %338 ], [ %31, %30 ], [ -19, %33 ], [ %336, %335 ]
+347:                                              ; preds = %345, %341, %338, %296, %294, %287, %211, %209, %198, %196, %190, %188, %182, %180, %154, %152, %149, %147, %139, %137, %131, %129, %118, %116, %107, %105, %101, %99, %45, %43, %33, %30
+  %348 = phi i32 [ %346, %345 ], [ %288, %287 ], [ -2, %45 ], [ -2, %43 ], [ -17, %101 ], [ -17, %99 ], [ -22, %107 ], [ -22, %105 ], [ -17, %118 ], [ -17, %116 ], [ -22, %131 ], [ -22, %129 ], [ -22, %139 ], [ -22, %137 ], [ -40, %149 ], [ -40, %147 ], [ -22, %154 ], [ -22, %152 ], [ -22, %182 ], [ -22, %180 ], [ -2, %190 ], [ -2, %188 ], [ -17, %198 ], [ -17, %196 ], [ -22, %211 ], [ -22, %209 ], [ -2, %296 ], [ -2, %294 ], [ 0, %341 ], [ %31, %30 ], [ -19, %33 ], [ %339, %338 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #19
-  ret i32 %345
+  ret i32 %348
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3749,7 +3761,7 @@ define internal fastcc ptr @qdisc_create(ptr noundef %0, ptr noundef %1, i32 nou
   %59 = phi ptr [ %52, %54 ], [ null, %51 ], [ null, %33 ]
   %60 = phi i1 [ false, %54 ], [ true, %51 ], [ true, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
-  br i1 %60, label %61, label %242
+  br i1 %60, label %61, label %246
 
 61:                                               ; preds = %57, %28
   %62 = phi ptr [ %59, %57 ], [ %29, %28 ]
@@ -3759,343 +3771,347 @@ define internal fastcc ptr @qdisc_create(ptr noundef %0, ptr noundef %1, i32 nou
 64:                                               ; preds = %61
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg) #19
   %65 = icmp eq ptr %6, null
-  br i1 %65, label %242, label %66
+  br i1 %65, label %246, label %66
 
 66:                                               ; preds = %64
   store ptr @qdisc_create.__msg, ptr %6, align 8
-  br label %242
+  br label %246
 
 67:                                               ; preds = %61
   %68 = call ptr @qdisc_alloc(ptr noundef %1, ptr noundef nonnull %62, ptr noundef %6) #19
-  %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
-  br i1 %69, label %70, label %73
+  %69 = inttoptr i64 -4096 to ptr
+  %70 = icmp ugt ptr %68, %69
+  br i1 %70, label %71, label %74
 
-70:                                               ; preds = %67
-  %71 = ptrtoint ptr %68 to i64
-  %72 = trunc i64 %71 to i32
-  br label %238
-
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %68, i64 60
-  store i32 %2, ptr %74, align 4
-  switch i32 %3, label %103 [
-    i32 -15, label %75
-    i32 0, label %83
-  ]
-
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %68, i64 16
-  %77 = load i32, ptr %76, align 16
-  %78 = and i32 %77, 2
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %112
-
-80:                                               ; preds = %75
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.29) #19
-  %81 = icmp eq ptr %6, null
-  br i1 %81, label %234, label %82
-
-82:                                               ; preds = %80
-  store ptr @qdisc_create.__msg.29, ptr %6, align 8
-  br label %234
-
-83:                                               ; preds = %93, %73
-  %84 = phi i32 [ %95, %93 ], [ 32768, %73 ]
-  %85 = load i32, ptr @qdisc_alloc_handle.autohandle, align 4
-  %86 = add i32 %85, 65536
-  %87 = icmp eq i32 %86, -65536
-  %88 = select i1 %87, i32 -2147483648, i32 %86
-  store i32 %88, ptr @qdisc_alloc_handle.autohandle, align 4
-  %89 = call ptr @qdisc_lookup(ptr noundef %0, i32 noundef %88)
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %93
-
-91:                                               ; preds = %83
-  %92 = load i32, ptr @qdisc_alloc_handle.autohandle, align 4
-  br label %97
-
-93:                                               ; preds = %83
-  %94 = call i32 @__SCT__cond_resched() #19
-  %95 = add nsw i32 %84, -1
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %83, !llvm.loop !62
-
-97:                                               ; preds = %93, %91
-  %98 = phi i32 [ %92, %91 ], [ 0, %93 ]
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %103
-
-100:                                              ; preds = %97
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.30) #19
-  %101 = icmp eq ptr %6, null
-  br i1 %101, label %234, label %102
-
-102:                                              ; preds = %100
-  store ptr @qdisc_create.__msg.30, ptr %6, align 8
-  br label %234
-
-103:                                              ; preds = %97, %73
-  %104 = phi i32 [ %98, %97 ], [ %3, %73 ]
-  %105 = getelementptr inbounds i8, ptr %0, i64 1056
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp ugt i32 %106, 1
-  br i1 %107, label %112, label %108
-
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %68, i64 16
-  %110 = load i32, ptr %109, align 16
-  %111 = or i32 %110, 16
-  store i32 %111, ptr %109, align 16
-  br label %112
-
-112:                                              ; preds = %108, %103, %75
-  %113 = phi i32 [ %104, %103 ], [ %104, %108 ], [ -65536, %75 ]
-  %114 = getelementptr inbounds i8, ptr %68, i64 56
-  store i32 %113, ptr %114, align 8
-  %115 = load i64, ptr %0, align 8
-  %116 = and i64 %115, 524288
-  %117 = icmp eq i64 %116, 0
-  br i1 %117, label %123, label %118
-
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %0, i64 1072
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %123
-
-122:                                              ; preds = %118
-  store i32 1000, ptr %119, align 8
-  call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.31) #21
-  br label %123
-
-123:                                              ; preds = %122, %118, %112
-  %124 = getelementptr i8, ptr %4, i64 104
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %144, label %127
-
-127:                                              ; preds = %123
-  %128 = getelementptr i8, ptr %125, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %134
-
-131:                                              ; preds = %127
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg) #19
-  %132 = icmp eq ptr %6, null
-  br i1 %132, label %165, label %133
-
-133:                                              ; preds = %131
-  store ptr @qdisc_block_indexes_set.__msg, ptr %6, align 8
-  br label %165
-
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds i8, ptr %68, i64 24
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 136
-  %138 = load ptr, ptr %137, align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %143
-
-140:                                              ; preds = %134
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.34) #19
-  %141 = icmp eq ptr %6, null
-  br i1 %141, label %165, label %142
-
-142:                                              ; preds = %140
-  store ptr @qdisc_block_indexes_set.__msg.34, ptr %6, align 8
-  br label %165
-
-143:                                              ; preds = %134
-  call void %138(ptr noundef %68, i32 noundef %129) #19
-  br label %144
-
-144:                                              ; preds = %143, %123
-  %145 = getelementptr i8, ptr %4, i64 112
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %165, label %148
-
-148:                                              ; preds = %144
-  %149 = getelementptr i8, ptr %146, i64 4
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %155
-
-152:                                              ; preds = %148
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.35) #19
-  %153 = icmp eq ptr %6, null
-  br i1 %153, label %165, label %154
-
-154:                                              ; preds = %152
-  store ptr @qdisc_block_indexes_set.__msg.35, ptr %6, align 8
-  br label %165
-
-155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %68, i64 24
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 144
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %161, label %164
-
-161:                                              ; preds = %155
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.36) #19
-  %162 = icmp eq ptr %6, null
-  br i1 %162, label %165, label %163
-
-163:                                              ; preds = %161
-  store ptr @qdisc_block_indexes_set.__msg.36, ptr %6, align 8
-  br label %165
-
-164:                                              ; preds = %155
-  call void %159(ptr noundef %68, i32 noundef %150) #19
-  br label %165
-
-165:                                              ; preds = %164, %163, %161, %154, %152, %144, %142, %140, %133, %131
-  %166 = phi i1 [ false, %133 ], [ false, %131 ], [ false, %142 ], [ false, %140 ], [ false, %154 ], [ false, %152 ], [ false, %163 ], [ false, %161 ], [ true, %164 ], [ true, %144 ]
-  %167 = phi i32 [ -22, %133 ], [ -22, %131 ], [ -95, %142 ], [ -95, %140 ], [ -22, %154 ], [ -22, %152 ], [ -95, %163 ], [ -95, %161 ], [ 0, %164 ], [ 0, %144 ]
-  br i1 %166, label %168, label %234
-
-168:                                              ; preds = %165
-  %169 = getelementptr i8, ptr %4, i64 64
-  %170 = load ptr, ptr %169, align 8
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %180, label %172
-
-172:                                              ; preds = %168
-  %173 = call fastcc ptr @qdisc_get_stab(ptr noundef nonnull %170, ptr noundef %6)
-  %174 = icmp ugt ptr %173, inttoptr (i64 -4096 to ptr)
-  br i1 %174, label %175, label %178
-
-175:                                              ; preds = %172
-  %176 = ptrtoint ptr %173 to i64
-  %177 = trunc i64 %176 to i32
-  br label %234
-
-178:                                              ; preds = %172
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
-  %179 = getelementptr inbounds i8, ptr %68, i64 32
-  store volatile ptr %173, ptr %179, align 32
-  br label %180
-
-180:                                              ; preds = %178, %168
-  %181 = getelementptr inbounds i8, ptr %62, i64 64
-  %182 = load ptr, ptr %181, align 8
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %189, label %184
-
-184:                                              ; preds = %180
-  %185 = getelementptr i8, ptr %4, i64 16
-  %186 = load ptr, ptr %185, align 8
-  %187 = call i32 %182(ptr noundef %68, ptr noundef %186, ptr noundef %6) #19
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %213
-
-189:                                              ; preds = %184, %180
-  %190 = getelementptr i8, ptr %4, i64 40
-  %191 = load ptr, ptr %190, align 8
-  %192 = icmp eq ptr %191, null
-  br i1 %192, label %209, label %193
-
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %68, i64 16
-  %195 = load i32, ptr %194, align 16
-  %196 = and i32 %195, 8
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %200, label %198
-
-198:                                              ; preds = %193
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.32) #19
-  %199 = icmp eq ptr %6, null
-  br i1 %199, label %213, label %210
-
-200:                                              ; preds = %193
-  %201 = getelementptr inbounds i8, ptr %68, i64 176
-  %202 = getelementptr inbounds i8, ptr %68, i64 80
-  %203 = load ptr, ptr %202, align 16
-  %204 = getelementptr inbounds i8, ptr %68, i64 72
-  %205 = call i32 @gen_new_estimator(ptr noundef %201, ptr noundef %203, ptr noundef %204, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %191) #19
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %209, label %207
-
-207:                                              ; preds = %200
-  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.33) #19
-  %208 = icmp eq ptr %6, null
-  br i1 %208, label %213, label %210
-
-209:                                              ; preds = %200, %189
-  call void @qdisc_hash_add(ptr noundef %68, i1 noundef zeroext false)
-  call fastcc void @trace_qdisc_create(ptr noundef nonnull %62, ptr noundef %0, i32 noundef %2)
-  br label %244
-
-210:                                              ; preds = %207, %198
-  %211 = phi ptr [ @qdisc_create.__msg.32, %198 ], [ @qdisc_create.__msg.33, %207 ]
-  %212 = phi i32 [ -95, %198 ], [ %205, %207 ]
-  store ptr %211, ptr %6, align 8
-  br label %213
-
-213:                                              ; preds = %210, %207, %198, %184
-  %214 = phi i32 [ %187, %184 ], [ -95, %198 ], [ %205, %207 ], [ %212, %210 ]
-  %215 = getelementptr inbounds i8, ptr %62, i64 80
-  %216 = load ptr, ptr %215, align 8
-  %217 = icmp eq ptr %216, null
-  br i1 %217, label %219, label %218
-
-218:                                              ; preds = %213
-  call void %216(ptr noundef %68) #19
-  br label %219
-
-219:                                              ; preds = %218, %213
-  %220 = getelementptr inbounds i8, ptr %68, i64 32
-  %221 = load ptr, ptr %220, align 32
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %234, label %223
-
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %221, i64 56
-  %225 = load i32, ptr %224, align 8
-  %226 = add i32 %225, -1
-  store i32 %226, ptr %224, align 8
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %234
-
-228:                                              ; preds = %223
-  %229 = getelementptr inbounds i8, ptr %221, i64 16
-  %230 = getelementptr inbounds i8, ptr %221, i64 24
-  %231 = load ptr, ptr %230, align 8
-  %232 = load ptr, ptr %229, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
-  store ptr %231, ptr %233, align 8
-  store volatile ptr %232, ptr %231, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %229, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %230, align 8
-  call void @kvfree_call_rcu(ptr noundef nonnull %221, ptr noundef nonnull %221) #19
-  br label %234
-
-234:                                              ; preds = %228, %223, %219, %175, %165, %102, %100, %82, %80
-  %235 = phi i32 [ %167, %165 ], [ %177, %175 ], [ -22, %82 ], [ -22, %80 ], [ -28, %102 ], [ -28, %100 ], [ %214, %219 ], [ %214, %223 ], [ %214, %228 ]
-  %236 = getelementptr inbounds i8, ptr %0, i64 1280
-  %237 = load ptr, ptr %236, align 8
-  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %237, ptr elementtype(i32) %237) #19, !srcloc !59
-  call void @qdisc_free(ptr noundef %68) #19
-  br label %238
-
-238:                                              ; preds = %234, %70
-  %239 = phi i32 [ %72, %70 ], [ %235, %234 ]
-  %240 = getelementptr inbounds i8, ptr %62, i64 168
-  %241 = load ptr, ptr %240, align 8
-  call void @module_put(ptr noundef %241) #19
+71:                                               ; preds = %67
+  %72 = ptrtoint ptr %68 to i64
+  %73 = trunc i64 %72 to i32
   br label %242
 
-242:                                              ; preds = %238, %66, %64, %57
-  %243 = phi i32 [ %58, %57 ], [ %239, %238 ], [ -2, %66 ], [ -2, %64 ]
-  store i32 %243, ptr %5, align 4
-  br label %244
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds i8, ptr %68, i64 60
+  store i32 %2, ptr %75, align 4
+  switch i32 %3, label %104 [
+    i32 -15, label %76
+    i32 0, label %84
+  ]
 
-244:                                              ; preds = %242, %209
-  %245 = phi ptr [ null, %242 ], [ %68, %209 ]
-  ret ptr %245
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds i8, ptr %68, i64 16
+  %78 = load i32, ptr %77, align 16
+  %79 = and i32 %78, 2
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %113
+
+81:                                               ; preds = %76
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.29) #19
+  %82 = icmp eq ptr %6, null
+  br i1 %82, label %238, label %83
+
+83:                                               ; preds = %81
+  store ptr @qdisc_create.__msg.29, ptr %6, align 8
+  br label %238
+
+84:                                               ; preds = %94, %74
+  %85 = phi i32 [ %96, %94 ], [ 32768, %74 ]
+  %86 = load i32, ptr @qdisc_alloc_handle.autohandle, align 4
+  %87 = add i32 %86, 65536
+  %88 = icmp eq i32 %87, -65536
+  %89 = select i1 %88, i32 -2147483648, i32 %87
+  store i32 %89, ptr @qdisc_alloc_handle.autohandle, align 4
+  %90 = call ptr @qdisc_lookup(ptr noundef %0, i32 noundef %89)
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %84
+  %93 = load i32, ptr @qdisc_alloc_handle.autohandle, align 4
+  br label %98
+
+94:                                               ; preds = %84
+  %95 = call i32 @__SCT__cond_resched() #19
+  %96 = add nsw i32 %85, -1
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %84, !llvm.loop !62
+
+98:                                               ; preds = %94, %92
+  %99 = phi i32 [ %93, %92 ], [ 0, %94 ]
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %104
+
+101:                                              ; preds = %98
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.30) #19
+  %102 = icmp eq ptr %6, null
+  br i1 %102, label %238, label %103
+
+103:                                              ; preds = %101
+  store ptr @qdisc_create.__msg.30, ptr %6, align 8
+  br label %238
+
+104:                                              ; preds = %98, %74
+  %105 = phi i32 [ %99, %98 ], [ %3, %74 ]
+  %106 = getelementptr inbounds i8, ptr %0, i64 1056
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp ugt i32 %107, 1
+  br i1 %108, label %113, label %109
+
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds i8, ptr %68, i64 16
+  %111 = load i32, ptr %110, align 16
+  %112 = or i32 %111, 16
+  store i32 %112, ptr %110, align 16
+  br label %113
+
+113:                                              ; preds = %109, %104, %76
+  %114 = phi i32 [ %105, %104 ], [ %105, %109 ], [ -65536, %76 ]
+  %115 = getelementptr inbounds i8, ptr %68, i64 56
+  store i32 %114, ptr %115, align 8
+  %116 = load i64, ptr %0, align 8
+  %117 = and i64 %116, 524288
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %124, label %119
+
+119:                                              ; preds = %113
+  %120 = getelementptr inbounds i8, ptr %0, i64 1072
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %124
+
+123:                                              ; preds = %119
+  store i32 1000, ptr %120, align 8
+  call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.31) #21
+  br label %124
+
+124:                                              ; preds = %123, %119, %113
+  %125 = getelementptr i8, ptr %4, i64 104
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %145, label %128
+
+128:                                              ; preds = %124
+  %129 = getelementptr i8, ptr %126, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %135
+
+132:                                              ; preds = %128
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg) #19
+  %133 = icmp eq ptr %6, null
+  br i1 %133, label %166, label %134
+
+134:                                              ; preds = %132
+  store ptr @qdisc_block_indexes_set.__msg, ptr %6, align 8
+  br label %166
+
+135:                                              ; preds = %128
+  %136 = getelementptr inbounds i8, ptr %68, i64 24
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 136
+  %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %141, label %144
+
+141:                                              ; preds = %135
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.34) #19
+  %142 = icmp eq ptr %6, null
+  br i1 %142, label %166, label %143
+
+143:                                              ; preds = %141
+  store ptr @qdisc_block_indexes_set.__msg.34, ptr %6, align 8
+  br label %166
+
+144:                                              ; preds = %135
+  call void %139(ptr noundef %68, i32 noundef %130) #19
+  br label %145
+
+145:                                              ; preds = %144, %124
+  %146 = getelementptr i8, ptr %4, i64 112
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %166, label %149
+
+149:                                              ; preds = %145
+  %150 = getelementptr i8, ptr %147, i64 4
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %153, label %156
+
+153:                                              ; preds = %149
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.35) #19
+  %154 = icmp eq ptr %6, null
+  br i1 %154, label %166, label %155
+
+155:                                              ; preds = %153
+  store ptr @qdisc_block_indexes_set.__msg.35, ptr %6, align 8
+  br label %166
+
+156:                                              ; preds = %149
+  %157 = getelementptr inbounds i8, ptr %68, i64 24
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 144
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %165
+
+162:                                              ; preds = %156
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_block_indexes_set.__msg.36) #19
+  %163 = icmp eq ptr %6, null
+  br i1 %163, label %166, label %164
+
+164:                                              ; preds = %162
+  store ptr @qdisc_block_indexes_set.__msg.36, ptr %6, align 8
+  br label %166
+
+165:                                              ; preds = %156
+  call void %160(ptr noundef %68, i32 noundef %151) #19
+  br label %166
+
+166:                                              ; preds = %165, %164, %162, %155, %153, %145, %143, %141, %134, %132
+  %167 = phi i1 [ false, %134 ], [ false, %132 ], [ false, %143 ], [ false, %141 ], [ false, %155 ], [ false, %153 ], [ false, %164 ], [ false, %162 ], [ true, %165 ], [ true, %145 ]
+  %168 = phi i32 [ -22, %134 ], [ -22, %132 ], [ -95, %143 ], [ -95, %141 ], [ -22, %155 ], [ -22, %153 ], [ -95, %164 ], [ -95, %162 ], [ 0, %165 ], [ 0, %145 ]
+  br i1 %167, label %169, label %238
+
+169:                                              ; preds = %166
+  %170 = getelementptr i8, ptr %4, i64 64
+  %171 = load ptr, ptr %170, align 8
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %182, label %173
+
+173:                                              ; preds = %169
+  %174 = call fastcc ptr @qdisc_get_stab(ptr noundef nonnull %171, ptr noundef %6)
+  %175 = inttoptr i64 -4096 to ptr
+  %176 = icmp ugt ptr %174, %175
+  br i1 %176, label %177, label %180
+
+177:                                              ; preds = %173
+  %178 = ptrtoint ptr %174 to i64
+  %179 = trunc i64 %178 to i32
+  br label %238
+
+180:                                              ; preds = %173
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
+  %181 = getelementptr inbounds i8, ptr %68, i64 32
+  store volatile ptr %174, ptr %181, align 32
+  br label %182
+
+182:                                              ; preds = %180, %169
+  %183 = getelementptr inbounds i8, ptr %62, i64 64
+  %184 = load ptr, ptr %183, align 8
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %191, label %186
+
+186:                                              ; preds = %182
+  %187 = getelementptr i8, ptr %4, i64 16
+  %188 = load ptr, ptr %187, align 8
+  %189 = call i32 %184(ptr noundef %68, ptr noundef %188, ptr noundef %6) #19
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %215
+
+191:                                              ; preds = %186, %182
+  %192 = getelementptr i8, ptr %4, i64 40
+  %193 = load ptr, ptr %192, align 8
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %211, label %195
+
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds i8, ptr %68, i64 16
+  %197 = load i32, ptr %196, align 16
+  %198 = and i32 %197, 8
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %202, label %200
+
+200:                                              ; preds = %195
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.32) #19
+  %201 = icmp eq ptr %6, null
+  br i1 %201, label %215, label %212
+
+202:                                              ; preds = %195
+  %203 = getelementptr inbounds i8, ptr %68, i64 176
+  %204 = getelementptr inbounds i8, ptr %68, i64 80
+  %205 = load ptr, ptr %204, align 16
+  %206 = getelementptr inbounds i8, ptr %68, i64 72
+  %207 = call i32 @gen_new_estimator(ptr noundef %203, ptr noundef %205, ptr noundef %206, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %193) #19
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %211, label %209
+
+209:                                              ; preds = %202
+  call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_create.__msg.33) #19
+  %210 = icmp eq ptr %6, null
+  br i1 %210, label %215, label %212
+
+211:                                              ; preds = %202, %191
+  call void @qdisc_hash_add(ptr noundef %68, i1 noundef zeroext false)
+  call fastcc void @trace_qdisc_create(ptr noundef nonnull %62, ptr noundef %0, i32 noundef %2)
+  br label %248
+
+212:                                              ; preds = %209, %200
+  %213 = phi ptr [ @qdisc_create.__msg.32, %200 ], [ @qdisc_create.__msg.33, %209 ]
+  %214 = phi i32 [ -95, %200 ], [ %207, %209 ]
+  store ptr %213, ptr %6, align 8
+  br label %215
+
+215:                                              ; preds = %212, %209, %200, %186
+  %216 = phi i32 [ %189, %186 ], [ -95, %200 ], [ %207, %209 ], [ %214, %212 ]
+  %217 = getelementptr inbounds i8, ptr %62, i64 80
+  %218 = load ptr, ptr %217, align 8
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %221, label %220
+
+220:                                              ; preds = %215
+  call void %218(ptr noundef %68) #19
+  br label %221
+
+221:                                              ; preds = %220, %215
+  %222 = getelementptr inbounds i8, ptr %68, i64 32
+  %223 = load ptr, ptr %222, align 32
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %238, label %225
+
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds i8, ptr %223, i64 56
+  %227 = load i32, ptr %226, align 8
+  %228 = add i32 %227, -1
+  store i32 %228, ptr %226, align 8
+  %229 = icmp eq i32 %228, 0
+  br i1 %229, label %230, label %238
+
+230:                                              ; preds = %225
+  %231 = getelementptr inbounds i8, ptr %223, i64 16
+  %232 = getelementptr inbounds i8, ptr %223, i64 24
+  %233 = load ptr, ptr %232, align 8
+  %234 = load ptr, ptr %231, align 8
+  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  store ptr %233, ptr %235, align 8
+  store volatile ptr %234, ptr %233, align 8
+  %236 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %236, ptr %231, align 8
+  %237 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %237, ptr %232, align 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %223, ptr noundef nonnull %223) #19
+  br label %238
+
+238:                                              ; preds = %230, %225, %221, %177, %166, %103, %101, %83, %81
+  %239 = phi i32 [ %168, %166 ], [ %179, %177 ], [ -22, %83 ], [ -22, %81 ], [ -28, %103 ], [ -28, %101 ], [ %216, %221 ], [ %216, %225 ], [ %216, %230 ]
+  %240 = getelementptr inbounds i8, ptr %0, i64 1280
+  %241 = load ptr, ptr %240, align 8
+  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %241, ptr elementtype(i32) %241) #19, !srcloc !59
+  call void @qdisc_free(ptr noundef %68) #19
+  br label %242
+
+242:                                              ; preds = %238, %71
+  %243 = phi i32 [ %73, %71 ], [ %239, %238 ]
+  %244 = getelementptr inbounds i8, ptr %62, i64 168
+  %245 = load ptr, ptr %244, align 8
+  call void @module_put(ptr noundef %245) #19
+  br label %246
+
+246:                                              ; preds = %242, %66, %64, %57
+  %247 = phi i32 [ %58, %57 ], [ %243, %242 ], [ -2, %66 ], [ -2, %64 ]
+  store i32 %247, ptr %5, align 4
+  br label %248
+
+248:                                              ; preds = %246, %211
+  %249 = phi ptr [ null, %246 ], [ %68, %211 ]
+  ret ptr %249
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4656,167 +4672,178 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef %0, ptr noundef %1) unnam
 10:                                               ; preds = %2
   %11 = sext i32 %8 to i64
   %12 = inttoptr i64 %11 to ptr
-  br label %98
+  br label %109
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %20
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg) #19
   %18 = icmp eq ptr %1, null
-  br i1 %18, label %98, label %19
+  %19 = inttoptr i64 -22 to ptr
+  br i1 %18, label %109, label %20
 
-19:                                               ; preds = %17
+20:                                               ; preds = %17
   store ptr @qdisc_get_stab.__msg, ptr %1, align 8
-  br label %98
+  %21 = inttoptr i64 -22 to ptr
+  br label %109
 
-20:                                               ; preds = %13
-  %21 = getelementptr i8, ptr %15, i64 4
-  %22 = getelementptr i8, ptr %15, i64 24
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %38, label %25
+22:                                               ; preds = %13
+  %23 = getelementptr i8, ptr %15, i64 4
+  %24 = getelementptr i8, ptr %15, i64 24
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %42, label %27
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
-  %27 = load ptr, ptr %26, align 16
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = load ptr, ptr %28, align 16
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %36
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.25) #19
-  %30 = icmp eq ptr %1, null
-  br i1 %30, label %98, label %31
+  %32 = icmp eq ptr %1, null
+  %33 = inttoptr i64 -22 to ptr
+  br i1 %32, label %109, label %34
 
-31:                                               ; preds = %29
+34:                                               ; preds = %31
   store ptr @qdisc_get_stab.__msg.25, ptr %1, align 8
-  br label %98
+  %35 = inttoptr i64 -22 to ptr
+  br label %109
 
-32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %27, i64 4
-  %34 = load i16, ptr %27, align 2
-  %35 = add i16 %34, -4
-  %36 = lshr i16 %35, 1
-  %37 = zext nneg i16 %36 to i32
-  br label %38
+36:                                               ; preds = %27
+  %37 = getelementptr i8, ptr %29, i64 4
+  %38 = load i16, ptr %29, align 2
+  %39 = add i16 %38, -4
+  %40 = lshr i16 %39, 1
+  %41 = zext nneg i16 %40 to i32
+  br label %42
 
-38:                                               ; preds = %32, %20
-  %39 = phi ptr [ %33, %32 ], [ null, %20 ]
-  %40 = phi i32 [ %37, %32 ], [ 0, %20 ]
-  %41 = icmp eq i32 %40, %23
-  br i1 %41, label %42, label %52
-
-42:                                               ; preds = %38
-  %43 = icmp eq ptr %39, null
-  %44 = icmp ne i32 %40, 0
-  %45 = and i1 %43, %44
-  br i1 %45, label %52, label %46
+42:                                               ; preds = %36, %22
+  %43 = phi ptr [ %37, %36 ], [ null, %22 ]
+  %44 = phi i32 [ %41, %36 ], [ 0, %22 ]
+  %45 = icmp eq i32 %44, %25
+  br i1 %45, label %46, label %56
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr @qdisc_stab_list, align 8
-  %48 = icmp eq ptr %47, @qdisc_stab_list
-  br i1 %48, label %73, label %49
+  %47 = icmp eq ptr %43, null
+  %48 = icmp ne i32 %44, 0
+  %49 = and i1 %47, %48
+  br i1 %49, label %56, label %50
 
-49:                                               ; preds = %46
-  %50 = shl nuw nsw i32 %40, 1
-  %51 = zext nneg i32 %50 to i64
-  br label %55
+50:                                               ; preds = %46
+  %51 = load ptr, ptr @qdisc_stab_list, align 8
+  %52 = icmp eq ptr %51, @qdisc_stab_list
+  br i1 %52, label %79, label %53
 
-52:                                               ; preds = %42, %38
+53:                                               ; preds = %50
+  %54 = shl nuw nsw i32 %44, 1
+  %55 = zext nneg i32 %54 to i64
+  br label %61
+
+56:                                               ; preds = %46, %42
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.26) #19
-  %53 = icmp eq ptr %1, null
-  br i1 %53, label %98, label %54
+  %57 = icmp eq ptr %1, null
+  %58 = inttoptr i64 -22 to ptr
+  br i1 %57, label %109, label %59
 
-54:                                               ; preds = %52
+59:                                               ; preds = %56
   store ptr @qdisc_get_stab.__msg.26, ptr %1, align 8
-  br label %98
+  %60 = inttoptr i64 -22 to ptr
+  br label %109
 
-55:                                               ; preds = %70, %49
-  %56 = phi ptr [ %47, %49 ], [ %71, %70 ]
-  %57 = getelementptr i8, ptr %56, i64 16
-  %58 = call i32 @bcmp(ptr noundef dereferenceable(24) %57, ptr noundef dereferenceable(24) %21, i64 24)
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %70
+61:                                               ; preds = %76, %53
+  %62 = phi ptr [ %51, %53 ], [ %77, %76 ]
+  %63 = getelementptr i8, ptr %62, i64 16
+  %64 = call i32 @bcmp(ptr noundef dereferenceable(24) %63, ptr noundef dereferenceable(24) %23, i64 24)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %76
 
-60:                                               ; preds = %55
-  br i1 %44, label %61, label %65
+66:                                               ; preds = %61
+  br i1 %48, label %67, label %71
 
-61:                                               ; preds = %60
-  %62 = getelementptr i8, ptr %56, i64 44
-  %63 = call i32 @bcmp(ptr %62, ptr %39, i64 %51)
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %70
+67:                                               ; preds = %66
+  %68 = getelementptr i8, ptr %62, i64 44
+  %69 = call i32 @bcmp(ptr %68, ptr %43, i64 %55)
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %76
 
-65:                                               ; preds = %61, %60
-  %66 = getelementptr i8, ptr %56, i64 -16
-  %67 = getelementptr i8, ptr %56, i64 40
-  %68 = load i32, ptr %67, align 8
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 8
-  br label %98
+71:                                               ; preds = %67, %66
+  %72 = getelementptr i8, ptr %62, i64 -16
+  %73 = getelementptr i8, ptr %62, i64 40
+  %74 = load i32, ptr %73, align 8
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %73, align 8
+  br label %109
 
-70:                                               ; preds = %61, %55
-  %71 = load ptr, ptr %56, align 8
-  %72 = icmp eq ptr %71, @qdisc_stab_list
-  br i1 %72, label %73, label %55, !llvm.loop !66
+76:                                               ; preds = %67, %61
+  %77 = load ptr, ptr %62, align 8
+  %78 = icmp eq ptr %77, @qdisc_stab_list
+  br i1 %78, label %79, label %61, !llvm.loop !66
 
-73:                                               ; preds = %70, %46
-  %74 = getelementptr i8, ptr %15, i64 5
-  %75 = load i8, ptr %74, align 1
-  %76 = icmp ugt i8 %75, 30
-  br i1 %76, label %80, label %77
+79:                                               ; preds = %76, %50
+  %80 = getelementptr i8, ptr %15, i64 5
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp ugt i8 %81, 30
+  br i1 %82, label %86, label %83
 
-77:                                               ; preds = %73
-  %78 = load i8, ptr %21, align 4
-  %79 = icmp ugt i8 %78, 30
-  br i1 %79, label %80, label %83
+83:                                               ; preds = %79
+  %84 = load i8, ptr %23, align 4
+  %85 = icmp ugt i8 %84, 30
+  br i1 %85, label %86, label %91
 
-80:                                               ; preds = %77, %73
+86:                                               ; preds = %83, %79
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.27) #19
-  %81 = icmp eq ptr %1, null
-  br i1 %81, label %98, label %82
+  %87 = icmp eq ptr %1, null
+  %88 = inttoptr i64 -22 to ptr
+  br i1 %87, label %109, label %89
 
-82:                                               ; preds = %80
+89:                                               ; preds = %86
   store ptr @qdisc_get_stab.__msg.27, ptr %1, align 8
-  br label %98
+  %90 = inttoptr i64 -22 to ptr
+  br label %109
 
-83:                                               ; preds = %77
-  %84 = shl nuw nsw i32 %40, 1
-  %85 = zext nneg i32 %84 to i64
-  %86 = add nuw nsw i64 %85, 64
-  %87 = call noalias align 8 ptr @__kmalloc(i64 noundef %86, i32 noundef 3264) #22
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %98, label %89
+91:                                               ; preds = %83
+  %92 = shl nuw nsw i32 %44, 1
+  %93 = zext nneg i32 %92 to i64
+  %94 = add nuw nsw i64 %93, 64
+  %95 = call noalias align 8 ptr @__kmalloc(i64 noundef %94, i32 noundef 3264) #22
+  %96 = icmp eq ptr %95, null
+  %97 = inttoptr i64 -12 to ptr
+  br i1 %96, label %109, label %98
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %87, i64 56
-  store i32 1, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %87, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %91, ptr noundef align 4 dereferenceable(24) %21, i64 24, i1 false)
-  br i1 %44, label %92, label %94
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds i8, ptr %95, i64 56
+  store i32 1, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %95, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %100, ptr noundef align 4 dereferenceable(24) %23, i64 24, i1 false)
+  br i1 %48, label %101, label %103
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %87, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 2 %39, i64 %85, i1 false)
-  br label %94
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds i8, ptr %95, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %102, ptr align 2 %43, i64 %93, i1 false)
+  br label %103
 
-94:                                               ; preds = %92, %89
-  %95 = getelementptr inbounds i8, ptr %87, i64 16
-  %96 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @qdisc_stab_list, i64 0, i32 1), align 8
-  store ptr %95, ptr getelementptr inbounds (%struct.list_head, ptr @qdisc_stab_list, i64 0, i32 1), align 8
-  store ptr @qdisc_stab_list, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %87, i64 24
-  store ptr %96, ptr %97, align 8
-  store volatile ptr %95, ptr %96, align 8
-  br label %98
+103:                                              ; preds = %101, %98
+  %104 = getelementptr inbounds i8, ptr %95, i64 16
+  %105 = getelementptr inbounds %struct.list_head, ptr @qdisc_stab_list, i64 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.list_head, ptr @qdisc_stab_list, i64 0, i32 1
+  store ptr %104, ptr %107, align 8
+  store ptr @qdisc_stab_list, ptr %104, align 8
+  %108 = getelementptr inbounds i8, ptr %95, i64 24
+  store ptr %106, ptr %108, align 8
+  store volatile ptr %104, ptr %106, align 8
+  br label %109
 
-98:                                               ; preds = %94, %83, %82, %80, %65, %54, %52, %31, %29, %19, %17, %10
-  %99 = phi ptr [ %12, %10 ], [ %66, %65 ], [ %87, %94 ], [ inttoptr (i64 -22 to ptr), %19 ], [ inttoptr (i64 -22 to ptr), %17 ], [ inttoptr (i64 -22 to ptr), %31 ], [ inttoptr (i64 -22 to ptr), %29 ], [ inttoptr (i64 -22 to ptr), %54 ], [ inttoptr (i64 -22 to ptr), %52 ], [ inttoptr (i64 -22 to ptr), %82 ], [ inttoptr (i64 -22 to ptr), %80 ], [ inttoptr (i64 -12 to ptr), %83 ]
+109:                                              ; preds = %103, %91, %89, %86, %71, %59, %56, %34, %31, %20, %17, %10
+  %110 = phi ptr [ %12, %10 ], [ %72, %71 ], [ %95, %103 ], [ %21, %20 ], [ %19, %17 ], [ %35, %34 ], [ %33, %31 ], [ %60, %59 ], [ %58, %56 ], [ %90, %89 ], [ %88, %86 ], [ %97, %91 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
-  ret ptr %99
+  ret ptr %110
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5237,46 +5264,53 @@ declare dso_local i32 @gen_new_estimator(ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @trace_qdisc_create(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_qdisc_create, i64 0, i32 1), i32 2) #19
-          to label %24 [label %4], !srcloc !72
+  %4 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_qdisc_create, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i32 2) #19
+          to label %31 [label %5], !srcloc !72
 
-4:                                                ; preds = %3
-  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #19, !srcloc !73
-  %6 = zext i32 %5 to i64
-  %7 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %6) #19, !srcloc !74
-  %8 = icmp ult i8 %7, 2
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq i8 %7, 0
-  br i1 %9, label %24, label %10
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %7 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6) #19, !srcloc !73
+  %8 = zext i32 %7 to i64
+  %9 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %8) #19, !srcloc !74
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp eq i8 %9, 0
+  br i1 %11, label %31, label %12
 
-10:                                               ; preds = %4
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !75
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %14 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, ptr nonnull elementtype(i32) %14) #19, !srcloc !75
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !76
-  %11 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_qdisc_create, i64 0, i32 8), align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %17, label %13
+  %15 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_qdisc_create, i64 0, i32 8
+  %16 = load volatile ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @__SCT__tp_func_qdisc_create(ptr noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %2) #19
-  br label %17
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 @__SCT__tp_func_qdisc_create(ptr noundef %20, ptr noundef %0, ptr noundef %1, i32 noundef %2) #19
+  br label %22
 
-17:                                               ; preds = %13, %10
+22:                                               ; preds = %18, %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !77
-  %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !78
-  %19 = icmp ult i8 %18, 2
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %24, label %21, !prof !16
+  %23 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %24 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %25 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, ptr nonnull elementtype(i32) %24) #19, !srcloc !78
+  %26 = icmp ult i8 %25, 2
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i8 %25, 0
+  br i1 %27, label %31, label %28, !prof !16
 
-21:                                               ; preds = %17
-  %22 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #19, !srcloc !79
-  tail call void @llvm.write_register.i64(metadata !0, i64 %23)
-  br label %24
+28:                                               ; preds = %22
+  %29 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %30 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %29) #19, !srcloc !79
+  tail call void @llvm.write_register.i64(metadata !0, i64 %30)
+  br label %31
 
-24:                                               ; preds = %21, %17, %4, %3
+31:                                               ; preds = %28, %22, %5, %3
   ret void
 }
 

@@ -222,10 +222,11 @@ entry:
   store ptr %O, ptr %O.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %OS = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %O.addr, align 8
-  store ptr %0, ptr %OS, align 8
+  %1 = load ptr, ptr %O.addr, align 8
+  store ptr %1, ptr %OS, align 8
   ret void
 }
 
@@ -314,71 +315,21 @@ entry:
   %counter = alloca ptr, align 8
   store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__range2, align 8
   store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.hermes::vm::instrumentation::PerfCounter", ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 5), ptr %__end2, align 8
+  %0 = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 5
+  store ptr %0, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %counter, align 8
-  %3 = load ptr, ptr %counter, align 8
-  %call = call noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %4 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %__begin2, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation10PerfEvents17endAndInsertStatsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %jsonStats) #0 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %jsonStats.addr = alloca ptr, align 8
-  %__range2 = alloca ptr, align 8
-  %__begin2 = alloca ptr, align 8
-  %__end2 = alloca ptr, align 8
-  %counter = alloca ptr, align 8
-  store ptr %jsonStats, ptr %jsonStats.addr, align 8
-  store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__range2, align 8
-  store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.hermes::vm::instrumentation::PerfCounter", ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 5), ptr %__end2, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %counter, align 8
-  %3 = load ptr, ptr %counter, align 8
-  %4 = load ptr, ptr %jsonStats.addr, align 8
-  %call = call noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter17endAndInsertStatsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %counter, align 8
+  %4 = load ptr, ptr %counter, align 8
+  %call = call noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
@@ -404,6 +355,58 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation10PerfEvents17endAndInsertStatsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %jsonStats) #0 align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %jsonStats.addr = alloca ptr, align 8
+  %__range2 = alloca ptr, align 8
+  %__begin2 = alloca ptr, align 8
+  %__end2 = alloca ptr, align 8
+  %counter = alloca ptr, align 8
+  store ptr %jsonStats, ptr %jsonStats.addr, align 8
+  store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__range2, align 8
+  store ptr @_ZN6hermes2vm15instrumentationL8countersE, ptr %__begin2, align 8
+  %0 = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 5
+  store ptr %0, ptr %__end2, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %counter, align 8
+  %4 = load ptr, ptr %counter, align 8
+  %5 = load ptr, ptr %jsonStats.addr, align 8
+  %call = call noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter17endAndInsertStatsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %call, label %if.end, label %if.then
+
+if.then:                                          ; preds = %for.body
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %6 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::instrumentation::PerfCounter", ptr %6, i32 1
+  store ptr %incdec.ptr, ptr %__begin2, align 8
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %for.end, %if.then
+  %7 = load i1, ptr %retval, align 1
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this, i1 noundef zeroext %unbuffered) unnamed_addr #0 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
@@ -412,10 +415,11 @@ entry:
   %frombool = zext i1 %unbuffered to i8
   store i8 %frombool, ptr %unbuffered.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %unbuffered.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %unbuffered.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, i32 0, i32 1
   store i32 %cond, ptr %BufferMode, align 8
   %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 3

@@ -3539,10 +3539,11 @@ entry:
   store ptr %params, ptr %params.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34AssignConstraintsToGridBatchesLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %params.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV34AssignConstraintsToGridBatchesLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %params.addr, align 8
   %m_params = getelementptr inbounds %struct.AssignConstraintsToGridBatchesLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_params, align 8
+  store ptr %1, ptr %m_params, align 8
   ret void
 }
 
@@ -4795,13 +4796,14 @@ entry:
   store ptr %constraints, ptr %constraints.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25ReadSolverConstraintsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %outConInfos.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV25ReadSolverConstraintsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %outConInfos.addr, align 8
   %m_outConInfos = getelementptr inbounds %struct.ReadSolverConstraintsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_outConInfos, align 8
-  %1 = load ptr, ptr %constraints.addr, align 8
+  store ptr %1, ptr %m_outConInfos, align 8
+  %2 = load ptr, ptr %constraints.addr, align 8
   %m_constraints = getelementptr inbounds %struct.ReadSolverConstraintsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_constraints, align 8
+  store ptr %2, ptr %m_constraints, align 8
   ret void
 }
 
@@ -4943,7 +4945,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5314,16 +5317,17 @@ entry:
   store i32 %numBatches, ptr %numBatches.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37UpdateConstraintBatchIdsForMergesLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %constraintBatchIds.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV37UpdateConstraintBatchIdsForMergesLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %constraintBatchIds.addr, align 8
   %m_constraintBatchIds = getelementptr inbounds %struct.UpdateConstraintBatchIdsForMergesLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_constraintBatchIds, align 8
-  %1 = load ptr, ptr %batches.addr, align 8
+  store ptr %1, ptr %m_constraintBatchIds, align 8
+  %2 = load ptr, ptr %batches.addr, align 8
   %m_batches = getelementptr inbounds %struct.UpdateConstraintBatchIdsForMergesLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_batches, align 8
-  %2 = load i32, ptr %numBatches.addr, align 4
+  store ptr %2, ptr %m_batches, align 8
+  %3 = load i32, ptr %numBatches.addr, align 4
   %m_numBatches = getelementptr inbounds %struct.UpdateConstraintBatchIdsForMergesLoop, ptr %this1, i32 0, i32 3
-  store i32 %2, ptr %m_numBatches, align 8
+  store i32 %3, ptr %m_numBatches, align 8
   ret void
 }
 
@@ -5482,19 +5486,20 @@ entry:
   store i32 %numConstraintRows, ptr %numConstraintRows.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24ExpandConstraintRowsLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %destConstraintBatchIds.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24ExpandConstraintRowsLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %destConstraintBatchIds.addr, align 8
   %m_destConstraintBatchIds = getelementptr inbounds %struct.ExpandConstraintRowsLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_destConstraintBatchIds, align 8
-  %1 = load ptr, ptr %srcConstraintBatchIds.addr, align 8
+  store ptr %1, ptr %m_destConstraintBatchIds, align 8
+  %2 = load ptr, ptr %srcConstraintBatchIds.addr, align 8
   %m_srcConstraintBatchIds = getelementptr inbounds %struct.ExpandConstraintRowsLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_srcConstraintBatchIds, align 8
-  %2 = load ptr, ptr %conInfos.addr, align 8
+  store ptr %2, ptr %m_srcConstraintBatchIds, align 8
+  %3 = load ptr, ptr %conInfos.addr, align 8
   %m_conInfos = getelementptr inbounds %struct.ExpandConstraintRowsLoop, ptr %this1, i32 0, i32 3
-  store ptr %2, ptr %m_conInfos, align 8
-  %3 = load i32, ptr %numConstraintRows.addr, align 4
+  store ptr %3, ptr %m_conInfos, align 8
+  %4 = load i32, ptr %numConstraintRows.addr, align 4
   %m_numConstraintRows = getelementptr inbounds %struct.ExpandConstraintRowsLoop, ptr %this1, i32 0, i32 4
-  store i32 %3, ptr %m_numConstraintRows, align 8
+  store i32 %4, ptr %m_numConstraintRows, align 8
   ret void
 }
 
@@ -6595,22 +6600,23 @@ entry:
   store i32 %maxNumBatchesPerPhase, ptr %maxNumBatchesPerPhase.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29WriteOutConstraintIndicesLoop, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %bc.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV29WriteOutConstraintIndicesLoop, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %bc.addr, align 8
   %m_batchedConstraints = getelementptr inbounds %struct.WriteOutConstraintIndicesLoop, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_batchedConstraints, align 8
-  %1 = load ptr, ptr %constraintBatchIds.addr, align 8
+  store ptr %1, ptr %m_batchedConstraints, align 8
+  %2 = load ptr, ptr %constraintBatchIds.addr, align 8
   %m_constraintBatchIds = getelementptr inbounds %struct.WriteOutConstraintIndicesLoop, ptr %this1, i32 0, i32 2
-  store ptr %1, ptr %m_constraintBatchIds, align 8
-  %2 = load i32, ptr %numConstraints.addr, align 4
+  store ptr %2, ptr %m_constraintBatchIds, align 8
+  %3 = load i32, ptr %numConstraints.addr, align 4
   %m_numConstraints = getelementptr inbounds %struct.WriteOutConstraintIndicesLoop, ptr %this1, i32 0, i32 3
-  store i32 %2, ptr %m_numConstraints, align 8
-  %3 = load ptr, ptr %constraintIdPerBatch.addr, align 8
+  store i32 %3, ptr %m_numConstraints, align 8
+  %4 = load ptr, ptr %constraintIdPerBatch.addr, align 8
   %m_constraintIdPerBatch = getelementptr inbounds %struct.WriteOutConstraintIndicesLoop, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_constraintIdPerBatch, align 8
-  %4 = load i32, ptr %maxNumBatchesPerPhase.addr, align 4
+  store ptr %4, ptr %m_constraintIdPerBatch, align 8
+  %5 = load i32, ptr %maxNumBatchesPerPhase.addr, align 4
   %m_maxNumBatchesPerPhase = getelementptr inbounds %struct.WriteOutConstraintIndicesLoop, ptr %this1, i32 0, i32 6
-  store i32 %4, ptr %m_maxNumBatchesPerPhase, align 8
+  store i32 %5, ptr %m_maxNumBatchesPerPhase, align 8
   ret void
 }
 

@@ -178,37 +178,38 @@ define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKS1_(ptr noundef nonnull align 8 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76) %5, ptr noundef nonnull align 8 dereferenceable(76) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %7, align 4
-  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 8
-  store i32 %14, ptr %11, align 8
-  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %16, i32 0, i32 3
-  %18 = load i16, ptr %17, align 4
-  store i16 %18, ptr %15, align 4
-  %19 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %20, i32 0, i32 4
-  %22 = load i16, ptr %21, align 2
-  store i16 %22, ptr %19, align 2
-  %23 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 5
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %24, i32 0, i32 5
-  %26 = load i16, ptr %25, align 8
-  store i16 %26, ptr %23, align 8
-  %27 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 6
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %28, i32 0, i32 6
-  %30 = load i16, ptr %29, align 2
-  store i16 %30, ptr %27, align 2
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  store i32 %11, ptr %8, align 4
+  %12 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8
+  store i32 %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 3
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %17, i32 0, i32 3
+  %19 = load i16, ptr %18, align 4
+  store i16 %19, ptr %16, align 4
+  %20 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %21, i32 0, i32 4
+  %23 = load i16, ptr %22, align 2
+  store i16 %23, ptr %20, align 2
+  %24 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 5
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %25, i32 0, i32 5
+  %27 = load i16, ptr %26, align 8
+  store i16 %27, ptr %24, align 8
+  %28 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 6
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %29, i32 0, i32 6
+  %31 = load i16, ptr %30, align 2
+  store i16 %31, ptr %28, align 2
   ret void
 }
 
@@ -262,21 +263,22 @@ define void @_ZN4LIEF2PE17ResourceDirectoryC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 3
-  store i16 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 4
-  store i16 0, ptr %7, align 2
-  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 5
-  store i16 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 6
-  store i16 0, ptr %9, align 2
-  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %3, i32 0, i32 1
-  store i32 2, ptr %10, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 3
+  store i16 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 4
+  store i16 0, ptr %8, align 2
+  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 5
+  store i16 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %3, i32 0, i32 6
+  store i16 0, ptr %10, align 2
+  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %3, i32 0, i32 1
+  store i32 2, ptr %11, align 8
   ret void
 }
 
@@ -290,39 +292,40 @@ define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_direct
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 1
-  store i32 %9, ptr %6, align 4
-  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 1
-  store i32 %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 1
-  store i16 %17, ptr %14, align 4
-  %18 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %19, i32 0, i32 2
-  %21 = load i16, ptr %20, align 1
-  store i16 %21, ptr %18, align 2
-  %22 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 5
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %23, i32 0, i32 4
-  %25 = load i16, ptr %24, align 1
-  store i16 %25, ptr %22, align 8
-  %26 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 6
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %27, i32 0, i32 5
-  %29 = load i16, ptr %28, align 1
-  store i16 %29, ptr %26, align 2
-  %30 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %5, i32 0, i32 1
-  store i32 2, ptr %30, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 1
+  store i32 %10, ptr %7, align 4
+  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 1
+  store i32 %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 1
+  store i16 %18, ptr %15, align 4
+  %19 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %20, i32 0, i32 2
+  %22 = load i16, ptr %21, align 1
+  store i16 %22, ptr %19, align 2
+  %23 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %24, i32 0, i32 4
+  %26 = load i16, ptr %25, align 1
+  store i16 %26, ptr %23, align 8
+  %27 = getelementptr inbounds %"class.LIEF::PE::ResourceDirectory", ptr %5, i32 0, i32 6
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_directory_table", ptr %28, i32 0, i32 5
+  %30 = load i16, ptr %29, align 1
+  store i16 %30, ptr %27, align 2
+  %31 = getelementptr inbounds %"class.LIEF::PE::ResourceNode", ptr %5, i32 0, i32 1
+  store i32 2, ptr %31, align 8
   ret void
 }
 

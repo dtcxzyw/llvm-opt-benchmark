@@ -1567,24 +1567,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1771,7 +1772,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -1983,9 +1985,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %mat.addr, align 8
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %mat.addr, align 8
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   %call2 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call)
           to label %invoke.cont unwind label %lpad
 
@@ -1995,90 +1998,90 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call4, ptr %m, align 8
-  %2 = load ptr, ptr %m, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0) #3
-  %3 = load double, ptr %call5, align 8
-  %conv = fptrunc double %3 to float
+  %3 = load ptr, ptr %m, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0) #3
+  %4 = load double, ptr %call5, align 8
+  %conv = fptrunc double %4 to float
   %m_scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x float], ptr %m_scale, i64 0, i64 0
   store float %conv, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %m, align 8
-  %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 5) #3
-  %5 = load double, ptr %call6, align 8
-  %conv7 = fptrunc double %5 to float
+  %5 = load ptr, ptr %m, align 8
+  %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 5) #3
+  %6 = load double, ptr %call6, align 8
+  %conv7 = fptrunc double %6 to float
   %m_scale8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx9 = getelementptr inbounds [4 x float], ptr %m_scale8, i64 0, i64 1
   store float %conv7, ptr %arrayidx9, align 4
-  %6 = load ptr, ptr %m, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 10) #3
-  %7 = load double, ptr %call10, align 8
-  %conv11 = fptrunc double %7 to float
+  %7 = load ptr, ptr %m, align 8
+  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 10) #3
+  %8 = load double, ptr %call10, align 8
+  %conv11 = fptrunc double %8 to float
   %m_scale12 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_scale12, i64 0, i64 2
   store float %conv11, ptr %arrayidx13, align 8
-  %8 = load ptr, ptr %m, align 8
-  %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 15) #3
-  %9 = load double, ptr %call14, align 8
-  %conv15 = fptrunc double %9 to float
+  %9 = load ptr, ptr %m, align 8
+  %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 15) #3
+  %10 = load double, ptr %call14, align 8
+  %conv15 = fptrunc double %10 to float
   %m_scale16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx17 = getelementptr inbounds [4 x float], ptr %m_scale16, i64 0, i64 3
   store float %conv15, ptr %arrayidx17, align 4
-  %10 = load ptr, ptr %mat.addr, align 8
-  %call18 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %11 = load ptr, ptr %mat.addr, align 8
+  %call18 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData10getOffsetsEv(ptr noundef nonnull align 8 dereferenceable(260) %call18)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont3
   store ptr %call20, ptr %o, align 8
-  %11 = load ptr, ptr %o, align 8
-  %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0)
+  %12 = load ptr, ptr %o, align 8
+  %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %12 = load double, ptr %call22, align 8
-  %conv23 = fptrunc double %12 to float
+  %13 = load double, ptr %call22, align 8
+  %conv23 = fptrunc double %13 to float
   %m_offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx24 = getelementptr inbounds [4 x float], ptr %m_offset, i64 0, i64 0
   store float %conv23, ptr %arrayidx24, align 8
-  %13 = load ptr, ptr %o, align 8
-  %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 1)
+  %14 = load ptr, ptr %o, align 8
+  %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 1)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  %14 = load double, ptr %call26, align 8
-  %conv27 = fptrunc double %14 to float
+  %15 = load double, ptr %call26, align 8
+  %conv27 = fptrunc double %15 to float
   %m_offset28 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx29 = getelementptr inbounds [4 x float], ptr %m_offset28, i64 0, i64 1
   store float %conv27, ptr %arrayidx29, align 4
-  %15 = load ptr, ptr %o, align 8
-  %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 2)
+  %16 = load ptr, ptr %o, align 8
+  %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 2)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont25
-  %16 = load double, ptr %call31, align 8
-  %conv32 = fptrunc double %16 to float
+  %17 = load double, ptr %call31, align 8
+  %conv32 = fptrunc double %17 to float
   %m_offset33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx34 = getelementptr inbounds [4 x float], ptr %m_offset33, i64 0, i64 2
   store float %conv32, ptr %arrayidx34, align 8
-  %17 = load ptr, ptr %o, align 8
-  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 3)
+  %18 = load ptr, ptr %o, align 8
+  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 3)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont30
-  %18 = load double, ptr %call36, align 8
-  %conv37 = fptrunc double %18 to float
+  %19 = load double, ptr %call36, align 8
+  %conv37 = fptrunc double %19 to float
   %m_offset38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx39 = getelementptr inbounds [4 x float], ptr %m_offset38, i64 0, i64 3
   store float %conv37, ptr %arrayidx39, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont30, %invoke.cont25, %invoke.cont21, %invoke.cont19, %invoke.cont3, %invoke.cont, %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -2099,7 +2102,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev5OpCPUE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev5OpCPUE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2761,24 +2765,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -3089,37 +3094,38 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %mat.addr, align 8
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %mat.addr, align 8
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   %call2 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call)
   %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK19OpenColorIO_v2_4dev6ArrayTIdE9getValuesEv(ptr noundef nonnull align 8 dereferenceable(48) %call2)
   store ptr %call3, ptr %m, align 8
-  %2 = load ptr, ptr %m, align 8
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0) #3
-  %3 = load double, ptr %call4, align 8
-  %conv = fptrunc double %3 to float
+  %3 = load ptr, ptr %m, align 8
+  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0) #3
+  %4 = load double, ptr %call4, align 8
+  %conv = fptrunc double %4 to float
   %m_scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x float], ptr %m_scale, i64 0, i64 0
   store float %conv, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %m, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 5) #3
-  %5 = load double, ptr %call5, align 8
-  %conv6 = fptrunc double %5 to float
+  %5 = load ptr, ptr %m, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 5) #3
+  %6 = load double, ptr %call5, align 8
+  %conv6 = fptrunc double %6 to float
   %m_scale7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this1, i32 0, i32 1
   %arrayidx8 = getelementptr inbounds [4 x float], ptr %m_scale7, i64 0, i64 1
   store float %conv6, ptr %arrayidx8, align 4
-  %6 = load ptr, ptr %m, align 8
-  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 10) #3
-  %7 = load double, ptr %call9, align 8
-  %conv10 = fptrunc double %7 to float
+  %7 = load ptr, ptr %m, align 8
+  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 10) #3
+  %8 = load double, ptr %call9, align 8
+  %conv10 = fptrunc double %8 to float
   %m_scale11 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this1, i32 0, i32 1
   %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_scale11, i64 0, i64 2
   store float %conv10, ptr %arrayidx12, align 8
-  %8 = load ptr, ptr %m, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 15) #3
-  %9 = load double, ptr %call13, align 8
-  %conv14 = fptrunc double %9 to float
+  %9 = load ptr, ptr %m, align 8
+  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 15) #3
+  %10 = load double, ptr %call13, align 8
+  %conv14 = fptrunc double %10 to float
   %m_scale15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this1, i32 0, i32 1
   %arrayidx16 = getelementptr inbounds [4 x float], ptr %m_scale15, i64 0, i64 3
   store float %conv14, ptr %arrayidx16, align 4
@@ -3550,24 +3556,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -3884,203 +3891,204 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %mat.addr, align 8
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %mat.addr, align 8
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   %call2 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call)
   %vtable = load ptr, ptr %call2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %2 = load ptr, ptr %vfn, align 8
-  %call3 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(48) %call2)
+  %3 = load ptr, ptr %vfn, align 8
+  %call3 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(48) %call2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call3, ptr %dim, align 8
-  %3 = load i64, ptr %dim, align 8
-  %mul = mul i64 2, %3
-  store i64 %mul, ptr %twoDim, align 8
   %4 = load i64, ptr %dim, align 8
-  %mul4 = mul i64 3, %4
+  %mul = mul i64 2, %4
+  store i64 %mul, ptr %twoDim, align 8
+  %5 = load i64, ptr %dim, align 8
+  %mul4 = mul i64 3, %5
   store i64 %mul4, ptr %threeDim, align 8
-  %5 = load ptr, ptr %mat.addr, align 8
-  %call5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %6 = load ptr, ptr %mat.addr, align 8
+  %call5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   %call6 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call5)
   %call7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK19OpenColorIO_v2_4dev6ArrayTIdE9getValuesEv(ptr noundef nonnull align 8 dereferenceable(48) %call6)
   store ptr %call7, ptr %m, align 8
-  %6 = load ptr, ptr %m, align 8
-  %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0) #3
-  %7 = load double, ptr %call8, align 8
-  %conv = fptrunc double %7 to float
+  %7 = load ptr, ptr %m, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0) #3
+  %8 = load double, ptr %call8, align 8
+  %conv = fptrunc double %8 to float
   %m_column1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x float], ptr %m_column1, i64 0, i64 0
   store float %conv, ptr %arrayidx, align 8
-  %8 = load ptr, ptr %m, align 8
-  %9 = load i64, ptr %dim, align 8
-  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %9) #3
-  %10 = load double, ptr %call9, align 8
-  %conv10 = fptrunc double %10 to float
+  %9 = load ptr, ptr %m, align 8
+  %10 = load i64, ptr %dim, align 8
+  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10) #3
+  %11 = load double, ptr %call9, align 8
+  %conv10 = fptrunc double %11 to float
   %m_column111 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_column111, i64 0, i64 1
   store float %conv10, ptr %arrayidx12, align 4
-  %11 = load ptr, ptr %m, align 8
-  %12 = load i64, ptr %twoDim, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %12) #3
-  %13 = load double, ptr %call13, align 8
-  %conv14 = fptrunc double %13 to float
+  %12 = load ptr, ptr %m, align 8
+  %13 = load i64, ptr %twoDim, align 8
+  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %13) #3
+  %14 = load double, ptr %call13, align 8
+  %conv14 = fptrunc double %14 to float
   %m_column115 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx16 = getelementptr inbounds [4 x float], ptr %m_column115, i64 0, i64 2
   store float %conv14, ptr %arrayidx16, align 8
-  %14 = load ptr, ptr %m, align 8
-  %15 = load i64, ptr %threeDim, align 8
-  %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #3
-  %16 = load double, ptr %call17, align 8
-  %conv18 = fptrunc double %16 to float
+  %15 = load ptr, ptr %m, align 8
+  %16 = load i64, ptr %threeDim, align 8
+  %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %16) #3
+  %17 = load double, ptr %call17, align 8
+  %conv18 = fptrunc double %17 to float
   %m_column119 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 1
   %arrayidx20 = getelementptr inbounds [4 x float], ptr %m_column119, i64 0, i64 3
   store float %conv18, ptr %arrayidx20, align 4
-  %17 = load ptr, ptr %m, align 8
-  %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1) #3
-  %18 = load double, ptr %call21, align 8
-  %conv22 = fptrunc double %18 to float
+  %18 = load ptr, ptr %m, align 8
+  %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1) #3
+  %19 = load double, ptr %call21, align 8
+  %conv22 = fptrunc double %19 to float
   %m_column2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx23 = getelementptr inbounds [4 x float], ptr %m_column2, i64 0, i64 0
   store float %conv22, ptr %arrayidx23, align 8
-  %19 = load ptr, ptr %m, align 8
-  %20 = load i64, ptr %dim, align 8
-  %add = add i64 %20, 1
-  %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %add) #3
-  %21 = load double, ptr %call24, align 8
-  %conv25 = fptrunc double %21 to float
+  %20 = load ptr, ptr %m, align 8
+  %21 = load i64, ptr %dim, align 8
+  %add = add i64 %21, 1
+  %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %add) #3
+  %22 = load double, ptr %call24, align 8
+  %conv25 = fptrunc double %22 to float
   %m_column226 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx27 = getelementptr inbounds [4 x float], ptr %m_column226, i64 0, i64 1
   store float %conv25, ptr %arrayidx27, align 4
-  %22 = load ptr, ptr %m, align 8
-  %23 = load i64, ptr %twoDim, align 8
-  %add28 = add i64 %23, 1
-  %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %add28) #3
-  %24 = load double, ptr %call29, align 8
-  %conv30 = fptrunc double %24 to float
+  %23 = load ptr, ptr %m, align 8
+  %24 = load i64, ptr %twoDim, align 8
+  %add28 = add i64 %24, 1
+  %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %add28) #3
+  %25 = load double, ptr %call29, align 8
+  %conv30 = fptrunc double %25 to float
   %m_column231 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx32 = getelementptr inbounds [4 x float], ptr %m_column231, i64 0, i64 2
   store float %conv30, ptr %arrayidx32, align 8
-  %25 = load ptr, ptr %m, align 8
-  %26 = load i64, ptr %threeDim, align 8
-  %add33 = add i64 %26, 1
-  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %add33) #3
-  %27 = load double, ptr %call34, align 8
-  %conv35 = fptrunc double %27 to float
+  %26 = load ptr, ptr %m, align 8
+  %27 = load i64, ptr %threeDim, align 8
+  %add33 = add i64 %27, 1
+  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %add33) #3
+  %28 = load double, ptr %call34, align 8
+  %conv35 = fptrunc double %28 to float
   %m_column236 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 2
   %arrayidx37 = getelementptr inbounds [4 x float], ptr %m_column236, i64 0, i64 3
   store float %conv35, ptr %arrayidx37, align 4
-  %28 = load ptr, ptr %m, align 8
-  %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef 2) #3
-  %29 = load double, ptr %call38, align 8
-  %conv39 = fptrunc double %29 to float
+  %29 = load ptr, ptr %m, align 8
+  %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef 2) #3
+  %30 = load double, ptr %call38, align 8
+  %conv39 = fptrunc double %30 to float
   %m_column3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 3
   %arrayidx40 = getelementptr inbounds [4 x float], ptr %m_column3, i64 0, i64 0
   store float %conv39, ptr %arrayidx40, align 8
-  %30 = load ptr, ptr %m, align 8
-  %31 = load i64, ptr %dim, align 8
-  %add41 = add i64 %31, 2
-  %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %add41) #3
-  %32 = load double, ptr %call42, align 8
-  %conv43 = fptrunc double %32 to float
+  %31 = load ptr, ptr %m, align 8
+  %32 = load i64, ptr %dim, align 8
+  %add41 = add i64 %32, 2
+  %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %add41) #3
+  %33 = load double, ptr %call42, align 8
+  %conv43 = fptrunc double %33 to float
   %m_column344 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 3
   %arrayidx45 = getelementptr inbounds [4 x float], ptr %m_column344, i64 0, i64 1
   store float %conv43, ptr %arrayidx45, align 4
-  %33 = load ptr, ptr %m, align 8
-  %34 = load i64, ptr %twoDim, align 8
-  %add46 = add i64 %34, 2
-  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %add46) #3
-  %35 = load double, ptr %call47, align 8
-  %conv48 = fptrunc double %35 to float
+  %34 = load ptr, ptr %m, align 8
+  %35 = load i64, ptr %twoDim, align 8
+  %add46 = add i64 %35, 2
+  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %add46) #3
+  %36 = load double, ptr %call47, align 8
+  %conv48 = fptrunc double %36 to float
   %m_column349 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 3
   %arrayidx50 = getelementptr inbounds [4 x float], ptr %m_column349, i64 0, i64 2
   store float %conv48, ptr %arrayidx50, align 8
-  %36 = load ptr, ptr %m, align 8
-  %37 = load i64, ptr %threeDim, align 8
-  %add51 = add i64 %37, 2
-  %call52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %add51) #3
-  %38 = load double, ptr %call52, align 8
-  %conv53 = fptrunc double %38 to float
+  %37 = load ptr, ptr %m, align 8
+  %38 = load i64, ptr %threeDim, align 8
+  %add51 = add i64 %38, 2
+  %call52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %add51) #3
+  %39 = load double, ptr %call52, align 8
+  %conv53 = fptrunc double %39 to float
   %m_column354 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 3
   %arrayidx55 = getelementptr inbounds [4 x float], ptr %m_column354, i64 0, i64 3
   store float %conv53, ptr %arrayidx55, align 4
-  %39 = load ptr, ptr %m, align 8
-  %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 3) #3
-  %40 = load double, ptr %call56, align 8
-  %conv57 = fptrunc double %40 to float
+  %40 = load ptr, ptr %m, align 8
+  %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 3) #3
+  %41 = load double, ptr %call56, align 8
+  %conv57 = fptrunc double %41 to float
   %m_column4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 4
   %arrayidx58 = getelementptr inbounds [4 x float], ptr %m_column4, i64 0, i64 0
   store float %conv57, ptr %arrayidx58, align 8
-  %41 = load ptr, ptr %m, align 8
-  %42 = load i64, ptr %dim, align 8
-  %add59 = add i64 %42, 3
-  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %add59) #3
-  %43 = load double, ptr %call60, align 8
-  %conv61 = fptrunc double %43 to float
+  %42 = load ptr, ptr %m, align 8
+  %43 = load i64, ptr %dim, align 8
+  %add59 = add i64 %43, 3
+  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %add59) #3
+  %44 = load double, ptr %call60, align 8
+  %conv61 = fptrunc double %44 to float
   %m_column462 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 4
   %arrayidx63 = getelementptr inbounds [4 x float], ptr %m_column462, i64 0, i64 1
   store float %conv61, ptr %arrayidx63, align 4
-  %44 = load ptr, ptr %m, align 8
-  %45 = load i64, ptr %twoDim, align 8
-  %add64 = add i64 %45, 3
-  %call65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %add64) #3
-  %46 = load double, ptr %call65, align 8
-  %conv66 = fptrunc double %46 to float
+  %45 = load ptr, ptr %m, align 8
+  %46 = load i64, ptr %twoDim, align 8
+  %add64 = add i64 %46, 3
+  %call65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %add64) #3
+  %47 = load double, ptr %call65, align 8
+  %conv66 = fptrunc double %47 to float
   %m_column467 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 4
   %arrayidx68 = getelementptr inbounds [4 x float], ptr %m_column467, i64 0, i64 2
   store float %conv66, ptr %arrayidx68, align 8
-  %47 = load ptr, ptr %m, align 8
-  %48 = load i64, ptr %threeDim, align 8
-  %add69 = add i64 %48, 3
-  %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %add69) #3
-  %49 = load double, ptr %call70, align 8
-  %conv71 = fptrunc double %49 to float
+  %48 = load ptr, ptr %m, align 8
+  %49 = load i64, ptr %threeDim, align 8
+  %add69 = add i64 %49, 3
+  %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %add69) #3
+  %50 = load double, ptr %call70, align 8
+  %conv71 = fptrunc double %50 to float
   %m_column472 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 4
   %arrayidx73 = getelementptr inbounds [4 x float], ptr %m_column472, i64 0, i64 3
   store float %conv71, ptr %arrayidx73, align 4
-  %50 = load ptr, ptr %mat.addr, align 8
-  %call74 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  %51 = load ptr, ptr %mat.addr, align 8
+  %call74 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %51) #3
   %call75 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData10getOffsetsEv(ptr noundef nonnull align 8 dereferenceable(260) %call74)
   store ptr %call75, ptr %o, align 8
-  %51 = load ptr, ptr %o, align 8
-  %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef 0)
-  %52 = load double, ptr %call76, align 8
-  %conv77 = fptrunc double %52 to float
+  %52 = load ptr, ptr %o, align 8
+  %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 0)
+  %53 = load double, ptr %call76, align 8
+  %conv77 = fptrunc double %53 to float
   %m_offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 5
   %arrayidx78 = getelementptr inbounds [4 x float], ptr %m_offset, i64 0, i64 0
   store float %conv77, ptr %arrayidx78, align 8
-  %53 = load ptr, ptr %o, align 8
-  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 1)
-  %54 = load double, ptr %call79, align 8
-  %conv80 = fptrunc double %54 to float
+  %54 = load ptr, ptr %o, align 8
+  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef 1)
+  %55 = load double, ptr %call79, align 8
+  %conv80 = fptrunc double %55 to float
   %m_offset81 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 5
   %arrayidx82 = getelementptr inbounds [4 x float], ptr %m_offset81, i64 0, i64 1
   store float %conv80, ptr %arrayidx82, align 4
-  %55 = load ptr, ptr %o, align 8
-  %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef 2)
-  %56 = load double, ptr %call83, align 8
-  %conv84 = fptrunc double %56 to float
+  %56 = load ptr, ptr %o, align 8
+  %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef 2)
+  %57 = load double, ptr %call83, align 8
+  %conv84 = fptrunc double %57 to float
   %m_offset85 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 5
   %arrayidx86 = getelementptr inbounds [4 x float], ptr %m_offset85, i64 0, i64 2
   store float %conv84, ptr %arrayidx86, align 8
-  %57 = load ptr, ptr %o, align 8
-  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef 3)
-  %58 = load double, ptr %call87, align 8
-  %conv88 = fptrunc double %58 to float
+  %58 = load ptr, ptr %o, align 8
+  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetsixEm(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef 3)
+  %59 = load double, ptr %call87, align 8
+  %conv88 = fptrunc double %59 to float
   %m_offset89 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this1, i32 0, i32 5
   %arrayidx90 = getelementptr inbounds [4 x float], ptr %m_offset89, i64 0, i64 3
   store float %conv88, ptr %arrayidx90, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -4803,24 +4811,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEJRSt10shared_ptrIKNS3_12MatrixOpDataEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -5136,171 +5145,172 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %mat.addr, align 8
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %mat.addr, align 8
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   %call2 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call)
   %vtable = load ptr, ptr %call2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %2 = load ptr, ptr %vfn, align 8
-  %call3 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(48) %call2)
+  %3 = load ptr, ptr %vfn, align 8
+  %call3 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(48) %call2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call3, ptr %dim, align 8
-  %3 = load i64, ptr %dim, align 8
-  %mul = mul i64 2, %3
-  store i64 %mul, ptr %twoDim, align 8
   %4 = load i64, ptr %dim, align 8
-  %mul4 = mul i64 3, %4
+  %mul = mul i64 2, %4
+  store i64 %mul, ptr %twoDim, align 8
+  %5 = load i64, ptr %dim, align 8
+  %mul4 = mul i64 3, %5
   store i64 %mul4, ptr %threeDim, align 8
-  %5 = load ptr, ptr %mat.addr, align 8
-  %call5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %6 = load ptr, ptr %mat.addr, align 8
+  %call5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN19OpenColorIO_v2_4dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   %call6 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8getArrayEv(ptr noundef nonnull align 8 dereferenceable(260) %call5)
   %call7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK19OpenColorIO_v2_4dev6ArrayTIdE9getValuesEv(ptr noundef nonnull align 8 dereferenceable(48) %call6)
   store ptr %call7, ptr %m, align 8
-  %6 = load ptr, ptr %m, align 8
-  %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0) #3
-  %7 = load double, ptr %call8, align 8
-  %conv = fptrunc double %7 to float
+  %7 = load ptr, ptr %m, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0) #3
+  %8 = load double, ptr %call8, align 8
+  %conv = fptrunc double %8 to float
   %m_column1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x float], ptr %m_column1, i64 0, i64 0
   store float %conv, ptr %arrayidx, align 8
-  %8 = load ptr, ptr %m, align 8
-  %9 = load i64, ptr %dim, align 8
-  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %9) #3
-  %10 = load double, ptr %call9, align 8
-  %conv10 = fptrunc double %10 to float
+  %9 = load ptr, ptr %m, align 8
+  %10 = load i64, ptr %dim, align 8
+  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10) #3
+  %11 = load double, ptr %call9, align 8
+  %conv10 = fptrunc double %11 to float
   %m_column111 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 1
   %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_column111, i64 0, i64 1
   store float %conv10, ptr %arrayidx12, align 4
-  %11 = load ptr, ptr %m, align 8
-  %12 = load i64, ptr %twoDim, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %12) #3
-  %13 = load double, ptr %call13, align 8
-  %conv14 = fptrunc double %13 to float
+  %12 = load ptr, ptr %m, align 8
+  %13 = load i64, ptr %twoDim, align 8
+  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %13) #3
+  %14 = load double, ptr %call13, align 8
+  %conv14 = fptrunc double %14 to float
   %m_column115 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 1
   %arrayidx16 = getelementptr inbounds [4 x float], ptr %m_column115, i64 0, i64 2
   store float %conv14, ptr %arrayidx16, align 8
-  %14 = load ptr, ptr %m, align 8
-  %15 = load i64, ptr %threeDim, align 8
-  %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #3
-  %16 = load double, ptr %call17, align 8
-  %conv18 = fptrunc double %16 to float
+  %15 = load ptr, ptr %m, align 8
+  %16 = load i64, ptr %threeDim, align 8
+  %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %16) #3
+  %17 = load double, ptr %call17, align 8
+  %conv18 = fptrunc double %17 to float
   %m_column119 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 1
   %arrayidx20 = getelementptr inbounds [4 x float], ptr %m_column119, i64 0, i64 3
   store float %conv18, ptr %arrayidx20, align 4
-  %17 = load ptr, ptr %m, align 8
-  %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1) #3
-  %18 = load double, ptr %call21, align 8
-  %conv22 = fptrunc double %18 to float
+  %18 = load ptr, ptr %m, align 8
+  %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1) #3
+  %19 = load double, ptr %call21, align 8
+  %conv22 = fptrunc double %19 to float
   %m_column2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 2
   %arrayidx23 = getelementptr inbounds [4 x float], ptr %m_column2, i64 0, i64 0
   store float %conv22, ptr %arrayidx23, align 8
-  %19 = load ptr, ptr %m, align 8
-  %20 = load i64, ptr %dim, align 8
-  %add = add i64 %20, 1
-  %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %add) #3
-  %21 = load double, ptr %call24, align 8
-  %conv25 = fptrunc double %21 to float
+  %20 = load ptr, ptr %m, align 8
+  %21 = load i64, ptr %dim, align 8
+  %add = add i64 %21, 1
+  %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %add) #3
+  %22 = load double, ptr %call24, align 8
+  %conv25 = fptrunc double %22 to float
   %m_column226 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 2
   %arrayidx27 = getelementptr inbounds [4 x float], ptr %m_column226, i64 0, i64 1
   store float %conv25, ptr %arrayidx27, align 4
-  %22 = load ptr, ptr %m, align 8
-  %23 = load i64, ptr %twoDim, align 8
-  %add28 = add i64 %23, 1
-  %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %add28) #3
-  %24 = load double, ptr %call29, align 8
-  %conv30 = fptrunc double %24 to float
+  %23 = load ptr, ptr %m, align 8
+  %24 = load i64, ptr %twoDim, align 8
+  %add28 = add i64 %24, 1
+  %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %add28) #3
+  %25 = load double, ptr %call29, align 8
+  %conv30 = fptrunc double %25 to float
   %m_column231 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 2
   %arrayidx32 = getelementptr inbounds [4 x float], ptr %m_column231, i64 0, i64 2
   store float %conv30, ptr %arrayidx32, align 8
-  %25 = load ptr, ptr %m, align 8
-  %26 = load i64, ptr %threeDim, align 8
-  %add33 = add i64 %26, 1
-  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %add33) #3
-  %27 = load double, ptr %call34, align 8
-  %conv35 = fptrunc double %27 to float
+  %26 = load ptr, ptr %m, align 8
+  %27 = load i64, ptr %threeDim, align 8
+  %add33 = add i64 %27, 1
+  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %add33) #3
+  %28 = load double, ptr %call34, align 8
+  %conv35 = fptrunc double %28 to float
   %m_column236 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 2
   %arrayidx37 = getelementptr inbounds [4 x float], ptr %m_column236, i64 0, i64 3
   store float %conv35, ptr %arrayidx37, align 4
-  %28 = load ptr, ptr %m, align 8
-  %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef 2) #3
-  %29 = load double, ptr %call38, align 8
-  %conv39 = fptrunc double %29 to float
+  %29 = load ptr, ptr %m, align 8
+  %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef 2) #3
+  %30 = load double, ptr %call38, align 8
+  %conv39 = fptrunc double %30 to float
   %m_column3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 3
   %arrayidx40 = getelementptr inbounds [4 x float], ptr %m_column3, i64 0, i64 0
   store float %conv39, ptr %arrayidx40, align 8
-  %30 = load ptr, ptr %m, align 8
-  %31 = load i64, ptr %dim, align 8
-  %add41 = add i64 %31, 2
-  %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %add41) #3
-  %32 = load double, ptr %call42, align 8
-  %conv43 = fptrunc double %32 to float
+  %31 = load ptr, ptr %m, align 8
+  %32 = load i64, ptr %dim, align 8
+  %add41 = add i64 %32, 2
+  %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %add41) #3
+  %33 = load double, ptr %call42, align 8
+  %conv43 = fptrunc double %33 to float
   %m_column344 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 3
   %arrayidx45 = getelementptr inbounds [4 x float], ptr %m_column344, i64 0, i64 1
   store float %conv43, ptr %arrayidx45, align 4
-  %33 = load ptr, ptr %m, align 8
-  %34 = load i64, ptr %twoDim, align 8
-  %add46 = add i64 %34, 2
-  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %add46) #3
-  %35 = load double, ptr %call47, align 8
-  %conv48 = fptrunc double %35 to float
+  %34 = load ptr, ptr %m, align 8
+  %35 = load i64, ptr %twoDim, align 8
+  %add46 = add i64 %35, 2
+  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %add46) #3
+  %36 = load double, ptr %call47, align 8
+  %conv48 = fptrunc double %36 to float
   %m_column349 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 3
   %arrayidx50 = getelementptr inbounds [4 x float], ptr %m_column349, i64 0, i64 2
   store float %conv48, ptr %arrayidx50, align 8
-  %36 = load ptr, ptr %m, align 8
-  %37 = load i64, ptr %threeDim, align 8
-  %add51 = add i64 %37, 2
-  %call52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %add51) #3
-  %38 = load double, ptr %call52, align 8
-  %conv53 = fptrunc double %38 to float
+  %37 = load ptr, ptr %m, align 8
+  %38 = load i64, ptr %threeDim, align 8
+  %add51 = add i64 %38, 2
+  %call52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %add51) #3
+  %39 = load double, ptr %call52, align 8
+  %conv53 = fptrunc double %39 to float
   %m_column354 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 3
   %arrayidx55 = getelementptr inbounds [4 x float], ptr %m_column354, i64 0, i64 3
   store float %conv53, ptr %arrayidx55, align 4
-  %39 = load ptr, ptr %m, align 8
-  %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 3) #3
-  %40 = load double, ptr %call56, align 8
-  %conv57 = fptrunc double %40 to float
+  %40 = load ptr, ptr %m, align 8
+  %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 3) #3
+  %41 = load double, ptr %call56, align 8
+  %conv57 = fptrunc double %41 to float
   %m_column4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 4
   %arrayidx58 = getelementptr inbounds [4 x float], ptr %m_column4, i64 0, i64 0
   store float %conv57, ptr %arrayidx58, align 8
-  %41 = load ptr, ptr %m, align 8
-  %42 = load i64, ptr %dim, align 8
-  %add59 = add i64 %42, 3
-  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %add59) #3
-  %43 = load double, ptr %call60, align 8
-  %conv61 = fptrunc double %43 to float
+  %42 = load ptr, ptr %m, align 8
+  %43 = load i64, ptr %dim, align 8
+  %add59 = add i64 %43, 3
+  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %add59) #3
+  %44 = load double, ptr %call60, align 8
+  %conv61 = fptrunc double %44 to float
   %m_column462 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 4
   %arrayidx63 = getelementptr inbounds [4 x float], ptr %m_column462, i64 0, i64 1
   store float %conv61, ptr %arrayidx63, align 4
-  %44 = load ptr, ptr %m, align 8
-  %45 = load i64, ptr %twoDim, align 8
-  %add64 = add i64 %45, 3
-  %call65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %add64) #3
-  %46 = load double, ptr %call65, align 8
-  %conv66 = fptrunc double %46 to float
+  %45 = load ptr, ptr %m, align 8
+  %46 = load i64, ptr %twoDim, align 8
+  %add64 = add i64 %46, 3
+  %call65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %add64) #3
+  %47 = load double, ptr %call65, align 8
+  %conv66 = fptrunc double %47 to float
   %m_column467 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 4
   %arrayidx68 = getelementptr inbounds [4 x float], ptr %m_column467, i64 0, i64 2
   store float %conv66, ptr %arrayidx68, align 8
-  %47 = load ptr, ptr %m, align 8
-  %48 = load i64, ptr %threeDim, align 8
-  %add69 = add i64 %48, 3
-  %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %add69) #3
-  %49 = load double, ptr %call70, align 8
-  %conv71 = fptrunc double %49 to float
+  %48 = load ptr, ptr %m, align 8
+  %49 = load i64, ptr %threeDim, align 8
+  %add69 = add i64 %49, 3
+  %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %add69) #3
+  %50 = load double, ptr %call70, align 8
+  %conv71 = fptrunc double %50 to float
   %m_column472 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this1, i32 0, i32 4
   %arrayidx73 = getelementptr inbounds [4 x float], ptr %m_column472, i64 0, i64 3
   store float %conv71, ptr %arrayidx73, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   call void @_ZN19OpenColorIO_v2_4dev5OpCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 

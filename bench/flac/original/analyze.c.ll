@@ -1204,8 +1204,9 @@ entry:
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i32 0, i32 3), align 8
-  %cmp = icmp ugt i32 %1, 0
+  %1 = getelementptr inbounds %struct.subframe_stats_t, ptr @all_, i32 0, i32 3
+  %2 = load i32, ptr %1, align 8
+  %cmp = icmp ugt i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true

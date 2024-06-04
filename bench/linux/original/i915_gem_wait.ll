@@ -23,7 +23,7 @@ define dso_local void @i915_gem_fence_wait_priority(ptr noundef %0, ptr noundef 
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 1
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %150
+  br i1 %6, label %7, label %152
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39,242 +39,244 @@ define dso_local void @i915_gem_fence_wait_priority(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %13
   %16 = tail call i32 @dma_fence_signal(ptr noundef %0) #6
-  br label %150
+  br label %152
 
 17:                                               ; preds = %13, %7
   %18 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !6
+  %19 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %20 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 512, ptr nonnull elementtype(i32) %20) #6, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, @dma_fence_array_ops
-  br i1 %21, label %22, label %65
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, @dma_fence_array_ops
+  br i1 %23, label %24, label %67
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 68
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %149, label %26
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %151, label %28
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  br label %28
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  br label %30
 
-28:                                               ; preds = %61, %26
-  %29 = phi i32 [ 0, %26 ], [ %62, %61 ]
-  %30 = load ptr, ptr %27, align 8
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
-  %35 = load volatile i64, ptr %34, align 8
-  %36 = and i64 %35, 1
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %61
+30:                                               ; preds = %63, %28
+  %31 = phi i32 [ 0, %28 ], [ %64, %63 ]
+  %32 = load ptr, ptr %29, align 8
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr ptr, ptr %32, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %37 = load volatile i64, ptr %36, align 8
+  %38 = and i64 %37, 1
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %63
 
-38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds i8, ptr %35, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %48, label %44
+  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %50, label %46
 
-44:                                               ; preds = %38
-  %45 = tail call zeroext i1 %42(ptr noundef %33) #6
-  br i1 %45, label %46, label %48
+46:                                               ; preds = %40
+  %47 = tail call zeroext i1 %44(ptr noundef %35) #6
+  br i1 %47, label %48, label %50
 
-46:                                               ; preds = %44
-  %47 = tail call i32 @dma_fence_signal(ptr noundef %33) #6
-  br label %61
+48:                                               ; preds = %46
+  %49 = tail call i32 @dma_fence_signal(ptr noundef %35) #6
+  br label %63
 
-48:                                               ; preds = %44, %38
-  %49 = load ptr, ptr %39, align 8
-  %50 = icmp eq ptr %49, @i915_fence_ops
-  br i1 %50, label %51, label %61
+50:                                               ; preds = %46, %40
+  %51 = load ptr, ptr %41, align 8
+  %52 = icmp eq ptr %51, @i915_fence_ops
+  br i1 %52, label %53, label %63
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %33, i64 80
-  %53 = load ptr, ptr %52, align 8
-  tail call void @__rcu_read_lock() #6
-  %54 = getelementptr inbounds i8, ptr %53, i64 144
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %35, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 208
+  tail call void @__rcu_read_lock() #6
+  %56 = getelementptr inbounds i8, ptr %55, i64 144
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %60, label %59
+  %58 = getelementptr inbounds i8, ptr %57, i64 208
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %62, label %61
 
-59:                                               ; preds = %51
-  tail call void %57(ptr noundef %33, ptr noundef %1) #6
-  br label %60
+61:                                               ; preds = %53
+  tail call void %59(ptr noundef %35, ptr noundef %1) #6
+  br label %62
 
-60:                                               ; preds = %59, %51
+62:                                               ; preds = %61, %53
   tail call void @__rcu_read_unlock() #6
-  br label %61
+  br label %63
 
-61:                                               ; preds = %60, %48, %46, %28
-  %62 = add nuw i32 %29, 1
-  %63 = load i32, ptr %23, align 4
-  %64 = icmp ult i32 %62, %63
-  br i1 %64, label %28, label %149, !llvm.loop !8
+63:                                               ; preds = %62, %50, %48, %30
+  %64 = add nuw i32 %31, 1
+  %65 = load i32, ptr %25, align 4
+  %66 = icmp ult i32 %64, %65
+  br i1 %66, label %30, label %151, !llvm.loop !8
 
-65:                                               ; preds = %17
-  %66 = icmp eq ptr %20, @dma_fence_chain_ops
-  br i1 %66, label %67, label %124
-
-67:                                               ; preds = %65
-  %68 = icmp eq ptr %0, null
-  br i1 %68, label %149, label %69
+67:                                               ; preds = %17
+  %68 = icmp eq ptr %22, @dma_fence_chain_ops
+  br i1 %68, label %69, label %126
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
-  %71 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, i32 1, ptr elementtype(i32) %70) #6, !srcloc !11
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %77, label %73, !prof !12
+  %70 = icmp eq ptr %0, null
+  br i1 %70, label %151, label %71
 
-73:                                               ; preds = %69
-  %74 = add i32 %71, 1
-  %75 = or i32 %74, %71
-  %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %79, label %77, !prof !13
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72, i32 1, ptr elementtype(i32) %72) #6, !srcloc !11
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %79, label %75, !prof !12
 
-77:                                               ; preds = %73, %69
-  %78 = phi i32 [ 2, %69 ], [ 1, %73 ]
-  tail call void @refcount_warn_saturate(ptr noundef %70, i32 noundef %78) #6
-  br label %79
+75:                                               ; preds = %71
+  %76 = add i32 %73, 1
+  %77 = or i32 %76, %73
+  %78 = icmp sgt i32 %77, -1
+  br i1 %78, label %81, label %79, !prof !13
 
-79:                                               ; preds = %77, %73
-  br i1 %68, label %149, label %80
+79:                                               ; preds = %75, %71
+  %80 = phi i32 [ 2, %71 ], [ 1, %75 ]
+  tail call void @refcount_warn_saturate(ptr noundef %72, i32 noundef %80) #6
+  br label %81
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8
-  %82 = icmp eq ptr %81, @dma_fence_chain_ops
-  %83 = select i1 %82, ptr %0, ptr null
-  %84 = getelementptr inbounds i8, ptr %83, i64 80
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
-  %87 = load volatile i64, ptr %86, align 8
-  %88 = and i64 %87, 1
-  %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %113
+81:                                               ; preds = %79, %75
+  br i1 %70, label %151, label %82
 
-90:                                               ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %85, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %21, align 8
+  %84 = icmp eq ptr %83, @dma_fence_chain_ops
+  %85 = select i1 %84, ptr %0, ptr null
+  %86 = getelementptr inbounds i8, ptr %85, i64 80
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 48
+  %89 = load volatile i64, ptr %88, align 8
+  %90 = and i64 %89, 1
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %92, label %115
+
+92:                                               ; preds = %82
+  %93 = getelementptr inbounds i8, ptr %87, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %100, label %96
+  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %102, label %98
 
-96:                                               ; preds = %90
-  %97 = tail call zeroext i1 %94(ptr noundef %85) #6
-  br i1 %97, label %98, label %100
+98:                                               ; preds = %92
+  %99 = tail call zeroext i1 %96(ptr noundef %87) #6
+  br i1 %99, label %100, label %102
 
-98:                                               ; preds = %96
-  %99 = tail call i32 @dma_fence_signal(ptr noundef %85) #6
-  br label %113
+100:                                              ; preds = %98
+  %101 = tail call i32 @dma_fence_signal(ptr noundef %87) #6
+  br label %115
 
-100:                                              ; preds = %96, %90
-  %101 = load ptr, ptr %91, align 8
-  %102 = icmp eq ptr %101, @i915_fence_ops
-  br i1 %102, label %103, label %113
+102:                                              ; preds = %98, %92
+  %103 = load ptr, ptr %93, align 8
+  %104 = icmp eq ptr %103, @i915_fence_ops
+  br i1 %104, label %105, label %115
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %85, i64 80
-  %105 = load ptr, ptr %104, align 8
-  tail call void @__rcu_read_lock() #6
-  %106 = getelementptr inbounds i8, ptr %105, i64 144
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %87, i64 80
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 208
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %112, label %111
-
-111:                                              ; preds = %103
-  tail call void %109(ptr noundef %85, ptr noundef %1) #6
-  br label %112
-
-112:                                              ; preds = %111, %103
-  tail call void @__rcu_read_unlock() #6
-  br label %113
-
-113:                                              ; preds = %112, %100, %98, %80
-  br i1 %68, label %149, label %114
-
-114:                                              ; preds = %113
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
-  %116 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %115, i32 -1, ptr elementtype(i32) %115) #6, !srcloc !14
-  %117 = icmp eq i32 %116, 1
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %114
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
-  br label %122
-
-119:                                              ; preds = %114
-  %120 = icmp sgt i32 %116, 0
-  br i1 %120, label %122, label %121, !prof !13
-
-121:                                              ; preds = %119
-  tail call void @refcount_warn_saturate(ptr noundef %115, i32 noundef 3) #6
-  br label %122
-
-122:                                              ; preds = %121, %119, %118
-  br i1 %117, label %123, label %149
-
-123:                                              ; preds = %122
-  tail call void @dma_fence_release(ptr noundef %115) #6, !callees !16
-  br label %149
-
-124:                                              ; preds = %65
-  %125 = load volatile i64, ptr %3, align 8
-  %126 = and i64 %125, 1
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %128, label %149
-
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %20, i64 32
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %136, label %132
-
-132:                                              ; preds = %128
-  %133 = tail call zeroext i1 %130(ptr noundef %0) #6
-  br i1 %133, label %134, label %136
-
-134:                                              ; preds = %132
-  %135 = tail call i32 @dma_fence_signal(ptr noundef %0) #6
-  br label %149
-
-136:                                              ; preds = %132, %128
-  %137 = load ptr, ptr %19, align 8
-  %138 = icmp eq ptr %137, @i915_fence_ops
-  br i1 %138, label %139, label %149
-
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %0, i64 80
-  %141 = load ptr, ptr %140, align 8
   tail call void @__rcu_read_lock() #6
-  %142 = getelementptr inbounds i8, ptr %141, i64 144
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 208
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %148, label %147
+  %108 = getelementptr inbounds i8, ptr %107, i64 144
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 208
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %114, label %113
 
-147:                                              ; preds = %139
-  tail call void %145(ptr noundef %0, ptr noundef %1) #6
-  br label %148
+113:                                              ; preds = %105
+  tail call void %111(ptr noundef %87, ptr noundef %1) #6
+  br label %114
 
-148:                                              ; preds = %147, %139
+114:                                              ; preds = %113, %105
   tail call void @__rcu_read_unlock() #6
-  br label %149
+  br label %115
 
-149:                                              ; preds = %148, %136, %134, %124, %123, %122, %113, %79, %67, %61, %22
-  tail call void @__local_bh_enable_ip(i64 noundef %18, i32 noundef 512) #6
+115:                                              ; preds = %114, %102, %100, %82
+  br i1 %70, label %151, label %116
+
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds i8, ptr %0, i64 56
+  %118 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %117, i32 -1, ptr elementtype(i32) %117) #6, !srcloc !14
+  %119 = icmp eq i32 %118, 1
+  br i1 %119, label %120, label %121
+
+120:                                              ; preds = %116
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
+  br label %124
+
+121:                                              ; preds = %116
+  %122 = icmp sgt i32 %118, 0
+  br i1 %122, label %124, label %123, !prof !13
+
+123:                                              ; preds = %121
+  tail call void @refcount_warn_saturate(ptr noundef %117, i32 noundef 3) #6
+  br label %124
+
+124:                                              ; preds = %123, %121, %120
+  br i1 %119, label %125, label %151
+
+125:                                              ; preds = %124
+  tail call void @dma_fence_release(ptr noundef %117) #6, !callees !16
+  br label %151
+
+126:                                              ; preds = %67
+  %127 = load volatile i64, ptr %3, align 8
+  %128 = and i64 %127, 1
+  %129 = icmp eq i64 %128, 0
+  br i1 %129, label %130, label %151
+
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %22, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %138, label %134
+
+134:                                              ; preds = %130
+  %135 = tail call zeroext i1 %132(ptr noundef %0) #6
+  br i1 %135, label %136, label %138
+
+136:                                              ; preds = %134
+  %137 = tail call i32 @dma_fence_signal(ptr noundef %0) #6
+  br label %151
+
+138:                                              ; preds = %134, %130
+  %139 = load ptr, ptr %21, align 8
+  %140 = icmp eq ptr %139, @i915_fence_ops
+  br i1 %140, label %141, label %151
+
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %0, i64 80
+  %143 = load ptr, ptr %142, align 8
+  tail call void @__rcu_read_lock() #6
+  %144 = getelementptr inbounds i8, ptr %143, i64 144
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 208
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %150, label %149
+
+149:                                              ; preds = %141
+  tail call void %147(ptr noundef %0, ptr noundef %1) #6
   br label %150
 
-150:                                              ; preds = %149, %15, %2
+150:                                              ; preds = %149, %141
+  tail call void @__rcu_read_unlock() #6
+  br label %151
+
+151:                                              ; preds = %150, %138, %136, %126, %125, %124, %115, %81, %69, %63, %24
+  tail call void @__local_bh_enable_ip(i64 noundef %18, i32 noundef 512) #6
+  br label %152
+
+152:                                              ; preds = %151, %15, %2
   ret void
 }
 

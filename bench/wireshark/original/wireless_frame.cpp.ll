@@ -355,138 +355,140 @@ define void @_ZN13WirelessFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %13 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12, i32 %14)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 1, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #13
-          to label %18 unwind label %48
-
-18:                                               ; preds = %2
+  %15 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 1, i32 2
   store ptr %17, ptr %16, align 8
-  %19 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 2
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 3
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 4
-  store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  invoke void @_ZN16Ui_WirelessFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(168) %23, ptr noundef %11)
-          to label %24 unwind label %48
+  %18 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #13
+          to label %20 unwind label %50
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %26, i32 0, i32 19
+20:                                               ; preds = %2
+  store ptr %19, ptr %18, align 8
+  %21 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 2
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 3
+  store i8 0, ptr %22, align 8
+  %23 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 4
+  store i32 -1, ptr %23, align 4
+  %24 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  invoke void @_ZN16Ui_WirelessFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(168) %25, ptr noundef %11)
+          to label %26 unwind label %50
+
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
-          to label %29 unwind label %48
+  %29 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %28, i32 0, i32 19
+  %30 = load ptr, ptr %29, align 8
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
+          to label %31 unwind label %50
 
-29:                                               ; preds = %24
-  %30 = invoke i32 @ws80211_init()
-          to label %31 unwind label %48
-
-31:                                               ; preds = %29
-  %32 = icmp eq i32 %30, 0
-  br i1 %32, label %33, label %52
+31:                                               ; preds = %26
+  %32 = invoke i32 @ws80211_init()
+          to label %33 unwind label %50
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %35, i32 0, i32 1
+  %34 = icmp eq i32 %32, 0
+  br i1 %34, label %35, label %54
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %37, i1 noundef zeroext true)
-          to label %38 unwind label %48
+  %38 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %39, i1 noundef zeroext true)
+          to label %40 unwind label %50
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %40, i32 0, i32 1
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
+  %43 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %44, i32 0, i32 2
+  %45 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %46 = load ptr, ptr %45, align 8
-  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef %46)
-          to label %47 unwind label %48
+  %47 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %48)
+          to label %49 unwind label %50
 
-47:                                               ; preds = %38
-  br label %67
+49:                                               ; preds = %40
+  br label %69
 
-48:                                               ; preds = %78, %77, %73, %67, %57, %52, %38, %33, %29, %24, %18, %2
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %80, %79, %75, %69, %59, %54, %40, %35, %31, %26, %20, %2
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %6, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %7, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %6, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %7, align 4
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #12
-  br label %85
+  br label %87
 
-52:                                               ; preds = %31
-  %53 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %54, i32 0, i32 1
+54:                                               ; preds = %33
+  %55 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %56 = load ptr, ptr %55, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %56, i1 noundef zeroext false)
-          to label %57 unwind label %48
+  %57 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %58, i1 noundef zeroext false)
+          to label %59 unwind label %50
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %59, i32 0, i32 1
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
+  %62 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %61, i32 0, i32 1
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %63, i32 0, i32 15
+  %64 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
-  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef %65)
-          to label %66 unwind label %48
+  %66 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %65, i32 0, i32 15
+  %67 = load ptr, ptr %66, align 8
+  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef %67)
+          to label %68 unwind label %50
 
-66:                                               ; preds = %57
-  br label %67
+68:                                               ; preds = %59
+  br label %69
 
-67:                                               ; preds = %66, %47
-  %68 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %69, i32 0, i32 10
+69:                                               ; preds = %68, %49
+  %70 = getelementptr inbounds %class.WirelessFrame, ptr %11, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = invoke zeroext i1 @ws80211_has_fcs_filter()
-          to label %73 unwind label %48
+  %72 = getelementptr inbounds %class.Ui_WirelessFrame, ptr %71, i32 0, i32 10
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke zeroext i1 @ws80211_has_fcs_filter()
+          to label %75 unwind label %50
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 13
-  %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(40) %71, i1 noundef zeroext %72)
-          to label %77 unwind label %48
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %73, align 8
+  %77 = getelementptr inbounds ptr, ptr %76, i64 13
+  %78 = load ptr, ptr %77, align 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(40) %73, i1 noundef zeroext %74)
+          to label %79 unwind label %50
 
-77:                                               ; preds = %73
+79:                                               ; preds = %75
   invoke void @_ZN13WirelessFrame19updateInterfaceListEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
-          to label %78 unwind label %48
+          to label %80 unwind label %50
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr @mainApp, align 8
+80:                                               ; preds = %79
+  %81 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication19localInterfaceEventEPKcii to i64), i64 0 }, ptr %9, align 8
-  %80 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %82 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
   %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN13WirelessFrame20handleInterfaceEventEPKcii to i64), i64 0 }, ptr %10, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFvPKciiEM13WirelessFrameFvS3_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %79, i64 %81, i64 %83, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
-          to label %84 unwind label %48
+  invoke void @_ZN7QObject7connectIM15MainApplicationFvPKciiEM13WirelessFrameFvS3_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %81, i64 %83, i64 %85, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
+          to label %86 unwind label %50
 
-84:                                               ; preds = %78
+86:                                               ; preds = %80
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
   ret void
 
-85:                                               ; preds = %48
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %7, align 4
-  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
-  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
-  resume { ptr, i32 } %89
+87:                                               ; preds = %50
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i32, ptr %7, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2188,33 +2190,35 @@ define void @_ZN13WirelessFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WirelessFrame, ptr %3, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  invoke void @ws80211_free_interfaces(ptr noundef %6)
-          to label %7 unwind label %13
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV13WirelessFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WirelessFrame, ptr %3, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  invoke void @ws80211_free_interfaces(ptr noundef %8)
+          to label %9 unwind label %15
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.WirelessFrame, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %class.WirelessFrame, ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-11:                                               ; preds = %7
-  call void @_ZdlPv(ptr noundef %9) #14
-  br label %12
+13:                                               ; preds = %9
+  call void @_ZdlPv(ptr noundef %11) #14
+  br label %14
 
-12:                                               ; preds = %11, %7
+14:                                               ; preds = %13, %9
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+15:                                               ; preds = %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #15
   unreachable
 }
 
@@ -4129,19 +4133,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.6, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #12
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #12
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #12
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #12
   ret void
 }
 
@@ -4763,9 +4768,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

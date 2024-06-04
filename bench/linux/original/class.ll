@@ -51,98 +51,100 @@ define dso_local ptr @devm_rtc_allocate_device(ptr noundef %0) #0 align 16 {
 4:                                                ; preds = %1
   %5 = sext i32 %2 to i64
   %6 = inttoptr i64 %5 to ptr
-  br label %52
+  br label %54
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(1264) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 1264) #8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %34, label %11
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(1264) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1264) #8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %35, label %12
 
-11:                                               ; preds = %7
-  tail call void @device_initialize(ptr noundef nonnull %9) #7
-  %12 = getelementptr inbounds i8, ptr %9, i64 1200
-  store i64 1005000000, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 944
-  store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 948
-  store i32 64, ptr %14, align 4
-  %15 = load ptr, ptr @rtc_class, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 672
-  store ptr %15, ptr %16, align 8
-  %17 = tail call ptr @rtc_get_dev_attribute_groups() #7
-  %18 = getelementptr inbounds i8, ptr %9, i64 680
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 688
-  store ptr @rtc_device_release, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 752
-  tail call void @__mutex_init(ptr noundef %20, ptr noundef nonnull @.str.7, ptr noundef nonnull @rtc_allocate_device.__key) #7
-  %21 = getelementptr inbounds i8, ptr %9, i64 904
-  store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 912
-  tail call void @__init_waitqueue_head(ptr noundef %22, ptr noundef nonnull @.str.9, ptr noundef nonnull @rtc_allocate_device.__key.8) #7
-  %23 = getelementptr inbounds i8, ptr %9, i64 952
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %9, i64 1168
-  store i64 68719476704, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 1176
-  store volatile ptr %25, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 1184
-  store volatile ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 1192
-  store ptr @rtc_timer_do_work, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 968
-  tail call void @rtc_timer_init(ptr noundef %28, ptr noundef nonnull @rtc_aie_update_irq, ptr noundef nonnull %9) #7
-  %29 = getelementptr inbounds i8, ptr %9, i64 1032
-  tail call void @rtc_timer_init(ptr noundef %29, ptr noundef nonnull @rtc_uie_update_irq, ptr noundef nonnull %9) #7
-  %30 = getelementptr inbounds i8, ptr %9, i64 1096
-  tail call void @hrtimer_init(ptr noundef %30, i32 noundef 1, i32 noundef 1) #7
-  %31 = getelementptr inbounds i8, ptr %9, i64 1136
-  store ptr @rtc_pie_update_irq, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 1160
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 1208
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33, i32 1, ptr elementtype(i8) %33) #7, !srcloc !5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33, i32 16, ptr elementtype(i8) %33) #7, !srcloc !5
-  br label %34
+12:                                               ; preds = %7
+  tail call void @device_initialize(ptr noundef nonnull %10) #7
+  %13 = getelementptr inbounds i8, ptr %10, i64 1200
+  store i64 1005000000, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %10, i64 944
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 948
+  store i32 64, ptr %15, align 4
+  %16 = load ptr, ptr @rtc_class, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 672
+  store ptr %16, ptr %17, align 8
+  %18 = tail call ptr @rtc_get_dev_attribute_groups() #7
+  %19 = getelementptr inbounds i8, ptr %10, i64 680
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %10, i64 688
+  store ptr @rtc_device_release, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 752
+  tail call void @__mutex_init(ptr noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull @rtc_allocate_device.__key) #7
+  %22 = getelementptr inbounds i8, ptr %10, i64 904
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 912
+  tail call void @__init_waitqueue_head(ptr noundef %23, ptr noundef nonnull @.str.9, ptr noundef nonnull @rtc_allocate_device.__key.8) #7
+  %24 = getelementptr inbounds i8, ptr %10, i64 952
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  %25 = getelementptr inbounds i8, ptr %10, i64 1168
+  store i64 68719476704, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %10, i64 1176
+  store volatile ptr %26, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %10, i64 1184
+  store volatile ptr %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %10, i64 1192
+  store ptr @rtc_timer_do_work, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %10, i64 968
+  tail call void @rtc_timer_init(ptr noundef %29, ptr noundef nonnull @rtc_aie_update_irq, ptr noundef nonnull %10) #7
+  %30 = getelementptr inbounds i8, ptr %10, i64 1032
+  tail call void @rtc_timer_init(ptr noundef %30, ptr noundef nonnull @rtc_uie_update_irq, ptr noundef nonnull %10) #7
+  %31 = getelementptr inbounds i8, ptr %10, i64 1096
+  tail call void @hrtimer_init(ptr noundef %31, i32 noundef 1, i32 noundef 1) #7
+  %32 = getelementptr inbounds i8, ptr %10, i64 1136
+  store ptr @rtc_pie_update_irq, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %10, i64 1160
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %10, i64 1208
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #7, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 16, ptr elementtype(i8) %34) #7, !srcloc !5
+  br label %35
 
-34:                                               ; preds = %11, %7
-  %35 = phi ptr [ %9, %11 ], [ null, %7 ]
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %38
+35:                                               ; preds = %12, %7
+  %36 = phi ptr [ %10, %12 ], [ null, %7 ]
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   tail call void @ida_free(ptr noundef nonnull @rtc_ida, i32 noundef %2) #7
-  br label %52
+  %39 = inttoptr i64 -12 to ptr
+  br label %54
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %35, i64 736
-  store i32 %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 64
-  store ptr %0, ptr %40, align 8
-  %41 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_rtc_release_device, ptr noundef nonnull %35, ptr noundef nonnull @.str) #7
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %36, i64 736
+  store i32 %2, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %36, i64 64
+  store ptr %0, ptr %42, align 8
+  %43 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_rtc_release_device, ptr noundef nonnull %36, ptr noundef nonnull @.str) #7
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %48, label %45
 
-43:                                               ; preds = %38
-  tail call void @put_device(ptr noundef nonnull %35) #7
-  %44 = sext i32 %41 to i64
-  %45 = inttoptr i64 %44 to ptr
-  br label %52
+45:                                               ; preds = %40
+  tail call void @put_device(ptr noundef nonnull %36) #7
+  %46 = sext i32 %43 to i64
+  %47 = inttoptr i64 %46 to ptr
+  br label %54
 
-46:                                               ; preds = %38
-  %47 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %35, ptr noundef nonnull @.str.1, i32 noundef %2) #7
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %52, label %49
+48:                                               ; preds = %40
+  %49 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %36, ptr noundef nonnull @.str.1, i32 noundef %2) #7
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %54, label %51
 
-49:                                               ; preds = %46
-  %50 = sext i32 %47 to i64
-  %51 = inttoptr i64 %50 to ptr
-  br label %52
+51:                                               ; preds = %48
+  %52 = sext i32 %49 to i64
+  %53 = inttoptr i64 %52 to ptr
+  br label %54
 
-52:                                               ; preds = %49, %46, %43, %37, %4
-  %53 = phi ptr [ %6, %4 ], [ %45, %43 ], [ %51, %49 ], [ inttoptr (i64 -12 to ptr), %37 ], [ %35, %46 ]
-  ret ptr %53
+54:                                               ; preds = %51, %48, %45, %38, %4
+  %55 = phi ptr [ %6, %4 ], [ %47, %45 ], [ %53, %51 ], [ %39, %38 ], [ %36, %48 ]
+  ret ptr %55
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -399,49 +401,51 @@ define internal void @devm_rtc_unregister_device(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_rtc_device_register(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call ptr @devm_rtc_allocate_device(ptr noundef %0)
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %14, label %7
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %15, label %8
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 744
-  store ptr %2, ptr %8, align 8
-  %9 = tail call i32 @__devm_rtc_register_device(ptr noundef %3, ptr noundef %5)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %14, label %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %5, i64 744
+  store ptr %2, ptr %9, align 8
+  %10 = tail call i32 @__devm_rtc_register_device(ptr noundef %3, ptr noundef %5)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %7
-  %12 = sext i32 %9 to i64
-  %13 = inttoptr i64 %12 to ptr
-  br label %14
+12:                                               ; preds = %8
+  %13 = sext i32 %10 to i64
+  %14 = inttoptr i64 %13 to ptr
+  br label %15
 
-14:                                               ; preds = %11, %7, %4
-  %15 = phi ptr [ %13, %11 ], [ %5, %4 ], [ %5, %7 ]
-  ret ptr %15
+15:                                               ; preds = %12, %8, %4
+  %16 = phi ptr [ %14, %12 ], [ %5, %4 ], [ %5, %8 ]
+  ret ptr %16
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @rtc_init() #5 section ".init.text" align 16 {
   %1 = tail call ptr @class_create(ptr noundef nonnull @.str.5) #7
   store ptr %1, ptr @rtc_class, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %8
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %9
 
-3:                                                ; preds = %0
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #9
-  %5 = load ptr, ptr @rtc_class, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %7 = trunc i64 %6 to i32
-  br label %10
+4:                                                ; preds = %0
+  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #9
+  %6 = load ptr, ptr @rtc_class, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = trunc i64 %7 to i32
+  br label %11
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  store ptr null, ptr %9, align 8
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr null, ptr %10, align 8
   tail call void @rtc_dev_init() #9
-  br label %10
+  br label %11
 
-10:                                               ; preds = %8, %3
-  %11 = phi i32 [ %7, %3 ], [ 0, %8 ]
-  ret i32 %11
+11:                                               ; preds = %9, %4
+  %12 = phi i32 [ %8, %4 ], [ 0, %9 ]
+  ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid

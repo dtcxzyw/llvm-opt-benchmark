@@ -23,17 +23,20 @@ define internal i32 @dlopen_component_open() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dlopen_component_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr null, %2
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2), align 8
-  call void @opal_argv_free(ptr noundef %4)
-  store ptr null, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2), align 8
-  br label %5
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  call void @opal_argv_free(ptr noundef %6)
+  %7 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2
+  store ptr null, ptr %7, align 8
+  br label %8
 
-5:                                                ; preds = %3, %0
+8:                                                ; preds = %4, %0
   ret i32 0
 }
 
@@ -43,11 +46,12 @@ define internal i32 @dlopen_component_query(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_dl_base_component_1_0_0_t, ptr @mca_dl_dlopen_component, i32 0, i32 2), align 4
-  %6 = load ptr, ptr %4, align 8
-  store i32 %5, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr @opal_dl_dlopen_module, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.opal_dl_base_component_1_0_0_t, ptr @mca_dl_dlopen_component, i32 0, i32 2
+  %6 = load i32, ptr %5, align 4
+  %7 = load ptr, ptr %4, align 8
+  store i32 %6, ptr %7, align 4
+  %8 = load ptr, ptr %3, align 8
+  store ptr @opal_dl_dlopen_module, ptr %8, align 8
   ret i32 0
 }
 
@@ -55,28 +59,32 @@ define internal i32 @dlopen_component_query(ptr noundef %0, ptr noundef %1) #0 {
 define internal i32 @dlopen_component_register() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  store ptr @.str.1, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1), align 8
-  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_dl_dlopen_component, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 2, ptr noundef getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1))
-  store i32 %3, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %0
-  %7 = load i32, ptr %2, align 4
-  store i32 %7, ptr %1, align 4
-  br label %11
+  %3 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1
+  store ptr @.str.1, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1
+  %5 = call i32 @mca_base_component_var_register(ptr noundef @mca_dl_dlopen_component, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 2, ptr noundef %4)
+  store i32 %5, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1), align 8
-  %10 = call noalias ptr @opal_argv_split(ptr noundef %9, i32 noundef 44)
-  store ptr %10, ptr getelementptr inbounds (%struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2), align 8
-  store i32 0, ptr %1, align 4
-  br label %11
+  %9 = load i32, ptr %2, align 4
+  store i32 %9, ptr %1, align 4
+  br label %15
 
-11:                                               ; preds = %8, %6
-  %12 = load i32, ptr %1, align 4
-  ret i32 %12
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noalias ptr @opal_argv_split(ptr noundef %12, i32 noundef 44)
+  %14 = getelementptr inbounds %struct.opal_dl_dlopen_component_t, ptr @mca_dl_dlopen_component, i32 0, i32 2
+  store ptr %13, ptr %14, align 8
+  store i32 0, ptr %1, align 4
+  br label %15
+
+15:                                               ; preds = %10, %8
+  %16 = load i32, ptr %1, align 4
+  ret i32 %16
 }
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1

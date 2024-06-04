@@ -30,55 +30,63 @@ define void @php_statpage() #0 {
   store ptr null, ptr %1, align 8
   %2 = call ptr @sapi_get_stat()
   store ptr %2, ptr %1, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13), align 8
-  %4 = icmp eq i64 %3, -1
-  br i1 %4, label %8, label %5
+  %3 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp eq i64 %4, -1
+  br i1 %5, label %10, label %6
 
-5:                                                ; preds = %0
-  %6 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14), align 8
-  %7 = icmp eq i64 %6, -1
-  br i1 %7, label %8, label %33
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, -1
+  br i1 %9, label %10, label %41
 
-8:                                                ; preds = %5, %0
-  %9 = load ptr, ptr %1, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %27
+10:                                               ; preds = %6, %0
+  %11 = load ptr, ptr %1, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %33
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %struct.stat, ptr %12, i32 0, i32 4
-  %14 = load i32, ptr %13, align 4
-  %15 = zext i32 %14 to i64
-  store i64 %15, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13), align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.stat, ptr %16, i32 0, i32 5
-  %18 = load i32, ptr %17, align 8
-  %19 = zext i32 %18 to i64
-  store i64 %19, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14), align 8
-  %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds %struct.stat, ptr %20, i32 0, i32 1
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15), align 8
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %struct.stat, ptr %23, i32 0, i32 12
-  %25 = getelementptr inbounds %struct.timespec, ptr %24, i32 0, i32 0
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds %struct.stat, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13
+  store i64 %17, ptr %18, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.stat, ptr %19, i32 0, i32 5
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14
+  store i64 %22, ptr %23, align 8
+  %24 = load ptr, ptr %1, align 8
+  %25 = getelementptr inbounds %struct.stat, ptr %24, i32 0, i32 1
   %26 = load i64, ptr %25, align 8
-  store i64 %26, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 16), align 8
-  br label %32
+  %27 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15
+  store i64 %26, ptr %27, align 8
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds %struct.stat, ptr %28, i32 0, i32 12
+  %30 = getelementptr inbounds %struct.timespec, ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 16
+  store i64 %31, ptr %32, align 8
+  br label %40
 
-27:                                               ; preds = %8
-  %28 = call i32 @getuid() #3
-  %29 = zext i32 %28 to i64
-  store i64 %29, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13), align 8
-  %30 = call i32 @getgid() #3
-  %31 = zext i32 %30 to i64
-  store i64 %31, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14), align 8
-  br label %32
+33:                                               ; preds = %10
+  %34 = call i32 @getuid() #3
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13
+  store i64 %35, ptr %36, align 8
+  %37 = call i32 @getgid() #3
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14
+  store i64 %38, ptr %39, align 8
+  br label %40
 
-32:                                               ; preds = %27, %11
-  br label %33
+40:                                               ; preds = %33, %13
+  br label %41
 
-33:                                               ; preds = %32, %5
+41:                                               ; preds = %40, %6
   ret void
 }
 
@@ -93,15 +101,17 @@ declare i32 @getgid() #2
 ; Function Attrs: nounwind uwtable
 define hidden i64 @php_getuid() #0 {
   call void @php_statpage()
-  %1 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13), align 8
-  ret i64 %1
+  %1 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 13
+  %2 = load i64, ptr %1, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @php_getgid() #0 {
   call void @php_statpage()
-  %1 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14), align 8
-  ret i64 %1
+  %1 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 14
+  %2 = load i64, ptr %1, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -383,68 +393,71 @@ define hidden void @zif_getmyinode(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %6
   call void @zend_wrong_parameters_none_error()
-  br label %40
+  br label %42
 
 18:                                               ; preds = %6
   br label %19
 
 19:                                               ; preds = %18
   call void @php_statpage()
-  %20 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15), align 8
-  %21 = icmp slt i64 %20, 0
-  br i1 %21, label %22, label %29
+  %20 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp slt i64 %21, 0
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %19
-  br label %23
-
-23:                                               ; preds = %22
+23:                                               ; preds = %19
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 1
-  store i32 2, ptr %26, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %24
-  br label %40
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i32 0, i32 1
+  store i32 2, ptr %27, align 8
+  br label %28
 
-28:                                               ; No predecessors!
-  br label %40
+28:                                               ; preds = %25
+  br label %42
 
-29:                                               ; preds = %19
-  br label %30
+29:                                               ; No predecessors!
+  br label %42
 
-30:                                               ; preds = %29
+30:                                               ; preds = %19
   br label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %4, align 8
-  store ptr %32, ptr %5, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15), align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 0
-  store i64 %33, ptr %35, align 8
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %4, align 8
+  store ptr %33, ptr %5, align 8
+  %34 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 15
+  %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 1
-  store i32 4, ptr %37, align 8
-  br label %38
-
-38:                                               ; preds = %31
+  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 0
+  store i64 %35, ptr %37, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 1
+  store i32 4, ptr %39, align 8
   br label %40
 
-39:                                               ; No predecessors!
-  br label %40
+40:                                               ; preds = %32
+  br label %42
 
-40:                                               ; preds = %39, %38, %28, %27, %17
+41:                                               ; No predecessors!
+  br label %42
+
+42:                                               ; preds = %41, %40, %29, %28, %17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @php_getlastmod() #0 {
   call void @php_statpage()
-  %1 = load i64, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i32 0, i32 16), align 8
-  ret i64 %1
+  %1 = getelementptr inbounds %struct._php_basic_globals, ptr @basic_globals, i32 0, i32 16
+  %2 = load i64, ptr %1, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable

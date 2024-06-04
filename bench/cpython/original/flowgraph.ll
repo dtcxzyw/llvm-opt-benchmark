@@ -2344,74 +2344,75 @@ if.end30:                                         ; preds = %if.then26, %if.end2
   %id33 = getelementptr inbounds %struct._PyCfgJumpTargetLabel, ptr %b_label32, i32 0, i32 0
   %26 = load i32, ptr %id33, align 8
   %27 = load i64, ptr @NO_LOCATION, align 4
-  %28 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @NO_LOCATION, i32 0, i32 1), align 4
-  %call34 = call i32 @basicblock_addop(ptr noundef %23, i32 noundef 256, i32 noundef %26, i64 %27, i64 %28)
-  %29 = load ptr, ptr %explicit_jump, align 8
-  %b_cold35 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %29, i32 0, i32 10
+  %28 = getelementptr inbounds { i64, i64 }, ptr @NO_LOCATION, i32 0, i32 1
+  %29 = load i64, ptr %28, align 4
+  %call34 = call i32 @basicblock_addop(ptr noundef %23, i32 noundef 256, i32 noundef %26, i64 %27, i64 %29)
+  %30 = load ptr, ptr %explicit_jump, align 8
+  %b_cold35 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %30, i32 0, i32 10
   %bf.load36 = load i8, ptr %b_cold35, align 8
   %bf.clear37 = and i8 %bf.load36, -9
   %bf.set = or i8 %bf.clear37, 8
   store i8 %bf.set, ptr %b_cold35, align 8
-  %30 = load ptr, ptr %b, align 8
-  %b_next38 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %30, i32 0, i32 4
-  %31 = load ptr, ptr %b_next38, align 8
-  %32 = load ptr, ptr %explicit_jump, align 8
-  %b_next39 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %32, i32 0, i32 4
-  store ptr %31, ptr %b_next39, align 8
+  %31 = load ptr, ptr %b, align 8
+  %b_next38 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %31, i32 0, i32 4
+  %32 = load ptr, ptr %b_next38, align 8
   %33 = load ptr, ptr %explicit_jump, align 8
-  %34 = load ptr, ptr %b, align 8
-  %b_next40 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %34, i32 0, i32 4
-  store ptr %33, ptr %b_next40, align 8
-  %35 = load ptr, ptr %explicit_jump, align 8
-  %call41 = call ptr @basicblock_last_instr(ptr noundef %35)
-  store ptr %call41, ptr %last, align 8
+  %b_next39 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %33, i32 0, i32 4
+  store ptr %32, ptr %b_next39, align 8
+  %34 = load ptr, ptr %explicit_jump, align 8
+  %35 = load ptr, ptr %b, align 8
+  %b_next40 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %35, i32 0, i32 4
+  store ptr %34, ptr %b_next40, align 8
   %36 = load ptr, ptr %explicit_jump, align 8
-  %b_next42 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %36, i32 0, i32 4
-  %37 = load ptr, ptr %b_next42, align 8
-  %38 = load ptr, ptr %last, align 8
-  %i_target = getelementptr inbounds %struct._PyCfgInstruction, ptr %38, i32 0, i32 3
-  store ptr %37, ptr %i_target, align 8
+  %call41 = call ptr @basicblock_last_instr(ptr noundef %36)
+  store ptr %call41, ptr %last, align 8
+  %37 = load ptr, ptr %explicit_jump, align 8
+  %b_next42 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %37, i32 0, i32 4
+  %38 = load ptr, ptr %b_next42, align 8
+  %39 = load ptr, ptr %last, align 8
+  %i_target = getelementptr inbounds %struct._PyCfgInstruction, ptr %39, i32 0, i32 3
+  store ptr %38, ptr %i_target, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end30, %land.lhs.true12, %land.lhs.true9, %land.lhs.true, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end43
-  %39 = load ptr, ptr %b, align 8
-  %b_next44 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %39, i32 0, i32 4
-  %40 = load ptr, ptr %b_next44, align 8
-  store ptr %40, ptr %b, align 8
+  %40 = load ptr, ptr %b, align 8
+  %b_next44 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %40, i32 0, i32 4
+  %41 = load ptr, ptr %b_next44, align 8
+  store ptr %41, ptr %b, align 8
   br label %for.cond, !llvm.loop !35
 
 for.end:                                          ; preds = %for.cond
   store ptr null, ptr %cold_blocks, align 8
   store ptr null, ptr %cold_blocks_tail, align 8
-  %41 = load ptr, ptr %entryblock, align 8
-  store ptr %41, ptr %b45, align 8
+  %42 = load ptr, ptr %entryblock, align 8
+  store ptr %42, ptr %b45, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end85, %for.end
-  %42 = load ptr, ptr %b45, align 8
-  %b_next46 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %42, i32 0, i32 4
-  %43 = load ptr, ptr %b_next46, align 8
-  %tobool47 = icmp ne ptr %43, null
+  %43 = load ptr, ptr %b45, align 8
+  %b_next46 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %43, i32 0, i32 4
+  %44 = load ptr, ptr %b_next46, align 8
+  %tobool47 = icmp ne ptr %44, null
   br i1 %tobool47, label %while.body, label %while.end89
 
 while.body:                                       ; preds = %while.cond
   br label %while.cond48
 
 while.cond48:                                     ; preds = %while.body58, %while.body
-  %44 = load ptr, ptr %b45, align 8
-  %b_next49 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %44, i32 0, i32 4
-  %45 = load ptr, ptr %b_next49, align 8
-  %tobool50 = icmp ne ptr %45, null
+  %45 = load ptr, ptr %b45, align 8
+  %b_next49 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %45, i32 0, i32 4
+  %46 = load ptr, ptr %b_next49, align 8
+  %tobool50 = icmp ne ptr %46, null
   br i1 %tobool50, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond48
-  %46 = load ptr, ptr %b45, align 8
-  %b_next51 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %46, i32 0, i32 4
-  %47 = load ptr, ptr %b_next51, align 8
-  %b_cold52 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %47, i32 0, i32 10
+  %47 = load ptr, ptr %b45, align 8
+  %b_next51 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %47, i32 0, i32 4
+  %48 = load ptr, ptr %b_next51, align 8
+  %b_cold52 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %48, i32 0, i32 10
   %bf.load53 = load i8, ptr %b_cold52, align 8
   %bf.lshr54 = lshr i8 %bf.load53, 3
   %bf.clear55 = and i8 %bf.lshr54, 1
@@ -2421,45 +2422,45 @@ land.rhs:                                         ; preds = %while.cond48
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond48
-  %48 = phi i1 [ false, %while.cond48 ], [ %lnot, %land.rhs ]
-  br i1 %48, label %while.body58, label %while.end
+  %49 = phi i1 [ false, %while.cond48 ], [ %lnot, %land.rhs ]
+  br i1 %49, label %while.body58, label %while.end
 
 while.body58:                                     ; preds = %land.end
-  %49 = load ptr, ptr %b45, align 8
-  %b_next59 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %49, i32 0, i32 4
-  %50 = load ptr, ptr %b_next59, align 8
-  store ptr %50, ptr %b45, align 8
+  %50 = load ptr, ptr %b45, align 8
+  %b_next59 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %50, i32 0, i32 4
+  %51 = load ptr, ptr %b_next59, align 8
+  store ptr %51, ptr %b45, align 8
   br label %while.cond48, !llvm.loop !36
 
 while.end:                                        ; preds = %land.end
-  %51 = load ptr, ptr %b45, align 8
-  %b_next60 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %51, i32 0, i32 4
-  %52 = load ptr, ptr %b_next60, align 8
-  %cmp61 = icmp eq ptr %52, null
+  %52 = load ptr, ptr %b45, align 8
+  %b_next60 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %52, i32 0, i32 4
+  %53 = load ptr, ptr %b_next60, align 8
+  %cmp61 = icmp eq ptr %53, null
   br i1 %cmp61, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %while.end
   br label %while.end89
 
 if.end63:                                         ; preds = %while.end
-  %53 = load ptr, ptr %b45, align 8
-  %b_next64 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %53, i32 0, i32 4
-  %54 = load ptr, ptr %b_next64, align 8
-  store ptr %54, ptr %b_end, align 8
+  %54 = load ptr, ptr %b45, align 8
+  %b_next64 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %54, i32 0, i32 4
+  %55 = load ptr, ptr %b_next64, align 8
+  store ptr %55, ptr %b_end, align 8
   br label %while.cond65
 
 while.cond65:                                     ; preds = %while.body77, %if.end63
-  %55 = load ptr, ptr %b_end, align 8
-  %b_next66 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %55, i32 0, i32 4
-  %56 = load ptr, ptr %b_next66, align 8
-  %tobool67 = icmp ne ptr %56, null
+  %56 = load ptr, ptr %b_end, align 8
+  %b_next66 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %56, i32 0, i32 4
+  %57 = load ptr, ptr %b_next66, align 8
+  %tobool67 = icmp ne ptr %57, null
   br i1 %tobool67, label %land.rhs68, label %land.end76
 
 land.rhs68:                                       ; preds = %while.cond65
-  %57 = load ptr, ptr %b_end, align 8
-  %b_next69 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %57, i32 0, i32 4
-  %58 = load ptr, ptr %b_next69, align 8
-  %b_cold70 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %58, i32 0, i32 10
+  %58 = load ptr, ptr %b_end, align 8
+  %b_next69 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %58, i32 0, i32 4
+  %59 = load ptr, ptr %b_next69, align 8
+  %b_cold70 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %59, i32 0, i32 10
   %bf.load71 = load i8, ptr %b_cold70, align 8
   %bf.lshr72 = lshr i8 %bf.load71, 3
   %bf.clear73 = and i8 %bf.lshr72, 1
@@ -2468,63 +2469,63 @@ land.rhs68:                                       ; preds = %while.cond65
   br label %land.end76
 
 land.end76:                                       ; preds = %land.rhs68, %while.cond65
-  %59 = phi i1 [ false, %while.cond65 ], [ %tobool75, %land.rhs68 ]
-  br i1 %59, label %while.body77, label %while.end79
+  %60 = phi i1 [ false, %while.cond65 ], [ %tobool75, %land.rhs68 ]
+  br i1 %60, label %while.body77, label %while.end79
 
 while.body77:                                     ; preds = %land.end76
-  %60 = load ptr, ptr %b_end, align 8
-  %b_next78 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %60, i32 0, i32 4
-  %61 = load ptr, ptr %b_next78, align 8
-  store ptr %61, ptr %b_end, align 8
+  %61 = load ptr, ptr %b_end, align 8
+  %b_next78 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %61, i32 0, i32 4
+  %62 = load ptr, ptr %b_next78, align 8
+  store ptr %62, ptr %b_end, align 8
   br label %while.cond65, !llvm.loop !37
 
 while.end79:                                      ; preds = %land.end76
-  %62 = load ptr, ptr %cold_blocks, align 8
-  %cmp80 = icmp eq ptr %62, null
+  %63 = load ptr, ptr %cold_blocks, align 8
+  %cmp80 = icmp eq ptr %63, null
   br i1 %cmp80, label %if.then81, label %if.else
 
 if.then81:                                        ; preds = %while.end79
-  %63 = load ptr, ptr %b45, align 8
-  %b_next82 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %63, i32 0, i32 4
-  %64 = load ptr, ptr %b_next82, align 8
-  store ptr %64, ptr %cold_blocks, align 8
+  %64 = load ptr, ptr %b45, align 8
+  %b_next82 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %64, i32 0, i32 4
+  %65 = load ptr, ptr %b_next82, align 8
+  store ptr %65, ptr %cold_blocks, align 8
   br label %if.end85
 
 if.else:                                          ; preds = %while.end79
-  %65 = load ptr, ptr %b45, align 8
-  %b_next83 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %65, i32 0, i32 4
-  %66 = load ptr, ptr %b_next83, align 8
-  %67 = load ptr, ptr %cold_blocks_tail, align 8
-  %b_next84 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %67, i32 0, i32 4
-  store ptr %66, ptr %b_next84, align 8
+  %66 = load ptr, ptr %b45, align 8
+  %b_next83 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %66, i32 0, i32 4
+  %67 = load ptr, ptr %b_next83, align 8
+  %68 = load ptr, ptr %cold_blocks_tail, align 8
+  %b_next84 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %68, i32 0, i32 4
+  store ptr %67, ptr %b_next84, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.else, %if.then81
-  %68 = load ptr, ptr %b_end, align 8
-  store ptr %68, ptr %cold_blocks_tail, align 8
   %69 = load ptr, ptr %b_end, align 8
-  %b_next86 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %69, i32 0, i32 4
-  %70 = load ptr, ptr %b_next86, align 8
-  %71 = load ptr, ptr %b45, align 8
-  %b_next87 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %71, i32 0, i32 4
-  store ptr %70, ptr %b_next87, align 8
-  %72 = load ptr, ptr %b_end, align 8
-  %b_next88 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %72, i32 0, i32 4
+  store ptr %69, ptr %cold_blocks_tail, align 8
+  %70 = load ptr, ptr %b_end, align 8
+  %b_next86 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %70, i32 0, i32 4
+  %71 = load ptr, ptr %b_next86, align 8
+  %72 = load ptr, ptr %b45, align 8
+  %b_next87 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %72, i32 0, i32 4
+  store ptr %71, ptr %b_next87, align 8
+  %73 = load ptr, ptr %b_end, align 8
+  %b_next88 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %73, i32 0, i32 4
   store ptr null, ptr %b_next88, align 8
   br label %while.cond, !llvm.loop !38
 
 while.end89:                                      ; preds = %if.then62, %while.cond
-  %73 = load ptr, ptr %cold_blocks, align 8
-  %74 = load ptr, ptr %b45, align 8
-  %b_next90 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %74, i32 0, i32 4
-  store ptr %73, ptr %b_next90, align 8
-  %75 = load ptr, ptr %cold_blocks, align 8
-  %cmp91 = icmp ne ptr %75, null
+  %74 = load ptr, ptr %cold_blocks, align 8
+  %75 = load ptr, ptr %b45, align 8
+  %b_next90 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %75, i32 0, i32 4
+  store ptr %74, ptr %b_next90, align 8
+  %76 = load ptr, ptr %cold_blocks, align 8
+  %cmp91 = icmp ne ptr %76, null
   br i1 %cmp91, label %if.then92, label %if.end97
 
 if.then92:                                        ; preds = %while.end89
-  %76 = load ptr, ptr %g.addr, align 8
-  %call93 = call i32 @remove_redundant_jumps(ptr noundef %76)
+  %77 = load ptr, ptr %g.addr, align 8
+  %call93 = call i32 @remove_redundant_jumps(ptr noundef %77)
   %cmp94 = icmp eq i32 %call93, -1
   br i1 %cmp94, label %if.then95, label %if.end96
 
@@ -2540,8 +2541,8 @@ if.end97:                                         ; preds = %if.end96, %while.en
   br label %return
 
 return:                                           ; preds = %if.end97, %if.then95, %if.then22, %if.then2, %if.then
-  %77 = load i32, ptr %retval, align 4
-  ret i32 %77
+  %78 = load i32, ptr %retval, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable

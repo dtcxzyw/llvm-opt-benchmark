@@ -2691,95 +2691,101 @@ define hidden void @Init_Cont() #0 {
   %31 = call i64 @rb_intern_const(ptr noundef @.str.2) #24
   store i64 %31, ptr @fiber_initialize_keywords, align 16
   %32 = call i64 @rb_intern_const(ptr noundef @.str.3) #24
-  store i64 %32, ptr getelementptr inbounds ([3 x i64], ptr @fiber_initialize_keywords, i64 0, i64 1), align 8
-  %33 = call i64 @rb_intern_const(ptr noundef @.str.4) #24
-  store i64 %33, ptr getelementptr inbounds ([3 x i64], ptr @fiber_initialize_keywords, i64 0, i64 2), align 16
-  %34 = call ptr @getenv(ptr noundef @.str.5) #6
-  store ptr %34, ptr %5, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %48
+  %33 = getelementptr inbounds [3 x i64], ptr @fiber_initialize_keywords, i64 0, i64 1
+  store i64 %32, ptr %33, align 8
+  %34 = call i64 @rb_intern_const(ptr noundef @.str.4) #24
+  %35 = getelementptr inbounds [3 x i64], ptr @fiber_initialize_keywords, i64 0, i64 2
+  store i64 %34, ptr %35, align 16
+  %36 = call ptr @getenv(ptr noundef @.str.5) #6
+  store ptr %36, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %54
 
-37:                                               ; preds = %0
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @atoi(ptr noundef %38) #24
-  store i32 %39, ptr getelementptr inbounds (%struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5), align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5), align 8
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %43
+39:                                               ; preds = %0
+  %40 = load ptr, ptr %5, align 8
+  %41 = call i32 @atoi(ptr noundef %40) #24
+  %42 = getelementptr inbounds %struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %48
 
-42:                                               ; preds = %37
+46:                                               ; preds = %39
   call void (ptr, ...) @rb_warn(ptr noundef @.str.6) #29
-  store i32 0, ptr getelementptr inbounds (%struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5), align 8
-  br label %43
-
-43:                                               ; preds = %42, %37
-  %44 = load i32, ptr getelementptr inbounds (%struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5), align 8
-  %45 = icmp sgt i32 %44, 1
-  br i1 %45, label %46, label %47
-
-46:                                               ; preds = %43
-  call void (ptr, ...) @rb_warn(ptr noundef @.str.7) #29
-  br label %47
-
-47:                                               ; preds = %46, %43
+  %47 = getelementptr inbounds %struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5
+  store i32 0, ptr %47, align 8
   br label %48
 
-48:                                               ; preds = %47, %0
-  %49 = load i64, ptr @rb_cObject, align 8
-  %50 = call i64 @rb_define_class(ptr noundef @.str.8, i64 noundef %49)
-  store i64 %50, ptr @rb_cFiber, align 8
-  %51 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_alloc_func(i64 noundef %51, ptr noundef @fiber_alloc)
-  %52 = load i64, ptr @rb_eStandardError, align 8
-  %53 = call i64 @rb_define_class(ptr noundef @.str.9, i64 noundef %52)
-  store i64 %53, ptr @rb_eFiberError, align 8
-  %54 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %54, ptr noundef @.str.10, ptr noundef @rb_fiber_s_yield, i32 noundef -1)
-  %55 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %55, ptr noundef @.str.11, ptr noundef @rb_fiber_s_current, i32 noundef 0)
-  %56 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %56, ptr noundef @.str.2, ptr noundef @rb_fiber_blocking, i32 noundef 0)
+48:                                               ; preds = %46, %39
+  %49 = getelementptr inbounds %struct.fiber_pool, ptr @shared_fiber_pool, i32 0, i32 5
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp sgt i32 %50, 1
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %48
+  call void (ptr, ...) @rb_warn(ptr noundef @.str.7) #29
+  br label %53
+
+53:                                               ; preds = %52, %48
+  br label %54
+
+54:                                               ; preds = %53, %0
+  %55 = load i64, ptr @rb_cObject, align 8
+  %56 = call i64 @rb_define_class(ptr noundef @.str.8, i64 noundef %55)
+  store i64 %56, ptr @rb_cFiber, align 8
   %57 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %57, ptr noundef @.str.12, ptr noundef @rb_fiber_storage_aref, i32 noundef 1)
-  %58 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %58, ptr noundef @.str.13, ptr noundef @rb_fiber_storage_aset, i32 noundef 2)
-  %59 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %59, ptr noundef @.str.14, ptr noundef @rb_fiber_initialize, i32 noundef -1)
+  call void @rb_define_alloc_func(i64 noundef %57, ptr noundef @fiber_alloc)
+  %58 = load i64, ptr @rb_eStandardError, align 8
+  %59 = call i64 @rb_define_class(ptr noundef @.str.9, i64 noundef %58)
+  store i64 %59, ptr @rb_eFiberError, align 8
   %60 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %60, ptr noundef @.str.15, ptr noundef @rb_fiber_blocking_p, i32 noundef 0)
+  call void @rb_define_singleton_method(i64 noundef %60, ptr noundef @.str.10, ptr noundef @rb_fiber_s_yield, i32 noundef -1)
   %61 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %61, ptr noundef @.str.4, ptr noundef @rb_fiber_storage_get, i32 noundef 0)
+  call void @rb_define_singleton_method(i64 noundef %61, ptr noundef @.str.11, ptr noundef @rb_fiber_s_current, i32 noundef 0)
   %62 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %62, ptr noundef @.str.16, ptr noundef @rb_fiber_storage_set, i32 noundef 1)
+  call void @rb_define_singleton_method(i64 noundef %62, ptr noundef @.str.2, ptr noundef @rb_fiber_blocking, i32 noundef 0)
   %63 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %63, ptr noundef @.str.17, ptr noundef @rb_fiber_m_resume, i32 noundef -1)
+  call void @rb_define_singleton_method(i64 noundef %63, ptr noundef @.str.12, ptr noundef @rb_fiber_storage_aref, i32 noundef 1)
   %64 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %64, ptr noundef @.str.18, ptr noundef @rb_fiber_m_raise, i32 noundef -1)
+  call void @rb_define_singleton_method(i64 noundef %64, ptr noundef @.str.13, ptr noundef @rb_fiber_storage_aset, i32 noundef 2)
   %65 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %65, ptr noundef @.str.19, ptr noundef @rb_fiber_m_kill, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %65, ptr noundef @.str.14, ptr noundef @rb_fiber_initialize, i32 noundef -1)
   %66 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %66, ptr noundef @.str.20, ptr noundef @rb_fiber_backtrace, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %66, ptr noundef @.str.15, ptr noundef @rb_fiber_blocking_p, i32 noundef 0)
   %67 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %67, ptr noundef @.str.21, ptr noundef @rb_fiber_backtrace_locations, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %67, ptr noundef @.str.4, ptr noundef @rb_fiber_storage_get, i32 noundef 0)
   %68 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %68, ptr noundef @.str.22, ptr noundef @fiber_to_s, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %68, ptr noundef @.str.16, ptr noundef @rb_fiber_storage_set, i32 noundef 1)
   %69 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_alias(i64 noundef %69, ptr noundef @.str.23, ptr noundef @.str.22)
+  call void @rb_define_method(i64 noundef %69, ptr noundef @.str.17, ptr noundef @rb_fiber_m_resume, i32 noundef -1)
   %70 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %70, ptr noundef @.str.24, ptr noundef @rb_fiber_m_transfer, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %70, ptr noundef @.str.18, ptr noundef @rb_fiber_m_raise, i32 noundef -1)
   %71 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_method(i64 noundef %71, ptr noundef @.str.25, ptr noundef @rb_fiber_alive_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %71, ptr noundef @.str.19, ptr noundef @rb_fiber_m_kill, i32 noundef 0)
   %72 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %72, ptr noundef @.str.15, ptr noundef @rb_fiber_s_blocking_p, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %72, ptr noundef @.str.20, ptr noundef @rb_fiber_backtrace, i32 noundef -1)
   %73 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %73, ptr noundef @.str.26, ptr noundef @rb_fiber_s_scheduler, i32 noundef 0)
+  call void @rb_define_method(i64 noundef %73, ptr noundef @.str.21, ptr noundef @rb_fiber_backtrace_locations, i32 noundef -1)
   %74 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %74, ptr noundef @.str.27, ptr noundef @rb_fiber_set_scheduler, i32 noundef 1)
+  call void @rb_define_method(i64 noundef %74, ptr noundef @.str.22, ptr noundef @fiber_to_s, i32 noundef 0)
   %75 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %75, ptr noundef @.str.28, ptr noundef @rb_fiber_current_scheduler, i32 noundef 0)
+  call void @rb_define_alias(i64 noundef %75, ptr noundef @.str.23, ptr noundef @.str.22)
   %76 = load i64, ptr @rb_cFiber, align 8
-  call void @rb_define_singleton_method(i64 noundef %76, ptr noundef @.str.29, ptr noundef @rb_fiber_s_schedule, i32 noundef -1)
+  call void @rb_define_method(i64 noundef %76, ptr noundef @.str.24, ptr noundef @rb_fiber_m_transfer, i32 noundef -1)
+  %77 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_method(i64 noundef %77, ptr noundef @.str.25, ptr noundef @rb_fiber_alive_p, i32 noundef 0)
+  %78 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_singleton_method(i64 noundef %78, ptr noundef @.str.15, ptr noundef @rb_fiber_s_blocking_p, i32 noundef 0)
+  %79 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_singleton_method(i64 noundef %79, ptr noundef @.str.26, ptr noundef @rb_fiber_s_scheduler, i32 noundef 0)
+  %80 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_singleton_method(i64 noundef %80, ptr noundef @.str.27, ptr noundef @rb_fiber_set_scheduler, i32 noundef 1)
+  %81 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_singleton_method(i64 noundef %81, ptr noundef @.str.28, ptr noundef @rb_fiber_current_scheduler, i32 noundef 0)
+  %82 = load i64, ptr @rb_cFiber, align 8
+  call void @rb_define_singleton_method(i64 noundef %82, ptr noundef @.str.29, ptr noundef @rb_fiber_s_schedule, i32 noundef -1)
   call void @rb_provide(ptr noundef @.str.30)
   ret void
 }
@@ -6632,11 +6638,11 @@ define internal ptr @fiber_pool_allocate_memory(ptr noundef %0, i64 noundef %1) 
   store i64 %1, ptr %5, align 8
   br label %7
 
-7:                                                ; preds = %27, %2
+7:                                                ; preds = %28, %2
   %8 = load ptr, ptr %4, align 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 1
-  br i1 %10, label %11, label %28
+  br i1 %10, label %11, label %29
 
 11:                                               ; preds = %7
   %12 = call ptr @rb_errno_ptr()
@@ -6648,32 +6654,33 @@ define internal ptr @fiber_pool_allocate_memory(ptr noundef %0, i64 noundef %1) 
   %17 = call ptr @mmap(ptr noundef null, i64 noundef %16, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #6
   store ptr %17, ptr %6, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
-  br i1 %19, label %20, label %25
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %11
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i64, ptr %21, align 8
-  %23 = lshr i64 %22, 1
-  %24 = load ptr, ptr %4, align 8
-  store i64 %23, ptr %24, align 8
-  br label %27
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %4, align 8
+  %23 = load i64, ptr %22, align 8
+  %24 = lshr i64 %23, 1
+  %25 = load ptr, ptr %4, align 8
+  store i64 %24, ptr %25, align 8
+  br label %28
 
-25:                                               ; preds = %11
-  %26 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %3, align 8
-  br label %29
+26:                                               ; preds = %11
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %3, align 8
+  br label %30
 
-27:                                               ; preds = %20
+28:                                               ; preds = %21
   br label %7, !llvm.loop !17
 
-28:                                               ; preds = %7
+29:                                               ; preds = %7
   store ptr null, ptr %3, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %25
-  %30 = load ptr, ptr %3, align 8
-  ret ptr %30
+30:                                               ; preds = %29, %26
+  %31 = load ptr, ptr %3, align 8
+  ret ptr %31
 }
 
 ; Function Attrs: allocsize(0)
@@ -7466,15 +7473,16 @@ define internal ptr @lookup_rollback_func(ptr noundef %0) #0 {
   %18 = load i64, ptr %5, align 8
   %19 = inttoptr i64 %18 to ptr
   store ptr %19, ptr %2, align 8
-  br label %21
+  br label %22
 
 20:                                               ; preds = %11, %1
-  store ptr inttoptr (i64 36 to ptr), ptr %2, align 8
-  br label %21
+  %21 = inttoptr i64 36 to ptr
+  store ptr %21, ptr %2, align 8
+  br label %22
 
-21:                                               ; preds = %20, %17
-  %22 = load ptr, ptr %2, align 8
-  ret ptr %22
+22:                                               ; preds = %20, %17
+  %23 = load ptr, ptr %2, align 8
+  ret ptr %23
 }
 
 declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) #1

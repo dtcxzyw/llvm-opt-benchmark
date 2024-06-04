@@ -1916,9 +1916,10 @@ define internal void @hi_free(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4), align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ptr.addr, align 8
+  call void %1(ptr noundef %2)
   ret void
 }
 
@@ -1927,9 +1928,10 @@ define internal ptr @hi_strdup(ptr noundef %str) #0 {
 entry:
   %str.addr = alloca ptr, align 8
   store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 3), align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %call = call ptr %0(ptr noundef %1)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %str.addr, align 8
+  %call = call ptr %1(ptr noundef %2)
   ret ptr %call
 }
 

@@ -1403,45 +1403,46 @@ if.end11:                                         ; preds = %lor.lhs.false
   %buf16 = getelementptr inbounds %struct.strbuf, ptr %filename15, i32 0, i32 2
   %13 = load ptr, ptr %buf16, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef %args14, ptr noundef @.str.27, ptr noundef @.str.28, ptr noundef %13, ptr noundef @.str.29, ptr noundef null)
-  %call17 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %14 = load ptr, ptr %sigc.addr, align 8
-  %payload = getelementptr inbounds %struct.signature_check, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %payload, align 8
-  %16 = load ptr, ptr %sigc.addr, align 8
-  %payload_len = getelementptr inbounds %struct.signature_check, ptr %16, i32 0, i32 1
-  %17 = load i64, ptr %payload_len, align 8
-  %call18 = call i32 @pipe_command(ptr noundef %gpg, ptr noundef %15, i64 noundef %17, ptr noundef %gpg_stdout, i64 noundef 0, ptr noundef %gpg_stderr, i64 noundef 0)
+  %14 = inttoptr i64 1 to ptr
+  %call17 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %14)
+  %15 = load ptr, ptr %sigc.addr, align 8
+  %payload = getelementptr inbounds %struct.signature_check, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %payload, align 8
+  %17 = load ptr, ptr %sigc.addr, align 8
+  %payload_len = getelementptr inbounds %struct.signature_check, ptr %17, i32 0, i32 1
+  %18 = load i64, ptr %payload_len, align 8
+  %call18 = call i32 @pipe_command(ptr noundef %gpg, ptr noundef %16, i64 noundef %18, ptr noundef %gpg_stdout, i64 noundef 0, ptr noundef %gpg_stderr, i64 noundef 0)
   store i32 %call18, ptr %ret, align 4
   %call19 = call i32 @sigchain_pop(i32 noundef 13)
   call void @delete_tempfile(ptr noundef %temp)
   %buf20 = getelementptr inbounds %struct.strbuf, ptr %gpg_stdout, i32 0, i32 2
-  %18 = load ptr, ptr %buf20, align 8
-  %call21 = call ptr @strstr(ptr noundef %18, ptr noundef @.str.30) #8
+  %19 = load ptr, ptr %buf20, align 8
+  %call21 = call ptr @strstr(ptr noundef %19, ptr noundef @.str.30) #8
   %tobool22 = icmp ne ptr %call21, null
   %lnot = xor i1 %tobool22, true
   %lnot.ext = zext i1 %lnot to i32
-  %19 = load i32, ptr %ret, align 4
-  %or = or i32 %19, %lnot.ext
+  %20 = load i32, ptr %ret, align 4
+  %or = or i32 %20, %lnot.ext
   store i32 %or, ptr %ret, align 4
   %call23 = call ptr @strbuf_detach(ptr noundef %gpg_stderr, ptr noundef null)
-  %20 = load ptr, ptr %sigc.addr, align 8
-  %output = getelementptr inbounds %struct.signature_check, ptr %20, i32 0, i32 4
+  %21 = load ptr, ptr %sigc.addr, align 8
+  %output = getelementptr inbounds %struct.signature_check, ptr %21, i32 0, i32 4
   store ptr %call23, ptr %output, align 8
   %call24 = call ptr @strbuf_detach(ptr noundef %gpg_stdout, ptr noundef null)
-  %21 = load ptr, ptr %sigc.addr, align 8
-  %gpg_status = getelementptr inbounds %struct.signature_check, ptr %21, i32 0, i32 5
-  store ptr %call24, ptr %gpg_status, align 8
   %22 = load ptr, ptr %sigc.addr, align 8
-  call void @parse_gpg_output(ptr noundef %22)
+  %gpg_status = getelementptr inbounds %struct.signature_check, ptr %22, i32 0, i32 5
+  store ptr %call24, ptr %gpg_status, align 8
+  %23 = load ptr, ptr %sigc.addr, align 8
+  call void @parse_gpg_output(ptr noundef %23)
   call void @strbuf_release(ptr noundef %gpg_stdout)
   call void @strbuf_release(ptr noundef %gpg_stderr)
-  %23 = load i32, ptr %ret, align 4
-  store i32 %23, ptr %retval, align 4
+  %24 = load i32, ptr %ret, align 4
+  store i32 %24, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then7, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %25 = load i32, ptr %retval, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1471,50 +1472,51 @@ entry:
   %len = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 1
   %4 = load i64, ptr %len, align 8
   store i64 %4, ptr %bottom, align 8
-  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %5 = load ptr, ptr %buffer.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %buf, align 8
-  %7 = load ptr, ptr %buffer.addr, align 8
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %len1, align 8
-  %9 = load ptr, ptr %signature.addr, align 8
-  %call2 = call i32 @pipe_command(ptr noundef %gpg, ptr noundef %6, i64 noundef %8, ptr noundef %9, i64 noundef 1024, ptr noundef %gpg_status, i64 noundef 0)
+  %5 = inttoptr i64 1 to ptr
+  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef %5)
+  %6 = load ptr, ptr %buffer.addr, align 8
+  %buf = getelementptr inbounds %struct.strbuf, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %buf, align 8
+  %8 = load ptr, ptr %buffer.addr, align 8
+  %len1 = getelementptr inbounds %struct.strbuf, ptr %8, i32 0, i32 1
+  %9 = load i64, ptr %len1, align 8
+  %10 = load ptr, ptr %signature.addr, align 8
+  %call2 = call i32 @pipe_command(ptr noundef %gpg, ptr noundef %7, i64 noundef %9, ptr noundef %10, i64 noundef 1024, ptr noundef %gpg_status, i64 noundef 0)
   store i32 %call2, ptr %ret, align 4
   %call3 = call i32 @sigchain_pop(i32 noundef 13)
   %buf4 = getelementptr inbounds %struct.strbuf, ptr %gpg_status, i32 0, i32 2
-  %10 = load ptr, ptr %buf4, align 8
-  store ptr %10, ptr %cp, align 8
+  %11 = load ptr, ptr %buf4, align 8
+  store ptr %11, ptr %cp, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %11 = load ptr, ptr %cp, align 8
-  %tobool = icmp ne ptr %11, null
+  %12 = load ptr, ptr %cp, align 8
+  %tobool = icmp ne ptr %12, null
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %cp, align 8
-  %call5 = call ptr @strstr(ptr noundef %12, ptr noundef @.str.43) #8
+  %13 = load ptr, ptr %cp, align 8
+  %call5 = call ptr @strstr(ptr noundef %13, ptr noundef @.str.43) #8
   store ptr %call5, ptr %cp, align 8
   %tobool6 = icmp ne ptr %call5, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %13 = phi i1 [ false, %for.cond ], [ %tobool6, %land.rhs ]
-  br i1 %13, label %for.body, label %for.end
+  %14 = phi i1 [ false, %for.cond ], [ %tobool6, %land.rhs ]
+  br i1 %14, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %14 = load ptr, ptr %cp, align 8
+  %15 = load ptr, ptr %cp, align 8
   %buf7 = getelementptr inbounds %struct.strbuf, ptr %gpg_status, i32 0, i32 2
-  %15 = load ptr, ptr %buf7, align 8
-  %cmp = icmp eq ptr %14, %15
+  %16 = load ptr, ptr %buf7, align 8
+  %cmp = icmp eq ptr %15, %16
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %16 = load ptr, ptr %cp, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %16, i64 -1
-  %17 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %17 to i32
+  %17 = load ptr, ptr %cp, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %17, i64 -1
+  %18 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %18 to i32
   %cmp8 = icmp eq i32 %conv, 10
   br i1 %cmp8, label %if.then, label %if.end
 
@@ -1525,40 +1527,40 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %18 = load ptr, ptr %cp, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %18, i32 1
+  %19 = load ptr, ptr %cp, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %19, i32 1
   store ptr %incdec.ptr, ptr %cp, align 8
   br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %if.then, %land.end
-  %19 = load ptr, ptr %cp, align 8
-  %tobool10 = icmp ne ptr %19, null
+  %20 = load ptr, ptr %cp, align 8
+  %tobool10 = icmp ne ptr %20, null
   %lnot = xor i1 %tobool10, true
   %lnot.ext = zext i1 %lnot to i32
-  %20 = load i32, ptr %ret, align 4
-  %or = or i32 %20, %lnot.ext
-  store i32 %or, ptr %ret, align 4
   %21 = load i32, ptr %ret, align 4
-  %tobool11 = icmp ne i32 %21, 0
+  %or = or i32 %21, %lnot.ext
+  store i32 %or, ptr %ret, align 4
+  %22 = load i32, ptr %ret, align 4
+  %tobool11 = icmp ne i32 %22, 0
   br i1 %tobool11, label %if.then12, label %if.end19
 
 if.then12:                                        ; preds = %for.end
   %call13 = call ptr @_(ptr noundef @.str.44)
   %len14 = getelementptr inbounds %struct.strbuf, ptr %gpg_status, i32 0, i32 1
-  %22 = load i64, ptr %len14, align 8
-  %tobool15 = icmp ne i64 %22, 0
+  %23 = load i64, ptr %len14, align 8
+  %tobool15 = icmp ne i64 %23, 0
   br i1 %tobool15, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then12
   %buf16 = getelementptr inbounds %struct.strbuf, ptr %gpg_status, i32 0, i32 2
-  %23 = load ptr, ptr %buf16, align 8
+  %24 = load ptr, ptr %buf16, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %23, %cond.true ], [ @.str.45, %cond.false ]
+  %cond = phi ptr [ %24, %cond.true ], [ @.str.45, %cond.false ]
   %call17 = call i32 (ptr, ...) @error(ptr noundef %call13, ptr noundef %cond)
   %call18 = call i32 @const_error()
   call void @strbuf_release(ptr noundef %gpg_status)
@@ -1567,15 +1569,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.end19:                                         ; preds = %for.end
   call void @strbuf_release(ptr noundef %gpg_status)
-  %24 = load ptr, ptr %signature.addr, align 8
-  %25 = load i64, ptr %bottom, align 8
-  call void @remove_cr_after(ptr noundef %24, i64 noundef %25)
+  %25 = load ptr, ptr %signature.addr, align 8
+  %26 = load i64, ptr %bottom, align 8
+  call void @remove_cr_after(ptr noundef %25, i64 noundef %26)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end19, %cond.end
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+  %27 = load i32, ptr %retval, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1862,33 +1864,34 @@ if.end83:                                         ; preds = %if.else81, %if.then
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end83, %if.end66
-  %call85 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %62 = load ptr, ptr %sigc.addr, align 8
-  %payload86 = getelementptr inbounds %struct.signature_check, ptr %62, i32 0, i32 0
-  %63 = load ptr, ptr %payload86, align 8
-  %64 = load ptr, ptr %sigc.addr, align 8
-  %payload_len87 = getelementptr inbounds %struct.signature_check, ptr %64, i32 0, i32 1
-  %65 = load i64, ptr %payload_len87, align 8
-  %call88 = call i32 @pipe_command(ptr noundef %ssh_keygen, ptr noundef %63, i64 noundef %65, ptr noundef %ssh_keygen_out, i64 noundef 0, ptr noundef %ssh_keygen_err, i64 noundef 0)
+  %62 = inttoptr i64 1 to ptr
+  %call85 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %62)
+  %63 = load ptr, ptr %sigc.addr, align 8
+  %payload86 = getelementptr inbounds %struct.signature_check, ptr %63, i32 0, i32 0
+  %64 = load ptr, ptr %payload86, align 8
+  %65 = load ptr, ptr %sigc.addr, align 8
+  %payload_len87 = getelementptr inbounds %struct.signature_check, ptr %65, i32 0, i32 1
+  %66 = load i64, ptr %payload_len87, align 8
+  %call88 = call i32 @pipe_command(ptr noundef %ssh_keygen, ptr noundef %64, i64 noundef %66, ptr noundef %ssh_keygen_out, i64 noundef 0, ptr noundef %ssh_keygen_err, i64 noundef 0)
   store i32 %call88, ptr %ret, align 4
   %call89 = call i32 @sigchain_pop(i32 noundef 13)
   br label %do.body
 
 do.body:                                          ; preds = %if.end84
-  %66 = load ptr, ptr %principal, align 8
-  call void @free(ptr noundef %66) #6
+  %67 = load ptr, ptr %principal, align 8
+  call void @free(ptr noundef %67) #6
   store ptr null, ptr %principal, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %67 = load i32, ptr %ret, align 4
-  %tobool90 = icmp ne i32 %67, 0
+  %68 = load i32, ptr %ret, align 4
+  %tobool90 = icmp ne i32 %68, 0
   br i1 %tobool90, label %if.end95, label %if.then91
 
 if.then91:                                        ; preds = %do.end
   %buf92 = getelementptr inbounds %struct.strbuf, ptr %ssh_keygen_out, i32 0, i32 2
-  %68 = load ptr, ptr %buf92, align 8
-  %call93 = call i32 @starts_with(ptr noundef %68, ptr noundef @.str.66)
+  %69 = load ptr, ptr %buf92, align 8
+  %call93 = call i32 @starts_with(ptr noundef %69, ptr noundef @.str.66)
   %tobool94 = icmp ne i32 %call93, 0
   %lnot = xor i1 %tobool94, true
   %lnot.ext = zext i1 %lnot to i32
@@ -1896,8 +1899,8 @@ if.then91:                                        ; preds = %do.end
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then91, %do.end
-  %69 = load i32, ptr %ret, align 4
-  %tobool96 = icmp ne i32 %69, 0
+  %70 = load i32, ptr %ret, align 4
+  %tobool96 = icmp ne i32 %70, 0
   br i1 %tobool96, label %if.end98, label %if.then97
 
 if.then97:                                        ; preds = %if.end95
@@ -1907,8 +1910,8 @@ if.end98:                                         ; preds = %if.end95
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end98, %if.then65
-  %70 = load ptr, ptr %next, align 8
-  store ptr %70, ptr %line, align 8
+  %71 = load ptr, ptr %next, align 8
+  store ptr %71, ptr %line, align 8
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %if.then97, %for.cond
@@ -1918,33 +1921,33 @@ if.end99:                                         ; preds = %for.end, %if.then39
   call void @strbuf_stripspace(ptr noundef %ssh_keygen_out, i8 noundef signext 0)
   call void @strbuf_stripspace(ptr noundef %ssh_keygen_err, i8 noundef signext 0)
   %buf100 = getelementptr inbounds %struct.strbuf, ptr %ssh_principals_err, i32 0, i32 2
-  %71 = load ptr, ptr %buf100, align 8
+  %72 = load ptr, ptr %buf100, align 8
   %len101 = getelementptr inbounds %struct.strbuf, ptr %ssh_principals_err, i32 0, i32 1
-  %72 = load i64, ptr %len101, align 8
-  call void @strbuf_add(ptr noundef %ssh_keygen_out, ptr noundef %71, i64 noundef %72)
+  %73 = load i64, ptr %len101, align 8
+  call void @strbuf_add(ptr noundef %ssh_keygen_out, ptr noundef %72, i64 noundef %73)
   %buf102 = getelementptr inbounds %struct.strbuf, ptr %ssh_keygen_err, i32 0, i32 2
-  %73 = load ptr, ptr %buf102, align 8
+  %74 = load ptr, ptr %buf102, align 8
   %len103 = getelementptr inbounds %struct.strbuf, ptr %ssh_keygen_err, i32 0, i32 1
-  %74 = load i64, ptr %len103, align 8
-  call void @strbuf_add(ptr noundef %ssh_keygen_out, ptr noundef %73, i64 noundef %74)
+  %75 = load i64, ptr %len103, align 8
+  call void @strbuf_add(ptr noundef %ssh_keygen_out, ptr noundef %74, i64 noundef %75)
   %call104 = call ptr @strbuf_detach(ptr noundef %ssh_keygen_out, ptr noundef null)
-  %75 = load ptr, ptr %sigc.addr, align 8
-  %output = getelementptr inbounds %struct.signature_check, ptr %75, i32 0, i32 4
-  store ptr %call104, ptr %output, align 8
   %76 = load ptr, ptr %sigc.addr, align 8
-  %output105 = getelementptr inbounds %struct.signature_check, ptr %76, i32 0, i32 4
-  %77 = load ptr, ptr %output105, align 8
-  %call106 = call ptr @xstrdup(ptr noundef %77)
-  %78 = load ptr, ptr %sigc.addr, align 8
-  %gpg_status = getelementptr inbounds %struct.signature_check, ptr %78, i32 0, i32 5
-  store ptr %call106, ptr %gpg_status, align 8
+  %output = getelementptr inbounds %struct.signature_check, ptr %76, i32 0, i32 4
+  store ptr %call104, ptr %output, align 8
+  %77 = load ptr, ptr %sigc.addr, align 8
+  %output105 = getelementptr inbounds %struct.signature_check, ptr %77, i32 0, i32 4
+  %78 = load ptr, ptr %output105, align 8
+  %call106 = call ptr @xstrdup(ptr noundef %78)
   %79 = load ptr, ptr %sigc.addr, align 8
-  call void @parse_ssh_output(ptr noundef %79)
+  %gpg_status = getelementptr inbounds %struct.signature_check, ptr %79, i32 0, i32 5
+  store ptr %call106, ptr %gpg_status, align 8
+  %80 = load ptr, ptr %sigc.addr, align 8
+  call void @parse_ssh_output(ptr noundef %80)
   br label %out
 
 out:                                              ; preds = %if.end99, %if.then31
-  %80 = load ptr, ptr %buffer_file, align 8
-  %tobool107 = icmp ne ptr %80, null
+  %81 = load ptr, ptr %buffer_file, align 8
+  %tobool107 = icmp ne ptr %81, null
   br i1 %tobool107, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %out
@@ -1957,13 +1960,13 @@ if.end109:                                        ; preds = %if.then108, %out
   call void @strbuf_release(ptr noundef %ssh_keygen_out)
   call void @strbuf_release(ptr noundef %ssh_keygen_err)
   call void @strbuf_release(ptr noundef %verify_time)
-  %81 = load i32, ptr %ret, align 4
-  store i32 %81, ptr %retval, align 4
+  %82 = load i32, ptr %ret, align 4
+  store i32 %82, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then13, %if.then5, %if.then
-  %82 = load i32, ptr %retval, align 4
-  ret i32 %82
+  %83 = load i32, ptr %retval, align 4
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2144,18 +2147,19 @@ if.end58:                                         ; preds = %if.then55, %if.end5
   %buf61 = getelementptr inbounds %struct.strbuf, ptr %filename60, i32 0, i32 2
   %30 = load ptr, ptr %buf61, align 8
   %call62 = call ptr @strvec_push(ptr noundef %args59, ptr noundef %30)
-  %call63 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %31 = inttoptr i64 1 to ptr
+  %call63 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %31)
   %call64 = call i32 @pipe_command(ptr noundef %signer, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %signer_stderr, i64 noundef 0)
   store i32 %call64, ptr %ret, align 4
   %call65 = call i32 @sigchain_pop(i32 noundef 13)
-  %31 = load i32, ptr %ret, align 4
-  %tobool66 = icmp ne i32 %31, 0
+  %32 = load i32, ptr %ret, align 4
+  %tobool66 = icmp ne i32 %32, 0
   br i1 %tobool66, label %if.then67, label %if.end79
 
 if.then67:                                        ; preds = %if.end58
   %buf68 = getelementptr inbounds %struct.strbuf, ptr %signer_stderr, i32 0, i32 2
-  %32 = load ptr, ptr %buf68, align 8
-  %call69 = call ptr @strstr(ptr noundef %32, ptr noundef @.str.57) #8
+  %33 = load ptr, ptr %buf68, align 8
+  %call69 = call ptr @strstr(ptr noundef %33, ptr noundef @.str.57) #8
   %tobool70 = icmp ne ptr %call69, null
   br i1 %tobool70, label %if.then71, label %if.end75
 
@@ -2167,45 +2171,45 @@ if.then71:                                        ; preds = %if.then67
 
 if.end75:                                         ; preds = %if.then71, %if.then67
   %buf76 = getelementptr inbounds %struct.strbuf, ptr %signer_stderr, i32 0, i32 2
-  %33 = load ptr, ptr %buf76, align 8
-  %call77 = call i32 (ptr, ...) @error(ptr noundef @.str.80, ptr noundef %33)
+  %34 = load ptr, ptr %buf76, align 8
+  %call77 = call i32 (ptr, ...) @error(ptr noundef @.str.80, ptr noundef %34)
   %call78 = call i32 @const_error()
   br label %out
 
 if.end79:                                         ; preds = %if.end58
-  %34 = load ptr, ptr %signature.addr, align 8
-  %len80 = getelementptr inbounds %struct.strbuf, ptr %34, i32 0, i32 1
-  %35 = load i64, ptr %len80, align 8
-  store i64 %35, ptr %bottom, align 8
-  %36 = load ptr, ptr %buffer_file, align 8
-  %filename81 = getelementptr inbounds %struct.tempfile, ptr %36, i32 0, i32 4
+  %35 = load ptr, ptr %signature.addr, align 8
+  %len80 = getelementptr inbounds %struct.strbuf, ptr %35, i32 0, i32 1
+  %36 = load i64, ptr %len80, align 8
+  store i64 %36, ptr %bottom, align 8
+  %37 = load ptr, ptr %buffer_file, align 8
+  %filename81 = getelementptr inbounds %struct.tempfile, ptr %37, i32 0, i32 4
   call void @strbuf_addbuf(ptr noundef %ssh_signature_filename, ptr noundef %filename81)
   call void @strbuf_addstr(ptr noundef %ssh_signature_filename, ptr noundef @.str.81)
-  %37 = load ptr, ptr %signature.addr, align 8
+  %38 = load ptr, ptr %signature.addr, align 8
   %buf82 = getelementptr inbounds %struct.strbuf, ptr %ssh_signature_filename, i32 0, i32 2
-  %38 = load ptr, ptr %buf82, align 8
-  %call83 = call i64 @strbuf_read_file(ptr noundef %37, ptr noundef %38, i64 noundef 0)
+  %39 = load ptr, ptr %buf82, align 8
+  %call83 = call i64 @strbuf_read_file(ptr noundef %38, ptr noundef %39, i64 noundef 0)
   %cmp84 = icmp slt i64 %call83, 0
   br i1 %cmp84, label %if.then86, label %if.end91
 
 if.then86:                                        ; preds = %if.end79
   %call87 = call ptr @_(ptr noundef @.str.82)
   %buf88 = getelementptr inbounds %struct.strbuf, ptr %ssh_signature_filename, i32 0, i32 2
-  %39 = load ptr, ptr %buf88, align 8
-  %call89 = call i32 (ptr, ...) @error_errno(ptr noundef %call87, ptr noundef %39)
+  %40 = load ptr, ptr %buf88, align 8
+  %call89 = call i32 (ptr, ...) @error_errno(ptr noundef %call87, ptr noundef %40)
   %call90 = call i32 @const_error()
   store i32 %call90, ptr %ret, align 4
   br label %out
 
 if.end91:                                         ; preds = %if.end79
-  %40 = load ptr, ptr %signature.addr, align 8
-  %41 = load i64, ptr %bottom, align 8
-  call void @remove_cr_after(ptr noundef %40, i64 noundef %41)
+  %41 = load ptr, ptr %signature.addr, align 8
+  %42 = load i64, ptr %bottom, align 8
+  call void @remove_cr_after(ptr noundef %41, i64 noundef %42)
   br label %out
 
 out:                                              ; preds = %if.end91, %if.then86, %if.end75, %if.then47, %if.then33, %if.then22
-  %42 = load ptr, ptr %key_file, align 8
-  %tobool92 = icmp ne ptr %42, null
+  %43 = load ptr, ptr %key_file, align 8
+  %tobool92 = icmp ne ptr %43, null
   br i1 %tobool92, label %if.then93, label %if.end94
 
 if.then93:                                        ; preds = %out
@@ -2213,8 +2217,8 @@ if.then93:                                        ; preds = %out
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %out
-  %43 = load ptr, ptr %buffer_file, align 8
-  %tobool95 = icmp ne ptr %43, null
+  %44 = load ptr, ptr %buffer_file, align 8
+  %tobool95 = icmp ne ptr %44, null
   br i1 %tobool95, label %if.then96, label %if.end97
 
 if.then96:                                        ; preds = %if.end94
@@ -2223,14 +2227,14 @@ if.then96:                                        ; preds = %if.end94
 
 if.end97:                                         ; preds = %if.then96, %if.end94
   %len98 = getelementptr inbounds %struct.strbuf, ptr %ssh_signature_filename, i32 0, i32 1
-  %44 = load i64, ptr %len98, align 8
-  %tobool99 = icmp ne i64 %44, 0
+  %45 = load i64, ptr %len98, align 8
+  %tobool99 = icmp ne i64 %45, 0
   br i1 %tobool99, label %if.then100, label %if.end103
 
 if.then100:                                       ; preds = %if.end97
   %buf101 = getelementptr inbounds %struct.strbuf, ptr %ssh_signature_filename, i32 0, i32 2
-  %45 = load ptr, ptr %buf101, align 8
-  %call102 = call i32 @unlink_or_warn(ptr noundef %45)
+  %46 = load ptr, ptr %buf101, align 8
+  %call102 = call i32 @unlink_or_warn(ptr noundef %46)
   br label %if.end103
 
 if.end103:                                        ; preds = %if.then100, %if.end97
@@ -2239,19 +2243,19 @@ if.end103:                                        ; preds = %if.then100, %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end103
-  %46 = load ptr, ptr %ssh_signing_key_file, align 8
-  call void @free(ptr noundef %46) #6
+  %47 = load ptr, ptr %ssh_signing_key_file, align 8
+  call void @free(ptr noundef %47) #6
   store ptr null, ptr %ssh_signing_key_file, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %47 = load i32, ptr %ret, align 4
-  store i32 %47, ptr %retval, align 4
+  %48 = load i32, ptr %ret, align 4
+  store i32 %48, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %do.end, %if.then9, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable

@@ -39,7 +39,8 @@ define void @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_alloc
 entry:
   store ptr null, ptr %this, align 8, !tbaa !7
   %call.i = tail call ptr @mmap(ptr noundef null, i64 noundef 32, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
-  %cmp.not.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
+  %0 = inttoptr i64 -1 to ptr
+  %cmp.not.i = icmp eq ptr %call.i, %0
   br i1 %cmp.not.i, label %if.then2.i, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
 if.then2.i:                                       ; preds = %entry
@@ -48,13 +49,13 @@ if.then2.i:                                       ; preds = %entry
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit: ; preds = %entry
   store ptr %call.i, ptr %this, align 8, !tbaa !7
-  %0 = load i64, ptr %options, align 8, !tbaa !12
-  %shl.i = shl nuw i64 1, %0
+  %1 = load i64, ptr %options, align 8, !tbaa !12
+  %shl.i = shl nuw i64 1, %1
   store i64 %shl.i, ptr %call.i, align 8, !tbaa !15
   %large_size.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %large_size_lg_.i.i = getelementptr inbounds i8, ptr %options, i64 8
-  %1 = load i64, ptr %large_size_lg_.i.i, align 8, !tbaa !21
-  %shl3.i = shl nuw i64 1, %1
+  %2 = load i64, ptr %large_size_lg_.i.i, align 8, !tbaa !21
+  %shl3.i = shl nuw i64 1, %2
   store i64 %shl3.i, ptr %large_size.i, align 8, !tbaa !22
   %refs.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 1, ptr %refs.i, align 8, !tbaa !23
@@ -201,7 +202,8 @@ if.end:                                           ; preds = %entry
 
 do.end.i:                                         ; preds = %if.end
   %call.i62 = tail call ptr @mmap(ptr noundef null, i64 noundef %n, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
-  %cmp.not.i = icmp eq ptr %call.i62, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp.not.i = icmp eq ptr %call.i62, %2
   br i1 %cmp.not.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %do.end.i
@@ -209,40 +211,40 @@ if.then2.i:                                       ; preds = %do.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %2 = load i64, ptr %0, align 8, !tbaa !15
-  %.fr = freeze i64 %2
+  %3 = load i64, ptr %0, align 8, !tbaa !15
+  %.fr = freeze i64 %3
   %head7 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = load atomic i64, ptr %head7 acquire, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %3 to ptr
+  %4 = load atomic i64, ptr %head7 acquire, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %4 to ptr
   %add = add i64 %a, -1
   %not = sub i64 0, %a
   %tobool.not.i63 = icmp eq i64 %.fr, 0
   br i1 %tobool.not.i63, label %if.end3.split.us, label %while.cond.outer
 
 if.end3.split.us:                                 ; preds = %if.end3
-  %tobool9.not.us = icmp eq i64 %3, 0
+  %tobool9.not.us = icmp eq i64 %4, 0
   %size10.us = getelementptr inbounds i8, ptr %atomic-temp.0.i.i, i64 8
   br i1 %tobool9.not.us, label %if.then.i67, label %while.cond.us
 
 while.cond.us:                                    ; preds = %if.end32.us, %if.end3.split.us
-  %4 = load atomic i64, ptr %size10.us acquire, align 8
-  %sub.us = add i64 %add, %4
+  %5 = load atomic i64, ptr %size10.us acquire, align 8
+  %sub.us = add i64 %add, %5
   %and.us = and i64 %sub.us, %not
   %add13.us = add i64 %and.us, %n
   %cmp14.us.not.not = icmp eq i64 %add13.us, 0
   br i1 %cmp14.us.not.not, label %if.end32.us, label %if.then.i67
 
 if.end32.us:                                      ; preds = %while.cond.us
-  %5 = cmpxchg weak ptr %size10.us, i64 %4, i64 %add13.us release monotonic, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %return.loopexit, label %while.cond.us
+  %6 = cmpxchg weak ptr %size10.us, i64 %5, i64 %add13.us release monotonic, align 8
+  %7 = extractvalue { i64, i1 } %6, 1
+  br i1 %7, label %return.loopexit, label %while.cond.us
 
 while.cond:                                       ; preds = %if.end32, %while.cond.outer
   br i1 %tobool9.not, label %if.then16, label %cond.end
 
 cond.end:                                         ; preds = %while.cond
-  %7 = load atomic i64, ptr %size10 acquire, align 8
-  %sub = add i64 %add, %7
+  %8 = load atomic i64, ptr %size10 acquire, align 8
+  %sub = add i64 %add, %8
   %and = and i64 %sub, %not
   %add13 = add i64 %and, %n
   %cmp14.not = icmp ugt i64 %add13, %.fr
@@ -250,7 +252,8 @@ cond.end:                                         ; preds = %while.cond
 
 if.then16:                                        ; preds = %cond.end, %while.cond
   %call.i = tail call ptr @mmap(ptr noundef null, i64 noundef %.fr, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
-  %cmp.not.i65 = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
+  %9 = inttoptr i64 -1 to ptr
+  %cmp.not.i65 = icmp eq ptr %call.i, %9
   br i1 %cmp.not.i65, label %if.then2.i66, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit68
 
 if.then.i67:                                      ; preds = %while.cond.us, %if.end3.split.us
@@ -265,13 +268,13 @@ _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit68: ; preds = %if.then16
   store ptr %head.0.ph, ptr %call.i, align 8, !tbaa !28
   %size.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 16, ptr %size.i, align 8, !tbaa !23
-  %8 = load ptr, ptr %this, align 8, !tbaa !7
-  %head19 = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = ptrtoint ptr %head.0.ph to i64
-  %10 = ptrtoint ptr %call.i to i64
-  %11 = cmpxchg weak ptr %head19, i64 %9, i64 %10 release monotonic, align 8
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %while.cond.outer.backedge, label %do.end7.i
+  %10 = load ptr, ptr %this, align 8, !tbaa !7
+  %head19 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = ptrtoint ptr %head.0.ph to i64
+  %12 = ptrtoint ptr %call.i to i64
+  %13 = cmpxchg weak ptr %head19, i64 %11, i64 %12 release monotonic, align 8
+  %14 = extractvalue { i64, i1 } %13, 1
+  br i1 %14, label %while.cond.outer.backedge, label %do.end7.i
 
 do.end7.i:                                        ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit68
   %call.i70 = tail call i32 @munmap(ptr noundef nonnull %call.i, i64 noundef %.fr) #4
@@ -283,10 +286,10 @@ if.then10.i:                                      ; preds = %do.end7.i
   unreachable
 
 _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit: ; preds = %do.end7.i
-  %13 = load ptr, ptr %this, align 8, !tbaa !7
-  %head28 = getelementptr inbounds i8, ptr %13, i64 24
-  %14 = load atomic i64, ptr %head28 acquire, align 8
-  %atomic-temp.0.i.i72 = inttoptr i64 %14 to ptr
+  %15 = load ptr, ptr %this, align 8, !tbaa !7
+  %head28 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load atomic i64, ptr %head28 acquire, align 8
+  %atomic-temp.0.i.i72 = inttoptr i64 %16 to ptr
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit68
@@ -301,9 +304,9 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
   br label %while.cond
 
 if.end32:                                         ; preds = %cond.end
-  %15 = cmpxchg weak ptr %size35, i64 %7, i64 %add13 release monotonic, align 8
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %return.loopexit, label %while.cond
+  %17 = cmpxchg weak ptr %size35, i64 %8, i64 %add13 release monotonic, align 8
+  %18 = extractvalue { i64, i1 } %17, 1
+  br i1 %18, label %return.loopexit, label %while.cond
 
 return.loopexit:                                  ; preds = %if.end32, %if.end32.us
   %.us-phi = phi i64 [ %and.us, %if.end32.us ], [ %and, %if.end32 ]

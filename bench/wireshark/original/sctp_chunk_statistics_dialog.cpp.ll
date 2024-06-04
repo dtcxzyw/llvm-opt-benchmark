@@ -893,304 +893,306 @@ define void @_ZN25SCTPChunkStatisticsDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_c
   %30 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %31 = load i32, ptr %30, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef %29, i32 %31)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2), ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2), ptr %32, align 8
-  %33 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #17
-          to label %35 unwind label %141
-
-35:                                               ; preds = %4
+  %32 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %32, ptr %28, align 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2
   store ptr %34, ptr %33, align 8
-  %36 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 3
-  %37 = load ptr, ptr %8, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef null)
-          to label %39 unwind label %141
+  %35 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
+  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #17
+          to label %37 unwind label %143
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 5
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %40) #15
-  %41 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 6
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #15
-  %42 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 7
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._sctp_assoc_info, ptr %43, i32 0, i32 0
-  %45 = load i16, ptr %44, align 8
-  %46 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 2
-  store i16 %45, ptr %46, align 8
-  %47 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  invoke void @_ZN28Ui_SCTPChunkStatisticsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef %28)
-          to label %49 unwind label %145
+37:                                               ; preds = %4
+  store ptr %36, ptr %35, align 8
+  %38 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 3
+  %39 = load ptr, ptr %8, align 8
+  store ptr %39, ptr %38, align 8
+  %40 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef null)
+          to label %41 unwind label %143
 
-49:                                               ; preds = %39
-  %50 = call i32 @_ZN2QtorENS_10WindowTypeES0_(i32 noundef 1, i32 noundef 8192) #15
-  %51 = getelementptr inbounds %class.QFlags, ptr %15, i32 0, i32 0
-  store i32 %50, ptr %51, align 4
-  %52 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef 16384) #15
-  %53 = getelementptr inbounds %class.QFlags, ptr %14, i32 0, i32 0
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 5
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %42) #15
+  %43 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 6
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #15
+  %44 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 7
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #15
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._sctp_assoc_info, ptr %45, i32 0, i32 0
+  %47 = load i16, ptr %46, align 8
+  %48 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 2
+  store i16 %47, ptr %48, align 8
+  %49 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  invoke void @_ZN28Ui_SCTPChunkStatisticsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef %28)
+          to label %51 unwind label %147
+
+51:                                               ; preds = %41
+  %52 = call i32 @_ZN2QtorENS_10WindowTypeES0_(i32 noundef 1, i32 noundef 8192) #15
+  %53 = getelementptr inbounds %class.QFlags, ptr %15, i32 0, i32 0
   store i32 %52, ptr %53, align 4
-  %54 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef 32768) #15
-  %55 = getelementptr inbounds %class.QFlags, ptr %13, i32 0, i32 0
+  %54 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef 16384) #15
+  %55 = getelementptr inbounds %class.QFlags, ptr %14, i32 0, i32 0
   store i32 %54, ptr %55, align 4
-  %56 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 134217728) #15
-  %57 = getelementptr inbounds %class.QFlags, ptr %12, i32 0, i32 0
+  %56 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef 32768) #15
+  %57 = getelementptr inbounds %class.QFlags, ptr %13, i32 0, i32 0
   store i32 %56, ptr %57, align 4
+  %58 = call i32 @_ZNK6QFlagsIN2Qt10WindowTypeEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 134217728) #15
+  %59 = getelementptr inbounds %class.QFlags, ptr %12, i32 0, i32 0
+  store i32 %58, ptr %59, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %12, i64 4, i1 false)
-  %58 = getelementptr inbounds %class.QFlags, ptr %16, i32 0, i32 0
-  %59 = load i32, ptr %58, align 4
-  invoke void @_ZN7QWidget14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 %59)
-          to label %60 unwind label %145
+  %60 = getelementptr inbounds %class.QFlags, ptr %16, i32 0, i32 0
+  %61 = load i32, ptr %60, align 4
+  invoke void @_ZN7QWidget14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 %61)
+          to label %62 unwind label %147
 
-60:                                               ; preds = %49
-  %61 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %62, i32 0, i32 4
+62:                                               ; preds = %51
+  %63 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
-  %65 = invoke noundef ptr @_ZNK10QTableView14verticalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %64)
-          to label %66 unwind label %145
+  %65 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %64, i32 0, i32 4
+  %66 = load ptr, ptr %65, align 8
+  %67 = invoke noundef ptr @_ZNK10QTableView14verticalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %66)
+          to label %68 unwind label %147
 
-66:                                               ; preds = %60
-  invoke void @_ZN11QHeaderView20setSectionsClickableEb(ptr noundef nonnull align 8 dereferenceable(40) %65, i1 noundef zeroext true)
-          to label %67 unwind label %145
+68:                                               ; preds = %62
+  invoke void @_ZN11QHeaderView20setSectionsClickableEb(ptr noundef nonnull align 8 dereferenceable(40) %67, i1 noundef zeroext true)
+          to label %69 unwind label %147
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %69, i32 0, i32 4
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = invoke noundef ptr @_ZNK10QTableView14verticalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %71)
-          to label %73 unwind label %145
+  %72 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %71, i32 0, i32 4
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke noundef ptr @_ZNK10QTableView14verticalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %73)
+          to label %75 unwind label %147
 
-73:                                               ; preds = %67
-  invoke void @_ZN11QHeaderView18setSectionsMovableEb(ptr noundef nonnull align 8 dereferenceable(40) %72, i1 noundef zeroext true)
-          to label %74 unwind label %145
+75:                                               ; preds = %69
+  invoke void @_ZN11QHeaderView18setSectionsMovableEb(ptr noundef nonnull align 8 dereferenceable(40) %74, i1 noundef zeroext true)
+          to label %76 unwind label %147
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %76, i32 0, i32 4
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
-  invoke void @_ZN17QAbstractItemView20setSelectionBehaviorENS_17SelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(40) %78, i32 noundef 1)
-          to label %79 unwind label %145
+  %79 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
+  invoke void @_ZN17QAbstractItemView20setSelectionBehaviorENS_17SelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(40) %80, i32 noundef 1)
+          to label %81 unwind label %147
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %81, i32 0, i32 4
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %83 = load ptr, ptr %82, align 8
-  invoke void @_ZN17QAbstractItemView16setSelectionModeENS_13SelectionModeE(ptr noundef nonnull align 8 dereferenceable(40) %83, i32 noundef 1)
-          to label %84 unwind label %145
+  %84 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %83, i32 0, i32 4
+  %85 = load ptr, ptr %84, align 8
+  invoke void @_ZN17QAbstractItemView16setSelectionModeENS_13SelectionModeE(ptr noundef nonnull align 8 dereferenceable(40) %85, i32 noundef 1)
+          to label %86 unwind label %147
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %86, i32 0, i32 4
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
-  %89 = invoke noundef ptr @_ZNK10QTableView16horizontalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %88)
-          to label %90 unwind label %145
+  %89 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %88, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8
+  %91 = invoke noundef ptr @_ZNK10QTableView16horizontalHeaderEv(ptr noundef nonnull align 8 dereferenceable(40) %90)
+          to label %92 unwind label %147
 
-90:                                               ; preds = %84
-  invoke void @_ZN11QHeaderView20setSectionResizeModeENS_10ResizeModeE(ptr noundef nonnull align 8 dereferenceable(40) %89, i32 noundef 3)
-          to label %91 unwind label %145
+92:                                               ; preds = %86
+  invoke void @_ZN11QHeaderView20setSectionResizeModeENS_10ResizeModeE(ptr noundef nonnull align 8 dereferenceable(40) %91, i32 noundef 3)
+          to label %93 unwind label %147
 
-91:                                               ; preds = %90
+93:                                               ; preds = %92
   invoke void @_ZN25SCTPChunkStatisticsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %20, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %92 unwind label %145
+          to label %94 unwind label %147
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 3
-  %94 = load ptr, ptr %93, align 8
-  %95 = invoke ptr @cf_get_display_name(ptr noundef %94)
-          to label %96 unwind label %149
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 3
+  %96 = load ptr, ptr %95, align 8
+  %97 = invoke ptr @cf_get_display_name(ptr noundef %96)
+          to label %98 unwind label %151
 
-96:                                               ; preds = %92
-  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef %95)
-          to label %97 unwind label %149
+98:                                               ; preds = %94
+  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef %97)
+          to label %99 unwind label %151
 
-97:                                               ; preds = %96
+99:                                               ; preds = %98
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %23, i8 noundef signext 32) #15
-  %98 = getelementptr inbounds %struct.QLatin1Char, ptr %23, i32 0, i32 0
-  %99 = load i8, ptr %98, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %22, i8 %99) #15
-  %100 = getelementptr inbounds %class.QChar, ptr %22, i32 0, i32 0
-  %101 = load i16, ptr %100, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 0, i16 %101)
-          to label %102 unwind label %153
+  %100 = getelementptr inbounds %struct.QLatin1Char, ptr %23, i32 0, i32 0
+  %101 = load i8, ptr %100, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %22, i8 %101) #15
+  %102 = getelementptr inbounds %class.QChar, ptr %22, i32 0, i32 0
+  %103 = load i16, ptr %102, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 0, i16 %103)
+          to label %104 unwind label %155
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %7, align 8
-  %104 = getelementptr inbounds %struct._sctp_assoc_info, ptr %103, i32 0, i32 3
-  %105 = load i16, ptr %104, align 8
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds %struct._sctp_assoc_info, ptr %105, i32 0, i32 3
+  %107 = load i16, ptr %106, align 8
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %25, i8 noundef signext 32) #15
-  %106 = getelementptr inbounds %struct.QLatin1Char, ptr %25, i32 0, i32 0
-  %107 = load i8, ptr %106, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %24, i8 %107) #15
-  %108 = getelementptr inbounds %class.QChar, ptr %24, i32 0, i32 0
-  %109 = load i16, ptr %108, align 2
-  invoke void @_ZNK7QString3argEtii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i16 noundef zeroext %105, i32 noundef 0, i32 noundef 10, i16 %109)
-          to label %110 unwind label %157
+  %108 = getelementptr inbounds %struct.QLatin1Char, ptr %25, i32 0, i32 0
+  %109 = load i8, ptr %108, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %24, i8 %109) #15
+  %110 = getelementptr inbounds %class.QChar, ptr %24, i32 0, i32 0
+  %111 = load i16, ptr %110, align 2
+  invoke void @_ZNK7QString3argEtii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i16 noundef zeroext %107, i32 noundef 0, i32 noundef 10, i16 %111)
+          to label %112 unwind label %159
 
-110:                                              ; preds = %102
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._sctp_assoc_info, ptr %111, i32 0, i32 4
-  %113 = load i16, ptr %112, align 2
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds %struct._sctp_assoc_info, ptr %113, i32 0, i32 4
+  %115 = load i16, ptr %114, align 2
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %27, i8 noundef signext 32) #15
-  %114 = getelementptr inbounds %struct.QLatin1Char, ptr %27, i32 0, i32 0
-  %115 = load i8, ptr %114, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %26, i8 %115) #15
-  %116 = getelementptr inbounds %class.QChar, ptr %26, i32 0, i32 0
-  %117 = load i16, ptr %116, align 2
-  invoke void @_ZNK7QString3argEtii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i16 noundef zeroext %113, i32 noundef 0, i32 noundef 10, i16 %117)
-          to label %118 unwind label %161
+  %116 = getelementptr inbounds %struct.QLatin1Char, ptr %27, i32 0, i32 0
+  %117 = load i8, ptr %116, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %26, i8 %117) #15
+  %118 = getelementptr inbounds %class.QChar, ptr %26, i32 0, i32 0
+  %119 = load i16, ptr %118, align 2
+  invoke void @_ZNK7QString3argEtii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i16 noundef zeroext %115, i32 noundef 0, i32 noundef 10, i16 %119)
+          to label %120 unwind label %163
 
-118:                                              ; preds = %110
+120:                                              ; preds = %112
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %119 unwind label %165
+          to label %121 unwind label %167
 
-119:                                              ; preds = %118
+121:                                              ; preds = %120
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #15
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #15
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
-  %120 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
-  %121 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %122, i32 0, i32 0
+  %122 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
+  %123 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %124 = load ptr, ptr %123, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef %124)
-          to label %125 unwind label %145
+  %125 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %122, ptr noundef %126)
+          to label %127 unwind label %147
 
-125:                                              ; preds = %119
-  %126 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
-  %127 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %128, i32 0, i32 1
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
+  %129 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %130 = load ptr, ptr %129, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef %130)
-          to label %131 unwind label %145
+  %131 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %130, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef %132)
+          to label %133 unwind label %147
 
-131:                                              ; preds = %125
-  %132 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
-  %133 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %134, i32 0, i32 2
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 4
+  %135 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %136 = load ptr, ptr %135, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef %136)
-          to label %137 unwind label %145
+  %137 = getelementptr inbounds %class.Ui_SCTPChunkStatisticsDialog, ptr %136, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %134, ptr noundef %138)
+          to label %139 unwind label %147
 
-137:                                              ; preds = %131
+139:                                              ; preds = %133
   invoke void @_ZN25SCTPChunkStatisticsDialog18initializeChunkMapEv(ptr noundef nonnull align 8 dereferenceable(128) %28)
-          to label %138 unwind label %145
+          to label %140 unwind label %147
 
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %7, align 8
-  invoke void @_ZN25SCTPChunkStatisticsDialog9fillTableEbPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(128) %28, i1 noundef zeroext false, ptr noundef %139)
-          to label %140 unwind label %145
+140:                                              ; preds = %139
+  %141 = load ptr, ptr %7, align 8
+  invoke void @_ZN25SCTPChunkStatisticsDialog9fillTableEbPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(128) %28, i1 noundef zeroext false, ptr noundef %141)
+          to label %142 unwind label %147
 
-140:                                              ; preds = %138
+142:                                              ; preds = %140
   ret void
 
-141:                                              ; preds = %35, %4
-  %142 = landingpad { ptr, i32 }
+143:                                              ; preds = %37, %4
+  %144 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %10, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %11, align 4
-  br label %174
+  %145 = extractvalue { ptr, i32 } %144, 0
+  store ptr %145, ptr %10, align 8
+  %146 = extractvalue { ptr, i32 } %144, 1
+  store i32 %146, ptr %11, align 4
+  br label %176
 
-145:                                              ; preds = %138, %137, %131, %125, %119, %91, %90, %84, %79, %74, %73, %67, %66, %60, %49, %39
-  %146 = landingpad { ptr, i32 }
+147:                                              ; preds = %140, %139, %133, %127, %121, %93, %92, %86, %81, %76, %75, %69, %68, %62, %51, %41
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %10, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %11, align 4
-  br label %173
-
-149:                                              ; preds = %96, %92
-  %150 = landingpad { ptr, i32 }
-          cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %10, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %11, align 4
-  br label %172
-
-153:                                              ; preds = %97
-  %154 = landingpad { ptr, i32 }
-          cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %10, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %11, align 4
-  br label %171
-
-157:                                              ; preds = %102
-  %158 = landingpad { ptr, i32 }
-          cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %10, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %11, align 4
-  br label %170
-
-161:                                              ; preds = %110
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %10, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %11, align 4
-  br label %169
-
-165:                                              ; preds = %118
-  %166 = landingpad { ptr, i32 }
-          cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %10, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
-  br label %169
-
-169:                                              ; preds = %165, %161
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
-  br label %170
-
-170:                                              ; preds = %169, %157
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #15
-  br label %171
-
-171:                                              ; preds = %170, %153
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #15
-  br label %172
-
-172:                                              ; preds = %171, %149
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
-  br label %173
-
-173:                                              ; preds = %172, %145
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #15
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #15
-  br label %174
-
-174:                                              ; preds = %173, %141
-  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %28) #15
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %10, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %11, align 4
   br label %175
 
-175:                                              ; preds = %174
-  %176 = load ptr, ptr %10, align 8
-  %177 = load i32, ptr %11, align 4
-  %178 = insertvalue { ptr, i32 } poison, ptr %176, 0
-  %179 = insertvalue { ptr, i32 } %178, i32 %177, 1
-  resume { ptr, i32 } %179
+151:                                              ; preds = %98, %94
+  %152 = landingpad { ptr, i32 }
+          cleanup
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %10, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %11, align 4
+  br label %174
+
+155:                                              ; preds = %99
+  %156 = landingpad { ptr, i32 }
+          cleanup
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %10, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %11, align 4
+  br label %173
+
+159:                                              ; preds = %104
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %10, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %11, align 4
+  br label %172
+
+163:                                              ; preds = %112
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %10, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %11, align 4
+  br label %171
+
+167:                                              ; preds = %120
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %10, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  br label %171
+
+171:                                              ; preds = %167, %163
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  br label %172
+
+172:                                              ; preds = %171, %159
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #15
+  br label %173
+
+173:                                              ; preds = %172, %155
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #15
+  br label %174
+
+174:                                              ; preds = %173, %151
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
+  br label %175
+
+175:                                              ; preds = %174, %147
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #15
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #15
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #15
+  br label %176
+
+176:                                              ; preds = %175, %143
+  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %28) #15
+  br label %177
+
+177:                                              ; preds = %176
+  %178 = load ptr, ptr %10, align 8
+  %179 = load i32, ptr %11, align 4
+  %180 = insertvalue { ptr, i32 } poison, ptr %178, 0
+  %181 = insertvalue { ptr, i32 } %180, i32 %179, 1
+  resume { ptr, i32 } %181
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4166,25 +4168,27 @@ define void @_ZN25SCTPChunkStatisticsDialogD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #18
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #18
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 7
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
-  %11 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 6
-  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  %12 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 4
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #15
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 7
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #15
+  %13 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 6
+  call void @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  %14 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 4
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #15
   ret void
 }
@@ -6753,42 +6757,43 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAb
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !13
+  br i1 %4, label %5, label %12, !prof !13
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t) #15
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIP15QAbstractButtonLb1EE14qt_metatype_idEv()
-          to label %10 unwind label %12
+          to label %10 unwind label %13
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t, align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t, i64 1), align 4
+  %11 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t, i64 1
+  store i32 0, ptr %11, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t) #15
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %5, %0
+12:                                               ; preds = %10, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %1, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %2, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %1, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP15QAbstractButtonEEELb1EE5typesEvE1t) #15
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2

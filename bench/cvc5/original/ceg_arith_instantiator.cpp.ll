@@ -1106,10 +1106,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17ArithInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17ArithInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_vtc = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vtc.addr, align 8
-  store ptr %1, ptr %d_vtc, align 8
+  %2 = load ptr, ptr %vtc.addr, align 8
+  store ptr %2, ptr %d_vtc, align 8
   %d_zero = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_zero)
           to label %invoke.cont3 unwind label %lpad2
@@ -1229,40 +1230,40 @@ invoke.cont56:                                    ; preds = %invoke.cont53
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup97
 
 lpad4:                                            ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup96
 
 lpad6:                                            ; preds = %arrayctor.loop
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done8, label %arraydestroy.body
 
@@ -1277,30 +1278,30 @@ arraydestroy.done8:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup95
 
 lpad37:                                           ; preds = %invoke.cont48, %invoke.cont45, %invoke.cont38, %arrayctor.cont36
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup60
 
 lpad41:                                           ; preds = %invoke.cont40
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad44:                                           ; preds = %invoke.cont42
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -1309,21 +1310,21 @@ ehcleanup:                                        ; preds = %lpad44, %lpad41
   br label %ehcleanup60
 
 lpad52:                                           ; preds = %invoke.cont51
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup59
 
 lpad55:                                           ; preds = %invoke.cont53
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47) #3
   br label %ehcleanup59
 
@@ -1333,11 +1334,11 @@ ehcleanup59:                                      ; preds = %lpad55, %lpad52
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %ehcleanup, %lpad37
   %array.begin61 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_lit, i32 0, i32 0
-  %29 = getelementptr inbounds %"class.std::vector", ptr %array.begin61, i64 2
+  %30 = getelementptr inbounds %"class.std::vector", ptr %array.begin61, i64 2
   br label %arraydestroy.body62
 
 arraydestroy.body62:                              ; preds = %arraydestroy.body62, %ehcleanup60
-  %arraydestroy.elementPast63 = phi ptr [ %29, %ehcleanup60 ], [ %arraydestroy.element64, %arraydestroy.body62 ]
+  %arraydestroy.elementPast63 = phi ptr [ %30, %ehcleanup60 ], [ %arraydestroy.element64, %arraydestroy.body62 ]
   %arraydestroy.element64 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast63, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element64) #3
   %arraydestroy.done65 = icmp eq ptr %arraydestroy.element64, %array.begin61
@@ -1345,11 +1346,11 @@ arraydestroy.body62:                              ; preds = %arraydestroy.body62
 
 arraydestroy.done66:                              ; preds = %arraydestroy.body62
   %array.begin68 = getelementptr inbounds [2 x [2 x %"class.std::vector"]], ptr %d_mbp_vts_coeff, i32 0, i32 0, i32 0
-  %30 = getelementptr inbounds %"class.std::vector", ptr %array.begin68, i64 4
+  %31 = getelementptr inbounds %"class.std::vector", ptr %array.begin68, i64 4
   br label %arraydestroy.body69
 
 arraydestroy.body69:                              ; preds = %arraydestroy.body69, %arraydestroy.done66
-  %arraydestroy.elementPast70 = phi ptr [ %30, %arraydestroy.done66 ], [ %arraydestroy.element71, %arraydestroy.body69 ]
+  %arraydestroy.elementPast70 = phi ptr [ %31, %arraydestroy.done66 ], [ %arraydestroy.element71, %arraydestroy.body69 ]
   %arraydestroy.element71 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast70, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element71) #3
   %arraydestroy.done72 = icmp eq ptr %arraydestroy.element71, %array.begin68
@@ -1357,11 +1358,11 @@ arraydestroy.body69:                              ; preds = %arraydestroy.body69
 
 arraydestroy.done73:                              ; preds = %arraydestroy.body69
   %array.begin75 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_coeff, i32 0, i32 0
-  %31 = getelementptr inbounds %"class.std::vector", ptr %array.begin75, i64 2
+  %32 = getelementptr inbounds %"class.std::vector", ptr %array.begin75, i64 2
   br label %arraydestroy.body76
 
 arraydestroy.body76:                              ; preds = %arraydestroy.body76, %arraydestroy.done73
-  %arraydestroy.elementPast77 = phi ptr [ %31, %arraydestroy.done73 ], [ %arraydestroy.element78, %arraydestroy.body76 ]
+  %arraydestroy.elementPast77 = phi ptr [ %32, %arraydestroy.done73 ], [ %arraydestroy.element78, %arraydestroy.body76 ]
   %arraydestroy.element78 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast77, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element78) #3
   %arraydestroy.done79 = icmp eq ptr %arraydestroy.element78, %array.begin75
@@ -1369,11 +1370,11 @@ arraydestroy.body76:                              ; preds = %arraydestroy.body76
 
 arraydestroy.done80:                              ; preds = %arraydestroy.body76
   %array.begin82 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_bounds, i32 0, i32 0
-  %32 = getelementptr inbounds %"class.std::vector", ptr %array.begin82, i64 2
+  %33 = getelementptr inbounds %"class.std::vector", ptr %array.begin82, i64 2
   br label %arraydestroy.body83
 
 arraydestroy.body83:                              ; preds = %arraydestroy.body83, %arraydestroy.done80
-  %arraydestroy.elementPast84 = phi ptr [ %32, %arraydestroy.done80 ], [ %arraydestroy.element85, %arraydestroy.body83 ]
+  %arraydestroy.elementPast84 = phi ptr [ %33, %arraydestroy.done80 ], [ %arraydestroy.element85, %arraydestroy.body83 ]
   %arraydestroy.element85 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast84, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element85) #3
   %arraydestroy.done86 = icmp eq ptr %arraydestroy.element85, %array.begin82
@@ -1381,11 +1382,11 @@ arraydestroy.body83:                              ; preds = %arraydestroy.body83
 
 arraydestroy.done87:                              ; preds = %arraydestroy.body83
   %array.begin89 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %d_vts_sym, i32 0, i32 0
-  %33 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %array.begin89, i64 2
+  %34 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %array.begin89, i64 2
   br label %arraydestroy.body90
 
 arraydestroy.body90:                              ; preds = %arraydestroy.body90, %arraydestroy.done87
-  %arraydestroy.elementPast91 = phi ptr [ %33, %arraydestroy.done87 ], [ %arraydestroy.element92, %arraydestroy.body90 ]
+  %arraydestroy.elementPast91 = phi ptr [ %34, %arraydestroy.done87 ], [ %arraydestroy.element92, %arraydestroy.body90 ]
   %arraydestroy.element92 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %arraydestroy.elementPast91, i64 -1
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element92) #3
   %arraydestroy.done93 = icmp eq ptr %arraydestroy.element92, %array.begin89
@@ -1659,7 +1660,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::Instantiator", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_type) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -2881,7 +2883,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 1
   store i32 1, ptr %d_type, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
@@ -5764,7 +5767,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_coeff) #3
   ret void
@@ -18515,14 +18519,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17ArithInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17ArithInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_mbp_lit = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 8
   %array.begin = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_lit, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -18531,11 +18536,11 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
 arraydestroy.done2:                               ; preds = %arraydestroy.body
   %d_mbp_vts_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 7
   %array.begin3 = getelementptr inbounds [2 x [2 x %"class.std::vector"]], ptr %d_mbp_vts_coeff, i32 0, i32 0, i32 0
-  %1 = getelementptr inbounds %"class.std::vector", ptr %array.begin3, i64 4
+  %2 = getelementptr inbounds %"class.std::vector", ptr %array.begin3, i64 4
   br label %arraydestroy.body4
 
 arraydestroy.body4:                               ; preds = %arraydestroy.body4, %arraydestroy.done2
-  %arraydestroy.elementPast5 = phi ptr [ %1, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
+  %arraydestroy.elementPast5 = phi ptr [ %2, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
   %arraydestroy.element6 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast5, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element6) #3
   %arraydestroy.done7 = icmp eq ptr %arraydestroy.element6, %array.begin3
@@ -18544,11 +18549,11 @@ arraydestroy.body4:                               ; preds = %arraydestroy.body4,
 arraydestroy.done8:                               ; preds = %arraydestroy.body4
   %d_mbp_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 6
   %array.begin9 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_coeff, i32 0, i32 0
-  %2 = getelementptr inbounds %"class.std::vector", ptr %array.begin9, i64 2
+  %3 = getelementptr inbounds %"class.std::vector", ptr %array.begin9, i64 2
   br label %arraydestroy.body10
 
 arraydestroy.body10:                              ; preds = %arraydestroy.body10, %arraydestroy.done8
-  %arraydestroy.elementPast11 = phi ptr [ %2, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
+  %arraydestroy.elementPast11 = phi ptr [ %3, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
   %arraydestroy.element12 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast11, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element12) #3
   %arraydestroy.done13 = icmp eq ptr %arraydestroy.element12, %array.begin9
@@ -18557,11 +18562,11 @@ arraydestroy.body10:                              ; preds = %arraydestroy.body10
 arraydestroy.done14:                              ; preds = %arraydestroy.body10
   %d_mbp_bounds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 5
   %array.begin15 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_bounds, i32 0, i32 0
-  %3 = getelementptr inbounds %"class.std::vector", ptr %array.begin15, i64 2
+  %4 = getelementptr inbounds %"class.std::vector", ptr %array.begin15, i64 2
   br label %arraydestroy.body16
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16, %arraydestroy.done14
-  %arraydestroy.elementPast17 = phi ptr [ %3, %arraydestroy.done14 ], [ %arraydestroy.element18, %arraydestroy.body16 ]
+  %arraydestroy.elementPast17 = phi ptr [ %4, %arraydestroy.done14 ], [ %arraydestroy.element18, %arraydestroy.body16 ]
   %arraydestroy.element18 = getelementptr inbounds %"class.std::vector", ptr %arraydestroy.elementPast17, i64 -1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element18) #3
   %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %array.begin15
@@ -18570,11 +18575,11 @@ arraydestroy.body16:                              ; preds = %arraydestroy.body16
 arraydestroy.done20:                              ; preds = %arraydestroy.body16
   %d_vts_sym = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ArithInstantiator", ptr %this1, i32 0, i32 4
   %array.begin21 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %d_vts_sym, i32 0, i32 0
-  %4 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %array.begin21, i64 2
+  %5 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %array.begin21, i64 2
   br label %arraydestroy.body22
 
 arraydestroy.body22:                              ; preds = %arraydestroy.body22, %arraydestroy.done20
-  %arraydestroy.elementPast23 = phi ptr [ %4, %arraydestroy.done20 ], [ %arraydestroy.element24, %arraydestroy.body22 ]
+  %arraydestroy.elementPast23 = phi ptr [ %5, %arraydestroy.done20 ], [ %arraydestroy.element24, %arraydestroy.body22 ]
   %arraydestroy.element24 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %arraydestroy.elementPast23, i64 -1
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element24) #3
   %arraydestroy.done25 = icmp eq ptr %arraydestroy.element24, %array.begin21

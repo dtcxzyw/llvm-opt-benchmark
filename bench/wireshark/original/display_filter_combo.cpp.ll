@@ -255,157 +255,159 @@ define void @_ZN18DisplayFilterComboC2EP7QWidget(ptr noundef nonnull align 8 der
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %4, align 8
   call void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 0, i32 2), ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 1, i32 2), ptr %19, align 8
+  %19 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 0, i32 2
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 1, i32 2
+  store ptr %21, ptr %20, align 8
   invoke void @_ZN9QComboBox11setEditableEb(ptr noundef nonnull align 8 dereferenceable(40) %17, i1 noundef zeroext true)
-          to label %20 unwind label %56
+          to label %22 unwind label %58
 
-20:                                               ; preds = %2
-  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #8
-          to label %22 unwind label %56
+22:                                               ; preds = %2
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #8
+          to label %24 unwind label %58
 
-22:                                               ; preds = %20
-  invoke void @_ZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditType(ptr noundef nonnull align 8 dereferenceable(352) %21, ptr noundef %17, i32 noundef 0)
-          to label %23 unwind label %60
-
-23:                                               ; preds = %22
-  invoke void @_ZN9QComboBox11setLineEditEP9QLineEdit(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %21)
-          to label %24 unwind label %56
-
-24:                                               ; preds = %23
-  invoke void @_ZN9QComboBox12setCompleterEP10QCompleter(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef null)
-          to label %25 unwind label %56
+24:                                               ; preds = %22
+  invoke void @_ZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditType(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef %17, i32 noundef 0)
+          to label %25 unwind label %62
 
 25:                                               ; preds = %24
-  invoke void @_ZN9QComboBox15setInsertPolicyENS_12InsertPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 0)
-          to label %26 unwind label %56
+  invoke void @_ZN9QComboBox11setLineEditEP9QLineEdit(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %23)
+          to label %26 unwind label %58
 
 26:                                               ; preds = %25
-  %27 = invoke i32 @_ZNK7QWidget10sizePolicyEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %28 unwind label %56
+  invoke void @_ZN9QComboBox12setCompleterEP10QCompleter(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef null)
+          to label %27 unwind label %58
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %class.QSizePolicy, ptr %7, i32 0, i32 0
-  %30 = getelementptr inbounds %union.anon, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds %"struct.QSizePolicy::Bits", ptr %30, i32 0, i32 0
-  store i32 %27, ptr %31, align 4
-  %32 = call noundef i32 @_ZNK11QSizePolicy14verticalPolicyEv(ptr noundef nonnull align 4 dereferenceable(4) %7) #9
-  invoke void @_ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 3, i32 noundef %32)
-          to label %33 unwind label %56
+27:                                               ; preds = %26
+  invoke void @_ZN9QComboBox15setInsertPolicyENS_12InsertPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 0)
+          to label %28 unwind label %58
 
-33:                                               ; preds = %28
+28:                                               ; preds = %27
+  %29 = invoke i32 @_ZNK7QWidget10sizePolicyEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
+          to label %30 unwind label %58
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %class.QSizePolicy, ptr %7, i32 0, i32 0
+  %32 = getelementptr inbounds %union.anon, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds %"struct.QSizePolicy::Bits", ptr %32, i32 0, i32 0
+  store i32 %29, ptr %33, align 4
+  %34 = call noundef i32 @_ZNK11QSizePolicy14verticalPolicyEv(ptr noundef nonnull align 4 dereferenceable(4) %7) #9
+  invoke void @_ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 3, i32 noundef %34)
+          to label %35 unwind label %58
+
+35:                                               ; preds = %30
   invoke void @_ZN18DisplayFilterCombo2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %34 unwind label %56
+          to label %36 unwind label %58
 
-34:                                               ; preds = %33
+36:                                               ; preds = %35
   invoke void @_ZN7QWidget17setAccessibleNameERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %35 unwind label %64
+          to label %37 unwind label %66
 
-35:                                               ; preds = %34
+37:                                               ; preds = %36
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
   store ptr %17, ptr @_ZL24cur_display_filter_combo, align 8
   invoke void @_ZN18DisplayFilterCombo16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %36 unwind label %56
-
-36:                                               ; preds = %35
-  invoke void @_ZN18DisplayFilterCombo2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %37 unwind label %56
-
-37:                                               ; preds = %36
-  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %38 unwind label %68
+          to label %38 unwind label %58
 
 38:                                               ; preds = %37
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
-  %39 = invoke noundef ptr @_ZNK9QComboBox5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %40 unwind label %56
+  invoke void @_ZN18DisplayFilterCombo2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
+          to label %39 unwind label %58
 
-40:                                               ; preds = %38
-  %41 = invoke noundef ptr @_Z12qobject_castIP18QStandardItemModelET_P7QObject(ptr noundef %39)
-          to label %42 unwind label %56
+39:                                               ; preds = %38
+  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %40 unwind label %70
+
+40:                                               ; preds = %39
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  %41 = invoke noundef ptr @_ZNK9QComboBox5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
+          to label %42 unwind label %58
 
 42:                                               ; preds = %40
-  store ptr %41, ptr %10, align 8
-  %43 = load ptr, ptr %10, align 8
-  invoke void @_ZN18QStandardItemModel11setSortRoleEi(ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 256)
-          to label %44 unwind label %56
+  %43 = invoke noundef ptr @_Z12qobject_castIP18QStandardItemModelET_P7QObject(ptr noundef %41)
+          to label %44 unwind label %58
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr @mainApp, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), i64 0 }, ptr %12, align 8
-  %46 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), i64 0 }, ptr %13, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %45, i64 %47, i64 %49, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
-          to label %50 unwind label %56
+  store ptr %43, ptr %10, align 8
+  %45 = load ptr, ptr %10, align 8
+  invoke void @_ZN18QStandardItemModel11setSortRoleEi(ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 256)
+          to label %46 unwind label %58
 
-50:                                               ; preds = %44
+46:                                               ; preds = %44
+  %47 = load ptr, ptr @mainApp, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), i64 0 }, ptr %12, align 8
+  %48 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), i64 0 }, ptr %13, align 8
+  invoke void @_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %47, i64 %49, i64 %51, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %13, i32 noundef 0)
+          to label %52 unwind label %58
+
+52:                                               ; preds = %46
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QComboBox9activatedEi to i64), i64 0 }, ptr %15, align 8
-  %51 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %53 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 0
   %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds { i64, i64 }, ptr %15, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18DisplayFilterCombo11onActivatedEi to i64), i64 0 }, ptr %16, align 8
-  invoke void @_ZN7QObject7connectIM18DisplayFilterComboFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %17, i64 %52, i64 %54, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %16, i32 noundef 0)
-          to label %55 unwind label %56
+  invoke void @_ZN7QObject7connectIM18DisplayFilterComboFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %17, i64 %54, i64 %56, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %16, i32 noundef 0)
+          to label %57 unwind label %58
 
-55:                                               ; preds = %50
+57:                                               ; preds = %52
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
   ret void
 
-56:                                               ; preds = %50, %44, %42, %40, %38, %36, %35, %33, %28, %26, %25, %24, %23, %20, %2
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %52, %46, %44, %42, %40, %38, %37, %35, %30, %28, %27, %26, %25, %22, %2
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %5, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %6, align 4
-  br label %72
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %5, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %6, align 4
+  br label %74
 
-60:                                               ; preds = %22
-  %61 = landingpad { ptr, i32 }
+62:                                               ; preds = %24
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %5, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %21) #10
-  br label %72
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %5, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %23) #10
+  br label %74
 
-64:                                               ; preds = %34
-  %65 = landingpad { ptr, i32 }
+66:                                               ; preds = %36
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %5, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %6, align 4
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %5, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %6, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
-  br label %72
+  br label %74
 
-68:                                               ; preds = %37
-  %69 = landingpad { ptr, i32 }
+70:                                               ; preds = %39
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %5, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %6, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %5, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %6, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
-  br label %72
+  br label %74
 
-72:                                               ; preds = %68, %64, %60, %56
+74:                                               ; preds = %70, %66, %62, %58
   call void @_ZN9QComboBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #9
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr %6, align 4
-  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
-  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
-  resume { ptr, i32 } %77
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %6, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 }
 
 declare void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -673,8 +675,9 @@ define void @_ZN18DisplayFilterCombo14updateMaxCountEv(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 27), align 4
-  call void @_ZN9QComboBox11setMaxCountEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4)
+  %4 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 27
+  %5 = load i32, ptr %4, align 4
+  call void @_ZN9QComboBox11setMaxCountEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %5)
   ret void
 }
 

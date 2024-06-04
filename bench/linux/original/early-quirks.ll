@@ -98,98 +98,99 @@ define internal fastcc i32 @check_dev_quirk(i32 noundef %0, i32 noundef %1, i32 
   %7 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 10) #4
   %8 = zext i16 %7 to i32
   %9 = icmp eq i16 %7, -1
-  br i1 %9, label %68, label %10
+  br i1 %9, label %69, label %10
 
 10:                                               ; preds = %3
   %11 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 0) #4
   %12 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 2) #4
-  %13 = load ptr, ptr getelementptr inbounds ([12 x %struct.chipset], ptr @early_qrk, i64 0, i64 0, i32 5), align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %56, label %15
+  %13 = getelementptr inbounds [12 x %struct.chipset], ptr @early_qrk, i64 0, i64 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %57, label %16
 
-15:                                               ; preds = %10
-  %16 = zext i16 %11 to i32
-  %17 = zext i16 %12 to i32
-  br label %18
+16:                                               ; preds = %10
+  %17 = zext i16 %11 to i32
+  %18 = zext i16 %12 to i32
+  br label %19
 
-18:                                               ; preds = %49, %15
-  %19 = phi ptr [ %13, %15 ], [ %54, %49 ]
-  %20 = phi ptr [ @early_qrk, %15 ], [ %52, %49 ]
-  %21 = phi i32 [ 0, %15 ], [ %50, %49 ]
-  %22 = load i32, ptr %20, align 16
-  %23 = icmp eq i32 %22, -1
-  %24 = icmp eq i32 %22, %16
-  %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %26, label %49
+19:                                               ; preds = %50, %16
+  %20 = phi ptr [ %14, %16 ], [ %55, %50 ]
+  %21 = phi ptr [ @early_qrk, %16 ], [ %53, %50 ]
+  %22 = phi i32 [ 0, %16 ], [ %51, %50 ]
+  %23 = load i32, ptr %21, align 16
+  %24 = icmp eq i32 %23, -1
+  %25 = icmp eq i32 %23, %17
+  %26 = select i1 %24, i1 true, i1 %25
+  br i1 %26, label %27, label %50
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, -1
-  %30 = icmp eq i32 %28, %17
-  %31 = select i1 %29, i1 true, i1 %30
-  br i1 %31, label %32, label %49
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %21, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, -1
+  %31 = icmp eq i32 %29, %18
+  %32 = select i1 %30, i1 true, i1 %31
+  br i1 %32, label %33, label %50
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = xor i32 %34, %8
-  %36 = getelementptr inbounds i8, ptr %20, i64 12
-  %37 = load i32, ptr %36, align 4
-  %38 = and i32 %35, %37
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %49
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %21, i64 8
+  %35 = load i32, ptr %34, align 8
+  %36 = xor i32 %35, %8
+  %37 = getelementptr inbounds i8, ptr %21, i64 12
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %36, %38
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %50
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %20, i64 16
-  %42 = load i32, ptr %41, align 16
-  %43 = and i32 %42, 3
-  %44 = icmp eq i32 %43, 3
-  br i1 %44, label %46, label %45
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds i8, ptr %21, i64 16
+  %43 = load i32, ptr %42, align 16
+  %44 = and i32 %43, 3
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %40
-  tail call void %19(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4
-  br label %46
+46:                                               ; preds = %41
+  tail call void %20(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4
+  br label %47
 
-46:                                               ; preds = %45, %40
-  %47 = load i32, ptr %41, align 16
-  %48 = or i32 %47, 2
-  store i32 %48, ptr %41, align 16
-  br label %49
+47:                                               ; preds = %46, %41
+  %48 = load i32, ptr %42, align 16
+  %49 = or i32 %48, 2
+  store i32 %49, ptr %42, align 16
+  br label %50
 
-49:                                               ; preds = %46, %32, %26, %18
-  %50 = add i32 %21, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr [12 x %struct.chipset], ptr @early_qrk, i64 0, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %18, !llvm.loop !10
+50:                                               ; preds = %47, %33, %27, %19
+  %51 = add i32 %22, 1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr [12 x %struct.chipset], ptr @early_qrk, i64 0, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %19, !llvm.loop !10
 
-56:                                               ; preds = %49, %10
-  %57 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 14) #4
-  %58 = and i8 %57, 127
-  %59 = icmp eq i8 %58, 1
-  br i1 %59, label %60, label %65
+57:                                               ; preds = %50, %10
+  %58 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 14) #4
+  %59 = and i8 %58, 127
+  %60 = icmp eq i8 %59, 1
+  br i1 %60, label %61, label %66
 
-60:                                               ; preds = %56
-  %61 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 25) #4
-  %62 = zext i8 %61 to i32
-  %63 = icmp sgt i32 %62, %0
-  br i1 %63, label %64, label %65
+61:                                               ; preds = %57
+  %62 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 25) #4
+  %63 = zext i8 %62 to i32
+  %64 = icmp sgt i32 %63, %0
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %60
-  tail call fastcc void @early_pci_scan_bus(i32 noundef %62) #5
-  br label %65
+65:                                               ; preds = %61
+  tail call fastcc void @early_pci_scan_bus(i32 noundef %63) #5
+  br label %66
 
-65:                                               ; preds = %64, %60, %56
-  %66 = icmp sgt i8 %57, -1
-  %67 = sext i1 %66 to i32
-  br label %68
+66:                                               ; preds = %65, %61, %57
+  %67 = icmp sgt i8 %58, -1
+  %68 = sext i1 %67 to i32
+  br label %69
 
-68:                                               ; preds = %65, %3
-  %69 = phi i32 [ -1, %3 ], [ %67, %65 ]
-  ret i32 %69
+69:                                               ; preds = %66, %3
+  %70 = phi i32 [ -1, %3 ], [ %68, %66 ]
+  ret i32 %70
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -348,41 +349,42 @@ define internal void @intel_remapping_check(i32 noundef %0, i32 noundef %1, i32 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @intel_graphics_quirks(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
-  %4 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @intel_graphics_stolen_res, i64 0, i32 1), align 8
-  %5 = load i64, ptr @intel_graphics_stolen_res, align 8
-  %6 = add i64 %4, 1
-  %7 = icmp eq i64 %6, %5
-  br i1 %7, label %8, label %27
+  %4 = getelementptr inbounds %struct.resource, ptr @intel_graphics_stolen_res, i64 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = load i64, ptr @intel_graphics_stolen_res, align 8
+  %7 = add i64 %5, 1
+  %8 = icmp eq i64 %7, %6
+  br i1 %8, label %9, label %28
 
-8:                                                ; preds = %3
-  %9 = trunc i32 %0 to i8
-  %10 = trunc i32 %1 to i8
-  %11 = trunc i32 %2 to i8
-  %12 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %9, i8 noundef zeroext %10, i8 noundef zeroext %11, i8 noundef zeroext 2) #4
-  %13 = zext i16 %12 to i32
-  br label %17
+9:                                                ; preds = %3
+  %10 = trunc i32 %0 to i8
+  %11 = trunc i32 %1 to i8
+  %12 = trunc i32 %2 to i8
+  %13 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %10, i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 2) #4
+  %14 = zext i16 %13 to i32
+  br label %18
 
-14:                                               ; preds = %17
-  %15 = add nuw nsw i64 %18, 1
-  %16 = icmp eq i64 %15, 333
-  br i1 %16, label %27, label %17, !llvm.loop !14
+15:                                               ; preds = %18
+  %16 = add nuw nsw i64 %19, 1
+  %17 = icmp eq i64 %16, 333
+  br i1 %17, label %28, label %18, !llvm.loop !14
 
-17:                                               ; preds = %14, %8
-  %18 = phi i64 [ 0, %8 ], [ %15, %14 ]
-  %19 = getelementptr [333 x %struct.pci_device_id], ptr @intel_early_ids, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %13
-  br i1 %22, label %23, label %14
+18:                                               ; preds = %15, %9
+  %19 = phi i64 [ 0, %9 ], [ %16, %15 ]
+  %20 = getelementptr [333 x %struct.pci_device_id], ptr @intel_early_ids, i64 0, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, %14
+  br i1 %23, label %24, label %15
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %19, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = inttoptr i64 %25 to ptr
-  tail call fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %26) #5
-  br label %27
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %20, i64 24
+  %26 = load i64, ptr %25, align 8
+  %27 = inttoptr i64 %26 to ptr
+  tail call fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %27) #5
+  br label %28
 
-27:                                               ; preds = %23, %14, %3
+28:                                               ; preds = %24, %15, %3
   ret void
 }
 
@@ -524,20 +526,21 @@ define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %
   %10 = icmp ne i64 %6, 0
   %11 = icmp ne i64 %9, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %13, label %19
+  br i1 %12, label %13, label %20
 
 13:                                               ; preds = %4
   %14 = add i64 %6, -1
   %15 = add i64 %14, %9
   store i64 %9, ptr @intel_graphics_stolen_res, align 8
-  store i64 %15, ptr getelementptr inbounds (%struct.resource, ptr @intel_graphics_stolen_res, i64 0, i32 1), align 8
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull @intel_graphics_stolen_res) #6
+  %16 = getelementptr inbounds %struct.resource, ptr @intel_graphics_stolen_res, i64 0, i32 1
+  store i64 %15, ptr %16, align 8
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull @intel_graphics_stolen_res) #6
   tail call void @e820__range_add(i64 noundef %9, i64 noundef %6, i32 noundef 2) #4
-  %17 = load ptr, ptr @e820_table, align 8
-  %18 = tail call i32 @e820__update_table(ptr noundef %17) #4
-  br label %19
+  %18 = load ptr, ptr @e820_table, align 8
+  %19 = tail call i32 @e820__update_table(ptr noundef %18) #4
+  br label %20
 
-19:                                               ; preds = %13, %4
+20:                                               ; preds = %13, %4
   ret void
 }
 

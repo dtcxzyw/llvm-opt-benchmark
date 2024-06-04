@@ -30,83 +30,85 @@ define i32 @mca_io_base_register_datarep(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   store i32 0, ptr %15, align 4
-  %16 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_io_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %16, ptr %11, align 8
-  br label %17
+  %16 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_io_base_framework, i32 0, i32 12, i32 1, i32 1
+  %17 = load volatile ptr, ptr %16, align 8
+  store ptr %17, ptr %11, align 8
+  br label %18
 
-17:                                               ; preds = %58, %5
-  %18 = load ptr, ptr %11, align 8
-  %19 = icmp ne ptr %18, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_io_base_framework, i32 0, i32 12, i32 1)
-  br i1 %19, label %20, label %62
+18:                                               ; preds = %60, %5
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_io_base_framework, i32 0, i32 12, i32 1
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %22, label %64
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %12, align 8
-  %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %24, i32 0, i32 8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 2
-  br i1 %27, label %28, label %57
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %11, align 8
+  %24 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %12, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %26, i32 0, i32 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 2
+  br i1 %29, label %30, label %59
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %29, i32 0, i32 9
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %57
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %12, align 8
+  %32 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %31, i32 0, i32 9
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %59
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %34, i32 0, i32 10
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %57
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %12, align 8
+  %37 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %36, i32 0, i32 10
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %59
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %12, align 8
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %struct.mca_io_base_component_2_0_0_t, ptr %40, i32 0, i32 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = load ptr, ptr %9, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = call i32 %42(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  store i32 %48, ptr %14, align 4
-  %49 = load i32, ptr %15, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %53
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %12, align 8
+  store ptr %41, ptr %13, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds %struct.mca_io_base_component_2_0_0_t, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = call i32 %44(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %14, align 4
+  %51 = load i32, ptr %15, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %55
 
-51:                                               ; preds = %38
-  %52 = load i32, ptr %14, align 4
-  br label %55
-
-53:                                               ; preds = %38
-  %54 = load i32, ptr %15, align 4
-  br label %55
-
-55:                                               ; preds = %53, %51
-  %56 = phi i32 [ %52, %51 ], [ %54, %53 ]
-  store i32 %56, ptr %15, align 4
+53:                                               ; preds = %40
+  %54 = load i32, ptr %14, align 4
   br label %57
 
-57:                                               ; preds = %55, %33, %28, %20
-  br label %58
+55:                                               ; preds = %40
+  %56 = load i32, ptr %15, align 4
+  br label %57
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds %struct.opal_list_item_t, ptr %59, i32 0, i32 1
-  %61 = load volatile ptr, ptr %60, align 8
-  store ptr %61, ptr %11, align 8
-  br label %17, !llvm.loop !4
+57:                                               ; preds = %55, %53
+  %58 = phi i32 [ %54, %53 ], [ %56, %55 ]
+  store i32 %58, ptr %15, align 4
+  br label %59
 
-62:                                               ; preds = %17
-  %63 = load i32, ptr %15, align 4
-  ret i32 %63
+59:                                               ; preds = %57, %35, %30, %22
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds %struct.opal_list_item_t, ptr %61, i32 0, i32 1
+  %63 = load volatile ptr, ptr %62, align 8
+  store ptr %63, ptr %11, align 8
+  br label %18, !llvm.loop !4
+
+64:                                               ; preds = %18
+  %65 = load i32, ptr %15, align 4
+  ret i32 %65
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

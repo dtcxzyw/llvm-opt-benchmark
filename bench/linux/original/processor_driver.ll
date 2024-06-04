@@ -416,54 +416,55 @@ define internal noundef i32 @acpi_soft_cpu_online(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @processors to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %31, label %9
+  %5 = ptrtoint ptr @processors to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %32, label %10
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %7, align 8
-  %11 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %10) #4
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %31, label %13
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %8, align 8
+  %12 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %11) #4
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %32, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
-  %15 = load i16, ptr %14, align 8
-  %16 = and i16 %15, 1024
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %28, label %18
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %16 = load i16, ptr %15, align 8
+  %17 = and i16 %16, 1024
+  %18 = icmp eq i16 %17, 0
+  br i1 %18, label %29, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
-  %20 = load i32, ptr %19, align 8
-  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %20) #5
-  %22 = load i16, ptr %14, align 8
-  %23 = and i16 %22, -1025
-  store i16 %23, ptr %14, align 8
-  %24 = tail call fastcc i32 @__acpi_processor_start(ptr noundef nonnull %11)
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %31, label %26, !prof !7
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %21) #5
+  %23 = load i16, ptr %15, align 8
+  %24 = and i16 %23, -1025
+  store i16 %24, ptr %15, align 8
+  %25 = tail call fastcc i32 @__acpi_processor_start(ptr noundef nonnull %12)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %32, label %27, !prof !7
 
-26:                                               ; preds = %18
+27:                                               ; preds = %19
   tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #4, !srcloc !8
-  %27 = load i32, ptr %19, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, i32 noundef %27) #4
+  %28 = load i32, ptr %20, align 8
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, i32 noundef %28) #4
   tail call void asm sideeffect "342: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 342b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 342) #4, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 119, i32 2313, i64 12) #4, !srcloc !10
   tail call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_end\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #4, !srcloc !11
   tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #4, !srcloc !12
-  br label %31
+  br label %32
 
-28:                                               ; preds = %13
-  tail call void @acpi_processor_ppc_has_changed(ptr noundef nonnull %7, i32 noundef 0) #4
-  %29 = tail call i32 @acpi_processor_hotplug(ptr noundef nonnull %7) #4
-  tail call void @acpi_processor_reevaluate_tstate(ptr noundef nonnull %7, i1 noundef zeroext false) #4
-  %30 = tail call i32 @acpi_processor_tstate_has_changed(ptr noundef nonnull %7) #4
-  br label %31
+29:                                               ; preds = %14
+  tail call void @acpi_processor_ppc_has_changed(ptr noundef nonnull %8, i32 noundef 0) #4
+  %30 = tail call i32 @acpi_processor_hotplug(ptr noundef nonnull %8) #4
+  tail call void @acpi_processor_reevaluate_tstate(ptr noundef nonnull %8, i1 noundef zeroext false) #4
+  %31 = tail call i32 @acpi_processor_tstate_has_changed(ptr noundef nonnull %8) #4
+  br label %32
 
-31:                                               ; preds = %28, %26, %18, %9, %1
+32:                                               ; preds = %29, %27, %19, %10, %1
   ret i32 0
 }
 
@@ -472,23 +473,24 @@ define internal noundef i32 @acpi_soft_cpu_dead(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @processors to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %14, label %9
+  %5 = ptrtoint ptr @processors to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %7, align 8
-  %11 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %10) #4
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %8, align 8
+  %12 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %11) #4
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
-  tail call void @acpi_processor_reevaluate_tstate(ptr noundef nonnull %7, i1 noundef zeroext true) #4
-  br label %14
+14:                                               ; preds = %10
+  tail call void @acpi_processor_reevaluate_tstate(ptr noundef nonnull %8, i1 noundef zeroext true) #4
+  br label %15
 
-14:                                               ; preds = %13, %9, %1
+15:                                               ; preds = %14, %10, %1
   ret i32 0
 }
 

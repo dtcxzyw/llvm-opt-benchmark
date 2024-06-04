@@ -2057,7 +2057,7 @@ define internal i32 @_set_cond(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   store i32 %742, ptr %743, align 4
   %744 = load i32, ptr %16, align 4
   %745 = icmp ne i32 %744, 0
-  br i1 %745, label %758, label %746
+  br i1 %745, label %759, label %746
 
 746:                                              ; preds = %741
   %747 = load ptr, ptr %10, align 8
@@ -2065,37 +2065,38 @@ define internal i32 @_set_cond(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %749 = load ptr, ptr %748, align 8
   %750 = call i32 @list_count(ptr noundef %749)
   %751 = icmp ne i32 %750, 0
-  br i1 %751, label %758, label %752
+  br i1 %751, label %759, label %752
 
 752:                                              ; preds = %746
   %753 = load ptr, ptr %10, align 8
   %754 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %753, i32 0, i32 2
   %755 = load ptr, ptr %754, align 8
-  %756 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %757 = call ptr @xstrdup(ptr noundef %756)
-  call void @list_append(ptr noundef %755, ptr noundef %757)
-  br label %758
+  %756 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %757 = load ptr, ptr %756, align 8
+  %758 = call ptr @xstrdup(ptr noundef %757)
+  call void @list_append(ptr noundef %755, ptr noundef %758)
+  br label %759
 
-758:                                              ; preds = %752, %746, %741
-  %759 = load ptr, ptr %10, align 8
-  %760 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %759, i32 0, i32 24
-  %761 = load i64, ptr %760, align 8
-  store i64 %761, ptr %17, align 8
-  %762 = load ptr, ptr %10, align 8
-  %763 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %762, i32 0, i32 23
-  %764 = load i64, ptr %763, align 8
-  store i64 %764, ptr %18, align 8
-  %765 = call i32 @slurmdb_report_set_start_end_time(ptr noundef %17, ptr noundef %18)
-  %766 = load i64, ptr %17, align 8
-  %767 = load ptr, ptr %10, align 8
-  %768 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %767, i32 0, i32 24
-  store i64 %766, ptr %768, align 8
-  %769 = load i64, ptr %18, align 8
-  %770 = load ptr, ptr %10, align 8
-  %771 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %770, i32 0, i32 23
-  store i64 %769, ptr %771, align 8
-  %772 = load i32, ptr %14, align 4
-  ret i32 %772
+759:                                              ; preds = %752, %746, %741
+  %760 = load ptr, ptr %10, align 8
+  %761 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %760, i32 0, i32 24
+  %762 = load i64, ptr %761, align 8
+  store i64 %762, ptr %17, align 8
+  %763 = load ptr, ptr %10, align 8
+  %764 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %763, i32 0, i32 23
+  %765 = load i64, ptr %764, align 8
+  store i64 %765, ptr %18, align 8
+  %766 = call i32 @slurmdb_report_set_start_end_time(ptr noundef %17, ptr noundef %18)
+  %767 = load i64, ptr %17, align 8
+  %768 = load ptr, ptr %10, align 8
+  %769 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %768, i32 0, i32 24
+  store i64 %767, ptr %769, align 8
+  %770 = load i64, ptr %18, align 8
+  %771 = load ptr, ptr %10, align 8
+  %772 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %771, i32 0, i32 23
+  store i64 %770, ptr %772, align 8
+  %773 = load i32, ptr %14, align 4
+  ret i32 %773
 }
 
 declare i32 @list_count(ptr noundef) #1

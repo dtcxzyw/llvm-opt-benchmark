@@ -4751,7 +4751,7 @@ define internal noundef ptr @_ZN8nanobind6detailL10nb_type_tpEm(i64 noundef %0) 
   store i64 %0, ptr %11, align 8
   %23 = load i64, ptr %11, align 8
   %24 = invoke ptr @PyLong_FromSize_t(i64 noundef %23)
-          to label %25 unwind label %99
+          to label %25 unwind label %101
 
 25:                                               ; preds = %1
   store ptr %13, ptr %9, align 8
@@ -4780,120 +4780,122 @@ define internal noundef ptr @_ZN8nanobind6detailL10nb_type_tpEm(i64 noundef %0) 
   %36 = load ptr, ptr %7, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = invoke ptr @PyDict_GetItem(ptr noundef %35, ptr noundef %37)
-          to label %39 unwind label %99
+          to label %39 unwind label %101
 
 39:                                               ; preds = %32
   store ptr %38, ptr %14, align 8
   %40 = load ptr, ptr %14, align 8
   %41 = icmp ne ptr %40, null
   %42 = xor i1 %41, true
-  br i1 %42, label %43, label %97
+  br i1 %42, label %43, label %99
 
 43:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %15, ptr align 16 @__const._ZN8nanobind6detailL10nb_type_tpEm.slots, i64 80, i1 false)
-  %44 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 2), align 8
-  %45 = load i64, ptr %11, align 8
-  %46 = add i64 96, %45
-  %47 = add i64 %44, %46
-  %48 = trunc i64 %47 to i32
-  store i32 %48, ptr %16, align 4
-  %49 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 3), align 8
-  %50 = trunc i64 %49 to i32
-  store i32 %50, ptr %17, align 4
-  %51 = getelementptr inbounds [38 x i8], ptr %18, i64 0, i64 0
-  %52 = load i64, ptr %11, align 8
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %51, i64 noundef 38, ptr noundef @.str.20, i64 noundef %52) #13
-  %54 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 0
-  %55 = getelementptr inbounds [38 x i8], ptr %18, i64 0, i64 0
-  store ptr %55, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 1
-  %57 = load i32, ptr %16, align 4
-  store i32 %57, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 2
-  %59 = load i32, ptr %17, align 4
-  store i32 %59, ptr %58, align 4
-  %60 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 3
-  store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 4
-  %62 = getelementptr inbounds [5 x %struct.PyType_Slot], ptr %15, i64 0, i64 0
-  store ptr %62, ptr %61, align 8
-  %63 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %64 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %63, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %67 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = invoke noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %65, ptr noundef %68, ptr noundef %19)
-          to label %70 unwind label %99
+  %44 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 2
+  %45 = load i64, ptr %44, align 8
+  %46 = load i64, ptr %11, align 8
+  %47 = add i64 96, %46
+  %48 = add i64 %45, %47
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %16, align 4
+  %50 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 3
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  store i32 %52, ptr %17, align 4
+  %53 = getelementptr inbounds [38 x i8], ptr %18, i64 0, i64 0
+  %54 = load i64, ptr %11, align 8
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef 38, ptr noundef @.str.20, i64 noundef %54) #13
+  %56 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 0
+  %57 = getelementptr inbounds [38 x i8], ptr %18, i64 0, i64 0
+  store ptr %57, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 1
+  %59 = load i32, ptr %16, align 4
+  store i32 %59, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 2
+  %61 = load i32, ptr %17, align 4
+  store i32 %61, ptr %60, align 4
+  %62 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 3
+  store i32 0, ptr %62, align 8
+  %63 = getelementptr inbounds %struct.PyType_Spec, ptr %19, i32 0, i32 4
+  %64 = getelementptr inbounds [5 x %struct.PyType_Slot], ptr %15, i64 0, i64 0
+  store ptr %64, ptr %63, align 8
+  %65 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %66 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %69 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = invoke noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %67, ptr noundef %70, ptr noundef %19)
+          to label %72 unwind label %101
 
-70:                                               ; preds = %43
-  store ptr %69, ptr %14, align 8
-  %71 = load ptr, ptr %14, align 8
+72:                                               ; preds = %43
+  store ptr %71, ptr %14, align 8
+  %73 = load ptr, ptr %14, align 8
   store ptr %21, ptr %5, align 8
-  store ptr %71, ptr %6, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = load ptr, ptr %6, align 8
-  store ptr %73, ptr %72, align 8
-  br label %74
+  store ptr %73, ptr %6, align 8
+  %74 = load ptr, ptr %5, align 8
+  %75 = load ptr, ptr %6, align 8
+  store ptr %75, ptr %74, align 8
+  br label %76
 
-74:                                               ; preds = %70
+76:                                               ; preds = %72
   invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef @.str.4)
-          to label %75 unwind label %99
+          to label %77 unwind label %101
 
-75:                                               ; preds = %74
-  %76 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSIRA9_KcEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(9) @.str.21)
-          to label %77 unwind label %99
+77:                                               ; preds = %76
+  %78 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSIRA9_KcEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(9) @.str.21)
+          to label %79 unwind label %101
 
-77:                                               ; preds = %75
+79:                                               ; preds = %77
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   store i32 1, ptr %22, align 4
-  %78 = load ptr, ptr %14, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %89
+  %80 = load ptr, ptr %14, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %91
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %82 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  store ptr %12, ptr %8, align 8
-  %84 = load ptr, ptr %8, align 8
+82:                                               ; preds = %79
+  %83 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %84 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %83, i32 0, i32 2
   %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %14, align 8
-  %87 = invoke i32 @PyDict_SetItem(ptr noundef %83, ptr noundef %85, ptr noundef %86)
-          to label %88 unwind label %99
+  store ptr %12, ptr %8, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %14, align 8
+  %89 = invoke i32 @PyDict_SetItem(ptr noundef %85, ptr noundef %87, ptr noundef %88)
+          to label %90 unwind label %101
 
-88:                                               ; preds = %80
-  store i32 %87, ptr %22, align 4
-  br label %89
+90:                                               ; preds = %82
+  store i32 %89, ptr %22, align 4
+  br label %91
 
-89:                                               ; preds = %88, %77
-  %90 = load i32, ptr %22, align 4
-  %91 = icmp eq i32 %90, 0
-  %92 = xor i1 %91, true
-  br i1 %92, label %93, label %94
+91:                                               ; preds = %90, %79
+  %92 = load i32, ptr %22, align 4
+  %93 = icmp eq i32 %92, 0
+  %94 = xor i1 %93, true
+  br i1 %94, label %95, label %96
 
-93:                                               ; preds = %89
+95:                                               ; preds = %91
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #16
   unreachable
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %14, align 8
-  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %95)
-          to label %96 unwind label %99
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %14, align 8
+  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %97)
+          to label %98 unwind label %101
 
-96:                                               ; preds = %94
-  br label %97
+98:                                               ; preds = %96
+  br label %99
 
-97:                                               ; preds = %96, %39
-  %98 = load ptr, ptr %14, align 8
+99:                                               ; preds = %98, %39
+  %100 = load ptr, ptr %14, align 8
   call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
-  ret ptr %98
+  ret ptr %100
 
-99:                                               ; preds = %94, %80, %75, %74, %43, %32, %1
-  %100 = landingpad { ptr, i32 }
+101:                                              ; preds = %96, %82, %77, %76, %43, %32, %1
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #16
+  %103 = extractvalue { ptr, i32 } %102, 0
+  call void @__clang_call_terminate(ptr %103) #16
   unreachable
 }
 
@@ -9705,9 +9707,10 @@ define internal void @_ZN8nanobind6detailL15nb_type_deallocEP7_object(ptr nounde
   br label %158
 
 158:                                              ; preds = %157, %128
-  %159 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 4), align 8
-  %160 = load ptr, ptr %3, align 8
-  call void %159(ptr noundef %160)
+  %159 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 4
+  %160 = load ptr, ptr %159, align 8
+  %161 = load ptr, ptr %3, align 8
+  call void %160(ptr noundef %161)
   ret void
 }
 
@@ -9766,7 +9769,7 @@ define internal noundef i32 @_ZN8nanobind6detailL16nb_type_setattroEP7_objectS2_
   call void @_ZL10_Py_DECREFP7_object(ptr noundef %40)
   %41 = load i32, ptr %11, align 4
   store i32 %41, ptr %4, align 4
-  br label %68
+  br label %69
 
 42:                                               ; preds = %23
   %43 = load ptr, ptr %9, align 8
@@ -9795,7 +9798,7 @@ define internal noundef i32 @_ZN8nanobind6detailL16nb_type_setattroEP7_objectS2_
   %57 = load ptr, ptr %12, align 8
   %58 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef @.str.22, ptr noundef %57)
   store i32 -1, ptr %4, align 4
-  br label %68
+  br label %69
 
 59:                                               ; preds = %49
   br label %60
@@ -9808,17 +9811,18 @@ define internal noundef i32 @_ZN8nanobind6detailL16nb_type_setattroEP7_objectS2_
   br label %62
 
 62:                                               ; preds = %61, %60
-  %63 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 17), align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = call noundef i32 %63(ptr noundef %64, ptr noundef %65, ptr noundef %66)
-  store i32 %67, ptr %4, align 4
-  br label %68
+  %63 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 17
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %7, align 8
+  %68 = call noundef i32 %64(ptr noundef %65, ptr noundef %66, ptr noundef %67)
+  store i32 %68, ptr %4, align 4
+  br label %69
 
-68:                                               ; preds = %62, %55, %32
-  %69 = load i32, ptr %4, align 4
-  ret i32 %69
+69:                                               ; preds = %62, %55, %32
+  %70 = load i32, ptr %4, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9848,7 +9852,7 @@ define internal noundef i32 @_ZN8nanobind6detailL12nb_type_initEP7_objectS2_S2_(
   %21 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %21, ptr noundef @.str.23)
   store i32 -1, ptr %6, align 4
-  br label %116
+  br label %117
 
 22:                                               ; preds = %3
   %23 = load ptr, ptr %8, align 8
@@ -9872,7 +9876,7 @@ define internal noundef i32 @_ZN8nanobind6detailL12nb_type_initEP7_objectS2_S2_(
   %36 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %36, ptr noundef @.str.24)
   store i32 -1, ptr %6, align 4
-  br label %116
+  br label %117
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %10, align 8
@@ -9889,7 +9893,7 @@ define internal noundef i32 @_ZN8nanobind6detailL12nb_type_initEP7_objectS2_S2_(
   %46 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %46, ptr noundef @.str.25)
   store i32 -1, ptr %6, align 4
-  br label %116
+  br label %117
 
 47:                                               ; preds = %37
   %48 = load ptr, ptr %11, align 8
@@ -9912,85 +9916,86 @@ define internal noundef i32 @_ZN8nanobind6detailL12nb_type_initEP7_objectS2_S2_(
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %58, ptr noundef @.str.26, ptr noundef %61)
   store i32 -1, ptr %6, align 4
-  br label %116
+  br label %117
 
 63:                                               ; preds = %47
-  %64 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 35), align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %9, align 8
-  %68 = call noundef i32 %64(ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  store i32 %68, ptr %13, align 4
-  %69 = load i32, ptr %13, align 4
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %73
+  %64 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 35
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = load ptr, ptr %9, align 8
+  %69 = call noundef i32 %65(ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  store i32 %69, ptr %13, align 4
+  %70 = load i32, ptr %13, align 4
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %63
-  %72 = load i32, ptr %13, align 4
-  store i32 %72, ptr %6, align 4
-  br label %116
+72:                                               ; preds = %63
+  %73 = load i32, ptr %13, align 4
+  store i32 %73, ptr %6, align 4
+  br label %117
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %7, align 8
-  store ptr %74, ptr %5, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 888
-  store ptr %76, ptr %14, align 8
-  %77 = load ptr, ptr %12, align 8
-  %78 = load ptr, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %77, i64 96, i1 false)
+74:                                               ; preds = %63
+  %75 = load ptr, ptr %7, align 8
+  store ptr %75, ptr %5, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 888
+  store ptr %77, ptr %14, align 8
+  %78 = load ptr, ptr %12, align 8
   %79 = load ptr, ptr %14, align 8
-  %80 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 4
-  %82 = lshr i32 %81, 8
-  %83 = or i32 %82, 256
-  %84 = load i32, ptr %80, align 4
-  %85 = and i32 %83, 16777215
-  %86 = shl i32 %85, 8
-  %87 = and i32 %84, 255
-  %88 = or i32 %87, %86
-  store i32 %88, ptr %80, align 4
-  %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %89, i32 0, i32 1
-  %91 = load i32, ptr %90, align 4
-  %92 = lshr i32 %91, 8
-  %93 = and i32 %92, -129
-  %94 = load i32, ptr %90, align 4
-  %95 = and i32 %93, 16777215
-  %96 = shl i32 %95, 8
-  %97 = and i32 %94, 255
-  %98 = or i32 %97, %96
-  store i32 %98, ptr %90, align 4
-  %99 = load ptr, ptr %7, align 8
-  %100 = call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %99) #13
-  store ptr %100, ptr %15, align 8
-  %101 = load ptr, ptr %15, align 8
-  %102 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %101, ptr noundef null)
-  %103 = call noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef %102)
-  %104 = load ptr, ptr %14, align 8
-  %105 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %104, i32 0, i32 2
-  store ptr %103, ptr %105, align 8
-  %106 = load ptr, ptr %15, align 8
-  call void @_ZL10_Py_DECREFP7_object(ptr noundef %106)
-  %107 = load ptr, ptr %7, align 8
-  %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %108, i32 0, i32 5
-  store ptr %107, ptr %109, align 8
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %110, i32 0, i32 9
-  store ptr null, ptr %111, align 8
-  %112 = load ptr, ptr %14, align 8
-  %113 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %112, i32 0, i32 10
-  store ptr null, ptr %113, align 8
-  %114 = load ptr, ptr %14, align 8
-  %115 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %114, i32 0, i32 4
-  store ptr null, ptr %115, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 96, i1 false)
+  %80 = load ptr, ptr %14, align 8
+  %81 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %81, align 4
+  %83 = lshr i32 %82, 8
+  %84 = or i32 %83, 256
+  %85 = load i32, ptr %81, align 4
+  %86 = and i32 %84, 16777215
+  %87 = shl i32 %86, 8
+  %88 = and i32 %85, 255
+  %89 = or i32 %88, %87
+  store i32 %89, ptr %81, align 4
+  %90 = load ptr, ptr %14, align 8
+  %91 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 4
+  %93 = lshr i32 %92, 8
+  %94 = and i32 %93, -129
+  %95 = load i32, ptr %91, align 4
+  %96 = and i32 %94, 16777215
+  %97 = shl i32 %96, 8
+  %98 = and i32 %95, 255
+  %99 = or i32 %98, %97
+  store i32 %99, ptr %91, align 4
+  %100 = load ptr, ptr %7, align 8
+  %101 = call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %100) #13
+  store ptr %101, ptr %15, align 8
+  %102 = load ptr, ptr %15, align 8
+  %103 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %102, ptr noundef null)
+  %104 = call noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef %103)
+  %105 = load ptr, ptr %14, align 8
+  %106 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %105, i32 0, i32 2
+  store ptr %104, ptr %106, align 8
+  %107 = load ptr, ptr %15, align 8
+  call void @_ZL10_Py_DECREFP7_object(ptr noundef %107)
+  %108 = load ptr, ptr %7, align 8
+  %109 = load ptr, ptr %14, align 8
+  %110 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %109, i32 0, i32 5
+  store ptr %108, ptr %110, align 8
+  %111 = load ptr, ptr %14, align 8
+  %112 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %111, i32 0, i32 9
+  store ptr null, ptr %112, align 8
+  %113 = load ptr, ptr %14, align 8
+  %114 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %113, i32 0, i32 10
+  store ptr null, ptr %114, align 8
+  %115 = load ptr, ptr %14, align 8
+  %116 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %115, i32 0, i32 4
+  store ptr null, ptr %116, align 8
   store i32 0, ptr %6, align 4
-  br label %116
+  br label %117
 
-116:                                              ; preds = %73, %71, %57, %45, %35, %20
-  %117 = load i32, ptr %6, align 4
-  ret i32 %117
+117:                                              ; preds = %74, %72, %57, %45, %35, %20
+  %118 = load i32, ptr %6, align 4
+  ret i32 %118
 }
 
 ; Function Attrs: nounwind

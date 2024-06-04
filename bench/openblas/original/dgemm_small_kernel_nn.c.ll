@@ -964,7 +964,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %787 = sub nsw i64 %0, %786
   %788 = trunc i64 %787 to i32
   %789 = icmp eq i32 %788, 0
-  br i1 %789, label %2244, label %790
+  br i1 %789, label %2245, label %790
 
 790:                                              ; preds = %785
   %791 = icmp sgt i32 %788, 4
@@ -1131,7 +1131,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %924 = phi i64 [ %826, %825 ], [ %964, %952 ]
   %925 = getelementptr double, ptr %9, i64 %786
   %926 = icmp slt i64 %924, %1
-  br i1 %926, label %927, label %2244
+  br i1 %926, label %927, label %2245
 
 927:                                              ; preds = %923
   %928 = getelementptr double, ptr %3, i64 %786
@@ -1213,7 +1213,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %989, ptr %988, i32 1, <8 x i1> %931)
   %990 = add i64 %967, 1
   %991 = icmp eq i64 %990, %1
-  br i1 %991, label %2244, label %966, !llvm.loop !98
+  br i1 %991, label %2245, label %966, !llvm.loop !98
 
 992:                                              ; preds = %790
   %993 = shl i64 %787, 32
@@ -1345,1355 +1345,1356 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1081 = insertelement <4 x i64> %1080, i64 %1079, i64 2
   %1082 = insertelement <4 x i64> %1081, i64 %1078, i64 3
   %1083 = load <8 x i64>, ptr @__const.dgemm_small_kernel_nn.permute_table, align 64
-  %1084 = load <8 x i64>, ptr getelementptr inbounds ([16 x i64], ptr @__const.dgemm_small_kernel_nn.permute_table, i64 0, i64 8), align 64
-  %1085 = icmp slt i64 %786, %15
-  br i1 %1085, label %1086, label %1126
+  %1084 = getelementptr inbounds [16 x i64], ptr @__const.dgemm_small_kernel_nn.permute_table, i64 0, i64 8
+  %1085 = load <8 x i64>, ptr %1084, align 64
+  %1086 = icmp slt i64 %786, %15
+  br i1 %1086, label %1087, label %1127
 
-1086:                                             ; preds = %1073
-  %1087 = icmp sgt i64 %19, 0
-  %1088 = icmp eq i64 %997, 0
+1087:                                             ; preds = %1073
+  %1088 = icmp sgt i64 %19, 0
   %1089 = icmp eq i64 %997, 0
   %1090 = icmp eq i64 %997, 0
-  %1091 = add nsw i64 %997, -1
-  %1092 = and i64 %1091, -8
-  %1093 = add i64 %1092, 8
-  br label %1094
+  %1091 = icmp eq i64 %997, 0
+  %1092 = add nsw i64 %997, -1
+  %1093 = and i64 %1092, -8
+  %1094 = add i64 %1093, 8
+  br label %1095
 
-1094:                                             ; preds = %1636, %1086
-  %1095 = phi i64 [ 0, %1086 ], [ %1638, %1636 ]
-  %1096 = phi i64 [ %786, %1086 ], [ %1637, %1636 ]
-  %1097 = getelementptr double, ptr %9, i64 %1096
-  %1098 = getelementptr double, ptr %9, i64 %1096
-  %1099 = getelementptr double, ptr %9, i64 %1096
-  %1100 = getelementptr double, ptr %9, i64 %1096
-  br i1 %1087, label %1101, label %1139
+1095:                                             ; preds = %1637, %1087
+  %1096 = phi i64 [ 0, %1087 ], [ %1639, %1637 ]
+  %1097 = phi i64 [ %786, %1087 ], [ %1638, %1637 ]
+  %1098 = getelementptr double, ptr %9, i64 %1097
+  %1099 = getelementptr double, ptr %9, i64 %1097
+  %1100 = getelementptr double, ptr %9, i64 %1097
+  %1101 = getelementptr double, ptr %9, i64 %1097
+  br i1 %1088, label %1102, label %1140
 
-1101:                                             ; preds = %1094
-  %1102 = mul nsw i64 %1095, %2
-  %1103 = getelementptr double, ptr %996, i64 %1102
-  %1104 = or disjoint i64 %1095, 1
-  %1105 = mul nsw i64 %1104, %2
-  %1106 = getelementptr double, ptr %996, i64 %1105
-  %1107 = or disjoint i64 %1095, 2
-  %1108 = mul nsw i64 %1107, %2
-  %1109 = getelementptr double, ptr %996, i64 %1108
-  %1110 = or disjoint i64 %1095, 3
-  %1111 = mul nsw i64 %1110, %2
-  %1112 = getelementptr double, ptr %996, i64 %1111
-  %1113 = mul nsw i64 %1095, %2
-  %1114 = getelementptr double, ptr %996, i64 %1113
-  %1115 = or disjoint i64 %1095, 1
-  %1116 = mul nsw i64 %1115, %2
-  %1117 = getelementptr double, ptr %996, i64 %1116
-  %1118 = or disjoint i64 %1095, 2
-  %1119 = mul nsw i64 %1118, %2
-  %1120 = getelementptr double, ptr %996, i64 %1119
-  %1121 = or disjoint i64 %1095, 3
-  %1122 = mul nsw i64 %1121, %2
-  %1123 = getelementptr double, ptr %996, i64 %1122
-  br label %1167
+1102:                                             ; preds = %1095
+  %1103 = mul nsw i64 %1096, %2
+  %1104 = getelementptr double, ptr %996, i64 %1103
+  %1105 = or disjoint i64 %1096, 1
+  %1106 = mul nsw i64 %1105, %2
+  %1107 = getelementptr double, ptr %996, i64 %1106
+  %1108 = or disjoint i64 %1096, 2
+  %1109 = mul nsw i64 %1108, %2
+  %1110 = getelementptr double, ptr %996, i64 %1109
+  %1111 = or disjoint i64 %1096, 3
+  %1112 = mul nsw i64 %1111, %2
+  %1113 = getelementptr double, ptr %996, i64 %1112
+  %1114 = mul nsw i64 %1096, %2
+  %1115 = getelementptr double, ptr %996, i64 %1114
+  %1116 = or disjoint i64 %1096, 1
+  %1117 = mul nsw i64 %1116, %2
+  %1118 = getelementptr double, ptr %996, i64 %1117
+  %1119 = or disjoint i64 %1096, 2
+  %1120 = mul nsw i64 %1119, %2
+  %1121 = getelementptr double, ptr %996, i64 %1120
+  %1122 = or disjoint i64 %1096, 3
+  %1123 = mul nsw i64 %1122, %2
+  %1124 = getelementptr double, ptr %996, i64 %1123
+  br label %1168
 
-1124:                                             ; preds = %1636
-  %1125 = trunc i64 %1638 to i32
-  br label %1126
+1125:                                             ; preds = %1637
+  %1126 = trunc i64 %1639 to i32
+  br label %1127
 
-1126:                                             ; preds = %1124, %1073
-  %1127 = phi i32 [ 0, %1073 ], [ %1125, %1124 ]
-  %1128 = phi i64 [ %786, %1073 ], [ %1637, %1124 ]
-  %1129 = icmp slt i64 %1128, %16
-  br i1 %1129, label %1130, label %1658
+1127:                                             ; preds = %1125, %1073
+  %1128 = phi i32 [ 0, %1073 ], [ %1126, %1125 ]
+  %1129 = phi i64 [ %786, %1073 ], [ %1638, %1125 ]
+  %1130 = icmp slt i64 %1129, %16
+  br i1 %1130, label %1131, label %1659
 
-1130:                                             ; preds = %1126
-  %1131 = icmp sgt i64 %19, 0
-  %1132 = icmp eq i64 %997, 0
+1131:                                             ; preds = %1127
+  %1132 = icmp sgt i64 %19, 0
   %1133 = icmp eq i64 %997, 0
   %1134 = icmp eq i64 %997, 0
-  %1135 = add nsw i64 %997, -1
-  %1136 = and i64 %1135, -8
-  %1137 = add i64 %1136, 8
-  %1138 = zext i32 %1127 to i64
-  br label %1640
+  %1135 = icmp eq i64 %997, 0
+  %1136 = add nsw i64 %997, -1
+  %1137 = and i64 %1136, -8
+  %1138 = add i64 %1137, 8
+  %1139 = zext i32 %1128 to i64
+  br label %1641
 
-1139:                                             ; preds = %1302, %1094
-  %1140 = phi i64 [ 0, %1094 ], [ %1394, %1302 ]
-  %1141 = getelementptr double, ptr %9, i64 %1096
-  %1142 = getelementptr double, ptr %9, i64 %1096
-  %1143 = icmp slt i64 %1140, %20
-  br i1 %1143, label %1144, label %1396
+1140:                                             ; preds = %1303, %1095
+  %1141 = phi i64 [ 0, %1095 ], [ %1395, %1303 ]
+  %1142 = getelementptr double, ptr %9, i64 %1097
+  %1143 = getelementptr double, ptr %9, i64 %1097
+  %1144 = icmp slt i64 %1141, %20
+  br i1 %1144, label %1145, label %1397
 
-1144:                                             ; preds = %1139
-  %1145 = mul nsw i64 %1095, %2
-  %1146 = getelementptr double, ptr %996, i64 %1145
-  %1147 = or disjoint i64 %1095, 1
-  %1148 = mul nsw i64 %1147, %2
-  %1149 = getelementptr double, ptr %996, i64 %1148
-  %1150 = or disjoint i64 %1095, 2
-  %1151 = mul nsw i64 %1150, %2
-  %1152 = getelementptr double, ptr %996, i64 %1151
-  %1153 = or disjoint i64 %1095, 3
-  %1154 = mul nsw i64 %1153, %2
-  %1155 = getelementptr double, ptr %996, i64 %1154
-  %1156 = mul nsw i64 %1095, %2
-  %1157 = getelementptr double, ptr %996, i64 %1156
-  %1158 = or disjoint i64 %1095, 1
-  %1159 = mul nsw i64 %1158, %2
-  %1160 = getelementptr double, ptr %996, i64 %1159
-  %1161 = or disjoint i64 %1095, 2
-  %1162 = mul nsw i64 %1161, %2
-  %1163 = getelementptr double, ptr %996, i64 %1162
-  %1164 = or disjoint i64 %1095, 3
-  %1165 = mul nsw i64 %1164, %2
-  %1166 = getelementptr double, ptr %996, i64 %1165
-  br label %1423
+1145:                                             ; preds = %1140
+  %1146 = mul nsw i64 %1096, %2
+  %1147 = getelementptr double, ptr %996, i64 %1146
+  %1148 = or disjoint i64 %1096, 1
+  %1149 = mul nsw i64 %1148, %2
+  %1150 = getelementptr double, ptr %996, i64 %1149
+  %1151 = or disjoint i64 %1096, 2
+  %1152 = mul nsw i64 %1151, %2
+  %1153 = getelementptr double, ptr %996, i64 %1152
+  %1154 = or disjoint i64 %1096, 3
+  %1155 = mul nsw i64 %1154, %2
+  %1156 = getelementptr double, ptr %996, i64 %1155
+  %1157 = mul nsw i64 %1096, %2
+  %1158 = getelementptr double, ptr %996, i64 %1157
+  %1159 = or disjoint i64 %1096, 1
+  %1160 = mul nsw i64 %1159, %2
+  %1161 = getelementptr double, ptr %996, i64 %1160
+  %1162 = or disjoint i64 %1096, 2
+  %1163 = mul nsw i64 %1162, %2
+  %1164 = getelementptr double, ptr %996, i64 %1163
+  %1165 = or disjoint i64 %1096, 3
+  %1166 = mul nsw i64 %1165, %2
+  %1167 = getelementptr double, ptr %996, i64 %1166
+  br label %1424
 
-1167:                                             ; preds = %1302, %1101
-  %1168 = phi i64 [ 0, %1101 ], [ %1394, %1302 ]
-  br i1 %1088, label %1233, label %1169
+1168:                                             ; preds = %1303, %1102
+  %1169 = phi i64 [ 0, %1102 ], [ %1395, %1303 ]
+  br i1 %1089, label %1234, label %1170
 
-1169:                                             ; preds = %1167
-  %1170 = mul nsw i64 %1168, %7
-  %1171 = getelementptr double, ptr %6, i64 %1170
-  %1172 = or disjoint i64 %1168, 1
-  %1173 = mul nsw i64 %1172, %7
-  %1174 = getelementptr double, ptr %6, i64 %1173
-  %1175 = or disjoint i64 %1168, 2
-  %1176 = mul nsw i64 %1175, %7
-  %1177 = getelementptr double, ptr %6, i64 %1176
-  %1178 = or disjoint i64 %1168, 3
-  %1179 = mul nsw i64 %1178, %7
-  %1180 = getelementptr double, ptr %6, i64 %1179
-  br label %1181
+1170:                                             ; preds = %1168
+  %1171 = mul nsw i64 %1169, %7
+  %1172 = getelementptr double, ptr %6, i64 %1171
+  %1173 = or disjoint i64 %1169, 1
+  %1174 = mul nsw i64 %1173, %7
+  %1175 = getelementptr double, ptr %6, i64 %1174
+  %1176 = or disjoint i64 %1169, 2
+  %1177 = mul nsw i64 %1176, %7
+  %1178 = getelementptr double, ptr %6, i64 %1177
+  %1179 = or disjoint i64 %1169, 3
+  %1180 = mul nsw i64 %1179, %7
+  %1181 = getelementptr double, ptr %6, i64 %1180
+  br label %1182
 
-1181:                                             ; preds = %1181, %1169
-  %1182 = phi i64 [ 0, %1169 ], [ %1231, %1181 ]
-  %1183 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1215, %1181 ]
-  %1184 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1216, %1181 ]
-  %1185 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1217, %1181 ]
-  %1186 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1218, %1181 ]
-  %1187 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1219, %1181 ]
-  %1188 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1220, %1181 ]
-  %1189 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1221, %1181 ]
-  %1190 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1222, %1181 ]
-  %1191 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1223, %1181 ]
-  %1192 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1224, %1181 ]
-  %1193 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1225, %1181 ]
-  %1194 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1226, %1181 ]
-  %1195 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1227, %1181 ]
-  %1196 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1228, %1181 ]
-  %1197 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1229, %1181 ]
-  %1198 = phi <8 x double> [ zeroinitializer, %1169 ], [ %1230, %1181 ]
-  %1199 = getelementptr double, ptr %1103, i64 %1182
-  %1200 = load <8 x double>, ptr %1199, align 1, !tbaa !3
-  %1201 = getelementptr double, ptr %1106, i64 %1182
-  %1202 = load <8 x double>, ptr %1201, align 1, !tbaa !3
-  %1203 = getelementptr double, ptr %1109, i64 %1182
-  %1204 = load <8 x double>, ptr %1203, align 1, !tbaa !3
-  %1205 = getelementptr double, ptr %1112, i64 %1182
-  %1206 = load <8 x double>, ptr %1205, align 1, !tbaa !3
-  %1207 = getelementptr double, ptr %1171, i64 %1182
-  %1208 = load <8 x double>, ptr %1207, align 1, !tbaa !3
-  %1209 = getelementptr double, ptr %1174, i64 %1182
-  %1210 = load <8 x double>, ptr %1209, align 1, !tbaa !3
-  %1211 = getelementptr double, ptr %1177, i64 %1182
-  %1212 = load <8 x double>, ptr %1211, align 1, !tbaa !3
-  %1213 = getelementptr double, ptr %1180, i64 %1182
-  %1214 = load <8 x double>, ptr %1213, align 1, !tbaa !3
-  %1215 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1200, <8 x double> %1208, <8 x double> %1183)
-  %1216 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1202, <8 x double> %1208, <8 x double> %1184)
-  %1217 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1204, <8 x double> %1208, <8 x double> %1185)
-  %1218 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1206, <8 x double> %1208, <8 x double> %1186)
-  %1219 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1200, <8 x double> %1210, <8 x double> %1187)
-  %1220 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1202, <8 x double> %1210, <8 x double> %1188)
-  %1221 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1204, <8 x double> %1210, <8 x double> %1189)
-  %1222 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1206, <8 x double> %1210, <8 x double> %1190)
-  %1223 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1200, <8 x double> %1212, <8 x double> %1191)
-  %1224 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1202, <8 x double> %1212, <8 x double> %1192)
-  %1225 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1204, <8 x double> %1212, <8 x double> %1193)
-  %1226 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1206, <8 x double> %1212, <8 x double> %1194)
-  %1227 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1200, <8 x double> %1214, <8 x double> %1195)
-  %1228 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1202, <8 x double> %1214, <8 x double> %1196)
-  %1229 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1204, <8 x double> %1214, <8 x double> %1197)
-  %1230 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1206, <8 x double> %1214, <8 x double> %1198)
-  %1231 = add nuw nsw i64 %1182, 8
-  %1232 = icmp ult i64 %1231, %997
-  br i1 %1232, label %1181, label %1233, !llvm.loop !104
+1182:                                             ; preds = %1182, %1170
+  %1183 = phi i64 [ 0, %1170 ], [ %1232, %1182 ]
+  %1184 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1216, %1182 ]
+  %1185 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1217, %1182 ]
+  %1186 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1218, %1182 ]
+  %1187 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1219, %1182 ]
+  %1188 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1220, %1182 ]
+  %1189 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1221, %1182 ]
+  %1190 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1222, %1182 ]
+  %1191 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1223, %1182 ]
+  %1192 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1224, %1182 ]
+  %1193 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1225, %1182 ]
+  %1194 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1226, %1182 ]
+  %1195 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1227, %1182 ]
+  %1196 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1228, %1182 ]
+  %1197 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1229, %1182 ]
+  %1198 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1230, %1182 ]
+  %1199 = phi <8 x double> [ zeroinitializer, %1170 ], [ %1231, %1182 ]
+  %1200 = getelementptr double, ptr %1104, i64 %1183
+  %1201 = load <8 x double>, ptr %1200, align 1, !tbaa !3
+  %1202 = getelementptr double, ptr %1107, i64 %1183
+  %1203 = load <8 x double>, ptr %1202, align 1, !tbaa !3
+  %1204 = getelementptr double, ptr %1110, i64 %1183
+  %1205 = load <8 x double>, ptr %1204, align 1, !tbaa !3
+  %1206 = getelementptr double, ptr %1113, i64 %1183
+  %1207 = load <8 x double>, ptr %1206, align 1, !tbaa !3
+  %1208 = getelementptr double, ptr %1172, i64 %1183
+  %1209 = load <8 x double>, ptr %1208, align 1, !tbaa !3
+  %1210 = getelementptr double, ptr %1175, i64 %1183
+  %1211 = load <8 x double>, ptr %1210, align 1, !tbaa !3
+  %1212 = getelementptr double, ptr %1178, i64 %1183
+  %1213 = load <8 x double>, ptr %1212, align 1, !tbaa !3
+  %1214 = getelementptr double, ptr %1181, i64 %1183
+  %1215 = load <8 x double>, ptr %1214, align 1, !tbaa !3
+  %1216 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1201, <8 x double> %1209, <8 x double> %1184)
+  %1217 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1203, <8 x double> %1209, <8 x double> %1185)
+  %1218 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1205, <8 x double> %1209, <8 x double> %1186)
+  %1219 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1207, <8 x double> %1209, <8 x double> %1187)
+  %1220 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1201, <8 x double> %1211, <8 x double> %1188)
+  %1221 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1203, <8 x double> %1211, <8 x double> %1189)
+  %1222 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1205, <8 x double> %1211, <8 x double> %1190)
+  %1223 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1207, <8 x double> %1211, <8 x double> %1191)
+  %1224 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1201, <8 x double> %1213, <8 x double> %1192)
+  %1225 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1203, <8 x double> %1213, <8 x double> %1193)
+  %1226 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1205, <8 x double> %1213, <8 x double> %1194)
+  %1227 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1207, <8 x double> %1213, <8 x double> %1195)
+  %1228 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1201, <8 x double> %1215, <8 x double> %1196)
+  %1229 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1203, <8 x double> %1215, <8 x double> %1197)
+  %1230 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1205, <8 x double> %1215, <8 x double> %1198)
+  %1231 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1207, <8 x double> %1215, <8 x double> %1199)
+  %1232 = add nuw nsw i64 %1183, 8
+  %1233 = icmp ult i64 %1232, %997
+  br i1 %1233, label %1182, label %1234, !llvm.loop !104
 
-1233:                                             ; preds = %1181, %1167
-  %1234 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1230, %1181 ]
-  %1235 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1229, %1181 ]
-  %1236 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1228, %1181 ]
-  %1237 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1227, %1181 ]
-  %1238 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1226, %1181 ]
-  %1239 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1225, %1181 ]
-  %1240 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1224, %1181 ]
-  %1241 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1223, %1181 ]
-  %1242 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1222, %1181 ]
-  %1243 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1221, %1181 ]
-  %1244 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1220, %1181 ]
-  %1245 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1219, %1181 ]
-  %1246 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1218, %1181 ]
-  %1247 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1217, %1181 ]
-  %1248 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1216, %1181 ]
-  %1249 = phi <8 x double> [ zeroinitializer, %1167 ], [ %1215, %1181 ]
-  %1250 = phi i64 [ 0, %1167 ], [ %1093, %1181 ]
-  %1251 = sub nsw i64 %2, %1250
-  %1252 = and i64 %1251, 4294967295
-  %1253 = icmp eq i64 %1252, 0
-  br i1 %1253, label %1302, label %1254
+1234:                                             ; preds = %1182, %1168
+  %1235 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1231, %1182 ]
+  %1236 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1230, %1182 ]
+  %1237 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1229, %1182 ]
+  %1238 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1228, %1182 ]
+  %1239 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1227, %1182 ]
+  %1240 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1226, %1182 ]
+  %1241 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1225, %1182 ]
+  %1242 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1224, %1182 ]
+  %1243 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1223, %1182 ]
+  %1244 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1222, %1182 ]
+  %1245 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1221, %1182 ]
+  %1246 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1220, %1182 ]
+  %1247 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1219, %1182 ]
+  %1248 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1218, %1182 ]
+  %1249 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1217, %1182 ]
+  %1250 = phi <8 x double> [ zeroinitializer, %1168 ], [ %1216, %1182 ]
+  %1251 = phi i64 [ 0, %1168 ], [ %1094, %1182 ]
+  %1252 = sub nsw i64 %2, %1251
+  %1253 = and i64 %1252, 4294967295
+  %1254 = icmp eq i64 %1253, 0
+  br i1 %1254, label %1303, label %1255
 
-1254:                                             ; preds = %1233
-  %1255 = shl nsw i64 -1, %1252
-  %1256 = trunc i64 %1255 to i8
-  %1257 = xor i8 %1256, -1
-  %1258 = getelementptr double, ptr %1114, i64 %1250
-  %1259 = bitcast i8 %1257 to <8 x i1>
-  %1260 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1258, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1261 = getelementptr double, ptr %1117, i64 %1250
-  %1262 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1261, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1263 = getelementptr double, ptr %1120, i64 %1250
-  %1264 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1263, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1265 = getelementptr double, ptr %1123, i64 %1250
-  %1266 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1265, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1267 = mul nsw i64 %1168, %7
-  %1268 = getelementptr double, ptr %6, i64 %1267
-  %1269 = getelementptr double, ptr %1268, i64 %1250
-  %1270 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1269, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1271 = or disjoint i64 %1168, 1
-  %1272 = mul nsw i64 %1271, %7
-  %1273 = getelementptr double, ptr %6, i64 %1272
-  %1274 = getelementptr double, ptr %1273, i64 %1250
-  %1275 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1274, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1276 = or disjoint i64 %1168, 2
-  %1277 = mul nsw i64 %1276, %7
-  %1278 = getelementptr double, ptr %6, i64 %1277
-  %1279 = getelementptr double, ptr %1278, i64 %1250
-  %1280 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1279, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1281 = or disjoint i64 %1168, 3
-  %1282 = mul nsw i64 %1281, %7
-  %1283 = getelementptr double, ptr %6, i64 %1282
-  %1284 = getelementptr double, ptr %1283, i64 %1250
-  %1285 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1284, i32 1, <8 x i1> %1259, <8 x double> zeroinitializer)
-  %1286 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1260, <8 x double> %1270, <8 x double> %1249)
-  %1287 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1262, <8 x double> %1270, <8 x double> %1248)
-  %1288 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1264, <8 x double> %1270, <8 x double> %1247)
-  %1289 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1266, <8 x double> %1270, <8 x double> %1246)
-  %1290 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1260, <8 x double> %1275, <8 x double> %1245)
-  %1291 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1262, <8 x double> %1275, <8 x double> %1244)
-  %1292 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1264, <8 x double> %1275, <8 x double> %1243)
-  %1293 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1266, <8 x double> %1275, <8 x double> %1242)
-  %1294 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1260, <8 x double> %1280, <8 x double> %1241)
-  %1295 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1262, <8 x double> %1280, <8 x double> %1240)
-  %1296 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1264, <8 x double> %1280, <8 x double> %1239)
-  %1297 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1266, <8 x double> %1280, <8 x double> %1238)
-  %1298 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1260, <8 x double> %1285, <8 x double> %1237)
-  %1299 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1262, <8 x double> %1285, <8 x double> %1236)
-  %1300 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1264, <8 x double> %1285, <8 x double> %1235)
-  %1301 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1266, <8 x double> %1285, <8 x double> %1234)
-  br label %1302
+1255:                                             ; preds = %1234
+  %1256 = shl nsw i64 -1, %1253
+  %1257 = trunc i64 %1256 to i8
+  %1258 = xor i8 %1257, -1
+  %1259 = getelementptr double, ptr %1115, i64 %1251
+  %1260 = bitcast i8 %1258 to <8 x i1>
+  %1261 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1259, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1262 = getelementptr double, ptr %1118, i64 %1251
+  %1263 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1262, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1264 = getelementptr double, ptr %1121, i64 %1251
+  %1265 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1264, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1266 = getelementptr double, ptr %1124, i64 %1251
+  %1267 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1266, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1268 = mul nsw i64 %1169, %7
+  %1269 = getelementptr double, ptr %6, i64 %1268
+  %1270 = getelementptr double, ptr %1269, i64 %1251
+  %1271 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1270, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1272 = or disjoint i64 %1169, 1
+  %1273 = mul nsw i64 %1272, %7
+  %1274 = getelementptr double, ptr %6, i64 %1273
+  %1275 = getelementptr double, ptr %1274, i64 %1251
+  %1276 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1275, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1277 = or disjoint i64 %1169, 2
+  %1278 = mul nsw i64 %1277, %7
+  %1279 = getelementptr double, ptr %6, i64 %1278
+  %1280 = getelementptr double, ptr %1279, i64 %1251
+  %1281 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1280, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1282 = or disjoint i64 %1169, 3
+  %1283 = mul nsw i64 %1282, %7
+  %1284 = getelementptr double, ptr %6, i64 %1283
+  %1285 = getelementptr double, ptr %1284, i64 %1251
+  %1286 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1285, i32 1, <8 x i1> %1260, <8 x double> zeroinitializer)
+  %1287 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1261, <8 x double> %1271, <8 x double> %1250)
+  %1288 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1263, <8 x double> %1271, <8 x double> %1249)
+  %1289 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1265, <8 x double> %1271, <8 x double> %1248)
+  %1290 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1267, <8 x double> %1271, <8 x double> %1247)
+  %1291 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1261, <8 x double> %1276, <8 x double> %1246)
+  %1292 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1263, <8 x double> %1276, <8 x double> %1245)
+  %1293 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1265, <8 x double> %1276, <8 x double> %1244)
+  %1294 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1267, <8 x double> %1276, <8 x double> %1243)
+  %1295 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1261, <8 x double> %1281, <8 x double> %1242)
+  %1296 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1263, <8 x double> %1281, <8 x double> %1241)
+  %1297 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1265, <8 x double> %1281, <8 x double> %1240)
+  %1298 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1267, <8 x double> %1281, <8 x double> %1239)
+  %1299 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1261, <8 x double> %1286, <8 x double> %1238)
+  %1300 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1263, <8 x double> %1286, <8 x double> %1237)
+  %1301 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1265, <8 x double> %1286, <8 x double> %1236)
+  %1302 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1267, <8 x double> %1286, <8 x double> %1235)
+  br label %1303
 
-1302:                                             ; preds = %1254, %1233
-  %1303 = phi <8 x double> [ %1301, %1254 ], [ %1234, %1233 ]
-  %1304 = phi <8 x double> [ %1300, %1254 ], [ %1235, %1233 ]
-  %1305 = phi <8 x double> [ %1299, %1254 ], [ %1236, %1233 ]
-  %1306 = phi <8 x double> [ %1298, %1254 ], [ %1237, %1233 ]
-  %1307 = phi <8 x double> [ %1297, %1254 ], [ %1238, %1233 ]
-  %1308 = phi <8 x double> [ %1296, %1254 ], [ %1239, %1233 ]
-  %1309 = phi <8 x double> [ %1295, %1254 ], [ %1240, %1233 ]
-  %1310 = phi <8 x double> [ %1294, %1254 ], [ %1241, %1233 ]
-  %1311 = phi <8 x double> [ %1293, %1254 ], [ %1242, %1233 ]
-  %1312 = phi <8 x double> [ %1292, %1254 ], [ %1243, %1233 ]
-  %1313 = phi <8 x double> [ %1291, %1254 ], [ %1244, %1233 ]
-  %1314 = phi <8 x double> [ %1290, %1254 ], [ %1245, %1233 ]
-  %1315 = phi <8 x double> [ %1289, %1254 ], [ %1246, %1233 ]
-  %1316 = phi <8 x double> [ %1288, %1254 ], [ %1247, %1233 ]
-  %1317 = phi <8 x double> [ %1287, %1254 ], [ %1248, %1233 ]
-  %1318 = phi <8 x double> [ %1286, %1254 ], [ %1249, %1233 ]
-  %1319 = shufflevector <8 x double> %1318, <8 x double> %1317, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1320 = shufflevector <8 x double> %1318, <8 x double> %1317, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1321 = shufflevector <8 x double> %1316, <8 x double> %1315, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1322 = shufflevector <8 x double> %1316, <8 x double> %1315, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1323 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1319, <8 x i64> %1083, <8 x double> %1321)
+1303:                                             ; preds = %1255, %1234
+  %1304 = phi <8 x double> [ %1302, %1255 ], [ %1235, %1234 ]
+  %1305 = phi <8 x double> [ %1301, %1255 ], [ %1236, %1234 ]
+  %1306 = phi <8 x double> [ %1300, %1255 ], [ %1237, %1234 ]
+  %1307 = phi <8 x double> [ %1299, %1255 ], [ %1238, %1234 ]
+  %1308 = phi <8 x double> [ %1298, %1255 ], [ %1239, %1234 ]
+  %1309 = phi <8 x double> [ %1297, %1255 ], [ %1240, %1234 ]
+  %1310 = phi <8 x double> [ %1296, %1255 ], [ %1241, %1234 ]
+  %1311 = phi <8 x double> [ %1295, %1255 ], [ %1242, %1234 ]
+  %1312 = phi <8 x double> [ %1294, %1255 ], [ %1243, %1234 ]
+  %1313 = phi <8 x double> [ %1293, %1255 ], [ %1244, %1234 ]
+  %1314 = phi <8 x double> [ %1292, %1255 ], [ %1245, %1234 ]
+  %1315 = phi <8 x double> [ %1291, %1255 ], [ %1246, %1234 ]
+  %1316 = phi <8 x double> [ %1290, %1255 ], [ %1247, %1234 ]
+  %1317 = phi <8 x double> [ %1289, %1255 ], [ %1248, %1234 ]
+  %1318 = phi <8 x double> [ %1288, %1255 ], [ %1249, %1234 ]
+  %1319 = phi <8 x double> [ %1287, %1255 ], [ %1250, %1234 ]
+  %1320 = shufflevector <8 x double> %1319, <8 x double> %1318, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1321 = shufflevector <8 x double> %1319, <8 x double> %1318, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1322 = shufflevector <8 x double> %1317, <8 x double> %1316, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1323 = shufflevector <8 x double> %1317, <8 x double> %1316, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1324 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1320, <8 x i64> %1083, <8 x double> %1322)
-  %1325 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1319, <8 x i64> %1084, <8 x double> %1321)
-  %1326 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1320, <8 x i64> %1084, <8 x double> %1322)
-  %1327 = fadd <8 x double> %1323, %1324
-  %1328 = fadd <8 x double> %1325, %1326
-  %1329 = fadd <8 x double> %1327, %1328
-  %1330 = shufflevector <8 x double> %1329, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1331 = shufflevector <8 x double> %1329, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1332 = fadd <4 x double> %1330, %1331
-  %1333 = fmul <4 x double> %1075, %1332
-  %1334 = mul nsw i64 %1168, %10
-  %1335 = getelementptr double, ptr %1097, i64 %1334
-  %1336 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1335, <4 x double> %1077, <4 x double> %1333) #9, !srcloc !105
-  store <4 x double> %1336, ptr %1335, align 1, !tbaa !3
-  %1337 = shufflevector <8 x double> %1314, <8 x double> %1313, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1338 = shufflevector <8 x double> %1314, <8 x double> %1313, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1339 = shufflevector <8 x double> %1312, <8 x double> %1311, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1340 = shufflevector <8 x double> %1312, <8 x double> %1311, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1341 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1337, <8 x i64> %1083, <8 x double> %1339)
+  %1325 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1321, <8 x i64> %1083, <8 x double> %1323)
+  %1326 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1320, <8 x i64> %1085, <8 x double> %1322)
+  %1327 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1321, <8 x i64> %1085, <8 x double> %1323)
+  %1328 = fadd <8 x double> %1324, %1325
+  %1329 = fadd <8 x double> %1326, %1327
+  %1330 = fadd <8 x double> %1328, %1329
+  %1331 = shufflevector <8 x double> %1330, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1332 = shufflevector <8 x double> %1330, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1333 = fadd <4 x double> %1331, %1332
+  %1334 = fmul <4 x double> %1075, %1333
+  %1335 = mul nsw i64 %1169, %10
+  %1336 = getelementptr double, ptr %1098, i64 %1335
+  %1337 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1336, <4 x double> %1077, <4 x double> %1334) #9, !srcloc !105
+  store <4 x double> %1337, ptr %1336, align 1, !tbaa !3
+  %1338 = shufflevector <8 x double> %1315, <8 x double> %1314, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1339 = shufflevector <8 x double> %1315, <8 x double> %1314, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1340 = shufflevector <8 x double> %1313, <8 x double> %1312, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1341 = shufflevector <8 x double> %1313, <8 x double> %1312, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1342 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1338, <8 x i64> %1083, <8 x double> %1340)
-  %1343 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1337, <8 x i64> %1084, <8 x double> %1339)
-  %1344 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1338, <8 x i64> %1084, <8 x double> %1340)
-  %1345 = fadd <8 x double> %1341, %1342
-  %1346 = fadd <8 x double> %1343, %1344
-  %1347 = fadd <8 x double> %1345, %1346
-  %1348 = shufflevector <8 x double> %1347, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1349 = shufflevector <8 x double> %1347, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1350 = fadd <4 x double> %1348, %1349
-  %1351 = fmul <4 x double> %1075, %1350
-  %1352 = or disjoint i64 %1168, 1
-  %1353 = mul nsw i64 %1352, %10
-  %1354 = getelementptr double, ptr %1098, i64 %1353
-  %1355 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1354, <4 x double> %1077, <4 x double> %1351) #9, !srcloc !106
-  store <4 x double> %1355, ptr %1354, align 1, !tbaa !3
-  %1356 = shufflevector <8 x double> %1310, <8 x double> %1309, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1357 = shufflevector <8 x double> %1310, <8 x double> %1309, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1358 = shufflevector <8 x double> %1308, <8 x double> %1307, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1359 = shufflevector <8 x double> %1308, <8 x double> %1307, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1360 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1356, <8 x i64> %1083, <8 x double> %1358)
+  %1343 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1339, <8 x i64> %1083, <8 x double> %1341)
+  %1344 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1338, <8 x i64> %1085, <8 x double> %1340)
+  %1345 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1339, <8 x i64> %1085, <8 x double> %1341)
+  %1346 = fadd <8 x double> %1342, %1343
+  %1347 = fadd <8 x double> %1344, %1345
+  %1348 = fadd <8 x double> %1346, %1347
+  %1349 = shufflevector <8 x double> %1348, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1350 = shufflevector <8 x double> %1348, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1351 = fadd <4 x double> %1349, %1350
+  %1352 = fmul <4 x double> %1075, %1351
+  %1353 = or disjoint i64 %1169, 1
+  %1354 = mul nsw i64 %1353, %10
+  %1355 = getelementptr double, ptr %1099, i64 %1354
+  %1356 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1355, <4 x double> %1077, <4 x double> %1352) #9, !srcloc !106
+  store <4 x double> %1356, ptr %1355, align 1, !tbaa !3
+  %1357 = shufflevector <8 x double> %1311, <8 x double> %1310, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1358 = shufflevector <8 x double> %1311, <8 x double> %1310, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1359 = shufflevector <8 x double> %1309, <8 x double> %1308, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1360 = shufflevector <8 x double> %1309, <8 x double> %1308, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1361 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1357, <8 x i64> %1083, <8 x double> %1359)
-  %1362 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1356, <8 x i64> %1084, <8 x double> %1358)
-  %1363 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1357, <8 x i64> %1084, <8 x double> %1359)
-  %1364 = fadd <8 x double> %1360, %1361
-  %1365 = fadd <8 x double> %1362, %1363
-  %1366 = fadd <8 x double> %1364, %1365
-  %1367 = shufflevector <8 x double> %1366, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1368 = shufflevector <8 x double> %1366, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1369 = fadd <4 x double> %1367, %1368
-  %1370 = fmul <4 x double> %1075, %1369
-  %1371 = or disjoint i64 %1168, 2
-  %1372 = mul nsw i64 %1371, %10
-  %1373 = getelementptr double, ptr %1099, i64 %1372
-  %1374 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1373, <4 x double> %1077, <4 x double> %1370) #9, !srcloc !107
-  store <4 x double> %1374, ptr %1373, align 1, !tbaa !3
-  %1375 = shufflevector <8 x double> %1306, <8 x double> %1305, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1376 = shufflevector <8 x double> %1306, <8 x double> %1305, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1377 = shufflevector <8 x double> %1304, <8 x double> %1303, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1378 = shufflevector <8 x double> %1304, <8 x double> %1303, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1379 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1375, <8 x i64> %1083, <8 x double> %1377)
+  %1362 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1358, <8 x i64> %1083, <8 x double> %1360)
+  %1363 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1357, <8 x i64> %1085, <8 x double> %1359)
+  %1364 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1358, <8 x i64> %1085, <8 x double> %1360)
+  %1365 = fadd <8 x double> %1361, %1362
+  %1366 = fadd <8 x double> %1363, %1364
+  %1367 = fadd <8 x double> %1365, %1366
+  %1368 = shufflevector <8 x double> %1367, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1369 = shufflevector <8 x double> %1367, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1370 = fadd <4 x double> %1368, %1369
+  %1371 = fmul <4 x double> %1075, %1370
+  %1372 = or disjoint i64 %1169, 2
+  %1373 = mul nsw i64 %1372, %10
+  %1374 = getelementptr double, ptr %1100, i64 %1373
+  %1375 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1374, <4 x double> %1077, <4 x double> %1371) #9, !srcloc !107
+  store <4 x double> %1375, ptr %1374, align 1, !tbaa !3
+  %1376 = shufflevector <8 x double> %1307, <8 x double> %1306, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1377 = shufflevector <8 x double> %1307, <8 x double> %1306, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1378 = shufflevector <8 x double> %1305, <8 x double> %1304, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1379 = shufflevector <8 x double> %1305, <8 x double> %1304, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1380 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1376, <8 x i64> %1083, <8 x double> %1378)
-  %1381 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1375, <8 x i64> %1084, <8 x double> %1377)
-  %1382 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1376, <8 x i64> %1084, <8 x double> %1378)
-  %1383 = fadd <8 x double> %1379, %1380
-  %1384 = fadd <8 x double> %1381, %1382
-  %1385 = fadd <8 x double> %1383, %1384
-  %1386 = shufflevector <8 x double> %1385, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1387 = shufflevector <8 x double> %1385, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1388 = fadd <4 x double> %1386, %1387
-  %1389 = fmul <4 x double> %1075, %1388
-  %1390 = or disjoint i64 %1168, 3
-  %1391 = mul nsw i64 %1390, %10
-  %1392 = getelementptr double, ptr %1100, i64 %1391
-  %1393 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1392, <4 x double> %1077, <4 x double> %1389) #9, !srcloc !108
-  store <4 x double> %1393, ptr %1392, align 1, !tbaa !3
-  %1394 = add nuw nsw i64 %1168, 4
-  %1395 = icmp slt i64 %1394, %19
-  br i1 %1395, label %1167, label %1139, !llvm.loop !109
+  %1381 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1377, <8 x i64> %1083, <8 x double> %1379)
+  %1382 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1376, <8 x i64> %1085, <8 x double> %1378)
+  %1383 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1377, <8 x i64> %1085, <8 x double> %1379)
+  %1384 = fadd <8 x double> %1380, %1381
+  %1385 = fadd <8 x double> %1382, %1383
+  %1386 = fadd <8 x double> %1384, %1385
+  %1387 = shufflevector <8 x double> %1386, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1388 = shufflevector <8 x double> %1386, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1389 = fadd <4 x double> %1387, %1388
+  %1390 = fmul <4 x double> %1075, %1389
+  %1391 = or disjoint i64 %1169, 3
+  %1392 = mul nsw i64 %1391, %10
+  %1393 = getelementptr double, ptr %1101, i64 %1392
+  %1394 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1393, <4 x double> %1077, <4 x double> %1390) #9, !srcloc !108
+  store <4 x double> %1394, ptr %1393, align 1, !tbaa !3
+  %1395 = add nuw nsw i64 %1169, 4
+  %1396 = icmp slt i64 %1395, %19
+  br i1 %1396, label %1168, label %1140, !llvm.loop !109
 
-1396:                                             ; preds = %1506, %1139
-  %1397 = phi i64 [ %1140, %1139 ], [ %1552, %1506 ]
-  %1398 = getelementptr double, ptr %9, i64 %1096
-  %1399 = icmp slt i64 %1397, %1
-  br i1 %1399, label %1400, label %1636
+1397:                                             ; preds = %1507, %1140
+  %1398 = phi i64 [ %1141, %1140 ], [ %1553, %1507 ]
+  %1399 = getelementptr double, ptr %9, i64 %1097
+  %1400 = icmp slt i64 %1398, %1
+  br i1 %1400, label %1401, label %1637
 
-1400:                                             ; preds = %1396
-  %1401 = mul nsw i64 %1095, %2
-  %1402 = getelementptr double, ptr %996, i64 %1401
-  %1403 = or disjoint i64 %1095, 1
-  %1404 = mul nsw i64 %1403, %2
-  %1405 = getelementptr double, ptr %996, i64 %1404
-  %1406 = or disjoint i64 %1095, 2
-  %1407 = mul nsw i64 %1406, %2
-  %1408 = getelementptr double, ptr %996, i64 %1407
-  %1409 = or disjoint i64 %1095, 3
-  %1410 = mul nsw i64 %1409, %2
-  %1411 = getelementptr double, ptr %996, i64 %1410
-  %1412 = mul nsw i64 %1095, %2
-  %1413 = getelementptr double, ptr %996, i64 %1412
-  %1414 = or disjoint i64 %1095, 1
-  %1415 = mul nsw i64 %1414, %2
-  %1416 = getelementptr double, ptr %996, i64 %1415
-  %1417 = or disjoint i64 %1095, 2
-  %1418 = mul nsw i64 %1417, %2
-  %1419 = getelementptr double, ptr %996, i64 %1418
-  %1420 = or disjoint i64 %1095, 3
-  %1421 = mul nsw i64 %1420, %2
-  %1422 = getelementptr double, ptr %996, i64 %1421
-  br label %1554
+1401:                                             ; preds = %1397
+  %1402 = mul nsw i64 %1096, %2
+  %1403 = getelementptr double, ptr %996, i64 %1402
+  %1404 = or disjoint i64 %1096, 1
+  %1405 = mul nsw i64 %1404, %2
+  %1406 = getelementptr double, ptr %996, i64 %1405
+  %1407 = or disjoint i64 %1096, 2
+  %1408 = mul nsw i64 %1407, %2
+  %1409 = getelementptr double, ptr %996, i64 %1408
+  %1410 = or disjoint i64 %1096, 3
+  %1411 = mul nsw i64 %1410, %2
+  %1412 = getelementptr double, ptr %996, i64 %1411
+  %1413 = mul nsw i64 %1096, %2
+  %1414 = getelementptr double, ptr %996, i64 %1413
+  %1415 = or disjoint i64 %1096, 1
+  %1416 = mul nsw i64 %1415, %2
+  %1417 = getelementptr double, ptr %996, i64 %1416
+  %1418 = or disjoint i64 %1096, 2
+  %1419 = mul nsw i64 %1418, %2
+  %1420 = getelementptr double, ptr %996, i64 %1419
+  %1421 = or disjoint i64 %1096, 3
+  %1422 = mul nsw i64 %1421, %2
+  %1423 = getelementptr double, ptr %996, i64 %1422
+  br label %1555
 
-1423:                                             ; preds = %1506, %1144
-  %1424 = phi i64 [ %1140, %1144 ], [ %1552, %1506 ]
-  br i1 %1089, label %1463, label %1425
+1424:                                             ; preds = %1507, %1145
+  %1425 = phi i64 [ %1141, %1145 ], [ %1553, %1507 ]
+  br i1 %1090, label %1464, label %1426
 
-1425:                                             ; preds = %1423
-  %1426 = mul nsw i64 %1424, %7
-  %1427 = getelementptr double, ptr %6, i64 %1426
-  %1428 = add nuw nsw i64 %1424, 1
-  %1429 = mul nsw i64 %1428, %7
-  %1430 = getelementptr double, ptr %6, i64 %1429
-  br label %1431
+1426:                                             ; preds = %1424
+  %1427 = mul nsw i64 %1425, %7
+  %1428 = getelementptr double, ptr %6, i64 %1427
+  %1429 = add nuw nsw i64 %1425, 1
+  %1430 = mul nsw i64 %1429, %7
+  %1431 = getelementptr double, ptr %6, i64 %1430
+  br label %1432
 
-1431:                                             ; preds = %1431, %1425
-  %1432 = phi i64 [ 0, %1425 ], [ %1461, %1431 ]
-  %1433 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1453, %1431 ]
-  %1434 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1454, %1431 ]
-  %1435 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1455, %1431 ]
-  %1436 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1456, %1431 ]
-  %1437 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1457, %1431 ]
-  %1438 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1458, %1431 ]
-  %1439 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1459, %1431 ]
-  %1440 = phi <8 x double> [ zeroinitializer, %1425 ], [ %1460, %1431 ]
-  %1441 = getelementptr double, ptr %1146, i64 %1432
-  %1442 = load <8 x double>, ptr %1441, align 1, !tbaa !3
-  %1443 = getelementptr double, ptr %1149, i64 %1432
-  %1444 = load <8 x double>, ptr %1443, align 1, !tbaa !3
-  %1445 = getelementptr double, ptr %1152, i64 %1432
-  %1446 = load <8 x double>, ptr %1445, align 1, !tbaa !3
-  %1447 = getelementptr double, ptr %1155, i64 %1432
-  %1448 = load <8 x double>, ptr %1447, align 1, !tbaa !3
-  %1449 = getelementptr double, ptr %1427, i64 %1432
-  %1450 = load <8 x double>, ptr %1449, align 1, !tbaa !3
-  %1451 = getelementptr double, ptr %1430, i64 %1432
-  %1452 = load <8 x double>, ptr %1451, align 1, !tbaa !3
-  %1453 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1442, <8 x double> %1450, <8 x double> %1433)
-  %1454 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1444, <8 x double> %1450, <8 x double> %1434)
-  %1455 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1446, <8 x double> %1450, <8 x double> %1435)
-  %1456 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1448, <8 x double> %1450, <8 x double> %1436)
-  %1457 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1442, <8 x double> %1452, <8 x double> %1437)
-  %1458 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1444, <8 x double> %1452, <8 x double> %1438)
-  %1459 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1446, <8 x double> %1452, <8 x double> %1439)
-  %1460 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1448, <8 x double> %1452, <8 x double> %1440)
-  %1461 = add nuw nsw i64 %1432, 8
-  %1462 = icmp ult i64 %1461, %997
-  br i1 %1462, label %1431, label %1463, !llvm.loop !110
+1432:                                             ; preds = %1432, %1426
+  %1433 = phi i64 [ 0, %1426 ], [ %1462, %1432 ]
+  %1434 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1454, %1432 ]
+  %1435 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1455, %1432 ]
+  %1436 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1456, %1432 ]
+  %1437 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1457, %1432 ]
+  %1438 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1458, %1432 ]
+  %1439 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1459, %1432 ]
+  %1440 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1460, %1432 ]
+  %1441 = phi <8 x double> [ zeroinitializer, %1426 ], [ %1461, %1432 ]
+  %1442 = getelementptr double, ptr %1147, i64 %1433
+  %1443 = load <8 x double>, ptr %1442, align 1, !tbaa !3
+  %1444 = getelementptr double, ptr %1150, i64 %1433
+  %1445 = load <8 x double>, ptr %1444, align 1, !tbaa !3
+  %1446 = getelementptr double, ptr %1153, i64 %1433
+  %1447 = load <8 x double>, ptr %1446, align 1, !tbaa !3
+  %1448 = getelementptr double, ptr %1156, i64 %1433
+  %1449 = load <8 x double>, ptr %1448, align 1, !tbaa !3
+  %1450 = getelementptr double, ptr %1428, i64 %1433
+  %1451 = load <8 x double>, ptr %1450, align 1, !tbaa !3
+  %1452 = getelementptr double, ptr %1431, i64 %1433
+  %1453 = load <8 x double>, ptr %1452, align 1, !tbaa !3
+  %1454 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1443, <8 x double> %1451, <8 x double> %1434)
+  %1455 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1445, <8 x double> %1451, <8 x double> %1435)
+  %1456 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1447, <8 x double> %1451, <8 x double> %1436)
+  %1457 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1449, <8 x double> %1451, <8 x double> %1437)
+  %1458 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1443, <8 x double> %1453, <8 x double> %1438)
+  %1459 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1445, <8 x double> %1453, <8 x double> %1439)
+  %1460 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1447, <8 x double> %1453, <8 x double> %1440)
+  %1461 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1449, <8 x double> %1453, <8 x double> %1441)
+  %1462 = add nuw nsw i64 %1433, 8
+  %1463 = icmp ult i64 %1462, %997
+  br i1 %1463, label %1432, label %1464, !llvm.loop !110
 
-1463:                                             ; preds = %1431, %1423
-  %1464 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1460, %1431 ]
-  %1465 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1459, %1431 ]
-  %1466 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1458, %1431 ]
-  %1467 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1457, %1431 ]
-  %1468 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1456, %1431 ]
-  %1469 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1455, %1431 ]
-  %1470 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1454, %1431 ]
-  %1471 = phi <8 x double> [ zeroinitializer, %1423 ], [ %1453, %1431 ]
-  %1472 = phi i64 [ 0, %1423 ], [ %1093, %1431 ]
-  %1473 = sub nsw i64 %2, %1472
-  %1474 = and i64 %1473, 4294967295
-  %1475 = icmp eq i64 %1474, 0
-  br i1 %1475, label %1506, label %1476
+1464:                                             ; preds = %1432, %1424
+  %1465 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1461, %1432 ]
+  %1466 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1460, %1432 ]
+  %1467 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1459, %1432 ]
+  %1468 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1458, %1432 ]
+  %1469 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1457, %1432 ]
+  %1470 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1456, %1432 ]
+  %1471 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1455, %1432 ]
+  %1472 = phi <8 x double> [ zeroinitializer, %1424 ], [ %1454, %1432 ]
+  %1473 = phi i64 [ 0, %1424 ], [ %1094, %1432 ]
+  %1474 = sub nsw i64 %2, %1473
+  %1475 = and i64 %1474, 4294967295
+  %1476 = icmp eq i64 %1475, 0
+  br i1 %1476, label %1507, label %1477
 
-1476:                                             ; preds = %1463
-  %1477 = shl nsw i64 -1, %1474
-  %1478 = trunc i64 %1477 to i8
-  %1479 = xor i8 %1478, -1
-  %1480 = getelementptr double, ptr %1157, i64 %1472
-  %1481 = bitcast i8 %1479 to <8 x i1>
-  %1482 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1480, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1483 = getelementptr double, ptr %1160, i64 %1472
-  %1484 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1483, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1485 = getelementptr double, ptr %1163, i64 %1472
-  %1486 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1485, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1487 = getelementptr double, ptr %1166, i64 %1472
-  %1488 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1487, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1489 = mul nsw i64 %1424, %7
-  %1490 = getelementptr double, ptr %6, i64 %1489
-  %1491 = getelementptr double, ptr %1490, i64 %1472
-  %1492 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1491, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1493 = add nuw nsw i64 %1424, 1
-  %1494 = mul nsw i64 %1493, %7
-  %1495 = getelementptr double, ptr %6, i64 %1494
-  %1496 = getelementptr double, ptr %1495, i64 %1472
-  %1497 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1496, i32 1, <8 x i1> %1481, <8 x double> zeroinitializer)
-  %1498 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1482, <8 x double> %1492, <8 x double> %1471)
-  %1499 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1484, <8 x double> %1492, <8 x double> %1470)
-  %1500 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1486, <8 x double> %1492, <8 x double> %1469)
-  %1501 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1488, <8 x double> %1492, <8 x double> %1468)
-  %1502 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1482, <8 x double> %1497, <8 x double> %1467)
-  %1503 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1484, <8 x double> %1497, <8 x double> %1466)
-  %1504 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1486, <8 x double> %1497, <8 x double> %1465)
-  %1505 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1488, <8 x double> %1497, <8 x double> %1464)
-  br label %1506
+1477:                                             ; preds = %1464
+  %1478 = shl nsw i64 -1, %1475
+  %1479 = trunc i64 %1478 to i8
+  %1480 = xor i8 %1479, -1
+  %1481 = getelementptr double, ptr %1158, i64 %1473
+  %1482 = bitcast i8 %1480 to <8 x i1>
+  %1483 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1481, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1484 = getelementptr double, ptr %1161, i64 %1473
+  %1485 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1484, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1486 = getelementptr double, ptr %1164, i64 %1473
+  %1487 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1486, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1488 = getelementptr double, ptr %1167, i64 %1473
+  %1489 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1488, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1490 = mul nsw i64 %1425, %7
+  %1491 = getelementptr double, ptr %6, i64 %1490
+  %1492 = getelementptr double, ptr %1491, i64 %1473
+  %1493 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1492, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1494 = add nuw nsw i64 %1425, 1
+  %1495 = mul nsw i64 %1494, %7
+  %1496 = getelementptr double, ptr %6, i64 %1495
+  %1497 = getelementptr double, ptr %1496, i64 %1473
+  %1498 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1497, i32 1, <8 x i1> %1482, <8 x double> zeroinitializer)
+  %1499 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1483, <8 x double> %1493, <8 x double> %1472)
+  %1500 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1485, <8 x double> %1493, <8 x double> %1471)
+  %1501 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1487, <8 x double> %1493, <8 x double> %1470)
+  %1502 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1489, <8 x double> %1493, <8 x double> %1469)
+  %1503 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1483, <8 x double> %1498, <8 x double> %1468)
+  %1504 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1485, <8 x double> %1498, <8 x double> %1467)
+  %1505 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1487, <8 x double> %1498, <8 x double> %1466)
+  %1506 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1489, <8 x double> %1498, <8 x double> %1465)
+  br label %1507
 
-1506:                                             ; preds = %1476, %1463
-  %1507 = phi <8 x double> [ %1505, %1476 ], [ %1464, %1463 ]
-  %1508 = phi <8 x double> [ %1504, %1476 ], [ %1465, %1463 ]
-  %1509 = phi <8 x double> [ %1503, %1476 ], [ %1466, %1463 ]
-  %1510 = phi <8 x double> [ %1502, %1476 ], [ %1467, %1463 ]
-  %1511 = phi <8 x double> [ %1501, %1476 ], [ %1468, %1463 ]
-  %1512 = phi <8 x double> [ %1500, %1476 ], [ %1469, %1463 ]
-  %1513 = phi <8 x double> [ %1499, %1476 ], [ %1470, %1463 ]
-  %1514 = phi <8 x double> [ %1498, %1476 ], [ %1471, %1463 ]
-  %1515 = shufflevector <8 x double> %1514, <8 x double> %1513, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1516 = shufflevector <8 x double> %1514, <8 x double> %1513, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1517 = shufflevector <8 x double> %1512, <8 x double> %1511, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1518 = shufflevector <8 x double> %1512, <8 x double> %1511, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1519 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1515, <8 x i64> %1083, <8 x double> %1517)
+1507:                                             ; preds = %1477, %1464
+  %1508 = phi <8 x double> [ %1506, %1477 ], [ %1465, %1464 ]
+  %1509 = phi <8 x double> [ %1505, %1477 ], [ %1466, %1464 ]
+  %1510 = phi <8 x double> [ %1504, %1477 ], [ %1467, %1464 ]
+  %1511 = phi <8 x double> [ %1503, %1477 ], [ %1468, %1464 ]
+  %1512 = phi <8 x double> [ %1502, %1477 ], [ %1469, %1464 ]
+  %1513 = phi <8 x double> [ %1501, %1477 ], [ %1470, %1464 ]
+  %1514 = phi <8 x double> [ %1500, %1477 ], [ %1471, %1464 ]
+  %1515 = phi <8 x double> [ %1499, %1477 ], [ %1472, %1464 ]
+  %1516 = shufflevector <8 x double> %1515, <8 x double> %1514, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1517 = shufflevector <8 x double> %1515, <8 x double> %1514, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1518 = shufflevector <8 x double> %1513, <8 x double> %1512, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1519 = shufflevector <8 x double> %1513, <8 x double> %1512, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1520 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1516, <8 x i64> %1083, <8 x double> %1518)
-  %1521 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1515, <8 x i64> %1084, <8 x double> %1517)
-  %1522 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1516, <8 x i64> %1084, <8 x double> %1518)
-  %1523 = fadd <8 x double> %1519, %1520
-  %1524 = fadd <8 x double> %1521, %1522
-  %1525 = fadd <8 x double> %1523, %1524
-  %1526 = shufflevector <8 x double> %1525, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1527 = shufflevector <8 x double> %1525, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1528 = fadd <4 x double> %1526, %1527
-  %1529 = fmul <4 x double> %1075, %1528
-  %1530 = mul nsw i64 %1424, %10
-  %1531 = getelementptr double, ptr %1141, i64 %1530
-  %1532 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1531, <4 x double> %1077, <4 x double> %1529) #9, !srcloc !111
-  store <4 x double> %1532, ptr %1531, align 1, !tbaa !3
-  %1533 = shufflevector <8 x double> %1510, <8 x double> %1509, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1534 = shufflevector <8 x double> %1510, <8 x double> %1509, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1535 = shufflevector <8 x double> %1508, <8 x double> %1507, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1536 = shufflevector <8 x double> %1508, <8 x double> %1507, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1537 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1533, <8 x i64> %1083, <8 x double> %1535)
+  %1521 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1517, <8 x i64> %1083, <8 x double> %1519)
+  %1522 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1516, <8 x i64> %1085, <8 x double> %1518)
+  %1523 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1517, <8 x i64> %1085, <8 x double> %1519)
+  %1524 = fadd <8 x double> %1520, %1521
+  %1525 = fadd <8 x double> %1522, %1523
+  %1526 = fadd <8 x double> %1524, %1525
+  %1527 = shufflevector <8 x double> %1526, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1528 = shufflevector <8 x double> %1526, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1529 = fadd <4 x double> %1527, %1528
+  %1530 = fmul <4 x double> %1075, %1529
+  %1531 = mul nsw i64 %1425, %10
+  %1532 = getelementptr double, ptr %1142, i64 %1531
+  %1533 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1532, <4 x double> %1077, <4 x double> %1530) #9, !srcloc !111
+  store <4 x double> %1533, ptr %1532, align 1, !tbaa !3
+  %1534 = shufflevector <8 x double> %1511, <8 x double> %1510, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1535 = shufflevector <8 x double> %1511, <8 x double> %1510, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1536 = shufflevector <8 x double> %1509, <8 x double> %1508, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1537 = shufflevector <8 x double> %1509, <8 x double> %1508, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1538 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1534, <8 x i64> %1083, <8 x double> %1536)
-  %1539 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1533, <8 x i64> %1084, <8 x double> %1535)
-  %1540 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1534, <8 x i64> %1084, <8 x double> %1536)
-  %1541 = fadd <8 x double> %1537, %1538
-  %1542 = fadd <8 x double> %1539, %1540
-  %1543 = fadd <8 x double> %1541, %1542
-  %1544 = shufflevector <8 x double> %1543, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1545 = shufflevector <8 x double> %1543, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1546 = fadd <4 x double> %1544, %1545
-  %1547 = fmul <4 x double> %1075, %1546
-  %1548 = add nuw nsw i64 %1424, 1
-  %1549 = mul nsw i64 %1548, %10
-  %1550 = getelementptr double, ptr %1142, i64 %1549
-  %1551 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1550, <4 x double> %1077, <4 x double> %1547) #9, !srcloc !112
-  store <4 x double> %1551, ptr %1550, align 1, !tbaa !3
-  %1552 = add nuw nsw i64 %1424, 2
-  %1553 = icmp slt i64 %1552, %20
-  br i1 %1553, label %1423, label %1396, !llvm.loop !113
+  %1539 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1535, <8 x i64> %1083, <8 x double> %1537)
+  %1540 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1534, <8 x i64> %1085, <8 x double> %1536)
+  %1541 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1535, <8 x i64> %1085, <8 x double> %1537)
+  %1542 = fadd <8 x double> %1538, %1539
+  %1543 = fadd <8 x double> %1540, %1541
+  %1544 = fadd <8 x double> %1542, %1543
+  %1545 = shufflevector <8 x double> %1544, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1546 = shufflevector <8 x double> %1544, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1547 = fadd <4 x double> %1545, %1546
+  %1548 = fmul <4 x double> %1075, %1547
+  %1549 = add nuw nsw i64 %1425, 1
+  %1550 = mul nsw i64 %1549, %10
+  %1551 = getelementptr double, ptr %1143, i64 %1550
+  %1552 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1551, <4 x double> %1077, <4 x double> %1548) #9, !srcloc !112
+  store <4 x double> %1552, ptr %1551, align 1, !tbaa !3
+  %1553 = add nuw nsw i64 %1425, 2
+  %1554 = icmp slt i64 %1553, %20
+  br i1 %1554, label %1424, label %1397, !llvm.loop !113
 
-1554:                                             ; preds = %1611, %1400
-  %1555 = phi i64 [ %1397, %1400 ], [ %1634, %1611 ]
-  br i1 %1090, label %1581, label %1556
+1555:                                             ; preds = %1612, %1401
+  %1556 = phi i64 [ %1398, %1401 ], [ %1635, %1612 ]
+  br i1 %1091, label %1582, label %1557
 
-1556:                                             ; preds = %1554
-  %1557 = mul nsw i64 %1555, %7
-  %1558 = getelementptr double, ptr %6, i64 %1557
-  br label %1559
+1557:                                             ; preds = %1555
+  %1558 = mul nsw i64 %1556, %7
+  %1559 = getelementptr double, ptr %6, i64 %1558
+  br label %1560
 
-1559:                                             ; preds = %1559, %1556
-  %1560 = phi i64 [ 0, %1556 ], [ %1579, %1559 ]
-  %1561 = phi <8 x double> [ zeroinitializer, %1556 ], [ %1575, %1559 ]
-  %1562 = phi <8 x double> [ zeroinitializer, %1556 ], [ %1576, %1559 ]
-  %1563 = phi <8 x double> [ zeroinitializer, %1556 ], [ %1577, %1559 ]
-  %1564 = phi <8 x double> [ zeroinitializer, %1556 ], [ %1578, %1559 ]
-  %1565 = getelementptr double, ptr %1402, i64 %1560
-  %1566 = load <8 x double>, ptr %1565, align 1, !tbaa !3
-  %1567 = getelementptr double, ptr %1405, i64 %1560
-  %1568 = load <8 x double>, ptr %1567, align 1, !tbaa !3
-  %1569 = getelementptr double, ptr %1408, i64 %1560
-  %1570 = load <8 x double>, ptr %1569, align 1, !tbaa !3
-  %1571 = getelementptr double, ptr %1411, i64 %1560
-  %1572 = load <8 x double>, ptr %1571, align 1, !tbaa !3
-  %1573 = getelementptr double, ptr %1558, i64 %1560
-  %1574 = load <8 x double>, ptr %1573, align 1, !tbaa !3
-  %1575 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1566, <8 x double> %1574, <8 x double> %1561)
-  %1576 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1568, <8 x double> %1574, <8 x double> %1562)
-  %1577 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1570, <8 x double> %1574, <8 x double> %1563)
-  %1578 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1572, <8 x double> %1574, <8 x double> %1564)
-  %1579 = add nuw nsw i64 %1560, 8
-  %1580 = icmp ult i64 %1579, %997
-  br i1 %1580, label %1559, label %1581, !llvm.loop !114
+1560:                                             ; preds = %1560, %1557
+  %1561 = phi i64 [ 0, %1557 ], [ %1580, %1560 ]
+  %1562 = phi <8 x double> [ zeroinitializer, %1557 ], [ %1576, %1560 ]
+  %1563 = phi <8 x double> [ zeroinitializer, %1557 ], [ %1577, %1560 ]
+  %1564 = phi <8 x double> [ zeroinitializer, %1557 ], [ %1578, %1560 ]
+  %1565 = phi <8 x double> [ zeroinitializer, %1557 ], [ %1579, %1560 ]
+  %1566 = getelementptr double, ptr %1403, i64 %1561
+  %1567 = load <8 x double>, ptr %1566, align 1, !tbaa !3
+  %1568 = getelementptr double, ptr %1406, i64 %1561
+  %1569 = load <8 x double>, ptr %1568, align 1, !tbaa !3
+  %1570 = getelementptr double, ptr %1409, i64 %1561
+  %1571 = load <8 x double>, ptr %1570, align 1, !tbaa !3
+  %1572 = getelementptr double, ptr %1412, i64 %1561
+  %1573 = load <8 x double>, ptr %1572, align 1, !tbaa !3
+  %1574 = getelementptr double, ptr %1559, i64 %1561
+  %1575 = load <8 x double>, ptr %1574, align 1, !tbaa !3
+  %1576 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1567, <8 x double> %1575, <8 x double> %1562)
+  %1577 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1569, <8 x double> %1575, <8 x double> %1563)
+  %1578 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1571, <8 x double> %1575, <8 x double> %1564)
+  %1579 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1573, <8 x double> %1575, <8 x double> %1565)
+  %1580 = add nuw nsw i64 %1561, 8
+  %1581 = icmp ult i64 %1580, %997
+  br i1 %1581, label %1560, label %1582, !llvm.loop !114
 
-1581:                                             ; preds = %1559, %1554
-  %1582 = phi <8 x double> [ zeroinitializer, %1554 ], [ %1578, %1559 ]
-  %1583 = phi <8 x double> [ zeroinitializer, %1554 ], [ %1577, %1559 ]
-  %1584 = phi <8 x double> [ zeroinitializer, %1554 ], [ %1576, %1559 ]
-  %1585 = phi <8 x double> [ zeroinitializer, %1554 ], [ %1575, %1559 ]
-  %1586 = phi i64 [ 0, %1554 ], [ %1093, %1559 ]
-  %1587 = sub nsw i64 %2, %1586
-  %1588 = and i64 %1587, 4294967295
-  %1589 = icmp eq i64 %1588, 0
-  br i1 %1589, label %1611, label %1590
+1582:                                             ; preds = %1560, %1555
+  %1583 = phi <8 x double> [ zeroinitializer, %1555 ], [ %1579, %1560 ]
+  %1584 = phi <8 x double> [ zeroinitializer, %1555 ], [ %1578, %1560 ]
+  %1585 = phi <8 x double> [ zeroinitializer, %1555 ], [ %1577, %1560 ]
+  %1586 = phi <8 x double> [ zeroinitializer, %1555 ], [ %1576, %1560 ]
+  %1587 = phi i64 [ 0, %1555 ], [ %1094, %1560 ]
+  %1588 = sub nsw i64 %2, %1587
+  %1589 = and i64 %1588, 4294967295
+  %1590 = icmp eq i64 %1589, 0
+  br i1 %1590, label %1612, label %1591
 
-1590:                                             ; preds = %1581
-  %1591 = shl nsw i64 -1, %1588
-  %1592 = trunc i64 %1591 to i8
-  %1593 = xor i8 %1592, -1
-  %1594 = getelementptr double, ptr %1413, i64 %1586
-  %1595 = bitcast i8 %1593 to <8 x i1>
-  %1596 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1594, i32 1, <8 x i1> %1595, <8 x double> zeroinitializer)
-  %1597 = getelementptr double, ptr %1416, i64 %1586
-  %1598 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1597, i32 1, <8 x i1> %1595, <8 x double> zeroinitializer)
-  %1599 = getelementptr double, ptr %1419, i64 %1586
-  %1600 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1599, i32 1, <8 x i1> %1595, <8 x double> zeroinitializer)
-  %1601 = getelementptr double, ptr %1422, i64 %1586
-  %1602 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1601, i32 1, <8 x i1> %1595, <8 x double> zeroinitializer)
-  %1603 = mul nsw i64 %1555, %7
-  %1604 = getelementptr double, ptr %6, i64 %1603
-  %1605 = getelementptr double, ptr %1604, i64 %1586
-  %1606 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1605, i32 1, <8 x i1> %1595, <8 x double> zeroinitializer)
-  %1607 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1596, <8 x double> %1606, <8 x double> %1585)
-  %1608 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1598, <8 x double> %1606, <8 x double> %1584)
-  %1609 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1600, <8 x double> %1606, <8 x double> %1583)
-  %1610 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1602, <8 x double> %1606, <8 x double> %1582)
-  br label %1611
+1591:                                             ; preds = %1582
+  %1592 = shl nsw i64 -1, %1589
+  %1593 = trunc i64 %1592 to i8
+  %1594 = xor i8 %1593, -1
+  %1595 = getelementptr double, ptr %1414, i64 %1587
+  %1596 = bitcast i8 %1594 to <8 x i1>
+  %1597 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1595, i32 1, <8 x i1> %1596, <8 x double> zeroinitializer)
+  %1598 = getelementptr double, ptr %1417, i64 %1587
+  %1599 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1598, i32 1, <8 x i1> %1596, <8 x double> zeroinitializer)
+  %1600 = getelementptr double, ptr %1420, i64 %1587
+  %1601 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1600, i32 1, <8 x i1> %1596, <8 x double> zeroinitializer)
+  %1602 = getelementptr double, ptr %1423, i64 %1587
+  %1603 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1602, i32 1, <8 x i1> %1596, <8 x double> zeroinitializer)
+  %1604 = mul nsw i64 %1556, %7
+  %1605 = getelementptr double, ptr %6, i64 %1604
+  %1606 = getelementptr double, ptr %1605, i64 %1587
+  %1607 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1606, i32 1, <8 x i1> %1596, <8 x double> zeroinitializer)
+  %1608 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1597, <8 x double> %1607, <8 x double> %1586)
+  %1609 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1599, <8 x double> %1607, <8 x double> %1585)
+  %1610 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1601, <8 x double> %1607, <8 x double> %1584)
+  %1611 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1603, <8 x double> %1607, <8 x double> %1583)
+  br label %1612
 
-1611:                                             ; preds = %1590, %1581
-  %1612 = phi <8 x double> [ %1610, %1590 ], [ %1582, %1581 ]
-  %1613 = phi <8 x double> [ %1609, %1590 ], [ %1583, %1581 ]
-  %1614 = phi <8 x double> [ %1608, %1590 ], [ %1584, %1581 ]
-  %1615 = phi <8 x double> [ %1607, %1590 ], [ %1585, %1581 ]
-  %1616 = shufflevector <8 x double> %1615, <8 x double> %1614, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1617 = shufflevector <8 x double> %1615, <8 x double> %1614, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1618 = shufflevector <8 x double> %1613, <8 x double> %1612, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1619 = shufflevector <8 x double> %1613, <8 x double> %1612, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1620 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1616, <8 x i64> %1083, <8 x double> %1618)
+1612:                                             ; preds = %1591, %1582
+  %1613 = phi <8 x double> [ %1611, %1591 ], [ %1583, %1582 ]
+  %1614 = phi <8 x double> [ %1610, %1591 ], [ %1584, %1582 ]
+  %1615 = phi <8 x double> [ %1609, %1591 ], [ %1585, %1582 ]
+  %1616 = phi <8 x double> [ %1608, %1591 ], [ %1586, %1582 ]
+  %1617 = shufflevector <8 x double> %1616, <8 x double> %1615, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1618 = shufflevector <8 x double> %1616, <8 x double> %1615, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1619 = shufflevector <8 x double> %1614, <8 x double> %1613, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1620 = shufflevector <8 x double> %1614, <8 x double> %1613, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1621 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1617, <8 x i64> %1083, <8 x double> %1619)
-  %1622 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1616, <8 x i64> %1084, <8 x double> %1618)
-  %1623 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1617, <8 x i64> %1084, <8 x double> %1619)
-  %1624 = fadd <8 x double> %1620, %1621
-  %1625 = fadd <8 x double> %1622, %1623
-  %1626 = fadd <8 x double> %1624, %1625
-  %1627 = shufflevector <8 x double> %1626, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1628 = shufflevector <8 x double> %1626, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1629 = fadd <4 x double> %1627, %1628
-  %1630 = fmul <4 x double> %1075, %1629
-  %1631 = mul nsw i64 %1555, %10
-  %1632 = getelementptr double, ptr %1398, i64 %1631
-  %1633 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1632, <4 x double> %1077, <4 x double> %1630) #9, !srcloc !115
-  store <4 x double> %1633, ptr %1632, align 1, !tbaa !3
-  %1634 = add i64 %1555, 1
-  %1635 = icmp eq i64 %1634, %1
-  br i1 %1635, label %1636, label %1554, !llvm.loop !116
+  %1622 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1618, <8 x i64> %1083, <8 x double> %1620)
+  %1623 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1617, <8 x i64> %1085, <8 x double> %1619)
+  %1624 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1618, <8 x i64> %1085, <8 x double> %1620)
+  %1625 = fadd <8 x double> %1621, %1622
+  %1626 = fadd <8 x double> %1623, %1624
+  %1627 = fadd <8 x double> %1625, %1626
+  %1628 = shufflevector <8 x double> %1627, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1629 = shufflevector <8 x double> %1627, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1630 = fadd <4 x double> %1628, %1629
+  %1631 = fmul <4 x double> %1075, %1630
+  %1632 = mul nsw i64 %1556, %10
+  %1633 = getelementptr double, ptr %1399, i64 %1632
+  %1634 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %1633, <4 x double> %1077, <4 x double> %1631) #9, !srcloc !115
+  store <4 x double> %1634, ptr %1633, align 1, !tbaa !3
+  %1635 = add i64 %1556, 1
+  %1636 = icmp eq i64 %1635, %1
+  br i1 %1636, label %1637, label %1555, !llvm.loop !116
 
-1636:                                             ; preds = %1611, %1396
-  %1637 = add nuw nsw i64 %1096, 4
-  %1638 = add nuw nsw i64 %1095, 4
-  %1639 = icmp slt i64 %1637, %15
-  br i1 %1639, label %1094, label %1124, !llvm.loop !117
+1637:                                             ; preds = %1612, %1397
+  %1638 = add nuw nsw i64 %1097, 4
+  %1639 = add nuw nsw i64 %1096, 4
+  %1640 = icmp slt i64 %1638, %15
+  br i1 %1640, label %1095, label %1125, !llvm.loop !117
 
-1640:                                             ; preds = %1998, %1130
-  %1641 = phi i64 [ %1138, %1130 ], [ %2000, %1998 ]
-  %1642 = phi i64 [ %1128, %1130 ], [ %1999, %1998 ]
-  br i1 %1131, label %1643, label %1671
+1641:                                             ; preds = %1999, %1131
+  %1642 = phi i64 [ %1139, %1131 ], [ %2001, %1999 ]
+  %1643 = phi i64 [ %1129, %1131 ], [ %2000, %1999 ]
+  br i1 %1132, label %1644, label %1672
 
-1643:                                             ; preds = %1640
-  %1644 = mul nsw i64 %1641, %2
-  %1645 = getelementptr double, ptr %996, i64 %1644
-  %1646 = and i64 %1641, 4294967294
-  %1647 = or disjoint i64 %1646, 1
-  %1648 = mul nsw i64 %1647, %2
-  %1649 = getelementptr double, ptr %996, i64 %1648
-  %1650 = mul nsw i64 %1641, %2
-  %1651 = getelementptr double, ptr %996, i64 %1650
-  %1652 = and i64 %1641, 4294967294
-  %1653 = or disjoint i64 %1652, 1
-  %1654 = mul nsw i64 %1653, %2
-  %1655 = getelementptr double, ptr %996, i64 %1654
-  br label %1688
+1644:                                             ; preds = %1641
+  %1645 = mul nsw i64 %1642, %2
+  %1646 = getelementptr double, ptr %996, i64 %1645
+  %1647 = and i64 %1642, 4294967294
+  %1648 = or disjoint i64 %1647, 1
+  %1649 = mul nsw i64 %1648, %2
+  %1650 = getelementptr double, ptr %996, i64 %1649
+  %1651 = mul nsw i64 %1642, %2
+  %1652 = getelementptr double, ptr %996, i64 %1651
+  %1653 = and i64 %1642, 4294967294
+  %1654 = or disjoint i64 %1653, 1
+  %1655 = mul nsw i64 %1654, %2
+  %1656 = getelementptr double, ptr %996, i64 %1655
+  br label %1689
 
-1656:                                             ; preds = %1998
-  %1657 = trunc i64 %2000 to i32
-  br label %1658
+1657:                                             ; preds = %1999
+  %1658 = trunc i64 %2001 to i32
+  br label %1659
 
-1658:                                             ; preds = %1656, %1126
-  %1659 = phi i32 [ %1127, %1126 ], [ %1657, %1656 ]
-  %1660 = phi i64 [ %1128, %1126 ], [ %1999, %1656 ]
-  %1661 = icmp slt i64 %1660, %0
-  br i1 %1661, label %1662, label %2243
+1659:                                             ; preds = %1657, %1127
+  %1660 = phi i32 [ %1128, %1127 ], [ %1658, %1657 ]
+  %1661 = phi i64 [ %1129, %1127 ], [ %2000, %1657 ]
+  %1662 = icmp slt i64 %1661, %0
+  br i1 %1662, label %1663, label %2244
 
-1662:                                             ; preds = %1658
-  %1663 = icmp sgt i64 %19, 0
-  %1664 = icmp eq i64 %997, 0
+1663:                                             ; preds = %1659
+  %1664 = icmp sgt i64 %19, 0
   %1665 = icmp eq i64 %997, 0
   %1666 = icmp eq i64 %997, 0
-  %1667 = add nsw i64 %997, -1
-  %1668 = and i64 %1667, -8
-  %1669 = add i64 %1668, 8
-  %1670 = zext i32 %1659 to i64
-  br label %2002
+  %1667 = icmp eq i64 %997, 0
+  %1668 = add nsw i64 %997, -1
+  %1669 = and i64 %1668, -8
+  %1670 = add i64 %1669, 8
+  %1671 = zext i32 %1660 to i64
+  br label %2003
 
-1671:                                             ; preds = %1783, %1640
-  %1672 = phi i64 [ 0, %1640 ], [ %1831, %1783 ]
-  %1673 = getelementptr double, ptr %9, i64 %1642
-  %1674 = icmp slt i64 %1672, %20
-  br i1 %1674, label %1675, label %1833
+1672:                                             ; preds = %1784, %1641
+  %1673 = phi i64 [ 0, %1641 ], [ %1832, %1784 ]
+  %1674 = getelementptr double, ptr %9, i64 %1643
+  %1675 = icmp slt i64 %1673, %20
+  br i1 %1675, label %1676, label %1834
 
-1675:                                             ; preds = %1671
-  %1676 = mul nsw i64 %1641, %2
-  %1677 = getelementptr double, ptr %996, i64 %1676
-  %1678 = and i64 %1641, 4294967294
-  %1679 = or disjoint i64 %1678, 1
-  %1680 = mul nsw i64 %1679, %2
-  %1681 = getelementptr double, ptr %996, i64 %1680
-  %1682 = mul nsw i64 %1641, %2
-  %1683 = getelementptr double, ptr %996, i64 %1682
-  %1684 = and i64 %1641, 4294967294
-  %1685 = or disjoint i64 %1684, 1
-  %1686 = mul nsw i64 %1685, %2
-  %1687 = getelementptr double, ptr %996, i64 %1686
-  br label %1850
+1676:                                             ; preds = %1672
+  %1677 = mul nsw i64 %1642, %2
+  %1678 = getelementptr double, ptr %996, i64 %1677
+  %1679 = and i64 %1642, 4294967294
+  %1680 = or disjoint i64 %1679, 1
+  %1681 = mul nsw i64 %1680, %2
+  %1682 = getelementptr double, ptr %996, i64 %1681
+  %1683 = mul nsw i64 %1642, %2
+  %1684 = getelementptr double, ptr %996, i64 %1683
+  %1685 = and i64 %1642, 4294967294
+  %1686 = or disjoint i64 %1685, 1
+  %1687 = mul nsw i64 %1686, %2
+  %1688 = getelementptr double, ptr %996, i64 %1687
+  br label %1851
 
-1688:                                             ; preds = %1783, %1643
-  %1689 = phi i64 [ 0, %1643 ], [ %1831, %1783 ]
-  br i1 %1132, label %1734, label %1690
+1689:                                             ; preds = %1784, %1644
+  %1690 = phi i64 [ 0, %1644 ], [ %1832, %1784 ]
+  br i1 %1133, label %1735, label %1691
 
-1690:                                             ; preds = %1688
-  %1691 = mul nsw i64 %1689, %7
-  %1692 = getelementptr double, ptr %6, i64 %1691
-  %1693 = or disjoint i64 %1689, 1
-  %1694 = mul nsw i64 %1693, %7
-  %1695 = getelementptr double, ptr %6, i64 %1694
-  %1696 = or disjoint i64 %1689, 2
-  %1697 = mul nsw i64 %1696, %7
-  %1698 = getelementptr double, ptr %6, i64 %1697
-  %1699 = or disjoint i64 %1689, 3
-  %1700 = mul nsw i64 %1699, %7
-  %1701 = getelementptr double, ptr %6, i64 %1700
-  br label %1702
+1691:                                             ; preds = %1689
+  %1692 = mul nsw i64 %1690, %7
+  %1693 = getelementptr double, ptr %6, i64 %1692
+  %1694 = or disjoint i64 %1690, 1
+  %1695 = mul nsw i64 %1694, %7
+  %1696 = getelementptr double, ptr %6, i64 %1695
+  %1697 = or disjoint i64 %1690, 2
+  %1698 = mul nsw i64 %1697, %7
+  %1699 = getelementptr double, ptr %6, i64 %1698
+  %1700 = or disjoint i64 %1690, 3
+  %1701 = mul nsw i64 %1700, %7
+  %1702 = getelementptr double, ptr %6, i64 %1701
+  br label %1703
 
-1702:                                             ; preds = %1702, %1690
-  %1703 = phi i64 [ 0, %1690 ], [ %1732, %1702 ]
-  %1704 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1731, %1702 ]
-  %1705 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1730, %1702 ]
-  %1706 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1729, %1702 ]
-  %1707 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1728, %1702 ]
-  %1708 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1727, %1702 ]
-  %1709 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1726, %1702 ]
-  %1710 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1725, %1702 ]
-  %1711 = phi <8 x double> [ zeroinitializer, %1690 ], [ %1724, %1702 ]
-  %1712 = getelementptr double, ptr %1645, i64 %1703
-  %1713 = load <8 x double>, ptr %1712, align 1, !tbaa !3
-  %1714 = getelementptr double, ptr %1649, i64 %1703
-  %1715 = load <8 x double>, ptr %1714, align 1, !tbaa !3
-  %1716 = getelementptr double, ptr %1692, i64 %1703
-  %1717 = load <8 x double>, ptr %1716, align 1, !tbaa !3
-  %1718 = getelementptr double, ptr %1695, i64 %1703
-  %1719 = load <8 x double>, ptr %1718, align 1, !tbaa !3
-  %1720 = getelementptr double, ptr %1698, i64 %1703
-  %1721 = load <8 x double>, ptr %1720, align 1, !tbaa !3
-  %1722 = getelementptr double, ptr %1701, i64 %1703
-  %1723 = load <8 x double>, ptr %1722, align 1, !tbaa !3
-  %1724 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1713, <8 x double> %1717, <8 x double> %1711)
-  %1725 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1715, <8 x double> %1717, <8 x double> %1710)
-  %1726 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1713, <8 x double> %1719, <8 x double> %1709)
-  %1727 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1715, <8 x double> %1719, <8 x double> %1708)
-  %1728 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1713, <8 x double> %1721, <8 x double> %1707)
-  %1729 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1715, <8 x double> %1721, <8 x double> %1706)
-  %1730 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1713, <8 x double> %1723, <8 x double> %1705)
-  %1731 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1715, <8 x double> %1723, <8 x double> %1704)
-  %1732 = add nuw nsw i64 %1703, 8
-  %1733 = icmp ult i64 %1732, %997
-  br i1 %1733, label %1702, label %1734, !llvm.loop !118
+1703:                                             ; preds = %1703, %1691
+  %1704 = phi i64 [ 0, %1691 ], [ %1733, %1703 ]
+  %1705 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1732, %1703 ]
+  %1706 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1731, %1703 ]
+  %1707 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1730, %1703 ]
+  %1708 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1729, %1703 ]
+  %1709 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1728, %1703 ]
+  %1710 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1727, %1703 ]
+  %1711 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1726, %1703 ]
+  %1712 = phi <8 x double> [ zeroinitializer, %1691 ], [ %1725, %1703 ]
+  %1713 = getelementptr double, ptr %1646, i64 %1704
+  %1714 = load <8 x double>, ptr %1713, align 1, !tbaa !3
+  %1715 = getelementptr double, ptr %1650, i64 %1704
+  %1716 = load <8 x double>, ptr %1715, align 1, !tbaa !3
+  %1717 = getelementptr double, ptr %1693, i64 %1704
+  %1718 = load <8 x double>, ptr %1717, align 1, !tbaa !3
+  %1719 = getelementptr double, ptr %1696, i64 %1704
+  %1720 = load <8 x double>, ptr %1719, align 1, !tbaa !3
+  %1721 = getelementptr double, ptr %1699, i64 %1704
+  %1722 = load <8 x double>, ptr %1721, align 1, !tbaa !3
+  %1723 = getelementptr double, ptr %1702, i64 %1704
+  %1724 = load <8 x double>, ptr %1723, align 1, !tbaa !3
+  %1725 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1714, <8 x double> %1718, <8 x double> %1712)
+  %1726 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1716, <8 x double> %1718, <8 x double> %1711)
+  %1727 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1714, <8 x double> %1720, <8 x double> %1710)
+  %1728 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1716, <8 x double> %1720, <8 x double> %1709)
+  %1729 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1714, <8 x double> %1722, <8 x double> %1708)
+  %1730 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1716, <8 x double> %1722, <8 x double> %1707)
+  %1731 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1714, <8 x double> %1724, <8 x double> %1706)
+  %1732 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1716, <8 x double> %1724, <8 x double> %1705)
+  %1733 = add nuw nsw i64 %1704, 8
+  %1734 = icmp ult i64 %1733, %997
+  br i1 %1734, label %1703, label %1735, !llvm.loop !118
 
-1734:                                             ; preds = %1702, %1688
-  %1735 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1724, %1702 ]
-  %1736 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1725, %1702 ]
-  %1737 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1726, %1702 ]
-  %1738 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1727, %1702 ]
-  %1739 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1728, %1702 ]
-  %1740 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1729, %1702 ]
-  %1741 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1730, %1702 ]
-  %1742 = phi <8 x double> [ zeroinitializer, %1688 ], [ %1731, %1702 ]
-  %1743 = phi i64 [ 0, %1688 ], [ %1137, %1702 ]
-  %1744 = sub nsw i64 %2, %1743
-  %1745 = and i64 %1744, 4294967295
-  %1746 = icmp eq i64 %1745, 0
-  br i1 %1746, label %1783, label %1747
+1735:                                             ; preds = %1703, %1689
+  %1736 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1725, %1703 ]
+  %1737 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1726, %1703 ]
+  %1738 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1727, %1703 ]
+  %1739 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1728, %1703 ]
+  %1740 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1729, %1703 ]
+  %1741 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1730, %1703 ]
+  %1742 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1731, %1703 ]
+  %1743 = phi <8 x double> [ zeroinitializer, %1689 ], [ %1732, %1703 ]
+  %1744 = phi i64 [ 0, %1689 ], [ %1138, %1703 ]
+  %1745 = sub nsw i64 %2, %1744
+  %1746 = and i64 %1745, 4294967295
+  %1747 = icmp eq i64 %1746, 0
+  br i1 %1747, label %1784, label %1748
 
-1747:                                             ; preds = %1734
-  %1748 = shl nsw i64 -1, %1745
-  %1749 = trunc i64 %1748 to i8
-  %1750 = xor i8 %1749, -1
-  %1751 = getelementptr double, ptr %1651, i64 %1743
-  %1752 = bitcast i8 %1750 to <8 x i1>
-  %1753 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1751, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1754 = getelementptr double, ptr %1655, i64 %1743
-  %1755 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1754, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1756 = mul nsw i64 %1689, %7
-  %1757 = getelementptr double, ptr %6, i64 %1756
-  %1758 = getelementptr double, ptr %1757, i64 %1743
-  %1759 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1758, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1760 = or disjoint i64 %1689, 1
-  %1761 = mul nsw i64 %1760, %7
-  %1762 = getelementptr double, ptr %6, i64 %1761
-  %1763 = getelementptr double, ptr %1762, i64 %1743
-  %1764 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1763, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1765 = or disjoint i64 %1689, 2
-  %1766 = mul nsw i64 %1765, %7
-  %1767 = getelementptr double, ptr %6, i64 %1766
-  %1768 = getelementptr double, ptr %1767, i64 %1743
-  %1769 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1768, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1770 = or disjoint i64 %1689, 3
-  %1771 = mul nsw i64 %1770, %7
-  %1772 = getelementptr double, ptr %6, i64 %1771
-  %1773 = getelementptr double, ptr %1772, i64 %1743
-  %1774 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1773, i32 1, <8 x i1> %1752, <8 x double> zeroinitializer)
-  %1775 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1753, <8 x double> %1759, <8 x double> %1735)
-  %1776 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1755, <8 x double> %1759, <8 x double> %1736)
-  %1777 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1753, <8 x double> %1764, <8 x double> %1737)
-  %1778 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1755, <8 x double> %1764, <8 x double> %1738)
-  %1779 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1753, <8 x double> %1769, <8 x double> %1739)
-  %1780 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1755, <8 x double> %1769, <8 x double> %1740)
-  %1781 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1753, <8 x double> %1774, <8 x double> %1741)
-  %1782 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1755, <8 x double> %1774, <8 x double> %1742)
-  br label %1783
+1748:                                             ; preds = %1735
+  %1749 = shl nsw i64 -1, %1746
+  %1750 = trunc i64 %1749 to i8
+  %1751 = xor i8 %1750, -1
+  %1752 = getelementptr double, ptr %1652, i64 %1744
+  %1753 = bitcast i8 %1751 to <8 x i1>
+  %1754 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1752, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1755 = getelementptr double, ptr %1656, i64 %1744
+  %1756 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1755, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1757 = mul nsw i64 %1690, %7
+  %1758 = getelementptr double, ptr %6, i64 %1757
+  %1759 = getelementptr double, ptr %1758, i64 %1744
+  %1760 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1759, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1761 = or disjoint i64 %1690, 1
+  %1762 = mul nsw i64 %1761, %7
+  %1763 = getelementptr double, ptr %6, i64 %1762
+  %1764 = getelementptr double, ptr %1763, i64 %1744
+  %1765 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1764, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1766 = or disjoint i64 %1690, 2
+  %1767 = mul nsw i64 %1766, %7
+  %1768 = getelementptr double, ptr %6, i64 %1767
+  %1769 = getelementptr double, ptr %1768, i64 %1744
+  %1770 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1769, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1771 = or disjoint i64 %1690, 3
+  %1772 = mul nsw i64 %1771, %7
+  %1773 = getelementptr double, ptr %6, i64 %1772
+  %1774 = getelementptr double, ptr %1773, i64 %1744
+  %1775 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1774, i32 1, <8 x i1> %1753, <8 x double> zeroinitializer)
+  %1776 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1754, <8 x double> %1760, <8 x double> %1736)
+  %1777 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1756, <8 x double> %1760, <8 x double> %1737)
+  %1778 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1754, <8 x double> %1765, <8 x double> %1738)
+  %1779 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1756, <8 x double> %1765, <8 x double> %1739)
+  %1780 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1754, <8 x double> %1770, <8 x double> %1740)
+  %1781 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1756, <8 x double> %1770, <8 x double> %1741)
+  %1782 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1754, <8 x double> %1775, <8 x double> %1742)
+  %1783 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1756, <8 x double> %1775, <8 x double> %1743)
+  br label %1784
 
-1783:                                             ; preds = %1747, %1734
-  %1784 = phi <8 x double> [ %1775, %1747 ], [ %1735, %1734 ]
-  %1785 = phi <8 x double> [ %1776, %1747 ], [ %1736, %1734 ]
-  %1786 = phi <8 x double> [ %1777, %1747 ], [ %1737, %1734 ]
-  %1787 = phi <8 x double> [ %1778, %1747 ], [ %1738, %1734 ]
-  %1788 = phi <8 x double> [ %1779, %1747 ], [ %1739, %1734 ]
-  %1789 = phi <8 x double> [ %1780, %1747 ], [ %1740, %1734 ]
-  %1790 = phi <8 x double> [ %1781, %1747 ], [ %1741, %1734 ]
-  %1791 = phi <8 x double> [ %1782, %1747 ], [ %1742, %1734 ]
-  %1792 = shufflevector <8 x double> %1784, <8 x double> %1786, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1793 = shufflevector <8 x double> %1784, <8 x double> %1786, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1794 = shufflevector <8 x double> %1788, <8 x double> %1790, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1795 = shufflevector <8 x double> %1788, <8 x double> %1790, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1796 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1792, <8 x i64> %1083, <8 x double> %1794)
+1784:                                             ; preds = %1748, %1735
+  %1785 = phi <8 x double> [ %1776, %1748 ], [ %1736, %1735 ]
+  %1786 = phi <8 x double> [ %1777, %1748 ], [ %1737, %1735 ]
+  %1787 = phi <8 x double> [ %1778, %1748 ], [ %1738, %1735 ]
+  %1788 = phi <8 x double> [ %1779, %1748 ], [ %1739, %1735 ]
+  %1789 = phi <8 x double> [ %1780, %1748 ], [ %1740, %1735 ]
+  %1790 = phi <8 x double> [ %1781, %1748 ], [ %1741, %1735 ]
+  %1791 = phi <8 x double> [ %1782, %1748 ], [ %1742, %1735 ]
+  %1792 = phi <8 x double> [ %1783, %1748 ], [ %1743, %1735 ]
+  %1793 = shufflevector <8 x double> %1785, <8 x double> %1787, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1794 = shufflevector <8 x double> %1785, <8 x double> %1787, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1795 = shufflevector <8 x double> %1789, <8 x double> %1791, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1796 = shufflevector <8 x double> %1789, <8 x double> %1791, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1797 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1793, <8 x i64> %1083, <8 x double> %1795)
-  %1798 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1792, <8 x i64> %1084, <8 x double> %1794)
-  %1799 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1793, <8 x i64> %1084, <8 x double> %1795)
-  %1800 = fadd <8 x double> %1796, %1797
-  %1801 = fadd <8 x double> %1798, %1799
-  %1802 = fadd <8 x double> %1800, %1801
-  %1803 = shufflevector <8 x double> %1802, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1804 = shufflevector <8 x double> %1802, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1805 = fadd <4 x double> %1803, %1804
-  %1806 = fmul <4 x double> %1075, %1805
-  %1807 = mul nsw i64 %1689, %10
-  %1808 = add nsw i64 %1807, %1642
-  %1809 = getelementptr inbounds double, ptr %9, i64 %1808
-  %1810 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %1809, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
-  %1811 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %1810, <4 x double> %1077, <4 x double> %1806)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1809, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %1811, i32 8)
-  %1812 = shufflevector <8 x double> %1785, <8 x double> %1787, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1813 = shufflevector <8 x double> %1785, <8 x double> %1787, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1814 = shufflevector <8 x double> %1789, <8 x double> %1791, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %1815 = shufflevector <8 x double> %1789, <8 x double> %1791, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %1816 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1812, <8 x i64> %1083, <8 x double> %1814)
+  %1798 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1794, <8 x i64> %1083, <8 x double> %1796)
+  %1799 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1793, <8 x i64> %1085, <8 x double> %1795)
+  %1800 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1794, <8 x i64> %1085, <8 x double> %1796)
+  %1801 = fadd <8 x double> %1797, %1798
+  %1802 = fadd <8 x double> %1799, %1800
+  %1803 = fadd <8 x double> %1801, %1802
+  %1804 = shufflevector <8 x double> %1803, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1805 = shufflevector <8 x double> %1803, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1806 = fadd <4 x double> %1804, %1805
+  %1807 = fmul <4 x double> %1075, %1806
+  %1808 = mul nsw i64 %1690, %10
+  %1809 = add nsw i64 %1808, %1643
+  %1810 = getelementptr inbounds double, ptr %9, i64 %1809
+  %1811 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %1810, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %1812 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %1811, <4 x double> %1077, <4 x double> %1807)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1810, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %1812, i32 8)
+  %1813 = shufflevector <8 x double> %1786, <8 x double> %1788, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1814 = shufflevector <8 x double> %1786, <8 x double> %1788, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %1815 = shufflevector <8 x double> %1790, <8 x double> %1792, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %1816 = shufflevector <8 x double> %1790, <8 x double> %1792, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1817 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1813, <8 x i64> %1083, <8 x double> %1815)
-  %1818 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1812, <8 x i64> %1084, <8 x double> %1814)
-  %1819 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1813, <8 x i64> %1084, <8 x double> %1815)
-  %1820 = fadd <8 x double> %1816, %1817
-  %1821 = fadd <8 x double> %1818, %1819
-  %1822 = fadd <8 x double> %1820, %1821
-  %1823 = shufflevector <8 x double> %1822, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %1824 = shufflevector <8 x double> %1822, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %1825 = fadd <4 x double> %1823, %1824
-  %1826 = fmul <4 x double> %1075, %1825
-  %1827 = or disjoint i64 %1808, 1
-  %1828 = getelementptr inbounds double, ptr %9, i64 %1827
-  %1829 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr nonnull %1828, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
-  %1830 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %1829, <4 x double> %1077, <4 x double> %1826)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %1828, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %1830, i32 8)
-  %1831 = add nuw nsw i64 %1689, 4
-  %1832 = icmp slt i64 %1831, %19
-  br i1 %1832, label %1688, label %1671, !llvm.loop !119
+  %1818 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1814, <8 x i64> %1083, <8 x double> %1816)
+  %1819 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1813, <8 x i64> %1085, <8 x double> %1815)
+  %1820 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %1814, <8 x i64> %1085, <8 x double> %1816)
+  %1821 = fadd <8 x double> %1817, %1818
+  %1822 = fadd <8 x double> %1819, %1820
+  %1823 = fadd <8 x double> %1821, %1822
+  %1824 = shufflevector <8 x double> %1823, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1825 = shufflevector <8 x double> %1823, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %1826 = fadd <4 x double> %1824, %1825
+  %1827 = fmul <4 x double> %1075, %1826
+  %1828 = or disjoint i64 %1809, 1
+  %1829 = getelementptr inbounds double, ptr %9, i64 %1828
+  %1830 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr nonnull %1829, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %1831 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %1830, <4 x double> %1077, <4 x double> %1827)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %1829, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %1831, i32 8)
+  %1832 = add nuw nsw i64 %1690, 4
+  %1833 = icmp slt i64 %1832, %19
+  br i1 %1833, label %1689, label %1672, !llvm.loop !119
 
-1833:                                             ; preds = %1909, %1671
-  %1834 = phi i64 [ %1672, %1671 ], [ %1939, %1909 ]
-  %1835 = getelementptr double, ptr %9, i64 %1642
-  %1836 = icmp slt i64 %1834, %1
-  br i1 %1836, label %1837, label %1998
+1834:                                             ; preds = %1910, %1672
+  %1835 = phi i64 [ %1673, %1672 ], [ %1940, %1910 ]
+  %1836 = getelementptr double, ptr %9, i64 %1643
+  %1837 = icmp slt i64 %1835, %1
+  br i1 %1837, label %1838, label %1999
 
-1837:                                             ; preds = %1833
-  %1838 = mul nsw i64 %1641, %2
-  %1839 = getelementptr double, ptr %996, i64 %1838
-  %1840 = and i64 %1641, 4294967294
-  %1841 = or disjoint i64 %1840, 1
-  %1842 = mul nsw i64 %1841, %2
-  %1843 = getelementptr double, ptr %996, i64 %1842
-  %1844 = mul nsw i64 %1641, %2
-  %1845 = getelementptr double, ptr %996, i64 %1844
-  %1846 = and i64 %1641, 4294967294
-  %1847 = or disjoint i64 %1846, 1
-  %1848 = mul nsw i64 %1847, %2
-  %1849 = getelementptr double, ptr %996, i64 %1848
-  br label %1941
+1838:                                             ; preds = %1834
+  %1839 = mul nsw i64 %1642, %2
+  %1840 = getelementptr double, ptr %996, i64 %1839
+  %1841 = and i64 %1642, 4294967294
+  %1842 = or disjoint i64 %1841, 1
+  %1843 = mul nsw i64 %1842, %2
+  %1844 = getelementptr double, ptr %996, i64 %1843
+  %1845 = mul nsw i64 %1642, %2
+  %1846 = getelementptr double, ptr %996, i64 %1845
+  %1847 = and i64 %1642, 4294967294
+  %1848 = or disjoint i64 %1847, 1
+  %1849 = mul nsw i64 %1848, %2
+  %1850 = getelementptr double, ptr %996, i64 %1849
+  br label %1942
 
-1850:                                             ; preds = %1909, %1675
-  %1851 = phi i64 [ %1672, %1675 ], [ %1939, %1909 ]
-  br i1 %1133, label %1878, label %1852
+1851:                                             ; preds = %1910, %1676
+  %1852 = phi i64 [ %1673, %1676 ], [ %1940, %1910 ]
+  br i1 %1134, label %1879, label %1853
 
-1852:                                             ; preds = %1850
-  %1853 = mul nsw i64 %1851, %7
-  %1854 = getelementptr double, ptr %6, i64 %1853
-  %1855 = add nuw nsw i64 %1851, 1
-  %1856 = mul nsw i64 %1855, %7
-  %1857 = getelementptr double, ptr %6, i64 %1856
-  br label %1858
+1853:                                             ; preds = %1851
+  %1854 = mul nsw i64 %1852, %7
+  %1855 = getelementptr double, ptr %6, i64 %1854
+  %1856 = add nuw nsw i64 %1852, 1
+  %1857 = mul nsw i64 %1856, %7
+  %1858 = getelementptr double, ptr %6, i64 %1857
+  br label %1859
 
-1858:                                             ; preds = %1858, %1852
-  %1859 = phi i64 [ 0, %1852 ], [ %1876, %1858 ]
-  %1860 = phi <8 x double> [ zeroinitializer, %1852 ], [ %1875, %1858 ]
-  %1861 = phi <8 x double> [ zeroinitializer, %1852 ], [ %1874, %1858 ]
-  %1862 = phi <8 x double> [ zeroinitializer, %1852 ], [ %1873, %1858 ]
-  %1863 = phi <8 x double> [ zeroinitializer, %1852 ], [ %1872, %1858 ]
-  %1864 = getelementptr double, ptr %1677, i64 %1859
-  %1865 = load <8 x double>, ptr %1864, align 1, !tbaa !3
-  %1866 = getelementptr double, ptr %1681, i64 %1859
-  %1867 = load <8 x double>, ptr %1866, align 1, !tbaa !3
-  %1868 = getelementptr double, ptr %1854, i64 %1859
-  %1869 = load <8 x double>, ptr %1868, align 1, !tbaa !3
-  %1870 = getelementptr double, ptr %1857, i64 %1859
-  %1871 = load <8 x double>, ptr %1870, align 1, !tbaa !3
-  %1872 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1865, <8 x double> %1869, <8 x double> %1863)
-  %1873 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1867, <8 x double> %1869, <8 x double> %1862)
-  %1874 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1865, <8 x double> %1871, <8 x double> %1861)
-  %1875 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1867, <8 x double> %1871, <8 x double> %1860)
-  %1876 = add nuw nsw i64 %1859, 8
-  %1877 = icmp ult i64 %1876, %997
-  br i1 %1877, label %1858, label %1878, !llvm.loop !120
+1859:                                             ; preds = %1859, %1853
+  %1860 = phi i64 [ 0, %1853 ], [ %1877, %1859 ]
+  %1861 = phi <8 x double> [ zeroinitializer, %1853 ], [ %1876, %1859 ]
+  %1862 = phi <8 x double> [ zeroinitializer, %1853 ], [ %1875, %1859 ]
+  %1863 = phi <8 x double> [ zeroinitializer, %1853 ], [ %1874, %1859 ]
+  %1864 = phi <8 x double> [ zeroinitializer, %1853 ], [ %1873, %1859 ]
+  %1865 = getelementptr double, ptr %1678, i64 %1860
+  %1866 = load <8 x double>, ptr %1865, align 1, !tbaa !3
+  %1867 = getelementptr double, ptr %1682, i64 %1860
+  %1868 = load <8 x double>, ptr %1867, align 1, !tbaa !3
+  %1869 = getelementptr double, ptr %1855, i64 %1860
+  %1870 = load <8 x double>, ptr %1869, align 1, !tbaa !3
+  %1871 = getelementptr double, ptr %1858, i64 %1860
+  %1872 = load <8 x double>, ptr %1871, align 1, !tbaa !3
+  %1873 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1866, <8 x double> %1870, <8 x double> %1864)
+  %1874 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1868, <8 x double> %1870, <8 x double> %1863)
+  %1875 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1866, <8 x double> %1872, <8 x double> %1862)
+  %1876 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1868, <8 x double> %1872, <8 x double> %1861)
+  %1877 = add nuw nsw i64 %1860, 8
+  %1878 = icmp ult i64 %1877, %997
+  br i1 %1878, label %1859, label %1879, !llvm.loop !120
 
-1878:                                             ; preds = %1858, %1850
-  %1879 = phi <8 x double> [ zeroinitializer, %1850 ], [ %1872, %1858 ]
-  %1880 = phi <8 x double> [ zeroinitializer, %1850 ], [ %1873, %1858 ]
-  %1881 = phi <8 x double> [ zeroinitializer, %1850 ], [ %1874, %1858 ]
-  %1882 = phi <8 x double> [ zeroinitializer, %1850 ], [ %1875, %1858 ]
-  %1883 = phi i64 [ 0, %1850 ], [ %1137, %1858 ]
-  %1884 = sub nsw i64 %2, %1883
-  %1885 = and i64 %1884, 4294967295
-  %1886 = icmp eq i64 %1885, 0
-  br i1 %1886, label %1909, label %1887
+1879:                                             ; preds = %1859, %1851
+  %1880 = phi <8 x double> [ zeroinitializer, %1851 ], [ %1873, %1859 ]
+  %1881 = phi <8 x double> [ zeroinitializer, %1851 ], [ %1874, %1859 ]
+  %1882 = phi <8 x double> [ zeroinitializer, %1851 ], [ %1875, %1859 ]
+  %1883 = phi <8 x double> [ zeroinitializer, %1851 ], [ %1876, %1859 ]
+  %1884 = phi i64 [ 0, %1851 ], [ %1138, %1859 ]
+  %1885 = sub nsw i64 %2, %1884
+  %1886 = and i64 %1885, 4294967295
+  %1887 = icmp eq i64 %1886, 0
+  br i1 %1887, label %1910, label %1888
 
-1887:                                             ; preds = %1878
-  %1888 = shl nsw i64 -1, %1885
-  %1889 = trunc i64 %1888 to i8
-  %1890 = xor i8 %1889, -1
-  %1891 = getelementptr double, ptr %1683, i64 %1883
-  %1892 = bitcast i8 %1890 to <8 x i1>
-  %1893 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1891, i32 1, <8 x i1> %1892, <8 x double> zeroinitializer)
-  %1894 = getelementptr double, ptr %1687, i64 %1883
-  %1895 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1894, i32 1, <8 x i1> %1892, <8 x double> zeroinitializer)
-  %1896 = mul nsw i64 %1851, %7
-  %1897 = getelementptr double, ptr %6, i64 %1896
-  %1898 = getelementptr double, ptr %1897, i64 %1883
-  %1899 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1898, i32 1, <8 x i1> %1892, <8 x double> zeroinitializer)
-  %1900 = add nuw nsw i64 %1851, 1
-  %1901 = mul nsw i64 %1900, %7
-  %1902 = getelementptr double, ptr %6, i64 %1901
-  %1903 = getelementptr double, ptr %1902, i64 %1883
-  %1904 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1903, i32 1, <8 x i1> %1892, <8 x double> zeroinitializer)
-  %1905 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1893, <8 x double> %1899, <8 x double> %1879)
-  %1906 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1895, <8 x double> %1899, <8 x double> %1880)
-  %1907 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1893, <8 x double> %1904, <8 x double> %1881)
-  %1908 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1895, <8 x double> %1904, <8 x double> %1882)
-  br label %1909
+1888:                                             ; preds = %1879
+  %1889 = shl nsw i64 -1, %1886
+  %1890 = trunc i64 %1889 to i8
+  %1891 = xor i8 %1890, -1
+  %1892 = getelementptr double, ptr %1684, i64 %1884
+  %1893 = bitcast i8 %1891 to <8 x i1>
+  %1894 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1892, i32 1, <8 x i1> %1893, <8 x double> zeroinitializer)
+  %1895 = getelementptr double, ptr %1688, i64 %1884
+  %1896 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1895, i32 1, <8 x i1> %1893, <8 x double> zeroinitializer)
+  %1897 = mul nsw i64 %1852, %7
+  %1898 = getelementptr double, ptr %6, i64 %1897
+  %1899 = getelementptr double, ptr %1898, i64 %1884
+  %1900 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1899, i32 1, <8 x i1> %1893, <8 x double> zeroinitializer)
+  %1901 = add nuw nsw i64 %1852, 1
+  %1902 = mul nsw i64 %1901, %7
+  %1903 = getelementptr double, ptr %6, i64 %1902
+  %1904 = getelementptr double, ptr %1903, i64 %1884
+  %1905 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1904, i32 1, <8 x i1> %1893, <8 x double> zeroinitializer)
+  %1906 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1894, <8 x double> %1900, <8 x double> %1880)
+  %1907 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1896, <8 x double> %1900, <8 x double> %1881)
+  %1908 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1894, <8 x double> %1905, <8 x double> %1882)
+  %1909 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1896, <8 x double> %1905, <8 x double> %1883)
+  br label %1910
 
-1909:                                             ; preds = %1887, %1878
-  %1910 = phi <8 x double> [ %1905, %1887 ], [ %1879, %1878 ]
-  %1911 = phi <8 x double> [ %1906, %1887 ], [ %1880, %1878 ]
-  %1912 = phi <8 x double> [ %1907, %1887 ], [ %1881, %1878 ]
-  %1913 = phi <8 x double> [ %1908, %1887 ], [ %1882, %1878 ]
-  %1914 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1910)
-  %1915 = mul nsw i64 %1851, %10
-  %1916 = add nsw i64 %1915, %1642
-  %1917 = getelementptr inbounds double, ptr %9, i64 %1916
-  %1918 = load double, ptr %1917, align 8, !tbaa !101
-  %1919 = fmul double %1918, %8
-  %1920 = tail call double @llvm.fmuladd.f64(double %5, double %1914, double %1919)
-  store double %1920, ptr %1917, align 8, !tbaa !101
-  %1921 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1911)
-  %1922 = or disjoint i64 %1916, 1
-  %1923 = getelementptr inbounds double, ptr %9, i64 %1922
-  %1924 = load double, ptr %1923, align 8, !tbaa !101
-  %1925 = fmul double %1924, %8
-  %1926 = tail call double @llvm.fmuladd.f64(double %5, double %1921, double %1925)
-  store double %1926, ptr %1923, align 8, !tbaa !101
-  %1927 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1912)
-  %1928 = add nuw nsw i64 %1851, 1
-  %1929 = mul nsw i64 %1928, %10
-  %1930 = getelementptr double, ptr %1673, i64 %1929
-  %1931 = load double, ptr %1930, align 8, !tbaa !101
-  %1932 = fmul double %1931, %8
-  %1933 = tail call double @llvm.fmuladd.f64(double %5, double %1927, double %1932)
-  store double %1933, ptr %1930, align 8, !tbaa !101
-  %1934 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1913)
-  %1935 = getelementptr i8, ptr %1930, i64 8
-  %1936 = load double, ptr %1935, align 8, !tbaa !101
-  %1937 = fmul double %1936, %8
-  %1938 = tail call double @llvm.fmuladd.f64(double %5, double %1934, double %1937)
-  store double %1938, ptr %1935, align 8, !tbaa !101
-  %1939 = add nuw nsw i64 %1851, 2
-  %1940 = icmp slt i64 %1939, %20
-  br i1 %1940, label %1850, label %1833, !llvm.loop !121
+1910:                                             ; preds = %1888, %1879
+  %1911 = phi <8 x double> [ %1906, %1888 ], [ %1880, %1879 ]
+  %1912 = phi <8 x double> [ %1907, %1888 ], [ %1881, %1879 ]
+  %1913 = phi <8 x double> [ %1908, %1888 ], [ %1882, %1879 ]
+  %1914 = phi <8 x double> [ %1909, %1888 ], [ %1883, %1879 ]
+  %1915 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1911)
+  %1916 = mul nsw i64 %1852, %10
+  %1917 = add nsw i64 %1916, %1643
+  %1918 = getelementptr inbounds double, ptr %9, i64 %1917
+  %1919 = load double, ptr %1918, align 8, !tbaa !101
+  %1920 = fmul double %1919, %8
+  %1921 = tail call double @llvm.fmuladd.f64(double %5, double %1915, double %1920)
+  store double %1921, ptr %1918, align 8, !tbaa !101
+  %1922 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1912)
+  %1923 = or disjoint i64 %1917, 1
+  %1924 = getelementptr inbounds double, ptr %9, i64 %1923
+  %1925 = load double, ptr %1924, align 8, !tbaa !101
+  %1926 = fmul double %1925, %8
+  %1927 = tail call double @llvm.fmuladd.f64(double %5, double %1922, double %1926)
+  store double %1927, ptr %1924, align 8, !tbaa !101
+  %1928 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1913)
+  %1929 = add nuw nsw i64 %1852, 1
+  %1930 = mul nsw i64 %1929, %10
+  %1931 = getelementptr double, ptr %1674, i64 %1930
+  %1932 = load double, ptr %1931, align 8, !tbaa !101
+  %1933 = fmul double %1932, %8
+  %1934 = tail call double @llvm.fmuladd.f64(double %5, double %1928, double %1933)
+  store double %1934, ptr %1931, align 8, !tbaa !101
+  %1935 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1914)
+  %1936 = getelementptr i8, ptr %1931, i64 8
+  %1937 = load double, ptr %1936, align 8, !tbaa !101
+  %1938 = fmul double %1937, %8
+  %1939 = tail call double @llvm.fmuladd.f64(double %5, double %1935, double %1938)
+  store double %1939, ptr %1936, align 8, !tbaa !101
+  %1940 = add nuw nsw i64 %1852, 2
+  %1941 = icmp slt i64 %1940, %20
+  br i1 %1941, label %1851, label %1834, !llvm.loop !121
 
-1941:                                             ; preds = %1982, %1837
-  %1942 = phi i64 [ %1834, %1837 ], [ %1996, %1982 ]
-  br i1 %1134, label %1960, label %1943
+1942:                                             ; preds = %1983, %1838
+  %1943 = phi i64 [ %1835, %1838 ], [ %1997, %1983 ]
+  br i1 %1135, label %1961, label %1944
 
-1943:                                             ; preds = %1941
-  %1944 = mul nsw i64 %1942, %7
-  %1945 = getelementptr double, ptr %6, i64 %1944
-  br label %1946
+1944:                                             ; preds = %1942
+  %1945 = mul nsw i64 %1943, %7
+  %1946 = getelementptr double, ptr %6, i64 %1945
+  br label %1947
 
-1946:                                             ; preds = %1946, %1943
-  %1947 = phi i64 [ 0, %1943 ], [ %1958, %1946 ]
-  %1948 = phi <8 x double> [ zeroinitializer, %1943 ], [ %1957, %1946 ]
-  %1949 = phi <8 x double> [ zeroinitializer, %1943 ], [ %1956, %1946 ]
-  %1950 = getelementptr double, ptr %1839, i64 %1947
-  %1951 = load <8 x double>, ptr %1950, align 1, !tbaa !3
-  %1952 = getelementptr double, ptr %1843, i64 %1947
-  %1953 = load <8 x double>, ptr %1952, align 1, !tbaa !3
-  %1954 = getelementptr double, ptr %1945, i64 %1947
-  %1955 = load <8 x double>, ptr %1954, align 1, !tbaa !3
-  %1956 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1951, <8 x double> %1955, <8 x double> %1949)
-  %1957 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1953, <8 x double> %1955, <8 x double> %1948)
-  %1958 = add nuw nsw i64 %1947, 8
-  %1959 = icmp ult i64 %1958, %997
-  br i1 %1959, label %1946, label %1960, !llvm.loop !122
+1947:                                             ; preds = %1947, %1944
+  %1948 = phi i64 [ 0, %1944 ], [ %1959, %1947 ]
+  %1949 = phi <8 x double> [ zeroinitializer, %1944 ], [ %1958, %1947 ]
+  %1950 = phi <8 x double> [ zeroinitializer, %1944 ], [ %1957, %1947 ]
+  %1951 = getelementptr double, ptr %1840, i64 %1948
+  %1952 = load <8 x double>, ptr %1951, align 1, !tbaa !3
+  %1953 = getelementptr double, ptr %1844, i64 %1948
+  %1954 = load <8 x double>, ptr %1953, align 1, !tbaa !3
+  %1955 = getelementptr double, ptr %1946, i64 %1948
+  %1956 = load <8 x double>, ptr %1955, align 1, !tbaa !3
+  %1957 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1952, <8 x double> %1956, <8 x double> %1950)
+  %1958 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1954, <8 x double> %1956, <8 x double> %1949)
+  %1959 = add nuw nsw i64 %1948, 8
+  %1960 = icmp ult i64 %1959, %997
+  br i1 %1960, label %1947, label %1961, !llvm.loop !122
 
-1960:                                             ; preds = %1946, %1941
-  %1961 = phi <8 x double> [ zeroinitializer, %1941 ], [ %1956, %1946 ]
-  %1962 = phi <8 x double> [ zeroinitializer, %1941 ], [ %1957, %1946 ]
-  %1963 = phi i64 [ 0, %1941 ], [ %1137, %1946 ]
-  %1964 = sub nsw i64 %2, %1963
-  %1965 = and i64 %1964, 4294967295
-  %1966 = icmp eq i64 %1965, 0
-  br i1 %1966, label %1982, label %1967
+1961:                                             ; preds = %1947, %1942
+  %1962 = phi <8 x double> [ zeroinitializer, %1942 ], [ %1957, %1947 ]
+  %1963 = phi <8 x double> [ zeroinitializer, %1942 ], [ %1958, %1947 ]
+  %1964 = phi i64 [ 0, %1942 ], [ %1138, %1947 ]
+  %1965 = sub nsw i64 %2, %1964
+  %1966 = and i64 %1965, 4294967295
+  %1967 = icmp eq i64 %1966, 0
+  br i1 %1967, label %1983, label %1968
 
-1967:                                             ; preds = %1960
-  %1968 = shl nsw i64 -1, %1965
-  %1969 = trunc i64 %1968 to i8
-  %1970 = xor i8 %1969, -1
-  %1971 = getelementptr double, ptr %1845, i64 %1963
-  %1972 = bitcast i8 %1970 to <8 x i1>
-  %1973 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1971, i32 1, <8 x i1> %1972, <8 x double> zeroinitializer)
-  %1974 = getelementptr double, ptr %1849, i64 %1963
-  %1975 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1974, i32 1, <8 x i1> %1972, <8 x double> zeroinitializer)
-  %1976 = mul nsw i64 %1942, %7
-  %1977 = getelementptr double, ptr %6, i64 %1976
-  %1978 = getelementptr double, ptr %1977, i64 %1963
-  %1979 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1978, i32 1, <8 x i1> %1972, <8 x double> zeroinitializer)
-  %1980 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1973, <8 x double> %1979, <8 x double> %1961)
-  %1981 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1975, <8 x double> %1979, <8 x double> %1962)
-  br label %1982
+1968:                                             ; preds = %1961
+  %1969 = shl nsw i64 -1, %1966
+  %1970 = trunc i64 %1969 to i8
+  %1971 = xor i8 %1970, -1
+  %1972 = getelementptr double, ptr %1846, i64 %1964
+  %1973 = bitcast i8 %1971 to <8 x i1>
+  %1974 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1972, i32 1, <8 x i1> %1973, <8 x double> zeroinitializer)
+  %1975 = getelementptr double, ptr %1850, i64 %1964
+  %1976 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1975, i32 1, <8 x i1> %1973, <8 x double> zeroinitializer)
+  %1977 = mul nsw i64 %1943, %7
+  %1978 = getelementptr double, ptr %6, i64 %1977
+  %1979 = getelementptr double, ptr %1978, i64 %1964
+  %1980 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %1979, i32 1, <8 x i1> %1973, <8 x double> zeroinitializer)
+  %1981 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1974, <8 x double> %1980, <8 x double> %1962)
+  %1982 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1976, <8 x double> %1980, <8 x double> %1963)
+  br label %1983
 
-1982:                                             ; preds = %1967, %1960
-  %1983 = phi <8 x double> [ %1980, %1967 ], [ %1961, %1960 ]
-  %1984 = phi <8 x double> [ %1981, %1967 ], [ %1962, %1960 ]
-  %1985 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1983)
-  %1986 = mul nsw i64 %1942, %10
-  %1987 = getelementptr double, ptr %1835, i64 %1986
-  %1988 = load double, ptr %1987, align 8, !tbaa !101
-  %1989 = fmul double %1988, %8
-  %1990 = tail call double @llvm.fmuladd.f64(double %5, double %1985, double %1989)
-  store double %1990, ptr %1987, align 8, !tbaa !101
-  %1991 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1984)
-  %1992 = getelementptr i8, ptr %1987, i64 8
-  %1993 = load double, ptr %1992, align 8, !tbaa !101
-  %1994 = fmul double %1993, %8
-  %1995 = tail call double @llvm.fmuladd.f64(double %5, double %1991, double %1994)
-  store double %1995, ptr %1992, align 8, !tbaa !101
-  %1996 = add nuw nsw i64 %1942, 1
-  %1997 = icmp eq i64 %1996, %1
-  br i1 %1997, label %1998, label %1941, !llvm.loop !123
+1983:                                             ; preds = %1968, %1961
+  %1984 = phi <8 x double> [ %1981, %1968 ], [ %1962, %1961 ]
+  %1985 = phi <8 x double> [ %1982, %1968 ], [ %1963, %1961 ]
+  %1986 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1984)
+  %1987 = mul nsw i64 %1943, %10
+  %1988 = getelementptr double, ptr %1836, i64 %1987
+  %1989 = load double, ptr %1988, align 8, !tbaa !101
+  %1990 = fmul double %1989, %8
+  %1991 = tail call double @llvm.fmuladd.f64(double %5, double %1986, double %1990)
+  store double %1991, ptr %1988, align 8, !tbaa !101
+  %1992 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1985)
+  %1993 = getelementptr i8, ptr %1988, i64 8
+  %1994 = load double, ptr %1993, align 8, !tbaa !101
+  %1995 = fmul double %1994, %8
+  %1996 = tail call double @llvm.fmuladd.f64(double %5, double %1992, double %1995)
+  store double %1996, ptr %1993, align 8, !tbaa !101
+  %1997 = add nuw nsw i64 %1943, 1
+  %1998 = icmp eq i64 %1997, %1
+  br i1 %1998, label %1999, label %1942, !llvm.loop !123
 
-1998:                                             ; preds = %1982, %1833
-  %1999 = add nuw nsw i64 %1642, 2
-  %2000 = add nuw nsw i64 %1641, 2
-  %2001 = icmp slt i64 %1999, %16
-  br i1 %2001, label %1640, label %1656, !llvm.loop !124
+1999:                                             ; preds = %1983, %1834
+  %2000 = add nuw nsw i64 %1643, 2
+  %2001 = add nuw nsw i64 %1642, 2
+  %2002 = icmp slt i64 %2000, %16
+  br i1 %2002, label %1641, label %1657, !llvm.loop !124
 
-2002:                                             ; preds = %2239, %1662
-  %2003 = phi i64 [ %1670, %1662 ], [ %2241, %2239 ]
-  %2004 = phi i64 [ %1660, %1662 ], [ %2240, %2239 ]
-  %2005 = getelementptr double, ptr %9, i64 %2004
-  br i1 %1663, label %2006, label %2011
+2003:                                             ; preds = %2240, %1663
+  %2004 = phi i64 [ %1671, %1663 ], [ %2242, %2240 ]
+  %2005 = phi i64 [ %1661, %1663 ], [ %2241, %2240 ]
+  %2006 = getelementptr double, ptr %9, i64 %2005
+  br i1 %1664, label %2007, label %2012
 
-2006:                                             ; preds = %2002
-  %2007 = mul nsw i64 %2003, %2
-  %2008 = getelementptr double, ptr %996, i64 %2007
-  %2009 = mul nsw i64 %2003, %2
-  %2010 = getelementptr double, ptr %996, i64 %2009
-  br label %2021
+2007:                                             ; preds = %2003
+  %2008 = mul nsw i64 %2004, %2
+  %2009 = getelementptr double, ptr %996, i64 %2008
+  %2010 = mul nsw i64 %2004, %2
+  %2011 = getelementptr double, ptr %996, i64 %2010
+  br label %2022
 
-2011:                                             ; preds = %2096, %2002
-  %2012 = phi i64 [ 0, %2002 ], [ %2120, %2096 ]
-  %2013 = getelementptr double, ptr %9, i64 %2004
-  %2014 = getelementptr double, ptr %9, i64 %2004
-  %2015 = icmp slt i64 %2012, %20
-  br i1 %2015, label %2016, label %2122
+2012:                                             ; preds = %2097, %2003
+  %2013 = phi i64 [ 0, %2003 ], [ %2121, %2097 ]
+  %2014 = getelementptr double, ptr %9, i64 %2005
+  %2015 = getelementptr double, ptr %9, i64 %2005
+  %2016 = icmp slt i64 %2013, %20
+  br i1 %2016, label %2017, label %2123
 
-2016:                                             ; preds = %2011
-  %2017 = mul nsw i64 %2003, %2
-  %2018 = getelementptr double, ptr %996, i64 %2017
-  %2019 = mul nsw i64 %2003, %2
-  %2020 = getelementptr double, ptr %996, i64 %2019
-  br label %2131
+2017:                                             ; preds = %2012
+  %2018 = mul nsw i64 %2004, %2
+  %2019 = getelementptr double, ptr %996, i64 %2018
+  %2020 = mul nsw i64 %2004, %2
+  %2021 = getelementptr double, ptr %996, i64 %2020
+  br label %2132
 
-2021:                                             ; preds = %2096, %2006
-  %2022 = phi i64 [ 0, %2006 ], [ %2120, %2096 ]
-  br i1 %1664, label %2057, label %2023
+2022:                                             ; preds = %2097, %2007
+  %2023 = phi i64 [ 0, %2007 ], [ %2121, %2097 ]
+  br i1 %1665, label %2058, label %2024
 
-2023:                                             ; preds = %2021
-  %2024 = mul nsw i64 %2022, %7
-  %2025 = getelementptr double, ptr %6, i64 %2024
-  %2026 = or disjoint i64 %2022, 1
-  %2027 = mul nsw i64 %2026, %7
-  %2028 = getelementptr double, ptr %6, i64 %2027
-  %2029 = or disjoint i64 %2022, 2
-  %2030 = mul nsw i64 %2029, %7
-  %2031 = getelementptr double, ptr %6, i64 %2030
-  %2032 = or disjoint i64 %2022, 3
-  %2033 = mul nsw i64 %2032, %7
-  %2034 = getelementptr double, ptr %6, i64 %2033
-  br label %2035
+2024:                                             ; preds = %2022
+  %2025 = mul nsw i64 %2023, %7
+  %2026 = getelementptr double, ptr %6, i64 %2025
+  %2027 = or disjoint i64 %2023, 1
+  %2028 = mul nsw i64 %2027, %7
+  %2029 = getelementptr double, ptr %6, i64 %2028
+  %2030 = or disjoint i64 %2023, 2
+  %2031 = mul nsw i64 %2030, %7
+  %2032 = getelementptr double, ptr %6, i64 %2031
+  %2033 = or disjoint i64 %2023, 3
+  %2034 = mul nsw i64 %2033, %7
+  %2035 = getelementptr double, ptr %6, i64 %2034
+  br label %2036
 
-2035:                                             ; preds = %2035, %2023
-  %2036 = phi i64 [ 0, %2023 ], [ %2055, %2035 ]
-  %2037 = phi <8 x double> [ zeroinitializer, %2023 ], [ %2054, %2035 ]
-  %2038 = phi <8 x double> [ zeroinitializer, %2023 ], [ %2053, %2035 ]
-  %2039 = phi <8 x double> [ zeroinitializer, %2023 ], [ %2052, %2035 ]
-  %2040 = phi <8 x double> [ zeroinitializer, %2023 ], [ %2051, %2035 ]
-  %2041 = getelementptr double, ptr %2008, i64 %2036
-  %2042 = load <8 x double>, ptr %2041, align 1, !tbaa !3
-  %2043 = getelementptr double, ptr %2025, i64 %2036
-  %2044 = load <8 x double>, ptr %2043, align 1, !tbaa !3
-  %2045 = getelementptr double, ptr %2028, i64 %2036
-  %2046 = load <8 x double>, ptr %2045, align 1, !tbaa !3
-  %2047 = getelementptr double, ptr %2031, i64 %2036
-  %2048 = load <8 x double>, ptr %2047, align 1, !tbaa !3
-  %2049 = getelementptr double, ptr %2034, i64 %2036
-  %2050 = load <8 x double>, ptr %2049, align 1, !tbaa !3
-  %2051 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2042, <8 x double> %2044, <8 x double> %2040)
-  %2052 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2042, <8 x double> %2046, <8 x double> %2039)
-  %2053 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2042, <8 x double> %2048, <8 x double> %2038)
-  %2054 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2042, <8 x double> %2050, <8 x double> %2037)
-  %2055 = add nuw nsw i64 %2036, 8
-  %2056 = icmp ult i64 %2055, %997
-  br i1 %2056, label %2035, label %2057, !llvm.loop !125
+2036:                                             ; preds = %2036, %2024
+  %2037 = phi i64 [ 0, %2024 ], [ %2056, %2036 ]
+  %2038 = phi <8 x double> [ zeroinitializer, %2024 ], [ %2055, %2036 ]
+  %2039 = phi <8 x double> [ zeroinitializer, %2024 ], [ %2054, %2036 ]
+  %2040 = phi <8 x double> [ zeroinitializer, %2024 ], [ %2053, %2036 ]
+  %2041 = phi <8 x double> [ zeroinitializer, %2024 ], [ %2052, %2036 ]
+  %2042 = getelementptr double, ptr %2009, i64 %2037
+  %2043 = load <8 x double>, ptr %2042, align 1, !tbaa !3
+  %2044 = getelementptr double, ptr %2026, i64 %2037
+  %2045 = load <8 x double>, ptr %2044, align 1, !tbaa !3
+  %2046 = getelementptr double, ptr %2029, i64 %2037
+  %2047 = load <8 x double>, ptr %2046, align 1, !tbaa !3
+  %2048 = getelementptr double, ptr %2032, i64 %2037
+  %2049 = load <8 x double>, ptr %2048, align 1, !tbaa !3
+  %2050 = getelementptr double, ptr %2035, i64 %2037
+  %2051 = load <8 x double>, ptr %2050, align 1, !tbaa !3
+  %2052 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2043, <8 x double> %2045, <8 x double> %2041)
+  %2053 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2043, <8 x double> %2047, <8 x double> %2040)
+  %2054 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2043, <8 x double> %2049, <8 x double> %2039)
+  %2055 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2043, <8 x double> %2051, <8 x double> %2038)
+  %2056 = add nuw nsw i64 %2037, 8
+  %2057 = icmp ult i64 %2056, %997
+  br i1 %2057, label %2036, label %2058, !llvm.loop !125
 
-2057:                                             ; preds = %2035, %2021
-  %2058 = phi <8 x double> [ zeroinitializer, %2021 ], [ %2051, %2035 ]
-  %2059 = phi <8 x double> [ zeroinitializer, %2021 ], [ %2052, %2035 ]
-  %2060 = phi <8 x double> [ zeroinitializer, %2021 ], [ %2053, %2035 ]
-  %2061 = phi <8 x double> [ zeroinitializer, %2021 ], [ %2054, %2035 ]
-  %2062 = phi i64 [ 0, %2021 ], [ %1669, %2035 ]
-  %2063 = sub nsw i64 %2, %2062
-  %2064 = and i64 %2063, 4294967295
-  %2065 = icmp eq i64 %2064, 0
-  br i1 %2065, label %2096, label %2066
+2058:                                             ; preds = %2036, %2022
+  %2059 = phi <8 x double> [ zeroinitializer, %2022 ], [ %2052, %2036 ]
+  %2060 = phi <8 x double> [ zeroinitializer, %2022 ], [ %2053, %2036 ]
+  %2061 = phi <8 x double> [ zeroinitializer, %2022 ], [ %2054, %2036 ]
+  %2062 = phi <8 x double> [ zeroinitializer, %2022 ], [ %2055, %2036 ]
+  %2063 = phi i64 [ 0, %2022 ], [ %1670, %2036 ]
+  %2064 = sub nsw i64 %2, %2063
+  %2065 = and i64 %2064, 4294967295
+  %2066 = icmp eq i64 %2065, 0
+  br i1 %2066, label %2097, label %2067
 
-2066:                                             ; preds = %2057
-  %2067 = shl nsw i64 -1, %2064
-  %2068 = trunc i64 %2067 to i8
-  %2069 = xor i8 %2068, -1
-  %2070 = getelementptr double, ptr %2010, i64 %2062
-  %2071 = bitcast i8 %2069 to <8 x i1>
-  %2072 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2070, i32 1, <8 x i1> %2071, <8 x double> zeroinitializer)
-  %2073 = mul nsw i64 %2022, %7
-  %2074 = getelementptr double, ptr %6, i64 %2073
-  %2075 = getelementptr double, ptr %2074, i64 %2062
-  %2076 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2075, i32 1, <8 x i1> %2071, <8 x double> zeroinitializer)
-  %2077 = or disjoint i64 %2022, 1
-  %2078 = mul nsw i64 %2077, %7
-  %2079 = getelementptr double, ptr %6, i64 %2078
-  %2080 = getelementptr double, ptr %2079, i64 %2062
-  %2081 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2080, i32 1, <8 x i1> %2071, <8 x double> zeroinitializer)
-  %2082 = or disjoint i64 %2022, 2
-  %2083 = mul nsw i64 %2082, %7
-  %2084 = getelementptr double, ptr %6, i64 %2083
-  %2085 = getelementptr double, ptr %2084, i64 %2062
-  %2086 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2085, i32 1, <8 x i1> %2071, <8 x double> zeroinitializer)
-  %2087 = or disjoint i64 %2022, 3
-  %2088 = mul nsw i64 %2087, %7
-  %2089 = getelementptr double, ptr %6, i64 %2088
-  %2090 = getelementptr double, ptr %2089, i64 %2062
-  %2091 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2090, i32 1, <8 x i1> %2071, <8 x double> zeroinitializer)
-  %2092 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2072, <8 x double> %2076, <8 x double> %2058)
-  %2093 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2072, <8 x double> %2081, <8 x double> %2059)
-  %2094 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2072, <8 x double> %2086, <8 x double> %2060)
-  %2095 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2072, <8 x double> %2091, <8 x double> %2061)
-  br label %2096
+2067:                                             ; preds = %2058
+  %2068 = shl nsw i64 -1, %2065
+  %2069 = trunc i64 %2068 to i8
+  %2070 = xor i8 %2069, -1
+  %2071 = getelementptr double, ptr %2011, i64 %2063
+  %2072 = bitcast i8 %2070 to <8 x i1>
+  %2073 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2071, i32 1, <8 x i1> %2072, <8 x double> zeroinitializer)
+  %2074 = mul nsw i64 %2023, %7
+  %2075 = getelementptr double, ptr %6, i64 %2074
+  %2076 = getelementptr double, ptr %2075, i64 %2063
+  %2077 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2076, i32 1, <8 x i1> %2072, <8 x double> zeroinitializer)
+  %2078 = or disjoint i64 %2023, 1
+  %2079 = mul nsw i64 %2078, %7
+  %2080 = getelementptr double, ptr %6, i64 %2079
+  %2081 = getelementptr double, ptr %2080, i64 %2063
+  %2082 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2081, i32 1, <8 x i1> %2072, <8 x double> zeroinitializer)
+  %2083 = or disjoint i64 %2023, 2
+  %2084 = mul nsw i64 %2083, %7
+  %2085 = getelementptr double, ptr %6, i64 %2084
+  %2086 = getelementptr double, ptr %2085, i64 %2063
+  %2087 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2086, i32 1, <8 x i1> %2072, <8 x double> zeroinitializer)
+  %2088 = or disjoint i64 %2023, 3
+  %2089 = mul nsw i64 %2088, %7
+  %2090 = getelementptr double, ptr %6, i64 %2089
+  %2091 = getelementptr double, ptr %2090, i64 %2063
+  %2092 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2091, i32 1, <8 x i1> %2072, <8 x double> zeroinitializer)
+  %2093 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2073, <8 x double> %2077, <8 x double> %2059)
+  %2094 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2073, <8 x double> %2082, <8 x double> %2060)
+  %2095 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2073, <8 x double> %2087, <8 x double> %2061)
+  %2096 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2073, <8 x double> %2092, <8 x double> %2062)
+  br label %2097
 
-2096:                                             ; preds = %2066, %2057
-  %2097 = phi <8 x double> [ %2092, %2066 ], [ %2058, %2057 ]
-  %2098 = phi <8 x double> [ %2093, %2066 ], [ %2059, %2057 ]
-  %2099 = phi <8 x double> [ %2094, %2066 ], [ %2060, %2057 ]
-  %2100 = phi <8 x double> [ %2095, %2066 ], [ %2061, %2057 ]
-  %2101 = shufflevector <8 x double> %2097, <8 x double> %2098, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %2102 = shufflevector <8 x double> %2097, <8 x double> %2098, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %2103 = shufflevector <8 x double> %2099, <8 x double> %2100, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
-  %2104 = shufflevector <8 x double> %2099, <8 x double> %2100, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
-  %2105 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2101, <8 x i64> %1083, <8 x double> %2103)
+2097:                                             ; preds = %2067, %2058
+  %2098 = phi <8 x double> [ %2093, %2067 ], [ %2059, %2058 ]
+  %2099 = phi <8 x double> [ %2094, %2067 ], [ %2060, %2058 ]
+  %2100 = phi <8 x double> [ %2095, %2067 ], [ %2061, %2058 ]
+  %2101 = phi <8 x double> [ %2096, %2067 ], [ %2062, %2058 ]
+  %2102 = shufflevector <8 x double> %2098, <8 x double> %2099, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %2103 = shufflevector <8 x double> %2098, <8 x double> %2099, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
+  %2104 = shufflevector <8 x double> %2100, <8 x double> %2101, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
+  %2105 = shufflevector <8 x double> %2100, <8 x double> %2101, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %2106 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2102, <8 x i64> %1083, <8 x double> %2104)
-  %2107 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2101, <8 x i64> %1084, <8 x double> %2103)
-  %2108 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2102, <8 x i64> %1084, <8 x double> %2104)
-  %2109 = fadd <8 x double> %2105, %2106
-  %2110 = fadd <8 x double> %2107, %2108
-  %2111 = fadd <8 x double> %2109, %2110
-  %2112 = shufflevector <8 x double> %2111, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %2113 = shufflevector <8 x double> %2111, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %2114 = fadd <4 x double> %2112, %2113
-  %2115 = fmul <4 x double> %1075, %2114
-  %2116 = mul nsw i64 %2022, %10
-  %2117 = getelementptr double, ptr %2005, i64 %2116
-  %2118 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %2117, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
-  %2119 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %2118, <4 x double> %1077, <4 x double> %2115)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %2117, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %2119, i32 8)
-  %2120 = add nuw nsw i64 %2022, 4
-  %2121 = icmp slt i64 %2120, %19
-  br i1 %2121, label %2021, label %2011, !llvm.loop !126
+  %2107 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2103, <8 x i64> %1083, <8 x double> %2105)
+  %2108 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2102, <8 x i64> %1085, <8 x double> %2104)
+  %2109 = tail call <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double> %2103, <8 x i64> %1085, <8 x double> %2105)
+  %2110 = fadd <8 x double> %2106, %2107
+  %2111 = fadd <8 x double> %2108, %2109
+  %2112 = fadd <8 x double> %2110, %2111
+  %2113 = shufflevector <8 x double> %2112, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %2114 = shufflevector <8 x double> %2112, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %2115 = fadd <4 x double> %2113, %2114
+  %2116 = fmul <4 x double> %1075, %2115
+  %2117 = mul nsw i64 %2023, %10
+  %2118 = getelementptr double, ptr %2006, i64 %2117
+  %2119 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %2118, <4 x i64> %1082, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %2120 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %2119, <4 x double> %1077, <4 x double> %2116)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %2118, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %1082, <4 x double> %2120, i32 8)
+  %2121 = add nuw nsw i64 %2023, 4
+  %2122 = icmp slt i64 %2121, %19
+  br i1 %2122, label %2022, label %2012, !llvm.loop !126
 
-2122:                                             ; preds = %2178, %2011
-  %2123 = phi i64 [ %2012, %2011 ], [ %2194, %2178 ]
-  %2124 = getelementptr double, ptr %9, i64 %2004
-  %2125 = icmp slt i64 %2123, %1
-  br i1 %2125, label %2126, label %2239
+2123:                                             ; preds = %2179, %2012
+  %2124 = phi i64 [ %2013, %2012 ], [ %2195, %2179 ]
+  %2125 = getelementptr double, ptr %9, i64 %2005
+  %2126 = icmp slt i64 %2124, %1
+  br i1 %2126, label %2127, label %2240
 
-2126:                                             ; preds = %2122
-  %2127 = mul nsw i64 %2003, %2
-  %2128 = getelementptr double, ptr %996, i64 %2127
-  %2129 = mul nsw i64 %2003, %2
-  %2130 = getelementptr double, ptr %996, i64 %2129
-  br label %2196
+2127:                                             ; preds = %2123
+  %2128 = mul nsw i64 %2004, %2
+  %2129 = getelementptr double, ptr %996, i64 %2128
+  %2130 = mul nsw i64 %2004, %2
+  %2131 = getelementptr double, ptr %996, i64 %2130
+  br label %2197
 
-2131:                                             ; preds = %2178, %2016
-  %2132 = phi i64 [ %2012, %2016 ], [ %2194, %2178 ]
-  br i1 %1665, label %2153, label %2133
+2132:                                             ; preds = %2179, %2017
+  %2133 = phi i64 [ %2013, %2017 ], [ %2195, %2179 ]
+  br i1 %1666, label %2154, label %2134
 
-2133:                                             ; preds = %2131
-  %2134 = mul nsw i64 %2132, %7
-  %2135 = getelementptr double, ptr %6, i64 %2134
-  %2136 = add nuw nsw i64 %2132, 1
-  %2137 = mul nsw i64 %2136, %7
-  %2138 = getelementptr double, ptr %6, i64 %2137
-  br label %2139
+2134:                                             ; preds = %2132
+  %2135 = mul nsw i64 %2133, %7
+  %2136 = getelementptr double, ptr %6, i64 %2135
+  %2137 = add nuw nsw i64 %2133, 1
+  %2138 = mul nsw i64 %2137, %7
+  %2139 = getelementptr double, ptr %6, i64 %2138
+  br label %2140
 
-2139:                                             ; preds = %2139, %2133
-  %2140 = phi i64 [ 0, %2133 ], [ %2151, %2139 ]
-  %2141 = phi <8 x double> [ zeroinitializer, %2133 ], [ %2150, %2139 ]
-  %2142 = phi <8 x double> [ zeroinitializer, %2133 ], [ %2149, %2139 ]
-  %2143 = getelementptr double, ptr %2018, i64 %2140
-  %2144 = load <8 x double>, ptr %2143, align 1, !tbaa !3
-  %2145 = getelementptr double, ptr %2135, i64 %2140
-  %2146 = load <8 x double>, ptr %2145, align 1, !tbaa !3
-  %2147 = getelementptr double, ptr %2138, i64 %2140
-  %2148 = load <8 x double>, ptr %2147, align 1, !tbaa !3
-  %2149 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2144, <8 x double> %2146, <8 x double> %2142)
-  %2150 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2144, <8 x double> %2148, <8 x double> %2141)
-  %2151 = add nuw nsw i64 %2140, 8
-  %2152 = icmp ult i64 %2151, %997
-  br i1 %2152, label %2139, label %2153, !llvm.loop !127
+2140:                                             ; preds = %2140, %2134
+  %2141 = phi i64 [ 0, %2134 ], [ %2152, %2140 ]
+  %2142 = phi <8 x double> [ zeroinitializer, %2134 ], [ %2151, %2140 ]
+  %2143 = phi <8 x double> [ zeroinitializer, %2134 ], [ %2150, %2140 ]
+  %2144 = getelementptr double, ptr %2019, i64 %2141
+  %2145 = load <8 x double>, ptr %2144, align 1, !tbaa !3
+  %2146 = getelementptr double, ptr %2136, i64 %2141
+  %2147 = load <8 x double>, ptr %2146, align 1, !tbaa !3
+  %2148 = getelementptr double, ptr %2139, i64 %2141
+  %2149 = load <8 x double>, ptr %2148, align 1, !tbaa !3
+  %2150 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2145, <8 x double> %2147, <8 x double> %2143)
+  %2151 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2145, <8 x double> %2149, <8 x double> %2142)
+  %2152 = add nuw nsw i64 %2141, 8
+  %2153 = icmp ult i64 %2152, %997
+  br i1 %2153, label %2140, label %2154, !llvm.loop !127
 
-2153:                                             ; preds = %2139, %2131
-  %2154 = phi <8 x double> [ zeroinitializer, %2131 ], [ %2149, %2139 ]
-  %2155 = phi <8 x double> [ zeroinitializer, %2131 ], [ %2150, %2139 ]
-  %2156 = phi i64 [ 0, %2131 ], [ %1669, %2139 ]
-  %2157 = sub nsw i64 %2, %2156
-  %2158 = and i64 %2157, 4294967295
-  %2159 = icmp eq i64 %2158, 0
-  br i1 %2159, label %2178, label %2160
+2154:                                             ; preds = %2140, %2132
+  %2155 = phi <8 x double> [ zeroinitializer, %2132 ], [ %2150, %2140 ]
+  %2156 = phi <8 x double> [ zeroinitializer, %2132 ], [ %2151, %2140 ]
+  %2157 = phi i64 [ 0, %2132 ], [ %1670, %2140 ]
+  %2158 = sub nsw i64 %2, %2157
+  %2159 = and i64 %2158, 4294967295
+  %2160 = icmp eq i64 %2159, 0
+  br i1 %2160, label %2179, label %2161
 
-2160:                                             ; preds = %2153
-  %2161 = shl nsw i64 -1, %2158
-  %2162 = trunc i64 %2161 to i8
-  %2163 = xor i8 %2162, -1
-  %2164 = getelementptr double, ptr %2020, i64 %2156
-  %2165 = bitcast i8 %2163 to <8 x i1>
-  %2166 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2164, i32 1, <8 x i1> %2165, <8 x double> zeroinitializer)
-  %2167 = mul nsw i64 %2132, %7
-  %2168 = getelementptr double, ptr %6, i64 %2167
-  %2169 = getelementptr double, ptr %2168, i64 %2156
-  %2170 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2169, i32 1, <8 x i1> %2165, <8 x double> zeroinitializer)
-  %2171 = add nuw nsw i64 %2132, 1
-  %2172 = mul nsw i64 %2171, %7
-  %2173 = getelementptr double, ptr %6, i64 %2172
-  %2174 = getelementptr double, ptr %2173, i64 %2156
-  %2175 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2174, i32 1, <8 x i1> %2165, <8 x double> zeroinitializer)
-  %2176 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2166, <8 x double> %2170, <8 x double> %2154)
-  %2177 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2166, <8 x double> %2175, <8 x double> %2155)
-  br label %2178
+2161:                                             ; preds = %2154
+  %2162 = shl nsw i64 -1, %2159
+  %2163 = trunc i64 %2162 to i8
+  %2164 = xor i8 %2163, -1
+  %2165 = getelementptr double, ptr %2021, i64 %2157
+  %2166 = bitcast i8 %2164 to <8 x i1>
+  %2167 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2165, i32 1, <8 x i1> %2166, <8 x double> zeroinitializer)
+  %2168 = mul nsw i64 %2133, %7
+  %2169 = getelementptr double, ptr %6, i64 %2168
+  %2170 = getelementptr double, ptr %2169, i64 %2157
+  %2171 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2170, i32 1, <8 x i1> %2166, <8 x double> zeroinitializer)
+  %2172 = add nuw nsw i64 %2133, 1
+  %2173 = mul nsw i64 %2172, %7
+  %2174 = getelementptr double, ptr %6, i64 %2173
+  %2175 = getelementptr double, ptr %2174, i64 %2157
+  %2176 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2175, i32 1, <8 x i1> %2166, <8 x double> zeroinitializer)
+  %2177 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2167, <8 x double> %2171, <8 x double> %2155)
+  %2178 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2167, <8 x double> %2176, <8 x double> %2156)
+  br label %2179
 
-2178:                                             ; preds = %2160, %2153
-  %2179 = phi <8 x double> [ %2176, %2160 ], [ %2154, %2153 ]
-  %2180 = phi <8 x double> [ %2177, %2160 ], [ %2155, %2153 ]
-  %2181 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2179)
-  %2182 = mul nsw i64 %2132, %10
-  %2183 = getelementptr double, ptr %2013, i64 %2182
-  %2184 = load double, ptr %2183, align 8, !tbaa !101
-  %2185 = fmul double %2184, %8
-  %2186 = tail call double @llvm.fmuladd.f64(double %5, double %2181, double %2185)
-  store double %2186, ptr %2183, align 8, !tbaa !101
-  %2187 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2180)
-  %2188 = add nuw nsw i64 %2132, 1
-  %2189 = mul nsw i64 %2188, %10
-  %2190 = getelementptr double, ptr %2014, i64 %2189
-  %2191 = load double, ptr %2190, align 8, !tbaa !101
-  %2192 = fmul double %2191, %8
-  %2193 = tail call double @llvm.fmuladd.f64(double %5, double %2187, double %2192)
-  store double %2193, ptr %2190, align 8, !tbaa !101
-  %2194 = add nuw nsw i64 %2132, 2
-  %2195 = icmp slt i64 %2194, %20
-  br i1 %2195, label %2131, label %2122, !llvm.loop !128
+2179:                                             ; preds = %2161, %2154
+  %2180 = phi <8 x double> [ %2177, %2161 ], [ %2155, %2154 ]
+  %2181 = phi <8 x double> [ %2178, %2161 ], [ %2156, %2154 ]
+  %2182 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2180)
+  %2183 = mul nsw i64 %2133, %10
+  %2184 = getelementptr double, ptr %2014, i64 %2183
+  %2185 = load double, ptr %2184, align 8, !tbaa !101
+  %2186 = fmul double %2185, %8
+  %2187 = tail call double @llvm.fmuladd.f64(double %5, double %2182, double %2186)
+  store double %2187, ptr %2184, align 8, !tbaa !101
+  %2188 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2181)
+  %2189 = add nuw nsw i64 %2133, 1
+  %2190 = mul nsw i64 %2189, %10
+  %2191 = getelementptr double, ptr %2015, i64 %2190
+  %2192 = load double, ptr %2191, align 8, !tbaa !101
+  %2193 = fmul double %2192, %8
+  %2194 = tail call double @llvm.fmuladd.f64(double %5, double %2188, double %2193)
+  store double %2194, ptr %2191, align 8, !tbaa !101
+  %2195 = add nuw nsw i64 %2133, 2
+  %2196 = icmp slt i64 %2195, %20
+  br i1 %2196, label %2132, label %2123, !llvm.loop !128
 
-2196:                                             ; preds = %2229, %2126
-  %2197 = phi i64 [ %2123, %2126 ], [ %2237, %2229 ]
-  br i1 %1666, label %2211, label %2198
+2197:                                             ; preds = %2230, %2127
+  %2198 = phi i64 [ %2124, %2127 ], [ %2238, %2230 ]
+  br i1 %1667, label %2212, label %2199
 
-2198:                                             ; preds = %2196
-  %2199 = mul nsw i64 %2197, %7
-  %2200 = getelementptr double, ptr %6, i64 %2199
-  br label %2201
+2199:                                             ; preds = %2197
+  %2200 = mul nsw i64 %2198, %7
+  %2201 = getelementptr double, ptr %6, i64 %2200
+  br label %2202
 
-2201:                                             ; preds = %2201, %2198
-  %2202 = phi i64 [ 0, %2198 ], [ %2209, %2201 ]
-  %2203 = phi <8 x double> [ zeroinitializer, %2198 ], [ %2208, %2201 ]
-  %2204 = getelementptr double, ptr %2128, i64 %2202
-  %2205 = load <8 x double>, ptr %2204, align 1, !tbaa !3
-  %2206 = getelementptr double, ptr %2200, i64 %2202
-  %2207 = load <8 x double>, ptr %2206, align 1, !tbaa !3
-  %2208 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2205, <8 x double> %2207, <8 x double> %2203)
-  %2209 = add nuw nsw i64 %2202, 8
-  %2210 = icmp ult i64 %2209, %997
-  br i1 %2210, label %2201, label %2211, !llvm.loop !129
+2202:                                             ; preds = %2202, %2199
+  %2203 = phi i64 [ 0, %2199 ], [ %2210, %2202 ]
+  %2204 = phi <8 x double> [ zeroinitializer, %2199 ], [ %2209, %2202 ]
+  %2205 = getelementptr double, ptr %2129, i64 %2203
+  %2206 = load <8 x double>, ptr %2205, align 1, !tbaa !3
+  %2207 = getelementptr double, ptr %2201, i64 %2203
+  %2208 = load <8 x double>, ptr %2207, align 1, !tbaa !3
+  %2209 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2206, <8 x double> %2208, <8 x double> %2204)
+  %2210 = add nuw nsw i64 %2203, 8
+  %2211 = icmp ult i64 %2210, %997
+  br i1 %2211, label %2202, label %2212, !llvm.loop !129
 
-2211:                                             ; preds = %2201, %2196
-  %2212 = phi <8 x double> [ zeroinitializer, %2196 ], [ %2208, %2201 ]
-  %2213 = phi i64 [ 0, %2196 ], [ %1669, %2201 ]
-  %2214 = sub nsw i64 %2, %2213
-  %2215 = and i64 %2214, 4294967295
-  %2216 = icmp eq i64 %2215, 0
-  br i1 %2216, label %2229, label %2217
+2212:                                             ; preds = %2202, %2197
+  %2213 = phi <8 x double> [ zeroinitializer, %2197 ], [ %2209, %2202 ]
+  %2214 = phi i64 [ 0, %2197 ], [ %1670, %2202 ]
+  %2215 = sub nsw i64 %2, %2214
+  %2216 = and i64 %2215, 4294967295
+  %2217 = icmp eq i64 %2216, 0
+  br i1 %2217, label %2230, label %2218
 
-2217:                                             ; preds = %2211
-  %2218 = shl nsw i64 -1, %2215
-  %2219 = trunc i64 %2218 to i8
-  %2220 = xor i8 %2219, -1
-  %2221 = getelementptr double, ptr %2130, i64 %2213
-  %2222 = bitcast i8 %2220 to <8 x i1>
-  %2223 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2221, i32 1, <8 x i1> %2222, <8 x double> zeroinitializer)
-  %2224 = mul nsw i64 %2197, %7
-  %2225 = getelementptr double, ptr %6, i64 %2224
-  %2226 = getelementptr double, ptr %2225, i64 %2213
-  %2227 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2226, i32 1, <8 x i1> %2222, <8 x double> zeroinitializer)
-  %2228 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2223, <8 x double> %2227, <8 x double> %2212)
-  br label %2229
+2218:                                             ; preds = %2212
+  %2219 = shl nsw i64 -1, %2216
+  %2220 = trunc i64 %2219 to i8
+  %2221 = xor i8 %2220, -1
+  %2222 = getelementptr double, ptr %2131, i64 %2214
+  %2223 = bitcast i8 %2221 to <8 x i1>
+  %2224 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2222, i32 1, <8 x i1> %2223, <8 x double> zeroinitializer)
+  %2225 = mul nsw i64 %2198, %7
+  %2226 = getelementptr double, ptr %6, i64 %2225
+  %2227 = getelementptr double, ptr %2226, i64 %2214
+  %2228 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %2227, i32 1, <8 x i1> %2223, <8 x double> zeroinitializer)
+  %2229 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %2224, <8 x double> %2228, <8 x double> %2213)
+  br label %2230
 
-2229:                                             ; preds = %2217, %2211
-  %2230 = phi <8 x double> [ %2228, %2217 ], [ %2212, %2211 ]
-  %2231 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2230)
-  %2232 = mul nsw i64 %2197, %10
-  %2233 = getelementptr double, ptr %2124, i64 %2232
-  %2234 = load double, ptr %2233, align 8, !tbaa !101
-  %2235 = fmul double %2234, %8
-  %2236 = tail call double @llvm.fmuladd.f64(double %5, double %2231, double %2235)
-  store double %2236, ptr %2233, align 8, !tbaa !101
-  %2237 = add nuw nsw i64 %2197, 1
-  %2238 = icmp eq i64 %2237, %1
-  br i1 %2238, label %2239, label %2196, !llvm.loop !130
+2230:                                             ; preds = %2218, %2212
+  %2231 = phi <8 x double> [ %2229, %2218 ], [ %2213, %2212 ]
+  %2232 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %2231)
+  %2233 = mul nsw i64 %2198, %10
+  %2234 = getelementptr double, ptr %2125, i64 %2233
+  %2235 = load double, ptr %2234, align 8, !tbaa !101
+  %2236 = fmul double %2235, %8
+  %2237 = tail call double @llvm.fmuladd.f64(double %5, double %2232, double %2236)
+  store double %2237, ptr %2234, align 8, !tbaa !101
+  %2238 = add nuw nsw i64 %2198, 1
+  %2239 = icmp eq i64 %2238, %1
+  br i1 %2239, label %2240, label %2197, !llvm.loop !130
 
-2239:                                             ; preds = %2229, %2122
-  %2240 = add i64 %2004, 1
-  %2241 = add nuw nsw i64 %2003, 1
-  %2242 = icmp eq i64 %2240, %0
-  br i1 %2242, label %2243, label %2002, !llvm.loop !131
+2240:                                             ; preds = %2230, %2123
+  %2241 = add i64 %2005, 1
+  %2242 = add nuw nsw i64 %2004, 1
+  %2243 = icmp eq i64 %2241, %0
+  br i1 %2243, label %2244, label %2003, !llvm.loop !131
 
-2243:                                             ; preds = %2239, %1658
+2244:                                             ; preds = %2240, %1659
   tail call void @free(ptr noundef %996) #3
-  br label %2244
+  br label %2245
 
-2244:                                             ; preds = %2243, %984, %923, %785
+2245:                                             ; preds = %2244, %984, %923, %785
   ret i32 0
 }
 

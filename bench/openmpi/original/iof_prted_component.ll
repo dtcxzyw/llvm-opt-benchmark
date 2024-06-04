@@ -37,31 +37,32 @@ define internal i32 @prte_iof_prted_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10), align 4
-  %7 = zext i8 %6 to i32
-  %8 = and i32 2, %7
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %13, label %10
+  %6 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 10
+  %7 = load i8, ptr %6, align 4
+  %8 = zext i8 %7 to i32
+  %9 = and i32 2, %8
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %14, label %11
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr null, ptr %11, align 8
-  %12 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %12, align 4
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  store ptr null, ptr %12, align 8
+  %13 = load ptr, ptr %5, align 8
+  store i32 -1, ptr %13, align 4
   store i32 -1, ptr %3, align 4
-  br label %16
+  br label %17
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  store i32 80, ptr %14, align 4
-  %15 = load ptr, ptr %4, align 8
-  store ptr @prte_iof_prted_module, ptr %15, align 8
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8
+  store i32 80, ptr %15, align 4
+  %16 = load ptr, ptr %4, align 8
+  store ptr @prte_iof_prted_module, ptr %16, align 8
   store i32 0, ptr %3, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %13, %10
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+17:                                               ; preds = %14, %11
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -432,36 +432,37 @@ define void @_ZN21RelatedPacketDelegateC2EP7QWidget(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 1
-  call void @_ZN5QHashIi16ft_framenum_typeEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  %10 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 2
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
+  %9 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 1
+  call void @_ZN5QHashIi16ft_framenum_typeEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %11 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 2
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
   invoke void @_ZN21RelatedPacketDelegate5clearEv(ptr noundef nonnull align 8 dereferenceable(36) %7)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN5QHashIi16ft_framenum_typeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN5QHashIi16ft_framenum_typeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

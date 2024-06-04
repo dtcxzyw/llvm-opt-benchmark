@@ -13749,17 +13749,18 @@ define internal void @_ZN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN13sentencepiece16SentenceIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.75", ptr %6, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.75", ptr %10, i32 0, i32 0
-  store ptr %12, ptr %13, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.75", ptr %7, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.75", ptr %11, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
   ret void
 }
 
@@ -14442,11 +14443,12 @@ define void @_ZN13sentencepiece23SentencePieceNormalizerC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   ret void
 }
 
@@ -14477,11 +14479,12 @@ define void @_ZN13sentencepiece23SentencePieceNormalizerD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceNormalizer", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   ret void
 }
 
@@ -23203,7 +23206,8 @@ define linkonce_odr void @_ZN13sentencepiece16SentenceIteratorC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN13sentencepiece16SentenceIteratorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN13sentencepiece16SentenceIteratorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -179,16 +179,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1), align 8
-  %3 = load i64, ptr %nmemb.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %call = call ptr %2(i64 noundef %3, i64 noundef %4)
+  %2 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %nmemb.addr, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  %call = call ptr %3(i64 noundef %4, i64 noundef %5)
   store ptr %call, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 declare ptr @hi_sdsempty() #1
@@ -302,9 +303,10 @@ define internal void @hi_free(ptr noundef %ptr) #0 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4), align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  call void %0(ptr noundef %1)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ptr.addr, align 8
+  call void %1(ptr noundef %2)
   ret void
 }
 
@@ -1316,43 +1318,44 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end13
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  store ptr inttoptr (i64 3 to ptr), ptr %obj, align 8
+  %21 = inttoptr i64 3 to ptr
+  store ptr %21, ptr %obj, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then9
   br label %if.end226
 
 if.else14:                                        ; preds = %if.then
-  %21 = load ptr, ptr %cur, align 8
-  %type15 = getelementptr inbounds %struct.redisReadTask, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %type15, align 8
-  %cmp16 = icmp eq i32 %22, 7
+  %22 = load ptr, ptr %cur, align 8
+  %type15 = getelementptr inbounds %struct.redisReadTask, ptr %22, i32 0, i32 0
+  %23 = load i32, ptr %type15, align 8
+  %cmp16 = icmp eq i32 %23, 7
   br i1 %cmp16, label %if.then18, label %if.else91
 
 if.then18:                                        ; preds = %if.else14
-  %23 = load i32, ptr %len, align 4
-  %conv19 = sext i32 %23 to i64
+  %24 = load i32, ptr %len, align 4
+  %conv19 = sext i32 %24 to i64
   %cmp20 = icmp uge i64 %conv19, 326
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.then18
-  %24 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %24, i32 noundef 4, ptr noundef @.str.11)
+  %25 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %25, i32 noundef 4, ptr noundef @.str.11)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end23:                                         ; preds = %if.then18
   %arraydecay = getelementptr inbounds [326 x i8], ptr %buf, i64 0, i64 0
-  %25 = load ptr, ptr %p, align 8
-  %26 = load i32, ptr %len, align 4
-  %conv24 = sext i32 %26 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay, ptr align 1 %25, i64 %conv24, i1 false)
+  %26 = load ptr, ptr %p, align 8
   %27 = load i32, ptr %len, align 4
-  %idxprom25 = sext i32 %27 to i64
+  %conv24 = sext i32 %27 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay, ptr align 1 %26, i64 %conv24, i1 false)
+  %28 = load i32, ptr %len, align 4
+  %idxprom25 = sext i32 %28 to i64
   %arrayidx26 = getelementptr inbounds [326 x i8], ptr %buf, i64 0, i64 %idxprom25
   store i8 0, ptr %arrayidx26, align 1
-  %28 = load i32, ptr %len, align 4
-  %cmp27 = icmp eq i32 %28, 3
+  %29 = load i32, ptr %len, align 4
+  %cmp27 = icmp eq i32 %29, 3
   br i1 %cmp27, label %land.lhs.true29, label %if.else35
 
 land.lhs.true29:                                  ; preds = %if.end23
@@ -1366,8 +1369,8 @@ if.then34:                                        ; preds = %land.lhs.true29
   br label %if.end77
 
 if.else35:                                        ; preds = %land.lhs.true29, %if.end23
-  %29 = load i32, ptr %len, align 4
-  %cmp36 = icmp eq i32 %29, 4
+  %30 = load i32, ptr %len, align 4
+  %cmp36 = icmp eq i32 %30, 4
   br i1 %cmp36, label %land.lhs.true38, label %if.else44
 
 land.lhs.true38:                                  ; preds = %if.else35
@@ -1381,8 +1384,8 @@ if.then43:                                        ; preds = %land.lhs.true38
   br label %if.end76
 
 if.else44:                                        ; preds = %land.lhs.true38, %if.else35
-  %30 = load i32, ptr %len, align 4
-  %cmp45 = icmp eq i32 %30, 3
+  %31 = load i32, ptr %len, align 4
+  %cmp45 = icmp eq i32 %31, 3
   br i1 %cmp45, label %land.lhs.true47, label %lor.lhs.false
 
 land.lhs.true47:                                  ; preds = %if.else44
@@ -1392,8 +1395,8 @@ land.lhs.true47:                                  ; preds = %if.else44
   br i1 %cmp50, label %if.then59, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true47, %if.else44
-  %31 = load i32, ptr %len, align 4
-  %cmp52 = icmp eq i32 %31, 4
+  %32 = load i32, ptr %len, align 4
+  %cmp52 = icmp eq i32 %32, 4
   br i1 %cmp52, label %land.lhs.true54, label %if.else60
 
 land.lhs.true54:                                  ; preds = %lor.lhs.false
@@ -1411,27 +1414,27 @@ if.else60:                                        ; preds = %land.lhs.true54, %l
   %call62 = call double @strtod(ptr noundef %arraydecay61, ptr noundef %eptr) #8
   store double %call62, ptr %d, align 8
   %arrayidx63 = getelementptr inbounds [326 x i8], ptr %buf, i64 0, i64 0
-  %32 = load i8, ptr %arrayidx63, align 16
-  %conv64 = sext i8 %32 to i32
+  %33 = load i8, ptr %arrayidx63, align 16
+  %conv64 = sext i8 %33 to i32
   %cmp65 = icmp eq i32 %conv64, 0
   br i1 %cmp65, label %if.then73, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.else60
-  %33 = load ptr, ptr %eptr, align 8
-  %34 = load i32, ptr %len, align 4
-  %idxprom68 = sext i32 %34 to i64
+  %34 = load ptr, ptr %eptr, align 8
+  %35 = load i32, ptr %len, align 4
+  %idxprom68 = sext i32 %35 to i64
   %arrayidx69 = getelementptr inbounds [326 x i8], ptr %buf, i64 0, i64 %idxprom68
-  %cmp70 = icmp ne ptr %33, %arrayidx69
+  %cmp70 = icmp ne ptr %34, %arrayidx69
   br i1 %cmp70, label %if.then73, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %lor.lhs.false67
-  %35 = load double, ptr %d, align 8
-  %36 = call i1 @llvm.is.fpclass.f64(double %35, i32 504)
-  br i1 %36, label %if.end74, label %if.then73
+  %36 = load double, ptr %d, align 8
+  %37 = call i1 @llvm.is.fpclass.f64(double %36, i32 504)
+  br i1 %37, label %if.end74, label %if.then73
 
 if.then73:                                        ; preds = %lor.lhs.false72, %lor.lhs.false67, %if.else60
-  %37 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %37, i32 noundef 4, ptr noundef @.str.16)
+  %38 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %38, i32 noundef 4, ptr noundef @.str.16)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -1445,181 +1448,184 @@ if.end76:                                         ; preds = %if.end75, %if.then4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end76, %if.then34
-  %38 = load ptr, ptr %r.addr, align 8
-  %fn78 = getelementptr inbounds %struct.redisReader, ptr %38, i32 0, i32 11
-  %39 = load ptr, ptr %fn78, align 8
-  %tobool79 = icmp ne ptr %39, null
+  %39 = load ptr, ptr %r.addr, align 8
+  %fn78 = getelementptr inbounds %struct.redisReader, ptr %39, i32 0, i32 11
+  %40 = load ptr, ptr %fn78, align 8
+  %tobool79 = icmp ne ptr %40, null
   br i1 %tobool79, label %land.lhs.true80, label %if.else89
 
 land.lhs.true80:                                  ; preds = %if.end77
-  %40 = load ptr, ptr %r.addr, align 8
-  %fn81 = getelementptr inbounds %struct.redisReader, ptr %40, i32 0, i32 11
-  %41 = load ptr, ptr %fn81, align 8
-  %createDouble = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %41, i32 0, i32 3
-  %42 = load ptr, ptr %createDouble, align 8
-  %tobool82 = icmp ne ptr %42, null
+  %41 = load ptr, ptr %r.addr, align 8
+  %fn81 = getelementptr inbounds %struct.redisReader, ptr %41, i32 0, i32 11
+  %42 = load ptr, ptr %fn81, align 8
+  %createDouble = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %createDouble, align 8
+  %tobool82 = icmp ne ptr %43, null
   br i1 %tobool82, label %if.then83, label %if.else89
 
 if.then83:                                        ; preds = %land.lhs.true80
-  %43 = load ptr, ptr %r.addr, align 8
-  %fn84 = getelementptr inbounds %struct.redisReader, ptr %43, i32 0, i32 11
-  %44 = load ptr, ptr %fn84, align 8
-  %createDouble85 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %createDouble85, align 8
-  %46 = load ptr, ptr %cur, align 8
-  %47 = load double, ptr %d, align 8
+  %44 = load ptr, ptr %r.addr, align 8
+  %fn84 = getelementptr inbounds %struct.redisReader, ptr %44, i32 0, i32 11
+  %45 = load ptr, ptr %fn84, align 8
+  %createDouble85 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %45, i32 0, i32 3
+  %46 = load ptr, ptr %createDouble85, align 8
+  %47 = load ptr, ptr %cur, align 8
+  %48 = load double, ptr %d, align 8
   %arraydecay86 = getelementptr inbounds [326 x i8], ptr %buf, i64 0, i64 0
-  %48 = load i32, ptr %len, align 4
-  %conv87 = sext i32 %48 to i64
-  %call88 = call ptr %45(ptr noundef %46, double noundef %47, ptr noundef %arraydecay86, i64 noundef %conv87)
+  %49 = load i32, ptr %len, align 4
+  %conv87 = sext i32 %49 to i64
+  %call88 = call ptr %46(ptr noundef %47, double noundef %48, ptr noundef %arraydecay86, i64 noundef %conv87)
   store ptr %call88, ptr %obj, align 8
   br label %if.end90
 
 if.else89:                                        ; preds = %land.lhs.true80, %if.end77
-  store ptr inttoptr (i64 7 to ptr), ptr %obj, align 8
+  %50 = inttoptr i64 7 to ptr
+  store ptr %50, ptr %obj, align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.else89, %if.then83
   br label %if.end225
 
 if.else91:                                        ; preds = %if.else14
-  %49 = load ptr, ptr %cur, align 8
-  %type92 = getelementptr inbounds %struct.redisReadTask, ptr %49, i32 0, i32 0
-  %50 = load i32, ptr %type92, align 8
-  %cmp93 = icmp eq i32 %50, 4
+  %51 = load ptr, ptr %cur, align 8
+  %type92 = getelementptr inbounds %struct.redisReadTask, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %type92, align 8
+  %cmp93 = icmp eq i32 %52, 4
   br i1 %cmp93, label %if.then95, label %if.else111
 
 if.then95:                                        ; preds = %if.else91
-  %51 = load i32, ptr %len, align 4
-  %cmp96 = icmp ne i32 %51, 0
+  %53 = load i32, ptr %len, align 4
+  %cmp96 = icmp ne i32 %53, 0
   br i1 %cmp96, label %if.then98, label %if.end99
 
 if.then98:                                        ; preds = %if.then95
-  %52 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %52, i32 noundef 4, ptr noundef @.str.17)
+  %54 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %54, i32 noundef 4, ptr noundef @.str.17)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end99:                                         ; preds = %if.then95
-  %53 = load ptr, ptr %r.addr, align 8
-  %fn100 = getelementptr inbounds %struct.redisReader, ptr %53, i32 0, i32 11
-  %54 = load ptr, ptr %fn100, align 8
-  %tobool101 = icmp ne ptr %54, null
+  %55 = load ptr, ptr %r.addr, align 8
+  %fn100 = getelementptr inbounds %struct.redisReader, ptr %55, i32 0, i32 11
+  %56 = load ptr, ptr %fn100, align 8
+  %tobool101 = icmp ne ptr %56, null
   br i1 %tobool101, label %land.lhs.true102, label %if.else109
 
 land.lhs.true102:                                 ; preds = %if.end99
-  %55 = load ptr, ptr %r.addr, align 8
-  %fn103 = getelementptr inbounds %struct.redisReader, ptr %55, i32 0, i32 11
-  %56 = load ptr, ptr %fn103, align 8
-  %createNil = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %56, i32 0, i32 4
-  %57 = load ptr, ptr %createNil, align 8
-  %tobool104 = icmp ne ptr %57, null
+  %57 = load ptr, ptr %r.addr, align 8
+  %fn103 = getelementptr inbounds %struct.redisReader, ptr %57, i32 0, i32 11
+  %58 = load ptr, ptr %fn103, align 8
+  %createNil = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %58, i32 0, i32 4
+  %59 = load ptr, ptr %createNil, align 8
+  %tobool104 = icmp ne ptr %59, null
   br i1 %tobool104, label %if.then105, label %if.else109
 
 if.then105:                                       ; preds = %land.lhs.true102
-  %58 = load ptr, ptr %r.addr, align 8
-  %fn106 = getelementptr inbounds %struct.redisReader, ptr %58, i32 0, i32 11
-  %59 = load ptr, ptr %fn106, align 8
-  %createNil107 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %59, i32 0, i32 4
-  %60 = load ptr, ptr %createNil107, align 8
-  %61 = load ptr, ptr %cur, align 8
-  %call108 = call ptr %60(ptr noundef %61)
+  %60 = load ptr, ptr %r.addr, align 8
+  %fn106 = getelementptr inbounds %struct.redisReader, ptr %60, i32 0, i32 11
+  %61 = load ptr, ptr %fn106, align 8
+  %createNil107 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %61, i32 0, i32 4
+  %62 = load ptr, ptr %createNil107, align 8
+  %63 = load ptr, ptr %cur, align 8
+  %call108 = call ptr %62(ptr noundef %63)
   store ptr %call108, ptr %obj, align 8
   br label %if.end110
 
 if.else109:                                       ; preds = %land.lhs.true102, %if.end99
-  store ptr inttoptr (i64 4 to ptr), ptr %obj, align 8
+  %64 = inttoptr i64 4 to ptr
+  store ptr %64, ptr %obj, align 8
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else109, %if.then105
   br label %if.end224
 
 if.else111:                                       ; preds = %if.else91
-  %62 = load ptr, ptr %cur, align 8
-  %type112 = getelementptr inbounds %struct.redisReadTask, ptr %62, i32 0, i32 0
-  %63 = load i32, ptr %type112, align 8
-  %cmp113 = icmp eq i32 %63, 8
+  %65 = load ptr, ptr %cur, align 8
+  %type112 = getelementptr inbounds %struct.redisReadTask, ptr %65, i32 0, i32 0
+  %66 = load i32, ptr %type112, align 8
+  %cmp113 = icmp eq i32 %66, 8
   br i1 %cmp113, label %if.then115, label %if.else144
 
 if.then115:                                       ; preds = %if.else111
-  %64 = load i32, ptr %len, align 4
-  %cmp116 = icmp ne i32 %64, 1
+  %67 = load i32, ptr %len, align 4
+  %cmp116 = icmp ne i32 %67, 1
   br i1 %cmp116, label %if.then123, label %lor.lhs.false118
 
 lor.lhs.false118:                                 ; preds = %if.then115
-  %65 = load ptr, ptr %p, align 8
-  %arrayidx119 = getelementptr inbounds i8, ptr %65, i64 0
-  %66 = load i8, ptr %arrayidx119, align 1
-  %conv120 = sext i8 %66 to i32
+  %68 = load ptr, ptr %p, align 8
+  %arrayidx119 = getelementptr inbounds i8, ptr %68, i64 0
+  %69 = load i8, ptr %arrayidx119, align 1
+  %conv120 = sext i8 %69 to i32
   %call121 = call ptr @strchr(ptr noundef @.str.18, i32 noundef %conv120) #7
   %tobool122 = icmp ne ptr %call121, null
   br i1 %tobool122, label %if.end124, label %if.then123
 
 if.then123:                                       ; preds = %lor.lhs.false118, %if.then115
-  %67 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %67, i32 noundef 4, ptr noundef @.str.19)
+  %70 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %70, i32 noundef 4, ptr noundef @.str.19)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end124:                                        ; preds = %lor.lhs.false118
-  %68 = load ptr, ptr %p, align 8
-  %arrayidx125 = getelementptr inbounds i8, ptr %68, i64 0
-  %69 = load i8, ptr %arrayidx125, align 1
-  %conv126 = sext i8 %69 to i32
+  %71 = load ptr, ptr %p, align 8
+  %arrayidx125 = getelementptr inbounds i8, ptr %71, i64 0
+  %72 = load i8, ptr %arrayidx125, align 1
+  %conv126 = sext i8 %72 to i32
   %cmp127 = icmp eq i32 %conv126, 116
   br i1 %cmp127, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end124
-  %70 = load ptr, ptr %p, align 8
-  %arrayidx129 = getelementptr inbounds i8, ptr %70, i64 0
-  %71 = load i8, ptr %arrayidx129, align 1
-  %conv130 = sext i8 %71 to i32
+  %73 = load ptr, ptr %p, align 8
+  %arrayidx129 = getelementptr inbounds i8, ptr %73, i64 0
+  %74 = load i8, ptr %arrayidx129, align 1
+  %conv130 = sext i8 %74 to i32
   %cmp131 = icmp eq i32 %conv130, 84
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end124
-  %72 = phi i1 [ true, %if.end124 ], [ %cmp131, %lor.rhs ]
-  %lor.ext = zext i1 %72 to i32
+  %75 = phi i1 [ true, %if.end124 ], [ %cmp131, %lor.rhs ]
+  %lor.ext = zext i1 %75 to i32
   store i32 %lor.ext, ptr %bval, align 4
-  %73 = load ptr, ptr %r.addr, align 8
-  %fn133 = getelementptr inbounds %struct.redisReader, ptr %73, i32 0, i32 11
-  %74 = load ptr, ptr %fn133, align 8
-  %tobool134 = icmp ne ptr %74, null
+  %76 = load ptr, ptr %r.addr, align 8
+  %fn133 = getelementptr inbounds %struct.redisReader, ptr %76, i32 0, i32 11
+  %77 = load ptr, ptr %fn133, align 8
+  %tobool134 = icmp ne ptr %77, null
   br i1 %tobool134, label %land.lhs.true135, label %if.else142
 
 land.lhs.true135:                                 ; preds = %lor.end
-  %75 = load ptr, ptr %r.addr, align 8
-  %fn136 = getelementptr inbounds %struct.redisReader, ptr %75, i32 0, i32 11
-  %76 = load ptr, ptr %fn136, align 8
-  %createBool = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %76, i32 0, i32 5
-  %77 = load ptr, ptr %createBool, align 8
-  %tobool137 = icmp ne ptr %77, null
+  %78 = load ptr, ptr %r.addr, align 8
+  %fn136 = getelementptr inbounds %struct.redisReader, ptr %78, i32 0, i32 11
+  %79 = load ptr, ptr %fn136, align 8
+  %createBool = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %79, i32 0, i32 5
+  %80 = load ptr, ptr %createBool, align 8
+  %tobool137 = icmp ne ptr %80, null
   br i1 %tobool137, label %if.then138, label %if.else142
 
 if.then138:                                       ; preds = %land.lhs.true135
-  %78 = load ptr, ptr %r.addr, align 8
-  %fn139 = getelementptr inbounds %struct.redisReader, ptr %78, i32 0, i32 11
-  %79 = load ptr, ptr %fn139, align 8
-  %createBool140 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %79, i32 0, i32 5
-  %80 = load ptr, ptr %createBool140, align 8
-  %81 = load ptr, ptr %cur, align 8
-  %82 = load i32, ptr %bval, align 4
-  %call141 = call ptr %80(ptr noundef %81, i32 noundef %82)
+  %81 = load ptr, ptr %r.addr, align 8
+  %fn139 = getelementptr inbounds %struct.redisReader, ptr %81, i32 0, i32 11
+  %82 = load ptr, ptr %fn139, align 8
+  %createBool140 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %82, i32 0, i32 5
+  %83 = load ptr, ptr %createBool140, align 8
+  %84 = load ptr, ptr %cur, align 8
+  %85 = load i32, ptr %bval, align 4
+  %call141 = call ptr %83(ptr noundef %84, i32 noundef %85)
   store ptr %call141, ptr %obj, align 8
   br label %if.end143
 
 if.else142:                                       ; preds = %land.lhs.true135, %lor.end
-  store ptr inttoptr (i64 8 to ptr), ptr %obj, align 8
+  %86 = inttoptr i64 8 to ptr
+  store ptr %86, ptr %obj, align 8
   br label %if.end143
 
 if.end143:                                        ; preds = %if.else142, %if.then138
   br label %if.end223
 
 if.else144:                                       ; preds = %if.else111
-  %83 = load ptr, ptr %cur, align 8
-  %type145 = getelementptr inbounds %struct.redisReadTask, ptr %83, i32 0, i32 0
-  %84 = load i32, ptr %type145, align 8
-  %cmp146 = icmp eq i32 %84, 13
+  %87 = load ptr, ptr %cur, align 8
+  %type145 = getelementptr inbounds %struct.redisReadTask, ptr %87, i32 0, i32 0
+  %88 = load i32, ptr %type145, align 8
+  %cmp146 = icmp eq i32 %88, 13
   br i1 %cmp146, label %if.then148, label %if.else185
 
 if.then148:                                       ; preds = %if.else144
@@ -1627,21 +1633,21 @@ if.then148:                                       ; preds = %if.else144
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then148
-  %85 = load i32, ptr %i, align 4
-  %86 = load i32, ptr %len, align 4
-  %cmp149 = icmp slt i32 %85, %86
+  %89 = load i32, ptr %i, align 4
+  %90 = load i32, ptr %len, align 4
+  %cmp149 = icmp slt i32 %89, %90
   br i1 %cmp149, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %87 = load i32, ptr %i, align 4
-  %cmp151 = icmp eq i32 %87, 0
+  %91 = load i32, ptr %i, align 4
+  %cmp151 = icmp eq i32 %91, 0
   br i1 %cmp151, label %land.lhs.true153, label %if.end159
 
 land.lhs.true153:                                 ; preds = %for.body
-  %88 = load ptr, ptr %p, align 8
-  %arrayidx154 = getelementptr inbounds i8, ptr %88, i64 0
-  %89 = load i8, ptr %arrayidx154, align 1
-  %conv155 = sext i8 %89 to i32
+  %92 = load ptr, ptr %p, align 8
+  %arrayidx154 = getelementptr inbounds i8, ptr %92, i64 0
+  %93 = load i8, ptr %arrayidx154, align 1
+  %conv155 = sext i8 %93 to i32
   %cmp156 = icmp eq i32 %conv155, 45
   br i1 %cmp156, label %if.then158, label %if.end159
 
@@ -1649,28 +1655,28 @@ if.then158:                                       ; preds = %land.lhs.true153
   br label %for.inc
 
 if.end159:                                        ; preds = %land.lhs.true153, %for.body
-  %90 = load ptr, ptr %p, align 8
-  %91 = load i32, ptr %i, align 4
-  %idxprom160 = sext i32 %91 to i64
-  %arrayidx161 = getelementptr inbounds i8, ptr %90, i64 %idxprom160
-  %92 = load i8, ptr %arrayidx161, align 1
-  %conv162 = sext i8 %92 to i32
+  %94 = load ptr, ptr %p, align 8
+  %95 = load i32, ptr %i, align 4
+  %idxprom160 = sext i32 %95 to i64
+  %arrayidx161 = getelementptr inbounds i8, ptr %94, i64 %idxprom160
+  %96 = load i8, ptr %arrayidx161, align 1
+  %conv162 = sext i8 %96 to i32
   %cmp163 = icmp slt i32 %conv162, 48
   br i1 %cmp163, label %if.then171, label %lor.lhs.false165
 
 lor.lhs.false165:                                 ; preds = %if.end159
-  %93 = load ptr, ptr %p, align 8
-  %94 = load i32, ptr %i, align 4
-  %idxprom166 = sext i32 %94 to i64
-  %arrayidx167 = getelementptr inbounds i8, ptr %93, i64 %idxprom166
-  %95 = load i8, ptr %arrayidx167, align 1
-  %conv168 = sext i8 %95 to i32
+  %97 = load ptr, ptr %p, align 8
+  %98 = load i32, ptr %i, align 4
+  %idxprom166 = sext i32 %98 to i64
+  %arrayidx167 = getelementptr inbounds i8, ptr %97, i64 %idxprom166
+  %99 = load i8, ptr %arrayidx167, align 1
+  %conv168 = sext i8 %99 to i32
   %cmp169 = icmp sgt i32 %conv168, 57
   br i1 %cmp169, label %if.then171, label %if.end172
 
 if.then171:                                       ; preds = %lor.lhs.false165, %if.end159
-  %96 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %96, i32 noundef 4, ptr noundef @.str.20)
+  %100 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %100, i32 noundef 4, ptr noundef @.str.20)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -1678,43 +1684,44 @@ if.end172:                                        ; preds = %lor.lhs.false165
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end172, %if.then158
-  %97 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %97, 1
+  %101 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %101, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %98 = load ptr, ptr %r.addr, align 8
-  %fn173 = getelementptr inbounds %struct.redisReader, ptr %98, i32 0, i32 11
-  %99 = load ptr, ptr %fn173, align 8
-  %tobool174 = icmp ne ptr %99, null
+  %102 = load ptr, ptr %r.addr, align 8
+  %fn173 = getelementptr inbounds %struct.redisReader, ptr %102, i32 0, i32 11
+  %103 = load ptr, ptr %fn173, align 8
+  %tobool174 = icmp ne ptr %103, null
   br i1 %tobool174, label %land.lhs.true175, label %if.else183
 
 land.lhs.true175:                                 ; preds = %for.end
-  %100 = load ptr, ptr %r.addr, align 8
-  %fn176 = getelementptr inbounds %struct.redisReader, ptr %100, i32 0, i32 11
-  %101 = load ptr, ptr %fn176, align 8
-  %createString = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %101, i32 0, i32 0
-  %102 = load ptr, ptr %createString, align 8
-  %tobool177 = icmp ne ptr %102, null
+  %104 = load ptr, ptr %r.addr, align 8
+  %fn176 = getelementptr inbounds %struct.redisReader, ptr %104, i32 0, i32 11
+  %105 = load ptr, ptr %fn176, align 8
+  %createString = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %105, i32 0, i32 0
+  %106 = load ptr, ptr %createString, align 8
+  %tobool177 = icmp ne ptr %106, null
   br i1 %tobool177, label %if.then178, label %if.else183
 
 if.then178:                                       ; preds = %land.lhs.true175
-  %103 = load ptr, ptr %r.addr, align 8
-  %fn179 = getelementptr inbounds %struct.redisReader, ptr %103, i32 0, i32 11
-  %104 = load ptr, ptr %fn179, align 8
-  %createString180 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %104, i32 0, i32 0
-  %105 = load ptr, ptr %createString180, align 8
-  %106 = load ptr, ptr %cur, align 8
-  %107 = load ptr, ptr %p, align 8
-  %108 = load i32, ptr %len, align 4
-  %conv181 = sext i32 %108 to i64
-  %call182 = call ptr %105(ptr noundef %106, ptr noundef %107, i64 noundef %conv181)
+  %107 = load ptr, ptr %r.addr, align 8
+  %fn179 = getelementptr inbounds %struct.redisReader, ptr %107, i32 0, i32 11
+  %108 = load ptr, ptr %fn179, align 8
+  %createString180 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %108, i32 0, i32 0
+  %109 = load ptr, ptr %createString180, align 8
+  %110 = load ptr, ptr %cur, align 8
+  %111 = load ptr, ptr %p, align 8
+  %112 = load i32, ptr %len, align 4
+  %conv181 = sext i32 %112 to i64
+  %call182 = call ptr %109(ptr noundef %110, ptr noundef %111, i64 noundef %conv181)
   store ptr %call182, ptr %obj, align 8
   br label %if.end184
 
 if.else183:                                       ; preds = %land.lhs.true175, %for.end
-  store ptr inttoptr (i64 13 to ptr), ptr %obj, align 8
+  %113 = inttoptr i64 13 to ptr
+  store ptr %113, ptr %obj, align 8
   br label %if.end184
 
 if.end184:                                        ; preds = %if.else183, %if.then178
@@ -1725,34 +1732,34 @@ if.else185:                                       ; preds = %if.else144
   br label %for.cond187
 
 for.cond187:                                      ; preds = %for.inc204, %if.else185
-  %109 = load i32, ptr %i186, align 4
-  %110 = load i32, ptr %len, align 4
-  %cmp188 = icmp slt i32 %109, %110
+  %114 = load i32, ptr %i186, align 4
+  %115 = load i32, ptr %len, align 4
+  %cmp188 = icmp slt i32 %114, %115
   br i1 %cmp188, label %for.body190, label %for.end206
 
 for.body190:                                      ; preds = %for.cond187
-  %111 = load ptr, ptr %p, align 8
-  %112 = load i32, ptr %i186, align 4
-  %idxprom191 = sext i32 %112 to i64
-  %arrayidx192 = getelementptr inbounds i8, ptr %111, i64 %idxprom191
-  %113 = load i8, ptr %arrayidx192, align 1
-  %conv193 = sext i8 %113 to i32
+  %116 = load ptr, ptr %p, align 8
+  %117 = load i32, ptr %i186, align 4
+  %idxprom191 = sext i32 %117 to i64
+  %arrayidx192 = getelementptr inbounds i8, ptr %116, i64 %idxprom191
+  %118 = load i8, ptr %arrayidx192, align 1
+  %conv193 = sext i8 %118 to i32
   %cmp194 = icmp eq i32 %conv193, 13
   br i1 %cmp194, label %if.then202, label %lor.lhs.false196
 
 lor.lhs.false196:                                 ; preds = %for.body190
-  %114 = load ptr, ptr %p, align 8
-  %115 = load i32, ptr %i186, align 4
-  %idxprom197 = sext i32 %115 to i64
-  %arrayidx198 = getelementptr inbounds i8, ptr %114, i64 %idxprom197
-  %116 = load i8, ptr %arrayidx198, align 1
-  %conv199 = sext i8 %116 to i32
+  %119 = load ptr, ptr %p, align 8
+  %120 = load i32, ptr %i186, align 4
+  %idxprom197 = sext i32 %120 to i64
+  %arrayidx198 = getelementptr inbounds i8, ptr %119, i64 %idxprom197
+  %121 = load i8, ptr %arrayidx198, align 1
+  %conv199 = sext i8 %121 to i32
   %cmp200 = icmp eq i32 %conv199, 10
   br i1 %cmp200, label %if.then202, label %if.end203
 
 if.then202:                                       ; preds = %lor.lhs.false196, %for.body190
-  %117 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %117, i32 noundef 4, ptr noundef @.str.21)
+  %122 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %122, i32 noundef 4, ptr noundef @.str.21)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -1760,48 +1767,48 @@ if.end203:                                        ; preds = %lor.lhs.false196
   br label %for.inc204
 
 for.inc204:                                       ; preds = %if.end203
-  %118 = load i32, ptr %i186, align 4
-  %inc205 = add nsw i32 %118, 1
+  %123 = load i32, ptr %i186, align 4
+  %inc205 = add nsw i32 %123, 1
   store i32 %inc205, ptr %i186, align 4
   br label %for.cond187
 
 for.end206:                                       ; preds = %for.cond187
-  %119 = load ptr, ptr %r.addr, align 8
-  %fn207 = getelementptr inbounds %struct.redisReader, ptr %119, i32 0, i32 11
-  %120 = load ptr, ptr %fn207, align 8
-  %tobool208 = icmp ne ptr %120, null
+  %124 = load ptr, ptr %r.addr, align 8
+  %fn207 = getelementptr inbounds %struct.redisReader, ptr %124, i32 0, i32 11
+  %125 = load ptr, ptr %fn207, align 8
+  %tobool208 = icmp ne ptr %125, null
   br i1 %tobool208, label %land.lhs.true209, label %if.else218
 
 land.lhs.true209:                                 ; preds = %for.end206
-  %121 = load ptr, ptr %r.addr, align 8
-  %fn210 = getelementptr inbounds %struct.redisReader, ptr %121, i32 0, i32 11
-  %122 = load ptr, ptr %fn210, align 8
-  %createString211 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %122, i32 0, i32 0
-  %123 = load ptr, ptr %createString211, align 8
-  %tobool212 = icmp ne ptr %123, null
+  %126 = load ptr, ptr %r.addr, align 8
+  %fn210 = getelementptr inbounds %struct.redisReader, ptr %126, i32 0, i32 11
+  %127 = load ptr, ptr %fn210, align 8
+  %createString211 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %127, i32 0, i32 0
+  %128 = load ptr, ptr %createString211, align 8
+  %tobool212 = icmp ne ptr %128, null
   br i1 %tobool212, label %if.then213, label %if.else218
 
 if.then213:                                       ; preds = %land.lhs.true209
-  %124 = load ptr, ptr %r.addr, align 8
-  %fn214 = getelementptr inbounds %struct.redisReader, ptr %124, i32 0, i32 11
-  %125 = load ptr, ptr %fn214, align 8
-  %createString215 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %125, i32 0, i32 0
-  %126 = load ptr, ptr %createString215, align 8
-  %127 = load ptr, ptr %cur, align 8
-  %128 = load ptr, ptr %p, align 8
-  %129 = load i32, ptr %len, align 4
-  %conv216 = sext i32 %129 to i64
-  %call217 = call ptr %126(ptr noundef %127, ptr noundef %128, i64 noundef %conv216)
+  %129 = load ptr, ptr %r.addr, align 8
+  %fn214 = getelementptr inbounds %struct.redisReader, ptr %129, i32 0, i32 11
+  %130 = load ptr, ptr %fn214, align 8
+  %createString215 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %130, i32 0, i32 0
+  %131 = load ptr, ptr %createString215, align 8
+  %132 = load ptr, ptr %cur, align 8
+  %133 = load ptr, ptr %p, align 8
+  %134 = load i32, ptr %len, align 4
+  %conv216 = sext i32 %134 to i64
+  %call217 = call ptr %131(ptr noundef %132, ptr noundef %133, i64 noundef %conv216)
   store ptr %call217, ptr %obj, align 8
   br label %if.end221
 
 if.else218:                                       ; preds = %land.lhs.true209, %for.end206
-  %130 = load ptr, ptr %cur, align 8
-  %type219 = getelementptr inbounds %struct.redisReadTask, ptr %130, i32 0, i32 0
-  %131 = load i32, ptr %type219, align 8
-  %conv220 = sext i32 %131 to i64
-  %132 = inttoptr i64 %conv220 to ptr
-  store ptr %132, ptr %obj, align 8
+  %135 = load ptr, ptr %cur, align 8
+  %type219 = getelementptr inbounds %struct.redisReadTask, ptr %135, i32 0, i32 0
+  %136 = load i32, ptr %type219, align 8
+  %conv220 = sext i32 %136 to i64
+  %137 = inttoptr i64 %conv220 to ptr
+  store ptr %137, ptr %obj, align 8
   br label %if.end221
 
 if.end221:                                        ; preds = %if.else218, %if.then213
@@ -1820,33 +1827,33 @@ if.end225:                                        ; preds = %if.end224, %if.end9
   br label %if.end226
 
 if.end226:                                        ; preds = %if.end225, %if.end13
-  %133 = load ptr, ptr %obj, align 8
-  %cmp227 = icmp eq ptr %133, null
+  %138 = load ptr, ptr %obj, align 8
+  %cmp227 = icmp eq ptr %138, null
   br i1 %cmp227, label %if.then229, label %if.end230
 
 if.then229:                                       ; preds = %if.end226
-  %134 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetErrorOOM(ptr noundef %134)
+  %139 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetErrorOOM(ptr noundef %139)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end230:                                        ; preds = %if.end226
-  %135 = load ptr, ptr %r.addr, align 8
-  %ridx231 = getelementptr inbounds %struct.redisReader, ptr %135, i32 0, i32 9
-  %136 = load i32, ptr %ridx231, align 4
-  %cmp232 = icmp eq i32 %136, 0
+  %140 = load ptr, ptr %r.addr, align 8
+  %ridx231 = getelementptr inbounds %struct.redisReader, ptr %140, i32 0, i32 9
+  %141 = load i32, ptr %ridx231, align 4
+  %cmp232 = icmp eq i32 %141, 0
   br i1 %cmp232, label %if.then234, label %if.end235
 
 if.then234:                                       ; preds = %if.end230
-  %137 = load ptr, ptr %obj, align 8
-  %138 = load ptr, ptr %r.addr, align 8
-  %reply = getelementptr inbounds %struct.redisReader, ptr %138, i32 0, i32 10
-  store ptr %137, ptr %reply, align 8
+  %142 = load ptr, ptr %obj, align 8
+  %143 = load ptr, ptr %r.addr, align 8
+  %reply = getelementptr inbounds %struct.redisReader, ptr %143, i32 0, i32 10
+  store ptr %142, ptr %reply, align 8
   br label %if.end235
 
 if.end235:                                        ; preds = %if.then234, %if.end230
-  %139 = load ptr, ptr %r.addr, align 8
-  call void @moveToNextTask(ptr noundef %139)
+  %144 = load ptr, ptr %r.addr, align 8
+  call void @moveToNextTask(ptr noundef %144)
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -1855,8 +1862,8 @@ if.end236:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end236, %if.end235, %if.then229, %if.then202, %if.then171, %if.then123, %if.then98, %if.then73, %if.then22, %if.then6
-  %140 = load i32, ptr %retval, align 4
-  ret i32 %140
+  %145 = load i32, ptr %retval, align 4
+  ret i32 %145
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1985,7 +1992,8 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %if.end24
 
 if.else:                                          ; preds = %land.lhs.true, %if.then17
-  store ptr inttoptr (i64 4 to ptr), ptr %obj, align 8
+  %39 = inttoptr i64 4 to ptr
+  store ptr %39, ptr %obj, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then20
@@ -1993,92 +2001,92 @@ if.end24:                                         ; preds = %if.else, %if.then20
   br label %if.end59
 
 if.else25:                                        ; preds = %if.end15
-  %39 = load i64, ptr %len, align 8
-  %add26 = add nsw i64 %39, 2
-  %40 = load i64, ptr %bytelen, align 8
-  %add27 = add i64 %40, %add26
+  %40 = load i64, ptr %len, align 8
+  %add26 = add nsw i64 %40, 2
+  %41 = load i64, ptr %bytelen, align 8
+  %add27 = add i64 %41, %add26
   store i64 %add27, ptr %bytelen, align 8
-  %41 = load ptr, ptr %r.addr, align 8
-  %pos28 = getelementptr inbounds %struct.redisReader, ptr %41, i32 0, i32 3
-  %42 = load i64, ptr %pos28, align 8
-  %43 = load i64, ptr %bytelen, align 8
-  %add29 = add i64 %42, %43
-  %44 = load ptr, ptr %r.addr, align 8
-  %len30 = getelementptr inbounds %struct.redisReader, ptr %44, i32 0, i32 4
-  %45 = load i64, ptr %len30, align 8
-  %cmp31 = icmp ule i64 %add29, %45
+  %42 = load ptr, ptr %r.addr, align 8
+  %pos28 = getelementptr inbounds %struct.redisReader, ptr %42, i32 0, i32 3
+  %43 = load i64, ptr %pos28, align 8
+  %44 = load i64, ptr %bytelen, align 8
+  %add29 = add i64 %43, %44
+  %45 = load ptr, ptr %r.addr, align 8
+  %len30 = getelementptr inbounds %struct.redisReader, ptr %45, i32 0, i32 4
+  %46 = load i64, ptr %len30, align 8
+  %cmp31 = icmp ule i64 %add29, %46
   br i1 %cmp31, label %if.then32, label %if.end58
 
 if.then32:                                        ; preds = %if.else25
-  %46 = load ptr, ptr %cur, align 8
-  %type = getelementptr inbounds %struct.redisReadTask, ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %type, align 8
-  %cmp33 = icmp eq i32 %47, 14
+  %47 = load ptr, ptr %cur, align 8
+  %type = getelementptr inbounds %struct.redisReadTask, ptr %47, i32 0, i32 0
+  %48 = load i32, ptr %type, align 8
+  %cmp33 = icmp eq i32 %48, 14
   br i1 %cmp33, label %land.lhs.true34, label %lor.lhs.false
 
 land.lhs.true34:                                  ; preds = %if.then32
-  %48 = load i64, ptr %len, align 8
-  %cmp35 = icmp slt i64 %48, 4
+  %49 = load i64, ptr %len, align 8
+  %cmp35 = icmp slt i64 %49, 4
   br i1 %cmp35, label %if.then42, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true34, %if.then32
-  %49 = load ptr, ptr %cur, align 8
-  %type36 = getelementptr inbounds %struct.redisReadTask, ptr %49, i32 0, i32 0
-  %50 = load i32, ptr %type36, align 8
-  %cmp37 = icmp eq i32 %50, 14
+  %50 = load ptr, ptr %cur, align 8
+  %type36 = getelementptr inbounds %struct.redisReadTask, ptr %50, i32 0, i32 0
+  %51 = load i32, ptr %type36, align 8
+  %cmp37 = icmp eq i32 %51, 14
   br i1 %cmp37, label %land.lhs.true38, label %if.end43
 
 land.lhs.true38:                                  ; preds = %lor.lhs.false
-  %51 = load ptr, ptr %s, align 8
-  %arrayidx39 = getelementptr inbounds i8, ptr %51, i64 5
-  %52 = load i8, ptr %arrayidx39, align 1
-  %conv = sext i8 %52 to i32
+  %52 = load ptr, ptr %s, align 8
+  %arrayidx39 = getelementptr inbounds i8, ptr %52, i64 5
+  %53 = load i8, ptr %arrayidx39, align 1
+  %conv = sext i8 %53 to i32
   %cmp40 = icmp ne i32 %conv, 58
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %land.lhs.true38, %land.lhs.true34
-  %53 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetError(ptr noundef %53, i32 noundef 4, ptr noundef @.str.24)
+  %54 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetError(ptr noundef %54, i32 noundef 4, ptr noundef @.str.24)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end43:                                         ; preds = %land.lhs.true38, %lor.lhs.false
-  %54 = load ptr, ptr %r.addr, align 8
-  %fn44 = getelementptr inbounds %struct.redisReader, ptr %54, i32 0, i32 11
-  %55 = load ptr, ptr %fn44, align 8
-  %tobool45 = icmp ne ptr %55, null
+  %55 = load ptr, ptr %r.addr, align 8
+  %fn44 = getelementptr inbounds %struct.redisReader, ptr %55, i32 0, i32 11
+  %56 = load ptr, ptr %fn44, align 8
+  %tobool45 = icmp ne ptr %56, null
   br i1 %tobool45, label %land.lhs.true46, label %if.else54
 
 land.lhs.true46:                                  ; preds = %if.end43
-  %56 = load ptr, ptr %r.addr, align 8
-  %fn47 = getelementptr inbounds %struct.redisReader, ptr %56, i32 0, i32 11
-  %57 = load ptr, ptr %fn47, align 8
-  %createString = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %57, i32 0, i32 0
-  %58 = load ptr, ptr %createString, align 8
-  %tobool48 = icmp ne ptr %58, null
+  %57 = load ptr, ptr %r.addr, align 8
+  %fn47 = getelementptr inbounds %struct.redisReader, ptr %57, i32 0, i32 11
+  %58 = load ptr, ptr %fn47, align 8
+  %createString = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %58, i32 0, i32 0
+  %59 = load ptr, ptr %createString, align 8
+  %tobool48 = icmp ne ptr %59, null
   br i1 %tobool48, label %if.then49, label %if.else54
 
 if.then49:                                        ; preds = %land.lhs.true46
-  %59 = load ptr, ptr %r.addr, align 8
-  %fn50 = getelementptr inbounds %struct.redisReader, ptr %59, i32 0, i32 11
-  %60 = load ptr, ptr %fn50, align 8
-  %createString51 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %60, i32 0, i32 0
-  %61 = load ptr, ptr %createString51, align 8
-  %62 = load ptr, ptr %cur, align 8
-  %63 = load ptr, ptr %s, align 8
-  %add.ptr52 = getelementptr inbounds i8, ptr %63, i64 2
-  %64 = load i64, ptr %len, align 8
-  %call53 = call ptr %61(ptr noundef %62, ptr noundef %add.ptr52, i64 noundef %64)
+  %60 = load ptr, ptr %r.addr, align 8
+  %fn50 = getelementptr inbounds %struct.redisReader, ptr %60, i32 0, i32 11
+  %61 = load ptr, ptr %fn50, align 8
+  %createString51 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %61, i32 0, i32 0
+  %62 = load ptr, ptr %createString51, align 8
+  %63 = load ptr, ptr %cur, align 8
+  %64 = load ptr, ptr %s, align 8
+  %add.ptr52 = getelementptr inbounds i8, ptr %64, i64 2
+  %65 = load i64, ptr %len, align 8
+  %call53 = call ptr %62(ptr noundef %63, ptr noundef %add.ptr52, i64 noundef %65)
   store ptr %call53, ptr %obj, align 8
   br label %if.end57
 
 if.else54:                                        ; preds = %land.lhs.true46, %if.end43
-  %65 = load ptr, ptr %cur, align 8
-  %type55 = getelementptr inbounds %struct.redisReadTask, ptr %65, i32 0, i32 0
-  %66 = load i32, ptr %type55, align 8
-  %conv56 = sext i32 %66 to i64
-  %67 = inttoptr i64 %conv56 to ptr
-  store ptr %67, ptr %obj, align 8
+  %66 = load ptr, ptr %cur, align 8
+  %type55 = getelementptr inbounds %struct.redisReadTask, ptr %66, i32 0, i32 0
+  %67 = load i32, ptr %type55, align 8
+  %conv56 = sext i32 %67 to i64
+  %68 = inttoptr i64 %conv56 to ptr
+  store ptr %68, ptr %obj, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else54, %if.then49
@@ -2089,44 +2097,44 @@ if.end58:                                         ; preds = %if.end57, %if.else2
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end58, %if.end24
-  %68 = load i32, ptr %success, align 4
-  %tobool60 = icmp ne i32 %68, 0
+  %69 = load i32, ptr %success, align 4
+  %tobool60 = icmp ne i32 %69, 0
   br i1 %tobool60, label %if.then61, label %if.end73
 
 if.then61:                                        ; preds = %if.end59
-  %69 = load ptr, ptr %obj, align 8
-  %cmp62 = icmp eq ptr %69, null
+  %70 = load ptr, ptr %obj, align 8
+  %cmp62 = icmp eq ptr %70, null
   br i1 %cmp62, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %if.then61
-  %70 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetErrorOOM(ptr noundef %70)
+  %71 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetErrorOOM(ptr noundef %71)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end65:                                         ; preds = %if.then61
-  %71 = load i64, ptr %bytelen, align 8
-  %72 = load ptr, ptr %r.addr, align 8
-  %pos66 = getelementptr inbounds %struct.redisReader, ptr %72, i32 0, i32 3
-  %73 = load i64, ptr %pos66, align 8
-  %add67 = add i64 %73, %71
+  %72 = load i64, ptr %bytelen, align 8
+  %73 = load ptr, ptr %r.addr, align 8
+  %pos66 = getelementptr inbounds %struct.redisReader, ptr %73, i32 0, i32 3
+  %74 = load i64, ptr %pos66, align 8
+  %add67 = add i64 %74, %72
   store i64 %add67, ptr %pos66, align 8
-  %74 = load ptr, ptr %r.addr, align 8
-  %ridx68 = getelementptr inbounds %struct.redisReader, ptr %74, i32 0, i32 9
-  %75 = load i32, ptr %ridx68, align 4
-  %cmp69 = icmp eq i32 %75, 0
+  %75 = load ptr, ptr %r.addr, align 8
+  %ridx68 = getelementptr inbounds %struct.redisReader, ptr %75, i32 0, i32 9
+  %76 = load i32, ptr %ridx68, align 4
+  %cmp69 = icmp eq i32 %76, 0
   br i1 %cmp69, label %if.then71, label %if.end72
 
 if.then71:                                        ; preds = %if.end65
-  %76 = load ptr, ptr %obj, align 8
-  %77 = load ptr, ptr %r.addr, align 8
-  %reply = getelementptr inbounds %struct.redisReader, ptr %77, i32 0, i32 10
-  store ptr %76, ptr %reply, align 8
+  %77 = load ptr, ptr %obj, align 8
+  %78 = load ptr, ptr %r.addr, align 8
+  %reply = getelementptr inbounds %struct.redisReader, ptr %78, i32 0, i32 10
+  store ptr %77, ptr %reply, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then71, %if.end65
-  %78 = load ptr, ptr %r.addr, align 8
-  call void @moveToNextTask(ptr noundef %78)
+  %79 = load ptr, ptr %r.addr, align 8
+  call void @moveToNextTask(ptr noundef %79)
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -2138,8 +2146,8 @@ if.end74:                                         ; preds = %if.end73, %entry
   br label %return
 
 return:                                           ; preds = %if.end74, %if.end72, %if.then64, %if.then42, %if.then14, %if.then12
-  %79 = load i32, ptr %retval, align 4
-  ret i32 %79
+  %80 = load i32, ptr %retval, align 4
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2274,195 +2282,196 @@ if.then31:                                        ; preds = %land.lhs.true28
   br label %if.end35
 
 if.else:                                          ; preds = %land.lhs.true28, %if.then27
-  store ptr inttoptr (i64 4 to ptr), ptr %obj, align 8
+  %33 = inttoptr i64 4 to ptr
+  store ptr %33, ptr %obj, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.then31
-  %33 = load ptr, ptr %obj, align 8
-  %cmp36 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %obj, align 8
+  %cmp36 = icmp eq ptr %34, null
   br i1 %cmp36, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end35
-  %34 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetErrorOOM(ptr noundef %34)
+  %35 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetErrorOOM(ptr noundef %35)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end39:                                         ; preds = %if.end35
-  %35 = load ptr, ptr %r.addr, align 8
-  call void @moveToNextTask(ptr noundef %35)
+  %36 = load ptr, ptr %r.addr, align 8
+  call void @moveToNextTask(ptr noundef %36)
   br label %if.end98
 
 if.else40:                                        ; preds = %if.end24
-  %36 = load ptr, ptr %cur, align 8
-  %type = getelementptr inbounds %struct.redisReadTask, ptr %36, i32 0, i32 0
-  %37 = load i32, ptr %type, align 8
-  %cmp41 = icmp eq i32 %37, 9
+  %37 = load ptr, ptr %cur, align 8
+  %type = getelementptr inbounds %struct.redisReadTask, ptr %37, i32 0, i32 0
+  %38 = load i32, ptr %type, align 8
+  %cmp41 = icmp eq i32 %38, 9
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.else40
-  %38 = load i64, ptr %elements, align 8
-  %mul = mul nsw i64 %38, 2
+  %39 = load i64, ptr %elements, align 8
+  %mul = mul nsw i64 %39, 2
   store i64 %mul, ptr %elements, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.else40
-  %39 = load ptr, ptr %r.addr, align 8
-  %fn45 = getelementptr inbounds %struct.redisReader, ptr %39, i32 0, i32 11
-  %40 = load ptr, ptr %fn45, align 8
-  %tobool46 = icmp ne ptr %40, null
+  %40 = load ptr, ptr %r.addr, align 8
+  %fn45 = getelementptr inbounds %struct.redisReader, ptr %40, i32 0, i32 11
+  %41 = load ptr, ptr %fn45, align 8
+  %tobool46 = icmp ne ptr %41, null
   br i1 %tobool46, label %land.lhs.true47, label %if.else54
 
 land.lhs.true47:                                  ; preds = %if.end44
-  %41 = load ptr, ptr %r.addr, align 8
-  %fn48 = getelementptr inbounds %struct.redisReader, ptr %41, i32 0, i32 11
-  %42 = load ptr, ptr %fn48, align 8
-  %createArray = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %42, i32 0, i32 1
-  %43 = load ptr, ptr %createArray, align 8
-  %tobool49 = icmp ne ptr %43, null
+  %42 = load ptr, ptr %r.addr, align 8
+  %fn48 = getelementptr inbounds %struct.redisReader, ptr %42, i32 0, i32 11
+  %43 = load ptr, ptr %fn48, align 8
+  %createArray = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %createArray, align 8
+  %tobool49 = icmp ne ptr %44, null
   br i1 %tobool49, label %if.then50, label %if.else54
 
 if.then50:                                        ; preds = %land.lhs.true47
-  %44 = load ptr, ptr %r.addr, align 8
-  %fn51 = getelementptr inbounds %struct.redisReader, ptr %44, i32 0, i32 11
-  %45 = load ptr, ptr %fn51, align 8
-  %createArray52 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %createArray52, align 8
-  %47 = load ptr, ptr %cur, align 8
-  %48 = load i64, ptr %elements, align 8
-  %call53 = call ptr %46(ptr noundef %47, i64 noundef %48)
+  %45 = load ptr, ptr %r.addr, align 8
+  %fn51 = getelementptr inbounds %struct.redisReader, ptr %45, i32 0, i32 11
+  %46 = load ptr, ptr %fn51, align 8
+  %createArray52 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %46, i32 0, i32 1
+  %47 = load ptr, ptr %createArray52, align 8
+  %48 = load ptr, ptr %cur, align 8
+  %49 = load i64, ptr %elements, align 8
+  %call53 = call ptr %47(ptr noundef %48, i64 noundef %49)
   store ptr %call53, ptr %obj, align 8
   br label %if.end57
 
 if.else54:                                        ; preds = %land.lhs.true47, %if.end44
-  %49 = load ptr, ptr %cur, align 8
-  %type55 = getelementptr inbounds %struct.redisReadTask, ptr %49, i32 0, i32 0
-  %50 = load i32, ptr %type55, align 8
-  %conv56 = sext i32 %50 to i64
-  %51 = inttoptr i64 %conv56 to ptr
-  store ptr %51, ptr %obj, align 8
+  %50 = load ptr, ptr %cur, align 8
+  %type55 = getelementptr inbounds %struct.redisReadTask, ptr %50, i32 0, i32 0
+  %51 = load i32, ptr %type55, align 8
+  %conv56 = sext i32 %51 to i64
+  %52 = inttoptr i64 %conv56 to ptr
+  store ptr %52, ptr %obj, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else54, %if.then50
-  %52 = load ptr, ptr %obj, align 8
-  %cmp58 = icmp eq ptr %52, null
+  %53 = load ptr, ptr %obj, align 8
+  %cmp58 = icmp eq ptr %53, null
   br i1 %cmp58, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.end57
-  %53 = load ptr, ptr %r.addr, align 8
-  call void @__redisReaderSetErrorOOM(ptr noundef %53)
+  %54 = load ptr, ptr %r.addr, align 8
+  call void @__redisReaderSetErrorOOM(ptr noundef %54)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end61:                                         ; preds = %if.end57
-  %54 = load i64, ptr %elements, align 8
-  %cmp62 = icmp sgt i64 %54, 0
+  %55 = load i64, ptr %elements, align 8
+  %cmp62 = icmp sgt i64 %55, 0
   br i1 %cmp62, label %if.then64, label %if.else96
 
 if.then64:                                        ; preds = %if.end61
-  %55 = load i64, ptr %elements, align 8
-  %56 = load ptr, ptr %cur, align 8
-  %elements65 = getelementptr inbounds %struct.redisReadTask, ptr %56, i32 0, i32 1
-  store i64 %55, ptr %elements65, align 8
-  %57 = load ptr, ptr %obj, align 8
-  %58 = load ptr, ptr %cur, align 8
-  %obj66 = getelementptr inbounds %struct.redisReadTask, ptr %58, i32 0, i32 3
-  store ptr %57, ptr %obj66, align 8
-  %59 = load ptr, ptr %r.addr, align 8
-  %ridx67 = getelementptr inbounds %struct.redisReader, ptr %59, i32 0, i32 9
-  %60 = load i32, ptr %ridx67, align 4
-  %inc = add nsw i32 %60, 1
+  %56 = load i64, ptr %elements, align 8
+  %57 = load ptr, ptr %cur, align 8
+  %elements65 = getelementptr inbounds %struct.redisReadTask, ptr %57, i32 0, i32 1
+  store i64 %56, ptr %elements65, align 8
+  %58 = load ptr, ptr %obj, align 8
+  %59 = load ptr, ptr %cur, align 8
+  %obj66 = getelementptr inbounds %struct.redisReadTask, ptr %59, i32 0, i32 3
+  store ptr %58, ptr %obj66, align 8
+  %60 = load ptr, ptr %r.addr, align 8
+  %ridx67 = getelementptr inbounds %struct.redisReader, ptr %60, i32 0, i32 9
+  %61 = load i32, ptr %ridx67, align 4
+  %inc = add nsw i32 %61, 1
   store i32 %inc, ptr %ridx67, align 4
-  %61 = load ptr, ptr %r.addr, align 8
-  %task68 = getelementptr inbounds %struct.redisReader, ptr %61, i32 0, i32 7
-  %62 = load ptr, ptr %task68, align 8
-  %63 = load ptr, ptr %r.addr, align 8
-  %ridx69 = getelementptr inbounds %struct.redisReader, ptr %63, i32 0, i32 9
-  %64 = load i32, ptr %ridx69, align 4
-  %idxprom70 = sext i32 %64 to i64
-  %arrayidx71 = getelementptr inbounds ptr, ptr %62, i64 %idxprom70
-  %65 = load ptr, ptr %arrayidx71, align 8
-  %type72 = getelementptr inbounds %struct.redisReadTask, ptr %65, i32 0, i32 0
+  %62 = load ptr, ptr %r.addr, align 8
+  %task68 = getelementptr inbounds %struct.redisReader, ptr %62, i32 0, i32 7
+  %63 = load ptr, ptr %task68, align 8
+  %64 = load ptr, ptr %r.addr, align 8
+  %ridx69 = getelementptr inbounds %struct.redisReader, ptr %64, i32 0, i32 9
+  %65 = load i32, ptr %ridx69, align 4
+  %idxprom70 = sext i32 %65 to i64
+  %arrayidx71 = getelementptr inbounds ptr, ptr %63, i64 %idxprom70
+  %66 = load ptr, ptr %arrayidx71, align 8
+  %type72 = getelementptr inbounds %struct.redisReadTask, ptr %66, i32 0, i32 0
   store i32 -1, ptr %type72, align 8
-  %66 = load ptr, ptr %r.addr, align 8
-  %task73 = getelementptr inbounds %struct.redisReader, ptr %66, i32 0, i32 7
-  %67 = load ptr, ptr %task73, align 8
-  %68 = load ptr, ptr %r.addr, align 8
-  %ridx74 = getelementptr inbounds %struct.redisReader, ptr %68, i32 0, i32 9
-  %69 = load i32, ptr %ridx74, align 4
-  %idxprom75 = sext i32 %69 to i64
-  %arrayidx76 = getelementptr inbounds ptr, ptr %67, i64 %idxprom75
-  %70 = load ptr, ptr %arrayidx76, align 8
-  %elements77 = getelementptr inbounds %struct.redisReadTask, ptr %70, i32 0, i32 1
+  %67 = load ptr, ptr %r.addr, align 8
+  %task73 = getelementptr inbounds %struct.redisReader, ptr %67, i32 0, i32 7
+  %68 = load ptr, ptr %task73, align 8
+  %69 = load ptr, ptr %r.addr, align 8
+  %ridx74 = getelementptr inbounds %struct.redisReader, ptr %69, i32 0, i32 9
+  %70 = load i32, ptr %ridx74, align 4
+  %idxprom75 = sext i32 %70 to i64
+  %arrayidx76 = getelementptr inbounds ptr, ptr %68, i64 %idxprom75
+  %71 = load ptr, ptr %arrayidx76, align 8
+  %elements77 = getelementptr inbounds %struct.redisReadTask, ptr %71, i32 0, i32 1
   store i64 -1, ptr %elements77, align 8
-  %71 = load ptr, ptr %r.addr, align 8
-  %task78 = getelementptr inbounds %struct.redisReader, ptr %71, i32 0, i32 7
-  %72 = load ptr, ptr %task78, align 8
-  %73 = load ptr, ptr %r.addr, align 8
-  %ridx79 = getelementptr inbounds %struct.redisReader, ptr %73, i32 0, i32 9
-  %74 = load i32, ptr %ridx79, align 4
-  %idxprom80 = sext i32 %74 to i64
-  %arrayidx81 = getelementptr inbounds ptr, ptr %72, i64 %idxprom80
-  %75 = load ptr, ptr %arrayidx81, align 8
-  %idx = getelementptr inbounds %struct.redisReadTask, ptr %75, i32 0, i32 2
+  %72 = load ptr, ptr %r.addr, align 8
+  %task78 = getelementptr inbounds %struct.redisReader, ptr %72, i32 0, i32 7
+  %73 = load ptr, ptr %task78, align 8
+  %74 = load ptr, ptr %r.addr, align 8
+  %ridx79 = getelementptr inbounds %struct.redisReader, ptr %74, i32 0, i32 9
+  %75 = load i32, ptr %ridx79, align 4
+  %idxprom80 = sext i32 %75 to i64
+  %arrayidx81 = getelementptr inbounds ptr, ptr %73, i64 %idxprom80
+  %76 = load ptr, ptr %arrayidx81, align 8
+  %idx = getelementptr inbounds %struct.redisReadTask, ptr %76, i32 0, i32 2
   store i32 0, ptr %idx, align 8
-  %76 = load ptr, ptr %r.addr, align 8
-  %task82 = getelementptr inbounds %struct.redisReader, ptr %76, i32 0, i32 7
-  %77 = load ptr, ptr %task82, align 8
-  %78 = load ptr, ptr %r.addr, align 8
-  %ridx83 = getelementptr inbounds %struct.redisReader, ptr %78, i32 0, i32 9
-  %79 = load i32, ptr %ridx83, align 4
-  %idxprom84 = sext i32 %79 to i64
-  %arrayidx85 = getelementptr inbounds ptr, ptr %77, i64 %idxprom84
-  %80 = load ptr, ptr %arrayidx85, align 8
-  %obj86 = getelementptr inbounds %struct.redisReadTask, ptr %80, i32 0, i32 3
+  %77 = load ptr, ptr %r.addr, align 8
+  %task82 = getelementptr inbounds %struct.redisReader, ptr %77, i32 0, i32 7
+  %78 = load ptr, ptr %task82, align 8
+  %79 = load ptr, ptr %r.addr, align 8
+  %ridx83 = getelementptr inbounds %struct.redisReader, ptr %79, i32 0, i32 9
+  %80 = load i32, ptr %ridx83, align 4
+  %idxprom84 = sext i32 %80 to i64
+  %arrayidx85 = getelementptr inbounds ptr, ptr %78, i64 %idxprom84
+  %81 = load ptr, ptr %arrayidx85, align 8
+  %obj86 = getelementptr inbounds %struct.redisReadTask, ptr %81, i32 0, i32 3
   store ptr null, ptr %obj86, align 8
-  %81 = load ptr, ptr %cur, align 8
-  %82 = load ptr, ptr %r.addr, align 8
-  %task87 = getelementptr inbounds %struct.redisReader, ptr %82, i32 0, i32 7
-  %83 = load ptr, ptr %task87, align 8
-  %84 = load ptr, ptr %r.addr, align 8
-  %ridx88 = getelementptr inbounds %struct.redisReader, ptr %84, i32 0, i32 9
-  %85 = load i32, ptr %ridx88, align 4
-  %idxprom89 = sext i32 %85 to i64
-  %arrayidx90 = getelementptr inbounds ptr, ptr %83, i64 %idxprom89
-  %86 = load ptr, ptr %arrayidx90, align 8
-  %parent = getelementptr inbounds %struct.redisReadTask, ptr %86, i32 0, i32 4
-  store ptr %81, ptr %parent, align 8
-  %87 = load ptr, ptr %r.addr, align 8
-  %privdata = getelementptr inbounds %struct.redisReader, ptr %87, i32 0, i32 12
-  %88 = load ptr, ptr %privdata, align 8
-  %89 = load ptr, ptr %r.addr, align 8
-  %task91 = getelementptr inbounds %struct.redisReader, ptr %89, i32 0, i32 7
-  %90 = load ptr, ptr %task91, align 8
-  %91 = load ptr, ptr %r.addr, align 8
-  %ridx92 = getelementptr inbounds %struct.redisReader, ptr %91, i32 0, i32 9
-  %92 = load i32, ptr %ridx92, align 4
-  %idxprom93 = sext i32 %92 to i64
-  %arrayidx94 = getelementptr inbounds ptr, ptr %90, i64 %idxprom93
-  %93 = load ptr, ptr %arrayidx94, align 8
-  %privdata95 = getelementptr inbounds %struct.redisReadTask, ptr %93, i32 0, i32 5
-  store ptr %88, ptr %privdata95, align 8
+  %82 = load ptr, ptr %cur, align 8
+  %83 = load ptr, ptr %r.addr, align 8
+  %task87 = getelementptr inbounds %struct.redisReader, ptr %83, i32 0, i32 7
+  %84 = load ptr, ptr %task87, align 8
+  %85 = load ptr, ptr %r.addr, align 8
+  %ridx88 = getelementptr inbounds %struct.redisReader, ptr %85, i32 0, i32 9
+  %86 = load i32, ptr %ridx88, align 4
+  %idxprom89 = sext i32 %86 to i64
+  %arrayidx90 = getelementptr inbounds ptr, ptr %84, i64 %idxprom89
+  %87 = load ptr, ptr %arrayidx90, align 8
+  %parent = getelementptr inbounds %struct.redisReadTask, ptr %87, i32 0, i32 4
+  store ptr %82, ptr %parent, align 8
+  %88 = load ptr, ptr %r.addr, align 8
+  %privdata = getelementptr inbounds %struct.redisReader, ptr %88, i32 0, i32 12
+  %89 = load ptr, ptr %privdata, align 8
+  %90 = load ptr, ptr %r.addr, align 8
+  %task91 = getelementptr inbounds %struct.redisReader, ptr %90, i32 0, i32 7
+  %91 = load ptr, ptr %task91, align 8
+  %92 = load ptr, ptr %r.addr, align 8
+  %ridx92 = getelementptr inbounds %struct.redisReader, ptr %92, i32 0, i32 9
+  %93 = load i32, ptr %ridx92, align 4
+  %idxprom93 = sext i32 %93 to i64
+  %arrayidx94 = getelementptr inbounds ptr, ptr %91, i64 %idxprom93
+  %94 = load ptr, ptr %arrayidx94, align 8
+  %privdata95 = getelementptr inbounds %struct.redisReadTask, ptr %94, i32 0, i32 5
+  store ptr %89, ptr %privdata95, align 8
   br label %if.end97
 
 if.else96:                                        ; preds = %if.end61
-  %94 = load ptr, ptr %r.addr, align 8
-  call void @moveToNextTask(ptr noundef %94)
+  %95 = load ptr, ptr %r.addr, align 8
+  call void @moveToNextTask(ptr noundef %95)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else96, %if.then64
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end97, %if.end39
-  %95 = load i32, ptr %root, align 4
-  %tobool99 = icmp ne i32 %95, 0
+  %96 = load i32, ptr %root, align 4
+  %tobool99 = icmp ne i32 %96, 0
   br i1 %tobool99, label %if.then100, label %if.end101
 
 if.then100:                                       ; preds = %if.end98
-  %96 = load ptr, ptr %obj, align 8
-  %97 = load ptr, ptr %r.addr, align 8
-  %reply = getelementptr inbounds %struct.redisReader, ptr %97, i32 0, i32 10
-  store ptr %96, ptr %reply, align 8
+  %97 = load ptr, ptr %obj, align 8
+  %98 = load ptr, ptr %r.addr, align 8
+  %reply = getelementptr inbounds %struct.redisReader, ptr %98, i32 0, i32 10
+  store ptr %97, ptr %reply, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then100, %if.end98
@@ -2474,8 +2483,8 @@ if.end102:                                        ; preds = %if.end4
   br label %return
 
 return:                                           ; preds = %if.end102, %if.end101, %if.then60, %if.then38, %if.then23, %if.then11, %if.then3
-  %98 = load i32, ptr %retval, align 4
-  ret i32 %98
+  %99 = load i32, ptr %retval, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3238,10 +3247,11 @@ entry:
   %size.addr = alloca i64, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
   store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2), align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr %0(ptr noundef %1, i64 noundef %2)
+  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ptr.addr, align 8
+  %3 = load i64, ptr %size.addr, align 8
+  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
   ret ptr %call
 }
 

@@ -4192,487 +4192,490 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = call ptr @val_to_str_const(i32 noundef %50, ptr noundef @BACnetTypeName, ptr noundef @.str.2547)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.2546, ptr noundef %51)
   store ptr null, ptr @bacinfo, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 3), align 8
-  %52 = load i8, ptr %10, align 1
-  %53 = zext i8 %52 to i32
-  switch i32 %53, label %321 [
-    i32 0, label %54
-    i32 1, label %108
-    i32 2, label %130
-    i32 3, label %165
-    i32 4, label %219
-    i32 5, label %220
-    i32 6, label %255
-    i32 7, label %288
+  %52 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 1
+  store ptr null, ptr %52, align 8
+  %53 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 2
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 3
+  store ptr null, ptr %54, align 8
+  %55 = load i8, ptr %10, align 1
+  %56 = zext i8 %55 to i32
+  switch i32 %56, label %324 [
+    i32 0, label %57
+    i32 1, label %111
+    i32 2, label %133
+    i32 3, label %168
+    i32 4, label %222
+    i32 5, label %223
+    i32 6, label %258
+    i32 7, label %291
   ]
 
-54:                                               ; preds = %4
-  %55 = load i8, ptr %9, align 1
-  %56 = zext i8 %55 to i32
-  %57 = and i32 %56, 8
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %72
+57:                                               ; preds = %4
+  %58 = load i8, ptr %9, align 1
+  %59 = zext i8 %58 to i32
+  %60 = and i32 %59, 8
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %75
 
-59:                                               ; preds = %54
+62:                                               ; preds = %57
   store i32 1, ptr %13, align 4
   store i8 0, ptr %24, align 1
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %15, align 4
-  %62 = add i32 %61, 2
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %60, i32 noundef %62)
-  store i8 %63, ptr %19, align 1
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %15, align 4
-  %66 = add i32 %65, 3
-  %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef %66)
-  store i8 %67, ptr %16, align 1
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i32, ptr %15, align 4
-  %70 = add i32 %69, 5
-  %71 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %70)
-  store i8 %71, ptr %17, align 1
+  %63 = load ptr, ptr %5, align 8
+  %64 = load i32, ptr %15, align 4
+  %65 = add i32 %64, 2
+  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef %65)
+  store i8 %66, ptr %19, align 1
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i32, ptr %15, align 4
+  %69 = add i32 %68, 3
+  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %67, i32 noundef %69)
+  store i8 %70, ptr %16, align 1
+  %71 = load ptr, ptr %5, align 8
+  %72 = load i32, ptr %15, align 4
+  %73 = add i32 %72, 5
+  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %71, i32 noundef %73)
+  store i8 %74, ptr %17, align 1
   store i32 6, ptr %12, align 4
-  br label %81
+  br label %84
 
-72:                                               ; preds = %54
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %15, align 4
-  %75 = add i32 %74, 2
-  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %73, i32 noundef %75)
-  store i8 %76, ptr %19, align 1
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %15, align 4
-  %79 = add i32 %78, 3
-  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef %79)
-  store i8 %80, ptr %17, align 1
-  br label %81
+75:                                               ; preds = %57
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %15, align 4
+  %78 = add i32 %77, 2
+  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %76, i32 noundef %78)
+  store i8 %79, ptr %19, align 1
+  %80 = load ptr, ptr %5, align 8
+  %81 = load i32, ptr %15, align 4
+  %82 = add i32 %81, 3
+  %83 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %82)
+  store i8 %83, ptr %17, align 1
+  br label %84
 
-81:                                               ; preds = %72, %59
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i8, ptr %17, align 1
-  %86 = zext i8 %85 to i32
-  %87 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %88 = call ptr @val_to_str_const(i32 noundef %86, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %87)
-  %89 = load i8, ptr %19, align 1
-  %90 = zext i8 %89 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %88, i32 noundef %90)
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct._packet_info, ptr %91, i32 0, i32 50
-  %93 = load ptr, ptr %92, align 8
-  %94 = load i8, ptr %19, align 1
-  %95 = zext i8 %94 to i32
-  %96 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %93, ptr noundef @.str.2549, i32 noundef %95)
-  %97 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %96)
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 50
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i8, ptr %17, align 1
-  %102 = zext i8 %101 to i32
-  %103 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %104 = call ptr @val_to_str_const(i32 noundef %102, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %103)
-  %105 = getelementptr inbounds [29 x i8], ptr %31, i64 0, i64 0
-  %106 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %100, ptr noundef %104, ptr noundef %105, ptr noundef null)
-  %107 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %106)
-  br label %322
+84:                                               ; preds = %75, %62
+  %85 = load ptr, ptr %6, align 8
+  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  %88 = load i8, ptr %17, align 1
+  %89 = zext i8 %88 to i32
+  %90 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %91 = call ptr @val_to_str_const(i32 noundef %89, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %90)
+  %92 = load i8, ptr %19, align 1
+  %93 = zext i8 %92 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %91, i32 noundef %93)
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds %struct._packet_info, ptr %94, i32 0, i32 50
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i8, ptr %19, align 1
+  %98 = zext i8 %97 to i32
+  %99 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %96, ptr noundef @.str.2549, i32 noundef %98)
+  %100 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %99)
+  %101 = load ptr, ptr %6, align 8
+  %102 = getelementptr inbounds %struct._packet_info, ptr %101, i32 0, i32 50
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i8, ptr %17, align 1
+  %105 = zext i8 %104 to i32
+  %106 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %107 = call ptr @val_to_str_const(i32 noundef %105, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %106)
+  %108 = getelementptr inbounds [29 x i8], ptr %31, i64 0, i64 0
+  %109 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %103, ptr noundef %107, ptr noundef %108, ptr noundef null)
+  %110 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %109)
+  br label %325
 
-108:                                              ; preds = %4
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i32, ptr %15, align 4
-  %111 = add i32 %110, 1
-  %112 = call zeroext i8 @tvb_get_guint8(ptr noundef %109, i32 noundef %111)
-  store i8 %112, ptr %17, align 1
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct._packet_info, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = load i8, ptr %17, align 1
-  %117 = zext i8 %116 to i32
-  %118 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %119 = call ptr @val_to_str_const(i32 noundef %117, ptr noundef @BACnetUnconfirmedServiceChoice, ptr noundef %118)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %115, i32 noundef 25, ptr noundef @.str.2550, ptr noundef %119)
-  %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct._packet_info, ptr %120, i32 0, i32 50
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i8, ptr %17, align 1
-  %124 = zext i8 %123 to i32
-  %125 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %126 = call ptr @val_to_str_const(i32 noundef %124, ptr noundef @BACnetUnconfirmedServiceChoice, ptr noundef %125)
-  %127 = getelementptr inbounds [31 x i8], ptr %30, i64 0, i64 0
-  %128 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %122, ptr noundef %126, ptr noundef %127, ptr noundef null)
-  %129 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %128)
-  br label %322
+111:                                              ; preds = %4
+  %112 = load ptr, ptr %5, align 8
+  %113 = load i32, ptr %15, align 4
+  %114 = add i32 %113, 1
+  %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %112, i32 noundef %114)
+  store i8 %115, ptr %17, align 1
+  %116 = load ptr, ptr %6, align 8
+  %117 = getelementptr inbounds %struct._packet_info, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i8, ptr %17, align 1
+  %120 = zext i8 %119 to i32
+  %121 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %122 = call ptr @val_to_str_const(i32 noundef %120, ptr noundef @BACnetUnconfirmedServiceChoice, ptr noundef %121)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %118, i32 noundef 25, ptr noundef @.str.2550, ptr noundef %122)
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds %struct._packet_info, ptr %123, i32 0, i32 50
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i8, ptr %17, align 1
+  %127 = zext i8 %126 to i32
+  %128 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %129 = call ptr @val_to_str_const(i32 noundef %127, ptr noundef @BACnetUnconfirmedServiceChoice, ptr noundef %128)
+  %130 = getelementptr inbounds [31 x i8], ptr %30, i64 0, i64 0
+  %131 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %125, ptr noundef %129, ptr noundef %130, ptr noundef null)
+  %132 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %131)
+  br label %325
 
-130:                                              ; preds = %4
-  %131 = load ptr, ptr %5, align 8
-  %132 = load i32, ptr %15, align 4
-  %133 = add i32 %132, 1
-  %134 = call zeroext i8 @tvb_get_guint8(ptr noundef %131, i32 noundef %133)
-  store i8 %134, ptr %19, align 1
-  %135 = load ptr, ptr %5, align 8
-  %136 = load i32, ptr %15, align 4
-  %137 = add i32 %136, 2
-  %138 = call zeroext i8 @tvb_get_guint8(ptr noundef %135, i32 noundef %137)
-  store i8 %138, ptr %17, align 1
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct._packet_info, ptr %139, i32 0, i32 1
-  %141 = load ptr, ptr %140, align 8
-  %142 = load i8, ptr %17, align 1
-  %143 = zext i8 %142 to i32
-  %144 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %145 = call ptr @val_to_str_const(i32 noundef %143, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %144)
-  %146 = load i8, ptr %19, align 1
-  %147 = zext i8 %146 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %141, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %145, i32 noundef %147)
-  %148 = load ptr, ptr %6, align 8
-  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 50
-  %150 = load ptr, ptr %149, align 8
-  %151 = load i8, ptr %19, align 1
-  %152 = zext i8 %151 to i32
-  %153 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %150, ptr noundef @.str.2549, i32 noundef %152)
-  %154 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %153)
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct._packet_info, ptr %155, i32 0, i32 50
-  %157 = load ptr, ptr %156, align 8
-  %158 = load i8, ptr %17, align 1
-  %159 = zext i8 %158 to i32
-  %160 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %161 = call ptr @val_to_str_const(i32 noundef %159, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %160)
-  %162 = getelementptr inbounds [13 x i8], ptr %28, i64 0, i64 0
-  %163 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %157, ptr noundef %161, ptr noundef %162, ptr noundef null)
-  %164 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %163)
-  br label %322
+133:                                              ; preds = %4
+  %134 = load ptr, ptr %5, align 8
+  %135 = load i32, ptr %15, align 4
+  %136 = add i32 %135, 1
+  %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %134, i32 noundef %136)
+  store i8 %137, ptr %19, align 1
+  %138 = load ptr, ptr %5, align 8
+  %139 = load i32, ptr %15, align 4
+  %140 = add i32 %139, 2
+  %141 = call zeroext i8 @tvb_get_guint8(ptr noundef %138, i32 noundef %140)
+  store i8 %141, ptr %17, align 1
+  %142 = load ptr, ptr %6, align 8
+  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 1
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i8, ptr %17, align 1
+  %146 = zext i8 %145 to i32
+  %147 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %148 = call ptr @val_to_str_const(i32 noundef %146, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %147)
+  %149 = load i8, ptr %19, align 1
+  %150 = zext i8 %149 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %144, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %148, i32 noundef %150)
+  %151 = load ptr, ptr %6, align 8
+  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 50
+  %153 = load ptr, ptr %152, align 8
+  %154 = load i8, ptr %19, align 1
+  %155 = zext i8 %154 to i32
+  %156 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %153, ptr noundef @.str.2549, i32 noundef %155)
+  %157 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %156)
+  %158 = load ptr, ptr %6, align 8
+  %159 = getelementptr inbounds %struct._packet_info, ptr %158, i32 0, i32 50
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i8, ptr %17, align 1
+  %162 = zext i8 %161 to i32
+  %163 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %164 = call ptr @val_to_str_const(i32 noundef %162, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %163)
+  %165 = getelementptr inbounds [13 x i8], ptr %28, i64 0, i64 0
+  %166 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %160, ptr noundef %164, ptr noundef %165, ptr noundef null)
+  %167 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %166)
+  br label %325
 
-165:                                              ; preds = %4
-  %166 = load i8, ptr %9, align 1
-  %167 = zext i8 %166 to i32
-  %168 = and i32 %167, 8
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %183
+168:                                              ; preds = %4
+  %169 = load i8, ptr %9, align 1
+  %170 = zext i8 %169 to i32
+  %171 = and i32 %170, 8
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %186
 
-170:                                              ; preds = %165
+173:                                              ; preds = %168
   store i32 1, ptr %13, align 4
   store i8 1, ptr %24, align 1
-  %171 = load ptr, ptr %5, align 8
-  %172 = load i32, ptr %15, align 4
-  %173 = add i32 %172, 1
-  %174 = call zeroext i8 @tvb_get_guint8(ptr noundef %171, i32 noundef %173)
-  store i8 %174, ptr %19, align 1
-  %175 = load ptr, ptr %5, align 8
-  %176 = load i32, ptr %15, align 4
-  %177 = add i32 %176, 2
-  %178 = call zeroext i8 @tvb_get_guint8(ptr noundef %175, i32 noundef %177)
-  store i8 %178, ptr %16, align 1
-  %179 = load ptr, ptr %5, align 8
-  %180 = load i32, ptr %15, align 4
-  %181 = add i32 %180, 4
-  %182 = call zeroext i8 @tvb_get_guint8(ptr noundef %179, i32 noundef %181)
-  store i8 %182, ptr %17, align 1
+  %174 = load ptr, ptr %5, align 8
+  %175 = load i32, ptr %15, align 4
+  %176 = add i32 %175, 1
+  %177 = call zeroext i8 @tvb_get_guint8(ptr noundef %174, i32 noundef %176)
+  store i8 %177, ptr %19, align 1
+  %178 = load ptr, ptr %5, align 8
+  %179 = load i32, ptr %15, align 4
+  %180 = add i32 %179, 2
+  %181 = call zeroext i8 @tvb_get_guint8(ptr noundef %178, i32 noundef %180)
+  store i8 %181, ptr %16, align 1
+  %182 = load ptr, ptr %5, align 8
+  %183 = load i32, ptr %15, align 4
+  %184 = add i32 %183, 4
+  %185 = call zeroext i8 @tvb_get_guint8(ptr noundef %182, i32 noundef %184)
+  store i8 %185, ptr %17, align 1
   store i32 5, ptr %12, align 4
-  br label %192
+  br label %195
 
-183:                                              ; preds = %165
-  %184 = load ptr, ptr %5, align 8
-  %185 = load i32, ptr %15, align 4
-  %186 = add i32 %185, 1
-  %187 = call zeroext i8 @tvb_get_guint8(ptr noundef %184, i32 noundef %186)
-  store i8 %187, ptr %19, align 1
-  %188 = load ptr, ptr %5, align 8
-  %189 = load i32, ptr %15, align 4
-  %190 = add i32 %189, 2
-  %191 = call zeroext i8 @tvb_get_guint8(ptr noundef %188, i32 noundef %190)
-  store i8 %191, ptr %17, align 1
-  br label %192
+186:                                              ; preds = %168
+  %187 = load ptr, ptr %5, align 8
+  %188 = load i32, ptr %15, align 4
+  %189 = add i32 %188, 1
+  %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %187, i32 noundef %189)
+  store i8 %190, ptr %19, align 1
+  %191 = load ptr, ptr %5, align 8
+  %192 = load i32, ptr %15, align 4
+  %193 = add i32 %192, 2
+  %194 = call zeroext i8 @tvb_get_guint8(ptr noundef %191, i32 noundef %193)
+  store i8 %194, ptr %17, align 1
+  br label %195
 
-192:                                              ; preds = %183, %170
-  %193 = load ptr, ptr %6, align 8
-  %194 = getelementptr inbounds %struct._packet_info, ptr %193, i32 0, i32 1
-  %195 = load ptr, ptr %194, align 8
-  %196 = load i8, ptr %17, align 1
-  %197 = zext i8 %196 to i32
-  %198 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %199 = call ptr @val_to_str_const(i32 noundef %197, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %198)
-  %200 = load i8, ptr %19, align 1
-  %201 = zext i8 %200 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %199, i32 noundef %201)
-  %202 = load ptr, ptr %6, align 8
-  %203 = getelementptr inbounds %struct._packet_info, ptr %202, i32 0, i32 50
-  %204 = load ptr, ptr %203, align 8
-  %205 = load i8, ptr %19, align 1
-  %206 = zext i8 %205 to i32
-  %207 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %204, ptr noundef @.str.2549, i32 noundef %206)
-  %208 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %207)
-  %209 = load ptr, ptr %6, align 8
-  %210 = getelementptr inbounds %struct._packet_info, ptr %209, i32 0, i32 50
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i8, ptr %17, align 1
-  %213 = zext i8 %212 to i32
-  %214 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %215 = call ptr @val_to_str_const(i32 noundef %213, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %214)
-  %216 = getelementptr inbounds [14 x i8], ptr %29, i64 0, i64 0
-  %217 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %211, ptr noundef %215, ptr noundef %216, ptr noundef null)
-  %218 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %217)
-  br label %322
+195:                                              ; preds = %186, %173
+  %196 = load ptr, ptr %6, align 8
+  %197 = getelementptr inbounds %struct._packet_info, ptr %196, i32 0, i32 1
+  %198 = load ptr, ptr %197, align 8
+  %199 = load i8, ptr %17, align 1
+  %200 = zext i8 %199 to i32
+  %201 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %202 = call ptr @val_to_str_const(i32 noundef %200, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %201)
+  %203 = load i8, ptr %19, align 1
+  %204 = zext i8 %203 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %202, i32 noundef %204)
+  %205 = load ptr, ptr %6, align 8
+  %206 = getelementptr inbounds %struct._packet_info, ptr %205, i32 0, i32 50
+  %207 = load ptr, ptr %206, align 8
+  %208 = load i8, ptr %19, align 1
+  %209 = zext i8 %208 to i32
+  %210 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %207, ptr noundef @.str.2549, i32 noundef %209)
+  %211 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %210)
+  %212 = load ptr, ptr %6, align 8
+  %213 = getelementptr inbounds %struct._packet_info, ptr %212, i32 0, i32 50
+  %214 = load ptr, ptr %213, align 8
+  %215 = load i8, ptr %17, align 1
+  %216 = zext i8 %215 to i32
+  %217 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %218 = call ptr @val_to_str_const(i32 noundef %216, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %217)
+  %219 = getelementptr inbounds [14 x i8], ptr %29, i64 0, i64 0
+  %220 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %214, ptr noundef %218, ptr noundef %219, ptr noundef null)
+  %221 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %220)
+  br label %325
 
-219:                                              ; preds = %4
-  br label %322
+222:                                              ; preds = %4
+  br label %325
 
-220:                                              ; preds = %4
-  %221 = load ptr, ptr %5, align 8
-  %222 = load i32, ptr %15, align 4
-  %223 = add i32 %222, 1
-  %224 = call zeroext i8 @tvb_get_guint8(ptr noundef %221, i32 noundef %223)
-  store i8 %224, ptr %19, align 1
-  %225 = load ptr, ptr %5, align 8
-  %226 = load i32, ptr %15, align 4
-  %227 = add i32 %226, 2
-  %228 = call zeroext i8 @tvb_get_guint8(ptr noundef %225, i32 noundef %227)
-  store i8 %228, ptr %17, align 1
-  %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr inbounds %struct._packet_info, ptr %229, i32 0, i32 1
-  %231 = load ptr, ptr %230, align 8
-  %232 = load i8, ptr %17, align 1
-  %233 = zext i8 %232 to i32
-  %234 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %235 = call ptr @val_to_str_const(i32 noundef %233, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %234)
-  %236 = load i8, ptr %19, align 1
-  %237 = zext i8 %236 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %235, i32 noundef %237)
-  %238 = load ptr, ptr %6, align 8
-  %239 = getelementptr inbounds %struct._packet_info, ptr %238, i32 0, i32 50
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i8, ptr %19, align 1
-  %242 = zext i8 %241 to i32
-  %243 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %240, ptr noundef @.str.2549, i32 noundef %242)
-  %244 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %243)
-  %245 = load ptr, ptr %6, align 8
-  %246 = getelementptr inbounds %struct._packet_info, ptr %245, i32 0, i32 50
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds [8 x i8], ptr %25, i64 0, i64 0
-  %249 = load i8, ptr %17, align 1
-  %250 = zext i8 %249 to i32
-  %251 = load ptr, ptr @bacapp_unknown_service_str, align 8
-  %252 = call ptr @val_to_str_const(i32 noundef %250, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %251)
-  %253 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %247, ptr noundef %248, ptr noundef %252, ptr noundef null)
-  %254 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %253)
-  br label %322
+223:                                              ; preds = %4
+  %224 = load ptr, ptr %5, align 8
+  %225 = load i32, ptr %15, align 4
+  %226 = add i32 %225, 1
+  %227 = call zeroext i8 @tvb_get_guint8(ptr noundef %224, i32 noundef %226)
+  store i8 %227, ptr %19, align 1
+  %228 = load ptr, ptr %5, align 8
+  %229 = load i32, ptr %15, align 4
+  %230 = add i32 %229, 2
+  %231 = call zeroext i8 @tvb_get_guint8(ptr noundef %228, i32 noundef %230)
+  store i8 %231, ptr %17, align 1
+  %232 = load ptr, ptr %6, align 8
+  %233 = getelementptr inbounds %struct._packet_info, ptr %232, i32 0, i32 1
+  %234 = load ptr, ptr %233, align 8
+  %235 = load i8, ptr %17, align 1
+  %236 = zext i8 %235 to i32
+  %237 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %238 = call ptr @val_to_str_const(i32 noundef %236, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %237)
+  %239 = load i8, ptr %19, align 1
+  %240 = zext i8 %239 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %234, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %238, i32 noundef %240)
+  %241 = load ptr, ptr %6, align 8
+  %242 = getelementptr inbounds %struct._packet_info, ptr %241, i32 0, i32 50
+  %243 = load ptr, ptr %242, align 8
+  %244 = load i8, ptr %19, align 1
+  %245 = zext i8 %244 to i32
+  %246 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %243, ptr noundef @.str.2549, i32 noundef %245)
+  %247 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %246)
+  %248 = load ptr, ptr %6, align 8
+  %249 = getelementptr inbounds %struct._packet_info, ptr %248, i32 0, i32 50
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds [8 x i8], ptr %25, i64 0, i64 0
+  %252 = load i8, ptr %17, align 1
+  %253 = zext i8 %252 to i32
+  %254 = load ptr, ptr @bacapp_unknown_service_str, align 8
+  %255 = call ptr @val_to_str_const(i32 noundef %253, ptr noundef @BACnetConfirmedServiceChoice, ptr noundef %254)
+  %256 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %250, ptr noundef %251, ptr noundef %255, ptr noundef null)
+  %257 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %256)
+  br label %325
 
-255:                                              ; preds = %4
-  %256 = load ptr, ptr %5, align 8
-  %257 = load i32, ptr %15, align 4
-  %258 = add i32 %257, 1
-  %259 = call zeroext i8 @tvb_get_guint8(ptr noundef %256, i32 noundef %258)
-  store i8 %259, ptr %19, align 1
-  %260 = load ptr, ptr %5, align 8
-  %261 = load i32, ptr %15, align 4
-  %262 = add i32 %261, 2
-  %263 = call zeroext i8 @tvb_get_guint8(ptr noundef %260, i32 noundef %262)
-  store i8 %263, ptr %18, align 1
-  %264 = load ptr, ptr %6, align 8
-  %265 = getelementptr inbounds %struct._packet_info, ptr %264, i32 0, i32 1
-  %266 = load ptr, ptr %265, align 8
-  %267 = load i8, ptr %18, align 1
-  %268 = zext i8 %267 to i32
-  %269 = call ptr @val_to_split_str(i32 noundef %268, i32 noundef 64, ptr noundef @BACnetRejectReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
-  %270 = load i8, ptr %19, align 1
+258:                                              ; preds = %4
+  %259 = load ptr, ptr %5, align 8
+  %260 = load i32, ptr %15, align 4
+  %261 = add i32 %260, 1
+  %262 = call zeroext i8 @tvb_get_guint8(ptr noundef %259, i32 noundef %261)
+  store i8 %262, ptr %19, align 1
+  %263 = load ptr, ptr %5, align 8
+  %264 = load i32, ptr %15, align 4
+  %265 = add i32 %264, 2
+  %266 = call zeroext i8 @tvb_get_guint8(ptr noundef %263, i32 noundef %265)
+  store i8 %266, ptr %18, align 1
+  %267 = load ptr, ptr %6, align 8
+  %268 = getelementptr inbounds %struct._packet_info, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8
+  %270 = load i8, ptr %18, align 1
   %271 = zext i8 %270 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %266, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %269, i32 noundef %271)
-  %272 = load ptr, ptr %6, align 8
-  %273 = getelementptr inbounds %struct._packet_info, ptr %272, i32 0, i32 50
-  %274 = load ptr, ptr %273, align 8
-  %275 = load i8, ptr %19, align 1
-  %276 = zext i8 %275 to i32
-  %277 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %274, ptr noundef @.str.2549, i32 noundef %276)
-  %278 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %277)
-  %279 = load ptr, ptr %6, align 8
-  %280 = getelementptr inbounds %struct._packet_info, ptr %279, i32 0, i32 50
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds [11 x i8], ptr %26, i64 0, i64 0
-  %283 = load i8, ptr %18, align 1
-  %284 = zext i8 %283 to i32
-  %285 = call ptr @val_to_split_str(i32 noundef %284, i32 noundef 64, ptr noundef @BACnetRejectReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
-  %286 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %281, ptr noundef %282, ptr noundef %285, ptr noundef null)
-  %287 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %286)
-  br label %322
+  %272 = call ptr @val_to_split_str(i32 noundef %271, i32 noundef 64, ptr noundef @BACnetRejectReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
+  %273 = load i8, ptr %19, align 1
+  %274 = zext i8 %273 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %272, i32 noundef %274)
+  %275 = load ptr, ptr %6, align 8
+  %276 = getelementptr inbounds %struct._packet_info, ptr %275, i32 0, i32 50
+  %277 = load ptr, ptr %276, align 8
+  %278 = load i8, ptr %19, align 1
+  %279 = zext i8 %278 to i32
+  %280 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %277, ptr noundef @.str.2549, i32 noundef %279)
+  %281 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %280)
+  %282 = load ptr, ptr %6, align 8
+  %283 = getelementptr inbounds %struct._packet_info, ptr %282, i32 0, i32 50
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds [11 x i8], ptr %26, i64 0, i64 0
+  %286 = load i8, ptr %18, align 1
+  %287 = zext i8 %286 to i32
+  %288 = call ptr @val_to_split_str(i32 noundef %287, i32 noundef 64, ptr noundef @BACnetRejectReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
+  %289 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %284, ptr noundef %285, ptr noundef %288, ptr noundef null)
+  %290 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %289)
+  br label %325
 
-288:                                              ; preds = %4
-  %289 = load ptr, ptr %5, align 8
-  %290 = load i32, ptr %15, align 4
-  %291 = add i32 %290, 1
-  %292 = call zeroext i8 @tvb_get_guint8(ptr noundef %289, i32 noundef %291)
-  store i8 %292, ptr %19, align 1
-  %293 = load ptr, ptr %5, align 8
-  %294 = load i32, ptr %15, align 4
-  %295 = add i32 %294, 2
-  %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %293, i32 noundef %295)
-  store i8 %296, ptr %18, align 1
-  %297 = load ptr, ptr %6, align 8
-  %298 = getelementptr inbounds %struct._packet_info, ptr %297, i32 0, i32 1
-  %299 = load ptr, ptr %298, align 8
-  %300 = load i8, ptr %18, align 1
-  %301 = zext i8 %300 to i32
-  %302 = call ptr @val_to_split_str(i32 noundef %301, i32 noundef 64, ptr noundef @BACnetAbortReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
-  %303 = load i8, ptr %19, align 1
+291:                                              ; preds = %4
+  %292 = load ptr, ptr %5, align 8
+  %293 = load i32, ptr %15, align 4
+  %294 = add i32 %293, 1
+  %295 = call zeroext i8 @tvb_get_guint8(ptr noundef %292, i32 noundef %294)
+  store i8 %295, ptr %19, align 1
+  %296 = load ptr, ptr %5, align 8
+  %297 = load i32, ptr %15, align 4
+  %298 = add i32 %297, 2
+  %299 = call zeroext i8 @tvb_get_guint8(ptr noundef %296, i32 noundef %298)
+  store i8 %299, ptr %18, align 1
+  %300 = load ptr, ptr %6, align 8
+  %301 = getelementptr inbounds %struct._packet_info, ptr %300, i32 0, i32 1
+  %302 = load ptr, ptr %301, align 8
+  %303 = load i8, ptr %18, align 1
   %304 = zext i8 %303 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %302, i32 noundef %304)
-  %305 = load ptr, ptr %6, align 8
-  %306 = getelementptr inbounds %struct._packet_info, ptr %305, i32 0, i32 50
-  %307 = load ptr, ptr %306, align 8
-  %308 = load i8, ptr %19, align 1
-  %309 = zext i8 %308 to i32
-  %310 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %307, ptr noundef @.str.2549, i32 noundef %309)
-  %311 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %310)
-  %312 = load ptr, ptr %6, align 8
-  %313 = getelementptr inbounds %struct._packet_info, ptr %312, i32 0, i32 50
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds [10 x i8], ptr %27, i64 0, i64 0
-  %316 = load i8, ptr %18, align 1
-  %317 = zext i8 %316 to i32
-  %318 = call ptr @val_to_split_str(i32 noundef %317, i32 noundef 64, ptr noundef @BACnetAbortReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
-  %319 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %314, ptr noundef %315, ptr noundef %318, ptr noundef null)
-  %320 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %319)
-  br label %322
+  %305 = call ptr @val_to_split_str(i32 noundef %304, i32 noundef 64, ptr noundef @BACnetAbortReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
+  %306 = load i8, ptr %19, align 1
+  %307 = zext i8 %306 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %302, i32 noundef 25, ptr noundef @.str.2548, ptr noundef %305, i32 noundef %307)
+  %308 = load ptr, ptr %6, align 8
+  %309 = getelementptr inbounds %struct._packet_info, ptr %308, i32 0, i32 50
+  %310 = load ptr, ptr %309, align 8
+  %311 = load i8, ptr %19, align 1
+  %312 = zext i8 %311 to i32
+  %313 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %310, ptr noundef @.str.2549, i32 noundef %312)
+  %314 = call i32 @updateBacnetInfoValue(i32 noundef 1, ptr noundef %313)
+  %315 = load ptr, ptr %6, align 8
+  %316 = getelementptr inbounds %struct._packet_info, ptr %315, i32 0, i32 50
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds [10 x i8], ptr %27, i64 0, i64 0
+  %319 = load i8, ptr %18, align 1
+  %320 = zext i8 %319 to i32
+  %321 = call ptr @val_to_split_str(i32 noundef %320, i32 noundef 64, ptr noundef @BACnetAbortReason, ptr noundef @ASHRAE_Reserved_Fmt, ptr noundef @Vendor_Proprietary_Fmt)
+  %322 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %317, ptr noundef %318, ptr noundef %321, ptr noundef null)
+  %323 = call i32 @updateBacnetInfoValue(i32 noundef 0, ptr noundef %322)
+  br label %325
 
-321:                                              ; preds = %4
-  br label %322
+324:                                              ; preds = %4
+  br label %325
 
-322:                                              ; preds = %321, %288, %255, %220, %219, %192, %130, %108, %81
-  %323 = load ptr, ptr %6, align 8
-  %324 = getelementptr inbounds %struct._packet_info, ptr %323, i32 0, i32 20
-  %325 = load i32, ptr %324, align 8
-  store i32 %325, ptr %11, align 4
-  %326 = load ptr, ptr %7, align 8
-  %327 = load i32, ptr @proto_bacapp, align 4
-  %328 = load ptr, ptr %5, align 8
-  %329 = load i32, ptr %15, align 4
-  %330 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %327, ptr noundef %328, i32 noundef %329, i32 noundef -1, i32 noundef 0)
-  store ptr %330, ptr %20, align 8
-  %331 = load ptr, ptr %20, align 8
-  %332 = load i32, ptr @ett_bacapp, align 4
-  %333 = call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %332)
-  store ptr %333, ptr %21, align 8
-  %334 = load i32, ptr %13, align 4
-  %335 = icmp ne i32 %334, 0
-  br i1 %335, label %341, label %336
+325:                                              ; preds = %324, %291, %258, %223, %222, %195, %133, %111, %84
+  %326 = load ptr, ptr %6, align 8
+  %327 = getelementptr inbounds %struct._packet_info, ptr %326, i32 0, i32 20
+  %328 = load i32, ptr %327, align 8
+  store i32 %328, ptr %11, align 4
+  %329 = load ptr, ptr %7, align 8
+  %330 = load i32, ptr @proto_bacapp, align 4
+  %331 = load ptr, ptr %5, align 8
+  %332 = load i32, ptr %15, align 4
+  %333 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef %332, i32 noundef -1, i32 noundef 0)
+  store ptr %333, ptr %20, align 8
+  %334 = load ptr, ptr %20, align 8
+  %335 = load i32, ptr @ett_bacapp, align 4
+  %336 = call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %335)
+  store ptr %336, ptr %21, align 8
+  %337 = load i32, ptr %13, align 4
+  %338 = icmp ne i32 %337, 0
+  br i1 %338, label %344, label %339
 
-336:                                              ; preds = %322
-  %337 = load ptr, ptr %5, align 8
-  %338 = load ptr, ptr %6, align 8
-  %339 = load ptr, ptr %21, align 8
-  %340 = call i32 @do_the_dissection(ptr noundef %337, ptr noundef %338, ptr noundef %339)
-  br label %348
+339:                                              ; preds = %325
+  %340 = load ptr, ptr %5, align 8
+  %341 = load ptr, ptr %6, align 8
+  %342 = load ptr, ptr %21, align 8
+  %343 = call i32 @do_the_dissection(ptr noundef %340, ptr noundef %341, ptr noundef %342)
+  br label %351
 
-341:                                              ; preds = %322
-  %342 = load ptr, ptr %5, align 8
-  %343 = load ptr, ptr %6, align 8
-  %344 = load ptr, ptr %21, align 8
-  %345 = load i32, ptr %15, align 4
-  %346 = load i8, ptr %24, align 1
-  %347 = call i32 @fStartConfirmed(ptr noundef %342, ptr noundef %343, ptr noundef %344, i32 noundef %345, i8 noundef zeroext %346, ptr noundef %22, ptr noundef %23)
-  br label %348
+344:                                              ; preds = %325
+  %345 = load ptr, ptr %5, align 8
+  %346 = load ptr, ptr %6, align 8
+  %347 = load ptr, ptr %21, align 8
+  %348 = load i32, ptr %15, align 4
+  %349 = load i8, ptr %24, align 1
+  %350 = call i32 @fStartConfirmed(ptr noundef %345, ptr noundef %346, ptr noundef %347, i32 noundef %348, i8 noundef zeroext %349, ptr noundef %22, ptr noundef %23)
+  br label %351
 
-348:                                              ; preds = %341, %336
-  %349 = load i32, ptr %13, align 4
-  %350 = icmp ne i32 %349, 0
-  br i1 %350, label %351, label %407
+351:                                              ; preds = %344, %339
+  %352 = load i32, ptr %13, align 4
+  %353 = icmp ne i32 %352, 0
+  br i1 %353, label %354, label %410
 
-351:                                              ; preds = %348
-  %352 = load ptr, ptr %6, align 8
-  %353 = getelementptr inbounds %struct._packet_info, ptr %352, i32 0, i32 20
-  store i32 1, ptr %353, align 8
-  %354 = load ptr, ptr %5, align 8
-  %355 = load i32, ptr %12, align 4
-  %356 = load ptr, ptr %6, align 8
-  %357 = load i8, ptr %19, align 1
-  %358 = zext i8 %357 to i32
-  %359 = load i8, ptr %16, align 1
-  %360 = zext i8 %359 to i32
-  %361 = load ptr, ptr %5, align 8
-  %362 = load i32, ptr %12, align 4
-  %363 = call i32 @tvb_reported_length_remaining(ptr noundef %361, i32 noundef %362)
-  %364 = load i8, ptr %9, align 1
-  %365 = zext i8 %364 to i32
-  %366 = and i32 %365, 4
-  %367 = call ptr @fragment_add_seq_check(ptr noundef @msg_reassembly_table, ptr noundef %354, i32 noundef %355, ptr noundef %356, i32 noundef %358, ptr noundef null, i32 noundef %360, i32 noundef %363, i32 noundef %366)
-  store ptr %367, ptr %32, align 8
-  %368 = load ptr, ptr %5, align 8
-  %369 = load i32, ptr %12, align 4
-  %370 = load ptr, ptr %6, align 8
-  %371 = load ptr, ptr %32, align 8
-  %372 = load ptr, ptr %7, align 8
-  %373 = call ptr @process_reassembled_data(ptr noundef %368, i32 noundef %369, ptr noundef %370, ptr noundef @.str.2551, ptr noundef %371, ptr noundef @msg_frag_items, ptr noundef null, ptr noundef %372)
-  store ptr %373, ptr %14, align 8
-  %374 = load ptr, ptr %14, align 8
-  %375 = icmp ne ptr %374, null
-  br i1 %375, label %376, label %380
+354:                                              ; preds = %351
+  %355 = load ptr, ptr %6, align 8
+  %356 = getelementptr inbounds %struct._packet_info, ptr %355, i32 0, i32 20
+  store i32 1, ptr %356, align 8
+  %357 = load ptr, ptr %5, align 8
+  %358 = load i32, ptr %12, align 4
+  %359 = load ptr, ptr %6, align 8
+  %360 = load i8, ptr %19, align 1
+  %361 = zext i8 %360 to i32
+  %362 = load i8, ptr %16, align 1
+  %363 = zext i8 %362 to i32
+  %364 = load ptr, ptr %5, align 8
+  %365 = load i32, ptr %12, align 4
+  %366 = call i32 @tvb_reported_length_remaining(ptr noundef %364, i32 noundef %365)
+  %367 = load i8, ptr %9, align 1
+  %368 = zext i8 %367 to i32
+  %369 = and i32 %368, 4
+  %370 = call ptr @fragment_add_seq_check(ptr noundef @msg_reassembly_table, ptr noundef %357, i32 noundef %358, ptr noundef %359, i32 noundef %361, ptr noundef null, i32 noundef %363, i32 noundef %366, i32 noundef %369)
+  store ptr %370, ptr %32, align 8
+  %371 = load ptr, ptr %5, align 8
+  %372 = load i32, ptr %12, align 4
+  %373 = load ptr, ptr %6, align 8
+  %374 = load ptr, ptr %32, align 8
+  %375 = load ptr, ptr %7, align 8
+  %376 = call ptr @process_reassembled_data(ptr noundef %371, i32 noundef %372, ptr noundef %373, ptr noundef @.str.2551, ptr noundef %374, ptr noundef @msg_frag_items, ptr noundef null, ptr noundef %375)
+  store ptr %376, ptr %14, align 8
+  %377 = load ptr, ptr %14, align 8
+  %378 = icmp ne ptr %377, null
+  br i1 %378, label %379, label %383
 
-376:                                              ; preds = %351
-  %377 = load ptr, ptr %6, align 8
-  %378 = getelementptr inbounds %struct._packet_info, ptr %377, i32 0, i32 1
-  %379 = load ptr, ptr %378, align 8
-  call void @col_append_str(ptr noundef %379, i32 noundef 25, ptr noundef @.str.2552)
-  br label %386
+379:                                              ; preds = %354
+  %380 = load ptr, ptr %6, align 8
+  %381 = getelementptr inbounds %struct._packet_info, ptr %380, i32 0, i32 1
+  %382 = load ptr, ptr %381, align 8
+  call void @col_append_str(ptr noundef %382, i32 noundef 25, ptr noundef @.str.2552)
+  br label %389
 
-380:                                              ; preds = %351
-  %381 = load ptr, ptr %6, align 8
-  %382 = getelementptr inbounds %struct._packet_info, ptr %381, i32 0, i32 1
-  %383 = load ptr, ptr %382, align 8
-  %384 = load i8, ptr %16, align 1
-  %385 = zext i8 %384 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %383, i32 noundef 25, ptr noundef @.str.2553, i32 noundef %385)
-  br label %386
+383:                                              ; preds = %354
+  %384 = load ptr, ptr %6, align 8
+  %385 = getelementptr inbounds %struct._packet_info, ptr %384, i32 0, i32 1
+  %386 = load ptr, ptr %385, align 8
+  %387 = load i8, ptr %16, align 1
+  %388 = zext i8 %387 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %386, i32 noundef 25, ptr noundef @.str.2553, i32 noundef %388)
+  br label %389
 
-386:                                              ; preds = %380, %376
-  %387 = load ptr, ptr %14, align 8
-  %388 = icmp ne ptr %387, null
-  br i1 %388, label %389, label %406
-
-389:                                              ; preds = %386
-  %390 = load i8, ptr %10, align 1
-  %391 = zext i8 %390 to i32
-  switch i32 %391, label %404 [
-    i32 0, label %392
-    i32 3, label %398
-  ]
+389:                                              ; preds = %383, %379
+  %390 = load ptr, ptr %14, align 8
+  %391 = icmp ne ptr %390, null
+  br i1 %391, label %392, label %409
 
 392:                                              ; preds = %389
-  %393 = load ptr, ptr %14, align 8
-  %394 = load ptr, ptr %6, align 8
-  %395 = load ptr, ptr %21, align 8
-  %396 = load i32, ptr %22, align 4
-  %397 = call i32 @fContinueConfirmedRequestPDU(ptr noundef %393, ptr noundef %394, ptr noundef %395, i32 noundef 0, i32 noundef %396)
-  br label %405
+  %393 = load i8, ptr %10, align 1
+  %394 = zext i8 %393 to i32
+  switch i32 %394, label %407 [
+    i32 0, label %395
+    i32 3, label %401
+  ]
 
-398:                                              ; preds = %389
-  %399 = load ptr, ptr %14, align 8
-  %400 = load ptr, ptr %6, align 8
-  %401 = load ptr, ptr %21, align 8
-  %402 = load i32, ptr %22, align 4
-  %403 = call i32 @fContinueComplexAckPDU(ptr noundef %399, ptr noundef %400, ptr noundef %401, i32 noundef 0, i32 noundef %402)
-  br label %405
+395:                                              ; preds = %392
+  %396 = load ptr, ptr %14, align 8
+  %397 = load ptr, ptr %6, align 8
+  %398 = load ptr, ptr %21, align 8
+  %399 = load i32, ptr %22, align 4
+  %400 = call i32 @fContinueConfirmedRequestPDU(ptr noundef %396, ptr noundef %397, ptr noundef %398, i32 noundef 0, i32 noundef %399)
+  br label %408
 
-404:                                              ; preds = %389
-  br label %405
+401:                                              ; preds = %392
+  %402 = load ptr, ptr %14, align 8
+  %403 = load ptr, ptr %6, align 8
+  %404 = load ptr, ptr %21, align 8
+  %405 = load i32, ptr %22, align 4
+  %406 = call i32 @fContinueComplexAckPDU(ptr noundef %402, ptr noundef %403, ptr noundef %404, i32 noundef 0, i32 noundef %405)
+  br label %408
 
-405:                                              ; preds = %404, %398, %392
-  br label %406
+407:                                              ; preds = %392
+  br label %408
 
-406:                                              ; preds = %405, %386
-  br label %407
+408:                                              ; preds = %407, %401, %395
+  br label %409
 
-407:                                              ; preds = %406, %348
-  %408 = load i32, ptr %11, align 4
-  %409 = load ptr, ptr %6, align 8
-  %410 = getelementptr inbounds %struct._packet_info, ptr %409, i32 0, i32 20
-  store i32 %408, ptr %410, align 8
-  %411 = load i32, ptr @bacapp_tap, align 4
+409:                                              ; preds = %408, %389
+  br label %410
+
+410:                                              ; preds = %409, %351
+  %411 = load i32, ptr %11, align 4
   %412 = load ptr, ptr %6, align 8
-  call void @tap_queue_packet(i32 noundef %411, ptr noundef %412, ptr noundef @bacinfo)
-  %413 = load ptr, ptr %5, align 8
-  %414 = call i32 @tvb_captured_length(ptr noundef %413)
-  ret i32 %414
+  %413 = getelementptr inbounds %struct._packet_info, ptr %412, i32 0, i32 20
+  store i32 %411, ptr %413, align 8
+  %414 = load i32, ptr @bacapp_tap, align 4
+  %415 = load ptr, ptr %6, align 8
+  call void @tap_queue_packet(i32 noundef %414, ptr noundef %415, ptr noundef @bacinfo)
+  %416 = load ptr, ptr %5, align 8
+  %417 = call i32 @tvb_captured_length(ptr noundef %416)
+  ret i32 %417
 }
 
 declare void @reassembly_table_register(ptr noundef, ptr noundef) #1
@@ -4722,48 +4725,51 @@ define internal i32 @updateBacnetInfoValue(i32 noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr @bacinfo, align 8
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %4, align 4
   %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %5, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 1), align 8
+  %15 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 1
+  store ptr %14, ptr %15, align 8
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
-15:                                               ; preds = %10
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp eq i32 %16, 4
-  br i1 %17, label %18, label %20
+16:                                               ; preds = %10
+  %17 = load i32, ptr %4, align 4
+  %18 = icmp eq i32 %17, 4
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %5, align 8
-  store ptr %19, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 3), align 8
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 3
+  store ptr %20, ptr %21, align 8
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp eq i32 %21, 2
-  br i1 %22, label %23, label %25
+22:                                               ; preds = %16
+  %23 = load i32, ptr %4, align 4
+  %24 = icmp eq i32 %23, 2
+  br i1 %24, label %25, label %28
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %5, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 2), align 8
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct._bacapp_info_value_t, ptr @bacinfo, i32 0, i32 2
+  store ptr %26, ptr %27, align 8
   store i32 0, ptr %3, align 4
-  br label %26
+  br label %29
 
-25:                                               ; preds = %20
+28:                                               ; preds = %22
   store i32 -1, ptr %3, align 4
-  br label %26
+  br label %29
 
-26:                                               ; preds = %25, %23, %18, %13, %8
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+29:                                               ; preds = %28, %25, %19, %13, %8
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1

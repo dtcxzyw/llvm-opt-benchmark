@@ -67,7 +67,7 @@ define i32 @PMPI_Session_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 24:                                               ; preds = %21, %18
   store i32 13, ptr %6, align 4
-  br label %86
+  br label %88
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %7, align 8
@@ -81,7 +81,7 @@ define i32 @PMPI_Session_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 31:                                               ; preds = %28, %25
   store i32 34, ptr %6, align 4
-  br label %86
+  br label %88
 
 32:                                               ; preds = %28
   br label %33
@@ -157,27 +157,29 @@ define i32 @PMPI_Session_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %74 = zext i1 %73 to i32
   %75 = sext i32 %74 to i64
   %76 = icmp ne i64 %75, 0
-  br i1 %76, label %77, label %85
+  br i1 %76, label %77, label %87
 
 77:                                               ; preds = %63
   %78 = load i32, ptr %10, align 4
   %79 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %78)
   store i32 %79, ptr %15, align 4
-  %80 = load ptr, ptr getelementptr inbounds (%struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 7), align 8
-  %81 = load i32, ptr getelementptr inbounds (%struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 8), align 8
-  %82 = load i32, ptr %15, align 4
-  %83 = call i32 @ompi_errhandler_invoke(ptr noundef %80, ptr noundef @ompi_mpi_instance_null, i32 noundef %81, i32 noundef %82, ptr noundef @FUNC_NAME)
+  %80 = getelementptr inbounds %struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 7
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 8
+  %83 = load i32, ptr %82, align 8
   %84 = load i32, ptr %15, align 4
-  store i32 %84, ptr %6, align 4
-  br label %86
+  %85 = call i32 @ompi_errhandler_invoke(ptr noundef %81, ptr noundef @ompi_mpi_instance_null, i32 noundef %83, i32 noundef %84, ptr noundef @FUNC_NAME)
+  %86 = load i32, ptr %15, align 4
+  store i32 %86, ptr %6, align 4
+  br label %88
 
-85:                                               ; preds = %63
+87:                                               ; preds = %63
   store i32 0, ptr %6, align 4
-  br label %86
+  br label %88
 
-86:                                               ; preds = %85, %77, %31, %24
-  %87 = load i32, ptr %6, align 4
-  ret i32 %87
+88:                                               ; preds = %87, %77, %31, %24
+  %89 = load i32, ptr %6, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

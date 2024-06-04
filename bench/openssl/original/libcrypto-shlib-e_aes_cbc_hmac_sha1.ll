@@ -24,8 +24,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cbc_hmac_sha1() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_128_cbc_hmac_sha1_cipher, ptr null
   ret ptr %cond
@@ -34,8 +35,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cbc_hmac_sha1() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   %cond = select i1 %tobool, ptr @aesni_256_cbc_hmac_sha1_cipher, ptr null
   ret ptr %cond
@@ -1694,8 +1696,9 @@ if.end124:                                        ; preds = %if.then120
   br i1 %cmp125, label %land.lhs.true, label %if.end130
 
 land.lhs.true:                                    ; preds = %if.end124
-  %79 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
-  %and127 = and i32 %79, 32
+  %79 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  %80 = load i32, ptr %79, align 4
+  %and127 = and i32 %80, 32
   %tobool128 = icmp ne i32 %and127, 0
   br i1 %tobool128, label %if.then129, label %if.end130
 
@@ -1707,24 +1710,24 @@ if.end130:                                        ; preds = %if.then129, %land.l
   br label %if.end141
 
 if.else131:                                       ; preds = %if.end118
-  %80 = load ptr, ptr %param, align 8
-  %interleave = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %80, i32 0, i32 3
-  %81 = load i32, ptr %interleave, align 8
-  %div = udiv i32 %81, 4
+  %81 = load ptr, ptr %param, align 8
+  %interleave = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %81, i32 0, i32 3
+  %82 = load i32, ptr %interleave, align 8
+  %div = udiv i32 %82, 4
   store i32 %div, ptr %n4x, align 4
   %tobool132 = icmp ne i32 %div, 0
   br i1 %tobool132, label %land.lhs.true133, label %if.else139
 
 land.lhs.true133:                                 ; preds = %if.else131
-  %82 = load i32, ptr %n4x, align 4
-  %cmp134 = icmp ule i32 %82, 2
+  %83 = load i32, ptr %n4x, align 4
+  %cmp134 = icmp ule i32 %83, 2
   br i1 %cmp134, label %if.then136, label %if.else139
 
 if.then136:                                       ; preds = %land.lhs.true133
-  %83 = load ptr, ptr %param, align 8
-  %len137 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %83, i32 0, i32 2
-  %84 = load i64, ptr %len137, align 8
-  %conv138 = trunc i64 %84 to i32
+  %84 = load ptr, ptr %param, align 8
+  %len137 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %84, i32 0, i32 2
+  %85 = load i64, ptr %len137, align 8
+  %conv138 = trunc i64 %85 to i32
   store i32 %conv138, ptr %inp_len, align 4
   br label %if.end140
 
@@ -1736,88 +1739,88 @@ if.end140:                                        ; preds = %if.then136
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end140, %if.end130
-  %85 = load ptr, ptr %key, align 8
-  %md142 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %85, i32 0, i32 3
   %86 = load ptr, ptr %key, align 8
-  %head143 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %86, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md142, ptr align 4 %head143, i64 96, i1 false)
+  %md142 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %86, i32 0, i32 3
   %87 = load ptr, ptr %key, align 8
-  %md144 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %87, i32 0, i32 3
-  %88 = load ptr, ptr %param, align 8
-  %inp145 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %88, i32 0, i32 1
-  %89 = load ptr, ptr %inp145, align 8
-  call void @sha1_update(ptr noundef %md144, ptr noundef %89, i64 noundef 13)
-  %90 = load i32, ptr %n4x, align 4
-  %mul = mul i32 4, %90
-  store i32 %mul, ptr %x4, align 4
+  %head143 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %87, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md142, ptr align 4 %head143, i64 96, i1 false)
+  %88 = load ptr, ptr %key, align 8
+  %md144 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %88, i32 0, i32 3
+  %89 = load ptr, ptr %param, align 8
+  %inp145 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %89, i32 0, i32 1
+  %90 = load ptr, ptr %inp145, align 8
+  call void @sha1_update(ptr noundef %md144, ptr noundef %90, i64 noundef 13)
   %91 = load i32, ptr %n4x, align 4
-  %add146 = add i32 %91, 1
+  %mul = mul i32 4, %91
+  store i32 %mul, ptr %x4, align 4
+  %92 = load i32, ptr %n4x, align 4
+  %add146 = add i32 %92, 1
   store i32 %add146, ptr %n4x, align 4
-  %92 = load i32, ptr %inp_len, align 4
-  %93 = load i32, ptr %n4x, align 4
-  %shr147 = lshr i32 %92, %93
+  %93 = load i32, ptr %inp_len, align 4
+  %94 = load i32, ptr %n4x, align 4
+  %shr147 = lshr i32 %93, %94
   store i32 %shr147, ptr %frag, align 4
-  %94 = load i32, ptr %inp_len, align 4
-  %95 = load i32, ptr %frag, align 4
-  %add148 = add i32 %94, %95
+  %95 = load i32, ptr %inp_len, align 4
   %96 = load i32, ptr %frag, align 4
-  %97 = load i32, ptr %n4x, align 4
-  %shl149 = shl i32 %96, %97
+  %add148 = add i32 %95, %96
+  %97 = load i32, ptr %frag, align 4
+  %98 = load i32, ptr %n4x, align 4
+  %shl149 = shl i32 %97, %98
   %sub150 = sub i32 %add148, %shl149
   store i32 %sub150, ptr %last, align 4
-  %98 = load i32, ptr %last, align 4
-  %99 = load i32, ptr %frag, align 4
-  %cmp151 = icmp ugt i32 %98, %99
+  %99 = load i32, ptr %last, align 4
+  %100 = load i32, ptr %frag, align 4
+  %cmp151 = icmp ugt i32 %99, %100
   br i1 %cmp151, label %land.lhs.true153, label %if.end163
 
 land.lhs.true153:                                 ; preds = %if.end141
-  %100 = load i32, ptr %last, align 4
-  %add154 = add i32 %100, 13
+  %101 = load i32, ptr %last, align 4
+  %add154 = add i32 %101, 13
   %add155 = add i32 %add154, 9
   %rem = urem i32 %add155, 64
-  %101 = load i32, ptr %x4, align 4
-  %sub156 = sub i32 %101, 1
+  %102 = load i32, ptr %x4, align 4
+  %sub156 = sub i32 %102, 1
   %cmp157 = icmp ult i32 %rem, %sub156
   br i1 %cmp157, label %if.then159, label %if.end163
 
 if.then159:                                       ; preds = %land.lhs.true153
-  %102 = load i32, ptr %frag, align 4
-  %inc160 = add i32 %102, 1
+  %103 = load i32, ptr %frag, align 4
+  %inc160 = add i32 %103, 1
   store i32 %inc160, ptr %frag, align 4
-  %103 = load i32, ptr %x4, align 4
-  %sub161 = sub i32 %103, 1
-  %104 = load i32, ptr %last, align 4
-  %sub162 = sub i32 %104, %sub161
+  %104 = load i32, ptr %x4, align 4
+  %sub161 = sub i32 %104, 1
+  %105 = load i32, ptr %last, align 4
+  %sub162 = sub i32 %105, %sub161
   store i32 %sub162, ptr %last, align 4
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then159, %land.lhs.true153, %if.end141
-  %105 = load i32, ptr %frag, align 4
-  %add164 = add i32 %105, 20
+  %106 = load i32, ptr %frag, align 4
+  %add164 = add i32 %106, 20
   %add165 = add i32 %add164, 16
   %and166 = and i32 %add165, -16
   %add167 = add i32 21, %and166
   store i32 %add167, ptr %packlen, align 4
-  %106 = load i32, ptr %packlen, align 4
-  %107 = load i32, ptr %n4x, align 4
-  %shl168 = shl i32 %106, %107
-  %108 = load i32, ptr %packlen, align 4
-  %sub169 = sub i32 %shl168, %108
+  %107 = load i32, ptr %packlen, align 4
+  %108 = load i32, ptr %n4x, align 4
+  %shl168 = shl i32 %107, %108
+  %109 = load i32, ptr %packlen, align 4
+  %sub169 = sub i32 %shl168, %109
   store i32 %sub169, ptr %packlen, align 4
-  %109 = load i32, ptr %last, align 4
-  %add170 = add i32 %109, 20
+  %110 = load i32, ptr %last, align 4
+  %add170 = add i32 %110, 20
   %add171 = add i32 %add170, 16
   %and172 = and i32 %add171, -16
   %add173 = add i32 21, %and172
-  %110 = load i32, ptr %packlen, align 4
-  %add174 = add i32 %110, %add173
+  %111 = load i32, ptr %packlen, align 4
+  %add174 = add i32 %111, %add173
   store i32 %add174, ptr %packlen, align 4
-  %111 = load i32, ptr %x4, align 4
-  %112 = load ptr, ptr %param, align 8
-  %interleave175 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %112, i32 0, i32 3
-  store i32 %111, ptr %interleave175, align 8
-  %113 = load i32, ptr %packlen, align 4
-  store i32 %113, ptr %retval, align 4
+  %112 = load i32, ptr %x4, align 4
+  %113 = load ptr, ptr %param, align 8
+  %interleave175 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %113, i32 0, i32 3
+  store i32 %112, ptr %interleave175, align 8
+  %114 = load i32, ptr %packlen, align 4
+  store i32 %114, ptr %retval, align 4
   br label %return
 
 if.else176:                                       ; preds = %if.end96
@@ -1825,23 +1828,23 @@ if.else176:                                       ; preds = %if.end96
   br label %return
 
 sw.bb177:                                         ; preds = %entry
-  %114 = load ptr, ptr %ptr.addr, align 8
-  store ptr %114, ptr %param178, align 8
-  %115 = load ptr, ptr %key, align 8
-  %116 = load ptr, ptr %param178, align 8
-  %out = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %116, i32 0, i32 0
-  %117 = load ptr, ptr %out, align 8
-  %118 = load ptr, ptr %param178, align 8
-  %inp179 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %118, i32 0, i32 1
-  %119 = load ptr, ptr %inp179, align 8
-  %120 = load ptr, ptr %param178, align 8
-  %len180 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %120, i32 0, i32 2
-  %121 = load i64, ptr %len180, align 8
-  %122 = load ptr, ptr %param178, align 8
-  %interleave181 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %122, i32 0, i32 3
-  %123 = load i32, ptr %interleave181, align 8
-  %div182 = udiv i32 %123, 4
-  %call183 = call i64 @tls1_1_multi_block_encrypt(ptr noundef %115, ptr noundef %117, ptr noundef %119, i64 noundef %121, i32 noundef %div182)
+  %115 = load ptr, ptr %ptr.addr, align 8
+  store ptr %115, ptr %param178, align 8
+  %116 = load ptr, ptr %key, align 8
+  %117 = load ptr, ptr %param178, align 8
+  %out = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %117, i32 0, i32 0
+  %118 = load ptr, ptr %out, align 8
+  %119 = load ptr, ptr %param178, align 8
+  %inp179 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %119, i32 0, i32 1
+  %120 = load ptr, ptr %inp179, align 8
+  %121 = load ptr, ptr %param178, align 8
+  %len180 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %121, i32 0, i32 2
+  %122 = load i64, ptr %len180, align 8
+  %123 = load ptr, ptr %param178, align 8
+  %interleave181 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %123, i32 0, i32 3
+  %124 = load i32, ptr %interleave181, align 8
+  %div182 = udiv i32 %124, 4
+  %call183 = call i64 @tls1_1_multi_block_encrypt(ptr noundef %116, ptr noundef %118, ptr noundef %120, i64 noundef %122, i32 noundef %div182)
   %conv184 = trunc i64 %call183 to i32
   store i32 %conv184, ptr %retval, align 4
   br label %return
@@ -1854,8 +1857,8 @@ sw.default:                                       ; preds = %sw.bb185, %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb177, %if.else176, %if.end163, %if.else139, %if.then123, %if.then117, %if.then95, %sw.bb87, %if.else81, %if.end75, %if.then64, %if.then37, %for.end29
-  %124 = load i32, ptr %retval, align 4
-  ret i32 %124
+  %125 = load i32, ptr %retval, align 4
+  ret i32 %125
 }
 
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) #1

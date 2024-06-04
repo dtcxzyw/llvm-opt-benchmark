@@ -149,7 +149,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #0 {
 8:                                                ; preds = %1
   %9 = load i32, ptr %4, align 4
   store i32 %9, ptr %2, align 4
-  br label %22
+  br label %25
 
 10:                                               ; preds = %1
   br label %11
@@ -159,87 +159,92 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #0 {
 
 12:                                               ; preds = %11
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %15 = icmp ne i32 %13, %14
-  br i1 %15, label %16, label %17
+  %14 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ne i32 %13, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %12
+17:                                               ; preds = %12
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %17
-
-17:                                               ; preds = %16, %12
-  store ptr @opal_list_t_class, ptr @mca_btl_base_modules_initialized, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_btl_base_modules_initialized)
   br label %18
 
-18:                                               ; preds = %17
-  br label %19
+18:                                               ; preds = %17, %12
+  store ptr @opal_list_t_class, ptr @mca_btl_base_modules_initialized, align 8
+  %19 = getelementptr inbounds %struct.opal_object_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1
+  store volatile i32 1, ptr %19, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_btl_base_modules_initialized)
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11), align 4
-  %21 = call i32 @opal_output_get_verbosity(i32 noundef %20)
-  store i32 %21, ptr @mca_btl_base_verbose, align 4
+20:                                               ; preds = %18
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_btl_base_framework, i32 0, i32 11
+  %23 = load i32, ptr %22, align 4
+  %24 = call i32 @opal_output_get_verbosity(i32 noundef %23)
+  store i32 %24, ptr @mca_btl_base_verbose, align 4
   store i32 0, ptr %2, align 4
-  br label %22
+  br label %25
 
-22:                                               ; preds = %19, %8
-  %23 = load i32, ptr %2, align 4
-  ret i32 %23
+25:                                               ; preds = %21, %8
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_btl_base_close() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1, i32 1), align 8
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds %struct.opal_list_item_t, ptr %4, i32 0, i32 1
-  %6 = load volatile ptr, ptr %5, align 8
-  store ptr %6, ptr %2, align 8
-  br label %7
+  %3 = getelementptr inbounds %struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1, i32 1
+  %4 = load volatile ptr, ptr %3, align 8
+  store ptr %4, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds %struct.opal_list_item_t, ptr %5, i32 0, i32 1
+  %7 = load volatile ptr, ptr %6, align 8
+  store ptr %7, ptr %2, align 8
+  br label %8
 
-7:                                                ; preds = %24, %0
-  %8 = load ptr, ptr %1, align 8
-  %9 = icmp ne ptr %8, getelementptr inbounds (%struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1)
-  br i1 %9, label %10, label %29
+8:                                                ; preds = %26, %0
+  %9 = load ptr, ptr %1, align 8
+  %10 = getelementptr inbounds %struct.opal_list_t, ptr @mca_btl_base_modules_initialized, i32 0, i32 1
+  %11 = icmp ne ptr %9, %10
+  br i1 %11, label %12, label %31
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %13, i32 0, i32 22
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %13, i32 0, i32 2
   %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = call i32 %15(ptr noundef %18)
-  %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %20, i32 0, i32 0
-  %22 = call ptr @opal_list_remove_item(ptr noundef @mca_btl_base_modules_initialized, ptr noundef %21)
-  %23 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %23) #3
-  br label %24
+  %16 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %15, i32 0, i32 22
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %1, align 8
+  %19 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 %17(ptr noundef %20)
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %22, i32 0, i32 0
+  %24 = call ptr @opal_list_remove_item(ptr noundef @mca_btl_base_modules_initialized, ptr noundef %23)
+  %25 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %25) #3
+  br label %26
 
-24:                                               ; preds = %10
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %1, align 8
-  %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds %struct.opal_list_item_t, ptr %26, i32 0, i32 1
-  %28 = load volatile ptr, ptr %27, align 8
-  store ptr %28, ptr %2, align 8
-  br label %7, !llvm.loop !4
+26:                                               ; preds = %12
+  %27 = load ptr, ptr %2, align 8
+  store ptr %27, ptr %1, align 8
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds %struct.opal_list_item_t, ptr %28, i32 0, i32 1
+  %30 = load volatile ptr, ptr %29, align 8
+  store ptr %30, ptr %2, align 8
+  br label %8, !llvm.loop !4
 
-29:                                               ; preds = %7
-  %30 = call i32 @mca_base_framework_components_close(ptr noundef @opal_btl_base_framework, ptr noundef null)
-  br label %31
+31:                                               ; preds = %8
+  %32 = call i32 @mca_base_framework_components_close(ptr noundef @opal_btl_base_framework, ptr noundef null)
+  br label %33
 
-31:                                               ; preds = %29
+33:                                               ; preds = %31
   call void @opal_obj_run_destructors(ptr noundef @mca_btl_base_modules_initialized)
-  br label %32
+  br label %34
 
-32:                                               ; preds = %31
+34:                                               ; preds = %33
   ret i32 0
 }
 

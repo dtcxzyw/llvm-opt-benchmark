@@ -7567,7 +7567,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7734,7 +7734,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7920,7 +7920,7 @@ lpad13:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad13, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8241,7 +8241,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8501,7 +8501,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8744,7 +8744,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8964,7 +8964,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9178,7 +9178,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9438,7 +9438,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9611,7 +9611,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9885,7 +9885,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10105,7 +10105,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10333,7 +10333,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10553,7 +10553,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10798,7 +10798,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11116,7 +11116,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11344,7 +11344,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11562,7 +11562,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11720,7 +11720,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11961,7 +11961,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12105,7 +12105,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12272,7 +12272,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12501,7 +12501,7 @@ lpad13:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad13, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12813,7 +12813,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13093,7 +13093,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13260,7 +13260,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13427,7 +13427,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13785,7 +13785,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13983,7 +13983,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -14156,7 +14156,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -14523,7 +14523,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15300,7 +15300,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15522,7 +15522,7 @@ lpad9:                                            ; preds = %for.body17, %for.bo
 
 catch.dispatch:                                   ; preds = %lpad9, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15869,7 +15869,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -16241,7 +16241,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -16464,7 +16464,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -16687,7 +16687,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -16910,7 +16910,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17133,7 +17133,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17356,7 +17356,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17579,7 +17579,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17802,7 +17802,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18025,7 +18025,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18248,7 +18248,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18471,7 +18471,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18694,7 +18694,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18917,7 +18917,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19134,7 +19134,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19301,7 +19301,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19501,7 +19501,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19776,7 +19776,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19992,7 +19992,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20247,7 +20247,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20568,7 +20568,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20823,7 +20823,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21099,7 +21099,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21456,7 +21456,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21711,7 +21711,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21987,7 +21987,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 catch.dispatch:                                   ; preds = %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22238,7 +22238,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22458,7 +22458,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22721,7 +22721,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22976,7 +22976,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -23223,7 +23223,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -23483,7 +23483,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -23944,7 +23944,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24211,7 +24211,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24460,7 +24460,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %17 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %17
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24825,7 +24825,7 @@ lpad12:                                           ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad7, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -25071,7 +25071,7 @@ lpad11:                                           ; preds = %invoke.cont14, %if.
 
 catch.dispatch:                                   ; preds = %lpad11, %lpad8, %ehcleanup
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6Assimp7Blender5ErrorE) #15
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %eh.resume
 
@@ -29561,16 +29561,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -29908,9 +29909,6 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val8
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #7
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender9Structure19_defaultInitializerILi2EEclINS0_2IDEEEvRT_PKc(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(1042) %0, ptr noundef %message) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -30034,7 +30032,8 @@ entry:
   %3 = load ptr, ptr %args.addr6, align 8
   %4 = load ptr, ptr %args.addr8, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA39_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA17_S1_SB_RA2_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this9, ptr noundef nonnull align 1 dereferenceable(39) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(2) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 }
 
@@ -30247,7 +30246,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE6_S_keyEPKSt13_Rb_tree_nodeIS8_E(ptr noundef %__x) #2 comdat align 2 {
@@ -30396,16 +30395,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -30738,7 +30738,8 @@ entry:
   %1 = load ptr, ptr %args.addr2, align 8
   %2 = load ptr, ptr %args.addr4, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA43_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef nonnull align 1 dereferenceable(43) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 }
 
@@ -30782,16 +30783,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -30886,16 +30888,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -31320,16 +31323,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -32177,7 +32181,8 @@ entry:
   %6 = load ptr, ptr %args.addr12, align 8
   %7 = load ptr, ptr %args.addr14, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA32_S1_RmRA2_S1_SI_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this15, ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(2) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this15, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this15, align 8
   ret void
 }
 
@@ -32374,16 +32379,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this15, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this15, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -33365,7 +33371,8 @@ entry:
   %4 = load ptr, ptr %args.addr8, align 8
   %5 = load ptr, ptr %args.addr10, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA32_S1_RmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this11, ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this11, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this11, align 8
   ret void
 }
 
@@ -33488,16 +33495,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this11, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this11, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -34006,7 +34014,8 @@ entry:
   %3 = load ptr, ptr %args.addr6, align 8
   %4 = load ptr, ptr %args.addr8, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA24_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this9, ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(24) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 }
 
@@ -34322,16 +34331,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -35098,7 +35108,8 @@ entry:
   %3 = load ptr, ptr %args.addr6, align 8
   %4 = load ptr, ptr %args.addr8, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA32_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA26_S1_SB_RA10_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this9, ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(26) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(10) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 }
 
@@ -35451,16 +35462,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this7, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -35519,16 +35531,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this13, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %7, ptr %this13, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -35790,7 +35803,7 @@ if.end7:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #9
+declare i1 @llvm.is.constant.i64(i64) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN6Assimp7Blender13FileBlockHeadESt6vectorIS3_SaIS3_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
@@ -36601,7 +36614,8 @@ entry:
   %1 = load ptr, ptr %args.addr2, align 8
   %2 = load ptr, ptr %args.addr4, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA45_KcRKmRA2_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef nonnull align 1 dereferenceable(45) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(2) %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 }
 
@@ -36629,16 +36643,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -36881,16 +36896,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -37929,7 +37945,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS1_8ElemBaseEESt4lessIS2_ESaISt4pairIKS2_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
@@ -38390,7 +38406,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #0 comdat {
@@ -38471,13 +38487,13 @@ if.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #11
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #11
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEEEE10deallocateERSE_PSD_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
@@ -39234,7 +39250,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Object", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -39264,21 +39281,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data) #15
   call void @_ZNSt10shared_ptrIN6Assimp7Blender5GroupEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dup_group) #15
   call void @_ZNSt10shared_ptrIN6Assimp7Blender6ObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %proxy_group) #15
@@ -39319,7 +39336,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %dna_type, align 8
   ret void
@@ -39332,7 +39350,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender2IDE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender2IDE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -39353,7 +39372,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ListBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ListBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %first = getelementptr inbounds %"struct.Assimp::Blender::ListBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #15
   %last = getelementptr inbounds %"struct.Assimp::Blender::ListBase", ptr %this1, i32 0, i32 2
@@ -39387,7 +39407,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %modifiers = getelementptr inbounds %"struct.Assimp::Blender::Object", ptr %this1, i32 0, i32 13
   call void @_ZN6Assimp7Blender8ListBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %modifiers) #15
   %data = getelementptr inbounds %"struct.Assimp::Blender::Object", ptr %this1, i32 0, i32 12
@@ -39465,7 +39486,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ListBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ListBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %last = getelementptr inbounds %"struct.Assimp::Blender::ListBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt8weak_ptrIN6Assimp7Blender8ElemBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %last) #15
   %first = getelementptr inbounds %"struct.Assimp::Blender::ListBase", ptr %this1, i32 0, i32 1
@@ -39755,10 +39777,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6ObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -39768,7 +39791,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -41070,10 +41094,10 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #12
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSG_PSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef %__z) #2 comdat align 2 {
@@ -41927,7 +41951,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5GroupE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5GroupE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Group", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -41938,12 +41963,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -41995,7 +42020,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5GroupE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5GroupE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %gobject = getelementptr inbounds %"struct.Assimp::Blender::Group", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender11GroupObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gobject) #15
   %id = getelementptr inbounds %"struct.Assimp::Blender::Group", ptr %this1, i32 0, i32 1
@@ -42159,10 +42185,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5GroupELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.218", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -43916,7 +43943,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prev = getelementptr inbounds %"struct.Assimp::Blender::GroupObject", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender11GroupObjectEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %prev) #15
   %next = getelementptr inbounds %"struct.Assimp::Blender::GroupObject", ptr %this1, i32 0, i32 2
@@ -43956,7 +43984,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11GroupObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ob = getelementptr inbounds %"struct.Assimp::Blender::GroupObject", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender6ObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ob) #15
   %next = getelementptr inbounds %"struct.Assimp::Blender::GroupObject", ptr %this1, i32 0, i32 2
@@ -44112,10 +44141,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11GroupObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.219", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -44921,7 +44951,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next = getelementptr inbounds %"struct.Assimp::Blender::CollectionObject", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender16CollectionObjectEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %next) #15
   ret void
@@ -44967,7 +44998,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender16CollectionObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next = getelementptr inbounds %"struct.Assimp::Blender::CollectionObject", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender16CollectionObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %next) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -45119,10 +45151,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender16CollectionObjectELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.220", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -45928,7 +45961,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next = getelementptr inbounds %"struct.Assimp::Blender::CollectionChild", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender15CollectionChildEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %next) #15
   %prev = getelementptr inbounds %"struct.Assimp::Blender::CollectionChild", ptr %this1, i32 0, i32 2
@@ -45988,7 +46022,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CollectionChildE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %collection = getelementptr inbounds %"struct.Assimp::Blender::CollectionChild", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender10CollectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %collection) #15
   %prev = getelementptr inbounds %"struct.Assimp::Blender::CollectionChild", ptr %this1, i32 0, i32 2
@@ -46154,10 +46189,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CollectionChildELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.221", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -46935,7 +46971,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CollectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Collection", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -46954,30 +46991,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ListBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %gobject) #15
   br label %ehcleanup
 
@@ -47027,7 +47064,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CollectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %children = getelementptr inbounds %"struct.Assimp::Blender::Collection", ptr %this1, i32 0, i32 3
   call void @_ZN6Assimp7Blender8ListBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %children) #15
   %gobject = getelementptr inbounds %"struct.Assimp::Blender::Collection", ptr %this1, i32 0, i32 2
@@ -47183,10 +47221,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CollectionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.222", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -48020,7 +48059,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender3TexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender3TexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Tex", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -48035,12 +48075,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -48082,7 +48122,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender3TexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender3TexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ima = getelementptr inbounds %"struct.Assimp::Blender::Tex", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN6Assimp7Blender5ImageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ima) #15
   %id = getelementptr inbounds %"struct.Assimp::Blender::Tex", ptr %this1, i32 0, i32 1
@@ -48236,10 +48277,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender3TexELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.223", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -49373,10 +49415,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10FileOffsetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10FileOffsetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.225", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -50145,7 +50188,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4BaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4BaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prev = getelementptr inbounds %"struct.Assimp::Blender::Base", ptr %this1, i32 0, i32 1
   store ptr null, ptr %prev, align 8
   %next = getelementptr inbounds %"struct.Assimp::Blender::Base", ptr %this1, i32 0, i32 2
@@ -50185,7 +50229,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4BaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4BaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object = getelementptr inbounds %"struct.Assimp::Blender::Base", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender6ObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %object) #15
   %next = getelementptr inbounds %"struct.Assimp::Blender::Base", ptr %this1, i32 0, i32 2
@@ -50339,10 +50384,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4BaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.226", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -51186,7 +51232,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MTexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MTexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object = getelementptr inbounds %"struct.Assimp::Blender::MTex", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender6ObjectEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %object) #15
   %tex = getelementptr inbounds %"struct.Assimp::Blender::MTex", ptr %this1, i32 0, i32 4
@@ -51224,7 +51271,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MTexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MTexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tex = getelementptr inbounds %"struct.Assimp::Blender::MTex", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN6Assimp7Blender3TexEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tex) #15
   %object = getelementptr inbounds %"struct.Assimp::Blender::MTex", ptr %this1, i32 0, i32 3
@@ -51378,10 +51426,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.227", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -52159,7 +52208,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5ImageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Image", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -52170,12 +52220,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -52216,7 +52266,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5ImageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %packedfile = getelementptr inbounds %"struct.Assimp::Blender::Image", ptr %this1, i32 0, i32 16
   call void @_ZNSt10shared_ptrIN6Assimp7Blender10PackedFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %packedfile) #15
   %id = getelementptr inbounds %"struct.Assimp::Blender::Image", ptr %this1, i32 0, i32 1
@@ -52380,10 +52431,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5ImageELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.228", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -53422,7 +53474,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -53715,10 +53768,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v1 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v1, ptr align 8 %v12, i64 21, i1 false)
   ret void
 }
@@ -53731,12 +53785,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %dna_type2 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %dna_type2, align 8
-  store ptr %2, ptr %dna_type, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %dna_type2 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %dna_type2, align 8
+  store ptr %3, ptr %dna_type, align 8
   ret void
 }
 
@@ -55353,7 +55408,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 2
   store i8 0, ptr %flag, align 8
   %mode = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 3
@@ -55581,10 +55637,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 40, i1 false)
   ret void
 }
@@ -57188,7 +57245,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57408,10 +57466,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 56, i1 false)
   ret void
 }
@@ -58571,7 +58630,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 3
   store i8 0, ptr %flag, align 8
   %mat_nr = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 5
@@ -58870,10 +58930,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %co = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %co2 = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %co2 = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %co, ptr align 8 %co2, i64 36, i1 false)
   ret void
 }
@@ -60510,7 +60571,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -60730,10 +60792,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v1 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v1, ptr align 8 %v12, i64 12, i1 false)
   ret void
 }
@@ -62337,7 +62400,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -62557,10 +62621,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v2 = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v2 = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v, ptr align 8 %v2, i64 8, i1 false)
   ret void
 }
@@ -64164,7 +64229,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -64384,10 +64450,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 12, i1 false)
   ret void
 }
@@ -65991,7 +66058,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -66211,10 +66279,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %r = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %r, ptr align 8 %r2, i64 4, i1 false)
   ret void
 }
@@ -67818,7 +67887,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -68038,10 +68108,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %loopstart = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %loopstart2 = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %loopstart2 = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %loopstart, ptr align 8 %loopstart2, i64 11, i1 false)
   ret void
 }
@@ -69645,7 +69716,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -69865,10 +69937,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %tpage = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %tpage2 = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %tpage2 = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %tpage, ptr align 8 %tpage2, i64 16, i1 false)
   ret void
 }
@@ -71472,7 +71545,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dw = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorINS0_13MDeformWeightEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dw) #15
   ret void
@@ -71494,7 +71568,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dw = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorINS0_13MDeformWeightEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dw) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -71956,16 +72031,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %dw = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %dw2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %dw2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %3, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorINS0_13MDeformWeightEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %dw, ptr noundef nonnull align 8 dereferenceable(24) %dw2) #15
   %totweight = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %totweight3 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %totweight3, align 8
-  store i32 %4, ptr %totweight, align 8
+  %4 = load ptr, ptr %.addr, align 8
+  %totweight3 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %totweight3, align 8
+  store i32 %5, ptr %totweight, align 8
   ret void
 }
 
@@ -73669,7 +73745,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -73889,10 +73966,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %r = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %r, ptr align 8 %r2, i64 4, i1 false)
   ret void
 }
@@ -75933,7 +76011,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Material", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -75957,12 +76036,12 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -76004,14 +76083,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MaterialE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mtex = getelementptr inbounds %"struct.Assimp::Blender::Material", ptr %this1, i32 0, i32 106
   %array.begin = getelementptr inbounds [18 x %"class.std::shared_ptr.63"], ptr %mtex, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::shared_ptr.63", ptr %array.begin, i64 18
+  %1 = getelementptr inbounds %"class.std::shared_ptr.63", ptr %array.begin, i64 18
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::shared_ptr.63", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender4MTexEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element) #15
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -76171,10 +76251,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.257", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -76324,7 +76405,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %layers = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorISt10shared_ptrINS0_15CustomDataLayerEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %layers) #15
   ret void
@@ -76357,7 +76439,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %layers = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorISt10shared_ptrINS0_15CustomDataLayerEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %layers) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -78037,7 +78120,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -78257,10 +78341,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %def_nr = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %def_nr2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %def_nr2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %def_nr, ptr align 8 %def_nr2, i64 8, i1 false)
   ret void
 }
@@ -79783,7 +79868,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5WorldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5WorldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::World", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -79792,12 +79878,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -79990,10 +80076,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5WorldELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.264", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -80918,7 +81005,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7LibraryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7LibraryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Library", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -80929,12 +81017,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -80976,7 +81064,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7LibraryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7LibraryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %parent = getelementptr inbounds %"struct.Assimp::Blender::Library", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN6Assimp7Blender7LibraryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %parent) #15
   %id = getelementptr inbounds %"struct.Assimp::Blender::Library", ptr %this1, i32 0, i32 1
@@ -81130,10 +81219,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7LibraryELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.265", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -81947,7 +82037,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10PackedFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10PackedFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data = getelementptr inbounds %"struct.Assimp::Blender::PackedFile", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender10FileOffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data) #15
   ret void
@@ -81983,7 +82074,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10PackedFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10PackedFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data = getelementptr inbounds %"struct.Assimp::Blender::PackedFile", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN6Assimp7Blender10FileOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -82135,10 +82227,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10PackedFileELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.266", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -82355,7 +82448,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type = getelementptr inbounds %"struct.Assimp::Blender::CustomDataLayer", ptr %this1, i32 0, i32 1
   store i32 0, ptr %type, align 8
   %offset = getelementptr inbounds %"struct.Assimp::Blender::CustomDataLayer", ptr %this1, i32 0, i32 2
@@ -82543,7 +82637,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender15CustomDataLayerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data = getelementptr inbounds %"struct.Assimp::Blender::CustomDataLayer", ptr %this1, i32 0, i32 10
   call void @_ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -82695,10 +82790,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.267", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -83493,7 +83589,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #0 comdat align 2 {
@@ -85572,10 +85668,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5TFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5TFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.283", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -85693,7 +85790,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender18SharedModifierDataC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender19SubsurfModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender19SubsurfModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -85742,7 +85840,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %modifier = getelementptr inbounds %"struct.Assimp::Blender::SharedModifierData", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender12ModifierDataC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %modifier)
           to label %invoke.cont unwind label %lpad
@@ -85751,12 +85850,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -85796,7 +85895,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next = getelementptr inbounds %"struct.Assimp::Blender::ModifierData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %next) #15
   %prev = getelementptr inbounds %"struct.Assimp::Blender::ModifierData", ptr %this1, i32 0, i32 2
@@ -85810,7 +85910,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18SharedModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %modifier = getelementptr inbounds %"struct.Assimp::Blender::SharedModifierData", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender12ModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %modifier) #15
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
@@ -85834,7 +85935,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender12ModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prev = getelementptr inbounds %"struct.Assimp::Blender::ModifierData", ptr %this1, i32 0, i32 2
   call void @_ZNSt8weak_ptrIN6Assimp7Blender8ElemBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %prev) #15
   %next = getelementptr inbounds %"struct.Assimp::Blender::ModifierData", ptr %this1, i32 0, i32 1
@@ -85988,10 +86090,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender19SubsurfModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender19SubsurfModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.287", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -86272,10 +86375,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.291", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -86395,7 +86499,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4LampE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4LampE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Lamp", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -86404,12 +86509,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -86614,10 +86719,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4LampELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4LampELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.295", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -86898,10 +87004,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender13MDeformWeightELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender13MDeformWeightELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.299", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -87258,10 +87365,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6MTFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6MTFaceELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.303", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -87580,10 +87688,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MTexPolyELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MTexPolyELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.307", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -87703,7 +87812,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -87763,57 +87873,57 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup28
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad8:                                            ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %pdata) #15
   br label %ehcleanup
 
@@ -87960,7 +88070,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ldata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 28
   call void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %ldata) #15
   %pdata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 27
@@ -88616,10 +88727,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MeshELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MeshELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.311", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -88900,10 +89012,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11MDeformVertELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender11MDeformVertELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.315", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -89222,10 +89335,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MLoopColELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8MLoopColELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.319", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -89506,10 +89620,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MVertELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MVertELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.323", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -89790,10 +89905,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MEdgeELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MEdgeELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.327", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -90074,10 +90190,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7MLoopUVELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender7MLoopUVELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.331", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -90396,10 +90513,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8ListBaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender8ListBaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.335", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -90680,10 +90798,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MLoopELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MLoopELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.339", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -90964,10 +91083,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender12ModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender12ModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.343", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -91248,10 +91368,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender2IDELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender2IDELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.347", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -91532,10 +91653,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MColELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender4MColELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.351", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -91816,10 +91938,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MPolyELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5MPolyELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.355", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -91939,7 +92062,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5SceneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Scene", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -91961,21 +92085,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN6Assimp7Blender10CollectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %master_collection) #15
   call void @_ZNSt10shared_ptrIN6Assimp7Blender4BaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %basact) #15
   call void @_ZNSt10shared_ptrIN6Assimp7Blender5WorldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %world) #15
@@ -92037,7 +92161,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5SceneE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base = getelementptr inbounds %"struct.Assimp::Blender::Scene", ptr %this1, i32 0, i32 6
   call void @_ZN6Assimp7Blender8ListBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %base) #15
   %master_collection = getelementptr inbounds %"struct.Assimp::Blender::Scene", ptr %this1, i32 0, i32 5
@@ -92199,10 +92324,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5SceneELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender5SceneELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.359", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -92398,7 +92524,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6CameraE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6CameraE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Camera", ptr %this1, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender2IDC2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %id)
           to label %invoke.cont unwind label %lpad
@@ -92407,12 +92534,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -92617,10 +92744,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6CameraELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender6CameraELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.363", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -92738,7 +92866,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender18SharedModifierDataC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mirror_ob = getelementptr inbounds %"struct.Assimp::Blender::MirrorModifierData", ptr %this1, i32 0, i32 4
   call void @_ZNSt8weak_ptrIN6Assimp7Blender6ObjectEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mirror_ob) #15
   ret void
@@ -92796,7 +92925,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender18MirrorModifierDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mirror_ob = getelementptr inbounds %"struct.Assimp::Blender::MirrorModifierData", ptr %this1, i32 0, i32 4
   call void @_ZNSt8weak_ptrIN6Assimp7Blender6ObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mirror_ob) #15
   call void @_ZN6Assimp7Blender18SharedModifierDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this1) #15
@@ -92982,10 +93112,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender18MirrorModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender18MirrorModifierDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.367", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -93304,10 +93435,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CustomDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp7Blender10CustomDataELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.371", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -93570,6 +93702,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -93577,13 +93712,13 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }

@@ -1781,7 +1781,7 @@ define hidden i32 @dissect_ndr_ctx_hnd(ptr noundef %0, i32 noundef %1, ptr nound
 22:                                               ; preds = %8
   %23 = load i32, ptr %11, align 4
   store i32 %23, ptr %9, align 4
-  br label %64
+  br label %65
 
 24:                                               ; preds = %8
   %25 = load ptr, ptr %14, align 8
@@ -1815,38 +1815,39 @@ define hidden i32 @dissect_ndr_ctx_hnd(ptr noundef %0, i32 noundef %1, ptr nound
   %45 = load i32, ptr %11, align 4
   %46 = add i32 %45, 4
   %47 = load ptr, ptr %15, align 8
-  call void @dcerpc_tvb_get_uuid(ptr noundef %44, i32 noundef %46, ptr noundef %47, ptr noundef getelementptr inbounds (%struct._e_ctx_hnd, ptr @dissect_ndr_ctx_hnd.ctx_hnd, i32 0, i32 1))
-  %48 = load ptr, ptr %13, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %56
+  %48 = getelementptr inbounds %struct._e_ctx_hnd, ptr @dissect_ndr_ctx_hnd.ctx_hnd, i32 0, i32 1
+  call void @dcerpc_tvb_get_uuid(ptr noundef %44, i32 noundef %46, ptr noundef %47, ptr noundef %48)
+  %49 = load ptr, ptr %13, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %57
 
-50:                                               ; preds = %39
-  %51 = load ptr, ptr %13, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = load ptr, ptr %10, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 20, i32 noundef 0)
-  br label %56
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %13, align 8
+  %53 = load i32, ptr %16, align 4
+  %54 = load ptr, ptr %10, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 20, i32 noundef 0)
+  br label %57
 
-56:                                               ; preds = %50, %39
-  %57 = load ptr, ptr %17, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %61
+57:                                               ; preds = %51, %39
+  %58 = load ptr, ptr %17, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 @dissect_ndr_ctx_hnd.ctx_hnd, i64 20, i1 false)
-  br label %61
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %61, ptr align 4 @dissect_ndr_ctx_hnd.ctx_hnd, i64 20, i1 false)
+  br label %62
 
-61:                                               ; preds = %59, %56
-  %62 = load i32, ptr %11, align 4
-  %63 = add i32 %62, 20
-  store i32 %63, ptr %9, align 4
-  br label %64
+62:                                               ; preds = %60, %57
+  %63 = load i32, ptr %11, align 4
+  %64 = add i32 %63, 20
+  store i32 %64, ptr %9, align 4
+  br label %65
 
-64:                                               ; preds = %61, %22
-  %65 = load i32, ptr %9, align 4
-  ret i32 %65
+65:                                               ; preds = %62, %22
+  %66 = load i32, ptr %9, align 4
+  ret i32 %66
 }
 
 declare i32 @dcerpc_tvb_get_ntohl(ptr noundef, i32 noundef, ptr noundef) #1

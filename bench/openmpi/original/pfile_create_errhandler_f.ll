@@ -64,28 +64,30 @@ define void @ompi_file_create_errhandler_f(ptr noundef %0, ptr noundef %1, ptr n
   %16 = load ptr, ptr %5, align 8
   store i32 %15, ptr %16, align 4
   store i32 0, ptr %7, align 4
-  br label %22
+  br label %24
 
 17:                                               ; preds = %3
   store i32 17, ptr %7, align 4
-  %18 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %20 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 17)
-  %21 = call i32 @ompi_errhandler_invoke(ptr noundef %18, ptr noundef @ompi_mpi_file_null, i32 noundef %19, i32 noundef %20, ptr noundef @FUNC_NAME)
-  br label %22
+  %18 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %21 = load i32, ptr %20, align 8
+  %22 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 17)
+  %23 = call i32 @ompi_errhandler_invoke(ptr noundef %19, ptr noundef @ompi_mpi_file_null, i32 noundef %21, i32 noundef %22, ptr noundef @FUNC_NAME)
+  br label %24
 
-22:                                               ; preds = %17, %13
-  %23 = load ptr, ptr %6, align 8
-  %24 = icmp ne ptr null, %23
-  br i1 %24, label %25, label %28
+24:                                               ; preds = %17, %13
+  %25 = load ptr, ptr %6, align 8
+  %26 = icmp ne ptr null, %25
+  br i1 %26, label %27, label %30
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %7, align 4
-  %27 = load ptr, ptr %6, align 8
-  store i32 %26, ptr %27, align 4
-  br label %28
+27:                                               ; preds = %24
+  %28 = load i32, ptr %7, align 4
+  %29 = load ptr, ptr %6, align 8
+  store i32 %28, ptr %29, align 4
+  br label %30
 
-28:                                               ; preds = %25, %22
+30:                                               ; preds = %27, %24
   ret void
 }
 

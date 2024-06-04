@@ -89,7 +89,7 @@ define internal noundef i32 @ged_remove(ptr nocapture noundef readonly %0) #2 al
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %18, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %7, %1
   %8 = phi ptr [ %9, %7 ], [ %5, %1 ]
@@ -103,12 +103,14 @@ define internal noundef i32 @ged_remove(ptr nocapture noundef readonly %0) #2 al
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  %17 = icmp eq ptr %9, %4
-  br i1 %17, label %18, label %7, !llvm.loop !5
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %8, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %13, align 8
+  %19 = icmp eq ptr %9, %4
+  br i1 %19, label %20, label %7, !llvm.loop !5
 
-18:                                               ; preds = %7, %1
+20:                                               ; preds = %7, %1
   ret i32 0
 }
 
@@ -119,7 +121,7 @@ define internal void @ged_shutdown(ptr nocapture noundef readonly %0) #2 align 1
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %18, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %7, %1
   %8 = phi ptr [ %9, %7 ], [ %5, %1 ]
@@ -133,12 +135,14 @@ define internal void @ged_shutdown(ptr nocapture noundef readonly %0) #2 align 1
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  %17 = icmp eq ptr %9, %4
-  br i1 %17, label %18, label %7, !llvm.loop !5
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %8, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %13, align 8
+  %19 = icmp eq ptr %9, %4
+  br i1 %19, label %20, label %7, !llvm.loop !5
 
-18:                                               ; preds = %7, %1
+20:                                               ; preds = %7, %1
   ret void
 }
 

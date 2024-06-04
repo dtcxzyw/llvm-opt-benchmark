@@ -87,10 +87,10 @@ define void @init_by_array(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %14, ptr %7, align 4
   br label %15
 
-15:                                               ; preds = %68, %13
+15:                                               ; preds = %69, %13
   %16 = load i32, ptr %7, align 4
   %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %71
+  br i1 %17, label %18, label %72
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %5, align 4
@@ -138,97 +138,99 @@ define void @init_by_array(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %57, ptr %6, align 4
   %58 = load i32, ptr %5, align 4
   %59 = icmp sge i32 %58, 624
-  br i1 %59, label %60, label %62
+  br i1 %59, label %60, label %63
 
 60:                                               ; preds = %18
-  %61 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
-  store i64 %61, ptr @mt, align 16
+  %61 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 623
+  %62 = load i64, ptr %61, align 8
+  store i64 %62, ptr @mt, align 16
   store i32 1, ptr %5, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %60, %18
-  %63 = load i32, ptr %6, align 4
-  %64 = load i32, ptr %4, align 4
-  %65 = icmp sge i32 %63, %64
-  br i1 %65, label %66, label %67
+63:                                               ; preds = %60, %18
+  %64 = load i32, ptr %6, align 4
+  %65 = load i32, ptr %4, align 4
+  %66 = icmp sge i32 %64, %65
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   store i32 0, ptr %6, align 4
-  br label %67
-
-67:                                               ; preds = %66, %62
   br label %68
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr %7, align 4
-  %70 = add nsw i32 %69, -1
-  store i32 %70, ptr %7, align 4
+68:                                               ; preds = %67, %63
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load i32, ptr %7, align 4
+  %71 = add nsw i32 %70, -1
+  store i32 %71, ptr %7, align 4
   br label %15
 
-71:                                               ; preds = %15
+72:                                               ; preds = %15
   store i32 623, ptr %7, align 4
-  br label %72
+  br label %73
 
-72:                                               ; preds = %112, %71
-  %73 = load i32, ptr %7, align 4
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %115
+73:                                               ; preds = %114, %72
+  %74 = load i32, ptr %7, align 4
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %117
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %5, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %77
-  %79 = load i64, ptr %78, align 8
-  %80 = load i32, ptr %5, align 4
-  %81 = sub nsw i32 %80, 1
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = load i32, ptr %5, align 4
-  %86 = sub nsw i32 %85, 1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %87
-  %89 = load i64, ptr %88, align 8
-  %90 = lshr i64 %89, 30
-  %91 = xor i64 %84, %90
-  %92 = mul i64 %91, 1566083941
-  %93 = xor i64 %79, %92
-  %94 = load i32, ptr %5, align 4
-  %95 = sext i32 %94 to i64
-  %96 = sub i64 %93, %95
-  %97 = load i32, ptr %5, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %98
-  store i64 %96, ptr %99, align 8
-  %100 = load i32, ptr %5, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %101
-  %103 = load i64, ptr %102, align 8
-  %104 = and i64 %103, 4294967295
-  store i64 %104, ptr %102, align 8
-  %105 = load i32, ptr %5, align 4
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %5, align 4
-  %107 = load i32, ptr %5, align 4
-  %108 = icmp sge i32 %107, 624
-  br i1 %108, label %109, label %111
+76:                                               ; preds = %73
+  %77 = load i32, ptr %5, align 4
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %78
+  %80 = load i64, ptr %79, align 8
+  %81 = load i32, ptr %5, align 4
+  %82 = sub nsw i32 %81, 1
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %83
+  %85 = load i64, ptr %84, align 8
+  %86 = load i32, ptr %5, align 4
+  %87 = sub nsw i32 %86, 1
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %91 = lshr i64 %90, 30
+  %92 = xor i64 %85, %91
+  %93 = mul i64 %92, 1566083941
+  %94 = xor i64 %80, %93
+  %95 = load i32, ptr %5, align 4
+  %96 = sext i32 %95 to i64
+  %97 = sub i64 %94, %96
+  %98 = load i32, ptr %5, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %99
+  store i64 %97, ptr %100, align 8
+  %101 = load i32, ptr %5, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %102
+  %104 = load i64, ptr %103, align 8
+  %105 = and i64 %104, 4294967295
+  store i64 %105, ptr %103, align 8
+  %106 = load i32, ptr %5, align 4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %5, align 4
+  %108 = load i32, ptr %5, align 4
+  %109 = icmp sge i32 %108, 624
+  br i1 %109, label %110, label %113
 
-109:                                              ; preds = %75
-  %110 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
-  store i64 %110, ptr @mt, align 16
+110:                                              ; preds = %76
+  %111 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 623
+  %112 = load i64, ptr %111, align 8
+  store i64 %112, ptr @mt, align 16
   store i32 1, ptr %5, align 4
-  br label %111
+  br label %113
 
-111:                                              ; preds = %109, %75
-  br label %112
+113:                                              ; preds = %110, %76
+  br label %114
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %7, align 4
-  %114 = add nsw i32 %113, -1
-  store i32 %114, ptr %7, align 4
-  br label %72
+114:                                              ; preds = %113
+  %115 = load i32, ptr %7, align 4
+  %116 = add nsw i32 %115, -1
+  store i32 %116, ptr %7, align 4
+  br label %73
 
-115:                                              ; preds = %72
+117:                                              ; preds = %73
   store i64 2147483648, ptr @mt, align 16
   ret void
 }
@@ -239,7 +241,7 @@ define i64 @genrand_int32() #0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr @mti, align 4
   %4 = icmp sge i32 %3, 624
-  br i1 %4, label %5, label %96
+  br i1 %4, label %5, label %99
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @mti, align 4
@@ -346,57 +348,60 @@ define i64 @genrand_int32() #0 {
   br label %46
 
 81:                                               ; preds = %46
-  %82 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
-  %83 = and i64 %82, 2147483648
-  %84 = load i64, ptr @mt, align 16
-  %85 = and i64 %84, 2147483647
-  %86 = or i64 %83, %85
-  store i64 %86, ptr %1, align 8
-  %87 = load i64, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 396), align 16
-  %88 = load i64, ptr %1, align 8
-  %89 = lshr i64 %88, 1
-  %90 = xor i64 %87, %89
-  %91 = load i64, ptr %1, align 8
-  %92 = and i64 %91, 1
-  %93 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %92
-  %94 = load i64, ptr %93, align 8
-  %95 = xor i64 %90, %94
-  store i64 %95, ptr getelementptr inbounds ([624 x i64], ptr @mt, i64 0, i64 623), align 8
+  %82 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 623
+  %83 = load i64, ptr %82, align 8
+  %84 = and i64 %83, 2147483648
+  %85 = load i64, ptr @mt, align 16
+  %86 = and i64 %85, 2147483647
+  %87 = or i64 %84, %86
+  store i64 %87, ptr %1, align 8
+  %88 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 396
+  %89 = load i64, ptr %88, align 16
+  %90 = load i64, ptr %1, align 8
+  %91 = lshr i64 %90, 1
+  %92 = xor i64 %89, %91
+  %93 = load i64, ptr %1, align 8
+  %94 = and i64 %93, 1
+  %95 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %94
+  %96 = load i64, ptr %95, align 8
+  %97 = xor i64 %92, %96
+  %98 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 623
+  store i64 %97, ptr %98, align 8
   store i32 0, ptr @mti, align 4
-  br label %96
+  br label %99
 
-96:                                               ; preds = %81, %0
-  %97 = load i32, ptr @mti, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr @mti, align 4
-  %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %99
-  %101 = load i64, ptr %100, align 8
-  store i64 %101, ptr %1, align 8
-  %102 = load i64, ptr %1, align 8
-  %103 = lshr i64 %102, 11
-  %104 = load i64, ptr %1, align 8
-  %105 = xor i64 %104, %103
-  store i64 %105, ptr %1, align 8
-  %106 = load i64, ptr %1, align 8
-  %107 = shl i64 %106, 7
-  %108 = and i64 %107, 2636928640
+99:                                               ; preds = %81, %0
+  %100 = load i32, ptr @mti, align 4
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr @mti, align 4
+  %102 = sext i32 %100 to i64
+  %103 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %102
+  %104 = load i64, ptr %103, align 8
+  store i64 %104, ptr %1, align 8
+  %105 = load i64, ptr %1, align 8
+  %106 = lshr i64 %105, 11
+  %107 = load i64, ptr %1, align 8
+  %108 = xor i64 %107, %106
+  store i64 %108, ptr %1, align 8
   %109 = load i64, ptr %1, align 8
-  %110 = xor i64 %109, %108
-  store i64 %110, ptr %1, align 8
-  %111 = load i64, ptr %1, align 8
-  %112 = shl i64 %111, 15
-  %113 = and i64 %112, 4022730752
+  %110 = shl i64 %109, 7
+  %111 = and i64 %110, 2636928640
+  %112 = load i64, ptr %1, align 8
+  %113 = xor i64 %112, %111
+  store i64 %113, ptr %1, align 8
   %114 = load i64, ptr %1, align 8
-  %115 = xor i64 %114, %113
-  store i64 %115, ptr %1, align 8
-  %116 = load i64, ptr %1, align 8
-  %117 = lshr i64 %116, 18
-  %118 = load i64, ptr %1, align 8
-  %119 = xor i64 %118, %117
-  store i64 %119, ptr %1, align 8
-  %120 = load i64, ptr %1, align 8
-  ret i64 %120
+  %115 = shl i64 %114, 15
+  %116 = and i64 %115, 4022730752
+  %117 = load i64, ptr %1, align 8
+  %118 = xor i64 %117, %116
+  store i64 %118, ptr %1, align 8
+  %119 = load i64, ptr %1, align 8
+  %120 = lshr i64 %119, 18
+  %121 = load i64, ptr %1, align 8
+  %122 = xor i64 %121, %120
+  store i64 %122, ptr %1, align 8
+  %123 = load i64, ptr %1, align 8
+  ret i64 %123
 }
 
 ; Function Attrs: nounwind uwtable

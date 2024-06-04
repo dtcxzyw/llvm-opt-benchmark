@@ -201,7 +201,8 @@ for.end41:                                        ; preds = %for.cond26
   store i32 1, ptr %j, align 4
   %21 = load ptr, ptr %h, align 8
   %call42 = call ptr @lh_int_retrieve(ptr noundef %21, ptr noundef %j)
-  %call43 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 124, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %call42, ptr noundef getelementptr inbounds (i32, ptr @int_tests, i64 2))
+  %22 = getelementptr inbounds i32, ptr @int_tests, i64 2
+  %call43 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 124, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %call42, ptr noundef %22)
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.end46, label %if.then45
 
@@ -210,8 +211,8 @@ if.then45:                                        ; preds = %for.end41
 
 if.end46:                                         ; preds = %for.end41
   store i32 13, ptr %j, align 4
-  %22 = load ptr, ptr %h, align 8
-  %call47 = call ptr @lh_int_insert(ptr noundef %22, ptr noundef %j)
+  %23 = load ptr, ptr %h, align 8
+  %call47 = call ptr @lh_int_insert(ptr noundef %23, ptr noundef %j)
   store ptr %call47, ptr %p, align 8
   %call48 = call i32 @test_ptr(ptr noundef @.str.2, i32 noundef 129, ptr noundef @.str.16, ptr noundef %call47)
   %tobool49 = icmp ne i32 %call48, 0
@@ -221,8 +222,9 @@ if.then50:                                        ; preds = %if.end46
   br label %end
 
 if.end51:                                         ; preds = %if.end46
-  %23 = load ptr, ptr %p, align 8
-  %call52 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 131, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef %23, ptr noundef getelementptr inbounds (i32, ptr @int_tests, i64 1))
+  %24 = load ptr, ptr %p, align 8
+  %25 = getelementptr inbounds i32, ptr @int_tests, i64 1
+  %call52 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 131, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef %24, ptr noundef %25)
   %tobool53 = icmp ne i32 %call52, 0
   br i1 %tobool53, label %if.end55, label %if.then54
 
@@ -230,8 +232,9 @@ if.then54:                                        ; preds = %if.end51
   br label %end
 
 if.end55:                                         ; preds = %if.end51
-  %24 = load ptr, ptr %h, align 8
-  %call56 = call ptr @lh_int_retrieve(ptr noundef %24, ptr noundef getelementptr inbounds (i32, ptr @int_tests, i64 1))
+  %26 = load ptr, ptr %h, align 8
+  %27 = getelementptr inbounds i32, ptr @int_tests, i64 1
+  %call56 = call ptr @lh_int_retrieve(ptr noundef %26, ptr noundef %27)
   %call57 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 133, ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef %call56, ptr noundef %j)
   %tobool58 = icmp ne i32 %call57, 0
   br i1 %tobool58, label %if.end60, label %if.then59
@@ -242,10 +245,10 @@ if.then59:                                        ; preds = %if.end55
 if.end60:                                         ; preds = %if.end55
   call void @llvm.memset.p0.i64(ptr align 16 @int_found, i8 0, i64 42, i1 false)
   store i16 0, ptr @int_not_found, align 2
-  %25 = load ptr, ptr %h, align 8
-  call void @lh_int_doall(ptr noundef %25, ptr noundef @int_doall)
-  %26 = load i16, ptr @int_not_found, align 2
-  %conv61 = sext i16 %26 to i32
+  %28 = load ptr, ptr %h, align 8
+  call void @lh_int_doall(ptr noundef %28, ptr noundef @int_doall)
+  %29 = load i16, ptr @int_not_found, align 2
+  %conv61 = sext i16 %29 to i32
   %call62 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 140, ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef %conv61, i32 noundef 0)
   %tobool63 = icmp ne i32 %call62, 0
   br i1 %tobool63, label %if.end65, label %if.then64
@@ -259,41 +262,41 @@ if.end65:                                         ; preds = %if.end60
   br label %for.cond66
 
 for.cond66:                                       ; preds = %for.inc77, %if.end65
-  %27 = load i32, ptr %i, align 4
-  %cmp67 = icmp ult i32 %27, 21
+  %30 = load i32, ptr %i, align 4
+  %cmp67 = icmp ult i32 %30, 21
   br i1 %cmp67, label %for.body69, label %for.end79
 
 for.body69:                                       ; preds = %for.cond66
-  %28 = load i32, ptr %i, align 4
-  %idxprom70 = zext i32 %28 to i64
+  %31 = load i32, ptr %i, align 4
+  %idxprom70 = zext i32 %31 to i64
   %arrayidx71 = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %idxprom70
-  %29 = load i16, ptr %arrayidx71, align 2
-  %conv72 = sext i16 %29 to i32
+  %32 = load i16, ptr %arrayidx71, align 2
+  %conv72 = sext i16 %32 to i32
   %call73 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 145, ptr noundef @.str.24, ptr noundef @.str.25, i32 noundef %conv72, i32 noundef 1)
   %tobool74 = icmp ne i32 %call73, 0
   br i1 %tobool74, label %if.end76, label %if.then75
 
 if.then75:                                        ; preds = %for.body69
-  %30 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 146, ptr noundef @.str.26, i32 noundef %30)
+  %33 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 146, ptr noundef @.str.26, i32 noundef %33)
   br label %end
 
 if.end76:                                         ; preds = %for.body69
   br label %for.inc77
 
 for.inc77:                                        ; preds = %if.end76
-  %31 = load i32, ptr %i, align 4
-  %inc78 = add i32 %31, 1
+  %34 = load i32, ptr %i, align 4
+  %inc78 = add i32 %34, 1
   store i32 %inc78, ptr %i, align 4
   br label %for.cond66, !llvm.loop !9
 
 for.end79:                                        ; preds = %for.cond66
   call void @llvm.memset.p0.i64(ptr align 16 @int_found, i8 0, i64 42, i1 false)
   store i16 0, ptr @int_not_found, align 2
-  %32 = load ptr, ptr %h, align 8
-  call void @lh_int_doall_short(ptr noundef %32, ptr noundef @int_doall_arg, ptr noundef @int_found)
-  %33 = load i16, ptr @int_not_found, align 2
-  %conv80 = sext i16 %33 to i32
+  %35 = load ptr, ptr %h, align 8
+  call void @lh_int_doall_short(ptr noundef %35, ptr noundef @int_doall_arg, ptr noundef @int_found)
+  %36 = load i16, ptr @int_not_found, align 2
+  %conv80 = sext i16 %36 to i32
   %call81 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 154, ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef %conv80, i32 noundef 0)
   %tobool82 = icmp ne i32 %call81, 0
   br i1 %tobool82, label %if.end84, label %if.then83
@@ -307,31 +310,31 @@ if.end84:                                         ; preds = %for.end79
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.inc96, %if.end84
-  %34 = load i32, ptr %i, align 4
-  %cmp86 = icmp ult i32 %34, 21
+  %37 = load i32, ptr %i, align 4
+  %cmp86 = icmp ult i32 %37, 21
   br i1 %cmp86, label %for.body88, label %for.end98
 
 for.body88:                                       ; preds = %for.cond85
-  %35 = load i32, ptr %i, align 4
-  %idxprom89 = zext i32 %35 to i64
+  %38 = load i32, ptr %i, align 4
+  %idxprom89 = zext i32 %38 to i64
   %arrayidx90 = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %idxprom89
-  %36 = load i16, ptr %arrayidx90, align 2
-  %conv91 = sext i16 %36 to i32
+  %39 = load i16, ptr %arrayidx90, align 2
+  %conv91 = sext i16 %39 to i32
   %call92 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 159, ptr noundef @.str.24, ptr noundef @.str.25, i32 noundef %conv91, i32 noundef 1)
   %tobool93 = icmp ne i32 %call92, 0
   br i1 %tobool93, label %if.end95, label %if.then94
 
 if.then94:                                        ; preds = %for.body88
-  %37 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 160, ptr noundef @.str.28, i32 noundef %37)
+  %40 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 160, ptr noundef @.str.28, i32 noundef %40)
   br label %end
 
 if.end95:                                         ; preds = %for.body88
   br label %for.inc96
 
 for.inc96:                                        ; preds = %if.end95
-  %38 = load i32, ptr %i, align 4
-  %inc97 = add i32 %38, 1
+  %41 = load i32, ptr %i, align 4
+  %inc97 = add i32 %41, 1
   store i32 %inc97, ptr %i, align 4
   br label %for.cond85, !llvm.loop !10
 
@@ -340,48 +343,48 @@ for.end98:                                        ; preds = %for.cond85
   br label %for.cond99
 
 for.cond99:                                       ; preds = %for.inc114, %for.end98
-  %39 = load i32, ptr %i, align 4
-  %cmp100 = icmp ult i32 %39, 6
+  %42 = load i32, ptr %i, align 4
+  %cmp100 = icmp ult i32 %42, 6
   br i1 %cmp100, label %for.body102, label %for.end116
 
 for.body102:                                      ; preds = %for.cond99
-  %40 = load ptr, ptr %h, align 8
-  %41 = load i32, ptr %i, align 4
-  %idxprom103 = zext i32 %41 to i64
+  %43 = load ptr, ptr %h, align 8
+  %44 = load i32, ptr %i, align 4
+  %idxprom103 = zext i32 %44 to i64
   %arrayidx104 = getelementptr inbounds [6 x %struct.anon], ptr @test_int_lhash.dels, i64 0, i64 %idxprom103
   %data = getelementptr inbounds %struct.anon, ptr %arrayidx104, i32 0, i32 0
-  %call105 = call ptr @lh_int_delete(ptr noundef %40, ptr noundef %data)
+  %call105 = call ptr @lh_int_delete(ptr noundef %43, ptr noundef %data)
   %cmp106 = icmp eq ptr %call105, null
   %conv107 = zext i1 %cmp106 to i32
   store i32 %conv107, ptr %b, align 4
-  %42 = load i32, ptr %b, align 4
-  %43 = load i32, ptr %i, align 4
-  %idxprom108 = zext i32 %43 to i64
+  %45 = load i32, ptr %b, align 4
+  %46 = load i32, ptr %i, align 4
+  %idxprom108 = zext i32 %46 to i64
   %arrayidx109 = getelementptr inbounds [6 x %struct.anon], ptr @test_int_lhash.dels, i64 0, i64 %idxprom108
   %null = getelementptr inbounds %struct.anon, ptr %arrayidx109, i32 0, i32 1
-  %44 = load i32, ptr %null, align 4
-  %xor = xor i32 %42, %44
+  %47 = load i32, ptr %null, align 4
+  %xor = xor i32 %45, %47
   %call110 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 167, ptr noundef @.str.29, ptr noundef @.str.22, i32 noundef %xor, i32 noundef 0)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %if.end113, label %if.then112
 
 if.then112:                                       ; preds = %for.body102
-  %45 = load i32, ptr %i, align 4
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 168, ptr noundef @.str.30, i32 noundef %45)
+  %48 = load i32, ptr %i, align 4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.2, i32 noundef 168, ptr noundef @.str.30, i32 noundef %48)
   br label %end
 
 if.end113:                                        ; preds = %for.body102
   br label %for.inc114
 
 for.inc114:                                       ; preds = %if.end113
-  %46 = load i32, ptr %i, align 4
-  %inc115 = add i32 %46, 1
+  %49 = load i32, ptr %i, align 4
+  %inc115 = add i32 %49, 1
   store i32 %inc115, ptr %i, align 4
   br label %for.cond99, !llvm.loop !11
 
 for.end116:                                       ; preds = %for.cond99
-  %47 = load ptr, ptr %h, align 8
-  %call117 = call i32 @lh_int_error(ptr noundef %47)
+  %50 = load ptr, ptr %h, align 8
+  %call117 = call i32 @lh_int_error(ptr noundef %50)
   %call118 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 174, ptr noundef @.str.31, ptr noundef @.str.22, i32 noundef %call117, i32 noundef 0)
   %tobool119 = icmp ne i32 %call118, 0
   br i1 %tobool119, label %if.end121, label %if.then120
@@ -394,10 +397,10 @@ if.end121:                                        ; preds = %for.end116
   br label %end
 
 end:                                              ; preds = %if.end121, %if.then120, %if.then112, %if.then94, %if.then83, %if.then75, %if.then64, %if.then59, %if.then54, %if.then50, %if.then45, %if.then37, %if.then21, %if.then10, %if.then5, %if.then
-  %48 = load ptr, ptr %h, align 8
-  call void @lh_int_free(ptr noundef %48)
-  %49 = load i32, ptr %testresult, align 4
-  ret i32 %49
+  %51 = load ptr, ptr %h, align 8
+  call void @lh_int_free(ptr noundef %51)
+  %52 = load i32, ptr %testresult, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable

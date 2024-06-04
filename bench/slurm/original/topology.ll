@@ -54,20 +54,21 @@ define i32 @topology_g_build_config() #0 {
   %5 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr align 16 %4, i8 0, i64 20, i1 false)
   %6 = call i32 @gettimeofday(ptr noundef %2, ptr noundef null) #6
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 1), align 8
-  %8 = call i32 %7()
-  store i32 %8, ptr %1, align 4
-  br label %9
+  %7 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 %8()
+  store i32 %9, ptr %1, align 4
+  br label %10
 
-9:                                                ; preds = %0
-  %10 = call i32 @gettimeofday(ptr noundef %3, ptr noundef null) #6
-  %11 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 0
-  call void @slurm_diff_tv_str(ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef 20, ptr noundef @__func__.topology_g_build_config, i64 noundef 20000, ptr noundef %5)
-  br label %12
+10:                                               ; preds = %0
+  %11 = call i32 @gettimeofday(ptr noundef %3, ptr noundef null) #6
+  %12 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 0
+  call void @slurm_diff_tv_str(ptr noundef %2, ptr noundef %3, ptr noundef %12, i32 noundef 20, ptr noundef @__func__.topology_g_build_config, i64 noundef 20000, ptr noundef %5)
+  br label %13
 
-12:                                               ; preds = %9
-  %13 = load i32, ptr %1, align 4
-  ret i32 %13
+13:                                               ; preds = %10
+  %14 = load i32, ptr %1, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -103,7 +104,7 @@ define i32 @topology_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %35
+  br label %37
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @topo_conf, align 8
@@ -117,51 +118,53 @@ define i32 @topology_g_init() #0 {
 
 22:                                               ; preds = %20, %17
   %23 = load ptr, ptr %2, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 212), align 8
-  %25 = call ptr @plugin_context_create(ptr noundef %23, ptr noundef %24, ptr noundef @ops, ptr noundef @syms, i64 noundef 88)
-  store ptr %25, ptr @g_context, align 8
-  %26 = load ptr, ptr @g_context, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %32, label %28
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 212
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @plugin_context_create(ptr noundef %23, ptr noundef %25, ptr noundef @ops, ptr noundef @syms, i64 noundef 88)
+  store ptr %26, ptr @g_context, align 8
+  %27 = load ptr, ptr @g_context, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %2, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 212), align 8
-  %31 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %29, ptr noundef %30)
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 212
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %30, ptr noundef %32)
   store i32 -1, ptr %1, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %35
+  br label %37
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr @ops, align 8
-  %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr @active_topo_id, align 4
+34:                                               ; preds = %22
+  %35 = load ptr, ptr @ops, align 8
+  %36 = load i32, ptr %35, align 4
+  store i32 %36, ptr @active_topo_id, align 4
   store i32 2, ptr @plugin_inited, align 4
-  br label %35
+  br label %37
 
-35:                                               ; preds = %32, %28, %16
-  br label %36
+37:                                               ; preds = %34, %29, %16
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #6
-  store i32 %37, ptr %4, align 4
-  %38 = load i32, ptr %4, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %43
+38:                                               ; preds = %37
+  %39 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #6
+  store i32 %39, ptr %4, align 4
+  %40 = load i32, ptr %4, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %45
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %4, align 4
-  %42 = call ptr @__errno_location() #7
-  store i32 %41, ptr %42, align 4
+42:                                               ; preds = %38
+  %43 = load i32, ptr %4, align 4
+  %44 = call ptr @__errno_location() #7
+  store i32 %43, ptr %44, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.5, ptr noundef @.str.2, i32 noundef 136, ptr noundef @__func__.topology_g_init) #8
   unreachable
 
-43:                                               ; preds = %36
-  br label %44
+45:                                               ; preds = %38
+  br label %46
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr %1, align 4
-  ret i32 %45
+46:                                               ; preds = %45
+  %47 = load i32, ptr %1, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind
@@ -227,17 +230,19 @@ declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 nound
 define i32 @topology_g_eval_nodes(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 2), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @topology_g_generate_node_ranking() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 3), align 8
-  %2 = call zeroext i1 %1()
-  ret i1 %2
+  %1 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = call zeroext i1 %2()
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -248,12 +253,13 @@ define i32 @topology_g_get_node_addr(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 4), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -273,152 +279,156 @@ define i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   store i16 %3, ptr %8, align 2
   store i32 0, ptr %12, align 4
   store i32 0, ptr %11, align 4
-  %14 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %15 = and i64 %14, 536870912
-  %16 = icmp ne i64 %15, 0
-  br i1 %16, label %17, label %33
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 536870912
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %34
 
-17:                                               ; preds = %4
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 @hostlist_count(ptr noundef %18)
-  store i32 %19, ptr %11, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %20)
-  store ptr %21, ptr %13, align 8
-  br label %22
-
-22:                                               ; preds = %17
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %5, align 8
+  %20 = call i32 @hostlist_count(ptr noundef %19)
+  store i32 %20, ptr %11, align 4
+  %21 = load ptr, ptr %5, align 8
+  %22 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %21)
+  store ptr %22, ptr %13, align 8
   br label %23
 
-23:                                               ; preds = %22
-  %24 = call i32 @get_log_level()
-  %25 = icmp sge i32 %24, 3
-  br i1 %25, label %26, label %30
+23:                                               ; preds = %18
+  br label %24
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %13, align 8
-  %28 = load i16, ptr %8, align 2
-  %29 = zext i16 %28 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.6, ptr noundef %27, i32 noundef %29)
-  br label %30
+24:                                               ; preds = %23
+  %25 = call i32 @get_log_level()
+  %26 = icmp sge i32 %25, 3
+  br i1 %26, label %27, label %31
 
-30:                                               ; preds = %26, %23
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %13, align 8
+  %29 = load i16, ptr %8, align 2
+  %30 = zext i16 %29 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.6, ptr noundef %28, i32 noundef %30)
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %27, %24
   br label %32
 
 32:                                               ; preds = %31
-  call void @slurm_xfree(ptr noundef %13)
   br label %33
 
-33:                                               ; preds = %32, %4
-  %34 = load i16, ptr %8, align 2
-  %35 = icmp ne i16 %34, 0
-  br i1 %35, label %38, label %36
+33:                                               ; preds = %32
+  call void @slurm_xfree(ptr noundef %13)
+  br label %34
 
-36:                                               ; preds = %33
-  %37 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 213), align 8
-  store i16 %37, ptr %8, align 2
-  br label %38
+34:                                               ; preds = %33, %4
+  %35 = load i16, ptr %8, align 2
+  %36 = icmp ne i16 %35, 0
+  br i1 %36, label %40, label %37
 
-38:                                               ; preds = %36, %33
-  %39 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 5), align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i16, ptr %8, align 2
-  %44 = call i32 %39(ptr noundef %40, ptr noundef %41, ptr noundef %42, i16 noundef zeroext %43)
-  store i32 %44, ptr %9, align 4
-  %45 = load i32, ptr %9, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %52, label %47
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 213
+  %39 = load i16, ptr %38, align 8
+  store i16 %39, ptr %8, align 2
+  br label %40
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %7, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %52, label %51
+40:                                               ; preds = %37, %34
+  %41 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i16, ptr %8, align 2
+  %47 = call i32 %42(ptr noundef %43, ptr noundef %44, ptr noundef %45, i16 noundef zeroext %46)
+  store i32 %47, ptr %9, align 4
+  %48 = load i32, ptr %9, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %55, label %50
 
-51:                                               ; preds = %47
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %55, label %54
+
+54:                                               ; preds = %50
   store i32 -1, ptr %9, align 4
-  br label %52
+  br label %55
 
-52:                                               ; preds = %51, %47, %38
-  %53 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %54 = and i64 %53, 536870912
-  %55 = icmp ne i64 %54, 0
-  br i1 %55, label %56, label %91
+55:                                               ; preds = %54, %50, %40
+  %56 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %57, 536870912
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %95
 
-56:                                               ; preds = %52
+60:                                               ; preds = %55
   store i32 0, ptr %12, align 4
   store i32 0, ptr %10, align 4
-  br label %57
+  br label %61
 
-57:                                               ; preds = %72, %56
-  %58 = load i32, ptr %10, align 4
-  %59 = load ptr, ptr %7, align 8
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp slt i32 %58, %60
-  br i1 %61, label %62, label %75
+61:                                               ; preds = %76, %60
+  %62 = load i32, ptr %10, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp slt i32 %62, %64
+  br i1 %65, label %66, label %79
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %6, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %10, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %6, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = call i32 @hostlist_count(ptr noundef %68)
-  %70 = load i32, ptr %12, align 4
-  %71 = add nsw i32 %70, %69
-  store i32 %71, ptr %12, align 4
-  br label %72
+  %69 = load i32, ptr %10, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i32 @hostlist_count(ptr noundef %72)
+  %74 = load i32, ptr %12, align 4
+  %75 = add nsw i32 %74, %73
+  store i32 %75, ptr %12, align 4
+  br label %76
 
-72:                                               ; preds = %62
-  %73 = load i32, ptr %10, align 4
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %10, align 4
-  br label %57, !llvm.loop !6
+76:                                               ; preds = %66
+  %77 = load i32, ptr %10, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %10, align 4
+  br label %61, !llvm.loop !6
 
-75:                                               ; preds = %57
-  %76 = load i32, ptr %12, align 4
-  %77 = load i32, ptr %11, align 4
-  %78 = icmp ne i32 %76, %77
-  br i1 %78, label %79, label %90
+79:                                               ; preds = %61
+  %80 = load i32, ptr %12, align 4
+  %81 = load i32, ptr %11, align 4
+  %82 = icmp ne i32 %80, %81
+  br i1 %82, label %83, label %94
 
-79:                                               ; preds = %75
-  br label %80
+83:                                               ; preds = %79
+  br label %84
 
-80:                                               ; preds = %79
-  br label %81
+84:                                               ; preds = %83
+  br label %85
 
-81:                                               ; preds = %80
-  %82 = call i32 @get_log_level()
-  %83 = icmp sge i32 %82, 3
-  br i1 %83, label %84, label %87
+85:                                               ; preds = %84
+  %86 = call i32 @get_log_level()
+  %87 = icmp sge i32 %86, 3
+  br i1 %87, label %88, label %91
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr %12, align 4
-  %86 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.7, i32 noundef %85, i32 noundef %86)
-  br label %87
-
-87:                                               ; preds = %84, %81
-  br label %88
-
-88:                                               ; preds = %87
-  br label %89
-
-89:                                               ; preds = %88
-  br label %90
-
-90:                                               ; preds = %89, %75
+88:                                               ; preds = %85
+  %89 = load i32, ptr %12, align 4
+  %90 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.7, i32 noundef %89, i32 noundef %90)
   br label %91
 
-91:                                               ; preds = %90, %52
-  %92 = load i32, ptr %9, align 4
-  ret i32 %92
+91:                                               ; preds = %88, %85
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92
+  br label %94
+
+94:                                               ; preds = %93, %79
+  br label %95
+
+95:                                               ; preds = %94, %55
+  %96 = load i32, ptr %9, align 4
+  ret i32 %96
 }
 
 declare i32 @hostlist_count(ptr noundef) #4
@@ -435,11 +445,12 @@ define i32 @topology_g_get(i32 noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 7), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -460,26 +471,27 @@ define i32 @topology_g_topology_pack(ptr noundef %0, ptr noundef %1, i16 noundef
 
 13:                                               ; preds = %3
   store i32 -1, ptr %4, align 4
-  br label %25
+  br label %26
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @ops, align 8
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr %6, align 8
   call void @pack32(i32 noundef %16, ptr noundef %17)
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 8), align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i16, ptr %7, align 2
-  %24 = call i32 %18(ptr noundef %21, ptr noundef %22, i16 noundef zeroext %23)
-  store i32 %24, ptr %4, align 4
-  br label %25
+  %18 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i16, ptr %7, align 2
+  %25 = call i32 %19(ptr noundef %22, ptr noundef %23, i16 noundef zeroext %24)
+  store i32 %25, ptr %4, align 4
+  br label %26
 
-25:                                               ; preds = %14, %13
-  %26 = load i32, ptr %4, align 4
-  ret i32 %26
+26:                                               ; preds = %14, %13
+  %27 = load i32, ptr %4, align 4
+  ret i32 %27
 }
 
 declare void @pack32(i32 noundef, ptr noundef) #4
@@ -502,22 +514,23 @@ define i32 @topology_g_topology_print(ptr noundef %0, ptr noundef %1, ptr nounde
 
 13:                                               ; preds = %3
   store i32 -1, ptr %4, align 4
-  br label %22
+  br label %23
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 9), align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = call i32 %15(ptr noundef %18, ptr noundef %19, ptr noundef %20)
-  store i32 %21, ptr %4, align 4
-  br label %22
+  %15 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 9
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = call i32 %16(ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  store i32 %22, ptr %4, align 4
+  br label %23
 
-22:                                               ; preds = %14, %13
-  %23 = load i32, ptr %4, align 4
-  ret i32 %23
+23:                                               ; preds = %14, %13
+  %24 = load i32, ptr %4, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -552,7 +565,7 @@ define i32 @topology_g_topology_unpack(ptr noundef %0, ptr noundef %1, i16 nound
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  br label %49
+  br label %50
 
 22:                                               ; preds = %17
   br label %23
@@ -566,7 +579,7 @@ define i32 @topology_g_topology_unpack(ptr noundef %0, ptr noundef %1, i16 nound
 27:                                               ; preds = %23
   %28 = load i32, ptr %9, align 4
   %29 = call i32 (ptr, ...) @error(ptr noundef @.str.8, ptr noundef @__func__.topology_g_topology_unpack, i32 noundef %28)
-  br label %49
+  br label %50
 
 30:                                               ; preds = %23
   %31 = load i32, ptr @active_topo_id, align 4
@@ -582,37 +595,38 @@ define i32 @topology_g_topology_unpack(ptr noundef %0, ptr noundef %1, i16 nound
   %36 = load i16, ptr %7, align 2
   %37 = zext i16 %36 to i32
   %38 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef @__func__.topology_g_topology_unpack, i32 noundef %37)
-  br label %49
+  br label %50
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 10), align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i16, ptr %7, align 2
-  %45 = call i32 %40(ptr noundef %42, ptr noundef %43, i16 noundef zeroext %44)
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %48
-
-47:                                               ; preds = %39
-  br label %49
+  %40 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 10
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i16, ptr %7, align 2
+  %46 = call i32 %41(ptr noundef %43, ptr noundef %44, i16 noundef zeroext %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
 48:                                               ; preds = %39
+  br label %50
+
+49:                                               ; preds = %39
   store i32 0, ptr %4, align 4
-  br label %54
+  br label %55
 
-49:                                               ; preds = %47, %35, %27, %21
-  %50 = load ptr, ptr %8, align 8
-  %51 = call i32 @topology_g_topology_free(ptr noundef %50)
-  %52 = load ptr, ptr %5, align 8
-  store ptr null, ptr %52, align 8
-  %53 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.topology_g_topology_unpack)
+50:                                               ; preds = %48, %35, %27, %21
+  %51 = load ptr, ptr %8, align 8
+  %52 = call i32 @topology_g_topology_free(ptr noundef %51)
+  %53 = load ptr, ptr %5, align 8
+  store ptr null, ptr %53, align 8
+  %54 = call i32 (ptr, ...) @error(ptr noundef @.str.10, ptr noundef @__func__.topology_g_topology_unpack)
   store i32 -1, ptr %4, align 4
-  br label %54
+  br label %55
 
-54:                                               ; preds = %49, %48
-  %55 = load i32, ptr %4, align 4
-  ret i32 %55
+55:                                               ; preds = %50, %49
+  %56 = load i32, ptr %4, align 4
+  ret i32 %56
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #4
@@ -627,31 +641,32 @@ define i32 @topology_g_topology_free(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %2, align 8
   %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %18
+  br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_topo_ops, ptr @ops, i32 0, i32 6), align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %12(ptr noundef %15)
-  store i32 %16, ptr %3, align 4
-  br label %17
-
-17:                                               ; preds = %11, %6
-  call void @slurm_xfree(ptr noundef %2)
+  %12 = getelementptr inbounds %struct.slurm_topo_ops, ptr @ops, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.dynamic_plugin_data, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %13(ptr noundef %16)
+  store i32 %17, ptr %3, align 4
   br label %18
 
-18:                                               ; preds = %17, %1
-  %19 = load i32, ptr %3, align 4
-  ret i32 %19
+18:                                               ; preds = %11, %6
+  call void @slurm_xfree(ptr noundef %2)
+  br label %19
+
+19:                                               ; preds = %18, %1
+  %20 = load i32, ptr %3, align 4
+  ret i32 %20
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

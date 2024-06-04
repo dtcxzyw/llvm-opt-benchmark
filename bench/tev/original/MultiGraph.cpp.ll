@@ -2438,108 +2438,109 @@ define dso_local void @_ZN3tev10MultiGraphC2EPN7nanogui6WidgetERKNSt3__112basic_
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %5, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3tev10MultiGraphE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 2
-  %15 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %37
+  %14 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3tev10MultiGraphE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 2
+  %16 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %38
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
-  %18 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 4
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 3
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
-  %19 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 5
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %19)
-          to label %20 unwind label %41
+  %19 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
+  %20 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 5
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %20)
+          to label %21 unwind label %42
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 6
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %21)
-          to label %22 unwind label %41
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 6
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22)
+          to label %23 unwind label %42
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 7
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23)
-          to label %24 unwind label %41
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 7
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %24)
+          to label %25 unwind label %42
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 8
-  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
-  %26 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 9
-  store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 10
-  store float 0.000000e+00, ptr %27, align 4
-  %28 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 11
-  store float 0.000000e+00, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 12
-  store float 0.000000e+00, ptr %29, align 4
-  %30 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 13
-  store i32 0, ptr %30, align 8
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 8
+  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16
+  %27 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 9
+  store i32 1, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 10
+  store float 0.000000e+00, ptr %28, align 4
+  %29 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 11
+  store float 0.000000e+00, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 12
+  store float 0.000000e+00, ptr %30, align 4
+  %31 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 13
+  store i32 0, ptr %31, align 8
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 20, i32 noundef 128)
-          to label %31 unwind label %45
+          to label %32 unwind label %46
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 4 %9, i64 16, i1 false)
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 4 %9, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef 255, i32 noundef 192, i32 noundef 0, i32 noundef 128)
-          to label %33 unwind label %45
+          to label %34 unwind label %46
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 4 %10, i64 16, i1 false)
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 4 %10, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 240, i32 noundef 192)
-          to label %35 unwind label %45
+          to label %36 unwind label %46
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 4 %11, i64 16, i1 false)
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %"class.tev::MultiGraph", ptr %12, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 4 %11, i64 16, i1 false)
   ret void
 
-37:                                               ; preds = %3
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %3
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
-  br label %50
-
-41:                                               ; preds = %22, %20, %16
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %7, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %8, align 4
-  br label %49
-
-45:                                               ; preds = %33, %31, %24
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %7, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %8, align 4
-  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
-  br label %49
-
-49:                                               ; preds = %45, %41
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #16
-  br label %50
-
-50:                                               ; preds = %49, %37
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %12) #16
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr %8, align 4
-  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
-  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
-  resume { ptr, i32 } %55
+42:                                               ; preds = %23, %21, %17
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %7, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %8, align 4
+  br label %50
+
+46:                                               ; preds = %34, %32, %25
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %7, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %8, align 4
+  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16
+  br label %50
+
+50:                                               ; preds = %46, %42
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #16
+  br label %51
+
+51:                                               ; preds = %50, %38
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %12) #16
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef) unnamed_addr #5
@@ -3751,15 +3752,16 @@ define linkonce_odr dso_local void @_ZN3tev10MultiGraphD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3tev10MultiGraphE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 8
-  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  %5 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
-  %6 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3tev10MultiGraphE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 8
+  call void @_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
+  %6 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
-  %7 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 2
+  %7 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 3
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
+  %8 = getelementptr inbounds %"class.tev::MultiGraph", ptr %3, i32 0, i32 2
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %3) #16
   ret void
 }
@@ -4961,10 +4963,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #16
   ret void
 }
 
@@ -5520,16 +5523,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -6401,7 +6405,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -11841,10 +11846,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.32", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.32", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #16
   ret void
 }
 
@@ -11959,16 +11965,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.33", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -27052,10 +27059,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.63", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 32) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.63", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 32) #16
   ret void
 }
 
@@ -27077,16 +27085,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.64", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -27936,21 +27945,22 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.63", ptr %5, i32 0, i32 2
-  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.63", ptr %5, i32 0, i32 2
+  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 

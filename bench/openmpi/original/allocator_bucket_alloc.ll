@@ -69,17 +69,17 @@ define ptr @mca_allocator_bucket_init(ptr noundef %0, i32 noundef %1, ptr nounde
 
 31:                                               ; preds = %17
   store ptr null, ptr %5, align 8
-  br label %98
+  br label %99
 
 32:                                               ; preds = %17
   store i32 0, ptr %11, align 4
   br label %33
 
-33:                                               ; preds = %84, %32
+33:                                               ; preds = %85, %32
   %34 = load i32, ptr %11, align 4
   %35 = load i32, ptr %7, align 4
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %87
+  br i1 %36, label %37, label %88
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %10, align 8
@@ -105,75 +105,76 @@ define ptr @mca_allocator_bucket_init(ptr noundef %0, i32 noundef %1, ptr nounde
 
 53:                                               ; preds = %52
   %54 = load i32, ptr @opal_class_init_epoch, align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %56 = icmp ne i32 %54, %55
-  br i1 %56, label %57, label %58
+  %55 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp ne i32 %54, %56
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %53
+58:                                               ; preds = %53
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %53
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %59, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %11, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %61, i64 %63
-  %65 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %64, i32 0, i32 1
-  %66 = getelementptr inbounds %struct.opal_object_t, ptr %65, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %66, align 8
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %11, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %69, i64 %71
-  %73 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %72, i32 0, i32 1
-  %74 = getelementptr inbounds %struct.opal_object_t, ptr %73, i32 0, i32 1
-  store volatile i32 1, ptr %74, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %77, i64 %79
-  %81 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %80, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %81)
-  br label %82
-
-82:                                               ; preds = %58
+59:                                               ; preds = %58, %53
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %62, i64 %64
+  %66 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %65, i32 0, i32 1
+  %67 = getelementptr inbounds %struct.opal_object_t, ptr %66, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %67, align 8
+  %68 = load ptr, ptr %10, align 8
+  %69 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %11, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %70, i64 %72
+  %74 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds %struct.opal_object_t, ptr %74, i32 0, i32 1
+  store volatile i32 1, ptr %75, align 8
+  %76 = load ptr, ptr %10, align 8
+  %77 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %11, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %78, i64 %80
+  %82 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %81, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %82)
   br label %83
 
-83:                                               ; preds = %82
+83:                                               ; preds = %59
   br label %84
 
 84:                                               ; preds = %83
-  %85 = load i32, ptr %11, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %11, align 4
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load i32, ptr %11, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %11, align 4
   br label %33, !llvm.loop !4
 
-87:                                               ; preds = %33
-  %88 = load i32, ptr %7, align 4
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %89, i32 0, i32 2
-  store i32 %88, ptr %90, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %92, i32 0, i32 3
-  store ptr %91, ptr %93, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = load ptr, ptr %10, align 8
-  %96 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %95, i32 0, i32 4
-  store ptr %94, ptr %96, align 8
-  %97 = load ptr, ptr %10, align 8
-  store ptr %97, ptr %5, align 8
-  br label %98
+88:                                               ; preds = %33
+  %89 = load i32, ptr %7, align 4
+  %90 = load ptr, ptr %10, align 8
+  %91 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %90, i32 0, i32 2
+  store i32 %89, ptr %91, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %93, i32 0, i32 3
+  store ptr %92, ptr %94, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = getelementptr inbounds %struct.mca_allocator_bucket_t, ptr %96, i32 0, i32 4
+  store ptr %95, ptr %97, align 8
+  %98 = load ptr, ptr %10, align 8
+  store ptr %98, ptr %5, align 8
+  br label %99
 
-98:                                               ; preds = %87, %31
-  %99 = load ptr, ptr %5, align 8
-  ret ptr %99
+99:                                               ; preds = %88, %31
+  %100 = load ptr, ptr %5, align 8
+  ret ptr %100
 }
 
 ; Function Attrs: nounwind allocsize(0)

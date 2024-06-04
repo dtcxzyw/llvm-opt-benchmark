@@ -2702,35 +2702,36 @@ define void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 
   %13 = sext i32 %12 to i64
   %14 = load i32, ptr %8, align 4
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %13, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 2
-  %16 = load i32, ptr %7, align 4
-  invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %15, i32 noundef %16)
-          to label %17 unwind label %20
+  %15 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 2
+  %17 = load i32, ptr %7, align 4
+  invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %16, i32 noundef %17)
+          to label %18 unwind label %21
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 4
-  store ptr null, ptr %19, align 8
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %11, i32 0, i32 4
+  store ptr null, ptr %20, align 8
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %11) #8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2742,22 +2743,23 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
-  store float 0.000000e+00, ptr %16, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
+  store float 0.000000e+00, ptr %17, align 8
   ret void
 }
 
@@ -2787,36 +2789,37 @@ define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dere
   %15 = getelementptr inbounds %"struct.faiss::Index", ptr %14, i32 0, i32 7
   %16 = load i32, ptr %15, align 4
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %9, i64 noundef %13, i32 noundef %16)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 2
-  %18 = load i32, ptr %6, align 4
-  invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %17, i32 noundef %18)
-          to label %19 unwind label %23
+  %17 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %9, align 8
+  %18 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 2
+  %19 = load i32, ptr %6, align 4
+  invoke void @_ZN5faiss4HNSWC1Ei(ptr noundef nonnull align 8 dereferenceable(5149) %18, i32 noundef %19)
+          to label %20 unwind label %24
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 3
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 4
-  %22 = load ptr, ptr %5, align 8
-  store ptr %22, ptr %21, align 8
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 3
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %9, i32 0, i32 4
+  %23 = load ptr, ptr %5, align 8
+  store ptr %23, ptr %22, align 8
   ret void
 
-23:                                               ; preds = %3
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %3
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2824,31 +2827,32 @@ define void @_ZN5faiss9IndexHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 3
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %16
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss9IndexHNSWE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 3
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(36) %9) #8
-  br label %15
-
-15:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(36) %10) #8
   br label %16
 
-16:                                               ; preds = %15, %1
-  %17 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 2
-  call void @_ZN5faiss4HNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5149) %17) #8
+16:                                               ; preds = %12, %8
+  br label %17
+
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %3, i32 0, i32 2
+  call void @_ZN5faiss4HNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5149) %18) #8
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #8
   ret void
 }
@@ -3437,9 +3441,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -3467,16 +3472,17 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEC2EmPf
   %11 = load ptr, ptr %6, align 8
   %12 = load i64, ptr %7, align 8
   call void @_ZN5faiss18BlockResultHandlerINS_4CMaxIflEEEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 1
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 2
-  %16 = load ptr, ptr %9, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 3
-  %18 = load i64, ptr %10, align 8
-  store i64 %18, ptr %17, align 8
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 1
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %9, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %11, i32 0, i32 3
+  %19 = load i64, ptr %10, align 8
+  store i64 %19, ptr %18, align 8
   ret void
 }
 
@@ -3779,14 +3785,15 @@ define linkonce_odr void @_ZN5faiss18BlockResultHandlerINS_4CMaxIflEEEC2Em(ptr n
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss18BlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 2
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss18BlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 2
   store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.faiss::BlockResultHandler", ptr %5, i32 0, i32 3
+  store i64 0, ptr %10, align 8
   ret void
 }
 
@@ -5317,15 +5324,16 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19Sing
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMaxIflEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %5, i32 0, i32 2
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %9, i32 0, i32 3
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %8, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.faiss::HeapBlockResultHandler", ptr %10, i32 0, i32 3
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %9, align 8
   ret void
 }
 
@@ -6364,9 +6372,10 @@ define linkonce_odr void @_ZN5faiss13ResultHandlerINS_4CMaxIflEEEC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %3, i32 0, i32 1
-  store float 0.000000e+00, ptr %4, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 8
   ret void
 }
 
@@ -6452,10 +6461,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerC2EPNS_16
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::NegativeDistanceComputer", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::NegativeDistanceComputer", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -6464,7 +6474,8 @@ define linkonce_odr void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6587,20 +6598,21 @@ define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::NegativeDistanceComputer", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::NegativeDistanceComputer", ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 5
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 5
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  br label %12
 
-11:                                               ; preds = %7, %1
+12:                                               ; preds = %8, %1
   call void @_ZN5faiss16DistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -7030,19 +7042,20 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   %9 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 1
   %10 = load i64, ptr %9, align 8
   call void @_ZN5faiss18BlockResultHandlerINS_4CMaxIflEEEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %10)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %11 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 2
-  %14 = load float, ptr %6, align 4
-  store float %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 4
-  call void @_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
-  %16 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  %17 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 6
-  store i32 0, ptr %17, align 8
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %7, align 8
+  %12 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 2
+  %15 = load float, ptr %6, align 4
+  store float %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 4
+  call void @_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  %17 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
+  %18 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %7, i32 0, i32 6
+  store i32 0, ptr %18, align 8
   ret void
 }
 
@@ -7316,33 +7329,34 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
-  %5 = call noundef i64 @_ZNKSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %6 = icmp ugt i64 %5, 0
-  br i1 %6, label %7, label %10
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
+  %6 = call noundef i64 @_ZNKSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %7 = icmp ugt i64 %6, 0
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
-  invoke void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext true)
-          to label %9 unwind label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
+  invoke void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(24) %9, i1 noundef zeroext true)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %7
-  br label %10
+10:                                               ; preds = %8
+  br label %11
 
-10:                                               ; preds = %9, %1
-  %11 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #8
-  %12 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
+  %13 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
   call void @_ZN5faiss18BlockResultHandlerINS_4CMaxIflEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   ret void
 
-13:                                               ; preds = %7
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #22
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #22
   unreachable
 }
 
@@ -9160,40 +9174,41 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMaxIflEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %11)
-          to label %12 unwind label %18
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %12)
+          to label %13 unwind label %19
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %7, i32 0, i32 2
-  store ptr null, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %14, i32 0, i32 2
-  %16 = load float, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %7, i32 0, i32 1
-  store float %16, ptr %17, align 8
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %7, i32 0, i32 2
+  store ptr null, ptr %14, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler", ptr %15, i32 0, i32 2
+  %17 = load float, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %7, i32 0, i32 1
+  store float %17, ptr %18, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
   call void @_ZN5faiss13ResultHandlerINS_4CMaxIflEEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9274,22 +9289,23 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %3, i32 0, i32 1
-  invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
-          to label %5 unwind label %7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %3, i32 0, i32 1
+  invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
+          to label %6 unwind label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss24RangeSearchPartialResultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %"struct.faiss::RangeSearchBlockResultHandler<faiss::CMax<float, long>>::SingleResultHandler", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss24RangeSearchPartialResultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #8
   call void @_ZN5faiss13ResultHandlerINS_4CMaxIflEEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #8
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #22
   unreachable
 }
 
@@ -18391,9 +18407,10 @@ define void @_ZN5faiss13IndexHNSWFlatC2Ev(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) %3, i32 noundef 0, i32 noundef 32, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::Index", ptr %3, i32 0, i32 5
-  store i8 1, ptr %4, align 1
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::Index", ptr %3, i32 0, i32 5
+  store i8 1, ptr %5, align 1
   ret void
 }
 
@@ -18446,7 +18463,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull a
   %20 = load i32, ptr %6, align 4
   %21 = sext i32 %20 to i64
   invoke void @_ZN5faiss11IndexFlatL2C2El(ptr noundef nonnull align 8 dereferenceable(96) %19, i64 noundef %21)
-          to label %22 unwind label %34
+          to label %22 unwind label %35
 
 22:                                               ; preds = %18
   br label %29
@@ -18459,7 +18476,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull a
   %26 = sext i32 %25 to i64
   %27 = load i32, ptr %8, align 4
   invoke void @_ZN5faiss9IndexFlatC1ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %24, i64 noundef %26, i32 noundef %27)
-          to label %28 unwind label %42
+          to label %28 unwind label %43
 
 28:                                               ; preds = %23
   br label %29
@@ -18468,55 +18485,56 @@ define void @_ZN5faiss13IndexHNSWFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull a
   %30 = phi ptr [ %19, %22 ], [ %24, %28 ]
   %31 = load i32, ptr %7, align 4
   call void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) %15, ptr noundef %30, i32 noundef %31)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %32 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %15, i32 0, i32 3
-  store i8 1, ptr %32, align 8
-  %33 = getelementptr inbounds %"struct.faiss::Index", ptr %15, i32 0, i32 5
-  store i8 1, ptr %33, align 1
+  %32 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss13IndexHNSWFlatE, i32 0, i32 0, i32 2
+  store ptr %32, ptr %15, align 8
+  %33 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %15, i32 0, i32 3
+  store i8 1, ptr %33, align 8
+  %34 = getelementptr inbounds %"struct.faiss::Index", ptr %15, i32 0, i32 5
+  store i8 1, ptr %34, align 1
   ret void
 
-34:                                               ; preds = %18
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %18
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %11, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %12, align 4
-  %38 = load i1, ptr %10, align 1
-  br i1 %38, label %39, label %41
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %11, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %12, align 4
+  %39 = load i1, ptr %10, align 1
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %9, align 8
-  call void @_ZdlPv(ptr noundef %40) #19
-  br label %41
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %9, align 8
+  call void @_ZdlPv(ptr noundef %41) #19
+  br label %42
 
-41:                                               ; preds = %39, %34
+42:                                               ; preds = %40, %35
+  br label %51
+
+43:                                               ; preds = %23
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %11, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %12, align 4
+  %47 = load i1, ptr %14, align 1
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %13, align 8
+  call void @_ZdlPv(ptr noundef %49) #19
   br label %50
 
-42:                                               ; preds = %23
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %11, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %12, align 4
-  %46 = load i1, ptr %14, align 1
-  br i1 %46, label %47, label %49
+50:                                               ; preds = %48, %43
+  br label %51
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %13, align 8
-  call void @_ZdlPv(ptr noundef %48) #19
-  br label %49
-
-49:                                               ; preds = %47, %42
-  br label %50
-
-50:                                               ; preds = %49, %41
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i32, ptr %12, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+51:                                               ; preds = %50, %42
+  %52 = load ptr, ptr %11, align 8
+  %53 = load i32, ptr %12, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18528,9 +18546,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2C2El(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i64 noundef %6, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
   ret void
 }
 
@@ -18573,7 +18592,8 @@ define void @_ZN5faiss11IndexHNSWPQC2Ev(ptr noundef nonnull align 8 dereferencea
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) %3, i32 noundef 0, i32 noundef 32, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18599,34 +18619,35 @@ define void @_ZN5faiss11IndexHNSWPQC2Eiiii(ptr noundef nonnull align 8 dereferen
   %18 = load i32, ptr %10, align 4
   %19 = sext i32 %18 to i64
   invoke void @_ZN5faiss7IndexPQC1EimmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(396) %14, i32 noundef %15, i64 noundef %17, i64 noundef %19, i32 noundef 1)
-          to label %20 unwind label %24
+          to label %20 unwind label %25
 
 20:                                               ; preds = %5
   %21 = load i32, ptr %9, align 4
   call void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) %13, ptr noundef %14, i32 noundef %21)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %22 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
-  store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
-  store i8 0, ptr %23, align 1
+  %22 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWPQE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %13, align 8
+  %23 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
+  store i8 1, ptr %23, align 8
+  %24 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
+  store i8 0, ptr %24, align 1
   ret void
 
-24:                                               ; preds = %5
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %5
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %11, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %12, align 4
   call void @_ZdlPv(ptr noundef %14) #19
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %11, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %11, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 declare void @_ZN5faiss7IndexPQC1EimmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(396), i32 noundef, i64 noundef, i64 noundef, i32 noundef) unnamed_addr #2
@@ -18653,40 +18674,41 @@ define void @_ZN5faiss11IndexHNSWSQC2EiNS_15ScalarQuantizer13QuantizerTypeEiNS_1
   %16 = load i32, ptr %8, align 4
   %17 = load i32, ptr %10, align 4
   invoke void @_ZN5faiss20IndexScalarQuantizerC1EiNS_15ScalarQuantizer13QuantizerTypeENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(144) %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-          to label %18 unwind label %28
+          to label %18 unwind label %29
 
 18:                                               ; preds = %5
   %19 = load i32, ptr %9, align 4
   call void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) %13, ptr noundef %14, i32 noundef %19)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %20 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 4
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.faiss::Index", ptr %21, i32 0, i32 5
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
-  %26 = zext i1 %24 to i8
-  store i8 %26, ptr %25, align 1
-  %27 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
-  store i8 1, ptr %27, align 8
+  %20 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %13, align 8
+  %21 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.faiss::Index", ptr %22, i32 0, i32 5
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
+  %27 = zext i1 %25 to i8
+  store i8 %27, ptr %26, align 1
+  %28 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
+  store i8 1, ptr %28, align 8
   ret void
 
-28:                                               ; preds = %5
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %5
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %11, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %12, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %11, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %12, align 4
   call void @_ZdlPv(ptr noundef %14) #19
-  br label %32
+  br label %33
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr %12, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %11, align 8
+  %35 = load i32, ptr %12, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 declare void @_ZN5faiss20IndexScalarQuantizerC1EiNS_15ScalarQuantizer13QuantizerTypeENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
@@ -18716,7 +18738,8 @@ define void @_ZN5faiss11IndexHNSWSQC2Ev(ptr noundef nonnull align 8 dereferencea
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) %3, i32 noundef 0, i32 noundef 32, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss11IndexHNSWSQE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18740,34 +18763,35 @@ define void @_ZN5faiss15IndexHNSW2LevelC2EPNS_5IndexEmii(ptr noundef nonnull ali
   %16 = load i64, ptr %8, align 8
   %17 = load i32, ptr %9, align 4
   invoke void @_ZN5faiss11Index2LayerC1EPNS_5IndexEmiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(368) %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, i32 noundef 8, i32 noundef 1)
-          to label %18 unwind label %22
+          to label %18 unwind label %23
 
 18:                                               ; preds = %5
   %19 = load i32, ptr %10, align 4
   call void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) %13, ptr noundef %14, i32 noundef %19)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %20 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
-  store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
-  store i8 0, ptr %21, align 1
+  %20 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %13, align 8
+  %21 = getelementptr inbounds %"struct.faiss::IndexHNSW", ptr %13, i32 0, i32 3
+  store i8 1, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.faiss::Index", ptr %13, i32 0, i32 5
+  store i8 0, ptr %22, align 1
   ret void
 
-22:                                               ; preds = %5
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %11, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %12, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %11, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %12, align 4
   call void @_ZdlPv(ptr noundef %14) #19
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr %12, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %11, align 8
+  %29 = load i32, ptr %12, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN5faiss11Index2LayerC1EPNS_5IndexEmiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
@@ -18778,7 +18802,8 @@ define void @_ZN5faiss15IndexHNSW2LevelC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) %3, i32 noundef 0, i32 noundef 32, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss15IndexHNSW2LevelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

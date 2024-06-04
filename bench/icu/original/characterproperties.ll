@@ -1510,41 +1510,42 @@ entry:
   %i12 = alloca i32, align 4
   store ptr @_ZN12_GLOBAL__N_111gInclusionsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_111gInclusionsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::Inclusion", ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 43), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 43
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %in, align 8
-  %3 = load ptr, ptr %in, align 8
-  %fSet = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %fSet, align 8
-  %isnull = icmp eq ptr %4, null
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %in, align 8
+  %4 = load ptr, ptr %in, align 8
+  %fSet = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %fSet, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #5
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %4) #5
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %5) #5
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
-  %5 = load ptr, ptr %in, align 8
-  %fSet1 = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %5, i32 0, i32 0
-  store ptr null, ptr %fSet1, align 8
   %6 = load ptr, ptr %in, align 8
-  %fInitOnce = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %6, i32 0, i32 1
+  %fSet1 = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %6, i32 0, i32 0
+  store ptr null, ptr %fSet1, align 8
+  %7 = load ptr, ptr %in, align 8
+  %fInitOnce = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %7, i32 0, i32 1
   call void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %fInitOnce)
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %7 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %7, i32 1
+  %8 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::Inclusion", ptr %8, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -1553,33 +1554,33 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond2
 
 for.cond2:                                        ; preds = %for.inc10, %for.end
-  %8 = load i32, ptr %i, align 4
-  %cmp3 = icmp slt i32 %8, 75
+  %9 = load i32, ptr %i, align 4
+  %cmp3 = icmp slt i32 %9, 75
   br i1 %cmp3, label %for.body4, label %for.end11
 
 for.body4:                                        ; preds = %for.cond2
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
+  %10 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %10 to i64
   %arrayidx = getelementptr inbounds [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx, align 8
-  %isnull5 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arrayidx, align 8
+  %isnull5 = icmp eq ptr %11, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %for.body4
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %10) #5
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #5
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %11) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #5
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %for.body4
-  %11 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %11 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom8 = sext i32 %12 to i64
   %arrayidx9 = getelementptr inbounds [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %idxprom8
   store ptr null, ptr %arrayidx9, align 8
   br label %for.inc10
 
 for.inc10:                                        ; preds = %delete.end7
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
+  %13 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond2, !llvm.loop !11
 
@@ -1588,25 +1589,25 @@ for.end11:                                        ; preds = %for.cond2
   br label %for.cond13
 
 for.cond13:                                       ; preds = %for.inc20, %for.end11
-  %13 = load i32, ptr %i12, align 4
-  %cmp14 = icmp slt i32 %13, 25
+  %14 = load i32, ptr %i12, align 4
+  %cmp14 = icmp slt i32 %14, 25
   br i1 %cmp14, label %for.body15, label %for.end22
 
 for.body15:                                       ; preds = %for.cond13
-  %14 = load i32, ptr %i12, align 4
-  %idxprom16 = sext i32 %14 to i64
+  %15 = load i32, ptr %i12, align 4
+  %idxprom16 = sext i32 %15 to i64
   %arrayidx17 = getelementptr inbounds [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %idxprom16
-  %15 = load ptr, ptr %arrayidx17, align 8
-  call void @ucptrie_close_75(ptr noundef %15)
-  %16 = load i32, ptr %i12, align 4
-  %idxprom18 = sext i32 %16 to i64
+  %16 = load ptr, ptr %arrayidx17, align 8
+  call void @ucptrie_close_75(ptr noundef %16)
+  %17 = load i32, ptr %i12, align 4
+  %idxprom18 = sext i32 %17 to i64
   %arrayidx19 = getelementptr inbounds [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %idxprom18
   store ptr null, ptr %arrayidx19, align 8
   br label %for.inc20
 
 for.inc20:                                        ; preds = %for.body15
-  %17 = load i32, ptr %i12, align 4
-  %inc21 = add nsw i32 %17, 1
+  %18 = load i32, ptr %i12, align 4
+  %inc21 = add nsw i32 %18, 1
   store i32 %inc21, ptr %i12, align 4
   br label %for.cond13, !llvm.loop !12
 

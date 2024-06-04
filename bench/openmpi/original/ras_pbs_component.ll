@@ -81,9 +81,11 @@ define internal i32 @ras_pbs_register() #0 {
   store i32 100, ptr @param_priority, align 4
   %2 = load ptr, ptr %1, align 8
   %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef %2, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef @param_priority)
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %4, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i32 0, i32 1))
+  %4 = getelementptr inbounds %struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i32 0, i32 1
+  store i8 0, ptr %4, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds %struct.prte_mca_ras_pbs_component_t, ptr @prte_mca_ras_pbs_component, i32 0, i32 1
+  %7 = call i32 @pmix_mca_base_component_var_register(ptr noundef %5, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 7, ptr noundef %6)
   ret i32 0
 }
 

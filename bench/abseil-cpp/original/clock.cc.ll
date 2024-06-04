@@ -212,8 +212,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body1
 
 do.body1:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %0 = getelementptr i8, ptr @.str, i64 118
+  store ptr %0, ptr %absl_raw_log_internal_basename, align 8
+  %1 = getelementptr i8, ptr @.str, i64 118
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %1, i32 noundef 17, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body2
 
 do.body2:                                         ; preds = %do.body1
@@ -230,11 +232,11 @@ if.end:                                           ; preds = %do.end3, %do.body
 
 do.end4:                                          ; preds = %if.end
   %tv_sec = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 0
-  %0 = load i64, ptr %tv_sec, align 8
-  %mul = mul nsw i64 %0, 1000000000
+  %2 = load i64, ptr %tv_sec, align 8
+  %mul = mul nsw i64 %2, 1000000000
   %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 1
-  %1 = load i64, ptr %tv_nsec, align 8
-  %add = add nsw i64 %mul, %1
+  %3 = load i64, ptr %tv_nsec, align 8
+  %add = add nsw i64 %mul, %3
   ret i64 %add
 }
 

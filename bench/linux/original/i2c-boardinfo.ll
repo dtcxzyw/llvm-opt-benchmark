@@ -37,64 +37,67 @@ define dso_local i32 @i2c_register_board_info(i32 noundef %0, ptr nocapture noun
 
 8:                                                ; preds = %6, %3
   %9 = icmp eq i32 %2, 0
-  br i1 %9, label %42, label %10
+  br i1 %9, label %45, label %10
 
-10:                                               ; preds = %35, %8
-  %11 = phi ptr [ %39, %35 ], [ %1, %8 ]
-  %12 = phi i32 [ %36, %35 ], [ 0, %8 ]
-  %13 = phi i32 [ %38, %35 ], [ %2, %8 ]
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %15 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 104) #6
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %35, label %17
+10:                                               ; preds = %38, %8
+  %11 = phi ptr [ %42, %38 ], [ %1, %8 ]
+  %12 = phi i32 [ %39, %38 ], [ 0, %8 ]
+  %13 = phi i32 [ %41, %38 ], [ %2, %8 ]
+  %14 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 104) #6
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %38, label %18
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %19, ptr noundef align 8 dereferenceable(80) %11, i64 80, i1 false)
-  %20 = getelementptr inbounds i8, ptr %11, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %32, label %23
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 %0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %20, ptr noundef align 8 dereferenceable(80) %11, i64 80, i1 false)
+  %21 = getelementptr inbounds i8, ptr %11, i64 64
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %33, label %24
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %11, i64 72
-  %25 = load i32, ptr %24, align 8
-  %26 = zext i32 %25 to i64
-  %27 = shl nuw nsw i64 %26, 6
-  %28 = tail call ptr @kmemdup(ptr noundef nonnull %21, i64 noundef %27, i32 noundef 3264) #7
-  %29 = getelementptr inbounds i8, ptr %15, i64 88
-  store ptr %28, ptr %29, align 8
-  %30 = icmp eq ptr %28, null
-  br i1 %30, label %31, label %32
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %11, i64 72
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 6
+  %29 = tail call ptr @kmemdup(ptr noundef nonnull %22, i64 noundef %28, i32 noundef 3264) #7
+  %30 = getelementptr inbounds i8, ptr %16, i64 88
+  store ptr %29, ptr %30, align 8
+  %31 = icmp eq ptr %29, null
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %23
-  tail call void @kfree(ptr noundef nonnull %15) #5
-  br label %35
+32:                                               ; preds = %24
+  tail call void @kfree(ptr noundef nonnull %16) #5
+  br label %38
 
-32:                                               ; preds = %23, %17
-  %33 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @__i2c_board_list, i64 0, i32 1), align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.list_head, ptr @__i2c_board_list, i64 0, i32 1), align 8
-  store ptr @__i2c_board_list, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %33, ptr %34, align 8
-  store volatile ptr %15, ptr %33, align 8
-  br label %35
+33:                                               ; preds = %24, %18
+  %34 = getelementptr inbounds %struct.list_head, ptr @__i2c_board_list, i64 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct.list_head, ptr @__i2c_board_list, i64 0, i32 1
+  store ptr %16, ptr %36, align 8
+  store ptr @__i2c_board_list, ptr %16, align 8
+  %37 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %35, ptr %37, align 8
+  store volatile ptr %16, ptr %35, align 8
+  br label %38
 
-35:                                               ; preds = %32, %31, %10
-  %36 = phi i32 [ %12, %32 ], [ -12, %31 ], [ -12, %10 ]
-  %37 = phi i1 [ false, %32 ], [ true, %31 ], [ true, %10 ]
-  %38 = add i32 %13, -1
-  %39 = getelementptr i8, ptr %11, i64 80
-  %40 = icmp eq i32 %38, 0
-  %41 = select i1 %37, i1 true, i1 %40
-  br i1 %41, label %42, label %10, !llvm.loop !5
+38:                                               ; preds = %33, %32, %10
+  %39 = phi i32 [ %12, %33 ], [ -12, %32 ], [ -12, %10 ]
+  %40 = phi i1 [ false, %33 ], [ true, %32 ], [ true, %10 ]
+  %41 = add i32 %13, -1
+  %42 = getelementptr i8, ptr %11, i64 80
+  %43 = icmp eq i32 %41, 0
+  %44 = select i1 %40, i1 true, i1 %43
+  br i1 %44, label %45, label %10, !llvm.loop !5
 
-42:                                               ; preds = %35, %8
-  %43 = phi i32 [ 0, %8 ], [ %36, %35 ]
+45:                                               ; preds = %38, %8
+  %46 = phi i32 [ 0, %8 ], [ %39, %38 ]
   tail call void @up_write(ptr noundef nonnull @__i2c_board_lock) #5
-  ret i32 %43
+  ret i32 %46
 }
 
 ; Function Attrs: null_pointer_is_valid

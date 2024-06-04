@@ -1809,7 +1809,7 @@ define void @proj_trans(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD
 
 270:                                              ; preds = %266, %262
   %271 = load i32, ptr %19, align 4
-  %272 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %272 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %273 = icmp eq i32 %271, %272
   br i1 %273, label %274, label %379
 
@@ -3318,9 +3318,6 @@ define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4pr
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3334,7 +3331,7 @@ define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN5osgeo4proj4util10BaseObj
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #7
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
@@ -3982,7 +3979,7 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef byval(%union.PJ_COORD) align 8 %3) #0 {
@@ -4159,7 +4156,7 @@ define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr
 
 15:                                               ; preds = %13, %2
   %16 = load ptr, ptr %5, align 8
-  %17 = call i64 @strlen(ptr noundef %16) #7
+  %17 = call i64 @strlen(ptr noundef %16) #6
   store i64 %17, ptr %9, align 8
   %18 = load i64, ptr %9, align 8
   %19 = add i64 %18, 1
@@ -4234,10 +4231,10 @@ define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr
 declare noundef ptr @_Z18pj_get_default_ctxv() #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #8
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #10
+declare noalias ptr @malloc(i64 noundef) #9
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #4
@@ -4555,7 +4552,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %56 = load ptr, ptr %5, align 8
   %57 = getelementptr inbounds %struct.ARG_list, ptr %56, i32 0, i32 2
   %58 = getelementptr inbounds [0 x i8], ptr %57, i64 0, i64 0
-  %59 = call i32 @strcmp(ptr noundef @.str.77, ptr noundef %58) #7
+  %59 = call i32 @strcmp(ptr noundef @.str.77, ptr noundef %58) #6
   %60 = icmp ne i32 0, %59
   br i1 %60, label %61, label %93
 
@@ -4563,7 +4560,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %62 = load ptr, ptr %3, align 8
   %63 = getelementptr inbounds %struct.PJconsts, ptr %62, i32 0, i32 83
   %64 = getelementptr inbounds [4 x i8], ptr %63, i64 0, i64 0
-  %65 = call i64 @strlen(ptr noundef %64) #7
+  %65 = call i64 @strlen(ptr noundef %64) #6
   %66 = add i64 100, %65
   store i64 %66, ptr %8, align 8
   %67 = load i64, ptr %8, align 8
@@ -4627,7 +4624,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr inbounds %struct.ARG_list, ptr %104, i32 0, i32 2
   %106 = getelementptr inbounds [0 x i8], ptr %105, i64 0, i64 0
-  %107 = call i64 @strlen(ptr noundef %106) #7
+  %107 = call i64 @strlen(ptr noundef %106) #6
   %108 = icmp ugt i64 %107, 11
   br i1 %108, label %109, label %154
 
@@ -4638,7 +4635,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %113 = getelementptr inbounds i8, ptr %112, i64 11
   store ptr %113, ptr %10, align 8
   %114 = load ptr, ptr %10, align 8
-  %115 = call i64 @strlen(ptr noundef %114) #7
+  %115 = call i64 @strlen(ptr noundef %114) #6
   %116 = mul i64 2, %115
   %117 = add i64 100, %116
   store i64 %117, ptr %11, align 8
@@ -4737,7 +4734,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %165 = load ptr, ptr %5, align 8
   %166 = getelementptr inbounds %struct.ARG_list, ptr %165, i32 0, i32 2
   %167 = getelementptr inbounds [0 x i8], ptr %166, i64 0, i64 0
-  %168 = call i64 @strlen(ptr noundef %167) #7
+  %168 = call i64 @strlen(ptr noundef %167) #6
   %169 = icmp ugt i64 %168, 9
   br i1 %169, label %170, label %215
 
@@ -4748,7 +4745,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
   %174 = getelementptr inbounds i8, ptr %173, i64 9
   store ptr %174, ptr %18, align 8
   %175 = load ptr, ptr %18, align 8
-  %176 = call i64 @strlen(ptr noundef %175) #7
+  %176 = call i64 @strlen(ptr noundef %175) #6
   %177 = mul i64 2, %176
   %178 = add i64 100, %177
   store i64 %178, ptr %19, align 8
@@ -4939,7 +4936,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
 
 288:                                              ; preds = %267, %262, %257, %252, %247, %242, %231
   %289 = load ptr, ptr %24, align 8
-  %290 = call i64 @strlen(ptr noundef %289) #7
+  %290 = call i64 @strlen(ptr noundef %289) #6
   store i64 %290, ptr %26, align 8
   %291 = load i64, ptr %26, align 8
   %292 = icmp ule i64 %291, 8
@@ -5060,7 +5057,7 @@ define internal noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0
 
 353:                                              ; preds = %359, %343
   %354 = load ptr, ptr %31, align 8
-  %355 = call noundef ptr @strchr(ptr noundef %354, i32 noundef 44) #7
+  %355 = call noundef ptr @strchr(ptr noundef %354, i32 noundef 44) #6
   store ptr %355, ptr %31, align 8
   %356 = icmp ne ptr %355, null
   br i1 %356, label %357, label %362
@@ -5159,7 +5156,7 @@ define ptr @proj_area_create() #1 {
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7PJ_AREAC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
@@ -5258,7 +5255,7 @@ define linkonce_odr hidden void @_ZN7PJ_AREAD2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #12
+declare void @_ZdlPv(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @proj_context_use_proj4_init_rules(ptr noundef %0, i32 noundef %1) #1 {
@@ -5294,7 +5291,7 @@ define internal noundef i32 @_ZL5EQUALPKcS0_(ptr noundef %0, ptr noundef %1) #0 
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call i32 @strcasecmp(ptr noundef %5, ptr noundef %6) #7
+  %7 = call i32 @strcasecmp(ptr noundef %5, ptr noundef %6) #6
   %8 = icmp eq i32 %7, 0
   %9 = zext i1 %8 to i32
   ret i32 %9
@@ -5385,7 +5382,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_w
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = call i64 @strlen(ptr noundef %7) #7
+  %8 = call i64 @strlen(ptr noundef %7) #6
   store i64 %8, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
@@ -5402,7 +5399,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_w
   %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   %17 = load ptr, ptr %5, align 8
   %18 = load i64, ptr %6, align 8
-  %19 = call i32 @memcmp(ptr noundef %16, ptr noundef %17, i64 noundef %18) #7
+  %19 = call i32 @memcmp(ptr noundef %16, ptr noundef %17, i64 noundef %18) #6
   %20 = icmp eq i32 %19, 0
   store i1 %20, ptr %3, align 1
   br label %21
@@ -5519,7 +5516,7 @@ define i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, do
 75:                                               ; preds = %66
   %76 = getelementptr inbounds %struct.PJ_PROJ_INFO, ptr %26, i32 0, i32 0
   %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @strcmp(ptr noundef %77, ptr noundef @.str.22) #7
+  %78 = call i32 @strcmp(ptr noundef %77, ptr noundef @.str.22) #6
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %83, label %80
 
@@ -5609,7 +5606,7 @@ define i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, do
 
 127:                                              ; preds = %123
   %128 = load i32, ptr %34, align 4
-  %129 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %129 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %131, label %487
 
@@ -6426,7 +6423,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_PR
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %12, align 8
-  %124 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %123) #7
+  %124 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %123) #6
   %125 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %124) #19
   %126 = getelementptr inbounds %struct.PJ_PROJ_INFO, ptr %0, i32 0, i32 1
   store ptr %125, ptr %126, align 8
@@ -6503,7 +6500,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_PR
           to label %167 unwind label %172
 
 167:                                              ; preds = %163
-  %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #7
+  %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #6
   %169 = invoke noundef double @_ZNSt7__cxx114stodERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef null)
           to label %170 unwind label %172
 
@@ -6523,7 +6520,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_PR
 
 176:                                              ; preds = %172
   %177 = load i32, ptr %17, align 4
-  %178 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %179 = icmp eq i32 %177, %178
   br i1 %179, label %180, label %217
 
@@ -6607,7 +6604,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_PR
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #9
+declare i32 @strcmp(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -6745,13 +6742,13 @@ define internal noundef i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr %10, align 8
-  %52 = call i32 @strcmp(ptr noundef %51, ptr noundef @.str.90) #7
+  %52 = call i32 @strcmp(ptr noundef %51, ptr noundef @.str.90) #6
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %10, align 8
-  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.91) #7
+  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.91) #6
   %57 = icmp eq i32 %56, 0
   br label %58
 
@@ -6911,7 +6908,7 @@ define internal noundef zeroext i1 @_ZL19contains_south_poleP8PJconsts12PJ_DIREC
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
@@ -7696,7 +7693,7 @@ define ptr @proj_create_crs_to_crs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 83:                                               ; preds = %82, %51
   %84 = load i32, ptr %16, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %103
 
@@ -9187,7 +9184,7 @@ define hidden void @_Z29pj_create_prepared_operationsP6pj_ctxPK8PJconstsS3_P11PJ
 
 101:                                              ; preds = %97
   %102 = load i32, ptr %18, align 4
-  %103 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %103 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %104 = icmp eq i32 %102, %103
   br i1 %104, label %105, label %200
 
@@ -10133,7 +10130,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev(ptr
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 declare void @_Z11pj_load_iniP6pj_ctx(ptr noundef) #2
 
@@ -10152,7 +10149,7 @@ define internal noundef ptr @_ZL14getOptionValuePKcS0_(ptr noundef %0, ptr nound
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = call i64 @strlen(ptr noundef %11) #7
+  %12 = call i64 @strlen(ptr noundef %11) #6
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   store ptr %13, ptr %3, align 8
   br label %15
@@ -10378,7 +10375,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEED2Ev(
 declare noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #15
+declare ptr @__errno_location() #14
 
 ; Function Attrs: mustprogress uwtable
 define i32 @proj_errno_restore(ptr noundef %0, i32 noundef %1) #1 {
@@ -10459,12 +10456,12 @@ define ptr @proj_context_create() #1 personality ptr @__gxx_personality_v0 {
 }
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #16
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #15
 
 declare void @_ZN6pj_ctxC1ERKS_(ptr noundef nonnull align 8 dereferenceable(516), ptr noundef nonnull align 8 dereferenceable(516)) unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #12
+declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #11
 
 ; Function Attrs: mustprogress uwtable
 define ptr @proj_context_destroy(ptr noundef %0) #1 {
@@ -10531,153 +10528,164 @@ define void @proj_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_INFO)
   store ptr null, ptr %3, align 8
   call void @_Z15pj_acquire_lockv()
   store i32 9, ptr @_ZL4info, align 8
-  store i32 5, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 2), align 8
-  %16 = load i32, ptr @_ZL4info, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 1), align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 2), align 8
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @_ZL7version, i64 noundef 64, ptr noundef @.str.39, i32 noundef %16, i32 noundef %17, i32 noundef %18) #19
-  store ptr @_ZL7version, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 4), align 8
-  %20 = call noundef ptr @_Z14pj_get_releasev()
-  store ptr %20, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 3), align 8
-  %21 = call noundef ptr @_Z18pj_get_default_ctxv()
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.pj_ctx, ptr %22, i32 0, i32 15
-  %24 = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #19
-  br i1 %24, label %25, label %49
+  %16 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 1
+  store i32 5, ptr %16, align 4
+  %17 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 2
+  store i32 0, ptr %17, align 8
+  %18 = load i32, ptr @_ZL4info, align 8
+  %19 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 2
+  %22 = load i32, ptr %21, align 8
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef @_ZL7version, i64 noundef 64, ptr noundef @.str.39, i32 noundef %18, i32 noundef %20, i32 noundef %22) #19
+  %24 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 4
+  store ptr @_ZL7version, ptr %24, align 8
+  %25 = call noundef ptr @_Z14pj_get_releasev()
+  %26 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 3
+  store ptr %25, ptr %26, align 8
+  %27 = call noundef ptr @_Z18pj_get_default_ctxv()
+  store ptr %27, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.pj_ctx, ptr %28, i32 0, i32 15
+  %30 = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #19
+  br i1 %30, label %31, label %55
 
-25:                                               ; preds = %1
-  %26 = load ptr, ptr %4, align 8
-  call void @_Z26pj_get_default_searchpathsB5cxx11P6pj_ctx(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8 %5, ptr noundef %26)
+31:                                               ; preds = %1
+  %32 = load ptr, ptr %4, align 8
+  call void @_Z26pj_get_default_searchpathsB5cxx11P6pj_ctx(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8 %5, ptr noundef %32)
   store ptr %5, ptr %6, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #19
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %7, i32 0, i32 0
-  store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #19
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %8, i32 0, i32 0
-  store ptr %31, ptr %32, align 8
-  br label %33
+  %33 = load ptr, ptr %6, align 8
+  %34 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #19
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #19
+  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %8, i32 0, i32 0
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-33:                                               ; preds = %42, %25
-  %34 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #19
-  br i1 %34, label %35, label %48
+39:                                               ; preds = %48, %31
+  %40 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  br i1 %40, label %41, label %54
 
-35:                                               ; preds = %33
-  %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  store ptr %36, ptr %9, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %40 = invoke noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %37, ptr noundef %39, ptr noundef %2)
-          to label %41 unwind label %44
+41:                                               ; preds = %39
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
+  store ptr %42, ptr %9, align 8
+  %43 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #19
+  %46 = invoke noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %43, ptr noundef %45, ptr noundef %2)
+          to label %47 unwind label %50
 
-41:                                               ; preds = %35
-  store ptr %40, ptr %3, align 8
-  br label %42
+47:                                               ; preds = %41
+  store ptr %46, ptr %3, align 8
+  br label %48
 
-42:                                               ; preds = %41
-  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  br label %33
+48:                                               ; preds = %47
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
+  br label %39
 
-44:                                               ; preds = %35
-  %45 = landingpad { ptr, i32 }
+50:                                               ; preds = %41
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %10, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %11, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %10, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %11, align 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  br label %92
+  br label %103
 
-48:                                               ; preds = %33
+54:                                               ; preds = %39
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  br label %69
-
-49:                                               ; preds = %1
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.pj_ctx, ptr %50, i32 0, i32 15
-  store ptr %51, ptr %12, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %52) #19
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.51", ptr %13, i32 0, i32 0
-  store ptr %53, ptr %54, align 8
-  %55 = load ptr, ptr %12, align 8
-  %56 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %55) #19
-  %57 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.51", ptr %14, i32 0, i32 0
-  store ptr %56, ptr %57, align 8
-  br label %58
-
-58:                                               ; preds = %66, %49
-  %59 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #19
-  br i1 %59, label %60, label %68
-
-60:                                               ; preds = %58
-  %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
-  store ptr %61, ptr %15, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = load ptr, ptr %15, align 8
-  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %65 = call noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %62, ptr noundef %64, ptr noundef %2)
-  store ptr %65, ptr %3, align 8
-  br label %66
-
-66:                                               ; preds = %60
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
-  br label %58
-
-68:                                               ; preds = %58
-  br label %69
-
-69:                                               ; preds = %68, %48
-  %70 = load ptr, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5), align 8
-  %71 = load ptr, ptr @_ZL5empty, align 8
-  %72 = icmp ne ptr %70, %71
-  br i1 %72, label %73, label %75
-
-73:                                               ; preds = %69
-  %74 = load ptr, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5), align 8
-  call void @free(ptr noundef %74) #19
   br label %75
 
-75:                                               ; preds = %73, %69
-  %76 = load ptr, ptr %3, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %80
+55:                                               ; preds = %1
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds %struct.pj_ctx, ptr %56, i32 0, i32 15
+  store ptr %57, ptr %12, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %58) #19
+  %60 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.51", ptr %13, i32 0, i32 0
+  store ptr %59, ptr %60, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #19
+  %63 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.51", ptr %14, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
+  br label %64
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %3, align 8
-  br label %82
+64:                                               ; preds = %72, %55
+  %65 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #19
+  br i1 %65, label %66, label %74
+
+66:                                               ; preds = %64
+  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  store ptr %67, ptr %15, align 8
+  %68 = load ptr, ptr %3, align 8
+  %69 = load ptr, ptr %15, align 8
+  %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #19
+  %71 = call noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %68, ptr noundef %70, ptr noundef %2)
+  store ptr %71, ptr %3, align 8
+  br label %72
+
+72:                                               ; preds = %66
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  br label %64
+
+74:                                               ; preds = %64
+  br label %75
+
+75:                                               ; preds = %74, %54
+  %76 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr @_ZL5empty, align 8
+  %79 = icmp ne ptr %77, %78
+  br i1 %79, label %80, label %83
 
 80:                                               ; preds = %75
-  %81 = load ptr, ptr @_ZL5empty, align 8
-  br label %82
+  %81 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5
+  %82 = load ptr, ptr %81, align 8
+  call void @free(ptr noundef %82) #19
+  br label %83
 
-82:                                               ; preds = %80, %78
-  %83 = phi ptr [ %79, %78 ], [ %81, %80 ]
-  store ptr %83, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5), align 8
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.pj_ctx, ptr %84, i32 0, i32 16
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 6), align 8
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.pj_ctx, ptr %87, i32 0, i32 15
-  %89 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #19
-  %90 = trunc i64 %89 to i32
-  %91 = sext i32 %90 to i64
-  store i64 %91, ptr getelementptr inbounds (%struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 7), align 8
+83:                                               ; preds = %80, %75
+  %84 = load ptr, ptr %3, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %88
+
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %3, align 8
+  br label %90
+
+88:                                               ; preds = %83
+  %89 = load ptr, ptr @_ZL5empty, align 8
+  br label %90
+
+90:                                               ; preds = %88, %86
+  %91 = phi ptr [ %87, %86 ], [ %89, %88 ]
+  %92 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 5
+  store ptr %91, ptr %92, align 8
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds %struct.pj_ctx, ptr %93, i32 0, i32 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 6
+  store ptr %95, ptr %96, align 8
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds %struct.pj_ctx, ptr %97, i32 0, i32 15
+  %99 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #19
+  %100 = trunc i64 %99 to i32
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds %struct.PJ_INFO, ptr @_ZL4info, i32 0, i32 7
+  store i64 %101, ptr %102, align 8
   call void @_Z15pj_release_lockv()
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 @_ZL4info, i64 56, i1 false)
   ret void
 
-92:                                               ; preds = %44
-  %93 = load ptr, ptr %10, align 8
-  %94 = load i32, ptr %11, align 4
-  %95 = insertvalue { ptr, i32 } poison, ptr %93, 0
-  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
-  resume { ptr, i32 } %96
+103:                                              ; preds = %50
+  %104 = load ptr, ptr %10, align 8
+  %105 = load i32, ptr %11, align 4
+  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
+  resume { ptr, i32 } %107
 }
 
 declare void @_Z15pj_acquire_lockv() #2
@@ -10788,7 +10796,7 @@ define internal noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %6, align 8
-  %19 = call i64 @strlen(ptr noundef %18) #7
+  %19 = call i64 @strlen(ptr noundef %18) #6
   store i64 %19, ptr %10, align 8
   %20 = load i64, ptr %10, align 8
   %21 = icmp eq i64 0, %20
@@ -10806,7 +10814,7 @@ define internal noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %5, align 8
-  %29 = call i64 @strlen(ptr noundef %28) #7
+  %29 = call i64 @strlen(ptr noundef %28) #6
   store i64 %29, ptr %11, align 8
   br label %30
 
@@ -10815,7 +10823,7 @@ define internal noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef
   %32 = load i64, ptr %10, align 8
   %33 = add i64 %31, %32
   %34 = load ptr, ptr %12, align 8
-  %35 = call i64 @strlen(ptr noundef %34) #7
+  %35 = call i64 @strlen(ptr noundef %34) #6
   %36 = add i64 %33, %35
   %37 = add i64 %36, 1
   store i64 %37, ptr %9, align 8
@@ -11025,7 +11033,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt12__shared_ptrIN5osgeo4proj4util10
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40)) #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40)) #8
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72)) #2
 
@@ -11085,7 +11093,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24)) #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24)) #8
 
 declare noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef, i32 noundef) #2
 
@@ -11722,19 +11730,19 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
 
 26:                                               ; preds = %2
   %27 = load ptr, ptr %3, align 8
-  %28 = call i64 @strlen(ptr noundef %27) #7
+  %28 = call i64 @strlen(ptr noundef %27) #6
   %29 = icmp ugt i64 %28, 64
   br i1 %29, label %30, label %101
 
 30:                                               ; preds = %26, %2
   %31 = load ptr, ptr %3, align 8
-  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.45) #7
+  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.45) #6
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %3, align 8
-  %36 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.46) #7
+  %36 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.46) #6
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %67
 
@@ -11782,7 +11790,7 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
 
 67:                                               ; preds = %34
   %68 = load ptr, ptr %3, align 8
-  %69 = call i32 @strcmp(ptr noundef %68, ptr noundef @.str.49) #7
+  %69 = call i32 @strcmp(ptr noundef %68, ptr noundef @.str.49) #6
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %100
 
@@ -11852,18 +11860,18 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
   store i8 0, ptr %118, align 16
   %119 = getelementptr inbounds [74 x i8], ptr %6, i64 0, i64 0
   %120 = getelementptr inbounds [74 x i8], ptr %6, i64 0, i64 0
-  %121 = call i64 @strlen(ptr noundef %120) #7
+  %121 = call i64 @strlen(ptr noundef %120) #6
   %122 = getelementptr inbounds i8, ptr %119, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 @.str.53, i64 10, i1 false)
   %123 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 0
   %124 = call ptr @strcpy(ptr noundef %123, ptr noundef @.str.15) #19
   %125 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 0
   %126 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 0
-  %127 = call i64 @strlen(ptr noundef %126) #7
+  %127 = call i64 @strlen(ptr noundef %126) #6
   %128 = getelementptr inbounds i8, ptr %125, i64 %127
   %129 = getelementptr inbounds [74 x i8], ptr %6, i64 0, i64 0
   %130 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 0
-  %131 = call i64 @strlen(ptr noundef %130) #7
+  %131 = call i64 @strlen(ptr noundef %130) #6
   %132 = sub i64 79, %131
   %133 = call ptr @strncat(ptr noundef %128, ptr noundef %129, i64 noundef %132) #19
   %134 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 0
@@ -12783,7 +12791,7 @@ define linkonce_odr noundef zeroext i1 @_ZSt5isnand(double noundef %0) #0 comdat
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #13
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: nounwind
 declare double @fmod(double noundef, double noundef) #4
@@ -13341,7 +13349,7 @@ define internal noundef ptr @_ZL13skip_prep_finP8PJconsts(ptr noundef %0) #0 {
 declare void @_Z38pj_double_quote_string_param_if_neededRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #13
+declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
@@ -13351,16 +13359,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) #9
+declare noundef ptr @strchr(ptr noundef, i32 noundef) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #9
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -14541,7 +14549,7 @@ define linkonce_odr void @_ZNSaIdEC2ERKS_(ptr noundef nonnull align 1 dereferenc
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIdEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
@@ -14729,10 +14737,10 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIdE8allocateEmPKv(ptr nou
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #17
+declare void @_ZSt17__throw_bad_allocv() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIdED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
@@ -16230,7 +16238,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9_
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #18
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #17
 
 ; Function Attrs: nounwind
 declare ptr @strcat(ptr noundef, ptr noundef) #4
@@ -16362,7 +16370,7 @@ define linkonce_odr void @_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPK
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) #17
+declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkEdSt17integral_constantIbLb0EE(double noundef %0) #0 comdat align 2 {
@@ -16372,7 +16380,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #17
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #0 comdat align 2 {
@@ -18615,25 +18623,28 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #4
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind willreturn memory(none) }
 attributes #21 = { noreturn nounwind }

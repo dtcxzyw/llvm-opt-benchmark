@@ -154,7 +154,8 @@ define hidden i32 @mbedtls_net_connect(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @net_prepare() #0 {
-  %1 = call ptr @__sysv_signal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr)) #6
+  %1 = inttoptr i64 1 to ptr
+  %2 = call ptr @__sysv_signal(i32 noundef 13, ptr noundef %1) #6
   ret i32 0
 }
 

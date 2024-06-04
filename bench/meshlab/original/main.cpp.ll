@@ -6123,7 +6123,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #13 personality ptr @__
 
 165:                                              ; preds = %161, %157
   %166 = load i32, ptr %9, align 4
-  %167 = call i32 @llvm.eh.typeid.for(ptr @_ZTI11MLException) #3
+  %167 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI11MLException) #3
   %168 = icmp eq i32 %166, %167
   br i1 %168, label %169, label %363
 
@@ -6743,7 +6743,8 @@ define linkonce_odr void @_ZN18MeshLabApplicationC2ERiPPc(ptr noundef nonnull al
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %9, i32 noundef 331523)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18MeshLabApplication, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV18MeshLabApplication, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -6952,9 +6953,6 @@ define linkonce_odr void @_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EE
   store ptr null, ptr %15, align 8
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z19handleCriticalErrorRK11MLException(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 personality ptr @__gxx_personality_v0 {
@@ -7254,12 +7252,13 @@ define linkonce_odr void @_ZN13FileOpenEaterC2EP10MainWindow(ptr noundef nonnull
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13FileOpenEater, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.FileOpenEater, ptr %5, i32 0, i32 1
-  store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds %class.FileOpenEater, ptr %5, i32 0, i32 2
-  store i8 1, ptr %8, align 8
+  %6 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV13FileOpenEater, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %class.FileOpenEater, ptr %5, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds %class.FileOpenEater, ptr %5, i32 0, i32 2
+  store i8 1, ptr %9, align 8
   ret void
 }
 
@@ -8006,7 +8005,7 @@ define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable 
 declare void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataI10MainWindowSt14default_deleteIS0_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
@@ -9631,6 +9630,9 @@ define internal void @_GLOBAL__sub_I_main.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9645,8 +9647,8 @@ attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }

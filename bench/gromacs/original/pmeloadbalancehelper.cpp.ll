@@ -527,39 +527,40 @@ define void @_ZN3gmx20PmeLoadBalanceHelperC2EbPNS_19StatePropagatorDataEP8_IO_FI
   store ptr %8, ptr %18, align 8
   %20 = load ptr, ptr %10, align 8
   call void @_ZN3gmx30INeighborSearchSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #9
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx20PmeLoadBalanceHelperE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 1
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 2
-  store i64 -1, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 3
-  %24 = load i8, ptr %11, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %23, align 8
-  %27 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 4
-  store i8 0, ptr %27, align 1
-  %28 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 5
-  %29 = load ptr, ptr %12, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 6
-  %31 = load ptr, ptr %13, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 7
-  %33 = load ptr, ptr %14, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 8
-  %35 = load ptr, ptr %15, align 8
-  store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 9
-  %37 = load ptr, ptr %16, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 10
-  %39 = load ptr, ptr %17, align 8
-  store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 11
-  %41 = load ptr, ptr %18, align 8
-  store ptr %41, ptr %40, align 8
+  %21 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx20PmeLoadBalanceHelperE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 1
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 2
+  store i64 -1, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 3
+  %25 = load i8, ptr %11, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %24, align 8
+  %28 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 4
+  store i8 0, ptr %28, align 1
+  %29 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 5
+  %30 = load ptr, ptr %12, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 6
+  %32 = load ptr, ptr %13, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 7
+  %34 = load ptr, ptr %14, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 8
+  %36 = load ptr, ptr %15, align 8
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 9
+  %38 = load ptr, ptr %16, align 8
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 10
+  %40 = load ptr, ptr %17, align 8
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds %"class.gmx::PmeLoadBalanceHelper", ptr %20, i32 0, i32 11
+  %42 = load ptr, ptr %18, align 8
+  store ptr %42, ptr %41, align 8
   ret void
 }
 
@@ -568,7 +569,8 @@ define linkonce_odr void @_ZN3gmx30INeighborSearchSignallerClientC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

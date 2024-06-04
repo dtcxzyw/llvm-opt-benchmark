@@ -157,56 +157,57 @@ define i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core.
   %9 = load i64, ptr %6, align 8, !noundef !5
   %10 = sub nuw i64 %8, %9
   %11 = icmp ugt i64 %10, 0
-  br i1 %11, label %16, label %12
+  br i1 %11, label %17, label %12
 
 12:                                               ; preds = %1
   %13 = load i64, ptr @anon.f25e7c6a3cb25daae3bff4c84086900b.0, align 8, !range !8, !noundef !5
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.f25e7c6a3cb25daae3bff4c84086900b.0, i64 8), align 8
+  %14 = getelementptr inbounds i8, ptr @anon.f25e7c6a3cb25daae3bff4c84086900b.0, i64 8
+  %15 = load i64, ptr %14, align 8
   store i64 %13, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %14, ptr %15, align 8
-  br label %21
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %15, ptr %16, align 8
+  br label %22
 
-16:                                               ; preds = %1
-  %17 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
-  %18 = load i64, ptr %17, align 8, !noundef !5
-  %19 = add nuw i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %18, ptr %20, align 8
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
+  %19 = load i64, ptr %18, align 8, !noundef !5
+  %20 = add nuw i64 %19, 1
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %19, ptr %21, align 8
   store i64 1, ptr %4, align 8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %16, %12
-  %22 = getelementptr inbounds { { i64, i64 }, [11 x i32], [1 x i32] }, ptr %0, i32 0, i32 1
-  %23 = load i64, ptr %4, align 8, !range !8, !noundef !5
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26
+22:                                               ; preds = %17, %12
+  %23 = getelementptr inbounds { { i64, i64 }, [11 x i32], [1 x i32] }, ptr %0, i32 0, i32 1
+  %24 = load i64, ptr %4, align 8, !range !8, !noundef !5
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %21
+26:                                               ; preds = %22
   store i32 1114112, ptr %5, align 4
-  br label %35
+  br label %36
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  %28 = load i64, ptr %27, align 8, !noundef !5
-  store ptr %22, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 11, ptr %29, align 8
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8, !noundef !5
+  store ptr %23, ptr %2, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8, !noundef !5
-  %32 = icmp ult i64 %28, %31
-  call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds i32, ptr %22, i64 %28
-  %34 = load i32, ptr %33, align 4, !range !6, !noundef !5
-  store i32 %34, ptr %5, align 4
-  br label %35
+  store i64 11, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8, !noundef !5
+  %33 = icmp ult i64 %29, %32
+  call void @llvm.assume(i1 %33)
+  %34 = getelementptr inbounds i32, ptr %23, i64 %29
+  %35 = load i32, ptr %34, align 4, !range !6, !noundef !5
+  store i32 %35, ptr %5, align 4
+  br label %36
 
-35:                                               ; preds = %26, %25
-  %36 = load i32, ptr %5, align 4, !range !3, !noundef !5
-  ret i32 %36
+36:                                               ; preds = %27, %26
+  %37 = load i32, ptr %5, align 4, !range !3, !noundef !5
+  ret i32 %37
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 

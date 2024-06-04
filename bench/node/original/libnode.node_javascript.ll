@@ -2030,13 +2030,14 @@ entry:
   store ptr %owning_ptr, ptr %owning_ptr.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String29ExternalOneByteStringResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::StaticExternalByteResource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %data_, align 8
+  %1 = load ptr, ptr %data.addr, align 8
+  store ptr %1, ptr %data_, align 8
   %length_ = getelementptr inbounds %"class.node::StaticExternalByteResource", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %length.addr, align 8
-  store i64 %1, ptr %length_, align 8
+  %2 = load i64, ptr %length.addr, align 8
+  store i64 %2, ptr %length_, align 8
   %owning_ptr_ = getelementptr inbounds %"class.node::StaticExternalByteResource", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIvEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr_, ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr) #3
   ret void
@@ -2058,7 +2059,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %owning_ptr_ = getelementptr inbounds %"class.node::StaticExternalByteResource", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr_) #3
   call void @_ZN2v86String29ExternalOneByteStringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -2090,13 +2092,14 @@ entry:
   store ptr %owning_ptr, ptr %owning_ptr.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String22ExternalStringResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::StaticExternalByteResource.0", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %data_, align 8
+  %1 = load ptr, ptr %data.addr, align 8
+  store ptr %1, ptr %data_, align 8
   %length_ = getelementptr inbounds %"class.node::StaticExternalByteResource.0", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %length.addr, align 8
-  store i64 %1, ptr %length_, align 8
+  %2 = load i64, ptr %length.addr, align 8
+  store i64 %2, ptr %length_, align 8
   %owning_ptr_ = getelementptr inbounds %"class.node::StaticExternalByteResource.0", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIvEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr_, ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr) #3
   ret void
@@ -2108,7 +2111,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %owning_ptr_ = getelementptr inbounds %"class.node::StaticExternalByteResource.0", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %owning_ptr_) #3
   call void @_ZN2v86String22ExternalStringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -11096,7 +11100,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String26ExternalStringResourceBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_data_ = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %cached_data_, align 8
   ret void
@@ -11121,7 +11126,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11243,7 +11249,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String26ExternalStringResourceBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v86String22ExternalStringResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v86String22ExternalStringResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_data_ = getelementptr inbounds %"class.v8::String::ExternalStringResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %cached_data_, align 8
   ret void
@@ -12806,12 +12813,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESJ_(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_10UnionBytesESt4lessISB_ESaISt4pairIKSB_SC_EEEE4ImplEJSJ_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_10UnionBytesESt4lessISB_ESaISt4pairIKSB_SC_EEEE4ImplEJSJ_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
@@ -12971,7 +12979,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

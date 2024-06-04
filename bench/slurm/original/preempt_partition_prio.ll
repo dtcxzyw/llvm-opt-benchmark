@@ -182,52 +182,53 @@ define i32 @preempt_p_get_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   store ptr %2, ptr %6, align 8
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr %5, align 4
-  switch i32 %8, label %27 [
+  switch i32 %8, label %28 [
     i32 0, label %9
-    i32 1, label %15
-    i32 2, label %19
-    i32 3, label %23
+    i32 1, label %16
+    i32 2, label %20
+    i32 3, label %24
   ]
 
 9:                                                ; preds = %3
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116), align 4
-  %11 = zext i16 %10 to i32
-  %12 = icmp ne i32 %11, 0
-  %13 = load ptr, ptr %6, align 8
-  %14 = zext i1 %12 to i8
-  store i8 %14, ptr %13, align 1
-  br label %30
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116
+  %11 = load i16, ptr %10, align 4
+  %12 = zext i16 %11 to i32
+  %13 = icmp ne i32 %12, 0
+  %14 = load ptr, ptr %6, align 8
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 1
+  br label %31
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %4, align 8
-  %17 = call zeroext i16 @_job_preempt_mode(ptr noundef %16)
-  %18 = load ptr, ptr %6, align 8
-  store i16 %17, ptr %18, align 2
-  br label %30
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8
+  %18 = call zeroext i16 @_job_preempt_mode(ptr noundef %17)
+  %19 = load ptr, ptr %6, align 8
+  store i16 %18, ptr %19, align 2
+  br label %31
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 @_gen_job_prio(ptr noundef %20)
-  %22 = load ptr, ptr %6, align 8
-  store i32 %21, ptr %22, align 4
-  br label %30
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %4, align 8
+  %22 = call i32 @_gen_job_prio(ptr noundef %21)
+  %23 = load ptr, ptr %6, align 8
+  store i32 %22, ptr %23, align 4
+  br label %31
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @_get_grace_time(ptr noundef %24)
-  %26 = load ptr, ptr %6, align 8
-  store i32 %25, ptr %26, align 4
-  br label %30
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %4, align 8
+  %26 = call i32 @_get_grace_time(ptr noundef %25)
+  %27 = load ptr, ptr %6, align 8
+  store i32 %26, ptr %27, align 4
+  br label %31
 
-27:                                               ; preds = %3
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef @__func__.preempt_p_get_data, i32 noundef %28)
+28:                                               ; preds = %3
+  %29 = load i32, ptr %5, align 4
+  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef @__func__.preempt_p_get_data, i32 noundef %29)
   store i32 -1, ptr %7, align 4
-  br label %30
+  br label %31
 
-30:                                               ; preds = %27, %23, %19, %15, %9
-  %31 = load i32, ptr %7, align 4
-  ret i32 %31
+31:                                               ; preds = %28, %24, %20, %16, %9
+  %32 = load i32, ptr %7, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -296,19 +297,20 @@ define internal zeroext i16 @_job_preempt_mode(ptr noundef %0) #0 {
   %40 = and i32 %39, -32769
   %41 = trunc i32 %40 to i16
   store i16 %41, ptr %2, align 2
-  br label %47
+  br label %48
 
 42:                                               ; preds = %10, %1
-  %43 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116), align 4
-  %44 = zext i16 %43 to i32
-  %45 = and i32 %44, -32769
-  %46 = trunc i32 %45 to i16
-  store i16 %46, ptr %2, align 2
-  br label %47
+  %43 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 116
+  %44 = load i16, ptr %43, align 4
+  %45 = zext i16 %44 to i32
+  %46 = and i32 %45, -32769
+  %47 = trunc i32 %46 to i16
+  store i16 %47, ptr %2, align 2
+  br label %48
 
-47:                                               ; preds = %42, %35
-  %48 = load i16, ptr %2, align 2
-  ret i16 %48
+48:                                               ; preds = %42, %35
+  %49 = load i16, ptr %2, align 2
+  ret i16 %49
 }
 
 ; Function Attrs: nounwind uwtable

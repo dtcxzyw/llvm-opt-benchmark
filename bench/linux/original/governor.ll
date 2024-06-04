@@ -111,18 +111,18 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @cpuidle_register_governor(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %44, label %3
+  br i1 %2, label %46, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %44, label %7
+  br i1 %6, label %46, label %7
 
 7:                                                ; preds = %3
   %8 = tail call i32 @cpuidle_disabled() #6
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %44
+  br i1 %9, label %10, label %46
 
 10:                                               ; preds = %7
   tail call void @mutex_lock(ptr noundef nonnull @cpuidle_lock) #6
@@ -143,50 +143,52 @@ define dso_local noundef i32 @cpuidle_register_governor(ptr noundef %0) local_un
 19:                                               ; preds = %15, %11
   %20 = phi ptr [ %16, %15 ], [ null, %11 ]
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %42
+  br i1 %21, label %22, label %44
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @cpuidle_governors, i64 0, i32 1), align 8
-  store ptr %23, ptr getelementptr inbounds (%struct.list_head, ptr @cpuidle_governors, i64 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct.list_head, ptr @cpuidle_governors, i64 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.list_head, ptr @cpuidle_governors, i64 0, i32 1
+  store ptr %23, ptr %26, align 8
   store ptr @cpuidle_governors, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %24, ptr %25, align 8
-  store volatile ptr %23, ptr %24, align 8
-  %26 = load ptr, ptr @cpuidle_curr_governor, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %40, label %28
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %25, ptr %27, align 8
+  store volatile ptr %23, ptr %25, align 8
+  %28 = load ptr, ptr @cpuidle_curr_governor, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %42, label %30
 
-28:                                               ; preds = %22
-  %29 = tail call i32 @strncasecmp(ptr noundef nonnull @param_governor, ptr noundef nonnull %0, i64 noundef 16)
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %40, label %31
+30:                                               ; preds = %22
+  %31 = tail call i32 @strncasecmp(ptr noundef nonnull @param_governor, ptr noundef nonnull %0, i64 noundef 16)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %42, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %28, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = icmp ult i32 %33, %35
-  br i1 %36, label %37, label %42
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ult i32 %35, %37
+  br i1 %38, label %39, label %44
 
-37:                                               ; preds = %31
-  %38 = tail call i32 @strncasecmp(ptr noundef nonnull @param_governor, ptr noundef nonnull %26, i64 noundef 16)
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %42, label %40
+39:                                               ; preds = %33
+  %40 = tail call i32 @strncasecmp(ptr noundef nonnull @param_governor, ptr noundef nonnull %28, i64 noundef 16)
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %44, label %42
 
-40:                                               ; preds = %37, %28, %22
-  %41 = tail call i32 @cpuidle_switch_governor(ptr noundef nonnull %0), !range !10
-  br label %42
-
-42:                                               ; preds = %40, %37, %31, %19
-  %43 = phi i32 [ 0, %40 ], [ 0, %37 ], [ 0, %31 ], [ -17, %19 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @cpuidle_lock) #6
+42:                                               ; preds = %39, %30, %22
+  %43 = tail call i32 @cpuidle_switch_governor(ptr noundef nonnull %0), !range !10
   br label %44
 
-44:                                               ; preds = %42, %7, %3, %1
-  %45 = phi i32 [ %43, %42 ], [ -22, %3 ], [ -22, %1 ], [ -19, %7 ]
-  ret i32 %45
+44:                                               ; preds = %42, %39, %33, %19
+  %45 = phi i32 [ 0, %42 ], [ 0, %39 ], [ 0, %33 ], [ -17, %19 ]
+  tail call void @mutex_unlock(ptr noundef nonnull @cpuidle_lock) #6
+  br label %46
+
+46:                                               ; preds = %44, %7, %3, %1
+  %47 = phi i32 [ %45, %44 ], [ -22, %3 ], [ -22, %1 ], [ -19, %7 ]
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -204,21 +206,22 @@ define dso_local i64 @cpuidle_governor_latency_req(i32 noundef %0) local_unnamed
   %3 = getelementptr inbounds i8, ptr %2, i64 520
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %6 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  %7 = or i1 %5, %6
-  br i1 %7, label %10, label %8
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %4, %6
+  %8 = or i1 %5, %7
+  br i1 %8, label %11, label %9
 
-8:                                                ; preds = %1
-  %9 = tail call i32 @pm_qos_read_value(ptr noundef %4) #6
-  br label %10
+9:                                                ; preds = %1
+  %10 = tail call i32 @pm_qos_read_value(ptr noundef %4) #6
+  br label %11
 
-10:                                               ; preds = %8, %1
-  %11 = phi i32 [ %9, %8 ], [ 2147483647, %1 ]
-  %12 = tail call i32 @cpu_latency_qos_limit() #6
-  %13 = tail call i32 @llvm.smin.i32(i32 %11, i32 %12)
-  %14 = sext i32 %13 to i64
-  %15 = mul nsw i64 %14, 1000
-  ret i64 %15
+11:                                               ; preds = %9, %1
+  %12 = phi i32 [ %10, %9 ], [ 2147483647, %1 ]
+  %13 = tail call i32 @cpu_latency_qos_limit() #6
+  %14 = tail call i32 @llvm.smin.i32(i32 %12, i32 %13)
+  %15 = sext i32 %14 to i64
+  %16 = mul nsw i64 %15, 1000
+  ret i64 %16
 }
 
 ; Function Attrs: null_pointer_is_valid

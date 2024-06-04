@@ -142,9 +142,10 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   store i64 9, ptr %prefix_len, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9), ptr %ep, align 8
-  %3 = load ptr, ptr %name.addr, align 8
-  %call3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  %3 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9
+  store ptr %3, ptr %ep, align 8
+  %4 = load ptr, ptr %name.addr, align 8
+  %call3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   %cmp = icmp ne i64 %call3, 18
   br i1 %cmp, label %if.then4, label %if.end5
 
@@ -153,13 +154,14 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %4 = load ptr, ptr %name.addr, align 8
-  %call6 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %5 = load ptr, ptr %name.addr, align 8
+  %call6 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   %coerce.dive7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
   store ptr %call6, ptr %coerce.dive7, align 8
   %coerce.dive8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive8, align 8
-  %call9 = call noundef zeroext i1 @_ZSt5equalIPKcN9__gnu_cxx17__normal_iteratorIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbT_SB_T0_(ptr noundef @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, ptr noundef getelementptr (i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9), ptr %5)
+  %6 = load ptr, ptr %coerce.dive8, align 8
+  %7 = getelementptr i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9
+  %call9 = call noundef zeroext i1 @_ZSt5equalIPKcN9__gnu_cxx17__normal_iteratorIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbT_SB_T0_(ptr noundef @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, ptr noundef %7, ptr %6)
   br i1 %call9, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end5
@@ -167,22 +169,22 @@ if.then10:                                        ; preds = %if.end5
   br label %return
 
 if.end11:                                         ; preds = %if.end5
-  %6 = load ptr, ptr %name.addr, align 8
-  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %8 = load ptr, ptr %name.addr, align 8
+  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   %add.ptr = getelementptr inbounds i8, ptr %call12, i64 9
   store ptr %add.ptr, ptr %np, align 8
-  %7 = load ptr, ptr %np, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 0
-  %8 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %8 to i32
+  %9 = load ptr, ptr %np, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %9, i64 0
+  %10 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %10 to i32
   %cmp13 = icmp ne i32 %conv, 43
   br i1 %cmp13, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.end11
-  %9 = load ptr, ptr %np, align 8
-  %arrayidx14 = getelementptr inbounds i8, ptr %9, i64 0
-  %10 = load i8, ptr %arrayidx14, align 1
-  %conv15 = sext i8 %10 to i32
+  %11 = load ptr, ptr %np, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %11, i64 0
+  %12 = load i8, ptr %arrayidx14, align 1
+  %conv15 = sext i8 %12 to i32
   %cmp16 = icmp ne i32 %conv15, 45
   br i1 %cmp16, label %if.then17, label %if.end18
 
@@ -191,18 +193,18 @@ if.then17:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end18:                                         ; preds = %land.lhs.true, %if.end11
-  %11 = load ptr, ptr %np, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %11, i64 3
-  %12 = load i8, ptr %arrayidx19, align 1
-  %conv20 = sext i8 %12 to i32
+  %13 = load ptr, ptr %np, align 8
+  %arrayidx19 = getelementptr inbounds i8, ptr %13, i64 3
+  %14 = load i8, ptr %arrayidx19, align 1
+  %conv20 = sext i8 %14 to i32
   %cmp21 = icmp ne i32 %conv20, 58
   br i1 %cmp21, label %if.then26, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %if.end18
-  %13 = load ptr, ptr %np, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %13, i64 6
-  %14 = load i8, ptr %arrayidx23, align 1
-  %conv24 = sext i8 %14 to i32
+  %15 = load ptr, ptr %np, align 8
+  %arrayidx23 = getelementptr inbounds i8, ptr %15, i64 6
+  %16 = load i8, ptr %arrayidx23, align 1
+  %conv24 = sext i8 %16 to i32
   %cmp25 = icmp ne i32 %conv24, 58
   br i1 %cmp25, label %if.then26, label %if.end27
 
@@ -211,12 +213,12 @@ if.then26:                                        ; preds = %lor.lhs.false22, %i
   br label %return
 
 if.end27:                                         ; preds = %lor.lhs.false22
-  %15 = load ptr, ptr %np, align 8
-  %add.ptr28 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = load ptr, ptr %np, align 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %17, i64 1
   %call29 = call noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef %add.ptr28)
   store i32 %call29, ptr %hours, align 4
-  %16 = load i32, ptr %hours, align 4
-  %cmp30 = icmp eq i32 %16, -1
+  %18 = load i32, ptr %hours, align 4
+  %cmp30 = icmp eq i32 %18, -1
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end27
@@ -224,12 +226,12 @@ if.then31:                                        ; preds = %if.end27
   br label %return
 
 if.end32:                                         ; preds = %if.end27
-  %17 = load ptr, ptr %np, align 8
-  %add.ptr33 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = load ptr, ptr %np, align 8
+  %add.ptr33 = getelementptr inbounds i8, ptr %19, i64 4
   %call34 = call noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef %add.ptr33)
   store i32 %call34, ptr %mins, align 4
-  %18 = load i32, ptr %mins, align 4
-  %cmp35 = icmp eq i32 %18, -1
+  %20 = load i32, ptr %mins, align 4
+  %cmp35 = icmp eq i32 %20, -1
   br i1 %cmp35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end32
@@ -237,12 +239,12 @@ if.then36:                                        ; preds = %if.end32
   br label %return
 
 if.end37:                                         ; preds = %if.end32
-  %19 = load ptr, ptr %np, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %19, i64 7
+  %21 = load ptr, ptr %np, align 8
+  %add.ptr38 = getelementptr inbounds i8, ptr %21, i64 7
   %call39 = call noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef %add.ptr38)
   store i32 %call39, ptr %secs, align 4
-  %20 = load i32, ptr %secs, align 4
-  %cmp40 = icmp eq i32 %20, -1
+  %22 = load i32, ptr %secs, align 4
+  %cmp40 = icmp eq i32 %22, -1
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end37
@@ -250,16 +252,16 @@ if.then41:                                        ; preds = %if.end37
   br label %return
 
 if.end42:                                         ; preds = %if.end37
-  %21 = load i32, ptr %hours, align 4
-  %mul = mul nsw i32 %21, 60
-  %22 = load i32, ptr %mins, align 4
-  %add = add nsw i32 %mul, %22
+  %23 = load i32, ptr %hours, align 4
+  %mul = mul nsw i32 %23, 60
+  %24 = load i32, ptr %mins, align 4
+  %add = add nsw i32 %mul, %24
   %mul43 = mul nsw i32 %add, 60
-  %23 = load i32, ptr %secs, align 4
-  %add44 = add nsw i32 %23, %mul43
+  %25 = load i32, ptr %secs, align 4
+  %add44 = add nsw i32 %25, %mul43
   store i32 %add44, ptr %secs, align 4
-  %24 = load i32, ptr %secs, align 4
-  %cmp45 = icmp sgt i32 %24, 86400
+  %26 = load i32, ptr %secs, align 4
+  %cmp45 = icmp sgt i32 %26, 86400
   br i1 %cmp45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.end42
@@ -267,24 +269,24 @@ if.then46:                                        ; preds = %if.end42
   br label %return
 
 if.end47:                                         ; preds = %if.end42
-  %25 = load i32, ptr %secs, align 4
-  %26 = load ptr, ptr %np, align 8
-  %arrayidx50 = getelementptr inbounds i8, ptr %26, i64 0
-  %27 = load i8, ptr %arrayidx50, align 1
-  %conv51 = sext i8 %27 to i32
+  %27 = load i32, ptr %secs, align 4
+  %28 = load ptr, ptr %np, align 8
+  %arrayidx50 = getelementptr inbounds i8, ptr %28, i64 0
+  %29 = load i8, ptr %arrayidx50, align 1
+  %conv51 = sext i8 %29 to i32
   %cmp52 = icmp eq i32 %conv51, 45
   %cond = select i1 %cmp52, i32 -1, i32 1
-  %mul53 = mul nsw i32 %25, %cond
+  %mul53 = mul nsw i32 %27, %cond
   store i32 %mul53, ptr %ref.tmp49, align 4
   call void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp48, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp49)
-  %28 = load ptr, ptr %offset.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %ref.tmp48, i64 8, i1 false)
+  %30 = load ptr, ptr %offset.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %ref.tmp48, i64 8, i1 false)
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end47, %if.then46, %if.then41, %if.then36, %if.then31, %if.then26, %if.then17, %if.then10, %if.then4, %if.then
-  %29 = load i1, ptr %retval, align 1
-  ret i1 %29
+  %31 = load i1, ptr %retval, align 1
+  ret i1 %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -377,26 +379,28 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %ap, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64)
+  %4 = ptrtoint ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %4
   %conv1 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv1, ptr %v, align 4
-  %4 = load ptr, ptr %p.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
+  %5 = load ptr, ptr %p.addr, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
   store ptr %incdec.ptr, ptr %p.addr, align 8
-  %5 = load i8, ptr %incdec.ptr, align 1
-  %conv2 = sext i8 %5 to i32
+  %6 = load i8, ptr %incdec.ptr, align 1
+  %conv2 = sext i8 %6 to i32
   %call3 = call noundef ptr @strchr(ptr noundef @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i32 noundef %conv2) #10
   store ptr %call3, ptr %bp, align 8
-  %6 = load ptr, ptr %bp, align 8
-  %tobool4 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %bp, align 8
+  %tobool4 = icmp ne ptr %7, null
   br i1 %tobool4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %7 = load i32, ptr %v, align 4
-  %mul = mul nsw i32 %7, 10
-  %8 = load ptr, ptr %bp, align 8
-  %sub.ptr.lhs.cast6 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast6, ptrtoint (ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64)
+  %8 = load i32, ptr %v, align 4
+  %mul = mul nsw i32 %8, 10
+  %9 = load ptr, ptr %bp, align 8
+  %sub.ptr.lhs.cast6 = ptrtoint ptr %9 to i64
+  %10 = ptrtoint ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE to i64
+  %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast6, %10
   %conv8 = trunc i64 %sub.ptr.sub7 to i32
   %add = add nsw i32 %mul, %conv8
   store i32 %add, ptr %retval, align 4
@@ -410,8 +414,8 @@ if.end9:                                          ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then5
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

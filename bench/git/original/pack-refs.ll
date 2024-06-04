@@ -183,60 +183,61 @@ for.cond:                                         ; preds = %for.inc, %if.end
 land.rhs:                                         ; preds = %for.cond
   %7 = load ptr, ptr %item, align 8
   %8 = load ptr, ptr @cmd_pack_refs.option_excluded_refs, align 8
-  %9 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @cmd_pack_refs.option_excluded_refs, i32 0, i32 1), align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
+  %9 = getelementptr inbounds %struct.string_list, ptr @cmd_pack_refs.option_excluded_refs, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %10
   %cmp = icmp ult ptr %7, %add.ptr
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %10 = phi i1 [ false, %for.cond ], [ %cmp, %land.rhs ]
-  br i1 %10, label %for.body, label %for.end
+  %11 = phi i1 [ false, %for.cond ], [ %cmp, %land.rhs ]
+  br i1 %11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
   %exclusions59 = getelementptr inbounds %struct.pack_refs_opts, ptr %pack_refs_opts, i32 0, i32 1
-  %11 = load ptr, ptr %exclusions59, align 8
-  %12 = load ptr, ptr %item, align 8
-  %string = getelementptr inbounds %struct.string_list_item, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %string, align 8
-  call void @add_ref_exclusion(ptr noundef %11, ptr noundef %13)
+  %12 = load ptr, ptr %exclusions59, align 8
+  %13 = load ptr, ptr %item, align 8
+  %string = getelementptr inbounds %struct.string_list_item, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %string, align 8
+  call void @add_ref_exclusion(ptr noundef %12, ptr noundef %14)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %14 = load ptr, ptr %item, align 8
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %14, i32 1
+  %15 = load ptr, ptr %item, align 8
+  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %15, i32 1
   store ptr %incdec.ptr, ptr %item, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %land.end
   %flags60 = getelementptr inbounds %struct.pack_refs_opts, ptr %pack_refs_opts, i32 0, i32 0
-  %15 = load i32, ptr %flags60, align 8
-  %and = and i32 %15, 2
+  %16 = load i32, ptr %flags60, align 8
+  %and = and i32 %16, 2
   %tobool61 = icmp ne i32 %and, 0
   br i1 %tobool61, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %for.end
   %includes63 = getelementptr inbounds %struct.pack_refs_opts, ptr %pack_refs_opts, i32 0, i32 2
-  %16 = load ptr, ptr %includes63, align 8
-  %call64 = call ptr @string_list_append(ptr noundef %16, ptr noundef @.str.9)
+  %17 = load ptr, ptr %includes63, align 8
+  %call64 = call ptr @string_list_append(ptr noundef %17, ptr noundef @.str.9)
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then62, %for.end
   %includes66 = getelementptr inbounds %struct.pack_refs_opts, ptr %pack_refs_opts, i32 0, i32 2
-  %17 = load ptr, ptr %includes66, align 8
-  %nr = getelementptr inbounds %struct.string_list, ptr %17, i32 0, i32 1
-  %18 = load i64, ptr %nr, align 8
-  %tobool67 = icmp ne i64 %18, 0
+  %18 = load ptr, ptr %includes66, align 8
+  %nr = getelementptr inbounds %struct.string_list, ptr %18, i32 0, i32 1
+  %19 = load i64, ptr %nr, align 8
+  %tobool67 = icmp ne i64 %19, 0
   br i1 %tobool67, label %if.end71, label %if.then68
 
 if.then68:                                        ; preds = %if.end65
   %includes69 = getelementptr inbounds %struct.pack_refs_opts, ptr %pack_refs_opts, i32 0, i32 2
-  %19 = load ptr, ptr %includes69, align 8
-  %call70 = call ptr @string_list_append(ptr noundef %19, ptr noundef @.str.10)
+  %20 = load ptr, ptr %includes69, align 8
+  %call70 = call ptr @string_list_append(ptr noundef %20, ptr noundef @.str.10)
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then68, %if.end65
-  %20 = load ptr, ptr @the_repository, align 8
-  %call72 = call ptr @get_main_ref_store(ptr noundef %20)
+  %21 = load ptr, ptr @the_repository, align 8
+  %call72 = call ptr @get_main_ref_store(ptr noundef %21)
   %call73 = call i32 @refs_pack_refs(ptr noundef %call72, ptr noundef %pack_refs_opts)
   ret i32 %call73
 }

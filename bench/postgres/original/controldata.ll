@@ -2450,27 +2450,30 @@ define dso_local void @disable_old_cluster() #0 {
   %2 = alloca [1024 x i8], align 16
   call void (ptr, ...) @prep_status(ptr noundef @.str.94)
   %3 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3), align 8
-  %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef @.str.95, ptr noundef %4)
-  %6 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3), align 8
-  %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %6, i64 noundef 1024, ptr noundef @.str.96, ptr noundef %7)
-  %9 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %10 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %11 = call i32 @rename(ptr noundef %9, ptr noundef %10) #6
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %16
+  %4 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef @.str.95, ptr noundef %5)
+  %7 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %8 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %7, i64 noundef 1024, ptr noundef @.str.96, ptr noundef %9)
+  %11 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
+  %12 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %13 = call i32 @rename(ptr noundef %11, ptr noundef %12) #6
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %18
 
-13:                                               ; preds = %0
-  %14 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %15 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.97, ptr noundef %14, ptr noundef %15) #8
+15:                                               ; preds = %0
+  %16 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
+  %17 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.97, ptr noundef %16, ptr noundef %17) #8
   unreachable
 
-16:                                               ; preds = %0
+18:                                               ; preds = %0
   call void @check_ok()
-  %17 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3), align 8
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.98, ptr noundef %17)
+  %19 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.98, ptr noundef %20)
   ret void
 }
 

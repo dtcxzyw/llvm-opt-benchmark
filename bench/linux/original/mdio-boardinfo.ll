@@ -69,35 +69,37 @@ define dso_local noundef i32 @mdiobus_register_board_info(ptr nocapture noundef 
   %4 = mul nuw nsw i64 %3, 72
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #6
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %20, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %1, 0
-  br i1 %8, label %20, label %9
+  br i1 %8, label %22, label %9
 
 9:                                                ; preds = %9, %7
-  %10 = phi i32 [ %16, %9 ], [ 0, %7 ]
-  %11 = phi ptr [ %17, %9 ], [ %5, %7 ]
-  %12 = phi ptr [ %18, %9 ], [ %0, %7 ]
+  %10 = phi i32 [ %18, %9 ], [ 0, %7 ]
+  %11 = phi ptr [ %19, %9 ], [ %5, %7 ]
+  %12 = phi ptr [ %20, %9 ], [ %0, %7 ]
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %13, ptr noundef align 8 dereferenceable(56) %12, i64 56, i1 false)
   tail call void @mutex_lock(ptr noundef nonnull @mdio_board_lock) #5
-  %14 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mdio_board_list, i64 0, i32 1), align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.list_head, ptr @mdio_board_list, i64 0, i32 1), align 8
+  %14 = getelementptr inbounds %struct.list_head, ptr @mdio_board_list, i64 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.list_head, ptr @mdio_board_list, i64 0, i32 1
+  store ptr %11, ptr %16, align 8
   store ptr @mdio_board_list, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %14, ptr %15, align 8
-  store volatile ptr %11, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %15, ptr %17, align 8
+  store volatile ptr %11, ptr %15, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @mdio_board_lock) #5
-  %16 = add nuw i32 %10, 1
-  %17 = getelementptr i8, ptr %11, i64 72
-  %18 = getelementptr i8, ptr %12, i64 56
-  %19 = icmp eq i32 %16, %1
-  br i1 %19, label %20, label %9, !llvm.loop !8
+  %18 = add nuw i32 %10, 1
+  %19 = getelementptr i8, ptr %11, i64 72
+  %20 = getelementptr i8, ptr %12, i64 56
+  %21 = icmp eq i32 %18, %1
+  br i1 %21, label %22, label %9, !llvm.loop !8
 
-20:                                               ; preds = %9, %7, %2
-  %21 = phi i32 [ -12, %2 ], [ 0, %7 ], [ 0, %9 ]
-  ret i32 %21
+22:                                               ; preds = %9, %7, %2
+  %23 = phi i32 [ -12, %2 ], [ 0, %7 ], [ 0, %9 ]
+  ret i32 %23
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

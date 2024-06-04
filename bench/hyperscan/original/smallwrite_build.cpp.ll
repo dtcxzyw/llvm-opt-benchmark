@@ -5737,13 +5737,14 @@ entry:
   store ptr %cc_in, ptr %cc_in.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue215SmallWriteBuildC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rm_in.addr, align 8
-  store ptr %0, ptr %rm, align 8
+  %1 = load ptr, ptr %rm_in.addr, align 8
+  store ptr %1, ptr %rm, align 8
   %cc = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %cc_in.addr, align 8
-  store ptr %1, ptr %cc, align 8
+  %2 = load ptr, ptr %cc_in.addr, align 8
+  store ptr %2, ptr %cc, align 8
   %dfas = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dfas) #2
   %lit_trie = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 4
@@ -5760,54 +5761,54 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store i64 0, ptr %num_literals, align 8
   %poisoned = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 7
   %cc4 = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %cc4, align 8
-  %grey = getelementptr inbounds %"struct.ue2::CompileContext", ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %cc4, align 8
+  %grey = getelementptr inbounds %"struct.ue2::CompileContext", ptr %3, i32 0, i32 3
   %allowSmallWrite = getelementptr inbounds %"struct.ue2::Grey", ptr %grey, i32 0, i32 92
-  %3 = load i8, ptr %allowSmallWrite, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %allowSmallWrite, align 1
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %invoke.cont3
   %cc5 = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %cc5, align 8
-  %streaming = getelementptr inbounds %"struct.ue2::CompileContext", ptr %4, i32 0, i32 0
-  %5 = load i8, ptr %streaming, align 8
-  %tobool6 = trunc i8 %5 to i1
+  %5 = load ptr, ptr %cc5, align 8
+  %streaming = getelementptr inbounds %"struct.ue2::CompileContext", ptr %5, i32 0, i32 0
+  %6 = load i8, ptr %streaming, align 8
+  %tobool6 = trunc i8 %6 to i1
   br i1 %tobool6, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %6 = load i64, ptr %num_patterns.addr, align 8
+  %7 = load i64, ptr %num_patterns.addr, align 8
   %cc7 = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %cc7, align 8
-  %grey8 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %7, i32 0, i32 3
+  %8 = load ptr, ptr %cc7, align 8
+  %grey8 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %8, i32 0, i32 3
   %smallWriteMaxPatterns = getelementptr inbounds %"struct.ue2::Grey", ptr %grey8, i32 0, i32 98
-  %8 = load i32, ptr %smallWriteMaxPatterns, align 4
-  %conv = zext i32 %8 to i64
-  %cmp = icmp ugt i64 %6, %conv
+  %9 = load i32, ptr %smallWriteMaxPatterns, align 4
+  %conv = zext i32 %9 to i64
+  %cmp = icmp ugt i64 %7, %conv
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %invoke.cont3
-  %9 = phi i1 [ true, %lor.lhs.false ], [ true, %invoke.cont3 ], [ %cmp, %lor.rhs ]
-  %frombool = zext i1 %9 to i8
+  %10 = phi i1 [ true, %lor.lhs.false ], [ true, %invoke.cont3 ], [ %cmp, %lor.rhs ]
+  %frombool = zext i1 %10 to i8
   store i8 %frombool, ptr %poisoned, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN3ue27LitTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lit_trie) #2
   br label %ehcleanup
 
@@ -5857,7 +5858,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue215SmallWriteBuildE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ue215SmallWriteBuildE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5955,7 +5957,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lit_trie_nocase = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 5
   call void @_ZN3ue27LitTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lit_trie_nocase) #2
   %lit_trie = getelementptr inbounds %"class.ue2::(anonymous namespace)::SmallWriteBuildImpl", ptr %this1, i32 0, i32 4
@@ -20356,10 +20359,11 @@ entry:
   store ptr %d, ptr %d.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   ret void
 }
 
@@ -20381,7 +20385,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %use_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %use_count_, align 8
   %weak_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 2
@@ -35682,10 +35687,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %k, ptr %k.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %k.addr, align 4
-  store i32 %0, ptr %kind, align 8
+  %1 = load i32, ptr %k.addr, align 4
+  store i32 %1, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %states) #2
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3
@@ -51709,7 +51715,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -51975,7 +51982,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

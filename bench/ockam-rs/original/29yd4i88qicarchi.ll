@@ -17356,7 +17356,7 @@ define available_externally hidden void @_ZN10ockam_core7routing7mailbox9Mailbox
 19:                                               ; preds = %22
   %20 = load i8, ptr %9, align 1, !range !6, !noundef !4
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %45, label %42
+  br i1 %21, label %46, label %43
 
 22:                                               ; preds = %28, %6
   %23 = landingpad { ptr, i32 }
@@ -17388,45 +17388,46 @@ define available_externally hidden void @_ZN10ockam_core7routing7mailbox9Mailbox
   call void @llvm.lifetime.end.p0(i64 32, ptr %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr %10)
   %38 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %10, i32 0, i32 1
+  %39 = inttoptr i64 8 to ptr
+  store ptr %39, ptr %38, align 8
+  %40 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
   store i64 0, ptr %40, align 8
+  %41 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %10, i32 0, i32 1
+  store i64 0, ptr %41, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %12, i64 64, i1 false)
-  %41 = getelementptr inbounds { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %10, i64 24, i1 false)
+  %42 = getelementptr inbounds { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr %12)
   ret void
 
-42:                                               ; preds = %45, %19
-  %43 = load i8, ptr %8, align 1, !range !6, !noundef !4
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %54, label %48
+43:                                               ; preds = %46, %19
+  %44 = load i8, ptr %8, align 1, !range !6, !noundef !4
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %55, label %49
 
-45:                                               ; preds = %19
+46:                                               ; preds = %19
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..OutgoingAccessControl$GT$$GT$17h83e0b54161a22a6eE.llvm.1524249472425783921"(ptr noalias noundef align 8 dereferenceable(16) %13) #17
-          to label %42 unwind label %46
+          to label %43 unwind label %47
 
-46:                                               ; preds = %54, %45
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %55, %46
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #18
   unreachable
 
-48:                                               ; preds = %54, %42
-  %49 = load ptr, ptr %7, align 8, !noundef !4
-  %50 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8, !noundef !4
+49:                                               ; preds = %55, %43
+  %50 = load ptr, ptr %7, align 8, !noundef !4
+  %51 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %7)
-  %52 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+  %53 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 
-54:                                               ; preds = %42
+55:                                               ; preds = %43
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17hb67ced38f0daa2a9E.llvm.1524249472425783921"(ptr noalias noundef align 8 dereferenceable(16) %14) #17
-          to label %48 unwind label %46
+          to label %49 unwind label %47
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18375,11 +18376,12 @@ define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h63ab32d45c565388E"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 

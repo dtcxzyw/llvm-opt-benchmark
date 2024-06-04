@@ -585,67 +585,68 @@ define dso_local void @_ZN28cmGlobalWatcomWMakeGeneratorC2EP5cmake(ptr noundef n
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN30cmGlobalUnixMakefileGenerator3C2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2120) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [74 x ptr] }, ptr @_ZTV28cmGlobalWatcomWMakeGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 4
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str)
-          to label %11 unwind label %32
+  %9 = getelementptr inbounds { [74 x ptr] }, ptr @_ZTV28cmGlobalWatcomWMakeGenerator, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 4
+  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str)
+          to label %12 unwind label %33
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 50
-  store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 47
-  store i8 1, ptr %13, align 4
-  %14 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 9
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.2)
-          to label %16 unwind label %32
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 50
+  store i8 1, ptr %13, align 1
+  %14 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 47
+  store i8 1, ptr %14, align 4
+  %15 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 9
+  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.2)
+          to label %17 unwind label %33
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %4, align 8
-  %18 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %17)
-          to label %19 unwind label %32
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8
+  %19 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %18)
+          to label %20 unwind label %33
 
-19:                                               ; preds = %16
-  invoke void @_ZN7cmState14SetWatcomWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %18, i1 noundef zeroext true)
-          to label %20 unwind label %32
+20:                                               ; preds = %17
+  invoke void @_ZN7cmState14SetWatcomWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %19, i1 noundef zeroext true)
+          to label %21 unwind label %33
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 1
-  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.3)
-          to label %23 unwind label %32
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 1
+  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @.str.3)
+          to label %24 unwind label %33
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 2
-  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str.4)
-          to label %26 unwind label %32
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 2
+  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str.4)
+          to label %27 unwind label %33
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 3
-  store i8 1, ptr %27, align 8
-  %28 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 5
-  store i8 0, ptr %28, align 2
-  %29 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 2
-  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str.5)
-          to label %31 unwind label %32
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 3
+  store i8 1, ptr %28, align 8
+  %29 = getelementptr inbounds %class.cmGlobalUnixMakefileGenerator3, ptr %7, i32 0, i32 5
+  store i8 0, ptr %29, align 2
+  %30 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 2
+  %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.5)
+          to label %32 unwind label %33
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   ret void
 
-32:                                               ; preds = %26, %23, %20, %19, %16, %11, %2
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %27, %24, %21, %20, %17, %12, %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
   call void @_ZN30cmGlobalUnixMakefileGenerator3D2Ev(ptr noundef nonnull align 8 dereferenceable(2120) %7) #3
-  br label %36
+  br label %37
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN30cmGlobalUnixMakefileGenerator3C2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2120), ptr noundef) unnamed_addr #1

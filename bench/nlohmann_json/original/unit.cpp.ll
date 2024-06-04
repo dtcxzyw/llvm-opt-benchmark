@@ -9537,7 +9537,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest13IContextScopeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
   store i8 1, ptr %need_to_destroy, align 8
   store ptr %this1, ptr %ref.tmp, align 8
@@ -9548,12 +9549,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -9571,7 +9572,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest13IContextScopeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7doctest13IContextScopeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9598,26 +9600,27 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest13IContextScopeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
   store i8 1, ptr %need_to_destroy, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %need_to_destroy2 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %need_to_destroy2, align 8
-  %tobool = trunc i8 %1 to i1
+  %1 = load ptr, ptr %other.addr, align 8
+  %need_to_destroy2 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %1, i32 0, i32 1
+  %2 = load i8, ptr %need_to_destroy2, align 8
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(9) %2)
+  %3 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(9) %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %3 = load ptr, ptr %other.addr, align 8
-  %need_to_destroy3 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %other.addr, align 8
+  %need_to_destroy3 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %4, i32 0, i32 1
   store i8 0, ptr %need_to_destroy3, align 8
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZNSt6vectorIPN7doctest13IContextScopeESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7doctest6detail14g_infoContextsE, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -9627,10 +9630,10 @@ invoke.cont4:                                     ; preds = %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.end, %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #26
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #26
   unreachable
 }
 
@@ -10200,7 +10203,7 @@ lpad8:                                            ; preds = %for.end
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #5
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #5
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch28, label %catch.fallthrough
 
@@ -10222,7 +10225,7 @@ invoke.cont34:                                    ; preds = %catch28
           to label %invoke.cont35 unwind label %lpad
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #5
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #5
   %matches9 = icmp eq i32 %sel, %16
   br i1 %matches9, label %catch20, label %catch.fallthrough10
 
@@ -10241,7 +10244,7 @@ invoke.cont25:                                    ; preds = %catch20
           to label %invoke.cont26 unwind label %lpad
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTIPKc) #5
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIPKc) #5
   %matches11 = icmp eq i32 %sel, %19
   br i1 %matches11, label %catch16, label %catch
 
@@ -14763,17 +14766,22 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 1096
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3
+  store ptr %2, ptr %add.ptr, align 8
   %discardBuf = getelementptr inbounds %"class.doctest::DiscardOStream", ptr %this1, i32 0, i32 1
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1), ptr noundef %discardBuf)
+  %3 = getelementptr inbounds [4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %3, ptr noundef %discardBuf)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %4 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3
+  store ptr %4, ptr %this1, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3), ptr %add.ptr2, align 8
+  %5 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3
+  store ptr %5, ptr %add.ptr2, align 8
   %discardBuf3 = getelementptr inbounds %"class.doctest::DiscardOStream", ptr %this1, i32 0, i32 1
   invoke void @_ZN7doctest14DiscardOStreamUt_C2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %discardBuf3)
           to label %invoke.cont5 unwind label %lpad4
@@ -14782,27 +14790,28 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1)) #5
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds [4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %12) #5
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
-  %7 = getelementptr inbounds i8, ptr %this1, i64 1096
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7) #5
+  %13 = getelementptr inbounds i8, ptr %this1, i64 1096
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %13) #5
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -16141,7 +16150,7 @@ lpad467:                                          ; preds = %invoke.cont468, %in
 
 catch.dispatch:                                   ; preds = %lpad467, %lpad465
   %sel = load i32, ptr %ehselector.slot, align 4
-  %226 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7doctest6detail20TestFailureExceptionE) #5
+  %226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7doctest6detail20TestFailureExceptionE) #5
   %matches = icmp eq i32 %sel, %226
   br i1 %matches, label %catch495, label %catch
 
@@ -17551,9 +17560,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress uwtable
@@ -18278,7 +18284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) #17 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) #16 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca i32, align 4
   %argc.addr = alloca i32, align 4
@@ -19005,7 +19011,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
@@ -19195,10 +19201,10 @@ if.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #18
+declare void @_ZSt28__throw_bad_array_new_lengthv() #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #18
+declare void @_ZSt17__throw_bad_allocv() #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPSt4fposI11__mbstate_tES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat {
@@ -20452,7 +20458,7 @@ entry:
 declare i32 @isatty(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #19
+declare ptr @__errno_location() #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIPKN7doctest6detail20IExceptionTranslatorESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
@@ -23430,7 +23436,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #18
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #1 comdat align 2 {
@@ -23814,7 +23820,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23848,7 +23855,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N7doctest14DiscardOStreamD1Ev(ptr noundef %this) unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N7doctest14DiscardOStreamD1Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -23862,7 +23869,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N7doctest14DiscardOStreamD0Ev(ptr noundef %this) unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N7doctest14DiscardOStreamD0Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -28043,7 +28050,7 @@ if.end7:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #21
+declare i1 @llvm.is.constant.i64(i64) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -32477,31 +32484,32 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %co.addr, align 8
-  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %cout, align 8
-  invoke void @_ZN7doctest12_GLOBAL__N_19XmlWriterC2ERSo(ptr noundef nonnull align 8 dereferenceable(72) %xml, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %co.addr, align 8
+  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %cout, align 8
+  invoke void @_ZN7doctest12_GLOBAL__N_19XmlWriterC2ERSo(ptr noundef nonnull align 8 dereferenceable(72) %xml, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %mutex = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 2
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #5
   %opt = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %co.addr, align 8
-  store ptr %2, ptr %opt, align 8
+  %3 = load ptr, ptr %co.addr, align 8
+  store ptr %3, ptr %opt, align 8
   %tc = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 4
   store ptr null, ptr %tc, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -32519,7 +32527,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest9IReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest9IReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -36411,7 +36420,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 1
   call void @_ZN7doctest12_GLOBAL__N_19XmlWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %xml) #5
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
@@ -39637,7 +39647,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #18
+declare void @_ZSt20__throw_system_errori(i32 noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL18__gthread_active_pv() #1 {
@@ -40288,12 +40298,13 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %co.addr, align 8
-  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %cout, align 8
-  invoke void @_ZN7doctest12_GLOBAL__N_19XmlWriterC2ERSo(ptr noundef nonnull align 8 dereferenceable(72) %xml, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %co.addr, align 8
+  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %cout, align 8
+  invoke void @_ZN7doctest12_GLOBAL__N_19XmlWriterC2ERSo(ptr noundef nonnull align 8 dereferenceable(72) %xml, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -40306,19 +40317,19 @@ invoke.cont:                                      ; preds = %entry
   %testCaseData = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 5
   call void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseDataC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %testCaseData) #5
   %opt = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %co.addr, align 8
-  store ptr %2, ptr %opt, align 8
+  %3 = load ptr, ptr %co.addr, align 8
+  store ptr %3, ptr %opt, align 8
   %tc = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 7
   store ptr null, ptr %tc, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -42213,7 +42224,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %testCaseData = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 5
   call void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %testCaseData) #5
   %deepestSubcaseStackNames = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 4
@@ -46564,19 +46576,20 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %s = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %co.addr, align 8
-  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %cout, align 8
-  store ptr %1, ptr %s, align 8
+  %1 = load ptr, ptr %co.addr, align 8
+  %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %cout, align 8
+  store ptr %2, ptr %s, align 8
   %subcasesStack = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subcasesStack) #5
   %mutex = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 5
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #5
   %opt = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %co.addr, align 8
-  store ptr %2, ptr %opt, align 8
+  %3 = load ptr, ptr %co.addr, align 8
+  store ptr %3, ptr %opt, align 8
   ret void
 }
 
@@ -47879,7 +47892,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %subcasesStack = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subcasesStack) #5
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
@@ -55102,6 +55116,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -55118,12 +55135,12 @@ attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind memory(none) }
-attributes #17 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #21 = { nounwind memory(none) }
 attributes #22 = { noreturn }
 attributes #23 = { builtin allocsize(0) }
 attributes #24 = { builtin nounwind }

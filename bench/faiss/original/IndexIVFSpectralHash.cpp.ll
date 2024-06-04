@@ -2130,79 +2130,81 @@ define void @_ZN5faiss20IndexIVFSpectralHashC2EPNS_5IndexEmmif(ptr noundef nonnu
   %22 = sdiv i32 %21, 8
   %23 = sext i32 %22 to i64
   call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %16, ptr noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %23, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 1
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 2
-  store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 3
-  %28 = load i32, ptr %11, align 4
-  store i32 %28, ptr %27, align 4
-  %29 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 4
-  %30 = load float, ptr %12, align 4
-  store float %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 5
-  store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #18
-          to label %34 unwind label %45
+  %24 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2
+  store ptr %24, ptr %16, align 8
+  %25 = getelementptr inbounds i8, ptr %16, i64 40
+  %26 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 1
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 2
+  store i8 1, ptr %28, align 8
+  %29 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 3
+  %30 = load i32, ptr %11, align 4
+  store i32 %30, ptr %29, align 4
+  %31 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 4
+  %32 = load float, ptr %12, align 4
+  store float %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 5
+  store i32 0, ptr %33, align 4
+  %34 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #9
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #18
+          to label %36 unwind label %47
 
-34:                                               ; preds = %6
-  %35 = load i64, ptr %9, align 8
-  %36 = trunc i64 %35 to i32
-  %37 = load i32, ptr %11, align 4
-  invoke void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(73) %33, i32 noundef %36, i32 noundef %37)
-          to label %38 unwind label %49
+36:                                               ; preds = %6
+  %37 = load i64, ptr %9, align 8
+  %38 = trunc i64 %37 to i32
+  %39 = load i32, ptr %11, align 4
+  invoke void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(73) %35, i32 noundef %38, i32 noundef %39)
+          to label %40 unwind label %51
 
-38:                                               ; preds = %34
-  store ptr %33, ptr %13, align 8
-  %39 = load ptr, ptr %13, align 8
-  invoke void @_ZN5faiss20RandomRotationMatrix4initEi(ptr noundef nonnull align 8 dereferenceable(73) %39, i32 noundef 1234)
-          to label %40 unwind label %45
-
-40:                                               ; preds = %38
+40:                                               ; preds = %36
+  store ptr %35, ptr %13, align 8
   %41 = load ptr, ptr %13, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 1
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds %"struct.faiss::Index", ptr %16, i32 0, i32 5
-  store i8 0, ptr %43, align 1
-  %44 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %16, i32 0, i32 10
-  store i8 0, ptr %44, align 8
+  invoke void @_ZN5faiss20RandomRotationMatrix4initEi(ptr noundef nonnull align 8 dereferenceable(73) %41, i32 noundef 1234)
+          to label %42 unwind label %47
+
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %13, align 8
+  %44 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %16, i32 0, i32 1
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds %"struct.faiss::Index", ptr %16, i32 0, i32 5
+  store i8 0, ptr %45, align 1
+  %46 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %16, i32 0, i32 10
+  store i8 0, ptr %46, align 8
   ret void
 
-45:                                               ; preds = %38, %6
-  %46 = landingpad { ptr, i32 }
+47:                                               ; preds = %40, %6
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %14, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %15, align 4
-  br label %53
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %14, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %15, align 4
+  br label %55
 
-49:                                               ; preds = %34
-  %50 = landingpad { ptr, i32 }
+51:                                               ; preds = %36
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %14, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %15, align 4
-  call void @_ZdlPv(ptr noundef %33) #15
-  br label %53
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %14, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %15, align 4
+  call void @_ZdlPv(ptr noundef %35) #15
+  br label %55
 
-53:                                               ; preds = %49, %45
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
+55:                                               ; preds = %51, %47
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #9
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %16) #9
-  br label %54
+  br label %56
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %14, align 8
+  %58 = load i32, ptr %15, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 declare void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257), ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) unnamed_addr #1
@@ -2233,7 +2235,8 @@ define linkonce_odr void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnu
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -2478,23 +2481,25 @@ define void @_ZN5faiss20IndexIVFSpectralHashC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 2
-  store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 3
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 4
-  store float 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 2
+  store i8 1, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 3
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #9
-  %11 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %3, i32 0, i32 10
-  store i8 0, ptr %11, align 8
+  %10 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 4
+  store float 0.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 5
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
+  %13 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %3, i32 0, i32 10
+  store i8 0, ptr %13, align 8
   ret void
 }
 
@@ -2505,33 +2510,35 @@ define void @_ZN5faiss20IndexIVFSpectralHashD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 2
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %17
+  %4 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 2
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %19
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %16, label %12
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %18, label %14
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 5
-  %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(17) %10) #9
-  br label %16
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %12, align 8
+  %16 = getelementptr inbounds ptr, ptr %15, i64 5
+  %17 = load ptr, ptr %16, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(17) %12) #9
+  br label %18
 
-16:                                               ; preds = %12, %8
-  br label %17
+18:                                               ; preds = %14, %10
+  br label %19
 
-17:                                               ; preds = %16, %1
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #9
+19:                                               ; preds = %18, %1
+  %20 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #9
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3) #9
   ret void
 }
@@ -2560,9 +2567,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -6627,148 +6635,149 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4E
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %68
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %69
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %72
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %73
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %76
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %77
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss16HammingComputer4C2EPKhi(ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %80
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss16HammingComputer4C2EPKhi(ptr noundef nonnull align 4 dereferenceable(4) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %81
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = invoke noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-          to label %65 unwind label %80
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = invoke noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+          to label %66 unwind label %81
 
-65:                                               ; preds = %52
-  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %67 = zext i1 %64 to i8
-  store i8 %67, ptr %66, align 8
+66:                                               ; preds = %53
+  %67 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %68 = zext i1 %65 to i8
+  store i8 %68, ptr %67, align 8
   ret void
 
-68:                                               ; preds = %3
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %3
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %8, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %9, align 4
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %8, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %86
-
-72:                                               ; preds = %35
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %8, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %85
-
-76:                                               ; preds = %39
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %8, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %84
-
-80:                                               ; preds = %52, %44
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %8, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %84
-
-84:                                               ; preds = %80, %76
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %85
-
-85:                                               ; preds = %84, %72
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %86
-
-86:                                               ; preds = %85, %68
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %87
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %8, align 8
-  %89 = load i32, ptr %9, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+73:                                               ; preds = %36
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %8, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %86
+
+77:                                               ; preds = %40
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %8, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %85
+
+81:                                               ; preds = %53, %45
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %8, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %85
+
+85:                                               ; preds = %81, %77
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %86
+
+86:                                               ; preds = %85, %73
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %87
+
+87:                                               ; preds = %86, %69
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %8, align 8
+  %90 = load i32, ptr %9, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6781,21 +6790,22 @@ define linkonce_odr void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(p
   store i8 %7, ptr %5, align 1
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss19InvertedListScannerE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 1
-  store i64 -1, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 2
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 3
-  %12 = load i8, ptr %5, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 1
-  %15 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 4
-  %16 = load ptr, ptr %6, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 5
-  store i64 0, ptr %17, align 8
+  %9 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss19InvertedListScannerE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 1
+  store i64 -1, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 2
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 3
+  %13 = load i8, ptr %5, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 1
+  %16 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 4
+  %17 = load ptr, ptr %6, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 5
+  store i64 0, ptr %18, align 8
   ret void
 }
 
@@ -7395,13 +7405,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -8321,145 +8332,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8E
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss16HammingComputer8C2EPKhi(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss16HammingComputer8C2EPKhi(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8931,13 +8943,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.35", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -9000,145 +9013,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss17HammingComputer16C2EPKhi(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss17HammingComputer16C2EPKhi(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9610,13 +9624,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.36", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -9700,145 +9715,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss17HammingComputer20C2EPKhi(ptr noundef nonnull align 8 dereferenceable(20) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss17HammingComputer20C2EPKhi(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10310,13 +10326,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.37", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -10415,145 +10432,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss17HammingComputer32C2EPKhi(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss17HammingComputer32C2EPKhi(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11025,13 +11043,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.38", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -11141,145 +11160,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss17HammingComputer64C2EPKhi(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss17HammingComputer64C2EPKhi(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11751,13 +11771,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.39", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -11919,145 +11940,146 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDe
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = sext i32 %19 to i64
-  store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %22, i32 0, i32 4
-  %24 = load float, ptr %23, align 8
-  store float %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  %29 = fpext float %28 to double
-  %30 = fdiv double 2.000000e+00, %29
-  %31 = fptrunc double %30 to float
-  store float %31, ptr %25, align 4
-  %32 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 5
-  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %17, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %23, i32 0, i32 4
+  %25 = load float, ptr %24, align 8
+  store float %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %"struct.faiss::IndexIVFSpectralHash", ptr %27, i32 0, i32 4
+  %29 = load float, ptr %28, align 8
+  %30 = fpext float %29 to double
+  %31 = fdiv double 2.000000e+00, %30
+  %32 = fptrunc double %31 to float
+  store float %32, ptr %26, align 4
+  %33 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 5
+  %34 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %35 unwind label %67
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %36 unwind label %68
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %36 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 6
-  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
-  %38 = load i64, ptr %37, align 8
+  %37 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 6
+  %38 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8
   call void @_ZNSaIfEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %39 unwind label %71
+  invoke void @_ZNSt6vectorIfSaIfEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %40 unwind label %72
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  %40 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 7
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %41, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
+  %41 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 7
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %42, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %75
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %45 unwind label %76
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  %45 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 8
-  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 7
-  %47 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #9
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  invoke void @_ZN5faiss22HammingComputerDefaultC2EPKhi(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef %47, i32 noundef %51)
-          to label %52 unwind label %79
+  %46 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 8
+  %47 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %13, i32 0, i32 7
+  %48 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #9
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  invoke void @_ZN5faiss22HammingComputerDefaultC2EPKhi(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %48, i32 noundef %52)
+          to label %53 unwind label %80
 
-52:                                               ; preds = %44
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %57, i32 0, i32 6
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
-  store i64 %59, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %"struct.faiss::Index", ptr %61, i32 0, i32 7
-  %63 = load i32, ptr %62, align 4
-  %64 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %63)
-  %65 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
-  %66 = zext i1 %64 to i8
-  store i8 %66, ptr %65, align 8
+53:                                               ; preds = %45
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 3
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %58, i32 0, i32 6
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 5
+  store i64 %60, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %"struct.faiss::Index", ptr %62, i32 0, i32 7
+  %64 = load i32, ptr %63, align 4
+  %65 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef %64)
+  %66 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %13, i32 0, i32 2
+  %67 = zext i1 %65 to i8
+  store i8 %67, ptr %66, align 8
   ret void
 
-67:                                               ; preds = %3
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %8, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %9, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
   call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  br label %85
-
-71:                                               ; preds = %35
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %8, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %9, align 4
-  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
-  br label %84
-
-75:                                               ; preds = %39
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %8, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %9, align 4
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %83
-
-79:                                               ; preds = %44
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %8, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #9
-  br label %83
-
-83:                                               ; preds = %79, %75
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #9
-  br label %84
-
-84:                                               ; preds = %83, %71
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #9
-  br label %85
-
-85:                                               ; preds = %84, %67
-  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+72:                                               ; preds = %36
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %8, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %9, align 4
+  call void @_ZNSaIfED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  br label %85
+
+76:                                               ; preds = %40
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %8, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %9, align 4
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  br label %84
+
+80:                                               ; preds = %45
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %8, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #9
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #9
+  br label %85
+
+85:                                               ; preds = %84, %72
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
+  br label %86
+
+86:                                               ; preds = %85, %68
+  call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12529,13 +12551,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %7 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFScanner.40", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }

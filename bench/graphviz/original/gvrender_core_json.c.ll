@@ -227,59 +227,61 @@ define internal void @json_end_graph(ptr noundef %0) #0 {
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr @json_end_graph.io, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @AgIoDisc, align 8
   store ptr %13, ptr @json_end_graph.io, align 8
-  store ptr @gvputs, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @json_end_graph.io, i32 0, i32 1), align 8
-  store ptr @gvflush, ptr getelementptr inbounds (%struct.Agiodisc_s, ptr @json_end_graph.io, i32 0, i32 2), align 8
-  br label %14
+  %14 = getelementptr inbounds %struct.Agiodisc_s, ptr @json_end_graph.io, i32 0, i32 1
+  store ptr @gvputs, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.Agiodisc_s, ptr @json_end_graph.io, i32 0, i32 2
+  store ptr @gvflush, ptr %15, align 8
+  br label %16
 
-14:                                               ; preds = %12, %1
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Agraph_s, ptr %15, i32 0, i32 12
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Agclos_s, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.Agdisc_s, ptr %18, i32 0, i32 1
-  store ptr @json_end_graph.io, ptr %19, align 8
-  %20 = load ptr, ptr %3, align 8
-  call void @set_attrwf(ptr noundef %20, i1 noundef zeroext true, i1 noundef zeroext false)
-  %21 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 0
-  store i32 0, ptr %21, align 4
+16:                                               ; preds = %12, %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.Agraph_s, ptr %17, i32 0, i32 12
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.Agclos_s, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds %struct.Agdisc_s, ptr %20, i32 0, i32 1
+  store ptr @json_end_graph.io, ptr %21, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Agobj_s, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.Agraphinfo_t, ptr %24, i32 0, i32 8
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, 1
-  %29 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 1
-  %30 = zext i1 %28 to i8
-  store i8 %30, ptr %29, align 4
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.GVJ_s, ptr %31, i32 0, i32 15
-  %33 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %42, label %36
+  call void @set_attrwf(ptr noundef %22, i1 noundef zeroext true, i1 noundef zeroext false)
+  %23 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 0
+  store i32 0, ptr %23, align 4
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.Agobj_s, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.Agraphinfo_t, ptr %26, i32 0, i32 8
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = icmp eq i32 %29, 1
+  %31 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 1
+  %32 = zext i1 %30 to i8
+  store i8 %32, ptr %31, align 4
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds %struct.GVJ_s, ptr %33, i32 0, i32 15
+  %35 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %44, label %38
 
-36:                                               ; preds = %14
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.GVJ_s, ptr %37, i32 0, i32 15
-  %39 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, 3
-  br label %42
+38:                                               ; preds = %16
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.GVJ_s, ptr %39, i32 0, i32 15
+  %41 = getelementptr inbounds %struct.gvplugin_active_render_s, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %42, 3
+  br label %44
 
-42:                                               ; preds = %36, %14
-  %43 = phi i1 [ true, %14 ], [ %41, %36 ]
-  %44 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 2
-  %45 = zext i1 %43 to i8
-  store i8 %45, ptr %44, align 1
-  %46 = load ptr, ptr %3, align 8
-  %47 = load ptr, ptr %2, align 8
-  call void @write_graph(ptr noundef %46, ptr noundef %47, i1 noundef zeroext true, ptr noundef %4)
+44:                                               ; preds = %38, %16
+  %45 = phi i1 [ true, %16 ], [ %43, %38 ]
+  %46 = getelementptr inbounds %struct.state_t, ptr %4, i32 0, i32 2
+  %47 = zext i1 %45 to i8
+  store i8 %47, ptr %46, align 1
+  %48 = load ptr, ptr %3, align 8
+  %49 = load ptr, ptr %2, align 8
+  call void @write_graph(ptr noundef %48, ptr noundef %49, i1 noundef zeroext true, ptr noundef %4)
   ret void
 }
 

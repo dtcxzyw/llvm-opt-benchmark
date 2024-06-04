@@ -244,50 +244,51 @@ define void @_ZN3nix11LocalSignerC2EONS_9SecretKeyE(ptr noundef nonnull align 8 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3nix6SignerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11LocalSignerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN3nix9SecretKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
-          to label %10 unwind label %14
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3nix11LocalSignerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN3nix9SecretKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10)
+          to label %11 unwind label %15
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  invoke void @_ZNK3nix9SecretKey11toPublicKeyEv(ptr dead_on_unwind writable sret(%"struct.nix::PublicKey") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %13 unwind label %18
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  invoke void @_ZNK3nix9SecretKey11toPublicKeyEv(ptr dead_on_unwind writable sret(%"struct.nix::PublicKey") align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
+          to label %14 unwind label %19
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   ret void
 
-14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  br label %22
-
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  call void @_ZN3nix9SecretKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #1
-  br label %22
-
-22:                                               ; preds = %18, %14
-  call void @_ZN3nix6SignerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+19:                                               ; preds = %11
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZN3nix9SecretKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #1
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN3nix6SignerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -295,7 +296,8 @@ define linkonce_odr void @_ZN3nix6SignerC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix6SignerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3nix6SignerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -364,11 +366,12 @@ define linkonce_odr void @_ZN3nix11LocalSignerD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11LocalSignerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %3, i32 0, i32 2
-  call void @_ZN3nix9PublicKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #1
-  %5 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %3, i32 0, i32 1
-  call void @_ZN3nix9SecretKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3nix11LocalSignerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %3, i32 0, i32 2
+  call void @_ZN3nix9PublicKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #1
+  %6 = getelementptr inbounds %"struct.nix::LocalSigner", ptr %3, i32 0, i32 1
+  call void @_ZN3nix9SecretKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #1
   call void @_ZN3nix6SignerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
   ret void
 }

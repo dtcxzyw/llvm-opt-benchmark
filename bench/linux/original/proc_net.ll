@@ -225,39 +225,40 @@ define dso_local ptr @proc_create_net_single_write(ptr noundef %0, i16 noundef z
 define internal ptr @proc_tgid_net_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = tail call fastcc ptr @get_proc_task_net(ptr noundef %0)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %19, label %6
+  %6 = inttoptr i64 -2 to ptr
+  br i1 %5, label %20, label %7
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 160
-  %8 = load ptr, ptr %7, align 32
-  %9 = tail call ptr @proc_lookup_de(ptr noundef %0, ptr noundef %1, ptr noundef %8) #5
-  %10 = getelementptr inbounds i8, ptr %4, i64 140
-  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #5, !srcloc !9
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %14
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %4, i64 160
+  %9 = load ptr, ptr %8, align 32
+  %10 = tail call ptr @proc_lookup_de(ptr noundef %0, ptr noundef %1, ptr noundef %9) #5
+  %11 = getelementptr inbounds i8, ptr %4, i64 140
+  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 -1, ptr elementtype(i32) %11) #5, !srcloc !9
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %6
+14:                                               ; preds = %7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %17
+  br label %18
 
-14:                                               ; preds = %6
-  %15 = icmp sgt i32 %11, 0
-  br i1 %15, label %17, label %16, !prof !8
+15:                                               ; preds = %7
+  %16 = icmp sgt i32 %12, 0
+  br i1 %16, label %18, label %17, !prof !8
 
-16:                                               ; preds = %14
-  tail call void @refcount_warn_saturate(ptr noundef %10, i32 noundef 3) #5
-  br label %17
+17:                                               ; preds = %15
+  tail call void @refcount_warn_saturate(ptr noundef %11, i32 noundef 3) #5
+  br label %18
 
-17:                                               ; preds = %16, %14, %13
-  br i1 %12, label %18, label %19
+18:                                               ; preds = %17, %15, %14
+  br i1 %13, label %19, label %20
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   tail call void @__put_net(ptr noundef nonnull %4) #5
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %17, %3
-  %20 = phi ptr [ inttoptr (i64 -2 to ptr), %3 ], [ %9, %17 ], [ %9, %18 ]
-  ret ptr %20
+20:                                               ; preds = %19, %18, %3
+  %21 = phi ptr [ %6, %3 ], [ %10, %18 ], [ %10, %19 ]
+  ret ptr %21
 }
 
 ; Function Attrs: null_pointer_is_valid

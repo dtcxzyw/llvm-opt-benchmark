@@ -280,7 +280,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -293,13 +294,13 @@ invoke.cont:                                      ; preds = %do.body
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %0 = load ptr, ptr @stderr, align 8
-  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 11)
+  %1 = load ptr, ptr @stderr, align 8
+  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 11)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.then
-  %1 = load ptr, ptr @stderr, align 8
-  %call5 = invoke i32 @fflush(ptr noundef %1)
+  %2 = load ptr, ptr @stderr, align 8
+  %call5 = invoke i32 @fflush(ptr noundef %2)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -321,10 +322,10 @@ do.end:                                           ; preds = %do.cond
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont4, %invoke.cont2, %if.then, %do.body
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #13
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 }
 
@@ -937,10 +938,11 @@ entry:
   store ptr %ctx_, ptr %ctx_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq13poller_base_tC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_ctx = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx_.addr, align 8
-  store ptr %0, ptr %_ctx, align 8
+  %1 = load ptr, ptr %ctx_.addr, align 8
+  store ptr %1, ptr %_ctx, align 8
   %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this1, i32 0, i32 2
   invoke void @_ZN3zmq8thread_tC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_worker)
           to label %invoke.cont unwind label %lpad
@@ -949,12 +951,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12
   br label %eh.resume
 
@@ -972,7 +974,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_clock = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this1, i32 0, i32 1
   call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_clock)
   %_timers = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this1, i32 0, i32 2
@@ -1084,7 +1087,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this1, i32 0, i32 2
   call void @_ZN3zmq8thread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_worker) #12
   call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12

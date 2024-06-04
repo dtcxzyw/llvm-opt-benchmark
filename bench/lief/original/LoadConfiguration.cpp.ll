@@ -2093,105 +2093,106 @@ define weak_odr hidden void @_ZN4LIEF2PE17LoadConfigurationC2IjEERKNS0_7details1
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE17LoadConfigurationE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 4
-  store i16 %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %19, i32 0, i32 3
-  %21 = load i16, ptr %20, align 2
-  store i16 %21, ptr %18, align 2
-  %22 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 5
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %23, i32 0, i32 4
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %22, align 4
-  %26 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 6
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 4
-  store i32 %29, ptr %26, align 8
-  %30 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 7
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %31, i32 0, i32 6
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %30, align 4
-  %34 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %35, i32 0, i32 7
-  %37 = load i32, ptr %36, align 4
-  %38 = zext i32 %37 to i64
-  store i64 %38, ptr %34, align 8
-  %39 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 9
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %40, i32 0, i32 8
-  %42 = load i32, ptr %41, align 4
-  %43 = zext i32 %42 to i64
-  store i64 %43, ptr %39, align 8
-  %44 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 10
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %45, i32 0, i32 9
-  %47 = load i32, ptr %46, align 4
-  %48 = zext i32 %47 to i64
-  store i64 %48, ptr %44, align 8
-  %49 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 11
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %50, i32 0, i32 10
-  %52 = load i32, ptr %51, align 4
-  %53 = zext i32 %52 to i64
-  store i64 %53, ptr %49, align 8
-  %54 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 12
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %55, i32 0, i32 11
-  %57 = load i32, ptr %56, align 4
-  %58 = zext i32 %57 to i64
-  store i64 %58, ptr %54, align 8
-  %59 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 13
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %60, i32 0, i32 12
-  %62 = load i32, ptr %61, align 4
-  %63 = zext i32 %62 to i64
-  store i64 %63, ptr %59, align 8
-  %64 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 14
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %65, i32 0, i32 13
-  %67 = load i32, ptr %66, align 4
-  store i32 %67, ptr %64, align 8
-  %68 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 15
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %69, i32 0, i32 14
-  %71 = load i16, ptr %70, align 4
-  store i16 %71, ptr %68, align 4
-  %72 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 16
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %73, i32 0, i32 15
-  %75 = load i16, ptr %74, align 2
-  store i16 %75, ptr %72, align 2
-  %76 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 17
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %77, i32 0, i32 16
-  %79 = load i32, ptr %78, align 4
-  %80 = zext i32 %79 to i64
-  store i64 %80, ptr %76, align 8
-  %81 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 18
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %82, i32 0, i32 17
-  %84 = load i32, ptr %83, align 4
-  %85 = zext i32 %84 to i64
-  store i64 %85, ptr %81, align 8
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF2PE17LoadConfigurationE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 4
+  store i16 %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %20, i32 0, i32 3
+  %22 = load i16, ptr %21, align 2
+  store i16 %22, ptr %19, align 2
+  %23 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %23, align 4
+  %27 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 6
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %27, align 8
+  %31 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 7
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %32, i32 0, i32 6
+  %34 = load i32, ptr %33, align 4
+  store i32 %34, ptr %31, align 4
+  %35 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %36, i32 0, i32 7
+  %38 = load i32, ptr %37, align 4
+  %39 = zext i32 %38 to i64
+  store i64 %39, ptr %35, align 8
+  %40 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 9
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %41, i32 0, i32 8
+  %43 = load i32, ptr %42, align 4
+  %44 = zext i32 %43 to i64
+  store i64 %44, ptr %40, align 8
+  %45 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 10
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %46, i32 0, i32 9
+  %48 = load i32, ptr %47, align 4
+  %49 = zext i32 %48 to i64
+  store i64 %49, ptr %45, align 8
+  %50 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 11
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %51, i32 0, i32 10
+  %53 = load i32, ptr %52, align 4
+  %54 = zext i32 %53 to i64
+  store i64 %54, ptr %50, align 8
+  %55 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 12
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %56, i32 0, i32 11
+  %58 = load i32, ptr %57, align 4
+  %59 = zext i32 %58 to i64
+  store i64 %59, ptr %55, align 8
+  %60 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 13
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %61, i32 0, i32 12
+  %63 = load i32, ptr %62, align 4
+  %64 = zext i32 %63 to i64
+  store i64 %64, ptr %60, align 8
+  %65 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 14
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %66, i32 0, i32 13
+  %68 = load i32, ptr %67, align 4
+  store i32 %68, ptr %65, align 8
+  %69 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 15
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %70, i32 0, i32 14
+  %72 = load i16, ptr %71, align 4
+  store i16 %72, ptr %69, align 4
+  %73 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 16
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %74, i32 0, i32 15
+  %76 = load i16, ptr %75, align 2
+  store i16 %76, ptr %73, align 2
+  %77 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 17
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %78, i32 0, i32 16
+  %80 = load i32, ptr %79, align 4
+  %81 = zext i32 %80 to i64
+  store i64 %81, ptr %77, align 8
+  %82 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 18
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration", ptr %83, i32 0, i32 17
+  %85 = load i32, ptr %84, align 4
+  %86 = zext i32 %85 to i64
+  store i64 %86, ptr %82, align 8
   ret void
 }
 
@@ -2205,97 +2206,98 @@ define weak_odr hidden void @_ZN4LIEF2PE17LoadConfigurationC2ImEERKNS0_7details1
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE17LoadConfigurationE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 8
-  store i16 %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %19, i32 0, i32 3
-  %21 = load i16, ptr %20, align 2
-  store i16 %21, ptr %18, align 2
-  %22 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 5
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %23, i32 0, i32 4
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %22, align 4
-  %26 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 6
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 8
-  store i32 %29, ptr %26, align 8
-  %30 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 7
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %31, i32 0, i32 6
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %30, align 4
-  %34 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %35, i32 0, i32 7
-  %37 = load i64, ptr %36, align 8
-  store i64 %37, ptr %34, align 8
-  %38 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 9
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %39, i32 0, i32 8
-  %41 = load i64, ptr %40, align 8
-  store i64 %41, ptr %38, align 8
-  %42 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 10
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %43, i32 0, i32 9
-  %45 = load i64, ptr %44, align 8
-  store i64 %45, ptr %42, align 8
-  %46 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 11
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %47, i32 0, i32 10
-  %49 = load i64, ptr %48, align 8
-  store i64 %49, ptr %46, align 8
-  %50 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 12
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %51, i32 0, i32 11
-  %53 = load i64, ptr %52, align 8
-  store i64 %53, ptr %50, align 8
-  %54 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 13
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %55, i32 0, i32 12
-  %57 = load i64, ptr %56, align 8
-  store i64 %57, ptr %54, align 8
-  %58 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 14
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %59, i32 0, i32 13
-  %61 = load i32, ptr %60, align 8
-  store i32 %61, ptr %58, align 8
-  %62 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 15
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %63, i32 0, i32 14
-  %65 = load i16, ptr %64, align 4
-  store i16 %65, ptr %62, align 4
-  %66 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 16
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %67, i32 0, i32 15
-  %69 = load i16, ptr %68, align 2
-  store i16 %69, ptr %66, align 2
-  %70 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 17
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %71, i32 0, i32 16
-  %73 = load i64, ptr %72, align 8
-  store i64 %73, ptr %70, align 8
-  %74 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 18
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %75, i32 0, i32 17
-  %77 = load i64, ptr %76, align 8
-  store i64 %77, ptr %74, align 8
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF2PE17LoadConfigurationE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8
+  store i32 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 8
+  store i16 %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %20, i32 0, i32 3
+  %22 = load i16, ptr %21, align 2
+  store i16 %22, ptr %19, align 2
+  %23 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %23, align 4
+  %27 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 6
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %28, i32 0, i32 5
+  %30 = load i32, ptr %29, align 8
+  store i32 %30, ptr %27, align 8
+  %31 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 7
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %32, i32 0, i32 6
+  %34 = load i32, ptr %33, align 4
+  store i32 %34, ptr %31, align 4
+  %35 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %36, i32 0, i32 7
+  %38 = load i64, ptr %37, align 8
+  store i64 %38, ptr %35, align 8
+  %39 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 9
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %40, i32 0, i32 8
+  %42 = load i64, ptr %41, align 8
+  store i64 %42, ptr %39, align 8
+  %43 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 10
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %44, i32 0, i32 9
+  %46 = load i64, ptr %45, align 8
+  store i64 %46, ptr %43, align 8
+  %47 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 11
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %48, i32 0, i32 10
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %47, align 8
+  %51 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 12
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %52, i32 0, i32 11
+  %54 = load i64, ptr %53, align 8
+  store i64 %54, ptr %51, align 8
+  %55 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 13
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %56, i32 0, i32 12
+  %58 = load i64, ptr %57, align 8
+  store i64 %58, ptr %55, align 8
+  %59 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 14
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %60, i32 0, i32 13
+  %62 = load i32, ptr %61, align 8
+  store i32 %62, ptr %59, align 8
+  %63 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 15
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %64, i32 0, i32 14
+  %66 = load i16, ptr %65, align 4
+  store i16 %66, ptr %63, align 4
+  %67 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 16
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %68, i32 0, i32 15
+  %70 = load i16, ptr %69, align 2
+  store i16 %70, ptr %67, align 2
+  %71 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 17
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %72, i32 0, i32 16
+  %74 = load i64, ptr %73, align 8
+  store i64 %74, ptr %71, align 8
+  %75 = getelementptr inbounds %"class.LIEF::PE::LoadConfiguration", ptr %5, i32 0, i32 18
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration.0", ptr %76, i32 0, i32 17
+  %78 = load i64, ptr %77, align 8
+  store i64 %78, ptr %75, align 8
   ret void
 }
 
@@ -5578,13 +5580,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm500ESaIcEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -6161,16 +6164,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -6934,7 +6938,8 @@ define linkonce_odr hidden void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -12003,13 +12008,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIiLm500ESaIiEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.23", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.23", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.23", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.23", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -12135,16 +12141,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.24", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -27259,13 +27266,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 32) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 32) #15
   ret void
 }
 
@@ -27296,16 +27304,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.53", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -28155,21 +28164,22 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 2
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.52", ptr %5, i32 0, i32 2
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 

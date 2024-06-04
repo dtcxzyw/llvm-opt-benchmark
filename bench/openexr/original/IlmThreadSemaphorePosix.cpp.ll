@@ -53,10 +53,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %value, ptr %value.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_semaphore2 = getelementptr inbounds %"class.IlmThread_3_2::Semaphore", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %value.addr, align 4
-  %call = call i32 @sem_init(ptr noundef %_semaphore2, i32 noundef 0, i32 noundef %0) #8
+  %1 = load i32, ptr %value.addr, align 4
+  %call = call i32 @sem_init(ptr noundef %_semaphore2, i32 noundef 0, i32 noundef %1) #8
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -75,21 +76,21 @@ invoke.cont5:                                     ; preds = %invoke.cont
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   br label %ehcleanup
 
@@ -193,7 +194,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_semaphore = getelementptr inbounds %"class.IlmThread_3_2::Semaphore", ptr %this1, i32 0, i32 1
   %call = call i32 @sem_destroy(ptr noundef %_semaphore) #8
   ret void

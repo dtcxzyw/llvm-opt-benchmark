@@ -13,26 +13,27 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef zeroext i1 @pit_timer_init() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %2 = and i64 %1, 16
-  %3 = icmp eq i64 %2, 0
-  br i1 %3, label %6, label %4
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 16
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %7, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @apic_needs_pit() #2
-  br label %6
+5:                                                ; preds = %0
+  %6 = tail call zeroext i1 @apic_needs_pit() #2
+  br label %7
 
-6:                                                ; preds = %4, %0
-  %7 = phi i1 [ %5, %4 ], [ true, %0 ]
-  br i1 %7, label %8, label %9
+7:                                                ; preds = %5, %0
+  %8 = phi i1 [ %6, %5 ], [ true, %0 ]
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %6
+9:                                                ; preds = %7
   tail call void @clockevent_i8253_init(i1 noundef zeroext true) #2
   store ptr @i8253_clockevent, ptr @global_clock_event, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %6
-  ret i1 %7
+10:                                               ; preds = %9, %7
+  ret i1 %8
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -505,21 +505,22 @@ entry:
   %rnd_word = alloca i64, align 8
   store ptr %rnd, ptr %rnd.addr, align 8
   store i32 %bits, ptr %bits.addr, align 4
-  %0 = load i16, ptr getelementptr inbounds ([2048 x i16], ptr @primes, i64 0, i64 2047), align 2
-  %conv = zext i16 %0 to i64
+  %0 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 2047
+  %1 = load i16, ptr %0, align 2
+  %conv = zext i16 %1 to i64
   %sub = sub i64 -1, %conv
   store i64 %sub, ptr %maxdelta, align 8
-  %1 = load i32, ptr %bits.addr, align 4
-  %cmp = icmp sle i32 %1, 64
+  %2 = load i32, ptr %bits.addr, align 4
+  %cmp = icmp sle i32 %2, 64
   %conv1 = zext i1 %cmp to i32
   %conv2 = trunc i32 %conv1 to i8
   store i8 %conv2, ptr %is_single_word, align 1
   br label %again
 
 again:                                            ; preds = %if.then89, %if.then75, %if.then50, %entry
-  %2 = load ptr, ptr %rnd.addr, align 8
-  %3 = load i32, ptr %bits.addr, align 4
-  %call = call i32 @BN_rand(ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 1)
+  %3 = load ptr, ptr %rnd.addr, align 8
+  %4 = load i32, ptr %bits.addr, align 4
+  %call = call i32 @BN_rand(ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 1)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -532,68 +533,68 @@ if.end:                                           ; preds = %again
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load i32, ptr %i, align 4
-  %cmp3 = icmp slt i32 %4, 2048
+  %5 = load i32, ptr %i, align 4
+  %cmp3 = icmp slt i32 %5, 2048
   br i1 %cmp3, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %rnd.addr, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
+  %6 = load ptr, ptr %rnd.addr, align 8
+  %7 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %idxprom
-  %7 = load i16, ptr %arrayidx, align 2
-  %conv5 = zext i16 %7 to i64
-  %call6 = call i64 @BN_mod_word(ptr noundef %5, i64 noundef %conv5)
+  %8 = load i16, ptr %arrayidx, align 2
+  %conv5 = zext i16 %8 to i64
+  %call6 = call i64 @BN_mod_word(ptr noundef %6, i64 noundef %conv5)
   %conv7 = trunc i64 %call6 to i16
-  %8 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom8 = sext i32 %9 to i64
   %arrayidx9 = getelementptr inbounds [2048 x i16], ptr %mods, i64 0, i64 %idxprom8
   store i16 %conv7, ptr %arrayidx9, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
+  %10 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
-  %10 = load i8, ptr %is_single_word, align 1
-  %tobool10 = icmp ne i8 %10, 0
+  %11 = load i8, ptr %is_single_word, align 1
+  %tobool10 = icmp ne i8 %11, 0
   br i1 %tobool10, label %if.then11, label %if.end25
 
 if.then11:                                        ; preds = %for.end
-  %11 = load i32, ptr %bits.addr, align 4
-  %cmp12 = icmp eq i32 %11, 64
+  %12 = load i32, ptr %bits.addr, align 4
+  %cmp12 = icmp eq i32 %12, 64
   br i1 %cmp12, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.then11
-  %12 = load ptr, ptr %rnd.addr, align 8
-  %call15 = call i64 @get_word(ptr noundef %12)
+  %13 = load ptr, ptr %rnd.addr, align 8
+  %call15 = call i64 @get_word(ptr noundef %13)
   %sub16 = sub i64 -1, %call15
   store i64 %sub16, ptr %size_limit, align 8
   br label %if.end20
 
 if.else:                                          ; preds = %if.then11
-  %13 = load i32, ptr %bits.addr, align 4
-  %sh_prom = zext i32 %13 to i64
+  %14 = load i32, ptr %bits.addr, align 4
+  %sh_prom = zext i32 %14 to i64
   %shl = shl i64 1, %sh_prom
-  %14 = load ptr, ptr %rnd.addr, align 8
-  %call17 = call i64 @get_word(ptr noundef %14)
+  %15 = load ptr, ptr %rnd.addr, align 8
+  %call17 = call i64 @get_word(ptr noundef %15)
   %sub18 = sub i64 %shl, %call17
   %sub19 = sub i64 %sub18, 1
   store i64 %sub19, ptr %size_limit, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then14
-  %15 = load i64, ptr %size_limit, align 8
-  %16 = load i64, ptr %maxdelta, align 8
-  %cmp21 = icmp ult i64 %15, %16
+  %16 = load i64, ptr %size_limit, align 8
+  %17 = load i64, ptr %maxdelta, align 8
+  %cmp21 = icmp ult i64 %16, %17
   br i1 %cmp21, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end20
-  %17 = load i64, ptr %size_limit, align 8
-  store i64 %17, ptr %maxdelta, align 8
+  %18 = load i64, ptr %size_limit, align 8
+  store i64 %18, ptr %maxdelta, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end20
@@ -604,60 +605,60 @@ if.end25:                                         ; preds = %if.end24, %for.end
   br label %loop
 
 loop:                                             ; preds = %if.end76, %if.end51, %if.end25
-  %18 = load i8, ptr %is_single_word, align 1
-  %tobool26 = icmp ne i8 %18, 0
+  %19 = load i8, ptr %is_single_word, align 1
+  %tobool26 = icmp ne i8 %19, 0
   br i1 %tobool26, label %if.then27, label %if.else56
 
 if.then27:                                        ; preds = %loop
-  %19 = load ptr, ptr %rnd.addr, align 8
-  %call28 = call i64 @get_word(ptr noundef %19)
+  %20 = load ptr, ptr %rnd.addr, align 8
+  %call28 = call i64 @get_word(ptr noundef %20)
   store i64 %call28, ptr %rnd_word, align 8
   store i32 1, ptr %i, align 4
   br label %for.cond29
 
 for.cond29:                                       ; preds = %for.inc53, %if.then27
-  %20 = load i32, ptr %i, align 4
-  %cmp30 = icmp slt i32 %20, 2048
+  %21 = load i32, ptr %i, align 4
+  %cmp30 = icmp slt i32 %21, 2048
   br i1 %cmp30, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond29
-  %21 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %21 to i64
+  %22 = load i32, ptr %i, align 4
+  %idxprom32 = sext i32 %22 to i64
   %arrayidx33 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %idxprom32
-  %22 = load i16, ptr %arrayidx33, align 2
-  %conv34 = zext i16 %22 to i64
-  %23 = load i64, ptr %rnd_word, align 8
-  %cmp35 = icmp ult i64 %conv34, %23
+  %23 = load i16, ptr %arrayidx33, align 2
+  %conv34 = zext i16 %23 to i64
+  %24 = load i64, ptr %rnd_word, align 8
+  %cmp35 = icmp ult i64 %conv34, %24
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond29
-  %24 = phi i1 [ false, %for.cond29 ], [ %cmp35, %land.rhs ]
-  br i1 %24, label %for.body37, label %for.end55
+  %25 = phi i1 [ false, %for.cond29 ], [ %cmp35, %land.rhs ]
+  br i1 %25, label %for.body37, label %for.end55
 
 for.body37:                                       ; preds = %land.end
-  %25 = load i32, ptr %i, align 4
-  %idxprom38 = sext i32 %25 to i64
+  %26 = load i32, ptr %i, align 4
+  %idxprom38 = sext i32 %26 to i64
   %arrayidx39 = getelementptr inbounds [2048 x i16], ptr %mods, i64 0, i64 %idxprom38
-  %26 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %26 to i64
-  %27 = load i64, ptr %delta, align 8
-  %add = add i64 %conv40, %27
-  %28 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %28 to i64
+  %27 = load i16, ptr %arrayidx39, align 2
+  %conv40 = zext i16 %27 to i64
+  %28 = load i64, ptr %delta, align 8
+  %add = add i64 %conv40, %28
+  %29 = load i32, ptr %i, align 4
+  %idxprom41 = sext i32 %29 to i64
   %arrayidx42 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %idxprom41
-  %29 = load i16, ptr %arrayidx42, align 2
-  %conv43 = zext i16 %29 to i64
+  %30 = load i16, ptr %arrayidx42, align 2
+  %conv43 = zext i16 %30 to i64
   %rem = urem i64 %add, %conv43
   %cmp44 = icmp eq i64 %rem, 0
   br i1 %cmp44, label %if.then46, label %if.end52
 
 if.then46:                                        ; preds = %for.body37
-  %30 = load i64, ptr %delta, align 8
-  %add47 = add i64 %30, 2
-  store i64 %add47, ptr %delta, align 8
   %31 = load i64, ptr %delta, align 8
-  %32 = load i64, ptr %maxdelta, align 8
-  %cmp48 = icmp ugt i64 %31, %32
+  %add47 = add i64 %31, 2
+  store i64 %add47, ptr %delta, align 8
+  %32 = load i64, ptr %delta, align 8
+  %33 = load i64, ptr %maxdelta, align 8
+  %cmp48 = icmp ugt i64 %32, %33
   br i1 %cmp48, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.then46
@@ -670,8 +671,8 @@ if.end52:                                         ; preds = %for.body37
   br label %for.inc53
 
 for.inc53:                                        ; preds = %if.end52
-  %33 = load i32, ptr %i, align 4
-  %inc54 = add nsw i32 %33, 1
+  %34 = load i32, ptr %i, align 4
+  %inc54 = add nsw i32 %34, 1
   store i32 %inc54, ptr %i, align 4
   br label %for.cond29, !llvm.loop !10
 
@@ -683,34 +684,34 @@ if.else56:                                        ; preds = %loop
   br label %for.cond57
 
 for.cond57:                                       ; preds = %for.inc78, %if.else56
-  %34 = load i32, ptr %i, align 4
-  %cmp58 = icmp slt i32 %34, 2048
+  %35 = load i32, ptr %i, align 4
+  %cmp58 = icmp slt i32 %35, 2048
   br i1 %cmp58, label %for.body60, label %for.end80
 
 for.body60:                                       ; preds = %for.cond57
-  %35 = load i32, ptr %i, align 4
-  %idxprom61 = sext i32 %35 to i64
+  %36 = load i32, ptr %i, align 4
+  %idxprom61 = sext i32 %36 to i64
   %arrayidx62 = getelementptr inbounds [2048 x i16], ptr %mods, i64 0, i64 %idxprom61
-  %36 = load i16, ptr %arrayidx62, align 2
-  %conv63 = zext i16 %36 to i64
-  %37 = load i64, ptr %delta, align 8
-  %add64 = add i64 %conv63, %37
-  %38 = load i32, ptr %i, align 4
-  %idxprom65 = sext i32 %38 to i64
+  %37 = load i16, ptr %arrayidx62, align 2
+  %conv63 = zext i16 %37 to i64
+  %38 = load i64, ptr %delta, align 8
+  %add64 = add i64 %conv63, %38
+  %39 = load i32, ptr %i, align 4
+  %idxprom65 = sext i32 %39 to i64
   %arrayidx66 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %idxprom65
-  %39 = load i16, ptr %arrayidx66, align 2
-  %conv67 = zext i16 %39 to i64
+  %40 = load i16, ptr %arrayidx66, align 2
+  %conv67 = zext i16 %40 to i64
   %rem68 = urem i64 %add64, %conv67
   %cmp69 = icmp ule i64 %rem68, 1
   br i1 %cmp69, label %if.then71, label %if.end77
 
 if.then71:                                        ; preds = %for.body60
-  %40 = load i64, ptr %delta, align 8
-  %add72 = add i64 %40, 2
-  store i64 %add72, ptr %delta, align 8
   %41 = load i64, ptr %delta, align 8
-  %42 = load i64, ptr %maxdelta, align 8
-  %cmp73 = icmp ugt i64 %41, %42
+  %add72 = add i64 %41, 2
+  store i64 %add72, ptr %delta, align 8
+  %42 = load i64, ptr %delta, align 8
+  %43 = load i64, ptr %maxdelta, align 8
+  %cmp73 = icmp ugt i64 %42, %43
   br i1 %cmp73, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.then71
@@ -723,8 +724,8 @@ if.end77:                                         ; preds = %for.body60
   br label %for.inc78
 
 for.inc78:                                        ; preds = %if.end77
-  %43 = load i32, ptr %i, align 4
-  %inc79 = add nsw i32 %43, 1
+  %44 = load i32, ptr %i, align 4
+  %inc79 = add nsw i32 %44, 1
   store i32 %inc79, ptr %i, align 4
   br label %for.cond57, !llvm.loop !11
 
@@ -732,9 +733,9 @@ for.end80:                                        ; preds = %for.cond57
   br label %if.end81
 
 if.end81:                                         ; preds = %for.end80, %for.end55
-  %44 = load ptr, ptr %rnd.addr, align 8
-  %45 = load i64, ptr %delta, align 8
-  %call82 = call i32 @BN_add_word(ptr noundef %44, i64 noundef %45)
+  %45 = load ptr, ptr %rnd.addr, align 8
+  %46 = load i64, ptr %delta, align 8
+  %call82 = call i32 @BN_add_word(ptr noundef %45, i64 noundef %46)
   %tobool83 = icmp ne i32 %call82, 0
   br i1 %tobool83, label %if.end85, label %if.then84
 
@@ -743,10 +744,10 @@ if.then84:                                        ; preds = %if.end81
   br label %return
 
 if.end85:                                         ; preds = %if.end81
-  %46 = load ptr, ptr %rnd.addr, align 8
-  %call86 = call i32 @BN_num_bits(ptr noundef %46)
-  %47 = load i32, ptr %bits.addr, align 4
-  %cmp87 = icmp ne i32 %call86, %47
+  %47 = load ptr, ptr %rnd.addr, align 8
+  %call86 = call i32 @BN_num_bits(ptr noundef %47)
+  %48 = load i32, ptr %bits.addr, align 4
+  %cmp87 = icmp ne i32 %call86, %48
   br i1 %cmp87, label %if.then89, label %if.end90
 
 if.then89:                                        ; preds = %if.end85
@@ -757,8 +758,8 @@ if.end90:                                         ; preds = %if.end85
   br label %return
 
 return:                                           ; preds = %if.end90, %if.then84, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable

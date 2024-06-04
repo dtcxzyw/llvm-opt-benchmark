@@ -298,24 +298,25 @@ define linkonce_odr void @_ZN11MyTrendererD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11MyTrenderer, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 2
-  invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %5 unwind label %8
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV11MyTrenderer, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 2
+  invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %6 unwind label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 2
-  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  %7 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 1
-  call void @_ZN14StructureSynth5Model9Rendering8TemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #10
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 2
+  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  %8 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 1
+  call void @_ZN14StructureSynth5Model9Rendering8TemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #10
   call void @_ZN14StructureSynth5Model9Rendering16TemplateRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #10
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #11
   unreachable
 }
 

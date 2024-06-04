@@ -1713,31 +1713,32 @@ define dso_local void @_ZN27cmExtraEclipseCDT4GeneratorC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN34cmExternalMakefileProjectGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27cmExtraEclipseCDT4Generator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 2
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV27cmExtraEclipseCDT4Generator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 2
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 5
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 6
-  store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 8
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 7
-  store i8 1, ptr %11, align 2
-  %12 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 9
-  store i8 1, ptr %12, align 4
-  %13 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 10
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 11
-  store i8 0, ptr %14, align 2
-  %15 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 12
-  store i8 0, ptr %15, align 1
+  %8 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 6
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 8
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 7
+  store i8 1, ptr %12, align 2
+  %13 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 9
+  store i8 1, ptr %13, align 4
+  %14 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 10
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 11
+  store i8 0, ptr %15, align 2
+  %16 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 12
+  store i8 0, ptr %16, align 1
   ret void
 }
 
@@ -1746,13 +1747,14 @@ define linkonce_odr dso_local void @_ZN34cmExternalMakefileProjectGeneratorC2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   ret void
 }
 
@@ -2033,47 +2035,48 @@ define linkonce_odr dso_local void @_ZN47cmExternalMakefileProjectGeneratorSimpl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %13 = load ptr, ptr %6, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %14 unwind label %16
+          to label %14 unwind label %17
 
 14:                                               ; preds = %3
   invoke void @_ZN41cmExternalMakefileProjectGeneratorFactoryC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef %7, ptr noundef %8)
-          to label %15 unwind label %20
+          to label %15 unwind label %21
 
 15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV47cmExternalMakefileProjectGeneratorSimpleFactoryI27cmExtraEclipseCDT4GeneratorE, i32 0, i32 0, i32 2), ptr %11, align 8
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV47cmExternalMakefileProjectGeneratorSimpleFactoryI27cmExtraEclipseCDT4GeneratorE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %9, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %10, align 4
-  br label %24
-
-20:                                               ; preds = %14
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %9, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %10, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: nounwind
@@ -15776,15 +15779,16 @@ define linkonce_odr dso_local void @_ZN27cmExtraEclipseCDT4GeneratorD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27cmExtraEclipseCDT4Generator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV27cmExtraEclipseCDT4Generator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 2
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %6 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 2
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmExtraEclipseCDT4Generator, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   call void @_ZN34cmExternalMakefileProjectGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -18343,11 +18347,12 @@ define linkonce_odr dso_local void @_ZN34cmExternalMakefileProjectGeneratorD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 

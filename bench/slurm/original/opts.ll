@@ -45,185 +45,206 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) #0 {
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
   store i32 1, ptr @params, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
+  %7 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  store i32 0, ptr %7, align 4
   call void @_opt_env()
-  br label %7
+  br label %8
 
-7:                                                ; preds = %42, %2
-  %8 = load i32, ptr %3, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = call i32 @getopt_long(i32 noundef %8, ptr noundef %9, ptr noundef @.str.13, ptr noundef @parse_command_line.long_options, ptr noundef %6) #5
-  store i32 %10, ptr %5, align 4
-  %11 = icmp ne i32 %10, -1
-  br i1 %11, label %12, label %43
+8:                                                ; preds = %52, %2
+  %9 = load i32, ptr %3, align 4
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i32 @getopt_long(i32 noundef %9, ptr noundef %10, ptr noundef @.str.13, ptr noundef @parse_command_line.long_options, ptr noundef %6) #5
+  store i32 %11, ptr %5, align 4
+  %12 = icmp ne i32 %11, -1
+  br i1 %12, label %13, label %53
 
-12:                                               ; preds = %7
-  %13 = load i32, ptr %5, align 4
-  switch i32 %13, label %42 [
-    i32 63, label %14
-    i32 97, label %17
-    i32 104, label %18
-    i32 105, label %19
-    i32 77, label %20
-    i32 114, label %23
-    i32 116, label %24
-    i32 84, label %25
-    i32 86, label %26
-    i32 257, label %27
-    i32 258, label %28
-    i32 259, label %34
-    i32 260, label %40
+13:                                               ; preds = %8
+  %14 = load i32, ptr %5, align 4
+  switch i32 %14, label %52 [
+    i32 63, label %15
+    i32 97, label %18
+    i32 104, label %19
+    i32 105, label %20
+    i32 77, label %22
+    i32 114, label %27
+    i32 116, label %28
+    i32 84, label %30
+    i32 86, label %32
+    i32 257, label %33
+    i32 258, label %34
+    i32 259, label %42
+    i32 260, label %50
   ]
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.14) #5
+15:                                               ; preds = %13
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.14) #5
   call void @exit(i32 noundef 1) #6
   unreachable
 
-17:                                               ; preds = %12
+18:                                               ; preds = %13
   store i32 1, ptr @params, align 8
-  br label %42
+  br label %52
 
-18:                                               ; preds = %12
+19:                                               ; preds = %13
   call void @_help()
   call void @exit(i32 noundef 0) #6
   unreachable
 
-19:                                               ; preds = %12
-  store i32 1, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  br label %42
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  store i32 1, ptr %21, align 4
+  br label %52
 
-20:                                               ; preds = %12
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3))
-  %21 = load ptr, ptr @optarg, align 8
-  %22 = call ptr @xstrdup(ptr noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3), align 8
-  br label %42
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  call void @slurm_xfree(ptr noundef %23)
+  %24 = load ptr, ptr @optarg, align 8
+  %25 = call ptr @xstrdup(ptr noundef %24)
+  %26 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  store ptr %25, ptr %26, align 8
+  br label %52
 
-23:                                               ; preds = %12
+27:                                               ; preds = %13
   store i32 0, ptr @params, align 8
-  br label %42
+  br label %52
 
-24:                                               ; preds = %12
-  store i32 2, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  br label %42
+28:                                               ; preds = %13
+  %29 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  store i32 2, ptr %29, align 4
+  br label %52
 
-25:                                               ; preds = %12
-  store i32 3, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  br label %42
+30:                                               ; preds = %13
+  %31 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  store i32 3, ptr %31, align 4
+  br label %52
 
-26:                                               ; preds = %12
+32:                                               ; preds = %13
   call void @print_slurm_version()
   call void @exit(i32 noundef 0) #6
   unreachable
 
-27:                                               ; preds = %12
+33:                                               ; preds = %13
   call void @_usage()
   call void @exit(i32 noundef 0) #6
   unreachable
 
-28:                                               ; preds = %12
-  store ptr @.str.15, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 4), align 8
-  %29 = load ptr, ptr @optarg, align 8
-  store ptr %29, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 5), align 8
-  %30 = call i32 @serializer_g_init(ptr noundef @.str.16, ptr noundef null)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
+34:                                               ; preds = %13
+  %35 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 4
+  store ptr @.str.15, ptr %35, align 8
+  %36 = load ptr, ptr @optarg, align 8
+  %37 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 5
+  store ptr %36, ptr %37, align 8
+  %38 = call i32 @serializer_g_init(ptr noundef @.str.16, ptr noundef null)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-32:                                               ; preds = %28
+40:                                               ; preds = %34
   call void (ptr, ...) @fatal(ptr noundef @.str.17) #7
   unreachable
 
-33:                                               ; preds = %28
-  br label %42
+41:                                               ; preds = %34
+  br label %52
 
-34:                                               ; preds = %12
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 4), align 8
-  %35 = load ptr, ptr @optarg, align 8
-  store ptr %35, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 5), align 8
-  %36 = call i32 @serializer_g_init(ptr noundef @.str.19, ptr noundef null)
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
+42:                                               ; preds = %13
+  %43 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 4
+  store ptr @.str.18, ptr %43, align 8
+  %44 = load ptr, ptr @optarg, align 8
+  %45 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 5
+  store ptr %44, ptr %45, align 8
+  %46 = call i32 @serializer_g_init(ptr noundef @.str.19, ptr noundef null)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-38:                                               ; preds = %34
+48:                                               ; preds = %42
   call void (ptr, ...) @fatal(ptr noundef @.str.20) #7
   unreachable
 
-39:                                               ; preds = %34
-  br label %42
+49:                                               ; preds = %42
+  br label %52
 
-40:                                               ; preds = %12
-  %41 = load ptr, ptr @optarg, align 8
-  call void @suggest_completion(ptr noundef @parse_command_line.long_options, ptr noundef %41)
+50:                                               ; preds = %13
+  %51 = load ptr, ptr @optarg, align 8
+  call void @suggest_completion(ptr noundef @parse_command_line.long_options, ptr noundef %51)
   call void @exit(i32 noundef 0) #6
   unreachable
 
-42:                                               ; preds = %39, %33, %25, %24, %23, %20, %19, %17, %12
-  br label %7, !llvm.loop !7
+52:                                               ; preds = %49, %41, %30, %28, %27, %22, %20, %18, %13
+  br label %8, !llvm.loop !7
 
-43:                                               ; preds = %7
-  br label %44
+53:                                               ; preds = %8
+  br label %54
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %49
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %61
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  call void @list_destroy(ptr noundef %48)
-  br label %49
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  call void @list_destroy(ptr noundef %60)
+  br label %61
 
-49:                                               ; preds = %47, %44
-  store ptr null, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  br label %50
+61:                                               ; preds = %58, %54
+  %62 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  store ptr null, ptr %62, align 8
+  br label %63
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3), align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %62
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %80
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3), align 8
-  %55 = call i32 @slurm_get_cluster_info(ptr noundef getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), ptr noundef %54, i16 noundef zeroext 0)
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %59
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %71 = call i32 @slurm_get_cluster_info(ptr noundef %70, ptr noundef %69, i16 noundef zeroext 0)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3), align 8
-  call void @print_db_notok(ptr noundef %58, i1 noundef zeroext false)
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  %75 = load ptr, ptr %74, align 8
+  call void @print_db_notok(ptr noundef %75, i1 noundef zeroext false)
   call void (ptr, ...) @fatal(ptr noundef @.str.21) #7
   unreachable
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  %61 = call ptr @list_peek(ptr noundef %60)
-  store ptr %61, ptr @working_cluster_rec, align 8
-  br label %62
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr @list_peek(ptr noundef %78)
+  store ptr %79, ptr @working_cluster_rec, align 8
+  br label %80
 
-62:                                               ; preds = %59, %50
-  %63 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %73
+80:                                               ; preds = %76, %63
+  %81 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %94
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  %67 = call i32 @list_count(ptr noundef %66)
-  %68 = icmp sgt i32 %67, 1
-  br i1 %68, label %69, label %70
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i32 @list_count(ptr noundef %86)
+  %88 = icmp sgt i32 %87, 1
+  br i1 %88, label %89, label %90
 
-69:                                               ; preds = %65
+89:                                               ; preds = %84
   call void (ptr, ...) @fatal(ptr noundef @.str.22) #7
   unreachable
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 2), align 8
-  %72 = call ptr @list_peek(ptr noundef %71)
-  store ptr %72, ptr @working_cluster_rec, align 8
-  br label %73
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @list_peek(ptr noundef %92)
+  store ptr %93, ptr @working_cluster_rec, align 8
+  br label %94
 
-73:                                               ; preds = %70, %62
+94:                                               ; preds = %90, %80
   ret void
 }
 
@@ -233,16 +254,18 @@ define internal void @_opt_env() #0 {
   %2 = call ptr @getenv(ptr noundef @.str.23) #5
   store ptr %2, ptr %1, align 8
   %3 = icmp ne ptr %2, null
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %0
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3))
-  %5 = load ptr, ptr %1, align 8
-  %6 = call ptr @xstrdup(ptr noundef %5)
-  store ptr %6, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 3), align 8
-  br label %7
+  %5 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  call void @slurm_xfree(ptr noundef %5)
+  %6 = load ptr, ptr %1, align 8
+  %7 = call ptr @xstrdup(ptr noundef %6)
+  %8 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 3
+  store ptr %7, ptr %8, align 8
+  br label %9
 
-7:                                                ; preds = %4, %0
+9:                                                ; preds = %4, %0
   ret void
 }
 

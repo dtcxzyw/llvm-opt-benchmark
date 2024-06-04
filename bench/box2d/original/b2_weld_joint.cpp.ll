@@ -195,30 +195,31 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11b2WeldJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2WeldJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV11b2WeldJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2WeldJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2WeldJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2WeldJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %referenceAngle = getelementptr inbounds %struct.b2WeldJointDef, ptr %3, i32 0, i32 3
-  %4 = load float, ptr %referenceAngle, align 4
+  %4 = load ptr, ptr %def.addr, align 8
+  %referenceAngle = getelementptr inbounds %struct.b2WeldJointDef, ptr %4, i32 0, i32 3
+  %5 = load float, ptr %referenceAngle, align 4
   %m_referenceAngle = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 6
-  store float %4, ptr %m_referenceAngle, align 4
-  %5 = load ptr, ptr %def.addr, align 8
-  %stiffness = getelementptr inbounds %struct.b2WeldJointDef, ptr %5, i32 0, i32 4
-  %6 = load float, ptr %stiffness, align 8
+  store float %5, ptr %m_referenceAngle, align 4
+  %6 = load ptr, ptr %def.addr, align 8
+  %stiffness = getelementptr inbounds %struct.b2WeldJointDef, ptr %6, i32 0, i32 4
+  %7 = load float, ptr %stiffness, align 8
   %m_stiffness = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 1
-  store float %6, ptr %m_stiffness, align 8
-  %7 = load ptr, ptr %def.addr, align 8
-  %damping = getelementptr inbounds %struct.b2WeldJointDef, ptr %7, i32 0, i32 5
-  %8 = load float, ptr %damping, align 4
+  store float %7, ptr %m_stiffness, align 8
+  %8 = load ptr, ptr %def.addr, align 8
+  %damping = getelementptr inbounds %struct.b2WeldJointDef, ptr %8, i32 0, i32 5
+  %9 = load float, ptr %damping, align 4
   %m_damping = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 2
-  store float %8, ptr %m_damping, align 4
+  store float %9, ptr %m_damping, align 4
   %m_impulse4 = getelementptr inbounds %class.b2WeldJoint, ptr %this1, i32 0, i32 8
   invoke void @_ZN6b2Vec37SetZeroEv(ptr noundef nonnull align 4 dereferenceable(12) %m_impulse4)
           to label %invoke.cont unwind label %lpad
@@ -227,12 +228,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 

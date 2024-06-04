@@ -298,13 +298,13 @@ entry:
   store ptr %cap, ptr %cap.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %cap.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @AUD_vlog(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -338,12 +338,6 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
 declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @audio_pcm_init_info(ptr noundef %info, ptr noundef %as) #0 {
@@ -465,7 +459,7 @@ sw.epilog:                                        ; preds = %sw.bb6, %sw.bb3, %s
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #3
+declare void @abort() #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @audio_pcm_info_clear_buf(ptr noundef %info, ptr noundef %buf, i32 noundef %len) #0 {
@@ -646,13 +640,13 @@ if.end33:                                         ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #5
+declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @audio_get_pdo_out(ptr noundef %dev) #0 {
@@ -1518,7 +1512,7 @@ return:                                           ; preds = %err1, %if.end11
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @AUD_is_active_out(ptr noundef %sw) #0 {
@@ -4767,7 +4761,7 @@ while.end:                                        ; preds = %if.then28, %while.c
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #7
+declare noalias ptr @g_malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @audio_generic_get_buffer_in(ptr noundef %hw, ptr noundef %size) #0 {
@@ -4905,7 +4899,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @audio_generic_put_buffer_in(ptr noundef %hw, ptr noundef %buf, i64 noundef %size) #0 {
@@ -5545,35 +5539,36 @@ if.else:                                          ; preds = %do.body
   %list6 = getelementptr inbounds %struct.AudioState, ptr %8, i32 0, i32 14
   %tql_prev7 = getelementptr inbounds %struct.QTailQLink, ptr %list6, i32 0, i32 1
   %9 = load ptr, ptr %tql_prev7, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.QTailQLink, ptr @audio_states, i32 0, i32 1), align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @audio_states, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %10 = load ptr, ptr %s, align 8
-  %list8 = getelementptr inbounds %struct.AudioState, ptr %10, i32 0, i32 14
-  %11 = load ptr, ptr %list8, align 8
-  %12 = load ptr, ptr %s, align 8
-  %list9 = getelementptr inbounds %struct.AudioState, ptr %12, i32 0, i32 14
+  %11 = load ptr, ptr %s, align 8
+  %list8 = getelementptr inbounds %struct.AudioState, ptr %11, i32 0, i32 14
+  %12 = load ptr, ptr %list8, align 8
+  %13 = load ptr, ptr %s, align 8
+  %list9 = getelementptr inbounds %struct.AudioState, ptr %13, i32 0, i32 14
   %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %list9, i32 0, i32 1
-  %13 = load ptr, ptr %tql_prev10, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
-  store ptr %11, ptr %tql_next, align 8
-  %14 = load ptr, ptr %s, align 8
-  %list11 = getelementptr inbounds %struct.AudioState, ptr %14, i32 0, i32 14
+  %14 = load ptr, ptr %tql_prev10, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
+  store ptr %12, ptr %tql_next, align 8
+  %15 = load ptr, ptr %s, align 8
+  %list11 = getelementptr inbounds %struct.AudioState, ptr %15, i32 0, i32 14
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %list11, i32 0, i32 1
   store ptr null, ptr %tql_prev12, align 8
-  %15 = load ptr, ptr %s, align 8
-  %list13 = getelementptr inbounds %struct.AudioState, ptr %15, i32 0, i32 14
+  %16 = load ptr, ptr %s, align 8
+  %list13 = getelementptr inbounds %struct.AudioState, ptr %16, i32 0, i32 14
   %tql_next14 = getelementptr inbounds %struct.QTailQLink, ptr %list13, i32 0, i32 0
   store ptr null, ptr %tql_next14, align 8
-  %16 = load ptr, ptr %s, align 8
-  %list15 = getelementptr inbounds %struct.AudioState, ptr %16, i32 0, i32 14
+  %17 = load ptr, ptr %s, align 8
+  %list15 = getelementptr inbounds %struct.AudioState, ptr %17, i32 0, i32 14
   store ptr null, ptr %list15, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %17 = load ptr, ptr %s, align 8
-  call void @free_audio_state(ptr noundef %17)
+  %18 = load ptr, ptr %s, align 8
+  call void @free_audio_state(ptr noundef %18)
   br label %while.cond, !llvm.loop !26
 
 while.end:                                        ; preds = %while.cond
@@ -6247,12 +6242,14 @@ do.body:                                          ; preds = %entry
   %sqe_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
   store ptr null, ptr %sqe_next, align 8
   %5 = load ptr, ptr %e, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1), align 8
-  store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr %e, align 8
-  %next2 = getelementptr inbounds %struct.AudiodevListEntry, ptr %7, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  store ptr %5, ptr %7, align 8
+  %8 = load ptr, ptr %e, align 8
+  %next2 = getelementptr inbounds %struct.AudiodevListEntry, ptr %8, i32 0, i32 1
   %sqe_next3 = getelementptr inbounds %struct.anon.9, ptr %next2, i32 0, i32 0
-  store ptr %sqe_next3, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1), align 8
+  %9 = getelementptr inbounds %struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1
+  store ptr %sqe_next3, ptr %9, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -6464,31 +6461,32 @@ do.body33:                                        ; preds = %if.end30
   br i1 %cmp, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %do.body33
-  store ptr @default_audiodevs, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1), align 8
+  %30 = getelementptr inbounds %struct.AudiodevListHead, ptr @default_audiodevs, i32 0, i32 1
+  store ptr @default_audiodevs, ptr %30, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %do.body33
-  %30 = load ptr, ptr %elm, align 8
-  %next36 = getelementptr inbounds %struct.AudiodevListEntry, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %elm, align 8
+  %next36 = getelementptr inbounds %struct.AudiodevListEntry, ptr %31, i32 0, i32 1
   %sqe_next37 = getelementptr inbounds %struct.anon.9, ptr %next36, i32 0, i32 0
   store ptr null, ptr %sqe_next37, align 8
   br label %do.end38
 
 do.end38:                                         ; preds = %if.end35
-  %31 = load ptr, ptr %e, align 8
-  call void @g_free(ptr noundef %31)
-  %32 = load ptr, ptr %dev.addr, align 8
-  %driver39 = getelementptr inbounds %struct.Audiodev, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %driver39, align 8
-  %call40 = call ptr @qapi_enum_lookup(ptr noundef @AudiodevDriver_lookup, i32 noundef %33)
+  %32 = load ptr, ptr %e, align 8
+  call void @g_free(ptr noundef %32)
+  %33 = load ptr, ptr %dev.addr, align 8
+  %driver39 = getelementptr inbounds %struct.Audiodev, ptr %33, i32 0, i32 1
+  %34 = load i32, ptr %driver39, align 8
+  %call40 = call ptr @qapi_enum_lookup(ptr noundef @AudiodevDriver_lookup, i32 noundef %34)
   store ptr %call40, ptr %drvname, align 8
-  %34 = load ptr, ptr %drvname, align 8
-  %call41 = call ptr @audio_driver_lookup(ptr noundef %34)
+  %35 = load ptr, ptr %drvname, align 8
+  %call41 = call ptr @audio_driver_lookup(ptr noundef %35)
   store ptr %call41, ptr %driver, align 8
-  %35 = load ptr, ptr %s, align 8
-  %36 = load ptr, ptr %driver, align 8
-  %37 = load ptr, ptr %dev.addr, align 8
-  %call42 = call i32 @audio_driver_init(ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef null)
+  %36 = load ptr, ptr %s, align 8
+  %37 = load ptr, ptr %driver, align 8
+  %38 = load ptr, ptr %dev.addr, align 8
+  %call42 = call i32 @audio_driver_init(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef null)
   %tobool43 = icmp ne i32 %call42, 0
   br i1 %tobool43, label %if.end45, label %if.then44
 
@@ -6496,10 +6494,10 @@ if.then44:                                        ; preds = %do.end38
   br label %for.end
 
 if.end45:                                         ; preds = %do.end38
-  %38 = load ptr, ptr %dev.addr, align 8
-  call void @qapi_free_Audiodev(ptr noundef %38)
-  %39 = load ptr, ptr %s, align 8
-  %dev46 = getelementptr inbounds %struct.AudioState, ptr %39, i32 0, i32 1
+  %39 = load ptr, ptr %dev.addr, align 8
+  call void @qapi_free_Audiodev(ptr noundef %39)
+  %40 = load ptr, ptr %s, align 8
+  %dev46 = getelementptr inbounds %struct.AudioState, ptr %40, i32 0, i32 1
   store ptr null, ptr %dev46, align 8
   br label %for.cond
 
@@ -6507,35 +6505,35 @@ for.end:                                          ; preds = %if.then44
   br label %if.end47
 
 if.end47:                                         ; preds = %for.end, %if.end22
-  %40 = load ptr, ptr %dev.addr, align 8
-  %timer_period = getelementptr inbounds %struct.Audiodev, ptr %40, i32 0, i32 3
-  %41 = load i32, ptr %timer_period, align 8
-  %cmp48 = icmp ule i32 %41, 0
+  %41 = load ptr, ptr %dev.addr, align 8
+  %timer_period = getelementptr inbounds %struct.Audiodev, ptr %41, i32 0, i32 3
+  %42 = load i32, ptr %timer_period, align 8
+  %cmp48 = icmp ule i32 %42, 0
   br i1 %cmp48, label %if.then49, label %if.else50
 
 if.then49:                                        ; preds = %if.end47
-  %42 = load ptr, ptr %s, align 8
-  %period_ticks = getelementptr inbounds %struct.AudioState, ptr %42, i32 0, i32 11
+  %43 = load ptr, ptr %s, align 8
+  %period_ticks = getelementptr inbounds %struct.AudioState, ptr %43, i32 0, i32 11
   store i64 1, ptr %period_ticks, align 8
   br label %if.end53
 
 if.else50:                                        ; preds = %if.end47
-  %43 = load ptr, ptr %dev.addr, align 8
-  %timer_period51 = getelementptr inbounds %struct.Audiodev, ptr %43, i32 0, i32 3
-  %44 = load i32, ptr %timer_period51, align 8
-  %conv = zext i32 %44 to i64
+  %44 = load ptr, ptr %dev.addr, align 8
+  %timer_period51 = getelementptr inbounds %struct.Audiodev, ptr %44, i32 0, i32 3
+  %45 = load i32, ptr %timer_period51, align 8
+  %conv = zext i32 %45 to i64
   %mul = mul i64 %conv, 1000
-  %45 = load ptr, ptr %s, align 8
-  %period_ticks52 = getelementptr inbounds %struct.AudioState, ptr %45, i32 0, i32 11
+  %46 = load ptr, ptr %s, align 8
+  %period_ticks52 = getelementptr inbounds %struct.AudioState, ptr %46, i32 0, i32 11
   store i64 %mul, ptr %period_ticks52, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else50, %if.then49
-  %46 = load ptr, ptr %s, align 8
-  %call54 = call ptr @qemu_add_vm_change_state_handler(ptr noundef @audio_vm_change_state_handler, ptr noundef %46)
+  %47 = load ptr, ptr %s, align 8
+  %call54 = call ptr @qemu_add_vm_change_state_handler(ptr noundef @audio_vm_change_state_handler, ptr noundef %47)
   store ptr %call54, ptr %vmse, align 8
-  %47 = load ptr, ptr %vmse, align 8
-  %tobool55 = icmp ne ptr %47, null
+  %48 = load ptr, ptr %vmse, align 8
+  %tobool55 = icmp ne ptr %48, null
   br i1 %tobool55, label %if.end57, label %if.then56
 
 if.then56:                                        ; preds = %if.end53
@@ -6546,49 +6544,52 @@ if.end57:                                         ; preds = %if.then56, %if.end5
   br label %do.body58
 
 do.body58:                                        ; preds = %if.end57
-  %48 = load ptr, ptr %s, align 8
-  %list = getelementptr inbounds %struct.AudioState, ptr %48, i32 0, i32 14
+  %49 = load ptr, ptr %s, align 8
+  %list = getelementptr inbounds %struct.AudioState, ptr %49, i32 0, i32 14
   store ptr null, ptr %list, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @audio_states, i32 0, i32 1), align 8
-  %50 = load ptr, ptr %s, align 8
-  %list59 = getelementptr inbounds %struct.AudioState, ptr %50, i32 0, i32 14
+  %50 = getelementptr inbounds %struct.QTailQLink, ptr @audio_states, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %s, align 8
+  %list59 = getelementptr inbounds %struct.AudioState, ptr %52, i32 0, i32 14
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %list59, i32 0, i32 1
-  store ptr %49, ptr %tql_prev, align 8
-  %51 = load ptr, ptr %s, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @audio_states, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %52, i32 0, i32 0
-  store ptr %51, ptr %tql_next, align 8
+  store ptr %51, ptr %tql_prev, align 8
   %53 = load ptr, ptr %s, align 8
-  %list60 = getelementptr inbounds %struct.AudioState, ptr %53, i32 0, i32 14
-  store ptr %list60, ptr getelementptr inbounds (%struct.QTailQLink, ptr @audio_states, i32 0, i32 1), align 8
+  %54 = getelementptr inbounds %struct.QTailQLink, ptr @audio_states, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %55, i32 0, i32 0
+  store ptr %53, ptr %tql_next, align 8
+  %56 = load ptr, ptr %s, align 8
+  %list60 = getelementptr inbounds %struct.AudioState, ptr %56, i32 0, i32 14
+  %57 = getelementptr inbounds %struct.QTailQLink, ptr @audio_states, i32 0, i32 1
+  store ptr %list60, ptr %57, align 8
   br label %do.end61
 
 do.end61:                                         ; preds = %do.body58
   br label %do.body62
 
 do.body62:                                        ; preds = %do.end61
-  %54 = load ptr, ptr %s, align 8
-  %card_head = getelementptr inbounds %struct.AudioState, ptr %54, i32 0, i32 4
+  %58 = load ptr, ptr %s, align 8
+  %card_head = getelementptr inbounds %struct.AudioState, ptr %58, i32 0, i32 4
   %lh_first63 = getelementptr inbounds %struct.card_listhead, ptr %card_head, i32 0, i32 0
   store ptr null, ptr %lh_first63, align 8
   br label %do.end64
 
 do.end64:                                         ; preds = %do.body62
-  %55 = load ptr, ptr %s, align 8
-  %call65 = call i32 @vmstate_register_any(ptr noundef null, ptr noundef @vmstate_audio, ptr noundef %55)
-  %56 = load ptr, ptr %s, align 8
-  store ptr %56, ptr %retval, align 8
+  %59 = load ptr, ptr %s, align 8
+  %call65 = call i32 @vmstate_register_any(ptr noundef null, ptr noundef @vmstate_audio, ptr noundef %59)
+  %60 = load ptr, ptr %s, align 8
+  store ptr %60, ptr %retval, align 8
   br label %return
 
 out:                                              ; preds = %if.then29, %if.then21
-  %57 = load ptr, ptr %s, align 8
-  call void @free_audio_state(ptr noundef %57)
+  %61 = load ptr, ptr %s, align 8
+  call void @free_audio_state(ptr noundef %61)
   store ptr null, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %out, %do.end64
-  %58 = load ptr, ptr %retval, align 8
-  ret ptr %58
+  %62 = load ptr, ptr %retval, align 8
+  ret ptr %62
 }
 
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) #1
@@ -7114,7 +7115,7 @@ return:                                           ; preds = %if.end112, %if.then
 declare void @error_report(ptr noundef, ...) #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) #7
+declare noalias ptr @g_malloc0(i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @audio_pcm_capture_find_specific(ptr noundef %s, ptr noundef %as) #0 {
@@ -7238,7 +7239,7 @@ if.end12:                                         ; preds = %if.else, %if.end
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #8
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @audio_bits_to_index(i32 noundef %bits) #0 {
@@ -8280,7 +8281,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #3
+declare void @exit(i32 noundef) #2
 
 declare ptr @qobject_input_visitor_new_str(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -8306,12 +8307,14 @@ do.body:                                          ; preds = %entry
   %sqe_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
   store ptr null, ptr %sqe_next, align 8
   %4 = load ptr, ptr %e, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i32 0, i32 1), align 8
-  store ptr %4, ptr %5, align 8
-  %6 = load ptr, ptr %e, align 8
-  %next2 = getelementptr inbounds %struct.AudiodevListEntry, ptr %6, i32 0, i32 1
+  %5 = getelementptr inbounds %struct.AudiodevListHead, ptr @audiodevs, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  store ptr %4, ptr %6, align 8
+  %7 = load ptr, ptr %e, align 8
+  %next2 = getelementptr inbounds %struct.AudiodevListEntry, ptr %7, i32 0, i32 1
   %sqe_next3 = getelementptr inbounds %struct.anon.9, ptr %next2, i32 0, i32 0
-  store ptr %sqe_next3, ptr getelementptr inbounds (%struct.AudiodevListHead, ptr @audiodevs, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.AudiodevListHead, ptr @audiodevs, i32 0, i32 1
+  store ptr %sqe_next3, ptr %8, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -8631,7 +8634,7 @@ return:                                           ; preds = %for.end, %if.then3
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #9
+declare i32 @strcmp(ptr noundef, ptr noundef) #8
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
@@ -11451,7 +11454,7 @@ if.end11:                                         ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #10
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #9
 
 declare i32 @qemu_get_thread_id() #1
 
@@ -12742,7 +12745,7 @@ declare void @error_report_err(ptr noundef) #1
 declare void @qobject_destroy(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) #10
+declare i32 @atexit(ptr noundef) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @timer_new_ns(i32 noundef %type, ptr noundef %cb, ptr noundef %opaque) #0 {
@@ -13604,17 +13607,23 @@ if.end43:                                         ; preds = %if.then41, %if.end3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { allocsize(0,1) }
 attributes #13 = { allocsize(0) }

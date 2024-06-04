@@ -2010,9 +2010,11 @@ define void @_ZN25QCPErrorBarsNotSelectableC2EP7QCPAxisS1_(ptr noundef nonnull a
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 1, i32 2), ptr %10, align 8
+  %10 = getelementptr inbounds { [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 184
+  %12 = getelementptr inbounds { [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -2168,2174 +2170,2176 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %86 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %87 = load i32, ptr %86, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef %85, i32 %87)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2), ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2), ptr %88, align 8
-  %89 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 456) #19
-          to label %91 unwind label %149
-
-91:                                               ; preds = %4
+  %88 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2
+  store ptr %88, ptr %84, align 8
+  %89 = getelementptr inbounds i8, ptr %84, i64 16
+  %90 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2
   store ptr %90, ptr %89, align 8
-  %92 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
-  %93 = load ptr, ptr %7, align 8
-  store ptr %93, ptr %92, align 8
-  %94 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 3
-  call void @_ZN9QMultiMapIdP7segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #3
-  %95 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 4
-  store double 0.000000e+00, ptr %95, align 8
-  %96 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 5
-  store i8 1, ptr %96, align 8
-  %97 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 6
-  call void @_ZN4QMapIdP7segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #3
-  %98 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 7
-  store double 0.000000e+00, ptr %98, align 8
-  %99 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 8
-  store i8 1, ptr %99, align 8
-  %100 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 11
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #3
-  %102 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
+  %91 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 456) #19
+          to label %93 unwind label %151
+
+93:                                               ; preds = %4
+  store ptr %92, ptr %91, align 8
+  %94 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
+  %95 = load ptr, ptr %7, align 8
+  store ptr %95, ptr %94, align 8
+  %96 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 3
+  call void @_ZN9QMultiMapIdP7segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #3
+  %97 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 4
+  store double 0.000000e+00, ptr %97, align 8
+  %98 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 5
+  store i8 1, ptr %98, align 8
+  %99 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 6
+  call void @_ZN4QMapIdP7segmentEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #3
+  %100 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 7
+  store double 0.000000e+00, ptr %100, align 8
+  %101 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 8
+  store i8 1, ptr %101, align 8
+  %102 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
   store ptr null, ptr %102, align 8
-  %103 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
-  store ptr null, ptr %103, align 8
-  %104 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
+  %103 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 11
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %103) #3
+  %104 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
   store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
+  %105 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
   store ptr null, ptr %105, align 8
-  %106 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %106 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
   store ptr null, ptr %106, align 8
-  %107 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
+  %107 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
   store ptr null, ptr %107, align 8
-  %108 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
+  %108 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
   store ptr null, ptr %108, align 8
-  %109 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %109 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
   store ptr null, ptr %109, align 8
-  %110 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
+  %110 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
   store ptr null, ptr %110, align 8
-  %111 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %111 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
   store ptr null, ptr %111, align 8
-  %112 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
+  %112 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
   store ptr null, ptr %112, align 8
-  %113 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
+  %113 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
   store ptr null, ptr %113, align 8
-  %114 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
+  %114 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
   store ptr null, ptr %114, align 8
-  %115 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
+  %115 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
   store ptr null, ptr %115, align 8
-  %116 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 26
-  call void @_ZN6QRectFC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #3
-  %117 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 27
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 29
-  invoke void @_ZN10QTransformC2Ev(ptr noundef nonnull align 8 dereferenceable(74) %118)
-          to label %119 unwind label %153
+  %116 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
+  store ptr null, ptr %116, align 8
+  %117 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
+  store ptr null, ptr %117, align 8
+  %118 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 26
+  call void @_ZN6QRectFC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #3
+  %119 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 27
+  store i32 0, ptr %119, align 8
+  %120 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 29
+  invoke void @_ZN10QTransformC2Ev(ptr noundef nonnull align 8 dereferenceable(74) %120)
+          to label %121 unwind label %155
 
-119:                                              ; preds = %91
-  %120 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 30
-  store i8 1, ptr %120, align 8
-  %121 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 31
-  store ptr null, ptr %121, align 8
-  %122 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 32
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %122) #3
-  %123 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef null)
-          to label %124 unwind label %153
+121:                                              ; preds = %93
+  %122 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 30
+  store i8 1, ptr %122, align 8
+  %123 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 31
+  store ptr null, ptr %123, align 8
+  %124 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 32
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %124) #3
+  %125 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef null)
+          to label %126 unwind label %155
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 34
-  invoke void @_ZN15TCPStreamDialog12GraphUpdaterC2EPS_(ptr noundef nonnull align 8 dereferenceable(17) %125, ptr noundef %84)
-          to label %126 unwind label %157
+126:                                              ; preds = %121
+  %127 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 34
+  invoke void @_ZN15TCPStreamDialog12GraphUpdaterC2EPS_(ptr noundef nonnull align 8 dereferenceable(17) %127, ptr noundef %84)
+          to label %128 unwind label %159
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 35
-  store i32 -1, ptr %127, align 8
-  %128 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 36
-  store i32 -1, ptr %128, align 4
-  %129 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 37
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 35
   store i32 -1, ptr %129, align 8
-  %130 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 38
-  store double 1.000000e+00, ptr %130, align 8
+  %130 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 36
+  store i32 -1, ptr %130, align 4
+  %131 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 37
+  store i32 -1, ptr %131, align 8
+  %132 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 38
+  store double 1.000000e+00, ptr %132, align 8
   store i32 -1, ptr %12, align 4
-  %131 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
-  call void @llvm.memset.p0.i64(ptr align 8 %131, i8 0, i64 80, i1 false)
-  %132 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %133 = load ptr, ptr %132, align 8
-  invoke void @_ZN18Ui_TCPStreamDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(456) %133, ptr noundef %84)
-          to label %134 unwind label %157
+  %133 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
+  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 80, i1 false)
+  %134 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8
+  invoke void @_ZN18Ui_TCPStreamDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(456) %135, ptr noundef %84)
+          to label %136 unwind label %159
 
-134:                                              ; preds = %126
-  %135 = load ptr, ptr %6, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %165
+136:                                              ; preds = %128
+  %137 = load ptr, ptr %6, align 8
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %167
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %6, align 8
-  %139 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %138)
-          to label %140 unwind label %157
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %6, align 8
+  %141 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %140)
+          to label %142 unwind label %159
 
-140:                                              ; preds = %137
-  %141 = mul i32 %139, 2
-  %142 = sdiv i32 %141, 3
-  %143 = load ptr, ptr %6, align 8
-  %144 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %143)
-          to label %145 unwind label %157
+142:                                              ; preds = %139
+  %143 = mul i32 %141, 2
+  %144 = sdiv i32 %143, 3
+  %145 = load ptr, ptr %6, align 8
+  %146 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %145)
+          to label %147 unwind label %159
 
-145:                                              ; preds = %140
-  %146 = mul i32 %144, 4
-  %147 = sdiv i32 %146, 5
+147:                                              ; preds = %142
+  %148 = mul i32 %146, 4
+  %149 = sdiv i32 %148, 5
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %84, i32 noundef %142, i32 noundef %147, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %148 unwind label %161
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %84, i32 noundef %144, i32 noundef %149, ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %150 unwind label %163
 
-148:                                              ; preds = %145
+150:                                              ; preds = %147
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %165
+  br label %167
 
-149:                                              ; preds = %4
-  %150 = landingpad { ptr, i32 }
+151:                                              ; preds = %4
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %10, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %11, align 4
-  br label %1164
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %10, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %11, align 4
+  br label %1166
 
-153:                                              ; preds = %119, %91
-  %154 = landingpad { ptr, i32 }
+155:                                              ; preds = %121, %93
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %10, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %11, align 4
-  br label %1163
-
-157:                                              ; preds = %890, %887, %884, %877, %874, %869, %865, %862, %859, %853, %849, %840, %836, %832, %829, %824, %820, %817, %814, %808, %804, %795, %791, %787, %784, %781, %774, %771, %766, %762, %759, %756, %750, %746, %737, %733, %729, %726, %723, %716, %707, %704, %697, %688, %681, %678, %674, %671, %670, %667, %664, %661, %660, %656, %652, %646, %628, %613, %598, %583, %568, %561, %556, %541, %533, %531, %520, %519, %512, %509, %503, %497, %491, %485, %479, %476, %470, %464, %458, %452, %449, %443, %437, %431, %425, %422, %416, %410, %404, %398, %392, %386, %380, %374, %371, %365, %359, %353, %347, %341, %335, %329, %321, %319, %305, %294, %280, %269, %255, %244, %230, %219, %205, %194, %188, %179, %172, %166, %165, %140, %137, %126, %124
-  %158 = landingpad { ptr, i32 }
-          cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %10, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %11, align 4
-  br label %1162
-
-161:                                              ; preds = %145
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %10, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %1162
-
-165:                                              ; preds = %148, %134
-  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 55, i1 noundef zeroext true)
-          to label %166 unwind label %157
-
-166:                                              ; preds = %165
-  %167 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %168, i32 0, i32 40
-  %170 = load ptr, ptr %169, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @.str.11)
-          to label %171 unwind label %157
-
-171:                                              ; preds = %166
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %170, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %172 unwind label %184
-
-172:                                              ; preds = %171
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %173 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
-  %174 = load ptr, ptr %173, align 8
-  %175 = invoke i32 @select_tcpip_session(ptr noundef %174)
-          to label %176 unwind label %157
-
-176:                                              ; preds = %172
-  store i32 %175, ptr %15, align 4
-  %177 = load i32, ptr %15, align 4
-  %178 = icmp eq i32 %177, -1
-  br i1 %178, label %179, label %188
-
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %84, align 8
-  %181 = getelementptr inbounds ptr, ptr %180, i64 54
-  %182 = load ptr, ptr %181, align 8
-  invoke void %182(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 0)
-          to label %183 unwind label %157
-
-183:                                              ; preds = %179
-  br label %1157
-
-184:                                              ; preds = %171
-  %185 = landingpad { ptr, i32 }
-          cleanup
-  %186 = extractvalue { ptr, i32 } %185, 0
-  store ptr %186, ptr %10, align 8
-  %187 = extractvalue { ptr, i32 } %185, 1
-  store i32 %187, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  br label %1162
-
-188:                                              ; preds = %176
-  %189 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %190, i32 0, i32 33
-  %192 = load ptr, ptr %191, align 8
-  store ptr %192, ptr %16, align 8
-  %193 = load ptr, ptr %16, align 8
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %193, i1 noundef zeroext false)
-          to label %194 unwind label %157
-
-194:                                              ; preds = %188
-  %195 = load ptr, ptr %16, align 8
-  %196 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %197, i32 0, i32 19
-  %199 = load ptr, ptr %198, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %199)
-          to label %200 unwind label %157
-
-200:                                              ; preds = %194
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
-          to label %201 unwind label %210
-
-201:                                              ; preds = %200
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %202 unwind label %214
-
-202:                                              ; preds = %201
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %203 = load i32, ptr %8, align 4
-  %204 = icmp eq i32 %203, 3
-  br i1 %204, label %205, label %219
-
-205:                                              ; preds = %202
-  %206 = load ptr, ptr %16, align 8
-  %207 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %206)
-          to label %208 unwind label %157
-
-208:                                              ; preds = %205
-  %209 = sub i32 %207, 1
-  store i32 %209, ptr %12, align 4
-  br label %219
-
-210:                                              ; preds = %200
-  %211 = landingpad { ptr, i32 }
-          cleanup
-  %212 = extractvalue { ptr, i32 } %211, 0
-  store ptr %212, ptr %10, align 8
-  %213 = extractvalue { ptr, i32 } %211, 1
-  store i32 %213, ptr %11, align 4
-  br label %218
-
-214:                                              ; preds = %201
-  %215 = landingpad { ptr, i32 }
-          cleanup
-  %216 = extractvalue { ptr, i32 } %215, 0
-  store ptr %216, ptr %10, align 8
-  %217 = extractvalue { ptr, i32 } %215, 1
-  store i32 %217, ptr %11, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  br label %218
-
-218:                                              ; preds = %214, %210
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  br label %1162
-
-219:                                              ; preds = %208, %202
-  %220 = load ptr, ptr %16, align 8
-  %221 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %222, i32 0, i32 20
-  %224 = load ptr, ptr %223, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %224)
-          to label %225 unwind label %157
-
-225:                                              ; preds = %219
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 2)
-          to label %226 unwind label %235
-
-226:                                              ; preds = %225
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %220, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %227 unwind label %239
-
-227:                                              ; preds = %226
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  %228 = load i32, ptr %8, align 4
-  %229 = icmp eq i32 %228, 2
-  br i1 %229, label %230, label %244
-
-230:                                              ; preds = %227
-  %231 = load ptr, ptr %16, align 8
-  %232 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %231)
-          to label %233 unwind label %157
-
-233:                                              ; preds = %230
-  %234 = sub i32 %232, 1
-  store i32 %234, ptr %12, align 4
-  br label %244
-
-235:                                              ; preds = %225
-  %236 = landingpad { ptr, i32 }
-          cleanup
-  %237 = extractvalue { ptr, i32 } %236, 0
-  store ptr %237, ptr %10, align 8
-  %238 = extractvalue { ptr, i32 } %236, 1
-  store i32 %238, ptr %11, align 4
-  br label %243
-
-239:                                              ; preds = %226
-  %240 = landingpad { ptr, i32 }
-          cleanup
-  %241 = extractvalue { ptr, i32 } %240, 0
-  store ptr %241, ptr %10, align 8
-  %242 = extractvalue { ptr, i32 } %240, 1
-  store i32 %242, ptr %11, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %243
-
-243:                                              ; preds = %239, %235
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  br label %1162
-
-244:                                              ; preds = %233, %227
-  %245 = load ptr, ptr %16, align 8
-  %246 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %247, i32 0, i32 21
-  %249 = load ptr, ptr %248, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %249)
-          to label %250 unwind label %157
-
-250:                                              ; preds = %244
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 0)
-          to label %251 unwind label %260
-
-251:                                              ; preds = %250
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %245, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %252 unwind label %264
-
-252:                                              ; preds = %251
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  %253 = load i32, ptr %8, align 4
-  %254 = icmp eq i32 %253, 0
-  br i1 %254, label %255, label %269
-
-255:                                              ; preds = %252
-  %256 = load ptr, ptr %16, align 8
-  %257 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %256)
-          to label %258 unwind label %157
-
-258:                                              ; preds = %255
-  %259 = sub i32 %257, 1
-  store i32 %259, ptr %12, align 4
-  br label %269
-
-260:                                              ; preds = %250
-  %261 = landingpad { ptr, i32 }
-          cleanup
-  %262 = extractvalue { ptr, i32 } %261, 0
-  store ptr %262, ptr %10, align 8
-  %263 = extractvalue { ptr, i32 } %261, 1
-  store i32 %263, ptr %11, align 4
-  br label %268
-
-264:                                              ; preds = %251
-  %265 = landingpad { ptr, i32 }
-          cleanup
-  %266 = extractvalue { ptr, i32 } %265, 0
-  store ptr %266, ptr %10, align 8
-  %267 = extractvalue { ptr, i32 } %265, 1
-  store i32 %267, ptr %11, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  br label %268
-
-268:                                              ; preds = %264, %260
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  br label %1162
-
-269:                                              ; preds = %258, %252
-  %270 = load ptr, ptr %16, align 8
-  %271 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %272, i32 0, i32 23
-  %274 = load ptr, ptr %273, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %274)
-          to label %275 unwind label %157
-
-275:                                              ; preds = %269
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1)
-          to label %276 unwind label %285
-
-276:                                              ; preds = %275
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %270, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %277 unwind label %289
-
-277:                                              ; preds = %276
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %278 = load i32, ptr %8, align 4
-  %279 = icmp eq i32 %278, 1
-  br i1 %279, label %280, label %294
-
-280:                                              ; preds = %277
-  %281 = load ptr, ptr %16, align 8
-  %282 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %281)
-          to label %283 unwind label %157
-
-283:                                              ; preds = %280
-  %284 = sub i32 %282, 1
-  store i32 %284, ptr %12, align 4
-  br label %294
-
-285:                                              ; preds = %275
-  %286 = landingpad { ptr, i32 }
-          cleanup
-  %287 = extractvalue { ptr, i32 } %286, 0
-  store ptr %287, ptr %10, align 8
-  %288 = extractvalue { ptr, i32 } %286, 1
-  store i32 %288, ptr %11, align 4
-  br label %293
-
-289:                                              ; preds = %276
-  %290 = landingpad { ptr, i32 }
-          cleanup
-  %291 = extractvalue { ptr, i32 } %290, 0
-  store ptr %291, ptr %10, align 8
-  %292 = extractvalue { ptr, i32 } %290, 1
-  store i32 %292, ptr %11, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
-  br label %293
-
-293:                                              ; preds = %289, %285
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  br label %1162
-
-294:                                              ; preds = %283, %277
-  %295 = load ptr, ptr %16, align 8
-  %296 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %297, i32 0, i32 22
-  %299 = load ptr, ptr %298, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %299)
-          to label %300 unwind label %157
-
-300:                                              ; preds = %294
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 4)
-          to label %301 unwind label %310
-
-301:                                              ; preds = %300
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %295, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %302 unwind label %314
-
-302:                                              ; preds = %301
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  %303 = load i32, ptr %8, align 4
-  %304 = icmp eq i32 %303, 4
-  br i1 %304, label %305, label %319
-
-305:                                              ; preds = %302
-  %306 = load ptr, ptr %16, align 8
-  %307 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %306)
-          to label %308 unwind label %157
-
-308:                                              ; preds = %305
-  %309 = sub i32 %307, 1
-  store i32 %309, ptr %12, align 4
-  br label %319
-
-310:                                              ; preds = %300
-  %311 = landingpad { ptr, i32 }
-          cleanup
-  %312 = extractvalue { ptr, i32 } %311, 0
-  store ptr %312, ptr %10, align 8
-  %313 = extractvalue { ptr, i32 } %311, 1
-  store i32 %313, ptr %11, align 4
-  br label %318
-
-314:                                              ; preds = %301
-  %315 = landingpad { ptr, i32 }
-          cleanup
-  %316 = extractvalue { ptr, i32 } %315, 0
-  store ptr %316, ptr %10, align 8
-  %317 = extractvalue { ptr, i32 } %315, 1
-  store i32 %317, ptr %11, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  br label %318
-
-318:                                              ; preds = %314, %310
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %1162
-
-319:                                              ; preds = %308, %302
-  %320 = load ptr, ptr %16, align 8
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %320, i1 noundef zeroext true)
-          to label %321 unwind label %157
-
-321:                                              ; preds = %319
-  %322 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %323, i32 0, i32 44
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 30
-  %327 = load i8, ptr %326, align 8
-  %328 = trunc i8 %327 to i1
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %325, i1 noundef zeroext %328)
-          to label %329 unwind label %157
-
-329:                                              ; preds = %321
-  %330 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %331 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %332, i32 0, i32 1
-  %334 = load ptr, ptr %333, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %330, ptr noundef %334)
-          to label %335 unwind label %157
-
-335:                                              ; preds = %329
-  %336 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %337 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %338, i32 0, i32 24
-  %340 = load ptr, ptr %339, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %336, ptr noundef %340)
-          to label %341 unwind label %157
-
-341:                                              ; preds = %335
-  %342 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %343 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %344, i32 0, i32 26
-  %346 = load ptr, ptr %345, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %342, ptr noundef %346)
-          to label %347 unwind label %157
-
-347:                                              ; preds = %341
-  %348 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %349 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %350, i32 0, i32 2
-  %352 = load ptr, ptr %351, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %348, ptr noundef %352)
-          to label %353 unwind label %157
-
-353:                                              ; preds = %347
-  %354 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %355 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %356 = load ptr, ptr %355, align 8
-  %357 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %356, i32 0, i32 25
-  %358 = load ptr, ptr %357, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %354, ptr noundef %358)
-          to label %359 unwind label %157
-
-359:                                              ; preds = %353
-  %360 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %361 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %362, i32 0, i32 27
-  %364 = load ptr, ptr %363, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %360, ptr noundef %364)
-          to label %365 unwind label %157
-
-365:                                              ; preds = %359
-  %366 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %367 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %368, i32 0, i32 0
-  %370 = load ptr, ptr %369, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %366, ptr noundef %370)
-          to label %371 unwind label %157
-
-371:                                              ; preds = %365
-  %372 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %373 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %372)
-          to label %374 unwind label %157
-
-374:                                              ; preds = %371
-  %375 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %376 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %377, i32 0, i32 5
-  %379 = load ptr, ptr %378, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %375, ptr noundef %379)
-          to label %380 unwind label %157
-
-380:                                              ; preds = %374
-  %381 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %382 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %383, i32 0, i32 4
-  %385 = load ptr, ptr %384, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %381, ptr noundef %385)
-          to label %386 unwind label %157
-
-386:                                              ; preds = %380
-  %387 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %388 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %389, i32 0, i32 3
-  %391 = load ptr, ptr %390, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %387, ptr noundef %391)
-          to label %392 unwind label %157
-
-392:                                              ; preds = %386
-  %393 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %394 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %395, i32 0, i32 6
-  %397 = load ptr, ptr %396, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %393, ptr noundef %397)
-          to label %398 unwind label %157
-
-398:                                              ; preds = %392
-  %399 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %400 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %401, i32 0, i32 9
-  %403 = load ptr, ptr %402, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %399, ptr noundef %403)
-          to label %404 unwind label %157
-
-404:                                              ; preds = %398
-  %405 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %406 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %407, i32 0, i32 8
-  %409 = load ptr, ptr %408, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %405, ptr noundef %409)
-          to label %410 unwind label %157
-
-410:                                              ; preds = %404
-  %411 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %412 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %413, i32 0, i32 7
-  %415 = load ptr, ptr %414, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %411, ptr noundef %415)
-          to label %416 unwind label %157
-
-416:                                              ; preds = %410
-  %417 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %418 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %419 = load ptr, ptr %418, align 8
-  %420 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %419, i32 0, i32 10
-  %421 = load ptr, ptr %420, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %417, ptr noundef %421)
-          to label %422 unwind label %157
-
-422:                                              ; preds = %416
-  %423 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %424 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %423)
-          to label %425 unwind label %157
-
-425:                                              ; preds = %422
-  %426 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %427 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %428 = load ptr, ptr %427, align 8
-  %429 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %428, i32 0, i32 11
-  %430 = load ptr, ptr %429, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %426, ptr noundef %430)
-          to label %431 unwind label %157
-
-431:                                              ; preds = %425
-  %432 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %433 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %434, i32 0, i32 12
-  %436 = load ptr, ptr %435, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %432, ptr noundef %436)
-          to label %437 unwind label %157
-
-437:                                              ; preds = %431
-  %438 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %439 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %440, i32 0, i32 13
-  %442 = load ptr, ptr %441, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %438, ptr noundef %442)
-          to label %443 unwind label %157
-
-443:                                              ; preds = %437
-  %444 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %445 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %446, i32 0, i32 14
-  %448 = load ptr, ptr %447, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %444, ptr noundef %448)
-          to label %449 unwind label %157
-
-449:                                              ; preds = %443
-  %450 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %451 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %450)
-          to label %452 unwind label %157
-
-452:                                              ; preds = %449
-  %453 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %454 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %455, i32 0, i32 15
-  %457 = load ptr, ptr %456, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %453, ptr noundef %457)
-          to label %458 unwind label %157
-
-458:                                              ; preds = %452
-  %459 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %460 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %461, i32 0, i32 16
-  %463 = load ptr, ptr %462, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %459, ptr noundef %463)
-          to label %464 unwind label %157
-
-464:                                              ; preds = %458
-  %465 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %466 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %467, i32 0, i32 17
-  %469 = load ptr, ptr %468, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %465, ptr noundef %469)
-          to label %470 unwind label %157
-
-470:                                              ; preds = %464
-  %471 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %472 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %473, i32 0, i32 18
-  %475 = load ptr, ptr %474, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %471, ptr noundef %475)
-          to label %476 unwind label %157
-
-476:                                              ; preds = %470
-  %477 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %478 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %477)
-          to label %479 unwind label %157
-
-479:                                              ; preds = %476
-  %480 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %481 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %482, i32 0, i32 19
-  %484 = load ptr, ptr %483, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %480, ptr noundef %484)
-          to label %485 unwind label %157
-
-485:                                              ; preds = %479
-  %486 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %487 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %488 = load ptr, ptr %487, align 8
-  %489 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %488, i32 0, i32 20
-  %490 = load ptr, ptr %489, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %486, ptr noundef %490)
-          to label %491 unwind label %157
-
-491:                                              ; preds = %485
-  %492 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %493 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %494, i32 0, i32 21
-  %496 = load ptr, ptr %495, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %492, ptr noundef %496)
-          to label %497 unwind label %157
-
-497:                                              ; preds = %491
-  %498 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %499 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %500 = load ptr, ptr %499, align 8
-  %501 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %500, i32 0, i32 23
-  %502 = load ptr, ptr %501, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %498, ptr noundef %502)
-          to label %503 unwind label %157
-
-503:                                              ; preds = %497
-  %504 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  %505 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %506, i32 0, i32 22
-  %508 = load ptr, ptr %507, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %504, ptr noundef %508)
-          to label %509 unwind label %157
-
-509:                                              ; preds = %503
-  %510 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
-  invoke void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.6) align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %510)
-          to label %511 unwind label %157
-
-511:                                              ; preds = %509
-  invoke void @_Z44set_action_shortcuts_visible_in_context_menu5QListIP7QActionE(ptr noundef %27)
-          to label %512 unwind label %952
-
-512:                                              ; preds = %511
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  %513 = load i32, ptr %8, align 4
-  %514 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
-  %515 = getelementptr inbounds %struct.tcp_graph, ptr %514, i32 0, i32 0
-  store i32 %513, ptr %515, align 8
-  %516 = load i32, ptr %15, align 4
-  %517 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
-  %518 = getelementptr inbounds %struct.tcp_graph, ptr %517, i32 0, i32 5
-  store i32 %516, ptr %518, align 4
-  invoke void @_ZN15TCPStreamDialog10findStreamEv(ptr noundef nonnull align 8 dereferenceable(584) %84)
-          to label %519 unwind label %157
-
-519:                                              ; preds = %512
-  invoke void @_ZN15TCPStreamDialog23showWidgetsForGraphTypeEv(ptr noundef nonnull align 8 dereferenceable(584) %84)
-          to label %520 unwind label %157
-
-520:                                              ; preds = %519
-  %521 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %522, i32 0, i32 40
-  %524 = load ptr, ptr %523, align 8
-  %525 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %524, i1 noundef zeroext true) #3
-  %526 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %527 = load ptr, ptr %526, align 8
-  %528 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %527, i32 0, i32 40
-  %529 = load ptr, ptr %528, align 8
-  %530 = invoke i32 @get_tcp_stream_count()
-          to label %531 unwind label %157
-
-531:                                              ; preds = %520
-  %532 = sub i32 %530, 1
-  invoke void @_ZN8QSpinBox10setMaximumEi(ptr noundef nonnull align 8 dereferenceable(40) %529, i32 noundef %532)
-          to label %533 unwind label %157
-
-533:                                              ; preds = %531
-  %534 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %535 = load ptr, ptr %534, align 8
-  %536 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %535, i32 0, i32 40
-  %537 = load ptr, ptr %536, align 8
-  %538 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
-  %539 = getelementptr inbounds %struct.tcp_graph, ptr %538, i32 0, i32 5
-  %540 = load i32, ptr %539, align 4
-  invoke void @_ZN8QSpinBox8setValueEi(ptr noundef nonnull align 8 dereferenceable(40) %537, i32 noundef %540)
-          to label %541 unwind label %157
-
-541:                                              ; preds = %533
-  %542 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %543, i32 0, i32 40
-  %545 = load ptr, ptr %544, align 8
-  %546 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %545, i1 noundef zeroext false) #3
-  %547 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %548 = load ptr, ptr %547, align 8
-  %549 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %548, i32 0, i32 36
-  %550 = load ptr, ptr %549, align 8
-  %551 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %550, i1 noundef zeroext true) #3
-  %552 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %553, i32 0, i32 36
-  %555 = load ptr, ptr %554, align 8
-  invoke void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(40) %555, i32 noundef 6)
-          to label %556 unwind label %157
-
-556:                                              ; preds = %541
-  %557 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %558, i32 0, i32 36
-  %560 = load ptr, ptr %559, align 8
-  invoke void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(40) %560, double noundef 0x3EB0C6F7A0B5ED8D)
-          to label %561 unwind label %157
-
-561:                                              ; preds = %556
-  %562 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %563, i32 0, i32 36
-  %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 38
-  %567 = load double, ptr %566, align 8
-  invoke void @_ZN14QDoubleSpinBox8setValueEd(ptr noundef nonnull align 8 dereferenceable(40) %565, double noundef %567)
-          to label %568 unwind label %157
-
-568:                                              ; preds = %561
-  %569 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %570 = load ptr, ptr %569, align 8
-  %571 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %570, i32 0, i32 36
-  %572 = load ptr, ptr %571, align 8
-  %573 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %572, i1 noundef zeroext false) #3
-  %574 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %575, i32 0, i32 48
-  %577 = load ptr, ptr %576, align 8
-  %578 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %577, i1 noundef zeroext true) #3
-  %579 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %580 = load ptr, ptr %579, align 8
-  %581 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %580, i32 0, i32 48
-  %582 = load ptr, ptr %581, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %582, i1 noundef zeroext true)
-          to label %583 unwind label %157
-
-583:                                              ; preds = %568
-  %584 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %585 = load ptr, ptr %584, align 8
-  %586 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %585, i32 0, i32 48
-  %587 = load ptr, ptr %586, align 8
-  %588 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %587, i1 noundef zeroext false) #3
-  %589 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %590, i32 0, i32 49
-  %592 = load ptr, ptr %591, align 8
-  %593 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %592, i1 noundef zeroext true) #3
-  %594 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %595 = load ptr, ptr %594, align 8
-  %596 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %595, i32 0, i32 49
-  %597 = load ptr, ptr %596, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %597, i1 noundef zeroext true)
-          to label %598 unwind label %157
-
-598:                                              ; preds = %583
-  %599 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %600 = load ptr, ptr %599, align 8
-  %601 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %600, i32 0, i32 49
-  %602 = load ptr, ptr %601, align 8
-  %603 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %602, i1 noundef zeroext false) #3
-  %604 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %605 = load ptr, ptr %604, align 8
-  %606 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %605, i32 0, i32 51
-  %607 = load ptr, ptr %606, align 8
-  %608 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %607, i1 noundef zeroext true) #3
-  %609 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %610, i32 0, i32 51
-  %612 = load ptr, ptr %611, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %612, i1 noundef zeroext true)
-          to label %613 unwind label %157
-
-613:                                              ; preds = %598
-  %614 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %615 = load ptr, ptr %614, align 8
-  %616 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %615, i32 0, i32 51
-  %617 = load ptr, ptr %616, align 8
-  %618 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %617, i1 noundef zeroext false) #3
-  %619 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %620 = load ptr, ptr %619, align 8
-  %621 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %620, i32 0, i32 52
-  %622 = load ptr, ptr %621, align 8
-  %623 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %622, i1 noundef zeroext true) #3
-  %624 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %625 = load ptr, ptr %624, align 8
-  %626 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %625, i32 0, i32 52
-  %627 = load ptr, ptr %626, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %627, i1 noundef zeroext true)
-          to label %628 unwind label %157
-
-628:                                              ; preds = %613
-  %629 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %630, i32 0, i32 52
-  %632 = load ptr, ptr %631, align 8
-  %633 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %632, i1 noundef zeroext false) #3
-  %634 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %635, i32 0, i32 29
-  %637 = load ptr, ptr %636, align 8
-  store ptr %637, ptr %28, align 8
-  %638 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #19
-          to label %639 unwind label %157
-
-639:                                              ; preds = %628
-  store i1 true, ptr %31, align 1
-  %640 = load ptr, ptr %28, align 8
-  %641 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
-  %642 = load ptr, ptr %641, align 8
-  %643 = invoke ptr @cf_get_display_name(ptr noundef %642)
-          to label %644 unwind label %956
-
-644:                                              ; preds = %639
-  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind writable sret(%class.QString) align 8 %30, ptr noundef %643)
-          to label %645 unwind label %956
-
-645:                                              ; preds = %644
-  invoke void @_ZN14QCPTextElementC1EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(282) %638, ptr noundef %640, ptr noundef nonnull align 8 dereferenceable(24) %30)
-          to label %646 unwind label %960
-
-646:                                              ; preds = %645
-  store i1 false, ptr %31, align 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  store ptr %638, ptr %29, align 8
-  %647 = load ptr, ptr %29, align 8
-  %648 = load ptr, ptr %28, align 8
-  %649 = getelementptr inbounds %class.QCustomPlot, ptr %648, i32 0, i32 1
-  %650 = load ptr, ptr %649, align 8
-  invoke void @_ZNK7QCPAxis9labelFontEv(ptr dead_on_unwind writable sret(%class.QFont) align 8 %32, ptr noundef nonnull align 8 dereferenceable(472) %650)
-          to label %651 unwind label %157
-
-651:                                              ; preds = %646
-  invoke void @_ZN14QCPTextElement7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(282) %647, ptr noundef nonnull align 8 dereferenceable(12) %32)
-          to label %652 unwind label %968
-
-652:                                              ; preds = %651
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #3
-  %653 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #19
-          to label %654 unwind label %157
-
-654:                                              ; preds = %652
-  %655 = load ptr, ptr %28, align 8
-  invoke void @_ZN14QCPTextElementC1EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(282) %653, ptr noundef %655)
-          to label %656 unwind label %972
-
-656:                                              ; preds = %654
-  %657 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
-  store ptr %653, ptr %657, align 8
-  %658 = load ptr, ptr %28, align 8
-  %659 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %658)
-          to label %660 unwind label %157
-
-660:                                              ; preds = %656
-  invoke void @_ZN13QCPLayoutGrid9insertRowEi(ptr noundef nonnull align 8 dereferenceable(256) %659, i32 noundef 0)
-          to label %661 unwind label %157
-
-661:                                              ; preds = %660
-  %662 = load ptr, ptr %28, align 8
-  %663 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %662)
-          to label %664 unwind label %157
-
-664:                                              ; preds = %661
-  %665 = load ptr, ptr %29, align 8
-  %666 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable(256) %663, i32 noundef 0, i32 noundef 0, ptr noundef %665)
-          to label %667 unwind label %157
-
-667:                                              ; preds = %664
-  %668 = load ptr, ptr %28, align 8
-  %669 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %668)
-          to label %670 unwind label %157
-
-670:                                              ; preds = %667
-  invoke void @_ZN13QCPLayoutGrid9insertRowEi(ptr noundef nonnull align 8 dereferenceable(256) %669, i32 noundef 0)
-          to label %671 unwind label %157
-
-671:                                              ; preds = %670
-  %672 = load ptr, ptr %28, align 8
-  %673 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %672)
-          to label %674 unwind label %157
-
-674:                                              ; preds = %671
-  %675 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
-  %676 = load ptr, ptr %675, align 8
-  %677 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable(256) %673, i32 noundef 0, i32 noundef 0, ptr noundef %676)
-          to label %678 unwind label %157
-
-678:                                              ; preds = %674
-  store double 5.000000e-01, ptr %33, align 8
-  %679 = load ptr, ptr %28, align 8
-  %680 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %679, ptr noundef null, ptr noundef null)
-          to label %681 unwind label %157
-
-681:                                              ; preds = %678
-  %682 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
-  store ptr %680, ptr %682, align 8
-  %683 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
-  %684 = load ptr, ptr %683, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %36, i32 noundef 2116231) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(14) %36, i32 noundef 1)
-          to label %685 unwind label %157
-
-685:                                              ; preds = %681
-  %686 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, double noundef %686, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %687 unwind label %976
-
-687:                                              ; preds = %685
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %684, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %688 unwind label %980
-
-688:                                              ; preds = %687
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
-  %689 = load ptr, ptr %28, align 8
-  %690 = load ptr, ptr %28, align 8
-  %691 = getelementptr inbounds %class.QCustomPlot, ptr %690, i32 0, i32 1
-  %692 = load ptr, ptr %691, align 8
-  %693 = load ptr, ptr %28, align 8
-  %694 = getelementptr inbounds %class.QCustomPlot, ptr %693, i32 0, i32 4
-  %695 = load ptr, ptr %694, align 8
-  %696 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %689, ptr noundef %692, ptr noundef %695)
-          to label %697 unwind label %157
-
-697:                                              ; preds = %688
-  %698 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
-  store ptr %696, ptr %698, align 8
-  %699 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
-  %700 = load ptr, ptr %699, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %39, i32 noundef 7491584) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(14) %39, i32 noundef 1)
-          to label %701 unwind label %157
-
-701:                                              ; preds = %697
-  %702 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %38, double noundef %702, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %703 unwind label %985
-
-703:                                              ; preds = %701
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %700, ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %704 unwind label %989
-
-704:                                              ; preds = %703
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
-  %705 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
-  %706 = load ptr, ptr %705, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %706, i32 noundef 2)
-          to label %707 unwind label %157
-
-707:                                              ; preds = %704
-  %708 = load ptr, ptr %28, align 8
-  %709 = load ptr, ptr %28, align 8
-  %710 = getelementptr inbounds %class.QCustomPlot, ptr %709, i32 0, i32 1
-  %711 = load ptr, ptr %710, align 8
-  %712 = load ptr, ptr %28, align 8
-  %713 = getelementptr inbounds %class.QCustomPlot, ptr %712, i32 0, i32 4
-  %714 = load ptr, ptr %713, align 8
-  %715 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %708, ptr noundef %711, ptr noundef %714)
-          to label %716 unwind label %157
-
-716:                                              ; preds = %707
-  %717 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
-  store ptr %715, ptr %717, align 8
-  %718 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
-  %719 = load ptr, ptr %718, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %42, i32 noundef 5151238) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 4 dereferenceable(14) %42, i32 noundef 1)
-          to label %720 unwind label %157
-
-720:                                              ; preds = %716
-  %721 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %41, double noundef %721, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %722 unwind label %994
-
-722:                                              ; preds = %720
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %719, ptr noundef nonnull align 8 dereferenceable(8) %40)
-          to label %723 unwind label %998
-
-723:                                              ; preds = %722
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #3
-  %724 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
-  %725 = load ptr, ptr %724, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %725, i32 noundef 2)
-          to label %726 unwind label %157
-
-726:                                              ; preds = %723
-  %727 = load ptr, ptr %28, align 8
-  %728 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %727, ptr noundef null, ptr noundef null)
-          to label %729 unwind label %157
-
-729:                                              ; preds = %726
-  %730 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
-  store ptr %728, ptr %730, align 8
-  %731 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
-  %732 = load ptr, ptr %731, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %732, i32 noundef 0)
-          to label %733 unwind label %157
-
-733:                                              ; preds = %729
-  %734 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
-  %735 = load ptr, ptr %734, align 8
-  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %44, i32 noundef 19) #3
-  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %43, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %44, double noundef 0.000000e+00)
-          to label %736 unwind label %157
-
-736:                                              ; preds = %733
-  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %735, ptr noundef nonnull align 8 dereferenceable(65) %43)
-          to label %737 unwind label %1003
-
-737:                                              ; preds = %736
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %43) #3
-  %738 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
-          to label %739 unwind label %157
-
-739:                                              ; preds = %737
-  %740 = load ptr, ptr %28, align 8
-  %741 = getelementptr inbounds %class.QCustomPlot, ptr %740, i32 0, i32 1
-  %742 = load ptr, ptr %741, align 8
-  %743 = load ptr, ptr %28, align 8
-  %744 = getelementptr inbounds %class.QCustomPlot, ptr %743, i32 0, i32 2
-  %745 = load ptr, ptr %744, align 8
-  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %738, ptr noundef %742, ptr noundef %745)
-          to label %746 unwind label %1007
-
-746:                                              ; preds = %739
-  %747 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  store ptr %738, ptr %747, align 8
-  %748 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %749 = load ptr, ptr %748, align 8
-  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %749, i32 noundef 1)
-          to label %750 unwind label %157
-
-750:                                              ; preds = %746
-  %751 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %752 = load ptr, ptr %751, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %47, i32 noundef 2116231) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(14) %47, i32 noundef 1)
-          to label %753 unwind label %157
-
-753:                                              ; preds = %750
-  %754 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, double noundef %754, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %755 unwind label %1011
-
-755:                                              ; preds = %753
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %752, ptr noundef nonnull align 8 dereferenceable(8) %45)
-          to label %756 unwind label %1015
-
-756:                                              ; preds = %755
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
-  %757 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %758 = load ptr, ptr %757, align 8
-  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %758, double noundef 0.000000e+00)
-          to label %759 unwind label %157
-
-759:                                              ; preds = %756
-  %760 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %761 = load ptr, ptr %760, align 8
-  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %761, double noundef 3.000000e+00)
-          to label %762 unwind label %157
-
-762:                                              ; preds = %759
-  %763 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %764 = load ptr, ptr %763, align 8
-  %765 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %764)
-          to label %766 unwind label %157
-
-766:                                              ; preds = %762
-  %767 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
-  %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
-  %770 = load ptr, ptr %769, align 8
-  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %768, ptr noundef %770)
-          to label %771 unwind label %157
-
-771:                                              ; preds = %766
-  %772 = load ptr, ptr %28, align 8
-  %773 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %772, ptr noundef null, ptr noundef null)
-          to label %774 unwind label %157
-
-774:                                              ; preds = %771
-  %775 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
-  store ptr %773, ptr %775, align 8
-  %776 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
-  %777 = load ptr, ptr %776, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %50, i32 noundef 7491584) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 4 dereferenceable(14) %50, i32 noundef 1)
-          to label %778 unwind label %157
-
-778:                                              ; preds = %774
-  %779 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %49, double noundef %779, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %780 unwind label %1020
-
-780:                                              ; preds = %778
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %777, ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %781 unwind label %1024
-
-781:                                              ; preds = %780
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
-  %782 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
-  %783 = load ptr, ptr %782, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %783, i32 noundef 2)
-          to label %784 unwind label %157
-
-784:                                              ; preds = %781
-  %785 = load ptr, ptr %28, align 8
-  %786 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %785, ptr noundef null, ptr noundef null)
-          to label %787 unwind label %157
-
-787:                                              ; preds = %784
-  %788 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
-  store ptr %786, ptr %788, align 8
-  %789 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
-  %790 = load ptr, ptr %789, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %790, i32 noundef 0)
-          to label %791 unwind label %157
-
-791:                                              ; preds = %787
-  %792 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
-  %793 = load ptr, ptr %792, align 8
-  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %52, i32 noundef 19) #3
-  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %51, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %52, double noundef 0.000000e+00)
-          to label %794 unwind label %157
-
-794:                                              ; preds = %791
-  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %793, ptr noundef nonnull align 8 dereferenceable(65) %51)
-          to label %795 unwind label %1029
-
-795:                                              ; preds = %794
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %51) #3
-  %796 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
-          to label %797 unwind label %157
-
-797:                                              ; preds = %795
-  %798 = load ptr, ptr %28, align 8
-  %799 = getelementptr inbounds %class.QCustomPlot, ptr %798, i32 0, i32 1
-  %800 = load ptr, ptr %799, align 8
-  %801 = load ptr, ptr %28, align 8
-  %802 = getelementptr inbounds %class.QCustomPlot, ptr %801, i32 0, i32 2
-  %803 = load ptr, ptr %802, align 8
-  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %796, ptr noundef %800, ptr noundef %803)
-          to label %804 unwind label %1033
-
-804:                                              ; preds = %797
-  %805 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  store ptr %796, ptr %805, align 8
-  %806 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %807 = load ptr, ptr %806, align 8
-  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %807, i32 noundef 1)
-          to label %808 unwind label %157
-
-808:                                              ; preds = %804
-  %809 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %810 = load ptr, ptr %809, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %55, i32 noundef 13369344) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 4 dereferenceable(14) %55, i32 noundef 1)
-          to label %811 unwind label %157
-
-811:                                              ; preds = %808
-  %812 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %54, double noundef %812, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %813 unwind label %1037
-
-813:                                              ; preds = %811
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %810, ptr noundef nonnull align 8 dereferenceable(8) %53)
-          to label %814 unwind label %1041
-
-814:                                              ; preds = %813
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
-  %815 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %816 = load ptr, ptr %815, align 8
-  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %816, double noundef 0.000000e+00)
-          to label %817 unwind label %157
-
-817:                                              ; preds = %814
-  %818 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %819 = load ptr, ptr %818, align 8
-  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %819, double noundef 0.000000e+00)
-          to label %820 unwind label %157
-
-820:                                              ; preds = %817
-  %821 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %822 = load ptr, ptr %821, align 8
-  %823 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %822)
-          to label %824 unwind label %157
-
-824:                                              ; preds = %820
-  %825 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
-  %826 = load ptr, ptr %825, align 8
-  %827 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
-  %828 = load ptr, ptr %827, align 8
-  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %826, ptr noundef %828)
-          to label %829 unwind label %157
-
-829:                                              ; preds = %824
-  %830 = load ptr, ptr %28, align 8
-  %831 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %830, ptr noundef null, ptr noundef null)
-          to label %832 unwind label %157
-
-832:                                              ; preds = %829
-  %833 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
-  store ptr %831, ptr %833, align 8
-  %834 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
-  %835 = load ptr, ptr %834, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %835, i32 noundef 0)
-          to label %836 unwind label %157
-
-836:                                              ; preds = %832
-  %837 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
-  %838 = load ptr, ptr %837, align 8
-  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %57, i32 noundef 19) #3
-  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %56, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %57, double noundef 0.000000e+00)
-          to label %839 unwind label %157
-
-839:                                              ; preds = %836
-  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %838, ptr noundef nonnull align 8 dereferenceable(65) %56)
-          to label %840 unwind label %1046
-
-840:                                              ; preds = %839
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %56) #3
-  %841 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
-          to label %842 unwind label %157
-
-842:                                              ; preds = %840
-  %843 = load ptr, ptr %28, align 8
-  %844 = getelementptr inbounds %class.QCustomPlot, ptr %843, i32 0, i32 1
-  %845 = load ptr, ptr %844, align 8
-  %846 = load ptr, ptr %28, align 8
-  %847 = getelementptr inbounds %class.QCustomPlot, ptr %846, i32 0, i32 2
-  %848 = load ptr, ptr %847, align 8
-  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %841, ptr noundef %845, ptr noundef %848)
-          to label %849 unwind label %1050
-
-849:                                              ; preds = %842
-  %850 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  store ptr %841, ptr %850, align 8
-  %851 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %852 = load ptr, ptr %851, align 8
-  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %852, i32 noundef 1)
-          to label %853 unwind label %157
-
-853:                                              ; preds = %849
-  %854 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %855 = load ptr, ptr %854, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %60, i32 noundef 6291456) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(14) %60, i32 noundef 1)
-          to label %856 unwind label %157
-
-856:                                              ; preds = %853
-  %857 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59, double noundef %857, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %858 unwind label %1054
-
-858:                                              ; preds = %856
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %855, ptr noundef nonnull align 8 dereferenceable(8) %58)
-          to label %859 unwind label %1058
-
-859:                                              ; preds = %858
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #3
-  %860 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %861 = load ptr, ptr %860, align 8
-  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %861, double noundef 0.000000e+00)
-          to label %862 unwind label %157
-
-862:                                              ; preds = %859
-  %863 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %864 = load ptr, ptr %863, align 8
-  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %864, double noundef 0.000000e+00)
-          to label %865 unwind label %157
-
-865:                                              ; preds = %862
-  %866 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %867 = load ptr, ptr %866, align 8
-  %868 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %867)
-          to label %869 unwind label %157
-
-869:                                              ; preds = %865
-  %870 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
-  %871 = load ptr, ptr %870, align 8
-  %872 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
-  %873 = load ptr, ptr %872, align 8
-  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %871, ptr noundef %873)
-          to label %874 unwind label %157
-
-874:                                              ; preds = %869
-  %875 = load ptr, ptr %28, align 8
-  %876 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %875, ptr noundef null, ptr noundef null)
-          to label %877 unwind label %157
-
-877:                                              ; preds = %874
-  %878 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
-  store ptr %876, ptr %878, align 8
-  %879 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
-  %880 = load ptr, ptr %879, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %63, i32 noundef 5151238) #3
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 4 dereferenceable(14) %63, i32 noundef 1)
-          to label %881 unwind label %157
-
-881:                                              ; preds = %877
-  %882 = load double, ptr %33, align 8
-  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %62, double noundef %882, i32 noundef 1, i32 noundef 16, i32 noundef 64)
-          to label %883 unwind label %1063
-
-883:                                              ; preds = %881
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %880, ptr noundef nonnull align 8 dereferenceable(8) %61)
-          to label %884 unwind label %1067
-
-884:                                              ; preds = %883
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #3
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #3
-  %885 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
-  %886 = load ptr, ptr %885, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %886, i32 noundef 2)
-          to label %887 unwind label %157
-
-887:                                              ; preds = %884
-  store i32 3, ptr %64, align 4
-  %888 = getelementptr inbounds i8, ptr %84, i64 16
-  %889 = invoke noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %888)
-          to label %890 unwind label %157
-
-890:                                              ; preds = %887
-  %891 = load i32, ptr %64, align 4
-  %892 = sitofp i32 %891 to double
-  %893 = fmul double %892, %889
-  %894 = fptosi double %893 to i32
-  store i32 %894, ptr %64, align 4
-  %895 = load i32, ptr %64, align 4
-  %896 = mul i32 %895, 2
-  invoke void @_ZN7QPixmapC1Eii(ptr noundef nonnull align 8 dereferenceable(24) %65, i32 noundef 1, i32 noundef %896)
-          to label %897 unwind label %157
-
-897:                                              ; preds = %890
-  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %66, i32 noundef 19) #3
-  invoke void @_ZN7QPixmap4fillERK6QColor(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 4 dereferenceable(14) %66)
-          to label %898 unwind label %1072
-
-898:                                              ; preds = %897
-  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %65)
-          to label %899 unwind label %1072
-
-899:                                              ; preds = %898
-  invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68)
-          to label %900 unwind label %1076
-
-900:                                              ; preds = %899
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %69, i32 noundef 7491584) #3
-  invoke void @_ZN4QPen8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(14) %69)
-          to label %901 unwind label %1080
-
-901:                                              ; preds = %900
-  %902 = load double, ptr %33, align 8
-  invoke void @_ZN4QPen9setWidthFEd(ptr noundef nonnull align 8 dereferenceable(8) %68, double noundef %902)
-          to label %903 unwind label %1080
-
-903:                                              ; preds = %901
-  invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
-          to label %904 unwind label %1080
-
-904:                                              ; preds = %903
-  %905 = load i32, ptr %64, align 4
-  %906 = load i32, ptr %64, align 4
-  %907 = mul i32 %906, 2
-  invoke void @_ZN8QPainter8drawLineEiiii(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef 0, i32 noundef %905, i32 noundef 0, i32 noundef %907)
-          to label %908 unwind label %1080
-
-908:                                              ; preds = %904
-  %909 = load ptr, ptr %28, align 8
-  %910 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %909, ptr noundef null, ptr noundef null)
-          to label %911 unwind label %1080
-
-911:                                              ; preds = %908
-  %912 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
-  store ptr %910, ptr %912, align 8
-  %913 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
-  %914 = load ptr, ptr %913, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %914, i32 noundef 0)
-          to label %915 unwind label %1080
-
-915:                                              ; preds = %911
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %71, i32 noundef 7491584) #3
-  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %70, i32 noundef 16, ptr noundef nonnull align 4 dereferenceable(14) %71, double noundef 0.000000e+00)
-          to label %916 unwind label %1080
-
-916:                                              ; preds = %915
-  invoke void @_ZN15QCPScatterStyle9setPixmapERK7QPixmap(ptr noundef nonnull align 8 dereferenceable(65) %70, ptr noundef nonnull align 8 dereferenceable(24) %65)
-          to label %917 unwind label %1084
-
-917:                                              ; preds = %916
-  %918 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
-  %919 = load ptr, ptr %918, align 8
-  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %919, ptr noundef nonnull align 8 dereferenceable(65) %70)
-          to label %920 unwind label %1084
-
-920:                                              ; preds = %917
-  %921 = load ptr, ptr %28, align 8
-  %922 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %921, ptr noundef null, ptr noundef null)
-          to label %923 unwind label %1084
-
-923:                                              ; preds = %920
-  %924 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
-  store ptr %922, ptr %924, align 8
-  %925 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
-  %926 = load ptr, ptr %925, align 8
-  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %926, i32 noundef 0)
-          to label %927 unwind label %1084
-
-927:                                              ; preds = %923
-  %928 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
-  %929 = load ptr, ptr %928, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %73, i32 noundef 2116231) #3
-  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %72, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(14) %73, double noundef 5.000000e+00)
-          to label %930 unwind label %1084
-
-930:                                              ; preds = %927
-  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %929, ptr noundef nonnull align 8 dereferenceable(65) %72)
-          to label %931 unwind label %1088
-
-931:                                              ; preds = %930
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %72) #3
-  %932 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 216) #19
-          to label %933 unwind label %1084
-
-933:                                              ; preds = %931
-  %934 = load ptr, ptr %28, align 8
-  invoke void @_ZN13QCPItemTracerC1EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(209) %932, ptr noundef %934)
-          to label %935 unwind label %1092
-
-935:                                              ; preds = %933
-  %936 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
-  store ptr %932, ptr %936, align 8
-  %937 = load i32, ptr %12, align 4
-  %938 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %939 = load ptr, ptr %938, align 8
-  %940 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %939, i32 0, i32 33
-  %941 = load ptr, ptr %940, align 8
-  %942 = invoke noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %941)
-          to label %943 unwind label %1084
-
-943:                                              ; preds = %935
-  %944 = icmp ne i32 %937, %942
-  br i1 %944, label %945, label %1096
-
-945:                                              ; preds = %943
-  %946 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %947 = load ptr, ptr %946, align 8
-  %948 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %947, i32 0, i32 33
-  %949 = load ptr, ptr %948, align 8
-  %950 = load i32, ptr %12, align 4
-  invoke void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %949, i32 noundef %950)
-          to label %951 unwind label %1084
-
-951:                                              ; preds = %945
-  br label %1098
-
-952:                                              ; preds = %511
-  %953 = landingpad { ptr, i32 }
-          cleanup
-  %954 = extractvalue { ptr, i32 } %953, 0
-  store ptr %954, ptr %10, align 8
-  %955 = extractvalue { ptr, i32 } %953, 1
-  store i32 %955, ptr %11, align 4
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  br label %1162
-
-956:                                              ; preds = %644, %639
-  %957 = landingpad { ptr, i32 }
-          cleanup
-  %958 = extractvalue { ptr, i32 } %957, 0
-  store ptr %958, ptr %10, align 8
-  %959 = extractvalue { ptr, i32 } %957, 1
-  store i32 %959, ptr %11, align 4
-  br label %964
-
-960:                                              ; preds = %645
-  %961 = landingpad { ptr, i32 }
-          cleanup
-  %962 = extractvalue { ptr, i32 } %961, 0
-  store ptr %962, ptr %10, align 8
-  %963 = extractvalue { ptr, i32 } %961, 1
-  store i32 %963, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  br label %964
-
-964:                                              ; preds = %960, %956
-  %965 = load i1, ptr %31, align 1
-  br i1 %965, label %966, label %967
-
-966:                                              ; preds = %964
-  call void @_ZdlPv(ptr noundef %638) #18
-  br label %967
-
-967:                                              ; preds = %966, %964
-  br label %1162
-
-968:                                              ; preds = %651
-  %969 = landingpad { ptr, i32 }
-          cleanup
-  %970 = extractvalue { ptr, i32 } %969, 0
-  store ptr %970, ptr %10, align 8
-  %971 = extractvalue { ptr, i32 } %969, 1
-  store i32 %971, ptr %11, align 4
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #3
-  br label %1162
-
-972:                                              ; preds = %654
-  %973 = landingpad { ptr, i32 }
-          cleanup
-  %974 = extractvalue { ptr, i32 } %973, 0
-  store ptr %974, ptr %10, align 8
-  %975 = extractvalue { ptr, i32 } %973, 1
-  store i32 %975, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %653) #18
-  br label %1162
-
-976:                                              ; preds = %685
-  %977 = landingpad { ptr, i32 }
-          cleanup
-  %978 = extractvalue { ptr, i32 } %977, 0
-  store ptr %978, ptr %10, align 8
-  %979 = extractvalue { ptr, i32 } %977, 1
-  store i32 %979, ptr %11, align 4
-  br label %984
-
-980:                                              ; preds = %687
-  %981 = landingpad { ptr, i32 }
-          cleanup
-  %982 = extractvalue { ptr, i32 } %981, 0
-  store ptr %982, ptr %10, align 8
-  %983 = extractvalue { ptr, i32 } %981, 1
-  store i32 %983, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
-  br label %984
-
-984:                                              ; preds = %980, %976
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
-  br label %1162
-
-985:                                              ; preds = %701
-  %986 = landingpad { ptr, i32 }
-          cleanup
-  %987 = extractvalue { ptr, i32 } %986, 0
-  store ptr %987, ptr %10, align 8
-  %988 = extractvalue { ptr, i32 } %986, 1
-  store i32 %988, ptr %11, align 4
-  br label %993
-
-989:                                              ; preds = %703
-  %990 = landingpad { ptr, i32 }
-          cleanup
-  %991 = extractvalue { ptr, i32 } %990, 0
-  store ptr %991, ptr %10, align 8
-  %992 = extractvalue { ptr, i32 } %990, 1
-  store i32 %992, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
-  br label %993
-
-993:                                              ; preds = %989, %985
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
-  br label %1162
-
-994:                                              ; preds = %720
-  %995 = landingpad { ptr, i32 }
-          cleanup
-  %996 = extractvalue { ptr, i32 } %995, 0
-  store ptr %996, ptr %10, align 8
-  %997 = extractvalue { ptr, i32 } %995, 1
-  store i32 %997, ptr %11, align 4
-  br label %1002
-
-998:                                              ; preds = %722
-  %999 = landingpad { ptr, i32 }
-          cleanup
-  %1000 = extractvalue { ptr, i32 } %999, 0
-  store ptr %1000, ptr %10, align 8
-  %1001 = extractvalue { ptr, i32 } %999, 1
-  store i32 %1001, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
-  br label %1002
-
-1002:                                             ; preds = %998, %994
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #3
-  br label %1162
-
-1003:                                             ; preds = %736
-  %1004 = landingpad { ptr, i32 }
-          cleanup
-  %1005 = extractvalue { ptr, i32 } %1004, 0
-  store ptr %1005, ptr %10, align 8
-  %1006 = extractvalue { ptr, i32 } %1004, 1
-  store i32 %1006, ptr %11, align 4
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %43) #3
-  br label %1162
-
-1007:                                             ; preds = %739
-  %1008 = landingpad { ptr, i32 }
-          cleanup
-  %1009 = extractvalue { ptr, i32 } %1008, 0
-  store ptr %1009, ptr %10, align 8
-  %1010 = extractvalue { ptr, i32 } %1008, 1
-  store i32 %1010, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %738) #18
-  br label %1162
-
-1011:                                             ; preds = %753
-  %1012 = landingpad { ptr, i32 }
-          cleanup
-  %1013 = extractvalue { ptr, i32 } %1012, 0
-  store ptr %1013, ptr %10, align 8
-  %1014 = extractvalue { ptr, i32 } %1012, 1
-  store i32 %1014, ptr %11, align 4
-  br label %1019
-
-1015:                                             ; preds = %755
-  %1016 = landingpad { ptr, i32 }
-          cleanup
-  %1017 = extractvalue { ptr, i32 } %1016, 0
-  store ptr %1017, ptr %10, align 8
-  %1018 = extractvalue { ptr, i32 } %1016, 1
-  store i32 %1018, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #3
-  br label %1019
-
-1019:                                             ; preds = %1015, %1011
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
-  br label %1162
-
-1020:                                             ; preds = %778
-  %1021 = landingpad { ptr, i32 }
-          cleanup
-  %1022 = extractvalue { ptr, i32 } %1021, 0
-  store ptr %1022, ptr %10, align 8
-  %1023 = extractvalue { ptr, i32 } %1021, 1
-  store i32 %1023, ptr %11, align 4
-  br label %1028
-
-1024:                                             ; preds = %780
-  %1025 = landingpad { ptr, i32 }
-          cleanup
-  %1026 = extractvalue { ptr, i32 } %1025, 0
-  store ptr %1026, ptr %10, align 8
-  %1027 = extractvalue { ptr, i32 } %1025, 1
-  store i32 %1027, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
-  br label %1028
-
-1028:                                             ; preds = %1024, %1020
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
-  br label %1162
-
-1029:                                             ; preds = %794
-  %1030 = landingpad { ptr, i32 }
-          cleanup
-  %1031 = extractvalue { ptr, i32 } %1030, 0
-  store ptr %1031, ptr %10, align 8
-  %1032 = extractvalue { ptr, i32 } %1030, 1
-  store i32 %1032, ptr %11, align 4
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %51) #3
-  br label %1162
-
-1033:                                             ; preds = %797
-  %1034 = landingpad { ptr, i32 }
-          cleanup
-  %1035 = extractvalue { ptr, i32 } %1034, 0
-  store ptr %1035, ptr %10, align 8
-  %1036 = extractvalue { ptr, i32 } %1034, 1
-  store i32 %1036, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %796) #18
-  br label %1162
-
-1037:                                             ; preds = %811
-  %1038 = landingpad { ptr, i32 }
-          cleanup
-  %1039 = extractvalue { ptr, i32 } %1038, 0
-  store ptr %1039, ptr %10, align 8
-  %1040 = extractvalue { ptr, i32 } %1038, 1
-  store i32 %1040, ptr %11, align 4
-  br label %1045
-
-1041:                                             ; preds = %813
-  %1042 = landingpad { ptr, i32 }
-          cleanup
-  %1043 = extractvalue { ptr, i32 } %1042, 0
-  store ptr %1043, ptr %10, align 8
-  %1044 = extractvalue { ptr, i32 } %1042, 1
-  store i32 %1044, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
-  br label %1045
-
-1045:                                             ; preds = %1041, %1037
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
-  br label %1162
-
-1046:                                             ; preds = %839
-  %1047 = landingpad { ptr, i32 }
-          cleanup
-  %1048 = extractvalue { ptr, i32 } %1047, 0
-  store ptr %1048, ptr %10, align 8
-  %1049 = extractvalue { ptr, i32 } %1047, 1
-  store i32 %1049, ptr %11, align 4
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %56) #3
-  br label %1162
-
-1050:                                             ; preds = %842
-  %1051 = landingpad { ptr, i32 }
-          cleanup
-  %1052 = extractvalue { ptr, i32 } %1051, 0
-  store ptr %1052, ptr %10, align 8
-  %1053 = extractvalue { ptr, i32 } %1051, 1
-  store i32 %1053, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %841) #18
-  br label %1162
-
-1054:                                             ; preds = %856
-  %1055 = landingpad { ptr, i32 }
-          cleanup
-  %1056 = extractvalue { ptr, i32 } %1055, 0
-  store ptr %1056, ptr %10, align 8
-  %1057 = extractvalue { ptr, i32 } %1055, 1
-  store i32 %1057, ptr %11, align 4
-  br label %1062
-
-1058:                                             ; preds = %858
-  %1059 = landingpad { ptr, i32 }
-          cleanup
-  %1060 = extractvalue { ptr, i32 } %1059, 0
-  store ptr %1060, ptr %10, align 8
-  %1061 = extractvalue { ptr, i32 } %1059, 1
-  store i32 %1061, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
-  br label %1062
-
-1062:                                             ; preds = %1058, %1054
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #3
-  br label %1162
-
-1063:                                             ; preds = %881
-  %1064 = landingpad { ptr, i32 }
-          cleanup
-  %1065 = extractvalue { ptr, i32 } %1064, 0
-  store ptr %1065, ptr %10, align 8
-  %1066 = extractvalue { ptr, i32 } %1064, 1
-  store i32 %1066, ptr %11, align 4
-  br label %1071
-
-1067:                                             ; preds = %883
-  %1068 = landingpad { ptr, i32 }
-          cleanup
-  %1069 = extractvalue { ptr, i32 } %1068, 0
-  store ptr %1069, ptr %10, align 8
-  %1070 = extractvalue { ptr, i32 } %1068, 1
-  store i32 %1070, ptr %11, align 4
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #3
-  br label %1071
-
-1071:                                             ; preds = %1067, %1063
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #3
-  br label %1162
-
-1072:                                             ; preds = %898, %897
-  %1073 = landingpad { ptr, i32 }
-          cleanup
-  %1074 = extractvalue { ptr, i32 } %1073, 0
-  store ptr %1074, ptr %10, align 8
-  %1075 = extractvalue { ptr, i32 } %1073, 1
-  store i32 %1075, ptr %11, align 4
-  br label %1161
-
-1076:                                             ; preds = %899
-  %1077 = landingpad { ptr, i32 }
-          cleanup
-  %1078 = extractvalue { ptr, i32 } %1077, 0
-  store ptr %1078, ptr %10, align 8
-  %1079 = extractvalue { ptr, i32 } %1077, 1
-  store i32 %1079, ptr %11, align 4
-  br label %1160
-
-1080:                                             ; preds = %915, %911, %908, %904, %903, %901, %900
-  %1081 = landingpad { ptr, i32 }
-          cleanup
-  %1082 = extractvalue { ptr, i32 } %1081, 0
-  store ptr %1082, ptr %10, align 8
-  %1083 = extractvalue { ptr, i32 } %1081, 1
-  store i32 %1083, ptr %11, align 4
-  br label %1159
-
-1084:                                             ; preds = %1155, %1151, %1149, %1147, %1145, %1143, %1137, %1130, %1121, %1118, %1112, %1111, %1108, %1104, %1100, %1098, %1096, %945, %935, %931, %927, %923, %920, %917, %916
-  %1085 = landingpad { ptr, i32 }
-          cleanup
-  %1086 = extractvalue { ptr, i32 } %1085, 0
-  store ptr %1086, ptr %10, align 8
-  %1087 = extractvalue { ptr, i32 } %1085, 1
-  store i32 %1087, ptr %11, align 4
-  br label %1158
-
-1088:                                             ; preds = %930
-  %1089 = landingpad { ptr, i32 }
-          cleanup
-  %1090 = extractvalue { ptr, i32 } %1089, 0
-  store ptr %1090, ptr %10, align 8
-  %1091 = extractvalue { ptr, i32 } %1089, 1
-  store i32 %1091, ptr %11, align 4
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %72) #3
-  br label %1158
-
-1092:                                             ; preds = %933
-  %1093 = landingpad { ptr, i32 }
-          cleanup
-  %1094 = extractvalue { ptr, i32 } %1093, 0
-  store ptr %1094, ptr %10, align 8
-  %1095 = extractvalue { ptr, i32 } %1093, 1
-  store i32 %1095, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %932) #18
-  br label %1158
-
-1096:                                             ; preds = %943
-  invoke void @_ZN15TCPStreamDialog9fillGraphEbb(ptr noundef nonnull align 8 dereferenceable(584) %84, i1 noundef zeroext true, i1 noundef zeroext true)
-          to label %1097 unwind label %1084
-
-1097:                                             ; preds = %1096
-  br label %1098
-
-1098:                                             ; preds = %1097, %951
-  %1099 = load ptr, ptr %28, align 8
-  invoke void @_ZN7QWidget16setMouseTrackingEb(ptr noundef nonnull align 8 dereferenceable(40) %1099, i1 noundef zeroext true)
-          to label %1100 unwind label %1084
-
-1100:                                             ; preds = %1098
-  %1101 = load ptr, ptr %28, align 8
-  %1102 = getelementptr inbounds %class.QCustomPlot, ptr %1101, i32 0, i32 2
-  %1103 = load ptr, ptr %1102, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %74, i32 noundef 2116231) #3
-  invoke void @_ZN7QCPAxis13setLabelColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(472) %1103, ptr noundef nonnull align 4 dereferenceable(14) %74)
-          to label %1104 unwind label %1084
-
-1104:                                             ; preds = %1100
-  %1105 = load ptr, ptr %28, align 8
-  %1106 = getelementptr inbounds %class.QCustomPlot, ptr %1105, i32 0, i32 2
-  %1107 = load ptr, ptr %1106, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %75, i32 noundef 2116231) #3
-  invoke void @_ZN7QCPAxis17setTickLabelColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(472) %1107, ptr noundef nonnull align 4 dereferenceable(14) %75)
-          to label %1108 unwind label %1084
-
-1108:                                             ; preds = %1104
-  %1109 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
-  %1110 = load ptr, ptr %1109, align 8
-  invoke void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57) %1110, i1 noundef zeroext false)
-          to label %1111 unwind label %1084
-
-1111:                                             ; preds = %1108
-  invoke void @_ZN15TCPStreamDialog17toggleTracerStyleEb(ptr noundef nonnull align 8 dereferenceable(584) %84, i1 noundef zeroext true)
-          to label %1112 unwind label %1084
-
-1112:                                             ; preds = %1111
-  %1113 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %1114 = load ptr, ptr %1113, align 8
-  %1115 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1114, i32 0, i32 55
-  %1116 = load ptr, ptr %1115, align 8
-  %1117 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %1116, i32 noundef 2048)
-          to label %1118 unwind label %1084
-
-1118:                                             ; preds = %1112
-  store ptr %1117, ptr %76, align 8
-  %1119 = load ptr, ptr %76, align 8
-  invoke void @_ZN15TCPStreamDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %77, ptr noundef @.str.12, ptr noundef null, i32 noundef -1)
-          to label %1120 unwind label %1084
-
-1120:                                             ; preds = %1118
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %1119, ptr noundef nonnull align 8 dereferenceable(24) %77)
-          to label %1121 unwind label %1133
-
-1121:                                             ; preds = %1120
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #3
-  %1122 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %1123 = load ptr, ptr %1122, align 8
-  %1124 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1123, i32 0, i32 55
-  %1125 = load ptr, ptr %1124, align 8
-  %1126 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %1125, i32 noundef 2097152)
-          to label %1127 unwind label %1084
-
-1127:                                             ; preds = %1121
-  store ptr %1126, ptr %78, align 8
-  %1128 = load ptr, ptr %78, align 8
-  %1129 = icmp ne ptr %1128, null
-  br i1 %1129, label %1130, label %1137
-
-1130:                                             ; preds = %1127
-  %1131 = load ptr, ptr %78, align 8
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %1131, i1 noundef zeroext true)
-          to label %1132 unwind label %1084
-
-1132:                                             ; preds = %1130
-  br label %1137
-
-1133:                                             ; preds = %1120
-  %1134 = landingpad { ptr, i32 }
-          cleanup
-  %1135 = extractvalue { ptr, i32 } %1134, 0
-  store ptr %1135, ptr %10, align 8
-  %1136 = extractvalue { ptr, i32 } %1134, 1
-  store i32 %1136, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #3
-  br label %1158
-
-1137:                                             ; preds = %1132, %1127
-  %1138 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
-  %1139 = load ptr, ptr %1138, align 8
-  %1140 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1139, i32 0, i32 55
-  %1141 = load ptr, ptr %1140, align 8
-  %1142 = load ptr, ptr %6, align 8
-  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %1141, ptr noundef %1142)
-          to label %1143 unwind label %1084
-
-1143:                                             ; preds = %1137
-  %1144 = load ptr, ptr %28, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %79, ptr noundef %1144, ptr noundef @.str.13, ptr noundef %84, ptr noundef @.str.14, i32 noundef 0)
-          to label %1145 unwind label %1084
-
-1145:                                             ; preds = %1143
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #3
-  %1146 = load ptr, ptr %28, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %80, ptr noundef %1146, ptr noundef @.str.15, ptr noundef %84, ptr noundef @.str.16, i32 noundef 0)
-          to label %1147 unwind label %1084
-
-1147:                                             ; preds = %1145
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #3
-  %1148 = load ptr, ptr %28, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %81, ptr noundef %1148, ptr noundef @.str.17, ptr noundef %84, ptr noundef @.str.18, i32 noundef 0)
-          to label %1149 unwind label %1084
-
-1149:                                             ; preds = %1147
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #3
-  %1150 = load ptr, ptr %28, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %82, ptr noundef %1150, ptr noundef @.str.19, ptr noundef %84, ptr noundef @.str.20, i32 noundef 0)
-          to label %1151 unwind label %1084
-
-1151:                                             ; preds = %1149
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #3
-  %1152 = load ptr, ptr %28, align 8
-  %1153 = getelementptr inbounds %class.QCustomPlot, ptr %1152, i32 0, i32 2
-  %1154 = load ptr, ptr %1153, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %83, ptr noundef %1154, ptr noundef @.str.21, ptr noundef %84, ptr noundef @.str.22, i32 noundef 0)
-          to label %1155 unwind label %1084
-
-1155:                                             ; preds = %1151
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #3
-  invoke void @_ZN7QDialog9setResultEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 1)
-          to label %1156 unwind label %1084
-
-1156:                                             ; preds = %1155
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %70) #3
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #3
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #3
-  call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #3
-  br label %1157
-
-1157:                                             ; preds = %1156, %183
-  ret void
-
-1158:                                             ; preds = %1133, %1092, %1088, %1084
-  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %70) #3
-  br label %1159
-
-1159:                                             ; preds = %1158, %1080
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #3
-  br label %1160
-
-1160:                                             ; preds = %1159, %1076
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #3
-  br label %1161
-
-1161:                                             ; preds = %1160, %1072
-  call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #3
-  br label %1162
-
-1162:                                             ; preds = %1161, %1071, %1062, %1050, %1046, %1045, %1033, %1029, %1028, %1019, %1007, %1003, %1002, %993, %984, %972, %968, %967, %952, %318, %293, %268, %243, %218, %184, %161, %157
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %123) #3
-  br label %1163
-
-1163:                                             ; preds = %1162, %153
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #3
-  call void @_ZN4QMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #3
-  call void @_ZN9QMultiMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #3
-  br label %1164
-
-1164:                                             ; preds = %1163, %149
-  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %84) #3
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %10, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %11, align 4
   br label %1165
 
-1165:                                             ; preds = %1164
-  %1166 = load ptr, ptr %10, align 8
-  %1167 = load i32, ptr %11, align 4
-  %1168 = insertvalue { ptr, i32 } poison, ptr %1166, 0
-  %1169 = insertvalue { ptr, i32 } %1168, i32 %1167, 1
-  resume { ptr, i32 } %1169
+159:                                              ; preds = %892, %889, %886, %879, %876, %871, %867, %864, %861, %855, %851, %842, %838, %834, %831, %826, %822, %819, %816, %810, %806, %797, %793, %789, %786, %783, %776, %773, %768, %764, %761, %758, %752, %748, %739, %735, %731, %728, %725, %718, %709, %706, %699, %690, %683, %680, %676, %673, %672, %669, %666, %663, %662, %658, %654, %648, %630, %615, %600, %585, %570, %563, %558, %543, %535, %533, %522, %521, %514, %511, %505, %499, %493, %487, %481, %478, %472, %466, %460, %454, %451, %445, %439, %433, %427, %424, %418, %412, %406, %400, %394, %388, %382, %376, %373, %367, %361, %355, %349, %343, %337, %331, %323, %321, %307, %296, %282, %271, %257, %246, %232, %221, %207, %196, %190, %181, %174, %168, %167, %142, %139, %128, %126
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %10, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %11, align 4
+  br label %1164
+
+163:                                              ; preds = %147
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %10, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  br label %1164
+
+167:                                              ; preds = %150, %136
+  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 55, i1 noundef zeroext true)
+          to label %168 unwind label %159
+
+168:                                              ; preds = %167
+  %169 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %170, i32 0, i32 40
+  %172 = load ptr, ptr %171, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @.str.11)
+          to label %173 unwind label %159
+
+173:                                              ; preds = %168
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %172, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %174 unwind label %186
+
+174:                                              ; preds = %173
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %175 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
+  %176 = load ptr, ptr %175, align 8
+  %177 = invoke i32 @select_tcpip_session(ptr noundef %176)
+          to label %178 unwind label %159
+
+178:                                              ; preds = %174
+  store i32 %177, ptr %15, align 4
+  %179 = load i32, ptr %15, align 4
+  %180 = icmp eq i32 %179, -1
+  br i1 %180, label %181, label %190
+
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %84, align 8
+  %183 = getelementptr inbounds ptr, ptr %182, i64 54
+  %184 = load ptr, ptr %183, align 8
+  invoke void %184(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 0)
+          to label %185 unwind label %159
+
+185:                                              ; preds = %181
+  br label %1159
+
+186:                                              ; preds = %173
+  %187 = landingpad { ptr, i32 }
+          cleanup
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %10, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  br label %1164
+
+190:                                              ; preds = %178
+  %191 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %192, i32 0, i32 33
+  %194 = load ptr, ptr %193, align 8
+  store ptr %194, ptr %16, align 8
+  %195 = load ptr, ptr %16, align 8
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %195, i1 noundef zeroext false)
+          to label %196 unwind label %159
+
+196:                                              ; preds = %190
+  %197 = load ptr, ptr %16, align 8
+  %198 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %199, i32 0, i32 19
+  %201 = load ptr, ptr %200, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %201)
+          to label %202 unwind label %159
+
+202:                                              ; preds = %196
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
+          to label %203 unwind label %212
+
+203:                                              ; preds = %202
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %197, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+          to label %204 unwind label %216
+
+204:                                              ; preds = %203
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %205 = load i32, ptr %8, align 4
+  %206 = icmp eq i32 %205, 3
+  br i1 %206, label %207, label %221
+
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %16, align 8
+  %209 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %208)
+          to label %210 unwind label %159
+
+210:                                              ; preds = %207
+  %211 = sub i32 %209, 1
+  store i32 %211, ptr %12, align 4
+  br label %221
+
+212:                                              ; preds = %202
+  %213 = landingpad { ptr, i32 }
+          cleanup
+  %214 = extractvalue { ptr, i32 } %213, 0
+  store ptr %214, ptr %10, align 8
+  %215 = extractvalue { ptr, i32 } %213, 1
+  store i32 %215, ptr %11, align 4
+  br label %220
+
+216:                                              ; preds = %203
+  %217 = landingpad { ptr, i32 }
+          cleanup
+  %218 = extractvalue { ptr, i32 } %217, 0
+  store ptr %218, ptr %10, align 8
+  %219 = extractvalue { ptr, i32 } %217, 1
+  store i32 %219, ptr %11, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  br label %220
+
+220:                                              ; preds = %216, %212
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  br label %1164
+
+221:                                              ; preds = %210, %204
+  %222 = load ptr, ptr %16, align 8
+  %223 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %224, i32 0, i32 20
+  %226 = load ptr, ptr %225, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %226)
+          to label %227 unwind label %159
+
+227:                                              ; preds = %221
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 2)
+          to label %228 unwind label %237
+
+228:                                              ; preds = %227
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %222, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %229 unwind label %241
+
+229:                                              ; preds = %228
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %230 = load i32, ptr %8, align 4
+  %231 = icmp eq i32 %230, 2
+  br i1 %231, label %232, label %246
+
+232:                                              ; preds = %229
+  %233 = load ptr, ptr %16, align 8
+  %234 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %233)
+          to label %235 unwind label %159
+
+235:                                              ; preds = %232
+  %236 = sub i32 %234, 1
+  store i32 %236, ptr %12, align 4
+  br label %246
+
+237:                                              ; preds = %227
+  %238 = landingpad { ptr, i32 }
+          cleanup
+  %239 = extractvalue { ptr, i32 } %238, 0
+  store ptr %239, ptr %10, align 8
+  %240 = extractvalue { ptr, i32 } %238, 1
+  store i32 %240, ptr %11, align 4
+  br label %245
+
+241:                                              ; preds = %228
+  %242 = landingpad { ptr, i32 }
+          cleanup
+  %243 = extractvalue { ptr, i32 } %242, 0
+  store ptr %243, ptr %10, align 8
+  %244 = extractvalue { ptr, i32 } %242, 1
+  store i32 %244, ptr %11, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  br label %245
+
+245:                                              ; preds = %241, %237
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  br label %1164
+
+246:                                              ; preds = %235, %229
+  %247 = load ptr, ptr %16, align 8
+  %248 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %249, i32 0, i32 21
+  %251 = load ptr, ptr %250, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %251)
+          to label %252 unwind label %159
+
+252:                                              ; preds = %246
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 0)
+          to label %253 unwind label %262
+
+253:                                              ; preds = %252
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %247, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %254 unwind label %266
+
+254:                                              ; preds = %253
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  %255 = load i32, ptr %8, align 4
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %271
+
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %16, align 8
+  %259 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %258)
+          to label %260 unwind label %159
+
+260:                                              ; preds = %257
+  %261 = sub i32 %259, 1
+  store i32 %261, ptr %12, align 4
+  br label %271
+
+262:                                              ; preds = %252
+  %263 = landingpad { ptr, i32 }
+          cleanup
+  %264 = extractvalue { ptr, i32 } %263, 0
+  store ptr %264, ptr %10, align 8
+  %265 = extractvalue { ptr, i32 } %263, 1
+  store i32 %265, ptr %11, align 4
+  br label %270
+
+266:                                              ; preds = %253
+  %267 = landingpad { ptr, i32 }
+          cleanup
+  %268 = extractvalue { ptr, i32 } %267, 0
+  store ptr %268, ptr %10, align 8
+  %269 = extractvalue { ptr, i32 } %267, 1
+  store i32 %269, ptr %11, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  br label %270
+
+270:                                              ; preds = %266, %262
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  br label %1164
+
+271:                                              ; preds = %260, %254
+  %272 = load ptr, ptr %16, align 8
+  %273 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %274 = load ptr, ptr %273, align 8
+  %275 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %274, i32 0, i32 23
+  %276 = load ptr, ptr %275, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %276)
+          to label %277 unwind label %159
+
+277:                                              ; preds = %271
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1)
+          to label %278 unwind label %287
+
+278:                                              ; preds = %277
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %272, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+          to label %279 unwind label %291
+
+279:                                              ; preds = %278
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %280 = load i32, ptr %8, align 4
+  %281 = icmp eq i32 %280, 1
+  br i1 %281, label %282, label %296
+
+282:                                              ; preds = %279
+  %283 = load ptr, ptr %16, align 8
+  %284 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %283)
+          to label %285 unwind label %159
+
+285:                                              ; preds = %282
+  %286 = sub i32 %284, 1
+  store i32 %286, ptr %12, align 4
+  br label %296
+
+287:                                              ; preds = %277
+  %288 = landingpad { ptr, i32 }
+          cleanup
+  %289 = extractvalue { ptr, i32 } %288, 0
+  store ptr %289, ptr %10, align 8
+  %290 = extractvalue { ptr, i32 } %288, 1
+  store i32 %290, ptr %11, align 4
+  br label %295
+
+291:                                              ; preds = %278
+  %292 = landingpad { ptr, i32 }
+          cleanup
+  %293 = extractvalue { ptr, i32 } %292, 0
+  store ptr %293, ptr %10, align 8
+  %294 = extractvalue { ptr, i32 } %292, 1
+  store i32 %294, ptr %11, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
+  br label %295
+
+295:                                              ; preds = %291, %287
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  br label %1164
+
+296:                                              ; preds = %285, %279
+  %297 = load ptr, ptr %16, align 8
+  %298 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %299 = load ptr, ptr %298, align 8
+  %300 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %299, i32 0, i32 22
+  %301 = load ptr, ptr %300, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %301)
+          to label %302 unwind label %159
+
+302:                                              ; preds = %296
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 4)
+          to label %303 unwind label %312
+
+303:                                              ; preds = %302
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %297, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %304 unwind label %316
+
+304:                                              ; preds = %303
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %305 = load i32, ptr %8, align 4
+  %306 = icmp eq i32 %305, 4
+  br i1 %306, label %307, label %321
+
+307:                                              ; preds = %304
+  %308 = load ptr, ptr %16, align 8
+  %309 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %308)
+          to label %310 unwind label %159
+
+310:                                              ; preds = %307
+  %311 = sub i32 %309, 1
+  store i32 %311, ptr %12, align 4
+  br label %321
+
+312:                                              ; preds = %302
+  %313 = landingpad { ptr, i32 }
+          cleanup
+  %314 = extractvalue { ptr, i32 } %313, 0
+  store ptr %314, ptr %10, align 8
+  %315 = extractvalue { ptr, i32 } %313, 1
+  store i32 %315, ptr %11, align 4
+  br label %320
+
+316:                                              ; preds = %303
+  %317 = landingpad { ptr, i32 }
+          cleanup
+  %318 = extractvalue { ptr, i32 } %317, 0
+  store ptr %318, ptr %10, align 8
+  %319 = extractvalue { ptr, i32 } %317, 1
+  store i32 %319, ptr %11, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  br label %320
+
+320:                                              ; preds = %316, %312
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %1164
+
+321:                                              ; preds = %310, %304
+  %322 = load ptr, ptr %16, align 8
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %322, i1 noundef zeroext true)
+          to label %323 unwind label %159
+
+323:                                              ; preds = %321
+  %324 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %325 = load ptr, ptr %324, align 8
+  %326 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %325, i32 0, i32 44
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 30
+  %329 = load i8, ptr %328, align 8
+  %330 = trunc i8 %329 to i1
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %327, i1 noundef zeroext %330)
+          to label %331 unwind label %159
+
+331:                                              ; preds = %323
+  %332 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %333 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %334, i32 0, i32 1
+  %336 = load ptr, ptr %335, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %332, ptr noundef %336)
+          to label %337 unwind label %159
+
+337:                                              ; preds = %331
+  %338 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %339 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %340, i32 0, i32 24
+  %342 = load ptr, ptr %341, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %338, ptr noundef %342)
+          to label %343 unwind label %159
+
+343:                                              ; preds = %337
+  %344 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %345 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %346, i32 0, i32 26
+  %348 = load ptr, ptr %347, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %344, ptr noundef %348)
+          to label %349 unwind label %159
+
+349:                                              ; preds = %343
+  %350 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %351 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %352 = load ptr, ptr %351, align 8
+  %353 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %352, i32 0, i32 2
+  %354 = load ptr, ptr %353, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %350, ptr noundef %354)
+          to label %355 unwind label %159
+
+355:                                              ; preds = %349
+  %356 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %357 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %358, i32 0, i32 25
+  %360 = load ptr, ptr %359, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %356, ptr noundef %360)
+          to label %361 unwind label %159
+
+361:                                              ; preds = %355
+  %362 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %363 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %364, i32 0, i32 27
+  %366 = load ptr, ptr %365, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %362, ptr noundef %366)
+          to label %367 unwind label %159
+
+367:                                              ; preds = %361
+  %368 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %369 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %370, i32 0, i32 0
+  %372 = load ptr, ptr %371, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %368, ptr noundef %372)
+          to label %373 unwind label %159
+
+373:                                              ; preds = %367
+  %374 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %375 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %374)
+          to label %376 unwind label %159
+
+376:                                              ; preds = %373
+  %377 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %378 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %379, i32 0, i32 5
+  %381 = load ptr, ptr %380, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %377, ptr noundef %381)
+          to label %382 unwind label %159
+
+382:                                              ; preds = %376
+  %383 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %384 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %385 = load ptr, ptr %384, align 8
+  %386 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %385, i32 0, i32 4
+  %387 = load ptr, ptr %386, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %383, ptr noundef %387)
+          to label %388 unwind label %159
+
+388:                                              ; preds = %382
+  %389 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %390 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %391 = load ptr, ptr %390, align 8
+  %392 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %391, i32 0, i32 3
+  %393 = load ptr, ptr %392, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %389, ptr noundef %393)
+          to label %394 unwind label %159
+
+394:                                              ; preds = %388
+  %395 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %396 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %397 = load ptr, ptr %396, align 8
+  %398 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %397, i32 0, i32 6
+  %399 = load ptr, ptr %398, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %395, ptr noundef %399)
+          to label %400 unwind label %159
+
+400:                                              ; preds = %394
+  %401 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %402 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %403 = load ptr, ptr %402, align 8
+  %404 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %403, i32 0, i32 9
+  %405 = load ptr, ptr %404, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %401, ptr noundef %405)
+          to label %406 unwind label %159
+
+406:                                              ; preds = %400
+  %407 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %408 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %409, i32 0, i32 8
+  %411 = load ptr, ptr %410, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %407, ptr noundef %411)
+          to label %412 unwind label %159
+
+412:                                              ; preds = %406
+  %413 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %414 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %415, i32 0, i32 7
+  %417 = load ptr, ptr %416, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %413, ptr noundef %417)
+          to label %418 unwind label %159
+
+418:                                              ; preds = %412
+  %419 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %420 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %421 = load ptr, ptr %420, align 8
+  %422 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %421, i32 0, i32 10
+  %423 = load ptr, ptr %422, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %419, ptr noundef %423)
+          to label %424 unwind label %159
+
+424:                                              ; preds = %418
+  %425 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %426 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %425)
+          to label %427 unwind label %159
+
+427:                                              ; preds = %424
+  %428 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %429 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %430, i32 0, i32 11
+  %432 = load ptr, ptr %431, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %428, ptr noundef %432)
+          to label %433 unwind label %159
+
+433:                                              ; preds = %427
+  %434 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %435 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %436 = load ptr, ptr %435, align 8
+  %437 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %436, i32 0, i32 12
+  %438 = load ptr, ptr %437, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %434, ptr noundef %438)
+          to label %439 unwind label %159
+
+439:                                              ; preds = %433
+  %440 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %441 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %442 = load ptr, ptr %441, align 8
+  %443 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %442, i32 0, i32 13
+  %444 = load ptr, ptr %443, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %440, ptr noundef %444)
+          to label %445 unwind label %159
+
+445:                                              ; preds = %439
+  %446 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %447 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %448 = load ptr, ptr %447, align 8
+  %449 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %448, i32 0, i32 14
+  %450 = load ptr, ptr %449, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %446, ptr noundef %450)
+          to label %451 unwind label %159
+
+451:                                              ; preds = %445
+  %452 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %453 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %452)
+          to label %454 unwind label %159
+
+454:                                              ; preds = %451
+  %455 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %456 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %457 = load ptr, ptr %456, align 8
+  %458 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %457, i32 0, i32 15
+  %459 = load ptr, ptr %458, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %455, ptr noundef %459)
+          to label %460 unwind label %159
+
+460:                                              ; preds = %454
+  %461 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %462 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %463 = load ptr, ptr %462, align 8
+  %464 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %463, i32 0, i32 16
+  %465 = load ptr, ptr %464, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %461, ptr noundef %465)
+          to label %466 unwind label %159
+
+466:                                              ; preds = %460
+  %467 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %468 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %469 = load ptr, ptr %468, align 8
+  %470 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %469, i32 0, i32 17
+  %471 = load ptr, ptr %470, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %467, ptr noundef %471)
+          to label %472 unwind label %159
+
+472:                                              ; preds = %466
+  %473 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %474 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %475 = load ptr, ptr %474, align 8
+  %476 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %475, i32 0, i32 18
+  %477 = load ptr, ptr %476, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %473, ptr noundef %477)
+          to label %478 unwind label %159
+
+478:                                              ; preds = %472
+  %479 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %480 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %479)
+          to label %481 unwind label %159
+
+481:                                              ; preds = %478
+  %482 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %483 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %484, i32 0, i32 19
+  %486 = load ptr, ptr %485, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %482, ptr noundef %486)
+          to label %487 unwind label %159
+
+487:                                              ; preds = %481
+  %488 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %489 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %490, i32 0, i32 20
+  %492 = load ptr, ptr %491, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %488, ptr noundef %492)
+          to label %493 unwind label %159
+
+493:                                              ; preds = %487
+  %494 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %495 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %496 = load ptr, ptr %495, align 8
+  %497 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %496, i32 0, i32 21
+  %498 = load ptr, ptr %497, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %494, ptr noundef %498)
+          to label %499 unwind label %159
+
+499:                                              ; preds = %493
+  %500 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %501 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %502, i32 0, i32 23
+  %504 = load ptr, ptr %503, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %500, ptr noundef %504)
+          to label %505 unwind label %159
+
+505:                                              ; preds = %499
+  %506 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  %507 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %508 = load ptr, ptr %507, align 8
+  %509 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %508, i32 0, i32 22
+  %510 = load ptr, ptr %509, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %506, ptr noundef %510)
+          to label %511 unwind label %159
+
+511:                                              ; preds = %505
+  %512 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 33
+  invoke void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.6) align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %512)
+          to label %513 unwind label %159
+
+513:                                              ; preds = %511
+  invoke void @_Z44set_action_shortcuts_visible_in_context_menu5QListIP7QActionE(ptr noundef %27)
+          to label %514 unwind label %954
+
+514:                                              ; preds = %513
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  %515 = load i32, ptr %8, align 4
+  %516 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
+  %517 = getelementptr inbounds %struct.tcp_graph, ptr %516, i32 0, i32 0
+  store i32 %515, ptr %517, align 8
+  %518 = load i32, ptr %15, align 4
+  %519 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
+  %520 = getelementptr inbounds %struct.tcp_graph, ptr %519, i32 0, i32 5
+  store i32 %518, ptr %520, align 4
+  invoke void @_ZN15TCPStreamDialog10findStreamEv(ptr noundef nonnull align 8 dereferenceable(584) %84)
+          to label %521 unwind label %159
+
+521:                                              ; preds = %514
+  invoke void @_ZN15TCPStreamDialog23showWidgetsForGraphTypeEv(ptr noundef nonnull align 8 dereferenceable(584) %84)
+          to label %522 unwind label %159
+
+522:                                              ; preds = %521
+  %523 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %524 = load ptr, ptr %523, align 8
+  %525 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %524, i32 0, i32 40
+  %526 = load ptr, ptr %525, align 8
+  %527 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %526, i1 noundef zeroext true) #3
+  %528 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %529 = load ptr, ptr %528, align 8
+  %530 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %529, i32 0, i32 40
+  %531 = load ptr, ptr %530, align 8
+  %532 = invoke i32 @get_tcp_stream_count()
+          to label %533 unwind label %159
+
+533:                                              ; preds = %522
+  %534 = sub i32 %532, 1
+  invoke void @_ZN8QSpinBox10setMaximumEi(ptr noundef nonnull align 8 dereferenceable(40) %531, i32 noundef %534)
+          to label %535 unwind label %159
+
+535:                                              ; preds = %533
+  %536 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %537 = load ptr, ptr %536, align 8
+  %538 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %537, i32 0, i32 40
+  %539 = load ptr, ptr %538, align 8
+  %540 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 9
+  %541 = getelementptr inbounds %struct.tcp_graph, ptr %540, i32 0, i32 5
+  %542 = load i32, ptr %541, align 4
+  invoke void @_ZN8QSpinBox8setValueEi(ptr noundef nonnull align 8 dereferenceable(40) %539, i32 noundef %542)
+          to label %543 unwind label %159
+
+543:                                              ; preds = %535
+  %544 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %545 = load ptr, ptr %544, align 8
+  %546 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %545, i32 0, i32 40
+  %547 = load ptr, ptr %546, align 8
+  %548 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %547, i1 noundef zeroext false) #3
+  %549 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %550 = load ptr, ptr %549, align 8
+  %551 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %550, i32 0, i32 36
+  %552 = load ptr, ptr %551, align 8
+  %553 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %552, i1 noundef zeroext true) #3
+  %554 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %555 = load ptr, ptr %554, align 8
+  %556 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %555, i32 0, i32 36
+  %557 = load ptr, ptr %556, align 8
+  invoke void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(40) %557, i32 noundef 6)
+          to label %558 unwind label %159
+
+558:                                              ; preds = %543
+  %559 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %560 = load ptr, ptr %559, align 8
+  %561 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %560, i32 0, i32 36
+  %562 = load ptr, ptr %561, align 8
+  invoke void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(40) %562, double noundef 0x3EB0C6F7A0B5ED8D)
+          to label %563 unwind label %159
+
+563:                                              ; preds = %558
+  %564 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %565 = load ptr, ptr %564, align 8
+  %566 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %565, i32 0, i32 36
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 38
+  %569 = load double, ptr %568, align 8
+  invoke void @_ZN14QDoubleSpinBox8setValueEd(ptr noundef nonnull align 8 dereferenceable(40) %567, double noundef %569)
+          to label %570 unwind label %159
+
+570:                                              ; preds = %563
+  %571 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %572, i32 0, i32 36
+  %574 = load ptr, ptr %573, align 8
+  %575 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %574, i1 noundef zeroext false) #3
+  %576 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %577 = load ptr, ptr %576, align 8
+  %578 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %577, i32 0, i32 48
+  %579 = load ptr, ptr %578, align 8
+  %580 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %579, i1 noundef zeroext true) #3
+  %581 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %582 = load ptr, ptr %581, align 8
+  %583 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %582, i32 0, i32 48
+  %584 = load ptr, ptr %583, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %584, i1 noundef zeroext true)
+          to label %585 unwind label %159
+
+585:                                              ; preds = %570
+  %586 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %587 = load ptr, ptr %586, align 8
+  %588 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %587, i32 0, i32 48
+  %589 = load ptr, ptr %588, align 8
+  %590 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %589, i1 noundef zeroext false) #3
+  %591 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %592 = load ptr, ptr %591, align 8
+  %593 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %592, i32 0, i32 49
+  %594 = load ptr, ptr %593, align 8
+  %595 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %594, i1 noundef zeroext true) #3
+  %596 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %597 = load ptr, ptr %596, align 8
+  %598 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %597, i32 0, i32 49
+  %599 = load ptr, ptr %598, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %599, i1 noundef zeroext true)
+          to label %600 unwind label %159
+
+600:                                              ; preds = %585
+  %601 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %602 = load ptr, ptr %601, align 8
+  %603 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %602, i32 0, i32 49
+  %604 = load ptr, ptr %603, align 8
+  %605 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %604, i1 noundef zeroext false) #3
+  %606 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %607 = load ptr, ptr %606, align 8
+  %608 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %607, i32 0, i32 51
+  %609 = load ptr, ptr %608, align 8
+  %610 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %609, i1 noundef zeroext true) #3
+  %611 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %612 = load ptr, ptr %611, align 8
+  %613 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %612, i32 0, i32 51
+  %614 = load ptr, ptr %613, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %614, i1 noundef zeroext true)
+          to label %615 unwind label %159
+
+615:                                              ; preds = %600
+  %616 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %617 = load ptr, ptr %616, align 8
+  %618 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %617, i32 0, i32 51
+  %619 = load ptr, ptr %618, align 8
+  %620 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %619, i1 noundef zeroext false) #3
+  %621 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %622 = load ptr, ptr %621, align 8
+  %623 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %622, i32 0, i32 52
+  %624 = load ptr, ptr %623, align 8
+  %625 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %624, i1 noundef zeroext true) #3
+  %626 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %627, i32 0, i32 52
+  %629 = load ptr, ptr %628, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %629, i1 noundef zeroext true)
+          to label %630 unwind label %159
+
+630:                                              ; preds = %615
+  %631 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %632 = load ptr, ptr %631, align 8
+  %633 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %632, i32 0, i32 52
+  %634 = load ptr, ptr %633, align 8
+  %635 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %634, i1 noundef zeroext false) #3
+  %636 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %637 = load ptr, ptr %636, align 8
+  %638 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %637, i32 0, i32 29
+  %639 = load ptr, ptr %638, align 8
+  store ptr %639, ptr %28, align 8
+  %640 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #19
+          to label %641 unwind label %159
+
+641:                                              ; preds = %630
+  store i1 true, ptr %31, align 1
+  %642 = load ptr, ptr %28, align 8
+  %643 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 2
+  %644 = load ptr, ptr %643, align 8
+  %645 = invoke ptr @cf_get_display_name(ptr noundef %644)
+          to label %646 unwind label %958
+
+646:                                              ; preds = %641
+  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind writable sret(%class.QString) align 8 %30, ptr noundef %645)
+          to label %647 unwind label %958
+
+647:                                              ; preds = %646
+  invoke void @_ZN14QCPTextElementC1EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(282) %640, ptr noundef %642, ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %648 unwind label %962
+
+648:                                              ; preds = %647
+  store i1 false, ptr %31, align 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  store ptr %640, ptr %29, align 8
+  %649 = load ptr, ptr %29, align 8
+  %650 = load ptr, ptr %28, align 8
+  %651 = getelementptr inbounds %class.QCustomPlot, ptr %650, i32 0, i32 1
+  %652 = load ptr, ptr %651, align 8
+  invoke void @_ZNK7QCPAxis9labelFontEv(ptr dead_on_unwind writable sret(%class.QFont) align 8 %32, ptr noundef nonnull align 8 dereferenceable(472) %652)
+          to label %653 unwind label %159
+
+653:                                              ; preds = %648
+  invoke void @_ZN14QCPTextElement7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(282) %649, ptr noundef nonnull align 8 dereferenceable(12) %32)
+          to label %654 unwind label %970
+
+654:                                              ; preds = %653
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #3
+  %655 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #19
+          to label %656 unwind label %159
+
+656:                                              ; preds = %654
+  %657 = load ptr, ptr %28, align 8
+  invoke void @_ZN14QCPTextElementC1EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(282) %655, ptr noundef %657)
+          to label %658 unwind label %974
+
+658:                                              ; preds = %656
+  %659 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
+  store ptr %655, ptr %659, align 8
+  %660 = load ptr, ptr %28, align 8
+  %661 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %660)
+          to label %662 unwind label %159
+
+662:                                              ; preds = %658
+  invoke void @_ZN13QCPLayoutGrid9insertRowEi(ptr noundef nonnull align 8 dereferenceable(256) %661, i32 noundef 0)
+          to label %663 unwind label %159
+
+663:                                              ; preds = %662
+  %664 = load ptr, ptr %28, align 8
+  %665 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %664)
+          to label %666 unwind label %159
+
+666:                                              ; preds = %663
+  %667 = load ptr, ptr %29, align 8
+  %668 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable(256) %665, i32 noundef 0, i32 noundef 0, ptr noundef %667)
+          to label %669 unwind label %159
+
+669:                                              ; preds = %666
+  %670 = load ptr, ptr %28, align 8
+  %671 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %670)
+          to label %672 unwind label %159
+
+672:                                              ; preds = %669
+  invoke void @_ZN13QCPLayoutGrid9insertRowEi(ptr noundef nonnull align 8 dereferenceable(256) %671, i32 noundef 0)
+          to label %673 unwind label %159
+
+673:                                              ; preds = %672
+  %674 = load ptr, ptr %28, align 8
+  %675 = invoke noundef ptr @_ZNK11QCustomPlot10plotLayoutEv(ptr noundef nonnull align 8 dereferenceable(513) %674)
+          to label %676 unwind label %159
+
+676:                                              ; preds = %673
+  %677 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 10
+  %678 = load ptr, ptr %677, align 8
+  %679 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable(256) %675, i32 noundef 0, i32 noundef 0, ptr noundef %678)
+          to label %680 unwind label %159
+
+680:                                              ; preds = %676
+  store double 5.000000e-01, ptr %33, align 8
+  %681 = load ptr, ptr %28, align 8
+  %682 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %681, ptr noundef null, ptr noundef null)
+          to label %683 unwind label %159
+
+683:                                              ; preds = %680
+  %684 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
+  store ptr %682, ptr %684, align 8
+  %685 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 12
+  %686 = load ptr, ptr %685, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %36, i32 noundef 2116231) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(14) %36, i32 noundef 1)
+          to label %687 unwind label %159
+
+687:                                              ; preds = %683
+  %688 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, double noundef %688, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %689 unwind label %978
+
+689:                                              ; preds = %687
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %686, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %690 unwind label %982
+
+690:                                              ; preds = %689
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
+  %691 = load ptr, ptr %28, align 8
+  %692 = load ptr, ptr %28, align 8
+  %693 = getelementptr inbounds %class.QCustomPlot, ptr %692, i32 0, i32 1
+  %694 = load ptr, ptr %693, align 8
+  %695 = load ptr, ptr %28, align 8
+  %696 = getelementptr inbounds %class.QCustomPlot, ptr %695, i32 0, i32 4
+  %697 = load ptr, ptr %696, align 8
+  %698 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %691, ptr noundef %694, ptr noundef %697)
+          to label %699 unwind label %159
+
+699:                                              ; preds = %690
+  %700 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
+  store ptr %698, ptr %700, align 8
+  %701 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
+  %702 = load ptr, ptr %701, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %39, i32 noundef 7491584) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(14) %39, i32 noundef 1)
+          to label %703 unwind label %159
+
+703:                                              ; preds = %699
+  %704 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %38, double noundef %704, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %705 unwind label %987
+
+705:                                              ; preds = %703
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %702, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %706 unwind label %991
+
+706:                                              ; preds = %705
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  %707 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 13
+  %708 = load ptr, ptr %707, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %708, i32 noundef 2)
+          to label %709 unwind label %159
+
+709:                                              ; preds = %706
+  %710 = load ptr, ptr %28, align 8
+  %711 = load ptr, ptr %28, align 8
+  %712 = getelementptr inbounds %class.QCustomPlot, ptr %711, i32 0, i32 1
+  %713 = load ptr, ptr %712, align 8
+  %714 = load ptr, ptr %28, align 8
+  %715 = getelementptr inbounds %class.QCustomPlot, ptr %714, i32 0, i32 4
+  %716 = load ptr, ptr %715, align 8
+  %717 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %710, ptr noundef %713, ptr noundef %716)
+          to label %718 unwind label %159
+
+718:                                              ; preds = %709
+  %719 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
+  store ptr %717, ptr %719, align 8
+  %720 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
+  %721 = load ptr, ptr %720, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %42, i32 noundef 5151238) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 4 dereferenceable(14) %42, i32 noundef 1)
+          to label %722 unwind label %159
+
+722:                                              ; preds = %718
+  %723 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %41, double noundef %723, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %724 unwind label %996
+
+724:                                              ; preds = %722
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %721, ptr noundef nonnull align 8 dereferenceable(8) %40)
+          to label %725 unwind label %1000
+
+725:                                              ; preds = %724
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #3
+  %726 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 14
+  %727 = load ptr, ptr %726, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %727, i32 noundef 2)
+          to label %728 unwind label %159
+
+728:                                              ; preds = %725
+  %729 = load ptr, ptr %28, align 8
+  %730 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %729, ptr noundef null, ptr noundef null)
+          to label %731 unwind label %159
+
+731:                                              ; preds = %728
+  %732 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
+  store ptr %730, ptr %732, align 8
+  %733 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
+  %734 = load ptr, ptr %733, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %734, i32 noundef 0)
+          to label %735 unwind label %159
+
+735:                                              ; preds = %731
+  %736 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
+  %737 = load ptr, ptr %736, align 8
+  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %44, i32 noundef 19) #3
+  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %43, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %44, double noundef 0.000000e+00)
+          to label %738 unwind label %159
+
+738:                                              ; preds = %735
+  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %737, ptr noundef nonnull align 8 dereferenceable(65) %43)
+          to label %739 unwind label %1005
+
+739:                                              ; preds = %738
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %43) #3
+  %740 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
+          to label %741 unwind label %159
+
+741:                                              ; preds = %739
+  %742 = load ptr, ptr %28, align 8
+  %743 = getelementptr inbounds %class.QCustomPlot, ptr %742, i32 0, i32 1
+  %744 = load ptr, ptr %743, align 8
+  %745 = load ptr, ptr %28, align 8
+  %746 = getelementptr inbounds %class.QCustomPlot, ptr %745, i32 0, i32 2
+  %747 = load ptr, ptr %746, align 8
+  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %740, ptr noundef %744, ptr noundef %747)
+          to label %748 unwind label %1009
+
+748:                                              ; preds = %741
+  %749 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  store ptr %740, ptr %749, align 8
+  %750 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %751 = load ptr, ptr %750, align 8
+  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %751, i32 noundef 1)
+          to label %752 unwind label %159
+
+752:                                              ; preds = %748
+  %753 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %754 = load ptr, ptr %753, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %47, i32 noundef 2116231) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(14) %47, i32 noundef 1)
+          to label %755 unwind label %159
+
+755:                                              ; preds = %752
+  %756 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, double noundef %756, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %757 unwind label %1013
+
+757:                                              ; preds = %755
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %754, ptr noundef nonnull align 8 dereferenceable(8) %45)
+          to label %758 unwind label %1017
+
+758:                                              ; preds = %757
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
+  %759 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %760 = load ptr, ptr %759, align 8
+  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %760, double noundef 0.000000e+00)
+          to label %761 unwind label %159
+
+761:                                              ; preds = %758
+  %762 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %763 = load ptr, ptr %762, align 8
+  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %763, double noundef 3.000000e+00)
+          to label %764 unwind label %159
+
+764:                                              ; preds = %761
+  %765 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %766 = load ptr, ptr %765, align 8
+  %767 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %766)
+          to label %768 unwind label %159
+
+768:                                              ; preds = %764
+  %769 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 16
+  %770 = load ptr, ptr %769, align 8
+  %771 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 15
+  %772 = load ptr, ptr %771, align 8
+  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %770, ptr noundef %772)
+          to label %773 unwind label %159
+
+773:                                              ; preds = %768
+  %774 = load ptr, ptr %28, align 8
+  %775 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %774, ptr noundef null, ptr noundef null)
+          to label %776 unwind label %159
+
+776:                                              ; preds = %773
+  %777 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
+  store ptr %775, ptr %777, align 8
+  %778 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
+  %779 = load ptr, ptr %778, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %50, i32 noundef 7491584) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 4 dereferenceable(14) %50, i32 noundef 1)
+          to label %780 unwind label %159
+
+780:                                              ; preds = %776
+  %781 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %49, double noundef %781, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %782 unwind label %1022
+
+782:                                              ; preds = %780
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %779, ptr noundef nonnull align 8 dereferenceable(8) %48)
+          to label %783 unwind label %1026
+
+783:                                              ; preds = %782
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
+  %784 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 17
+  %785 = load ptr, ptr %784, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %785, i32 noundef 2)
+          to label %786 unwind label %159
+
+786:                                              ; preds = %783
+  %787 = load ptr, ptr %28, align 8
+  %788 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %787, ptr noundef null, ptr noundef null)
+          to label %789 unwind label %159
+
+789:                                              ; preds = %786
+  %790 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
+  store ptr %788, ptr %790, align 8
+  %791 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
+  %792 = load ptr, ptr %791, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %792, i32 noundef 0)
+          to label %793 unwind label %159
+
+793:                                              ; preds = %789
+  %794 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
+  %795 = load ptr, ptr %794, align 8
+  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %52, i32 noundef 19) #3
+  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %51, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %52, double noundef 0.000000e+00)
+          to label %796 unwind label %159
+
+796:                                              ; preds = %793
+  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %795, ptr noundef nonnull align 8 dereferenceable(65) %51)
+          to label %797 unwind label %1031
+
+797:                                              ; preds = %796
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %51) #3
+  %798 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
+          to label %799 unwind label %159
+
+799:                                              ; preds = %797
+  %800 = load ptr, ptr %28, align 8
+  %801 = getelementptr inbounds %class.QCustomPlot, ptr %800, i32 0, i32 1
+  %802 = load ptr, ptr %801, align 8
+  %803 = load ptr, ptr %28, align 8
+  %804 = getelementptr inbounds %class.QCustomPlot, ptr %803, i32 0, i32 2
+  %805 = load ptr, ptr %804, align 8
+  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %798, ptr noundef %802, ptr noundef %805)
+          to label %806 unwind label %1035
+
+806:                                              ; preds = %799
+  %807 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  store ptr %798, ptr %807, align 8
+  %808 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %809 = load ptr, ptr %808, align 8
+  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %809, i32 noundef 1)
+          to label %810 unwind label %159
+
+810:                                              ; preds = %806
+  %811 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %812 = load ptr, ptr %811, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %55, i32 noundef 13369344) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 4 dereferenceable(14) %55, i32 noundef 1)
+          to label %813 unwind label %159
+
+813:                                              ; preds = %810
+  %814 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %54, double noundef %814, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %815 unwind label %1039
+
+815:                                              ; preds = %813
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %812, ptr noundef nonnull align 8 dereferenceable(8) %53)
+          to label %816 unwind label %1043
+
+816:                                              ; preds = %815
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
+  %817 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %818 = load ptr, ptr %817, align 8
+  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %818, double noundef 0.000000e+00)
+          to label %819 unwind label %159
+
+819:                                              ; preds = %816
+  %820 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %821 = load ptr, ptr %820, align 8
+  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %821, double noundef 0.000000e+00)
+          to label %822 unwind label %159
+
+822:                                              ; preds = %819
+  %823 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %824 = load ptr, ptr %823, align 8
+  %825 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %824)
+          to label %826 unwind label %159
+
+826:                                              ; preds = %822
+  %827 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 19
+  %828 = load ptr, ptr %827, align 8
+  %829 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 18
+  %830 = load ptr, ptr %829, align 8
+  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %828, ptr noundef %830)
+          to label %831 unwind label %159
+
+831:                                              ; preds = %826
+  %832 = load ptr, ptr %28, align 8
+  %833 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %832, ptr noundef null, ptr noundef null)
+          to label %834 unwind label %159
+
+834:                                              ; preds = %831
+  %835 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
+  store ptr %833, ptr %835, align 8
+  %836 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
+  %837 = load ptr, ptr %836, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %837, i32 noundef 0)
+          to label %838 unwind label %159
+
+838:                                              ; preds = %834
+  %839 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
+  %840 = load ptr, ptr %839, align 8
+  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %57, i32 noundef 19) #3
+  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %56, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(14) %57, double noundef 0.000000e+00)
+          to label %841 unwind label %159
+
+841:                                              ; preds = %838
+  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %840, ptr noundef nonnull align 8 dereferenceable(65) %56)
+          to label %842 unwind label %1048
+
+842:                                              ; preds = %841
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %56) #3
+  %843 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
+          to label %844 unwind label %159
+
+844:                                              ; preds = %842
+  %845 = load ptr, ptr %28, align 8
+  %846 = getelementptr inbounds %class.QCustomPlot, ptr %845, i32 0, i32 1
+  %847 = load ptr, ptr %846, align 8
+  %848 = load ptr, ptr %28, align 8
+  %849 = getelementptr inbounds %class.QCustomPlot, ptr %848, i32 0, i32 2
+  %850 = load ptr, ptr %849, align 8
+  invoke void @_ZN25QCPErrorBarsNotSelectableC1EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %843, ptr noundef %847, ptr noundef %850)
+          to label %851 unwind label %1052
+
+851:                                              ; preds = %844
+  %852 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  store ptr %843, ptr %852, align 8
+  %853 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %854 = load ptr, ptr %853, align 8
+  invoke void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull align 8 dereferenceable(248) %854, i32 noundef 1)
+          to label %855 unwind label %159
+
+855:                                              ; preds = %851
+  %856 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %857 = load ptr, ptr %856, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %60, i32 noundef 6291456) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(14) %60, i32 noundef 1)
+          to label %858 unwind label %159
+
+858:                                              ; preds = %855
+  %859 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59, double noundef %859, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %860 unwind label %1056
+
+860:                                              ; preds = %858
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %857, ptr noundef nonnull align 8 dereferenceable(8) %58)
+          to label %861 unwind label %1060
+
+861:                                              ; preds = %860
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #3
+  %862 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %863 = load ptr, ptr %862, align 8
+  invoke void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull align 8 dereferenceable(248) %863, double noundef 0.000000e+00)
+          to label %864 unwind label %159
+
+864:                                              ; preds = %861
+  %865 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %866 = load ptr, ptr %865, align 8
+  invoke void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull align 8 dereferenceable(248) %866, double noundef 0.000000e+00)
+          to label %867 unwind label %159
+
+867:                                              ; preds = %864
+  %868 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %869 = load ptr, ptr %868, align 8
+  %870 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %869)
+          to label %871 unwind label %159
+
+871:                                              ; preds = %867
+  %872 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 21
+  %873 = load ptr, ptr %872, align 8
+  %874 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 20
+  %875 = load ptr, ptr %874, align 8
+  invoke void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(248) %873, ptr noundef %875)
+          to label %876 unwind label %159
+
+876:                                              ; preds = %871
+  %877 = load ptr, ptr %28, align 8
+  %878 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %877, ptr noundef null, ptr noundef null)
+          to label %879 unwind label %159
+
+879:                                              ; preds = %876
+  %880 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
+  store ptr %878, ptr %880, align 8
+  %881 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
+  %882 = load ptr, ptr %881, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %63, i32 noundef 5151238) #3
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 4 dereferenceable(14) %63, i32 noundef 1)
+          to label %883 unwind label %159
+
+883:                                              ; preds = %879
+  %884 = load double, ptr %33, align 8
+  invoke void @_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %62, double noundef %884, i32 noundef 1, i32 noundef 16, i32 noundef 64)
+          to label %885 unwind label %1065
+
+885:                                              ; preds = %883
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %882, ptr noundef nonnull align 8 dereferenceable(8) %61)
+          to label %886 unwind label %1069
+
+886:                                              ; preds = %885
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #3
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #3
+  %887 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 22
+  %888 = load ptr, ptr %887, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %888, i32 noundef 2)
+          to label %889 unwind label %159
+
+889:                                              ; preds = %886
+  store i32 3, ptr %64, align 4
+  %890 = getelementptr inbounds i8, ptr %84, i64 16
+  %891 = invoke noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %890)
+          to label %892 unwind label %159
+
+892:                                              ; preds = %889
+  %893 = load i32, ptr %64, align 4
+  %894 = sitofp i32 %893 to double
+  %895 = fmul double %894, %891
+  %896 = fptosi double %895 to i32
+  store i32 %896, ptr %64, align 4
+  %897 = load i32, ptr %64, align 4
+  %898 = mul i32 %897, 2
+  invoke void @_ZN7QPixmapC1Eii(ptr noundef nonnull align 8 dereferenceable(24) %65, i32 noundef 1, i32 noundef %898)
+          to label %899 unwind label %159
+
+899:                                              ; preds = %892
+  call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %66, i32 noundef 19) #3
+  invoke void @_ZN7QPixmap4fillERK6QColor(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 4 dereferenceable(14) %66)
+          to label %900 unwind label %1074
+
+900:                                              ; preds = %899
+  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %65)
+          to label %901 unwind label %1074
+
+901:                                              ; preds = %900
+  invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %902 unwind label %1078
+
+902:                                              ; preds = %901
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %69, i32 noundef 7491584) #3
+  invoke void @_ZN4QPen8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(14) %69)
+          to label %903 unwind label %1082
+
+903:                                              ; preds = %902
+  %904 = load double, ptr %33, align 8
+  invoke void @_ZN4QPen9setWidthFEd(ptr noundef nonnull align 8 dereferenceable(8) %68, double noundef %904)
+          to label %905 unwind label %1082
+
+905:                                              ; preds = %903
+  invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %906 unwind label %1082
+
+906:                                              ; preds = %905
+  %907 = load i32, ptr %64, align 4
+  %908 = load i32, ptr %64, align 4
+  %909 = mul i32 %908, 2
+  invoke void @_ZN8QPainter8drawLineEiiii(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef 0, i32 noundef %907, i32 noundef 0, i32 noundef %909)
+          to label %910 unwind label %1082
+
+910:                                              ; preds = %906
+  %911 = load ptr, ptr %28, align 8
+  %912 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %911, ptr noundef null, ptr noundef null)
+          to label %913 unwind label %1082
+
+913:                                              ; preds = %910
+  %914 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
+  store ptr %912, ptr %914, align 8
+  %915 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
+  %916 = load ptr, ptr %915, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %916, i32 noundef 0)
+          to label %917 unwind label %1082
+
+917:                                              ; preds = %913
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %71, i32 noundef 7491584) #3
+  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %70, i32 noundef 16, ptr noundef nonnull align 4 dereferenceable(14) %71, double noundef 0.000000e+00)
+          to label %918 unwind label %1082
+
+918:                                              ; preds = %917
+  invoke void @_ZN15QCPScatterStyle9setPixmapERK7QPixmap(ptr noundef nonnull align 8 dereferenceable(65) %70, ptr noundef nonnull align 8 dereferenceable(24) %65)
+          to label %919 unwind label %1086
+
+919:                                              ; preds = %918
+  %920 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 23
+  %921 = load ptr, ptr %920, align 8
+  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %921, ptr noundef nonnull align 8 dereferenceable(65) %70)
+          to label %922 unwind label %1086
+
+922:                                              ; preds = %919
+  %923 = load ptr, ptr %28, align 8
+  %924 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %923, ptr noundef null, ptr noundef null)
+          to label %925 unwind label %1086
+
+925:                                              ; preds = %922
+  %926 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
+  store ptr %924, ptr %926, align 8
+  %927 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
+  %928 = load ptr, ptr %927, align 8
+  invoke void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull align 8 dereferenceable(313) %928, i32 noundef 0)
+          to label %929 unwind label %1086
+
+929:                                              ; preds = %925
+  %930 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 24
+  %931 = load ptr, ptr %930, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %73, i32 noundef 2116231) #3
+  invoke void @_ZN15QCPScatterStyleC1ENS_12ScatterShapeERK6QColord(ptr noundef nonnull align 8 dereferenceable(65) %72, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(14) %73, double noundef 5.000000e+00)
+          to label %932 unwind label %1086
+
+932:                                              ; preds = %929
+  invoke void @_ZN8QCPGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %931, ptr noundef nonnull align 8 dereferenceable(65) %72)
+          to label %933 unwind label %1090
+
+933:                                              ; preds = %932
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %72) #3
+  %934 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 216) #19
+          to label %935 unwind label %1086
+
+935:                                              ; preds = %933
+  %936 = load ptr, ptr %28, align 8
+  invoke void @_ZN13QCPItemTracerC1EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(209) %934, ptr noundef %936)
+          to label %937 unwind label %1094
+
+937:                                              ; preds = %935
+  %938 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
+  store ptr %934, ptr %938, align 8
+  %939 = load i32, ptr %12, align 4
+  %940 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %941 = load ptr, ptr %940, align 8
+  %942 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %941, i32 0, i32 33
+  %943 = load ptr, ptr %942, align 8
+  %944 = invoke noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %943)
+          to label %945 unwind label %1086
+
+945:                                              ; preds = %937
+  %946 = icmp ne i32 %939, %944
+  br i1 %946, label %947, label %1098
+
+947:                                              ; preds = %945
+  %948 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %949 = load ptr, ptr %948, align 8
+  %950 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %949, i32 0, i32 33
+  %951 = load ptr, ptr %950, align 8
+  %952 = load i32, ptr %12, align 4
+  invoke void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %951, i32 noundef %952)
+          to label %953 unwind label %1086
+
+953:                                              ; preds = %947
+  br label %1100
+
+954:                                              ; preds = %513
+  %955 = landingpad { ptr, i32 }
+          cleanup
+  %956 = extractvalue { ptr, i32 } %955, 0
+  store ptr %956, ptr %10, align 8
+  %957 = extractvalue { ptr, i32 } %955, 1
+  store i32 %957, ptr %11, align 4
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  br label %1164
+
+958:                                              ; preds = %646, %641
+  %959 = landingpad { ptr, i32 }
+          cleanup
+  %960 = extractvalue { ptr, i32 } %959, 0
+  store ptr %960, ptr %10, align 8
+  %961 = extractvalue { ptr, i32 } %959, 1
+  store i32 %961, ptr %11, align 4
+  br label %966
+
+962:                                              ; preds = %647
+  %963 = landingpad { ptr, i32 }
+          cleanup
+  %964 = extractvalue { ptr, i32 } %963, 0
+  store ptr %964, ptr %10, align 8
+  %965 = extractvalue { ptr, i32 } %963, 1
+  store i32 %965, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  br label %966
+
+966:                                              ; preds = %962, %958
+  %967 = load i1, ptr %31, align 1
+  br i1 %967, label %968, label %969
+
+968:                                              ; preds = %966
+  call void @_ZdlPv(ptr noundef %640) #18
+  br label %969
+
+969:                                              ; preds = %968, %966
+  br label %1164
+
+970:                                              ; preds = %653
+  %971 = landingpad { ptr, i32 }
+          cleanup
+  %972 = extractvalue { ptr, i32 } %971, 0
+  store ptr %972, ptr %10, align 8
+  %973 = extractvalue { ptr, i32 } %971, 1
+  store i32 %973, ptr %11, align 4
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #3
+  br label %1164
+
+974:                                              ; preds = %656
+  %975 = landingpad { ptr, i32 }
+          cleanup
+  %976 = extractvalue { ptr, i32 } %975, 0
+  store ptr %976, ptr %10, align 8
+  %977 = extractvalue { ptr, i32 } %975, 1
+  store i32 %977, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %655) #18
+  br label %1164
+
+978:                                              ; preds = %687
+  %979 = landingpad { ptr, i32 }
+          cleanup
+  %980 = extractvalue { ptr, i32 } %979, 0
+  store ptr %980, ptr %10, align 8
+  %981 = extractvalue { ptr, i32 } %979, 1
+  store i32 %981, ptr %11, align 4
+  br label %986
+
+982:                                              ; preds = %689
+  %983 = landingpad { ptr, i32 }
+          cleanup
+  %984 = extractvalue { ptr, i32 } %983, 0
+  store ptr %984, ptr %10, align 8
+  %985 = extractvalue { ptr, i32 } %983, 1
+  store i32 %985, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
+  br label %986
+
+986:                                              ; preds = %982, %978
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
+  br label %1164
+
+987:                                              ; preds = %703
+  %988 = landingpad { ptr, i32 }
+          cleanup
+  %989 = extractvalue { ptr, i32 } %988, 0
+  store ptr %989, ptr %10, align 8
+  %990 = extractvalue { ptr, i32 } %988, 1
+  store i32 %990, ptr %11, align 4
+  br label %995
+
+991:                                              ; preds = %705
+  %992 = landingpad { ptr, i32 }
+          cleanup
+  %993 = extractvalue { ptr, i32 } %992, 0
+  store ptr %993, ptr %10, align 8
+  %994 = extractvalue { ptr, i32 } %992, 1
+  store i32 %994, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
+  br label %995
+
+995:                                              ; preds = %991, %987
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  br label %1164
+
+996:                                              ; preds = %722
+  %997 = landingpad { ptr, i32 }
+          cleanup
+  %998 = extractvalue { ptr, i32 } %997, 0
+  store ptr %998, ptr %10, align 8
+  %999 = extractvalue { ptr, i32 } %997, 1
+  store i32 %999, ptr %11, align 4
+  br label %1004
+
+1000:                                             ; preds = %724
+  %1001 = landingpad { ptr, i32 }
+          cleanup
+  %1002 = extractvalue { ptr, i32 } %1001, 0
+  store ptr %1002, ptr %10, align 8
+  %1003 = extractvalue { ptr, i32 } %1001, 1
+  store i32 %1003, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  br label %1004
+
+1004:                                             ; preds = %1000, %996
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #3
+  br label %1164
+
+1005:                                             ; preds = %738
+  %1006 = landingpad { ptr, i32 }
+          cleanup
+  %1007 = extractvalue { ptr, i32 } %1006, 0
+  store ptr %1007, ptr %10, align 8
+  %1008 = extractvalue { ptr, i32 } %1006, 1
+  store i32 %1008, ptr %11, align 4
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %43) #3
+  br label %1164
+
+1009:                                             ; preds = %741
+  %1010 = landingpad { ptr, i32 }
+          cleanup
+  %1011 = extractvalue { ptr, i32 } %1010, 0
+  store ptr %1011, ptr %10, align 8
+  %1012 = extractvalue { ptr, i32 } %1010, 1
+  store i32 %1012, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %740) #18
+  br label %1164
+
+1013:                                             ; preds = %755
+  %1014 = landingpad { ptr, i32 }
+          cleanup
+  %1015 = extractvalue { ptr, i32 } %1014, 0
+  store ptr %1015, ptr %10, align 8
+  %1016 = extractvalue { ptr, i32 } %1014, 1
+  store i32 %1016, ptr %11, align 4
+  br label %1021
+
+1017:                                             ; preds = %757
+  %1018 = landingpad { ptr, i32 }
+          cleanup
+  %1019 = extractvalue { ptr, i32 } %1018, 0
+  store ptr %1019, ptr %10, align 8
+  %1020 = extractvalue { ptr, i32 } %1018, 1
+  store i32 %1020, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #3
+  br label %1021
+
+1021:                                             ; preds = %1017, %1013
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #3
+  br label %1164
+
+1022:                                             ; preds = %780
+  %1023 = landingpad { ptr, i32 }
+          cleanup
+  %1024 = extractvalue { ptr, i32 } %1023, 0
+  store ptr %1024, ptr %10, align 8
+  %1025 = extractvalue { ptr, i32 } %1023, 1
+  store i32 %1025, ptr %11, align 4
+  br label %1030
+
+1026:                                             ; preds = %782
+  %1027 = landingpad { ptr, i32 }
+          cleanup
+  %1028 = extractvalue { ptr, i32 } %1027, 0
+  store ptr %1028, ptr %10, align 8
+  %1029 = extractvalue { ptr, i32 } %1027, 1
+  store i32 %1029, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
+  br label %1030
+
+1030:                                             ; preds = %1026, %1022
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #3
+  br label %1164
+
+1031:                                             ; preds = %796
+  %1032 = landingpad { ptr, i32 }
+          cleanup
+  %1033 = extractvalue { ptr, i32 } %1032, 0
+  store ptr %1033, ptr %10, align 8
+  %1034 = extractvalue { ptr, i32 } %1032, 1
+  store i32 %1034, ptr %11, align 4
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %51) #3
+  br label %1164
+
+1035:                                             ; preds = %799
+  %1036 = landingpad { ptr, i32 }
+          cleanup
+  %1037 = extractvalue { ptr, i32 } %1036, 0
+  store ptr %1037, ptr %10, align 8
+  %1038 = extractvalue { ptr, i32 } %1036, 1
+  store i32 %1038, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %798) #18
+  br label %1164
+
+1039:                                             ; preds = %813
+  %1040 = landingpad { ptr, i32 }
+          cleanup
+  %1041 = extractvalue { ptr, i32 } %1040, 0
+  store ptr %1041, ptr %10, align 8
+  %1042 = extractvalue { ptr, i32 } %1040, 1
+  store i32 %1042, ptr %11, align 4
+  br label %1047
+
+1043:                                             ; preds = %815
+  %1044 = landingpad { ptr, i32 }
+          cleanup
+  %1045 = extractvalue { ptr, i32 } %1044, 0
+  store ptr %1045, ptr %10, align 8
+  %1046 = extractvalue { ptr, i32 } %1044, 1
+  store i32 %1046, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
+  br label %1047
+
+1047:                                             ; preds = %1043, %1039
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
+  br label %1164
+
+1048:                                             ; preds = %841
+  %1049 = landingpad { ptr, i32 }
+          cleanup
+  %1050 = extractvalue { ptr, i32 } %1049, 0
+  store ptr %1050, ptr %10, align 8
+  %1051 = extractvalue { ptr, i32 } %1049, 1
+  store i32 %1051, ptr %11, align 4
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %56) #3
+  br label %1164
+
+1052:                                             ; preds = %844
+  %1053 = landingpad { ptr, i32 }
+          cleanup
+  %1054 = extractvalue { ptr, i32 } %1053, 0
+  store ptr %1054, ptr %10, align 8
+  %1055 = extractvalue { ptr, i32 } %1053, 1
+  store i32 %1055, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %843) #18
+  br label %1164
+
+1056:                                             ; preds = %858
+  %1057 = landingpad { ptr, i32 }
+          cleanup
+  %1058 = extractvalue { ptr, i32 } %1057, 0
+  store ptr %1058, ptr %10, align 8
+  %1059 = extractvalue { ptr, i32 } %1057, 1
+  store i32 %1059, ptr %11, align 4
+  br label %1064
+
+1060:                                             ; preds = %860
+  %1061 = landingpad { ptr, i32 }
+          cleanup
+  %1062 = extractvalue { ptr, i32 } %1061, 0
+  store ptr %1062, ptr %10, align 8
+  %1063 = extractvalue { ptr, i32 } %1061, 1
+  store i32 %1063, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
+  br label %1064
+
+1064:                                             ; preds = %1060, %1056
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #3
+  br label %1164
+
+1065:                                             ; preds = %883
+  %1066 = landingpad { ptr, i32 }
+          cleanup
+  %1067 = extractvalue { ptr, i32 } %1066, 0
+  store ptr %1067, ptr %10, align 8
+  %1068 = extractvalue { ptr, i32 } %1066, 1
+  store i32 %1068, ptr %11, align 4
+  br label %1073
+
+1069:                                             ; preds = %885
+  %1070 = landingpad { ptr, i32 }
+          cleanup
+  %1071 = extractvalue { ptr, i32 } %1070, 0
+  store ptr %1071, ptr %10, align 8
+  %1072 = extractvalue { ptr, i32 } %1070, 1
+  store i32 %1072, ptr %11, align 4
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #3
+  br label %1073
+
+1073:                                             ; preds = %1069, %1065
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #3
+  br label %1164
+
+1074:                                             ; preds = %900, %899
+  %1075 = landingpad { ptr, i32 }
+          cleanup
+  %1076 = extractvalue { ptr, i32 } %1075, 0
+  store ptr %1076, ptr %10, align 8
+  %1077 = extractvalue { ptr, i32 } %1075, 1
+  store i32 %1077, ptr %11, align 4
+  br label %1163
+
+1078:                                             ; preds = %901
+  %1079 = landingpad { ptr, i32 }
+          cleanup
+  %1080 = extractvalue { ptr, i32 } %1079, 0
+  store ptr %1080, ptr %10, align 8
+  %1081 = extractvalue { ptr, i32 } %1079, 1
+  store i32 %1081, ptr %11, align 4
+  br label %1162
+
+1082:                                             ; preds = %917, %913, %910, %906, %905, %903, %902
+  %1083 = landingpad { ptr, i32 }
+          cleanup
+  %1084 = extractvalue { ptr, i32 } %1083, 0
+  store ptr %1084, ptr %10, align 8
+  %1085 = extractvalue { ptr, i32 } %1083, 1
+  store i32 %1085, ptr %11, align 4
+  br label %1161
+
+1086:                                             ; preds = %1157, %1153, %1151, %1149, %1147, %1145, %1139, %1132, %1123, %1120, %1114, %1113, %1110, %1106, %1102, %1100, %1098, %947, %937, %933, %929, %925, %922, %919, %918
+  %1087 = landingpad { ptr, i32 }
+          cleanup
+  %1088 = extractvalue { ptr, i32 } %1087, 0
+  store ptr %1088, ptr %10, align 8
+  %1089 = extractvalue { ptr, i32 } %1087, 1
+  store i32 %1089, ptr %11, align 4
+  br label %1160
+
+1090:                                             ; preds = %932
+  %1091 = landingpad { ptr, i32 }
+          cleanup
+  %1092 = extractvalue { ptr, i32 } %1091, 0
+  store ptr %1092, ptr %10, align 8
+  %1093 = extractvalue { ptr, i32 } %1091, 1
+  store i32 %1093, ptr %11, align 4
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %72) #3
+  br label %1160
+
+1094:                                             ; preds = %935
+  %1095 = landingpad { ptr, i32 }
+          cleanup
+  %1096 = extractvalue { ptr, i32 } %1095, 0
+  store ptr %1096, ptr %10, align 8
+  %1097 = extractvalue { ptr, i32 } %1095, 1
+  store i32 %1097, ptr %11, align 4
+  call void @_ZdlPv(ptr noundef %934) #18
+  br label %1160
+
+1098:                                             ; preds = %945
+  invoke void @_ZN15TCPStreamDialog9fillGraphEbb(ptr noundef nonnull align 8 dereferenceable(584) %84, i1 noundef zeroext true, i1 noundef zeroext true)
+          to label %1099 unwind label %1086
+
+1099:                                             ; preds = %1098
+  br label %1100
+
+1100:                                             ; preds = %1099, %953
+  %1101 = load ptr, ptr %28, align 8
+  invoke void @_ZN7QWidget16setMouseTrackingEb(ptr noundef nonnull align 8 dereferenceable(40) %1101, i1 noundef zeroext true)
+          to label %1102 unwind label %1086
+
+1102:                                             ; preds = %1100
+  %1103 = load ptr, ptr %28, align 8
+  %1104 = getelementptr inbounds %class.QCustomPlot, ptr %1103, i32 0, i32 2
+  %1105 = load ptr, ptr %1104, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %74, i32 noundef 2116231) #3
+  invoke void @_ZN7QCPAxis13setLabelColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(472) %1105, ptr noundef nonnull align 4 dereferenceable(14) %74)
+          to label %1106 unwind label %1086
+
+1106:                                             ; preds = %1102
+  %1107 = load ptr, ptr %28, align 8
+  %1108 = getelementptr inbounds %class.QCustomPlot, ptr %1107, i32 0, i32 2
+  %1109 = load ptr, ptr %1108, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %75, i32 noundef 2116231) #3
+  invoke void @_ZN7QCPAxis17setTickLabelColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(472) %1109, ptr noundef nonnull align 4 dereferenceable(14) %75)
+          to label %1110 unwind label %1086
+
+1110:                                             ; preds = %1106
+  %1111 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 25
+  %1112 = load ptr, ptr %1111, align 8
+  invoke void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57) %1112, i1 noundef zeroext false)
+          to label %1113 unwind label %1086
+
+1113:                                             ; preds = %1110
+  invoke void @_ZN15TCPStreamDialog17toggleTracerStyleEb(ptr noundef nonnull align 8 dereferenceable(584) %84, i1 noundef zeroext true)
+          to label %1114 unwind label %1086
+
+1114:                                             ; preds = %1113
+  %1115 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %1116 = load ptr, ptr %1115, align 8
+  %1117 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1116, i32 0, i32 55
+  %1118 = load ptr, ptr %1117, align 8
+  %1119 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %1118, i32 noundef 2048)
+          to label %1120 unwind label %1086
+
+1120:                                             ; preds = %1114
+  store ptr %1119, ptr %76, align 8
+  %1121 = load ptr, ptr %76, align 8
+  invoke void @_ZN15TCPStreamDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %77, ptr noundef @.str.12, ptr noundef null, i32 noundef -1)
+          to label %1122 unwind label %1086
+
+1122:                                             ; preds = %1120
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %1121, ptr noundef nonnull align 8 dereferenceable(24) %77)
+          to label %1123 unwind label %1135
+
+1123:                                             ; preds = %1122
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #3
+  %1124 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1125, i32 0, i32 55
+  %1127 = load ptr, ptr %1126, align 8
+  %1128 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %1127, i32 noundef 2097152)
+          to label %1129 unwind label %1086
+
+1129:                                             ; preds = %1123
+  store ptr %1128, ptr %78, align 8
+  %1130 = load ptr, ptr %78, align 8
+  %1131 = icmp ne ptr %1130, null
+  br i1 %1131, label %1132, label %1139
+
+1132:                                             ; preds = %1129
+  %1133 = load ptr, ptr %78, align 8
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %1133, i1 noundef zeroext true)
+          to label %1134 unwind label %1086
+
+1134:                                             ; preds = %1132
+  br label %1139
+
+1135:                                             ; preds = %1122
+  %1136 = landingpad { ptr, i32 }
+          cleanup
+  %1137 = extractvalue { ptr, i32 } %1136, 0
+  store ptr %1137, ptr %10, align 8
+  %1138 = extractvalue { ptr, i32 } %1136, 1
+  store i32 %1138, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #3
+  br label %1160
+
+1139:                                             ; preds = %1134, %1129
+  %1140 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
+  %1141 = load ptr, ptr %1140, align 8
+  %1142 = getelementptr inbounds %class.Ui_TCPStreamDialog, ptr %1141, i32 0, i32 55
+  %1143 = load ptr, ptr %1142, align 8
+  %1144 = load ptr, ptr %6, align 8
+  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %1143, ptr noundef %1144)
+          to label %1145 unwind label %1086
+
+1145:                                             ; preds = %1139
+  %1146 = load ptr, ptr %28, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %79, ptr noundef %1146, ptr noundef @.str.13, ptr noundef %84, ptr noundef @.str.14, i32 noundef 0)
+          to label %1147 unwind label %1086
+
+1147:                                             ; preds = %1145
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #3
+  %1148 = load ptr, ptr %28, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %80, ptr noundef %1148, ptr noundef @.str.15, ptr noundef %84, ptr noundef @.str.16, i32 noundef 0)
+          to label %1149 unwind label %1086
+
+1149:                                             ; preds = %1147
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #3
+  %1150 = load ptr, ptr %28, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %81, ptr noundef %1150, ptr noundef @.str.17, ptr noundef %84, ptr noundef @.str.18, i32 noundef 0)
+          to label %1151 unwind label %1086
+
+1151:                                             ; preds = %1149
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #3
+  %1152 = load ptr, ptr %28, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %82, ptr noundef %1152, ptr noundef @.str.19, ptr noundef %84, ptr noundef @.str.20, i32 noundef 0)
+          to label %1153 unwind label %1086
+
+1153:                                             ; preds = %1151
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #3
+  %1154 = load ptr, ptr %28, align 8
+  %1155 = getelementptr inbounds %class.QCustomPlot, ptr %1154, i32 0, i32 2
+  %1156 = load ptr, ptr %1155, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %83, ptr noundef %1156, ptr noundef @.str.21, ptr noundef %84, ptr noundef @.str.22, i32 noundef 0)
+          to label %1157 unwind label %1086
+
+1157:                                             ; preds = %1153
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #3
+  invoke void @_ZN7QDialog9setResultEi(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 noundef 1)
+          to label %1158 unwind label %1086
+
+1158:                                             ; preds = %1157
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %70) #3
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #3
+  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #3
+  call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #3
+  br label %1159
+
+1159:                                             ; preds = %1158, %185
+  ret void
+
+1160:                                             ; preds = %1135, %1094, %1090, %1086
+  call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %70) #3
+  br label %1161
+
+1161:                                             ; preds = %1160, %1082
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #3
+  br label %1162
+
+1162:                                             ; preds = %1161, %1078
+  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #3
+  br label %1163
+
+1163:                                             ; preds = %1162, %1074
+  call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #3
+  br label %1164
+
+1164:                                             ; preds = %1163, %1073, %1064, %1052, %1048, %1047, %1035, %1031, %1030, %1021, %1009, %1005, %1004, %995, %986, %974, %970, %969, %954, %320, %295, %270, %245, %220, %186, %163, %159
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %125) #3
+  br label %1165
+
+1165:                                             ; preds = %1164, %155
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %103) #3
+  call void @_ZN4QMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #3
+  call void @_ZN9QMultiMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #3
+  br label %1166
+
+1166:                                             ; preds = %1165, %151
+  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %84) #3
+  br label %1167
+
+1167:                                             ; preds = %1166
+  %1168 = load ptr, ptr %10, align 8
+  %1169 = load i32, ptr %11, align 4
+  %1170 = insertvalue { ptr, i32 } poison, ptr %1168, 0
+  %1171 = insertvalue { ptr, i32 } %1170, i32 %1169, 1
+  resume { ptr, i32 } %1171
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4363,11 +4367,13 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
   ret void
 }
 
@@ -8902,40 +8908,42 @@ define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 9
-  invoke void @graph_segment_list_free(ptr noundef %5)
-          to label %6 unwind label %16
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 9
+  invoke void @graph_segment_list_free(ptr noundef %7)
+          to label %8 unwind label %18
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %11, label %10
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-10:                                               ; preds = %6
-  call void @_ZdlPv(ptr noundef %8) #18
-  br label %11
+12:                                               ; preds = %8
+  call void @_ZdlPv(ptr noundef %10) #18
+  br label %13
 
-11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 33
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 11
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 6
-  call void @_ZN4QMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %15 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 3
-  call void @_ZN9QMultiMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+13:                                               ; preds = %12, %8
+  %14 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 33
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
+  %15 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 11
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 6
+  call void @_ZN4QMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  %17 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 3
+  call void @_ZN9QMultiMapIdP7segmentED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 
-16:                                               ; preds = %1
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 }
 
@@ -19288,19 +19296,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.98, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #3
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #3
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #3
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #3
   ret void
 }
 
@@ -22546,9 +22555,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

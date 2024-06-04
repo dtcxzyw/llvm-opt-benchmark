@@ -1597,264 +1597,267 @@ define dso_local void @_ZN5vcpkg7details22api_stable_format_implENS_10StringView
   store ptr %32, ptr %12, align 8
   %33 = load ptr, ptr %11, align 8
   %34 = load ptr, ptr %12, align 8
-  %35 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %33, ptr noundef %34, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2))
-          to label %36 unwind label %72
+  %35 = getelementptr inbounds i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2
+  %36 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %33, ptr noundef %34, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef %35)
+          to label %37 unwind label %73
 
-36:                                               ; preds = %5
-  store ptr %35, ptr %13, align 8
-  br label %37
+37:                                               ; preds = %5
+  store ptr %36, ptr %13, align 8
+  br label %38
 
-37:                                               ; preds = %166, %36
-  %38 = load ptr, ptr %13, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = icmp ne ptr %38, %39
-  br i1 %40, label %41, label %167
+38:                                               ; preds = %169, %37
+  %39 = load ptr, ptr %13, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp ne ptr %39, %40
+  br i1 %41, label %42, label %170
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %11, align 8
-  %43 = load ptr, ptr %13, align 8
-  %44 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %42, ptr noundef %43)
-          to label %45 unwind label %72
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %13, align 8
+  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %43, ptr noundef %44)
+          to label %46 unwind label %73
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %13, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1
-  store i8 %48, ptr %16, align 1
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i32 1
-  store ptr %50, ptr %13, align 8
-  %51 = load i8, ptr %16, align 1
-  %52 = sext i8 %51 to i32
-  %53 = icmp eq i32 %52, 123
-  br i1 %53, label %54, label %128
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %13, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 0
+  %49 = load i8, ptr %48, align 1
+  store i8 %49, ptr %16, align 1
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i32 1
+  store ptr %51, ptr %13, align 8
+  %52 = load i8, ptr %16, align 1
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %53, 123
+  br i1 %54, label %55, label %130
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %13, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = icmp eq ptr %55, %56
-  br i1 %57, label %58, label %76
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %13, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = icmp eq ptr %56, %57
+  br i1 %58, label %59, label %77
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 @_ZN5vcpkg22msgInvalidFormatStringE, i64 8, i1 false)
-  %59 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
-  %60 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %19, i32 0, i32 0
-  %61 = getelementptr inbounds { ptr, i64 }, ptr %60, i32 0, i32 0
-  %62 = extractvalue { ptr, i64 } %59, 0
-  store ptr %62, ptr %61, align 8
-  %63 = getelementptr inbounds { ptr, i64 }, ptr %60, i32 0, i32 1
-  %64 = extractvalue { ptr, i64 } %59, 1
-  store i64 %64, ptr %63, align 8
-  %65 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %18, i32 0, i32 0
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, i64 %66, ptr %68, i64 %70)
-          to label %71 unwind label %72
+  %60 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %61 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %19, i32 0, i32 0
+  %62 = getelementptr inbounds { ptr, i64 }, ptr %61, i32 0, i32 0
+  %63 = extractvalue { ptr, i64 } %60, 0
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds { ptr, i64 }, ptr %61, i32 0, i32 1
+  %65 = extractvalue { ptr, i64 } %60, 1
+  store i64 %65, ptr %64, align 8
+  %66 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %18, i32 0, i32 0
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8
+  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %17, i64 %67, ptr %69, i64 %71)
+          to label %72 unwind label %73
 
-71:                                               ; preds = %58
+72:                                               ; preds = %59
   call void @_ZN5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEEC2IS7_TnNSt9enable_ifIXaasr3stdE16is_convertible_vIT_S7_Entsr3stdE9is_same_vINSt16remove_referenceISB_E4typeES6_EEiE4typeELi0ELi1EEEOSB_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %17) #15
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #15
   store i32 1, ptr %20, align 4
-  br label %172
+  br label %175
 
-72:                                               ; preds = %167, %162, %156, %142, %114, %100, %85, %81, %58, %41, %5
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %170, %164, %158, %144, %116, %102, %86, %82, %59, %42, %5
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %14, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %15, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %14, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %15, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
-  br label %173
+  br label %176
 
-76:                                               ; preds = %54
-  %77 = load ptr, ptr %13, align 8
-  %78 = load i8, ptr %77, align 1
-  %79 = sext i8 %78 to i32
-  %80 = icmp eq i32 %79, 123
-  br i1 %80, label %81, label %85
+77:                                               ; preds = %55
+  %78 = load ptr, ptr %13, align 8
+  %79 = load i8, ptr %78, align 1
+  %80 = sext i8 %79 to i32
+  %81 = icmp eq i32 %80, 123
+  br i1 %81, label %82, label %86
 
-81:                                               ; preds = %76
+82:                                               ; preds = %77
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef signext 123)
-          to label %82 unwind label %72
+          to label %83 unwind label %73
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %13, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i32 1
-  store ptr %84, ptr %13, align 8
-  store ptr %84, ptr %11, align 8
-  br label %126
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i32 1
+  store ptr %85, ptr %13, align 8
+  store ptr %85, ptr %11, align 8
+  br label %128
 
-85:                                               ; preds = %76
-  %86 = load ptr, ptr %13, align 8
-  store ptr %86, ptr %21, align 8
+86:                                               ; preds = %77
   %87 = load ptr, ptr %13, align 8
-  %88 = load ptr, ptr %12, align 8
-  %89 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %87, ptr noundef %88, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2))
-          to label %90 unwind label %72
+  store ptr %87, ptr %21, align 8
+  %88 = load ptr, ptr %13, align 8
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2
+  %91 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %88, ptr noundef %89, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef %90)
+          to label %92 unwind label %73
 
-90:                                               ; preds = %85
-  store ptr %89, ptr %13, align 8
-  %91 = load ptr, ptr %13, align 8
-  %92 = load ptr, ptr %12, align 8
-  %93 = icmp eq ptr %91, %92
-  br i1 %93, label %100, label %94
+92:                                               ; preds = %86
+  store ptr %91, ptr %13, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %102, label %96
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %13, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 0
-  %97 = load i8, ptr %96, align 1
-  %98 = sext i8 %97 to i32
-  %99 = icmp ne i32 %98, 125
-  br i1 %99, label %100, label %114
+96:                                               ; preds = %92
+  %97 = load ptr, ptr %13, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 0
+  %99 = load i8, ptr %98, align 1
+  %100 = sext i8 %99 to i32
+  %101 = icmp ne i32 %100, 125
+  br i1 %101, label %102, label %116
 
-100:                                              ; preds = %94, %90
+102:                                              ; preds = %96, %92
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 @_ZN5vcpkg22msgInvalidFormatStringE, i64 8, i1 false)
-  %101 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
-  %102 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %24, i32 0, i32 0
-  %103 = getelementptr inbounds { ptr, i64 }, ptr %102, i32 0, i32 0
-  %104 = extractvalue { ptr, i64 } %101, 0
-  store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %102, i32 0, i32 1
-  %106 = extractvalue { ptr, i64 } %101, 1
-  store i64 %106, ptr %105, align 8
-  %107 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %23, i32 0, i32 0
-  %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
-  %112 = load i64, ptr %111, align 8
-  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %22, i64 %108, ptr %110, i64 %112)
-          to label %113 unwind label %72
+  %103 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %104 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %24, i32 0, i32 0
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %104, i32 0, i32 0
+  %106 = extractvalue { ptr, i64 } %103, 0
+  store ptr %106, ptr %105, align 8
+  %107 = getelementptr inbounds { ptr, i64 }, ptr %104, i32 0, i32 1
+  %108 = extractvalue { ptr, i64 } %103, 1
+  store i64 %108, ptr %107, align 8
+  %109 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %23, i32 0, i32 0
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
+  %114 = load i64, ptr %113, align 8
+  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %22, i64 %110, ptr %112, i64 %114)
+          to label %115 unwind label %73
 
-113:                                              ; preds = %100
+115:                                              ; preds = %102
   call void @_ZN5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEEC2IS7_TnNSt9enable_ifIXaasr3stdE16is_convertible_vIT_S7_Entsr3stdE9is_same_vINSt16remove_referenceISB_E4typeES6_EEiE4typeELi0ELi1EEEOSB_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %22) #15
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #15
   store i32 1, ptr %20, align 4
-  br label %172
+  br label %175
 
-114:                                              ; preds = %94
-  %115 = load ptr, ptr %8, align 8
-  %116 = load ptr, ptr %9, align 8
-  %117 = load ptr, ptr %21, align 8
-  %118 = load ptr, ptr %13, align 8
-  call void @_ZN5vcpkg10StringViewC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %117, ptr noundef %118) #15
-  %119 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 1
-  %122 = load i64, ptr %121, align 8
-  invoke void %115(ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %120, i64 %122)
-          to label %123 unwind label %72
+116:                                              ; preds = %96
+  %117 = load ptr, ptr %8, align 8
+  %118 = load ptr, ptr %9, align 8
+  %119 = load ptr, ptr %21, align 8
+  %120 = load ptr, ptr %13, align 8
+  call void @_ZN5vcpkg10StringViewC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %119, ptr noundef %120) #15
+  %121 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 1
+  %124 = load i64, ptr %123, align 8
+  invoke void %117(ptr noundef %118, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %122, i64 %124)
+          to label %125 unwind label %73
 
-123:                                              ; preds = %114
-  %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i32 1
-  store ptr %125, ptr %13, align 8
-  store ptr %125, ptr %11, align 8
-  br label %126
+125:                                              ; preds = %116
+  %126 = load ptr, ptr %13, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i32 1
+  store ptr %127, ptr %13, align 8
+  store ptr %127, ptr %11, align 8
+  br label %128
 
-126:                                              ; preds = %123, %82
-  br label %127
+128:                                              ; preds = %125, %83
+  br label %129
 
-127:                                              ; preds = %126
-  br label %161
+129:                                              ; preds = %128
+  br label %163
 
-128:                                              ; preds = %45
-  %129 = load i8, ptr %16, align 1
-  %130 = sext i8 %129 to i32
-  %131 = icmp eq i32 %130, 125
-  br i1 %131, label %132, label %160
+130:                                              ; preds = %46
+  %131 = load i8, ptr %16, align 1
+  %132 = sext i8 %131 to i32
+  %133 = icmp eq i32 %132, 125
+  br i1 %133, label %134, label %162
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %13, align 8
-  %134 = load ptr, ptr %12, align 8
-  %135 = icmp eq ptr %133, %134
-  br i1 %135, label %142, label %136
+134:                                              ; preds = %130
+  %135 = load ptr, ptr %13, align 8
+  %136 = load ptr, ptr %12, align 8
+  %137 = icmp eq ptr %135, %136
+  br i1 %137, label %144, label %138
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %13, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 0
-  %139 = load i8, ptr %138, align 1
-  %140 = sext i8 %139 to i32
-  %141 = icmp ne i32 %140, 125
-  br i1 %141, label %142, label %156
+138:                                              ; preds = %134
+  %139 = load ptr, ptr %13, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 0
+  %141 = load i8, ptr %140, align 1
+  %142 = sext i8 %141 to i32
+  %143 = icmp ne i32 %142, 125
+  br i1 %143, label %144, label %158
 
-142:                                              ; preds = %136, %132
+144:                                              ; preds = %138, %134
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 @_ZN5vcpkg22msgInvalidFormatStringE, i64 8, i1 false)
-  %143 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
-  %144 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %28, i32 0, i32 0
-  %145 = getelementptr inbounds { ptr, i64 }, ptr %144, i32 0, i32 0
-  %146 = extractvalue { ptr, i64 } %143, 0
-  store ptr %146, ptr %145, align 8
-  %147 = getelementptr inbounds { ptr, i64 }, ptr %144, i32 0, i32 1
-  %148 = extractvalue { ptr, i64 } %143, 1
-  store i64 %148, ptr %147, align 8
-  %149 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %27, i32 0, i32 0
-  %150 = load i64, ptr %149, align 8
-  %151 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
-  %154 = load i64, ptr %153, align 8
-  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %26, i64 %150, ptr %152, i64 %154)
-          to label %155 unwind label %72
+  %145 = call { ptr, i64 } @_ZNK5vcpkg3msg8actual_taSINS_10StringViewEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleIS3_T_EE5valueES3_S6_E4typeEEERKS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6actualE, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %146 = getelementptr inbounds %"struct.vcpkg::msg::TagArg", ptr %28, i32 0, i32 0
+  %147 = getelementptr inbounds { ptr, i64 }, ptr %146, i32 0, i32 0
+  %148 = extractvalue { ptr, i64 } %145, 0
+  store ptr %148, ptr %147, align 8
+  %149 = getelementptr inbounds { ptr, i64 }, ptr %146, i32 0, i32 1
+  %150 = extractvalue { ptr, i64 } %145, 1
+  store i64 %150, ptr %149, align 8
+  %151 = getelementptr inbounds %"struct.vcpkg::msg::MessageT", ptr %27, i32 0, i32 0
+  %152 = load i64, ptr %151, align 8
+  %153 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
+  %156 = load i64, ptr %155, align 8
+  invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %26, i64 %152, ptr %154, i64 %156)
+          to label %157 unwind label %73
 
-155:                                              ; preds = %142
+157:                                              ; preds = %144
   call void @_ZN5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEEC2IS7_TnNSt9enable_ifIXaasr3stdE16is_convertible_vIT_S7_Entsr3stdE9is_same_vINSt16remove_referenceISB_E4typeES6_EEiE4typeELi0ELi1EEEOSB_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %26) #15
   call void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
   store i32 1, ptr %20, align 4
-  br label %172
+  br label %175
 
-156:                                              ; preds = %136
+158:                                              ; preds = %138
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef signext 125)
-          to label %157 unwind label %72
+          to label %159 unwind label %73
 
-157:                                              ; preds = %156
-  %158 = load ptr, ptr %13, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i32 1
-  store ptr %159, ptr %13, align 8
-  store ptr %159, ptr %11, align 8
-  br label %160
-
-160:                                              ; preds = %157, %128
-  br label %161
-
-161:                                              ; preds = %160, %127
+159:                                              ; preds = %158
+  %160 = load ptr, ptr %13, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i32 1
+  store ptr %161, ptr %13, align 8
+  store ptr %161, ptr %11, align 8
   br label %162
 
-162:                                              ; preds = %161
-  %163 = load ptr, ptr %13, align 8
-  %164 = load ptr, ptr %12, align 8
-  %165 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %163, ptr noundef %164, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef getelementptr inbounds (i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2))
-          to label %166 unwind label %72
+162:                                              ; preds = %159, %130
+  br label %163
 
-166:                                              ; preds = %162
-  store ptr %165, ptr %13, align 8
-  br label %37, !llvm.loop !5
+163:                                              ; preds = %162, %129
+  br label %164
 
-167:                                              ; preds = %37
-  %168 = load ptr, ptr %11, align 8
-  %169 = load ptr, ptr %12, align 8
-  %170 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %168, ptr noundef %169)
-          to label %171 unwind label %72
+164:                                              ; preds = %163
+  %165 = load ptr, ptr %13, align 8
+  %166 = load ptr, ptr %12, align 8
+  %167 = getelementptr inbounds i8, ptr @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, i64 2
+  %168 = invoke noundef ptr @_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_(ptr noundef %165, ptr noundef %166, ptr noundef @_ZZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_E10s_brackets, ptr noundef %167)
+          to label %169 unwind label %73
 
-171:                                              ; preds = %167
+169:                                              ; preds = %164
+  store ptr %168, ptr %13, align 8
+  br label %38, !llvm.loop !5
+
+170:                                              ; preds = %38
+  %171 = load ptr, ptr %11, align 8
+  %172 = load ptr, ptr %12, align 8
+  %173 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %171, ptr noundef %172)
+          to label %174 unwind label %73
+
+174:                                              ; preds = %170
   call void @_ZN5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEEC2IS6_TnNSt9enable_ifIXsr3stdE16is_convertible_vIT_S6_EEiE4typeELi0EEEOSB_NS_15ExpectedLeftTagE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   store i32 1, ptr %20, align 4
-  br label %172
+  br label %175
 
-172:                                              ; preds = %171, %155, %113, %71
+175:                                              ; preds = %174, %157, %115, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   ret void
 
-173:                                              ; preds = %72
-  %174 = load ptr, ptr %14, align 8
-  %175 = load i32, ptr %15, align 4
-  %176 = insertvalue { ptr, i32 } poison, ptr %174, 0
-  %177 = insertvalue { ptr, i32 } %176, i32 %175, 1
-  resume { ptr, i32 } %177
+176:                                              ; preds = %73
+  %177 = load ptr, ptr %14, align 8
+  %178 = load i32, ptr %15, align 4
+  %179 = insertvalue { ptr, i32 } poison, ptr %177, 0
+  %180 = insertvalue { ptr, i32 } %179, i32 %178, 1
+  resume { ptr, i32 } %180
 }
 
 ; Function Attrs: nounwind

@@ -48,10 +48,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %hdr, ptr %hdr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_210CompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_210CompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_header = getelementptr inbounds %"class.Imf_3_2::Compressor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %hdr.addr, align 8
-  store ptr %0, ptr %_header, align 8
+  %1 = load ptr, ptr %hdr.addr, align 8
+  store ptr %1, ptr %_header, align 8
   ret void
 }
 

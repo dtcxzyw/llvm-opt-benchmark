@@ -476,18 +476,19 @@ define internal void @subprocess_exit_handler(ptr noundef %process) #0 {
 entry:
   %process.addr = alloca ptr, align 8
   store ptr %process, ptr %process.addr, align 8
-  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %0 = load ptr, ptr %process.addr, align 8
-  %in = getelementptr inbounds %struct.child_process, ptr %0, i32 0, i32 7
-  %1 = load i32, ptr %in, align 8
-  %call1 = call i32 @close(i32 noundef %1)
-  %2 = load ptr, ptr %process.addr, align 8
-  %out = getelementptr inbounds %struct.child_process, ptr %2, i32 0, i32 8
-  %3 = load i32, ptr %out, align 4
-  %call2 = call i32 @close(i32 noundef %3)
+  %0 = inttoptr i64 1 to ptr
+  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef %0)
+  %1 = load ptr, ptr %process.addr, align 8
+  %in = getelementptr inbounds %struct.child_process, ptr %1, i32 0, i32 7
+  %2 = load i32, ptr %in, align 8
+  %call1 = call i32 @close(i32 noundef %2)
+  %3 = load ptr, ptr %process.addr, align 8
+  %out = getelementptr inbounds %struct.child_process, ptr %3, i32 0, i32 8
+  %4 = load i32, ptr %out, align 4
+  %call2 = call i32 @close(i32 noundef %4)
   %call3 = call i32 @sigchain_pop(i32 noundef 13)
-  %4 = load ptr, ptr %process.addr, align 8
-  %call4 = call i32 @finish_command(ptr noundef %4)
+  %5 = load ptr, ptr %process.addr, align 8
+  %call4 = call i32 @finish_command(ptr noundef %5)
   ret void
 }
 
@@ -523,30 +524,31 @@ entry:
   %0 = load ptr, ptr %entry.addr, align 8
   %process3 = getelementptr inbounds %struct.subprocess_entry, ptr %0, i32 0, i32 2
   store ptr %process3, ptr %process, align 8
-  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %1 = load ptr, ptr %process, align 8
-  %2 = load ptr, ptr %welcome_prefix.addr, align 8
-  %3 = load ptr, ptr %versions.addr, align 8
-  %4 = load ptr, ptr %chosen_version.addr, align 8
-  %call4 = call i32 @handshake_version(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %1 = inttoptr i64 1 to ptr
+  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef %1)
+  %2 = load ptr, ptr %process, align 8
+  %3 = load ptr, ptr %welcome_prefix.addr, align 8
+  %4 = load ptr, ptr %versions.addr, align 8
+  %5 = load ptr, ptr %chosen_version.addr, align 8
+  %call4 = call i32 @handshake_version(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %5 = load ptr, ptr %process, align 8
-  %6 = load ptr, ptr %capabilities.addr, align 8
-  %7 = load ptr, ptr %supported_capabilities.addr, align 8
-  %call5 = call i32 @handshake_capabilities(ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %6 = load ptr, ptr %process, align 8
+  %7 = load ptr, ptr %capabilities.addr, align 8
+  %8 = load ptr, ptr %supported_capabilities.addr, align 8
+  %call5 = call i32 @handshake_capabilities(ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %tobool6 = icmp ne i32 %call5, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %8 = phi i1 [ true, %entry ], [ %tobool6, %lor.rhs ]
-  %lor.ext = zext i1 %8 to i32
+  %9 = phi i1 [ true, %entry ], [ %tobool6, %lor.rhs ]
+  %lor.ext = zext i1 %9 to i32
   store i32 %lor.ext, ptr %retval2, align 4
   %call7 = call i32 @sigchain_pop(i32 noundef 13)
-  %9 = load i32, ptr %retval2, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval2, align 4
+  ret i32 %10
 }
 
 declare i32 @sigchain_push(i32 noundef, ptr noundef) #2

@@ -77,18 +77,18 @@ define internal void @timer_free(ptr noundef %0) #0 {
   store ptr %9, ptr %4, align 8
   %10 = load ptr, ptr @g_alloctimers, align 8
   %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %49
+  br i1 %11, label %12, label %51
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8
   %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %49
+  br i1 %14, label %15, label %51
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %4, align 8
   %17 = load ptr, ptr @g_alloctimers, align 8
   %18 = icmp eq ptr %16, %17
-  br i1 %18, label %19, label %28
+  br i1 %18, label %19, label %30
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %4, align 8
@@ -96,113 +96,118 @@ define internal void @timer_free(ptr noundef %0) #0 {
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr @g_alloctimers, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1), align 8
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %26, label %27
+  %24 = getelementptr inbounds %struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %23, %25
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %19
-  store ptr null, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1), align 8
-  br label %27
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds %struct.sq_queue_s, ptr @g_alloctimers, i32 0, i32 1
+  store ptr null, ptr %28, align 8
+  br label %29
 
-27:                                               ; preds = %26, %19
-  br label %48
-
-28:                                               ; preds = %15
-  %29 = load ptr, ptr @g_alloctimers, align 8
-  store ptr %29, ptr %5, align 8
-  br label %30
-
-30:                                               ; preds = %43, %28
-  %31 = load ptr, ptr %5, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %47
-
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.sq_entry_s, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = icmp eq ptr %36, %37
-  br i1 %38, label %39, label %42
-
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %5, align 8
-  %41 = call ptr @sq_remafter(ptr noundef %40, ptr noundef @g_alloctimers)
-  br label %42
-
-42:                                               ; preds = %39, %33
-  br label %43
-
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.sq_entry_s, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %5, align 8
-  br label %30, !llvm.loop !6
-
-47:                                               ; preds = %30
-  br label %48
-
-48:                                               ; preds = %47, %27
-  br label %49
-
-49:                                               ; preds = %48, %12, %8
+29:                                               ; preds = %27, %19
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.posix_timer_s, ptr %51, i32 0, i32 2
-  %53 = load i8, ptr %52, align 4
-  %54 = zext i8 %53 to i32
-  %55 = and i32 %54, 1
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %75
+30:                                               ; preds = %15
+  %31 = load ptr, ptr @g_alloctimers, align 8
+  store ptr %31, ptr %5, align 8
+  br label %32
 
-57:                                               ; preds = %50
-  br label %58
+32:                                               ; preds = %45, %30
+  %33 = load ptr, ptr %5, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %49
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %2, align 8
-  store ptr %59, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.sq_entry_s, ptr %60, i32 0, i32 0
-  store ptr null, ptr %61, align 8
-  %62 = load ptr, ptr @g_freetimers, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %67, label %64
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %struct.sq_entry_s, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %44
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %6, align 8
-  store ptr %65, ptr @g_freetimers, align 8
-  %66 = load ptr, ptr %6, align 8
-  store ptr %66, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1), align 8
-  br label %72
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %5, align 8
+  %43 = call ptr @sq_remafter(ptr noundef %42, ptr noundef @g_alloctimers)
+  br label %44
 
-67:                                               ; preds = %58
+44:                                               ; preds = %41, %35
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.sq_entry_s, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %5, align 8
+  br label %32, !llvm.loop !6
+
+49:                                               ; preds = %32
+  br label %50
+
+50:                                               ; preds = %49, %29
+  br label %51
+
+51:                                               ; preds = %50, %12, %8
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.posix_timer_s, ptr %53, i32 0, i32 2
+  %55 = load i8, ptr %54, align 4
+  %56 = zext i8 %55 to i32
+  %57 = and i32 %56, 1
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %80
+
+59:                                               ; preds = %52
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %2, align 8
+  store ptr %61, ptr %6, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct.sq_entry_s, ptr %62, i32 0, i32 0
+  store ptr null, ptr %63, align 8
+  %64 = load ptr, ptr @g_freetimers, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %70, label %66
+
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %6, align 8
+  store ptr %67, ptr @g_freetimers, align 8
   %68 = load ptr, ptr %6, align 8
-  %69 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1), align 8
-  %70 = getelementptr inbounds %struct.sq_entry_s, ptr %69, i32 0, i32 0
-  store ptr %68, ptr %70, align 8
+  %69 = getelementptr inbounds %struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1
+  store ptr %68, ptr %69, align 8
+  br label %77
+
+70:                                               ; preds = %60
   %71 = load ptr, ptr %6, align 8
-  store ptr %71, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1), align 8
-  br label %72
+  %72 = getelementptr inbounds %struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.sq_entry_s, ptr %73, i32 0, i32 0
+  store ptr %71, ptr %74, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct.sq_queue_s, ptr @g_freetimers, i32 0, i32 1
+  store ptr %75, ptr %76, align 8
+  br label %77
 
-72:                                               ; preds = %67, %64
-  br label %73
-
-73:                                               ; preds = %72
-  %74 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %74)
+77:                                               ; preds = %70, %66
   br label %78
 
-75:                                               ; preds = %50
-  %76 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %76)
-  %77 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %77)
-  br label %78
+78:                                               ; preds = %77
+  %79 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %79)
+  br label %83
 
-78:                                               ; preds = %75, %73
+80:                                               ; preds = %52
+  %81 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %81)
+  %82 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %82)
+  br label %83
+
+83:                                               ; preds = %80, %78
   ret void
 }
 

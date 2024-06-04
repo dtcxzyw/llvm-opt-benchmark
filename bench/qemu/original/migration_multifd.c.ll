@@ -1233,17 +1233,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  call void @stat64_add(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 3), i64 noundef 1)
+  %4 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 3
+  call void @stat64_add(ptr noundef %4, i64 noundef 1)
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
+  %5 = load i32, ptr %ret, align 4
+  store i32 %5, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %6 = load i32, ptr %retval, align 4
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4099,9 +4100,10 @@ if.end73:                                         ; preds = %if.end64
   %101 = load i32, ptr %packet_len75, align 4
   %add76 = add i32 %99, %101
   %conv77 = zext i32 %add76 to i64
-  call void @stat64_add(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5), i64 noundef %conv77)
-  %102 = load ptr, ptr %p, align 8
-  %next_packet_size78 = getelementptr inbounds %struct.MultiFDSendParams, ptr %102, i32 0, i32 19
+  %102 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5
+  call void @stat64_add(ptr noundef %102, i64 noundef %conv77)
+  %103 = load ptr, ptr %p, align 8
+  %next_packet_size78 = getelementptr inbounds %struct.MultiFDSendParams, ptr %103, i32 0, i32 19
   store i32 0, ptr %next_packet_size78, align 8
   br label %while.cond80
 
@@ -4119,32 +4121,32 @@ do.end83:                                         ; No predecessors!
   br label %while.cond80
 
 while.end84:                                      ; preds = %while.cond80
-  %103 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %103, ptr %atomic-temp86, align 8
-  %104 = load ptr, ptr %atomic-temp86, align 8
-  store ptr %104, ptr %tmp85, align 8
-  %105 = load ptr, ptr %tmp85, align 8
-  store ptr %105, ptr %_f79, align 8
-  %106 = load ptr, ptr %_f79, align 8
-  %107 = load ptr, ptr %p, align 8
-  %mutex87 = getelementptr inbounds %struct.MultiFDSendParams, ptr %107, i32 0, i32 11
-  call void %106(ptr noundef %mutex87, ptr noundef @.str.1, i32 noundef 736)
+  %104 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %104, ptr %atomic-temp86, align 8
+  %105 = load ptr, ptr %atomic-temp86, align 8
+  store ptr %105, ptr %tmp85, align 8
+  %106 = load ptr, ptr %tmp85, align 8
+  store ptr %106, ptr %_f79, align 8
+  %107 = load ptr, ptr %_f79, align 8
   %108 = load ptr, ptr %p, align 8
-  %pending_job88 = getelementptr inbounds %struct.MultiFDSendParams, ptr %108, i32 0, i32 16
-  %109 = load i32, ptr %pending_job88, align 8
-  %dec = add i32 %109, -1
+  %mutex87 = getelementptr inbounds %struct.MultiFDSendParams, ptr %108, i32 0, i32 11
+  call void %107(ptr noundef %mutex87, ptr noundef @.str.1, i32 noundef 736)
+  %109 = load ptr, ptr %p, align 8
+  %pending_job88 = getelementptr inbounds %struct.MultiFDSendParams, ptr %109, i32 0, i32 16
+  %110 = load i32, ptr %pending_job88, align 8
+  %dec = add i32 %110, -1
   store i32 %dec, ptr %pending_job88, align 8
-  %110 = load ptr, ptr %p, align 8
-  %mutex89 = getelementptr inbounds %struct.MultiFDSendParams, ptr %110, i32 0, i32 11
+  %111 = load ptr, ptr %p, align 8
+  %mutex89 = getelementptr inbounds %struct.MultiFDSendParams, ptr %111, i32 0, i32 11
   call void @qemu_mutex_unlock_impl(ptr noundef %mutex89, ptr noundef @.str.1, i32 noundef 738)
-  %111 = load i32, ptr %flags, align 4
-  %and = and i32 %111, 1
+  %112 = load i32, ptr %flags, align 4
+  %and = and i32 %112, 1
   %tobool90 = icmp ne i32 %and, 0
   br i1 %tobool90, label %if.then91, label %if.end92
 
 if.then91:                                        ; preds = %while.end84
-  %112 = load ptr, ptr %p, align 8
-  %sem_sync = getelementptr inbounds %struct.MultiFDSendParams, ptr %112, i32 0, i32 10
+  %113 = load ptr, ptr %p, align 8
+  %sem_sync = getelementptr inbounds %struct.MultiFDSendParams, ptr %113, i32 0, i32 10
   call void @qemu_sem_post(ptr noundef %sem_sync)
   br label %if.end92
 
@@ -4152,8 +4154,8 @@ if.end92:                                         ; preds = %if.then91, %while.e
   br label %if.end95
 
 if.else93:                                        ; preds = %while.end12
-  %113 = load ptr, ptr %p, align 8
-  %mutex94 = getelementptr inbounds %struct.MultiFDSendParams, ptr %113, i32 0, i32 11
+  %114 = load ptr, ptr %p, align 8
+  %mutex94 = getelementptr inbounds %struct.MultiFDSendParams, ptr %114, i32 0, i32 11
   call void @qemu_mutex_unlock_impl(ptr noundef %mutex94, ptr noundef @.str.1, i32 noundef 744)
   br label %if.end95
 
@@ -4164,13 +4166,13 @@ while.end96:                                      ; preds = %if.then72, %if.then
   br label %out
 
 out:                                              ; preds = %while.end96, %if.then
-  %114 = load i32, ptr %ret, align 4
-  %tobool97 = icmp ne i32 %114, 0
+  %115 = load i32, ptr %ret, align 4
+  %tobool97 = icmp ne i32 %115, 0
   br i1 %tobool97, label %if.then98, label %if.end106
 
 if.then98:                                        ; preds = %out
-  %115 = load ptr, ptr %local_err, align 8
-  %tobool99 = icmp ne ptr %115, null
+  %116 = load ptr, ptr %local_err, align 8
+  %tobool99 = icmp ne ptr %116, null
   br i1 %tobool99, label %if.then100, label %if.else101
 
 if.then100:                                       ; preds = %if.then98
@@ -4181,20 +4183,20 @@ if.else101:                                       ; preds = %if.then98
   unreachable
 
 if.end102:                                        ; preds = %if.then100
-  %116 = load ptr, ptr %p, align 8
-  %id103 = getelementptr inbounds %struct.MultiFDSendParams, ptr %116, i32 0, i32 0
-  %117 = load i8, ptr %id103, align 8
-  call void @trace_multifd_send_error(i8 noundef zeroext %117)
-  %118 = load ptr, ptr %local_err, align 8
-  call void @multifd_send_terminate_threads(ptr noundef %118)
-  %119 = load ptr, ptr %p, align 8
-  %sem_sync104 = getelementptr inbounds %struct.MultiFDSendParams, ptr %119, i32 0, i32 10
+  %117 = load ptr, ptr %p, align 8
+  %id103 = getelementptr inbounds %struct.MultiFDSendParams, ptr %117, i32 0, i32 0
+  %118 = load i8, ptr %id103, align 8
+  call void @trace_multifd_send_error(i8 noundef zeroext %118)
+  %119 = load ptr, ptr %local_err, align 8
+  call void @multifd_send_terminate_threads(ptr noundef %119)
+  %120 = load ptr, ptr %p, align 8
+  %sem_sync104 = getelementptr inbounds %struct.MultiFDSendParams, ptr %120, i32 0, i32 10
   call void @qemu_sem_post(ptr noundef %sem_sync104)
-  %120 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready105 = getelementptr inbounds %struct.anon, ptr %120, i32 0, i32 3
+  %121 = load ptr, ptr @multifd_send_state, align 8
+  %channels_ready105 = getelementptr inbounds %struct.anon, ptr %121, i32 0, i32 3
   call void @qemu_sem_post(ptr noundef %channels_ready105)
-  %121 = load ptr, ptr %local_err, align 8
-  call void @error_free(ptr noundef %121)
+  %122 = load ptr, ptr %local_err, align 8
+  call void @error_free(ptr noundef %122)
   br label %if.end106
 
 if.end106:                                        ; preds = %if.end102, %out
@@ -4214,35 +4216,35 @@ do.end110:                                        ; No predecessors!
   br label %while.cond
 
 while.end111:                                     ; preds = %while.cond
-  %122 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %122, ptr %atomic-temp113, align 8
-  %123 = load ptr, ptr %atomic-temp113, align 8
-  store ptr %123, ptr %tmp112, align 8
-  %124 = load ptr, ptr %tmp112, align 8
-  store ptr %124, ptr %_f107, align 8
-  %125 = load ptr, ptr %_f107, align 8
-  %126 = load ptr, ptr %p, align 8
-  %mutex114 = getelementptr inbounds %struct.MultiFDSendParams, ptr %126, i32 0, i32 11
-  call void %125(ptr noundef %mutex114, ptr noundef @.str.1, i32 noundef 759)
+  %123 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %123, ptr %atomic-temp113, align 8
+  %124 = load ptr, ptr %atomic-temp113, align 8
+  store ptr %124, ptr %tmp112, align 8
+  %125 = load ptr, ptr %tmp112, align 8
+  store ptr %125, ptr %_f107, align 8
+  %126 = load ptr, ptr %_f107, align 8
   %127 = load ptr, ptr %p, align 8
-  %running = getelementptr inbounds %struct.MultiFDSendParams, ptr %127, i32 0, i32 12
-  store i8 0, ptr %running, align 8
+  %mutex114 = getelementptr inbounds %struct.MultiFDSendParams, ptr %127, i32 0, i32 11
+  call void %126(ptr noundef %mutex114, ptr noundef @.str.1, i32 noundef 759)
   %128 = load ptr, ptr %p, align 8
-  %mutex115 = getelementptr inbounds %struct.MultiFDSendParams, ptr %128, i32 0, i32 11
+  %running = getelementptr inbounds %struct.MultiFDSendParams, ptr %128, i32 0, i32 12
+  store i8 0, ptr %running, align 8
+  %129 = load ptr, ptr %p, align 8
+  %mutex115 = getelementptr inbounds %struct.MultiFDSendParams, ptr %129, i32 0, i32 11
   call void @qemu_mutex_unlock_impl(ptr noundef %mutex115, ptr noundef @.str.1, i32 noundef 761)
   call void @rcu_unregister_thread()
-  %129 = load ptr, ptr %thread, align 8
-  call void @migration_threads_remove(ptr noundef %129)
-  %130 = load ptr, ptr %p, align 8
-  %id116 = getelementptr inbounds %struct.MultiFDSendParams, ptr %130, i32 0, i32 0
-  %131 = load i8, ptr %id116, align 8
-  %132 = load ptr, ptr %p, align 8
-  %num_packets117 = getelementptr inbounds %struct.MultiFDSendParams, ptr %132, i32 0, i32 20
-  %133 = load i64, ptr %num_packets117, align 8
-  %134 = load ptr, ptr %p, align 8
-  %total_normal_pages118 = getelementptr inbounds %struct.MultiFDSendParams, ptr %134, i32 0, i32 21
-  %135 = load i64, ptr %total_normal_pages118, align 8
-  call void @trace_multifd_send_thread_end(i8 noundef zeroext %131, i64 noundef %133, i64 noundef %135)
+  %130 = load ptr, ptr %thread, align 8
+  call void @migration_threads_remove(ptr noundef %130)
+  %131 = load ptr, ptr %p, align 8
+  %id116 = getelementptr inbounds %struct.MultiFDSendParams, ptr %131, i32 0, i32 0
+  %132 = load i8, ptr %id116, align 8
+  %133 = load ptr, ptr %p, align 8
+  %num_packets117 = getelementptr inbounds %struct.MultiFDSendParams, ptr %133, i32 0, i32 20
+  %134 = load i64, ptr %num_packets117, align 8
+  %135 = load ptr, ptr %p, align 8
+  %total_normal_pages118 = getelementptr inbounds %struct.MultiFDSendParams, ptr %135, i32 0, i32 21
+  %136 = load i64, ptr %total_normal_pages118, align 8
+  call void @trace_multifd_send_thread_end(i8 noundef zeroext %132, i64 noundef %134, i64 noundef %136)
   ret ptr null
 }
 
@@ -4668,13 +4670,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %7 = load i64, ptr %size, align 8
-  call void @stat64_add(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5), i64 noundef %7)
+  %8 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5
+  call void @stat64_add(ptr noundef %8, i64 noundef %7)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -132,127 +132,148 @@ define internal i32 @libnbc_open() #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %9
-
-9:                                                ; preds = %8, %4
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1))
   br label %10
 
-10:                                               ; preds = %9
-  br label %11
+10:                                               ; preds = %9, %4
+  %11 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  store ptr @opal_free_list_t_class, ptr %11, align 16
+  %12 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 1
+  store volatile i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %14)
+  br label %15
 
-11:                                               ; preds = %10
-  br label %12
+15:                                               ; preds = %10
+  br label %16
 
-12:                                               ; preds = %11
-  br label %13
+16:                                               ; preds = %15
+  br label %17
 
-13:                                               ; preds = %12
-  %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %16 = icmp ne i32 %14, %15
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %13
-  call void @opal_class_initialize(ptr noundef @opal_list_t_class)
+17:                                               ; preds = %16
   br label %18
 
-18:                                               ; preds = %17, %13
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2))
-  br label %19
+18:                                               ; preds = %17
+  %19 = load i32, ptr @opal_class_init_epoch, align 4
+  %20 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %19, %21
+  br i1 %22, label %23, label %24
 
-19:                                               ; preds = %18
-  br label %20
+23:                                               ; preds = %18
+  call void @opal_class_initialize(ptr noundef @opal_list_t_class)
+  br label %24
 
-20:                                               ; preds = %19
-  br label %21
-
-21:                                               ; preds = %20
-  br label %22
-
-22:                                               ; preds = %21
-  %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %25 = icmp ne i32 %23, %24
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %22
-  call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %27
-
-27:                                               ; preds = %26, %22
-  store ptr @opal_mutex_t_class, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4), align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %28
-
-28:                                               ; preds = %27
+24:                                               ; preds = %23, %18
+  %25 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  store ptr @opal_list_t_class, ptr %25, align 16
+  %26 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  %27 = getelementptr inbounds %struct.opal_object_t, ptr %26, i32 0, i32 1
+  store volatile i32 1, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %28)
   br label %29
 
-29:                                               ; preds = %28
-  %30 = call i32 @opal_free_list_init(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1), i64 noundef 320, i64 noundef 8, ptr noundef @ompi_coll_libnbc_request_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %30, ptr %2, align 4
-  %31 = load i32, ptr %2, align 4
-  %32 = icmp ne i32 0, %31
-  br i1 %32, label %33, label %35
+29:                                               ; preds = %24
+  br label %30
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %2, align 4
-  store i32 %34, ptr %1, align 4
-  br label %36
+30:                                               ; preds = %29
+  br label %31
 
-35:                                               ; preds = %29
-  store volatile i32 0, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3), align 16
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load i32, ptr @opal_class_init_epoch, align 4
+  %34 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ne i32 %33, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
+  call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
+  br label %38
+
+38:                                               ; preds = %37, %32
+  %39 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  store ptr @opal_mutex_t_class, ptr %39, align 8
+  %40 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  %41 = getelementptr inbounds %struct.opal_object_t, ptr %40, i32 0, i32 1
+  store volatile i32 1, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %42)
+  br label %43
+
+43:                                               ; preds = %38
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  %46 = call i32 @opal_free_list_init(ptr noundef %45, i64 noundef 320, i64 noundef 8, ptr noundef @ompi_coll_libnbc_request_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %46, ptr %2, align 4
+  %47 = load i32, ptr %2, align 4
+  %48 = icmp ne i32 0, %47
+  br i1 %48, label %49, label %51
+
+49:                                               ; preds = %44
+  %50 = load i32, ptr %2, align 4
+  store i32 %50, ptr %1, align 4
+  br label %53
+
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3
+  store volatile i32 0, ptr %52, align 16
   store i32 0, ptr %1, align 4
-  br label %36
+  br label %53
 
-36:                                               ; preds = %35, %33
-  %37 = load i32, ptr %1, align 4
-  ret i32 %37
+53:                                               ; preds = %51, %49
+  %54 = load i32, ptr %1, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @libnbc_close() #0 {
-  %1 = load volatile i32, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3), align 16
-  %2 = icmp ne i32 0, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3
+  %2 = load volatile i32, ptr %1, align 16
+  %3 = icmp ne i32 0, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_progress_unregister(ptr noundef @ompi_coll_libnbc_progress)
-  br label %5
-
-5:                                                ; preds = %3, %0
+4:                                                ; preds = %0
+  %5 = call i32 @opal_progress_unregister(ptr noundef @ompi_coll_libnbc_progress)
   br label %6
 
-6:                                                ; preds = %5
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1))
+6:                                                ; preds = %4, %0
   br label %7
 
 7:                                                ; preds = %6
-  br label %8
-
-8:                                                ; preds = %7
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2))
+  %8 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  call void @opal_obj_run_destructors(ptr noundef %8)
   br label %9
 
-9:                                                ; preds = %8
+9:                                                ; preds = %7
   br label %10
 
 10:                                               ; preds = %9
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %11
+  %11 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  call void @opal_obj_run_destructors(ptr noundef %11)
+  br label %12
 
-11:                                               ; preds = %10
+12:                                               ; preds = %10
+  br label %13
+
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_obj_run_destructors(ptr noundef %14)
+  br label %15
+
+15:                                               ; preds = %13
   ret i32 0
 }
 
@@ -874,272 +895,283 @@ define i32 @ompi_coll_libnbc_progress() #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call i64 @opal_list_get_size(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2))
-  %7 = icmp eq i64 0, %6
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %160
+  %6 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  %7 = call i64 @opal_list_get_size(ptr noundef %6)
+  %8 = icmp eq i64 0, %7
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %0
-  br label %10
+  store i32 0, ptr %1, align 4
+  br label %171
 
-10:                                               ; preds = %9
-  %11 = load i8, ptr @opal_uses_threads, align 1
-  %12 = trunc i8 %11 to i1
-  %13 = xor i1 %12, true
+10:                                               ; preds = %0
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i8, ptr @opal_uses_threads, align 1
+  %13 = trunc i8 %12 to i1
   %14 = xor i1 %13, true
-  %15 = zext i1 %14 to i32
-  %16 = sext i32 %15 to i64
-  %17 = icmp ne i64 %16, 0
-  br i1 %17, label %18, label %19
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %10
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %19
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_lock(ptr noundef %20)
+  br label %21
 
-19:                                               ; preds = %18, %10
-  br label %20
+21:                                               ; preds = %19, %11
+  br label %22
 
-20:                                               ; preds = %19
-  %21 = load i8, ptr @libnbc_in_progress, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %147, label %23
+22:                                               ; preds = %21
+  %23 = load i8, ptr @libnbc_in_progress, align 1
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %157, label %25
 
-23:                                               ; preds = %20
+25:                                               ; preds = %22
   store i8 1, ptr @libnbc_in_progress, align 1
-  %24 = load volatile ptr, ptr getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2, i32 1, i32 1), align 16
-  store ptr %24, ptr %2, align 8
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.opal_list_item_t, ptr %25, i32 0, i32 1
-  %27 = load volatile ptr, ptr %26, align 8
-  store ptr %27, ptr %3, align 8
-  br label %28
+  %26 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2, i32 1, i32 1
+  %27 = load volatile ptr, ptr %26, align 16
+  store ptr %27, ptr %2, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.opal_list_item_t, ptr %28, i32 0, i32 1
+  %30 = load volatile ptr, ptr %29, align 8
+  store ptr %30, ptr %3, align 8
+  br label %31
 
-28:                                               ; preds = %141, %23
-  %29 = load ptr, ptr %2, align 8
-  %30 = icmp ne ptr %29, getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2, i32 1)
-  br i1 %30, label %31, label %146
+31:                                               ; preds = %151, %25
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2, i32 1
+  %34 = icmp ne ptr %32, %33
+  br i1 %34, label %35, label %156
 
-31:                                               ; preds = %28
-  br label %32
+35:                                               ; preds = %31
+  br label %36
 
-32:                                               ; preds = %31
-  %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = xor i1 %34, true
-  %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %41
+36:                                               ; preds = %35
+  %37 = load i8, ptr @opal_uses_threads, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = xor i1 %38, true
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %46
 
-40:                                               ; preds = %32
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %41
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_unlock(ptr noundef %45)
+  br label %46
 
-41:                                               ; preds = %40, %32
-  br label %42
+46:                                               ; preds = %44, %36
+  br label %47
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %2, align 8
-  %44 = call i32 @NBC_Progress(ptr noundef %43)
-  store i32 %44, ptr %4, align 4
-  %45 = load i32, ptr %4, align 4
-  %46 = icmp ne i32 3, %45
-  br i1 %46, label %47, label %129
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %2, align 8
+  %49 = call i32 @NBC_Progress(ptr noundef %48)
+  store i32 %49, ptr %4, align 4
+  %50 = load i32, ptr %4, align 4
+  %51 = icmp ne i32 3, %50
+  br i1 %51, label %52, label %138
 
-47:                                               ; preds = %42
-  br label %48
+52:                                               ; preds = %47
+  br label %53
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr @opal_uses_threads, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = xor i1 %50, true
-  %52 = xor i1 %51, true
-  %53 = zext i1 %52 to i32
-  %54 = sext i32 %53 to i64
-  %55 = icmp ne i64 %54, 0
-  br i1 %55, label %56, label %57
+53:                                               ; preds = %52
+  %54 = load i8, ptr @opal_uses_threads, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = xor i1 %55, true
+  %57 = xor i1 %56, true
+  %58 = zext i1 %57 to i32
+  %59 = sext i32 %58 to i64
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %63
 
-56:                                               ; preds = %48
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %57
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_lock(ptr noundef %62)
+  br label %63
 
-57:                                               ; preds = %56, %48
-  br label %58
+63:                                               ; preds = %61, %53
+  br label %64
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.ompi_request_t, ptr %61, i32 0, i32 0
-  %63 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %62, i32 0, i32 0
-  %64 = call ptr @opal_list_remove_item(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2), ptr noundef %63)
-  br label %65
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %2, align 8
+  %66 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %66, i32 0, i32 0
+  %68 = getelementptr inbounds %struct.ompi_request_t, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 2
+  %71 = call ptr @opal_list_remove_item(ptr noundef %70, ptr noundef %69)
+  br label %72
 
-65:                                               ; preds = %58
-  %66 = load i8, ptr @opal_uses_threads, align 1
-  %67 = trunc i8 %66 to i1
-  %68 = xor i1 %67, true
-  %69 = xor i1 %68, true
-  %70 = zext i1 %69 to i32
-  %71 = sext i32 %70 to i64
-  %72 = icmp ne i64 %71, 0
-  br i1 %72, label %73, label %74
+72:                                               ; preds = %64
+  %73 = load i8, ptr @opal_uses_threads, align 1
+  %74 = trunc i8 %73 to i1
+  %75 = xor i1 %74, true
+  %76 = xor i1 %75, true
+  %77 = zext i1 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %82
 
-73:                                               ; preds = %65
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
-  br label %74
+80:                                               ; preds = %72
+  %81 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_unlock(ptr noundef %81)
+  br label %82
 
-74:                                               ; preds = %73, %65
-  br label %75
+82:                                               ; preds = %80, %72
+  br label %83
 
-75:                                               ; preds = %74
-  %76 = load i32, ptr %4, align 4
-  %77 = icmp eq i32 0, %76
-  br i1 %77, label %84, label %78
+83:                                               ; preds = %82
+  %84 = load i32, ptr %4, align 4
+  %85 = icmp eq i32 0, %84
+  br i1 %85, label %92, label %86
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %4, align 4
-  %80 = icmp eq i32 0, %79
-  br i1 %80, label %84, label %81
+86:                                               ; preds = %83
+  %87 = load i32, ptr %4, align 4
+  %88 = icmp eq i32 0, %87
+  br i1 %88, label %92, label %89
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %4, align 4
-  %83 = icmp eq i32 0, %82
-  br i1 %83, label %84, label %90
+89:                                               ; preds = %86
+  %90 = load i32, ptr %4, align 4
+  %91 = icmp eq i32 0, %90
+  br i1 %91, label %92, label %98
 
-84:                                               ; preds = %81, %78, %75
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %85, i32 0, i32 0
-  %87 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %86, i32 0, i32 0
-  %88 = getelementptr inbounds %struct.ompi_request_t, ptr %87, i32 0, i32 2
-  %89 = getelementptr inbounds %struct.ompi_status_public_t, ptr %88, i32 0, i32 2
-  store i32 0, ptr %89, align 8
-  br label %97
+92:                                               ; preds = %89, %86, %83
+  %93 = load ptr, ptr %2, align 8
+  %94 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %93, i32 0, i32 0
+  %95 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds %struct.ompi_request_t, ptr %95, i32 0, i32 2
+  %97 = getelementptr inbounds %struct.ompi_status_public_t, ptr %96, i32 0, i32 2
+  store i32 0, ptr %97, align 8
+  br label %105
 
-90:                                               ; preds = %81
-  %91 = load i32, ptr %4, align 4
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %92, i32 0, i32 0
-  %94 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %93, i32 0, i32 0
-  %95 = getelementptr inbounds %struct.ompi_request_t, ptr %94, i32 0, i32 2
-  %96 = getelementptr inbounds %struct.ompi_status_public_t, ptr %95, i32 0, i32 2
-  store i32 %91, ptr %96, align 8
-  br label %97
+98:                                               ; preds = %89
+  %99 = load i32, ptr %4, align 4
+  %100 = load ptr, ptr %2, align 8
+  %101 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %101, i32 0, i32 0
+  %103 = getelementptr inbounds %struct.ompi_request_t, ptr %102, i32 0, i32 2
+  %104 = getelementptr inbounds %struct.ompi_status_public_t, ptr %103, i32 0, i32 2
+  store i32 %99, ptr %104, align 8
+  br label %105
 
-97:                                               ; preds = %90, %84
-  %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %98, i32 0, i32 0
-  %100 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %99, i32 0, i32 0
-  %101 = getelementptr inbounds %struct.ompi_request_t, ptr %100, i32 0, i32 5
-  %102 = load i8, ptr %101, align 4
-  %103 = trunc i8 %102 to i1
-  br i1 %103, label %104, label %107
+105:                                              ; preds = %98, %92
+  %106 = load ptr, ptr %2, align 8
+  %107 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %106, i32 0, i32 0
+  %108 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds %struct.ompi_request_t, ptr %108, i32 0, i32 5
+  %110 = load i8, ptr %109, align 4
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %115
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %105, i32 0, i32 2
-  store i64 0, ptr %106, align 8
-  br label %107
+112:                                              ; preds = %105
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %113, i32 0, i32 2
+  store i64 0, ptr %114, align 8
+  br label %115
 
-107:                                              ; preds = %104, %97
-  %108 = load ptr, ptr %2, align 8
-  %109 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %108, i32 0, i32 0
-  %110 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %109, i32 0, i32 0
-  %111 = getelementptr inbounds %struct.ompi_request_t, ptr %110, i32 0, i32 5
-  %112 = load i8, ptr %111, align 4
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %121
+115:                                              ; preds = %112, %105
+  %116 = load ptr, ptr %2, align 8
+  %117 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds %struct.ompi_request_t, ptr %118, i32 0, i32 5
+  %120 = load i8, ptr %119, align 4
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %130
 
-114:                                              ; preds = %107
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %115, i32 0, i32 0
-  %117 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %116, i32 0, i32 0
-  %118 = getelementptr inbounds %struct.ompi_request_t, ptr %117, i32 0, i32 3
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr inttoptr (i64 1 to ptr), %119
-  br i1 %120, label %126, label %121
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %123, i32 0, i32 0
+  %125 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %124, i32 0, i32 0
+  %126 = getelementptr inbounds %struct.ompi_request_t, ptr %125, i32 0, i32 3
+  %127 = load ptr, ptr %126, align 8
+  %128 = inttoptr i64 1 to ptr
+  %129 = icmp eq ptr %128, %127
+  br i1 %129, label %135, label %130
 
-121:                                              ; preds = %114, %107
-  %122 = load ptr, ptr %2, align 8
-  %123 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %122, i32 0, i32 0
-  %124 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %123, i32 0, i32 0
-  %125 = call i32 @ompi_request_complete(ptr noundef %124, i1 noundef zeroext true)
-  br label %126
+130:                                              ; preds = %122, %115
+  %131 = load ptr, ptr %2, align 8
+  %132 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %131, i32 0, i32 0
+  %133 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %132, i32 0, i32 0
+  %134 = call i32 @ompi_request_complete(ptr noundef %133, i1 noundef zeroext true)
+  br label %135
 
-126:                                              ; preds = %121, %114
-  %127 = load i32, ptr %5, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %5, align 4
-  br label %129
+135:                                              ; preds = %130, %122
+  %136 = load i32, ptr %5, align 4
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %5, align 4
+  br label %138
 
-129:                                              ; preds = %126, %42
-  br label %130
-
-130:                                              ; preds = %129
-  %131 = load i8, ptr @opal_uses_threads, align 1
-  %132 = trunc i8 %131 to i1
-  %133 = xor i1 %132, true
-  %134 = xor i1 %133, true
-  %135 = zext i1 %134 to i32
-  %136 = sext i32 %135 to i64
-  %137 = icmp ne i64 %136, 0
-  br i1 %137, label %138, label %139
-
-138:                                              ; preds = %130
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
+138:                                              ; preds = %135, %47
   br label %139
 
-139:                                              ; preds = %138, %130
-  br label %140
+139:                                              ; preds = %138
+  %140 = load i8, ptr @opal_uses_threads, align 1
+  %141 = trunc i8 %140 to i1
+  %142 = xor i1 %141, true
+  %143 = xor i1 %142, true
+  %144 = zext i1 %143 to i32
+  %145 = sext i32 %144 to i64
+  %146 = icmp ne i64 %145, 0
+  br i1 %146, label %147, label %149
 
-140:                                              ; preds = %139
-  br label %141
+147:                                              ; preds = %139
+  %148 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_lock(ptr noundef %148)
+  br label %149
 
-141:                                              ; preds = %140
-  %142 = load ptr, ptr %3, align 8
-  store ptr %142, ptr %2, align 8
-  %143 = load ptr, ptr %2, align 8
-  %144 = getelementptr inbounds %struct.opal_list_item_t, ptr %143, i32 0, i32 1
-  %145 = load volatile ptr, ptr %144, align 8
-  store ptr %145, ptr %3, align 8
-  br label %28, !llvm.loop !4
+149:                                              ; preds = %147, %139
+  br label %150
 
-146:                                              ; preds = %28
+150:                                              ; preds = %149
+  br label %151
+
+151:                                              ; preds = %150
+  %152 = load ptr, ptr %3, align 8
+  store ptr %152, ptr %2, align 8
+  %153 = load ptr, ptr %2, align 8
+  %154 = getelementptr inbounds %struct.opal_list_item_t, ptr %153, i32 0, i32 1
+  %155 = load volatile ptr, ptr %154, align 8
+  store ptr %155, ptr %3, align 8
+  br label %31, !llvm.loop !4
+
+156:                                              ; preds = %31
   store i8 0, ptr @libnbc_in_progress, align 1
-  br label %147
-
-147:                                              ; preds = %146, %20
-  br label %148
-
-148:                                              ; preds = %147
-  %149 = load i8, ptr @opal_uses_threads, align 1
-  %150 = trunc i8 %149 to i1
-  %151 = xor i1 %150, true
-  %152 = xor i1 %151, true
-  %153 = zext i1 %152 to i32
-  %154 = sext i32 %153 to i64
-  %155 = icmp ne i64 %154, 0
-  br i1 %155, label %156, label %157
-
-156:                                              ; preds = %148
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4))
   br label %157
 
-157:                                              ; preds = %156, %148
+157:                                              ; preds = %156, %22
   br label %158
 
 158:                                              ; preds = %157
-  %159 = load i32, ptr %5, align 4
-  store i32 %159, ptr %1, align 4
-  br label %160
+  %159 = load i8, ptr @opal_uses_threads, align 1
+  %160 = trunc i8 %159 to i1
+  %161 = xor i1 %160, true
+  %162 = xor i1 %161, true
+  %163 = zext i1 %162 to i32
+  %164 = sext i32 %163 to i64
+  %165 = icmp ne i64 %164, 0
+  br i1 %165, label %166, label %168
 
-160:                                              ; preds = %158, %8
-  %161 = load i32, ptr %1, align 4
-  ret i32 %161
+166:                                              ; preds = %158
+  %167 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 4
+  call void @opal_mutex_unlock(ptr noundef %167)
+  br label %168
+
+168:                                              ; preds = %166, %158
+  br label %169
+
+169:                                              ; preds = %168
+  %170 = load i32, ptr %5, align 4
+  store i32 %170, ptr %1, align 4
+  br label %171
+
+171:                                              ; preds = %169, %9
+  %172 = load i32, ptr %1, align 4
+  ret i32 %172
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1241,7 +1273,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -1274,18 +1306,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 
@@ -1300,35 +1333,36 @@ define internal void @libnbc_module_construct(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %10, i32 0, i32 1
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %13, i32 0, i32 1
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %16, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %17, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %20, i32 0, i32 2
-  store i8 0, ptr %21, align 8
+19:                                               ; preds = %10
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.ompi_coll_libnbc_module_t, ptr %21, i32 0, i32 2
+  store i8 0, ptr %22, align 8
   ret void
 }
 
@@ -1352,23 +1386,24 @@ define internal void @libnbc_module_destruct(ptr noundef %0) #0 {
   %11 = trunc i8 %10 to i1
   %12 = zext i1 %11 to i32
   %13 = icmp eq i32 1, %12
-  br i1 %13, label %14, label %21
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %7
-  %15 = call i32 @opal_thread_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3), i32 noundef -1)
-  store i32 %15, ptr %3, align 4
-  %16 = load i32, ptr %3, align 4
-  %17 = icmp eq i32 0, %16
-  br i1 %17, label %18, label %20
+  %15 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 3
+  %16 = call i32 @opal_thread_add_fetch_32(ptr noundef %15, i32 noundef -1)
+  store i32 %16, ptr %3, align 4
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp eq i32 0, %17
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %14
-  %19 = call i32 @opal_progress_unregister(ptr noundef @ompi_coll_libnbc_progress)
-  br label %20
-
-20:                                               ; preds = %18, %14
+19:                                               ; preds = %14
+  %20 = call i32 @opal_progress_unregister(ptr noundef @ompi_coll_libnbc_progress)
   br label %21
 
-21:                                               ; preds = %20, %7
+21:                                               ; preds = %19, %14
+  br label %22
+
+22:                                               ; preds = %21, %7
   ret void
 }
 
@@ -2041,64 +2076,66 @@ define internal i32 @request_free(ptr noundef %0) #0 {
   %9 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %8, i32 0, i32 0
   %10 = getelementptr inbounds %struct.ompi_request_t, ptr %9, i32 0, i32 3
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr inttoptr (i64 1 to ptr), %11
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %1
-  store i32 7, ptr %2, align 4
-  br label %43
+  %12 = inttoptr i64 1 to ptr
+  %13 = icmp eq ptr %12, %11
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %1
-  br label %15
+  store i32 7, ptr %2, align 4
+  br label %45
 
-15:                                               ; preds = %14
+15:                                               ; preds = %1
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %18, i32 0, i32 0
-  %20 = getelementptr inbounds %struct.ompi_request_t, ptr %19, i32 0, i32 4
-  store volatile i32 0, ptr %20, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %22, i32 0, i32 0
-  %24 = getelementptr inbounds %struct.ompi_request_t, ptr %23, i32 0, i32 6
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ne i32 -32766, %25
-  br i1 %26, label %27, label %38
+  br label %17
 
-27:                                               ; preds = %16
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds %struct.ompi_request_t, ptr %30, i32 0, i32 6
-  %32 = load i32, ptr %31, align 8
-  %33 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %32, ptr noundef null)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %35, i32 0, i32 0
-  %37 = getelementptr inbounds %struct.ompi_request_t, ptr %36, i32 0, i32 6
-  store i32 -32766, ptr %37, align 8
-  br label %38
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds %struct.ompi_request_t, ptr %20, i32 0, i32 4
+  store volatile i32 0, ptr %21, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds %struct.ompi_request_t, ptr %24, i32 0, i32 6
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ne i32 -32766, %26
+  br i1 %27, label %28, label %39
 
-38:                                               ; preds = %27, %16
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds %struct.ompi_request_t, ptr %31, i32 0, i32 6
+  %33 = load i32, ptr %32, align 8
+  %34 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %33, ptr noundef null)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.ompi_coll_libnbc_request_t, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.ompi_coll_base_nbc_request_t, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds %struct.ompi_request_t, ptr %37, i32 0, i32 6
+  store i32 -32766, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %4, align 8
-  call void @opal_free_list_return(ptr noundef getelementptr inbounds (%struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1), ptr noundef %40)
-  br label %41
+39:                                               ; preds = %28, %17
+  br label %40
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %3, align 8
-  store ptr @ompi_request_null, ptr %42, align 8
-  store i32 0, ptr %2, align 4
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.ompi_coll_libnbc_component_t, ptr @mca_coll_libnbc_component, i32 0, i32 1
+  call void @opal_free_list_return(ptr noundef %42, ptr noundef %41)
   br label %43
 
-43:                                               ; preds = %41, %13
-  %44 = load i32, ptr %2, align 4
-  ret i32 %44
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %3, align 8
+  store ptr @ompi_request_null, ptr %44, align 8
+  store i32 0, ptr %2, align 4
+  br label %45
+
+45:                                               ; preds = %43, %14
+  %46 = load i32, ptr %2, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable

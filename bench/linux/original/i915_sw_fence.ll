@@ -1026,20 +1026,22 @@ define internal noundef i32 @i915_sw_fence_wake(ptr noundef %0, i32 %1, i32 noun
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  %17 = load ptr, ptr %5, align 8
-  tail call fastcc void @__i915_sw_fence_complete(ptr noundef %17, ptr noundef %3)
-  %18 = load i32, ptr %0, align 8
-  %19 = and i32 %18, 1073741824
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %12, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %5, align 8
+  tail call fastcc void @__i915_sw_fence_complete(ptr noundef %19, ptr noundef %3)
+  %20 = load i32, ptr %0, align 8
+  %21 = and i32 %20, 1073741824
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %24, label %23
 
-21:                                               ; preds = %11
+23:                                               ; preds = %11
   tail call void @kfree(ptr noundef %0) #10
-  br label %22
+  br label %24
 
-22:                                               ; preds = %21, %11
+24:                                               ; preds = %23, %11
   ret i32 0
 }
 

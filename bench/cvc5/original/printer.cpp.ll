@@ -805,10 +805,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"class.std::unique_ptr", ptr @_ZN4cvc58internal7Printer10d_printersE, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"class.std::unique_ptr", ptr @_ZN4cvc58internal7Printer10d_printersE, i64 3), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::unique_ptr", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt10unique_ptrIN4cvc58internal7PrinterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN4cvc58internal7Printer10d_printersE
@@ -975,10 +976,11 @@ entry:
   store i32 %variant, ptr %variant.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal7PrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_variant = getelementptr inbounds %"class.cvc5::internal::printer::smt2::Smt2Printer", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %variant.addr, align 4
-  store i32 %0, ptr %d_variant, align 8
+  %1 = load i32, ptr %variant.addr, align 4
+  store i32 %1, ptr %d_variant, align 8
   ret void
 }
 
@@ -1021,7 +1023,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal7PrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer3ast10AstPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer3ast10AstPrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7453,7 +7456,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7PrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [71 x ptr] }, ptr @_ZTVN4cvc58internal7PrinterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

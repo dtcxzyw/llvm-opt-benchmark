@@ -414,90 +414,91 @@ define void @_ZN14htif_pthread_tC2EiPPc(ptr noundef nonnull align 8 dereferencea
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 1
-  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %13 unwind label %23
+  %12 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 1
+  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %14 unwind label %24
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 3
-  invoke void @_ZNSt5dequeIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14)
-          to label %15 unwind label %27
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 3
+  invoke void @_ZNSt5dequeIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15)
+          to label %16 unwind label %28
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 4
-  invoke void @_ZNSt5dequeIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16)
-          to label %17 unwind label %31
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 4
+  invoke void @_ZNSt5dequeIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17)
+          to label %18 unwind label %32
 
-17:                                               ; preds = %15
-  %18 = invoke noundef ptr @_ZN9context_t7currentEv()
-          to label %19 unwind label %35
+18:                                               ; preds = %16
+  %19 = invoke noundef ptr @_ZN9context_t7currentEv()
+          to label %20 unwind label %36
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 2
-  store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 1
-  invoke void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @_ZN14htif_pthread_t11thread_mainEPv, ptr noundef %9)
-          to label %22 unwind label %35
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 2
+  store ptr %19, ptr %21, align 8
+  %22 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 1
+  invoke void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @_ZN14htif_pthread_t11thread_mainEPv, ptr noundef %9)
+          to label %23 unwind label %36
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   ret void
 
-23:                                               ; preds = %3
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %3
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %41
-
-27:                                               ; preds = %13
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %7, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %8, align 4
-  br label %40
-
-31:                                               ; preds = %15
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %7, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %8, align 4
-  br label %39
-
-35:                                               ; preds = %19, %17
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %7, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %8, align 4
-  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #11
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #11
-  br label %40
-
-40:                                               ; preds = %39, %27
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
-  br label %41
-
-41:                                               ; preds = %40, %23
-  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %9) #11
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr %8, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+28:                                               ; preds = %14
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %7, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %8, align 4
+  br label %41
+
+32:                                               ; preds = %16
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %7, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %8, align 4
+  br label %40
+
+36:                                               ; preds = %20, %18
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %7, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %8, align 4
+  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #11
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #11
+  br label %41
+
+41:                                               ; preds = %40, %28
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  br label %42
+
+42:                                               ; preds = %41, %24
+  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %9) #11
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 declare void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696), i32 noundef, ptr noundef) unnamed_addr #1
@@ -555,13 +556,14 @@ define void @_ZN14htif_pthread_tD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 4
-  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
-  %5 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 4
   call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
-  %6 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 1
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
+  %6 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 3
+  call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #11
+  %7 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 1
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %3) #11
   ret void
 }

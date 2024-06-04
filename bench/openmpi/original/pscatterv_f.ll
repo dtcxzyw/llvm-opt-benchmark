@@ -74,56 +74,57 @@ define void @ompi_scatterv_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store ptr %43, ptr %11, align 8
   %44 = load ptr, ptr %15, align 8
   %45 = icmp eq ptr %44, @mpi_fortran_in_place_
-  br i1 %45, label %46, label %47
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %42
-  br label %49
+  %47 = inttoptr i64 1 to ptr
+  br label %50
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %15, align 8
-  br label %49
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %15, align 8
+  br label %50
 
-49:                                               ; preds = %47, %46
-  %50 = phi ptr [ inttoptr (i64 1 to ptr), %46 ], [ %48, %47 ]
-  store ptr %50, ptr %15, align 8
-  %51 = load ptr, ptr %15, align 8
-  %52 = icmp eq ptr %51, @mpi_fortran_bottom_
-  br i1 %52, label %53, label %54
+50:                                               ; preds = %48, %46
+  %51 = phi ptr [ %47, %46 ], [ %49, %48 ]
+  store ptr %51, ptr %15, align 8
+  %52 = load ptr, ptr %15, align 8
+  %53 = icmp eq ptr %52, @mpi_fortran_bottom_
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %49
-  br label %56
+54:                                               ; preds = %50
+  br label %57
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %15, align 8
-  br label %56
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %15, align 8
+  br label %57
 
-56:                                               ; preds = %54, %53
-  %57 = phi ptr [ null, %53 ], [ %55, %54 ]
-  store ptr %57, ptr %15, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = load ptr, ptr %22, align 8
-  %62 = load ptr, ptr %15, align 8
-  %63 = load ptr, ptr %16, align 8
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %23, align 8
-  %66 = load ptr, ptr %18, align 8
-  %67 = load i32, ptr %66, align 4
-  %68 = load ptr, ptr %21, align 8
-  %69 = call i32 @PMPI_Scatterv(ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %64, ptr noundef %65, i32 noundef %67, ptr noundef %68)
-  store i32 %69, ptr %25, align 4
-  %70 = load ptr, ptr %20, align 8
-  %71 = icmp ne ptr null, %70
-  br i1 %71, label %72, label %75
+57:                                               ; preds = %55, %54
+  %58 = phi ptr [ null, %54 ], [ %56, %55 ]
+  store ptr %58, ptr %15, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = load ptr, ptr %13, align 8
+  %62 = load ptr, ptr %22, align 8
+  %63 = load ptr, ptr %15, align 8
+  %64 = load ptr, ptr %16, align 8
+  %65 = load i32, ptr %64, align 4
+  %66 = load ptr, ptr %23, align 8
+  %67 = load ptr, ptr %18, align 8
+  %68 = load i32, ptr %67, align 4
+  %69 = load ptr, ptr %21, align 8
+  %70 = call i32 @PMPI_Scatterv(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %65, ptr noundef %66, i32 noundef %68, ptr noundef %69)
+  store i32 %70, ptr %25, align 4
+  %71 = load ptr, ptr %20, align 8
+  %72 = icmp ne ptr null, %71
+  br i1 %72, label %73, label %76
 
-72:                                               ; preds = %56
-  %73 = load i32, ptr %25, align 4
-  %74 = load ptr, ptr %20, align 8
-  store i32 %73, ptr %74, align 4
-  br label %75
+73:                                               ; preds = %57
+  %74 = load i32, ptr %25, align 4
+  %75 = load ptr, ptr %20, align 8
+  store i32 %74, ptr %75, align 4
+  br label %76
 
-75:                                               ; preds = %72, %56
+76:                                               ; preds = %73, %57
   ret void
 }
 

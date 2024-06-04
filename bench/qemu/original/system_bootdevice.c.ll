@@ -367,49 +367,50 @@ if.else:                                          ; preds = %do.body
   %link13 = getelementptr inbounds %struct.FWBootEntry, ptr %16, i32 0, i32 0
   %tql_prev14 = getelementptr inbounds %struct.QTailQLink, ptr %link13, i32 0, i32 1
   %17 = load ptr, ptr %tql_prev14, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1), align 8
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1
+  store ptr %17, ptr %18, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then8
-  %18 = load ptr, ptr %i, align 8
-  %link16 = getelementptr inbounds %struct.FWBootEntry, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %link16, align 8
-  %20 = load ptr, ptr %i, align 8
-  %link17 = getelementptr inbounds %struct.FWBootEntry, ptr %20, i32 0, i32 0
+  %19 = load ptr, ptr %i, align 8
+  %link16 = getelementptr inbounds %struct.FWBootEntry, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %link16, align 8
+  %21 = load ptr, ptr %i, align 8
+  %link17 = getelementptr inbounds %struct.FWBootEntry, ptr %21, i32 0, i32 0
   %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %link17, i32 0, i32 1
-  %21 = load ptr, ptr %tql_prev18, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
-  store ptr %19, ptr %tql_next, align 8
-  %22 = load ptr, ptr %i, align 8
-  %link19 = getelementptr inbounds %struct.FWBootEntry, ptr %22, i32 0, i32 0
+  %22 = load ptr, ptr %tql_prev18, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next, align 8
+  %23 = load ptr, ptr %i, align 8
+  %link19 = getelementptr inbounds %struct.FWBootEntry, ptr %23, i32 0, i32 0
   %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %link19, i32 0, i32 1
   store ptr null, ptr %tql_prev20, align 8
-  %23 = load ptr, ptr %i, align 8
-  %link21 = getelementptr inbounds %struct.FWBootEntry, ptr %23, i32 0, i32 0
+  %24 = load ptr, ptr %i, align 8
+  %link21 = getelementptr inbounds %struct.FWBootEntry, ptr %24, i32 0, i32 0
   %tql_next22 = getelementptr inbounds %struct.QTailQLink, ptr %link21, i32 0, i32 0
   store ptr null, ptr %tql_next22, align 8
-  %24 = load ptr, ptr %i, align 8
-  %link23 = getelementptr inbounds %struct.FWBootEntry, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %i, align 8
+  %link23 = getelementptr inbounds %struct.FWBootEntry, ptr %25, i32 0, i32 0
   store ptr null, ptr %link23, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end15
-  %25 = load ptr, ptr %i, align 8
-  %suffix24 = getelementptr inbounds %struct.FWBootEntry, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %suffix24, align 8
-  call void @g_free(ptr noundef %26)
-  %27 = load ptr, ptr %i, align 8
+  %26 = load ptr, ptr %i, align 8
+  %suffix24 = getelementptr inbounds %struct.FWBootEntry, ptr %26, i32 0, i32 3
+  %27 = load ptr, ptr %suffix24, align 8
   call void @g_free(ptr noundef %27)
+  %28 = load ptr, ptr %i, align 8
+  call void @g_free(ptr noundef %28)
   br label %for.end
 
 if.end25:                                         ; preds = %land.lhs.true, %lor.lhs.false
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25
-  %28 = load ptr, ptr %i, align 8
-  %link26 = getelementptr inbounds %struct.FWBootEntry, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %link26, align 8
-  store ptr %29, ptr %i, align 8
+  %29 = load ptr, ptr %i, align 8
+  %link26 = getelementptr inbounds %struct.FWBootEntry, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %link26, align 8
+  store ptr %30, ptr %i, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %do.end, %for.cond, %if.then
@@ -560,18 +561,21 @@ do.body27:                                        ; preds = %for.end
   %34 = load ptr, ptr %node, align 8
   %link28 = getelementptr inbounds %struct.FWBootEntry, ptr %34, i32 0, i32 0
   store ptr null, ptr %link28, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1), align 8
-  %36 = load ptr, ptr %node, align 8
-  %link29 = getelementptr inbounds %struct.FWBootEntry, ptr %36, i32 0, i32 0
-  %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %link29, i32 0, i32 1
-  store ptr %35, ptr %tql_prev30, align 8
+  %35 = getelementptr inbounds %struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %node, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1), align 8
-  %tql_next31 = getelementptr inbounds %struct.QTailQLink, ptr %38, i32 0, i32 0
-  store ptr %37, ptr %tql_next31, align 8
-  %39 = load ptr, ptr %node, align 8
-  %link32 = getelementptr inbounds %struct.FWBootEntry, ptr %39, i32 0, i32 0
-  store ptr %link32, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1), align 8
+  %link29 = getelementptr inbounds %struct.FWBootEntry, ptr %37, i32 0, i32 0
+  %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %link29, i32 0, i32 1
+  store ptr %36, ptr %tql_prev30, align 8
+  %38 = load ptr, ptr %node, align 8
+  %39 = getelementptr inbounds %struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %tql_next31 = getelementptr inbounds %struct.QTailQLink, ptr %40, i32 0, i32 0
+  store ptr %38, ptr %tql_next31, align 8
+  %41 = load ptr, ptr %node, align 8
+  %link32 = getelementptr inbounds %struct.FWBootEntry, ptr %41, i32 0, i32 0
+  %42 = getelementptr inbounds %struct.QTailQLink, ptr @fw_boot_order, i32 0, i32 1
+  store ptr %link32, ptr %42, align 8
   br label %do.end33
 
 do.end33:                                         ; preds = %do.body27, %do.end, %if.then
@@ -1177,18 +1181,21 @@ do.body:                                          ; preds = %if.end6
   %15 = load ptr, ptr %node, align 8
   %link = getelementptr inbounds %struct.FWLCHSEntry, ptr %15, i32 0, i32 0
   store ptr null, ptr %link, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1), align 8
-  %17 = load ptr, ptr %node, align 8
-  %link13 = getelementptr inbounds %struct.FWLCHSEntry, ptr %17, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link13, i32 0, i32 1
-  store ptr %16, ptr %tql_prev, align 8
+  %16 = getelementptr inbounds %struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %node, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 0
-  store ptr %18, ptr %tql_next, align 8
-  %20 = load ptr, ptr %node, align 8
-  %link14 = getelementptr inbounds %struct.FWLCHSEntry, ptr %20, i32 0, i32 0
-  store ptr %link14, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1), align 8
+  %link13 = getelementptr inbounds %struct.FWLCHSEntry, ptr %18, i32 0, i32 0
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link13, i32 0, i32 1
+  store ptr %17, ptr %tql_prev, align 8
+  %19 = load ptr, ptr %node, align 8
+  %20 = getelementptr inbounds %struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %tql_next, align 8
+  %22 = load ptr, ptr %node, align 8
+  %link14 = getelementptr inbounds %struct.FWLCHSEntry, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds %struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1
+  store ptr %link14, ptr %23, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then
@@ -1270,49 +1277,50 @@ if.else:                                          ; preds = %do.body
   %link13 = getelementptr inbounds %struct.FWLCHSEntry, ptr %16, i32 0, i32 0
   %tql_prev14 = getelementptr inbounds %struct.QTailQLink, ptr %link13, i32 0, i32 1
   %17 = load ptr, ptr %tql_prev14, align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1), align 8
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @fw_lchs, i32 0, i32 1
+  store ptr %17, ptr %18, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then8
-  %18 = load ptr, ptr %i, align 8
-  %link16 = getelementptr inbounds %struct.FWLCHSEntry, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %link16, align 8
-  %20 = load ptr, ptr %i, align 8
-  %link17 = getelementptr inbounds %struct.FWLCHSEntry, ptr %20, i32 0, i32 0
+  %19 = load ptr, ptr %i, align 8
+  %link16 = getelementptr inbounds %struct.FWLCHSEntry, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %link16, align 8
+  %21 = load ptr, ptr %i, align 8
+  %link17 = getelementptr inbounds %struct.FWLCHSEntry, ptr %21, i32 0, i32 0
   %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %link17, i32 0, i32 1
-  %21 = load ptr, ptr %tql_prev18, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
-  store ptr %19, ptr %tql_next, align 8
-  %22 = load ptr, ptr %i, align 8
-  %link19 = getelementptr inbounds %struct.FWLCHSEntry, ptr %22, i32 0, i32 0
+  %22 = load ptr, ptr %tql_prev18, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next, align 8
+  %23 = load ptr, ptr %i, align 8
+  %link19 = getelementptr inbounds %struct.FWLCHSEntry, ptr %23, i32 0, i32 0
   %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %link19, i32 0, i32 1
   store ptr null, ptr %tql_prev20, align 8
-  %23 = load ptr, ptr %i, align 8
-  %link21 = getelementptr inbounds %struct.FWLCHSEntry, ptr %23, i32 0, i32 0
+  %24 = load ptr, ptr %i, align 8
+  %link21 = getelementptr inbounds %struct.FWLCHSEntry, ptr %24, i32 0, i32 0
   %tql_next22 = getelementptr inbounds %struct.QTailQLink, ptr %link21, i32 0, i32 0
   store ptr null, ptr %tql_next22, align 8
-  %24 = load ptr, ptr %i, align 8
-  %link23 = getelementptr inbounds %struct.FWLCHSEntry, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %i, align 8
+  %link23 = getelementptr inbounds %struct.FWLCHSEntry, ptr %25, i32 0, i32 0
   store ptr null, ptr %link23, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end15
-  %25 = load ptr, ptr %i, align 8
-  %suffix24 = getelementptr inbounds %struct.FWLCHSEntry, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %suffix24, align 8
-  call void @g_free(ptr noundef %26)
-  %27 = load ptr, ptr %i, align 8
+  %26 = load ptr, ptr %i, align 8
+  %suffix24 = getelementptr inbounds %struct.FWLCHSEntry, ptr %26, i32 0, i32 2
+  %27 = load ptr, ptr %suffix24, align 8
   call void @g_free(ptr noundef %27)
+  %28 = load ptr, ptr %i, align 8
+  call void @g_free(ptr noundef %28)
   br label %for.end
 
 if.end25:                                         ; preds = %land.lhs.true, %lor.lhs.false
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25
-  %28 = load ptr, ptr %i, align 8
-  %link26 = getelementptr inbounds %struct.FWLCHSEntry, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %link26, align 8
-  store ptr %29, ptr %i, align 8
+  %29 = load ptr, ptr %i, align 8
+  %link26 = getelementptr inbounds %struct.FWLCHSEntry, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %link26, align 8
+  store ptr %30, ptr %i, align 8
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %do.end, %for.cond, %if.then

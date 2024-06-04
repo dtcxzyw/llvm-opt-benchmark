@@ -81,8 +81,9 @@ define internal i32 @mca_osc_monitoring_component_query(ptr noundef %0, ptr noun
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store i32 %6, ptr %14, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_monitoring_component_t, ptr @mca_osc_monitoring_component, i32 0, i32 1), align 8
-  ret i32 %15
+  %15 = getelementptr inbounds %struct.ompi_osc_monitoring_component_t, ptr @mca_osc_monitoring_component, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -113,136 +114,138 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   store ptr null, ptr %19, align 8
   store i32 -1, ptr %20, align 4
   store i32 0, ptr %22, align 4
-  %24 = call ptr @opal_list_get_first(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12))
-  store ptr %24, ptr %18, align 8
-  br label %25
+  %24 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12
+  %25 = call ptr @opal_list_get_first(ptr noundef %24)
+  store ptr %25, ptr %18, align 8
+  br label %26
 
-25:                                               ; preds = %67, %8
-  %26 = load ptr, ptr %18, align 8
-  %27 = call ptr @opal_list_get_end(ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12))
-  %28 = icmp ne ptr %26, %27
-  br i1 %28, label %29, label %69
+26:                                               ; preds = %69, %8
+  %27 = load ptr, ptr %18, align 8
+  %28 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 12
+  %29 = call ptr @opal_list_get_end(ptr noundef %28)
+  %30 = icmp ne ptr %27, %29
+  br i1 %30, label %31, label %71
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %18, align 8
-  %31 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %23, align 8
-  %33 = load ptr, ptr %23, align 8
-  %34 = icmp eq ptr %33, @mca_osc_monitoring_component
-  br i1 %34, label %35, label %36
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %18, align 8
+  %33 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %23, align 8
+  %35 = load ptr, ptr %23, align 8
+  %36 = icmp eq ptr %35, @mca_osc_monitoring_component
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %29
-  br label %59
+37:                                               ; preds = %31
+  br label %61
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %37, i32 0, i32 3
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i64, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load ptr, ptr %14, align 8
-  %45 = load ptr, ptr %15, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = call i32 %39(ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46)
-  store i32 %47, ptr %21, align 4
-  %48 = load i32, ptr %21, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %51
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %23, align 8
+  %40 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load i64, ptr %12, align 8
+  %45 = load i32, ptr %13, align 4
+  %46 = load ptr, ptr %14, align 8
+  %47 = load ptr, ptr %15, align 8
+  %48 = load i32, ptr %16, align 4
+  %49 = call i32 %41(ptr noundef %42, ptr noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48)
+  store i32 %49, ptr %21, align 4
+  %50 = load i32, ptr %21, align 4
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %53
 
-50:                                               ; preds = %36
-  br label %59
+52:                                               ; preds = %38
+  br label %61
 
-51:                                               ; preds = %36
-  %52 = load i32, ptr %21, align 4
-  %53 = load i32, ptr %20, align 4
-  %54 = icmp sgt i32 %52, %53
-  br i1 %54, label %55, label %58
+53:                                               ; preds = %38
+  %54 = load i32, ptr %21, align 4
+  %55 = load i32, ptr %20, align 4
+  %56 = icmp sgt i32 %54, %55
+  br i1 %56, label %57, label %60
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %23, align 8
-  store ptr %56, ptr %19, align 8
-  %57 = load i32, ptr %21, align 4
-  store i32 %57, ptr %20, align 4
-  br label %58
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %23, align 8
+  store ptr %58, ptr %19, align 8
+  %59 = load i32, ptr %21, align 4
+  store i32 %59, ptr %20, align 4
+  br label %60
 
-58:                                               ; preds = %55, %51
-  br label %59
+60:                                               ; preds = %57, %53
+  br label %61
 
-59:                                               ; preds = %58, %50, %35
-  %60 = load ptr, ptr %18, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %66
+61:                                               ; preds = %60, %52, %37
+  %62 = load ptr, ptr %18, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %18, align 8
-  %64 = getelementptr inbounds %struct.opal_list_item_t, ptr %63, i32 0, i32 1
-  %65 = load volatile ptr, ptr %64, align 8
-  br label %67
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %18, align 8
+  %66 = getelementptr inbounds %struct.opal_list_item_t, ptr %65, i32 0, i32 1
+  %67 = load volatile ptr, ptr %66, align 8
+  br label %69
 
-66:                                               ; preds = %59
-  br label %67
+68:                                               ; preds = %61
+  br label %69
 
-67:                                               ; preds = %66, %62
-  %68 = phi ptr [ %65, %62 ], [ null, %66 ]
-  store ptr %68, ptr %18, align 8
-  br label %25, !llvm.loop !4
+69:                                               ; preds = %68, %64
+  %70 = phi ptr [ %67, %64 ], [ null, %68 ]
+  store ptr %70, ptr %18, align 8
+  br label %26, !llvm.loop !4
 
-69:                                               ; preds = %25
-  %70 = load ptr, ptr %19, align 8
-  %71 = icmp eq ptr null, %70
-  br i1 %71, label %72, label %73
+71:                                               ; preds = %26
+  %72 = load ptr, ptr %19, align 8
+  %73 = icmp eq ptr null, %72
+  br i1 %73, label %74, label %75
 
-72:                                               ; preds = %69
+74:                                               ; preds = %71
   store i32 -8, ptr %9, align 4
-  br label %100
+  br label %102
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %19, align 8
-  %75 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %74, i32 0, i32 4
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %10, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i64, ptr %12, align 8
-  %80 = load i32, ptr %13, align 4
-  %81 = load ptr, ptr %14, align 8
-  %82 = load ptr, ptr %15, align 8
-  %83 = load i32, ptr %16, align 4
-  %84 = load ptr, ptr %17, align 8
-  %85 = call i32 %76(ptr noundef %77, ptr noundef %78, i64 noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef %84)
-  store i32 %85, ptr %22, align 4
-  %86 = load i32, ptr %22, align 4
-  %87 = icmp eq i32 0, %86
-  br i1 %87, label %88, label %98
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %19, align 8
+  %77 = getelementptr inbounds %struct.ompi_osc_base_component_2_0_0_t, ptr %76, i32 0, i32 4
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %10, align 8
+  %80 = load ptr, ptr %11, align 8
+  %81 = load i64, ptr %12, align 8
+  %82 = load i32, ptr %13, align 4
+  %83 = load ptr, ptr %14, align 8
+  %84 = load ptr, ptr %15, align 8
+  %85 = load i32, ptr %16, align 4
+  %86 = load ptr, ptr %17, align 8
+  %87 = call i32 %78(ptr noundef %79, ptr noundef %80, i64 noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef %86)
+  store i32 %87, ptr %22, align 4
+  %88 = load i32, ptr %22, align 4
+  %89 = icmp eq i32 0, %88
+  br i1 %89, label %90, label %100
 
-88:                                               ; preds = %73
-  %89 = load ptr, ptr %19, align 8
-  %90 = load ptr, ptr %10, align 8
-  %91 = getelementptr inbounds %struct.ompi_win_t, ptr %90, i32 0, i32 11
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i32 @ompi_mca_osc_monitoring_set_template(ptr noundef %89, ptr noundef %92)
-  store i32 %93, ptr %22, align 4
-  %94 = load i32, ptr %22, align 4
-  %95 = icmp eq i32 -8, %94
-  br i1 %95, label %96, label %97
+90:                                               ; preds = %75
+  %91 = load ptr, ptr %19, align 8
+  %92 = load ptr, ptr %10, align 8
+  %93 = getelementptr inbounds %struct.ompi_win_t, ptr %92, i32 0, i32 11
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 @ompi_mca_osc_monitoring_set_template(ptr noundef %91, ptr noundef %94)
+  store i32 %95, ptr %22, align 4
+  %96 = load i32, ptr %22, align 4
+  %97 = icmp eq i32 -8, %96
+  br i1 %97, label %98, label %99
 
-96:                                               ; preds = %88
+98:                                               ; preds = %90
   store i32 0, ptr %9, align 4
+  br label %102
+
+99:                                               ; preds = %90
   br label %100
 
-97:                                               ; preds = %88
-  br label %98
+100:                                              ; preds = %99, %75
+  %101 = load i32, ptr %22, align 4
+  store i32 %101, ptr %9, align 4
+  br label %102
 
-98:                                               ; preds = %97, %73
-  %99 = load i32, ptr %22, align 4
-  store i32 %99, ptr %9, align 4
-  br label %100
-
-100:                                              ; preds = %98, %96, %72
-  %101 = load i32, ptr %9, align 4
-  ret i32 %101
+102:                                              ; preds = %100, %98, %74
+  %103 = load i32, ptr %9, align 4
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind uwtable
@@ -371,12 +374,13 @@ define internal i32 @ompi_osc_monitoring_portals4_attach(ptr noundef %0, ptr nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, ptr noundef %10, i64 noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -385,21 +389,23 @@ define internal i32 @ompi_osc_monitoring_portals4_detach(ptr noundef %0, ptr nou
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -445,17 +451,18 @@ define internal i32 @ompi_osc_monitoring_portals4_put(ptr noundef %0, i32 nounde
   br label %35
 
 35:                                               ; preds = %26, %8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 4), align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = load i64, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = load ptr, ptr %15, align 8
-  %44 = load ptr, ptr %16, align 8
-  %45 = call i32 %36(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44)
-  ret i32 %45
+  %36 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %12, align 4
+  %42 = load i64, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %16, align 8
+  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -503,17 +510,18 @@ define internal i32 @ompi_osc_monitoring_portals4_get(ptr noundef %0, i32 nounde
   br label %36
 
 36:                                               ; preds = %26, %8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 5), align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = load i64, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = load ptr, ptr %15, align 8
-  %45 = load ptr, ptr %16, align 8
-  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
-  ret i32 %46
+  %37 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = load i64, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load ptr, ptr %15, align 8
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46)
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -561,18 +569,19 @@ define internal i32 @ompi_osc_monitoring_portals4_accumulate(ptr noundef %0, i32
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 6), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -613,16 +622,17 @@ define internal i32 @ompi_osc_monitoring_portals4_compare_and_swap(ptr noundef %
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 7), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = load i64, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr %12, align 4
+  %38 = load i64, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i64 noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -663,16 +673,17 @@ define internal i32 @ompi_osc_monitoring_portals4_fetch_and_op(ptr noundef %0, p
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 8), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = load i64, ptr %12, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, ptr noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = load i64, ptr %12, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -736,21 +747,22 @@ define internal i32 @ompi_osc_monitoring_portals4_get_accumulate(ptr noundef %0,
   br label %51
 
 51:                                               ; preds = %34, %12
-  %52 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 9), align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = load ptr, ptr %15, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = load i32, ptr %17, align 4
-  %58 = load ptr, ptr %18, align 8
-  %59 = load i32, ptr %19, align 4
-  %60 = load i64, ptr %20, align 8
-  %61 = load i32, ptr %21, align 4
-  %62 = load ptr, ptr %22, align 8
-  %63 = load ptr, ptr %23, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = call i32 %52(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i64 noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  ret i32 %65
+  %52 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = load i32, ptr %17, align 4
+  %59 = load ptr, ptr %18, align 8
+  %60 = load i32, ptr %19, align 4
+  %61 = load i64, ptr %20, align 8
+  %62 = load i32, ptr %21, align 4
+  %63 = load ptr, ptr %22, align 8
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %24, align 8
+  %66 = call i32 %53(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i64 noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -798,18 +810,19 @@ define internal i32 @ompi_osc_monitoring_portals4_rput(ptr noundef %0, i32 nound
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 10), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 10
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -859,18 +872,19 @@ define internal i32 @ompi_osc_monitoring_portals4_rget(ptr noundef %0, i32 nound
   br label %38
 
 38:                                               ; preds = %28, %9
-  %39 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 11), align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load i64, ptr %14, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = load ptr, ptr %16, align 8
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  ret i32 %49
+  %39 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 11
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr %13, align 4
+  %45 = load i64, ptr %14, align 8
+  %46 = load i32, ptr %15, align 4
+  %47 = load ptr, ptr %16, align 8
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -920,19 +934,20 @@ define internal i32 @ompi_osc_monitoring_portals4_raccumulate(ptr noundef %0, i3
   br label %39
 
 39:                                               ; preds = %30, %10
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 12), align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %14, align 4
-  %45 = load i64, ptr %15, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %19, align 8
-  %50 = load ptr, ptr %20, align 8
-  %51 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  ret i32 %51
+  %40 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 12
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = load i64, ptr %15, align 8
+  %47 = load i32, ptr %16, align 4
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = load ptr, ptr %19, align 8
+  %51 = load ptr, ptr %20, align 8
+  %52 = call i32 %41(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i64 noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -998,22 +1013,23 @@ define internal i32 @ompi_osc_monitoring_portals4_rget_accumulate(ptr noundef %0
   br label %53
 
 53:                                               ; preds = %36, %13
-  %54 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 13), align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = load ptr, ptr %16, align 8
-  %58 = load ptr, ptr %17, align 8
-  %59 = load i32, ptr %18, align 4
-  %60 = load ptr, ptr %19, align 8
-  %61 = load i32, ptr %20, align 4
-  %62 = load i64, ptr %21, align 8
-  %63 = load i32, ptr %22, align 4
-  %64 = load ptr, ptr %23, align 8
-  %65 = load ptr, ptr %24, align 8
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %26, align 8
-  %68 = call i32 %54(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i64 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  ret i32 %68
+  %54 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load ptr, ptr %16, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = load i32, ptr %18, align 4
+  %61 = load ptr, ptr %19, align 8
+  %62 = load i32, ptr %20, align 4
+  %63 = load i64, ptr %21, align 8
+  %64 = load i32, ptr %22, align 4
+  %65 = load ptr, ptr %23, align 8
+  %66 = load ptr, ptr %24, align 8
+  %67 = load ptr, ptr %25, align 8
+  %68 = load ptr, ptr %26, align 8
+  %69 = call i32 %55(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i64 noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1022,11 +1038,12 @@ define internal i32 @ompi_osc_monitoring_portals4_fence(i32 noundef %0, ptr noun
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 14), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 14
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1037,22 +1054,24 @@ define internal i32 @ompi_osc_monitoring_portals4_start(ptr noundef %0, i32 noun
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 15), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 15
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_complete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 16), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1063,22 +1082,24 @@ define internal i32 @ompi_osc_monitoring_portals4_post(ptr noundef %0, i32 nound
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 17), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 17
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_wait(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 18), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 18
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1087,11 +1108,12 @@ define internal i32 @ompi_osc_monitoring_portals4_test(ptr noundef %0, ptr nound
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 19), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 19
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1104,13 +1126,14 @@ define internal i32 @ompi_osc_monitoring_portals4_lock(i32 noundef %0, i32 nound
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 20), align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = call i32 %9(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
-  ret i32 %14
+  %9 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 20
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %7, align 4
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 %10(i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1119,11 +1142,12 @@ define internal i32 @ompi_osc_monitoring_portals4_unlock(i32 noundef %0, ptr nou
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 21), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1132,31 +1156,34 @@ define internal i32 @ompi_osc_monitoring_portals4_lock_all(i32 noundef %0, ptr n
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 22), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 22
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_unlock_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 23), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 23
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_sync(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 24), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1165,21 +1192,23 @@ define internal i32 @ompi_osc_monitoring_portals4_flush(i32 noundef %0, ptr noun
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 25), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 25
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 26), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 26
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1188,21 +1217,23 @@ define internal i32 @ompi_osc_monitoring_portals4_flush_local(i32 noundef %0, pt
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 27), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 27
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_flush_local_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 28), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_portals4_template, i32 0, i32 28
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1631,12 +1662,13 @@ define internal i32 @ompi_osc_monitoring_rdma_attach(ptr noundef %0, ptr noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, ptr noundef %10, i64 noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1645,21 +1677,23 @@ define internal i32 @ompi_osc_monitoring_rdma_detach(ptr noundef %0, ptr noundef
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1705,17 +1739,18 @@ define internal i32 @ompi_osc_monitoring_rdma_put(ptr noundef %0, i32 noundef %1
   br label %35
 
 35:                                               ; preds = %26, %8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 4), align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = load i64, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = load ptr, ptr %15, align 8
-  %44 = load ptr, ptr %16, align 8
-  %45 = call i32 %36(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44)
-  ret i32 %45
+  %36 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %12, align 4
+  %42 = load i64, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %16, align 8
+  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1763,17 +1798,18 @@ define internal i32 @ompi_osc_monitoring_rdma_get(ptr noundef %0, i32 noundef %1
   br label %36
 
 36:                                               ; preds = %26, %8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 5), align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = load i64, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = load ptr, ptr %15, align 8
-  %45 = load ptr, ptr %16, align 8
-  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
-  ret i32 %46
+  %37 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = load i64, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load ptr, ptr %15, align 8
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46)
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1821,18 +1857,19 @@ define internal i32 @ompi_osc_monitoring_rdma_accumulate(ptr noundef %0, i32 nou
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 6), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1873,16 +1910,17 @@ define internal i32 @ompi_osc_monitoring_rdma_compare_and_swap(ptr noundef %0, p
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 7), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = load i64, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr %12, align 4
+  %38 = load i64, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i64 noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1923,16 +1961,17 @@ define internal i32 @ompi_osc_monitoring_rdma_fetch_and_op(ptr noundef %0, ptr n
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 8), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = load i64, ptr %12, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, ptr noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = load i64, ptr %12, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1996,21 +2035,22 @@ define internal i32 @ompi_osc_monitoring_rdma_get_accumulate(ptr noundef %0, i32
   br label %51
 
 51:                                               ; preds = %34, %12
-  %52 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 9), align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = load ptr, ptr %15, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = load i32, ptr %17, align 4
-  %58 = load ptr, ptr %18, align 8
-  %59 = load i32, ptr %19, align 4
-  %60 = load i64, ptr %20, align 8
-  %61 = load i32, ptr %21, align 4
-  %62 = load ptr, ptr %22, align 8
-  %63 = load ptr, ptr %23, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = call i32 %52(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i64 noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  ret i32 %65
+  %52 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = load i32, ptr %17, align 4
+  %59 = load ptr, ptr %18, align 8
+  %60 = load i32, ptr %19, align 4
+  %61 = load i64, ptr %20, align 8
+  %62 = load i32, ptr %21, align 4
+  %63 = load ptr, ptr %22, align 8
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %24, align 8
+  %66 = call i32 %53(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i64 noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2058,18 +2098,19 @@ define internal i32 @ompi_osc_monitoring_rdma_rput(ptr noundef %0, i32 noundef %
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 10), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 10
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2119,18 +2160,19 @@ define internal i32 @ompi_osc_monitoring_rdma_rget(ptr noundef %0, i32 noundef %
   br label %38
 
 38:                                               ; preds = %28, %9
-  %39 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 11), align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load i64, ptr %14, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = load ptr, ptr %16, align 8
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  ret i32 %49
+  %39 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 11
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr %13, align 4
+  %45 = load i64, ptr %14, align 8
+  %46 = load i32, ptr %15, align 4
+  %47 = load ptr, ptr %16, align 8
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2180,19 +2222,20 @@ define internal i32 @ompi_osc_monitoring_rdma_raccumulate(ptr noundef %0, i32 no
   br label %39
 
 39:                                               ; preds = %30, %10
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 12), align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %14, align 4
-  %45 = load i64, ptr %15, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %19, align 8
-  %50 = load ptr, ptr %20, align 8
-  %51 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  ret i32 %51
+  %40 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 12
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = load i64, ptr %15, align 8
+  %47 = load i32, ptr %16, align 4
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = load ptr, ptr %19, align 8
+  %51 = load ptr, ptr %20, align 8
+  %52 = call i32 %41(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i64 noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2258,22 +2301,23 @@ define internal i32 @ompi_osc_monitoring_rdma_rget_accumulate(ptr noundef %0, i3
   br label %53
 
 53:                                               ; preds = %36, %13
-  %54 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 13), align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = load ptr, ptr %16, align 8
-  %58 = load ptr, ptr %17, align 8
-  %59 = load i32, ptr %18, align 4
-  %60 = load ptr, ptr %19, align 8
-  %61 = load i32, ptr %20, align 4
-  %62 = load i64, ptr %21, align 8
-  %63 = load i32, ptr %22, align 4
-  %64 = load ptr, ptr %23, align 8
-  %65 = load ptr, ptr %24, align 8
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %26, align 8
-  %68 = call i32 %54(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i64 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  ret i32 %68
+  %54 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load ptr, ptr %16, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = load i32, ptr %18, align 4
+  %61 = load ptr, ptr %19, align 8
+  %62 = load i32, ptr %20, align 4
+  %63 = load i64, ptr %21, align 8
+  %64 = load i32, ptr %22, align 4
+  %65 = load ptr, ptr %23, align 8
+  %66 = load ptr, ptr %24, align 8
+  %67 = load ptr, ptr %25, align 8
+  %68 = load ptr, ptr %26, align 8
+  %69 = call i32 %55(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i64 noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2282,11 +2326,12 @@ define internal i32 @ompi_osc_monitoring_rdma_fence(i32 noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 14), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 14
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2297,22 +2342,24 @@ define internal i32 @ompi_osc_monitoring_rdma_start(ptr noundef %0, i32 noundef 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 15), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 15
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_complete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 16), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2323,22 +2370,24 @@ define internal i32 @ompi_osc_monitoring_rdma_post(ptr noundef %0, i32 noundef %
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 17), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 17
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_wait(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 18), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 18
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2347,11 +2396,12 @@ define internal i32 @ompi_osc_monitoring_rdma_test(ptr noundef %0, ptr noundef %
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 19), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 19
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2364,13 +2414,14 @@ define internal i32 @ompi_osc_monitoring_rdma_lock(i32 noundef %0, i32 noundef %
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 20), align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = call i32 %9(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
-  ret i32 %14
+  %9 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 20
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %7, align 4
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 %10(i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2379,11 +2430,12 @@ define internal i32 @ompi_osc_monitoring_rdma_unlock(i32 noundef %0, ptr noundef
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 21), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2392,31 +2444,34 @@ define internal i32 @ompi_osc_monitoring_rdma_lock_all(i32 noundef %0, ptr nound
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 22), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 22
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_unlock_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 23), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 23
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_sync(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 24), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2425,21 +2480,23 @@ define internal i32 @ompi_osc_monitoring_rdma_flush(i32 noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 25), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 25
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 26), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 26
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2448,21 +2505,23 @@ define internal i32 @ompi_osc_monitoring_rdma_flush_local(i32 noundef %0, ptr no
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 27), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 27
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_flush_local_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 28), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_rdma_template, i32 0, i32 28
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2473,12 +2532,13 @@ define internal i32 @ompi_osc_monitoring_ucx_attach(ptr noundef %0, ptr noundef 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, ptr noundef %10, i64 noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2487,21 +2547,23 @@ define internal i32 @ompi_osc_monitoring_ucx_detach(ptr noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2547,17 +2609,18 @@ define internal i32 @ompi_osc_monitoring_ucx_put(ptr noundef %0, i32 noundef %1,
   br label %35
 
 35:                                               ; preds = %26, %8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 4), align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = load i64, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = load ptr, ptr %15, align 8
-  %44 = load ptr, ptr %16, align 8
-  %45 = call i32 %36(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44)
-  ret i32 %45
+  %36 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %12, align 4
+  %42 = load i64, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %16, align 8
+  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2605,17 +2668,18 @@ define internal i32 @ompi_osc_monitoring_ucx_get(ptr noundef %0, i32 noundef %1,
   br label %36
 
 36:                                               ; preds = %26, %8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 5), align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = load i64, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = load ptr, ptr %15, align 8
-  %45 = load ptr, ptr %16, align 8
-  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
-  ret i32 %46
+  %37 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = load i64, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load ptr, ptr %15, align 8
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46)
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2663,18 +2727,19 @@ define internal i32 @ompi_osc_monitoring_ucx_accumulate(ptr noundef %0, i32 noun
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 6), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2715,16 +2780,17 @@ define internal i32 @ompi_osc_monitoring_ucx_compare_and_swap(ptr noundef %0, pt
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 7), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = load i64, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr %12, align 4
+  %38 = load i64, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i64 noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2765,16 +2831,17 @@ define internal i32 @ompi_osc_monitoring_ucx_fetch_and_op(ptr noundef %0, ptr no
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 8), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = load i64, ptr %12, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, ptr noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = load i64, ptr %12, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2838,21 +2905,22 @@ define internal i32 @ompi_osc_monitoring_ucx_get_accumulate(ptr noundef %0, i32 
   br label %51
 
 51:                                               ; preds = %34, %12
-  %52 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 9), align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = load ptr, ptr %15, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = load i32, ptr %17, align 4
-  %58 = load ptr, ptr %18, align 8
-  %59 = load i32, ptr %19, align 4
-  %60 = load i64, ptr %20, align 8
-  %61 = load i32, ptr %21, align 4
-  %62 = load ptr, ptr %22, align 8
-  %63 = load ptr, ptr %23, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = call i32 %52(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i64 noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  ret i32 %65
+  %52 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = load i32, ptr %17, align 4
+  %59 = load ptr, ptr %18, align 8
+  %60 = load i32, ptr %19, align 4
+  %61 = load i64, ptr %20, align 8
+  %62 = load i32, ptr %21, align 4
+  %63 = load ptr, ptr %22, align 8
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %24, align 8
+  %66 = call i32 %53(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i64 noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2900,18 +2968,19 @@ define internal i32 @ompi_osc_monitoring_ucx_rput(ptr noundef %0, i32 noundef %1
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 10), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 10
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2961,18 +3030,19 @@ define internal i32 @ompi_osc_monitoring_ucx_rget(ptr noundef %0, i32 noundef %1
   br label %38
 
 38:                                               ; preds = %28, %9
-  %39 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 11), align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load i64, ptr %14, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = load ptr, ptr %16, align 8
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  ret i32 %49
+  %39 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 11
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr %13, align 4
+  %45 = load i64, ptr %14, align 8
+  %46 = load i32, ptr %15, align 4
+  %47 = load ptr, ptr %16, align 8
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3022,19 +3092,20 @@ define internal i32 @ompi_osc_monitoring_ucx_raccumulate(ptr noundef %0, i32 nou
   br label %39
 
 39:                                               ; preds = %30, %10
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 12), align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %14, align 4
-  %45 = load i64, ptr %15, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %19, align 8
-  %50 = load ptr, ptr %20, align 8
-  %51 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  ret i32 %51
+  %40 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 12
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = load i64, ptr %15, align 8
+  %47 = load i32, ptr %16, align 4
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = load ptr, ptr %19, align 8
+  %51 = load ptr, ptr %20, align 8
+  %52 = call i32 %41(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i64 noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3100,22 +3171,23 @@ define internal i32 @ompi_osc_monitoring_ucx_rget_accumulate(ptr noundef %0, i32
   br label %53
 
 53:                                               ; preds = %36, %13
-  %54 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 13), align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = load ptr, ptr %16, align 8
-  %58 = load ptr, ptr %17, align 8
-  %59 = load i32, ptr %18, align 4
-  %60 = load ptr, ptr %19, align 8
-  %61 = load i32, ptr %20, align 4
-  %62 = load i64, ptr %21, align 8
-  %63 = load i32, ptr %22, align 4
-  %64 = load ptr, ptr %23, align 8
-  %65 = load ptr, ptr %24, align 8
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %26, align 8
-  %68 = call i32 %54(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i64 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  ret i32 %68
+  %54 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load ptr, ptr %16, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = load i32, ptr %18, align 4
+  %61 = load ptr, ptr %19, align 8
+  %62 = load i32, ptr %20, align 4
+  %63 = load i64, ptr %21, align 8
+  %64 = load i32, ptr %22, align 4
+  %65 = load ptr, ptr %23, align 8
+  %66 = load ptr, ptr %24, align 8
+  %67 = load ptr, ptr %25, align 8
+  %68 = load ptr, ptr %26, align 8
+  %69 = call i32 %55(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i64 noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3124,11 +3196,12 @@ define internal i32 @ompi_osc_monitoring_ucx_fence(i32 noundef %0, ptr noundef %
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 14), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 14
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3139,22 +3212,24 @@ define internal i32 @ompi_osc_monitoring_ucx_start(ptr noundef %0, i32 noundef %
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 15), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 15
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_complete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 16), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3165,22 +3240,24 @@ define internal i32 @ompi_osc_monitoring_ucx_post(ptr noundef %0, i32 noundef %1
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 17), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 17
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_wait(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 18), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 18
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3189,11 +3266,12 @@ define internal i32 @ompi_osc_monitoring_ucx_test(ptr noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 19), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 19
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3206,13 +3284,14 @@ define internal i32 @ompi_osc_monitoring_ucx_lock(i32 noundef %0, i32 noundef %1
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 20), align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = call i32 %9(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
-  ret i32 %14
+  %9 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 20
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %7, align 4
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 %10(i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3221,11 +3300,12 @@ define internal i32 @ompi_osc_monitoring_ucx_unlock(i32 noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 21), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3234,31 +3314,34 @@ define internal i32 @ompi_osc_monitoring_ucx_lock_all(i32 noundef %0, ptr nounde
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 22), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 22
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_unlock_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 23), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 23
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_sync(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 24), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3267,21 +3350,23 @@ define internal i32 @ompi_osc_monitoring_ucx_flush(i32 noundef %0, ptr noundef %
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 25), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 25
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 26), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 26
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3290,21 +3375,23 @@ define internal i32 @ompi_osc_monitoring_ucx_flush_local(i32 noundef %0, ptr nou
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 27), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 27
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_flush_local_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 28), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_ucx_template, i32 0, i32 28
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3315,12 +3402,13 @@ define internal i32 @ompi_osc_monitoring_sm_attach(ptr noundef %0, ptr noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, ptr noundef %10, i64 noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3329,21 +3417,23 @@ define internal i32 @ompi_osc_monitoring_sm_detach(ptr noundef %0, ptr noundef %
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3389,17 +3479,18 @@ define internal i32 @ompi_osc_monitoring_sm_put(ptr noundef %0, i32 noundef %1, 
   br label %35
 
 35:                                               ; preds = %26, %8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 4), align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = load i64, ptr %13, align 8
-  %42 = load i32, ptr %14, align 4
-  %43 = load ptr, ptr %15, align 8
-  %44 = load ptr, ptr %16, align 8
-  %45 = call i32 %36(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44)
-  ret i32 %45
+  %36 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %12, align 4
+  %42 = load i64, ptr %13, align 8
+  %43 = load i32, ptr %14, align 4
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %16, align 8
+  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3447,17 +3538,18 @@ define internal i32 @ompi_osc_monitoring_sm_get(ptr noundef %0, i32 noundef %1, 
   br label %36
 
 36:                                               ; preds = %26, %8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 5), align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = load i64, ptr %13, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = load ptr, ptr %15, align 8
-  %45 = load ptr, ptr %16, align 8
-  %46 = call i32 %37(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45)
-  ret i32 %46
+  %37 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = load i64, ptr %13, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load ptr, ptr %15, align 8
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46)
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3505,18 +3597,19 @@ define internal i32 @ompi_osc_monitoring_sm_accumulate(ptr noundef %0, i32 nound
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 6), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3557,16 +3650,17 @@ define internal i32 @ompi_osc_monitoring_sm_compare_and_swap(ptr noundef %0, ptr
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 7), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = load i64, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr %12, align 4
+  %38 = load i64, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i64 noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3607,16 +3701,17 @@ define internal i32 @ompi_osc_monitoring_sm_fetch_and_op(ptr noundef %0, ptr nou
   br label %30
 
 30:                                               ; preds = %23, %7
-  %31 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 8), align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = load i64, ptr %12, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = call i32 %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, ptr noundef %37, ptr noundef %38)
-  ret i32 %39
+  %31 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = load i64, ptr %12, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
+  %40 = call i32 %32(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i64 noundef %37, ptr noundef %38, ptr noundef %39)
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3680,21 +3775,22 @@ define internal i32 @ompi_osc_monitoring_sm_get_accumulate(ptr noundef %0, i32 n
   br label %51
 
 51:                                               ; preds = %34, %12
-  %52 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 9), align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = load ptr, ptr %15, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = load i32, ptr %17, align 4
-  %58 = load ptr, ptr %18, align 8
-  %59 = load i32, ptr %19, align 4
-  %60 = load i64, ptr %20, align 8
-  %61 = load i32, ptr %21, align 4
-  %62 = load ptr, ptr %22, align 8
-  %63 = load ptr, ptr %23, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = call i32 %52(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i64 noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  ret i32 %65
+  %52 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %16, align 8
+  %58 = load i32, ptr %17, align 4
+  %59 = load ptr, ptr %18, align 8
+  %60 = load i32, ptr %19, align 4
+  %61 = load i64, ptr %20, align 8
+  %62 = load i32, ptr %21, align 4
+  %63 = load ptr, ptr %22, align 8
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %24, align 8
+  %66 = call i32 %53(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i64 noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3742,18 +3838,19 @@ define internal i32 @ompi_osc_monitoring_sm_rput(ptr noundef %0, i32 noundef %1,
   br label %37
 
 37:                                               ; preds = %28, %9
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 10), align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = load i64, ptr %14, align 8
-  %44 = load i32, ptr %15, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %17, align 8
-  %47 = load ptr, ptr %18, align 8
-  %48 = call i32 %38(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  ret i32 %48
+  %38 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 10
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = load i64, ptr %14, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
+  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3803,18 +3900,19 @@ define internal i32 @ompi_osc_monitoring_sm_rget(ptr noundef %0, i32 noundef %1,
   br label %38
 
 38:                                               ; preds = %28, %9
-  %39 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 11), align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = load i64, ptr %14, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = load ptr, ptr %16, align 8
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = call i32 %39(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i64 noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  ret i32 %49
+  %39 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 11
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr %13, align 4
+  %45 = load i64, ptr %14, align 8
+  %46 = load i32, ptr %15, align 4
+  %47 = load ptr, ptr %16, align 8
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3864,19 +3962,20 @@ define internal i32 @ompi_osc_monitoring_sm_raccumulate(ptr noundef %0, i32 noun
   br label %39
 
 39:                                               ; preds = %30, %10
-  %40 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 12), align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %14, align 4
-  %45 = load i64, ptr %15, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = load ptr, ptr %17, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %19, align 8
-  %50 = load ptr, ptr %20, align 8
-  %51 = call i32 %40(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i64 noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  ret i32 %51
+  %40 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 12
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load ptr, ptr %13, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = load i64, ptr %15, align 8
+  %47 = load i32, ptr %16, align 4
+  %48 = load ptr, ptr %17, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = load ptr, ptr %19, align 8
+  %51 = load ptr, ptr %20, align 8
+  %52 = call i32 %41(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i64 noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3942,22 +4041,23 @@ define internal i32 @ompi_osc_monitoring_sm_rget_accumulate(ptr noundef %0, i32 
   br label %53
 
 53:                                               ; preds = %36, %13
-  %54 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 13), align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = load ptr, ptr %16, align 8
-  %58 = load ptr, ptr %17, align 8
-  %59 = load i32, ptr %18, align 4
-  %60 = load ptr, ptr %19, align 8
-  %61 = load i32, ptr %20, align 4
-  %62 = load i64, ptr %21, align 8
-  %63 = load i32, ptr %22, align 4
-  %64 = load ptr, ptr %23, align 8
-  %65 = load ptr, ptr %24, align 8
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %26, align 8
-  %68 = call i32 %54(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i64 noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  ret i32 %68
+  %54 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load ptr, ptr %16, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = load i32, ptr %18, align 4
+  %61 = load ptr, ptr %19, align 8
+  %62 = load i32, ptr %20, align 4
+  %63 = load i64, ptr %21, align 8
+  %64 = load i32, ptr %22, align 4
+  %65 = load ptr, ptr %23, align 8
+  %66 = load ptr, ptr %24, align 8
+  %67 = load ptr, ptr %25, align 8
+  %68 = load ptr, ptr %26, align 8
+  %69 = call i32 %55(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i64 noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3966,11 +4066,12 @@ define internal i32 @ompi_osc_monitoring_sm_fence(i32 noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 14), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 14
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3981,22 +4082,24 @@ define internal i32 @ompi_osc_monitoring_sm_start(ptr noundef %0, i32 noundef %1
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 15), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 15
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_complete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 16), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4007,22 +4110,24 @@ define internal i32 @ompi_osc_monitoring_sm_post(ptr noundef %0, i32 noundef %1,
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 17), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 17
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(ptr noundef %9, i32 noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_wait(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 18), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 18
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4031,11 +4136,12 @@ define internal i32 @ompi_osc_monitoring_sm_test(ptr noundef %0, ptr noundef %1)
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 19), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 19
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4048,13 +4154,14 @@ define internal i32 @ompi_osc_monitoring_sm_lock(i32 noundef %0, i32 noundef %1,
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 20), align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = call i32 %9(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
-  ret i32 %14
+  %9 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 20
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %7, align 4
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 %10(i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4063,11 +4170,12 @@ define internal i32 @ompi_osc_monitoring_sm_unlock(i32 noundef %0, ptr noundef %
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 21), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4076,31 +4184,34 @@ define internal i32 @ompi_osc_monitoring_sm_lock_all(i32 noundef %0, ptr noundef
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 22), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 22
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_unlock_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 23), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 23
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_sync(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 24), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4109,21 +4220,23 @@ define internal i32 @ompi_osc_monitoring_sm_flush(i32 noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 25), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 25
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 26), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 26
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4132,21 +4245,23 @@ define internal i32 @ompi_osc_monitoring_sm_flush_local(i32 noundef %0, ptr noun
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 27), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 27
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_flush_local_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 28), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_osc_base_module_3_0_0_t, ptr @ompi_osc_monitoring_module_sm_template, i32 0, i32 28
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 declare void @mca_common_monitoring_finalize() #1

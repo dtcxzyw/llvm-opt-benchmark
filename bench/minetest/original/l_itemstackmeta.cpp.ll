@@ -362,12 +362,13 @@ _ZNSt3mapIfN3irr5video6SColorESt4lessIfESaISt4pairIKfS2_EEED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN16ItemStackMetaRefC2EP12LuaItemStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %istack) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !10
   %istack2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %istack, ptr %istack2, align 8, !tbaa !4
   %m_refcount.i = getelementptr inbounds i8, ptr %istack, i64 8
-  %0 = load i32, ptr %m_refcount.i, align 8, !tbaa !32
-  %inc.i = add i32 %0, 1
+  %1 = load i32, ptr %m_refcount.i, align 8, !tbaa !32
+  %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %m_refcount.i, align 8, !tbaa !32
   ret void
 }
@@ -375,21 +376,22 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16ItemStackMetaRefD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !10
   %istack = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %istack, align 8, !tbaa !4
-  %m_refcount.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %m_refcount.i, align 8, !tbaa !32
-  %dec.i = add i32 %1, -1
+  %1 = load ptr, ptr %istack, align 8, !tbaa !4
+  %m_refcount.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i32, ptr %m_refcount.i, align 8, !tbaa !32
+  %dec.i = add i32 %2, -1
   store i32 %dec.i, ptr %m_refcount.i, align 8, !tbaa !32
   %cmp.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN25IntrusiveReferenceCounted4dropEv.exit
 
 delete.notnull.i:                                 ; preds = %entry
-  %vtable.i = load ptr, ptr %0, align 8, !tbaa !10
+  %vtable.i = load ptr, ptr %1, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
+  %3 = load ptr, ptr %vfn.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %1) #16
   br label %_ZN25IntrusiveReferenceCounted4dropEv.exit
 
 _ZN25IntrusiveReferenceCounted4dropEv.exit:       ; preds = %delete.notnull.i, %entry
@@ -399,21 +401,22 @@ _ZN25IntrusiveReferenceCounted4dropEv.exit:       ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16ItemStackMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !10
   %istack.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %istack.i, align 8, !tbaa !4
-  %m_refcount.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %m_refcount.i.i, align 8, !tbaa !32
-  %dec.i.i = add i32 %1, -1
+  %1 = load ptr, ptr %istack.i, align 8, !tbaa !4
+  %m_refcount.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i32, ptr %m_refcount.i.i, align 8, !tbaa !32
+  %dec.i.i = add i32 %2, -1
   store i32 %dec.i.i, ptr %m_refcount.i.i, align 8, !tbaa !32
   %cmp.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN16ItemStackMetaRefD2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %entry
-  %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !10
+  %vtable.i.i = load ptr, ptr %1, align 8, !tbaa !10
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
+  %3 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %1) #16
   br label %_ZN16ItemStackMetaRefD2Ev.exit
 
 _ZN16ItemStackMetaRefD2Ev.exit:                   ; preds = %delete.notnull.i.i, %entry
@@ -428,12 +431,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 define dso_local void @_ZN16ItemStackMetaRef6createEP9lua_StateP12LuaItemStack(ptr noundef %L, ptr noundef %istack) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !10
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2
+  store ptr %0, ptr %call, align 8, !tbaa !10
   %istack2.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %istack, ptr %istack2.i, align 8, !tbaa !4
   %m_refcount.i.i = getelementptr inbounds i8, ptr %istack, i64 8
-  %0 = load i32, ptr %m_refcount.i.i, align 8, !tbaa !32
-  %inc.i.i = add i32 %0, 1
+  %1 = load i32, ptr %m_refcount.i.i, align 8, !tbaa !32
+  %inc.i.i = add i32 %1, 1
   store i32 %inc.i.i, ptr %m_refcount.i.i, align 8, !tbaa !32
   %call1 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 8)
   store ptr %call, ptr %call1, align 8, !tbaa !12

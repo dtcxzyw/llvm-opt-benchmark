@@ -148,66 +148,67 @@ if.end12:                                         ; preds = %if.then8, %land.lhs
   %call13 = call ptr @mmap(ptr noundef %20, i64 noundef %mul, i32 noundef %23, i32 noundef %24, i32 noundef %25, i64 noundef 0) #2
   store ptr %call13, ptr %Addr, align 8
   %26 = load ptr, ptr %Addr, align 8
-  %cmp14 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  %27 = inttoptr i64 -1 to ptr
+  %cmp14 = icmp eq ptr %26, %27
   br i1 %cmp14, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.end12
-  %27 = load ptr, ptr %NearBlock.addr, align 8
-  %tobool16 = icmp ne ptr %27, null
+  %28 = load ptr, ptr %NearBlock.addr, align 8
+  %tobool16 = icmp ne ptr %28, null
   br i1 %tobool16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.then15
-  %28 = load i64, ptr %NumBytes.addr, align 8
-  %29 = load i32, ptr %PFlags.addr, align 4
-  %30 = load ptr, ptr %EC.addr, align 8
-  %call18 = call { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %28, ptr noundef null, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %32 = extractvalue { ptr, i64 } %call18, 0
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %34 = extractvalue { ptr, i64 } %call18, 1
-  store i64 %34, ptr %33, align 8
+  %29 = load i64, ptr %NumBytes.addr, align 8
+  %30 = load i32, ptr %PFlags.addr, align 4
+  %31 = load ptr, ptr %EC.addr, align 8
+  %call18 = call { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %29, ptr noundef null, i32 noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %32 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %33 = extractvalue { ptr, i64 } %call18, 0
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %35 = extractvalue { ptr, i64 } %call18, 1
+  store i64 %35, ptr %34, align 8
   br label %return
 
 if.end19:                                         ; preds = %if.then15
   %call21 = call ptr @__errno_location() #6
-  %35 = load i32, ptr %call21, align 4
+  %36 = load i32, ptr %call21, align 4
   %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #6
-  call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %call22) #2
-  %36 = load ptr, ptr %EC.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %ref.tmp20, i64 16, i1 false)
+  call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %call22) #2
+  %37 = load ptr, ptr %EC.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %ref.tmp20, i64 16, i1 false)
   call void @_ZN4llvh3sys11MemoryBlockC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   br label %return
 
 if.end23:                                         ; preds = %if.end12
   call void @_ZN4llvh3sys11MemoryBlockC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Result)
-  %37 = load ptr, ptr %Addr, align 8
+  %38 = load ptr, ptr %Addr, align 8
   %Address = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %Result, i32 0, i32 0
-  store ptr %37, ptr %Address, align 8
-  %38 = load i64, ptr %NumPages, align 8
-  %39 = load i64, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
-  %mul24 = mul i64 %38, %39
+  store ptr %38, ptr %Address, align 8
+  %39 = load i64, ptr %NumPages, align 8
+  %40 = load i64, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
+  %mul24 = mul i64 %39, %40
   %Size = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %Result, i32 0, i32 1
   store i64 %mul24, ptr %Size, align 8
-  %40 = load i32, ptr %PFlags.addr, align 4
-  %and = and i32 %40, 67108864
+  %41 = load i32, ptr %PFlags.addr, align 4
+  %and = and i32 %41, 67108864
   %tobool25 = icmp ne i32 %and, 0
   br i1 %tobool25, label %if.then26, label %if.end33
 
 if.then26:                                        ; preds = %if.end23
-  %41 = load i32, ptr %PFlags.addr, align 4
-  %call28 = call { i32, ptr } @_ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull align 8 dereferenceable(16) %Result, i32 noundef %41)
-  %42 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp27, i32 0, i32 0
-  %43 = extractvalue { i32, ptr } %call28, 0
-  store i32 %43, ptr %42, align 8
-  %44 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp27, i32 0, i32 1
-  %45 = extractvalue { i32, ptr } %call28, 1
-  store ptr %45, ptr %44, align 8
-  %46 = load ptr, ptr %EC.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %ref.tmp27, i64 16, i1 false)
+  %42 = load i32, ptr %PFlags.addr, align 4
+  %call28 = call { i32, ptr } @_ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull align 8 dereferenceable(16) %Result, i32 noundef %42)
+  %43 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp27, i32 0, i32 0
+  %44 = extractvalue { i32, ptr } %call28, 0
+  store i32 %44, ptr %43, align 8
+  %45 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp27, i32 0, i32 1
+  %46 = extractvalue { i32, ptr } %call28, 1
+  store ptr %46, ptr %45, align 8
   %47 = load ptr, ptr %EC.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %ref.tmp27, i64 16, i1 false)
+  %48 = load ptr, ptr %EC.addr, align 8
   call void @_ZNSt10error_codeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29) #2
-  %call30 = call noundef zeroext i1 @_ZStneRKSt10error_codeS1_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29) #2
+  %call30 = call noundef zeroext i1 @_ZStneRKSt10error_codeS1_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29) #2
   br i1 %call30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.then26
@@ -222,8 +223,8 @@ if.end33:                                         ; preds = %if.end32, %if.end23
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then31, %if.end19, %if.then17, %if.then
-  %48 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %48
+  %49 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

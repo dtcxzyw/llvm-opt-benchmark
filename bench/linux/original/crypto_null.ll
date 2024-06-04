@@ -59,28 +59,29 @@ define dso_local ptr @crypto_get_default_null_skcipher() #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @crypto_default_null_skcipher_lock) #8
   %1 = load ptr, ptr @crypto_default_null_skcipher, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %3, label %7
+  br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
   %4 = tail call ptr @crypto_alloc_sync_skcipher(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #8
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %11, label %6
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   store ptr %4, ptr @crypto_default_null_skcipher, align 8
-  br label %7
+  br label %8
 
-7:                                                ; preds = %6, %0
-  %8 = phi ptr [ %1, %0 ], [ %4, %6 ]
-  %9 = load i32, ptr @crypto_default_null_skcipher_refcnt, align 4
-  %10 = add i32 %9, 1
-  store i32 %10, ptr @crypto_default_null_skcipher_refcnt, align 4
-  br label %11
+8:                                                ; preds = %7, %0
+  %9 = phi ptr [ %1, %0 ], [ %4, %7 ]
+  %10 = load i32, ptr @crypto_default_null_skcipher_refcnt, align 4
+  %11 = add i32 %10, 1
+  store i32 %11, ptr @crypto_default_null_skcipher_refcnt, align 4
+  br label %12
 
-11:                                               ; preds = %7, %3
-  %12 = phi ptr [ %8, %7 ], [ %4, %3 ]
+12:                                               ; preds = %8, %3
+  %13 = phi ptr [ %9, %8 ], [ %4, %3 ]
   tail call void @mutex_unlock(ptr noundef nonnull @crypto_default_null_skcipher_lock) #8
-  ret ptr %12
+  ret ptr %13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

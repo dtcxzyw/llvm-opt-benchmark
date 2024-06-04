@@ -118,10 +118,11 @@ entry:
   store i8 %bin, ptr %bin.addr, align 1
   %0 = load i8, ptr %bin.addr, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2), i64 0, i64 %idxprom
+  %1 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_empty, i32 0, i32 2
+  %arrayidx = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %1, i64 0, i64 %idxprom
   %block_size = getelementptr inbounds %struct.mi_page_queue_s, ptr %arrayidx, i32 0, i32 2
-  %1 = load i64, ptr %block_size, align 8
-  ret i64 %1
+  %2 = load i64, ptr %block_size, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable

@@ -197,13 +197,14 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.cond
   %1 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1), i64 0, i64 %1
+  %2 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr %2, i64 0, i64 %1
   %call = call noundef zeroext i1 @_ZN2EA6Thread9AtomicIntIiE19SetValueConditionalEii(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, i32 noundef 1, i32 noundef 0)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %2 = load i64, ptr %i, align 8
-  %arrayidx1 = getelementptr inbounds [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %2
+  %3 = load i64, ptr %i, align 8
+  %arrayidx1 = getelementptr inbounds [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %3
   %arraydecay = getelementptr inbounds [240 x i8], ptr %arrayidx1, i64 0, i64 0
   store ptr %arraydecay, ptr %retval, align 8
   br label %return
@@ -212,22 +213,22 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %3 = load i64, ptr %i, align 8
-  %inc = add i64 %3, 1
+  %4 = load i64, ptr %i, align 8
+  %inc = add i64 %4, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %4 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %for.end
-  %5 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %6 = load ptr, ptr %vfn, align 8
-  %call3 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 240, ptr noundef null, i32 noundef 0)
+  %7 = load ptr, ptr %vfn, align 8
+  %call3 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 240, ptr noundef null, i32 noundef 0)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
@@ -237,8 +238,8 @@ if.else:                                          ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.else, %if.then2, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -618,43 +619,46 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  %cmp1 = icmp ult ptr %1, getelementptr inbounds (%struct.EAThreadDynamicData, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 128)
+  %2 = getelementptr inbounds %struct.EAThreadDynamicData, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 128
+  %cmp1 = icmp ult ptr %1, %2
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  call void @_ZN19EAThreadDynamicDataD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %2) #3
   %3 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE to i64)
+  call void @_ZN19EAThreadDynamicDataD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %3) #3
+  %4 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
+  %5 = ptrtoint ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %5
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 240
-  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1), i64 0, i64 %sub.ptr.div
+  %6 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr %6, i64 0, i64 %sub.ptr.div
   %call = call noundef i32 @_ZN2EA6Thread9AtomicIntIiE8SetValueEi(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, i32 noundef 0)
   br label %if.end4
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  call void @_ZN19EAThreadDynamicDataD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %4) #3
-  %5 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  %tobool = icmp ne ptr %5, null
+  %7 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
+  call void @_ZN19EAThreadDynamicDataD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %7) #3
+  %8 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
+  %tobool = icmp ne ptr %8, null
   br i1 %tobool, label %if.then2, label %if.else3
 
 if.then2:                                         ; preds = %if.else
-  %6 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  %7 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
+  %10 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %8 = load ptr, ptr %vfn, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, i64 noundef 0)
+  %11 = load ptr, ptr %vfn, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, i64 noundef 0)
   br label %if.end
 
 if.else3:                                         ; preds = %if.else
-  %9 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
-  %isnull = icmp eq ptr %9, null
+  %12 = load ptr, ptr %pEAThreadDynamicData.addr, align 8
+  %isnull = icmp eq ptr %12, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else3
-  call void @_ZdaPv(ptr noundef %9) #12
+  call void @_ZdaPv(ptr noundef %12) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.else3
@@ -2848,48 +2852,50 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
+  %1 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 2
+  %call = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i64, ptr %i, align 8
-  %cmp1 = icmp ult i64 %1, 128
+  %2 = load i64, ptr %i, align 8
+  %cmp1 = icmp ult i64 %2, 128
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1), i64 0, i64 %2
+  %3 = load i64, ptr %i, align 8
+  %4 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 1
+  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr %4, i64 0, i64 %3
   %call2 = call noundef i32 @_ZNK2EA6Thread9AtomicIntIiE8GetValueEv(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx)
   %cmp3 = icmp ne i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end12
 
 if.then4:                                         ; preds = %for.body
-  %3 = load i64, ptr %requiredCount, align 8
-  %4 = load i64, ptr %dataArrayCapacity.addr, align 8
-  %cmp5 = icmp ult i64 %3, %4
+  %5 = load i64, ptr %requiredCount, align 8
+  %6 = load i64, ptr %dataArrayCapacity.addr, align 8
+  %cmp5 = icmp ult i64 %5, %6
   br i1 %cmp5, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.then4
-  %5 = load i64, ptr %i, align 8
-  %arrayidx7 = getelementptr inbounds [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %5
+  %7 = load i64, ptr %i, align 8
+  %arrayidx7 = getelementptr inbounds [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %7
   %arraydecay = getelementptr inbounds [240 x i8], ptr %arrayidx7, i64 0, i64 0
-  %6 = load ptr, ptr %pDataArray.addr, align 8
-  %7 = load i64, ptr %requiredCount, align 8
-  %arrayidx8 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %6, i64 %7
-  %mpThreadDynamicData = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %arrayidx8, i32 0, i32 0
-  store ptr %arraydecay, ptr %mpThreadDynamicData, align 8
   %8 = load ptr, ptr %pDataArray.addr, align 8
   %9 = load i64, ptr %requiredCount, align 8
-  %arrayidx9 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %8, i64 %9
+  %arrayidx8 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %8, i64 %9
+  %mpThreadDynamicData = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %arrayidx8, i32 0, i32 0
+  store ptr %arraydecay, ptr %mpThreadDynamicData, align 8
+  %10 = load ptr, ptr %pDataArray.addr, align 8
+  %11 = load i64, ptr %requiredCount, align 8
+  %arrayidx9 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %10, i64 %11
   %mpThreadDynamicData10 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %arrayidx9, i32 0, i32 0
-  %10 = load ptr, ptr %mpThreadDynamicData10, align 8
-  call void @_ZN19EAThreadDynamicData6AddRefEv(ptr noundef nonnull align 8 dereferenceable(240) %10)
+  %12 = load ptr, ptr %mpThreadDynamicData10, align 8
+  call void @_ZN19EAThreadDynamicData6AddRefEv(ptr noundef nonnull align 8 dereferenceable(240) %12)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.then4
-  %11 = load i64, ptr %requiredCount, align 8
-  %inc = add i64 %11, 1
+  %13 = load i64, ptr %requiredCount, align 8
+  %inc = add i64 %13, 1
   store i64 %inc, ptr %requiredCount, align 8
   br label %if.end12
 
@@ -2897,15 +2903,16 @@ if.end12:                                         ; preds = %if.end11, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %12 = load i64, ptr %i, align 8
-  %inc13 = add i64 %12, 1
+  %14 = load i64, ptr %i, align 8
+  %inc13 = add i64 %14, 1
   store i64 %inc13, ptr %i, align 8
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
-  %call14 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 2))
-  %13 = load i64, ptr %requiredCount, align 8
-  ret i64 %13
+  %15 = getelementptr inbounds %"struct.EA::Thread::EAThreadGlobalVars", ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i32 0, i32 2
+  %call14 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %15)
+  %16 = load i64, ptr %requiredCount, align 8
+  ret i64 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

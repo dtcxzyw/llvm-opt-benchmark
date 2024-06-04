@@ -19,7 +19,29 @@ define internal void @noop_apic_eoi() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @noop_apic_write(i32 %0, i32 %1) #1 align 16 {
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
+  %3 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %4 = load volatile i64, ptr %3, align 8
+  %5 = and i64 %4, 512
+  %6 = icmp ne i64 %5, 0
+  %7 = load i8, ptr @apic_is_disabled, align 1, !range !5
+  %8 = icmp eq i8 %7, 0
+  %9 = select i1 %6, i1 %8, i1 false
+  br i1 %9, label %10, label %11, !prof !6
+
+10:                                               ; preds = %2
+  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #3, !srcloc !7
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 44, i32 2307, i64 12) #3, !srcloc !8
+  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #3, !srcloc !9
+  br label %11
+
+11:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @noop_apic_read(i32 %0) #1 align 16 {
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 512
   %5 = icmp ne i64 %4, 0
   %6 = load i8, ptr @apic_is_disabled, align 1, !range !5
@@ -27,33 +49,13 @@ define internal void @noop_apic_write(i32 %0, i32 %1) #1 align 16 {
   %8 = select i1 %5, i1 %7, i1 false
   br i1 %8, label %9, label %10, !prof !6
 
-9:                                                ; preds = %2
-  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #3, !srcloc !7
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 44, i32 2307, i64 12) #3, !srcloc !8
-  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #3, !srcloc !9
-  br label %10
-
-10:                                               ; preds = %9, %2
-  ret void
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @noop_apic_read(i32 %0) #1 align 16 {
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %3 = and i64 %2, 512
-  %4 = icmp ne i64 %3, 0
-  %5 = load i8, ptr @apic_is_disabled, align 1, !range !5
-  %6 = icmp eq i8 %5, 0
-  %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %8, label %9, !prof !6
-
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   tail call void asm sideeffect "327: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 327b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 327) #3, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 38, i32 2307, i64 12) #3, !srcloc !11
   tail call void asm sideeffect "328: nop\0A\09.pushsection .discard.instr_end\0A\09.long 328b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 328) #3, !srcloc !12
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %1
+10:                                               ; preds = %9, %1
   ret i32 0
 }
 

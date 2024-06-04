@@ -3177,47 +3177,48 @@ if.end34:                                         ; preds = %if.end29
   %call38 = call ptr @mmap64(ptr noundef null, i64 noundef %22, i32 noundef 3, i32 noundef 1, i32 noundef %23, i64 noundef %24) #11
   store ptr %call38, ptr %addr, align 8
   %25 = load ptr, ptr %addr, align 8
-  %cmp39 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp39 = icmp eq ptr %25, %26
   br i1 %cmp39, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end34
   call void (ptr, ...) @error_report(ptr noundef @.str.90)
-  %26 = load i32, ptr %fd, align 4
-  %call42 = call i32 @close(i32 noundef %26)
+  %27 = load i32, ptr %fd, align 4
+  %call42 = call i32 @close(i32 noundef %27)
   store i32 -14, ptr %retval, align 4
   br label %return
 
 if.end43:                                         ; preds = %if.end34
-  %27 = load ptr, ptr %addr, align 8
-  %28 = load ptr, ptr %inflight.addr, align 8
-  %addr44 = getelementptr inbounds %struct.vhost_inflight, ptr %28, i32 0, i32 1
-  store ptr %27, ptr %addr44, align 8
-  %29 = load i32, ptr %fd, align 4
-  %30 = load ptr, ptr %inflight.addr, align 8
-  %fd45 = getelementptr inbounds %struct.vhost_inflight, ptr %30, i32 0, i32 0
-  store i32 %29, ptr %fd45, align 8
+  %28 = load ptr, ptr %addr, align 8
+  %29 = load ptr, ptr %inflight.addr, align 8
+  %addr44 = getelementptr inbounds %struct.vhost_inflight, ptr %29, i32 0, i32 1
+  store ptr %28, ptr %addr44, align 8
+  %30 = load i32, ptr %fd, align 4
+  %31 = load ptr, ptr %inflight.addr, align 8
+  %fd45 = getelementptr inbounds %struct.vhost_inflight, ptr %31, i32 0, i32 0
+  store i32 %30, ptr %fd45, align 8
   %payload46 = getelementptr inbounds %struct.VhostUserMsg, ptr %msg, i32 0, i32 1
   %mmap_size47 = getelementptr inbounds %struct.VhostUserInflight, ptr %payload46, i32 0, i32 0
-  %31 = load i64, ptr %mmap_size47, align 1
-  %32 = load ptr, ptr %inflight.addr, align 8
-  %size48 = getelementptr inbounds %struct.vhost_inflight, ptr %32, i32 0, i32 2
-  store i64 %31, ptr %size48, align 8
+  %32 = load i64, ptr %mmap_size47, align 1
+  %33 = load ptr, ptr %inflight.addr, align 8
+  %size48 = getelementptr inbounds %struct.vhost_inflight, ptr %33, i32 0, i32 2
+  store i64 %32, ptr %size48, align 8
   %payload49 = getelementptr inbounds %struct.VhostUserMsg, ptr %msg, i32 0, i32 1
   %mmap_offset50 = getelementptr inbounds %struct.VhostUserInflight, ptr %payload49, i32 0, i32 1
-  %33 = load i64, ptr %mmap_offset50, align 1
-  %34 = load ptr, ptr %inflight.addr, align 8
-  %offset = getelementptr inbounds %struct.vhost_inflight, ptr %34, i32 0, i32 3
-  store i64 %33, ptr %offset, align 8
-  %35 = load i16, ptr %queue_size.addr, align 2
-  %36 = load ptr, ptr %inflight.addr, align 8
-  %queue_size51 = getelementptr inbounds %struct.vhost_inflight, ptr %36, i32 0, i32 4
-  store i16 %35, ptr %queue_size51, align 8
+  %34 = load i64, ptr %mmap_offset50, align 1
+  %35 = load ptr, ptr %inflight.addr, align 8
+  %offset = getelementptr inbounds %struct.vhost_inflight, ptr %35, i32 0, i32 3
+  store i64 %34, ptr %offset, align 8
+  %36 = load i16, ptr %queue_size.addr, align 2
+  %37 = load ptr, ptr %inflight.addr, align 8
+  %queue_size51 = getelementptr inbounds %struct.vhost_inflight, ptr %37, i32 0, i32 4
+  store i16 %36, ptr %queue_size51, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end43, %if.then41, %if.then33, %if.then28, %if.then25, %if.then16, %if.then10, %if.then5, %if.then
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+  %38 = load i32, ptr %retval, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4030,12 +4031,16 @@ if.end5:                                          ; preds = %if.then4
   %12 = load ptr, ptr %n.addr, align 8
   %addr8 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %12, i32 0, i32 2
   store ptr null, ptr %addr8, align 16
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @vhost_user_host_notifier_free to i64), i64 ptrtoint (ptr @vhost_user_host_notifier_free to i64)) to i8), ptr %func_type_invalid, align 1
-  %13 = load ptr, ptr %n.addr, align 8
-  %rcu = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %13, i32 0, i32 0
+  %13 = ptrtoint ptr @vhost_user_host_notifier_free to i64
+  %14 = ptrtoint ptr @vhost_user_host_notifier_free to i64
+  %15 = sub i64 %13, %14
+  %16 = trunc i64 %15 to i8
+  store i8 %16, ptr %func_type_invalid, align 1
+  %17 = load ptr, ptr %n.addr, align 8
+  %rcu = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %17, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %14 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %14, ptr noundef @vhost_user_host_notifier_free)
+  %18 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %18, ptr noundef @vhost_user_host_notifier_free)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end5, %entry
@@ -5156,7 +5161,8 @@ if.end17:                                         ; preds = %if.end13
   %call18 = call ptr @mmap64(ptr noundef null, i64 noundef %22, i32 noundef 3, i32 noundef 1, i32 noundef %23, i64 noundef %25) #11
   store ptr %call18, ptr %addr, align 8
   %26 = load ptr, ptr %addr, align 8
-  %cmp19 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  %27 = inttoptr i64 -1 to ptr
+  %cmp19 = icmp eq ptr %26, %27
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end17
@@ -5164,69 +5170,69 @@ if.then21:                                        ; preds = %if.end17
   br label %return
 
 if.end22:                                         ; preds = %if.end17
-  %27 = load ptr, ptr %user, align 8
-  %28 = load i32, ptr %queue_idx, align 4
-  %call23 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.32, ptr noundef %27, i32 noundef %28)
+  %28 = load ptr, ptr %user, align 8
+  %29 = load i32, ptr %queue_idx, align 4
+  %call23 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.32, ptr noundef %28, i32 noundef %29)
   store ptr %call23, ptr %name, align 8
-  %29 = load ptr, ptr %n, align 8
-  %mr = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %29, i32 0, i32 1
+  %30 = load ptr, ptr %n, align 8
+  %mr = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %30, i32 0, i32 1
   %ram = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i32 0, i32 2
-  %30 = load i8, ptr %ram, align 1
-  %tobool24 = trunc i8 %30 to i1
+  %31 = load i8, ptr %ram, align 1
+  %tobool24 = trunc i8 %31 to i1
   br i1 %tobool24, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %31 = load ptr, ptr %n, align 8
-  %mr26 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %vdev, align 8
-  %33 = load ptr, ptr %name, align 8
-  %34 = load i64, ptr %page_size, align 8
-  %35 = load ptr, ptr %addr, align 8
-  call void @memory_region_init_ram_device_ptr(ptr noundef %mr26, ptr noundef %32, ptr noundef %33, i64 noundef %34, ptr noundef %35)
+  %32 = load ptr, ptr %n, align 8
+  %mr26 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %32, i32 0, i32 1
+  %33 = load ptr, ptr %vdev, align 8
+  %34 = load ptr, ptr %name, align 8
+  %35 = load i64, ptr %page_size, align 8
+  %36 = load ptr, ptr %addr, align 8
+  call void @memory_region_init_ram_device_ptr(ptr noundef %mr26, ptr noundef %33, ptr noundef %34, i64 noundef %35, ptr noundef %36)
   br label %if.end28
 
 if.else:                                          ; preds = %if.end22
-  %36 = load ptr, ptr %addr, align 8
-  %37 = load ptr, ptr %n, align 8
-  %mr27 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %37, i32 0, i32 1
+  %37 = load ptr, ptr %addr, align 8
+  %38 = load ptr, ptr %n, align 8
+  %mr27 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %38, i32 0, i32 1
   %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %mr27, i32 0, i32 11
-  %38 = load ptr, ptr %ram_block, align 8
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %38, i32 0, i32 2
-  store ptr %36, ptr %host, align 8
+  %39 = load ptr, ptr %ram_block, align 8
+  %host = getelementptr inbounds %struct.RAMBlock, ptr %39, i32 0, i32 2
+  store ptr %37, ptr %host, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then25
-  %39 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %39)
-  %40 = load ptr, ptr %vdev, align 8
-  %41 = load i32, ptr %queue_idx, align 4
-  %42 = load ptr, ptr %n, align 8
-  %mr29 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %42, i32 0, i32 1
-  %call30 = call i32 @virtio_queue_set_host_notifier_mr(ptr noundef %40, i32 noundef %41, ptr noundef %mr29, i1 noundef zeroext true)
+  %40 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %40)
+  %41 = load ptr, ptr %vdev, align 8
+  %42 = load i32, ptr %queue_idx, align 4
+  %43 = load ptr, ptr %n, align 8
+  %mr29 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %43, i32 0, i32 1
+  %call30 = call i32 @virtio_queue_set_host_notifier_mr(ptr noundef %41, i32 noundef %42, ptr noundef %mr29, i1 noundef zeroext true)
   %tobool31 = icmp ne i32 %call30, 0
   br i1 %tobool31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %if.end28
-  %43 = load ptr, ptr %n, align 8
-  %mr33 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %n, align 8
+  %mr33 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %44, i32 0, i32 1
   call void @object_unparent(ptr noundef %mr33)
-  %44 = load ptr, ptr %addr, align 8
-  %45 = load i64, ptr %page_size, align 8
-  %call34 = call i32 @munmap(ptr noundef %44, i64 noundef %45) #11
+  %45 = load ptr, ptr %addr, align 8
+  %46 = load i64, ptr %page_size, align 8
+  %call34 = call i32 @munmap(ptr noundef %45, i64 noundef %46) #11
   store i32 -6, ptr %retval, align 4
   br label %return
 
 if.end35:                                         ; preds = %if.end28
-  %46 = load ptr, ptr %addr, align 8
-  %47 = load ptr, ptr %n, align 8
-  %addr36 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %47, i32 0, i32 2
-  store ptr %46, ptr %addr36, align 16
+  %47 = load ptr, ptr %addr, align 8
+  %48 = load ptr, ptr %n, align 8
+  %addr36 = getelementptr inbounds %struct.VhostUserHostNotifier, ptr %48, i32 0, i32 2
+  store ptr %47, ptr %addr36, align 16
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end35, %if.then32, %if.then21, %if.then16, %if.then12, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

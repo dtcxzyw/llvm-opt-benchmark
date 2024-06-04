@@ -5007,47 +5007,48 @@ entry:
   %call = call ptr @mmap64(ptr noundef %3, i64 noundef %4, i32 noundef 0, i32 noundef 1064994, i32 noundef -1, i64 noundef 0) #13
   store ptr %call, ptr %p, align 8
   %5 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %5, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = call ptr @__errno_location() #11
-  %6 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %6, 17
+  %7 = load i32, ptr %call1, align 4
+  %cmp2 = icmp eq i32 %7, 17
   %cond = select i1 %cmp2, i32 0, i32 -1
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %p, align 8
-  %8 = load i64, ptr %addr.addr, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %cmp3 = icmp eq ptr %7, %9
+  %8 = load ptr, ptr %p, align 8
+  %9 = load i64, ptr %addr.addr, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %cmp3 = icmp eq ptr %8, %10
   %conv = zext i1 %cmp3 to i32
   store i32 %conv, ptr %ret, align 4
-  %10 = load i8, ptr %keep.addr, align 1
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %keep.addr, align 1
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
-  %11 = load i32, ptr %ret, align 4
-  %tobool4 = icmp ne i32 %11, 0
+  %12 = load i32, ptr %ret, align 4
+  %tobool4 = icmp ne i32 %12, 0
   br i1 %tobool4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %12 = load ptr, ptr %p, align 8
-  %13 = load i64, ptr %size, align 8
-  %call6 = call i32 @munmap(ptr noundef %12, i64 noundef %13) #13
+  %13 = load ptr, ptr %p, align 8
+  %14 = load i64, ptr %size, align 8
+  %call6 = call i32 @munmap(ptr noundef %13, i64 noundef %14) #13
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %lor.lhs.false
-  %14 = load i32, ptr %ret, align 4
-  store i32 %14, ptr %retval, align 4
+  %15 = load i32, ptr %ret, align 4
+  store i32 %15, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %16 = load i32, ptr %retval, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind

@@ -2455,7 +2455,7 @@ define i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %95
+  br label %96
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %4, align 8
@@ -2464,7 +2464,7 @@ define i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr %5, align 8
   %16 = call ptr @Llb_ObjGetPath(ptr noundef %15)
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %57, label %18
+  br i1 %17, label %58, label %18
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %5, align 8
@@ -2474,124 +2474,125 @@ define i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef %1) #0 {
   %23 = and i64 %22, 1
   %24 = trunc i64 %23 to i32
   %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr %5, align 8
-  %28 = call i32 @Llb_ObjSetPath(ptr noundef %27, ptr noundef inttoptr (i64 1 to ptr))
-  store i32 %28, ptr %3, align 4
-  br label %95
+  %28 = inttoptr i64 1 to ptr
+  %29 = call i32 @Llb_ObjSetPath(ptr noundef %27, ptr noundef %28)
+  store i32 %29, ptr %3, align 4
+  br label %96
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %5, align 8
-  %31 = call i32 @Aig_ObjIsNode(ptr noundef %30)
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %56
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %5, align 8
+  %32 = call i32 @Aig_ObjIsNode(ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %57
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %4, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = call ptr @Aig_ObjFanin0(ptr noundef %35)
-  %37 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %34, ptr noundef %36)
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %44
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = call ptr @Aig_ObjFanin0(ptr noundef %36)
+  %38 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %35, ptr noundef %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %45
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %5, align 8
+40:                                               ; preds = %34
   %41 = load ptr, ptr %5, align 8
-  %42 = call ptr @Aig_ObjFanin0(ptr noundef %41)
-  %43 = call i32 @Llb_ObjSetPath(ptr noundef %40, ptr noundef %42)
-  store i32 %43, ptr %3, align 4
-  br label %95
+  %42 = load ptr, ptr %5, align 8
+  %43 = call ptr @Aig_ObjFanin0(ptr noundef %42)
+  %44 = call i32 @Llb_ObjSetPath(ptr noundef %41, ptr noundef %43)
+  store i32 %44, ptr %3, align 4
+  br label %96
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %4, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = call ptr @Aig_ObjFanin1(ptr noundef %46)
-  %48 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %45, ptr noundef %47)
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %55
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = call ptr @Aig_ObjFanin1(ptr noundef %47)
+  %49 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %46, ptr noundef %48)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %5, align 8
+51:                                               ; preds = %45
   %52 = load ptr, ptr %5, align 8
-  %53 = call ptr @Aig_ObjFanin1(ptr noundef %52)
-  %54 = call i32 @Llb_ObjSetPath(ptr noundef %51, ptr noundef %53)
-  store i32 %54, ptr %3, align 4
-  br label %95
+  %53 = load ptr, ptr %5, align 8
+  %54 = call ptr @Aig_ObjFanin1(ptr noundef %53)
+  %55 = call i32 @Llb_ObjSetPath(ptr noundef %52, ptr noundef %54)
+  store i32 %55, ptr %3, align 4
+  br label %96
 
-55:                                               ; preds = %44
-  br label %56
+56:                                               ; preds = %45
+  br label %57
 
-56:                                               ; preds = %55, %29
+57:                                               ; preds = %56, %30
   store i32 0, ptr %3, align 4
-  br label %95
+  br label %96
 
-57:                                               ; preds = %12
-  %58 = load ptr, ptr %4, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = call ptr @Llb_ObjGetFanoutPath(ptr noundef %58, ptr noundef %59)
-  store ptr %60, ptr %6, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %64
+58:                                               ; preds = %12
+  %59 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = call ptr @Llb_ObjGetFanoutPath(ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %6, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %57
+64:                                               ; preds = %58
   store i32 0, ptr %3, align 4
-  br label %95
+  br label %96
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %4, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = call ptr @Aig_ObjFanin0(ptr noundef %66)
-  %68 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %65, ptr noundef %67)
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %75
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %4, align 8
+  %67 = load ptr, ptr %6, align 8
+  %68 = call ptr @Aig_ObjFanin0(ptr noundef %67)
+  %69 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %66, ptr noundef %68)
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %76
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %6, align 8
+71:                                               ; preds = %65
   %72 = load ptr, ptr %6, align 8
-  %73 = call ptr @Aig_ObjFanin0(ptr noundef %72)
-  %74 = call i32 @Llb_ObjSetPath(ptr noundef %71, ptr noundef %73)
-  store i32 %74, ptr %3, align 4
-  br label %95
+  %73 = load ptr, ptr %6, align 8
+  %74 = call ptr @Aig_ObjFanin0(ptr noundef %73)
+  %75 = call i32 @Llb_ObjSetPath(ptr noundef %72, ptr noundef %74)
+  store i32 %75, ptr %3, align 4
+  br label %96
 
-75:                                               ; preds = %64
-  %76 = load ptr, ptr %4, align 8
-  %77 = load ptr, ptr %6, align 8
-  %78 = call ptr @Aig_ObjFanin1(ptr noundef %77)
-  %79 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %76, ptr noundef %78)
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %86
+76:                                               ; preds = %65
+  %77 = load ptr, ptr %4, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = call ptr @Aig_ObjFanin1(ptr noundef %78)
+  %80 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %77, ptr noundef %79)
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %87
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %6, align 8
+82:                                               ; preds = %76
   %83 = load ptr, ptr %6, align 8
-  %84 = call ptr @Aig_ObjFanin1(ptr noundef %83)
-  %85 = call i32 @Llb_ObjSetPath(ptr noundef %82, ptr noundef %84)
-  store i32 %85, ptr %3, align 4
-  br label %95
+  %84 = load ptr, ptr %6, align 8
+  %85 = call ptr @Aig_ObjFanin1(ptr noundef %84)
+  %86 = call i32 @Llb_ObjSetPath(ptr noundef %83, ptr noundef %85)
+  store i32 %86, ptr %3, align 4
+  br label %96
 
-86:                                               ; preds = %75
-  %87 = load ptr, ptr %4, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %87, ptr noundef %88)
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
+87:                                               ; preds = %76
+  %88 = load ptr, ptr %4, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = call i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %88, ptr noundef %89)
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %6, align 8
-  %93 = call i32 @Llb_ObjSetPath(ptr noundef %92, ptr noundef null)
-  store i32 %93, ptr %3, align 4
-  br label %95
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %6, align 8
+  %94 = call i32 @Llb_ObjSetPath(ptr noundef %93, ptr noundef null)
+  store i32 %94, ptr %3, align 4
+  br label %96
 
-94:                                               ; preds = %86
+95:                                               ; preds = %87
   store i32 0, ptr %3, align 4
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %91, %81, %70, %63, %56, %50, %39, %26, %11
-  %96 = load i32, ptr %3, align 4
-  ret i32 %96
+96:                                               ; preds = %95, %92, %82, %71, %64, %57, %51, %40, %26, %11
+  %97 = load i32, ptr %3, align 4
+  ret i32 %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5422,7 +5423,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -5450,7 +5451,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -5461,19 +5462,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #7
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_VecSize(ptr noundef %0) #0 {
@@ -5501,14 +5496,20 @@ define internal ptr @Vec_VecEntry(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr %11
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(1) }

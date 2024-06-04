@@ -515,41 +515,42 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %def, ptr %def.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7b2Joint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV7b2Joint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_userData = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 11
   call void @_ZN15b2JointUserDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_userData)
-  %0 = load ptr, ptr %def.addr, align 8
-  %type = getelementptr inbounds %struct.b2JointDef, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %type, align 8
+  %1 = load ptr, ptr %def.addr, align 8
+  %type = getelementptr inbounds %struct.b2JointDef, ptr %1, i32 0, i32 0
+  %2 = load i32, ptr %type, align 8
   %m_type = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 1
-  store i32 %1, ptr %m_type, align 8
+  store i32 %2, ptr %m_type, align 8
   %m_prev = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_prev, align 8
   %m_next = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_next, align 8
-  %2 = load ptr, ptr %def.addr, align 8
-  %bodyA = getelementptr inbounds %struct.b2JointDef, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %bodyA, align 8
+  %3 = load ptr, ptr %def.addr, align 8
+  %bodyA = getelementptr inbounds %struct.b2JointDef, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %bodyA, align 8
   %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 6
-  store ptr %3, ptr %m_bodyA, align 8
-  %4 = load ptr, ptr %def.addr, align 8
-  %bodyB = getelementptr inbounds %struct.b2JointDef, ptr %4, i32 0, i32 4
-  %5 = load ptr, ptr %bodyB, align 8
+  store ptr %4, ptr %m_bodyA, align 8
+  %5 = load ptr, ptr %def.addr, align 8
+  %bodyB = getelementptr inbounds %struct.b2JointDef, ptr %5, i32 0, i32 4
+  %6 = load ptr, ptr %bodyB, align 8
   %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 7
-  store ptr %5, ptr %m_bodyB, align 8
+  store ptr %6, ptr %m_bodyB, align 8
   %m_index = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 8
   store i32 0, ptr %m_index, align 8
-  %6 = load ptr, ptr %def.addr, align 8
-  %collideConnected = getelementptr inbounds %struct.b2JointDef, ptr %6, i32 0, i32 5
-  %7 = load i8, ptr %collideConnected, align 8
-  %tobool = trunc i8 %7 to i1
+  %7 = load ptr, ptr %def.addr, align 8
+  %collideConnected = getelementptr inbounds %struct.b2JointDef, ptr %7, i32 0, i32 5
+  %8 = load i8, ptr %collideConnected, align 8
+  %tobool = trunc i8 %8 to i1
   %m_collideConnected = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 10
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_collideConnected, align 1
   %m_islandFlag = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 9
   store i8 0, ptr %m_islandFlag, align 4
-  %8 = load ptr, ptr %def.addr, align 8
-  %userData = getelementptr inbounds %struct.b2JointDef, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %def.addr, align 8
+  %userData = getelementptr inbounds %struct.b2JointDef, ptr %9, i32 0, i32 2
   %m_userData2 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_userData2, ptr align 8 %userData, i64 8, i1 false)
   %m_edgeA3 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 4

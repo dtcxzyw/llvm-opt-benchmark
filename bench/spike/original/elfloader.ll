@@ -552,7 +552,7 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
 72:                                               ; preds = %71
   store i1 false, ptr %18, align 1
   invoke void @__cxa_throw(ptr %66, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
-          to label %981 unwind label %81
+          to label %982 unwind label %81
 
 73:                                               ; preds = %65
   %74 = landingpad { ptr, i32 }
@@ -596,7 +596,7 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
   br label %89
 
 89:                                               ; preds = %88, %86
-  br label %976
+  br label %977
 
 90:                                               ; preds = %5
   %91 = load i32, ptr %11, align 4
@@ -617,1383 +617,1384 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
   %100 = call ptr @mmap(ptr noundef null, i64 noundef %98, i32 noundef 1, i32 noundef 2, i32 noundef %99, i64 noundef 0) #13
   store ptr %100, ptr %20, align 8
   %101 = load ptr, ptr %20, align 8
-  %102 = icmp eq ptr %101, inttoptr (i64 -1 to ptr)
-  br i1 %102, label %103, label %128
+  %102 = inttoptr i64 -1 to ptr
+  %103 = icmp eq ptr %101, %102
+  br i1 %103, label %104, label %129
 
-103:                                              ; preds = %95
+104:                                              ; preds = %95
   store i1 true, ptr %24, align 1
-  %104 = call ptr @__cxa_allocate_exception(i64 16) #13
+  %105 = call ptr @__cxa_allocate_exception(i64 16) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %23)
-          to label %105 unwind label %111
+          to label %106 unwind label %112
 
-105:                                              ; preds = %103
-  %106 = call ptr @__errno_location() #14
-  %107 = load i32, ptr %106, align 4
-  %108 = call ptr @strerror(i32 noundef %107) #13
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %108)
-          to label %109 unwind label %115
+106:                                              ; preds = %104
+  %107 = call ptr @__errno_location() #14
+  %108 = load i32, ptr %107, align 4
+  %109 = call ptr @strerror(i32 noundef %108) #13
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %109)
+          to label %110 unwind label %116
 
-109:                                              ; preds = %105
-  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %110 unwind label %119
+110:                                              ; preds = %106
+  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %111 unwind label %120
 
-110:                                              ; preds = %109
+111:                                              ; preds = %110
   store i1 false, ptr %24, align 1
-  invoke void @__cxa_throw(ptr %104, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
-          to label %981 unwind label %119
+  invoke void @__cxa_throw(ptr %105, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
+          to label %982 unwind label %120
 
-111:                                              ; preds = %103
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %104
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %16, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %17, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %16, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %17, align 4
+  br label %125
+
+116:                                              ; preds = %106
+  %117 = landingpad { ptr, i32 }
+          cleanup
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %16, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %17, align 4
   br label %124
 
-115:                                              ; preds = %105
-  %116 = landingpad { ptr, i32 }
+120:                                              ; preds = %111, %110
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %117 = extractvalue { ptr, i32 } %116, 0
-  store ptr %117, ptr %16, align 8
-  %118 = extractvalue { ptr, i32 } %116, 1
-  store i32 %118, ptr %17, align 4
-  br label %123
-
-119:                                              ; preds = %110, %109
-  %120 = landingpad { ptr, i32 }
-          cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %16, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %17, align 4
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %16, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %17, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
-  br label %123
-
-123:                                              ; preds = %119, %115
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #13
   br label %124
 
-124:                                              ; preds = %123, %111
+124:                                              ; preds = %120, %116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #13
+  br label %125
+
+125:                                              ; preds = %124, %112
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #13
-  %125 = load i1, ptr %24, align 1
-  br i1 %125, label %126, label %127
+  %126 = load i1, ptr %24, align 1
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %124
-  call void @__cxa_free_exception(ptr %104) #13
-  br label %127
+127:                                              ; preds = %125
+  call void @__cxa_free_exception(ptr %105) #13
+  br label %128
 
-127:                                              ; preds = %126, %124
-  br label %976
+128:                                              ; preds = %127, %125
+  br label %977
 
-128:                                              ; preds = %95
-  %129 = load i32, ptr %11, align 4
-  %130 = call i32 @close(i32 noundef %129)
-  %131 = load ptr, ptr %20, align 8
-  store ptr %131, ptr %25, align 8
-  %132 = load ptr, ptr %25, align 8
-  %133 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %132, i32 0, i32 0
-  %134 = getelementptr inbounds [16 x i8], ptr %133, i64 0, i64 0
-  %135 = load i8, ptr %134, align 8
-  %136 = zext i8 %135 to i32
-  %137 = icmp eq i32 %136, 127
-  br i1 %137, label %138, label %166
+129:                                              ; preds = %95
+  %130 = load i32, ptr %11, align 4
+  %131 = call i32 @close(i32 noundef %130)
+  %132 = load ptr, ptr %20, align 8
+  store ptr %132, ptr %25, align 8
+  %133 = load ptr, ptr %25, align 8
+  %134 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds [16 x i8], ptr %134, i64 0, i64 0
+  %136 = load i8, ptr %135, align 8
+  %137 = zext i8 %136 to i32
+  %138 = icmp eq i32 %137, 127
+  br i1 %138, label %139, label %167
 
-138:                                              ; preds = %128
-  %139 = load ptr, ptr %25, align 8
-  %140 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %139, i32 0, i32 0
-  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 0, i64 1
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = icmp eq i32 %143, 69
-  br i1 %144, label %145, label %166
+139:                                              ; preds = %129
+  %140 = load ptr, ptr %25, align 8
+  %141 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %140, i32 0, i32 0
+  %142 = getelementptr inbounds [16 x i8], ptr %141, i64 0, i64 1
+  %143 = load i8, ptr %142, align 1
+  %144 = zext i8 %143 to i32
+  %145 = icmp eq i32 %144, 69
+  br i1 %145, label %146, label %167
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %25, align 8
-  %147 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %146, i32 0, i32 0
-  %148 = getelementptr inbounds [16 x i8], ptr %147, i64 0, i64 2
-  %149 = load i8, ptr %148, align 2
-  %150 = zext i8 %149 to i32
-  %151 = icmp eq i32 %150, 76
-  br i1 %151, label %152, label %166
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %25, align 8
+  %148 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 0, i64 2
+  %150 = load i8, ptr %149, align 2
+  %151 = zext i8 %150 to i32
+  %152 = icmp eq i32 %151, 76
+  br i1 %152, label %153, label %167
 
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %25, align 8
-  %154 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %153, i32 0, i32 0
-  %155 = getelementptr inbounds [16 x i8], ptr %154, i64 0, i64 3
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i32
-  %158 = icmp eq i32 %157, 70
-  br i1 %158, label %159, label %166
+153:                                              ; preds = %146
+  %154 = load ptr, ptr %25, align 8
+  %155 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %154, i32 0, i32 0
+  %156 = getelementptr inbounds [16 x i8], ptr %155, i64 0, i64 3
+  %157 = load i8, ptr %156, align 1
+  %158 = zext i8 %157 to i32
+  %159 = icmp eq i32 %158, 70
+  br i1 %159, label %160, label %167
 
-159:                                              ; preds = %152
-  %160 = load ptr, ptr %25, align 8
-  %161 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %160, i32 0, i32 0
-  %162 = getelementptr inbounds [16 x i8], ptr %161, i64 0, i64 4
-  %163 = load i8, ptr %162, align 4
-  %164 = zext i8 %163 to i32
-  %165 = icmp eq i32 %164, 1
-  br label %166
+160:                                              ; preds = %153
+  %161 = load ptr, ptr %25, align 8
+  %162 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %161, i32 0, i32 0
+  %163 = getelementptr inbounds [16 x i8], ptr %162, i64 0, i64 4
+  %164 = load i8, ptr %163, align 4
+  %165 = zext i8 %164 to i32
+  %166 = icmp eq i32 %165, 1
+  br label %167
 
-166:                                              ; preds = %159, %152, %145, %138, %128
-  %167 = phi i1 [ false, %152 ], [ false, %145 ], [ false, %138 ], [ false, %128 ], [ %165, %159 ]
-  %168 = select i1 %167, i32 32, i32 64
-  store i32 %168, ptr %26, align 4
-  %169 = load i32, ptr %10, align 4
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %184
+167:                                              ; preds = %160, %153, %146, %139, %129
+  %168 = phi i1 [ false, %153 ], [ false, %146 ], [ false, %139 ], [ false, %129 ], [ %166, %160 ]
+  %169 = select i1 %168, i32 32, i32 64
+  store i32 %169, ptr %26, align 4
+  %170 = load i32, ptr %10, align 4
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %172, label %185
 
-171:                                              ; preds = %166
-  %172 = load i32, ptr %10, align 4
-  %173 = load i32, ptr %26, align 4
-  %174 = icmp ne i32 %172, %173
-  br i1 %174, label %175, label %184
+172:                                              ; preds = %167
+  %173 = load i32, ptr %10, align 4
+  %174 = load i32, ptr %26, align 4
+  %175 = icmp ne i32 %173, %174
+  br i1 %175, label %176, label %185
 
-175:                                              ; preds = %171
-  %176 = call ptr @__cxa_allocate_exception(i64 16) #13
-  %177 = load i32, ptr %10, align 4
-  %178 = load i32, ptr %26, align 4
-  invoke void @_ZN13incompat_xlenC2Ejj(ptr noundef nonnull align 8 dereferenceable(16) %176, i32 noundef %177, i32 noundef %178)
-          to label %179 unwind label %180
+176:                                              ; preds = %172
+  %177 = call ptr @__cxa_allocate_exception(i64 16) #13
+  %178 = load i32, ptr %10, align 4
+  %179 = load i32, ptr %26, align 4
+  invoke void @_ZN13incompat_xlenC2Ejj(ptr noundef nonnull align 8 dereferenceable(16) %177, i32 noundef %178, i32 noundef %179)
+          to label %180 unwind label %181
 
-179:                                              ; preds = %175
-  call void @__cxa_throw(ptr %176, ptr @_ZTI13incompat_xlen, ptr @_ZN13incompat_xlenD2Ev) #15
+180:                                              ; preds = %176
+  call void @__cxa_throw(ptr %177, ptr @_ZTI13incompat_xlen, ptr @_ZN13incompat_xlenD2Ev) #15
   unreachable
 
-180:                                              ; preds = %175
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %176
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %16, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %176) #13
-  br label %976
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %16, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %17, align 4
+  call void @__cxa_free_exception(ptr %177) #13
+  br label %977
 
-184:                                              ; preds = %171, %166
+185:                                              ; preds = %172, %167
   call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   store i1 false, ptr %28, align 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
-  %185 = load ptr, ptr %25, align 8
-  %186 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %185, i32 0, i32 0
-  %187 = getelementptr inbounds [16 x i8], ptr %186, i64 0, i64 0
-  %188 = load i8, ptr %187, align 8
-  %189 = zext i8 %188 to i32
-  %190 = icmp eq i32 %189, 127
-  br i1 %190, label %191, label %961
+  %186 = load ptr, ptr %25, align 8
+  %187 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds [16 x i8], ptr %187, i64 0, i64 0
+  %189 = load i8, ptr %188, align 8
+  %190 = zext i8 %189 to i32
+  %191 = icmp eq i32 %190, 127
+  br i1 %191, label %192, label %962
 
-191:                                              ; preds = %184
-  %192 = load ptr, ptr %25, align 8
-  %193 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %192, i32 0, i32 0
-  %194 = getelementptr inbounds [16 x i8], ptr %193, i64 0, i64 1
-  %195 = load i8, ptr %194, align 1
-  %196 = zext i8 %195 to i32
-  %197 = icmp eq i32 %196, 69
-  br i1 %197, label %198, label %961
+192:                                              ; preds = %185
+  %193 = load ptr, ptr %25, align 8
+  %194 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %193, i32 0, i32 0
+  %195 = getelementptr inbounds [16 x i8], ptr %194, i64 0, i64 1
+  %196 = load i8, ptr %195, align 1
+  %197 = zext i8 %196 to i32
+  %198 = icmp eq i32 %197, 69
+  br i1 %198, label %199, label %962
 
-198:                                              ; preds = %191
-  %199 = load ptr, ptr %25, align 8
-  %200 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %199, i32 0, i32 0
-  %201 = getelementptr inbounds [16 x i8], ptr %200, i64 0, i64 2
-  %202 = load i8, ptr %201, align 2
-  %203 = zext i8 %202 to i32
-  %204 = icmp eq i32 %203, 76
-  br i1 %204, label %205, label %961
+199:                                              ; preds = %192
+  %200 = load ptr, ptr %25, align 8
+  %201 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %200, i32 0, i32 0
+  %202 = getelementptr inbounds [16 x i8], ptr %201, i64 0, i64 2
+  %203 = load i8, ptr %202, align 2
+  %204 = zext i8 %203 to i32
+  %205 = icmp eq i32 %204, 76
+  br i1 %205, label %206, label %962
 
-205:                                              ; preds = %198
-  %206 = load ptr, ptr %25, align 8
-  %207 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %206, i32 0, i32 0
-  %208 = getelementptr inbounds [16 x i8], ptr %207, i64 0, i64 3
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i32
-  %211 = icmp eq i32 %210, 70
-  br i1 %211, label %212, label %961
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %25, align 8
+  %208 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %207, i32 0, i32 0
+  %209 = getelementptr inbounds [16 x i8], ptr %208, i64 0, i64 3
+  %210 = load i8, ptr %209, align 1
+  %211 = zext i8 %210 to i32
+  %212 = icmp eq i32 %211, 70
+  br i1 %212, label %213, label %962
 
-212:                                              ; preds = %205
-  %213 = load ptr, ptr %25, align 8
-  %214 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %213, i32 0, i32 0
-  %215 = getelementptr inbounds [16 x i8], ptr %214, i64 0, i64 5
-  %216 = load i8, ptr %215, align 1
-  %217 = zext i8 %216 to i32
-  %218 = icmp eq i32 %217, 1
-  br i1 %218, label %219, label %961
+213:                                              ; preds = %206
+  %214 = load ptr, ptr %25, align 8
+  %215 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds [16 x i8], ptr %215, i64 0, i64 5
+  %217 = load i8, ptr %216, align 1
+  %218 = zext i8 %217 to i32
+  %219 = icmp eq i32 %218, 1
+  br i1 %219, label %220, label %962
 
-219:                                              ; preds = %212
-  %220 = load ptr, ptr %8, align 8
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds ptr, ptr %221, i64 20
-  %223 = load ptr, ptr %222, align 8
-  %224 = invoke noundef i32 %223(ptr noundef nonnull align 8 dereferenceable(16) %220)
-          to label %225 unwind label %230
+220:                                              ; preds = %213
+  %221 = load ptr, ptr %8, align 8
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds ptr, ptr %222, i64 20
+  %224 = load ptr, ptr %223, align 8
+  %225 = invoke noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(16) %221)
+          to label %226 unwind label %231
 
-225:                                              ; preds = %219
-  %226 = icmp ne i32 %224, 0
-  br i1 %226, label %227, label %238
+226:                                              ; preds = %220
+  %227 = icmp ne i32 %225, 0
+  br i1 %227, label %228, label %239
 
-227:                                              ; preds = %225
-  %228 = call ptr @__cxa_allocate_exception(i64 16) #13
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef @.str.2)
-          to label %229 unwind label %234
+228:                                              ; preds = %226
+  %229 = call ptr @__cxa_allocate_exception(i64 16) #13
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef @.str.2)
+          to label %230 unwind label %235
 
-229:                                              ; preds = %227
-  invoke void @__cxa_throw(ptr %228, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
-          to label %981 unwind label %230
+230:                                              ; preds = %228
+  invoke void @__cxa_throw(ptr %229, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
+          to label %982 unwind label %231
 
-230:                                              ; preds = %963, %929, %918, %910, %902, %889, %877, %868, %842, %826, %811, %803, %797, %791, %782, %774, %766, %760, %747, %739, %730, %728, %716, %708, %702, %693, %685, %676, %666, %656, %646, %637, %629, %622, %589, %580, %572, %564, %550, %536, %527, %501, %485, %472, %464, %458, %452, %443, %434, %425, %419, %405, %397, %388, %386, %373, %365, %358, %348, %339, %330, %320, %310, %300, %291, %281, %274, %229, %219
-  %231 = landingpad { ptr, i32 }
+231:                                              ; preds = %964, %930, %919, %911, %903, %890, %878, %869, %843, %827, %812, %804, %798, %792, %783, %775, %767, %761, %748, %740, %731, %729, %717, %709, %703, %694, %686, %677, %667, %657, %647, %638, %630, %623, %590, %581, %573, %565, %551, %537, %528, %502, %486, %473, %465, %459, %453, %444, %435, %426, %420, %406, %398, %389, %387, %374, %366, %359, %349, %340, %331, %321, %311, %301, %292, %282, %275, %230, %220
+  %232 = landingpad { ptr, i32 }
           cleanup
-  %232 = extractvalue { ptr, i32 } %231, 0
-  store ptr %232, ptr %16, align 8
-  %233 = extractvalue { ptr, i32 } %231, 1
-  store i32 %233, ptr %17, align 4
-  br label %975
+  %233 = extractvalue { ptr, i32 } %232, 0
+  store ptr %233, ptr %16, align 8
+  %234 = extractvalue { ptr, i32 } %232, 1
+  store i32 %234, ptr %17, align 4
+  br label %976
 
-234:                                              ; preds = %227
-  %235 = landingpad { ptr, i32 }
+235:                                              ; preds = %228
+  %236 = landingpad { ptr, i32 }
           cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %16, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %228) #13
-  br label %975
+  %237 = extractvalue { ptr, i32 } %236, 0
+  store ptr %237, ptr %16, align 8
+  %238 = extractvalue { ptr, i32 } %236, 1
+  store i32 %238, ptr %17, align 4
+  call void @__cxa_free_exception(ptr %229) #13
+  br label %976
 
-238:                                              ; preds = %225
-  %239 = load ptr, ptr %25, align 8
-  %240 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %239, i32 0, i32 0
-  %241 = getelementptr inbounds [16 x i8], ptr %240, i64 0, i64 0
-  %242 = load i8, ptr %241, align 8
-  %243 = zext i8 %242 to i32
-  %244 = icmp eq i32 %243, 127
-  br i1 %244, label %245, label %621
+239:                                              ; preds = %226
+  %240 = load ptr, ptr %25, align 8
+  %241 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %240, i32 0, i32 0
+  %242 = getelementptr inbounds [16 x i8], ptr %241, i64 0, i64 0
+  %243 = load i8, ptr %242, align 8
+  %244 = zext i8 %243 to i32
+  %245 = icmp eq i32 %244, 127
+  br i1 %245, label %246, label %622
 
-245:                                              ; preds = %238
-  %246 = load ptr, ptr %25, align 8
-  %247 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %246, i32 0, i32 0
-  %248 = getelementptr inbounds [16 x i8], ptr %247, i64 0, i64 1
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  %251 = icmp eq i32 %250, 69
-  br i1 %251, label %252, label %621
+246:                                              ; preds = %239
+  %247 = load ptr, ptr %25, align 8
+  %248 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %247, i32 0, i32 0
+  %249 = getelementptr inbounds [16 x i8], ptr %248, i64 0, i64 1
+  %250 = load i8, ptr %249, align 1
+  %251 = zext i8 %250 to i32
+  %252 = icmp eq i32 %251, 69
+  br i1 %252, label %253, label %622
 
-252:                                              ; preds = %245
-  %253 = load ptr, ptr %25, align 8
-  %254 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %253, i32 0, i32 0
-  %255 = getelementptr inbounds [16 x i8], ptr %254, i64 0, i64 2
-  %256 = load i8, ptr %255, align 2
-  %257 = zext i8 %256 to i32
-  %258 = icmp eq i32 %257, 76
-  br i1 %258, label %259, label %621
+253:                                              ; preds = %246
+  %254 = load ptr, ptr %25, align 8
+  %255 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %254, i32 0, i32 0
+  %256 = getelementptr inbounds [16 x i8], ptr %255, i64 0, i64 2
+  %257 = load i8, ptr %256, align 2
+  %258 = zext i8 %257 to i32
+  %259 = icmp eq i32 %258, 76
+  br i1 %259, label %260, label %622
 
-259:                                              ; preds = %252
-  %260 = load ptr, ptr %25, align 8
-  %261 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %260, i32 0, i32 0
-  %262 = getelementptr inbounds [16 x i8], ptr %261, i64 0, i64 3
-  %263 = load i8, ptr %262, align 1
-  %264 = zext i8 %263 to i32
-  %265 = icmp eq i32 %264, 70
-  br i1 %265, label %266, label %621
+260:                                              ; preds = %253
+  %261 = load ptr, ptr %25, align 8
+  %262 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %261, i32 0, i32 0
+  %263 = getelementptr inbounds [16 x i8], ptr %262, i64 0, i64 3
+  %264 = load i8, ptr %263, align 1
+  %265 = zext i8 %264 to i32
+  %266 = icmp eq i32 %265, 70
+  br i1 %266, label %267, label %622
 
-266:                                              ; preds = %259
-  %267 = load ptr, ptr %25, align 8
-  %268 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %267, i32 0, i32 0
-  %269 = getelementptr inbounds [16 x i8], ptr %268, i64 0, i64 4
-  %270 = load i8, ptr %269, align 4
-  %271 = zext i8 %270 to i32
-  %272 = icmp eq i32 %271, 1
-  br i1 %272, label %273, label %621
+267:                                              ; preds = %260
+  %268 = load ptr, ptr %25, align 8
+  %269 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds [16 x i8], ptr %269, i64 0, i64 4
+  %271 = load i8, ptr %270, align 4
+  %272 = zext i8 %271 to i32
+  %273 = icmp eq i32 %272, 1
+  br i1 %273, label %274, label %622
 
-273:                                              ; preds = %266
-  br label %274
+274:                                              ; preds = %267
+  br label %275
 
-274:                                              ; preds = %273
-  %275 = load ptr, ptr %20, align 8
-  store ptr %275, ptr %29, align 8
+275:                                              ; preds = %274
   %276 = load ptr, ptr %20, align 8
-  %277 = load ptr, ptr %29, align 8
-  %278 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %277, i32 0, i32 5
-  %279 = load i32, ptr %278, align 4
-  %280 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %279)
-          to label %281 unwind label %230
+  store ptr %276, ptr %29, align 8
+  %277 = load ptr, ptr %20, align 8
+  %278 = load ptr, ptr %29, align 8
+  %279 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %278, i32 0, i32 5
+  %280 = load i32, ptr %279, align 4
+  %281 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %280)
+          to label %282 unwind label %231
 
-281:                                              ; preds = %274
-  %282 = zext i32 %280 to i64
-  %283 = getelementptr inbounds i8, ptr %276, i64 %282
-  store ptr %283, ptr %30, align 8
-  %284 = load ptr, ptr %29, align 8
-  %285 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %284, i32 0, i32 4
-  %286 = load i32, ptr %285, align 4
-  %287 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %286)
-          to label %288 unwind label %230
+282:                                              ; preds = %275
+  %283 = zext i32 %281 to i64
+  %284 = getelementptr inbounds i8, ptr %277, i64 %283
+  store ptr %284, ptr %30, align 8
+  %285 = load ptr, ptr %29, align 8
+  %286 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %285, i32 0, i32 4
+  %287 = load i32, ptr %286, align 4
+  %288 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %287)
+          to label %289 unwind label %231
 
-288:                                              ; preds = %281
-  %289 = zext i32 %287 to i64
-  %290 = load ptr, ptr %9, align 8
-  store i64 %289, ptr %290, align 8
+289:                                              ; preds = %282
+  %290 = zext i32 %288 to i64
+  %291 = load ptr, ptr %9, align 8
+  store i64 %290, ptr %291, align 8
   store i32 0, ptr %31, align 4
-  br label %291
+  br label %292
 
-291:                                              ; preds = %416, %288
-  %292 = load i32, ptr %31, align 4
-  %293 = load ptr, ptr %29, align 8
-  %294 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %293, i32 0, i32 10
-  %295 = load i16, ptr %294, align 4
-  %296 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %295)
-          to label %297 unwind label %230
+292:                                              ; preds = %417, %289
+  %293 = load i32, ptr %31, align 4
+  %294 = load ptr, ptr %29, align 8
+  %295 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %294, i32 0, i32 10
+  %296 = load i16, ptr %295, align 4
+  %297 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %296)
+          to label %298 unwind label %231
 
-297:                                              ; preds = %291
-  %298 = zext i16 %296 to i32
-  %299 = icmp ult i32 %292, %298
-  br i1 %299, label %300, label %419
+298:                                              ; preds = %292
+  %299 = zext i16 %297 to i32
+  %300 = icmp ult i32 %293, %299
+  br i1 %300, label %301, label %420
 
-300:                                              ; preds = %297
-  %301 = load ptr, ptr %30, align 8
-  %302 = load i32, ptr %31, align 4
-  %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds %struct.Elf32_Phdr, ptr %301, i64 %303
-  %305 = getelementptr inbounds %struct.Elf32_Phdr, ptr %304, i32 0, i32 0
-  %306 = load i32, ptr %305, align 4
-  %307 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %306)
-          to label %308 unwind label %230
+301:                                              ; preds = %298
+  %302 = load ptr, ptr %30, align 8
+  %303 = load i32, ptr %31, align 4
+  %304 = zext i32 %303 to i64
+  %305 = getelementptr inbounds %struct.Elf32_Phdr, ptr %302, i64 %304
+  %306 = getelementptr inbounds %struct.Elf32_Phdr, ptr %305, i32 0, i32 0
+  %307 = load i32, ptr %306, align 4
+  %308 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %307)
+          to label %309 unwind label %231
 
-308:                                              ; preds = %300
-  %309 = icmp eq i32 %307, 1
-  br i1 %309, label %310, label %415
+309:                                              ; preds = %301
+  %310 = icmp eq i32 %308, 1
+  br i1 %310, label %311, label %416
 
-310:                                              ; preds = %308
-  %311 = load ptr, ptr %30, align 8
-  %312 = load i32, ptr %31, align 4
-  %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds %struct.Elf32_Phdr, ptr %311, i64 %313
-  %315 = getelementptr inbounds %struct.Elf32_Phdr, ptr %314, i32 0, i32 5
-  %316 = load i32, ptr %315, align 4
-  %317 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %316)
-          to label %318 unwind label %230
+311:                                              ; preds = %309
+  %312 = load ptr, ptr %30, align 8
+  %313 = load i32, ptr %31, align 4
+  %314 = zext i32 %313 to i64
+  %315 = getelementptr inbounds %struct.Elf32_Phdr, ptr %312, i64 %314
+  %316 = getelementptr inbounds %struct.Elf32_Phdr, ptr %315, i32 0, i32 5
+  %317 = load i32, ptr %316, align 4
+  %318 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %317)
+          to label %319 unwind label %231
 
-318:                                              ; preds = %310
-  %319 = icmp ne i32 %317, 0
-  br i1 %319, label %320, label %415
+319:                                              ; preds = %311
+  %320 = icmp ne i32 %318, 0
+  br i1 %320, label %321, label %416
 
-320:                                              ; preds = %318
-  %321 = load ptr, ptr %30, align 8
-  %322 = load i32, ptr %31, align 4
-  %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds %struct.Elf32_Phdr, ptr %321, i64 %323
-  %325 = getelementptr inbounds %struct.Elf32_Phdr, ptr %324, i32 0, i32 4
-  %326 = load i32, ptr %325, align 4
-  %327 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %326)
-          to label %328 unwind label %230
+321:                                              ; preds = %319
+  %322 = load ptr, ptr %30, align 8
+  %323 = load i32, ptr %31, align 4
+  %324 = zext i32 %323 to i64
+  %325 = getelementptr inbounds %struct.Elf32_Phdr, ptr %322, i64 %324
+  %326 = getelementptr inbounds %struct.Elf32_Phdr, ptr %325, i32 0, i32 4
+  %327 = load i32, ptr %326, align 4
+  %328 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %327)
+          to label %329 unwind label %231
 
-328:                                              ; preds = %320
-  %329 = icmp ne i32 %327, 0
-  br i1 %329, label %330, label %365
+329:                                              ; preds = %321
+  %330 = icmp ne i32 %328, 0
+  br i1 %330, label %331, label %366
 
-330:                                              ; preds = %328
-  %331 = load ptr, ptr %8, align 8
-  %332 = load ptr, ptr %30, align 8
-  %333 = load i32, ptr %31, align 4
-  %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds %struct.Elf32_Phdr, ptr %332, i64 %334
-  %336 = getelementptr inbounds %struct.Elf32_Phdr, ptr %335, i32 0, i32 3
-  %337 = load i32, ptr %336, align 4
-  %338 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %337)
-          to label %339 unwind label %230
+331:                                              ; preds = %329
+  %332 = load ptr, ptr %8, align 8
+  %333 = load ptr, ptr %30, align 8
+  %334 = load i32, ptr %31, align 4
+  %335 = zext i32 %334 to i64
+  %336 = getelementptr inbounds %struct.Elf32_Phdr, ptr %333, i64 %335
+  %337 = getelementptr inbounds %struct.Elf32_Phdr, ptr %336, i32 0, i32 3
+  %338 = load i32, ptr %337, align 4
+  %339 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %338)
+          to label %340 unwind label %231
 
-339:                                              ; preds = %330
-  %340 = zext i32 %338 to i64
-  %341 = load ptr, ptr %30, align 8
-  %342 = load i32, ptr %31, align 4
-  %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds %struct.Elf32_Phdr, ptr %341, i64 %343
-  %345 = getelementptr inbounds %struct.Elf32_Phdr, ptr %344, i32 0, i32 4
-  %346 = load i32, ptr %345, align 4
-  %347 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %346)
-          to label %348 unwind label %230
+340:                                              ; preds = %331
+  %341 = zext i32 %339 to i64
+  %342 = load ptr, ptr %30, align 8
+  %343 = load i32, ptr %31, align 4
+  %344 = zext i32 %343 to i64
+  %345 = getelementptr inbounds %struct.Elf32_Phdr, ptr %342, i64 %344
+  %346 = getelementptr inbounds %struct.Elf32_Phdr, ptr %345, i32 0, i32 4
+  %347 = load i32, ptr %346, align 4
+  %348 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %347)
+          to label %349 unwind label %231
 
-348:                                              ; preds = %339
-  %349 = zext i32 %347 to i64
-  %350 = load ptr, ptr %20, align 8
-  %351 = load ptr, ptr %30, align 8
-  %352 = load i32, ptr %31, align 4
-  %353 = zext i32 %352 to i64
-  %354 = getelementptr inbounds %struct.Elf32_Phdr, ptr %351, i64 %353
-  %355 = getelementptr inbounds %struct.Elf32_Phdr, ptr %354, i32 0, i32 1
-  %356 = load i32, ptr %355, align 4
-  %357 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %356)
-          to label %358 unwind label %230
+349:                                              ; preds = %340
+  %350 = zext i32 %348 to i64
+  %351 = load ptr, ptr %20, align 8
+  %352 = load ptr, ptr %30, align 8
+  %353 = load i32, ptr %31, align 4
+  %354 = zext i32 %353 to i64
+  %355 = getelementptr inbounds %struct.Elf32_Phdr, ptr %352, i64 %354
+  %356 = getelementptr inbounds %struct.Elf32_Phdr, ptr %355, i32 0, i32 1
+  %357 = load i32, ptr %356, align 4
+  %358 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %357)
+          to label %359 unwind label %231
 
-358:                                              ; preds = %348
-  %359 = zext i32 %357 to i64
-  %360 = getelementptr inbounds i8, ptr %350, i64 %359
-  %361 = load ptr, ptr %331, align 8
-  %362 = getelementptr inbounds ptr, ptr %361, i64 3
-  %363 = load ptr, ptr %362, align 8
-  invoke void %363(ptr noundef nonnull align 8 dereferenceable(16) %331, i64 noundef %340, i64 noundef %349, ptr noundef %360)
-          to label %364 unwind label %230
+359:                                              ; preds = %349
+  %360 = zext i32 %358 to i64
+  %361 = getelementptr inbounds i8, ptr %351, i64 %360
+  %362 = load ptr, ptr %332, align 8
+  %363 = getelementptr inbounds ptr, ptr %362, i64 3
+  %364 = load ptr, ptr %363, align 8
+  invoke void %364(ptr noundef nonnull align 8 dereferenceable(16) %332, i64 noundef %341, i64 noundef %350, ptr noundef %361)
+          to label %365 unwind label %231
 
-364:                                              ; preds = %358
-  br label %365
+365:                                              ; preds = %359
+  br label %366
 
-365:                                              ; preds = %364, %328
-  %366 = load ptr, ptr %30, align 8
-  %367 = load i32, ptr %31, align 4
-  %368 = zext i32 %367 to i64
-  %369 = getelementptr inbounds %struct.Elf32_Phdr, ptr %366, i64 %368
-  %370 = getelementptr inbounds %struct.Elf32_Phdr, ptr %369, i32 0, i32 5
-  %371 = load i32, ptr %370, align 4
-  %372 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %371)
-          to label %373 unwind label %230
+366:                                              ; preds = %365, %329
+  %367 = load ptr, ptr %30, align 8
+  %368 = load i32, ptr %31, align 4
+  %369 = zext i32 %368 to i64
+  %370 = getelementptr inbounds %struct.Elf32_Phdr, ptr %367, i64 %369
+  %371 = getelementptr inbounds %struct.Elf32_Phdr, ptr %370, i32 0, i32 5
+  %372 = load i32, ptr %371, align 4
+  %373 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %372)
+          to label %374 unwind label %231
 
-373:                                              ; preds = %365
-  %374 = load ptr, ptr %30, align 8
-  %375 = load i32, ptr %31, align 4
-  %376 = zext i32 %375 to i64
-  %377 = getelementptr inbounds %struct.Elf32_Phdr, ptr %374, i64 %376
-  %378 = getelementptr inbounds %struct.Elf32_Phdr, ptr %377, i32 0, i32 4
-  %379 = load i32, ptr %378, align 4
-  %380 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %379)
-          to label %381 unwind label %230
+374:                                              ; preds = %366
+  %375 = load ptr, ptr %30, align 8
+  %376 = load i32, ptr %31, align 4
+  %377 = zext i32 %376 to i64
+  %378 = getelementptr inbounds %struct.Elf32_Phdr, ptr %375, i64 %377
+  %379 = getelementptr inbounds %struct.Elf32_Phdr, ptr %378, i32 0, i32 4
+  %380 = load i32, ptr %379, align 4
+  %381 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %380)
+          to label %382 unwind label %231
 
-381:                                              ; preds = %373
-  %382 = sub i32 %372, %380
-  %383 = zext i32 %382 to i64
-  store i64 %383, ptr %32, align 8
-  %384 = load i64, ptr %32, align 8
-  %385 = icmp ne i64 %384, 0
-  br i1 %385, label %386, label %414
+382:                                              ; preds = %374
+  %383 = sub i32 %373, %381
+  %384 = zext i32 %383 to i64
+  store i64 %384, ptr %32, align 8
+  %385 = load i64, ptr %32, align 8
+  %386 = icmp ne i64 %385, 0
+  br i1 %386, label %387, label %415
 
-386:                                              ; preds = %381
-  %387 = load i64, ptr %32, align 8
-  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %387)
-          to label %388 unwind label %230
+387:                                              ; preds = %382
+  %388 = load i64, ptr %32, align 8
+  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %388)
+          to label %389 unwind label %231
 
-388:                                              ; preds = %386
-  %389 = load ptr, ptr %8, align 8
-  %390 = load ptr, ptr %30, align 8
-  %391 = load i32, ptr %31, align 4
-  %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds %struct.Elf32_Phdr, ptr %390, i64 %392
-  %394 = getelementptr inbounds %struct.Elf32_Phdr, ptr %393, i32 0, i32 3
-  %395 = load i32, ptr %394, align 4
-  %396 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %395)
-          to label %397 unwind label %230
+389:                                              ; preds = %387
+  %390 = load ptr, ptr %8, align 8
+  %391 = load ptr, ptr %30, align 8
+  %392 = load i32, ptr %31, align 4
+  %393 = zext i32 %392 to i64
+  %394 = getelementptr inbounds %struct.Elf32_Phdr, ptr %391, i64 %393
+  %395 = getelementptr inbounds %struct.Elf32_Phdr, ptr %394, i32 0, i32 3
+  %396 = load i32, ptr %395, align 4
+  %397 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %396)
+          to label %398 unwind label %231
 
-397:                                              ; preds = %388
-  %398 = load ptr, ptr %30, align 8
-  %399 = load i32, ptr %31, align 4
-  %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds %struct.Elf32_Phdr, ptr %398, i64 %400
-  %402 = getelementptr inbounds %struct.Elf32_Phdr, ptr %401, i32 0, i32 4
-  %403 = load i32, ptr %402, align 4
-  %404 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %403)
-          to label %405 unwind label %230
+398:                                              ; preds = %389
+  %399 = load ptr, ptr %30, align 8
+  %400 = load i32, ptr %31, align 4
+  %401 = zext i32 %400 to i64
+  %402 = getelementptr inbounds %struct.Elf32_Phdr, ptr %399, i64 %401
+  %403 = getelementptr inbounds %struct.Elf32_Phdr, ptr %402, i32 0, i32 4
+  %404 = load i32, ptr %403, align 4
+  %405 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %404)
+          to label %406 unwind label %231
 
-405:                                              ; preds = %397
-  %406 = add i32 %396, %404
-  %407 = zext i32 %406 to i64
-  %408 = load i64, ptr %32, align 8
-  %409 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  %410 = load ptr, ptr %389, align 8
-  %411 = getelementptr inbounds ptr, ptr %410, i64 3
-  %412 = load ptr, ptr %411, align 8
-  invoke void %412(ptr noundef nonnull align 8 dereferenceable(16) %389, i64 noundef %407, i64 noundef %408, ptr noundef %409)
-          to label %413 unwind label %230
+406:                                              ; preds = %398
+  %407 = add i32 %397, %405
+  %408 = zext i32 %407 to i64
+  %409 = load i64, ptr %32, align 8
+  %410 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  %411 = load ptr, ptr %390, align 8
+  %412 = getelementptr inbounds ptr, ptr %411, i64 3
+  %413 = load ptr, ptr %412, align 8
+  invoke void %413(ptr noundef nonnull align 8 dereferenceable(16) %390, i64 noundef %408, i64 noundef %409, ptr noundef %410)
+          to label %414 unwind label %231
 
-413:                                              ; preds = %405
-  br label %414
-
-414:                                              ; preds = %413, %381
+414:                                              ; preds = %406
   br label %415
 
-415:                                              ; preds = %414, %318, %308
+415:                                              ; preds = %414, %382
   br label %416
 
-416:                                              ; preds = %415
-  %417 = load i32, ptr %31, align 4
-  %418 = add i32 %417, 1
-  store i32 %418, ptr %31, align 4
-  br label %291, !llvm.loop !4
+416:                                              ; preds = %415, %319, %309
+  br label %417
 
-419:                                              ; preds = %297
-  %420 = load ptr, ptr %20, align 8
-  %421 = load ptr, ptr %29, align 8
-  %422 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %421, i32 0, i32 6
-  %423 = load i32, ptr %422, align 4
-  %424 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %423)
-          to label %425 unwind label %230
+417:                                              ; preds = %416
+  %418 = load i32, ptr %31, align 4
+  %419 = add i32 %418, 1
+  store i32 %419, ptr %31, align 4
+  br label %292, !llvm.loop !4
 
-425:                                              ; preds = %419
-  %426 = zext i32 %424 to i64
-  %427 = getelementptr inbounds i8, ptr %420, i64 %426
-  store ptr %427, ptr %33, align 8
-  %428 = load ptr, ptr %20, align 8
-  %429 = load ptr, ptr %33, align 8
-  %430 = load ptr, ptr %29, align 8
-  %431 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %430, i32 0, i32 13
-  %432 = load i16, ptr %431, align 2
-  %433 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %432)
-          to label %434 unwind label %230
+420:                                              ; preds = %298
+  %421 = load ptr, ptr %20, align 8
+  %422 = load ptr, ptr %29, align 8
+  %423 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %422, i32 0, i32 6
+  %424 = load i32, ptr %423, align 4
+  %425 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %424)
+          to label %426 unwind label %231
 
-434:                                              ; preds = %425
-  %435 = zext i16 %433 to i64
-  %436 = getelementptr inbounds %struct.Elf32_Shdr, ptr %429, i64 %435
-  %437 = getelementptr inbounds %struct.Elf32_Shdr, ptr %436, i32 0, i32 4
-  %438 = load i32, ptr %437, align 4
-  %439 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %438)
-          to label %440 unwind label %230
+426:                                              ; preds = %420
+  %427 = zext i32 %425 to i64
+  %428 = getelementptr inbounds i8, ptr %421, i64 %427
+  store ptr %428, ptr %33, align 8
+  %429 = load ptr, ptr %20, align 8
+  %430 = load ptr, ptr %33, align 8
+  %431 = load ptr, ptr %29, align 8
+  %432 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %431, i32 0, i32 13
+  %433 = load i16, ptr %432, align 2
+  %434 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %433)
+          to label %435 unwind label %231
 
-440:                                              ; preds = %434
-  %441 = zext i32 %439 to i64
-  %442 = getelementptr inbounds i8, ptr %428, i64 %441
-  store ptr %442, ptr %34, align 8
+435:                                              ; preds = %426
+  %436 = zext i16 %434 to i64
+  %437 = getelementptr inbounds %struct.Elf32_Shdr, ptr %430, i64 %436
+  %438 = getelementptr inbounds %struct.Elf32_Shdr, ptr %437, i32 0, i32 4
+  %439 = load i32, ptr %438, align 4
+  %440 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %439)
+          to label %441 unwind label %231
+
+441:                                              ; preds = %435
+  %442 = zext i32 %440 to i64
+  %443 = getelementptr inbounds i8, ptr %429, i64 %442
+  store ptr %443, ptr %34, align 8
   store i32 0, ptr %35, align 4
   store i32 0, ptr %36, align 4
   store i32 0, ptr %37, align 4
-  br label %443
+  br label %444
 
-443:                                              ; preds = %518, %440
-  %444 = load i32, ptr %37, align 4
-  %445 = load ptr, ptr %29, align 8
-  %446 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %445, i32 0, i32 12
-  %447 = load i16, ptr %446, align 4
-  %448 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %447)
-          to label %449 unwind label %230
+444:                                              ; preds = %519, %441
+  %445 = load i32, ptr %37, align 4
+  %446 = load ptr, ptr %29, align 8
+  %447 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %446, i32 0, i32 12
+  %448 = load i16, ptr %447, align 4
+  %449 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %448)
+          to label %450 unwind label %231
 
-449:                                              ; preds = %443
-  %450 = zext i16 %448 to i32
-  %451 = icmp ult i32 %444, %450
-  br i1 %451, label %452, label %521
+450:                                              ; preds = %444
+  %451 = zext i16 %449 to i32
+  %452 = icmp ult i32 %445, %451
+  br i1 %452, label %453, label %522
 
-452:                                              ; preds = %449
-  %453 = load ptr, ptr %33, align 8
-  %454 = load ptr, ptr %29, align 8
-  %455 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %454, i32 0, i32 13
-  %456 = load i16, ptr %455, align 2
-  %457 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %456)
-          to label %458 unwind label %230
+453:                                              ; preds = %450
+  %454 = load ptr, ptr %33, align 8
+  %455 = load ptr, ptr %29, align 8
+  %456 = getelementptr inbounds %struct.Elf32_Ehdr, ptr %455, i32 0, i32 13
+  %457 = load i16, ptr %456, align 2
+  %458 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %457)
+          to label %459 unwind label %231
 
-458:                                              ; preds = %452
-  %459 = zext i16 %457 to i64
-  %460 = getelementptr inbounds %struct.Elf32_Shdr, ptr %453, i64 %459
-  %461 = getelementptr inbounds %struct.Elf32_Shdr, ptr %460, i32 0, i32 5
-  %462 = load i32, ptr %461, align 4
-  %463 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %462)
-          to label %464 unwind label %230
+459:                                              ; preds = %453
+  %460 = zext i16 %458 to i64
+  %461 = getelementptr inbounds %struct.Elf32_Shdr, ptr %454, i64 %460
+  %462 = getelementptr inbounds %struct.Elf32_Shdr, ptr %461, i32 0, i32 5
+  %463 = load i32, ptr %462, align 4
+  %464 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %463)
+          to label %465 unwind label %231
 
-464:                                              ; preds = %458
-  %465 = load ptr, ptr %33, align 8
-  %466 = load i32, ptr %37, align 4
-  %467 = zext i32 %466 to i64
-  %468 = getelementptr inbounds %struct.Elf32_Shdr, ptr %465, i64 %467
-  %469 = getelementptr inbounds %struct.Elf32_Shdr, ptr %468, i32 0, i32 0
-  %470 = load i32, ptr %469, align 4
-  %471 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %470)
-          to label %472 unwind label %230
+465:                                              ; preds = %459
+  %466 = load ptr, ptr %33, align 8
+  %467 = load i32, ptr %37, align 4
+  %468 = zext i32 %467 to i64
+  %469 = getelementptr inbounds %struct.Elf32_Shdr, ptr %466, i64 %468
+  %470 = getelementptr inbounds %struct.Elf32_Shdr, ptr %469, i32 0, i32 0
+  %471 = load i32, ptr %470, align 4
+  %472 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %471)
+          to label %473 unwind label %231
 
-472:                                              ; preds = %464
-  %473 = sub i32 %463, %471
-  store i32 %473, ptr %38, align 4
-  %474 = load ptr, ptr %33, align 8
-  %475 = load i32, ptr %37, align 4
-  %476 = zext i32 %475 to i64
-  %477 = getelementptr inbounds %struct.Elf32_Shdr, ptr %474, i64 %476
-  %478 = getelementptr inbounds %struct.Elf32_Shdr, ptr %477, i32 0, i32 1
-  %479 = load i32, ptr %478, align 4
-  %480 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %479)
-          to label %481 unwind label %230
+473:                                              ; preds = %465
+  %474 = sub i32 %464, %472
+  store i32 %474, ptr %38, align 4
+  %475 = load ptr, ptr %33, align 8
+  %476 = load i32, ptr %37, align 4
+  %477 = zext i32 %476 to i64
+  %478 = getelementptr inbounds %struct.Elf32_Shdr, ptr %475, i64 %477
+  %479 = getelementptr inbounds %struct.Elf32_Shdr, ptr %478, i32 0, i32 1
+  %480 = load i32, ptr %479, align 4
+  %481 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %480)
+          to label %482 unwind label %231
 
-481:                                              ; preds = %472
-  %482 = and i32 %480, 8
-  %483 = icmp ne i32 %482, 0
-  br i1 %483, label %484, label %485
+482:                                              ; preds = %473
+  %483 = and i32 %481, 8
+  %484 = icmp ne i32 %483, 0
+  br i1 %484, label %485, label %486
 
-484:                                              ; preds = %481
+485:                                              ; preds = %482
+  br label %519
+
+486:                                              ; preds = %482
+  %487 = load ptr, ptr %34, align 8
+  %488 = load ptr, ptr %33, align 8
+  %489 = load i32, ptr %37, align 4
+  %490 = zext i32 %489 to i64
+  %491 = getelementptr inbounds %struct.Elf32_Shdr, ptr %488, i64 %490
+  %492 = getelementptr inbounds %struct.Elf32_Shdr, ptr %491, i32 0, i32 0
+  %493 = load i32, ptr %492, align 4
+  %494 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %493)
+          to label %495 unwind label %231
+
+495:                                              ; preds = %486
+  %496 = zext i32 %494 to i64
+  %497 = getelementptr inbounds i8, ptr %487, i64 %496
+  %498 = call i32 @strcmp(ptr noundef %497, ptr noundef @.str.3) #17
+  %499 = icmp eq i32 %498, 0
+  br i1 %499, label %500, label %502
+
+500:                                              ; preds = %495
+  %501 = load i32, ptr %37, align 4
+  store i32 %501, ptr %35, align 4
+  br label %502
+
+502:                                              ; preds = %500, %495
+  %503 = load ptr, ptr %34, align 8
+  %504 = load ptr, ptr %33, align 8
+  %505 = load i32, ptr %37, align 4
+  %506 = zext i32 %505 to i64
+  %507 = getelementptr inbounds %struct.Elf32_Shdr, ptr %504, i64 %506
+  %508 = getelementptr inbounds %struct.Elf32_Shdr, ptr %507, i32 0, i32 0
+  %509 = load i32, ptr %508, align 4
+  %510 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %509)
+          to label %511 unwind label %231
+
+511:                                              ; preds = %502
+  %512 = zext i32 %510 to i64
+  %513 = getelementptr inbounds i8, ptr %503, i64 %512
+  %514 = call i32 @strcmp(ptr noundef %513, ptr noundef @.str.4) #17
+  %515 = icmp eq i32 %514, 0
+  br i1 %515, label %516, label %518
+
+516:                                              ; preds = %511
+  %517 = load i32, ptr %37, align 4
+  store i32 %517, ptr %36, align 4
   br label %518
 
-485:                                              ; preds = %481
-  %486 = load ptr, ptr %34, align 8
-  %487 = load ptr, ptr %33, align 8
-  %488 = load i32, ptr %37, align 4
-  %489 = zext i32 %488 to i64
-  %490 = getelementptr inbounds %struct.Elf32_Shdr, ptr %487, i64 %489
-  %491 = getelementptr inbounds %struct.Elf32_Shdr, ptr %490, i32 0, i32 0
-  %492 = load i32, ptr %491, align 4
-  %493 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %492)
-          to label %494 unwind label %230
+518:                                              ; preds = %516, %511
+  br label %519
 
-494:                                              ; preds = %485
-  %495 = zext i32 %493 to i64
-  %496 = getelementptr inbounds i8, ptr %486, i64 %495
-  %497 = call i32 @strcmp(ptr noundef %496, ptr noundef @.str.3) #17
-  %498 = icmp eq i32 %497, 0
-  br i1 %498, label %499, label %501
+519:                                              ; preds = %518, %485
+  %520 = load i32, ptr %37, align 4
+  %521 = add i32 %520, 1
+  store i32 %521, ptr %37, align 4
+  br label %444, !llvm.loop !6
 
-499:                                              ; preds = %494
-  %500 = load i32, ptr %37, align 4
-  store i32 %500, ptr %35, align 4
-  br label %501
+522:                                              ; preds = %450
+  %523 = load i32, ptr %35, align 4
+  %524 = icmp ne i32 %523, 0
+  br i1 %524, label %525, label %619
 
-501:                                              ; preds = %499, %494
-  %502 = load ptr, ptr %34, align 8
-  %503 = load ptr, ptr %33, align 8
-  %504 = load i32, ptr %37, align 4
-  %505 = zext i32 %504 to i64
-  %506 = getelementptr inbounds %struct.Elf32_Shdr, ptr %503, i64 %505
-  %507 = getelementptr inbounds %struct.Elf32_Shdr, ptr %506, i32 0, i32 0
-  %508 = load i32, ptr %507, align 4
-  %509 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %508)
-          to label %510 unwind label %230
+525:                                              ; preds = %522
+  %526 = load i32, ptr %36, align 4
+  %527 = icmp ne i32 %526, 0
+  br i1 %527, label %528, label %619
 
-510:                                              ; preds = %501
-  %511 = zext i32 %509 to i64
-  %512 = getelementptr inbounds i8, ptr %502, i64 %511
-  %513 = call i32 @strcmp(ptr noundef %512, ptr noundef @.str.4) #17
-  %514 = icmp eq i32 %513, 0
-  br i1 %514, label %515, label %517
+528:                                              ; preds = %525
+  %529 = load ptr, ptr %20, align 8
+  %530 = load ptr, ptr %33, align 8
+  %531 = load i32, ptr %35, align 4
+  %532 = zext i32 %531 to i64
+  %533 = getelementptr inbounds %struct.Elf32_Shdr, ptr %530, i64 %532
+  %534 = getelementptr inbounds %struct.Elf32_Shdr, ptr %533, i32 0, i32 4
+  %535 = load i32, ptr %534, align 4
+  %536 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %535)
+          to label %537 unwind label %231
 
-515:                                              ; preds = %510
-  %516 = load i32, ptr %37, align 4
-  store i32 %516, ptr %36, align 4
-  br label %517
+537:                                              ; preds = %528
+  %538 = zext i32 %536 to i64
+  %539 = getelementptr inbounds i8, ptr %529, i64 %538
+  store ptr %539, ptr %39, align 8
+  %540 = load ptr, ptr %20, align 8
+  %541 = load ptr, ptr %33, align 8
+  %542 = load i32, ptr %36, align 4
+  %543 = zext i32 %542 to i64
+  %544 = getelementptr inbounds %struct.Elf32_Shdr, ptr %541, i64 %543
+  %545 = getelementptr inbounds %struct.Elf32_Shdr, ptr %544, i32 0, i32 4
+  %546 = load i32, ptr %545, align 4
+  %547 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %546)
+          to label %548 unwind label %231
 
-517:                                              ; preds = %515, %510
-  br label %518
-
-518:                                              ; preds = %517, %484
-  %519 = load i32, ptr %37, align 4
-  %520 = add i32 %519, 1
-  store i32 %520, ptr %37, align 4
-  br label %443, !llvm.loop !6
-
-521:                                              ; preds = %449
-  %522 = load i32, ptr %35, align 4
-  %523 = icmp ne i32 %522, 0
-  br i1 %523, label %524, label %618
-
-524:                                              ; preds = %521
-  %525 = load i32, ptr %36, align 4
-  %526 = icmp ne i32 %525, 0
-  br i1 %526, label %527, label %618
-
-527:                                              ; preds = %524
-  %528 = load ptr, ptr %20, align 8
-  %529 = load ptr, ptr %33, align 8
-  %530 = load i32, ptr %35, align 4
-  %531 = zext i32 %530 to i64
-  %532 = getelementptr inbounds %struct.Elf32_Shdr, ptr %529, i64 %531
-  %533 = getelementptr inbounds %struct.Elf32_Shdr, ptr %532, i32 0, i32 4
-  %534 = load i32, ptr %533, align 4
-  %535 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %534)
-          to label %536 unwind label %230
-
-536:                                              ; preds = %527
-  %537 = zext i32 %535 to i64
-  %538 = getelementptr inbounds i8, ptr %528, i64 %537
-  store ptr %538, ptr %39, align 8
-  %539 = load ptr, ptr %20, align 8
-  %540 = load ptr, ptr %33, align 8
-  %541 = load i32, ptr %36, align 4
-  %542 = zext i32 %541 to i64
-  %543 = getelementptr inbounds %struct.Elf32_Shdr, ptr %540, i64 %542
-  %544 = getelementptr inbounds %struct.Elf32_Shdr, ptr %543, i32 0, i32 4
-  %545 = load i32, ptr %544, align 4
-  %546 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %545)
-          to label %547 unwind label %230
-
-547:                                              ; preds = %536
-  %548 = zext i32 %546 to i64
-  %549 = getelementptr inbounds i8, ptr %539, i64 %548
-  store ptr %549, ptr %40, align 8
+548:                                              ; preds = %537
+  %549 = zext i32 %547 to i64
+  %550 = getelementptr inbounds i8, ptr %540, i64 %549
+  store ptr %550, ptr %40, align 8
   store i32 0, ptr %41, align 4
-  br label %550
+  br label %551
 
-550:                                              ; preds = %605, %547
-  %551 = load i32, ptr %41, align 4
-  %552 = zext i32 %551 to i64
-  %553 = load ptr, ptr %33, align 8
-  %554 = load i32, ptr %36, align 4
-  %555 = zext i32 %554 to i64
-  %556 = getelementptr inbounds %struct.Elf32_Shdr, ptr %553, i64 %555
-  %557 = getelementptr inbounds %struct.Elf32_Shdr, ptr %556, i32 0, i32 5
-  %558 = load i32, ptr %557, align 4
-  %559 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %558)
-          to label %560 unwind label %230
+551:                                              ; preds = %606, %548
+  %552 = load i32, ptr %41, align 4
+  %553 = zext i32 %552 to i64
+  %554 = load ptr, ptr %33, align 8
+  %555 = load i32, ptr %36, align 4
+  %556 = zext i32 %555 to i64
+  %557 = getelementptr inbounds %struct.Elf32_Shdr, ptr %554, i64 %556
+  %558 = getelementptr inbounds %struct.Elf32_Shdr, ptr %557, i32 0, i32 5
+  %559 = load i32, ptr %558, align 4
+  %560 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %559)
+          to label %561 unwind label %231
 
-560:                                              ; preds = %550
-  %561 = zext i32 %559 to i64
-  %562 = udiv i64 %561, 16
-  %563 = icmp ult i64 %552, %562
-  br i1 %563, label %564, label %617
+561:                                              ; preds = %551
+  %562 = zext i32 %560 to i64
+  %563 = udiv i64 %562, 16
+  %564 = icmp ult i64 %553, %563
+  br i1 %564, label %565, label %618
 
-564:                                              ; preds = %560
-  %565 = load ptr, ptr %33, align 8
-  %566 = load i32, ptr %35, align 4
-  %567 = zext i32 %566 to i64
-  %568 = getelementptr inbounds %struct.Elf32_Shdr, ptr %565, i64 %567
-  %569 = getelementptr inbounds %struct.Elf32_Shdr, ptr %568, i32 0, i32 5
-  %570 = load i32, ptr %569, align 4
-  %571 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %570)
-          to label %572 unwind label %230
+565:                                              ; preds = %561
+  %566 = load ptr, ptr %33, align 8
+  %567 = load i32, ptr %35, align 4
+  %568 = zext i32 %567 to i64
+  %569 = getelementptr inbounds %struct.Elf32_Shdr, ptr %566, i64 %568
+  %570 = getelementptr inbounds %struct.Elf32_Shdr, ptr %569, i32 0, i32 5
+  %571 = load i32, ptr %570, align 4
+  %572 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %571)
+          to label %573 unwind label %231
 
-572:                                              ; preds = %564
-  %573 = load ptr, ptr %40, align 8
-  %574 = load i32, ptr %41, align 4
-  %575 = zext i32 %574 to i64
-  %576 = getelementptr inbounds %struct.Elf32_Sym, ptr %573, i64 %575
-  %577 = getelementptr inbounds %struct.Elf32_Sym, ptr %576, i32 0, i32 0
-  %578 = load i32, ptr %577, align 4
-  %579 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %578)
-          to label %580 unwind label %230
+573:                                              ; preds = %565
+  %574 = load ptr, ptr %40, align 8
+  %575 = load i32, ptr %41, align 4
+  %576 = zext i32 %575 to i64
+  %577 = getelementptr inbounds %struct.Elf32_Sym, ptr %574, i64 %576
+  %578 = getelementptr inbounds %struct.Elf32_Sym, ptr %577, i32 0, i32 0
+  %579 = load i32, ptr %578, align 4
+  %580 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %579)
+          to label %581 unwind label %231
 
-580:                                              ; preds = %572
-  %581 = sub i32 %571, %579
-  store i32 %581, ptr %42, align 4
-  %582 = load ptr, ptr %40, align 8
-  %583 = load i32, ptr %41, align 4
-  %584 = zext i32 %583 to i64
-  %585 = getelementptr inbounds %struct.Elf32_Sym, ptr %582, i64 %584
-  %586 = getelementptr inbounds %struct.Elf32_Sym, ptr %585, i32 0, i32 1
-  %587 = load i32, ptr %586, align 4
-  %588 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %587)
-          to label %589 unwind label %230
+581:                                              ; preds = %573
+  %582 = sub i32 %572, %580
+  store i32 %582, ptr %42, align 4
+  %583 = load ptr, ptr %40, align 8
+  %584 = load i32, ptr %41, align 4
+  %585 = zext i32 %584 to i64
+  %586 = getelementptr inbounds %struct.Elf32_Sym, ptr %583, i64 %585
+  %587 = getelementptr inbounds %struct.Elf32_Sym, ptr %586, i32 0, i32 1
+  %588 = load i32, ptr %587, align 4
+  %589 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %588)
+          to label %590 unwind label %231
 
-589:                                              ; preds = %580
-  %590 = zext i32 %588 to i64
-  %591 = load ptr, ptr %39, align 8
-  %592 = load ptr, ptr %40, align 8
-  %593 = load i32, ptr %41, align 4
-  %594 = zext i32 %593 to i64
-  %595 = getelementptr inbounds %struct.Elf32_Sym, ptr %592, i64 %594
-  %596 = getelementptr inbounds %struct.Elf32_Sym, ptr %595, i32 0, i32 0
-  %597 = load i32, ptr %596, align 4
-  %598 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %597)
-          to label %599 unwind label %230
+590:                                              ; preds = %581
+  %591 = zext i32 %589 to i64
+  %592 = load ptr, ptr %39, align 8
+  %593 = load ptr, ptr %40, align 8
+  %594 = load i32, ptr %41, align 4
+  %595 = zext i32 %594 to i64
+  %596 = getelementptr inbounds %struct.Elf32_Sym, ptr %593, i64 %595
+  %597 = getelementptr inbounds %struct.Elf32_Sym, ptr %596, i32 0, i32 0
+  %598 = load i32, ptr %597, align 4
+  %599 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %598)
+          to label %600 unwind label %231
 
-599:                                              ; preds = %589
-  %600 = zext i32 %598 to i64
-  %601 = getelementptr inbounds i8, ptr %591, i64 %600
+600:                                              ; preds = %590
+  %601 = zext i32 %599 to i64
+  %602 = getelementptr inbounds i8, ptr %592, i64 %601
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %601, ptr noundef nonnull align 1 dereferenceable(1) %44)
-          to label %602 unwind label %608
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %602, ptr noundef nonnull align 1 dereferenceable(1) %44)
+          to label %603 unwind label %609
 
-602:                                              ; preds = %599
-  %603 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %43)
-          to label %604 unwind label %612
+603:                                              ; preds = %600
+  %604 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %43)
+          to label %605 unwind label %613
 
-604:                                              ; preds = %602
-  store i64 %590, ptr %603, align 8
+605:                                              ; preds = %603
+  store i64 %591, ptr %604, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #13
-  br label %605
+  br label %606
 
-605:                                              ; preds = %604
-  %606 = load i32, ptr %41, align 4
-  %607 = add i32 %606, 1
-  store i32 %607, ptr %41, align 4
-  br label %550, !llvm.loop !7
+606:                                              ; preds = %605
+  %607 = load i32, ptr %41, align 4
+  %608 = add i32 %607, 1
+  store i32 %608, ptr %41, align 4
+  br label %551, !llvm.loop !7
 
-608:                                              ; preds = %599
-  %609 = landingpad { ptr, i32 }
+609:                                              ; preds = %600
+  %610 = landingpad { ptr, i32 }
           cleanup
-  %610 = extractvalue { ptr, i32 } %609, 0
-  store ptr %610, ptr %16, align 8
-  %611 = extractvalue { ptr, i32 } %609, 1
-  store i32 %611, ptr %17, align 4
-  br label %616
+  %611 = extractvalue { ptr, i32 } %610, 0
+  store ptr %611, ptr %16, align 8
+  %612 = extractvalue { ptr, i32 } %610, 1
+  store i32 %612, ptr %17, align 4
+  br label %617
 
-612:                                              ; preds = %602
-  %613 = landingpad { ptr, i32 }
+613:                                              ; preds = %603
+  %614 = landingpad { ptr, i32 }
           cleanup
-  %614 = extractvalue { ptr, i32 } %613, 0
-  store ptr %614, ptr %16, align 8
-  %615 = extractvalue { ptr, i32 } %613, 1
-  store i32 %615, ptr %17, align 4
+  %615 = extractvalue { ptr, i32 } %614, 0
+  store ptr %615, ptr %16, align 8
+  %616 = extractvalue { ptr, i32 } %614, 1
+  store i32 %616, ptr %17, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
-  br label %616
+  br label %617
 
-616:                                              ; preds = %612, %608
+617:                                              ; preds = %613, %609
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #13
-  br label %975
+  br label %976
 
-617:                                              ; preds = %560
-  br label %618
-
-618:                                              ; preds = %617, %524, %521
+618:                                              ; preds = %561
   br label %619
 
-619:                                              ; preds = %618
+619:                                              ; preds = %618, %525, %522
   br label %620
 
 620:                                              ; preds = %619
-  br label %960
+  br label %621
 
-621:                                              ; preds = %266, %259, %252, %245, %238
-  br label %622
+621:                                              ; preds = %620
+  br label %961
 
-622:                                              ; preds = %621
-  %623 = load ptr, ptr %20, align 8
-  store ptr %623, ptr %45, align 8
+622:                                              ; preds = %267, %260, %253, %246, %239
+  br label %623
+
+623:                                              ; preds = %622
   %624 = load ptr, ptr %20, align 8
-  %625 = load ptr, ptr %45, align 8
-  %626 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %625, i32 0, i32 5
-  %627 = load i64, ptr %626, align 8
-  %628 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %627)
-          to label %629 unwind label %230
+  store ptr %624, ptr %45, align 8
+  %625 = load ptr, ptr %20, align 8
+  %626 = load ptr, ptr %45, align 8
+  %627 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %626, i32 0, i32 5
+  %628 = load i64, ptr %627, align 8
+  %629 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %628)
+          to label %630 unwind label %231
 
-629:                                              ; preds = %622
-  %630 = getelementptr inbounds i8, ptr %624, i64 %628
-  store ptr %630, ptr %46, align 8
-  %631 = load ptr, ptr %45, align 8
-  %632 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %631, i32 0, i32 4
-  %633 = load i64, ptr %632, align 8
-  %634 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %633)
-          to label %635 unwind label %230
+630:                                              ; preds = %623
+  %631 = getelementptr inbounds i8, ptr %625, i64 %629
+  store ptr %631, ptr %46, align 8
+  %632 = load ptr, ptr %45, align 8
+  %633 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %632, i32 0, i32 4
+  %634 = load i64, ptr %633, align 8
+  %635 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %634)
+          to label %636 unwind label %231
 
-635:                                              ; preds = %629
-  %636 = load ptr, ptr %9, align 8
-  store i64 %634, ptr %636, align 8
+636:                                              ; preds = %630
+  %637 = load ptr, ptr %9, align 8
+  store i64 %635, ptr %637, align 8
   store i32 0, ptr %47, align 4
-  br label %637
+  br label %638
 
-637:                                              ; preds = %757, %635
-  %638 = load i32, ptr %47, align 4
-  %639 = load ptr, ptr %45, align 8
-  %640 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %639, i32 0, i32 10
-  %641 = load i16, ptr %640, align 8
-  %642 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %641)
-          to label %643 unwind label %230
+638:                                              ; preds = %758, %636
+  %639 = load i32, ptr %47, align 4
+  %640 = load ptr, ptr %45, align 8
+  %641 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %640, i32 0, i32 10
+  %642 = load i16, ptr %641, align 8
+  %643 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %642)
+          to label %644 unwind label %231
 
-643:                                              ; preds = %637
-  %644 = zext i16 %642 to i32
-  %645 = icmp ult i32 %638, %644
-  br i1 %645, label %646, label %760
+644:                                              ; preds = %638
+  %645 = zext i16 %643 to i32
+  %646 = icmp ult i32 %639, %645
+  br i1 %646, label %647, label %761
 
-646:                                              ; preds = %643
-  %647 = load ptr, ptr %46, align 8
-  %648 = load i32, ptr %47, align 4
-  %649 = zext i32 %648 to i64
-  %650 = getelementptr inbounds %struct.Elf64_Phdr, ptr %647, i64 %649
-  %651 = getelementptr inbounds %struct.Elf64_Phdr, ptr %650, i32 0, i32 0
-  %652 = load i32, ptr %651, align 8
-  %653 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %652)
-          to label %654 unwind label %230
+647:                                              ; preds = %644
+  %648 = load ptr, ptr %46, align 8
+  %649 = load i32, ptr %47, align 4
+  %650 = zext i32 %649 to i64
+  %651 = getelementptr inbounds %struct.Elf64_Phdr, ptr %648, i64 %650
+  %652 = getelementptr inbounds %struct.Elf64_Phdr, ptr %651, i32 0, i32 0
+  %653 = load i32, ptr %652, align 8
+  %654 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %653)
+          to label %655 unwind label %231
 
-654:                                              ; preds = %646
-  %655 = icmp eq i32 %653, 1
-  br i1 %655, label %656, label %756
+655:                                              ; preds = %647
+  %656 = icmp eq i32 %654, 1
+  br i1 %656, label %657, label %757
 
-656:                                              ; preds = %654
-  %657 = load ptr, ptr %46, align 8
-  %658 = load i32, ptr %47, align 4
-  %659 = zext i32 %658 to i64
-  %660 = getelementptr inbounds %struct.Elf64_Phdr, ptr %657, i64 %659
-  %661 = getelementptr inbounds %struct.Elf64_Phdr, ptr %660, i32 0, i32 6
-  %662 = load i64, ptr %661, align 8
-  %663 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %662)
-          to label %664 unwind label %230
+657:                                              ; preds = %655
+  %658 = load ptr, ptr %46, align 8
+  %659 = load i32, ptr %47, align 4
+  %660 = zext i32 %659 to i64
+  %661 = getelementptr inbounds %struct.Elf64_Phdr, ptr %658, i64 %660
+  %662 = getelementptr inbounds %struct.Elf64_Phdr, ptr %661, i32 0, i32 6
+  %663 = load i64, ptr %662, align 8
+  %664 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %663)
+          to label %665 unwind label %231
 
-664:                                              ; preds = %656
-  %665 = icmp ne i64 %663, 0
-  br i1 %665, label %666, label %756
+665:                                              ; preds = %657
+  %666 = icmp ne i64 %664, 0
+  br i1 %666, label %667, label %757
 
-666:                                              ; preds = %664
-  %667 = load ptr, ptr %46, align 8
-  %668 = load i32, ptr %47, align 4
-  %669 = zext i32 %668 to i64
-  %670 = getelementptr inbounds %struct.Elf64_Phdr, ptr %667, i64 %669
-  %671 = getelementptr inbounds %struct.Elf64_Phdr, ptr %670, i32 0, i32 5
-  %672 = load i64, ptr %671, align 8
-  %673 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %672)
-          to label %674 unwind label %230
+667:                                              ; preds = %665
+  %668 = load ptr, ptr %46, align 8
+  %669 = load i32, ptr %47, align 4
+  %670 = zext i32 %669 to i64
+  %671 = getelementptr inbounds %struct.Elf64_Phdr, ptr %668, i64 %670
+  %672 = getelementptr inbounds %struct.Elf64_Phdr, ptr %671, i32 0, i32 5
+  %673 = load i64, ptr %672, align 8
+  %674 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %673)
+          to label %675 unwind label %231
 
-674:                                              ; preds = %666
-  %675 = icmp ne i64 %673, 0
-  br i1 %675, label %676, label %708
+675:                                              ; preds = %667
+  %676 = icmp ne i64 %674, 0
+  br i1 %676, label %677, label %709
 
-676:                                              ; preds = %674
-  %677 = load ptr, ptr %8, align 8
-  %678 = load ptr, ptr %46, align 8
-  %679 = load i32, ptr %47, align 4
-  %680 = zext i32 %679 to i64
-  %681 = getelementptr inbounds %struct.Elf64_Phdr, ptr %678, i64 %680
-  %682 = getelementptr inbounds %struct.Elf64_Phdr, ptr %681, i32 0, i32 4
-  %683 = load i64, ptr %682, align 8
-  %684 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %683)
-          to label %685 unwind label %230
+677:                                              ; preds = %675
+  %678 = load ptr, ptr %8, align 8
+  %679 = load ptr, ptr %46, align 8
+  %680 = load i32, ptr %47, align 4
+  %681 = zext i32 %680 to i64
+  %682 = getelementptr inbounds %struct.Elf64_Phdr, ptr %679, i64 %681
+  %683 = getelementptr inbounds %struct.Elf64_Phdr, ptr %682, i32 0, i32 4
+  %684 = load i64, ptr %683, align 8
+  %685 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %684)
+          to label %686 unwind label %231
 
-685:                                              ; preds = %676
-  %686 = load ptr, ptr %46, align 8
-  %687 = load i32, ptr %47, align 4
-  %688 = zext i32 %687 to i64
-  %689 = getelementptr inbounds %struct.Elf64_Phdr, ptr %686, i64 %688
-  %690 = getelementptr inbounds %struct.Elf64_Phdr, ptr %689, i32 0, i32 5
-  %691 = load i64, ptr %690, align 8
-  %692 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %691)
-          to label %693 unwind label %230
+686:                                              ; preds = %677
+  %687 = load ptr, ptr %46, align 8
+  %688 = load i32, ptr %47, align 4
+  %689 = zext i32 %688 to i64
+  %690 = getelementptr inbounds %struct.Elf64_Phdr, ptr %687, i64 %689
+  %691 = getelementptr inbounds %struct.Elf64_Phdr, ptr %690, i32 0, i32 5
+  %692 = load i64, ptr %691, align 8
+  %693 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %692)
+          to label %694 unwind label %231
 
-693:                                              ; preds = %685
-  %694 = load ptr, ptr %20, align 8
-  %695 = load ptr, ptr %46, align 8
-  %696 = load i32, ptr %47, align 4
-  %697 = zext i32 %696 to i64
-  %698 = getelementptr inbounds %struct.Elf64_Phdr, ptr %695, i64 %697
-  %699 = getelementptr inbounds %struct.Elf64_Phdr, ptr %698, i32 0, i32 2
-  %700 = load i64, ptr %699, align 8
-  %701 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %700)
-          to label %702 unwind label %230
+694:                                              ; preds = %686
+  %695 = load ptr, ptr %20, align 8
+  %696 = load ptr, ptr %46, align 8
+  %697 = load i32, ptr %47, align 4
+  %698 = zext i32 %697 to i64
+  %699 = getelementptr inbounds %struct.Elf64_Phdr, ptr %696, i64 %698
+  %700 = getelementptr inbounds %struct.Elf64_Phdr, ptr %699, i32 0, i32 2
+  %701 = load i64, ptr %700, align 8
+  %702 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %701)
+          to label %703 unwind label %231
 
-702:                                              ; preds = %693
-  %703 = getelementptr inbounds i8, ptr %694, i64 %701
-  %704 = load ptr, ptr %677, align 8
-  %705 = getelementptr inbounds ptr, ptr %704, i64 3
-  %706 = load ptr, ptr %705, align 8
-  invoke void %706(ptr noundef nonnull align 8 dereferenceable(16) %677, i64 noundef %684, i64 noundef %692, ptr noundef %703)
-          to label %707 unwind label %230
+703:                                              ; preds = %694
+  %704 = getelementptr inbounds i8, ptr %695, i64 %702
+  %705 = load ptr, ptr %678, align 8
+  %706 = getelementptr inbounds ptr, ptr %705, i64 3
+  %707 = load ptr, ptr %706, align 8
+  invoke void %707(ptr noundef nonnull align 8 dereferenceable(16) %678, i64 noundef %685, i64 noundef %693, ptr noundef %704)
+          to label %708 unwind label %231
 
-707:                                              ; preds = %702
-  br label %708
+708:                                              ; preds = %703
+  br label %709
 
-708:                                              ; preds = %707, %674
-  %709 = load ptr, ptr %46, align 8
-  %710 = load i32, ptr %47, align 4
-  %711 = zext i32 %710 to i64
-  %712 = getelementptr inbounds %struct.Elf64_Phdr, ptr %709, i64 %711
-  %713 = getelementptr inbounds %struct.Elf64_Phdr, ptr %712, i32 0, i32 6
-  %714 = load i64, ptr %713, align 8
-  %715 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %714)
-          to label %716 unwind label %230
+709:                                              ; preds = %708, %675
+  %710 = load ptr, ptr %46, align 8
+  %711 = load i32, ptr %47, align 4
+  %712 = zext i32 %711 to i64
+  %713 = getelementptr inbounds %struct.Elf64_Phdr, ptr %710, i64 %712
+  %714 = getelementptr inbounds %struct.Elf64_Phdr, ptr %713, i32 0, i32 6
+  %715 = load i64, ptr %714, align 8
+  %716 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %715)
+          to label %717 unwind label %231
 
-716:                                              ; preds = %708
-  %717 = load ptr, ptr %46, align 8
-  %718 = load i32, ptr %47, align 4
-  %719 = zext i32 %718 to i64
-  %720 = getelementptr inbounds %struct.Elf64_Phdr, ptr %717, i64 %719
-  %721 = getelementptr inbounds %struct.Elf64_Phdr, ptr %720, i32 0, i32 5
-  %722 = load i64, ptr %721, align 8
-  %723 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %722)
-          to label %724 unwind label %230
+717:                                              ; preds = %709
+  %718 = load ptr, ptr %46, align 8
+  %719 = load i32, ptr %47, align 4
+  %720 = zext i32 %719 to i64
+  %721 = getelementptr inbounds %struct.Elf64_Phdr, ptr %718, i64 %720
+  %722 = getelementptr inbounds %struct.Elf64_Phdr, ptr %721, i32 0, i32 5
+  %723 = load i64, ptr %722, align 8
+  %724 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %723)
+          to label %725 unwind label %231
 
-724:                                              ; preds = %716
-  %725 = sub i64 %715, %723
-  store i64 %725, ptr %48, align 8
-  %726 = load i64, ptr %48, align 8
-  %727 = icmp ne i64 %726, 0
-  br i1 %727, label %728, label %755
+725:                                              ; preds = %717
+  %726 = sub i64 %716, %724
+  store i64 %726, ptr %48, align 8
+  %727 = load i64, ptr %48, align 8
+  %728 = icmp ne i64 %727, 0
+  br i1 %728, label %729, label %756
 
-728:                                              ; preds = %724
-  %729 = load i64, ptr %48, align 8
-  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %729)
-          to label %730 unwind label %230
+729:                                              ; preds = %725
+  %730 = load i64, ptr %48, align 8
+  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %730)
+          to label %731 unwind label %231
 
-730:                                              ; preds = %728
-  %731 = load ptr, ptr %8, align 8
-  %732 = load ptr, ptr %46, align 8
-  %733 = load i32, ptr %47, align 4
-  %734 = zext i32 %733 to i64
-  %735 = getelementptr inbounds %struct.Elf64_Phdr, ptr %732, i64 %734
-  %736 = getelementptr inbounds %struct.Elf64_Phdr, ptr %735, i32 0, i32 4
-  %737 = load i64, ptr %736, align 8
-  %738 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %737)
-          to label %739 unwind label %230
+731:                                              ; preds = %729
+  %732 = load ptr, ptr %8, align 8
+  %733 = load ptr, ptr %46, align 8
+  %734 = load i32, ptr %47, align 4
+  %735 = zext i32 %734 to i64
+  %736 = getelementptr inbounds %struct.Elf64_Phdr, ptr %733, i64 %735
+  %737 = getelementptr inbounds %struct.Elf64_Phdr, ptr %736, i32 0, i32 4
+  %738 = load i64, ptr %737, align 8
+  %739 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %738)
+          to label %740 unwind label %231
 
-739:                                              ; preds = %730
-  %740 = load ptr, ptr %46, align 8
-  %741 = load i32, ptr %47, align 4
-  %742 = zext i32 %741 to i64
-  %743 = getelementptr inbounds %struct.Elf64_Phdr, ptr %740, i64 %742
-  %744 = getelementptr inbounds %struct.Elf64_Phdr, ptr %743, i32 0, i32 5
-  %745 = load i64, ptr %744, align 8
-  %746 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %745)
-          to label %747 unwind label %230
+740:                                              ; preds = %731
+  %741 = load ptr, ptr %46, align 8
+  %742 = load i32, ptr %47, align 4
+  %743 = zext i32 %742 to i64
+  %744 = getelementptr inbounds %struct.Elf64_Phdr, ptr %741, i64 %743
+  %745 = getelementptr inbounds %struct.Elf64_Phdr, ptr %744, i32 0, i32 5
+  %746 = load i64, ptr %745, align 8
+  %747 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %746)
+          to label %748 unwind label %231
 
-747:                                              ; preds = %739
-  %748 = add i64 %738, %746
-  %749 = load i64, ptr %48, align 8
-  %750 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  %751 = load ptr, ptr %731, align 8
-  %752 = getelementptr inbounds ptr, ptr %751, i64 3
-  %753 = load ptr, ptr %752, align 8
-  invoke void %753(ptr noundef nonnull align 8 dereferenceable(16) %731, i64 noundef %748, i64 noundef %749, ptr noundef %750)
-          to label %754 unwind label %230
+748:                                              ; preds = %740
+  %749 = add i64 %739, %747
+  %750 = load i64, ptr %48, align 8
+  %751 = call noundef ptr @_ZNSt6vectorIhSaIhEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  %752 = load ptr, ptr %732, align 8
+  %753 = getelementptr inbounds ptr, ptr %752, i64 3
+  %754 = load ptr, ptr %753, align 8
+  invoke void %754(ptr noundef nonnull align 8 dereferenceable(16) %732, i64 noundef %749, i64 noundef %750, ptr noundef %751)
+          to label %755 unwind label %231
 
-754:                                              ; preds = %747
-  br label %755
-
-755:                                              ; preds = %754, %724
+755:                                              ; preds = %748
   br label %756
 
-756:                                              ; preds = %755, %664, %654
+756:                                              ; preds = %755, %725
   br label %757
 
-757:                                              ; preds = %756
-  %758 = load i32, ptr %47, align 4
-  %759 = add i32 %758, 1
-  store i32 %759, ptr %47, align 4
-  br label %637, !llvm.loop !8
+757:                                              ; preds = %756, %665, %655
+  br label %758
 
-760:                                              ; preds = %643
-  %761 = load ptr, ptr %20, align 8
-  %762 = load ptr, ptr %45, align 8
-  %763 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %762, i32 0, i32 6
-  %764 = load i64, ptr %763, align 8
-  %765 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %764)
-          to label %766 unwind label %230
+758:                                              ; preds = %757
+  %759 = load i32, ptr %47, align 4
+  %760 = add i32 %759, 1
+  store i32 %760, ptr %47, align 4
+  br label %638, !llvm.loop !8
 
-766:                                              ; preds = %760
-  %767 = getelementptr inbounds i8, ptr %761, i64 %765
-  store ptr %767, ptr %49, align 8
-  %768 = load ptr, ptr %20, align 8
-  %769 = load ptr, ptr %49, align 8
-  %770 = load ptr, ptr %45, align 8
-  %771 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %770, i32 0, i32 13
-  %772 = load i16, ptr %771, align 2
-  %773 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %772)
-          to label %774 unwind label %230
+761:                                              ; preds = %644
+  %762 = load ptr, ptr %20, align 8
+  %763 = load ptr, ptr %45, align 8
+  %764 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %763, i32 0, i32 6
+  %765 = load i64, ptr %764, align 8
+  %766 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %765)
+          to label %767 unwind label %231
 
-774:                                              ; preds = %766
-  %775 = zext i16 %773 to i64
-  %776 = getelementptr inbounds %struct.Elf64_Shdr, ptr %769, i64 %775
-  %777 = getelementptr inbounds %struct.Elf64_Shdr, ptr %776, i32 0, i32 4
-  %778 = load i64, ptr %777, align 8
-  %779 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %778)
-          to label %780 unwind label %230
+767:                                              ; preds = %761
+  %768 = getelementptr inbounds i8, ptr %762, i64 %766
+  store ptr %768, ptr %49, align 8
+  %769 = load ptr, ptr %20, align 8
+  %770 = load ptr, ptr %49, align 8
+  %771 = load ptr, ptr %45, align 8
+  %772 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %771, i32 0, i32 13
+  %773 = load i16, ptr %772, align 2
+  %774 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %773)
+          to label %775 unwind label %231
 
-780:                                              ; preds = %774
-  %781 = getelementptr inbounds i8, ptr %768, i64 %779
-  store ptr %781, ptr %50, align 8
+775:                                              ; preds = %767
+  %776 = zext i16 %774 to i64
+  %777 = getelementptr inbounds %struct.Elf64_Shdr, ptr %770, i64 %776
+  %778 = getelementptr inbounds %struct.Elf64_Shdr, ptr %777, i32 0, i32 4
+  %779 = load i64, ptr %778, align 8
+  %780 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %779)
+          to label %781 unwind label %231
+
+781:                                              ; preds = %775
+  %782 = getelementptr inbounds i8, ptr %769, i64 %780
+  store ptr %782, ptr %50, align 8
   store i32 0, ptr %51, align 4
   store i32 0, ptr %52, align 4
   store i32 0, ptr %53, align 4
-  br label %782
+  br label %783
 
-782:                                              ; preds = %859, %780
-  %783 = load i32, ptr %53, align 4
-  %784 = load ptr, ptr %45, align 8
-  %785 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %784, i32 0, i32 12
-  %786 = load i16, ptr %785, align 4
-  %787 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %786)
-          to label %788 unwind label %230
+783:                                              ; preds = %860, %781
+  %784 = load i32, ptr %53, align 4
+  %785 = load ptr, ptr %45, align 8
+  %786 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %785, i32 0, i32 12
+  %787 = load i16, ptr %786, align 4
+  %788 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %787)
+          to label %789 unwind label %231
 
-788:                                              ; preds = %782
-  %789 = zext i16 %787 to i32
-  %790 = icmp ult i32 %783, %789
-  br i1 %790, label %791, label %862
+789:                                              ; preds = %783
+  %790 = zext i16 %788 to i32
+  %791 = icmp ult i32 %784, %790
+  br i1 %791, label %792, label %863
 
-791:                                              ; preds = %788
-  %792 = load ptr, ptr %49, align 8
-  %793 = load ptr, ptr %45, align 8
-  %794 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %793, i32 0, i32 13
-  %795 = load i16, ptr %794, align 2
-  %796 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %795)
-          to label %797 unwind label %230
+792:                                              ; preds = %789
+  %793 = load ptr, ptr %49, align 8
+  %794 = load ptr, ptr %45, align 8
+  %795 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %794, i32 0, i32 13
+  %796 = load i16, ptr %795, align 2
+  %797 = invoke noundef zeroext i16 @_ZL7from_leItET_S0_(i16 noundef zeroext %796)
+          to label %798 unwind label %231
 
-797:                                              ; preds = %791
-  %798 = zext i16 %796 to i64
-  %799 = getelementptr inbounds %struct.Elf64_Shdr, ptr %792, i64 %798
-  %800 = getelementptr inbounds %struct.Elf64_Shdr, ptr %799, i32 0, i32 5
-  %801 = load i64, ptr %800, align 8
-  %802 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %801)
-          to label %803 unwind label %230
+798:                                              ; preds = %792
+  %799 = zext i16 %797 to i64
+  %800 = getelementptr inbounds %struct.Elf64_Shdr, ptr %793, i64 %799
+  %801 = getelementptr inbounds %struct.Elf64_Shdr, ptr %800, i32 0, i32 5
+  %802 = load i64, ptr %801, align 8
+  %803 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %802)
+          to label %804 unwind label %231
 
-803:                                              ; preds = %797
-  %804 = load ptr, ptr %49, align 8
-  %805 = load i32, ptr %53, align 4
-  %806 = zext i32 %805 to i64
-  %807 = getelementptr inbounds %struct.Elf64_Shdr, ptr %804, i64 %806
-  %808 = getelementptr inbounds %struct.Elf64_Shdr, ptr %807, i32 0, i32 0
-  %809 = load i32, ptr %808, align 8
-  %810 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %809)
-          to label %811 unwind label %230
+804:                                              ; preds = %798
+  %805 = load ptr, ptr %49, align 8
+  %806 = load i32, ptr %53, align 4
+  %807 = zext i32 %806 to i64
+  %808 = getelementptr inbounds %struct.Elf64_Shdr, ptr %805, i64 %807
+  %809 = getelementptr inbounds %struct.Elf64_Shdr, ptr %808, i32 0, i32 0
+  %810 = load i32, ptr %809, align 8
+  %811 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %810)
+          to label %812 unwind label %231
 
-811:                                              ; preds = %803
-  %812 = zext i32 %810 to i64
-  %813 = sub i64 %802, %812
-  %814 = trunc i64 %813 to i32
-  store i32 %814, ptr %54, align 4
-  %815 = load ptr, ptr %49, align 8
-  %816 = load i32, ptr %53, align 4
-  %817 = zext i32 %816 to i64
-  %818 = getelementptr inbounds %struct.Elf64_Shdr, ptr %815, i64 %817
-  %819 = getelementptr inbounds %struct.Elf64_Shdr, ptr %818, i32 0, i32 1
-  %820 = load i32, ptr %819, align 4
-  %821 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %820)
-          to label %822 unwind label %230
+812:                                              ; preds = %804
+  %813 = zext i32 %811 to i64
+  %814 = sub i64 %803, %813
+  %815 = trunc i64 %814 to i32
+  store i32 %815, ptr %54, align 4
+  %816 = load ptr, ptr %49, align 8
+  %817 = load i32, ptr %53, align 4
+  %818 = zext i32 %817 to i64
+  %819 = getelementptr inbounds %struct.Elf64_Shdr, ptr %816, i64 %818
+  %820 = getelementptr inbounds %struct.Elf64_Shdr, ptr %819, i32 0, i32 1
+  %821 = load i32, ptr %820, align 4
+  %822 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %821)
+          to label %823 unwind label %231
 
-822:                                              ; preds = %811
-  %823 = and i32 %821, 8
-  %824 = icmp ne i32 %823, 0
-  br i1 %824, label %825, label %826
+823:                                              ; preds = %812
+  %824 = and i32 %822, 8
+  %825 = icmp ne i32 %824, 0
+  br i1 %825, label %826, label %827
 
-825:                                              ; preds = %822
+826:                                              ; preds = %823
+  br label %860
+
+827:                                              ; preds = %823
+  %828 = load ptr, ptr %50, align 8
+  %829 = load ptr, ptr %49, align 8
+  %830 = load i32, ptr %53, align 4
+  %831 = zext i32 %830 to i64
+  %832 = getelementptr inbounds %struct.Elf64_Shdr, ptr %829, i64 %831
+  %833 = getelementptr inbounds %struct.Elf64_Shdr, ptr %832, i32 0, i32 0
+  %834 = load i32, ptr %833, align 8
+  %835 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %834)
+          to label %836 unwind label %231
+
+836:                                              ; preds = %827
+  %837 = zext i32 %835 to i64
+  %838 = getelementptr inbounds i8, ptr %828, i64 %837
+  %839 = call i32 @strcmp(ptr noundef %838, ptr noundef @.str.3) #17
+  %840 = icmp eq i32 %839, 0
+  br i1 %840, label %841, label %843
+
+841:                                              ; preds = %836
+  %842 = load i32, ptr %53, align 4
+  store i32 %842, ptr %51, align 4
+  br label %843
+
+843:                                              ; preds = %841, %836
+  %844 = load ptr, ptr %50, align 8
+  %845 = load ptr, ptr %49, align 8
+  %846 = load i32, ptr %53, align 4
+  %847 = zext i32 %846 to i64
+  %848 = getelementptr inbounds %struct.Elf64_Shdr, ptr %845, i64 %847
+  %849 = getelementptr inbounds %struct.Elf64_Shdr, ptr %848, i32 0, i32 0
+  %850 = load i32, ptr %849, align 8
+  %851 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %850)
+          to label %852 unwind label %231
+
+852:                                              ; preds = %843
+  %853 = zext i32 %851 to i64
+  %854 = getelementptr inbounds i8, ptr %844, i64 %853
+  %855 = call i32 @strcmp(ptr noundef %854, ptr noundef @.str.4) #17
+  %856 = icmp eq i32 %855, 0
+  br i1 %856, label %857, label %859
+
+857:                                              ; preds = %852
+  %858 = load i32, ptr %53, align 4
+  store i32 %858, ptr %52, align 4
   br label %859
 
-826:                                              ; preds = %822
-  %827 = load ptr, ptr %50, align 8
-  %828 = load ptr, ptr %49, align 8
-  %829 = load i32, ptr %53, align 4
-  %830 = zext i32 %829 to i64
-  %831 = getelementptr inbounds %struct.Elf64_Shdr, ptr %828, i64 %830
-  %832 = getelementptr inbounds %struct.Elf64_Shdr, ptr %831, i32 0, i32 0
-  %833 = load i32, ptr %832, align 8
-  %834 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %833)
-          to label %835 unwind label %230
+859:                                              ; preds = %857, %852
+  br label %860
 
-835:                                              ; preds = %826
-  %836 = zext i32 %834 to i64
-  %837 = getelementptr inbounds i8, ptr %827, i64 %836
-  %838 = call i32 @strcmp(ptr noundef %837, ptr noundef @.str.3) #17
-  %839 = icmp eq i32 %838, 0
-  br i1 %839, label %840, label %842
+860:                                              ; preds = %859, %826
+  %861 = load i32, ptr %53, align 4
+  %862 = add i32 %861, 1
+  store i32 %862, ptr %53, align 4
+  br label %783, !llvm.loop !9
 
-840:                                              ; preds = %835
-  %841 = load i32, ptr %53, align 4
-  store i32 %841, ptr %51, align 4
-  br label %842
+863:                                              ; preds = %789
+  %864 = load i32, ptr %51, align 4
+  %865 = icmp ne i32 %864, 0
+  br i1 %865, label %866, label %958
 
-842:                                              ; preds = %840, %835
-  %843 = load ptr, ptr %50, align 8
-  %844 = load ptr, ptr %49, align 8
-  %845 = load i32, ptr %53, align 4
-  %846 = zext i32 %845 to i64
-  %847 = getelementptr inbounds %struct.Elf64_Shdr, ptr %844, i64 %846
-  %848 = getelementptr inbounds %struct.Elf64_Shdr, ptr %847, i32 0, i32 0
-  %849 = load i32, ptr %848, align 8
-  %850 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %849)
-          to label %851 unwind label %230
+866:                                              ; preds = %863
+  %867 = load i32, ptr %52, align 4
+  %868 = icmp ne i32 %867, 0
+  br i1 %868, label %869, label %958
 
-851:                                              ; preds = %842
-  %852 = zext i32 %850 to i64
-  %853 = getelementptr inbounds i8, ptr %843, i64 %852
-  %854 = call i32 @strcmp(ptr noundef %853, ptr noundef @.str.4) #17
-  %855 = icmp eq i32 %854, 0
-  br i1 %855, label %856, label %858
+869:                                              ; preds = %866
+  %870 = load ptr, ptr %20, align 8
+  %871 = load ptr, ptr %49, align 8
+  %872 = load i32, ptr %51, align 4
+  %873 = zext i32 %872 to i64
+  %874 = getelementptr inbounds %struct.Elf64_Shdr, ptr %871, i64 %873
+  %875 = getelementptr inbounds %struct.Elf64_Shdr, ptr %874, i32 0, i32 4
+  %876 = load i64, ptr %875, align 8
+  %877 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %876)
+          to label %878 unwind label %231
 
-856:                                              ; preds = %851
-  %857 = load i32, ptr %53, align 4
-  store i32 %857, ptr %52, align 4
-  br label %858
+878:                                              ; preds = %869
+  %879 = getelementptr inbounds i8, ptr %870, i64 %877
+  store ptr %879, ptr %55, align 8
+  %880 = load ptr, ptr %20, align 8
+  %881 = load ptr, ptr %49, align 8
+  %882 = load i32, ptr %52, align 4
+  %883 = zext i32 %882 to i64
+  %884 = getelementptr inbounds %struct.Elf64_Shdr, ptr %881, i64 %883
+  %885 = getelementptr inbounds %struct.Elf64_Shdr, ptr %884, i32 0, i32 4
+  %886 = load i64, ptr %885, align 8
+  %887 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %886)
+          to label %888 unwind label %231
 
-858:                                              ; preds = %856, %851
-  br label %859
-
-859:                                              ; preds = %858, %825
-  %860 = load i32, ptr %53, align 4
-  %861 = add i32 %860, 1
-  store i32 %861, ptr %53, align 4
-  br label %782, !llvm.loop !9
-
-862:                                              ; preds = %788
-  %863 = load i32, ptr %51, align 4
-  %864 = icmp ne i32 %863, 0
-  br i1 %864, label %865, label %957
-
-865:                                              ; preds = %862
-  %866 = load i32, ptr %52, align 4
-  %867 = icmp ne i32 %866, 0
-  br i1 %867, label %868, label %957
-
-868:                                              ; preds = %865
-  %869 = load ptr, ptr %20, align 8
-  %870 = load ptr, ptr %49, align 8
-  %871 = load i32, ptr %51, align 4
-  %872 = zext i32 %871 to i64
-  %873 = getelementptr inbounds %struct.Elf64_Shdr, ptr %870, i64 %872
-  %874 = getelementptr inbounds %struct.Elf64_Shdr, ptr %873, i32 0, i32 4
-  %875 = load i64, ptr %874, align 8
-  %876 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %875)
-          to label %877 unwind label %230
-
-877:                                              ; preds = %868
-  %878 = getelementptr inbounds i8, ptr %869, i64 %876
-  store ptr %878, ptr %55, align 8
-  %879 = load ptr, ptr %20, align 8
-  %880 = load ptr, ptr %49, align 8
-  %881 = load i32, ptr %52, align 4
-  %882 = zext i32 %881 to i64
-  %883 = getelementptr inbounds %struct.Elf64_Shdr, ptr %880, i64 %882
-  %884 = getelementptr inbounds %struct.Elf64_Shdr, ptr %883, i32 0, i32 4
-  %885 = load i64, ptr %884, align 8
-  %886 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %885)
-          to label %887 unwind label %230
-
-887:                                              ; preds = %877
-  %888 = getelementptr inbounds i8, ptr %879, i64 %886
-  store ptr %888, ptr %56, align 8
+888:                                              ; preds = %878
+  %889 = getelementptr inbounds i8, ptr %880, i64 %887
+  store ptr %889, ptr %56, align 8
   store i32 0, ptr %57, align 4
-  br label %889
+  br label %890
 
-889:                                              ; preds = %944, %887
-  %890 = load i32, ptr %57, align 4
-  %891 = zext i32 %890 to i64
-  %892 = load ptr, ptr %49, align 8
-  %893 = load i32, ptr %52, align 4
-  %894 = zext i32 %893 to i64
-  %895 = getelementptr inbounds %struct.Elf64_Shdr, ptr %892, i64 %894
-  %896 = getelementptr inbounds %struct.Elf64_Shdr, ptr %895, i32 0, i32 5
-  %897 = load i64, ptr %896, align 8
-  %898 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %897)
-          to label %899 unwind label %230
+890:                                              ; preds = %945, %888
+  %891 = load i32, ptr %57, align 4
+  %892 = zext i32 %891 to i64
+  %893 = load ptr, ptr %49, align 8
+  %894 = load i32, ptr %52, align 4
+  %895 = zext i32 %894 to i64
+  %896 = getelementptr inbounds %struct.Elf64_Shdr, ptr %893, i64 %895
+  %897 = getelementptr inbounds %struct.Elf64_Shdr, ptr %896, i32 0, i32 5
+  %898 = load i64, ptr %897, align 8
+  %899 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %898)
+          to label %900 unwind label %231
 
-899:                                              ; preds = %889
-  %900 = udiv i64 %898, 24
-  %901 = icmp ult i64 %891, %900
-  br i1 %901, label %902, label %956
+900:                                              ; preds = %890
+  %901 = udiv i64 %899, 24
+  %902 = icmp ult i64 %892, %901
+  br i1 %902, label %903, label %957
 
-902:                                              ; preds = %899
-  %903 = load ptr, ptr %49, align 8
-  %904 = load i32, ptr %51, align 4
-  %905 = zext i32 %904 to i64
-  %906 = getelementptr inbounds %struct.Elf64_Shdr, ptr %903, i64 %905
-  %907 = getelementptr inbounds %struct.Elf64_Shdr, ptr %906, i32 0, i32 5
-  %908 = load i64, ptr %907, align 8
-  %909 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %908)
-          to label %910 unwind label %230
+903:                                              ; preds = %900
+  %904 = load ptr, ptr %49, align 8
+  %905 = load i32, ptr %51, align 4
+  %906 = zext i32 %905 to i64
+  %907 = getelementptr inbounds %struct.Elf64_Shdr, ptr %904, i64 %906
+  %908 = getelementptr inbounds %struct.Elf64_Shdr, ptr %907, i32 0, i32 5
+  %909 = load i64, ptr %908, align 8
+  %910 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %909)
+          to label %911 unwind label %231
 
-910:                                              ; preds = %902
-  %911 = load ptr, ptr %56, align 8
-  %912 = load i32, ptr %57, align 4
-  %913 = zext i32 %912 to i64
-  %914 = getelementptr inbounds %struct.Elf64_Sym, ptr %911, i64 %913
-  %915 = getelementptr inbounds %struct.Elf64_Sym, ptr %914, i32 0, i32 0
-  %916 = load i32, ptr %915, align 8
-  %917 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %916)
-          to label %918 unwind label %230
+911:                                              ; preds = %903
+  %912 = load ptr, ptr %56, align 8
+  %913 = load i32, ptr %57, align 4
+  %914 = zext i32 %913 to i64
+  %915 = getelementptr inbounds %struct.Elf64_Sym, ptr %912, i64 %914
+  %916 = getelementptr inbounds %struct.Elf64_Sym, ptr %915, i32 0, i32 0
+  %917 = load i32, ptr %916, align 8
+  %918 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %917)
+          to label %919 unwind label %231
 
-918:                                              ; preds = %910
-  %919 = zext i32 %917 to i64
-  %920 = sub i64 %909, %919
-  %921 = trunc i64 %920 to i32
-  store i32 %921, ptr %58, align 4
-  %922 = load ptr, ptr %56, align 8
-  %923 = load i32, ptr %57, align 4
-  %924 = zext i32 %923 to i64
-  %925 = getelementptr inbounds %struct.Elf64_Sym, ptr %922, i64 %924
-  %926 = getelementptr inbounds %struct.Elf64_Sym, ptr %925, i32 0, i32 4
-  %927 = load i64, ptr %926, align 8
-  %928 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %927)
-          to label %929 unwind label %230
+919:                                              ; preds = %911
+  %920 = zext i32 %918 to i64
+  %921 = sub i64 %910, %920
+  %922 = trunc i64 %921 to i32
+  store i32 %922, ptr %58, align 4
+  %923 = load ptr, ptr %56, align 8
+  %924 = load i32, ptr %57, align 4
+  %925 = zext i32 %924 to i64
+  %926 = getelementptr inbounds %struct.Elf64_Sym, ptr %923, i64 %925
+  %927 = getelementptr inbounds %struct.Elf64_Sym, ptr %926, i32 0, i32 4
+  %928 = load i64, ptr %927, align 8
+  %929 = invoke noundef i64 @_ZL7from_leImET_S0_(i64 noundef %928)
+          to label %930 unwind label %231
 
-929:                                              ; preds = %918
-  %930 = load ptr, ptr %55, align 8
-  %931 = load ptr, ptr %56, align 8
-  %932 = load i32, ptr %57, align 4
-  %933 = zext i32 %932 to i64
-  %934 = getelementptr inbounds %struct.Elf64_Sym, ptr %931, i64 %933
-  %935 = getelementptr inbounds %struct.Elf64_Sym, ptr %934, i32 0, i32 0
-  %936 = load i32, ptr %935, align 8
-  %937 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %936)
-          to label %938 unwind label %230
+930:                                              ; preds = %919
+  %931 = load ptr, ptr %55, align 8
+  %932 = load ptr, ptr %56, align 8
+  %933 = load i32, ptr %57, align 4
+  %934 = zext i32 %933 to i64
+  %935 = getelementptr inbounds %struct.Elf64_Sym, ptr %932, i64 %934
+  %936 = getelementptr inbounds %struct.Elf64_Sym, ptr %935, i32 0, i32 0
+  %937 = load i32, ptr %936, align 8
+  %938 = invoke noundef i32 @_ZL7from_leIjET_S0_(i32 noundef %937)
+          to label %939 unwind label %231
 
-938:                                              ; preds = %929
-  %939 = zext i32 %937 to i64
-  %940 = getelementptr inbounds i8, ptr %930, i64 %939
+939:                                              ; preds = %930
+  %940 = zext i32 %938 to i64
+  %941 = getelementptr inbounds i8, ptr %931, i64 %940
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef %940, ptr noundef nonnull align 1 dereferenceable(1) %60)
-          to label %941 unwind label %947
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef %941, ptr noundef nonnull align 1 dereferenceable(1) %60)
+          to label %942 unwind label %948
 
-941:                                              ; preds = %938
-  %942 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %59)
-          to label %943 unwind label %951
+942:                                              ; preds = %939
+  %943 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %59)
+          to label %944 unwind label %952
 
-943:                                              ; preds = %941
-  store i64 %928, ptr %942, align 8
+944:                                              ; preds = %942
+  store i64 %929, ptr %943, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #13
-  br label %944
+  br label %945
 
-944:                                              ; preds = %943
-  %945 = load i32, ptr %57, align 4
-  %946 = add i32 %945, 1
-  store i32 %946, ptr %57, align 4
-  br label %889, !llvm.loop !10
+945:                                              ; preds = %944
+  %946 = load i32, ptr %57, align 4
+  %947 = add i32 %946, 1
+  store i32 %947, ptr %57, align 4
+  br label %890, !llvm.loop !10
 
-947:                                              ; preds = %938
-  %948 = landingpad { ptr, i32 }
+948:                                              ; preds = %939
+  %949 = landingpad { ptr, i32 }
           cleanup
-  %949 = extractvalue { ptr, i32 } %948, 0
-  store ptr %949, ptr %16, align 8
-  %950 = extractvalue { ptr, i32 } %948, 1
-  store i32 %950, ptr %17, align 4
-  br label %955
+  %950 = extractvalue { ptr, i32 } %949, 0
+  store ptr %950, ptr %16, align 8
+  %951 = extractvalue { ptr, i32 } %949, 1
+  store i32 %951, ptr %17, align 4
+  br label %956
 
-951:                                              ; preds = %941
-  %952 = landingpad { ptr, i32 }
+952:                                              ; preds = %942
+  %953 = landingpad { ptr, i32 }
           cleanup
-  %953 = extractvalue { ptr, i32 } %952, 0
-  store ptr %953, ptr %16, align 8
-  %954 = extractvalue { ptr, i32 } %952, 1
-  store i32 %954, ptr %17, align 4
+  %954 = extractvalue { ptr, i32 } %953, 0
+  store ptr %954, ptr %16, align 8
+  %955 = extractvalue { ptr, i32 } %953, 1
+  store i32 %955, ptr %17, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #13
-  br label %955
+  br label %956
 
-955:                                              ; preds = %951, %947
+956:                                              ; preds = %952, %948
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #13
-  br label %975
+  br label %976
 
-956:                                              ; preds = %899
-  br label %957
-
-957:                                              ; preds = %956, %865, %862
+957:                                              ; preds = %900
   br label %958
 
-958:                                              ; preds = %957
+958:                                              ; preds = %957, %866, %863
   br label %959
 
 959:                                              ; preds = %958
   br label %960
 
-960:                                              ; preds = %959, %620
-  br label %968
+960:                                              ; preds = %959
+  br label %961
 
-961:                                              ; preds = %212, %205, %198, %191, %184
-  %962 = call ptr @__cxa_allocate_exception(i64 16) #13
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %962, ptr noundef @.str.5)
-          to label %963 unwind label %964
+961:                                              ; preds = %960, %621
+  br label %969
 
-963:                                              ; preds = %961
-  invoke void @__cxa_throw(ptr %962, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
-          to label %981 unwind label %230
+962:                                              ; preds = %213, %206, %199, %192, %185
+  %963 = call ptr @__cxa_allocate_exception(i64 16) #13
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %963, ptr noundef @.str.5)
+          to label %964 unwind label %965
 
-964:                                              ; preds = %961
-  %965 = landingpad { ptr, i32 }
+964:                                              ; preds = %962
+  invoke void @__cxa_throw(ptr %963, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #15
+          to label %982 unwind label %231
+
+965:                                              ; preds = %962
+  %966 = landingpad { ptr, i32 }
           cleanup
-  %966 = extractvalue { ptr, i32 } %965, 0
-  store ptr %966, ptr %16, align 8
-  %967 = extractvalue { ptr, i32 } %965, 1
-  store i32 %967, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %962) #13
+  %967 = extractvalue { ptr, i32 } %966, 0
+  store ptr %967, ptr %16, align 8
+  %968 = extractvalue { ptr, i32 } %966, 1
+  store i32 %968, ptr %17, align 4
+  call void @__cxa_free_exception(ptr %963) #13
+  br label %976
+
+969:                                              ; preds = %961
+  %970 = load ptr, ptr %20, align 8
+  %971 = load i64, ptr %19, align 8
+  %972 = call i32 @munmap(ptr noundef %970, i64 noundef %971) #13
+  store i1 true, ptr %28, align 1
+  %973 = load i1, ptr %28, align 1
+  br i1 %973, label %975, label %974
+
+974:                                              ; preds = %969
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
   br label %975
 
-968:                                              ; preds = %960
-  %969 = load ptr, ptr %20, align 8
-  %970 = load i64, ptr %19, align 8
-  %971 = call i32 @munmap(ptr noundef %969, i64 noundef %970) #13
-  store i1 true, ptr %28, align 1
-  %972 = load i1, ptr %28, align 1
-  br i1 %972, label %974, label %973
-
-973:                                              ; preds = %968
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
-  br label %974
-
-974:                                              ; preds = %973, %968
+975:                                              ; preds = %974, %969
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   ret void
 
-975:                                              ; preds = %964, %955, %616, %234, %230
+976:                                              ; preds = %965, %956, %617, %235, %231
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  br label %976
+  br label %977
 
-976:                                              ; preds = %975, %180, %127, %89
-  %977 = load ptr, ptr %16, align 8
-  %978 = load i32, ptr %17, align 4
-  %979 = insertvalue { ptr, i32 } poison, ptr %977, 0
-  %980 = insertvalue { ptr, i32 } %979, i32 %978, 1
-  resume { ptr, i32 } %980
+977:                                              ; preds = %976, %181, %128, %89
+  %978 = load ptr, ptr %16, align 8
+  %979 = load i32, ptr %17, align 4
+  %980 = insertvalue { ptr, i32 } poison, ptr %978, 0
+  %981 = insertvalue { ptr, i32 } %980, i32 %979, 1
+  resume { ptr, i32 } %981
 
-981:                                              ; preds = %963, %229, %110, %72
+982:                                              ; preds = %964, %230, %111, %72
   unreachable
 }
 
@@ -2140,13 +2141,14 @@ define linkonce_odr void @_ZN13incompat_xlenC2Ejj(ptr noundef nonnull align 8 de
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13incompat_xlen, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.incompat_xlen, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.incompat_xlen, ptr %7, i32 0, i32 2
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 4
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV13incompat_xlen, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.incompat_xlen, ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %5, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.incompat_xlen, ptr %7, i32 0, i32 2
+  %12 = load i32, ptr %6, align 4
+  store i32 %12, ptr %11, align 4
   ret void
 }
 
@@ -3401,7 +3403,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

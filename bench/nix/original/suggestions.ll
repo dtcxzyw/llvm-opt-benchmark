@@ -4311,7 +4311,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix21Suggestio
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21Suggestions_Trim_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21Suggestions_Trim_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5295,7 +5296,8 @@ define linkonce_odr void @_ZN7testing8internal15TestMetaFactoryIN3nix46Levenshte
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal19TestMetaFactoryBaseIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7438,10 +7440,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7testing8internal26Parameteri
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -7470,11 +7473,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -7825,7 +7829,8 @@ define linkonce_odr void @_ZN7testing8internal19TestMetaFactoryBaseIN3nix24Leven
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7935,30 +7940,31 @@ define linkonce_odr void @_ZN7testing8internal24ParameterizedTestFactoryIN3nix46
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %7, i32 0, i32 1
-  invoke void @_ZN3nix24LevenshteinDistanceParamC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(68) %8, ptr noundef nonnull align 8 dereferenceable(68) %1)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %7, i32 0, i32 1
+  invoke void @_ZN3nix24LevenshteinDistanceParamC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(68) %9, ptr noundef nonnull align 8 dereferenceable(68) %1)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %2
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %5, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %6, align 4
-  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %6, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7966,7 +7972,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7975,9 +7982,10 @@ define linkonce_odr void @_ZN7testing8internal24ParameterizedTestFactoryIN3nix46
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %3, i32 0, i32 1
-  call void @_ZN3nix24LevenshteinDistanceParamD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %3, i32 0, i32 1
+  call void @_ZN3nix24LevenshteinDistanceParamD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5) #3
   call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -8056,9 +8064,11 @@ define linkonce_odr void @_ZN3nix46LevenshteinDistanceTest_CorrectlyComputed_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3nix23LevenshteinDistanceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix46LevenshteinDistanceTest_CorrectlyComputed_TestE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -8068,9 +8078,11 @@ define linkonce_odr void @_ZN3nix23LevenshteinDistanceTestC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing13TestWithParamIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix23LevenshteinDistanceTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix23LevenshteinDistanceTestE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix23LevenshteinDistanceTestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN3nix23LevenshteinDistanceTestE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -8082,9 +8094,11 @@ define linkonce_odr void @_ZN7testing13TestWithParamIN3nix24LevenshteinDistanceP
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN7testing18WithParamInterfaceIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 1, i32 2), ptr %5, align 8
+  %5 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 1, i32 2
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
@@ -8132,7 +8146,8 @@ define linkonce_odr void @_ZN7testing18WithParamInterfaceIN3nix24LevenshteinDist
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9718,39 +9733,40 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN
   store ptr %0, ptr %6, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %14, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
   call void @_ZNSaIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.72", ptr %7, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.72", ptr %8, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  invoke void @_ZNSt6vectorIN3nix24LevenshteinDistanceParamESaIS1_EEC2IN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEvEET_SA_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr %17, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %20 unwind label %21
+  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.72", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.72", ptr %8, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  invoke void @_ZNSt6vectorIN3nix24LevenshteinDistanceParamESaIS1_EEC2IN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEvEET_SA_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %18, ptr %20, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %3
+21:                                               ; preds = %3
   call void @_ZNSaIN3nix24LevenshteinDistanceParamEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   ret void
 
-21:                                               ; preds = %3
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %3
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %10, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %11, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %10, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %11, align 4
   call void @_ZNSaIN3nix24LevenshteinDistanceParamEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %11, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %11, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9771,7 +9787,8 @@ define linkonce_odr void @_ZN7testing8internal23ParamGeneratorInterfaceIN3nix24L
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9849,9 +9866,10 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3nix24LevenshteinDistanceParamESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3nix24LevenshteinDistanceParamESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -10687,14 +10705,15 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN
   store ptr %1, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN7testing8internal22ParamIteratorInterfaceIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %4, i64 8, i1 false)
-  %12 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %4, i64 8, i1 false)
+  %13 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   ret void
 }
 
@@ -10703,7 +10722,8 @@ define linkonce_odr void @_ZN7testing8internal22ParamIteratorInterfaceIN3nix24Le
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIN3nix24LevenshteinDistanceParamEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10723,9 +10743,10 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN7testing8internal22ParamIteratorInterfaceIN3nix24LevenshteinDistanceParamEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -11218,18 +11239,19 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN
   %6 = getelementptr inbounds i8, ptr %5, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 8, i1 false)
   call void @_ZN7testing8internal22ParamIteratorInterfaceIN3nix24LevenshteinDistanceParamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %12, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %13, i64 8, i1 false)
-  %14 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN3nix24LevenshteinDistanceParamEE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %13, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 8, i1 false)
+  %15 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<nix::LevenshteinDistanceParam>::Iterator", ptr %5, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIKN3nix24LevenshteinDistanceParamESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
   ret void
 }
 
@@ -11606,10 +11628,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7testing8internal23ParamGener
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.83", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN3nix24LevenshteinDistanceParamEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.83", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -12570,7 +12593,8 @@ define linkonce_odr void @_ZN3nix21Suggestions_Trim_TestC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21Suggestions_Trim_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix21Suggestions_Trim_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13433,56 +13457,57 @@ define linkonce_odr void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN3nix
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %13 unwind label %18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %19
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %14 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 2
-  invoke void @_ZN7testing8internal12CodeLocationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(36) %2)
-          to label %15 unwind label %22
+  %15 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 2
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef nonnull align 8 dereferenceable(36) %2)
+          to label %16 unwind label %23
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 3
-  call void @_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 4
-  call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE17InstantiationInfoESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 3
+  call void @_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 4
+  call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE17InstantiationInfoESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   ret void
 
-18:                                               ; preds = %3
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %3
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %8, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %9, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %8, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %9, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  br label %26
-
-22:                                               ; preds = %13
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %8, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %26
-
-26:                                               ; preds = %22, %18
-  call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr %9, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+23:                                               ; preds = %14
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %27
+
+27:                                               ; preds = %23, %19
+  call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13528,7 +13553,8 @@ define linkonce_odr void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13555,15 +13581,16 @@ define linkonce_odr void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN3nix
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE17InstantiationInfoESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 2
-  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #3
-  %7 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE17InstantiationInfoESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN3nix23LevenshteinDistanceTestEE8TestInfoEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 2
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %8 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

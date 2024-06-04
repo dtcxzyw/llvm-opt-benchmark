@@ -188,7 +188,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
 entry:
-  call void @_ZN6symbolC2EPKv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol7m_dummyE, ptr noundef inttoptr (i64 2 to ptr))
+  %0 = inttoptr i64 2 to ptr
+  call void @_ZN6symbolC2EPKv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol7m_dummyE, ptr noundef %0)
   ret void
 }
 
@@ -1937,12 +1938,13 @@ entry:
 land.rhs:                                         ; preds = %entry
   %m_ptr2 = getelementptr inbounds %class.ptr_hash_entry, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %m_ptr2, align 8
-  %cmp3 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp3 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp3, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp3, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

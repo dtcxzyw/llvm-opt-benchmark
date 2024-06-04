@@ -992,376 +992,731 @@ define noundef i32 @_Z12gmx_tune_pmeiPPc(i32 noundef %0, ptr noundef %1) #0 pers
   store ptr null, ptr %43, align 8
   %74 = load atomic i8, ptr @_ZGVZ12gmx_tune_pmeiPPcE3fnm acquire, align 8
   %75 = icmp eq i8 %74, 0
-  br i1 %75, label %76, label %81, !prof !5
+  br i1 %75, label %76, label %436, !prof !5
 
 76:                                               ; preds = %2
   %77 = call i32 @__cxa_guard_acquire(ptr @_ZGVZ12gmx_tune_pmeiPPcE3fnm) #2
   %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %81
+  br i1 %78, label %79, label %436
 
 79:                                               ; preds = %76
   store ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, ptr %48, align 8
   store i32 21, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, align 8
-  store ptr @.str.60, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 1), align 8
-  store ptr @.str.61, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1), align 8
-  store ptr @.str.62, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 1), align 8
-  store ptr @.str.63, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2), ptr %48, align 8
-  store i32 26, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2), align 8
-  store ptr @.str.64, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 1), align 8
-  store ptr @.str.65, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3), ptr %48, align 8
-  store i32 26, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3), align 8
-  store ptr @.str.66, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 2), align 8
-  store i64 2, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4), ptr %48, align 8
-  store i32 3, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4), align 8
-  store ptr @.str.67, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5), ptr %48, align 8
-  store i32 5, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5), align 8
-  store ptr @.str.68, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6), ptr %48, align 8
-  store i32 18, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6), align 8
-  store ptr @.str.69, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7), ptr %48, align 8
-  store i32 18, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7), align 8
-  store ptr @.str.70, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8), ptr %48, align 8
-  store i32 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8), align 8
-  store ptr @.str.71, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 1), align 8
-  store ptr @.str.72, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9), ptr %48, align 8
-  store i32 8, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9), align 8
-  store ptr @.str.73, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 1), align 8
-  store ptr @.str.74, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10), align 8
-  store ptr @.str.75, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 1), align 8
-  store ptr @.str.76, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11), align 8
-  store ptr @.str.77, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 1), align 8
-  store ptr @.str.78, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12), align 8
-  store ptr @.str.79, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 1), align 8
-  store ptr @.str.80, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13), align 8
-  store ptr @.str.81, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 1), align 8
-  store ptr @.str.82, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14), align 8
-  store ptr @.str.83, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 1), align 8
-  store ptr @.str.84, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15), align 8
-  store ptr @.str.85, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 1), align 8
-  store ptr @.str.82, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16), ptr %48, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16), align 8
-  store ptr @.str.86, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 1), align 8
-  store ptr @.str.87, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17), align 8
-  store ptr @.str.88, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 1), align 8
-  store ptr @.str.89, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18), align 8
-  store ptr @.str.90, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 1), align 8
-  store ptr @.str.91, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19), ptr %48, align 8
-  store i32 38, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19), align 8
-  store ptr @.str.92, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 1), align 8
-  store ptr @.str.93, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20), align 8
-  store ptr @.str.94, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 1), align 8
-  store ptr @.str.95, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21), align 8
-  store ptr @.str.96, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 1), align 8
-  store ptr @.str.97, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22), align 8
-  store ptr @.str.98, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 1), align 8
-  store ptr @.str.99, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23), align 8
-  store ptr @.str.100, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 1), align 8
-  store ptr @.str.101, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24), align 8
-  store ptr @.str.102, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 1), align 8
-  store ptr @.str.103, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25), align 8
-  store ptr @.str.104, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 1), align 8
-  store ptr @.str.105, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26), align 8
-  store ptr @.str.106, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 1), align 8
-  store ptr @.str.107, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27), ptr %48, align 8
-  store i32 37, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27), align 8
-  store ptr @.str.108, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 1), align 8
-  store ptr @.str.109, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28), align 8
-  store ptr @.str.110, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 1), align 8
-  store ptr @.str.111, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29), ptr %48, align 8
-  store i32 3, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29), align 8
-  store ptr @.str.112, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30), ptr %48, align 8
-  store i32 6, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30), align 8
-  store ptr @.str.114, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31), ptr %48, align 8
-  store i32 18, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31), align 8
-  store ptr @.str.115, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32), ptr %48, align 8
-  store i32 10, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32), align 8
-  store ptr @.str.116, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33), ptr %48, align 8
-  store i32 8, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33), align 8
-  store ptr @.str.117, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34), align 8
-  store ptr @.str.118, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 2), align 8
-  store i64 4, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35), align 8
-  store ptr @.str.119, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 1), align 8
-  store ptr @.str.120, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36), align 8
-  store ptr @.str.121, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 1), align 8
-  store ptr @.str.122, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37), align 8
-  store ptr @.str.123, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 1), align 8
-  store ptr @.str.124, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38), align 8
-  store ptr @.str.125, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 1), align 8
-  store ptr @.str.126, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39), align 8
-  store ptr @.str.127, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 1), align 8
-  store ptr @.str.128, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40), align 8
-  store ptr @.str.129, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 1), align 8
-  store ptr @.str.130, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41), align 8
-  store ptr @.str.131, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 1), align 8
-  store ptr @.str.132, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42), align 8
-  store ptr @.str.133, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 1), align 8
-  store ptr @.str.134, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43), align 8
-  store ptr @.str.135, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 1), align 8
-  store ptr @.str.136, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44), align 8
-  store ptr @.str.137, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 1), align 8
-  store ptr @.str.138, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45), align 8
-  store ptr @.str.139, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 1), align 8
-  store ptr @.str.140, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46), align 8
-  store ptr @.str.141, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 1), align 8
-  store ptr @.str.142, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47), ptr %48, align 8
-  store i32 19, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47), align 8
-  store ptr @.str.143, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 1), align 8
-  store ptr @.str.144, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48), ptr %48, align 8
-  store i32 37, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48), align 8
-  store ptr @.str.145, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 1), align 8
-  store ptr @.str.146, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49), ptr %48, align 8
-  store i32 22, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49), align 8
-  store ptr @.str.147, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 1), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 4)) #2
-  store ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50), ptr %48, align 8
-  store i32 20, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50), align 8
-  store ptr @.str.148, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 1), align 8
-  store ptr @.str.149, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 2), align 8
-  store i64 12, ptr getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 4)) #2
-  %80 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #2
+  %80 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 1
+  store ptr @.str.60, ptr %80, align 8
+  %81 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 2
+  store ptr @.str.61, ptr %81, align 8
+  %82 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 3
+  store i64 4, ptr %82, align 8
+  %83 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 24, i1 false)
+  %84 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %84) #2
+  %85 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1
+  store ptr %85, ptr %48, align 8
+  %86 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1
+  store i32 19, ptr %86, align 8
+  %87 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 1
+  store ptr @.str.62, ptr %87, align 8
+  %88 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 2
+  store ptr @.str.63, ptr %88, align 8
+  %89 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 3
+  store i64 4, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %90, i8 0, i64 24, i1 false)
+  %91 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #2
+  %92 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2
+  store ptr %92, ptr %48, align 8
+  %93 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2
+  store i32 26, ptr %93, align 8
+  %94 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 1
+  store ptr @.str.64, ptr %94, align 8
+  %95 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 2
+  store ptr @.str.65, ptr %95, align 8
+  %96 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 3
+  store i64 4, ptr %96, align 8
+  %97 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 24, i1 false)
+  %98 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #2
+  %99 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3
+  store ptr %99, ptr %48, align 8
+  %100 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3
+  store i32 26, ptr %100, align 8
+  %101 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 1
+  store ptr @.str.66, ptr %101, align 8
+  %102 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 2
+  store ptr null, ptr %102, align 8
+  %103 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 3
+  store i64 2, ptr %103, align 8
+  %104 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %104, i8 0, i64 24, i1 false)
+  %105 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 3, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #2
+  %106 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4
+  store ptr %106, ptr %48, align 8
+  %107 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4
+  store i32 3, ptr %107, align 8
+  %108 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 1
+  store ptr @.str.67, ptr %108, align 8
+  %109 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 2
+  store ptr null, ptr %109, align 8
+  %110 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 3
+  store i64 4, ptr %110, align 8
+  %111 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 24, i1 false)
+  %112 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 4, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #2
+  %113 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5
+  store ptr %113, ptr %48, align 8
+  %114 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5
+  store i32 5, ptr %114, align 8
+  %115 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 1
+  store ptr @.str.68, ptr %115, align 8
+  %116 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 2
+  store ptr null, ptr %116, align 8
+  %117 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 3
+  store i64 12, ptr %117, align 8
+  %118 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 24, i1 false)
+  %119 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 5, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %119) #2
+  %120 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6
+  store ptr %120, ptr %48, align 8
+  %121 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6
+  store i32 18, ptr %121, align 8
+  %122 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 1
+  store ptr @.str.69, ptr %122, align 8
+  %123 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 2
+  store ptr null, ptr %123, align 8
+  %124 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 3
+  store i64 10, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %125, i8 0, i64 24, i1 false)
+  %126 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 6, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %126) #2
+  %127 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7
+  store ptr %127, ptr %48, align 8
+  %128 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7
+  store i32 18, ptr %128, align 8
+  %129 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 1
+  store ptr @.str.70, ptr %129, align 8
+  %130 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 2
+  store ptr null, ptr %130, align 8
+  %131 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 3
+  store i64 12, ptr %131, align 8
+  %132 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %132, i8 0, i64 24, i1 false)
+  %133 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 7, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #2
+  %134 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8
+  store ptr %134, ptr %48, align 8
+  %135 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8
+  store i32 10, ptr %135, align 8
+  %136 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 1
+  store ptr @.str.71, ptr %136, align 8
+  %137 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 2
+  store ptr @.str.72, ptr %137, align 8
+  %138 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 3
+  store i64 4, ptr %138, align 8
+  %139 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %139, i8 0, i64 24, i1 false)
+  %140 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %140) #2
+  %141 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9
+  store ptr %141, ptr %48, align 8
+  %142 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9
+  store i32 8, ptr %142, align 8
+  %143 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 1
+  store ptr @.str.73, ptr %143, align 8
+  %144 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 2
+  store ptr @.str.74, ptr %144, align 8
+  %145 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 3
+  store i64 4, ptr %145, align 8
+  %146 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %146, i8 0, i64 24, i1 false)
+  %147 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 9, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #2
+  %148 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10
+  store ptr %148, ptr %48, align 8
+  %149 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10
+  store i32 19, ptr %149, align 8
+  %150 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 1
+  store ptr @.str.75, ptr %150, align 8
+  %151 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 2
+  store ptr @.str.76, ptr %151, align 8
+  %152 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 3
+  store i64 4, ptr %152, align 8
+  %153 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %153, i8 0, i64 24, i1 false)
+  %154 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 10, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #2
+  %155 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11
+  store ptr %155, ptr %48, align 8
+  %156 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11
+  store i32 20, ptr %156, align 8
+  %157 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 1
+  store ptr @.str.77, ptr %157, align 8
+  %158 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 2
+  store ptr @.str.78, ptr %158, align 8
+  %159 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 3
+  store i64 12, ptr %159, align 8
+  %160 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %160, i8 0, i64 24, i1 false)
+  %161 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 11, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %161) #2
+  %162 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12
+  store ptr %162, ptr %48, align 8
+  %163 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12
+  store i32 20, ptr %163, align 8
+  %164 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 1
+  store ptr @.str.79, ptr %164, align 8
+  %165 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 2
+  store ptr @.str.80, ptr %165, align 8
+  %166 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 3
+  store i64 12, ptr %166, align 8
+  %167 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %167, i8 0, i64 24, i1 false)
+  %168 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 12, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #2
+  %169 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13
+  store ptr %169, ptr %48, align 8
+  %170 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13
+  store i32 20, ptr %170, align 8
+  %171 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 1
+  store ptr @.str.81, ptr %171, align 8
+  %172 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 2
+  store ptr @.str.82, ptr %172, align 8
+  %173 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 3
+  store i64 10, ptr %173, align 8
+  %174 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %174, i8 0, i64 24, i1 false)
+  %175 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 13, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %175) #2
+  %176 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14
+  store ptr %176, ptr %48, align 8
+  %177 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14
+  store i32 20, ptr %177, align 8
+  %178 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 1
+  store ptr @.str.83, ptr %178, align 8
+  %179 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 2
+  store ptr @.str.84, ptr %179, align 8
+  %180 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 3
+  store i64 10, ptr %180, align 8
+  %181 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %181, i8 0, i64 24, i1 false)
+  %182 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 14, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #2
+  %183 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15
+  store ptr %183, ptr %48, align 8
+  %184 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15
+  store i32 20, ptr %184, align 8
+  %185 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 1
+  store ptr @.str.85, ptr %185, align 8
+  %186 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 2
+  store ptr @.str.82, ptr %186, align 8
+  %187 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 3
+  store i64 10, ptr %187, align 8
+  %188 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 24, i1 false)
+  %189 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 15, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #2
+  %190 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16
+  store ptr %190, ptr %48, align 8
+  %191 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16
+  store i32 1, ptr %191, align 8
+  %192 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 1
+  store ptr @.str.86, ptr %192, align 8
+  %193 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 2
+  store ptr @.str.87, ptr %193, align 8
+  %194 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 3
+  store i64 10, ptr %194, align 8
+  %195 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %195, i8 0, i64 24, i1 false)
+  %196 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %196) #2
+  %197 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17
+  store ptr %197, ptr %48, align 8
+  %198 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17
+  store i32 20, ptr %198, align 8
+  %199 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 1
+  store ptr @.str.88, ptr %199, align 8
+  %200 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 2
+  store ptr @.str.89, ptr %200, align 8
+  %201 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 3
+  store i64 12, ptr %201, align 8
+  %202 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %202, i8 0, i64 24, i1 false)
+  %203 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 17, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %203) #2
+  %204 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18
+  store ptr %204, ptr %48, align 8
+  %205 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18
+  store i32 20, ptr %205, align 8
+  %206 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 1
+  store ptr @.str.90, ptr %206, align 8
+  %207 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 2
+  store ptr @.str.91, ptr %207, align 8
+  %208 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 3
+  store i64 12, ptr %208, align 8
+  %209 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %209, i8 0, i64 24, i1 false)
+  %210 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 18, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %210) #2
+  %211 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19
+  store ptr %211, ptr %48, align 8
+  %212 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19
+  store i32 38, ptr %212, align 8
+  %213 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 1
+  store ptr @.str.92, ptr %213, align 8
+  %214 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 2
+  store ptr @.str.93, ptr %214, align 8
+  %215 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 3
+  store i64 10, ptr %215, align 8
+  %216 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %216, i8 0, i64 24, i1 false)
+  %217 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 19, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %217) #2
+  %218 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20
+  store ptr %218, ptr %48, align 8
+  %219 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20
+  store i32 20, ptr %219, align 8
+  %220 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 1
+  store ptr @.str.94, ptr %220, align 8
+  %221 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 2
+  store ptr @.str.95, ptr %221, align 8
+  %222 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 3
+  store i64 12, ptr %222, align 8
+  %223 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %223, i8 0, i64 24, i1 false)
+  %224 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 20, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %224) #2
+  %225 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21
+  store ptr %225, ptr %48, align 8
+  %226 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21
+  store i32 20, ptr %226, align 8
+  %227 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 1
+  store ptr @.str.96, ptr %227, align 8
+  %228 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 2
+  store ptr @.str.97, ptr %228, align 8
+  %229 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 3
+  store i64 12, ptr %229, align 8
+  %230 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %230, i8 0, i64 24, i1 false)
+  %231 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 21, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %231) #2
+  %232 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22
+  store ptr %232, ptr %48, align 8
+  %233 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22
+  store i32 20, ptr %233, align 8
+  %234 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 1
+  store ptr @.str.98, ptr %234, align 8
+  %235 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 2
+  store ptr @.str.99, ptr %235, align 8
+  %236 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 3
+  store i64 12, ptr %236, align 8
+  %237 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %237, i8 0, i64 24, i1 false)
+  %238 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 22, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %238) #2
+  %239 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23
+  store ptr %239, ptr %48, align 8
+  %240 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23
+  store i32 20, ptr %240, align 8
+  %241 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 1
+  store ptr @.str.100, ptr %241, align 8
+  %242 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 2
+  store ptr @.str.101, ptr %242, align 8
+  %243 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 3
+  store i64 12, ptr %243, align 8
+  %244 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %244, i8 0, i64 24, i1 false)
+  %245 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 23, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #2
+  %246 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24
+  store ptr %246, ptr %48, align 8
+  %247 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24
+  store i32 19, ptr %247, align 8
+  %248 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 1
+  store ptr @.str.102, ptr %248, align 8
+  %249 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 2
+  store ptr @.str.103, ptr %249, align 8
+  %250 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 3
+  store i64 12, ptr %250, align 8
+  %251 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %251, i8 0, i64 24, i1 false)
+  %252 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %252) #2
+  %253 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25
+  store ptr %253, ptr %48, align 8
+  %254 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25
+  store i32 19, ptr %254, align 8
+  %255 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 1
+  store ptr @.str.104, ptr %255, align 8
+  %256 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 2
+  store ptr @.str.105, ptr %256, align 8
+  %257 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 3
+  store i64 12, ptr %257, align 8
+  %258 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %258, i8 0, i64 24, i1 false)
+  %259 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 25, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #2
+  %260 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26
+  store ptr %260, ptr %48, align 8
+  %261 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26
+  store i32 19, ptr %261, align 8
+  %262 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 1
+  store ptr @.str.106, ptr %262, align 8
+  %263 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 2
+  store ptr @.str.107, ptr %263, align 8
+  %264 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 3
+  store i64 12, ptr %264, align 8
+  %265 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %265, i8 0, i64 24, i1 false)
+  %266 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 26, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #2
+  %267 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27
+  store ptr %267, ptr %48, align 8
+  %268 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27
+  store i32 37, ptr %268, align 8
+  %269 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 1
+  store ptr @.str.108, ptr %269, align 8
+  %270 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 2
+  store ptr @.str.109, ptr %270, align 8
+  %271 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 3
+  store i64 12, ptr %271, align 8
+  %272 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %272, i8 0, i64 24, i1 false)
+  %273 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 27, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %273) #2
+  %274 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28
+  store ptr %274, ptr %48, align 8
+  %275 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28
+  store i32 20, ptr %275, align 8
+  %276 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 1
+  store ptr @.str.110, ptr %276, align 8
+  %277 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 2
+  store ptr @.str.111, ptr %277, align 8
+  %278 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 3
+  store i64 12, ptr %278, align 8
+  %279 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %279, i8 0, i64 24, i1 false)
+  %280 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 28, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %280) #2
+  %281 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29
+  store ptr %281, ptr %48, align 8
+  %282 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29
+  store i32 3, ptr %282, align 8
+  %283 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 1
+  store ptr @.str.112, ptr %283, align 8
+  %284 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 2
+  store ptr @.str.113, ptr %284, align 8
+  %285 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 3
+  store i64 4, ptr %285, align 8
+  %286 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %286, i8 0, i64 24, i1 false)
+  %287 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 29, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #2
+  %288 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30
+  store ptr %288, ptr %48, align 8
+  %289 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30
+  store i32 6, ptr %289, align 8
+  %290 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 1
+  store ptr @.str.114, ptr %290, align 8
+  %291 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 2
+  store ptr @.str.113, ptr %291, align 8
+  %292 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 3
+  store i64 4, ptr %292, align 8
+  %293 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %293, i8 0, i64 24, i1 false)
+  %294 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 30, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %294) #2
+  %295 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31
+  store ptr %295, ptr %48, align 8
+  %296 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31
+  store i32 18, ptr %296, align 8
+  %297 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 1
+  store ptr @.str.115, ptr %297, align 8
+  %298 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 2
+  store ptr @.str.113, ptr %298, align 8
+  %299 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 3
+  store i64 4, ptr %299, align 8
+  %300 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %300, i8 0, i64 24, i1 false)
+  %301 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 31, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %301) #2
+  %302 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32
+  store ptr %302, ptr %48, align 8
+  %303 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32
+  store i32 10, ptr %303, align 8
+  %304 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 1
+  store ptr @.str.116, ptr %304, align 8
+  %305 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 2
+  store ptr @.str.113, ptr %305, align 8
+  %306 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 3
+  store i64 4, ptr %306, align 8
+  %307 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %307, i8 0, i64 24, i1 false)
+  %308 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %308) #2
+  %309 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33
+  store ptr %309, ptr %48, align 8
+  %310 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33
+  store i32 8, ptr %310, align 8
+  %311 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 1
+  store ptr @.str.117, ptr %311, align 8
+  %312 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 2
+  store ptr @.str.113, ptr %312, align 8
+  %313 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 3
+  store i64 4, ptr %313, align 8
+  %314 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %314, i8 0, i64 24, i1 false)
+  %315 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 33, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %315) #2
+  %316 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34
+  store ptr %316, ptr %48, align 8
+  %317 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34
+  store i32 19, ptr %317, align 8
+  %318 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 1
+  store ptr @.str.118, ptr %318, align 8
+  %319 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 2
+  store ptr @.str.113, ptr %319, align 8
+  %320 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 3
+  store i64 4, ptr %320, align 8
+  %321 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %321, i8 0, i64 24, i1 false)
+  %322 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 34, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %322) #2
+  %323 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35
+  store ptr %323, ptr %48, align 8
+  %324 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35
+  store i32 20, ptr %324, align 8
+  %325 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 1
+  store ptr @.str.119, ptr %325, align 8
+  %326 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 2
+  store ptr @.str.120, ptr %326, align 8
+  %327 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 3
+  store i64 12, ptr %327, align 8
+  %328 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %328, i8 0, i64 24, i1 false)
+  %329 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 35, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #2
+  %330 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36
+  store ptr %330, ptr %48, align 8
+  %331 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36
+  store i32 20, ptr %331, align 8
+  %332 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 1
+  store ptr @.str.121, ptr %332, align 8
+  %333 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 2
+  store ptr @.str.122, ptr %333, align 8
+  %334 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 3
+  store i64 12, ptr %334, align 8
+  %335 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %335, i8 0, i64 24, i1 false)
+  %336 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 36, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %336) #2
+  %337 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37
+  store ptr %337, ptr %48, align 8
+  %338 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37
+  store i32 20, ptr %338, align 8
+  %339 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 1
+  store ptr @.str.123, ptr %339, align 8
+  %340 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 2
+  store ptr @.str.124, ptr %340, align 8
+  %341 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 3
+  store i64 12, ptr %341, align 8
+  %342 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %342, i8 0, i64 24, i1 false)
+  %343 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 37, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %343) #2
+  %344 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38
+  store ptr %344, ptr %48, align 8
+  %345 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38
+  store i32 20, ptr %345, align 8
+  %346 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 1
+  store ptr @.str.125, ptr %346, align 8
+  %347 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 2
+  store ptr @.str.126, ptr %347, align 8
+  %348 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 3
+  store i64 12, ptr %348, align 8
+  %349 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %349, i8 0, i64 24, i1 false)
+  %350 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 38, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %350) #2
+  %351 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39
+  store ptr %351, ptr %48, align 8
+  %352 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39
+  store i32 20, ptr %352, align 8
+  %353 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 1
+  store ptr @.str.127, ptr %353, align 8
+  %354 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 2
+  store ptr @.str.128, ptr %354, align 8
+  %355 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 3
+  store i64 12, ptr %355, align 8
+  %356 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %356, i8 0, i64 24, i1 false)
+  %357 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 39, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %357) #2
+  %358 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40
+  store ptr %358, ptr %48, align 8
+  %359 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40
+  store i32 20, ptr %359, align 8
+  %360 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 1
+  store ptr @.str.129, ptr %360, align 8
+  %361 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 2
+  store ptr @.str.130, ptr %361, align 8
+  %362 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 3
+  store i64 12, ptr %362, align 8
+  %363 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %363, i8 0, i64 24, i1 false)
+  %364 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 40, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %364) #2
+  %365 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41
+  store ptr %365, ptr %48, align 8
+  %366 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41
+  store i32 20, ptr %366, align 8
+  %367 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 1
+  store ptr @.str.131, ptr %367, align 8
+  %368 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 2
+  store ptr @.str.132, ptr %368, align 8
+  %369 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 3
+  store i64 12, ptr %369, align 8
+  %370 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %370, i8 0, i64 24, i1 false)
+  %371 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 41, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %371) #2
+  %372 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42
+  store ptr %372, ptr %48, align 8
+  %373 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42
+  store i32 20, ptr %373, align 8
+  %374 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 1
+  store ptr @.str.133, ptr %374, align 8
+  %375 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 2
+  store ptr @.str.134, ptr %375, align 8
+  %376 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 3
+  store i64 12, ptr %376, align 8
+  %377 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %377, i8 0, i64 24, i1 false)
+  %378 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 42, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %378) #2
+  %379 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43
+  store ptr %379, ptr %48, align 8
+  %380 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43
+  store i32 20, ptr %380, align 8
+  %381 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 1
+  store ptr @.str.135, ptr %381, align 8
+  %382 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 2
+  store ptr @.str.136, ptr %382, align 8
+  %383 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 3
+  store i64 12, ptr %383, align 8
+  %384 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %384, i8 0, i64 24, i1 false)
+  %385 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 43, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %385) #2
+  %386 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44
+  store ptr %386, ptr %48, align 8
+  %387 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44
+  store i32 20, ptr %387, align 8
+  %388 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 1
+  store ptr @.str.137, ptr %388, align 8
+  %389 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 2
+  store ptr @.str.138, ptr %389, align 8
+  %390 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 3
+  store i64 12, ptr %390, align 8
+  %391 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %391, i8 0, i64 24, i1 false)
+  %392 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 44, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %392) #2
+  %393 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45
+  store ptr %393, ptr %48, align 8
+  %394 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45
+  store i32 19, ptr %394, align 8
+  %395 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 1
+  store ptr @.str.139, ptr %395, align 8
+  %396 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 2
+  store ptr @.str.140, ptr %396, align 8
+  %397 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 3
+  store i64 12, ptr %397, align 8
+  %398 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %398, i8 0, i64 24, i1 false)
+  %399 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 45, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %399) #2
+  %400 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46
+  store ptr %400, ptr %48, align 8
+  %401 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46
+  store i32 19, ptr %401, align 8
+  %402 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 1
+  store ptr @.str.141, ptr %402, align 8
+  %403 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 2
+  store ptr @.str.142, ptr %403, align 8
+  %404 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 3
+  store i64 12, ptr %404, align 8
+  %405 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %405, i8 0, i64 24, i1 false)
+  %406 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 46, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %406) #2
+  %407 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47
+  store ptr %407, ptr %48, align 8
+  %408 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47
+  store i32 19, ptr %408, align 8
+  %409 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 1
+  store ptr @.str.143, ptr %409, align 8
+  %410 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 2
+  store ptr @.str.144, ptr %410, align 8
+  %411 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 3
+  store i64 12, ptr %411, align 8
+  %412 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %412, i8 0, i64 24, i1 false)
+  %413 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 47, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %413) #2
+  %414 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48
+  store ptr %414, ptr %48, align 8
+  %415 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48
+  store i32 37, ptr %415, align 8
+  %416 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 1
+  store ptr @.str.145, ptr %416, align 8
+  %417 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 2
+  store ptr @.str.146, ptr %417, align 8
+  %418 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 3
+  store i64 12, ptr %418, align 8
+  %419 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %419, i8 0, i64 24, i1 false)
+  %420 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 48, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %420) #2
+  %421 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49
+  store ptr %421, ptr %48, align 8
+  %422 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49
+  store i32 22, ptr %422, align 8
+  %423 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 1
+  store ptr @.str.147, ptr %423, align 8
+  %424 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 2
+  store ptr @.str.113, ptr %424, align 8
+  %425 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 3
+  store i64 12, ptr %425, align 8
+  %426 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %426, i8 0, i64 24, i1 false)
+  %427 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 49, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %427) #2
+  %428 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50
+  store ptr %428, ptr %48, align 8
+  %429 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50
+  store i32 20, ptr %429, align 8
+  %430 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 1
+  store ptr @.str.148, ptr %430, align 8
+  %431 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 2
+  store ptr @.str.149, ptr %431, align 8
+  %432 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 3
+  store i64 12, ptr %432, align 8
+  %433 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %433, i8 0, i64 24, i1 false)
+  %434 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 50, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %434) #2
+  %435 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #2
   call void @__cxa_guard_release(ptr @_ZGVZ12gmx_tune_pmeiPPcE3fnm) #2
-  br label %81
+  br label %436
 
-81:                                               ; preds = %79, %76, %2
+436:                                              ; preds = %79, %76, %2
   store i8 0, ptr %49, align 1
   store i32 1, ptr %50, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %51, ptr align 16 @__const._Z12gmx_tune_pmeiPPc.procstring, i64 40, i1 false)
@@ -1372,1092 +1727,1092 @@ define noundef i32 @_Z12gmx_tune_pmeiPPc(i32 noundef %0, ptr noundef %1) #0 pers
   store i8 1, ptr %56, align 1
   store i8 1, ptr %57, align 1
   store ptr null, ptr %58, align 8
-  %82 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
-  %83 = getelementptr inbounds %struct.t_pargs, ptr %82, i32 0, i32 0
-  store ptr @.str.156, ptr %83, align 16
-  %84 = getelementptr inbounds %struct.t_pargs, ptr %82, i32 0, i32 1
-  store i8 0, ptr %84, align 8
-  %85 = getelementptr inbounds %struct.t_pargs, ptr %82, i32 0, i32 2
-  store i32 4, ptr %85, align 4
-  %86 = getelementptr inbounds %struct.t_pargs, ptr %82, i32 0, i32 3
-  store ptr %38, ptr %86, align 16
-  %87 = getelementptr inbounds %struct.t_pargs, ptr %82, i32 0, i32 4
-  store ptr @.str.157, ptr %87, align 8
-  %88 = getelementptr inbounds %struct.t_pargs, ptr %82, i64 1
-  %89 = getelementptr inbounds %struct.t_pargs, ptr %88, i32 0, i32 0
-  store ptr @.str.158, ptr %89, align 16
-  %90 = getelementptr inbounds %struct.t_pargs, ptr %88, i32 0, i32 1
-  store i8 0, ptr %90, align 8
-  %91 = getelementptr inbounds %struct.t_pargs, ptr %88, i32 0, i32 2
-  store i32 0, ptr %91, align 4
-  %92 = getelementptr inbounds %struct.t_pargs, ptr %88, i32 0, i32 3
-  store ptr %7, ptr %92, align 16
-  %93 = getelementptr inbounds %struct.t_pargs, ptr %88, i32 0, i32 4
-  store ptr @.str.159, ptr %93, align 8
-  %94 = getelementptr inbounds %struct.t_pargs, ptr %88, i64 1
-  %95 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 0
-  store ptr @.str.160, ptr %95, align 16
-  %96 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 1
-  store i8 0, ptr %96, align 8
-  %97 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 2
-  store i32 7, ptr %97, align 4
-  %98 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 3
-  %99 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  store ptr %99, ptr %98, align 16
-  %100 = getelementptr inbounds %struct.t_pargs, ptr %94, i32 0, i32 4
-  store ptr @.str.161, ptr %100, align 8
-  %101 = getelementptr inbounds %struct.t_pargs, ptr %94, i64 1
-  %102 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 0
-  store ptr @.str.162, ptr %102, align 16
-  %103 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 1
-  store i8 0, ptr %103, align 8
-  %104 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 2
-  store i32 0, ptr %104, align 4
-  %105 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 3
-  store ptr %50, ptr %105, align 16
-  %106 = getelementptr inbounds %struct.t_pargs, ptr %101, i32 0, i32 4
-  store ptr @.str.163, ptr %106, align 8
-  %107 = getelementptr inbounds %struct.t_pargs, ptr %101, i64 1
-  %108 = getelementptr inbounds %struct.t_pargs, ptr %107, i32 0, i32 0
-  store ptr @.str.164, ptr %108, align 16
-  %109 = getelementptr inbounds %struct.t_pargs, ptr %107, i32 0, i32 1
-  store i8 0, ptr %109, align 8
-  %110 = getelementptr inbounds %struct.t_pargs, ptr %107, i32 0, i32 2
-  store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds %struct.t_pargs, ptr %107, i32 0, i32 3
-  store ptr %8, ptr %111, align 16
-  %112 = getelementptr inbounds %struct.t_pargs, ptr %107, i32 0, i32 4
-  store ptr @.str.165, ptr %112, align 8
-  %113 = getelementptr inbounds %struct.t_pargs, ptr %107, i64 1
-  %114 = getelementptr inbounds %struct.t_pargs, ptr %113, i32 0, i32 0
-  store ptr @.str.166, ptr %114, align 16
-  %115 = getelementptr inbounds %struct.t_pargs, ptr %113, i32 0, i32 1
-  store i8 0, ptr %115, align 8
-  %116 = getelementptr inbounds %struct.t_pargs, ptr %113, i32 0, i32 2
-  store i32 2, ptr %116, align 4
-  %117 = getelementptr inbounds %struct.t_pargs, ptr %113, i32 0, i32 3
-  store ptr %10, ptr %117, align 16
-  %118 = getelementptr inbounds %struct.t_pargs, ptr %113, i32 0, i32 4
-  store ptr @.str.167, ptr %118, align 8
-  %119 = getelementptr inbounds %struct.t_pargs, ptr %113, i64 1
-  %120 = getelementptr inbounds %struct.t_pargs, ptr %119, i32 0, i32 0
-  store ptr @.str.168, ptr %120, align 16
-  %121 = getelementptr inbounds %struct.t_pargs, ptr %119, i32 0, i32 1
-  store i8 0, ptr %121, align 8
-  %122 = getelementptr inbounds %struct.t_pargs, ptr %119, i32 0, i32 2
-  store i32 2, ptr %122, align 4
-  %123 = getelementptr inbounds %struct.t_pargs, ptr %119, i32 0, i32 3
-  store ptr %11, ptr %123, align 16
-  %124 = getelementptr inbounds %struct.t_pargs, ptr %119, i32 0, i32 4
-  store ptr @.str.169, ptr %124, align 8
-  %125 = getelementptr inbounds %struct.t_pargs, ptr %119, i64 1
-  %126 = getelementptr inbounds %struct.t_pargs, ptr %125, i32 0, i32 0
-  store ptr @.str.170, ptr %126, align 16
-  %127 = getelementptr inbounds %struct.t_pargs, ptr %125, i32 0, i32 1
-  store i8 0, ptr %127, align 8
-  %128 = getelementptr inbounds %struct.t_pargs, ptr %125, i32 0, i32 2
-  store i32 7, ptr %128, align 4
-  %129 = getelementptr inbounds %struct.t_pargs, ptr %125, i32 0, i32 3
-  %130 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
-  store ptr %130, ptr %129, align 16
-  %131 = getelementptr inbounds %struct.t_pargs, ptr %125, i32 0, i32 4
-  store ptr @.str.171, ptr %131, align 8
-  %132 = getelementptr inbounds %struct.t_pargs, ptr %125, i64 1
-  %133 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 0
-  store ptr @.str.172, ptr %133, align 16
-  %134 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 1
-  store i8 0, ptr %134, align 8
-  %135 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 2
-  store i32 0, ptr %135, align 4
-  %136 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 3
-  store ptr %16, ptr %136, align 16
-  %137 = getelementptr inbounds %struct.t_pargs, ptr %132, i32 0, i32 4
-  store ptr @.str.173, ptr %137, align 8
-  %138 = getelementptr inbounds %struct.t_pargs, ptr %132, i64 1
-  %139 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 0
-  store ptr @.str.174, ptr %139, align 16
-  %140 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 1
-  store i8 0, ptr %140, align 8
-  %141 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 2
-  store i32 2, ptr %141, align 4
-  %142 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 3
-  store ptr %19, ptr %142, align 16
-  %143 = getelementptr inbounds %struct.t_pargs, ptr %138, i32 0, i32 4
-  store ptr @.str.175, ptr %143, align 8
-  %144 = getelementptr inbounds %struct.t_pargs, ptr %138, i64 1
-  %145 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 0
-  store ptr @.str.176, ptr %145, align 16
-  %146 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 1
-  store i8 0, ptr %146, align 8
-  %147 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 2
-  store i32 2, ptr %147, align 4
-  %148 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 3
-  store ptr %18, ptr %148, align 16
-  %149 = getelementptr inbounds %struct.t_pargs, ptr %144, i32 0, i32 4
-  store ptr @.str.177, ptr %149, align 8
-  %150 = getelementptr inbounds %struct.t_pargs, ptr %144, i64 1
-  %151 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 0
-  store ptr @.str.178, ptr %151, align 16
-  %152 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 1
-  store i8 0, ptr %152, align 8
-  %153 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 2
-  store i32 5, ptr %153, align 4
-  %154 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 3
-  store ptr %21, ptr %154, align 16
-  %155 = getelementptr inbounds %struct.t_pargs, ptr %150, i32 0, i32 4
-  store ptr @.str.179, ptr %155, align 8
-  %156 = getelementptr inbounds %struct.t_pargs, ptr %150, i64 1
-  %157 = getelementptr inbounds %struct.t_pargs, ptr %156, i32 0, i32 0
-  store ptr @.str.180, ptr %157, align 16
-  %158 = getelementptr inbounds %struct.t_pargs, ptr %156, i32 0, i32 1
-  store i8 0, ptr %158, align 8
-  %159 = getelementptr inbounds %struct.t_pargs, ptr %156, i32 0, i32 2
-  store i32 0, ptr %159, align 4
-  %160 = getelementptr inbounds %struct.t_pargs, ptr %156, i32 0, i32 3
-  store ptr %17, ptr %160, align 16
-  %161 = getelementptr inbounds %struct.t_pargs, ptr %156, i32 0, i32 4
-  store ptr @.str.181, ptr %161, align 8
-  %162 = getelementptr inbounds %struct.t_pargs, ptr %156, i64 1
-  %163 = getelementptr inbounds %struct.t_pargs, ptr %162, i32 0, i32 0
-  store ptr @.str.182, ptr %163, align 16
-  %164 = getelementptr inbounds %struct.t_pargs, ptr %162, i32 0, i32 1
-  store i8 0, ptr %164, align 8
-  %165 = getelementptr inbounds %struct.t_pargs, ptr %162, i32 0, i32 2
-  store i32 1, ptr %165, align 4
-  %166 = getelementptr inbounds %struct.t_pargs, ptr %162, i32 0, i32 3
-  store ptr %22, ptr %166, align 16
-  %167 = getelementptr inbounds %struct.t_pargs, ptr %162, i32 0, i32 4
-  store ptr @.str.183, ptr %167, align 8
-  %168 = getelementptr inbounds %struct.t_pargs, ptr %162, i64 1
-  %169 = getelementptr inbounds %struct.t_pargs, ptr %168, i32 0, i32 0
-  store ptr @.str.184, ptr %169, align 16
-  %170 = getelementptr inbounds %struct.t_pargs, ptr %168, i32 0, i32 1
-  store i8 0, ptr %170, align 8
-  %171 = getelementptr inbounds %struct.t_pargs, ptr %168, i32 0, i32 2
-  store i32 0, ptr %171, align 4
-  %172 = getelementptr inbounds %struct.t_pargs, ptr %168, i32 0, i32 3
-  store ptr %25, ptr %172, align 16
-  %173 = getelementptr inbounds %struct.t_pargs, ptr %168, i32 0, i32 4
-  store ptr @.str.185, ptr %173, align 8
-  %174 = getelementptr inbounds %struct.t_pargs, ptr %168, i64 1
-  %175 = getelementptr inbounds %struct.t_pargs, ptr %174, i32 0, i32 0
-  store ptr @.str.186, ptr %175, align 16
-  %176 = getelementptr inbounds %struct.t_pargs, ptr %174, i32 0, i32 1
-  store i8 0, ptr %176, align 8
-  %177 = getelementptr inbounds %struct.t_pargs, ptr %174, i32 0, i32 2
-  store i32 1, ptr %177, align 4
-  %178 = getelementptr inbounds %struct.t_pargs, ptr %174, i32 0, i32 3
-  store ptr %23, ptr %178, align 16
-  %179 = getelementptr inbounds %struct.t_pargs, ptr %174, i32 0, i32 4
-  store ptr @.str.187, ptr %179, align 8
-  %180 = getelementptr inbounds %struct.t_pargs, ptr %174, i64 1
-  %181 = getelementptr inbounds %struct.t_pargs, ptr %180, i32 0, i32 0
-  store ptr @.str.188, ptr %181, align 16
-  %182 = getelementptr inbounds %struct.t_pargs, ptr %180, i32 0, i32 1
-  store i8 0, ptr %182, align 8
-  %183 = getelementptr inbounds %struct.t_pargs, ptr %180, i32 0, i32 2
-  store i32 5, ptr %183, align 4
-  %184 = getelementptr inbounds %struct.t_pargs, ptr %180, i32 0, i32 3
-  store ptr %28, ptr %184, align 16
-  %185 = getelementptr inbounds %struct.t_pargs, ptr %180, i32 0, i32 4
-  store ptr @.str.189, ptr %185, align 8
-  %186 = getelementptr inbounds %struct.t_pargs, ptr %180, i64 1
-  %187 = getelementptr inbounds %struct.t_pargs, ptr %186, i32 0, i32 0
-  store ptr @.str.190, ptr %187, align 16
-  %188 = getelementptr inbounds %struct.t_pargs, ptr %186, i32 0, i32 1
-  store i8 0, ptr %188, align 8
-  %189 = getelementptr inbounds %struct.t_pargs, ptr %186, i32 0, i32 2
-  store i32 5, ptr %189, align 4
-  %190 = getelementptr inbounds %struct.t_pargs, ptr %186, i32 0, i32 3
-  store ptr %56, ptr %190, align 16
-  %191 = getelementptr inbounds %struct.t_pargs, ptr %186, i32 0, i32 4
-  store ptr @.str.191, ptr %191, align 8
-  %192 = getelementptr inbounds %struct.t_pargs, ptr %186, i64 1
-  %193 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 0
-  store ptr @.str.192, ptr %193, align 16
-  %194 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 1
-  store i8 0, ptr %194, align 8
-  %195 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 2
-  store i32 5, ptr %195, align 4
-  %196 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 3
-  store ptr %57, ptr %196, align 16
-  %197 = getelementptr inbounds %struct.t_pargs, ptr %192, i32 0, i32 4
-  store ptr @.str.193, ptr %197, align 8
-  %198 = getelementptr inbounds %struct.t_pargs, ptr %192, i64 1
-  %199 = getelementptr inbounds %struct.t_pargs, ptr %198, i32 0, i32 0
-  store ptr @.str.194, ptr %199, align 16
-  %200 = getelementptr inbounds %struct.t_pargs, ptr %198, i32 0, i32 1
-  store i8 0, ptr %200, align 8
-  %201 = getelementptr inbounds %struct.t_pargs, ptr %198, i32 0, i32 2
-  store i32 4, ptr %201, align 4
-  %202 = getelementptr inbounds %struct.t_pargs, ptr %198, i32 0, i32 3
-  store ptr %42, ptr %202, align 16
-  %203 = getelementptr inbounds %struct.t_pargs, ptr %198, i32 0, i32 4
-  store ptr @.str.195, ptr %203, align 8
-  %204 = getelementptr inbounds %struct.t_pargs, ptr %198, i64 1
-  %205 = getelementptr inbounds %struct.t_pargs, ptr %204, i32 0, i32 0
-  store ptr @.str.196, ptr %205, align 16
-  %206 = getelementptr inbounds %struct.t_pargs, ptr %204, i32 0, i32 1
-  store i8 0, ptr %206, align 8
-  %207 = getelementptr inbounds %struct.t_pargs, ptr %204, i32 0, i32 2
-  store i32 5, ptr %207, align 4
-  %208 = getelementptr inbounds %struct.t_pargs, ptr %204, i32 0, i32 3
-  store ptr %53, ptr %208, align 16
-  %209 = getelementptr inbounds %struct.t_pargs, ptr %204, i32 0, i32 4
-  store ptr @.str.197, ptr %209, align 8
-  %210 = getelementptr inbounds %struct.t_pargs, ptr %204, i64 1
-  %211 = getelementptr inbounds %struct.t_pargs, ptr %210, i32 0, i32 0
-  store ptr @.str.198, ptr %211, align 16
-  %212 = getelementptr inbounds %struct.t_pargs, ptr %210, i32 0, i32 1
-  store i8 0, ptr %212, align 8
-  %213 = getelementptr inbounds %struct.t_pargs, ptr %210, i32 0, i32 2
-  store i32 5, ptr %213, align 4
-  %214 = getelementptr inbounds %struct.t_pargs, ptr %210, i32 0, i32 3
-  store ptr %54, ptr %214, align 16
-  %215 = getelementptr inbounds %struct.t_pargs, ptr %210, i32 0, i32 4
-  store ptr @.str.199, ptr %215, align 8
-  %216 = getelementptr inbounds %struct.t_pargs, ptr %210, i64 1
-  %217 = getelementptr inbounds %struct.t_pargs, ptr %216, i32 0, i32 0
-  store ptr @.str.200, ptr %217, align 16
-  %218 = getelementptr inbounds %struct.t_pargs, ptr %216, i32 0, i32 1
-  store i8 0, ptr %218, align 8
-  %219 = getelementptr inbounds %struct.t_pargs, ptr %216, i32 0, i32 2
-  store i32 4, ptr %219, align 4
-  %220 = getelementptr inbounds %struct.t_pargs, ptr %216, i32 0, i32 3
-  store ptr %32, ptr %220, align 16
-  %221 = getelementptr inbounds %struct.t_pargs, ptr %216, i32 0, i32 4
-  store ptr @.str.201, ptr %221, align 8
-  %222 = getelementptr inbounds %struct.t_pargs, ptr %216, i64 1
-  %223 = getelementptr inbounds %struct.t_pargs, ptr %222, i32 0, i32 0
-  store ptr @.str.202, ptr %223, align 16
-  %224 = getelementptr inbounds %struct.t_pargs, ptr %222, i32 0, i32 1
-  store i8 0, ptr %224, align 8
-  %225 = getelementptr inbounds %struct.t_pargs, ptr %222, i32 0, i32 2
-  store i32 5, ptr %225, align 4
-  %226 = getelementptr inbounds %struct.t_pargs, ptr %222, i32 0, i32 3
-  store ptr %55, ptr %226, align 16
-  %227 = getelementptr inbounds %struct.t_pargs, ptr %222, i32 0, i32 4
-  store ptr @.str.203, ptr %227, align 8
-  %228 = call noundef double @_Z11gmx_gettimev()
-  store double %228, ptr %47, align 8
-  %229 = load ptr, ptr %5, align 8
-  %230 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %231 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
-  %232 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
-  %233 = call noundef i32 @_Z5asizeIPKcLi60EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(480) %6)
-  %234 = getelementptr inbounds [60 x ptr], ptr %6, i64 0, i64 0
-  %235 = call noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %229, i64 noundef 2048, i32 noundef %230, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %231, ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef 0, ptr noundef null, ptr noundef %58)
-  br i1 %235, label %237, label %236
+  %437 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
+  %438 = getelementptr inbounds %struct.t_pargs, ptr %437, i32 0, i32 0
+  store ptr @.str.156, ptr %438, align 16
+  %439 = getelementptr inbounds %struct.t_pargs, ptr %437, i32 0, i32 1
+  store i8 0, ptr %439, align 8
+  %440 = getelementptr inbounds %struct.t_pargs, ptr %437, i32 0, i32 2
+  store i32 4, ptr %440, align 4
+  %441 = getelementptr inbounds %struct.t_pargs, ptr %437, i32 0, i32 3
+  store ptr %38, ptr %441, align 16
+  %442 = getelementptr inbounds %struct.t_pargs, ptr %437, i32 0, i32 4
+  store ptr @.str.157, ptr %442, align 8
+  %443 = getelementptr inbounds %struct.t_pargs, ptr %437, i64 1
+  %444 = getelementptr inbounds %struct.t_pargs, ptr %443, i32 0, i32 0
+  store ptr @.str.158, ptr %444, align 16
+  %445 = getelementptr inbounds %struct.t_pargs, ptr %443, i32 0, i32 1
+  store i8 0, ptr %445, align 8
+  %446 = getelementptr inbounds %struct.t_pargs, ptr %443, i32 0, i32 2
+  store i32 0, ptr %446, align 4
+  %447 = getelementptr inbounds %struct.t_pargs, ptr %443, i32 0, i32 3
+  store ptr %7, ptr %447, align 16
+  %448 = getelementptr inbounds %struct.t_pargs, ptr %443, i32 0, i32 4
+  store ptr @.str.159, ptr %448, align 8
+  %449 = getelementptr inbounds %struct.t_pargs, ptr %443, i64 1
+  %450 = getelementptr inbounds %struct.t_pargs, ptr %449, i32 0, i32 0
+  store ptr @.str.160, ptr %450, align 16
+  %451 = getelementptr inbounds %struct.t_pargs, ptr %449, i32 0, i32 1
+  store i8 0, ptr %451, align 8
+  %452 = getelementptr inbounds %struct.t_pargs, ptr %449, i32 0, i32 2
+  store i32 7, ptr %452, align 4
+  %453 = getelementptr inbounds %struct.t_pargs, ptr %449, i32 0, i32 3
+  %454 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  store ptr %454, ptr %453, align 16
+  %455 = getelementptr inbounds %struct.t_pargs, ptr %449, i32 0, i32 4
+  store ptr @.str.161, ptr %455, align 8
+  %456 = getelementptr inbounds %struct.t_pargs, ptr %449, i64 1
+  %457 = getelementptr inbounds %struct.t_pargs, ptr %456, i32 0, i32 0
+  store ptr @.str.162, ptr %457, align 16
+  %458 = getelementptr inbounds %struct.t_pargs, ptr %456, i32 0, i32 1
+  store i8 0, ptr %458, align 8
+  %459 = getelementptr inbounds %struct.t_pargs, ptr %456, i32 0, i32 2
+  store i32 0, ptr %459, align 4
+  %460 = getelementptr inbounds %struct.t_pargs, ptr %456, i32 0, i32 3
+  store ptr %50, ptr %460, align 16
+  %461 = getelementptr inbounds %struct.t_pargs, ptr %456, i32 0, i32 4
+  store ptr @.str.163, ptr %461, align 8
+  %462 = getelementptr inbounds %struct.t_pargs, ptr %456, i64 1
+  %463 = getelementptr inbounds %struct.t_pargs, ptr %462, i32 0, i32 0
+  store ptr @.str.164, ptr %463, align 16
+  %464 = getelementptr inbounds %struct.t_pargs, ptr %462, i32 0, i32 1
+  store i8 0, ptr %464, align 8
+  %465 = getelementptr inbounds %struct.t_pargs, ptr %462, i32 0, i32 2
+  store i32 0, ptr %465, align 4
+  %466 = getelementptr inbounds %struct.t_pargs, ptr %462, i32 0, i32 3
+  store ptr %8, ptr %466, align 16
+  %467 = getelementptr inbounds %struct.t_pargs, ptr %462, i32 0, i32 4
+  store ptr @.str.165, ptr %467, align 8
+  %468 = getelementptr inbounds %struct.t_pargs, ptr %462, i64 1
+  %469 = getelementptr inbounds %struct.t_pargs, ptr %468, i32 0, i32 0
+  store ptr @.str.166, ptr %469, align 16
+  %470 = getelementptr inbounds %struct.t_pargs, ptr %468, i32 0, i32 1
+  store i8 0, ptr %470, align 8
+  %471 = getelementptr inbounds %struct.t_pargs, ptr %468, i32 0, i32 2
+  store i32 2, ptr %471, align 4
+  %472 = getelementptr inbounds %struct.t_pargs, ptr %468, i32 0, i32 3
+  store ptr %10, ptr %472, align 16
+  %473 = getelementptr inbounds %struct.t_pargs, ptr %468, i32 0, i32 4
+  store ptr @.str.167, ptr %473, align 8
+  %474 = getelementptr inbounds %struct.t_pargs, ptr %468, i64 1
+  %475 = getelementptr inbounds %struct.t_pargs, ptr %474, i32 0, i32 0
+  store ptr @.str.168, ptr %475, align 16
+  %476 = getelementptr inbounds %struct.t_pargs, ptr %474, i32 0, i32 1
+  store i8 0, ptr %476, align 8
+  %477 = getelementptr inbounds %struct.t_pargs, ptr %474, i32 0, i32 2
+  store i32 2, ptr %477, align 4
+  %478 = getelementptr inbounds %struct.t_pargs, ptr %474, i32 0, i32 3
+  store ptr %11, ptr %478, align 16
+  %479 = getelementptr inbounds %struct.t_pargs, ptr %474, i32 0, i32 4
+  store ptr @.str.169, ptr %479, align 8
+  %480 = getelementptr inbounds %struct.t_pargs, ptr %474, i64 1
+  %481 = getelementptr inbounds %struct.t_pargs, ptr %480, i32 0, i32 0
+  store ptr @.str.170, ptr %481, align 16
+  %482 = getelementptr inbounds %struct.t_pargs, ptr %480, i32 0, i32 1
+  store i8 0, ptr %482, align 8
+  %483 = getelementptr inbounds %struct.t_pargs, ptr %480, i32 0, i32 2
+  store i32 7, ptr %483, align 4
+  %484 = getelementptr inbounds %struct.t_pargs, ptr %480, i32 0, i32 3
+  %485 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
+  store ptr %485, ptr %484, align 16
+  %486 = getelementptr inbounds %struct.t_pargs, ptr %480, i32 0, i32 4
+  store ptr @.str.171, ptr %486, align 8
+  %487 = getelementptr inbounds %struct.t_pargs, ptr %480, i64 1
+  %488 = getelementptr inbounds %struct.t_pargs, ptr %487, i32 0, i32 0
+  store ptr @.str.172, ptr %488, align 16
+  %489 = getelementptr inbounds %struct.t_pargs, ptr %487, i32 0, i32 1
+  store i8 0, ptr %489, align 8
+  %490 = getelementptr inbounds %struct.t_pargs, ptr %487, i32 0, i32 2
+  store i32 0, ptr %490, align 4
+  %491 = getelementptr inbounds %struct.t_pargs, ptr %487, i32 0, i32 3
+  store ptr %16, ptr %491, align 16
+  %492 = getelementptr inbounds %struct.t_pargs, ptr %487, i32 0, i32 4
+  store ptr @.str.173, ptr %492, align 8
+  %493 = getelementptr inbounds %struct.t_pargs, ptr %487, i64 1
+  %494 = getelementptr inbounds %struct.t_pargs, ptr %493, i32 0, i32 0
+  store ptr @.str.174, ptr %494, align 16
+  %495 = getelementptr inbounds %struct.t_pargs, ptr %493, i32 0, i32 1
+  store i8 0, ptr %495, align 8
+  %496 = getelementptr inbounds %struct.t_pargs, ptr %493, i32 0, i32 2
+  store i32 2, ptr %496, align 4
+  %497 = getelementptr inbounds %struct.t_pargs, ptr %493, i32 0, i32 3
+  store ptr %19, ptr %497, align 16
+  %498 = getelementptr inbounds %struct.t_pargs, ptr %493, i32 0, i32 4
+  store ptr @.str.175, ptr %498, align 8
+  %499 = getelementptr inbounds %struct.t_pargs, ptr %493, i64 1
+  %500 = getelementptr inbounds %struct.t_pargs, ptr %499, i32 0, i32 0
+  store ptr @.str.176, ptr %500, align 16
+  %501 = getelementptr inbounds %struct.t_pargs, ptr %499, i32 0, i32 1
+  store i8 0, ptr %501, align 8
+  %502 = getelementptr inbounds %struct.t_pargs, ptr %499, i32 0, i32 2
+  store i32 2, ptr %502, align 4
+  %503 = getelementptr inbounds %struct.t_pargs, ptr %499, i32 0, i32 3
+  store ptr %18, ptr %503, align 16
+  %504 = getelementptr inbounds %struct.t_pargs, ptr %499, i32 0, i32 4
+  store ptr @.str.177, ptr %504, align 8
+  %505 = getelementptr inbounds %struct.t_pargs, ptr %499, i64 1
+  %506 = getelementptr inbounds %struct.t_pargs, ptr %505, i32 0, i32 0
+  store ptr @.str.178, ptr %506, align 16
+  %507 = getelementptr inbounds %struct.t_pargs, ptr %505, i32 0, i32 1
+  store i8 0, ptr %507, align 8
+  %508 = getelementptr inbounds %struct.t_pargs, ptr %505, i32 0, i32 2
+  store i32 5, ptr %508, align 4
+  %509 = getelementptr inbounds %struct.t_pargs, ptr %505, i32 0, i32 3
+  store ptr %21, ptr %509, align 16
+  %510 = getelementptr inbounds %struct.t_pargs, ptr %505, i32 0, i32 4
+  store ptr @.str.179, ptr %510, align 8
+  %511 = getelementptr inbounds %struct.t_pargs, ptr %505, i64 1
+  %512 = getelementptr inbounds %struct.t_pargs, ptr %511, i32 0, i32 0
+  store ptr @.str.180, ptr %512, align 16
+  %513 = getelementptr inbounds %struct.t_pargs, ptr %511, i32 0, i32 1
+  store i8 0, ptr %513, align 8
+  %514 = getelementptr inbounds %struct.t_pargs, ptr %511, i32 0, i32 2
+  store i32 0, ptr %514, align 4
+  %515 = getelementptr inbounds %struct.t_pargs, ptr %511, i32 0, i32 3
+  store ptr %17, ptr %515, align 16
+  %516 = getelementptr inbounds %struct.t_pargs, ptr %511, i32 0, i32 4
+  store ptr @.str.181, ptr %516, align 8
+  %517 = getelementptr inbounds %struct.t_pargs, ptr %511, i64 1
+  %518 = getelementptr inbounds %struct.t_pargs, ptr %517, i32 0, i32 0
+  store ptr @.str.182, ptr %518, align 16
+  %519 = getelementptr inbounds %struct.t_pargs, ptr %517, i32 0, i32 1
+  store i8 0, ptr %519, align 8
+  %520 = getelementptr inbounds %struct.t_pargs, ptr %517, i32 0, i32 2
+  store i32 1, ptr %520, align 4
+  %521 = getelementptr inbounds %struct.t_pargs, ptr %517, i32 0, i32 3
+  store ptr %22, ptr %521, align 16
+  %522 = getelementptr inbounds %struct.t_pargs, ptr %517, i32 0, i32 4
+  store ptr @.str.183, ptr %522, align 8
+  %523 = getelementptr inbounds %struct.t_pargs, ptr %517, i64 1
+  %524 = getelementptr inbounds %struct.t_pargs, ptr %523, i32 0, i32 0
+  store ptr @.str.184, ptr %524, align 16
+  %525 = getelementptr inbounds %struct.t_pargs, ptr %523, i32 0, i32 1
+  store i8 0, ptr %525, align 8
+  %526 = getelementptr inbounds %struct.t_pargs, ptr %523, i32 0, i32 2
+  store i32 0, ptr %526, align 4
+  %527 = getelementptr inbounds %struct.t_pargs, ptr %523, i32 0, i32 3
+  store ptr %25, ptr %527, align 16
+  %528 = getelementptr inbounds %struct.t_pargs, ptr %523, i32 0, i32 4
+  store ptr @.str.185, ptr %528, align 8
+  %529 = getelementptr inbounds %struct.t_pargs, ptr %523, i64 1
+  %530 = getelementptr inbounds %struct.t_pargs, ptr %529, i32 0, i32 0
+  store ptr @.str.186, ptr %530, align 16
+  %531 = getelementptr inbounds %struct.t_pargs, ptr %529, i32 0, i32 1
+  store i8 0, ptr %531, align 8
+  %532 = getelementptr inbounds %struct.t_pargs, ptr %529, i32 0, i32 2
+  store i32 1, ptr %532, align 4
+  %533 = getelementptr inbounds %struct.t_pargs, ptr %529, i32 0, i32 3
+  store ptr %23, ptr %533, align 16
+  %534 = getelementptr inbounds %struct.t_pargs, ptr %529, i32 0, i32 4
+  store ptr @.str.187, ptr %534, align 8
+  %535 = getelementptr inbounds %struct.t_pargs, ptr %529, i64 1
+  %536 = getelementptr inbounds %struct.t_pargs, ptr %535, i32 0, i32 0
+  store ptr @.str.188, ptr %536, align 16
+  %537 = getelementptr inbounds %struct.t_pargs, ptr %535, i32 0, i32 1
+  store i8 0, ptr %537, align 8
+  %538 = getelementptr inbounds %struct.t_pargs, ptr %535, i32 0, i32 2
+  store i32 5, ptr %538, align 4
+  %539 = getelementptr inbounds %struct.t_pargs, ptr %535, i32 0, i32 3
+  store ptr %28, ptr %539, align 16
+  %540 = getelementptr inbounds %struct.t_pargs, ptr %535, i32 0, i32 4
+  store ptr @.str.189, ptr %540, align 8
+  %541 = getelementptr inbounds %struct.t_pargs, ptr %535, i64 1
+  %542 = getelementptr inbounds %struct.t_pargs, ptr %541, i32 0, i32 0
+  store ptr @.str.190, ptr %542, align 16
+  %543 = getelementptr inbounds %struct.t_pargs, ptr %541, i32 0, i32 1
+  store i8 0, ptr %543, align 8
+  %544 = getelementptr inbounds %struct.t_pargs, ptr %541, i32 0, i32 2
+  store i32 5, ptr %544, align 4
+  %545 = getelementptr inbounds %struct.t_pargs, ptr %541, i32 0, i32 3
+  store ptr %56, ptr %545, align 16
+  %546 = getelementptr inbounds %struct.t_pargs, ptr %541, i32 0, i32 4
+  store ptr @.str.191, ptr %546, align 8
+  %547 = getelementptr inbounds %struct.t_pargs, ptr %541, i64 1
+  %548 = getelementptr inbounds %struct.t_pargs, ptr %547, i32 0, i32 0
+  store ptr @.str.192, ptr %548, align 16
+  %549 = getelementptr inbounds %struct.t_pargs, ptr %547, i32 0, i32 1
+  store i8 0, ptr %549, align 8
+  %550 = getelementptr inbounds %struct.t_pargs, ptr %547, i32 0, i32 2
+  store i32 5, ptr %550, align 4
+  %551 = getelementptr inbounds %struct.t_pargs, ptr %547, i32 0, i32 3
+  store ptr %57, ptr %551, align 16
+  %552 = getelementptr inbounds %struct.t_pargs, ptr %547, i32 0, i32 4
+  store ptr @.str.193, ptr %552, align 8
+  %553 = getelementptr inbounds %struct.t_pargs, ptr %547, i64 1
+  %554 = getelementptr inbounds %struct.t_pargs, ptr %553, i32 0, i32 0
+  store ptr @.str.194, ptr %554, align 16
+  %555 = getelementptr inbounds %struct.t_pargs, ptr %553, i32 0, i32 1
+  store i8 0, ptr %555, align 8
+  %556 = getelementptr inbounds %struct.t_pargs, ptr %553, i32 0, i32 2
+  store i32 4, ptr %556, align 4
+  %557 = getelementptr inbounds %struct.t_pargs, ptr %553, i32 0, i32 3
+  store ptr %42, ptr %557, align 16
+  %558 = getelementptr inbounds %struct.t_pargs, ptr %553, i32 0, i32 4
+  store ptr @.str.195, ptr %558, align 8
+  %559 = getelementptr inbounds %struct.t_pargs, ptr %553, i64 1
+  %560 = getelementptr inbounds %struct.t_pargs, ptr %559, i32 0, i32 0
+  store ptr @.str.196, ptr %560, align 16
+  %561 = getelementptr inbounds %struct.t_pargs, ptr %559, i32 0, i32 1
+  store i8 0, ptr %561, align 8
+  %562 = getelementptr inbounds %struct.t_pargs, ptr %559, i32 0, i32 2
+  store i32 5, ptr %562, align 4
+  %563 = getelementptr inbounds %struct.t_pargs, ptr %559, i32 0, i32 3
+  store ptr %53, ptr %563, align 16
+  %564 = getelementptr inbounds %struct.t_pargs, ptr %559, i32 0, i32 4
+  store ptr @.str.197, ptr %564, align 8
+  %565 = getelementptr inbounds %struct.t_pargs, ptr %559, i64 1
+  %566 = getelementptr inbounds %struct.t_pargs, ptr %565, i32 0, i32 0
+  store ptr @.str.198, ptr %566, align 16
+  %567 = getelementptr inbounds %struct.t_pargs, ptr %565, i32 0, i32 1
+  store i8 0, ptr %567, align 8
+  %568 = getelementptr inbounds %struct.t_pargs, ptr %565, i32 0, i32 2
+  store i32 5, ptr %568, align 4
+  %569 = getelementptr inbounds %struct.t_pargs, ptr %565, i32 0, i32 3
+  store ptr %54, ptr %569, align 16
+  %570 = getelementptr inbounds %struct.t_pargs, ptr %565, i32 0, i32 4
+  store ptr @.str.199, ptr %570, align 8
+  %571 = getelementptr inbounds %struct.t_pargs, ptr %565, i64 1
+  %572 = getelementptr inbounds %struct.t_pargs, ptr %571, i32 0, i32 0
+  store ptr @.str.200, ptr %572, align 16
+  %573 = getelementptr inbounds %struct.t_pargs, ptr %571, i32 0, i32 1
+  store i8 0, ptr %573, align 8
+  %574 = getelementptr inbounds %struct.t_pargs, ptr %571, i32 0, i32 2
+  store i32 4, ptr %574, align 4
+  %575 = getelementptr inbounds %struct.t_pargs, ptr %571, i32 0, i32 3
+  store ptr %32, ptr %575, align 16
+  %576 = getelementptr inbounds %struct.t_pargs, ptr %571, i32 0, i32 4
+  store ptr @.str.201, ptr %576, align 8
+  %577 = getelementptr inbounds %struct.t_pargs, ptr %571, i64 1
+  %578 = getelementptr inbounds %struct.t_pargs, ptr %577, i32 0, i32 0
+  store ptr @.str.202, ptr %578, align 16
+  %579 = getelementptr inbounds %struct.t_pargs, ptr %577, i32 0, i32 1
+  store i8 0, ptr %579, align 8
+  %580 = getelementptr inbounds %struct.t_pargs, ptr %577, i32 0, i32 2
+  store i32 5, ptr %580, align 4
+  %581 = getelementptr inbounds %struct.t_pargs, ptr %577, i32 0, i32 3
+  store ptr %55, ptr %581, align 16
+  %582 = getelementptr inbounds %struct.t_pargs, ptr %577, i32 0, i32 4
+  store ptr @.str.203, ptr %582, align 8
+  %583 = call noundef double @_Z11gmx_gettimev()
+  store double %583, ptr %47, align 8
+  %584 = load ptr, ptr %5, align 8
+  %585 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %586 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
+  %587 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
+  %588 = call noundef i32 @_Z5asizeIPKcLi60EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(480) %6)
+  %589 = getelementptr inbounds [60 x ptr], ptr %6, i64 0, i64 0
+  %590 = call noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %584, i64 noundef 2048, i32 noundef %585, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %586, ptr noundef %587, i32 noundef %588, ptr noundef %589, i32 noundef 0, ptr noundef null, ptr noundef %58)
+  br i1 %590, label %592, label %591
 
-236:                                              ; preds = %81
+591:                                              ; preds = %436
   store i32 0, ptr %3, align 4
-  br label %766
+  br label %1121
 
-237:                                              ; preds = %81
-  %238 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  %239 = load ptr, ptr %238, align 16
-  %240 = icmp ne ptr %239, null
-  br i1 %240, label %241, label %242
+592:                                              ; preds = %436
+  %593 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  %594 = load ptr, ptr %593, align 16
+  %595 = icmp ne ptr %594, null
+  br i1 %595, label %596, label %597
 
-241:                                              ; preds = %237
-  br label %243
+596:                                              ; preds = %592
+  br label %598
 
-242:                                              ; preds = %237
+597:                                              ; preds = %592
   call void @"_ZZ12gmx_tune_pmeiPPcENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %60)
-  br label %243
+  br label %598
 
-243:                                              ; preds = %242, %241
+598:                                              ; preds = %597, %596
   call void @_ZL13gmx_snew_implIcEvPKcS1_iRPT_m(ptr noundef @.str.204, ptr noundef @.str.205, i32 noundef 2461, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 1)
-  %244 = load ptr, ptr %29, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 0
-  store i8 0, ptr %245, align 1
+  %599 = load ptr, ptr %29, align 8
+  %600 = getelementptr inbounds i8, ptr %599, i64 0
+  store i8 0, ptr %600, align 1
   store i32 1, ptr %45, align 4
-  br label %246
+  br label %601
 
-246:                                              ; preds = %256, %243
-  %247 = load i32, ptr %45, align 4
-  %248 = load i32, ptr %4, align 4
-  %249 = icmp slt i32 %247, %248
-  br i1 %249, label %250, label %259
+601:                                              ; preds = %611, %598
+  %602 = load i32, ptr %45, align 4
+  %603 = load i32, ptr %4, align 4
+  %604 = icmp slt i32 %602, %603
+  br i1 %604, label %605, label %614
 
-250:                                              ; preds = %246
-  %251 = load ptr, ptr %5, align 8
-  %252 = load i32, ptr %45, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds ptr, ptr %251, i64 %253
-  %255 = load ptr, ptr %254, align 8
-  call void @_ZL13add_to_stringPPcPKc(ptr noundef %29, ptr noundef %255)
+605:                                              ; preds = %601
+  %606 = load ptr, ptr %5, align 8
+  %607 = load i32, ptr %45, align 4
+  %608 = sext i32 %607 to i64
+  %609 = getelementptr inbounds ptr, ptr %606, i64 %608
+  %610 = load ptr, ptr %609, align 8
+  call void @_ZL13add_to_stringPPcPKc(ptr noundef %29, ptr noundef %610)
   call void @_ZL13add_to_stringPPcPKc(ptr noundef %29, ptr noundef @.str.206)
-  br label %256
+  br label %611
 
-256:                                              ; preds = %250
-  %257 = load i32, ptr %45, align 4
-  %258 = add nsw i32 %257, 1
-  store i32 %258, ptr %45, align 4
-  br label %246, !llvm.loop !6
+611:                                              ; preds = %605
+  %612 = load i32, ptr %45, align 4
+  %613 = add nsw i32 %612, 1
+  store i32 %613, ptr %45, align 4
+  br label %601, !llvm.loop !6
 
-259:                                              ; preds = %246
-  %260 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
-  %261 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
-  %262 = call noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.162, i32 noundef %260, ptr noundef %261)
-  br i1 %262, label %263, label %281
+614:                                              ; preds = %601
+  %615 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
+  %616 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
+  %617 = call noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.162, i32 noundef %615, ptr noundef %616)
+  br i1 %617, label %618, label %636
 
-263:                                              ; preds = %259
+618:                                              ; preds = %614
   store i8 1, ptr %49, align 1
-  %264 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
-  %265 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
-  %266 = call noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.160, i32 noundef %264, ptr noundef %265)
-  br i1 %266, label %267, label %270
+  %619 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
+  %620 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
+  %621 = call noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.160, i32 noundef %619, ptr noundef %620)
+  br i1 %621, label %622, label %625
 
-267:                                              ; preds = %263
-  %268 = load ptr, ptr @stderr, align 8
-  %269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef @.str.207) #2
-  br label %270
+622:                                              ; preds = %618
+  %623 = load ptr, ptr @stderr, align 8
+  %624 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %623, ptr noundef @.str.207) #2
+  br label %625
 
-270:                                              ; preds = %267, %263
-  %271 = load i32, ptr %7, align 4
-  %272 = icmp sgt i32 %271, 1
-  br i1 %272, label %273, label %279
+625:                                              ; preds = %622, %618
+  %626 = load i32, ptr %7, align 4
+  %627 = icmp sgt i32 %626, 1
+  br i1 %627, label %628, label %634
 
-273:                                              ; preds = %270
+628:                                              ; preds = %625
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 1 dereferenceable(124) @.str.205, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %61, i32 noundef 2479, ptr noundef @.str.208) #15
-          to label %274 unwind label %275
+          to label %629 unwind label %630
 
-274:                                              ; preds = %273
+629:                                              ; preds = %628
   unreachable
 
-275:                                              ; preds = %273
-  %276 = landingpad { ptr, i32 }
+630:                                              ; preds = %628
+  %631 = landingpad { ptr, i32 }
           cleanup
-  %277 = extractvalue { ptr, i32 } %276, 0
-  store ptr %277, ptr %62, align 8
-  %278 = extractvalue { ptr, i32 } %276, 1
-  store i32 %278, ptr %63, align 4
+  %632 = extractvalue { ptr, i32 } %631, 0
+  store ptr %632, ptr %62, align 8
+  %633 = extractvalue { ptr, i32 } %631, 1
+  store i32 %633, ptr %63, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %61) #2
-  br label %768
+  br label %1123
 
-279:                                              ; preds = %270
-  %280 = load i32, ptr %50, align 4
-  store i32 %280, ptr %7, align 4
-  br label %281
+634:                                              ; preds = %625
+  %635 = load i32, ptr %50, align 4
+  store i32 %635, ptr %7, align 4
+  br label %636
 
-281:                                              ; preds = %279, %259
-  %282 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %283 = call noundef float @_ZL11inspect_tpriP8t_filenmPf(i32 noundef %282, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, ptr noundef %20)
-  store float %283, ptr %14, align 4
-  %284 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  call void @_ZL20couple_files_optionsiP8t_filenm(i32 noundef %284, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %285 = load i8, ptr %49, align 1
-  %286 = trunc i8 %285 to i1
-  br i1 %286, label %287, label %291
+636:                                              ; preds = %634, %614
+  %637 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %638 = call noundef float @_ZL11inspect_tpriP8t_filenmPf(i32 noundef %637, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, ptr noundef %20)
+  store float %638, ptr %14, align 4
+  %639 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  call void @_ZL20couple_files_optionsiP8t_filenm(i32 noundef %639, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %640 = load i8, ptr %49, align 1
+  %641 = trunc i8 %640 to i1
+  br i1 %641, label %642, label %646
 
-287:                                              ; preds = %281
-  %288 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
-  %289 = load i32, ptr %50, align 4
-  %290 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %288, ptr noundef @.str.209, i32 noundef %289) #2
-  br label %306
+642:                                              ; preds = %636
+  %643 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
+  %644 = load i32, ptr %50, align 4
+  %645 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %643, ptr noundef @.str.209, i32 noundef %644) #2
+  br label %661
 
-291:                                              ; preds = %281
-  %292 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  %293 = load ptr, ptr %292, align 16
-  %294 = call i32 @strcmp(ptr noundef %293, ptr noundef @.str.152) #16
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %296, label %302
+646:                                              ; preds = %636
+  %647 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  %648 = load ptr, ptr %647, align 16
+  %649 = call i32 @strcmp(ptr noundef %648, ptr noundef @.str.152) #16
+  %650 = icmp ne i32 %649, 0
+  br i1 %650, label %651, label %657
 
-296:                                              ; preds = %291
-  %297 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
-  %298 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  %299 = load ptr, ptr %298, align 16
-  %300 = load i32, ptr %7, align 4
-  %301 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %297, ptr noundef @.str.210, ptr noundef %299, i32 noundef %300) #2
-  br label %305
+651:                                              ; preds = %646
+  %652 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
+  %653 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  %654 = load ptr, ptr %653, align 16
+  %655 = load i32, ptr %7, align 4
+  %656 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %652, ptr noundef @.str.210, ptr noundef %654, i32 noundef %655) #2
+  br label %660
 
-302:                                              ; preds = %291
-  %303 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
-  %304 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %303, ptr noundef @.str.206) #2
-  br label %305
+657:                                              ; preds = %646
+  %658 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
+  %659 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %658, ptr noundef @.str.206) #2
+  br label %660
 
-305:                                              ; preds = %302, %296
-  br label %306
+660:                                              ; preds = %657, %651
+  br label %661
 
-306:                                              ; preds = %305, %287
-  %307 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
-  store ptr %307, ptr %41, align 8
-  %308 = load i8, ptr %53, align 1
-  %309 = trunc i8 %308 to i1
-  %310 = load i8, ptr %54, align 1
-  %311 = trunc i8 %310 to i1
-  %312 = load i8, ptr %55, align 1
-  %313 = trunc i8 %312 to i1
-  %314 = load i32, ptr %25, align 4
-  %315 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %316 = load ptr, ptr %29, align 8
-  %317 = load ptr, ptr %32, align 8
-  call void @_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_(i1 noundef zeroext %309, i1 noundef zeroext %311, i1 noundef zeroext %313, i32 noundef %314, i32 noundef %315, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, ptr noundef %39, ptr noundef %40, ptr noundef %316, ptr noundef %317)
+661:                                              ; preds = %660, %642
+  %662 = getelementptr inbounds [4096 x i8], ptr %36, i64 0, i64 0
+  store ptr %662, ptr %41, align 8
+  %663 = load i8, ptr %53, align 1
+  %664 = trunc i8 %663 to i1
+  %665 = load i8, ptr %54, align 1
+  %666 = trunc i8 %665 to i1
+  %667 = load i8, ptr %55, align 1
+  %668 = trunc i8 %667 to i1
+  %669 = load i32, ptr %25, align 4
+  %670 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %671 = load ptr, ptr %29, align 8
+  %672 = load ptr, ptr %32, align 8
+  call void @_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_(i1 noundef zeroext %664, i1 noundef zeroext %666, i1 noundef zeroext %668, i32 noundef %669, i32 noundef %670, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, ptr noundef %39, ptr noundef %40, ptr noundef %671, ptr noundef %672)
   store i32 1, ptr %35, align 4
-  %318 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %319 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.69, i32 noundef %318, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  br i1 %319, label %320, label %340
+  %673 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %674 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.69, i32 noundef %673, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  br i1 %674, label %675, label %695
 
-320:                                              ; preds = %306
-  %321 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %322 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.69, i32 noundef %321, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  store ptr %322, ptr %64, align 8
+675:                                              ; preds = %661
+  %676 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %677 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.69, i32 noundef %676, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  store ptr %677, ptr %64, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(8) %64, i8 noundef zeroext 2)
   invoke void @_Z29read_checkpoint_part_and_stepRKNSt10filesystem7__cxx114pathEPiPl(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef %65, ptr noundef %24)
-          to label %323 unwind label %329
+          to label %678 unwind label %684
 
-323:                                              ; preds = %320
+678:                                              ; preds = %675
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #2
-  %324 = load i32, ptr %65, align 4
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %326, label %337
+  %679 = load i32, ptr %65, align 4
+  %680 = icmp eq i32 %679, 0
+  br i1 %680, label %681, label %692
 
-326:                                              ; preds = %323
+681:                                              ; preds = %678
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 1 dereferenceable(124) @.str.205, i8 noundef zeroext 2)
-  %327 = load ptr, ptr %64, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %67, i32 noundef 2532, ptr noundef @.str.211, ptr noundef %327) #15
-          to label %328 unwind label %333
+  %682 = load ptr, ptr %64, align 8
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %67, i32 noundef 2532, ptr noundef @.str.211, ptr noundef %682) #15
+          to label %683 unwind label %688
 
-328:                                              ; preds = %326
+683:                                              ; preds = %681
   unreachable
 
-329:                                              ; preds = %320
-  %330 = landingpad { ptr, i32 }
+684:                                              ; preds = %675
+  %685 = landingpad { ptr, i32 }
           cleanup
-  %331 = extractvalue { ptr, i32 } %330, 0
-  store ptr %331, ptr %62, align 8
-  %332 = extractvalue { ptr, i32 } %330, 1
-  store i32 %332, ptr %63, align 4
+  %686 = extractvalue { ptr, i32 } %685, 0
+  store ptr %686, ptr %62, align 8
+  %687 = extractvalue { ptr, i32 } %685, 1
+  store i32 %687, ptr %63, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #2
-  br label %768
+  br label %1123
 
-333:                                              ; preds = %326
-  %334 = landingpad { ptr, i32 }
+688:                                              ; preds = %681
+  %689 = landingpad { ptr, i32 }
           cleanup
-  %335 = extractvalue { ptr, i32 } %334, 0
-  store ptr %335, ptr %62, align 8
-  %336 = extractvalue { ptr, i32 } %334, 1
-  store i32 %336, ptr %63, align 4
+  %690 = extractvalue { ptr, i32 } %689, 0
+  store ptr %690, ptr %62, align 8
+  %691 = extractvalue { ptr, i32 } %689, 1
+  store i32 %691, ptr %63, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %67) #2
-  br label %768
+  br label %1123
 
-337:                                              ; preds = %323
-  %338 = load i32, ptr %65, align 4
-  %339 = add nsw i32 %338, 1
-  store i32 %339, ptr %35, align 4
-  br label %340
+692:                                              ; preds = %678
+  %693 = load i32, ptr %65, align 4
+  %694 = add nsw i32 %693, 1
+  store i32 %694, ptr %35, align 4
+  br label %695
 
-340:                                              ; preds = %337, %306
-  %341 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %342 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %341, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  store ptr %342, ptr %69, align 8
+695:                                              ; preds = %692, %661
+  %696 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %697 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %696, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  store ptr %697, ptr %69, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(8) %69, i8 noundef zeroext 2)
-  %343 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef @.str.212)
-          to label %344 unwind label %376
+  %698 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef @.str.212)
+          to label %699 unwind label %731
 
-344:                                              ; preds = %340
-  store ptr %343, ptr %46, align 8
+699:                                              ; preds = %695
+  store ptr %698, ptr %46, align 8
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %68) #2
-  %345 = load i32, ptr %7, align 4
-  %346 = load i32, ptr %8, align 4
-  %347 = load float, ptr %20, align 4
-  %348 = load float, ptr %10, align 4
-  %349 = load float, ptr %11, align 4
-  %350 = load i32, ptr %16, align 4
-  %351 = load i64, ptr %22, align 8
-  %352 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %353 = load i32, ptr %35, align 4
-  %354 = load i32, ptr %25, align 4
-  %355 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
-  %356 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
-  call void @_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs(i32 noundef %345, i32 noundef %346, ptr noundef %17, ptr noundef %18, float noundef %347, ptr noundef %19, float noundef %348, float noundef %349, i32 noundef %350, i64 noundef %351, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %352, i32 noundef %353, i32 noundef %354, i32 noundef %355, ptr noundef %356)
-  %357 = load i32, ptr %7, align 4
-  %358 = icmp sgt i32 %357, 2
-  br i1 %358, label %359, label %434
+  %700 = load i32, ptr %7, align 4
+  %701 = load i32, ptr %8, align 4
+  %702 = load float, ptr %20, align 4
+  %703 = load float, ptr %10, align 4
+  %704 = load float, ptr %11, align 4
+  %705 = load i32, ptr %16, align 4
+  %706 = load i64, ptr %22, align 8
+  %707 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %708 = load i32, ptr %35, align 4
+  %709 = load i32, ptr %25, align 4
+  %710 = call noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %59)
+  %711 = getelementptr inbounds [24 x %struct.t_pargs], ptr %59, i64 0, i64 0
+  call void @_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs(i32 noundef %700, i32 noundef %701, ptr noundef %17, ptr noundef %18, float noundef %702, ptr noundef %19, float noundef %703, float noundef %704, i32 noundef %705, i64 noundef %706, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %707, i32 noundef %708, i32 noundef %709, i32 noundef %710, ptr noundef %711)
+  %712 = load i32, ptr %7, align 4
+  %713 = icmp sgt i32 %712, 2
+  br i1 %713, label %714, label %789
 
-359:                                              ; preds = %344
-  %360 = load i32, ptr %16, align 4
-  %361 = icmp slt i32 %360, -1
-  br i1 %361, label %362, label %434
+714:                                              ; preds = %699
+  %715 = load i32, ptr %16, align 4
+  %716 = icmp slt i32 %715, -1
+  br i1 %716, label %717, label %789
 
-362:                                              ; preds = %359
-  %363 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
-  %364 = load ptr, ptr %363, align 16
-  %365 = call i32 @strcmp(ptr noundef %364, ptr noundef @.str.153) #16
-  %366 = icmp eq i32 0, %365
-  br i1 %366, label %367, label %405
+717:                                              ; preds = %714
+  %718 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
+  %719 = load ptr, ptr %718, align 16
+  %720 = call i32 @strcmp(ptr noundef %719, ptr noundef @.str.153) #16
+  %721 = icmp eq i32 0, %720
+  br i1 %721, label %722, label %760
 
-367:                                              ; preds = %362
-  %368 = load float, ptr %14, align 4
-  %369 = fpext float %368 to double
-  %370 = fcmp ogt double %369, 1.000000e+00
-  br i1 %370, label %371, label %380
+722:                                              ; preds = %717
+  %723 = load float, ptr %14, align 4
+  %724 = fpext float %723 to double
+  %725 = fcmp ogt double %724, 1.000000e+00
+  br i1 %725, label %726, label %735
 
-371:                                              ; preds = %367
-  %372 = load i32, ptr %7, align 4
-  %373 = sdiv i32 %372, 2
-  store i32 %373, ptr %12, align 4
-  %374 = load i32, ptr %7, align 4
-  %375 = sdiv i32 %374, 2
-  store i32 %375, ptr %13, align 4
-  br label %404
+726:                                              ; preds = %722
+  %727 = load i32, ptr %7, align 4
+  %728 = sdiv i32 %727, 2
+  store i32 %728, ptr %12, align 4
+  %729 = load i32, ptr %7, align 4
+  %730 = sdiv i32 %729, 2
+  store i32 %730, ptr %13, align 4
+  br label %759
 
-376:                                              ; preds = %340
-  %377 = landingpad { ptr, i32 }
+731:                                              ; preds = %695
+  %732 = landingpad { ptr, i32 }
           cleanup
-  %378 = extractvalue { ptr, i32 } %377, 0
-  store ptr %378, ptr %62, align 8
-  %379 = extractvalue { ptr, i32 } %377, 1
-  store i32 %379, ptr %63, align 4
+  %733 = extractvalue { ptr, i32 } %732, 0
+  store ptr %733, ptr %62, align 8
+  %734 = extractvalue { ptr, i32 } %732, 1
+  store i32 %734, ptr %63, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %68) #2
-  br label %768
+  br label %1123
 
-380:                                              ; preds = %367
-  %381 = load i32, ptr %7, align 4
-  %382 = sitofp i32 %381 to double
-  %383 = load float, ptr %14, align 4
-  %384 = fpext float %383 to double
-  %385 = fdiv double 1.000000e+00, %384
-  %386 = fadd double 1.000000e+00, %385
-  %387 = fdiv double %382, %386
-  %388 = fptosi double %387 to i32
-  %389 = sitofp i32 %388 to float
-  store float %389, ptr %15, align 4
-  %390 = load float, ptr %15, align 4
-  %391 = fpext float %390 to double
-  %392 = fmul double 0x3FE6666666666666, %391
-  %393 = call double @llvm.floor.f64(double %392)
-  %394 = fptosi double %393 to i32
-  store i32 %394, ptr %13, align 4
-  %395 = load float, ptr %15, align 4
-  %396 = fpext float %395 to double
-  %397 = fmul double 1.600000e+00, %396
-  %398 = call double @llvm.ceil.f64(double %397)
-  %399 = fptosi double %398 to i32
-  store i32 %399, ptr %12, align 4
-  %400 = load i32, ptr %7, align 4
-  %401 = sdiv i32 %400, 2
-  store i32 %401, ptr %70, align 4
-  %402 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %70)
-  %403 = load i32, ptr %402, align 4
-  store i32 %403, ptr %12, align 4
-  br label %404
+735:                                              ; preds = %722
+  %736 = load i32, ptr %7, align 4
+  %737 = sitofp i32 %736 to double
+  %738 = load float, ptr %14, align 4
+  %739 = fpext float %738 to double
+  %740 = fdiv double 1.000000e+00, %739
+  %741 = fadd double 1.000000e+00, %740
+  %742 = fdiv double %737, %741
+  %743 = fptosi double %742 to i32
+  %744 = sitofp i32 %743 to float
+  store float %744, ptr %15, align 4
+  %745 = load float, ptr %15, align 4
+  %746 = fpext float %745 to double
+  %747 = fmul double 0x3FE6666666666666, %746
+  %748 = call double @llvm.floor.f64(double %747)
+  %749 = fptosi double %748 to i32
+  store i32 %749, ptr %13, align 4
+  %750 = load float, ptr %15, align 4
+  %751 = fpext float %750 to double
+  %752 = fmul double 1.600000e+00, %751
+  %753 = call double @llvm.ceil.f64(double %752)
+  %754 = fptosi double %753 to i32
+  store i32 %754, ptr %12, align 4
+  %755 = load i32, ptr %7, align 4
+  %756 = sdiv i32 %755, 2
+  store i32 %756, ptr %70, align 4
+  %757 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %70)
+  %758 = load i32, ptr %757, align 4
+  store i32 %758, ptr %12, align 4
+  br label %759
 
-404:                                              ; preds = %380, %371
-  br label %433
+759:                                              ; preds = %735, %726
+  br label %788
 
-405:                                              ; preds = %362
-  %406 = load float, ptr %10, align 4
-  %407 = load i32, ptr %7, align 4
-  %408 = sitofp i32 %407 to float
-  %409 = fmul float %406, %408
-  %410 = call noundef float @_ZSt5floorf(float noundef %409)
-  %411 = fptosi float %410 to i32
-  store i32 %411, ptr %12, align 4
-  %412 = load float, ptr %11, align 4
-  %413 = load i32, ptr %7, align 4
-  %414 = sitofp i32 %413 to float
-  %415 = fmul float %412, %414
-  %416 = call noundef float @_ZSt5floorf(float noundef %415)
-  %417 = fptosi float %416 to i32
-  store i32 %417, ptr %71, align 4
+760:                                              ; preds = %717
+  %761 = load float, ptr %10, align 4
+  %762 = load i32, ptr %7, align 4
+  %763 = sitofp i32 %762 to float
+  %764 = fmul float %761, %763
+  %765 = call noundef float @_ZSt5floorf(float noundef %764)
+  %766 = fptosi float %765 to i32
+  store i32 %766, ptr %12, align 4
+  %767 = load float, ptr %11, align 4
+  %768 = load i32, ptr %7, align 4
+  %769 = sitofp i32 %768 to float
+  %770 = fmul float %767, %769
+  %771 = call noundef float @_ZSt5floorf(float noundef %770)
+  %772 = fptosi float %771 to i32
+  store i32 %772, ptr %71, align 4
   store i32 0, ptr %72, align 4
-  %418 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %71, ptr noundef nonnull align 4 dereferenceable(4) %72)
-  %419 = load i32, ptr %418, align 4
-  store i32 %419, ptr %13, align 4
-  %420 = load ptr, ptr @stdout, align 8
-  %421 = load i32, ptr %13, align 4
-  %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef @.str.213, i32 noundef %421) #2
-  %423 = load i32, ptr %12, align 4
-  %424 = load i32, ptr %13, align 4
-  %425 = icmp ne i32 %423, %424
-  br i1 %425, label %426, label %430
+  %773 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %71, ptr noundef nonnull align 4 dereferenceable(4) %72)
+  %774 = load i32, ptr %773, align 4
+  store i32 %774, ptr %13, align 4
+  %775 = load ptr, ptr @stdout, align 8
+  %776 = load i32, ptr %13, align 4
+  %777 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %775, ptr noundef @.str.213, i32 noundef %776) #2
+  %778 = load i32, ptr %12, align 4
+  %779 = load i32, ptr %13, align 4
+  %780 = icmp ne i32 %778, %779
+  br i1 %780, label %781, label %785
 
-426:                                              ; preds = %405
-  %427 = load ptr, ptr @stdout, align 8
-  %428 = load i32, ptr %12, align 4
-  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %427, ptr noundef @.str.214, i32 noundef %428) #2
-  br label %430
+781:                                              ; preds = %760
+  %782 = load ptr, ptr @stdout, align 8
+  %783 = load i32, ptr %12, align 4
+  %784 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %782, ptr noundef @.str.214, i32 noundef %783) #2
+  br label %785
 
-430:                                              ; preds = %426, %405
-  %431 = load ptr, ptr @stdout, align 8
-  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef @.str.215) #2
-  br label %433
+785:                                              ; preds = %781, %760
+  %786 = load ptr, ptr @stdout, align 8
+  %787 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %786, ptr noundef @.str.215) #2
+  br label %788
 
-433:                                              ; preds = %430, %404
-  br label %435
+788:                                              ; preds = %785, %759
+  br label %790
 
-434:                                              ; preds = %359, %344
+789:                                              ; preds = %714, %699
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  br label %435
+  br label %790
 
-435:                                              ; preds = %434, %433
-  %436 = load i8, ptr %49, align 1
-  %437 = trunc i8 %436 to i1
-  call void @_ZL17get_program_pathsbPPcS0_(i1 noundef zeroext %437, ptr noundef %37, ptr noundef %38)
-  %438 = load i8, ptr %56, align 1
-  %439 = trunc i8 %438 to i1
-  br i1 %439, label %440, label %451
+790:                                              ; preds = %789, %788
+  %791 = load i8, ptr %49, align 1
+  %792 = trunc i8 %791 to i1
+  call void @_ZL17get_program_pathsbPPcS0_(i1 noundef zeroext %792, ptr noundef %37, ptr noundef %38)
+  %793 = load i8, ptr %56, align 1
+  %794 = trunc i8 %793 to i1
+  br i1 %794, label %795, label %806
 
-440:                                              ; preds = %435
-  %441 = load i32, ptr %8, align 4
-  %442 = icmp sgt i32 %441, 0
-  br i1 %442, label %443, label %451
+795:                                              ; preds = %790
+  %796 = load i32, ptr %8, align 4
+  %797 = icmp sgt i32 %796, 0
+  br i1 %797, label %798, label %806
 
-443:                                              ; preds = %440
-  %444 = load i8, ptr %49, align 1
-  %445 = trunc i8 %444 to i1
-  %446 = load ptr, ptr %37, align 8
-  %447 = load ptr, ptr %41, align 8
-  %448 = load ptr, ptr %38, align 8
-  %449 = load ptr, ptr %42, align 8
-  %450 = icmp ne ptr null, %449
-  call void @_ZL17check_mdrun_worksbPKcS0_S0_b(i1 noundef zeroext %445, ptr noundef %446, ptr noundef %447, ptr noundef %448, i1 noundef zeroext %450)
-  br label %451
+798:                                              ; preds = %795
+  %799 = load i8, ptr %49, align 1
+  %800 = trunc i8 %799 to i1
+  %801 = load ptr, ptr %37, align 8
+  %802 = load ptr, ptr %41, align 8
+  %803 = load ptr, ptr %38, align 8
+  %804 = load ptr, ptr %42, align 8
+  %805 = icmp ne ptr null, %804
+  call void @_ZL17check_mdrun_worksbPKcS0_S0_b(i1 noundef zeroext %800, ptr noundef %801, ptr noundef %802, ptr noundef %803, i1 noundef zeroext %805)
+  br label %806
 
-451:                                              ; preds = %443, %440, %435
-  %452 = load ptr, ptr %46, align 8
-  call void @_ZL8sep_lineP8_IO_FILE(ptr noundef %452)
-  %453 = load ptr, ptr %46, align 8
-  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %453, ptr noundef @.str.216) #2
-  %455 = load ptr, ptr %46, align 8
-  call void @_ZL8sep_lineP8_IO_FILE(ptr noundef %455)
-  %456 = load ptr, ptr %46, align 8
-  %457 = load ptr, ptr %58, align 8
-  %458 = call noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t(ptr noundef %457)
-  %459 = call noundef ptr @_Z11gmx_versionv()
-  %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %456, ptr noundef @.str.217, ptr noundef %458, ptr noundef %459) #2
-  %461 = load i8, ptr %49, align 1
-  %462 = trunc i8 %461 to i1
-  br i1 %462, label %483, label %463
+806:                                              ; preds = %798, %795, %790
+  %807 = load ptr, ptr %46, align 8
+  call void @_ZL8sep_lineP8_IO_FILE(ptr noundef %807)
+  %808 = load ptr, ptr %46, align 8
+  %809 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %808, ptr noundef @.str.216) #2
+  %810 = load ptr, ptr %46, align 8
+  call void @_ZL8sep_lineP8_IO_FILE(ptr noundef %810)
+  %811 = load ptr, ptr %46, align 8
+  %812 = load ptr, ptr %58, align 8
+  %813 = call noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t(ptr noundef %812)
+  %814 = call noundef ptr @_Z11gmx_versionv()
+  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %811, ptr noundef @.str.217, ptr noundef %813, ptr noundef %814) #2
+  %816 = load i8, ptr %49, align 1
+  %817 = trunc i8 %816 to i1
+  br i1 %817, label %838, label %818
 
-463:                                              ; preds = %451
-  %464 = load ptr, ptr %46, align 8
-  %465 = load i32, ptr %7, align 4
-  %466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %464, ptr noundef @.str.218, i32 noundef %465) #2
-  %467 = load ptr, ptr %46, align 8
-  %468 = load ptr, ptr %37, align 8
-  %469 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef @.str.219, ptr noundef %468) #2
-  %470 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  %471 = load ptr, ptr %470, align 16
-  %472 = call i32 @strcmp(ptr noundef %471, ptr noundef @.str.152) #16
-  %473 = icmp ne i32 %472, 0
-  br i1 %473, label %474, label %479
+818:                                              ; preds = %806
+  %819 = load ptr, ptr %46, align 8
+  %820 = load i32, ptr %7, align 4
+  %821 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %819, ptr noundef @.str.218, i32 noundef %820) #2
+  %822 = load ptr, ptr %46, align 8
+  %823 = load ptr, ptr %37, align 8
+  %824 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef @.str.219, ptr noundef %823) #2
+  %825 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  %826 = load ptr, ptr %825, align 16
+  %827 = call i32 @strcmp(ptr noundef %826, ptr noundef @.str.152) #16
+  %828 = icmp ne i32 %827, 0
+  br i1 %828, label %829, label %834
 
-474:                                              ; preds = %463
-  %475 = load ptr, ptr %46, align 8
-  %476 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
-  %477 = load ptr, ptr %476, align 16
-  %478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %475, ptr noundef @.str.220, ptr noundef %477) #2
-  br label %482
+829:                                              ; preds = %818
+  %830 = load ptr, ptr %46, align 8
+  %831 = getelementptr inbounds [5 x ptr], ptr %51, i64 0, i64 0
+  %832 = load ptr, ptr %831, align 16
+  %833 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %830, ptr noundef @.str.220, ptr noundef %832) #2
+  br label %837
 
-479:                                              ; preds = %463
-  %480 = load ptr, ptr %46, align 8
-  %481 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %480, ptr noundef @.str.221) #2
-  br label %482
+834:                                              ; preds = %818
+  %835 = load ptr, ptr %46, align 8
+  %836 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %835, ptr noundef @.str.221) #2
+  br label %837
 
-482:                                              ; preds = %479, %474
-  br label %487
+837:                                              ; preds = %834, %829
+  br label %842
 
-483:                                              ; preds = %451
-  %484 = load ptr, ptr %46, align 8
-  %485 = load i32, ptr %7, align 4
-  %486 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %484, ptr noundef @.str.222, i32 noundef %485) #2
-  br label %487
+838:                                              ; preds = %806
+  %839 = load ptr, ptr %46, align 8
+  %840 = load i32, ptr %7, align 4
+  %841 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %839, ptr noundef @.str.222, i32 noundef %840) #2
+  br label %842
 
-487:                                              ; preds = %483, %482
-  %488 = load ptr, ptr %46, align 8
-  %489 = load ptr, ptr %38, align 8
-  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef @.str.223, ptr noundef %489) #2
-  %491 = load ptr, ptr %46, align 8
-  %492 = load ptr, ptr %39, align 8
-  %493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef @.str.224, ptr noundef %492) #2
-  %494 = load ptr, ptr %46, align 8
-  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef @.str.225) #2
-  %496 = load ptr, ptr %46, align 8
-  %497 = load i64, ptr %22, align 8
-  %498 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %496, ptr noundef @.str.226, i64 noundef %497) #2
-  %499 = load ptr, ptr %46, align 8
-  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %499, ptr noundef @.str.227) #2
-  %501 = load ptr, ptr %46, align 8
-  %502 = load i32, ptr %25, align 4
-  %503 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %501, ptr noundef @.str.228, i32 noundef %502) #2
-  %504 = load i32, ptr %35, align 4
-  %505 = icmp sgt i32 %504, 1
-  br i1 %505, label %506, label %514
+842:                                              ; preds = %838, %837
+  %843 = load ptr, ptr %46, align 8
+  %844 = load ptr, ptr %38, align 8
+  %845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %843, ptr noundef @.str.223, ptr noundef %844) #2
+  %846 = load ptr, ptr %46, align 8
+  %847 = load ptr, ptr %39, align 8
+  %848 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %846, ptr noundef @.str.224, ptr noundef %847) #2
+  %849 = load ptr, ptr %46, align 8
+  %850 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %849, ptr noundef @.str.225) #2
+  %851 = load ptr, ptr %46, align 8
+  %852 = load i64, ptr %22, align 8
+  %853 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %851, ptr noundef @.str.226, i64 noundef %852) #2
+  %854 = load ptr, ptr %46, align 8
+  %855 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %854, ptr noundef @.str.227) #2
+  %856 = load ptr, ptr %46, align 8
+  %857 = load i32, ptr %25, align 4
+  %858 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %856, ptr noundef @.str.228, i32 noundef %857) #2
+  %859 = load i32, ptr %35, align 4
+  %860 = icmp sgt i32 %859, 1
+  br i1 %860, label %861, label %869
 
-506:                                              ; preds = %487
-  %507 = load ptr, ptr %46, align 8
-  %508 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %507, ptr noundef @.str.229) #2
-  %509 = load ptr, ptr %46, align 8
-  %510 = load i64, ptr %24, align 8
-  %511 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %509, ptr noundef @.str.226, i64 noundef %510) #2
-  %512 = load ptr, ptr %46, align 8
-  %513 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %512, ptr noundef @.str.227) #2
-  br label %514
+861:                                              ; preds = %842
+  %862 = load ptr, ptr %46, align 8
+  %863 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %862, ptr noundef @.str.229) #2
+  %864 = load ptr, ptr %46, align 8
+  %865 = load i64, ptr %24, align 8
+  %866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %864, ptr noundef @.str.226, i64 noundef %865) #2
+  %867 = load ptr, ptr %46, align 8
+  %868 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %867, ptr noundef @.str.227) #2
+  br label %869
 
-514:                                              ; preds = %506, %487
-  %515 = load ptr, ptr %46, align 8
-  %516 = load ptr, ptr %40, align 8
-  %517 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %515, ptr noundef @.str.230, ptr noundef %516) #2
-  %518 = load i64, ptr %23, align 8
-  %519 = icmp sge i64 %518, 0
-  br i1 %519, label %520, label %539
+869:                                              ; preds = %861, %842
+  %870 = load ptr, ptr %46, align 8
+  %871 = load ptr, ptr %40, align 8
+  %872 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %870, ptr noundef @.str.230, ptr noundef %871) #2
+  %873 = load i64, ptr %23, align 8
+  %874 = icmp sge i64 %873, 0
+  br i1 %874, label %875, label %894
 
-520:                                              ; preds = %514
+875:                                              ; preds = %869
   store i8 1, ptr %26, align 1
-  %521 = load ptr, ptr @stderr, align 8
-  %522 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %523 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.64, i32 noundef %522, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %524 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef @.str.231, ptr noundef %523) #2
-  %525 = load ptr, ptr @stderr, align 8
-  %526 = load i64, ptr %23, align 8
-  %527 = load i64, ptr %24, align 8
-  %528 = add nsw i64 %526, %527
-  %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %525, ptr noundef @.str.226, i64 noundef %528) #2
-  %530 = load ptr, ptr @stderr, align 8
-  %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef @.str.232) #2
-  %532 = load ptr, ptr %46, align 8
-  %533 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %532, ptr noundef @.str.233) #2
-  %534 = load ptr, ptr %46, align 8
-  %535 = load i64, ptr %23, align 8
-  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef @.str.226, i64 noundef %535) #2
-  %537 = load ptr, ptr %46, align 8
-  %538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %537, ptr noundef @.str.227) #2
-  br label %539
+  %876 = load ptr, ptr @stderr, align 8
+  %877 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %878 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.64, i32 noundef %877, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %879 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %876, ptr noundef @.str.231, ptr noundef %878) #2
+  %880 = load ptr, ptr @stderr, align 8
+  %881 = load i64, ptr %23, align 8
+  %882 = load i64, ptr %24, align 8
+  %883 = add nsw i64 %881, %882
+  %884 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %880, ptr noundef @.str.226, i64 noundef %883) #2
+  %885 = load ptr, ptr @stderr, align 8
+  %886 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %885, ptr noundef @.str.232) #2
+  %887 = load ptr, ptr %46, align 8
+  %888 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %887, ptr noundef @.str.233) #2
+  %889 = load ptr, ptr %46, align 8
+  %890 = load i64, ptr %23, align 8
+  %891 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %889, ptr noundef @.str.226, i64 noundef %890) #2
+  %892 = load ptr, ptr %46, align 8
+  %893 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %892, ptr noundef @.str.227) #2
+  br label %894
 
-539:                                              ; preds = %520, %514
-  %540 = load i32, ptr %8, align 4
-  %541 = icmp sgt i32 %540, 1
-  br i1 %541, label %542, label %546
+894:                                              ; preds = %875, %869
+  %895 = load i32, ptr %8, align 4
+  %896 = icmp sgt i32 %895, 1
+  br i1 %896, label %897, label %901
 
-542:                                              ; preds = %539
-  %543 = load ptr, ptr %46, align 8
-  %544 = load i32, ptr %8, align 4
-  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %543, ptr noundef @.str.234, i32 noundef %544) #2
-  br label %546
+897:                                              ; preds = %894
+  %898 = load ptr, ptr %46, align 8
+  %899 = load i32, ptr %8, align 4
+  %900 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %898, ptr noundef @.str.234, i32 noundef %899) #2
+  br label %901
 
-546:                                              ; preds = %542, %539
-  %547 = load i32, ptr %16, align 4
-  %548 = icmp sge i32 %547, -1
-  br i1 %548, label %549, label %553
+901:                                              ; preds = %897, %894
+  %902 = load i32, ptr %16, align 4
+  %903 = icmp sge i32 %902, -1
+  br i1 %903, label %904, label %908
 
-549:                                              ; preds = %546
-  %550 = load ptr, ptr %46, align 8
-  %551 = load i32, ptr %16, align 4
-  %552 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %550, ptr noundef @.str.235, i32 noundef %551) #2
-  br label %553
+904:                                              ; preds = %901
+  %905 = load ptr, ptr %46, align 8
+  %906 = load i32, ptr %16, align 4
+  %907 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %905, ptr noundef @.str.235, i32 noundef %906) #2
+  br label %908
 
-553:                                              ; preds = %549, %546
-  %554 = load ptr, ptr %46, align 8
-  %555 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %556 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %555, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %554, ptr noundef @.str.236, ptr noundef %556) #2
-  %558 = load ptr, ptr %46, align 8
-  %559 = load float, ptr %14, align 4
-  %560 = fpext float %559 to double
-  %561 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %558, ptr noundef @.str.237, double noundef %560) #2
+908:                                              ; preds = %904, %901
+  %909 = load ptr, ptr %46, align 8
+  %910 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %911 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %910, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %912 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %909, ptr noundef @.str.236, ptr noundef %911) #2
+  %913 = load ptr, ptr %46, align 8
+  %914 = load float, ptr %14, align 4
+  %915 = fpext float %914 to double
+  %916 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %913, ptr noundef @.str.237, double noundef %915) #2
   call void @_ZL13gmx_snew_implI13PmeTuneInputsEvPKcS2_iRPT_m(ptr noundef @.str.238, ptr noundef @.str.205, i32 noundef 2670, ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef 1)
-  %562 = load i32, ptr %17, align 4
-  %563 = load ptr, ptr %44, align 8
-  %564 = getelementptr inbounds %struct.PmeTuneInputs, ptr %563, i32 0, i32 0
-  store i32 %562, ptr %564, align 8
+  %917 = load i32, ptr %17, align 4
+  %918 = load ptr, ptr %44, align 8
+  %919 = getelementptr inbounds %struct.PmeTuneInputs, ptr %918, i32 0, i32 0
+  store i32 %917, ptr %919, align 8
   store i32 0, ptr %45, align 4
-  br label %565
+  br label %920
 
-565:                                              ; preds = %606, %553
-  %566 = load i32, ptr %45, align 4
-  %567 = load i32, ptr %17, align 4
-  %568 = icmp slt i32 %566, %567
-  br i1 %568, label %569, label %609
+920:                                              ; preds = %961, %908
+  %921 = load i32, ptr %45, align 4
+  %922 = load i32, ptr %17, align 4
+  %923 = icmp slt i32 %921, %922
+  br i1 %923, label %924, label %964
 
-569:                                              ; preds = %565
-  %570 = load ptr, ptr %44, align 8
-  %571 = getelementptr inbounds %struct.PmeTuneInputs, ptr %570, i32 0, i32 3
-  %572 = load i32, ptr %17, align 4
-  %573 = sext i32 %572 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.239, ptr noundef @.str.205, i32 noundef 2674, ptr noundef nonnull align 8 dereferenceable(8) %571, i64 noundef %573)
-  %574 = load ptr, ptr %44, align 8
-  %575 = getelementptr inbounds %struct.PmeTuneInputs, ptr %574, i32 0, i32 4
-  %576 = load i32, ptr %17, align 4
-  %577 = sext i32 %576 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.240, ptr noundef @.str.205, i32 noundef 2675, ptr noundef nonnull align 8 dereferenceable(8) %575, i64 noundef %577)
-  %578 = load ptr, ptr %44, align 8
-  %579 = getelementptr inbounds %struct.PmeTuneInputs, ptr %578, i32 0, i32 5
-  %580 = load i32, ptr %17, align 4
-  %581 = sext i32 %580 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.241, ptr noundef @.str.205, i32 noundef 2676, ptr noundef nonnull align 8 dereferenceable(8) %579, i64 noundef %581)
-  %582 = load ptr, ptr %44, align 8
-  %583 = getelementptr inbounds %struct.PmeTuneInputs, ptr %582, i32 0, i32 6
-  %584 = load i32, ptr %17, align 4
-  %585 = sext i32 %584 to i64
-  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.242, ptr noundef @.str.205, i32 noundef 2677, ptr noundef nonnull align 8 dereferenceable(8) %583, i64 noundef %585)
-  %586 = load ptr, ptr %44, align 8
-  %587 = getelementptr inbounds %struct.PmeTuneInputs, ptr %586, i32 0, i32 7
-  %588 = load i32, ptr %17, align 4
-  %589 = sext i32 %588 to i64
-  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.243, ptr noundef @.str.205, i32 noundef 2678, ptr noundef nonnull align 8 dereferenceable(8) %587, i64 noundef %589)
-  %590 = load ptr, ptr %44, align 8
-  %591 = getelementptr inbounds %struct.PmeTuneInputs, ptr %590, i32 0, i32 8
-  %592 = load i32, ptr %17, align 4
-  %593 = sext i32 %592 to i64
-  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.244, ptr noundef @.str.205, i32 noundef 2679, ptr noundef nonnull align 8 dereferenceable(8) %591, i64 noundef %593)
-  %594 = load ptr, ptr %44, align 8
-  %595 = getelementptr inbounds %struct.PmeTuneInputs, ptr %594, i32 0, i32 9
-  %596 = load i32, ptr %17, align 4
-  %597 = sext i32 %596 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.245, ptr noundef @.str.205, i32 noundef 2680, ptr noundef nonnull align 8 dereferenceable(8) %595, i64 noundef %597)
-  %598 = load ptr, ptr %44, align 8
-  %599 = getelementptr inbounds %struct.PmeTuneInputs, ptr %598, i32 0, i32 10
-  %600 = load i32, ptr %17, align 4
-  %601 = sext i32 %600 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.246, ptr noundef @.str.205, i32 noundef 2681, ptr noundef nonnull align 8 dereferenceable(8) %599, i64 noundef %601)
-  %602 = load ptr, ptr %44, align 8
-  %603 = getelementptr inbounds %struct.PmeTuneInputs, ptr %602, i32 0, i32 11
-  %604 = load i32, ptr %17, align 4
-  %605 = sext i32 %604 to i64
-  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.247, ptr noundef @.str.205, i32 noundef 2682, ptr noundef nonnull align 8 dereferenceable(8) %603, i64 noundef %605)
-  br label %606
+924:                                              ; preds = %920
+  %925 = load ptr, ptr %44, align 8
+  %926 = getelementptr inbounds %struct.PmeTuneInputs, ptr %925, i32 0, i32 3
+  %927 = load i32, ptr %17, align 4
+  %928 = sext i32 %927 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.239, ptr noundef @.str.205, i32 noundef 2674, ptr noundef nonnull align 8 dereferenceable(8) %926, i64 noundef %928)
+  %929 = load ptr, ptr %44, align 8
+  %930 = getelementptr inbounds %struct.PmeTuneInputs, ptr %929, i32 0, i32 4
+  %931 = load i32, ptr %17, align 4
+  %932 = sext i32 %931 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.240, ptr noundef @.str.205, i32 noundef 2675, ptr noundef nonnull align 8 dereferenceable(8) %930, i64 noundef %932)
+  %933 = load ptr, ptr %44, align 8
+  %934 = getelementptr inbounds %struct.PmeTuneInputs, ptr %933, i32 0, i32 5
+  %935 = load i32, ptr %17, align 4
+  %936 = sext i32 %935 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.241, ptr noundef @.str.205, i32 noundef 2676, ptr noundef nonnull align 8 dereferenceable(8) %934, i64 noundef %936)
+  %937 = load ptr, ptr %44, align 8
+  %938 = getelementptr inbounds %struct.PmeTuneInputs, ptr %937, i32 0, i32 6
+  %939 = load i32, ptr %17, align 4
+  %940 = sext i32 %939 to i64
+  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.242, ptr noundef @.str.205, i32 noundef 2677, ptr noundef nonnull align 8 dereferenceable(8) %938, i64 noundef %940)
+  %941 = load ptr, ptr %44, align 8
+  %942 = getelementptr inbounds %struct.PmeTuneInputs, ptr %941, i32 0, i32 7
+  %943 = load i32, ptr %17, align 4
+  %944 = sext i32 %943 to i64
+  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.243, ptr noundef @.str.205, i32 noundef 2678, ptr noundef nonnull align 8 dereferenceable(8) %942, i64 noundef %944)
+  %945 = load ptr, ptr %44, align 8
+  %946 = getelementptr inbounds %struct.PmeTuneInputs, ptr %945, i32 0, i32 8
+  %947 = load i32, ptr %17, align 4
+  %948 = sext i32 %947 to i64
+  call void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.244, ptr noundef @.str.205, i32 noundef 2679, ptr noundef nonnull align 8 dereferenceable(8) %946, i64 noundef %948)
+  %949 = load ptr, ptr %44, align 8
+  %950 = getelementptr inbounds %struct.PmeTuneInputs, ptr %949, i32 0, i32 9
+  %951 = load i32, ptr %17, align 4
+  %952 = sext i32 %951 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.245, ptr noundef @.str.205, i32 noundef 2680, ptr noundef nonnull align 8 dereferenceable(8) %950, i64 noundef %952)
+  %953 = load ptr, ptr %44, align 8
+  %954 = getelementptr inbounds %struct.PmeTuneInputs, ptr %953, i32 0, i32 10
+  %955 = load i32, ptr %17, align 4
+  %956 = sext i32 %955 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.246, ptr noundef @.str.205, i32 noundef 2681, ptr noundef nonnull align 8 dereferenceable(8) %954, i64 noundef %956)
+  %957 = load ptr, ptr %44, align 8
+  %958 = getelementptr inbounds %struct.PmeTuneInputs, ptr %957, i32 0, i32 11
+  %959 = load i32, ptr %17, align 4
+  %960 = sext i32 %959 to i64
+  call void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.247, ptr noundef @.str.205, i32 noundef 2682, ptr noundef nonnull align 8 dereferenceable(8) %958, i64 noundef %960)
+  br label %961
 
-606:                                              ; preds = %569
-  %607 = load i32, ptr %45, align 4
-  %608 = add nsw i32 %607, 1
-  store i32 %608, ptr %45, align 4
-  br label %565, !llvm.loop !8
+961:                                              ; preds = %924
+  %962 = load i32, ptr %45, align 4
+  %963 = add nsw i32 %962, 1
+  store i32 %963, ptr %45, align 4
+  br label %920, !llvm.loop !8
 
-609:                                              ; preds = %565
-  %610 = load i32, ptr %17, align 4
-  %611 = sext i32 %610 to i64
-  call void @_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m(ptr noundef @.str.248, ptr noundef @.str.205, i32 noundef 2685, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef %611)
+964:                                              ; preds = %920
+  %965 = load i32, ptr %17, align 4
+  %966 = sext i32 %965 to i64
+  call void @_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m(ptr noundef @.str.248, ptr noundef @.str.205, i32 noundef 2685, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef %966)
   store i32 0, ptr %45, align 4
-  br label %612
+  br label %967
 
-612:                                              ; preds = %621, %609
-  %613 = load i32, ptr %45, align 4
-  %614 = load i32, ptr %17, align 4
-  %615 = icmp slt i32 %613, %614
-  br i1 %615, label %616, label %624
+967:                                              ; preds = %976, %964
+  %968 = load i32, ptr %45, align 4
+  %969 = load i32, ptr %17, align 4
+  %970 = icmp slt i32 %968, %969
+  br i1 %970, label %971, label %979
 
-616:                                              ; preds = %612
-  %617 = load ptr, ptr %30, align 8
-  %618 = load i32, ptr %45, align 4
-  %619 = sext i32 %618 to i64
-  %620 = getelementptr inbounds ptr, ptr %617, i64 %619
-  call void @_ZL13gmx_snew_implIcEvPKcS1_iRPT_m(ptr noundef @.str.249, ptr noundef @.str.205, i32 noundef 2688, ptr noundef nonnull align 8 dereferenceable(8) %620, i64 noundef 4096)
-  br label %621
+971:                                              ; preds = %967
+  %972 = load ptr, ptr %30, align 8
+  %973 = load i32, ptr %45, align 4
+  %974 = sext i32 %973 to i64
+  %975 = getelementptr inbounds ptr, ptr %972, i64 %974
+  call void @_ZL13gmx_snew_implIcEvPKcS1_iRPT_m(ptr noundef @.str.249, ptr noundef @.str.205, i32 noundef 2688, ptr noundef nonnull align 8 dereferenceable(8) %975, i64 noundef 4096)
+  br label %976
 
-621:                                              ; preds = %616
-  %622 = load i32, ptr %45, align 4
-  %623 = add nsw i32 %622, 1
-  store i32 %623, ptr %45, align 4
-  br label %612, !llvm.loop !9
+976:                                              ; preds = %971
+  %977 = load i32, ptr %45, align 4
+  %978 = add nsw i32 %977, 1
+  store i32 %978, ptr %45, align 4
+  br label %967, !llvm.loop !9
 
-624:                                              ; preds = %612
-  %625 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %626 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %625, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %627 = load ptr, ptr %30, align 8
-  %628 = load i64, ptr %22, align 8
-  %629 = load i32, ptr %25, align 4
-  %630 = sext i32 %629 to i64
-  %631 = add nsw i64 %628, %630
-  %632 = load i64, ptr %24, align 8
-  %633 = load float, ptr %18, align 4
-  %634 = load float, ptr %19, align 4
-  %635 = load i8, ptr %21, align 1
-  %636 = trunc i8 %635 to i1
-  %637 = load ptr, ptr %44, align 8
-  %638 = load ptr, ptr %46, align 8
-  call void @_ZL19make_benchmark_tprsPKcPPcllffbPKiP13PmeTuneInputsP8_IO_FILE(ptr noundef %626, ptr noundef %627, i64 noundef %631, i64 noundef %632, float noundef %633, float noundef %634, i1 noundef zeroext %636, ptr noundef %17, ptr noundef %637, ptr noundef %638)
-  %639 = load i32, ptr %17, align 4
-  %640 = sext i32 %639 to i64
-  call void @_ZL13gmx_snew_implIP6t_perfEvPKcS3_iRPT_m(ptr noundef @.str.250, ptr noundef @.str.205, i32 noundef 2707, ptr noundef nonnull align 8 dereferenceable(8) %43, i64 noundef %640)
-  %641 = load i8, ptr %56, align 1
-  %642 = trunc i8 %641 to i1
-  br i1 %642, label %643, label %757
+979:                                              ; preds = %967
+  %980 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %981 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %980, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %982 = load ptr, ptr %30, align 8
+  %983 = load i64, ptr %22, align 8
+  %984 = load i32, ptr %25, align 4
+  %985 = sext i32 %984 to i64
+  %986 = add nsw i64 %983, %985
+  %987 = load i64, ptr %24, align 8
+  %988 = load float, ptr %18, align 4
+  %989 = load float, ptr %19, align 4
+  %990 = load i8, ptr %21, align 1
+  %991 = trunc i8 %990 to i1
+  %992 = load ptr, ptr %44, align 8
+  %993 = load ptr, ptr %46, align 8
+  call void @_ZL19make_benchmark_tprsPKcPPcllffbPKiP13PmeTuneInputsP8_IO_FILE(ptr noundef %981, ptr noundef %982, i64 noundef %986, i64 noundef %987, float noundef %988, float noundef %989, i1 noundef zeroext %991, ptr noundef %17, ptr noundef %992, ptr noundef %993)
+  %994 = load i32, ptr %17, align 4
+  %995 = sext i32 %994 to i64
+  call void @_ZL13gmx_snew_implIP6t_perfEvPKcS3_iRPT_m(ptr noundef @.str.250, ptr noundef @.str.205, i32 noundef 2707, ptr noundef nonnull align 8 dereferenceable(8) %43, i64 noundef %995)
+  %996 = load i8, ptr %56, align 1
+  %997 = trunc i8 %996 to i1
+  br i1 %997, label %998, label %1112
 
-643:                                              ; preds = %624
-  %644 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
-  %645 = load ptr, ptr %644, align 16
-  %646 = icmp ne ptr %645, null
-  br i1 %646, label %647, label %648
+998:                                              ; preds = %979
+  %999 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
+  %1000 = load ptr, ptr %999, align 16
+  %1001 = icmp ne ptr %1000, null
+  br i1 %1001, label %1002, label %1003
 
-647:                                              ; preds = %643
-  br label %649
+1002:                                             ; preds = %998
+  br label %1004
 
-648:                                              ; preds = %643
+1003:                                             ; preds = %998
   call void @"_ZZ12gmx_tune_pmeiPPcENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %73)
-  br label %649
+  br label %1004
 
-649:                                              ; preds = %648, %647
-  %650 = load ptr, ptr %46, align 8
-  %651 = load ptr, ptr %30, align 8
-  %652 = load i32, ptr %12, align 4
-  %653 = load i32, ptr %13, align 4
-  %654 = load i32, ptr %16, align 4
-  %655 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
-  %656 = load ptr, ptr %655, align 16
-  %657 = load ptr, ptr %43, align 8
-  %658 = load i32, ptr %8, align 4
-  %659 = load i32, ptr %7, align 4
-  %660 = load i32, ptr %17, align 4
-  %661 = load i8, ptr %49, align 1
-  %662 = trunc i8 %661 to i1
-  %663 = load ptr, ptr %37, align 8
-  %664 = load ptr, ptr %41, align 8
-  %665 = load ptr, ptr %38, align 8
-  %666 = load ptr, ptr %39, align 8
-  %667 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %668 = load i32, ptr %25, align 4
-  %669 = load i64, ptr %24, align 8
-  %670 = load i8, ptr %57, align 1
-  %671 = trunc i8 %670 to i1
-  %672 = load ptr, ptr %42, align 8
-  call void @_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_(ptr noundef %650, ptr noundef %651, i32 noundef %652, i32 noundef %653, i32 noundef %654, ptr noundef %656, ptr noundef %657, ptr noundef %9, i32 noundef %658, i32 noundef %659, i32 noundef %660, i1 noundef zeroext %662, ptr noundef %663, ptr noundef %664, ptr noundef %665, ptr noundef %666, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %667, i32 noundef %668, i64 noundef %669, i1 noundef zeroext %671, ptr noundef %672)
-  %673 = load ptr, ptr %46, align 8
-  %674 = call noundef double @_Z11gmx_gettimev()
-  %675 = load double, ptr %47, align 8
-  %676 = fsub double %674, %675
-  %677 = fdiv double %676, 6.000000e+01
-  %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %673, ptr noundef @.str.251, double noundef %677) #2
-  %679 = load ptr, ptr %46, align 8
-  %680 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %681 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %680, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %682 = load ptr, ptr %43, align 8
-  %683 = load i32, ptr %7, align 4
-  %684 = load i32, ptr %17, align 4
-  %685 = load i32, ptr %9, align 4
-  %686 = load i32, ptr %8, align 4
-  %687 = load ptr, ptr %44, align 8
-  %688 = call noundef zeroext i1 @_ZL12analyze_dataP8_IO_FILEPKcPP6t_perfiiiiP13PmeTuneInputsPiS8_(ptr noundef %679, ptr noundef %681, ptr noundef %682, i32 noundef %683, i32 noundef %684, i32 noundef %685, i32 noundef %686, ptr noundef %687, ptr noundef %34, ptr noundef %33)
-  %689 = zext i1 %688 to i8
-  store i8 %689, ptr %27, align 1
-  %690 = load i8, ptr %27, align 1
-  %691 = trunc i8 %690 to i1
-  br i1 %691, label %692, label %698
+1004:                                             ; preds = %1003, %1002
+  %1005 = load ptr, ptr %46, align 8
+  %1006 = load ptr, ptr %30, align 8
+  %1007 = load i32, ptr %12, align 4
+  %1008 = load i32, ptr %13, align 4
+  %1009 = load i32, ptr %16, align 4
+  %1010 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 0
+  %1011 = load ptr, ptr %1010, align 16
+  %1012 = load ptr, ptr %43, align 8
+  %1013 = load i32, ptr %8, align 4
+  %1014 = load i32, ptr %7, align 4
+  %1015 = load i32, ptr %17, align 4
+  %1016 = load i8, ptr %49, align 1
+  %1017 = trunc i8 %1016 to i1
+  %1018 = load ptr, ptr %37, align 8
+  %1019 = load ptr, ptr %41, align 8
+  %1020 = load ptr, ptr %38, align 8
+  %1021 = load ptr, ptr %39, align 8
+  %1022 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1023 = load i32, ptr %25, align 4
+  %1024 = load i64, ptr %24, align 8
+  %1025 = load i8, ptr %57, align 1
+  %1026 = trunc i8 %1025 to i1
+  %1027 = load ptr, ptr %42, align 8
+  call void @_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_(ptr noundef %1005, ptr noundef %1006, i32 noundef %1007, i32 noundef %1008, i32 noundef %1009, ptr noundef %1011, ptr noundef %1012, ptr noundef %9, i32 noundef %1013, i32 noundef %1014, i32 noundef %1015, i1 noundef zeroext %1017, ptr noundef %1018, ptr noundef %1019, ptr noundef %1020, ptr noundef %1021, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm, i32 noundef %1022, i32 noundef %1023, i64 noundef %1024, i1 noundef zeroext %1026, ptr noundef %1027)
+  %1028 = load ptr, ptr %46, align 8
+  %1029 = call noundef double @_Z11gmx_gettimev()
+  %1030 = load double, ptr %47, align 8
+  %1031 = fsub double %1029, %1030
+  %1032 = fdiv double %1031, 6.000000e+01
+  %1033 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1028, ptr noundef @.str.251, double noundef %1032) #2
+  %1034 = load ptr, ptr %46, align 8
+  %1035 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1036 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %1035, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1037 = load ptr, ptr %43, align 8
+  %1038 = load i32, ptr %7, align 4
+  %1039 = load i32, ptr %17, align 4
+  %1040 = load i32, ptr %9, align 4
+  %1041 = load i32, ptr %8, align 4
+  %1042 = load ptr, ptr %44, align 8
+  %1043 = call noundef zeroext i1 @_ZL12analyze_dataP8_IO_FILEPKcPP6t_perfiiiiP13PmeTuneInputsPiS8_(ptr noundef %1034, ptr noundef %1036, ptr noundef %1037, i32 noundef %1038, i32 noundef %1039, i32 noundef %1040, i32 noundef %1041, ptr noundef %1042, ptr noundef %34, ptr noundef %33)
+  %1044 = zext i1 %1043 to i8
+  store i8 %1044, ptr %27, align 1
+  %1045 = load i8, ptr %27, align 1
+  %1046 = trunc i8 %1045 to i1
+  br i1 %1046, label %1047, label %1053
 
-692:                                              ; preds = %649
-  %693 = load i8, ptr %26, align 1
-  %694 = trunc i8 %693 to i1
-  br i1 %694, label %698, label %695
+1047:                                             ; preds = %1004
+  %1048 = load i8, ptr %26, align 1
+  %1049 = trunc i8 %1048 to i1
+  br i1 %1049, label %1053, label %1050
 
-695:                                              ; preds = %692
-  %696 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %697 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %696, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  store ptr %697, ptr %31, align 8
-  br label %722
+1050:                                             ; preds = %1047
+  %1051 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1052 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.66, i32 noundef %1051, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  store ptr %1052, ptr %31, align 8
+  br label %1077
 
-698:                                              ; preds = %692, %649
-  %699 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %700 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.64, i32 noundef %699, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  store ptr %700, ptr %31, align 8
-  %701 = load i8, ptr %26, align 1
-  %702 = trunc i8 %701 to i1
-  br i1 %702, label %703, label %707
+1053:                                             ; preds = %1047, %1004
+  %1054 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1055 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.64, i32 noundef %1054, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  store ptr %1055, ptr %31, align 8
+  %1056 = load i8, ptr %26, align 1
+  %1057 = trunc i8 %1056 to i1
+  br i1 %1057, label %1058, label %1062
 
-703:                                              ; preds = %698
-  %704 = load i64, ptr %23, align 8
-  %705 = load i64, ptr %24, align 8
-  %706 = add nsw i64 %704, %705
-  br label %711
+1058:                                             ; preds = %1053
+  %1059 = load i64, ptr %23, align 8
+  %1060 = load i64, ptr %24, align 8
+  %1061 = add nsw i64 %1059, %1060
+  br label %1066
 
-707:                                              ; preds = %698
-  %708 = load ptr, ptr %44, align 8
-  %709 = getelementptr inbounds %struct.PmeTuneInputs, ptr %708, i32 0, i32 1
-  %710 = load i64, ptr %709, align 8
-  br label %711
+1062:                                             ; preds = %1053
+  %1063 = load ptr, ptr %44, align 8
+  %1064 = getelementptr inbounds %struct.PmeTuneInputs, ptr %1063, i32 0, i32 1
+  %1065 = load i64, ptr %1064, align 8
+  br label %1066
 
-711:                                              ; preds = %707, %703
-  %712 = phi i64 [ %706, %703 ], [ %710, %707 ]
-  %713 = load ptr, ptr %44, align 8
-  %714 = getelementptr inbounds %struct.PmeTuneInputs, ptr %713, i32 0, i32 2
-  %715 = load i64, ptr %714, align 8
-  %716 = load ptr, ptr %30, align 8
-  %717 = load i32, ptr %34, align 4
-  %718 = sext i32 %717 to i64
-  %719 = getelementptr inbounds ptr, ptr %716, i64 %718
-  %720 = load ptr, ptr %719, align 8
-  %721 = load ptr, ptr %31, align 8
-  call void @_ZL18modify_PMEsettingsllPKcS0_(i64 noundef %712, i64 noundef %715, ptr noundef %720, ptr noundef %721)
-  br label %722
+1066:                                             ; preds = %1062, %1058
+  %1067 = phi i64 [ %1061, %1058 ], [ %1065, %1062 ]
+  %1068 = load ptr, ptr %44, align 8
+  %1069 = getelementptr inbounds %struct.PmeTuneInputs, ptr %1068, i32 0, i32 2
+  %1070 = load i64, ptr %1069, align 8
+  %1071 = load ptr, ptr %30, align 8
+  %1072 = load i32, ptr %34, align 4
+  %1073 = sext i32 %1072 to i64
+  %1074 = getelementptr inbounds ptr, ptr %1071, i64 %1073
+  %1075 = load ptr, ptr %1074, align 8
+  %1076 = load ptr, ptr %31, align 8
+  call void @_ZL18modify_PMEsettingsllPKcS0_(i64 noundef %1067, i64 noundef %1070, ptr noundef %1075, ptr noundef %1076)
+  br label %1077
 
-722:                                              ; preds = %711, %695
+1077:                                             ; preds = %1066, %1050
   store i32 0, ptr %45, align 4
-  br label %723
+  br label %1078
 
-723:                                              ; preds = %741, %722
-  %724 = load i32, ptr %45, align 4
-  %725 = load i32, ptr %17, align 4
-  %726 = icmp slt i32 %724, %725
-  br i1 %726, label %727, label %744
+1078:                                             ; preds = %1096, %1077
+  %1079 = load i32, ptr %45, align 4
+  %1080 = load i32, ptr %17, align 4
+  %1081 = icmp slt i32 %1079, %1080
+  br i1 %1081, label %1082, label %1099
 
-727:                                              ; preds = %723
-  %728 = load ptr, ptr @stdout, align 8
-  %729 = load ptr, ptr %30, align 8
-  %730 = load i32, ptr %45, align 4
-  %731 = sext i32 %730 to i64
-  %732 = getelementptr inbounds ptr, ptr %729, i64 %731
-  %733 = load ptr, ptr %732, align 8
-  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %728, ptr noundef @.str.252, ptr noundef %733) #2
-  %735 = load ptr, ptr %30, align 8
-  %736 = load i32, ptr %45, align 4
-  %737 = sext i32 %736 to i64
-  %738 = getelementptr inbounds ptr, ptr %735, i64 %737
-  %739 = load ptr, ptr %738, align 8
-  %740 = call i32 @remove(ptr noundef %739) #2
-  br label %741
+1082:                                             ; preds = %1078
+  %1083 = load ptr, ptr @stdout, align 8
+  %1084 = load ptr, ptr %30, align 8
+  %1085 = load i32, ptr %45, align 4
+  %1086 = sext i32 %1085 to i64
+  %1087 = getelementptr inbounds ptr, ptr %1084, i64 %1086
+  %1088 = load ptr, ptr %1087, align 8
+  %1089 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1083, ptr noundef @.str.252, ptr noundef %1088) #2
+  %1090 = load ptr, ptr %30, align 8
+  %1091 = load i32, ptr %45, align 4
+  %1092 = sext i32 %1091 to i64
+  %1093 = getelementptr inbounds ptr, ptr %1090, i64 %1092
+  %1094 = load ptr, ptr %1093, align 8
+  %1095 = call i32 @remove(ptr noundef %1094) #2
+  br label %1096
 
-741:                                              ; preds = %727
-  %742 = load i32, ptr %45, align 4
-  %743 = add nsw i32 %742, 1
-  store i32 %743, ptr %45, align 4
-  br label %723, !llvm.loop !10
+1096:                                             ; preds = %1082
+  %1097 = load i32, ptr %45, align 4
+  %1098 = add nsw i32 %1097, 1
+  store i32 %1098, ptr %45, align 4
+  br label %1078, !llvm.loop !10
 
-744:                                              ; preds = %723
-  %745 = load i8, ptr %28, align 1
-  %746 = trunc i8 %745 to i1
-  %747 = load ptr, ptr %46, align 8
-  %748 = load i8, ptr %49, align 1
-  %749 = trunc i8 %748 to i1
-  %750 = load ptr, ptr %37, align 8
-  %751 = load ptr, ptr %41, align 8
-  %752 = load ptr, ptr %38, align 8
-  %753 = load ptr, ptr %40, align 8
-  %754 = load ptr, ptr %31, align 8
-  %755 = load i32, ptr %33, align 4
-  %756 = load ptr, ptr %42, align 8
-  call void @_ZL17launch_simulationbP8_IO_FILEbPcS1_S1_S1_PKciS3_(i1 noundef zeroext %746, ptr noundef %747, i1 noundef zeroext %749, ptr noundef %750, ptr noundef %751, ptr noundef %752, ptr noundef %753, ptr noundef %754, i32 noundef %755, ptr noundef %756)
-  br label %757
+1099:                                             ; preds = %1078
+  %1100 = load i8, ptr %28, align 1
+  %1101 = trunc i8 %1100 to i1
+  %1102 = load ptr, ptr %46, align 8
+  %1103 = load i8, ptr %49, align 1
+  %1104 = trunc i8 %1103 to i1
+  %1105 = load ptr, ptr %37, align 8
+  %1106 = load ptr, ptr %41, align 8
+  %1107 = load ptr, ptr %38, align 8
+  %1108 = load ptr, ptr %40, align 8
+  %1109 = load ptr, ptr %31, align 8
+  %1110 = load i32, ptr %33, align 4
+  %1111 = load ptr, ptr %42, align 8
+  call void @_ZL17launch_simulationbP8_IO_FILEbPcS1_S1_S1_PKciS3_(i1 noundef zeroext %1101, ptr noundef %1102, i1 noundef zeroext %1104, ptr noundef %1105, ptr noundef %1106, ptr noundef %1107, ptr noundef %1108, ptr noundef %1109, i32 noundef %1110, ptr noundef %1111)
+  br label %1112
 
-757:                                              ; preds = %744, %624
-  %758 = load ptr, ptr %46, align 8
-  %759 = call noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %758)
-  %760 = load i8, ptr %28, align 1
-  %761 = trunc i8 %760 to i1
-  br i1 %761, label %765, label %762
+1112:                                             ; preds = %1099, %979
+  %1113 = load ptr, ptr %46, align 8
+  %1114 = call noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %1113)
+  %1115 = load i8, ptr %28, align 1
+  %1116 = trunc i8 %1115 to i1
+  br i1 %1116, label %1120, label %1117
 
-762:                                              ; preds = %757
-  %763 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %764 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %763, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  call void @_ZL8finalizePKc(ptr noundef %764)
-  br label %765
+1117:                                             ; preds = %1112
+  %1118 = call noundef i32 @_Z5asizeI8t_filenmLi51EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(2856) @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  %1119 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.60, i32 noundef %1118, ptr noundef @_ZZ12gmx_tune_pmeiPPcE3fnm)
+  call void @_ZL8finalizePKc(ptr noundef %1119)
+  br label %1120
 
-765:                                              ; preds = %762, %757
+1120:                                             ; preds = %1117, %1112
   store i32 0, ptr %3, align 4
-  br label %766
+  br label %1121
 
-766:                                              ; preds = %765, %236
-  %767 = load i32, ptr %3, align 4
-  ret i32 %767
+1121:                                             ; preds = %1120, %591
+  %1122 = load i32, ptr %3, align 4
+  ret i32 %1122
 
-768:                                              ; preds = %376, %333, %329, %275
-  %769 = load ptr, ptr %62, align 8
-  %770 = load i32, ptr %63, align 4
-  %771 = insertvalue { ptr, i32 } poison, ptr %769, 0
-  %772 = insertvalue { ptr, i32 } %771, i32 %770, 1
-  resume { ptr, i32 } %772
+1123:                                             ; preds = %731, %688, %684, %630
+  %1124 = load ptr, ptr %62, align 8
+  %1125 = load i32, ptr %63, align 4
+  %1126 = insertvalue { ptr, i32 } poison, ptr %1124, 0
+  %1127 = insertvalue { ptr, i32 } %1126, i32 %1125, 1
+  resume { ptr, i32 } %1127
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2482,16 +2837,17 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #5 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 51
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 51), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %struct.t_filenm, ptr %4, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #2
-  %6 = icmp eq ptr %5, @_ZZ12gmx_tune_pmeiPPcE3fnm
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %struct.t_filenm, ptr %5, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #2
+  %7 = icmp eq ptr %6, @_ZZ12gmx_tune_pmeiPPcE3fnm
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

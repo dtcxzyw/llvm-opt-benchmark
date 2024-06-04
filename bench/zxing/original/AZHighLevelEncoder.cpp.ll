@@ -2026,460 +2026,491 @@ define linkonce_odr void @_ZNSt7__cxx114listIN5ZXing5Aztec13EncodingStateESaIS3_
 
 ; Function Attrs: nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text.startup" {
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 0, i32 0, i64 32), align 1, !tbaa !28
-  br label %1
+  %1 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 0, i32 0, i64 32
+  store i8 1, ptr %1, align 1, !tbaa !28
+  br label %2
 
-1:                                                ; preds = %103, %0
-  %2 = phi i64 [ 0, %0 ], [ %104, %103 ]
-  %3 = trunc i64 %2 to i8
-  %4 = insertelement <16 x i64> poison, i64 %2, i64 0
-  %5 = shufflevector <16 x i64> %4, <16 x i64> poison, <16 x i32> zeroinitializer
-  %6 = or disjoint <16 x i64> %5, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
-  %7 = icmp ult <16 x i64> %6, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
-  %8 = extractelement <16 x i1> %7, i64 0
-  br i1 %8, label %9, label %13
+2:                                                ; preds = %104, %0
+  %3 = phi i64 [ 0, %0 ], [ %105, %104 ]
+  %4 = trunc i64 %3 to i8
+  %5 = insertelement <16 x i64> poison, i64 %3, i64 0
+  %6 = shufflevector <16 x i64> %5, <16 x i64> poison, <16 x i32> zeroinitializer
+  %7 = or disjoint <16 x i64> %6, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
+  %8 = icmp ult <16 x i64> %7, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
+  %9 = extractelement <16 x i1> %8, i64 0
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %1
-  %10 = add i64 %2, 65
-  %11 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %10
-  %12 = or disjoint i8 %3, 2
-  store i8 %12, ptr %11, align 1, !tbaa !28
-  br label %13
+10:                                               ; preds = %2
+  %11 = add i64 %3, 65
+  %12 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %11
+  %13 = or disjoint i8 %4, 2
+  store i8 %13, ptr %12, align 1, !tbaa !28
+  br label %14
 
-13:                                               ; preds = %9, %1
-  %14 = extractelement <16 x i1> %7, i64 1
-  br i1 %14, label %15, label %19
+14:                                               ; preds = %10, %2
+  %15 = extractelement <16 x i1> %8, i64 1
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %13
-  %16 = add i64 %2, 66
-  %17 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %16
-  %18 = or disjoint i8 %3, 3
-  store i8 %18, ptr %17, align 1, !tbaa !28
-  br label %19
+16:                                               ; preds = %14
+  %17 = add i64 %3, 66
+  %18 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %17
+  %19 = or disjoint i8 %4, 3
+  store i8 %19, ptr %18, align 1, !tbaa !28
+  br label %20
 
-19:                                               ; preds = %15, %13
-  %20 = extractelement <16 x i1> %7, i64 2
-  br i1 %20, label %21, label %25
+20:                                               ; preds = %16, %14
+  %21 = extractelement <16 x i1> %8, i64 2
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %19
-  %22 = add i64 %2, 67
-  %23 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %22
-  %24 = or disjoint i8 %3, 4
-  store i8 %24, ptr %23, align 1, !tbaa !28
-  br label %25
+22:                                               ; preds = %20
+  %23 = add i64 %3, 67
+  %24 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %23
+  %25 = or disjoint i8 %4, 4
+  store i8 %25, ptr %24, align 1, !tbaa !28
+  br label %26
 
-25:                                               ; preds = %21, %19
-  %26 = extractelement <16 x i1> %7, i64 3
-  br i1 %26, label %27, label %31
+26:                                               ; preds = %22, %20
+  %27 = extractelement <16 x i1> %8, i64 3
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %25
-  %28 = add i64 %2, 68
-  %29 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %28
-  %30 = or disjoint i8 %3, 5
-  store i8 %30, ptr %29, align 1, !tbaa !28
-  br label %31
+28:                                               ; preds = %26
+  %29 = add i64 %3, 68
+  %30 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %29
+  %31 = or disjoint i8 %4, 5
+  store i8 %31, ptr %30, align 1, !tbaa !28
+  br label %32
 
-31:                                               ; preds = %27, %25
-  %32 = extractelement <16 x i1> %7, i64 4
-  br i1 %32, label %33, label %37
+32:                                               ; preds = %28, %26
+  %33 = extractelement <16 x i1> %8, i64 4
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %31
-  %34 = add i64 %2, 69
-  %35 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %34
-  %36 = or disjoint i8 %3, 6
-  store i8 %36, ptr %35, align 1, !tbaa !28
-  br label %37
+34:                                               ; preds = %32
+  %35 = add i64 %3, 69
+  %36 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %35
+  %37 = or disjoint i8 %4, 6
+  store i8 %37, ptr %36, align 1, !tbaa !28
+  br label %38
 
-37:                                               ; preds = %33, %31
-  %38 = extractelement <16 x i1> %7, i64 5
-  br i1 %38, label %39, label %43
+38:                                               ; preds = %34, %32
+  %39 = extractelement <16 x i1> %8, i64 5
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %37
-  %40 = add i64 %2, 70
-  %41 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %40
-  %42 = or disjoint i8 %3, 7
-  store i8 %42, ptr %41, align 1, !tbaa !28
-  br label %43
+40:                                               ; preds = %38
+  %41 = add i64 %3, 70
+  %42 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %41
+  %43 = or disjoint i8 %4, 7
+  store i8 %43, ptr %42, align 1, !tbaa !28
+  br label %44
 
-43:                                               ; preds = %39, %37
-  %44 = extractelement <16 x i1> %7, i64 6
-  br i1 %44, label %45, label %49
+44:                                               ; preds = %40, %38
+  %45 = extractelement <16 x i1> %8, i64 6
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %43
-  %46 = add i64 %2, 71
-  %47 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %46
-  %48 = or disjoint i8 %3, 8
-  store i8 %48, ptr %47, align 1, !tbaa !28
-  br label %49
+46:                                               ; preds = %44
+  %47 = add i64 %3, 71
+  %48 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %47
+  %49 = or disjoint i8 %4, 8
+  store i8 %49, ptr %48, align 1, !tbaa !28
+  br label %50
 
-49:                                               ; preds = %45, %43
-  %50 = extractelement <16 x i1> %7, i64 7
-  br i1 %50, label %51, label %55
+50:                                               ; preds = %46, %44
+  %51 = extractelement <16 x i1> %8, i64 7
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %49
-  %52 = add i64 %2, 72
-  %53 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %52
-  %54 = or disjoint i8 %3, 9
-  store i8 %54, ptr %53, align 1, !tbaa !28
-  br label %55
+52:                                               ; preds = %50
+  %53 = add i64 %3, 72
+  %54 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %53
+  %55 = or disjoint i8 %4, 9
+  store i8 %55, ptr %54, align 1, !tbaa !28
+  br label %56
 
-55:                                               ; preds = %51, %49
-  %56 = extractelement <16 x i1> %7, i64 8
-  br i1 %56, label %57, label %61
+56:                                               ; preds = %52, %50
+  %57 = extractelement <16 x i1> %8, i64 8
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %55
-  %58 = add i64 %2, 73
-  %59 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %58
-  %60 = or disjoint i8 %3, 10
-  store i8 %60, ptr %59, align 1, !tbaa !28
-  br label %61
+58:                                               ; preds = %56
+  %59 = add i64 %3, 73
+  %60 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %59
+  %61 = or disjoint i8 %4, 10
+  store i8 %61, ptr %60, align 1, !tbaa !28
+  br label %62
 
-61:                                               ; preds = %57, %55
-  %62 = extractelement <16 x i1> %7, i64 9
-  br i1 %62, label %63, label %67
+62:                                               ; preds = %58, %56
+  %63 = extractelement <16 x i1> %8, i64 9
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %61
-  %64 = add i64 %2, 74
-  %65 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %64
-  %66 = or disjoint i8 %3, 11
-  store i8 %66, ptr %65, align 1, !tbaa !28
-  br label %67
+64:                                               ; preds = %62
+  %65 = add i64 %3, 74
+  %66 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %65
+  %67 = or disjoint i8 %4, 11
+  store i8 %67, ptr %66, align 1, !tbaa !28
+  br label %68
 
-67:                                               ; preds = %63, %61
-  %68 = extractelement <16 x i1> %7, i64 10
-  br i1 %68, label %69, label %73
+68:                                               ; preds = %64, %62
+  %69 = extractelement <16 x i1> %8, i64 10
+  br i1 %69, label %70, label %74
 
-69:                                               ; preds = %67
-  %70 = add i64 %2, 75
-  %71 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %70
-  %72 = or disjoint i8 %3, 12
-  store i8 %72, ptr %71, align 1, !tbaa !28
-  br label %73
+70:                                               ; preds = %68
+  %71 = add i64 %3, 75
+  %72 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %71
+  %73 = or disjoint i8 %4, 12
+  store i8 %73, ptr %72, align 1, !tbaa !28
+  br label %74
 
-73:                                               ; preds = %69, %67
-  %74 = extractelement <16 x i1> %7, i64 11
-  br i1 %74, label %75, label %79
+74:                                               ; preds = %70, %68
+  %75 = extractelement <16 x i1> %8, i64 11
+  br i1 %75, label %76, label %80
 
-75:                                               ; preds = %73
-  %76 = add i64 %2, 76
-  %77 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %76
-  %78 = or disjoint i8 %3, 13
-  store i8 %78, ptr %77, align 1, !tbaa !28
-  br label %79
+76:                                               ; preds = %74
+  %77 = add i64 %3, 76
+  %78 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %77
+  %79 = or disjoint i8 %4, 13
+  store i8 %79, ptr %78, align 1, !tbaa !28
+  br label %80
 
-79:                                               ; preds = %75, %73
-  %80 = extractelement <16 x i1> %7, i64 12
-  br i1 %80, label %81, label %85
+80:                                               ; preds = %76, %74
+  %81 = extractelement <16 x i1> %8, i64 12
+  br i1 %81, label %82, label %86
 
-81:                                               ; preds = %79
-  %82 = add i64 %2, 77
-  %83 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %82
-  %84 = or disjoint i8 %3, 14
-  store i8 %84, ptr %83, align 1, !tbaa !28
-  br label %85
+82:                                               ; preds = %80
+  %83 = add i64 %3, 77
+  %84 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %83
+  %85 = or disjoint i8 %4, 14
+  store i8 %85, ptr %84, align 1, !tbaa !28
+  br label %86
 
-85:                                               ; preds = %81, %79
-  %86 = extractelement <16 x i1> %7, i64 13
-  br i1 %86, label %87, label %91
+86:                                               ; preds = %82, %80
+  %87 = extractelement <16 x i1> %8, i64 13
+  br i1 %87, label %88, label %92
 
-87:                                               ; preds = %85
-  %88 = add i64 %2, 78
-  %89 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %88
-  %90 = or disjoint i8 %3, 15
-  store i8 %90, ptr %89, align 1, !tbaa !28
-  br label %91
+88:                                               ; preds = %86
+  %89 = add i64 %3, 78
+  %90 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %89
+  %91 = or disjoint i8 %4, 15
+  store i8 %91, ptr %90, align 1, !tbaa !28
+  br label %92
 
-91:                                               ; preds = %87, %85
-  %92 = extractelement <16 x i1> %7, i64 14
-  br i1 %92, label %93, label %97
+92:                                               ; preds = %88, %86
+  %93 = extractelement <16 x i1> %8, i64 14
+  br i1 %93, label %94, label %98
 
-93:                                               ; preds = %91
-  %94 = add i64 %2, 79
-  %95 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %94
-  %96 = add i8 %3, 16
-  store i8 %96, ptr %95, align 1, !tbaa !28
-  br label %97
+94:                                               ; preds = %92
+  %95 = add i64 %3, 79
+  %96 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %95
+  %97 = add i8 %4, 16
+  store i8 %97, ptr %96, align 1, !tbaa !28
+  br label %98
 
-97:                                               ; preds = %93, %91
-  %98 = extractelement <16 x i1> %7, i64 15
-  br i1 %98, label %99, label %103
+98:                                               ; preds = %94, %92
+  %99 = extractelement <16 x i1> %8, i64 15
+  br i1 %99, label %100, label %104
 
-99:                                               ; preds = %97
-  %100 = add i64 %2, 80
-  %101 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %100
-  %102 = add i8 %3, 17
-  store i8 %102, ptr %101, align 1, !tbaa !28
-  br label %103
+100:                                              ; preds = %98
+  %101 = add i64 %3, 80
+  %102 = getelementptr inbounds [256 x i8], ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i64 %101
+  %103 = add i8 %4, 17
+  store i8 %103, ptr %102, align 1, !tbaa !28
+  br label %104
 
-103:                                              ; preds = %99, %97
-  %104 = add i64 %2, 16
-  %105 = icmp eq i64 %104, 32
-  br i1 %105, label %106, label %1, !llvm.loop !67
+104:                                              ; preds = %100, %98
+  %105 = add i64 %3, 16
+  %106 = icmp eq i64 %105, 32
+  br i1 %106, label %107, label %2, !llvm.loop !67
 
-106:                                              ; preds = %103
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1, i32 0, i64 32), align 1, !tbaa !28
-  br label %107
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1, i32 0, i64 32
+  store i8 1, ptr %108, align 1, !tbaa !28
+  br label %109
 
-107:                                              ; preds = %209, %106
-  %108 = phi i64 [ 0, %106 ], [ %210, %209 ]
-  %109 = trunc i64 %108 to i8
-  %110 = insertelement <16 x i64> poison, i64 %108, i64 0
-  %111 = shufflevector <16 x i64> %110, <16 x i64> poison, <16 x i32> zeroinitializer
-  %112 = or disjoint <16 x i64> %111, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
-  %113 = icmp ult <16 x i64> %112, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
-  %114 = extractelement <16 x i1> %113, i64 0
-  br i1 %114, label %115, label %119
+109:                                              ; preds = %227, %107
+  %110 = phi i64 [ 0, %107 ], [ %228, %227 ]
+  %111 = trunc i64 %110 to i8
+  %112 = insertelement <16 x i64> poison, i64 %110, i64 0
+  %113 = shufflevector <16 x i64> %112, <16 x i64> poison, <16 x i32> zeroinitializer
+  %114 = or disjoint <16 x i64> %113, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
+  %115 = icmp ult <16 x i64> %114, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
+  %116 = extractelement <16 x i1> %115, i64 0
+  br i1 %116, label %117, label %122
 
-115:                                              ; preds = %107
-  %116 = add i64 %108, 97
-  %117 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %116
-  %118 = or disjoint i8 %109, 2
-  store i8 %118, ptr %117, align 1, !tbaa !28
-  br label %119
+117:                                              ; preds = %109
+  %118 = add i64 %110, 97
+  %119 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %120 = getelementptr inbounds [256 x i8], ptr %119, i64 0, i64 %118
+  %121 = or disjoint i8 %111, 2
+  store i8 %121, ptr %120, align 1, !tbaa !28
+  br label %122
 
-119:                                              ; preds = %115, %107
-  %120 = extractelement <16 x i1> %113, i64 1
-  br i1 %120, label %121, label %125
+122:                                              ; preds = %117, %109
+  %123 = extractelement <16 x i1> %115, i64 1
+  br i1 %123, label %124, label %129
 
-121:                                              ; preds = %119
-  %122 = add i64 %108, 98
-  %123 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %122
-  %124 = or disjoint i8 %109, 3
-  store i8 %124, ptr %123, align 1, !tbaa !28
-  br label %125
+124:                                              ; preds = %122
+  %125 = add i64 %110, 98
+  %126 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %127 = getelementptr inbounds [256 x i8], ptr %126, i64 0, i64 %125
+  %128 = or disjoint i8 %111, 3
+  store i8 %128, ptr %127, align 1, !tbaa !28
+  br label %129
 
-125:                                              ; preds = %121, %119
-  %126 = extractelement <16 x i1> %113, i64 2
-  br i1 %126, label %127, label %131
+129:                                              ; preds = %124, %122
+  %130 = extractelement <16 x i1> %115, i64 2
+  br i1 %130, label %131, label %136
 
-127:                                              ; preds = %125
-  %128 = add i64 %108, 99
-  %129 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %128
-  %130 = or disjoint i8 %109, 4
-  store i8 %130, ptr %129, align 1, !tbaa !28
-  br label %131
+131:                                              ; preds = %129
+  %132 = add i64 %110, 99
+  %133 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %134 = getelementptr inbounds [256 x i8], ptr %133, i64 0, i64 %132
+  %135 = or disjoint i8 %111, 4
+  store i8 %135, ptr %134, align 1, !tbaa !28
+  br label %136
 
-131:                                              ; preds = %127, %125
-  %132 = extractelement <16 x i1> %113, i64 3
-  br i1 %132, label %133, label %137
+136:                                              ; preds = %131, %129
+  %137 = extractelement <16 x i1> %115, i64 3
+  br i1 %137, label %138, label %143
 
-133:                                              ; preds = %131
-  %134 = add i64 %108, 100
-  %135 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %134
-  %136 = or disjoint i8 %109, 5
-  store i8 %136, ptr %135, align 1, !tbaa !28
-  br label %137
-
-137:                                              ; preds = %133, %131
-  %138 = extractelement <16 x i1> %113, i64 4
-  br i1 %138, label %139, label %143
-
-139:                                              ; preds = %137
-  %140 = add i64 %108, 101
-  %141 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %140
-  %142 = or disjoint i8 %109, 6
+138:                                              ; preds = %136
+  %139 = add i64 %110, 100
+  %140 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %141 = getelementptr inbounds [256 x i8], ptr %140, i64 0, i64 %139
+  %142 = or disjoint i8 %111, 5
   store i8 %142, ptr %141, align 1, !tbaa !28
   br label %143
 
-143:                                              ; preds = %139, %137
-  %144 = extractelement <16 x i1> %113, i64 5
-  br i1 %144, label %145, label %149
+143:                                              ; preds = %138, %136
+  %144 = extractelement <16 x i1> %115, i64 4
+  br i1 %144, label %145, label %150
 
 145:                                              ; preds = %143
-  %146 = add i64 %108, 102
-  %147 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %146
-  %148 = or disjoint i8 %109, 7
-  store i8 %148, ptr %147, align 1, !tbaa !28
-  br label %149
+  %146 = add i64 %110, 101
+  %147 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %148 = getelementptr inbounds [256 x i8], ptr %147, i64 0, i64 %146
+  %149 = or disjoint i8 %111, 6
+  store i8 %149, ptr %148, align 1, !tbaa !28
+  br label %150
 
-149:                                              ; preds = %145, %143
-  %150 = extractelement <16 x i1> %113, i64 6
-  br i1 %150, label %151, label %155
+150:                                              ; preds = %145, %143
+  %151 = extractelement <16 x i1> %115, i64 5
+  br i1 %151, label %152, label %157
 
-151:                                              ; preds = %149
-  %152 = add i64 %108, 103
-  %153 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %152
-  %154 = or disjoint i8 %109, 8
-  store i8 %154, ptr %153, align 1, !tbaa !28
-  br label %155
+152:                                              ; preds = %150
+  %153 = add i64 %110, 102
+  %154 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %155 = getelementptr inbounds [256 x i8], ptr %154, i64 0, i64 %153
+  %156 = or disjoint i8 %111, 7
+  store i8 %156, ptr %155, align 1, !tbaa !28
+  br label %157
 
-155:                                              ; preds = %151, %149
-  %156 = extractelement <16 x i1> %113, i64 7
-  br i1 %156, label %157, label %161
+157:                                              ; preds = %152, %150
+  %158 = extractelement <16 x i1> %115, i64 6
+  br i1 %158, label %159, label %164
 
-157:                                              ; preds = %155
-  %158 = add i64 %108, 104
-  %159 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %158
-  %160 = or disjoint i8 %109, 9
-  store i8 %160, ptr %159, align 1, !tbaa !28
-  br label %161
+159:                                              ; preds = %157
+  %160 = add i64 %110, 103
+  %161 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %162 = getelementptr inbounds [256 x i8], ptr %161, i64 0, i64 %160
+  %163 = or disjoint i8 %111, 8
+  store i8 %163, ptr %162, align 1, !tbaa !28
+  br label %164
 
-161:                                              ; preds = %157, %155
-  %162 = extractelement <16 x i1> %113, i64 8
-  br i1 %162, label %163, label %167
+164:                                              ; preds = %159, %157
+  %165 = extractelement <16 x i1> %115, i64 7
+  br i1 %165, label %166, label %171
 
-163:                                              ; preds = %161
-  %164 = add i64 %108, 105
-  %165 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %164
-  %166 = or disjoint i8 %109, 10
-  store i8 %166, ptr %165, align 1, !tbaa !28
-  br label %167
+166:                                              ; preds = %164
+  %167 = add i64 %110, 104
+  %168 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %169 = getelementptr inbounds [256 x i8], ptr %168, i64 0, i64 %167
+  %170 = or disjoint i8 %111, 9
+  store i8 %170, ptr %169, align 1, !tbaa !28
+  br label %171
 
-167:                                              ; preds = %163, %161
-  %168 = extractelement <16 x i1> %113, i64 9
-  br i1 %168, label %169, label %173
+171:                                              ; preds = %166, %164
+  %172 = extractelement <16 x i1> %115, i64 8
+  br i1 %172, label %173, label %178
 
-169:                                              ; preds = %167
-  %170 = add i64 %108, 106
-  %171 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %170
-  %172 = or disjoint i8 %109, 11
-  store i8 %172, ptr %171, align 1, !tbaa !28
-  br label %173
+173:                                              ; preds = %171
+  %174 = add i64 %110, 105
+  %175 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %176 = getelementptr inbounds [256 x i8], ptr %175, i64 0, i64 %174
+  %177 = or disjoint i8 %111, 10
+  store i8 %177, ptr %176, align 1, !tbaa !28
+  br label %178
 
-173:                                              ; preds = %169, %167
-  %174 = extractelement <16 x i1> %113, i64 10
-  br i1 %174, label %175, label %179
+178:                                              ; preds = %173, %171
+  %179 = extractelement <16 x i1> %115, i64 9
+  br i1 %179, label %180, label %185
 
-175:                                              ; preds = %173
-  %176 = add i64 %108, 107
-  %177 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %176
-  %178 = or disjoint i8 %109, 12
-  store i8 %178, ptr %177, align 1, !tbaa !28
-  br label %179
-
-179:                                              ; preds = %175, %173
-  %180 = extractelement <16 x i1> %113, i64 11
-  br i1 %180, label %181, label %185
-
-181:                                              ; preds = %179
-  %182 = add i64 %108, 108
-  %183 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %182
-  %184 = or disjoint i8 %109, 13
+180:                                              ; preds = %178
+  %181 = add i64 %110, 106
+  %182 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %183 = getelementptr inbounds [256 x i8], ptr %182, i64 0, i64 %181
+  %184 = or disjoint i8 %111, 11
   store i8 %184, ptr %183, align 1, !tbaa !28
   br label %185
 
-185:                                              ; preds = %181, %179
-  %186 = extractelement <16 x i1> %113, i64 12
-  br i1 %186, label %187, label %191
+185:                                              ; preds = %180, %178
+  %186 = extractelement <16 x i1> %115, i64 10
+  br i1 %186, label %187, label %192
 
 187:                                              ; preds = %185
-  %188 = add i64 %108, 109
-  %189 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %188
-  %190 = or disjoint i8 %109, 14
-  store i8 %190, ptr %189, align 1, !tbaa !28
-  br label %191
+  %188 = add i64 %110, 107
+  %189 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %190 = getelementptr inbounds [256 x i8], ptr %189, i64 0, i64 %188
+  %191 = or disjoint i8 %111, 12
+  store i8 %191, ptr %190, align 1, !tbaa !28
+  br label %192
 
-191:                                              ; preds = %187, %185
-  %192 = extractelement <16 x i1> %113, i64 13
-  br i1 %192, label %193, label %197
+192:                                              ; preds = %187, %185
+  %193 = extractelement <16 x i1> %115, i64 11
+  br i1 %193, label %194, label %199
 
-193:                                              ; preds = %191
-  %194 = add i64 %108, 110
-  %195 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %194
-  %196 = or disjoint i8 %109, 15
-  store i8 %196, ptr %195, align 1, !tbaa !28
-  br label %197
+194:                                              ; preds = %192
+  %195 = add i64 %110, 108
+  %196 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %197 = getelementptr inbounds [256 x i8], ptr %196, i64 0, i64 %195
+  %198 = or disjoint i8 %111, 13
+  store i8 %198, ptr %197, align 1, !tbaa !28
+  br label %199
 
-197:                                              ; preds = %193, %191
-  %198 = extractelement <16 x i1> %113, i64 14
-  br i1 %198, label %199, label %203
+199:                                              ; preds = %194, %192
+  %200 = extractelement <16 x i1> %115, i64 12
+  br i1 %200, label %201, label %206
 
-199:                                              ; preds = %197
-  %200 = add i64 %108, 111
-  %201 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %200
-  %202 = add i8 %109, 16
-  store i8 %202, ptr %201, align 1, !tbaa !28
-  br label %203
+201:                                              ; preds = %199
+  %202 = add i64 %110, 109
+  %203 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %204 = getelementptr inbounds [256 x i8], ptr %203, i64 0, i64 %202
+  %205 = or disjoint i8 %111, 14
+  store i8 %205, ptr %204, align 1, !tbaa !28
+  br label %206
 
-203:                                              ; preds = %199, %197
-  %204 = extractelement <16 x i1> %113, i64 15
-  br i1 %204, label %205, label %209
+206:                                              ; preds = %201, %199
+  %207 = extractelement <16 x i1> %115, i64 13
+  br i1 %207, label %208, label %213
 
-205:                                              ; preds = %203
-  %206 = add i64 %108, 112
-  %207 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1), i64 0, i64 %206
-  %208 = add i8 %109, 17
-  store i8 %208, ptr %207, align 1, !tbaa !28
-  br label %209
-
-209:                                              ; preds = %205, %203
-  %210 = add i64 %108, 16
-  %211 = icmp eq i64 %210, 32
-  br i1 %211, label %212, label %107, !llvm.loop !70
-
-212:                                              ; preds = %209
-  store i8 1, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 32), align 1, !tbaa !28
+208:                                              ; preds = %206
+  %209 = add i64 %110, 110
+  %210 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %211 = getelementptr inbounds [256 x i8], ptr %210, i64 0, i64 %209
+  %212 = or disjoint i8 %111, 15
+  store i8 %212, ptr %211, align 1, !tbaa !28
   br label %213
 
-213:                                              ; preds = %224, %212
-  %214 = phi i64 [ 0, %212 ], [ %225, %224 ]
-  %215 = trunc i64 %214 to i8
-  %216 = icmp ult i64 %214, 10
-  br i1 %216, label %217, label %224
+213:                                              ; preds = %208, %206
+  %214 = extractelement <16 x i1> %115, i64 14
+  br i1 %214, label %215, label %220
 
-217:                                              ; preds = %213
-  %218 = or disjoint i64 %214, 48
-  %219 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2), i64 0, i64 %218
-  %220 = add nuw nsw i8 %215, 2
-  store i8 %220, ptr %219, align 1, !tbaa !28
-  %221 = or disjoint i64 %214, 49
-  %222 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2), i64 0, i64 %221
-  %223 = add nuw nsw i8 %215, 3
-  store i8 %223, ptr %222, align 1, !tbaa !28
-  br label %224
+215:                                              ; preds = %213
+  %216 = add i64 %110, 111
+  %217 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %218 = getelementptr inbounds [256 x i8], ptr %217, i64 0, i64 %216
+  %219 = add i8 %111, 16
+  store i8 %219, ptr %218, align 1, !tbaa !28
+  br label %220
 
-224:                                              ; preds = %217, %213
-  %225 = add i64 %214, 2
-  %226 = icmp eq i64 %225, 10
-  br i1 %226, label %227, label %213, !llvm.loop !71
+220:                                              ; preds = %215, %213
+  %221 = extractelement <16 x i1> %115, i64 15
+  br i1 %221, label %222, label %227
 
-227:                                              ; preds = %224
-  store i8 12, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 44), align 1, !tbaa !28
-  store i8 13, ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 46), align 1, !tbaa !28
-  br label %228
+222:                                              ; preds = %220
+  %223 = add i64 %110, 112
+  %224 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 1
+  %225 = getelementptr inbounds [256 x i8], ptr %224, i64 0, i64 %223
+  %226 = add i8 %111, 17
+  store i8 %226, ptr %225, align 1, !tbaa !28
+  br label %227
 
-228:                                              ; preds = %228, %227
-  %229 = phi i64 [ 0, %227 ], [ %235, %228 ]
-  %230 = getelementptr inbounds [28 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.mixedTable, i64 0, i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !28
-  %232 = sext i8 %231 to i64
-  %233 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 3), i64 0, i64 %232
-  %234 = trunc nuw nsw i64 %229 to i8
-  store i8 %234, ptr %233, align 1, !tbaa !28
-  %235 = add nuw nsw i64 %229, 1
-  %236 = icmp eq i64 %235, 28
-  br i1 %236, label %237, label %228, !llvm.loop !72
+227:                                              ; preds = %222, %220
+  %228 = add i64 %110, 16
+  %229 = icmp eq i64 %228, 32
+  br i1 %229, label %230, label %109, !llvm.loop !70
 
-237:                                              ; preds = %248, %228
-  %238 = phi i64 [ %249, %248 ], [ 0, %228 ]
-  %239 = lshr i64 2147483586, %238
-  %240 = and i64 %239, 1
-  %241 = icmp eq i64 %240, 0
-  br i1 %241, label %248, label %242
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 32
+  store i8 1, ptr %231, align 1, !tbaa !28
+  br label %232
 
-242:                                              ; preds = %237
-  %243 = getelementptr inbounds [31 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.punctTable, i64 0, i64 %238
-  %244 = load i8, ptr %243, align 1, !tbaa !28
-  %245 = zext nneg i8 %244 to i64
-  %246 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 4), i64 0, i64 %245
-  %247 = trunc nuw nsw i64 %238 to i8
-  store i8 %247, ptr %246, align 1, !tbaa !28
-  br label %248
+232:                                              ; preds = %245, %230
+  %233 = phi i64 [ 0, %230 ], [ %246, %245 ]
+  %234 = trunc i64 %233 to i8
+  %235 = icmp ult i64 %233, 10
+  br i1 %235, label %236, label %245
 
-248:                                              ; preds = %242, %237
-  %249 = add nuw nsw i64 %238, 1
-  %250 = icmp eq i64 %249, 31
-  br i1 %250, label %251, label %237, !llvm.loop !73
+236:                                              ; preds = %232
+  %237 = or disjoint i64 %233, 48
+  %238 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2
+  %239 = getelementptr inbounds [256 x i8], ptr %238, i64 0, i64 %237
+  %240 = add nuw nsw i8 %234, 2
+  store i8 %240, ptr %239, align 1, !tbaa !28
+  %241 = or disjoint i64 %233, 49
+  %242 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2
+  %243 = getelementptr inbounds [256 x i8], ptr %242, i64 0, i64 %241
+  %244 = add nuw nsw i8 %234, 3
+  store i8 %244, ptr %243, align 1, !tbaa !28
+  br label %245
 
-251:                                              ; preds = %248
+245:                                              ; preds = %236, %232
+  %246 = add i64 %233, 2
+  %247 = icmp eq i64 %246, 10
+  br i1 %247, label %248, label %232, !llvm.loop !71
+
+248:                                              ; preds = %245
+  %249 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 44
+  store i8 12, ptr %249, align 1, !tbaa !28
+  %250 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 2, i32 0, i64 46
+  store i8 13, ptr %250, align 1, !tbaa !28
+  br label %251
+
+251:                                              ; preds = %251, %248
+  %252 = phi i64 [ 0, %248 ], [ %259, %251 ]
+  %253 = getelementptr inbounds [28 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.mixedTable, i64 0, i64 %252
+  %254 = load i8, ptr %253, align 1, !tbaa !28
+  %255 = sext i8 %254 to i64
+  %256 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 3
+  %257 = getelementptr inbounds [256 x i8], ptr %256, i64 0, i64 %255
+  %258 = trunc nuw nsw i64 %252 to i8
+  store i8 %258, ptr %257, align 1, !tbaa !28
+  %259 = add nuw nsw i64 %252, 1
+  %260 = icmp eq i64 %259, 28
+  br i1 %260, label %261, label %251, !llvm.loop !72
+
+261:                                              ; preds = %273, %251
+  %262 = phi i64 [ %274, %273 ], [ 0, %251 ]
+  %263 = lshr i64 2147483586, %262
+  %264 = and i64 %263, 1
+  %265 = icmp eq i64 %264, 0
+  br i1 %265, label %273, label %266
+
+266:                                              ; preds = %261
+  %267 = getelementptr inbounds [31 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.punctTable, i64 0, i64 %262
+  %268 = load i8, ptr %267, align 1, !tbaa !28
+  %269 = zext nneg i8 %268 to i64
+  %270 = getelementptr inbounds %"struct.std::array", ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 0, i32 0, i64 4
+  %271 = getelementptr inbounds [256 x i8], ptr %270, i64 0, i64 %269
+  %272 = trunc nuw nsw i64 %262 to i8
+  store i8 %272, ptr %271, align 1, !tbaa !28
+  br label %273
+
+273:                                              ; preds = %266, %261
+  %274 = add nuw nsw i64 %262, 1
+  %275 = icmp eq i64 %274, 31
+  br i1 %275, label %276, label %261, !llvm.loop !73
+
+276:                                              ; preds = %273
   store ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, ptr @_ZN5ZXing5Aztec8CHAR_MAPE, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i8 -1, i64 36, i1 false), !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 0, i32 0, i64 4), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1, i32 0, i64 4), align 1, !tbaa !28
-  store i8 28, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 3, i32 0, i64 4), align 1, !tbaa !28
-  store i8 0, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2, i32 0, i64 4), align 1, !tbaa !28
-  store i8 15, ptr getelementptr inbounds (%"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2), align 1, !tbaa !28
+  %277 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 0, i32 0, i64 4
+  store i8 0, ptr %277, align 1, !tbaa !28
+  %278 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1, i32 0, i64 4
+  store i8 0, ptr %278, align 1, !tbaa !28
+  %279 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 1
+  store i8 28, ptr %279, align 1, !tbaa !28
+  %280 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 3, i32 0, i64 4
+  store i8 0, ptr %280, align 1, !tbaa !28
+  %281 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2, i32 0, i64 4
+  store i8 0, ptr %281, align 1, !tbaa !28
+  %282 = getelementptr inbounds %"struct.std::array.1", ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 0, i32 0, i64 2
+  store i8 15, ptr %282, align 1, !tbaa !28
   store ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, ptr @_ZN5ZXing5Aztec11SHIFT_TABLEE, align 8, !tbaa !32
   ret void
 }

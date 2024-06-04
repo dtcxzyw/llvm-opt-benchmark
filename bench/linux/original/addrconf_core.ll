@@ -208,7 +208,8 @@ declare dso_local i32 @blocking_notifier_call_chain(ptr noundef, i64 noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef nonnull ptr @eafnosupport_ipv6_dst_lookup_flow(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
-  ret ptr inttoptr (i64 -97 to ptr)
+  %5 = inttoptr i64 -97 to ptr
+  ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -268,7 +269,8 @@ define internal noundef i32 @eafnosupport_ipv6_fragment(ptr nocapture readnone %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef nonnull ptr @eafnosupport_ipv6_dev_find(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 align 16 {
-  ret ptr inttoptr (i64 -97 to ptr)
+  %4 = inttoptr i64 -97 to ptr
+  ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

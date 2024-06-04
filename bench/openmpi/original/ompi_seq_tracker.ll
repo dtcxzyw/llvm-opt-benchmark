@@ -29,38 +29,39 @@ define internal void @ompi_seq_tracker_construct(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %10, i32 0, i32 0
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %16, i32 0, i32 0
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %17, i32 0, i32 0
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %20, i32 0, i32 0
-  %22 = call ptr @opal_list_get_end(ptr noundef %21)
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %23, i32 0, i32 1
-  store ptr %22, ptr %24, align 8
+19:                                               ; preds = %10
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %21, i32 0, i32 0
+  %23 = call ptr @opal_list_get_end(ptr noundef %22)
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.ompi_seq_tracker_t, ptr %24, i32 0, i32 1
+  store ptr %23, ptr %25, align 8
   ret void
 }
 

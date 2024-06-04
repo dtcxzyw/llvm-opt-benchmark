@@ -398,7 +398,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
 
 44:                                               ; preds = %42
   %45 = tail call i32 @skcipher_walk_done(ptr noundef %0, i32 noundef -22)
-  br label %172
+  br label %174
 
 46:                                               ; preds = %62, %42
   %47 = tail call fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %12)
@@ -475,7 +475,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   store i64 %99, ptr %100, align 8
   %101 = and i32 %3, 1
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %172
+  br i1 %102, label %103, label %174
 
 103:                                              ; preds = %80
   %104 = load i64, ptr %14, align 8
@@ -495,7 +495,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %116 = icmp eq i32 %88, %98
   %117 = icmp eq ptr %87, %96
   %118 = and i1 %116, %117
-  br i1 %118, label %172, label %119
+  br i1 %118, label %174, label %119
 
 119:                                              ; preds = %103
   %120 = or disjoint i32 %4, 8
@@ -511,18 +511,18 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %129 = inttoptr i64 %128 to ptr
   %130 = getelementptr i8, ptr %129, i64 %99
   store ptr %130, ptr %100, align 8
-  br label %172
+  br label %174
 
 131:                                              ; preds = %69, %46
   %132 = phi i32 [ %47, %46 ], [ %79, %69 ]
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %172
+  br i1 %133, label %134, label %174
 
 134:                                              ; preds = %131
   %135 = load i32, ptr %2, align 4
   %136 = and i32 %135, 1
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %172, label %138
+  br i1 %137, label %174, label %138
 
 138:                                              ; preds = %134
   %139 = load i64, ptr @vmemmap_base, align 8
@@ -531,42 +531,44 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
   %144 = add i64 %143, 2147483648
-  %145 = icmp ugt ptr %142, inttoptr (i64 -2147483649 to ptr)
-  %146 = load i64, ptr @phys_base, align 8
-  %147 = load i64, ptr @page_offset_base, align 8
-  %148 = sub i64 -2147483648, %147
-  %149 = select i1 %145, i64 %146, i64 %148
-  %150 = add i64 %144, %149
-  %151 = lshr i64 %150, 12
-  %152 = getelementptr %struct.page, ptr %140, i64 %151
-  store ptr %152, ptr %0, align 8
-  %153 = load i64, ptr @vmemmap_base, align 8
-  %154 = inttoptr i64 %153 to ptr
-  %155 = getelementptr inbounds i8, ptr %0, i64 16
-  %156 = getelementptr inbounds i8, ptr %0, i64 24
-  %157 = load ptr, ptr %156, align 8
-  %158 = ptrtoint ptr %157 to i64
-  %159 = add i64 %158, 2147483648
-  %160 = icmp ugt ptr %157, inttoptr (i64 -2147483649 to ptr)
-  %161 = load i64, ptr @phys_base, align 8
-  %162 = load i64, ptr @page_offset_base, align 8
-  %163 = sub i64 -2147483648, %162
-  %164 = select i1 %160, i64 %161, i64 %163
-  %165 = add i64 %159, %164
-  %166 = lshr i64 %165, 12
-  %167 = getelementptr %struct.page, ptr %154, i64 %166
-  store ptr %167, ptr %155, align 8
-  %168 = load i64, ptr %141, align 8
-  %169 = and i64 %168, 4095
-  store i64 %169, ptr %141, align 8
-  %170 = load i64, ptr %156, align 8
+  %145 = inttoptr i64 -2147483649 to ptr
+  %146 = icmp ugt ptr %142, %145
+  %147 = load i64, ptr @phys_base, align 8
+  %148 = load i64, ptr @page_offset_base, align 8
+  %149 = sub i64 -2147483648, %148
+  %150 = select i1 %146, i64 %147, i64 %149
+  %151 = add i64 %144, %150
+  %152 = lshr i64 %151, 12
+  %153 = getelementptr %struct.page, ptr %140, i64 %152
+  store ptr %153, ptr %0, align 8
+  %154 = load i64, ptr @vmemmap_base, align 8
+  %155 = inttoptr i64 %154 to ptr
+  %156 = getelementptr inbounds i8, ptr %0, i64 16
+  %157 = getelementptr inbounds i8, ptr %0, i64 24
+  %158 = load ptr, ptr %157, align 8
+  %159 = ptrtoint ptr %158 to i64
+  %160 = add i64 %159, 2147483648
+  %161 = inttoptr i64 -2147483649 to ptr
+  %162 = icmp ugt ptr %158, %161
+  %163 = load i64, ptr @phys_base, align 8
+  %164 = load i64, ptr @page_offset_base, align 8
+  %165 = sub i64 -2147483648, %164
+  %166 = select i1 %162, i64 %163, i64 %165
+  %167 = add i64 %160, %166
+  %168 = lshr i64 %167, 12
+  %169 = getelementptr %struct.page, ptr %155, i64 %168
+  store ptr %169, ptr %156, align 8
+  %170 = load i64, ptr %141, align 8
   %171 = and i64 %170, 4095
-  store i64 %171, ptr %156, align 8
-  br label %172
+  store i64 %171, ptr %141, align 8
+  %172 = load i64, ptr %157, align 8
+  %173 = and i64 %172, 4095
+  store i64 %173, ptr %157, align 8
+  br label %174
 
-172:                                              ; preds = %138, %134, %131, %119, %103, %80, %44
-  %173 = phi i32 [ %45, %44 ], [ %132, %138 ], [ %132, %134 ], [ %132, %131 ], [ 0, %80 ], [ 0, %103 ], [ 0, %119 ]
-  ret i32 %173
+174:                                              ; preds = %138, %134, %131, %119, %103, %80, %44
+  %175 = phi i32 [ %45, %44 ], [ %132, %138 ], [ %132, %134 ], [ %132, %131 ], [ 0, %80 ], [ 0, %103 ], [ 0, %119 ]
+  ret i32 %175
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -583,7 +585,7 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %61, label %6
+  br i1 %5, label %63, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %1, 0
@@ -655,54 +657,56 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %57, ptr %59, align 8
   store volatile ptr %58, ptr %57, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %56, align 8
+  %60 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %60, ptr %12, align 8
+  %61 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %61, ptr %56, align 8
   tail call void @kfree(ptr noundef %12) #9
-  %60 = icmp eq ptr %13, %3
-  br i1 %60, label %61, label %11, !llvm.loop !8
+  %62 = icmp eq ptr %13, %3
+  br i1 %62, label %63, label %11, !llvm.loop !8
 
-61:                                               ; preds = %55, %2
-  %62 = icmp eq i32 %1, 0
-  br i1 %62, label %63, label %73
+63:                                               ; preds = %55, %2
+  %64 = icmp eq i32 %1, 0
+  br i1 %64, label %65, label %75
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 120
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 112
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %0, i64 120
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %65, %67
-  br i1 %68, label %73, label %69
+  %68 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %67, %69
+  br i1 %70, label %75, label %71
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 128
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %65, i64 %72, i1 false)
-  br label %73
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds i8, ptr %0, i64 128
+  %73 = load i32, ptr %72, align 8
+  %74 = zext i32 %73 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %67, i64 %74, i1 false)
+  br label %75
 
-73:                                               ; preds = %69, %63, %61
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 96
+75:                                               ; preds = %71, %65, %63
+  %76 = getelementptr inbounds i8, ptr %0, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %75, %77
-  br i1 %78, label %80, label %79
+  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %77, %79
+  br i1 %80, label %82, label %81
 
-79:                                               ; preds = %73
-  tail call void @kfree(ptr noundef %75) #9
-  br label %80
+81:                                               ; preds = %75
+  tail call void @kfree(ptr noundef %77) #9
+  br label %82
 
-80:                                               ; preds = %79, %73
-  %81 = load ptr, ptr %76, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %85, label %83
+82:                                               ; preds = %81, %75
+  %83 = load ptr, ptr %78, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %87, label %85
 
-83:                                               ; preds = %80
-  %84 = ptrtoint ptr %81 to i64
-  tail call void @free_pages(i64 noundef %84, i32 noundef 0) #9
-  br label %85
+85:                                               ; preds = %82
+  %86 = ptrtoint ptr %83 to i64
+  tail call void @free_pages(i64 noundef %86, i32 noundef 0) #9
+  br label %87
 
-85:                                               ; preds = %83, %80
+87:                                               ; preds = %85, %82
   ret void
 }
 
@@ -753,7 +757,7 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef %0, ptr nocapture
   %14 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %13, ptr %14, align 8
   %15 = icmp eq i32 %7, 0
-  br i1 %15, label %73, label %16, !prof !6
+  br i1 %15, label %74, label %16, !prof !6
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -806,40 +810,41 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef %0, ptr nocapture
   %55 = select i1 %51, ptr %53, ptr %54
   %56 = load i32, ptr %55, align 4
   store i32 %56, ptr %52, align 4
-  %57 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #10, !srcloc !11
-  %58 = and i32 %57, 983040
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %61, label %60, !prof !5
+  %57 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %58 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %57) #10, !srcloc !11
+  %59 = and i32 %58, 983040
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %62, label %61, !prof !5
 
-60:                                               ; preds = %16
+61:                                               ; preds = %16
   tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !13
   tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !14
-  br label %73
+  br label %74
 
-61:                                               ; preds = %16
-  %62 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr null, ptr %62, align 8
-  %63 = ptrtoint ptr %11 to i64
-  %64 = zext i32 %47 to i64
-  %65 = and i64 %64, %63
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %70, label %67, !prof !5
+62:                                               ; preds = %16
+  %63 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr null, ptr %63, align 8
+  %64 = ptrtoint ptr %11 to i64
+  %65 = zext i32 %47 to i64
+  %66 = and i64 %65, %64
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %71, label %68, !prof !5
 
-67:                                               ; preds = %61
-  %68 = tail call fastcc i32 @skcipher_copy_iv(ptr noundef %0), !range !7
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %73
+68:                                               ; preds = %62
+  %69 = tail call fastcc i32 @skcipher_copy_iv(ptr noundef %0), !range !7
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %74
 
-70:                                               ; preds = %67, %61
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr null, ptr %71, align 8
-  %72 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
-  br label %73
+71:                                               ; preds = %68, %62
+  %72 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr null, ptr %72, align 8
+  %73 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
+  br label %74
 
-73:                                               ; preds = %70, %67, %60, %2
-  %74 = phi i32 [ 0, %2 ], [ %68, %67 ], [ %72, %70 ], [ -35, %60 ]
-  ret i32 %74
+74:                                               ; preds = %71, %68, %61, %2
+  %75 = phi i32 [ 0, %2 ], [ %69, %68 ], [ %73, %71 ], [ -35, %61 ]
+  ret i32 %75
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -882,7 +887,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef %0, ptr nocapt
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %114, label %15, !prof !6
+  br i1 %14, label %115, label %15, !prof !6
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 132
@@ -989,51 +994,52 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef %0, ptr nocapt
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %90, ptr %91, align 8
-  %92 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #10, !srcloc !11
-  %93 = and i32 %92, 983040
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %96, label %95, !prof !5
+  %92 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %93 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92) #10, !srcloc !11
+  %94 = and i32 %93, 983040
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %97, label %96, !prof !5
 
-95:                                               ; preds = %67
+96:                                               ; preds = %67
   tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !13
   tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !14
-  br label %109
+  br label %110
 
-96:                                               ; preds = %67
-  %97 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr null, ptr %97, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = ptrtoint ptr %98 to i64
-  %100 = zext i32 %90 to i64
-  %101 = and i64 %99, %100
-  %102 = icmp eq i64 %101, 0
-  br i1 %102, label %106, label %103, !prof !5
+97:                                               ; preds = %67
+  %98 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr null, ptr %98, align 8
+  %99 = load ptr, ptr %9, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = zext i32 %90 to i64
+  %102 = and i64 %100, %101
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %107, label %104, !prof !5
 
-103:                                              ; preds = %96
-  %104 = tail call fastcc i32 @skcipher_copy_iv(ptr noundef %0), !range !7
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %109
+104:                                              ; preds = %97
+  %105 = tail call fastcc i32 @skcipher_copy_iv(ptr noundef %0), !range !7
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %110
 
-106:                                              ; preds = %103, %96
-  %107 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr null, ptr %107, align 8
-  %108 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
-  br label %109
+107:                                              ; preds = %104, %97
+  %108 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr null, ptr %108, align 8
+  %109 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
+  br label %110
 
-109:                                              ; preds = %106, %103, %95
-  %110 = phi i32 [ %104, %103 ], [ %108, %106 ], [ -35, %95 ]
-  br i1 %2, label %111, label %114
+110:                                              ; preds = %107, %104, %96
+  %111 = phi i32 [ %105, %104 ], [ %109, %107 ], [ -35, %96 ]
+  br i1 %2, label %112, label %115
 
-111:                                              ; preds = %109
-  %112 = load i32, ptr %16, align 4
-  %113 = and i32 %112, -17
-  store i32 %113, ptr %16, align 4
-  br label %114
+112:                                              ; preds = %110
+  %113 = load i32, ptr %16, align 4
+  %114 = and i32 %113, -17
+  store i32 %114, ptr %16, align 4
+  br label %115
 
-114:                                              ; preds = %111, %109, %3
-  %115 = phi i32 [ 0, %3 ], [ %110, %111 ], [ %110, %109 ]
-  ret i32 %115
+115:                                              ; preds = %112, %110, %3
+  %116 = phi i32 [ 0, %3 ], [ %111, %112 ], [ %111, %110 ]
+  ret i32 %116
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1344,25 +1350,27 @@ define dso_local ptr @crypto_alloc_skcipher(ptr noundef %0, i32 noundef %1, i32 
 define dso_local ptr @crypto_alloc_sync_skcipher(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = or i32 %2, 16512
   %5 = tail call ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef nonnull @crypto_skcipher_type, i32 noundef %1, i32 noundef %4, i32 noundef -1) #9
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %12, label %7
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %14, label %8
 
-7:                                                ; preds = %3
-  %8 = load i32, ptr %5, align 8
-  %9 = icmp ugt i32 %8, 384
-  br i1 %9, label %10, label %12, !prof !6
+8:                                                ; preds = %3
+  %9 = load i32, ptr %5, align 8
+  %10 = icmp ugt i32 %9, 384
+  br i1 %10, label %11, label %14, !prof !6
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #9, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 921, i32 2305, i64 12) #9, !srcloc !16
   tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !17
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %5, ptr noundef %11) #9
-  br label %12
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %5, ptr noundef %12) #9
+  %13 = inttoptr i64 -22 to ptr
+  br label %14
 
-12:                                               ; preds = %10, %7, %3
-  %13 = phi ptr [ inttoptr (i64 -22 to ptr), %10 ], [ %5, %7 ], [ %5, %3 ]
-  ret ptr %13
+14:                                               ; preds = %11, %8, %3
+  %15 = phi ptr [ %13, %11 ], [ %5, %8 ], [ %5, %3 ]
+  ret ptr %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1838,81 +1846,83 @@ define dso_local ptr @skcipher_alloc_instance_simple(ptr noundef %0, ptr noundef
 6:                                                ; preds = %2
   %7 = sext i32 %4 to i64
   %8 = inttoptr i64 %7 to ptr
-  br label %55
+  br label %57
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %11 = call noalias align 8 dereferenceable_or_null(584) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 584) #12
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %55, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %11 = load ptr, ptr %10, align 16
+  %12 = call noalias align 8 dereferenceable_or_null(584) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 584) #12
+  %13 = icmp eq ptr %12, null
+  %14 = inttoptr i64 -12 to ptr
+  br i1 %13, label %57, label %15
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 536
-  %15 = getelementptr inbounds i8, ptr %11, i64 96
-  %16 = getelementptr i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = call ptr @crypto_attr_alg_name(ptr noundef %17) #9
-  %19 = load i32, ptr %3, align 4
-  %20 = or i32 %19, 15
-  %21 = call i32 @crypto_grab_spawn(ptr noundef %14, ptr noundef %15, ptr noundef %18, i32 noundef 1, i32 noundef %20) #9
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %51
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds i8, ptr %12, i64 536
+  %17 = getelementptr inbounds i8, ptr %12, i64 96
+  %18 = getelementptr i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @crypto_attr_alg_name(ptr noundef %19) #9
+  %21 = load i32, ptr %3, align 4
+  %22 = or i32 %21, 15
+  %23 = call i32 @crypto_grab_spawn(ptr noundef %16, ptr noundef %17, ptr noundef %20, i32 noundef 1, i32 noundef %22) #9
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %53
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %11, i64 552
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = call i32 @crypto_inst_setname(ptr noundef %15, ptr noundef %26, ptr noundef %25) #9
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %51
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds i8, ptr %12, i64 552
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = call i32 @crypto_inst_setname(ptr noundef %17, ptr noundef %28, ptr noundef %27) #9
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %53
 
-29:                                               ; preds = %23
-  store ptr @skcipher_free_instance_simple, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 36
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 72
-  %34 = getelementptr inbounds i8, ptr %11, i64 132
-  store i32 %31, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %25, i64 44
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %11, i64 140
-  store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %25, i64 48
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 144
-  store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %25, i64 320
-  %42 = load i32, ptr %41, align 8
-  store i32 %42, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %25, i64 324
-  %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %11, i64 76
-  store i32 %44, ptr %45, align 4
-  %46 = load i32, ptr %30, align 4
-  %47 = getelementptr inbounds i8, ptr %11, i64 80
-  store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 136
-  store i32 8, ptr %48, align 8
-  store ptr @skcipher_setkey_simple, ptr %32, align 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 48
-  store ptr @skcipher_init_tfm_simple, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr @skcipher_exit_tfm_simple, ptr %50, align 8
-  br label %55
+31:                                               ; preds = %25
+  store ptr @skcipher_free_instance_simple, ptr %12, align 8
+  %32 = getelementptr inbounds i8, ptr %27, i64 36
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds i8, ptr %12, i64 72
+  %36 = getelementptr inbounds i8, ptr %12, i64 132
+  store i32 %33, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %27, i64 44
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %12, i64 140
+  store i32 %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %27, i64 48
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %12, i64 144
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %27, i64 320
+  %44 = load i32, ptr %43, align 8
+  store i32 %44, ptr %35, align 8
+  %45 = getelementptr inbounds i8, ptr %27, i64 324
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %12, i64 76
+  store i32 %46, ptr %47, align 4
+  %48 = load i32, ptr %32, align 4
+  %49 = getelementptr inbounds i8, ptr %12, i64 80
+  store i32 %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %12, i64 136
+  store i32 8, ptr %50, align 8
+  store ptr @skcipher_setkey_simple, ptr %34, align 8
+  %51 = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr @skcipher_init_tfm_simple, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr @skcipher_exit_tfm_simple, ptr %52, align 8
+  br label %57
 
-51:                                               ; preds = %23, %13
-  %52 = phi i32 [ %21, %13 ], [ %27, %23 ]
-  call void @crypto_drop_spawn(ptr noundef %14) #9
-  call void @kfree(ptr noundef nonnull %11) #9
-  %53 = sext i32 %52 to i64
-  %54 = inttoptr i64 %53 to ptr
-  br label %55
+53:                                               ; preds = %25, %15
+  %54 = phi i32 [ %23, %15 ], [ %29, %25 ]
+  call void @crypto_drop_spawn(ptr noundef %16) #9
+  call void @kfree(ptr noundef nonnull %12) #9
+  %55 = sext i32 %54 to i64
+  %56 = inttoptr i64 %55 to ptr
+  br label %57
 
-55:                                               ; preds = %51, %29, %9, %6
-  %56 = phi ptr [ %8, %6 ], [ %54, %51 ], [ %11, %29 ], [ inttoptr (i64 -12 to ptr), %9 ]
+57:                                               ; preds = %53, %31, %9, %6
+  %58 = phi ptr [ %8, %6 ], [ %56, %53 ], [ %12, %31 ], [ %14, %9 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  ret ptr %56
+  ret ptr %58
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1955,22 +1965,23 @@ define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm(ptr noundef %4, i32 noundef 1, i32 noundef 15) #9
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %12
+8:                                                ; preds = %1
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %13
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %5, ptr %11, align 8
-  br label %12
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %5, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %10, %7
-  %13 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %13
+13:                                               ; preds = %11, %8
+  %14 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2136,54 +2147,55 @@ define internal fastcc noundef i32 @skcipher_next_copy(ptr noundef %0) unnamed_a
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %64, label %33
+  br i1 %32, label %65, label %33
 
 33:                                               ; preds = %1
   %34 = and i32 %30, 16
   %35 = icmp eq i32 %34, 0
   %36 = select i1 %35, i32 2080, i32 3264
-  %37 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %38 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %37, i32 noundef %36, i64 noundef 48) #12
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %64, label %40
+  %37 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %38 = load ptr, ptr %37, align 16
+  %39 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %36, i64 noundef 48) #12
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %65, label %41
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 40
-  store ptr %41, ptr %42, align 8
-  %43 = load i32, ptr %25, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 32
-  store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 16
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %45, ptr noundef align 8 dereferenceable(16) %46, i64 16, i1 false)
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  %48 = getelementptr inbounds i8, ptr %0, i64 88
-  %49 = load ptr, ptr %48, align 8
-  store ptr %38, ptr %48, align 8
-  store ptr %47, ptr %38, align 8
-  %50 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %49, ptr %50, align 8
-  store volatile ptr %38, ptr %49, align 8
-  %51 = load ptr, ptr %2, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = and i64 %52, 4095
-  %54 = load i32, ptr %25, align 8
-  %55 = zext i32 %54 to i64
-  %56 = add nuw nsw i64 %53, %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 140
-  %58 = load i32, ptr %57, align 4
-  %59 = zext i32 %58 to i64
-  %60 = add nuw nsw i64 %56, %59
-  %61 = icmp ugt i64 %60, 4096
-  %62 = getelementptr i8, ptr %51, i64 %55
-  %63 = select i1 %61, ptr null, ptr %62
-  store ptr %63, ptr %2, align 8
-  br label %64
+41:                                               ; preds = %33
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds i8, ptr %39, i64 40
+  store ptr %42, ptr %43, align 8
+  %44 = load i32, ptr %25, align 8
+  %45 = getelementptr inbounds i8, ptr %39, i64 32
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %39, i64 16
+  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %46, ptr noundef align 8 dereferenceable(16) %47, i64 16, i1 false)
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %50 = load ptr, ptr %49, align 8
+  store ptr %39, ptr %49, align 8
+  store ptr %48, ptr %39, align 8
+  %51 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %50, ptr %51, align 8
+  store volatile ptr %39, ptr %50, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = and i64 %53, 4095
+  %55 = load i32, ptr %25, align 8
+  %56 = zext i32 %55 to i64
+  %57 = add nuw nsw i64 %54, %56
+  %58 = getelementptr inbounds i8, ptr %0, i64 140
+  %59 = load i32, ptr %58, align 4
+  %60 = zext i32 %59 to i64
+  %61 = add nuw nsw i64 %57, %60
+  %62 = icmp ugt i64 %61, 4096
+  %63 = getelementptr i8, ptr %52, i64 %56
+  %64 = select i1 %62, ptr null, ptr %63
+  store ptr %64, ptr %2, align 8
+  br label %65
 
-64:                                               ; preds = %40, %33, %1
-  %65 = phi i32 [ 0, %40 ], [ 0, %1 ], [ -12, %33 ]
-  ret i32 %65
+65:                                               ; preds = %41, %33, %1
+  %66 = phi i32 [ 0, %41 ], [ 0, %1 ], [ -12, %33 ]
+  ret i32 %66
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

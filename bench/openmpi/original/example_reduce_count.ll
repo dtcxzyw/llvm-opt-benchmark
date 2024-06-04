@@ -217,91 +217,92 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 126:                                              ; preds = %122, %115
   %127 = load ptr, ptr %19, align 8
   %128 = load i32, ptr %14, align 4
-  %129 = call i32 @MPI_Allreduce(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %127, i32 noundef %128, ptr noundef @ompi_mpi_unsigned_long, ptr noundef @ompi_mpi_op_max, ptr noundef @ompi_mpi_comm_world)
-  %130 = load i32, ptr %6, align 4
-  %131 = icmp eq i32 0, %130
-  br i1 %131, label %132, label %153
+  %129 = inttoptr i64 1 to ptr
+  %130 = call i32 @MPI_Allreduce(ptr noundef %129, ptr noundef %127, i32 noundef %128, ptr noundef @ompi_mpi_unsigned_long, ptr noundef @ompi_mpi_op_max, ptr noundef @ompi_mpi_comm_world)
+  %131 = load i32, ptr %6, align 4
+  %132 = icmp eq i32 0, %131
+  br i1 %132, label %133, label %154
 
-132:                                              ; preds = %126
+133:                                              ; preds = %126
   store i32 0, ptr %8, align 4
-  br label %133
+  br label %134
 
-133:                                              ; preds = %149, %132
-  %134 = load i32, ptr %8, align 4
-  %135 = load i32, ptr %14, align 4
-  %136 = icmp slt i32 %134, %135
-  br i1 %136, label %137, label %152
+134:                                              ; preds = %150, %133
+  %135 = load i32, ptr %8, align 4
+  %136 = load i32, ptr %14, align 4
+  %137 = icmp slt i32 %135, %136
+  br i1 %137, label %138, label %153
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %19, align 8
-  %139 = load i32, ptr %8, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i64, ptr %138, i64 %140
-  %142 = load i64, ptr %141, align 8
-  %143 = load i32, ptr %8, align 4
-  %144 = load i32, ptr %14, align 4
-  %145 = sub nsw i32 %144, 1
-  %146 = icmp slt i32 %143, %145
-  %147 = select i1 %146, ptr @.str.6, ptr @.str.7
-  %148 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i64 noundef %142, ptr noundef %147)
-  br label %149
+138:                                              ; preds = %134
+  %139 = load ptr, ptr %19, align 8
+  %140 = load i32, ptr %8, align 4
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i64, ptr %139, i64 %141
+  %143 = load i64, ptr %142, align 8
+  %144 = load i32, ptr %8, align 4
+  %145 = load i32, ptr %14, align 4
+  %146 = sub nsw i32 %145, 1
+  %147 = icmp slt i32 %144, %146
+  %148 = select i1 %147, ptr @.str.6, ptr @.str.7
+  %149 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i64 noundef %143, ptr noundef %148)
+  br label %150
 
-149:                                              ; preds = %137
-  %150 = load i32, ptr %8, align 4
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %8, align 4
-  br label %133, !llvm.loop !5
+150:                                              ; preds = %138
+  %151 = load i32, ptr %8, align 4
+  %152 = add nsw i32 %151, 1
+  store i32 %152, ptr %8, align 4
+  br label %134, !llvm.loop !5
 
-152:                                              ; preds = %133
-  br label %153
+153:                                              ; preds = %134
+  br label %154
 
-153:                                              ; preds = %152, %126
-  %154 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %154) #5
-  %155 = load ptr, ptr %15, align 8
-  %156 = load ptr, ptr @count_handle, align 8
-  %157 = call i32 @MPI_T_pvar_stop(ptr noundef %155, ptr noundef %156)
-  store i32 %157, ptr %12, align 4
-  %158 = load i32, ptr %12, align 4
-  %159 = icmp ne i32 %158, 0
-  br i1 %159, label %160, label %164
+154:                                              ; preds = %153, %126
+  %155 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %155) #5
+  %156 = load ptr, ptr %15, align 8
+  %157 = load ptr, ptr @count_handle, align 8
+  %158 = call i32 @MPI_T_pvar_stop(ptr noundef %156, ptr noundef %157)
+  store i32 %158, ptr %12, align 4
+  %159 = load i32, ptr %12, align 4
+  %160 = icmp ne i32 %159, 0
+  br i1 %160, label %161, label %165
 
-160:                                              ; preds = %153
-  %161 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, ptr noundef @count_pvar_name)
-  %162 = load i32, ptr %12, align 4
-  %163 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %162)
-  br label %164
+161:                                              ; preds = %154
+  %162 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, ptr noundef @count_pvar_name)
+  %163 = load i32, ptr %12, align 4
+  %164 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %163)
+  br label %165
 
-164:                                              ; preds = %160, %153
-  %165 = load ptr, ptr %15, align 8
-  %166 = call i32 @MPI_T_pvar_handle_free(ptr noundef %165, ptr noundef @count_handle)
-  store i32 %166, ptr %12, align 4
-  %167 = load i32, ptr %12, align 4
-  %168 = icmp ne i32 %167, 0
-  br i1 %168, label %169, label %173
+165:                                              ; preds = %161, %154
+  %166 = load ptr, ptr %15, align 8
+  %167 = call i32 @MPI_T_pvar_handle_free(ptr noundef %166, ptr noundef @count_handle)
+  store i32 %167, ptr %12, align 4
+  %168 = load i32, ptr %12, align 4
+  %169 = icmp ne i32 %168, 0
+  br i1 %169, label %170, label %174
 
-169:                                              ; preds = %164
-  %170 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef @count_pvar_name)
-  %171 = load i32, ptr %12, align 4
-  %172 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %171)
-  br label %173
+170:                                              ; preds = %165
+  %171 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef @count_pvar_name)
+  %172 = load i32, ptr %12, align 4
+  %173 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %172)
+  br label %174
 
-173:                                              ; preds = %169, %164
-  %174 = call i32 @MPI_T_pvar_session_free(ptr noundef %15)
-  store i32 %174, ptr %12, align 4
-  %175 = load i32, ptr %12, align 4
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %181
+174:                                              ; preds = %170, %165
+  %175 = call i32 @MPI_T_pvar_session_free(ptr noundef %15)
+  store i32 %175, ptr %12, align 4
+  %176 = load i32, ptr %12, align 4
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %178, label %182
 
-177:                                              ; preds = %173
-  %178 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef @count_pvar_name)
-  %179 = load i32, ptr %12, align 4
-  %180 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %179)
-  br label %181
+178:                                              ; preds = %174
+  %179 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef @count_pvar_name)
+  %180 = load i32, ptr %12, align 4
+  %181 = call i32 @MPI_Abort(ptr noundef @ompi_mpi_comm_world, i32 noundef %180)
+  br label %182
 
-181:                                              ; preds = %177, %173
-  %182 = call i32 @MPI_T_finalize()
-  %183 = call i32 @MPI_Finalize()
+182:                                              ; preds = %178, %174
+  %183 = call i32 @MPI_T_finalize()
+  %184 = call i32 @MPI_Finalize()
   ret i32 0
 }
 

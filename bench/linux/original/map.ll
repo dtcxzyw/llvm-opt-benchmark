@@ -310,45 +310,47 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @kobj_map_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 2048) #7
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 56) #7
-  %7 = icmp eq ptr %4, null
-  %8 = icmp eq ptr %6, null
-  %9 = or i1 %7, %8
-  br i1 %9, label %10, label %11
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 2048) #7
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 56) #7
+  %9 = icmp eq ptr %5, null
+  %10 = icmp eq ptr %8, null
+  %11 = or i1 %9, %10
+  br i1 %11, label %12, label %13
 
-10:                                               ; preds = %2
-  tail call void @kfree(ptr noundef %4) #6
-  tail call void @kfree(ptr noundef %6) #6
-  br label %22
+12:                                               ; preds = %2
+  tail call void @kfree(ptr noundef %5) #6
+  tail call void @kfree(ptr noundef %8) #6
+  br label %24
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 -1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %0, ptr %14, align 8
-  br label %15
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 -1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %0, ptr %16, align 8
+  br label %17
 
-15:                                               ; preds = %15, %11
-  %16 = phi i64 [ 0, %11 ], [ %18, %15 ]
-  %17 = getelementptr [255 x ptr], ptr %4, i64 0, i64 %16
-  store ptr %6, ptr %17, align 8
-  %18 = add nuw nsw i64 %16, 1
-  %19 = icmp eq i64 %18, 255
-  br i1 %19, label %20, label %15, !llvm.loop !13
+17:                                               ; preds = %17, %13
+  %18 = phi i64 [ 0, %13 ], [ %20, %17 ]
+  %19 = getelementptr [255 x ptr], ptr %5, i64 0, i64 %18
+  store ptr %8, ptr %19, align 8
+  %20 = add nuw nsw i64 %18, 1
+  %21 = icmp eq i64 %20, 255
+  br i1 %21, label %22, label %17, !llvm.loop !13
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %4, i64 2040
-  store ptr %1, ptr %21, align 8
-  br label %22
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %5, i64 2040
+  store ptr %1, ptr %23, align 8
+  br label %24
 
-22:                                               ; preds = %20, %10
-  %23 = phi ptr [ null, %10 ], [ %4, %20 ]
-  ret ptr %23
+24:                                               ; preds = %22, %12
+  %25 = phi ptr [ null, %12 ], [ %5, %22 ]
+  ret ptr %25
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)

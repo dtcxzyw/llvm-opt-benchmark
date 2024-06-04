@@ -196,16 +196,18 @@ if.then15:                                        ; preds = %if.end13
   br label %return
 
 if.end18:                                         ; preds = %if.end13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i32 0, i32 2), align 8
-  %call19 = call i64 @strcspn(ptr noundef %6, ptr noundef @.str.6) #10
+  %6 = getelementptr inbounds %struct.strbuf, ptr @do_askpass.buffer, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %call19 = call i64 @strcspn(ptr noundef %7, ptr noundef @.str.6) #10
   call void @strbuf_setlen(ptr noundef @do_askpass.buffer, i64 noundef %call19)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @do_askpass.buffer, i32 0, i32 2), align 8
-  store ptr %7, ptr %retval, align 8
+  %8 = getelementptr inbounds %struct.strbuf, ptr @do_askpass.buffer, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then15, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 declare i32 @git_env_bool(ptr noundef, i32 noundef) #2

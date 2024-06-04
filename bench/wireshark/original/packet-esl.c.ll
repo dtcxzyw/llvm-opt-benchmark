@@ -202,13 +202,13 @@ define internal i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, ptr nounde
 
 17:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %102
+  br label %103
 
 18:                                               ; preds = %4
   store i32 1, ptr @dissect_esl_heur.in_heur, align 4
   %19 = load ptr, ptr @ref_time_frame, align 8
   %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %38
+  br i1 %20, label %21, label %39
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %7, align 8
@@ -220,124 +220,125 @@ define internal i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, ptr nounde
   %28 = and i16 %27, 1
   %29 = zext i16 %28 to i32
   %30 = icmp ne i32 %29, 0
-  br i1 %30, label %38, label %31
+  br i1 %30, label %39, label %31
 
 31:                                               ; preds = %21
   %32 = load ptr, ptr %7, align 8
   %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 3
   %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 3), align 8
-  %36 = icmp ule i32 %34, %35
-  br i1 %36, label %37, label %38
+  %35 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 3
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp ule i32 %34, %36
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %31
+38:                                               ; preds = %31
   store ptr null, ptr @ref_time_frame, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %31, %21, %18
-  %39 = load i32, ptr %12, align 4
-  %40 = icmp ult i32 %39, 16
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %38, %31, %21, %18
+  %40 = load i32, ptr %12, align 4
+  %41 = icmp ult i32 %40, 16
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   store i32 0, ptr %5, align 4
-  br label %102
+  br label %103
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %6, align 8
-  %44 = call i32 @is_esl_header(ptr noundef %43, i32 noundef 0)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %65
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %6, align 8
+  %45 = call i32 @is_esl_header(ptr noundef %44, i32 noundef 0)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %66
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = call i32 @dissect_esl_header(ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  %52 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %62
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %6, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = call i32 @dissect_esl_header(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  %53 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %63
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %6, align 8
-  %56 = call ptr @tvb_new_subset_remaining(ptr noundef %55, i32 noundef 16)
-  store ptr %56, ptr %11, align 8
-  %57 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = call i32 @call_dissector(ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60)
-  br label %62
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %6, align 8
+  %57 = call ptr @tvb_new_subset_remaining(ptr noundef %56, i32 noundef 16)
+  store ptr %57, ptr %11, align 8
+  %58 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = call i32 @call_dissector(ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61)
+  br label %63
 
-62:                                               ; preds = %54, %46
-  %63 = load ptr, ptr %6, align 8
-  %64 = load ptr, ptr %7, align 8
-  call void @modify_times(ptr noundef %63, i32 noundef 0, ptr noundef %64)
+63:                                               ; preds = %55, %47
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %7, align 8
+  call void @modify_times(ptr noundef %64, i32 noundef 0, ptr noundef %65)
+  store i32 1, ptr %10, align 4
+  br label %101
+
+66:                                               ; preds = %43
+  %67 = load ptr, ptr %6, align 8
+  %68 = load i32, ptr %12, align 4
+  %69 = sub i32 %68, 16
+  %70 = call i32 @is_esl_header(ptr noundef %67, i32 noundef %69)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %99
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %85
+
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %6, align 8
+  %77 = load i32, ptr %12, align 4
+  %78 = sub i32 %77, 16
+  %79 = call ptr @tvb_new_subset_length(ptr noundef %76, i32 noundef 0, i32 noundef %78)
+  store ptr %79, ptr %11, align 8
+  %80 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = call i32 @call_dissector(ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83)
+  br label %85
+
+85:                                               ; preds = %75, %72
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %12, align 4
+  %88 = sub i32 %87, 16
+  %89 = call ptr @tvb_new_subset_length(ptr noundef %86, i32 noundef %88, i32 noundef 16)
+  store ptr %89, ptr %11, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = call i32 @dissect_esl_header(ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93)
+  %95 = load ptr, ptr %6, align 8
+  %96 = load i32, ptr %12, align 4
+  %97 = sub i32 %96, 16
+  %98 = load ptr, ptr %7, align 8
+  call void @modify_times(ptr noundef %95, i32 noundef %97, ptr noundef %98)
   store i32 1, ptr %10, align 4
   br label %100
 
-65:                                               ; preds = %42
-  %66 = load ptr, ptr %6, align 8
-  %67 = load i32, ptr %12, align 4
-  %68 = sub i32 %67, 16
-  %69 = call i32 @is_esl_header(ptr noundef %66, i32 noundef %68)
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %98
-
-71:                                               ; preds = %65
-  %72 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %84
-
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %12, align 4
-  %77 = sub i32 %76, 16
-  %78 = call ptr @tvb_new_subset_length(ptr noundef %75, i32 noundef 0, i32 noundef %77)
-  store ptr %78, ptr %11, align 8
-  %79 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %80 = load ptr, ptr %11, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = call i32 @call_dissector(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82)
-  br label %84
-
-84:                                               ; preds = %74, %71
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = sub i32 %86, 16
-  %88 = call ptr @tvb_new_subset_length(ptr noundef %85, i32 noundef %87, i32 noundef 16)
-  store ptr %88, ptr %11, align 8
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %9, align 8
-  %93 = call i32 @dissect_esl_header(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92)
-  %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr %12, align 4
-  %96 = sub i32 %95, 16
-  %97 = load ptr, ptr %7, align 8
-  call void @modify_times(ptr noundef %94, i32 noundef %96, ptr noundef %97)
-  store i32 1, ptr %10, align 4
-  br label %99
-
-98:                                               ; preds = %65
+99:                                               ; preds = %66
   store i32 0, ptr %10, align 4
-  br label %99
-
-99:                                               ; preds = %98, %84
   br label %100
 
-100:                                              ; preds = %99, %62
-  store i32 0, ptr @dissect_esl_heur.in_heur, align 4
-  %101 = load i32, ptr %10, align 4
-  store i32 %101, ptr %5, align 4
-  br label %102
+100:                                              ; preds = %99, %85
+  br label %101
 
-102:                                              ; preds = %100, %41, %17
-  %103 = load i32, ptr %5, align 4
-  ret i32 %103
+101:                                              ; preds = %100, %63
+  store i32 0, ptr @dissect_esl_heur.in_heur, align 4
+  %102 = load i32, ptr %10, align 4
+  store i32 %102, ptr %5, align 4
+  br label %103
+
+103:                                              ; preds = %101, %42, %17
+  %104 = load i32, ptr %5, align 4
+  ret i32 %104
 }
 
 declare i32 @tvb_reported_length(ptr noundef) #1
@@ -621,104 +622,110 @@ define internal void @modify_times(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr %2, ptr %6, align 8
   %11 = load ptr, ptr @ref_time_frame, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %26
+  br i1 %12, label %13, label %29
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %5, align 4
   %16 = add i32 %15, 8
   %17 = call i64 @tvb_get_letoh64(ptr noundef %14, i32 noundef %16)
-  store i64 %17, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 8
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr @ref_time_frame, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 3
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 3), align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2), ptr align 8 %25, i64 16, i1 false)
-  br label %82
+  %18 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 1
+  store i64 %17, ptr %18, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr @ref_time_frame, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 3
+  store i32 %24, ptr %25, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 4
+  %28 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %27, i64 16, i1 false)
+  br label %88
 
-26:                                               ; preds = %3
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._frame_data, ptr %29, i32 0, i32 9
-  %31 = load i16, ptr %30, align 2
-  %32 = lshr i16 %31, 3
-  %33 = and i16 %32, 1
-  %34 = zext i16 %33 to i32
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %81, label %36
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct._frame_data, ptr %32, i32 0, i32 9
+  %34 = load i16, ptr %33, align 2
+  %35 = lshr i16 %34, 3
+  %36 = and i16 %35, 1
+  %37 = zext i16 %36 to i32
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %87, label %39
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = add i32 %38, 8
-  %40 = call i64 @tvb_get_letoh64(ptr noundef %37, i32 noundef %39)
-  %41 = load i64, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 1), align 8
-  %42 = sub i64 %40, %41
-  store i64 %42, ptr %7, align 8
-  %43 = load i64, ptr %7, align 8
-  %44 = udiv i64 %43, 1000000000
-  store i64 %44, ptr %8, align 8
-  %45 = load i32, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2, i32 1), align 8
-  %46 = load i64, ptr %7, align 8
-  %47 = load i64, ptr %8, align 8
-  %48 = mul i64 %47, 1000000000
-  %49 = sub i64 %46, %48
-  %50 = trunc i64 %49 to i32
-  %51 = add i32 %45, %50
-  %52 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
-  store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp sgt i32 %54, 1000000000
-  br i1 %55, label %56, label %62
-
-56:                                               ; preds = %36
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8
+  %41 = load i32, ptr %5, align 4
+  %42 = add i32 %41, 8
+  %43 = call i64 @tvb_get_letoh64(ptr noundef %40, i32 noundef %42)
+  %44 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = sub i64 %43, %45
+  store i64 %46, ptr %7, align 8
+  %47 = load i64, ptr %7, align 8
+  %48 = udiv i64 %47, 1000000000
+  store i64 %48, ptr %8, align 8
+  %49 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = load i64, ptr %8, align 8
+  %53 = mul i64 %52, 1000000000
+  %54 = sub i64 %51, %53
+  %55 = trunc i64 %54 to i32
+  %56 = add i32 %50, %55
   %57 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = sub i32 %58, 1000000000
-  store i32 %59, ptr %57, align 8
-  %60 = load i64, ptr %8, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %8, align 8
-  br label %62
+  store i32 %56, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp sgt i32 %59, 1000000000
+  br i1 %60, label %61, label %67
 
-62:                                               ; preds = %56, %36
-  %63 = load i64, ptr getelementptr inbounds (%struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2), align 8
-  %64 = load i64, ptr %8, align 8
-  %65 = trunc i64 %64 to i32
-  %66 = sext i32 %65 to i64
-  %67 = add i64 %63, %66
-  %68 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 0
-  store i64 %67, ptr %68, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct._packet_info, ptr %69, i32 0, i32 4
-  call void @nstime_delta(ptr noundef %10, ptr noundef %9, ptr noundef %70)
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %9, i64 16, i1 false)
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct._frame_data, ptr %75, i32 0, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %9, i64 16, i1 false)
+61:                                               ; preds = %39
+  %62 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 1
+  %63 = load i32, ptr %62, align 8
+  %64 = sub i32 %63, 1000000000
+  store i32 %64, ptr %62, align 8
+  %65 = load i64, ptr %8, align 8
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %8, align 8
+  br label %67
+
+67:                                               ; preds = %61, %39
+  %68 = getelementptr inbounds %struct._ref_time_frame_info, ptr @ref_time_frame, i32 0, i32 2
+  %69 = load i64, ptr %68, align 8
+  %70 = load i64, ptr %8, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = add i64 %69, %72
+  %74 = getelementptr inbounds %struct.nstime_t, ptr %9, i32 0, i32 0
+  store i64 %73, ptr %74, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 4
+  call void @nstime_delta(ptr noundef %10, ptr noundef %9, ptr noundef %76)
   %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct._packet_info, ptr %77, i32 0, i32 5
+  %78 = getelementptr inbounds %struct._packet_info, ptr %77, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %9, i64 16, i1 false)
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 5
-  call void @nstime_sum(ptr noundef %78, ptr noundef %80, ptr noundef %10)
-  br label %81
+  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct._frame_data, ptr %81, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %9, i64 16, i1 false)
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %6, align 8
+  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 5
+  call void @nstime_sum(ptr noundef %84, ptr noundef %86, ptr noundef %10)
+  br label %87
 
-81:                                               ; preds = %62, %26
-  br label %82
+87:                                               ; preds = %67, %29
+  br label %88
 
-82:                                               ; preds = %81, %13
+88:                                               ; preds = %87, %13
   ret void
 }
 

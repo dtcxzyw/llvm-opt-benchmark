@@ -221,40 +221,42 @@ define dso_local noundef ptr @fsnotify_alloc_group(ptr noundef %0, i32 noundef %
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i32 3520, i32 4197824
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %6, i32 noundef %5, i64 noundef 200) #6
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %21, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %7, i32 noundef %5, i64 noundef 200) #6
+  %9 = icmp eq ptr %8, null
+  %10 = inttoptr i64 -12 to ptr
+  br i1 %9, label %23, label %11
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store volatile i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 112
-  store volatile i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  store volatile ptr %13, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
-  store volatile ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @__init_waitqueue_head(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @__fsnotify_alloc_group.__key) #5
-  %16 = getelementptr inbounds i8, ptr %7, i64 60
-  store i32 -1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 80
-  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @__fsnotify_alloc_group.__key.1) #5
-  %18 = getelementptr inbounds i8, ptr %7, i64 120
-  store volatile ptr %18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 128
-  store volatile ptr %18, ptr %19, align 8
-  store ptr %0, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 72
-  store i32 %1, ptr %20, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  store volatile i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 112
+  store volatile i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  store volatile ptr %15, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  store volatile ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  tail call void @__init_waitqueue_head(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @__fsnotify_alloc_group.__key) #5
+  %18 = getelementptr inbounds i8, ptr %8, i64 60
+  store i32 -1, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %8, i64 80
+  tail call void @__mutex_init(ptr noundef %19, ptr noundef nonnull @.str.2, ptr noundef nonnull @__fsnotify_alloc_group.__key.1) #5
+  %20 = getelementptr inbounds i8, ptr %8, i64 120
+  store volatile ptr %20, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 128
+  store volatile ptr %20, ptr %21, align 8
+  store ptr %0, ptr %8, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 %1, ptr %22, align 8
+  br label %23
 
-21:                                               ; preds = %9, %2
-  %22 = phi ptr [ %7, %9 ], [ inttoptr (i64 -12 to ptr), %2 ]
-  ret ptr %22
+23:                                               ; preds = %11, %2
+  %24 = phi ptr [ %8, %11 ], [ %10, %2 ]
+  ret ptr %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

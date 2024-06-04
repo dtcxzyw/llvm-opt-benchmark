@@ -173,44 +173,49 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %7 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @_ZL7options, i32 0, i32 6), align 2
-  %tobool = icmp ne i8 %7, 0
+  %7 = getelementptr inbounds %struct.UOption, ptr @_ZL7options, i32 0, i32 6
+  %8 = load i8, ptr %7, align 2
+  %tobool = icmp ne i8 %8, 0
   br i1 %tobool, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %8 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
-  %tobool2 = icmp ne i8 %8, 0
+  %9 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6
+  %10 = load i8, ptr %9, align 2
+  %tobool2 = icmp ne i8 %10, 0
   br i1 %tobool2, label %if.then3, label %if.end9
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = load ptr, ptr %argv.addr, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %10, i64 0
-  %11 = load ptr, ptr %arrayidx4, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.7, ptr noundef %11)
-  %12 = load ptr, ptr @stderr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.8)
-  %13 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11)
-  %14 = load i32, ptr %argc.addr, align 4
-  %cmp8 = icmp slt i32 %14, 0
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = load ptr, ptr %argv.addr, align 8
+  %arrayidx4 = getelementptr inbounds ptr, ptr %12, i64 0
+  %13 = load ptr, ptr %arrayidx4, align 8
+  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.7, ptr noundef %13)
+  %14 = load ptr, ptr @stderr, align 8
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.8)
+  %15 = load ptr, ptr @stderr, align 8
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11)
+  %16 = load i32, ptr %argc.addr, align 4
+  %cmp8 = icmp slt i32 %16, 0
   %cond = select i1 %cmp8, i32 1, i32 0
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false
-  %15 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6), align 2
-  %tobool10 = icmp ne i8 %15, 0
+  %17 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 6
+  %18 = load i8, ptr %17, align 2
+  %tobool10 = icmp ne i8 %18, 0
   br i1 %tobool10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end9
-  %16 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
-  call void @u_setDataDirectory_75(ptr noundef %16)
+  %19 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void @u_setDataDirectory_75(ptr noundef %20)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end9
-  %17 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
-  %tobool13 = icmp ne i8 %17, 0
+  %21 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6
+  %22 = load i8, ptr %21, align 2
+  %tobool13 = icmp ne i8 %22, 0
   br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
@@ -219,8 +224,9 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end12
-  %18 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6), align 2
-  %tobool16 = icmp ne i8 %18, 0
+  %23 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 4, i32 6
+  %24 = load i8, ptr %23, align 2
+  %tobool16 = icmp ne i8 %24, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end15
@@ -229,8 +235,9 @@ if.then17:                                        ; preds = %if.end15
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  %19 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
-  %tobool19 = icmp ne i8 %19, 0
+  %25 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6
+  %26 = load i8, ptr %25, align 2
+  %tobool19 = icmp ne i8 %26, 0
   br i1 %tobool19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end18
@@ -239,38 +246,42 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end18
-  %20 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
-  %tobool22 = icmp ne i8 %20, 0
+  %27 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6
+  %28 = load i8, ptr %27, align 2
+  %tobool22 = icmp ne i8 %28, 0
   br i1 %tobool22, label %if.then23, label %if.end31
 
 if.then23:                                        ; preds = %if.end21
-  %21 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 8
-  %call24 = call noalias ptr @fopen(ptr noundef %21, ptr noundef @.str.12)
+  %29 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %call24 = call noalias ptr @fopen(ptr noundef %30, ptr noundef @.str.12)
   store ptr %call24, ptr %out, align 8
-  %22 = load ptr, ptr %out, align 8
-  %cmp25 = icmp eq ptr %22, null
+  %31 = load ptr, ptr %out, align 8
+  %cmp25 = icmp eq ptr %31, null
   br i1 %cmp25, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.then23
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load ptr, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 8
-  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.13, ptr noundef %24)
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.13, ptr noundef %34)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end28:                                         ; preds = %if.then23
-  %25 = load ptr, ptr %out, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.14)
-  %26 = load ptr, ptr %out, align 8
-  call void @udbg_writeIcuInfo(ptr noundef %26)
-  %27 = load ptr, ptr %out, align 8
-  %call30 = call i32 @fclose(ptr noundef %27)
+  %35 = load ptr, ptr %out, align 8
+  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.14)
+  %36 = load ptr, ptr %out, align 8
+  call void @udbg_writeIcuInfo(ptr noundef %36)
+  %37 = load ptr, ptr %out, align 8
+  %call30 = call i32 @fclose(ptr noundef %37)
   store i8 1, ptr %didSomething, align 1
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end28, %if.end21
-  %28 = load i8, ptr getelementptr inbounds ([8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
-  %tobool32 = icmp ne i8 %28, 0
+  %38 = getelementptr inbounds [8 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6
+  %39 = load i8, ptr %38, align 2
+  %tobool32 = icmp ne i8 %39, 0
   br i1 %tobool32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end31
@@ -279,8 +290,8 @@ if.then33:                                        ; preds = %if.end31
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end31
-  %29 = load i8, ptr %didSomething, align 1
-  %tobool35 = icmp ne i8 %29, 0
+  %40 = load i8, ptr %didSomething, align 1
+  %tobool35 = icmp ne i8 %40, 0
   br i1 %tobool35, label %if.end37, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
@@ -289,15 +300,15 @@ if.then36:                                        ; preds = %if.end34
 
 if.end37:                                         ; preds = %if.then36, %if.end34
   call void @_ZL10do_cleanupv()
-  %30 = load i32, ptr %errorCode, align 4
-  %call38 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %30)
+  %41 = load i32, ptr %errorCode, align 4
+  %call38 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %41)
   %conv = sext i8 %call38 to i32
   store i32 %conv, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then26, %if.then3
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+  %42 = load i32, ptr %retval, align 4
+  ret i32 %42
 }
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1

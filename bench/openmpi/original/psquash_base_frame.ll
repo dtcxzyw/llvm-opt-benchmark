@@ -57,18 +57,19 @@ define internal i32 @pmix_psquash_close() #0 {
 
 4:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %7
+  br label %8
 
 5:                                                ; preds = %0
   store i8 0, ptr @pmix_psquash_globals, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i32 0, i32 1), align 1
-  %6 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_psquash_base_framework, ptr noundef null)
-  store i32 %6, ptr %1, align 4
-  br label %7
+  %6 = getelementptr inbounds %struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i32 0, i32 1
+  store i8 0, ptr %6, align 1
+  %7 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_psquash_base_framework, ptr noundef null)
+  store i32 %7, ptr %1, align 4
+  br label %8
 
-7:                                                ; preds = %5, %4
-  %8 = load i32, ptr %1, align 4
-  ret i32 %8
+8:                                                ; preds = %5, %4
+  %9 = load i32, ptr %1, align 4
+  ret i32 %9
 }
 
 declare i32 @pmix_mca_base_framework_components_open(ptr noundef, i32 noundef) #1

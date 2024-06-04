@@ -1284,69 +1284,73 @@ define internal fastcc void @netdev_genl_dev_notify(ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !21
   %4 = getelementptr inbounds i8, ptr %0, i64 272
-  %5 = load i8, ptr getelementptr inbounds (%struct.genl_family, ptr @netdev_nl_family, i64 0, i32 8), align 8
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %8, !prof !6
+  %5 = getelementptr inbounds %struct.genl_family, ptr @netdev_nl_family, i64 0, i32 8
+  %6 = load i8, ptr %5, align 8
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %9, !prof !6
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void asm sideeffect "852: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 852b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 852) #7, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 624, i32 2307, i64 12) #7, !srcloc !23
   tail call void asm sideeffect "853: nop\0A\09.pushsection .discard.instr_end\0A\09.long 853b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 853) #7, !srcloc !24
-  br label %15
+  br label %17
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.genl_family, ptr @netdev_nl_family, i64 0, i32 22), align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 280
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @netlink_has_listeners(ptr noundef %12, i32 noundef %10) #7
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %37, label %15
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %struct.genl_family, ptr @netdev_nl_family, i64 0, i32 22
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 280
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 @netlink_has_listeners(ptr noundef %14, i32 noundef %12) #7
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %41, label %17
 
-15:                                               ; preds = %8, %7
-  %16 = trunc i32 %1 to i8
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+17:                                               ; preds = %9, %8
+  %18 = trunc i32 %1 to i8
+  %19 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @netdev_nl_family, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %17, ptr %19, align 8
-  store i8 %16, ptr %17, align 8
-  %20 = call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #7
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %37, label %22
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @netdev_nl_family, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %19, ptr %21, align 8
+  store i8 %18, ptr %19, align 8
+  %22 = call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #7
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %41, label %24
 
-22:                                               ; preds = %15
-  %23 = call fastcc i32 @netdev_nl_dev_fill(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull %3), !range !5
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %26, label %25
+24:                                               ; preds = %17
+  %25 = call fastcc i32 @netdev_nl_dev_fill(ptr noundef %0, ptr noundef nonnull %22, ptr noundef nonnull %3), !range !5
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %28, label %27
 
-25:                                               ; preds = %22
-  call void @kfree_skb_reason(ptr noundef nonnull %20, i32 noundef 2) #7
-  br label %37
+27:                                               ; preds = %24
+  call void @kfree_skb_reason(ptr noundef nonnull %22, i32 noundef 2) #7
+  br label %41
 
-26:                                               ; preds = %22
-  %27 = load i8, ptr getelementptr inbounds (%struct.genl_family, ptr @netdev_nl_family, i64 0, i32 8), align 8
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %30, !prof !6
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %struct.genl_family, ptr @netdev_nl_family, i64 0, i32 8
+  %30 = load i8, ptr %29, align 8
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %32, label %33, !prof !6
 
-29:                                               ; preds = %26
+32:                                               ; preds = %28
   call void asm sideeffect "848: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 848b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 848) #7, !srcloc !25
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 476, i32 2307, i64 12) #7, !srcloc !26
   call void asm sideeffect "849: nop\0A\09.pushsection .discard.instr_end\0A\09.long 849b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 849) #7, !srcloc !27
-  br label %37
+  br label %41
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %4, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.genl_family, ptr @netdev_nl_family, i64 0, i32 22), align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 280
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %20, i64 56
-  store i32 %32, ptr %35, align 8
-  %36 = call i32 @netlink_broadcast_filtered(ptr noundef %34, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %32, i32 noundef 3264, ptr noundef null, ptr noundef null) #7
-  br label %37
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.genl_family, ptr @netdev_nl_family, i64 0, i32 22
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %34, i64 280
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %22, i64 56
+  store i32 %36, ptr %39, align 8
+  %40 = call i32 @netlink_broadcast_filtered(ptr noundef %38, ptr noundef nonnull %22, i32 noundef 0, i32 noundef %36, i32 noundef 3264, ptr noundef null, ptr noundef null) #7
+  br label %41
 
-37:                                               ; preds = %30, %29, %25, %15, %8
+41:                                               ; preds = %33, %32, %27, %17, %9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #7
   ret void
 }

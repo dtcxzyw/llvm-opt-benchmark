@@ -92,7 +92,8 @@ entry:
   %0 = load ptr, ptr %fixtureA.addr, align 8
   %1 = load ptr, ptr %fixtureB.addr, align 8
   call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %this1, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22b2EdgeAndCircleContact, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22b2EdgeAndCircleContact, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

@@ -9322,9 +9322,10 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -10318,7 +10319,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %5, align 4
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %29 = icmp eq i32 %27, %28
   br i1 %29, label %30, label %38
 
@@ -10340,7 +10341,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 38:                                               ; preds = %26
-  %39 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117builtin_exceptionE) #6
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117builtin_exceptionE) #6
   %40 = icmp eq i32 %27, %39
   br i1 %40, label %41, label %48
 
@@ -10357,7 +10358,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %253
 
 48:                                               ; preds = %38
-  %49 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #6
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #6
   %50 = icmp eq i32 %27, %49
   br i1 %50, label %51, label %65
 
@@ -10384,7 +10385,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 65:                                               ; preds = %48
-  %66 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12domain_error) #6
+  %66 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12domain_error) #6
   %67 = icmp eq i32 %27, %66
   br i1 %67, label %68, label %82
 
@@ -10411,7 +10412,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 82:                                               ; preds = %65
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #6
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #6
   %84 = icmp eq i32 %27, %83
   br i1 %84, label %85, label %99
 
@@ -10438,7 +10439,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 99:                                               ; preds = %82
-  %100 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12length_error) #6
+  %100 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12length_error) #6
   %101 = icmp eq i32 %27, %100
   br i1 %101, label %102, label %116
 
@@ -10465,7 +10466,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 116:                                              ; preds = %99
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12out_of_range) #6
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12out_of_range) #6
   %118 = icmp eq i32 %27, %117
   br i1 %118, label %119, label %133
 
@@ -10492,7 +10493,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 133:                                              ; preds = %116
-  %134 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt11range_error) #6
+  %134 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt11range_error) #6
   %135 = icmp eq i32 %27, %134
   br i1 %135, label %136, label %150
 
@@ -10519,7 +10520,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 150:                                              ; preds = %133
-  %151 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt14overflow_error) #6
+  %151 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt14overflow_error) #6
   %152 = icmp eq i32 %27, %151
   br i1 %152, label %153, label %167
 
@@ -10546,7 +10547,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 167:                                              ; preds = %150
-  %168 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #6
+  %168 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #6
   %169 = icmp eq i32 %27, %168
   br i1 %169, label %170, label %184
 
@@ -10573,7 +10574,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19translate_exceptionENSt15_
   br label %277
 
 184:                                              ; preds = %167
-  %185 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16nested_exception) #6
+  %185 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16nested_exception) #6
   %186 = icmp eq i32 %27, %185
   br i1 %186, label %187, label %196
 
@@ -10827,130 +10828,131 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail25make_static_propert
   %12 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   call void @_ZN8pybind1117reinterpret_stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::object") align 8 %2, ptr %13)
-  %14 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 36), align 8
-  %15 = invoke noundef ptr %14(ptr noundef @PyType_Type, i64 noundef 0)
-          to label %16 unwind label %21
+  %14 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 36
+  %15 = load ptr, ptr %14, align 8
+  %16 = invoke noundef ptr %15(ptr noundef @PyType_Type, i64 noundef 0)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %0
-  store ptr %15, ptr %4, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %25, label %19
+17:                                               ; preds = %0
+  store ptr %16, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %26, label %20
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.70) #23
-          to label %20 unwind label %21
+          to label %21 unwind label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   unreachable
 
-21:                                               ; preds = %58, %56, %54, %41, %32, %27, %25, %19, %0
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %59, %57, %55, %42, %33, %28, %26, %20, %0
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %70
-
-25:                                               ; preds = %16
-  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %27 unwind label %21
-
-27:                                               ; preds = %25
-  %28 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct._heaptypeobject, ptr %29, i32 0, i32 6
-  store ptr %28, ptr %30, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %32 unwind label %21
-
-32:                                               ; preds = %27
-  %33 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._heaptypeobject, ptr %34, i32 0, i32 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct._heaptypeobject, ptr %36, i32 0, i32 0
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._typeobject, ptr %38, i32 0, i32 1
-  store ptr @.str.69, ptr %39, align 8
-  %40 = invoke noundef ptr @_ZN8pybind116detail11type_increfEP11_typeobject(ptr noundef @PyProperty_Type)
-          to label %41 unwind label %21
-
-41:                                               ; preds = %32
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct._typeobject, ptr %42, i32 0, i32 30
-  store ptr %40, ptr %43, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._typeobject, ptr %44, i32 0, i32 19
-  store i64 1536, ptr %45, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct._typeobject, ptr %46, i32 0, i32 32
-  store ptr @pybind11_static_get, ptr %47, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct._typeobject, ptr %48, i32 0, i32 33
-  store ptr @pybind11_static_set, ptr %49, align 8
-  %50 = load ptr, ptr %7, align 8
-  %51 = invoke i32 @PyType_Ready(ptr noundef %50)
-          to label %52 unwind label %21
-
-52:                                               ; preds = %41
-  %53 = icmp slt i32 %51, 0
-  br i1 %53, label %54, label %56
-
-54:                                               ; preds = %52
-  invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.71) #23
-          to label %55 unwind label %21
-
-55:                                               ; preds = %54
-  unreachable
-
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %7, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %57)
-          to label %58 unwind label %21
-
-58:                                               ; preds = %56
-  invoke void @_ZN8pybind113strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @.str.73)
-          to label %59 unwind label %21
-
-59:                                               ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %8, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %"class.pybind11::handle", ptr %9, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  invoke void @_ZN8pybind117setattrENS_6handleEPKcS0_(ptr %61, ptr noundef @.str.72, ptr %63)
-          to label %64 unwind label %66
-
-64:                                               ; preds = %59
-  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  %65 = load ptr, ptr %7, align 8
-  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
-  ret ptr %65
-
-66:                                               ; preds = %59
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %5, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %6, align 4
-  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  br label %70
-
-70:                                               ; preds = %66, %21
-  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
   br label %71
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i32, ptr %6, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+26:                                               ; preds = %17
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %28 unwind label %22
+
+28:                                               ; preds = %26
+  %29 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct._heaptypeobject, ptr %30, i32 0, i32 6
+  store ptr %29, ptr %31, align 8
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %33 unwind label %22
+
+33:                                               ; preds = %28
+  %34 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct._heaptypeobject, ptr %35, i32 0, i32 8
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct._heaptypeobject, ptr %37, i32 0, i32 0
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct._typeobject, ptr %39, i32 0, i32 1
+  store ptr @.str.69, ptr %40, align 8
+  %41 = invoke noundef ptr @_ZN8pybind116detail11type_increfEP11_typeobject(ptr noundef @PyProperty_Type)
+          to label %42 unwind label %22
+
+42:                                               ; preds = %33
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds %struct._typeobject, ptr %43, i32 0, i32 30
+  store ptr %41, ptr %44, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._typeobject, ptr %45, i32 0, i32 19
+  store i64 1536, ptr %46, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds %struct._typeobject, ptr %47, i32 0, i32 32
+  store ptr @pybind11_static_get, ptr %48, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds %struct._typeobject, ptr %49, i32 0, i32 33
+  store ptr @pybind11_static_set, ptr %50, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = invoke i32 @PyType_Ready(ptr noundef %51)
+          to label %53 unwind label %22
+
+53:                                               ; preds = %42
+  %54 = icmp slt i32 %52, 0
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %53
+  invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.71) #23
+          to label %56 unwind label %22
+
+56:                                               ; preds = %55
+  unreachable
+
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %7, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %58)
+          to label %59 unwind label %22
+
+59:                                               ; preds = %57
+  invoke void @_ZN8pybind113strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @.str.73)
+          to label %60 unwind label %22
+
+60:                                               ; preds = %59
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %8, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %9, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  invoke void @_ZN8pybind117setattrENS_6handleEPKcS0_(ptr %62, ptr noundef @.str.72, ptr %64)
+          to label %65 unwind label %67
+
+65:                                               ; preds = %60
+  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  %66 = load ptr, ptr %7, align 8
+  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  ret ptr %66
+
+67:                                               ; preds = %60
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %5, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %6, align 4
+  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  br label %71
+
+71:                                               ; preds = %67, %22
+  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %5, align 8
+  %74 = load i32, ptr %6, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10971,133 +10973,134 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail22make_default_metacl
   %12 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   call void @_ZN8pybind1117reinterpret_stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::object") align 8 %2, ptr %13)
-  %14 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 36), align 8
-  %15 = invoke noundef ptr %14(ptr noundef @PyType_Type, i64 noundef 0)
-          to label %16 unwind label %21
+  %14 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 36
+  %15 = load ptr, ptr %14, align 8
+  %16 = invoke noundef ptr %15(ptr noundef @PyType_Type, i64 noundef 0)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %0
-  store ptr %15, ptr %4, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %25, label %19
+17:                                               ; preds = %0
+  store ptr %16, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %26, label %20
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.75) #23
-          to label %20 unwind label %21
+          to label %21 unwind label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   unreachable
 
-21:                                               ; preds = %61, %59, %57, %32, %27, %25, %19, %0
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %62, %60, %58, %33, %28, %26, %20, %0
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %73
-
-25:                                               ; preds = %16
-  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %27 unwind label %21
-
-27:                                               ; preds = %25
-  %28 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct._heaptypeobject, ptr %29, i32 0, i32 6
-  store ptr %28, ptr %30, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %32 unwind label %21
-
-32:                                               ; preds = %27
-  %33 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._heaptypeobject, ptr %34, i32 0, i32 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct._heaptypeobject, ptr %36, i32 0, i32 0
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._typeobject, ptr %38, i32 0, i32 1
-  store ptr @.str.74, ptr %39, align 8
-  %40 = call noundef ptr @_ZN8pybind116detail11type_increfEP11_typeobject(ptr noundef @PyType_Type)
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._typeobject, ptr %41, i32 0, i32 30
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._typeobject, ptr %43, i32 0, i32 19
-  store i64 1536, ptr %44, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._typeobject, ptr %45, i32 0, i32 14
-  store ptr @pybind11_meta_call, ptr %46, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._typeobject, ptr %47, i32 0, i32 17
-  store ptr @pybind11_meta_setattro, ptr %48, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._typeobject, ptr %49, i32 0, i32 16
-  store ptr @pybind11_meta_getattro, ptr %50, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct._typeobject, ptr %51, i32 0, i32 4
-  store ptr @pybind11_meta_dealloc, ptr %52, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = invoke i32 @PyType_Ready(ptr noundef %53)
-          to label %55 unwind label %21
-
-55:                                               ; preds = %32
-  %56 = icmp slt i32 %54, 0
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %55
-  invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.76) #23
-          to label %58 unwind label %21
-
-58:                                               ; preds = %57
-  unreachable
-
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %7, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %60)
-          to label %61 unwind label %21
-
-61:                                               ; preds = %59
-  invoke void @_ZN8pybind113strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @.str.73)
-          to label %62 unwind label %21
-
-62:                                               ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %8, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %"class.pybind11::handle", ptr %9, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  invoke void @_ZN8pybind117setattrENS_6handleEPKcS0_(ptr %64, ptr noundef @.str.72, ptr %66)
-          to label %67 unwind label %69
-
-67:                                               ; preds = %62
-  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  %68 = load ptr, ptr %7, align 8
-  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
-  ret ptr %68
-
-69:                                               ; preds = %62
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %5, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %6, align 4
-  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  br label %73
-
-73:                                               ; preds = %69, %21
-  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %5, align 8
-  %76 = load i32, ptr %6, align 4
-  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
-  resume { ptr, i32 } %78
+26:                                               ; preds = %17
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %28 unwind label %22
+
+28:                                               ; preds = %26
+  %29 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %struct._heaptypeobject, ptr %30, i32 0, i32 6
+  store ptr %29, ptr %31, align 8
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %33 unwind label %22
+
+33:                                               ; preds = %28
+  %34 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct._heaptypeobject, ptr %35, i32 0, i32 8
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %struct._heaptypeobject, ptr %37, i32 0, i32 0
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct._typeobject, ptr %39, i32 0, i32 1
+  store ptr @.str.74, ptr %40, align 8
+  %41 = call noundef ptr @_ZN8pybind116detail11type_increfEP11_typeobject(ptr noundef @PyType_Type)
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct._typeobject, ptr %42, i32 0, i32 30
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._typeobject, ptr %44, i32 0, i32 19
+  store i64 1536, ptr %45, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds %struct._typeobject, ptr %46, i32 0, i32 14
+  store ptr @pybind11_meta_call, ptr %47, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct._typeobject, ptr %48, i32 0, i32 17
+  store ptr @pybind11_meta_setattro, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._typeobject, ptr %50, i32 0, i32 16
+  store ptr @pybind11_meta_getattro, ptr %51, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds %struct._typeobject, ptr %52, i32 0, i32 4
+  store ptr @pybind11_meta_dealloc, ptr %53, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = invoke i32 @PyType_Ready(ptr noundef %54)
+          to label %56 unwind label %22
+
+56:                                               ; preds = %33
+  %57 = icmp slt i32 %55, 0
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %56
+  invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef @.str.76) #23
+          to label %59 unwind label %22
+
+59:                                               ; preds = %58
+  unreachable
+
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %7, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %61)
+          to label %62 unwind label %22
+
+62:                                               ; preds = %60
+  invoke void @_ZN8pybind113strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @.str.73)
+          to label %63 unwind label %22
+
+63:                                               ; preds = %62
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %8, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %9, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  invoke void @_ZN8pybind117setattrENS_6handleEPKcS0_(ptr %65, ptr noundef @.str.72, ptr %67)
+          to label %68 unwind label %70
+
+68:                                               ; preds = %63
+  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  %69 = load ptr, ptr %7, align 8
+  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  ret ptr %69
+
+70:                                               ; preds = %63
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %5, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %6, align 4
+  call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  br label %74
+
+74:                                               ; preds = %70, %22
+  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %6, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11451,51 +11454,52 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #21
-          to label %8 unwind label %11
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #21
+          to label %9 unwind label %12
 
-8:                                                ; preds = %1
-  invoke void @_ZN8pybind116detail25error_fetch_and_normalizeC2EPKc(ptr noundef nonnull align 8 dereferenceable(58) %7, ptr noundef @.str.37)
-          to label %9 unwind label %15
-
-9:                                                ; preds = %8
-  invoke void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEEC2IS2_PFvPS2_EvEEPT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7, ptr noundef @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE)
-          to label %10 unwind label %11
+9:                                                ; preds = %1
+  invoke void @_ZN8pybind116detail25error_fetch_and_normalizeC2EPKc(ptr noundef nonnull align 8 dereferenceable(58) %8, ptr noundef @.str.37)
+          to label %10 unwind label %16
 
 10:                                               ; preds = %9
+  invoke void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEEC2IS2_PFvPS2_EvEEPT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %10
   ret void
 
-11:                                               ; preds = %9, %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10, %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  br label %19
-
-15:                                               ; preds = %8
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %7) #22
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %9
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %8) #22
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -11628,7 +11632,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13950,7 +13955,8 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14413,7 +14419,8 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14953,12 +14960,13 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13) #6
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %14) #6
   ret void
 }
 
@@ -15116,11 +15124,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -16986,9 +16995,6 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef 
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail9raise_errEP7_objectPKc(ptr noundef %0, ptr noundef %1) #1 comdat {
   %3 = alloca i1, align 1
@@ -17427,7 +17433,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_neste
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionINS_17error_already_setETnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
@@ -17614,12 +17620,13 @@ define linkonce_odr hidden ptr @pybind11_static_get(ptr noundef %0, ptr noundef 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i32 0, i32 32), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds %struct._typeobject, ptr @PyProperty_Type, i32 0, i32 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call noundef ptr %7(ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  ret ptr %11
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr %8(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17649,12 +17656,13 @@ define linkonce_odr hidden i32 @pybind11_static_set(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %13, %11
   %18 = phi ptr [ %12, %11 ], [ %16, %13 ]
   store ptr %18, ptr %7, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyProperty_Type, i32 0, i32 33), align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call noundef i32 %19(ptr noundef %20, ptr noundef %21, ptr noundef %22)
-  ret i32 %23
+  %19 = getelementptr inbounds %struct._typeobject, ptr @PyProperty_Type, i32 0, i32 33
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef i32 %20(ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  ret i32 %24
 }
 
 declare i32 @PyType_Ready(ptr noundef) #5
@@ -17730,97 +17738,98 @@ define linkonce_odr hidden ptr @pybind11_meta_call(ptr noundef %0, ptr noundef %
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 14), align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = call noundef ptr %17(ptr noundef %18, ptr noundef %19, ptr noundef %20)
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %58
+  %17 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = call noundef ptr %18(ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  store ptr %22, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %3
-  %26 = load ptr, ptr %8, align 8
-  call void @_ZN8pybind116detail18values_and_holdersC2EP7_object(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %26)
-  store ptr %9, ptr %10, align 8
-  %27 = load ptr, ptr %10, align 8
-  call void @_ZN8pybind116detail18values_and_holders5beginEv(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::values_and_holders::iterator") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %28 = load ptr, ptr %10, align 8
-  call void @_ZN8pybind116detail18values_and_holders3endEv(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::values_and_holders::iterator") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %28)
-  br label %29
-
-29:                                               ; preds = %54, %25
-  %30 = call noundef zeroext i1 @_ZNK8pybind116detail18values_and_holders8iteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %12)
-  br i1 %30, label %31, label %56
-
-31:                                               ; preds = %29
-  %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8pybind116detail18values_and_holders8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
-  store ptr %32, ptr %13, align 8
-  %33 = load ptr, ptr %13, align 8
-  %34 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder18holder_constructedEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
-  br i1 %34, label %53, label %35
-
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %13, align 8
-  %37 = call noundef zeroext i1 @_ZN8pybind116detail18values_and_holders29is_redundant_value_and_holderERKNS0_16value_and_holderE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  br i1 %37, label %53, label %38
-
-38:                                               ; preds = %35
-  %39 = load ptr, ptr @PyExc_TypeError, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  call void @_ZN8pybind116detail27get_fully_qualified_tp_nameB5cxx11EP11_typeobject(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef %44)
-  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
-  %46 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %39, ptr noundef @.str.77, ptr noundef %45)
-          to label %47 unwind label %49
-
-47:                                               ; preds = %38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
-  %48 = load ptr, ptr %8, align 8
-  call void @_ZL10_Py_DECREFP7_object(ptr noundef %48)
   store ptr null, ptr %4, align 8
-  br label %58
+  br label %59
 
-49:                                               ; preds = %38
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %15, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %16, align 4
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %8, align 8
+  call void @_ZN8pybind116detail18values_and_holdersC2EP7_object(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %27)
+  store ptr %9, ptr %10, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZN8pybind116detail18values_and_holders5beginEv(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::values_and_holders::iterator") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %29 = load ptr, ptr %10, align 8
+  call void @_ZN8pybind116detail18values_and_holders3endEv(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::values_and_holders::iterator") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  br label %30
+
+30:                                               ; preds = %55, %26
+  %31 = call noundef zeroext i1 @_ZNK8pybind116detail18values_and_holders8iteratorneERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  br i1 %31, label %32, label %57
+
+32:                                               ; preds = %30
+  %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8pybind116detail18values_and_holders8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  store ptr %33, ptr %13, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder18holder_constructedEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br i1 %35, label %54, label %36
+
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %13, align 8
+  %38 = call noundef zeroext i1 @_ZN8pybind116detail18values_and_holders29is_redundant_value_and_holderERKNS0_16value_and_holderE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  br i1 %38, label %54, label %39
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr @PyExc_TypeError, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  call void @_ZN8pybind116detail27get_fully_qualified_tp_nameB5cxx11EP11_typeobject(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef %45)
+  %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
+  %47 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %40, ptr noundef @.str.77, ptr noundef %46)
+          to label %48 unwind label %50
+
+48:                                               ; preds = %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
-  br label %60
+  %49 = load ptr, ptr %8, align 8
+  call void @_ZL10_Py_DECREFP7_object(ptr noundef %49)
+  store ptr null, ptr %4, align 8
+  br label %59
 
-53:                                               ; preds = %35, %31
-  br label %54
+50:                                               ; preds = %39
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %15, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
+  br label %61
 
-54:                                               ; preds = %53
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN8pybind116detail18values_and_holders8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
-  br label %29
+54:                                               ; preds = %36, %32
+  br label %55
 
-56:                                               ; preds = %29
-  %57 = load ptr, ptr %8, align 8
-  store ptr %57, ptr %4, align 8
-  br label %58
+55:                                               ; preds = %54
+  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN8pybind116detail18values_and_holders8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  br label %30
 
-58:                                               ; preds = %56, %47, %24
-  %59 = load ptr, ptr %4, align 8
-  ret ptr %59
+57:                                               ; preds = %30
+  %58 = load ptr, ptr %8, align 8
+  store ptr %58, ptr %4, align 8
+  br label %59
 
-60:                                               ; preds = %49
-  %61 = load ptr, ptr %15, align 8
-  %62 = load i32, ptr %16, align 4
-  %63 = insertvalue { ptr, i32 } poison, ptr %61, 0
-  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
-  resume { ptr, i32 } %64
+59:                                               ; preds = %57, %48, %25
+  %60 = load ptr, ptr %4, align 8
+  ret ptr %60
+
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %15, align 8
+  %63 = load i32, ptr %16, align 4
+  %64 = insertvalue { ptr, i32 } poison, ptr %62, 0
+  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
+  resume { ptr, i32 } %65
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17885,20 +17894,21 @@ define linkonce_odr hidden i32 @pybind11_meta_setattro(ptr noundef %0, ptr nound
   %45 = load ptr, ptr %7, align 8
   %46 = call noundef i32 %42(ptr noundef %43, ptr noundef %44, ptr noundef %45)
   store i32 %46, ptr %4, align 4
-  br label %53
+  br label %54
 
 47:                                               ; preds = %32
-  %48 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 17), align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = call noundef i32 %48(ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  store i32 %52, ptr %4, align 4
-  br label %53
+  %48 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 17
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = call noundef i32 %49(ptr noundef %50, ptr noundef %51, ptr noundef %52)
+  store i32 %53, ptr %4, align 4
+  br label %54
 
-53:                                               ; preds = %47, %37
-  %54 = load i32, ptr %4, align 4
-  ret i32 %54
+54:                                               ; preds = %47, %37
+  %55 = load i32, ptr %4, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17928,19 +17938,20 @@ define linkonce_odr hidden ptr @pybind11_meta_getattro(ptr noundef %0, ptr nound
   call void @_ZL10_Py_INCREFP7_object(ptr noundef %17)
   %18 = load ptr, ptr %6, align 8
   store ptr %18, ptr %3, align 8
-  br label %24
+  br label %25
 
 19:                                               ; preds = %12, %2
-  %20 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 16), align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = call noundef ptr %20(ptr noundef %21, ptr noundef %22)
-  store ptr %23, ptr %3, align 8
-  br label %24
+  %20 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = call noundef ptr %21(ptr noundef %22, ptr noundef %23)
+  store ptr %24, ptr %3, align 8
+  br label %25
 
-24:                                               ; preds = %19, %16
-  %25 = load ptr, ptr %3, align 8
-  ret ptr %25
+25:                                               ; preds = %19, %16
+  %26 = load ptr, ptr %3, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18101,9 +18112,10 @@ define linkonce_odr hidden void @pybind11_meta_dealloc(ptr noundef %0) #1 comdat
   br label %110
 
 110:                                              ; preds = %109, %41
-  %111 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 4), align 8
-  %112 = load ptr, ptr %2, align 8
-  call void %111(ptr noundef %112)
+  %111 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 4
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %2, align 8
+  call void %112(ptr noundef %113)
   ret void
 }
 
@@ -21656,7 +21668,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function18initialize_genericE
   %180 = load ptr, ptr %11, align 8
   %181 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %180, i32 0, i32 0
   %182 = load ptr, ptr %181, align 8
-  %183 = call i32 @strcmp(ptr noundef %182, ptr noundef @.str.79) #15
+  %183 = call i32 @strcmp(ptr noundef %182, ptr noundef @.str.79) #14
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %191, label %185
 
@@ -21664,7 +21676,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function18initialize_genericE
   %186 = load ptr, ptr %11, align 8
   %187 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %186, i32 0, i32 0
   %188 = load ptr, ptr %187, align 8
-  %189 = call i32 @strcmp(ptr noundef %188, ptr noundef @.str.80) #15
+  %189 = call i32 @strcmp(ptr noundef %188, ptr noundef @.str.80) #14
   %190 = icmp eq i32 %189, 0
   br label %191
 
@@ -23727,100 +23739,101 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6det
   call void @_ZN8pybind116detail15argument_loaderIJNS_6handleEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJNS_6handleEEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture, ptr %42, i32 0, i32 0
-  call void @_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_23all_type_info_get_cacheEP11_typeobjectEUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture, ptr %43, i32 0, i32 0
+  call void @_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_23all_type_info_get_cacheEP11_typeobjectEUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture, ptr %52, i32 0, i32 0
-  call void @_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_23all_type_info_get_cacheEP11_typeobjectEUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture, ptr %53, i32 0, i32 0
+  call void @_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_23all_type_info_get_cacheEP11_typeobjectEUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25822,7 +25835,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail27replace_newlines_and_squas
   %58 = load ptr, ptr %4, align 8
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
-  %61 = call noundef ptr @strchr(ptr noundef %57, i32 noundef %60) #15
+  %61 = call noundef ptr @strchr(ptr noundef %57, i32 noundef %60) #14
   %62 = icmp ne ptr %61, null
   br i1 %62, label %63, label %70
 
@@ -26539,1301 +26552,1293 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind1112cpp_function10dispatcherEP
 144:                                              ; preds = %143, %138
   %145 = phi ptr [ %142, %138 ], [ null, %143 ]
   call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %145)
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef inttoptr (i64 1 to ptr))
+  %146 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %146)
   call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 32, i1 false)
   call void @_ZN8pybind116detail16value_and_holderC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #6
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %146, i32 0, i32 8
-  %148 = load i16, ptr %147, align 1
-  %149 = and i16 %148, 1
-  %150 = trunc i16 %149 to i1
-  br i1 %150, label %151, label %185
+  %147 = load ptr, ptr %8, align 8
+  %148 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %147, i32 0, i32 8
+  %149 = load i16, ptr %148, align 1
+  %150 = and i16 %149, 1
+  %151 = trunc i16 %150 to i1
+  br i1 %151, label %152, label %186
 
-151:                                              ; preds = %144
-  %152 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  br i1 %152, label %153, label %161
+152:                                              ; preds = %144
+  %153 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  br i1 %153, label %154, label %162
 
-153:                                              ; preds = %151
-  %154 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %156, i32 0, i32 15
-  %158 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %157)
-  %159 = call noundef i32 @_ZL19_PyObject_TypeCheckP7_objectP11_typeobject(ptr noundef %155, ptr noundef %158)
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %163, label %161
+154:                                              ; preds = %152
+  %155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %8, align 8
+  %158 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %157, i32 0, i32 15
+  %159 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %158)
+  %160 = call noundef i32 @_ZL19_PyObject_TypeCheckP7_objectP11_typeobject(ptr noundef %156, ptr noundef %159)
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %164, label %162
 
-161:                                              ; preds = %153, %151
-  %162 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %162)
+162:                                              ; preds = %154, %152
+  %163 = load ptr, ptr @PyExc_TypeError, align 8
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %163)
   call void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef @.str.106)
   store ptr null, ptr %4, align 8
-  br label %1320
+  br label %1327
 
-163:                                              ; preds = %153
-  %164 = load ptr, ptr %8, align 8
-  %165 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %164, i32 0, i32 15
-  %166 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %165)
-  %167 = call noundef ptr @_ZN8pybind116detail13get_type_infoEP11_typeobject(ptr noundef %166)
-  store ptr %167, ptr %15, align 8
-  %168 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %16, align 8
-  %170 = load ptr, ptr %16, align 8
-  %171 = load ptr, ptr %15, align 8
-  call void @_ZN8pybind116detail8instance20get_value_and_holderEPKNS0_9type_infoEb(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::value_and_holder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(56) %170, ptr noundef %171, i1 noundef zeroext true)
+164:                                              ; preds = %154
+  %165 = load ptr, ptr %8, align 8
+  %166 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %165, i32 0, i32 15
+  %167 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %166)
+  %168 = call noundef ptr @_ZN8pybind116detail13get_type_infoEP11_typeobject(ptr noundef %167)
+  store ptr %168, ptr %15, align 8
+  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %170 = load ptr, ptr %169, align 8
+  store ptr %170, ptr %16, align 8
+  %171 = load ptr, ptr %16, align 8
+  %172 = load ptr, ptr %15, align 8
+  call void @_ZN8pybind116detail8instance20get_value_and_holderEPKNS0_9type_infoEb(ptr dead_on_unwind writable sret(%"struct.pybind11::detail::value_and_holder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(56) %171, ptr noundef %172, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %17, i64 32, i1 false)
-  %172 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder19instance_registeredEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
-  br i1 %172, label %173, label %184
+  %173 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder19instance_registeredEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %173, label %174, label %185
 
-173:                                              ; preds = %163
+174:                                              ; preds = %164
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %174 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %175 unwind label %180
+  %175 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %176 unwind label %181
 
-175:                                              ; preds = %173
-  %176 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
-  store ptr %174, ptr %176, align 8
-  %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %178 unwind label %180
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
+  store ptr %175, ptr %177, align 8
+  %178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %179 unwind label %181
 
-178:                                              ; preds = %175
-  %179 = load ptr, ptr %177, align 8
-  store ptr %179, ptr %4, align 8
+179:                                              ; preds = %176
+  %180 = load ptr, ptr %178, align 8
+  store ptr %180, ptr %4, align 8
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #6
-  br label %1320
+  br label %1327
 
-180:                                              ; preds = %175, %173
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %176, %174
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %20, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %21, align 4
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %20, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %21, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #6
-  br label %1322
+  br label %1329
 
-184:                                              ; preds = %163
-  br label %185
+185:                                              ; preds = %164
+  br label %186
 
-185:                                              ; preds = %184, %144
+186:                                              ; preds = %185, %144
   call void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
-  %186 = load ptr, ptr %9, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %188, label %193
+  %187 = load ptr, ptr %9, align 8
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %194
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %9, align 8
-  %190 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %189, i32 0, i32 17
-  %191 = load ptr, ptr %190, align 8
-  %192 = icmp ne ptr %191, null
-  br label %193
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %9, align 8
+  %191 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %190, i32 0, i32 17
+  %192 = load ptr, ptr %191, align 8
+  %193 = icmp ne ptr %192, null
+  br label %194
 
-193:                                              ; preds = %188, %185
-  %194 = phi i1 [ false, %185 ], [ %192, %188 ]
-  %195 = zext i1 %194 to i8
-  store i8 %195, ptr %23, align 1
-  br label %196
+194:                                              ; preds = %189, %186
+  %195 = phi i1 [ false, %186 ], [ %193, %189 ]
+  %196 = zext i1 %195 to i8
+  store i8 %196, ptr %23, align 1
+  br label %197
 
-196:                                              ; preds = %773, %193
-  %197 = load ptr, ptr %9, align 8
-  %198 = icmp ne ptr %197, null
-  br i1 %198, label %199, label %780
+197:                                              ; preds = %776, %194
+  %198 = load ptr, ptr %9, align 8
+  %199 = icmp ne ptr %198, null
+  br i1 %199, label %200, label %783
 
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %9, align 8
-  store ptr %200, ptr %24, align 8
-  %201 = load ptr, ptr %24, align 8
-  %202 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %201, i32 0, i32 10
-  %203 = load i16, ptr %202, align 4
-  %204 = zext i16 %203 to i64
-  store i64 %204, ptr %25, align 8
-  %205 = load ptr, ptr %24, align 8
-  %206 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %205, i32 0, i32 8
-  %207 = load i16, ptr %206, align 1
-  %208 = lshr i16 %207, 6
-  %209 = and i16 %208, 1
-  %210 = trunc i16 %209 to i1
-  br i1 %210, label %211, label %214
+200:                                              ; preds = %197
+  %201 = load ptr, ptr %9, align 8
+  store ptr %201, ptr %24, align 8
+  %202 = load ptr, ptr %24, align 8
+  %203 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %202, i32 0, i32 10
+  %204 = load i16, ptr %203, align 4
+  %205 = zext i16 %204 to i64
+  store i64 %205, ptr %25, align 8
+  %206 = load ptr, ptr %24, align 8
+  %207 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %206, i32 0, i32 8
+  %208 = load i16, ptr %207, align 1
+  %209 = lshr i16 %208, 6
+  %210 = and i16 %209, 1
+  %211 = trunc i16 %210 to i1
+  br i1 %211, label %212, label %215
 
-211:                                              ; preds = %199
-  %212 = load i64, ptr %25, align 8
-  %213 = add i64 %212, -1
-  store i64 %213, ptr %25, align 8
-  br label %214
+212:                                              ; preds = %200
+  %213 = load i64, ptr %25, align 8
+  %214 = add i64 %213, -1
+  store i64 %214, ptr %25, align 8
+  br label %215
 
-214:                                              ; preds = %211, %199
-  %215 = load ptr, ptr %24, align 8
-  %216 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %215, i32 0, i32 8
-  %217 = load i16, ptr %216, align 1
-  %218 = lshr i16 %217, 7
-  %219 = and i16 %218, 1
-  %220 = trunc i16 %219 to i1
-  br i1 %220, label %221, label %224
+215:                                              ; preds = %212, %200
+  %216 = load ptr, ptr %24, align 8
+  %217 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %216, i32 0, i32 8
+  %218 = load i16, ptr %217, align 1
+  %219 = lshr i16 %218, 7
+  %220 = and i16 %219, 1
+  %221 = trunc i16 %220 to i1
+  br i1 %221, label %222, label %225
 
-221:                                              ; preds = %214
-  %222 = load i64, ptr %25, align 8
-  %223 = add i64 %222, -1
-  store i64 %223, ptr %25, align 8
-  br label %224
+222:                                              ; preds = %215
+  %223 = load i64, ptr %25, align 8
+  %224 = add i64 %223, -1
+  store i64 %224, ptr %25, align 8
+  br label %225
 
-224:                                              ; preds = %221, %214
-  %225 = load ptr, ptr %24, align 8
-  %226 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %225, i32 0, i32 11
-  %227 = load i16, ptr %226, align 2
-  %228 = zext i16 %227 to i64
-  store i64 %228, ptr %26, align 8
-  %229 = load ptr, ptr %24, align 8
-  %230 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %229, i32 0, i32 8
-  %231 = load i16, ptr %230, align 1
-  %232 = lshr i16 %231, 6
-  %233 = and i16 %232, 1
-  %234 = trunc i16 %233 to i1
-  br i1 %234, label %240, label %235
+225:                                              ; preds = %222, %215
+  %226 = load ptr, ptr %24, align 8
+  %227 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %226, i32 0, i32 11
+  %228 = load i16, ptr %227, align 2
+  %229 = zext i16 %228 to i64
+  store i64 %229, ptr %26, align 8
+  %230 = load ptr, ptr %24, align 8
+  %231 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %230, i32 0, i32 8
+  %232 = load i16, ptr %231, align 1
+  %233 = lshr i16 %232, 6
+  %234 = and i16 %233, 1
+  %235 = trunc i16 %234 to i1
+  br i1 %235, label %241, label %236
 
-235:                                              ; preds = %224
-  %236 = load i64, ptr %10, align 8
-  %237 = load i64, ptr %26, align 8
-  %238 = icmp ugt i64 %236, %237
-  br i1 %238, label %239, label %240
+236:                                              ; preds = %225
+  %237 = load i64, ptr %10, align 8
+  %238 = load i64, ptr %26, align 8
+  %239 = icmp ugt i64 %237, %238
+  br i1 %239, label %240, label %241
 
-239:                                              ; preds = %235
-  br label %773
+240:                                              ; preds = %236
+  br label %776
 
-240:                                              ; preds = %235, %224
-  %241 = load i64, ptr %10, align 8
-  %242 = load i64, ptr %26, align 8
-  %243 = icmp ult i64 %241, %242
-  br i1 %243, label %244, label %251
+241:                                              ; preds = %236, %225
+  %242 = load i64, ptr %10, align 8
+  %243 = load i64, ptr %26, align 8
+  %244 = icmp ult i64 %242, %243
+  br i1 %244, label %245, label %252
 
-244:                                              ; preds = %240
-  %245 = load ptr, ptr %24, align 8
-  %246 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %245, i32 0, i32 3
-  %247 = call noundef i64 @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %246) #6
-  %248 = load i64, ptr %26, align 8
-  %249 = icmp ult i64 %247, %248
-  br i1 %249, label %250, label %251
+245:                                              ; preds = %241
+  %246 = load ptr, ptr %24, align 8
+  %247 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %246, i32 0, i32 3
+  %248 = call noundef i64 @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %247) #6
+  %249 = load i64, ptr %26, align 8
+  %250 = icmp ult i64 %248, %249
+  br i1 %250, label %251, label %252
 
-250:                                              ; preds = %244
-  br label %773
+251:                                              ; preds = %245
+  br label %776
 
-251:                                              ; preds = %244, %240
-  %252 = load ptr, ptr %24, align 8
+252:                                              ; preds = %245, %241
+  %253 = load ptr, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %11, i64 8, i1 false)
-  %253 = getelementptr inbounds %"class.pybind11::handle", ptr %28, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  invoke void @_ZN8pybind116detail13function_callC2ERKNS0_15function_recordENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(136) %252, ptr %254)
-          to label %255 unwind label %273
+  %254 = getelementptr inbounds %"class.pybind11::handle", ptr %28, i32 0, i32 0
+  %255 = load ptr, ptr %254, align 8
+  invoke void @_ZN8pybind116detail13function_callC2ERKNS0_15function_recordENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(136) %253, ptr %255)
+          to label %256 unwind label %274
 
-255:                                              ; preds = %251
-  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %257 = load i64, ptr %256, align 8
-  store i64 %257, ptr %29, align 8
+256:                                              ; preds = %252
+  %257 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %258 = load i64, ptr %257, align 8
+  store i64 %258, ptr %29, align 8
   store i64 0, ptr %30, align 8
-  %258 = load ptr, ptr %24, align 8
-  %259 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %258, i32 0, i32 8
-  %260 = load i16, ptr %259, align 1
-  %261 = lshr i16 %260, 1
-  %262 = and i16 %261, 1
-  %263 = trunc i16 %262 to i1
-  br i1 %263, label %264, label %295
+  %259 = load ptr, ptr %24, align 8
+  %260 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %259, i32 0, i32 8
+  %261 = load i16, ptr %260, align 1
+  %262 = lshr i16 %261, 1
+  %263 = and i16 %262, 1
+  %264 = trunc i16 %263 to i1
+  br i1 %264, label %265, label %296
 
-264:                                              ; preds = %255
-  %265 = invoke noundef zeroext i1 @_ZNK8pybind116detail16value_and_holdercvbEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %266 unwind label %277
+265:                                              ; preds = %256
+  %266 = invoke noundef zeroext i1 @_ZNK8pybind116detail16value_and_holdercvbEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %267 unwind label %278
 
-266:                                              ; preds = %264
-  br i1 %265, label %267, label %281
+267:                                              ; preds = %265
+  br i1 %266, label %268, label %282
 
-267:                                              ; preds = %266
-  %268 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %13, i32 0, i32 2
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %269, i32 0, i32 7
-  %271 = load ptr, ptr %270, align 8
-  invoke void %271(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %272 unwind label %277
+268:                                              ; preds = %267
+  %269 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %13, i32 0, i32 2
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %270, i32 0, i32 7
+  %272 = load ptr, ptr %271, align 8
+  invoke void %272(ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %273 unwind label %278
 
-272:                                              ; preds = %267
-  br label %281
+273:                                              ; preds = %268
+  br label %282
 
-273:                                              ; preds = %828, %826, %785, %251
-  %274 = landingpad { ptr, i32 }
+274:                                              ; preds = %833, %831, %788, %252
+  %275 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8pybind1117error_already_setE
           catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
           catch ptr null
-  %275 = extractvalue { ptr, i32 } %274, 0
-  store ptr %275, ptr %20, align 8
-  %276 = extractvalue { ptr, i32 } %274, 1
-  store i32 %276, ptr %21, align 4
-  br label %850
+  %276 = extractvalue { ptr, i32 } %275, 0
+  store ptr %276, ptr %20, align 8
+  %277 = extractvalue { ptr, i32 } %275, 1
+  store i32 %277, ptr %21, align 4
+  br label %856
 
-277:                                              ; preds = %378, %375, %365, %352, %333, %324, %290, %286, %281, %267, %264
-  %278 = landingpad { ptr, i32 }
+278:                                              ; preds = %379, %376, %366, %353, %334, %325, %291, %287, %282, %268, %265
+  %279 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8pybind1117error_already_setE
           catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
           catch ptr null
-  %279 = extractvalue { ptr, i32 } %278, 0
-  store ptr %279, ptr %20, align 8
-  %280 = extractvalue { ptr, i32 } %278, 1
-  store i32 %280, ptr %21, align 4
-  br label %779
+  %280 = extractvalue { ptr, i32 } %279, 0
+  store ptr %280, ptr %20, align 8
+  %281 = extractvalue { ptr, i32 } %279, 1
+  store i32 %281, ptr %21, align 4
+  br label %782
 
-281:                                              ; preds = %272, %266
-  %282 = load ptr, ptr %6, align 8
-  %283 = getelementptr inbounds %struct.PyTupleObject, ptr %282, i32 0, i32 1
-  %284 = getelementptr inbounds [1 x ptr], ptr %283, i64 0, i64 0
-  %285 = load ptr, ptr %284, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %285)
-          to label %286 unwind label %277
+282:                                              ; preds = %273, %267
+  %283 = load ptr, ptr %6, align 8
+  %284 = getelementptr inbounds %struct.PyTupleObject, ptr %283, i32 0, i32 1
+  %285 = getelementptr inbounds [1 x ptr], ptr %284, i64 0, i64 0
+  %286 = load ptr, ptr %285, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %286)
+          to label %287 unwind label %278
 
-286:                                              ; preds = %281
-  %287 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %287, ptr align 8 %31, i64 8, i1 false)
-  %288 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+287:                                              ; preds = %282
+  %288 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %288, ptr align 8 %31, i64 8, i1 false)
+  %289 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
   store ptr %13, ptr %32, align 8
-  %289 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN8pybind116handleESaIS1_EE12emplace_backIJP7_objectEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %290 unwind label %277
+  %290 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN8pybind116handleESaIS1_EE12emplace_backIJP7_objectEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %289, ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %291 unwind label %278
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %291, i1 noundef zeroext false)
-          to label %292 unwind label %277
+291:                                              ; preds = %287
+  %292 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %292, i1 noundef zeroext false)
+          to label %293 unwind label %278
 
-292:                                              ; preds = %290
-  %293 = load i64, ptr %30, align 8
-  %294 = add i64 %293, 1
-  store i64 %294, ptr %30, align 8
-  br label %295
-
-295:                                              ; preds = %292, %255
-  store i8 0, ptr %33, align 1
+293:                                              ; preds = %291
+  %294 = load i64, ptr %30, align 8
+  %295 = add i64 %294, 1
+  store i64 %295, ptr %30, align 8
   br label %296
 
-296:                                              ; preds = %368, %295
-  %297 = load i64, ptr %30, align 8
-  %298 = load i64, ptr %29, align 8
-  %299 = icmp ult i64 %297, %298
-  br i1 %299, label %300, label %371
+296:                                              ; preds = %293, %256
+  store i8 0, ptr %33, align 1
+  br label %297
 
-300:                                              ; preds = %296
-  %301 = load i64, ptr %30, align 8
-  %302 = load ptr, ptr %24, align 8
-  %303 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %302, i32 0, i32 3
-  %304 = call noundef i64 @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %303) #6
-  %305 = icmp ult i64 %301, %304
-  br i1 %305, label %306, label %311
+297:                                              ; preds = %369, %296
+  %298 = load i64, ptr %30, align 8
+  %299 = load i64, ptr %29, align 8
+  %300 = icmp ult i64 %298, %299
+  br i1 %300, label %301, label %372
 
-306:                                              ; preds = %300
-  %307 = load ptr, ptr %24, align 8
-  %308 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %307, i32 0, i32 3
-  %309 = load i64, ptr %30, align 8
-  %310 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %308, i64 noundef %309) #6
-  br label %312
+301:                                              ; preds = %297
+  %302 = load i64, ptr %30, align 8
+  %303 = load ptr, ptr %24, align 8
+  %304 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %303, i32 0, i32 3
+  %305 = call noundef i64 @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %304) #6
+  %306 = icmp ult i64 %302, %305
+  br i1 %306, label %307, label %312
 
-311:                                              ; preds = %300
-  br label %312
+307:                                              ; preds = %301
+  %308 = load ptr, ptr %24, align 8
+  %309 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %308, i32 0, i32 3
+  %310 = load i64, ptr %30, align 8
+  %311 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %309, i64 noundef %310) #6
+  br label %313
 
-312:                                              ; preds = %311, %306
-  %313 = phi ptr [ %310, %306 ], [ null, %311 ]
-  store ptr %313, ptr %34, align 8
-  %314 = load ptr, ptr %7, align 8
-  %315 = icmp ne ptr %314, null
-  br i1 %315, label %316, label %333
+312:                                              ; preds = %301
+  br label %313
 
-316:                                              ; preds = %312
-  %317 = load ptr, ptr %34, align 8
-  %318 = icmp ne ptr %317, null
-  br i1 %318, label %319, label %333
+313:                                              ; preds = %312, %307
+  %314 = phi ptr [ %311, %307 ], [ null, %312 ]
+  store ptr %314, ptr %34, align 8
+  %315 = load ptr, ptr %7, align 8
+  %316 = icmp ne ptr %315, null
+  br i1 %316, label %317, label %334
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr %34, align 8
-  %321 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %320, i32 0, i32 0
-  %322 = load ptr, ptr %321, align 8
-  %323 = icmp ne ptr %322, null
-  br i1 %323, label %324, label %333
+317:                                              ; preds = %313
+  %318 = load ptr, ptr %34, align 8
+  %319 = icmp ne ptr %318, null
+  br i1 %319, label %320, label %334
 
-324:                                              ; preds = %319
-  %325 = load ptr, ptr %7, align 8
-  %326 = load ptr, ptr %34, align 8
-  %327 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %326, i32 0, i32 0
-  %328 = load ptr, ptr %327, align 8
-  %329 = invoke noundef ptr @_ZN8pybind116detail18dict_getitemstringEP7_objectPKc(ptr noundef %325, ptr noundef %328)
-          to label %330 unwind label %277
+320:                                              ; preds = %317
+  %321 = load ptr, ptr %34, align 8
+  %322 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %321, i32 0, i32 0
+  %323 = load ptr, ptr %322, align 8
+  %324 = icmp ne ptr %323, null
+  br i1 %324, label %325, label %334
 
-330:                                              ; preds = %324
-  %331 = icmp ne ptr %329, null
-  br i1 %331, label %332, label %333
+325:                                              ; preds = %320
+  %326 = load ptr, ptr %7, align 8
+  %327 = load ptr, ptr %34, align 8
+  %328 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %327, i32 0, i32 0
+  %329 = load ptr, ptr %328, align 8
+  %330 = invoke noundef ptr @_ZN8pybind116detail18dict_getitemstringEP7_objectPKc(ptr noundef %326, ptr noundef %329)
+          to label %331 unwind label %278
 
-332:                                              ; preds = %330
+331:                                              ; preds = %325
+  %332 = icmp ne ptr %330, null
+  br i1 %332, label %333, label %334
+
+333:                                              ; preds = %331
   store i8 1, ptr %33, align 1
-  br label %371
+  br label %372
 
-333:                                              ; preds = %330, %319, %316, %312
-  %334 = load ptr, ptr %6, align 8
-  %335 = getelementptr inbounds %struct.PyTupleObject, ptr %334, i32 0, i32 1
-  %336 = load i64, ptr %30, align 8
-  %337 = getelementptr inbounds [1 x ptr], ptr %335, i64 0, i64 %336
-  %338 = load ptr, ptr %337, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %338)
-          to label %339 unwind label %277
+334:                                              ; preds = %331, %320, %317, %313
+  %335 = load ptr, ptr %6, align 8
+  %336 = getelementptr inbounds %struct.PyTupleObject, ptr %335, i32 0, i32 1
+  %337 = load i64, ptr %30, align 8
+  %338 = getelementptr inbounds [1 x ptr], ptr %336, i64 0, i64 %337
+  %339 = load ptr, ptr %338, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %339)
+          to label %340 unwind label %278
 
-339:                                              ; preds = %333
-  %340 = load ptr, ptr %34, align 8
-  %341 = icmp ne ptr %340, null
-  br i1 %341, label %342, label %352
+340:                                              ; preds = %334
+  %341 = load ptr, ptr %34, align 8
+  %342 = icmp ne ptr %341, null
+  br i1 %342, label %343, label %353
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %34, align 8
-  %344 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %343, i32 0, i32 3
-  %345 = load i8, ptr %344, align 8
-  %346 = lshr i8 %345, 1
-  %347 = and i8 %346, 1
-  %348 = trunc i8 %347 to i1
-  br i1 %348, label %352, label %349
+343:                                              ; preds = %340
+  %344 = load ptr, ptr %34, align 8
+  %345 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %344, i32 0, i32 3
+  %346 = load i8, ptr %345, align 8
+  %347 = lshr i8 %346, 1
+  %348 = and i8 %347, 1
+  %349 = trunc i8 %348 to i1
+  br i1 %349, label %353, label %350
 
-349:                                              ; preds = %342
-  %350 = call noundef zeroext i1 @_ZNK8pybind116detail10object_apiINS_6handleEE7is_noneEv(ptr noundef nonnull align 1 dereferenceable(1) %35)
-  br i1 %350, label %351, label %352
+350:                                              ; preds = %343
+  %351 = call noundef zeroext i1 @_ZNK8pybind116detail10object_apiINS_6handleEE7is_noneEv(ptr noundef nonnull align 1 dereferenceable(1) %35)
+  br i1 %351, label %352, label %353
 
-351:                                              ; preds = %349
+352:                                              ; preds = %350
   store i8 1, ptr %33, align 1
-  br label %371
+  br label %372
 
-352:                                              ; preds = %349, %342, %339
-  %353 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %354 unwind label %277
+353:                                              ; preds = %350, %343, %340
+  %354 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %354, ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %355 unwind label %278
 
-354:                                              ; preds = %352
-  %355 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  %356 = load ptr, ptr %34, align 8
-  %357 = icmp ne ptr %356, null
-  br i1 %357, label %358, label %364
+355:                                              ; preds = %353
+  %356 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  %357 = load ptr, ptr %34, align 8
+  %358 = icmp ne ptr %357, null
+  br i1 %358, label %359, label %365
 
-358:                                              ; preds = %354
-  %359 = load ptr, ptr %34, align 8
-  %360 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %359, i32 0, i32 3
-  %361 = load i8, ptr %360, align 8
-  %362 = and i8 %361, 1
-  %363 = trunc i8 %362 to i1
-  br label %365
+359:                                              ; preds = %355
+  %360 = load ptr, ptr %34, align 8
+  %361 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %360, i32 0, i32 3
+  %362 = load i8, ptr %361, align 8
+  %363 = and i8 %362, 1
+  %364 = trunc i8 %363 to i1
+  br label %366
 
-364:                                              ; preds = %354
-  br label %365
+365:                                              ; preds = %355
+  br label %366
 
-365:                                              ; preds = %364, %358
-  %366 = phi i1 [ %363, %358 ], [ true, %364 ]
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %355, i1 noundef zeroext %366)
-          to label %367 unwind label %277
+366:                                              ; preds = %365, %359
+  %367 = phi i1 [ %364, %359 ], [ true, %365 ]
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %356, i1 noundef zeroext %367)
+          to label %368 unwind label %278
 
-367:                                              ; preds = %365
-  br label %368
+368:                                              ; preds = %366
+  br label %369
 
-368:                                              ; preds = %367
-  %369 = load i64, ptr %30, align 8
-  %370 = add i64 %369, 1
-  store i64 %370, ptr %30, align 8
-  br label %296, !llvm.loop !22
+369:                                              ; preds = %368
+  %370 = load i64, ptr %30, align 8
+  %371 = add i64 %370, 1
+  store i64 %371, ptr %30, align 8
+  br label %297, !llvm.loop !22
 
-371:                                              ; preds = %351, %332, %296
-  %372 = load i8, ptr %33, align 1
-  %373 = trunc i8 %372 to i1
-  br i1 %373, label %374, label %375
+372:                                              ; preds = %352, %333, %297
+  %373 = load i8, ptr %33, align 1
+  %374 = trunc i8 %373 to i1
+  br i1 %374, label %375, label %376
 
-374:                                              ; preds = %371
+375:                                              ; preds = %372
   store i32 4, ptr %36, align 4
-  br label %770
-
-375:                                              ; preds = %371
-  %376 = load i64, ptr %30, align 8
-  store i64 %376, ptr %37, align 8
-  %377 = load ptr, ptr %7, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %377)
-          to label %378 unwind label %277
-
-378:                                              ; preds = %375
-  %379 = getelementptr inbounds %"class.pybind11::handle", ptr %39, i32 0, i32 0
-  %380 = load ptr, ptr %379, align 8
-  invoke void @_ZN8pybind1118reinterpret_borrowINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %38, ptr %380)
-          to label %381 unwind label %277
-
-381:                                              ; preds = %378
-  %382 = load i64, ptr %30, align 8
-  %383 = load ptr, ptr %24, align 8
-  %384 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %383, i32 0, i32 12
-  %385 = load i16, ptr %384, align 8
-  %386 = zext i16 %385 to i64
-  %387 = icmp ult i64 %382, %386
-  br i1 %387, label %388, label %437
-
-388:                                              ; preds = %381
-  br label %389
-
-389:                                              ; preds = %425, %388
-  %390 = load i64, ptr %30, align 8
-  %391 = load ptr, ptr %24, align 8
-  %392 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %391, i32 0, i32 12
-  %393 = load i16, ptr %392, align 8
-  %394 = zext i16 %393 to i64
-  %395 = icmp ult i64 %390, %394
-  br i1 %395, label %396, label %428
-
-396:                                              ; preds = %389
-  %397 = load ptr, ptr %24, align 8
-  %398 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %397, i32 0, i32 3
-  %399 = load i64, ptr %30, align 8
-  %400 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %398, i64 noundef %399) #6
-  store ptr %400, ptr %40, align 8
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #6
-  %401 = load ptr, ptr %40, align 8
-  %402 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %401, i32 0, i32 2
-  %403 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %402)
-  br i1 %403, label %404, label %407
-
-404:                                              ; preds = %396
-  %405 = load ptr, ptr %40, align 8
-  %406 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %405, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %406, i64 8, i1 false)
-  br label %407
-
-407:                                              ; preds = %404, %396
-  %408 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
-  br i1 %408, label %409, label %423
-
-409:                                              ; preds = %407
-  %410 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %410, ptr noundef nonnull align 8 dereferenceable(8) %41)
-          to label %411 unwind label %419
-
-411:                                              ; preds = %409
-  %412 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  %413 = load ptr, ptr %40, align 8
-  %414 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %413, i32 0, i32 3
-  %415 = load i8, ptr %414, align 8
-  %416 = and i8 %415, 1
-  %417 = trunc i8 %416 to i1
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %412, i1 noundef zeroext %417)
-          to label %418 unwind label %419
-
-418:                                              ; preds = %411
-  br label %424
-
-419:                                              ; preds = %679, %677, %674, %669, %586, %568, %547, %545, %537, %496, %486, %484, %479, %478, %475, %473, %466, %460, %458, %411, %409
-  %420 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %421 = extractvalue { ptr, i32 } %420, 0
-  store ptr %421, ptr %20, align 8
-  %422 = extractvalue { ptr, i32 } %420, 1
-  store i32 %422, ptr %21, align 4
-  br label %778
-
-423:                                              ; preds = %407
-  br label %428
-
-424:                                              ; preds = %418
-  br label %425
-
-425:                                              ; preds = %424
-  %426 = load i64, ptr %30, align 8
-  %427 = add i64 %426, 1
-  store i64 %427, ptr %30, align 8
-  br label %389, !llvm.loop !23
-
-428:                                              ; preds = %423, %389
-  %429 = load i64, ptr %30, align 8
-  %430 = load ptr, ptr %24, align 8
-  %431 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %430, i32 0, i32 12
-  %432 = load i16, ptr %431, align 8
-  %433 = zext i16 %432 to i64
-  %434 = icmp ult i64 %429, %433
-  br i1 %434, label %435, label %436
-
-435:                                              ; preds = %428
-  store i32 4, ptr %36, align 4
-  br label %769
-
-436:                                              ; preds = %428
-  br label %437
-
-437:                                              ; preds = %436, %381
-  %438 = load i64, ptr %30, align 8
-  %439 = load i64, ptr %25, align 8
-  %440 = icmp ult i64 %438, %439
-  br i1 %440, label %441, label %566
-
-441:                                              ; preds = %437
-  store i8 0, ptr %42, align 1
-  br label %442
-
-442:                                              ; preds = %557, %441
-  %443 = load i64, ptr %30, align 8
-  %444 = load i64, ptr %25, align 8
-  %445 = icmp ult i64 %443, %444
-  br i1 %445, label %446, label %560
-
-446:                                              ; preds = %442
-  %447 = load ptr, ptr %24, align 8
-  %448 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %447, i32 0, i32 3
-  %449 = load i64, ptr %30, align 8
-  %450 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %448, i64 noundef %449) #6
-  store ptr %450, ptr %43, align 8
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #6
-  %451 = load ptr, ptr %7, align 8
-  %452 = icmp ne ptr %451, null
-  br i1 %452, label %453, label %468
-
-453:                                              ; preds = %446
-  %454 = load ptr, ptr %43, align 8
-  %455 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %454, i32 0, i32 0
-  %456 = load ptr, ptr %455, align 8
-  %457 = icmp ne ptr %456, null
-  br i1 %457, label %458, label %468
-
-458:                                              ; preds = %453
-  %459 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %460 unwind label %419
-
-460:                                              ; preds = %458
-  %461 = load ptr, ptr %459, align 8
-  %462 = load ptr, ptr %43, align 8
-  %463 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %462, i32 0, i32 0
-  %464 = load ptr, ptr %463, align 8
-  %465 = invoke noundef ptr @_ZN8pybind116detail18dict_getitemstringEP7_objectPKc(ptr noundef %461, ptr noundef %464)
-          to label %466 unwind label %419
-
-466:                                              ; preds = %460
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %465)
-          to label %467 unwind label %419
-
-467:                                              ; preds = %466
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %45, i64 8, i1 false)
-  br label %468
-
-468:                                              ; preds = %467, %453, %446
-  %469 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
-  br i1 %469, label %470, label %502
-
-470:                                              ; preds = %468
-  %471 = load i8, ptr %42, align 1
-  %472 = trunc i8 %471 to i1
-  br i1 %472, label %484, label %473
-
-473:                                              ; preds = %470
-  %474 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %475 unwind label %419
-
-475:                                              ; preds = %473
-  %476 = load ptr, ptr %474, align 8
-  %477 = invoke ptr @PyDict_Copy(ptr noundef %476)
-          to label %478 unwind label %419
-
-478:                                              ; preds = %475
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %477)
-          to label %479 unwind label %419
-
-479:                                              ; preds = %478
-  %480 = getelementptr inbounds %"class.pybind11::handle", ptr %47, i32 0, i32 0
-  %481 = load ptr, ptr %480, align 8
-  invoke void @_ZN8pybind1117reinterpret_stealINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %46, ptr %481)
-          to label %482 unwind label %419
-
-482:                                              ; preds = %479
-  %483 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind114dictaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %46) #6
-  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #6
-  store i8 1, ptr %42, align 1
-  br label %484
-
-484:                                              ; preds = %482, %470
-  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %486 unwind label %419
-
-486:                                              ; preds = %484
-  %487 = load ptr, ptr %485, align 8
-  %488 = load ptr, ptr %43, align 8
-  %489 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %488, i32 0, i32 0
-  %490 = load ptr, ptr %489, align 8
-  %491 = invoke i32 @PyDict_DelItemString(ptr noundef %487, ptr noundef %490)
-          to label %492 unwind label %419
-
-492:                                              ; preds = %486
-  %493 = icmp eq i32 %491, -1
-  br i1 %493, label %494, label %501
-
-494:                                              ; preds = %492
-  %495 = call ptr @__cxa_allocate_exception(i64 24) #6
-  invoke void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %495)
-          to label %496 unwind label %497
-
-496:                                              ; preds = %494
-  invoke void @__cxa_throw(ptr %495, ptr @_ZTIN8pybind1117error_already_setE, ptr @_ZN8pybind1117error_already_setD2Ev) #23
-          to label %1330 unwind label %419
-
-497:                                              ; preds = %494
-  %498 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %499 = extractvalue { ptr, i32 } %498, 0
-  store ptr %499, ptr %20, align 8
-  %500 = extractvalue { ptr, i32 } %498, 1
-  store i32 %500, ptr %21, align 4
-  call void @__cxa_free_exception(ptr %495) #6
-  br label %778
-
-501:                                              ; preds = %492
-  br label %510
-
-502:                                              ; preds = %468
-  %503 = load ptr, ptr %43, align 8
-  %504 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %503, i32 0, i32 2
-  %505 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %504)
-  br i1 %505, label %506, label %509
-
-506:                                              ; preds = %502
-  %507 = load ptr, ptr %43, align 8
-  %508 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %507, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %508, i64 8, i1 false)
-  br label %509
-
-509:                                              ; preds = %506, %502
-  br label %510
-
-510:                                              ; preds = %509, %501
-  %511 = load ptr, ptr %43, align 8
-  %512 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %511, i32 0, i32 3
-  %513 = load i8, ptr %512, align 8
-  %514 = lshr i8 %513, 1
-  %515 = and i8 %514, 1
-  %516 = trunc i8 %515 to i1
-  br i1 %516, label %520, label %517
-
-517:                                              ; preds = %510
-  %518 = call noundef zeroext i1 @_ZNK8pybind116detail10object_apiINS_6handleEE7is_noneEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
-  br i1 %518, label %519, label %520
-
-519:                                              ; preds = %517
-  br label %560
-
-520:                                              ; preds = %517, %510
-  %521 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
-  br i1 %521, label %522, label %555
-
-522:                                              ; preds = %520
-  %523 = load ptr, ptr %24, align 8
-  %524 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %523, i32 0, i32 8
-  %525 = load i16, ptr %524, align 1
-  %526 = lshr i16 %525, 6
-  %527 = and i16 %526, 1
-  %528 = trunc i16 %527 to i1
-  br i1 %528, label %529, label %545
-
-529:                                              ; preds = %522
-  %530 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  %531 = call noundef i64 @_ZNKSt6vectorIN8pybind116handleESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %530) #6
-  %532 = load ptr, ptr %24, align 8
-  %533 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %532, i32 0, i32 11
-  %534 = load i16, ptr %533, align 2
-  %535 = zext i16 %534 to i64
-  %536 = icmp eq i64 %531, %535
-  br i1 %536, label %537, label %545
-
-537:                                              ; preds = %529
-  %538 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %539 unwind label %419
-
-539:                                              ; preds = %537
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %538, ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %540 unwind label %541
-
-540:                                              ; preds = %539
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #6
-  br label %545
-
-541:                                              ; preds = %539
-  %542 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %543 = extractvalue { ptr, i32 } %542, 0
-  store ptr %543, ptr %20, align 8
-  %544 = extractvalue { ptr, i32 } %542, 1
-  store i32 %544, ptr %21, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #6
-  br label %778
-
-545:                                              ; preds = %540, %529, %522
-  %546 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %546, ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %547 unwind label %419
-
-547:                                              ; preds = %545
-  %548 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  %549 = load ptr, ptr %43, align 8
-  %550 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %549, i32 0, i32 3
-  %551 = load i8, ptr %550, align 8
-  %552 = and i8 %551, 1
-  %553 = trunc i8 %552 to i1
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %548, i1 noundef zeroext %553)
-          to label %554 unwind label %419
-
-554:                                              ; preds = %547
-  br label %556
-
-555:                                              ; preds = %520
-  br label %560
-
-556:                                              ; preds = %554
-  br label %557
-
-557:                                              ; preds = %556
-  %558 = load i64, ptr %30, align 8
-  %559 = add i64 %558, 1
-  store i64 %559, ptr %30, align 8
-  br label %442, !llvm.loop !24
-
-560:                                              ; preds = %555, %519, %442
-  %561 = load i64, ptr %30, align 8
-  %562 = load i64, ptr %25, align 8
-  %563 = icmp ult i64 %561, %562
-  br i1 %563, label %564, label %565
-
-564:                                              ; preds = %560
-  store i32 4, ptr %36, align 4
-  br label %769
-
-565:                                              ; preds = %560
-  br label %566
-
-566:                                              ; preds = %565, %437
-  %567 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-  br i1 %567, label %568, label %579
-
-568:                                              ; preds = %566
-  %569 = invoke noundef zeroext i1 @_ZNK8pybind114dict5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %570 unwind label %419
-
-570:                                              ; preds = %568
-  br i1 %569, label %579, label %571
-
-571:                                              ; preds = %570
-  %572 = load ptr, ptr %24, align 8
-  %573 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %572, i32 0, i32 8
-  %574 = load i16, ptr %573, align 1
-  %575 = lshr i16 %574, 7
-  %576 = and i16 %575, 1
-  %577 = trunc i16 %576 to i1
-  br i1 %577, label %579, label %578
-
-578:                                              ; preds = %571
-  store i32 4, ptr %36, align 4
-  br label %769
-
-579:                                              ; preds = %571, %570, %566
-  %580 = load ptr, ptr %24, align 8
-  %581 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %580, i32 0, i32 8
-  %582 = load i16, ptr %581, align 1
-  %583 = lshr i16 %582, 6
-  %584 = and i16 %583, 1
-  %585 = trunc i16 %584 to i1
-  br i1 %585, label %586, label %662
-
-586:                                              ; preds = %579
-  invoke void @_ZN8pybind115tupleC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef 0)
-          to label %587 unwind label %419
-
-587:                                              ; preds = %586
-  %588 = load i64, ptr %29, align 8
-  %589 = icmp eq i64 %588, 0
-  br i1 %589, label %590, label %601
-
-590:                                              ; preds = %587
-  %591 = load ptr, ptr %6, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %591)
-          to label %592 unwind label %597
-
-592:                                              ; preds = %590
-  %593 = getelementptr inbounds %"class.pybind11::handle", ptr %51, i32 0, i32 0
-  %594 = load ptr, ptr %593, align 8
-  invoke void @_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %50, ptr %594)
-          to label %595 unwind label %597
-
-595:                                              ; preds = %592
-  %596 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50) #6
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #6
-  br label %638
-
-597:                                              ; preds = %656, %646, %619, %608, %605, %592, %590
-  %598 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %599 = extractvalue { ptr, i32 } %598, 0
-  store ptr %599, ptr %20, align 8
-  %600 = extractvalue { ptr, i32 } %598, 1
-  store i32 %600, ptr %21, align 4
-  br label %661
-
-601:                                              ; preds = %587
-  %602 = load i64, ptr %37, align 8
-  %603 = load i64, ptr %10, align 8
-  %604 = icmp uge i64 %602, %603
-  br i1 %604, label %605, label %608
-
-605:                                              ; preds = %601
-  invoke void @_ZN8pybind115tupleC2IiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef 0)
-          to label %606 unwind label %597
-
-606:                                              ; preds = %605
-  %607 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %52) #6
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #6
-  br label %637
-
-608:                                              ; preds = %601
-  %609 = load i64, ptr %10, align 8
-  %610 = load i64, ptr %37, align 8
-  %611 = sub i64 %609, %610
-  store i64 %611, ptr %53, align 8
-  %612 = load i64, ptr %53, align 8
-  invoke void @_ZN8pybind115tupleC2ImTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %612)
-          to label %613 unwind label %597
-
-613:                                              ; preds = %608
-  %614 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %54) #6
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #6
-  store i64 0, ptr %55, align 8
-  br label %615
-
-615:                                              ; preds = %629, %613
-  %616 = load i64, ptr %55, align 8
-  %617 = load i64, ptr %53, align 8
-  %618 = icmp ult i64 %616, %617
-  br i1 %618, label %619, label %636
-
-619:                                              ; preds = %615
-  %620 = load ptr, ptr %6, align 8
-  %621 = getelementptr inbounds %struct.PyTupleObject, ptr %620, i32 0, i32 1
-  %622 = load i64, ptr %37, align 8
-  %623 = load i64, ptr %55, align 8
-  %624 = add i64 %622, %623
-  %625 = getelementptr inbounds [1 x ptr], ptr %621, i64 0, i64 %624
-  %626 = load i64, ptr %55, align 8
-  invoke void @_ZNK8pybind115tupleixEm(ptr dead_on_unwind writable sret(%"class.pybind11::detail::accessor.311") align 8 %56, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %626)
-          to label %627 unwind label %597
-
-627:                                              ; preds = %619
-  invoke void @_ZNO8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEEaSIRP7_objectEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(8) %625)
-          to label %628 unwind label %632
-
-628:                                              ; preds = %627
-  call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #6
-  br label %629
-
-629:                                              ; preds = %628
-  %630 = load i64, ptr %55, align 8
-  %631 = add i64 %630, 1
-  store i64 %631, ptr %55, align 8
-  br label %615, !llvm.loop !25
-
-632:                                              ; preds = %627
-  %633 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %634 = extractvalue { ptr, i32 } %633, 0
-  store ptr %634, ptr %20, align 8
-  %635 = extractvalue { ptr, i32 } %633, 1
-  store i32 %635, ptr %21, align 4
-  call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #6
-  br label %661
-
-636:                                              ; preds = %615
-  br label %637
-
-637:                                              ; preds = %636, %606
-  br label %638
-
-638:                                              ; preds = %637, %595
-  %639 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  %640 = call noundef i64 @_ZNKSt6vectorIN8pybind116handleESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %639) #6
-  %641 = load ptr, ptr %24, align 8
-  %642 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %641, i32 0, i32 11
-  %643 = load i16, ptr %642, align 2
-  %644 = zext i16 %643 to i64
-  %645 = icmp ule i64 %640, %644
-  br i1 %645, label %646, label %649
-
-646:                                              ; preds = %638
-  %647 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %647, ptr noundef nonnull align 8 dereferenceable(8) %49)
-          to label %648 unwind label %597
-
-648:                                              ; preds = %646
-  br label %656
-
-649:                                              ; preds = %638
-  %650 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  %651 = load ptr, ptr %24, align 8
-  %652 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %651, i32 0, i32 11
-  %653 = load i16, ptr %652, align 2
-  %654 = zext i16 %653 to i64
-  %655 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN8pybind116handleESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %650, i64 noundef %654) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %655, ptr align 8 %49, i64 8, i1 false)
-  br label %656
-
-656:                                              ; preds = %649, %648
-  %657 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %657, i1 noundef zeroext false)
-          to label %658 unwind label %597
-
-658:                                              ; preds = %656
-  %659 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 3
-  %660 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %659, ptr noundef nonnull align 8 dereferenceable(8) %49) #6
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #6
-  br label %662
-
-661:                                              ; preds = %632, %597
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #6
-  br label %778
-
-662:                                              ; preds = %658, %579
-  %663 = load ptr, ptr %24, align 8
-  %664 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %663, i32 0, i32 8
-  %665 = load i16, ptr %664, align 1
-  %666 = lshr i16 %665, 7
-  %667 = and i16 %666, 1
-  %668 = trunc i16 %667 to i1
-  br i1 %668, label %669, label %684
-
-669:                                              ; preds = %662
-  %670 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %671 unwind label %419
-
-671:                                              ; preds = %669
-  %672 = load ptr, ptr %670, align 8
-  %673 = icmp ne ptr %672, null
-  br i1 %673, label %677, label %674
-
-674:                                              ; preds = %671
-  invoke void @_ZN8pybind114dictC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57)
-          to label %675 unwind label %419
-
-675:                                              ; preds = %674
-  %676 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind114dictaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %57) #6
-  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #6
-  br label %677
-
-677:                                              ; preds = %675, %671
-  %678 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %678, ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %679 unwind label %419
-
-679:                                              ; preds = %677
-  %680 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %680, i1 noundef zeroext false)
-          to label %681 unwind label %419
-
-681:                                              ; preds = %679
-  %682 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 4
-  %683 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %682, ptr noundef nonnull align 8 dereferenceable(8) %38) #6
-  br label %684
-
-684:                                              ; preds = %681, %662
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
-  %685 = load i8, ptr %23, align 1
-  %686 = trunc i8 %685 to i1
-  br i1 %686, label %687, label %698
-
-687:                                              ; preds = %684
-  %688 = load ptr, ptr %24, align 8
-  %689 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %688, i32 0, i32 10
-  %690 = load i16, ptr %689, align 4
-  %691 = zext i16 %690 to i64
-  invoke void @_ZNSt6vectorIbSaIbEE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(40) %58, i64 noundef %691, i1 noundef zeroext false)
-          to label %692 unwind label %694
-
-692:                                              ; preds = %687
-  %693 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  call void @_ZNSt6vectorIbSaIbEE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40) %693, ptr noundef nonnull align 8 dereferenceable(40) %58) #6
-  br label %698
-
-694:                                              ; preds = %759, %750, %723, %721, %687
-  %695 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %696 = extractvalue { ptr, i32 } %695, 0
-  store ptr %696, ptr %20, align 8
-  %697 = extractvalue { ptr, i32 } %695, 1
-  store i32 %697, ptr %21, align 4
-  br label %777
-
-698:                                              ; preds = %692, %684
-  invoke void @_ZN8pybind116detail19loader_life_supportC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59)
-          to label %699 unwind label %706
-
-699:                                              ; preds = %698
-  %700 = load ptr, ptr %24, align 8
-  %701 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %700, i32 0, i32 4
-  %702 = load ptr, ptr %701, align 8
-  %703 = invoke ptr %702(ptr noundef nonnull align 8 dereferenceable(104) %27)
-          to label %704 unwind label %710
-
-704:                                              ; preds = %699
-  %705 = getelementptr inbounds %"class.pybind11::handle", ptr %60, i32 0, i32 0
-  store ptr %703, ptr %705, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %60, i64 8, i1 false)
-  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #6
-  br label %723
-
-706:                                              ; preds = %698
-  %707 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1120reference_cast_errorE
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %708 = extractvalue { ptr, i32 } %707, 0
-  store ptr %708, ptr %20, align 8
-  %709 = extractvalue { ptr, i32 } %707, 1
-  store i32 %709, ptr %21, align 4
-  br label %714
-
-710:                                              ; preds = %699
-  %711 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1120reference_cast_errorE
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %712 = extractvalue { ptr, i32 } %711, 0
-  store ptr %712, ptr %20, align 8
-  %713 = extractvalue { ptr, i32 } %711, 1
-  store i32 %713, ptr %21, align 4
-  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #6
-  br label %714
-
-714:                                              ; preds = %710, %706
-  %715 = load i32, ptr %21, align 4
-  %716 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1120reference_cast_errorE) #6
-  %717 = icmp eq i32 %715, %716
-  br i1 %717, label %718, label %777
-
-718:                                              ; preds = %714
-  %719 = load ptr, ptr %20, align 8
-  %720 = call ptr @__cxa_begin_catch(ptr %719) #6
-  store ptr %720, ptr %61, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef inttoptr (i64 1 to ptr))
-          to label %721 unwind label %729
-
-721:                                              ; preds = %718
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %62, i64 8, i1 false)
-  invoke void @__cxa_end_catch()
-          to label %722 unwind label %694
-
-722:                                              ; preds = %721
-  br label %723
-
-723:                                              ; preds = %722, %704
-  %724 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %725 unwind label %694
-
-725:                                              ; preds = %723
-  %726 = load ptr, ptr %724, align 8
-  %727 = icmp ne ptr %726, inttoptr (i64 1 to ptr)
-  br i1 %727, label %728, label %734
-
-728:                                              ; preds = %725
-  store i32 2, ptr %36, align 4
-  br label %768
-
-729:                                              ; preds = %718
-  %730 = landingpad { ptr, i32 }
-          catch ptr @_ZTIN8pybind1117error_already_setE
-          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
-          catch ptr null
-  %731 = extractvalue { ptr, i32 } %730, 0
-  store ptr %731, ptr %20, align 8
-  %732 = extractvalue { ptr, i32 } %730, 1
-  store i32 %732, ptr %21, align 4
-  invoke void @__cxa_end_catch()
-          to label %733 unwind label %1327
-
-733:                                              ; preds = %729
-  br label %777
-
-734:                                              ; preds = %725
-  %735 = load i8, ptr %23, align 1
-  %736 = trunc i8 %735 to i1
-  br i1 %736, label %737, label %767
-
-737:                                              ; preds = %734
-  %738 = load ptr, ptr %24, align 8
-  %739 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %738, i32 0, i32 8
-  %740 = load i16, ptr %739, align 1
-  %741 = lshr i16 %740, 4
-  %742 = and i16 %741, 1
-  %743 = trunc i16 %742 to i1
-  %744 = select i1 %743, i32 1, i32 0
-  %745 = sext i32 %744 to i64
-  store i64 %745, ptr %63, align 8
-  br label %746
-
-746:                                              ; preds = %763, %737
-  %747 = load i64, ptr %63, align 8
-  %748 = load i64, ptr %26, align 8
-  %749 = icmp ult i64 %747, %748
-  br i1 %749, label %750, label %766
-
-750:                                              ; preds = %746
-  %751 = load i64, ptr %63, align 8
-  %752 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %58, i64 noundef %751)
-          to label %753 unwind label %694
-
-753:                                              ; preds = %750
-  %754 = getelementptr inbounds { ptr, i64 }, ptr %64, i32 0, i32 0
-  %755 = extractvalue { ptr, i64 } %752, 0
-  store ptr %755, ptr %754, align 8
-  %756 = getelementptr inbounds { ptr, i64 }, ptr %64, i32 0, i32 1
-  %757 = extractvalue { ptr, i64 } %752, 1
-  store i64 %757, ptr %756, align 8
-  %758 = call noundef zeroext i1 @_ZNKSt14_Bit_referencecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #6
-  br i1 %758, label %759, label %762
-
-759:                                              ; preds = %753
-  %760 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
-  call void @_ZNSt6vectorIbSaIbEE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40) %760, ptr noundef nonnull align 8 dereferenceable(40) %58) #6
-  invoke void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(104) %27)
-          to label %761 unwind label %694
-
-761:                                              ; preds = %759
-  br label %766
-
-762:                                              ; preds = %753
-  br label %763
-
-763:                                              ; preds = %762
-  %764 = load i64, ptr %63, align 8
-  %765 = add i64 %764, 1
-  store i64 %765, ptr %63, align 8
-  br label %746, !llvm.loop !26
-
-766:                                              ; preds = %761, %746
-  br label %767
-
-767:                                              ; preds = %766, %734
-  store i32 0, ptr %36, align 4
-  br label %768
-
-768:                                              ; preds = %767, %728
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
-  br label %769
-
-769:                                              ; preds = %768, %578, %564, %435
-  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #6
-  br label %770
-
-770:                                              ; preds = %769, %374
-  call void @_ZN8pybind116detail13function_callD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %27) #6
-  %771 = load i32, ptr %36, align 4
-  switch i32 %771, label %1330 [
-    i32 0, label %772
-    i32 4, label %773
-    i32 2, label %780
-  ]
-
-772:                                              ; preds = %770
   br label %773
 
-773:                                              ; preds = %772, %770, %250, %239
-  %774 = load ptr, ptr %9, align 8
-  %775 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %774, i32 0, i32 17
-  %776 = load ptr, ptr %775, align 8
-  store ptr %776, ptr %9, align 8
-  br label %196, !llvm.loop !27
+376:                                              ; preds = %372
+  %377 = load i64, ptr %30, align 8
+  store i64 %377, ptr %37, align 8
+  %378 = load ptr, ptr %7, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %378)
+          to label %379 unwind label %278
 
-777:                                              ; preds = %733, %714, %694
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
-  br label %778
+379:                                              ; preds = %376
+  %380 = getelementptr inbounds %"class.pybind11::handle", ptr %39, i32 0, i32 0
+  %381 = load ptr, ptr %380, align 8
+  invoke void @_ZN8pybind1118reinterpret_borrowINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %38, ptr %381)
+          to label %382 unwind label %278
 
-778:                                              ; preds = %777, %661, %541, %497, %419
-  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #6
-  br label %779
+382:                                              ; preds = %379
+  %383 = load i64, ptr %30, align 8
+  %384 = load ptr, ptr %24, align 8
+  %385 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %384, i32 0, i32 12
+  %386 = load i16, ptr %385, align 8
+  %387 = zext i16 %386 to i64
+  %388 = icmp ult i64 %383, %387
+  br i1 %388, label %389, label %438
 
-779:                                              ; preds = %778, %277
-  call void @_ZN8pybind116detail13function_callD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %27) #6
-  br label %850
+389:                                              ; preds = %382
+  br label %390
 
-780:                                              ; preds = %770, %196
-  %781 = load i8, ptr %23, align 1
-  %782 = trunc i8 %781 to i1
-  br i1 %782, label %783, label %849
+390:                                              ; preds = %426, %389
+  %391 = load i64, ptr %30, align 8
+  %392 = load ptr, ptr %24, align 8
+  %393 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %392, i32 0, i32 12
+  %394 = load i16, ptr %393, align 8
+  %395 = zext i16 %394 to i64
+  %396 = icmp ult i64 %391, %395
+  br i1 %396, label %397, label %429
 
-783:                                              ; preds = %780
-  %784 = call noundef zeroext i1 @_ZNKSt6vectorIN8pybind116detail13function_callESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
-  br i1 %784, label %849, label %785
+397:                                              ; preds = %390
+  %398 = load ptr, ptr %24, align 8
+  %399 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %398, i32 0, i32 3
+  %400 = load i64, ptr %30, align 8
+  %401 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %399, i64 noundef %400) #6
+  store ptr %401, ptr %40, align 8
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #6
+  %402 = load ptr, ptr %40, align 8
+  %403 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %402, i32 0, i32 2
+  %404 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %403)
+  br i1 %404, label %405, label %408
 
-785:                                              ; preds = %783
-  %786 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %787 unwind label %273
+405:                                              ; preds = %397
+  %406 = load ptr, ptr %40, align 8
+  %407 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %406, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %407, i64 8, i1 false)
+  br label %408
 
-787:                                              ; preds = %785
-  %788 = load ptr, ptr %786, align 8
-  %789 = icmp eq ptr %788, inttoptr (i64 1 to ptr)
-  br i1 %789, label %790, label %849
+408:                                              ; preds = %405, %397
+  %409 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
+  br i1 %409, label %410, label %424
 
-790:                                              ; preds = %787
-  store ptr %22, ptr %65, align 8
-  %791 = load ptr, ptr %65, align 8
-  %792 = call ptr @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %791) #6
-  %793 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.333", ptr %66, i32 0, i32 0
-  store ptr %792, ptr %793, align 8
-  %794 = load ptr, ptr %65, align 8
-  %795 = call ptr @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %794) #6
-  %796 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.333", ptr %67, i32 0, i32 0
-  store ptr %795, ptr %796, align 8
-  br label %797
+410:                                              ; preds = %408
+  %411 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %411, ptr noundef nonnull align 8 dereferenceable(8) %41)
+          to label %412 unwind label %420
 
-797:                                              ; preds = %846, %790
-  %798 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(8) %67) #6
-  br i1 %798, label %799, label %848
+412:                                              ; preds = %410
+  %413 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  %414 = load ptr, ptr %40, align 8
+  %415 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %414, i32 0, i32 3
+  %416 = load i8, ptr %415, align 8
+  %417 = and i8 %416, 1
+  %418 = trunc i8 %417 to i1
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %413, i1 noundef zeroext %418)
+          to label %419 unwind label %420
 
-799:                                              ; preds = %797
-  %800 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
-  store ptr %800, ptr %68, align 8
-  invoke void @_ZN8pybind116detail19loader_life_supportC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69)
-          to label %801 unwind label %811
+419:                                              ; preds = %412
+  br label %425
 
-801:                                              ; preds = %799
-  %802 = load ptr, ptr %68, align 8
-  %803 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %802, i32 0, i32 0
-  %804 = load ptr, ptr %803, align 8
-  %805 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %804, i32 0, i32 4
-  %806 = load ptr, ptr %805, align 8
-  %807 = load ptr, ptr %68, align 8
-  %808 = invoke ptr %806(ptr noundef nonnull align 8 dereferenceable(104) %807)
-          to label %809 unwind label %815
+420:                                              ; preds = %680, %678, %675, %670, %587, %569, %548, %546, %538, %497, %487, %485, %480, %479, %476, %474, %467, %461, %459, %412, %410
+  %421 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %422 = extractvalue { ptr, i32 } %421, 0
+  store ptr %422, ptr %20, align 8
+  %423 = extractvalue { ptr, i32 } %421, 1
+  store i32 %423, ptr %21, align 4
+  br label %781
 
-809:                                              ; preds = %801
-  %810 = getelementptr inbounds %"class.pybind11::handle", ptr %70, i32 0, i32 0
-  store ptr %808, ptr %810, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %70, i64 8, i1 false)
-  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69) #6
-  br label %828
+424:                                              ; preds = %408
+  br label %429
 
-811:                                              ; preds = %799
-  %812 = landingpad { ptr, i32 }
+425:                                              ; preds = %419
+  br label %426
+
+426:                                              ; preds = %425
+  %427 = load i64, ptr %30, align 8
+  %428 = add i64 %427, 1
+  store i64 %428, ptr %30, align 8
+  br label %390, !llvm.loop !23
+
+429:                                              ; preds = %424, %390
+  %430 = load i64, ptr %30, align 8
+  %431 = load ptr, ptr %24, align 8
+  %432 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %431, i32 0, i32 12
+  %433 = load i16, ptr %432, align 8
+  %434 = zext i16 %433 to i64
+  %435 = icmp ult i64 %430, %434
+  br i1 %435, label %436, label %437
+
+436:                                              ; preds = %429
+  store i32 4, ptr %36, align 4
+  br label %772
+
+437:                                              ; preds = %429
+  br label %438
+
+438:                                              ; preds = %437, %382
+  %439 = load i64, ptr %30, align 8
+  %440 = load i64, ptr %25, align 8
+  %441 = icmp ult i64 %439, %440
+  br i1 %441, label %442, label %567
+
+442:                                              ; preds = %438
+  store i8 0, ptr %42, align 1
+  br label %443
+
+443:                                              ; preds = %558, %442
+  %444 = load i64, ptr %30, align 8
+  %445 = load i64, ptr %25, align 8
+  %446 = icmp ult i64 %444, %445
+  br i1 %446, label %447, label %561
+
+447:                                              ; preds = %443
+  %448 = load ptr, ptr %24, align 8
+  %449 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %448, i32 0, i32 3
+  %450 = load i64, ptr %30, align 8
+  %451 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt6vectorIN8pybind116detail15argument_recordESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %449, i64 noundef %450) #6
+  store ptr %451, ptr %43, align 8
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #6
+  %452 = load ptr, ptr %7, align 8
+  %453 = icmp ne ptr %452, null
+  br i1 %453, label %454, label %469
+
+454:                                              ; preds = %447
+  %455 = load ptr, ptr %43, align 8
+  %456 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %455, i32 0, i32 0
+  %457 = load ptr, ptr %456, align 8
+  %458 = icmp ne ptr %457, null
+  br i1 %458, label %459, label %469
+
+459:                                              ; preds = %454
+  %460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %461 unwind label %420
+
+461:                                              ; preds = %459
+  %462 = load ptr, ptr %460, align 8
+  %463 = load ptr, ptr %43, align 8
+  %464 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %463, i32 0, i32 0
+  %465 = load ptr, ptr %464, align 8
+  %466 = invoke noundef ptr @_ZN8pybind116detail18dict_getitemstringEP7_objectPKc(ptr noundef %462, ptr noundef %465)
+          to label %467 unwind label %420
+
+467:                                              ; preds = %461
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %466)
+          to label %468 unwind label %420
+
+468:                                              ; preds = %467
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %45, i64 8, i1 false)
+  br label %469
+
+469:                                              ; preds = %468, %454, %447
+  %470 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
+  br i1 %470, label %471, label %503
+
+471:                                              ; preds = %469
+  %472 = load i8, ptr %42, align 1
+  %473 = trunc i8 %472 to i1
+  br i1 %473, label %485, label %474
+
+474:                                              ; preds = %471
+  %475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %476 unwind label %420
+
+476:                                              ; preds = %474
+  %477 = load ptr, ptr %475, align 8
+  %478 = invoke ptr @PyDict_Copy(ptr noundef %477)
+          to label %479 unwind label %420
+
+479:                                              ; preds = %476
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %478)
+          to label %480 unwind label %420
+
+480:                                              ; preds = %479
+  %481 = getelementptr inbounds %"class.pybind11::handle", ptr %47, i32 0, i32 0
+  %482 = load ptr, ptr %481, align 8
+  invoke void @_ZN8pybind1117reinterpret_stealINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %46, ptr %482)
+          to label %483 unwind label %420
+
+483:                                              ; preds = %480
+  %484 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind114dictaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %46) #6
+  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #6
+  store i8 1, ptr %42, align 1
+  br label %485
+
+485:                                              ; preds = %483, %471
+  %486 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %487 unwind label %420
+
+487:                                              ; preds = %485
+  %488 = load ptr, ptr %486, align 8
+  %489 = load ptr, ptr %43, align 8
+  %490 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %489, i32 0, i32 0
+  %491 = load ptr, ptr %490, align 8
+  %492 = invoke i32 @PyDict_DelItemString(ptr noundef %488, ptr noundef %491)
+          to label %493 unwind label %420
+
+493:                                              ; preds = %487
+  %494 = icmp eq i32 %492, -1
+  br i1 %494, label %495, label %502
+
+495:                                              ; preds = %493
+  %496 = call ptr @__cxa_allocate_exception(i64 24) #6
+  invoke void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %496)
+          to label %497 unwind label %498
+
+497:                                              ; preds = %495
+  invoke void @__cxa_throw(ptr %496, ptr @_ZTIN8pybind1117error_already_setE, ptr @_ZN8pybind1117error_already_setD2Ev) #23
+          to label %1337 unwind label %420
+
+498:                                              ; preds = %495
+  %499 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %500 = extractvalue { ptr, i32 } %499, 0
+  store ptr %500, ptr %20, align 8
+  %501 = extractvalue { ptr, i32 } %499, 1
+  store i32 %501, ptr %21, align 4
+  call void @__cxa_free_exception(ptr %496) #6
+  br label %781
+
+502:                                              ; preds = %493
+  br label %511
+
+503:                                              ; preds = %469
+  %504 = load ptr, ptr %43, align 8
+  %505 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %504, i32 0, i32 2
+  %506 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %505)
+  br i1 %506, label %507, label %510
+
+507:                                              ; preds = %503
+  %508 = load ptr, ptr %43, align 8
+  %509 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %508, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %509, i64 8, i1 false)
+  br label %510
+
+510:                                              ; preds = %507, %503
+  br label %511
+
+511:                                              ; preds = %510, %502
+  %512 = load ptr, ptr %43, align 8
+  %513 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %512, i32 0, i32 3
+  %514 = load i8, ptr %513, align 8
+  %515 = lshr i8 %514, 1
+  %516 = and i8 %515, 1
+  %517 = trunc i8 %516 to i1
+  br i1 %517, label %521, label %518
+
+518:                                              ; preds = %511
+  %519 = call noundef zeroext i1 @_ZNK8pybind116detail10object_apiINS_6handleEE7is_noneEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
+  br i1 %519, label %520, label %521
+
+520:                                              ; preds = %518
+  br label %561
+
+521:                                              ; preds = %518, %511
+  %522 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
+  br i1 %522, label %523, label %556
+
+523:                                              ; preds = %521
+  %524 = load ptr, ptr %24, align 8
+  %525 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %524, i32 0, i32 8
+  %526 = load i16, ptr %525, align 1
+  %527 = lshr i16 %526, 6
+  %528 = and i16 %527, 1
+  %529 = trunc i16 %528 to i1
+  br i1 %529, label %530, label %546
+
+530:                                              ; preds = %523
+  %531 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  %532 = call noundef i64 @_ZNKSt6vectorIN8pybind116handleESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %531) #6
+  %533 = load ptr, ptr %24, align 8
+  %534 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %533, i32 0, i32 11
+  %535 = load i16, ptr %534, align 2
+  %536 = zext i16 %535 to i64
+  %537 = icmp eq i64 %532, %536
+  br i1 %537, label %538, label %546
+
+538:                                              ; preds = %530
+  %539 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48)
+          to label %540 unwind label %420
+
+540:                                              ; preds = %538
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %539, ptr noundef nonnull align 8 dereferenceable(8) %48)
+          to label %541 unwind label %542
+
+541:                                              ; preds = %540
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #6
+  br label %546
+
+542:                                              ; preds = %540
+  %543 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %544 = extractvalue { ptr, i32 } %543, 0
+  store ptr %544, ptr %20, align 8
+  %545 = extractvalue { ptr, i32 } %543, 1
+  store i32 %545, ptr %21, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #6
+  br label %781
+
+546:                                              ; preds = %541, %530, %523
+  %547 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %547, ptr noundef nonnull align 8 dereferenceable(8) %44)
+          to label %548 unwind label %420
+
+548:                                              ; preds = %546
+  %549 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  %550 = load ptr, ptr %43, align 8
+  %551 = getelementptr inbounds %"struct.pybind11::detail::argument_record", ptr %550, i32 0, i32 3
+  %552 = load i8, ptr %551, align 8
+  %553 = and i8 %552, 1
+  %554 = trunc i8 %553 to i1
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %549, i1 noundef zeroext %554)
+          to label %555 unwind label %420
+
+555:                                              ; preds = %548
+  br label %557
+
+556:                                              ; preds = %521
+  br label %561
+
+557:                                              ; preds = %555
+  br label %558
+
+558:                                              ; preds = %557
+  %559 = load i64, ptr %30, align 8
+  %560 = add i64 %559, 1
+  store i64 %560, ptr %30, align 8
+  br label %443, !llvm.loop !24
+
+561:                                              ; preds = %556, %520, %443
+  %562 = load i64, ptr %30, align 8
+  %563 = load i64, ptr %25, align 8
+  %564 = icmp ult i64 %562, %563
+  br i1 %564, label %565, label %566
+
+565:                                              ; preds = %561
+  store i32 4, ptr %36, align 4
+  br label %772
+
+566:                                              ; preds = %561
+  br label %567
+
+567:                                              ; preds = %566, %438
+  %568 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+  br i1 %568, label %569, label %580
+
+569:                                              ; preds = %567
+  %570 = invoke noundef zeroext i1 @_ZNK8pybind114dict5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %571 unwind label %420
+
+571:                                              ; preds = %569
+  br i1 %570, label %580, label %572
+
+572:                                              ; preds = %571
+  %573 = load ptr, ptr %24, align 8
+  %574 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %573, i32 0, i32 8
+  %575 = load i16, ptr %574, align 1
+  %576 = lshr i16 %575, 7
+  %577 = and i16 %576, 1
+  %578 = trunc i16 %577 to i1
+  br i1 %578, label %580, label %579
+
+579:                                              ; preds = %572
+  store i32 4, ptr %36, align 4
+  br label %772
+
+580:                                              ; preds = %572, %571, %567
+  %581 = load ptr, ptr %24, align 8
+  %582 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %581, i32 0, i32 8
+  %583 = load i16, ptr %582, align 1
+  %584 = lshr i16 %583, 6
+  %585 = and i16 %584, 1
+  %586 = trunc i16 %585 to i1
+  br i1 %586, label %587, label %663
+
+587:                                              ; preds = %580
+  invoke void @_ZN8pybind115tupleC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef 0)
+          to label %588 unwind label %420
+
+588:                                              ; preds = %587
+  %589 = load i64, ptr %29, align 8
+  %590 = icmp eq i64 %589, 0
+  br i1 %590, label %591, label %602
+
+591:                                              ; preds = %588
+  %592 = load ptr, ptr %6, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %592)
+          to label %593 unwind label %598
+
+593:                                              ; preds = %591
+  %594 = getelementptr inbounds %"class.pybind11::handle", ptr %51, i32 0, i32 0
+  %595 = load ptr, ptr %594, align 8
+  invoke void @_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %50, ptr %595)
+          to label %596 unwind label %598
+
+596:                                              ; preds = %593
+  %597 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50) #6
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #6
+  br label %639
+
+598:                                              ; preds = %657, %647, %620, %609, %606, %593, %591
+  %599 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %600 = extractvalue { ptr, i32 } %599, 0
+  store ptr %600, ptr %20, align 8
+  %601 = extractvalue { ptr, i32 } %599, 1
+  store i32 %601, ptr %21, align 4
+  br label %662
+
+602:                                              ; preds = %588
+  %603 = load i64, ptr %37, align 8
+  %604 = load i64, ptr %10, align 8
+  %605 = icmp uge i64 %603, %604
+  br i1 %605, label %606, label %609
+
+606:                                              ; preds = %602
+  invoke void @_ZN8pybind115tupleC2IiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef 0)
+          to label %607 unwind label %598
+
+607:                                              ; preds = %606
+  %608 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %52) #6
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #6
+  br label %638
+
+609:                                              ; preds = %602
+  %610 = load i64, ptr %10, align 8
+  %611 = load i64, ptr %37, align 8
+  %612 = sub i64 %610, %611
+  store i64 %612, ptr %53, align 8
+  %613 = load i64, ptr %53, align 8
+  invoke void @_ZN8pybind115tupleC2ImTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %613)
+          to label %614 unwind label %598
+
+614:                                              ; preds = %609
+  %615 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind115tupleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %54) #6
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #6
+  store i64 0, ptr %55, align 8
+  br label %616
+
+616:                                              ; preds = %630, %614
+  %617 = load i64, ptr %55, align 8
+  %618 = load i64, ptr %53, align 8
+  %619 = icmp ult i64 %617, %618
+  br i1 %619, label %620, label %637
+
+620:                                              ; preds = %616
+  %621 = load ptr, ptr %6, align 8
+  %622 = getelementptr inbounds %struct.PyTupleObject, ptr %621, i32 0, i32 1
+  %623 = load i64, ptr %37, align 8
+  %624 = load i64, ptr %55, align 8
+  %625 = add i64 %623, %624
+  %626 = getelementptr inbounds [1 x ptr], ptr %622, i64 0, i64 %625
+  %627 = load i64, ptr %55, align 8
+  invoke void @_ZNK8pybind115tupleixEm(ptr dead_on_unwind writable sret(%"class.pybind11::detail::accessor.311") align 8 %56, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %627)
+          to label %628 unwind label %598
+
+628:                                              ; preds = %620
+  invoke void @_ZNO8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEEaSIRP7_objectEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(8) %626)
+          to label %629 unwind label %633
+
+629:                                              ; preds = %628
+  call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #6
+  br label %630
+
+630:                                              ; preds = %629
+  %631 = load i64, ptr %55, align 8
+  %632 = add i64 %631, 1
+  store i64 %632, ptr %55, align 8
+  br label %616, !llvm.loop !25
+
+633:                                              ; preds = %628
+  %634 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %635 = extractvalue { ptr, i32 } %634, 0
+  store ptr %635, ptr %20, align 8
+  %636 = extractvalue { ptr, i32 } %634, 1
+  store i32 %636, ptr %21, align 4
+  call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #6
+  br label %662
+
+637:                                              ; preds = %616
+  br label %638
+
+638:                                              ; preds = %637, %607
+  br label %639
+
+639:                                              ; preds = %638, %596
+  %640 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  %641 = call noundef i64 @_ZNKSt6vectorIN8pybind116handleESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %640) #6
+  %642 = load ptr, ptr %24, align 8
+  %643 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %642, i32 0, i32 11
+  %644 = load i16, ptr %643, align 2
+  %645 = zext i16 %644 to i64
+  %646 = icmp ule i64 %641, %645
+  br i1 %646, label %647, label %650
+
+647:                                              ; preds = %639
+  %648 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %648, ptr noundef nonnull align 8 dereferenceable(8) %49)
+          to label %649 unwind label %598
+
+649:                                              ; preds = %647
+  br label %657
+
+650:                                              ; preds = %639
+  %651 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  %652 = load ptr, ptr %24, align 8
+  %653 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %652, i32 0, i32 11
+  %654 = load i16, ptr %653, align 2
+  %655 = zext i16 %654 to i64
+  %656 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN8pybind116handleESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %651, i64 noundef %655) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %656, ptr align 8 %49, i64 8, i1 false)
+  br label %657
+
+657:                                              ; preds = %650, %649
+  %658 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %658, i1 noundef zeroext false)
+          to label %659 unwind label %598
+
+659:                                              ; preds = %657
+  %660 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 3
+  %661 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %660, ptr noundef nonnull align 8 dereferenceable(8) %49) #6
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #6
+  br label %663
+
+662:                                              ; preds = %633, %598
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #6
+  br label %781
+
+663:                                              ; preds = %659, %580
+  %664 = load ptr, ptr %24, align 8
+  %665 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %664, i32 0, i32 8
+  %666 = load i16, ptr %665, align 1
+  %667 = lshr i16 %666, 7
+  %668 = and i16 %667, 1
+  %669 = trunc i16 %668 to i1
+  br i1 %669, label %670, label %685
+
+670:                                              ; preds = %663
+  %671 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %672 unwind label %420
+
+672:                                              ; preds = %670
+  %673 = load ptr, ptr %671, align 8
+  %674 = icmp ne ptr %673, null
+  br i1 %674, label %678, label %675
+
+675:                                              ; preds = %672
+  invoke void @_ZN8pybind114dictC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57)
+          to label %676 unwind label %420
+
+676:                                              ; preds = %675
+  %677 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind114dictaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %57) #6
+  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #6
+  br label %678
+
+678:                                              ; preds = %676, %672
+  %679 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN8pybind116handleESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %679, ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %680 unwind label %420
+
+680:                                              ; preds = %678
+  %681 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  invoke void @_ZNSt6vectorIbSaIbEE9push_backEb(ptr noundef nonnull align 8 dereferenceable(40) %681, i1 noundef zeroext false)
+          to label %682 unwind label %420
+
+682:                                              ; preds = %680
+  %683 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 4
+  %684 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %683, ptr noundef nonnull align 8 dereferenceable(8) %38) #6
+  br label %685
+
+685:                                              ; preds = %682, %663
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
+  %686 = load i8, ptr %23, align 1
+  %687 = trunc i8 %686 to i1
+  br i1 %687, label %688, label %699
+
+688:                                              ; preds = %685
+  %689 = load ptr, ptr %24, align 8
+  %690 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %689, i32 0, i32 10
+  %691 = load i16, ptr %690, align 4
+  %692 = zext i16 %691 to i64
+  invoke void @_ZNSt6vectorIbSaIbEE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(40) %58, i64 noundef %692, i1 noundef zeroext false)
+          to label %693 unwind label %695
+
+693:                                              ; preds = %688
+  %694 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  call void @_ZNSt6vectorIbSaIbEE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40) %694, ptr noundef nonnull align 8 dereferenceable(40) %58) #6
+  br label %699
+
+695:                                              ; preds = %762, %753, %725, %723, %688
+  %696 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %697 = extractvalue { ptr, i32 } %696, 0
+  store ptr %697, ptr %20, align 8
+  %698 = extractvalue { ptr, i32 } %696, 1
+  store i32 %698, ptr %21, align 4
+  br label %780
+
+699:                                              ; preds = %693, %685
+  invoke void @_ZN8pybind116detail19loader_life_supportC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59)
+          to label %700 unwind label %707
+
+700:                                              ; preds = %699
+  %701 = load ptr, ptr %24, align 8
+  %702 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %701, i32 0, i32 4
+  %703 = load ptr, ptr %702, align 8
+  %704 = invoke ptr %703(ptr noundef nonnull align 8 dereferenceable(104) %27)
+          to label %705 unwind label %711
+
+705:                                              ; preds = %700
+  %706 = getelementptr inbounds %"class.pybind11::handle", ptr %60, i32 0, i32 0
+  store ptr %704, ptr %706, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %60, i64 8, i1 false)
+  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #6
+  br label %725
+
+707:                                              ; preds = %699
+  %708 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8pybind1120reference_cast_errorE
           catch ptr @_ZTIN8pybind1117error_already_setE
           catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
           catch ptr null
-  %813 = extractvalue { ptr, i32 } %812, 0
-  store ptr %813, ptr %20, align 8
-  %814 = extractvalue { ptr, i32 } %812, 1
-  store i32 %814, ptr %21, align 4
-  br label %819
+  %709 = extractvalue { ptr, i32 } %708, 0
+  store ptr %709, ptr %20, align 8
+  %710 = extractvalue { ptr, i32 } %708, 1
+  store i32 %710, ptr %21, align 4
+  br label %715
 
-815:                                              ; preds = %801
+711:                                              ; preds = %700
+  %712 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1120reference_cast_errorE
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %713 = extractvalue { ptr, i32 } %712, 0
+  store ptr %713, ptr %20, align 8
+  %714 = extractvalue { ptr, i32 } %712, 1
+  store i32 %714, ptr %21, align 4
+  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #6
+  br label %715
+
+715:                                              ; preds = %711, %707
+  %716 = load i32, ptr %21, align 4
+  %717 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1120reference_cast_errorE) #6
+  %718 = icmp eq i32 %716, %717
+  br i1 %718, label %719, label %780
+
+719:                                              ; preds = %715
+  %720 = load ptr, ptr %20, align 8
+  %721 = call ptr @__cxa_begin_catch(ptr %720) #6
+  store ptr %721, ptr %61, align 8
+  %722 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %722)
+          to label %723 unwind label %732
+
+723:                                              ; preds = %719
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %62, i64 8, i1 false)
+  invoke void @__cxa_end_catch()
+          to label %724 unwind label %695
+
+724:                                              ; preds = %723
+  br label %725
+
+725:                                              ; preds = %724, %705
+  %726 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %727 unwind label %695
+
+727:                                              ; preds = %725
+  %728 = load ptr, ptr %726, align 8
+  %729 = inttoptr i64 1 to ptr
+  %730 = icmp ne ptr %728, %729
+  br i1 %730, label %731, label %737
+
+731:                                              ; preds = %727
+  store i32 2, ptr %36, align 4
+  br label %771
+
+732:                                              ; preds = %719
+  %733 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %734 = extractvalue { ptr, i32 } %733, 0
+  store ptr %734, ptr %20, align 8
+  %735 = extractvalue { ptr, i32 } %733, 1
+  store i32 %735, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %736 unwind label %1334
+
+736:                                              ; preds = %732
+  br label %780
+
+737:                                              ; preds = %727
+  %738 = load i8, ptr %23, align 1
+  %739 = trunc i8 %738 to i1
+  br i1 %739, label %740, label %770
+
+740:                                              ; preds = %737
+  %741 = load ptr, ptr %24, align 8
+  %742 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %741, i32 0, i32 8
+  %743 = load i16, ptr %742, align 1
+  %744 = lshr i16 %743, 4
+  %745 = and i16 %744, 1
+  %746 = trunc i16 %745 to i1
+  %747 = select i1 %746, i32 1, i32 0
+  %748 = sext i32 %747 to i64
+  store i64 %748, ptr %63, align 8
+  br label %749
+
+749:                                              ; preds = %766, %740
+  %750 = load i64, ptr %63, align 8
+  %751 = load i64, ptr %26, align 8
+  %752 = icmp ult i64 %750, %751
+  br i1 %752, label %753, label %769
+
+753:                                              ; preds = %749
+  %754 = load i64, ptr %63, align 8
+  %755 = invoke { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %58, i64 noundef %754)
+          to label %756 unwind label %695
+
+756:                                              ; preds = %753
+  %757 = getelementptr inbounds { ptr, i64 }, ptr %64, i32 0, i32 0
+  %758 = extractvalue { ptr, i64 } %755, 0
+  store ptr %758, ptr %757, align 8
+  %759 = getelementptr inbounds { ptr, i64 }, ptr %64, i32 0, i32 1
+  %760 = extractvalue { ptr, i64 } %755, 1
+  store i64 %760, ptr %759, align 8
+  %761 = call noundef zeroext i1 @_ZNKSt14_Bit_referencecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #6
+  br i1 %761, label %762, label %765
+
+762:                                              ; preds = %756
+  %763 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 2
+  call void @_ZNSt6vectorIbSaIbEE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40) %763, ptr noundef nonnull align 8 dereferenceable(40) %58) #6
+  invoke void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(104) %27)
+          to label %764 unwind label %695
+
+764:                                              ; preds = %762
+  br label %769
+
+765:                                              ; preds = %756
+  br label %766
+
+766:                                              ; preds = %765
+  %767 = load i64, ptr %63, align 8
+  %768 = add i64 %767, 1
+  store i64 %768, ptr %63, align 8
+  br label %749, !llvm.loop !26
+
+769:                                              ; preds = %764, %749
+  br label %770
+
+770:                                              ; preds = %769, %737
+  store i32 0, ptr %36, align 4
+  br label %771
+
+771:                                              ; preds = %770, %731
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
+  br label %772
+
+772:                                              ; preds = %771, %579, %565, %436
+  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #6
+  br label %773
+
+773:                                              ; preds = %772, %375
+  call void @_ZN8pybind116detail13function_callD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %27) #6
+  %774 = load i32, ptr %36, align 4
+  switch i32 %774, label %1337 [
+    i32 0, label %775
+    i32 4, label %776
+    i32 2, label %783
+  ]
+
+775:                                              ; preds = %773
+  br label %776
+
+776:                                              ; preds = %775, %773, %251, %240
+  %777 = load ptr, ptr %9, align 8
+  %778 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %777, i32 0, i32 17
+  %779 = load ptr, ptr %778, align 8
+  store ptr %779, ptr %9, align 8
+  br label %197, !llvm.loop !27
+
+780:                                              ; preds = %736, %715, %695
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #6
+  br label %781
+
+781:                                              ; preds = %780, %662, %542, %498, %420
+  call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #6
+  br label %782
+
+782:                                              ; preds = %781, %278
+  call void @_ZN8pybind116detail13function_callD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %27) #6
+  br label %856
+
+783:                                              ; preds = %773, %197
+  %784 = load i8, ptr %23, align 1
+  %785 = trunc i8 %784 to i1
+  br i1 %785, label %786, label %855
+
+786:                                              ; preds = %783
+  %787 = call noundef zeroext i1 @_ZNKSt6vectorIN8pybind116detail13function_callESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
+  br i1 %787, label %855, label %788
+
+788:                                              ; preds = %786
+  %789 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %790 unwind label %274
+
+790:                                              ; preds = %788
+  %791 = load ptr, ptr %789, align 8
+  %792 = inttoptr i64 1 to ptr
+  %793 = icmp eq ptr %791, %792
+  br i1 %793, label %794, label %855
+
+794:                                              ; preds = %790
+  store ptr %22, ptr %65, align 8
+  %795 = load ptr, ptr %65, align 8
+  %796 = call ptr @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %795) #6
+  %797 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.333", ptr %66, i32 0, i32 0
+  store ptr %796, ptr %797, align 8
+  %798 = load ptr, ptr %65, align 8
+  %799 = call ptr @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %798) #6
+  %800 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.333", ptr %67, i32 0, i32 0
+  store ptr %799, ptr %800, align 8
+  br label %801
+
+801:                                              ; preds = %852, %794
+  %802 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(8) %67) #6
+  br i1 %802, label %803, label %854
+
+803:                                              ; preds = %801
+  %804 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
+  store ptr %804, ptr %68, align 8
+  invoke void @_ZN8pybind116detail19loader_life_supportC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69)
+          to label %805 unwind label %815
+
+805:                                              ; preds = %803
+  %806 = load ptr, ptr %68, align 8
+  %807 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %806, i32 0, i32 0
+  %808 = load ptr, ptr %807, align 8
+  %809 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %808, i32 0, i32 4
+  %810 = load ptr, ptr %809, align 8
+  %811 = load ptr, ptr %68, align 8
+  %812 = invoke ptr %810(ptr noundef nonnull align 8 dereferenceable(104) %811)
+          to label %813 unwind label %819
+
+813:                                              ; preds = %805
+  %814 = getelementptr inbounds %"class.pybind11::handle", ptr %70, i32 0, i32 0
+  store ptr %812, ptr %814, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %70, i64 8, i1 false)
+  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69) #6
+  br label %833
+
+815:                                              ; preds = %803
   %816 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8pybind1120reference_cast_errorE
           catch ptr @_ZTIN8pybind1117error_already_setE
@@ -27843,269 +27848,284 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind1112cpp_function10dispatcherEP
   store ptr %817, ptr %20, align 8
   %818 = extractvalue { ptr, i32 } %816, 1
   store i32 %818, ptr %21, align 4
-  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69) #6
-  br label %819
+  br label %823
 
-819:                                              ; preds = %815, %811
-  %820 = load i32, ptr %21, align 4
-  %821 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1120reference_cast_errorE) #6
-  %822 = icmp eq i32 %820, %821
-  br i1 %822, label %823, label %850
-
-823:                                              ; preds = %819
-  %824 = load ptr, ptr %20, align 8
-  %825 = call ptr @__cxa_begin_catch(ptr %824) #6
-  store ptr %825, ptr %71, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef inttoptr (i64 1 to ptr))
-          to label %826 unwind label %839
-
-826:                                              ; preds = %823
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %72, i64 8, i1 false)
-  invoke void @__cxa_end_catch()
-          to label %827 unwind label %273
-
-827:                                              ; preds = %826
-  br label %828
-
-828:                                              ; preds = %827, %809
-  %829 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %830 unwind label %273
-
-830:                                              ; preds = %828
-  %831 = load ptr, ptr %829, align 8
-  %832 = icmp ne ptr %831, inttoptr (i64 1 to ptr)
-  br i1 %832, label %833, label %845
-
-833:                                              ; preds = %830
-  %834 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %834, label %844, label %835
-
-835:                                              ; preds = %833
-  %836 = load ptr, ptr %68, align 8
-  %837 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %836, i32 0, i32 0
-  %838 = load ptr, ptr %837, align 8
-  store ptr %838, ptr %9, align 8
-  br label %844
-
-839:                                              ; preds = %823
-  %840 = landingpad { ptr, i32 }
+819:                                              ; preds = %805
+  %820 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1120reference_cast_errorE
           catch ptr @_ZTIN8pybind1117error_already_setE
           catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
           catch ptr null
-  %841 = extractvalue { ptr, i32 } %840, 0
-  store ptr %841, ptr %20, align 8
-  %842 = extractvalue { ptr, i32 } %840, 1
-  store i32 %842, ptr %21, align 4
-  invoke void @__cxa_end_catch()
-          to label %843 unwind label %1327
+  %821 = extractvalue { ptr, i32 } %820, 0
+  store ptr %821, ptr %20, align 8
+  %822 = extractvalue { ptr, i32 } %820, 1
+  store i32 %822, ptr %21, align 4
+  call void @_ZN8pybind116detail19loader_life_supportD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %69) #6
+  br label %823
 
-843:                                              ; preds = %839
+823:                                              ; preds = %819, %815
+  %824 = load i32, ptr %21, align 4
+  %825 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1120reference_cast_errorE) #6
+  %826 = icmp eq i32 %824, %825
+  br i1 %826, label %827, label %856
+
+827:                                              ; preds = %823
+  %828 = load ptr, ptr %20, align 8
+  %829 = call ptr @__cxa_begin_catch(ptr %828) #6
+  store ptr %829, ptr %71, align 8
+  %830 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %830)
+          to label %831 unwind label %845
+
+831:                                              ; preds = %827
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %72, i64 8, i1 false)
+  invoke void @__cxa_end_catch()
+          to label %832 unwind label %274
+
+832:                                              ; preds = %831
+  br label %833
+
+833:                                              ; preds = %832, %813
+  %834 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %835 unwind label %274
+
+835:                                              ; preds = %833
+  %836 = load ptr, ptr %834, align 8
+  %837 = inttoptr i64 1 to ptr
+  %838 = icmp ne ptr %836, %837
+  br i1 %838, label %839, label %851
+
+839:                                              ; preds = %835
+  %840 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br i1 %840, label %850, label %841
+
+841:                                              ; preds = %839
+  %842 = load ptr, ptr %68, align 8
+  %843 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %842, i32 0, i32 0
+  %844 = load ptr, ptr %843, align 8
+  store ptr %844, ptr %9, align 8
   br label %850
 
-844:                                              ; preds = %835, %833
-  br label %848
+845:                                              ; preds = %827
+  %846 = landingpad { ptr, i32 }
+          catch ptr @_ZTIN8pybind1117error_already_setE
+          catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
+          catch ptr null
+  %847 = extractvalue { ptr, i32 } %846, 0
+  store ptr %847, ptr %20, align 8
+  %848 = extractvalue { ptr, i32 } %846, 1
+  store i32 %848, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %849 unwind label %1334
 
-845:                                              ; preds = %830
-  br label %846
+849:                                              ; preds = %845
+  br label %856
 
-846:                                              ; preds = %845
-  %847 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
-  br label %797
+850:                                              ; preds = %841, %839
+  br label %854
 
-848:                                              ; preds = %844, %797
-  br label %849
+851:                                              ; preds = %835
+  br label %852
 
-849:                                              ; preds = %848, %787, %783, %780
+852:                                              ; preds = %851
+  %853 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN8pybind116detail13function_callESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
+  br label %801
+
+854:                                              ; preds = %850, %801
+  br label %855
+
+855:                                              ; preds = %854, %790, %786, %783
   call void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
-  br label %904
+  br label %910
 
-850:                                              ; preds = %843, %819, %779, %273
+856:                                              ; preds = %849, %823, %782, %274
   call void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
-  br label %851
+  br label %857
 
-851:                                              ; preds = %850
-  %852 = load i32, ptr %21, align 4
-  %853 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
-  %854 = icmp eq i32 %852, %853
-  br i1 %854, label %855, label %860
+857:                                              ; preds = %856
+  %858 = load i32, ptr %21, align 4
+  %859 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %860 = icmp eq i32 %858, %859
+  br i1 %860, label %861, label %866
 
-855:                                              ; preds = %851
-  %856 = load ptr, ptr %20, align 8
-  %857 = call ptr @__cxa_begin_catch(ptr %856) #6
-  store ptr %857, ptr %77, align 8
-  %858 = load ptr, ptr %77, align 8
-  invoke void @_ZN8pybind1117error_already_set7restoreEv(ptr noundef nonnull align 8 dereferenceable(24) %858)
-          to label %859 unwind label %899
+861:                                              ; preds = %857
+  %862 = load ptr, ptr %20, align 8
+  %863 = call ptr @__cxa_begin_catch(ptr %862) #6
+  store ptr %863, ptr %77, align 8
+  %864 = load ptr, ptr %77, align 8
+  invoke void @_ZN8pybind1117error_already_set7restoreEv(ptr noundef nonnull align 8 dereferenceable(24) %864)
+          to label %865 unwind label %905
 
-859:                                              ; preds = %855
+865:                                              ; preds = %861
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
   call void @__cxa_end_catch()
-  br label %1320
+  br label %1327
 
-860:                                              ; preds = %851
-  %861 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #6
-  %862 = icmp eq i32 %852, %861
-  br i1 %862, label %863, label %866
+866:                                              ; preds = %857
+  %867 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #6
+  %868 = icmp eq i32 %858, %867
+  br i1 %868, label %869, label %872
 
-863:                                              ; preds = %860
-  %864 = load ptr, ptr %20, align 8
-  %865 = call ptr @__cxa_begin_catch(ptr %864) #6
-  store ptr %865, ptr %76, align 8
+869:                                              ; preds = %866
+  %870 = load ptr, ptr %20, align 8
+  %871 = call ptr @__cxa_begin_catch(ptr %870) #6
+  store ptr %871, ptr %76, align 8
   invoke void @__cxa_rethrow() #23
-          to label %1330 unwind label %894
+          to label %1337 unwind label %900
 
-866:                                              ; preds = %860
-  %867 = load ptr, ptr %20, align 8
-  %868 = call ptr @__cxa_begin_catch(ptr %867) #6
-  %869 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN8pybind116detail19get_local_internalsEv()
-          to label %870 unwind label %876
+872:                                              ; preds = %866
+  %873 = load ptr, ptr %20, align 8
+  %874 = call ptr @__cxa_begin_catch(ptr %873) #6
+  %875 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN8pybind116detail19get_local_internalsEv()
+          to label %876 unwind label %882
 
-870:                                              ; preds = %866
-  %871 = getelementptr inbounds %"struct.pybind11::detail::local_internals", ptr %869, i32 0, i32 1
-  store ptr %871, ptr %73, align 8
-  %872 = load ptr, ptr %73, align 8
-  %873 = invoke noundef zeroext i1 @_ZN8pybind116detail27apply_exception_translatorsERSt12forward_listIPFvNSt15__exception_ptr13exception_ptrEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %872)
-          to label %874 unwind label %876
+876:                                              ; preds = %872
+  %877 = getelementptr inbounds %"struct.pybind11::detail::local_internals", ptr %875, i32 0, i32 1
+  store ptr %877, ptr %73, align 8
+  %878 = load ptr, ptr %73, align 8
+  %879 = invoke noundef zeroext i1 @_ZN8pybind116detail27apply_exception_translatorsERSt12forward_listIPFvNSt15__exception_ptr13exception_ptrEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %878)
+          to label %880 unwind label %882
 
-874:                                              ; preds = %870
-  br i1 %873, label %875, label %880
+880:                                              ; preds = %876
+  br i1 %879, label %881, label %886
 
-875:                                              ; preds = %874
+881:                                              ; preds = %880
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %892
+  br label %898
 
-876:                                              ; preds = %890, %888, %882, %880, %870, %866
-  %877 = landingpad { ptr, i32 }
+882:                                              ; preds = %896, %894, %888, %886, %876, %872
+  %883 = landingpad { ptr, i32 }
           cleanup
-  %878 = extractvalue { ptr, i32 } %877, 0
-  store ptr %878, ptr %20, align 8
-  %879 = extractvalue { ptr, i32 } %877, 1
-  store i32 %879, ptr %21, align 4
+  %884 = extractvalue { ptr, i32 } %883, 0
+  store ptr %884, ptr %20, align 8
+  %885 = extractvalue { ptr, i32 } %883, 1
+  store i32 %885, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %893 unwind label %1327
+          to label %899 unwind label %1334
 
-880:                                              ; preds = %874
-  %881 = invoke noundef nonnull align 8 dereferenceable(472) ptr @_ZN8pybind116detail13get_internalsEv()
-          to label %882 unwind label %876
-
-882:                                              ; preds = %880
-  %883 = getelementptr inbounds %"struct.pybind11::detail::internals", ptr %881, i32 0, i32 6
-  store ptr %883, ptr %74, align 8
-  %884 = load ptr, ptr %74, align 8
-  %885 = invoke noundef zeroext i1 @_ZN8pybind116detail27apply_exception_translatorsERSt12forward_listIPFvNSt15__exception_ptr13exception_ptrEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %884)
-          to label %886 unwind label %876
-
-886:                                              ; preds = %882
-  br i1 %885, label %887, label %888
-
-887:                                              ; preds = %886
-  store ptr null, ptr %4, align 8
-  store i32 1, ptr %36, align 4
-  br label %892
+886:                                              ; preds = %880
+  %887 = invoke noundef nonnull align 8 dereferenceable(472) ptr @_ZN8pybind116detail13get_internalsEv()
+          to label %888 unwind label %882
 
 888:                                              ; preds = %886
-  %889 = load ptr, ptr @PyExc_SystemError, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %889)
-          to label %890 unwind label %876
+  %889 = getelementptr inbounds %"struct.pybind11::detail::internals", ptr %887, i32 0, i32 6
+  store ptr %889, ptr %74, align 8
+  %890 = load ptr, ptr %74, align 8
+  %891 = invoke noundef zeroext i1 @_ZN8pybind116detail27apply_exception_translatorsERSt12forward_listIPFvNSt15__exception_ptr13exception_ptrEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %890)
+          to label %892 unwind label %882
 
-890:                                              ; preds = %888
-  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef @.str.107)
-          to label %891 unwind label %876
+892:                                              ; preds = %888
+  br i1 %891, label %893, label %894
 
-891:                                              ; preds = %890
+893:                                              ; preds = %892
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %892
+  br label %898
 
-892:                                              ; preds = %891, %887, %875
+894:                                              ; preds = %892
+  %895 = load ptr, ptr @PyExc_SystemError, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %895)
+          to label %896 unwind label %882
+
+896:                                              ; preds = %894
+  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef @.str.107)
+          to label %897 unwind label %882
+
+897:                                              ; preds = %896
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %36, align 4
+  br label %898
+
+898:                                              ; preds = %897, %893, %881
   call void @__cxa_end_catch()
-  br label %1320
+  br label %1327
 
-893:                                              ; preds = %876
-  br label %1322
+899:                                              ; preds = %882
+  br label %1329
 
-894:                                              ; preds = %863
-  %895 = landingpad { ptr, i32 }
+900:                                              ; preds = %869
+  %901 = landingpad { ptr, i32 }
           cleanup
-  %896 = extractvalue { ptr, i32 } %895, 0
-  store ptr %896, ptr %20, align 8
-  %897 = extractvalue { ptr, i32 } %895, 1
-  store i32 %897, ptr %21, align 4
+  %902 = extractvalue { ptr, i32 } %901, 0
+  store ptr %902, ptr %20, align 8
+  %903 = extractvalue { ptr, i32 } %901, 1
+  store i32 %903, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %898 unwind label %1327
+          to label %904 unwind label %1334
 
-898:                                              ; preds = %894
-  br label %1322
+904:                                              ; preds = %900
+  br label %1329
 
-899:                                              ; preds = %855
-  %900 = landingpad { ptr, i32 }
+905:                                              ; preds = %861
+  %906 = landingpad { ptr, i32 }
           cleanup
-  %901 = extractvalue { ptr, i32 } %900, 0
-  store ptr %901, ptr %20, align 8
-  %902 = extractvalue { ptr, i32 } %900, 1
-  store i32 %902, ptr %21, align 4
+  %907 = extractvalue { ptr, i32 } %906, 0
+  store ptr %907, ptr %20, align 8
+  %908 = extractvalue { ptr, i32 } %906, 1
+  store i32 %908, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %903 unwind label %1327
+          to label %909 unwind label %1334
 
-903:                                              ; preds = %899
-  br label %1322
+909:                                              ; preds = %905
+  br label %1329
 
-904:                                              ; preds = %849
-  %905 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %906 = load ptr, ptr %905, align 8
-  %907 = icmp eq ptr %906, inttoptr (i64 1 to ptr)
-  br i1 %907, label %908, label %1270
+910:                                              ; preds = %855
+  %911 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %912 = load ptr, ptr %911, align 8
+  %913 = inttoptr i64 1 to ptr
+  %914 = icmp eq ptr %912, %913
+  br i1 %914, label %915, label %1277
 
-908:                                              ; preds = %904
-  %909 = load ptr, ptr %8, align 8
-  %910 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %909, i32 0, i32 8
-  %911 = load i16, ptr %910, align 1
-  %912 = lshr i16 %911, 3
-  %913 = and i16 %912, 1
-  %914 = trunc i16 %913 to i1
-  br i1 %914, label %915, label %918
+915:                                              ; preds = %910
+  %916 = load ptr, ptr %8, align 8
+  %917 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %916, i32 0, i32 8
+  %918 = load i16, ptr %917, align 1
+  %919 = lshr i16 %918, 3
+  %920 = and i16 %919, 1
+  %921 = trunc i16 %920 to i1
+  br i1 %921, label %922, label %925
 
-915:                                              ; preds = %908
+922:                                              ; preds = %915
   call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef @_Py_NotImplementedStruct)
-  %916 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %79)
-  %917 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %916)
-  store ptr %917, ptr %4, align 8
-  br label %1320
+  %923 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8pybind116handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %79)
+  %924 = call noundef ptr @_ZNK8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %923)
+  store ptr %924, ptr %4, align 8
+  br label %1327
 
-918:                                              ; preds = %908
-  %919 = load ptr, ptr %8, align 8
-  %920 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %919, i32 0, i32 0
-  %921 = load ptr, ptr %920, align 8
+925:                                              ; preds = %915
+  %926 = load ptr, ptr %8, align 8
+  %927 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %926, i32 0, i32 0
+  %928 = load ptr, ptr %927, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef %921, ptr noundef nonnull align 1 dereferenceable(1) %84)
-          to label %922 unwind label %970
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef %928, ptr noundef nonnull align 1 dereferenceable(1) %84)
+          to label %929 unwind label %977
 
-922:                                              ; preds = %918
+929:                                              ; preds = %925
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %82, ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef @.str.108)
-          to label %923 unwind label %974
+          to label %930 unwind label %981
 
-923:                                              ; preds = %922
-  %924 = load ptr, ptr %8, align 8
-  %925 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %924, i32 0, i32 8
-  %926 = load i16, ptr %925, align 1
-  %927 = and i16 %926, 1
-  %928 = trunc i16 %927 to i1
-  %929 = select i1 %928, ptr @.str.109, ptr @.str.110
+930:                                              ; preds = %929
+  %931 = load ptr, ptr %8, align 8
+  %932 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %931, i32 0, i32 8
+  %933 = load i16, ptr %932, align 1
+  %934 = and i16 %933, 1
+  %935 = trunc i16 %934 to i1
+  %936 = select i1 %935, ptr @.str.109, ptr @.str.110
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef %929, ptr noundef nonnull align 1 dereferenceable(1) %86)
-          to label %930 unwind label %978
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef %936, ptr noundef nonnull align 1 dereferenceable(1) %86)
+          to label %937 unwind label %985
 
-930:                                              ; preds = %923
+937:                                              ; preds = %930
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %85)
-          to label %931 unwind label %982
+          to label %938 unwind label %989
 
-931:                                              ; preds = %930
+938:                                              ; preds = %937
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %80, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef @.str.111)
-          to label %932 unwind label %986
+          to label %939 unwind label %993
 
-932:                                              ; preds = %931
+939:                                              ; preds = %938
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #6
@@ -28113,924 +28133,924 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind1112cpp_function10dispatcherEP
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #6
   store i32 0, ptr %87, align 4
-  %933 = load ptr, ptr %8, align 8
-  store ptr %933, ptr %88, align 8
-  br label %934
+  %940 = load ptr, ptr %8, align 8
+  store ptr %940, ptr %88, align 8
+  br label %941
 
-934:                                              ; preds = %1057, %932
-  %935 = load ptr, ptr %88, align 8
-  %936 = icmp ne ptr %935, null
-  br i1 %936, label %937, label %1061
+941:                                              ; preds = %1064, %939
+  %942 = load ptr, ptr %88, align 8
+  %943 = icmp ne ptr %942, null
+  br i1 %943, label %944, label %1068
 
-937:                                              ; preds = %934
-  %938 = load i32, ptr %87, align 4
-  %939 = add nsw i32 %938, 1
-  store i32 %939, ptr %87, align 4
-  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %91, i32 noundef %939) #6
+944:                                              ; preds = %941
+  %945 = load i32, ptr %87, align 4
+  %946 = add nsw i32 %945, 1
+  store i32 %946, ptr %87, align 4
+  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %91, i32 noundef %946) #6
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr noundef @.str.112, ptr noundef nonnull align 8 dereferenceable(32) %91)
-          to label %940 unwind label %994
+          to label %947 unwind label %1001
 
-940:                                              ; preds = %937
+947:                                              ; preds = %944
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %89, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef @.str.97)
-          to label %941 unwind label %998
+          to label %948 unwind label %1005
 
-941:                                              ; preds = %940
-  %942 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %89)
-          to label %943 unwind label %1002
+948:                                              ; preds = %947
+  %949 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %89)
+          to label %950 unwind label %1009
 
-943:                                              ; preds = %941
+950:                                              ; preds = %948
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #6
   store i8 0, ptr %92, align 1
-  %944 = load ptr, ptr %8, align 8
-  %945 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %944, i32 0, i32 8
-  %946 = load i16, ptr %945, align 1
-  %947 = and i16 %946, 1
-  %948 = trunc i16 %947 to i1
-  br i1 %948, label %949, label %1041
+  %951 = load ptr, ptr %8, align 8
+  %952 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %951, i32 0, i32 8
+  %953 = load i16, ptr %952, align 1
+  %954 = and i16 %953, 1
+  %955 = trunc i16 %954 to i1
+  br i1 %955, label %956, label %1048
 
-949:                                              ; preds = %943
-  %950 = load ptr, ptr %88, align 8
-  %951 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %950, i32 0, i32 2
-  %952 = load ptr, ptr %951, align 8
+956:                                              ; preds = %950
+  %957 = load ptr, ptr %88, align 8
+  %958 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %957, i32 0, i32 2
+  %959 = load ptr, ptr %958, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef %952, ptr noundef nonnull align 1 dereferenceable(1) %94)
-          to label %953 unwind label %1008
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef %959, ptr noundef nonnull align 1 dereferenceable(1) %94)
+          to label %960 unwind label %1015
 
-953:                                              ; preds = %949
+960:                                              ; preds = %956
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #6
-  %954 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext 40, i64 noundef 0) #6
-  %955 = add i64 %954, 7
-  store i64 %955, ptr %95, align 8
-  %956 = load i64, ptr %95, align 8
-  %957 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
-  %958 = icmp ult i64 %956, %957
-  br i1 %958, label %959, label %1040
+  %961 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext 40, i64 noundef 0) #6
+  %962 = add i64 %961, 7
+  store i64 %962, ptr %95, align 8
+  %963 = load i64, ptr %95, align 8
+  %964 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
+  %965 = icmp ult i64 %963, %964
+  br i1 %965, label %966, label %1047
 
-959:                                              ; preds = %953
-  %960 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef @.str.113, i64 noundef 0) #6
-  store i64 %960, ptr %96, align 8
-  %961 = load i64, ptr %96, align 8
-  %962 = add i64 %961, 2
-  store i64 %962, ptr %97, align 8
-  %963 = invoke noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef @.str.114, i64 noundef -1)
-          to label %964 unwind label %1012
-
-964:                                              ; preds = %959
-  store i64 %963, ptr %98, align 8
-  %965 = load i64, ptr %96, align 8
-  %966 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
-  %967 = icmp uge i64 %965, %966
-  br i1 %967, label %968, label %1016
-
-968:                                              ; preds = %964
-  %969 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext 41, i64 noundef 0) #6
-  store i64 %969, ptr %96, align 8
+966:                                              ; preds = %960
+  %967 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef @.str.113, i64 noundef 0) #6
+  store i64 %967, ptr %96, align 8
+  %968 = load i64, ptr %96, align 8
+  %969 = add i64 %968, 2
   store i64 %969, ptr %97, align 8
-  br label %1016
+  %970 = invoke noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef @.str.114, i64 noundef -1)
+          to label %971 unwind label %1019
 
-970:                                              ; preds = %918
-  %971 = landingpad { ptr, i32 }
-          cleanup
-  %972 = extractvalue { ptr, i32 } %971, 0
-  store ptr %972, ptr %20, align 8
-  %973 = extractvalue { ptr, i32 } %971, 1
-  store i32 %973, ptr %21, align 4
-  br label %993
+971:                                              ; preds = %966
+  store i64 %970, ptr %98, align 8
+  %972 = load i64, ptr %96, align 8
+  %973 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
+  %974 = icmp uge i64 %972, %973
+  br i1 %974, label %975, label %1023
 
-974:                                              ; preds = %922
-  %975 = landingpad { ptr, i32 }
-          cleanup
-  %976 = extractvalue { ptr, i32 } %975, 0
-  store ptr %976, ptr %20, align 8
-  %977 = extractvalue { ptr, i32 } %975, 1
-  store i32 %977, ptr %21, align 4
-  br label %992
+975:                                              ; preds = %971
+  %976 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext 41, i64 noundef 0) #6
+  store i64 %976, ptr %96, align 8
+  store i64 %976, ptr %97, align 8
+  br label %1023
 
-978:                                              ; preds = %923
-  %979 = landingpad { ptr, i32 }
+977:                                              ; preds = %925
+  %978 = landingpad { ptr, i32 }
           cleanup
-  %980 = extractvalue { ptr, i32 } %979, 0
-  store ptr %980, ptr %20, align 8
-  %981 = extractvalue { ptr, i32 } %979, 1
-  store i32 %981, ptr %21, align 4
-  br label %991
+  %979 = extractvalue { ptr, i32 } %978, 0
+  store ptr %979, ptr %20, align 8
+  %980 = extractvalue { ptr, i32 } %978, 1
+  store i32 %980, ptr %21, align 4
+  br label %1000
 
-982:                                              ; preds = %930
-  %983 = landingpad { ptr, i32 }
+981:                                              ; preds = %929
+  %982 = landingpad { ptr, i32 }
           cleanup
-  %984 = extractvalue { ptr, i32 } %983, 0
-  store ptr %984, ptr %20, align 8
-  %985 = extractvalue { ptr, i32 } %983, 1
-  store i32 %985, ptr %21, align 4
-  br label %990
+  %983 = extractvalue { ptr, i32 } %982, 0
+  store ptr %983, ptr %20, align 8
+  %984 = extractvalue { ptr, i32 } %982, 1
+  store i32 %984, ptr %21, align 4
+  br label %999
 
-986:                                              ; preds = %931
-  %987 = landingpad { ptr, i32 }
+985:                                              ; preds = %930
+  %986 = landingpad { ptr, i32 }
           cleanup
-  %988 = extractvalue { ptr, i32 } %987, 0
-  store ptr %988, ptr %20, align 8
-  %989 = extractvalue { ptr, i32 } %987, 1
-  store i32 %989, ptr %21, align 4
+  %987 = extractvalue { ptr, i32 } %986, 0
+  store ptr %987, ptr %20, align 8
+  %988 = extractvalue { ptr, i32 } %986, 1
+  store i32 %988, ptr %21, align 4
+  br label %998
+
+989:                                              ; preds = %937
+  %990 = landingpad { ptr, i32 }
+          cleanup
+  %991 = extractvalue { ptr, i32 } %990, 0
+  store ptr %991, ptr %20, align 8
+  %992 = extractvalue { ptr, i32 } %990, 1
+  store i32 %992, ptr %21, align 4
+  br label %997
+
+993:                                              ; preds = %938
+  %994 = landingpad { ptr, i32 }
+          cleanup
+  %995 = extractvalue { ptr, i32 } %994, 0
+  store ptr %995, ptr %20, align 8
+  %996 = extractvalue { ptr, i32 } %994, 1
+  store i32 %996, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #6
-  br label %990
+  br label %997
 
-990:                                              ; preds = %986, %982
+997:                                              ; preds = %993, %989
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #6
-  br label %991
+  br label %998
 
-991:                                              ; preds = %990, %978
+998:                                              ; preds = %997, %985
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #6
-  br label %992
+  br label %999
 
-992:                                              ; preds = %991, %974
+999:                                              ; preds = %998, %981
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #6
-  br label %993
+  br label %1000
 
-993:                                              ; preds = %992, %970
+1000:                                             ; preds = %999, %977
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #6
-  br label %1322
+  br label %1329
 
-994:                                              ; preds = %937
-  %995 = landingpad { ptr, i32 }
+1001:                                             ; preds = %944
+  %1002 = landingpad { ptr, i32 }
           cleanup
-  %996 = extractvalue { ptr, i32 } %995, 0
-  store ptr %996, ptr %20, align 8
-  %997 = extractvalue { ptr, i32 } %995, 1
-  store i32 %997, ptr %21, align 4
-  br label %1007
+  %1003 = extractvalue { ptr, i32 } %1002, 0
+  store ptr %1003, ptr %20, align 8
+  %1004 = extractvalue { ptr, i32 } %1002, 1
+  store i32 %1004, ptr %21, align 4
+  br label %1014
 
-998:                                              ; preds = %940
-  %999 = landingpad { ptr, i32 }
+1005:                                             ; preds = %947
+  %1006 = landingpad { ptr, i32 }
           cleanup
-  %1000 = extractvalue { ptr, i32 } %999, 0
-  store ptr %1000, ptr %20, align 8
-  %1001 = extractvalue { ptr, i32 } %999, 1
-  store i32 %1001, ptr %21, align 4
-  br label %1006
+  %1007 = extractvalue { ptr, i32 } %1006, 0
+  store ptr %1007, ptr %20, align 8
+  %1008 = extractvalue { ptr, i32 } %1006, 1
+  store i32 %1008, ptr %21, align 4
+  br label %1013
 
-1002:                                             ; preds = %941
-  %1003 = landingpad { ptr, i32 }
+1009:                                             ; preds = %948
+  %1010 = landingpad { ptr, i32 }
           cleanup
-  %1004 = extractvalue { ptr, i32 } %1003, 0
-  store ptr %1004, ptr %20, align 8
-  %1005 = extractvalue { ptr, i32 } %1003, 1
-  store i32 %1005, ptr %21, align 4
+  %1011 = extractvalue { ptr, i32 } %1010, 0
+  store ptr %1011, ptr %20, align 8
+  %1012 = extractvalue { ptr, i32 } %1010, 1
+  store i32 %1012, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #6
-  br label %1006
+  br label %1013
 
-1006:                                             ; preds = %1002, %998
+1013:                                             ; preds = %1009, %1005
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #6
-  br label %1007
+  br label %1014
 
-1007:                                             ; preds = %1006, %994
+1014:                                             ; preds = %1013, %1001
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #6
-  br label %1269
+  br label %1276
 
-1008:                                             ; preds = %949
-  %1009 = landingpad { ptr, i32 }
+1015:                                             ; preds = %956
+  %1016 = landingpad { ptr, i32 }
           cleanup
-  %1010 = extractvalue { ptr, i32 } %1009, 0
-  store ptr %1010, ptr %20, align 8
-  %1011 = extractvalue { ptr, i32 } %1009, 1
-  store i32 %1011, ptr %21, align 4
+  %1017 = extractvalue { ptr, i32 } %1016, 0
+  store ptr %1017, ptr %20, align 8
+  %1018 = extractvalue { ptr, i32 } %1016, 1
+  store i32 %1018, ptr %21, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #6
-  br label %1269
+  br label %1276
 
-1012:                                             ; preds = %1032, %1030, %1024, %959
-  %1013 = landingpad { ptr, i32 }
+1019:                                             ; preds = %1039, %1037, %1031, %966
+  %1020 = landingpad { ptr, i32 }
           cleanup
-  %1014 = extractvalue { ptr, i32 } %1013, 0
-  store ptr %1014, ptr %20, align 8
-  %1015 = extractvalue { ptr, i32 } %1013, 1
-  store i32 %1015, ptr %21, align 4
+  %1021 = extractvalue { ptr, i32 } %1020, 0
+  store ptr %1021, ptr %20, align 8
+  %1022 = extractvalue { ptr, i32 } %1020, 1
+  store i32 %1022, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
-  br label %1269
+  br label %1276
 
-1016:                                             ; preds = %968, %964
-  %1017 = load i64, ptr %95, align 8
-  %1018 = load i64, ptr %96, align 8
-  %1019 = icmp ult i64 %1017, %1018
-  br i1 %1019, label %1020, label %1039
+1023:                                             ; preds = %975, %971
+  %1024 = load i64, ptr %95, align 8
+  %1025 = load i64, ptr %96, align 8
+  %1026 = icmp ult i64 %1024, %1025
+  br i1 %1026, label %1027, label %1046
 
-1020:                                             ; preds = %1016
-  %1021 = load i64, ptr %97, align 8
-  %1022 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
-  %1023 = icmp ult i64 %1021, %1022
-  br i1 %1023, label %1024, label %1039
+1027:                                             ; preds = %1023
+  %1028 = load i64, ptr %97, align 8
+  %1029 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
+  %1030 = icmp ult i64 %1028, %1029
+  br i1 %1030, label %1031, label %1046
 
-1024:                                             ; preds = %1020
-  %1025 = load i64, ptr %95, align 8
-  %1026 = load i64, ptr %96, align 8
-  %1027 = load i64, ptr %95, align 8
-  %1028 = sub i64 %1026, %1027
-  %1029 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 noundef %1025, i64 noundef %1028)
-          to label %1030 unwind label %1012
+1031:                                             ; preds = %1027
+  %1032 = load i64, ptr %95, align 8
+  %1033 = load i64, ptr %96, align 8
+  %1034 = load i64, ptr %95, align 8
+  %1035 = sub i64 %1033, %1034
+  %1036 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 noundef %1032, i64 noundef %1035)
+          to label %1037 unwind label %1019
 
-1030:                                             ; preds = %1024
-  %1031 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 noundef signext 40)
-          to label %1032 unwind label %1012
+1037:                                             ; preds = %1031
+  %1038 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 noundef signext 40)
+          to label %1039 unwind label %1019
 
-1032:                                             ; preds = %1030
-  %1033 = load i64, ptr %97, align 8
-  %1034 = load i64, ptr %98, align 8
-  %1035 = load i64, ptr %97, align 8
-  %1036 = sub i64 %1034, %1035
-  %1037 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 noundef %1033, i64 noundef %1036)
-          to label %1038 unwind label %1012
+1039:                                             ; preds = %1037
+  %1040 = load i64, ptr %97, align 8
+  %1041 = load i64, ptr %98, align 8
+  %1042 = load i64, ptr %97, align 8
+  %1043 = sub i64 %1041, %1042
+  %1044 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 noundef %1040, i64 noundef %1043)
+          to label %1045 unwind label %1019
 
-1038:                                             ; preds = %1032
+1045:                                             ; preds = %1039
   store i8 1, ptr %92, align 1
-  br label %1039
+  br label %1046
 
-1039:                                             ; preds = %1038, %1020, %1016
-  br label %1040
+1046:                                             ; preds = %1045, %1027, %1023
+  br label %1047
 
-1040:                                             ; preds = %1039, %953
+1047:                                             ; preds = %1046, %960
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #6
-  br label %1041
+  br label %1048
 
-1041:                                             ; preds = %1040, %943
-  %1042 = load i8, ptr %92, align 1
-  %1043 = trunc i8 %1042 to i1
-  br i1 %1043, label %1054, label %1044
+1048:                                             ; preds = %1047, %950
+  %1049 = load i8, ptr %92, align 1
+  %1050 = trunc i8 %1049 to i1
+  br i1 %1050, label %1061, label %1051
 
-1044:                                             ; preds = %1041
-  %1045 = load ptr, ptr %88, align 8
-  %1046 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1045, i32 0, i32 2
-  %1047 = load ptr, ptr %1046, align 8
-  %1048 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef %1047)
-          to label %1049 unwind label %1050
+1051:                                             ; preds = %1048
+  %1052 = load ptr, ptr %88, align 8
+  %1053 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1052, i32 0, i32 2
+  %1054 = load ptr, ptr %1053, align 8
+  %1055 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef %1054)
+          to label %1056 unwind label %1057
 
-1049:                                             ; preds = %1044
-  br label %1054
+1056:                                             ; preds = %1051
+  br label %1061
 
-1050:                                             ; preds = %1065, %1063, %1061, %1054, %1044
-  %1051 = landingpad { ptr, i32 }
+1057:                                             ; preds = %1072, %1070, %1068, %1061, %1051
+  %1058 = landingpad { ptr, i32 }
           cleanup
-  %1052 = extractvalue { ptr, i32 } %1051, 0
-  store ptr %1052, ptr %20, align 8
-  %1053 = extractvalue { ptr, i32 } %1051, 1
-  store i32 %1053, ptr %21, align 4
-  br label %1269
+  %1059 = extractvalue { ptr, i32 } %1058, 0
+  store ptr %1059, ptr %20, align 8
+  %1060 = extractvalue { ptr, i32 } %1058, 1
+  store i32 %1060, ptr %21, align 4
+  br label %1276
 
-1054:                                             ; preds = %1049, %1041
-  %1055 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 noundef signext 10)
-          to label %1056 unwind label %1050
-
-1056:                                             ; preds = %1054
-  br label %1057
-
-1057:                                             ; preds = %1056
-  %1058 = load ptr, ptr %88, align 8
-  %1059 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1058, i32 0, i32 17
-  %1060 = load ptr, ptr %1059, align 8
-  store ptr %1060, ptr %88, align 8
-  br label %934, !llvm.loop !28
-
-1061:                                             ; preds = %934
-  %1062 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.115)
-          to label %1063 unwind label %1050
+1061:                                             ; preds = %1056, %1048
+  %1062 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 noundef signext 10)
+          to label %1063 unwind label %1057
 
 1063:                                             ; preds = %1061
-  %1064 = load ptr, ptr %6, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %1064)
-          to label %1065 unwind label %1050
+  br label %1064
 
-1065:                                             ; preds = %1063
-  %1066 = getelementptr inbounds %"class.pybind11::handle", ptr %100, i32 0, i32 0
+1064:                                             ; preds = %1063
+  %1065 = load ptr, ptr %88, align 8
+  %1066 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1065, i32 0, i32 17
   %1067 = load ptr, ptr %1066, align 8
-  invoke void @_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %99, ptr %1067)
-          to label %1068 unwind label %1050
+  store ptr %1067, ptr %88, align 8
+  br label %941, !llvm.loop !28
 
-1068:                                             ; preds = %1065
+1068:                                             ; preds = %941
+  %1069 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.115)
+          to label %1070 unwind label %1057
+
+1070:                                             ; preds = %1068
+  %1071 = load ptr, ptr %6, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %1071)
+          to label %1072 unwind label %1057
+
+1072:                                             ; preds = %1070
+  %1073 = getelementptr inbounds %"class.pybind11::handle", ptr %100, i32 0, i32 0
+  %1074 = load ptr, ptr %1073, align 8
+  invoke void @_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %99, ptr %1074)
+          to label %1075 unwind label %1057
+
+1075:                                             ; preds = %1072
   store i8 0, ptr %101, align 1
-  %1069 = load ptr, ptr %8, align 8
-  %1070 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1069, i32 0, i32 8
-  %1071 = load i16, ptr %1070, align 1
-  %1072 = and i16 %1071, 1
-  %1073 = trunc i16 %1072 to i1
-  %1074 = select i1 %1073, i32 1, i32 0
-  %1075 = sext i32 %1074 to i64
-  store i64 %1075, ptr %102, align 8
-  br label %1076
+  %1076 = load ptr, ptr %8, align 8
+  %1077 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1076, i32 0, i32 8
+  %1078 = load i16, ptr %1077, align 1
+  %1079 = and i16 %1078, 1
+  %1080 = trunc i16 %1079 to i1
+  %1081 = select i1 %1080, i32 1, i32 0
+  %1082 = sext i32 %1081 to i64
+  store i64 %1082, ptr %102, align 8
+  br label %1083
 
-1076:                                             ; preds = %1136, %1068
-  %1077 = load i64, ptr %102, align 8
-  %1078 = invoke noundef i64 @_ZNK8pybind115tuple4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %99)
-          to label %1079 unwind label %1085
+1083:                                             ; preds = %1143, %1075
+  %1084 = load i64, ptr %102, align 8
+  %1085 = invoke noundef i64 @_ZNK8pybind115tuple4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %99)
+          to label %1086 unwind label %1092
 
-1079:                                             ; preds = %1076
-  %1080 = icmp ult i64 %1077, %1078
-  br i1 %1080, label %1081, label %1144
+1086:                                             ; preds = %1083
+  %1087 = icmp ult i64 %1084, %1085
+  br i1 %1087, label %1088, label %1151
 
-1081:                                             ; preds = %1079
-  %1082 = load i8, ptr %101, align 1
-  %1083 = trunc i8 %1082 to i1
-  br i1 %1083, label %1089, label %1084
+1088:                                             ; preds = %1086
+  %1089 = load i8, ptr %101, align 1
+  %1090 = trunc i8 %1089 to i1
+  br i1 %1090, label %1096, label %1091
 
-1084:                                             ; preds = %1081
+1091:                                             ; preds = %1088
   store i8 1, ptr %101, align 1
-  br label %1092
+  br label %1099
 
-1085:                                             ; preds = %1264, %1262, %1258, %1254, %1253, %1149, %1147, %1133, %1089, %1076
-  %1086 = landingpad { ptr, i32 }
+1092:                                             ; preds = %1271, %1269, %1265, %1261, %1260, %1156, %1154, %1140, %1096, %1083
+  %1093 = landingpad { ptr, i32 }
           cleanup
-  %1087 = extractvalue { ptr, i32 } %1086, 0
-  store ptr %1087, ptr %20, align 8
-  %1088 = extractvalue { ptr, i32 } %1086, 1
-  store i32 %1088, ptr %21, align 4
-  br label %1268
+  %1094 = extractvalue { ptr, i32 } %1093, 0
+  store ptr %1094, ptr %20, align 8
+  %1095 = extractvalue { ptr, i32 } %1093, 1
+  store i32 %1095, ptr %21, align 4
+  br label %1275
 
-1089:                                             ; preds = %1081
-  %1090 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.113)
-          to label %1091 unwind label %1085
+1096:                                             ; preds = %1088
+  %1097 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.113)
+          to label %1098 unwind label %1092
 
-1091:                                             ; preds = %1089
-  br label %1092
+1098:                                             ; preds = %1096
+  br label %1099
 
-1092:                                             ; preds = %1091, %1084
-  %1093 = load i64, ptr %102, align 8
-  invoke void @_ZNK8pybind115tupleixEm(ptr dead_on_unwind writable sret(%"class.pybind11::detail::accessor.311") align 8 %107, ptr noundef nonnull align 8 dereferenceable(8) %99, i64 noundef %1093)
-          to label %1094 unwind label %1102
-
-1094:                                             ; preds = %1092
-  invoke void @_ZNK8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEEcvNS_6objectEEv(ptr dead_on_unwind writable sret(%"class.pybind11::object") align 8 %106, ptr noundef nonnull align 8 dereferenceable(32) %107)
-          to label %1095 unwind label %1106
-
-1095:                                             ; preds = %1094
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %106, i64 8, i1 false)
-  %1096 = getelementptr inbounds %"class.pybind11::handle", ptr %105, i32 0, i32 0
-  %1097 = load ptr, ptr %1096, align 8
-  invoke void @_ZN8pybind114reprENS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %104, ptr %1097)
-          to label %1098 unwind label %1110
-
-1098:                                             ; preds = %1095
-  invoke void @_ZNK8pybind113strcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
-          to label %1099 unwind label %1114
-
-1099:                                             ; preds = %1098
-  %1100 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %103)
-          to label %1101 unwind label %1118
+1099:                                             ; preds = %1098, %1091
+  %1100 = load i64, ptr %102, align 8
+  invoke void @_ZNK8pybind115tupleixEm(ptr dead_on_unwind writable sret(%"class.pybind11::detail::accessor.311") align 8 %107, ptr noundef nonnull align 8 dereferenceable(8) %99, i64 noundef %1100)
+          to label %1101 unwind label %1109
 
 1101:                                             ; preds = %1099
+  invoke void @_ZNK8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEEcvNS_6objectEEv(ptr dead_on_unwind writable sret(%"class.pybind11::object") align 8 %106, ptr noundef nonnull align 8 dereferenceable(32) %107)
+          to label %1102 unwind label %1113
+
+1102:                                             ; preds = %1101
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %106, i64 8, i1 false)
+  %1103 = getelementptr inbounds %"class.pybind11::handle", ptr %105, i32 0, i32 0
+  %1104 = load ptr, ptr %1103, align 8
+  invoke void @_ZN8pybind114reprENS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %104, ptr %1104)
+          to label %1105 unwind label %1117
+
+1105:                                             ; preds = %1102
+  invoke void @_ZNK8pybind113strcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
+          to label %1106 unwind label %1121
+
+1106:                                             ; preds = %1105
+  %1107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %103)
+          to label %1108 unwind label %1125
+
+1108:                                             ; preds = %1106
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #6
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #6
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #6
   call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #6
-  br label %1135
+  br label %1142
 
-1102:                                             ; preds = %1092
-  %1103 = landingpad { ptr, i32 }
+1109:                                             ; preds = %1099
+  %1110 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1104 = extractvalue { ptr, i32 } %1103, 0
-  store ptr %1104, ptr %20, align 8
-  %1105 = extractvalue { ptr, i32 } %1103, 1
-  store i32 %1105, ptr %21, align 4
-  br label %1125
+  %1111 = extractvalue { ptr, i32 } %1110, 0
+  store ptr %1111, ptr %20, align 8
+  %1112 = extractvalue { ptr, i32 } %1110, 1
+  store i32 %1112, ptr %21, align 4
+  br label %1132
 
-1106:                                             ; preds = %1094
-  %1107 = landingpad { ptr, i32 }
+1113:                                             ; preds = %1101
+  %1114 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1108 = extractvalue { ptr, i32 } %1107, 0
-  store ptr %1108, ptr %20, align 8
-  %1109 = extractvalue { ptr, i32 } %1107, 1
-  store i32 %1109, ptr %21, align 4
-  br label %1124
+  %1115 = extractvalue { ptr, i32 } %1114, 0
+  store ptr %1115, ptr %20, align 8
+  %1116 = extractvalue { ptr, i32 } %1114, 1
+  store i32 %1116, ptr %21, align 4
+  br label %1131
 
-1110:                                             ; preds = %1095
-  %1111 = landingpad { ptr, i32 }
+1117:                                             ; preds = %1102
+  %1118 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1112 = extractvalue { ptr, i32 } %1111, 0
-  store ptr %1112, ptr %20, align 8
-  %1113 = extractvalue { ptr, i32 } %1111, 1
-  store i32 %1113, ptr %21, align 4
-  br label %1123
+  %1119 = extractvalue { ptr, i32 } %1118, 0
+  store ptr %1119, ptr %20, align 8
+  %1120 = extractvalue { ptr, i32 } %1118, 1
+  store i32 %1120, ptr %21, align 4
+  br label %1130
 
-1114:                                             ; preds = %1098
-  %1115 = landingpad { ptr, i32 }
+1121:                                             ; preds = %1105
+  %1122 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1116 = extractvalue { ptr, i32 } %1115, 0
-  store ptr %1116, ptr %20, align 8
-  %1117 = extractvalue { ptr, i32 } %1115, 1
-  store i32 %1117, ptr %21, align 4
-  br label %1122
+  %1123 = extractvalue { ptr, i32 } %1122, 0
+  store ptr %1123, ptr %20, align 8
+  %1124 = extractvalue { ptr, i32 } %1122, 1
+  store i32 %1124, ptr %21, align 4
+  br label %1129
 
-1118:                                             ; preds = %1099
-  %1119 = landingpad { ptr, i32 }
+1125:                                             ; preds = %1106
+  %1126 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1120 = extractvalue { ptr, i32 } %1119, 0
-  store ptr %1120, ptr %20, align 8
-  %1121 = extractvalue { ptr, i32 } %1119, 1
-  store i32 %1121, ptr %21, align 4
+  %1127 = extractvalue { ptr, i32 } %1126, 0
+  store ptr %1127, ptr %20, align 8
+  %1128 = extractvalue { ptr, i32 } %1126, 1
+  store i32 %1128, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #6
-  br label %1122
+  br label %1129
 
-1122:                                             ; preds = %1118, %1114
+1129:                                             ; preds = %1125, %1121
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #6
-  br label %1123
+  br label %1130
 
-1123:                                             ; preds = %1122, %1110
+1130:                                             ; preds = %1129, %1117
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #6
-  br label %1124
+  br label %1131
 
-1124:                                             ; preds = %1123, %1106
+1131:                                             ; preds = %1130, %1113
   call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #6
-  br label %1125
+  br label %1132
 
-1125:                                             ; preds = %1124, %1102
-  %1126 = load i32, ptr %21, align 4
-  %1127 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
-  %1128 = icmp eq i32 %1126, %1127
-  br i1 %1128, label %1129, label %1268
+1132:                                             ; preds = %1131, %1109
+  %1133 = load i32, ptr %21, align 4
+  %1134 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %1135 = icmp eq i32 %1133, %1134
+  br i1 %1135, label %1136, label %1275
 
-1129:                                             ; preds = %1125
-  %1130 = load ptr, ptr %20, align 8
-  %1131 = call ptr @__cxa_begin_catch(ptr %1130) #6
-  store ptr %1131, ptr %108, align 8
-  %1132 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.116)
-          to label %1133 unwind label %1139
+1136:                                             ; preds = %1132
+  %1137 = load ptr, ptr %20, align 8
+  %1138 = call ptr @__cxa_begin_catch(ptr %1137) #6
+  store ptr %1138, ptr %108, align 8
+  %1139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.116)
+          to label %1140 unwind label %1146
 
-1133:                                             ; preds = %1129
+1140:                                             ; preds = %1136
   invoke void @__cxa_end_catch()
-          to label %1134 unwind label %1085
+          to label %1141 unwind label %1092
 
-1134:                                             ; preds = %1133
-  br label %1135
+1141:                                             ; preds = %1140
+  br label %1142
 
-1135:                                             ; preds = %1134, %1101
-  br label %1136
+1142:                                             ; preds = %1141, %1108
+  br label %1143
 
-1136:                                             ; preds = %1135
-  %1137 = load i64, ptr %102, align 8
-  %1138 = add i64 %1137, 1
-  store i64 %1138, ptr %102, align 8
-  br label %1076, !llvm.loop !29
+1143:                                             ; preds = %1142
+  %1144 = load i64, ptr %102, align 8
+  %1145 = add i64 %1144, 1
+  store i64 %1145, ptr %102, align 8
+  br label %1083, !llvm.loop !29
 
-1139:                                             ; preds = %1129
-  %1140 = landingpad { ptr, i32 }
+1146:                                             ; preds = %1136
+  %1147 = landingpad { ptr, i32 }
           cleanup
-  %1141 = extractvalue { ptr, i32 } %1140, 0
-  store ptr %1141, ptr %20, align 8
-  %1142 = extractvalue { ptr, i32 } %1140, 1
-  store i32 %1142, ptr %21, align 4
+  %1148 = extractvalue { ptr, i32 } %1147, 0
+  store ptr %1148, ptr %20, align 8
+  %1149 = extractvalue { ptr, i32 } %1147, 1
+  store i32 %1149, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %1143 unwind label %1327
+          to label %1150 unwind label %1334
 
-1143:                                             ; preds = %1139
-  br label %1268
+1150:                                             ; preds = %1146
+  br label %1275
 
-1144:                                             ; preds = %1079
-  %1145 = load ptr, ptr %7, align 8
-  %1146 = icmp ne ptr %1145, null
-  br i1 %1146, label %1147, label %1253
+1151:                                             ; preds = %1086
+  %1152 = load ptr, ptr %7, align 8
+  %1153 = icmp ne ptr %1152, null
+  br i1 %1153, label %1154, label %1260
 
-1147:                                             ; preds = %1144
-  %1148 = load ptr, ptr %7, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef %1148)
-          to label %1149 unwind label %1085
+1154:                                             ; preds = %1151
+  %1155 = load ptr, ptr %7, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef %1155)
+          to label %1156 unwind label %1092
 
-1149:                                             ; preds = %1147
-  %1150 = getelementptr inbounds %"class.pybind11::handle", ptr %110, i32 0, i32 0
-  %1151 = load ptr, ptr %1150, align 8
-  invoke void @_ZN8pybind1118reinterpret_borrowINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %109, ptr %1151)
-          to label %1152 unwind label %1085
+1156:                                             ; preds = %1154
+  %1157 = getelementptr inbounds %"class.pybind11::handle", ptr %110, i32 0, i32 0
+  %1158 = load ptr, ptr %1157, align 8
+  invoke void @_ZN8pybind1118reinterpret_borrowINS_4dictEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::dict") align 8 %109, ptr %1158)
+          to label %1159 unwind label %1092
 
-1152:                                             ; preds = %1149
-  %1153 = invoke noundef zeroext i1 @_ZNK8pybind114dict5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
-          to label %1154 unwind label %1161
+1159:                                             ; preds = %1156
+  %1160 = invoke noundef zeroext i1 @_ZNK8pybind114dict5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
+          to label %1161 unwind label %1168
 
-1154:                                             ; preds = %1152
-  br i1 %1153, label %1251, label %1155
+1161:                                             ; preds = %1159
+  br i1 %1160, label %1258, label %1162
 
-1155:                                             ; preds = %1154
-  %1156 = load i8, ptr %101, align 1
-  %1157 = trunc i8 %1156 to i1
-  br i1 %1157, label %1158, label %1165
+1162:                                             ; preds = %1161
+  %1163 = load i8, ptr %101, align 1
+  %1164 = trunc i8 %1163 to i1
+  br i1 %1164, label %1165, label %1172
 
-1158:                                             ; preds = %1155
-  %1159 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.117)
-          to label %1160 unwind label %1161
-
-1160:                                             ; preds = %1158
-  br label %1165
-
-1161:                                             ; preds = %1242, %1239, %1188, %1185, %1175, %1172, %1169, %1167, %1165, %1158, %1152
-  %1162 = landingpad { ptr, i32 }
-          cleanup
-  %1163 = extractvalue { ptr, i32 } %1162, 0
-  store ptr %1163, ptr %20, align 8
-  %1164 = extractvalue { ptr, i32 } %1162, 1
-  store i32 %1164, ptr %21, align 4
-  br label %1252
-
-1165:                                             ; preds = %1160, %1155
-  %1166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.118)
-          to label %1167 unwind label %1161
+1165:                                             ; preds = %1162
+  %1166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.117)
+          to label %1167 unwind label %1168
 
 1167:                                             ; preds = %1165
-  store i8 1, ptr %111, align 1
-  store ptr %109, ptr %112, align 8
-  %1168 = load ptr, ptr %112, align 8
-  invoke void @_ZNK8pybind114dict5beginEv(ptr dead_on_unwind writable sret(%"class.pybind11::detail::generic_iterator") align 8 %113, ptr noundef nonnull align 8 dereferenceable(8) %1168)
-          to label %1169 unwind label %1161
-
-1169:                                             ; preds = %1167
-  %1170 = load ptr, ptr %112, align 8
-  invoke void @_ZNK8pybind114dict3endEv(ptr dead_on_unwind writable sret(%"class.pybind11::detail::generic_iterator") align 8 %114, ptr noundef nonnull align 8 dereferenceable(8) %1170)
-          to label %1171 unwind label %1161
-
-1171:                                             ; preds = %1169
   br label %1172
 
-1172:                                             ; preds = %1244, %1171
-  %1173 = invoke noundef zeroext i1 @_ZN8pybind116detailneERKNS0_16generic_iteratorINS0_17iterator_policies13dict_readonlyEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %114)
-          to label %1174 unwind label %1161
+1168:                                             ; preds = %1249, %1246, %1195, %1192, %1182, %1179, %1176, %1174, %1172, %1165, %1159
+  %1169 = landingpad { ptr, i32 }
+          cleanup
+  %1170 = extractvalue { ptr, i32 } %1169, 0
+  store ptr %1170, ptr %20, align 8
+  %1171 = extractvalue { ptr, i32 } %1169, 1
+  store i32 %1171, ptr %21, align 4
+  br label %1259
+
+1172:                                             ; preds = %1167, %1162
+  %1173 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.118)
+          to label %1174 unwind label %1168
 
 1174:                                             ; preds = %1172
-  br i1 %1173, label %1175, label %1250
+  store i8 1, ptr %111, align 1
+  store ptr %109, ptr %112, align 8
+  %1175 = load ptr, ptr %112, align 8
+  invoke void @_ZNK8pybind114dict5beginEv(ptr dead_on_unwind writable sret(%"class.pybind11::detail::generic_iterator") align 8 %113, ptr noundef nonnull align 8 dereferenceable(8) %1175)
+          to label %1176 unwind label %1168
 
-1175:                                             ; preds = %1174
-  %1176 = invoke { ptr, ptr } @_ZNK8pybind116detail16generic_iteratorINS0_17iterator_policies13dict_readonlyEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %113)
-          to label %1177 unwind label %1161
+1176:                                             ; preds = %1174
+  %1177 = load ptr, ptr %112, align 8
+  invoke void @_ZNK8pybind114dict3endEv(ptr dead_on_unwind writable sret(%"class.pybind11::detail::generic_iterator") align 8 %114, ptr noundef nonnull align 8 dereferenceable(8) %1177)
+          to label %1178 unwind label %1168
 
-1177:                                             ; preds = %1175
-  %1178 = getelementptr inbounds { ptr, ptr }, ptr %116, i32 0, i32 0
-  %1179 = extractvalue { ptr, ptr } %1176, 0
-  store ptr %1179, ptr %1178, align 8
-  %1180 = getelementptr inbounds { ptr, ptr }, ptr %116, i32 0, i32 1
-  %1181 = extractvalue { ptr, ptr } %1176, 1
-  store ptr %1181, ptr %1180, align 8
+1178:                                             ; preds = %1176
+  br label %1179
+
+1179:                                             ; preds = %1251, %1178
+  %1180 = invoke noundef zeroext i1 @_ZN8pybind116detailneERKNS0_16generic_iteratorINS0_17iterator_policies13dict_readonlyEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %114)
+          to label %1181 unwind label %1168
+
+1181:                                             ; preds = %1179
+  br i1 %1180, label %1182, label %1257
+
+1182:                                             ; preds = %1181
+  %1183 = invoke { ptr, ptr } @_ZNK8pybind116detail16generic_iteratorINS0_17iterator_policies13dict_readonlyEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %113)
+          to label %1184 unwind label %1168
+
+1184:                                             ; preds = %1182
+  %1185 = getelementptr inbounds { ptr, ptr }, ptr %116, i32 0, i32 0
+  %1186 = extractvalue { ptr, ptr } %1183, 0
+  store ptr %1186, ptr %1185, align 8
+  %1187 = getelementptr inbounds { ptr, ptr }, ptr %116, i32 0, i32 1
+  %1188 = extractvalue { ptr, ptr } %1183, 1
+  store ptr %1188, ptr %1187, align 8
   store ptr %116, ptr %115, align 8
-  %1182 = load i8, ptr %111, align 1
-  %1183 = trunc i8 %1182 to i1
-  br i1 %1183, label %1184, label %1185
+  %1189 = load i8, ptr %111, align 1
+  %1190 = trunc i8 %1189 to i1
+  br i1 %1190, label %1191, label %1192
 
-1184:                                             ; preds = %1177
+1191:                                             ; preds = %1184
   store i8 0, ptr %111, align 1
-  br label %1188
+  br label %1195
 
-1185:                                             ; preds = %1177
-  %1186 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.113)
-          to label %1187 unwind label %1161
+1192:                                             ; preds = %1184
+  %1193 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.113)
+          to label %1194 unwind label %1168
 
-1187:                                             ; preds = %1185
-  br label %1188
+1194:                                             ; preds = %1192
+  br label %1195
 
-1188:                                             ; preds = %1187, %1184
+1195:                                             ; preds = %1194, %1191
   invoke void @_ZN8pybind113strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef @.str.119)
-          to label %1189 unwind label %1161
+          to label %1196 unwind label %1168
 
-1189:                                             ; preds = %1188
-  %1190 = load ptr, ptr %115, align 8
-  %1191 = getelementptr inbounds %"struct.std::pair.336", ptr %1190, i32 0, i32 0
-  invoke void @_ZNK8pybind113str6formatIJRKNS_6handleEEEES0_DpOT_(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %118, ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(8) %1191)
-          to label %1192 unwind label %1204
+1196:                                             ; preds = %1195
+  %1197 = load ptr, ptr %115, align 8
+  %1198 = getelementptr inbounds %"struct.std::pair.336", ptr %1197, i32 0, i32 0
+  invoke void @_ZNK8pybind113str6formatIJRKNS_6handleEEEES0_DpOT_(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %118, ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(8) %1198)
+          to label %1199 unwind label %1211
 
-1192:                                             ; preds = %1189
+1199:                                             ; preds = %1196
   invoke void @_ZNK8pybind113strcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(8) %118)
-          to label %1193 unwind label %1208
+          to label %1200 unwind label %1215
 
-1193:                                             ; preds = %1192
-  %1194 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %117)
-          to label %1195 unwind label %1212
+1200:                                             ; preds = %1199
+  %1201 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %117)
+          to label %1202 unwind label %1219
 
-1195:                                             ; preds = %1193
+1202:                                             ; preds = %1200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #6
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %118) #6
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %119) #6
-  %1196 = load ptr, ptr %115, align 8
-  %1197 = getelementptr inbounds %"struct.std::pair.336", ptr %1196, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %122, ptr align 8 %1197, i64 8, i1 false)
-  %1198 = getelementptr inbounds %"class.pybind11::handle", ptr %122, i32 0, i32 0
-  %1199 = load ptr, ptr %1198, align 8
-  invoke void @_ZN8pybind114reprENS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %121, ptr %1199)
-          to label %1200 unwind label %1218
+  %1203 = load ptr, ptr %115, align 8
+  %1204 = getelementptr inbounds %"struct.std::pair.336", ptr %1203, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %122, ptr align 8 %1204, i64 8, i1 false)
+  %1205 = getelementptr inbounds %"class.pybind11::handle", ptr %122, i32 0, i32 0
+  %1206 = load ptr, ptr %1205, align 8
+  invoke void @_ZN8pybind114reprENS_6handleE(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %121, ptr %1206)
+          to label %1207 unwind label %1225
 
-1200:                                             ; preds = %1195
+1207:                                             ; preds = %1202
   invoke void @_ZNK8pybind113strcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %120, ptr noundef nonnull align 8 dereferenceable(8) %121)
-          to label %1201 unwind label %1222
+          to label %1208 unwind label %1229
 
-1201:                                             ; preds = %1200
-  %1202 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %120)
-          to label %1203 unwind label %1226
+1208:                                             ; preds = %1207
+  %1209 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %120)
+          to label %1210 unwind label %1233
 
-1203:                                             ; preds = %1201
+1210:                                             ; preds = %1208
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #6
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %121) #6
-  br label %1241
+  br label %1248
 
-1204:                                             ; preds = %1189
-  %1205 = landingpad { ptr, i32 }
+1211:                                             ; preds = %1196
+  %1212 = landingpad { ptr, i32 }
           cleanup
-  %1206 = extractvalue { ptr, i32 } %1205, 0
-  store ptr %1206, ptr %20, align 8
-  %1207 = extractvalue { ptr, i32 } %1205, 1
-  store i32 %1207, ptr %21, align 4
-  br label %1217
+  %1213 = extractvalue { ptr, i32 } %1212, 0
+  store ptr %1213, ptr %20, align 8
+  %1214 = extractvalue { ptr, i32 } %1212, 1
+  store i32 %1214, ptr %21, align 4
+  br label %1224
 
-1208:                                             ; preds = %1192
-  %1209 = landingpad { ptr, i32 }
+1215:                                             ; preds = %1199
+  %1216 = landingpad { ptr, i32 }
           cleanup
-  %1210 = extractvalue { ptr, i32 } %1209, 0
-  store ptr %1210, ptr %20, align 8
-  %1211 = extractvalue { ptr, i32 } %1209, 1
-  store i32 %1211, ptr %21, align 4
-  br label %1216
+  %1217 = extractvalue { ptr, i32 } %1216, 0
+  store ptr %1217, ptr %20, align 8
+  %1218 = extractvalue { ptr, i32 } %1216, 1
+  store i32 %1218, ptr %21, align 4
+  br label %1223
 
-1212:                                             ; preds = %1193
-  %1213 = landingpad { ptr, i32 }
+1219:                                             ; preds = %1200
+  %1220 = landingpad { ptr, i32 }
           cleanup
-  %1214 = extractvalue { ptr, i32 } %1213, 0
-  store ptr %1214, ptr %20, align 8
-  %1215 = extractvalue { ptr, i32 } %1213, 1
-  store i32 %1215, ptr %21, align 4
+  %1221 = extractvalue { ptr, i32 } %1220, 0
+  store ptr %1221, ptr %20, align 8
+  %1222 = extractvalue { ptr, i32 } %1220, 1
+  store i32 %1222, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #6
-  br label %1216
+  br label %1223
 
-1216:                                             ; preds = %1212, %1208
+1223:                                             ; preds = %1219, %1215
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %118) #6
-  br label %1217
+  br label %1224
 
-1217:                                             ; preds = %1216, %1204
+1224:                                             ; preds = %1223, %1211
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %119) #6
-  br label %1252
+  br label %1259
 
-1218:                                             ; preds = %1195
-  %1219 = landingpad { ptr, i32 }
+1225:                                             ; preds = %1202
+  %1226 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1220 = extractvalue { ptr, i32 } %1219, 0
-  store ptr %1220, ptr %20, align 8
-  %1221 = extractvalue { ptr, i32 } %1219, 1
-  store i32 %1221, ptr %21, align 4
-  br label %1231
+  %1227 = extractvalue { ptr, i32 } %1226, 0
+  store ptr %1227, ptr %20, align 8
+  %1228 = extractvalue { ptr, i32 } %1226, 1
+  store i32 %1228, ptr %21, align 4
+  br label %1238
 
-1222:                                             ; preds = %1200
-  %1223 = landingpad { ptr, i32 }
+1229:                                             ; preds = %1207
+  %1230 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1224 = extractvalue { ptr, i32 } %1223, 0
-  store ptr %1224, ptr %20, align 8
-  %1225 = extractvalue { ptr, i32 } %1223, 1
-  store i32 %1225, ptr %21, align 4
-  br label %1230
+  %1231 = extractvalue { ptr, i32 } %1230, 0
+  store ptr %1231, ptr %20, align 8
+  %1232 = extractvalue { ptr, i32 } %1230, 1
+  store i32 %1232, ptr %21, align 4
+  br label %1237
 
-1226:                                             ; preds = %1201
-  %1227 = landingpad { ptr, i32 }
+1233:                                             ; preds = %1208
+  %1234 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  %1228 = extractvalue { ptr, i32 } %1227, 0
-  store ptr %1228, ptr %20, align 8
-  %1229 = extractvalue { ptr, i32 } %1227, 1
-  store i32 %1229, ptr %21, align 4
+  %1235 = extractvalue { ptr, i32 } %1234, 0
+  store ptr %1235, ptr %20, align 8
+  %1236 = extractvalue { ptr, i32 } %1234, 1
+  store i32 %1236, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #6
-  br label %1230
+  br label %1237
 
-1230:                                             ; preds = %1226, %1222
+1237:                                             ; preds = %1233, %1229
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %121) #6
-  br label %1231
+  br label %1238
 
-1231:                                             ; preds = %1230, %1218
-  %1232 = load i32, ptr %21, align 4
-  %1233 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
-  %1234 = icmp eq i32 %1232, %1233
-  br i1 %1234, label %1235, label %1252
+1238:                                             ; preds = %1237, %1225
+  %1239 = load i32, ptr %21, align 4
+  %1240 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %1241 = icmp eq i32 %1239, %1240
+  br i1 %1241, label %1242, label %1259
 
-1235:                                             ; preds = %1231
-  %1236 = load ptr, ptr %20, align 8
-  %1237 = call ptr @__cxa_begin_catch(ptr %1236) #6
-  store ptr %1237, ptr %123, align 8
-  %1238 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.116)
-          to label %1239 unwind label %1245
+1242:                                             ; preds = %1238
+  %1243 = load ptr, ptr %20, align 8
+  %1244 = call ptr @__cxa_begin_catch(ptr %1243) #6
+  store ptr %1244, ptr %123, align 8
+  %1245 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef @.str.116)
+          to label %1246 unwind label %1252
 
-1239:                                             ; preds = %1235
+1246:                                             ; preds = %1242
   invoke void @__cxa_end_catch()
-          to label %1240 unwind label %1161
+          to label %1247 unwind label %1168
 
-1240:                                             ; preds = %1239
-  br label %1241
+1247:                                             ; preds = %1246
+  br label %1248
 
-1241:                                             ; preds = %1240, %1203
-  br label %1242
+1248:                                             ; preds = %1247, %1210
+  br label %1249
 
-1242:                                             ; preds = %1241
-  %1243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8pybind116detail16generic_iteratorINS0_17iterator_policies13dict_readonlyEEppEv(ptr noundef nonnull align 8 dereferenceable(32) %113)
-          to label %1244 unwind label %1161
+1249:                                             ; preds = %1248
+  %1250 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8pybind116detail16generic_iteratorINS0_17iterator_policies13dict_readonlyEEppEv(ptr noundef nonnull align 8 dereferenceable(32) %113)
+          to label %1251 unwind label %1168
 
-1244:                                             ; preds = %1242
-  br label %1172
+1251:                                             ; preds = %1249
+  br label %1179
 
-1245:                                             ; preds = %1235
-  %1246 = landingpad { ptr, i32 }
+1252:                                             ; preds = %1242
+  %1253 = landingpad { ptr, i32 }
           cleanup
-  %1247 = extractvalue { ptr, i32 } %1246, 0
-  store ptr %1247, ptr %20, align 8
-  %1248 = extractvalue { ptr, i32 } %1246, 1
-  store i32 %1248, ptr %21, align 4
+  %1254 = extractvalue { ptr, i32 } %1253, 0
+  store ptr %1254, ptr %20, align 8
+  %1255 = extractvalue { ptr, i32 } %1253, 1
+  store i32 %1255, ptr %21, align 4
   invoke void @__cxa_end_catch()
-          to label %1249 unwind label %1327
+          to label %1256 unwind label %1334
 
-1249:                                             ; preds = %1245
-  br label %1252
+1256:                                             ; preds = %1252
+  br label %1259
 
-1250:                                             ; preds = %1174
-  br label %1251
+1257:                                             ; preds = %1181
+  br label %1258
 
-1251:                                             ; preds = %1250, %1154
+1258:                                             ; preds = %1257, %1161
   call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #6
-  br label %1253
+  br label %1260
 
-1252:                                             ; preds = %1249, %1231, %1217, %1161
+1259:                                             ; preds = %1256, %1238, %1224, %1168
   call void @_ZN8pybind114dictD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #6
-  br label %1268
+  br label %1275
 
-1253:                                             ; preds = %1251, %1144
+1260:                                             ; preds = %1258, %1151
   invoke void @_ZZN8pybind1112cpp_function10dispatcherEP7_objectS2_S2_ENKUlRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES9_(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(32) %80)
-          to label %1254 unwind label %1085
+          to label %1261 unwind label %1092
 
-1254:                                             ; preds = %1253
-  %1255 = invoke ptr @PyErr_Occurred()
-          to label %1256 unwind label %1085
+1261:                                             ; preds = %1260
+  %1262 = invoke ptr @PyErr_Occurred()
+          to label %1263 unwind label %1092
 
-1256:                                             ; preds = %1254
-  %1257 = icmp ne ptr %1255, null
-  br i1 %1257, label %1258, label %1262
+1263:                                             ; preds = %1261
+  %1264 = icmp ne ptr %1262, null
+  br i1 %1264, label %1265, label %1269
 
-1258:                                             ; preds = %1256
-  %1259 = load ptr, ptr @PyExc_TypeError, align 8
-  %1260 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
-  invoke void @_ZN8pybind1110raise_fromEP7_objectPKc(ptr noundef %1259, ptr noundef %1260)
-          to label %1261 unwind label %1085
+1265:                                             ; preds = %1263
+  %1266 = load ptr, ptr @PyExc_TypeError, align 8
+  %1267 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
+  invoke void @_ZN8pybind1110raise_fromEP7_objectPKc(ptr noundef %1266, ptr noundef %1267)
+          to label %1268 unwind label %1092
 
-1261:                                             ; preds = %1258
+1268:                                             ; preds = %1265
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %1267
+  br label %1274
 
-1262:                                             ; preds = %1256
-  %1263 = load ptr, ptr @PyExc_TypeError, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %1263)
-          to label %1264 unwind label %1085
+1269:                                             ; preds = %1263
+  %1270 = load ptr, ptr @PyExc_TypeError, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %1270)
+          to label %1271 unwind label %1092
 
-1264:                                             ; preds = %1262
-  %1265 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
-  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %1265)
-          to label %1266 unwind label %1085
+1271:                                             ; preds = %1269
+  %1272 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
+  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %1272)
+          to label %1273 unwind label %1092
 
-1266:                                             ; preds = %1264
+1273:                                             ; preds = %1271
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %1267
+  br label %1274
 
-1267:                                             ; preds = %1266, %1261
+1274:                                             ; preds = %1273, %1268
   call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
-  br label %1320
+  br label %1327
 
-1268:                                             ; preds = %1252, %1143, %1125, %1085
+1275:                                             ; preds = %1259, %1150, %1132, %1092
   call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #6
-  br label %1269
+  br label %1276
 
-1269:                                             ; preds = %1268, %1050, %1012, %1008, %1007
+1276:                                             ; preds = %1275, %1057, %1019, %1015, %1014
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
-  br label %1322
+  br label %1329
 
-1270:                                             ; preds = %904
-  %1271 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %1271, label %1301, label %1272
+1277:                                             ; preds = %910
+  %1278 = call noundef zeroext i1 @_ZNK8pybind116handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br i1 %1278, label %1308, label %1279
 
-1272:                                             ; preds = %1270
+1279:                                             ; preds = %1277
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %126)
-          to label %1273 unwind label %1287
+          to label %1280 unwind label %1294
 
-1273:                                             ; preds = %1272
+1280:                                             ; preds = %1279
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #6
-  %1274 = load ptr, ptr %9, align 8
-  %1275 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1274, i32 0, i32 2
-  %1276 = load ptr, ptr %1275, align 8
-  %1277 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef %1276)
-          to label %1278 unwind label %1291
+  %1281 = load ptr, ptr %9, align 8
+  %1282 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1281, i32 0, i32 2
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef %1283)
+          to label %1285 unwind label %1298
 
-1278:                                             ; preds = %1273
+1285:                                             ; preds = %1280
   invoke void @_ZZN8pybind1112cpp_function10dispatcherEP7_objectS2_S2_ENKUlRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES9_(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(32) %125)
-          to label %1279 unwind label %1291
+          to label %1286 unwind label %1298
 
-1279:                                             ; preds = %1278
-  %1280 = invoke ptr @PyErr_Occurred()
-          to label %1281 unwind label %1291
+1286:                                             ; preds = %1285
+  %1287 = invoke ptr @PyErr_Occurred()
+          to label %1288 unwind label %1298
 
-1281:                                             ; preds = %1279
-  %1282 = icmp ne ptr %1280, null
-  br i1 %1282, label %1283, label %1295
+1288:                                             ; preds = %1286
+  %1289 = icmp ne ptr %1287, null
+  br i1 %1289, label %1290, label %1302
 
-1283:                                             ; preds = %1281
-  %1284 = load ptr, ptr @PyExc_TypeError, align 8
-  %1285 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
-  invoke void @_ZN8pybind1110raise_fromEP7_objectPKc(ptr noundef %1284, ptr noundef %1285)
-          to label %1286 unwind label %1291
+1290:                                             ; preds = %1288
+  %1291 = load ptr, ptr @PyExc_TypeError, align 8
+  %1292 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
+  invoke void @_ZN8pybind1110raise_fromEP7_objectPKc(ptr noundef %1291, ptr noundef %1292)
+          to label %1293 unwind label %1298
 
-1286:                                             ; preds = %1283
+1293:                                             ; preds = %1290
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %1300
+  br label %1307
 
-1287:                                             ; preds = %1272
-  %1288 = landingpad { ptr, i32 }
+1294:                                             ; preds = %1279
+  %1295 = landingpad { ptr, i32 }
           cleanup
-  %1289 = extractvalue { ptr, i32 } %1288, 0
-  store ptr %1289, ptr %20, align 8
-  %1290 = extractvalue { ptr, i32 } %1288, 1
-  store i32 %1290, ptr %21, align 4
+  %1296 = extractvalue { ptr, i32 } %1295, 0
+  store ptr %1296, ptr %20, align 8
+  %1297 = extractvalue { ptr, i32 } %1295, 1
+  store i32 %1297, ptr %21, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #6
-  br label %1322
+  br label %1329
 
-1291:                                             ; preds = %1297, %1295, %1283, %1279, %1278, %1273
-  %1292 = landingpad { ptr, i32 }
+1298:                                             ; preds = %1304, %1302, %1290, %1286, %1285, %1280
+  %1299 = landingpad { ptr, i32 }
           cleanup
-  %1293 = extractvalue { ptr, i32 } %1292, 0
-  store ptr %1293, ptr %20, align 8
-  %1294 = extractvalue { ptr, i32 } %1292, 1
-  store i32 %1294, ptr %21, align 4
+  %1300 = extractvalue { ptr, i32 } %1299, 0
+  store ptr %1300, ptr %20, align 8
+  %1301 = extractvalue { ptr, i32 } %1299, 1
+  store i32 %1301, ptr %21, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
-  br label %1322
+  br label %1329
 
-1295:                                             ; preds = %1281
-  %1296 = load ptr, ptr @PyExc_TypeError, align 8
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef %1296)
-          to label %1297 unwind label %1291
+1302:                                             ; preds = %1288
+  %1303 = load ptr, ptr @PyExc_TypeError, align 8
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef %1303)
+          to label %1304 unwind label %1298
 
-1297:                                             ; preds = %1295
-  %1298 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
-  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef %1298)
-          to label %1299 unwind label %1291
+1304:                                             ; preds = %1302
+  %1305 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
+  invoke void @_ZN8pybind119set_errorERKNS_6handleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef %1305)
+          to label %1306 unwind label %1298
 
-1299:                                             ; preds = %1297
+1306:                                             ; preds = %1304
   store ptr null, ptr %4, align 8
   store i32 1, ptr %36, align 4
-  br label %1300
+  br label %1307
 
-1300:                                             ; preds = %1299, %1286
+1307:                                             ; preds = %1306, %1293
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #6
-  br label %1320
+  br label %1327
 
-1301:                                             ; preds = %1270
-  %1302 = load ptr, ptr %8, align 8
-  %1303 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1302, i32 0, i32 8
-  %1304 = load i16, ptr %1303, align 1
-  %1305 = and i16 %1304, 1
-  %1306 = trunc i16 %1305 to i1
-  br i1 %1306, label %1307, label %1317
+1308:                                             ; preds = %1277
+  %1309 = load ptr, ptr %8, align 8
+  %1310 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %1309, i32 0, i32 8
+  %1311 = load i16, ptr %1310, align 1
+  %1312 = and i16 %1311, 1
+  %1313 = trunc i16 %1312 to i1
+  br i1 %1313, label %1314, label %1324
 
-1307:                                             ; preds = %1301
-  %1308 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder18holder_constructedEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
-  br i1 %1308, label %1317, label %1309
+1314:                                             ; preds = %1308
+  %1315 = call noundef zeroext i1 @_ZNK8pybind116detail16value_and_holder18holder_constructedEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %1315, label %1324, label %1316
 
-1309:                                             ; preds = %1307
-  %1310 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %1311 = load ptr, ptr %1310, align 8
-  store ptr %1311, ptr %128, align 8
-  %1312 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %13, i32 0, i32 2
-  %1313 = load ptr, ptr %1312, align 8
-  %1314 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %1313, i32 0, i32 6
-  %1315 = load ptr, ptr %1314, align 8
-  %1316 = load ptr, ptr %128, align 8
-  call void %1315(ptr noundef %1316, ptr noundef null)
-  br label %1317
+1316:                                             ; preds = %1314
+  %1317 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %1318 = load ptr, ptr %1317, align 8
+  store ptr %1318, ptr %128, align 8
+  %1319 = getelementptr inbounds %"struct.pybind11::detail::value_and_holder", ptr %13, i32 0, i32 2
+  %1320 = load ptr, ptr %1319, align 8
+  %1321 = getelementptr inbounds %"struct.pybind11::detail::type_info", ptr %1320, i32 0, i32 6
+  %1322 = load ptr, ptr %1321, align 8
+  %1323 = load ptr, ptr %128, align 8
+  call void %1322(ptr noundef %1323, ptr noundef null)
+  br label %1324
 
-1317:                                             ; preds = %1309, %1307, %1301
-  %1318 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %1319 = load ptr, ptr %1318, align 8
-  store ptr %1319, ptr %4, align 8
-  br label %1320
+1324:                                             ; preds = %1316, %1314, %1308
+  %1325 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %1326 = load ptr, ptr %1325, align 8
+  store ptr %1326, ptr %4, align 8
+  br label %1327
 
-1320:                                             ; preds = %1317, %1300, %1267, %915, %892, %859, %178, %161
-  %1321 = load ptr, ptr %4, align 8
-  ret ptr %1321
+1327:                                             ; preds = %1324, %1307, %1274, %922, %898, %865, %179, %162
+  %1328 = load ptr, ptr %4, align 8
+  ret ptr %1328
 
-1322:                                             ; preds = %1291, %1287, %1269, %993, %903, %898, %893, %180
-  %1323 = load ptr, ptr %20, align 8
-  %1324 = load i32, ptr %21, align 4
-  %1325 = insertvalue { ptr, i32 } poison, ptr %1323, 0
-  %1326 = insertvalue { ptr, i32 } %1325, i32 %1324, 1
-  resume { ptr, i32 } %1326
+1329:                                             ; preds = %1298, %1294, %1276, %1000, %909, %904, %899, %181
+  %1330 = load ptr, ptr %20, align 8
+  %1331 = load i32, ptr %21, align 4
+  %1332 = insertvalue { ptr, i32 } poison, ptr %1330, 0
+  %1333 = insertvalue { ptr, i32 } %1332, i32 %1331, 1
+  resume { ptr, i32 } %1333
 
-1327:                                             ; preds = %1245, %1139, %899, %894, %876, %839, %729
-  %1328 = landingpad { ptr, i32 }
+1334:                                             ; preds = %1252, %1146, %905, %900, %882, %845, %732
+  %1335 = landingpad { ptr, i32 }
           catch ptr null
-  %1329 = extractvalue { ptr, i32 } %1328, 0
-  call void @__clang_call_terminate(ptr %1329) #20
+  %1336 = extractvalue { ptr, i32 } %1335, 0
+  call void @__clang_call_terminate(ptr %1336) #20
   unreachable
 
-1330:                                             ; preds = %863, %770, %496
+1337:                                             ; preds = %869, %773, %497
   unreachable
 }
 
@@ -30206,7 +30226,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implImEEvPcjT_(ptr nound
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) #16
+declare noundef ptr @strchr(ptr noundef, i32 noundef) #15
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #3
@@ -44056,7 +44076,7 @@ define linkonce_odr hidden void @_ZN8pybind116handleC2IDnTnNSt9enable_ifIXsr6det
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt5arrayIN8pybind116objectELm1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNKSt5arrayIN8pybind116objectELm1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 1
@@ -44131,7 +44151,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -44140,7 +44160,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE5begi
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -44183,7 +44203,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE4dataEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm1EE4dataEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -49799,7 +49819,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -53276,7 +53297,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK3$_2
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %7, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI11MyException) #6
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI11MyException) #6
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %38
 
@@ -53387,7 +53408,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK3$_3
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %7, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI36MyExceptionUseDeprecatedOperatorCall) #6
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI36MyExceptionUseDeprecatedOperatorCall) #6
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %37
 
@@ -53498,7 +53519,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK3$_4
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %7, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12MyException2) #6
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12MyException2) #6
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %39
 
@@ -53600,7 +53621,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK3$_5
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %7, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12MyException4) #6
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12MyException4) #6
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %42
 
@@ -53682,34 +53703,35 @@ define linkonce_odr hidden void @_ZN11MyExceptionC2EPKc(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MyException, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MyException, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11MyException, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MyException, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53717,9 +53739,10 @@ define linkonce_odr hidden void @_ZN11MyExceptionD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MyException, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyException, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11MyException, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyException, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -53788,7 +53811,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK3$_6
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %7, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12MyException6) #6
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12MyException6) #6
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %39
 
@@ -54543,100 +54566,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.395, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_0EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.395, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_0EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.395, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_0EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.395, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_0EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -55097,7 +55121,7 @@ define linkonce_odr void @_ZNSt9once_flag18_Prepare_executionD2Ev(ptr noundef no
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN8pybind1128gil_safe_call_once_and_storeINS3_6objectEE26call_once_and_store_resultIZ25test_submodule_exceptionsRNS3_7module_EE3$_1EERS6_OT_EUlvE_JEEvRS_SD_DpOT0_EUlvE_EERSC_ENKUlvE_cvPFvvEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 align 2 {
@@ -56568,7 +56592,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds %struct._typeobject, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
-  %37 = call i32 @strcmp(ptr noundef @.str.147, ptr noundef %36) #15
+  %37 = call i32 @strcmp(ptr noundef @.str.147, ptr noundef %36) #14
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %78
 
@@ -57401,7 +57425,7 @@ define linkonce_odr hidden void @_ZZN8pybind116detail23register_exception_implI1
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %7, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12MyException5) #6
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12MyException5) #6
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %38
 
@@ -58127,7 +58151,7 @@ define linkonce_odr hidden void @_ZZN8pybind116detail23register_exception_implI1
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %7, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTI14MyException5_1) #6
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI14MyException5_1) #6
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %38
 
@@ -58358,100 +58382,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.426, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_7EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.426, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_7EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.426, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_7EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.426, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_7EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -58688,100 +58713,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.429, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_8EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.429, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_8EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.429, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_8EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.429, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_8EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -58851,7 +58877,8 @@ define linkonce_odr hidden void @_ZN36MyExceptionUseDeprecatedOperatorCallCI211M
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN11MyExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV36MyExceptionUseDeprecatedOperatorCall, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV36MyExceptionUseDeprecatedOperatorCall, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -59050,100 +59077,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.432, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_9EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.432, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_9EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.432, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_9EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.432, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE3$_9EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59215,34 +59243,35 @@ define linkonce_odr hidden void @_ZN12MyException2C2EPKc(ptr noundef nonnull ali
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException2, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MyException2, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException2, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MyException2, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -59250,9 +59279,10 @@ define linkonce_odr hidden void @_ZN12MyException2D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException2, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyException2, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException2, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyException2, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -59453,100 +59483,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.435, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_10EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.435, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_10EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.435, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_10EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.435, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_10EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59617,33 +59648,34 @@ define linkonce_odr hidden void @_ZN12MyException3C2EPKc(ptr noundef nonnull ali
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException3, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MyException3, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException3, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MyException3, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -59651,9 +59683,10 @@ define linkonce_odr hidden void @_ZN12MyException3D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException3, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyException3, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException3, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyException3, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   ret void
 }
 
@@ -59853,100 +59886,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.438, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_11EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.438, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_11EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.438, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_11EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.438, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_11EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60018,34 +60052,35 @@ define linkonce_odr hidden void @_ZN12MyException4C2EPKc(ptr noundef nonnull ali
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException4, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MyException4, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException4, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MyException4, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -60053,9 +60088,10 @@ define linkonce_odr hidden void @_ZN12MyException4D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException4, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyException4, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException4, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyException4, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -60256,100 +60292,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.441, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_12EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.441, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_12EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.441, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_12EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.441, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_12EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60453,7 +60490,8 @@ define linkonce_odr hidden void @_ZN12MyException5C2ERKNSt7__cxx1112basic_string
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException5, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException5, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -60660,100 +60698,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.444, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_13EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.444, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_13EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.444, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_13EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.444, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_13EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60857,7 +60896,8 @@ define linkonce_odr hidden void @_ZN14MyException5_1CI212MyException5ERKNSt7__cx
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12MyException5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14MyException5_1, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14MyException5_1, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -61056,100 +61096,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.447, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_14EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.447, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_14EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.447, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_14EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.447, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_14EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61221,34 +61262,35 @@ define linkonce_odr hidden void @_ZN12MyException6C2EPKc(ptr noundef nonnull ali
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException6, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MyException6, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException6, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MyException6, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -61256,9 +61298,10 @@ define linkonce_odr hidden void @_ZN12MyException6D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12MyException6, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MyException6, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV12MyException6, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MyException6, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -61459,100 +61502,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.450, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_15EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.450, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_15EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.450, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_15EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.450, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_15EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61794,100 +61838,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.453, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_16EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.453, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_16EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.453, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_16EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.453, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_16EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62129,100 +62174,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.456, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_17EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.456, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_17EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.456, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_17EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.456, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_17EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62294,34 +62340,35 @@ define linkonce_odr hidden void @_ZN14LocalExceptionC2EPKc(ptr noundef nonnull a
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14LocalException, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.LocalException, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14LocalException, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.LocalException, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -62329,9 +62376,10 @@ define linkonce_odr hidden void @_ZN14LocalExceptionD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14LocalException, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.LocalException, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14LocalException, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.LocalException, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -62532,100 +62580,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.459, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_18EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.459, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_18EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.459, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_18EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.459, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_18EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62697,34 +62746,35 @@ define linkonce_odr hidden void @_ZN20LocalSimpleExceptionC2EPKc(ptr noundef non
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20LocalSimpleException, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.LocalSimpleException, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20LocalSimpleException, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.LocalSimpleException, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -62732,9 +62782,10 @@ define linkonce_odr hidden void @_ZN20LocalSimpleExceptionD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20LocalSimpleException, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.LocalSimpleException, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20LocalSimpleException, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.LocalSimpleException, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -62935,100 +62986,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %67
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %68
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %52
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.462, ptr %42, i32 0, i32 0
-  %44 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_19EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.462, ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_19EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %46 unwind label %48
+  %46 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %47 unwind label %49
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %45, ptr %47, align 8
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %46, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %63
+  br label %64
 
-48:                                               ; preds = %41
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %70
+  br label %71
 
-52:                                               ; preds = %20
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.capture.462, ptr %53, i32 0, i32 0
-  %55 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_19EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
-  %56 = load i8, ptr %9, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %57, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %55, i8 noundef zeroext %56, ptr %60)
-  %62 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %61, ptr %62, align 8
+53:                                               ; preds = %21
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.capture.462, ptr %54, i32 0, i32 0
+  %56 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_19EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %57 = load i8, ptr %9, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %58, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %56, i8 noundef zeroext %57, ptr %61)
+  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %52, %46
-  %64 = load ptr, ptr %5, align 8
+64:                                               ; preds = %53, %47
+  %65 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %65 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr %66)
-  br label %67
+  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %65, ptr %67)
+  br label %68
 
-67:                                               ; preds = %63, %19
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  ret ptr %69
+68:                                               ; preds = %64, %19
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  ret ptr %70
 
-70:                                               ; preds = %48
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %13, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+71:                                               ; preds = %49
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr %13, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -63137,7 +63189,7 @@ define internal noundef zeroext i1 @"_ZZ25test_submodule_exceptionsRN8pybind117m
 
 22:                                               ; preds = %18, %14
   %23 = load i32, ptr %8, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %51
 
@@ -63544,100 +63596,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %67
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %68
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %52
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.465, ptr %42, i32 0, i32 0
-  %44 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_20EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.465, ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_20EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %46 unwind label %48
+  %46 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %47 unwind label %49
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %45, ptr %47, align 8
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %46, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %63
+  br label %64
 
-48:                                               ; preds = %41
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %70
+  br label %71
 
-52:                                               ; preds = %20
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.capture.465, ptr %53, i32 0, i32 0
-  %55 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_20EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
-  %56 = load i8, ptr %9, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %57, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %55, i8 noundef zeroext %56, ptr %60)
-  %62 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %61, ptr %62, align 8
+53:                                               ; preds = %21
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.capture.465, ptr %54, i32 0, i32 0
+  %56 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_20EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %57 = load i8, ptr %9, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %58, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %56, i8 noundef zeroext %57, ptr %61)
+  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %52, %46
-  %64 = load ptr, ptr %5, align 8
+64:                                               ; preds = %53, %47
+  %65 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %65 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr %66)
-  br label %67
+  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %65, ptr %67)
+  br label %68
 
-67:                                               ; preds = %63, %19
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  ret ptr %69
+68:                                               ; preds = %64, %19
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  ret ptr %70
 
-70:                                               ; preds = %48
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %13, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+71:                                               ; preds = %49
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr %13, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63715,7 +63768,7 @@ define internal noundef zeroext i1 @"_ZZ25test_submodule_exceptionsRN8pybind117m
 
 22:                                               ; preds = %18, %14
   %23 = load i32, ptr %8, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %51
 
@@ -63980,100 +64033,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %67
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %68
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %52
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.468, ptr %42, i32 0, i32 0
-  %44 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.468, ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %46 unwind label %48
+  %46 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %47 unwind label %49
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %45, ptr %47, align 8
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %46, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %63
+  br label %64
 
-48:                                               ; preds = %41
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %70
+  br label %71
 
-52:                                               ; preds = %20
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.capture.468, ptr %53, i32 0, i32 0
-  %55 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
-  %56 = load i8, ptr %9, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %57, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %55, i8 noundef zeroext %56, ptr %60)
-  %62 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %61, ptr %62, align 8
+53:                                               ; preds = %21
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.capture.468, ptr %54, i32 0, i32 0
+  %56 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %57 = load i8, ptr %9, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %58, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %56, i8 noundef zeroext %57, ptr %61)
+  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %52, %46
-  %64 = load ptr, ptr %5, align 8
+64:                                               ; preds = %53, %47
+  %65 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %65 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr %66)
-  br label %67
+  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %65, ptr %67)
+  br label %68
 
-67:                                               ; preds = %63, %19
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  ret ptr %69
+68:                                               ; preds = %64, %19
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  ret ptr %70
 
-70:                                               ; preds = %48
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %13, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+71:                                               ; preds = %49
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr %13, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -64130,7 +64184,7 @@ define internal noundef zeroext i1 @"_ZZ25test_submodule_exceptionsRN8pybind117m
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %6, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %38
 
@@ -64462,100 +64516,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJbEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJbEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.471, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_22EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.471, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_22EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.471, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_22EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.471, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_22EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -64792,7 +64847,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK4$_2
 
 34:                                               ; preds = %30, %26
   %35 = load i32, ptr %7, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #6
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #6
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %138
 
@@ -65238,140 +65293,141 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %18 = load ptr, ptr %5, align 8
   %19 = invoke noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(104) %18)
-          to label %20 unwind label %23
+          to label %20 unwind label %24
 
 20:                                               ; preds = %2
-  br i1 %19, label %27, label %21
+  br i1 %19, label %28, label %21
 
 21:                                               ; preds = %20
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-          to label %22 unwind label %23
+  %22 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %21
+23:                                               ; preds = %21
   store i32 1, ptr %9, align 4
-  br label %80
+  br label %81
 
-23:                                               ; preds = %75, %66, %62, %53, %49, %27, %21, %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %76, %67, %63, %54, %50, %28, %21, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %83
-
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %28)
-          to label %29 unwind label %23
-
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %32, i32 0, i32 5
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %11, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %37, i32 0, i32 7
-  %39 = load i8, ptr %38, align 8
-  %40 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %39)
-  store i8 %40, ptr %12, align 1
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %43, i32 0, i32 8
-  %45 = load i16, ptr %44, align 1
-  %46 = lshr i16 %45, 5
-  %47 = and i16 %46, 1
-  %48 = trunc i16 %47 to i1
-  br i1 %48, label %49, label %62
-
-49:                                               ; preds = %29
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.capture.479, ptr %50, i32 0, i32 0
-  %52 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_4dictEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_23EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %51)
-          to label %53 unwind label %23
-
-53:                                               ; preds = %49
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %54 unwind label %23
-
-54:                                               ; preds = %53
-  %55 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %56 unwind label %58
-
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
-  store ptr %55, ptr %57, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %75
-
-58:                                               ; preds = %54
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %7, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %8, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %83
-
-62:                                               ; preds = %29
-  %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.capture.479, ptr %63, i32 0, i32 0
-  %65 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_4dictEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_23EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %64)
-          to label %66 unwind label %23
-
-66:                                               ; preds = %62
-  %67 = load i8, ptr %12, align 1
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %68, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %69, i64 8, i1 false)
-  %70 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = invoke ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %65, i8 noundef zeroext %67, ptr %71)
-          to label %73 unwind label %23
-
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  store ptr %72, ptr %74, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
-  br label %75
-
-75:                                               ; preds = %73, %56
-  %76 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
-  %77 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %76, ptr %78)
-          to label %79 unwind label %23
-
-79:                                               ; preds = %75
-  store i32 1, ptr %9, align 4
-  br label %80
-
-80:                                               ; preds = %79, %22
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
-  %81 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  ret ptr %82
-
-83:                                               ; preds = %58, %23
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %29)
+          to label %30 unwind label %24
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %33, i32 0, i32 5
+  store ptr %34, ptr %10, align 8
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %11, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %38, i32 0, i32 7
+  %40 = load i8, ptr %39, align 8
+  %41 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %40)
+  store i8 %41, ptr %12, align 1
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %44, i32 0, i32 8
+  %46 = load i16, ptr %45, align 1
+  %47 = lshr i16 %46, 5
+  %48 = and i16 %47, 1
+  %49 = trunc i16 %48 to i1
+  br i1 %49, label %50, label %63
+
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds %struct.capture.479, ptr %51, i32 0, i32 0
+  %53 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_4dictEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_23EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %52)
+          to label %54 unwind label %24
+
+54:                                               ; preds = %50
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %55 unwind label %24
+
+55:                                               ; preds = %54
+  %56 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %57 unwind label %59
+
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
+  store ptr %56, ptr %58, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %76
+
+59:                                               ; preds = %55
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %7, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %8, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %84
+
+63:                                               ; preds = %30
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds %struct.capture.479, ptr %64, i32 0, i32 0
+  %66 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_4dictEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_23EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %65)
+          to label %67 unwind label %24
+
+67:                                               ; preds = %63
+  %68 = load i8, ptr %12, align 1
+  %69 = load ptr, ptr %5, align 8
+  %70 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %69, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %70, i64 8, i1 false)
+  %71 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = invoke ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %66, i8 noundef zeroext %68, ptr %72)
+          to label %74 unwind label %24
+
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  store ptr %73, ptr %75, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
+  br label %76
+
+76:                                               ; preds = %74, %57
+  %77 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
+  %78 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %77, ptr %79)
+          to label %80 unwind label %24
+
+80:                                               ; preds = %76
+  store i32 1, ptr %9, align 4
+  br label %81
+
+81:                                               ; preds = %80, %23
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %82 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  ret ptr %83
+
+84:                                               ; preds = %59, %24
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_4dictEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65695,7 +65751,7 @@ define internal noundef zeroext i1 @"_ZZ25test_submodule_exceptionsRN8pybind117m
 
 31:                                               ; preds = %30, %18
   %32 = load i32, ptr %8, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %41
 
@@ -66138,140 +66194,141 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %18 = load ptr, ptr %5, align 8
   %19 = invoke noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(104) %18)
-          to label %20 unwind label %23
+          to label %20 unwind label %24
 
 20:                                               ; preds = %2
-  br i1 %19, label %27, label %21
+  br i1 %19, label %28, label %21
 
 21:                                               ; preds = %20
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-          to label %22 unwind label %23
+  %22 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %21
+23:                                               ; preds = %21
   store i32 1, ptr %9, align 4
-  br label %80
+  br label %81
 
-23:                                               ; preds = %75, %66, %62, %53, %49, %27, %21, %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %76, %67, %63, %54, %50, %28, %21, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %83
-
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %28)
-          to label %29 unwind label %23
-
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %32, i32 0, i32 5
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %11, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %37, i32 0, i32 7
-  %39 = load i8, ptr %38, align 8
-  %40 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %39)
-  store i8 %40, ptr %12, align 1
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %43, i32 0, i32 8
-  %45 = load i16, ptr %44, align 1
-  %46 = lshr i16 %45, 5
-  %47 = and i16 %46, 1
-  %48 = trunc i16 %47 to i1
-  br i1 %48, label %49, label %62
-
-49:                                               ; preds = %29
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.capture.489, ptr %50, i32 0, i32 0
-  %52 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_3strEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %51)
-          to label %53 unwind label %23
-
-53:                                               ; preds = %49
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %54 unwind label %23
-
-54:                                               ; preds = %53
-  %55 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %56 unwind label %58
-
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
-  store ptr %55, ptr %57, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %75
-
-58:                                               ; preds = %54
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %7, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %8, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %83
-
-62:                                               ; preds = %29
-  %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.capture.489, ptr %63, i32 0, i32 0
-  %65 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_3strEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %64)
-          to label %66 unwind label %23
-
-66:                                               ; preds = %62
-  %67 = load i8, ptr %12, align 1
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %68, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %69, i64 8, i1 false)
-  %70 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = invoke ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %65, i8 noundef zeroext %67, ptr %71)
-          to label %73 unwind label %23
-
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  store ptr %72, ptr %74, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
-  br label %75
-
-75:                                               ; preds = %73, %56
-  %76 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
-  %77 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %76, ptr %78)
-          to label %79 unwind label %23
-
-79:                                               ; preds = %75
-  store i32 1, ptr %9, align 4
-  br label %80
-
-80:                                               ; preds = %79, %22
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
-  %81 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  ret ptr %82
-
-83:                                               ; preds = %58, %23
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %29)
+          to label %30 unwind label %24
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %33, i32 0, i32 5
+  store ptr %34, ptr %10, align 8
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %11, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %38, i32 0, i32 7
+  %40 = load i8, ptr %39, align 8
+  %41 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %40)
+  store i8 %41, ptr %12, align 1
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %44, i32 0, i32 8
+  %46 = load i16, ptr %45, align 1
+  %47 = lshr i16 %46, 5
+  %48 = and i16 %47, 1
+  %49 = trunc i16 %48 to i1
+  br i1 %49, label %50, label %63
+
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds %struct.capture.489, ptr %51, i32 0, i32 0
+  %53 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_3strEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %52)
+          to label %54 unwind label %24
+
+54:                                               ; preds = %50
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %55 unwind label %24
+
+55:                                               ; preds = %54
+  %56 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %57 unwind label %59
+
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
+  store ptr %56, ptr %58, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %76
+
+59:                                               ; preds = %55
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %7, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %8, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %84
+
+63:                                               ; preds = %30
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds %struct.capture.489, ptr %64, i32 0, i32 0
+  %66 = invoke noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJRKNS_3strEEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %65)
+          to label %67 unwind label %24
+
+67:                                               ; preds = %63
+  %68 = load i8, ptr %12, align 1
+  %69 = load ptr, ptr %5, align 8
+  %70 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %69, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %70, i64 8, i1 false)
+  %71 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = invoke ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %66, i8 noundef zeroext %68, ptr %72)
+          to label %74 unwind label %24
+
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  store ptr %73, ptr %75, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
+  br label %76
+
+76:                                               ; preds = %74, %57
+  %77 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
+  %78 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %77, ptr %79)
+          to label %80 unwind label %24
+
+80:                                               ; preds = %76
+  store i32 1, ptr %9, align 4
+  br label %81
+
+81:                                               ; preds = %80, %23
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %82 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  ret ptr %83
+
+84:                                               ; preds = %59, %24
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_3strEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66653,7 +66710,7 @@ define linkonce_odr hidden void @_ZN28PythonAlreadySetInDestructorD2Ev(ptr nound
 
 22:                                               ; preds = %18, %14
   %23 = load i32, ptr %7, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %39
 
@@ -67044,140 +67101,141 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %18 = load ptr, ptr %5, align 8
   %19 = invoke noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(104) %18)
-          to label %20 unwind label %23
+          to label %20 unwind label %24
 
 20:                                               ; preds = %2
-  br i1 %19, label %27, label %21
+  br i1 %19, label %28, label %21
 
 21:                                               ; preds = %20
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-          to label %22 unwind label %23
+  %22 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %21
+23:                                               ; preds = %21
   store i32 1, ptr %9, align 4
-  br label %78
+  br label %79
 
-23:                                               ; preds = %73, %64, %61, %52, %49, %27, %21, %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %74, %65, %62, %53, %50, %28, %21, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %81
-
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %28)
-          to label %29 unwind label %23
-
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %32, i32 0, i32 5
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %11, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %37, i32 0, i32 7
-  %39 = load i8, ptr %38, align 8
-  %40 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %39)
-  store i8 %40, ptr %12, align 1
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %43, i32 0, i32 8
-  %45 = load i16, ptr %44, align 1
-  %46 = lshr i16 %45, 5
-  %47 = and i16 %46, 1
-  %48 = trunc i16 %47 to i1
-  br i1 %48, label %49, label %61
-
-49:                                               ; preds = %29
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.capture.499, ptr %50, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_25EENSt9enable_ifIXsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %51)
-          to label %52 unwind label %23
-
-52:                                               ; preds = %49
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %53 unwind label %23
-
-53:                                               ; preds = %52
-  %54 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %55 unwind label %57
-
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
-  store ptr %54, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %73
-
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %7, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %8, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %81
-
-61:                                               ; preds = %29
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds %struct.capture.499, ptr %62, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_25EENSt9enable_ifIXsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %63)
-          to label %64 unwind label %23
-
-64:                                               ; preds = %61
-  %65 = load i8, ptr %12, align 1
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %66, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %67, i64 8, i1 false)
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = invoke ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %65, ptr %69)
-          to label %71 unwind label %23
-
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  store ptr %70, ptr %72, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
-  br label %73
-
-73:                                               ; preds = %71, %55
-  %74 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
-  %75 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %74, ptr %76)
-          to label %77 unwind label %23
-
-77:                                               ; preds = %73
-  store i32 1, ptr %9, align 4
-  br label %78
-
-78:                                               ; preds = %77, %22
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
-  %79 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  ret ptr %80
-
-81:                                               ; preds = %57, %23
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   br label %82
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %8, align 4
-  %85 = insertvalue { ptr, i32 } poison, ptr %83, 0
-  %86 = insertvalue { ptr, i32 } %85, i32 %84, 1
-  resume { ptr, i32 } %86
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %29)
+          to label %30 unwind label %24
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %33, i32 0, i32 5
+  store ptr %34, ptr %10, align 8
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %11, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %38, i32 0, i32 7
+  %40 = load i8, ptr %39, align 8
+  %41 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %40)
+  store i8 %41, ptr %12, align 1
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %44, i32 0, i32 8
+  %46 = load i16, ptr %45, align 1
+  %47 = lshr i16 %46, 5
+  %48 = and i16 %47, 1
+  %49 = trunc i16 %48 to i1
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds %struct.capture.499, ptr %51, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_25EENSt9enable_ifIXsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %52)
+          to label %53 unwind label %24
+
+53:                                               ; preds = %50
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %54 unwind label %24
+
+54:                                               ; preds = %53
+  %55 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %56 unwind label %58
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
+  store ptr %55, ptr %57, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %74
+
+58:                                               ; preds = %54
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %7, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %8, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %82
+
+62:                                               ; preds = %30
+  %63 = load ptr, ptr %11, align 8
+  %64 = getelementptr inbounds %struct.capture.499, ptr %63, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_25EENSt9enable_ifIXsr3std7is_voidIT_EE5valueESD_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %64)
+          to label %65 unwind label %24
+
+65:                                               ; preds = %62
+  %66 = load i8, ptr %12, align 1
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %67, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %68, i64 8, i1 false)
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = invoke ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %66, ptr %70)
+          to label %72 unwind label %24
+
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  store ptr %71, ptr %73, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
+  br label %74
+
+74:                                               ; preds = %72, %56
+  %75 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
+  %76 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %75, ptr %77)
+          to label %78 unwind label %24
+
+78:                                               ; preds = %74
+  store i32 1, ptr %9, align 4
+  br label %79
+
+79:                                               ; preds = %78, %23
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  %80 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  ret ptr %81
+
+82:                                               ; preds = %58, %24
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68156,7 +68214,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK4$_2
 
 27:                                               ; preds = %23
   %28 = load i32, ptr %12, align 4
-  %29 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %57
 
@@ -68386,11 +68444,12 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2ERKS0_(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #6
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #6
   ret void
 }
 
@@ -69511,7 +69570,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail5printERKNS_5tupleERKNS_4dic
 
 137:                                              ; preds = %136, %124
   %138 = load i32, ptr %8, align 4
-  %139 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %139 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %140 = icmp eq i32 %138, %139
   br i1 %140, label %141, label %211
 
@@ -71612,7 +71671,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -71986,100 +72046,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJbEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJbEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %67
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %68
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIbvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %52
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.520, ptr %42, i32 0, i32 0
-  %44 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJbEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_26EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.520, ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJbEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_26EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %46 unwind label %48
+  %46 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %47 unwind label %49
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %45, ptr %47, align 8
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %46, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %63
+  br label %64
 
-48:                                               ; preds = %41
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %70
+  br label %71
 
-52:                                               ; preds = %20
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.capture.520, ptr %53, i32 0, i32 0
-  %55 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJbEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_26EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
-  %56 = load i8, ptr %9, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %57, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %55, i8 noundef zeroext %56, ptr %60)
-  %62 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %61, ptr %62, align 8
+53:                                               ; preds = %21
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.capture.520, ptr %54, i32 0, i32 0
+  %56 = call noundef zeroext i1 @"_ZNO8pybind116detail15argument_loaderIJbEE4callIbNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_26EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %57 = load i8, ptr %9, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %58, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @_ZN8pybind116detail11type_casterIbvE4castEbNS_19return_value_policyENS_6handleE(i1 noundef zeroext %56, i8 noundef zeroext %57, ptr %61)
+  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %62, ptr %63, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %52, %46
-  %64 = load ptr, ptr %5, align 8
+64:                                               ; preds = %53, %47
+  %65 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %65 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr %66)
-  br label %67
+  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %65, ptr %67)
+  br label %68
 
-67:                                               ; preds = %63, %19
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  ret ptr %69
+68:                                               ; preds = %64, %19
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  ret ptr %70
 
-70:                                               ; preds = %48
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %13, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+71:                                               ; preds = %49
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr %13, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -72302,100 +72363,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.523, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_27EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.523, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_27EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.523, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_27EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.523, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_27EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -72483,7 +72545,8 @@ define linkonce_odr hidden void @_ZN16shared_exceptionCI2St13runtime_errorEPKc(p
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16shared_exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV16shared_exception, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -72496,7 +72559,8 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -72704,100 +72768,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.526, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_28EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.526, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_28EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.526, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_28EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.526, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_28EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73040,100 +73105,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.529, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_29EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.529, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_29EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.529, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_29EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.529, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_29EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73209,7 +73275,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK4$_2
 
 20:                                               ; preds = %16, %12
   %21 = load i32, ptr %5, align 4
-  %22 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %23 = icmp eq i32 %21, %22
   br i1 %23, label %24, label %43
 
@@ -73470,100 +73536,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.532, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_30EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.532, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_30EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.532, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_30EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.532, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_30EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73630,7 +73697,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK4$_3
 
 17:                                               ; preds = %13, %9
   %18 = load i32, ptr %4, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #6
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #6
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %37
 
@@ -73748,9 +73815,11 @@ define linkonce_odr void @_ZNSt17_Nested_exceptionISt13runtime_errorEC2EOS0_(ptr
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZNSt16nested_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVSt17_Nested_exceptionISt13runtime_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr] }, ptr @_ZTVSt17_Nested_exceptionISt13runtime_errorE, i32 0, i32 1, i32 2), ptr %8, align 8
+  %8 = getelementptr inbounds { [5 x ptr], [4 x ptr] }, ptr @_ZTVSt17_Nested_exceptionISt13runtime_errorE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds { [5 x ptr], [4 x ptr] }, ptr @_ZTVSt17_Nested_exceptionISt13runtime_errorE, i32 0, i32 1, i32 2
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -73773,9 +73842,10 @@ define linkonce_odr void @_ZNSt16nested_exceptionC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVSt16nested_exception, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::nested_exception", ptr %3, i32 0, i32 1
-  call void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %4) #6
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVSt16nested_exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::nested_exception", ptr %3, i32 0, i32 1
+  call void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %5) #6
   ret void
 }
 
@@ -73790,7 +73860,7 @@ define linkonce_odr void @_ZNSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 {
+define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -73800,7 +73870,7 @@ define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #19 comdat align 2 {
+define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -74002,155 +74072,156 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %20 = load ptr, ptr %5, align 8
   %21 = invoke noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(104) %20)
-          to label %22 unwind label %25
+          to label %22 unwind label %26
 
 22:                                               ; preds = %2
-  br i1 %21, label %29, label %23
+  br i1 %21, label %30, label %23
 
 23:                                               ; preds = %22
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-          to label %24 unwind label %25
+  %24 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %24)
+          to label %25 unwind label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %23
   store i32 1, ptr %9, align 4
-  br label %85
+  br label %86
 
-25:                                               ; preds = %80, %64, %55, %52, %31, %29, %23, %2
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %81, %65, %56, %53, %32, %30, %23, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
-  br label %88
-
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %5, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %30)
-          to label %31 unwind label %25
-
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %34, i32 0, i32 5
-  store ptr %35, ptr %10, align 8
-  %36 = load ptr, ptr %10, align 8
-  store ptr %36, ptr %11, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %39, i32 0, i32 7
-  %41 = load i8, ptr %40, align 8
-  %42 = invoke noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideINS_5tupleEvE6policyENS_19return_value_policyE(i8 noundef zeroext %41)
-          to label %43 unwind label %25
-
-43:                                               ; preds = %31
-  store i8 %42, ptr %12, align 1
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %46, i32 0, i32 8
-  %48 = load i16, ptr %47, align 1
-  %49 = lshr i16 %48, 5
-  %50 = and i16 %49, 1
-  %51 = trunc i16 %50 to i1
-  br i1 %51, label %52, label %64
-
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds %struct.capture.536, ptr %53, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectES4_EE4callINS_5tupleENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_31EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
-          to label %55 unwind label %25
-
-55:                                               ; preds = %52
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %56 unwind label %25
-
-56:                                               ; preds = %55
-  %57 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %58 unwind label %60
-
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
-  br label %80
-
-60:                                               ; preds = %56
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %7, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %8, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
-  br label %88
-
-64:                                               ; preds = %43
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds %struct.capture.536, ptr %65, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectES4_EE4callINS_5tupleENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_31EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %66)
-          to label %67 unwind label %25
-
-67:                                               ; preds = %64
-  %68 = load i8, ptr %12, align 1
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %69, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %70, i64 8, i1 false)
-  %71 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = invoke ptr @_ZN8pybind116detail15pyobject_casterINS_5tupleEE4castERKNS_6handleENS_19return_value_policyES4_(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef zeroext %68, ptr %72)
-          to label %74 unwind label %76
-
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  store ptr %73, ptr %75, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %16, i64 8, i1 false)
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #6
-  br label %80
-
-76:                                               ; preds = %67
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %7, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %8, align 4
-  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #6
-  br label %88
-
-80:                                               ; preds = %74, %58
-  %81 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %3, i64 8, i1 false)
-  %82 = getelementptr inbounds %"class.pybind11::handle", ptr %19, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %81, ptr %83)
-          to label %84 unwind label %25
-
-84:                                               ; preds = %80
-  store i32 1, ptr %9, align 4
-  br label %85
-
-85:                                               ; preds = %84, %24
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
-  %86 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  ret ptr %87
-
-88:                                               ; preds = %76, %60, %25
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
   br label %89
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr %7, align 8
-  %91 = load i32, ptr %8, align 4
-  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
-  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
-  resume { ptr, i32 } %93
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %5, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %31)
+          to label %32 unwind label %26
+
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 5
+  store ptr %36, ptr %10, align 8
+  %37 = load ptr, ptr %10, align 8
+  store ptr %37, ptr %11, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %40, i32 0, i32 7
+  %42 = load i8, ptr %41, align 8
+  %43 = invoke noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideINS_5tupleEvE6policyENS_19return_value_policyE(i8 noundef zeroext %42)
+          to label %44 unwind label %26
+
+44:                                               ; preds = %32
+  store i8 %43, ptr %12, align 1
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %47, i32 0, i32 8
+  %49 = load i16, ptr %48, align 1
+  %50 = lshr i16 %49, 5
+  %51 = and i16 %50, 1
+  %52 = trunc i16 %51 to i1
+  br i1 %52, label %53, label %65
+
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %11, align 8
+  %55 = getelementptr inbounds %struct.capture.536, ptr %54, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectES4_EE4callINS_5tupleENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_31EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
+          to label %56 unwind label %26
+
+56:                                               ; preds = %53
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %57 unwind label %26
+
+57:                                               ; preds = %56
+  %58 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %59 unwind label %61
+
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %58, ptr %60, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
+  br label %81
+
+61:                                               ; preds = %57
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %7, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %8, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
+  br label %89
+
+65:                                               ; preds = %44
+  %66 = load ptr, ptr %11, align 8
+  %67 = getelementptr inbounds %struct.capture.536, ptr %66, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectES4_EE4callINS_5tupleENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_31EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %67)
+          to label %68 unwind label %26
+
+68:                                               ; preds = %65
+  %69 = load i8, ptr %12, align 1
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %70, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %71, i64 8, i1 false)
+  %72 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke ptr @_ZN8pybind116detail15pyobject_casterINS_5tupleEE4castERKNS_6handleENS_19return_value_policyES4_(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef zeroext %69, ptr %73)
+          to label %75 unwind label %77
+
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  store ptr %74, ptr %76, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %16, i64 8, i1 false)
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #6
+  br label %81
+
+77:                                               ; preds = %68
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %7, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %8, align 4
+  call void @_ZN8pybind115tupleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #6
+  br label %89
+
+81:                                               ; preds = %75, %59
+  %82 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %3, i64 8, i1 false)
+  %83 = getelementptr inbounds %"class.pybind11::handle", ptr %19, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %82, ptr %84)
+          to label %85 unwind label %26
+
+85:                                               ; preds = %81
+  store i32 1, ptr %9, align 4
+  br label %86
+
+86:                                               ; preds = %85, %25
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
+  %87 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  ret ptr %88
+
+89:                                               ; preds = %77, %61, %26
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_6objectES4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
+  br label %90
+
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %7, align 8
+  %92 = load i32, ptr %8, align 4
+  %93 = insertvalue { ptr, i32 } poison, ptr %91, 0
+  %94 = insertvalue { ptr, i32 } %93, i32 %92, 1
+  resume { ptr, i32 } %94
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -74802,7 +74873,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt5arrayIN8pybind116objectELm2EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNKSt5arrayIN8pybind116objectELm2EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 2
@@ -74822,7 +74893,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -74831,7 +74902,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE5begi
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -74874,7 +74945,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt5arrayIN8pybind116objectELm2EE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -75097,100 +75168,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.548, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_32EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.548, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_32EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.548, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_32EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.548, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_32EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75461,100 +75533,101 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJbEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
   %17 = load ptr, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJbEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %17)
-  br i1 %18, label %20, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %65
+  %20 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20)
+  br label %66
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %21)
+21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %24, i32 0, i32 5
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %29, i32 0, i32 7
-  %31 = load i8, ptr %30, align 8
-  %32 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %31)
-  store i8 %32, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %22)
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %25, i32 0, i32 5
+  store ptr %26, ptr %7, align 8
+  %27 = load ptr, ptr %7, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %30, i32 0, i32 7
+  %32 = load i8, ptr %31, align 8
+  %33 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %32)
+  store i8 %33, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %35, i32 0, i32 8
-  %37 = load i16, ptr %36, align 1
-  %38 = lshr i16 %37, 5
-  %39 = and i16 %38, 1
-  %40 = trunc i16 %39 to i1
-  br i1 %40, label %41, label %51
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %36, i32 0, i32 8
+  %38 = load i16, ptr %37, align 1
+  %39 = lshr i16 %38, 5
+  %40 = and i16 %39, 1
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %42, label %52
 
-41:                                               ; preds = %20
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.capture.551, ptr %42, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_33EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %43)
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds %struct.capture.551, ptr %43, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_33EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %44 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %45 unwind label %47
+  %45 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"class.pybind11::handle", ptr %10, i32 0, i32 0
+  store ptr %45, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %10, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %61
+  br label %62
 
-47:                                               ; preds = %41
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br label %68
+  br label %69
 
-51:                                               ; preds = %20
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.capture.551, ptr %52, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_33EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  %54 = load i8, ptr %9, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %55, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %56, i64 8, i1 false)
-  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %54, ptr %58)
-  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
-  store ptr %59, ptr %60, align 8
+52:                                               ; preds = %21
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.capture.551, ptr %53, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_33EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES4_E4typeEOT1_"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  %55 = load i8, ptr %9, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %56, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 8, i1 false)
+  %58 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %55, ptr %59)
+  %61 = getelementptr inbounds %"class.pybind11::handle", ptr %14, i32 0, i32 0
+  store ptr %60, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %14, i64 8, i1 false)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %51, %45
-  %62 = load ptr, ptr %5, align 8
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %3, i64 8, i1 false)
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %62, ptr %64)
-  br label %65
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr %65)
+  br label %66
 
-65:                                               ; preds = %61, %19
-  %66 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  ret ptr %67
+66:                                               ; preds = %62, %19
+  %67 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  ret ptr %68
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr %13, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75823,115 +75896,116 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   store ptr %1, ptr %5, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(104) %19)
-  br i1 %20, label %22, label %21
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %2
-  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-  br label %72
+  %22 = inttoptr i64 1 to ptr
+  call void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+  br label %73
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr %5, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %23)
+23:                                               ; preds = %2
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %26, i32 0, i32 5
-  store ptr %27, ptr %7, align 8
-  %28 = load ptr, ptr %7, align 8
-  store ptr %28, ptr %8, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %31, i32 0, i32 7
-  %33 = load i8, ptr %32, align 8
-  %34 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideINS_3strEvE6policyENS_19return_value_policyE(i8 noundef zeroext %33)
-  store i8 %34, ptr %9, align 1
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %24)
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %27, i32 0, i32 5
+  store ptr %28, ptr %7, align 8
+  %29 = load ptr, ptr %7, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %32, i32 0, i32 7
+  %34 = load i8, ptr %33, align 8
+  %35 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideINS_3strEvE6policyENS_19return_value_policyE(i8 noundef zeroext %34)
+  store i8 %35, ptr %9, align 1
   call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %37, i32 0, i32 8
-  %39 = load i16, ptr %38, align 1
-  %40 = lshr i16 %39, 5
-  %41 = and i16 %40, 1
-  %42 = trunc i16 %41 to i1
-  br i1 %42, label %43, label %53
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %38, i32 0, i32 8
+  %40 = load i16, ptr %39, align 1
+  %41 = lshr i16 %40, 5
+  %42 = and i16 %41, 1
+  %43 = trunc i16 %42 to i1
+  br i1 %43, label %44, label %54
 
-43:                                               ; preds = %22
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.capture.554, ptr %44, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_3strENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_34EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %45)
+44:                                               ; preds = %23
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds %struct.capture.554, ptr %45, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_3strENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_34EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %46)
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
   call void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %46 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %47 unwind label %49
+  %47 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %48 unwind label %50
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds %"class.pybind11::handle", ptr %11, i32 0, i32 0
-  store ptr %46, ptr %48, align 8
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %"class.pybind11::handle", ptr %11, i32 0, i32 0
+  store ptr %47, ptr %49, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %11, i64 8, i1 false)
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
-  br label %68
+  br label %69
 
-49:                                               ; preds = %43
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %13, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %14, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %13, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %14, align 4
   call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
-  br label %75
+  br label %76
 
-53:                                               ; preds = %22
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.capture.554, ptr %54, i32 0, i32 0
-  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_3strENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_34EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %16, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %55)
-  %56 = load i8, ptr %9, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %57, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = invoke ptr @_ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_value_policyES4_(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef zeroext %56, ptr %60)
-          to label %62 unwind label %64
+54:                                               ; preds = %23
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct.capture.554, ptr %55, i32 0, i32 0
+  call void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_3strENS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_34EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %16, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %56)
+  %57 = load i8, ptr %9, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %58, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = invoke ptr @_ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_value_policyES4_(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef zeroext %57, ptr %61)
+          to label %63 unwind label %65
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  store ptr %61, ptr %63, align 8
+63:                                               ; preds = %54
+  %64 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  store ptr %62, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #6
-  br label %68
+  br label %69
 
-64:                                               ; preds = %53
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %54
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %13, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %14, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %13, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %14, align 4
   call void @_ZN8pybind113strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #6
-  br label %75
+  br label %76
 
-68:                                               ; preds = %62, %47
-  %69 = load ptr, ptr %5, align 8
+69:                                               ; preds = %63, %48
+  %70 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %3, i64 8, i1 false)
-  %70 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %69, ptr %71)
-  br label %72
+  %71 = getelementptr inbounds %"class.pybind11::handle", ptr %18, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  call void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %70, ptr %72)
+  br label %73
 
-72:                                               ; preds = %68, %21
-  %73 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  ret ptr %74
+73:                                               ; preds = %69, %21
+  %74 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  ret ptr %75
 
-75:                                               ; preds = %64, %49
-  %76 = load ptr, ptr %13, align 8
-  %77 = load i32, ptr %14, align 4
-  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+76:                                               ; preds = %65, %50
+  %77 = load ptr, ptr %13, align 8
+  %78 = load i32, ptr %14, align 4
+  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -76037,7 +76111,7 @@ define internal void @"_ZZ25test_submodule_exceptionsRN8pybind117module_EENK4$_3
 
 27:                                               ; preds = %26, %14
   %28 = load i32, ptr %9, align 4
-  %29 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8pybind1117error_already_setE) #6
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8pybind1117error_already_setE) #6
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %47
 
@@ -76609,140 +76683,141 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ25test_submodule_
   call void @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %18 = load ptr, ptr %5, align 8
   %19 = invoke noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEE9load_argsERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(104) %18)
-          to label %20 unwind label %23
+          to label %20 unwind label %24
 
 20:                                               ; preds = %2
-  br i1 %19, label %27, label %21
+  br i1 %19, label %28, label %21
 
 21:                                               ; preds = %20
-  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef inttoptr (i64 1 to ptr))
-          to label %22 unwind label %23
+  %22 = inttoptr i64 1 to ptr
+  invoke void @_ZN8pybind116handleC2IP7_objectTnNSt9enable_ifIXsr6detail25is_pyobj_ptr_or_nullptr_tIT_EE5valueEiE4typeELi0EEES5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %21
+23:                                               ; preds = %21
   store i32 1, ptr %9, align 4
-  br label %78
+  br label %79
 
-23:                                               ; preds = %73, %64, %61, %52, %49, %27, %21, %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %74, %65, %62, %53, %50, %28, %21, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %81
-
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %28)
-          to label %29 unwind label %23
-
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %32, i32 0, i32 5
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %11, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %37, i32 0, i32 7
-  %39 = load i8, ptr %38, align 8
-  %40 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %39)
-  store i8 %40, ptr %12, align 1
-  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %43, i32 0, i32 8
-  %45 = load i16, ptr %44, align 1
-  %46 = lshr i16 %45, 5
-  %47 = and i16 %46, 1
-  %48 = trunc i16 %47 to i1
-  br i1 %48, label %49, label %61
-
-49:                                               ; preds = %29
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.capture.558, ptr %50, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8functionEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_35EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES7_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %51)
-          to label %52 unwind label %23
-
-52:                                               ; preds = %49
-  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %53 unwind label %23
-
-53:                                               ; preds = %52
-  %54 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %55 unwind label %57
-
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
-  store ptr %54, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %73
-
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %7, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %8, align 4
-  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  br label %81
-
-61:                                               ; preds = %29
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds %struct.capture.558, ptr %62, i32 0, i32 0
-  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8functionEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_35EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES7_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %63)
-          to label %64 unwind label %23
-
-64:                                               ; preds = %61
-  %65 = load i8, ptr %12, align 1
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %66, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %67, i64 8, i1 false)
-  %68 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = invoke ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %65, ptr %69)
-          to label %71 unwind label %23
-
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
-  store ptr %70, ptr %72, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
-  br label %73
-
-73:                                               ; preds = %71, %55
-  %74 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
-  %75 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %74, ptr %76)
-          to label %77 unwind label %23
-
-77:                                               ; preds = %73
-  store i32 1, ptr %9, align 4
-  br label %78
-
-78:                                               ; preds = %77, %22
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
-  %79 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  ret ptr %80
-
-81:                                               ; preds = %57, %23
-  call void @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
   br label %82
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %8, align 4
-  %85 = insertvalue { ptr, i32 } poison, ptr %83, 0
-  %86 = insertvalue { ptr, i32 } %85, i32 %84, 1
-  resume { ptr, i32 } %86
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE7precallERNS0_13function_callE(ptr noundef nonnull align 8 dereferenceable(104) %29)
+          to label %30 unwind label %24
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %33, i32 0, i32 5
+  store ptr %34, ptr %10, align 8
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %11, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %38, i32 0, i32 7
+  %40 = load i8, ptr %39, align 8
+  %41 = call noundef zeroext i8 @_ZN8pybind116detail28return_value_policy_overrideIvvE6policyENS_19return_value_policyE(i8 noundef zeroext %40)
+  store i8 %41, ptr %12, align 1
+  call void @_ZN8pybind116handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"struct.pybind11::detail::function_record", ptr %44, i32 0, i32 8
+  %46 = load i16, ptr %45, align 1
+  %47 = lshr i16 %46, 5
+  %48 = and i16 %47, 1
+  %49 = trunc i16 %48 to i1
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %30
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds %struct.capture.558, ptr %51, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8functionEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_35EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES7_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %52)
+          to label %53 unwind label %24
+
+53:                                               ; preds = %50
+  invoke void @_ZN8pybind114noneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %54 unwind label %24
+
+54:                                               ; preds = %53
+  %55 = invoke ptr @_ZN8pybind116object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %56 unwind label %58
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %"class.pybind11::handle", ptr %13, i32 0, i32 0
+  store ptr %55, ptr %57, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %13, i64 8, i1 false)
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %74
+
+58:                                               ; preds = %54
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %7, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %8, align 4
+  call void @_ZN8pybind114noneD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
+  br label %82
+
+62:                                               ; preds = %30
+  %63 = load ptr, ptr %11, align 8
+  %64 = getelementptr inbounds %struct.capture.558, ptr %63, i32 0, i32 0
+  invoke void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8functionEEE4callIvNS0_9void_typeERZ25test_submodule_exceptionsRNS_7module_EE4$_35EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES7_E4typeEOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %64)
+          to label %65 unwind label %24
+
+65:                                               ; preds = %62
+  %66 = load i8, ptr %12, align 1
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds %"struct.pybind11::detail::function_call", ptr %67, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %68, i64 8, i1 false)
+  %69 = getelementptr inbounds %"class.pybind11::handle", ptr %16, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = invoke ptr @_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE(i8 noundef zeroext %66, ptr %70)
+          to label %72 unwind label %24
+
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds %"class.pybind11::handle", ptr %15, i32 0, i32 0
+  store ptr %71, ptr %73, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 8, i1 false)
+  br label %74
+
+74:                                               ; preds = %72, %56
+  %75 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %3, i64 8, i1 false)
+  %76 = getelementptr inbounds %"class.pybind11::handle", ptr %17, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  invoke void @_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingEEE8postcallERNS0_13function_callENS_6handleE(ptr noundef nonnull align 8 dereferenceable(104) %75, ptr %77)
+          to label %78 unwind label %24
+
+78:                                               ; preds = %74
+  store i32 1, ptr %9, align 4
+  br label %79
+
+79:                                               ; preds = %78, %23
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  %80 = getelementptr inbounds %"class.pybind11::handle", ptr %3, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  ret ptr %81
+
+82:                                               ; preds = %58, %24
+  call void @_ZN8pybind116detail15argument_loaderIJRKNS_8functionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -77599,6 +77674,9 @@ define internal void @_GLOBAL__sub_I_test_exceptions.cpp() #4 section ".text.sta
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -77613,12 +77691,12 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { builtin allocsize(0) }
 attributes #22 = { builtin nounwind }

@@ -2538,35 +2538,36 @@ define i32 @send_kvs_fence_resp_to_clients(i32 noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %5, align 4
   br label %60
 
-60:                                               ; preds = %73, %59
+60:                                               ; preds = %74, %59
   %61 = load i32, ptr %5, align 4
-  %62 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i32 0, i32 5), align 4
-  %63 = icmp ult i32 %61, %62
-  br i1 %63, label %64, label %76
+  %62 = getelementptr inbounds %struct.pmi2_job_info, ptr @job_info, i32 0, i32 5
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ult i32 %61, %63
+  br i1 %64, label %65, label %77
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr @task_socks, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = mul nsw i32 %67, 2
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %66, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = call i32 @client_resp_send(ptr noundef %65, i32 noundef %71)
-  store i32 %72, ptr %3, align 4
-  br label %73
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr @task_socks, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = mul nsw i32 %68, 2
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %67, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = call i32 @client_resp_send(ptr noundef %66, i32 noundef %72)
+  store i32 %73, ptr %3, align 4
+  br label %74
 
-73:                                               ; preds = %64
-  %74 = load i32, ptr %5, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %5, align 4
+74:                                               ; preds = %65
+  %75 = load i32, ptr %5, align 4
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %5, align 4
   br label %60, !llvm.loop !21
 
-76:                                               ; preds = %60
-  %77 = load ptr, ptr %6, align 8
-  call void @client_resp_free(ptr noundef %77)
-  %78 = load i32, ptr %3, align 4
-  ret i32 %78
+77:                                               ; preds = %60
+  %78 = load ptr, ptr %6, align 8
+  call void @client_resp_free(ptr noundef %78)
+  %79 = load i32, ptr %3, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable

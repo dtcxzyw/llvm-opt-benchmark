@@ -566,10 +566,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev12MixingSliderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_mixing = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingSliderImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %mixing.addr, align 8
-  store ptr %1, ptr %m_mixing, align 8
+  %2 = load ptr, ptr %mixing.addr, align 8
+  store ptr %2, ptr %m_mixing, align 8
   %m_sliderMinEdge = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingSliderImpl", ptr %this1, i32 0, i32 2
   store float 0.000000e+00, ptr %m_sliderMinEdge, align 8
   %m_sliderMaxEdge = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingSliderImpl", ptr %this1, i32 0, i32 3
@@ -586,7 +587,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12MixingSliderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12MixingSliderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1138,10 +1140,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev23MixingColorSpaceManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_config = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingColorSpaceManagerImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %config.addr, align 8
-  call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_config, ptr noundef nonnull align 8 dereferenceable(16) %1) #12
+  %2 = load ptr, ptr %config.addr, align 8
+  call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %m_config, ptr noundef nonnull align 8 dereferenceable(16) %2) #12
   %m_slider = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingColorSpaceManagerImpl", ptr %this1, i32 0, i32 2
   invoke void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC1ERNS_23MixingColorSpaceManagerE(ptr noundef nonnull align 8 dereferenceable(24) %m_slider, ptr noundef nonnull align 8 dereferenceable(8) %this1)
           to label %invoke.cont unwind label %lpad
@@ -1172,21 +1175,21 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp, i32 0, i32 1
   store i64 2, ptr %_M_len, align 8
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #12
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_mixingEncodings, ptr %3, i64 %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_mixingEncodings, ptr %4, i64 %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #12
   %array.begin = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp, i32 0, i32 0
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
+  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %invoke.cont10
-  %arraydestroy.elementPast = phi ptr [ %6, %invoke.cont10 ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %7, %invoke.cont10 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #12
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -1208,46 +1211,46 @@ invoke.cont26:                                    ; preds = %arraydestroy.done11
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad3:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad6:                                            ; preds = %invoke.cont4
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont7
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #12
   %array.begin12 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp, i32 0, i32 0
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin12, i64 2
+  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin12, i64 2
   br label %arraydestroy.body13
 
 arraydestroy.body13:                              ; preds = %arraydestroy.body13, %lpad9
-  %arraydestroy.elementPast14 = phi ptr [ %19, %lpad9 ], [ %arraydestroy.element15, %arraydestroy.body13 ]
+  %arraydestroy.elementPast14 = phi ptr [ %20, %lpad9 ], [ %arraydestroy.element15, %arraydestroy.body13 ]
   %arraydestroy.element15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast14, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element15) #12
   %arraydestroy.done16 = icmp eq ptr %arraydestroy.element15, %array.begin12
@@ -1266,12 +1269,12 @@ ehcleanup18:                                      ; preds = %ehcleanup, %lpad3
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup18
-  %20 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr %arrayinit.begin, %20
+  %21 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr %arrayinit.begin, %21
   br i1 %arraydestroy.isempty, label %arraydestroy.done24, label %arraydestroy.body20
 
 arraydestroy.body20:                              ; preds = %arraydestroy.body20, %cleanup.action
-  %arraydestroy.elementPast21 = phi ptr [ %20, %cleanup.action ], [ %arraydestroy.element22, %arraydestroy.body20 ]
+  %arraydestroy.elementPast21 = phi ptr [ %21, %cleanup.action ], [ %arraydestroy.element22, %arraydestroy.body20 ]
   %arraydestroy.element22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast21, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element22) #12
   %arraydestroy.done23 = icmp eq ptr %arraydestroy.element22, %arrayinit.begin
@@ -1284,12 +1287,12 @@ cleanup.done:                                     ; preds = %arraydestroy.done24
   br label %ehcleanup29
 
 lpad25:                                           ; preds = %arraydestroy.done11
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14ColorSpaceInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_colorPicker) #12
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_mixingEncodings) #12
   br label %ehcleanup29
@@ -1318,7 +1321,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MixingColorSpaceManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MixingColorSpaceManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3388,7 +3392,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_colorPicker = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingColorSpaceManagerImpl", ptr %this1, i32 0, i32 7
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14ColorSpaceInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_colorPicker) #12
   %m_mixingEncodings = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MixingColorSpaceManagerImpl", ptr %this1, i32 0, i32 4
@@ -5522,12 +5527,13 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__d.addr, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S6_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #12
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__d.addr, align 8
+  %3 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S6_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret void
 }
 
@@ -5685,7 +5691,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

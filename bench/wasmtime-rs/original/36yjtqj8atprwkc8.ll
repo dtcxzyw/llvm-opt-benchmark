@@ -117,7 +117,7 @@ define zeroext i1 @"_ZN65_$LT$core..cell..RefCell$LT$T$GT$$u20$as$u20$core..fmt.
           to label %31 unwind label %26
 
 24:                                               ; preds = %2
-  br i1 false, label %51, label %42
+  br i1 false, label %52, label %42
 
 25:                                               ; preds = %26
   invoke void @"_ZN4core3ptr97drop_in_place$LT$core..cell..Ref$LT$cranelift_codegen_meta..cdsl..typevar..TypeVarContent$GT$$GT$17h6f323a60e2ad8538E"(ptr align 8 %6) #4
@@ -160,24 +160,25 @@ define zeroext i1 @"_ZN65_$LT$core..cell..RefCell$LT$T$GT$$u20$as$u20$core..fmt.
   %43 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %43, align 8
   %44 = load ptr, ptr @anon.09be8243fc28f86e3d83d3640145347a.6, align 8, !align !4, !noundef !3
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @anon.09be8243fc28f86e3d83d3640145347a.6, i64 8), align 8
-  %46 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 2
-  store ptr %44, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  store i64 %45, ptr %47, align 8
-  %48 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 1
-  store ptr @anon.09be8243fc28f86e3d83d3640145347a.5, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  store i64 0, ptr %49, align 8
-  %50 = call align 8 ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr align 8 %8, ptr align 1 @anon.09be8243fc28f86e3d83d3640145347a.1, i64 5, ptr align 1 %5, ptr align 8 @anon.09be8243fc28f86e3d83d3640145347a.7)
+  %45 = getelementptr inbounds i8, ptr @anon.09be8243fc28f86e3d83d3640145347a.6, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 2
+  store ptr %44, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  store i64 %46, ptr %48, align 8
+  %49 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 1
+  store ptr @anon.09be8243fc28f86e3d83d3640145347a.5, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 0, ptr %50, align 8
+  %51 = call align 8 ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr align 8 %8, ptr align 1 @anon.09be8243fc28f86e3d83d3640145347a.1, i64 5, ptr align 1 %5, ptr align 8 @anon.09be8243fc28f86e3d83d3640145347a.7)
   br label %32
 
-51:                                               ; preds = %24
+52:                                               ; preds = %24
   call void @_ZN4core3fmt9Arguments9new_const17h4a40068f8424754aE(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %4, ptr align 8 @anon.09be8243fc28f86e3d83d3640145347a.9, i64 1)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %4, ptr align 8 @anon.09be8243fc28f86e3d83d3640145347a.11) #6
   unreachable
 
-52:                                               ; No predecessors!
+53:                                               ; No predecessors!
   unreachable
 }
 

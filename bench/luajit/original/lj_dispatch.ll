@@ -356,121 +356,129 @@ if.then:                                          ; preds = %entry
   br i1 %cmp48, label %if.then50, label %if.else
 
 if.then50:                                        ; preds = %if.then
-  %26 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 79), align 2
-  %conv51 = zext i16 %26 to i32
+  %26 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 79
+  %27 = load i16, ptr %26, align 2
+  %conv51 = zext i16 %27 to i32
   %idx.ext = sext i32 %conv51 to i64
   %add.ptr52 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext
   store ptr %add.ptr52, ptr %f_forl, align 8
-  %27 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 82), align 2
-  %conv53 = zext i16 %27 to i32
+  %28 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 82
+  %29 = load i16, ptr %28, align 2
+  %conv53 = zext i16 %29 to i32
   %idx.ext54 = sext i32 %conv53 to i64
   %add.ptr55 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext54
   store ptr %add.ptr55, ptr %f_iterl, align 8
-  %28 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 70), align 2
-  %conv56 = zext i16 %28 to i32
+  %30 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 70
+  %31 = load i16, ptr %30, align 2
+  %conv56 = zext i16 %31 to i32
   %idx.ext57 = sext i32 %conv56 to i64
   %add.ptr58 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext57
   store ptr %add.ptr58, ptr %f_itern, align 8
-  %29 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 85), align 2
-  %conv59 = zext i16 %29 to i32
+  %32 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 85
+  %33 = load i16, ptr %32, align 2
+  %conv59 = zext i16 %33 to i32
   %idx.ext60 = sext i32 %conv59 to i64
   %add.ptr61 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext60
   store ptr %add.ptr61, ptr %f_loop, align 8
-  %30 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 89), align 2
-  %conv62 = zext i16 %30 to i32
+  %34 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 89
+  %35 = load i16, ptr %34, align 2
+  %conv62 = zext i16 %35 to i32
   %idx.ext63 = sext i32 %conv62 to i64
   %add.ptr64 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext63
   store ptr %add.ptr64, ptr %f_funcf, align 8
-  %31 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 92), align 2
-  %conv65 = zext i16 %31 to i32
+  %36 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 92
+  %37 = load i16, ptr %36, align 2
+  %conv65 = zext i16 %37 to i32
   %idx.ext66 = sext i32 %conv65 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext66
   store ptr %add.ptr67, ptr %f_funcv, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %32 = load ptr, ptr %disp, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %32, i64 234
-  %33 = load ptr, ptr %arrayidx, align 8
-  store ptr %33, ptr %f_forl, align 8
-  %34 = load ptr, ptr %disp, align 8
-  %arrayidx68 = getelementptr inbounds ptr, ptr %34, i64 237
-  %35 = load ptr, ptr %arrayidx68, align 8
-  store ptr %35, ptr %f_iterl, align 8
+  %38 = load ptr, ptr %disp, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %38, i64 234
+  %39 = load ptr, ptr %arrayidx, align 8
+  store ptr %39, ptr %f_forl, align 8
+  %40 = load ptr, ptr %disp, align 8
+  %arrayidx68 = getelementptr inbounds ptr, ptr %40, i64 237
+  %41 = load ptr, ptr %arrayidx68, align 8
+  store ptr %41, ptr %f_iterl, align 8
   store ptr @lj_vm_IITERN, ptr %f_itern, align 8
-  %36 = load ptr, ptr %disp, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %36, i64 240
-  %37 = load ptr, ptr %arrayidx69, align 8
-  store ptr %37, ptr %f_loop, align 8
-  %38 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 90), align 2
-  %conv70 = zext i16 %38 to i32
+  %42 = load ptr, ptr %disp, align 8
+  %arrayidx69 = getelementptr inbounds ptr, ptr %42, i64 240
+  %43 = load ptr, ptr %arrayidx69, align 8
+  store ptr %43, ptr %f_loop, align 8
+  %44 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 90
+  %45 = load i16, ptr %44, align 2
+  %conv70 = zext i16 %45 to i32
   %idx.ext71 = sext i32 %conv70 to i64
   %add.ptr72 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext71
   store ptr %add.ptr72, ptr %f_funcf, align 8
-  %39 = load i16, ptr getelementptr inbounds ([0 x i16], ptr @lj_bc_ofs, i64 0, i64 93), align 2
-  %conv73 = zext i16 %39 to i32
+  %46 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 93
+  %47 = load i16, ptr %46, align 2
+  %conv73 = zext i16 %47 to i32
   %idx.ext74 = sext i32 %conv73 to i64
   %add.ptr75 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext74
   store ptr %add.ptr75, ptr %f_funcv, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then50
-  %40 = load ptr, ptr %f_forl, align 8
-  %41 = load ptr, ptr %disp, align 8
-  %arrayidx76 = getelementptr inbounds ptr, ptr %41, i64 233
-  store ptr %40, ptr %arrayidx76, align 8
-  %42 = load ptr, ptr %f_iterl, align 8
-  %43 = load ptr, ptr %disp, align 8
-  %arrayidx77 = getelementptr inbounds ptr, ptr %43, i64 236
-  store ptr %42, ptr %arrayidx77, align 8
-  %44 = load ptr, ptr %f_itern, align 8
-  %45 = load ptr, ptr %disp, align 8
-  %arrayidx78 = getelementptr inbounds ptr, ptr %45, i64 224
-  store ptr %44, ptr %arrayidx78, align 8
-  %46 = load ptr, ptr %f_loop, align 8
-  %47 = load ptr, ptr %disp, align 8
-  %arrayidx79 = getelementptr inbounds ptr, ptr %47, i64 239
-  store ptr %46, ptr %arrayidx79, align 8
-  %48 = load i8, ptr %oldmode, align 1
-  %conv80 = zext i8 %48 to i32
-  %49 = load i8, ptr %mode, align 1
-  %conv81 = zext i8 %49 to i32
+  %48 = load ptr, ptr %f_forl, align 8
+  %49 = load ptr, ptr %disp, align 8
+  %arrayidx76 = getelementptr inbounds ptr, ptr %49, i64 233
+  store ptr %48, ptr %arrayidx76, align 8
+  %50 = load ptr, ptr %f_iterl, align 8
+  %51 = load ptr, ptr %disp, align 8
+  %arrayidx77 = getelementptr inbounds ptr, ptr %51, i64 236
+  store ptr %50, ptr %arrayidx77, align 8
+  %52 = load ptr, ptr %f_itern, align 8
+  %53 = load ptr, ptr %disp, align 8
+  %arrayidx78 = getelementptr inbounds ptr, ptr %53, i64 224
+  store ptr %52, ptr %arrayidx78, align 8
+  %54 = load ptr, ptr %f_loop, align 8
+  %55 = load ptr, ptr %disp, align 8
+  %arrayidx79 = getelementptr inbounds ptr, ptr %55, i64 239
+  store ptr %54, ptr %arrayidx79, align 8
+  %56 = load i8, ptr %oldmode, align 1
+  %conv80 = zext i8 %56 to i32
+  %57 = load i8, ptr %mode, align 1
+  %conv81 = zext i8 %57 to i32
   %xor = xor i32 %conv80, %conv81
   %and82 = and i32 %xor, 100
   %tobool83 = icmp ne i32 %and82, 0
   br i1 %tobool83, label %if.then84, label %if.else113
 
 if.then84:                                        ; preds = %if.end
-  %50 = load i8, ptr %mode, align 1
-  %conv85 = zext i8 %50 to i32
+  %58 = load i8, ptr %mode, align 1
+  %conv85 = zext i8 %58 to i32
   %and86 = and i32 %conv85, 4
   %tobool87 = icmp ne i32 %and86, 0
   br i1 %tobool87, label %if.else100, label %if.then88
 
 if.then88:                                        ; preds = %if.then84
-  %51 = load ptr, ptr %disp, align 8
-  %arrayidx89 = getelementptr inbounds ptr, ptr %51, i64 0
-  %52 = load ptr, ptr %disp, align 8
-  %arrayidx90 = getelementptr inbounds ptr, ptr %52, i64 154
+  %59 = load ptr, ptr %disp, align 8
+  %arrayidx89 = getelementptr inbounds ptr, ptr %59, i64 0
+  %60 = load ptr, ptr %disp, align 8
+  %arrayidx90 = getelementptr inbounds ptr, ptr %60, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx89, ptr align 8 %arrayidx90, i64 712, i1 false)
-  %53 = load i8, ptr %mode, align 1
-  %conv91 = zext i8 %53 to i32
+  %61 = load i8, ptr %mode, align 1
+  %conv91 = zext i8 %61 to i32
   %and92 = and i32 %conv91, 2
   %tobool93 = icmp ne i32 %and92, 0
   br i1 %tobool93, label %if.then94, label %if.end99
 
 if.then94:                                        ; preds = %if.then88
-  %54 = load ptr, ptr %disp, align 8
-  %arrayidx95 = getelementptr inbounds ptr, ptr %54, i64 73
+  %62 = load ptr, ptr %disp, align 8
+  %arrayidx95 = getelementptr inbounds ptr, ptr %62, i64 73
   store ptr @lj_vm_rethook, ptr %arrayidx95, align 8
-  %55 = load ptr, ptr %disp, align 8
-  %arrayidx96 = getelementptr inbounds ptr, ptr %55, i64 74
+  %63 = load ptr, ptr %disp, align 8
+  %arrayidx96 = getelementptr inbounds ptr, ptr %63, i64 74
   store ptr @lj_vm_rethook, ptr %arrayidx96, align 8
-  %56 = load ptr, ptr %disp, align 8
-  %arrayidx97 = getelementptr inbounds ptr, ptr %56, i64 75
+  %64 = load ptr, ptr %disp, align 8
+  %arrayidx97 = getelementptr inbounds ptr, ptr %64, i64 75
   store ptr @lj_vm_rethook, ptr %arrayidx97, align 8
-  %57 = load ptr, ptr %disp, align 8
-  %arrayidx98 = getelementptr inbounds ptr, ptr %57, i64 76
+  %65 = load ptr, ptr %disp, align 8
+  %arrayidx98 = getelementptr inbounds ptr, ptr %65, i64 76
   store ptr @lj_vm_rethook, ptr %arrayidx98, align 8
   br label %if.end99
 
@@ -478,8 +486,8 @@ if.end99:                                         ; preds = %if.then94, %if.then
   br label %if.end112
 
 if.else100:                                       ; preds = %if.then84
-  %58 = load i8, ptr %mode, align 1
-  %conv101 = zext i8 %58 to i32
+  %66 = load i8, ptr %mode, align 1
+  %conv101 = zext i8 %66 to i32
   %and102 = and i32 %conv101, 64
   %tobool103 = icmp ne i32 %and102, 0
   br i1 %tobool103, label %cond.true, label %cond.false
@@ -488,8 +496,8 @@ cond.true:                                        ; preds = %if.else100
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else100
-  %59 = load i8, ptr %mode, align 1
-  %conv104 = zext i8 %59 to i32
+  %67 = load i8, ptr %mode, align 1
+  %conv104 = zext i8 %67 to i32
   %and105 = and i32 %conv104, 32
   %tobool106 = icmp ne i32 %and105, 0
   %cond107 = select i1 %tobool106, ptr @lj_vm_record, ptr @lj_vm_inshook
@@ -502,22 +510,22 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %cond.end
-  %60 = load i32, ptr %i, align 4
-  %cmp109 = icmp ult i32 %60, 89
+  %68 = load i32, ptr %i, align 4
+  %cmp109 = icmp ult i32 %68, 89
   br i1 %cmp109, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %f, align 8
-  %62 = load ptr, ptr %disp, align 8
-  %63 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %63 to i64
-  %arrayidx111 = getelementptr inbounds ptr, ptr %62, i64 %idxprom
-  store ptr %61, ptr %arrayidx111, align 8
+  %69 = load ptr, ptr %f, align 8
+  %70 = load ptr, ptr %disp, align 8
+  %71 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %71 to i64
+  %arrayidx111 = getelementptr inbounds ptr, ptr %70, i64 %idxprom
+  store ptr %69, ptr %arrayidx111, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %64 = load i32, ptr %i, align 4
-  %inc = add i32 %64, 1
+  %72 = load i32, ptr %i, align 4
+  %inc = add i32 %72, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -528,75 +536,75 @@ if.end112:                                        ; preds = %for.end, %if.end99
   br label %if.end141
 
 if.else113:                                       ; preds = %if.end
-  %65 = load i8, ptr %mode, align 1
-  %conv114 = zext i8 %65 to i32
+  %73 = load i8, ptr %mode, align 1
+  %conv114 = zext i8 %73 to i32
   %and115 = and i32 %conv114, 4
   %tobool116 = icmp ne i32 %and115, 0
   br i1 %tobool116, label %if.end140, label %if.then117
 
 if.then117:                                       ; preds = %if.else113
-  %66 = load ptr, ptr %f_forl, align 8
-  %67 = load ptr, ptr %disp, align 8
-  %arrayidx118 = getelementptr inbounds ptr, ptr %67, i64 79
-  store ptr %66, ptr %arrayidx118, align 8
-  %68 = load ptr, ptr %f_iterl, align 8
-  %69 = load ptr, ptr %disp, align 8
-  %arrayidx119 = getelementptr inbounds ptr, ptr %69, i64 82
-  store ptr %68, ptr %arrayidx119, align 8
-  %70 = load ptr, ptr %f_itern, align 8
-  %71 = load ptr, ptr %disp, align 8
-  %arrayidx120 = getelementptr inbounds ptr, ptr %71, i64 70
-  store ptr %70, ptr %arrayidx120, align 8
-  %72 = load ptr, ptr %f_loop, align 8
-  %73 = load ptr, ptr %disp, align 8
-  %arrayidx121 = getelementptr inbounds ptr, ptr %73, i64 85
-  store ptr %72, ptr %arrayidx121, align 8
-  %74 = load i8, ptr %mode, align 1
-  %conv122 = zext i8 %74 to i32
+  %74 = load ptr, ptr %f_forl, align 8
+  %75 = load ptr, ptr %disp, align 8
+  %arrayidx118 = getelementptr inbounds ptr, ptr %75, i64 79
+  store ptr %74, ptr %arrayidx118, align 8
+  %76 = load ptr, ptr %f_iterl, align 8
+  %77 = load ptr, ptr %disp, align 8
+  %arrayidx119 = getelementptr inbounds ptr, ptr %77, i64 82
+  store ptr %76, ptr %arrayidx119, align 8
+  %78 = load ptr, ptr %f_itern, align 8
+  %79 = load ptr, ptr %disp, align 8
+  %arrayidx120 = getelementptr inbounds ptr, ptr %79, i64 70
+  store ptr %78, ptr %arrayidx120, align 8
+  %80 = load ptr, ptr %f_loop, align 8
+  %81 = load ptr, ptr %disp, align 8
+  %arrayidx121 = getelementptr inbounds ptr, ptr %81, i64 85
+  store ptr %80, ptr %arrayidx121, align 8
+  %82 = load i8, ptr %mode, align 1
+  %conv122 = zext i8 %82 to i32
   %and123 = and i32 %conv122, 2
   %tobool124 = icmp ne i32 %and123, 0
   br i1 %tobool124, label %if.then125, label %if.else130
 
 if.then125:                                       ; preds = %if.then117
-  %75 = load ptr, ptr %disp, align 8
-  %arrayidx126 = getelementptr inbounds ptr, ptr %75, i64 73
+  %83 = load ptr, ptr %disp, align 8
+  %arrayidx126 = getelementptr inbounds ptr, ptr %83, i64 73
   store ptr @lj_vm_rethook, ptr %arrayidx126, align 8
-  %76 = load ptr, ptr %disp, align 8
-  %arrayidx127 = getelementptr inbounds ptr, ptr %76, i64 74
+  %84 = load ptr, ptr %disp, align 8
+  %arrayidx127 = getelementptr inbounds ptr, ptr %84, i64 74
   store ptr @lj_vm_rethook, ptr %arrayidx127, align 8
-  %77 = load ptr, ptr %disp, align 8
-  %arrayidx128 = getelementptr inbounds ptr, ptr %77, i64 75
+  %85 = load ptr, ptr %disp, align 8
+  %arrayidx128 = getelementptr inbounds ptr, ptr %85, i64 75
   store ptr @lj_vm_rethook, ptr %arrayidx128, align 8
-  %78 = load ptr, ptr %disp, align 8
-  %arrayidx129 = getelementptr inbounds ptr, ptr %78, i64 76
+  %86 = load ptr, ptr %disp, align 8
+  %arrayidx129 = getelementptr inbounds ptr, ptr %86, i64 76
   store ptr @lj_vm_rethook, ptr %arrayidx129, align 8
   br label %if.end139
 
 if.else130:                                       ; preds = %if.then117
-  %79 = load ptr, ptr %disp, align 8
-  %arrayidx131 = getelementptr inbounds ptr, ptr %79, i64 227
-  %80 = load ptr, ptr %arrayidx131, align 8
-  %81 = load ptr, ptr %disp, align 8
-  %arrayidx132 = getelementptr inbounds ptr, ptr %81, i64 73
-  store ptr %80, ptr %arrayidx132, align 8
-  %82 = load ptr, ptr %disp, align 8
-  %arrayidx133 = getelementptr inbounds ptr, ptr %82, i64 228
-  %83 = load ptr, ptr %arrayidx133, align 8
-  %84 = load ptr, ptr %disp, align 8
-  %arrayidx134 = getelementptr inbounds ptr, ptr %84, i64 74
-  store ptr %83, ptr %arrayidx134, align 8
-  %85 = load ptr, ptr %disp, align 8
-  %arrayidx135 = getelementptr inbounds ptr, ptr %85, i64 229
-  %86 = load ptr, ptr %arrayidx135, align 8
   %87 = load ptr, ptr %disp, align 8
-  %arrayidx136 = getelementptr inbounds ptr, ptr %87, i64 75
-  store ptr %86, ptr %arrayidx136, align 8
-  %88 = load ptr, ptr %disp, align 8
-  %arrayidx137 = getelementptr inbounds ptr, ptr %88, i64 230
-  %89 = load ptr, ptr %arrayidx137, align 8
+  %arrayidx131 = getelementptr inbounds ptr, ptr %87, i64 227
+  %88 = load ptr, ptr %arrayidx131, align 8
+  %89 = load ptr, ptr %disp, align 8
+  %arrayidx132 = getelementptr inbounds ptr, ptr %89, i64 73
+  store ptr %88, ptr %arrayidx132, align 8
   %90 = load ptr, ptr %disp, align 8
-  %arrayidx138 = getelementptr inbounds ptr, ptr %90, i64 76
-  store ptr %89, ptr %arrayidx138, align 8
+  %arrayidx133 = getelementptr inbounds ptr, ptr %90, i64 228
+  %91 = load ptr, ptr %arrayidx133, align 8
+  %92 = load ptr, ptr %disp, align 8
+  %arrayidx134 = getelementptr inbounds ptr, ptr %92, i64 74
+  store ptr %91, ptr %arrayidx134, align 8
+  %93 = load ptr, ptr %disp, align 8
+  %arrayidx135 = getelementptr inbounds ptr, ptr %93, i64 229
+  %94 = load ptr, ptr %arrayidx135, align 8
+  %95 = load ptr, ptr %disp, align 8
+  %arrayidx136 = getelementptr inbounds ptr, ptr %95, i64 75
+  store ptr %94, ptr %arrayidx136, align 8
+  %96 = load ptr, ptr %disp, align 8
+  %arrayidx137 = getelementptr inbounds ptr, ptr %96, i64 230
+  %97 = load ptr, ptr %arrayidx137, align 8
+  %98 = load ptr, ptr %disp, align 8
+  %arrayidx138 = getelementptr inbounds ptr, ptr %98, i64 76
+  store ptr %97, ptr %arrayidx138, align 8
   br label %if.end139
 
 if.end139:                                        ; preds = %if.else130, %if.then125
@@ -606,18 +614,18 @@ if.end140:                                        ; preds = %if.end139, %if.else
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end140, %if.end112
-  %91 = load i8, ptr %oldmode, align 1
-  %conv142 = zext i8 %91 to i32
-  %92 = load i8, ptr %mode, align 1
-  %conv143 = zext i8 %92 to i32
+  %99 = load i8, ptr %oldmode, align 1
+  %conv142 = zext i8 %99 to i32
+  %100 = load i8, ptr %mode, align 1
+  %conv143 = zext i8 %100 to i32
   %xor144 = xor i32 %conv142, %conv143
   %and145 = and i32 %xor144, 1
   %tobool146 = icmp ne i32 %and145, 0
   br i1 %tobool146, label %if.then147, label %if.end179
 
 if.then147:                                       ; preds = %if.end141
-  %93 = load i8, ptr %mode, align 1
-  %conv149 = zext i8 %93 to i32
+  %101 = load i8, ptr %mode, align 1
+  %conv149 = zext i8 %101 to i32
   %and150 = and i32 %conv149, 1
   %cmp151 = icmp eq i32 %and150, 0
   br i1 %cmp151, label %if.then153, label %if.else168
@@ -627,28 +635,28 @@ if.then153:                                       ; preds = %if.then147
   br label %for.cond154
 
 for.cond154:                                      ; preds = %for.inc165, %if.then153
-  %94 = load i32, ptr %i148, align 4
-  %cmp155 = icmp ult i32 %94, 154
+  %102 = load i32, ptr %i148, align 4
+  %cmp155 = icmp ult i32 %102, 154
   br i1 %cmp155, label %for.body157, label %for.end167
 
 for.body157:                                      ; preds = %for.cond154
-  %95 = load i32, ptr %i148, align 4
-  %idxprom158 = zext i32 %95 to i64
+  %103 = load i32, ptr %i148, align 4
+  %idxprom158 = zext i32 %103 to i64
   %arrayidx159 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %idxprom158
-  %96 = load i16, ptr %arrayidx159, align 2
-  %conv160 = zext i16 %96 to i32
+  %104 = load i16, ptr %arrayidx159, align 2
+  %conv160 = zext i16 %104 to i32
   %idx.ext161 = sext i32 %conv160 to i64
   %add.ptr162 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext161
-  %97 = load ptr, ptr %disp, align 8
-  %98 = load i32, ptr %i148, align 4
-  %idxprom163 = zext i32 %98 to i64
-  %arrayidx164 = getelementptr inbounds ptr, ptr %97, i64 %idxprom163
+  %105 = load ptr, ptr %disp, align 8
+  %106 = load i32, ptr %i148, align 4
+  %idxprom163 = zext i32 %106 to i64
+  %arrayidx164 = getelementptr inbounds ptr, ptr %105, i64 %idxprom163
   store ptr %add.ptr162, ptr %arrayidx164, align 8
   br label %for.inc165
 
 for.inc165:                                       ; preds = %for.body157
-  %99 = load i32, ptr %i148, align 4
-  %inc166 = add i32 %99, 1
+  %107 = load i32, ptr %i148, align 4
+  %inc166 = add i32 %107, 1
   store i32 %inc166, ptr %i148, align 4
   br label %for.cond154, !llvm.loop !10
 
@@ -660,21 +668,21 @@ if.else168:                                       ; preds = %if.then147
   br label %for.cond169
 
 for.cond169:                                      ; preds = %for.inc175, %if.else168
-  %100 = load i32, ptr %i148, align 4
-  %cmp170 = icmp ult i32 %100, 154
+  %108 = load i32, ptr %i148, align 4
+  %cmp170 = icmp ult i32 %108, 154
   br i1 %cmp170, label %for.body172, label %for.end177
 
 for.body172:                                      ; preds = %for.cond169
-  %101 = load ptr, ptr %disp, align 8
-  %102 = load i32, ptr %i148, align 4
-  %idxprom173 = zext i32 %102 to i64
-  %arrayidx174 = getelementptr inbounds ptr, ptr %101, i64 %idxprom173
+  %109 = load ptr, ptr %disp, align 8
+  %110 = load i32, ptr %i148, align 4
+  %idxprom173 = zext i32 %110 to i64
+  %arrayidx174 = getelementptr inbounds ptr, ptr %109, i64 %idxprom173
   store ptr @lj_vm_callhook, ptr %arrayidx174, align 8
   br label %for.inc175
 
 for.inc175:                                       ; preds = %for.body172
-  %103 = load i32, ptr %i148, align 4
-  %inc176 = add i32 %103, 1
+  %111 = load i32, ptr %i148, align 4
+  %inc176 = add i32 %111, 1
   store i32 %inc176, ptr %i148, align 4
   br label %for.cond169, !llvm.loop !11
 
@@ -685,40 +693,40 @@ if.end178:                                        ; preds = %for.end177, %for.en
   br label %if.end179
 
 if.end179:                                        ; preds = %if.end178, %if.end141
-  %104 = load i8, ptr %mode, align 1
-  %conv180 = zext i8 %104 to i32
+  %112 = load i8, ptr %mode, align 1
+  %conv180 = zext i8 %112 to i32
   %and181 = and i32 %conv180, 1
   %tobool182 = icmp ne i32 %and181, 0
   br i1 %tobool182, label %if.end186, label %if.then183
 
 if.then183:                                       ; preds = %if.end179
-  %105 = load ptr, ptr %f_funcf, align 8
-  %106 = load ptr, ptr %disp, align 8
-  %arrayidx184 = getelementptr inbounds ptr, ptr %106, i64 89
-  store ptr %105, ptr %arrayidx184, align 8
-  %107 = load ptr, ptr %f_funcv, align 8
-  %108 = load ptr, ptr %disp, align 8
-  %arrayidx185 = getelementptr inbounds ptr, ptr %108, i64 92
-  store ptr %107, ptr %arrayidx185, align 8
+  %113 = load ptr, ptr %f_funcf, align 8
+  %114 = load ptr, ptr %disp, align 8
+  %arrayidx184 = getelementptr inbounds ptr, ptr %114, i64 89
+  store ptr %113, ptr %arrayidx184, align 8
+  %115 = load ptr, ptr %f_funcv, align 8
+  %116 = load ptr, ptr %disp, align 8
+  %arrayidx185 = getelementptr inbounds ptr, ptr %116, i64 92
+  store ptr %115, ptr %arrayidx185, align 8
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then183, %if.end179
-  %109 = load i8, ptr %mode, align 1
-  %conv187 = zext i8 %109 to i32
+  %117 = load i8, ptr %mode, align 1
+  %conv187 = zext i8 %117 to i32
   %and188 = and i32 %conv187, 16
   %tobool189 = icmp ne i32 %and188, 0
   br i1 %tobool189, label %land.lhs.true, label %if.end194
 
 land.lhs.true:                                    ; preds = %if.end186
-  %110 = load i8, ptr %oldmode, align 1
-  %conv190 = zext i8 %110 to i32
+  %118 = load i8, ptr %oldmode, align 1
+  %conv190 = zext i8 %118 to i32
   %and191 = and i32 %conv190, 16
   %tobool192 = icmp ne i32 %and191, 0
   br i1 %tobool192, label %if.end194, label %if.then193
 
 if.then193:                                       ; preds = %land.lhs.true
-  %111 = load ptr, ptr %g.addr, align 8
-  call void @lj_dispatch_init_hotcount(ptr noundef %111)
+  %119 = load ptr, ptr %g.addr, align 8
+  call void @lj_dispatch_init_hotcount(ptr noundef %119)
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then193, %land.lhs.true, %if.end186

@@ -5166,17 +5166,18 @@ define dso_local i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = call i32 %15(ptr noundef %16)
-  br label %22
+  br label %23
 
 18:                                               ; preds = %7, %2
-  %19 = load ptr, ptr getelementptr inbounds (%struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 2), align 16
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 %19(ptr noundef %20)
-  br label %22
+  %19 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 16
+  %21 = load ptr, ptr %4, align 8
+  %22 = call i32 %20(ptr noundef %21)
+  br label %23
 
-22:                                               ; preds = %18, %10
-  %23 = phi i32 [ %17, %10 ], [ %21, %18 ]
-  ret i32 %23
+23:                                               ; preds = %18, %10
+  %24 = phi i32 [ %17, %10 ], [ %22, %18 ]
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5221,17 +5222,18 @@ define dso_local i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = call i32 %15(ptr noundef %16)
-  br label %22
+  br label %23
 
 18:                                               ; preds = %7, %2
-  %19 = load ptr, ptr getelementptr inbounds (%struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 3), align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = call i32 %19(ptr noundef %20)
-  br label %22
+  %19 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = call i32 %20(ptr noundef %21)
+  br label %23
 
-22:                                               ; preds = %18, %10
-  %23 = phi i32 [ %17, %10 ], [ %21, %18 ]
-  ret i32 %23
+23:                                               ; preds = %18, %10
+  %24 = phi i32 [ %17, %10 ], [ %22, %18 ]
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5260,18 +5262,19 @@ define dso_local i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
   %20 = call i32 %17(ptr noundef %18, i32 noundef %19)
-  br label %26
+  br label %27
 
 21:                                               ; preds = %9, %3
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 4), align 16
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = call i32 %22(ptr noundef %23, i32 noundef %24)
-  br label %26
+  %22 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 16
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = call i32 %23(ptr noundef %24, i32 noundef %25)
+  br label %27
 
-26:                                               ; preds = %21, %12
-  %27 = phi i32 [ %20, %12 ], [ %25, %21 ]
-  ret i32 %27
+27:                                               ; preds = %21, %12
+  %28 = phi i32 [ %20, %12 ], [ %26, %21 ]
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5300,18 +5303,19 @@ define dso_local i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i3
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
   %20 = call i32 %17(ptr noundef %18, i32 noundef %19)
-  br label %26
+  br label %27
 
 21:                                               ; preds = %9, %3
-  %22 = load ptr, ptr getelementptr inbounds (%struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 5), align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = call i32 %22(ptr noundef %23, i32 noundef %24)
-  br label %26
+  %22 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i32 0, i32 5
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = call i32 %23(ptr noundef %24, i32 noundef %25)
+  br label %27
 
-26:                                               ; preds = %21, %12
-  %27 = phi i32 [ %20, %12 ], [ %25, %21 ]
-  ret i32 %27
+27:                                               ; preds = %21, %12
+  %28 = phi i32 [ %20, %12 ], [ %26, %21 ]
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable

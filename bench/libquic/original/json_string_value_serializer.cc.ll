@@ -43,10 +43,11 @@ entry:
   store ptr %json_string, ptr %json_string.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base15ValueSerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25JSONStringValueSerializer, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV25JSONStringValueSerializer, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %json_string_ = getelementptr inbounds %class.JSONStringValueSerializer, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %json_string.addr, align 8
-  store ptr %0, ptr %json_string_, align 8
+  %1 = load ptr, ptr %json_string.addr, align 8
+  store ptr %1, ptr %json_string_, align 8
   %pretty_print_ = getelementptr inbounds %class.JSONStringValueSerializer, ptr %this1, i32 0, i32 2
   store i8 0, ptr %pretty_print_, align 8
   ret void
@@ -58,7 +59,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15ValueSerializerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4base15ValueSerializerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -186,10 +188,11 @@ entry:
   store ptr %json_string, ptr %json_string.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base17ValueDeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27JSONStringValueDeserializer, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV27JSONStringValueDeserializer, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %json_string_ = getelementptr inbounds %class.JSONStringValueDeserializer, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %json_string.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %json_string_, ptr align 8 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %json_string.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %json_string_, ptr align 8 %1, i64 16, i1 false)
   %allow_trailing_comma_ = getelementptr inbounds %class.JSONStringValueDeserializer, ptr %this1, i32 0, i32 2
   store i8 0, ptr %allow_trailing_comma_, align 8
   ret void
@@ -201,7 +204,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base17ValueDeserializerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4base17ValueDeserializerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

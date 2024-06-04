@@ -25,64 +25,65 @@ define internal void @opal_fifo_construct(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_item_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_item_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_list_item_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.opal_fifo_t, ptr %10, i32 0, i32 3
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_list_item_t_class, ptr %12, align 16
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.opal_fifo_t, ptr %13, i32 0, i32 3
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.opal_fifo_t, ptr %16, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.opal_fifo_t, ptr %11, i32 0, i32 3
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_list_item_t_class, ptr %13, align 16
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.opal_fifo_t, ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.opal_fifo_t, ptr %17, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.opal_fifo_t, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.opal_fifo_t, ptr %22, i32 0, i32 3
-  %24 = getelementptr inbounds %struct.opal_list_item_t, ptr %23, i32 0, i32 1
-  store volatile ptr %21, ptr %24, align 16
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.opal_fifo_t, ptr %25, i32 0, i32 3
-  %27 = getelementptr inbounds %struct.opal_list_item_t, ptr %26, i32 0, i32 3
-  store i32 0, ptr %27, align 16
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.opal_fifo_t, ptr %28, i32 0, i32 1
-  %30 = getelementptr inbounds %struct.anon, ptr %29, i32 0, i32 0
-  store volatile i64 0, ptr %30, align 16
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.opal_fifo_t, ptr %31, i32 0, i32 3
-  %33 = ptrtoint ptr %32 to i64
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.opal_fifo_t, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds %struct.anon, ptr %35, i32 0, i32 1
-  store volatile i64 %33, ptr %36, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.opal_fifo_t, ptr %37, i32 0, i32 2
-  %39 = getelementptr inbounds %struct.anon, ptr %38, i32 0, i32 0
-  store volatile i64 0, ptr %39, align 16
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.opal_fifo_t, ptr %40, i32 0, i32 3
-  %42 = ptrtoint ptr %41 to i64
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.opal_fifo_t, ptr %43, i32 0, i32 2
-  %45 = getelementptr inbounds %struct.anon, ptr %44, i32 0, i32 1
-  store volatile i64 %42, ptr %45, align 8
+19:                                               ; preds = %10
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.opal_fifo_t, ptr %21, i32 0, i32 3
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.opal_fifo_t, ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds %struct.opal_list_item_t, ptr %24, i32 0, i32 1
+  store volatile ptr %22, ptr %25, align 16
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.opal_fifo_t, ptr %26, i32 0, i32 3
+  %28 = getelementptr inbounds %struct.opal_list_item_t, ptr %27, i32 0, i32 3
+  store i32 0, ptr %28, align 16
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.opal_fifo_t, ptr %29, i32 0, i32 1
+  %31 = getelementptr inbounds %struct.anon, ptr %30, i32 0, i32 0
+  store volatile i64 0, ptr %31, align 16
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.opal_fifo_t, ptr %32, i32 0, i32 3
+  %34 = ptrtoint ptr %33 to i64
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.opal_fifo_t, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds %struct.anon, ptr %36, i32 0, i32 1
+  store volatile i64 %34, ptr %37, align 8
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds %struct.opal_fifo_t, ptr %38, i32 0, i32 2
+  %40 = getelementptr inbounds %struct.anon, ptr %39, i32 0, i32 0
+  store volatile i64 0, ptr %40, align 16
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.opal_fifo_t, ptr %41, i32 0, i32 3
+  %43 = ptrtoint ptr %42 to i64
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct.opal_fifo_t, ptr %44, i32 0, i32 2
+  %46 = getelementptr inbounds %struct.anon, ptr %45, i32 0, i32 1
+  store volatile i64 %43, ptr %46, align 8
   ret void
 }
 

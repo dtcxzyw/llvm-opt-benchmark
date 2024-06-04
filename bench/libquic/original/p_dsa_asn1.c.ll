@@ -172,18 +172,19 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool7, label %lor.lhs.false8, label %if.then
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %call9 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @dsa_asn1_meth, i32 0, i32 1), i64 noundef 7)
+  %10 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @dsa_asn1_meth, i32 0, i32 1
+  %call9 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %10, i64 noundef 7)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %lor.lhs.false11, label %if.then
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %10 = load i32, ptr %has_params, align 4
-  %tobool12 = icmp ne i32 %10, 0
+  %11 = load i32, ptr %has_params, align 4
+  %tobool12 = icmp ne i32 %11, 0
   br i1 %tobool12, label %land.lhs.true13, label %lor.lhs.false16
 
 land.lhs.true13:                                  ; preds = %lor.lhs.false11
-  %11 = load ptr, ptr %dsa, align 8
-  %call14 = call i32 @DSA_marshal_parameters(ptr noundef %algorithm, ptr noundef %11)
+  %12 = load ptr, ptr %dsa, align 8
+  %call14 = call i32 @DSA_marshal_parameters(ptr noundef %algorithm, ptr noundef %12)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %lor.lhs.false16, label %if.then
 
@@ -198,16 +199,16 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false16
   br i1 %tobool21, label %lor.lhs.false22, label %if.then
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false19
-  %12 = load ptr, ptr %dsa, align 8
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %pub_key, align 8
-  %call23 = call i32 @BN_marshal_asn1(ptr noundef %key_bitstring, ptr noundef %13)
+  %13 = load ptr, ptr %dsa, align 8
+  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %13, i32 0, i32 4
+  %14 = load ptr, ptr %pub_key, align 8
+  %call23 = call i32 @BN_marshal_asn1(ptr noundef %key_bitstring, ptr noundef %14)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %lor.lhs.false25, label %if.then
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %14 = load ptr, ptr %out.addr, align 8
-  %call26 = call i32 @CBB_flush(ptr noundef %14)
+  %15 = load ptr, ptr %out.addr, align 8
+  %call26 = call i32 @CBB_flush(ptr noundef %15)
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %if.end, label %if.then
 
@@ -221,8 +222,8 @@ if.end:                                           ; preds = %lor.lhs.false25
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %16 = load i32, ptr %retval, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -427,13 +428,14 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   br i1 %tobool10, label %lor.lhs.false11, label %if.then27
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %call12 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @dsa_asn1_meth, i32 0, i32 1), i64 noundef 7)
+  %6 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @dsa_asn1_meth, i32 0, i32 1
+  %call12 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %6, i64 noundef 7)
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %lor.lhs.false14, label %if.then27
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false11
-  %6 = load ptr, ptr %dsa, align 8
-  %call15 = call i32 @DSA_marshal_parameters(ptr noundef %algorithm, ptr noundef %6)
+  %7 = load ptr, ptr %dsa, align 8
+  %call15 = call i32 @DSA_marshal_parameters(ptr noundef %algorithm, ptr noundef %7)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %lor.lhs.false17, label %if.then27
 
@@ -443,16 +445,16 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false14
   br i1 %tobool19, label %lor.lhs.false20, label %if.then27
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false17
-  %7 = load ptr, ptr %dsa, align 8
-  %priv_key21 = getelementptr inbounds %struct.dsa_st, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %priv_key21, align 8
-  %call22 = call i32 @BN_marshal_asn1(ptr noundef %private_key, ptr noundef %8)
+  %8 = load ptr, ptr %dsa, align 8
+  %priv_key21 = getelementptr inbounds %struct.dsa_st, ptr %8, i32 0, i32 5
+  %9 = load ptr, ptr %priv_key21, align 8
+  %call22 = call i32 @BN_marshal_asn1(ptr noundef %private_key, ptr noundef %9)
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %lor.lhs.false24, label %if.then27
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false20
-  %9 = load ptr, ptr %out.addr, align 8
-  %call25 = call i32 @CBB_flush(ptr noundef %9)
+  %10 = load ptr, ptr %out.addr, align 8
+  %call25 = call i32 @CBB_flush(ptr noundef %10)
   %tobool26 = icmp ne i32 %call25, 0
   br i1 %tobool26, label %if.end28, label %if.then27
 
@@ -466,8 +468,8 @@ if.end28:                                         ; preds = %lor.lhs.false24
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable

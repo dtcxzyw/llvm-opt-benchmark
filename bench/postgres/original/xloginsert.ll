@@ -1007,936 +1007,940 @@ define internal ptr @XLogRecordAssemble(i8 noundef zeroext %0, i8 noundef zeroex
   store ptr null, ptr @hdr_rdt, align 8
   store ptr @hdr_rdt, ptr %20, align 8
   %44 = load ptr, ptr @hdr_scratch, align 8
-  store ptr %44, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 1), align 8
-  %45 = load ptr, ptr @wal_consistency_checking, align 8
-  %46 = load i8, ptr %8, align 1
-  %47 = zext i8 %46 to i64
-  %48 = getelementptr i8, ptr %45, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %56
+  %45 = getelementptr inbounds %struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 1
+  store ptr %44, ptr %45, align 8
+  %46 = load ptr, ptr @wal_consistency_checking, align 8
+  %47 = load i8, ptr %8, align 1
+  %48 = zext i8 %47 to i64
+  %49 = getelementptr i8, ptr %46, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %7
-  %52 = load i8, ptr %9, align 1
-  %53 = zext i8 %52 to i32
-  %54 = or i32 %53, 2
-  %55 = trunc i32 %54 to i8
-  store i8 %55, ptr %9, align 1
-  br label %56
+52:                                               ; preds = %7
+  %53 = load i8, ptr %9, align 1
+  %54 = zext i8 %53 to i32
+  %55 = or i32 %54, 2
+  %56 = trunc i32 %55 to i8
+  store i8 %56, ptr %9, align 1
+  br label %57
 
-56:                                               ; preds = %51, %7
-  %57 = load ptr, ptr %12, align 8
-  store i64 0, ptr %57, align 8
+57:                                               ; preds = %52, %7
+  %58 = load ptr, ptr %12, align 8
+  store i64 0, ptr %58, align 8
   store i32 0, ptr %17, align 4
-  br label %58
+  br label %59
 
-58:                                               ; preds = %480, %56
-  %59 = load i32, ptr %17, align 4
-  %60 = load i32, ptr @max_registered_block_id, align 4
-  %61 = icmp slt i32 %59, %60
-  br i1 %61, label %62, label %483
+59:                                               ; preds = %481, %57
+  %60 = load i32, ptr %17, align 4
+  %61 = load i32, ptr @max_registered_block_id, align 4
+  %62 = icmp slt i32 %60, %61
+  br i1 %62, label %63, label %484
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr @registered_buffers, align 8
-  %64 = load i32, ptr %17, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.registered_buffer, ptr %63, i64 %65
-  store ptr %66, ptr %23, align 8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr @registered_buffers, align 8
+  %65 = load i32, ptr %17, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr %struct.registered_buffer, ptr %64, i64 %66
+  store ptr %67, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr align 2 %28, i8 0, i64 2, i1 false)
   store i8 0, ptr %30, align 1
-  %67 = load ptr, ptr %23, align 8
-  %68 = getelementptr inbounds %struct.registered_buffer, ptr %67, i32 0, i32 0
-  %69 = load i8, ptr %68, align 8
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %72, label %71
+  %68 = load ptr, ptr %23, align 8
+  %69 = getelementptr inbounds %struct.registered_buffer, ptr %68, i32 0, i32 0
+  %70 = load i8, ptr %69, align 8
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %73, label %72
 
-71:                                               ; preds = %62
-  br label %480
+72:                                               ; preds = %63
+  br label %481
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %23, align 8
-  %74 = getelementptr inbounds %struct.registered_buffer, ptr %73, i32 0, i32 1
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = and i32 %76, 1
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %79, label %80
+73:                                               ; preds = %63
+  %74 = load ptr, ptr %23, align 8
+  %75 = getelementptr inbounds %struct.registered_buffer, ptr %74, i32 0, i32 1
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = and i32 %77, 1
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %72
+80:                                               ; preds = %73
   store i8 1, ptr %24, align 1
+  br label %120
+
+81:                                               ; preds = %73
+  %82 = load ptr, ptr %23, align 8
+  %83 = getelementptr inbounds %struct.registered_buffer, ptr %82, i32 0, i32 1
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = and i32 %85, 2
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %81
+  store i8 0, ptr %24, align 1
   br label %119
 
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %23, align 8
-  %82 = getelementptr inbounds %struct.registered_buffer, ptr %81, i32 0, i32 1
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = and i32 %84, 2
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %88
+89:                                               ; preds = %81
+  %90 = load i8, ptr %11, align 1
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %93, label %92
 
-87:                                               ; preds = %80
+92:                                               ; preds = %89
   store i8 0, ptr %24, align 1
   br label %118
 
-88:                                               ; preds = %80
-  %89 = load i8, ptr %11, align 1
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %92, label %91
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %23, align 8
+  %95 = getelementptr inbounds %struct.registered_buffer, ptr %94, i32 0, i32 5
+  %96 = load ptr, ptr %95, align 8
+  %97 = call i64 @PageGetLSN(ptr noundef %96)
+  store i64 %97, ptr %32, align 8
+  %98 = load i64, ptr %32, align 8
+  %99 = load i64, ptr %10, align 8
+  %100 = icmp ule i64 %98, %99
+  %101 = zext i1 %100 to i8
+  store i8 %101, ptr %24, align 1
+  %102 = load i8, ptr %24, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %117, label %104
 
-91:                                               ; preds = %88
-  store i8 0, ptr %24, align 1
-  br label %117
+104:                                              ; preds = %93
+  %105 = load ptr, ptr %12, align 8
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %113, label %108
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %23, align 8
-  %94 = getelementptr inbounds %struct.registered_buffer, ptr %93, i32 0, i32 5
-  %95 = load ptr, ptr %94, align 8
-  %96 = call i64 @PageGetLSN(ptr noundef %95)
-  store i64 %96, ptr %32, align 8
-  %97 = load i64, ptr %32, align 8
-  %98 = load i64, ptr %10, align 8
-  %99 = icmp ule i64 %97, %98
-  %100 = zext i1 %99 to i8
-  store i8 %100, ptr %24, align 1
-  %101 = load i8, ptr %24, align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %116, label %103
+108:                                              ; preds = %104
+  %109 = load i64, ptr %32, align 8
+  %110 = load ptr, ptr %12, align 8
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp ult i64 %109, %111
+  br i1 %112, label %113, label %116
 
-103:                                              ; preds = %92
-  %104 = load ptr, ptr %12, align 8
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %112, label %107
-
-107:                                              ; preds = %103
-  %108 = load i64, ptr %32, align 8
-  %109 = load ptr, ptr %12, align 8
-  %110 = load i64, ptr %109, align 8
-  %111 = icmp ult i64 %108, %110
-  br i1 %111, label %112, label %115
-
-112:                                              ; preds = %107, %103
-  %113 = load i64, ptr %32, align 8
-  %114 = load ptr, ptr %12, align 8
-  store i64 %113, ptr %114, align 8
-  br label %115
-
-115:                                              ; preds = %112, %107
+113:                                              ; preds = %108, %104
+  %114 = load i64, ptr %32, align 8
+  %115 = load ptr, ptr %12, align 8
+  store i64 %114, ptr %115, align 8
   br label %116
 
-116:                                              ; preds = %115, %92
+116:                                              ; preds = %113, %108
   br label %117
 
-117:                                              ; preds = %116, %91
+117:                                              ; preds = %116, %93
   br label %118
 
-118:                                              ; preds = %117, %87
+118:                                              ; preds = %117, %92
   br label %119
 
-119:                                              ; preds = %118, %79
-  %120 = load ptr, ptr %23, align 8
-  %121 = getelementptr inbounds %struct.registered_buffer, ptr %120, i32 0, i32 6
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %125
+119:                                              ; preds = %118, %88
+  br label %120
 
-124:                                              ; preds = %119
+120:                                              ; preds = %119, %80
+  %121 = load ptr, ptr %23, align 8
+  %122 = getelementptr inbounds %struct.registered_buffer, ptr %121, i32 0, i32 6
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %126
+
+125:                                              ; preds = %120
   store i8 0, ptr %25, align 1
-  br label %139
+  br label %140
 
-125:                                              ; preds = %119
-  %126 = load ptr, ptr %23, align 8
-  %127 = getelementptr inbounds %struct.registered_buffer, ptr %126, i32 0, i32 1
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = and i32 %129, 16
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %133
+126:                                              ; preds = %120
+  %127 = load ptr, ptr %23, align 8
+  %128 = getelementptr inbounds %struct.registered_buffer, ptr %127, i32 0, i32 1
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = and i32 %130, 16
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %134
 
-132:                                              ; preds = %125
+133:                                              ; preds = %126
   store i8 1, ptr %25, align 1
-  br label %138
-
-133:                                              ; preds = %125
-  %134 = load i8, ptr %24, align 1
-  %135 = trunc i8 %134 to i1
-  %136 = xor i1 %135, true
-  %137 = zext i1 %136 to i8
-  store i8 %137, ptr %25, align 1
-  br label %138
-
-138:                                              ; preds = %133, %132
   br label %139
 
-139:                                              ; preds = %138, %124
-  %140 = load i32, ptr %17, align 4
-  %141 = trunc i32 %140 to i8
-  %142 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 0
-  store i8 %141, ptr %142, align 2
-  %143 = load ptr, ptr %23, align 8
-  %144 = getelementptr inbounds %struct.registered_buffer, ptr %143, i32 0, i32 3
-  %145 = load i32, ptr %144, align 8
-  %146 = trunc i32 %145 to i8
-  %147 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
-  store i8 %146, ptr %147, align 1
-  %148 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 2
-  store i16 0, ptr %148, align 2
-  %149 = load ptr, ptr %23, align 8
-  %150 = getelementptr inbounds %struct.registered_buffer, ptr %149, i32 0, i32 1
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i32
-  %153 = and i32 %152, 6
-  %154 = icmp eq i32 %153, 6
-  br i1 %154, label %155, label %161
+134:                                              ; preds = %126
+  %135 = load i8, ptr %24, align 1
+  %136 = trunc i8 %135 to i1
+  %137 = xor i1 %136, true
+  %138 = zext i1 %137 to i8
+  store i8 %138, ptr %25, align 1
+  br label %139
 
-155:                                              ; preds = %139
-  %156 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
-  %157 = load i8, ptr %156, align 1
-  %158 = zext i8 %157 to i32
-  %159 = or i32 %158, 64
-  %160 = trunc i32 %159 to i8
-  store i8 %160, ptr %156, align 1
-  br label %161
+139:                                              ; preds = %134, %133
+  br label %140
 
-161:                                              ; preds = %155, %139
-  %162 = load i8, ptr %24, align 1
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %169, label %164
+140:                                              ; preds = %139, %125
+  %141 = load i32, ptr %17, align 4
+  %142 = trunc i32 %141 to i8
+  %143 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 0
+  store i8 %142, ptr %143, align 2
+  %144 = load ptr, ptr %23, align 8
+  %145 = getelementptr inbounds %struct.registered_buffer, ptr %144, i32 0, i32 3
+  %146 = load i32, ptr %145, align 8
+  %147 = trunc i32 %146 to i8
+  %148 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
+  store i8 %147, ptr %148, align 1
+  %149 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 2
+  store i16 0, ptr %149, align 2
+  %150 = load ptr, ptr %23, align 8
+  %151 = getelementptr inbounds %struct.registered_buffer, ptr %150, i32 0, i32 1
+  %152 = load i8, ptr %151, align 1
+  %153 = zext i8 %152 to i32
+  %154 = and i32 %153, 6
+  %155 = icmp eq i32 %154, 6
+  br i1 %155, label %156, label %162
 
-164:                                              ; preds = %161
-  %165 = load i8, ptr %9, align 1
-  %166 = zext i8 %165 to i32
-  %167 = and i32 %166, 2
-  %168 = icmp ne i32 %167, 0
-  br label %169
+156:                                              ; preds = %140
+  %157 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
+  %158 = load i8, ptr %157, align 1
+  %159 = zext i8 %158 to i32
+  %160 = or i32 %159, 64
+  %161 = trunc i32 %160 to i8
+  store i8 %161, ptr %157, align 1
+  br label %162
 
-169:                                              ; preds = %164, %161
-  %170 = phi i1 [ true, %161 ], [ %168, %164 ]
-  %171 = zext i1 %170 to i8
-  store i8 %171, ptr %31, align 1
-  %172 = load i8, ptr %31, align 1
-  %173 = trunc i8 %172 to i1
-  br i1 %173, label %174, label %374
+162:                                              ; preds = %156, %140
+  %163 = load i8, ptr %24, align 1
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %170, label %165
 
-174:                                              ; preds = %169
-  %175 = load ptr, ptr %23, align 8
-  %176 = getelementptr inbounds %struct.registered_buffer, ptr %175, i32 0, i32 5
-  %177 = load ptr, ptr %176, align 8
-  store ptr %177, ptr %33, align 8
+165:                                              ; preds = %162
+  %166 = load i8, ptr %9, align 1
+  %167 = zext i8 %166 to i32
+  %168 = and i32 %167, 2
+  %169 = icmp ne i32 %168, 0
+  br label %170
+
+170:                                              ; preds = %165, %162
+  %171 = phi i1 [ true, %162 ], [ %169, %165 ]
+  %172 = zext i1 %171 to i8
+  store i8 %172, ptr %31, align 1
+  %173 = load i8, ptr %31, align 1
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %175, label %375
+
+175:                                              ; preds = %170
+  %176 = load ptr, ptr %23, align 8
+  %177 = getelementptr inbounds %struct.registered_buffer, ptr %176, i32 0, i32 5
+  %178 = load ptr, ptr %177, align 8
+  store ptr %178, ptr %33, align 8
   store i16 0, ptr %34, align 2
-  %178 = load ptr, ptr %23, align 8
-  %179 = getelementptr inbounds %struct.registered_buffer, ptr %178, i32 0, i32 1
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = and i32 %181, 8
-  %183 = icmp ne i32 %182, 0
-  br i1 %183, label %184, label %218
+  %179 = load ptr, ptr %23, align 8
+  %180 = getelementptr inbounds %struct.registered_buffer, ptr %179, i32 0, i32 1
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = and i32 %182, 8
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %219
 
-184:                                              ; preds = %174
-  %185 = load ptr, ptr %33, align 8
-  %186 = getelementptr inbounds %struct.PageHeaderData, ptr %185, i32 0, i32 3
-  %187 = load i16, ptr %186, align 4
-  store i16 %187, ptr %35, align 2
-  %188 = load ptr, ptr %33, align 8
-  %189 = getelementptr inbounds %struct.PageHeaderData, ptr %188, i32 0, i32 4
-  %190 = load i16, ptr %189, align 2
-  store i16 %190, ptr %36, align 2
-  %191 = load i16, ptr %35, align 2
-  %192 = zext i16 %191 to i64
-  %193 = icmp uge i64 %192, 24
-  br i1 %193, label %194, label %214
+185:                                              ; preds = %175
+  %186 = load ptr, ptr %33, align 8
+  %187 = getelementptr inbounds %struct.PageHeaderData, ptr %186, i32 0, i32 3
+  %188 = load i16, ptr %187, align 4
+  store i16 %188, ptr %35, align 2
+  %189 = load ptr, ptr %33, align 8
+  %190 = getelementptr inbounds %struct.PageHeaderData, ptr %189, i32 0, i32 4
+  %191 = load i16, ptr %190, align 2
+  store i16 %191, ptr %36, align 2
+  %192 = load i16, ptr %35, align 2
+  %193 = zext i16 %192 to i64
+  %194 = icmp uge i64 %193, 24
+  br i1 %194, label %195, label %215
 
-194:                                              ; preds = %184
-  %195 = load i16, ptr %36, align 2
-  %196 = zext i16 %195 to i32
-  %197 = load i16, ptr %35, align 2
-  %198 = zext i16 %197 to i32
-  %199 = icmp sgt i32 %196, %198
-  br i1 %199, label %200, label %214
+195:                                              ; preds = %185
+  %196 = load i16, ptr %36, align 2
+  %197 = zext i16 %196 to i32
+  %198 = load i16, ptr %35, align 2
+  %199 = zext i16 %198 to i32
+  %200 = icmp sgt i32 %197, %199
+  br i1 %200, label %201, label %215
 
-200:                                              ; preds = %194
-  %201 = load i16, ptr %36, align 2
-  %202 = zext i16 %201 to i32
-  %203 = icmp sle i32 %202, 8192
-  br i1 %203, label %204, label %214
+201:                                              ; preds = %195
+  %202 = load i16, ptr %36, align 2
+  %203 = zext i16 %202 to i32
+  %204 = icmp sle i32 %203, 8192
+  br i1 %204, label %205, label %215
 
-204:                                              ; preds = %200
-  %205 = load i16, ptr %35, align 2
-  %206 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  store i16 %205, ptr %206, align 2
-  %207 = load i16, ptr %36, align 2
-  %208 = zext i16 %207 to i32
-  %209 = load i16, ptr %35, align 2
-  %210 = zext i16 %209 to i32
-  %211 = sub i32 %208, %210
-  %212 = trunc i32 %211 to i16
-  %213 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  store i16 %212, ptr %213, align 2
-  br label %217
+205:                                              ; preds = %201
+  %206 = load i16, ptr %35, align 2
+  %207 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
+  store i16 %206, ptr %207, align 2
+  %208 = load i16, ptr %36, align 2
+  %209 = zext i16 %208 to i32
+  %210 = load i16, ptr %35, align 2
+  %211 = zext i16 %210 to i32
+  %212 = sub i32 %209, %211
+  %213 = trunc i32 %212 to i16
+  %214 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  store i16 %213, ptr %214, align 2
+  br label %218
 
-214:                                              ; preds = %200, %194, %184
-  %215 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  store i16 0, ptr %215, align 2
-  %216 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+215:                                              ; preds = %201, %195, %185
+  %216 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
   store i16 0, ptr %216, align 2
-  br label %217
+  %217 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  store i16 0, ptr %217, align 2
+  br label %218
 
-217:                                              ; preds = %214, %204
-  br label %221
+218:                                              ; preds = %215, %205
+  br label %222
 
-218:                                              ; preds = %174
-  %219 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  store i16 0, ptr %219, align 2
-  %220 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+219:                                              ; preds = %175
+  %220 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
   store i16 0, ptr %220, align 2
-  br label %221
+  %221 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  store i16 0, ptr %221, align 2
+  br label %222
 
-221:                                              ; preds = %218, %217
-  %222 = load i32, ptr @wal_compression, align 4
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %224, label %235
+222:                                              ; preds = %219, %218
+  %223 = load i32, ptr @wal_compression, align 4
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %225, label %236
 
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %33, align 8
-  %226 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  %227 = load i16, ptr %226, align 2
-  %228 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %229 = load i16, ptr %228, align 2
-  %230 = load ptr, ptr %23, align 8
-  %231 = getelementptr inbounds %struct.registered_buffer, ptr %230, i32 0, i32 10
-  %232 = getelementptr inbounds [8196 x i8], ptr %231, i64 0, i64 0
-  %233 = call zeroext i1 @XLogCompressBackupBlock(ptr noundef %225, i16 noundef zeroext %227, i16 noundef zeroext %229, ptr noundef %232, ptr noundef %34)
-  %234 = zext i1 %233 to i8
-  store i8 %234, ptr %30, align 1
-  br label %235
+225:                                              ; preds = %222
+  %226 = load ptr, ptr %33, align 8
+  %227 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
+  %228 = load i16, ptr %227, align 2
+  %229 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %230 = load i16, ptr %229, align 2
+  %231 = load ptr, ptr %23, align 8
+  %232 = getelementptr inbounds %struct.registered_buffer, ptr %231, i32 0, i32 10
+  %233 = getelementptr inbounds [8196 x i8], ptr %232, i64 0, i64 0
+  %234 = call zeroext i1 @XLogCompressBackupBlock(ptr noundef %226, i16 noundef zeroext %228, i16 noundef zeroext %230, ptr noundef %233, ptr noundef %34)
+  %235 = zext i1 %234 to i8
+  store i8 %235, ptr %30, align 1
+  br label %236
 
-235:                                              ; preds = %224, %221
-  %236 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i32
-  %239 = or i32 %238, 16
-  %240 = trunc i32 %239 to i8
-  store i8 %240, ptr %236, align 1
-  %241 = load ptr, ptr %13, align 8
-  %242 = load i32, ptr %241, align 4
-  %243 = add i32 %242, 1
-  store i32 %243, ptr %241, align 4
-  %244 = load ptr, ptr %23, align 8
-  %245 = getelementptr inbounds %struct.registered_buffer, ptr %244, i32 0, i32 9
-  %246 = getelementptr [2 x %struct.XLogRecData], ptr %245, i64 0, i64 0
-  %247 = load ptr, ptr %20, align 8
-  %248 = getelementptr inbounds %struct.XLogRecData, ptr %247, i32 0, i32 0
-  store ptr %246, ptr %248, align 8
-  %249 = load ptr, ptr %20, align 8
-  %250 = getelementptr inbounds %struct.XLogRecData, ptr %249, i32 0, i32 0
-  %251 = load ptr, ptr %250, align 8
-  store ptr %251, ptr %20, align 8
-  %252 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %253 = load i16, ptr %252, align 2
-  %254 = zext i16 %253 to i32
-  %255 = icmp eq i32 %254, 0
-  %256 = select i1 %255, i32 0, i32 1
-  %257 = trunc i32 %256 to i8
-  %258 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
-  store i8 %257, ptr %258, align 2
-  %259 = load i8, ptr %24, align 1
-  %260 = trunc i8 %259 to i1
-  br i1 %260, label %261, label %267
+236:                                              ; preds = %225, %222
+  %237 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
+  %238 = load i8, ptr %237, align 1
+  %239 = zext i8 %238 to i32
+  %240 = or i32 %239, 16
+  %241 = trunc i32 %240 to i8
+  store i8 %241, ptr %237, align 1
+  %242 = load ptr, ptr %13, align 8
+  %243 = load i32, ptr %242, align 4
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %242, align 4
+  %245 = load ptr, ptr %23, align 8
+  %246 = getelementptr inbounds %struct.registered_buffer, ptr %245, i32 0, i32 9
+  %247 = getelementptr [2 x %struct.XLogRecData], ptr %246, i64 0, i64 0
+  %248 = load ptr, ptr %20, align 8
+  %249 = getelementptr inbounds %struct.XLogRecData, ptr %248, i32 0, i32 0
+  store ptr %247, ptr %249, align 8
+  %250 = load ptr, ptr %20, align 8
+  %251 = getelementptr inbounds %struct.XLogRecData, ptr %250, i32 0, i32 0
+  %252 = load ptr, ptr %251, align 8
+  store ptr %252, ptr %20, align 8
+  %253 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %254 = load i16, ptr %253, align 2
+  %255 = zext i16 %254 to i32
+  %256 = icmp eq i32 %255, 0
+  %257 = select i1 %256, i32 0, i32 1
+  %258 = trunc i32 %257 to i8
+  %259 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
+  store i8 %258, ptr %259, align 2
+  %260 = load i8, ptr %24, align 1
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %262, label %268
 
-261:                                              ; preds = %235
-  %262 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
-  %263 = load i8, ptr %262, align 2
-  %264 = zext i8 %263 to i32
-  %265 = or i32 %264, 2
-  %266 = trunc i32 %265 to i8
-  store i8 %266, ptr %262, align 2
-  br label %267
+262:                                              ; preds = %236
+  %263 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
+  %264 = load i8, ptr %263, align 2
+  %265 = zext i8 %264 to i32
+  %266 = or i32 %265, 2
+  %267 = trunc i32 %266 to i8
+  store i8 %267, ptr %263, align 2
+  br label %268
 
-267:                                              ; preds = %261, %235
-  %268 = load i8, ptr %30, align 1
-  %269 = trunc i8 %268 to i1
-  br i1 %269, label %270, label %311
+268:                                              ; preds = %262, %236
+  %269 = load i8, ptr %30, align 1
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %312
 
-270:                                              ; preds = %267
-  %271 = load i16, ptr %34, align 2
-  %272 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
-  store i16 %271, ptr %272, align 2
-  %273 = load i32, ptr @wal_compression, align 4
-  switch i32 %273, label %301 [
-    i32 1, label %274
-    i32 2, label %280
-    i32 3, label %290
-    i32 0, label %300
+271:                                              ; preds = %268
+  %272 = load i16, ptr %34, align 2
+  %273 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
+  store i16 %272, ptr %273, align 2
+  %274 = load i32, ptr @wal_compression, align 4
+  switch i32 %274, label %302 [
+    i32 1, label %275
+    i32 2, label %281
+    i32 3, label %291
+    i32 0, label %301
   ]
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
-  %276 = load i8, ptr %275, align 2
-  %277 = zext i8 %276 to i32
-  %278 = or i32 %277, 4
-  %279 = trunc i32 %278 to i8
-  store i8 %279, ptr %275, align 2
-  br label %301
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 2
+  %277 = load i8, ptr %276, align 2
+  %278 = zext i8 %277 to i32
+  %279 = or i32 %278, 4
+  %280 = trunc i32 %279 to i8
+  store i8 %280, ptr %276, align 2
+  br label %302
 
-280:                                              ; preds = %270
-  br label %281
-
-281:                                              ; preds = %280
-  br i1 true, label %282, label %284
+281:                                              ; preds = %271
+  br label %282
 
 282:                                              ; preds = %281
-  %283 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %283, label %286, label %288
+  br i1 true, label %283, label %285
 
-284:                                              ; preds = %281
-  %285 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %285, label %286, label %288
+283:                                              ; preds = %282
+  %284 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %284, label %287, label %289
 
-286:                                              ; preds = %284, %282
-  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.12)
+285:                                              ; preds = %282
+  %286 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %286, label %287, label %289
+
+287:                                              ; preds = %285, %283
+  %288 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.12)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 740, ptr noundef @__func__.XLogRecordAssemble)
-  br label %288
+  br label %289
 
-288:                                              ; preds = %286, %284, %282
+289:                                              ; preds = %287, %285, %283
   unreachable
 
-289:                                              ; No predecessors!
-  br label %301
+290:                                              ; No predecessors!
+  br label %302
 
-290:                                              ; preds = %270
-  br label %291
-
-291:                                              ; preds = %290
-  br i1 true, label %292, label %294
+291:                                              ; preds = %271
+  br label %292
 
 292:                                              ; preds = %291
-  %293 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %293, label %296, label %298
+  br i1 true, label %293, label %295
 
-294:                                              ; preds = %291
-  %295 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %295, label %296, label %298
+293:                                              ; preds = %292
+  %294 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %294, label %297, label %299
 
-296:                                              ; preds = %294, %292
-  %297 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.13)
+295:                                              ; preds = %292
+  %296 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %296, label %297, label %299
+
+297:                                              ; preds = %295, %293
+  %298 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.13)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 748, ptr noundef @__func__.XLogRecordAssemble)
-  br label %298
+  br label %299
 
-298:                                              ; preds = %296, %294, %292
+299:                                              ; preds = %297, %295, %293
   unreachable
 
-299:                                              ; No predecessors!
-  br label %301
+300:                                              ; No predecessors!
+  br label %302
 
-300:                                              ; preds = %270
-  br label %301
+301:                                              ; preds = %271
+  br label %302
 
-301:                                              ; preds = %300, %299, %289, %274, %270
-  %302 = load ptr, ptr %23, align 8
-  %303 = getelementptr inbounds %struct.registered_buffer, ptr %302, i32 0, i32 10
-  %304 = getelementptr inbounds [8196 x i8], ptr %303, i64 0, i64 0
-  %305 = load ptr, ptr %20, align 8
-  %306 = getelementptr inbounds %struct.XLogRecData, ptr %305, i32 0, i32 1
-  store ptr %304, ptr %306, align 8
-  %307 = load i16, ptr %34, align 2
-  %308 = zext i16 %307 to i32
-  %309 = load ptr, ptr %20, align 8
-  %310 = getelementptr inbounds %struct.XLogRecData, ptr %309, i32 0, i32 2
-  store i32 %308, ptr %310, align 8
+302:                                              ; preds = %301, %300, %290, %275, %271
+  %303 = load ptr, ptr %23, align 8
+  %304 = getelementptr inbounds %struct.registered_buffer, ptr %303, i32 0, i32 10
+  %305 = getelementptr inbounds [8196 x i8], ptr %304, i64 0, i64 0
+  %306 = load ptr, ptr %20, align 8
+  %307 = getelementptr inbounds %struct.XLogRecData, ptr %306, i32 0, i32 1
+  store ptr %305, ptr %307, align 8
+  %308 = load i16, ptr %34, align 2
+  %309 = zext i16 %308 to i32
+  %310 = load ptr, ptr %20, align 8
+  %311 = getelementptr inbounds %struct.XLogRecData, ptr %310, i32 0, i32 2
+  store i32 %309, ptr %311, align 8
+  br label %369
+
+312:                                              ; preds = %268
+  %313 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %314 = load i16, ptr %313, align 2
+  %315 = zext i16 %314 to i32
+  %316 = sub i32 8192, %315
+  %317 = trunc i32 %316 to i16
+  %318 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
+  store i16 %317, ptr %318, align 2
+  %319 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %320 = load i16, ptr %319, align 2
+  %321 = zext i16 %320 to i32
+  %322 = icmp eq i32 %321, 0
+  br i1 %322, label %323, label %329
+
+323:                                              ; preds = %312
+  %324 = load ptr, ptr %33, align 8
+  %325 = load ptr, ptr %20, align 8
+  %326 = getelementptr inbounds %struct.XLogRecData, ptr %325, i32 0, i32 1
+  store ptr %324, ptr %326, align 8
+  %327 = load ptr, ptr %20, align 8
+  %328 = getelementptr inbounds %struct.XLogRecData, ptr %327, i32 0, i32 2
+  store i32 8192, ptr %328, align 8
   br label %368
 
-311:                                              ; preds = %267
-  %312 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %313 = load i16, ptr %312, align 2
-  %314 = zext i16 %313 to i32
-  %315 = sub i32 8192, %314
-  %316 = trunc i32 %315 to i16
-  %317 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
-  store i16 %316, ptr %317, align 2
-  %318 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %319 = load i16, ptr %318, align 2
-  %320 = zext i16 %319 to i32
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %322, label %328
-
-322:                                              ; preds = %311
-  %323 = load ptr, ptr %33, align 8
-  %324 = load ptr, ptr %20, align 8
-  %325 = getelementptr inbounds %struct.XLogRecData, ptr %324, i32 0, i32 1
-  store ptr %323, ptr %325, align 8
-  %326 = load ptr, ptr %20, align 8
-  %327 = getelementptr inbounds %struct.XLogRecData, ptr %326, i32 0, i32 2
-  store i32 8192, ptr %327, align 8
-  br label %367
-
-328:                                              ; preds = %311
-  %329 = load ptr, ptr %33, align 8
-  %330 = load ptr, ptr %20, align 8
-  %331 = getelementptr inbounds %struct.XLogRecData, ptr %330, i32 0, i32 1
-  store ptr %329, ptr %331, align 8
-  %332 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  %333 = load i16, ptr %332, align 2
-  %334 = zext i16 %333 to i32
-  %335 = load ptr, ptr %20, align 8
-  %336 = getelementptr inbounds %struct.XLogRecData, ptr %335, i32 0, i32 2
-  store i32 %334, ptr %336, align 8
-  %337 = load ptr, ptr %23, align 8
-  %338 = getelementptr inbounds %struct.registered_buffer, ptr %337, i32 0, i32 9
-  %339 = getelementptr [2 x %struct.XLogRecData], ptr %338, i64 0, i64 1
-  %340 = load ptr, ptr %20, align 8
-  %341 = getelementptr inbounds %struct.XLogRecData, ptr %340, i32 0, i32 0
-  store ptr %339, ptr %341, align 8
-  %342 = load ptr, ptr %20, align 8
-  %343 = getelementptr inbounds %struct.XLogRecData, ptr %342, i32 0, i32 0
-  %344 = load ptr, ptr %343, align 8
-  store ptr %344, ptr %20, align 8
-  %345 = load ptr, ptr %33, align 8
-  %346 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  %347 = load i16, ptr %346, align 2
-  %348 = zext i16 %347 to i32
-  %349 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %350 = load i16, ptr %349, align 2
-  %351 = zext i16 %350 to i32
-  %352 = add i32 %348, %351
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr i8, ptr %345, i64 %353
-  %355 = load ptr, ptr %20, align 8
-  %356 = getelementptr inbounds %struct.XLogRecData, ptr %355, i32 0, i32 1
-  store ptr %354, ptr %356, align 8
-  %357 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
-  %358 = load i16, ptr %357, align 2
-  %359 = zext i16 %358 to i32
-  %360 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %361 = load i16, ptr %360, align 2
-  %362 = zext i16 %361 to i32
-  %363 = add i32 %359, %362
-  %364 = sub i32 8192, %363
-  %365 = load ptr, ptr %20, align 8
-  %366 = getelementptr inbounds %struct.XLogRecData, ptr %365, i32 0, i32 2
-  store i32 %364, ptr %366, align 8
-  br label %367
-
-367:                                              ; preds = %328, %322
+329:                                              ; preds = %312
+  %330 = load ptr, ptr %33, align 8
+  %331 = load ptr, ptr %20, align 8
+  %332 = getelementptr inbounds %struct.XLogRecData, ptr %331, i32 0, i32 1
+  store ptr %330, ptr %332, align 8
+  %333 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
+  %334 = load i16, ptr %333, align 2
+  %335 = zext i16 %334 to i32
+  %336 = load ptr, ptr %20, align 8
+  %337 = getelementptr inbounds %struct.XLogRecData, ptr %336, i32 0, i32 2
+  store i32 %335, ptr %337, align 8
+  %338 = load ptr, ptr %23, align 8
+  %339 = getelementptr inbounds %struct.registered_buffer, ptr %338, i32 0, i32 9
+  %340 = getelementptr [2 x %struct.XLogRecData], ptr %339, i64 0, i64 1
+  %341 = load ptr, ptr %20, align 8
+  %342 = getelementptr inbounds %struct.XLogRecData, ptr %341, i32 0, i32 0
+  store ptr %340, ptr %342, align 8
+  %343 = load ptr, ptr %20, align 8
+  %344 = getelementptr inbounds %struct.XLogRecData, ptr %343, i32 0, i32 0
+  %345 = load ptr, ptr %344, align 8
+  store ptr %345, ptr %20, align 8
+  %346 = load ptr, ptr %33, align 8
+  %347 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
+  %348 = load i16, ptr %347, align 2
+  %349 = zext i16 %348 to i32
+  %350 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %351 = load i16, ptr %350, align 2
+  %352 = zext i16 %351 to i32
+  %353 = add i32 %349, %352
+  %354 = sext i32 %353 to i64
+  %355 = getelementptr i8, ptr %346, i64 %354
+  %356 = load ptr, ptr %20, align 8
+  %357 = getelementptr inbounds %struct.XLogRecData, ptr %356, i32 0, i32 1
+  store ptr %355, ptr %357, align 8
+  %358 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 1
+  %359 = load i16, ptr %358, align 2
+  %360 = zext i16 %359 to i32
+  %361 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %362 = load i16, ptr %361, align 2
+  %363 = zext i16 %362 to i32
+  %364 = add i32 %360, %363
+  %365 = sub i32 8192, %364
+  %366 = load ptr, ptr %20, align 8
+  %367 = getelementptr inbounds %struct.XLogRecData, ptr %366, i32 0, i32 2
+  store i32 %365, ptr %367, align 8
   br label %368
 
-368:                                              ; preds = %367, %301
-  %369 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
-  %370 = load i16, ptr %369, align 2
-  %371 = zext i16 %370 to i64
-  %372 = load i64, ptr %16, align 8
-  %373 = add i64 %372, %371
-  store i64 %373, ptr %16, align 8
-  br label %374
+368:                                              ; preds = %329, %323
+  br label %369
 
-374:                                              ; preds = %368, %169
-  %375 = load i8, ptr %25, align 1
-  %376 = trunc i8 %375 to i1
-  br i1 %376, label %377, label %402
+369:                                              ; preds = %368, %302
+  %370 = getelementptr inbounds %struct.XLogRecordBlockImageHeader, ptr %27, i32 0, i32 0
+  %371 = load i16, ptr %370, align 2
+  %372 = zext i16 %371 to i64
+  %373 = load i64, ptr %16, align 8
+  %374 = add i64 %373, %372
+  store i64 %374, ptr %16, align 8
+  br label %375
 
-377:                                              ; preds = %374
-  %378 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
-  %379 = load i8, ptr %378, align 1
-  %380 = zext i8 %379 to i32
-  %381 = or i32 %380, 32
-  %382 = trunc i32 %381 to i8
-  store i8 %382, ptr %378, align 1
-  %383 = load ptr, ptr %23, align 8
-  %384 = getelementptr inbounds %struct.registered_buffer, ptr %383, i32 0, i32 6
-  %385 = load i32, ptr %384, align 8
-  %386 = trunc i32 %385 to i16
-  %387 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 2
-  store i16 %386, ptr %387, align 2
-  %388 = load ptr, ptr %23, align 8
-  %389 = getelementptr inbounds %struct.registered_buffer, ptr %388, i32 0, i32 6
-  %390 = load i32, ptr %389, align 8
-  %391 = zext i32 %390 to i64
-  %392 = load i64, ptr %16, align 8
-  %393 = add i64 %392, %391
-  store i64 %393, ptr %16, align 8
-  %394 = load ptr, ptr %23, align 8
-  %395 = getelementptr inbounds %struct.registered_buffer, ptr %394, i32 0, i32 7
-  %396 = load ptr, ptr %395, align 8
-  %397 = load ptr, ptr %20, align 8
-  %398 = getelementptr inbounds %struct.XLogRecData, ptr %397, i32 0, i32 0
-  store ptr %396, ptr %398, align 8
-  %399 = load ptr, ptr %23, align 8
-  %400 = getelementptr inbounds %struct.registered_buffer, ptr %399, i32 0, i32 8
-  %401 = load ptr, ptr %400, align 8
-  store ptr %401, ptr %20, align 8
-  br label %402
+375:                                              ; preds = %369, %170
+  %376 = load i8, ptr %25, align 1
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %378, label %403
 
-402:                                              ; preds = %377, %374
-  %403 = load ptr, ptr %19, align 8
-  %404 = icmp ne ptr %403, null
-  br i1 %404, label %405, label %441
+378:                                              ; preds = %375
+  %379 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
+  %380 = load i8, ptr %379, align 1
+  %381 = zext i8 %380 to i32
+  %382 = or i32 %381, 32
+  %383 = trunc i32 %382 to i8
+  store i8 %383, ptr %379, align 1
+  %384 = load ptr, ptr %23, align 8
+  %385 = getelementptr inbounds %struct.registered_buffer, ptr %384, i32 0, i32 6
+  %386 = load i32, ptr %385, align 8
+  %387 = trunc i32 %386 to i16
+  %388 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 2
+  store i16 %387, ptr %388, align 2
+  %389 = load ptr, ptr %23, align 8
+  %390 = getelementptr inbounds %struct.registered_buffer, ptr %389, i32 0, i32 6
+  %391 = load i32, ptr %390, align 8
+  %392 = zext i32 %391 to i64
+  %393 = load i64, ptr %16, align 8
+  %394 = add i64 %393, %392
+  store i64 %394, ptr %16, align 8
+  %395 = load ptr, ptr %23, align 8
+  %396 = getelementptr inbounds %struct.registered_buffer, ptr %395, i32 0, i32 7
+  %397 = load ptr, ptr %396, align 8
+  %398 = load ptr, ptr %20, align 8
+  %399 = getelementptr inbounds %struct.XLogRecData, ptr %398, i32 0, i32 0
+  store ptr %397, ptr %399, align 8
+  %400 = load ptr, ptr %23, align 8
+  %401 = getelementptr inbounds %struct.registered_buffer, ptr %400, i32 0, i32 8
+  %402 = load ptr, ptr %401, align 8
+  store ptr %402, ptr %20, align 8
+  br label %403
 
-405:                                              ; preds = %402
-  %406 = load ptr, ptr %23, align 8
-  %407 = getelementptr inbounds %struct.registered_buffer, ptr %406, i32 0, i32 2
-  %408 = getelementptr inbounds %struct.RelFileLocator, ptr %407, i32 0, i32 2
-  %409 = load i32, ptr %408, align 4
-  %410 = load ptr, ptr %19, align 8
-  %411 = getelementptr inbounds %struct.registered_buffer, ptr %410, i32 0, i32 2
-  %412 = getelementptr inbounds %struct.RelFileLocator, ptr %411, i32 0, i32 2
-  %413 = load i32, ptr %412, align 4
-  %414 = icmp eq i32 %409, %413
-  br i1 %414, label %415, label %441
+403:                                              ; preds = %378, %375
+  %404 = load ptr, ptr %19, align 8
+  %405 = icmp ne ptr %404, null
+  br i1 %405, label %406, label %442
 
-415:                                              ; preds = %405
-  %416 = load ptr, ptr %23, align 8
-  %417 = getelementptr inbounds %struct.registered_buffer, ptr %416, i32 0, i32 2
-  %418 = getelementptr inbounds %struct.RelFileLocator, ptr %417, i32 0, i32 1
-  %419 = load i32, ptr %418, align 4
-  %420 = load ptr, ptr %19, align 8
-  %421 = getelementptr inbounds %struct.registered_buffer, ptr %420, i32 0, i32 2
-  %422 = getelementptr inbounds %struct.RelFileLocator, ptr %421, i32 0, i32 1
-  %423 = load i32, ptr %422, align 4
-  %424 = icmp eq i32 %419, %423
-  br i1 %424, label %425, label %441
+406:                                              ; preds = %403
+  %407 = load ptr, ptr %23, align 8
+  %408 = getelementptr inbounds %struct.registered_buffer, ptr %407, i32 0, i32 2
+  %409 = getelementptr inbounds %struct.RelFileLocator, ptr %408, i32 0, i32 2
+  %410 = load i32, ptr %409, align 4
+  %411 = load ptr, ptr %19, align 8
+  %412 = getelementptr inbounds %struct.registered_buffer, ptr %411, i32 0, i32 2
+  %413 = getelementptr inbounds %struct.RelFileLocator, ptr %412, i32 0, i32 2
+  %414 = load i32, ptr %413, align 4
+  %415 = icmp eq i32 %410, %414
+  br i1 %415, label %416, label %442
 
-425:                                              ; preds = %415
-  %426 = load ptr, ptr %23, align 8
-  %427 = getelementptr inbounds %struct.registered_buffer, ptr %426, i32 0, i32 2
-  %428 = getelementptr inbounds %struct.RelFileLocator, ptr %427, i32 0, i32 0
-  %429 = load i32, ptr %428, align 4
-  %430 = load ptr, ptr %19, align 8
-  %431 = getelementptr inbounds %struct.registered_buffer, ptr %430, i32 0, i32 2
-  %432 = getelementptr inbounds %struct.RelFileLocator, ptr %431, i32 0, i32 0
-  %433 = load i32, ptr %432, align 4
-  %434 = icmp eq i32 %429, %433
-  br i1 %434, label %435, label %441
+416:                                              ; preds = %406
+  %417 = load ptr, ptr %23, align 8
+  %418 = getelementptr inbounds %struct.registered_buffer, ptr %417, i32 0, i32 2
+  %419 = getelementptr inbounds %struct.RelFileLocator, ptr %418, i32 0, i32 1
+  %420 = load i32, ptr %419, align 4
+  %421 = load ptr, ptr %19, align 8
+  %422 = getelementptr inbounds %struct.registered_buffer, ptr %421, i32 0, i32 2
+  %423 = getelementptr inbounds %struct.RelFileLocator, ptr %422, i32 0, i32 1
+  %424 = load i32, ptr %423, align 4
+  %425 = icmp eq i32 %420, %424
+  br i1 %425, label %426, label %442
 
-435:                                              ; preds = %425
+426:                                              ; preds = %416
+  %427 = load ptr, ptr %23, align 8
+  %428 = getelementptr inbounds %struct.registered_buffer, ptr %427, i32 0, i32 2
+  %429 = getelementptr inbounds %struct.RelFileLocator, ptr %428, i32 0, i32 0
+  %430 = load i32, ptr %429, align 4
+  %431 = load ptr, ptr %19, align 8
+  %432 = getelementptr inbounds %struct.registered_buffer, ptr %431, i32 0, i32 2
+  %433 = getelementptr inbounds %struct.RelFileLocator, ptr %432, i32 0, i32 0
+  %434 = load i32, ptr %433, align 4
+  %435 = icmp eq i32 %430, %434
+  br i1 %435, label %436, label %442
+
+436:                                              ; preds = %426
   store i8 1, ptr %29, align 1
-  %436 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
-  %437 = load i8, ptr %436, align 1
-  %438 = zext i8 %437 to i32
-  %439 = or i32 %438, 128
-  %440 = trunc i32 %439 to i8
-  store i8 %440, ptr %436, align 1
-  br label %442
+  %437 = getelementptr inbounds %struct.XLogRecordBlockHeader, ptr %26, i32 0, i32 1
+  %438 = load i8, ptr %437, align 1
+  %439 = zext i8 %438 to i32
+  %440 = or i32 %439, 128
+  %441 = trunc i32 %440 to i8
+  store i8 %441, ptr %437, align 1
+  br label %443
 
-441:                                              ; preds = %425, %415, %405, %402
+442:                                              ; preds = %426, %416, %406, %403
   store i8 0, ptr %29, align 1
-  br label %442
+  br label %443
 
-442:                                              ; preds = %441, %435
-  %443 = load ptr, ptr %23, align 8
-  store ptr %443, ptr %19, align 8
-  %444 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %444, ptr align 2 %26, i64 4, i1 false)
+443:                                              ; preds = %442, %436
+  %444 = load ptr, ptr %23, align 8
+  store ptr %444, ptr %19, align 8
   %445 = load ptr, ptr %22, align 8
-  %446 = getelementptr i8, ptr %445, i64 4
-  store ptr %446, ptr %22, align 8
-  %447 = load i8, ptr %31, align 1
-  %448 = trunc i8 %447 to i1
-  br i1 %448, label %449, label %465
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %445, ptr align 2 %26, i64 4, i1 false)
+  %446 = load ptr, ptr %22, align 8
+  %447 = getelementptr i8, ptr %446, i64 4
+  store ptr %447, ptr %22, align 8
+  %448 = load i8, ptr %31, align 1
+  %449 = trunc i8 %448 to i1
+  br i1 %449, label %450, label %466
 
-449:                                              ; preds = %442
-  %450 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %450, ptr align 2 %27, i64 5, i1 false)
+450:                                              ; preds = %443
   %451 = load ptr, ptr %22, align 8
-  %452 = getelementptr i8, ptr %451, i64 5
-  store ptr %452, ptr %22, align 8
-  %453 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
-  %454 = load i16, ptr %453, align 2
-  %455 = zext i16 %454 to i32
-  %456 = icmp ne i32 %455, 0
-  br i1 %456, label %457, label %464
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr align 2 %27, i64 5, i1 false)
+  %452 = load ptr, ptr %22, align 8
+  %453 = getelementptr i8, ptr %452, i64 5
+  store ptr %453, ptr %22, align 8
+  %454 = getelementptr inbounds %struct.XLogRecordBlockCompressHeader, ptr %28, i32 0, i32 0
+  %455 = load i16, ptr %454, align 2
+  %456 = zext i16 %455 to i32
+  %457 = icmp ne i32 %456, 0
+  br i1 %457, label %458, label %465
 
-457:                                              ; preds = %449
-  %458 = load i8, ptr %30, align 1
-  %459 = trunc i8 %458 to i1
-  br i1 %459, label %460, label %464
+458:                                              ; preds = %450
+  %459 = load i8, ptr %30, align 1
+  %460 = trunc i8 %459 to i1
+  br i1 %460, label %461, label %465
 
-460:                                              ; preds = %457
-  %461 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %461, ptr align 2 %28, i64 2, i1 false)
+461:                                              ; preds = %458
   %462 = load ptr, ptr %22, align 8
-  %463 = getelementptr i8, ptr %462, i64 2
-  store ptr %463, ptr %22, align 8
-  br label %464
-
-464:                                              ; preds = %460, %457, %449
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %462, ptr align 2 %28, i64 2, i1 false)
+  %463 = load ptr, ptr %22, align 8
+  %464 = getelementptr i8, ptr %463, i64 2
+  store ptr %464, ptr %22, align 8
   br label %465
 
-465:                                              ; preds = %464, %442
-  %466 = load i8, ptr %29, align 1
-  %467 = trunc i8 %466 to i1
-  br i1 %467, label %474, label %468
+465:                                              ; preds = %461, %458, %450
+  br label %466
 
-468:                                              ; preds = %465
-  %469 = load ptr, ptr %22, align 8
-  %470 = load ptr, ptr %23, align 8
-  %471 = getelementptr inbounds %struct.registered_buffer, ptr %470, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %469, ptr align 4 %471, i64 12, i1 false)
-  %472 = load ptr, ptr %22, align 8
-  %473 = getelementptr i8, ptr %472, i64 12
-  store ptr %473, ptr %22, align 8
-  br label %474
+466:                                              ; preds = %465, %443
+  %467 = load i8, ptr %29, align 1
+  %468 = trunc i8 %467 to i1
+  br i1 %468, label %475, label %469
 
-474:                                              ; preds = %468, %465
-  %475 = load ptr, ptr %22, align 8
-  %476 = load ptr, ptr %23, align 8
-  %477 = getelementptr inbounds %struct.registered_buffer, ptr %476, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %475, ptr align 4 %477, i64 4, i1 false)
-  %478 = load ptr, ptr %22, align 8
-  %479 = getelementptr i8, ptr %478, i64 4
-  store ptr %479, ptr %22, align 8
-  br label %480
+469:                                              ; preds = %466
+  %470 = load ptr, ptr %22, align 8
+  %471 = load ptr, ptr %23, align 8
+  %472 = getelementptr inbounds %struct.registered_buffer, ptr %471, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %470, ptr align 4 %472, i64 12, i1 false)
+  %473 = load ptr, ptr %22, align 8
+  %474 = getelementptr i8, ptr %473, i64 12
+  store ptr %474, ptr %22, align 8
+  br label %475
 
-480:                                              ; preds = %474, %71
-  %481 = load i32, ptr %17, align 4
-  %482 = add i32 %481, 1
-  store i32 %482, ptr %17, align 4
-  br label %58, !llvm.loop !9
+475:                                              ; preds = %469, %466
+  %476 = load ptr, ptr %22, align 8
+  %477 = load ptr, ptr %23, align 8
+  %478 = getelementptr inbounds %struct.registered_buffer, ptr %477, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %476, ptr align 4 %478, i64 4, i1 false)
+  %479 = load ptr, ptr %22, align 8
+  %480 = getelementptr i8, ptr %479, i64 4
+  store ptr %480, ptr %22, align 8
+  br label %481
 
-483:                                              ; preds = %58
-  %484 = load i8, ptr @curinsert_flags, align 1
-  %485 = zext i8 %484 to i32
-  %486 = and i32 %485, 1
-  %487 = icmp ne i32 %486, 0
-  br i1 %487, label %488, label %498
+481:                                              ; preds = %475, %72
+  %482 = load i32, ptr %17, align 4
+  %483 = add i32 %482, 1
+  store i32 %483, ptr %17, align 4
+  br label %59, !llvm.loop !9
 
-488:                                              ; preds = %483
-  %489 = load i16, ptr @replorigin_session_origin, align 2
-  %490 = zext i16 %489 to i32
-  %491 = icmp ne i32 %490, 0
-  br i1 %491, label %492, label %498
+484:                                              ; preds = %59
+  %485 = load i8, ptr @curinsert_flags, align 1
+  %486 = zext i8 %485 to i32
+  %487 = and i32 %486, 1
+  %488 = icmp ne i32 %487, 0
+  br i1 %488, label %489, label %499
 
-492:                                              ; preds = %488
-  %493 = load ptr, ptr %22, align 8
-  %494 = getelementptr i8, ptr %493, i32 1
-  store ptr %494, ptr %22, align 8
-  store i8 -3, ptr %493, align 1
-  %495 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %495, ptr align 2 @replorigin_session_origin, i64 2, i1 false)
+489:                                              ; preds = %484
+  %490 = load i16, ptr @replorigin_session_origin, align 2
+  %491 = zext i16 %490 to i32
+  %492 = icmp ne i32 %491, 0
+  br i1 %492, label %493, label %499
+
+493:                                              ; preds = %489
+  %494 = load ptr, ptr %22, align 8
+  %495 = getelementptr i8, ptr %494, i32 1
+  store ptr %495, ptr %22, align 8
+  store i8 -3, ptr %494, align 1
   %496 = load ptr, ptr %22, align 8
-  %497 = getelementptr i8, ptr %496, i64 2
-  store ptr %497, ptr %22, align 8
-  br label %498
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %496, ptr align 2 @replorigin_session_origin, i64 2, i1 false)
+  %497 = load ptr, ptr %22, align 8
+  %498 = getelementptr i8, ptr %497, i64 2
+  store ptr %498, ptr %22, align 8
+  br label %499
 
-498:                                              ; preds = %492, %488, %483
-  %499 = call zeroext i1 @IsSubxactTopXidLogPending()
-  br i1 %499, label %500, label %508
+499:                                              ; preds = %493, %489, %484
+  %500 = call zeroext i1 @IsSubxactTopXidLogPending()
+  br i1 %500, label %501, label %509
 
-500:                                              ; preds = %498
-  %501 = call i32 @GetTopTransactionIdIfAny()
-  store i32 %501, ptr %37, align 4
-  %502 = load ptr, ptr %14, align 8
-  store i8 1, ptr %502, align 1
-  %503 = load ptr, ptr %22, align 8
-  %504 = getelementptr i8, ptr %503, i32 1
-  store ptr %504, ptr %22, align 8
-  store i8 -4, ptr %503, align 1
-  %505 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %505, ptr align 4 %37, i64 4, i1 false)
+501:                                              ; preds = %499
+  %502 = call i32 @GetTopTransactionIdIfAny()
+  store i32 %502, ptr %37, align 4
+  %503 = load ptr, ptr %14, align 8
+  store i8 1, ptr %503, align 1
+  %504 = load ptr, ptr %22, align 8
+  %505 = getelementptr i8, ptr %504, i32 1
+  store ptr %505, ptr %22, align 8
+  store i8 -4, ptr %504, align 1
   %506 = load ptr, ptr %22, align 8
-  %507 = getelementptr i8, ptr %506, i64 4
-  store ptr %507, ptr %22, align 8
-  br label %508
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %506, ptr align 4 %37, i64 4, i1 false)
+  %507 = load ptr, ptr %22, align 8
+  %508 = getelementptr i8, ptr %507, i64 4
+  store ptr %508, ptr %22, align 8
+  br label %509
 
-508:                                              ; preds = %500, %498
-  %509 = load i64, ptr @mainrdata_len, align 8
-  %510 = icmp ugt i64 %509, 0
-  br i1 %510, label %511, label %552
+509:                                              ; preds = %501, %499
+  %510 = load i64, ptr @mainrdata_len, align 8
+  %511 = icmp ugt i64 %510, 0
+  br i1 %511, label %512, label %553
 
-511:                                              ; preds = %508
-  %512 = load i64, ptr @mainrdata_len, align 8
-  %513 = icmp ugt i64 %512, 255
-  br i1 %513, label %514, label %537
+512:                                              ; preds = %509
+  %513 = load i64, ptr @mainrdata_len, align 8
+  %514 = icmp ugt i64 %513, 255
+  br i1 %514, label %515, label %538
 
-514:                                              ; preds = %511
-  %515 = load i64, ptr @mainrdata_len, align 8
-  %516 = icmp ugt i64 %515, 4294967295
-  br i1 %516, label %517, label %529
+515:                                              ; preds = %512
+  %516 = load i64, ptr @mainrdata_len, align 8
+  %517 = icmp ugt i64 %516, 4294967295
+  br i1 %517, label %518, label %530
 
-517:                                              ; preds = %514
-  br label %518
-
-518:                                              ; preds = %517
-  br i1 true, label %519, label %521
+518:                                              ; preds = %515
+  br label %519
 
 519:                                              ; preds = %518
-  %520 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %520, label %523, label %527
+  br i1 true, label %520, label %522
 
-521:                                              ; preds = %518
-  %522 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %522, label %523, label %527
+520:                                              ; preds = %519
+  %521 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %521, label %524, label %528
 
-523:                                              ; preds = %521, %519
-  %524 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
-  %525 = load i64, ptr @mainrdata_len, align 8
-  %526 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.14, i64 noundef %525, i32 noundef -1)
+522:                                              ; preds = %519
+  %523 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %523, label %524, label %528
+
+524:                                              ; preds = %522, %520
+  %525 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5)
+  %526 = load i64, ptr @mainrdata_len, align 8
+  %527 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.14, i64 noundef %526, i32 noundef -1)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 875, ptr noundef @__func__.XLogRecordAssemble)
-  br label %527
+  br label %528
 
-527:                                              ; preds = %523, %521, %519
+528:                                              ; preds = %524, %522, %520
   unreachable
 
-528:                                              ; No predecessors!
-  br label %529
+529:                                              ; No predecessors!
+  br label %530
 
-529:                                              ; preds = %528, %514
-  %530 = load i64, ptr @mainrdata_len, align 8
-  %531 = trunc i64 %530 to i32
-  store i32 %531, ptr %38, align 4
-  %532 = load ptr, ptr %22, align 8
-  %533 = getelementptr i8, ptr %532, i32 1
-  store ptr %533, ptr %22, align 8
-  store i8 -2, ptr %532, align 1
-  %534 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %534, ptr align 4 %38, i64 4, i1 false)
+530:                                              ; preds = %529, %515
+  %531 = load i64, ptr @mainrdata_len, align 8
+  %532 = trunc i64 %531 to i32
+  store i32 %532, ptr %38, align 4
+  %533 = load ptr, ptr %22, align 8
+  %534 = getelementptr i8, ptr %533, i32 1
+  store ptr %534, ptr %22, align 8
+  store i8 -2, ptr %533, align 1
   %535 = load ptr, ptr %22, align 8
-  %536 = getelementptr i8, ptr %535, i64 4
-  store ptr %536, ptr %22, align 8
-  br label %544
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %535, ptr align 4 %38, i64 4, i1 false)
+  %536 = load ptr, ptr %22, align 8
+  %537 = getelementptr i8, ptr %536, i64 4
+  store ptr %537, ptr %22, align 8
+  br label %545
 
-537:                                              ; preds = %511
-  %538 = load ptr, ptr %22, align 8
-  %539 = getelementptr i8, ptr %538, i32 1
-  store ptr %539, ptr %22, align 8
-  store i8 -1, ptr %538, align 1
-  %540 = load i64, ptr @mainrdata_len, align 8
-  %541 = trunc i64 %540 to i8
-  %542 = load ptr, ptr %22, align 8
-  %543 = getelementptr i8, ptr %542, i32 1
-  store ptr %543, ptr %22, align 8
-  store i8 %541, ptr %542, align 1
-  br label %544
+538:                                              ; preds = %512
+  %539 = load ptr, ptr %22, align 8
+  %540 = getelementptr i8, ptr %539, i32 1
+  store ptr %540, ptr %22, align 8
+  store i8 -1, ptr %539, align 1
+  %541 = load i64, ptr @mainrdata_len, align 8
+  %542 = trunc i64 %541 to i8
+  %543 = load ptr, ptr %22, align 8
+  %544 = getelementptr i8, ptr %543, i32 1
+  store ptr %544, ptr %22, align 8
+  store i8 %542, ptr %543, align 1
+  br label %545
 
-544:                                              ; preds = %537, %529
-  %545 = load ptr, ptr @mainrdata_head, align 8
-  %546 = load ptr, ptr %20, align 8
-  %547 = getelementptr inbounds %struct.XLogRecData, ptr %546, i32 0, i32 0
-  store ptr %545, ptr %547, align 8
-  %548 = load ptr, ptr @mainrdata_last, align 8
-  store ptr %548, ptr %20, align 8
-  %549 = load i64, ptr @mainrdata_len, align 8
-  %550 = load i64, ptr %16, align 8
-  %551 = add i64 %550, %549
-  store i64 %551, ptr %16, align 8
-  br label %552
+545:                                              ; preds = %538, %530
+  %546 = load ptr, ptr @mainrdata_head, align 8
+  %547 = load ptr, ptr %20, align 8
+  %548 = getelementptr inbounds %struct.XLogRecData, ptr %547, i32 0, i32 0
+  store ptr %546, ptr %548, align 8
+  %549 = load ptr, ptr @mainrdata_last, align 8
+  store ptr %549, ptr %20, align 8
+  %550 = load i64, ptr @mainrdata_len, align 8
+  %551 = load i64, ptr %16, align 8
+  %552 = add i64 %551, %550
+  store i64 %552, ptr %16, align 8
+  br label %553
 
-552:                                              ; preds = %544, %508
-  %553 = load ptr, ptr %20, align 8
-  %554 = getelementptr inbounds %struct.XLogRecData, ptr %553, i32 0, i32 0
-  store ptr null, ptr %554, align 8
-  %555 = load ptr, ptr %22, align 8
-  %556 = load ptr, ptr @hdr_scratch, align 8
-  %557 = ptrtoint ptr %555 to i64
+553:                                              ; preds = %545, %509
+  %554 = load ptr, ptr %20, align 8
+  %555 = getelementptr inbounds %struct.XLogRecData, ptr %554, i32 0, i32 0
+  store ptr null, ptr %555, align 8
+  %556 = load ptr, ptr %22, align 8
+  %557 = load ptr, ptr @hdr_scratch, align 8
   %558 = ptrtoint ptr %556 to i64
-  %559 = sub i64 %557, %558
-  %560 = trunc i64 %559 to i32
-  store i32 %560, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2), align 8
-  %561 = load i32, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2), align 8
-  %562 = zext i32 %561 to i64
-  %563 = load i64, ptr %16, align 8
-  %564 = add i64 %563, %562
-  store i64 %564, ptr %16, align 8
+  %559 = ptrtoint ptr %557 to i64
+  %560 = sub i64 %558, %559
+  %561 = trunc i64 %560 to i32
+  %562 = getelementptr inbounds %struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2
+  store i32 %561, ptr %562, align 8
+  %563 = getelementptr inbounds %struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2
+  %564 = load i32, ptr %563, align 8
+  %565 = zext i32 %564 to i64
+  %566 = load i64, ptr %16, align 8
+  %567 = add i64 %566, %565
+  store i64 %567, ptr %16, align 8
   store i32 -1, ptr %18, align 4
-  %565 = load ptr, ptr @pg_comp_crc32c, align 8
-  %566 = load i32, ptr %18, align 4
-  %567 = load ptr, ptr @hdr_scratch, align 8
-  %568 = getelementptr i8, ptr %567, i64 24
-  %569 = load i32, ptr getelementptr inbounds (%struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2), align 8
-  %570 = zext i32 %569 to i64
-  %571 = sub i64 %570, 24
-  %572 = call i32 %565(i32 noundef %566, ptr noundef %568, i64 noundef %571)
-  store i32 %572, ptr %18, align 4
-  %573 = load ptr, ptr @hdr_rdt, align 8
-  store ptr %573, ptr %15, align 8
-  br label %574
+  %568 = load ptr, ptr @pg_comp_crc32c, align 8
+  %569 = load i32, ptr %18, align 4
+  %570 = load ptr, ptr @hdr_scratch, align 8
+  %571 = getelementptr i8, ptr %570, i64 24
+  %572 = getelementptr inbounds %struct.XLogRecData, ptr @hdr_rdt, i32 0, i32 2
+  %573 = load i32, ptr %572, align 8
+  %574 = zext i32 %573 to i64
+  %575 = sub i64 %574, 24
+  %576 = call i32 %568(i32 noundef %569, ptr noundef %571, i64 noundef %575)
+  store i32 %576, ptr %18, align 4
+  %577 = load ptr, ptr @hdr_rdt, align 8
+  store ptr %577, ptr %15, align 8
+  br label %578
 
-574:                                              ; preds = %588, %552
-  %575 = load ptr, ptr %15, align 8
-  %576 = icmp ne ptr %575, null
-  br i1 %576, label %577, label %592
+578:                                              ; preds = %592, %553
+  %579 = load ptr, ptr %15, align 8
+  %580 = icmp ne ptr %579, null
+  br i1 %580, label %581, label %596
 
-577:                                              ; preds = %574
-  %578 = load ptr, ptr @pg_comp_crc32c, align 8
-  %579 = load i32, ptr %18, align 4
-  %580 = load ptr, ptr %15, align 8
-  %581 = getelementptr inbounds %struct.XLogRecData, ptr %580, i32 0, i32 1
-  %582 = load ptr, ptr %581, align 8
-  %583 = load ptr, ptr %15, align 8
-  %584 = getelementptr inbounds %struct.XLogRecData, ptr %583, i32 0, i32 2
-  %585 = load i32, ptr %584, align 8
-  %586 = zext i32 %585 to i64
-  %587 = call i32 %578(i32 noundef %579, ptr noundef %582, i64 noundef %586)
-  store i32 %587, ptr %18, align 4
-  br label %588
+581:                                              ; preds = %578
+  %582 = load ptr, ptr @pg_comp_crc32c, align 8
+  %583 = load i32, ptr %18, align 4
+  %584 = load ptr, ptr %15, align 8
+  %585 = getelementptr inbounds %struct.XLogRecData, ptr %584, i32 0, i32 1
+  %586 = load ptr, ptr %585, align 8
+  %587 = load ptr, ptr %15, align 8
+  %588 = getelementptr inbounds %struct.XLogRecData, ptr %587, i32 0, i32 2
+  %589 = load i32, ptr %588, align 8
+  %590 = zext i32 %589 to i64
+  %591 = call i32 %582(i32 noundef %583, ptr noundef %586, i64 noundef %590)
+  store i32 %591, ptr %18, align 4
+  br label %592
 
-588:                                              ; preds = %577
-  %589 = load ptr, ptr %15, align 8
-  %590 = getelementptr inbounds %struct.XLogRecData, ptr %589, i32 0, i32 0
-  %591 = load ptr, ptr %590, align 8
-  store ptr %591, ptr %15, align 8
-  br label %574, !llvm.loop !10
+592:                                              ; preds = %581
+  %593 = load ptr, ptr %15, align 8
+  %594 = getelementptr inbounds %struct.XLogRecData, ptr %593, i32 0, i32 0
+  %595 = load ptr, ptr %594, align 8
+  store ptr %595, ptr %15, align 8
+  br label %578, !llvm.loop !10
 
-592:                                              ; preds = %574
-  %593 = load i64, ptr %16, align 8
-  %594 = icmp ugt i64 %593, 1069547520
-  br i1 %594, label %595, label %611
-
-595:                                              ; preds = %592
-  br label %596
-
-596:                                              ; preds = %595
-  br i1 true, label %597, label %599
-
-597:                                              ; preds = %596
-  %598 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %598, label %601, label %609
+596:                                              ; preds = %578
+  %597 = load i64, ptr %16, align 8
+  %598 = icmp ugt i64 %597, 1069547520
+  br i1 %598, label %599, label %615
 
 599:                                              ; preds = %596
-  %600 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %600, label %601, label %609
+  br label %600
 
-601:                                              ; preds = %599, %597
-  %602 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.15)
-  %603 = load i64, ptr %16, align 8
-  %604 = load i8, ptr %8, align 1
-  %605 = zext i8 %604 to i32
-  %606 = load i8, ptr %9, align 1
-  %607 = zext i8 %606 to i32
-  %608 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.16, i64 noundef %603, i32 noundef 1069547520, i32 noundef %605, i32 noundef %607)
+600:                                              ; preds = %599
+  br i1 true, label %601, label %603
+
+601:                                              ; preds = %600
+  %602 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %602, label %605, label %613
+
+603:                                              ; preds = %600
+  %604 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %604, label %605, label %613
+
+605:                                              ; preds = %603, %601
+  %606 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.15)
+  %607 = load i64, ptr %16, align 8
+  %608 = load i8, ptr %8, align 1
+  %609 = zext i8 %608 to i32
+  %610 = load i8, ptr %9, align 1
+  %611 = zext i8 %610 to i32
+  %612 = call i32 (ptr, ...) @errdetail_internal(ptr noundef @.str.16, i64 noundef %607, i32 noundef 1069547520, i32 noundef %609, i32 noundef %611)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 920, ptr noundef @__func__.XLogRecordAssemble)
-  br label %609
+  br label %613
 
-609:                                              ; preds = %601, %599, %597
+613:                                              ; preds = %605, %603, %601
   unreachable
 
-610:                                              ; No predecessors!
-  br label %611
+614:                                              ; No predecessors!
+  br label %615
 
-611:                                              ; preds = %610, %592
-  %612 = call i32 @GetCurrentTransactionIdIfAny()
-  %613 = load ptr, ptr %21, align 8
-  %614 = getelementptr inbounds %struct.XLogRecord, ptr %613, i32 0, i32 1
-  store i32 %612, ptr %614, align 4
-  %615 = load i64, ptr %16, align 8
-  %616 = trunc i64 %615 to i32
+615:                                              ; preds = %614, %596
+  %616 = call i32 @GetCurrentTransactionIdIfAny()
   %617 = load ptr, ptr %21, align 8
-  %618 = getelementptr inbounds %struct.XLogRecord, ptr %617, i32 0, i32 0
-  store i32 %616, ptr %618, align 8
-  %619 = load i8, ptr %9, align 1
-  %620 = load ptr, ptr %21, align 8
-  %621 = getelementptr inbounds %struct.XLogRecord, ptr %620, i32 0, i32 3
-  store i8 %619, ptr %621, align 8
-  %622 = load i8, ptr %8, align 1
-  %623 = load ptr, ptr %21, align 8
-  %624 = getelementptr inbounds %struct.XLogRecord, ptr %623, i32 0, i32 4
-  store i8 %622, ptr %624, align 1
-  %625 = load ptr, ptr %21, align 8
-  %626 = getelementptr inbounds %struct.XLogRecord, ptr %625, i32 0, i32 2
-  store i64 0, ptr %626, align 8
-  %627 = load i32, ptr %18, align 4
-  %628 = load ptr, ptr %21, align 8
-  %629 = getelementptr inbounds %struct.XLogRecord, ptr %628, i32 0, i32 5
-  store i32 %627, ptr %629, align 4
+  %618 = getelementptr inbounds %struct.XLogRecord, ptr %617, i32 0, i32 1
+  store i32 %616, ptr %618, align 4
+  %619 = load i64, ptr %16, align 8
+  %620 = trunc i64 %619 to i32
+  %621 = load ptr, ptr %21, align 8
+  %622 = getelementptr inbounds %struct.XLogRecord, ptr %621, i32 0, i32 0
+  store i32 %620, ptr %622, align 8
+  %623 = load i8, ptr %9, align 1
+  %624 = load ptr, ptr %21, align 8
+  %625 = getelementptr inbounds %struct.XLogRecord, ptr %624, i32 0, i32 3
+  store i8 %623, ptr %625, align 8
+  %626 = load i8, ptr %8, align 1
+  %627 = load ptr, ptr %21, align 8
+  %628 = getelementptr inbounds %struct.XLogRecord, ptr %627, i32 0, i32 4
+  store i8 %626, ptr %628, align 1
+  %629 = load ptr, ptr %21, align 8
+  %630 = getelementptr inbounds %struct.XLogRecord, ptr %629, i32 0, i32 2
+  store i64 0, ptr %630, align 8
+  %631 = load i32, ptr %18, align 4
+  %632 = load ptr, ptr %21, align 8
+  %633 = getelementptr inbounds %struct.XLogRecord, ptr %632, i32 0, i32 5
+  store i32 %631, ptr %633, align 4
   ret ptr @hdr_rdt
 }
 

@@ -874,43 +874,45 @@ define internal i32 @_each_sackd_node(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds %struct.agent_arg, ptr %12, i32 0, i32 4
   %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188), align 8
-  %16 = trunc i32 %15 to i16
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.sackd_node_t, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  call void @slurm_set_addr(ptr noundef %14, i16 noundef zeroext %16, ptr noundef %19)
-  %20 = call ptr @new_config_response(i1 noundef zeroext false)
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.agent_arg, ptr %21, i32 0, i32 8
-  store ptr %20, ptr %22, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.agent_arg, ptr %23, i32 0, i32 7
-  store i32 1006, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.sackd_node_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @hostlist_create(ptr noundef %27)
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.agent_arg, ptr %29, i32 0, i32 5
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.agent_arg, ptr %31, i32 0, i32 0
-  store i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.sackd_node_t, ptr %33, i32 0, i32 3
-  %35 = load i16, ptr %34, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.agent_arg, ptr %36, i32 0, i32 6
-  store i16 %35, ptr %37, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.agent_arg, ptr %38, i32 0, i32 1
-  store i16 0, ptr %39, align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  call void @set_agent_arg_r_uid(ptr noundef %40, i32 noundef %41)
-  %42 = load ptr, ptr %6, align 8
-  call void @agent_queue_request(ptr noundef %42)
+  %15 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 188
+  %16 = load i32, ptr %15, align 8
+  %17 = trunc i32 %16 to i16
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %struct.sackd_node_t, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void @slurm_set_addr(ptr noundef %14, i16 noundef zeroext %17, ptr noundef %20)
+  %21 = call ptr @new_config_response(i1 noundef zeroext false)
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds %struct.agent_arg, ptr %22, i32 0, i32 8
+  store ptr %21, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds %struct.agent_arg, ptr %24, i32 0, i32 7
+  store i32 1006, ptr %25, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct.sackd_node_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @hostlist_create(ptr noundef %28)
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.agent_arg, ptr %30, i32 0, i32 5
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct.agent_arg, ptr %32, i32 0, i32 0
+  store i32 1, ptr %33, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %struct.sackd_node_t, ptr %34, i32 0, i32 3
+  %36 = load i16, ptr %35, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct.agent_arg, ptr %37, i32 0, i32 6
+  store i16 %36, ptr %38, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct.agent_arg, ptr %39, i32 0, i32 1
+  store i16 0, ptr %40, align 4
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %43 = load i32, ptr %42, align 8
+  call void @set_agent_arg_r_uid(ptr noundef %41, i32 noundef %43)
+  %44 = load ptr, ptr %6, align 8
+  call void @agent_queue_request(ptr noundef %44)
   ret i32 0
 }
 

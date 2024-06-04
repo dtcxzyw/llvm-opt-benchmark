@@ -5702,51 +5702,65 @@ define internal void @__cxx_global_var_init.1() #0 section ".text.startup" perso
   store ptr @_ZL14kWarpTypeNamesB5cxx11, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZL14kWarpTypeNamesB5cxx11, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %13 unwind label %22
+          to label %13 unwind label %36
 
 13:                                               ; preds = %0
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 1), ptr %1, align 8
+  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 1
+  store ptr %14, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %14 unwind label %26
+  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %16 unwind label %40
 
-14:                                               ; preds = %13
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 2), ptr %1, align 8
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 2
+  store ptr %17, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %15 unwind label %30
+  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %19 unwind label %44
 
-15:                                               ; preds = %14
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 3), ptr %1, align 8
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 3
+  store ptr %20, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 3), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %16 unwind label %34
+  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %22 unwind label %48
 
-16:                                               ; preds = %15
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 4), ptr %1, align 8
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 4
+  store ptr %23, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 4), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %17 unwind label %38
+  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %25 unwind label %52
 
-17:                                               ; preds = %16
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 5), ptr %1, align 8
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 5
+  store ptr %26, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 5), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %18 unwind label %42
+  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %28 unwind label %56
 
-18:                                               ; preds = %17
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 6), ptr %1, align 8
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 6
+  store ptr %29, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 6), ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %19 unwind label %46
+  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %31 unwind label %60
 
-19:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 7), ptr %1, align 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 7
+  store ptr %32, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 7), ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %20 unwind label %50
+  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %34 unwind label %64
 
-20:                                               ; preds = %19
+34:                                               ; preds = %31
   store i1 false, ptr %12, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
@@ -5756,135 +5770,135 @@ define internal void @__cxx_global_var_init.1() #0 section ".text.startup" perso
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %21 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %35 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
-22:                                               ; preds = %0
-  %23 = landingpad { ptr, i32 }
+36:                                               ; preds = %0
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %3, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %4, align 4
-  br label %60
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  br label %74
 
-26:                                               ; preds = %13
-  %27 = landingpad { ptr, i32 }
+40:                                               ; preds = %13
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %3, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %4, align 4
-  br label %59
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %3, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %4, align 4
+  br label %73
 
-30:                                               ; preds = %14
-  %31 = landingpad { ptr, i32 }
+44:                                               ; preds = %16
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %3, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %4, align 4
-  br label %58
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %3, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %4, align 4
+  br label %72
 
-34:                                               ; preds = %15
-  %35 = landingpad { ptr, i32 }
+48:                                               ; preds = %19
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %3, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %4, align 4
-  br label %57
-
-38:                                               ; preds = %16
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %3, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %4, align 4
-  br label %56
-
-42:                                               ; preds = %17
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %3, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %4, align 4
-  br label %55
-
-46:                                               ; preds = %18
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %3, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %4, align 4
-  br label %54
-
-50:                                               ; preds = %19
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %3, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %4, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  br label %54
-
-54:                                               ; preds = %50, %46
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %55
-
-55:                                               ; preds = %54, %42
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %56
-
-56:                                               ; preds = %55, %38
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %57
-
-57:                                               ; preds = %56, %34
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  br label %58
-
-58:                                               ; preds = %57, %30
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  br label %59
-
-59:                                               ; preds = %58, %26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  br label %60
-
-60:                                               ; preds = %59, %22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %61 = load i1, ptr %12, align 1
-  br i1 %61, label %62, label %70
-
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %1, align 8
-  %64 = icmp eq ptr @_ZL14kWarpTypeNamesB5cxx11, %63
-  br i1 %64, label %69, label %65
-
-65:                                               ; preds = %65, %62
-  %66 = phi ptr [ %63, %62 ], [ %67, %65 ]
-  %67 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %66, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #3
-  %68 = icmp eq ptr %67, @_ZL14kWarpTypeNamesB5cxx11
-  br i1 %68, label %69, label %65
-
-69:                                               ; preds = %65, %62
-  br label %70
-
-70:                                               ; preds = %69, %60
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %3, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %4, align 4
   br label %71
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %3, align 8
-  %73 = load i32, ptr %4, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+52:                                               ; preds = %22
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %3, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %4, align 4
+  br label %70
+
+56:                                               ; preds = %25
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %3, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %4, align 4
+  br label %69
+
+60:                                               ; preds = %28
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %3, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %4, align 4
+  br label %68
+
+64:                                               ; preds = %31
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %3, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %4, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  br label %68
+
+68:                                               ; preds = %64, %60
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %69
+
+69:                                               ; preds = %68, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %70
+
+70:                                               ; preds = %69, %52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  br label %71
+
+71:                                               ; preds = %70, %48
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %72
+
+72:                                               ; preds = %71, %44
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  br label %73
+
+73:                                               ; preds = %72, %40
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br label %74
+
+74:                                               ; preds = %73, %36
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  %75 = load i1, ptr %12, align 1
+  br i1 %75, label %76, label %84
+
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %1, align 8
+  %78 = icmp eq ptr @_ZL14kWarpTypeNamesB5cxx11, %77
+  br i1 %78, label %83, label %79
+
+79:                                               ; preds = %79, %76
+  %80 = phi ptr [ %77, %76 ], [ %81, %79 ]
+  %81 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %80, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #3
+  %82 = icmp eq ptr %81, @_ZL14kWarpTypeNamesB5cxx11
+  br i1 %82, label %83, label %79
+
+83:                                               ; preds = %79, %76
+  br label %84
+
+84:                                               ; preds = %83, %74
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %3, align 8
+  %87 = load i32, ptr %4, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
 }
 
 ; Function Attrs: nounwind
@@ -5964,16 +5978,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 8
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 8), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = icmp eq ptr %5, @_ZL14kWarpTypeNamesB5cxx11
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = icmp eq ptr %6, @_ZL14kWarpTypeNamesB5cxx11
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 
@@ -6527,255 +6542,256 @@ define linkonce_odr hidden void @_ZN14WarpTestScreenC2Ev(ptr noundef nonnull ali
   call void @_ZN7nanogui5ArrayIiLm2EEC2ILm2ETnNSt9enable_ifIXeqT_Li2EEiE4typeELi0EEEii(ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef 800, i32 noundef 600)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %10 unwind label %42
+          to label %10 unwind label %43
 
 10:                                               ; preds = %1
   invoke void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj(ptr noundef nonnull align 8 dereferenceable(384) %9, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 3, i32 noundef 2)
-          to label %11 unwind label %46
+          to label %11 unwind label %47
 
 11:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV14WarpTestScreen, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 1
-  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %51
+  %12 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV14WarpTestScreen, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 1
+  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %52
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 2
-  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %55
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 2
+  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %56
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 3
-  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %17 unwind label %59
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 3
+  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %18 unwind label %60
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 4
-  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %19 unwind label %63
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 4
+  invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %64
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 14
-  %21 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %20, i32 0, i32 0
-  %22 = getelementptr inbounds %"class.nanogui::ref.11", ptr %21, i64 2
-  br label %23
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 14
+  %22 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds %"class.nanogui::ref.11", ptr %22, i64 2
+  br label %24
 
-23:                                               ; preds = %25, %19
-  %24 = phi ptr [ %21, %19 ], [ %26, %25 ]
-  invoke void @_ZN7nanogui3refINS_7TextureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %25 unwind label %67
+24:                                               ; preds = %26, %20
+  %25 = phi ptr [ %22, %20 ], [ %27, %26 ]
+  invoke void @_ZN7nanogui3refINS_7TextureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25)
+          to label %26 unwind label %68
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.nanogui::ref.11", ptr %24, i64 1
-  %27 = icmp eq ptr %26, %22
-  br i1 %27, label %28, label %23
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %"class.nanogui::ref.11", ptr %25, i64 1
+  %28 = icmp eq ptr %27, %23
+  br i1 %28, label %29, label %24
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 19
-  invoke void @_ZN7ArcballC2Ef(ptr noundef nonnull align 4 dereferenceable(56) %29, float noundef 2.000000e+00)
-          to label %30 unwind label %77
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 19
+  invoke void @_ZN7ArcballC2Ef(ptr noundef nonnull align 4 dereferenceable(56) %30, float noundef 2.000000e+00)
+          to label %31 unwind label %78
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 23
-  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
-  %32 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 24
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 23
+  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #3
+  %33 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 24
   invoke void @_ZN4nori7TVectorIfLi3EEC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %8, float noundef 0.000000e+00)
-          to label %33 unwind label %81
+          to label %34 unwind label %82
 
-33:                                               ; preds = %30
-  invoke void @_ZN4nori15BSDFQueryRecordC2ERKNS_7TVectorIfLi3EEE(ptr noundef nonnull align 4 dereferenceable(32) %32, ptr noundef nonnull align 4 dereferenceable(12) %8)
-          to label %34 unwind label %81
+34:                                               ; preds = %31
+  invoke void @_ZN4nori15BSDFQueryRecordC2ERKNS_7TVectorIfLi3EEE(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull align 4 dereferenceable(12) %8)
+          to label %35 unwind label %82
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 25
-  invoke void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IbS5_TnNSt9enable_ifIXsr6__and_ISt37__is_implicitly_default_constructibleIT_ES9_IT0_EEE5valueEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(40) %35)
-          to label %36 unwind label %81
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 25
+  invoke void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IbS5_TnNSt9enable_ifIXsr6__and_ISt37__is_implicitly_default_constructibleIT_ES9_IT0_EEE5valueEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(40) %36)
+          to label %37 unwind label %82
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 26
-  invoke void @_ZN7nanogui3refINS_10RenderPassEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %38 unwind label %85
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 26
+  invoke void @_ZN7nanogui3refINS_10RenderPassEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %39 unwind label %86
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   invoke void @_ZNK7nanogui6Object7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12) %9)
-          to label %39 unwind label %89
+          to label %40 unwind label %90
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 22
-  store i8 0, ptr %40, align 8
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds %class.WarpTestScreen, ptr %9, i32 0, i32 22
+  store i8 0, ptr %41, align 8
   invoke void @_ZN14WarpTestScreen13initializeGUIEv(ptr noundef nonnull align 8 dereferenceable(696) %9)
-          to label %41 unwind label %89
+          to label %42 unwind label %90
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   ret void
 
-42:                                               ; preds = %1
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %1
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %6, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %7, align 4
-  br label %50
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %6, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %7, align 4
+  br label %51
 
-46:                                               ; preds = %10
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %10
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %6, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %7, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %6, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  br label %50
+  br label %51
 
-50:                                               ; preds = %46, %42
+51:                                               ; preds = %47, %43
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br label %109
+
+52:                                               ; preds = %11
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %6, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %7, align 4
   br label %108
 
-51:                                               ; preds = %11
-  %52 = landingpad { ptr, i32 }
+56:                                               ; preds = %14
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %6, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %7, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %6, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %7, align 4
   br label %107
 
-55:                                               ; preds = %13
-  %56 = landingpad { ptr, i32 }
+60:                                               ; preds = %16
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %6, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %7, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %6, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %7, align 4
   br label %106
 
-59:                                               ; preds = %15
-  %60 = landingpad { ptr, i32 }
+64:                                               ; preds = %18
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %6, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %7, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %6, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %7, align 4
   br label %105
 
-63:                                               ; preds = %17
-  %64 = landingpad { ptr, i32 }
+68:                                               ; preds = %24
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %6, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %7, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %6, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %7, align 4
+  %72 = icmp eq ptr %22, %25
+  br i1 %72, label %77, label %73
+
+73:                                               ; preds = %73, %68
+  %74 = phi ptr [ %25, %68 ], [ %75, %73 ]
+  %75 = getelementptr inbounds %"class.nanogui::ref.11", ptr %74, i64 -1
+  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #3
+  %76 = icmp eq ptr %75, %22
+  br i1 %76, label %77, label %73
+
+77:                                               ; preds = %73, %68
   br label %104
 
-67:                                               ; preds = %23
-  %68 = landingpad { ptr, i32 }
+78:                                               ; preds = %29
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %6, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %7, align 4
-  %71 = icmp eq ptr %21, %24
-  br i1 %71, label %76, label %72
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %6, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %7, align 4
+  br label %96
 
-72:                                               ; preds = %72, %67
-  %73 = phi ptr [ %24, %67 ], [ %74, %72 ]
-  %74 = getelementptr inbounds %"class.nanogui::ref.11", ptr %73, i64 -1
-  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #3
-  %75 = icmp eq ptr %74, %21
-  br i1 %75, label %76, label %72
-
-76:                                               ; preds = %72, %67
-  br label %103
-
-77:                                               ; preds = %28
-  %78 = landingpad { ptr, i32 }
+82:                                               ; preds = %35, %34, %31
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %6, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %7, align 4
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %6, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %7, align 4
   br label %95
 
-81:                                               ; preds = %34, %33, %30
-  %82 = landingpad { ptr, i32 }
+86:                                               ; preds = %37
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %6, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %7, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %6, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %7, align 4
   br label %94
 
-85:                                               ; preds = %36
-  %86 = landingpad { ptr, i32 }
+90:                                               ; preds = %40, %39
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %6, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %7, align 4
-  br label %93
-
-89:                                               ; preds = %39, %38
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %6, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %7, align 4
-  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
-  br label %93
-
-93:                                               ; preds = %89, %85
-  call void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #3
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %6, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %7, align 4
+  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
   br label %94
 
-94:                                               ; preds = %93, %81
-  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
+94:                                               ; preds = %90, %86
+  call void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %36) #3
   br label %95
 
-95:                                               ; preds = %94, %77
-  %96 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %20, i32 0, i32 0
-  %97 = getelementptr inbounds %"class.nanogui::ref.11", ptr %96, i64 2
-  br label %98
+95:                                               ; preds = %94, %82
+  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #3
+  br label %96
 
-98:                                               ; preds = %98, %95
-  %99 = phi ptr [ %97, %95 ], [ %100, %98 ]
-  %100 = getelementptr inbounds %"class.nanogui::ref.11", ptr %99, i64 -1
-  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %100) #3
-  %101 = icmp eq ptr %100, %96
-  br i1 %101, label %102, label %98
+96:                                               ; preds = %95, %78
+  %97 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %21, i32 0, i32 0
+  %98 = getelementptr inbounds %"class.nanogui::ref.11", ptr %97, i64 2
+  br label %99
 
-102:                                              ; preds = %98
-  br label %103
+99:                                               ; preds = %99, %96
+  %100 = phi ptr [ %98, %96 ], [ %101, %99 ]
+  %101 = getelementptr inbounds %"class.nanogui::ref.11", ptr %100, i64 -1
+  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #3
+  %102 = icmp eq ptr %101, %97
+  br i1 %102, label %103, label %99
 
-103:                                              ; preds = %102, %76
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+103:                                              ; preds = %99
   br label %104
 
-104:                                              ; preds = %103, %63
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+104:                                              ; preds = %103, %77
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
   br label %105
 
-105:                                              ; preds = %104, %59
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+105:                                              ; preds = %104, %64
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
   br label %106
 
-106:                                              ; preds = %105, %55
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+106:                                              ; preds = %105, %60
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
   br label %107
 
-107:                                              ; preds = %106, %51
+107:                                              ; preds = %106, %56
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %108
+
+108:                                              ; preds = %107, %52
   call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %9) #3
-  br label %108
+  br label %109
 
-108:                                              ; preds = %107, %50
-  %109 = load ptr, ptr %6, align 8
-  %110 = load i32, ptr %7, align 4
-  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
-  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
-  resume { ptr, i32 } %112
+109:                                              ; preds = %108, %51
+  %110 = load ptr, ptr %6, align 8
+  %111 = load i32, ptr %7, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -10874,34 +10890,35 @@ define linkonce_odr hidden void @_ZN14WarpTestScreenD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV14WarpTestScreen, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 26
-  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 25
-  call void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
-  %6 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 23
-  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 14
-  %8 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %"class.nanogui::ref.11", ptr %8, i64 2
-  br label %10
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV14WarpTestScreen, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 26
+  call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 25
+  call void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
+  %7 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 23
+  call void @_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 14
+  %9 = getelementptr inbounds [2 x %"class.nanogui::ref.11"], ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds %"class.nanogui::ref.11", ptr %9, i64 2
+  br label %11
 
-10:                                               ; preds = %10, %1
-  %11 = phi ptr [ %9, %1 ], [ %12, %10 ]
-  %12 = getelementptr inbounds %"class.nanogui::ref.11", ptr %11, i64 -1
-  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = icmp eq ptr %12, %8
-  br i1 %13, label %14, label %10
+11:                                               ; preds = %11, %1
+  %12 = phi ptr [ %10, %1 ], [ %13, %11 ]
+  %13 = getelementptr inbounds %"class.nanogui::ref.11", ptr %12, i64 -1
+  call void @_ZN7nanogui3refINS_7TextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = icmp eq ptr %13, %9
+  br i1 %14, label %15, label %11
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 4
-  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 3
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 4
   call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %17 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 2
+  %17 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 3
   call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  %18 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 1
+  %18 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 2
   call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %19 = getelementptr inbounds %class.WarpTestScreen, ptr %3, i32 0, i32 1
+  call void @_ZN7nanogui3refINS_6ShaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
   call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %3) #3
   ret void
 }
@@ -13586,19 +13603,20 @@ define linkonce_odr hidden void @_ZN7nanogui11GroupLayoutC2Eiiii(ptr noundef non
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %7, align 4
-  store i32 %13, ptr %12, align 4
-  %14 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 3
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 4
-  %19 = load i32, ptr %10, align 4
-  store i32 %19, ptr %18, align 8
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 1
+  %14 = load i32, ptr %7, align 4
+  store i32 %14, ptr %13, align 4
+  %15 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 3
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 4
+  %20 = load i32, ptr %10, align 4
+  store i32 %20, ptr %19, align 8
   ret void
 }
 
@@ -14928,7 +14946,7 @@ define linkonce_odr hidden void @_ZN14WarpTestScreen7refreshEv(ptr noundef nonnu
 
 221:                                              ; preds = %217, %213
   %222 = load i32, ptr %14, align 4
-  %223 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4nori13NoriExceptionE) #3
+  %223 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4nori13NoriExceptionE) #3
   %224 = icmp eq i32 %222, %223
   br i1 %224, label %225, label %1037
 
@@ -16749,7 +16767,8 @@ define linkonce_odr hidden void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16758,9 +16777,10 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #3
   ret void
 }
 
@@ -21419,7 +21439,7 @@ define linkonce_odr hidden void @_ZZN14WarpTestScreen13initializeGUIEvENKUlvE_cl
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %4, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4nori13NoriExceptionE) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4nori13NoriExceptionE) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %83
 
@@ -21911,9 +21931,6 @@ define linkonce_odr hidden void @_ZN14WarpTestScreen7runTestEv(ptr noundef nonnu
   resume { ptr, i32 } %187
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #18
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat {
   %4 = alloca ptr, align 8
@@ -22145,7 +22162,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #19
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #18
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) #8
@@ -22343,7 +22360,7 @@ define linkonce_odr dso_local noundef float @_ZSt3logf(float noundef %0) #6 comd
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #19
+declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: nounwind
 declare float @expf(float noundef) #2
@@ -29792,7 +29809,8 @@ define linkonce_odr dso_local void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29804,7 +29822,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29890,7 +29909,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal28check_that_malloc_is_allowe
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #20
+declare noalias ptr @malloc(i64 noundef) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4nori6TPointIfLi3EEC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1) unnamed_addr #4 comdat align 2 {
@@ -38629,7 +38648,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19variable_if_dynamicIlLi4EEC
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #19
+declare float @llvm.sqrt.f32(float) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIffEEKNS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEES7_EEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
@@ -43976,7 +43995,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal16binary_evaluatorINS_13Cwise
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #19
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi2ELi4ELi1EEEE4normEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #14 comdat align 2 {
@@ -49132,29 +49151,30 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
   %12 = load ptr, ptr %6, align 8
   call void @_ZN10tinyformat6formatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %13 unwind label %14
+          to label %13 unwind label %15
 
 13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %10, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %10, align 8
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %8, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %9, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %8, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -51576,29 +51596,30 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
   %9 = load ptr, ptr %4, align 8
   call void @_ZN10tinyformat6formatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %9)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %10 unwind label %11
+          to label %10 unwind label %12
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %6, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %7, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %15
+  br label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -53103,7 +53124,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal55copy_using_evaluator_Defaul
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #19
+declare float @llvm.floor.f32(float) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef double @_ZN10hypothesis15adaptiveSimpsonERKSt8functionIFddEEdddi(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -53349,7 +53370,7 @@ define linkonce_odr dso_local noundef double @_ZNKSt8functionIFddEEclEd(ptr noun
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #19
+declare double @llvm.fmuladd.f64(double, double, double) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZNKSt8functionIFdddddddddiEEclEddddddddi(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, i32 noundef %9) #4 comdat align 2 {
@@ -53762,7 +53783,7 @@ define linkonce_odr dso_local noundef double @_ZSt3absd(double noundef %0) #6 co
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #19
+declare double @llvm.fabs.f64(double) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt9_Any_data9_M_accessIPZN10hypothesis15adaptiveSimpsonERKSt8functionIFddEEdddiEUlddddddddiE_EERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
@@ -57710,7 +57731,7 @@ define linkonce_odr hidden void @_ZSt4swapIZN10hypothesis9chi2_testB5cxx11EiPKdS
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_(ptr %0, ptr %1) #4 comdat {
@@ -58437,7 +58458,7 @@ declare double @log(double noundef) #2
 declare double @lgamma(double noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #19
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRbS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #6 comdat align 2 {
@@ -59831,6 +59852,9 @@ define internal void @_GLOBAL__sub_I_warptest.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -59849,9 +59873,9 @@ attributes #14 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nounwind memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nounwind memory(none) }
 attributes #21 = { noreturn }
 attributes #22 = { nounwind willreturn memory(read) }
 attributes #23 = { noreturn nounwind }

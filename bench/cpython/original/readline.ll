@@ -166,15 +166,16 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  store ptr @doc_module_le, ptr getelementptr inbounds (%struct.PyModuleDef, ptr @readlinemodule, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.PyModuleDef, ptr @readlinemodule, i32 0, i32 2
+  store ptr @doc_module_le, ptr %2, align 8
   store ptr @.str.1, ptr %backend, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
   %call3 = call ptr @PyModule_Create2(ptr noundef @readlinemodule, i32 noundef 1013)
   store ptr %call3, ptr %m, align 8
-  %2 = load ptr, ptr %m, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %m, align 8
+  %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end2
@@ -182,8 +183,8 @@ if.then5:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %3 = load ptr, ptr %m, align 8
-  %call7 = call i32 @PyModule_AddIntConstant(ptr noundef %3, ptr noundef @.str.2, i64 noundef 2049)
+  %4 = load ptr, ptr %m, align 8
+  %call7 = call i32 @PyModule_AddIntConstant(ptr noundef %4, ptr noundef @.str.2, i64 noundef 2049)
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end10
 
@@ -191,10 +192,10 @@ if.then9:                                         ; preds = %if.end6
   br label %error
 
 if.end10:                                         ; preds = %if.end6
-  %4 = load ptr, ptr %m, align 8
-  %5 = load i32, ptr @rl_readline_version, align 4
-  %conv = sext i32 %5 to i64
-  %call11 = call i32 @PyModule_AddIntConstant(ptr noundef %4, ptr noundef @.str.3, i64 noundef %conv)
+  %5 = load ptr, ptr %m, align 8
+  %6 = load i32, ptr @rl_readline_version, align 4
+  %conv = sext i32 %6 to i64
+  %call11 = call i32 @PyModule_AddIntConstant(ptr noundef %5, ptr noundef @.str.3, i64 noundef %conv)
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end15
 
@@ -202,9 +203,9 @@ if.then14:                                        ; preds = %if.end10
   br label %error
 
 if.end15:                                         ; preds = %if.end10
-  %6 = load ptr, ptr %m, align 8
-  %7 = load ptr, ptr @rl_library_version, align 8
-  %call16 = call i32 @PyModule_AddStringConstant(ptr noundef %6, ptr noundef @.str.4, ptr noundef %7)
+  %7 = load ptr, ptr %m, align 8
+  %8 = load ptr, ptr @rl_library_version, align 8
+  %call16 = call i32 @PyModule_AddStringConstant(ptr noundef %7, ptr noundef @.str.4, ptr noundef %8)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %if.then19, label %if.end20
 
@@ -212,9 +213,9 @@ if.then19:                                        ; preds = %if.end15
   br label %error
 
 if.end20:                                         ; preds = %if.end15
-  %8 = load ptr, ptr %m, align 8
-  %9 = load ptr, ptr %backend, align 8
-  %call21 = call i32 @PyModule_AddStringConstant(ptr noundef %8, ptr noundef @.str.5, ptr noundef %9)
+  %9 = load ptr, ptr %m, align 8
+  %10 = load ptr, ptr %backend, align 8
+  %call21 = call i32 @PyModule_AddStringConstant(ptr noundef %9, ptr noundef @.str.5, ptr noundef %10)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %if.then24, label %if.end25
 
@@ -222,11 +223,11 @@ if.then24:                                        ; preds = %if.end20
   br label %error
 
 if.end25:                                         ; preds = %if.end20
-  %10 = load ptr, ptr %m, align 8
-  %call26 = call ptr @PyModule_GetState(ptr noundef %10)
+  %11 = load ptr, ptr %m, align 8
+  %call26 = call ptr @PyModule_GetState(ptr noundef %11)
   store ptr %call26, ptr %mod_state, align 8
-  %11 = load ptr, ptr %mod_state, align 8
-  %cmp27 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mod_state, align 8
+  %cmp27 = icmp eq ptr %12, null
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end25
@@ -234,8 +235,8 @@ if.then29:                                        ; preds = %if.end25
 
 if.end30:                                         ; preds = %if.end25
   store ptr @call_readline, ptr @PyOS_ReadlineFunctionPointer, align 8
-  %12 = load ptr, ptr %mod_state, align 8
-  %call31 = call i32 @setup_readline(ptr noundef %12)
+  %13 = load ptr, ptr %mod_state, align 8
+  %call31 = call i32 @setup_readline(ptr noundef %13)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %if.then34, label %if.end36
 
@@ -252,18 +253,18 @@ if.then39:                                        ; preds = %if.end36
   br label %error
 
 if.end40:                                         ; preds = %if.end36
-  %13 = load ptr, ptr %m, align 8
-  store ptr %13, ptr %retval, align 8
+  %14 = load ptr, ptr %m, align 8
+  store ptr %14, ptr %retval, align 8
   br label %return
 
 error:                                            ; preds = %if.then39, %if.then34, %if.then29, %if.then24, %if.then19, %if.then14, %if.then9
-  %14 = load ptr, ptr %m, align 8
-  store ptr %14, ptr %op.addr.i, align 8
-  %15 = load ptr, ptr %op.addr.i, align 8
-  store ptr %15, ptr %op.addr.i41, align 8
-  %16 = load ptr, ptr %op.addr.i41, align 8
-  %17 = load i64, ptr %16, align 8
-  %conv.i = trunc i64 %17 to i32
+  %15 = load ptr, ptr %m, align 8
+  store ptr %15, ptr %op.addr.i, align 8
+  %16 = load ptr, ptr %op.addr.i, align 8
+  store ptr %16, ptr %op.addr.i41, align 8
+  %17 = load ptr, ptr %op.addr.i41, align 8
+  %18 = load i64, ptr %17, align 8
+  %conv.i = trunc i64 %18 to i32
   %cmp.i42 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i42 to i32
   %tobool.i = icmp ne i32 %conv1.i, 0
@@ -273,16 +274,16 @@ if.then.i:                                        ; preds = %error
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %error
-  %18 = load ptr, ptr %op.addr.i, align 8
-  %19 = load i64, ptr %18, align 8
-  %dec.i = add i64 %19, -1
-  store i64 %dec.i, ptr %18, align 8
+  %19 = load ptr, ptr %op.addr.i, align 8
+  %20 = load i64, ptr %19, align 8
+  %dec.i = add i64 %20, -1
+  store i64 %dec.i, ptr %19, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %20 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %20) #8
+  %21 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %21) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -290,8 +291,8 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %return
 
 return:                                           ; preds = %Py_DECREF.exit, %if.end40, %if.then5
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
+  %22 = load ptr, ptr %retval, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -4224,18 +4225,19 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr @sigwinch_ohandler, align 8
-  %cmp = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %land.lhs.true1, label %if.end
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %2 = load ptr, ptr @sigwinch_ohandler, align 8
-  %cmp2 = icmp ne ptr %2, null
+  %3 = load ptr, ptr @sigwinch_ohandler, align 8
+  %cmp2 = icmp ne ptr %3, null
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true1
-  %3 = load ptr, ptr @sigwinch_ohandler, align 8
-  %4 = load i32, ptr %signum.addr, align 4
-  call void %3(i32 noundef %4)
+  %4 = load ptr, ptr @sigwinch_ohandler, align 8
+  %5 = load i32, ptr %signum.addr, align 4
+  call void %4(i32 noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true1, %land.lhs.true, %entry

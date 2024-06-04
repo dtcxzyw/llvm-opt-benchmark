@@ -463,7 +463,7 @@ define internal void @subxact_info_read(i32 noundef %0, i32 noundef %1) #0 {
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %2
-  br label %45
+  br label %49
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %7, align 8
@@ -476,34 +476,38 @@ define internal void @subxact_info_read(i32 noundef %0, i32 noundef %1) #0 {
   %26 = zext i32 %25 to i64
   %27 = call i32 @my_log2(i64 noundef %26)
   %28 = shl i32 1, %27
-  store i32 %28, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %29 = load ptr, ptr @LogicalStreamingContext, align 8
-  %30 = call ptr @MemoryContextSwitchTo(ptr noundef %29)
-  store ptr %30, ptr %8, align 8
-  %31 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %32 = zext i32 %31 to i64
-  %33 = mul i64 %32, 16
-  %34 = call ptr @palloc(i64 noundef %33)
-  store ptr %34, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = call ptr @MemoryContextSwitchTo(ptr noundef %35)
-  %37 = load i64, ptr %6, align 8
-  %38 = icmp ugt i64 %37, 0
-  br i1 %38, label %39, label %43
+  %29 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  store i32 %28, ptr %29, align 4
+  %30 = load ptr, ptr @LogicalStreamingContext, align 8
+  %31 = call ptr @MemoryContextSwitchTo(ptr noundef %30)
+  store ptr %31, ptr %8, align 8
+  %32 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = zext i32 %33 to i64
+  %35 = mul i64 %34, 16
+  %36 = call ptr @palloc(i64 noundef %35)
+  %37 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = call ptr @MemoryContextSwitchTo(ptr noundef %38)
+  %40 = load i64, ptr %6, align 8
+  %41 = icmp ugt i64 %40, 0
+  br i1 %41, label %42, label %47
 
-39:                                               ; preds = %20
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %42 = load i64, ptr %6, align 8
-  call void @BufFileReadExact(ptr noundef %40, ptr noundef %41, i64 noundef %42)
-  br label %43
+42:                                               ; preds = %20
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i64, ptr %6, align 8
+  call void @BufFileReadExact(ptr noundef %43, ptr noundef %45, i64 noundef %46)
+  br label %47
 
-43:                                               ; preds = %39, %20
-  %44 = load ptr, ptr %7, align 8
-  call void @BufFileClose(ptr noundef %44)
-  br label %45
+47:                                               ; preds = %42, %20
+  %48 = load ptr, ptr %7, align 8
+  call void @BufFileClose(ptr noundef %48)
+  br label %49
 
-45:                                               ; preds = %43, %19
+49:                                               ; preds = %47, %19
   ret void
 }
 
@@ -554,7 +558,7 @@ define internal void @subxact_info_write(i32 noundef %0, i32 noundef %1) #0 {
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
   call void @BufFileDeleteFileSet(ptr noundef %16, ptr noundef %17, i1 noundef zeroext true)
-  br label %41
+  br label %42
 
 18:                                               ; preds = %2
   %19 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -584,15 +588,16 @@ define internal void @subxact_info_write(i32 noundef %0, i32 noundef %1) #0 {
   %36 = load ptr, ptr %7, align 8
   call void @BufFileWrite(ptr noundef %36, ptr noundef @subxact_data, i64 noundef 4)
   %37 = load ptr, ptr %7, align 8
-  %38 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %39 = load i64, ptr %6, align 8
-  call void @BufFileWrite(ptr noundef %37, ptr noundef %38, i64 noundef %39)
-  %40 = load ptr, ptr %7, align 8
-  call void @BufFileClose(ptr noundef %40)
+  %38 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i64, ptr %6, align 8
+  call void @BufFileWrite(ptr noundef %37, ptr noundef %39, i64 noundef %40)
+  %41 = load ptr, ptr %7, align 8
+  call void @BufFileClose(ptr noundef %41)
   call void @cleanup_subxact_info()
-  br label %41
+  br label %42
 
-41:                                               ; preds = %32, %13
+42:                                               ; preds = %32, %13
   ret void
 }
 
@@ -1384,7 +1389,7 @@ define internal void @apply_handle_insert(ptr noundef %0) #0 {
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20, %1
-  br label %111
+  br label %113
 
 24:                                               ; preds = %20
   call void @begin_replication_step()
@@ -1402,7 +1407,7 @@ define internal void @apply_handle_insert(ptr noundef %0) #0 {
   %32 = load ptr, ptr %3, align 8
   call void @logicalrep_rel_close(ptr noundef %32, i32 noundef 3)
   call void @end_replication_step()
-  br label %111
+  br label %113
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr @MySubscription, align 8
@@ -1428,99 +1433,101 @@ define internal void @apply_handle_insert(ptr noundef %0) #0 {
 
 49:                                               ; preds = %41, %33
   %50 = load ptr, ptr %3, align 8
-  store ptr %50, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = call ptr @create_edata_for_relation(ptr noundef %51)
-  store ptr %52, ptr %7, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.ApplyExecutionData, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %8, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %57, i32 0, i32 3
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.RelationData, ptr %59, i32 0, i32 14
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @ExecInitExtraTupleSlot(ptr noundef %56, ptr noundef %61, ptr noundef @TTSOpsVirtual)
-  store ptr %62, ptr %9, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.EState, ptr %63, i32 0, i32 31
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %71
+  %51 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr %50, ptr %51, align 8
+  %52 = load ptr, ptr %3, align 8
+  %53 = call ptr @create_edata_for_relation(ptr noundef %52)
+  store ptr %53, ptr %7, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct.ApplyExecutionData, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct.RelationData, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = call ptr @ExecInitExtraTupleSlot(ptr noundef %57, ptr noundef %62, ptr noundef @TTSOpsVirtual)
+  store ptr %63, ptr %9, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds %struct.EState, ptr %64, i32 0, i32 31
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %49
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.EState, ptr %68, i32 0, i32 31
-  %70 = load ptr, ptr %69, align 8
-  br label %74
+68:                                               ; preds = %49
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %struct.EState, ptr %69, i32 0, i32 31
+  %71 = load ptr, ptr %70, align 8
+  br label %75
 
-71:                                               ; preds = %49
-  %72 = load ptr, ptr %8, align 8
-  %73 = call ptr @MakePerTupleExprContext(ptr noundef %72)
-  br label %74
+72:                                               ; preds = %49
+  %73 = load ptr, ptr %8, align 8
+  %74 = call ptr @MakePerTupleExprContext(ptr noundef %73)
+  br label %75
 
-74:                                               ; preds = %71, %67
-  %75 = phi ptr [ %70, %67 ], [ %73, %71 ]
-  %76 = getelementptr inbounds %struct.ExprContext, ptr %75, i32 0, i32 5
-  %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @MemoryContextSwitchTo(ptr noundef %77)
-  store ptr %78, ptr %10, align 8
-  %79 = load ptr, ptr %9, align 8
-  %80 = load ptr, ptr %3, align 8
-  call void @slot_store_data(ptr noundef %79, ptr noundef %80, ptr noundef %4)
+75:                                               ; preds = %72, %68
+  %76 = phi ptr [ %71, %68 ], [ %74, %72 ]
+  %77 = getelementptr inbounds %struct.ExprContext, ptr %76, i32 0, i32 5
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr @MemoryContextSwitchTo(ptr noundef %78)
+  store ptr %79, ptr %10, align 8
+  %80 = load ptr, ptr %9, align 8
   %81 = load ptr, ptr %3, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = load ptr, ptr %9, align 8
-  call void @slot_fill_defaults(ptr noundef %81, ptr noundef %82, ptr noundef %83)
-  %84 = load ptr, ptr %10, align 8
-  %85 = call ptr @MemoryContextSwitchTo(ptr noundef %84)
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %86, i32 0, i32 3
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.RelationData, ptr %88, i32 0, i32 13
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.FormData_pg_class, ptr %90, i32 0, i32 16
-  %92 = load i8, ptr %91, align 1
-  %93 = sext i8 %92 to i32
-  %94 = icmp eq i32 %93, 112
-  br i1 %94, label %95, label %98
+  call void @slot_store_data(ptr noundef %80, ptr noundef %81, ptr noundef %4)
+  %82 = load ptr, ptr %3, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr %9, align 8
+  call void @slot_fill_defaults(ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  %85 = load ptr, ptr %10, align 8
+  %86 = call ptr @MemoryContextSwitchTo(ptr noundef %85)
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %struct.RelationData, ptr %89, i32 0, i32 13
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.FormData_pg_class, ptr %91, i32 0, i32 16
+  %93 = load i8, ptr %92, align 1
+  %94 = sext i8 %93 to i32
+  %95 = icmp eq i32 %94, 112
+  br i1 %95, label %96, label %99
 
-95:                                               ; preds = %74
-  %96 = load ptr, ptr %7, align 8
-  %97 = load ptr, ptr %9, align 8
-  call void @apply_handle_tuple_routing(ptr noundef %96, ptr noundef %97, ptr noundef null, i32 noundef 3)
-  br label %104
+96:                                               ; preds = %75
+  %97 = load ptr, ptr %7, align 8
+  %98 = load ptr, ptr %9, align 8
+  call void @apply_handle_tuple_routing(ptr noundef %97, ptr noundef %98, ptr noundef null, i32 noundef 3)
+  br label %105
 
-98:                                               ; preds = %74
-  %99 = load ptr, ptr %7, align 8
+99:                                               ; preds = %75
   %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct.ApplyExecutionData, ptr %100, i32 0, i32 2
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %9, align 8
-  call void @apply_handle_insert_internal(ptr noundef %99, ptr noundef %102, ptr noundef %103)
-  br label %104
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds %struct.ApplyExecutionData, ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %9, align 8
+  call void @apply_handle_insert_internal(ptr noundef %100, ptr noundef %103, ptr noundef %104)
+  br label %105
 
-104:                                              ; preds = %98, %95
-  %105 = load ptr, ptr %7, align 8
-  call void @finish_edata(ptr noundef %105)
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %106 = load i8, ptr %11, align 1
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %109, label %108
+105:                                              ; preds = %99, %96
+  %106 = load ptr, ptr %7, align 8
+  call void @finish_edata(ptr noundef %106)
+  %107 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr null, ptr %107, align 8
+  %108 = load i8, ptr %11, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %111, label %110
 
-108:                                              ; preds = %104
+110:                                              ; preds = %105
   call void @RestoreUserContext(ptr noundef %6)
-  br label %109
-
-109:                                              ; preds = %108, %104
-  %110 = load ptr, ptr %3, align 8
-  call void @logicalrep_rel_close(ptr noundef %110, i32 noundef 0)
-  call void @end_replication_step()
   br label %111
 
-111:                                              ; preds = %109, %31, %23
+111:                                              ; preds = %110, %105
+  %112 = load ptr, ptr %3, align 8
+  call void @logicalrep_rel_close(ptr noundef %112, i32 noundef 0)
+  call void @end_replication_step()
+  br label %113
+
+113:                                              ; preds = %111, %31, %23
   ret void
 }
 
@@ -1559,7 +1566,7 @@ define internal void @apply_handle_update(ptr noundef %0) #0 {
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26, %1
-  br label %186
+  br label %188
 
 30:                                               ; preds = %26
   call void @begin_replication_step()
@@ -1577,224 +1584,226 @@ define internal void @apply_handle_update(ptr noundef %0) #0 {
   %38 = load ptr, ptr %3, align 8
   call void @logicalrep_rel_close(ptr noundef %38, i32 noundef 3)
   call void @end_replication_step()
-  br label %186
+  br label %188
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %3, align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %41 = load ptr, ptr %3, align 8
-  call void @check_relation_updatable(ptr noundef %41)
-  %42 = load ptr, ptr @MySubscription, align 8
-  %43 = getelementptr inbounds %struct.Subscription, ptr %42, i32 0, i32 12
-  %44 = load i8, ptr %43, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = zext i1 %45 to i8
-  store i8 %46, ptr %14, align 1
-  %47 = load i8, ptr %14, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %57, label %49
+  %41 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr %40, ptr %41, align 8
+  %42 = load ptr, ptr %3, align 8
+  call void @check_relation_updatable(ptr noundef %42)
+  %43 = load ptr, ptr @MySubscription, align 8
+  %44 = getelementptr inbounds %struct.Subscription, ptr %43, i32 0, i32 12
+  %45 = load i8, ptr %44, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr %14, align 1
+  %48 = load i8, ptr %14, align 1
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %58, label %50
 
-49:                                               ; preds = %39
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %50, i32 0, i32 3
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.RelationData, ptr %52, i32 0, i32 13
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.FormData_pg_class, ptr %54, i32 0, i32 5
-  %56 = load i32, ptr %55, align 4
-  call void @SwitchToUntrustedUser(i32 noundef %56, ptr noundef %5)
-  br label %57
+50:                                               ; preds = %39
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.RelationData, ptr %53, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %struct.FormData_pg_class, ptr %55, i32 0, i32 5
+  %57 = load i32, ptr %56, align 4
+  call void @SwitchToUntrustedUser(i32 noundef %57, ptr noundef %5)
+  br label %58
 
-57:                                               ; preds = %49, %39
-  %58 = load ptr, ptr %3, align 8
-  %59 = call ptr @create_edata_for_relation(ptr noundef %58)
-  store ptr %59, ptr %6, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.ApplyExecutionData, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %7, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %64, i32 0, i32 3
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.RelationData, ptr %66, i32 0, i32 14
-  %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @ExecInitExtraTupleSlot(ptr noundef %63, ptr noundef %68, ptr noundef @TTSOpsVirtual)
-  store ptr %69, ptr %11, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.EState, ptr %70, i32 0, i32 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @list_nth(ptr noundef %72, i32 noundef 0)
-  store ptr %73, ptr %12, align 8
+58:                                               ; preds = %50, %39
+  %59 = load ptr, ptr %3, align 8
+  %60 = call ptr @create_edata_for_relation(ptr noundef %59)
+  store ptr %60, ptr %6, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct.ApplyExecutionData, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %7, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %65, i32 0, i32 3
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds %struct.RelationData, ptr %67, i32 0, i32 14
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @ExecInitExtraTupleSlot(ptr noundef %64, ptr noundef %69, ptr noundef @TTSOpsVirtual)
+  store ptr %70, ptr %11, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct.EState, ptr %71, i32 0, i32 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr @list_nth(ptr noundef %73, i32 noundef 0)
+  store ptr %74, ptr %12, align 8
   store i32 0, ptr %15, align 4
-  br label %74
+  br label %75
 
-74:                                               ; preds = %128, %57
-  %75 = load i32, ptr %15, align 4
-  %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds %struct.TupleTableSlot, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.TupleDescData, ptr %78, i32 0, i32 0
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp slt i32 %75, %80
-  br i1 %81, label %82, label %131
+75:                                               ; preds = %129, %58
+  %76 = load i32, ptr %15, align 4
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct.TupleTableSlot, ptr %77, i32 0, i32 4
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.TupleDescData, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp slt i32 %76, %81
+  br i1 %82, label %83, label %132
 
-82:                                               ; preds = %74
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds %struct.TupleTableSlot, ptr %83, i32 0, i32 4
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.TupleDescData, ptr %85, i32 0, i32 5
-  %87 = load i32, ptr %15, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %86, i64 0, i64 %88
-  store ptr %89, ptr %16, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %90, i32 0, i32 4
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.AttrMap, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %15, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr i16, ptr %94, i64 %96
-  %98 = load i16, ptr %97, align 2
-  %99 = sext i16 %98 to i32
-  store i32 %99, ptr %17, align 4
-  %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %100, i32 0, i32 17
-  %102 = load i8, ptr %101, align 1
-  %103 = trunc i8 %102 to i1
-  br i1 %103, label %127, label %104
+83:                                               ; preds = %75
+  %84 = load ptr, ptr %11, align 8
+  %85 = getelementptr inbounds %struct.TupleTableSlot, ptr %84, i32 0, i32 4
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct.TupleDescData, ptr %86, i32 0, i32 5
+  %88 = load i32, ptr %15, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %87, i64 0, i64 %89
+  store ptr %90, ptr %16, align 8
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %91, i32 0, i32 4
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct.AttrMap, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  %96 = load i32, ptr %15, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr i16, ptr %95, i64 %97
+  %99 = load i16, ptr %98, align 2
+  %100 = sext i16 %99 to i32
+  store i32 %100, ptr %17, align 4
+  %101 = load ptr, ptr %16, align 8
+  %102 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %101, i32 0, i32 17
+  %103 = load i8, ptr %102, align 1
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %128, label %105
 
-104:                                              ; preds = %82
-  %105 = load i32, ptr %17, align 4
-  %106 = icmp sge i32 %105, 0
-  br i1 %106, label %107, label %127
+105:                                              ; preds = %83
+  %106 = load i32, ptr %17, align 4
+  %107 = icmp sge i32 %106, 0
+  br i1 %107, label %108, label %128
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %9, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = load i32, ptr %17, align 4
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr i8, ptr %109, i64 %111
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = icmp ne i32 %114, 117
-  br i1 %115, label %116, label %126
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %9, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %17, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr i8, ptr %110, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = sext i8 %114 to i32
+  %116 = icmp ne i32 %115, 117
+  br i1 %116, label %117, label %127
 
-116:                                              ; preds = %107
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %117, i32 0, i32 7
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %15, align 4
-  %121 = add i32 %120, 1
-  %122 = sub i32 %121, -7
-  %123 = call ptr @bms_add_member(ptr noundef %119, i32 noundef %122)
-  %124 = load ptr, ptr %12, align 8
-  %125 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %124, i32 0, i32 7
-  store ptr %123, ptr %125, align 8
-  br label %126
-
-126:                                              ; preds = %116, %107
+117:                                              ; preds = %108
+  %118 = load ptr, ptr %12, align 8
+  %119 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %118, i32 0, i32 7
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %15, align 4
+  %122 = add i32 %121, 1
+  %123 = sub i32 %122, -7
+  %124 = call ptr @bms_add_member(ptr noundef %120, i32 noundef %123)
+  %125 = load ptr, ptr %12, align 8
+  %126 = getelementptr inbounds %struct.RTEPermissionInfo, ptr %125, i32 0, i32 7
+  store ptr %124, ptr %126, align 8
   br label %127
 
-127:                                              ; preds = %126, %104, %82
+127:                                              ; preds = %117, %108
   br label %128
 
-128:                                              ; preds = %127
-  %129 = load i32, ptr %15, align 4
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %15, align 4
-  br label %74, !llvm.loop !5
+128:                                              ; preds = %127, %105, %83
+  br label %129
 
-131:                                              ; preds = %74
-  %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds %struct.EState, ptr %132, i32 0, i32 31
-  %134 = load ptr, ptr %133, align 8
-  %135 = icmp ne ptr %134, null
-  br i1 %135, label %136, label %140
+129:                                              ; preds = %128
+  %130 = load i32, ptr %15, align 4
+  %131 = add i32 %130, 1
+  store i32 %131, ptr %15, align 4
+  br label %75, !llvm.loop !5
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr %7, align 8
-  %138 = getelementptr inbounds %struct.EState, ptr %137, i32 0, i32 31
-  %139 = load ptr, ptr %138, align 8
-  br label %143
+132:                                              ; preds = %75
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct.EState, ptr %133, i32 0, i32 31
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %141
 
-140:                                              ; preds = %131
-  %141 = load ptr, ptr %7, align 8
-  %142 = call ptr @MakePerTupleExprContext(ptr noundef %141)
-  br label %143
+137:                                              ; preds = %132
+  %138 = load ptr, ptr %7, align 8
+  %139 = getelementptr inbounds %struct.EState, ptr %138, i32 0, i32 31
+  %140 = load ptr, ptr %139, align 8
+  br label %144
 
-143:                                              ; preds = %140, %136
-  %144 = phi ptr [ %139, %136 ], [ %142, %140 ]
-  %145 = getelementptr inbounds %struct.ExprContext, ptr %144, i32 0, i32 5
-  %146 = load ptr, ptr %145, align 8
-  %147 = call ptr @MemoryContextSwitchTo(ptr noundef %146)
-  store ptr %147, ptr %13, align 8
-  %148 = load ptr, ptr %11, align 8
-  %149 = load ptr, ptr %3, align 8
-  %150 = load i8, ptr %10, align 1
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %152, label %153
+141:                                              ; preds = %132
+  %142 = load ptr, ptr %7, align 8
+  %143 = call ptr @MakePerTupleExprContext(ptr noundef %142)
+  br label %144
 
-152:                                              ; preds = %143
-  br label %154
+144:                                              ; preds = %141, %137
+  %145 = phi ptr [ %140, %137 ], [ %143, %141 ]
+  %146 = getelementptr inbounds %struct.ExprContext, ptr %145, i32 0, i32 5
+  %147 = load ptr, ptr %146, align 8
+  %148 = call ptr @MemoryContextSwitchTo(ptr noundef %147)
+  store ptr %148, ptr %13, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = load ptr, ptr %3, align 8
+  %151 = load i8, ptr %10, align 1
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %154
 
-153:                                              ; preds = %143
-  br label %154
+153:                                              ; preds = %144
+  br label %155
 
-154:                                              ; preds = %153, %152
-  %155 = phi ptr [ %8, %152 ], [ %9, %153 ]
-  call void @slot_store_data(ptr noundef %148, ptr noundef %149, ptr noundef %155)
-  %156 = load ptr, ptr %13, align 8
-  %157 = call ptr @MemoryContextSwitchTo(ptr noundef %156)
-  %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %158, i32 0, i32 3
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %struct.RelationData, ptr %160, i32 0, i32 13
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds %struct.FormData_pg_class, ptr %162, i32 0, i32 16
-  %164 = load i8, ptr %163, align 1
-  %165 = sext i8 %164 to i32
-  %166 = icmp eq i32 %165, 112
-  br i1 %166, label %167, label %170
+154:                                              ; preds = %144
+  br label %155
 
-167:                                              ; preds = %154
-  %168 = load ptr, ptr %6, align 8
-  %169 = load ptr, ptr %11, align 8
-  call void @apply_handle_tuple_routing(ptr noundef %168, ptr noundef %169, ptr noundef %9, i32 noundef 2)
-  br label %179
+155:                                              ; preds = %154, %153
+  %156 = phi ptr [ %8, %153 ], [ %9, %154 ]
+  call void @slot_store_data(ptr noundef %149, ptr noundef %150, ptr noundef %156)
+  %157 = load ptr, ptr %13, align 8
+  %158 = call ptr @MemoryContextSwitchTo(ptr noundef %157)
+  %159 = load ptr, ptr %3, align 8
+  %160 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %159, i32 0, i32 3
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %struct.RelationData, ptr %161, i32 0, i32 13
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds %struct.FormData_pg_class, ptr %163, i32 0, i32 16
+  %165 = load i8, ptr %164, align 1
+  %166 = sext i8 %165 to i32
+  %167 = icmp eq i32 %166, 112
+  br i1 %167, label %168, label %171
 
-170:                                              ; preds = %154
-  %171 = load ptr, ptr %6, align 8
+168:                                              ; preds = %155
+  %169 = load ptr, ptr %6, align 8
+  %170 = load ptr, ptr %11, align 8
+  call void @apply_handle_tuple_routing(ptr noundef %169, ptr noundef %170, ptr noundef %9, i32 noundef 2)
+  br label %180
+
+171:                                              ; preds = %155
   %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct.ApplyExecutionData, ptr %172, i32 0, i32 2
-  %174 = load ptr, ptr %173, align 8
-  %175 = load ptr, ptr %11, align 8
-  %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %176, i32 0, i32 6
-  %178 = load i32, ptr %177, align 4
-  call void @apply_handle_update_internal(ptr noundef %171, ptr noundef %174, ptr noundef %175, ptr noundef %9, i32 noundef %178)
-  br label %179
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds %struct.ApplyExecutionData, ptr %173, i32 0, i32 2
+  %175 = load ptr, ptr %174, align 8
+  %176 = load ptr, ptr %11, align 8
+  %177 = load ptr, ptr %3, align 8
+  %178 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %177, i32 0, i32 6
+  %179 = load i32, ptr %178, align 4
+  call void @apply_handle_update_internal(ptr noundef %172, ptr noundef %175, ptr noundef %176, ptr noundef %9, i32 noundef %179)
+  br label %180
 
-179:                                              ; preds = %170, %167
-  %180 = load ptr, ptr %6, align 8
-  call void @finish_edata(ptr noundef %180)
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %181 = load i8, ptr %14, align 1
-  %182 = trunc i8 %181 to i1
-  br i1 %182, label %184, label %183
+180:                                              ; preds = %171, %168
+  %181 = load ptr, ptr %6, align 8
+  call void @finish_edata(ptr noundef %181)
+  %182 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr null, ptr %182, align 8
+  %183 = load i8, ptr %14, align 1
+  %184 = trunc i8 %183 to i1
+  br i1 %184, label %186, label %185
 
-183:                                              ; preds = %179
+185:                                              ; preds = %180
   call void @RestoreUserContext(ptr noundef %5)
-  br label %184
-
-184:                                              ; preds = %183, %179
-  %185 = load ptr, ptr %3, align 8
-  call void @logicalrep_rel_close(ptr noundef %185, i32 noundef 0)
-  call void @end_replication_step()
   br label %186
 
-186:                                              ; preds = %184, %37, %29
+186:                                              ; preds = %185, %180
+  %187 = load ptr, ptr %3, align 8
+  call void @logicalrep_rel_close(ptr noundef %187, i32 noundef 0)
+  call void @end_replication_step()
+  br label %188
+
+188:                                              ; preds = %186, %37, %29
   ret void
 }
 
@@ -1827,7 +1836,7 @@ define internal void @apply_handle_delete(ptr noundef %0) #0 {
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20, %1
-  br label %112
+  br label %114
 
 24:                                               ; preds = %20
   call void @begin_replication_step()
@@ -1845,126 +1854,128 @@ define internal void @apply_handle_delete(ptr noundef %0) #0 {
   %32 = load ptr, ptr %3, align 8
   call void @logicalrep_rel_close(ptr noundef %32, i32 noundef 3)
   call void @end_replication_step()
-  br label %112
+  br label %114
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %3, align 8
-  store ptr %34, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %35 = load ptr, ptr %3, align 8
-  call void @check_relation_updatable(ptr noundef %35)
-  %36 = load ptr, ptr @MySubscription, align 8
-  %37 = getelementptr inbounds %struct.Subscription, ptr %36, i32 0, i32 12
-  %38 = load i8, ptr %37, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = zext i1 %39 to i8
-  store i8 %40, ptr %11, align 1
-  %41 = load i8, ptr %11, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %51, label %43
+  %35 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %3, align 8
+  call void @check_relation_updatable(ptr noundef %36)
+  %37 = load ptr, ptr @MySubscription, align 8
+  %38 = getelementptr inbounds %struct.Subscription, ptr %37, i32 0, i32 12
+  %39 = load i8, ptr %38, align 1
+  %40 = trunc i8 %39 to i1
+  %41 = zext i1 %40 to i8
+  store i8 %41, ptr %11, align 1
+  %42 = load i8, ptr %11, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %52, label %44
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %44, i32 0, i32 3
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.RelationData, ptr %46, i32 0, i32 13
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.FormData_pg_class, ptr %48, i32 0, i32 5
-  %50 = load i32, ptr %49, align 4
-  call void @SwitchToUntrustedUser(i32 noundef %50, ptr noundef %6)
-  br label %51
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.RelationData, ptr %47, i32 0, i32 13
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.FormData_pg_class, ptr %49, i32 0, i32 5
+  %51 = load i32, ptr %50, align 4
+  call void @SwitchToUntrustedUser(i32 noundef %51, ptr noundef %6)
+  br label %52
 
-51:                                               ; preds = %43, %33
-  %52 = load ptr, ptr %3, align 8
-  %53 = call ptr @create_edata_for_relation(ptr noundef %52)
-  store ptr %53, ptr %7, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.ApplyExecutionData, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %8, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.RelationData, ptr %60, i32 0, i32 14
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @ExecInitExtraTupleSlot(ptr noundef %57, ptr noundef %62, ptr noundef @TTSOpsVirtual)
-  store ptr %63, ptr %9, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.EState, ptr %64, i32 0, i32 31
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %72
+52:                                               ; preds = %44, %33
+  %53 = load ptr, ptr %3, align 8
+  %54 = call ptr @create_edata_for_relation(ptr noundef %53)
+  store ptr %54, ptr %7, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct.ApplyExecutionData, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %8, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.RelationData, ptr %61, i32 0, i32 14
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @ExecInitExtraTupleSlot(ptr noundef %58, ptr noundef %63, ptr noundef @TTSOpsVirtual)
+  store ptr %64, ptr %9, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct.EState, ptr %65, i32 0, i32 31
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %73
 
-68:                                               ; preds = %51
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.EState, ptr %69, i32 0, i32 31
-  %71 = load ptr, ptr %70, align 8
-  br label %75
+69:                                               ; preds = %52
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds %struct.EState, ptr %70, i32 0, i32 31
+  %72 = load ptr, ptr %71, align 8
+  br label %76
 
-72:                                               ; preds = %51
-  %73 = load ptr, ptr %8, align 8
-  %74 = call ptr @MakePerTupleExprContext(ptr noundef %73)
-  br label %75
+73:                                               ; preds = %52
+  %74 = load ptr, ptr %8, align 8
+  %75 = call ptr @MakePerTupleExprContext(ptr noundef %74)
+  br label %76
 
-75:                                               ; preds = %72, %68
-  %76 = phi ptr [ %71, %68 ], [ %74, %72 ]
-  %77 = getelementptr inbounds %struct.ExprContext, ptr %76, i32 0, i32 5
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @MemoryContextSwitchTo(ptr noundef %78)
-  store ptr %79, ptr %10, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = load ptr, ptr %3, align 8
-  call void @slot_store_data(ptr noundef %80, ptr noundef %81, ptr noundef %4)
-  %82 = load ptr, ptr %10, align 8
-  %83 = call ptr @MemoryContextSwitchTo(ptr noundef %82)
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %84, i32 0, i32 3
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.RelationData, ptr %86, i32 0, i32 13
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.FormData_pg_class, ptr %88, i32 0, i32 16
-  %90 = load i8, ptr %89, align 1
-  %91 = sext i8 %90 to i32
-  %92 = icmp eq i32 %91, 112
-  br i1 %92, label %93, label %96
+76:                                               ; preds = %73, %69
+  %77 = phi ptr [ %72, %69 ], [ %75, %73 ]
+  %78 = getelementptr inbounds %struct.ExprContext, ptr %77, i32 0, i32 5
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr @MemoryContextSwitchTo(ptr noundef %79)
+  store ptr %80, ptr %10, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %3, align 8
+  call void @slot_store_data(ptr noundef %81, ptr noundef %82, ptr noundef %4)
+  %83 = load ptr, ptr %10, align 8
+  %84 = call ptr @MemoryContextSwitchTo(ptr noundef %83)
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %85, i32 0, i32 3
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.RelationData, ptr %87, i32 0, i32 13
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %struct.FormData_pg_class, ptr %89, i32 0, i32 16
+  %91 = load i8, ptr %90, align 1
+  %92 = sext i8 %91 to i32
+  %93 = icmp eq i32 %92, 112
+  br i1 %93, label %94, label %97
 
-93:                                               ; preds = %75
-  %94 = load ptr, ptr %7, align 8
-  %95 = load ptr, ptr %9, align 8
-  call void @apply_handle_tuple_routing(ptr noundef %94, ptr noundef %95, ptr noundef null, i32 noundef 4)
-  br label %105
+94:                                               ; preds = %76
+  %95 = load ptr, ptr %7, align 8
+  %96 = load ptr, ptr %9, align 8
+  call void @apply_handle_tuple_routing(ptr noundef %95, ptr noundef %96, ptr noundef null, i32 noundef 4)
+  br label %106
 
-96:                                               ; preds = %75
-  %97 = load ptr, ptr %7, align 8
+97:                                               ; preds = %76
   %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct.ApplyExecutionData, ptr %98, i32 0, i32 2
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %102, i32 0, i32 6
-  %104 = load i32, ptr %103, align 4
-  call void @apply_handle_delete_internal(ptr noundef %97, ptr noundef %100, ptr noundef %101, i32 noundef %104)
-  br label %105
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds %struct.ApplyExecutionData, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %9, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds %struct.LogicalRepRelMapEntry, ptr %103, i32 0, i32 6
+  %105 = load i32, ptr %104, align 4
+  call void @apply_handle_delete_internal(ptr noundef %98, ptr noundef %101, ptr noundef %102, i32 noundef %105)
+  br label %106
 
-105:                                              ; preds = %96, %93
-  %106 = load ptr, ptr %7, align 8
-  call void @finish_edata(ptr noundef %106)
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  %107 = load i8, ptr %11, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %110, label %109
+106:                                              ; preds = %97, %94
+  %107 = load ptr, ptr %7, align 8
+  call void @finish_edata(ptr noundef %107)
+  %108 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr null, ptr %108, align 8
+  %109 = load i8, ptr %11, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %112, label %111
 
-109:                                              ; preds = %105
+111:                                              ; preds = %106
   call void @RestoreUserContext(ptr noundef %6)
-  br label %110
-
-110:                                              ; preds = %109, %105
-  %111 = load ptr, ptr %3, align 8
-  call void @logicalrep_rel_close(ptr noundef %111, i32 noundef 0)
-  call void @end_replication_step()
   br label %112
 
-112:                                              ; preds = %110, %31, %23
+112:                                              ; preds = %111, %106
+  %113 = load ptr, ptr %3, align 8
+  call void @logicalrep_rel_close(ptr noundef %113, i32 noundef 0)
+  call void @end_replication_step()
+  br label %114
+
+114:                                              ; preds = %112, %31, %23
   ret void
 }
 
@@ -6197,7 +6208,8 @@ define dso_local void @set_apply_error_context_origin(ptr noundef %0) #0 {
   %3 = load ptr, ptr @ApplyContext, align 8
   %4 = load ptr, ptr %2, align 8
   %5 = call ptr @MemoryContextStrdup(ptr noundef %3, ptr noundef %4)
-  store ptr %5, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 5), align 8
+  %6 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 5
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
@@ -6226,9 +6238,11 @@ define internal void @set_apply_error_context_xact(i32 noundef %0, i64 noundef %
   store i32 %0, ptr %3, align 4
   store i64 %1, ptr %4, align 8
   %5 = load i32, ptr %3, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 3), align 4
-  %6 = load i64, ptr %4, align 8
-  store i64 %6, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 4), align 8
+  %6 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 3
+  store i32 %5, ptr %6, align 4
+  %7 = load i64, ptr %4, align 8
+  %8 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 4
+  store i64 %7, ptr %8, align 8
   ret void
 }
 
@@ -6310,8 +6324,10 @@ declare void @process_syncing_tables(i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @reset_apply_error_context_info() #0 {
   store i32 0, ptr @apply_error_callback_arg, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1), align 8
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 1
+  store ptr null, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2
+  store i32 -1, ptr %2, align 8
   call void @set_apply_error_context_xact(i32 noundef 0, i64 noundef 0)
   ret void
 }
@@ -7082,11 +7098,11 @@ define internal void @slot_store_data(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 0, ptr %8, align 4
   br label %23
 
-23:                                               ; preds = %179, %3
+23:                                               ; preds = %181, %3
   %24 = load i32, ptr %8, align 4
   %25 = load i32, ptr %7, align 4
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %27, label %182
+  br i1 %26, label %27, label %184
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %4, align 8
@@ -7112,12 +7128,12 @@ define internal void @slot_store_data(ptr noundef %0, ptr noundef %1, ptr nounde
   %46 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %45, i32 0, i32 17
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %165, label %49
+  br i1 %48, label %167, label %49
 
 49:                                               ; preds = %27
   %50 = load i32, ptr %10, align 4
   %51 = icmp sge i32 %50, 0
-  br i1 %51, label %52, label %165
+  br i1 %51, label %52, label %167
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %6, align 8
@@ -7128,182 +7144,184 @@ define internal void @slot_store_data(ptr noundef %0, ptr noundef %1, ptr nounde
   %58 = getelementptr %struct.StringInfoData, ptr %55, i64 %57
   store ptr %58, ptr %11, align 8
   %59 = load i32, ptr %10, align 4
-  store i32 %59, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2), align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %10, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i8, ptr %62, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = sext i8 %66 to i32
-  %68 = icmp eq i32 %67, 116
-  br i1 %68, label %69, label %94
+  %60 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2
+  store i32 %59, ptr %60, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i32, ptr %10, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr i8, ptr %63, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %68 = sext i8 %67 to i32
+  %69 = icmp eq i32 %68, 116
+  br i1 %69, label %70, label %95
 
-69:                                               ; preds = %52
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %70, i32 0, i32 2
-  %72 = load i32, ptr %71, align 4
-  call void @getTypeInputInfo(i32 noundef %72, ptr noundef %12, ptr noundef %13)
-  %73 = load i32, ptr %12, align 4
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct.StringInfoData, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %13, align 4
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %78, i32 0, i32 6
-  %80 = load i32, ptr %79, align 4
-  %81 = call i64 @OidInputFunctionCall(i32 noundef %73, ptr noundef %76, i32 noundef %77, i32 noundef %80)
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.TupleTableSlot, ptr %82, i32 0, i32 5
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %8, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr i64, ptr %84, i64 %86
-  store i64 %81, ptr %87, align 8
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.TupleTableSlot, ptr %88, i32 0, i32 6
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i32, ptr %8, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr i8, ptr %90, i64 %92
-  store i8 0, ptr %93, align 1
-  br label %164
+70:                                               ; preds = %52
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 4
+  call void @getTypeInputInfo(i32 noundef %73, ptr noundef %12, ptr noundef %13)
+  %74 = load i32, ptr %12, align 4
+  %75 = load ptr, ptr %11, align 8
+  %76 = getelementptr inbounds %struct.StringInfoData, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %13, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %79, i32 0, i32 6
+  %81 = load i32, ptr %80, align 4
+  %82 = call i64 @OidInputFunctionCall(i32 noundef %74, ptr noundef %77, i32 noundef %78, i32 noundef %81)
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct.TupleTableSlot, ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %8, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr i64, ptr %85, i64 %87
+  store i64 %82, ptr %88, align 8
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %struct.TupleTableSlot, ptr %89, i32 0, i32 6
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i32, ptr %8, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr i8, ptr %91, i64 %93
+  store i8 0, ptr %94, align 1
+  br label %165
 
-94:                                               ; preds = %52
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %10, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr i8, ptr %97, i64 %99
-  %101 = load i8, ptr %100, align 1
-  %102 = sext i8 %101 to i32
-  %103 = icmp eq i32 %102, 98
-  br i1 %103, label %104, label %150
+95:                                               ; preds = %52
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %10, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr i8, ptr %98, i64 %100
+  %102 = load i8, ptr %101, align 1
+  %103 = sext i8 %102 to i32
+  %104 = icmp eq i32 %103, 98
+  br i1 %104, label %105, label %151
 
-104:                                              ; preds = %94
-  %105 = load ptr, ptr %11, align 8
-  %106 = getelementptr inbounds %struct.StringInfoData, ptr %105, i32 0, i32 3
-  store i32 0, ptr %106, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %107, i32 0, i32 2
-  %109 = load i32, ptr %108, align 4
-  call void @getTypeBinaryInputInfo(i32 noundef %109, ptr noundef %14, ptr noundef %15)
-  %110 = load i32, ptr %14, align 4
-  %111 = load ptr, ptr %11, align 8
-  %112 = load i32, ptr %15, align 4
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %113, i32 0, i32 6
-  %115 = load i32, ptr %114, align 4
-  %116 = call i64 @OidReceiveFunctionCall(i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %115)
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.TupleTableSlot, ptr %117, i32 0, i32 5
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %8, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr i64, ptr %119, i64 %121
-  store i64 %116, ptr %122, align 8
-  %123 = load ptr, ptr %11, align 8
-  %124 = getelementptr inbounds %struct.StringInfoData, ptr %123, i32 0, i32 3
-  %125 = load i32, ptr %124, align 8
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct.StringInfoData, ptr %126, i32 0, i32 1
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp ne i32 %125, %128
-  br i1 %129, label %130, label %143
+105:                                              ; preds = %95
+  %106 = load ptr, ptr %11, align 8
+  %107 = getelementptr inbounds %struct.StringInfoData, ptr %106, i32 0, i32 3
+  store i32 0, ptr %107, align 8
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %108, i32 0, i32 2
+  %110 = load i32, ptr %109, align 4
+  call void @getTypeBinaryInputInfo(i32 noundef %110, ptr noundef %14, ptr noundef %15)
+  %111 = load i32, ptr %14, align 4
+  %112 = load ptr, ptr %11, align 8
+  %113 = load i32, ptr %15, align 4
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %114, i32 0, i32 6
+  %116 = load i32, ptr %115, align 4
+  %117 = call i64 @OidReceiveFunctionCall(i32 noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef %116)
+  %118 = load ptr, ptr %4, align 8
+  %119 = getelementptr inbounds %struct.TupleTableSlot, ptr %118, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %8, align 4
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr i64, ptr %120, i64 %122
+  store i64 %117, ptr %123, align 8
+  %124 = load ptr, ptr %11, align 8
+  %125 = getelementptr inbounds %struct.StringInfoData, ptr %124, i32 0, i32 3
+  %126 = load i32, ptr %125, align 8
+  %127 = load ptr, ptr %11, align 8
+  %128 = getelementptr inbounds %struct.StringInfoData, ptr %127, i32 0, i32 1
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp ne i32 %126, %129
+  br i1 %130, label %131, label %144
 
-130:                                              ; preds = %104
-  br label %131
-
-131:                                              ; preds = %130
-  br i1 true, label %132, label %134
+131:                                              ; preds = %105
+  br label %132
 
 132:                                              ; preds = %131
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %133, label %136, label %141
+  br i1 true, label %133, label %135
 
-134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %135, label %136, label %141
+133:                                              ; preds = %132
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %134, label %137, label %142
 
-136:                                              ; preds = %134, %132
-  %137 = call i32 @errcode(i32 noundef 50462850)
-  %138 = load i32, ptr %10, align 4
-  %139 = add i32 %138, 1
-  %140 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, i32 noundef %139)
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %136, label %137, label %142
+
+137:                                              ; preds = %135, %133
+  %138 = call i32 @errcode(i32 noundef 50462850)
+  %139 = load i32, ptr %10, align 4
+  %140 = add i32 %139, 1
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, i32 noundef %140)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 878, ptr noundef @__func__.slot_store_data)
-  br label %141
+  br label %142
 
-141:                                              ; preds = %136, %134, %132
+142:                                              ; preds = %137, %135, %133
   unreachable
 
-142:                                              ; No predecessors!
-  br label %143
+143:                                              ; No predecessors!
+  br label %144
 
-143:                                              ; preds = %142, %104
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.TupleTableSlot, ptr %144, i32 0, i32 6
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %8, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr i8, ptr %146, i64 %148
-  store i8 0, ptr %149, align 1
-  br label %163
-
-150:                                              ; preds = %94
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.TupleTableSlot, ptr %151, i32 0, i32 5
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %8, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr i64, ptr %153, i64 %155
-  store i64 0, ptr %156, align 8
-  %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %struct.TupleTableSlot, ptr %157, i32 0, i32 6
-  %159 = load ptr, ptr %158, align 8
-  %160 = load i32, ptr %8, align 4
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr i8, ptr %159, i64 %161
-  store i8 1, ptr %162, align 1
-  br label %163
-
-163:                                              ; preds = %150, %143
+144:                                              ; preds = %143, %105
+  %145 = load ptr, ptr %4, align 8
+  %146 = getelementptr inbounds %struct.TupleTableSlot, ptr %145, i32 0, i32 6
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i32, ptr %8, align 4
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr i8, ptr %147, i64 %149
+  store i8 0, ptr %150, align 1
   br label %164
 
-164:                                              ; preds = %163, %69
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2), align 8
-  br label %178
+151:                                              ; preds = %95
+  %152 = load ptr, ptr %4, align 8
+  %153 = getelementptr inbounds %struct.TupleTableSlot, ptr %152, i32 0, i32 5
+  %154 = load ptr, ptr %153, align 8
+  %155 = load i32, ptr %8, align 4
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr i64, ptr %154, i64 %156
+  store i64 0, ptr %157, align 8
+  %158 = load ptr, ptr %4, align 8
+  %159 = getelementptr inbounds %struct.TupleTableSlot, ptr %158, i32 0, i32 6
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i32, ptr %8, align 4
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr i8, ptr %160, i64 %162
+  store i8 1, ptr %163, align 1
+  br label %164
 
-165:                                              ; preds = %49, %27
-  %166 = load ptr, ptr %4, align 8
-  %167 = getelementptr inbounds %struct.TupleTableSlot, ptr %166, i32 0, i32 5
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i32, ptr %8, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr i64, ptr %168, i64 %170
-  store i64 0, ptr %171, align 8
-  %172 = load ptr, ptr %4, align 8
-  %173 = getelementptr inbounds %struct.TupleTableSlot, ptr %172, i32 0, i32 6
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr %8, align 4
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr i8, ptr %174, i64 %176
-  store i8 1, ptr %177, align 1
-  br label %178
+164:                                              ; preds = %151, %144
+  br label %165
 
-178:                                              ; preds = %165, %164
-  br label %179
+165:                                              ; preds = %164, %70
+  %166 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2
+  store i32 -1, ptr %166, align 8
+  br label %180
 
-179:                                              ; preds = %178
-  %180 = load i32, ptr %8, align 4
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %8, align 4
+167:                                              ; preds = %49, %27
+  %168 = load ptr, ptr %4, align 8
+  %169 = getelementptr inbounds %struct.TupleTableSlot, ptr %168, i32 0, i32 5
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %8, align 4
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr i64, ptr %170, i64 %172
+  store i64 0, ptr %173, align 8
+  %174 = load ptr, ptr %4, align 8
+  %175 = getelementptr inbounds %struct.TupleTableSlot, ptr %174, i32 0, i32 6
+  %176 = load ptr, ptr %175, align 8
+  %177 = load i32, ptr %8, align 4
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr i8, ptr %176, i64 %178
+  store i8 1, ptr %179, align 1
+  br label %180
+
+180:                                              ; preds = %167, %165
+  br label %181
+
+181:                                              ; preds = %180
+  %182 = load i32, ptr %8, align 4
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %8, align 4
   br label %23, !llvm.loop !13
 
-182:                                              ; preds = %23
-  %183 = load ptr, ptr %4, align 8
-  %184 = call ptr @ExecStoreVirtualTuple(ptr noundef %183)
+184:                                              ; preds = %23
+  %185 = load ptr, ptr %4, align 8
+  %186 = call ptr @ExecStoreVirtualTuple(ptr noundef %185)
   ret void
 }
 
@@ -8209,129 +8227,139 @@ define internal void @subxact_info_add(i32 noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load i32, ptr @stream_xid, align 4
-  %8 = load i32, ptr %2, align 4
-  %9 = icmp eq i32 %7, %8
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  br label %83
+  %6 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  %8 = load i32, ptr @stream_xid, align 4
+  %9 = load i32, ptr %2, align 4
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2), align 8
-  %13 = load i32, ptr %2, align 4
-  %14 = icmp eq i32 %12, %13
-  br i1 %14, label %15, label %16
+  br label %93
 
-15:                                               ; preds = %11
-  br label %83
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2
+  %14 = load i32, ptr %13, align 8
+  %15 = load i32, ptr %2, align 4
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %11
-  %17 = load i32, ptr %2, align 4
-  store i32 %17, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2), align 8
-  %18 = load i32, ptr @subxact_data, align 8
-  %19 = zext i32 %18 to i64
-  store i64 %19, ptr %4, align 8
-  br label %20
+17:                                               ; preds = %12
+  br label %93
 
-20:                                               ; preds = %34, %16
-  %21 = load i64, ptr %4, align 8
-  %22 = icmp sgt i64 %21, 0
-  br i1 %22, label %23, label %37
+18:                                               ; preds = %12
+  %19 = load i32, ptr %2, align 4
+  %20 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2
+  store i32 %19, ptr %20, align 8
+  %21 = load i32, ptr @subxact_data, align 8
+  %22 = zext i32 %21 to i64
+  store i64 %22, ptr %4, align 8
+  br label %23
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i64, ptr %4, align 8
-  %26 = sub i64 %25, 1
-  %27 = getelementptr %struct.SubXactInfo, ptr %24, i64 %26
-  %28 = getelementptr inbounds %struct.SubXactInfo, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = load i32, ptr %2, align 4
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %33
+23:                                               ; preds = %37, %18
+  %24 = load i64, ptr %4, align 8
+  %25 = icmp sgt i64 %24, 0
+  br i1 %25, label %26, label %40
 
-32:                                               ; preds = %23
-  br label %83
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %3, align 8
+  %28 = load i64, ptr %4, align 8
+  %29 = sub i64 %28, 1
+  %30 = getelementptr %struct.SubXactInfo, ptr %27, i64 %29
+  %31 = getelementptr inbounds %struct.SubXactInfo, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8
+  %33 = load i32, ptr %2, align 4
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %23
-  br label %34
+35:                                               ; preds = %26
+  br label %93
 
-34:                                               ; preds = %33
-  %35 = load i64, ptr %4, align 8
-  %36 = add i64 %35, -1
-  store i64 %36, ptr %4, align 8
-  br label %20, !llvm.loop !16
+36:                                               ; preds = %26
+  br label %37
 
-37:                                               ; preds = %20
-  %38 = load i32, ptr @subxact_data, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %49
+37:                                               ; preds = %36
+  %38 = load i64, ptr %4, align 8
+  %39 = add i64 %38, -1
+  store i64 %39, ptr %4, align 8
+  br label %23, !llvm.loop !16
 
-40:                                               ; preds = %37
-  store i32 128, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %41 = load ptr, ptr @LogicalStreamingContext, align 8
-  %42 = call ptr @MemoryContextSwitchTo(ptr noundef %41)
-  store ptr %42, ptr %5, align 8
-  %43 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %44 = zext i32 %43 to i64
-  %45 = mul i64 %44, 16
-  %46 = call ptr @palloc(i64 noundef %45)
-  store ptr %46, ptr %3, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = call ptr @MemoryContextSwitchTo(ptr noundef %47)
-  br label %62
+40:                                               ; preds = %23
+  %41 = load i32, ptr @subxact_data, align 8
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %54
 
-49:                                               ; preds = %37
-  %50 = load i32, ptr @subxact_data, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %52 = icmp eq i32 %50, %51
-  br i1 %52, label %53, label %61
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  store i32 128, ptr %44, align 4
+  %45 = load ptr, ptr @LogicalStreamingContext, align 8
+  %46 = call ptr @MemoryContextSwitchTo(ptr noundef %45)
+  store ptr %46, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  %49 = zext i32 %48 to i64
+  %50 = mul i64 %49, 16
+  %51 = call ptr @palloc(i64 noundef %50)
+  store ptr %51, ptr %3, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = call ptr @MemoryContextSwitchTo(ptr noundef %52)
+  br label %71
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %55 = mul i32 %54, 2
-  store i32 %55, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
-  %58 = zext i32 %57 to i64
-  %59 = mul i64 %58, 16
-  %60 = call ptr @repalloc(ptr noundef %56, i64 noundef %59)
-  store ptr %60, ptr %3, align 8
-  br label %61
+54:                                               ; preds = %40
+  %55 = load i32, ptr @subxact_data, align 8
+  %56 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %55, %57
+  br i1 %58, label %59, label %70
 
-61:                                               ; preds = %53, %49
-  br label %62
-
-62:                                               ; preds = %61, %40
-  %63 = load i32, ptr %2, align 4
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  %61 = load i32, ptr %60, align 4
+  %62 = mul i32 %61, 2
+  %63 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  store i32 %62, ptr %63, align 4
   %64 = load ptr, ptr %3, align 8
-  %65 = load i32, ptr @subxact_data, align 8
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr %struct.SubXactInfo, ptr %64, i64 %66
-  %68 = getelementptr inbounds %struct.SubXactInfo, ptr %67, i32 0, i32 0
-  store i32 %63, ptr %68, align 8
-  %69 = load ptr, ptr @stream_fd, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = load i32, ptr @subxact_data, align 8
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr %struct.SubXactInfo, ptr %70, i64 %72
-  %74 = getelementptr inbounds %struct.SubXactInfo, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %3, align 8
-  %76 = load i32, ptr @subxact_data, align 8
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr %struct.SubXactInfo, ptr %75, i64 %77
-  %79 = getelementptr inbounds %struct.SubXactInfo, ptr %78, i32 0, i32 2
-  call void @BufFileTell(ptr noundef %69, ptr noundef %74, ptr noundef %79)
-  %80 = load i32, ptr @subxact_data, align 8
-  %81 = add i32 %80, 1
-  store i32 %81, ptr @subxact_data, align 8
-  %82 = load ptr, ptr %3, align 8
-  store ptr %82, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  br label %83
+  %65 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4
+  %67 = zext i32 %66 to i64
+  %68 = mul i64 %67, 16
+  %69 = call ptr @repalloc(ptr noundef %64, i64 noundef %68)
+  store ptr %69, ptr %3, align 8
+  br label %70
 
-83:                                               ; preds = %62, %32, %15, %10
+70:                                               ; preds = %59, %54
+  br label %71
+
+71:                                               ; preds = %70, %43
+  %72 = load i32, ptr %2, align 4
+  %73 = load ptr, ptr %3, align 8
+  %74 = load i32, ptr @subxact_data, align 8
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr %struct.SubXactInfo, ptr %73, i64 %75
+  %77 = getelementptr inbounds %struct.SubXactInfo, ptr %76, i32 0, i32 0
+  store i32 %72, ptr %77, align 8
+  %78 = load ptr, ptr @stream_fd, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = load i32, ptr @subxact_data, align 8
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr %struct.SubXactInfo, ptr %79, i64 %81
+  %83 = getelementptr inbounds %struct.SubXactInfo, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %3, align 8
+  %85 = load i32, ptr @subxact_data, align 8
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr %struct.SubXactInfo, ptr %84, i64 %86
+  %88 = getelementptr inbounds %struct.SubXactInfo, ptr %87, i32 0, i32 2
+  call void @BufFileTell(ptr noundef %78, ptr noundef %83, ptr noundef %88)
+  %89 = load i32, ptr @subxact_data, align 8
+  %90 = add i32 %89, 1
+  store i32 %90, ptr @subxact_data, align 8
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  store ptr %91, ptr %92, align 8
+  br label %93
+
+93:                                               ; preds = %71, %35, %17, %11
   ret void
 }
 
@@ -8836,11 +8864,11 @@ define internal void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 0, ptr %10, align 4
   br label %44
 
-44:                                               ; preds = %193, %4
+44:                                               ; preds = %195, %4
   %45 = load i32, ptr %10, align 4
   %46 = load i32, ptr %9, align 4
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %48, label %196
+  br i1 %47, label %48, label %198
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %5, align 8
@@ -8867,7 +8895,7 @@ define internal void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %48
-  br label %193
+  br label %195
 
 69:                                               ; preds = %48
   %70 = load ptr, ptr %8, align 8
@@ -8879,7 +8907,7 @@ define internal void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr nound
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp ne i32 %77, 117
-  br i1 %78, label %79, label %192
+  br i1 %78, label %79, label %194
 
 79:                                               ; preds = %69
   %80 = load ptr, ptr %8, align 8
@@ -8890,165 +8918,167 @@ define internal void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr nound
   %85 = getelementptr %struct.StringInfoData, ptr %82, i64 %84
   store ptr %85, ptr %13, align 8
   %86 = load i32, ptr %12, align 4
-  store i32 %86, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2), align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr %12, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr i8, ptr %89, i64 %91
-  %93 = load i8, ptr %92, align 1
-  %94 = sext i8 %93 to i32
-  %95 = icmp eq i32 %94, 116
-  br i1 %95, label %96, label %121
+  %87 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2
+  store i32 %86, ptr %87, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i32, ptr %12, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr i8, ptr %90, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = sext i8 %94 to i32
+  %96 = icmp eq i32 %95, 116
+  br i1 %96, label %97, label %122
 
-96:                                               ; preds = %79
-  %97 = load ptr, ptr %11, align 8
-  %98 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %97, i32 0, i32 2
-  %99 = load i32, ptr %98, align 4
-  call void @getTypeInputInfo(i32 noundef %99, ptr noundef %14, ptr noundef %15)
-  %100 = load i32, ptr %14, align 4
-  %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr inbounds %struct.StringInfoData, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %15, align 4
-  %105 = load ptr, ptr %11, align 8
-  %106 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %105, i32 0, i32 6
-  %107 = load i32, ptr %106, align 4
-  %108 = call i64 @OidInputFunctionCall(i32 noundef %100, ptr noundef %103, i32 noundef %104, i32 noundef %107)
-  %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr inbounds %struct.TupleTableSlot, ptr %109, i32 0, i32 5
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i32, ptr %10, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr i64, ptr %111, i64 %113
-  store i64 %108, ptr %114, align 8
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.TupleTableSlot, ptr %115, i32 0, i32 6
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %10, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr i8, ptr %117, i64 %119
-  store i8 0, ptr %120, align 1
-  br label %191
-
-121:                                              ; preds = %79
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %12, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr i8, ptr %124, i64 %126
-  %128 = load i8, ptr %127, align 1
-  %129 = sext i8 %128 to i32
-  %130 = icmp eq i32 %129, 98
-  br i1 %130, label %131, label %177
-
-131:                                              ; preds = %121
-  %132 = load ptr, ptr %13, align 8
-  %133 = getelementptr inbounds %struct.StringInfoData, ptr %132, i32 0, i32 3
-  store i32 0, ptr %133, align 8
-  %134 = load ptr, ptr %11, align 8
-  %135 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %134, i32 0, i32 2
-  %136 = load i32, ptr %135, align 4
-  call void @getTypeBinaryInputInfo(i32 noundef %136, ptr noundef %16, ptr noundef %17)
-  %137 = load i32, ptr %16, align 4
-  %138 = load ptr, ptr %13, align 8
-  %139 = load i32, ptr %17, align 4
-  %140 = load ptr, ptr %11, align 8
-  %141 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %140, i32 0, i32 6
-  %142 = load i32, ptr %141, align 4
-  %143 = call i64 @OidReceiveFunctionCall(i32 noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef %142)
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds %struct.TupleTableSlot, ptr %144, i32 0, i32 5
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %10, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr i64, ptr %146, i64 %148
-  store i64 %143, ptr %149, align 8
-  %150 = load ptr, ptr %13, align 8
-  %151 = getelementptr inbounds %struct.StringInfoData, ptr %150, i32 0, i32 3
-  %152 = load i32, ptr %151, align 8
-  %153 = load ptr, ptr %13, align 8
-  %154 = getelementptr inbounds %struct.StringInfoData, ptr %153, i32 0, i32 1
-  %155 = load i32, ptr %154, align 8
-  %156 = icmp ne i32 %152, %155
-  br i1 %156, label %157, label %170
-
-157:                                              ; preds = %131
-  br label %158
-
-158:                                              ; preds = %157
-  br i1 true, label %159, label %161
-
-159:                                              ; preds = %158
-  %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  br i1 %160, label %163, label %168
-
-161:                                              ; preds = %158
-  %162 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %162, label %163, label %168
-
-163:                                              ; preds = %161, %159
-  %164 = call i32 @errcode(i32 noundef 50462850)
-  %165 = load i32, ptr %12, align 4
-  %166 = add i32 %165, 1
-  %167 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, i32 noundef %166)
-  call void @errfinish(ptr noundef @.str.3, i32 noundef 993, ptr noundef @__func__.slot_modify_data)
-  br label %168
-
-168:                                              ; preds = %163, %161, %159
-  unreachable
-
-169:                                              ; No predecessors!
-  br label %170
-
-170:                                              ; preds = %169, %131
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.TupleTableSlot, ptr %171, i32 0, i32 6
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %10, align 4
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr i8, ptr %173, i64 %175
-  store i8 0, ptr %176, align 1
-  br label %190
-
-177:                                              ; preds = %121
-  %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.TupleTableSlot, ptr %178, i32 0, i32 5
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i32, ptr %10, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr i64, ptr %180, i64 %182
-  store i64 0, ptr %183, align 8
-  %184 = load ptr, ptr %5, align 8
-  %185 = getelementptr inbounds %struct.TupleTableSlot, ptr %184, i32 0, i32 6
-  %186 = load ptr, ptr %185, align 8
-  %187 = load i32, ptr %10, align 4
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr i8, ptr %186, i64 %188
-  store i8 1, ptr %189, align 1
-  br label %190
-
-190:                                              ; preds = %177, %170
-  br label %191
-
-191:                                              ; preds = %190, %96
-  store i32 -1, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2), align 8
+97:                                               ; preds = %79
+  %98 = load ptr, ptr %11, align 8
+  %99 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %98, i32 0, i32 2
+  %100 = load i32, ptr %99, align 4
+  call void @getTypeInputInfo(i32 noundef %100, ptr noundef %14, ptr noundef %15)
+  %101 = load i32, ptr %14, align 4
+  %102 = load ptr, ptr %13, align 8
+  %103 = getelementptr inbounds %struct.StringInfoData, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = load i32, ptr %15, align 4
+  %106 = load ptr, ptr %11, align 8
+  %107 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %106, i32 0, i32 6
+  %108 = load i32, ptr %107, align 4
+  %109 = call i64 @OidInputFunctionCall(i32 noundef %101, ptr noundef %104, i32 noundef %105, i32 noundef %108)
+  %110 = load ptr, ptr %5, align 8
+  %111 = getelementptr inbounds %struct.TupleTableSlot, ptr %110, i32 0, i32 5
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i32, ptr %10, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr i64, ptr %112, i64 %114
+  store i64 %109, ptr %115, align 8
+  %116 = load ptr, ptr %5, align 8
+  %117 = getelementptr inbounds %struct.TupleTableSlot, ptr %116, i32 0, i32 6
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %10, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr i8, ptr %118, i64 %120
+  store i8 0, ptr %121, align 1
   br label %192
 
-192:                                              ; preds = %191, %69
-  br label %193
+122:                                              ; preds = %79
+  %123 = load ptr, ptr %8, align 8
+  %124 = getelementptr inbounds %struct.LogicalRepTupleData, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %12, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr i8, ptr %125, i64 %127
+  %129 = load i8, ptr %128, align 1
+  %130 = sext i8 %129 to i32
+  %131 = icmp eq i32 %130, 98
+  br i1 %131, label %132, label %178
 
-193:                                              ; preds = %192, %68
-  %194 = load i32, ptr %10, align 4
-  %195 = add i32 %194, 1
-  store i32 %195, ptr %10, align 4
+132:                                              ; preds = %122
+  %133 = load ptr, ptr %13, align 8
+  %134 = getelementptr inbounds %struct.StringInfoData, ptr %133, i32 0, i32 3
+  store i32 0, ptr %134, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %135, i32 0, i32 2
+  %137 = load i32, ptr %136, align 4
+  call void @getTypeBinaryInputInfo(i32 noundef %137, ptr noundef %16, ptr noundef %17)
+  %138 = load i32, ptr %16, align 4
+  %139 = load ptr, ptr %13, align 8
+  %140 = load i32, ptr %17, align 4
+  %141 = load ptr, ptr %11, align 8
+  %142 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %141, i32 0, i32 6
+  %143 = load i32, ptr %142, align 4
+  %144 = call i64 @OidReceiveFunctionCall(i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %143)
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds %struct.TupleTableSlot, ptr %145, i32 0, i32 5
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i32, ptr %10, align 4
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr i64, ptr %147, i64 %149
+  store i64 %144, ptr %150, align 8
+  %151 = load ptr, ptr %13, align 8
+  %152 = getelementptr inbounds %struct.StringInfoData, ptr %151, i32 0, i32 3
+  %153 = load i32, ptr %152, align 8
+  %154 = load ptr, ptr %13, align 8
+  %155 = getelementptr inbounds %struct.StringInfoData, ptr %154, i32 0, i32 1
+  %156 = load i32, ptr %155, align 8
+  %157 = icmp ne i32 %153, %156
+  br i1 %157, label %158, label %171
+
+158:                                              ; preds = %132
+  br label %159
+
+159:                                              ; preds = %158
+  br i1 true, label %160, label %162
+
+160:                                              ; preds = %159
+  %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  br i1 %161, label %164, label %169
+
+162:                                              ; preds = %159
+  %163 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %163, label %164, label %169
+
+164:                                              ; preds = %162, %160
+  %165 = call i32 @errcode(i32 noundef 50462850)
+  %166 = load i32, ptr %12, align 4
+  %167 = add i32 %166, 1
+  %168 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.48, i32 noundef %167)
+  call void @errfinish(ptr noundef @.str.3, i32 noundef 993, ptr noundef @__func__.slot_modify_data)
+  br label %169
+
+169:                                              ; preds = %164, %162, %160
+  unreachable
+
+170:                                              ; No predecessors!
+  br label %171
+
+171:                                              ; preds = %170, %132
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr inbounds %struct.TupleTableSlot, ptr %172, i32 0, i32 6
+  %174 = load ptr, ptr %173, align 8
+  %175 = load i32, ptr %10, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr i8, ptr %174, i64 %176
+  store i8 0, ptr %177, align 1
+  br label %191
+
+178:                                              ; preds = %122
+  %179 = load ptr, ptr %5, align 8
+  %180 = getelementptr inbounds %struct.TupleTableSlot, ptr %179, i32 0, i32 5
+  %181 = load ptr, ptr %180, align 8
+  %182 = load i32, ptr %10, align 4
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr i64, ptr %181, i64 %183
+  store i64 0, ptr %184, align 8
+  %185 = load ptr, ptr %5, align 8
+  %186 = getelementptr inbounds %struct.TupleTableSlot, ptr %185, i32 0, i32 6
+  %187 = load ptr, ptr %186, align 8
+  %188 = load i32, ptr %10, align 4
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr i8, ptr %187, i64 %189
+  store i8 1, ptr %190, align 1
+  br label %191
+
+191:                                              ; preds = %178, %171
+  br label %192
+
+192:                                              ; preds = %191, %97
+  %193 = getelementptr inbounds %struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i32 0, i32 2
+  store i32 -1, ptr %193, align 8
+  br label %194
+
+194:                                              ; preds = %192, %69
+  br label %195
+
+195:                                              ; preds = %194, %68
+  %196 = load i32, ptr %10, align 4
+  %197 = add i32 %196, 1
+  store i32 %197, ptr %10, align 4
   br label %44, !llvm.loop !17
 
-196:                                              ; preds = %44
-  %197 = load ptr, ptr %5, align 8
-  %198 = call ptr @ExecStoreVirtualTuple(ptr noundef %197)
+198:                                              ; preds = %44
+  %199 = load ptr, ptr %5, align 8
+  %200 = call ptr @ExecStoreVirtualTuple(ptr noundef %199)
   ret void
 }
 
@@ -9477,7 +9507,7 @@ define internal void @stream_abort_internal(i32 noundef %0, i32 noundef %1) #0 {
   %16 = load i32, ptr %15, align 8
   %17 = load i32, ptr %3, align 4
   call void @stream_cleanup_files(i32 noundef %16, i32 noundef %17)
-  br label %77
+  br label %80
 
 18:                                               ; preds = %2
   store i8 0, ptr %8, align 1
@@ -9493,89 +9523,92 @@ define internal void @stream_abort_internal(i32 noundef %0, i32 noundef %1) #0 {
   store i64 %24, ptr %5, align 8
   br label %25
 
-25:                                               ; preds = %41, %18
+25:                                               ; preds = %42, %18
   %26 = load i64, ptr %5, align 8
   %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %28, label %44
+  br i1 %27, label %28, label %45
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %30 = load i64, ptr %5, align 8
-  %31 = sub i64 %30, 1
-  %32 = getelementptr %struct.SubXactInfo, ptr %29, i64 %31
-  %33 = getelementptr inbounds %struct.SubXactInfo, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp eq i32 %34, %35
-  br i1 %36, label %37, label %40
+  %29 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %5, align 8
+  %32 = sub i64 %31, 1
+  %33 = getelementptr %struct.SubXactInfo, ptr %30, i64 %32
+  %34 = getelementptr inbounds %struct.SubXactInfo, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %4, align 4
+  %37 = icmp eq i32 %35, %36
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %28
-  %38 = load i64, ptr %5, align 8
-  %39 = sub i64 %38, 1
-  store i64 %39, ptr %6, align 8
+38:                                               ; preds = %28
+  %39 = load i64, ptr %5, align 8
+  %40 = sub i64 %39, 1
+  store i64 %40, ptr %6, align 8
   store i8 1, ptr %8, align 1
-  br label %44
+  br label %45
 
-40:                                               ; preds = %28
-  br label %41
+41:                                               ; preds = %28
+  br label %42
 
-41:                                               ; preds = %40
-  %42 = load i64, ptr %5, align 8
-  %43 = add i64 %42, -1
-  store i64 %43, ptr %5, align 8
+42:                                               ; preds = %41
+  %43 = load i64, ptr %5, align 8
+  %44 = add i64 %43, -1
+  store i64 %44, ptr %5, align 8
   br label %25, !llvm.loop !19
 
-44:                                               ; preds = %37, %25
-  %45 = load i8, ptr %8, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %48, label %47
+45:                                               ; preds = %38, %25
+  %46 = load i8, ptr %8, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %49, label %48
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   call void @cleanup_subxact_info()
   call void @end_replication_step()
   call void @CommitTransactionCommand()
-  br label %77
+  br label %80
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds [1024 x i8], ptr %9, i64 0, i64 0
-  %50 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %51 = getelementptr inbounds %struct.LogicalRepWorker, ptr %50, i32 0, i32 7
-  %52 = load i32, ptr %51, align 8
-  %53 = load i32, ptr %3, align 4
-  call void @changes_filename(ptr noundef %49, i32 noundef %52, i32 noundef %53)
-  %54 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %55 = getelementptr inbounds %struct.LogicalRepWorker, ptr %54, i32 0, i32 12
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds [1024 x i8], ptr %9, i64 0, i64 0
-  %58 = call ptr @BufFileOpenFileSet(ptr noundef %56, ptr noundef %57, i32 noundef 2, i1 noundef zeroext false)
-  store ptr %58, ptr %7, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %61 = load i64, ptr %6, align 8
-  %62 = getelementptr %struct.SubXactInfo, ptr %60, i64 %61
-  %63 = getelementptr inbounds %struct.SubXactInfo, ptr %62, i32 0, i32 1
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %66 = load i64, ptr %6, align 8
-  %67 = getelementptr %struct.SubXactInfo, ptr %65, i64 %66
-  %68 = getelementptr inbounds %struct.SubXactInfo, ptr %67, i32 0, i32 2
-  %69 = load i64, ptr %68, align 8
-  call void @BufFileTruncateFileSet(ptr noundef %59, i32 noundef %64, i64 noundef %69)
-  %70 = load ptr, ptr %7, align 8
-  call void @BufFileClose(ptr noundef %70)
-  %71 = load i64, ptr %6, align 8
-  %72 = trunc i64 %71 to i32
-  store i32 %72, ptr @subxact_data, align 8
-  %73 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %74 = getelementptr inbounds %struct.LogicalRepWorker, ptr %73, i32 0, i32 7
-  %75 = load i32, ptr %74, align 8
-  %76 = load i32, ptr %3, align 4
-  call void @subxact_info_write(i32 noundef %75, i32 noundef %76)
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds [1024 x i8], ptr %9, i64 0, i64 0
+  %51 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %52 = getelementptr inbounds %struct.LogicalRepWorker, ptr %51, i32 0, i32 7
+  %53 = load i32, ptr %52, align 8
+  %54 = load i32, ptr %3, align 4
+  call void @changes_filename(ptr noundef %50, i32 noundef %53, i32 noundef %54)
+  %55 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %56 = getelementptr inbounds %struct.LogicalRepWorker, ptr %55, i32 0, i32 12
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds [1024 x i8], ptr %9, i64 0, i64 0
+  %59 = call ptr @BufFileOpenFileSet(ptr noundef %57, ptr noundef %58, i32 noundef 2, i1 noundef zeroext false)
+  store ptr %59, ptr %7, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i64, ptr %6, align 8
+  %64 = getelementptr %struct.SubXactInfo, ptr %62, i64 %63
+  %65 = getelementptr inbounds %struct.SubXactInfo, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i64, ptr %6, align 8
+  %70 = getelementptr %struct.SubXactInfo, ptr %68, i64 %69
+  %71 = getelementptr inbounds %struct.SubXactInfo, ptr %70, i32 0, i32 2
+  %72 = load i64, ptr %71, align 8
+  call void @BufFileTruncateFileSet(ptr noundef %60, i32 noundef %66, i64 noundef %72)
+  %73 = load ptr, ptr %7, align 8
+  call void @BufFileClose(ptr noundef %73)
+  %74 = load i64, ptr %6, align 8
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr @subxact_data, align 8
+  %76 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %77 = getelementptr inbounds %struct.LogicalRepWorker, ptr %76, i32 0, i32 7
+  %78 = load i32, ptr %77, align 8
+  %79 = load i32, ptr %3, align 4
+  call void @subxact_info_write(i32 noundef %78, i32 noundef %79)
   call void @end_replication_step()
   call void @CommitTransactionCommand()
-  br label %77
+  br label %80
 
-77:                                               ; preds = %48, %47, %13
+80:                                               ; preds = %49, %48, %13
   ret void
 }
 
@@ -9613,20 +9646,25 @@ declare void @pa_stream_abort(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @cleanup_subxact_info() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  %2 = icmp ne ptr %1, null
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr %2, null
+  br i1 %3, label %4, label %7
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  call void @pfree(ptr noundef %4)
-  br label %5
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %6)
+  br label %7
 
-5:                                                ; preds = %3, %0
-  store ptr null, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2), align 8
+7:                                                ; preds = %4, %0
+  %8 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 3
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 2
+  store i32 0, ptr %9, align 8
   store i32 0, ptr @subxact_data, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1), align 4
+  %10 = getelementptr inbounds %struct.ApplySubXactData, ptr @subxact_data, i32 0, i32 1
+  store i32 0, ptr %10, align 4
   ret void
 }
 

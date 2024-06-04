@@ -240,7 +240,8 @@ entry:
   store i8 %frombool, ptr %flipQuadEdges.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -270,36 +271,36 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i32, ptr %heightStickWidth.addr, align 4
-  %1 = load i32, ptr %heightStickLength.addr, align 4
-  %2 = load ptr, ptr %heightfieldData.addr, align 8
-  %3 = load float, ptr %minHeight.addr, align 4
-  %4 = load float, ptr %maxHeight.addr, align 4
-  %5 = load i32, ptr %upAxis.addr, align 4
-  %6 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool = trunc i8 %6 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %0, i32 noundef %1, ptr noundef %2, float noundef 1.000000e+00, float noundef %3, float noundef %4, i32 noundef %5, i32 noundef 0, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %heightStickWidth.addr, align 4
+  %2 = load i32, ptr %heightStickLength.addr, align 4
+  %3 = load ptr, ptr %heightfieldData.addr, align 8
+  %4 = load float, ptr %minHeight.addr, align 4
+  %5 = load float, ptr %maxHeight.addr, align 4
+  %6 = load i32, ptr %upAxis.addr, align 4
+  %7 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool = trunc i8 %7 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %1, i32 noundef %2, ptr noundef %3, float noundef 1.000000e+00, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef 0, i1 noundef zeroext %tobool)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -556,7 +557,8 @@ entry:
   store i8 %frombool, ptr %flipQuadEdges.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -586,36 +588,36 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i32, ptr %heightStickWidth.addr, align 4
-  %1 = load i32, ptr %heightStickLength.addr, align 4
-  %2 = load ptr, ptr %heightfieldData.addr, align 8
-  %3 = load float, ptr %minHeight.addr, align 4
-  %4 = load float, ptr %maxHeight.addr, align 4
-  %5 = load i32, ptr %upAxis.addr, align 4
-  %6 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool = trunc i8 %6 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %0, i32 noundef %1, ptr noundef %2, float noundef 1.000000e+00, float noundef %3, float noundef %4, i32 noundef %5, i32 noundef 1, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %heightStickWidth.addr, align 4
+  %2 = load i32, ptr %heightStickLength.addr, align 4
+  %3 = load ptr, ptr %heightfieldData.addr, align 8
+  %4 = load float, ptr %minHeight.addr, align 4
+  %5 = load float, ptr %maxHeight.addr, align 4
+  %6 = load i32, ptr %upAxis.addr, align 4
+  %7 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool = trunc i8 %7 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %1, i32 noundef %2, ptr noundef %3, float noundef 1.000000e+00, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef 1, i1 noundef zeroext %tobool)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -657,7 +659,8 @@ entry:
   store i8 %frombool, ptr %flipQuadEdges.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -687,37 +690,37 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i32, ptr %heightStickWidth.addr, align 4
-  %1 = load i32, ptr %heightStickLength.addr, align 4
-  %2 = load ptr, ptr %heightfieldData.addr, align 8
-  %3 = load float, ptr %heightScale.addr, align 4
-  %4 = load float, ptr %minHeight.addr, align 4
-  %5 = load float, ptr %maxHeight.addr, align 4
-  %6 = load i32, ptr %upAxis.addr, align 4
-  %7 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool = trunc i8 %7 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef 3, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %heightStickWidth.addr, align 4
+  %2 = load i32, ptr %heightStickLength.addr, align 4
+  %3 = load ptr, ptr %heightfieldData.addr, align 8
+  %4 = load float, ptr %heightScale.addr, align 4
+  %5 = load float, ptr %minHeight.addr, align 4
+  %6 = load float, ptr %maxHeight.addr, align 4
+  %7 = load i32, ptr %upAxis.addr, align 4
+  %8 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool = trunc i8 %8 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %1, i32 noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef 3, i1 noundef zeroext %tobool)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -759,7 +762,8 @@ entry:
   store i8 %frombool, ptr %flipQuadEdges.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -789,37 +793,37 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i32, ptr %heightStickWidth.addr, align 4
-  %1 = load i32, ptr %heightStickLength.addr, align 4
-  %2 = load ptr, ptr %heightfieldData.addr, align 8
-  %3 = load float, ptr %heightScale.addr, align 4
-  %4 = load float, ptr %minHeight.addr, align 4
-  %5 = load float, ptr %maxHeight.addr, align 4
-  %6 = load i32, ptr %upAxis.addr, align 4
-  %7 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool = trunc i8 %7 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef 5, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %heightStickWidth.addr, align 4
+  %2 = load i32, ptr %heightStickLength.addr, align 4
+  %3 = load ptr, ptr %heightfieldData.addr, align 8
+  %4 = load float, ptr %heightScale.addr, align 4
+  %5 = load float, ptr %minHeight.addr, align 4
+  %6 = load float, ptr %maxHeight.addr, align 4
+  %7 = load i32, ptr %upAxis.addr, align 4
+  %8 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool = trunc i8 %8 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %1, i32 noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef 5, i1 noundef zeroext %tobool)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -863,7 +867,8 @@ entry:
   store i8 %frombool, ptr %flipQuadEdges.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -893,38 +898,38 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this1, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i32, ptr %heightStickWidth.addr, align 4
-  %1 = load i32, ptr %heightStickLength.addr, align 4
-  %2 = load ptr, ptr %heightfieldData.addr, align 8
-  %3 = load float, ptr %heightScale.addr, align 4
-  %4 = load float, ptr %minHeight.addr, align 4
-  %5 = load float, ptr %maxHeight.addr, align 4
-  %6 = load i32, ptr %upAxis.addr, align 4
-  %7 = load i32, ptr %hdt.addr, align 4
-  %8 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool = trunc i8 %8 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %tobool)
+  %1 = load i32, ptr %heightStickWidth.addr, align 4
+  %2 = load i32, ptr %heightStickLength.addr, align 4
+  %3 = load ptr, ptr %heightfieldData.addr, align 8
+  %4 = load float, ptr %heightScale.addr, align 4
+  %5 = load float, ptr %minHeight.addr, align 4
+  %6 = load float, ptr %maxHeight.addr, align 4
+  %7 = load i32, ptr %upAxis.addr, align 4
+  %8 = load i32, ptr %hdt.addr, align 4
+  %9 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool = trunc i8 %9 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this1, i32 noundef %1, i32 noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %tobool)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -968,7 +973,8 @@ entry:
   store i8 %frombool1, ptr %flipQuadEdges.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this2)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %m_localAabbMin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this2, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -998,46 +1004,46 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   store float 0.000000e+00, ptr %m_userValue3, align 4
   %m_triangleInfoMap = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this2, i32 0, i32 25
   store ptr null, ptr %m_triangleInfoMap, align 8
-  %0 = load i8, ptr %useFloatData.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %useFloatData.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, i32 0, i32 5
   store i32 %cond, ptr %hdt, align 4
   store float 0.000000e+00, ptr %minHeight, align 4
-  %1 = load float, ptr %maxHeight.addr, align 4
-  %div = fdiv float %1, 6.553500e+04
+  %2 = load float, ptr %maxHeight.addr, align 4
+  %div = fdiv float %2, 6.553500e+04
   store float %div, ptr %heightScale, align 4
-  %2 = load i32, ptr %heightStickWidth.addr, align 4
-  %3 = load i32, ptr %heightStickLength.addr, align 4
-  %4 = load ptr, ptr %heightfieldData.addr, align 8
-  %5 = load float, ptr %heightScale, align 4
-  %6 = load float, ptr %minHeight, align 4
-  %7 = load float, ptr %maxHeight.addr, align 4
-  %8 = load i32, ptr %upAxis.addr, align 4
-  %9 = load i32, ptr %hdt, align 4
-  %10 = load i8, ptr %flipQuadEdges.addr, align 1
-  %tobool7 = trunc i8 %10 to i1
-  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this2, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %tobool7)
+  %3 = load i32, ptr %heightStickWidth.addr, align 4
+  %4 = load i32, ptr %heightStickLength.addr, align 4
+  %5 = load ptr, ptr %heightfieldData.addr, align 8
+  %6 = load float, ptr %heightScale, align 4
+  %7 = load float, ptr %minHeight, align 4
+  %8 = load float, ptr %maxHeight.addr, align 4
+  %9 = load i32, ptr %upAxis.addr, align 4
+  %10 = load i32, ptr %hdt, align 4
+  %11 = load i8, ptr %flipQuadEdges.addr, align 1
+  %tobool7 = trunc i8 %11 to i1
+  invoke void @_ZN25btHeightfieldTerrainShape10initializeEiiPKvfffi14PHY_ScalarTypeb(ptr noundef nonnull align 8 dereferenceable(208) %this2, i32 noundef %3, i32 noundef %4, ptr noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, i1 noundef zeroext %tobool7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont6
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vboundsGrid) #9
   br label %ehcleanup
 
@@ -1165,7 +1171,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV25btHeightfieldTerrainShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN25btHeightfieldTerrainShape16clearAcceleratorEv(ptr noundef nonnull align 8 dereferenceable(208) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1176,10 +1183,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #10
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 }
 

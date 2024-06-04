@@ -2138,7 +2138,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11flatbuffers13CodeGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #14
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21315,7 +21316,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11flexbuffers3Map8EmptyMapEv(ptr noalias sret(%"class.flexbuffers::Map") align 8 %agg.result) #0 comdat align 2 {
 entry:
-  call void @_ZN11flexbuffers3MapC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef getelementptr inbounds (i8, ptr @_ZZN11flexbuffers3Map8EmptyMapEvE9empty_map, i64 4), i8 noundef zeroext 1)
+  %0 = getelementptr inbounds i8, ptr @_ZZN11flexbuffers3Map8EmptyMapEvE9empty_map, i64 4
+  call void @_ZN11flexbuffers3MapC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef %0, i8 noundef zeroext 1)
   ret void
 }
 
@@ -21410,7 +21412,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11flexbuffers6Vector11EmptyVectorEv(ptr noalias sret(%"class.flexbuffers::Vector") align 8 %agg.result) #0 comdat align 2 {
 entry:
-  call void @_ZN11flexbuffers6VectorC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef getelementptr inbounds (i8, ptr @_ZZN11flexbuffers6Vector11EmptyVectorEvE12empty_vector, i64 1), i8 noundef zeroext 1)
+  %0 = getelementptr inbounds i8, ptr @_ZZN11flexbuffers6Vector11EmptyVectorEvE12empty_vector, i64 1
+  call void @_ZN11flexbuffers6VectorC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef %0, i8 noundef zeroext 1)
   ret void
 }
 
@@ -21452,7 +21455,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11flexbuffers11TypedVector16EmptyTypedVectorEv(ptr noalias sret(%"class.flexbuffers::TypedVector") align 8 %agg.result) #0 comdat align 2 {
 entry:
-  call void @_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef getelementptr inbounds (i8, ptr @_ZZN11flexbuffers11TypedVector16EmptyTypedVectorEvE18empty_typed_vector, i64 1), i8 noundef zeroext 1, i32 noundef 1)
+  %0 = getelementptr inbounds i8, ptr @_ZZN11flexbuffers11TypedVector16EmptyTypedVectorEvE18empty_typed_vector, i64 1
+  call void @_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef %0, i8 noundef zeroext 1, i32 noundef 1)
   ret void
 }
 
@@ -21606,7 +21610,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11flexbuffers4Blob9EmptyBlobEv(ptr noalias sret(%"class.flexbuffers::Blob") align 8 %agg.result) #0 comdat align 2 {
 entry:
-  call void @_ZN11flexbuffers4BlobC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef getelementptr inbounds (i8, ptr @_ZZN11flexbuffers4Blob9EmptyBlobEvE10empty_blob, i64 1), i8 noundef zeroext 1)
+  %0 = getelementptr inbounds i8, ptr @_ZZN11flexbuffers4Blob9EmptyBlobEvE10empty_blob, i64 1
+  call void @_ZN11flexbuffers4BlobC2EPKhh(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef %0, i8 noundef zeroext 1)
   ret void
 }
 
@@ -21690,7 +21695,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #14
   ret void
@@ -21974,7 +21980,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #14
   ret void

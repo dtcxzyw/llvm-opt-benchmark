@@ -97,10 +97,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_is = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fileName.addr, align 8
-  %call = invoke noundef ptr @_ZN7Imf_3_212_GLOBAL__N_113make_ifstreamEPKc(ptr noundef %1)
+  %2 = load ptr, ptr %fileName.addr, align 8
+  %call = invoke noundef ptr @_ZN7Imf_3_212_GLOBAL__N_113make_ifstreamEPKc(ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -108,11 +109,11 @@ invoke.cont:                                      ; preds = %entry
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 2
   store i8 1, ptr %_deleteStream, align 8
   %_is2 = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_is2, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %_is2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %call4 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont3 unwind label %lpad
 
@@ -121,15 +122,15 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont3
   %_is5 = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_is5, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_is5, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable6 = load ptr, ptr %3, align 8
+  %vtable6 = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable6, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(256) %3) #3
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -140,12 +141,12 @@ invoke.cont7:                                     ; preds = %delete.end
   br label %if.end
 
 lpad:                                             ; preds = %delete.end, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -216,10 +217,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_is = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %is.addr, align 8
-  store ptr %1, ptr %_is, align 8
+  %2 = load ptr, ptr %is.addr, align 8
+  store ptr %2, ptr %_is, align 8
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 2
   store i8 0, ptr %_deleteStream, align 8
   ret void
@@ -231,23 +233,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdIFStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %_deleteStream, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %_deleteStream, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_is = getelementptr inbounds %"class.Imf_3_2::StdIFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_is, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_is, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #3
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(256) %2) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -584,7 +587,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdISStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdISStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_is = getelementptr inbounds %"class.Imf_3_2::StdISStream", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_is)
           to label %invoke.cont unwind label %lpad
@@ -593,12 +597,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -618,7 +622,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdISStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_211StdISStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_is = getelementptr inbounds %"class.Imf_3_2::StdISStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_is) #3
   call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
@@ -798,10 +803,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_os = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fileName.addr, align 8
-  %call = invoke noundef ptr @_ZN7Imf_3_212_GLOBAL__N_113make_ofstreamEPKc(ptr noundef %1)
+  %2 = load ptr, ptr %fileName.addr, align 8
+  %call = invoke noundef ptr @_ZN7Imf_3_212_GLOBAL__N_113make_ofstreamEPKc(ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -809,11 +815,11 @@ invoke.cont:                                      ; preds = %entry
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 2
   store i8 1, ptr %_deleteStream, align 8
   %_os2 = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_os2, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %_os2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %call4 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont3 unwind label %lpad
 
@@ -822,15 +828,15 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont3
   %_os5 = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_os5, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_os5, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable6 = load ptr, ptr %3, align 8
+  %vtable6 = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable6, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(248) %3) #3
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(248) %4) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -841,12 +847,12 @@ invoke.cont7:                                     ; preds = %delete.end
   br label %if.end
 
 lpad:                                             ; preds = %delete.end, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -911,10 +917,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_os = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %os.addr, align 8
-  store ptr %1, ptr %_os, align 8
+  %2 = load ptr, ptr %os.addr, align 8
+  store ptr %2, ptr %_os, align 8
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 2
   store i8 0, ptr %_deleteStream, align 8
   ret void
@@ -926,23 +933,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOFStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_deleteStream = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %_deleteStream, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %_deleteStream, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_os = getelementptr inbounds %"class.Imf_3_2::StdOFStream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_os, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_os, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #3
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(248) %2) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -1101,7 +1109,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOSStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOSStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_os = getelementptr inbounds %"class.Imf_3_2::StdOSStream", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_os)
           to label %invoke.cont unwind label %lpad
@@ -1110,12 +1119,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -1135,7 +1144,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOSStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7Imf_3_211StdOSStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_os = getelementptr inbounds %"class.Imf_3_2::StdOSStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_os) #3
   call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3

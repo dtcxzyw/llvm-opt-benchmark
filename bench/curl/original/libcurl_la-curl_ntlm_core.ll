@@ -446,115 +446,118 @@ if.end:                                           ; preds = %entry
   %conv7 = zext i32 %add6 to i64
   %8 = load i8, ptr @.str.2, align 1
   %conv8 = sext i8 %8 to i32
-  %9 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 1), align 1
-  %conv9 = sext i8 %9 to i32
-  %10 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 2), align 1
-  %conv10 = sext i8 %10 to i32
-  %11 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.2, i64 0, i64 3), align 1
-  %conv11 = sext i8 %11 to i32
+  %9 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 1
+  %10 = load i8, ptr %9, align 1
+  %conv9 = sext i8 %10 to i32
+  %11 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %conv10 = sext i8 %12 to i32
+  %13 = getelementptr inbounds [5 x i8], ptr @.str.2, i64 0, i64 3
+  %14 = load i8, ptr %13, align 1
+  %conv11 = sext i8 %14 to i32
   %dwLowDateTime = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 0
-  %12 = load i32, ptr %dwLowDateTime, align 4
-  %and = and i32 %12, 255
+  %15 = load i32, ptr %dwLowDateTime, align 4
+  %and = and i32 %15, 255
   %dwLowDateTime12 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 0
-  %13 = load i32, ptr %dwLowDateTime12, align 4
-  %shr = lshr i32 %13, 8
+  %16 = load i32, ptr %dwLowDateTime12, align 4
+  %shr = lshr i32 %16, 8
   %and13 = and i32 %shr, 255
   %dwLowDateTime14 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 0
-  %14 = load i32, ptr %dwLowDateTime14, align 4
-  %shr15 = lshr i32 %14, 16
+  %17 = load i32, ptr %dwLowDateTime14, align 4
+  %shr15 = lshr i32 %17, 16
   %and16 = and i32 %shr15, 255
   %dwLowDateTime17 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 0
-  %15 = load i32, ptr %dwLowDateTime17, align 4
-  %shr18 = lshr i32 %15, 24
+  %18 = load i32, ptr %dwLowDateTime17, align 4
+  %shr18 = lshr i32 %18, 24
   %and19 = and i32 %shr18, 255
   %dwHighDateTime = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 1
-  %16 = load i32, ptr %dwHighDateTime, align 4
-  %and20 = and i32 %16, 255
+  %19 = load i32, ptr %dwHighDateTime, align 4
+  %and20 = and i32 %19, 255
   %dwHighDateTime21 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 1
-  %17 = load i32, ptr %dwHighDateTime21, align 4
-  %shr22 = lshr i32 %17, 8
+  %20 = load i32, ptr %dwHighDateTime21, align 4
+  %shr22 = lshr i32 %20, 8
   %and23 = and i32 %shr22, 255
   %dwHighDateTime24 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 1
-  %18 = load i32, ptr %dwHighDateTime24, align 4
-  %shr25 = lshr i32 %18, 16
+  %21 = load i32, ptr %dwHighDateTime24, align 4
+  %shr25 = lshr i32 %21, 16
   %and26 = and i32 %shr25, 255
   %dwHighDateTime27 = getelementptr inbounds %struct.ms_filetime, ptr %tw, i32 0, i32 1
-  %19 = load i32, ptr %dwHighDateTime27, align 4
-  %shr28 = lshr i32 %19, 24
+  %22 = load i32, ptr %dwHighDateTime27, align 4
+  %shr28 = lshr i32 %22, 24
   %and29 = and i32 %shr28, 255
   %call30 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %add.ptr, i64 noundef %conv7, ptr noundef @.str.1, i32 noundef %conv8, i32 noundef %conv9, i32 noundef %conv10, i32 noundef %conv11, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %and, i32 noundef %and13, i32 noundef %and16, i32 noundef %and19, i32 noundef %and20, i32 noundef %and23, i32 noundef %and26, i32 noundef %and29)
-  %20 = load ptr, ptr %ptr, align 8
-  %add.ptr31 = getelementptr inbounds i8, ptr %20, i64 32
-  %21 = load ptr, ptr %challenge_client.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31, ptr align 1 %21, i64 8, i1 false)
-  %22 = load ptr, ptr %ntlm.addr, align 8
-  %target_info_len32 = getelementptr inbounds %struct.ntlmdata, ptr %22, i32 0, i32 2
-  %23 = load i32, ptr %target_info_len32, align 4
-  %tobool33 = icmp ne i32 %23, 0
+  %23 = load ptr, ptr %ptr, align 8
+  %add.ptr31 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = load ptr, ptr %challenge_client.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31, ptr align 1 %24, i64 8, i1 false)
+  %25 = load ptr, ptr %ntlm.addr, align 8
+  %target_info_len32 = getelementptr inbounds %struct.ntlmdata, ptr %25, i32 0, i32 2
+  %26 = load i32, ptr %target_info_len32, align 4
+  %tobool33 = icmp ne i32 %26, 0
   br i1 %tobool33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %if.end
-  %24 = load ptr, ptr %ptr, align 8
-  %add.ptr35 = getelementptr inbounds i8, ptr %24, i64 44
-  %25 = load ptr, ptr %ntlm.addr, align 8
-  %target_info = getelementptr inbounds %struct.ntlmdata, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %target_info, align 8
-  %27 = load ptr, ptr %ntlm.addr, align 8
-  %target_info_len36 = getelementptr inbounds %struct.ntlmdata, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %target_info_len36, align 4
-  %conv37 = zext i32 %28 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr35, ptr align 1 %26, i64 %conv37, i1 false)
+  %27 = load ptr, ptr %ptr, align 8
+  %add.ptr35 = getelementptr inbounds i8, ptr %27, i64 44
+  %28 = load ptr, ptr %ntlm.addr, align 8
+  %target_info = getelementptr inbounds %struct.ntlmdata, ptr %28, i32 0, i32 3
+  %29 = load ptr, ptr %target_info, align 8
+  %30 = load ptr, ptr %ntlm.addr, align 8
+  %target_info_len36 = getelementptr inbounds %struct.ntlmdata, ptr %30, i32 0, i32 2
+  %31 = load i32, ptr %target_info_len36, align 4
+  %conv37 = zext i32 %31 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr35, ptr align 1 %29, i64 %conv37, i1 false)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then34, %if.end
-  %29 = load ptr, ptr %ptr, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load ptr, ptr %ntlm.addr, align 8
-  %nonce = getelementptr inbounds %struct.ntlmdata, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %ptr, align 8
+  %add.ptr39 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load ptr, ptr %ntlm.addr, align 8
+  %nonce = getelementptr inbounds %struct.ntlmdata, ptr %33, i32 0, i32 1
   %arrayidx = getelementptr inbounds [8 x i8], ptr %nonce, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr39, ptr align 4 %arrayidx, i64 8, i1 false)
-  %31 = load ptr, ptr %ntlmv2hash.addr, align 8
-  %32 = load ptr, ptr %ptr, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load ptr, ptr %ntlm.addr, align 8
-  %target_info_len41 = getelementptr inbounds %struct.ntlmdata, ptr %33, i32 0, i32 2
-  %34 = load i32, ptr %target_info_len41, align 4
-  %add42 = add i32 28, %34
+  %34 = load ptr, ptr %ntlmv2hash.addr, align 8
+  %35 = load ptr, ptr %ptr, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load ptr, ptr %ntlm.addr, align 8
+  %target_info_len41 = getelementptr inbounds %struct.ntlmdata, ptr %36, i32 0, i32 2
+  %37 = load i32, ptr %target_info_len41, align 4
+  %add42 = add i32 28, %37
   %add43 = add i32 %add42, 4
   %add44 = add i32 %add43, 8
   %conv45 = zext i32 %add44 to i64
   %arraydecay = getelementptr inbounds [16 x i8], ptr %hmac_output, i64 0, i64 0
-  %call46 = call i32 @Curl_hmacit(ptr noundef @Curl_HMAC_MD5, ptr noundef %31, i64 noundef 16, ptr noundef %add.ptr40, i64 noundef %conv45, ptr noundef %arraydecay)
+  %call46 = call i32 @Curl_hmacit(ptr noundef @Curl_HMAC_MD5, ptr noundef %34, i64 noundef 16, ptr noundef %add.ptr40, i64 noundef %conv45, ptr noundef %arraydecay)
   store i32 %call46, ptr %result, align 4
-  %35 = load i32, ptr %result, align 4
-  %tobool47 = icmp ne i32 %35, 0
+  %38 = load i32, ptr %result, align 4
+  %tobool47 = icmp ne i32 %38, 0
   br i1 %tobool47, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end38
-  %36 = load ptr, ptr @Curl_cfree, align 8
-  %37 = load ptr, ptr %ptr, align 8
-  call void %36(ptr noundef %37)
-  %38 = load i32, ptr %result, align 4
-  store i32 %38, ptr %retval, align 4
+  %39 = load ptr, ptr @Curl_cfree, align 8
+  %40 = load ptr, ptr %ptr, align 8
+  call void %39(ptr noundef %40)
+  %41 = load i32, ptr %result, align 4
+  store i32 %41, ptr %retval, align 4
   br label %return
 
 if.end49:                                         ; preds = %if.end38
-  %39 = load ptr, ptr %ptr, align 8
+  %42 = load ptr, ptr %ptr, align 8
   %arraydecay50 = getelementptr inbounds [16 x i8], ptr %hmac_output, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 16 %arraydecay50, i64 16, i1 false)
-  %40 = load ptr, ptr %ptr, align 8
-  %41 = load ptr, ptr %ntresp.addr, align 8
-  store ptr %40, ptr %41, align 8
-  %42 = load i32, ptr %len, align 4
-  %43 = load ptr, ptr %ntresp_len.addr, align 8
-  store i32 %42, ptr %43, align 4
-  %44 = load i32, ptr %result, align 4
-  store i32 %44, ptr %retval, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 16 %arraydecay50, i64 16, i1 false)
+  %43 = load ptr, ptr %ptr, align 8
+  %44 = load ptr, ptr %ntresp.addr, align 8
+  store ptr %43, ptr %44, align 8
+  %45 = load i32, ptr %len, align 4
+  %46 = load ptr, ptr %ntresp_len.addr, align 8
+  store i32 %45, ptr %46, align 4
+  %47 = load i32, ptr %result, align 4
+  store i32 %47, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end49, %if.then48, %if.then
-  %45 = load i32, ptr %retval, align 4
-  ret i32 %45
+  %48 = load i32, ptr %retval, align 4
+  ret i32 %48
 }
 
 ; Function Attrs: nounwind uwtable

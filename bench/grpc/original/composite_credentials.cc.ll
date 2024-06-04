@@ -3885,7 +3885,8 @@ entry:
   store ptr %creds2, ptr %creds2.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21grpc_call_credentialsC2E19grpc_security_level(ptr noundef nonnull align 8 dereferenceable(20) %this1, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31grpc_composite_call_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV31grpc_composite_call_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inner_ = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %inner_) #3
   %call = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrI21grpc_call_credentialsEptEv(ptr noundef nonnull align 8 dereferenceable(8) %creds1)
@@ -3894,8 +3895,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %0 = load ptr, ptr %vfn, align 8
-  invoke void %0(ptr sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %call)
+  %1 = load ptr, ptr %vfn, align 8
+  invoke void %1(ptr sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %call)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -3915,8 +3916,8 @@ invoke.cont5:                                     ; preds = %invoke.cont4
 invoke.cont8:                                     ; preds = %invoke.cont5
   %vtable10 = load ptr, ptr %call9, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 5
-  %1 = load ptr, ptr %vfn11, align 8
-  invoke void %1(ptr sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(20) %call9)
+  %2 = load ptr, ptr %vfn11, align 8
+  invoke void %2(ptr sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(20) %call9)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -3934,8 +3935,8 @@ invoke.cont15:                                    ; preds = %invoke.cont14
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  %2 = load i8, ptr %creds1_is_composite, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %creds1_is_composite, align 1
+  %tobool = trunc i8 %3 to i1
   %call21 = invoke noundef i64 @_ZL20get_creds_array_sizePK21grpc_call_credentialsb(ptr noundef %call19, i1 noundef zeroext %tobool)
           to label %invoke.cont20 unwind label %lpad
 
@@ -3944,8 +3945,8 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %3 = load i8, ptr %creds2_is_composite, align 1
-  %tobool24 = trunc i8 %3 to i1
+  %4 = load i8, ptr %creds2_is_composite, align 1
+  %tobool24 = trunc i8 %4 to i1
   %call26 = invoke noundef i64 @_ZL20get_creds_array_sizePK21grpc_call_credentialsb(ptr noundef %call23, i1 noundef zeroext %tobool24)
           to label %invoke.cont25 unwind label %lpad
 
@@ -3953,22 +3954,22 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %add = add i64 %call21, %call26
   store i64 %add, ptr %size, align 8
   %inner_27 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
-  %4 = load i64, ptr %size, align 8
-  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_27, i64 noundef %4)
+  %5 = load i64, ptr %size, align 8
+  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_27, i64 noundef %5)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %creds1) #3
-  %5 = load i8, ptr %creds1_is_composite, align 1
-  %tobool29 = trunc i8 %5 to i1
+  %6 = load i8, ptr %creds1_is_composite, align 1
+  %tobool29 = trunc i8 %6 to i1
   invoke void @_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %agg.tmp, i1 noundef zeroext %tobool29)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp32, ptr noundef nonnull align 8 dereferenceable(8) %creds2) #3
-  %6 = load i8, ptr %creds2_is_composite, align 1
-  %tobool33 = trunc i8 %6 to i1
+  %7 = load i8, ptr %creds2_is_composite, align 1
+  %tobool33 = trunc i8 %7 to i1
   invoke void @_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %agg.tmp32, i1 noundef zeroext %tobool33)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -3980,44 +3981,44 @@ invoke.cont35:                                    ; preds = %invoke.cont31
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont35
-  %7 = load i64, ptr %i, align 8
+  %8 = load i64, ptr %i, align 8
   %inner_36 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
   %call37 = call noundef i64 @_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %inner_36) #3
-  %cmp = icmp ult i64 %7, %call37
+  %cmp = icmp ult i64 %8, %call37
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %min_security_level_38 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %min_security_level_38, align 4
+  %9 = load i32, ptr %min_security_level_38, align 4
   %inner_39 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
-  %9 = load i64, ptr %i, align 8
-  %call40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_39, i64 noundef %9) #3
+  %10 = load i64, ptr %i, align 8
+  %call40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_39, i64 noundef %10) #3
   %call42 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrI21grpc_call_credentialsEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call40)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %for.body
   %vtable43 = load ptr, ptr %call42, align 8
   %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 3
-  %10 = load ptr, ptr %vfn44, align 8
-  %call46 = invoke noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(20) %call42)
+  %11 = load ptr, ptr %vfn44, align 8
+  %call46 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(20) %call42)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont41
-  %cmp47 = icmp slt i32 %8, %call46
+  %cmp47 = icmp slt i32 %9, %call46
   br i1 %cmp47, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont45
   %inner_48 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
-  %11 = load i64, ptr %i, align 8
-  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_48, i64 noundef %11) #3
+  %12 = load i64, ptr %i, align 8
+  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %inner_48, i64 noundef %12) #3
   %call51 = invoke noundef ptr @_ZNK9grpc_core13RefCountedPtrI21grpc_call_credentialsEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call49)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %if.then
   %vtable52 = load ptr, ptr %call51, align 8
   %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 3
-  %12 = load ptr, ptr %vfn53, align 8
-  %call55 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(20) %call51)
+  %13 = load ptr, ptr %vfn53, align 8
+  %call55 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(20) %call51)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %invoke.cont50
@@ -4026,31 +4027,31 @@ invoke.cont54:                                    ; preds = %invoke.cont50
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont50, %if.then, %invoke.cont41, %for.body, %invoke.cont25, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont15, %invoke.cont14, %invoke.cont12, %invoke.cont8, %invoke.cont5, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad30:                                           ; preds = %invoke.cont28
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup
 
 lpad34:                                           ; preds = %invoke.cont31
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp32) #3
   br label %ehcleanup
 
@@ -4058,8 +4059,8 @@ if.end:                                           ; preds = %invoke.cont54, %inv
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %22 = load i64, ptr %i, align 8
-  %inc = add i64 %22, 1
+  %23 = load i64, ptr %i, align 8
+  %inc = add i64 %23, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !7
 
@@ -4088,10 +4089,11 @@ entry:
   store i32 %min_security_level, ptr %min_security_level.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedI21grpc_call_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21grpc_call_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV21grpc_call_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %min_security_level_ = getelementptr inbounds %struct.grpc_call_credentials, ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %min_security_level.addr, align 4
-  store i32 %0, ptr %min_security_level_, align 8
+  %1 = load i32, ptr %min_security_level.addr, align 4
+  store i32 %1, ptr %min_security_level_, align 8
   ret void
 }
 
@@ -4784,7 +4786,8 @@ entry:
   store ptr %call_creds, ptr %call_creds.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24grpc_channel_credentialsC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV34grpc_composite_channel_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV34grpc_composite_channel_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inner_creds_ = getelementptr inbounds %class.grpc_composite_channel_credentials, ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %inner_creds_, ptr noundef nonnull align 8 dereferenceable(8) %channel_creds) #3
   %call_creds_ = getelementptr inbounds %class.grpc_composite_channel_credentials, ptr %this1, i32 0, i32 2
@@ -4832,7 +4835,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV34grpc_composite_channel_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV34grpc_composite_channel_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call_creds_ = getelementptr inbounds %class.grpc_composite_channel_credentials, ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call_creds_) #3
   %inner_creds_ = getelementptr inbounds %class.grpc_composite_channel_credentials, ptr %this1, i32 0, i32 1
@@ -4974,7 +4978,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31grpc_composite_call_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV31grpc_composite_call_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inner_ = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %inner_) #3
   call void @_ZN21grpc_call_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #3
@@ -5386,23 +5391,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI21grpc_call_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI21grpc_call_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -5488,7 +5494,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6214,7 +6221,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24grpc_channel_credentials, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV24grpc_channel_credentials, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6252,23 +6260,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.14", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -6608,7 +6617,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6618,7 +6628,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

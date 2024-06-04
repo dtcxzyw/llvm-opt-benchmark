@@ -91,9 +91,11 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %2 = load ptr, ptr %ctx, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv6 = sext i32 %3 to i64
-  %call7 = call i32 @CMAC_Update(ptr noundef %2, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv6)
+  %3 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %4 = load i32, ptr %3, align 4
+  %conv6 = sext i32 %4 to i64
+  %5 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call7 = call i32 @CMAC_Update(ptr noundef %2, ptr noundef %5, i64 noundef %conv6)
   %cmp8 = icmp ne i32 %call7, 0
   %conv9 = zext i1 %cmp8 to i32
   %call10 = call i32 @test_false(ptr noundef @.str.3, i32 noundef 148, ptr noundef @.str.6, i32 noundef %conv9)
@@ -101,9 +103,9 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool11, label %lor.lhs.false12, label %if.then
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false5
-  %4 = load ptr, ptr %ctx, align 8
+  %6 = load ptr, ptr %ctx, align 8
   %call13 = call ptr @EVP_aes_128_cbc()
-  %call14 = call i32 @CMAC_Init(ptr noundef %4, ptr noundef null, i64 noundef 0, ptr noundef %call13, ptr noundef null)
+  %call14 = call i32 @CMAC_Init(ptr noundef %6, ptr noundef null, i64 noundef 0, ptr noundef %call13, ptr noundef null)
   %cmp15 = icmp ne i32 %call14, 0
   %conv16 = zext i1 %cmp15 to i32
   %call17 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 150, ptr noundef @.str.7, i32 noundef %conv16)
@@ -111,10 +113,12 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false5
   br i1 %tobool18, label %lor.lhs.false19, label %if.then
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false12
-  %5 = load ptr, ptr %ctx, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv20 = sext i32 %6 to i64
-  %call21 = call i32 @CMAC_Update(ptr noundef %5, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv20)
+  %7 = load ptr, ptr %ctx, align 8
+  %8 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %9 = load i32, ptr %8, align 4
+  %conv20 = sext i32 %9 to i64
+  %10 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call21 = call i32 @CMAC_Update(ptr noundef %7, ptr noundef %10, i64 noundef %conv20)
   %cmp22 = icmp ne i32 %call21, 0
   %conv23 = zext i1 %cmp22 to i32
   %call24 = call i32 @test_false(ptr noundef @.str.3, i32 noundef 152, ptr noundef @.str.6, i32 noundef %conv23)
@@ -122,10 +126,11 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false12
   br i1 %tobool25, label %lor.lhs.false26, label %if.then
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false19
-  %7 = load ptr, ptr %ctx, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 1), align 16
-  %conv27 = sext i32 %8 to i64
-  %call28 = call i32 @CMAC_Init(ptr noundef %7, ptr noundef @test, i64 noundef %conv27, ptr noundef null, ptr noundef null)
+  %11 = load ptr, ptr %ctx, align 8
+  %12 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 1
+  %13 = load i32, ptr %12, align 16
+  %conv27 = sext i32 %13 to i64
+  %call28 = call i32 @CMAC_Init(ptr noundef %11, ptr noundef @test, i64 noundef %conv27, ptr noundef null, ptr noundef null)
   %cmp29 = icmp ne i32 %call28, 0
   %conv30 = zext i1 %cmp29 to i32
   %call31 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 154, ptr noundef @.str.8, i32 noundef %conv30)
@@ -133,10 +138,12 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false19
   br i1 %tobool32, label %lor.lhs.false33, label %if.then
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false26
-  %9 = load ptr, ptr %ctx, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv34 = sext i32 %10 to i64
-  %call35 = call i32 @CMAC_Update(ptr noundef %9, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv34)
+  %14 = load ptr, ptr %ctx, align 8
+  %15 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4
+  %conv34 = sext i32 %16 to i64
+  %17 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call35 = call i32 @CMAC_Update(ptr noundef %14, ptr noundef %17, i64 noundef %conv34)
   %cmp36 = icmp ne i32 %call35, 0
   %conv37 = zext i1 %cmp36 to i32
   %call38 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 156, ptr noundef @.str.6, i32 noundef %conv37)
@@ -144,9 +151,9 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false26
   br i1 %tobool39, label %lor.lhs.false40, label %if.then
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false33
-  %11 = load ptr, ptr %ctx, align 8
+  %18 = load ptr, ptr %ctx, align 8
   %call41 = call ptr @EVP_aes_128_xts()
-  %call42 = call i32 @CMAC_Init(ptr noundef %11, ptr noundef @xtskey, i64 noundef 32, ptr noundef %call41, ptr noundef null)
+  %call42 = call i32 @CMAC_Init(ptr noundef %18, ptr noundef @xtskey, i64 noundef 32, ptr noundef %call41, ptr noundef null)
   %cmp43 = icmp ne i32 %call42, 0
   %conv44 = zext i1 %cmp43 to i32
   %call45 = call i32 @test_false(ptr noundef @.str.3, i32 noundef 159, ptr noundef @.str.9, i32 noundef %conv44)
@@ -154,10 +161,12 @@ lor.lhs.false40:                                  ; preds = %lor.lhs.false33
   br i1 %tobool46, label %lor.lhs.false47, label %if.then
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false40
-  %12 = load ptr, ptr %ctx, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv48 = sext i32 %13 to i64
-  %call49 = call i32 @CMAC_Update(ptr noundef %12, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv48)
+  %19 = load ptr, ptr %ctx, align 8
+  %20 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  %conv48 = sext i32 %21 to i64
+  %22 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call49 = call i32 @CMAC_Update(ptr noundef %19, ptr noundef %22, i64 noundef %conv48)
   %cmp50 = icmp ne i32 %call49, 0
   %conv51 = zext i1 %cmp50 to i32
   %call52 = call i32 @test_false(ptr noundef @.str.3, i32 noundef 160, ptr noundef @.str.6, i32 noundef %conv51)
@@ -172,10 +181,10 @@ if.end:                                           ; preds = %lor.lhs.false47
   br label %err
 
 err:                                              ; preds = %if.end, %if.then
-  %14 = load ptr, ptr %ctx, align 8
-  call void @CMAC_CTX_free(ptr noundef %14)
-  %15 = load i32, ptr %ret, align 4
-  ret i32 %15
+  %23 = load ptr, ptr %ctx, align 8
+  call void @CMAC_CTX_free(ptr noundef %23)
+  %24 = load i32, ptr %ret, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -284,8 +293,9 @@ for.inc:                                          ; preds = %while.end
 
 for.end:                                          ; preds = %for.cond
   %22 = load ptr, ptr %ctx, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 1), align 16
-  %conv20 = sext i32 %23 to i64
+  %23 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 1
+  %24 = load i32, ptr %23, align 16
+  %conv20 = sext i32 %24 to i64
   %call21 = call ptr @EVP_aes_128_cbc()
   %call22 = call i32 @CMAC_Init(ptr noundef %22, ptr noundef @test, i64 noundef %conv20, ptr noundef %call21, ptr noundef null)
   %cmp23 = icmp ne i32 %call22, 0
@@ -295,10 +305,12 @@ for.end:                                          ; preds = %for.cond
   br i1 %tobool, label %lor.lhs.false, label %if.then39
 
 lor.lhs.false:                                    ; preds = %for.end
-  %24 = load ptr, ptr %ctx, align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv26 = sext i32 %25 to i64
-  %call27 = call i32 @CMAC_Update(ptr noundef %24, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv26)
+  %25 = load ptr, ptr %ctx, align 8
+  %26 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4
+  %conv26 = sext i32 %27 to i64
+  %28 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call27 = call i32 @CMAC_Update(ptr noundef %25, ptr noundef %28, i64 noundef %conv26)
   %cmp28 = icmp ne i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call30 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 199, ptr noundef @.str.6, i32 noundef %conv29)
@@ -306,9 +318,9 @@ lor.lhs.false:                                    ; preds = %for.end
   br i1 %tobool31, label %lor.lhs.false32, label %if.then39
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false
-  %26 = load ptr, ptr %ctx, align 8
+  %29 = load ptr, ptr %ctx, align 8
   %arraydecay33 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call34 = call i32 @CMAC_Final(ptr noundef %26, ptr noundef %arraydecay33, ptr noundef %len)
+  %call34 = call i32 @CMAC_Final(ptr noundef %29, ptr noundef %arraydecay33, ptr noundef %len)
   %cmp35 = icmp ne i32 %call34, 0
   %conv36 = zext i1 %cmp35 to i32
   %call37 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 200, ptr noundef @.str.20, i32 noundef %conv36)
@@ -320,13 +332,14 @@ if.then39:                                        ; preds = %lor.lhs.false32, %l
 
 if.end40:                                         ; preds = %lor.lhs.false32
   %arraydecay41 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %27 = load i64, ptr %len, align 8
-  %conv42 = trunc i64 %27 to i32
+  %30 = load i64, ptr %len, align 8
+  %conv42 = trunc i64 %30 to i32
   %call43 = call ptr @pt(ptr noundef %arraydecay41, i32 noundef %conv42)
   store ptr %call43, ptr %p, align 8
-  %28 = load ptr, ptr %p, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 4), align 8
-  %call44 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 204, ptr noundef @.str.21, ptr noundef @.str.22, ptr noundef %28, ptr noundef %29)
+  %31 = load ptr, ptr %p, align 8
+  %32 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 4
+  %33 = load ptr, ptr %32, align 8
+  %call44 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 204, ptr noundef @.str.21, ptr noundef @.str.22, ptr noundef %31, ptr noundef %33)
   %tobool45 = icmp ne i32 %call44, 0
   br i1 %tobool45, label %if.end47, label %if.then46
 
@@ -334,11 +347,13 @@ if.then46:                                        ; preds = %if.end40
   br label %err
 
 if.end47:                                         ; preds = %if.end40
-  %30 = load ptr, ptr %ctx, align 8
-  %31 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 1), align 16
-  %conv48 = sext i32 %31 to i64
+  %34 = load ptr, ptr %ctx, align 8
+  %35 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 1
+  %36 = load i32, ptr %35, align 16
+  %conv48 = sext i32 %36 to i64
   %call49 = call ptr @EVP_aes_256_cbc()
-  %call50 = call i32 @CMAC_Init(ptr noundef %30, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 1), i64 noundef %conv48, ptr noundef %call49, ptr noundef null)
+  %37 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 1
+  %call50 = call i32 @CMAC_Init(ptr noundef %34, ptr noundef %37, i64 noundef %conv48, ptr noundef %call49, ptr noundef null)
   %cmp51 = icmp ne i32 %call50, 0
   %conv52 = zext i1 %cmp51 to i32
   %call53 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 208, ptr noundef @.str.23, i32 noundef %conv52)
@@ -346,10 +361,12 @@ if.end47:                                         ; preds = %if.end40
   br i1 %tobool54, label %lor.lhs.false55, label %if.then69
 
 lor.lhs.false55:                                  ; preds = %if.end47
-  %32 = load ptr, ptr %ctx, align 8
-  %33 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 3), align 4
-  %conv56 = sext i32 %33 to i64
-  %call57 = call i32 @CMAC_Update(ptr noundef %32, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 2), i64 noundef %conv56)
+  %38 = load ptr, ptr %ctx, align 8
+  %39 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 3
+  %40 = load i32, ptr %39, align 4
+  %conv56 = sext i32 %40 to i64
+  %41 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 2
+  %call57 = call i32 @CMAC_Update(ptr noundef %38, ptr noundef %41, i64 noundef %conv56)
   %cmp58 = icmp ne i32 %call57, 0
   %conv59 = zext i1 %cmp58 to i32
   %call60 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 209, ptr noundef @.str.24, i32 noundef %conv59)
@@ -357,9 +374,9 @@ lor.lhs.false55:                                  ; preds = %if.end47
   br i1 %tobool61, label %lor.lhs.false62, label %if.then69
 
 lor.lhs.false62:                                  ; preds = %lor.lhs.false55
-  %34 = load ptr, ptr %ctx, align 8
+  %42 = load ptr, ptr %ctx, align 8
   %arraydecay63 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call64 = call i32 @CMAC_Final(ptr noundef %34, ptr noundef %arraydecay63, ptr noundef %len)
+  %call64 = call i32 @CMAC_Final(ptr noundef %42, ptr noundef %arraydecay63, ptr noundef %len)
   %cmp65 = icmp ne i32 %call64, 0
   %conv66 = zext i1 %cmp65 to i32
   %call67 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 210, ptr noundef @.str.20, i32 noundef %conv66)
@@ -371,13 +388,14 @@ if.then69:                                        ; preds = %lor.lhs.false62, %l
 
 if.end70:                                         ; preds = %lor.lhs.false62
   %arraydecay71 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %35 = load i64, ptr %len, align 8
-  %conv72 = trunc i64 %35 to i32
+  %43 = load i64, ptr %len, align 8
+  %conv72 = trunc i64 %43 to i32
   %call73 = call ptr @pt(ptr noundef %arraydecay71, i32 noundef %conv72)
   store ptr %call73, ptr %p, align 8
-  %36 = load ptr, ptr %p, align 8
-  %37 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 4), align 8
-  %call74 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 214, ptr noundef @.str.21, ptr noundef @.str.25, ptr noundef %36, ptr noundef %37)
+  %44 = load ptr, ptr %p, align 8
+  %45 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 1, i32 4
+  %46 = load ptr, ptr %45, align 8
+  %call74 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 214, ptr noundef @.str.21, ptr noundef @.str.25, ptr noundef %44, ptr noundef %46)
   %tobool75 = icmp ne i32 %call74, 0
   br i1 %tobool75, label %if.end77, label %if.then76
 
@@ -385,10 +403,12 @@ if.then76:                                        ; preds = %if.end70
   br label %err
 
 if.end77:                                         ; preds = %if.end70
-  %38 = load ptr, ptr %ctx, align 8
-  %39 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 1), align 16
-  %conv78 = sext i32 %39 to i64
-  %call79 = call i32 @CMAC_Init(ptr noundef %38, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2), i64 noundef %conv78, ptr noundef null, ptr noundef null)
+  %47 = load ptr, ptr %ctx, align 8
+  %48 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 1
+  %49 = load i32, ptr %48, align 16
+  %conv78 = sext i32 %49 to i64
+  %50 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2
+  %call79 = call i32 @CMAC_Init(ptr noundef %47, ptr noundef %50, i64 noundef %conv78, ptr noundef null, ptr noundef null)
   %cmp80 = icmp ne i32 %call79, 0
   %conv81 = zext i1 %cmp80 to i32
   %call82 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 217, ptr noundef @.str.26, i32 noundef %conv81)
@@ -396,10 +416,12 @@ if.end77:                                         ; preds = %if.end70
   br i1 %tobool83, label %lor.lhs.false84, label %if.then98
 
 lor.lhs.false84:                                  ; preds = %if.end77
-  %40 = load ptr, ptr %ctx, align 8
-  %41 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3), align 4
-  %conv85 = sext i32 %41 to i64
-  %call86 = call i32 @CMAC_Update(ptr noundef %40, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2), i64 noundef %conv85)
+  %51 = load ptr, ptr %ctx, align 8
+  %52 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3
+  %53 = load i32, ptr %52, align 4
+  %conv85 = sext i32 %53 to i64
+  %54 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2
+  %call86 = call i32 @CMAC_Update(ptr noundef %51, ptr noundef %54, i64 noundef %conv85)
   %cmp87 = icmp ne i32 %call86, 0
   %conv88 = zext i1 %cmp87 to i32
   %call89 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 218, ptr noundef @.str.27, i32 noundef %conv88)
@@ -407,9 +429,9 @@ lor.lhs.false84:                                  ; preds = %if.end77
   br i1 %tobool90, label %lor.lhs.false91, label %if.then98
 
 lor.lhs.false91:                                  ; preds = %lor.lhs.false84
-  %42 = load ptr, ptr %ctx, align 8
+  %55 = load ptr, ptr %ctx, align 8
   %arraydecay92 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call93 = call i32 @CMAC_Final(ptr noundef %42, ptr noundef %arraydecay92, ptr noundef %len)
+  %call93 = call i32 @CMAC_Final(ptr noundef %55, ptr noundef %arraydecay92, ptr noundef %len)
   %cmp94 = icmp ne i32 %call93, 0
   %conv95 = zext i1 %cmp94 to i32
   %call96 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 219, ptr noundef @.str.20, i32 noundef %conv95)
@@ -421,13 +443,14 @@ if.then98:                                        ; preds = %lor.lhs.false91, %l
 
 if.end99:                                         ; preds = %lor.lhs.false91
   %arraydecay100 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %43 = load i64, ptr %len, align 8
-  %conv101 = trunc i64 %43 to i32
+  %56 = load i64, ptr %len, align 8
+  %conv101 = trunc i64 %56 to i32
   %call102 = call ptr @pt(ptr noundef %arraydecay100, i32 noundef %conv101)
   store ptr %call102, ptr %p, align 8
-  %44 = load ptr, ptr %p, align 8
-  %45 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4), align 8
-  %call103 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 222, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %44, ptr noundef %45)
+  %57 = load ptr, ptr %p, align 8
+  %58 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4
+  %59 = load ptr, ptr %58, align 8
+  %call103 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 222, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %57, ptr noundef %59)
   %tobool104 = icmp ne i32 %call103, 0
   br i1 %tobool104, label %if.end106, label %if.then105
 
@@ -435,8 +458,8 @@ if.then105:                                       ; preds = %if.end99
   br label %err
 
 if.end106:                                        ; preds = %if.end99
-  %46 = load ptr, ptr %ctx, align 8
-  %call107 = call i32 @CMAC_Init(ptr noundef %46, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null)
+  %60 = load ptr, ptr %ctx, align 8
+  %call107 = call i32 @CMAC_Init(ptr noundef %60, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null)
   %cmp108 = icmp ne i32 %call107, 0
   %conv109 = zext i1 %cmp108 to i32
   %call110 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 225, ptr noundef @.str.5, i32 noundef %conv109)
@@ -444,10 +467,12 @@ if.end106:                                        ; preds = %if.end99
   br i1 %tobool111, label %lor.lhs.false112, label %if.then126
 
 lor.lhs.false112:                                 ; preds = %if.end106
-  %47 = load ptr, ptr %ctx, align 8
-  %48 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3), align 4
-  %conv113 = sext i32 %48 to i64
-  %call114 = call i32 @CMAC_Update(ptr noundef %47, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2), i64 noundef %conv113)
+  %61 = load ptr, ptr %ctx, align 8
+  %62 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3
+  %63 = load i32, ptr %62, align 4
+  %conv113 = sext i32 %63 to i64
+  %64 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2
+  %call114 = call i32 @CMAC_Update(ptr noundef %61, ptr noundef %64, i64 noundef %conv113)
   %cmp115 = icmp ne i32 %call114, 0
   %conv116 = zext i1 %cmp115 to i32
   %call117 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 226, ptr noundef @.str.27, i32 noundef %conv116)
@@ -455,9 +480,9 @@ lor.lhs.false112:                                 ; preds = %if.end106
   br i1 %tobool118, label %lor.lhs.false119, label %if.then126
 
 lor.lhs.false119:                                 ; preds = %lor.lhs.false112
-  %49 = load ptr, ptr %ctx, align 8
+  %65 = load ptr, ptr %ctx, align 8
   %arraydecay120 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call121 = call i32 @CMAC_Final(ptr noundef %49, ptr noundef %arraydecay120, ptr noundef %len)
+  %call121 = call i32 @CMAC_Final(ptr noundef %65, ptr noundef %arraydecay120, ptr noundef %len)
   %cmp122 = icmp ne i32 %call121, 0
   %conv123 = zext i1 %cmp122 to i32
   %call124 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 227, ptr noundef @.str.20, i32 noundef %conv123)
@@ -469,13 +494,14 @@ if.then126:                                       ; preds = %lor.lhs.false119, %
 
 if.end127:                                        ; preds = %lor.lhs.false119
   %arraydecay128 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %50 = load i64, ptr %len, align 8
-  %conv129 = trunc i64 %50 to i32
+  %66 = load i64, ptr %len, align 8
+  %conv129 = trunc i64 %66 to i32
   %call130 = call ptr @pt(ptr noundef %arraydecay128, i32 noundef %conv129)
   store ptr %call130, ptr %p, align 8
-  %51 = load ptr, ptr %p, align 8
-  %52 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4), align 8
-  %call131 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 230, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %51, ptr noundef %52)
+  %67 = load ptr, ptr %p, align 8
+  %68 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %call131 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 230, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %67, ptr noundef %69)
   %tobool132 = icmp ne i32 %call131, 0
   br i1 %tobool132, label %if.end134, label %if.then133
 
@@ -483,9 +509,9 @@ if.then133:                                       ; preds = %if.end127
   br label %err
 
 if.end134:                                        ; preds = %if.end127
-  %53 = load ptr, ptr %ctx, align 8
+  %70 = load ptr, ptr %ctx, align 8
   %call135 = call ptr @EVP_aes_256_cbc()
-  %call136 = call i32 @CMAC_Init(ptr noundef %53, ptr noundef null, i64 noundef 0, ptr noundef %call135, ptr noundef null)
+  %call136 = call i32 @CMAC_Init(ptr noundef %70, ptr noundef null, i64 noundef 0, ptr noundef %call135, ptr noundef null)
   %cmp137 = icmp ne i32 %call136, 0
   %conv138 = zext i1 %cmp137 to i32
   %call139 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 234, ptr noundef @.str.29, i32 noundef %conv138)
@@ -493,10 +519,12 @@ if.end134:                                        ; preds = %if.end127
   br i1 %tobool140, label %lor.lhs.false141, label %if.then162
 
 lor.lhs.false141:                                 ; preds = %if.end134
-  %54 = load ptr, ptr %ctx, align 8
-  %55 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 1), align 16
-  %conv142 = sext i32 %55 to i64
-  %call143 = call i32 @CMAC_Init(ptr noundef %54, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2), i64 noundef %conv142, ptr noundef null, ptr noundef null)
+  %71 = load ptr, ptr %ctx, align 8
+  %72 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 1
+  %73 = load i32, ptr %72, align 16
+  %conv142 = sext i32 %73 to i64
+  %74 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2
+  %call143 = call i32 @CMAC_Init(ptr noundef %71, ptr noundef %74, i64 noundef %conv142, ptr noundef null, ptr noundef null)
   %cmp144 = icmp ne i32 %call143, 0
   %conv145 = zext i1 %cmp144 to i32
   %call146 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 235, ptr noundef @.str.26, i32 noundef %conv145)
@@ -504,10 +532,12 @@ lor.lhs.false141:                                 ; preds = %if.end134
   br i1 %tobool147, label %lor.lhs.false148, label %if.then162
 
 lor.lhs.false148:                                 ; preds = %lor.lhs.false141
-  %56 = load ptr, ptr %ctx, align 8
-  %57 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3), align 4
-  %conv149 = sext i32 %57 to i64
-  %call150 = call i32 @CMAC_Update(ptr noundef %56, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2), i64 noundef %conv149)
+  %75 = load ptr, ptr %ctx, align 8
+  %76 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 3
+  %77 = load i32, ptr %76, align 4
+  %conv149 = sext i32 %77 to i64
+  %78 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 2
+  %call150 = call i32 @CMAC_Update(ptr noundef %75, ptr noundef %78, i64 noundef %conv149)
   %cmp151 = icmp ne i32 %call150, 0
   %conv152 = zext i1 %cmp151 to i32
   %call153 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 236, ptr noundef @.str.27, i32 noundef %conv152)
@@ -515,9 +545,9 @@ lor.lhs.false148:                                 ; preds = %lor.lhs.false141
   br i1 %tobool154, label %lor.lhs.false155, label %if.then162
 
 lor.lhs.false155:                                 ; preds = %lor.lhs.false148
-  %58 = load ptr, ptr %ctx, align 8
+  %79 = load ptr, ptr %ctx, align 8
   %arraydecay156 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call157 = call i32 @CMAC_Final(ptr noundef %58, ptr noundef %arraydecay156, ptr noundef %len)
+  %call157 = call i32 @CMAC_Final(ptr noundef %79, ptr noundef %arraydecay156, ptr noundef %len)
   %cmp158 = icmp ne i32 %call157, 0
   %conv159 = zext i1 %cmp158 to i32
   %call160 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 237, ptr noundef @.str.20, i32 noundef %conv159)
@@ -529,13 +559,14 @@ if.then162:                                       ; preds = %lor.lhs.false155, %
 
 if.end163:                                        ; preds = %lor.lhs.false155
   %arraydecay164 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %59 = load i64, ptr %len, align 8
-  %conv165 = trunc i64 %59 to i32
+  %80 = load i64, ptr %len, align 8
+  %conv165 = trunc i64 %80 to i32
   %call166 = call ptr @pt(ptr noundef %arraydecay164, i32 noundef %conv165)
   store ptr %call166, ptr %p, align 8
-  %60 = load ptr, ptr %p, align 8
-  %61 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4), align 8
-  %call167 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 240, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %60, ptr noundef %61)
+  %81 = load ptr, ptr %p, align 8
+  %82 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 2, i32 4
+  %83 = load ptr, ptr %82, align 8
+  %call167 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 240, ptr noundef @.str.21, ptr noundef @.str.28, ptr noundef %81, ptr noundef %83)
   %tobool168 = icmp ne i32 %call167, 0
   br i1 %tobool168, label %if.end170, label %if.then169
 
@@ -543,11 +574,13 @@ if.then169:                                       ; preds = %if.end163
   br label %err
 
 if.end170:                                        ; preds = %if.end163
-  %62 = load ptr, ptr %ctx, align 8
-  %63 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 1), align 16
-  %conv171 = sext i32 %63 to i64
+  %84 = load ptr, ptr %ctx, align 8
+  %85 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 1
+  %86 = load i32, ptr %85, align 16
+  %conv171 = sext i32 %86 to i64
   %call172 = call ptr @EVP_aes_128_cbc()
-  %call173 = call i32 @CMAC_Init(ptr noundef %62, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 3), i64 noundef %conv171, ptr noundef %call172, ptr noundef null)
+  %87 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 3
+  %call173 = call i32 @CMAC_Init(ptr noundef %84, ptr noundef %87, i64 noundef %conv171, ptr noundef %call172, ptr noundef null)
   %cmp174 = icmp ne i32 %call173, 0
   %conv175 = zext i1 %cmp174 to i32
   %call176 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 245, ptr noundef @.str.30, i32 noundef %conv175)
@@ -555,10 +588,12 @@ if.end170:                                        ; preds = %if.end163
   br i1 %tobool177, label %lor.lhs.false178, label %if.then192
 
 lor.lhs.false178:                                 ; preds = %if.end170
-  %64 = load ptr, ptr %ctx, align 8
-  %65 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 3), align 4
-  %conv179 = sext i32 %65 to i64
-  %call180 = call i32 @CMAC_Update(ptr noundef %64, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 2), i64 noundef %conv179)
+  %88 = load ptr, ptr %ctx, align 8
+  %89 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 3
+  %90 = load i32, ptr %89, align 4
+  %conv179 = sext i32 %90 to i64
+  %91 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 2
+  %call180 = call i32 @CMAC_Update(ptr noundef %88, ptr noundef %91, i64 noundef %conv179)
   %cmp181 = icmp ne i32 %call180, 0
   %conv182 = zext i1 %cmp181 to i32
   %call183 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 246, ptr noundef @.str.31, i32 noundef %conv182)
@@ -566,9 +601,9 @@ lor.lhs.false178:                                 ; preds = %if.end170
   br i1 %tobool184, label %lor.lhs.false185, label %if.then192
 
 lor.lhs.false185:                                 ; preds = %lor.lhs.false178
-  %66 = load ptr, ptr %ctx, align 8
+  %92 = load ptr, ptr %ctx, align 8
   %arraydecay186 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call187 = call i32 @CMAC_Final(ptr noundef %66, ptr noundef %arraydecay186, ptr noundef %len)
+  %call187 = call i32 @CMAC_Final(ptr noundef %92, ptr noundef %arraydecay186, ptr noundef %len)
   %cmp188 = icmp ne i32 %call187, 0
   %conv189 = zext i1 %cmp188 to i32
   %call190 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 247, ptr noundef @.str.20, i32 noundef %conv189)
@@ -580,13 +615,14 @@ if.then192:                                       ; preds = %lor.lhs.false185, %
 
 if.end193:                                        ; preds = %lor.lhs.false185
   %arraydecay194 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %67 = load i64, ptr %len, align 8
-  %conv195 = trunc i64 %67 to i32
+  %93 = load i64, ptr %len, align 8
+  %conv195 = trunc i64 %93 to i32
   %call196 = call ptr @pt(ptr noundef %arraydecay194, i32 noundef %conv195)
   store ptr %call196, ptr %p, align 8
-  %68 = load ptr, ptr %p, align 8
-  %69 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 4), align 8
-  %call197 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 250, ptr noundef @.str.21, ptr noundef @.str.32, ptr noundef %68, ptr noundef %69)
+  %94 = load ptr, ptr %p, align 8
+  %95 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 3, i32 4
+  %96 = load ptr, ptr %95, align 8
+  %call197 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 250, ptr noundef @.str.21, ptr noundef @.str.32, ptr noundef %94, ptr noundef %96)
   %tobool198 = icmp ne i32 %call197, 0
   br i1 %tobool198, label %if.end200, label %if.then199
 
@@ -594,11 +630,13 @@ if.then199:                                       ; preds = %if.end193
   br label %err
 
 if.end200:                                        ; preds = %if.end193
-  %70 = load ptr, ptr %ctx, align 8
-  %71 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 1), align 16
-  %conv201 = sext i32 %71 to i64
+  %97 = load ptr, ptr %ctx, align 8
+  %98 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 1
+  %99 = load i32, ptr %98, align 16
+  %conv201 = sext i32 %99 to i64
   %call202 = call ptr @EVP_aes_192_cbc()
-  %call203 = call i32 @CMAC_Init(ptr noundef %70, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 4), i64 noundef %conv201, ptr noundef %call202, ptr noundef null)
+  %100 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 4
+  %call203 = call i32 @CMAC_Init(ptr noundef %97, ptr noundef %100, i64 noundef %conv201, ptr noundef %call202, ptr noundef null)
   %cmp204 = icmp ne i32 %call203, 0
   %conv205 = zext i1 %cmp204 to i32
   %call206 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 254, ptr noundef @.str.33, i32 noundef %conv205)
@@ -606,10 +644,12 @@ if.end200:                                        ; preds = %if.end193
   br i1 %tobool207, label %lor.lhs.false208, label %if.then222
 
 lor.lhs.false208:                                 ; preds = %if.end200
-  %72 = load ptr, ptr %ctx, align 8
-  %73 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 3), align 4
-  %conv209 = sext i32 %73 to i64
-  %call210 = call i32 @CMAC_Update(ptr noundef %72, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 2), i64 noundef %conv209)
+  %101 = load ptr, ptr %ctx, align 8
+  %102 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 3
+  %103 = load i32, ptr %102, align 4
+  %conv209 = sext i32 %103 to i64
+  %104 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 2
+  %call210 = call i32 @CMAC_Update(ptr noundef %101, ptr noundef %104, i64 noundef %conv209)
   %cmp211 = icmp ne i32 %call210, 0
   %conv212 = zext i1 %cmp211 to i32
   %call213 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 255, ptr noundef @.str.34, i32 noundef %conv212)
@@ -617,9 +657,9 @@ lor.lhs.false208:                                 ; preds = %if.end200
   br i1 %tobool214, label %lor.lhs.false215, label %if.then222
 
 lor.lhs.false215:                                 ; preds = %lor.lhs.false208
-  %74 = load ptr, ptr %ctx, align 8
+  %105 = load ptr, ptr %ctx, align 8
   %arraydecay216 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call217 = call i32 @CMAC_Final(ptr noundef %74, ptr noundef %arraydecay216, ptr noundef %len)
+  %call217 = call i32 @CMAC_Final(ptr noundef %105, ptr noundef %arraydecay216, ptr noundef %len)
   %cmp218 = icmp ne i32 %call217, 0
   %conv219 = zext i1 %cmp218 to i32
   %call220 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 256, ptr noundef @.str.20, i32 noundef %conv219)
@@ -631,13 +671,14 @@ if.then222:                                       ; preds = %lor.lhs.false215, %
 
 if.end223:                                        ; preds = %lor.lhs.false215
   %arraydecay224 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %75 = load i64, ptr %len, align 8
-  %conv225 = trunc i64 %75 to i32
+  %106 = load i64, ptr %len, align 8
+  %conv225 = trunc i64 %106 to i32
   %call226 = call ptr @pt(ptr noundef %arraydecay224, i32 noundef %conv225)
   store ptr %call226, ptr %p, align 8
-  %76 = load ptr, ptr %p, align 8
-  %77 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 4), align 8
-  %call227 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 259, ptr noundef @.str.21, ptr noundef @.str.35, ptr noundef %76, ptr noundef %77)
+  %107 = load ptr, ptr %p, align 8
+  %108 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 4, i32 4
+  %109 = load ptr, ptr %108, align 8
+  %call227 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 259, ptr noundef @.str.21, ptr noundef @.str.35, ptr noundef %107, ptr noundef %109)
   %tobool228 = icmp ne i32 %call227, 0
   br i1 %tobool228, label %if.end230, label %if.then229
 
@@ -645,11 +686,13 @@ if.then229:                                       ; preds = %if.end223
   br label %err
 
 if.end230:                                        ; preds = %if.end223
-  %78 = load ptr, ptr %ctx, align 8
-  %79 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 1), align 16
-  %conv231 = sext i32 %79 to i64
+  %110 = load ptr, ptr %ctx, align 8
+  %111 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 1
+  %112 = load i32, ptr %111, align 16
+  %conv231 = sext i32 %112 to i64
   %call232 = call ptr @EVP_aes_256_cbc()
-  %call233 = call i32 @CMAC_Init(ptr noundef %78, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 5), i64 noundef %conv231, ptr noundef %call232, ptr noundef null)
+  %113 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 5
+  %call233 = call i32 @CMAC_Init(ptr noundef %110, ptr noundef %113, i64 noundef %conv231, ptr noundef %call232, ptr noundef null)
   %cmp234 = icmp ne i32 %call233, 0
   %conv235 = zext i1 %cmp234 to i32
   %call236 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 263, ptr noundef @.str.36, i32 noundef %conv235)
@@ -657,10 +700,12 @@ if.end230:                                        ; preds = %if.end223
   br i1 %tobool237, label %lor.lhs.false238, label %if.then252
 
 lor.lhs.false238:                                 ; preds = %if.end230
-  %80 = load ptr, ptr %ctx, align 8
-  %81 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 3), align 4
-  %conv239 = sext i32 %81 to i64
-  %call240 = call i32 @CMAC_Update(ptr noundef %80, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 2), i64 noundef %conv239)
+  %114 = load ptr, ptr %ctx, align 8
+  %115 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 3
+  %116 = load i32, ptr %115, align 4
+  %conv239 = sext i32 %116 to i64
+  %117 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 2
+  %call240 = call i32 @CMAC_Update(ptr noundef %114, ptr noundef %117, i64 noundef %conv239)
   %cmp241 = icmp ne i32 %call240, 0
   %conv242 = zext i1 %cmp241 to i32
   %call243 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 264, ptr noundef @.str.37, i32 noundef %conv242)
@@ -668,9 +713,9 @@ lor.lhs.false238:                                 ; preds = %if.end230
   br i1 %tobool244, label %lor.lhs.false245, label %if.then252
 
 lor.lhs.false245:                                 ; preds = %lor.lhs.false238
-  %82 = load ptr, ptr %ctx, align 8
+  %118 = load ptr, ptr %ctx, align 8
   %arraydecay246 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call247 = call i32 @CMAC_Final(ptr noundef %82, ptr noundef %arraydecay246, ptr noundef %len)
+  %call247 = call i32 @CMAC_Final(ptr noundef %118, ptr noundef %arraydecay246, ptr noundef %len)
   %cmp248 = icmp ne i32 %call247, 0
   %conv249 = zext i1 %cmp248 to i32
   %call250 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 265, ptr noundef @.str.20, i32 noundef %conv249)
@@ -682,13 +727,14 @@ if.then252:                                       ; preds = %lor.lhs.false245, %
 
 if.end253:                                        ; preds = %lor.lhs.false245
   %arraydecay254 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %83 = load i64, ptr %len, align 8
-  %conv255 = trunc i64 %83 to i32
+  %119 = load i64, ptr %len, align 8
+  %conv255 = trunc i64 %119 to i32
   %call256 = call ptr @pt(ptr noundef %arraydecay254, i32 noundef %conv255)
   store ptr %call256, ptr %p, align 8
-  %84 = load ptr, ptr %p, align 8
-  %85 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 4), align 8
-  %call257 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 268, ptr noundef @.str.21, ptr noundef @.str.38, ptr noundef %84, ptr noundef %85)
+  %120 = load ptr, ptr %p, align 8
+  %121 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 5, i32 4
+  %122 = load ptr, ptr %121, align 8
+  %call257 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 268, ptr noundef @.str.21, ptr noundef @.str.38, ptr noundef %120, ptr noundef %122)
   %tobool258 = icmp ne i32 %call257, 0
   br i1 %tobool258, label %if.end260, label %if.then259
 
@@ -696,11 +742,13 @@ if.then259:                                       ; preds = %if.end253
   br label %err
 
 if.end260:                                        ; preds = %if.end253
-  %86 = load ptr, ptr %ctx, align 8
-  %87 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 1), align 16
-  %conv261 = sext i32 %87 to i64
+  %123 = load ptr, ptr %ctx, align 8
+  %124 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 1
+  %125 = load i32, ptr %124, align 16
+  %conv261 = sext i32 %125 to i64
   %call262 = call ptr @EVP_des_ede3_cbc()
-  %call263 = call i32 @CMAC_Init(ptr noundef %86, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 6), i64 noundef %conv261, ptr noundef %call262, ptr noundef null)
+  %126 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 6
+  %call263 = call i32 @CMAC_Init(ptr noundef %123, ptr noundef %126, i64 noundef %conv261, ptr noundef %call262, ptr noundef null)
   %cmp264 = icmp ne i32 %call263, 0
   %conv265 = zext i1 %cmp264 to i32
   %call266 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 273, ptr noundef @.str.39, i32 noundef %conv265)
@@ -708,10 +756,12 @@ if.end260:                                        ; preds = %if.end253
   br i1 %tobool267, label %lor.lhs.false268, label %if.then282
 
 lor.lhs.false268:                                 ; preds = %if.end260
-  %88 = load ptr, ptr %ctx, align 8
-  %89 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 3), align 4
-  %conv269 = sext i32 %89 to i64
-  %call270 = call i32 @CMAC_Update(ptr noundef %88, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 2), i64 noundef %conv269)
+  %127 = load ptr, ptr %ctx, align 8
+  %128 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 3
+  %129 = load i32, ptr %128, align 4
+  %conv269 = sext i32 %129 to i64
+  %130 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 2
+  %call270 = call i32 @CMAC_Update(ptr noundef %127, ptr noundef %130, i64 noundef %conv269)
   %cmp271 = icmp ne i32 %call270, 0
   %conv272 = zext i1 %cmp271 to i32
   %call273 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 274, ptr noundef @.str.40, i32 noundef %conv272)
@@ -719,9 +769,9 @@ lor.lhs.false268:                                 ; preds = %if.end260
   br i1 %tobool274, label %lor.lhs.false275, label %if.then282
 
 lor.lhs.false275:                                 ; preds = %lor.lhs.false268
-  %90 = load ptr, ptr %ctx, align 8
+  %131 = load ptr, ptr %ctx, align 8
   %arraydecay276 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call277 = call i32 @CMAC_Final(ptr noundef %90, ptr noundef %arraydecay276, ptr noundef %len)
+  %call277 = call i32 @CMAC_Final(ptr noundef %131, ptr noundef %arraydecay276, ptr noundef %len)
   %cmp278 = icmp ne i32 %call277, 0
   %conv279 = zext i1 %cmp278 to i32
   %call280 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 275, ptr noundef @.str.20, i32 noundef %conv279)
@@ -733,13 +783,14 @@ if.then282:                                       ; preds = %lor.lhs.false275, %
 
 if.end283:                                        ; preds = %lor.lhs.false275
   %arraydecay284 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %91 = load i64, ptr %len, align 8
-  %conv285 = trunc i64 %91 to i32
+  %132 = load i64, ptr %len, align 8
+  %conv285 = trunc i64 %132 to i32
   %call286 = call ptr @pt(ptr noundef %arraydecay284, i32 noundef %conv285)
   store ptr %call286, ptr %p, align 8
-  %92 = load ptr, ptr %p, align 8
-  %93 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 4), align 8
-  %call287 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 278, ptr noundef @.str.21, ptr noundef @.str.41, ptr noundef %92, ptr noundef %93)
+  %133 = load ptr, ptr %p, align 8
+  %134 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 6, i32 4
+  %135 = load ptr, ptr %134, align 8
+  %call287 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 278, ptr noundef @.str.21, ptr noundef @.str.41, ptr noundef %133, ptr noundef %135)
   %tobool288 = icmp ne i32 %call287, 0
   br i1 %tobool288, label %if.end290, label %if.then289
 
@@ -747,11 +798,13 @@ if.then289:                                       ; preds = %if.end283
   br label %err
 
 if.end290:                                        ; preds = %if.end283
-  %94 = load ptr, ptr %ctx, align 8
-  %95 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 1), align 16
-  %conv291 = sext i32 %95 to i64
+  %136 = load ptr, ptr %ctx, align 8
+  %137 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 1
+  %138 = load i32, ptr %137, align 16
+  %conv291 = sext i32 %138 to i64
   %call292 = call ptr @EVP_sm4_cbc()
-  %call293 = call i32 @CMAC_Init(ptr noundef %94, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 7), i64 noundef %conv291, ptr noundef %call292, ptr noundef null)
+  %139 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 7
+  %call293 = call i32 @CMAC_Init(ptr noundef %136, ptr noundef %139, i64 noundef %conv291, ptr noundef %call292, ptr noundef null)
   %cmp294 = icmp ne i32 %call293, 0
   %conv295 = zext i1 %cmp294 to i32
   %call296 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 284, ptr noundef @.str.42, i32 noundef %conv295)
@@ -759,10 +812,12 @@ if.end290:                                        ; preds = %if.end283
   br i1 %tobool297, label %lor.lhs.false298, label %if.then312
 
 lor.lhs.false298:                                 ; preds = %if.end290
-  %96 = load ptr, ptr %ctx, align 8
-  %97 = load i32, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 3), align 4
-  %conv299 = sext i32 %97 to i64
-  %call300 = call i32 @CMAC_Update(ptr noundef %96, ptr noundef getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 2), i64 noundef %conv299)
+  %140 = load ptr, ptr %ctx, align 8
+  %141 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 3
+  %142 = load i32, ptr %141, align 4
+  %conv299 = sext i32 %142 to i64
+  %143 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 2
+  %call300 = call i32 @CMAC_Update(ptr noundef %140, ptr noundef %143, i64 noundef %conv299)
   %cmp301 = icmp ne i32 %call300, 0
   %conv302 = zext i1 %cmp301 to i32
   %call303 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 285, ptr noundef @.str.43, i32 noundef %conv302)
@@ -770,9 +825,9 @@ lor.lhs.false298:                                 ; preds = %if.end290
   br i1 %tobool304, label %lor.lhs.false305, label %if.then312
 
 lor.lhs.false305:                                 ; preds = %lor.lhs.false298
-  %98 = load ptr, ptr %ctx, align 8
+  %144 = load ptr, ptr %ctx, align 8
   %arraydecay306 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call307 = call i32 @CMAC_Final(ptr noundef %98, ptr noundef %arraydecay306, ptr noundef %len)
+  %call307 = call i32 @CMAC_Final(ptr noundef %144, ptr noundef %arraydecay306, ptr noundef %len)
   %cmp308 = icmp ne i32 %call307, 0
   %conv309 = zext i1 %cmp308 to i32
   %call310 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 286, ptr noundef @.str.20, i32 noundef %conv309)
@@ -784,13 +839,14 @@ if.then312:                                       ; preds = %lor.lhs.false305, %
 
 if.end313:                                        ; preds = %lor.lhs.false305
   %arraydecay314 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %99 = load i64, ptr %len, align 8
-  %conv315 = trunc i64 %99 to i32
+  %145 = load i64, ptr %len, align 8
+  %conv315 = trunc i64 %145 to i32
   %call316 = call ptr @pt(ptr noundef %arraydecay314, i32 noundef %conv315)
   store ptr %call316, ptr %p, align 8
-  %100 = load ptr, ptr %p, align 8
-  %101 = load ptr, ptr getelementptr inbounds ([8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 4), align 8
-  %call317 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 289, ptr noundef @.str.21, ptr noundef @.str.44, ptr noundef %100, ptr noundef %101)
+  %146 = load ptr, ptr %p, align 8
+  %147 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 7, i32 4
+  %148 = load ptr, ptr %147, align 8
+  %call317 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 289, ptr noundef @.str.21, ptr noundef @.str.44, ptr noundef %146, ptr noundef %148)
   %tobool318 = icmp ne i32 %call317, 0
   br i1 %tobool318, label %if.end320, label %if.then319
 
@@ -802,10 +858,10 @@ if.end320:                                        ; preds = %if.end313
   br label %err
 
 err:                                              ; preds = %if.end320, %if.then319, %if.then312, %if.then289, %if.then282, %if.then259, %if.then252, %if.then229, %if.then222, %if.then199, %if.then192, %if.then169, %if.then162, %if.then133, %if.then126, %if.then105, %if.then98, %if.then76, %if.then69, %if.then46, %if.then39
-  %102 = load ptr, ptr %ctx, align 8
-  call void @CMAC_CTX_free(ptr noundef %102)
-  %103 = load i32, ptr %ret, align 4
-  ret i32 %103
+  %149 = load ptr, ptr %ctx, align 8
+  call void @CMAC_CTX_free(ptr noundef %149)
+  %150 = load i32, ptr %ret, align 4
+  ret i32 %150
 }
 
 ; Function Attrs: nounwind uwtable
@@ -840,8 +896,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %ctx, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 1), align 16
-  %conv = sext i32 %3 to i64
+  %3 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 1
+  %4 = load i32, ptr %3, align 16
+  %conv = sext i32 %4 to i64
   %call5 = call ptr @EVP_aes_128_cbc()
   %call6 = call i32 @CMAC_Init(ptr noundef %2, ptr noundef @test, i64 noundef %conv, ptr noundef %call5, ptr noundef null)
   %cmp = icmp ne i32 %call6, 0
@@ -851,10 +908,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool9, label %lor.lhs.false10, label %if.then29
 
 lor.lhs.false10:                                  ; preds = %if.end
-  %4 = load ptr, ptr %ctx, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 3), align 4
-  %conv11 = sext i32 %5 to i64
-  %call12 = call i32 @CMAC_Update(ptr noundef %4, ptr noundef getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 2), i64 noundef %conv11)
+  %5 = load ptr, ptr %ctx, align 8
+  %6 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 3
+  %7 = load i32, ptr %6, align 4
+  %conv11 = sext i32 %7 to i64
+  %8 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 2
+  %call12 = call i32 @CMAC_Update(ptr noundef %5, ptr noundef %8, i64 noundef %conv11)
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
   %call15 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 314, ptr noundef @.str.6, i32 noundef %conv14)
@@ -862,9 +921,9 @@ lor.lhs.false10:                                  ; preds = %if.end
   br i1 %tobool16, label %lor.lhs.false17, label %if.then29
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false10
-  %6 = load ptr, ptr %ctx2, align 8
-  %7 = load ptr, ptr %ctx, align 8
-  %call18 = call i32 @CMAC_CTX_copy(ptr noundef %6, ptr noundef %7)
+  %9 = load ptr, ptr %ctx2, align 8
+  %10 = load ptr, ptr %ctx, align 8
+  %call18 = call i32 @CMAC_CTX_copy(ptr noundef %9, ptr noundef %10)
   %cmp19 = icmp ne i32 %call18, 0
   %conv20 = zext i1 %cmp19 to i32
   %call21 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 315, ptr noundef @.str.47, i32 noundef %conv20)
@@ -872,9 +931,9 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false10
   br i1 %tobool22, label %lor.lhs.false23, label %if.then29
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false17
-  %8 = load ptr, ptr %ctx2, align 8
+  %11 = load ptr, ptr %ctx2, align 8
   %arraydecay = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call24 = call i32 @CMAC_Final(ptr noundef %8, ptr noundef %arraydecay, ptr noundef %len)
+  %call24 = call i32 @CMAC_Final(ptr noundef %11, ptr noundef %arraydecay, ptr noundef %len)
   %cmp25 = icmp ne i32 %call24, 0
   %conv26 = zext i1 %cmp25 to i32
   %call27 = call i32 @test_true(ptr noundef @.str.3, i32 noundef 316, ptr noundef @.str.48, i32 noundef %conv26)
@@ -886,13 +945,14 @@ if.then29:                                        ; preds = %lor.lhs.false23, %l
 
 if.end30:                                         ; preds = %lor.lhs.false23
   %arraydecay31 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %9 = load i64, ptr %len, align 8
-  %conv32 = trunc i64 %9 to i32
+  %12 = load i64, ptr %len, align 8
+  %conv32 = trunc i64 %12 to i32
   %call33 = call ptr @pt(ptr noundef %arraydecay31, i32 noundef %conv32)
   store ptr %call33, ptr %p, align 8
-  %10 = load ptr, ptr %p, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.test_st, ptr @test, i32 0, i32 4), align 8
-  %call34 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 320, ptr noundef @.str.21, ptr noundef @.str.22, ptr noundef %10, ptr noundef %11)
+  %13 = load ptr, ptr %p, align 8
+  %14 = getelementptr inbounds %struct.test_st, ptr @test, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %call34 = call i32 @test_str_eq(ptr noundef @.str.3, i32 noundef 320, ptr noundef @.str.21, ptr noundef @.str.22, ptr noundef %13, ptr noundef %15)
   %tobool35 = icmp ne i32 %call34, 0
   br i1 %tobool35, label %if.end37, label %if.then36
 
@@ -904,12 +964,12 @@ if.end37:                                         ; preds = %if.end30
   br label %err
 
 err:                                              ; preds = %if.end37, %if.then36, %if.then29, %if.then
-  %12 = load ptr, ptr %ctx2, align 8
-  call void @CMAC_CTX_free(ptr noundef %12)
-  %13 = load ptr, ptr %ctx, align 8
-  call void @CMAC_CTX_free(ptr noundef %13)
-  %14 = load i32, ptr %ret, align 4
-  ret i32 %14
+  %16 = load ptr, ptr %ctx2, align 8
+  call void @CMAC_CTX_free(ptr noundef %16)
+  %17 = load ptr, ptr %ctx, align 8
+  call void @CMAC_CTX_free(ptr noundef %17)
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 declare ptr @CMAC_CTX_new() #1

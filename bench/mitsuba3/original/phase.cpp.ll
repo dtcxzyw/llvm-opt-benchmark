@@ -644,56 +644,57 @@ define weak_odr void @_ZN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfL
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7)
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 1
-  %9 = invoke noundef i32 @_ZN7mitsubapsENS_18PhaseFunctionFlagsE(i32 noundef 0)
-          to label %10 unwind label %17
+  %8 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 1
+  %10 = invoke noundef i32 @_ZN7mitsubapsENS_18PhaseFunctionFlagsE(i32 noundef 0)
+          to label %11 unwind label %18
 
-10:                                               ; preds = %2
-  store i32 %9, ptr %8, align 4
-  %11 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 2
-  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
-  %12 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 3
-  %13 = load ptr, ptr %4, align 8
-  %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties2idEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %15 unwind label %21
+11:                                               ; preds = %2
+  store i32 %10, ptr %9, align 4
+  %12 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 2
+  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
+  %13 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %7, i32 0, i32 3
+  %14 = load ptr, ptr %4, align 8
+  %15 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties2idEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %22
 
-15:                                               ; preds = %10
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %16 unwind label %21
+16:                                               ; preds = %11
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %15
+17:                                               ; preds = %16
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %25
-
-21:                                               ; preds = %15, %10
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #10
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %16, %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #10
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -701,9 +702,10 @@ define linkonce_odr void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #10
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #10
   ret void
 }
 
@@ -776,11 +778,12 @@ define weak_odr void @_ZN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfL
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %3, i32 0, i32 3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %5 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %3, i32 0, i32 2
-  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %3, i32 0, i32 3
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %6 = getelementptr inbounds %"class.mitsuba::PhaseFunction", ptr %3, i32 0, i32 2
+  call void @_ZNSt3__16vectorIjNS_9allocatorIjEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
   call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #10
   ret void
 }

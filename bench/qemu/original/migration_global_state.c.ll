@@ -87,7 +87,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %state_str, align 8
-  call void @strpadcpy(ptr noundef getelementptr inbounds (%struct.GlobalState, ptr @global_state, i32 0, i32 1), i32 noundef 100, ptr noundef %2, i8 noundef signext 0)
+  %3 = getelementptr inbounds %struct.GlobalState, ptr @global_state, i32 0, i32 1
+  call void @strpadcpy(ptr noundef %3, i32 noundef 100, ptr noundef %2, i8 noundef signext 0)
   ret void
 }
 
@@ -103,23 +104,27 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @global_state_received() #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i32 0, i32 3), align 4
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.GlobalState, ptr @global_state, i32 0, i32 3
+  %1 = load i8, ptr %0, align 4
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @global_state_get_runstate() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i32 0, i32 2), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.GlobalState, ptr @global_state, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @register_global_state() #0 {
 entry:
-  %call = call ptr @strcpy(ptr noundef getelementptr inbounds (%struct.GlobalState, ptr @global_state, i32 0, i32 1), ptr noundef @.str) #7
-  store i8 0, ptr getelementptr inbounds (%struct.GlobalState, ptr @global_state, i32 0, i32 3), align 4
+  %0 = getelementptr inbounds %struct.GlobalState, ptr @global_state, i32 0, i32 1
+  %call = call ptr @strcpy(ptr noundef %0, ptr noundef @.str) #7
+  %1 = getelementptr inbounds %struct.GlobalState, ptr @global_state, i32 0, i32 3
+  store i8 0, ptr %1, align 4
   %call1 = call i32 @vmstate_register(ptr noundef null, i32 noundef 0, ptr noundef @vmstate_globalstate, ptr noundef @global_state)
   ret void
 }

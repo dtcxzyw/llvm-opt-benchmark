@@ -206,10 +206,11 @@ entry:
   %this3 = load ptr, ptr %this.addr, align 8
   %3 = load ptr, ptr %ci.addr, align 8
   call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV29btSoftRigidCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV29btSoftRigidCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   %m_isSwapped = getelementptr inbounds %class.btSoftRigidCollisionAlgorithm, ptr %this3, i32 0, i32 1
-  %4 = load i8, ptr %isSwapped.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %isSwapped.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %m_isSwapped, align 8
   ret void

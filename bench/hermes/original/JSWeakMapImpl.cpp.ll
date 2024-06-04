@@ -1244,7 +1244,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult.2", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_13JSWeakMapImplILNS0_8CellKindE51EEEE6createEPS4_(ptr noundef inttoptr (i64 -1 to ptr))
+  %0 = inttoptr i64 -1 to ptr
+  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_13JSWeakMapImplILNS0_8CellKindE51EEEE6createEPS4_(ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::PseudoHandle.3", ptr %valueOrStatus_, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
   ret void
@@ -1629,7 +1630,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult.176", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_13JSWeakMapImplILNS0_8CellKindE52EEEE6createEPS4_(ptr noundef inttoptr (i64 -1 to ptr))
+  %0 = inttoptr i64 -1 to ptr
+  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_13JSWeakMapImplILNS0_8CellKindE52EEEE6createEPS4_(ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::PseudoHandle.177", ptr %valueOrStatus_, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
   ret void
@@ -4213,13 +4215,14 @@ define linkonce_odr hidden { ptr, i32 } @_ZN6hermes2vm6detail11WeakRefInfo15getT
 entry:
   %retval = alloca %"struct.hermes::vm::detail::WeakRefKey", align 8
   %agg.tmp = alloca %"class.hermes::vm::WeakRef", align 8
-  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef inttoptr (i64 1 to ptr))
+  %0 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::WeakRef", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive1 = getelementptr inbounds %"class.hermes::vm::WeakRefBase", ptr %coerce.dive, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive1, align 8
-  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %0, i32 noundef 1)
-  %1 = load { ptr, i32 }, ptr %retval, align 8
-  ret { ptr, i32 } %1
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %1, i32 noundef 1)
+  %2 = load { ptr, i32 }, ptr %retval, align 8
+  ret { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

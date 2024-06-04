@@ -41,7 +41,7 @@ define dso_local void @drm_managed_release(ptr noundef %0) local_unnamed_addr #0
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
-  br i1 %10, label %42, label %11
+  br i1 %10, label %44, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -90,25 +90,27 @@ define dso_local void @drm_managed_release(ptr noundef %0) local_unnamed_addr #0
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %37, ptr %39, align 8
   store volatile ptr %38, ptr %37, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %36, align 8
-  %40 = load ptr, ptr %20, align 8
-  tail call void @kfree_const(ptr noundef %40) #9
+  %40 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %40, ptr %14, align 8
+  %41 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %41, ptr %36, align 8
+  %42 = load ptr, ptr %20, align 8
+  tail call void @kfree_const(ptr noundef %42) #9
   tail call void @kfree(ptr noundef %14) #9
-  %41 = icmp eq ptr %15, %8
-  br i1 %41, label %42, label %13, !llvm.loop !5
+  %43 = icmp eq ptr %15, %8
+  br i1 %43, label %44, label %13, !llvm.loop !5
 
-42:                                               ; preds = %35, %6
-  br i1 %2, label %46, label %43
+44:                                               ; preds = %35, %6
+  br i1 %2, label %48, label %45
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8
-  br label %46
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  br label %48
 
-46:                                               ; preds = %43, %42
-  %47 = phi ptr [ %45, %43 ], [ null, %42 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %47, i32 noundef 9, ptr noundef nonnull @.str.2) #9
+48:                                               ; preds = %45, %44
+  %49 = phi ptr [ %47, %45 ], [ null, %44 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %49, i32 noundef 9, ptr noundef nonnull @.str.2) #9
   ret void
 }
 

@@ -53,78 +53,93 @@ define internal i32 @prte_mca_ras_slurm_component_query(ptr noundef %0, ptr noun
   store ptr %1, ptr %5, align 8
   %6 = call ptr @getenv(ptr noundef @.str.10) #3
   %7 = icmp eq ptr null, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
-  %9 = load i8, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2), align 4
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %14, label %11
+  %9 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2
+  %10 = load i8, ptr %9, align 4
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %15, label %12
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %5, align 8
-  store i32 0, ptr %12, align 4
-  %13 = load ptr, ptr %4, align 8
-  store ptr null, ptr %13, align 8
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8
+  store i32 0, ptr %13, align 4
+  %14 = load ptr, ptr %4, align 8
+  store ptr null, ptr %14, align 8
   store i32 -1, ptr %3, align 4
-  br label %33
+  br label %38
 
-14:                                               ; preds = %8, %2
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11), align 4
-  %16 = icmp sge i32 %15, 0
-  br i1 %16, label %17, label %30
+15:                                               ; preds = %8, %2
+  %16 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp sge i32 %17, 0
+  br i1 %18, label %19, label %35
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11), align 4
-  %19 = icmp slt i32 %18, 64
-  br i1 %19, label %20, label %30
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 64
+  br i1 %22, label %23, label %35
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11), align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22
-  %24 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %23, i32 0, i32 2
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11
   %25 = load i32, ptr %24, align 4
-  %26 = icmp sge i32 %25, 2
-  br i1 %26, label %27, label %30
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %26
+  %28 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp sge i32 %29, 2
+  br i1 %30, label %31, label %35
 
-27:                                               ; preds = %20
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11), align 4
-  %29 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %28, ptr noundef @.str.11, ptr noundef %29)
-  br label %30
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11
+  %33 = load i32, ptr %32, align 4
+  %34 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef @.str.11, ptr noundef %34)
+  br label %35
 
-30:                                               ; preds = %27, %20, %17, %14
-  %31 = load ptr, ptr %5, align 8
-  store i32 50, ptr %31, align 4
-  %32 = load ptr, ptr %4, align 8
-  store ptr @prte_ras_slurm_module, ptr %32, align 8
+35:                                               ; preds = %31, %23, %19, %15
+  %36 = load ptr, ptr %5, align 8
+  store i32 50, ptr %36, align 4
+  %37 = load ptr, ptr %4, align 8
+  store ptr @prte_ras_slurm_module, ptr %37, align 8
   store i32 0, ptr %3, align 4
-  br label %33
+  br label %38
 
-33:                                               ; preds = %30, %11
-  %34 = load i32, ptr %3, align 4
-  ret i32 %34
+38:                                               ; preds = %35, %12
+  %39 = load i32, ptr %3, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ras_slurm_register() #0 {
   %1 = alloca ptr, align 8
   store ptr @prte_mca_ras_slurm_component, ptr %1, align 8
-  store i32 30, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef %2, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 1))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2), align 4
-  %4 = load ptr, ptr %1, align 8
-  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %4, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2))
-  store ptr null, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 3), align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = call i32 @pmix_mca_base_component_var_register(ptr noundef %6, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 5, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 3))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 4), align 8
-  %8 = load ptr, ptr %1, align 8
-  %9 = call i32 @pmix_mca_base_component_var_register(ptr noundef %8, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 4))
-  store i8 0, ptr getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 5), align 1
-  %10 = load ptr, ptr %1, align 8
-  %11 = call i32 @pmix_mca_base_component_var_register(ptr noundef %10, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 5))
+  %2 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 1
+  store i32 30, ptr %2, align 8
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 1
+  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef %4)
+  %6 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2
+  store i8 0, ptr %6, align 4
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 2
+  %9 = call i32 @pmix_mca_base_component_var_register(ptr noundef %7, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 7, ptr noundef %8)
+  %10 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 3
+  store ptr null, ptr %10, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 3
+  %13 = call i32 @pmix_mca_base_component_var_register(ptr noundef %11, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 5, ptr noundef %12)
+  %14 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 4
+  store i8 0, ptr %14, align 8
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 4
+  %17 = call i32 @pmix_mca_base_component_var_register(ptr noundef %15, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 7, ptr noundef %16)
+  %18 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 5
+  store i8 0, ptr %18, align 1
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.prte_mca_ras_slurm_component_t, ptr @prte_mca_ras_slurm_component, i32 0, i32 5
+  %21 = call i32 @pmix_mca_base_component_var_register(ptr noundef %19, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef %20)
   ret i32 0
 }
 

@@ -2807,7 +2807,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %constantArguments_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_) #4
   %argumentTypes_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 3
@@ -9319,66 +9320,67 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %variables_2 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %variables_2 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %2, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec17SignatureVariableESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEEC2ERKSI_(ptr noundef nonnull align 8 dereferenceable(56) %variables_, ptr noundef nonnull align 8 dereferenceable(56) %variables_2)
   %returnType_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %returnType_3 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %returnType_3 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %3, i32 0, i32 2
   invoke void @_ZN8facebook5velox4exec13TypeSignatureC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %returnType_, ptr noundef nonnull align 8 dereferenceable(96) %returnType_3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %argumentTypes_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %.addr, align 8
-  %argumentTypes_4 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %.addr, align 8
+  %argumentTypes_4 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %4, i32 0, i32 3
   invoke void @_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_, ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %constantArguments_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %.addr, align 8
-  %constantArguments_7 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %4, i32 0, i32 4
+  %5 = load ptr, ptr %.addr, align 8
+  %constantArguments_7 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %5, i32 0, i32 4
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_, ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %variableArity_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %.addr, align 8
-  %variableArity_10 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %5, i32 0, i32 5
-  %6 = load i8, ptr %variableArity_10, align 8
-  %tobool = trunc i8 %6 to i1
+  %6 = load ptr, ptr %.addr, align 8
+  %variableArity_10 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %6, i32 0, i32 5
+  %7 = load i8, ptr %variableArity_10, align 8
+  %tobool = trunc i8 %7 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %variableArity_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad5:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont6
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_) #4
   br label %ehcleanup
 

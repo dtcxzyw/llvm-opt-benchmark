@@ -8,20 +8,20 @@ define dso_local i32 @io_renameat_prep(ptr nocapture noundef %0, ptr noundef %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %49
+  br i1 %5, label %6, label %51
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %49
+  br i1 %9, label %10, label %51
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %49, !prof !5
+  br i1 %14, label %15, label %51, !prof !5
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -44,39 +44,41 @@ define dso_local i32 @io_renameat_prep(ptr nocapture noundef %0, ptr noundef %1)
   %30 = tail call ptr @getname(ptr noundef %21) #2
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %30, %32
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %15
-  %34 = ptrtoint ptr %30 to i64
-  %35 = trunc i64 %34 to i32
-  br label %49
+34:                                               ; preds = %15
+  %35 = ptrtoint ptr %30 to i64
+  %36 = trunc i64 %35 to i32
+  br label %51
 
-36:                                               ; preds = %15
-  %37 = inttoptr i64 %23 to ptr
-  %38 = tail call ptr @getname(ptr noundef %37) #2
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %38, ptr %39, align 8
-  %40 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
-  br i1 %40, label %41, label %46
+37:                                               ; preds = %15
+  %38 = inttoptr i64 %23 to ptr
+  %39 = tail call ptr @getname(ptr noundef %38) #2
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %39, ptr %40, align 8
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %39, %41
+  br i1 %42, label %43, label %48
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %31, align 8
-  tail call void @putname(ptr noundef %42) #2
-  %43 = load ptr, ptr %39, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = trunc i64 %44 to i32
-  br label %49
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %31, align 8
+  tail call void @putname(ptr noundef %44) #2
+  %45 = load ptr, ptr %40, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = trunc i64 %46 to i32
+  br label %51
 
-46:                                               ; preds = %36
-  %47 = load i32, ptr %11, align 4
-  %48 = or i32 %47, 8208
-  store i32 %48, ptr %11, align 4
-  br label %49
+48:                                               ; preds = %37
+  %49 = load i32, ptr %11, align 4
+  %50 = or i32 %49, 8208
+  store i32 %50, ptr %11, align 4
+  br label %51
 
-49:                                               ; preds = %46, %41, %33, %10, %6, %2
-  %50 = phi i32 [ %35, %33 ], [ %45, %41 ], [ 0, %46 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
-  ret i32 %50
+51:                                               ; preds = %48, %43, %34, %10, %6, %2
+  %52 = phi i32 [ %36, %34 ], [ %47, %43 ], [ 0, %48 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -138,32 +140,32 @@ define dso_local i32 @io_unlinkat_prep(ptr nocapture noundef %0, ptr noundef %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %45
+  br i1 %5, label %6, label %46
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %45
+  br i1 %9, label %10, label %46
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %14, label %45
+  br i1 %13, label %14, label %46
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %45
+  br i1 %17, label %18, label %46
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %45, !prof !5
+  br i1 %22, label %23, label %46, !prof !5
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %1, i64 4
@@ -176,7 +178,7 @@ define dso_local i32 @io_unlinkat_prep(ptr nocapture noundef %0, ptr noundef %1)
   store i32 %28, ptr %29, align 4
   %30 = and i32 %28, -513
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %45
+  br i1 %31, label %32, label %46
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %1, i64 16
@@ -185,23 +187,24 @@ define dso_local i32 @io_unlinkat_prep(ptr nocapture noundef %0, ptr noundef %1)
   %36 = tail call ptr @getname(ptr noundef %35) #2
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %36, ptr %37, align 8
-  %38 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
-  br i1 %38, label %39, label %42
+  %38 = inttoptr i64 -4096 to ptr
+  %39 = icmp ugt ptr %36, %38
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %32
-  %40 = ptrtoint ptr %36 to i64
-  %41 = trunc i64 %40 to i32
-  br label %45
+40:                                               ; preds = %32
+  %41 = ptrtoint ptr %36 to i64
+  %42 = trunc i64 %41 to i32
+  br label %46
 
-42:                                               ; preds = %32
-  %43 = load i32, ptr %19, align 4
-  %44 = or i32 %43, 8208
-  store i32 %44, ptr %19, align 4
-  br label %45
+43:                                               ; preds = %32
+  %44 = load i32, ptr %19, align 4
+  %45 = or i32 %44, 8208
+  store i32 %45, ptr %19, align 4
+  br label %46
 
-45:                                               ; preds = %42, %39, %23, %18, %14, %10, %6, %2
-  %46 = phi i32 [ %41, %39 ], [ 0, %42 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ], [ -22, %23 ]
-  ret i32 %46
+46:                                               ; preds = %43, %40, %23, %18, %14, %10, %6, %2
+  %47 = phi i32 [ %42, %40 ], [ 0, %43 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ], [ -22, %23 ]
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -266,32 +269,32 @@ define dso_local i32 @io_mkdirat_prep(ptr nocapture noundef %0, ptr noundef %1) 
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %43
+  br i1 %5, label %6, label %44
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %44
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %44
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %43
+  br i1 %17, label %18, label %44
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %43, !prof !5
+  br i1 %22, label %23, label %44, !prof !5
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %1, i64 4
@@ -309,23 +312,24 @@ define dso_local i32 @io_mkdirat_prep(ptr nocapture noundef %0, ptr noundef %1) 
   %34 = tail call ptr @getname(ptr noundef %33) #2
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %34, ptr %35, align 8
-  %36 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
-  br i1 %36, label %37, label %40
+  %36 = inttoptr i64 -4096 to ptr
+  %37 = icmp ugt ptr %34, %36
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %23
-  %38 = ptrtoint ptr %34 to i64
-  %39 = trunc i64 %38 to i32
-  br label %43
+38:                                               ; preds = %23
+  %39 = ptrtoint ptr %34 to i64
+  %40 = trunc i64 %39 to i32
+  br label %44
 
-40:                                               ; preds = %23
-  %41 = load i32, ptr %19, align 4
-  %42 = or i32 %41, 8208
-  store i32 %42, ptr %19, align 4
-  br label %43
+41:                                               ; preds = %23
+  %42 = load i32, ptr %19, align 4
+  %43 = or i32 %42, 8208
+  store i32 %43, ptr %19, align 4
+  br label %44
 
-43:                                               ; preds = %40, %37, %18, %14, %10, %6, %2
-  %44 = phi i32 [ %39, %37 ], [ 0, %40 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ]
-  ret i32 %44
+44:                                               ; preds = %41, %38, %18, %14, %10, %6, %2
+  %45 = phi i32 [ %40, %38 ], [ 0, %41 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ]
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -374,32 +378,32 @@ define dso_local i32 @io_symlinkat_prep(ptr nocapture noundef %0, ptr noundef %1
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %51
+  br i1 %5, label %6, label %53
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %51
+  br i1 %9, label %10, label %53
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %14, label %51
+  br i1 %13, label %14, label %53
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %53
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %51, !prof !5
+  br i1 %22, label %23, label %53, !prof !5
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %1, i64 4
@@ -414,39 +418,41 @@ define dso_local i32 @io_symlinkat_prep(ptr nocapture noundef %0, ptr noundef %1
   %32 = tail call ptr @getname(ptr noundef %29) #2
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  br i1 %34, label %35, label %38
+  %34 = inttoptr i64 -4096 to ptr
+  %35 = icmp ugt ptr %32, %34
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %23
-  %36 = ptrtoint ptr %32 to i64
-  %37 = trunc i64 %36 to i32
-  br label %51
+36:                                               ; preds = %23
+  %37 = ptrtoint ptr %32 to i64
+  %38 = trunc i64 %37 to i32
+  br label %53
 
-38:                                               ; preds = %23
-  %39 = inttoptr i64 %31 to ptr
-  %40 = tail call ptr @getname(ptr noundef %39) #2
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %40, ptr %41, align 8
-  %42 = icmp ugt ptr %40, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %43, label %48
+39:                                               ; preds = %23
+  %40 = inttoptr i64 %31 to ptr
+  %41 = tail call ptr @getname(ptr noundef %40) #2
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %41, ptr %42, align 8
+  %43 = inttoptr i64 -4096 to ptr
+  %44 = icmp ugt ptr %41, %43
+  br i1 %44, label %45, label %50
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %33, align 8
-  tail call void @putname(ptr noundef %44) #2
-  %45 = load ptr, ptr %41, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = trunc i64 %46 to i32
-  br label %51
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %33, align 8
+  tail call void @putname(ptr noundef %46) #2
+  %47 = load ptr, ptr %42, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = trunc i64 %48 to i32
+  br label %53
 
-48:                                               ; preds = %38
-  %49 = load i32, ptr %19, align 4
-  %50 = or i32 %49, 8208
-  store i32 %50, ptr %19, align 4
-  br label %51
+50:                                               ; preds = %39
+  %51 = load i32, ptr %19, align 4
+  %52 = or i32 %51, 8208
+  store i32 %52, ptr %19, align 4
+  br label %53
 
-51:                                               ; preds = %48, %43, %35, %18, %14, %10, %6, %2
-  %52 = phi i32 [ %37, %35 ], [ %47, %43 ], [ 0, %48 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ]
-  ret i32 %52
+53:                                               ; preds = %50, %45, %36, %18, %14, %10, %6, %2
+  %54 = phi i32 [ %38, %36 ], [ %49, %45 ], [ 0, %50 ], [ -22, %14 ], [ -22, %10 ], [ -22, %6 ], [ -22, %2 ], [ -9, %18 ]
+  ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -487,20 +493,20 @@ define dso_local i32 @io_linkat_prep(ptr nocapture noundef %0, ptr noundef %1) l
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %49
+  br i1 %5, label %6, label %51
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %49
+  br i1 %9, label %10, label %51
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %49, !prof !5
+  br i1 %14, label %15, label %51, !prof !5
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -523,39 +529,41 @@ define dso_local i32 @io_linkat_prep(ptr nocapture noundef %0, ptr noundef %1) l
   %30 = tail call ptr @getname_uflags(ptr noundef %24, i32 noundef %28) #2
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %30, %32
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %15
-  %34 = ptrtoint ptr %30 to i64
-  %35 = trunc i64 %34 to i32
-  br label %49
+34:                                               ; preds = %15
+  %35 = ptrtoint ptr %30 to i64
+  %36 = trunc i64 %35 to i32
+  br label %51
 
-36:                                               ; preds = %15
-  %37 = inttoptr i64 %26 to ptr
-  %38 = tail call ptr @getname(ptr noundef %37) #2
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %38, ptr %39, align 8
-  %40 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
-  br i1 %40, label %41, label %46
+37:                                               ; preds = %15
+  %38 = inttoptr i64 %26 to ptr
+  %39 = tail call ptr @getname(ptr noundef %38) #2
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %39, ptr %40, align 8
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %39, %41
+  br i1 %42, label %43, label %48
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %31, align 8
-  tail call void @putname(ptr noundef %42) #2
-  %43 = load ptr, ptr %39, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = trunc i64 %44 to i32
-  br label %49
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %31, align 8
+  tail call void @putname(ptr noundef %44) #2
+  %45 = load ptr, ptr %40, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = trunc i64 %46 to i32
+  br label %51
 
-46:                                               ; preds = %36
-  %47 = load i32, ptr %11, align 4
-  %48 = or i32 %47, 8208
-  store i32 %48, ptr %11, align 4
-  br label %49
+48:                                               ; preds = %37
+  %49 = load i32, ptr %11, align 4
+  %50 = or i32 %49, 8208
+  store i32 %50, ptr %11, align 4
+  br label %51
 
-49:                                               ; preds = %46, %41, %33, %10, %6, %2
-  %50 = phi i32 [ %35, %33 ], [ %45, %41 ], [ 0, %46 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
-  ret i32 %50
+51:                                               ; preds = %48, %43, %34, %10, %6, %2
+  %52 = phi i32 [ %36, %34 ], [ %47, %43 ], [ 0, %48 ], [ -22, %6 ], [ -22, %2 ], [ -9, %10 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -443,13 +443,20 @@ define linkonce_odr void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.4() #0 section ".text.startup" {
   call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) @_ZL13cube_vertices, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 1), float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 2), float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 3), float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 4), float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 5), float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 6), float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 7), float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+  %1 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 1
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %1, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+  %2 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 2
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %2, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+  %3 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 3
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+  %4 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 4
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %4, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+  %5 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 5
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %5, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+  %6 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 6
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+  %7 = getelementptr inbounds %"class.vcg::Point3", ptr @_ZL13cube_vertices, i64 7
+  call void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %7, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
   ret void
 }
 

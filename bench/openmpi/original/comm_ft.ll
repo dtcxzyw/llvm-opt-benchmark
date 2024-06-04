@@ -1774,23 +1774,24 @@ define i32 @ompi_comm_set_rank_failed(ptr noundef %0, i32 noundef %1, i1 noundef
   %9 = getelementptr inbounds %struct.ompi_communicator_t, ptr %8, i32 0, i32 28
   store i8 0, ptr %9, align 8
   call void @opal_atomic_wmb()
-  %10 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 6), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = call i32 %10(ptr noundef %11, i1 noundef zeroext true)
-  %13 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
-  %14 = icmp ne ptr null, %13
-  br i1 %14, label %15, label %21
+  %10 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call i32 %11(ptr noundef %12, i1 noundef zeroext true)
+  %14 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
+  %15 = icmp ne ptr null, %14
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i32, ptr %5, align 4
-  %19 = load i8, ptr %6, align 1
-  %20 = trunc i8 %19 to i1
-  call void %16(ptr noundef %17, i32 noundef %18, i1 noundef zeroext %20)
-  br label %21
+16:                                               ; preds = %3
+  %17 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i32, ptr %5, align 4
+  %20 = load i8, ptr %6, align 1
+  %21 = trunc i8 %20 to i1
+  call void %17(ptr noundef %18, i32 noundef %19, i1 noundef zeroext %21)
+  br label %22
 
-21:                                               ; preds = %15, %3
+22:                                               ; preds = %16, %3
   ret i32 0
 }
 

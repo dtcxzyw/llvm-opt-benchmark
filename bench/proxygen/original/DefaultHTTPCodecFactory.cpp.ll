@@ -374,10 +374,11 @@ entry:
   store i8 %frombool, ptr %forceHTTP1xCodecTo1_1.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen16HTTPCodecFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen23DefaultHTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen23DefaultHTTPCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %forceHTTP1xCodecTo1_1_ = getelementptr inbounds %"class.proxygen::DefaultHTTPCodecFactory", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %forceHTTP1xCodecTo1_1.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %forceHTTP1xCodecTo1_1.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %forceHTTP1xCodecTo1_1_, align 8
   ret void
@@ -390,7 +391,8 @@ entry:
   %ref.tmp = alloca %class.anon, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEEC2IN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
@@ -901,7 +903,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_) #3
   ret void

@@ -5457,13 +5457,14 @@ entry:
   store ptr %opts, ptr %opts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory14TheoryRewriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_rewriter = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersRewriter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %r.addr, align 8
-  store ptr %0, ptr %d_rewriter, align 8
+  %1 = load ptr, ptr %r.addr, align 8
+  store ptr %1, ptr %d_rewriter, align 8
   %d_opts = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersRewriter", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %opts.addr, align 8
-  store ptr %1, ptr %d_opts, align 8
+  %2 = load ptr, ptr %opts.addr, align 8
+  store ptr %2, ptr %d_opts, align 8
   ret void
 }
 
@@ -5473,7 +5474,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

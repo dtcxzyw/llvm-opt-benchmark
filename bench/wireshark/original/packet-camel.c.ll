@@ -3850,35 +3850,38 @@ define hidden void @proto_register_camel() #0 {
   call void @rose_ctx_init(ptr noundef @camel_rose_ctx)
   %18 = load i32, ptr @proto_camel, align 4
   %19 = call ptr @register_dissector_table(ptr noundef @.str.1191, ptr noundef @.str.1192, i32 noundef %18, i32 noundef 7, i32 noundef 2)
-  store ptr %19, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 2), align 8
-  %20 = load i32, ptr @proto_camel, align 4
-  %21 = call ptr @register_dissector_table(ptr noundef @.str.1193, ptr noundef @.str.1194, i32 noundef %20, i32 noundef 7, i32 noundef 2)
-  store ptr %21, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 4), align 8
-  %22 = load i32, ptr @proto_camel, align 4
-  %23 = call ptr @register_dissector_table(ptr noundef @.str.1195, ptr noundef @.str.1196, i32 noundef %22, i32 noundef 7, i32 noundef 2)
-  store ptr %23, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 6), align 8
-  %24 = call ptr @wmem_epan_scope()
-  %25 = call i32 @range_convert_str(ptr noundef %24, ptr noundef @global_ssn_range, ptr noundef @.str.1197, i32 noundef 254)
-  %26 = load i32, ptr @proto_camel, align 4
-  %27 = call ptr @prefs_register_protocol(i32 noundef %26, ptr noundef @proto_reg_handoff_camel)
-  store ptr %27, ptr %1, align 8
-  %28 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %28, ptr noundef @.str.1198, ptr noundef @.str.1199, ptr noundef @.str.1200, ptr noundef @date_format, ptr noundef @date_options, i32 noundef 0)
-  %29 = load ptr, ptr %1, align 8
-  call void @prefs_register_range_preference(ptr noundef %29, ptr noundef @.str.1201, ptr noundef @.str.1202, ptr noundef @.str.1203, ptr noundef @global_ssn_range, i32 noundef 254)
-  %30 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %30, ptr noundef @.str.1204)
+  %20 = getelementptr inbounds %struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 2
+  store ptr %19, ptr %20, align 8
+  %21 = load i32, ptr @proto_camel, align 4
+  %22 = call ptr @register_dissector_table(ptr noundef @.str.1193, ptr noundef @.str.1194, i32 noundef %21, i32 noundef 7, i32 noundef 2)
+  %23 = getelementptr inbounds %struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 4
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr @proto_camel, align 4
+  %25 = call ptr @register_dissector_table(ptr noundef @.str.1195, ptr noundef @.str.1196, i32 noundef %24, i32 noundef 7, i32 noundef 2)
+  %26 = getelementptr inbounds %struct._rose_ctx_t, ptr @camel_rose_ctx, i32 0, i32 6
+  store ptr %25, ptr %26, align 8
+  %27 = call ptr @wmem_epan_scope()
+  %28 = call i32 @range_convert_str(ptr noundef %27, ptr noundef @global_ssn_range, ptr noundef @.str.1197, i32 noundef 254)
+  %29 = load i32, ptr @proto_camel, align 4
+  %30 = call ptr @prefs_register_protocol(i32 noundef %29, ptr noundef @proto_reg_handoff_camel)
+  store ptr %30, ptr %1, align 8
   %31 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %31, ptr noundef @.str.1205, ptr noundef @.str.1206, ptr noundef @.str.1207, ptr noundef @gcamel_PersistentSRT)
+  call void @prefs_register_enum_preference(ptr noundef %31, ptr noundef @.str.1198, ptr noundef @.str.1199, ptr noundef @.str.1200, ptr noundef @date_format, ptr noundef @date_options, i32 noundef 0)
+  %32 = load ptr, ptr %1, align 8
+  call void @prefs_register_range_preference(ptr noundef %32, ptr noundef @.str.1201, ptr noundef @.str.1202, ptr noundef @.str.1203, ptr noundef @global_ssn_range, i32 noundef 254)
+  %33 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %33, ptr noundef @.str.1204)
+  %34 = load ptr, ptr %1, align 8
+  call void @prefs_register_bool_preference(ptr noundef %34, ptr noundef @.str.1205, ptr noundef @.str.1206, ptr noundef @.str.1207, ptr noundef @gcamel_PersistentSRT)
   call void @register_init_routine(ptr noundef @camelsrt_init_routine)
-  %32 = call ptr @wmem_epan_scope()
-  %33 = call ptr @wmem_file_scope()
-  %34 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %32, ptr noundef %33, ptr noundef @camelsrt_call_hash, ptr noundef @camelsrt_call_equal)
-  store ptr %34, ptr @srt_calls, align 8
-  %35 = call i32 @register_tap(ptr noundef @.str.1183)
-  store i32 %35, ptr @camel_tap, align 4
-  %36 = load i32, ptr @proto_camel, align 4
-  call void @register_srt_table(i32 noundef %36, ptr noundef @.str.1183, i32 noundef 1, ptr noundef @camelstat_packet, ptr noundef @camelstat_init, ptr noundef null)
+  %35 = call ptr @wmem_epan_scope()
+  %36 = call ptr @wmem_file_scope()
+  %37 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %35, ptr noundef %36, ptr noundef @camelsrt_call_hash, ptr noundef @camelsrt_call_equal)
+  store ptr %37, ptr @srt_calls, align 8
+  %38 = call i32 @register_tap(ptr noundef @.str.1183)
+  store i32 %38, ptr @camel_tap, align 4
+  %39 = load i32, ptr @proto_camel, align 4
+  call void @register_srt_table(i32 noundef %39, ptr noundef @.str.1183, i32 noundef 1, ptr noundef @camelstat_packet, ptr noundef @camelstat_init, ptr noundef null)
   call void @register_stat_tap_table_ui(ptr noundef @proto_register_camel.camel_stat_table)
   ret void
 }

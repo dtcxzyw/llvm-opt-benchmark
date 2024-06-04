@@ -327,14 +327,14 @@ define internal i32 @dissect_getport_call(ptr noundef %0, ptr noundef %1, ptr no
   %22 = and i16 %21, 1
   %23 = zext i16 %22 to i32
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %41, label %25
+  br i1 %24, label %42, label %25
 
 25:                                               ; preds = %4
   %26 = load ptr, ptr %8, align 8
   store ptr %26, ptr %15, align 8
   %27 = load ptr, ptr %15, align 8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %40
+  br i1 %28, label %29, label %41
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %5, align 8
@@ -344,100 +344,101 @@ define internal i32 @dissect_getport_call(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
   %35 = icmp eq i32 %34, 17
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %40
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %15, align 8
   %38 = getelementptr inbounds %struct._rpc_call_info_value, ptr %37, i32 0, i32 11
-  store ptr inttoptr (i64 3 to ptr), ptr %38, align 8
-  br label %39
-
-39:                                               ; preds = %36, %29
+  %39 = inttoptr i64 3 to ptr
+  store ptr %39, ptr %38, align 8
   br label %40
 
-40:                                               ; preds = %39, %25
+40:                                               ; preds = %36, %29
   br label %41
 
-41:                                               ; preds = %40, %4
-  %42 = load ptr, ptr %5, align 8
-  %43 = load i32, ptr %14, align 4
-  %44 = add i32 %43, 0
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %42, i32 noundef %44)
-  store i32 %45, ptr %11, align 4
-  %46 = load i32, ptr %11, align 4
-  %47 = call ptr @rpc_prog_name(i32 noundef %46)
-  store ptr %47, ptr %12, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = load i32, ptr @hf_portmap_prog, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = load i32, ptr %14, align 4
-  %52 = load i32, ptr %11, align 4
-  %53 = load ptr, ptr %12, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 4, i32 noundef %52, ptr noundef @.str.55, ptr noundef %53, i32 noundef %54)
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef @.str.56, ptr noundef %59, i32 noundef %60)
-  %61 = load ptr, ptr %7, align 8
-  %62 = load ptr, ptr %12, align 8
-  %63 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef @.str.57, ptr noundef %62, i32 noundef %63)
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %14, align 4
-  %66 = add i32 %65, 4
-  %67 = call i32 @tvb_get_ntohl(ptr noundef %64, i32 noundef %66)
-  store i32 %67, ptr %10, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr @hf_portmap_version, align 4
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i32, ptr %14, align 4
-  %72 = add i32 %71, 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %72, i32 noundef 4, i32 noundef 0)
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef @.str.58, i32 noundef %77)
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef @.str.59, i32 noundef %79)
-  %80 = load ptr, ptr %5, align 8
-  %81 = load i32, ptr %14, align 4
-  %82 = add i32 %81, 8
-  %83 = call i32 @tvb_get_ntohl(ptr noundef %80, i32 noundef %82)
-  store i32 %83, ptr %9, align 4
-  %84 = load i32, ptr %9, align 4
-  %85 = call ptr @ipprotostr(i32 noundef %84)
-  store ptr %85, ptr %13, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr @hf_portmap_proto, align 4
-  %88 = load ptr, ptr %5, align 8
-  %89 = load i32, ptr %14, align 4
-  %90 = add i32 %89, 8
-  %91 = load i32, ptr %9, align 4
-  %92 = load ptr, ptr %13, align 8
-  %93 = load i32, ptr %9, align 4
-  %94 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %90, i32 noundef 4, i32 noundef %91, ptr noundef @.str.60, ptr noundef %92, i32 noundef %93)
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %97, i32 noundef 25, ptr noundef @.str.61, ptr noundef %98)
-  %99 = load ptr, ptr %7, align 8
-  %100 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %99, ptr noundef @.str.61, ptr noundef %100)
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i32, ptr @hf_portmap_port, align 4
-  %103 = load ptr, ptr %5, align 8
-  %104 = load i32, ptr %14, align 4
-  %105 = add i32 %104, 12
-  %106 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %105, i32 noundef 4, i32 noundef 0)
-  %107 = load i32, ptr %14, align 4
-  %108 = add i32 %107, 16
-  ret i32 %108
+41:                                               ; preds = %40, %25
+  br label %42
+
+42:                                               ; preds = %41, %4
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = add i32 %44, 0
+  %46 = call i32 @tvb_get_ntohl(ptr noundef %43, i32 noundef %45)
+  store i32 %46, ptr %11, align 4
+  %47 = load i32, ptr %11, align 4
+  %48 = call ptr @rpc_prog_name(i32 noundef %47)
+  store ptr %48, ptr %12, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr @hf_portmap_prog, align 4
+  %51 = load ptr, ptr %5, align 8
+  %52 = load i32, ptr %14, align 4
+  %53 = load i32, ptr %11, align 4
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef %53, ptr noundef @.str.55, ptr noundef %54, i32 noundef %55)
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = load i32, ptr %11, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef @.str.56, ptr noundef %60, i32 noundef %61)
+  %62 = load ptr, ptr %7, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load i32, ptr %11, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef @.str.57, ptr noundef %63, i32 noundef %64)
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %14, align 4
+  %67 = add i32 %66, 4
+  %68 = call i32 @tvb_get_ntohl(ptr noundef %65, i32 noundef %67)
+  store i32 %68, ptr %10, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr @hf_portmap_version, align 4
+  %71 = load ptr, ptr %5, align 8
+  %72 = load i32, ptr %14, align 4
+  %73 = add i32 %72, 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef 4, i32 noundef 0)
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %77, i32 noundef 25, ptr noundef @.str.58, i32 noundef %78)
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef @.str.59, i32 noundef %80)
+  %81 = load ptr, ptr %5, align 8
+  %82 = load i32, ptr %14, align 4
+  %83 = add i32 %82, 8
+  %84 = call i32 @tvb_get_ntohl(ptr noundef %81, i32 noundef %83)
+  store i32 %84, ptr %9, align 4
+  %85 = load i32, ptr %9, align 4
+  %86 = call ptr @ipprotostr(i32 noundef %85)
+  store ptr %86, ptr %13, align 8
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr @hf_portmap_proto, align 4
+  %89 = load ptr, ptr %5, align 8
+  %90 = load i32, ptr %14, align 4
+  %91 = add i32 %90, 8
+  %92 = load i32, ptr %9, align 4
+  %93 = load ptr, ptr %13, align 8
+  %94 = load i32, ptr %9, align 4
+  %95 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %91, i32 noundef 4, i32 noundef %92, ptr noundef @.str.60, ptr noundef %93, i32 noundef %94)
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef @.str.61, ptr noundef %99)
+  %100 = load ptr, ptr %7, align 8
+  %101 = load ptr, ptr %13, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.61, ptr noundef %101)
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i32, ptr @hf_portmap_port, align 4
+  %104 = load ptr, ptr %5, align 8
+  %105 = load i32, ptr %14, align 4
+  %106 = add i32 %105, 12
+  %107 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %106, i32 noundef 4, i32 noundef 0)
+  %108 = load i32, ptr %14, align 4
+  %109 = add i32 %108, 16
+  ret i32 %109
 }
 
 ; Function Attrs: nounwind uwtable

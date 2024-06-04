@@ -39,11 +39,12 @@ define void @"_ZN67_$LT$hyper..body..incoming..Incoming$u20$as$u20$http_body..Bo
   %3 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %3, align 8
   %4 = load i64, ptr @anon.cbb1198da698d9d0cb2175cedc2e576b.0, align 8, !range !6, !noundef !4
-  %5 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.cbb1198da698d9d0cb2175cedc2e576b.0, i32 0, i32 1), align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 0
-  store i64 %4, ptr %6, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 1
-  store i64 %5, ptr %7, align 8
+  %5 = getelementptr inbounds { i64, i64 }, ptr @anon.cbb1198da698d9d0cb2175cedc2e576b.0, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 0
+  store i64 %4, ptr %7, align 8
+  %8 = getelementptr inbounds { i64, i64 }, ptr %0, i32 0, i32 1
+  store i64 %6, ptr %8, align 8
   ret void
 }
 

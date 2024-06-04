@@ -8017,15 +8017,19 @@ define void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs9SingleCRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %4 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs9SingleCRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 }
@@ -9765,14 +9769,14 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27Derive
   %19 = call noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs14EngineeringCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @_ZNK5osgeo4proj3crs14EngineeringCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.86") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %19)
   %20 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNKR7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEE11as_nullableEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %21 unwind label %42
+          to label %21 unwind label %50
 
 21:                                               ; preds = %4
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_16EngineeringDatumEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %20) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr null) #3
   %22 = load ptr, ptr %8, align 8
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %23 unwind label %46
+          to label %23 unwind label %54
 
 23:                                               ; preds = %21
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
@@ -9780,124 +9784,133 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27Derive
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %24 = load ptr, ptr %6, align 8
   %25 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs14EngineeringCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %26 unwind label %51
+          to label %26 unwind label %59
 
 26:                                               ; preds = %23
   invoke void @_ZNK5osgeo4proj3crs14EngineeringCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.86") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %27 unwind label %51
+          to label %27 unwind label %59
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum16EngineeringDatumEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %55
+  %29 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum16EngineeringDatumEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %28)
+          to label %30 unwind label %63
 
-29:                                               ; preds = %27
+30:                                               ; preds = %27
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  %30 = getelementptr inbounds i8, ptr %16, i64 16
-  %31 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_14EngineeringCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %32 unwind label %59
+  %31 = getelementptr inbounds i8, ptr %16, i64 16
+  %32 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_14EngineeringCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %32)
+          to label %33 unwind label %67
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %35 unwind label %63
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35)
+          to label %37 unwind label %71
 
-35:                                               ; preds = %32
+37:                                               ; preds = %33
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %16, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %16, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %40, align 8
-  %41 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate", ptr %16, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr null) #3
+  %38 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %38, ptr %16, align 8
+  %39 = getelementptr inbounds i8, ptr %16, i64 40
+  %40 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %16, i64 56
+  %42 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %42, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %16, i64 64
+  %44 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %16, i64 88
+  %46 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %16, i64 16
+  %48 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate", ptr %16, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr null) #3
   ret void
 
-42:                                               ; preds = %4
-  %43 = landingpad { ptr, i32 }
+50:                                               ; preds = %4
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %11, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %12, align 4
-  br label %50
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %11, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %12, align 4
+  br label %58
 
-46:                                               ; preds = %21
-  %47 = landingpad { ptr, i32 }
+54:                                               ; preds = %21
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %11, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %12, align 4
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %11, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %12, align 4
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %50
+  br label %58
 
-50:                                               ; preds = %46, %42
+58:                                               ; preds = %54, %50
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %70
+  br label %79
 
-51:                                               ; preds = %26, %23
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %11, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %12, align 4
-  br label %68
-
-55:                                               ; preds = %27
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %11, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %12, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %68
-
-59:                                               ; preds = %29
+59:                                               ; preds = %26, %23
   %60 = landingpad { ptr, i32 }
           cleanup
   %61 = extractvalue { ptr, i32 } %60, 0
   store ptr %61, ptr %11, align 8
   %62 = extractvalue { ptr, i32 } %60, 1
   store i32 %62, ptr %12, align 4
-  br label %67
+  br label %77
 
-63:                                               ; preds = %32
+63:                                               ; preds = %27
   %64 = landingpad { ptr, i32 }
           cleanup
   %65 = extractvalue { ptr, i32 } %64, 0
   store ptr %65, ptr %11, align 8
   %66 = extractvalue { ptr, i32 } %64, 1
   store i32 %66, ptr %12, align 4
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %77
+
+67:                                               ; preds = %30
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  br label %75
+
+71:                                               ; preds = %33
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %11, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %67
+  br label %75
 
-67:                                               ; preds = %63, %59
-  call void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %68
+75:                                               ; preds = %71, %67
+  %76 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %76) #3
+  br label %77
 
-68:                                               ; preds = %67, %55, %51
-  %69 = getelementptr inbounds i8, ptr %16, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %69) #3
-  br label %70
+77:                                               ; preds = %75, %63, %59
+  %78 = getelementptr inbounds i8, ptr %16, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %78) #3
+  br label %79
 
-70:                                               ; preds = %68, %50
-  %71 = load ptr, ptr %11, align 8
-  %72 = load i32, ptr %12, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+79:                                               ; preds = %77, %58
+  %80 = load ptr, ptr %11, align 8
+  %81 = load i32, ptr %12, align 4
+  %82 = insertvalue { ptr, i32 } poison, ptr %80, 0
+  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
+  resume { ptr, i32 } %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9946,39 +9959,43 @@ define hidden void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5D
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5osgeo4proj3crs3CRSC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs9SingleCRS7PrivateEJRKSt10shared_ptrINS0_5datum5DatumEERKS6_INS7_13DatumEnsembleEERKN7dropbox6oxygen2nnIS6_INS0_2cs16CoordinateSystemEEEEEEESt10unique_ptrIT_St14default_deleteISQ_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %19 unwind label %20
+  %12 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 48
+  %18 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %11, i32 0, i32 1
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs9SingleCRS7PrivateEJRKSt10shared_ptrINS0_5datum5DatumEERKS6_INS7_13DatumEnsembleEERKN7dropbox6oxygen2nnIS6_INS0_2cs16CoordinateSystemEEEEEEESt10unique_ptrIT_St14default_deleteISQ_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
+          to label %23 unwind label %24
 
-19:                                               ; preds = %4
+23:                                               ; preds = %4
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %9, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %10, align 4
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %24
+  br label %28
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10198,62 +10215,71 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27Derive
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 56
+  %23 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 88
+  %27 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngineeringCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10267,39 +10293,43 @@ define hidden void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull ali
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj3crs3CRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %7, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %13, i32 0, i32 1
-  %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs9SingleCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs9SingleCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %15)
-          to label %16 unwind label %17
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 2, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i32 0, i32 3, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %7, i32 0, i32 1
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.osgeo::proj::crs::SingleCRS", ptr %17, i32 0, i32 1
+  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs9SingleCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs9SingleCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.34") align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %19)
+          to label %20 unwind label %21
 
-16:                                               ; preds = %2
+20:                                               ; preds = %2
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
-  br label %21
+  br label %25
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11624,18 +11654,18 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_26Derive
   %21 = call noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13ParametricCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @_ZNK5osgeo4proj3crs13ParametricCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.133") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %21)
   %22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNKR7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEE11as_nullableEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %23 unwind label %46
+          to label %23 unwind label %54
 
 23:                                               ; preds = %4
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_15ParametricDatumEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %22) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr null) #3
   %24 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_12ParametricCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %25 unwind label %50
+          to label %25 unwind label %58
 
 25:                                               ; preds = %23
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %26 unwind label %54
+          to label %26 unwind label %62
 
 26:                                               ; preds = %25
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
@@ -11644,155 +11674,164 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_26Derive
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %27 = load ptr, ptr %6, align 8
   %28 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13ParametricCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %29 unwind label %60
+          to label %29 unwind label %68
 
 29:                                               ; preds = %26
   invoke void @_ZNK5osgeo4proj3crs13ParametricCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.133") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %30 unwind label %60
+          to label %30 unwind label %68
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum15ParametricDatumEEEERKNS5_IS6_INS0_2cs12ParametricCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %32 unwind label %64
+  %32 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum15ParametricDatumEEEERKNS5_IS6_INS0_2cs12ParametricCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %31)
+          to label %33 unwind label %72
 
-32:                                               ; preds = %30
+33:                                               ; preds = %30
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  %33 = getelementptr inbounds i8, ptr %18, i64 16
-  %34 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_13ParametricCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %35 unwind label %68
+  %34 = getelementptr inbounds i8, ptr %18, i64 16
+  %35 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_13ParametricCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %35)
+          to label %36 unwind label %76
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_12ParametricCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %38 unwind label %72
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_12ParametricCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %38)
+          to label %39 unwind label %80
 
-38:                                               ; preds = %35
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %39 unwind label %76
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %41 unwind label %84
 
-39:                                               ; preds = %38
+41:                                               ; preds = %39
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %18, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %18, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %18, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %44, align 8
-  %45 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.103", ptr %18, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr null) #3
+  %42 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %42, ptr %18, align 8
+  %43 = getelementptr inbounds i8, ptr %18, i64 40
+  %44 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %18, i64 56
+  %46 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %18, i64 64
+  %48 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %18, i64 88
+  %50 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %50, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %18, i64 16
+  %52 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %52, ptr %51, align 8
+  %53 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.103", ptr %18, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr null) #3
   ret void
 
-46:                                               ; preds = %4
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %11, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %12, align 4
-  br label %59
-
-50:                                               ; preds = %23
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %11, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %12, align 4
-  br label %58
-
-54:                                               ; preds = %25
+54:                                               ; preds = %4
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = extractvalue { ptr, i32 } %55, 0
   store ptr %56, ptr %11, align 8
   %57 = extractvalue { ptr, i32 } %55, 1
   store i32 %57, ptr %12, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %58
+  br label %67
 
-58:                                               ; preds = %54, %50
+58:                                               ; preds = %23
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %11, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %12, align 4
+  br label %66
+
+62:                                               ; preds = %25
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %11, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %12, align 4
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %66
+
+66:                                               ; preds = %62, %58
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %59
+  br label %67
 
-59:                                               ; preds = %58, %46
+67:                                               ; preds = %66, %54
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %84
+  br label %93
 
-60:                                               ; preds = %29, %26
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %11, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %12, align 4
-  br label %82
-
-64:                                               ; preds = %30
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %11, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %12, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %82
-
-68:                                               ; preds = %32
+68:                                               ; preds = %29, %26
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = extractvalue { ptr, i32 } %69, 0
   store ptr %70, ptr %11, align 8
   %71 = extractvalue { ptr, i32 } %69, 1
   store i32 %71, ptr %12, align 4
-  br label %81
+  br label %91
 
-72:                                               ; preds = %35
+72:                                               ; preds = %30
   %73 = landingpad { ptr, i32 }
           cleanup
   %74 = extractvalue { ptr, i32 } %73, 0
   store ptr %74, ptr %11, align 8
   %75 = extractvalue { ptr, i32 } %73, 1
   store i32 %75, ptr %12, align 4
-  br label %80
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
+  br label %91
 
-76:                                               ; preds = %38
+76:                                               ; preds = %33
   %77 = landingpad { ptr, i32 }
           cleanup
   %78 = extractvalue { ptr, i32 } %77, 0
   store ptr %78, ptr %11, align 8
   %79 = extractvalue { ptr, i32 } %77, 1
   store i32 %79, ptr %12, align 4
+  br label %89
+
+80:                                               ; preds = %36
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %11, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %12, align 4
+  br label %88
+
+84:                                               ; preds = %39
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %11, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %80
+  br label %88
 
-80:                                               ; preds = %76, %72
+88:                                               ; preds = %84, %80
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br label %81
+  br label %89
 
-81:                                               ; preds = %80, %68
-  call void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %82
+89:                                               ; preds = %88, %76
+  %90 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %90) #3
+  br label %91
 
-82:                                               ; preds = %81, %64, %60
-  %83 = getelementptr inbounds i8, ptr %18, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %83) #3
-  br label %84
+91:                                               ; preds = %89, %72, %68
+  %92 = getelementptr inbounds i8, ptr %18, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %92) #3
+  br label %93
 
-84:                                               ; preds = %82, %59
-  %85 = load ptr, ptr %11, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+93:                                               ; preds = %91, %67
+  %94 = load ptr, ptr %11, align 8
+  %95 = load i32, ptr %12, align 4
+  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
+  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
+  resume { ptr, i32 } %97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11961,62 +12000,71 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_26Derive
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.103", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 56
+  %23 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 88
+  %27 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.103", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_26DerivedParametricCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13207,18 +13255,18 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_24Derive
   %21 = call noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11TemporalCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @_ZNK5osgeo4proj3crs11TemporalCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.167") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %21)
   %22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNKR7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEE11as_nullableEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %23 unwind label %46
+          to label %23 unwind label %54
 
 23:                                               ; preds = %4
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_13TemporalDatumEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %22) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr null) #3
   %24 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10TemporalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %25 unwind label %50
+          to label %25 unwind label %58
 
 25:                                               ; preds = %23
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %26 unwind label %54
+          to label %26 unwind label %62
 
 26:                                               ; preds = %25
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
@@ -13227,155 +13275,164 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_24Derive
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %27 = load ptr, ptr %6, align 8
   %28 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11TemporalCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %29 unwind label %60
+          to label %29 unwind label %68
 
 29:                                               ; preds = %26
   invoke void @_ZNK5osgeo4proj3crs11TemporalCRS5datumEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.167") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %30 unwind label %60
+          to label %30 unwind label %68
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum13TemporalDatumEEEERKNS5_IS6_INS0_2cs10TemporalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %32 unwind label %64
+  %32 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum13TemporalDatumEEEERKNS5_IS6_INS0_2cs10TemporalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %31)
+          to label %33 unwind label %72
 
-32:                                               ; preds = %30
+33:                                               ; preds = %30
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  %33 = getelementptr inbounds i8, ptr %18, i64 16
-  %34 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11TemporalCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %35 unwind label %68
+  %34 = getelementptr inbounds i8, ptr %18, i64 16
+  %35 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11TemporalCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %35)
+          to label %36 unwind label %76
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10TemporalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %38 unwind label %72
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10TemporalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %38)
+          to label %39 unwind label %80
 
-38:                                               ; preds = %35
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %39 unwind label %76
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %41 unwind label %84
 
-39:                                               ; preds = %38
+41:                                               ; preds = %39
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %18, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %18, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %18, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %44, align 8
-  %45 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.137", ptr %18, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr null) #3
+  %42 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %42, ptr %18, align 8
+  %43 = getelementptr inbounds i8, ptr %18, i64 40
+  %44 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %18, i64 56
+  %46 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %18, i64 64
+  %48 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %18, i64 88
+  %50 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %50, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %18, i64 16
+  %52 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %52, ptr %51, align 8
+  %53 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.137", ptr %18, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr null) #3
   ret void
 
-46:                                               ; preds = %4
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %11, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %12, align 4
-  br label %59
-
-50:                                               ; preds = %23
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %11, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %12, align 4
-  br label %58
-
-54:                                               ; preds = %25
+54:                                               ; preds = %4
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = extractvalue { ptr, i32 } %55, 0
   store ptr %56, ptr %11, align 8
   %57 = extractvalue { ptr, i32 } %55, 1
   store i32 %57, ptr %12, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %58
+  br label %67
 
-58:                                               ; preds = %54, %50
+58:                                               ; preds = %23
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %11, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %12, align 4
+  br label %66
+
+62:                                               ; preds = %25
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %11, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %12, align 4
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %66
+
+66:                                               ; preds = %62, %58
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %59
+  br label %67
 
-59:                                               ; preds = %58, %46
+67:                                               ; preds = %66, %54
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %84
+  br label %93
 
-60:                                               ; preds = %29, %26
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %11, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %12, align 4
-  br label %82
-
-64:                                               ; preds = %30
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %11, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %12, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %82
-
-68:                                               ; preds = %32
+68:                                               ; preds = %29, %26
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = extractvalue { ptr, i32 } %69, 0
   store ptr %70, ptr %11, align 8
   %71 = extractvalue { ptr, i32 } %69, 1
   store i32 %71, ptr %12, align 4
-  br label %81
+  br label %91
 
-72:                                               ; preds = %35
+72:                                               ; preds = %30
   %73 = landingpad { ptr, i32 }
           cleanup
   %74 = extractvalue { ptr, i32 } %73, 0
   store ptr %74, ptr %11, align 8
   %75 = extractvalue { ptr, i32 } %73, 1
   store i32 %75, ptr %12, align 4
-  br label %80
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
+  br label %91
 
-76:                                               ; preds = %38
+76:                                               ; preds = %33
   %77 = landingpad { ptr, i32 }
           cleanup
   %78 = extractvalue { ptr, i32 } %77, 0
   store ptr %78, ptr %11, align 8
   %79 = extractvalue { ptr, i32 } %77, 1
   store i32 %79, ptr %12, align 4
+  br label %89
+
+80:                                               ; preds = %36
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %11, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %12, align 4
+  br label %88
+
+84:                                               ; preds = %39
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %11, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %80
+  br label %88
 
-80:                                               ; preds = %76, %72
+88:                                               ; preds = %84, %80
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br label %81
+  br label %89
 
-81:                                               ; preds = %80, %68
-  call void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %82
+89:                                               ; preds = %88, %76
+  %90 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %90) #3
+  br label %91
 
-82:                                               ; preds = %81, %64, %60
-  %83 = getelementptr inbounds i8, ptr %18, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %83) #3
-  br label %84
+91:                                               ; preds = %89, %72, %68
+  %92 = getelementptr inbounds i8, ptr %18, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %92) #3
+  br label %93
 
-84:                                               ; preds = %82, %59
-  %85 = load ptr, ptr %11, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+93:                                               ; preds = %91, %67
+  %94 = load ptr, ptr %11, align 8
+  %95 = load i32, ptr %12, align 4
+  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
+  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
+  resume { ptr, i32 } %97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13544,62 +13601,71 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_24Derive
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.137", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 56
+  %23 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 88
+  %27 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds { [10 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedCRSTemplate.137", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEE7PrivateESt14default_deleteIS6_EEC2IS8_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedCRSTemplateINS1_24DerivedTemporalCRSTraitsEEE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13878,38 +13944,42 @@ define hidden void @_ZN5osgeo4proj3crs3CRSC2Ev(ptr noundef nonnull align 8 deref
   call void @_ZN5osgeo4proj6common11ObjectUsageC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   call void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %5, i32 0, i32 2
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs3CRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.26") align 8 %10)
-          to label %11 unwind label %12
+  %7 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %5, i32 0, i32 2
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs3CRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.26") align 8 %14)
+          to label %15 unwind label %16
 
-11:                                               ; preds = %1
+15:                                               ; preds = %1
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   call void @_ZN5osgeo4proj6common11ObjectUsageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  br label %17
+  br label %21
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %4, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN5osgeo4proj6common11ObjectUsageC2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -13919,7 +13989,8 @@ define linkonce_odr void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io15IJSONExportableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io15IJSONExportableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13953,41 +14024,45 @@ define hidden void @_ZN5osgeo4proj3crs3CRSC2ERKS2_(ptr noundef nonnull align 8 d
   call void @_ZN5osgeo4proj6common11ObjectUsageC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
   %9 = getelementptr inbounds i8, ptr %7, i64 48
   call void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %14, i32 0, i32 2
-  %16 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs3CRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs3CRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.26") align 8 %13, ptr noundef nonnull align 8 dereferenceable(72) %16)
-          to label %17 unwind label %18
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %7, i32 0, i32 2
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %18, i32 0, i32 2
+  %20 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs3CRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs3CRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.26") align 8 %17, ptr noundef nonnull align 8 dereferenceable(72) %20)
+          to label %21 unwind label %22
 
-17:                                               ; preds = %2
+21:                                               ; preds = %2
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  %26 = getelementptr inbounds i8, ptr %7, i64 48
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
   call void @_ZN5osgeo4proj6common11ObjectUsageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  br label %23
+  br label %27
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN5osgeo4proj6common11ObjectUsageC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -14050,17 +14125,21 @@ define void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs3CRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %4 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs3CRSE, i32 0, i32 3, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::crs::CRS", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs3CRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
   call void @_ZN5osgeo4proj6common11ObjectUsageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }
@@ -20623,7 +20702,7 @@ define void @_ZNK5osgeo4proj3crs3CRS31createBoundCRSToWGS84IfPossibleERKSt10shar
 
 479:                                              ; preds = %478, %413
   %480 = load i32, ptr %13, align 4
-  %481 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %481 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %482 = icmp eq i32 %480, %481
   br i1 %482, label %483, label %496
 
@@ -21383,7 +21462,7 @@ define void @_ZNK5osgeo4proj3crs3CRS31createBoundCRSToWGS84IfPossibleERKSt10shar
 
 811:                                              ; preds = %810, %636
   %812 = load i32, ptr %13, align 4
-  %813 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %813 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %814 = icmp eq i32 %812, %813
   br i1 %814, label %815, label %824
 
@@ -22520,9 +22599,6 @@ define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4pr
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
@@ -22913,7 +22989,7 @@ define internal void @"_ZZNK5osgeo4proj3crs3CRS31createBoundCRSToWGS84IfPossible
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %7, align 4
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %52
 
@@ -28211,7 +28287,7 @@ define hidden void @_ZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_st
 
 583:                                              ; preds = %582, %550
   %584 = load i32, ptr %17, align 4
-  %585 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj2io19FormattingExceptionE) #3
+  %585 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj2io19FormattingExceptionE) #3
   %586 = icmp eq i32 %584, %585
   br i1 %586, label %587, label %613
 
@@ -29399,7 +29475,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj3crs13GeographicCRS12is2DPartOf3DEN7dr
 
 129:                                              ; preds = %128, %111
   %130 = load i32, ptr %19, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj4util25InvalidValueTypeExceptionE) #3
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj4util25InvalidValueTypeExceptionE) #3
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %143
 
@@ -29592,7 +29668,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 d
 declare hidden void @_ZNK5osgeo4proj9operation14Transformation11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.329") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #20
   unreachable
@@ -29950,7 +30026,7 @@ define void @_ZNK5osgeo4proj3crs3CRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt
 
 167:                                              ; preds = %166, %139
   %168 = load i32, ptr %12, align 4
-  %169 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj2io19FormattingExceptionE) #3
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj2io19FormattingExceptionE) #3
   %170 = icmp eq i32 %168, %169
   br i1 %170, label %171, label %197
 
@@ -31359,7 +31435,7 @@ define hidden void @_ZNK5osgeo4proj3crs3CRS9_identifyB5cxx11ERKSt10shared_ptrINS
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
@@ -32359,7 +32435,8 @@ define linkonce_odr void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -32422,79 +32499,84 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %19 unwind label %30
+          to label %19 unwind label %35
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_13EllipsoidalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %30
+          to label %21 unwind label %35
 
 21:                                               ; preds = %19
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %22 unwind label %34
+          to label %22 unwind label %39
 
 22:                                               ; preds = %21
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3), ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2), ptr %26, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
-  %28 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %39
+  %23 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %23, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %29 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %13, i64 64
+  %31 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
+  %33 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %34 unwind label %44
 
-29:                                               ; preds = %22
+34:                                               ; preds = %22
   ret void
 
-30:                                               ; preds = %19, %4
-  %31 = landingpad { ptr, i32 }
+35:                                               ; preds = %19, %4
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %10, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %11, align 4
-  br label %38
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %10, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %11, align 4
+  br label %43
 
-34:                                               ; preds = %21
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %44
-
-39:                                               ; preds = %22
+39:                                               ; preds = %21
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
   store ptr %41, ptr %10, align 8
   %42 = extractvalue { ptr, i32 } %40, 1
   store i32 %42, ptr %11, align 4
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %43 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #3
-  br label %44
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %43
 
-44:                                               ; preds = %39, %38
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+43:                                               ; preds = %39, %35
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %49
+
+44:                                               ; preds = %22
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %10, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %11, align 4
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %48 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %48) #3
+  br label %49
+
+49:                                               ; preds = %44, %43
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32725,79 +32807,84 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %19 unwind label %30
+          to label %19 unwind label %35
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11SphericalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %30
+          to label %21 unwind label %35
 
 21:                                               ; preds = %19
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %22 unwind label %34
+          to label %22 unwind label %39
 
 22:                                               ; preds = %21
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3), ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2), ptr %26, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
-  %28 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %39
+  %23 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %23, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %29 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %13, i64 64
+  %31 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
+  %33 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %34 unwind label %44
 
-29:                                               ; preds = %22
+34:                                               ; preds = %22
   ret void
 
-30:                                               ; preds = %19, %4
-  %31 = landingpad { ptr, i32 }
+35:                                               ; preds = %19, %4
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %10, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %11, align 4
-  br label %38
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %10, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %11, align 4
+  br label %43
 
-34:                                               ; preds = %21
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %44
-
-39:                                               ; preds = %22
+39:                                               ; preds = %21
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
   store ptr %41, ptr %10, align 8
   %42 = extractvalue { ptr, i32 } %40, 1
   store i32 %42, ptr %11, align 4
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %43 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #3
-  br label %44
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %43
 
-44:                                               ; preds = %39, %38
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+43:                                               ; preds = %39, %35
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %49
+
+44:                                               ; preds = %22
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %10, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %11, align 4
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %48 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %48) #3
+  br label %49
+
+49:                                               ; preds = %44, %43
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32911,79 +32998,84 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %19 unwind label %30
+          to label %19 unwind label %35
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %30
+          to label %21 unwind label %35
 
 21:                                               ; preds = %19
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %22 unwind label %34
+          to label %22 unwind label %39
 
 22:                                               ; preds = %21
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3), ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2), ptr %26, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
-  %28 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %39
+  %23 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %23, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %29 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %13, i64 64
+  %31 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %13, i32 0, i32 1
+  %33 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEEESt10unique_ptrIT_St14default_deleteISD_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %34 unwind label %44
 
-29:                                               ; preds = %22
+34:                                               ; preds = %22
   ret void
 
-30:                                               ; preds = %19, %4
-  %31 = landingpad { ptr, i32 }
+35:                                               ; preds = %19, %4
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %10, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %11, align 4
-  br label %38
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %10, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %11, align 4
+  br label %43
 
-34:                                               ; preds = %21
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %44
-
-39:                                               ; preds = %22
+39:                                               ; preds = %21
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
   store ptr %41, ptr %10, align 8
   %42 = extractvalue { ptr, i32 } %40, 1
   store i32 %42, ptr %11, align 4
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %43 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #3
-  br label %44
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %43
 
-44:                                               ; preds = %39, %38
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+43:                                               ; preds = %39, %35
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %49
+
+44:                                               ; preds = %22
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %10, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %11, align 4
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %48 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %48) #3
+  br label %49
+
+49:                                               ; preds = %44, %43
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -33130,43 +33222,48 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKS2_(ptr noundef nonnull 
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %13)
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %19, i32 0, i32 1
-  %21 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11GeodeticCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %18, ptr noundef nonnull align 8 dereferenceable(40) %21)
-          to label %22 unwind label %23
+  %14 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 1, i32 9
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 2, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  %20 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %7, i32 0, i32 1
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.osgeo::proj::crs::GeodeticCRS", ptr %24, i32 0, i32 1
+  %26 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11GeodeticCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11GeodeticCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.177") align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %26)
+          to label %27 unwind label %28
 
-22:                                               ; preds = %2
+27:                                               ; preds = %2
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
   call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #3
-  br label %28
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
+  br label %33
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -35374,7 +35471,7 @@ declare hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj2
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter14useESRIDialectEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
 
 ; Function Attrs: noreturn
-declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowEPKc(ptr noundef) #15
+declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowEPKc(ptr noundef) #14
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter20isAllowedLINUNITNodeEv(ptr noundef nonnull align 8 dereferenceable(8)) #2
@@ -39583,7 +39680,7 @@ define void @_ZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrIN
 
 419:                                              ; preds = %415, %411, %407
   %420 = load i32, ptr %11, align 4
-  %421 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %421 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %422 = icmp eq i32 %420, %421
   br i1 %422, label %423, label %607
 
@@ -40167,7 +40264,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnI
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(120) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -41372,11 +41469,11 @@ define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC1ERKSt10shared_ptrINS0_5da
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_13EllipsoidalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %18 unwind label %34
+          to label %18 unwind label %40
 
 18:                                               ; preds = %4
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %19 unwind label %38
+          to label %19 unwind label %44
 
 19:                                               ; preds = %18
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
@@ -41385,84 +41482,91 @@ define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC1ERKSt10shared_ptrINS0_5da
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %7, align 8
   %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %24 unwind label %43
+          to label %24 unwind label %49
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %26 unwind label %43
+  %26 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %27 unwind label %49
 
-26:                                               ; preds = %24
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 0, i32 3), ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 1, i32 9), ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 2, i32 2), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 3, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 4, i32 2), ptr %30, align 8
-  %31 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %13, i32 0, i32 1
-  %32 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs13GeographicCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs13EllipsoidalCSEEEEEEESt10unique_ptrIT_St14default_deleteISH_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.305") align 8 %31, ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %33 unwind label %47
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 0, i32 3
+  store ptr %28, ptr %13, align 8
+  %29 = getelementptr inbounds i8, ptr %13, i64 24
+  %30 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 1, i32 9
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %13, i64 40
+  %32 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 2, i32 2
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %13, i64 48
+  %34 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 3, i32 2
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %13, i64 72
+  %36 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 4, i32 2
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %13, i32 0, i32 1
+  %38 = load ptr, ptr %8, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs13GeographicCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs13EllipsoidalCSEEEEEEESt10unique_ptrIT_St14default_deleteISH_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.305") align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %38)
+          to label %39 unwind label %53
 
-33:                                               ; preds = %26
+39:                                               ; preds = %27
   ret void
 
-34:                                               ; preds = %4
-  %35 = landingpad { ptr, i32 }
+40:                                               ; preds = %4
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %11, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %12, align 4
-  br label %42
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %11, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %12, align 4
+  br label %48
 
-38:                                               ; preds = %18
-  %39 = landingpad { ptr, i32 }
+44:                                               ; preds = %18
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %11, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %12, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %11, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %42
+  br label %48
 
-42:                                               ; preds = %38, %34
+48:                                               ; preds = %44, %40
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %53
+  br label %60
 
-43:                                               ; preds = %24, %19
-  %44 = landingpad { ptr, i32 }
+49:                                               ; preds = %24, %19
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %11, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %12, align 4
-  br label %51
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %11, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %12, align 4
+  br label %58
 
-47:                                               ; preds = %26
-  %48 = landingpad { ptr, i32 }
+53:                                               ; preds = %27
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %11, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %12, align 4
-  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1)) #3
-  br label %51
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %11, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %12, align 4
+  %57 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %57) #3
+  br label %58
 
-51:                                               ; preds = %47, %43
-  %52 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %52) #3
-  br label %53
+58:                                               ; preds = %53, %49
+  %59 = getelementptr inbounds i8, ptr %13, i64 24
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %59) #3
+  br label %60
 
-53:                                               ; preds = %51, %42
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr %12, align 4
-  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
-  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
-  resume { ptr, i32 } %57
+60:                                               ; preds = %58, %48
+  %61 = load ptr, ptr %11, align 8
+  %62 = load i32, ptr %12, align 4
+  %63 = insertvalue { ptr, i32 } poison, ptr %61, 0
+  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
+  resume { ptr, i32 } %64
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -41590,59 +41694,66 @@ define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC1ERKS2_(ptr noundef nonnul
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %13)
   %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %15 unwind label %25
+  %15 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %16 unwind label %31
 
-15:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 1, i32 9), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 2, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %7, i32 0, i32 1
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %21, i32 0, i32 1
-  %23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs13GeographicCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs13GeographicCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.305") align 8 %20, ptr noundef nonnull align 8 dereferenceable(16) %23)
-          to label %24 unwind label %29
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 0, i32 3
+  store ptr %17, ptr %7, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 1, i32 9
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 2, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 48
+  %23 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 72
+  %25 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13GeographicCRSE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %7, i32 0, i32 1
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::crs::GeographicCRS", ptr %27, i32 0, i32 1
+  %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs13GeographicCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs13GeographicCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.305") align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %30 unwind label %35
 
-24:                                               ; preds = %15
+30:                                               ; preds = %16
   ret void
 
-25:                                               ; preds = %2
-  %26 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %33
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-29:                                               ; preds = %15
-  %30 = landingpad { ptr, i32 }
+35:                                               ; preds = %16
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1)) #3
-  br label %33
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs13GeographicCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-33:                                               ; preds = %29, %25
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %34) #3
-  br label %35
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i32, ptr %6, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43827,78 +43938,83 @@ define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC1ERKSt10shared_ptrINS0_5datu
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-          to label %19 unwind label %29
+          to label %19 unwind label %34
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %29
+          to label %21 unwind label %34
 
 21:                                               ; preds = %19
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %22 unwind label %33
+          to label %22 unwind label %38
 
 22:                                               ; preds = %21
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 0, i32 3), ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 1, i32 9), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 2, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 3, i32 2), ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 4, i32 2), ptr %26, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %13, i32 0, i32 1
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11VerticalCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.218") align 8 %27)
-          to label %28 unwind label %38
+  %23 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 0, i32 3
+  store ptr %23, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 1, i32 9
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 2, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %29 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 3, i32 2
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %13, i64 64
+  %31 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 4, i32 2
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %13, i32 0, i32 1
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11VerticalCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.218") align 8 %32)
+          to label %33 unwind label %43
 
-28:                                               ; preds = %22
+33:                                               ; preds = %22
   ret void
 
-29:                                               ; preds = %19, %4
-  %30 = landingpad { ptr, i32 }
+34:                                               ; preds = %19, %4
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %10, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %11, align 4
-  br label %37
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %10, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %11, align 4
+  br label %42
 
-33:                                               ; preds = %21
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %10, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %11, align 4
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %37
-
-37:                                               ; preds = %33, %29
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %43
-
-38:                                               ; preds = %22
+38:                                               ; preds = %21
   %39 = landingpad { ptr, i32 }
           cleanup
   %40 = extractvalue { ptr, i32 } %39, 0
   store ptr %40, ptr %10, align 8
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %11, align 4
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %42) #3
-  br label %43
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %42
 
-43:                                               ; preds = %38, %37
-  %44 = load ptr, ptr %10, align 8
-  %45 = load i32, ptr %11, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+42:                                               ; preds = %38, %34
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %48
+
+43:                                               ; preds = %22
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %10, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %11, align 4
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %47 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %47) #3
+  br label %48
+
+48:                                               ; preds = %43, %42
+  %49 = load ptr, ptr %10, align 8
+  %50 = load i32, ptr %11, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44176,43 +44292,48 @@ define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC1ERKS2_(ptr noundef nonnull 
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %13)
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 1, i32 9), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 2, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 3, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 4, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %19, i32 0, i32 1
-  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11VerticalCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11VerticalCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.218") align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %21)
-          to label %22 unwind label %23
+  %14 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 1, i32 9
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 2, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  %20 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 3, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds { [11 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i32 0, i32 4, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %7, i32 0, i32 1
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.osgeo::proj::crs::VerticalCRS", ptr %24, i32 0, i32 1
+  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11VerticalCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11VerticalCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.218") align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %26)
+          to label %27 unwind label %28
 
-22:                                               ; preds = %2
+27:                                               ; preds = %2
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
   call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #3
-  br label %28
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
+  br label %33
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47535,7 +47656,7 @@ define void @_ZNK5osgeo4proj3crs11VerticalCRS8identifyB5cxx11ERKSt10shared_ptrIN
 
 153:                                              ; preds = %149, %145, %141
   %154 = load i32, ptr %11, align 4
-  %155 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %155 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %156 = icmp eq i32 %154, %155
   br i1 %156, label %157, label %318
 
@@ -49050,12 +49171,12 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKN7dropbox6oxygen2nnISt1
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %20 unwind label %57
+          to label %20 unwind label %58
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds ptr, ptr %16, i64 1
   invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %22 unwind label %61
+          to label %22 unwind label %62
 
 22:                                               ; preds = %20
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
@@ -49096,58 +49217,59 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKN7dropbox6oxygen2nnISt1
   %51 = getelementptr inbounds i8, ptr %15, i64 %50
   store ptr %46, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2), ptr %52, align 8
-  %53 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %15, i32 0, i32 2
-  %54 = load ptr, ptr %8, align 8
-  %55 = load ptr, ptr %10, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55)
-          to label %56 unwind label %66
+  %53 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2
+  store ptr %53, ptr %52, align 8
+  %54 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %15, i32 0, i32 2
+  %55 = load ptr, ptr %8, align 8
+  %56 = load ptr, ptr %10, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56)
+          to label %57 unwind label %67
 
-56:                                               ; preds = %22
+57:                                               ; preds = %22
   ret void
 
-57:                                               ; preds = %5
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %5
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %13, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %14, align 4
-  br label %65
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %13, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %14, align 4
+  br label %66
 
-61:                                               ; preds = %20
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %20
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %13, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %14, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %13, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %14, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %65
+  br label %66
 
-65:                                               ; preds = %61, %57
+66:                                               ; preds = %62, %58
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  br label %72
+  br label %73
 
-66:                                               ; preds = %22
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %22
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %13, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %14, align 4
-  %70 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #3
-  %71 = getelementptr inbounds ptr, ptr %16, i64 1
-  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %71) #3
-  br label %72
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %13, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %14, align 4
+  %71 = getelementptr inbounds i8, ptr %15, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #3
+  %72 = getelementptr inbounds ptr, ptr %16, i64 1
+  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %72) #3
+  br label %73
 
-72:                                               ; preds = %66, %65
-  %73 = load ptr, ptr %13, align 8
-  %74 = load i32, ptr %14, align 4
-  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
-  resume { ptr, i32 } %76
+73:                                               ; preds = %67, %66
+  %74 = load ptr, ptr %13, align 8
+  %75 = load i32, ptr %14, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -49226,7 +49348,7 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC1ERKN7dropbox6oxygen2nnISt1
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %19) #3
   %20 = load ptr, ptr %6, align 8
   %21 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %22 unwind label %47
+          to label %22 unwind label %54
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %21, align 8
@@ -49236,132 +49358,140 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC1ERKN7dropbox6oxygen2nnISt1
   %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %26) #8
   %28 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %47
+          to label %29 unwind label %54
 
 29:                                               ; preds = %22
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %30 unwind label %51
+          to label %30 unwind label %58
 
 30:                                               ; preds = %29
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   %31 = load ptr, ptr %6, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %32 unwind label %56
+          to label %32 unwind label %63
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %7, align 8
   %34 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %35 unwind label %60
+          to label %35 unwind label %67
 
 35:                                               ; preds = %32
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %36 unwind label %64
+  %36 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %37 unwind label %71
 
-36:                                               ; preds = %35
+37:                                               ; preds = %35
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  %37 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 0, i32 3), ptr %15, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 2, i32 9), ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 3, i32 2), ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 4, i32 2), ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %15, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 5, i32 2), ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2), ptr %42, align 8
-  %43 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %15, i32 0, i32 2
-  %44 = load ptr, ptr %6, align 8
-  %45 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %45)
-          to label %46 unwind label %69
+  %38 = getelementptr inbounds i8, ptr %15, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  %39 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 0, i32 3
+  store ptr %39, ptr %15, align 8
+  %40 = getelementptr inbounds i8, ptr %15, i64 32
+  %41 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 2, i32 9
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %15, i64 48
+  %43 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 3, i32 2
+  store ptr %43, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %15, i64 56
+  %45 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 4, i32 2
+  store ptr %45, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %15, i64 80
+  %47 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 5, i32 2
+  store ptr %47, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %15, i64 16
+  %49 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2
+  store ptr %49, ptr %48, align 8
+  %50 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %15, i32 0, i32 2
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %8, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %50, ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52)
+          to label %53 unwind label %76
 
-46:                                               ; preds = %36
+53:                                               ; preds = %37
   ret void
 
-47:                                               ; preds = %22, %4
-  %48 = landingpad { ptr, i32 }
+54:                                               ; preds = %22, %4
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %10, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %11, align 4
-  br label %55
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %10, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %11, align 4
+  br label %62
 
-51:                                               ; preds = %29
-  %52 = landingpad { ptr, i32 }
+58:                                               ; preds = %29
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %10, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %11, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %10, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %55
+  br label %62
 
-55:                                               ; preds = %51, %47
+62:                                               ; preds = %58, %54
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %76
+  br label %84
 
-56:                                               ; preds = %30
-  %57 = landingpad { ptr, i32 }
+63:                                               ; preds = %30
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %10, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %11, align 4
-  br label %74
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %10, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %11, align 4
+  br label %82
 
-60:                                               ; preds = %32
-  %61 = landingpad { ptr, i32 }
+67:                                               ; preds = %32
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %10, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %11, align 4
-  br label %68
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %10, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %11, align 4
+  br label %75
 
-64:                                               ; preds = %35
-  %65 = landingpad { ptr, i32 }
+71:                                               ; preds = %35
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %10, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %11, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %10, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %68
+  br label %75
 
-68:                                               ; preds = %64, %60
+75:                                               ; preds = %71, %67
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %74
+  br label %82
 
-69:                                               ; preds = %36
-  %70 = landingpad { ptr, i32 }
+76:                                               ; preds = %37
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %10, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %11, align 4
-  %73 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #3
-  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1)) #3
-  br label %74
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %10, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %11, align 4
+  %80 = getelementptr inbounds i8, ptr %15, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #3
+  %81 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %81) #3
+  br label %82
 
-74:                                               ; preds = %69, %68, %56
-  %75 = getelementptr inbounds i8, ptr %15, i64 32
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %75) #3
-  br label %76
+82:                                               ; preds = %76, %75, %63
+  %83 = getelementptr inbounds i8, ptr %15, i64 32
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %83) #3
+  br label %84
 
-76:                                               ; preds = %74, %55
-  %77 = load ptr, ptr %10, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
-  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
-  resume { ptr, i32 } %80
+84:                                               ; preds = %82, %62
+  %85 = load ptr, ptr %10, align 8
+  %86 = load i32, ptr %11, align 4
+  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
+  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
+  resume { ptr, i32 } %88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49415,37 +49545,38 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKS2_(ptr noundef nonnull
   %41 = getelementptr inbounds i8, ptr %9, i64 %40
   store ptr %36, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2), ptr %42, align 8
-  %43 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %9, i32 0, i32 2
-  %44 = load ptr, ptr %6, align 8
-  %45 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(104) %44) #8
-  %46 = load ptr, ptr %6, align 8
-  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %46) #8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47)
-          to label %48 unwind label %49
-
-48:                                               ; preds = %3
-  ret void
+  %43 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2
+  store ptr %43, ptr %42, align 8
+  %44 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %9, i32 0, i32 2
+  %45 = load ptr, ptr %6, align 8
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(104) %45) #8
+  %47 = load ptr, ptr %6, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %47) #8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %48)
+          to label %49 unwind label %50
 
 49:                                               ; preds = %3
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %7, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %8, align 4
-  %53 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
-  %54 = getelementptr inbounds ptr, ptr %10, i64 1
-  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %54) #3
-  br label %55
+  ret void
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %7, align 8
-  %57 = load i32, ptr %8, align 4
-  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
-  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
-  resume { ptr, i32 } %59
+50:                                               ; preds = %3
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %7, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %8, align 4
+  %54 = getelementptr inbounds i8, ptr %9, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #3
+  %55 = getelementptr inbounds ptr, ptr %10, i64 1
+  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %55) #3
+  br label %56
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49462,66 +49593,74 @@ define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC1ERKS2_(ptr noundef nonnull
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %25
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %32
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 2, i32 9), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 3, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 4, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 5, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %7, i32 0, i32 2
-  %20 = load ptr, ptr %4, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #8
-  %22 = load ptr, ptr %4, align 8
-  %23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %23)
-          to label %24 unwind label %29
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %15 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 0, i32 3
+  store ptr %15, ptr %7, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 2, i32 9
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 48
+  %19 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 3, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 56
+  %21 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 4, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 80
+  %23 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 5, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds { [12 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i32 0, i32 1, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.osgeo::proj::crs::ProjectedCRS", ptr %7, i32 0, i32 2
+  %27 = load ptr, ptr %4, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(104) %27) #8
+  %29 = load ptr, ptr %4, align 8
+  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %29) #8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs12ProjectedCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_11GeodeticCRSEEEERKNS8_IS9_INS0_2cs11CartesianCSEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.237") align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %31 unwind label %36
 
-24:                                               ; preds = %12
+31:                                               ; preds = %13
   ret void
 
-25:                                               ; preds = %2
-  %26 = landingpad { ptr, i32 }
+32:                                               ; preds = %2
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %34
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  br label %42
 
-29:                                               ; preds = %12
-  %30 = landingpad { ptr, i32 }
+36:                                               ; preds = %13
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #3
-  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1)) #3
-  br label %34
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  %40 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  %41 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs12ProjectedCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %41) #3
+  br label %42
 
-34:                                               ; preds = %29, %25
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %35) #3
-  br label %36
+42:                                               ; preds = %36, %32
+  %43 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #3
+  br label %44
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -50973,7 +51112,7 @@ define hidden void @_ZNK5osgeo4proj3crs12ProjectedCRS12_exportToWKTEPNS0_2io12WK
 
 514:                                              ; preds = %513, %474
   %515 = load i32, ptr %11, align 4
-  %516 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %516 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %517 = icmp eq i32 %515, %516
   br i1 %517, label %518, label %1037
 
@@ -51299,7 +51438,7 @@ define hidden void @_ZNK5osgeo4proj3crs12ProjectedCRS12_exportToWKTEPNS0_2io12WK
 
 637:                                              ; preds = %636, %599
   %638 = load i32, ptr %11, align 4
-  %639 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %639 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %640 = icmp eq i32 %638, %639
   br i1 %640, label %641, label %1037
 
@@ -53360,7 +53499,7 @@ define void @_ZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrI
 
 647:                                              ; preds = %643, %639, %635
   %648 = load i32, ptr %11, align 4
-  %649 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %649 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %650 = icmp eq i32 %648, %649
   br i1 %650, label %651, label %938
 
@@ -57394,7 +57533,8 @@ define hidden void @_ZN5osgeo4proj3crs27InvalidCompoundCRSExceptionC2EPKc(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -57409,7 +57549,8 @@ define hidden void @_ZN5osgeo4proj3crs27InvalidCompoundCRSExceptionC2ERKNSt7__cx
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -57446,7 +57587,8 @@ define void @_ZN5osgeo4proj3crs27InvalidCompoundCRSExceptionC2ERKS2_(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs27InvalidCompoundCRSExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -57464,61 +57606,66 @@ define hidden void @_ZN5osgeo4proj3crs11CompoundCRSC2ERKSt6vectorIN7dropbox6oxyg
   call void @_ZN5osgeo4proj3crs3CRSC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 2, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 3, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 4, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11CompoundCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.246") align 8 %13)
-          to label %14 unwind label %21
+  %9 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 2, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 3, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 64
+  %17 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 4, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11CompoundCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.246") align 8 %18)
+          to label %19 unwind label %26
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
-  %17 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %18 = getelementptr inbounds %"struct.osgeo::proj::crs::CompoundCRS::Private", ptr %17, i32 0, i32 0
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %20 unwind label %25
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
+  %22 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  %23 = getelementptr inbounds %"struct.osgeo::proj::crs::CompoundCRS::Private", ptr %22, i32 0, i32 0
+  %24 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %20)
+          to label %25 unwind label %30
 
-20:                                               ; preds = %14
+25:                                               ; preds = %19
   ret void
 
-21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+26:                                               ; preds = %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  br label %29
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  br label %29
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br label %34
 
-29:                                               ; preds = %25, %21
-  %30 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+34:                                               ; preds = %30, %26
+  %35 = getelementptr inbounds i8, ptr %7, i64 64
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
-  br label %31
+  br label %36
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %5, align 8
+  %38 = load i32, ptr %6, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -57760,43 +57907,48 @@ define hidden void @_ZN5osgeo4proj3crs11CompoundCRSC2ERKS2_(ptr noundef nonnull 
   call void @_ZN5osgeo4proj3crs3CRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
   %9 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 2, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 3, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 4, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %15, i32 0, i32 2
-  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11CompoundCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.246") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %19
+  %10 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 2, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 3, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11CompoundCRSE, i32 0, i32 4, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %7, i32 0, i32 2
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::crs::CompoundCRS", ptr %20, i32 0, i32 2
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs11CompoundCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs11CompoundCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.246") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %23 unwind label %24
 
-18:                                               ; preds = %2
+23:                                               ; preds = %2
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  %28 = getelementptr inbounds i8, ptr %7, i64 64
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
-  br label %24
+  br label %29
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %5, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59963,7 +60115,7 @@ define void @_ZNK5osgeo4proj3crs11CompoundCRS8identifyB5cxx11ERKSt10shared_ptrIN
 
 216:                                              ; preds = %212, %208, %204
   %217 = load i32, ptr %12, align 4
-  %218 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %218 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %219 = icmp eq i32 %217, %218
   br i1 %219, label %220, label %708
 
@@ -61908,43 +62060,48 @@ define hidden void @_ZN5osgeo4proj3crs8BoundCRSC2ERKN7dropbox6oxygen2nnISt10shar
   call void @_ZN5osgeo4proj3crs3CRSC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
   %12 = getelementptr inbounds i8, ptr %11, i64 64
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 2, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 3, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 4, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %11, i32 0, i32 2
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs8BoundCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_3CRSEEEESE_RKNS8_IS9_INS0_9operation14TransformationEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.257") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %22
+  %13 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 2, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 48
+  %19 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 3, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %11, i64 64
+  %21 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 4, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %11, i32 0, i32 2
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %8, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs8BoundCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_3CRSEEEESE_RKNS8_IS9_INS0_9operation14TransformationEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.257") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %26 unwind label %27
 
-21:                                               ; preds = %4
+26:                                               ; preds = %4
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+27:                                               ; preds = %4
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %9, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %10, align 4
-  %26 = getelementptr inbounds i8, ptr %11, i64 64
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  %31 = getelementptr inbounds i8, ptr %11, i64 64
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #3
-  br label %27
+  br label %32
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %9, align 8
-  %29 = load i32, ptr %10, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62001,61 +62158,66 @@ define hidden void @_ZN5osgeo4proj3crs8BoundCRSC2ERKS2_(ptr noundef nonnull alig
   call void @_ZN5osgeo4proj3crs3CRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
   %9 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZN5osgeo4proj2io21IPROJStringExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 2, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 3, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 4, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %7, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %15, i32 0, i32 2
-  %17 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs8BoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
-          to label %19 unwind label %31
-
-19:                                               ; preds = %2
+  %10 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 2, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 3, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs8BoundCRSE, i32 0, i32 4, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %7, i32 0, i32 2
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %20, i32 0, i32 2
   %22 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs8BoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private6hubCRSEv(ptr noundef nonnull align 8 dereferenceable(48) %22)
-          to label %24 unwind label %31
+  %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(48) %22)
+          to label %24 unwind label %36
 
-24:                                               ; preds = %19
+24:                                               ; preds = %2
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %25, i32 0, i32 2
   %27 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs8BoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
-  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private14transformationEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
-          to label %29 unwind label %31
+  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private6hubCRSEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
+          to label %29 unwind label %36
 
 29:                                               ; preds = %24
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs8BoundCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_3CRSEEEESE_RKNS8_IS9_INS0_9operation14TransformationEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.257") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %30 unwind label %31
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %"class.osgeo::proj::crs::BoundCRS", ptr %30, i32 0, i32 2
+  %32 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs8BoundCRS7PrivateESt14default_deleteIS4_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
+  %33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7Private14transformationEv(ptr noundef nonnull align 8 dereferenceable(48) %32)
+          to label %34 unwind label %36
 
-30:                                               ; preds = %29
+34:                                               ; preds = %29
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs8BoundCRS7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS3_3CRSEEEESE_RKNS8_IS9_INS0_9operation14TransformationEEEEEEESt10unique_ptrIT_St14default_deleteISM_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.257") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %35 unwind label %36
+
+35:                                               ; preds = %34
   ret void
 
-31:                                               ; preds = %29, %24, %19, %2
-  %32 = landingpad { ptr, i32 }
+36:                                               ; preds = %34, %29, %24, %2
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  %40 = getelementptr inbounds i8, ptr %7, i64 64
+  call void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
   call void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
-  br label %36
+  br label %41
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -64972,7 +65134,7 @@ define hidden void @_ZNK5osgeo4proj3crs8BoundCRS9_identifyB5cxx11ERKSt10shared_p
 
 168:                                              ; preds = %167, %153, %141
   %169 = load i32, ptr %12, align 4
-  %170 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %170 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %171 = icmp eq i32 %169, %170
   br i1 %171, label %172, label %461
 
@@ -65473,7 +65635,7 @@ define hidden void @_ZNK5osgeo4proj3crs8BoundCRS9_identifyB5cxx11ERKSt10shared_p
 
 373:                                              ; preds = %372, %358, %346
   %374 = load i32, ptr %12, align 4
-  %375 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %375 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %376 = icmp eq i32 %374, %375
   br i1 %376, label %377, label %433
 
@@ -66409,7 +66571,7 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %19) #3
   %20 = load ptr, ptr %6, align 8
   %21 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %22 unwind label %58
+          to label %22 unwind label %66
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %21, align 8
@@ -66419,24 +66581,24 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %26) #8
   %28 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %58
+          to label %29 unwind label %66
 
 29:                                               ; preds = %22
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %30 unwind label %62
+          to label %30 unwind label %70
 
 30:                                               ; preds = %29
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   %31 = load ptr, ptr %6, align 8
   %32 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %33 unwind label %67
+          to label %33 unwind label %75
 
 33:                                               ; preds = %30
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS5datumEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #8
   %35 = load ptr, ptr %6, align 8
   %36 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %37 unwind label %67
+          to label %37 unwind label %75
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %36, align 8
@@ -66445,122 +66607,131 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
   %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #8
   %43 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %44 unwind label %67
+  %44 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+          to label %45 unwind label %75
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %15, i64 16
-  %46 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %47 unwind label %71
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds i8, ptr %15, i64 16
+  %47 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %47)
+          to label %48 unwind label %79
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %50 unwind label %75
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11CartesianCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %50)
+          to label %51 unwind label %83
 
-50:                                               ; preds = %47
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %51 unwind label %79
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %53 unwind label %87
 
-51:                                               ; preds = %50
+53:                                               ; preds = %51
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3), ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9), ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2), ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %15, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %15, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3), ptr %56, align 8
-  %57 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %15, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr null) #3
+  %54 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %54, ptr %15, align 8
+  %55 = getelementptr inbounds i8, ptr %15, i64 40
+  %56 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9
+  store ptr %56, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %15, i64 56
+  %58 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %15, i64 64
+  %60 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %15, i64 88
+  %62 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %15, i64 16
+  %64 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %15, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr null) #3
   ret void
 
-58:                                               ; preds = %22, %4
-  %59 = landingpad { ptr, i32 }
+66:                                               ; preds = %22, %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %10, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %11, align 4
-  br label %66
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %10, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %11, align 4
+  br label %74
 
-62:                                               ; preds = %29
-  %63 = landingpad { ptr, i32 }
+70:                                               ; preds = %29
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %10, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %11, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %10, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %66
+  br label %74
 
-66:                                               ; preds = %62, %58
+74:                                               ; preds = %70, %66
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %87
+  br label %96
 
-67:                                               ; preds = %37, %33, %30
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %10, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %11, align 4
-  br label %85
-
-71:                                               ; preds = %44
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %10, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %11, align 4
-  br label %84
-
-75:                                               ; preds = %47
+75:                                               ; preds = %37, %33, %30
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = extractvalue { ptr, i32 } %76, 0
   store ptr %77, ptr %10, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %11, align 4
-  br label %83
+  br label %94
 
-79:                                               ; preds = %50
+79:                                               ; preds = %45
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = extractvalue { ptr, i32 } %80, 0
   store ptr %81, ptr %10, align 8
   %82 = extractvalue { ptr, i32 } %80, 1
   store i32 %82, ptr %11, align 4
+  br label %92
+
+83:                                               ; preds = %48
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %10, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %11, align 4
+  br label %91
+
+87:                                               ; preds = %51
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %10, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %83
+  br label %91
 
-83:                                               ; preds = %79, %75
+91:                                               ; preds = %87, %83
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %84
+  br label %92
 
-84:                                               ; preds = %83, %71
-  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1)) #3
-  br label %85
+92:                                               ; preds = %91, %79
+  %93 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %93) #3
+  br label %94
 
-85:                                               ; preds = %84, %67
-  %86 = getelementptr inbounds i8, ptr %15, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %86) #3
-  br label %87
+94:                                               ; preds = %92, %75
+  %95 = getelementptr inbounds i8, ptr %15, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %95) #3
+  br label %96
 
-87:                                               ; preds = %85, %66
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i32, ptr %11, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+96:                                               ; preds = %94, %74
+  %97 = load ptr, ptr %10, align 8
+  %98 = load i32, ptr %11, align 4
+  %99 = insertvalue { ptr, i32 } poison, ptr %97, 0
+  %100 = insertvalue { ptr, i32 } %99, i32 %98, 1
+  resume { ptr, i32 } %100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66723,7 +66894,7 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %19) #3
   %20 = load ptr, ptr %6, align 8
   %21 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %22 unwind label %58
+          to label %22 unwind label %66
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %21, align 8
@@ -66733,24 +66904,24 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %26) #8
   %28 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11SphericalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %58
+          to label %29 unwind label %66
 
 29:                                               ; preds = %22
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %30 unwind label %62
+          to label %30 unwind label %70
 
 30:                                               ; preds = %29
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   %31 = load ptr, ptr %6, align 8
   %32 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %33 unwind label %67
+          to label %33 unwind label %75
 
 33:                                               ; preds = %30
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS5datumEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #8
   %35 = load ptr, ptr %6, align 8
   %36 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %37 unwind label %67
+          to label %37 unwind label %75
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %36, align 8
@@ -66759,122 +66930,131 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKN7dropbox6oxygen2
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
   %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #8
   %43 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %44 unwind label %67
+  %44 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+          to label %45 unwind label %75
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %15, i64 16
-  %46 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %47 unwind label %71
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds i8, ptr %15, i64 16
+  %47 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %47)
+          to label %48 unwind label %79
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11SphericalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %50 unwind label %75
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_11SphericalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %50)
+          to label %51 unwind label %83
 
-50:                                               ; preds = %47
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %51 unwind label %79
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %53 unwind label %87
 
-51:                                               ; preds = %50
+53:                                               ; preds = %51
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3), ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9), ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2), ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %15, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %15, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3), ptr %56, align 8
-  %57 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %15, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr null) #3
+  %54 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %54, ptr %15, align 8
+  %55 = getelementptr inbounds i8, ptr %15, i64 40
+  %56 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9
+  store ptr %56, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %15, i64 56
+  %58 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %15, i64 64
+  %60 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %15, i64 88
+  %62 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %15, i64 16
+  %64 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %15, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr null) #3
   ret void
 
-58:                                               ; preds = %22, %4
-  %59 = landingpad { ptr, i32 }
+66:                                               ; preds = %22, %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %10, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %11, align 4
-  br label %66
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %10, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %11, align 4
+  br label %74
 
-62:                                               ; preds = %29
-  %63 = landingpad { ptr, i32 }
+70:                                               ; preds = %29
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %10, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %11, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %10, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %66
+  br label %74
 
-66:                                               ; preds = %62, %58
+74:                                               ; preds = %70, %66
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %87
+  br label %96
 
-67:                                               ; preds = %37, %33, %30
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %10, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %11, align 4
-  br label %85
-
-71:                                               ; preds = %44
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %10, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %11, align 4
-  br label %84
-
-75:                                               ; preds = %47
+75:                                               ; preds = %37, %33, %30
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = extractvalue { ptr, i32 } %76, 0
   store ptr %77, ptr %10, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %11, align 4
-  br label %83
+  br label %94
 
-79:                                               ; preds = %50
+79:                                               ; preds = %45
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = extractvalue { ptr, i32 } %80, 0
   store ptr %81, ptr %10, align 8
   %82 = extractvalue { ptr, i32 } %80, 1
   store i32 %82, ptr %11, align 4
+  br label %92
+
+83:                                               ; preds = %48
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %10, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %11, align 4
+  br label %91
+
+87:                                               ; preds = %51
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %10, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %83
+  br label %91
 
-83:                                               ; preds = %79, %75
+91:                                               ; preds = %87, %83
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %84
+  br label %92
 
-84:                                               ; preds = %83, %71
-  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1)) #3
-  br label %85
+92:                                               ; preds = %91, %79
+  %93 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %93) #3
+  br label %94
 
-85:                                               ; preds = %84, %67
-  %86 = getelementptr inbounds i8, ptr %15, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %86) #3
-  br label %87
+94:                                               ; preds = %92, %75
+  %95 = getelementptr inbounds i8, ptr %15, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %95) #3
+  br label %96
 
-87:                                               ; preds = %85, %66
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i32, ptr %11, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+96:                                               ; preds = %94, %74
+  %97 = load ptr, ptr %10, align 8
+  %98 = load i32, ptr %11, align 4
+  %99 = insertvalue { ptr, i32 } poison, ptr %97, 0
+  %100 = insertvalue { ptr, i32 } %99, i32 %98, 1
+  resume { ptr, i32 } %100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66974,62 +67154,71 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC1ERKS2_(ptr noundef n
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 56
+  %23 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 88
+  %27 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedGeodeticCRSE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeodeticCRS", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedGeodeticCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68399,7 +68588,7 @@ define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC1ERKN7dropbox6oxyge
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %19) #3
   %20 = load ptr, ptr %6, align 8
   %21 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %22 unwind label %58
+          to label %22 unwind label %66
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %21, align 8
@@ -68409,24 +68598,24 @@ define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC1ERKN7dropbox6oxyge
   %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %26) #8
   %28 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_13EllipsoidalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %58
+          to label %29 unwind label %66
 
 29:                                               ; preds = %22
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %30 unwind label %62
+          to label %30 unwind label %70
 
 30:                                               ; preds = %29
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   %31 = load ptr, ptr %6, align 8
   %32 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-          to label %33 unwind label %67
+          to label %33 unwind label %75
 
 33:                                               ; preds = %30
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS5datumEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #8
   %35 = load ptr, ptr %6, align 8
   %36 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %37 unwind label %67
+          to label %37 unwind label %75
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %36, align 8
@@ -68435,122 +68624,131 @@ define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC1ERKN7dropbox6oxyge
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
   %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #8
   %43 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %44 unwind label %67
+  %44 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+          to label %45 unwind label %75
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %15, i64 24
-  %46 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %47 unwind label %71
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds i8, ptr %15, i64 24
+  %47 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11GeodeticCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %47)
+          to label %48 unwind label %79
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_13EllipsoidalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %50 unwind label %75
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_13EllipsoidalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %50)
+          to label %51 unwind label %83
 
-50:                                               ; preds = %47
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 11), ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %51 unwind label %79
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 11
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %53 unwind label %87
 
-51:                                               ; preds = %50
+53:                                               ; preds = %51
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 0, i32 3), ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 2, i32 9), ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 3, i32 2), ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %15, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 4, i32 2), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %15, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 5, i32 2), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 1, i32 3), ptr %56, align 8
-  %57 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeographicCRS", ptr %15, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr null) #3
+  %54 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 0, i32 3
+  store ptr %54, ptr %15, align 8
+  %55 = getelementptr inbounds i8, ptr %15, i64 48
+  %56 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 2, i32 9
+  store ptr %56, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %15, i64 64
+  %58 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 3, i32 2
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %15, i64 72
+  %60 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 4, i32 2
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %15, i64 96
+  %62 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 5, i32 2
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %15, i64 24
+  %64 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 1, i32 3
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeographicCRS", ptr %15, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr null) #3
   ret void
 
-58:                                               ; preds = %22, %4
-  %59 = landingpad { ptr, i32 }
+66:                                               ; preds = %22, %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %10, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %11, align 4
-  br label %66
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %10, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %11, align 4
+  br label %74
 
-62:                                               ; preds = %29
-  %63 = landingpad { ptr, i32 }
+70:                                               ; preds = %29
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %10, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %11, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %10, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %66
+  br label %74
 
-66:                                               ; preds = %62, %58
+74:                                               ; preds = %70, %66
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %87
+  br label %96
 
-67:                                               ; preds = %37, %33, %30
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %10, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %11, align 4
-  br label %85
-
-71:                                               ; preds = %44
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %10, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %11, align 4
-  br label %84
-
-75:                                               ; preds = %47
+75:                                               ; preds = %37, %33, %30
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = extractvalue { ptr, i32 } %76, 0
   store ptr %77, ptr %10, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %11, align 4
-  br label %83
+  br label %94
 
-79:                                               ; preds = %50
+79:                                               ; preds = %45
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = extractvalue { ptr, i32 } %80, 0
   store ptr %81, ptr %10, align 8
   %82 = extractvalue { ptr, i32 } %80, 1
   store i32 %82, ptr %11, align 4
+  br label %92
+
+83:                                               ; preds = %48
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %10, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %11, align 4
+  br label %91
+
+87:                                               ; preds = %51
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %10, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %83
+  br label %91
 
-83:                                               ; preds = %79, %75
+91:                                               ; preds = %87, %83
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %84
+  br label %92
 
-84:                                               ; preds = %83, %71
-  call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1)) #3
-  br label %85
+92:                                               ; preds = %91, %79
+  %93 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %93) #3
+  br label %94
 
-85:                                               ; preds = %84, %67
-  %86 = getelementptr inbounds i8, ptr %15, i64 48
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %86) #3
-  br label %87
+94:                                               ; preds = %92, %75
+  %95 = getelementptr inbounds i8, ptr %15, i64 48
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %95) #3
+  br label %96
 
-87:                                               ; preds = %85, %66
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i32, ptr %11, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+96:                                               ; preds = %94, %74
+  %97 = load ptr, ptr %10, align 8
+  %98 = load i32, ptr %11, align 4
+  %99 = insertvalue { ptr, i32 } poison, ptr %97, 0
+  %100 = insertvalue { ptr, i32 } %99, i32 %98, 1
+  resume { ptr, i32 } %100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68650,62 +68848,71 @@ define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC1ERKS2_(ptr noundef
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 11), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 11
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeographicCRS", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 48
+  %21 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 64
+  %23 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 72
+  %25 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 96
+  %27 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  %29 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs20DerivedGeographicCRSE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedGeographicCRS", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef getelementptr inbounds ([21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [21 x ptr], ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 48
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -69854,59 +70061,65 @@ define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC1ERKN7dropbox6oxygen
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %23 = load ptr, ptr %6, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_12ProjectedCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23)
-          to label %24 unwind label %33
+          to label %24 unwind label %39
 
 24:                                               ; preds = %4
   %25 = load ptr, ptr %7, align 8
   %26 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs19DerivedProjectedCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26)
-          to label %27 unwind label %37
+  %27 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs19DerivedProjectedCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %28 unwind label %43
 
-27:                                               ; preds = %24
+28:                                               ; preds = %24
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 0, i32 3), ptr %12, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 1, i32 9), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 2, i32 2), ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 3, i32 2), ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 4, i32 2), ptr %31, align 8
-  %32 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedProjectedCRS", ptr %12, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs19DerivedProjectedCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr null) #3
+  %29 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 0, i32 3
+  store ptr %29, ptr %12, align 8
+  %30 = getelementptr inbounds i8, ptr %12, i64 24
+  %31 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 1, i32 9
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 40
+  %33 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 2, i32 2
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 48
+  %35 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 3, i32 2
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 72
+  %37 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 4, i32 2
+  store ptr %37, ptr %36, align 8
+  %38 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedProjectedCRS", ptr %12, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs19DerivedProjectedCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr null) #3
   ret void
 
-33:                                               ; preds = %4
-  %34 = landingpad { ptr, i32 }
+39:                                               ; preds = %4
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %10, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %11, align 4
-  br label %41
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %10, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %11, align 4
+  br label %47
 
-37:                                               ; preds = %24
-  %38 = landingpad { ptr, i32 }
+43:                                               ; preds = %24
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %10, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %11, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %10, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %41
+  br label %47
 
-41:                                               ; preds = %37, %33
-  %42 = getelementptr inbounds i8, ptr %12, i64 24
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %42) #3
-  br label %43
+47:                                               ; preds = %43, %39
+  %48 = getelementptr inbounds i8, ptr %12, i64 24
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %48) #3
+  br label %49
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %10, align 8
-  %45 = load i32, ptr %11, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -69974,40 +70187,46 @@ define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC1ERKS2_(ptr noundef 
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN5osgeo4proj3crs19DerivedProjectedCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %18
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN5osgeo4proj3crs19DerivedProjectedCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %24
 
-12:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 1, i32 9), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 2, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 3, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 4, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedProjectedCRS", ptr %7, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs19DerivedProjectedCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr null) #3
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 1, i32 9
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 2, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 48
+  %20 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 3, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 72
+  %22 = getelementptr inbounds { [10 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i32 0, i32 4, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedProjectedCRS", ptr %7, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs19DerivedProjectedCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr null) #3
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #3
-  br label %23
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %28) #3
+  br label %29
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %5, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71001,59 +71220,64 @@ define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC1ERKN7dropbox6oxygen2nnISt10
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #3
   %16 = load ptr, ptr %6, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10TemporalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %17 unwind label %24
+          to label %17 unwind label %29
 
 17:                                               ; preds = %3
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %18 unwind label %28
+          to label %18 unwind label %33
 
 18:                                               ; preds = %17
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 0, i32 3), ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 1, i32 9), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 2, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 3, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 4, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"class.osgeo::proj::crs::TemporalCRS", ptr %12, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11TemporalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr null) #3
+  %19 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %12, align 8
+  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 1, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %12, i64 32
+  %23 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 2, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 40
+  %25 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 3, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %12, i64 64
+  %27 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 4, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::crs::TemporalCRS", ptr %12, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11TemporalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr null) #3
   ret void
 
-24:                                               ; preds = %3
-  %25 = landingpad { ptr, i32 }
+29:                                               ; preds = %3
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %10, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %11, align 4
-  br label %32
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %10, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %11, align 4
+  br label %37
 
-28:                                               ; preds = %17
-  %29 = landingpad { ptr, i32 }
+33:                                               ; preds = %17
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %10, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %11, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %32
+  br label %37
 
-32:                                               ; preds = %28, %24
+37:                                               ; preds = %33, %29
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  br label %33
+  br label %38
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71070,17 +71294,22 @@ define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC1ERKS2_(ptr noundef nonnull 
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %11)
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 1, i32 9), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 3, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 4, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::crs::TemporalCRS", ptr %5, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11TemporalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr null) #3
+  %12 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 0, i32 3
+  store ptr %12, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 1, i32 9
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 3, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i32 0, i32 4, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::crs::TemporalCRS", ptr %5, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs11TemporalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr null) #3
   ret void
 }
 
@@ -72160,55 +72389,60 @@ define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC1ERKN7dropbox6oxygen2nnIS
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #3
   %15 = load ptr, ptr %6, align 8
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %23
+          to label %16 unwind label %28
 
 16:                                               ; preds = %3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 0, i32 3), ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 1, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 2, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 3, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 4, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %11, i32 0, i32 1
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs14EngineeringCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %21)
-          to label %22 unwind label %27
-
-22:                                               ; preds = %16
-  ret void
-
-23:                                               ; preds = %3
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %9, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %10, align 4
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  br label %32
+  %17 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 0, i32 3
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 1, i32 9
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 2, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %23 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %11, i64 64
+  %25 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %11, i32 0, i32 1
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs14EngineeringCRS7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %26)
+          to label %27 unwind label %32
 
 27:                                               ; preds = %16
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %9, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %10, align 4
-  %31 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #3
-  br label %32
+  ret void
 
-32:                                               ; preds = %27, %23
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i32, ptr %10, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+28:                                               ; preds = %3
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %37
+
+32:                                               ; preds = %16
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %9, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %10, align 4
+  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %36) #3
+  br label %37
+
+37:                                               ; preds = %32, %28
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %10, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -72256,42 +72490,47 @@ define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC1ERKS2_(ptr noundef nonnu
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %13)
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 1, i32 9), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 2, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 3, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 4, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %19, i32 0, i32 1
-  %21 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs14EngineeringCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs14EngineeringCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %18, ptr noundef nonnull align 1 dereferenceable(1) %21)
-          to label %22 unwind label %23
+  %14 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 1, i32 9
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 2, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  %20 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 3, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i32 0, i32 4, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %7, i32 0, i32 1
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.osgeo::proj::crs::EngineeringCRS", ptr %24, i32 0, i32 1
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt10unique_ptrIN5osgeo4proj3crs14EngineeringCRS7PrivateESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_3crs14EngineeringCRS7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %26)
+          to label %27 unwind label %28
 
-22:                                               ; preds = %2
+27:                                               ; preds = %2
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #3
-  br label %28
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
+  br label %33
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73653,59 +73892,64 @@ define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC1ERKN7dropbox6oxygen2nnISt
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #3
   %16 = load ptr, ptr %6, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_12ParametricCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %17 unwind label %24
+          to label %17 unwind label %29
 
 17:                                               ; preds = %3
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %18 unwind label %28
+          to label %18 unwind label %33
 
 18:                                               ; preds = %17
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 0, i32 3), ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 1, i32 9), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 2, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 3, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 4, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"class.osgeo::proj::crs::ParametricCRS", ptr %12, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs13ParametricCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr null) #3
+  %19 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %12, align 8
+  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 1, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %12, i64 32
+  %23 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 2, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 40
+  %25 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 3, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %12, i64 64
+  %27 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 4, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::crs::ParametricCRS", ptr %12, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs13ParametricCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr null) #3
   ret void
 
-24:                                               ; preds = %3
-  %25 = landingpad { ptr, i32 }
+29:                                               ; preds = %3
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %10, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %11, align 4
-  br label %32
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %10, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %11, align 4
+  br label %37
 
-28:                                               ; preds = %17
-  %29 = landingpad { ptr, i32 }
+33:                                               ; preds = %17
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %10, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %11, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %32
+  br label %37
 
-32:                                               ; preds = %28, %24
+37:                                               ; preds = %33, %29
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum13DatumEnsembleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  br label %33
+  br label %38
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73722,17 +73966,22 @@ define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC1ERKS2_(ptr noundef nonnul
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %11)
-  store ptr getelementptr inbounds inrange(-24, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 1, i32 9), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 3, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 4, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::crs::ParametricCRS", ptr %5, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs13ParametricCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr null) #3
+  %12 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 0, i32 3
+  store ptr %12, ptr %5, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 1, i32 9
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 3, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds { [9 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i32 0, i32 4, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::crs::ParametricCRS", ptr %5, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs13ParametricCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr null) #3
   ret void
 }
 
@@ -75022,7 +75271,7 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC1ERKN7dropbox6oxygen2
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEERKS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %21 = load ptr, ptr %6, align 8
   %22 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11VerticalCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
-          to label %23 unwind label %58
+          to label %23 unwind label %66
 
 23:                                               ; preds = %4
   %24 = load ptr, ptr %22, align 8
@@ -75032,11 +75281,11 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC1ERKN7dropbox6oxygen2
   %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %27) #8
   %29 = load ptr, ptr %8, align 8
   invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %29)
-          to label %30 unwind label %58
+          to label %30 unwind label %66
 
 30:                                               ; preds = %23
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %31 unwind label %62
+          to label %31 unwind label %70
 
 31:                                               ; preds = %30
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
@@ -75044,13 +75293,13 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC1ERKN7dropbox6oxygen2
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %32 = load ptr, ptr %6, align 8
   %33 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11VerticalCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %32)
-          to label %34 unwind label %67
+          to label %34 unwind label %75
 
 34:                                               ; preds = %31
   call void @_ZNK5osgeo4proj3crs11VerticalCRS5datumEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.215") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %33)
   %35 = load ptr, ptr %6, align 8
   %36 = invoke noundef ptr @_ZNK7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11VerticalCRSEEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %37 unwind label %71
+          to label %37 unwind label %79
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %36, align 8
@@ -75059,134 +75308,143 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC1ERKN7dropbox6oxygen2
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
   %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #8
   %43 = load ptr, ptr %8, align 8
-  invoke void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %44 unwind label %71
+  %44 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+          to label %45 unwind label %79
 
-44:                                               ; preds = %37
+45:                                               ; preds = %37
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  %45 = getelementptr inbounds i8, ptr %17, i64 16
-  %46 = load ptr, ptr %6, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11VerticalCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %47 unwind label %75
+  %46 = getelementptr inbounds i8, ptr %17, i64 16
+  %47 = load ptr, ptr %6, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEEC2IS2_INS5_11VerticalCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %47)
+          to label %48 unwind label %83
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %8, align 8
-  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %50 unwind label %79
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  invoke void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %50)
+          to label %51 unwind label %87
 
-50:                                               ; preds = %47
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %51 unwind label %83
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %53 unwind label %91
 
-51:                                               ; preds = %50
+53:                                               ; preds = %51
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 0, i32 3), ptr %17, align 8
-  %52 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 2, i32 9), ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %17, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 3, i32 2), ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %17, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 4, i32 2), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %17, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 5, i32 2), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 1, i32 3), ptr %56, align 8
-  %57 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedVerticalCRS", ptr %17, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedVerticalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr null) #3
+  %54 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 0, i32 3
+  store ptr %54, ptr %17, align 8
+  %55 = getelementptr inbounds i8, ptr %17, i64 40
+  %56 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 2, i32 9
+  store ptr %56, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %17, i64 56
+  %58 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 3, i32 2
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %17, i64 64
+  %60 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 4, i32 2
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %17, i64 88
+  %62 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 5, i32 2
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %17, i64 16
+  %64 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 1, i32 3
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedVerticalCRS", ptr %17, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedVerticalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr null) #3
   ret void
 
-58:                                               ; preds = %23, %4
-  %59 = landingpad { ptr, i32 }
+66:                                               ; preds = %23, %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %11, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %12, align 4
-  br label %66
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %11, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %12, align 4
+  br label %74
 
-62:                                               ; preds = %30
-  %63 = landingpad { ptr, i32 }
+70:                                               ; preds = %30
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %11, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %12, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %11, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %66
+  br label %74
 
-66:                                               ; preds = %62, %58
+74:                                               ; preds = %70, %66
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %91
+  br label %100
 
-67:                                               ; preds = %31
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %11, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %12, align 4
-  br label %89
-
-71:                                               ; preds = %37, %34
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %11, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %12, align 4
-  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %89
-
-75:                                               ; preds = %44
+75:                                               ; preds = %31
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = extractvalue { ptr, i32 } %76, 0
   store ptr %77, ptr %11, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %12, align 4
-  br label %88
+  br label %98
 
-79:                                               ; preds = %47
+79:                                               ; preds = %37, %34
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = extractvalue { ptr, i32 } %80, 0
   store ptr %81, ptr %11, align 8
   %82 = extractvalue { ptr, i32 } %80, 1
   store i32 %82, ptr %12, align 4
-  br label %87
+  call void @_ZNSt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %98
 
-83:                                               ; preds = %50
+83:                                               ; preds = %45
   %84 = landingpad { ptr, i32 }
           cleanup
   %85 = extractvalue { ptr, i32 } %84, 0
   store ptr %85, ptr %11, align 8
   %86 = extractvalue { ptr, i32 } %84, 1
   store i32 %86, ptr %12, align 4
+  br label %96
+
+87:                                               ; preds = %48
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %11, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %12, align 4
+  br label %95
+
+91:                                               ; preds = %51
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %11, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %12, align 4
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br label %87
+  br label %95
 
-87:                                               ; preds = %83, %79
+95:                                               ; preds = %91, %87
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %88
+  br label %96
 
-88:                                               ; preds = %87, %75
-  call void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1)) #3
-  br label %89
+96:                                               ; preds = %95, %83
+  %97 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %97) #3
+  br label %98
 
-89:                                               ; preds = %88, %71, %67
-  %90 = getelementptr inbounds i8, ptr %17, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %90) #3
-  br label %91
+98:                                               ; preds = %96, %79, %75
+  %99 = getelementptr inbounds i8, ptr %17, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %99) #3
+  br label %100
 
-91:                                               ; preds = %89, %66
-  %92 = load ptr, ptr %11, align 8
-  %93 = load i32, ptr %12, align 4
-  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
-  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
-  resume { ptr, i32 } %95
+100:                                              ; preds = %98, %74
+  %101 = load ptr, ptr %11, align 8
+  %102 = load i32, ptr %12, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75286,62 +75544,71 @@ define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC1ERKS2_(ptr noundef n
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN5osgeo4proj3crs9SingleCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10)
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %12 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1
+  invoke void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 6
+  invoke void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %18 unwind label %35
 
-16:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-24, 72) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-72, 48) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 2, i32 9), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 3, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 4, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 5, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-24, 40) ({ [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 1, i32 3), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedVerticalCRS", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedVerticalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr null) #3
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 0, i32 3
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 2, i32 9
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 56
+  %23 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 3, i32 2
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 4, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 88
+  %27 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 5, i32 2
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds { [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj3crs18DerivedVerticalCRSE, i32 0, i32 1, i32 3
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::crs::DerivedVerticalCRS", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj3crs18DerivedVerticalCRS7PrivateESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr null) #3
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %40
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1)) #3
-  br label %31
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  %39 = getelementptr inbounds [16 x ptr], ptr @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE, i64 0, i64 1
+  call void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %39) #3
+  br label %40
 
-31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
-  br label %33
+40:                                               ; preds = %35, %31
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #3
+  br label %42
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -77215,7 +77482,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt12__shared_ptrIN5osgeo4proj3crs12P
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #17
+declare void @abort() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5osgeo4proj3crs12ProjectedCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
@@ -78359,7 +78626,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt12__shared_ptrIN5osgeo4proj2cs8Mer
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #18
+declare double @llvm.fabs.f64(double) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN5osgeo4proj2cs8MeridianELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
@@ -81358,7 +81625,7 @@ define internal noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB
 
 95:                                               ; preds = %91, %87
   %96 = load i32, ptr %12, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %112
 
@@ -81844,7 +82111,7 @@ define internal void @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10s
 
 244:                                              ; preds = %243, %227
   %245 = load i32, ptr %14, align 4
-  %246 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %246 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %247 = icmp eq i32 %245, %246
   br i1 %247, label %248, label %259
 
@@ -82306,13 +82573,13 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeIS
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #15
+declare void @_ZSt28__throw_bad_array_new_lengthv() #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #15
+declare void @_ZSt17__throw_bad_allocv() #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEEiEEE9constructISC_JRKSB_iEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #7 comdat align 2 {
@@ -87037,7 +87304,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN5osgeo4proj3crs18DerivedVerticalC
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) #15
+declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
@@ -88452,7 +88719,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN7dropbox6oxygen2nnISt10sh
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
@@ -93259,7 +93526,7 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_it
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt16initializer_listIN5osgeo4proj2io16AuthorityFactory10ObjectTypeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
@@ -95446,10 +95713,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs11GeodeticCRSE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -95458,11 +95726,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -98686,10 +98955,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs13GeographicCR
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.985", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.985", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -100272,10 +100542,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs11VerticalCRSE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11VerticalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.989", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11VerticalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.989", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -103134,10 +103405,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs12ProjectedCRS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs12ProjectedCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.997", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs12ProjectedCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.997", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -106861,10 +107133,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs11CompoundCRSE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11CompoundCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1007", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11CompoundCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1007", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -108784,10 +109057,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs8BoundCRSELN9_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs8BoundCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1012", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs8BoundCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1012", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -110046,10 +110320,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedGeode
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedGeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1017", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedGeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1017", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -110599,10 +110874,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs20DerivedGeogr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs20DerivedGeographicCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1018", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs20DerivedGeographicCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1018", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -111186,10 +111462,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs19DerivedProje
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs19DerivedProjectedCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1019", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs19DerivedProjectedCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1019", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -111825,10 +112102,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs11TemporalCRSE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11TemporalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1020", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs11TemporalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1020", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -112726,10 +113004,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs14EngineeringC
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs14EngineeringCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1023", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs14EngineeringCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1023", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -113328,10 +113607,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs13ParametricCR
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs13ParametricCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1024", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs13ParametricCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1024", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -114102,10 +114382,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedVerti
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedVerticalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1025", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedVerticalCRSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1025", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -114806,10 +115087,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTe
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1026", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_27DerivedEngineeringCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1026", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -115483,10 +115765,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTe
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1027", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_26DerivedParametricCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1027", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -116160,10 +116443,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTe
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1028", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj3crs18DerivedCRSTemplateINS2_24DerivedTemporalCRSTraitsEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1028", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -116473,6 +116757,9 @@ define internal void @_GLOBAL__sub_I_crs.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -116485,14 +116772,14 @@ attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { builtin nounwind }
 attributes #22 = { builtin allocsize(0) }

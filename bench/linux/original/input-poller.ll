@@ -102,41 +102,42 @@ declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @input_setup_polling(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 120) #11
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %12
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 120) #11
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %13
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
-  %8 = getelementptr inbounds i8, ptr %0, i64 608
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  %11 = select i1 %10, ptr %7, ptr %9
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.input_setup_polling) #12
-  br label %20
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 544
+  %9 = getelementptr inbounds i8, ptr %0, i64 608
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  %12 = select i1 %11, ptr %8, ptr %10
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.input_setup_polling) #12
+  br label %21
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 68719476704, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
-  store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
-  store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr @input_dev_poller_work, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 64
-  tail call void @init_timer_key(ptr noundef %17, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %0, ptr %18, align 8
-  store ptr %1, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr %4, ptr %19, align 8
-  br label %20
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 68719476704, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  store volatile ptr %15, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  store volatile ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr @input_dev_poller_work, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 64
+  tail call void @init_timer_key(ptr noundef %18, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
+  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %0, ptr %19, align 8
+  store ptr %1, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %5, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %12, %6
-  %21 = phi i32 [ 0, %12 ], [ -12, %6 ]
-  ret i32 %21
+21:                                               ; preds = %13, %7
+  %22 = phi i32 [ 0, %13 ], [ -12, %7 ]
+  ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -319,396 +319,409 @@ define void @_ZN22LayoutPreferencesFrameC2EP7QWidget(ptr noundef nonnull align 8
   %17 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %16, i32 %18)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 0, i32 2), ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 1, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #12
-          to label %22 unwind label %208
-
-22:                                               ; preds = %2
+  %19 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %19, ptr %15, align 8
+  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 1, i32 2
   store ptr %21, ptr %20, align 8
-  %23 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  invoke void @_ZN25Ui_LayoutPreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(400) %24, ptr noundef %15)
-          to label %25 unwind label %208
+  %22 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #12
+          to label %24 unwind label %221
 
-25:                                               ; preds = %22
-  %26 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 44))
-          to label %27 unwind label %208
+24:                                               ; preds = %2
+  store ptr %23, ptr %22, align 8
+  %25 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  invoke void @_ZN25Ui_LayoutPreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(400) %26, ptr noundef %15)
+          to label %27 unwind label %221
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 2
-  store ptr %26, ptr %28, align 8
-  %29 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 45))
-          to label %30 unwind label %208
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 44
+  %29 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %28)
+          to label %30 unwind label %221
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 3
+  %31 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 2
   store ptr %29, ptr %31, align 8
-  %32 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 46))
-          to label %33 unwind label %208
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 45
+  %33 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %32)
+          to label %34 unwind label %221
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 4
-  store ptr %32, ptr %34, align 8
-  %35 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 47))
-          to label %36 unwind label %208
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 3
+  store ptr %33, ptr %35, align 8
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 46
+  %37 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %36)
+          to label %38 unwind label %221
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 5
-  store ptr %35, ptr %37, align 8
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 4
+  store ptr %37, ptr %39, align 8
+  %40 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 47
+  %41 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %40)
+          to label %42 unwind label %221
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 5
+  store ptr %41, ptr %43, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str)
-          to label %38 unwind label %208
+          to label %44 unwind label %221
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %40, i32 0, i32 4
-  %42 = load ptr, ptr %41, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %43 unwind label %212
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %49 unwind label %225
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %45, i32 0, i32 3
-  %47 = load ptr, ptr %46, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %48 unwind label %212
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %54 unwind label %225
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %50, i32 0, i32 6
-  %52 = load ptr, ptr %51, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %53 unwind label %212
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %56, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %59 unwind label %225
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %55, i32 0, i32 5
-  %57 = load ptr, ptr %56, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %58 unwind label %212
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %61, i32 0, i32 5
+  %63 = load ptr, ptr %62, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %64 unwind label %225
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %63 unwind label %212
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %69 unwind label %225
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %65, i32 0, i32 7
-  %67 = load ptr, ptr %66, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %68 unwind label %212
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %71, i32 0, i32 7
+  %73 = load ptr, ptr %72, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %74 unwind label %225
 
-68:                                               ; preds = %63
+74:                                               ; preds = %69
   invoke void @_ZN12QStyleOptionC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef 1, i32 noundef 0)
-          to label %69 unwind label %212
+          to label %75 unwind label %225
 
-69:                                               ; preds = %68
+75:                                               ; preds = %74
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.1)
-          to label %70 unwind label %216
+          to label %76 unwind label %229
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %72, i32 0, i32 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %74)
-          to label %76 unwind label %220
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %78, i32 0, i32 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %80)
+          to label %82 unwind label %233
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %75, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = invoke { i64, i64 } %79(ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3, ptr noundef %9, ptr noundef null)
-          to label %81 unwind label %220
+82:                                               ; preds = %76
+  %83 = load ptr, ptr %81, align 8
+  %84 = getelementptr inbounds ptr, ptr %83, i64 24
+  %85 = load ptr, ptr %84, align 8
+  %86 = invoke { i64, i64 } %85(ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef 3, ptr noundef %9, ptr noundef null)
+          to label %87 unwind label %233
 
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %83 = extractvalue { i64, i64 } %80, 0
-  store i64 %83, ptr %82, align 4
-  %84 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
-  %85 = extractvalue { i64, i64 } %80, 1
-  store i64 %85, ptr %84, align 4
-  %86 = call noundef i32 @_ZNK5QRect4leftEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
+  %89 = extractvalue { i64, i64 } %86, 0
+  store i64 %89, ptr %88, align 4
+  %90 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
+  %91 = extractvalue { i64, i64 } %86, 1
+  store i64 %91, ptr %90, align 4
+  %92 = call noundef i32 @_ZNK5QRect4leftEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
   call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %14, i8 noundef signext 32) #11
-  %87 = getelementptr inbounds %struct.QLatin1Char, ptr %14, i32 0, i32 0
-  %88 = load i8, ptr %87, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %13, i8 %88) #11
-  %89 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
-  %90 = load i16, ptr %89, align 2
-  invoke void @_ZNK7QString3argEiii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %86, i32 noundef 0, i32 noundef 10, i16 %90)
-          to label %91 unwind label %220
+  %93 = getelementptr inbounds %struct.QLatin1Char, ptr %14, i32 0, i32 0
+  %94 = load i8, ptr %93, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %13, i8 %94) #11
+  %95 = getelementptr inbounds %class.QChar, ptr %13, i32 0, i32 0
+  %96 = load i16, ptr %95, align 2
+  invoke void @_ZNK7QString3argEiii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %92, i32 noundef 0, i32 noundef 10, i16 %96)
+          to label %97 unwind label %233
 
-91:                                               ; preds = %81
+97:                                               ; preds = %87
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  %92 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %93, i32 0, i32 32
-  %95 = load ptr, ptr %94, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %96 unwind label %224
+  %98 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %99, i32 0, i32 32
+  %101 = load ptr, ptr %100, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %102 unwind label %237
 
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %98, i32 0, i32 33
-  %100 = load ptr, ptr %99, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %101 unwind label %224
+102:                                              ; preds = %97
+  %103 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %104, i32 0, i32 33
+  %106 = load ptr, ptr %105, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %106, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %107 unwind label %237
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %103, i32 0, i32 39
-  %105 = load ptr, ptr %104, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %106 unwind label %224
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %109, i32 0, i32 39
+  %111 = load ptr, ptr %110, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %112 unwind label %237
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %108, i32 0, i32 34
-  %110 = load ptr, ptr %109, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %110, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %111 unwind label %224
+112:                                              ; preds = %107
+  %113 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %114, i32 0, i32 34
+  %116 = load ptr, ptr %115, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %116, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %117 unwind label %237
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %113, i32 0, i32 36
-  %115 = load ptr, ptr %114, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %115, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %116 unwind label %224
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %119, i32 0, i32 36
+  %121 = load ptr, ptr %120, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %122 unwind label %237
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %118, i32 0, i32 42
-  %120 = load ptr, ptr %119, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %121 unwind label %224
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %124, i32 0, i32 42
+  %126 = load ptr, ptr %125, align 8
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %127 unwind label %237
 
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %123, i32 0, i32 43
-  %125 = load ptr, ptr %124, align 8
-  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %126 unwind label %224
-
-126:                                              ; preds = %121
-  %127 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 89))
-          to label %128 unwind label %224
-
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 6
-  store ptr %127, ptr %129, align 8
-  %130 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %129, i32 0, i32 43
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %131, i32 0, i32 32
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 6
-  %135 = load ptr, ptr %134, align 8
-  %136 = invoke i32 @prefs_get_bool_value(ptr noundef %135, i32 noundef 1)
-          to label %137 unwind label %224
+  invoke void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %131, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %132 unwind label %237
 
-137:                                              ; preds = %128
-  %138 = icmp ne i32 %136, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %133, i1 noundef zeroext %138)
-          to label %139 unwind label %224
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 89
+  %134 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %133)
+          to label %135 unwind label %237
 
-139:                                              ; preds = %137
-  %140 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 90))
-          to label %141 unwind label %224
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 6
+  store ptr %134, ptr %136, align 8
+  %137 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %138, i32 0, i32 32
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 6
+  %142 = load ptr, ptr %141, align 8
+  %143 = invoke i32 @prefs_get_bool_value(ptr noundef %142, i32 noundef 1)
+          to label %144 unwind label %237
 
-141:                                              ; preds = %139
-  %142 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 7
-  store ptr %140, ptr %142, align 8
-  %143 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %144, i32 0, i32 33
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 7
-  %148 = load ptr, ptr %147, align 8
-  %149 = invoke i32 @prefs_get_bool_value(ptr noundef %148, i32 noundef 1)
-          to label %150 unwind label %224
+144:                                              ; preds = %135
+  %145 = icmp ne i32 %143, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %140, i1 noundef zeroext %145)
+          to label %146 unwind label %237
 
-150:                                              ; preds = %141
-  %151 = icmp ne i32 %149, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %146, i1 noundef zeroext %151)
-          to label %152 unwind label %224
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 90
+  %148 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %147)
+          to label %149 unwind label %237
 
-152:                                              ; preds = %150
-  %153 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 91))
-          to label %154 unwind label %224
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 7
+  store ptr %148, ptr %150, align 8
+  %151 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %152, i32 0, i32 33
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 7
+  %156 = load ptr, ptr %155, align 8
+  %157 = invoke i32 @prefs_get_bool_value(ptr noundef %156, i32 noundef 1)
+          to label %158 unwind label %237
 
-154:                                              ; preds = %152
-  %155 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 8
-  store ptr %153, ptr %155, align 8
-  %156 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %157, i32 0, i32 39
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = invoke i32 @prefs_get_bool_value(ptr noundef %161, i32 noundef 1)
-          to label %163 unwind label %224
+158:                                              ; preds = %149
+  %159 = icmp ne i32 %157, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %154, i1 noundef zeroext %159)
+          to label %160 unwind label %237
 
-163:                                              ; preds = %154
-  %164 = icmp ne i32 %162, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %159, i1 noundef zeroext %164)
-          to label %165 unwind label %224
+160:                                              ; preds = %158
+  %161 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 91
+  %162 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %161)
+          to label %163 unwind label %237
 
-165:                                              ; preds = %163
-  %166 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 97))
-          to label %167 unwind label %224
-
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 9
-  store ptr %166, ptr %168, align 8
-  %169 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 8
+  store ptr %162, ptr %164, align 8
+  %165 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %166, i32 0, i32 39
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 8
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %170, i32 0, i32 34
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 9
-  %174 = load ptr, ptr %173, align 8
-  %175 = invoke i32 @prefs_get_bool_value(ptr noundef %174, i32 noundef 1)
-          to label %176 unwind label %224
+  %171 = invoke i32 @prefs_get_bool_value(ptr noundef %170, i32 noundef 1)
+          to label %172 unwind label %237
 
-176:                                              ; preds = %167
-  %177 = icmp ne i32 %175, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %172, i1 noundef zeroext %177)
-          to label %178 unwind label %224
+172:                                              ; preds = %163
+  %173 = icmp ne i32 %171, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %168, i1 noundef zeroext %173)
+          to label %174 unwind label %237
 
-178:                                              ; preds = %176
-  %179 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 98))
-          to label %180 unwind label %224
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 97
+  %176 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %175)
+          to label %177 unwind label %237
 
-180:                                              ; preds = %178
-  %181 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 10
-  store ptr %179, ptr %181, align 8
-  %182 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 92))
-          to label %183 unwind label %224
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 9
+  store ptr %176, ptr %178, align 8
+  %179 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %180, i32 0, i32 34
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 9
+  %184 = load ptr, ptr %183, align 8
+  %185 = invoke i32 @prefs_get_bool_value(ptr noundef %184, i32 noundef 1)
+          to label %186 unwind label %237
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 11
-  store ptr %182, ptr %184, align 8
-  %185 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %186, i32 0, i32 42
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 11
-  %190 = load ptr, ptr %189, align 8
-  %191 = invoke i32 @prefs_get_bool_value(ptr noundef %190, i32 noundef 1)
-          to label %192 unwind label %224
+186:                                              ; preds = %177
+  %187 = icmp ne i32 %185, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %182, i1 noundef zeroext %187)
+          to label %188 unwind label %237
 
-192:                                              ; preds = %183
-  %193 = icmp ne i32 %191, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %188, i1 noundef zeroext %193)
-          to label %194 unwind label %224
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 98
+  %190 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %189)
+          to label %191 unwind label %237
 
-194:                                              ; preds = %192
-  %195 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 93))
-          to label %196 unwind label %224
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 10
+  store ptr %190, ptr %192, align 8
+  %193 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 92
+  %194 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %193)
+          to label %195 unwind label %237
 
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 12
-  store ptr %195, ptr %197, align 8
-  %198 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %199, i32 0, i32 43
-  %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 12
-  %203 = load ptr, ptr %202, align 8
-  %204 = invoke i32 @prefs_get_bool_value(ptr noundef %203, i32 noundef 1)
-          to label %205 unwind label %224
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 11
+  store ptr %194, ptr %196, align 8
+  %197 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %198, i32 0, i32 42
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 11
+  %202 = load ptr, ptr %201, align 8
+  %203 = invoke i32 @prefs_get_bool_value(ptr noundef %202, i32 noundef 1)
+          to label %204 unwind label %237
 
-205:                                              ; preds = %196
-  %206 = icmp ne i32 %204, 0
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %201, i1 noundef zeroext %206)
-          to label %207 unwind label %224
+204:                                              ; preds = %195
+  %205 = icmp ne i32 %203, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %200, i1 noundef zeroext %205)
+          to label %206 unwind label %237
 
-207:                                              ; preds = %205
+206:                                              ; preds = %204
+  %207 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 93
+  %208 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %207)
+          to label %209 unwind label %237
+
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 12
+  store ptr %208, ptr %210, align 8
+  %211 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds %class.Ui_LayoutPreferencesFrame, ptr %212, i32 0, i32 43
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %15, i32 0, i32 12
+  %216 = load ptr, ptr %215, align 8
+  %217 = invoke i32 @prefs_get_bool_value(ptr noundef %216, i32 noundef 1)
+          to label %218 unwind label %237
+
+218:                                              ; preds = %209
+  %219 = icmp ne i32 %217, 0
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %214, i1 noundef zeroext %219)
+          to label %220 unwind label %237
+
+220:                                              ; preds = %218
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
   call void @_ZN12QStyleOptionD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #11
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   ret void
 
-208:                                              ; preds = %36, %33, %30, %27, %25, %22, %2
-  %209 = landingpad { ptr, i32 }
+221:                                              ; preds = %42, %38, %34, %30, %27, %24, %2
+  %222 = landingpad { ptr, i32 }
           cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %6, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %7, align 4
-  br label %230
+  %223 = extractvalue { ptr, i32 } %222, 0
+  store ptr %223, ptr %6, align 8
+  %224 = extractvalue { ptr, i32 } %222, 1
+  store i32 %224, ptr %7, align 4
+  br label %243
 
-212:                                              ; preds = %68, %63, %58, %53, %48, %43, %38
-  %213 = landingpad { ptr, i32 }
+225:                                              ; preds = %74, %69, %64, %59, %54, %49, %44
+  %226 = landingpad { ptr, i32 }
           cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %6, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %7, align 4
-  br label %229
+  %227 = extractvalue { ptr, i32 } %226, 0
+  store ptr %227, ptr %6, align 8
+  %228 = extractvalue { ptr, i32 } %226, 1
+  store i32 %228, ptr %7, align 4
+  br label %242
 
-216:                                              ; preds = %69
-  %217 = landingpad { ptr, i32 }
+229:                                              ; preds = %75
+  %230 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %6, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %7, align 4
-  br label %228
+  %231 = extractvalue { ptr, i32 } %230, 0
+  store ptr %231, ptr %6, align 8
+  %232 = extractvalue { ptr, i32 } %230, 1
+  store i32 %232, ptr %7, align 4
+  br label %241
 
-220:                                              ; preds = %81, %76, %70
-  %221 = landingpad { ptr, i32 }
+233:                                              ; preds = %87, %82, %76
+  %234 = landingpad { ptr, i32 }
           cleanup
-  %222 = extractvalue { ptr, i32 } %221, 0
-  store ptr %222, ptr %6, align 8
-  %223 = extractvalue { ptr, i32 } %221, 1
-  store i32 %223, ptr %7, align 4
+  %235 = extractvalue { ptr, i32 } %234, 0
+  store ptr %235, ptr %6, align 8
+  %236 = extractvalue { ptr, i32 } %234, 1
+  store i32 %236, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  br label %228
+  br label %241
 
-224:                                              ; preds = %205, %196, %194, %192, %183, %180, %178, %176, %167, %165, %163, %154, %152, %150, %141, %139, %137, %128, %126, %121, %116, %111, %106, %101, %96, %91
-  %225 = landingpad { ptr, i32 }
+237:                                              ; preds = %218, %209, %206, %204, %195, %191, %188, %186, %177, %174, %172, %163, %160, %158, %149, %146, %144, %135, %132, %127, %122, %117, %112, %107, %102, %97
+  %238 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %6, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %7, align 4
+  %239 = extractvalue { ptr, i32 } %238, 0
+  store ptr %239, ptr %6, align 8
+  %240 = extractvalue { ptr, i32 } %238, 1
+  store i32 %240, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %228
+  br label %241
 
-228:                                              ; preds = %224, %220, %216
+241:                                              ; preds = %237, %233, %229
   call void @_ZN12QStyleOptionD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #11
-  br label %229
+  br label %242
 
-229:                                              ; preds = %228, %212
+242:                                              ; preds = %241, %225
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  br label %230
+  br label %243
 
-230:                                              ; preds = %229, %208
+243:                                              ; preds = %242, %221
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #11
-  br label %231
+  br label %244
 
-231:                                              ; preds = %230
-  %232 = load ptr, ptr %6, align 8
-  %233 = load i32, ptr %7, align 4
-  %234 = insertvalue { ptr, i32 } poison, ptr %232, 0
-  %235 = insertvalue { ptr, i32 } %234, i32 %233, 1
-  resume { ptr, i32 } %235
+244:                                              ; preds = %243
+  %245 = load ptr, ptr %6, align 8
+  %246 = load i32, ptr %7, align 4
+  %247 = insertvalue { ptr, i32 } poison, ptr %245, 0
+  %248 = insertvalue { ptr, i32 } %247, i32 %246, 1
+  resume { ptr, i32 } %248
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4335,19 +4348,21 @@ define void @_ZN22LayoutPreferencesFrameD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV22LayoutPreferencesFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.LayoutPreferencesFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #13
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #13
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
   ret void
 }
@@ -6123,19 +6138,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.1, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #11
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #11
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #11
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #11
   ret void
 }
 
@@ -7225,9 +7241,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

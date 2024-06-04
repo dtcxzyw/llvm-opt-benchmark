@@ -168,7 +168,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
 11:                                               ; preds = %10, %7
   %12 = load i32, ptr @memory_corruption_check, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %61, label %14
+  br i1 %13, label %65, label %14
 
 14:                                               ; preds = %11
   %15 = add i32 %8, -1
@@ -176,70 +176,74 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %17 = add i32 %16, 1
   store i32 %17, ptr @corruption_check_size, align 4
   store i64 0, ptr %3, align 8
-  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp eq i64 %18, -1
-  br i1 %19, label %56, label %20
+  %18 = getelementptr inbounds %struct.memblock, ptr @memblock, i64 0, i32 2
+  %19 = getelementptr inbounds %struct.memblock, ptr @memblock, i64 0, i32 3
+  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
+  %20 = load i64, ptr %3, align 8
+  %21 = icmp eq i64 %20, -1
+  br i1 %21, label %60, label %22
 
-20:                                               ; preds = %53, %14
-  %21 = load i64, ptr %1, align 8
-  %22 = add i64 %21, -1
-  %23 = or i64 %22, 4095
-  %24 = add i64 %23, 1
-  %25 = load i32, ptr @corruption_check_size, align 4
-  %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %24, %26
-  %28 = icmp ult i64 %24, 4097
-  %29 = select i1 %28, i64 4096, i64 %24
-  %30 = select i1 %27, i64 %29, i64 %26
-  store i64 %30, ptr %1, align 8
-  %31 = load i64, ptr %2, align 8
-  %32 = and i64 %31, -4096
-  %33 = icmp ult i64 %32, %26
-  %34 = call i64 @llvm.umax.i64(i64 %32, i64 4096)
-  %35 = select i1 %33, i64 %34, i64 %26
-  store i64 %35, ptr %2, align 8
-  %36 = icmp ult i64 %30, %35
-  br i1 %36, label %37, label %53
+22:                                               ; preds = %55, %14
+  %23 = load i64, ptr %1, align 8
+  %24 = add i64 %23, -1
+  %25 = or i64 %24, 4095
+  %26 = add i64 %25, 1
+  %27 = load i32, ptr @corruption_check_size, align 4
+  %28 = zext i32 %27 to i64
+  %29 = icmp ult i64 %26, %28
+  %30 = icmp ult i64 %26, 4097
+  %31 = select i1 %30, i64 4096, i64 %26
+  %32 = select i1 %29, i64 %31, i64 %28
+  store i64 %32, ptr %1, align 8
+  %33 = load i64, ptr %2, align 8
+  %34 = and i64 %33, -4096
+  %35 = icmp ult i64 %34, %28
+  %36 = call i64 @llvm.umax.i64(i64 %34, i64 4096)
+  %37 = select i1 %35, i64 %36, i64 %28
+  store i64 %37, ptr %2, align 8
+  %38 = icmp ult i64 %32, %37
+  br i1 %38, label %39, label %55
 
-37:                                               ; preds = %20
-  %38 = sub nsw i64 %35, %30
-  %39 = call i32 @memblock_reserve(i64 noundef %30, i64 noundef %38) #7
-  %40 = load i64, ptr %1, align 8
-  %41 = load i32, ptr @num_scan_areas, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %42
-  store i64 %40, ptr %43, align 16
-  %44 = load i64, ptr %2, align 8
-  %45 = sub i64 %44, %40
-  %46 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %42, i32 1
-  store i64 %45, ptr %46, align 8
-  %47 = load i64, ptr @page_offset_base, align 8
-  %48 = add i64 %47, %40
-  %49 = inttoptr i64 %48 to ptr
-  call void @llvm.memset.p0.i64(ptr align 1 %49, i8 0, i64 %45, i1 false)
-  %50 = load i32, ptr @num_scan_areas, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr @num_scan_areas, align 4
-  %52 = icmp sgt i32 %51, 7
-  br i1 %52, label %56, label %53
+39:                                               ; preds = %22
+  %40 = sub nsw i64 %37, %32
+  %41 = call i32 @memblock_reserve(i64 noundef %32, i64 noundef %40) #7
+  %42 = load i64, ptr %1, align 8
+  %43 = load i32, ptr @num_scan_areas, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %44
+  store i64 %42, ptr %45, align 16
+  %46 = load i64, ptr %2, align 8
+  %47 = sub i64 %46, %42
+  %48 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %44, i32 1
+  store i64 %47, ptr %48, align 8
+  %49 = load i64, ptr @page_offset_base, align 8
+  %50 = add i64 %49, %42
+  %51 = inttoptr i64 %50 to ptr
+  call void @llvm.memset.p0.i64(ptr align 1 %51, i8 0, i64 %47, i1 false)
+  %52 = load i32, ptr @num_scan_areas, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr @num_scan_areas, align 4
+  %54 = icmp sgt i32 %53, 7
+  br i1 %54, label %60, label %55
 
-53:                                               ; preds = %37, %20
-  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 2), ptr noundef nonnull getelementptr inbounds (%struct.memblock, ptr @memblock, i64 0, i32 3), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
-  %54 = load i64, ptr %3, align 8
-  %55 = icmp eq i64 %54, -1
-  br i1 %55, label %56, label %20, !llvm.loop !6
+55:                                               ; preds = %39, %22
+  %56 = getelementptr inbounds %struct.memblock, ptr @memblock, i64 0, i32 2
+  %57 = getelementptr inbounds %struct.memblock, ptr @memblock, i64 0, i32 3
+  call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
+  %58 = load i64, ptr %3, align 8
+  %59 = icmp eq i64 %58, -1
+  br i1 %59, label %60, label %22, !llvm.loop !6
 
-56:                                               ; preds = %53, %37, %14
-  %57 = load i32, ptr @num_scan_areas, align 4
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %61, label %59
+60:                                               ; preds = %55, %39, %14
+  %61 = load i32, ptr @num_scan_areas, align 4
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %65, label %63
 
-59:                                               ; preds = %56
-  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %57) #8
-  br label %61
+63:                                               ; preds = %60
+  %64 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %61) #8
+  br label %65
 
-61:                                               ; preds = %59, %56, %11
+65:                                               ; preds = %63, %60, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
@@ -299,21 +303,21 @@ declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, pt
 define internal void @check_corruption(ptr nocapture readnone %0) #5 align 16 {
   %2 = load i32, ptr @memory_corruption_check, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %53, label %4
+  br i1 %3, label %54, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @num_scan_areas, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %48
+  br i1 %6, label %7, label %49
 
-7:                                                ; preds = %40, %4
-  %8 = phi i64 [ %42, %40 ], [ 0, %4 ]
-  %9 = phi i32 [ %41, %40 ], [ 0, %4 ]
+7:                                                ; preds = %41, %4
+  %8 = phi i64 [ %43, %41 ], [ 0, %4 ]
+  %9 = phi i32 [ %42, %41 ], [ 0, %4 ]
   %10 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %40, label %14
+  br i1 %13, label %41, label %14
 
 14:                                               ; preds = %7
   %15 = load i64, ptr @page_offset_base, align 8
@@ -322,53 +326,54 @@ define internal void @check_corruption(ptr nocapture readnone %0) #5 align 16 {
   %18 = inttoptr i64 %17 to ptr
   br label %19
 
-19:                                               ; preds = %35, %14
-  %20 = phi i32 [ %36, %35 ], [ %9, %14 ]
-  %21 = phi ptr [ %37, %35 ], [ %18, %14 ]
-  %22 = phi i64 [ %38, %35 ], [ %12, %14 ]
+19:                                               ; preds = %36, %14
+  %20 = phi i32 [ %37, %36 ], [ %9, %14 ]
+  %21 = phi ptr [ %38, %36 ], [ %18, %14 ]
+  %22 = phi i64 [ %39, %36 ], [ %12, %14 ]
   %23 = load i64, ptr %21, align 8
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %35, label %25
+  br i1 %24, label %36, label %25
 
 25:                                               ; preds = %19
   %26 = ptrtoint ptr %21 to i64
   %27 = add i64 %26, 2147483648
-  %28 = icmp ugt ptr %21, inttoptr (i64 -2147483649 to ptr)
-  %29 = load i64, ptr @phys_base, align 8
-  %30 = load i64, ptr @page_offset_base, align 8
-  %31 = sub i64 -2147483648, %30
-  %32 = select i1 %28, i64 %29, i64 %31
-  %33 = add i64 %27, %32
-  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %21, i64 noundef %33, i64 noundef %23) #8
+  %28 = inttoptr i64 -2147483649 to ptr
+  %29 = icmp ugt ptr %21, %28
+  %30 = load i64, ptr @phys_base, align 8
+  %31 = load i64, ptr @page_offset_base, align 8
+  %32 = sub i64 -2147483648, %31
+  %33 = select i1 %29, i64 %30, i64 %32
+  %34 = add i64 %27, %33
+  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %21, i64 noundef %34, i64 noundef %23) #8
   store i64 0, ptr %21, align 8
-  br label %35
+  br label %36
 
-35:                                               ; preds = %25, %19
-  %36 = phi i32 [ 1, %25 ], [ %20, %19 ]
-  %37 = getelementptr i8, ptr %21, i64 8
-  %38 = add i64 %22, -8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %19, !llvm.loop !9
+36:                                               ; preds = %25, %19
+  %37 = phi i32 [ 1, %25 ], [ %20, %19 ]
+  %38 = getelementptr i8, ptr %21, i64 8
+  %39 = add i64 %22, -8
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %19, !llvm.loop !9
 
-40:                                               ; preds = %35, %7
-  %41 = phi i32 [ %9, %7 ], [ %36, %35 ]
-  %42 = add nuw nsw i64 %8, 1
-  %43 = load i32, ptr @num_scan_areas, align 4
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %42, %44
-  br i1 %45, label %7, label %46, !llvm.loop !10
+41:                                               ; preds = %36, %7
+  %42 = phi i32 [ %9, %7 ], [ %37, %36 ]
+  %43 = add nuw nsw i64 %8, 1
+  %44 = load i32, ptr @num_scan_areas, align 4
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %43, %45
+  br i1 %46, label %7, label %47, !llvm.loop !10
 
-46:                                               ; preds = %40
-  %47 = icmp eq i32 %41, 0
-  br label %48
+47:                                               ; preds = %41
+  %48 = icmp eq i32 %42, 0
+  br label %49
 
-48:                                               ; preds = %46, %4
-  %49 = phi i1 [ true, %4 ], [ %47, %46 ]
-  %50 = load i1, ptr @check_for_bios_corruption.__already_done, align 1
-  %51 = select i1 %49, i1 true, i1 %50
-  br i1 %51, label %53, label %52, !prof !11
+49:                                               ; preds = %47, %4
+  %50 = phi i1 [ true, %4 ], [ %48, %47 ]
+  %51 = load i1, ptr @check_for_bios_corruption.__already_done, align 1
+  %52 = select i1 %50, i1 true, i1 %51
+  br i1 %52, label %54, label %53, !prof !11
 
-52:                                               ; preds = %48
+53:                                               ; preds = %49
   store i1 true, ptr @check_for_bios_corruption.__already_done, align 1
   tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #7, !srcloc !12
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6) #7
@@ -376,15 +381,15 @@ define internal void @check_corruption(ptr nocapture readnone %0) #5 align 16 {
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 161, i32 2313, i64 12) #7, !srcloc !14
   tail call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_end\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #7, !srcloc !15
   tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_end\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #7, !srcloc !16
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %48, %1
-  %54 = load i32, ptr @corruption_check_period, align 4
-  %55 = mul i32 %54, 1000
-  %56 = zext i32 %55 to i64
-  %57 = tail call i64 @round_jiffies_relative(i64 noundef %56) #7
-  %58 = load ptr, ptr @system_wq, align 8
-  %59 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %58, ptr noundef nonnull @bios_check_work, i64 noundef %57) #7
+54:                                               ; preds = %53, %49, %1
+  %55 = load i32, ptr @corruption_check_period, align 4
+  %56 = mul i32 %55, 1000
+  %57 = zext i32 %56 to i64
+  %58 = tail call i64 @round_jiffies_relative(i64 noundef %57) #7
+  %59 = load ptr, ptr @system_wq, align 8
+  %60 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %59, ptr noundef nonnull @bios_check_work, i64 noundef %58) #7
   ret void
 }
 

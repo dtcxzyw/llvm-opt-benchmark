@@ -883,7 +883,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   call void @add_indent(i64 noundef %20, i64 noundef %21)
   %22 = load i64, ptr %5, align 8
   %23 = call i64 @rbimpl_str_cat_cstr(i64 noundef %22, ptr noundef @.str.3)
-  br label %7932
+  br label %7940
 
 24:                                               ; preds = %4
   %25 = load i64, ptr %5, align 8
@@ -940,7 +940,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %75 = trunc i64 %74 to i32
   store i32 %75, ptr %12, align 4
   %76 = load i32, ptr %12, align 4
-  switch i32 %76, label %7924 [
+  switch i32 %76, label %7932 [
     i32 1, label %77
     i32 2, label %183
     i32 3, label %292
@@ -966,95 +966,95 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
     i32 22, label %1719
     i32 23, label %1744
     i32 24, label %1843
-    i32 25, label %1977
-    i32 26, label %2075
-    i32 28, label %2181
-    i32 30, label %2254
-    i32 27, label %2327
-    i32 29, label %2400
-    i32 31, label %2544
-    i32 32, label %2673
-    i32 33, label %2802
-    i32 34, label %2827
-    i32 35, label %2909
-    i32 36, label %3010
-    i32 37, label %3111
-    i32 38, label %3212
-    i32 39, label %3285
-    i32 40, label %3330
-    i32 41, label %3431
-    i32 42, label %3484
-    i32 43, label %3509
-    i32 44, label %3538
-    i32 45, label %3563
-    i32 47, label %3673
-    i32 48, label %3726
-    i32 49, label %3771
-    i32 51, label %3816
-    i32 52, label %3861
-    i32 53, label %3906
-    i32 50, label %3951
-    i32 54, label %3996
-    i32 55, label %4044
-    i32 56, label %4093
-    i32 57, label %4139
-    i32 58, label %4260
-    i32 59, label %4341
-    i32 64, label %4388
-    i32 66, label %4413
-    i32 60, label %4460
-    i32 61, label %4506
-    i32 62, label %4552
-    i32 63, label %4598
-    i32 69, label %4644
-    i32 71, label %4690
-    i32 65, label %4743
-    i32 67, label %4768
-    i32 70, label %4793
-    i32 103, label %4818
-    i32 102, label %4931
-    i32 68, label %4977
-    i32 77, label %5030
-    i32 78, label %5111
-    i32 79, label %5192
-    i32 80, label %5245
-    i32 81, label %5326
-    i32 82, label %5399
-    i32 83, label %5500
-    i32 84, label %5581
-    i32 85, label %5646
-    i32 86, label %5699
-    i32 87, label %5808
-    i32 88, label %5889
-    i32 89, label %5970
-    i32 90, label %6043
-    i32 91, label %6088
-    i32 92, label %6113
-    i32 93, label %6138
-    i32 94, label %6163
-    i32 95, label %6245
-    i32 96, label %6292
-    i32 97, label %6317
-    i32 98, label %6342
-    i32 99, label %6367
-    i32 100, label %6392
-    i32 101, label %6445
-    i32 104, label %6498
-    i32 105, label %6599
-    i32 74, label %6652
-    i32 75, label %6733
-    i32 76, label %6814
-    i32 72, label %6920
-    i32 0, label %7207
-    i32 106, label %7338
-    i32 108, label %7492
-    i32 107, label %7671
-    i32 110, label %7797
-    i32 111, label %7822
-    i32 112, label %7868
-    i32 109, label %7914
-    i32 73, label %7923
-    i32 113, label %7923
+    i32 25, label %1978
+    i32 26, label %2077
+    i32 28, label %2184
+    i32 30, label %2257
+    i32 27, label %2330
+    i32 29, label %2403
+    i32 31, label %2547
+    i32 32, label %2676
+    i32 33, label %2805
+    i32 34, label %2830
+    i32 35, label %2912
+    i32 36, label %3013
+    i32 37, label %3114
+    i32 38, label %3215
+    i32 39, label %3288
+    i32 40, label %3333
+    i32 41, label %3434
+    i32 42, label %3487
+    i32 43, label %3512
+    i32 44, label %3541
+    i32 45, label %3566
+    i32 47, label %3676
+    i32 48, label %3729
+    i32 49, label %3774
+    i32 51, label %3819
+    i32 52, label %3864
+    i32 53, label %3909
+    i32 50, label %3954
+    i32 54, label %3999
+    i32 55, label %4047
+    i32 56, label %4096
+    i32 57, label %4142
+    i32 58, label %4263
+    i32 59, label %4344
+    i32 64, label %4391
+    i32 66, label %4416
+    i32 60, label %4463
+    i32 61, label %4509
+    i32 62, label %4555
+    i32 63, label %4601
+    i32 69, label %4647
+    i32 71, label %4693
+    i32 65, label %4746
+    i32 67, label %4771
+    i32 70, label %4796
+    i32 103, label %4821
+    i32 102, label %4934
+    i32 68, label %4980
+    i32 77, label %5033
+    i32 78, label %5114
+    i32 79, label %5195
+    i32 80, label %5248
+    i32 81, label %5329
+    i32 82, label %5402
+    i32 83, label %5503
+    i32 84, label %5584
+    i32 85, label %5649
+    i32 86, label %5702
+    i32 87, label %5811
+    i32 88, label %5892
+    i32 89, label %5973
+    i32 90, label %6046
+    i32 91, label %6091
+    i32 92, label %6116
+    i32 93, label %6141
+    i32 94, label %6166
+    i32 95, label %6248
+    i32 96, label %6295
+    i32 97, label %6320
+    i32 98, label %6345
+    i32 99, label %6370
+    i32 100, label %6395
+    i32 101, label %6448
+    i32 104, label %6501
+    i32 105, label %6602
+    i32 74, label %6655
+    i32 75, label %6736
+    i32 76, label %6817
+    i32 72, label %6924
+    i32 0, label %7211
+    i32 106, label %7342
+    i32 108, label %7497
+    i32 107, label %7678
+    i32 110, label %7805
+    i32 111, label %7830
+    i32 112, label %7876
+    i32 109, label %7922
+    i32 73, label %7931
+    i32 113, label %7931
   ]
 
 77:                                               ; preds = %24
@@ -1217,7 +1217,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %182
 
 182:                                              ; preds = %181, %148
-  br label %7932
+  br label %7940
 
 183:                                              ; preds = %24
   %184 = load i32, ptr %7, align 4
@@ -1380,7 +1380,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %275, !llvm.loop !12
 
 291:                                              ; preds = %275
-  br label %7932
+  br label %7940
 
 292:                                              ; preds = %24
   %293 = load i32, ptr %7, align 4
@@ -1543,7 +1543,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %384, !llvm.loop !15
 
 400:                                              ; preds = %384
-  br label %7932
+  br label %7940
 
 401:                                              ; preds = %24
   %402 = load i32, ptr %7, align 4
@@ -1666,7 +1666,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %465, !llvm.loop !17
 
 481:                                              ; preds = %465
-  br label %7932
+  br label %7940
 
 482:                                              ; preds = %24
   %483 = load i32, ptr %7, align 4
@@ -1789,7 +1789,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %546, !llvm.loop !19
 
 562:                                              ; preds = %546
-  br label %7932
+  br label %7940
 
 563:                                              ; preds = %24
   %564 = load i32, ptr %7, align 4
@@ -1912,7 +1912,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %627, !llvm.loop !21
 
 643:                                              ; preds = %627
-  br label %7932
+  br label %7940
 
 644:                                              ; preds = %24
   %645 = load i32, ptr %7, align 4
@@ -2075,7 +2075,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %736, !llvm.loop !24
 
 752:                                              ; preds = %736
-  br label %7932
+  br label %7940
 
 753:                                              ; preds = %24
   %754 = load i32, ptr %7, align 4
@@ -2238,7 +2238,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %845, !llvm.loop !27
 
 861:                                              ; preds = %845
-  br label %7932
+  br label %7940
 
 862:                                              ; preds = %24
   %863 = load i32, ptr %7, align 4
@@ -2446,7 +2446,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %981, !llvm.loop !30
 
 997:                                              ; preds = %981
-  br label %7932
+  br label %7940
 
 998:                                              ; preds = %24
   %999 = load i32, ptr %7, align 4
@@ -2614,7 +2614,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1088, !llvm.loop !32
 
 1104:                                             ; preds = %1088
-  br label %7932
+  br label %7940
 
 1105:                                             ; preds = %24
   %1106 = load i32, ptr %7, align 4
@@ -2697,7 +2697,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1141, !llvm.loop !33
 
 1157:                                             ; preds = %1141
-  br label %7932
+  br label %7940
 
 1158:                                             ; preds = %24
   %1159 = load i32, ptr %7, align 4
@@ -2780,7 +2780,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1194, !llvm.loop !34
 
 1210:                                             ; preds = %1194
-  br label %7932
+  br label %7940
 
 1211:                                             ; preds = %24
   %1212 = load i32, ptr %7, align 4
@@ -2863,7 +2863,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1247, !llvm.loop !35
 
 1263:                                             ; preds = %1247
-  br label %7932
+  br label %7940
 
 1264:                                             ; preds = %24
   %1265 = load i32, ptr %7, align 4
@@ -2946,7 +2946,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1300, !llvm.loop !36
 
 1316:                                             ; preds = %1300
-  br label %7932
+  br label %7940
 
 1317:                                             ; preds = %24
   %1318 = load i32, ptr %7, align 4
@@ -2988,7 +2988,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1341
 
 1341:                                             ; preds = %1336, %1333
-  br label %7932
+  br label %7940
 
 1342:                                             ; preds = %24
   %1343 = load i32, ptr %7, align 4
@@ -3030,7 +3030,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1366
 
 1366:                                             ; preds = %1361, %1358
-  br label %7932
+  br label %7940
 
 1367:                                             ; preds = %24
   %1368 = load i32, ptr %7, align 4
@@ -3113,7 +3113,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1403, !llvm.loop !37
 
 1419:                                             ; preds = %1403
-  br label %7932
+  br label %7940
 
 1420:                                             ; preds = %24
   %1421 = load i32, ptr %7, align 4
@@ -3276,7 +3276,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1512, !llvm.loop !40
 
 1528:                                             ; preds = %1512
-  br label %7932
+  br label %7940
 
 1529:                                             ; preds = %24
   %1530 = load i32, ptr %7, align 4
@@ -3439,7 +3439,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1621, !llvm.loop !43
 
 1637:                                             ; preds = %1621
-  br label %7932
+  br label %7940
 
 1638:                                             ; preds = %24
   %1639 = load i32, ptr %7, align 4
@@ -3562,7 +3562,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1702, !llvm.loop !45
 
 1718:                                             ; preds = %1702
-  br label %7932
+  br label %7940
 
 1719:                                             ; preds = %24
   %1720 = load i32, ptr %7, align 4
@@ -3758,7 +3758,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   br label %1826, !llvm.loop !47
 
 1842:                                             ; preds = %1826
-  br label %7932
+  br label %7940
 
 1843:                                             ; preds = %24
   %1844 = load i32, ptr %7, align 4
@@ -3883,9207 +3883,9202 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %1924 = load ptr, ptr %8, align 8
   %1925 = getelementptr inbounds %struct.RNode_MASGN, ptr %1924, i32 0, i32 3
   %1926 = load ptr, ptr %1925, align 8
-  %1927 = icmp ne ptr %1926, inttoptr (i64 -1 to ptr)
-  br i1 %1927, label %1928, label %1957
+  %1927 = inttoptr i64 -1 to ptr
+  %1928 = icmp ne ptr %1926, %1927
+  br i1 %1928, label %1929, label %1958
 
-1928:                                             ; preds = %1923
+1929:                                             ; preds = %1923
   store ptr @.str.12, ptr %11, align 8
-  %1929 = load i64, ptr %5, align 8
-  %1930 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %1929, i64 noundef %1930)
-  %1931 = load i64, ptr %5, align 8
-  %1932 = load i32, ptr %7, align 4
-  %1933 = icmp ne i32 %1932, 0
-  %1934 = select i1 %1933, i64 16, i64 7
-  %1935 = trunc i64 %1934 to i32
-  %1936 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %1931, ptr noundef @.str.13, i32 noundef %1935, ptr noundef @.str.117)
-  %1937 = load i64, ptr %6, align 8
-  %1938 = load ptr, ptr %11, align 8
-  %1939 = call i64 @rb_str_cat_cstr(i64 noundef %1937, ptr noundef %1938)
+  %1930 = load i64, ptr %5, align 8
+  %1931 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %1930, i64 noundef %1931)
+  %1932 = load i64, ptr %5, align 8
+  %1933 = load i32, ptr %7, align 4
+  %1934 = icmp ne i32 %1933, 0
+  %1935 = select i1 %1934, i64 16, i64 7
+  %1936 = trunc i64 %1935 to i32
+  %1937 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %1932, ptr noundef @.str.13, i32 noundef %1936, ptr noundef @.str.117)
+  %1938 = load i64, ptr %6, align 8
+  %1939 = load ptr, ptr %11, align 8
+  %1940 = call i64 @rb_str_cat_cstr(i64 noundef %1938, ptr noundef %1939)
   store i32 1, ptr %9, align 4
-  br label %1940
+  br label %1941
 
-1940:                                             ; preds = %1950, %1928
-  %1941 = load i32, ptr %9, align 4
-  %1942 = icmp ne i32 %1941, 0
-  br i1 %1942, label %1943, label %1956
+1941:                                             ; preds = %1951, %1929
+  %1942 = load i32, ptr %9, align 4
+  %1943 = icmp ne i32 %1942, 0
+  br i1 %1943, label %1944, label %1957
 
-1943:                                             ; preds = %1940
-  %1944 = load i64, ptr %5, align 8
-  %1945 = load i64, ptr %6, align 8
-  %1946 = load i32, ptr %7, align 4
-  %1947 = load ptr, ptr %8, align 8
-  %1948 = getelementptr inbounds %struct.RNode_MASGN, ptr %1947, i32 0, i32 3
-  %1949 = load ptr, ptr %1948, align 8
-  call void @dump_node(i64 noundef %1944, i64 noundef %1945, i32 noundef %1946, ptr noundef %1949)
-  br label %1950
+1944:                                             ; preds = %1941
+  %1945 = load i64, ptr %5, align 8
+  %1946 = load i64, ptr %6, align 8
+  %1947 = load i32, ptr %7, align 4
+  %1948 = load ptr, ptr %8, align 8
+  %1949 = getelementptr inbounds %struct.RNode_MASGN, ptr %1948, i32 0, i32 3
+  %1950 = load ptr, ptr %1949, align 8
+  call void @dump_node(i64 noundef %1945, i64 noundef %1946, i32 noundef %1947, ptr noundef %1950)
+  br label %1951
 
-1950:                                             ; preds = %1943
-  %1951 = load i64, ptr %6, align 8
+1951:                                             ; preds = %1944
   %1952 = load i64, ptr %6, align 8
-  %1953 = call i64 @RSTRING_LEN(i64 noundef %1952) #10
-  %1954 = sub i64 %1953, 4
-  %1955 = call i64 @rb_str_resize(i64 noundef %1951, i64 noundef %1954)
+  %1953 = load i64, ptr %6, align 8
+  %1954 = call i64 @RSTRING_LEN(i64 noundef %1953) #10
+  %1955 = sub i64 %1954, 4
+  %1956 = call i64 @rb_str_resize(i64 noundef %1952, i64 noundef %1955)
   store i32 0, ptr %9, align 4
-  br label %1940, !llvm.loop !50
+  br label %1941, !llvm.loop !50
 
-1956:                                             ; preds = %1940
-  br label %1976
+1957:                                             ; preds = %1941
+  br label %1977
 
-1957:                                             ; preds = %1923
-  %1958 = load i64, ptr %5, align 8
-  %1959 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %1958, i64 noundef %1959)
-  %1960 = load i64, ptr %5, align 8
-  %1961 = load i32, ptr %7, align 4
-  %1962 = icmp ne i32 %1961, 0
-  %1963 = select i1 %1962, i64 16, i64 7
-  %1964 = trunc i64 %1963 to i32
-  %1965 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %1960, ptr noundef @.str.51, i32 noundef %1964, ptr noundef @.str.117)
+1958:                                             ; preds = %1923
+  %1959 = load i64, ptr %5, align 8
+  %1960 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %1959, i64 noundef %1960)
+  %1961 = load i64, ptr %5, align 8
+  %1962 = load i32, ptr %7, align 4
+  %1963 = icmp ne i32 %1962, 0
+  %1964 = select i1 %1963, i64 16, i64 7
+  %1965 = trunc i64 %1964 to i32
+  %1966 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %1961, ptr noundef @.str.51, i32 noundef %1965, ptr noundef @.str.117)
   store i32 1, ptr %9, align 4
-  br label %1966
+  br label %1967
 
-1966:                                             ; preds = %1972, %1957
-  %1967 = load i32, ptr %9, align 4
-  %1968 = icmp ne i32 %1967, 0
-  br i1 %1968, label %1969, label %1975
+1967:                                             ; preds = %1973, %1958
+  %1968 = load i32, ptr %9, align 4
+  %1969 = icmp ne i32 %1968, 0
+  br i1 %1969, label %1970, label %1976
 
-1969:                                             ; preds = %1966
-  %1970 = load i64, ptr %5, align 8
-  %1971 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1970, ptr noundef @.str.118)
-  br label %1972
+1970:                                             ; preds = %1967
+  %1971 = load i64, ptr %5, align 8
+  %1972 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1971, ptr noundef @.str.118)
+  br label %1973
 
-1972:                                             ; preds = %1969
-  %1973 = load i64, ptr %5, align 8
-  %1974 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1973, ptr noundef @.str.56)
+1973:                                             ; preds = %1970
+  %1974 = load i64, ptr %5, align 8
+  %1975 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1974, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %1966, !llvm.loop !51
+  br label %1967, !llvm.loop !51
 
-1975:                                             ; preds = %1966
-  br label %1976
+1976:                                             ; preds = %1967
+  br label %1977
 
-1976:                                             ; preds = %1975, %1956
-  br label %7932
+1977:                                             ; preds = %1976, %1957
+  br label %7940
 
-1977:                                             ; preds = %24
-  %1978 = load i32, ptr %7, align 4
-  %1979 = icmp ne i32 %1978, 0
-  br i1 %1979, label %1980, label %1985
+1978:                                             ; preds = %24
+  %1979 = load i32, ptr %7, align 4
+  %1980 = icmp ne i32 %1979, 0
+  br i1 %1980, label %1981, label %1986
 
-1980:                                             ; preds = %1977
-  %1981 = load i64, ptr %5, align 8
-  %1982 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %1981, i64 noundef %1982)
-  %1983 = load i64, ptr %5, align 8
-  %1984 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1983, ptr noundef @.str.119)
-  br label %1985
+1981:                                             ; preds = %1978
+  %1982 = load i64, ptr %5, align 8
+  %1983 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %1982, i64 noundef %1983)
+  %1984 = load i64, ptr %5, align 8
+  %1985 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1984, ptr noundef @.str.119)
+  br label %1986
 
-1985:                                             ; preds = %1980, %1977
-  %1986 = load i32, ptr %7, align 4
-  %1987 = icmp ne i32 %1986, 0
-  br i1 %1987, label %1988, label %1993
+1986:                                             ; preds = %1981, %1978
+  %1987 = load i32, ptr %7, align 4
+  %1988 = icmp ne i32 %1987, 0
+  br i1 %1988, label %1989, label %1994
 
-1988:                                             ; preds = %1985
-  %1989 = load i64, ptr %5, align 8
-  %1990 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %1989, i64 noundef %1990)
-  %1991 = load i64, ptr %5, align 8
-  %1992 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1991, ptr noundef @.str.120)
-  br label %1993
+1989:                                             ; preds = %1986
+  %1990 = load i64, ptr %5, align 8
+  %1991 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %1990, i64 noundef %1991)
+  %1992 = load i64, ptr %5, align 8
+  %1993 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1992, ptr noundef @.str.120)
+  br label %1994
 
-1993:                                             ; preds = %1988, %1985
-  %1994 = load i32, ptr %7, align 4
-  %1995 = icmp ne i32 %1994, 0
-  br i1 %1995, label %1996, label %2001
+1994:                                             ; preds = %1989, %1986
+  %1995 = load i32, ptr %7, align 4
+  %1996 = icmp ne i32 %1995, 0
+  br i1 %1996, label %1997, label %2002
 
-1996:                                             ; preds = %1993
-  %1997 = load i64, ptr %5, align 8
-  %1998 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %1997, i64 noundef %1998)
-  %1999 = load i64, ptr %5, align 8
-  %2000 = call i64 @rbimpl_str_cat_cstr(i64 noundef %1999, ptr noundef @.str.121)
-  br label %2001
+1997:                                             ; preds = %1994
+  %1998 = load i64, ptr %5, align 8
+  %1999 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %1998, i64 noundef %1999)
+  %2000 = load i64, ptr %5, align 8
+  %2001 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2000, ptr noundef @.str.121)
+  br label %2002
 
-2001:                                             ; preds = %1996, %1993
-  %2002 = load i64, ptr %5, align 8
-  %2003 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2002, i64 noundef %2003)
-  %2004 = load i64, ptr %5, align 8
-  %2005 = load i32, ptr %7, align 4
-  %2006 = icmp ne i32 %2005, 0
-  %2007 = select i1 %2006, i64 23, i64 6
-  %2008 = trunc i64 %2007 to i32
-  %2009 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2004, ptr noundef @.str.51, i32 noundef %2008, ptr noundef @.str.122)
+2002:                                             ; preds = %1997, %1994
+  %2003 = load i64, ptr %5, align 8
+  %2004 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2003, i64 noundef %2004)
+  %2005 = load i64, ptr %5, align 8
+  %2006 = load i32, ptr %7, align 4
+  %2007 = icmp ne i32 %2006, 0
+  %2008 = select i1 %2007, i64 23, i64 6
+  %2009 = trunc i64 %2008 to i32
+  %2010 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2005, ptr noundef @.str.51, i32 noundef %2009, ptr noundef @.str.122)
   store i32 1, ptr %9, align 4
-  br label %2010
+  br label %2011
 
-2010:                                             ; preds = %2018, %2001
-  %2011 = load i32, ptr %9, align 4
-  %2012 = icmp ne i32 %2011, 0
-  br i1 %2012, label %2013, label %2021
+2011:                                             ; preds = %2019, %2002
+  %2012 = load i32, ptr %9, align 4
+  %2013 = icmp ne i32 %2012, 0
+  br i1 %2013, label %2014, label %2022
 
-2013:                                             ; preds = %2010
-  %2014 = load i64, ptr %5, align 8
-  %2015 = load ptr, ptr %8, align 8
-  %2016 = getelementptr inbounds %struct.RNode_LASGN, ptr %2015, i32 0, i32 1
-  %2017 = load i64, ptr %2016, align 8
-  call void @add_id(i64 noundef %2014, i64 noundef %2017)
-  br label %2018
+2014:                                             ; preds = %2011
+  %2015 = load i64, ptr %5, align 8
+  %2016 = load ptr, ptr %8, align 8
+  %2017 = getelementptr inbounds %struct.RNode_LASGN, ptr %2016, i32 0, i32 1
+  %2018 = load i64, ptr %2017, align 8
+  call void @add_id(i64 noundef %2015, i64 noundef %2018)
+  br label %2019
 
-2018:                                             ; preds = %2013
-  %2019 = load i64, ptr %5, align 8
-  %2020 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2019, ptr noundef @.str.56)
+2019:                                             ; preds = %2014
+  %2020 = load i64, ptr %5, align 8
+  %2021 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2020, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2010, !llvm.loop !52
+  br label %2011, !llvm.loop !52
 
-2021:                                             ; preds = %2010
-  %2022 = load ptr, ptr %8, align 8
-  %2023 = getelementptr inbounds %struct.RNode_LASGN, ptr %2022, i32 0, i32 2
-  %2024 = load ptr, ptr %2023, align 8
-  %2025 = icmp eq ptr %2024, inttoptr (i64 -1 to ptr)
-  br i1 %2025, label %2026, label %2045
+2022:                                             ; preds = %2011
+  %2023 = load ptr, ptr %8, align 8
+  %2024 = getelementptr inbounds %struct.RNode_LASGN, ptr %2023, i32 0, i32 2
+  %2025 = load ptr, ptr %2024, align 8
+  %2026 = inttoptr i64 -1 to ptr
+  %2027 = icmp eq ptr %2025, %2026
+  br i1 %2027, label %2028, label %2047
 
-2026:                                             ; preds = %2021
-  %2027 = load i64, ptr %5, align 8
-  %2028 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2027, i64 noundef %2028)
+2028:                                             ; preds = %2022
   %2029 = load i64, ptr %5, align 8
-  %2030 = load i32, ptr %7, align 4
-  %2031 = icmp ne i32 %2030, 0
-  %2032 = select i1 %2031, i64 17, i64 8
-  %2033 = trunc i64 %2032 to i32
-  %2034 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2029, ptr noundef @.str.51, i32 noundef %2033, ptr noundef @.str.123)
+  %2030 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2029, i64 noundef %2030)
+  %2031 = load i64, ptr %5, align 8
+  %2032 = load i32, ptr %7, align 4
+  %2033 = icmp ne i32 %2032, 0
+  %2034 = select i1 %2033, i64 17, i64 8
+  %2035 = trunc i64 %2034 to i32
+  %2036 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2031, ptr noundef @.str.51, i32 noundef %2035, ptr noundef @.str.123)
   store i32 1, ptr %9, align 4
-  br label %2035
+  br label %2037
 
-2035:                                             ; preds = %2041, %2026
-  %2036 = load i32, ptr %9, align 4
-  %2037 = icmp ne i32 %2036, 0
-  br i1 %2037, label %2038, label %2044
+2037:                                             ; preds = %2043, %2028
+  %2038 = load i32, ptr %9, align 4
+  %2039 = icmp ne i32 %2038, 0
+  br i1 %2039, label %2040, label %2046
 
-2038:                                             ; preds = %2035
-  %2039 = load i64, ptr %5, align 8
-  %2040 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2039, ptr noundef @.str.124)
-  br label %2041
+2040:                                             ; preds = %2037
+  %2041 = load i64, ptr %5, align 8
+  %2042 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2041, ptr noundef @.str.124)
+  br label %2043
 
-2041:                                             ; preds = %2038
-  %2042 = load i64, ptr %5, align 8
-  %2043 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2042, ptr noundef @.str.56)
+2043:                                             ; preds = %2040
+  %2044 = load i64, ptr %5, align 8
+  %2045 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2044, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2035, !llvm.loop !53
+  br label %2037, !llvm.loop !53
 
-2044:                                             ; preds = %2035
-  br label %2074
+2046:                                             ; preds = %2037
+  br label %2076
 
-2045:                                             ; preds = %2021
+2047:                                             ; preds = %2022
   store ptr @.str.12, ptr %11, align 8
-  %2046 = load i64, ptr %5, align 8
-  %2047 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2046, i64 noundef %2047)
   %2048 = load i64, ptr %5, align 8
-  %2049 = load i32, ptr %7, align 4
-  %2050 = icmp ne i32 %2049, 0
-  %2051 = select i1 %2050, i64 17, i64 8
-  %2052 = trunc i64 %2051 to i32
-  %2053 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2048, ptr noundef @.str.13, i32 noundef %2052, ptr noundef @.str.123)
-  %2054 = load i64, ptr %6, align 8
-  %2055 = load ptr, ptr %11, align 8
-  %2056 = call i64 @rb_str_cat_cstr(i64 noundef %2054, ptr noundef %2055)
+  %2049 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2048, i64 noundef %2049)
+  %2050 = load i64, ptr %5, align 8
+  %2051 = load i32, ptr %7, align 4
+  %2052 = icmp ne i32 %2051, 0
+  %2053 = select i1 %2052, i64 17, i64 8
+  %2054 = trunc i64 %2053 to i32
+  %2055 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2050, ptr noundef @.str.13, i32 noundef %2054, ptr noundef @.str.123)
+  %2056 = load i64, ptr %6, align 8
+  %2057 = load ptr, ptr %11, align 8
+  %2058 = call i64 @rb_str_cat_cstr(i64 noundef %2056, ptr noundef %2057)
   store i32 1, ptr %9, align 4
-  br label %2057
+  br label %2059
 
-2057:                                             ; preds = %2067, %2045
-  %2058 = load i32, ptr %9, align 4
-  %2059 = icmp ne i32 %2058, 0
-  br i1 %2059, label %2060, label %2073
+2059:                                             ; preds = %2069, %2047
+  %2060 = load i32, ptr %9, align 4
+  %2061 = icmp ne i32 %2060, 0
+  br i1 %2061, label %2062, label %2075
 
-2060:                                             ; preds = %2057
-  %2061 = load i64, ptr %5, align 8
-  %2062 = load i64, ptr %6, align 8
-  %2063 = load i32, ptr %7, align 4
-  %2064 = load ptr, ptr %8, align 8
-  %2065 = getelementptr inbounds %struct.RNode_LASGN, ptr %2064, i32 0, i32 2
-  %2066 = load ptr, ptr %2065, align 8
-  call void @dump_node(i64 noundef %2061, i64 noundef %2062, i32 noundef %2063, ptr noundef %2066)
-  br label %2067
+2062:                                             ; preds = %2059
+  %2063 = load i64, ptr %5, align 8
+  %2064 = load i64, ptr %6, align 8
+  %2065 = load i32, ptr %7, align 4
+  %2066 = load ptr, ptr %8, align 8
+  %2067 = getelementptr inbounds %struct.RNode_LASGN, ptr %2066, i32 0, i32 2
+  %2068 = load ptr, ptr %2067, align 8
+  call void @dump_node(i64 noundef %2063, i64 noundef %2064, i32 noundef %2065, ptr noundef %2068)
+  br label %2069
 
-2067:                                             ; preds = %2060
-  %2068 = load i64, ptr %6, align 8
-  %2069 = load i64, ptr %6, align 8
-  %2070 = call i64 @RSTRING_LEN(i64 noundef %2069) #10
-  %2071 = sub i64 %2070, 4
-  %2072 = call i64 @rb_str_resize(i64 noundef %2068, i64 noundef %2071)
+2069:                                             ; preds = %2062
+  %2070 = load i64, ptr %6, align 8
+  %2071 = load i64, ptr %6, align 8
+  %2072 = call i64 @RSTRING_LEN(i64 noundef %2071) #10
+  %2073 = sub i64 %2072, 4
+  %2074 = call i64 @rb_str_resize(i64 noundef %2070, i64 noundef %2073)
   store i32 0, ptr %9, align 4
-  br label %2057, !llvm.loop !54
+  br label %2059, !llvm.loop !54
 
-2073:                                             ; preds = %2057
-  br label %2074
+2075:                                             ; preds = %2059
+  br label %2076
 
-2074:                                             ; preds = %2073, %2044
-  br label %7932
+2076:                                             ; preds = %2075, %2046
+  br label %7940
 
-2075:                                             ; preds = %24
-  %2076 = load i32, ptr %7, align 4
-  %2077 = icmp ne i32 %2076, 0
-  br i1 %2077, label %2078, label %2083
+2077:                                             ; preds = %24
+  %2078 = load i32, ptr %7, align 4
+  %2079 = icmp ne i32 %2078, 0
+  br i1 %2079, label %2080, label %2085
 
-2078:                                             ; preds = %2075
-  %2079 = load i64, ptr %5, align 8
-  %2080 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2079, i64 noundef %2080)
+2080:                                             ; preds = %2077
   %2081 = load i64, ptr %5, align 8
-  %2082 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2081, ptr noundef @.str.125)
-  br label %2083
+  %2082 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2081, i64 noundef %2082)
+  %2083 = load i64, ptr %5, align 8
+  %2084 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2083, ptr noundef @.str.125)
+  br label %2085
 
-2083:                                             ; preds = %2078, %2075
-  %2084 = load i32, ptr %7, align 4
-  %2085 = icmp ne i32 %2084, 0
-  br i1 %2085, label %2086, label %2091
+2085:                                             ; preds = %2080, %2077
+  %2086 = load i32, ptr %7, align 4
+  %2087 = icmp ne i32 %2086, 0
+  br i1 %2087, label %2088, label %2093
 
-2086:                                             ; preds = %2083
-  %2087 = load i64, ptr %5, align 8
-  %2088 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2087, i64 noundef %2088)
+2088:                                             ; preds = %2085
   %2089 = load i64, ptr %5, align 8
-  %2090 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2089, ptr noundef @.str.126)
-  br label %2091
+  %2090 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2089, i64 noundef %2090)
+  %2091 = load i64, ptr %5, align 8
+  %2092 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2091, ptr noundef @.str.126)
+  br label %2093
 
-2091:                                             ; preds = %2086, %2083
-  %2092 = load i32, ptr %7, align 4
-  %2093 = icmp ne i32 %2092, 0
-  br i1 %2093, label %2094, label %2099
+2093:                                             ; preds = %2088, %2085
+  %2094 = load i32, ptr %7, align 4
+  %2095 = icmp ne i32 %2094, 0
+  br i1 %2095, label %2096, label %2101
 
-2094:                                             ; preds = %2091
-  %2095 = load i64, ptr %5, align 8
-  %2096 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2095, i64 noundef %2096)
+2096:                                             ; preds = %2093
   %2097 = load i64, ptr %5, align 8
-  %2098 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2097, ptr noundef @.str.127)
-  br label %2099
+  %2098 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2097, i64 noundef %2098)
+  %2099 = load i64, ptr %5, align 8
+  %2100 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2099, ptr noundef @.str.127)
+  br label %2101
 
-2099:                                             ; preds = %2094, %2091
-  %2100 = load i32, ptr %7, align 4
-  %2101 = icmp ne i32 %2100, 0
-  br i1 %2101, label %2102, label %2107
+2101:                                             ; preds = %2096, %2093
+  %2102 = load i32, ptr %7, align 4
+  %2103 = icmp ne i32 %2102, 0
+  br i1 %2103, label %2104, label %2109
 
-2102:                                             ; preds = %2099
-  %2103 = load i64, ptr %5, align 8
-  %2104 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2103, i64 noundef %2104)
+2104:                                             ; preds = %2101
   %2105 = load i64, ptr %5, align 8
-  %2106 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2105, ptr noundef @.str.128)
-  br label %2107
+  %2106 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2105, i64 noundef %2106)
+  %2107 = load i64, ptr %5, align 8
+  %2108 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2107, ptr noundef @.str.128)
+  br label %2109
 
-2107:                                             ; preds = %2102, %2099
-  %2108 = load i64, ptr %5, align 8
-  %2109 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2108, i64 noundef %2109)
+2109:                                             ; preds = %2104, %2101
   %2110 = load i64, ptr %5, align 8
-  %2111 = load i32, ptr %7, align 4
-  %2112 = icmp ne i32 %2111, 0
-  %2113 = select i1 %2112, i64 23, i64 6
-  %2114 = trunc i64 %2113 to i32
-  %2115 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2110, ptr noundef @.str.51, i32 noundef %2114, ptr noundef @.str.122)
+  %2111 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2110, i64 noundef %2111)
+  %2112 = load i64, ptr %5, align 8
+  %2113 = load i32, ptr %7, align 4
+  %2114 = icmp ne i32 %2113, 0
+  %2115 = select i1 %2114, i64 23, i64 6
+  %2116 = trunc i64 %2115 to i32
+  %2117 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2112, ptr noundef @.str.51, i32 noundef %2116, ptr noundef @.str.122)
   store i32 1, ptr %9, align 4
-  br label %2116
+  br label %2118
 
-2116:                                             ; preds = %2124, %2107
-  %2117 = load i32, ptr %9, align 4
-  %2118 = icmp ne i32 %2117, 0
-  br i1 %2118, label %2119, label %2127
+2118:                                             ; preds = %2126, %2109
+  %2119 = load i32, ptr %9, align 4
+  %2120 = icmp ne i32 %2119, 0
+  br i1 %2120, label %2121, label %2129
 
-2119:                                             ; preds = %2116
-  %2120 = load i64, ptr %5, align 8
-  %2121 = load ptr, ptr %8, align 8
-  %2122 = getelementptr inbounds %struct.RNode_DASGN, ptr %2121, i32 0, i32 1
-  %2123 = load i64, ptr %2122, align 8
-  call void @add_id(i64 noundef %2120, i64 noundef %2123)
-  br label %2124
+2121:                                             ; preds = %2118
+  %2122 = load i64, ptr %5, align 8
+  %2123 = load ptr, ptr %8, align 8
+  %2124 = getelementptr inbounds %struct.RNode_DASGN, ptr %2123, i32 0, i32 1
+  %2125 = load i64, ptr %2124, align 8
+  call void @add_id(i64 noundef %2122, i64 noundef %2125)
+  br label %2126
 
-2124:                                             ; preds = %2119
-  %2125 = load i64, ptr %5, align 8
-  %2126 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2125, ptr noundef @.str.56)
+2126:                                             ; preds = %2121
+  %2127 = load i64, ptr %5, align 8
+  %2128 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2127, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2116, !llvm.loop !55
+  br label %2118, !llvm.loop !55
 
-2127:                                             ; preds = %2116
-  %2128 = load ptr, ptr %8, align 8
-  %2129 = getelementptr inbounds %struct.RNode_DASGN, ptr %2128, i32 0, i32 2
-  %2130 = load ptr, ptr %2129, align 8
-  %2131 = icmp eq ptr %2130, inttoptr (i64 -1 to ptr)
-  br i1 %2131, label %2132, label %2151
+2129:                                             ; preds = %2118
+  %2130 = load ptr, ptr %8, align 8
+  %2131 = getelementptr inbounds %struct.RNode_DASGN, ptr %2130, i32 0, i32 2
+  %2132 = load ptr, ptr %2131, align 8
+  %2133 = inttoptr i64 -1 to ptr
+  %2134 = icmp eq ptr %2132, %2133
+  br i1 %2134, label %2135, label %2154
 
-2132:                                             ; preds = %2127
-  %2133 = load i64, ptr %5, align 8
-  %2134 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2133, i64 noundef %2134)
-  %2135 = load i64, ptr %5, align 8
-  %2136 = load i32, ptr %7, align 4
-  %2137 = icmp ne i32 %2136, 0
-  %2138 = select i1 %2137, i64 17, i64 8
-  %2139 = trunc i64 %2138 to i32
-  %2140 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2135, ptr noundef @.str.51, i32 noundef %2139, ptr noundef @.str.123)
+2135:                                             ; preds = %2129
+  %2136 = load i64, ptr %5, align 8
+  %2137 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2136, i64 noundef %2137)
+  %2138 = load i64, ptr %5, align 8
+  %2139 = load i32, ptr %7, align 4
+  %2140 = icmp ne i32 %2139, 0
+  %2141 = select i1 %2140, i64 17, i64 8
+  %2142 = trunc i64 %2141 to i32
+  %2143 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2138, ptr noundef @.str.51, i32 noundef %2142, ptr noundef @.str.123)
   store i32 1, ptr %9, align 4
-  br label %2141
+  br label %2144
 
-2141:                                             ; preds = %2147, %2132
-  %2142 = load i32, ptr %9, align 4
-  %2143 = icmp ne i32 %2142, 0
-  br i1 %2143, label %2144, label %2150
-
-2144:                                             ; preds = %2141
-  %2145 = load i64, ptr %5, align 8
-  %2146 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2145, ptr noundef @.str.124)
-  br label %2147
+2144:                                             ; preds = %2150, %2135
+  %2145 = load i32, ptr %9, align 4
+  %2146 = icmp ne i32 %2145, 0
+  br i1 %2146, label %2147, label %2153
 
 2147:                                             ; preds = %2144
   %2148 = load i64, ptr %5, align 8
-  %2149 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2148, ptr noundef @.str.56)
+  %2149 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2148, ptr noundef @.str.124)
+  br label %2150
+
+2150:                                             ; preds = %2147
+  %2151 = load i64, ptr %5, align 8
+  %2152 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2151, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2141, !llvm.loop !56
+  br label %2144, !llvm.loop !56
 
-2150:                                             ; preds = %2141
-  br label %2180
+2153:                                             ; preds = %2144
+  br label %2183
 
-2151:                                             ; preds = %2127
+2154:                                             ; preds = %2129
   store ptr @.str.12, ptr %11, align 8
-  %2152 = load i64, ptr %5, align 8
-  %2153 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2152, i64 noundef %2153)
-  %2154 = load i64, ptr %5, align 8
-  %2155 = load i32, ptr %7, align 4
-  %2156 = icmp ne i32 %2155, 0
-  %2157 = select i1 %2156, i64 17, i64 8
-  %2158 = trunc i64 %2157 to i32
-  %2159 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2154, ptr noundef @.str.13, i32 noundef %2158, ptr noundef @.str.123)
-  %2160 = load i64, ptr %6, align 8
-  %2161 = load ptr, ptr %11, align 8
-  %2162 = call i64 @rb_str_cat_cstr(i64 noundef %2160, ptr noundef %2161)
+  %2155 = load i64, ptr %5, align 8
+  %2156 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2155, i64 noundef %2156)
+  %2157 = load i64, ptr %5, align 8
+  %2158 = load i32, ptr %7, align 4
+  %2159 = icmp ne i32 %2158, 0
+  %2160 = select i1 %2159, i64 17, i64 8
+  %2161 = trunc i64 %2160 to i32
+  %2162 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2157, ptr noundef @.str.13, i32 noundef %2161, ptr noundef @.str.123)
+  %2163 = load i64, ptr %6, align 8
+  %2164 = load ptr, ptr %11, align 8
+  %2165 = call i64 @rb_str_cat_cstr(i64 noundef %2163, ptr noundef %2164)
   store i32 1, ptr %9, align 4
-  br label %2163
+  br label %2166
 
-2163:                                             ; preds = %2173, %2151
-  %2164 = load i32, ptr %9, align 4
-  %2165 = icmp ne i32 %2164, 0
-  br i1 %2165, label %2166, label %2179
+2166:                                             ; preds = %2176, %2154
+  %2167 = load i32, ptr %9, align 4
+  %2168 = icmp ne i32 %2167, 0
+  br i1 %2168, label %2169, label %2182
 
-2166:                                             ; preds = %2163
-  %2167 = load i64, ptr %5, align 8
-  %2168 = load i64, ptr %6, align 8
-  %2169 = load i32, ptr %7, align 4
-  %2170 = load ptr, ptr %8, align 8
-  %2171 = getelementptr inbounds %struct.RNode_DASGN, ptr %2170, i32 0, i32 2
-  %2172 = load ptr, ptr %2171, align 8
-  call void @dump_node(i64 noundef %2167, i64 noundef %2168, i32 noundef %2169, ptr noundef %2172)
-  br label %2173
+2169:                                             ; preds = %2166
+  %2170 = load i64, ptr %5, align 8
+  %2171 = load i64, ptr %6, align 8
+  %2172 = load i32, ptr %7, align 4
+  %2173 = load ptr, ptr %8, align 8
+  %2174 = getelementptr inbounds %struct.RNode_DASGN, ptr %2173, i32 0, i32 2
+  %2175 = load ptr, ptr %2174, align 8
+  call void @dump_node(i64 noundef %2170, i64 noundef %2171, i32 noundef %2172, ptr noundef %2175)
+  br label %2176
 
-2173:                                             ; preds = %2166
-  %2174 = load i64, ptr %6, align 8
-  %2175 = load i64, ptr %6, align 8
-  %2176 = call i64 @RSTRING_LEN(i64 noundef %2175) #10
-  %2177 = sub i64 %2176, 4
-  %2178 = call i64 @rb_str_resize(i64 noundef %2174, i64 noundef %2177)
+2176:                                             ; preds = %2169
+  %2177 = load i64, ptr %6, align 8
+  %2178 = load i64, ptr %6, align 8
+  %2179 = call i64 @RSTRING_LEN(i64 noundef %2178) #10
+  %2180 = sub i64 %2179, 4
+  %2181 = call i64 @rb_str_resize(i64 noundef %2177, i64 noundef %2180)
   store i32 0, ptr %9, align 4
-  br label %2163, !llvm.loop !57
+  br label %2166, !llvm.loop !57
 
-2179:                                             ; preds = %2163
-  br label %2180
+2182:                                             ; preds = %2166
+  br label %2183
 
-2180:                                             ; preds = %2179, %2150
-  br label %7932
+2183:                                             ; preds = %2182, %2153
+  br label %7940
 
-2181:                                             ; preds = %24
-  %2182 = load i32, ptr %7, align 4
-  %2183 = icmp ne i32 %2182, 0
-  br i1 %2183, label %2184, label %2189
+2184:                                             ; preds = %24
+  %2185 = load i32, ptr %7, align 4
+  %2186 = icmp ne i32 %2185, 0
+  br i1 %2186, label %2187, label %2192
 
-2184:                                             ; preds = %2181
-  %2185 = load i64, ptr %5, align 8
-  %2186 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2185, i64 noundef %2186)
-  %2187 = load i64, ptr %5, align 8
-  %2188 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2187, ptr noundef @.str.129)
-  br label %2189
+2187:                                             ; preds = %2184
+  %2188 = load i64, ptr %5, align 8
+  %2189 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2188, i64 noundef %2189)
+  %2190 = load i64, ptr %5, align 8
+  %2191 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2190, ptr noundef @.str.129)
+  br label %2192
 
-2189:                                             ; preds = %2184, %2181
-  %2190 = load i32, ptr %7, align 4
-  %2191 = icmp ne i32 %2190, 0
-  br i1 %2191, label %2192, label %2197
+2192:                                             ; preds = %2187, %2184
+  %2193 = load i32, ptr %7, align 4
+  %2194 = icmp ne i32 %2193, 0
+  br i1 %2194, label %2195, label %2200
 
-2192:                                             ; preds = %2189
-  %2193 = load i64, ptr %5, align 8
-  %2194 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2193, i64 noundef %2194)
-  %2195 = load i64, ptr %5, align 8
-  %2196 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2195, ptr noundef @.str.130)
-  br label %2197
+2195:                                             ; preds = %2192
+  %2196 = load i64, ptr %5, align 8
+  %2197 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2196, i64 noundef %2197)
+  %2198 = load i64, ptr %5, align 8
+  %2199 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2198, ptr noundef @.str.130)
+  br label %2200
 
-2197:                                             ; preds = %2192, %2189
-  %2198 = load i32, ptr %7, align 4
-  %2199 = icmp ne i32 %2198, 0
-  br i1 %2199, label %2200, label %2205
+2200:                                             ; preds = %2195, %2192
+  %2201 = load i32, ptr %7, align 4
+  %2202 = icmp ne i32 %2201, 0
+  br i1 %2202, label %2203, label %2208
 
-2200:                                             ; preds = %2197
-  %2201 = load i64, ptr %5, align 8
-  %2202 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2201, i64 noundef %2202)
-  %2203 = load i64, ptr %5, align 8
-  %2204 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2203, ptr noundef @.str.131)
-  br label %2205
-
-2205:                                             ; preds = %2200, %2197
+2203:                                             ; preds = %2200
+  %2204 = load i64, ptr %5, align 8
+  %2205 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2204, i64 noundef %2205)
   %2206 = load i64, ptr %5, align 8
-  %2207 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2206, i64 noundef %2207)
-  %2208 = load i64, ptr %5, align 8
-  %2209 = load i32, ptr %7, align 4
-  %2210 = icmp ne i32 %2209, 0
-  %2211 = select i1 %2210, i64 26, i64 6
-  %2212 = trunc i64 %2211 to i32
-  %2213 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2208, ptr noundef @.str.51, i32 noundef %2212, ptr noundef @.str.132)
+  %2207 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2206, ptr noundef @.str.131)
+  br label %2208
+
+2208:                                             ; preds = %2203, %2200
+  %2209 = load i64, ptr %5, align 8
+  %2210 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2209, i64 noundef %2210)
+  %2211 = load i64, ptr %5, align 8
+  %2212 = load i32, ptr %7, align 4
+  %2213 = icmp ne i32 %2212, 0
+  %2214 = select i1 %2213, i64 26, i64 6
+  %2215 = trunc i64 %2214 to i32
+  %2216 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2211, ptr noundef @.str.51, i32 noundef %2215, ptr noundef @.str.132)
   store i32 1, ptr %9, align 4
-  br label %2214
+  br label %2217
 
-2214:                                             ; preds = %2222, %2205
-  %2215 = load i32, ptr %9, align 4
-  %2216 = icmp ne i32 %2215, 0
-  br i1 %2216, label %2217, label %2225
+2217:                                             ; preds = %2225, %2208
+  %2218 = load i32, ptr %9, align 4
+  %2219 = icmp ne i32 %2218, 0
+  br i1 %2219, label %2220, label %2228
 
-2217:                                             ; preds = %2214
-  %2218 = load i64, ptr %5, align 8
-  %2219 = load ptr, ptr %8, align 8
-  %2220 = getelementptr inbounds %struct.RNode_IASGN, ptr %2219, i32 0, i32 1
-  %2221 = load i64, ptr %2220, align 8
-  call void @add_id(i64 noundef %2218, i64 noundef %2221)
-  br label %2222
+2220:                                             ; preds = %2217
+  %2221 = load i64, ptr %5, align 8
+  %2222 = load ptr, ptr %8, align 8
+  %2223 = getelementptr inbounds %struct.RNode_IASGN, ptr %2222, i32 0, i32 1
+  %2224 = load i64, ptr %2223, align 8
+  call void @add_id(i64 noundef %2221, i64 noundef %2224)
+  br label %2225
 
-2222:                                             ; preds = %2217
-  %2223 = load i64, ptr %5, align 8
-  %2224 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2223, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2214, !llvm.loop !58
-
-2225:                                             ; preds = %2214
-  store ptr @.str.12, ptr %11, align 8
+2225:                                             ; preds = %2220
   %2226 = load i64, ptr %5, align 8
-  %2227 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2226, i64 noundef %2227)
-  %2228 = load i64, ptr %5, align 8
-  %2229 = load i32, ptr %7, align 4
-  %2230 = icmp ne i32 %2229, 0
-  %2231 = select i1 %2230, i64 17, i64 8
-  %2232 = trunc i64 %2231 to i32
-  %2233 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2228, ptr noundef @.str.13, i32 noundef %2232, ptr noundef @.str.123)
-  %2234 = load i64, ptr %6, align 8
-  %2235 = load ptr, ptr %11, align 8
-  %2236 = call i64 @rb_str_cat_cstr(i64 noundef %2234, ptr noundef %2235)
-  store i32 1, ptr %9, align 4
-  br label %2237
-
-2237:                                             ; preds = %2247, %2225
-  %2238 = load i32, ptr %9, align 4
-  %2239 = icmp ne i32 %2238, 0
-  br i1 %2239, label %2240, label %2253
-
-2240:                                             ; preds = %2237
-  %2241 = load i64, ptr %5, align 8
-  %2242 = load i64, ptr %6, align 8
-  %2243 = load i32, ptr %7, align 4
-  %2244 = load ptr, ptr %8, align 8
-  %2245 = getelementptr inbounds %struct.RNode_IASGN, ptr %2244, i32 0, i32 2
-  %2246 = load ptr, ptr %2245, align 8
-  call void @dump_node(i64 noundef %2241, i64 noundef %2242, i32 noundef %2243, ptr noundef %2246)
-  br label %2247
-
-2247:                                             ; preds = %2240
-  %2248 = load i64, ptr %6, align 8
-  %2249 = load i64, ptr %6, align 8
-  %2250 = call i64 @RSTRING_LEN(i64 noundef %2249) #10
-  %2251 = sub i64 %2250, 4
-  %2252 = call i64 @rb_str_resize(i64 noundef %2248, i64 noundef %2251)
+  %2227 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2226, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2237, !llvm.loop !59
+  br label %2217, !llvm.loop !58
 
-2253:                                             ; preds = %2237
-  br label %7932
+2228:                                             ; preds = %2217
+  store ptr @.str.12, ptr %11, align 8
+  %2229 = load i64, ptr %5, align 8
+  %2230 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2229, i64 noundef %2230)
+  %2231 = load i64, ptr %5, align 8
+  %2232 = load i32, ptr %7, align 4
+  %2233 = icmp ne i32 %2232, 0
+  %2234 = select i1 %2233, i64 17, i64 8
+  %2235 = trunc i64 %2234 to i32
+  %2236 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2231, ptr noundef @.str.13, i32 noundef %2235, ptr noundef @.str.123)
+  %2237 = load i64, ptr %6, align 8
+  %2238 = load ptr, ptr %11, align 8
+  %2239 = call i64 @rb_str_cat_cstr(i64 noundef %2237, ptr noundef %2238)
+  store i32 1, ptr %9, align 4
+  br label %2240
 
-2254:                                             ; preds = %24
-  %2255 = load i32, ptr %7, align 4
-  %2256 = icmp ne i32 %2255, 0
-  br i1 %2256, label %2257, label %2262
+2240:                                             ; preds = %2250, %2228
+  %2241 = load i32, ptr %9, align 4
+  %2242 = icmp ne i32 %2241, 0
+  br i1 %2242, label %2243, label %2256
 
-2257:                                             ; preds = %2254
-  %2258 = load i64, ptr %5, align 8
-  %2259 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2258, i64 noundef %2259)
-  %2260 = load i64, ptr %5, align 8
-  %2261 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2260, ptr noundef @.str.133)
-  br label %2262
+2243:                                             ; preds = %2240
+  %2244 = load i64, ptr %5, align 8
+  %2245 = load i64, ptr %6, align 8
+  %2246 = load i32, ptr %7, align 4
+  %2247 = load ptr, ptr %8, align 8
+  %2248 = getelementptr inbounds %struct.RNode_IASGN, ptr %2247, i32 0, i32 2
+  %2249 = load ptr, ptr %2248, align 8
+  call void @dump_node(i64 noundef %2244, i64 noundef %2245, i32 noundef %2246, ptr noundef %2249)
+  br label %2250
 
-2262:                                             ; preds = %2257, %2254
-  %2263 = load i32, ptr %7, align 4
-  %2264 = icmp ne i32 %2263, 0
-  br i1 %2264, label %2265, label %2270
+2250:                                             ; preds = %2243
+  %2251 = load i64, ptr %6, align 8
+  %2252 = load i64, ptr %6, align 8
+  %2253 = call i64 @RSTRING_LEN(i64 noundef %2252) #10
+  %2254 = sub i64 %2253, 4
+  %2255 = call i64 @rb_str_resize(i64 noundef %2251, i64 noundef %2254)
+  store i32 0, ptr %9, align 4
+  br label %2240, !llvm.loop !59
 
-2265:                                             ; preds = %2262
-  %2266 = load i64, ptr %5, align 8
-  %2267 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2266, i64 noundef %2267)
-  %2268 = load i64, ptr %5, align 8
-  %2269 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2268, ptr noundef @.str.134)
-  br label %2270
+2256:                                             ; preds = %2240
+  br label %7940
 
-2270:                                             ; preds = %2265, %2262
-  %2271 = load i32, ptr %7, align 4
-  %2272 = icmp ne i32 %2271, 0
-  br i1 %2272, label %2273, label %2278
+2257:                                             ; preds = %24
+  %2258 = load i32, ptr %7, align 4
+  %2259 = icmp ne i32 %2258, 0
+  br i1 %2259, label %2260, label %2265
 
-2273:                                             ; preds = %2270
-  %2274 = load i64, ptr %5, align 8
-  %2275 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2274, i64 noundef %2275)
-  %2276 = load i64, ptr %5, align 8
-  %2277 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2276, ptr noundef @.str.135)
-  br label %2278
+2260:                                             ; preds = %2257
+  %2261 = load i64, ptr %5, align 8
+  %2262 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2261, i64 noundef %2262)
+  %2263 = load i64, ptr %5, align 8
+  %2264 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2263, ptr noundef @.str.133)
+  br label %2265
 
-2278:                                             ; preds = %2273, %2270
+2265:                                             ; preds = %2260, %2257
+  %2266 = load i32, ptr %7, align 4
+  %2267 = icmp ne i32 %2266, 0
+  br i1 %2267, label %2268, label %2273
+
+2268:                                             ; preds = %2265
+  %2269 = load i64, ptr %5, align 8
+  %2270 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2269, i64 noundef %2270)
+  %2271 = load i64, ptr %5, align 8
+  %2272 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2271, ptr noundef @.str.134)
+  br label %2273
+
+2273:                                             ; preds = %2268, %2265
+  %2274 = load i32, ptr %7, align 4
+  %2275 = icmp ne i32 %2274, 0
+  br i1 %2275, label %2276, label %2281
+
+2276:                                             ; preds = %2273
+  %2277 = load i64, ptr %5, align 8
+  %2278 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2277, i64 noundef %2278)
   %2279 = load i64, ptr %5, align 8
-  %2280 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2279, i64 noundef %2280)
-  %2281 = load i64, ptr %5, align 8
-  %2282 = load i32, ptr %7, align 4
-  %2283 = icmp ne i32 %2282, 0
-  %2284 = select i1 %2283, i64 23, i64 6
-  %2285 = trunc i64 %2284 to i32
-  %2286 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2281, ptr noundef @.str.51, i32 noundef %2285, ptr noundef @.str.136)
+  %2280 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2279, ptr noundef @.str.135)
+  br label %2281
+
+2281:                                             ; preds = %2276, %2273
+  %2282 = load i64, ptr %5, align 8
+  %2283 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2282, i64 noundef %2283)
+  %2284 = load i64, ptr %5, align 8
+  %2285 = load i32, ptr %7, align 4
+  %2286 = icmp ne i32 %2285, 0
+  %2287 = select i1 %2286, i64 23, i64 6
+  %2288 = trunc i64 %2287 to i32
+  %2289 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2284, ptr noundef @.str.51, i32 noundef %2288, ptr noundef @.str.136)
   store i32 1, ptr %9, align 4
-  br label %2287
+  br label %2290
 
-2287:                                             ; preds = %2295, %2278
-  %2288 = load i32, ptr %9, align 4
-  %2289 = icmp ne i32 %2288, 0
-  br i1 %2289, label %2290, label %2298
+2290:                                             ; preds = %2298, %2281
+  %2291 = load i32, ptr %9, align 4
+  %2292 = icmp ne i32 %2291, 0
+  br i1 %2292, label %2293, label %2301
 
-2290:                                             ; preds = %2287
-  %2291 = load i64, ptr %5, align 8
-  %2292 = load ptr, ptr %8, align 8
-  %2293 = getelementptr inbounds %struct.RNode_CVASGN, ptr %2292, i32 0, i32 1
-  %2294 = load i64, ptr %2293, align 8
-  call void @add_id(i64 noundef %2291, i64 noundef %2294)
-  br label %2295
+2293:                                             ; preds = %2290
+  %2294 = load i64, ptr %5, align 8
+  %2295 = load ptr, ptr %8, align 8
+  %2296 = getelementptr inbounds %struct.RNode_CVASGN, ptr %2295, i32 0, i32 1
+  %2297 = load i64, ptr %2296, align 8
+  call void @add_id(i64 noundef %2294, i64 noundef %2297)
+  br label %2298
 
-2295:                                             ; preds = %2290
-  %2296 = load i64, ptr %5, align 8
-  %2297 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2296, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2287, !llvm.loop !60
-
-2298:                                             ; preds = %2287
-  store ptr @.str.12, ptr %11, align 8
+2298:                                             ; preds = %2293
   %2299 = load i64, ptr %5, align 8
-  %2300 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2299, i64 noundef %2300)
-  %2301 = load i64, ptr %5, align 8
-  %2302 = load i32, ptr %7, align 4
-  %2303 = icmp ne i32 %2302, 0
-  %2304 = select i1 %2303, i64 17, i64 8
-  %2305 = trunc i64 %2304 to i32
-  %2306 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2301, ptr noundef @.str.13, i32 noundef %2305, ptr noundef @.str.123)
-  %2307 = load i64, ptr %6, align 8
-  %2308 = load ptr, ptr %11, align 8
-  %2309 = call i64 @rb_str_cat_cstr(i64 noundef %2307, ptr noundef %2308)
-  store i32 1, ptr %9, align 4
-  br label %2310
-
-2310:                                             ; preds = %2320, %2298
-  %2311 = load i32, ptr %9, align 4
-  %2312 = icmp ne i32 %2311, 0
-  br i1 %2312, label %2313, label %2326
-
-2313:                                             ; preds = %2310
-  %2314 = load i64, ptr %5, align 8
-  %2315 = load i64, ptr %6, align 8
-  %2316 = load i32, ptr %7, align 4
-  %2317 = load ptr, ptr %8, align 8
-  %2318 = getelementptr inbounds %struct.RNode_CVASGN, ptr %2317, i32 0, i32 2
-  %2319 = load ptr, ptr %2318, align 8
-  call void @dump_node(i64 noundef %2314, i64 noundef %2315, i32 noundef %2316, ptr noundef %2319)
-  br label %2320
-
-2320:                                             ; preds = %2313
-  %2321 = load i64, ptr %6, align 8
-  %2322 = load i64, ptr %6, align 8
-  %2323 = call i64 @RSTRING_LEN(i64 noundef %2322) #10
-  %2324 = sub i64 %2323, 4
-  %2325 = call i64 @rb_str_resize(i64 noundef %2321, i64 noundef %2324)
+  %2300 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2299, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2310, !llvm.loop !61
+  br label %2290, !llvm.loop !60
 
-2326:                                             ; preds = %2310
-  br label %7932
-
-2327:                                             ; preds = %24
-  %2328 = load i32, ptr %7, align 4
-  %2329 = icmp ne i32 %2328, 0
-  br i1 %2329, label %2330, label %2335
-
-2330:                                             ; preds = %2327
-  %2331 = load i64, ptr %5, align 8
-  %2332 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2331, i64 noundef %2332)
-  %2333 = load i64, ptr %5, align 8
-  %2334 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2333, ptr noundef @.str.137)
-  br label %2335
-
-2335:                                             ; preds = %2330, %2327
-  %2336 = load i32, ptr %7, align 4
-  %2337 = icmp ne i32 %2336, 0
-  br i1 %2337, label %2338, label %2343
-
-2338:                                             ; preds = %2335
-  %2339 = load i64, ptr %5, align 8
-  %2340 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2339, i64 noundef %2340)
-  %2341 = load i64, ptr %5, align 8
-  %2342 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2341, ptr noundef @.str.138)
-  br label %2343
-
-2343:                                             ; preds = %2338, %2335
-  %2344 = load i32, ptr %7, align 4
-  %2345 = icmp ne i32 %2344, 0
-  br i1 %2345, label %2346, label %2351
-
-2346:                                             ; preds = %2343
-  %2347 = load i64, ptr %5, align 8
-  %2348 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2347, i64 noundef %2348)
-  %2349 = load i64, ptr %5, align 8
-  %2350 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2349, ptr noundef @.str.139)
-  br label %2351
-
-2351:                                             ; preds = %2346, %2343
-  %2352 = load i64, ptr %5, align 8
-  %2353 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2352, i64 noundef %2353)
-  %2354 = load i64, ptr %5, align 8
-  %2355 = load i32, ptr %7, align 4
-  %2356 = icmp ne i32 %2355, 0
-  %2357 = select i1 %2356, i64 24, i64 6
-  %2358 = trunc i64 %2357 to i32
-  %2359 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2354, ptr noundef @.str.51, i32 noundef %2358, ptr noundef @.str.140)
-  store i32 1, ptr %9, align 4
-  br label %2360
-
-2360:                                             ; preds = %2368, %2351
-  %2361 = load i32, ptr %9, align 4
-  %2362 = icmp ne i32 %2361, 0
-  br i1 %2362, label %2363, label %2371
-
-2363:                                             ; preds = %2360
-  %2364 = load i64, ptr %5, align 8
-  %2365 = load ptr, ptr %8, align 8
-  %2366 = getelementptr inbounds %struct.RNode_GASGN, ptr %2365, i32 0, i32 1
-  %2367 = load i64, ptr %2366, align 8
-  call void @add_id(i64 noundef %2364, i64 noundef %2367)
-  br label %2368
-
-2368:                                             ; preds = %2363
-  %2369 = load i64, ptr %5, align 8
-  %2370 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2369, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2360, !llvm.loop !62
-
-2371:                                             ; preds = %2360
+2301:                                             ; preds = %2290
   store ptr @.str.12, ptr %11, align 8
+  %2302 = load i64, ptr %5, align 8
+  %2303 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2302, i64 noundef %2303)
+  %2304 = load i64, ptr %5, align 8
+  %2305 = load i32, ptr %7, align 4
+  %2306 = icmp ne i32 %2305, 0
+  %2307 = select i1 %2306, i64 17, i64 8
+  %2308 = trunc i64 %2307 to i32
+  %2309 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2304, ptr noundef @.str.13, i32 noundef %2308, ptr noundef @.str.123)
+  %2310 = load i64, ptr %6, align 8
+  %2311 = load ptr, ptr %11, align 8
+  %2312 = call i64 @rb_str_cat_cstr(i64 noundef %2310, ptr noundef %2311)
+  store i32 1, ptr %9, align 4
+  br label %2313
+
+2313:                                             ; preds = %2323, %2301
+  %2314 = load i32, ptr %9, align 4
+  %2315 = icmp ne i32 %2314, 0
+  br i1 %2315, label %2316, label %2329
+
+2316:                                             ; preds = %2313
+  %2317 = load i64, ptr %5, align 8
+  %2318 = load i64, ptr %6, align 8
+  %2319 = load i32, ptr %7, align 4
+  %2320 = load ptr, ptr %8, align 8
+  %2321 = getelementptr inbounds %struct.RNode_CVASGN, ptr %2320, i32 0, i32 2
+  %2322 = load ptr, ptr %2321, align 8
+  call void @dump_node(i64 noundef %2317, i64 noundef %2318, i32 noundef %2319, ptr noundef %2322)
+  br label %2323
+
+2323:                                             ; preds = %2316
+  %2324 = load i64, ptr %6, align 8
+  %2325 = load i64, ptr %6, align 8
+  %2326 = call i64 @RSTRING_LEN(i64 noundef %2325) #10
+  %2327 = sub i64 %2326, 4
+  %2328 = call i64 @rb_str_resize(i64 noundef %2324, i64 noundef %2327)
+  store i32 0, ptr %9, align 4
+  br label %2313, !llvm.loop !61
+
+2329:                                             ; preds = %2313
+  br label %7940
+
+2330:                                             ; preds = %24
+  %2331 = load i32, ptr %7, align 4
+  %2332 = icmp ne i32 %2331, 0
+  br i1 %2332, label %2333, label %2338
+
+2333:                                             ; preds = %2330
+  %2334 = load i64, ptr %5, align 8
+  %2335 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2334, i64 noundef %2335)
+  %2336 = load i64, ptr %5, align 8
+  %2337 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2336, ptr noundef @.str.137)
+  br label %2338
+
+2338:                                             ; preds = %2333, %2330
+  %2339 = load i32, ptr %7, align 4
+  %2340 = icmp ne i32 %2339, 0
+  br i1 %2340, label %2341, label %2346
+
+2341:                                             ; preds = %2338
+  %2342 = load i64, ptr %5, align 8
+  %2343 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2342, i64 noundef %2343)
+  %2344 = load i64, ptr %5, align 8
+  %2345 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2344, ptr noundef @.str.138)
+  br label %2346
+
+2346:                                             ; preds = %2341, %2338
+  %2347 = load i32, ptr %7, align 4
+  %2348 = icmp ne i32 %2347, 0
+  br i1 %2348, label %2349, label %2354
+
+2349:                                             ; preds = %2346
+  %2350 = load i64, ptr %5, align 8
+  %2351 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2350, i64 noundef %2351)
+  %2352 = load i64, ptr %5, align 8
+  %2353 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2352, ptr noundef @.str.139)
+  br label %2354
+
+2354:                                             ; preds = %2349, %2346
+  %2355 = load i64, ptr %5, align 8
+  %2356 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2355, i64 noundef %2356)
+  %2357 = load i64, ptr %5, align 8
+  %2358 = load i32, ptr %7, align 4
+  %2359 = icmp ne i32 %2358, 0
+  %2360 = select i1 %2359, i64 24, i64 6
+  %2361 = trunc i64 %2360 to i32
+  %2362 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2357, ptr noundef @.str.51, i32 noundef %2361, ptr noundef @.str.140)
+  store i32 1, ptr %9, align 4
+  br label %2363
+
+2363:                                             ; preds = %2371, %2354
+  %2364 = load i32, ptr %9, align 4
+  %2365 = icmp ne i32 %2364, 0
+  br i1 %2365, label %2366, label %2374
+
+2366:                                             ; preds = %2363
+  %2367 = load i64, ptr %5, align 8
+  %2368 = load ptr, ptr %8, align 8
+  %2369 = getelementptr inbounds %struct.RNode_GASGN, ptr %2368, i32 0, i32 1
+  %2370 = load i64, ptr %2369, align 8
+  call void @add_id(i64 noundef %2367, i64 noundef %2370)
+  br label %2371
+
+2371:                                             ; preds = %2366
   %2372 = load i64, ptr %5, align 8
-  %2373 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2372, i64 noundef %2373)
-  %2374 = load i64, ptr %5, align 8
-  %2375 = load i32, ptr %7, align 4
-  %2376 = icmp ne i32 %2375, 0
-  %2377 = select i1 %2376, i64 17, i64 8
-  %2378 = trunc i64 %2377 to i32
-  %2379 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2374, ptr noundef @.str.13, i32 noundef %2378, ptr noundef @.str.123)
-  %2380 = load i64, ptr %6, align 8
-  %2381 = load ptr, ptr %11, align 8
-  %2382 = call i64 @rb_str_cat_cstr(i64 noundef %2380, ptr noundef %2381)
-  store i32 1, ptr %9, align 4
-  br label %2383
-
-2383:                                             ; preds = %2393, %2371
-  %2384 = load i32, ptr %9, align 4
-  %2385 = icmp ne i32 %2384, 0
-  br i1 %2385, label %2386, label %2399
-
-2386:                                             ; preds = %2383
-  %2387 = load i64, ptr %5, align 8
-  %2388 = load i64, ptr %6, align 8
-  %2389 = load i32, ptr %7, align 4
-  %2390 = load ptr, ptr %8, align 8
-  %2391 = getelementptr inbounds %struct.RNode_GASGN, ptr %2390, i32 0, i32 2
-  %2392 = load ptr, ptr %2391, align 8
-  call void @dump_node(i64 noundef %2387, i64 noundef %2388, i32 noundef %2389, ptr noundef %2392)
-  br label %2393
-
-2393:                                             ; preds = %2386
-  %2394 = load i64, ptr %6, align 8
-  %2395 = load i64, ptr %6, align 8
-  %2396 = call i64 @RSTRING_LEN(i64 noundef %2395) #10
-  %2397 = sub i64 %2396, 4
-  %2398 = call i64 @rb_str_resize(i64 noundef %2394, i64 noundef %2397)
+  %2373 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2372, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2383, !llvm.loop !63
+  br label %2363, !llvm.loop !62
 
-2399:                                             ; preds = %2383
-  br label %7932
-
-2400:                                             ; preds = %24
-  %2401 = load i32, ptr %7, align 4
-  %2402 = icmp ne i32 %2401, 0
-  br i1 %2402, label %2403, label %2408
-
-2403:                                             ; preds = %2400
-  %2404 = load i64, ptr %5, align 8
-  %2405 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2404, i64 noundef %2405)
-  %2406 = load i64, ptr %5, align 8
-  %2407 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2406, ptr noundef @.str.141)
-  br label %2408
-
-2408:                                             ; preds = %2403, %2400
-  %2409 = load i32, ptr %7, align 4
-  %2410 = icmp ne i32 %2409, 0
-  br i1 %2410, label %2411, label %2416
-
-2411:                                             ; preds = %2408
-  %2412 = load i64, ptr %5, align 8
-  %2413 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2412, i64 noundef %2413)
-  %2414 = load i64, ptr %5, align 8
-  %2415 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2414, ptr noundef @.str.142)
-  br label %2416
-
-2416:                                             ; preds = %2411, %2408
-  %2417 = load i32, ptr %7, align 4
-  %2418 = icmp ne i32 %2417, 0
-  br i1 %2418, label %2419, label %2424
-
-2419:                                             ; preds = %2416
-  %2420 = load i64, ptr %5, align 8
-  %2421 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2420, i64 noundef %2421)
-  %2422 = load i64, ptr %5, align 8
-  %2423 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2422, ptr noundef @.str.143)
-  br label %2424
-
-2424:                                             ; preds = %2419, %2416
-  %2425 = load ptr, ptr %8, align 8
-  %2426 = getelementptr inbounds %struct.RNode_CDECL, ptr %2425, i32 0, i32 1
-  %2427 = load i64, ptr %2426, align 8
-  %2428 = icmp ne i64 %2427, 0
-  br i1 %2428, label %2429, label %2468
-
-2429:                                             ; preds = %2424
-  %2430 = load i64, ptr %5, align 8
-  %2431 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2430, i64 noundef %2431)
-  %2432 = load i64, ptr %5, align 8
-  %2433 = load i32, ptr %7, align 4
-  %2434 = icmp ne i32 %2433, 0
-  %2435 = select i1 %2434, i64 17, i64 6
-  %2436 = trunc i64 %2435 to i32
-  %2437 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2432, ptr noundef @.str.51, i32 noundef %2436, ptr noundef @.str.144)
+2374:                                             ; preds = %2363
+  store ptr @.str.12, ptr %11, align 8
+  %2375 = load i64, ptr %5, align 8
+  %2376 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2375, i64 noundef %2376)
+  %2377 = load i64, ptr %5, align 8
+  %2378 = load i32, ptr %7, align 4
+  %2379 = icmp ne i32 %2378, 0
+  %2380 = select i1 %2379, i64 17, i64 8
+  %2381 = trunc i64 %2380 to i32
+  %2382 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2377, ptr noundef @.str.13, i32 noundef %2381, ptr noundef @.str.123)
+  %2383 = load i64, ptr %6, align 8
+  %2384 = load ptr, ptr %11, align 8
+  %2385 = call i64 @rb_str_cat_cstr(i64 noundef %2383, ptr noundef %2384)
   store i32 1, ptr %9, align 4
-  br label %2438
+  br label %2386
 
-2438:                                             ; preds = %2446, %2429
-  %2439 = load i32, ptr %9, align 4
-  %2440 = icmp ne i32 %2439, 0
-  br i1 %2440, label %2441, label %2449
+2386:                                             ; preds = %2396, %2374
+  %2387 = load i32, ptr %9, align 4
+  %2388 = icmp ne i32 %2387, 0
+  br i1 %2388, label %2389, label %2402
 
-2441:                                             ; preds = %2438
-  %2442 = load i64, ptr %5, align 8
-  %2443 = load ptr, ptr %8, align 8
-  %2444 = getelementptr inbounds %struct.RNode_CDECL, ptr %2443, i32 0, i32 1
-  %2445 = load i64, ptr %2444, align 8
-  call void @add_id(i64 noundef %2442, i64 noundef %2445)
-  br label %2446
+2389:                                             ; preds = %2386
+  %2390 = load i64, ptr %5, align 8
+  %2391 = load i64, ptr %6, align 8
+  %2392 = load i32, ptr %7, align 4
+  %2393 = load ptr, ptr %8, align 8
+  %2394 = getelementptr inbounds %struct.RNode_GASGN, ptr %2393, i32 0, i32 2
+  %2395 = load ptr, ptr %2394, align 8
+  call void @dump_node(i64 noundef %2390, i64 noundef %2391, i32 noundef %2392, ptr noundef %2395)
+  br label %2396
 
-2446:                                             ; preds = %2441
-  %2447 = load i64, ptr %5, align 8
-  %2448 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2447, ptr noundef @.str.56)
+2396:                                             ; preds = %2389
+  %2397 = load i64, ptr %6, align 8
+  %2398 = load i64, ptr %6, align 8
+  %2399 = call i64 @RSTRING_LEN(i64 noundef %2398) #10
+  %2400 = sub i64 %2399, 4
+  %2401 = call i64 @rb_str_resize(i64 noundef %2397, i64 noundef %2400)
   store i32 0, ptr %9, align 4
-  br label %2438, !llvm.loop !64
+  br label %2386, !llvm.loop !63
 
-2449:                                             ; preds = %2438
+2402:                                             ; preds = %2386
+  br label %7940
+
+2403:                                             ; preds = %24
+  %2404 = load i32, ptr %7, align 4
+  %2405 = icmp ne i32 %2404, 0
+  br i1 %2405, label %2406, label %2411
+
+2406:                                             ; preds = %2403
+  %2407 = load i64, ptr %5, align 8
+  %2408 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2407, i64 noundef %2408)
+  %2409 = load i64, ptr %5, align 8
+  %2410 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2409, ptr noundef @.str.141)
+  br label %2411
+
+2411:                                             ; preds = %2406, %2403
+  %2412 = load i32, ptr %7, align 4
+  %2413 = icmp ne i32 %2412, 0
+  br i1 %2413, label %2414, label %2419
+
+2414:                                             ; preds = %2411
+  %2415 = load i64, ptr %5, align 8
+  %2416 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2415, i64 noundef %2416)
+  %2417 = load i64, ptr %5, align 8
+  %2418 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2417, ptr noundef @.str.142)
+  br label %2419
+
+2419:                                             ; preds = %2414, %2411
+  %2420 = load i32, ptr %7, align 4
+  %2421 = icmp ne i32 %2420, 0
+  br i1 %2421, label %2422, label %2427
+
+2422:                                             ; preds = %2419
+  %2423 = load i64, ptr %5, align 8
+  %2424 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2423, i64 noundef %2424)
+  %2425 = load i64, ptr %5, align 8
+  %2426 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2425, ptr noundef @.str.143)
+  br label %2427
+
+2427:                                             ; preds = %2422, %2419
+  %2428 = load ptr, ptr %8, align 8
+  %2429 = getelementptr inbounds %struct.RNode_CDECL, ptr %2428, i32 0, i32 1
+  %2430 = load i64, ptr %2429, align 8
+  %2431 = icmp ne i64 %2430, 0
+  br i1 %2431, label %2432, label %2471
+
+2432:                                             ; preds = %2427
+  %2433 = load i64, ptr %5, align 8
+  %2434 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2433, i64 noundef %2434)
+  %2435 = load i64, ptr %5, align 8
+  %2436 = load i32, ptr %7, align 4
+  %2437 = icmp ne i32 %2436, 0
+  %2438 = select i1 %2437, i64 17, i64 6
+  %2439 = trunc i64 %2438 to i32
+  %2440 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2435, ptr noundef @.str.51, i32 noundef %2439, ptr noundef @.str.144)
+  store i32 1, ptr %9, align 4
+  br label %2441
+
+2441:                                             ; preds = %2449, %2432
+  %2442 = load i32, ptr %9, align 4
+  %2443 = icmp ne i32 %2442, 0
+  br i1 %2443, label %2444, label %2452
+
+2444:                                             ; preds = %2441
+  %2445 = load i64, ptr %5, align 8
+  %2446 = load ptr, ptr %8, align 8
+  %2447 = getelementptr inbounds %struct.RNode_CDECL, ptr %2446, i32 0, i32 1
+  %2448 = load i64, ptr %2447, align 8
+  call void @add_id(i64 noundef %2445, i64 noundef %2448)
+  br label %2449
+
+2449:                                             ; preds = %2444
   %2450 = load i64, ptr %5, align 8
-  %2451 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2450, i64 noundef %2451)
-  %2452 = load i64, ptr %5, align 8
-  %2453 = load i32, ptr %7, align 4
-  %2454 = icmp ne i32 %2453, 0
-  %2455 = select i1 %2454, i64 19, i64 7
-  %2456 = trunc i64 %2455 to i32
-  %2457 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2452, ptr noundef @.str.51, i32 noundef %2456, ptr noundef @.str.145)
+  %2451 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2450, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %2441, !llvm.loop !64
+
+2452:                                             ; preds = %2441
+  %2453 = load i64, ptr %5, align 8
+  %2454 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2453, i64 noundef %2454)
+  %2455 = load i64, ptr %5, align 8
+  %2456 = load i32, ptr %7, align 4
+  %2457 = icmp ne i32 %2456, 0
+  %2458 = select i1 %2457, i64 19, i64 7
+  %2459 = trunc i64 %2458 to i32
+  %2460 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2455, ptr noundef @.str.51, i32 noundef %2459, ptr noundef @.str.145)
   store i32 1, ptr %9, align 4
-  br label %2458
+  br label %2461
 
-2458:                                             ; preds = %2464, %2449
-  %2459 = load i32, ptr %9, align 4
-  %2460 = icmp ne i32 %2459, 0
-  br i1 %2460, label %2461, label %2467
-
-2461:                                             ; preds = %2458
-  %2462 = load i64, ptr %5, align 8
-  %2463 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2462, ptr noundef @.str.146)
-  br label %2464
+2461:                                             ; preds = %2467, %2452
+  %2462 = load i32, ptr %9, align 4
+  %2463 = icmp ne i32 %2462, 0
+  br i1 %2463, label %2464, label %2470
 
 2464:                                             ; preds = %2461
   %2465 = load i64, ptr %5, align 8
-  %2466 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2465, ptr noundef @.str.56)
+  %2466 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2465, ptr noundef @.str.146)
+  br label %2467
+
+2467:                                             ; preds = %2464
+  %2468 = load i64, ptr %5, align 8
+  %2469 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2468, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2458, !llvm.loop !65
+  br label %2461, !llvm.loop !65
 
-2467:                                             ; preds = %2458
-  br label %2515
+2470:                                             ; preds = %2461
+  br label %2518
 
-2468:                                             ; preds = %2424
-  %2469 = load i64, ptr %5, align 8
-  %2470 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2469, i64 noundef %2470)
-  %2471 = load i64, ptr %5, align 8
-  %2472 = load i32, ptr %7, align 4
-  %2473 = icmp ne i32 %2472, 0
-  %2474 = select i1 %2473, i64 17, i64 6
-  %2475 = trunc i64 %2474 to i32
-  %2476 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2471, ptr noundef @.str.51, i32 noundef %2475, ptr noundef @.str.144)
+2471:                                             ; preds = %2427
+  %2472 = load i64, ptr %5, align 8
+  %2473 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2472, i64 noundef %2473)
+  %2474 = load i64, ptr %5, align 8
+  %2475 = load i32, ptr %7, align 4
+  %2476 = icmp ne i32 %2475, 0
+  %2477 = select i1 %2476, i64 17, i64 6
+  %2478 = trunc i64 %2477 to i32
+  %2479 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2474, ptr noundef @.str.51, i32 noundef %2478, ptr noundef @.str.144)
   store i32 1, ptr %9, align 4
-  br label %2477
+  br label %2480
 
-2477:                                             ; preds = %2483, %2468
-  %2478 = load i32, ptr %9, align 4
-  %2479 = icmp ne i32 %2478, 0
-  br i1 %2479, label %2480, label %2486
-
-2480:                                             ; preds = %2477
-  %2481 = load i64, ptr %5, align 8
-  %2482 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2481, ptr noundef @.str.147)
-  br label %2483
+2480:                                             ; preds = %2486, %2471
+  %2481 = load i32, ptr %9, align 4
+  %2482 = icmp ne i32 %2481, 0
+  br i1 %2482, label %2483, label %2489
 
 2483:                                             ; preds = %2480
   %2484 = load i64, ptr %5, align 8
-  %2485 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2484, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2477, !llvm.loop !66
+  %2485 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2484, ptr noundef @.str.147)
+  br label %2486
 
-2486:                                             ; preds = %2477
+2486:                                             ; preds = %2483
   %2487 = load i64, ptr %5, align 8
-  %2488 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2487, i64 noundef %2488)
-  %2489 = load i64, ptr %5, align 8
-  %2490 = load i32, ptr %7, align 4
-  %2491 = icmp ne i32 %2490, 0
-  %2492 = select i1 %2491, i64 19, i64 7
-  %2493 = trunc i64 %2492 to i32
-  %2494 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2489, ptr noundef @.str.13, i32 noundef %2493, ptr noundef @.str.145)
-  %2495 = load i64, ptr %6, align 8
-  %2496 = load ptr, ptr %11, align 8
-  %2497 = call i64 @rb_str_cat_cstr(i64 noundef %2495, ptr noundef %2496)
-  store i32 1, ptr %9, align 4
-  br label %2498
-
-2498:                                             ; preds = %2508, %2486
-  %2499 = load i32, ptr %9, align 4
-  %2500 = icmp ne i32 %2499, 0
-  br i1 %2500, label %2501, label %2514
-
-2501:                                             ; preds = %2498
-  %2502 = load i64, ptr %5, align 8
-  %2503 = load i64, ptr %6, align 8
-  %2504 = load i32, ptr %7, align 4
-  %2505 = load ptr, ptr %8, align 8
-  %2506 = getelementptr inbounds %struct.RNode_CDECL, ptr %2505, i32 0, i32 3
-  %2507 = load ptr, ptr %2506, align 8
-  call void @dump_node(i64 noundef %2502, i64 noundef %2503, i32 noundef %2504, ptr noundef %2507)
-  br label %2508
-
-2508:                                             ; preds = %2501
-  %2509 = load i64, ptr %6, align 8
-  %2510 = load i64, ptr %6, align 8
-  %2511 = call i64 @RSTRING_LEN(i64 noundef %2510) #10
-  %2512 = sub i64 %2511, 4
-  %2513 = call i64 @rb_str_resize(i64 noundef %2509, i64 noundef %2512)
+  %2488 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2487, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2498, !llvm.loop !67
+  br label %2480, !llvm.loop !66
 
-2514:                                             ; preds = %2498
-  br label %2515
+2489:                                             ; preds = %2480
+  %2490 = load i64, ptr %5, align 8
+  %2491 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2490, i64 noundef %2491)
+  %2492 = load i64, ptr %5, align 8
+  %2493 = load i32, ptr %7, align 4
+  %2494 = icmp ne i32 %2493, 0
+  %2495 = select i1 %2494, i64 19, i64 7
+  %2496 = trunc i64 %2495 to i32
+  %2497 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2492, ptr noundef @.str.13, i32 noundef %2496, ptr noundef @.str.145)
+  %2498 = load i64, ptr %6, align 8
+  %2499 = load ptr, ptr %11, align 8
+  %2500 = call i64 @rb_str_cat_cstr(i64 noundef %2498, ptr noundef %2499)
+  store i32 1, ptr %9, align 4
+  br label %2501
 
-2515:                                             ; preds = %2514, %2467
+2501:                                             ; preds = %2511, %2489
+  %2502 = load i32, ptr %9, align 4
+  %2503 = icmp ne i32 %2502, 0
+  br i1 %2503, label %2504, label %2517
+
+2504:                                             ; preds = %2501
+  %2505 = load i64, ptr %5, align 8
+  %2506 = load i64, ptr %6, align 8
+  %2507 = load i32, ptr %7, align 4
+  %2508 = load ptr, ptr %8, align 8
+  %2509 = getelementptr inbounds %struct.RNode_CDECL, ptr %2508, i32 0, i32 3
+  %2510 = load ptr, ptr %2509, align 8
+  call void @dump_node(i64 noundef %2505, i64 noundef %2506, i32 noundef %2507, ptr noundef %2510)
+  br label %2511
+
+2511:                                             ; preds = %2504
+  %2512 = load i64, ptr %6, align 8
+  %2513 = load i64, ptr %6, align 8
+  %2514 = call i64 @RSTRING_LEN(i64 noundef %2513) #10
+  %2515 = sub i64 %2514, 4
+  %2516 = call i64 @rb_str_resize(i64 noundef %2512, i64 noundef %2515)
+  store i32 0, ptr %9, align 4
+  br label %2501, !llvm.loop !67
+
+2517:                                             ; preds = %2501
+  br label %2518
+
+2518:                                             ; preds = %2517, %2470
   store ptr @.str.12, ptr %11, align 8
-  %2516 = load i64, ptr %5, align 8
-  %2517 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2516, i64 noundef %2517)
-  %2518 = load i64, ptr %5, align 8
-  %2519 = load i32, ptr %7, align 4
-  %2520 = icmp ne i32 %2519, 0
-  %2521 = select i1 %2520, i64 17, i64 8
-  %2522 = trunc i64 %2521 to i32
-  %2523 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2518, ptr noundef @.str.13, i32 noundef %2522, ptr noundef @.str.123)
-  %2524 = load i64, ptr %6, align 8
-  %2525 = load ptr, ptr %11, align 8
-  %2526 = call i64 @rb_str_cat_cstr(i64 noundef %2524, ptr noundef %2525)
+  %2519 = load i64, ptr %5, align 8
+  %2520 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2519, i64 noundef %2520)
+  %2521 = load i64, ptr %5, align 8
+  %2522 = load i32, ptr %7, align 4
+  %2523 = icmp ne i32 %2522, 0
+  %2524 = select i1 %2523, i64 17, i64 8
+  %2525 = trunc i64 %2524 to i32
+  %2526 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2521, ptr noundef @.str.13, i32 noundef %2525, ptr noundef @.str.123)
+  %2527 = load i64, ptr %6, align 8
+  %2528 = load ptr, ptr %11, align 8
+  %2529 = call i64 @rb_str_cat_cstr(i64 noundef %2527, ptr noundef %2528)
   store i32 1, ptr %9, align 4
-  br label %2527
+  br label %2530
 
-2527:                                             ; preds = %2537, %2515
-  %2528 = load i32, ptr %9, align 4
-  %2529 = icmp ne i32 %2528, 0
-  br i1 %2529, label %2530, label %2543
+2530:                                             ; preds = %2540, %2518
+  %2531 = load i32, ptr %9, align 4
+  %2532 = icmp ne i32 %2531, 0
+  br i1 %2532, label %2533, label %2546
 
-2530:                                             ; preds = %2527
-  %2531 = load i64, ptr %5, align 8
-  %2532 = load i64, ptr %6, align 8
-  %2533 = load i32, ptr %7, align 4
-  %2534 = load ptr, ptr %8, align 8
-  %2535 = getelementptr inbounds %struct.RNode_CDECL, ptr %2534, i32 0, i32 2
-  %2536 = load ptr, ptr %2535, align 8
-  call void @dump_node(i64 noundef %2531, i64 noundef %2532, i32 noundef %2533, ptr noundef %2536)
-  br label %2537
+2533:                                             ; preds = %2530
+  %2534 = load i64, ptr %5, align 8
+  %2535 = load i64, ptr %6, align 8
+  %2536 = load i32, ptr %7, align 4
+  %2537 = load ptr, ptr %8, align 8
+  %2538 = getelementptr inbounds %struct.RNode_CDECL, ptr %2537, i32 0, i32 2
+  %2539 = load ptr, ptr %2538, align 8
+  call void @dump_node(i64 noundef %2534, i64 noundef %2535, i32 noundef %2536, ptr noundef %2539)
+  br label %2540
 
-2537:                                             ; preds = %2530
-  %2538 = load i64, ptr %6, align 8
-  %2539 = load i64, ptr %6, align 8
-  %2540 = call i64 @RSTRING_LEN(i64 noundef %2539) #10
-  %2541 = sub i64 %2540, 4
-  %2542 = call i64 @rb_str_resize(i64 noundef %2538, i64 noundef %2541)
+2540:                                             ; preds = %2533
+  %2541 = load i64, ptr %6, align 8
+  %2542 = load i64, ptr %6, align 8
+  %2543 = call i64 @RSTRING_LEN(i64 noundef %2542) #10
+  %2544 = sub i64 %2543, 4
+  %2545 = call i64 @rb_str_resize(i64 noundef %2541, i64 noundef %2544)
   store i32 0, ptr %9, align 4
-  br label %2527, !llvm.loop !68
+  br label %2530, !llvm.loop !68
 
-2543:                                             ; preds = %2527
-  br label %7932
+2546:                                             ; preds = %2530
+  br label %7940
 
-2544:                                             ; preds = %24
-  %2545 = load i32, ptr %7, align 4
-  %2546 = icmp ne i32 %2545, 0
-  br i1 %2546, label %2547, label %2552
+2547:                                             ; preds = %24
+  %2548 = load i32, ptr %7, align 4
+  %2549 = icmp ne i32 %2548, 0
+  br i1 %2549, label %2550, label %2555
 
-2547:                                             ; preds = %2544
-  %2548 = load i64, ptr %5, align 8
-  %2549 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2548, i64 noundef %2549)
-  %2550 = load i64, ptr %5, align 8
-  %2551 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2550, ptr noundef @.str.148)
-  br label %2552
+2550:                                             ; preds = %2547
+  %2551 = load i64, ptr %5, align 8
+  %2552 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2551, i64 noundef %2552)
+  %2553 = load i64, ptr %5, align 8
+  %2554 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2553, ptr noundef @.str.148)
+  br label %2555
 
-2552:                                             ; preds = %2547, %2544
-  %2553 = load i32, ptr %7, align 4
-  %2554 = icmp ne i32 %2553, 0
-  br i1 %2554, label %2555, label %2560
+2555:                                             ; preds = %2550, %2547
+  %2556 = load i32, ptr %7, align 4
+  %2557 = icmp ne i32 %2556, 0
+  br i1 %2557, label %2558, label %2563
 
-2555:                                             ; preds = %2552
-  %2556 = load i64, ptr %5, align 8
-  %2557 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2556, i64 noundef %2557)
-  %2558 = load i64, ptr %5, align 8
-  %2559 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2558, ptr noundef @.str.149)
-  br label %2560
+2558:                                             ; preds = %2555
+  %2559 = load i64, ptr %5, align 8
+  %2560 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2559, i64 noundef %2560)
+  %2561 = load i64, ptr %5, align 8
+  %2562 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2561, ptr noundef @.str.149)
+  br label %2563
 
-2560:                                             ; preds = %2555, %2552
-  %2561 = load i32, ptr %7, align 4
-  %2562 = icmp ne i32 %2561, 0
-  br i1 %2562, label %2563, label %2568
+2563:                                             ; preds = %2558, %2555
+  %2564 = load i32, ptr %7, align 4
+  %2565 = icmp ne i32 %2564, 0
+  br i1 %2565, label %2566, label %2571
 
-2563:                                             ; preds = %2560
-  %2564 = load i64, ptr %5, align 8
-  %2565 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2564, i64 noundef %2565)
-  %2566 = load i64, ptr %5, align 8
-  %2567 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2566, ptr noundef @.str.150)
-  br label %2568
-
-2568:                                             ; preds = %2563, %2560
+2566:                                             ; preds = %2563
+  %2567 = load i64, ptr %5, align 8
+  %2568 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2567, i64 noundef %2568)
   %2569 = load i64, ptr %5, align 8
-  %2570 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2569, i64 noundef %2570)
-  %2571 = load i64, ptr %5, align 8
-  %2572 = load i32, ptr %7, align 4
-  %2573 = icmp ne i32 %2572, 0
-  %2574 = select i1 %2573, i64 18, i64 7
-  %2575 = trunc i64 %2574 to i32
-  %2576 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2571, ptr noundef @.str.13, i32 noundef %2575, ptr noundef @.str.151)
-  %2577 = load i64, ptr %6, align 8
-  %2578 = load ptr, ptr %11, align 8
-  %2579 = call i64 @rb_str_cat_cstr(i64 noundef %2577, ptr noundef %2578)
+  %2570 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2569, ptr noundef @.str.150)
+  br label %2571
+
+2571:                                             ; preds = %2566, %2563
+  %2572 = load i64, ptr %5, align 8
+  %2573 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2572, i64 noundef %2573)
+  %2574 = load i64, ptr %5, align 8
+  %2575 = load i32, ptr %7, align 4
+  %2576 = icmp ne i32 %2575, 0
+  %2577 = select i1 %2576, i64 18, i64 7
+  %2578 = trunc i64 %2577 to i32
+  %2579 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2574, ptr noundef @.str.13, i32 noundef %2578, ptr noundef @.str.151)
+  %2580 = load i64, ptr %6, align 8
+  %2581 = load ptr, ptr %11, align 8
+  %2582 = call i64 @rb_str_cat_cstr(i64 noundef %2580, ptr noundef %2581)
   store i32 1, ptr %9, align 4
-  br label %2580
+  br label %2583
 
-2580:                                             ; preds = %2590, %2568
-  %2581 = load i32, ptr %9, align 4
-  %2582 = icmp ne i32 %2581, 0
-  br i1 %2582, label %2583, label %2596
+2583:                                             ; preds = %2593, %2571
+  %2584 = load i32, ptr %9, align 4
+  %2585 = icmp ne i32 %2584, 0
+  br i1 %2585, label %2586, label %2599
 
-2583:                                             ; preds = %2580
-  %2584 = load i64, ptr %5, align 8
-  %2585 = load i64, ptr %6, align 8
-  %2586 = load i32, ptr %7, align 4
-  %2587 = load ptr, ptr %8, align 8
-  %2588 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2587, i32 0, i32 1
-  %2589 = load ptr, ptr %2588, align 8
-  call void @dump_node(i64 noundef %2584, i64 noundef %2585, i32 noundef %2586, ptr noundef %2589)
-  br label %2590
+2586:                                             ; preds = %2583
+  %2587 = load i64, ptr %5, align 8
+  %2588 = load i64, ptr %6, align 8
+  %2589 = load i32, ptr %7, align 4
+  %2590 = load ptr, ptr %8, align 8
+  %2591 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2590, i32 0, i32 1
+  %2592 = load ptr, ptr %2591, align 8
+  call void @dump_node(i64 noundef %2587, i64 noundef %2588, i32 noundef %2589, ptr noundef %2592)
+  br label %2593
 
-2590:                                             ; preds = %2583
-  %2591 = load i64, ptr %6, align 8
-  %2592 = load i64, ptr %6, align 8
-  %2593 = call i64 @RSTRING_LEN(i64 noundef %2592) #10
-  %2594 = sub i64 %2593, 4
-  %2595 = call i64 @rb_str_resize(i64 noundef %2591, i64 noundef %2594)
+2593:                                             ; preds = %2586
+  %2594 = load i64, ptr %6, align 8
+  %2595 = load i64, ptr %6, align 8
+  %2596 = call i64 @RSTRING_LEN(i64 noundef %2595) #10
+  %2597 = sub i64 %2596, 4
+  %2598 = call i64 @rb_str_resize(i64 noundef %2594, i64 noundef %2597)
   store i32 0, ptr %9, align 4
-  br label %2580, !llvm.loop !69
+  br label %2583, !llvm.loop !69
 
-2596:                                             ; preds = %2580
-  %2597 = load i64, ptr %5, align 8
-  %2598 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2597, i64 noundef %2598)
-  %2599 = load i64, ptr %5, align 8
-  %2600 = load i32, ptr %7, align 4
-  %2601 = icmp ne i32 %2600, 0
-  %2602 = select i1 %2601, i64 17, i64 6
-  %2603 = trunc i64 %2602 to i32
-  %2604 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2599, ptr noundef @.str.51, i32 noundef %2603, ptr noundef @.str.152)
+2599:                                             ; preds = %2583
+  %2600 = load i64, ptr %5, align 8
+  %2601 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2600, i64 noundef %2601)
+  %2602 = load i64, ptr %5, align 8
+  %2603 = load i32, ptr %7, align 4
+  %2604 = icmp ne i32 %2603, 0
+  %2605 = select i1 %2604, i64 17, i64 6
+  %2606 = trunc i64 %2605 to i32
+  %2607 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2602, ptr noundef @.str.51, i32 noundef %2606, ptr noundef @.str.152)
   store i32 1, ptr %9, align 4
-  br label %2605
+  br label %2608
 
-2605:                                             ; preds = %2613, %2596
-  %2606 = load i32, ptr %9, align 4
-  %2607 = icmp ne i32 %2606, 0
-  br i1 %2607, label %2608, label %2616
+2608:                                             ; preds = %2616, %2599
+  %2609 = load i32, ptr %9, align 4
+  %2610 = icmp ne i32 %2609, 0
+  br i1 %2610, label %2611, label %2619
 
-2608:                                             ; preds = %2605
-  %2609 = load i64, ptr %5, align 8
-  %2610 = load ptr, ptr %8, align 8
-  %2611 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2610, i32 0, i32 2
-  %2612 = load i64, ptr %2611, align 8
-  call void @add_id(i64 noundef %2609, i64 noundef %2612)
-  br label %2613
+2611:                                             ; preds = %2608
+  %2612 = load i64, ptr %5, align 8
+  %2613 = load ptr, ptr %8, align 8
+  %2614 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2613, i32 0, i32 2
+  %2615 = load i64, ptr %2614, align 8
+  call void @add_id(i64 noundef %2612, i64 noundef %2615)
+  br label %2616
 
-2613:                                             ; preds = %2608
-  %2614 = load i64, ptr %5, align 8
-  %2615 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2614, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2605, !llvm.loop !70
-
-2616:                                             ; preds = %2605
+2616:                                             ; preds = %2611
   %2617 = load i64, ptr %5, align 8
-  %2618 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2617, i64 noundef %2618)
-  %2619 = load i64, ptr %5, align 8
-  %2620 = load i32, ptr %7, align 4
-  %2621 = icmp ne i32 %2620, 0
-  %2622 = select i1 %2621, i64 16, i64 8
-  %2623 = trunc i64 %2622 to i32
-  %2624 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2619, ptr noundef @.str.13, i32 noundef %2623, ptr noundef @.str.153)
-  %2625 = load i64, ptr %6, align 8
-  %2626 = load ptr, ptr %11, align 8
-  %2627 = call i64 @rb_str_cat_cstr(i64 noundef %2625, ptr noundef %2626)
-  store i32 1, ptr %9, align 4
-  br label %2628
-
-2628:                                             ; preds = %2638, %2616
-  %2629 = load i32, ptr %9, align 4
-  %2630 = icmp ne i32 %2629, 0
-  br i1 %2630, label %2631, label %2644
-
-2631:                                             ; preds = %2628
-  %2632 = load i64, ptr %5, align 8
-  %2633 = load i64, ptr %6, align 8
-  %2634 = load i32, ptr %7, align 4
-  %2635 = load ptr, ptr %8, align 8
-  %2636 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2635, i32 0, i32 3
-  %2637 = load ptr, ptr %2636, align 8
-  call void @dump_node(i64 noundef %2632, i64 noundef %2633, i32 noundef %2634, ptr noundef %2637)
-  br label %2638
-
-2638:                                             ; preds = %2631
-  %2639 = load i64, ptr %6, align 8
-  %2640 = load i64, ptr %6, align 8
-  %2641 = call i64 @RSTRING_LEN(i64 noundef %2640) #10
-  %2642 = sub i64 %2641, 4
-  %2643 = call i64 @rb_str_resize(i64 noundef %2639, i64 noundef %2642)
+  %2618 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2617, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2628, !llvm.loop !71
+  br label %2608, !llvm.loop !70
 
-2644:                                             ; preds = %2628
+2619:                                             ; preds = %2608
+  %2620 = load i64, ptr %5, align 8
+  %2621 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2620, i64 noundef %2621)
+  %2622 = load i64, ptr %5, align 8
+  %2623 = load i32, ptr %7, align 4
+  %2624 = icmp ne i32 %2623, 0
+  %2625 = select i1 %2624, i64 16, i64 8
+  %2626 = trunc i64 %2625 to i32
+  %2627 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2622, ptr noundef @.str.13, i32 noundef %2626, ptr noundef @.str.153)
+  %2628 = load i64, ptr %6, align 8
+  %2629 = load ptr, ptr %11, align 8
+  %2630 = call i64 @rb_str_cat_cstr(i64 noundef %2628, ptr noundef %2629)
+  store i32 1, ptr %9, align 4
+  br label %2631
+
+2631:                                             ; preds = %2641, %2619
+  %2632 = load i32, ptr %9, align 4
+  %2633 = icmp ne i32 %2632, 0
+  br i1 %2633, label %2634, label %2647
+
+2634:                                             ; preds = %2631
+  %2635 = load i64, ptr %5, align 8
+  %2636 = load i64, ptr %6, align 8
+  %2637 = load i32, ptr %7, align 4
+  %2638 = load ptr, ptr %8, align 8
+  %2639 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2638, i32 0, i32 3
+  %2640 = load ptr, ptr %2639, align 8
+  call void @dump_node(i64 noundef %2635, i64 noundef %2636, i32 noundef %2637, ptr noundef %2640)
+  br label %2641
+
+2641:                                             ; preds = %2634
+  %2642 = load i64, ptr %6, align 8
+  %2643 = load i64, ptr %6, align 8
+  %2644 = call i64 @RSTRING_LEN(i64 noundef %2643) #10
+  %2645 = sub i64 %2644, 4
+  %2646 = call i64 @rb_str_resize(i64 noundef %2642, i64 noundef %2645)
+  store i32 0, ptr %9, align 4
+  br label %2631, !llvm.loop !71
+
+2647:                                             ; preds = %2631
   store ptr @.str.12, ptr %11, align 8
-  %2645 = load i64, ptr %5, align 8
-  %2646 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2645, i64 noundef %2646)
-  %2647 = load i64, ptr %5, align 8
-  %2648 = load i32, ptr %7, align 4
-  %2649 = icmp ne i32 %2648, 0
-  %2650 = select i1 %2649, i64 18, i64 9
-  %2651 = trunc i64 %2650 to i32
-  %2652 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2647, ptr noundef @.str.13, i32 noundef %2651, ptr noundef @.str.154)
-  %2653 = load i64, ptr %6, align 8
-  %2654 = load ptr, ptr %11, align 8
-  %2655 = call i64 @rb_str_cat_cstr(i64 noundef %2653, ptr noundef %2654)
+  %2648 = load i64, ptr %5, align 8
+  %2649 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2648, i64 noundef %2649)
+  %2650 = load i64, ptr %5, align 8
+  %2651 = load i32, ptr %7, align 4
+  %2652 = icmp ne i32 %2651, 0
+  %2653 = select i1 %2652, i64 18, i64 9
+  %2654 = trunc i64 %2653 to i32
+  %2655 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2650, ptr noundef @.str.13, i32 noundef %2654, ptr noundef @.str.154)
+  %2656 = load i64, ptr %6, align 8
+  %2657 = load ptr, ptr %11, align 8
+  %2658 = call i64 @rb_str_cat_cstr(i64 noundef %2656, ptr noundef %2657)
   store i32 1, ptr %9, align 4
-  br label %2656
+  br label %2659
 
-2656:                                             ; preds = %2666, %2644
-  %2657 = load i32, ptr %9, align 4
-  %2658 = icmp ne i32 %2657, 0
-  br i1 %2658, label %2659, label %2672
+2659:                                             ; preds = %2669, %2647
+  %2660 = load i32, ptr %9, align 4
+  %2661 = icmp ne i32 %2660, 0
+  br i1 %2661, label %2662, label %2675
 
-2659:                                             ; preds = %2656
-  %2660 = load i64, ptr %5, align 8
-  %2661 = load i64, ptr %6, align 8
-  %2662 = load i32, ptr %7, align 4
-  %2663 = load ptr, ptr %8, align 8
-  %2664 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2663, i32 0, i32 4
-  %2665 = load ptr, ptr %2664, align 8
-  call void @dump_node(i64 noundef %2660, i64 noundef %2661, i32 noundef %2662, ptr noundef %2665)
-  br label %2666
+2662:                                             ; preds = %2659
+  %2663 = load i64, ptr %5, align 8
+  %2664 = load i64, ptr %6, align 8
+  %2665 = load i32, ptr %7, align 4
+  %2666 = load ptr, ptr %8, align 8
+  %2667 = getelementptr inbounds %struct.RNode_OP_ASGN1, ptr %2666, i32 0, i32 4
+  %2668 = load ptr, ptr %2667, align 8
+  call void @dump_node(i64 noundef %2663, i64 noundef %2664, i32 noundef %2665, ptr noundef %2668)
+  br label %2669
 
-2666:                                             ; preds = %2659
-  %2667 = load i64, ptr %6, align 8
-  %2668 = load i64, ptr %6, align 8
-  %2669 = call i64 @RSTRING_LEN(i64 noundef %2668) #10
-  %2670 = sub i64 %2669, 4
-  %2671 = call i64 @rb_str_resize(i64 noundef %2667, i64 noundef %2670)
+2669:                                             ; preds = %2662
+  %2670 = load i64, ptr %6, align 8
+  %2671 = load i64, ptr %6, align 8
+  %2672 = call i64 @RSTRING_LEN(i64 noundef %2671) #10
+  %2673 = sub i64 %2672, 4
+  %2674 = call i64 @rb_str_resize(i64 noundef %2670, i64 noundef %2673)
   store i32 0, ptr %9, align 4
-  br label %2656, !llvm.loop !72
+  br label %2659, !llvm.loop !72
 
-2672:                                             ; preds = %2656
-  br label %7932
+2675:                                             ; preds = %2659
+  br label %7940
 
-2673:                                             ; preds = %24
-  %2674 = load i32, ptr %7, align 4
-  %2675 = icmp ne i32 %2674, 0
-  br i1 %2675, label %2676, label %2681
+2676:                                             ; preds = %24
+  %2677 = load i32, ptr %7, align 4
+  %2678 = icmp ne i32 %2677, 0
+  br i1 %2678, label %2679, label %2684
 
-2676:                                             ; preds = %2673
-  %2677 = load i64, ptr %5, align 8
-  %2678 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2677, i64 noundef %2678)
-  %2679 = load i64, ptr %5, align 8
-  %2680 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2679, ptr noundef @.str.155)
-  br label %2681
+2679:                                             ; preds = %2676
+  %2680 = load i64, ptr %5, align 8
+  %2681 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2680, i64 noundef %2681)
+  %2682 = load i64, ptr %5, align 8
+  %2683 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2682, ptr noundef @.str.155)
+  br label %2684
 
-2681:                                             ; preds = %2676, %2673
-  %2682 = load i32, ptr %7, align 4
-  %2683 = icmp ne i32 %2682, 0
-  br i1 %2683, label %2684, label %2689
+2684:                                             ; preds = %2679, %2676
+  %2685 = load i32, ptr %7, align 4
+  %2686 = icmp ne i32 %2685, 0
+  br i1 %2686, label %2687, label %2692
 
-2684:                                             ; preds = %2681
-  %2685 = load i64, ptr %5, align 8
-  %2686 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2685, i64 noundef %2686)
-  %2687 = load i64, ptr %5, align 8
-  %2688 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2687, ptr noundef @.str.156)
-  br label %2689
+2687:                                             ; preds = %2684
+  %2688 = load i64, ptr %5, align 8
+  %2689 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2688, i64 noundef %2689)
+  %2690 = load i64, ptr %5, align 8
+  %2691 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2690, ptr noundef @.str.156)
+  br label %2692
 
-2689:                                             ; preds = %2684, %2681
-  %2690 = load i32, ptr %7, align 4
-  %2691 = icmp ne i32 %2690, 0
-  br i1 %2691, label %2692, label %2697
+2692:                                             ; preds = %2687, %2684
+  %2693 = load i32, ptr %7, align 4
+  %2694 = icmp ne i32 %2693, 0
+  br i1 %2694, label %2695, label %2700
 
-2692:                                             ; preds = %2689
-  %2693 = load i64, ptr %5, align 8
-  %2694 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2693, i64 noundef %2694)
-  %2695 = load i64, ptr %5, align 8
-  %2696 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2695, ptr noundef @.str.157)
-  br label %2697
-
-2697:                                             ; preds = %2692, %2689
+2695:                                             ; preds = %2692
+  %2696 = load i64, ptr %5, align 8
+  %2697 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2696, i64 noundef %2697)
   %2698 = load i64, ptr %5, align 8
-  %2699 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2698, i64 noundef %2699)
-  %2700 = load i64, ptr %5, align 8
-  %2701 = load i32, ptr %7, align 4
-  %2702 = icmp ne i32 %2701, 0
-  %2703 = select i1 %2702, i64 18, i64 7
-  %2704 = trunc i64 %2703 to i32
-  %2705 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2700, ptr noundef @.str.13, i32 noundef %2704, ptr noundef @.str.151)
-  %2706 = load i64, ptr %6, align 8
-  %2707 = load ptr, ptr %11, align 8
-  %2708 = call i64 @rb_str_cat_cstr(i64 noundef %2706, ptr noundef %2707)
+  %2699 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2698, ptr noundef @.str.157)
+  br label %2700
+
+2700:                                             ; preds = %2695, %2692
+  %2701 = load i64, ptr %5, align 8
+  %2702 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2701, i64 noundef %2702)
+  %2703 = load i64, ptr %5, align 8
+  %2704 = load i32, ptr %7, align 4
+  %2705 = icmp ne i32 %2704, 0
+  %2706 = select i1 %2705, i64 18, i64 7
+  %2707 = trunc i64 %2706 to i32
+  %2708 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2703, ptr noundef @.str.13, i32 noundef %2707, ptr noundef @.str.151)
+  %2709 = load i64, ptr %6, align 8
+  %2710 = load ptr, ptr %11, align 8
+  %2711 = call i64 @rb_str_cat_cstr(i64 noundef %2709, ptr noundef %2710)
   store i32 1, ptr %9, align 4
-  br label %2709
+  br label %2712
 
-2709:                                             ; preds = %2719, %2697
-  %2710 = load i32, ptr %9, align 4
-  %2711 = icmp ne i32 %2710, 0
-  br i1 %2711, label %2712, label %2725
+2712:                                             ; preds = %2722, %2700
+  %2713 = load i32, ptr %9, align 4
+  %2714 = icmp ne i32 %2713, 0
+  br i1 %2714, label %2715, label %2728
 
-2712:                                             ; preds = %2709
-  %2713 = load i64, ptr %5, align 8
-  %2714 = load i64, ptr %6, align 8
-  %2715 = load i32, ptr %7, align 4
-  %2716 = load ptr, ptr %8, align 8
-  %2717 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2716, i32 0, i32 1
-  %2718 = load ptr, ptr %2717, align 8
-  call void @dump_node(i64 noundef %2713, i64 noundef %2714, i32 noundef %2715, ptr noundef %2718)
-  br label %2719
+2715:                                             ; preds = %2712
+  %2716 = load i64, ptr %5, align 8
+  %2717 = load i64, ptr %6, align 8
+  %2718 = load i32, ptr %7, align 4
+  %2719 = load ptr, ptr %8, align 8
+  %2720 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2719, i32 0, i32 1
+  %2721 = load ptr, ptr %2720, align 8
+  call void @dump_node(i64 noundef %2716, i64 noundef %2717, i32 noundef %2718, ptr noundef %2721)
+  br label %2722
 
-2719:                                             ; preds = %2712
-  %2720 = load i64, ptr %6, align 8
-  %2721 = load i64, ptr %6, align 8
-  %2722 = call i64 @RSTRING_LEN(i64 noundef %2721) #10
-  %2723 = sub i64 %2722, 4
-  %2724 = call i64 @rb_str_resize(i64 noundef %2720, i64 noundef %2723)
+2722:                                             ; preds = %2715
+  %2723 = load i64, ptr %6, align 8
+  %2724 = load i64, ptr %6, align 8
+  %2725 = call i64 @RSTRING_LEN(i64 noundef %2724) #10
+  %2726 = sub i64 %2725, 4
+  %2727 = call i64 @rb_str_resize(i64 noundef %2723, i64 noundef %2726)
   store i32 0, ptr %9, align 4
-  br label %2709, !llvm.loop !73
+  br label %2712, !llvm.loop !73
 
-2725:                                             ; preds = %2709
-  %2726 = load i64, ptr %5, align 8
-  %2727 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2726, i64 noundef %2727)
-  %2728 = load i64, ptr %5, align 8
-  %2729 = load i32, ptr %7, align 4
-  %2730 = icmp ne i32 %2729, 0
-  %2731 = select i1 %2730, i64 13, i64 6
-  %2732 = trunc i64 %2731 to i32
-  %2733 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2728, ptr noundef @.str.51, i32 noundef %2732, ptr noundef @.str.158)
+2728:                                             ; preds = %2712
+  %2729 = load i64, ptr %5, align 8
+  %2730 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2729, i64 noundef %2730)
+  %2731 = load i64, ptr %5, align 8
+  %2732 = load i32, ptr %7, align 4
+  %2733 = icmp ne i32 %2732, 0
+  %2734 = select i1 %2733, i64 13, i64 6
+  %2735 = trunc i64 %2734 to i32
+  %2736 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2731, ptr noundef @.str.51, i32 noundef %2735, ptr noundef @.str.158)
   store i32 1, ptr %9, align 4
-  br label %2734
+  br label %2737
 
-2734:                                             ; preds = %2750, %2725
-  %2735 = load i32, ptr %9, align 4
-  %2736 = icmp ne i32 %2735, 0
-  br i1 %2736, label %2737, label %2753
+2737:                                             ; preds = %2753, %2728
+  %2738 = load i32, ptr %9, align 4
+  %2739 = icmp ne i32 %2738, 0
+  br i1 %2739, label %2740, label %2756
 
-2737:                                             ; preds = %2734
-  %2738 = load ptr, ptr %8, align 8
-  %2739 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2738, i32 0, i32 5
-  %2740 = load i8, ptr %2739, align 8
-  %2741 = trunc i8 %2740 to i1
-  br i1 %2741, label %2742, label %2745
+2740:                                             ; preds = %2737
+  %2741 = load ptr, ptr %8, align 8
+  %2742 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2741, i32 0, i32 5
+  %2743 = load i8, ptr %2742, align 8
+  %2744 = trunc i8 %2743 to i1
+  br i1 %2744, label %2745, label %2748
 
-2742:                                             ; preds = %2737
-  %2743 = load i64, ptr %5, align 8
-  %2744 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2743, ptr noundef @.str.159)
-  br label %2745
-
-2745:                                             ; preds = %2742, %2737
+2745:                                             ; preds = %2740
   %2746 = load i64, ptr %5, align 8
-  %2747 = load ptr, ptr %8, align 8
-  %2748 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2747, i32 0, i32 3
-  %2749 = load i64, ptr %2748, align 8
-  call void @add_id(i64 noundef %2746, i64 noundef %2749)
-  br label %2750
+  %2747 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2746, ptr noundef @.str.159)
+  br label %2748
 
-2750:                                             ; preds = %2745
-  %2751 = load i64, ptr %5, align 8
-  %2752 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2751, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2734, !llvm.loop !74
+2748:                                             ; preds = %2745, %2740
+  %2749 = load i64, ptr %5, align 8
+  %2750 = load ptr, ptr %8, align 8
+  %2751 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2750, i32 0, i32 3
+  %2752 = load i64, ptr %2751, align 8
+  call void @add_id(i64 noundef %2749, i64 noundef %2752)
+  br label %2753
 
-2753:                                             ; preds = %2734
+2753:                                             ; preds = %2748
   %2754 = load i64, ptr %5, align 8
-  %2755 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2754, i64 noundef %2755)
-  %2756 = load i64, ptr %5, align 8
-  %2757 = load i32, ptr %7, align 4
-  %2758 = icmp ne i32 %2757, 0
-  %2759 = select i1 %2758, i64 17, i64 6
-  %2760 = trunc i64 %2759 to i32
-  %2761 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2756, ptr noundef @.str.51, i32 noundef %2760, ptr noundef @.str.152)
-  store i32 1, ptr %9, align 4
-  br label %2762
-
-2762:                                             ; preds = %2770, %2753
-  %2763 = load i32, ptr %9, align 4
-  %2764 = icmp ne i32 %2763, 0
-  br i1 %2764, label %2765, label %2773
-
-2765:                                             ; preds = %2762
-  %2766 = load i64, ptr %5, align 8
-  %2767 = load ptr, ptr %8, align 8
-  %2768 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2767, i32 0, i32 4
-  %2769 = load i64, ptr %2768, align 8
-  call void @add_id(i64 noundef %2766, i64 noundef %2769)
-  br label %2770
-
-2770:                                             ; preds = %2765
-  %2771 = load i64, ptr %5, align 8
-  %2772 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2771, ptr noundef @.str.56)
+  %2755 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2754, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2762, !llvm.loop !75
+  br label %2737, !llvm.loop !74
 
-2773:                                             ; preds = %2762
-  store ptr @.str.12, ptr %11, align 8
+2756:                                             ; preds = %2737
+  %2757 = load i64, ptr %5, align 8
+  %2758 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2757, i64 noundef %2758)
+  %2759 = load i64, ptr %5, align 8
+  %2760 = load i32, ptr %7, align 4
+  %2761 = icmp ne i32 %2760, 0
+  %2762 = select i1 %2761, i64 17, i64 6
+  %2763 = trunc i64 %2762 to i32
+  %2764 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2759, ptr noundef @.str.51, i32 noundef %2763, ptr noundef @.str.152)
+  store i32 1, ptr %9, align 4
+  br label %2765
+
+2765:                                             ; preds = %2773, %2756
+  %2766 = load i32, ptr %9, align 4
+  %2767 = icmp ne i32 %2766, 0
+  br i1 %2767, label %2768, label %2776
+
+2768:                                             ; preds = %2765
+  %2769 = load i64, ptr %5, align 8
+  %2770 = load ptr, ptr %8, align 8
+  %2771 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2770, i32 0, i32 4
+  %2772 = load i64, ptr %2771, align 8
+  call void @add_id(i64 noundef %2769, i64 noundef %2772)
+  br label %2773
+
+2773:                                             ; preds = %2768
   %2774 = load i64, ptr %5, align 8
-  %2775 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2774, i64 noundef %2775)
-  %2776 = load i64, ptr %5, align 8
-  %2777 = load i32, ptr %7, align 4
-  %2778 = icmp ne i32 %2777, 0
-  %2779 = select i1 %2778, i64 17, i64 8
-  %2780 = trunc i64 %2779 to i32
-  %2781 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2776, ptr noundef @.str.13, i32 noundef %2780, ptr noundef @.str.123)
-  %2782 = load i64, ptr %6, align 8
-  %2783 = load ptr, ptr %11, align 8
-  %2784 = call i64 @rb_str_cat_cstr(i64 noundef %2782, ptr noundef %2783)
-  store i32 1, ptr %9, align 4
-  br label %2785
-
-2785:                                             ; preds = %2795, %2773
-  %2786 = load i32, ptr %9, align 4
-  %2787 = icmp ne i32 %2786, 0
-  br i1 %2787, label %2788, label %2801
-
-2788:                                             ; preds = %2785
-  %2789 = load i64, ptr %5, align 8
-  %2790 = load i64, ptr %6, align 8
-  %2791 = load i32, ptr %7, align 4
-  %2792 = load ptr, ptr %8, align 8
-  %2793 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2792, i32 0, i32 2
-  %2794 = load ptr, ptr %2793, align 8
-  call void @dump_node(i64 noundef %2789, i64 noundef %2790, i32 noundef %2791, ptr noundef %2794)
-  br label %2795
-
-2795:                                             ; preds = %2788
-  %2796 = load i64, ptr %6, align 8
-  %2797 = load i64, ptr %6, align 8
-  %2798 = call i64 @RSTRING_LEN(i64 noundef %2797) #10
-  %2799 = sub i64 %2798, 4
-  %2800 = call i64 @rb_str_resize(i64 noundef %2796, i64 noundef %2799)
+  %2775 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2774, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2785, !llvm.loop !76
+  br label %2765, !llvm.loop !75
 
-2801:                                             ; preds = %2785
-  br label %7932
-
-2802:                                             ; preds = %24
-  %2803 = load i32, ptr %7, align 4
-  %2804 = icmp ne i32 %2803, 0
-  br i1 %2804, label %2805, label %2810
-
-2805:                                             ; preds = %2802
-  %2806 = load i64, ptr %5, align 8
-  %2807 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2806, i64 noundef %2807)
-  %2808 = load i64, ptr %5, align 8
-  %2809 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2808, ptr noundef @.str.160)
-  br label %2810
-
-2810:                                             ; preds = %2805, %2802
-  %2811 = load i32, ptr %7, align 4
-  %2812 = icmp ne i32 %2811, 0
-  br i1 %2812, label %2813, label %2818
-
-2813:                                             ; preds = %2810
-  %2814 = load i64, ptr %5, align 8
-  %2815 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2814, i64 noundef %2815)
-  %2816 = load i64, ptr %5, align 8
-  %2817 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2816, ptr noundef @.str.161)
-  br label %2818
-
-2818:                                             ; preds = %2813, %2810
-  %2819 = load i32, ptr %7, align 4
-  %2820 = icmp ne i32 %2819, 0
-  br i1 %2820, label %2821, label %2826
-
-2821:                                             ; preds = %2818
-  %2822 = load i64, ptr %5, align 8
-  %2823 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2822, i64 noundef %2823)
-  %2824 = load i64, ptr %5, align 8
-  %2825 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2824, ptr noundef @.str.162)
-  br label %2826
-
-2826:                                             ; preds = %2821, %2818
-  br label %2852
-
-2827:                                             ; preds = %24
-  %2828 = load i32, ptr %7, align 4
-  %2829 = icmp ne i32 %2828, 0
-  br i1 %2829, label %2830, label %2835
-
-2830:                                             ; preds = %2827
-  %2831 = load i64, ptr %5, align 8
-  %2832 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2831, i64 noundef %2832)
-  %2833 = load i64, ptr %5, align 8
-  %2834 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2833, ptr noundef @.str.163)
-  br label %2835
-
-2835:                                             ; preds = %2830, %2827
-  %2836 = load i32, ptr %7, align 4
-  %2837 = icmp ne i32 %2836, 0
-  br i1 %2837, label %2838, label %2843
-
-2838:                                             ; preds = %2835
-  %2839 = load i64, ptr %5, align 8
-  %2840 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2839, i64 noundef %2840)
-  %2841 = load i64, ptr %5, align 8
-  %2842 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2841, ptr noundef @.str.164)
-  br label %2843
-
-2843:                                             ; preds = %2838, %2835
-  %2844 = load i32, ptr %7, align 4
-  %2845 = icmp ne i32 %2844, 0
-  br i1 %2845, label %2846, label %2851
-
-2846:                                             ; preds = %2843
-  %2847 = load i64, ptr %5, align 8
-  %2848 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2847, i64 noundef %2848)
-  %2849 = load i64, ptr %5, align 8
-  %2850 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2849, ptr noundef @.str.165)
-  br label %2851
-
-2851:                                             ; preds = %2846, %2843
-  br label %2852
-
-2852:                                             ; preds = %2851, %2826
-  %2853 = load i64, ptr %5, align 8
-  %2854 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2853, i64 noundef %2854)
-  %2855 = load i64, ptr %5, align 8
-  %2856 = load i32, ptr %7, align 4
-  %2857 = icmp ne i32 %2856, 0
-  %2858 = select i1 %2857, i64 18, i64 7
-  %2859 = trunc i64 %2858 to i32
-  %2860 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2855, ptr noundef @.str.13, i32 noundef %2859, ptr noundef @.str.166)
-  %2861 = load i64, ptr %6, align 8
-  %2862 = load ptr, ptr %11, align 8
-  %2863 = call i64 @rb_str_cat_cstr(i64 noundef %2861, ptr noundef %2862)
-  store i32 1, ptr %9, align 4
-  br label %2864
-
-2864:                                             ; preds = %2874, %2852
-  %2865 = load i32, ptr %9, align 4
-  %2866 = icmp ne i32 %2865, 0
-  br i1 %2866, label %2867, label %2880
-
-2867:                                             ; preds = %2864
-  %2868 = load i64, ptr %5, align 8
-  %2869 = load i64, ptr %6, align 8
-  %2870 = load i32, ptr %7, align 4
-  %2871 = load ptr, ptr %8, align 8
-  %2872 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %2871, i32 0, i32 1
-  %2873 = load ptr, ptr %2872, align 8
-  call void @dump_node(i64 noundef %2868, i64 noundef %2869, i32 noundef %2870, ptr noundef %2873)
-  br label %2874
-
-2874:                                             ; preds = %2867
-  %2875 = load i64, ptr %6, align 8
-  %2876 = load i64, ptr %6, align 8
-  %2877 = call i64 @RSTRING_LEN(i64 noundef %2876) #10
-  %2878 = sub i64 %2877, 4
-  %2879 = call i64 @rb_str_resize(i64 noundef %2875, i64 noundef %2878)
-  store i32 0, ptr %9, align 4
-  br label %2864, !llvm.loop !77
-
-2880:                                             ; preds = %2864
+2776:                                             ; preds = %2765
   store ptr @.str.12, ptr %11, align 8
-  %2881 = load i64, ptr %5, align 8
-  %2882 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2881, i64 noundef %2882)
-  %2883 = load i64, ptr %5, align 8
-  %2884 = load i32, ptr %7, align 4
-  %2885 = icmp ne i32 %2884, 0
-  %2886 = select i1 %2885, i64 17, i64 8
-  %2887 = trunc i64 %2886 to i32
-  %2888 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2883, ptr noundef @.str.13, i32 noundef %2887, ptr noundef @.str.123)
-  %2889 = load i64, ptr %6, align 8
-  %2890 = load ptr, ptr %11, align 8
-  %2891 = call i64 @rb_str_cat_cstr(i64 noundef %2889, ptr noundef %2890)
+  %2777 = load i64, ptr %5, align 8
+  %2778 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2777, i64 noundef %2778)
+  %2779 = load i64, ptr %5, align 8
+  %2780 = load i32, ptr %7, align 4
+  %2781 = icmp ne i32 %2780, 0
+  %2782 = select i1 %2781, i64 17, i64 8
+  %2783 = trunc i64 %2782 to i32
+  %2784 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2779, ptr noundef @.str.13, i32 noundef %2783, ptr noundef @.str.123)
+  %2785 = load i64, ptr %6, align 8
+  %2786 = load ptr, ptr %11, align 8
+  %2787 = call i64 @rb_str_cat_cstr(i64 noundef %2785, ptr noundef %2786)
   store i32 1, ptr %9, align 4
-  br label %2892
+  br label %2788
 
-2892:                                             ; preds = %2902, %2880
-  %2893 = load i32, ptr %9, align 4
-  %2894 = icmp ne i32 %2893, 0
-  br i1 %2894, label %2895, label %2908
+2788:                                             ; preds = %2798, %2776
+  %2789 = load i32, ptr %9, align 4
+  %2790 = icmp ne i32 %2789, 0
+  br i1 %2790, label %2791, label %2804
 
-2895:                                             ; preds = %2892
-  %2896 = load i64, ptr %5, align 8
-  %2897 = load i64, ptr %6, align 8
-  %2898 = load i32, ptr %7, align 4
-  %2899 = load ptr, ptr %8, align 8
-  %2900 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %2899, i32 0, i32 2
-  %2901 = load ptr, ptr %2900, align 8
-  call void @dump_node(i64 noundef %2896, i64 noundef %2897, i32 noundef %2898, ptr noundef %2901)
-  br label %2902
+2791:                                             ; preds = %2788
+  %2792 = load i64, ptr %5, align 8
+  %2793 = load i64, ptr %6, align 8
+  %2794 = load i32, ptr %7, align 4
+  %2795 = load ptr, ptr %8, align 8
+  %2796 = getelementptr inbounds %struct.RNode_OP_ASGN2, ptr %2795, i32 0, i32 2
+  %2797 = load ptr, ptr %2796, align 8
+  call void @dump_node(i64 noundef %2792, i64 noundef %2793, i32 noundef %2794, ptr noundef %2797)
+  br label %2798
 
-2902:                                             ; preds = %2895
-  %2903 = load i64, ptr %6, align 8
-  %2904 = load i64, ptr %6, align 8
-  %2905 = call i64 @RSTRING_LEN(i64 noundef %2904) #10
-  %2906 = sub i64 %2905, 4
-  %2907 = call i64 @rb_str_resize(i64 noundef %2903, i64 noundef %2906)
+2798:                                             ; preds = %2791
+  %2799 = load i64, ptr %6, align 8
+  %2800 = load i64, ptr %6, align 8
+  %2801 = call i64 @RSTRING_LEN(i64 noundef %2800) #10
+  %2802 = sub i64 %2801, 4
+  %2803 = call i64 @rb_str_resize(i64 noundef %2799, i64 noundef %2802)
   store i32 0, ptr %9, align 4
-  br label %2892, !llvm.loop !78
+  br label %2788, !llvm.loop !76
 
-2908:                                             ; preds = %2892
-  br label %7932
+2804:                                             ; preds = %2788
+  br label %7940
 
-2909:                                             ; preds = %24
-  %2910 = load i32, ptr %7, align 4
-  %2911 = icmp ne i32 %2910, 0
-  br i1 %2911, label %2912, label %2917
+2805:                                             ; preds = %24
+  %2806 = load i32, ptr %7, align 4
+  %2807 = icmp ne i32 %2806, 0
+  br i1 %2807, label %2808, label %2813
 
-2912:                                             ; preds = %2909
-  %2913 = load i64, ptr %5, align 8
-  %2914 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2913, i64 noundef %2914)
-  %2915 = load i64, ptr %5, align 8
-  %2916 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2915, ptr noundef @.str.167)
-  br label %2917
+2808:                                             ; preds = %2805
+  %2809 = load i64, ptr %5, align 8
+  %2810 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2809, i64 noundef %2810)
+  %2811 = load i64, ptr %5, align 8
+  %2812 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2811, ptr noundef @.str.160)
+  br label %2813
 
-2917:                                             ; preds = %2912, %2909
-  %2918 = load i32, ptr %7, align 4
-  %2919 = icmp ne i32 %2918, 0
-  br i1 %2919, label %2920, label %2925
+2813:                                             ; preds = %2808, %2805
+  %2814 = load i32, ptr %7, align 4
+  %2815 = icmp ne i32 %2814, 0
+  br i1 %2815, label %2816, label %2821
 
-2920:                                             ; preds = %2917
-  %2921 = load i64, ptr %5, align 8
-  %2922 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2921, i64 noundef %2922)
-  %2923 = load i64, ptr %5, align 8
-  %2924 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2923, ptr noundef @.str.168)
-  br label %2925
+2816:                                             ; preds = %2813
+  %2817 = load i64, ptr %5, align 8
+  %2818 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2817, i64 noundef %2818)
+  %2819 = load i64, ptr %5, align 8
+  %2820 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2819, ptr noundef @.str.161)
+  br label %2821
 
-2925:                                             ; preds = %2920, %2917
-  %2926 = load i32, ptr %7, align 4
-  %2927 = icmp ne i32 %2926, 0
-  br i1 %2927, label %2928, label %2933
+2821:                                             ; preds = %2816, %2813
+  %2822 = load i32, ptr %7, align 4
+  %2823 = icmp ne i32 %2822, 0
+  br i1 %2823, label %2824, label %2829
 
-2928:                                             ; preds = %2925
-  %2929 = load i64, ptr %5, align 8
-  %2930 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2929, i64 noundef %2930)
-  %2931 = load i64, ptr %5, align 8
-  %2932 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2931, ptr noundef @.str.169)
-  br label %2933
+2824:                                             ; preds = %2821
+  %2825 = load i64, ptr %5, align 8
+  %2826 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2825, i64 noundef %2826)
+  %2827 = load i64, ptr %5, align 8
+  %2828 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2827, ptr noundef @.str.162)
+  br label %2829
 
-2933:                                             ; preds = %2928, %2925
+2829:                                             ; preds = %2824, %2821
+  br label %2855
+
+2830:                                             ; preds = %24
+  %2831 = load i32, ptr %7, align 4
+  %2832 = icmp ne i32 %2831, 0
+  br i1 %2832, label %2833, label %2838
+
+2833:                                             ; preds = %2830
+  %2834 = load i64, ptr %5, align 8
+  %2835 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2834, i64 noundef %2835)
+  %2836 = load i64, ptr %5, align 8
+  %2837 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2836, ptr noundef @.str.163)
+  br label %2838
+
+2838:                                             ; preds = %2833, %2830
+  %2839 = load i32, ptr %7, align 4
+  %2840 = icmp ne i32 %2839, 0
+  br i1 %2840, label %2841, label %2846
+
+2841:                                             ; preds = %2838
+  %2842 = load i64, ptr %5, align 8
+  %2843 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2842, i64 noundef %2843)
+  %2844 = load i64, ptr %5, align 8
+  %2845 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2844, ptr noundef @.str.164)
+  br label %2846
+
+2846:                                             ; preds = %2841, %2838
+  %2847 = load i32, ptr %7, align 4
+  %2848 = icmp ne i32 %2847, 0
+  br i1 %2848, label %2849, label %2854
+
+2849:                                             ; preds = %2846
+  %2850 = load i64, ptr %5, align 8
+  %2851 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2850, i64 noundef %2851)
+  %2852 = load i64, ptr %5, align 8
+  %2853 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2852, ptr noundef @.str.165)
+  br label %2854
+
+2854:                                             ; preds = %2849, %2846
+  br label %2855
+
+2855:                                             ; preds = %2854, %2829
+  %2856 = load i64, ptr %5, align 8
+  %2857 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2856, i64 noundef %2857)
+  %2858 = load i64, ptr %5, align 8
+  %2859 = load i32, ptr %7, align 4
+  %2860 = icmp ne i32 %2859, 0
+  %2861 = select i1 %2860, i64 18, i64 7
+  %2862 = trunc i64 %2861 to i32
+  %2863 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2858, ptr noundef @.str.13, i32 noundef %2862, ptr noundef @.str.166)
+  %2864 = load i64, ptr %6, align 8
+  %2865 = load ptr, ptr %11, align 8
+  %2866 = call i64 @rb_str_cat_cstr(i64 noundef %2864, ptr noundef %2865)
+  store i32 1, ptr %9, align 4
+  br label %2867
+
+2867:                                             ; preds = %2877, %2855
+  %2868 = load i32, ptr %9, align 4
+  %2869 = icmp ne i32 %2868, 0
+  br i1 %2869, label %2870, label %2883
+
+2870:                                             ; preds = %2867
+  %2871 = load i64, ptr %5, align 8
+  %2872 = load i64, ptr %6, align 8
+  %2873 = load i32, ptr %7, align 4
+  %2874 = load ptr, ptr %8, align 8
+  %2875 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %2874, i32 0, i32 1
+  %2876 = load ptr, ptr %2875, align 8
+  call void @dump_node(i64 noundef %2871, i64 noundef %2872, i32 noundef %2873, ptr noundef %2876)
+  br label %2877
+
+2877:                                             ; preds = %2870
+  %2878 = load i64, ptr %6, align 8
+  %2879 = load i64, ptr %6, align 8
+  %2880 = call i64 @RSTRING_LEN(i64 noundef %2879) #10
+  %2881 = sub i64 %2880, 4
+  %2882 = call i64 @rb_str_resize(i64 noundef %2878, i64 noundef %2881)
+  store i32 0, ptr %9, align 4
+  br label %2867, !llvm.loop !77
+
+2883:                                             ; preds = %2867
+  store ptr @.str.12, ptr %11, align 8
+  %2884 = load i64, ptr %5, align 8
+  %2885 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2884, i64 noundef %2885)
+  %2886 = load i64, ptr %5, align 8
+  %2887 = load i32, ptr %7, align 4
+  %2888 = icmp ne i32 %2887, 0
+  %2889 = select i1 %2888, i64 17, i64 8
+  %2890 = trunc i64 %2889 to i32
+  %2891 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2886, ptr noundef @.str.13, i32 noundef %2890, ptr noundef @.str.123)
+  %2892 = load i64, ptr %6, align 8
+  %2893 = load ptr, ptr %11, align 8
+  %2894 = call i64 @rb_str_cat_cstr(i64 noundef %2892, ptr noundef %2893)
+  store i32 1, ptr %9, align 4
+  br label %2895
+
+2895:                                             ; preds = %2905, %2883
+  %2896 = load i32, ptr %9, align 4
+  %2897 = icmp ne i32 %2896, 0
+  br i1 %2897, label %2898, label %2911
+
+2898:                                             ; preds = %2895
+  %2899 = load i64, ptr %5, align 8
+  %2900 = load i64, ptr %6, align 8
+  %2901 = load i32, ptr %7, align 4
+  %2902 = load ptr, ptr %8, align 8
+  %2903 = getelementptr inbounds %struct.RNode_OP_ASGN_AND, ptr %2902, i32 0, i32 2
+  %2904 = load ptr, ptr %2903, align 8
+  call void @dump_node(i64 noundef %2899, i64 noundef %2900, i32 noundef %2901, ptr noundef %2904)
+  br label %2905
+
+2905:                                             ; preds = %2898
+  %2906 = load i64, ptr %6, align 8
+  %2907 = load i64, ptr %6, align 8
+  %2908 = call i64 @RSTRING_LEN(i64 noundef %2907) #10
+  %2909 = sub i64 %2908, 4
+  %2910 = call i64 @rb_str_resize(i64 noundef %2906, i64 noundef %2909)
+  store i32 0, ptr %9, align 4
+  br label %2895, !llvm.loop !78
+
+2911:                                             ; preds = %2895
+  br label %7940
+
+2912:                                             ; preds = %24
+  %2913 = load i32, ptr %7, align 4
+  %2914 = icmp ne i32 %2913, 0
+  br i1 %2914, label %2915, label %2920
+
+2915:                                             ; preds = %2912
+  %2916 = load i64, ptr %5, align 8
+  %2917 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2916, i64 noundef %2917)
+  %2918 = load i64, ptr %5, align 8
+  %2919 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2918, ptr noundef @.str.167)
+  br label %2920
+
+2920:                                             ; preds = %2915, %2912
+  %2921 = load i32, ptr %7, align 4
+  %2922 = icmp ne i32 %2921, 0
+  br i1 %2922, label %2923, label %2928
+
+2923:                                             ; preds = %2920
+  %2924 = load i64, ptr %5, align 8
+  %2925 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2924, i64 noundef %2925)
+  %2926 = load i64, ptr %5, align 8
+  %2927 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2926, ptr noundef @.str.168)
+  br label %2928
+
+2928:                                             ; preds = %2923, %2920
+  %2929 = load i32, ptr %7, align 4
+  %2930 = icmp ne i32 %2929, 0
+  br i1 %2930, label %2931, label %2936
+
+2931:                                             ; preds = %2928
+  %2932 = load i64, ptr %5, align 8
+  %2933 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2932, i64 noundef %2933)
   %2934 = load i64, ptr %5, align 8
-  %2935 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2934, i64 noundef %2935)
-  %2936 = load i64, ptr %5, align 8
-  %2937 = load i32, ptr %7, align 4
-  %2938 = icmp ne i32 %2937, 0
-  %2939 = select i1 %2938, i64 18, i64 7
-  %2940 = trunc i64 %2939 to i32
-  %2941 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2936, ptr noundef @.str.13, i32 noundef %2940, ptr noundef @.str.170)
-  %2942 = load i64, ptr %6, align 8
-  %2943 = load ptr, ptr %11, align 8
-  %2944 = call i64 @rb_str_cat_cstr(i64 noundef %2942, ptr noundef %2943)
+  %2935 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2934, ptr noundef @.str.169)
+  br label %2936
+
+2936:                                             ; preds = %2931, %2928
+  %2937 = load i64, ptr %5, align 8
+  %2938 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2937, i64 noundef %2938)
+  %2939 = load i64, ptr %5, align 8
+  %2940 = load i32, ptr %7, align 4
+  %2941 = icmp ne i32 %2940, 0
+  %2942 = select i1 %2941, i64 18, i64 7
+  %2943 = trunc i64 %2942 to i32
+  %2944 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2939, ptr noundef @.str.13, i32 noundef %2943, ptr noundef @.str.170)
+  %2945 = load i64, ptr %6, align 8
+  %2946 = load ptr, ptr %11, align 8
+  %2947 = call i64 @rb_str_cat_cstr(i64 noundef %2945, ptr noundef %2946)
   store i32 1, ptr %9, align 4
-  br label %2945
+  br label %2948
 
-2945:                                             ; preds = %2955, %2933
-  %2946 = load i32, ptr %9, align 4
-  %2947 = icmp ne i32 %2946, 0
-  br i1 %2947, label %2948, label %2961
+2948:                                             ; preds = %2958, %2936
+  %2949 = load i32, ptr %9, align 4
+  %2950 = icmp ne i32 %2949, 0
+  br i1 %2950, label %2951, label %2964
 
-2948:                                             ; preds = %2945
-  %2949 = load i64, ptr %5, align 8
-  %2950 = load i64, ptr %6, align 8
-  %2951 = load i32, ptr %7, align 4
-  %2952 = load ptr, ptr %8, align 8
-  %2953 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %2952, i32 0, i32 1
-  %2954 = load ptr, ptr %2953, align 8
-  call void @dump_node(i64 noundef %2949, i64 noundef %2950, i32 noundef %2951, ptr noundef %2954)
-  br label %2955
+2951:                                             ; preds = %2948
+  %2952 = load i64, ptr %5, align 8
+  %2953 = load i64, ptr %6, align 8
+  %2954 = load i32, ptr %7, align 4
+  %2955 = load ptr, ptr %8, align 8
+  %2956 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %2955, i32 0, i32 1
+  %2957 = load ptr, ptr %2956, align 8
+  call void @dump_node(i64 noundef %2952, i64 noundef %2953, i32 noundef %2954, ptr noundef %2957)
+  br label %2958
 
-2955:                                             ; preds = %2948
-  %2956 = load i64, ptr %6, align 8
-  %2957 = load i64, ptr %6, align 8
-  %2958 = call i64 @RSTRING_LEN(i64 noundef %2957) #10
-  %2959 = sub i64 %2958, 4
-  %2960 = call i64 @rb_str_resize(i64 noundef %2956, i64 noundef %2959)
+2958:                                             ; preds = %2951
+  %2959 = load i64, ptr %6, align 8
+  %2960 = load i64, ptr %6, align 8
+  %2961 = call i64 @RSTRING_LEN(i64 noundef %2960) #10
+  %2962 = sub i64 %2961, 4
+  %2963 = call i64 @rb_str_resize(i64 noundef %2959, i64 noundef %2962)
   store i32 0, ptr %9, align 4
-  br label %2945, !llvm.loop !79
+  br label %2948, !llvm.loop !79
 
-2961:                                             ; preds = %2945
-  %2962 = load i64, ptr %5, align 8
-  %2963 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2962, i64 noundef %2963)
-  %2964 = load i64, ptr %5, align 8
-  %2965 = load i32, ptr %7, align 4
-  %2966 = icmp ne i32 %2965, 0
-  %2967 = select i1 %2966, i64 17, i64 6
-  %2968 = trunc i64 %2967 to i32
-  %2969 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2964, ptr noundef @.str.51, i32 noundef %2968, ptr noundef @.str.171)
+2964:                                             ; preds = %2948
+  %2965 = load i64, ptr %5, align 8
+  %2966 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2965, i64 noundef %2966)
+  %2967 = load i64, ptr %5, align 8
+  %2968 = load i32, ptr %7, align 4
+  %2969 = icmp ne i32 %2968, 0
+  %2970 = select i1 %2969, i64 17, i64 6
+  %2971 = trunc i64 %2970 to i32
+  %2972 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2967, ptr noundef @.str.51, i32 noundef %2971, ptr noundef @.str.171)
   store i32 1, ptr %9, align 4
-  br label %2970
+  br label %2973
 
-2970:                                             ; preds = %2978, %2961
-  %2971 = load i32, ptr %9, align 4
-  %2972 = icmp ne i32 %2971, 0
-  br i1 %2972, label %2973, label %2981
+2973:                                             ; preds = %2981, %2964
+  %2974 = load i32, ptr %9, align 4
+  %2975 = icmp ne i32 %2974, 0
+  br i1 %2975, label %2976, label %2984
 
-2973:                                             ; preds = %2970
-  %2974 = load i64, ptr %5, align 8
-  %2975 = load ptr, ptr %8, align 8
-  %2976 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %2975, i32 0, i32 3
-  %2977 = load i64, ptr %2976, align 8
-  call void @add_id(i64 noundef %2974, i64 noundef %2977)
-  br label %2978
+2976:                                             ; preds = %2973
+  %2977 = load i64, ptr %5, align 8
+  %2978 = load ptr, ptr %8, align 8
+  %2979 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %2978, i32 0, i32 3
+  %2980 = load i64, ptr %2979, align 8
+  call void @add_id(i64 noundef %2977, i64 noundef %2980)
+  br label %2981
 
-2978:                                             ; preds = %2973
-  %2979 = load i64, ptr %5, align 8
-  %2980 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2979, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %2970, !llvm.loop !80
-
-2981:                                             ; preds = %2970
-  store ptr @.str.12, ptr %11, align 8
+2981:                                             ; preds = %2976
   %2982 = load i64, ptr %5, align 8
-  %2983 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %2982, i64 noundef %2983)
-  %2984 = load i64, ptr %5, align 8
-  %2985 = load i32, ptr %7, align 4
-  %2986 = icmp ne i32 %2985, 0
-  %2987 = select i1 %2986, i64 17, i64 8
-  %2988 = trunc i64 %2987 to i32
-  %2989 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2984, ptr noundef @.str.13, i32 noundef %2988, ptr noundef @.str.123)
-  %2990 = load i64, ptr %6, align 8
-  %2991 = load ptr, ptr %11, align 8
-  %2992 = call i64 @rb_str_cat_cstr(i64 noundef %2990, ptr noundef %2991)
-  store i32 1, ptr %9, align 4
-  br label %2993
-
-2993:                                             ; preds = %3003, %2981
-  %2994 = load i32, ptr %9, align 4
-  %2995 = icmp ne i32 %2994, 0
-  br i1 %2995, label %2996, label %3009
-
-2996:                                             ; preds = %2993
-  %2997 = load i64, ptr %5, align 8
-  %2998 = load i64, ptr %6, align 8
-  %2999 = load i32, ptr %7, align 4
-  %3000 = load ptr, ptr %8, align 8
-  %3001 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %3000, i32 0, i32 2
-  %3002 = load ptr, ptr %3001, align 8
-  call void @dump_node(i64 noundef %2997, i64 noundef %2998, i32 noundef %2999, ptr noundef %3002)
-  br label %3003
-
-3003:                                             ; preds = %2996
-  %3004 = load i64, ptr %6, align 8
-  %3005 = load i64, ptr %6, align 8
-  %3006 = call i64 @RSTRING_LEN(i64 noundef %3005) #10
-  %3007 = sub i64 %3006, 4
-  %3008 = call i64 @rb_str_resize(i64 noundef %3004, i64 noundef %3007)
+  %2983 = call i64 @rbimpl_str_cat_cstr(i64 noundef %2982, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %2993, !llvm.loop !81
+  br label %2973, !llvm.loop !80
 
-3009:                                             ; preds = %2993
-  br label %7932
+2984:                                             ; preds = %2973
+  store ptr @.str.12, ptr %11, align 8
+  %2985 = load i64, ptr %5, align 8
+  %2986 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %2985, i64 noundef %2986)
+  %2987 = load i64, ptr %5, align 8
+  %2988 = load i32, ptr %7, align 4
+  %2989 = icmp ne i32 %2988, 0
+  %2990 = select i1 %2989, i64 17, i64 8
+  %2991 = trunc i64 %2990 to i32
+  %2992 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2987, ptr noundef @.str.13, i32 noundef %2991, ptr noundef @.str.123)
+  %2993 = load i64, ptr %6, align 8
+  %2994 = load ptr, ptr %11, align 8
+  %2995 = call i64 @rb_str_cat_cstr(i64 noundef %2993, ptr noundef %2994)
+  store i32 1, ptr %9, align 4
+  br label %2996
 
-3010:                                             ; preds = %24
-  %3011 = load i32, ptr %7, align 4
-  %3012 = icmp ne i32 %3011, 0
-  br i1 %3012, label %3013, label %3018
+2996:                                             ; preds = %3006, %2984
+  %2997 = load i32, ptr %9, align 4
+  %2998 = icmp ne i32 %2997, 0
+  br i1 %2998, label %2999, label %3012
 
-3013:                                             ; preds = %3010
-  %3014 = load i64, ptr %5, align 8
-  %3015 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3014, i64 noundef %3015)
-  %3016 = load i64, ptr %5, align 8
-  %3017 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3016, ptr noundef @.str.172)
-  br label %3018
+2999:                                             ; preds = %2996
+  %3000 = load i64, ptr %5, align 8
+  %3001 = load i64, ptr %6, align 8
+  %3002 = load i32, ptr %7, align 4
+  %3003 = load ptr, ptr %8, align 8
+  %3004 = getelementptr inbounds %struct.RNode_OP_CDECL, ptr %3003, i32 0, i32 2
+  %3005 = load ptr, ptr %3004, align 8
+  call void @dump_node(i64 noundef %3000, i64 noundef %3001, i32 noundef %3002, ptr noundef %3005)
+  br label %3006
 
-3018:                                             ; preds = %3013, %3010
-  %3019 = load i32, ptr %7, align 4
-  %3020 = icmp ne i32 %3019, 0
-  br i1 %3020, label %3021, label %3026
+3006:                                             ; preds = %2999
+  %3007 = load i64, ptr %6, align 8
+  %3008 = load i64, ptr %6, align 8
+  %3009 = call i64 @RSTRING_LEN(i64 noundef %3008) #10
+  %3010 = sub i64 %3009, 4
+  %3011 = call i64 @rb_str_resize(i64 noundef %3007, i64 noundef %3010)
+  store i32 0, ptr %9, align 4
+  br label %2996, !llvm.loop !81
 
-3021:                                             ; preds = %3018
-  %3022 = load i64, ptr %5, align 8
-  %3023 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3022, i64 noundef %3023)
-  %3024 = load i64, ptr %5, align 8
-  %3025 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3024, ptr noundef @.str.173)
-  br label %3026
+3012:                                             ; preds = %2996
+  br label %7940
 
-3026:                                             ; preds = %3021, %3018
-  %3027 = load i32, ptr %7, align 4
-  %3028 = icmp ne i32 %3027, 0
-  br i1 %3028, label %3029, label %3034
+3013:                                             ; preds = %24
+  %3014 = load i32, ptr %7, align 4
+  %3015 = icmp ne i32 %3014, 0
+  br i1 %3015, label %3016, label %3021
 
-3029:                                             ; preds = %3026
-  %3030 = load i64, ptr %5, align 8
-  %3031 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3030, i64 noundef %3031)
-  %3032 = load i64, ptr %5, align 8
-  %3033 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3032, ptr noundef @.str.174)
-  br label %3034
+3016:                                             ; preds = %3013
+  %3017 = load i64, ptr %5, align 8
+  %3018 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3017, i64 noundef %3018)
+  %3019 = load i64, ptr %5, align 8
+  %3020 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3019, ptr noundef @.str.172)
+  br label %3021
 
-3034:                                             ; preds = %3029, %3026
+3021:                                             ; preds = %3016, %3013
+  %3022 = load i32, ptr %7, align 4
+  %3023 = icmp ne i32 %3022, 0
+  br i1 %3023, label %3024, label %3029
+
+3024:                                             ; preds = %3021
+  %3025 = load i64, ptr %5, align 8
+  %3026 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3025, i64 noundef %3026)
+  %3027 = load i64, ptr %5, align 8
+  %3028 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3027, ptr noundef @.str.173)
+  br label %3029
+
+3029:                                             ; preds = %3024, %3021
+  %3030 = load i32, ptr %7, align 4
+  %3031 = icmp ne i32 %3030, 0
+  br i1 %3031, label %3032, label %3037
+
+3032:                                             ; preds = %3029
+  %3033 = load i64, ptr %5, align 8
+  %3034 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3033, i64 noundef %3034)
   %3035 = load i64, ptr %5, align 8
-  %3036 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3035, i64 noundef %3036)
-  %3037 = load i64, ptr %5, align 8
-  %3038 = load i32, ptr %7, align 4
-  %3039 = icmp ne i32 %3038, 0
-  %3040 = select i1 %3039, i64 18, i64 6
-  %3041 = trunc i64 %3040 to i32
-  %3042 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3037, ptr noundef @.str.51, i32 noundef %3041, ptr noundef @.str.175)
+  %3036 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3035, ptr noundef @.str.174)
+  br label %3037
+
+3037:                                             ; preds = %3032, %3029
+  %3038 = load i64, ptr %5, align 8
+  %3039 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3038, i64 noundef %3039)
+  %3040 = load i64, ptr %5, align 8
+  %3041 = load i32, ptr %7, align 4
+  %3042 = icmp ne i32 %3041, 0
+  %3043 = select i1 %3042, i64 18, i64 6
+  %3044 = trunc i64 %3043 to i32
+  %3045 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3040, ptr noundef @.str.51, i32 noundef %3044, ptr noundef @.str.175)
   store i32 1, ptr %9, align 4
-  br label %3043
+  br label %3046
 
-3043:                                             ; preds = %3051, %3034
-  %3044 = load i32, ptr %9, align 4
-  %3045 = icmp ne i32 %3044, 0
-  br i1 %3045, label %3046, label %3054
+3046:                                             ; preds = %3054, %3037
+  %3047 = load i32, ptr %9, align 4
+  %3048 = icmp ne i32 %3047, 0
+  br i1 %3048, label %3049, label %3057
 
-3046:                                             ; preds = %3043
-  %3047 = load i64, ptr %5, align 8
-  %3048 = load ptr, ptr %8, align 8
-  %3049 = getelementptr inbounds %struct.RNode_CALL, ptr %3048, i32 0, i32 2
-  %3050 = load i64, ptr %3049, align 8
-  call void @add_id(i64 noundef %3047, i64 noundef %3050)
-  br label %3051
+3049:                                             ; preds = %3046
+  %3050 = load i64, ptr %5, align 8
+  %3051 = load ptr, ptr %8, align 8
+  %3052 = getelementptr inbounds %struct.RNode_CALL, ptr %3051, i32 0, i32 2
+  %3053 = load i64, ptr %3052, align 8
+  call void @add_id(i64 noundef %3050, i64 noundef %3053)
+  br label %3054
 
-3051:                                             ; preds = %3046
-  %3052 = load i64, ptr %5, align 8
-  %3053 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3052, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %3043, !llvm.loop !82
-
-3054:                                             ; preds = %3043
+3054:                                             ; preds = %3049
   %3055 = load i64, ptr %5, align 8
-  %3056 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3055, i64 noundef %3056)
-  %3057 = load i64, ptr %5, align 8
-  %3058 = load i32, ptr %7, align 4
-  %3059 = icmp ne i32 %3058, 0
-  %3060 = select i1 %3059, i64 18, i64 7
-  %3061 = trunc i64 %3060 to i32
-  %3062 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3057, ptr noundef @.str.13, i32 noundef %3061, ptr noundef @.str.151)
-  %3063 = load i64, ptr %6, align 8
-  %3064 = load ptr, ptr %11, align 8
-  %3065 = call i64 @rb_str_cat_cstr(i64 noundef %3063, ptr noundef %3064)
-  store i32 1, ptr %9, align 4
-  br label %3066
-
-3066:                                             ; preds = %3076, %3054
-  %3067 = load i32, ptr %9, align 4
-  %3068 = icmp ne i32 %3067, 0
-  br i1 %3068, label %3069, label %3082
-
-3069:                                             ; preds = %3066
-  %3070 = load i64, ptr %5, align 8
-  %3071 = load i64, ptr %6, align 8
-  %3072 = load i32, ptr %7, align 4
-  %3073 = load ptr, ptr %8, align 8
-  %3074 = getelementptr inbounds %struct.RNode_CALL, ptr %3073, i32 0, i32 1
-  %3075 = load ptr, ptr %3074, align 8
-  call void @dump_node(i64 noundef %3070, i64 noundef %3071, i32 noundef %3072, ptr noundef %3075)
-  br label %3076
-
-3076:                                             ; preds = %3069
-  %3077 = load i64, ptr %6, align 8
-  %3078 = load i64, ptr %6, align 8
-  %3079 = call i64 @RSTRING_LEN(i64 noundef %3078) #10
-  %3080 = sub i64 %3079, 4
-  %3081 = call i64 @rb_str_resize(i64 noundef %3077, i64 noundef %3080)
+  %3056 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3055, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3066, !llvm.loop !83
+  br label %3046, !llvm.loop !82
 
-3082:                                             ; preds = %3066
+3057:                                             ; preds = %3046
+  %3058 = load i64, ptr %5, align 8
+  %3059 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3058, i64 noundef %3059)
+  %3060 = load i64, ptr %5, align 8
+  %3061 = load i32, ptr %7, align 4
+  %3062 = icmp ne i32 %3061, 0
+  %3063 = select i1 %3062, i64 18, i64 7
+  %3064 = trunc i64 %3063 to i32
+  %3065 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3060, ptr noundef @.str.13, i32 noundef %3064, ptr noundef @.str.151)
+  %3066 = load i64, ptr %6, align 8
+  %3067 = load ptr, ptr %11, align 8
+  %3068 = call i64 @rb_str_cat_cstr(i64 noundef %3066, ptr noundef %3067)
+  store i32 1, ptr %9, align 4
+  br label %3069
+
+3069:                                             ; preds = %3079, %3057
+  %3070 = load i32, ptr %9, align 4
+  %3071 = icmp ne i32 %3070, 0
+  br i1 %3071, label %3072, label %3085
+
+3072:                                             ; preds = %3069
+  %3073 = load i64, ptr %5, align 8
+  %3074 = load i64, ptr %6, align 8
+  %3075 = load i32, ptr %7, align 4
+  %3076 = load ptr, ptr %8, align 8
+  %3077 = getelementptr inbounds %struct.RNode_CALL, ptr %3076, i32 0, i32 1
+  %3078 = load ptr, ptr %3077, align 8
+  call void @dump_node(i64 noundef %3073, i64 noundef %3074, i32 noundef %3075, ptr noundef %3078)
+  br label %3079
+
+3079:                                             ; preds = %3072
+  %3080 = load i64, ptr %6, align 8
+  %3081 = load i64, ptr %6, align 8
+  %3082 = call i64 @RSTRING_LEN(i64 noundef %3081) #10
+  %3083 = sub i64 %3082, 4
+  %3084 = call i64 @rb_str_resize(i64 noundef %3080, i64 noundef %3083)
+  store i32 0, ptr %9, align 4
+  br label %3069, !llvm.loop !83
+
+3085:                                             ; preds = %3069
   store ptr @.str.12, ptr %11, align 8
-  %3083 = load i64, ptr %5, align 8
-  %3084 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3083, i64 noundef %3084)
-  %3085 = load i64, ptr %5, align 8
-  %3086 = load i32, ptr %7, align 4
-  %3087 = icmp ne i32 %3086, 0
-  %3088 = select i1 %3087, i64 19, i64 7
-  %3089 = trunc i64 %3088 to i32
-  %3090 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3085, ptr noundef @.str.13, i32 noundef %3089, ptr noundef @.str.176)
-  %3091 = load i64, ptr %6, align 8
-  %3092 = load ptr, ptr %11, align 8
-  %3093 = call i64 @rb_str_cat_cstr(i64 noundef %3091, ptr noundef %3092)
+  %3086 = load i64, ptr %5, align 8
+  %3087 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3086, i64 noundef %3087)
+  %3088 = load i64, ptr %5, align 8
+  %3089 = load i32, ptr %7, align 4
+  %3090 = icmp ne i32 %3089, 0
+  %3091 = select i1 %3090, i64 19, i64 7
+  %3092 = trunc i64 %3091 to i32
+  %3093 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3088, ptr noundef @.str.13, i32 noundef %3092, ptr noundef @.str.176)
+  %3094 = load i64, ptr %6, align 8
+  %3095 = load ptr, ptr %11, align 8
+  %3096 = call i64 @rb_str_cat_cstr(i64 noundef %3094, ptr noundef %3095)
   store i32 1, ptr %9, align 4
-  br label %3094
+  br label %3097
 
-3094:                                             ; preds = %3104, %3082
-  %3095 = load i32, ptr %9, align 4
-  %3096 = icmp ne i32 %3095, 0
-  br i1 %3096, label %3097, label %3110
+3097:                                             ; preds = %3107, %3085
+  %3098 = load i32, ptr %9, align 4
+  %3099 = icmp ne i32 %3098, 0
+  br i1 %3099, label %3100, label %3113
 
-3097:                                             ; preds = %3094
-  %3098 = load i64, ptr %5, align 8
-  %3099 = load i64, ptr %6, align 8
-  %3100 = load i32, ptr %7, align 4
-  %3101 = load ptr, ptr %8, align 8
-  %3102 = getelementptr inbounds %struct.RNode_CALL, ptr %3101, i32 0, i32 3
-  %3103 = load ptr, ptr %3102, align 8
-  call void @dump_node(i64 noundef %3098, i64 noundef %3099, i32 noundef %3100, ptr noundef %3103)
-  br label %3104
+3100:                                             ; preds = %3097
+  %3101 = load i64, ptr %5, align 8
+  %3102 = load i64, ptr %6, align 8
+  %3103 = load i32, ptr %7, align 4
+  %3104 = load ptr, ptr %8, align 8
+  %3105 = getelementptr inbounds %struct.RNode_CALL, ptr %3104, i32 0, i32 3
+  %3106 = load ptr, ptr %3105, align 8
+  call void @dump_node(i64 noundef %3101, i64 noundef %3102, i32 noundef %3103, ptr noundef %3106)
+  br label %3107
 
-3104:                                             ; preds = %3097
-  %3105 = load i64, ptr %6, align 8
-  %3106 = load i64, ptr %6, align 8
-  %3107 = call i64 @RSTRING_LEN(i64 noundef %3106) #10
-  %3108 = sub i64 %3107, 4
-  %3109 = call i64 @rb_str_resize(i64 noundef %3105, i64 noundef %3108)
+3107:                                             ; preds = %3100
+  %3108 = load i64, ptr %6, align 8
+  %3109 = load i64, ptr %6, align 8
+  %3110 = call i64 @RSTRING_LEN(i64 noundef %3109) #10
+  %3111 = sub i64 %3110, 4
+  %3112 = call i64 @rb_str_resize(i64 noundef %3108, i64 noundef %3111)
   store i32 0, ptr %9, align 4
-  br label %3094, !llvm.loop !84
+  br label %3097, !llvm.loop !84
 
-3110:                                             ; preds = %3094
-  br label %7932
+3113:                                             ; preds = %3097
+  br label %7940
 
-3111:                                             ; preds = %24
-  %3112 = load i32, ptr %7, align 4
-  %3113 = icmp ne i32 %3112, 0
-  br i1 %3113, label %3114, label %3119
+3114:                                             ; preds = %24
+  %3115 = load i32, ptr %7, align 4
+  %3116 = icmp ne i32 %3115, 0
+  br i1 %3116, label %3117, label %3122
 
-3114:                                             ; preds = %3111
-  %3115 = load i64, ptr %5, align 8
-  %3116 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3115, i64 noundef %3116)
-  %3117 = load i64, ptr %5, align 8
-  %3118 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3117, ptr noundef @.str.172)
-  br label %3119
+3117:                                             ; preds = %3114
+  %3118 = load i64, ptr %5, align 8
+  %3119 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3118, i64 noundef %3119)
+  %3120 = load i64, ptr %5, align 8
+  %3121 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3120, ptr noundef @.str.172)
+  br label %3122
 
-3119:                                             ; preds = %3114, %3111
-  %3120 = load i32, ptr %7, align 4
-  %3121 = icmp ne i32 %3120, 0
-  br i1 %3121, label %3122, label %3127
+3122:                                             ; preds = %3117, %3114
+  %3123 = load i32, ptr %7, align 4
+  %3124 = icmp ne i32 %3123, 0
+  br i1 %3124, label %3125, label %3130
 
-3122:                                             ; preds = %3119
-  %3123 = load i64, ptr %5, align 8
-  %3124 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3123, i64 noundef %3124)
-  %3125 = load i64, ptr %5, align 8
-  %3126 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3125, ptr noundef @.str.177)
-  br label %3127
+3125:                                             ; preds = %3122
+  %3126 = load i64, ptr %5, align 8
+  %3127 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3126, i64 noundef %3127)
+  %3128 = load i64, ptr %5, align 8
+  %3129 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3128, ptr noundef @.str.177)
+  br label %3130
 
-3127:                                             ; preds = %3122, %3119
-  %3128 = load i32, ptr %7, align 4
-  %3129 = icmp ne i32 %3128, 0
-  br i1 %3129, label %3130, label %3135
+3130:                                             ; preds = %3125, %3122
+  %3131 = load i32, ptr %7, align 4
+  %3132 = icmp ne i32 %3131, 0
+  br i1 %3132, label %3133, label %3138
 
-3130:                                             ; preds = %3127
-  %3131 = load i64, ptr %5, align 8
-  %3132 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3131, i64 noundef %3132)
-  %3133 = load i64, ptr %5, align 8
-  %3134 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3133, ptr noundef @.str.178)
-  br label %3135
-
-3135:                                             ; preds = %3130, %3127
+3133:                                             ; preds = %3130
+  %3134 = load i64, ptr %5, align 8
+  %3135 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3134, i64 noundef %3135)
   %3136 = load i64, ptr %5, align 8
-  %3137 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3136, i64 noundef %3137)
-  %3138 = load i64, ptr %5, align 8
-  %3139 = load i32, ptr %7, align 4
-  %3140 = icmp ne i32 %3139, 0
-  %3141 = select i1 %3140, i64 18, i64 6
-  %3142 = trunc i64 %3141 to i32
-  %3143 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3138, ptr noundef @.str.51, i32 noundef %3142, ptr noundef @.str.175)
+  %3137 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3136, ptr noundef @.str.178)
+  br label %3138
+
+3138:                                             ; preds = %3133, %3130
+  %3139 = load i64, ptr %5, align 8
+  %3140 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3139, i64 noundef %3140)
+  %3141 = load i64, ptr %5, align 8
+  %3142 = load i32, ptr %7, align 4
+  %3143 = icmp ne i32 %3142, 0
+  %3144 = select i1 %3143, i64 18, i64 6
+  %3145 = trunc i64 %3144 to i32
+  %3146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3141, ptr noundef @.str.51, i32 noundef %3145, ptr noundef @.str.175)
   store i32 1, ptr %9, align 4
-  br label %3144
+  br label %3147
 
-3144:                                             ; preds = %3152, %3135
-  %3145 = load i32, ptr %9, align 4
-  %3146 = icmp ne i32 %3145, 0
-  br i1 %3146, label %3147, label %3155
+3147:                                             ; preds = %3155, %3138
+  %3148 = load i32, ptr %9, align 4
+  %3149 = icmp ne i32 %3148, 0
+  br i1 %3149, label %3150, label %3158
 
-3147:                                             ; preds = %3144
-  %3148 = load i64, ptr %5, align 8
-  %3149 = load ptr, ptr %8, align 8
-  %3150 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3149, i32 0, i32 2
-  %3151 = load i64, ptr %3150, align 8
-  call void @add_id(i64 noundef %3148, i64 noundef %3151)
-  br label %3152
+3150:                                             ; preds = %3147
+  %3151 = load i64, ptr %5, align 8
+  %3152 = load ptr, ptr %8, align 8
+  %3153 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3152, i32 0, i32 2
+  %3154 = load i64, ptr %3153, align 8
+  call void @add_id(i64 noundef %3151, i64 noundef %3154)
+  br label %3155
 
-3152:                                             ; preds = %3147
-  %3153 = load i64, ptr %5, align 8
-  %3154 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3153, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %3144, !llvm.loop !85
-
-3155:                                             ; preds = %3144
+3155:                                             ; preds = %3150
   %3156 = load i64, ptr %5, align 8
-  %3157 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3156, i64 noundef %3157)
-  %3158 = load i64, ptr %5, align 8
-  %3159 = load i32, ptr %7, align 4
-  %3160 = icmp ne i32 %3159, 0
-  %3161 = select i1 %3160, i64 18, i64 7
-  %3162 = trunc i64 %3161 to i32
-  %3163 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3158, ptr noundef @.str.13, i32 noundef %3162, ptr noundef @.str.151)
-  %3164 = load i64, ptr %6, align 8
-  %3165 = load ptr, ptr %11, align 8
-  %3166 = call i64 @rb_str_cat_cstr(i64 noundef %3164, ptr noundef %3165)
-  store i32 1, ptr %9, align 4
-  br label %3167
-
-3167:                                             ; preds = %3177, %3155
-  %3168 = load i32, ptr %9, align 4
-  %3169 = icmp ne i32 %3168, 0
-  br i1 %3169, label %3170, label %3183
-
-3170:                                             ; preds = %3167
-  %3171 = load i64, ptr %5, align 8
-  %3172 = load i64, ptr %6, align 8
-  %3173 = load i32, ptr %7, align 4
-  %3174 = load ptr, ptr %8, align 8
-  %3175 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3174, i32 0, i32 1
-  %3176 = load ptr, ptr %3175, align 8
-  call void @dump_node(i64 noundef %3171, i64 noundef %3172, i32 noundef %3173, ptr noundef %3176)
-  br label %3177
-
-3177:                                             ; preds = %3170
-  %3178 = load i64, ptr %6, align 8
-  %3179 = load i64, ptr %6, align 8
-  %3180 = call i64 @RSTRING_LEN(i64 noundef %3179) #10
-  %3181 = sub i64 %3180, 4
-  %3182 = call i64 @rb_str_resize(i64 noundef %3178, i64 noundef %3181)
+  %3157 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3156, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3167, !llvm.loop !86
+  br label %3147, !llvm.loop !85
 
-3183:                                             ; preds = %3167
+3158:                                             ; preds = %3147
+  %3159 = load i64, ptr %5, align 8
+  %3160 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3159, i64 noundef %3160)
+  %3161 = load i64, ptr %5, align 8
+  %3162 = load i32, ptr %7, align 4
+  %3163 = icmp ne i32 %3162, 0
+  %3164 = select i1 %3163, i64 18, i64 7
+  %3165 = trunc i64 %3164 to i32
+  %3166 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3161, ptr noundef @.str.13, i32 noundef %3165, ptr noundef @.str.151)
+  %3167 = load i64, ptr %6, align 8
+  %3168 = load ptr, ptr %11, align 8
+  %3169 = call i64 @rb_str_cat_cstr(i64 noundef %3167, ptr noundef %3168)
+  store i32 1, ptr %9, align 4
+  br label %3170
+
+3170:                                             ; preds = %3180, %3158
+  %3171 = load i32, ptr %9, align 4
+  %3172 = icmp ne i32 %3171, 0
+  br i1 %3172, label %3173, label %3186
+
+3173:                                             ; preds = %3170
+  %3174 = load i64, ptr %5, align 8
+  %3175 = load i64, ptr %6, align 8
+  %3176 = load i32, ptr %7, align 4
+  %3177 = load ptr, ptr %8, align 8
+  %3178 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3177, i32 0, i32 1
+  %3179 = load ptr, ptr %3178, align 8
+  call void @dump_node(i64 noundef %3174, i64 noundef %3175, i32 noundef %3176, ptr noundef %3179)
+  br label %3180
+
+3180:                                             ; preds = %3173
+  %3181 = load i64, ptr %6, align 8
+  %3182 = load i64, ptr %6, align 8
+  %3183 = call i64 @RSTRING_LEN(i64 noundef %3182) #10
+  %3184 = sub i64 %3183, 4
+  %3185 = call i64 @rb_str_resize(i64 noundef %3181, i64 noundef %3184)
+  store i32 0, ptr %9, align 4
+  br label %3170, !llvm.loop !86
+
+3186:                                             ; preds = %3170
   store ptr @.str.12, ptr %11, align 8
-  %3184 = load i64, ptr %5, align 8
-  %3185 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3184, i64 noundef %3185)
-  %3186 = load i64, ptr %5, align 8
-  %3187 = load i32, ptr %7, align 4
-  %3188 = icmp ne i32 %3187, 0
-  %3189 = select i1 %3188, i64 19, i64 7
-  %3190 = trunc i64 %3189 to i32
-  %3191 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3186, ptr noundef @.str.13, i32 noundef %3190, ptr noundef @.str.176)
-  %3192 = load i64, ptr %6, align 8
-  %3193 = load ptr, ptr %11, align 8
-  %3194 = call i64 @rb_str_cat_cstr(i64 noundef %3192, ptr noundef %3193)
+  %3187 = load i64, ptr %5, align 8
+  %3188 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3187, i64 noundef %3188)
+  %3189 = load i64, ptr %5, align 8
+  %3190 = load i32, ptr %7, align 4
+  %3191 = icmp ne i32 %3190, 0
+  %3192 = select i1 %3191, i64 19, i64 7
+  %3193 = trunc i64 %3192 to i32
+  %3194 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3189, ptr noundef @.str.13, i32 noundef %3193, ptr noundef @.str.176)
+  %3195 = load i64, ptr %6, align 8
+  %3196 = load ptr, ptr %11, align 8
+  %3197 = call i64 @rb_str_cat_cstr(i64 noundef %3195, ptr noundef %3196)
   store i32 1, ptr %9, align 4
-  br label %3195
+  br label %3198
 
-3195:                                             ; preds = %3205, %3183
-  %3196 = load i32, ptr %9, align 4
-  %3197 = icmp ne i32 %3196, 0
-  br i1 %3197, label %3198, label %3211
+3198:                                             ; preds = %3208, %3186
+  %3199 = load i32, ptr %9, align 4
+  %3200 = icmp ne i32 %3199, 0
+  br i1 %3200, label %3201, label %3214
 
-3198:                                             ; preds = %3195
-  %3199 = load i64, ptr %5, align 8
-  %3200 = load i64, ptr %6, align 8
-  %3201 = load i32, ptr %7, align 4
-  %3202 = load ptr, ptr %8, align 8
-  %3203 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3202, i32 0, i32 3
-  %3204 = load ptr, ptr %3203, align 8
-  call void @dump_node(i64 noundef %3199, i64 noundef %3200, i32 noundef %3201, ptr noundef %3204)
-  br label %3205
+3201:                                             ; preds = %3198
+  %3202 = load i64, ptr %5, align 8
+  %3203 = load i64, ptr %6, align 8
+  %3204 = load i32, ptr %7, align 4
+  %3205 = load ptr, ptr %8, align 8
+  %3206 = getelementptr inbounds %struct.RNode_OPCALL, ptr %3205, i32 0, i32 3
+  %3207 = load ptr, ptr %3206, align 8
+  call void @dump_node(i64 noundef %3202, i64 noundef %3203, i32 noundef %3204, ptr noundef %3207)
+  br label %3208
 
-3205:                                             ; preds = %3198
-  %3206 = load i64, ptr %6, align 8
-  %3207 = load i64, ptr %6, align 8
-  %3208 = call i64 @RSTRING_LEN(i64 noundef %3207) #10
-  %3209 = sub i64 %3208, 4
-  %3210 = call i64 @rb_str_resize(i64 noundef %3206, i64 noundef %3209)
+3208:                                             ; preds = %3201
+  %3209 = load i64, ptr %6, align 8
+  %3210 = load i64, ptr %6, align 8
+  %3211 = call i64 @RSTRING_LEN(i64 noundef %3210) #10
+  %3212 = sub i64 %3211, 4
+  %3213 = call i64 @rb_str_resize(i64 noundef %3209, i64 noundef %3212)
   store i32 0, ptr %9, align 4
-  br label %3195, !llvm.loop !87
+  br label %3198, !llvm.loop !87
 
-3211:                                             ; preds = %3195
-  br label %7932
+3214:                                             ; preds = %3198
+  br label %7940
 
-3212:                                             ; preds = %24
-  %3213 = load i32, ptr %7, align 4
-  %3214 = icmp ne i32 %3213, 0
-  br i1 %3214, label %3215, label %3220
+3215:                                             ; preds = %24
+  %3216 = load i32, ptr %7, align 4
+  %3217 = icmp ne i32 %3216, 0
+  br i1 %3217, label %3218, label %3223
 
-3215:                                             ; preds = %3212
-  %3216 = load i64, ptr %5, align 8
-  %3217 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3216, i64 noundef %3217)
-  %3218 = load i64, ptr %5, align 8
-  %3219 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3218, ptr noundef @.str.179)
-  br label %3220
+3218:                                             ; preds = %3215
+  %3219 = load i64, ptr %5, align 8
+  %3220 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3219, i64 noundef %3220)
+  %3221 = load i64, ptr %5, align 8
+  %3222 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3221, ptr noundef @.str.179)
+  br label %3223
 
-3220:                                             ; preds = %3215, %3212
-  %3221 = load i32, ptr %7, align 4
-  %3222 = icmp ne i32 %3221, 0
-  br i1 %3222, label %3223, label %3228
+3223:                                             ; preds = %3218, %3215
+  %3224 = load i32, ptr %7, align 4
+  %3225 = icmp ne i32 %3224, 0
+  br i1 %3225, label %3226, label %3231
 
-3223:                                             ; preds = %3220
-  %3224 = load i64, ptr %5, align 8
-  %3225 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3224, i64 noundef %3225)
-  %3226 = load i64, ptr %5, align 8
-  %3227 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3226, ptr noundef @.str.180)
-  br label %3228
+3226:                                             ; preds = %3223
+  %3227 = load i64, ptr %5, align 8
+  %3228 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3227, i64 noundef %3228)
+  %3229 = load i64, ptr %5, align 8
+  %3230 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3229, ptr noundef @.str.180)
+  br label %3231
 
-3228:                                             ; preds = %3223, %3220
-  %3229 = load i32, ptr %7, align 4
-  %3230 = icmp ne i32 %3229, 0
-  br i1 %3230, label %3231, label %3236
+3231:                                             ; preds = %3226, %3223
+  %3232 = load i32, ptr %7, align 4
+  %3233 = icmp ne i32 %3232, 0
+  br i1 %3233, label %3234, label %3239
 
-3231:                                             ; preds = %3228
-  %3232 = load i64, ptr %5, align 8
-  %3233 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3232, i64 noundef %3233)
-  %3234 = load i64, ptr %5, align 8
-  %3235 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3234, ptr noundef @.str.181)
-  br label %3236
-
-3236:                                             ; preds = %3231, %3228
+3234:                                             ; preds = %3231
+  %3235 = load i64, ptr %5, align 8
+  %3236 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3235, i64 noundef %3236)
   %3237 = load i64, ptr %5, align 8
-  %3238 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3237, i64 noundef %3238)
-  %3239 = load i64, ptr %5, align 8
-  %3240 = load i32, ptr %7, align 4
-  %3241 = icmp ne i32 %3240, 0
-  %3242 = select i1 %3241, i64 18, i64 6
-  %3243 = trunc i64 %3242 to i32
-  %3244 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3239, ptr noundef @.str.51, i32 noundef %3243, ptr noundef @.str.175)
+  %3238 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3237, ptr noundef @.str.181)
+  br label %3239
+
+3239:                                             ; preds = %3234, %3231
+  %3240 = load i64, ptr %5, align 8
+  %3241 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3240, i64 noundef %3241)
+  %3242 = load i64, ptr %5, align 8
+  %3243 = load i32, ptr %7, align 4
+  %3244 = icmp ne i32 %3243, 0
+  %3245 = select i1 %3244, i64 18, i64 6
+  %3246 = trunc i64 %3245 to i32
+  %3247 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3242, ptr noundef @.str.51, i32 noundef %3246, ptr noundef @.str.175)
   store i32 1, ptr %9, align 4
-  br label %3245
+  br label %3248
 
-3245:                                             ; preds = %3253, %3236
-  %3246 = load i32, ptr %9, align 4
-  %3247 = icmp ne i32 %3246, 0
-  br i1 %3247, label %3248, label %3256
+3248:                                             ; preds = %3256, %3239
+  %3249 = load i32, ptr %9, align 4
+  %3250 = icmp ne i32 %3249, 0
+  br i1 %3250, label %3251, label %3259
 
-3248:                                             ; preds = %3245
-  %3249 = load i64, ptr %5, align 8
-  %3250 = load ptr, ptr %8, align 8
-  %3251 = getelementptr inbounds %struct.RNode_FCALL, ptr %3250, i32 0, i32 1
-  %3252 = load i64, ptr %3251, align 8
-  call void @add_id(i64 noundef %3249, i64 noundef %3252)
-  br label %3253
+3251:                                             ; preds = %3248
+  %3252 = load i64, ptr %5, align 8
+  %3253 = load ptr, ptr %8, align 8
+  %3254 = getelementptr inbounds %struct.RNode_FCALL, ptr %3253, i32 0, i32 1
+  %3255 = load i64, ptr %3254, align 8
+  call void @add_id(i64 noundef %3252, i64 noundef %3255)
+  br label %3256
 
-3253:                                             ; preds = %3248
-  %3254 = load i64, ptr %5, align 8
-  %3255 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3254, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %3245, !llvm.loop !88
-
-3256:                                             ; preds = %3245
-  store ptr @.str.12, ptr %11, align 8
+3256:                                             ; preds = %3251
   %3257 = load i64, ptr %5, align 8
-  %3258 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3257, i64 noundef %3258)
-  %3259 = load i64, ptr %5, align 8
-  %3260 = load i32, ptr %7, align 4
-  %3261 = icmp ne i32 %3260, 0
-  %3262 = select i1 %3261, i64 19, i64 7
-  %3263 = trunc i64 %3262 to i32
-  %3264 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3259, ptr noundef @.str.13, i32 noundef %3263, ptr noundef @.str.176)
-  %3265 = load i64, ptr %6, align 8
-  %3266 = load ptr, ptr %11, align 8
-  %3267 = call i64 @rb_str_cat_cstr(i64 noundef %3265, ptr noundef %3266)
-  store i32 1, ptr %9, align 4
-  br label %3268
-
-3268:                                             ; preds = %3278, %3256
-  %3269 = load i32, ptr %9, align 4
-  %3270 = icmp ne i32 %3269, 0
-  br i1 %3270, label %3271, label %3284
-
-3271:                                             ; preds = %3268
-  %3272 = load i64, ptr %5, align 8
-  %3273 = load i64, ptr %6, align 8
-  %3274 = load i32, ptr %7, align 4
-  %3275 = load ptr, ptr %8, align 8
-  %3276 = getelementptr inbounds %struct.RNode_FCALL, ptr %3275, i32 0, i32 2
-  %3277 = load ptr, ptr %3276, align 8
-  call void @dump_node(i64 noundef %3272, i64 noundef %3273, i32 noundef %3274, ptr noundef %3277)
-  br label %3278
-
-3278:                                             ; preds = %3271
-  %3279 = load i64, ptr %6, align 8
-  %3280 = load i64, ptr %6, align 8
-  %3281 = call i64 @RSTRING_LEN(i64 noundef %3280) #10
-  %3282 = sub i64 %3281, 4
-  %3283 = call i64 @rb_str_resize(i64 noundef %3279, i64 noundef %3282)
+  %3258 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3257, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3268, !llvm.loop !89
+  br label %3248, !llvm.loop !88
 
-3284:                                             ; preds = %3268
-  br label %7932
+3259:                                             ; preds = %3248
+  store ptr @.str.12, ptr %11, align 8
+  %3260 = load i64, ptr %5, align 8
+  %3261 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3260, i64 noundef %3261)
+  %3262 = load i64, ptr %5, align 8
+  %3263 = load i32, ptr %7, align 4
+  %3264 = icmp ne i32 %3263, 0
+  %3265 = select i1 %3264, i64 19, i64 7
+  %3266 = trunc i64 %3265 to i32
+  %3267 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3262, ptr noundef @.str.13, i32 noundef %3266, ptr noundef @.str.176)
+  %3268 = load i64, ptr %6, align 8
+  %3269 = load ptr, ptr %11, align 8
+  %3270 = call i64 @rb_str_cat_cstr(i64 noundef %3268, ptr noundef %3269)
+  store i32 1, ptr %9, align 4
+  br label %3271
 
-3285:                                             ; preds = %24
-  %3286 = load i32, ptr %7, align 4
-  %3287 = icmp ne i32 %3286, 0
-  br i1 %3287, label %3288, label %3293
+3271:                                             ; preds = %3281, %3259
+  %3272 = load i32, ptr %9, align 4
+  %3273 = icmp ne i32 %3272, 0
+  br i1 %3273, label %3274, label %3287
 
-3288:                                             ; preds = %3285
-  %3289 = load i64, ptr %5, align 8
-  %3290 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3289, i64 noundef %3290)
-  %3291 = load i64, ptr %5, align 8
-  %3292 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3291, ptr noundef @.str.182)
-  br label %3293
+3274:                                             ; preds = %3271
+  %3275 = load i64, ptr %5, align 8
+  %3276 = load i64, ptr %6, align 8
+  %3277 = load i32, ptr %7, align 4
+  %3278 = load ptr, ptr %8, align 8
+  %3279 = getelementptr inbounds %struct.RNode_FCALL, ptr %3278, i32 0, i32 2
+  %3280 = load ptr, ptr %3279, align 8
+  call void @dump_node(i64 noundef %3275, i64 noundef %3276, i32 noundef %3277, ptr noundef %3280)
+  br label %3281
 
-3293:                                             ; preds = %3288, %3285
-  %3294 = load i32, ptr %7, align 4
-  %3295 = icmp ne i32 %3294, 0
-  br i1 %3295, label %3296, label %3301
+3281:                                             ; preds = %3274
+  %3282 = load i64, ptr %6, align 8
+  %3283 = load i64, ptr %6, align 8
+  %3284 = call i64 @RSTRING_LEN(i64 noundef %3283) #10
+  %3285 = sub i64 %3284, 4
+  %3286 = call i64 @rb_str_resize(i64 noundef %3282, i64 noundef %3285)
+  store i32 0, ptr %9, align 4
+  br label %3271, !llvm.loop !89
 
-3296:                                             ; preds = %3293
-  %3297 = load i64, ptr %5, align 8
-  %3298 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3297, i64 noundef %3298)
-  %3299 = load i64, ptr %5, align 8
-  %3300 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3299, ptr noundef @.str.183)
-  br label %3301
+3287:                                             ; preds = %3271
+  br label %7940
 
-3301:                                             ; preds = %3296, %3293
-  %3302 = load i32, ptr %7, align 4
-  %3303 = icmp ne i32 %3302, 0
-  br i1 %3303, label %3304, label %3309
+3288:                                             ; preds = %24
+  %3289 = load i32, ptr %7, align 4
+  %3290 = icmp ne i32 %3289, 0
+  br i1 %3290, label %3291, label %3296
 
-3304:                                             ; preds = %3301
-  %3305 = load i64, ptr %5, align 8
-  %3306 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3305, i64 noundef %3306)
-  %3307 = load i64, ptr %5, align 8
-  %3308 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3307, ptr noundef @.str.184)
-  br label %3309
+3291:                                             ; preds = %3288
+  %3292 = load i64, ptr %5, align 8
+  %3293 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3292, i64 noundef %3293)
+  %3294 = load i64, ptr %5, align 8
+  %3295 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3294, ptr noundef @.str.182)
+  br label %3296
 
-3309:                                             ; preds = %3304, %3301
+3296:                                             ; preds = %3291, %3288
+  %3297 = load i32, ptr %7, align 4
+  %3298 = icmp ne i32 %3297, 0
+  br i1 %3298, label %3299, label %3304
+
+3299:                                             ; preds = %3296
+  %3300 = load i64, ptr %5, align 8
+  %3301 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3300, i64 noundef %3301)
+  %3302 = load i64, ptr %5, align 8
+  %3303 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3302, ptr noundef @.str.183)
+  br label %3304
+
+3304:                                             ; preds = %3299, %3296
+  %3305 = load i32, ptr %7, align 4
+  %3306 = icmp ne i32 %3305, 0
+  br i1 %3306, label %3307, label %3312
+
+3307:                                             ; preds = %3304
+  %3308 = load i64, ptr %5, align 8
+  %3309 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3308, i64 noundef %3309)
   %3310 = load i64, ptr %5, align 8
-  %3311 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3310, i64 noundef %3311)
-  %3312 = load i64, ptr %5, align 8
-  %3313 = load i32, ptr %7, align 4
-  %3314 = icmp ne i32 %3313, 0
-  %3315 = select i1 %3314, i64 18, i64 6
-  %3316 = trunc i64 %3315 to i32
-  %3317 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3312, ptr noundef @.str.51, i32 noundef %3316, ptr noundef @.str.175)
+  %3311 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3310, ptr noundef @.str.184)
+  br label %3312
+
+3312:                                             ; preds = %3307, %3304
+  %3313 = load i64, ptr %5, align 8
+  %3314 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3313, i64 noundef %3314)
+  %3315 = load i64, ptr %5, align 8
+  %3316 = load i32, ptr %7, align 4
+  %3317 = icmp ne i32 %3316, 0
+  %3318 = select i1 %3317, i64 18, i64 6
+  %3319 = trunc i64 %3318 to i32
+  %3320 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3315, ptr noundef @.str.51, i32 noundef %3319, ptr noundef @.str.175)
   store i32 1, ptr %9, align 4
-  br label %3318
+  br label %3321
 
-3318:                                             ; preds = %3326, %3309
-  %3319 = load i32, ptr %9, align 4
-  %3320 = icmp ne i32 %3319, 0
-  br i1 %3320, label %3321, label %3329
+3321:                                             ; preds = %3329, %3312
+  %3322 = load i32, ptr %9, align 4
+  %3323 = icmp ne i32 %3322, 0
+  br i1 %3323, label %3324, label %3332
 
-3321:                                             ; preds = %3318
-  %3322 = load i64, ptr %5, align 8
-  %3323 = load ptr, ptr %8, align 8
-  %3324 = getelementptr inbounds %struct.RNode_VCALL, ptr %3323, i32 0, i32 1
-  %3325 = load i64, ptr %3324, align 8
-  call void @add_id(i64 noundef %3322, i64 noundef %3325)
-  br label %3326
+3324:                                             ; preds = %3321
+  %3325 = load i64, ptr %5, align 8
+  %3326 = load ptr, ptr %8, align 8
+  %3327 = getelementptr inbounds %struct.RNode_VCALL, ptr %3326, i32 0, i32 1
+  %3328 = load i64, ptr %3327, align 8
+  call void @add_id(i64 noundef %3325, i64 noundef %3328)
+  br label %3329
 
-3326:                                             ; preds = %3321
-  %3327 = load i64, ptr %5, align 8
-  %3328 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3327, ptr noundef @.str.56)
+3329:                                             ; preds = %3324
+  %3330 = load i64, ptr %5, align 8
+  %3331 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3330, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3318, !llvm.loop !90
+  br label %3321, !llvm.loop !90
 
-3329:                                             ; preds = %3318
-  br label %7932
+3332:                                             ; preds = %3321
+  br label %7940
 
-3330:                                             ; preds = %24
-  %3331 = load i32, ptr %7, align 4
-  %3332 = icmp ne i32 %3331, 0
-  br i1 %3332, label %3333, label %3338
+3333:                                             ; preds = %24
+  %3334 = load i32, ptr %7, align 4
+  %3335 = icmp ne i32 %3334, 0
+  br i1 %3335, label %3336, label %3341
 
-3333:                                             ; preds = %3330
-  %3334 = load i64, ptr %5, align 8
-  %3335 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3334, i64 noundef %3335)
-  %3336 = load i64, ptr %5, align 8
-  %3337 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3336, ptr noundef @.str.185)
-  br label %3338
+3336:                                             ; preds = %3333
+  %3337 = load i64, ptr %5, align 8
+  %3338 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3337, i64 noundef %3338)
+  %3339 = load i64, ptr %5, align 8
+  %3340 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3339, ptr noundef @.str.185)
+  br label %3341
 
-3338:                                             ; preds = %3333, %3330
-  %3339 = load i32, ptr %7, align 4
-  %3340 = icmp ne i32 %3339, 0
-  br i1 %3340, label %3341, label %3346
+3341:                                             ; preds = %3336, %3333
+  %3342 = load i32, ptr %7, align 4
+  %3343 = icmp ne i32 %3342, 0
+  br i1 %3343, label %3344, label %3349
 
-3341:                                             ; preds = %3338
-  %3342 = load i64, ptr %5, align 8
-  %3343 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3342, i64 noundef %3343)
-  %3344 = load i64, ptr %5, align 8
-  %3345 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3344, ptr noundef @.str.186)
-  br label %3346
+3344:                                             ; preds = %3341
+  %3345 = load i64, ptr %5, align 8
+  %3346 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3345, i64 noundef %3346)
+  %3347 = load i64, ptr %5, align 8
+  %3348 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3347, ptr noundef @.str.186)
+  br label %3349
 
-3346:                                             ; preds = %3341, %3338
-  %3347 = load i32, ptr %7, align 4
-  %3348 = icmp ne i32 %3347, 0
-  br i1 %3348, label %3349, label %3354
+3349:                                             ; preds = %3344, %3341
+  %3350 = load i32, ptr %7, align 4
+  %3351 = icmp ne i32 %3350, 0
+  br i1 %3351, label %3352, label %3357
 
-3349:                                             ; preds = %3346
-  %3350 = load i64, ptr %5, align 8
-  %3351 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3350, i64 noundef %3351)
-  %3352 = load i64, ptr %5, align 8
-  %3353 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3352, ptr noundef @.str.187)
-  br label %3354
-
-3354:                                             ; preds = %3349, %3346
+3352:                                             ; preds = %3349
+  %3353 = load i64, ptr %5, align 8
+  %3354 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3353, i64 noundef %3354)
   %3355 = load i64, ptr %5, align 8
-  %3356 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3355, i64 noundef %3356)
-  %3357 = load i64, ptr %5, align 8
-  %3358 = load i32, ptr %7, align 4
-  %3359 = icmp ne i32 %3358, 0
-  %3360 = select i1 %3359, i64 18, i64 6
-  %3361 = trunc i64 %3360 to i32
-  %3362 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3357, ptr noundef @.str.51, i32 noundef %3361, ptr noundef @.str.175)
+  %3356 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3355, ptr noundef @.str.187)
+  br label %3357
+
+3357:                                             ; preds = %3352, %3349
+  %3358 = load i64, ptr %5, align 8
+  %3359 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3358, i64 noundef %3359)
+  %3360 = load i64, ptr %5, align 8
+  %3361 = load i32, ptr %7, align 4
+  %3362 = icmp ne i32 %3361, 0
+  %3363 = select i1 %3362, i64 18, i64 6
+  %3364 = trunc i64 %3363 to i32
+  %3365 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3360, ptr noundef @.str.51, i32 noundef %3364, ptr noundef @.str.175)
   store i32 1, ptr %9, align 4
-  br label %3363
+  br label %3366
 
-3363:                                             ; preds = %3371, %3354
-  %3364 = load i32, ptr %9, align 4
-  %3365 = icmp ne i32 %3364, 0
-  br i1 %3365, label %3366, label %3374
+3366:                                             ; preds = %3374, %3357
+  %3367 = load i32, ptr %9, align 4
+  %3368 = icmp ne i32 %3367, 0
+  br i1 %3368, label %3369, label %3377
 
-3366:                                             ; preds = %3363
-  %3367 = load i64, ptr %5, align 8
-  %3368 = load ptr, ptr %8, align 8
-  %3369 = getelementptr inbounds %struct.RNode_QCALL, ptr %3368, i32 0, i32 2
-  %3370 = load i64, ptr %3369, align 8
-  call void @add_id(i64 noundef %3367, i64 noundef %3370)
-  br label %3371
+3369:                                             ; preds = %3366
+  %3370 = load i64, ptr %5, align 8
+  %3371 = load ptr, ptr %8, align 8
+  %3372 = getelementptr inbounds %struct.RNode_QCALL, ptr %3371, i32 0, i32 2
+  %3373 = load i64, ptr %3372, align 8
+  call void @add_id(i64 noundef %3370, i64 noundef %3373)
+  br label %3374
 
-3371:                                             ; preds = %3366
-  %3372 = load i64, ptr %5, align 8
-  %3373 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3372, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %3363, !llvm.loop !91
-
-3374:                                             ; preds = %3363
+3374:                                             ; preds = %3369
   %3375 = load i64, ptr %5, align 8
-  %3376 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3375, i64 noundef %3376)
-  %3377 = load i64, ptr %5, align 8
-  %3378 = load i32, ptr %7, align 4
-  %3379 = icmp ne i32 %3378, 0
-  %3380 = select i1 %3379, i64 18, i64 7
-  %3381 = trunc i64 %3380 to i32
-  %3382 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3377, ptr noundef @.str.13, i32 noundef %3381, ptr noundef @.str.151)
-  %3383 = load i64, ptr %6, align 8
-  %3384 = load ptr, ptr %11, align 8
-  %3385 = call i64 @rb_str_cat_cstr(i64 noundef %3383, ptr noundef %3384)
-  store i32 1, ptr %9, align 4
-  br label %3386
-
-3386:                                             ; preds = %3396, %3374
-  %3387 = load i32, ptr %9, align 4
-  %3388 = icmp ne i32 %3387, 0
-  br i1 %3388, label %3389, label %3402
-
-3389:                                             ; preds = %3386
-  %3390 = load i64, ptr %5, align 8
-  %3391 = load i64, ptr %6, align 8
-  %3392 = load i32, ptr %7, align 4
-  %3393 = load ptr, ptr %8, align 8
-  %3394 = getelementptr inbounds %struct.RNode_QCALL, ptr %3393, i32 0, i32 1
-  %3395 = load ptr, ptr %3394, align 8
-  call void @dump_node(i64 noundef %3390, i64 noundef %3391, i32 noundef %3392, ptr noundef %3395)
-  br label %3396
-
-3396:                                             ; preds = %3389
-  %3397 = load i64, ptr %6, align 8
-  %3398 = load i64, ptr %6, align 8
-  %3399 = call i64 @RSTRING_LEN(i64 noundef %3398) #10
-  %3400 = sub i64 %3399, 4
-  %3401 = call i64 @rb_str_resize(i64 noundef %3397, i64 noundef %3400)
+  %3376 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3375, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3386, !llvm.loop !92
+  br label %3366, !llvm.loop !91
 
-3402:                                             ; preds = %3386
-  store ptr @.str.12, ptr %11, align 8
-  %3403 = load i64, ptr %5, align 8
-  %3404 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3403, i64 noundef %3404)
-  %3405 = load i64, ptr %5, align 8
-  %3406 = load i32, ptr %7, align 4
-  %3407 = icmp ne i32 %3406, 0
-  %3408 = select i1 %3407, i64 19, i64 7
-  %3409 = trunc i64 %3408 to i32
-  %3410 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3405, ptr noundef @.str.13, i32 noundef %3409, ptr noundef @.str.176)
-  %3411 = load i64, ptr %6, align 8
-  %3412 = load ptr, ptr %11, align 8
-  %3413 = call i64 @rb_str_cat_cstr(i64 noundef %3411, ptr noundef %3412)
+3377:                                             ; preds = %3366
+  %3378 = load i64, ptr %5, align 8
+  %3379 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3378, i64 noundef %3379)
+  %3380 = load i64, ptr %5, align 8
+  %3381 = load i32, ptr %7, align 4
+  %3382 = icmp ne i32 %3381, 0
+  %3383 = select i1 %3382, i64 18, i64 7
+  %3384 = trunc i64 %3383 to i32
+  %3385 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3380, ptr noundef @.str.13, i32 noundef %3384, ptr noundef @.str.151)
+  %3386 = load i64, ptr %6, align 8
+  %3387 = load ptr, ptr %11, align 8
+  %3388 = call i64 @rb_str_cat_cstr(i64 noundef %3386, ptr noundef %3387)
   store i32 1, ptr %9, align 4
-  br label %3414
+  br label %3389
 
-3414:                                             ; preds = %3424, %3402
-  %3415 = load i32, ptr %9, align 4
-  %3416 = icmp ne i32 %3415, 0
-  br i1 %3416, label %3417, label %3430
+3389:                                             ; preds = %3399, %3377
+  %3390 = load i32, ptr %9, align 4
+  %3391 = icmp ne i32 %3390, 0
+  br i1 %3391, label %3392, label %3405
 
-3417:                                             ; preds = %3414
-  %3418 = load i64, ptr %5, align 8
-  %3419 = load i64, ptr %6, align 8
-  %3420 = load i32, ptr %7, align 4
-  %3421 = load ptr, ptr %8, align 8
-  %3422 = getelementptr inbounds %struct.RNode_QCALL, ptr %3421, i32 0, i32 3
-  %3423 = load ptr, ptr %3422, align 8
-  call void @dump_node(i64 noundef %3418, i64 noundef %3419, i32 noundef %3420, ptr noundef %3423)
-  br label %3424
+3392:                                             ; preds = %3389
+  %3393 = load i64, ptr %5, align 8
+  %3394 = load i64, ptr %6, align 8
+  %3395 = load i32, ptr %7, align 4
+  %3396 = load ptr, ptr %8, align 8
+  %3397 = getelementptr inbounds %struct.RNode_QCALL, ptr %3396, i32 0, i32 1
+  %3398 = load ptr, ptr %3397, align 8
+  call void @dump_node(i64 noundef %3393, i64 noundef %3394, i32 noundef %3395, ptr noundef %3398)
+  br label %3399
 
-3424:                                             ; preds = %3417
-  %3425 = load i64, ptr %6, align 8
-  %3426 = load i64, ptr %6, align 8
-  %3427 = call i64 @RSTRING_LEN(i64 noundef %3426) #10
-  %3428 = sub i64 %3427, 4
-  %3429 = call i64 @rb_str_resize(i64 noundef %3425, i64 noundef %3428)
+3399:                                             ; preds = %3392
+  %3400 = load i64, ptr %6, align 8
+  %3401 = load i64, ptr %6, align 8
+  %3402 = call i64 @RSTRING_LEN(i64 noundef %3401) #10
+  %3403 = sub i64 %3402, 4
+  %3404 = call i64 @rb_str_resize(i64 noundef %3400, i64 noundef %3403)
   store i32 0, ptr %9, align 4
-  br label %3414, !llvm.loop !93
+  br label %3389, !llvm.loop !92
 
-3430:                                             ; preds = %3414
-  br label %7932
-
-3431:                                             ; preds = %24
-  %3432 = load i32, ptr %7, align 4
-  %3433 = icmp ne i32 %3432, 0
-  br i1 %3433, label %3434, label %3439
-
-3434:                                             ; preds = %3431
-  %3435 = load i64, ptr %5, align 8
-  %3436 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3435, i64 noundef %3436)
-  %3437 = load i64, ptr %5, align 8
-  %3438 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3437, ptr noundef @.str.188)
-  br label %3439
-
-3439:                                             ; preds = %3434, %3431
-  %3440 = load i32, ptr %7, align 4
-  %3441 = icmp ne i32 %3440, 0
-  br i1 %3441, label %3442, label %3447
-
-3442:                                             ; preds = %3439
-  %3443 = load i64, ptr %5, align 8
-  %3444 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3443, i64 noundef %3444)
-  %3445 = load i64, ptr %5, align 8
-  %3446 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3445, ptr noundef @.str.189)
-  br label %3447
-
-3447:                                             ; preds = %3442, %3439
-  %3448 = load i32, ptr %7, align 4
-  %3449 = icmp ne i32 %3448, 0
-  br i1 %3449, label %3450, label %3455
-
-3450:                                             ; preds = %3447
-  %3451 = load i64, ptr %5, align 8
-  %3452 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3451, i64 noundef %3452)
-  %3453 = load i64, ptr %5, align 8
-  %3454 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3453, ptr noundef @.str.190)
-  br label %3455
-
-3455:                                             ; preds = %3450, %3447
+3405:                                             ; preds = %3389
   store ptr @.str.12, ptr %11, align 8
+  %3406 = load i64, ptr %5, align 8
+  %3407 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3406, i64 noundef %3407)
+  %3408 = load i64, ptr %5, align 8
+  %3409 = load i32, ptr %7, align 4
+  %3410 = icmp ne i32 %3409, 0
+  %3411 = select i1 %3410, i64 19, i64 7
+  %3412 = trunc i64 %3411 to i32
+  %3413 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3408, ptr noundef @.str.13, i32 noundef %3412, ptr noundef @.str.176)
+  %3414 = load i64, ptr %6, align 8
+  %3415 = load ptr, ptr %11, align 8
+  %3416 = call i64 @rb_str_cat_cstr(i64 noundef %3414, ptr noundef %3415)
+  store i32 1, ptr %9, align 4
+  br label %3417
+
+3417:                                             ; preds = %3427, %3405
+  %3418 = load i32, ptr %9, align 4
+  %3419 = icmp ne i32 %3418, 0
+  br i1 %3419, label %3420, label %3433
+
+3420:                                             ; preds = %3417
+  %3421 = load i64, ptr %5, align 8
+  %3422 = load i64, ptr %6, align 8
+  %3423 = load i32, ptr %7, align 4
+  %3424 = load ptr, ptr %8, align 8
+  %3425 = getelementptr inbounds %struct.RNode_QCALL, ptr %3424, i32 0, i32 3
+  %3426 = load ptr, ptr %3425, align 8
+  call void @dump_node(i64 noundef %3421, i64 noundef %3422, i32 noundef %3423, ptr noundef %3426)
+  br label %3427
+
+3427:                                             ; preds = %3420
+  %3428 = load i64, ptr %6, align 8
+  %3429 = load i64, ptr %6, align 8
+  %3430 = call i64 @RSTRING_LEN(i64 noundef %3429) #10
+  %3431 = sub i64 %3430, 4
+  %3432 = call i64 @rb_str_resize(i64 noundef %3428, i64 noundef %3431)
+  store i32 0, ptr %9, align 4
+  br label %3417, !llvm.loop !93
+
+3433:                                             ; preds = %3417
+  br label %7940
+
+3434:                                             ; preds = %24
+  %3435 = load i32, ptr %7, align 4
+  %3436 = icmp ne i32 %3435, 0
+  br i1 %3436, label %3437, label %3442
+
+3437:                                             ; preds = %3434
+  %3438 = load i64, ptr %5, align 8
+  %3439 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3438, i64 noundef %3439)
+  %3440 = load i64, ptr %5, align 8
+  %3441 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3440, ptr noundef @.str.188)
+  br label %3442
+
+3442:                                             ; preds = %3437, %3434
+  %3443 = load i32, ptr %7, align 4
+  %3444 = icmp ne i32 %3443, 0
+  br i1 %3444, label %3445, label %3450
+
+3445:                                             ; preds = %3442
+  %3446 = load i64, ptr %5, align 8
+  %3447 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3446, i64 noundef %3447)
+  %3448 = load i64, ptr %5, align 8
+  %3449 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3448, ptr noundef @.str.189)
+  br label %3450
+
+3450:                                             ; preds = %3445, %3442
+  %3451 = load i32, ptr %7, align 4
+  %3452 = icmp ne i32 %3451, 0
+  br i1 %3452, label %3453, label %3458
+
+3453:                                             ; preds = %3450
+  %3454 = load i64, ptr %5, align 8
+  %3455 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3454, i64 noundef %3455)
   %3456 = load i64, ptr %5, align 8
-  %3457 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3456, i64 noundef %3457)
-  %3458 = load i64, ptr %5, align 8
-  %3459 = load i32, ptr %7, align 4
-  %3460 = icmp ne i32 %3459, 0
-  %3461 = select i1 %3460, i64 19, i64 7
-  %3462 = trunc i64 %3461 to i32
-  %3463 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3458, ptr noundef @.str.13, i32 noundef %3462, ptr noundef @.str.176)
-  %3464 = load i64, ptr %6, align 8
-  %3465 = load ptr, ptr %11, align 8
-  %3466 = call i64 @rb_str_cat_cstr(i64 noundef %3464, ptr noundef %3465)
+  %3457 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3456, ptr noundef @.str.190)
+  br label %3458
+
+3458:                                             ; preds = %3453, %3450
+  store ptr @.str.12, ptr %11, align 8
+  %3459 = load i64, ptr %5, align 8
+  %3460 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3459, i64 noundef %3460)
+  %3461 = load i64, ptr %5, align 8
+  %3462 = load i32, ptr %7, align 4
+  %3463 = icmp ne i32 %3462, 0
+  %3464 = select i1 %3463, i64 19, i64 7
+  %3465 = trunc i64 %3464 to i32
+  %3466 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3461, ptr noundef @.str.13, i32 noundef %3465, ptr noundef @.str.176)
+  %3467 = load i64, ptr %6, align 8
+  %3468 = load ptr, ptr %11, align 8
+  %3469 = call i64 @rb_str_cat_cstr(i64 noundef %3467, ptr noundef %3468)
   store i32 1, ptr %9, align 4
-  br label %3467
+  br label %3470
 
-3467:                                             ; preds = %3477, %3455
-  %3468 = load i32, ptr %9, align 4
-  %3469 = icmp ne i32 %3468, 0
-  br i1 %3469, label %3470, label %3483
+3470:                                             ; preds = %3480, %3458
+  %3471 = load i32, ptr %9, align 4
+  %3472 = icmp ne i32 %3471, 0
+  br i1 %3472, label %3473, label %3486
 
-3470:                                             ; preds = %3467
-  %3471 = load i64, ptr %5, align 8
-  %3472 = load i64, ptr %6, align 8
-  %3473 = load i32, ptr %7, align 4
-  %3474 = load ptr, ptr %8, align 8
-  %3475 = getelementptr inbounds %struct.RNode_SUPER, ptr %3474, i32 0, i32 1
-  %3476 = load ptr, ptr %3475, align 8
-  call void @dump_node(i64 noundef %3471, i64 noundef %3472, i32 noundef %3473, ptr noundef %3476)
-  br label %3477
+3473:                                             ; preds = %3470
+  %3474 = load i64, ptr %5, align 8
+  %3475 = load i64, ptr %6, align 8
+  %3476 = load i32, ptr %7, align 4
+  %3477 = load ptr, ptr %8, align 8
+  %3478 = getelementptr inbounds %struct.RNode_SUPER, ptr %3477, i32 0, i32 1
+  %3479 = load ptr, ptr %3478, align 8
+  call void @dump_node(i64 noundef %3474, i64 noundef %3475, i32 noundef %3476, ptr noundef %3479)
+  br label %3480
 
-3477:                                             ; preds = %3470
-  %3478 = load i64, ptr %6, align 8
-  %3479 = load i64, ptr %6, align 8
-  %3480 = call i64 @RSTRING_LEN(i64 noundef %3479) #10
-  %3481 = sub i64 %3480, 4
-  %3482 = call i64 @rb_str_resize(i64 noundef %3478, i64 noundef %3481)
+3480:                                             ; preds = %3473
+  %3481 = load i64, ptr %6, align 8
+  %3482 = load i64, ptr %6, align 8
+  %3483 = call i64 @RSTRING_LEN(i64 noundef %3482) #10
+  %3484 = sub i64 %3483, 4
+  %3485 = call i64 @rb_str_resize(i64 noundef %3481, i64 noundef %3484)
   store i32 0, ptr %9, align 4
-  br label %3467, !llvm.loop !94
+  br label %3470, !llvm.loop !94
 
-3483:                                             ; preds = %3467
-  br label %7932
+3486:                                             ; preds = %3470
+  br label %7940
 
-3484:                                             ; preds = %24
-  %3485 = load i32, ptr %7, align 4
-  %3486 = icmp ne i32 %3485, 0
-  br i1 %3486, label %3487, label %3492
+3487:                                             ; preds = %24
+  %3488 = load i32, ptr %7, align 4
+  %3489 = icmp ne i32 %3488, 0
+  br i1 %3489, label %3490, label %3495
 
-3487:                                             ; preds = %3484
-  %3488 = load i64, ptr %5, align 8
-  %3489 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3488, i64 noundef %3489)
-  %3490 = load i64, ptr %5, align 8
-  %3491 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3490, ptr noundef @.str.191)
-  br label %3492
+3490:                                             ; preds = %3487
+  %3491 = load i64, ptr %5, align 8
+  %3492 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3491, i64 noundef %3492)
+  %3493 = load i64, ptr %5, align 8
+  %3494 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3493, ptr noundef @.str.191)
+  br label %3495
 
-3492:                                             ; preds = %3487, %3484
-  %3493 = load i32, ptr %7, align 4
-  %3494 = icmp ne i32 %3493, 0
-  br i1 %3494, label %3495, label %3500
+3495:                                             ; preds = %3490, %3487
+  %3496 = load i32, ptr %7, align 4
+  %3497 = icmp ne i32 %3496, 0
+  br i1 %3497, label %3498, label %3503
 
-3495:                                             ; preds = %3492
-  %3496 = load i64, ptr %5, align 8
-  %3497 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3496, i64 noundef %3497)
-  %3498 = load i64, ptr %5, align 8
-  %3499 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3498, ptr noundef @.str.192)
-  br label %3500
+3498:                                             ; preds = %3495
+  %3499 = load i64, ptr %5, align 8
+  %3500 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3499, i64 noundef %3500)
+  %3501 = load i64, ptr %5, align 8
+  %3502 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3501, ptr noundef @.str.192)
+  br label %3503
 
-3500:                                             ; preds = %3495, %3492
-  %3501 = load i32, ptr %7, align 4
-  %3502 = icmp ne i32 %3501, 0
-  br i1 %3502, label %3503, label %3508
+3503:                                             ; preds = %3498, %3495
+  %3504 = load i32, ptr %7, align 4
+  %3505 = icmp ne i32 %3504, 0
+  br i1 %3505, label %3506, label %3511
 
-3503:                                             ; preds = %3500
-  %3504 = load i64, ptr %5, align 8
-  %3505 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3504, i64 noundef %3505)
-  %3506 = load i64, ptr %5, align 8
-  %3507 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3506, ptr noundef @.str.193)
-  br label %3508
+3506:                                             ; preds = %3503
+  %3507 = load i64, ptr %5, align 8
+  %3508 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3507, i64 noundef %3508)
+  %3509 = load i64, ptr %5, align 8
+  %3510 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3509, ptr noundef @.str.193)
+  br label %3511
 
-3508:                                             ; preds = %3503, %3500
-  br label %7932
+3511:                                             ; preds = %3506, %3503
+  br label %7940
 
-3509:                                             ; preds = %24
-  %3510 = load i32, ptr %7, align 4
-  %3511 = icmp ne i32 %3510, 0
-  br i1 %3511, label %3512, label %3517
+3512:                                             ; preds = %24
+  %3513 = load i32, ptr %7, align 4
+  %3514 = icmp ne i32 %3513, 0
+  br i1 %3514, label %3515, label %3520
 
-3512:                                             ; preds = %3509
-  %3513 = load i64, ptr %5, align 8
-  %3514 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3513, i64 noundef %3514)
-  %3515 = load i64, ptr %5, align 8
-  %3516 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3515, ptr noundef @.str.194)
-  br label %3517
+3515:                                             ; preds = %3512
+  %3516 = load i64, ptr %5, align 8
+  %3517 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3516, i64 noundef %3517)
+  %3518 = load i64, ptr %5, align 8
+  %3519 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3518, ptr noundef @.str.194)
+  br label %3520
 
-3517:                                             ; preds = %3512, %3509
-  %3518 = load i32, ptr %7, align 4
-  %3519 = icmp ne i32 %3518, 0
-  br i1 %3519, label %3520, label %3525
+3520:                                             ; preds = %3515, %3512
+  %3521 = load i32, ptr %7, align 4
+  %3522 = icmp ne i32 %3521, 0
+  br i1 %3522, label %3523, label %3528
 
-3520:                                             ; preds = %3517
-  %3521 = load i64, ptr %5, align 8
-  %3522 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3521, i64 noundef %3522)
-  %3523 = load i64, ptr %5, align 8
-  %3524 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3523, ptr noundef @.str.195)
-  br label %3525
+3523:                                             ; preds = %3520
+  %3524 = load i64, ptr %5, align 8
+  %3525 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3524, i64 noundef %3525)
+  %3526 = load i64, ptr %5, align 8
+  %3527 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3526, ptr noundef @.str.195)
+  br label %3528
 
-3525:                                             ; preds = %3520, %3517
-  %3526 = load i32, ptr %7, align 4
-  %3527 = icmp ne i32 %3526, 0
-  br i1 %3527, label %3528, label %3533
+3528:                                             ; preds = %3523, %3520
+  %3529 = load i32, ptr %7, align 4
+  %3530 = icmp ne i32 %3529, 0
+  br i1 %3530, label %3531, label %3536
 
-3528:                                             ; preds = %3525
-  %3529 = load i64, ptr %5, align 8
-  %3530 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3529, i64 noundef %3530)
-  %3531 = load i64, ptr %5, align 8
-  %3532 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3531, ptr noundef @.str.196)
-  br label %3533
-
-3533:                                             ; preds = %3528, %3525
+3531:                                             ; preds = %3528
+  %3532 = load i64, ptr %5, align 8
+  %3533 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3532, i64 noundef %3533)
   %3534 = load i64, ptr %5, align 8
-  %3535 = load i64, ptr %6, align 8
-  %3536 = load i32, ptr %7, align 4
-  %3537 = load ptr, ptr %8, align 8
-  call void @dump_array(i64 noundef %3534, i64 noundef %3535, i32 noundef %3536, ptr noundef %3537)
-  br label %7932
+  %3535 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3534, ptr noundef @.str.196)
+  br label %3536
 
-3538:                                             ; preds = %24
+3536:                                             ; preds = %3531, %3528
+  %3537 = load i64, ptr %5, align 8
+  %3538 = load i64, ptr %6, align 8
   %3539 = load i32, ptr %7, align 4
-  %3540 = icmp ne i32 %3539, 0
-  br i1 %3540, label %3541, label %3546
+  %3540 = load ptr, ptr %8, align 8
+  call void @dump_array(i64 noundef %3537, i64 noundef %3538, i32 noundef %3539, ptr noundef %3540)
+  br label %7940
 
-3541:                                             ; preds = %3538
-  %3542 = load i64, ptr %5, align 8
-  %3543 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3542, i64 noundef %3543)
-  %3544 = load i64, ptr %5, align 8
-  %3545 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3544, ptr noundef @.str.197)
-  br label %3546
+3541:                                             ; preds = %24
+  %3542 = load i32, ptr %7, align 4
+  %3543 = icmp ne i32 %3542, 0
+  br i1 %3543, label %3544, label %3549
 
-3546:                                             ; preds = %3541, %3538
-  %3547 = load i32, ptr %7, align 4
-  %3548 = icmp ne i32 %3547, 0
-  br i1 %3548, label %3549, label %3554
+3544:                                             ; preds = %3541
+  %3545 = load i64, ptr %5, align 8
+  %3546 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3545, i64 noundef %3546)
+  %3547 = load i64, ptr %5, align 8
+  %3548 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3547, ptr noundef @.str.197)
+  br label %3549
 
-3549:                                             ; preds = %3546
-  %3550 = load i64, ptr %5, align 8
-  %3551 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3550, i64 noundef %3551)
-  %3552 = load i64, ptr %5, align 8
-  %3553 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3552, ptr noundef @.str.198)
-  br label %3554
+3549:                                             ; preds = %3544, %3541
+  %3550 = load i32, ptr %7, align 4
+  %3551 = icmp ne i32 %3550, 0
+  br i1 %3551, label %3552, label %3557
 
-3554:                                             ; preds = %3549, %3546
-  %3555 = load i32, ptr %7, align 4
-  %3556 = icmp ne i32 %3555, 0
-  br i1 %3556, label %3557, label %3562
+3552:                                             ; preds = %3549
+  %3553 = load i64, ptr %5, align 8
+  %3554 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3553, i64 noundef %3554)
+  %3555 = load i64, ptr %5, align 8
+  %3556 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3555, ptr noundef @.str.198)
+  br label %3557
 
-3557:                                             ; preds = %3554
-  %3558 = load i64, ptr %5, align 8
-  %3559 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3558, i64 noundef %3559)
-  %3560 = load i64, ptr %5, align 8
-  %3561 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3560, ptr noundef @.str.199)
-  br label %3562
+3557:                                             ; preds = %3552, %3549
+  %3558 = load i32, ptr %7, align 4
+  %3559 = icmp ne i32 %3558, 0
+  br i1 %3559, label %3560, label %3565
 
-3562:                                             ; preds = %3557, %3554
-  br label %7932
+3560:                                             ; preds = %3557
+  %3561 = load i64, ptr %5, align 8
+  %3562 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3561, i64 noundef %3562)
+  %3563 = load i64, ptr %5, align 8
+  %3564 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3563, ptr noundef @.str.199)
+  br label %3565
 
-3563:                                             ; preds = %24
-  %3564 = load ptr, ptr %8, align 8
-  %3565 = getelementptr inbounds %struct.RNode_HASH, ptr %3564, i32 0, i32 2
-  %3566 = load i64, ptr %3565, align 8
-  %3567 = icmp ne i64 %3566, 0
-  br i1 %3567, label %3593, label %3568
+3565:                                             ; preds = %3560, %3557
+  br label %7940
 
-3568:                                             ; preds = %3563
-  %3569 = load i32, ptr %7, align 4
-  %3570 = icmp ne i32 %3569, 0
-  br i1 %3570, label %3571, label %3576
+3566:                                             ; preds = %24
+  %3567 = load ptr, ptr %8, align 8
+  %3568 = getelementptr inbounds %struct.RNode_HASH, ptr %3567, i32 0, i32 2
+  %3569 = load i64, ptr %3568, align 8
+  %3570 = icmp ne i64 %3569, 0
+  br i1 %3570, label %3596, label %3571
 
-3571:                                             ; preds = %3568
-  %3572 = load i64, ptr %5, align 8
-  %3573 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3572, i64 noundef %3573)
-  %3574 = load i64, ptr %5, align 8
-  %3575 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3574, ptr noundef @.str.200)
-  br label %3576
+3571:                                             ; preds = %3566
+  %3572 = load i32, ptr %7, align 4
+  %3573 = icmp ne i32 %3572, 0
+  br i1 %3573, label %3574, label %3579
 
-3576:                                             ; preds = %3571, %3568
-  %3577 = load i32, ptr %7, align 4
-  %3578 = icmp ne i32 %3577, 0
-  br i1 %3578, label %3579, label %3584
+3574:                                             ; preds = %3571
+  %3575 = load i64, ptr %5, align 8
+  %3576 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3575, i64 noundef %3576)
+  %3577 = load i64, ptr %5, align 8
+  %3578 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3577, ptr noundef @.str.200)
+  br label %3579
 
-3579:                                             ; preds = %3576
-  %3580 = load i64, ptr %5, align 8
-  %3581 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3580, i64 noundef %3581)
-  %3582 = load i64, ptr %5, align 8
-  %3583 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3582, ptr noundef @.str.201)
-  br label %3584
+3579:                                             ; preds = %3574, %3571
+  %3580 = load i32, ptr %7, align 4
+  %3581 = icmp ne i32 %3580, 0
+  br i1 %3581, label %3582, label %3587
 
-3584:                                             ; preds = %3579, %3576
-  %3585 = load i32, ptr %7, align 4
-  %3586 = icmp ne i32 %3585, 0
-  br i1 %3586, label %3587, label %3592
+3582:                                             ; preds = %3579
+  %3583 = load i64, ptr %5, align 8
+  %3584 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3583, i64 noundef %3584)
+  %3585 = load i64, ptr %5, align 8
+  %3586 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3585, ptr noundef @.str.201)
+  br label %3587
 
-3587:                                             ; preds = %3584
-  %3588 = load i64, ptr %5, align 8
-  %3589 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3588, i64 noundef %3589)
-  %3590 = load i64, ptr %5, align 8
-  %3591 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3590, ptr noundef @.str.202)
-  br label %3592
+3587:                                             ; preds = %3582, %3579
+  %3588 = load i32, ptr %7, align 4
+  %3589 = icmp ne i32 %3588, 0
+  br i1 %3589, label %3590, label %3595
 
-3592:                                             ; preds = %3587, %3584
-  br label %3618
+3590:                                             ; preds = %3587
+  %3591 = load i64, ptr %5, align 8
+  %3592 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3591, i64 noundef %3592)
+  %3593 = load i64, ptr %5, align 8
+  %3594 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3593, ptr noundef @.str.202)
+  br label %3595
 
-3593:                                             ; preds = %3563
-  %3594 = load i32, ptr %7, align 4
-  %3595 = icmp ne i32 %3594, 0
-  br i1 %3595, label %3596, label %3601
+3595:                                             ; preds = %3590, %3587
+  br label %3621
 
-3596:                                             ; preds = %3593
-  %3597 = load i64, ptr %5, align 8
-  %3598 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3597, i64 noundef %3598)
-  %3599 = load i64, ptr %5, align 8
-  %3600 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3599, ptr noundef @.str.203)
-  br label %3601
+3596:                                             ; preds = %3566
+  %3597 = load i32, ptr %7, align 4
+  %3598 = icmp ne i32 %3597, 0
+  br i1 %3598, label %3599, label %3604
 
-3601:                                             ; preds = %3596, %3593
-  %3602 = load i32, ptr %7, align 4
-  %3603 = icmp ne i32 %3602, 0
-  br i1 %3603, label %3604, label %3609
+3599:                                             ; preds = %3596
+  %3600 = load i64, ptr %5, align 8
+  %3601 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3600, i64 noundef %3601)
+  %3602 = load i64, ptr %5, align 8
+  %3603 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3602, ptr noundef @.str.203)
+  br label %3604
 
-3604:                                             ; preds = %3601
-  %3605 = load i64, ptr %5, align 8
-  %3606 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3605, i64 noundef %3606)
-  %3607 = load i64, ptr %5, align 8
-  %3608 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3607, ptr noundef @.str.204)
-  br label %3609
+3604:                                             ; preds = %3599, %3596
+  %3605 = load i32, ptr %7, align 4
+  %3606 = icmp ne i32 %3605, 0
+  br i1 %3606, label %3607, label %3612
 
-3609:                                             ; preds = %3604, %3601
-  %3610 = load i32, ptr %7, align 4
-  %3611 = icmp ne i32 %3610, 0
-  br i1 %3611, label %3612, label %3617
+3607:                                             ; preds = %3604
+  %3608 = load i64, ptr %5, align 8
+  %3609 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3608, i64 noundef %3609)
+  %3610 = load i64, ptr %5, align 8
+  %3611 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3610, ptr noundef @.str.204)
+  br label %3612
 
-3612:                                             ; preds = %3609
-  %3613 = load i64, ptr %5, align 8
-  %3614 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3613, i64 noundef %3614)
-  %3615 = load i64, ptr %5, align 8
-  %3616 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3615, ptr noundef @.str.205)
-  br label %3617
+3612:                                             ; preds = %3607, %3604
+  %3613 = load i32, ptr %7, align 4
+  %3614 = icmp ne i32 %3613, 0
+  br i1 %3614, label %3615, label %3620
 
-3617:                                             ; preds = %3612, %3609
-  br label %3618
+3615:                                             ; preds = %3612
+  %3616 = load i64, ptr %5, align 8
+  %3617 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3616, i64 noundef %3617)
+  %3618 = load i64, ptr %5, align 8
+  %3619 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3618, ptr noundef @.str.205)
+  br label %3620
 
-3618:                                             ; preds = %3617, %3592
-  %3619 = load i64, ptr %5, align 8
-  %3620 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3619, i64 noundef %3620)
-  %3621 = load i64, ptr %5, align 8
-  %3622 = load i32, ptr %7, align 4
-  %3623 = icmp ne i32 %3622, 0
-  %3624 = select i1 %3623, i64 44, i64 8
-  %3625 = trunc i64 %3624 to i32
-  %3626 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3621, ptr noundef @.str.51, i32 noundef %3625, ptr noundef @.str.206)
+3620:                                             ; preds = %3615, %3612
+  br label %3621
+
+3621:                                             ; preds = %3620, %3595
+  %3622 = load i64, ptr %5, align 8
+  %3623 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3622, i64 noundef %3623)
+  %3624 = load i64, ptr %5, align 8
+  %3625 = load i32, ptr %7, align 4
+  %3626 = icmp ne i32 %3625, 0
+  %3627 = select i1 %3626, i64 44, i64 8
+  %3628 = trunc i64 %3627 to i32
+  %3629 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3624, ptr noundef @.str.51, i32 noundef %3628, ptr noundef @.str.206)
   store i32 1, ptr %9, align 4
-  br label %3627
+  br label %3630
 
-3627:                                             ; preds = %3641, %3618
-  %3628 = load i32, ptr %9, align 4
-  %3629 = icmp ne i32 %3628, 0
-  br i1 %3629, label %3630, label %3644
+3630:                                             ; preds = %3644, %3621
+  %3631 = load i32, ptr %9, align 4
+  %3632 = icmp ne i32 %3631, 0
+  br i1 %3632, label %3633, label %3647
 
-3630:                                             ; preds = %3627
-  %3631 = load ptr, ptr %8, align 8
-  %3632 = getelementptr inbounds %struct.RNode_HASH, ptr %3631, i32 0, i32 2
-  %3633 = load i64, ptr %3632, align 8
-  switch i64 %3633, label %3640 [
-    i64 0, label %3634
-    i64 1, label %3637
+3633:                                             ; preds = %3630
+  %3634 = load ptr, ptr %8, align 8
+  %3635 = getelementptr inbounds %struct.RNode_HASH, ptr %3634, i32 0, i32 2
+  %3636 = load i64, ptr %3635, align 8
+  switch i64 %3636, label %3643 [
+    i64 0, label %3637
+    i64 1, label %3640
   ]
 
-3634:                                             ; preds = %3630
-  %3635 = load i64, ptr %5, align 8
-  %3636 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3635, ptr noundef @.str.207)
-  br label %3640
-
-3637:                                             ; preds = %3630
+3637:                                             ; preds = %3633
   %3638 = load i64, ptr %5, align 8
-  %3639 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3638, ptr noundef @.str.208)
-  br label %3640
+  %3639 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3638, ptr noundef @.str.207)
+  br label %3643
 
-3640:                                             ; preds = %3637, %3634, %3630
-  br label %3641
+3640:                                             ; preds = %3633
+  %3641 = load i64, ptr %5, align 8
+  %3642 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3641, ptr noundef @.str.208)
+  br label %3643
 
-3641:                                             ; preds = %3640
-  %3642 = load i64, ptr %5, align 8
-  %3643 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3642, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %3627, !llvm.loop !95
+3643:                                             ; preds = %3640, %3637, %3633
+  br label %3644
 
-3644:                                             ; preds = %3627
-  store ptr @.str.12, ptr %11, align 8
+3644:                                             ; preds = %3643
   %3645 = load i64, ptr %5, align 8
-  %3646 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3645, i64 noundef %3646)
-  %3647 = load i64, ptr %5, align 8
-  %3648 = load i32, ptr %7, align 4
-  %3649 = icmp ne i32 %3648, 0
-  %3650 = select i1 %3649, i64 18, i64 7
-  %3651 = trunc i64 %3650 to i32
-  %3652 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3647, ptr noundef @.str.13, i32 noundef %3651, ptr noundef @.str.209)
-  %3653 = load i64, ptr %6, align 8
-  %3654 = load ptr, ptr %11, align 8
-  %3655 = call i64 @rb_str_cat_cstr(i64 noundef %3653, ptr noundef %3654)
-  store i32 1, ptr %9, align 4
-  br label %3656
-
-3656:                                             ; preds = %3666, %3644
-  %3657 = load i32, ptr %9, align 4
-  %3658 = icmp ne i32 %3657, 0
-  br i1 %3658, label %3659, label %3672
-
-3659:                                             ; preds = %3656
-  %3660 = load i64, ptr %5, align 8
-  %3661 = load i64, ptr %6, align 8
-  %3662 = load i32, ptr %7, align 4
-  %3663 = load ptr, ptr %8, align 8
-  %3664 = getelementptr inbounds %struct.RNode_HASH, ptr %3663, i32 0, i32 1
-  %3665 = load ptr, ptr %3664, align 8
-  call void @dump_node(i64 noundef %3660, i64 noundef %3661, i32 noundef %3662, ptr noundef %3665)
-  br label %3666
-
-3666:                                             ; preds = %3659
-  %3667 = load i64, ptr %6, align 8
-  %3668 = load i64, ptr %6, align 8
-  %3669 = call i64 @RSTRING_LEN(i64 noundef %3668) #10
-  %3670 = sub i64 %3669, 4
-  %3671 = call i64 @rb_str_resize(i64 noundef %3667, i64 noundef %3670)
+  %3646 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3645, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3656, !llvm.loop !96
+  br label %3630, !llvm.loop !95
 
-3672:                                             ; preds = %3656
-  br label %7932
-
-3673:                                             ; preds = %24
-  %3674 = load i32, ptr %7, align 4
-  %3675 = icmp ne i32 %3674, 0
-  br i1 %3675, label %3676, label %3681
-
-3676:                                             ; preds = %3673
-  %3677 = load i64, ptr %5, align 8
-  %3678 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3677, i64 noundef %3678)
-  %3679 = load i64, ptr %5, align 8
-  %3680 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3679, ptr noundef @.str.210)
-  br label %3681
-
-3681:                                             ; preds = %3676, %3673
-  %3682 = load i32, ptr %7, align 4
-  %3683 = icmp ne i32 %3682, 0
-  br i1 %3683, label %3684, label %3689
-
-3684:                                             ; preds = %3681
-  %3685 = load i64, ptr %5, align 8
-  %3686 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3685, i64 noundef %3686)
-  %3687 = load i64, ptr %5, align 8
-  %3688 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3687, ptr noundef @.str.211)
-  br label %3689
-
-3689:                                             ; preds = %3684, %3681
-  %3690 = load i32, ptr %7, align 4
-  %3691 = icmp ne i32 %3690, 0
-  br i1 %3691, label %3692, label %3697
-
-3692:                                             ; preds = %3689
-  %3693 = load i64, ptr %5, align 8
-  %3694 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3693, i64 noundef %3694)
-  %3695 = load i64, ptr %5, align 8
-  %3696 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3695, ptr noundef @.str.212)
-  br label %3697
-
-3697:                                             ; preds = %3692, %3689
+3647:                                             ; preds = %3630
   store ptr @.str.12, ptr %11, align 8
+  %3648 = load i64, ptr %5, align 8
+  %3649 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3648, i64 noundef %3649)
+  %3650 = load i64, ptr %5, align 8
+  %3651 = load i32, ptr %7, align 4
+  %3652 = icmp ne i32 %3651, 0
+  %3653 = select i1 %3652, i64 18, i64 7
+  %3654 = trunc i64 %3653 to i32
+  %3655 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3650, ptr noundef @.str.13, i32 noundef %3654, ptr noundef @.str.209)
+  %3656 = load i64, ptr %6, align 8
+  %3657 = load ptr, ptr %11, align 8
+  %3658 = call i64 @rb_str_cat_cstr(i64 noundef %3656, ptr noundef %3657)
+  store i32 1, ptr %9, align 4
+  br label %3659
+
+3659:                                             ; preds = %3669, %3647
+  %3660 = load i32, ptr %9, align 4
+  %3661 = icmp ne i32 %3660, 0
+  br i1 %3661, label %3662, label %3675
+
+3662:                                             ; preds = %3659
+  %3663 = load i64, ptr %5, align 8
+  %3664 = load i64, ptr %6, align 8
+  %3665 = load i32, ptr %7, align 4
+  %3666 = load ptr, ptr %8, align 8
+  %3667 = getelementptr inbounds %struct.RNode_HASH, ptr %3666, i32 0, i32 1
+  %3668 = load ptr, ptr %3667, align 8
+  call void @dump_node(i64 noundef %3663, i64 noundef %3664, i32 noundef %3665, ptr noundef %3668)
+  br label %3669
+
+3669:                                             ; preds = %3662
+  %3670 = load i64, ptr %6, align 8
+  %3671 = load i64, ptr %6, align 8
+  %3672 = call i64 @RSTRING_LEN(i64 noundef %3671) #10
+  %3673 = sub i64 %3672, 4
+  %3674 = call i64 @rb_str_resize(i64 noundef %3670, i64 noundef %3673)
+  store i32 0, ptr %9, align 4
+  br label %3659, !llvm.loop !96
+
+3675:                                             ; preds = %3659
+  br label %7940
+
+3676:                                             ; preds = %24
+  %3677 = load i32, ptr %7, align 4
+  %3678 = icmp ne i32 %3677, 0
+  br i1 %3678, label %3679, label %3684
+
+3679:                                             ; preds = %3676
+  %3680 = load i64, ptr %5, align 8
+  %3681 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3680, i64 noundef %3681)
+  %3682 = load i64, ptr %5, align 8
+  %3683 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3682, ptr noundef @.str.210)
+  br label %3684
+
+3684:                                             ; preds = %3679, %3676
+  %3685 = load i32, ptr %7, align 4
+  %3686 = icmp ne i32 %3685, 0
+  br i1 %3686, label %3687, label %3692
+
+3687:                                             ; preds = %3684
+  %3688 = load i64, ptr %5, align 8
+  %3689 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3688, i64 noundef %3689)
+  %3690 = load i64, ptr %5, align 8
+  %3691 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3690, ptr noundef @.str.211)
+  br label %3692
+
+3692:                                             ; preds = %3687, %3684
+  %3693 = load i32, ptr %7, align 4
+  %3694 = icmp ne i32 %3693, 0
+  br i1 %3694, label %3695, label %3700
+
+3695:                                             ; preds = %3692
+  %3696 = load i64, ptr %5, align 8
+  %3697 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3696, i64 noundef %3697)
   %3698 = load i64, ptr %5, align 8
-  %3699 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3698, i64 noundef %3699)
-  %3700 = load i64, ptr %5, align 8
-  %3701 = load i32, ptr %7, align 4
-  %3702 = icmp ne i32 %3701, 0
-  %3703 = select i1 %3702, i64 19, i64 7
-  %3704 = trunc i64 %3703 to i32
-  %3705 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3700, ptr noundef @.str.13, i32 noundef %3704, ptr noundef @.str.213)
-  %3706 = load i64, ptr %6, align 8
-  %3707 = load ptr, ptr %11, align 8
-  %3708 = call i64 @rb_str_cat_cstr(i64 noundef %3706, ptr noundef %3707)
+  %3699 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3698, ptr noundef @.str.212)
+  br label %3700
+
+3700:                                             ; preds = %3695, %3692
+  store ptr @.str.12, ptr %11, align 8
+  %3701 = load i64, ptr %5, align 8
+  %3702 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3701, i64 noundef %3702)
+  %3703 = load i64, ptr %5, align 8
+  %3704 = load i32, ptr %7, align 4
+  %3705 = icmp ne i32 %3704, 0
+  %3706 = select i1 %3705, i64 19, i64 7
+  %3707 = trunc i64 %3706 to i32
+  %3708 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3703, ptr noundef @.str.13, i32 noundef %3707, ptr noundef @.str.213)
+  %3709 = load i64, ptr %6, align 8
+  %3710 = load ptr, ptr %11, align 8
+  %3711 = call i64 @rb_str_cat_cstr(i64 noundef %3709, ptr noundef %3710)
   store i32 1, ptr %9, align 4
-  br label %3709
+  br label %3712
 
-3709:                                             ; preds = %3719, %3697
-  %3710 = load i32, ptr %9, align 4
-  %3711 = icmp ne i32 %3710, 0
-  br i1 %3711, label %3712, label %3725
+3712:                                             ; preds = %3722, %3700
+  %3713 = load i32, ptr %9, align 4
+  %3714 = icmp ne i32 %3713, 0
+  br i1 %3714, label %3715, label %3728
 
-3712:                                             ; preds = %3709
-  %3713 = load i64, ptr %5, align 8
-  %3714 = load i64, ptr %6, align 8
-  %3715 = load i32, ptr %7, align 4
-  %3716 = load ptr, ptr %8, align 8
-  %3717 = getelementptr inbounds %struct.RNode_YIELD, ptr %3716, i32 0, i32 1
-  %3718 = load ptr, ptr %3717, align 8
-  call void @dump_node(i64 noundef %3713, i64 noundef %3714, i32 noundef %3715, ptr noundef %3718)
-  br label %3719
+3715:                                             ; preds = %3712
+  %3716 = load i64, ptr %5, align 8
+  %3717 = load i64, ptr %6, align 8
+  %3718 = load i32, ptr %7, align 4
+  %3719 = load ptr, ptr %8, align 8
+  %3720 = getelementptr inbounds %struct.RNode_YIELD, ptr %3719, i32 0, i32 1
+  %3721 = load ptr, ptr %3720, align 8
+  call void @dump_node(i64 noundef %3716, i64 noundef %3717, i32 noundef %3718, ptr noundef %3721)
+  br label %3722
 
-3719:                                             ; preds = %3712
-  %3720 = load i64, ptr %6, align 8
-  %3721 = load i64, ptr %6, align 8
-  %3722 = call i64 @RSTRING_LEN(i64 noundef %3721) #10
-  %3723 = sub i64 %3722, 4
-  %3724 = call i64 @rb_str_resize(i64 noundef %3720, i64 noundef %3723)
+3722:                                             ; preds = %3715
+  %3723 = load i64, ptr %6, align 8
+  %3724 = load i64, ptr %6, align 8
+  %3725 = call i64 @RSTRING_LEN(i64 noundef %3724) #10
+  %3726 = sub i64 %3725, 4
+  %3727 = call i64 @rb_str_resize(i64 noundef %3723, i64 noundef %3726)
   store i32 0, ptr %9, align 4
-  br label %3709, !llvm.loop !97
+  br label %3712, !llvm.loop !97
 
-3725:                                             ; preds = %3709
-  br label %7932
+3728:                                             ; preds = %3712
+  br label %7940
 
-3726:                                             ; preds = %24
-  %3727 = load i32, ptr %7, align 4
-  %3728 = icmp ne i32 %3727, 0
-  br i1 %3728, label %3729, label %3734
+3729:                                             ; preds = %24
+  %3730 = load i32, ptr %7, align 4
+  %3731 = icmp ne i32 %3730, 0
+  br i1 %3731, label %3732, label %3737
 
-3729:                                             ; preds = %3726
-  %3730 = load i64, ptr %5, align 8
-  %3731 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3730, i64 noundef %3731)
-  %3732 = load i64, ptr %5, align 8
-  %3733 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3732, ptr noundef @.str.214)
-  br label %3734
+3732:                                             ; preds = %3729
+  %3733 = load i64, ptr %5, align 8
+  %3734 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3733, i64 noundef %3734)
+  %3735 = load i64, ptr %5, align 8
+  %3736 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3735, ptr noundef @.str.214)
+  br label %3737
 
-3734:                                             ; preds = %3729, %3726
-  %3735 = load i32, ptr %7, align 4
-  %3736 = icmp ne i32 %3735, 0
-  br i1 %3736, label %3737, label %3742
+3737:                                             ; preds = %3732, %3729
+  %3738 = load i32, ptr %7, align 4
+  %3739 = icmp ne i32 %3738, 0
+  br i1 %3739, label %3740, label %3745
 
-3737:                                             ; preds = %3734
-  %3738 = load i64, ptr %5, align 8
-  %3739 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3738, i64 noundef %3739)
-  %3740 = load i64, ptr %5, align 8
-  %3741 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3740, ptr noundef @.str.215)
-  br label %3742
+3740:                                             ; preds = %3737
+  %3741 = load i64, ptr %5, align 8
+  %3742 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3741, i64 noundef %3742)
+  %3743 = load i64, ptr %5, align 8
+  %3744 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3743, ptr noundef @.str.215)
+  br label %3745
 
-3742:                                             ; preds = %3737, %3734
-  %3743 = load i32, ptr %7, align 4
-  %3744 = icmp ne i32 %3743, 0
-  br i1 %3744, label %3745, label %3750
+3745:                                             ; preds = %3740, %3737
+  %3746 = load i32, ptr %7, align 4
+  %3747 = icmp ne i32 %3746, 0
+  br i1 %3747, label %3748, label %3753
 
-3745:                                             ; preds = %3742
-  %3746 = load i64, ptr %5, align 8
-  %3747 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3746, i64 noundef %3747)
-  %3748 = load i64, ptr %5, align 8
-  %3749 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3748, ptr noundef @.str.216)
-  br label %3750
-
-3750:                                             ; preds = %3745, %3742
+3748:                                             ; preds = %3745
+  %3749 = load i64, ptr %5, align 8
+  %3750 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3749, i64 noundef %3750)
   %3751 = load i64, ptr %5, align 8
-  %3752 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3751, i64 noundef %3752)
-  %3753 = load i64, ptr %5, align 8
-  %3754 = load i32, ptr %7, align 4
-  %3755 = icmp ne i32 %3754, 0
-  %3756 = select i1 %3755, i64 23, i64 6
-  %3757 = trunc i64 %3756 to i32
-  %3758 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3753, ptr noundef @.str.51, i32 noundef %3757, ptr noundef @.str.122)
+  %3752 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3751, ptr noundef @.str.216)
+  br label %3753
+
+3753:                                             ; preds = %3748, %3745
+  %3754 = load i64, ptr %5, align 8
+  %3755 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3754, i64 noundef %3755)
+  %3756 = load i64, ptr %5, align 8
+  %3757 = load i32, ptr %7, align 4
+  %3758 = icmp ne i32 %3757, 0
+  %3759 = select i1 %3758, i64 23, i64 6
+  %3760 = trunc i64 %3759 to i32
+  %3761 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3756, ptr noundef @.str.51, i32 noundef %3760, ptr noundef @.str.122)
   store i32 1, ptr %9, align 4
-  br label %3759
+  br label %3762
 
-3759:                                             ; preds = %3767, %3750
-  %3760 = load i32, ptr %9, align 4
-  %3761 = icmp ne i32 %3760, 0
-  br i1 %3761, label %3762, label %3770
+3762:                                             ; preds = %3770, %3753
+  %3763 = load i32, ptr %9, align 4
+  %3764 = icmp ne i32 %3763, 0
+  br i1 %3764, label %3765, label %3773
 
-3762:                                             ; preds = %3759
-  %3763 = load i64, ptr %5, align 8
-  %3764 = load ptr, ptr %8, align 8
-  %3765 = getelementptr inbounds %struct.RNode_LVAR, ptr %3764, i32 0, i32 1
-  %3766 = load i64, ptr %3765, align 8
-  call void @add_id(i64 noundef %3763, i64 noundef %3766)
-  br label %3767
+3765:                                             ; preds = %3762
+  %3766 = load i64, ptr %5, align 8
+  %3767 = load ptr, ptr %8, align 8
+  %3768 = getelementptr inbounds %struct.RNode_LVAR, ptr %3767, i32 0, i32 1
+  %3769 = load i64, ptr %3768, align 8
+  call void @add_id(i64 noundef %3766, i64 noundef %3769)
+  br label %3770
 
-3767:                                             ; preds = %3762
-  %3768 = load i64, ptr %5, align 8
-  %3769 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3768, ptr noundef @.str.56)
+3770:                                             ; preds = %3765
+  %3771 = load i64, ptr %5, align 8
+  %3772 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3771, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3759, !llvm.loop !98
+  br label %3762, !llvm.loop !98
 
-3770:                                             ; preds = %3759
-  br label %7932
+3773:                                             ; preds = %3762
+  br label %7940
 
-3771:                                             ; preds = %24
-  %3772 = load i32, ptr %7, align 4
-  %3773 = icmp ne i32 %3772, 0
-  br i1 %3773, label %3774, label %3779
+3774:                                             ; preds = %24
+  %3775 = load i32, ptr %7, align 4
+  %3776 = icmp ne i32 %3775, 0
+  br i1 %3776, label %3777, label %3782
 
-3774:                                             ; preds = %3771
-  %3775 = load i64, ptr %5, align 8
-  %3776 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3775, i64 noundef %3776)
-  %3777 = load i64, ptr %5, align 8
-  %3778 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3777, ptr noundef @.str.217)
-  br label %3779
+3777:                                             ; preds = %3774
+  %3778 = load i64, ptr %5, align 8
+  %3779 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3778, i64 noundef %3779)
+  %3780 = load i64, ptr %5, align 8
+  %3781 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3780, ptr noundef @.str.217)
+  br label %3782
 
-3779:                                             ; preds = %3774, %3771
-  %3780 = load i32, ptr %7, align 4
-  %3781 = icmp ne i32 %3780, 0
-  br i1 %3781, label %3782, label %3787
+3782:                                             ; preds = %3777, %3774
+  %3783 = load i32, ptr %7, align 4
+  %3784 = icmp ne i32 %3783, 0
+  br i1 %3784, label %3785, label %3790
 
-3782:                                             ; preds = %3779
-  %3783 = load i64, ptr %5, align 8
-  %3784 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3783, i64 noundef %3784)
-  %3785 = load i64, ptr %5, align 8
-  %3786 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3785, ptr noundef @.str.218)
-  br label %3787
+3785:                                             ; preds = %3782
+  %3786 = load i64, ptr %5, align 8
+  %3787 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3786, i64 noundef %3787)
+  %3788 = load i64, ptr %5, align 8
+  %3789 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3788, ptr noundef @.str.218)
+  br label %3790
 
-3787:                                             ; preds = %3782, %3779
-  %3788 = load i32, ptr %7, align 4
-  %3789 = icmp ne i32 %3788, 0
-  br i1 %3789, label %3790, label %3795
+3790:                                             ; preds = %3785, %3782
+  %3791 = load i32, ptr %7, align 4
+  %3792 = icmp ne i32 %3791, 0
+  br i1 %3792, label %3793, label %3798
 
-3790:                                             ; preds = %3787
-  %3791 = load i64, ptr %5, align 8
-  %3792 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3791, i64 noundef %3792)
-  %3793 = load i64, ptr %5, align 8
-  %3794 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3793, ptr noundef @.str.219)
-  br label %3795
-
-3795:                                             ; preds = %3790, %3787
+3793:                                             ; preds = %3790
+  %3794 = load i64, ptr %5, align 8
+  %3795 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3794, i64 noundef %3795)
   %3796 = load i64, ptr %5, align 8
-  %3797 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3796, i64 noundef %3797)
-  %3798 = load i64, ptr %5, align 8
-  %3799 = load i32, ptr %7, align 4
-  %3800 = icmp ne i32 %3799, 0
-  %3801 = select i1 %3800, i64 23, i64 6
-  %3802 = trunc i64 %3801 to i32
-  %3803 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3798, ptr noundef @.str.51, i32 noundef %3802, ptr noundef @.str.122)
+  %3797 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3796, ptr noundef @.str.219)
+  br label %3798
+
+3798:                                             ; preds = %3793, %3790
+  %3799 = load i64, ptr %5, align 8
+  %3800 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3799, i64 noundef %3800)
+  %3801 = load i64, ptr %5, align 8
+  %3802 = load i32, ptr %7, align 4
+  %3803 = icmp ne i32 %3802, 0
+  %3804 = select i1 %3803, i64 23, i64 6
+  %3805 = trunc i64 %3804 to i32
+  %3806 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3801, ptr noundef @.str.51, i32 noundef %3805, ptr noundef @.str.122)
   store i32 1, ptr %9, align 4
-  br label %3804
+  br label %3807
 
-3804:                                             ; preds = %3812, %3795
-  %3805 = load i32, ptr %9, align 4
-  %3806 = icmp ne i32 %3805, 0
-  br i1 %3806, label %3807, label %3815
+3807:                                             ; preds = %3815, %3798
+  %3808 = load i32, ptr %9, align 4
+  %3809 = icmp ne i32 %3808, 0
+  br i1 %3809, label %3810, label %3818
 
-3807:                                             ; preds = %3804
-  %3808 = load i64, ptr %5, align 8
-  %3809 = load ptr, ptr %8, align 8
-  %3810 = getelementptr inbounds %struct.RNode_DVAR, ptr %3809, i32 0, i32 1
-  %3811 = load i64, ptr %3810, align 8
-  call void @add_id(i64 noundef %3808, i64 noundef %3811)
-  br label %3812
+3810:                                             ; preds = %3807
+  %3811 = load i64, ptr %5, align 8
+  %3812 = load ptr, ptr %8, align 8
+  %3813 = getelementptr inbounds %struct.RNode_DVAR, ptr %3812, i32 0, i32 1
+  %3814 = load i64, ptr %3813, align 8
+  call void @add_id(i64 noundef %3811, i64 noundef %3814)
+  br label %3815
 
-3812:                                             ; preds = %3807
-  %3813 = load i64, ptr %5, align 8
-  %3814 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3813, ptr noundef @.str.56)
+3815:                                             ; preds = %3810
+  %3816 = load i64, ptr %5, align 8
+  %3817 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3816, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3804, !llvm.loop !99
+  br label %3807, !llvm.loop !99
 
-3815:                                             ; preds = %3804
-  br label %7932
+3818:                                             ; preds = %3807
+  br label %7940
 
-3816:                                             ; preds = %24
-  %3817 = load i32, ptr %7, align 4
-  %3818 = icmp ne i32 %3817, 0
-  br i1 %3818, label %3819, label %3824
+3819:                                             ; preds = %24
+  %3820 = load i32, ptr %7, align 4
+  %3821 = icmp ne i32 %3820, 0
+  br i1 %3821, label %3822, label %3827
 
-3819:                                             ; preds = %3816
-  %3820 = load i64, ptr %5, align 8
-  %3821 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3820, i64 noundef %3821)
-  %3822 = load i64, ptr %5, align 8
-  %3823 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3822, ptr noundef @.str.220)
-  br label %3824
+3822:                                             ; preds = %3819
+  %3823 = load i64, ptr %5, align 8
+  %3824 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3823, i64 noundef %3824)
+  %3825 = load i64, ptr %5, align 8
+  %3826 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3825, ptr noundef @.str.220)
+  br label %3827
 
-3824:                                             ; preds = %3819, %3816
-  %3825 = load i32, ptr %7, align 4
-  %3826 = icmp ne i32 %3825, 0
-  br i1 %3826, label %3827, label %3832
+3827:                                             ; preds = %3822, %3819
+  %3828 = load i32, ptr %7, align 4
+  %3829 = icmp ne i32 %3828, 0
+  br i1 %3829, label %3830, label %3835
 
-3827:                                             ; preds = %3824
-  %3828 = load i64, ptr %5, align 8
-  %3829 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3828, i64 noundef %3829)
-  %3830 = load i64, ptr %5, align 8
-  %3831 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3830, ptr noundef @.str.221)
-  br label %3832
+3830:                                             ; preds = %3827
+  %3831 = load i64, ptr %5, align 8
+  %3832 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3831, i64 noundef %3832)
+  %3833 = load i64, ptr %5, align 8
+  %3834 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3833, ptr noundef @.str.221)
+  br label %3835
 
-3832:                                             ; preds = %3827, %3824
-  %3833 = load i32, ptr %7, align 4
-  %3834 = icmp ne i32 %3833, 0
-  br i1 %3834, label %3835, label %3840
+3835:                                             ; preds = %3830, %3827
+  %3836 = load i32, ptr %7, align 4
+  %3837 = icmp ne i32 %3836, 0
+  br i1 %3837, label %3838, label %3843
 
-3835:                                             ; preds = %3832
-  %3836 = load i64, ptr %5, align 8
-  %3837 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3836, i64 noundef %3837)
-  %3838 = load i64, ptr %5, align 8
-  %3839 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3838, ptr noundef @.str.222)
-  br label %3840
-
-3840:                                             ; preds = %3835, %3832
+3838:                                             ; preds = %3835
+  %3839 = load i64, ptr %5, align 8
+  %3840 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3839, i64 noundef %3840)
   %3841 = load i64, ptr %5, align 8
-  %3842 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3841, i64 noundef %3842)
-  %3843 = load i64, ptr %5, align 8
-  %3844 = load i32, ptr %7, align 4
-  %3845 = icmp ne i32 %3844, 0
-  %3846 = select i1 %3845, i64 26, i64 6
-  %3847 = trunc i64 %3846 to i32
-  %3848 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3843, ptr noundef @.str.51, i32 noundef %3847, ptr noundef @.str.132)
+  %3842 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3841, ptr noundef @.str.222)
+  br label %3843
+
+3843:                                             ; preds = %3838, %3835
+  %3844 = load i64, ptr %5, align 8
+  %3845 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3844, i64 noundef %3845)
+  %3846 = load i64, ptr %5, align 8
+  %3847 = load i32, ptr %7, align 4
+  %3848 = icmp ne i32 %3847, 0
+  %3849 = select i1 %3848, i64 26, i64 6
+  %3850 = trunc i64 %3849 to i32
+  %3851 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3846, ptr noundef @.str.51, i32 noundef %3850, ptr noundef @.str.132)
   store i32 1, ptr %9, align 4
-  br label %3849
+  br label %3852
 
-3849:                                             ; preds = %3857, %3840
-  %3850 = load i32, ptr %9, align 4
-  %3851 = icmp ne i32 %3850, 0
-  br i1 %3851, label %3852, label %3860
+3852:                                             ; preds = %3860, %3843
+  %3853 = load i32, ptr %9, align 4
+  %3854 = icmp ne i32 %3853, 0
+  br i1 %3854, label %3855, label %3863
 
-3852:                                             ; preds = %3849
-  %3853 = load i64, ptr %5, align 8
-  %3854 = load ptr, ptr %8, align 8
-  %3855 = getelementptr inbounds %struct.RNode_IVAR, ptr %3854, i32 0, i32 1
-  %3856 = load i64, ptr %3855, align 8
-  call void @add_id(i64 noundef %3853, i64 noundef %3856)
-  br label %3857
+3855:                                             ; preds = %3852
+  %3856 = load i64, ptr %5, align 8
+  %3857 = load ptr, ptr %8, align 8
+  %3858 = getelementptr inbounds %struct.RNode_IVAR, ptr %3857, i32 0, i32 1
+  %3859 = load i64, ptr %3858, align 8
+  call void @add_id(i64 noundef %3856, i64 noundef %3859)
+  br label %3860
 
-3857:                                             ; preds = %3852
-  %3858 = load i64, ptr %5, align 8
-  %3859 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3858, ptr noundef @.str.56)
+3860:                                             ; preds = %3855
+  %3861 = load i64, ptr %5, align 8
+  %3862 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3861, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3849, !llvm.loop !100
+  br label %3852, !llvm.loop !100
 
-3860:                                             ; preds = %3849
-  br label %7932
+3863:                                             ; preds = %3852
+  br label %7940
 
-3861:                                             ; preds = %24
-  %3862 = load i32, ptr %7, align 4
-  %3863 = icmp ne i32 %3862, 0
-  br i1 %3863, label %3864, label %3869
+3864:                                             ; preds = %24
+  %3865 = load i32, ptr %7, align 4
+  %3866 = icmp ne i32 %3865, 0
+  br i1 %3866, label %3867, label %3872
 
-3864:                                             ; preds = %3861
-  %3865 = load i64, ptr %5, align 8
-  %3866 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3865, i64 noundef %3866)
-  %3867 = load i64, ptr %5, align 8
-  %3868 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3867, ptr noundef @.str.223)
-  br label %3869
+3867:                                             ; preds = %3864
+  %3868 = load i64, ptr %5, align 8
+  %3869 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3868, i64 noundef %3869)
+  %3870 = load i64, ptr %5, align 8
+  %3871 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3870, ptr noundef @.str.223)
+  br label %3872
 
-3869:                                             ; preds = %3864, %3861
-  %3870 = load i32, ptr %7, align 4
-  %3871 = icmp ne i32 %3870, 0
-  br i1 %3871, label %3872, label %3877
+3872:                                             ; preds = %3867, %3864
+  %3873 = load i32, ptr %7, align 4
+  %3874 = icmp ne i32 %3873, 0
+  br i1 %3874, label %3875, label %3880
 
-3872:                                             ; preds = %3869
-  %3873 = load i64, ptr %5, align 8
-  %3874 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3873, i64 noundef %3874)
-  %3875 = load i64, ptr %5, align 8
-  %3876 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3875, ptr noundef @.str.224)
-  br label %3877
+3875:                                             ; preds = %3872
+  %3876 = load i64, ptr %5, align 8
+  %3877 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3876, i64 noundef %3877)
+  %3878 = load i64, ptr %5, align 8
+  %3879 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3878, ptr noundef @.str.224)
+  br label %3880
 
-3877:                                             ; preds = %3872, %3869
-  %3878 = load i32, ptr %7, align 4
-  %3879 = icmp ne i32 %3878, 0
-  br i1 %3879, label %3880, label %3885
+3880:                                             ; preds = %3875, %3872
+  %3881 = load i32, ptr %7, align 4
+  %3882 = icmp ne i32 %3881, 0
+  br i1 %3882, label %3883, label %3888
 
-3880:                                             ; preds = %3877
-  %3881 = load i64, ptr %5, align 8
-  %3882 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3881, i64 noundef %3882)
-  %3883 = load i64, ptr %5, align 8
-  %3884 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3883, ptr noundef @.str.225)
-  br label %3885
-
-3885:                                             ; preds = %3880, %3877
+3883:                                             ; preds = %3880
+  %3884 = load i64, ptr %5, align 8
+  %3885 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3884, i64 noundef %3885)
   %3886 = load i64, ptr %5, align 8
-  %3887 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3886, i64 noundef %3887)
-  %3888 = load i64, ptr %5, align 8
-  %3889 = load i32, ptr %7, align 4
-  %3890 = icmp ne i32 %3889, 0
-  %3891 = select i1 %3890, i64 17, i64 6
-  %3892 = trunc i64 %3891 to i32
-  %3893 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3888, ptr noundef @.str.51, i32 noundef %3892, ptr noundef @.str.144)
+  %3887 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3886, ptr noundef @.str.225)
+  br label %3888
+
+3888:                                             ; preds = %3883, %3880
+  %3889 = load i64, ptr %5, align 8
+  %3890 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3889, i64 noundef %3890)
+  %3891 = load i64, ptr %5, align 8
+  %3892 = load i32, ptr %7, align 4
+  %3893 = icmp ne i32 %3892, 0
+  %3894 = select i1 %3893, i64 17, i64 6
+  %3895 = trunc i64 %3894 to i32
+  %3896 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3891, ptr noundef @.str.51, i32 noundef %3895, ptr noundef @.str.144)
   store i32 1, ptr %9, align 4
-  br label %3894
+  br label %3897
 
-3894:                                             ; preds = %3902, %3885
-  %3895 = load i32, ptr %9, align 4
-  %3896 = icmp ne i32 %3895, 0
-  br i1 %3896, label %3897, label %3905
+3897:                                             ; preds = %3905, %3888
+  %3898 = load i32, ptr %9, align 4
+  %3899 = icmp ne i32 %3898, 0
+  br i1 %3899, label %3900, label %3908
 
-3897:                                             ; preds = %3894
-  %3898 = load i64, ptr %5, align 8
-  %3899 = load ptr, ptr %8, align 8
-  %3900 = getelementptr inbounds %struct.RNode_CONST, ptr %3899, i32 0, i32 1
-  %3901 = load i64, ptr %3900, align 8
-  call void @add_id(i64 noundef %3898, i64 noundef %3901)
-  br label %3902
+3900:                                             ; preds = %3897
+  %3901 = load i64, ptr %5, align 8
+  %3902 = load ptr, ptr %8, align 8
+  %3903 = getelementptr inbounds %struct.RNode_CONST, ptr %3902, i32 0, i32 1
+  %3904 = load i64, ptr %3903, align 8
+  call void @add_id(i64 noundef %3901, i64 noundef %3904)
+  br label %3905
 
-3902:                                             ; preds = %3897
-  %3903 = load i64, ptr %5, align 8
-  %3904 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3903, ptr noundef @.str.56)
+3905:                                             ; preds = %3900
+  %3906 = load i64, ptr %5, align 8
+  %3907 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3906, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3894, !llvm.loop !101
+  br label %3897, !llvm.loop !101
 
-3905:                                             ; preds = %3894
-  br label %7932
+3908:                                             ; preds = %3897
+  br label %7940
 
-3906:                                             ; preds = %24
-  %3907 = load i32, ptr %7, align 4
-  %3908 = icmp ne i32 %3907, 0
-  br i1 %3908, label %3909, label %3914
+3909:                                             ; preds = %24
+  %3910 = load i32, ptr %7, align 4
+  %3911 = icmp ne i32 %3910, 0
+  br i1 %3911, label %3912, label %3917
 
-3909:                                             ; preds = %3906
-  %3910 = load i64, ptr %5, align 8
-  %3911 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3910, i64 noundef %3911)
-  %3912 = load i64, ptr %5, align 8
-  %3913 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3912, ptr noundef @.str.226)
-  br label %3914
+3912:                                             ; preds = %3909
+  %3913 = load i64, ptr %5, align 8
+  %3914 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3913, i64 noundef %3914)
+  %3915 = load i64, ptr %5, align 8
+  %3916 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3915, ptr noundef @.str.226)
+  br label %3917
 
-3914:                                             ; preds = %3909, %3906
-  %3915 = load i32, ptr %7, align 4
-  %3916 = icmp ne i32 %3915, 0
-  br i1 %3916, label %3917, label %3922
+3917:                                             ; preds = %3912, %3909
+  %3918 = load i32, ptr %7, align 4
+  %3919 = icmp ne i32 %3918, 0
+  br i1 %3919, label %3920, label %3925
 
-3917:                                             ; preds = %3914
-  %3918 = load i64, ptr %5, align 8
-  %3919 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3918, i64 noundef %3919)
-  %3920 = load i64, ptr %5, align 8
-  %3921 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3920, ptr noundef @.str.227)
-  br label %3922
+3920:                                             ; preds = %3917
+  %3921 = load i64, ptr %5, align 8
+  %3922 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3921, i64 noundef %3922)
+  %3923 = load i64, ptr %5, align 8
+  %3924 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3923, ptr noundef @.str.227)
+  br label %3925
 
-3922:                                             ; preds = %3917, %3914
-  %3923 = load i32, ptr %7, align 4
-  %3924 = icmp ne i32 %3923, 0
-  br i1 %3924, label %3925, label %3930
+3925:                                             ; preds = %3920, %3917
+  %3926 = load i32, ptr %7, align 4
+  %3927 = icmp ne i32 %3926, 0
+  br i1 %3927, label %3928, label %3933
 
-3925:                                             ; preds = %3922
-  %3926 = load i64, ptr %5, align 8
-  %3927 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3926, i64 noundef %3927)
-  %3928 = load i64, ptr %5, align 8
-  %3929 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3928, ptr noundef @.str.228)
-  br label %3930
-
-3930:                                             ; preds = %3925, %3922
+3928:                                             ; preds = %3925
+  %3929 = load i64, ptr %5, align 8
+  %3930 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3929, i64 noundef %3930)
   %3931 = load i64, ptr %5, align 8
-  %3932 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3931, i64 noundef %3932)
-  %3933 = load i64, ptr %5, align 8
-  %3934 = load i32, ptr %7, align 4
-  %3935 = icmp ne i32 %3934, 0
-  %3936 = select i1 %3935, i64 23, i64 6
-  %3937 = trunc i64 %3936 to i32
-  %3938 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3933, ptr noundef @.str.51, i32 noundef %3937, ptr noundef @.str.136)
+  %3932 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3931, ptr noundef @.str.228)
+  br label %3933
+
+3933:                                             ; preds = %3928, %3925
+  %3934 = load i64, ptr %5, align 8
+  %3935 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3934, i64 noundef %3935)
+  %3936 = load i64, ptr %5, align 8
+  %3937 = load i32, ptr %7, align 4
+  %3938 = icmp ne i32 %3937, 0
+  %3939 = select i1 %3938, i64 23, i64 6
+  %3940 = trunc i64 %3939 to i32
+  %3941 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3936, ptr noundef @.str.51, i32 noundef %3940, ptr noundef @.str.136)
   store i32 1, ptr %9, align 4
-  br label %3939
+  br label %3942
 
-3939:                                             ; preds = %3947, %3930
-  %3940 = load i32, ptr %9, align 4
-  %3941 = icmp ne i32 %3940, 0
-  br i1 %3941, label %3942, label %3950
+3942:                                             ; preds = %3950, %3933
+  %3943 = load i32, ptr %9, align 4
+  %3944 = icmp ne i32 %3943, 0
+  br i1 %3944, label %3945, label %3953
 
-3942:                                             ; preds = %3939
-  %3943 = load i64, ptr %5, align 8
-  %3944 = load ptr, ptr %8, align 8
-  %3945 = getelementptr inbounds %struct.RNode_CVAR, ptr %3944, i32 0, i32 1
-  %3946 = load i64, ptr %3945, align 8
-  call void @add_id(i64 noundef %3943, i64 noundef %3946)
-  br label %3947
+3945:                                             ; preds = %3942
+  %3946 = load i64, ptr %5, align 8
+  %3947 = load ptr, ptr %8, align 8
+  %3948 = getelementptr inbounds %struct.RNode_CVAR, ptr %3947, i32 0, i32 1
+  %3949 = load i64, ptr %3948, align 8
+  call void @add_id(i64 noundef %3946, i64 noundef %3949)
+  br label %3950
 
-3947:                                             ; preds = %3942
-  %3948 = load i64, ptr %5, align 8
-  %3949 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3948, ptr noundef @.str.56)
+3950:                                             ; preds = %3945
+  %3951 = load i64, ptr %5, align 8
+  %3952 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3951, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3939, !llvm.loop !102
+  br label %3942, !llvm.loop !102
 
-3950:                                             ; preds = %3939
-  br label %7932
+3953:                                             ; preds = %3942
+  br label %7940
 
-3951:                                             ; preds = %24
-  %3952 = load i32, ptr %7, align 4
-  %3953 = icmp ne i32 %3952, 0
-  br i1 %3953, label %3954, label %3959
+3954:                                             ; preds = %24
+  %3955 = load i32, ptr %7, align 4
+  %3956 = icmp ne i32 %3955, 0
+  br i1 %3956, label %3957, label %3962
 
-3954:                                             ; preds = %3951
-  %3955 = load i64, ptr %5, align 8
-  %3956 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3955, i64 noundef %3956)
-  %3957 = load i64, ptr %5, align 8
-  %3958 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3957, ptr noundef @.str.229)
-  br label %3959
+3957:                                             ; preds = %3954
+  %3958 = load i64, ptr %5, align 8
+  %3959 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3958, i64 noundef %3959)
+  %3960 = load i64, ptr %5, align 8
+  %3961 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3960, ptr noundef @.str.229)
+  br label %3962
 
-3959:                                             ; preds = %3954, %3951
-  %3960 = load i32, ptr %7, align 4
-  %3961 = icmp ne i32 %3960, 0
-  br i1 %3961, label %3962, label %3967
+3962:                                             ; preds = %3957, %3954
+  %3963 = load i32, ptr %7, align 4
+  %3964 = icmp ne i32 %3963, 0
+  br i1 %3964, label %3965, label %3970
 
-3962:                                             ; preds = %3959
-  %3963 = load i64, ptr %5, align 8
-  %3964 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3963, i64 noundef %3964)
-  %3965 = load i64, ptr %5, align 8
-  %3966 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3965, ptr noundef @.str.230)
-  br label %3967
+3965:                                             ; preds = %3962
+  %3966 = load i64, ptr %5, align 8
+  %3967 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3966, i64 noundef %3967)
+  %3968 = load i64, ptr %5, align 8
+  %3969 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3968, ptr noundef @.str.230)
+  br label %3970
 
-3967:                                             ; preds = %3962, %3959
-  %3968 = load i32, ptr %7, align 4
-  %3969 = icmp ne i32 %3968, 0
-  br i1 %3969, label %3970, label %3975
+3970:                                             ; preds = %3965, %3962
+  %3971 = load i32, ptr %7, align 4
+  %3972 = icmp ne i32 %3971, 0
+  br i1 %3972, label %3973, label %3978
 
-3970:                                             ; preds = %3967
-  %3971 = load i64, ptr %5, align 8
-  %3972 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3971, i64 noundef %3972)
-  %3973 = load i64, ptr %5, align 8
-  %3974 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3973, ptr noundef @.str.231)
-  br label %3975
-
-3975:                                             ; preds = %3970, %3967
+3973:                                             ; preds = %3970
+  %3974 = load i64, ptr %5, align 8
+  %3975 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3974, i64 noundef %3975)
   %3976 = load i64, ptr %5, align 8
-  %3977 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %3976, i64 noundef %3977)
-  %3978 = load i64, ptr %5, align 8
-  %3979 = load i32, ptr %7, align 4
-  %3980 = icmp ne i32 %3979, 0
-  %3981 = select i1 %3980, i64 24, i64 6
-  %3982 = trunc i64 %3981 to i32
-  %3983 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3978, ptr noundef @.str.51, i32 noundef %3982, ptr noundef @.str.140)
+  %3977 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3976, ptr noundef @.str.231)
+  br label %3978
+
+3978:                                             ; preds = %3973, %3970
+  %3979 = load i64, ptr %5, align 8
+  %3980 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %3979, i64 noundef %3980)
+  %3981 = load i64, ptr %5, align 8
+  %3982 = load i32, ptr %7, align 4
+  %3983 = icmp ne i32 %3982, 0
+  %3984 = select i1 %3983, i64 24, i64 6
+  %3985 = trunc i64 %3984 to i32
+  %3986 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3981, ptr noundef @.str.51, i32 noundef %3985, ptr noundef @.str.140)
   store i32 1, ptr %9, align 4
-  br label %3984
+  br label %3987
 
-3984:                                             ; preds = %3992, %3975
-  %3985 = load i32, ptr %9, align 4
-  %3986 = icmp ne i32 %3985, 0
-  br i1 %3986, label %3987, label %3995
+3987:                                             ; preds = %3995, %3978
+  %3988 = load i32, ptr %9, align 4
+  %3989 = icmp ne i32 %3988, 0
+  br i1 %3989, label %3990, label %3998
 
-3987:                                             ; preds = %3984
-  %3988 = load i64, ptr %5, align 8
-  %3989 = load ptr, ptr %8, align 8
-  %3990 = getelementptr inbounds %struct.RNode_GVAR, ptr %3989, i32 0, i32 1
-  %3991 = load i64, ptr %3990, align 8
-  call void @add_id(i64 noundef %3988, i64 noundef %3991)
-  br label %3992
+3990:                                             ; preds = %3987
+  %3991 = load i64, ptr %5, align 8
+  %3992 = load ptr, ptr %8, align 8
+  %3993 = getelementptr inbounds %struct.RNode_GVAR, ptr %3992, i32 0, i32 1
+  %3994 = load i64, ptr %3993, align 8
+  call void @add_id(i64 noundef %3991, i64 noundef %3994)
+  br label %3995
 
-3992:                                             ; preds = %3987
-  %3993 = load i64, ptr %5, align 8
-  %3994 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3993, ptr noundef @.str.56)
+3995:                                             ; preds = %3990
+  %3996 = load i64, ptr %5, align 8
+  %3997 = call i64 @rbimpl_str_cat_cstr(i64 noundef %3996, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %3984, !llvm.loop !103
+  br label %3987, !llvm.loop !103
 
-3995:                                             ; preds = %3984
-  br label %7932
+3998:                                             ; preds = %3987
+  br label %7940
 
-3996:                                             ; preds = %24
-  %3997 = load i32, ptr %7, align 4
-  %3998 = icmp ne i32 %3997, 0
-  br i1 %3998, label %3999, label %4004
+3999:                                             ; preds = %24
+  %4000 = load i32, ptr %7, align 4
+  %4001 = icmp ne i32 %4000, 0
+  br i1 %4001, label %4002, label %4007
 
-3999:                                             ; preds = %3996
-  %4000 = load i64, ptr %5, align 8
-  %4001 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4000, i64 noundef %4001)
-  %4002 = load i64, ptr %5, align 8
-  %4003 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4002, ptr noundef @.str.232)
-  br label %4004
+4002:                                             ; preds = %3999
+  %4003 = load i64, ptr %5, align 8
+  %4004 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4003, i64 noundef %4004)
+  %4005 = load i64, ptr %5, align 8
+  %4006 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4005, ptr noundef @.str.232)
+  br label %4007
 
-4004:                                             ; preds = %3999, %3996
-  %4005 = load i32, ptr %7, align 4
-  %4006 = icmp ne i32 %4005, 0
-  br i1 %4006, label %4007, label %4012
+4007:                                             ; preds = %4002, %3999
+  %4008 = load i32, ptr %7, align 4
+  %4009 = icmp ne i32 %4008, 0
+  br i1 %4009, label %4010, label %4015
 
-4007:                                             ; preds = %4004
-  %4008 = load i64, ptr %5, align 8
-  %4009 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4008, i64 noundef %4009)
-  %4010 = load i64, ptr %5, align 8
-  %4011 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4010, ptr noundef @.str.233)
-  br label %4012
+4010:                                             ; preds = %4007
+  %4011 = load i64, ptr %5, align 8
+  %4012 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4011, i64 noundef %4012)
+  %4013 = load i64, ptr %5, align 8
+  %4014 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4013, ptr noundef @.str.233)
+  br label %4015
 
-4012:                                             ; preds = %4007, %4004
-  %4013 = load i32, ptr %7, align 4
-  %4014 = icmp ne i32 %4013, 0
-  br i1 %4014, label %4015, label %4020
+4015:                                             ; preds = %4010, %4007
+  %4016 = load i32, ptr %7, align 4
+  %4017 = icmp ne i32 %4016, 0
+  br i1 %4017, label %4018, label %4023
 
-4015:                                             ; preds = %4012
-  %4016 = load i64, ptr %5, align 8
-  %4017 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4016, i64 noundef %4017)
-  %4018 = load i64, ptr %5, align 8
-  %4019 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4018, ptr noundef @.str.234)
-  br label %4020
-
-4020:                                             ; preds = %4015, %4012
+4018:                                             ; preds = %4015
+  %4019 = load i64, ptr %5, align 8
+  %4020 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4019, i64 noundef %4020)
   %4021 = load i64, ptr %5, align 8
-  %4022 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4021, i64 noundef %4022)
-  %4023 = load i64, ptr %5, align 8
-  %4024 = load i32, ptr %7, align 4
-  %4025 = icmp ne i32 %4024, 0
-  %4026 = select i1 %4025, i64 17, i64 6
-  %4027 = trunc i64 %4026 to i32
-  %4028 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4023, ptr noundef @.str.51, i32 noundef %4027, ptr noundef @.str.235)
+  %4022 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4021, ptr noundef @.str.234)
+  br label %4023
+
+4023:                                             ; preds = %4018, %4015
+  %4024 = load i64, ptr %5, align 8
+  %4025 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4024, i64 noundef %4025)
+  %4026 = load i64, ptr %5, align 8
+  %4027 = load i32, ptr %7, align 4
+  %4028 = icmp ne i32 %4027, 0
+  %4029 = select i1 %4028, i64 17, i64 6
+  %4030 = trunc i64 %4029 to i32
+  %4031 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4026, ptr noundef @.str.51, i32 noundef %4030, ptr noundef @.str.235)
   store i32 1, ptr %9, align 4
-  br label %4029
+  br label %4032
 
-4029:                                             ; preds = %4040, %4020
-  %4030 = load i32, ptr %9, align 4
-  %4031 = icmp ne i32 %4030, 0
-  br i1 %4031, label %4032, label %4043
+4032:                                             ; preds = %4043, %4023
+  %4033 = load i32, ptr %9, align 4
+  %4034 = icmp ne i32 %4033, 0
+  br i1 %4034, label %4035, label %4046
 
-4032:                                             ; preds = %4029
-  %4033 = load i64, ptr %5, align 8
-  %4034 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4033, ptr noundef @.str.236)
-  %4035 = load i64, ptr %5, align 8
-  %4036 = load ptr, ptr %8, align 8
-  %4037 = getelementptr inbounds %struct.RNode_NTH_REF, ptr %4036, i32 0, i32 1
-  %4038 = load i64, ptr %4037, align 8
-  %4039 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4035, ptr noundef @.str.237, i64 noundef %4038)
-  br label %4040
+4035:                                             ; preds = %4032
+  %4036 = load i64, ptr %5, align 8
+  %4037 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4036, ptr noundef @.str.236)
+  %4038 = load i64, ptr %5, align 8
+  %4039 = load ptr, ptr %8, align 8
+  %4040 = getelementptr inbounds %struct.RNode_NTH_REF, ptr %4039, i32 0, i32 1
+  %4041 = load i64, ptr %4040, align 8
+  %4042 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4038, ptr noundef @.str.237, i64 noundef %4041)
+  br label %4043
 
-4040:                                             ; preds = %4032
-  %4041 = load i64, ptr %5, align 8
-  %4042 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4041, ptr noundef @.str.56)
+4043:                                             ; preds = %4035
+  %4044 = load i64, ptr %5, align 8
+  %4045 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4044, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4029, !llvm.loop !104
+  br label %4032, !llvm.loop !104
 
-4043:                                             ; preds = %4029
-  br label %7932
+4046:                                             ; preds = %4032
+  br label %7940
 
-4044:                                             ; preds = %24
-  %4045 = load i32, ptr %7, align 4
-  %4046 = icmp ne i32 %4045, 0
-  br i1 %4046, label %4047, label %4052
+4047:                                             ; preds = %24
+  %4048 = load i32, ptr %7, align 4
+  %4049 = icmp ne i32 %4048, 0
+  br i1 %4049, label %4050, label %4055
 
-4047:                                             ; preds = %4044
-  %4048 = load i64, ptr %5, align 8
-  %4049 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4048, i64 noundef %4049)
-  %4050 = load i64, ptr %5, align 8
-  %4051 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4050, ptr noundef @.str.238)
-  br label %4052
+4050:                                             ; preds = %4047
+  %4051 = load i64, ptr %5, align 8
+  %4052 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4051, i64 noundef %4052)
+  %4053 = load i64, ptr %5, align 8
+  %4054 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4053, ptr noundef @.str.238)
+  br label %4055
 
-4052:                                             ; preds = %4047, %4044
-  %4053 = load i32, ptr %7, align 4
-  %4054 = icmp ne i32 %4053, 0
-  br i1 %4054, label %4055, label %4060
+4055:                                             ; preds = %4050, %4047
+  %4056 = load i32, ptr %7, align 4
+  %4057 = icmp ne i32 %4056, 0
+  br i1 %4057, label %4058, label %4063
 
-4055:                                             ; preds = %4052
-  %4056 = load i64, ptr %5, align 8
-  %4057 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4056, i64 noundef %4057)
-  %4058 = load i64, ptr %5, align 8
-  %4059 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4058, ptr noundef @.str.233)
-  br label %4060
+4058:                                             ; preds = %4055
+  %4059 = load i64, ptr %5, align 8
+  %4060 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4059, i64 noundef %4060)
+  %4061 = load i64, ptr %5, align 8
+  %4062 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4061, ptr noundef @.str.233)
+  br label %4063
 
-4060:                                             ; preds = %4055, %4052
-  %4061 = load i32, ptr %7, align 4
-  %4062 = icmp ne i32 %4061, 0
-  br i1 %4062, label %4063, label %4068
+4063:                                             ; preds = %4058, %4055
+  %4064 = load i32, ptr %7, align 4
+  %4065 = icmp ne i32 %4064, 0
+  br i1 %4065, label %4066, label %4071
 
-4063:                                             ; preds = %4060
-  %4064 = load i64, ptr %5, align 8
-  %4065 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4064, i64 noundef %4065)
-  %4066 = load i64, ptr %5, align 8
-  %4067 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4066, ptr noundef @.str.239)
-  br label %4068
-
-4068:                                             ; preds = %4063, %4060
+4066:                                             ; preds = %4063
+  %4067 = load i64, ptr %5, align 8
+  %4068 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4067, i64 noundef %4068)
   %4069 = load i64, ptr %5, align 8
-  %4070 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4069, i64 noundef %4070)
-  %4071 = load i64, ptr %5, align 8
-  %4072 = load i32, ptr %7, align 4
-  %4073 = icmp ne i32 %4072, 0
-  %4074 = select i1 %4073, i64 17, i64 6
-  %4075 = trunc i64 %4074 to i32
-  %4076 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4071, ptr noundef @.str.51, i32 noundef %4075, ptr noundef @.str.235)
+  %4070 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4069, ptr noundef @.str.239)
+  br label %4071
+
+4071:                                             ; preds = %4066, %4063
+  %4072 = load i64, ptr %5, align 8
+  %4073 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4072, i64 noundef %4073)
+  %4074 = load i64, ptr %5, align 8
+  %4075 = load i32, ptr %7, align 4
+  %4076 = icmp ne i32 %4075, 0
+  %4077 = select i1 %4076, i64 17, i64 6
+  %4078 = trunc i64 %4077 to i32
+  %4079 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4074, ptr noundef @.str.51, i32 noundef %4078, ptr noundef @.str.235)
   store i32 1, ptr %9, align 4
-  br label %4077
+  br label %4080
 
-4077:                                             ; preds = %4089, %4068
-  %4078 = load i32, ptr %9, align 4
-  %4079 = icmp ne i32 %4078, 0
-  br i1 %4079, label %4080, label %4092
+4080:                                             ; preds = %4092, %4071
+  %4081 = load i32, ptr %9, align 4
+  %4082 = icmp ne i32 %4081, 0
+  br i1 %4082, label %4083, label %4095
 
-4080:                                             ; preds = %4077
+4083:                                             ; preds = %4080
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 @__const.dump_node.name, i64 3, i1 false)
-  %4081 = load ptr, ptr %8, align 8
-  %4082 = getelementptr inbounds %struct.RNode_BACK_REF, ptr %4081, i32 0, i32 1
-  %4083 = load i64, ptr %4082, align 8
-  %4084 = trunc i64 %4083 to i8
-  %4085 = getelementptr [3 x i8], ptr %13, i64 0, i64 1
-  store i8 %4084, ptr %4085, align 1
-  %4086 = load i64, ptr %5, align 8
-  %4087 = getelementptr inbounds [3 x i8], ptr %13, i64 0, i64 0
-  %4088 = call i64 @rb_str_cat_cstr(i64 noundef %4086, ptr noundef %4087)
-  br label %4089
+  %4084 = load ptr, ptr %8, align 8
+  %4085 = getelementptr inbounds %struct.RNode_BACK_REF, ptr %4084, i32 0, i32 1
+  %4086 = load i64, ptr %4085, align 8
+  %4087 = trunc i64 %4086 to i8
+  %4088 = getelementptr [3 x i8], ptr %13, i64 0, i64 1
+  store i8 %4087, ptr %4088, align 1
+  %4089 = load i64, ptr %5, align 8
+  %4090 = getelementptr inbounds [3 x i8], ptr %13, i64 0, i64 0
+  %4091 = call i64 @rb_str_cat_cstr(i64 noundef %4089, ptr noundef %4090)
+  br label %4092
 
-4089:                                             ; preds = %4080
-  %4090 = load i64, ptr %5, align 8
-  %4091 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4090, ptr noundef @.str.56)
+4092:                                             ; preds = %4083
+  %4093 = load i64, ptr %5, align 8
+  %4094 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4093, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4077, !llvm.loop !105
+  br label %4080, !llvm.loop !105
 
-4092:                                             ; preds = %4077
-  br label %7932
+4095:                                             ; preds = %4080
+  br label %7940
 
-4093:                                             ; preds = %24
-  %4094 = load i32, ptr %7, align 4
-  %4095 = icmp ne i32 %4094, 0
-  br i1 %4095, label %4096, label %4101
+4096:                                             ; preds = %24
+  %4097 = load i32, ptr %7, align 4
+  %4098 = icmp ne i32 %4097, 0
+  br i1 %4098, label %4099, label %4104
 
-4096:                                             ; preds = %4093
-  %4097 = load i64, ptr %5, align 8
-  %4098 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4097, i64 noundef %4098)
-  %4099 = load i64, ptr %5, align 8
-  %4100 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4099, ptr noundef @.str.240)
-  br label %4101
+4099:                                             ; preds = %4096
+  %4100 = load i64, ptr %5, align 8
+  %4101 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4100, i64 noundef %4101)
+  %4102 = load i64, ptr %5, align 8
+  %4103 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4102, ptr noundef @.str.240)
+  br label %4104
 
-4101:                                             ; preds = %4096, %4093
-  %4102 = load i32, ptr %7, align 4
-  %4103 = icmp ne i32 %4102, 0
-  br i1 %4103, label %4104, label %4109
+4104:                                             ; preds = %4099, %4096
+  %4105 = load i32, ptr %7, align 4
+  %4106 = icmp ne i32 %4105, 0
+  br i1 %4106, label %4107, label %4112
 
-4104:                                             ; preds = %4101
-  %4105 = load i64, ptr %5, align 8
-  %4106 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4105, i64 noundef %4106)
-  %4107 = load i64, ptr %5, align 8
-  %4108 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4107, ptr noundef @.str.241)
-  br label %4109
+4107:                                             ; preds = %4104
+  %4108 = load i64, ptr %5, align 8
+  %4109 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4108, i64 noundef %4109)
+  %4110 = load i64, ptr %5, align 8
+  %4111 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4110, ptr noundef @.str.241)
+  br label %4112
 
-4109:                                             ; preds = %4104, %4101
-  %4110 = load i32, ptr %7, align 4
-  %4111 = icmp ne i32 %4110, 0
-  br i1 %4111, label %4112, label %4117
+4112:                                             ; preds = %4107, %4104
+  %4113 = load i32, ptr %7, align 4
+  %4114 = icmp ne i32 %4113, 0
+  br i1 %4114, label %4115, label %4120
 
-4112:                                             ; preds = %4109
-  %4113 = load i64, ptr %5, align 8
-  %4114 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4113, i64 noundef %4114)
-  %4115 = load i64, ptr %5, align 8
-  %4116 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4115, ptr noundef @.str.242)
-  br label %4117
-
-4117:                                             ; preds = %4112, %4109
-  store ptr @.str.12, ptr %11, align 8
+4115:                                             ; preds = %4112
+  %4116 = load i64, ptr %5, align 8
+  %4117 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4116, i64 noundef %4117)
   %4118 = load i64, ptr %5, align 8
-  %4119 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4118, i64 noundef %4119)
-  %4120 = load i64, ptr %5, align 8
-  %4121 = load i32, ptr %7, align 4
-  %4122 = icmp ne i32 %4121, 0
-  %4123 = select i1 %4122, i64 15, i64 6
-  %4124 = trunc i64 %4123 to i32
-  %4125 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4120, ptr noundef @.str.51, i32 noundef %4124, ptr noundef @.str.243)
+  %4119 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4118, ptr noundef @.str.242)
+  br label %4120
+
+4120:                                             ; preds = %4115, %4112
+  store ptr @.str.12, ptr %11, align 8
+  %4121 = load i64, ptr %5, align 8
+  %4122 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4121, i64 noundef %4122)
+  %4123 = load i64, ptr %5, align 8
+  %4124 = load i32, ptr %7, align 4
+  %4125 = icmp ne i32 %4124, 0
+  %4126 = select i1 %4125, i64 15, i64 6
+  %4127 = trunc i64 %4126 to i32
+  %4128 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4123, ptr noundef @.str.51, i32 noundef %4127, ptr noundef @.str.243)
   store i32 1, ptr %9, align 4
-  br label %4126
+  br label %4129
 
-4126:                                             ; preds = %4135, %4117
-  %4127 = load i32, ptr %9, align 4
-  %4128 = icmp ne i32 %4127, 0
-  br i1 %4128, label %4129, label %4138
+4129:                                             ; preds = %4138, %4120
+  %4130 = load i32, ptr %9, align 4
+  %4131 = icmp ne i32 %4130, 0
+  br i1 %4131, label %4132, label %4141
 
-4129:                                             ; preds = %4126
-  %4130 = load i64, ptr %5, align 8
-  %4131 = load ptr, ptr %8, align 8
-  %4132 = call i64 @rb_node_regx_string_val(ptr noundef %4131)
-  %4133 = call i64 @rb_dump_literal(i64 noundef %4132)
-  %4134 = call i64 @rb_str_concat(i64 noundef %4130, i64 noundef %4133)
-  br label %4135
+4132:                                             ; preds = %4129
+  %4133 = load i64, ptr %5, align 8
+  %4134 = load ptr, ptr %8, align 8
+  %4135 = call i64 @rb_node_regx_string_val(ptr noundef %4134)
+  %4136 = call i64 @rb_dump_literal(i64 noundef %4135)
+  %4137 = call i64 @rb_str_concat(i64 noundef %4133, i64 noundef %4136)
+  br label %4138
 
-4135:                                             ; preds = %4129
-  %4136 = load i64, ptr %5, align 8
-  %4137 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4136, ptr noundef @.str.56)
+4138:                                             ; preds = %4132
+  %4139 = load i64, ptr %5, align 8
+  %4140 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4139, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4126, !llvm.loop !106
+  br label %4129, !llvm.loop !106
 
-4138:                                             ; preds = %4126
-  br label %7932
+4141:                                             ; preds = %4129
+  br label %7940
 
-4139:                                             ; preds = %24
-  %4140 = load i32, ptr %7, align 4
-  %4141 = icmp ne i32 %4140, 0
-  br i1 %4141, label %4142, label %4147
+4142:                                             ; preds = %24
+  %4143 = load i32, ptr %7, align 4
+  %4144 = icmp ne i32 %4143, 0
+  br i1 %4144, label %4145, label %4150
 
-4142:                                             ; preds = %4139
-  %4143 = load i64, ptr %5, align 8
-  %4144 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4143, i64 noundef %4144)
-  %4145 = load i64, ptr %5, align 8
-  %4146 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4145, ptr noundef @.str.244)
-  br label %4147
+4145:                                             ; preds = %4142
+  %4146 = load i64, ptr %5, align 8
+  %4147 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4146, i64 noundef %4147)
+  %4148 = load i64, ptr %5, align 8
+  %4149 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4148, ptr noundef @.str.244)
+  br label %4150
 
-4147:                                             ; preds = %4142, %4139
-  %4148 = load i32, ptr %7, align 4
-  %4149 = icmp ne i32 %4148, 0
-  br i1 %4149, label %4150, label %4155
+4150:                                             ; preds = %4145, %4142
+  %4151 = load i32, ptr %7, align 4
+  %4152 = icmp ne i32 %4151, 0
+  br i1 %4152, label %4153, label %4158
 
-4150:                                             ; preds = %4147
-  %4151 = load i64, ptr %5, align 8
-  %4152 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4151, i64 noundef %4152)
-  %4153 = load i64, ptr %5, align 8
-  %4154 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4153, ptr noundef @.str.245)
-  br label %4155
+4153:                                             ; preds = %4150
+  %4154 = load i64, ptr %5, align 8
+  %4155 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4154, i64 noundef %4155)
+  %4156 = load i64, ptr %5, align 8
+  %4157 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4156, ptr noundef @.str.245)
+  br label %4158
 
-4155:                                             ; preds = %4150, %4147
-  %4156 = load i32, ptr %7, align 4
-  %4157 = icmp ne i32 %4156, 0
-  br i1 %4157, label %4158, label %4163
+4158:                                             ; preds = %4153, %4150
+  %4159 = load i32, ptr %7, align 4
+  %4160 = icmp ne i32 %4159, 0
+  br i1 %4160, label %4161, label %4166
 
-4158:                                             ; preds = %4155
-  %4159 = load i64, ptr %5, align 8
-  %4160 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4159, i64 noundef %4160)
-  %4161 = load i64, ptr %5, align 8
-  %4162 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4161, ptr noundef @.str.246)
-  br label %4163
-
-4163:                                             ; preds = %4158, %4155
+4161:                                             ; preds = %4158
+  %4162 = load i64, ptr %5, align 8
+  %4163 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4162, i64 noundef %4163)
   %4164 = load i64, ptr %5, align 8
-  %4165 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4164, i64 noundef %4165)
-  %4166 = load i64, ptr %5, align 8
-  %4167 = load i32, ptr %7, align 4
-  %4168 = icmp ne i32 %4167, 0
-  %4169 = select i1 %4168, i64 27, i64 7
-  %4170 = trunc i64 %4169 to i32
-  %4171 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4166, ptr noundef @.str.13, i32 noundef %4170, ptr noundef @.str.247)
-  %4172 = load i64, ptr %6, align 8
-  %4173 = load ptr, ptr %11, align 8
-  %4174 = call i64 @rb_str_cat_cstr(i64 noundef %4172, ptr noundef %4173)
+  %4165 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4164, ptr noundef @.str.246)
+  br label %4166
+
+4166:                                             ; preds = %4161, %4158
+  %4167 = load i64, ptr %5, align 8
+  %4168 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4167, i64 noundef %4168)
+  %4169 = load i64, ptr %5, align 8
+  %4170 = load i32, ptr %7, align 4
+  %4171 = icmp ne i32 %4170, 0
+  %4172 = select i1 %4171, i64 27, i64 7
+  %4173 = trunc i64 %4172 to i32
+  %4174 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4169, ptr noundef @.str.13, i32 noundef %4173, ptr noundef @.str.247)
+  %4175 = load i64, ptr %6, align 8
+  %4176 = load ptr, ptr %11, align 8
+  %4177 = call i64 @rb_str_cat_cstr(i64 noundef %4175, ptr noundef %4176)
   store i32 1, ptr %9, align 4
-  br label %4175
+  br label %4178
 
-4175:                                             ; preds = %4185, %4163
-  %4176 = load i32, ptr %9, align 4
-  %4177 = icmp ne i32 %4176, 0
-  br i1 %4177, label %4178, label %4191
+4178:                                             ; preds = %4188, %4166
+  %4179 = load i32, ptr %9, align 4
+  %4180 = icmp ne i32 %4179, 0
+  br i1 %4180, label %4181, label %4194
 
-4178:                                             ; preds = %4175
-  %4179 = load i64, ptr %5, align 8
-  %4180 = load i64, ptr %6, align 8
-  %4181 = load i32, ptr %7, align 4
-  %4182 = load ptr, ptr %8, align 8
-  %4183 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4182, i32 0, i32 1
-  %4184 = load ptr, ptr %4183, align 8
-  call void @dump_node(i64 noundef %4179, i64 noundef %4180, i32 noundef %4181, ptr noundef %4184)
-  br label %4185
+4181:                                             ; preds = %4178
+  %4182 = load i64, ptr %5, align 8
+  %4183 = load i64, ptr %6, align 8
+  %4184 = load i32, ptr %7, align 4
+  %4185 = load ptr, ptr %8, align 8
+  %4186 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4185, i32 0, i32 1
+  %4187 = load ptr, ptr %4186, align 8
+  call void @dump_node(i64 noundef %4182, i64 noundef %4183, i32 noundef %4184, ptr noundef %4187)
+  br label %4188
 
-4185:                                             ; preds = %4178
-  %4186 = load i64, ptr %6, align 8
-  %4187 = load i64, ptr %6, align 8
-  %4188 = call i64 @RSTRING_LEN(i64 noundef %4187) #10
-  %4189 = sub i64 %4188, 4
-  %4190 = call i64 @rb_str_resize(i64 noundef %4186, i64 noundef %4189)
+4188:                                             ; preds = %4181
+  %4189 = load i64, ptr %6, align 8
+  %4190 = load i64, ptr %6, align 8
+  %4191 = call i64 @RSTRING_LEN(i64 noundef %4190) #10
+  %4192 = sub i64 %4191, 4
+  %4193 = call i64 @rb_str_resize(i64 noundef %4189, i64 noundef %4192)
   store i32 0, ptr %9, align 4
-  br label %4175, !llvm.loop !107
+  br label %4178, !llvm.loop !107
 
-4191:                                             ; preds = %4175
-  %4192 = load ptr, ptr %8, align 8
-  %4193 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4192, i32 0, i32 3
-  %4194 = load ptr, ptr %4193, align 8
-  %4195 = icmp ne ptr %4194, null
-  br i1 %4195, label %4197, label %4196
+4194:                                             ; preds = %4178
+  %4195 = load ptr, ptr %8, align 8
+  %4196 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4195, i32 0, i32 3
+  %4197 = load ptr, ptr %4196, align 8
+  %4198 = icmp ne ptr %4197, null
+  br i1 %4198, label %4200, label %4199
 
-4196:                                             ; preds = %4191
+4199:                                             ; preds = %4194
   store ptr @.str.12, ptr %11, align 8
-  br label %4197
+  br label %4200
 
-4197:                                             ; preds = %4196, %4191
-  %4198 = load i64, ptr %5, align 8
-  %4199 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4198, i64 noundef %4199)
-  %4200 = load i64, ptr %5, align 8
-  %4201 = load i32, ptr %7, align 4
-  %4202 = icmp ne i32 %4201, 0
-  %4203 = select i1 %4202, i64 28, i64 8
-  %4204 = trunc i64 %4203 to i32
-  %4205 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4200, ptr noundef @.str.13, i32 noundef %4204, ptr noundef @.str.248)
-  %4206 = load i64, ptr %6, align 8
-  %4207 = load ptr, ptr %11, align 8
-  %4208 = call i64 @rb_str_cat_cstr(i64 noundef %4206, ptr noundef %4207)
+4200:                                             ; preds = %4199, %4194
+  %4201 = load i64, ptr %5, align 8
+  %4202 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4201, i64 noundef %4202)
+  %4203 = load i64, ptr %5, align 8
+  %4204 = load i32, ptr %7, align 4
+  %4205 = icmp ne i32 %4204, 0
+  %4206 = select i1 %4205, i64 28, i64 8
+  %4207 = trunc i64 %4206 to i32
+  %4208 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4203, ptr noundef @.str.13, i32 noundef %4207, ptr noundef @.str.248)
+  %4209 = load i64, ptr %6, align 8
+  %4210 = load ptr, ptr %11, align 8
+  %4211 = call i64 @rb_str_cat_cstr(i64 noundef %4209, ptr noundef %4210)
   store i32 1, ptr %9, align 4
-  br label %4209
+  br label %4212
 
-4209:                                             ; preds = %4219, %4197
-  %4210 = load i32, ptr %9, align 4
-  %4211 = icmp ne i32 %4210, 0
-  br i1 %4211, label %4212, label %4225
+4212:                                             ; preds = %4222, %4200
+  %4213 = load i32, ptr %9, align 4
+  %4214 = icmp ne i32 %4213, 0
+  br i1 %4214, label %4215, label %4228
 
-4212:                                             ; preds = %4209
-  %4213 = load i64, ptr %5, align 8
-  %4214 = load i64, ptr %6, align 8
-  %4215 = load i32, ptr %7, align 4
-  %4216 = load ptr, ptr %8, align 8
-  %4217 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4216, i32 0, i32 2
-  %4218 = load ptr, ptr %4217, align 8
-  call void @dump_node(i64 noundef %4213, i64 noundef %4214, i32 noundef %4215, ptr noundef %4218)
-  br label %4219
+4215:                                             ; preds = %4212
+  %4216 = load i64, ptr %5, align 8
+  %4217 = load i64, ptr %6, align 8
+  %4218 = load i32, ptr %7, align 4
+  %4219 = load ptr, ptr %8, align 8
+  %4220 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4219, i32 0, i32 2
+  %4221 = load ptr, ptr %4220, align 8
+  call void @dump_node(i64 noundef %4216, i64 noundef %4217, i32 noundef %4218, ptr noundef %4221)
+  br label %4222
 
-4219:                                             ; preds = %4212
-  %4220 = load i64, ptr %6, align 8
-  %4221 = load i64, ptr %6, align 8
-  %4222 = call i64 @RSTRING_LEN(i64 noundef %4221) #10
-  %4223 = sub i64 %4222, 4
-  %4224 = call i64 @rb_str_resize(i64 noundef %4220, i64 noundef %4223)
+4222:                                             ; preds = %4215
+  %4223 = load i64, ptr %6, align 8
+  %4224 = load i64, ptr %6, align 8
+  %4225 = call i64 @RSTRING_LEN(i64 noundef %4224) #10
+  %4226 = sub i64 %4225, 4
+  %4227 = call i64 @rb_str_resize(i64 noundef %4223, i64 noundef %4226)
   store i32 0, ptr %9, align 4
-  br label %4209, !llvm.loop !108
+  br label %4212, !llvm.loop !108
 
-4225:                                             ; preds = %4209
-  %4226 = load ptr, ptr %8, align 8
-  %4227 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4226, i32 0, i32 3
-  %4228 = load ptr, ptr %4227, align 8
-  %4229 = icmp ne ptr %4228, null
-  br i1 %4229, label %4230, label %4259
+4228:                                             ; preds = %4212
+  %4229 = load ptr, ptr %8, align 8
+  %4230 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4229, i32 0, i32 3
+  %4231 = load ptr, ptr %4230, align 8
+  %4232 = icmp ne ptr %4231, null
+  br i1 %4232, label %4233, label %4262
 
-4230:                                             ; preds = %4225
+4233:                                             ; preds = %4228
   store ptr @.str.12, ptr %11, align 8
-  %4231 = load i64, ptr %5, align 8
-  %4232 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4231, i64 noundef %4232)
-  %4233 = load i64, ptr %5, align 8
-  %4234 = load i32, ptr %7, align 4
-  %4235 = icmp ne i32 %4234, 0
-  %4236 = select i1 %4235, i64 24, i64 7
-  %4237 = trunc i64 %4236 to i32
-  %4238 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4233, ptr noundef @.str.13, i32 noundef %4237, ptr noundef @.str.249)
-  %4239 = load i64, ptr %6, align 8
-  %4240 = load ptr, ptr %11, align 8
-  %4241 = call i64 @rb_str_cat_cstr(i64 noundef %4239, ptr noundef %4240)
+  %4234 = load i64, ptr %5, align 8
+  %4235 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4234, i64 noundef %4235)
+  %4236 = load i64, ptr %5, align 8
+  %4237 = load i32, ptr %7, align 4
+  %4238 = icmp ne i32 %4237, 0
+  %4239 = select i1 %4238, i64 24, i64 7
+  %4240 = trunc i64 %4239 to i32
+  %4241 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4236, ptr noundef @.str.13, i32 noundef %4240, ptr noundef @.str.249)
+  %4242 = load i64, ptr %6, align 8
+  %4243 = load ptr, ptr %11, align 8
+  %4244 = call i64 @rb_str_cat_cstr(i64 noundef %4242, ptr noundef %4243)
   store i32 1, ptr %9, align 4
-  br label %4242
+  br label %4245
 
-4242:                                             ; preds = %4252, %4230
-  %4243 = load i32, ptr %9, align 4
-  %4244 = icmp ne i32 %4243, 0
-  br i1 %4244, label %4245, label %4258
+4245:                                             ; preds = %4255, %4233
+  %4246 = load i32, ptr %9, align 4
+  %4247 = icmp ne i32 %4246, 0
+  br i1 %4247, label %4248, label %4261
 
-4245:                                             ; preds = %4242
-  %4246 = load i64, ptr %5, align 8
-  %4247 = load i64, ptr %6, align 8
-  %4248 = load i32, ptr %7, align 4
-  %4249 = load ptr, ptr %8, align 8
-  %4250 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4249, i32 0, i32 3
-  %4251 = load ptr, ptr %4250, align 8
-  call void @dump_node(i64 noundef %4246, i64 noundef %4247, i32 noundef %4248, ptr noundef %4251)
-  br label %4252
+4248:                                             ; preds = %4245
+  %4249 = load i64, ptr %5, align 8
+  %4250 = load i64, ptr %6, align 8
+  %4251 = load i32, ptr %7, align 4
+  %4252 = load ptr, ptr %8, align 8
+  %4253 = getelementptr inbounds %struct.RNode_MATCH2, ptr %4252, i32 0, i32 3
+  %4254 = load ptr, ptr %4253, align 8
+  call void @dump_node(i64 noundef %4249, i64 noundef %4250, i32 noundef %4251, ptr noundef %4254)
+  br label %4255
 
-4252:                                             ; preds = %4245
-  %4253 = load i64, ptr %6, align 8
-  %4254 = load i64, ptr %6, align 8
-  %4255 = call i64 @RSTRING_LEN(i64 noundef %4254) #10
-  %4256 = sub i64 %4255, 4
-  %4257 = call i64 @rb_str_resize(i64 noundef %4253, i64 noundef %4256)
+4255:                                             ; preds = %4248
+  %4256 = load i64, ptr %6, align 8
+  %4257 = load i64, ptr %6, align 8
+  %4258 = call i64 @RSTRING_LEN(i64 noundef %4257) #10
+  %4259 = sub i64 %4258, 4
+  %4260 = call i64 @rb_str_resize(i64 noundef %4256, i64 noundef %4259)
   store i32 0, ptr %9, align 4
-  br label %4242, !llvm.loop !109
+  br label %4245, !llvm.loop !109
 
-4258:                                             ; preds = %4242
-  br label %4259
+4261:                                             ; preds = %4245
+  br label %4262
 
-4259:                                             ; preds = %4258, %4225
-  br label %7932
+4262:                                             ; preds = %4261, %4228
+  br label %7940
 
-4260:                                             ; preds = %24
-  %4261 = load i32, ptr %7, align 4
-  %4262 = icmp ne i32 %4261, 0
-  br i1 %4262, label %4263, label %4268
+4263:                                             ; preds = %24
+  %4264 = load i32, ptr %7, align 4
+  %4265 = icmp ne i32 %4264, 0
+  br i1 %4265, label %4266, label %4271
 
-4263:                                             ; preds = %4260
-  %4264 = load i64, ptr %5, align 8
-  %4265 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4264, i64 noundef %4265)
-  %4266 = load i64, ptr %5, align 8
-  %4267 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4266, ptr noundef @.str.250)
-  br label %4268
+4266:                                             ; preds = %4263
+  %4267 = load i64, ptr %5, align 8
+  %4268 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4267, i64 noundef %4268)
+  %4269 = load i64, ptr %5, align 8
+  %4270 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4269, ptr noundef @.str.250)
+  br label %4271
 
-4268:                                             ; preds = %4263, %4260
-  %4269 = load i32, ptr %7, align 4
-  %4270 = icmp ne i32 %4269, 0
-  br i1 %4270, label %4271, label %4276
+4271:                                             ; preds = %4266, %4263
+  %4272 = load i32, ptr %7, align 4
+  %4273 = icmp ne i32 %4272, 0
+  br i1 %4273, label %4274, label %4279
 
-4271:                                             ; preds = %4268
-  %4272 = load i64, ptr %5, align 8
-  %4273 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4272, i64 noundef %4273)
-  %4274 = load i64, ptr %5, align 8
-  %4275 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4274, ptr noundef @.str.245)
-  br label %4276
+4274:                                             ; preds = %4271
+  %4275 = load i64, ptr %5, align 8
+  %4276 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4275, i64 noundef %4276)
+  %4277 = load i64, ptr %5, align 8
+  %4278 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4277, ptr noundef @.str.245)
+  br label %4279
 
-4276:                                             ; preds = %4271, %4268
-  %4277 = load i32, ptr %7, align 4
-  %4278 = icmp ne i32 %4277, 0
-  br i1 %4278, label %4279, label %4284
+4279:                                             ; preds = %4274, %4271
+  %4280 = load i32, ptr %7, align 4
+  %4281 = icmp ne i32 %4280, 0
+  br i1 %4281, label %4282, label %4287
 
-4279:                                             ; preds = %4276
-  %4280 = load i64, ptr %5, align 8
-  %4281 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4280, i64 noundef %4281)
-  %4282 = load i64, ptr %5, align 8
-  %4283 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4282, ptr noundef @.str.251)
-  br label %4284
-
-4284:                                             ; preds = %4279, %4276
+4282:                                             ; preds = %4279
+  %4283 = load i64, ptr %5, align 8
+  %4284 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4283, i64 noundef %4284)
   %4285 = load i64, ptr %5, align 8
-  %4286 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4285, i64 noundef %4286)
-  %4287 = load i64, ptr %5, align 8
-  %4288 = load i32, ptr %7, align 4
-  %4289 = icmp ne i32 %4288, 0
-  %4290 = select i1 %4289, i64 27, i64 7
-  %4291 = trunc i64 %4290 to i32
-  %4292 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4287, ptr noundef @.str.13, i32 noundef %4291, ptr noundef @.str.252)
-  %4293 = load i64, ptr %6, align 8
-  %4294 = load ptr, ptr %11, align 8
-  %4295 = call i64 @rb_str_cat_cstr(i64 noundef %4293, ptr noundef %4294)
+  %4286 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4285, ptr noundef @.str.251)
+  br label %4287
+
+4287:                                             ; preds = %4282, %4279
+  %4288 = load i64, ptr %5, align 8
+  %4289 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4288, i64 noundef %4289)
+  %4290 = load i64, ptr %5, align 8
+  %4291 = load i32, ptr %7, align 4
+  %4292 = icmp ne i32 %4291, 0
+  %4293 = select i1 %4292, i64 27, i64 7
+  %4294 = trunc i64 %4293 to i32
+  %4295 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4290, ptr noundef @.str.13, i32 noundef %4294, ptr noundef @.str.252)
+  %4296 = load i64, ptr %6, align 8
+  %4297 = load ptr, ptr %11, align 8
+  %4298 = call i64 @rb_str_cat_cstr(i64 noundef %4296, ptr noundef %4297)
   store i32 1, ptr %9, align 4
-  br label %4296
+  br label %4299
 
-4296:                                             ; preds = %4306, %4284
-  %4297 = load i32, ptr %9, align 4
-  %4298 = icmp ne i32 %4297, 0
-  br i1 %4298, label %4299, label %4312
+4299:                                             ; preds = %4309, %4287
+  %4300 = load i32, ptr %9, align 4
+  %4301 = icmp ne i32 %4300, 0
+  br i1 %4301, label %4302, label %4315
 
-4299:                                             ; preds = %4296
-  %4300 = load i64, ptr %5, align 8
-  %4301 = load i64, ptr %6, align 8
-  %4302 = load i32, ptr %7, align 4
-  %4303 = load ptr, ptr %8, align 8
-  %4304 = getelementptr inbounds %struct.RNode_MATCH3, ptr %4303, i32 0, i32 1
-  %4305 = load ptr, ptr %4304, align 8
-  call void @dump_node(i64 noundef %4300, i64 noundef %4301, i32 noundef %4302, ptr noundef %4305)
-  br label %4306
+4302:                                             ; preds = %4299
+  %4303 = load i64, ptr %5, align 8
+  %4304 = load i64, ptr %6, align 8
+  %4305 = load i32, ptr %7, align 4
+  %4306 = load ptr, ptr %8, align 8
+  %4307 = getelementptr inbounds %struct.RNode_MATCH3, ptr %4306, i32 0, i32 1
+  %4308 = load ptr, ptr %4307, align 8
+  call void @dump_node(i64 noundef %4303, i64 noundef %4304, i32 noundef %4305, ptr noundef %4308)
+  br label %4309
 
-4306:                                             ; preds = %4299
-  %4307 = load i64, ptr %6, align 8
-  %4308 = load i64, ptr %6, align 8
-  %4309 = call i64 @RSTRING_LEN(i64 noundef %4308) #10
-  %4310 = sub i64 %4309, 4
-  %4311 = call i64 @rb_str_resize(i64 noundef %4307, i64 noundef %4310)
+4309:                                             ; preds = %4302
+  %4310 = load i64, ptr %6, align 8
+  %4311 = load i64, ptr %6, align 8
+  %4312 = call i64 @RSTRING_LEN(i64 noundef %4311) #10
+  %4313 = sub i64 %4312, 4
+  %4314 = call i64 @rb_str_resize(i64 noundef %4310, i64 noundef %4313)
   store i32 0, ptr %9, align 4
-  br label %4296, !llvm.loop !110
+  br label %4299, !llvm.loop !110
 
-4312:                                             ; preds = %4296
+4315:                                             ; preds = %4299
   store ptr @.str.12, ptr %11, align 8
-  %4313 = load i64, ptr %5, align 8
-  %4314 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4313, i64 noundef %4314)
-  %4315 = load i64, ptr %5, align 8
-  %4316 = load i32, ptr %7, align 4
-  %4317 = icmp ne i32 %4316, 0
-  %4318 = select i1 %4317, i64 28, i64 8
-  %4319 = trunc i64 %4318 to i32
-  %4320 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4315, ptr noundef @.str.13, i32 noundef %4319, ptr noundef @.str.253)
-  %4321 = load i64, ptr %6, align 8
-  %4322 = load ptr, ptr %11, align 8
-  %4323 = call i64 @rb_str_cat_cstr(i64 noundef %4321, ptr noundef %4322)
+  %4316 = load i64, ptr %5, align 8
+  %4317 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4316, i64 noundef %4317)
+  %4318 = load i64, ptr %5, align 8
+  %4319 = load i32, ptr %7, align 4
+  %4320 = icmp ne i32 %4319, 0
+  %4321 = select i1 %4320, i64 28, i64 8
+  %4322 = trunc i64 %4321 to i32
+  %4323 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4318, ptr noundef @.str.13, i32 noundef %4322, ptr noundef @.str.253)
+  %4324 = load i64, ptr %6, align 8
+  %4325 = load ptr, ptr %11, align 8
+  %4326 = call i64 @rb_str_cat_cstr(i64 noundef %4324, ptr noundef %4325)
   store i32 1, ptr %9, align 4
-  br label %4324
+  br label %4327
 
-4324:                                             ; preds = %4334, %4312
-  %4325 = load i32, ptr %9, align 4
-  %4326 = icmp ne i32 %4325, 0
-  br i1 %4326, label %4327, label %4340
+4327:                                             ; preds = %4337, %4315
+  %4328 = load i32, ptr %9, align 4
+  %4329 = icmp ne i32 %4328, 0
+  br i1 %4329, label %4330, label %4343
 
-4327:                                             ; preds = %4324
-  %4328 = load i64, ptr %5, align 8
-  %4329 = load i64, ptr %6, align 8
-  %4330 = load i32, ptr %7, align 4
-  %4331 = load ptr, ptr %8, align 8
-  %4332 = getelementptr inbounds %struct.RNode_MATCH3, ptr %4331, i32 0, i32 2
-  %4333 = load ptr, ptr %4332, align 8
-  call void @dump_node(i64 noundef %4328, i64 noundef %4329, i32 noundef %4330, ptr noundef %4333)
-  br label %4334
+4330:                                             ; preds = %4327
+  %4331 = load i64, ptr %5, align 8
+  %4332 = load i64, ptr %6, align 8
+  %4333 = load i32, ptr %7, align 4
+  %4334 = load ptr, ptr %8, align 8
+  %4335 = getelementptr inbounds %struct.RNode_MATCH3, ptr %4334, i32 0, i32 2
+  %4336 = load ptr, ptr %4335, align 8
+  call void @dump_node(i64 noundef %4331, i64 noundef %4332, i32 noundef %4333, ptr noundef %4336)
+  br label %4337
 
-4334:                                             ; preds = %4327
-  %4335 = load i64, ptr %6, align 8
-  %4336 = load i64, ptr %6, align 8
-  %4337 = call i64 @RSTRING_LEN(i64 noundef %4336) #10
-  %4338 = sub i64 %4337, 4
-  %4339 = call i64 @rb_str_resize(i64 noundef %4335, i64 noundef %4338)
+4337:                                             ; preds = %4330
+  %4338 = load i64, ptr %6, align 8
+  %4339 = load i64, ptr %6, align 8
+  %4340 = call i64 @RSTRING_LEN(i64 noundef %4339) #10
+  %4341 = sub i64 %4340, 4
+  %4342 = call i64 @rb_str_resize(i64 noundef %4338, i64 noundef %4341)
   store i32 0, ptr %9, align 4
-  br label %4324, !llvm.loop !111
+  br label %4327, !llvm.loop !111
 
-4340:                                             ; preds = %4324
-  br label %7932
+4343:                                             ; preds = %4327
+  br label %7940
 
-4341:                                             ; preds = %24
-  %4342 = load i32, ptr %7, align 4
-  %4343 = icmp ne i32 %4342, 0
-  br i1 %4343, label %4344, label %4349
+4344:                                             ; preds = %24
+  %4345 = load i32, ptr %7, align 4
+  %4346 = icmp ne i32 %4345, 0
+  br i1 %4346, label %4347, label %4352
 
-4344:                                             ; preds = %4341
-  %4345 = load i64, ptr %5, align 8
-  %4346 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4345, i64 noundef %4346)
-  %4347 = load i64, ptr %5, align 8
-  %4348 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4347, ptr noundef @.str.254)
-  br label %4349
+4347:                                             ; preds = %4344
+  %4348 = load i64, ptr %5, align 8
+  %4349 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4348, i64 noundef %4349)
+  %4350 = load i64, ptr %5, align 8
+  %4351 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4350, ptr noundef @.str.254)
+  br label %4352
 
-4349:                                             ; preds = %4344, %4341
-  %4350 = load i32, ptr %7, align 4
-  %4351 = icmp ne i32 %4350, 0
-  br i1 %4351, label %4352, label %4357
+4352:                                             ; preds = %4347, %4344
+  %4353 = load i32, ptr %7, align 4
+  %4354 = icmp ne i32 %4353, 0
+  br i1 %4354, label %4355, label %4360
 
-4352:                                             ; preds = %4349
-  %4353 = load i64, ptr %5, align 8
-  %4354 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4353, i64 noundef %4354)
-  %4355 = load i64, ptr %5, align 8
-  %4356 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4355, ptr noundef @.str.255)
-  br label %4357
+4355:                                             ; preds = %4352
+  %4356 = load i64, ptr %5, align 8
+  %4357 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4356, i64 noundef %4357)
+  %4358 = load i64, ptr %5, align 8
+  %4359 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4358, ptr noundef @.str.255)
+  br label %4360
 
-4357:                                             ; preds = %4352, %4349
-  %4358 = load i32, ptr %7, align 4
-  %4359 = icmp ne i32 %4358, 0
-  br i1 %4359, label %4360, label %4365
+4360:                                             ; preds = %4355, %4352
+  %4361 = load i32, ptr %7, align 4
+  %4362 = icmp ne i32 %4361, 0
+  br i1 %4362, label %4363, label %4368
 
-4360:                                             ; preds = %4357
-  %4361 = load i64, ptr %5, align 8
-  %4362 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4361, i64 noundef %4362)
-  %4363 = load i64, ptr %5, align 8
-  %4364 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4363, ptr noundef @.str.256)
-  br label %4365
-
-4365:                                             ; preds = %4360, %4357
+4363:                                             ; preds = %4360
+  %4364 = load i64, ptr %5, align 8
+  %4365 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4364, i64 noundef %4365)
   %4366 = load i64, ptr %5, align 8
-  %4367 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4366, i64 noundef %4367)
-  %4368 = load i64, ptr %5, align 8
-  %4369 = load i32, ptr %7, align 4
-  %4370 = icmp ne i32 %4369, 0
-  %4371 = select i1 %4370, i64 16, i64 6
-  %4372 = trunc i64 %4371 to i32
-  %4373 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4368, ptr noundef @.str.51, i32 noundef %4372, ptr noundef @.str.257)
+  %4367 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4366, ptr noundef @.str.256)
+  br label %4368
+
+4368:                                             ; preds = %4363, %4360
+  %4369 = load i64, ptr %5, align 8
+  %4370 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4369, i64 noundef %4370)
+  %4371 = load i64, ptr %5, align 8
+  %4372 = load i32, ptr %7, align 4
+  %4373 = icmp ne i32 %4372, 0
+  %4374 = select i1 %4373, i64 16, i64 6
+  %4375 = trunc i64 %4374 to i32
+  %4376 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4371, ptr noundef @.str.51, i32 noundef %4375, ptr noundef @.str.257)
   store i32 1, ptr %9, align 4
-  br label %4374
+  br label %4377
 
-4374:                                             ; preds = %4384, %4365
-  %4375 = load i32, ptr %9, align 4
-  %4376 = icmp ne i32 %4375, 0
-  br i1 %4376, label %4377, label %4387
+4377:                                             ; preds = %4387, %4368
+  %4378 = load i32, ptr %9, align 4
+  %4379 = icmp ne i32 %4378, 0
+  br i1 %4379, label %4380, label %4390
 
-4377:                                             ; preds = %4374
-  %4378 = load i64, ptr %5, align 8
-  %4379 = load ptr, ptr %8, align 8
-  %4380 = getelementptr inbounds %struct.RNode_LIT, ptr %4379, i32 0, i32 1
-  %4381 = load i64, ptr %4380, align 8
-  %4382 = call i64 @rb_dump_literal(i64 noundef %4381)
-  %4383 = call i64 @rb_str_concat(i64 noundef %4378, i64 noundef %4382)
-  br label %4384
+4380:                                             ; preds = %4377
+  %4381 = load i64, ptr %5, align 8
+  %4382 = load ptr, ptr %8, align 8
+  %4383 = getelementptr inbounds %struct.RNode_LIT, ptr %4382, i32 0, i32 1
+  %4384 = load i64, ptr %4383, align 8
+  %4385 = call i64 @rb_dump_literal(i64 noundef %4384)
+  %4386 = call i64 @rb_str_concat(i64 noundef %4381, i64 noundef %4385)
+  br label %4387
 
-4384:                                             ; preds = %4377
-  %4385 = load i64, ptr %5, align 8
-  %4386 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4385, ptr noundef @.str.56)
+4387:                                             ; preds = %4380
+  %4388 = load i64, ptr %5, align 8
+  %4389 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4388, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4374, !llvm.loop !112
+  br label %4377, !llvm.loop !112
 
-4387:                                             ; preds = %4374
-  br label %7932
+4390:                                             ; preds = %4377
+  br label %7940
 
-4388:                                             ; preds = %24
-  %4389 = load i32, ptr %7, align 4
-  %4390 = icmp ne i32 %4389, 0
-  br i1 %4390, label %4391, label %4396
+4391:                                             ; preds = %24
+  %4392 = load i32, ptr %7, align 4
+  %4393 = icmp ne i32 %4392, 0
+  br i1 %4393, label %4394, label %4399
 
-4391:                                             ; preds = %4388
-  %4392 = load i64, ptr %5, align 8
-  %4393 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4392, i64 noundef %4393)
-  %4394 = load i64, ptr %5, align 8
-  %4395 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4394, ptr noundef @.str.258)
-  br label %4396
+4394:                                             ; preds = %4391
+  %4395 = load i64, ptr %5, align 8
+  %4396 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4395, i64 noundef %4396)
+  %4397 = load i64, ptr %5, align 8
+  %4398 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4397, ptr noundef @.str.258)
+  br label %4399
 
-4396:                                             ; preds = %4391, %4388
-  %4397 = load i32, ptr %7, align 4
-  %4398 = icmp ne i32 %4397, 0
-  br i1 %4398, label %4399, label %4404
+4399:                                             ; preds = %4394, %4391
+  %4400 = load i32, ptr %7, align 4
+  %4401 = icmp ne i32 %4400, 0
+  br i1 %4401, label %4402, label %4407
 
-4399:                                             ; preds = %4396
-  %4400 = load i64, ptr %5, align 8
-  %4401 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4400, i64 noundef %4401)
-  %4402 = load i64, ptr %5, align 8
-  %4403 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4402, ptr noundef @.str.255)
-  br label %4404
+4402:                                             ; preds = %4399
+  %4403 = load i64, ptr %5, align 8
+  %4404 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4403, i64 noundef %4404)
+  %4405 = load i64, ptr %5, align 8
+  %4406 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4405, ptr noundef @.str.255)
+  br label %4407
 
-4404:                                             ; preds = %4399, %4396
-  %4405 = load i32, ptr %7, align 4
-  %4406 = icmp ne i32 %4405, 0
-  br i1 %4406, label %4407, label %4412
+4407:                                             ; preds = %4402, %4399
+  %4408 = load i32, ptr %7, align 4
+  %4409 = icmp ne i32 %4408, 0
+  br i1 %4409, label %4410, label %4415
 
-4407:                                             ; preds = %4404
-  %4408 = load i64, ptr %5, align 8
-  %4409 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4408, i64 noundef %4409)
-  %4410 = load i64, ptr %5, align 8
-  %4411 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4410, ptr noundef @.str.259)
-  br label %4412
+4410:                                             ; preds = %4407
+  %4411 = load i64, ptr %5, align 8
+  %4412 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4411, i64 noundef %4412)
+  %4413 = load i64, ptr %5, align 8
+  %4414 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4413, ptr noundef @.str.259)
+  br label %4415
 
-4412:                                             ; preds = %4407, %4404
-  br label %4438
+4415:                                             ; preds = %4410, %4407
+  br label %4441
 
-4413:                                             ; preds = %24
-  %4414 = load i32, ptr %7, align 4
-  %4415 = icmp ne i32 %4414, 0
-  br i1 %4415, label %4416, label %4421
+4416:                                             ; preds = %24
+  %4417 = load i32, ptr %7, align 4
+  %4418 = icmp ne i32 %4417, 0
+  br i1 %4418, label %4419, label %4424
 
-4416:                                             ; preds = %4413
-  %4417 = load i64, ptr %5, align 8
-  %4418 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4417, i64 noundef %4418)
-  %4419 = load i64, ptr %5, align 8
-  %4420 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4419, ptr noundef @.str.260)
-  br label %4421
+4419:                                             ; preds = %4416
+  %4420 = load i64, ptr %5, align 8
+  %4421 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4420, i64 noundef %4421)
+  %4422 = load i64, ptr %5, align 8
+  %4423 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4422, ptr noundef @.str.260)
+  br label %4424
 
-4421:                                             ; preds = %4416, %4413
-  %4422 = load i32, ptr %7, align 4
-  %4423 = icmp ne i32 %4422, 0
-  br i1 %4423, label %4424, label %4429
+4424:                                             ; preds = %4419, %4416
+  %4425 = load i32, ptr %7, align 4
+  %4426 = icmp ne i32 %4425, 0
+  br i1 %4426, label %4427, label %4432
 
-4424:                                             ; preds = %4421
-  %4425 = load i64, ptr %5, align 8
-  %4426 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4425, i64 noundef %4426)
-  %4427 = load i64, ptr %5, align 8
-  %4428 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4427, ptr noundef @.str.255)
-  br label %4429
+4427:                                             ; preds = %4424
+  %4428 = load i64, ptr %5, align 8
+  %4429 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4428, i64 noundef %4429)
+  %4430 = load i64, ptr %5, align 8
+  %4431 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4430, ptr noundef @.str.255)
+  br label %4432
 
-4429:                                             ; preds = %4424, %4421
-  %4430 = load i32, ptr %7, align 4
-  %4431 = icmp ne i32 %4430, 0
-  br i1 %4431, label %4432, label %4437
+4432:                                             ; preds = %4427, %4424
+  %4433 = load i32, ptr %7, align 4
+  %4434 = icmp ne i32 %4433, 0
+  br i1 %4434, label %4435, label %4440
 
-4432:                                             ; preds = %4429
-  %4433 = load i64, ptr %5, align 8
-  %4434 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4433, i64 noundef %4434)
-  %4435 = load i64, ptr %5, align 8
-  %4436 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4435, ptr noundef @.str.261)
-  br label %4437
+4435:                                             ; preds = %4432
+  %4436 = load i64, ptr %5, align 8
+  %4437 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4436, i64 noundef %4437)
+  %4438 = load i64, ptr %5, align 8
+  %4439 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4438, ptr noundef @.str.261)
+  br label %4440
 
-4437:                                             ; preds = %4432, %4429
-  br label %4438
+4440:                                             ; preds = %4435, %4432
+  br label %4441
 
-4438:                                             ; preds = %4437, %4412
-  %4439 = load i64, ptr %5, align 8
-  %4440 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4439, i64 noundef %4440)
-  %4441 = load i64, ptr %5, align 8
-  %4442 = load i32, ptr %7, align 4
-  %4443 = icmp ne i32 %4442, 0
-  %4444 = select i1 %4443, i64 16, i64 6
-  %4445 = trunc i64 %4444 to i32
-  %4446 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4441, ptr noundef @.str.51, i32 noundef %4445, ptr noundef @.str.262)
+4441:                                             ; preds = %4440, %4415
+  %4442 = load i64, ptr %5, align 8
+  %4443 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4442, i64 noundef %4443)
+  %4444 = load i64, ptr %5, align 8
+  %4445 = load i32, ptr %7, align 4
+  %4446 = icmp ne i32 %4445, 0
+  %4447 = select i1 %4446, i64 16, i64 6
+  %4448 = trunc i64 %4447 to i32
+  %4449 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4444, ptr noundef @.str.51, i32 noundef %4448, ptr noundef @.str.262)
   store i32 1, ptr %9, align 4
-  br label %4447
+  br label %4450
 
-4447:                                             ; preds = %4456, %4438
-  %4448 = load i32, ptr %9, align 4
-  %4449 = icmp ne i32 %4448, 0
-  br i1 %4449, label %4450, label %4459
+4450:                                             ; preds = %4459, %4441
+  %4451 = load i32, ptr %9, align 4
+  %4452 = icmp ne i32 %4451, 0
+  br i1 %4452, label %4453, label %4462
 
-4450:                                             ; preds = %4447
-  %4451 = load i64, ptr %5, align 8
-  %4452 = load ptr, ptr %8, align 8
-  %4453 = call i64 @rb_node_str_string_val(ptr noundef %4452)
-  %4454 = call i64 @rb_dump_literal(i64 noundef %4453)
-  %4455 = call i64 @rb_str_concat(i64 noundef %4451, i64 noundef %4454)
-  br label %4456
+4453:                                             ; preds = %4450
+  %4454 = load i64, ptr %5, align 8
+  %4455 = load ptr, ptr %8, align 8
+  %4456 = call i64 @rb_node_str_string_val(ptr noundef %4455)
+  %4457 = call i64 @rb_dump_literal(i64 noundef %4456)
+  %4458 = call i64 @rb_str_concat(i64 noundef %4454, i64 noundef %4457)
+  br label %4459
 
-4456:                                             ; preds = %4450
-  %4457 = load i64, ptr %5, align 8
-  %4458 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4457, ptr noundef @.str.56)
+4459:                                             ; preds = %4453
+  %4460 = load i64, ptr %5, align 8
+  %4461 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4460, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4447, !llvm.loop !113
+  br label %4450, !llvm.loop !113
 
-4459:                                             ; preds = %4447
-  br label %7932
+4462:                                             ; preds = %4450
+  br label %7940
 
-4460:                                             ; preds = %24
-  %4461 = load i32, ptr %7, align 4
-  %4462 = icmp ne i32 %4461, 0
-  br i1 %4462, label %4463, label %4468
+4463:                                             ; preds = %24
+  %4464 = load i32, ptr %7, align 4
+  %4465 = icmp ne i32 %4464, 0
+  br i1 %4465, label %4466, label %4471
 
-4463:                                             ; preds = %4460
-  %4464 = load i64, ptr %5, align 8
-  %4465 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4464, i64 noundef %4465)
-  %4466 = load i64, ptr %5, align 8
-  %4467 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4466, ptr noundef @.str.263)
-  br label %4468
+4466:                                             ; preds = %4463
+  %4467 = load i64, ptr %5, align 8
+  %4468 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4467, i64 noundef %4468)
+  %4469 = load i64, ptr %5, align 8
+  %4470 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4469, ptr noundef @.str.263)
+  br label %4471
 
-4468:                                             ; preds = %4463, %4460
-  %4469 = load i32, ptr %7, align 4
-  %4470 = icmp ne i32 %4469, 0
-  br i1 %4470, label %4471, label %4476
+4471:                                             ; preds = %4466, %4463
+  %4472 = load i32, ptr %7, align 4
+  %4473 = icmp ne i32 %4472, 0
+  br i1 %4473, label %4474, label %4479
 
-4471:                                             ; preds = %4468
-  %4472 = load i64, ptr %5, align 8
-  %4473 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4472, i64 noundef %4473)
-  %4474 = load i64, ptr %5, align 8
-  %4475 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4474, ptr noundef @.str.264)
-  br label %4476
+4474:                                             ; preds = %4471
+  %4475 = load i64, ptr %5, align 8
+  %4476 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4475, i64 noundef %4476)
+  %4477 = load i64, ptr %5, align 8
+  %4478 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4477, ptr noundef @.str.264)
+  br label %4479
 
-4476:                                             ; preds = %4471, %4468
-  %4477 = load i32, ptr %7, align 4
-  %4478 = icmp ne i32 %4477, 0
-  br i1 %4478, label %4479, label %4484
+4479:                                             ; preds = %4474, %4471
+  %4480 = load i32, ptr %7, align 4
+  %4481 = icmp ne i32 %4480, 0
+  br i1 %4481, label %4482, label %4487
 
-4479:                                             ; preds = %4476
-  %4480 = load i64, ptr %5, align 8
-  %4481 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4480, i64 noundef %4481)
-  %4482 = load i64, ptr %5, align 8
-  %4483 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4482, ptr noundef @.str.265)
-  br label %4484
-
-4484:                                             ; preds = %4479, %4476
+4482:                                             ; preds = %4479
+  %4483 = load i64, ptr %5, align 8
+  %4484 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4483, i64 noundef %4484)
   %4485 = load i64, ptr %5, align 8
-  %4486 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4485, i64 noundef %4486)
-  %4487 = load i64, ptr %5, align 8
-  %4488 = load i32, ptr %7, align 4
-  %4489 = icmp ne i32 %4488, 0
-  %4490 = select i1 %4489, i64 9, i64 3
-  %4491 = trunc i64 %4490 to i32
-  %4492 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4487, ptr noundef @.str.51, i32 noundef %4491, ptr noundef @.str.266)
+  %4486 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4485, ptr noundef @.str.265)
+  br label %4487
+
+4487:                                             ; preds = %4482, %4479
+  %4488 = load i64, ptr %5, align 8
+  %4489 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4488, i64 noundef %4489)
+  %4490 = load i64, ptr %5, align 8
+  %4491 = load i32, ptr %7, align 4
+  %4492 = icmp ne i32 %4491, 0
+  %4493 = select i1 %4492, i64 9, i64 3
+  %4494 = trunc i64 %4493 to i32
+  %4495 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4490, ptr noundef @.str.51, i32 noundef %4494, ptr noundef @.str.266)
   store i32 1, ptr %9, align 4
-  br label %4493
+  br label %4496
 
-4493:                                             ; preds = %4502, %4484
-  %4494 = load i32, ptr %9, align 4
-  %4495 = icmp ne i32 %4494, 0
-  br i1 %4495, label %4496, label %4505
+4496:                                             ; preds = %4505, %4487
+  %4497 = load i32, ptr %9, align 4
+  %4498 = icmp ne i32 %4497, 0
+  br i1 %4498, label %4499, label %4508
 
-4496:                                             ; preds = %4493
-  %4497 = load i64, ptr %5, align 8
-  %4498 = load ptr, ptr %8, align 8
-  %4499 = call i64 @rb_node_integer_literal_val(ptr noundef %4498)
-  %4500 = call i64 @rb_dump_literal(i64 noundef %4499)
-  %4501 = call i64 @rb_str_concat(i64 noundef %4497, i64 noundef %4500)
-  br label %4502
+4499:                                             ; preds = %4496
+  %4500 = load i64, ptr %5, align 8
+  %4501 = load ptr, ptr %8, align 8
+  %4502 = call i64 @rb_node_integer_literal_val(ptr noundef %4501)
+  %4503 = call i64 @rb_dump_literal(i64 noundef %4502)
+  %4504 = call i64 @rb_str_concat(i64 noundef %4500, i64 noundef %4503)
+  br label %4505
 
-4502:                                             ; preds = %4496
-  %4503 = load i64, ptr %5, align 8
-  %4504 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4503, ptr noundef @.str.56)
+4505:                                             ; preds = %4499
+  %4506 = load i64, ptr %5, align 8
+  %4507 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4506, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4493, !llvm.loop !114
+  br label %4496, !llvm.loop !114
 
-4505:                                             ; preds = %4493
-  br label %7932
+4508:                                             ; preds = %4496
+  br label %7940
 
-4506:                                             ; preds = %24
-  %4507 = load i32, ptr %7, align 4
-  %4508 = icmp ne i32 %4507, 0
-  br i1 %4508, label %4509, label %4514
+4509:                                             ; preds = %24
+  %4510 = load i32, ptr %7, align 4
+  %4511 = icmp ne i32 %4510, 0
+  br i1 %4511, label %4512, label %4517
 
-4509:                                             ; preds = %4506
-  %4510 = load i64, ptr %5, align 8
-  %4511 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4510, i64 noundef %4511)
-  %4512 = load i64, ptr %5, align 8
-  %4513 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4512, ptr noundef @.str.267)
-  br label %4514
+4512:                                             ; preds = %4509
+  %4513 = load i64, ptr %5, align 8
+  %4514 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4513, i64 noundef %4514)
+  %4515 = load i64, ptr %5, align 8
+  %4516 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4515, ptr noundef @.str.267)
+  br label %4517
 
-4514:                                             ; preds = %4509, %4506
-  %4515 = load i32, ptr %7, align 4
-  %4516 = icmp ne i32 %4515, 0
-  br i1 %4516, label %4517, label %4522
+4517:                                             ; preds = %4512, %4509
+  %4518 = load i32, ptr %7, align 4
+  %4519 = icmp ne i32 %4518, 0
+  br i1 %4519, label %4520, label %4525
 
-4517:                                             ; preds = %4514
-  %4518 = load i64, ptr %5, align 8
-  %4519 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4518, i64 noundef %4519)
-  %4520 = load i64, ptr %5, align 8
-  %4521 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4520, ptr noundef @.str.264)
-  br label %4522
+4520:                                             ; preds = %4517
+  %4521 = load i64, ptr %5, align 8
+  %4522 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4521, i64 noundef %4522)
+  %4523 = load i64, ptr %5, align 8
+  %4524 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4523, ptr noundef @.str.264)
+  br label %4525
 
-4522:                                             ; preds = %4517, %4514
-  %4523 = load i32, ptr %7, align 4
-  %4524 = icmp ne i32 %4523, 0
-  br i1 %4524, label %4525, label %4530
+4525:                                             ; preds = %4520, %4517
+  %4526 = load i32, ptr %7, align 4
+  %4527 = icmp ne i32 %4526, 0
+  br i1 %4527, label %4528, label %4533
 
-4525:                                             ; preds = %4522
-  %4526 = load i64, ptr %5, align 8
-  %4527 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4526, i64 noundef %4527)
-  %4528 = load i64, ptr %5, align 8
-  %4529 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4528, ptr noundef @.str.268)
-  br label %4530
-
-4530:                                             ; preds = %4525, %4522
+4528:                                             ; preds = %4525
+  %4529 = load i64, ptr %5, align 8
+  %4530 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4529, i64 noundef %4530)
   %4531 = load i64, ptr %5, align 8
-  %4532 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4531, i64 noundef %4532)
-  %4533 = load i64, ptr %5, align 8
-  %4534 = load i32, ptr %7, align 4
-  %4535 = icmp ne i32 %4534, 0
-  %4536 = select i1 %4535, i64 9, i64 3
-  %4537 = trunc i64 %4536 to i32
-  %4538 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4533, ptr noundef @.str.51, i32 noundef %4537, ptr noundef @.str.266)
+  %4532 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4531, ptr noundef @.str.268)
+  br label %4533
+
+4533:                                             ; preds = %4528, %4525
+  %4534 = load i64, ptr %5, align 8
+  %4535 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4534, i64 noundef %4535)
+  %4536 = load i64, ptr %5, align 8
+  %4537 = load i32, ptr %7, align 4
+  %4538 = icmp ne i32 %4537, 0
+  %4539 = select i1 %4538, i64 9, i64 3
+  %4540 = trunc i64 %4539 to i32
+  %4541 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4536, ptr noundef @.str.51, i32 noundef %4540, ptr noundef @.str.266)
   store i32 1, ptr %9, align 4
-  br label %4539
+  br label %4542
 
-4539:                                             ; preds = %4548, %4530
-  %4540 = load i32, ptr %9, align 4
-  %4541 = icmp ne i32 %4540, 0
-  br i1 %4541, label %4542, label %4551
+4542:                                             ; preds = %4551, %4533
+  %4543 = load i32, ptr %9, align 4
+  %4544 = icmp ne i32 %4543, 0
+  br i1 %4544, label %4545, label %4554
 
-4542:                                             ; preds = %4539
-  %4543 = load i64, ptr %5, align 8
-  %4544 = load ptr, ptr %8, align 8
-  %4545 = call i64 @rb_node_float_literal_val(ptr noundef %4544)
-  %4546 = call i64 @rb_dump_literal(i64 noundef %4545)
-  %4547 = call i64 @rb_str_concat(i64 noundef %4543, i64 noundef %4546)
-  br label %4548
+4545:                                             ; preds = %4542
+  %4546 = load i64, ptr %5, align 8
+  %4547 = load ptr, ptr %8, align 8
+  %4548 = call i64 @rb_node_float_literal_val(ptr noundef %4547)
+  %4549 = call i64 @rb_dump_literal(i64 noundef %4548)
+  %4550 = call i64 @rb_str_concat(i64 noundef %4546, i64 noundef %4549)
+  br label %4551
 
-4548:                                             ; preds = %4542
-  %4549 = load i64, ptr %5, align 8
-  %4550 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4549, ptr noundef @.str.56)
+4551:                                             ; preds = %4545
+  %4552 = load i64, ptr %5, align 8
+  %4553 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4552, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4539, !llvm.loop !115
+  br label %4542, !llvm.loop !115
 
-4551:                                             ; preds = %4539
-  br label %7932
+4554:                                             ; preds = %4542
+  br label %7940
 
-4552:                                             ; preds = %24
-  %4553 = load i32, ptr %7, align 4
-  %4554 = icmp ne i32 %4553, 0
-  br i1 %4554, label %4555, label %4560
+4555:                                             ; preds = %24
+  %4556 = load i32, ptr %7, align 4
+  %4557 = icmp ne i32 %4556, 0
+  br i1 %4557, label %4558, label %4563
 
-4555:                                             ; preds = %4552
-  %4556 = load i64, ptr %5, align 8
-  %4557 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4556, i64 noundef %4557)
-  %4558 = load i64, ptr %5, align 8
-  %4559 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4558, ptr noundef @.str.269)
-  br label %4560
+4558:                                             ; preds = %4555
+  %4559 = load i64, ptr %5, align 8
+  %4560 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4559, i64 noundef %4560)
+  %4561 = load i64, ptr %5, align 8
+  %4562 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4561, ptr noundef @.str.269)
+  br label %4563
 
-4560:                                             ; preds = %4555, %4552
-  %4561 = load i32, ptr %7, align 4
-  %4562 = icmp ne i32 %4561, 0
-  br i1 %4562, label %4563, label %4568
+4563:                                             ; preds = %4558, %4555
+  %4564 = load i32, ptr %7, align 4
+  %4565 = icmp ne i32 %4564, 0
+  br i1 %4565, label %4566, label %4571
 
-4563:                                             ; preds = %4560
-  %4564 = load i64, ptr %5, align 8
-  %4565 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4564, i64 noundef %4565)
-  %4566 = load i64, ptr %5, align 8
-  %4567 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4566, ptr noundef @.str.264)
-  br label %4568
+4566:                                             ; preds = %4563
+  %4567 = load i64, ptr %5, align 8
+  %4568 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4567, i64 noundef %4568)
+  %4569 = load i64, ptr %5, align 8
+  %4570 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4569, ptr noundef @.str.264)
+  br label %4571
 
-4568:                                             ; preds = %4563, %4560
-  %4569 = load i32, ptr %7, align 4
-  %4570 = icmp ne i32 %4569, 0
-  br i1 %4570, label %4571, label %4576
+4571:                                             ; preds = %4566, %4563
+  %4572 = load i32, ptr %7, align 4
+  %4573 = icmp ne i32 %4572, 0
+  br i1 %4573, label %4574, label %4579
 
-4571:                                             ; preds = %4568
-  %4572 = load i64, ptr %5, align 8
-  %4573 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4572, i64 noundef %4573)
-  %4574 = load i64, ptr %5, align 8
-  %4575 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4574, ptr noundef @.str.270)
-  br label %4576
-
-4576:                                             ; preds = %4571, %4568
+4574:                                             ; preds = %4571
+  %4575 = load i64, ptr %5, align 8
+  %4576 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4575, i64 noundef %4576)
   %4577 = load i64, ptr %5, align 8
-  %4578 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4577, i64 noundef %4578)
-  %4579 = load i64, ptr %5, align 8
-  %4580 = load i32, ptr %7, align 4
-  %4581 = icmp ne i32 %4580, 0
-  %4582 = select i1 %4581, i64 9, i64 3
-  %4583 = trunc i64 %4582 to i32
-  %4584 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4579, ptr noundef @.str.51, i32 noundef %4583, ptr noundef @.str.266)
+  %4578 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4577, ptr noundef @.str.270)
+  br label %4579
+
+4579:                                             ; preds = %4574, %4571
+  %4580 = load i64, ptr %5, align 8
+  %4581 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4580, i64 noundef %4581)
+  %4582 = load i64, ptr %5, align 8
+  %4583 = load i32, ptr %7, align 4
+  %4584 = icmp ne i32 %4583, 0
+  %4585 = select i1 %4584, i64 9, i64 3
+  %4586 = trunc i64 %4585 to i32
+  %4587 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4582, ptr noundef @.str.51, i32 noundef %4586, ptr noundef @.str.266)
   store i32 1, ptr %9, align 4
-  br label %4585
+  br label %4588
 
-4585:                                             ; preds = %4594, %4576
-  %4586 = load i32, ptr %9, align 4
-  %4587 = icmp ne i32 %4586, 0
-  br i1 %4587, label %4588, label %4597
+4588:                                             ; preds = %4597, %4579
+  %4589 = load i32, ptr %9, align 4
+  %4590 = icmp ne i32 %4589, 0
+  br i1 %4590, label %4591, label %4600
 
-4588:                                             ; preds = %4585
-  %4589 = load i64, ptr %5, align 8
-  %4590 = load ptr, ptr %8, align 8
-  %4591 = call i64 @rb_node_rational_literal_val(ptr noundef %4590)
-  %4592 = call i64 @rb_dump_literal(i64 noundef %4591)
-  %4593 = call i64 @rb_str_concat(i64 noundef %4589, i64 noundef %4592)
-  br label %4594
+4591:                                             ; preds = %4588
+  %4592 = load i64, ptr %5, align 8
+  %4593 = load ptr, ptr %8, align 8
+  %4594 = call i64 @rb_node_rational_literal_val(ptr noundef %4593)
+  %4595 = call i64 @rb_dump_literal(i64 noundef %4594)
+  %4596 = call i64 @rb_str_concat(i64 noundef %4592, i64 noundef %4595)
+  br label %4597
 
-4594:                                             ; preds = %4588
-  %4595 = load i64, ptr %5, align 8
-  %4596 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4595, ptr noundef @.str.56)
+4597:                                             ; preds = %4591
+  %4598 = load i64, ptr %5, align 8
+  %4599 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4598, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4585, !llvm.loop !116
+  br label %4588, !llvm.loop !116
 
-4597:                                             ; preds = %4585
-  br label %7932
+4600:                                             ; preds = %4588
+  br label %7940
 
-4598:                                             ; preds = %24
-  %4599 = load i32, ptr %7, align 4
-  %4600 = icmp ne i32 %4599, 0
-  br i1 %4600, label %4601, label %4606
+4601:                                             ; preds = %24
+  %4602 = load i32, ptr %7, align 4
+  %4603 = icmp ne i32 %4602, 0
+  br i1 %4603, label %4604, label %4609
 
-4601:                                             ; preds = %4598
-  %4602 = load i64, ptr %5, align 8
-  %4603 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4602, i64 noundef %4603)
-  %4604 = load i64, ptr %5, align 8
-  %4605 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4604, ptr noundef @.str.271)
-  br label %4606
+4604:                                             ; preds = %4601
+  %4605 = load i64, ptr %5, align 8
+  %4606 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4605, i64 noundef %4606)
+  %4607 = load i64, ptr %5, align 8
+  %4608 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4607, ptr noundef @.str.271)
+  br label %4609
 
-4606:                                             ; preds = %4601, %4598
-  %4607 = load i32, ptr %7, align 4
-  %4608 = icmp ne i32 %4607, 0
-  br i1 %4608, label %4609, label %4614
+4609:                                             ; preds = %4604, %4601
+  %4610 = load i32, ptr %7, align 4
+  %4611 = icmp ne i32 %4610, 0
+  br i1 %4611, label %4612, label %4617
 
-4609:                                             ; preds = %4606
-  %4610 = load i64, ptr %5, align 8
-  %4611 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4610, i64 noundef %4611)
-  %4612 = load i64, ptr %5, align 8
-  %4613 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4612, ptr noundef @.str.264)
-  br label %4614
+4612:                                             ; preds = %4609
+  %4613 = load i64, ptr %5, align 8
+  %4614 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4613, i64 noundef %4614)
+  %4615 = load i64, ptr %5, align 8
+  %4616 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4615, ptr noundef @.str.264)
+  br label %4617
 
-4614:                                             ; preds = %4609, %4606
-  %4615 = load i32, ptr %7, align 4
-  %4616 = icmp ne i32 %4615, 0
-  br i1 %4616, label %4617, label %4622
+4617:                                             ; preds = %4612, %4609
+  %4618 = load i32, ptr %7, align 4
+  %4619 = icmp ne i32 %4618, 0
+  br i1 %4619, label %4620, label %4625
 
-4617:                                             ; preds = %4614
-  %4618 = load i64, ptr %5, align 8
-  %4619 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4618, i64 noundef %4619)
-  %4620 = load i64, ptr %5, align 8
-  %4621 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4620, ptr noundef @.str.272)
-  br label %4622
-
-4622:                                             ; preds = %4617, %4614
+4620:                                             ; preds = %4617
+  %4621 = load i64, ptr %5, align 8
+  %4622 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4621, i64 noundef %4622)
   %4623 = load i64, ptr %5, align 8
-  %4624 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4623, i64 noundef %4624)
-  %4625 = load i64, ptr %5, align 8
-  %4626 = load i32, ptr %7, align 4
-  %4627 = icmp ne i32 %4626, 0
-  %4628 = select i1 %4627, i64 9, i64 3
-  %4629 = trunc i64 %4628 to i32
-  %4630 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4625, ptr noundef @.str.51, i32 noundef %4629, ptr noundef @.str.266)
+  %4624 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4623, ptr noundef @.str.272)
+  br label %4625
+
+4625:                                             ; preds = %4620, %4617
+  %4626 = load i64, ptr %5, align 8
+  %4627 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4626, i64 noundef %4627)
+  %4628 = load i64, ptr %5, align 8
+  %4629 = load i32, ptr %7, align 4
+  %4630 = icmp ne i32 %4629, 0
+  %4631 = select i1 %4630, i64 9, i64 3
+  %4632 = trunc i64 %4631 to i32
+  %4633 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4628, ptr noundef @.str.51, i32 noundef %4632, ptr noundef @.str.266)
   store i32 1, ptr %9, align 4
-  br label %4631
+  br label %4634
 
-4631:                                             ; preds = %4640, %4622
-  %4632 = load i32, ptr %9, align 4
-  %4633 = icmp ne i32 %4632, 0
-  br i1 %4633, label %4634, label %4643
+4634:                                             ; preds = %4643, %4625
+  %4635 = load i32, ptr %9, align 4
+  %4636 = icmp ne i32 %4635, 0
+  br i1 %4636, label %4637, label %4646
 
-4634:                                             ; preds = %4631
-  %4635 = load i64, ptr %5, align 8
-  %4636 = load ptr, ptr %8, align 8
-  %4637 = call i64 @rb_node_imaginary_literal_val(ptr noundef %4636)
-  %4638 = call i64 @rb_dump_literal(i64 noundef %4637)
-  %4639 = call i64 @rb_str_concat(i64 noundef %4635, i64 noundef %4638)
-  br label %4640
+4637:                                             ; preds = %4634
+  %4638 = load i64, ptr %5, align 8
+  %4639 = load ptr, ptr %8, align 8
+  %4640 = call i64 @rb_node_imaginary_literal_val(ptr noundef %4639)
+  %4641 = call i64 @rb_dump_literal(i64 noundef %4640)
+  %4642 = call i64 @rb_str_concat(i64 noundef %4638, i64 noundef %4641)
+  br label %4643
 
-4640:                                             ; preds = %4634
-  %4641 = load i64, ptr %5, align 8
-  %4642 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4641, ptr noundef @.str.56)
+4643:                                             ; preds = %4637
+  %4644 = load i64, ptr %5, align 8
+  %4645 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4644, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4631, !llvm.loop !117
+  br label %4634, !llvm.loop !117
 
-4643:                                             ; preds = %4631
-  br label %7932
+4646:                                             ; preds = %4634
+  br label %7940
 
-4644:                                             ; preds = %24
-  %4645 = load i32, ptr %7, align 4
-  %4646 = icmp ne i32 %4645, 0
-  br i1 %4646, label %4647, label %4652
+4647:                                             ; preds = %24
+  %4648 = load i32, ptr %7, align 4
+  %4649 = icmp ne i32 %4648, 0
+  br i1 %4649, label %4650, label %4655
 
-4647:                                             ; preds = %4644
-  %4648 = load i64, ptr %5, align 8
-  %4649 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4648, i64 noundef %4649)
-  %4650 = load i64, ptr %5, align 8
-  %4651 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4650, ptr noundef @.str.273)
-  br label %4652
+4650:                                             ; preds = %4647
+  %4651 = load i64, ptr %5, align 8
+  %4652 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4651, i64 noundef %4652)
+  %4653 = load i64, ptr %5, align 8
+  %4654 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4653, ptr noundef @.str.273)
+  br label %4655
 
-4652:                                             ; preds = %4647, %4644
-  %4653 = load i32, ptr %7, align 4
-  %4654 = icmp ne i32 %4653, 0
-  br i1 %4654, label %4655, label %4660
+4655:                                             ; preds = %4650, %4647
+  %4656 = load i32, ptr %7, align 4
+  %4657 = icmp ne i32 %4656, 0
+  br i1 %4657, label %4658, label %4663
 
-4655:                                             ; preds = %4652
-  %4656 = load i64, ptr %5, align 8
-  %4657 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4656, i64 noundef %4657)
-  %4658 = load i64, ptr %5, align 8
-  %4659 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4658, ptr noundef @.str.274)
-  br label %4660
+4658:                                             ; preds = %4655
+  %4659 = load i64, ptr %5, align 8
+  %4660 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4659, i64 noundef %4660)
+  %4661 = load i64, ptr %5, align 8
+  %4662 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4661, ptr noundef @.str.274)
+  br label %4663
 
-4660:                                             ; preds = %4655, %4652
-  %4661 = load i32, ptr %7, align 4
-  %4662 = icmp ne i32 %4661, 0
-  br i1 %4662, label %4663, label %4668
+4663:                                             ; preds = %4658, %4655
+  %4664 = load i32, ptr %7, align 4
+  %4665 = icmp ne i32 %4664, 0
+  br i1 %4665, label %4666, label %4671
 
-4663:                                             ; preds = %4660
-  %4664 = load i64, ptr %5, align 8
-  %4665 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4664, i64 noundef %4665)
-  %4666 = load i64, ptr %5, align 8
-  %4667 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4666, ptr noundef @.str.275)
-  br label %4668
-
-4668:                                             ; preds = %4663, %4660
-  store ptr @.str.12, ptr %11, align 8
+4666:                                             ; preds = %4663
+  %4667 = load i64, ptr %5, align 8
+  %4668 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4667, i64 noundef %4668)
   %4669 = load i64, ptr %5, align 8
-  %4670 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4669, i64 noundef %4670)
-  %4671 = load i64, ptr %5, align 8
-  %4672 = load i32, ptr %7, align 4
-  %4673 = icmp ne i32 %4672, 0
-  %4674 = select i1 %4673, i64 15, i64 6
-  %4675 = trunc i64 %4674 to i32
-  %4676 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4671, ptr noundef @.str.51, i32 noundef %4675, ptr noundef @.str.243)
-  store i32 1, ptr %9, align 4
-  br label %4677
+  %4670 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4669, ptr noundef @.str.275)
+  br label %4671
 
-4677:                                             ; preds = %4686, %4668
-  %4678 = load i32, ptr %9, align 4
-  %4679 = icmp ne i32 %4678, 0
-  br i1 %4679, label %4680, label %4689
-
-4680:                                             ; preds = %4677
-  %4681 = load i64, ptr %5, align 8
-  %4682 = load ptr, ptr %8, align 8
-  %4683 = call i64 @rb_node_regx_string_val(ptr noundef %4682)
-  %4684 = call i64 @rb_dump_literal(i64 noundef %4683)
-  %4685 = call i64 @rb_str_concat(i64 noundef %4681, i64 noundef %4684)
-  br label %4686
-
-4686:                                             ; preds = %4680
-  %4687 = load i64, ptr %5, align 8
-  %4688 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4687, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %4677, !llvm.loop !118
-
-4689:                                             ; preds = %4677
-  br label %7932
-
-4690:                                             ; preds = %24
-  %4691 = load i32, ptr %7, align 4
-  %4692 = icmp ne i32 %4691, 0
-  br i1 %4692, label %4693, label %4698
-
-4693:                                             ; preds = %4690
-  %4694 = load i64, ptr %5, align 8
-  %4695 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4694, i64 noundef %4695)
-  %4696 = load i64, ptr %5, align 8
-  %4697 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4696, ptr noundef @.str.276)
-  br label %4698
-
-4698:                                             ; preds = %4693, %4690
-  %4699 = load i32, ptr %7, align 4
-  %4700 = icmp ne i32 %4699, 0
-  br i1 %4700, label %4701, label %4706
-
-4701:                                             ; preds = %4698
-  %4702 = load i64, ptr %5, align 8
-  %4703 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4702, i64 noundef %4703)
-  %4704 = load i64, ptr %5, align 8
-  %4705 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4704, ptr noundef @.str.277)
-  br label %4706
-
-4706:                                             ; preds = %4701, %4698
-  %4707 = load i32, ptr %7, align 4
-  %4708 = icmp ne i32 %4707, 0
-  br i1 %4708, label %4709, label %4714
-
-4709:                                             ; preds = %4706
-  %4710 = load i64, ptr %5, align 8
-  %4711 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4710, i64 noundef %4711)
-  %4712 = load i64, ptr %5, align 8
-  %4713 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4712, ptr noundef @.str.278)
-  br label %4714
-
-4714:                                             ; preds = %4709, %4706
+4671:                                             ; preds = %4666, %4663
   store ptr @.str.12, ptr %11, align 8
+  %4672 = load i64, ptr %5, align 8
+  %4673 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4672, i64 noundef %4673)
+  %4674 = load i64, ptr %5, align 8
+  %4675 = load i32, ptr %7, align 4
+  %4676 = icmp ne i32 %4675, 0
+  %4677 = select i1 %4676, i64 15, i64 6
+  %4678 = trunc i64 %4677 to i32
+  %4679 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4674, ptr noundef @.str.51, i32 noundef %4678, ptr noundef @.str.243)
+  store i32 1, ptr %9, align 4
+  br label %4680
+
+4680:                                             ; preds = %4689, %4671
+  %4681 = load i32, ptr %9, align 4
+  %4682 = icmp ne i32 %4681, 0
+  br i1 %4682, label %4683, label %4692
+
+4683:                                             ; preds = %4680
+  %4684 = load i64, ptr %5, align 8
+  %4685 = load ptr, ptr %8, align 8
+  %4686 = call i64 @rb_node_regx_string_val(ptr noundef %4685)
+  %4687 = call i64 @rb_dump_literal(i64 noundef %4686)
+  %4688 = call i64 @rb_str_concat(i64 noundef %4684, i64 noundef %4687)
+  br label %4689
+
+4689:                                             ; preds = %4683
+  %4690 = load i64, ptr %5, align 8
+  %4691 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4690, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %4680, !llvm.loop !118
+
+4692:                                             ; preds = %4680
+  br label %7940
+
+4693:                                             ; preds = %24
+  %4694 = load i32, ptr %7, align 4
+  %4695 = icmp ne i32 %4694, 0
+  br i1 %4695, label %4696, label %4701
+
+4696:                                             ; preds = %4693
+  %4697 = load i64, ptr %5, align 8
+  %4698 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4697, i64 noundef %4698)
+  %4699 = load i64, ptr %5, align 8
+  %4700 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4699, ptr noundef @.str.276)
+  br label %4701
+
+4701:                                             ; preds = %4696, %4693
+  %4702 = load i32, ptr %7, align 4
+  %4703 = icmp ne i32 %4702, 0
+  br i1 %4703, label %4704, label %4709
+
+4704:                                             ; preds = %4701
+  %4705 = load i64, ptr %5, align 8
+  %4706 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4705, i64 noundef %4706)
+  %4707 = load i64, ptr %5, align 8
+  %4708 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4707, ptr noundef @.str.277)
+  br label %4709
+
+4709:                                             ; preds = %4704, %4701
+  %4710 = load i32, ptr %7, align 4
+  %4711 = icmp ne i32 %4710, 0
+  br i1 %4711, label %4712, label %4717
+
+4712:                                             ; preds = %4709
+  %4713 = load i64, ptr %5, align 8
+  %4714 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4713, i64 noundef %4714)
   %4715 = load i64, ptr %5, align 8
-  %4716 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4715, i64 noundef %4716)
-  %4717 = load i64, ptr %5, align 8
-  %4718 = load i32, ptr %7, align 4
-  %4719 = icmp ne i32 %4718, 0
-  %4720 = select i1 %4719, i64 14, i64 7
-  %4721 = trunc i64 %4720 to i32
-  %4722 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4717, ptr noundef @.str.13, i32 noundef %4721, ptr noundef @.str.58)
-  %4723 = load i64, ptr %6, align 8
-  %4724 = load ptr, ptr %11, align 8
-  %4725 = call i64 @rb_str_cat_cstr(i64 noundef %4723, ptr noundef %4724)
-  store i32 1, ptr %9, align 4
-  br label %4726
+  %4716 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4715, ptr noundef @.str.278)
+  br label %4717
 
-4726:                                             ; preds = %4736, %4714
-  %4727 = load i32, ptr %9, align 4
-  %4728 = icmp ne i32 %4727, 0
-  br i1 %4728, label %4729, label %4742
-
-4729:                                             ; preds = %4726
-  %4730 = load i64, ptr %5, align 8
-  %4731 = load i64, ptr %6, align 8
-  %4732 = load i32, ptr %7, align 4
-  %4733 = load ptr, ptr %8, align 8
-  %4734 = getelementptr inbounds %struct.RNode_ONCE, ptr %4733, i32 0, i32 1
-  %4735 = load ptr, ptr %4734, align 8
-  call void @dump_node(i64 noundef %4730, i64 noundef %4731, i32 noundef %4732, ptr noundef %4735)
-  br label %4736
-
-4736:                                             ; preds = %4729
-  %4737 = load i64, ptr %6, align 8
-  %4738 = load i64, ptr %6, align 8
-  %4739 = call i64 @RSTRING_LEN(i64 noundef %4738) #10
-  %4740 = sub i64 %4739, 4
-  %4741 = call i64 @rb_str_resize(i64 noundef %4737, i64 noundef %4740)
-  store i32 0, ptr %9, align 4
-  br label %4726, !llvm.loop !119
-
-4742:                                             ; preds = %4726
-  br label %7932
-
-4743:                                             ; preds = %24
-  %4744 = load i32, ptr %7, align 4
-  %4745 = icmp ne i32 %4744, 0
-  br i1 %4745, label %4746, label %4751
-
-4746:                                             ; preds = %4743
-  %4747 = load i64, ptr %5, align 8
-  %4748 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4747, i64 noundef %4748)
-  %4749 = load i64, ptr %5, align 8
-  %4750 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4749, ptr noundef @.str.279)
-  br label %4751
-
-4751:                                             ; preds = %4746, %4743
-  %4752 = load i32, ptr %7, align 4
-  %4753 = icmp ne i32 %4752, 0
-  br i1 %4753, label %4754, label %4759
-
-4754:                                             ; preds = %4751
-  %4755 = load i64, ptr %5, align 8
-  %4756 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4755, i64 noundef %4756)
-  %4757 = load i64, ptr %5, align 8
-  %4758 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4757, ptr noundef @.str.255)
-  br label %4759
-
-4759:                                             ; preds = %4754, %4751
-  %4760 = load i32, ptr %7, align 4
-  %4761 = icmp ne i32 %4760, 0
-  br i1 %4761, label %4762, label %4767
-
-4762:                                             ; preds = %4759
-  %4763 = load i64, ptr %5, align 8
-  %4764 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4763, i64 noundef %4764)
-  %4765 = load i64, ptr %5, align 8
-  %4766 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4765, ptr noundef @.str.280)
-  br label %4767
-
-4767:                                             ; preds = %4762, %4759
-  br label %4843
-
-4768:                                             ; preds = %24
-  %4769 = load i32, ptr %7, align 4
-  %4770 = icmp ne i32 %4769, 0
-  br i1 %4770, label %4771, label %4776
-
-4771:                                             ; preds = %4768
-  %4772 = load i64, ptr %5, align 8
-  %4773 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4772, i64 noundef %4773)
-  %4774 = load i64, ptr %5, align 8
-  %4775 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4774, ptr noundef @.str.281)
-  br label %4776
-
-4776:                                             ; preds = %4771, %4768
-  %4777 = load i32, ptr %7, align 4
-  %4778 = icmp ne i32 %4777, 0
-  br i1 %4778, label %4779, label %4784
-
-4779:                                             ; preds = %4776
-  %4780 = load i64, ptr %5, align 8
-  %4781 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4780, i64 noundef %4781)
-  %4782 = load i64, ptr %5, align 8
-  %4783 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4782, ptr noundef @.str.255)
-  br label %4784
-
-4784:                                             ; preds = %4779, %4776
-  %4785 = load i32, ptr %7, align 4
-  %4786 = icmp ne i32 %4785, 0
-  br i1 %4786, label %4787, label %4792
-
-4787:                                             ; preds = %4784
-  %4788 = load i64, ptr %5, align 8
-  %4789 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4788, i64 noundef %4789)
-  %4790 = load i64, ptr %5, align 8
-  %4791 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4790, ptr noundef @.str.282)
-  br label %4792
-
-4792:                                             ; preds = %4787, %4784
-  br label %4843
-
-4793:                                             ; preds = %24
-  %4794 = load i32, ptr %7, align 4
-  %4795 = icmp ne i32 %4794, 0
-  br i1 %4795, label %4796, label %4801
-
-4796:                                             ; preds = %4793
-  %4797 = load i64, ptr %5, align 8
-  %4798 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4797, i64 noundef %4798)
-  %4799 = load i64, ptr %5, align 8
-  %4800 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4799, ptr noundef @.str.283)
-  br label %4801
-
-4801:                                             ; preds = %4796, %4793
-  %4802 = load i32, ptr %7, align 4
-  %4803 = icmp ne i32 %4802, 0
-  br i1 %4803, label %4804, label %4809
-
-4804:                                             ; preds = %4801
-  %4805 = load i64, ptr %5, align 8
-  %4806 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4805, i64 noundef %4806)
-  %4807 = load i64, ptr %5, align 8
-  %4808 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4807, ptr noundef @.str.255)
-  br label %4809
-
-4809:                                             ; preds = %4804, %4801
-  %4810 = load i32, ptr %7, align 4
-  %4811 = icmp ne i32 %4810, 0
-  br i1 %4811, label %4812, label %4817
-
-4812:                                             ; preds = %4809
-  %4813 = load i64, ptr %5, align 8
-  %4814 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4813, i64 noundef %4814)
-  %4815 = load i64, ptr %5, align 8
-  %4816 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4815, ptr noundef @.str.284)
-  br label %4817
-
-4817:                                             ; preds = %4812, %4809
-  br label %4843
-
-4818:                                             ; preds = %24
-  %4819 = load i32, ptr %7, align 4
-  %4820 = icmp ne i32 %4819, 0
-  br i1 %4820, label %4821, label %4826
-
-4821:                                             ; preds = %4818
-  %4822 = load i64, ptr %5, align 8
-  %4823 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4822, i64 noundef %4823)
-  %4824 = load i64, ptr %5, align 8
-  %4825 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4824, ptr noundef @.str.285)
-  br label %4826
-
-4826:                                             ; preds = %4821, %4818
-  %4827 = load i32, ptr %7, align 4
-  %4828 = icmp ne i32 %4827, 0
-  br i1 %4828, label %4829, label %4834
-
-4829:                                             ; preds = %4826
-  %4830 = load i64, ptr %5, align 8
-  %4831 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4830, i64 noundef %4831)
-  %4832 = load i64, ptr %5, align 8
-  %4833 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4832, ptr noundef @.str.255)
-  br label %4834
-
-4834:                                             ; preds = %4829, %4826
-  %4835 = load i32, ptr %7, align 4
-  %4836 = icmp ne i32 %4835, 0
-  br i1 %4836, label %4837, label %4842
-
-4837:                                             ; preds = %4834
-  %4838 = load i64, ptr %5, align 8
-  %4839 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4838, i64 noundef %4839)
-  %4840 = load i64, ptr %5, align 8
-  %4841 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4840, ptr noundef @.str.286)
-  br label %4842
-
-4842:                                             ; preds = %4837, %4834
-  br label %4843
-
-4843:                                             ; preds = %4842, %4817, %4792, %4767
-  %4844 = load i64, ptr %5, align 8
-  %4845 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4844, i64 noundef %4845)
-  %4846 = load i64, ptr %5, align 8
-  %4847 = load i32, ptr %7, align 4
-  %4848 = icmp ne i32 %4847, 0
-  %4849 = select i1 %4848, i64 25, i64 6
-  %4850 = trunc i64 %4849 to i32
-  %4851 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4846, ptr noundef @.str.51, i32 noundef %4850, ptr noundef @.str.287)
-  store i32 1, ptr %9, align 4
-  br label %4852
-
-4852:                                             ; preds = %4861, %4843
-  %4853 = load i32, ptr %9, align 4
-  %4854 = icmp ne i32 %4853, 0
-  br i1 %4854, label %4855, label %4864
-
-4855:                                             ; preds = %4852
-  %4856 = load i64, ptr %5, align 8
-  %4857 = load ptr, ptr %8, align 8
-  %4858 = call i64 @rb_node_dstr_string_val(ptr noundef %4857)
-  %4859 = call i64 @rb_dump_literal(i64 noundef %4858)
-  %4860 = call i64 @rb_str_concat(i64 noundef %4856, i64 noundef %4859)
-  br label %4861
-
-4861:                                             ; preds = %4855
-  %4862 = load i64, ptr %5, align 8
-  %4863 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4862, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %4852, !llvm.loop !120
-
-4864:                                             ; preds = %4852
-  %4865 = load ptr, ptr %8, align 8
-  %4866 = getelementptr inbounds %struct.RNode_DSTR, ptr %4865, i32 0, i32 3
-  %4867 = load ptr, ptr %4866, align 8
-  %4868 = icmp ne ptr %4867, null
-  br i1 %4868, label %4870, label %4869
-
-4869:                                             ; preds = %4864
-  br label %7932
-
-4870:                                             ; preds = %4864
-  %4871 = load i64, ptr %5, align 8
-  %4872 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4871, i64 noundef %4872)
-  %4873 = load i64, ptr %5, align 8
-  %4874 = load i32, ptr %7, align 4
-  %4875 = icmp ne i32 %4874, 0
-  %4876 = select i1 %4875, i64 32, i64 16
-  %4877 = trunc i64 %4876 to i32
-  %4878 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4873, ptr noundef @.str.13, i32 noundef %4877, ptr noundef @.str.288)
-  %4879 = load i64, ptr %6, align 8
-  %4880 = load ptr, ptr %11, align 8
-  %4881 = call i64 @rb_str_cat_cstr(i64 noundef %4879, ptr noundef %4880)
-  store i32 1, ptr %9, align 4
-  br label %4882
-
-4882:                                             ; preds = %4894, %4870
-  %4883 = load i32, ptr %9, align 4
-  %4884 = icmp ne i32 %4883, 0
-  br i1 %4884, label %4885, label %4900
-
-4885:                                             ; preds = %4882
-  %4886 = load i64, ptr %5, align 8
-  %4887 = load i64, ptr %6, align 8
-  %4888 = load i32, ptr %7, align 4
-  %4889 = load ptr, ptr %8, align 8
-  %4890 = getelementptr inbounds %struct.RNode_DSTR, ptr %4889, i32 0, i32 3
-  %4891 = load ptr, ptr %4890, align 8
-  %4892 = getelementptr inbounds %struct.RNode_LIST, ptr %4891, i32 0, i32 1
-  %4893 = load ptr, ptr %4892, align 8
-  call void @dump_node(i64 noundef %4886, i64 noundef %4887, i32 noundef %4888, ptr noundef %4893)
-  br label %4894
-
-4894:                                             ; preds = %4885
-  %4895 = load i64, ptr %6, align 8
-  %4896 = load i64, ptr %6, align 8
-  %4897 = call i64 @RSTRING_LEN(i64 noundef %4896) #10
-  %4898 = sub i64 %4897, 4
-  %4899 = call i64 @rb_str_resize(i64 noundef %4895, i64 noundef %4898)
-  store i32 0, ptr %9, align 4
-  br label %4882, !llvm.loop !121
-
-4900:                                             ; preds = %4882
+4717:                                             ; preds = %4712, %4709
   store ptr @.str.12, ptr %11, align 8
-  %4901 = load i64, ptr %5, align 8
-  %4902 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4901, i64 noundef %4902)
-  %4903 = load i64, ptr %5, align 8
-  %4904 = load i32, ptr %7, align 4
-  %4905 = icmp ne i32 %4904, 0
-  %4906 = select i1 %4905, i64 34, i64 16
-  %4907 = trunc i64 %4906 to i32
-  %4908 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4903, ptr noundef @.str.13, i32 noundef %4907, ptr noundef @.str.289)
-  %4909 = load i64, ptr %6, align 8
-  %4910 = load ptr, ptr %11, align 8
-  %4911 = call i64 @rb_str_cat_cstr(i64 noundef %4909, ptr noundef %4910)
+  %4718 = load i64, ptr %5, align 8
+  %4719 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4718, i64 noundef %4719)
+  %4720 = load i64, ptr %5, align 8
+  %4721 = load i32, ptr %7, align 4
+  %4722 = icmp ne i32 %4721, 0
+  %4723 = select i1 %4722, i64 14, i64 7
+  %4724 = trunc i64 %4723 to i32
+  %4725 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4720, ptr noundef @.str.13, i32 noundef %4724, ptr noundef @.str.58)
+  %4726 = load i64, ptr %6, align 8
+  %4727 = load ptr, ptr %11, align 8
+  %4728 = call i64 @rb_str_cat_cstr(i64 noundef %4726, ptr noundef %4727)
   store i32 1, ptr %9, align 4
-  br label %4912
+  br label %4729
 
-4912:                                             ; preds = %4924, %4900
-  %4913 = load i32, ptr %9, align 4
-  %4914 = icmp ne i32 %4913, 0
-  br i1 %4914, label %4915, label %4930
+4729:                                             ; preds = %4739, %4717
+  %4730 = load i32, ptr %9, align 4
+  %4731 = icmp ne i32 %4730, 0
+  br i1 %4731, label %4732, label %4745
 
-4915:                                             ; preds = %4912
-  %4916 = load i64, ptr %5, align 8
-  %4917 = load i64, ptr %6, align 8
-  %4918 = load i32, ptr %7, align 4
-  %4919 = load ptr, ptr %8, align 8
-  %4920 = getelementptr inbounds %struct.RNode_DSTR, ptr %4919, i32 0, i32 3
-  %4921 = load ptr, ptr %4920, align 8
-  %4922 = getelementptr inbounds %struct.RNode_LIST, ptr %4921, i32 0, i32 3
-  %4923 = load ptr, ptr %4922, align 8
-  call void @dump_node(i64 noundef %4916, i64 noundef %4917, i32 noundef %4918, ptr noundef %4923)
-  br label %4924
+4732:                                             ; preds = %4729
+  %4733 = load i64, ptr %5, align 8
+  %4734 = load i64, ptr %6, align 8
+  %4735 = load i32, ptr %7, align 4
+  %4736 = load ptr, ptr %8, align 8
+  %4737 = getelementptr inbounds %struct.RNode_ONCE, ptr %4736, i32 0, i32 1
+  %4738 = load ptr, ptr %4737, align 8
+  call void @dump_node(i64 noundef %4733, i64 noundef %4734, i32 noundef %4735, ptr noundef %4738)
+  br label %4739
 
-4924:                                             ; preds = %4915
-  %4925 = load i64, ptr %6, align 8
-  %4926 = load i64, ptr %6, align 8
-  %4927 = call i64 @RSTRING_LEN(i64 noundef %4926) #10
-  %4928 = sub i64 %4927, 4
-  %4929 = call i64 @rb_str_resize(i64 noundef %4925, i64 noundef %4928)
+4739:                                             ; preds = %4732
+  %4740 = load i64, ptr %6, align 8
+  %4741 = load i64, ptr %6, align 8
+  %4742 = call i64 @RSTRING_LEN(i64 noundef %4741) #10
+  %4743 = sub i64 %4742, 4
+  %4744 = call i64 @rb_str_resize(i64 noundef %4740, i64 noundef %4743)
   store i32 0, ptr %9, align 4
-  br label %4912, !llvm.loop !122
+  br label %4729, !llvm.loop !119
 
-4930:                                             ; preds = %4912
-  br label %7932
+4745:                                             ; preds = %4729
+  br label %7940
 
-4931:                                             ; preds = %24
-  %4932 = load i32, ptr %7, align 4
-  %4933 = icmp ne i32 %4932, 0
-  br i1 %4933, label %4934, label %4939
+4746:                                             ; preds = %24
+  %4747 = load i32, ptr %7, align 4
+  %4748 = icmp ne i32 %4747, 0
+  br i1 %4748, label %4749, label %4754
 
-4934:                                             ; preds = %4931
-  %4935 = load i64, ptr %5, align 8
-  %4936 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4935, i64 noundef %4936)
-  %4937 = load i64, ptr %5, align 8
-  %4938 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4937, ptr noundef @.str.290)
-  br label %4939
+4749:                                             ; preds = %4746
+  %4750 = load i64, ptr %5, align 8
+  %4751 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4750, i64 noundef %4751)
+  %4752 = load i64, ptr %5, align 8
+  %4753 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4752, ptr noundef @.str.279)
+  br label %4754
 
-4939:                                             ; preds = %4934, %4931
-  %4940 = load i32, ptr %7, align 4
-  %4941 = icmp ne i32 %4940, 0
-  br i1 %4941, label %4942, label %4947
+4754:                                             ; preds = %4749, %4746
+  %4755 = load i32, ptr %7, align 4
+  %4756 = icmp ne i32 %4755, 0
+  br i1 %4756, label %4757, label %4762
 
-4942:                                             ; preds = %4939
-  %4943 = load i64, ptr %5, align 8
-  %4944 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4943, i64 noundef %4944)
-  %4945 = load i64, ptr %5, align 8
-  %4946 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4945, ptr noundef @.str.274)
-  br label %4947
+4757:                                             ; preds = %4754
+  %4758 = load i64, ptr %5, align 8
+  %4759 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4758, i64 noundef %4759)
+  %4760 = load i64, ptr %5, align 8
+  %4761 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4760, ptr noundef @.str.255)
+  br label %4762
 
-4947:                                             ; preds = %4942, %4939
-  %4948 = load i32, ptr %7, align 4
-  %4949 = icmp ne i32 %4948, 0
-  br i1 %4949, label %4950, label %4955
+4762:                                             ; preds = %4757, %4754
+  %4763 = load i32, ptr %7, align 4
+  %4764 = icmp ne i32 %4763, 0
+  br i1 %4764, label %4765, label %4770
 
-4950:                                             ; preds = %4947
-  %4951 = load i64, ptr %5, align 8
-  %4952 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4951, i64 noundef %4952)
-  %4953 = load i64, ptr %5, align 8
-  %4954 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4953, ptr noundef @.str.291)
-  br label %4955
+4765:                                             ; preds = %4762
+  %4766 = load i64, ptr %5, align 8
+  %4767 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4766, i64 noundef %4767)
+  %4768 = load i64, ptr %5, align 8
+  %4769 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4768, ptr noundef @.str.280)
+  br label %4770
 
-4955:                                             ; preds = %4950, %4947
+4770:                                             ; preds = %4765, %4762
+  br label %4846
+
+4771:                                             ; preds = %24
+  %4772 = load i32, ptr %7, align 4
+  %4773 = icmp ne i32 %4772, 0
+  br i1 %4773, label %4774, label %4779
+
+4774:                                             ; preds = %4771
+  %4775 = load i64, ptr %5, align 8
+  %4776 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4775, i64 noundef %4776)
+  %4777 = load i64, ptr %5, align 8
+  %4778 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4777, ptr noundef @.str.281)
+  br label %4779
+
+4779:                                             ; preds = %4774, %4771
+  %4780 = load i32, ptr %7, align 4
+  %4781 = icmp ne i32 %4780, 0
+  br i1 %4781, label %4782, label %4787
+
+4782:                                             ; preds = %4779
+  %4783 = load i64, ptr %5, align 8
+  %4784 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4783, i64 noundef %4784)
+  %4785 = load i64, ptr %5, align 8
+  %4786 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4785, ptr noundef @.str.255)
+  br label %4787
+
+4787:                                             ; preds = %4782, %4779
+  %4788 = load i32, ptr %7, align 4
+  %4789 = icmp ne i32 %4788, 0
+  br i1 %4789, label %4790, label %4795
+
+4790:                                             ; preds = %4787
+  %4791 = load i64, ptr %5, align 8
+  %4792 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4791, i64 noundef %4792)
+  %4793 = load i64, ptr %5, align 8
+  %4794 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4793, ptr noundef @.str.282)
+  br label %4795
+
+4795:                                             ; preds = %4790, %4787
+  br label %4846
+
+4796:                                             ; preds = %24
+  %4797 = load i32, ptr %7, align 4
+  %4798 = icmp ne i32 %4797, 0
+  br i1 %4798, label %4799, label %4804
+
+4799:                                             ; preds = %4796
+  %4800 = load i64, ptr %5, align 8
+  %4801 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4800, i64 noundef %4801)
+  %4802 = load i64, ptr %5, align 8
+  %4803 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4802, ptr noundef @.str.283)
+  br label %4804
+
+4804:                                             ; preds = %4799, %4796
+  %4805 = load i32, ptr %7, align 4
+  %4806 = icmp ne i32 %4805, 0
+  br i1 %4806, label %4807, label %4812
+
+4807:                                             ; preds = %4804
+  %4808 = load i64, ptr %5, align 8
+  %4809 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4808, i64 noundef %4809)
+  %4810 = load i64, ptr %5, align 8
+  %4811 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4810, ptr noundef @.str.255)
+  br label %4812
+
+4812:                                             ; preds = %4807, %4804
+  %4813 = load i32, ptr %7, align 4
+  %4814 = icmp ne i32 %4813, 0
+  br i1 %4814, label %4815, label %4820
+
+4815:                                             ; preds = %4812
+  %4816 = load i64, ptr %5, align 8
+  %4817 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4816, i64 noundef %4817)
+  %4818 = load i64, ptr %5, align 8
+  %4819 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4818, ptr noundef @.str.284)
+  br label %4820
+
+4820:                                             ; preds = %4815, %4812
+  br label %4846
+
+4821:                                             ; preds = %24
+  %4822 = load i32, ptr %7, align 4
+  %4823 = icmp ne i32 %4822, 0
+  br i1 %4823, label %4824, label %4829
+
+4824:                                             ; preds = %4821
+  %4825 = load i64, ptr %5, align 8
+  %4826 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4825, i64 noundef %4826)
+  %4827 = load i64, ptr %5, align 8
+  %4828 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4827, ptr noundef @.str.285)
+  br label %4829
+
+4829:                                             ; preds = %4824, %4821
+  %4830 = load i32, ptr %7, align 4
+  %4831 = icmp ne i32 %4830, 0
+  br i1 %4831, label %4832, label %4837
+
+4832:                                             ; preds = %4829
+  %4833 = load i64, ptr %5, align 8
+  %4834 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4833, i64 noundef %4834)
+  %4835 = load i64, ptr %5, align 8
+  %4836 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4835, ptr noundef @.str.255)
+  br label %4837
+
+4837:                                             ; preds = %4832, %4829
+  %4838 = load i32, ptr %7, align 4
+  %4839 = icmp ne i32 %4838, 0
+  br i1 %4839, label %4840, label %4845
+
+4840:                                             ; preds = %4837
+  %4841 = load i64, ptr %5, align 8
+  %4842 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4841, i64 noundef %4842)
+  %4843 = load i64, ptr %5, align 8
+  %4844 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4843, ptr noundef @.str.286)
+  br label %4845
+
+4845:                                             ; preds = %4840, %4837
+  br label %4846
+
+4846:                                             ; preds = %4845, %4820, %4795, %4770
+  %4847 = load i64, ptr %5, align 8
+  %4848 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4847, i64 noundef %4848)
+  %4849 = load i64, ptr %5, align 8
+  %4850 = load i32, ptr %7, align 4
+  %4851 = icmp ne i32 %4850, 0
+  %4852 = select i1 %4851, i64 25, i64 6
+  %4853 = trunc i64 %4852 to i32
+  %4854 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4849, ptr noundef @.str.51, i32 noundef %4853, ptr noundef @.str.287)
+  store i32 1, ptr %9, align 4
+  br label %4855
+
+4855:                                             ; preds = %4864, %4846
+  %4856 = load i32, ptr %9, align 4
+  %4857 = icmp ne i32 %4856, 0
+  br i1 %4857, label %4858, label %4867
+
+4858:                                             ; preds = %4855
+  %4859 = load i64, ptr %5, align 8
+  %4860 = load ptr, ptr %8, align 8
+  %4861 = call i64 @rb_node_dstr_string_val(ptr noundef %4860)
+  %4862 = call i64 @rb_dump_literal(i64 noundef %4861)
+  %4863 = call i64 @rb_str_concat(i64 noundef %4859, i64 noundef %4862)
+  br label %4864
+
+4864:                                             ; preds = %4858
+  %4865 = load i64, ptr %5, align 8
+  %4866 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4865, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %4855, !llvm.loop !120
+
+4867:                                             ; preds = %4855
+  %4868 = load ptr, ptr %8, align 8
+  %4869 = getelementptr inbounds %struct.RNode_DSTR, ptr %4868, i32 0, i32 3
+  %4870 = load ptr, ptr %4869, align 8
+  %4871 = icmp ne ptr %4870, null
+  br i1 %4871, label %4873, label %4872
+
+4872:                                             ; preds = %4867
+  br label %7940
+
+4873:                                             ; preds = %4867
+  %4874 = load i64, ptr %5, align 8
+  %4875 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4874, i64 noundef %4875)
+  %4876 = load i64, ptr %5, align 8
+  %4877 = load i32, ptr %7, align 4
+  %4878 = icmp ne i32 %4877, 0
+  %4879 = select i1 %4878, i64 32, i64 16
+  %4880 = trunc i64 %4879 to i32
+  %4881 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4876, ptr noundef @.str.13, i32 noundef %4880, ptr noundef @.str.288)
+  %4882 = load i64, ptr %6, align 8
+  %4883 = load ptr, ptr %11, align 8
+  %4884 = call i64 @rb_str_cat_cstr(i64 noundef %4882, ptr noundef %4883)
+  store i32 1, ptr %9, align 4
+  br label %4885
+
+4885:                                             ; preds = %4897, %4873
+  %4886 = load i32, ptr %9, align 4
+  %4887 = icmp ne i32 %4886, 0
+  br i1 %4887, label %4888, label %4903
+
+4888:                                             ; preds = %4885
+  %4889 = load i64, ptr %5, align 8
+  %4890 = load i64, ptr %6, align 8
+  %4891 = load i32, ptr %7, align 4
+  %4892 = load ptr, ptr %8, align 8
+  %4893 = getelementptr inbounds %struct.RNode_DSTR, ptr %4892, i32 0, i32 3
+  %4894 = load ptr, ptr %4893, align 8
+  %4895 = getelementptr inbounds %struct.RNode_LIST, ptr %4894, i32 0, i32 1
+  %4896 = load ptr, ptr %4895, align 8
+  call void @dump_node(i64 noundef %4889, i64 noundef %4890, i32 noundef %4891, ptr noundef %4896)
+  br label %4897
+
+4897:                                             ; preds = %4888
+  %4898 = load i64, ptr %6, align 8
+  %4899 = load i64, ptr %6, align 8
+  %4900 = call i64 @RSTRING_LEN(i64 noundef %4899) #10
+  %4901 = sub i64 %4900, 4
+  %4902 = call i64 @rb_str_resize(i64 noundef %4898, i64 noundef %4901)
+  store i32 0, ptr %9, align 4
+  br label %4885, !llvm.loop !121
+
+4903:                                             ; preds = %4885
+  store ptr @.str.12, ptr %11, align 8
+  %4904 = load i64, ptr %5, align 8
+  %4905 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4904, i64 noundef %4905)
+  %4906 = load i64, ptr %5, align 8
+  %4907 = load i32, ptr %7, align 4
+  %4908 = icmp ne i32 %4907, 0
+  %4909 = select i1 %4908, i64 34, i64 16
+  %4910 = trunc i64 %4909 to i32
+  %4911 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4906, ptr noundef @.str.13, i32 noundef %4910, ptr noundef @.str.289)
+  %4912 = load i64, ptr %6, align 8
+  %4913 = load ptr, ptr %11, align 8
+  %4914 = call i64 @rb_str_cat_cstr(i64 noundef %4912, ptr noundef %4913)
+  store i32 1, ptr %9, align 4
+  br label %4915
+
+4915:                                             ; preds = %4927, %4903
+  %4916 = load i32, ptr %9, align 4
+  %4917 = icmp ne i32 %4916, 0
+  br i1 %4917, label %4918, label %4933
+
+4918:                                             ; preds = %4915
+  %4919 = load i64, ptr %5, align 8
+  %4920 = load i64, ptr %6, align 8
+  %4921 = load i32, ptr %7, align 4
+  %4922 = load ptr, ptr %8, align 8
+  %4923 = getelementptr inbounds %struct.RNode_DSTR, ptr %4922, i32 0, i32 3
+  %4924 = load ptr, ptr %4923, align 8
+  %4925 = getelementptr inbounds %struct.RNode_LIST, ptr %4924, i32 0, i32 3
+  %4926 = load ptr, ptr %4925, align 8
+  call void @dump_node(i64 noundef %4919, i64 noundef %4920, i32 noundef %4921, ptr noundef %4926)
+  br label %4927
+
+4927:                                             ; preds = %4918
+  %4928 = load i64, ptr %6, align 8
+  %4929 = load i64, ptr %6, align 8
+  %4930 = call i64 @RSTRING_LEN(i64 noundef %4929) #10
+  %4931 = sub i64 %4930, 4
+  %4932 = call i64 @rb_str_resize(i64 noundef %4928, i64 noundef %4931)
+  store i32 0, ptr %9, align 4
+  br label %4915, !llvm.loop !122
+
+4933:                                             ; preds = %4915
+  br label %7940
+
+4934:                                             ; preds = %24
+  %4935 = load i32, ptr %7, align 4
+  %4936 = icmp ne i32 %4935, 0
+  br i1 %4936, label %4937, label %4942
+
+4937:                                             ; preds = %4934
+  %4938 = load i64, ptr %5, align 8
+  %4939 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4938, i64 noundef %4939)
+  %4940 = load i64, ptr %5, align 8
+  %4941 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4940, ptr noundef @.str.290)
+  br label %4942
+
+4942:                                             ; preds = %4937, %4934
+  %4943 = load i32, ptr %7, align 4
+  %4944 = icmp ne i32 %4943, 0
+  br i1 %4944, label %4945, label %4950
+
+4945:                                             ; preds = %4942
+  %4946 = load i64, ptr %5, align 8
+  %4947 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4946, i64 noundef %4947)
+  %4948 = load i64, ptr %5, align 8
+  %4949 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4948, ptr noundef @.str.274)
+  br label %4950
+
+4950:                                             ; preds = %4945, %4942
+  %4951 = load i32, ptr %7, align 4
+  %4952 = icmp ne i32 %4951, 0
+  br i1 %4952, label %4953, label %4958
+
+4953:                                             ; preds = %4950
+  %4954 = load i64, ptr %5, align 8
+  %4955 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4954, i64 noundef %4955)
   %4956 = load i64, ptr %5, align 8
-  %4957 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4956, i64 noundef %4957)
-  %4958 = load i64, ptr %5, align 8
-  %4959 = load i32, ptr %7, align 4
-  %4960 = icmp ne i32 %4959, 0
-  %4961 = select i1 %4960, i64 15, i64 6
-  %4962 = trunc i64 %4961 to i32
-  %4963 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4958, ptr noundef @.str.51, i32 noundef %4962, ptr noundef @.str.243)
+  %4957 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4956, ptr noundef @.str.291)
+  br label %4958
+
+4958:                                             ; preds = %4953, %4950
+  %4959 = load i64, ptr %5, align 8
+  %4960 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4959, i64 noundef %4960)
+  %4961 = load i64, ptr %5, align 8
+  %4962 = load i32, ptr %7, align 4
+  %4963 = icmp ne i32 %4962, 0
+  %4964 = select i1 %4963, i64 15, i64 6
+  %4965 = trunc i64 %4964 to i32
+  %4966 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %4961, ptr noundef @.str.51, i32 noundef %4965, ptr noundef @.str.243)
   store i32 1, ptr %9, align 4
-  br label %4964
+  br label %4967
 
-4964:                                             ; preds = %4973, %4955
-  %4965 = load i32, ptr %9, align 4
-  %4966 = icmp ne i32 %4965, 0
-  br i1 %4966, label %4967, label %4976
+4967:                                             ; preds = %4976, %4958
+  %4968 = load i32, ptr %9, align 4
+  %4969 = icmp ne i32 %4968, 0
+  br i1 %4969, label %4970, label %4979
 
-4967:                                             ; preds = %4964
-  %4968 = load i64, ptr %5, align 8
-  %4969 = load ptr, ptr %8, align 8
-  %4970 = call i64 @rb_node_sym_string_val(ptr noundef %4969)
-  %4971 = call i64 @rb_dump_literal(i64 noundef %4970)
-  %4972 = call i64 @rb_str_concat(i64 noundef %4968, i64 noundef %4971)
-  br label %4973
+4970:                                             ; preds = %4967
+  %4971 = load i64, ptr %5, align 8
+  %4972 = load ptr, ptr %8, align 8
+  %4973 = call i64 @rb_node_sym_string_val(ptr noundef %4972)
+  %4974 = call i64 @rb_dump_literal(i64 noundef %4973)
+  %4975 = call i64 @rb_str_concat(i64 noundef %4971, i64 noundef %4974)
+  br label %4976
 
-4973:                                             ; preds = %4967
-  %4974 = load i64, ptr %5, align 8
-  %4975 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4974, ptr noundef @.str.56)
+4976:                                             ; preds = %4970
+  %4977 = load i64, ptr %5, align 8
+  %4978 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4977, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %4964, !llvm.loop !123
+  br label %4967, !llvm.loop !123
 
-4976:                                             ; preds = %4964
-  br label %7932
+4979:                                             ; preds = %4967
+  br label %7940
 
-4977:                                             ; preds = %24
-  %4978 = load i32, ptr %7, align 4
-  %4979 = icmp ne i32 %4978, 0
-  br i1 %4979, label %4980, label %4985
+4980:                                             ; preds = %24
+  %4981 = load i32, ptr %7, align 4
+  %4982 = icmp ne i32 %4981, 0
+  br i1 %4982, label %4983, label %4988
 
-4980:                                             ; preds = %4977
-  %4981 = load i64, ptr %5, align 8
-  %4982 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4981, i64 noundef %4982)
-  %4983 = load i64, ptr %5, align 8
-  %4984 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4983, ptr noundef @.str.292)
-  br label %4985
+4983:                                             ; preds = %4980
+  %4984 = load i64, ptr %5, align 8
+  %4985 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4984, i64 noundef %4985)
+  %4986 = load i64, ptr %5, align 8
+  %4987 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4986, ptr noundef @.str.292)
+  br label %4988
 
-4985:                                             ; preds = %4980, %4977
-  %4986 = load i32, ptr %7, align 4
-  %4987 = icmp ne i32 %4986, 0
-  br i1 %4987, label %4988, label %4993
+4988:                                             ; preds = %4983, %4980
+  %4989 = load i32, ptr %7, align 4
+  %4990 = icmp ne i32 %4989, 0
+  br i1 %4990, label %4991, label %4996
 
-4988:                                             ; preds = %4985
-  %4989 = load i64, ptr %5, align 8
-  %4990 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4989, i64 noundef %4990)
-  %4991 = load i64, ptr %5, align 8
-  %4992 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4991, ptr noundef @.str.293)
-  br label %4993
+4991:                                             ; preds = %4988
+  %4992 = load i64, ptr %5, align 8
+  %4993 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %4992, i64 noundef %4993)
+  %4994 = load i64, ptr %5, align 8
+  %4995 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4994, ptr noundef @.str.293)
+  br label %4996
 
-4993:                                             ; preds = %4988, %4985
-  %4994 = load i32, ptr %7, align 4
-  %4995 = icmp ne i32 %4994, 0
-  br i1 %4995, label %4996, label %5001
+4996:                                             ; preds = %4991, %4988
+  %4997 = load i32, ptr %7, align 4
+  %4998 = icmp ne i32 %4997, 0
+  br i1 %4998, label %4999, label %5004
 
-4996:                                             ; preds = %4993
-  %4997 = load i64, ptr %5, align 8
-  %4998 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %4997, i64 noundef %4998)
-  %4999 = load i64, ptr %5, align 8
-  %5000 = call i64 @rbimpl_str_cat_cstr(i64 noundef %4999, ptr noundef @.str.280)
-  br label %5001
-
-5001:                                             ; preds = %4996, %4993
-  store ptr @.str.12, ptr %11, align 8
+4999:                                             ; preds = %4996
+  %5000 = load i64, ptr %5, align 8
+  %5001 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5000, i64 noundef %5001)
   %5002 = load i64, ptr %5, align 8
-  %5003 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5002, i64 noundef %5003)
-  %5004 = load i64, ptr %5, align 8
-  %5005 = load i32, ptr %7, align 4
-  %5006 = icmp ne i32 %5005, 0
-  %5007 = select i1 %5006, i64 14, i64 7
-  %5008 = trunc i64 %5007 to i32
-  %5009 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5004, ptr noundef @.str.13, i32 noundef %5008, ptr noundef @.str.58)
-  %5010 = load i64, ptr %6, align 8
-  %5011 = load ptr, ptr %11, align 8
-  %5012 = call i64 @rb_str_cat_cstr(i64 noundef %5010, ptr noundef %5011)
+  %5003 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5002, ptr noundef @.str.280)
+  br label %5004
+
+5004:                                             ; preds = %4999, %4996
+  store ptr @.str.12, ptr %11, align 8
+  %5005 = load i64, ptr %5, align 8
+  %5006 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5005, i64 noundef %5006)
+  %5007 = load i64, ptr %5, align 8
+  %5008 = load i32, ptr %7, align 4
+  %5009 = icmp ne i32 %5008, 0
+  %5010 = select i1 %5009, i64 14, i64 7
+  %5011 = trunc i64 %5010 to i32
+  %5012 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5007, ptr noundef @.str.13, i32 noundef %5011, ptr noundef @.str.58)
+  %5013 = load i64, ptr %6, align 8
+  %5014 = load ptr, ptr %11, align 8
+  %5015 = call i64 @rb_str_cat_cstr(i64 noundef %5013, ptr noundef %5014)
   store i32 1, ptr %9, align 4
-  br label %5013
+  br label %5016
 
-5013:                                             ; preds = %5023, %5001
-  %5014 = load i32, ptr %9, align 4
-  %5015 = icmp ne i32 %5014, 0
-  br i1 %5015, label %5016, label %5029
+5016:                                             ; preds = %5026, %5004
+  %5017 = load i32, ptr %9, align 4
+  %5018 = icmp ne i32 %5017, 0
+  br i1 %5018, label %5019, label %5032
 
-5016:                                             ; preds = %5013
-  %5017 = load i64, ptr %5, align 8
-  %5018 = load i64, ptr %6, align 8
-  %5019 = load i32, ptr %7, align 4
-  %5020 = load ptr, ptr %8, align 8
-  %5021 = getelementptr inbounds %struct.RNode_EVSTR, ptr %5020, i32 0, i32 1
-  %5022 = load ptr, ptr %5021, align 8
-  call void @dump_node(i64 noundef %5017, i64 noundef %5018, i32 noundef %5019, ptr noundef %5022)
-  br label %5023
+5019:                                             ; preds = %5016
+  %5020 = load i64, ptr %5, align 8
+  %5021 = load i64, ptr %6, align 8
+  %5022 = load i32, ptr %7, align 4
+  %5023 = load ptr, ptr %8, align 8
+  %5024 = getelementptr inbounds %struct.RNode_EVSTR, ptr %5023, i32 0, i32 1
+  %5025 = load ptr, ptr %5024, align 8
+  call void @dump_node(i64 noundef %5020, i64 noundef %5021, i32 noundef %5022, ptr noundef %5025)
+  br label %5026
 
-5023:                                             ; preds = %5016
-  %5024 = load i64, ptr %6, align 8
-  %5025 = load i64, ptr %6, align 8
-  %5026 = call i64 @RSTRING_LEN(i64 noundef %5025) #10
-  %5027 = sub i64 %5026, 4
-  %5028 = call i64 @rb_str_resize(i64 noundef %5024, i64 noundef %5027)
+5026:                                             ; preds = %5019
+  %5027 = load i64, ptr %6, align 8
+  %5028 = load i64, ptr %6, align 8
+  %5029 = call i64 @RSTRING_LEN(i64 noundef %5028) #10
+  %5030 = sub i64 %5029, 4
+  %5031 = call i64 @rb_str_resize(i64 noundef %5027, i64 noundef %5030)
   store i32 0, ptr %9, align 4
-  br label %5013, !llvm.loop !124
+  br label %5016, !llvm.loop !124
 
-5029:                                             ; preds = %5013
-  br label %7932
+5032:                                             ; preds = %5016
+  br label %7940
 
-5030:                                             ; preds = %24
-  %5031 = load i32, ptr %7, align 4
-  %5032 = icmp ne i32 %5031, 0
-  br i1 %5032, label %5033, label %5038
+5033:                                             ; preds = %24
+  %5034 = load i32, ptr %7, align 4
+  %5035 = icmp ne i32 %5034, 0
+  br i1 %5035, label %5036, label %5041
 
-5033:                                             ; preds = %5030
-  %5034 = load i64, ptr %5, align 8
-  %5035 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5034, i64 noundef %5035)
-  %5036 = load i64, ptr %5, align 8
-  %5037 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5036, ptr noundef @.str.294)
-  br label %5038
+5036:                                             ; preds = %5033
+  %5037 = load i64, ptr %5, align 8
+  %5038 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5037, i64 noundef %5038)
+  %5039 = load i64, ptr %5, align 8
+  %5040 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5039, ptr noundef @.str.294)
+  br label %5041
 
-5038:                                             ; preds = %5033, %5030
-  %5039 = load i32, ptr %7, align 4
-  %5040 = icmp ne i32 %5039, 0
-  br i1 %5040, label %5041, label %5046
+5041:                                             ; preds = %5036, %5033
+  %5042 = load i32, ptr %7, align 4
+  %5043 = icmp ne i32 %5042, 0
+  br i1 %5043, label %5044, label %5049
 
-5041:                                             ; preds = %5038
-  %5042 = load i64, ptr %5, align 8
-  %5043 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5042, i64 noundef %5043)
-  %5044 = load i64, ptr %5, align 8
-  %5045 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5044, ptr noundef @.str.295)
-  br label %5046
+5044:                                             ; preds = %5041
+  %5045 = load i64, ptr %5, align 8
+  %5046 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5045, i64 noundef %5046)
+  %5047 = load i64, ptr %5, align 8
+  %5048 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5047, ptr noundef @.str.295)
+  br label %5049
 
-5046:                                             ; preds = %5041, %5038
-  %5047 = load i32, ptr %7, align 4
-  %5048 = icmp ne i32 %5047, 0
-  br i1 %5048, label %5049, label %5054
+5049:                                             ; preds = %5044, %5041
+  %5050 = load i32, ptr %7, align 4
+  %5051 = icmp ne i32 %5050, 0
+  br i1 %5051, label %5052, label %5057
 
-5049:                                             ; preds = %5046
-  %5050 = load i64, ptr %5, align 8
-  %5051 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5050, i64 noundef %5051)
-  %5052 = load i64, ptr %5, align 8
-  %5053 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5052, ptr noundef @.str.296)
-  br label %5054
-
-5054:                                             ; preds = %5049, %5046
+5052:                                             ; preds = %5049
+  %5053 = load i64, ptr %5, align 8
+  %5054 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5053, i64 noundef %5054)
   %5055 = load i64, ptr %5, align 8
-  %5056 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5055, i64 noundef %5056)
-  %5057 = load i64, ptr %5, align 8
-  %5058 = load i32, ptr %7, align 4
-  %5059 = icmp ne i32 %5058, 0
-  %5060 = select i1 %5059, i64 25, i64 7
-  %5061 = trunc i64 %5060 to i32
-  %5062 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5057, ptr noundef @.str.13, i32 noundef %5061, ptr noundef @.str.297)
-  %5063 = load i64, ptr %6, align 8
-  %5064 = load ptr, ptr %11, align 8
-  %5065 = call i64 @rb_str_cat_cstr(i64 noundef %5063, ptr noundef %5064)
+  %5056 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5055, ptr noundef @.str.296)
+  br label %5057
+
+5057:                                             ; preds = %5052, %5049
+  %5058 = load i64, ptr %5, align 8
+  %5059 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5058, i64 noundef %5059)
+  %5060 = load i64, ptr %5, align 8
+  %5061 = load i32, ptr %7, align 4
+  %5062 = icmp ne i32 %5061, 0
+  %5063 = select i1 %5062, i64 25, i64 7
+  %5064 = trunc i64 %5063 to i32
+  %5065 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5060, ptr noundef @.str.13, i32 noundef %5064, ptr noundef @.str.297)
+  %5066 = load i64, ptr %6, align 8
+  %5067 = load ptr, ptr %11, align 8
+  %5068 = call i64 @rb_str_cat_cstr(i64 noundef %5066, ptr noundef %5067)
   store i32 1, ptr %9, align 4
-  br label %5066
+  br label %5069
 
-5066:                                             ; preds = %5076, %5054
-  %5067 = load i32, ptr %9, align 4
-  %5068 = icmp ne i32 %5067, 0
-  br i1 %5068, label %5069, label %5082
+5069:                                             ; preds = %5079, %5057
+  %5070 = load i32, ptr %9, align 4
+  %5071 = icmp ne i32 %5070, 0
+  br i1 %5071, label %5072, label %5085
 
-5069:                                             ; preds = %5066
-  %5070 = load i64, ptr %5, align 8
-  %5071 = load i64, ptr %6, align 8
-  %5072 = load i32, ptr %7, align 4
-  %5073 = load ptr, ptr %8, align 8
-  %5074 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %5073, i32 0, i32 1
-  %5075 = load ptr, ptr %5074, align 8
-  call void @dump_node(i64 noundef %5070, i64 noundef %5071, i32 noundef %5072, ptr noundef %5075)
-  br label %5076
+5072:                                             ; preds = %5069
+  %5073 = load i64, ptr %5, align 8
+  %5074 = load i64, ptr %6, align 8
+  %5075 = load i32, ptr %7, align 4
+  %5076 = load ptr, ptr %8, align 8
+  %5077 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %5076, i32 0, i32 1
+  %5078 = load ptr, ptr %5077, align 8
+  call void @dump_node(i64 noundef %5073, i64 noundef %5074, i32 noundef %5075, ptr noundef %5078)
+  br label %5079
 
-5076:                                             ; preds = %5069
-  %5077 = load i64, ptr %6, align 8
-  %5078 = load i64, ptr %6, align 8
-  %5079 = call i64 @RSTRING_LEN(i64 noundef %5078) #10
-  %5080 = sub i64 %5079, 4
-  %5081 = call i64 @rb_str_resize(i64 noundef %5077, i64 noundef %5080)
+5079:                                             ; preds = %5072
+  %5080 = load i64, ptr %6, align 8
+  %5081 = load i64, ptr %6, align 8
+  %5082 = call i64 @RSTRING_LEN(i64 noundef %5081) #10
+  %5083 = sub i64 %5082, 4
+  %5084 = call i64 @rb_str_resize(i64 noundef %5080, i64 noundef %5083)
   store i32 0, ptr %9, align 4
-  br label %5066, !llvm.loop !125
+  br label %5069, !llvm.loop !125
 
-5082:                                             ; preds = %5066
+5085:                                             ; preds = %5069
   store ptr @.str.12, ptr %11, align 8
-  %5083 = load i64, ptr %5, align 8
-  %5084 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5083, i64 noundef %5084)
-  %5085 = load i64, ptr %5, align 8
-  %5086 = load i32, ptr %7, align 4
-  %5087 = icmp ne i32 %5086, 0
-  %5088 = select i1 %5087, i64 25, i64 7
-  %5089 = trunc i64 %5088 to i32
-  %5090 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5085, ptr noundef @.str.13, i32 noundef %5089, ptr noundef @.str.298)
-  %5091 = load i64, ptr %6, align 8
-  %5092 = load ptr, ptr %11, align 8
-  %5093 = call i64 @rb_str_cat_cstr(i64 noundef %5091, ptr noundef %5092)
+  %5086 = load i64, ptr %5, align 8
+  %5087 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5086, i64 noundef %5087)
+  %5088 = load i64, ptr %5, align 8
+  %5089 = load i32, ptr %7, align 4
+  %5090 = icmp ne i32 %5089, 0
+  %5091 = select i1 %5090, i64 25, i64 7
+  %5092 = trunc i64 %5091 to i32
+  %5093 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5088, ptr noundef @.str.13, i32 noundef %5092, ptr noundef @.str.298)
+  %5094 = load i64, ptr %6, align 8
+  %5095 = load ptr, ptr %11, align 8
+  %5096 = call i64 @rb_str_cat_cstr(i64 noundef %5094, ptr noundef %5095)
   store i32 1, ptr %9, align 4
-  br label %5094
+  br label %5097
 
-5094:                                             ; preds = %5104, %5082
-  %5095 = load i32, ptr %9, align 4
-  %5096 = icmp ne i32 %5095, 0
-  br i1 %5096, label %5097, label %5110
+5097:                                             ; preds = %5107, %5085
+  %5098 = load i32, ptr %9, align 4
+  %5099 = icmp ne i32 %5098, 0
+  br i1 %5099, label %5100, label %5113
 
-5097:                                             ; preds = %5094
-  %5098 = load i64, ptr %5, align 8
-  %5099 = load i64, ptr %6, align 8
-  %5100 = load i32, ptr %7, align 4
-  %5101 = load ptr, ptr %8, align 8
-  %5102 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %5101, i32 0, i32 2
-  %5103 = load ptr, ptr %5102, align 8
-  call void @dump_node(i64 noundef %5098, i64 noundef %5099, i32 noundef %5100, ptr noundef %5103)
-  br label %5104
+5100:                                             ; preds = %5097
+  %5101 = load i64, ptr %5, align 8
+  %5102 = load i64, ptr %6, align 8
+  %5103 = load i32, ptr %7, align 4
+  %5104 = load ptr, ptr %8, align 8
+  %5105 = getelementptr inbounds %struct.RNode_ARGSCAT, ptr %5104, i32 0, i32 2
+  %5106 = load ptr, ptr %5105, align 8
+  call void @dump_node(i64 noundef %5101, i64 noundef %5102, i32 noundef %5103, ptr noundef %5106)
+  br label %5107
 
-5104:                                             ; preds = %5097
-  %5105 = load i64, ptr %6, align 8
-  %5106 = load i64, ptr %6, align 8
-  %5107 = call i64 @RSTRING_LEN(i64 noundef %5106) #10
-  %5108 = sub i64 %5107, 4
-  %5109 = call i64 @rb_str_resize(i64 noundef %5105, i64 noundef %5108)
+5107:                                             ; preds = %5100
+  %5108 = load i64, ptr %6, align 8
+  %5109 = load i64, ptr %6, align 8
+  %5110 = call i64 @RSTRING_LEN(i64 noundef %5109) #10
+  %5111 = sub i64 %5110, 4
+  %5112 = call i64 @rb_str_resize(i64 noundef %5108, i64 noundef %5111)
   store i32 0, ptr %9, align 4
-  br label %5094, !llvm.loop !126
+  br label %5097, !llvm.loop !126
 
-5110:                                             ; preds = %5094
-  br label %7932
+5113:                                             ; preds = %5097
+  br label %7940
 
-5111:                                             ; preds = %24
-  %5112 = load i32, ptr %7, align 4
-  %5113 = icmp ne i32 %5112, 0
-  br i1 %5113, label %5114, label %5119
+5114:                                             ; preds = %24
+  %5115 = load i32, ptr %7, align 4
+  %5116 = icmp ne i32 %5115, 0
+  br i1 %5116, label %5117, label %5122
 
-5114:                                             ; preds = %5111
-  %5115 = load i64, ptr %5, align 8
-  %5116 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5115, i64 noundef %5116)
-  %5117 = load i64, ptr %5, align 8
-  %5118 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5117, ptr noundef @.str.299)
-  br label %5119
+5117:                                             ; preds = %5114
+  %5118 = load i64, ptr %5, align 8
+  %5119 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5118, i64 noundef %5119)
+  %5120 = load i64, ptr %5, align 8
+  %5121 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5120, ptr noundef @.str.299)
+  br label %5122
 
-5119:                                             ; preds = %5114, %5111
-  %5120 = load i32, ptr %7, align 4
-  %5121 = icmp ne i32 %5120, 0
-  br i1 %5121, label %5122, label %5127
+5122:                                             ; preds = %5117, %5114
+  %5123 = load i32, ptr %7, align 4
+  %5124 = icmp ne i32 %5123, 0
+  br i1 %5124, label %5125, label %5130
 
-5122:                                             ; preds = %5119
-  %5123 = load i64, ptr %5, align 8
-  %5124 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5123, i64 noundef %5124)
-  %5125 = load i64, ptr %5, align 8
-  %5126 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5125, ptr noundef @.str.300)
-  br label %5127
+5125:                                             ; preds = %5122
+  %5126 = load i64, ptr %5, align 8
+  %5127 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5126, i64 noundef %5127)
+  %5128 = load i64, ptr %5, align 8
+  %5129 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5128, ptr noundef @.str.300)
+  br label %5130
 
-5127:                                             ; preds = %5122, %5119
-  %5128 = load i32, ptr %7, align 4
-  %5129 = icmp ne i32 %5128, 0
-  br i1 %5129, label %5130, label %5135
+5130:                                             ; preds = %5125, %5122
+  %5131 = load i32, ptr %7, align 4
+  %5132 = icmp ne i32 %5131, 0
+  br i1 %5132, label %5133, label %5138
 
-5130:                                             ; preds = %5127
-  %5131 = load i64, ptr %5, align 8
-  %5132 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5131, i64 noundef %5132)
-  %5133 = load i64, ptr %5, align 8
-  %5134 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5133, ptr noundef @.str.301)
-  br label %5135
-
-5135:                                             ; preds = %5130, %5127
+5133:                                             ; preds = %5130
+  %5134 = load i64, ptr %5, align 8
+  %5135 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5134, i64 noundef %5135)
   %5136 = load i64, ptr %5, align 8
-  %5137 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5136, i64 noundef %5137)
-  %5138 = load i64, ptr %5, align 8
-  %5139 = load i32, ptr %7, align 4
-  %5140 = icmp ne i32 %5139, 0
-  %5141 = select i1 %5140, i64 25, i64 7
-  %5142 = trunc i64 %5141 to i32
-  %5143 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5138, ptr noundef @.str.13, i32 noundef %5142, ptr noundef @.str.297)
-  %5144 = load i64, ptr %6, align 8
-  %5145 = load ptr, ptr %11, align 8
-  %5146 = call i64 @rb_str_cat_cstr(i64 noundef %5144, ptr noundef %5145)
+  %5137 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5136, ptr noundef @.str.301)
+  br label %5138
+
+5138:                                             ; preds = %5133, %5130
+  %5139 = load i64, ptr %5, align 8
+  %5140 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5139, i64 noundef %5140)
+  %5141 = load i64, ptr %5, align 8
+  %5142 = load i32, ptr %7, align 4
+  %5143 = icmp ne i32 %5142, 0
+  %5144 = select i1 %5143, i64 25, i64 7
+  %5145 = trunc i64 %5144 to i32
+  %5146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5141, ptr noundef @.str.13, i32 noundef %5145, ptr noundef @.str.297)
+  %5147 = load i64, ptr %6, align 8
+  %5148 = load ptr, ptr %11, align 8
+  %5149 = call i64 @rb_str_cat_cstr(i64 noundef %5147, ptr noundef %5148)
   store i32 1, ptr %9, align 4
-  br label %5147
+  br label %5150
 
-5147:                                             ; preds = %5157, %5135
-  %5148 = load i32, ptr %9, align 4
-  %5149 = icmp ne i32 %5148, 0
-  br i1 %5149, label %5150, label %5163
+5150:                                             ; preds = %5160, %5138
+  %5151 = load i32, ptr %9, align 4
+  %5152 = icmp ne i32 %5151, 0
+  br i1 %5152, label %5153, label %5166
 
-5150:                                             ; preds = %5147
-  %5151 = load i64, ptr %5, align 8
-  %5152 = load i64, ptr %6, align 8
-  %5153 = load i32, ptr %7, align 4
-  %5154 = load ptr, ptr %8, align 8
-  %5155 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %5154, i32 0, i32 1
-  %5156 = load ptr, ptr %5155, align 8
-  call void @dump_node(i64 noundef %5151, i64 noundef %5152, i32 noundef %5153, ptr noundef %5156)
-  br label %5157
+5153:                                             ; preds = %5150
+  %5154 = load i64, ptr %5, align 8
+  %5155 = load i64, ptr %6, align 8
+  %5156 = load i32, ptr %7, align 4
+  %5157 = load ptr, ptr %8, align 8
+  %5158 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %5157, i32 0, i32 1
+  %5159 = load ptr, ptr %5158, align 8
+  call void @dump_node(i64 noundef %5154, i64 noundef %5155, i32 noundef %5156, ptr noundef %5159)
+  br label %5160
 
-5157:                                             ; preds = %5150
-  %5158 = load i64, ptr %6, align 8
-  %5159 = load i64, ptr %6, align 8
-  %5160 = call i64 @RSTRING_LEN(i64 noundef %5159) #10
-  %5161 = sub i64 %5160, 4
-  %5162 = call i64 @rb_str_resize(i64 noundef %5158, i64 noundef %5161)
+5160:                                             ; preds = %5153
+  %5161 = load i64, ptr %6, align 8
+  %5162 = load i64, ptr %6, align 8
+  %5163 = call i64 @RSTRING_LEN(i64 noundef %5162) #10
+  %5164 = sub i64 %5163, 4
+  %5165 = call i64 @rb_str_resize(i64 noundef %5161, i64 noundef %5164)
   store i32 0, ptr %9, align 4
-  br label %5147, !llvm.loop !127
+  br label %5150, !llvm.loop !127
 
-5163:                                             ; preds = %5147
+5166:                                             ; preds = %5150
   store ptr @.str.12, ptr %11, align 8
-  %5164 = load i64, ptr %5, align 8
-  %5165 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5164, i64 noundef %5165)
-  %5166 = load i64, ptr %5, align 8
-  %5167 = load i32, ptr %7, align 4
-  %5168 = icmp ne i32 %5167, 0
-  %5169 = select i1 %5168, i64 27, i64 7
-  %5170 = trunc i64 %5169 to i32
-  %5171 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5166, ptr noundef @.str.13, i32 noundef %5170, ptr noundef @.str.302)
-  %5172 = load i64, ptr %6, align 8
-  %5173 = load ptr, ptr %11, align 8
-  %5174 = call i64 @rb_str_cat_cstr(i64 noundef %5172, ptr noundef %5173)
+  %5167 = load i64, ptr %5, align 8
+  %5168 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5167, i64 noundef %5168)
+  %5169 = load i64, ptr %5, align 8
+  %5170 = load i32, ptr %7, align 4
+  %5171 = icmp ne i32 %5170, 0
+  %5172 = select i1 %5171, i64 27, i64 7
+  %5173 = trunc i64 %5172 to i32
+  %5174 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5169, ptr noundef @.str.13, i32 noundef %5173, ptr noundef @.str.302)
+  %5175 = load i64, ptr %6, align 8
+  %5176 = load ptr, ptr %11, align 8
+  %5177 = call i64 @rb_str_cat_cstr(i64 noundef %5175, ptr noundef %5176)
   store i32 1, ptr %9, align 4
-  br label %5175
+  br label %5178
 
-5175:                                             ; preds = %5185, %5163
-  %5176 = load i32, ptr %9, align 4
-  %5177 = icmp ne i32 %5176, 0
-  br i1 %5177, label %5178, label %5191
+5178:                                             ; preds = %5188, %5166
+  %5179 = load i32, ptr %9, align 4
+  %5180 = icmp ne i32 %5179, 0
+  br i1 %5180, label %5181, label %5194
 
-5178:                                             ; preds = %5175
-  %5179 = load i64, ptr %5, align 8
-  %5180 = load i64, ptr %6, align 8
-  %5181 = load i32, ptr %7, align 4
-  %5182 = load ptr, ptr %8, align 8
-  %5183 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %5182, i32 0, i32 2
-  %5184 = load ptr, ptr %5183, align 8
-  call void @dump_node(i64 noundef %5179, i64 noundef %5180, i32 noundef %5181, ptr noundef %5184)
-  br label %5185
+5181:                                             ; preds = %5178
+  %5182 = load i64, ptr %5, align 8
+  %5183 = load i64, ptr %6, align 8
+  %5184 = load i32, ptr %7, align 4
+  %5185 = load ptr, ptr %8, align 8
+  %5186 = getelementptr inbounds %struct.RNode_ARGSPUSH, ptr %5185, i32 0, i32 2
+  %5187 = load ptr, ptr %5186, align 8
+  call void @dump_node(i64 noundef %5182, i64 noundef %5183, i32 noundef %5184, ptr noundef %5187)
+  br label %5188
 
-5185:                                             ; preds = %5178
-  %5186 = load i64, ptr %6, align 8
-  %5187 = load i64, ptr %6, align 8
-  %5188 = call i64 @RSTRING_LEN(i64 noundef %5187) #10
-  %5189 = sub i64 %5188, 4
-  %5190 = call i64 @rb_str_resize(i64 noundef %5186, i64 noundef %5189)
+5188:                                             ; preds = %5181
+  %5189 = load i64, ptr %6, align 8
+  %5190 = load i64, ptr %6, align 8
+  %5191 = call i64 @RSTRING_LEN(i64 noundef %5190) #10
+  %5192 = sub i64 %5191, 4
+  %5193 = call i64 @rb_str_resize(i64 noundef %5189, i64 noundef %5192)
   store i32 0, ptr %9, align 4
-  br label %5175, !llvm.loop !128
+  br label %5178, !llvm.loop !128
 
-5191:                                             ; preds = %5175
-  br label %7932
+5194:                                             ; preds = %5178
+  br label %7940
 
-5192:                                             ; preds = %24
-  %5193 = load i32, ptr %7, align 4
-  %5194 = icmp ne i32 %5193, 0
-  br i1 %5194, label %5195, label %5200
+5195:                                             ; preds = %24
+  %5196 = load i32, ptr %7, align 4
+  %5197 = icmp ne i32 %5196, 0
+  br i1 %5197, label %5198, label %5203
 
-5195:                                             ; preds = %5192
-  %5196 = load i64, ptr %5, align 8
-  %5197 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5196, i64 noundef %5197)
-  %5198 = load i64, ptr %5, align 8
-  %5199 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5198, ptr noundef @.str.303)
-  br label %5200
+5198:                                             ; preds = %5195
+  %5199 = load i64, ptr %5, align 8
+  %5200 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5199, i64 noundef %5200)
+  %5201 = load i64, ptr %5, align 8
+  %5202 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5201, ptr noundef @.str.303)
+  br label %5203
 
-5200:                                             ; preds = %5195, %5192
-  %5201 = load i32, ptr %7, align 4
-  %5202 = icmp ne i32 %5201, 0
-  br i1 %5202, label %5203, label %5208
+5203:                                             ; preds = %5198, %5195
+  %5204 = load i32, ptr %7, align 4
+  %5205 = icmp ne i32 %5204, 0
+  br i1 %5205, label %5206, label %5211
 
-5203:                                             ; preds = %5200
-  %5204 = load i64, ptr %5, align 8
-  %5205 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5204, i64 noundef %5205)
-  %5206 = load i64, ptr %5, align 8
-  %5207 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5206, ptr noundef @.str.304)
-  br label %5208
+5206:                                             ; preds = %5203
+  %5207 = load i64, ptr %5, align 8
+  %5208 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5207, i64 noundef %5208)
+  %5209 = load i64, ptr %5, align 8
+  %5210 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5209, ptr noundef @.str.304)
+  br label %5211
 
-5208:                                             ; preds = %5203, %5200
-  %5209 = load i32, ptr %7, align 4
-  %5210 = icmp ne i32 %5209, 0
-  br i1 %5210, label %5211, label %5216
+5211:                                             ; preds = %5206, %5203
+  %5212 = load i32, ptr %7, align 4
+  %5213 = icmp ne i32 %5212, 0
+  br i1 %5213, label %5214, label %5219
 
-5211:                                             ; preds = %5208
-  %5212 = load i64, ptr %5, align 8
-  %5213 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5212, i64 noundef %5213)
-  %5214 = load i64, ptr %5, align 8
-  %5215 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5214, ptr noundef @.str.305)
-  br label %5216
-
-5216:                                             ; preds = %5211, %5208
-  store ptr @.str.12, ptr %11, align 8
+5214:                                             ; preds = %5211
+  %5215 = load i64, ptr %5, align 8
+  %5216 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5215, i64 noundef %5216)
   %5217 = load i64, ptr %5, align 8
-  %5218 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5217, i64 noundef %5218)
-  %5219 = load i64, ptr %5, align 8
-  %5220 = load i32, ptr %7, align 4
-  %5221 = icmp ne i32 %5220, 0
-  %5222 = select i1 %5221, i64 24, i64 7
-  %5223 = trunc i64 %5222 to i32
-  %5224 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5219, ptr noundef @.str.13, i32 noundef %5223, ptr noundef @.str.306)
-  %5225 = load i64, ptr %6, align 8
-  %5226 = load ptr, ptr %11, align 8
-  %5227 = call i64 @rb_str_cat_cstr(i64 noundef %5225, ptr noundef %5226)
+  %5218 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5217, ptr noundef @.str.305)
+  br label %5219
+
+5219:                                             ; preds = %5214, %5211
+  store ptr @.str.12, ptr %11, align 8
+  %5220 = load i64, ptr %5, align 8
+  %5221 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5220, i64 noundef %5221)
+  %5222 = load i64, ptr %5, align 8
+  %5223 = load i32, ptr %7, align 4
+  %5224 = icmp ne i32 %5223, 0
+  %5225 = select i1 %5224, i64 24, i64 7
+  %5226 = trunc i64 %5225 to i32
+  %5227 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5222, ptr noundef @.str.13, i32 noundef %5226, ptr noundef @.str.306)
+  %5228 = load i64, ptr %6, align 8
+  %5229 = load ptr, ptr %11, align 8
+  %5230 = call i64 @rb_str_cat_cstr(i64 noundef %5228, ptr noundef %5229)
   store i32 1, ptr %9, align 4
-  br label %5228
+  br label %5231
 
-5228:                                             ; preds = %5238, %5216
-  %5229 = load i32, ptr %9, align 4
-  %5230 = icmp ne i32 %5229, 0
-  br i1 %5230, label %5231, label %5244
+5231:                                             ; preds = %5241, %5219
+  %5232 = load i32, ptr %9, align 4
+  %5233 = icmp ne i32 %5232, 0
+  br i1 %5233, label %5234, label %5247
 
-5231:                                             ; preds = %5228
-  %5232 = load i64, ptr %5, align 8
-  %5233 = load i64, ptr %6, align 8
-  %5234 = load i32, ptr %7, align 4
-  %5235 = load ptr, ptr %8, align 8
-  %5236 = getelementptr inbounds %struct.RNode_SPLAT, ptr %5235, i32 0, i32 1
-  %5237 = load ptr, ptr %5236, align 8
-  call void @dump_node(i64 noundef %5232, i64 noundef %5233, i32 noundef %5234, ptr noundef %5237)
-  br label %5238
+5234:                                             ; preds = %5231
+  %5235 = load i64, ptr %5, align 8
+  %5236 = load i64, ptr %6, align 8
+  %5237 = load i32, ptr %7, align 4
+  %5238 = load ptr, ptr %8, align 8
+  %5239 = getelementptr inbounds %struct.RNode_SPLAT, ptr %5238, i32 0, i32 1
+  %5240 = load ptr, ptr %5239, align 8
+  call void @dump_node(i64 noundef %5235, i64 noundef %5236, i32 noundef %5237, ptr noundef %5240)
+  br label %5241
 
-5238:                                             ; preds = %5231
-  %5239 = load i64, ptr %6, align 8
-  %5240 = load i64, ptr %6, align 8
-  %5241 = call i64 @RSTRING_LEN(i64 noundef %5240) #10
-  %5242 = sub i64 %5241, 4
-  %5243 = call i64 @rb_str_resize(i64 noundef %5239, i64 noundef %5242)
+5241:                                             ; preds = %5234
+  %5242 = load i64, ptr %6, align 8
+  %5243 = load i64, ptr %6, align 8
+  %5244 = call i64 @RSTRING_LEN(i64 noundef %5243) #10
+  %5245 = sub i64 %5244, 4
+  %5246 = call i64 @rb_str_resize(i64 noundef %5242, i64 noundef %5245)
   store i32 0, ptr %9, align 4
-  br label %5228, !llvm.loop !129
+  br label %5231, !llvm.loop !129
 
-5244:                                             ; preds = %5228
-  br label %7932
+5247:                                             ; preds = %5231
+  br label %7940
 
-5245:                                             ; preds = %24
-  %5246 = load i32, ptr %7, align 4
-  %5247 = icmp ne i32 %5246, 0
-  br i1 %5247, label %5248, label %5253
+5248:                                             ; preds = %24
+  %5249 = load i32, ptr %7, align 4
+  %5250 = icmp ne i32 %5249, 0
+  br i1 %5250, label %5251, label %5256
 
-5248:                                             ; preds = %5245
-  %5249 = load i64, ptr %5, align 8
-  %5250 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5249, i64 noundef %5250)
-  %5251 = load i64, ptr %5, align 8
-  %5252 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5251, ptr noundef @.str.307)
-  br label %5253
+5251:                                             ; preds = %5248
+  %5252 = load i64, ptr %5, align 8
+  %5253 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5252, i64 noundef %5253)
+  %5254 = load i64, ptr %5, align 8
+  %5255 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5254, ptr noundef @.str.307)
+  br label %5256
 
-5253:                                             ; preds = %5248, %5245
-  %5254 = load i32, ptr %7, align 4
-  %5255 = icmp ne i32 %5254, 0
-  br i1 %5255, label %5256, label %5261
+5256:                                             ; preds = %5251, %5248
+  %5257 = load i32, ptr %7, align 4
+  %5258 = icmp ne i32 %5257, 0
+  br i1 %5258, label %5259, label %5264
 
-5256:                                             ; preds = %5253
-  %5257 = load i64, ptr %5, align 8
-  %5258 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5257, i64 noundef %5258)
-  %5259 = load i64, ptr %5, align 8
-  %5260 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5259, ptr noundef @.str.308)
-  br label %5261
+5259:                                             ; preds = %5256
+  %5260 = load i64, ptr %5, align 8
+  %5261 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5260, i64 noundef %5261)
+  %5262 = load i64, ptr %5, align 8
+  %5263 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5262, ptr noundef @.str.308)
+  br label %5264
 
-5261:                                             ; preds = %5256, %5253
-  %5262 = load i32, ptr %7, align 4
-  %5263 = icmp ne i32 %5262, 0
-  br i1 %5263, label %5264, label %5269
+5264:                                             ; preds = %5259, %5256
+  %5265 = load i32, ptr %7, align 4
+  %5266 = icmp ne i32 %5265, 0
+  br i1 %5266, label %5267, label %5272
 
-5264:                                             ; preds = %5261
-  %5265 = load i64, ptr %5, align 8
-  %5266 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5265, i64 noundef %5266)
-  %5267 = load i64, ptr %5, align 8
-  %5268 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5267, ptr noundef @.str.309)
-  br label %5269
-
-5269:                                             ; preds = %5264, %5261
+5267:                                             ; preds = %5264
+  %5268 = load i64, ptr %5, align 8
+  %5269 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5268, i64 noundef %5269)
   %5270 = load i64, ptr %5, align 8
-  %5271 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5270, i64 noundef %5271)
-  %5272 = load i64, ptr %5, align 8
-  %5273 = load i32, ptr %7, align 4
-  %5274 = icmp ne i32 %5273, 0
-  %5275 = select i1 %5274, i64 25, i64 7
-  %5276 = trunc i64 %5275 to i32
-  %5277 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5272, ptr noundef @.str.13, i32 noundef %5276, ptr noundef @.str.310)
-  %5278 = load i64, ptr %6, align 8
-  %5279 = load ptr, ptr %11, align 8
-  %5280 = call i64 @rb_str_cat_cstr(i64 noundef %5278, ptr noundef %5279)
+  %5271 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5270, ptr noundef @.str.309)
+  br label %5272
+
+5272:                                             ; preds = %5267, %5264
+  %5273 = load i64, ptr %5, align 8
+  %5274 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5273, i64 noundef %5274)
+  %5275 = load i64, ptr %5, align 8
+  %5276 = load i32, ptr %7, align 4
+  %5277 = icmp ne i32 %5276, 0
+  %5278 = select i1 %5277, i64 25, i64 7
+  %5279 = trunc i64 %5278 to i32
+  %5280 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5275, ptr noundef @.str.13, i32 noundef %5279, ptr noundef @.str.310)
+  %5281 = load i64, ptr %6, align 8
+  %5282 = load ptr, ptr %11, align 8
+  %5283 = call i64 @rb_str_cat_cstr(i64 noundef %5281, ptr noundef %5282)
   store i32 1, ptr %9, align 4
-  br label %5281
+  br label %5284
 
-5281:                                             ; preds = %5291, %5269
-  %5282 = load i32, ptr %9, align 4
-  %5283 = icmp ne i32 %5282, 0
-  br i1 %5283, label %5284, label %5297
+5284:                                             ; preds = %5294, %5272
+  %5285 = load i32, ptr %9, align 4
+  %5286 = icmp ne i32 %5285, 0
+  br i1 %5286, label %5287, label %5300
 
-5284:                                             ; preds = %5281
-  %5285 = load i64, ptr %5, align 8
-  %5286 = load i64, ptr %6, align 8
-  %5287 = load i32, ptr %7, align 4
-  %5288 = load ptr, ptr %8, align 8
-  %5289 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %5288, i32 0, i32 1
-  %5290 = load ptr, ptr %5289, align 8
-  call void @dump_node(i64 noundef %5285, i64 noundef %5286, i32 noundef %5287, ptr noundef %5290)
-  br label %5291
+5287:                                             ; preds = %5284
+  %5288 = load i64, ptr %5, align 8
+  %5289 = load i64, ptr %6, align 8
+  %5290 = load i32, ptr %7, align 4
+  %5291 = load ptr, ptr %8, align 8
+  %5292 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %5291, i32 0, i32 1
+  %5293 = load ptr, ptr %5292, align 8
+  call void @dump_node(i64 noundef %5288, i64 noundef %5289, i32 noundef %5290, ptr noundef %5293)
+  br label %5294
 
-5291:                                             ; preds = %5284
-  %5292 = load i64, ptr %6, align 8
-  %5293 = load i64, ptr %6, align 8
-  %5294 = call i64 @RSTRING_LEN(i64 noundef %5293) #10
-  %5295 = sub i64 %5294, 4
-  %5296 = call i64 @rb_str_resize(i64 noundef %5292, i64 noundef %5295)
+5294:                                             ; preds = %5287
+  %5295 = load i64, ptr %6, align 8
+  %5296 = load i64, ptr %6, align 8
+  %5297 = call i64 @RSTRING_LEN(i64 noundef %5296) #10
+  %5298 = sub i64 %5297, 4
+  %5299 = call i64 @rb_str_resize(i64 noundef %5295, i64 noundef %5298)
   store i32 0, ptr %9, align 4
-  br label %5281, !llvm.loop !130
+  br label %5284, !llvm.loop !130
 
-5297:                                             ; preds = %5281
+5300:                                             ; preds = %5284
   store ptr @.str.12, ptr %11, align 8
-  %5298 = load i64, ptr %5, align 8
-  %5299 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5298, i64 noundef %5299)
-  %5300 = load i64, ptr %5, align 8
-  %5301 = load i32, ptr %7, align 4
-  %5302 = icmp ne i32 %5301, 0
-  %5303 = select i1 %5302, i64 24, i64 7
-  %5304 = trunc i64 %5303 to i32
-  %5305 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5300, ptr noundef @.str.13, i32 noundef %5304, ptr noundef @.str.311)
-  %5306 = load i64, ptr %6, align 8
-  %5307 = load ptr, ptr %11, align 8
-  %5308 = call i64 @rb_str_cat_cstr(i64 noundef %5306, ptr noundef %5307)
+  %5301 = load i64, ptr %5, align 8
+  %5302 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5301, i64 noundef %5302)
+  %5303 = load i64, ptr %5, align 8
+  %5304 = load i32, ptr %7, align 4
+  %5305 = icmp ne i32 %5304, 0
+  %5306 = select i1 %5305, i64 24, i64 7
+  %5307 = trunc i64 %5306 to i32
+  %5308 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5303, ptr noundef @.str.13, i32 noundef %5307, ptr noundef @.str.311)
+  %5309 = load i64, ptr %6, align 8
+  %5310 = load ptr, ptr %11, align 8
+  %5311 = call i64 @rb_str_cat_cstr(i64 noundef %5309, ptr noundef %5310)
   store i32 1, ptr %9, align 4
-  br label %5309
+  br label %5312
 
-5309:                                             ; preds = %5319, %5297
-  %5310 = load i32, ptr %9, align 4
-  %5311 = icmp ne i32 %5310, 0
-  br i1 %5311, label %5312, label %5325
+5312:                                             ; preds = %5322, %5300
+  %5313 = load i32, ptr %9, align 4
+  %5314 = icmp ne i32 %5313, 0
+  br i1 %5314, label %5315, label %5328
 
-5312:                                             ; preds = %5309
-  %5313 = load i64, ptr %5, align 8
-  %5314 = load i64, ptr %6, align 8
-  %5315 = load i32, ptr %7, align 4
-  %5316 = load ptr, ptr %8, align 8
-  %5317 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %5316, i32 0, i32 2
-  %5318 = load ptr, ptr %5317, align 8
-  call void @dump_node(i64 noundef %5313, i64 noundef %5314, i32 noundef %5315, ptr noundef %5318)
-  br label %5319
+5315:                                             ; preds = %5312
+  %5316 = load i64, ptr %5, align 8
+  %5317 = load i64, ptr %6, align 8
+  %5318 = load i32, ptr %7, align 4
+  %5319 = load ptr, ptr %8, align 8
+  %5320 = getelementptr inbounds %struct.RNode_BLOCK_PASS, ptr %5319, i32 0, i32 2
+  %5321 = load ptr, ptr %5320, align 8
+  call void @dump_node(i64 noundef %5316, i64 noundef %5317, i32 noundef %5318, ptr noundef %5321)
+  br label %5322
 
-5319:                                             ; preds = %5312
-  %5320 = load i64, ptr %6, align 8
-  %5321 = load i64, ptr %6, align 8
-  %5322 = call i64 @RSTRING_LEN(i64 noundef %5321) #10
-  %5323 = sub i64 %5322, 4
-  %5324 = call i64 @rb_str_resize(i64 noundef %5320, i64 noundef %5323)
+5322:                                             ; preds = %5315
+  %5323 = load i64, ptr %6, align 8
+  %5324 = load i64, ptr %6, align 8
+  %5325 = call i64 @RSTRING_LEN(i64 noundef %5324) #10
+  %5326 = sub i64 %5325, 4
+  %5327 = call i64 @rb_str_resize(i64 noundef %5323, i64 noundef %5326)
   store i32 0, ptr %9, align 4
-  br label %5309, !llvm.loop !131
+  br label %5312, !llvm.loop !131
 
-5325:                                             ; preds = %5309
-  br label %7932
+5328:                                             ; preds = %5312
+  br label %7940
 
-5326:                                             ; preds = %24
-  %5327 = load i32, ptr %7, align 4
-  %5328 = icmp ne i32 %5327, 0
-  br i1 %5328, label %5329, label %5334
+5329:                                             ; preds = %24
+  %5330 = load i32, ptr %7, align 4
+  %5331 = icmp ne i32 %5330, 0
+  br i1 %5331, label %5332, label %5337
 
-5329:                                             ; preds = %5326
-  %5330 = load i64, ptr %5, align 8
-  %5331 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5330, i64 noundef %5331)
-  %5332 = load i64, ptr %5, align 8
-  %5333 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5332, ptr noundef @.str.312)
-  br label %5334
+5332:                                             ; preds = %5329
+  %5333 = load i64, ptr %5, align 8
+  %5334 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5333, i64 noundef %5334)
+  %5335 = load i64, ptr %5, align 8
+  %5336 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5335, ptr noundef @.str.312)
+  br label %5337
 
-5334:                                             ; preds = %5329, %5326
-  %5335 = load i32, ptr %7, align 4
-  %5336 = icmp ne i32 %5335, 0
-  br i1 %5336, label %5337, label %5342
+5337:                                             ; preds = %5332, %5329
+  %5338 = load i32, ptr %7, align 4
+  %5339 = icmp ne i32 %5338, 0
+  br i1 %5339, label %5340, label %5345
 
-5337:                                             ; preds = %5334
-  %5338 = load i64, ptr %5, align 8
-  %5339 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5338, i64 noundef %5339)
-  %5340 = load i64, ptr %5, align 8
-  %5341 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5340, ptr noundef @.str.313)
-  br label %5342
+5340:                                             ; preds = %5337
+  %5341 = load i64, ptr %5, align 8
+  %5342 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5341, i64 noundef %5342)
+  %5343 = load i64, ptr %5, align 8
+  %5344 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5343, ptr noundef @.str.313)
+  br label %5345
 
-5342:                                             ; preds = %5337, %5334
-  %5343 = load i32, ptr %7, align 4
-  %5344 = icmp ne i32 %5343, 0
-  br i1 %5344, label %5345, label %5350
+5345:                                             ; preds = %5340, %5337
+  %5346 = load i32, ptr %7, align 4
+  %5347 = icmp ne i32 %5346, 0
+  br i1 %5347, label %5348, label %5353
 
-5345:                                             ; preds = %5342
-  %5346 = load i64, ptr %5, align 8
-  %5347 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5346, i64 noundef %5347)
-  %5348 = load i64, ptr %5, align 8
-  %5349 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5348, ptr noundef @.str.314)
-  br label %5350
-
-5350:                                             ; preds = %5345, %5342
+5348:                                             ; preds = %5345
+  %5349 = load i64, ptr %5, align 8
+  %5350 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5349, i64 noundef %5350)
   %5351 = load i64, ptr %5, align 8
-  %5352 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5351, i64 noundef %5352)
-  %5353 = load i64, ptr %5, align 8
-  %5354 = load i32, ptr %7, align 4
-  %5355 = icmp ne i32 %5354, 0
-  %5356 = select i1 %5355, i64 20, i64 6
-  %5357 = trunc i64 %5356 to i32
-  %5358 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5353, ptr noundef @.str.51, i32 noundef %5357, ptr noundef @.str.315)
+  %5352 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5351, ptr noundef @.str.314)
+  br label %5353
+
+5353:                                             ; preds = %5348, %5345
+  %5354 = load i64, ptr %5, align 8
+  %5355 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5354, i64 noundef %5355)
+  %5356 = load i64, ptr %5, align 8
+  %5357 = load i32, ptr %7, align 4
+  %5358 = icmp ne i32 %5357, 0
+  %5359 = select i1 %5358, i64 20, i64 6
+  %5360 = trunc i64 %5359 to i32
+  %5361 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5356, ptr noundef @.str.51, i32 noundef %5360, ptr noundef @.str.315)
   store i32 1, ptr %9, align 4
-  br label %5359
+  br label %5362
 
-5359:                                             ; preds = %5367, %5350
-  %5360 = load i32, ptr %9, align 4
-  %5361 = icmp ne i32 %5360, 0
-  br i1 %5361, label %5362, label %5370
+5362:                                             ; preds = %5370, %5353
+  %5363 = load i32, ptr %9, align 4
+  %5364 = icmp ne i32 %5363, 0
+  br i1 %5364, label %5365, label %5373
 
-5362:                                             ; preds = %5359
-  %5363 = load i64, ptr %5, align 8
-  %5364 = load ptr, ptr %8, align 8
-  %5365 = getelementptr inbounds %struct.RNode_DEFN, ptr %5364, i32 0, i32 1
-  %5366 = load i64, ptr %5365, align 8
-  call void @add_id(i64 noundef %5363, i64 noundef %5366)
-  br label %5367
+5365:                                             ; preds = %5362
+  %5366 = load i64, ptr %5, align 8
+  %5367 = load ptr, ptr %8, align 8
+  %5368 = getelementptr inbounds %struct.RNode_DEFN, ptr %5367, i32 0, i32 1
+  %5369 = load i64, ptr %5368, align 8
+  call void @add_id(i64 noundef %5366, i64 noundef %5369)
+  br label %5370
 
-5367:                                             ; preds = %5362
-  %5368 = load i64, ptr %5, align 8
-  %5369 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5368, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %5359, !llvm.loop !132
-
-5370:                                             ; preds = %5359
-  store ptr @.str.12, ptr %11, align 8
+5370:                                             ; preds = %5365
   %5371 = load i64, ptr %5, align 8
-  %5372 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5371, i64 noundef %5372)
-  %5373 = load i64, ptr %5, align 8
-  %5374 = load i32, ptr %7, align 4
-  %5375 = icmp ne i32 %5374, 0
-  %5376 = select i1 %5375, i64 27, i64 7
-  %5377 = trunc i64 %5376 to i32
-  %5378 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5373, ptr noundef @.str.13, i32 noundef %5377, ptr noundef @.str.316)
-  %5379 = load i64, ptr %6, align 8
-  %5380 = load ptr, ptr %11, align 8
-  %5381 = call i64 @rb_str_cat_cstr(i64 noundef %5379, ptr noundef %5380)
-  store i32 1, ptr %9, align 4
-  br label %5382
-
-5382:                                             ; preds = %5392, %5370
-  %5383 = load i32, ptr %9, align 4
-  %5384 = icmp ne i32 %5383, 0
-  br i1 %5384, label %5385, label %5398
-
-5385:                                             ; preds = %5382
-  %5386 = load i64, ptr %5, align 8
-  %5387 = load i64, ptr %6, align 8
-  %5388 = load i32, ptr %7, align 4
-  %5389 = load ptr, ptr %8, align 8
-  %5390 = getelementptr inbounds %struct.RNode_DEFN, ptr %5389, i32 0, i32 2
-  %5391 = load ptr, ptr %5390, align 8
-  call void @dump_node(i64 noundef %5386, i64 noundef %5387, i32 noundef %5388, ptr noundef %5391)
-  br label %5392
-
-5392:                                             ; preds = %5385
-  %5393 = load i64, ptr %6, align 8
-  %5394 = load i64, ptr %6, align 8
-  %5395 = call i64 @RSTRING_LEN(i64 noundef %5394) #10
-  %5396 = sub i64 %5395, 4
-  %5397 = call i64 @rb_str_resize(i64 noundef %5393, i64 noundef %5396)
+  %5372 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5371, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %5382, !llvm.loop !133
+  br label %5362, !llvm.loop !132
 
-5398:                                             ; preds = %5382
-  br label %7932
+5373:                                             ; preds = %5362
+  store ptr @.str.12, ptr %11, align 8
+  %5374 = load i64, ptr %5, align 8
+  %5375 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5374, i64 noundef %5375)
+  %5376 = load i64, ptr %5, align 8
+  %5377 = load i32, ptr %7, align 4
+  %5378 = icmp ne i32 %5377, 0
+  %5379 = select i1 %5378, i64 27, i64 7
+  %5380 = trunc i64 %5379 to i32
+  %5381 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5376, ptr noundef @.str.13, i32 noundef %5380, ptr noundef @.str.316)
+  %5382 = load i64, ptr %6, align 8
+  %5383 = load ptr, ptr %11, align 8
+  %5384 = call i64 @rb_str_cat_cstr(i64 noundef %5382, ptr noundef %5383)
+  store i32 1, ptr %9, align 4
+  br label %5385
 
-5399:                                             ; preds = %24
-  %5400 = load i32, ptr %7, align 4
-  %5401 = icmp ne i32 %5400, 0
-  br i1 %5401, label %5402, label %5407
+5385:                                             ; preds = %5395, %5373
+  %5386 = load i32, ptr %9, align 4
+  %5387 = icmp ne i32 %5386, 0
+  br i1 %5387, label %5388, label %5401
 
-5402:                                             ; preds = %5399
-  %5403 = load i64, ptr %5, align 8
-  %5404 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5403, i64 noundef %5404)
-  %5405 = load i64, ptr %5, align 8
-  %5406 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5405, ptr noundef @.str.317)
-  br label %5407
+5388:                                             ; preds = %5385
+  %5389 = load i64, ptr %5, align 8
+  %5390 = load i64, ptr %6, align 8
+  %5391 = load i32, ptr %7, align 4
+  %5392 = load ptr, ptr %8, align 8
+  %5393 = getelementptr inbounds %struct.RNode_DEFN, ptr %5392, i32 0, i32 2
+  %5394 = load ptr, ptr %5393, align 8
+  call void @dump_node(i64 noundef %5389, i64 noundef %5390, i32 noundef %5391, ptr noundef %5394)
+  br label %5395
 
-5407:                                             ; preds = %5402, %5399
-  %5408 = load i32, ptr %7, align 4
-  %5409 = icmp ne i32 %5408, 0
-  br i1 %5409, label %5410, label %5415
+5395:                                             ; preds = %5388
+  %5396 = load i64, ptr %6, align 8
+  %5397 = load i64, ptr %6, align 8
+  %5398 = call i64 @RSTRING_LEN(i64 noundef %5397) #10
+  %5399 = sub i64 %5398, 4
+  %5400 = call i64 @rb_str_resize(i64 noundef %5396, i64 noundef %5399)
+  store i32 0, ptr %9, align 4
+  br label %5385, !llvm.loop !133
 
-5410:                                             ; preds = %5407
-  %5411 = load i64, ptr %5, align 8
-  %5412 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5411, i64 noundef %5412)
-  %5413 = load i64, ptr %5, align 8
-  %5414 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5413, ptr noundef @.str.318)
-  br label %5415
+5401:                                             ; preds = %5385
+  br label %7940
 
-5415:                                             ; preds = %5410, %5407
-  %5416 = load i32, ptr %7, align 4
-  %5417 = icmp ne i32 %5416, 0
-  br i1 %5417, label %5418, label %5423
+5402:                                             ; preds = %24
+  %5403 = load i32, ptr %7, align 4
+  %5404 = icmp ne i32 %5403, 0
+  br i1 %5404, label %5405, label %5410
 
-5418:                                             ; preds = %5415
-  %5419 = load i64, ptr %5, align 8
-  %5420 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5419, i64 noundef %5420)
-  %5421 = load i64, ptr %5, align 8
-  %5422 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5421, ptr noundef @.str.319)
-  br label %5423
+5405:                                             ; preds = %5402
+  %5406 = load i64, ptr %5, align 8
+  %5407 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5406, i64 noundef %5407)
+  %5408 = load i64, ptr %5, align 8
+  %5409 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5408, ptr noundef @.str.317)
+  br label %5410
 
-5423:                                             ; preds = %5418, %5415
+5410:                                             ; preds = %5405, %5402
+  %5411 = load i32, ptr %7, align 4
+  %5412 = icmp ne i32 %5411, 0
+  br i1 %5412, label %5413, label %5418
+
+5413:                                             ; preds = %5410
+  %5414 = load i64, ptr %5, align 8
+  %5415 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5414, i64 noundef %5415)
+  %5416 = load i64, ptr %5, align 8
+  %5417 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5416, ptr noundef @.str.318)
+  br label %5418
+
+5418:                                             ; preds = %5413, %5410
+  %5419 = load i32, ptr %7, align 4
+  %5420 = icmp ne i32 %5419, 0
+  br i1 %5420, label %5421, label %5426
+
+5421:                                             ; preds = %5418
+  %5422 = load i64, ptr %5, align 8
+  %5423 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5422, i64 noundef %5423)
   %5424 = load i64, ptr %5, align 8
-  %5425 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5424, i64 noundef %5425)
-  %5426 = load i64, ptr %5, align 8
-  %5427 = load i32, ptr %7, align 4
-  %5428 = icmp ne i32 %5427, 0
-  %5429 = select i1 %5428, i64 18, i64 7
-  %5430 = trunc i64 %5429 to i32
-  %5431 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5426, ptr noundef @.str.13, i32 noundef %5430, ptr noundef @.str.151)
-  %5432 = load i64, ptr %6, align 8
-  %5433 = load ptr, ptr %11, align 8
-  %5434 = call i64 @rb_str_cat_cstr(i64 noundef %5432, ptr noundef %5433)
+  %5425 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5424, ptr noundef @.str.319)
+  br label %5426
+
+5426:                                             ; preds = %5421, %5418
+  %5427 = load i64, ptr %5, align 8
+  %5428 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5427, i64 noundef %5428)
+  %5429 = load i64, ptr %5, align 8
+  %5430 = load i32, ptr %7, align 4
+  %5431 = icmp ne i32 %5430, 0
+  %5432 = select i1 %5431, i64 18, i64 7
+  %5433 = trunc i64 %5432 to i32
+  %5434 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5429, ptr noundef @.str.13, i32 noundef %5433, ptr noundef @.str.151)
+  %5435 = load i64, ptr %6, align 8
+  %5436 = load ptr, ptr %11, align 8
+  %5437 = call i64 @rb_str_cat_cstr(i64 noundef %5435, ptr noundef %5436)
   store i32 1, ptr %9, align 4
-  br label %5435
+  br label %5438
 
-5435:                                             ; preds = %5445, %5423
-  %5436 = load i32, ptr %9, align 4
-  %5437 = icmp ne i32 %5436, 0
-  br i1 %5437, label %5438, label %5451
+5438:                                             ; preds = %5448, %5426
+  %5439 = load i32, ptr %9, align 4
+  %5440 = icmp ne i32 %5439, 0
+  br i1 %5440, label %5441, label %5454
 
-5438:                                             ; preds = %5435
-  %5439 = load i64, ptr %5, align 8
-  %5440 = load i64, ptr %6, align 8
-  %5441 = load i32, ptr %7, align 4
-  %5442 = load ptr, ptr %8, align 8
-  %5443 = getelementptr inbounds %struct.RNode_DEFS, ptr %5442, i32 0, i32 1
-  %5444 = load ptr, ptr %5443, align 8
-  call void @dump_node(i64 noundef %5439, i64 noundef %5440, i32 noundef %5441, ptr noundef %5444)
-  br label %5445
+5441:                                             ; preds = %5438
+  %5442 = load i64, ptr %5, align 8
+  %5443 = load i64, ptr %6, align 8
+  %5444 = load i32, ptr %7, align 4
+  %5445 = load ptr, ptr %8, align 8
+  %5446 = getelementptr inbounds %struct.RNode_DEFS, ptr %5445, i32 0, i32 1
+  %5447 = load ptr, ptr %5446, align 8
+  call void @dump_node(i64 noundef %5442, i64 noundef %5443, i32 noundef %5444, ptr noundef %5447)
+  br label %5448
 
-5445:                                             ; preds = %5438
-  %5446 = load i64, ptr %6, align 8
-  %5447 = load i64, ptr %6, align 8
-  %5448 = call i64 @RSTRING_LEN(i64 noundef %5447) #10
-  %5449 = sub i64 %5448, 4
-  %5450 = call i64 @rb_str_resize(i64 noundef %5446, i64 noundef %5449)
+5448:                                             ; preds = %5441
+  %5449 = load i64, ptr %6, align 8
+  %5450 = load i64, ptr %6, align 8
+  %5451 = call i64 @RSTRING_LEN(i64 noundef %5450) #10
+  %5452 = sub i64 %5451, 4
+  %5453 = call i64 @rb_str_resize(i64 noundef %5449, i64 noundef %5452)
   store i32 0, ptr %9, align 4
-  br label %5435, !llvm.loop !134
+  br label %5438, !llvm.loop !134
 
-5451:                                             ; preds = %5435
-  %5452 = load i64, ptr %5, align 8
-  %5453 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5452, i64 noundef %5453)
-  %5454 = load i64, ptr %5, align 8
-  %5455 = load i32, ptr %7, align 4
-  %5456 = icmp ne i32 %5455, 0
-  %5457 = select i1 %5456, i64 20, i64 6
-  %5458 = trunc i64 %5457 to i32
-  %5459 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5454, ptr noundef @.str.51, i32 noundef %5458, ptr noundef @.str.315)
+5454:                                             ; preds = %5438
+  %5455 = load i64, ptr %5, align 8
+  %5456 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5455, i64 noundef %5456)
+  %5457 = load i64, ptr %5, align 8
+  %5458 = load i32, ptr %7, align 4
+  %5459 = icmp ne i32 %5458, 0
+  %5460 = select i1 %5459, i64 20, i64 6
+  %5461 = trunc i64 %5460 to i32
+  %5462 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5457, ptr noundef @.str.51, i32 noundef %5461, ptr noundef @.str.315)
   store i32 1, ptr %9, align 4
-  br label %5460
+  br label %5463
 
-5460:                                             ; preds = %5468, %5451
-  %5461 = load i32, ptr %9, align 4
-  %5462 = icmp ne i32 %5461, 0
-  br i1 %5462, label %5463, label %5471
+5463:                                             ; preds = %5471, %5454
+  %5464 = load i32, ptr %9, align 4
+  %5465 = icmp ne i32 %5464, 0
+  br i1 %5465, label %5466, label %5474
 
-5463:                                             ; preds = %5460
-  %5464 = load i64, ptr %5, align 8
-  %5465 = load ptr, ptr %8, align 8
-  %5466 = getelementptr inbounds %struct.RNode_DEFS, ptr %5465, i32 0, i32 2
-  %5467 = load i64, ptr %5466, align 8
-  call void @add_id(i64 noundef %5464, i64 noundef %5467)
-  br label %5468
+5466:                                             ; preds = %5463
+  %5467 = load i64, ptr %5, align 8
+  %5468 = load ptr, ptr %8, align 8
+  %5469 = getelementptr inbounds %struct.RNode_DEFS, ptr %5468, i32 0, i32 2
+  %5470 = load i64, ptr %5469, align 8
+  call void @add_id(i64 noundef %5467, i64 noundef %5470)
+  br label %5471
 
-5468:                                             ; preds = %5463
-  %5469 = load i64, ptr %5, align 8
-  %5470 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5469, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %5460, !llvm.loop !135
-
-5471:                                             ; preds = %5460
-  store ptr @.str.12, ptr %11, align 8
+5471:                                             ; preds = %5466
   %5472 = load i64, ptr %5, align 8
-  %5473 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5472, i64 noundef %5473)
-  %5474 = load i64, ptr %5, align 8
-  %5475 = load i32, ptr %7, align 4
-  %5476 = icmp ne i32 %5475, 0
-  %5477 = select i1 %5476, i64 27, i64 7
-  %5478 = trunc i64 %5477 to i32
-  %5479 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5474, ptr noundef @.str.13, i32 noundef %5478, ptr noundef @.str.316)
-  %5480 = load i64, ptr %6, align 8
-  %5481 = load ptr, ptr %11, align 8
-  %5482 = call i64 @rb_str_cat_cstr(i64 noundef %5480, ptr noundef %5481)
-  store i32 1, ptr %9, align 4
-  br label %5483
-
-5483:                                             ; preds = %5493, %5471
-  %5484 = load i32, ptr %9, align 4
-  %5485 = icmp ne i32 %5484, 0
-  br i1 %5485, label %5486, label %5499
-
-5486:                                             ; preds = %5483
-  %5487 = load i64, ptr %5, align 8
-  %5488 = load i64, ptr %6, align 8
-  %5489 = load i32, ptr %7, align 4
-  %5490 = load ptr, ptr %8, align 8
-  %5491 = getelementptr inbounds %struct.RNode_DEFS, ptr %5490, i32 0, i32 3
-  %5492 = load ptr, ptr %5491, align 8
-  call void @dump_node(i64 noundef %5487, i64 noundef %5488, i32 noundef %5489, ptr noundef %5492)
-  br label %5493
-
-5493:                                             ; preds = %5486
-  %5494 = load i64, ptr %6, align 8
-  %5495 = load i64, ptr %6, align 8
-  %5496 = call i64 @RSTRING_LEN(i64 noundef %5495) #10
-  %5497 = sub i64 %5496, 4
-  %5498 = call i64 @rb_str_resize(i64 noundef %5494, i64 noundef %5497)
+  %5473 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5472, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %5483, !llvm.loop !136
+  br label %5463, !llvm.loop !135
 
-5499:                                             ; preds = %5483
-  br label %7932
+5474:                                             ; preds = %5463
+  store ptr @.str.12, ptr %11, align 8
+  %5475 = load i64, ptr %5, align 8
+  %5476 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5475, i64 noundef %5476)
+  %5477 = load i64, ptr %5, align 8
+  %5478 = load i32, ptr %7, align 4
+  %5479 = icmp ne i32 %5478, 0
+  %5480 = select i1 %5479, i64 27, i64 7
+  %5481 = trunc i64 %5480 to i32
+  %5482 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5477, ptr noundef @.str.13, i32 noundef %5481, ptr noundef @.str.316)
+  %5483 = load i64, ptr %6, align 8
+  %5484 = load ptr, ptr %11, align 8
+  %5485 = call i64 @rb_str_cat_cstr(i64 noundef %5483, ptr noundef %5484)
+  store i32 1, ptr %9, align 4
+  br label %5486
 
-5500:                                             ; preds = %24
-  %5501 = load i32, ptr %7, align 4
-  %5502 = icmp ne i32 %5501, 0
-  br i1 %5502, label %5503, label %5508
+5486:                                             ; preds = %5496, %5474
+  %5487 = load i32, ptr %9, align 4
+  %5488 = icmp ne i32 %5487, 0
+  br i1 %5488, label %5489, label %5502
 
-5503:                                             ; preds = %5500
-  %5504 = load i64, ptr %5, align 8
-  %5505 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5504, i64 noundef %5505)
-  %5506 = load i64, ptr %5, align 8
-  %5507 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5506, ptr noundef @.str.320)
-  br label %5508
+5489:                                             ; preds = %5486
+  %5490 = load i64, ptr %5, align 8
+  %5491 = load i64, ptr %6, align 8
+  %5492 = load i32, ptr %7, align 4
+  %5493 = load ptr, ptr %8, align 8
+  %5494 = getelementptr inbounds %struct.RNode_DEFS, ptr %5493, i32 0, i32 3
+  %5495 = load ptr, ptr %5494, align 8
+  call void @dump_node(i64 noundef %5490, i64 noundef %5491, i32 noundef %5492, ptr noundef %5495)
+  br label %5496
 
-5508:                                             ; preds = %5503, %5500
-  %5509 = load i32, ptr %7, align 4
-  %5510 = icmp ne i32 %5509, 0
-  br i1 %5510, label %5511, label %5516
+5496:                                             ; preds = %5489
+  %5497 = load i64, ptr %6, align 8
+  %5498 = load i64, ptr %6, align 8
+  %5499 = call i64 @RSTRING_LEN(i64 noundef %5498) #10
+  %5500 = sub i64 %5499, 4
+  %5501 = call i64 @rb_str_resize(i64 noundef %5497, i64 noundef %5500)
+  store i32 0, ptr %9, align 4
+  br label %5486, !llvm.loop !136
 
-5511:                                             ; preds = %5508
-  %5512 = load i64, ptr %5, align 8
-  %5513 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5512, i64 noundef %5513)
-  %5514 = load i64, ptr %5, align 8
-  %5515 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5514, ptr noundef @.str.321)
-  br label %5516
+5502:                                             ; preds = %5486
+  br label %7940
 
-5516:                                             ; preds = %5511, %5508
-  %5517 = load i32, ptr %7, align 4
-  %5518 = icmp ne i32 %5517, 0
-  br i1 %5518, label %5519, label %5524
+5503:                                             ; preds = %24
+  %5504 = load i32, ptr %7, align 4
+  %5505 = icmp ne i32 %5504, 0
+  br i1 %5505, label %5506, label %5511
 
-5519:                                             ; preds = %5516
-  %5520 = load i64, ptr %5, align 8
-  %5521 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5520, i64 noundef %5521)
-  %5522 = load i64, ptr %5, align 8
-  %5523 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5522, ptr noundef @.str.322)
-  br label %5524
+5506:                                             ; preds = %5503
+  %5507 = load i64, ptr %5, align 8
+  %5508 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5507, i64 noundef %5508)
+  %5509 = load i64, ptr %5, align 8
+  %5510 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5509, ptr noundef @.str.320)
+  br label %5511
 
-5524:                                             ; preds = %5519, %5516
+5511:                                             ; preds = %5506, %5503
+  %5512 = load i32, ptr %7, align 4
+  %5513 = icmp ne i32 %5512, 0
+  br i1 %5513, label %5514, label %5519
+
+5514:                                             ; preds = %5511
+  %5515 = load i64, ptr %5, align 8
+  %5516 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5515, i64 noundef %5516)
+  %5517 = load i64, ptr %5, align 8
+  %5518 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5517, ptr noundef @.str.321)
+  br label %5519
+
+5519:                                             ; preds = %5514, %5511
+  %5520 = load i32, ptr %7, align 4
+  %5521 = icmp ne i32 %5520, 0
+  br i1 %5521, label %5522, label %5527
+
+5522:                                             ; preds = %5519
+  %5523 = load i64, ptr %5, align 8
+  %5524 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5523, i64 noundef %5524)
   %5525 = load i64, ptr %5, align 8
-  %5526 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5525, i64 noundef %5526)
-  %5527 = load i64, ptr %5, align 8
-  %5528 = load i32, ptr %7, align 4
-  %5529 = icmp ne i32 %5528, 0
-  %5530 = select i1 %5529, i64 17, i64 6
-  %5531 = trunc i64 %5530 to i32
-  %5532 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5527, ptr noundef @.str.13, i32 noundef %5531, ptr noundef @.str.323)
-  %5533 = load i64, ptr %6, align 8
-  %5534 = load ptr, ptr %11, align 8
-  %5535 = call i64 @rb_str_cat_cstr(i64 noundef %5533, ptr noundef %5534)
+  %5526 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5525, ptr noundef @.str.322)
+  br label %5527
+
+5527:                                             ; preds = %5522, %5519
+  %5528 = load i64, ptr %5, align 8
+  %5529 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5528, i64 noundef %5529)
+  %5530 = load i64, ptr %5, align 8
+  %5531 = load i32, ptr %7, align 4
+  %5532 = icmp ne i32 %5531, 0
+  %5533 = select i1 %5532, i64 17, i64 6
+  %5534 = trunc i64 %5533 to i32
+  %5535 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5530, ptr noundef @.str.13, i32 noundef %5534, ptr noundef @.str.323)
+  %5536 = load i64, ptr %6, align 8
+  %5537 = load ptr, ptr %11, align 8
+  %5538 = call i64 @rb_str_cat_cstr(i64 noundef %5536, ptr noundef %5537)
   store i32 1, ptr %9, align 4
-  br label %5536
+  br label %5539
 
-5536:                                             ; preds = %5546, %5524
-  %5537 = load i32, ptr %9, align 4
-  %5538 = icmp ne i32 %5537, 0
-  br i1 %5538, label %5539, label %5552
+5539:                                             ; preds = %5549, %5527
+  %5540 = load i32, ptr %9, align 4
+  %5541 = icmp ne i32 %5540, 0
+  br i1 %5541, label %5542, label %5555
 
-5539:                                             ; preds = %5536
-  %5540 = load i64, ptr %5, align 8
-  %5541 = load i64, ptr %6, align 8
-  %5542 = load i32, ptr %7, align 4
-  %5543 = load ptr, ptr %8, align 8
-  %5544 = getelementptr inbounds %struct.RNode_ALIAS, ptr %5543, i32 0, i32 1
-  %5545 = load ptr, ptr %5544, align 8
-  call void @dump_node(i64 noundef %5540, i64 noundef %5541, i32 noundef %5542, ptr noundef %5545)
-  br label %5546
+5542:                                             ; preds = %5539
+  %5543 = load i64, ptr %5, align 8
+  %5544 = load i64, ptr %6, align 8
+  %5545 = load i32, ptr %7, align 4
+  %5546 = load ptr, ptr %8, align 8
+  %5547 = getelementptr inbounds %struct.RNode_ALIAS, ptr %5546, i32 0, i32 1
+  %5548 = load ptr, ptr %5547, align 8
+  call void @dump_node(i64 noundef %5543, i64 noundef %5544, i32 noundef %5545, ptr noundef %5548)
+  br label %5549
 
-5546:                                             ; preds = %5539
-  %5547 = load i64, ptr %6, align 8
-  %5548 = load i64, ptr %6, align 8
-  %5549 = call i64 @RSTRING_LEN(i64 noundef %5548) #10
-  %5550 = sub i64 %5549, 4
-  %5551 = call i64 @rb_str_resize(i64 noundef %5547, i64 noundef %5550)
+5549:                                             ; preds = %5542
+  %5550 = load i64, ptr %6, align 8
+  %5551 = load i64, ptr %6, align 8
+  %5552 = call i64 @RSTRING_LEN(i64 noundef %5551) #10
+  %5553 = sub i64 %5552, 4
+  %5554 = call i64 @rb_str_resize(i64 noundef %5550, i64 noundef %5553)
   store i32 0, ptr %9, align 4
-  br label %5536, !llvm.loop !137
+  br label %5539, !llvm.loop !137
 
-5552:                                             ; preds = %5536
+5555:                                             ; preds = %5539
   store ptr @.str.12, ptr %11, align 8
-  %5553 = load i64, ptr %5, align 8
-  %5554 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5553, i64 noundef %5554)
-  %5555 = load i64, ptr %5, align 8
-  %5556 = load i32, ptr %7, align 4
-  %5557 = icmp ne i32 %5556, 0
-  %5558 = select i1 %5557, i64 17, i64 6
-  %5559 = trunc i64 %5558 to i32
-  %5560 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5555, ptr noundef @.str.13, i32 noundef %5559, ptr noundef @.str.324)
-  %5561 = load i64, ptr %6, align 8
-  %5562 = load ptr, ptr %11, align 8
-  %5563 = call i64 @rb_str_cat_cstr(i64 noundef %5561, ptr noundef %5562)
+  %5556 = load i64, ptr %5, align 8
+  %5557 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5556, i64 noundef %5557)
+  %5558 = load i64, ptr %5, align 8
+  %5559 = load i32, ptr %7, align 4
+  %5560 = icmp ne i32 %5559, 0
+  %5561 = select i1 %5560, i64 17, i64 6
+  %5562 = trunc i64 %5561 to i32
+  %5563 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5558, ptr noundef @.str.13, i32 noundef %5562, ptr noundef @.str.324)
+  %5564 = load i64, ptr %6, align 8
+  %5565 = load ptr, ptr %11, align 8
+  %5566 = call i64 @rb_str_cat_cstr(i64 noundef %5564, ptr noundef %5565)
   store i32 1, ptr %9, align 4
-  br label %5564
+  br label %5567
 
-5564:                                             ; preds = %5574, %5552
-  %5565 = load i32, ptr %9, align 4
-  %5566 = icmp ne i32 %5565, 0
-  br i1 %5566, label %5567, label %5580
+5567:                                             ; preds = %5577, %5555
+  %5568 = load i32, ptr %9, align 4
+  %5569 = icmp ne i32 %5568, 0
+  br i1 %5569, label %5570, label %5583
 
-5567:                                             ; preds = %5564
-  %5568 = load i64, ptr %5, align 8
-  %5569 = load i64, ptr %6, align 8
-  %5570 = load i32, ptr %7, align 4
-  %5571 = load ptr, ptr %8, align 8
-  %5572 = getelementptr inbounds %struct.RNode_ALIAS, ptr %5571, i32 0, i32 2
-  %5573 = load ptr, ptr %5572, align 8
-  call void @dump_node(i64 noundef %5568, i64 noundef %5569, i32 noundef %5570, ptr noundef %5573)
-  br label %5574
+5570:                                             ; preds = %5567
+  %5571 = load i64, ptr %5, align 8
+  %5572 = load i64, ptr %6, align 8
+  %5573 = load i32, ptr %7, align 4
+  %5574 = load ptr, ptr %8, align 8
+  %5575 = getelementptr inbounds %struct.RNode_ALIAS, ptr %5574, i32 0, i32 2
+  %5576 = load ptr, ptr %5575, align 8
+  call void @dump_node(i64 noundef %5571, i64 noundef %5572, i32 noundef %5573, ptr noundef %5576)
+  br label %5577
 
-5574:                                             ; preds = %5567
-  %5575 = load i64, ptr %6, align 8
-  %5576 = load i64, ptr %6, align 8
-  %5577 = call i64 @RSTRING_LEN(i64 noundef %5576) #10
-  %5578 = sub i64 %5577, 4
-  %5579 = call i64 @rb_str_resize(i64 noundef %5575, i64 noundef %5578)
+5577:                                             ; preds = %5570
+  %5578 = load i64, ptr %6, align 8
+  %5579 = load i64, ptr %6, align 8
+  %5580 = call i64 @RSTRING_LEN(i64 noundef %5579) #10
+  %5581 = sub i64 %5580, 4
+  %5582 = call i64 @rb_str_resize(i64 noundef %5578, i64 noundef %5581)
   store i32 0, ptr %9, align 4
-  br label %5564, !llvm.loop !138
+  br label %5567, !llvm.loop !138
 
-5580:                                             ; preds = %5564
-  br label %7932
+5583:                                             ; preds = %5567
+  br label %7940
 
-5581:                                             ; preds = %24
-  %5582 = load i32, ptr %7, align 4
-  %5583 = icmp ne i32 %5582, 0
-  br i1 %5583, label %5584, label %5589
+5584:                                             ; preds = %24
+  %5585 = load i32, ptr %7, align 4
+  %5586 = icmp ne i32 %5585, 0
+  br i1 %5586, label %5587, label %5592
 
-5584:                                             ; preds = %5581
-  %5585 = load i64, ptr %5, align 8
-  %5586 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5585, i64 noundef %5586)
-  %5587 = load i64, ptr %5, align 8
-  %5588 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5587, ptr noundef @.str.325)
-  br label %5589
+5587:                                             ; preds = %5584
+  %5588 = load i64, ptr %5, align 8
+  %5589 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5588, i64 noundef %5589)
+  %5590 = load i64, ptr %5, align 8
+  %5591 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5590, ptr noundef @.str.325)
+  br label %5592
 
-5589:                                             ; preds = %5584, %5581
-  %5590 = load i32, ptr %7, align 4
-  %5591 = icmp ne i32 %5590, 0
-  br i1 %5591, label %5592, label %5597
+5592:                                             ; preds = %5587, %5584
+  %5593 = load i32, ptr %7, align 4
+  %5594 = icmp ne i32 %5593, 0
+  br i1 %5594, label %5595, label %5600
 
-5592:                                             ; preds = %5589
-  %5593 = load i64, ptr %5, align 8
-  %5594 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5593, i64 noundef %5594)
-  %5595 = load i64, ptr %5, align 8
-  %5596 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5595, ptr noundef @.str.326)
-  br label %5597
+5595:                                             ; preds = %5592
+  %5596 = load i64, ptr %5, align 8
+  %5597 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5596, i64 noundef %5597)
+  %5598 = load i64, ptr %5, align 8
+  %5599 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5598, ptr noundef @.str.326)
+  br label %5600
 
-5597:                                             ; preds = %5592, %5589
-  %5598 = load i32, ptr %7, align 4
-  %5599 = icmp ne i32 %5598, 0
-  br i1 %5599, label %5600, label %5605
+5600:                                             ; preds = %5595, %5592
+  %5601 = load i32, ptr %7, align 4
+  %5602 = icmp ne i32 %5601, 0
+  br i1 %5602, label %5603, label %5608
 
-5600:                                             ; preds = %5597
-  %5601 = load i64, ptr %5, align 8
-  %5602 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5601, i64 noundef %5602)
-  %5603 = load i64, ptr %5, align 8
-  %5604 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5603, ptr noundef @.str.327)
-  br label %5605
-
-5605:                                             ; preds = %5600, %5597
+5603:                                             ; preds = %5600
+  %5604 = load i64, ptr %5, align 8
+  %5605 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5604, i64 noundef %5605)
   %5606 = load i64, ptr %5, align 8
-  %5607 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5606, i64 noundef %5607)
-  %5608 = load i64, ptr %5, align 8
-  %5609 = load i32, ptr %7, align 4
-  %5610 = icmp ne i32 %5609, 0
-  %5611 = select i1 %5610, i64 19, i64 8
-  %5612 = trunc i64 %5611 to i32
-  %5613 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5608, ptr noundef @.str.51, i32 noundef %5612, ptr noundef @.str.328)
+  %5607 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5606, ptr noundef @.str.327)
+  br label %5608
+
+5608:                                             ; preds = %5603, %5600
+  %5609 = load i64, ptr %5, align 8
+  %5610 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5609, i64 noundef %5610)
+  %5611 = load i64, ptr %5, align 8
+  %5612 = load i32, ptr %7, align 4
+  %5613 = icmp ne i32 %5612, 0
+  %5614 = select i1 %5613, i64 19, i64 8
+  %5615 = trunc i64 %5614 to i32
+  %5616 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5611, ptr noundef @.str.51, i32 noundef %5615, ptr noundef @.str.328)
   store i32 1, ptr %9, align 4
-  br label %5614
+  br label %5617
 
-5614:                                             ; preds = %5622, %5605
-  %5615 = load i32, ptr %9, align 4
-  %5616 = icmp ne i32 %5615, 0
-  br i1 %5616, label %5617, label %5625
+5617:                                             ; preds = %5625, %5608
+  %5618 = load i32, ptr %9, align 4
+  %5619 = icmp ne i32 %5618, 0
+  br i1 %5619, label %5620, label %5628
 
-5617:                                             ; preds = %5614
-  %5618 = load i64, ptr %5, align 8
-  %5619 = load ptr, ptr %8, align 8
-  %5620 = getelementptr inbounds %struct.RNode_VALIAS, ptr %5619, i32 0, i32 1
-  %5621 = load i64, ptr %5620, align 8
-  call void @add_id(i64 noundef %5618, i64 noundef %5621)
-  br label %5622
+5620:                                             ; preds = %5617
+  %5621 = load i64, ptr %5, align 8
+  %5622 = load ptr, ptr %8, align 8
+  %5623 = getelementptr inbounds %struct.RNode_VALIAS, ptr %5622, i32 0, i32 1
+  %5624 = load i64, ptr %5623, align 8
+  call void @add_id(i64 noundef %5621, i64 noundef %5624)
+  br label %5625
 
-5622:                                             ; preds = %5617
-  %5623 = load i64, ptr %5, align 8
-  %5624 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5623, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %5614, !llvm.loop !139
-
-5625:                                             ; preds = %5614
+5625:                                             ; preds = %5620
   %5626 = load i64, ptr %5, align 8
-  %5627 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5626, i64 noundef %5627)
-  %5628 = load i64, ptr %5, align 8
-  %5629 = load i32, ptr %7, align 4
-  %5630 = icmp ne i32 %5629, 0
-  %5631 = select i1 %5630, i64 18, i64 7
-  %5632 = trunc i64 %5631 to i32
-  %5633 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5628, ptr noundef @.str.51, i32 noundef %5632, ptr noundef @.str.329)
-  store i32 1, ptr %9, align 4
-  br label %5634
-
-5634:                                             ; preds = %5642, %5625
-  %5635 = load i32, ptr %9, align 4
-  %5636 = icmp ne i32 %5635, 0
-  br i1 %5636, label %5637, label %5645
-
-5637:                                             ; preds = %5634
-  %5638 = load i64, ptr %5, align 8
-  %5639 = load ptr, ptr %8, align 8
-  %5640 = getelementptr inbounds %struct.RNode_VALIAS, ptr %5639, i32 0, i32 2
-  %5641 = load i64, ptr %5640, align 8
-  call void @add_id(i64 noundef %5638, i64 noundef %5641)
-  br label %5642
-
-5642:                                             ; preds = %5637
-  %5643 = load i64, ptr %5, align 8
-  %5644 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5643, ptr noundef @.str.56)
+  %5627 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5626, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %5634, !llvm.loop !140
+  br label %5617, !llvm.loop !139
 
-5645:                                             ; preds = %5634
-  br label %7932
+5628:                                             ; preds = %5617
+  %5629 = load i64, ptr %5, align 8
+  %5630 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5629, i64 noundef %5630)
+  %5631 = load i64, ptr %5, align 8
+  %5632 = load i32, ptr %7, align 4
+  %5633 = icmp ne i32 %5632, 0
+  %5634 = select i1 %5633, i64 18, i64 7
+  %5635 = trunc i64 %5634 to i32
+  %5636 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5631, ptr noundef @.str.51, i32 noundef %5635, ptr noundef @.str.329)
+  store i32 1, ptr %9, align 4
+  br label %5637
 
-5646:                                             ; preds = %24
-  %5647 = load i32, ptr %7, align 4
-  %5648 = icmp ne i32 %5647, 0
-  br i1 %5648, label %5649, label %5654
+5637:                                             ; preds = %5645, %5628
+  %5638 = load i32, ptr %9, align 4
+  %5639 = icmp ne i32 %5638, 0
+  br i1 %5639, label %5640, label %5648
 
-5649:                                             ; preds = %5646
-  %5650 = load i64, ptr %5, align 8
-  %5651 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5650, i64 noundef %5651)
-  %5652 = load i64, ptr %5, align 8
-  %5653 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5652, ptr noundef @.str.330)
-  br label %5654
+5640:                                             ; preds = %5637
+  %5641 = load i64, ptr %5, align 8
+  %5642 = load ptr, ptr %8, align 8
+  %5643 = getelementptr inbounds %struct.RNode_VALIAS, ptr %5642, i32 0, i32 2
+  %5644 = load i64, ptr %5643, align 8
+  call void @add_id(i64 noundef %5641, i64 noundef %5644)
+  br label %5645
 
-5654:                                             ; preds = %5649, %5646
-  %5655 = load i32, ptr %7, align 4
-  %5656 = icmp ne i32 %5655, 0
-  br i1 %5656, label %5657, label %5662
+5645:                                             ; preds = %5640
+  %5646 = load i64, ptr %5, align 8
+  %5647 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5646, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %5637, !llvm.loop !140
 
-5657:                                             ; preds = %5654
-  %5658 = load i64, ptr %5, align 8
-  %5659 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5658, i64 noundef %5659)
-  %5660 = load i64, ptr %5, align 8
-  %5661 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5660, ptr noundef @.str.331)
-  br label %5662
+5648:                                             ; preds = %5637
+  br label %7940
 
-5662:                                             ; preds = %5657, %5654
-  %5663 = load i32, ptr %7, align 4
-  %5664 = icmp ne i32 %5663, 0
-  br i1 %5664, label %5665, label %5670
+5649:                                             ; preds = %24
+  %5650 = load i32, ptr %7, align 4
+  %5651 = icmp ne i32 %5650, 0
+  br i1 %5651, label %5652, label %5657
 
-5665:                                             ; preds = %5662
-  %5666 = load i64, ptr %5, align 8
-  %5667 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5666, i64 noundef %5667)
-  %5668 = load i64, ptr %5, align 8
-  %5669 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5668, ptr noundef @.str.332)
-  br label %5670
+5652:                                             ; preds = %5649
+  %5653 = load i64, ptr %5, align 8
+  %5654 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5653, i64 noundef %5654)
+  %5655 = load i64, ptr %5, align 8
+  %5656 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5655, ptr noundef @.str.330)
+  br label %5657
 
-5670:                                             ; preds = %5665, %5662
-  store ptr @.str.12, ptr %11, align 8
+5657:                                             ; preds = %5652, %5649
+  %5658 = load i32, ptr %7, align 4
+  %5659 = icmp ne i32 %5658, 0
+  br i1 %5659, label %5660, label %5665
+
+5660:                                             ; preds = %5657
+  %5661 = load i64, ptr %5, align 8
+  %5662 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5661, i64 noundef %5662)
+  %5663 = load i64, ptr %5, align 8
+  %5664 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5663, ptr noundef @.str.331)
+  br label %5665
+
+5665:                                             ; preds = %5660, %5657
+  %5666 = load i32, ptr %7, align 4
+  %5667 = icmp ne i32 %5666, 0
+  br i1 %5667, label %5668, label %5673
+
+5668:                                             ; preds = %5665
+  %5669 = load i64, ptr %5, align 8
+  %5670 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5669, i64 noundef %5670)
   %5671 = load i64, ptr %5, align 8
-  %5672 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5671, i64 noundef %5672)
-  %5673 = load i64, ptr %5, align 8
-  %5674 = load i32, ptr %7, align 4
-  %5675 = icmp ne i32 %5674, 0
-  %5676 = select i1 %5675, i64 19, i64 8
-  %5677 = trunc i64 %5676 to i32
-  %5678 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5673, ptr noundef @.str.13, i32 noundef %5677, ptr noundef @.str.333)
-  %5679 = load i64, ptr %6, align 8
-  %5680 = load ptr, ptr %11, align 8
-  %5681 = call i64 @rb_str_cat_cstr(i64 noundef %5679, ptr noundef %5680)
+  %5672 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5671, ptr noundef @.str.332)
+  br label %5673
+
+5673:                                             ; preds = %5668, %5665
+  store ptr @.str.12, ptr %11, align 8
+  %5674 = load i64, ptr %5, align 8
+  %5675 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5674, i64 noundef %5675)
+  %5676 = load i64, ptr %5, align 8
+  %5677 = load i32, ptr %7, align 4
+  %5678 = icmp ne i32 %5677, 0
+  %5679 = select i1 %5678, i64 19, i64 8
+  %5680 = trunc i64 %5679 to i32
+  %5681 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5676, ptr noundef @.str.13, i32 noundef %5680, ptr noundef @.str.333)
+  %5682 = load i64, ptr %6, align 8
+  %5683 = load ptr, ptr %11, align 8
+  %5684 = call i64 @rb_str_cat_cstr(i64 noundef %5682, ptr noundef %5683)
   store i32 1, ptr %9, align 4
-  br label %5682
+  br label %5685
 
-5682:                                             ; preds = %5692, %5670
-  %5683 = load i32, ptr %9, align 4
-  %5684 = icmp ne i32 %5683, 0
-  br i1 %5684, label %5685, label %5698
+5685:                                             ; preds = %5695, %5673
+  %5686 = load i32, ptr %9, align 4
+  %5687 = icmp ne i32 %5686, 0
+  br i1 %5687, label %5688, label %5701
 
-5685:                                             ; preds = %5682
-  %5686 = load i64, ptr %5, align 8
-  %5687 = load i64, ptr %6, align 8
-  %5688 = load i32, ptr %7, align 4
-  %5689 = load ptr, ptr %8, align 8
-  %5690 = getelementptr inbounds %struct.RNode_UNDEF, ptr %5689, i32 0, i32 1
-  %5691 = load ptr, ptr %5690, align 8
-  call void @dump_node(i64 noundef %5686, i64 noundef %5687, i32 noundef %5688, ptr noundef %5691)
-  br label %5692
+5688:                                             ; preds = %5685
+  %5689 = load i64, ptr %5, align 8
+  %5690 = load i64, ptr %6, align 8
+  %5691 = load i32, ptr %7, align 4
+  %5692 = load ptr, ptr %8, align 8
+  %5693 = getelementptr inbounds %struct.RNode_UNDEF, ptr %5692, i32 0, i32 1
+  %5694 = load ptr, ptr %5693, align 8
+  call void @dump_node(i64 noundef %5689, i64 noundef %5690, i32 noundef %5691, ptr noundef %5694)
+  br label %5695
 
-5692:                                             ; preds = %5685
-  %5693 = load i64, ptr %6, align 8
-  %5694 = load i64, ptr %6, align 8
-  %5695 = call i64 @RSTRING_LEN(i64 noundef %5694) #10
-  %5696 = sub i64 %5695, 4
-  %5697 = call i64 @rb_str_resize(i64 noundef %5693, i64 noundef %5696)
+5695:                                             ; preds = %5688
+  %5696 = load i64, ptr %6, align 8
+  %5697 = load i64, ptr %6, align 8
+  %5698 = call i64 @RSTRING_LEN(i64 noundef %5697) #10
+  %5699 = sub i64 %5698, 4
+  %5700 = call i64 @rb_str_resize(i64 noundef %5696, i64 noundef %5699)
   store i32 0, ptr %9, align 4
-  br label %5682, !llvm.loop !141
+  br label %5685, !llvm.loop !141
 
-5698:                                             ; preds = %5682
-  br label %7932
+5701:                                             ; preds = %5685
+  br label %7940
 
-5699:                                             ; preds = %24
-  %5700 = load i32, ptr %7, align 4
-  %5701 = icmp ne i32 %5700, 0
-  br i1 %5701, label %5702, label %5707
+5702:                                             ; preds = %24
+  %5703 = load i32, ptr %7, align 4
+  %5704 = icmp ne i32 %5703, 0
+  br i1 %5704, label %5705, label %5710
 
-5702:                                             ; preds = %5699
-  %5703 = load i64, ptr %5, align 8
-  %5704 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5703, i64 noundef %5704)
-  %5705 = load i64, ptr %5, align 8
-  %5706 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5705, ptr noundef @.str.334)
-  br label %5707
+5705:                                             ; preds = %5702
+  %5706 = load i64, ptr %5, align 8
+  %5707 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5706, i64 noundef %5707)
+  %5708 = load i64, ptr %5, align 8
+  %5709 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5708, ptr noundef @.str.334)
+  br label %5710
 
-5707:                                             ; preds = %5702, %5699
-  %5708 = load i32, ptr %7, align 4
-  %5709 = icmp ne i32 %5708, 0
-  br i1 %5709, label %5710, label %5715
+5710:                                             ; preds = %5705, %5702
+  %5711 = load i32, ptr %7, align 4
+  %5712 = icmp ne i32 %5711, 0
+  br i1 %5712, label %5713, label %5718
 
-5710:                                             ; preds = %5707
-  %5711 = load i64, ptr %5, align 8
-  %5712 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5711, i64 noundef %5712)
-  %5713 = load i64, ptr %5, align 8
-  %5714 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5713, ptr noundef @.str.335)
-  br label %5715
+5713:                                             ; preds = %5710
+  %5714 = load i64, ptr %5, align 8
+  %5715 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5714, i64 noundef %5715)
+  %5716 = load i64, ptr %5, align 8
+  %5717 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5716, ptr noundef @.str.335)
+  br label %5718
 
-5715:                                             ; preds = %5710, %5707
-  %5716 = load i32, ptr %7, align 4
-  %5717 = icmp ne i32 %5716, 0
-  br i1 %5717, label %5718, label %5723
+5718:                                             ; preds = %5713, %5710
+  %5719 = load i32, ptr %7, align 4
+  %5720 = icmp ne i32 %5719, 0
+  br i1 %5720, label %5721, label %5726
 
-5718:                                             ; preds = %5715
-  %5719 = load i64, ptr %5, align 8
-  %5720 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5719, i64 noundef %5720)
-  %5721 = load i64, ptr %5, align 8
-  %5722 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5721, ptr noundef @.str.336)
-  br label %5723
-
-5723:                                             ; preds = %5718, %5715
+5721:                                             ; preds = %5718
+  %5722 = load i64, ptr %5, align 8
+  %5723 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5722, i64 noundef %5723)
   %5724 = load i64, ptr %5, align 8
-  %5725 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5724, i64 noundef %5725)
-  %5726 = load i64, ptr %5, align 8
-  %5727 = load i32, ptr %7, align 4
-  %5728 = icmp ne i32 %5727, 0
-  %5729 = select i1 %5728, i64 21, i64 8
-  %5730 = trunc i64 %5729 to i32
-  %5731 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5726, ptr noundef @.str.13, i32 noundef %5730, ptr noundef @.str.337)
-  %5732 = load i64, ptr %6, align 8
-  %5733 = load ptr, ptr %11, align 8
-  %5734 = call i64 @rb_str_cat_cstr(i64 noundef %5732, ptr noundef %5733)
+  %5725 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5724, ptr noundef @.str.336)
+  br label %5726
+
+5726:                                             ; preds = %5721, %5718
+  %5727 = load i64, ptr %5, align 8
+  %5728 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5727, i64 noundef %5728)
+  %5729 = load i64, ptr %5, align 8
+  %5730 = load i32, ptr %7, align 4
+  %5731 = icmp ne i32 %5730, 0
+  %5732 = select i1 %5731, i64 21, i64 8
+  %5733 = trunc i64 %5732 to i32
+  %5734 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5729, ptr noundef @.str.13, i32 noundef %5733, ptr noundef @.str.337)
+  %5735 = load i64, ptr %6, align 8
+  %5736 = load ptr, ptr %11, align 8
+  %5737 = call i64 @rb_str_cat_cstr(i64 noundef %5735, ptr noundef %5736)
   store i32 1, ptr %9, align 4
-  br label %5735
+  br label %5738
 
-5735:                                             ; preds = %5745, %5723
-  %5736 = load i32, ptr %9, align 4
-  %5737 = icmp ne i32 %5736, 0
-  br i1 %5737, label %5738, label %5751
+5738:                                             ; preds = %5748, %5726
+  %5739 = load i32, ptr %9, align 4
+  %5740 = icmp ne i32 %5739, 0
+  br i1 %5740, label %5741, label %5754
 
-5738:                                             ; preds = %5735
-  %5739 = load i64, ptr %5, align 8
-  %5740 = load i64, ptr %6, align 8
-  %5741 = load i32, ptr %7, align 4
-  %5742 = load ptr, ptr %8, align 8
-  %5743 = getelementptr inbounds %struct.RNode_CLASS, ptr %5742, i32 0, i32 1
-  %5744 = load ptr, ptr %5743, align 8
-  call void @dump_node(i64 noundef %5739, i64 noundef %5740, i32 noundef %5741, ptr noundef %5744)
-  br label %5745
+5741:                                             ; preds = %5738
+  %5742 = load i64, ptr %5, align 8
+  %5743 = load i64, ptr %6, align 8
+  %5744 = load i32, ptr %7, align 4
+  %5745 = load ptr, ptr %8, align 8
+  %5746 = getelementptr inbounds %struct.RNode_CLASS, ptr %5745, i32 0, i32 1
+  %5747 = load ptr, ptr %5746, align 8
+  call void @dump_node(i64 noundef %5742, i64 noundef %5743, i32 noundef %5744, ptr noundef %5747)
+  br label %5748
 
-5745:                                             ; preds = %5738
-  %5746 = load i64, ptr %6, align 8
-  %5747 = load i64, ptr %6, align 8
-  %5748 = call i64 @RSTRING_LEN(i64 noundef %5747) #10
-  %5749 = sub i64 %5748, 4
-  %5750 = call i64 @rb_str_resize(i64 noundef %5746, i64 noundef %5749)
+5748:                                             ; preds = %5741
+  %5749 = load i64, ptr %6, align 8
+  %5750 = load i64, ptr %6, align 8
+  %5751 = call i64 @RSTRING_LEN(i64 noundef %5750) #10
+  %5752 = sub i64 %5751, 4
+  %5753 = call i64 @rb_str_resize(i64 noundef %5749, i64 noundef %5752)
   store i32 0, ptr %9, align 4
-  br label %5735, !llvm.loop !142
+  br label %5738, !llvm.loop !142
 
-5751:                                             ; preds = %5735
-  %5752 = load i64, ptr %5, align 8
-  %5753 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5752, i64 noundef %5753)
-  %5754 = load i64, ptr %5, align 8
-  %5755 = load i32, ptr %7, align 4
-  %5756 = icmp ne i32 %5755, 0
-  %5757 = select i1 %5756, i64 21, i64 8
-  %5758 = trunc i64 %5757 to i32
-  %5759 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5754, ptr noundef @.str.13, i32 noundef %5758, ptr noundef @.str.338)
-  %5760 = load i64, ptr %6, align 8
-  %5761 = load ptr, ptr %11, align 8
-  %5762 = call i64 @rb_str_cat_cstr(i64 noundef %5760, ptr noundef %5761)
+5754:                                             ; preds = %5738
+  %5755 = load i64, ptr %5, align 8
+  %5756 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5755, i64 noundef %5756)
+  %5757 = load i64, ptr %5, align 8
+  %5758 = load i32, ptr %7, align 4
+  %5759 = icmp ne i32 %5758, 0
+  %5760 = select i1 %5759, i64 21, i64 8
+  %5761 = trunc i64 %5760 to i32
+  %5762 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5757, ptr noundef @.str.13, i32 noundef %5761, ptr noundef @.str.338)
+  %5763 = load i64, ptr %6, align 8
+  %5764 = load ptr, ptr %11, align 8
+  %5765 = call i64 @rb_str_cat_cstr(i64 noundef %5763, ptr noundef %5764)
   store i32 1, ptr %9, align 4
-  br label %5763
+  br label %5766
 
-5763:                                             ; preds = %5773, %5751
-  %5764 = load i32, ptr %9, align 4
-  %5765 = icmp ne i32 %5764, 0
-  br i1 %5765, label %5766, label %5779
+5766:                                             ; preds = %5776, %5754
+  %5767 = load i32, ptr %9, align 4
+  %5768 = icmp ne i32 %5767, 0
+  br i1 %5768, label %5769, label %5782
 
-5766:                                             ; preds = %5763
-  %5767 = load i64, ptr %5, align 8
-  %5768 = load i64, ptr %6, align 8
-  %5769 = load i32, ptr %7, align 4
-  %5770 = load ptr, ptr %8, align 8
-  %5771 = getelementptr inbounds %struct.RNode_CLASS, ptr %5770, i32 0, i32 3
-  %5772 = load ptr, ptr %5771, align 8
-  call void @dump_node(i64 noundef %5767, i64 noundef %5768, i32 noundef %5769, ptr noundef %5772)
-  br label %5773
+5769:                                             ; preds = %5766
+  %5770 = load i64, ptr %5, align 8
+  %5771 = load i64, ptr %6, align 8
+  %5772 = load i32, ptr %7, align 4
+  %5773 = load ptr, ptr %8, align 8
+  %5774 = getelementptr inbounds %struct.RNode_CLASS, ptr %5773, i32 0, i32 3
+  %5775 = load ptr, ptr %5774, align 8
+  call void @dump_node(i64 noundef %5770, i64 noundef %5771, i32 noundef %5772, ptr noundef %5775)
+  br label %5776
 
-5773:                                             ; preds = %5766
-  %5774 = load i64, ptr %6, align 8
-  %5775 = load i64, ptr %6, align 8
-  %5776 = call i64 @RSTRING_LEN(i64 noundef %5775) #10
-  %5777 = sub i64 %5776, 4
-  %5778 = call i64 @rb_str_resize(i64 noundef %5774, i64 noundef %5777)
+5776:                                             ; preds = %5769
+  %5777 = load i64, ptr %6, align 8
+  %5778 = load i64, ptr %6, align 8
+  %5779 = call i64 @RSTRING_LEN(i64 noundef %5778) #10
+  %5780 = sub i64 %5779, 4
+  %5781 = call i64 @rb_str_resize(i64 noundef %5777, i64 noundef %5780)
   store i32 0, ptr %9, align 4
-  br label %5763, !llvm.loop !143
+  br label %5766, !llvm.loop !143
 
-5779:                                             ; preds = %5763
+5782:                                             ; preds = %5766
   store ptr @.str.12, ptr %11, align 8
-  %5780 = load i64, ptr %5, align 8
-  %5781 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5780, i64 noundef %5781)
-  %5782 = load i64, ptr %5, align 8
-  %5783 = load i32, ptr %7, align 4
-  %5784 = icmp ne i32 %5783, 0
-  %5785 = select i1 %5784, i64 26, i64 7
-  %5786 = trunc i64 %5785 to i32
-  %5787 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5782, ptr noundef @.str.13, i32 noundef %5786, ptr noundef @.str.339)
-  %5788 = load i64, ptr %6, align 8
-  %5789 = load ptr, ptr %11, align 8
-  %5790 = call i64 @rb_str_cat_cstr(i64 noundef %5788, ptr noundef %5789)
+  %5783 = load i64, ptr %5, align 8
+  %5784 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5783, i64 noundef %5784)
+  %5785 = load i64, ptr %5, align 8
+  %5786 = load i32, ptr %7, align 4
+  %5787 = icmp ne i32 %5786, 0
+  %5788 = select i1 %5787, i64 26, i64 7
+  %5789 = trunc i64 %5788 to i32
+  %5790 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5785, ptr noundef @.str.13, i32 noundef %5789, ptr noundef @.str.339)
+  %5791 = load i64, ptr %6, align 8
+  %5792 = load ptr, ptr %11, align 8
+  %5793 = call i64 @rb_str_cat_cstr(i64 noundef %5791, ptr noundef %5792)
   store i32 1, ptr %9, align 4
-  br label %5791
+  br label %5794
 
-5791:                                             ; preds = %5801, %5779
-  %5792 = load i32, ptr %9, align 4
-  %5793 = icmp ne i32 %5792, 0
-  br i1 %5793, label %5794, label %5807
+5794:                                             ; preds = %5804, %5782
+  %5795 = load i32, ptr %9, align 4
+  %5796 = icmp ne i32 %5795, 0
+  br i1 %5796, label %5797, label %5810
 
-5794:                                             ; preds = %5791
-  %5795 = load i64, ptr %5, align 8
-  %5796 = load i64, ptr %6, align 8
-  %5797 = load i32, ptr %7, align 4
-  %5798 = load ptr, ptr %8, align 8
-  %5799 = getelementptr inbounds %struct.RNode_CLASS, ptr %5798, i32 0, i32 2
-  %5800 = load ptr, ptr %5799, align 8
-  call void @dump_node(i64 noundef %5795, i64 noundef %5796, i32 noundef %5797, ptr noundef %5800)
-  br label %5801
+5797:                                             ; preds = %5794
+  %5798 = load i64, ptr %5, align 8
+  %5799 = load i64, ptr %6, align 8
+  %5800 = load i32, ptr %7, align 4
+  %5801 = load ptr, ptr %8, align 8
+  %5802 = getelementptr inbounds %struct.RNode_CLASS, ptr %5801, i32 0, i32 2
+  %5803 = load ptr, ptr %5802, align 8
+  call void @dump_node(i64 noundef %5798, i64 noundef %5799, i32 noundef %5800, ptr noundef %5803)
+  br label %5804
 
-5801:                                             ; preds = %5794
-  %5802 = load i64, ptr %6, align 8
-  %5803 = load i64, ptr %6, align 8
-  %5804 = call i64 @RSTRING_LEN(i64 noundef %5803) #10
-  %5805 = sub i64 %5804, 4
-  %5806 = call i64 @rb_str_resize(i64 noundef %5802, i64 noundef %5805)
+5804:                                             ; preds = %5797
+  %5805 = load i64, ptr %6, align 8
+  %5806 = load i64, ptr %6, align 8
+  %5807 = call i64 @RSTRING_LEN(i64 noundef %5806) #10
+  %5808 = sub i64 %5807, 4
+  %5809 = call i64 @rb_str_resize(i64 noundef %5805, i64 noundef %5808)
   store i32 0, ptr %9, align 4
-  br label %5791, !llvm.loop !144
+  br label %5794, !llvm.loop !144
 
-5807:                                             ; preds = %5791
-  br label %7932
+5810:                                             ; preds = %5794
+  br label %7940
 
-5808:                                             ; preds = %24
-  %5809 = load i32, ptr %7, align 4
-  %5810 = icmp ne i32 %5809, 0
-  br i1 %5810, label %5811, label %5816
+5811:                                             ; preds = %24
+  %5812 = load i32, ptr %7, align 4
+  %5813 = icmp ne i32 %5812, 0
+  br i1 %5813, label %5814, label %5819
 
-5811:                                             ; preds = %5808
-  %5812 = load i64, ptr %5, align 8
-  %5813 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5812, i64 noundef %5813)
-  %5814 = load i64, ptr %5, align 8
-  %5815 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5814, ptr noundef @.str.340)
-  br label %5816
+5814:                                             ; preds = %5811
+  %5815 = load i64, ptr %5, align 8
+  %5816 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5815, i64 noundef %5816)
+  %5817 = load i64, ptr %5, align 8
+  %5818 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5817, ptr noundef @.str.340)
+  br label %5819
 
-5816:                                             ; preds = %5811, %5808
-  %5817 = load i32, ptr %7, align 4
-  %5818 = icmp ne i32 %5817, 0
-  br i1 %5818, label %5819, label %5824
+5819:                                             ; preds = %5814, %5811
+  %5820 = load i32, ptr %7, align 4
+  %5821 = icmp ne i32 %5820, 0
+  br i1 %5821, label %5822, label %5827
 
-5819:                                             ; preds = %5816
-  %5820 = load i64, ptr %5, align 8
-  %5821 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5820, i64 noundef %5821)
-  %5822 = load i64, ptr %5, align 8
-  %5823 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5822, ptr noundef @.str.341)
-  br label %5824
+5822:                                             ; preds = %5819
+  %5823 = load i64, ptr %5, align 8
+  %5824 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5823, i64 noundef %5824)
+  %5825 = load i64, ptr %5, align 8
+  %5826 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5825, ptr noundef @.str.341)
+  br label %5827
 
-5824:                                             ; preds = %5819, %5816
-  %5825 = load i32, ptr %7, align 4
-  %5826 = icmp ne i32 %5825, 0
-  br i1 %5826, label %5827, label %5832
+5827:                                             ; preds = %5822, %5819
+  %5828 = load i32, ptr %7, align 4
+  %5829 = icmp ne i32 %5828, 0
+  br i1 %5829, label %5830, label %5835
 
-5827:                                             ; preds = %5824
-  %5828 = load i64, ptr %5, align 8
-  %5829 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5828, i64 noundef %5829)
-  %5830 = load i64, ptr %5, align 8
-  %5831 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5830, ptr noundef @.str.342)
-  br label %5832
-
-5832:                                             ; preds = %5827, %5824
+5830:                                             ; preds = %5827
+  %5831 = load i64, ptr %5, align 8
+  %5832 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5831, i64 noundef %5832)
   %5833 = load i64, ptr %5, align 8
-  %5834 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5833, i64 noundef %5834)
-  %5835 = load i64, ptr %5, align 8
-  %5836 = load i32, ptr %7, align 4
-  %5837 = icmp ne i32 %5836, 0
-  %5838 = select i1 %5837, i64 22, i64 8
-  %5839 = trunc i64 %5838 to i32
-  %5840 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5835, ptr noundef @.str.13, i32 noundef %5839, ptr noundef @.str.343)
-  %5841 = load i64, ptr %6, align 8
-  %5842 = load ptr, ptr %11, align 8
-  %5843 = call i64 @rb_str_cat_cstr(i64 noundef %5841, ptr noundef %5842)
+  %5834 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5833, ptr noundef @.str.342)
+  br label %5835
+
+5835:                                             ; preds = %5830, %5827
+  %5836 = load i64, ptr %5, align 8
+  %5837 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5836, i64 noundef %5837)
+  %5838 = load i64, ptr %5, align 8
+  %5839 = load i32, ptr %7, align 4
+  %5840 = icmp ne i32 %5839, 0
+  %5841 = select i1 %5840, i64 22, i64 8
+  %5842 = trunc i64 %5841 to i32
+  %5843 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5838, ptr noundef @.str.13, i32 noundef %5842, ptr noundef @.str.343)
+  %5844 = load i64, ptr %6, align 8
+  %5845 = load ptr, ptr %11, align 8
+  %5846 = call i64 @rb_str_cat_cstr(i64 noundef %5844, ptr noundef %5845)
   store i32 1, ptr %9, align 4
-  br label %5844
+  br label %5847
 
-5844:                                             ; preds = %5854, %5832
-  %5845 = load i32, ptr %9, align 4
-  %5846 = icmp ne i32 %5845, 0
-  br i1 %5846, label %5847, label %5860
+5847:                                             ; preds = %5857, %5835
+  %5848 = load i32, ptr %9, align 4
+  %5849 = icmp ne i32 %5848, 0
+  br i1 %5849, label %5850, label %5863
 
-5847:                                             ; preds = %5844
-  %5848 = load i64, ptr %5, align 8
-  %5849 = load i64, ptr %6, align 8
-  %5850 = load i32, ptr %7, align 4
-  %5851 = load ptr, ptr %8, align 8
-  %5852 = getelementptr inbounds %struct.RNode_MODULE, ptr %5851, i32 0, i32 1
-  %5853 = load ptr, ptr %5852, align 8
-  call void @dump_node(i64 noundef %5848, i64 noundef %5849, i32 noundef %5850, ptr noundef %5853)
-  br label %5854
+5850:                                             ; preds = %5847
+  %5851 = load i64, ptr %5, align 8
+  %5852 = load i64, ptr %6, align 8
+  %5853 = load i32, ptr %7, align 4
+  %5854 = load ptr, ptr %8, align 8
+  %5855 = getelementptr inbounds %struct.RNode_MODULE, ptr %5854, i32 0, i32 1
+  %5856 = load ptr, ptr %5855, align 8
+  call void @dump_node(i64 noundef %5851, i64 noundef %5852, i32 noundef %5853, ptr noundef %5856)
+  br label %5857
 
-5854:                                             ; preds = %5847
-  %5855 = load i64, ptr %6, align 8
-  %5856 = load i64, ptr %6, align 8
-  %5857 = call i64 @RSTRING_LEN(i64 noundef %5856) #10
-  %5858 = sub i64 %5857, 4
-  %5859 = call i64 @rb_str_resize(i64 noundef %5855, i64 noundef %5858)
+5857:                                             ; preds = %5850
+  %5858 = load i64, ptr %6, align 8
+  %5859 = load i64, ptr %6, align 8
+  %5860 = call i64 @RSTRING_LEN(i64 noundef %5859) #10
+  %5861 = sub i64 %5860, 4
+  %5862 = call i64 @rb_str_resize(i64 noundef %5858, i64 noundef %5861)
   store i32 0, ptr %9, align 4
-  br label %5844, !llvm.loop !145
+  br label %5847, !llvm.loop !145
 
-5860:                                             ; preds = %5844
+5863:                                             ; preds = %5847
   store ptr @.str.12, ptr %11, align 8
-  %5861 = load i64, ptr %5, align 8
-  %5862 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5861, i64 noundef %5862)
-  %5863 = load i64, ptr %5, align 8
-  %5864 = load i32, ptr %7, align 4
-  %5865 = icmp ne i32 %5864, 0
-  %5866 = select i1 %5865, i64 27, i64 7
-  %5867 = trunc i64 %5866 to i32
-  %5868 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5863, ptr noundef @.str.13, i32 noundef %5867, ptr noundef @.str.344)
-  %5869 = load i64, ptr %6, align 8
-  %5870 = load ptr, ptr %11, align 8
-  %5871 = call i64 @rb_str_cat_cstr(i64 noundef %5869, ptr noundef %5870)
+  %5864 = load i64, ptr %5, align 8
+  %5865 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5864, i64 noundef %5865)
+  %5866 = load i64, ptr %5, align 8
+  %5867 = load i32, ptr %7, align 4
+  %5868 = icmp ne i32 %5867, 0
+  %5869 = select i1 %5868, i64 27, i64 7
+  %5870 = trunc i64 %5869 to i32
+  %5871 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5866, ptr noundef @.str.13, i32 noundef %5870, ptr noundef @.str.344)
+  %5872 = load i64, ptr %6, align 8
+  %5873 = load ptr, ptr %11, align 8
+  %5874 = call i64 @rb_str_cat_cstr(i64 noundef %5872, ptr noundef %5873)
   store i32 1, ptr %9, align 4
-  br label %5872
+  br label %5875
 
-5872:                                             ; preds = %5882, %5860
-  %5873 = load i32, ptr %9, align 4
-  %5874 = icmp ne i32 %5873, 0
-  br i1 %5874, label %5875, label %5888
+5875:                                             ; preds = %5885, %5863
+  %5876 = load i32, ptr %9, align 4
+  %5877 = icmp ne i32 %5876, 0
+  br i1 %5877, label %5878, label %5891
 
-5875:                                             ; preds = %5872
-  %5876 = load i64, ptr %5, align 8
-  %5877 = load i64, ptr %6, align 8
-  %5878 = load i32, ptr %7, align 4
-  %5879 = load ptr, ptr %8, align 8
-  %5880 = getelementptr inbounds %struct.RNode_MODULE, ptr %5879, i32 0, i32 2
-  %5881 = load ptr, ptr %5880, align 8
-  call void @dump_node(i64 noundef %5876, i64 noundef %5877, i32 noundef %5878, ptr noundef %5881)
-  br label %5882
+5878:                                             ; preds = %5875
+  %5879 = load i64, ptr %5, align 8
+  %5880 = load i64, ptr %6, align 8
+  %5881 = load i32, ptr %7, align 4
+  %5882 = load ptr, ptr %8, align 8
+  %5883 = getelementptr inbounds %struct.RNode_MODULE, ptr %5882, i32 0, i32 2
+  %5884 = load ptr, ptr %5883, align 8
+  call void @dump_node(i64 noundef %5879, i64 noundef %5880, i32 noundef %5881, ptr noundef %5884)
+  br label %5885
 
-5882:                                             ; preds = %5875
-  %5883 = load i64, ptr %6, align 8
-  %5884 = load i64, ptr %6, align 8
-  %5885 = call i64 @RSTRING_LEN(i64 noundef %5884) #10
-  %5886 = sub i64 %5885, 4
-  %5887 = call i64 @rb_str_resize(i64 noundef %5883, i64 noundef %5886)
+5885:                                             ; preds = %5878
+  %5886 = load i64, ptr %6, align 8
+  %5887 = load i64, ptr %6, align 8
+  %5888 = call i64 @RSTRING_LEN(i64 noundef %5887) #10
+  %5889 = sub i64 %5888, 4
+  %5890 = call i64 @rb_str_resize(i64 noundef %5886, i64 noundef %5889)
   store i32 0, ptr %9, align 4
-  br label %5872, !llvm.loop !146
+  br label %5875, !llvm.loop !146
 
-5888:                                             ; preds = %5872
-  br label %7932
+5891:                                             ; preds = %5875
+  br label %7940
 
-5889:                                             ; preds = %24
-  %5890 = load i32, ptr %7, align 4
-  %5891 = icmp ne i32 %5890, 0
-  br i1 %5891, label %5892, label %5897
+5892:                                             ; preds = %24
+  %5893 = load i32, ptr %7, align 4
+  %5894 = icmp ne i32 %5893, 0
+  br i1 %5894, label %5895, label %5900
 
-5892:                                             ; preds = %5889
-  %5893 = load i64, ptr %5, align 8
-  %5894 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5893, i64 noundef %5894)
-  %5895 = load i64, ptr %5, align 8
-  %5896 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5895, ptr noundef @.str.345)
-  br label %5897
+5895:                                             ; preds = %5892
+  %5896 = load i64, ptr %5, align 8
+  %5897 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5896, i64 noundef %5897)
+  %5898 = load i64, ptr %5, align 8
+  %5899 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5898, ptr noundef @.str.345)
+  br label %5900
 
-5897:                                             ; preds = %5892, %5889
-  %5898 = load i32, ptr %7, align 4
-  %5899 = icmp ne i32 %5898, 0
-  br i1 %5899, label %5900, label %5905
+5900:                                             ; preds = %5895, %5892
+  %5901 = load i32, ptr %7, align 4
+  %5902 = icmp ne i32 %5901, 0
+  br i1 %5902, label %5903, label %5908
 
-5900:                                             ; preds = %5897
-  %5901 = load i64, ptr %5, align 8
-  %5902 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5901, i64 noundef %5902)
-  %5903 = load i64, ptr %5, align 8
-  %5904 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5903, ptr noundef @.str.346)
-  br label %5905
+5903:                                             ; preds = %5900
+  %5904 = load i64, ptr %5, align 8
+  %5905 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5904, i64 noundef %5905)
+  %5906 = load i64, ptr %5, align 8
+  %5907 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5906, ptr noundef @.str.346)
+  br label %5908
 
-5905:                                             ; preds = %5900, %5897
-  %5906 = load i32, ptr %7, align 4
-  %5907 = icmp ne i32 %5906, 0
-  br i1 %5907, label %5908, label %5913
+5908:                                             ; preds = %5903, %5900
+  %5909 = load i32, ptr %7, align 4
+  %5910 = icmp ne i32 %5909, 0
+  br i1 %5910, label %5911, label %5916
 
-5908:                                             ; preds = %5905
-  %5909 = load i64, ptr %5, align 8
-  %5910 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5909, i64 noundef %5910)
-  %5911 = load i64, ptr %5, align 8
-  %5912 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5911, ptr noundef @.str.347)
-  br label %5913
-
-5913:                                             ; preds = %5908, %5905
+5911:                                             ; preds = %5908
+  %5912 = load i64, ptr %5, align 8
+  %5913 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5912, i64 noundef %5913)
   %5914 = load i64, ptr %5, align 8
-  %5915 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5914, i64 noundef %5915)
-  %5916 = load i64, ptr %5, align 8
-  %5917 = load i32, ptr %7, align 4
-  %5918 = icmp ne i32 %5917, 0
-  %5919 = select i1 %5918, i64 18, i64 7
-  %5920 = trunc i64 %5919 to i32
-  %5921 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5916, ptr noundef @.str.13, i32 noundef %5920, ptr noundef @.str.151)
-  %5922 = load i64, ptr %6, align 8
-  %5923 = load ptr, ptr %11, align 8
-  %5924 = call i64 @rb_str_cat_cstr(i64 noundef %5922, ptr noundef %5923)
+  %5915 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5914, ptr noundef @.str.347)
+  br label %5916
+
+5916:                                             ; preds = %5911, %5908
+  %5917 = load i64, ptr %5, align 8
+  %5918 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5917, i64 noundef %5918)
+  %5919 = load i64, ptr %5, align 8
+  %5920 = load i32, ptr %7, align 4
+  %5921 = icmp ne i32 %5920, 0
+  %5922 = select i1 %5921, i64 18, i64 7
+  %5923 = trunc i64 %5922 to i32
+  %5924 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5919, ptr noundef @.str.13, i32 noundef %5923, ptr noundef @.str.151)
+  %5925 = load i64, ptr %6, align 8
+  %5926 = load ptr, ptr %11, align 8
+  %5927 = call i64 @rb_str_cat_cstr(i64 noundef %5925, ptr noundef %5926)
   store i32 1, ptr %9, align 4
-  br label %5925
+  br label %5928
 
-5925:                                             ; preds = %5935, %5913
-  %5926 = load i32, ptr %9, align 4
-  %5927 = icmp ne i32 %5926, 0
-  br i1 %5927, label %5928, label %5941
+5928:                                             ; preds = %5938, %5916
+  %5929 = load i32, ptr %9, align 4
+  %5930 = icmp ne i32 %5929, 0
+  br i1 %5930, label %5931, label %5944
 
-5928:                                             ; preds = %5925
-  %5929 = load i64, ptr %5, align 8
-  %5930 = load i64, ptr %6, align 8
-  %5931 = load i32, ptr %7, align 4
-  %5932 = load ptr, ptr %8, align 8
-  %5933 = getelementptr inbounds %struct.RNode_SCLASS, ptr %5932, i32 0, i32 1
-  %5934 = load ptr, ptr %5933, align 8
-  call void @dump_node(i64 noundef %5929, i64 noundef %5930, i32 noundef %5931, ptr noundef %5934)
-  br label %5935
+5931:                                             ; preds = %5928
+  %5932 = load i64, ptr %5, align 8
+  %5933 = load i64, ptr %6, align 8
+  %5934 = load i32, ptr %7, align 4
+  %5935 = load ptr, ptr %8, align 8
+  %5936 = getelementptr inbounds %struct.RNode_SCLASS, ptr %5935, i32 0, i32 1
+  %5937 = load ptr, ptr %5936, align 8
+  call void @dump_node(i64 noundef %5932, i64 noundef %5933, i32 noundef %5934, ptr noundef %5937)
+  br label %5938
 
-5935:                                             ; preds = %5928
-  %5936 = load i64, ptr %6, align 8
-  %5937 = load i64, ptr %6, align 8
-  %5938 = call i64 @RSTRING_LEN(i64 noundef %5937) #10
-  %5939 = sub i64 %5938, 4
-  %5940 = call i64 @rb_str_resize(i64 noundef %5936, i64 noundef %5939)
+5938:                                             ; preds = %5931
+  %5939 = load i64, ptr %6, align 8
+  %5940 = load i64, ptr %6, align 8
+  %5941 = call i64 @RSTRING_LEN(i64 noundef %5940) #10
+  %5942 = sub i64 %5941, 4
+  %5943 = call i64 @rb_str_resize(i64 noundef %5939, i64 noundef %5942)
   store i32 0, ptr %9, align 4
-  br label %5925, !llvm.loop !147
+  br label %5928, !llvm.loop !147
 
-5941:                                             ; preds = %5925
+5944:                                             ; preds = %5928
   store ptr @.str.12, ptr %11, align 8
-  %5942 = load i64, ptr %5, align 8
-  %5943 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5942, i64 noundef %5943)
-  %5944 = load i64, ptr %5, align 8
-  %5945 = load i32, ptr %7, align 4
-  %5946 = icmp ne i32 %5945, 0
-  %5947 = select i1 %5946, i64 36, i64 7
-  %5948 = trunc i64 %5947 to i32
-  %5949 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5944, ptr noundef @.str.13, i32 noundef %5948, ptr noundef @.str.348)
-  %5950 = load i64, ptr %6, align 8
-  %5951 = load ptr, ptr %11, align 8
-  %5952 = call i64 @rb_str_cat_cstr(i64 noundef %5950, ptr noundef %5951)
+  %5945 = load i64, ptr %5, align 8
+  %5946 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5945, i64 noundef %5946)
+  %5947 = load i64, ptr %5, align 8
+  %5948 = load i32, ptr %7, align 4
+  %5949 = icmp ne i32 %5948, 0
+  %5950 = select i1 %5949, i64 36, i64 7
+  %5951 = trunc i64 %5950 to i32
+  %5952 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5947, ptr noundef @.str.13, i32 noundef %5951, ptr noundef @.str.348)
+  %5953 = load i64, ptr %6, align 8
+  %5954 = load ptr, ptr %11, align 8
+  %5955 = call i64 @rb_str_cat_cstr(i64 noundef %5953, ptr noundef %5954)
   store i32 1, ptr %9, align 4
-  br label %5953
+  br label %5956
 
-5953:                                             ; preds = %5963, %5941
-  %5954 = load i32, ptr %9, align 4
-  %5955 = icmp ne i32 %5954, 0
-  br i1 %5955, label %5956, label %5969
+5956:                                             ; preds = %5966, %5944
+  %5957 = load i32, ptr %9, align 4
+  %5958 = icmp ne i32 %5957, 0
+  br i1 %5958, label %5959, label %5972
 
-5956:                                             ; preds = %5953
-  %5957 = load i64, ptr %5, align 8
-  %5958 = load i64, ptr %6, align 8
-  %5959 = load i32, ptr %7, align 4
-  %5960 = load ptr, ptr %8, align 8
-  %5961 = getelementptr inbounds %struct.RNode_SCLASS, ptr %5960, i32 0, i32 2
-  %5962 = load ptr, ptr %5961, align 8
-  call void @dump_node(i64 noundef %5957, i64 noundef %5958, i32 noundef %5959, ptr noundef %5962)
-  br label %5963
+5959:                                             ; preds = %5956
+  %5960 = load i64, ptr %5, align 8
+  %5961 = load i64, ptr %6, align 8
+  %5962 = load i32, ptr %7, align 4
+  %5963 = load ptr, ptr %8, align 8
+  %5964 = getelementptr inbounds %struct.RNode_SCLASS, ptr %5963, i32 0, i32 2
+  %5965 = load ptr, ptr %5964, align 8
+  call void @dump_node(i64 noundef %5960, i64 noundef %5961, i32 noundef %5962, ptr noundef %5965)
+  br label %5966
 
-5963:                                             ; preds = %5956
-  %5964 = load i64, ptr %6, align 8
-  %5965 = load i64, ptr %6, align 8
-  %5966 = call i64 @RSTRING_LEN(i64 noundef %5965) #10
-  %5967 = sub i64 %5966, 4
-  %5968 = call i64 @rb_str_resize(i64 noundef %5964, i64 noundef %5967)
+5966:                                             ; preds = %5959
+  %5967 = load i64, ptr %6, align 8
+  %5968 = load i64, ptr %6, align 8
+  %5969 = call i64 @RSTRING_LEN(i64 noundef %5968) #10
+  %5970 = sub i64 %5969, 4
+  %5971 = call i64 @rb_str_resize(i64 noundef %5967, i64 noundef %5970)
   store i32 0, ptr %9, align 4
-  br label %5953, !llvm.loop !148
+  br label %5956, !llvm.loop !148
 
-5969:                                             ; preds = %5953
-  br label %7932
+5972:                                             ; preds = %5956
+  br label %7940
 
-5970:                                             ; preds = %24
-  %5971 = load i32, ptr %7, align 4
-  %5972 = icmp ne i32 %5971, 0
-  br i1 %5972, label %5973, label %5978
+5973:                                             ; preds = %24
+  %5974 = load i32, ptr %7, align 4
+  %5975 = icmp ne i32 %5974, 0
+  br i1 %5975, label %5976, label %5981
 
-5973:                                             ; preds = %5970
-  %5974 = load i64, ptr %5, align 8
-  %5975 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5974, i64 noundef %5975)
-  %5976 = load i64, ptr %5, align 8
-  %5977 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5976, ptr noundef @.str.349)
-  br label %5978
+5976:                                             ; preds = %5973
+  %5977 = load i64, ptr %5, align 8
+  %5978 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5977, i64 noundef %5978)
+  %5979 = load i64, ptr %5, align 8
+  %5980 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5979, ptr noundef @.str.349)
+  br label %5981
 
-5978:                                             ; preds = %5973, %5970
-  %5979 = load i32, ptr %7, align 4
-  %5980 = icmp ne i32 %5979, 0
-  br i1 %5980, label %5981, label %5986
+5981:                                             ; preds = %5976, %5973
+  %5982 = load i32, ptr %7, align 4
+  %5983 = icmp ne i32 %5982, 0
+  br i1 %5983, label %5984, label %5989
 
-5981:                                             ; preds = %5978
-  %5982 = load i64, ptr %5, align 8
-  %5983 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5982, i64 noundef %5983)
-  %5984 = load i64, ptr %5, align 8
-  %5985 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5984, ptr noundef @.str.350)
-  br label %5986
+5984:                                             ; preds = %5981
+  %5985 = load i64, ptr %5, align 8
+  %5986 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5985, i64 noundef %5986)
+  %5987 = load i64, ptr %5, align 8
+  %5988 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5987, ptr noundef @.str.350)
+  br label %5989
 
-5986:                                             ; preds = %5981, %5978
-  %5987 = load i32, ptr %7, align 4
-  %5988 = icmp ne i32 %5987, 0
-  br i1 %5988, label %5989, label %5994
+5989:                                             ; preds = %5984, %5981
+  %5990 = load i32, ptr %7, align 4
+  %5991 = icmp ne i32 %5990, 0
+  br i1 %5991, label %5992, label %5997
 
-5989:                                             ; preds = %5986
-  %5990 = load i64, ptr %5, align 8
-  %5991 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5990, i64 noundef %5991)
-  %5992 = load i64, ptr %5, align 8
-  %5993 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5992, ptr noundef @.str.351)
-  br label %5994
-
-5994:                                             ; preds = %5989, %5986
+5992:                                             ; preds = %5989
+  %5993 = load i64, ptr %5, align 8
+  %5994 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5993, i64 noundef %5994)
   %5995 = load i64, ptr %5, align 8
-  %5996 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %5995, i64 noundef %5996)
-  %5997 = load i64, ptr %5, align 8
-  %5998 = load i32, ptr %7, align 4
-  %5999 = icmp ne i32 %5998, 0
-  %6000 = select i1 %5999, i64 22, i64 6
-  %6001 = trunc i64 %6000 to i32
-  %6002 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5997, ptr noundef @.str.51, i32 noundef %6001, ptr noundef @.str.352)
+  %5996 = call i64 @rbimpl_str_cat_cstr(i64 noundef %5995, ptr noundef @.str.351)
+  br label %5997
+
+5997:                                             ; preds = %5992, %5989
+  %5998 = load i64, ptr %5, align 8
+  %5999 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %5998, i64 noundef %5999)
+  %6000 = load i64, ptr %5, align 8
+  %6001 = load i32, ptr %7, align 4
+  %6002 = icmp ne i32 %6001, 0
+  %6003 = select i1 %6002, i64 22, i64 6
+  %6004 = trunc i64 %6003 to i32
+  %6005 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6000, ptr noundef @.str.51, i32 noundef %6004, ptr noundef @.str.352)
   store i32 1, ptr %9, align 4
-  br label %6003
+  br label %6006
 
-6003:                                             ; preds = %6011, %5994
-  %6004 = load i32, ptr %9, align 4
-  %6005 = icmp ne i32 %6004, 0
-  br i1 %6005, label %6006, label %6014
+6006:                                             ; preds = %6014, %5997
+  %6007 = load i32, ptr %9, align 4
+  %6008 = icmp ne i32 %6007, 0
+  br i1 %6008, label %6009, label %6017
 
-6006:                                             ; preds = %6003
-  %6007 = load i64, ptr %5, align 8
-  %6008 = load ptr, ptr %8, align 8
-  %6009 = getelementptr inbounds %struct.RNode_COLON2, ptr %6008, i32 0, i32 2
-  %6010 = load i64, ptr %6009, align 8
-  call void @add_id(i64 noundef %6007, i64 noundef %6010)
-  br label %6011
+6009:                                             ; preds = %6006
+  %6010 = load i64, ptr %5, align 8
+  %6011 = load ptr, ptr %8, align 8
+  %6012 = getelementptr inbounds %struct.RNode_COLON2, ptr %6011, i32 0, i32 2
+  %6013 = load i64, ptr %6012, align 8
+  call void @add_id(i64 noundef %6010, i64 noundef %6013)
+  br label %6014
 
-6011:                                             ; preds = %6006
-  %6012 = load i64, ptr %5, align 8
-  %6013 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6012, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %6003, !llvm.loop !149
-
-6014:                                             ; preds = %6003
-  store ptr @.str.12, ptr %11, align 8
+6014:                                             ; preds = %6009
   %6015 = load i64, ptr %5, align 8
-  %6016 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6015, i64 noundef %6016)
-  %6017 = load i64, ptr %5, align 8
-  %6018 = load i32, ptr %7, align 4
-  %6019 = icmp ne i32 %6018, 0
-  %6020 = select i1 %6019, i64 18, i64 7
-  %6021 = trunc i64 %6020 to i32
-  %6022 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6017, ptr noundef @.str.13, i32 noundef %6021, ptr noundef @.str.353)
-  %6023 = load i64, ptr %6, align 8
-  %6024 = load ptr, ptr %11, align 8
-  %6025 = call i64 @rb_str_cat_cstr(i64 noundef %6023, ptr noundef %6024)
-  store i32 1, ptr %9, align 4
-  br label %6026
-
-6026:                                             ; preds = %6036, %6014
-  %6027 = load i32, ptr %9, align 4
-  %6028 = icmp ne i32 %6027, 0
-  br i1 %6028, label %6029, label %6042
-
-6029:                                             ; preds = %6026
-  %6030 = load i64, ptr %5, align 8
-  %6031 = load i64, ptr %6, align 8
-  %6032 = load i32, ptr %7, align 4
-  %6033 = load ptr, ptr %8, align 8
-  %6034 = getelementptr inbounds %struct.RNode_COLON2, ptr %6033, i32 0, i32 1
-  %6035 = load ptr, ptr %6034, align 8
-  call void @dump_node(i64 noundef %6030, i64 noundef %6031, i32 noundef %6032, ptr noundef %6035)
-  br label %6036
-
-6036:                                             ; preds = %6029
-  %6037 = load i64, ptr %6, align 8
-  %6038 = load i64, ptr %6, align 8
-  %6039 = call i64 @RSTRING_LEN(i64 noundef %6038) #10
-  %6040 = sub i64 %6039, 4
-  %6041 = call i64 @rb_str_resize(i64 noundef %6037, i64 noundef %6040)
+  %6016 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6015, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %6026, !llvm.loop !150
+  br label %6006, !llvm.loop !149
 
-6042:                                             ; preds = %6026
-  br label %7932
+6017:                                             ; preds = %6006
+  store ptr @.str.12, ptr %11, align 8
+  %6018 = load i64, ptr %5, align 8
+  %6019 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6018, i64 noundef %6019)
+  %6020 = load i64, ptr %5, align 8
+  %6021 = load i32, ptr %7, align 4
+  %6022 = icmp ne i32 %6021, 0
+  %6023 = select i1 %6022, i64 18, i64 7
+  %6024 = trunc i64 %6023 to i32
+  %6025 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6020, ptr noundef @.str.13, i32 noundef %6024, ptr noundef @.str.353)
+  %6026 = load i64, ptr %6, align 8
+  %6027 = load ptr, ptr %11, align 8
+  %6028 = call i64 @rb_str_cat_cstr(i64 noundef %6026, ptr noundef %6027)
+  store i32 1, ptr %9, align 4
+  br label %6029
 
-6043:                                             ; preds = %24
-  %6044 = load i32, ptr %7, align 4
-  %6045 = icmp ne i32 %6044, 0
-  br i1 %6045, label %6046, label %6051
+6029:                                             ; preds = %6039, %6017
+  %6030 = load i32, ptr %9, align 4
+  %6031 = icmp ne i32 %6030, 0
+  br i1 %6031, label %6032, label %6045
 
-6046:                                             ; preds = %6043
-  %6047 = load i64, ptr %5, align 8
-  %6048 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6047, i64 noundef %6048)
-  %6049 = load i64, ptr %5, align 8
-  %6050 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6049, ptr noundef @.str.354)
-  br label %6051
+6032:                                             ; preds = %6029
+  %6033 = load i64, ptr %5, align 8
+  %6034 = load i64, ptr %6, align 8
+  %6035 = load i32, ptr %7, align 4
+  %6036 = load ptr, ptr %8, align 8
+  %6037 = getelementptr inbounds %struct.RNode_COLON2, ptr %6036, i32 0, i32 1
+  %6038 = load ptr, ptr %6037, align 8
+  call void @dump_node(i64 noundef %6033, i64 noundef %6034, i32 noundef %6035, ptr noundef %6038)
+  br label %6039
 
-6051:                                             ; preds = %6046, %6043
-  %6052 = load i32, ptr %7, align 4
-  %6053 = icmp ne i32 %6052, 0
-  br i1 %6053, label %6054, label %6059
+6039:                                             ; preds = %6032
+  %6040 = load i64, ptr %6, align 8
+  %6041 = load i64, ptr %6, align 8
+  %6042 = call i64 @RSTRING_LEN(i64 noundef %6041) #10
+  %6043 = sub i64 %6042, 4
+  %6044 = call i64 @rb_str_resize(i64 noundef %6040, i64 noundef %6043)
+  store i32 0, ptr %9, align 4
+  br label %6029, !llvm.loop !150
 
-6054:                                             ; preds = %6051
-  %6055 = load i64, ptr %5, align 8
-  %6056 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6055, i64 noundef %6056)
-  %6057 = load i64, ptr %5, align 8
-  %6058 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6057, ptr noundef @.str.355)
-  br label %6059
+6045:                                             ; preds = %6029
+  br label %7940
 
-6059:                                             ; preds = %6054, %6051
-  %6060 = load i32, ptr %7, align 4
-  %6061 = icmp ne i32 %6060, 0
-  br i1 %6061, label %6062, label %6067
+6046:                                             ; preds = %24
+  %6047 = load i32, ptr %7, align 4
+  %6048 = icmp ne i32 %6047, 0
+  br i1 %6048, label %6049, label %6054
 
-6062:                                             ; preds = %6059
-  %6063 = load i64, ptr %5, align 8
-  %6064 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6063, i64 noundef %6064)
-  %6065 = load i64, ptr %5, align 8
-  %6066 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6065, ptr noundef @.str.356)
-  br label %6067
+6049:                                             ; preds = %6046
+  %6050 = load i64, ptr %5, align 8
+  %6051 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6050, i64 noundef %6051)
+  %6052 = load i64, ptr %5, align 8
+  %6053 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6052, ptr noundef @.str.354)
+  br label %6054
 
-6067:                                             ; preds = %6062, %6059
+6054:                                             ; preds = %6049, %6046
+  %6055 = load i32, ptr %7, align 4
+  %6056 = icmp ne i32 %6055, 0
+  br i1 %6056, label %6057, label %6062
+
+6057:                                             ; preds = %6054
+  %6058 = load i64, ptr %5, align 8
+  %6059 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6058, i64 noundef %6059)
+  %6060 = load i64, ptr %5, align 8
+  %6061 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6060, ptr noundef @.str.355)
+  br label %6062
+
+6062:                                             ; preds = %6057, %6054
+  %6063 = load i32, ptr %7, align 4
+  %6064 = icmp ne i32 %6063, 0
+  br i1 %6064, label %6065, label %6070
+
+6065:                                             ; preds = %6062
+  %6066 = load i64, ptr %5, align 8
+  %6067 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6066, i64 noundef %6067)
   %6068 = load i64, ptr %5, align 8
-  %6069 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6068, i64 noundef %6069)
-  %6070 = load i64, ptr %5, align 8
-  %6071 = load i32, ptr %7, align 4
-  %6072 = icmp ne i32 %6071, 0
-  %6073 = select i1 %6072, i64 22, i64 6
-  %6074 = trunc i64 %6073 to i32
-  %6075 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6070, ptr noundef @.str.51, i32 noundef %6074, ptr noundef @.str.352)
+  %6069 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6068, ptr noundef @.str.356)
+  br label %6070
+
+6070:                                             ; preds = %6065, %6062
+  %6071 = load i64, ptr %5, align 8
+  %6072 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6071, i64 noundef %6072)
+  %6073 = load i64, ptr %5, align 8
+  %6074 = load i32, ptr %7, align 4
+  %6075 = icmp ne i32 %6074, 0
+  %6076 = select i1 %6075, i64 22, i64 6
+  %6077 = trunc i64 %6076 to i32
+  %6078 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6073, ptr noundef @.str.51, i32 noundef %6077, ptr noundef @.str.352)
   store i32 1, ptr %9, align 4
-  br label %6076
+  br label %6079
 
-6076:                                             ; preds = %6084, %6067
-  %6077 = load i32, ptr %9, align 4
-  %6078 = icmp ne i32 %6077, 0
-  br i1 %6078, label %6079, label %6087
+6079:                                             ; preds = %6087, %6070
+  %6080 = load i32, ptr %9, align 4
+  %6081 = icmp ne i32 %6080, 0
+  br i1 %6081, label %6082, label %6090
 
-6079:                                             ; preds = %6076
-  %6080 = load i64, ptr %5, align 8
-  %6081 = load ptr, ptr %8, align 8
-  %6082 = getelementptr inbounds %struct.RNode_COLON3, ptr %6081, i32 0, i32 1
-  %6083 = load i64, ptr %6082, align 8
-  call void @add_id(i64 noundef %6080, i64 noundef %6083)
-  br label %6084
+6082:                                             ; preds = %6079
+  %6083 = load i64, ptr %5, align 8
+  %6084 = load ptr, ptr %8, align 8
+  %6085 = getelementptr inbounds %struct.RNode_COLON3, ptr %6084, i32 0, i32 1
+  %6086 = load i64, ptr %6085, align 8
+  call void @add_id(i64 noundef %6083, i64 noundef %6086)
+  br label %6087
 
-6084:                                             ; preds = %6079
-  %6085 = load i64, ptr %5, align 8
-  %6086 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6085, ptr noundef @.str.56)
+6087:                                             ; preds = %6082
+  %6088 = load i64, ptr %5, align 8
+  %6089 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6088, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %6076, !llvm.loop !151
+  br label %6079, !llvm.loop !151
 
-6087:                                             ; preds = %6076
-  br label %7932
+6090:                                             ; preds = %6079
+  br label %7940
 
-6088:                                             ; preds = %24
-  %6089 = load i32, ptr %7, align 4
-  %6090 = icmp ne i32 %6089, 0
-  br i1 %6090, label %6091, label %6096
+6091:                                             ; preds = %24
+  %6092 = load i32, ptr %7, align 4
+  %6093 = icmp ne i32 %6092, 0
+  br i1 %6093, label %6094, label %6099
 
-6091:                                             ; preds = %6088
-  %6092 = load i64, ptr %5, align 8
-  %6093 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6092, i64 noundef %6093)
-  %6094 = load i64, ptr %5, align 8
-  %6095 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6094, ptr noundef @.str.357)
-  br label %6096
+6094:                                             ; preds = %6091
+  %6095 = load i64, ptr %5, align 8
+  %6096 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6095, i64 noundef %6096)
+  %6097 = load i64, ptr %5, align 8
+  %6098 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6097, ptr noundef @.str.357)
+  br label %6099
 
-6096:                                             ; preds = %6091, %6088
-  %6097 = load i32, ptr %7, align 4
-  %6098 = icmp ne i32 %6097, 0
-  br i1 %6098, label %6099, label %6104
+6099:                                             ; preds = %6094, %6091
+  %6100 = load i32, ptr %7, align 4
+  %6101 = icmp ne i32 %6100, 0
+  br i1 %6101, label %6102, label %6107
 
-6099:                                             ; preds = %6096
-  %6100 = load i64, ptr %5, align 8
-  %6101 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6100, i64 noundef %6101)
-  %6102 = load i64, ptr %5, align 8
-  %6103 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6102, ptr noundef @.str.358)
-  br label %6104
+6102:                                             ; preds = %6099
+  %6103 = load i64, ptr %5, align 8
+  %6104 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6103, i64 noundef %6104)
+  %6105 = load i64, ptr %5, align 8
+  %6106 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6105, ptr noundef @.str.358)
+  br label %6107
 
-6104:                                             ; preds = %6099, %6096
-  %6105 = load i32, ptr %7, align 4
-  %6106 = icmp ne i32 %6105, 0
-  br i1 %6106, label %6107, label %6112
+6107:                                             ; preds = %6102, %6099
+  %6108 = load i32, ptr %7, align 4
+  %6109 = icmp ne i32 %6108, 0
+  br i1 %6109, label %6110, label %6115
 
-6107:                                             ; preds = %6104
-  %6108 = load i64, ptr %5, align 8
-  %6109 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6108, i64 noundef %6109)
-  %6110 = load i64, ptr %5, align 8
-  %6111 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6110, ptr noundef @.str.359)
-  br label %6112
+6110:                                             ; preds = %6107
+  %6111 = load i64, ptr %5, align 8
+  %6112 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6111, i64 noundef %6112)
+  %6113 = load i64, ptr %5, align 8
+  %6114 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6113, ptr noundef @.str.359)
+  br label %6115
 
-6112:                                             ; preds = %6107, %6104
-  br label %6188
+6115:                                             ; preds = %6110, %6107
+  br label %6191
 
-6113:                                             ; preds = %24
-  %6114 = load i32, ptr %7, align 4
-  %6115 = icmp ne i32 %6114, 0
-  br i1 %6115, label %6116, label %6121
+6116:                                             ; preds = %24
+  %6117 = load i32, ptr %7, align 4
+  %6118 = icmp ne i32 %6117, 0
+  br i1 %6118, label %6119, label %6124
 
-6116:                                             ; preds = %6113
-  %6117 = load i64, ptr %5, align 8
-  %6118 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6117, i64 noundef %6118)
-  %6119 = load i64, ptr %5, align 8
-  %6120 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6119, ptr noundef @.str.360)
-  br label %6121
+6119:                                             ; preds = %6116
+  %6120 = load i64, ptr %5, align 8
+  %6121 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6120, i64 noundef %6121)
+  %6122 = load i64, ptr %5, align 8
+  %6123 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6122, ptr noundef @.str.360)
+  br label %6124
 
-6121:                                             ; preds = %6116, %6113
-  %6122 = load i32, ptr %7, align 4
-  %6123 = icmp ne i32 %6122, 0
-  br i1 %6123, label %6124, label %6129
+6124:                                             ; preds = %6119, %6116
+  %6125 = load i32, ptr %7, align 4
+  %6126 = icmp ne i32 %6125, 0
+  br i1 %6126, label %6127, label %6132
 
-6124:                                             ; preds = %6121
-  %6125 = load i64, ptr %5, align 8
-  %6126 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6125, i64 noundef %6126)
-  %6127 = load i64, ptr %5, align 8
-  %6128 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6127, ptr noundef @.str.361)
-  br label %6129
+6127:                                             ; preds = %6124
+  %6128 = load i64, ptr %5, align 8
+  %6129 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6128, i64 noundef %6129)
+  %6130 = load i64, ptr %5, align 8
+  %6131 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6130, ptr noundef @.str.361)
+  br label %6132
 
-6129:                                             ; preds = %6124, %6121
-  %6130 = load i32, ptr %7, align 4
-  %6131 = icmp ne i32 %6130, 0
-  br i1 %6131, label %6132, label %6137
+6132:                                             ; preds = %6127, %6124
+  %6133 = load i32, ptr %7, align 4
+  %6134 = icmp ne i32 %6133, 0
+  br i1 %6134, label %6135, label %6140
 
-6132:                                             ; preds = %6129
-  %6133 = load i64, ptr %5, align 8
-  %6134 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6133, i64 noundef %6134)
-  %6135 = load i64, ptr %5, align 8
-  %6136 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6135, ptr noundef @.str.362)
-  br label %6137
+6135:                                             ; preds = %6132
+  %6136 = load i64, ptr %5, align 8
+  %6137 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6136, i64 noundef %6137)
+  %6138 = load i64, ptr %5, align 8
+  %6139 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6138, ptr noundef @.str.362)
+  br label %6140
 
-6137:                                             ; preds = %6132, %6129
-  br label %6188
+6140:                                             ; preds = %6135, %6132
+  br label %6191
 
-6138:                                             ; preds = %24
-  %6139 = load i32, ptr %7, align 4
-  %6140 = icmp ne i32 %6139, 0
-  br i1 %6140, label %6141, label %6146
+6141:                                             ; preds = %24
+  %6142 = load i32, ptr %7, align 4
+  %6143 = icmp ne i32 %6142, 0
+  br i1 %6143, label %6144, label %6149
 
-6141:                                             ; preds = %6138
-  %6142 = load i64, ptr %5, align 8
-  %6143 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6142, i64 noundef %6143)
-  %6144 = load i64, ptr %5, align 8
-  %6145 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6144, ptr noundef @.str.363)
-  br label %6146
+6144:                                             ; preds = %6141
+  %6145 = load i64, ptr %5, align 8
+  %6146 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6145, i64 noundef %6146)
+  %6147 = load i64, ptr %5, align 8
+  %6148 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6147, ptr noundef @.str.363)
+  br label %6149
 
-6146:                                             ; preds = %6141, %6138
-  %6147 = load i32, ptr %7, align 4
-  %6148 = icmp ne i32 %6147, 0
-  br i1 %6148, label %6149, label %6154
+6149:                                             ; preds = %6144, %6141
+  %6150 = load i32, ptr %7, align 4
+  %6151 = icmp ne i32 %6150, 0
+  br i1 %6151, label %6152, label %6157
 
-6149:                                             ; preds = %6146
-  %6150 = load i64, ptr %5, align 8
-  %6151 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6150, i64 noundef %6151)
-  %6152 = load i64, ptr %5, align 8
-  %6153 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6152, ptr noundef @.str.358)
-  br label %6154
+6152:                                             ; preds = %6149
+  %6153 = load i64, ptr %5, align 8
+  %6154 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6153, i64 noundef %6154)
+  %6155 = load i64, ptr %5, align 8
+  %6156 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6155, ptr noundef @.str.358)
+  br label %6157
 
-6154:                                             ; preds = %6149, %6146
-  %6155 = load i32, ptr %7, align 4
-  %6156 = icmp ne i32 %6155, 0
-  br i1 %6156, label %6157, label %6162
+6157:                                             ; preds = %6152, %6149
+  %6158 = load i32, ptr %7, align 4
+  %6159 = icmp ne i32 %6158, 0
+  br i1 %6159, label %6160, label %6165
 
-6157:                                             ; preds = %6154
-  %6158 = load i64, ptr %5, align 8
-  %6159 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6158, i64 noundef %6159)
-  %6160 = load i64, ptr %5, align 8
-  %6161 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6160, ptr noundef @.str.364)
-  br label %6162
+6160:                                             ; preds = %6157
+  %6161 = load i64, ptr %5, align 8
+  %6162 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6161, i64 noundef %6162)
+  %6163 = load i64, ptr %5, align 8
+  %6164 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6163, ptr noundef @.str.364)
+  br label %6165
 
-6162:                                             ; preds = %6157, %6154
-  br label %6188
+6165:                                             ; preds = %6160, %6157
+  br label %6191
 
-6163:                                             ; preds = %24
-  %6164 = load i32, ptr %7, align 4
-  %6165 = icmp ne i32 %6164, 0
-  br i1 %6165, label %6166, label %6171
+6166:                                             ; preds = %24
+  %6167 = load i32, ptr %7, align 4
+  %6168 = icmp ne i32 %6167, 0
+  br i1 %6168, label %6169, label %6174
 
-6166:                                             ; preds = %6163
-  %6167 = load i64, ptr %5, align 8
-  %6168 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6167, i64 noundef %6168)
-  %6169 = load i64, ptr %5, align 8
-  %6170 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6169, ptr noundef @.str.365)
-  br label %6171
+6169:                                             ; preds = %6166
+  %6170 = load i64, ptr %5, align 8
+  %6171 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6170, i64 noundef %6171)
+  %6172 = load i64, ptr %5, align 8
+  %6173 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6172, ptr noundef @.str.365)
+  br label %6174
 
-6171:                                             ; preds = %6166, %6163
-  %6172 = load i32, ptr %7, align 4
-  %6173 = icmp ne i32 %6172, 0
-  br i1 %6173, label %6174, label %6179
+6174:                                             ; preds = %6169, %6166
+  %6175 = load i32, ptr %7, align 4
+  %6176 = icmp ne i32 %6175, 0
+  br i1 %6176, label %6177, label %6182
 
-6174:                                             ; preds = %6171
-  %6175 = load i64, ptr %5, align 8
-  %6176 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6175, i64 noundef %6176)
-  %6177 = load i64, ptr %5, align 8
-  %6178 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6177, ptr noundef @.str.361)
-  br label %6179
+6177:                                             ; preds = %6174
+  %6178 = load i64, ptr %5, align 8
+  %6179 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6178, i64 noundef %6179)
+  %6180 = load i64, ptr %5, align 8
+  %6181 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6180, ptr noundef @.str.361)
+  br label %6182
 
-6179:                                             ; preds = %6174, %6171
-  %6180 = load i32, ptr %7, align 4
-  %6181 = icmp ne i32 %6180, 0
-  br i1 %6181, label %6182, label %6187
+6182:                                             ; preds = %6177, %6174
+  %6183 = load i32, ptr %7, align 4
+  %6184 = icmp ne i32 %6183, 0
+  br i1 %6184, label %6185, label %6190
 
-6182:                                             ; preds = %6179
-  %6183 = load i64, ptr %5, align 8
-  %6184 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6183, i64 noundef %6184)
-  %6185 = load i64, ptr %5, align 8
-  %6186 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6185, ptr noundef @.str.366)
-  br label %6187
+6185:                                             ; preds = %6182
+  %6186 = load i64, ptr %5, align 8
+  %6187 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6186, i64 noundef %6187)
+  %6188 = load i64, ptr %5, align 8
+  %6189 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6188, ptr noundef @.str.366)
+  br label %6190
 
-6187:                                             ; preds = %6182, %6179
-  br label %6188
+6190:                                             ; preds = %6185, %6182
+  br label %6191
 
-6188:                                             ; preds = %6187, %6162, %6137, %6112
-  %6189 = load i64, ptr %5, align 8
-  %6190 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6189, i64 noundef %6190)
-  %6191 = load i64, ptr %5, align 8
-  %6192 = load i32, ptr %7, align 4
-  %6193 = icmp ne i32 %6192, 0
-  %6194 = select i1 %6193, i64 14, i64 6
-  %6195 = trunc i64 %6194 to i32
-  %6196 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6191, ptr noundef @.str.13, i32 noundef %6195, ptr noundef @.str.367)
-  %6197 = load i64, ptr %6, align 8
-  %6198 = load ptr, ptr %11, align 8
-  %6199 = call i64 @rb_str_cat_cstr(i64 noundef %6197, ptr noundef %6198)
+6191:                                             ; preds = %6190, %6165, %6140, %6115
+  %6192 = load i64, ptr %5, align 8
+  %6193 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6192, i64 noundef %6193)
+  %6194 = load i64, ptr %5, align 8
+  %6195 = load i32, ptr %7, align 4
+  %6196 = icmp ne i32 %6195, 0
+  %6197 = select i1 %6196, i64 14, i64 6
+  %6198 = trunc i64 %6197 to i32
+  %6199 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6194, ptr noundef @.str.13, i32 noundef %6198, ptr noundef @.str.367)
+  %6200 = load i64, ptr %6, align 8
+  %6201 = load ptr, ptr %11, align 8
+  %6202 = call i64 @rb_str_cat_cstr(i64 noundef %6200, ptr noundef %6201)
   store i32 1, ptr %9, align 4
-  br label %6200
+  br label %6203
 
-6200:                                             ; preds = %6210, %6188
-  %6201 = load i32, ptr %9, align 4
-  %6202 = icmp ne i32 %6201, 0
-  br i1 %6202, label %6203, label %6216
+6203:                                             ; preds = %6213, %6191
+  %6204 = load i32, ptr %9, align 4
+  %6205 = icmp ne i32 %6204, 0
+  br i1 %6205, label %6206, label %6219
 
-6203:                                             ; preds = %6200
-  %6204 = load i64, ptr %5, align 8
-  %6205 = load i64, ptr %6, align 8
-  %6206 = load i32, ptr %7, align 4
-  %6207 = load ptr, ptr %8, align 8
-  %6208 = getelementptr inbounds %struct.RNode_DOT2, ptr %6207, i32 0, i32 1
-  %6209 = load ptr, ptr %6208, align 8
-  call void @dump_node(i64 noundef %6204, i64 noundef %6205, i32 noundef %6206, ptr noundef %6209)
-  br label %6210
+6206:                                             ; preds = %6203
+  %6207 = load i64, ptr %5, align 8
+  %6208 = load i64, ptr %6, align 8
+  %6209 = load i32, ptr %7, align 4
+  %6210 = load ptr, ptr %8, align 8
+  %6211 = getelementptr inbounds %struct.RNode_DOT2, ptr %6210, i32 0, i32 1
+  %6212 = load ptr, ptr %6211, align 8
+  call void @dump_node(i64 noundef %6207, i64 noundef %6208, i32 noundef %6209, ptr noundef %6212)
+  br label %6213
 
-6210:                                             ; preds = %6203
-  %6211 = load i64, ptr %6, align 8
-  %6212 = load i64, ptr %6, align 8
-  %6213 = call i64 @RSTRING_LEN(i64 noundef %6212) #10
-  %6214 = sub i64 %6213, 4
-  %6215 = call i64 @rb_str_resize(i64 noundef %6211, i64 noundef %6214)
+6213:                                             ; preds = %6206
+  %6214 = load i64, ptr %6, align 8
+  %6215 = load i64, ptr %6, align 8
+  %6216 = call i64 @RSTRING_LEN(i64 noundef %6215) #10
+  %6217 = sub i64 %6216, 4
+  %6218 = call i64 @rb_str_resize(i64 noundef %6214, i64 noundef %6217)
   store i32 0, ptr %9, align 4
-  br label %6200, !llvm.loop !152
+  br label %6203, !llvm.loop !152
 
-6216:                                             ; preds = %6200
+6219:                                             ; preds = %6203
   store ptr @.str.12, ptr %11, align 8
-  %6217 = load i64, ptr %5, align 8
-  %6218 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6217, i64 noundef %6218)
-  %6219 = load i64, ptr %5, align 8
-  %6220 = load i32, ptr %7, align 4
-  %6221 = icmp ne i32 %6220, 0
-  %6222 = select i1 %6221, i64 12, i64 6
-  %6223 = trunc i64 %6222 to i32
-  %6224 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6219, ptr noundef @.str.13, i32 noundef %6223, ptr noundef @.str.368)
-  %6225 = load i64, ptr %6, align 8
-  %6226 = load ptr, ptr %11, align 8
-  %6227 = call i64 @rb_str_cat_cstr(i64 noundef %6225, ptr noundef %6226)
+  %6220 = load i64, ptr %5, align 8
+  %6221 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6220, i64 noundef %6221)
+  %6222 = load i64, ptr %5, align 8
+  %6223 = load i32, ptr %7, align 4
+  %6224 = icmp ne i32 %6223, 0
+  %6225 = select i1 %6224, i64 12, i64 6
+  %6226 = trunc i64 %6225 to i32
+  %6227 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6222, ptr noundef @.str.13, i32 noundef %6226, ptr noundef @.str.368)
+  %6228 = load i64, ptr %6, align 8
+  %6229 = load ptr, ptr %11, align 8
+  %6230 = call i64 @rb_str_cat_cstr(i64 noundef %6228, ptr noundef %6229)
   store i32 1, ptr %9, align 4
-  br label %6228
+  br label %6231
 
-6228:                                             ; preds = %6238, %6216
-  %6229 = load i32, ptr %9, align 4
-  %6230 = icmp ne i32 %6229, 0
-  br i1 %6230, label %6231, label %6244
+6231:                                             ; preds = %6241, %6219
+  %6232 = load i32, ptr %9, align 4
+  %6233 = icmp ne i32 %6232, 0
+  br i1 %6233, label %6234, label %6247
 
-6231:                                             ; preds = %6228
-  %6232 = load i64, ptr %5, align 8
-  %6233 = load i64, ptr %6, align 8
-  %6234 = load i32, ptr %7, align 4
-  %6235 = load ptr, ptr %8, align 8
-  %6236 = getelementptr inbounds %struct.RNode_DOT2, ptr %6235, i32 0, i32 2
-  %6237 = load ptr, ptr %6236, align 8
-  call void @dump_node(i64 noundef %6232, i64 noundef %6233, i32 noundef %6234, ptr noundef %6237)
-  br label %6238
+6234:                                             ; preds = %6231
+  %6235 = load i64, ptr %5, align 8
+  %6236 = load i64, ptr %6, align 8
+  %6237 = load i32, ptr %7, align 4
+  %6238 = load ptr, ptr %8, align 8
+  %6239 = getelementptr inbounds %struct.RNode_DOT2, ptr %6238, i32 0, i32 2
+  %6240 = load ptr, ptr %6239, align 8
+  call void @dump_node(i64 noundef %6235, i64 noundef %6236, i32 noundef %6237, ptr noundef %6240)
+  br label %6241
 
-6238:                                             ; preds = %6231
-  %6239 = load i64, ptr %6, align 8
-  %6240 = load i64, ptr %6, align 8
-  %6241 = call i64 @RSTRING_LEN(i64 noundef %6240) #10
-  %6242 = sub i64 %6241, 4
-  %6243 = call i64 @rb_str_resize(i64 noundef %6239, i64 noundef %6242)
+6241:                                             ; preds = %6234
+  %6242 = load i64, ptr %6, align 8
+  %6243 = load i64, ptr %6, align 8
+  %6244 = call i64 @RSTRING_LEN(i64 noundef %6243) #10
+  %6245 = sub i64 %6244, 4
+  %6246 = call i64 @rb_str_resize(i64 noundef %6242, i64 noundef %6245)
   store i32 0, ptr %9, align 4
-  br label %6228, !llvm.loop !153
+  br label %6231, !llvm.loop !153
 
-6244:                                             ; preds = %6228
-  br label %7932
+6247:                                             ; preds = %6231
+  br label %7940
 
-6245:                                             ; preds = %24
-  %6246 = load i32, ptr %7, align 4
-  %6247 = icmp ne i32 %6246, 0
-  br i1 %6247, label %6248, label %6253
+6248:                                             ; preds = %24
+  %6249 = load i32, ptr %7, align 4
+  %6250 = icmp ne i32 %6249, 0
+  br i1 %6250, label %6251, label %6256
 
-6248:                                             ; preds = %6245
-  %6249 = load i64, ptr %5, align 8
-  %6250 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6249, i64 noundef %6250)
-  %6251 = load i64, ptr %5, align 8
-  %6252 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6251, ptr noundef @.str.369)
-  br label %6253
+6251:                                             ; preds = %6248
+  %6252 = load i64, ptr %5, align 8
+  %6253 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6252, i64 noundef %6253)
+  %6254 = load i64, ptr %5, align 8
+  %6255 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6254, ptr noundef @.str.369)
+  br label %6256
 
-6253:                                             ; preds = %6248, %6245
-  %6254 = load i32, ptr %7, align 4
-  %6255 = icmp ne i32 %6254, 0
-  br i1 %6255, label %6256, label %6261
+6256:                                             ; preds = %6251, %6248
+  %6257 = load i32, ptr %7, align 4
+  %6258 = icmp ne i32 %6257, 0
+  br i1 %6258, label %6259, label %6264
 
-6256:                                             ; preds = %6253
-  %6257 = load i64, ptr %5, align 8
-  %6258 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6257, i64 noundef %6258)
-  %6259 = load i64, ptr %5, align 8
-  %6260 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6259, ptr noundef @.str.370)
-  br label %6261
+6259:                                             ; preds = %6256
+  %6260 = load i64, ptr %5, align 8
+  %6261 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6260, i64 noundef %6261)
+  %6262 = load i64, ptr %5, align 8
+  %6263 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6262, ptr noundef @.str.370)
+  br label %6264
 
-6261:                                             ; preds = %6256, %6253
-  %6262 = load i32, ptr %7, align 4
-  %6263 = icmp ne i32 %6262, 0
-  br i1 %6263, label %6264, label %6269
+6264:                                             ; preds = %6259, %6256
+  %6265 = load i32, ptr %7, align 4
+  %6266 = icmp ne i32 %6265, 0
+  br i1 %6266, label %6267, label %6272
 
-6264:                                             ; preds = %6261
-  %6265 = load i64, ptr %5, align 8
-  %6266 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6265, i64 noundef %6266)
-  %6267 = load i64, ptr %5, align 8
-  %6268 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6267, ptr noundef @.str.371)
-  br label %6269
-
-6269:                                             ; preds = %6264, %6261
+6267:                                             ; preds = %6264
+  %6268 = load i64, ptr %5, align 8
+  %6269 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6268, i64 noundef %6269)
   %6270 = load i64, ptr %5, align 8
-  %6271 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6270, i64 noundef %6271)
-  %6272 = load i64, ptr %5, align 8
-  %6273 = load i32, ptr %7, align 4
-  %6274 = icmp ne i32 %6273, 0
-  %6275 = select i1 %6274, i64 19, i64 8
-  %6276 = trunc i64 %6275 to i32
-  %6277 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6272, ptr noundef @.str.51, i32 noundef %6276, ptr noundef @.str.372)
+  %6271 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6270, ptr noundef @.str.371)
+  br label %6272
+
+6272:                                             ; preds = %6267, %6264
+  %6273 = load i64, ptr %5, align 8
+  %6274 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6273, i64 noundef %6274)
+  %6275 = load i64, ptr %5, align 8
+  %6276 = load i32, ptr %7, align 4
+  %6277 = icmp ne i32 %6276, 0
+  %6278 = select i1 %6277, i64 19, i64 8
+  %6279 = trunc i64 %6278 to i32
+  %6280 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6275, ptr noundef @.str.51, i32 noundef %6279, ptr noundef @.str.372)
   store i32 1, ptr %9, align 4
-  br label %6278
+  br label %6281
 
-6278:                                             ; preds = %6288, %6269
-  %6279 = load i32, ptr %9, align 4
-  %6280 = icmp ne i32 %6279, 0
-  br i1 %6280, label %6281, label %6291
+6281:                                             ; preds = %6291, %6272
+  %6282 = load i32, ptr %9, align 4
+  %6283 = icmp ne i32 %6282, 0
+  br i1 %6283, label %6284, label %6294
 
-6281:                                             ; preds = %6278
-  %6282 = load i64, ptr %5, align 8
-  %6283 = load ptr, ptr %8, align 8
-  %6284 = getelementptr inbounds %struct.RNode_SELF, ptr %6283, i32 0, i32 1
-  %6285 = load i64, ptr %6284, align 8
-  %6286 = trunc i64 %6285 to i32
-  %6287 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6282, ptr noundef @.str.53, i32 noundef %6286)
-  br label %6288
+6284:                                             ; preds = %6281
+  %6285 = load i64, ptr %5, align 8
+  %6286 = load ptr, ptr %8, align 8
+  %6287 = getelementptr inbounds %struct.RNode_SELF, ptr %6286, i32 0, i32 1
+  %6288 = load i64, ptr %6287, align 8
+  %6289 = trunc i64 %6288 to i32
+  %6290 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6285, ptr noundef @.str.53, i32 noundef %6289)
+  br label %6291
 
-6288:                                             ; preds = %6281
-  %6289 = load i64, ptr %5, align 8
-  %6290 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6289, ptr noundef @.str.56)
+6291:                                             ; preds = %6284
+  %6292 = load i64, ptr %5, align 8
+  %6293 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6292, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %6278, !llvm.loop !154
+  br label %6281, !llvm.loop !154
 
-6291:                                             ; preds = %6278
-  br label %7932
+6294:                                             ; preds = %6281
+  br label %7940
 
-6292:                                             ; preds = %24
-  %6293 = load i32, ptr %7, align 4
-  %6294 = icmp ne i32 %6293, 0
-  br i1 %6294, label %6295, label %6300
+6295:                                             ; preds = %24
+  %6296 = load i32, ptr %7, align 4
+  %6297 = icmp ne i32 %6296, 0
+  br i1 %6297, label %6298, label %6303
 
-6295:                                             ; preds = %6292
-  %6296 = load i64, ptr %5, align 8
-  %6297 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6296, i64 noundef %6297)
-  %6298 = load i64, ptr %5, align 8
-  %6299 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6298, ptr noundef @.str.373)
-  br label %6300
+6298:                                             ; preds = %6295
+  %6299 = load i64, ptr %5, align 8
+  %6300 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6299, i64 noundef %6300)
+  %6301 = load i64, ptr %5, align 8
+  %6302 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6301, ptr noundef @.str.373)
+  br label %6303
 
-6300:                                             ; preds = %6295, %6292
-  %6301 = load i32, ptr %7, align 4
-  %6302 = icmp ne i32 %6301, 0
-  br i1 %6302, label %6303, label %6308
+6303:                                             ; preds = %6298, %6295
+  %6304 = load i32, ptr %7, align 4
+  %6305 = icmp ne i32 %6304, 0
+  br i1 %6305, label %6306, label %6311
 
-6303:                                             ; preds = %6300
-  %6304 = load i64, ptr %5, align 8
-  %6305 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6304, i64 noundef %6305)
-  %6306 = load i64, ptr %5, align 8
-  %6307 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6306, ptr noundef @.str.374)
-  br label %6308
+6306:                                             ; preds = %6303
+  %6307 = load i64, ptr %5, align 8
+  %6308 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6307, i64 noundef %6308)
+  %6309 = load i64, ptr %5, align 8
+  %6310 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6309, ptr noundef @.str.374)
+  br label %6311
 
-6308:                                             ; preds = %6303, %6300
-  %6309 = load i32, ptr %7, align 4
-  %6310 = icmp ne i32 %6309, 0
-  br i1 %6310, label %6311, label %6316
+6311:                                             ; preds = %6306, %6303
+  %6312 = load i32, ptr %7, align 4
+  %6313 = icmp ne i32 %6312, 0
+  br i1 %6313, label %6314, label %6319
 
-6311:                                             ; preds = %6308
-  %6312 = load i64, ptr %5, align 8
-  %6313 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6312, i64 noundef %6313)
-  %6314 = load i64, ptr %5, align 8
-  %6315 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6314, ptr noundef @.str.375)
-  br label %6316
+6314:                                             ; preds = %6311
+  %6315 = load i64, ptr %5, align 8
+  %6316 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6315, i64 noundef %6316)
+  %6317 = load i64, ptr %5, align 8
+  %6318 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6317, ptr noundef @.str.375)
+  br label %6319
 
-6316:                                             ; preds = %6311, %6308
-  br label %7932
+6319:                                             ; preds = %6314, %6311
+  br label %7940
 
-6317:                                             ; preds = %24
-  %6318 = load i32, ptr %7, align 4
-  %6319 = icmp ne i32 %6318, 0
-  br i1 %6319, label %6320, label %6325
+6320:                                             ; preds = %24
+  %6321 = load i32, ptr %7, align 4
+  %6322 = icmp ne i32 %6321, 0
+  br i1 %6322, label %6323, label %6328
 
-6320:                                             ; preds = %6317
-  %6321 = load i64, ptr %5, align 8
-  %6322 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6321, i64 noundef %6322)
-  %6323 = load i64, ptr %5, align 8
-  %6324 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6323, ptr noundef @.str.376)
-  br label %6325
+6323:                                             ; preds = %6320
+  %6324 = load i64, ptr %5, align 8
+  %6325 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6324, i64 noundef %6325)
+  %6326 = load i64, ptr %5, align 8
+  %6327 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6326, ptr noundef @.str.376)
+  br label %6328
 
-6325:                                             ; preds = %6320, %6317
-  %6326 = load i32, ptr %7, align 4
-  %6327 = icmp ne i32 %6326, 0
-  br i1 %6327, label %6328, label %6333
+6328:                                             ; preds = %6323, %6320
+  %6329 = load i32, ptr %7, align 4
+  %6330 = icmp ne i32 %6329, 0
+  br i1 %6330, label %6331, label %6336
 
-6328:                                             ; preds = %6325
-  %6329 = load i64, ptr %5, align 8
-  %6330 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6329, i64 noundef %6330)
-  %6331 = load i64, ptr %5, align 8
-  %6332 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6331, ptr noundef @.str.377)
-  br label %6333
+6331:                                             ; preds = %6328
+  %6332 = load i64, ptr %5, align 8
+  %6333 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6332, i64 noundef %6333)
+  %6334 = load i64, ptr %5, align 8
+  %6335 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6334, ptr noundef @.str.377)
+  br label %6336
 
-6333:                                             ; preds = %6328, %6325
-  %6334 = load i32, ptr %7, align 4
-  %6335 = icmp ne i32 %6334, 0
-  br i1 %6335, label %6336, label %6341
+6336:                                             ; preds = %6331, %6328
+  %6337 = load i32, ptr %7, align 4
+  %6338 = icmp ne i32 %6337, 0
+  br i1 %6338, label %6339, label %6344
 
-6336:                                             ; preds = %6333
-  %6337 = load i64, ptr %5, align 8
-  %6338 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6337, i64 noundef %6338)
-  %6339 = load i64, ptr %5, align 8
-  %6340 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6339, ptr noundef @.str.378)
-  br label %6341
+6339:                                             ; preds = %6336
+  %6340 = load i64, ptr %5, align 8
+  %6341 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6340, i64 noundef %6341)
+  %6342 = load i64, ptr %5, align 8
+  %6343 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6342, ptr noundef @.str.378)
+  br label %6344
 
-6341:                                             ; preds = %6336, %6333
-  br label %7932
+6344:                                             ; preds = %6339, %6336
+  br label %7940
 
-6342:                                             ; preds = %24
-  %6343 = load i32, ptr %7, align 4
-  %6344 = icmp ne i32 %6343, 0
-  br i1 %6344, label %6345, label %6350
+6345:                                             ; preds = %24
+  %6346 = load i32, ptr %7, align 4
+  %6347 = icmp ne i32 %6346, 0
+  br i1 %6347, label %6348, label %6353
 
-6345:                                             ; preds = %6342
-  %6346 = load i64, ptr %5, align 8
-  %6347 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6346, i64 noundef %6347)
-  %6348 = load i64, ptr %5, align 8
-  %6349 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6348, ptr noundef @.str.379)
-  br label %6350
+6348:                                             ; preds = %6345
+  %6349 = load i64, ptr %5, align 8
+  %6350 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6349, i64 noundef %6350)
+  %6351 = load i64, ptr %5, align 8
+  %6352 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6351, ptr noundef @.str.379)
+  br label %6353
 
-6350:                                             ; preds = %6345, %6342
-  %6351 = load i32, ptr %7, align 4
-  %6352 = icmp ne i32 %6351, 0
-  br i1 %6352, label %6353, label %6358
+6353:                                             ; preds = %6348, %6345
+  %6354 = load i32, ptr %7, align 4
+  %6355 = icmp ne i32 %6354, 0
+  br i1 %6355, label %6356, label %6361
 
-6353:                                             ; preds = %6350
-  %6354 = load i64, ptr %5, align 8
-  %6355 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6354, i64 noundef %6355)
-  %6356 = load i64, ptr %5, align 8
-  %6357 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6356, ptr noundef @.str.380)
-  br label %6358
+6356:                                             ; preds = %6353
+  %6357 = load i64, ptr %5, align 8
+  %6358 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6357, i64 noundef %6358)
+  %6359 = load i64, ptr %5, align 8
+  %6360 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6359, ptr noundef @.str.380)
+  br label %6361
 
-6358:                                             ; preds = %6353, %6350
-  %6359 = load i32, ptr %7, align 4
-  %6360 = icmp ne i32 %6359, 0
-  br i1 %6360, label %6361, label %6366
+6361:                                             ; preds = %6356, %6353
+  %6362 = load i32, ptr %7, align 4
+  %6363 = icmp ne i32 %6362, 0
+  br i1 %6363, label %6364, label %6369
 
-6361:                                             ; preds = %6358
-  %6362 = load i64, ptr %5, align 8
-  %6363 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6362, i64 noundef %6363)
-  %6364 = load i64, ptr %5, align 8
-  %6365 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6364, ptr noundef @.str.381)
-  br label %6366
+6364:                                             ; preds = %6361
+  %6365 = load i64, ptr %5, align 8
+  %6366 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6365, i64 noundef %6366)
+  %6367 = load i64, ptr %5, align 8
+  %6368 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6367, ptr noundef @.str.381)
+  br label %6369
 
-6366:                                             ; preds = %6361, %6358
-  br label %7932
+6369:                                             ; preds = %6364, %6361
+  br label %7940
 
-6367:                                             ; preds = %24
-  %6368 = load i32, ptr %7, align 4
-  %6369 = icmp ne i32 %6368, 0
-  br i1 %6369, label %6370, label %6375
+6370:                                             ; preds = %24
+  %6371 = load i32, ptr %7, align 4
+  %6372 = icmp ne i32 %6371, 0
+  br i1 %6372, label %6373, label %6378
 
-6370:                                             ; preds = %6367
-  %6371 = load i64, ptr %5, align 8
-  %6372 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6371, i64 noundef %6372)
-  %6373 = load i64, ptr %5, align 8
-  %6374 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6373, ptr noundef @.str.382)
-  br label %6375
+6373:                                             ; preds = %6370
+  %6374 = load i64, ptr %5, align 8
+  %6375 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6374, i64 noundef %6375)
+  %6376 = load i64, ptr %5, align 8
+  %6377 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6376, ptr noundef @.str.382)
+  br label %6378
 
-6375:                                             ; preds = %6370, %6367
-  %6376 = load i32, ptr %7, align 4
-  %6377 = icmp ne i32 %6376, 0
-  br i1 %6377, label %6378, label %6383
+6378:                                             ; preds = %6373, %6370
+  %6379 = load i32, ptr %7, align 4
+  %6380 = icmp ne i32 %6379, 0
+  br i1 %6380, label %6381, label %6386
 
-6378:                                             ; preds = %6375
-  %6379 = load i64, ptr %5, align 8
-  %6380 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6379, i64 noundef %6380)
-  %6381 = load i64, ptr %5, align 8
-  %6382 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6381, ptr noundef @.str.383)
-  br label %6383
+6381:                                             ; preds = %6378
+  %6382 = load i64, ptr %5, align 8
+  %6383 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6382, i64 noundef %6383)
+  %6384 = load i64, ptr %5, align 8
+  %6385 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6384, ptr noundef @.str.383)
+  br label %6386
 
-6383:                                             ; preds = %6378, %6375
-  %6384 = load i32, ptr %7, align 4
-  %6385 = icmp ne i32 %6384, 0
-  br i1 %6385, label %6386, label %6391
+6386:                                             ; preds = %6381, %6378
+  %6387 = load i32, ptr %7, align 4
+  %6388 = icmp ne i32 %6387, 0
+  br i1 %6388, label %6389, label %6394
 
-6386:                                             ; preds = %6383
-  %6387 = load i64, ptr %5, align 8
-  %6388 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6387, i64 noundef %6388)
-  %6389 = load i64, ptr %5, align 8
-  %6390 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6389, ptr noundef @.str.384)
-  br label %6391
+6389:                                             ; preds = %6386
+  %6390 = load i64, ptr %5, align 8
+  %6391 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6390, i64 noundef %6391)
+  %6392 = load i64, ptr %5, align 8
+  %6393 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6392, ptr noundef @.str.384)
+  br label %6394
 
-6391:                                             ; preds = %6386, %6383
-  br label %7932
+6394:                                             ; preds = %6389, %6386
+  br label %7940
 
-6392:                                             ; preds = %24
-  %6393 = load i32, ptr %7, align 4
-  %6394 = icmp ne i32 %6393, 0
-  br i1 %6394, label %6395, label %6400
+6395:                                             ; preds = %24
+  %6396 = load i32, ptr %7, align 4
+  %6397 = icmp ne i32 %6396, 0
+  br i1 %6397, label %6398, label %6403
 
-6395:                                             ; preds = %6392
-  %6396 = load i64, ptr %5, align 8
-  %6397 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6396, i64 noundef %6397)
-  %6398 = load i64, ptr %5, align 8
-  %6399 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6398, ptr noundef @.str.385)
-  br label %6400
+6398:                                             ; preds = %6395
+  %6399 = load i64, ptr %5, align 8
+  %6400 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6399, i64 noundef %6400)
+  %6401 = load i64, ptr %5, align 8
+  %6402 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6401, ptr noundef @.str.385)
+  br label %6403
 
-6400:                                             ; preds = %6395, %6392
-  %6401 = load i32, ptr %7, align 4
-  %6402 = icmp ne i32 %6401, 0
-  br i1 %6402, label %6403, label %6408
+6403:                                             ; preds = %6398, %6395
+  %6404 = load i32, ptr %7, align 4
+  %6405 = icmp ne i32 %6404, 0
+  br i1 %6405, label %6406, label %6411
 
-6403:                                             ; preds = %6400
-  %6404 = load i64, ptr %5, align 8
-  %6405 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6404, i64 noundef %6405)
-  %6406 = load i64, ptr %5, align 8
-  %6407 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6406, ptr noundef @.str.386)
-  br label %6408
+6406:                                             ; preds = %6403
+  %6407 = load i64, ptr %5, align 8
+  %6408 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6407, i64 noundef %6408)
+  %6409 = load i64, ptr %5, align 8
+  %6410 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6409, ptr noundef @.str.386)
+  br label %6411
 
-6408:                                             ; preds = %6403, %6400
-  %6409 = load i32, ptr %7, align 4
-  %6410 = icmp ne i32 %6409, 0
-  br i1 %6410, label %6411, label %6416
+6411:                                             ; preds = %6406, %6403
+  %6412 = load i32, ptr %7, align 4
+  %6413 = icmp ne i32 %6412, 0
+  br i1 %6413, label %6414, label %6419
 
-6411:                                             ; preds = %6408
-  %6412 = load i64, ptr %5, align 8
-  %6413 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6412, i64 noundef %6413)
-  %6414 = load i64, ptr %5, align 8
-  %6415 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6414, ptr noundef @.str.387)
-  br label %6416
-
-6416:                                             ; preds = %6411, %6408
+6414:                                             ; preds = %6411
+  %6415 = load i64, ptr %5, align 8
+  %6416 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6415, i64 noundef %6416)
   %6417 = load i64, ptr %5, align 8
-  %6418 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6417, i64 noundef %6418)
-  %6419 = load i64, ptr %5, align 8
-  %6420 = load i32, ptr %7, align 4
-  %6421 = icmp ne i32 %6420, 0
-  %6422 = select i1 %6421, i64 14, i64 7
-  %6423 = trunc i64 %6422 to i32
-  %6424 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6419, ptr noundef @.str.13, i32 noundef %6423, ptr noundef @.str.388)
-  %6425 = load i64, ptr %6, align 8
-  %6426 = load ptr, ptr %11, align 8
-  %6427 = call i64 @rb_str_cat_cstr(i64 noundef %6425, ptr noundef %6426)
+  %6418 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6417, ptr noundef @.str.387)
+  br label %6419
+
+6419:                                             ; preds = %6414, %6411
+  %6420 = load i64, ptr %5, align 8
+  %6421 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6420, i64 noundef %6421)
+  %6422 = load i64, ptr %5, align 8
+  %6423 = load i32, ptr %7, align 4
+  %6424 = icmp ne i32 %6423, 0
+  %6425 = select i1 %6424, i64 14, i64 7
+  %6426 = trunc i64 %6425 to i32
+  %6427 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6422, ptr noundef @.str.13, i32 noundef %6426, ptr noundef @.str.388)
+  %6428 = load i64, ptr %6, align 8
+  %6429 = load ptr, ptr %11, align 8
+  %6430 = call i64 @rb_str_cat_cstr(i64 noundef %6428, ptr noundef %6429)
   store i32 1, ptr %9, align 4
-  br label %6428
+  br label %6431
 
-6428:                                             ; preds = %6438, %6416
-  %6429 = load i32, ptr %9, align 4
-  %6430 = icmp ne i32 %6429, 0
-  br i1 %6430, label %6431, label %6444
+6431:                                             ; preds = %6441, %6419
+  %6432 = load i32, ptr %9, align 4
+  %6433 = icmp ne i32 %6432, 0
+  br i1 %6433, label %6434, label %6447
 
-6431:                                             ; preds = %6428
-  %6432 = load i64, ptr %5, align 8
-  %6433 = load i64, ptr %6, align 8
-  %6434 = load i32, ptr %7, align 4
-  %6435 = load ptr, ptr %8, align 8
-  %6436 = getelementptr inbounds %struct.RNode_DEFINED, ptr %6435, i32 0, i32 1
-  %6437 = load ptr, ptr %6436, align 8
-  call void @dump_node(i64 noundef %6432, i64 noundef %6433, i32 noundef %6434, ptr noundef %6437)
-  br label %6438
+6434:                                             ; preds = %6431
+  %6435 = load i64, ptr %5, align 8
+  %6436 = load i64, ptr %6, align 8
+  %6437 = load i32, ptr %7, align 4
+  %6438 = load ptr, ptr %8, align 8
+  %6439 = getelementptr inbounds %struct.RNode_DEFINED, ptr %6438, i32 0, i32 1
+  %6440 = load ptr, ptr %6439, align 8
+  call void @dump_node(i64 noundef %6435, i64 noundef %6436, i32 noundef %6437, ptr noundef %6440)
+  br label %6441
 
-6438:                                             ; preds = %6431
-  %6439 = load i64, ptr %6, align 8
-  %6440 = load i64, ptr %6, align 8
-  %6441 = call i64 @RSTRING_LEN(i64 noundef %6440) #10
-  %6442 = sub i64 %6441, 4
-  %6443 = call i64 @rb_str_resize(i64 noundef %6439, i64 noundef %6442)
+6441:                                             ; preds = %6434
+  %6442 = load i64, ptr %6, align 8
+  %6443 = load i64, ptr %6, align 8
+  %6444 = call i64 @RSTRING_LEN(i64 noundef %6443) #10
+  %6445 = sub i64 %6444, 4
+  %6446 = call i64 @rb_str_resize(i64 noundef %6442, i64 noundef %6445)
   store i32 0, ptr %9, align 4
-  br label %6428, !llvm.loop !155
+  br label %6431, !llvm.loop !155
 
-6444:                                             ; preds = %6428
-  br label %7932
+6447:                                             ; preds = %6431
+  br label %7940
 
-6445:                                             ; preds = %24
-  %6446 = load i32, ptr %7, align 4
-  %6447 = icmp ne i32 %6446, 0
-  br i1 %6447, label %6448, label %6453
+6448:                                             ; preds = %24
+  %6449 = load i32, ptr %7, align 4
+  %6450 = icmp ne i32 %6449, 0
+  br i1 %6450, label %6451, label %6456
 
-6448:                                             ; preds = %6445
-  %6449 = load i64, ptr %5, align 8
-  %6450 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6449, i64 noundef %6450)
-  %6451 = load i64, ptr %5, align 8
-  %6452 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6451, ptr noundef @.str.389)
-  br label %6453
+6451:                                             ; preds = %6448
+  %6452 = load i64, ptr %5, align 8
+  %6453 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6452, i64 noundef %6453)
+  %6454 = load i64, ptr %5, align 8
+  %6455 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6454, ptr noundef @.str.389)
+  br label %6456
 
-6453:                                             ; preds = %6448, %6445
-  %6454 = load i32, ptr %7, align 4
-  %6455 = icmp ne i32 %6454, 0
-  br i1 %6455, label %6456, label %6461
+6456:                                             ; preds = %6451, %6448
+  %6457 = load i32, ptr %7, align 4
+  %6458 = icmp ne i32 %6457, 0
+  br i1 %6458, label %6459, label %6464
 
-6456:                                             ; preds = %6453
-  %6457 = load i64, ptr %5, align 8
-  %6458 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6457, i64 noundef %6458)
-  %6459 = load i64, ptr %5, align 8
-  %6460 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6459, ptr noundef @.str.390)
-  br label %6461
+6459:                                             ; preds = %6456
+  %6460 = load i64, ptr %5, align 8
+  %6461 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6460, i64 noundef %6461)
+  %6462 = load i64, ptr %5, align 8
+  %6463 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6462, ptr noundef @.str.390)
+  br label %6464
 
-6461:                                             ; preds = %6456, %6453
-  %6462 = load i32, ptr %7, align 4
-  %6463 = icmp ne i32 %6462, 0
-  br i1 %6463, label %6464, label %6469
+6464:                                             ; preds = %6459, %6456
+  %6465 = load i32, ptr %7, align 4
+  %6466 = icmp ne i32 %6465, 0
+  br i1 %6466, label %6467, label %6472
 
-6464:                                             ; preds = %6461
-  %6465 = load i64, ptr %5, align 8
-  %6466 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6465, i64 noundef %6466)
-  %6467 = load i64, ptr %5, align 8
-  %6468 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6467, ptr noundef @.str.391)
-  br label %6469
-
-6469:                                             ; preds = %6464, %6461
-  store ptr @.str.12, ptr %11, align 8
+6467:                                             ; preds = %6464
+  %6468 = load i64, ptr %5, align 8
+  %6469 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6468, i64 noundef %6469)
   %6470 = load i64, ptr %5, align 8
-  %6471 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6470, i64 noundef %6471)
-  %6472 = load i64, ptr %5, align 8
-  %6473 = load i32, ptr %7, align 4
-  %6474 = icmp ne i32 %6473, 0
-  %6475 = select i1 %6474, i64 20, i64 7
-  %6476 = trunc i64 %6475 to i32
-  %6477 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6472, ptr noundef @.str.13, i32 noundef %6476, ptr noundef @.str.392)
-  %6478 = load i64, ptr %6, align 8
-  %6479 = load ptr, ptr %11, align 8
-  %6480 = call i64 @rb_str_cat_cstr(i64 noundef %6478, ptr noundef %6479)
+  %6471 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6470, ptr noundef @.str.391)
+  br label %6472
+
+6472:                                             ; preds = %6467, %6464
+  store ptr @.str.12, ptr %11, align 8
+  %6473 = load i64, ptr %5, align 8
+  %6474 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6473, i64 noundef %6474)
+  %6475 = load i64, ptr %5, align 8
+  %6476 = load i32, ptr %7, align 4
+  %6477 = icmp ne i32 %6476, 0
+  %6478 = select i1 %6477, i64 20, i64 7
+  %6479 = trunc i64 %6478 to i32
+  %6480 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6475, ptr noundef @.str.13, i32 noundef %6479, ptr noundef @.str.392)
+  %6481 = load i64, ptr %6, align 8
+  %6482 = load ptr, ptr %11, align 8
+  %6483 = call i64 @rb_str_cat_cstr(i64 noundef %6481, ptr noundef %6482)
   store i32 1, ptr %9, align 4
-  br label %6481
+  br label %6484
 
-6481:                                             ; preds = %6491, %6469
-  %6482 = load i32, ptr %9, align 4
-  %6483 = icmp ne i32 %6482, 0
-  br i1 %6483, label %6484, label %6497
+6484:                                             ; preds = %6494, %6472
+  %6485 = load i32, ptr %9, align 4
+  %6486 = icmp ne i32 %6485, 0
+  br i1 %6486, label %6487, label %6500
 
-6484:                                             ; preds = %6481
-  %6485 = load i64, ptr %5, align 8
-  %6486 = load i64, ptr %6, align 8
-  %6487 = load i32, ptr %7, align 4
-  %6488 = load ptr, ptr %8, align 8
-  %6489 = getelementptr inbounds %struct.RNode_POSTEXE, ptr %6488, i32 0, i32 1
-  %6490 = load ptr, ptr %6489, align 8
-  call void @dump_node(i64 noundef %6485, i64 noundef %6486, i32 noundef %6487, ptr noundef %6490)
-  br label %6491
+6487:                                             ; preds = %6484
+  %6488 = load i64, ptr %5, align 8
+  %6489 = load i64, ptr %6, align 8
+  %6490 = load i32, ptr %7, align 4
+  %6491 = load ptr, ptr %8, align 8
+  %6492 = getelementptr inbounds %struct.RNode_POSTEXE, ptr %6491, i32 0, i32 1
+  %6493 = load ptr, ptr %6492, align 8
+  call void @dump_node(i64 noundef %6488, i64 noundef %6489, i32 noundef %6490, ptr noundef %6493)
+  br label %6494
 
-6491:                                             ; preds = %6484
-  %6492 = load i64, ptr %6, align 8
-  %6493 = load i64, ptr %6, align 8
-  %6494 = call i64 @RSTRING_LEN(i64 noundef %6493) #10
-  %6495 = sub i64 %6494, 4
-  %6496 = call i64 @rb_str_resize(i64 noundef %6492, i64 noundef %6495)
+6494:                                             ; preds = %6487
+  %6495 = load i64, ptr %6, align 8
+  %6496 = load i64, ptr %6, align 8
+  %6497 = call i64 @RSTRING_LEN(i64 noundef %6496) #10
+  %6498 = sub i64 %6497, 4
+  %6499 = call i64 @rb_str_resize(i64 noundef %6495, i64 noundef %6498)
   store i32 0, ptr %9, align 4
-  br label %6481, !llvm.loop !156
+  br label %6484, !llvm.loop !156
 
-6497:                                             ; preds = %6481
-  br label %7932
+6500:                                             ; preds = %6484
+  br label %7940
 
-6498:                                             ; preds = %24
-  %6499 = load i32, ptr %7, align 4
-  %6500 = icmp ne i32 %6499, 0
-  br i1 %6500, label %6501, label %6506
+6501:                                             ; preds = %24
+  %6502 = load i32, ptr %7, align 4
+  %6503 = icmp ne i32 %6502, 0
+  br i1 %6503, label %6504, label %6509
 
-6501:                                             ; preds = %6498
-  %6502 = load i64, ptr %5, align 8
-  %6503 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6502, i64 noundef %6503)
-  %6504 = load i64, ptr %5, align 8
-  %6505 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6504, ptr noundef @.str.393)
-  br label %6506
+6504:                                             ; preds = %6501
+  %6505 = load i64, ptr %5, align 8
+  %6506 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6505, i64 noundef %6506)
+  %6507 = load i64, ptr %5, align 8
+  %6508 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6507, ptr noundef @.str.393)
+  br label %6509
 
-6506:                                             ; preds = %6501, %6498
-  %6507 = load i32, ptr %7, align 4
-  %6508 = icmp ne i32 %6507, 0
-  br i1 %6508, label %6509, label %6514
+6509:                                             ; preds = %6504, %6501
+  %6510 = load i32, ptr %7, align 4
+  %6511 = icmp ne i32 %6510, 0
+  br i1 %6511, label %6512, label %6517
 
-6509:                                             ; preds = %6506
-  %6510 = load i64, ptr %5, align 8
-  %6511 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6510, i64 noundef %6511)
-  %6512 = load i64, ptr %5, align 8
-  %6513 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6512, ptr noundef @.str.394)
-  br label %6514
+6512:                                             ; preds = %6509
+  %6513 = load i64, ptr %5, align 8
+  %6514 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6513, i64 noundef %6514)
+  %6515 = load i64, ptr %5, align 8
+  %6516 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6515, ptr noundef @.str.394)
+  br label %6517
 
-6514:                                             ; preds = %6509, %6506
-  %6515 = load i32, ptr %7, align 4
-  %6516 = icmp ne i32 %6515, 0
-  br i1 %6516, label %6517, label %6522
+6517:                                             ; preds = %6512, %6509
+  %6518 = load i32, ptr %7, align 4
+  %6519 = icmp ne i32 %6518, 0
+  br i1 %6519, label %6520, label %6525
 
-6517:                                             ; preds = %6514
-  %6518 = load i64, ptr %5, align 8
-  %6519 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6518, i64 noundef %6519)
-  %6520 = load i64, ptr %5, align 8
-  %6521 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6520, ptr noundef @.str.395)
-  br label %6522
-
-6522:                                             ; preds = %6517, %6514
+6520:                                             ; preds = %6517
+  %6521 = load i64, ptr %5, align 8
+  %6522 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6521, i64 noundef %6522)
   %6523 = load i64, ptr %5, align 8
-  %6524 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6523, i64 noundef %6524)
-  %6525 = load i64, ptr %5, align 8
-  %6526 = load i32, ptr %7, align 4
-  %6527 = icmp ne i32 %6526, 0
-  %6528 = select i1 %6527, i64 18, i64 7
-  %6529 = trunc i64 %6528 to i32
-  %6530 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6525, ptr noundef @.str.13, i32 noundef %6529, ptr noundef @.str.151)
-  %6531 = load i64, ptr %6, align 8
-  %6532 = load ptr, ptr %11, align 8
-  %6533 = call i64 @rb_str_cat_cstr(i64 noundef %6531, ptr noundef %6532)
+  %6524 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6523, ptr noundef @.str.395)
+  br label %6525
+
+6525:                                             ; preds = %6520, %6517
+  %6526 = load i64, ptr %5, align 8
+  %6527 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6526, i64 noundef %6527)
+  %6528 = load i64, ptr %5, align 8
+  %6529 = load i32, ptr %7, align 4
+  %6530 = icmp ne i32 %6529, 0
+  %6531 = select i1 %6530, i64 18, i64 7
+  %6532 = trunc i64 %6531 to i32
+  %6533 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6528, ptr noundef @.str.13, i32 noundef %6532, ptr noundef @.str.151)
+  %6534 = load i64, ptr %6, align 8
+  %6535 = load ptr, ptr %11, align 8
+  %6536 = call i64 @rb_str_cat_cstr(i64 noundef %6534, ptr noundef %6535)
   store i32 1, ptr %9, align 4
-  br label %6534
+  br label %6537
 
-6534:                                             ; preds = %6544, %6522
-  %6535 = load i32, ptr %9, align 4
-  %6536 = icmp ne i32 %6535, 0
-  br i1 %6536, label %6537, label %6550
+6537:                                             ; preds = %6547, %6525
+  %6538 = load i32, ptr %9, align 4
+  %6539 = icmp ne i32 %6538, 0
+  br i1 %6539, label %6540, label %6553
 
-6537:                                             ; preds = %6534
-  %6538 = load i64, ptr %5, align 8
-  %6539 = load i64, ptr %6, align 8
-  %6540 = load i32, ptr %7, align 4
-  %6541 = load ptr, ptr %8, align 8
-  %6542 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6541, i32 0, i32 1
-  %6543 = load ptr, ptr %6542, align 8
-  call void @dump_node(i64 noundef %6538, i64 noundef %6539, i32 noundef %6540, ptr noundef %6543)
-  br label %6544
+6540:                                             ; preds = %6537
+  %6541 = load i64, ptr %5, align 8
+  %6542 = load i64, ptr %6, align 8
+  %6543 = load i32, ptr %7, align 4
+  %6544 = load ptr, ptr %8, align 8
+  %6545 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6544, i32 0, i32 1
+  %6546 = load ptr, ptr %6545, align 8
+  call void @dump_node(i64 noundef %6541, i64 noundef %6542, i32 noundef %6543, ptr noundef %6546)
+  br label %6547
 
-6544:                                             ; preds = %6537
-  %6545 = load i64, ptr %6, align 8
-  %6546 = load i64, ptr %6, align 8
-  %6547 = call i64 @RSTRING_LEN(i64 noundef %6546) #10
-  %6548 = sub i64 %6547, 4
-  %6549 = call i64 @rb_str_resize(i64 noundef %6545, i64 noundef %6548)
+6547:                                             ; preds = %6540
+  %6548 = load i64, ptr %6, align 8
+  %6549 = load i64, ptr %6, align 8
+  %6550 = call i64 @RSTRING_LEN(i64 noundef %6549) #10
+  %6551 = sub i64 %6550, 4
+  %6552 = call i64 @rb_str_resize(i64 noundef %6548, i64 noundef %6551)
   store i32 0, ptr %9, align 4
-  br label %6534, !llvm.loop !157
+  br label %6537, !llvm.loop !157
 
-6550:                                             ; preds = %6534
-  %6551 = load i64, ptr %5, align 8
-  %6552 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6551, i64 noundef %6552)
-  %6553 = load i64, ptr %5, align 8
-  %6554 = load i32, ptr %7, align 4
-  %6555 = icmp ne i32 %6554, 0
-  %6556 = select i1 %6555, i64 20, i64 6
-  %6557 = trunc i64 %6556 to i32
-  %6558 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6553, ptr noundef @.str.51, i32 noundef %6557, ptr noundef @.str.315)
+6553:                                             ; preds = %6537
+  %6554 = load i64, ptr %5, align 8
+  %6555 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6554, i64 noundef %6555)
+  %6556 = load i64, ptr %5, align 8
+  %6557 = load i32, ptr %7, align 4
+  %6558 = icmp ne i32 %6557, 0
+  %6559 = select i1 %6558, i64 20, i64 6
+  %6560 = trunc i64 %6559 to i32
+  %6561 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6556, ptr noundef @.str.51, i32 noundef %6560, ptr noundef @.str.315)
   store i32 1, ptr %9, align 4
-  br label %6559
+  br label %6562
 
-6559:                                             ; preds = %6567, %6550
-  %6560 = load i32, ptr %9, align 4
-  %6561 = icmp ne i32 %6560, 0
-  br i1 %6561, label %6562, label %6570
+6562:                                             ; preds = %6570, %6553
+  %6563 = load i32, ptr %9, align 4
+  %6564 = icmp ne i32 %6563, 0
+  br i1 %6564, label %6565, label %6573
 
-6562:                                             ; preds = %6559
-  %6563 = load i64, ptr %5, align 8
-  %6564 = load ptr, ptr %8, align 8
-  %6565 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6564, i32 0, i32 2
-  %6566 = load i64, ptr %6565, align 8
-  call void @add_id(i64 noundef %6563, i64 noundef %6566)
-  br label %6567
+6565:                                             ; preds = %6562
+  %6566 = load i64, ptr %5, align 8
+  %6567 = load ptr, ptr %8, align 8
+  %6568 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6567, i32 0, i32 2
+  %6569 = load i64, ptr %6568, align 8
+  call void @add_id(i64 noundef %6566, i64 noundef %6569)
+  br label %6570
 
-6567:                                             ; preds = %6562
-  %6568 = load i64, ptr %5, align 8
-  %6569 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6568, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %6559, !llvm.loop !158
-
-6570:                                             ; preds = %6559
-  store ptr @.str.12, ptr %11, align 8
+6570:                                             ; preds = %6565
   %6571 = load i64, ptr %5, align 8
-  %6572 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6571, i64 noundef %6572)
-  %6573 = load i64, ptr %5, align 8
-  %6574 = load i32, ptr %7, align 4
-  %6575 = icmp ne i32 %6574, 0
-  %6576 = select i1 %6575, i64 19, i64 7
-  %6577 = trunc i64 %6576 to i32
-  %6578 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6573, ptr noundef @.str.13, i32 noundef %6577, ptr noundef @.str.176)
-  %6579 = load i64, ptr %6, align 8
-  %6580 = load ptr, ptr %11, align 8
-  %6581 = call i64 @rb_str_cat_cstr(i64 noundef %6579, ptr noundef %6580)
-  store i32 1, ptr %9, align 4
-  br label %6582
-
-6582:                                             ; preds = %6592, %6570
-  %6583 = load i32, ptr %9, align 4
-  %6584 = icmp ne i32 %6583, 0
-  br i1 %6584, label %6585, label %6598
-
-6585:                                             ; preds = %6582
-  %6586 = load i64, ptr %5, align 8
-  %6587 = load i64, ptr %6, align 8
-  %6588 = load i32, ptr %7, align 4
-  %6589 = load ptr, ptr %8, align 8
-  %6590 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6589, i32 0, i32 3
-  %6591 = load ptr, ptr %6590, align 8
-  call void @dump_node(i64 noundef %6586, i64 noundef %6587, i32 noundef %6588, ptr noundef %6591)
-  br label %6592
-
-6592:                                             ; preds = %6585
-  %6593 = load i64, ptr %6, align 8
-  %6594 = load i64, ptr %6, align 8
-  %6595 = call i64 @RSTRING_LEN(i64 noundef %6594) #10
-  %6596 = sub i64 %6595, 4
-  %6597 = call i64 @rb_str_resize(i64 noundef %6593, i64 noundef %6596)
+  %6572 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6571, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %6582, !llvm.loop !159
+  br label %6562, !llvm.loop !158
 
-6598:                                             ; preds = %6582
-  br label %7932
-
-6599:                                             ; preds = %24
-  %6600 = load i32, ptr %7, align 4
-  %6601 = icmp ne i32 %6600, 0
-  br i1 %6601, label %6602, label %6607
-
-6602:                                             ; preds = %6599
-  %6603 = load i64, ptr %5, align 8
-  %6604 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6603, i64 noundef %6604)
-  %6605 = load i64, ptr %5, align 8
-  %6606 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6605, ptr noundef @.str.396)
-  br label %6607
-
-6607:                                             ; preds = %6602, %6599
-  %6608 = load i32, ptr %7, align 4
-  %6609 = icmp ne i32 %6608, 0
-  br i1 %6609, label %6610, label %6615
-
-6610:                                             ; preds = %6607
-  %6611 = load i64, ptr %5, align 8
-  %6612 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6611, i64 noundef %6612)
-  %6613 = load i64, ptr %5, align 8
-  %6614 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6613, ptr noundef @.str.397)
-  br label %6615
-
-6615:                                             ; preds = %6610, %6607
-  %6616 = load i32, ptr %7, align 4
-  %6617 = icmp ne i32 %6616, 0
-  br i1 %6617, label %6618, label %6623
-
-6618:                                             ; preds = %6615
-  %6619 = load i64, ptr %5, align 8
-  %6620 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6619, i64 noundef %6620)
-  %6621 = load i64, ptr %5, align 8
-  %6622 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6621, ptr noundef @.str.398)
-  br label %6623
-
-6623:                                             ; preds = %6618, %6615
+6573:                                             ; preds = %6562
   store ptr @.str.12, ptr %11, align 8
+  %6574 = load i64, ptr %5, align 8
+  %6575 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6574, i64 noundef %6575)
+  %6576 = load i64, ptr %5, align 8
+  %6577 = load i32, ptr %7, align 4
+  %6578 = icmp ne i32 %6577, 0
+  %6579 = select i1 %6578, i64 19, i64 7
+  %6580 = trunc i64 %6579 to i32
+  %6581 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6576, ptr noundef @.str.13, i32 noundef %6580, ptr noundef @.str.176)
+  %6582 = load i64, ptr %6, align 8
+  %6583 = load ptr, ptr %11, align 8
+  %6584 = call i64 @rb_str_cat_cstr(i64 noundef %6582, ptr noundef %6583)
+  store i32 1, ptr %9, align 4
+  br label %6585
+
+6585:                                             ; preds = %6595, %6573
+  %6586 = load i32, ptr %9, align 4
+  %6587 = icmp ne i32 %6586, 0
+  br i1 %6587, label %6588, label %6601
+
+6588:                                             ; preds = %6585
+  %6589 = load i64, ptr %5, align 8
+  %6590 = load i64, ptr %6, align 8
+  %6591 = load i32, ptr %7, align 4
+  %6592 = load ptr, ptr %8, align 8
+  %6593 = getelementptr inbounds %struct.RNode_ATTRASGN, ptr %6592, i32 0, i32 3
+  %6594 = load ptr, ptr %6593, align 8
+  call void @dump_node(i64 noundef %6589, i64 noundef %6590, i32 noundef %6591, ptr noundef %6594)
+  br label %6595
+
+6595:                                             ; preds = %6588
+  %6596 = load i64, ptr %6, align 8
+  %6597 = load i64, ptr %6, align 8
+  %6598 = call i64 @RSTRING_LEN(i64 noundef %6597) #10
+  %6599 = sub i64 %6598, 4
+  %6600 = call i64 @rb_str_resize(i64 noundef %6596, i64 noundef %6599)
+  store i32 0, ptr %9, align 4
+  br label %6585, !llvm.loop !159
+
+6601:                                             ; preds = %6585
+  br label %7940
+
+6602:                                             ; preds = %24
+  %6603 = load i32, ptr %7, align 4
+  %6604 = icmp ne i32 %6603, 0
+  br i1 %6604, label %6605, label %6610
+
+6605:                                             ; preds = %6602
+  %6606 = load i64, ptr %5, align 8
+  %6607 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6606, i64 noundef %6607)
+  %6608 = load i64, ptr %5, align 8
+  %6609 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6608, ptr noundef @.str.396)
+  br label %6610
+
+6610:                                             ; preds = %6605, %6602
+  %6611 = load i32, ptr %7, align 4
+  %6612 = icmp ne i32 %6611, 0
+  br i1 %6612, label %6613, label %6618
+
+6613:                                             ; preds = %6610
+  %6614 = load i64, ptr %5, align 8
+  %6615 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6614, i64 noundef %6615)
+  %6616 = load i64, ptr %5, align 8
+  %6617 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6616, ptr noundef @.str.397)
+  br label %6618
+
+6618:                                             ; preds = %6613, %6610
+  %6619 = load i32, ptr %7, align 4
+  %6620 = icmp ne i32 %6619, 0
+  br i1 %6620, label %6621, label %6626
+
+6621:                                             ; preds = %6618
+  %6622 = load i64, ptr %5, align 8
+  %6623 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6622, i64 noundef %6623)
   %6624 = load i64, ptr %5, align 8
-  %6625 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6624, i64 noundef %6625)
-  %6626 = load i64, ptr %5, align 8
-  %6627 = load i32, ptr %7, align 4
-  %6628 = icmp ne i32 %6627, 0
-  %6629 = select i1 %6628, i64 23, i64 7
-  %6630 = trunc i64 %6629 to i32
-  %6631 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6626, ptr noundef @.str.13, i32 noundef %6630, ptr noundef @.str.399)
-  %6632 = load i64, ptr %6, align 8
-  %6633 = load ptr, ptr %11, align 8
-  %6634 = call i64 @rb_str_cat_cstr(i64 noundef %6632, ptr noundef %6633)
+  %6625 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6624, ptr noundef @.str.398)
+  br label %6626
+
+6626:                                             ; preds = %6621, %6618
+  store ptr @.str.12, ptr %11, align 8
+  %6627 = load i64, ptr %5, align 8
+  %6628 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6627, i64 noundef %6628)
+  %6629 = load i64, ptr %5, align 8
+  %6630 = load i32, ptr %7, align 4
+  %6631 = icmp ne i32 %6630, 0
+  %6632 = select i1 %6631, i64 23, i64 7
+  %6633 = trunc i64 %6632 to i32
+  %6634 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6629, ptr noundef @.str.13, i32 noundef %6633, ptr noundef @.str.399)
+  %6635 = load i64, ptr %6, align 8
+  %6636 = load ptr, ptr %11, align 8
+  %6637 = call i64 @rb_str_cat_cstr(i64 noundef %6635, ptr noundef %6636)
   store i32 1, ptr %9, align 4
-  br label %6635
+  br label %6638
 
-6635:                                             ; preds = %6645, %6623
-  %6636 = load i32, ptr %9, align 4
-  %6637 = icmp ne i32 %6636, 0
-  br i1 %6637, label %6638, label %6651
+6638:                                             ; preds = %6648, %6626
+  %6639 = load i32, ptr %9, align 4
+  %6640 = icmp ne i32 %6639, 0
+  br i1 %6640, label %6641, label %6654
 
-6638:                                             ; preds = %6635
-  %6639 = load i64, ptr %5, align 8
-  %6640 = load i64, ptr %6, align 8
-  %6641 = load i32, ptr %7, align 4
-  %6642 = load ptr, ptr %8, align 8
-  %6643 = getelementptr inbounds %struct.RNode_LAMBDA, ptr %6642, i32 0, i32 1
-  %6644 = load ptr, ptr %6643, align 8
-  call void @dump_node(i64 noundef %6639, i64 noundef %6640, i32 noundef %6641, ptr noundef %6644)
-  br label %6645
+6641:                                             ; preds = %6638
+  %6642 = load i64, ptr %5, align 8
+  %6643 = load i64, ptr %6, align 8
+  %6644 = load i32, ptr %7, align 4
+  %6645 = load ptr, ptr %8, align 8
+  %6646 = getelementptr inbounds %struct.RNode_LAMBDA, ptr %6645, i32 0, i32 1
+  %6647 = load ptr, ptr %6646, align 8
+  call void @dump_node(i64 noundef %6642, i64 noundef %6643, i32 noundef %6644, ptr noundef %6647)
+  br label %6648
 
-6645:                                             ; preds = %6638
-  %6646 = load i64, ptr %6, align 8
-  %6647 = load i64, ptr %6, align 8
-  %6648 = call i64 @RSTRING_LEN(i64 noundef %6647) #10
-  %6649 = sub i64 %6648, 4
-  %6650 = call i64 @rb_str_resize(i64 noundef %6646, i64 noundef %6649)
+6648:                                             ; preds = %6641
+  %6649 = load i64, ptr %6, align 8
+  %6650 = load i64, ptr %6, align 8
+  %6651 = call i64 @RSTRING_LEN(i64 noundef %6650) #10
+  %6652 = sub i64 %6651, 4
+  %6653 = call i64 @rb_str_resize(i64 noundef %6649, i64 noundef %6652)
   store i32 0, ptr %9, align 4
-  br label %6635, !llvm.loop !160
+  br label %6638, !llvm.loop !160
 
-6651:                                             ; preds = %6635
-  br label %7932
+6654:                                             ; preds = %6638
+  br label %7940
 
-6652:                                             ; preds = %24
-  %6653 = load i32, ptr %7, align 4
-  %6654 = icmp ne i32 %6653, 0
-  br i1 %6654, label %6655, label %6660
+6655:                                             ; preds = %24
+  %6656 = load i32, ptr %7, align 4
+  %6657 = icmp ne i32 %6656, 0
+  br i1 %6657, label %6658, label %6663
 
-6655:                                             ; preds = %6652
-  %6656 = load i64, ptr %5, align 8
-  %6657 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6656, i64 noundef %6657)
-  %6658 = load i64, ptr %5, align 8
-  %6659 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6658, ptr noundef @.str.400)
-  br label %6660
+6658:                                             ; preds = %6655
+  %6659 = load i64, ptr %5, align 8
+  %6660 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6659, i64 noundef %6660)
+  %6661 = load i64, ptr %5, align 8
+  %6662 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6661, ptr noundef @.str.400)
+  br label %6663
 
-6660:                                             ; preds = %6655, %6652
-  %6661 = load i32, ptr %7, align 4
-  %6662 = icmp ne i32 %6661, 0
-  br i1 %6662, label %6663, label %6668
+6663:                                             ; preds = %6658, %6655
+  %6664 = load i32, ptr %7, align 4
+  %6665 = icmp ne i32 %6664, 0
+  br i1 %6665, label %6666, label %6671
 
-6663:                                             ; preds = %6660
-  %6664 = load i64, ptr %5, align 8
-  %6665 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6664, i64 noundef %6665)
-  %6666 = load i64, ptr %5, align 8
-  %6667 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6666, ptr noundef @.str.401)
-  br label %6668
+6666:                                             ; preds = %6663
+  %6667 = load i64, ptr %5, align 8
+  %6668 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6667, i64 noundef %6668)
+  %6669 = load i64, ptr %5, align 8
+  %6670 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6669, ptr noundef @.str.401)
+  br label %6671
 
-6668:                                             ; preds = %6663, %6660
-  %6669 = load i32, ptr %7, align 4
-  %6670 = icmp ne i32 %6669, 0
-  br i1 %6670, label %6671, label %6676
+6671:                                             ; preds = %6666, %6663
+  %6672 = load i32, ptr %7, align 4
+  %6673 = icmp ne i32 %6672, 0
+  br i1 %6673, label %6674, label %6679
 
-6671:                                             ; preds = %6668
-  %6672 = load i64, ptr %5, align 8
-  %6673 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6672, i64 noundef %6673)
-  %6674 = load i64, ptr %5, align 8
-  %6675 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6674, ptr noundef @.str.402)
-  br label %6676
-
-6676:                                             ; preds = %6671, %6668
+6674:                                             ; preds = %6671
+  %6675 = load i64, ptr %5, align 8
+  %6676 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6675, i64 noundef %6676)
   %6677 = load i64, ptr %5, align 8
-  %6678 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6677, i64 noundef %6678)
-  %6679 = load i64, ptr %5, align 8
-  %6680 = load i32, ptr %7, align 4
-  %6681 = icmp ne i32 %6680, 0
-  %6682 = select i1 %6681, i64 14, i64 7
-  %6683 = trunc i64 %6682 to i32
-  %6684 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6679, ptr noundef @.str.13, i32 noundef %6683, ptr noundef @.str.58)
-  %6685 = load i64, ptr %6, align 8
-  %6686 = load ptr, ptr %11, align 8
-  %6687 = call i64 @rb_str_cat_cstr(i64 noundef %6685, ptr noundef %6686)
+  %6678 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6677, ptr noundef @.str.402)
+  br label %6679
+
+6679:                                             ; preds = %6674, %6671
+  %6680 = load i64, ptr %5, align 8
+  %6681 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6680, i64 noundef %6681)
+  %6682 = load i64, ptr %5, align 8
+  %6683 = load i32, ptr %7, align 4
+  %6684 = icmp ne i32 %6683, 0
+  %6685 = select i1 %6684, i64 14, i64 7
+  %6686 = trunc i64 %6685 to i32
+  %6687 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6682, ptr noundef @.str.13, i32 noundef %6686, ptr noundef @.str.58)
+  %6688 = load i64, ptr %6, align 8
+  %6689 = load ptr, ptr %11, align 8
+  %6690 = call i64 @rb_str_cat_cstr(i64 noundef %6688, ptr noundef %6689)
   store i32 1, ptr %9, align 4
-  br label %6688
+  br label %6691
 
-6688:                                             ; preds = %6698, %6676
-  %6689 = load i32, ptr %9, align 4
-  %6690 = icmp ne i32 %6689, 0
-  br i1 %6690, label %6691, label %6704
+6691:                                             ; preds = %6701, %6679
+  %6692 = load i32, ptr %9, align 4
+  %6693 = icmp ne i32 %6692, 0
+  br i1 %6693, label %6694, label %6707
 
-6691:                                             ; preds = %6688
-  %6692 = load i64, ptr %5, align 8
-  %6693 = load i64, ptr %6, align 8
-  %6694 = load i32, ptr %7, align 4
-  %6695 = load ptr, ptr %8, align 8
-  %6696 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %6695, i32 0, i32 1
-  %6697 = load ptr, ptr %6696, align 8
-  call void @dump_node(i64 noundef %6692, i64 noundef %6693, i32 noundef %6694, ptr noundef %6697)
-  br label %6698
+6694:                                             ; preds = %6691
+  %6695 = load i64, ptr %5, align 8
+  %6696 = load i64, ptr %6, align 8
+  %6697 = load i32, ptr %7, align 4
+  %6698 = load ptr, ptr %8, align 8
+  %6699 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %6698, i32 0, i32 1
+  %6700 = load ptr, ptr %6699, align 8
+  call void @dump_node(i64 noundef %6695, i64 noundef %6696, i32 noundef %6697, ptr noundef %6700)
+  br label %6701
 
-6698:                                             ; preds = %6691
-  %6699 = load i64, ptr %6, align 8
-  %6700 = load i64, ptr %6, align 8
-  %6701 = call i64 @RSTRING_LEN(i64 noundef %6700) #10
-  %6702 = sub i64 %6701, 4
-  %6703 = call i64 @rb_str_resize(i64 noundef %6699, i64 noundef %6702)
+6701:                                             ; preds = %6694
+  %6702 = load i64, ptr %6, align 8
+  %6703 = load i64, ptr %6, align 8
+  %6704 = call i64 @RSTRING_LEN(i64 noundef %6703) #10
+  %6705 = sub i64 %6704, 4
+  %6706 = call i64 @rb_str_resize(i64 noundef %6702, i64 noundef %6705)
   store i32 0, ptr %9, align 4
-  br label %6688, !llvm.loop !161
+  br label %6691, !llvm.loop !161
 
-6704:                                             ; preds = %6688
+6707:                                             ; preds = %6691
   store ptr @.str.12, ptr %11, align 8
-  %6705 = load i64, ptr %5, align 8
-  %6706 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6705, i64 noundef %6706)
-  %6707 = load i64, ptr %5, align 8
-  %6708 = load i32, ptr %7, align 4
-  %6709 = icmp ne i32 %6708, 0
-  %6710 = select i1 %6709, i64 14, i64 7
-  %6711 = trunc i64 %6710 to i32
-  %6712 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6707, ptr noundef @.str.13, i32 noundef %6711, ptr noundef @.str.403)
-  %6713 = load i64, ptr %6, align 8
-  %6714 = load ptr, ptr %11, align 8
-  %6715 = call i64 @rb_str_cat_cstr(i64 noundef %6713, ptr noundef %6714)
+  %6708 = load i64, ptr %5, align 8
+  %6709 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6708, i64 noundef %6709)
+  %6710 = load i64, ptr %5, align 8
+  %6711 = load i32, ptr %7, align 4
+  %6712 = icmp ne i32 %6711, 0
+  %6713 = select i1 %6712, i64 14, i64 7
+  %6714 = trunc i64 %6713 to i32
+  %6715 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6710, ptr noundef @.str.13, i32 noundef %6714, ptr noundef @.str.403)
+  %6716 = load i64, ptr %6, align 8
+  %6717 = load ptr, ptr %11, align 8
+  %6718 = call i64 @rb_str_cat_cstr(i64 noundef %6716, ptr noundef %6717)
   store i32 1, ptr %9, align 4
-  br label %6716
+  br label %6719
 
-6716:                                             ; preds = %6726, %6704
-  %6717 = load i32, ptr %9, align 4
-  %6718 = icmp ne i32 %6717, 0
-  br i1 %6718, label %6719, label %6732
+6719:                                             ; preds = %6729, %6707
+  %6720 = load i32, ptr %9, align 4
+  %6721 = icmp ne i32 %6720, 0
+  br i1 %6721, label %6722, label %6735
 
-6719:                                             ; preds = %6716
-  %6720 = load i64, ptr %5, align 8
-  %6721 = load i64, ptr %6, align 8
-  %6722 = load i32, ptr %7, align 4
-  %6723 = load ptr, ptr %8, align 8
-  %6724 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %6723, i32 0, i32 2
-  %6725 = load ptr, ptr %6724, align 8
-  call void @dump_node(i64 noundef %6720, i64 noundef %6721, i32 noundef %6722, ptr noundef %6725)
-  br label %6726
+6722:                                             ; preds = %6719
+  %6723 = load i64, ptr %5, align 8
+  %6724 = load i64, ptr %6, align 8
+  %6725 = load i32, ptr %7, align 4
+  %6726 = load ptr, ptr %8, align 8
+  %6727 = getelementptr inbounds %struct.RNode_OPT_ARG, ptr %6726, i32 0, i32 2
+  %6728 = load ptr, ptr %6727, align 8
+  call void @dump_node(i64 noundef %6723, i64 noundef %6724, i32 noundef %6725, ptr noundef %6728)
+  br label %6729
 
-6726:                                             ; preds = %6719
-  %6727 = load i64, ptr %6, align 8
-  %6728 = load i64, ptr %6, align 8
-  %6729 = call i64 @RSTRING_LEN(i64 noundef %6728) #10
-  %6730 = sub i64 %6729, 4
-  %6731 = call i64 @rb_str_resize(i64 noundef %6727, i64 noundef %6730)
+6729:                                             ; preds = %6722
+  %6730 = load i64, ptr %6, align 8
+  %6731 = load i64, ptr %6, align 8
+  %6732 = call i64 @RSTRING_LEN(i64 noundef %6731) #10
+  %6733 = sub i64 %6732, 4
+  %6734 = call i64 @rb_str_resize(i64 noundef %6730, i64 noundef %6733)
   store i32 0, ptr %9, align 4
-  br label %6716, !llvm.loop !162
+  br label %6719, !llvm.loop !162
 
-6732:                                             ; preds = %6716
-  br label %7932
+6735:                                             ; preds = %6719
+  br label %7940
 
-6733:                                             ; preds = %24
-  %6734 = load i32, ptr %7, align 4
-  %6735 = icmp ne i32 %6734, 0
-  br i1 %6735, label %6736, label %6741
+6736:                                             ; preds = %24
+  %6737 = load i32, ptr %7, align 4
+  %6738 = icmp ne i32 %6737, 0
+  br i1 %6738, label %6739, label %6744
 
-6736:                                             ; preds = %6733
-  %6737 = load i64, ptr %5, align 8
-  %6738 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6737, i64 noundef %6738)
-  %6739 = load i64, ptr %5, align 8
-  %6740 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6739, ptr noundef @.str.200)
-  br label %6741
+6739:                                             ; preds = %6736
+  %6740 = load i64, ptr %5, align 8
+  %6741 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6740, i64 noundef %6741)
+  %6742 = load i64, ptr %5, align 8
+  %6743 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6742, ptr noundef @.str.200)
+  br label %6744
 
-6741:                                             ; preds = %6736, %6733
-  %6742 = load i32, ptr %7, align 4
-  %6743 = icmp ne i32 %6742, 0
-  br i1 %6743, label %6744, label %6749
+6744:                                             ; preds = %6739, %6736
+  %6745 = load i32, ptr %7, align 4
+  %6746 = icmp ne i32 %6745, 0
+  br i1 %6746, label %6747, label %6752
 
-6744:                                             ; preds = %6741
-  %6745 = load i64, ptr %5, align 8
-  %6746 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6745, i64 noundef %6746)
-  %6747 = load i64, ptr %5, align 8
-  %6748 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6747, ptr noundef @.str.401)
-  br label %6749
+6747:                                             ; preds = %6744
+  %6748 = load i64, ptr %5, align 8
+  %6749 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6748, i64 noundef %6749)
+  %6750 = load i64, ptr %5, align 8
+  %6751 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6750, ptr noundef @.str.401)
+  br label %6752
 
-6749:                                             ; preds = %6744, %6741
-  %6750 = load i32, ptr %7, align 4
-  %6751 = icmp ne i32 %6750, 0
-  br i1 %6751, label %6752, label %6757
+6752:                                             ; preds = %6747, %6744
+  %6753 = load i32, ptr %7, align 4
+  %6754 = icmp ne i32 %6753, 0
+  br i1 %6754, label %6755, label %6760
 
-6752:                                             ; preds = %6749
-  %6753 = load i64, ptr %5, align 8
-  %6754 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6753, i64 noundef %6754)
-  %6755 = load i64, ptr %5, align 8
-  %6756 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6755, ptr noundef @.str.404)
-  br label %6757
-
-6757:                                             ; preds = %6752, %6749
+6755:                                             ; preds = %6752
+  %6756 = load i64, ptr %5, align 8
+  %6757 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6756, i64 noundef %6757)
   %6758 = load i64, ptr %5, align 8
-  %6759 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6758, i64 noundef %6759)
-  %6760 = load i64, ptr %5, align 8
-  %6761 = load i32, ptr %7, align 4
-  %6762 = icmp ne i32 %6761, 0
-  %6763 = select i1 %6762, i64 14, i64 7
-  %6764 = trunc i64 %6763 to i32
-  %6765 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6760, ptr noundef @.str.13, i32 noundef %6764, ptr noundef @.str.58)
-  %6766 = load i64, ptr %6, align 8
-  %6767 = load ptr, ptr %11, align 8
-  %6768 = call i64 @rb_str_cat_cstr(i64 noundef %6766, ptr noundef %6767)
+  %6759 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6758, ptr noundef @.str.404)
+  br label %6760
+
+6760:                                             ; preds = %6755, %6752
+  %6761 = load i64, ptr %5, align 8
+  %6762 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6761, i64 noundef %6762)
+  %6763 = load i64, ptr %5, align 8
+  %6764 = load i32, ptr %7, align 4
+  %6765 = icmp ne i32 %6764, 0
+  %6766 = select i1 %6765, i64 14, i64 7
+  %6767 = trunc i64 %6766 to i32
+  %6768 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6763, ptr noundef @.str.13, i32 noundef %6767, ptr noundef @.str.58)
+  %6769 = load i64, ptr %6, align 8
+  %6770 = load ptr, ptr %11, align 8
+  %6771 = call i64 @rb_str_cat_cstr(i64 noundef %6769, ptr noundef %6770)
   store i32 1, ptr %9, align 4
-  br label %6769
+  br label %6772
 
-6769:                                             ; preds = %6779, %6757
-  %6770 = load i32, ptr %9, align 4
-  %6771 = icmp ne i32 %6770, 0
-  br i1 %6771, label %6772, label %6785
+6772:                                             ; preds = %6782, %6760
+  %6773 = load i32, ptr %9, align 4
+  %6774 = icmp ne i32 %6773, 0
+  br i1 %6774, label %6775, label %6788
 
-6772:                                             ; preds = %6769
-  %6773 = load i64, ptr %5, align 8
-  %6774 = load i64, ptr %6, align 8
-  %6775 = load i32, ptr %7, align 4
-  %6776 = load ptr, ptr %8, align 8
-  %6777 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %6776, i32 0, i32 1
-  %6778 = load ptr, ptr %6777, align 8
-  call void @dump_node(i64 noundef %6773, i64 noundef %6774, i32 noundef %6775, ptr noundef %6778)
-  br label %6779
+6775:                                             ; preds = %6772
+  %6776 = load i64, ptr %5, align 8
+  %6777 = load i64, ptr %6, align 8
+  %6778 = load i32, ptr %7, align 4
+  %6779 = load ptr, ptr %8, align 8
+  %6780 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %6779, i32 0, i32 1
+  %6781 = load ptr, ptr %6780, align 8
+  call void @dump_node(i64 noundef %6776, i64 noundef %6777, i32 noundef %6778, ptr noundef %6781)
+  br label %6782
 
-6779:                                             ; preds = %6772
-  %6780 = load i64, ptr %6, align 8
-  %6781 = load i64, ptr %6, align 8
-  %6782 = call i64 @RSTRING_LEN(i64 noundef %6781) #10
-  %6783 = sub i64 %6782, 4
-  %6784 = call i64 @rb_str_resize(i64 noundef %6780, i64 noundef %6783)
+6782:                                             ; preds = %6775
+  %6783 = load i64, ptr %6, align 8
+  %6784 = load i64, ptr %6, align 8
+  %6785 = call i64 @RSTRING_LEN(i64 noundef %6784) #10
+  %6786 = sub i64 %6785, 4
+  %6787 = call i64 @rb_str_resize(i64 noundef %6783, i64 noundef %6786)
   store i32 0, ptr %9, align 4
-  br label %6769, !llvm.loop !163
+  br label %6772, !llvm.loop !163
 
-6785:                                             ; preds = %6769
+6788:                                             ; preds = %6772
   store ptr @.str.12, ptr %11, align 8
-  %6786 = load i64, ptr %5, align 8
-  %6787 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6786, i64 noundef %6787)
-  %6788 = load i64, ptr %5, align 8
-  %6789 = load i32, ptr %7, align 4
-  %6790 = icmp ne i32 %6789, 0
-  %6791 = select i1 %6790, i64 14, i64 7
-  %6792 = trunc i64 %6791 to i32
-  %6793 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6788, ptr noundef @.str.13, i32 noundef %6792, ptr noundef @.str.403)
-  %6794 = load i64, ptr %6, align 8
-  %6795 = load ptr, ptr %11, align 8
-  %6796 = call i64 @rb_str_cat_cstr(i64 noundef %6794, ptr noundef %6795)
+  %6789 = load i64, ptr %5, align 8
+  %6790 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6789, i64 noundef %6790)
+  %6791 = load i64, ptr %5, align 8
+  %6792 = load i32, ptr %7, align 4
+  %6793 = icmp ne i32 %6792, 0
+  %6794 = select i1 %6793, i64 14, i64 7
+  %6795 = trunc i64 %6794 to i32
+  %6796 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6791, ptr noundef @.str.13, i32 noundef %6795, ptr noundef @.str.403)
+  %6797 = load i64, ptr %6, align 8
+  %6798 = load ptr, ptr %11, align 8
+  %6799 = call i64 @rb_str_cat_cstr(i64 noundef %6797, ptr noundef %6798)
   store i32 1, ptr %9, align 4
-  br label %6797
+  br label %6800
 
-6797:                                             ; preds = %6807, %6785
-  %6798 = load i32, ptr %9, align 4
-  %6799 = icmp ne i32 %6798, 0
-  br i1 %6799, label %6800, label %6813
+6800:                                             ; preds = %6810, %6788
+  %6801 = load i32, ptr %9, align 4
+  %6802 = icmp ne i32 %6801, 0
+  br i1 %6802, label %6803, label %6816
 
-6800:                                             ; preds = %6797
-  %6801 = load i64, ptr %5, align 8
-  %6802 = load i64, ptr %6, align 8
-  %6803 = load i32, ptr %7, align 4
-  %6804 = load ptr, ptr %8, align 8
-  %6805 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %6804, i32 0, i32 2
-  %6806 = load ptr, ptr %6805, align 8
-  call void @dump_node(i64 noundef %6801, i64 noundef %6802, i32 noundef %6803, ptr noundef %6806)
-  br label %6807
+6803:                                             ; preds = %6800
+  %6804 = load i64, ptr %5, align 8
+  %6805 = load i64, ptr %6, align 8
+  %6806 = load i32, ptr %7, align 4
+  %6807 = load ptr, ptr %8, align 8
+  %6808 = getelementptr inbounds %struct.RNode_KW_ARG, ptr %6807, i32 0, i32 2
+  %6809 = load ptr, ptr %6808, align 8
+  call void @dump_node(i64 noundef %6804, i64 noundef %6805, i32 noundef %6806, ptr noundef %6809)
+  br label %6810
 
-6807:                                             ; preds = %6800
-  %6808 = load i64, ptr %6, align 8
-  %6809 = load i64, ptr %6, align 8
-  %6810 = call i64 @RSTRING_LEN(i64 noundef %6809) #10
-  %6811 = sub i64 %6810, 4
-  %6812 = call i64 @rb_str_resize(i64 noundef %6808, i64 noundef %6811)
+6810:                                             ; preds = %6803
+  %6811 = load i64, ptr %6, align 8
+  %6812 = load i64, ptr %6, align 8
+  %6813 = call i64 @RSTRING_LEN(i64 noundef %6812) #10
+  %6814 = sub i64 %6813, 4
+  %6815 = call i64 @rb_str_resize(i64 noundef %6811, i64 noundef %6814)
   store i32 0, ptr %9, align 4
-  br label %6797, !llvm.loop !164
+  br label %6800, !llvm.loop !164
 
-6813:                                             ; preds = %6797
-  br label %7932
+6816:                                             ; preds = %6800
+  br label %7940
 
-6814:                                             ; preds = %24
-  %6815 = load i32, ptr %7, align 4
-  %6816 = icmp ne i32 %6815, 0
-  br i1 %6816, label %6817, label %6822
+6817:                                             ; preds = %24
+  %6818 = load i32, ptr %7, align 4
+  %6819 = icmp ne i32 %6818, 0
+  br i1 %6819, label %6820, label %6825
 
-6817:                                             ; preds = %6814
-  %6818 = load i64, ptr %5, align 8
-  %6819 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6818, i64 noundef %6819)
-  %6820 = load i64, ptr %5, align 8
-  %6821 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6820, ptr noundef @.str.405)
-  br label %6822
+6820:                                             ; preds = %6817
+  %6821 = load i64, ptr %5, align 8
+  %6822 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6821, i64 noundef %6822)
+  %6823 = load i64, ptr %5, align 8
+  %6824 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6823, ptr noundef @.str.405)
+  br label %6825
 
-6822:                                             ; preds = %6817, %6814
-  %6823 = load i32, ptr %7, align 4
-  %6824 = icmp ne i32 %6823, 0
-  br i1 %6824, label %6825, label %6830
+6825:                                             ; preds = %6820, %6817
+  %6826 = load i32, ptr %7, align 4
+  %6827 = icmp ne i32 %6826, 0
+  br i1 %6827, label %6828, label %6833
 
-6825:                                             ; preds = %6822
-  %6826 = load i64, ptr %5, align 8
-  %6827 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6826, i64 noundef %6827)
-  %6828 = load i64, ptr %5, align 8
-  %6829 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6828, ptr noundef @.str.406)
-  br label %6830
+6828:                                             ; preds = %6825
+  %6829 = load i64, ptr %5, align 8
+  %6830 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6829, i64 noundef %6830)
+  %6831 = load i64, ptr %5, align 8
+  %6832 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6831, ptr noundef @.str.406)
+  br label %6833
 
-6830:                                             ; preds = %6825, %6822
-  %6831 = load i32, ptr %7, align 4
-  %6832 = icmp ne i32 %6831, 0
-  br i1 %6832, label %6833, label %6838
+6833:                                             ; preds = %6828, %6825
+  %6834 = load i32, ptr %7, align 4
+  %6835 = icmp ne i32 %6834, 0
+  br i1 %6835, label %6836, label %6841
 
-6833:                                             ; preds = %6830
-  %6834 = load i64, ptr %5, align 8
-  %6835 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6834, i64 noundef %6835)
-  %6836 = load i64, ptr %5, align 8
-  %6837 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6836, ptr noundef @.str.407)
-  br label %6838
+6836:                                             ; preds = %6833
+  %6837 = load i64, ptr %5, align 8
+  %6838 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6837, i64 noundef %6838)
+  %6839 = load i64, ptr %5, align 8
+  %6840 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6839, ptr noundef @.str.407)
+  br label %6841
 
-6838:                                             ; preds = %6833, %6830
-  %6839 = load ptr, ptr %8, align 8
-  %6840 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6839, i32 0, i32 1
-  %6841 = load ptr, ptr %6840, align 8
-  %6842 = icmp ne ptr %6841, inttoptr (i64 -1 to ptr)
-  br i1 %6842, label %6843, label %6872
+6841:                                             ; preds = %6836, %6833
+  %6842 = load ptr, ptr %8, align 8
+  %6843 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6842, i32 0, i32 1
+  %6844 = load ptr, ptr %6843, align 8
+  %6845 = inttoptr i64 -1 to ptr
+  %6846 = icmp ne ptr %6844, %6845
+  br i1 %6846, label %6847, label %6876
 
-6843:                                             ; preds = %6838
-  %6844 = load i64, ptr %5, align 8
-  %6845 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6844, i64 noundef %6845)
-  %6846 = load i64, ptr %5, align 8
-  %6847 = load i32, ptr %7, align 4
-  %6848 = icmp ne i32 %6847, 0
-  %6849 = select i1 %6848, i64 22, i64 6
-  %6850 = trunc i64 %6849 to i32
-  %6851 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6846, ptr noundef @.str.13, i32 noundef %6850, ptr noundef @.str.408)
-  %6852 = load i64, ptr %6, align 8
-  %6853 = load ptr, ptr %11, align 8
-  %6854 = call i64 @rb_str_cat_cstr(i64 noundef %6852, ptr noundef %6853)
+6847:                                             ; preds = %6841
+  %6848 = load i64, ptr %5, align 8
+  %6849 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6848, i64 noundef %6849)
+  %6850 = load i64, ptr %5, align 8
+  %6851 = load i32, ptr %7, align 4
+  %6852 = icmp ne i32 %6851, 0
+  %6853 = select i1 %6852, i64 22, i64 6
+  %6854 = trunc i64 %6853 to i32
+  %6855 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6850, ptr noundef @.str.13, i32 noundef %6854, ptr noundef @.str.408)
+  %6856 = load i64, ptr %6, align 8
+  %6857 = load ptr, ptr %11, align 8
+  %6858 = call i64 @rb_str_cat_cstr(i64 noundef %6856, ptr noundef %6857)
   store i32 1, ptr %9, align 4
-  br label %6855
+  br label %6859
 
-6855:                                             ; preds = %6865, %6843
-  %6856 = load i32, ptr %9, align 4
-  %6857 = icmp ne i32 %6856, 0
-  br i1 %6857, label %6858, label %6871
+6859:                                             ; preds = %6869, %6847
+  %6860 = load i32, ptr %9, align 4
+  %6861 = icmp ne i32 %6860, 0
+  br i1 %6861, label %6862, label %6875
 
-6858:                                             ; preds = %6855
-  %6859 = load i64, ptr %5, align 8
-  %6860 = load i64, ptr %6, align 8
-  %6861 = load i32, ptr %7, align 4
-  %6862 = load ptr, ptr %8, align 8
-  %6863 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6862, i32 0, i32 1
-  %6864 = load ptr, ptr %6863, align 8
-  call void @dump_node(i64 noundef %6859, i64 noundef %6860, i32 noundef %6861, ptr noundef %6864)
-  br label %6865
+6862:                                             ; preds = %6859
+  %6863 = load i64, ptr %5, align 8
+  %6864 = load i64, ptr %6, align 8
+  %6865 = load i32, ptr %7, align 4
+  %6866 = load ptr, ptr %8, align 8
+  %6867 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6866, i32 0, i32 1
+  %6868 = load ptr, ptr %6867, align 8
+  call void @dump_node(i64 noundef %6863, i64 noundef %6864, i32 noundef %6865, ptr noundef %6868)
+  br label %6869
 
-6865:                                             ; preds = %6858
-  %6866 = load i64, ptr %6, align 8
-  %6867 = load i64, ptr %6, align 8
-  %6868 = call i64 @RSTRING_LEN(i64 noundef %6867) #10
-  %6869 = sub i64 %6868, 4
-  %6870 = call i64 @rb_str_resize(i64 noundef %6866, i64 noundef %6869)
+6869:                                             ; preds = %6862
+  %6870 = load i64, ptr %6, align 8
+  %6871 = load i64, ptr %6, align 8
+  %6872 = call i64 @RSTRING_LEN(i64 noundef %6871) #10
+  %6873 = sub i64 %6872, 4
+  %6874 = call i64 @rb_str_resize(i64 noundef %6870, i64 noundef %6873)
   store i32 0, ptr %9, align 4
-  br label %6855, !llvm.loop !165
+  br label %6859, !llvm.loop !165
 
-6871:                                             ; preds = %6855
+6875:                                             ; preds = %6859
+  br label %6895
+
+6876:                                             ; preds = %6841
+  %6877 = load i64, ptr %5, align 8
+  %6878 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6877, i64 noundef %6878)
+  %6879 = load i64, ptr %5, align 8
+  %6880 = load i32, ptr %7, align 4
+  %6881 = icmp ne i32 %6880, 0
+  %6882 = select i1 %6881, i64 22, i64 6
+  %6883 = trunc i64 %6882 to i32
+  %6884 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6879, ptr noundef @.str.51, i32 noundef %6883, ptr noundef @.str.408)
+  store i32 1, ptr %9, align 4
+  br label %6885
+
+6885:                                             ; preds = %6891, %6876
+  %6886 = load i32, ptr %9, align 4
+  %6887 = icmp ne i32 %6886, 0
+  br i1 %6887, label %6888, label %6894
+
+6888:                                             ; preds = %6885
+  %6889 = load i64, ptr %5, align 8
+  %6890 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6889, ptr noundef @.str.118)
   br label %6891
 
-6872:                                             ; preds = %6838
-  %6873 = load i64, ptr %5, align 8
-  %6874 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6873, i64 noundef %6874)
-  %6875 = load i64, ptr %5, align 8
-  %6876 = load i32, ptr %7, align 4
-  %6877 = icmp ne i32 %6876, 0
-  %6878 = select i1 %6877, i64 22, i64 6
-  %6879 = trunc i64 %6878 to i32
-  %6880 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6875, ptr noundef @.str.51, i32 noundef %6879, ptr noundef @.str.408)
-  store i32 1, ptr %9, align 4
-  br label %6881
-
-6881:                                             ; preds = %6887, %6872
-  %6882 = load i32, ptr %9, align 4
-  %6883 = icmp ne i32 %6882, 0
-  br i1 %6883, label %6884, label %6890
-
-6884:                                             ; preds = %6881
-  %6885 = load i64, ptr %5, align 8
-  %6886 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6885, ptr noundef @.str.118)
-  br label %6887
-
-6887:                                             ; preds = %6884
-  %6888 = load i64, ptr %5, align 8
-  %6889 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6888, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %6881, !llvm.loop !166
-
-6890:                                             ; preds = %6881
-  br label %6891
-
-6891:                                             ; preds = %6890, %6871
-  store ptr @.str.12, ptr %11, align 8
+6891:                                             ; preds = %6888
   %6892 = load i64, ptr %5, align 8
-  %6893 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6892, i64 noundef %6893)
-  %6894 = load i64, ptr %5, align 8
-  %6895 = load i32, ptr %7, align 4
-  %6896 = icmp ne i32 %6895, 0
-  %6897 = select i1 %6896, i64 23, i64 6
-  %6898 = trunc i64 %6897 to i32
-  %6899 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6894, ptr noundef @.str.13, i32 noundef %6898, ptr noundef @.str.409)
-  %6900 = load i64, ptr %6, align 8
-  %6901 = load ptr, ptr %11, align 8
-  %6902 = call i64 @rb_str_cat_cstr(i64 noundef %6900, ptr noundef %6901)
-  store i32 1, ptr %9, align 4
-  br label %6903
-
-6903:                                             ; preds = %6913, %6891
-  %6904 = load i32, ptr %9, align 4
-  %6905 = icmp ne i32 %6904, 0
-  br i1 %6905, label %6906, label %6919
-
-6906:                                             ; preds = %6903
-  %6907 = load i64, ptr %5, align 8
-  %6908 = load i64, ptr %6, align 8
-  %6909 = load i32, ptr %7, align 4
-  %6910 = load ptr, ptr %8, align 8
-  %6911 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6910, i32 0, i32 2
-  %6912 = load ptr, ptr %6911, align 8
-  call void @dump_node(i64 noundef %6907, i64 noundef %6908, i32 noundef %6909, ptr noundef %6912)
-  br label %6913
-
-6913:                                             ; preds = %6906
-  %6914 = load i64, ptr %6, align 8
-  %6915 = load i64, ptr %6, align 8
-  %6916 = call i64 @RSTRING_LEN(i64 noundef %6915) #10
-  %6917 = sub i64 %6916, 4
-  %6918 = call i64 @rb_str_resize(i64 noundef %6914, i64 noundef %6917)
+  %6893 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6892, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %6903, !llvm.loop !167
+  br label %6885, !llvm.loop !166
 
-6919:                                             ; preds = %6903
-  br label %7932
+6894:                                             ; preds = %6885
+  br label %6895
 
-6920:                                             ; preds = %24
-  %6921 = load i32, ptr %7, align 4
-  %6922 = icmp ne i32 %6921, 0
-  br i1 %6922, label %6923, label %6928
-
-6923:                                             ; preds = %6920
-  %6924 = load i64, ptr %5, align 8
-  %6925 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6924, i64 noundef %6925)
-  %6926 = load i64, ptr %5, align 8
-  %6927 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6926, ptr noundef @.str.410)
-  br label %6928
-
-6928:                                             ; preds = %6923, %6920
-  %6929 = load i32, ptr %7, align 4
-  %6930 = icmp ne i32 %6929, 0
-  br i1 %6930, label %6931, label %6936
-
-6931:                                             ; preds = %6928
-  %6932 = load i64, ptr %5, align 8
-  %6933 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6932, i64 noundef %6933)
-  %6934 = load i64, ptr %5, align 8
-  %6935 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6934, ptr noundef @.str.411)
-  br label %6936
-
-6936:                                             ; preds = %6931, %6928
-  %6937 = load i32, ptr %7, align 4
-  %6938 = icmp ne i32 %6937, 0
-  br i1 %6938, label %6939, label %6944
-
-6939:                                             ; preds = %6936
-  %6940 = load i64, ptr %5, align 8
-  %6941 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6940, i64 noundef %6941)
-  %6942 = load i64, ptr %5, align 8
-  %6943 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6942, ptr noundef @.str.412)
-  br label %6944
-
-6944:                                             ; preds = %6939, %6936
-  %6945 = load i64, ptr %5, align 8
-  %6946 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6945, i64 noundef %6946)
-  %6947 = load i64, ptr %5, align 8
-  %6948 = load i32, ptr %7, align 4
-  %6949 = icmp ne i32 %6948, 0
-  %6950 = select i1 %6949, i64 58, i64 21
-  %6951 = trunc i64 %6950 to i32
-  %6952 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6947, ptr noundef @.str.51, i32 noundef %6951, ptr noundef @.str.413)
-  store i32 1, ptr %9, align 4
-  br label %6953
-
-6953:                                             ; preds = %6963, %6944
-  %6954 = load i32, ptr %9, align 4
-  %6955 = icmp ne i32 %6954, 0
-  br i1 %6955, label %6956, label %6966
-
-6956:                                             ; preds = %6953
-  %6957 = load i64, ptr %5, align 8
-  %6958 = load ptr, ptr %8, align 8
-  %6959 = getelementptr inbounds %struct.RNode_ARGS, ptr %6958, i32 0, i32 1
-  %6960 = getelementptr inbounds %struct.rb_args_info, ptr %6959, i32 0, i32 2
-  %6961 = load i32, ptr %6960, align 8
-  %6962 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6957, ptr noundef @.str.53, i32 noundef %6961)
-  br label %6963
-
-6963:                                             ; preds = %6956
-  %6964 = load i64, ptr %5, align 8
-  %6965 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6964, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %6953, !llvm.loop !168
-
-6966:                                             ; preds = %6953
-  %6967 = load i64, ptr %5, align 8
-  %6968 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6967, i64 noundef %6968)
-  %6969 = load i64, ptr %5, align 8
-  %6970 = load i32, ptr %7, align 4
-  %6971 = icmp ne i32 %6970, 0
-  %6972 = select i1 %6971, i64 53, i64 17
-  %6973 = trunc i64 %6972 to i32
-  %6974 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6969, ptr noundef @.str.13, i32 noundef %6973, ptr noundef @.str.414)
-  %6975 = load i64, ptr %6, align 8
-  %6976 = load ptr, ptr %11, align 8
-  %6977 = call i64 @rb_str_cat_cstr(i64 noundef %6975, ptr noundef %6976)
-  store i32 1, ptr %9, align 4
-  br label %6978
-
-6978:                                             ; preds = %6989, %6966
-  %6979 = load i32, ptr %9, align 4
-  %6980 = icmp ne i32 %6979, 0
-  br i1 %6980, label %6981, label %6995
-
-6981:                                             ; preds = %6978
-  %6982 = load i64, ptr %5, align 8
-  %6983 = load i64, ptr %6, align 8
-  %6984 = load i32, ptr %7, align 4
-  %6985 = load ptr, ptr %8, align 8
-  %6986 = getelementptr inbounds %struct.RNode_ARGS, ptr %6985, i32 0, i32 1
-  %6987 = getelementptr inbounds %struct.rb_args_info, ptr %6986, i32 0, i32 0
-  %6988 = load ptr, ptr %6987, align 8
-  call void @dump_node(i64 noundef %6982, i64 noundef %6983, i32 noundef %6984, ptr noundef %6988)
-  br label %6989
-
-6989:                                             ; preds = %6981
-  %6990 = load i64, ptr %6, align 8
-  %6991 = load i64, ptr %6, align 8
-  %6992 = call i64 @RSTRING_LEN(i64 noundef %6991) #10
-  %6993 = sub i64 %6992, 4
-  %6994 = call i64 @rb_str_resize(i64 noundef %6990, i64 noundef %6993)
-  store i32 0, ptr %9, align 4
-  br label %6978, !llvm.loop !169
-
-6995:                                             ; preds = %6978
-  %6996 = load i64, ptr %5, align 8
-  %6997 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %6996, i64 noundef %6997)
-  %6998 = load i64, ptr %5, align 8
-  %6999 = load i32, ptr %7, align 4
-  %7000 = icmp ne i32 %6999, 0
-  %7001 = select i1 %7000, i64 58, i64 22
-  %7002 = trunc i64 %7001 to i32
-  %7003 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6998, ptr noundef @.str.51, i32 noundef %7002, ptr noundef @.str.415)
-  store i32 1, ptr %9, align 4
-  br label %7004
-
-7004:                                             ; preds = %7014, %6995
-  %7005 = load i32, ptr %9, align 4
-  %7006 = icmp ne i32 %7005, 0
-  br i1 %7006, label %7007, label %7017
-
-7007:                                             ; preds = %7004
-  %7008 = load i64, ptr %5, align 8
-  %7009 = load ptr, ptr %8, align 8
-  %7010 = getelementptr inbounds %struct.RNode_ARGS, ptr %7009, i32 0, i32 1
-  %7011 = getelementptr inbounds %struct.rb_args_info, ptr %7010, i32 0, i32 3
-  %7012 = load i32, ptr %7011, align 4
-  %7013 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7008, ptr noundef @.str.53, i32 noundef %7012)
-  br label %7014
-
-7014:                                             ; preds = %7007
-  %7015 = load i64, ptr %5, align 8
-  %7016 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7015, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7004, !llvm.loop !170
-
-7017:                                             ; preds = %7004
-  %7018 = load i64, ptr %5, align 8
-  %7019 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7018, i64 noundef %7019)
-  %7020 = load i64, ptr %5, align 8
-  %7021 = load i32, ptr %7, align 4
-  %7022 = icmp ne i32 %7021, 0
-  %7023 = select i1 %7022, i64 53, i64 18
-  %7024 = trunc i64 %7023 to i32
-  %7025 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7020, ptr noundef @.str.13, i32 noundef %7024, ptr noundef @.str.416)
-  %7026 = load i64, ptr %6, align 8
-  %7027 = load ptr, ptr %11, align 8
-  %7028 = call i64 @rb_str_cat_cstr(i64 noundef %7026, ptr noundef %7027)
-  store i32 1, ptr %9, align 4
-  br label %7029
-
-7029:                                             ; preds = %7040, %7017
-  %7030 = load i32, ptr %9, align 4
-  %7031 = icmp ne i32 %7030, 0
-  br i1 %7031, label %7032, label %7046
-
-7032:                                             ; preds = %7029
-  %7033 = load i64, ptr %5, align 8
-  %7034 = load i64, ptr %6, align 8
-  %7035 = load i32, ptr %7, align 4
-  %7036 = load ptr, ptr %8, align 8
-  %7037 = getelementptr inbounds %struct.RNode_ARGS, ptr %7036, i32 0, i32 1
-  %7038 = getelementptr inbounds %struct.rb_args_info, ptr %7037, i32 0, i32 1
-  %7039 = load ptr, ptr %7038, align 8
-  call void @dump_node(i64 noundef %7033, i64 noundef %7034, i32 noundef %7035, ptr noundef %7039)
-  br label %7040
-
-7040:                                             ; preds = %7032
-  %7041 = load i64, ptr %6, align 8
-  %7042 = load i64, ptr %6, align 8
-  %7043 = call i64 @RSTRING_LEN(i64 noundef %7042) #10
-  %7044 = sub i64 %7043, 4
-  %7045 = call i64 @rb_str_resize(i64 noundef %7041, i64 noundef %7044)
-  store i32 0, ptr %9, align 4
-  br label %7029, !llvm.loop !171
-
-7046:                                             ; preds = %7029
-  %7047 = load i64, ptr %5, align 8
-  %7048 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7047, i64 noundef %7048)
-  %7049 = load i64, ptr %5, align 8
-  %7050 = load i32, ptr %7, align 4
-  %7051 = icmp ne i32 %7050, 0
-  %7052 = select i1 %7051, i64 45, i64 23
-  %7053 = trunc i64 %7052 to i32
-  %7054 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7049, ptr noundef @.str.51, i32 noundef %7053, ptr noundef @.str.417)
-  store i32 1, ptr %9, align 4
-  br label %7055
-
-7055:                                             ; preds = %7064, %7046
-  %7056 = load i32, ptr %9, align 4
-  %7057 = icmp ne i32 %7056, 0
-  br i1 %7057, label %7058, label %7067
-
-7058:                                             ; preds = %7055
-  %7059 = load i64, ptr %5, align 8
-  %7060 = load ptr, ptr %8, align 8
-  %7061 = getelementptr inbounds %struct.RNode_ARGS, ptr %7060, i32 0, i32 1
-  %7062 = getelementptr inbounds %struct.rb_args_info, ptr %7061, i32 0, i32 4
-  %7063 = load i64, ptr %7062, align 8
-  call void @add_id(i64 noundef %7059, i64 noundef %7063)
-  br label %7064
-
-7064:                                             ; preds = %7058
-  %7065 = load i64, ptr %5, align 8
-  %7066 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7065, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7055, !llvm.loop !172
-
-7067:                                             ; preds = %7055
-  %7068 = load i64, ptr %5, align 8
-  %7069 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7068, i64 noundef %7069)
-  %7070 = load i64, ptr %5, align 8
-  %7071 = load i32, ptr %7, align 4
-  %7072 = icmp ne i32 %7071, 0
-  %7073 = select i1 %7072, i64 33, i64 17
-  %7074 = trunc i64 %7073 to i32
-  %7075 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7070, ptr noundef @.str.51, i32 noundef %7074, ptr noundef @.str.418)
-  store i32 1, ptr %9, align 4
-  br label %7076
-
-7076:                                             ; preds = %7095, %7067
-  %7077 = load i32, ptr %9, align 4
-  %7078 = icmp ne i32 %7077, 0
-  br i1 %7078, label %7079, label %7098
-
-7079:                                             ; preds = %7076
-  %7080 = load ptr, ptr %8, align 8
-  %7081 = getelementptr inbounds %struct.RNode_ARGS, ptr %7080, i32 0, i32 1
-  %7082 = getelementptr inbounds %struct.rb_args_info, ptr %7081, i32 0, i32 5
-  %7083 = load i64, ptr %7082, align 8
-  %7084 = icmp eq i64 %7083, 1
-  br i1 %7084, label %7085, label %7088
-
-7085:                                             ; preds = %7079
-  %7086 = load i64, ptr %5, align 8
-  %7087 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7086, ptr noundef @.str.419)
-  br label %7094
-
-7088:                                             ; preds = %7079
-  %7089 = load i64, ptr %5, align 8
-  %7090 = load ptr, ptr %8, align 8
-  %7091 = getelementptr inbounds %struct.RNode_ARGS, ptr %7090, i32 0, i32 1
-  %7092 = getelementptr inbounds %struct.rb_args_info, ptr %7091, i32 0, i32 5
-  %7093 = load i64, ptr %7092, align 8
-  call void @add_id(i64 noundef %7089, i64 noundef %7093)
-  br label %7094
-
-7094:                                             ; preds = %7088, %7085
-  br label %7095
-
-7095:                                             ; preds = %7094
-  %7096 = load i64, ptr %5, align 8
-  %7097 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7096, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7076, !llvm.loop !173
-
-7098:                                             ; preds = %7076
-  %7099 = load i64, ptr %5, align 8
-  %7100 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7099, i64 noundef %7100)
-  %7101 = load i64, ptr %5, align 8
-  %7102 = load i32, ptr %7, align 4
-  %7103 = icmp ne i32 %7102, 0
-  %7104 = select i1 %7103, i64 35, i64 18
-  %7105 = trunc i64 %7104 to i32
-  %7106 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7101, ptr noundef @.str.51, i32 noundef %7105, ptr noundef @.str.420)
-  store i32 1, ptr %9, align 4
-  br label %7107
-
-7107:                                             ; preds = %7116, %7098
-  %7108 = load i32, ptr %9, align 4
-  %7109 = icmp ne i32 %7108, 0
-  br i1 %7109, label %7110, label %7119
-
-7110:                                             ; preds = %7107
-  %7111 = load i64, ptr %5, align 8
-  %7112 = load ptr, ptr %8, align 8
-  %7113 = getelementptr inbounds %struct.RNode_ARGS, ptr %7112, i32 0, i32 1
-  %7114 = getelementptr inbounds %struct.rb_args_info, ptr %7113, i32 0, i32 6
-  %7115 = load i64, ptr %7114, align 8
-  call void @add_id(i64 noundef %7111, i64 noundef %7115)
-  br label %7116
-
-7116:                                             ; preds = %7110
-  %7117 = load i64, ptr %5, align 8
-  %7118 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7117, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7107, !llvm.loop !174
-
-7119:                                             ; preds = %7107
-  %7120 = load i64, ptr %5, align 8
-  %7121 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7120, i64 noundef %7121)
-  %7122 = load i64, ptr %5, align 8
-  %7123 = load i32, ptr %7, align 4
-  %7124 = icmp ne i32 %7123, 0
-  %7125 = select i1 %7124, i64 38, i64 17
-  %7126 = trunc i64 %7125 to i32
-  %7127 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7122, ptr noundef @.str.13, i32 noundef %7126, ptr noundef @.str.421)
-  %7128 = load i64, ptr %6, align 8
-  %7129 = load ptr, ptr %11, align 8
-  %7130 = call i64 @rb_str_cat_cstr(i64 noundef %7128, ptr noundef %7129)
-  store i32 1, ptr %9, align 4
-  br label %7131
-
-7131:                                             ; preds = %7142, %7119
-  %7132 = load i32, ptr %9, align 4
-  %7133 = icmp ne i32 %7132, 0
-  br i1 %7133, label %7134, label %7148
-
-7134:                                             ; preds = %7131
-  %7135 = load i64, ptr %5, align 8
-  %7136 = load i64, ptr %6, align 8
-  %7137 = load i32, ptr %7, align 4
-  %7138 = load ptr, ptr %8, align 8
-  %7139 = getelementptr inbounds %struct.RNode_ARGS, ptr %7138, i32 0, i32 1
-  %7140 = getelementptr inbounds %struct.rb_args_info, ptr %7139, i32 0, i32 9
-  %7141 = load ptr, ptr %7140, align 8
-  call void @dump_node(i64 noundef %7135, i64 noundef %7136, i32 noundef %7137, ptr noundef %7141)
-  br label %7142
-
-7142:                                             ; preds = %7134
-  %7143 = load i64, ptr %6, align 8
-  %7144 = load i64, ptr %6, align 8
-  %7145 = call i64 @RSTRING_LEN(i64 noundef %7144) #10
-  %7146 = sub i64 %7145, 4
-  %7147 = call i64 @rb_str_resize(i64 noundef %7143, i64 noundef %7146)
-  store i32 0, ptr %9, align 4
-  br label %7131, !llvm.loop !175
-
-7148:                                             ; preds = %7131
-  %7149 = load i64, ptr %5, align 8
-  %7150 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7149, i64 noundef %7150)
-  %7151 = load i64, ptr %5, align 8
-  %7152 = load i32, ptr %7, align 4
-  %7153 = icmp ne i32 %7152, 0
-  %7154 = select i1 %7153, i64 36, i64 16
-  %7155 = trunc i64 %7154 to i32
-  %7156 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7151, ptr noundef @.str.13, i32 noundef %7155, ptr noundef @.str.422)
-  %7157 = load i64, ptr %6, align 8
-  %7158 = load ptr, ptr %11, align 8
-  %7159 = call i64 @rb_str_cat_cstr(i64 noundef %7157, ptr noundef %7158)
-  store i32 1, ptr %9, align 4
-  br label %7160
-
-7160:                                             ; preds = %7171, %7148
-  %7161 = load i32, ptr %9, align 4
-  %7162 = icmp ne i32 %7161, 0
-  br i1 %7162, label %7163, label %7177
-
-7163:                                             ; preds = %7160
-  %7164 = load i64, ptr %5, align 8
-  %7165 = load i64, ptr %6, align 8
-  %7166 = load i32, ptr %7, align 4
-  %7167 = load ptr, ptr %8, align 8
-  %7168 = getelementptr inbounds %struct.RNode_ARGS, ptr %7167, i32 0, i32 1
-  %7169 = getelementptr inbounds %struct.rb_args_info, ptr %7168, i32 0, i32 7
-  %7170 = load ptr, ptr %7169, align 8
-  call void @dump_node(i64 noundef %7164, i64 noundef %7165, i32 noundef %7166, ptr noundef %7170)
-  br label %7171
-
-7171:                                             ; preds = %7163
-  %7172 = load i64, ptr %6, align 8
-  %7173 = load i64, ptr %6, align 8
-  %7174 = call i64 @RSTRING_LEN(i64 noundef %7173) #10
-  %7175 = sub i64 %7174, 4
-  %7176 = call i64 @rb_str_resize(i64 noundef %7172, i64 noundef %7175)
-  store i32 0, ptr %9, align 4
-  br label %7160, !llvm.loop !176
-
-7177:                                             ; preds = %7160
+6895:                                             ; preds = %6894, %6875
   store ptr @.str.12, ptr %11, align 8
-  %7178 = load i64, ptr %5, align 8
-  %7179 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7178, i64 noundef %7179)
-  %7180 = load i64, ptr %5, align 8
-  %7181 = load i32, ptr %7, align 4
-  %7182 = icmp ne i32 %7181, 0
-  %7183 = select i1 %7182, i64 44, i64 20
-  %7184 = trunc i64 %7183 to i32
-  %7185 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7180, ptr noundef @.str.13, i32 noundef %7184, ptr noundef @.str.423)
-  %7186 = load i64, ptr %6, align 8
-  %7187 = load ptr, ptr %11, align 8
-  %7188 = call i64 @rb_str_cat_cstr(i64 noundef %7186, ptr noundef %7187)
+  %6896 = load i64, ptr %5, align 8
+  %6897 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6896, i64 noundef %6897)
+  %6898 = load i64, ptr %5, align 8
+  %6899 = load i32, ptr %7, align 4
+  %6900 = icmp ne i32 %6899, 0
+  %6901 = select i1 %6900, i64 23, i64 6
+  %6902 = trunc i64 %6901 to i32
+  %6903 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6898, ptr noundef @.str.13, i32 noundef %6902, ptr noundef @.str.409)
+  %6904 = load i64, ptr %6, align 8
+  %6905 = load ptr, ptr %11, align 8
+  %6906 = call i64 @rb_str_cat_cstr(i64 noundef %6904, ptr noundef %6905)
   store i32 1, ptr %9, align 4
-  br label %7189
+  br label %6907
 
-7189:                                             ; preds = %7200, %7177
-  %7190 = load i32, ptr %9, align 4
-  %7191 = icmp ne i32 %7190, 0
-  br i1 %7191, label %7192, label %7206
+6907:                                             ; preds = %6917, %6895
+  %6908 = load i32, ptr %9, align 4
+  %6909 = icmp ne i32 %6908, 0
+  br i1 %6909, label %6910, label %6923
 
-7192:                                             ; preds = %7189
-  %7193 = load i64, ptr %5, align 8
-  %7194 = load i64, ptr %6, align 8
-  %7195 = load i32, ptr %7, align 4
-  %7196 = load ptr, ptr %8, align 8
-  %7197 = getelementptr inbounds %struct.RNode_ARGS, ptr %7196, i32 0, i32 1
-  %7198 = getelementptr inbounds %struct.rb_args_info, ptr %7197, i32 0, i32 8
-  %7199 = load ptr, ptr %7198, align 8
-  call void @dump_node(i64 noundef %7193, i64 noundef %7194, i32 noundef %7195, ptr noundef %7199)
-  br label %7200
+6910:                                             ; preds = %6907
+  %6911 = load i64, ptr %5, align 8
+  %6912 = load i64, ptr %6, align 8
+  %6913 = load i32, ptr %7, align 4
+  %6914 = load ptr, ptr %8, align 8
+  %6915 = getelementptr inbounds %struct.RNode_POSTARG, ptr %6914, i32 0, i32 2
+  %6916 = load ptr, ptr %6915, align 8
+  call void @dump_node(i64 noundef %6911, i64 noundef %6912, i32 noundef %6913, ptr noundef %6916)
+  br label %6917
 
-7200:                                             ; preds = %7192
-  %7201 = load i64, ptr %6, align 8
-  %7202 = load i64, ptr %6, align 8
-  %7203 = call i64 @RSTRING_LEN(i64 noundef %7202) #10
-  %7204 = sub i64 %7203, 4
-  %7205 = call i64 @rb_str_resize(i64 noundef %7201, i64 noundef %7204)
+6917:                                             ; preds = %6910
+  %6918 = load i64, ptr %6, align 8
+  %6919 = load i64, ptr %6, align 8
+  %6920 = call i64 @RSTRING_LEN(i64 noundef %6919) #10
+  %6921 = sub i64 %6920, 4
+  %6922 = call i64 @rb_str_resize(i64 noundef %6918, i64 noundef %6921)
   store i32 0, ptr %9, align 4
-  br label %7189, !llvm.loop !177
+  br label %6907, !llvm.loop !167
 
-7206:                                             ; preds = %7189
-  br label %7932
+6923:                                             ; preds = %6907
+  br label %7940
 
-7207:                                             ; preds = %24
-  %7208 = load i32, ptr %7, align 4
-  %7209 = icmp ne i32 %7208, 0
-  br i1 %7209, label %7210, label %7215
+6924:                                             ; preds = %24
+  %6925 = load i32, ptr %7, align 4
+  %6926 = icmp ne i32 %6925, 0
+  br i1 %6926, label %6927, label %6932
 
-7210:                                             ; preds = %7207
-  %7211 = load i64, ptr %5, align 8
-  %7212 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7211, i64 noundef %7212)
-  %7213 = load i64, ptr %5, align 8
-  %7214 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7213, ptr noundef @.str.424)
-  br label %7215
+6927:                                             ; preds = %6924
+  %6928 = load i64, ptr %5, align 8
+  %6929 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6928, i64 noundef %6929)
+  %6930 = load i64, ptr %5, align 8
+  %6931 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6930, ptr noundef @.str.410)
+  br label %6932
 
-7215:                                             ; preds = %7210, %7207
-  %7216 = load i32, ptr %7, align 4
-  %7217 = icmp ne i32 %7216, 0
-  br i1 %7217, label %7218, label %7223
+6932:                                             ; preds = %6927, %6924
+  %6933 = load i32, ptr %7, align 4
+  %6934 = icmp ne i32 %6933, 0
+  br i1 %6934, label %6935, label %6940
 
-7218:                                             ; preds = %7215
-  %7219 = load i64, ptr %5, align 8
-  %7220 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7219, i64 noundef %7220)
-  %7221 = load i64, ptr %5, align 8
-  %7222 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7221, ptr noundef @.str.425)
-  br label %7223
+6935:                                             ; preds = %6932
+  %6936 = load i64, ptr %5, align 8
+  %6937 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6936, i64 noundef %6937)
+  %6938 = load i64, ptr %5, align 8
+  %6939 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6938, ptr noundef @.str.411)
+  br label %6940
 
-7223:                                             ; preds = %7218, %7215
-  %7224 = load i64, ptr %5, align 8
-  %7225 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7224, i64 noundef %7225)
-  %7226 = load i64, ptr %5, align 8
-  %7227 = load i32, ptr %7, align 4
-  %7228 = icmp ne i32 %7227, 0
-  %7229 = select i1 %7228, i64 20, i64 6
-  %7230 = trunc i64 %7229 to i32
-  %7231 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7226, ptr noundef @.str.51, i32 noundef %7230, ptr noundef @.str.426)
+6940:                                             ; preds = %6935, %6932
+  %6941 = load i32, ptr %7, align 4
+  %6942 = icmp ne i32 %6941, 0
+  br i1 %6942, label %6943, label %6948
+
+6943:                                             ; preds = %6940
+  %6944 = load i64, ptr %5, align 8
+  %6945 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6944, i64 noundef %6945)
+  %6946 = load i64, ptr %5, align 8
+  %6947 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6946, ptr noundef @.str.412)
+  br label %6948
+
+6948:                                             ; preds = %6943, %6940
+  %6949 = load i64, ptr %5, align 8
+  %6950 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6949, i64 noundef %6950)
+  %6951 = load i64, ptr %5, align 8
+  %6952 = load i32, ptr %7, align 4
+  %6953 = icmp ne i32 %6952, 0
+  %6954 = select i1 %6953, i64 58, i64 21
+  %6955 = trunc i64 %6954 to i32
+  %6956 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6951, ptr noundef @.str.51, i32 noundef %6955, ptr noundef @.str.413)
   store i32 1, ptr %9, align 4
-  br label %7232
+  br label %6957
 
-7232:                                             ; preds = %7278, %7223
-  %7233 = load i32, ptr %9, align 4
-  %7234 = icmp ne i32 %7233, 0
-  br i1 %7234, label %7235, label %7281
+6957:                                             ; preds = %6967, %6948
+  %6958 = load i32, ptr %9, align 4
+  %6959 = icmp ne i32 %6958, 0
+  br i1 %6959, label %6960, label %6970
 
-7235:                                             ; preds = %7232
-  %7236 = load ptr, ptr %8, align 8
-  %7237 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7236, i32 0, i32 1
-  %7238 = load ptr, ptr %7237, align 8
-  store ptr %7238, ptr %14, align 8
-  %7239 = load ptr, ptr %14, align 8
-  %7240 = icmp ne ptr %7239, null
-  br i1 %7240, label %7241, label %7245
+6960:                                             ; preds = %6957
+  %6961 = load i64, ptr %5, align 8
+  %6962 = load ptr, ptr %8, align 8
+  %6963 = getelementptr inbounds %struct.RNode_ARGS, ptr %6962, i32 0, i32 1
+  %6964 = getelementptr inbounds %struct.rb_args_info, ptr %6963, i32 0, i32 2
+  %6965 = load i32, ptr %6964, align 8
+  %6966 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6961, ptr noundef @.str.53, i32 noundef %6965)
+  br label %6967
 
-7241:                                             ; preds = %7235
-  %7242 = load ptr, ptr %14, align 8
-  %7243 = getelementptr inbounds %struct.rb_ast_id_table, ptr %7242, i32 0, i32 0
-  %7244 = load i32, ptr %7243, align 8
-  br label %7246
+6967:                                             ; preds = %6960
+  %6968 = load i64, ptr %5, align 8
+  %6969 = call i64 @rbimpl_str_cat_cstr(i64 noundef %6968, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %6957, !llvm.loop !168
 
-7245:                                             ; preds = %7235
-  br label %7246
+6970:                                             ; preds = %6957
+  %6971 = load i64, ptr %5, align 8
+  %6972 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %6971, i64 noundef %6972)
+  %6973 = load i64, ptr %5, align 8
+  %6974 = load i32, ptr %7, align 4
+  %6975 = icmp ne i32 %6974, 0
+  %6976 = select i1 %6975, i64 53, i64 17
+  %6977 = trunc i64 %6976 to i32
+  %6978 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6973, ptr noundef @.str.13, i32 noundef %6977, ptr noundef @.str.414)
+  %6979 = load i64, ptr %6, align 8
+  %6980 = load ptr, ptr %11, align 8
+  %6981 = call i64 @rb_str_cat_cstr(i64 noundef %6979, ptr noundef %6980)
+  store i32 1, ptr %9, align 4
+  br label %6982
 
-7246:                                             ; preds = %7245, %7241
-  %7247 = phi i32 [ %7244, %7241 ], [ 0, %7245 ]
-  store i32 %7247, ptr %16, align 4
-  %7248 = load i32, ptr %16, align 4
-  %7249 = icmp eq i32 %7248, 0
-  br i1 %7249, label %7250, label %7253
+6982:                                             ; preds = %6993, %6970
+  %6983 = load i32, ptr %9, align 4
+  %6984 = icmp ne i32 %6983, 0
+  br i1 %6984, label %6985, label %6999
 
-7250:                                             ; preds = %7246
-  %7251 = load i64, ptr %5, align 8
-  %7252 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7251, ptr noundef @.str.427)
-  br label %7253
+6985:                                             ; preds = %6982
+  %6986 = load i64, ptr %5, align 8
+  %6987 = load i64, ptr %6, align 8
+  %6988 = load i32, ptr %7, align 4
+  %6989 = load ptr, ptr %8, align 8
+  %6990 = getelementptr inbounds %struct.RNode_ARGS, ptr %6989, i32 0, i32 1
+  %6991 = getelementptr inbounds %struct.rb_args_info, ptr %6990, i32 0, i32 0
+  %6992 = load ptr, ptr %6991, align 8
+  call void @dump_node(i64 noundef %6986, i64 noundef %6987, i32 noundef %6988, ptr noundef %6992)
+  br label %6993
 
-7253:                                             ; preds = %7250, %7246
+6993:                                             ; preds = %6985
+  %6994 = load i64, ptr %6, align 8
+  %6995 = load i64, ptr %6, align 8
+  %6996 = call i64 @RSTRING_LEN(i64 noundef %6995) #10
+  %6997 = sub i64 %6996, 4
+  %6998 = call i64 @rb_str_resize(i64 noundef %6994, i64 noundef %6997)
+  store i32 0, ptr %9, align 4
+  br label %6982, !llvm.loop !169
+
+6999:                                             ; preds = %6982
+  %7000 = load i64, ptr %5, align 8
+  %7001 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7000, i64 noundef %7001)
+  %7002 = load i64, ptr %5, align 8
+  %7003 = load i32, ptr %7, align 4
+  %7004 = icmp ne i32 %7003, 0
+  %7005 = select i1 %7004, i64 58, i64 22
+  %7006 = trunc i64 %7005 to i32
+  %7007 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7002, ptr noundef @.str.51, i32 noundef %7006, ptr noundef @.str.415)
+  store i32 1, ptr %9, align 4
+  br label %7008
+
+7008:                                             ; preds = %7018, %6999
+  %7009 = load i32, ptr %9, align 4
+  %7010 = icmp ne i32 %7009, 0
+  br i1 %7010, label %7011, label %7021
+
+7011:                                             ; preds = %7008
+  %7012 = load i64, ptr %5, align 8
+  %7013 = load ptr, ptr %8, align 8
+  %7014 = getelementptr inbounds %struct.RNode_ARGS, ptr %7013, i32 0, i32 1
+  %7015 = getelementptr inbounds %struct.rb_args_info, ptr %7014, i32 0, i32 3
+  %7016 = load i32, ptr %7015, align 4
+  %7017 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7012, ptr noundef @.str.53, i32 noundef %7016)
+  br label %7018
+
+7018:                                             ; preds = %7011
+  %7019 = load i64, ptr %5, align 8
+  %7020 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7019, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7008, !llvm.loop !170
+
+7021:                                             ; preds = %7008
+  %7022 = load i64, ptr %5, align 8
+  %7023 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7022, i64 noundef %7023)
+  %7024 = load i64, ptr %5, align 8
+  %7025 = load i32, ptr %7, align 4
+  %7026 = icmp ne i32 %7025, 0
+  %7027 = select i1 %7026, i64 53, i64 18
+  %7028 = trunc i64 %7027 to i32
+  %7029 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7024, ptr noundef @.str.13, i32 noundef %7028, ptr noundef @.str.416)
+  %7030 = load i64, ptr %6, align 8
+  %7031 = load ptr, ptr %11, align 8
+  %7032 = call i64 @rb_str_cat_cstr(i64 noundef %7030, ptr noundef %7031)
+  store i32 1, ptr %9, align 4
+  br label %7033
+
+7033:                                             ; preds = %7044, %7021
+  %7034 = load i32, ptr %9, align 4
+  %7035 = icmp ne i32 %7034, 0
+  br i1 %7035, label %7036, label %7050
+
+7036:                                             ; preds = %7033
+  %7037 = load i64, ptr %5, align 8
+  %7038 = load i64, ptr %6, align 8
+  %7039 = load i32, ptr %7, align 4
+  %7040 = load ptr, ptr %8, align 8
+  %7041 = getelementptr inbounds %struct.RNode_ARGS, ptr %7040, i32 0, i32 1
+  %7042 = getelementptr inbounds %struct.rb_args_info, ptr %7041, i32 0, i32 1
+  %7043 = load ptr, ptr %7042, align 8
+  call void @dump_node(i64 noundef %7037, i64 noundef %7038, i32 noundef %7039, ptr noundef %7043)
+  br label %7044
+
+7044:                                             ; preds = %7036
+  %7045 = load i64, ptr %6, align 8
+  %7046 = load i64, ptr %6, align 8
+  %7047 = call i64 @RSTRING_LEN(i64 noundef %7046) #10
+  %7048 = sub i64 %7047, 4
+  %7049 = call i64 @rb_str_resize(i64 noundef %7045, i64 noundef %7048)
+  store i32 0, ptr %9, align 4
+  br label %7033, !llvm.loop !171
+
+7050:                                             ; preds = %7033
+  %7051 = load i64, ptr %5, align 8
+  %7052 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7051, i64 noundef %7052)
+  %7053 = load i64, ptr %5, align 8
+  %7054 = load i32, ptr %7, align 4
+  %7055 = icmp ne i32 %7054, 0
+  %7056 = select i1 %7055, i64 45, i64 23
+  %7057 = trunc i64 %7056 to i32
+  %7058 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7053, ptr noundef @.str.51, i32 noundef %7057, ptr noundef @.str.417)
+  store i32 1, ptr %9, align 4
+  br label %7059
+
+7059:                                             ; preds = %7068, %7050
+  %7060 = load i32, ptr %9, align 4
+  %7061 = icmp ne i32 %7060, 0
+  br i1 %7061, label %7062, label %7071
+
+7062:                                             ; preds = %7059
+  %7063 = load i64, ptr %5, align 8
+  %7064 = load ptr, ptr %8, align 8
+  %7065 = getelementptr inbounds %struct.RNode_ARGS, ptr %7064, i32 0, i32 1
+  %7066 = getelementptr inbounds %struct.rb_args_info, ptr %7065, i32 0, i32 4
+  %7067 = load i64, ptr %7066, align 8
+  call void @add_id(i64 noundef %7063, i64 noundef %7067)
+  br label %7068
+
+7068:                                             ; preds = %7062
+  %7069 = load i64, ptr %5, align 8
+  %7070 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7069, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7059, !llvm.loop !172
+
+7071:                                             ; preds = %7059
+  %7072 = load i64, ptr %5, align 8
+  %7073 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7072, i64 noundef %7073)
+  %7074 = load i64, ptr %5, align 8
+  %7075 = load i32, ptr %7, align 4
+  %7076 = icmp ne i32 %7075, 0
+  %7077 = select i1 %7076, i64 33, i64 17
+  %7078 = trunc i64 %7077 to i32
+  %7079 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7074, ptr noundef @.str.51, i32 noundef %7078, ptr noundef @.str.418)
+  store i32 1, ptr %9, align 4
+  br label %7080
+
+7080:                                             ; preds = %7099, %7071
+  %7081 = load i32, ptr %9, align 4
+  %7082 = icmp ne i32 %7081, 0
+  br i1 %7082, label %7083, label %7102
+
+7083:                                             ; preds = %7080
+  %7084 = load ptr, ptr %8, align 8
+  %7085 = getelementptr inbounds %struct.RNode_ARGS, ptr %7084, i32 0, i32 1
+  %7086 = getelementptr inbounds %struct.rb_args_info, ptr %7085, i32 0, i32 5
+  %7087 = load i64, ptr %7086, align 8
+  %7088 = icmp eq i64 %7087, 1
+  br i1 %7088, label %7089, label %7092
+
+7089:                                             ; preds = %7083
+  %7090 = load i64, ptr %5, align 8
+  %7091 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7090, ptr noundef @.str.419)
+  br label %7098
+
+7092:                                             ; preds = %7083
+  %7093 = load i64, ptr %5, align 8
+  %7094 = load ptr, ptr %8, align 8
+  %7095 = getelementptr inbounds %struct.RNode_ARGS, ptr %7094, i32 0, i32 1
+  %7096 = getelementptr inbounds %struct.rb_args_info, ptr %7095, i32 0, i32 5
+  %7097 = load i64, ptr %7096, align 8
+  call void @add_id(i64 noundef %7093, i64 noundef %7097)
+  br label %7098
+
+7098:                                             ; preds = %7092, %7089
+  br label %7099
+
+7099:                                             ; preds = %7098
+  %7100 = load i64, ptr %5, align 8
+  %7101 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7100, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7080, !llvm.loop !173
+
+7102:                                             ; preds = %7080
+  %7103 = load i64, ptr %5, align 8
+  %7104 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7103, i64 noundef %7104)
+  %7105 = load i64, ptr %5, align 8
+  %7106 = load i32, ptr %7, align 4
+  %7107 = icmp ne i32 %7106, 0
+  %7108 = select i1 %7107, i64 35, i64 18
+  %7109 = trunc i64 %7108 to i32
+  %7110 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7105, ptr noundef @.str.51, i32 noundef %7109, ptr noundef @.str.420)
+  store i32 1, ptr %9, align 4
+  br label %7111
+
+7111:                                             ; preds = %7120, %7102
+  %7112 = load i32, ptr %9, align 4
+  %7113 = icmp ne i32 %7112, 0
+  br i1 %7113, label %7114, label %7123
+
+7114:                                             ; preds = %7111
+  %7115 = load i64, ptr %5, align 8
+  %7116 = load ptr, ptr %8, align 8
+  %7117 = getelementptr inbounds %struct.RNode_ARGS, ptr %7116, i32 0, i32 1
+  %7118 = getelementptr inbounds %struct.rb_args_info, ptr %7117, i32 0, i32 6
+  %7119 = load i64, ptr %7118, align 8
+  call void @add_id(i64 noundef %7115, i64 noundef %7119)
+  br label %7120
+
+7120:                                             ; preds = %7114
+  %7121 = load i64, ptr %5, align 8
+  %7122 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7121, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7111, !llvm.loop !174
+
+7123:                                             ; preds = %7111
+  %7124 = load i64, ptr %5, align 8
+  %7125 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7124, i64 noundef %7125)
+  %7126 = load i64, ptr %5, align 8
+  %7127 = load i32, ptr %7, align 4
+  %7128 = icmp ne i32 %7127, 0
+  %7129 = select i1 %7128, i64 38, i64 17
+  %7130 = trunc i64 %7129 to i32
+  %7131 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7126, ptr noundef @.str.13, i32 noundef %7130, ptr noundef @.str.421)
+  %7132 = load i64, ptr %6, align 8
+  %7133 = load ptr, ptr %11, align 8
+  %7134 = call i64 @rb_str_cat_cstr(i64 noundef %7132, ptr noundef %7133)
+  store i32 1, ptr %9, align 4
+  br label %7135
+
+7135:                                             ; preds = %7146, %7123
+  %7136 = load i32, ptr %9, align 4
+  %7137 = icmp ne i32 %7136, 0
+  br i1 %7137, label %7138, label %7152
+
+7138:                                             ; preds = %7135
+  %7139 = load i64, ptr %5, align 8
+  %7140 = load i64, ptr %6, align 8
+  %7141 = load i32, ptr %7, align 4
+  %7142 = load ptr, ptr %8, align 8
+  %7143 = getelementptr inbounds %struct.RNode_ARGS, ptr %7142, i32 0, i32 1
+  %7144 = getelementptr inbounds %struct.rb_args_info, ptr %7143, i32 0, i32 9
+  %7145 = load ptr, ptr %7144, align 8
+  call void @dump_node(i64 noundef %7139, i64 noundef %7140, i32 noundef %7141, ptr noundef %7145)
+  br label %7146
+
+7146:                                             ; preds = %7138
+  %7147 = load i64, ptr %6, align 8
+  %7148 = load i64, ptr %6, align 8
+  %7149 = call i64 @RSTRING_LEN(i64 noundef %7148) #10
+  %7150 = sub i64 %7149, 4
+  %7151 = call i64 @rb_str_resize(i64 noundef %7147, i64 noundef %7150)
+  store i32 0, ptr %9, align 4
+  br label %7135, !llvm.loop !175
+
+7152:                                             ; preds = %7135
+  %7153 = load i64, ptr %5, align 8
+  %7154 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7153, i64 noundef %7154)
+  %7155 = load i64, ptr %5, align 8
+  %7156 = load i32, ptr %7, align 4
+  %7157 = icmp ne i32 %7156, 0
+  %7158 = select i1 %7157, i64 36, i64 16
+  %7159 = trunc i64 %7158 to i32
+  %7160 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7155, ptr noundef @.str.13, i32 noundef %7159, ptr noundef @.str.422)
+  %7161 = load i64, ptr %6, align 8
+  %7162 = load ptr, ptr %11, align 8
+  %7163 = call i64 @rb_str_cat_cstr(i64 noundef %7161, ptr noundef %7162)
+  store i32 1, ptr %9, align 4
+  br label %7164
+
+7164:                                             ; preds = %7175, %7152
+  %7165 = load i32, ptr %9, align 4
+  %7166 = icmp ne i32 %7165, 0
+  br i1 %7166, label %7167, label %7181
+
+7167:                                             ; preds = %7164
+  %7168 = load i64, ptr %5, align 8
+  %7169 = load i64, ptr %6, align 8
+  %7170 = load i32, ptr %7, align 4
+  %7171 = load ptr, ptr %8, align 8
+  %7172 = getelementptr inbounds %struct.RNode_ARGS, ptr %7171, i32 0, i32 1
+  %7173 = getelementptr inbounds %struct.rb_args_info, ptr %7172, i32 0, i32 7
+  %7174 = load ptr, ptr %7173, align 8
+  call void @dump_node(i64 noundef %7168, i64 noundef %7169, i32 noundef %7170, ptr noundef %7174)
+  br label %7175
+
+7175:                                             ; preds = %7167
+  %7176 = load i64, ptr %6, align 8
+  %7177 = load i64, ptr %6, align 8
+  %7178 = call i64 @RSTRING_LEN(i64 noundef %7177) #10
+  %7179 = sub i64 %7178, 4
+  %7180 = call i64 @rb_str_resize(i64 noundef %7176, i64 noundef %7179)
+  store i32 0, ptr %9, align 4
+  br label %7164, !llvm.loop !176
+
+7181:                                             ; preds = %7164
+  store ptr @.str.12, ptr %11, align 8
+  %7182 = load i64, ptr %5, align 8
+  %7183 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7182, i64 noundef %7183)
+  %7184 = load i64, ptr %5, align 8
+  %7185 = load i32, ptr %7, align 4
+  %7186 = icmp ne i32 %7185, 0
+  %7187 = select i1 %7186, i64 44, i64 20
+  %7188 = trunc i64 %7187 to i32
+  %7189 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7184, ptr noundef @.str.13, i32 noundef %7188, ptr noundef @.str.423)
+  %7190 = load i64, ptr %6, align 8
+  %7191 = load ptr, ptr %11, align 8
+  %7192 = call i64 @rb_str_cat_cstr(i64 noundef %7190, ptr noundef %7191)
+  store i32 1, ptr %9, align 4
+  br label %7193
+
+7193:                                             ; preds = %7204, %7181
+  %7194 = load i32, ptr %9, align 4
+  %7195 = icmp ne i32 %7194, 0
+  br i1 %7195, label %7196, label %7210
+
+7196:                                             ; preds = %7193
+  %7197 = load i64, ptr %5, align 8
+  %7198 = load i64, ptr %6, align 8
+  %7199 = load i32, ptr %7, align 4
+  %7200 = load ptr, ptr %8, align 8
+  %7201 = getelementptr inbounds %struct.RNode_ARGS, ptr %7200, i32 0, i32 1
+  %7202 = getelementptr inbounds %struct.rb_args_info, ptr %7201, i32 0, i32 8
+  %7203 = load ptr, ptr %7202, align 8
+  call void @dump_node(i64 noundef %7197, i64 noundef %7198, i32 noundef %7199, ptr noundef %7203)
+  br label %7204
+
+7204:                                             ; preds = %7196
+  %7205 = load i64, ptr %6, align 8
+  %7206 = load i64, ptr %6, align 8
+  %7207 = call i64 @RSTRING_LEN(i64 noundef %7206) #10
+  %7208 = sub i64 %7207, 4
+  %7209 = call i64 @rb_str_resize(i64 noundef %7205, i64 noundef %7208)
+  store i32 0, ptr %9, align 4
+  br label %7193, !llvm.loop !177
+
+7210:                                             ; preds = %7193
+  br label %7940
+
+7211:                                             ; preds = %24
+  %7212 = load i32, ptr %7, align 4
+  %7213 = icmp ne i32 %7212, 0
+  br i1 %7213, label %7214, label %7219
+
+7214:                                             ; preds = %7211
+  %7215 = load i64, ptr %5, align 8
+  %7216 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7215, i64 noundef %7216)
+  %7217 = load i64, ptr %5, align 8
+  %7218 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7217, ptr noundef @.str.424)
+  br label %7219
+
+7219:                                             ; preds = %7214, %7211
+  %7220 = load i32, ptr %7, align 4
+  %7221 = icmp ne i32 %7220, 0
+  br i1 %7221, label %7222, label %7227
+
+7222:                                             ; preds = %7219
+  %7223 = load i64, ptr %5, align 8
+  %7224 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7223, i64 noundef %7224)
+  %7225 = load i64, ptr %5, align 8
+  %7226 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7225, ptr noundef @.str.425)
+  br label %7227
+
+7227:                                             ; preds = %7222, %7219
+  %7228 = load i64, ptr %5, align 8
+  %7229 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7228, i64 noundef %7229)
+  %7230 = load i64, ptr %5, align 8
+  %7231 = load i32, ptr %7, align 4
+  %7232 = icmp ne i32 %7231, 0
+  %7233 = select i1 %7232, i64 20, i64 6
+  %7234 = trunc i64 %7233 to i32
+  %7235 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7230, ptr noundef @.str.51, i32 noundef %7234, ptr noundef @.str.426)
+  store i32 1, ptr %9, align 4
+  br label %7236
+
+7236:                                             ; preds = %7282, %7227
+  %7237 = load i32, ptr %9, align 4
+  %7238 = icmp ne i32 %7237, 0
+  br i1 %7238, label %7239, label %7285
+
+7239:                                             ; preds = %7236
+  %7240 = load ptr, ptr %8, align 8
+  %7241 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7240, i32 0, i32 1
+  %7242 = load ptr, ptr %7241, align 8
+  store ptr %7242, ptr %14, align 8
+  %7243 = load ptr, ptr %14, align 8
+  %7244 = icmp ne ptr %7243, null
+  br i1 %7244, label %7245, label %7249
+
+7245:                                             ; preds = %7239
+  %7246 = load ptr, ptr %14, align 8
+  %7247 = getelementptr inbounds %struct.rb_ast_id_table, ptr %7246, i32 0, i32 0
+  %7248 = load i32, ptr %7247, align 8
+  br label %7250
+
+7249:                                             ; preds = %7239
+  br label %7250
+
+7250:                                             ; preds = %7249, %7245
+  %7251 = phi i32 [ %7248, %7245 ], [ 0, %7249 ]
+  store i32 %7251, ptr %16, align 4
+  %7252 = load i32, ptr %16, align 4
+  %7253 = icmp eq i32 %7252, 0
+  br i1 %7253, label %7254, label %7257
+
+7254:                                             ; preds = %7250
+  %7255 = load i64, ptr %5, align 8
+  %7256 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7255, ptr noundef @.str.427)
+  br label %7257
+
+7257:                                             ; preds = %7254, %7250
   store i32 0, ptr %15, align 4
-  br label %7254
+  br label %7258
 
-7254:                                             ; preds = %7274, %7253
-  %7255 = load i32, ptr %15, align 4
-  %7256 = load i32, ptr %16, align 4
-  %7257 = icmp slt i32 %7255, %7256
-  br i1 %7257, label %7258, label %7277
+7258:                                             ; preds = %7278, %7257
+  %7259 = load i32, ptr %15, align 4
+  %7260 = load i32, ptr %16, align 4
+  %7261 = icmp slt i32 %7259, %7260
+  br i1 %7261, label %7262, label %7281
 
-7258:                                             ; preds = %7254
-  %7259 = load i64, ptr %5, align 8
-  %7260 = load ptr, ptr %14, align 8
-  %7261 = getelementptr inbounds %struct.rb_ast_id_table, ptr %7260, i32 0, i32 1
-  %7262 = load i32, ptr %15, align 4
-  %7263 = sext i32 %7262 to i64
-  %7264 = getelementptr [0 x i64], ptr %7261, i64 0, i64 %7263
-  %7265 = load i64, ptr %7264, align 8
-  call void @add_id(i64 noundef %7259, i64 noundef %7265)
+7262:                                             ; preds = %7258
+  %7263 = load i64, ptr %5, align 8
+  %7264 = load ptr, ptr %14, align 8
+  %7265 = getelementptr inbounds %struct.rb_ast_id_table, ptr %7264, i32 0, i32 1
   %7266 = load i32, ptr %15, align 4
-  %7267 = load i32, ptr %16, align 4
-  %7268 = sub i32 %7267, 1
-  %7269 = icmp slt i32 %7266, %7268
-  br i1 %7269, label %7270, label %7273
+  %7267 = sext i32 %7266 to i64
+  %7268 = getelementptr [0 x i64], ptr %7265, i64 0, i64 %7267
+  %7269 = load i64, ptr %7268, align 8
+  call void @add_id(i64 noundef %7263, i64 noundef %7269)
+  %7270 = load i32, ptr %15, align 4
+  %7271 = load i32, ptr %16, align 4
+  %7272 = sub i32 %7271, 1
+  %7273 = icmp slt i32 %7270, %7272
+  br i1 %7273, label %7274, label %7277
 
-7270:                                             ; preds = %7258
-  %7271 = load i64, ptr %5, align 8
-  %7272 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7271, ptr noundef @.str.428)
-  br label %7273
+7274:                                             ; preds = %7262
+  %7275 = load i64, ptr %5, align 8
+  %7276 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7275, ptr noundef @.str.428)
+  br label %7277
 
-7273:                                             ; preds = %7270, %7258
-  br label %7274
-
-7274:                                             ; preds = %7273
-  %7275 = load i32, ptr %15, align 4
-  %7276 = add i32 %7275, 1
-  store i32 %7276, ptr %15, align 4
-  br label %7254, !llvm.loop !178
-
-7277:                                             ; preds = %7254
+7277:                                             ; preds = %7274, %7262
   br label %7278
 
 7278:                                             ; preds = %7277
-  %7279 = load i64, ptr %5, align 8
-  %7280 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7279, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7232, !llvm.loop !179
+  %7279 = load i32, ptr %15, align 4
+  %7280 = add i32 %7279, 1
+  store i32 %7280, ptr %15, align 4
+  br label %7258, !llvm.loop !178
 
-7281:                                             ; preds = %7232
-  %7282 = load i64, ptr %5, align 8
-  %7283 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7282, i64 noundef %7283)
-  %7284 = load i64, ptr %5, align 8
-  %7285 = load i32, ptr %7, align 4
-  %7286 = icmp ne i32 %7285, 0
-  %7287 = select i1 %7286, i64 19, i64 7
-  %7288 = trunc i64 %7287 to i32
-  %7289 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7284, ptr noundef @.str.13, i32 noundef %7288, ptr noundef @.str.176)
-  %7290 = load i64, ptr %6, align 8
-  %7291 = load ptr, ptr %11, align 8
-  %7292 = call i64 @rb_str_cat_cstr(i64 noundef %7290, ptr noundef %7291)
+7281:                                             ; preds = %7258
+  br label %7282
+
+7282:                                             ; preds = %7281
+  %7283 = load i64, ptr %5, align 8
+  %7284 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7283, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7236, !llvm.loop !179
+
+7285:                                             ; preds = %7236
+  %7286 = load i64, ptr %5, align 8
+  %7287 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7286, i64 noundef %7287)
+  %7288 = load i64, ptr %5, align 8
+  %7289 = load i32, ptr %7, align 4
+  %7290 = icmp ne i32 %7289, 0
+  %7291 = select i1 %7290, i64 19, i64 7
+  %7292 = trunc i64 %7291 to i32
+  %7293 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7288, ptr noundef @.str.13, i32 noundef %7292, ptr noundef @.str.176)
+  %7294 = load i64, ptr %6, align 8
+  %7295 = load ptr, ptr %11, align 8
+  %7296 = call i64 @rb_str_cat_cstr(i64 noundef %7294, ptr noundef %7295)
   store i32 1, ptr %9, align 4
-  br label %7293
+  br label %7297
 
-7293:                                             ; preds = %7303, %7281
-  %7294 = load i32, ptr %9, align 4
-  %7295 = icmp ne i32 %7294, 0
-  br i1 %7295, label %7296, label %7309
+7297:                                             ; preds = %7307, %7285
+  %7298 = load i32, ptr %9, align 4
+  %7299 = icmp ne i32 %7298, 0
+  br i1 %7299, label %7300, label %7313
 
-7296:                                             ; preds = %7293
-  %7297 = load i64, ptr %5, align 8
-  %7298 = load i64, ptr %6, align 8
-  %7299 = load i32, ptr %7, align 4
-  %7300 = load ptr, ptr %8, align 8
-  %7301 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7300, i32 0, i32 3
-  %7302 = load ptr, ptr %7301, align 8
-  call void @dump_node(i64 noundef %7297, i64 noundef %7298, i32 noundef %7299, ptr noundef %7302)
-  br label %7303
+7300:                                             ; preds = %7297
+  %7301 = load i64, ptr %5, align 8
+  %7302 = load i64, ptr %6, align 8
+  %7303 = load i32, ptr %7, align 4
+  %7304 = load ptr, ptr %8, align 8
+  %7305 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7304, i32 0, i32 3
+  %7306 = load ptr, ptr %7305, align 8
+  call void @dump_node(i64 noundef %7301, i64 noundef %7302, i32 noundef %7303, ptr noundef %7306)
+  br label %7307
 
-7303:                                             ; preds = %7296
-  %7304 = load i64, ptr %6, align 8
-  %7305 = load i64, ptr %6, align 8
-  %7306 = call i64 @RSTRING_LEN(i64 noundef %7305) #10
-  %7307 = sub i64 %7306, 4
-  %7308 = call i64 @rb_str_resize(i64 noundef %7304, i64 noundef %7307)
+7307:                                             ; preds = %7300
+  %7308 = load i64, ptr %6, align 8
+  %7309 = load i64, ptr %6, align 8
+  %7310 = call i64 @RSTRING_LEN(i64 noundef %7309) #10
+  %7311 = sub i64 %7310, 4
+  %7312 = call i64 @rb_str_resize(i64 noundef %7308, i64 noundef %7311)
   store i32 0, ptr %9, align 4
-  br label %7293, !llvm.loop !180
+  br label %7297, !llvm.loop !180
 
-7309:                                             ; preds = %7293
+7313:                                             ; preds = %7297
   store ptr @.str.12, ptr %11, align 8
-  %7310 = load i64, ptr %5, align 8
-  %7311 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7310, i64 noundef %7311)
-  %7312 = load i64, ptr %5, align 8
-  %7313 = load i32, ptr %7, align 4
-  %7314 = icmp ne i32 %7313, 0
-  %7315 = select i1 %7314, i64 14, i64 7
-  %7316 = trunc i64 %7315 to i32
-  %7317 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7312, ptr noundef @.str.13, i32 noundef %7316, ptr noundef @.str.58)
-  %7318 = load i64, ptr %6, align 8
-  %7319 = load ptr, ptr %11, align 8
-  %7320 = call i64 @rb_str_cat_cstr(i64 noundef %7318, ptr noundef %7319)
+  %7314 = load i64, ptr %5, align 8
+  %7315 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7314, i64 noundef %7315)
+  %7316 = load i64, ptr %5, align 8
+  %7317 = load i32, ptr %7, align 4
+  %7318 = icmp ne i32 %7317, 0
+  %7319 = select i1 %7318, i64 14, i64 7
+  %7320 = trunc i64 %7319 to i32
+  %7321 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7316, ptr noundef @.str.13, i32 noundef %7320, ptr noundef @.str.58)
+  %7322 = load i64, ptr %6, align 8
+  %7323 = load ptr, ptr %11, align 8
+  %7324 = call i64 @rb_str_cat_cstr(i64 noundef %7322, ptr noundef %7323)
   store i32 1, ptr %9, align 4
-  br label %7321
+  br label %7325
 
-7321:                                             ; preds = %7331, %7309
-  %7322 = load i32, ptr %9, align 4
-  %7323 = icmp ne i32 %7322, 0
-  br i1 %7323, label %7324, label %7337
+7325:                                             ; preds = %7335, %7313
+  %7326 = load i32, ptr %9, align 4
+  %7327 = icmp ne i32 %7326, 0
+  br i1 %7327, label %7328, label %7341
 
-7324:                                             ; preds = %7321
-  %7325 = load i64, ptr %5, align 8
-  %7326 = load i64, ptr %6, align 8
-  %7327 = load i32, ptr %7, align 4
-  %7328 = load ptr, ptr %8, align 8
-  %7329 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7328, i32 0, i32 2
-  %7330 = load ptr, ptr %7329, align 8
-  call void @dump_node(i64 noundef %7325, i64 noundef %7326, i32 noundef %7327, ptr noundef %7330)
-  br label %7331
+7328:                                             ; preds = %7325
+  %7329 = load i64, ptr %5, align 8
+  %7330 = load i64, ptr %6, align 8
+  %7331 = load i32, ptr %7, align 4
+  %7332 = load ptr, ptr %8, align 8
+  %7333 = getelementptr inbounds %struct.RNode_SCOPE, ptr %7332, i32 0, i32 2
+  %7334 = load ptr, ptr %7333, align 8
+  call void @dump_node(i64 noundef %7329, i64 noundef %7330, i32 noundef %7331, ptr noundef %7334)
+  br label %7335
 
-7331:                                             ; preds = %7324
-  %7332 = load i64, ptr %6, align 8
-  %7333 = load i64, ptr %6, align 8
-  %7334 = call i64 @RSTRING_LEN(i64 noundef %7333) #10
-  %7335 = sub i64 %7334, 4
-  %7336 = call i64 @rb_str_resize(i64 noundef %7332, i64 noundef %7335)
+7335:                                             ; preds = %7328
+  %7336 = load i64, ptr %6, align 8
+  %7337 = load i64, ptr %6, align 8
+  %7338 = call i64 @RSTRING_LEN(i64 noundef %7337) #10
+  %7339 = sub i64 %7338, 4
+  %7340 = call i64 @rb_str_resize(i64 noundef %7336, i64 noundef %7339)
   store i32 0, ptr %9, align 4
-  br label %7321, !llvm.loop !181
+  br label %7325, !llvm.loop !181
 
-7337:                                             ; preds = %7321
-  br label %7932
+7341:                                             ; preds = %7325
+  br label %7940
 
-7338:                                             ; preds = %24
-  %7339 = load i32, ptr %7, align 4
-  %7340 = icmp ne i32 %7339, 0
-  br i1 %7340, label %7341, label %7346
+7342:                                             ; preds = %24
+  %7343 = load i32, ptr %7, align 4
+  %7344 = icmp ne i32 %7343, 0
+  br i1 %7344, label %7345, label %7350
 
-7341:                                             ; preds = %7338
-  %7342 = load i64, ptr %5, align 8
-  %7343 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7342, i64 noundef %7343)
-  %7344 = load i64, ptr %5, align 8
-  %7345 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7344, ptr noundef @.str.429)
-  br label %7346
+7345:                                             ; preds = %7342
+  %7346 = load i64, ptr %5, align 8
+  %7347 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7346, i64 noundef %7347)
+  %7348 = load i64, ptr %5, align 8
+  %7349 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7348, ptr noundef @.str.429)
+  br label %7350
 
-7346:                                             ; preds = %7341, %7338
-  %7347 = load i32, ptr %7, align 4
-  %7348 = icmp ne i32 %7347, 0
-  br i1 %7348, label %7349, label %7354
+7350:                                             ; preds = %7345, %7342
+  %7351 = load i32, ptr %7, align 4
+  %7352 = icmp ne i32 %7351, 0
+  br i1 %7352, label %7353, label %7358
 
-7349:                                             ; preds = %7346
-  %7350 = load i64, ptr %5, align 8
-  %7351 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7350, i64 noundef %7351)
-  %7352 = load i64, ptr %5, align 8
-  %7353 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7352, ptr noundef @.str.430)
-  br label %7354
+7353:                                             ; preds = %7350
+  %7354 = load i64, ptr %5, align 8
+  %7355 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7354, i64 noundef %7355)
+  %7356 = load i64, ptr %5, align 8
+  %7357 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7356, ptr noundef @.str.430)
+  br label %7358
 
-7354:                                             ; preds = %7349, %7346
-  %7355 = load i64, ptr %5, align 8
-  %7356 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7355, i64 noundef %7356)
-  %7357 = load i64, ptr %5, align 8
-  %7358 = load i32, ptr %7, align 4
-  %7359 = icmp ne i32 %7358, 0
-  %7360 = select i1 %7359, i64 20, i64 9
-  %7361 = trunc i64 %7360 to i32
-  %7362 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7357, ptr noundef @.str.13, i32 noundef %7361, ptr noundef @.str.431)
-  %7363 = load i64, ptr %6, align 8
-  %7364 = load ptr, ptr %11, align 8
-  %7365 = call i64 @rb_str_cat_cstr(i64 noundef %7363, ptr noundef %7364)
+7358:                                             ; preds = %7353, %7350
+  %7359 = load i64, ptr %5, align 8
+  %7360 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7359, i64 noundef %7360)
+  %7361 = load i64, ptr %5, align 8
+  %7362 = load i32, ptr %7, align 4
+  %7363 = icmp ne i32 %7362, 0
+  %7364 = select i1 %7363, i64 20, i64 9
+  %7365 = trunc i64 %7364 to i32
+  %7366 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7361, ptr noundef @.str.13, i32 noundef %7365, ptr noundef @.str.431)
+  %7367 = load i64, ptr %6, align 8
+  %7368 = load ptr, ptr %11, align 8
+  %7369 = call i64 @rb_str_cat_cstr(i64 noundef %7367, ptr noundef %7368)
   store i32 1, ptr %9, align 4
-  br label %7366
+  br label %7370
 
-7366:                                             ; preds = %7376, %7354
-  %7367 = load i32, ptr %9, align 4
-  %7368 = icmp ne i32 %7367, 0
-  br i1 %7368, label %7369, label %7382
+7370:                                             ; preds = %7380, %7358
+  %7371 = load i32, ptr %9, align 4
+  %7372 = icmp ne i32 %7371, 0
+  br i1 %7372, label %7373, label %7386
 
-7369:                                             ; preds = %7366
-  %7370 = load i64, ptr %5, align 8
-  %7371 = load i64, ptr %6, align 8
-  %7372 = load i32, ptr %7, align 4
-  %7373 = load ptr, ptr %8, align 8
-  %7374 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7373, i32 0, i32 1
-  %7375 = load ptr, ptr %7374, align 8
-  call void @dump_node(i64 noundef %7370, i64 noundef %7371, i32 noundef %7372, ptr noundef %7375)
-  br label %7376
+7373:                                             ; preds = %7370
+  %7374 = load i64, ptr %5, align 8
+  %7375 = load i64, ptr %6, align 8
+  %7376 = load i32, ptr %7, align 4
+  %7377 = load ptr, ptr %8, align 8
+  %7378 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7377, i32 0, i32 1
+  %7379 = load ptr, ptr %7378, align 8
+  call void @dump_node(i64 noundef %7374, i64 noundef %7375, i32 noundef %7376, ptr noundef %7379)
+  br label %7380
 
-7376:                                             ; preds = %7369
-  %7377 = load i64, ptr %6, align 8
-  %7378 = load i64, ptr %6, align 8
-  %7379 = call i64 @RSTRING_LEN(i64 noundef %7378) #10
-  %7380 = sub i64 %7379, 4
-  %7381 = call i64 @rb_str_resize(i64 noundef %7377, i64 noundef %7380)
+7380:                                             ; preds = %7373
+  %7381 = load i64, ptr %6, align 8
+  %7382 = load i64, ptr %6, align 8
+  %7383 = call i64 @RSTRING_LEN(i64 noundef %7382) #10
+  %7384 = sub i64 %7383, 4
+  %7385 = call i64 @rb_str_resize(i64 noundef %7381, i64 noundef %7384)
   store i32 0, ptr %9, align 4
-  br label %7366, !llvm.loop !182
+  br label %7370, !llvm.loop !182
 
-7382:                                             ; preds = %7366
-  %7383 = load i64, ptr %5, align 8
-  %7384 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7383, i64 noundef %7384)
-  %7385 = load i64, ptr %5, align 8
-  %7386 = load i32, ptr %7, align 4
-  %7387 = icmp ne i32 %7386, 0
-  %7388 = select i1 %7387, i64 24, i64 8
-  %7389 = trunc i64 %7388 to i32
-  %7390 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7385, ptr noundef @.str.13, i32 noundef %7389, ptr noundef @.str.432)
-  %7391 = load i64, ptr %6, align 8
-  %7392 = load ptr, ptr %11, align 8
-  %7393 = call i64 @rb_str_cat_cstr(i64 noundef %7391, ptr noundef %7392)
+7386:                                             ; preds = %7370
+  %7387 = load i64, ptr %5, align 8
+  %7388 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7387, i64 noundef %7388)
+  %7389 = load i64, ptr %5, align 8
+  %7390 = load i32, ptr %7, align 4
+  %7391 = icmp ne i32 %7390, 0
+  %7392 = select i1 %7391, i64 24, i64 8
+  %7393 = trunc i64 %7392 to i32
+  %7394 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7389, ptr noundef @.str.13, i32 noundef %7393, ptr noundef @.str.432)
+  %7395 = load i64, ptr %6, align 8
+  %7396 = load ptr, ptr %11, align 8
+  %7397 = call i64 @rb_str_cat_cstr(i64 noundef %7395, ptr noundef %7396)
   store i32 1, ptr %9, align 4
-  br label %7394
+  br label %7398
 
-7394:                                             ; preds = %7404, %7382
-  %7395 = load i32, ptr %9, align 4
-  %7396 = icmp ne i32 %7395, 0
-  br i1 %7396, label %7397, label %7410
+7398:                                             ; preds = %7408, %7386
+  %7399 = load i32, ptr %9, align 4
+  %7400 = icmp ne i32 %7399, 0
+  br i1 %7400, label %7401, label %7414
 
-7397:                                             ; preds = %7394
-  %7398 = load i64, ptr %5, align 8
-  %7399 = load i64, ptr %6, align 8
-  %7400 = load i32, ptr %7, align 4
-  %7401 = load ptr, ptr %8, align 8
-  %7402 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7401, i32 0, i32 2
-  %7403 = load ptr, ptr %7402, align 8
-  call void @dump_node(i64 noundef %7398, i64 noundef %7399, i32 noundef %7400, ptr noundef %7403)
-  br label %7404
+7401:                                             ; preds = %7398
+  %7402 = load i64, ptr %5, align 8
+  %7403 = load i64, ptr %6, align 8
+  %7404 = load i32, ptr %7, align 4
+  %7405 = load ptr, ptr %8, align 8
+  %7406 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7405, i32 0, i32 2
+  %7407 = load ptr, ptr %7406, align 8
+  call void @dump_node(i64 noundef %7402, i64 noundef %7403, i32 noundef %7404, ptr noundef %7407)
+  br label %7408
 
-7404:                                             ; preds = %7397
-  %7405 = load i64, ptr %6, align 8
-  %7406 = load i64, ptr %6, align 8
-  %7407 = call i64 @RSTRING_LEN(i64 noundef %7406) #10
-  %7408 = sub i64 %7407, 4
-  %7409 = call i64 @rb_str_resize(i64 noundef %7405, i64 noundef %7408)
+7408:                                             ; preds = %7401
+  %7409 = load i64, ptr %6, align 8
+  %7410 = load i64, ptr %6, align 8
+  %7411 = call i64 @RSTRING_LEN(i64 noundef %7410) #10
+  %7412 = sub i64 %7411, 4
+  %7413 = call i64 @rb_str_resize(i64 noundef %7409, i64 noundef %7412)
   store i32 0, ptr %9, align 4
-  br label %7394, !llvm.loop !183
+  br label %7398, !llvm.loop !183
 
-7410:                                             ; preds = %7394
-  %7411 = load ptr, ptr %8, align 8
-  %7412 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7411, i32 0, i32 3
-  %7413 = load ptr, ptr %7412, align 8
-  %7414 = icmp ne ptr %7413, inttoptr (i64 -1 to ptr)
-  br i1 %7414, label %7415, label %7444
+7414:                                             ; preds = %7398
+  %7415 = load ptr, ptr %8, align 8
+  %7416 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7415, i32 0, i32 3
+  %7417 = load ptr, ptr %7416, align 8
+  %7418 = inttoptr i64 -1 to ptr
+  %7419 = icmp ne ptr %7417, %7418
+  br i1 %7419, label %7420, label %7449
 
-7415:                                             ; preds = %7410
-  %7416 = load i64, ptr %5, align 8
-  %7417 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7416, i64 noundef %7417)
-  %7418 = load i64, ptr %5, align 8
-  %7419 = load i32, ptr %7, align 4
-  %7420 = icmp ne i32 %7419, 0
-  %7421 = select i1 %7420, i64 24, i64 8
-  %7422 = trunc i64 %7421 to i32
-  %7423 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7418, ptr noundef @.str.13, i32 noundef %7422, ptr noundef @.str.433)
-  %7424 = load i64, ptr %6, align 8
-  %7425 = load ptr, ptr %11, align 8
-  %7426 = call i64 @rb_str_cat_cstr(i64 noundef %7424, ptr noundef %7425)
+7420:                                             ; preds = %7414
+  %7421 = load i64, ptr %5, align 8
+  %7422 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7421, i64 noundef %7422)
+  %7423 = load i64, ptr %5, align 8
+  %7424 = load i32, ptr %7, align 4
+  %7425 = icmp ne i32 %7424, 0
+  %7426 = select i1 %7425, i64 24, i64 8
+  %7427 = trunc i64 %7426 to i32
+  %7428 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7423, ptr noundef @.str.13, i32 noundef %7427, ptr noundef @.str.433)
+  %7429 = load i64, ptr %6, align 8
+  %7430 = load ptr, ptr %11, align 8
+  %7431 = call i64 @rb_str_cat_cstr(i64 noundef %7429, ptr noundef %7430)
   store i32 1, ptr %9, align 4
-  br label %7427
+  br label %7432
 
-7427:                                             ; preds = %7437, %7415
-  %7428 = load i32, ptr %9, align 4
-  %7429 = icmp ne i32 %7428, 0
-  br i1 %7429, label %7430, label %7443
+7432:                                             ; preds = %7442, %7420
+  %7433 = load i32, ptr %9, align 4
+  %7434 = icmp ne i32 %7433, 0
+  br i1 %7434, label %7435, label %7448
 
-7430:                                             ; preds = %7427
-  %7431 = load i64, ptr %5, align 8
-  %7432 = load i64, ptr %6, align 8
-  %7433 = load i32, ptr %7, align 4
-  %7434 = load ptr, ptr %8, align 8
-  %7435 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7434, i32 0, i32 3
-  %7436 = load ptr, ptr %7435, align 8
-  call void @dump_node(i64 noundef %7431, i64 noundef %7432, i32 noundef %7433, ptr noundef %7436)
-  br label %7437
+7435:                                             ; preds = %7432
+  %7436 = load i64, ptr %5, align 8
+  %7437 = load i64, ptr %6, align 8
+  %7438 = load i32, ptr %7, align 4
+  %7439 = load ptr, ptr %8, align 8
+  %7440 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7439, i32 0, i32 3
+  %7441 = load ptr, ptr %7440, align 8
+  call void @dump_node(i64 noundef %7436, i64 noundef %7437, i32 noundef %7438, ptr noundef %7441)
+  br label %7442
 
-7437:                                             ; preds = %7430
-  %7438 = load i64, ptr %6, align 8
-  %7439 = load i64, ptr %6, align 8
-  %7440 = call i64 @RSTRING_LEN(i64 noundef %7439) #10
-  %7441 = sub i64 %7440, 4
-  %7442 = call i64 @rb_str_resize(i64 noundef %7438, i64 noundef %7441)
+7442:                                             ; preds = %7435
+  %7443 = load i64, ptr %6, align 8
+  %7444 = load i64, ptr %6, align 8
+  %7445 = call i64 @RSTRING_LEN(i64 noundef %7444) #10
+  %7446 = sub i64 %7445, 4
+  %7447 = call i64 @rb_str_resize(i64 noundef %7443, i64 noundef %7446)
   store i32 0, ptr %9, align 4
-  br label %7427, !llvm.loop !184
+  br label %7432, !llvm.loop !184
 
-7443:                                             ; preds = %7427
-  br label %7463
+7448:                                             ; preds = %7432
+  br label %7468
 
-7444:                                             ; preds = %7410
-  %7445 = load i64, ptr %5, align 8
-  %7446 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7445, i64 noundef %7446)
-  %7447 = load i64, ptr %5, align 8
-  %7448 = load i32, ptr %7, align 4
-  %7449 = icmp ne i32 %7448, 0
-  %7450 = select i1 %7449, i64 24, i64 8
-  %7451 = trunc i64 %7450 to i32
-  %7452 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7447, ptr noundef @.str.51, i32 noundef %7451, ptr noundef @.str.433)
+7449:                                             ; preds = %7414
+  %7450 = load i64, ptr %5, align 8
+  %7451 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7450, i64 noundef %7451)
+  %7452 = load i64, ptr %5, align 8
+  %7453 = load i32, ptr %7, align 4
+  %7454 = icmp ne i32 %7453, 0
+  %7455 = select i1 %7454, i64 24, i64 8
+  %7456 = trunc i64 %7455 to i32
+  %7457 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7452, ptr noundef @.str.51, i32 noundef %7456, ptr noundef @.str.433)
   store i32 1, ptr %9, align 4
-  br label %7453
+  br label %7458
 
-7453:                                             ; preds = %7459, %7444
-  %7454 = load i32, ptr %9, align 4
-  %7455 = icmp ne i32 %7454, 0
-  br i1 %7455, label %7456, label %7462
+7458:                                             ; preds = %7464, %7449
+  %7459 = load i32, ptr %9, align 4
+  %7460 = icmp ne i32 %7459, 0
+  br i1 %7460, label %7461, label %7467
 
-7456:                                             ; preds = %7453
-  %7457 = load i64, ptr %5, align 8
-  %7458 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7457, ptr noundef @.str.118)
-  br label %7459
+7461:                                             ; preds = %7458
+  %7462 = load i64, ptr %5, align 8
+  %7463 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7462, ptr noundef @.str.118)
+  br label %7464
 
-7459:                                             ; preds = %7456
-  %7460 = load i64, ptr %5, align 8
-  %7461 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7460, ptr noundef @.str.56)
+7464:                                             ; preds = %7461
+  %7465 = load i64, ptr %5, align 8
+  %7466 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7465, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %7453, !llvm.loop !185
+  br label %7458, !llvm.loop !185
 
-7462:                                             ; preds = %7453
-  br label %7463
+7467:                                             ; preds = %7458
+  br label %7468
 
-7463:                                             ; preds = %7462, %7443
+7468:                                             ; preds = %7467, %7448
   store ptr @.str.12, ptr %11, align 8
-  %7464 = load i64, ptr %5, align 8
-  %7465 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7464, i64 noundef %7465)
-  %7466 = load i64, ptr %5, align 8
-  %7467 = load i32, ptr %7, align 4
-  %7468 = icmp ne i32 %7467, 0
-  %7469 = select i1 %7468, i64 26, i64 9
-  %7470 = trunc i64 %7469 to i32
-  %7471 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7466, ptr noundef @.str.13, i32 noundef %7470, ptr noundef @.str.434)
-  %7472 = load i64, ptr %6, align 8
-  %7473 = load ptr, ptr %11, align 8
-  %7474 = call i64 @rb_str_cat_cstr(i64 noundef %7472, ptr noundef %7473)
+  %7469 = load i64, ptr %5, align 8
+  %7470 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7469, i64 noundef %7470)
+  %7471 = load i64, ptr %5, align 8
+  %7472 = load i32, ptr %7, align 4
+  %7473 = icmp ne i32 %7472, 0
+  %7474 = select i1 %7473, i64 26, i64 9
+  %7475 = trunc i64 %7474 to i32
+  %7476 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7471, ptr noundef @.str.13, i32 noundef %7475, ptr noundef @.str.434)
+  %7477 = load i64, ptr %6, align 8
+  %7478 = load ptr, ptr %11, align 8
+  %7479 = call i64 @rb_str_cat_cstr(i64 noundef %7477, ptr noundef %7478)
   store i32 1, ptr %9, align 4
-  br label %7475
+  br label %7480
 
-7475:                                             ; preds = %7485, %7463
-  %7476 = load i32, ptr %9, align 4
-  %7477 = icmp ne i32 %7476, 0
-  br i1 %7477, label %7478, label %7491
+7480:                                             ; preds = %7490, %7468
+  %7481 = load i32, ptr %9, align 4
+  %7482 = icmp ne i32 %7481, 0
+  br i1 %7482, label %7483, label %7496
 
-7478:                                             ; preds = %7475
-  %7479 = load i64, ptr %5, align 8
-  %7480 = load i64, ptr %6, align 8
-  %7481 = load i32, ptr %7, align 4
-  %7482 = load ptr, ptr %8, align 8
-  %7483 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7482, i32 0, i32 4
-  %7484 = load ptr, ptr %7483, align 8
-  call void @dump_node(i64 noundef %7479, i64 noundef %7480, i32 noundef %7481, ptr noundef %7484)
-  br label %7485
+7483:                                             ; preds = %7480
+  %7484 = load i64, ptr %5, align 8
+  %7485 = load i64, ptr %6, align 8
+  %7486 = load i32, ptr %7, align 4
+  %7487 = load ptr, ptr %8, align 8
+  %7488 = getelementptr inbounds %struct.RNode_ARYPTN, ptr %7487, i32 0, i32 4
+  %7489 = load ptr, ptr %7488, align 8
+  call void @dump_node(i64 noundef %7484, i64 noundef %7485, i32 noundef %7486, ptr noundef %7489)
+  br label %7490
 
-7485:                                             ; preds = %7478
-  %7486 = load i64, ptr %6, align 8
-  %7487 = load i64, ptr %6, align 8
-  %7488 = call i64 @RSTRING_LEN(i64 noundef %7487) #10
-  %7489 = sub i64 %7488, 4
-  %7490 = call i64 @rb_str_resize(i64 noundef %7486, i64 noundef %7489)
+7490:                                             ; preds = %7483
+  %7491 = load i64, ptr %6, align 8
+  %7492 = load i64, ptr %6, align 8
+  %7493 = call i64 @RSTRING_LEN(i64 noundef %7492) #10
+  %7494 = sub i64 %7493, 4
+  %7495 = call i64 @rb_str_resize(i64 noundef %7491, i64 noundef %7494)
   store i32 0, ptr %9, align 4
-  br label %7475, !llvm.loop !186
+  br label %7480, !llvm.loop !186
 
-7491:                                             ; preds = %7475
-  br label %7932
+7496:                                             ; preds = %7480
+  br label %7940
 
-7492:                                             ; preds = %24
-  %7493 = load i32, ptr %7, align 4
-  %7494 = icmp ne i32 %7493, 0
-  br i1 %7494, label %7495, label %7500
+7497:                                             ; preds = %24
+  %7498 = load i32, ptr %7, align 4
+  %7499 = icmp ne i32 %7498, 0
+  br i1 %7499, label %7500, label %7505
 
-7495:                                             ; preds = %7492
-  %7496 = load i64, ptr %5, align 8
-  %7497 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7496, i64 noundef %7497)
-  %7498 = load i64, ptr %5, align 8
-  %7499 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7498, ptr noundef @.str.435)
-  br label %7500
+7500:                                             ; preds = %7497
+  %7501 = load i64, ptr %5, align 8
+  %7502 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7501, i64 noundef %7502)
+  %7503 = load i64, ptr %5, align 8
+  %7504 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7503, ptr noundef @.str.435)
+  br label %7505
 
-7500:                                             ; preds = %7495, %7492
-  %7501 = load i32, ptr %7, align 4
-  %7502 = icmp ne i32 %7501, 0
-  br i1 %7502, label %7503, label %7508
+7505:                                             ; preds = %7500, %7497
+  %7506 = load i32, ptr %7, align 4
+  %7507 = icmp ne i32 %7506, 0
+  br i1 %7507, label %7508, label %7513
 
-7503:                                             ; preds = %7500
-  %7504 = load i64, ptr %5, align 8
-  %7505 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7504, i64 noundef %7505)
-  %7506 = load i64, ptr %5, align 8
-  %7507 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7506, ptr noundef @.str.436)
-  br label %7508
-
-7508:                                             ; preds = %7503, %7500
+7508:                                             ; preds = %7505
   %7509 = load i64, ptr %5, align 8
   %7510 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7509, i64 noundef %7510)
   %7511 = load i64, ptr %5, align 8
-  %7512 = load i32, ptr %7, align 4
-  %7513 = icmp ne i32 %7512, 0
-  %7514 = select i1 %7513, i64 20, i64 9
-  %7515 = trunc i64 %7514 to i32
-  %7516 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7511, ptr noundef @.str.13, i32 noundef %7515, ptr noundef @.str.431)
-  %7517 = load i64, ptr %6, align 8
-  %7518 = load ptr, ptr %11, align 8
-  %7519 = call i64 @rb_str_cat_cstr(i64 noundef %7517, ptr noundef %7518)
+  %7512 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7511, ptr noundef @.str.436)
+  br label %7513
+
+7513:                                             ; preds = %7508, %7505
+  %7514 = load i64, ptr %5, align 8
+  %7515 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7514, i64 noundef %7515)
+  %7516 = load i64, ptr %5, align 8
+  %7517 = load i32, ptr %7, align 4
+  %7518 = icmp ne i32 %7517, 0
+  %7519 = select i1 %7518, i64 20, i64 9
+  %7520 = trunc i64 %7519 to i32
+  %7521 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7516, ptr noundef @.str.13, i32 noundef %7520, ptr noundef @.str.431)
+  %7522 = load i64, ptr %6, align 8
+  %7523 = load ptr, ptr %11, align 8
+  %7524 = call i64 @rb_str_cat_cstr(i64 noundef %7522, ptr noundef %7523)
   store i32 1, ptr %9, align 4
-  br label %7520
+  br label %7525
 
-7520:                                             ; preds = %7530, %7508
-  %7521 = load i32, ptr %9, align 4
-  %7522 = icmp ne i32 %7521, 0
-  br i1 %7522, label %7523, label %7536
+7525:                                             ; preds = %7535, %7513
+  %7526 = load i32, ptr %9, align 4
+  %7527 = icmp ne i32 %7526, 0
+  br i1 %7527, label %7528, label %7541
 
-7523:                                             ; preds = %7520
-  %7524 = load i64, ptr %5, align 8
-  %7525 = load i64, ptr %6, align 8
-  %7526 = load i32, ptr %7, align 4
-  %7527 = load ptr, ptr %8, align 8
-  %7528 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7527, i32 0, i32 1
-  %7529 = load ptr, ptr %7528, align 8
-  call void @dump_node(i64 noundef %7524, i64 noundef %7525, i32 noundef %7526, ptr noundef %7529)
-  br label %7530
+7528:                                             ; preds = %7525
+  %7529 = load i64, ptr %5, align 8
+  %7530 = load i64, ptr %6, align 8
+  %7531 = load i32, ptr %7, align 4
+  %7532 = load ptr, ptr %8, align 8
+  %7533 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7532, i32 0, i32 1
+  %7534 = load ptr, ptr %7533, align 8
+  call void @dump_node(i64 noundef %7529, i64 noundef %7530, i32 noundef %7531, ptr noundef %7534)
+  br label %7535
 
-7530:                                             ; preds = %7523
-  %7531 = load i64, ptr %6, align 8
-  %7532 = load i64, ptr %6, align 8
-  %7533 = call i64 @RSTRING_LEN(i64 noundef %7532) #10
-  %7534 = sub i64 %7533, 4
-  %7535 = call i64 @rb_str_resize(i64 noundef %7531, i64 noundef %7534)
+7535:                                             ; preds = %7528
+  %7536 = load i64, ptr %6, align 8
+  %7537 = load i64, ptr %6, align 8
+  %7538 = call i64 @RSTRING_LEN(i64 noundef %7537) #10
+  %7539 = sub i64 %7538, 4
+  %7540 = call i64 @rb_str_resize(i64 noundef %7536, i64 noundef %7539)
   store i32 0, ptr %9, align 4
-  br label %7520, !llvm.loop !187
+  br label %7525, !llvm.loop !187
 
-7536:                                             ; preds = %7520
-  %7537 = load ptr, ptr %8, align 8
-  %7538 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7537, i32 0, i32 2
-  %7539 = load ptr, ptr %7538, align 8
-  %7540 = icmp ne ptr %7539, inttoptr (i64 -1 to ptr)
-  br i1 %7540, label %7541, label %7570
+7541:                                             ; preds = %7525
+  %7542 = load ptr, ptr %8, align 8
+  %7543 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7542, i32 0, i32 2
+  %7544 = load ptr, ptr %7543, align 8
+  %7545 = inttoptr i64 -1 to ptr
+  %7546 = icmp ne ptr %7544, %7545
+  br i1 %7546, label %7547, label %7576
 
-7541:                                             ; preds = %7536
-  %7542 = load i64, ptr %5, align 8
-  %7543 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7542, i64 noundef %7543)
-  %7544 = load i64, ptr %5, align 8
-  %7545 = load i32, ptr %7, align 4
-  %7546 = icmp ne i32 %7545, 0
-  %7547 = select i1 %7546, i64 32, i64 12
-  %7548 = trunc i64 %7547 to i32
-  %7549 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7544, ptr noundef @.str.13, i32 noundef %7548, ptr noundef @.str.437)
-  %7550 = load i64, ptr %6, align 8
-  %7551 = load ptr, ptr %11, align 8
-  %7552 = call i64 @rb_str_cat_cstr(i64 noundef %7550, ptr noundef %7551)
+7547:                                             ; preds = %7541
+  %7548 = load i64, ptr %5, align 8
+  %7549 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7548, i64 noundef %7549)
+  %7550 = load i64, ptr %5, align 8
+  %7551 = load i32, ptr %7, align 4
+  %7552 = icmp ne i32 %7551, 0
+  %7553 = select i1 %7552, i64 32, i64 12
+  %7554 = trunc i64 %7553 to i32
+  %7555 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7550, ptr noundef @.str.13, i32 noundef %7554, ptr noundef @.str.437)
+  %7556 = load i64, ptr %6, align 8
+  %7557 = load ptr, ptr %11, align 8
+  %7558 = call i64 @rb_str_cat_cstr(i64 noundef %7556, ptr noundef %7557)
   store i32 1, ptr %9, align 4
-  br label %7553
+  br label %7559
 
-7553:                                             ; preds = %7563, %7541
-  %7554 = load i32, ptr %9, align 4
-  %7555 = icmp ne i32 %7554, 0
-  br i1 %7555, label %7556, label %7569
+7559:                                             ; preds = %7569, %7547
+  %7560 = load i32, ptr %9, align 4
+  %7561 = icmp ne i32 %7560, 0
+  br i1 %7561, label %7562, label %7575
 
-7556:                                             ; preds = %7553
-  %7557 = load i64, ptr %5, align 8
-  %7558 = load i64, ptr %6, align 8
-  %7559 = load i32, ptr %7, align 4
-  %7560 = load ptr, ptr %8, align 8
-  %7561 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7560, i32 0, i32 2
-  %7562 = load ptr, ptr %7561, align 8
-  call void @dump_node(i64 noundef %7557, i64 noundef %7558, i32 noundef %7559, ptr noundef %7562)
-  br label %7563
-
-7563:                                             ; preds = %7556
+7562:                                             ; preds = %7559
+  %7563 = load i64, ptr %5, align 8
   %7564 = load i64, ptr %6, align 8
-  %7565 = load i64, ptr %6, align 8
-  %7566 = call i64 @RSTRING_LEN(i64 noundef %7565) #10
-  %7567 = sub i64 %7566, 4
-  %7568 = call i64 @rb_str_resize(i64 noundef %7564, i64 noundef %7567)
+  %7565 = load i32, ptr %7, align 4
+  %7566 = load ptr, ptr %8, align 8
+  %7567 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7566, i32 0, i32 2
+  %7568 = load ptr, ptr %7567, align 8
+  call void @dump_node(i64 noundef %7563, i64 noundef %7564, i32 noundef %7565, ptr noundef %7568)
+  br label %7569
+
+7569:                                             ; preds = %7562
+  %7570 = load i64, ptr %6, align 8
+  %7571 = load i64, ptr %6, align 8
+  %7572 = call i64 @RSTRING_LEN(i64 noundef %7571) #10
+  %7573 = sub i64 %7572, 4
+  %7574 = call i64 @rb_str_resize(i64 noundef %7570, i64 noundef %7573)
   store i32 0, ptr %9, align 4
-  br label %7553, !llvm.loop !188
+  br label %7559, !llvm.loop !188
 
-7569:                                             ; preds = %7553
-  br label %7589
+7575:                                             ; preds = %7559
+  br label %7595
 
-7570:                                             ; preds = %7536
-  %7571 = load i64, ptr %5, align 8
-  %7572 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7571, i64 noundef %7572)
-  %7573 = load i64, ptr %5, align 8
-  %7574 = load i32, ptr %7, align 4
-  %7575 = icmp ne i32 %7574, 0
-  %7576 = select i1 %7575, i64 32, i64 12
-  %7577 = trunc i64 %7576 to i32
-  %7578 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7573, ptr noundef @.str.51, i32 noundef %7577, ptr noundef @.str.437)
-  store i32 1, ptr %9, align 4
-  br label %7579
-
-7579:                                             ; preds = %7585, %7570
-  %7580 = load i32, ptr %9, align 4
+7576:                                             ; preds = %7541
+  %7577 = load i64, ptr %5, align 8
+  %7578 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7577, i64 noundef %7578)
+  %7579 = load i64, ptr %5, align 8
+  %7580 = load i32, ptr %7, align 4
   %7581 = icmp ne i32 %7580, 0
-  br i1 %7581, label %7582, label %7588
-
-7582:                                             ; preds = %7579
-  %7583 = load i64, ptr %5, align 8
-  %7584 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7583, ptr noundef @.str.118)
+  %7582 = select i1 %7581, i64 32, i64 12
+  %7583 = trunc i64 %7582 to i32
+  %7584 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7579, ptr noundef @.str.51, i32 noundef %7583, ptr noundef @.str.437)
+  store i32 1, ptr %9, align 4
   br label %7585
 
-7585:                                             ; preds = %7582
-  %7586 = load i64, ptr %5, align 8
-  %7587 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7586, ptr noundef @.str.56)
-  store i32 0, ptr %9, align 4
-  br label %7579, !llvm.loop !189
+7585:                                             ; preds = %7591, %7576
+  %7586 = load i32, ptr %9, align 4
+  %7587 = icmp ne i32 %7586, 0
+  br i1 %7587, label %7588, label %7594
 
-7588:                                             ; preds = %7579
-  br label %7589
+7588:                                             ; preds = %7585
+  %7589 = load i64, ptr %5, align 8
+  %7590 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7589, ptr noundef @.str.118)
+  br label %7591
 
-7589:                                             ; preds = %7588, %7569
-  %7590 = load i64, ptr %5, align 8
-  %7591 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7590, i64 noundef %7591)
+7591:                                             ; preds = %7588
   %7592 = load i64, ptr %5, align 8
-  %7593 = load i32, ptr %7, align 4
-  %7594 = icmp ne i32 %7593, 0
-  %7595 = select i1 %7594, i64 16, i64 4
-  %7596 = trunc i64 %7595 to i32
-  %7597 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7592, ptr noundef @.str.13, i32 noundef %7596, ptr noundef @.str.438)
-  %7598 = load i64, ptr %6, align 8
-  %7599 = load ptr, ptr %11, align 8
-  %7600 = call i64 @rb_str_cat_cstr(i64 noundef %7598, ptr noundef %7599)
+  %7593 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7592, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7585, !llvm.loop !189
+
+7594:                                             ; preds = %7585
+  br label %7595
+
+7595:                                             ; preds = %7594, %7575
+  %7596 = load i64, ptr %5, align 8
+  %7597 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7596, i64 noundef %7597)
+  %7598 = load i64, ptr %5, align 8
+  %7599 = load i32, ptr %7, align 4
+  %7600 = icmp ne i32 %7599, 0
+  %7601 = select i1 %7600, i64 16, i64 4
+  %7602 = trunc i64 %7601 to i32
+  %7603 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7598, ptr noundef @.str.13, i32 noundef %7602, ptr noundef @.str.438)
+  %7604 = load i64, ptr %6, align 8
+  %7605 = load ptr, ptr %11, align 8
+  %7606 = call i64 @rb_str_cat_cstr(i64 noundef %7604, ptr noundef %7605)
   store i32 1, ptr %9, align 4
-  br label %7601
+  br label %7607
 
-7601:                                             ; preds = %7611, %7589
-  %7602 = load i32, ptr %9, align 4
-  %7603 = icmp ne i32 %7602, 0
-  br i1 %7603, label %7604, label %7617
+7607:                                             ; preds = %7617, %7595
+  %7608 = load i32, ptr %9, align 4
+  %7609 = icmp ne i32 %7608, 0
+  br i1 %7609, label %7610, label %7623
 
-7604:                                             ; preds = %7601
-  %7605 = load i64, ptr %5, align 8
-  %7606 = load i64, ptr %6, align 8
-  %7607 = load i32, ptr %7, align 4
-  %7608 = load ptr, ptr %8, align 8
-  %7609 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7608, i32 0, i32 3
-  %7610 = load ptr, ptr %7609, align 8
-  call void @dump_node(i64 noundef %7605, i64 noundef %7606, i32 noundef %7607, ptr noundef %7610)
-  br label %7611
-
-7611:                                             ; preds = %7604
+7610:                                             ; preds = %7607
+  %7611 = load i64, ptr %5, align 8
   %7612 = load i64, ptr %6, align 8
-  %7613 = load i64, ptr %6, align 8
-  %7614 = call i64 @RSTRING_LEN(i64 noundef %7613) #10
-  %7615 = sub i64 %7614, 4
-  %7616 = call i64 @rb_str_resize(i64 noundef %7612, i64 noundef %7615)
+  %7613 = load i32, ptr %7, align 4
+  %7614 = load ptr, ptr %8, align 8
+  %7615 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7614, i32 0, i32 3
+  %7616 = load ptr, ptr %7615, align 8
+  call void @dump_node(i64 noundef %7611, i64 noundef %7612, i32 noundef %7613, ptr noundef %7616)
+  br label %7617
+
+7617:                                             ; preds = %7610
+  %7618 = load i64, ptr %6, align 8
+  %7619 = load i64, ptr %6, align 8
+  %7620 = call i64 @RSTRING_LEN(i64 noundef %7619) #10
+  %7621 = sub i64 %7620, 4
+  %7622 = call i64 @rb_str_resize(i64 noundef %7618, i64 noundef %7621)
   store i32 0, ptr %9, align 4
-  br label %7601, !llvm.loop !190
+  br label %7607, !llvm.loop !190
 
-7617:                                             ; preds = %7601
+7623:                                             ; preds = %7607
   store ptr @.str.12, ptr %11, align 8
-  %7618 = load ptr, ptr %8, align 8
-  %7619 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7618, i32 0, i32 4
-  %7620 = load ptr, ptr %7619, align 8
-  %7621 = icmp ne ptr %7620, inttoptr (i64 -1 to ptr)
-  br i1 %7621, label %7622, label %7651
+  %7624 = load ptr, ptr %8, align 8
+  %7625 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7624, i32 0, i32 4
+  %7626 = load ptr, ptr %7625, align 8
+  %7627 = inttoptr i64 -1 to ptr
+  %7628 = icmp ne ptr %7626, %7627
+  br i1 %7628, label %7629, label %7658
 
-7622:                                             ; preds = %7617
-  %7623 = load i64, ptr %5, align 8
-  %7624 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7623, i64 noundef %7624)
-  %7625 = load i64, ptr %5, align 8
-  %7626 = load i32, ptr %7, align 4
-  %7627 = icmp ne i32 %7626, 0
-  %7628 = select i1 %7627, i64 34, i64 13
-  %7629 = trunc i64 %7628 to i32
-  %7630 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7625, ptr noundef @.str.13, i32 noundef %7629, ptr noundef @.str.439)
+7629:                                             ; preds = %7623
+  %7630 = load i64, ptr %5, align 8
   %7631 = load i64, ptr %6, align 8
-  %7632 = load ptr, ptr %11, align 8
-  %7633 = call i64 @rb_str_cat_cstr(i64 noundef %7631, ptr noundef %7632)
+  call void @add_indent(i64 noundef %7630, i64 noundef %7631)
+  %7632 = load i64, ptr %5, align 8
+  %7633 = load i32, ptr %7, align 4
+  %7634 = icmp ne i32 %7633, 0
+  %7635 = select i1 %7634, i64 34, i64 13
+  %7636 = trunc i64 %7635 to i32
+  %7637 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7632, ptr noundef @.str.13, i32 noundef %7636, ptr noundef @.str.439)
+  %7638 = load i64, ptr %6, align 8
+  %7639 = load ptr, ptr %11, align 8
+  %7640 = call i64 @rb_str_cat_cstr(i64 noundef %7638, ptr noundef %7639)
   store i32 1, ptr %9, align 4
-  br label %7634
+  br label %7641
 
-7634:                                             ; preds = %7644, %7622
-  %7635 = load i32, ptr %9, align 4
-  %7636 = icmp ne i32 %7635, 0
-  br i1 %7636, label %7637, label %7650
+7641:                                             ; preds = %7651, %7629
+  %7642 = load i32, ptr %9, align 4
+  %7643 = icmp ne i32 %7642, 0
+  br i1 %7643, label %7644, label %7657
 
-7637:                                             ; preds = %7634
-  %7638 = load i64, ptr %5, align 8
-  %7639 = load i64, ptr %6, align 8
-  %7640 = load i32, ptr %7, align 4
-  %7641 = load ptr, ptr %8, align 8
-  %7642 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7641, i32 0, i32 4
-  %7643 = load ptr, ptr %7642, align 8
-  call void @dump_node(i64 noundef %7638, i64 noundef %7639, i32 noundef %7640, ptr noundef %7643)
-  br label %7644
-
-7644:                                             ; preds = %7637
-  %7645 = load i64, ptr %6, align 8
+7644:                                             ; preds = %7641
+  %7645 = load i64, ptr %5, align 8
   %7646 = load i64, ptr %6, align 8
-  %7647 = call i64 @RSTRING_LEN(i64 noundef %7646) #10
-  %7648 = sub i64 %7647, 4
-  %7649 = call i64 @rb_str_resize(i64 noundef %7645, i64 noundef %7648)
-  store i32 0, ptr %9, align 4
-  br label %7634, !llvm.loop !191
+  %7647 = load i32, ptr %7, align 4
+  %7648 = load ptr, ptr %8, align 8
+  %7649 = getelementptr inbounds %struct.RNode_FNDPTN, ptr %7648, i32 0, i32 4
+  %7650 = load ptr, ptr %7649, align 8
+  call void @dump_node(i64 noundef %7645, i64 noundef %7646, i32 noundef %7647, ptr noundef %7650)
+  br label %7651
 
-7650:                                             ; preds = %7634
-  br label %7670
-
-7651:                                             ; preds = %7617
-  %7652 = load i64, ptr %5, align 8
+7651:                                             ; preds = %7644
+  %7652 = load i64, ptr %6, align 8
   %7653 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7652, i64 noundef %7653)
-  %7654 = load i64, ptr %5, align 8
-  %7655 = load i32, ptr %7, align 4
-  %7656 = icmp ne i32 %7655, 0
-  %7657 = select i1 %7656, i64 34, i64 13
-  %7658 = trunc i64 %7657 to i32
-  %7659 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7654, ptr noundef @.str.51, i32 noundef %7658, ptr noundef @.str.439)
-  store i32 1, ptr %9, align 4
-  br label %7660
-
-7660:                                             ; preds = %7666, %7651
-  %7661 = load i32, ptr %9, align 4
-  %7662 = icmp ne i32 %7661, 0
-  br i1 %7662, label %7663, label %7669
-
-7663:                                             ; preds = %7660
-  %7664 = load i64, ptr %5, align 8
-  %7665 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7664, ptr noundef @.str.118)
-  br label %7666
-
-7666:                                             ; preds = %7663
-  %7667 = load i64, ptr %5, align 8
-  %7668 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7667, ptr noundef @.str.56)
+  %7654 = call i64 @RSTRING_LEN(i64 noundef %7653) #10
+  %7655 = sub i64 %7654, 4
+  %7656 = call i64 @rb_str_resize(i64 noundef %7652, i64 noundef %7655)
   store i32 0, ptr %9, align 4
-  br label %7660, !llvm.loop !192
+  br label %7641, !llvm.loop !191
 
-7669:                                             ; preds = %7660
-  br label %7670
+7657:                                             ; preds = %7641
+  br label %7677
 
-7670:                                             ; preds = %7669, %7650
-  br label %7932
+7658:                                             ; preds = %7623
+  %7659 = load i64, ptr %5, align 8
+  %7660 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7659, i64 noundef %7660)
+  %7661 = load i64, ptr %5, align 8
+  %7662 = load i32, ptr %7, align 4
+  %7663 = icmp ne i32 %7662, 0
+  %7664 = select i1 %7663, i64 34, i64 13
+  %7665 = trunc i64 %7664 to i32
+  %7666 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7661, ptr noundef @.str.51, i32 noundef %7665, ptr noundef @.str.439)
+  store i32 1, ptr %9, align 4
+  br label %7667
 
-7671:                                             ; preds = %24
-  %7672 = load i32, ptr %7, align 4
-  %7673 = icmp ne i32 %7672, 0
-  br i1 %7673, label %7674, label %7679
+7667:                                             ; preds = %7673, %7658
+  %7668 = load i32, ptr %9, align 4
+  %7669 = icmp ne i32 %7668, 0
+  br i1 %7669, label %7670, label %7676
 
-7674:                                             ; preds = %7671
-  %7675 = load i64, ptr %5, align 8
-  %7676 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7675, i64 noundef %7676)
-  %7677 = load i64, ptr %5, align 8
-  %7678 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7677, ptr noundef @.str.440)
-  br label %7679
+7670:                                             ; preds = %7667
+  %7671 = load i64, ptr %5, align 8
+  %7672 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7671, ptr noundef @.str.118)
+  br label %7673
 
-7679:                                             ; preds = %7674, %7671
-  %7680 = load i32, ptr %7, align 4
-  %7681 = icmp ne i32 %7680, 0
-  br i1 %7681, label %7682, label %7687
+7673:                                             ; preds = %7670
+  %7674 = load i64, ptr %5, align 8
+  %7675 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7674, ptr noundef @.str.56)
+  store i32 0, ptr %9, align 4
+  br label %7667, !llvm.loop !192
 
-7682:                                             ; preds = %7679
-  %7683 = load i64, ptr %5, align 8
-  %7684 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7683, i64 noundef %7684)
-  %7685 = load i64, ptr %5, align 8
-  %7686 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7685, ptr noundef @.str.441)
-  br label %7687
+7676:                                             ; preds = %7667
+  br label %7677
 
-7687:                                             ; preds = %7682, %7679
-  %7688 = load i64, ptr %5, align 8
-  %7689 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7688, i64 noundef %7689)
+7677:                                             ; preds = %7676, %7657
+  br label %7940
+
+7678:                                             ; preds = %24
+  %7679 = load i32, ptr %7, align 4
+  %7680 = icmp ne i32 %7679, 0
+  br i1 %7680, label %7681, label %7686
+
+7681:                                             ; preds = %7678
+  %7682 = load i64, ptr %5, align 8
+  %7683 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7682, i64 noundef %7683)
+  %7684 = load i64, ptr %5, align 8
+  %7685 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7684, ptr noundef @.str.440)
+  br label %7686
+
+7686:                                             ; preds = %7681, %7678
+  %7687 = load i32, ptr %7, align 4
+  %7688 = icmp ne i32 %7687, 0
+  br i1 %7688, label %7689, label %7694
+
+7689:                                             ; preds = %7686
   %7690 = load i64, ptr %5, align 8
-  %7691 = load i32, ptr %7, align 4
-  %7692 = icmp ne i32 %7691, 0
-  %7693 = select i1 %7692, i64 20, i64 9
-  %7694 = trunc i64 %7693 to i32
-  %7695 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7690, ptr noundef @.str.13, i32 noundef %7694, ptr noundef @.str.431)
+  %7691 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7690, i64 noundef %7691)
+  %7692 = load i64, ptr %5, align 8
+  %7693 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7692, ptr noundef @.str.441)
+  br label %7694
+
+7694:                                             ; preds = %7689, %7686
+  %7695 = load i64, ptr %5, align 8
   %7696 = load i64, ptr %6, align 8
-  %7697 = load ptr, ptr %11, align 8
-  %7698 = call i64 @rb_str_cat_cstr(i64 noundef %7696, ptr noundef %7697)
+  call void @add_indent(i64 noundef %7695, i64 noundef %7696)
+  %7697 = load i64, ptr %5, align 8
+  %7698 = load i32, ptr %7, align 4
+  %7699 = icmp ne i32 %7698, 0
+  %7700 = select i1 %7699, i64 20, i64 9
+  %7701 = trunc i64 %7700 to i32
+  %7702 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7697, ptr noundef @.str.13, i32 noundef %7701, ptr noundef @.str.431)
+  %7703 = load i64, ptr %6, align 8
+  %7704 = load ptr, ptr %11, align 8
+  %7705 = call i64 @rb_str_cat_cstr(i64 noundef %7703, ptr noundef %7704)
   store i32 1, ptr %9, align 4
-  br label %7699
+  br label %7706
 
-7699:                                             ; preds = %7709, %7687
-  %7700 = load i32, ptr %9, align 4
-  %7701 = icmp ne i32 %7700, 0
-  br i1 %7701, label %7702, label %7715
+7706:                                             ; preds = %7716, %7694
+  %7707 = load i32, ptr %9, align 4
+  %7708 = icmp ne i32 %7707, 0
+  br i1 %7708, label %7709, label %7722
 
-7702:                                             ; preds = %7699
-  %7703 = load i64, ptr %5, align 8
-  %7704 = load i64, ptr %6, align 8
-  %7705 = load i32, ptr %7, align 4
-  %7706 = load ptr, ptr %8, align 8
-  %7707 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7706, i32 0, i32 1
-  %7708 = load ptr, ptr %7707, align 8
-  call void @dump_node(i64 noundef %7703, i64 noundef %7704, i32 noundef %7705, ptr noundef %7708)
-  br label %7709
-
-7709:                                             ; preds = %7702
-  %7710 = load i64, ptr %6, align 8
+7709:                                             ; preds = %7706
+  %7710 = load i64, ptr %5, align 8
   %7711 = load i64, ptr %6, align 8
-  %7712 = call i64 @RSTRING_LEN(i64 noundef %7711) #10
-  %7713 = sub i64 %7712, 4
-  %7714 = call i64 @rb_str_resize(i64 noundef %7710, i64 noundef %7713)
-  store i32 0, ptr %9, align 4
-  br label %7699, !llvm.loop !193
+  %7712 = load i32, ptr %7, align 4
+  %7713 = load ptr, ptr %8, align 8
+  %7714 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7713, i32 0, i32 1
+  %7715 = load ptr, ptr %7714, align 8
+  call void @dump_node(i64 noundef %7710, i64 noundef %7711, i32 noundef %7712, ptr noundef %7715)
+  br label %7716
 
-7715:                                             ; preds = %7699
-  %7716 = load i64, ptr %5, align 8
+7716:                                             ; preds = %7709
   %7717 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7716, i64 noundef %7717)
-  %7718 = load i64, ptr %5, align 8
-  %7719 = load i32, ptr %7, align 4
-  %7720 = icmp ne i32 %7719, 0
-  %7721 = select i1 %7720, i64 30, i64 10
-  %7722 = trunc i64 %7721 to i32
-  %7723 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7718, ptr noundef @.str.13, i32 noundef %7722, ptr noundef @.str.442)
+  %7718 = load i64, ptr %6, align 8
+  %7719 = call i64 @RSTRING_LEN(i64 noundef %7718) #10
+  %7720 = sub i64 %7719, 4
+  %7721 = call i64 @rb_str_resize(i64 noundef %7717, i64 noundef %7720)
+  store i32 0, ptr %9, align 4
+  br label %7706, !llvm.loop !193
+
+7722:                                             ; preds = %7706
+  %7723 = load i64, ptr %5, align 8
   %7724 = load i64, ptr %6, align 8
-  %7725 = load ptr, ptr %11, align 8
-  %7726 = call i64 @rb_str_cat_cstr(i64 noundef %7724, ptr noundef %7725)
+  call void @add_indent(i64 noundef %7723, i64 noundef %7724)
+  %7725 = load i64, ptr %5, align 8
+  %7726 = load i32, ptr %7, align 4
+  %7727 = icmp ne i32 %7726, 0
+  %7728 = select i1 %7727, i64 30, i64 10
+  %7729 = trunc i64 %7728 to i32
+  %7730 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7725, ptr noundef @.str.13, i32 noundef %7729, ptr noundef @.str.442)
+  %7731 = load i64, ptr %6, align 8
+  %7732 = load ptr, ptr %11, align 8
+  %7733 = call i64 @rb_str_cat_cstr(i64 noundef %7731, ptr noundef %7732)
   store i32 1, ptr %9, align 4
-  br label %7727
+  br label %7734
 
-7727:                                             ; preds = %7737, %7715
-  %7728 = load i32, ptr %9, align 4
-  %7729 = icmp ne i32 %7728, 0
-  br i1 %7729, label %7730, label %7743
+7734:                                             ; preds = %7744, %7722
+  %7735 = load i32, ptr %9, align 4
+  %7736 = icmp ne i32 %7735, 0
+  br i1 %7736, label %7737, label %7750
 
-7730:                                             ; preds = %7727
-  %7731 = load i64, ptr %5, align 8
-  %7732 = load i64, ptr %6, align 8
-  %7733 = load i32, ptr %7, align 4
-  %7734 = load ptr, ptr %8, align 8
-  %7735 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7734, i32 0, i32 2
-  %7736 = load ptr, ptr %7735, align 8
-  call void @dump_node(i64 noundef %7731, i64 noundef %7732, i32 noundef %7733, ptr noundef %7736)
-  br label %7737
-
-7737:                                             ; preds = %7730
-  %7738 = load i64, ptr %6, align 8
+7737:                                             ; preds = %7734
+  %7738 = load i64, ptr %5, align 8
   %7739 = load i64, ptr %6, align 8
-  %7740 = call i64 @RSTRING_LEN(i64 noundef %7739) #10
-  %7741 = sub i64 %7740, 4
-  %7742 = call i64 @rb_str_resize(i64 noundef %7738, i64 noundef %7741)
-  store i32 0, ptr %9, align 4
-  br label %7727, !llvm.loop !194
+  %7740 = load i32, ptr %7, align 4
+  %7741 = load ptr, ptr %8, align 8
+  %7742 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7741, i32 0, i32 2
+  %7743 = load ptr, ptr %7742, align 8
+  call void @dump_node(i64 noundef %7738, i64 noundef %7739, i32 noundef %7740, ptr noundef %7743)
+  br label %7744
 
-7743:                                             ; preds = %7727
+7744:                                             ; preds = %7737
+  %7745 = load i64, ptr %6, align 8
+  %7746 = load i64, ptr %6, align 8
+  %7747 = call i64 @RSTRING_LEN(i64 noundef %7746) #10
+  %7748 = sub i64 %7747, 4
+  %7749 = call i64 @rb_str_resize(i64 noundef %7745, i64 noundef %7748)
+  store i32 0, ptr %9, align 4
+  br label %7734, !llvm.loop !194
+
+7750:                                             ; preds = %7734
   store ptr @.str.12, ptr %11, align 8
-  %7744 = load ptr, ptr %8, align 8
-  %7745 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7744, i32 0, i32 3
-  %7746 = load ptr, ptr %7745, align 8
-  %7747 = icmp eq ptr %7746, inttoptr (i64 -1 to ptr)
-  br i1 %7747, label %7748, label %7767
+  %7751 = load ptr, ptr %8, align 8
+  %7752 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7751, i32 0, i32 3
+  %7753 = load ptr, ptr %7752, align 8
+  %7754 = inttoptr i64 -1 to ptr
+  %7755 = icmp eq ptr %7753, %7754
+  br i1 %7755, label %7756, label %7775
 
-7748:                                             ; preds = %7743
-  %7749 = load i64, ptr %5, align 8
-  %7750 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7749, i64 noundef %7750)
-  %7751 = load i64, ptr %5, align 8
-  %7752 = load i32, ptr %7, align 4
-  %7753 = icmp ne i32 %7752, 0
-  %7754 = select i1 %7753, i64 37, i64 13
-  %7755 = trunc i64 %7754 to i32
-  %7756 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7751, ptr noundef @.str.51, i32 noundef %7755, ptr noundef @.str.443)
+7756:                                             ; preds = %7750
+  %7757 = load i64, ptr %5, align 8
+  %7758 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7757, i64 noundef %7758)
+  %7759 = load i64, ptr %5, align 8
+  %7760 = load i32, ptr %7, align 4
+  %7761 = icmp ne i32 %7760, 0
+  %7762 = select i1 %7761, i64 37, i64 13
+  %7763 = trunc i64 %7762 to i32
+  %7764 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7759, ptr noundef @.str.51, i32 noundef %7763, ptr noundef @.str.443)
   store i32 1, ptr %9, align 4
-  br label %7757
+  br label %7765
 
-7757:                                             ; preds = %7763, %7748
-  %7758 = load i32, ptr %9, align 4
-  %7759 = icmp ne i32 %7758, 0
-  br i1 %7759, label %7760, label %7766
+7765:                                             ; preds = %7771, %7756
+  %7766 = load i32, ptr %9, align 4
+  %7767 = icmp ne i32 %7766, 0
+  br i1 %7767, label %7768, label %7774
 
-7760:                                             ; preds = %7757
-  %7761 = load i64, ptr %5, align 8
-  %7762 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7761, ptr noundef @.str.444)
-  br label %7763
+7768:                                             ; preds = %7765
+  %7769 = load i64, ptr %5, align 8
+  %7770 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7769, ptr noundef @.str.444)
+  br label %7771
 
-7763:                                             ; preds = %7760
-  %7764 = load i64, ptr %5, align 8
-  %7765 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7764, ptr noundef @.str.56)
+7771:                                             ; preds = %7768
+  %7772 = load i64, ptr %5, align 8
+  %7773 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7772, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %7757, !llvm.loop !195
+  br label %7765, !llvm.loop !195
 
-7766:                                             ; preds = %7757
-  br label %7796
+7774:                                             ; preds = %7765
+  br label %7804
 
-7767:                                             ; preds = %7743
-  %7768 = load i64, ptr %5, align 8
-  %7769 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7768, i64 noundef %7769)
-  %7770 = load i64, ptr %5, align 8
-  %7771 = load i32, ptr %7, align 4
-  %7772 = icmp ne i32 %7771, 0
-  %7773 = select i1 %7772, i64 37, i64 13
-  %7774 = trunc i64 %7773 to i32
-  %7775 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7770, ptr noundef @.str.13, i32 noundef %7774, ptr noundef @.str.443)
-  %7776 = load i64, ptr %6, align 8
-  %7777 = load ptr, ptr %11, align 8
-  %7778 = call i64 @rb_str_cat_cstr(i64 noundef %7776, ptr noundef %7777)
-  store i32 1, ptr %9, align 4
-  br label %7779
-
-7779:                                             ; preds = %7789, %7767
-  %7780 = load i32, ptr %9, align 4
-  %7781 = icmp ne i32 %7780, 0
-  br i1 %7781, label %7782, label %7795
-
-7782:                                             ; preds = %7779
-  %7783 = load i64, ptr %5, align 8
+7775:                                             ; preds = %7750
+  %7776 = load i64, ptr %5, align 8
+  %7777 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7776, i64 noundef %7777)
+  %7778 = load i64, ptr %5, align 8
+  %7779 = load i32, ptr %7, align 4
+  %7780 = icmp ne i32 %7779, 0
+  %7781 = select i1 %7780, i64 37, i64 13
+  %7782 = trunc i64 %7781 to i32
+  %7783 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7778, ptr noundef @.str.13, i32 noundef %7782, ptr noundef @.str.443)
   %7784 = load i64, ptr %6, align 8
-  %7785 = load i32, ptr %7, align 4
-  %7786 = load ptr, ptr %8, align 8
-  %7787 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7786, i32 0, i32 3
-  %7788 = load ptr, ptr %7787, align 8
-  call void @dump_node(i64 noundef %7783, i64 noundef %7784, i32 noundef %7785, ptr noundef %7788)
-  br label %7789
+  %7785 = load ptr, ptr %11, align 8
+  %7786 = call i64 @rb_str_cat_cstr(i64 noundef %7784, ptr noundef %7785)
+  store i32 1, ptr %9, align 4
+  br label %7787
 
-7789:                                             ; preds = %7782
-  %7790 = load i64, ptr %6, align 8
-  %7791 = load i64, ptr %6, align 8
-  %7792 = call i64 @RSTRING_LEN(i64 noundef %7791) #10
-  %7793 = sub i64 %7792, 4
-  %7794 = call i64 @rb_str_resize(i64 noundef %7790, i64 noundef %7793)
+7787:                                             ; preds = %7797, %7775
+  %7788 = load i32, ptr %9, align 4
+  %7789 = icmp ne i32 %7788, 0
+  br i1 %7789, label %7790, label %7803
+
+7790:                                             ; preds = %7787
+  %7791 = load i64, ptr %5, align 8
+  %7792 = load i64, ptr %6, align 8
+  %7793 = load i32, ptr %7, align 4
+  %7794 = load ptr, ptr %8, align 8
+  %7795 = getelementptr inbounds %struct.RNode_HSHPTN, ptr %7794, i32 0, i32 3
+  %7796 = load ptr, ptr %7795, align 8
+  call void @dump_node(i64 noundef %7791, i64 noundef %7792, i32 noundef %7793, ptr noundef %7796)
+  br label %7797
+
+7797:                                             ; preds = %7790
+  %7798 = load i64, ptr %6, align 8
+  %7799 = load i64, ptr %6, align 8
+  %7800 = call i64 @RSTRING_LEN(i64 noundef %7799) #10
+  %7801 = sub i64 %7800, 4
+  %7802 = call i64 @rb_str_resize(i64 noundef %7798, i64 noundef %7801)
   store i32 0, ptr %9, align 4
-  br label %7779, !llvm.loop !196
+  br label %7787, !llvm.loop !196
 
-7795:                                             ; preds = %7779
-  br label %7796
+7803:                                             ; preds = %7787
+  br label %7804
 
-7796:                                             ; preds = %7795, %7766
-  br label %7932
+7804:                                             ; preds = %7803, %7774
+  br label %7940
 
-7797:                                             ; preds = %24
-  %7798 = load i32, ptr %7, align 4
-  %7799 = icmp ne i32 %7798, 0
-  br i1 %7799, label %7800, label %7805
-
-7800:                                             ; preds = %7797
-  %7801 = load i64, ptr %5, align 8
-  %7802 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7801, i64 noundef %7802)
-  %7803 = load i64, ptr %5, align 8
-  %7804 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7803, ptr noundef @.str.445)
-  br label %7805
-
-7805:                                             ; preds = %7800, %7797
+7805:                                             ; preds = %24
   %7806 = load i32, ptr %7, align 4
   %7807 = icmp ne i32 %7806, 0
   br i1 %7807, label %7808, label %7813
@@ -13093,7 +13088,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7810 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7809, i64 noundef %7810)
   %7811 = load i64, ptr %5, align 8
-  %7812 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7811, ptr noundef @.str.446)
+  %7812 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7811, ptr noundef @.str.445)
   br label %7813
 
 7813:                                             ; preds = %7808, %7805
@@ -13106,26 +13101,26 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7818 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7817, i64 noundef %7818)
   %7819 = load i64, ptr %5, align 8
-  %7820 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7819, ptr noundef @.str.447)
+  %7820 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7819, ptr noundef @.str.446)
   br label %7821
 
 7821:                                             ; preds = %7816, %7813
-  br label %7932
+  %7822 = load i32, ptr %7, align 4
+  %7823 = icmp ne i32 %7822, 0
+  br i1 %7823, label %7824, label %7829
 
-7822:                                             ; preds = %24
-  %7823 = load i32, ptr %7, align 4
-  %7824 = icmp ne i32 %7823, 0
-  br i1 %7824, label %7825, label %7830
+7824:                                             ; preds = %7821
+  %7825 = load i64, ptr %5, align 8
+  %7826 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7825, i64 noundef %7826)
+  %7827 = load i64, ptr %5, align 8
+  %7828 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7827, ptr noundef @.str.447)
+  br label %7829
 
-7825:                                             ; preds = %7822
-  %7826 = load i64, ptr %5, align 8
-  %7827 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7826, i64 noundef %7827)
-  %7828 = load i64, ptr %5, align 8
-  %7829 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7828, ptr noundef @.str.445)
-  br label %7830
+7829:                                             ; preds = %7824, %7821
+  br label %7940
 
-7830:                                             ; preds = %7825, %7822
+7830:                                             ; preds = %24
   %7831 = load i32, ptr %7, align 4
   %7832 = icmp ne i32 %7831, 0
   br i1 %7832, label %7833, label %7838
@@ -13135,7 +13130,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7835 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7834, i64 noundef %7835)
   %7836 = load i64, ptr %5, align 8
-  %7837 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7836, ptr noundef @.str.448)
+  %7837 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7836, ptr noundef @.str.445)
   br label %7838
 
 7838:                                             ; preds = %7833, %7830
@@ -13148,58 +13143,58 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7843 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7842, i64 noundef %7843)
   %7844 = load i64, ptr %5, align 8
-  %7845 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7844, ptr noundef @.str.449)
+  %7845 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7844, ptr noundef @.str.448)
   br label %7846
 
 7846:                                             ; preds = %7841, %7838
-  %7847 = load i64, ptr %5, align 8
-  %7848 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7847, i64 noundef %7848)
-  %7849 = load i64, ptr %5, align 8
-  %7850 = load i32, ptr %7, align 4
-  %7851 = icmp ne i32 %7850, 0
-  %7852 = select i1 %7851, i64 11, i64 4
-  %7853 = trunc i64 %7852 to i32
-  %7854 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7849, ptr noundef @.str.51, i32 noundef %7853, ptr noundef @.str.450)
+  %7847 = load i32, ptr %7, align 4
+  %7848 = icmp ne i32 %7847, 0
+  br i1 %7848, label %7849, label %7854
+
+7849:                                             ; preds = %7846
+  %7850 = load i64, ptr %5, align 8
+  %7851 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7850, i64 noundef %7851)
+  %7852 = load i64, ptr %5, align 8
+  %7853 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7852, ptr noundef @.str.449)
+  br label %7854
+
+7854:                                             ; preds = %7849, %7846
+  %7855 = load i64, ptr %5, align 8
+  %7856 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7855, i64 noundef %7856)
+  %7857 = load i64, ptr %5, align 8
+  %7858 = load i32, ptr %7, align 4
+  %7859 = icmp ne i32 %7858, 0
+  %7860 = select i1 %7859, i64 11, i64 4
+  %7861 = trunc i64 %7860 to i32
+  %7862 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7857, ptr noundef @.str.51, i32 noundef %7861, ptr noundef @.str.450)
   store i32 1, ptr %9, align 4
-  br label %7855
+  br label %7863
 
-7855:                                             ; preds = %7864, %7846
-  %7856 = load i32, ptr %9, align 4
-  %7857 = icmp ne i32 %7856, 0
-  br i1 %7857, label %7858, label %7867
+7863:                                             ; preds = %7872, %7854
+  %7864 = load i32, ptr %9, align 4
+  %7865 = icmp ne i32 %7864, 0
+  br i1 %7865, label %7866, label %7875
 
-7858:                                             ; preds = %7855
-  %7859 = load i64, ptr %5, align 8
-  %7860 = load ptr, ptr %8, align 8
-  %7861 = call i64 @rb_node_file_path_val(ptr noundef %7860)
-  %7862 = call i64 @rb_dump_literal(i64 noundef %7861)
-  %7863 = call i64 @rb_str_concat(i64 noundef %7859, i64 noundef %7862)
-  br label %7864
+7866:                                             ; preds = %7863
+  %7867 = load i64, ptr %5, align 8
+  %7868 = load ptr, ptr %8, align 8
+  %7869 = call i64 @rb_node_file_path_val(ptr noundef %7868)
+  %7870 = call i64 @rb_dump_literal(i64 noundef %7869)
+  %7871 = call i64 @rb_str_concat(i64 noundef %7867, i64 noundef %7870)
+  br label %7872
 
-7864:                                             ; preds = %7858
-  %7865 = load i64, ptr %5, align 8
-  %7866 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7865, ptr noundef @.str.56)
+7872:                                             ; preds = %7866
+  %7873 = load i64, ptr %5, align 8
+  %7874 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7873, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %7855, !llvm.loop !197
+  br label %7863, !llvm.loop !197
 
-7867:                                             ; preds = %7855
-  br label %7932
+7875:                                             ; preds = %7863
+  br label %7940
 
-7868:                                             ; preds = %24
-  %7869 = load i32, ptr %7, align 4
-  %7870 = icmp ne i32 %7869, 0
-  br i1 %7870, label %7871, label %7876
-
-7871:                                             ; preds = %7868
-  %7872 = load i64, ptr %5, align 8
-  %7873 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7872, i64 noundef %7873)
-  %7874 = load i64, ptr %5, align 8
-  %7875 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7874, ptr noundef @.str.451)
-  br label %7876
-
-7876:                                             ; preds = %7871, %7868
+7876:                                             ; preds = %24
   %7877 = load i32, ptr %7, align 4
   %7878 = icmp ne i32 %7877, 0
   br i1 %7878, label %7879, label %7884
@@ -13209,7 +13204,7 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7881 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7880, i64 noundef %7881)
   %7882 = load i64, ptr %5, align 8
-  %7883 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7882, ptr noundef @.str.452)
+  %7883 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7882, ptr noundef @.str.451)
   br label %7884
 
 7884:                                             ; preds = %7879, %7876
@@ -13222,75 +13217,88 @@ define internal void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, 
   %7889 = load i64, ptr %6, align 8
   call void @add_indent(i64 noundef %7888, i64 noundef %7889)
   %7890 = load i64, ptr %5, align 8
-  %7891 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7890, ptr noundef @.str.453)
+  %7891 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7890, ptr noundef @.str.452)
   br label %7892
 
 7892:                                             ; preds = %7887, %7884
-  %7893 = load i64, ptr %5, align 8
-  %7894 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7893, i64 noundef %7894)
-  %7895 = load i64, ptr %5, align 8
-  %7896 = load i32, ptr %7, align 4
-  %7897 = icmp ne i32 %7896, 0
-  %7898 = select i1 %7897, i64 9, i64 3
-  %7899 = trunc i64 %7898 to i32
-  %7900 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7895, ptr noundef @.str.51, i32 noundef %7899, ptr noundef @.str.454)
+  %7893 = load i32, ptr %7, align 4
+  %7894 = icmp ne i32 %7893, 0
+  br i1 %7894, label %7895, label %7900
+
+7895:                                             ; preds = %7892
+  %7896 = load i64, ptr %5, align 8
+  %7897 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7896, i64 noundef %7897)
+  %7898 = load i64, ptr %5, align 8
+  %7899 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7898, ptr noundef @.str.453)
+  br label %7900
+
+7900:                                             ; preds = %7895, %7892
+  %7901 = load i64, ptr %5, align 8
+  %7902 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7901, i64 noundef %7902)
+  %7903 = load i64, ptr %5, align 8
+  %7904 = load i32, ptr %7, align 4
+  %7905 = icmp ne i32 %7904, 0
+  %7906 = select i1 %7905, i64 9, i64 3
+  %7907 = trunc i64 %7906 to i32
+  %7908 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7903, ptr noundef @.str.51, i32 noundef %7907, ptr noundef @.str.454)
   store i32 1, ptr %9, align 4
-  br label %7901
+  br label %7909
 
-7901:                                             ; preds = %7910, %7892
-  %7902 = load i32, ptr %9, align 4
-  %7903 = icmp ne i32 %7902, 0
-  br i1 %7903, label %7904, label %7913
+7909:                                             ; preds = %7918, %7900
+  %7910 = load i32, ptr %9, align 4
+  %7911 = icmp ne i32 %7910, 0
+  br i1 %7911, label %7912, label %7921
 
-7904:                                             ; preds = %7901
-  %7905 = load i64, ptr %5, align 8
-  %7906 = load ptr, ptr %8, align 8
-  %7907 = call i64 @rb_node_encoding_val(ptr noundef %7906)
-  %7908 = call i64 @rb_dump_literal(i64 noundef %7907)
-  %7909 = call i64 @rb_str_concat(i64 noundef %7905, i64 noundef %7908)
-  br label %7910
+7912:                                             ; preds = %7909
+  %7913 = load i64, ptr %5, align 8
+  %7914 = load ptr, ptr %8, align 8
+  %7915 = call i64 @rb_node_encoding_val(ptr noundef %7914)
+  %7916 = call i64 @rb_dump_literal(i64 noundef %7915)
+  %7917 = call i64 @rb_str_concat(i64 noundef %7913, i64 noundef %7916)
+  br label %7918
 
-7910:                                             ; preds = %7904
-  %7911 = load i64, ptr %5, align 8
-  %7912 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7911, ptr noundef @.str.56)
+7918:                                             ; preds = %7912
+  %7919 = load i64, ptr %5, align 8
+  %7920 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7919, ptr noundef @.str.56)
   store i32 0, ptr %9, align 4
-  br label %7901, !llvm.loop !198
+  br label %7909, !llvm.loop !198
 
-7913:                                             ; preds = %7901
+7921:                                             ; preds = %7909
+  br label %7940
+
+7922:                                             ; preds = %24
+  %7923 = load i32, ptr %7, align 4
+  %7924 = icmp ne i32 %7923, 0
+  br i1 %7924, label %7925, label %7930
+
+7925:                                             ; preds = %7922
+  %7926 = load i64, ptr %5, align 8
+  %7927 = load i64, ptr %6, align 8
+  call void @add_indent(i64 noundef %7926, i64 noundef %7927)
+  %7928 = load i64, ptr %5, align 8
+  %7929 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7928, ptr noundef @.str.455)
+  br label %7930
+
+7930:                                             ; preds = %7925, %7922
+  br label %7940
+
+7931:                                             ; preds = %24, %24
   br label %7932
 
-7914:                                             ; preds = %24
-  %7915 = load i32, ptr %7, align 4
-  %7916 = icmp ne i32 %7915, 0
-  br i1 %7916, label %7917, label %7922
-
-7917:                                             ; preds = %7914
-  %7918 = load i64, ptr %5, align 8
-  %7919 = load i64, ptr %6, align 8
-  call void @add_indent(i64 noundef %7918, i64 noundef %7919)
-  %7920 = load i64, ptr %5, align 8
-  %7921 = call i64 @rbimpl_str_cat_cstr(i64 noundef %7920, ptr noundef @.str.455)
-  br label %7922
-
-7922:                                             ; preds = %7917, %7914
-  br label %7932
-
-7923:                                             ; preds = %24, %24
-  br label %7924
-
-7924:                                             ; preds = %7923, %24
-  %7925 = load ptr, ptr %8, align 8
-  %7926 = getelementptr inbounds %struct.RNode, ptr %7925, i32 0, i32 0
-  %7927 = load i64, ptr %7926, align 8
-  %7928 = and i64 %7927, 32512
-  %7929 = lshr i64 %7928, 8
-  %7930 = trunc i64 %7929 to i32
-  %7931 = call ptr @ruby_node_name(i32 noundef %7930)
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.456, ptr noundef %7931) #11
+7932:                                             ; preds = %7931, %24
+  %7933 = load ptr, ptr %8, align 8
+  %7934 = getelementptr inbounds %struct.RNode, ptr %7933, i32 0, i32 0
+  %7935 = load i64, ptr %7934, align 8
+  %7936 = and i64 %7935, 32512
+  %7937 = lshr i64 %7936, 8
+  %7938 = trunc i64 %7937 to i32
+  %7939 = call ptr @ruby_node_name(i32 noundef %7938)
+  call void (ptr, ...) @rb_bug(ptr noundef @.str.456, ptr noundef %7939) #11
   unreachable
 
-7932:                                             ; preds = %7922, %7913, %7867, %7821, %7796, %7670, %7491, %7337, %7206, %6919, %6813, %6732, %6651, %6598, %6497, %6444, %6391, %6366, %6341, %6316, %6291, %6244, %6087, %6042, %5969, %5888, %5807, %5698, %5645, %5580, %5499, %5398, %5325, %5244, %5191, %5110, %5029, %4976, %4930, %4869, %4742, %4689, %4643, %4597, %4551, %4505, %4459, %4387, %4340, %4259, %4138, %4092, %4043, %3995, %3950, %3905, %3860, %3815, %3770, %3725, %3672, %3562, %3533, %3508, %3483, %3430, %3329, %3284, %3211, %3110, %3009, %2908, %2801, %2672, %2543, %2399, %2326, %2253, %2180, %2074, %1976, %1842, %1718, %1637, %1528, %1419, %1366, %1341, %1316, %1263, %1210, %1157, %1104, %997, %861, %752, %643, %562, %481, %400, %291, %182, %19
+7940:                                             ; preds = %7930, %7921, %7875, %7829, %7804, %7677, %7496, %7341, %7210, %6923, %6816, %6735, %6654, %6601, %6500, %6447, %6394, %6369, %6344, %6319, %6294, %6247, %6090, %6045, %5972, %5891, %5810, %5701, %5648, %5583, %5502, %5401, %5328, %5247, %5194, %5113, %5032, %4979, %4933, %4872, %4745, %4692, %4646, %4600, %4554, %4508, %4462, %4390, %4343, %4262, %4141, %4095, %4046, %3998, %3953, %3908, %3863, %3818, %3773, %3728, %3675, %3565, %3536, %3511, %3486, %3433, %3332, %3287, %3214, %3113, %3012, %2911, %2804, %2675, %2546, %2402, %2329, %2256, %2183, %2076, %1977, %1842, %1718, %1637, %1528, %1419, %1366, %1341, %1316, %1263, %1210, %1157, %1104, %997, %861, %752, %643, %562, %481, %400, %291, %182, %19
   ret void
 }
 

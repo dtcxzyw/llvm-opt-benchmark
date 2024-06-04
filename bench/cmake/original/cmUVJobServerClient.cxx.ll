@@ -716,47 +716,48 @@ define dso_local void @_ZN19cmUVJobServerClient4ImplC2ER9uv_loop_s(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmUVJobServerClient4ImplE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 2
-  call void @_ZN2cm11uv_idle_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %11 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 3
-  call void @_ZNSt8functionIFvvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 4
-  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 5
-  store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 6
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 2
-  %16 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = invoke noundef i32 @_ZN2cm11uv_idle_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(848) %17, ptr noundef %7)
-          to label %19 unwind label %20
-
-19:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmUVJobServerClient4ImplE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 2
+  call void @_ZN2cm11uv_idle_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 3
+  call void @_ZNSt8functionIFvvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %13 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 4
+  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 5
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 6
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 2
+  %17 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %7, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = invoke noundef i32 @_ZN2cm11uv_idle_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(848) %18, ptr noundef %7)
+          to label %20 unwind label %21
 
 20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %24
+  ret void
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %25
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -830,13 +831,14 @@ define dso_local void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmUVJobServerClient4ImplE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 4
-  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 3
-  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 2
-  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmUVJobServerClient4ImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 4
+  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 3
+  call void @_ZNSt8functionIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %"class.cmUVJobServerClient::Impl", ptr %3, i32 0, i32 2
+  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   ret void
 }
 
@@ -2141,109 +2143,110 @@ define internal void @_ZN12_GLOBAL__N_19ImplPosixC2ER9uv_loop_s(ptr noundef nonn
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN19cmUVJobServerClient4ImplC2ER9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(848) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ImplPosixE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 1
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 3
-  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ImplPosixE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 1
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 3
+  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %24
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 4
-  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %14 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 4
+  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %15 unwind label %28
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 5
-  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %16 unwind label %31
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 5
+  invoke void @_ZN2cm11uv_pipe_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %17 unwind label %32
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 6
-  %18 = getelementptr inbounds %class.anon.26, ptr %7, i32 0, i32 0
-  store ptr %8, ptr %18, align 8
-  invoke void @"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.22") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %19 unwind label %35
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 6
+  %19 = getelementptr inbounds %class.anon.26, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %19, align 8
+  invoke void @"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.22") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %20 unwind label %36
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 7
-  store i8 46, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 8
-  store i8 0, ptr %21, align 1
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 7
+  store i8 46, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %8, i32 0, i32 8
+  store i8 0, ptr %22, align 1
   invoke void @_ZN12_GLOBAL__N_19ImplPosix7ConnectEv(ptr noundef nonnull align 8 dereferenceable(178) %8)
-          to label %22 unwind label %39
+          to label %23 unwind label %40
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %46
-
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  br label %45
-
-31:                                               ; preds = %14
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  br label %44
-
-35:                                               ; preds = %16
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  br label %43
-
-39:                                               ; preds = %19
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
-  call void @_ZNSt10shared_ptrISt8functionIFviEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %43
-
-43:                                               ; preds = %39, %35
-  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  br label %44
-
-44:                                               ; preds = %43, %31
-  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %45
-
-45:                                               ; preds = %44, %27
-  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  br label %46
-
-46:                                               ; preds = %45, %23
-  call void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #3
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr %6, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+28:                                               ; preds = %13
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  br label %46
+
+32:                                               ; preds = %15
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  br label %45
+
+36:                                               ; preds = %17
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  br label %44
+
+40:                                               ; preds = %20
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  call void @_ZNSt10shared_ptrISt8functionIFviEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %45
+
+45:                                               ; preds = %44, %32
+  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %46
+
+46:                                               ; preds = %45, %28
+  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %47
+
+47:                                               ; preds = %46, %24
+  call void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %5, align 8
+  %50 = load i32, ptr %6, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -2680,27 +2683,28 @@ define internal void @_ZN12_GLOBAL__N_19ImplPosixD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ImplPosixE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ImplPosixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN12_GLOBAL__N_19ImplPosix10DisconnectEi(ptr noundef nonnull align 8 dereferenceable(178) %3, i32 noundef 0)
-          to label %4 unwind label %9
+          to label %5 unwind label %10
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 6
-  call void @_ZNSt10shared_ptrISt8functionIFviEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 5
-  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 4
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 6
+  call void @_ZNSt10shared_ptrISt8functionIFviEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 5
   call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 3
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 4
   call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::ImplPosix", ptr %3, i32 0, i32 3
+  call void @_ZN2cm11uv_pipe_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   call void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #3
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #13
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #13
   unreachable
 }
 
@@ -3046,12 +3050,13 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9_
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %9 = load ptr, ptr %5, align 8
-  call void @"_ZNSt16allocator_traitsISaIvEE9constructISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt8functionIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %10 = load ptr, ptr %5, align 8
+  call void @"_ZNSt16allocator_traitsISaIvEE9constructISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   ret void
 }
 
@@ -3216,11 +3221,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

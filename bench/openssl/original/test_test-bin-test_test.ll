@@ -2474,54 +2474,56 @@ land.lhs.true106:                                 ; preds = %land.lhs.true101
   br i1 %tobool108, label %land.lhs.true109, label %land.end
 
 land.lhs.true109:                                 ; preds = %land.lhs.true106
-  store ptr getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 1), ptr %p, align 8
-  %call110 = call i32 @test_str_eq(ptr noundef @.str.24, i32 noundef 494, ptr noundef @.str.398, ptr noundef @.str.399, ptr noundef getelementptr inbounds ([7 x i8], ptr @.str.400, i64 0, i64 1), ptr noundef @.str.401)
+  %29 = getelementptr inbounds [7 x i8], ptr @.str.400, i64 0, i64 1
+  store ptr %29, ptr %p, align 8
+  %30 = getelementptr inbounds [7 x i8], ptr @.str.400, i64 0, i64 1
+  %call110 = call i32 @test_str_eq(ptr noundef @.str.24, i32 noundef 494, ptr noundef @.str.398, ptr noundef @.str.399, ptr noundef %30, ptr noundef @.str.401)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %land.lhs.true112, label %land.end
 
 land.lhs.true112:                                 ; preds = %land.lhs.true109
-  %29 = load ptr, ptr %p, align 8
-  %incdec.ptr113 = getelementptr inbounds i8, ptr %29, i32 1
+  %31 = load ptr, ptr %p, align 8
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %31, i32 1
   store ptr %incdec.ptr113, ptr %p, align 8
   %call114 = call i32 @test_str_eq(ptr noundef @.str.24, i32 noundef 495, ptr noundef @.str.402, ptr noundef @.str.394, ptr noundef @.str.403, ptr noundef %incdec.ptr113)
   %tobool115 = icmp ne i32 %call114, 0
   br i1 %tobool115, label %land.lhs.true116, label %land.end
 
 land.lhs.true116:                                 ; preds = %land.lhs.true112
-  %30 = load ptr, ptr %p, align 8
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %30, i32 1
+  %32 = load ptr, ptr %p, align 8
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %32, i32 1
   store ptr %incdec.ptr117, ptr %p, align 8
-  %call118 = call i32 @test_str_ne(ptr noundef @.str.24, i32 noundef 496, ptr noundef @.str.392, ptr noundef @.str.404, ptr noundef %30, ptr noundef @.str.405)
+  %call118 = call i32 @test_str_ne(ptr noundef @.str.24, i32 noundef 496, ptr noundef @.str.392, ptr noundef @.str.404, ptr noundef %32, ptr noundef @.str.405)
   %tobool119 = icmp ne i32 %call118, 0
   br i1 %tobool119, label %land.lhs.true120, label %land.end
 
 land.lhs.true120:                                 ; preds = %land.lhs.true116
-  %31 = load ptr, ptr %p, align 8
-  %incdec.ptr121 = getelementptr inbounds i8, ptr %31, i32 -1
+  %33 = load ptr, ptr %p, align 8
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %33, i32 -1
   store ptr %incdec.ptr121, ptr %p, align 8
   %call122 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 498, ptr noundef @.str.406, ptr noundef @.str.402, ptr noundef %incdec.ptr121, i64 noundef 5, ptr noundef @.str.403, i64 noundef 5)
   %tobool123 = icmp ne i32 %call122, 0
   br i1 %tobool123, label %land.lhs.true124, label %land.end
 
 land.lhs.true124:                                 ; preds = %land.lhs.true120
-  %32 = load ptr, ptr %p, align 8
-  %incdec.ptr125 = getelementptr inbounds i8, ptr %32, i32 1
+  %34 = load ptr, ptr %p, align 8
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %34, i32 1
   store ptr %incdec.ptr125, ptr %p, align 8
-  %call126 = call i32 @test_mem_ne(ptr noundef @.str.24, i32 noundef 499, ptr noundef @.str.392, ptr noundef @.str.404, ptr noundef %32, i64 noundef 4, ptr noundef @.str.405, i64 noundef 4)
+  %call126 = call i32 @test_mem_ne(ptr noundef @.str.24, i32 noundef 499, ptr noundef @.str.392, ptr noundef @.str.404, ptr noundef %34, i64 noundef 4, ptr noundef @.str.405, i64 noundef 4)
   %tobool127 = icmp ne i32 %call126, 0
   br i1 %tobool127, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true124
-  %33 = load ptr, ptr %p, align 8
-  %incdec.ptr128 = getelementptr inbounds i8, ptr %33, i32 -1
+  %35 = load ptr, ptr %p, align 8
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %35, i32 -1
   store ptr %incdec.ptr128, ptr %p, align 8
-  %call129 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 500, ptr noundef @.str.407, ptr noundef @.str.404, ptr noundef %33, i64 noundef 4, ptr noundef @.str.405, i64 noundef 4)
+  %call129 = call i32 @test_mem_eq(ptr noundef @.str.24, i32 noundef 500, ptr noundef @.str.407, ptr noundef @.str.404, ptr noundef %35, i64 noundef 4, ptr noundef @.str.405, i64 noundef 4)
   %tobool130 = icmp ne i32 %call129, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true124, %land.lhs.true120, %land.lhs.true116, %land.lhs.true112, %land.lhs.true109, %land.lhs.true106, %land.lhs.true101, %land.lhs.true97, %land.lhs.true92, %land.lhs.true87, %land.lhs.true83, %land.lhs.true80, %land.lhs.true77, %land.lhs.true72, %land.lhs.true68, %land.lhs.true64, %land.lhs.true61, %land.lhs.true56, %land.lhs.true52, %land.lhs.true48, %land.lhs.true44, %land.lhs.true40, %land.lhs.true36, %land.lhs.true32, %land.lhs.true28, %land.lhs.true25, %land.lhs.true21, %land.lhs.true17, %land.lhs.true14, %land.lhs.true11, %land.lhs.true7, %land.lhs.true3, %land.lhs.true, %entry
-  %34 = phi i1 [ false, %land.lhs.true124 ], [ false, %land.lhs.true120 ], [ false, %land.lhs.true116 ], [ false, %land.lhs.true112 ], [ false, %land.lhs.true109 ], [ false, %land.lhs.true106 ], [ false, %land.lhs.true101 ], [ false, %land.lhs.true97 ], [ false, %land.lhs.true92 ], [ false, %land.lhs.true87 ], [ false, %land.lhs.true83 ], [ false, %land.lhs.true80 ], [ false, %land.lhs.true77 ], [ false, %land.lhs.true72 ], [ false, %land.lhs.true68 ], [ false, %land.lhs.true64 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true56 ], [ false, %land.lhs.true52 ], [ false, %land.lhs.true48 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true40 ], [ false, %land.lhs.true36 ], [ false, %land.lhs.true32 ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true21 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true11 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool130, %land.rhs ]
-  %land.ext = zext i1 %34 to i32
+  %36 = phi i1 [ false, %land.lhs.true124 ], [ false, %land.lhs.true120 ], [ false, %land.lhs.true116 ], [ false, %land.lhs.true112 ], [ false, %land.lhs.true109 ], [ false, %land.lhs.true106 ], [ false, %land.lhs.true101 ], [ false, %land.lhs.true97 ], [ false, %land.lhs.true92 ], [ false, %land.lhs.true87 ], [ false, %land.lhs.true83 ], [ false, %land.lhs.true80 ], [ false, %land.lhs.true77 ], [ false, %land.lhs.true72 ], [ false, %land.lhs.true68 ], [ false, %land.lhs.true64 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true56 ], [ false, %land.lhs.true52 ], [ false, %land.lhs.true48 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true40 ], [ false, %land.lhs.true36 ], [ false, %land.lhs.true32 ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true21 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true11 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool130, %land.rhs ]
+  %land.ext = zext i1 %36 to i32
   ret i32 %land.ext
 }
 

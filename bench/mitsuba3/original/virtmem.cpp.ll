@@ -35,7 +35,7 @@ $_ZZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEbE15internalCounter = comda
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8, !tbaa !3
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %17, label %5
+  br i1 %4, label %18, label %5
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 1
@@ -47,16 +47,17 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11Memor
   %12 = or i32 %9, 5
   %13 = select i1 %11, i32 %9, i32 %12
   %14 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %13, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
-  %15 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
-  br i1 %15, label %17, label %16
+  %15 = inttoptr i64 -1 to ptr
+  %16 = icmp eq ptr %14, %15
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %5
+17:                                               ; preds = %5
   store ptr %14, ptr %0, align 8, !tbaa !3
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %5, %3
-  %18 = phi i32 [ 0, %16 ], [ 2, %3 ], [ 1, %5 ]
-  ret i32 %18
+18:                                               ; preds = %17, %5, %3
+  %19 = phi i32 [ 0, %17 ], [ 2, %3 ], [ 1, %5 ]
+  ret i32 %19
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -116,16 +117,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
 8:                                                ; preds = %3
   %9 = icmp eq i64 %1, 0
   %10 = select i1 %9, i32 2, i32 9
-  br label %170
+  br label %173
 
 11:                                               ; preds = %3
   %12 = icmp sgt i32 %2, -1
-  br i1 %12, label %13, label %95
+  br i1 %12, label %13, label %96
 
 13:                                               ; preds = %11
   %14 = load atomic i32, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18getAnonMemStrategyEPNS1_20AnonymousMemStrategyEE17globalShmStrategy.0 seq_cst, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %92
+  br i1 %15, label %16, label %93
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #13
@@ -164,7 +165,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %35 = phi i64 [ %26, %24 ], [ %32, %27 ]
   %36 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %4, i1 noundef zeroext false) #13
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %58
+  br i1 %37, label %38, label %59
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %4, align 8, !tbaa !8
@@ -176,231 +177,234 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %43 = tail call ptr @__errno_location() #14
   %44 = load i32, ptr %43, align 4, !tbaa !16
   %45 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %44) #13, !range !17
-  br label %58
+  br label %59
 
 46:                                               ; preds = %38
   %47 = load i32, ptr %4, align 8, !tbaa !8
   %48 = call ptr @mmap(ptr noundef null, i64 noundef %35, i32 noundef 5, i32 noundef 1, i32 noundef %47, i64 noundef 0) #13
-  %49 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
-  br i1 %49, label %50, label %56
+  %49 = inttoptr i64 -1 to ptr
+  %50 = icmp eq ptr %48, %49
+  br i1 %50, label %51, label %57
 
-50:                                               ; preds = %46
-  %51 = tail call ptr @__errno_location() #14
-  %52 = load i32, ptr %51, align 4, !tbaa !16
-  %53 = icmp eq i32 %52, 22
-  br i1 %53, label %58, label %54
+51:                                               ; preds = %46
+  %52 = tail call ptr @__errno_location() #14
+  %53 = load i32, ptr %52, align 4, !tbaa !16
+  %54 = icmp eq i32 %53, 22
+  br i1 %54, label %59, label %55
 
-54:                                               ; preds = %50
-  %55 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %52) #13, !range !17
-  br label %58
+55:                                               ; preds = %51
+  %56 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %53) #13, !range !17
+  br label %59
 
-56:                                               ; preds = %46
-  %57 = call i32 @munmap(ptr noundef %48, i64 noundef %35) #13
-  br label %58
+57:                                               ; preds = %46
+  %58 = call i32 @munmap(ptr noundef %48, i64 noundef %35) #13
+  br label %59
 
-58:                                               ; preds = %56, %54, %50, %42, %34
-  %59 = phi i32 [ 0, %54 ], [ 1, %56 ], [ 0, %42 ], [ 0, %34 ], [ 2, %50 ]
-  %60 = phi i32 [ %55, %54 ], [ 0, %56 ], [ %45, %42 ], [ %36, %34 ], [ 0, %50 ]
-  %61 = load i32, ptr %17, align 4, !tbaa !18
+59:                                               ; preds = %57, %55, %51, %42, %34
+  %60 = phi i32 [ 0, %55 ], [ 1, %57 ], [ 0, %42 ], [ 0, %34 ], [ 2, %51 ]
+  %61 = phi i32 [ %56, %55 ], [ 0, %57 ], [ %45, %42 ], [ %36, %34 ], [ 0, %51 ]
+  %62 = load i32, ptr %17, align 4, !tbaa !18
   store i32 0, ptr %17, align 4, !tbaa !18
-  switch i32 %61, label %79 [
-    i32 1, label %62
-    i32 2, label %69
+  switch i32 %62, label %80 [
+    i32 1, label %63
+    i32 2, label %70
   ]
 
-62:                                               ; preds = %58
-  %63 = load i8, ptr %18, align 8, !tbaa !14
-  %64 = icmp ugt i8 %63, 30
-  %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 9
-  %67 = select i1 %64, ptr %65, ptr %66
-  %68 = invoke i32 @shm_unlink(ptr noundef %67)
-          to label %79 unwind label %76
+63:                                               ; preds = %59
+  %64 = load i8, ptr %18, align 8, !tbaa !14
+  %65 = icmp ugt i8 %64, 30
+  %66 = load ptr, ptr %21, align 8
+  %67 = getelementptr inbounds i8, ptr %4, i64 9
+  %68 = select i1 %65, ptr %66, ptr %67
+  %69 = invoke i32 @shm_unlink(ptr noundef %68)
+          to label %80 unwind label %77
 
-69:                                               ; preds = %58
-  %70 = load i8, ptr %18, align 8, !tbaa !14
-  %71 = icmp ugt i8 %70, 30
-  %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 9
-  %74 = select i1 %71, ptr %72, ptr %73
-  %75 = call i32 @unlink(ptr noundef %74) #13
-  br label %79
+70:                                               ; preds = %59
+  %71 = load i8, ptr %18, align 8, !tbaa !14
+  %72 = icmp ugt i8 %71, 30
+  %73 = load ptr, ptr %21, align 8
+  %74 = getelementptr inbounds i8, ptr %4, i64 9
+  %75 = select i1 %72, ptr %73, ptr %74
+  %76 = call i32 @unlink(ptr noundef %75) #13
+  br label %80
 
-76:                                               ; preds = %62
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %63
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #15
+  %79 = extractvalue { ptr, i32 } %78, 0
+  call void @__clang_call_terminate(ptr %79) #15
   unreachable
 
-79:                                               ; preds = %69, %62, %58
-  %80 = load i32, ptr %4, align 8, !tbaa !8
-  %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %82, label %88
+80:                                               ; preds = %70, %63, %59
+  %81 = load i32, ptr %4, align 8, !tbaa !8
+  %82 = icmp sgt i32 %81, -1
+  br i1 %82, label %83, label %89
 
-82:                                               ; preds = %79
-  %83 = invoke i32 @close(i32 noundef %80)
-          to label %84 unwind label %85
+83:                                               ; preds = %80
+  %84 = invoke i32 @close(i32 noundef %81)
+          to label %85 unwind label %86
 
-84:                                               ; preds = %82
+85:                                               ; preds = %83
   store i32 -1, ptr %4, align 8, !tbaa !8
-  br label %88
+  br label %89
 
-85:                                               ; preds = %82
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %83
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #15
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #15
   unreachable
 
-88:                                               ; preds = %84, %79
-  %89 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
+89:                                               ; preds = %85, %80
+  %90 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #13
-  %90 = icmp eq i32 %60, 0
-  br i1 %90, label %91, label %170
+  %91 = icmp eq i32 %61, 0
+  br i1 %91, label %92, label %173
 
-91:                                               ; preds = %88
-  store atomic i32 %59, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18getAnonMemStrategyEPNS1_20AnonymousMemStrategyEE17globalShmStrategy.0 seq_cst, align 4
-  br label %92
+92:                                               ; preds = %89
+  store atomic i32 %60, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18getAnonMemStrategyEPNS1_20AnonymousMemStrategyEE17globalShmStrategy.0 seq_cst, align 4
+  br label %93
 
-92:                                               ; preds = %91, %13
-  %93 = phi i32 [ %14, %13 ], [ %59, %91 ]
-  %94 = icmp eq i32 %93, 2
-  br label %95
+93:                                               ; preds = %92, %13
+  %94 = phi i32 [ %14, %13 ], [ %60, %92 ]
+  %95 = icmp eq i32 %94, 2
+  br label %96
 
-95:                                               ; preds = %92, %11
-  %96 = phi i1 [ true, %11 ], [ %94, %92 ]
+96:                                               ; preds = %93, %11
+  %97 = phi i1 [ true, %11 ], [ %95, %93 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #13
   store i32 -1, ptr %5, align 8, !tbaa !8
-  %97 = getelementptr inbounds i8, ptr %5, i64 4
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %97, i8 0, i64 20, i1 false)
-  store i8 32, ptr %98, align 8, !tbaa !14
-  %99 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 135, ptr %99, align 8, !tbaa !14
-  %100 = getelementptr inbounds i8, ptr %5, i64 40
-  %101 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %100, ptr %101, align 8, !tbaa !14
-  store i8 0, ptr %100, align 8, !tbaa !14
-  %102 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %5, i1 noundef zeroext %96) #13
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %139
+  %98 = getelementptr inbounds i8, ptr %5, i64 4
+  %99 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %98, i8 0, i64 20, i1 false)
+  store i8 32, ptr %99, align 8, !tbaa !14
+  %100 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 135, ptr %100, align 8, !tbaa !14
+  %101 = getelementptr inbounds i8, ptr %5, i64 40
+  %102 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %101, ptr %102, align 8, !tbaa !14
+  store i8 0, ptr %101, align 8, !tbaa !14
+  %103 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %5, i1 noundef zeroext %97) #13
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %142
 
-104:                                              ; preds = %95
-  %105 = load i32, ptr %5, align 8, !tbaa !8
-  %106 = call i32 @ftruncate(i32 noundef %105, i64 noundef %1) #13
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %112, label %108
+105:                                              ; preds = %96
+  %106 = load i32, ptr %5, align 8, !tbaa !8
+  %107 = call i32 @ftruncate(i32 noundef %106, i64 noundef %1) #13
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %113, label %109
 
-108:                                              ; preds = %104
-  %109 = tail call ptr @__errno_location() #14
-  %110 = load i32, ptr %109, align 4, !tbaa !16
-  %111 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %110) #13, !range !17
+109:                                              ; preds = %105
+  %110 = tail call ptr @__errno_location() #14
+  %111 = load i32, ptr %110, align 4, !tbaa !16
+  %112 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %111) #13, !range !17
+  br label %142
+
+113:                                              ; preds = %105
+  %114 = and i32 %2, 1
+  %115 = and i32 %2, 4
+  %116 = icmp eq i32 %115, 0
+  %117 = select i1 %116, i32 %114, i32 5
+  %118 = load i32, ptr %5, align 8, !tbaa !8
+  %119 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %117, i32 noundef 1, i32 noundef %118, i64 noundef 0) #13
+  %120 = inttoptr i64 -1 to ptr
+  %121 = icmp eq ptr %119, %120
+  br i1 %121, label %122, label %129
+
+122:                                              ; preds = %113
+  %123 = tail call ptr @__errno_location() #14
+  %124 = load i32, ptr %123, align 4, !tbaa !16
   br label %139
 
-112:                                              ; preds = %104
-  %113 = and i32 %2, 1
-  %114 = and i32 %2, 4
-  %115 = icmp eq i32 %114, 0
-  %116 = select i1 %115, i32 %113, i32 5
-  %117 = load i32, ptr %5, align 8, !tbaa !8
-  %118 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %116, i32 noundef 1, i32 noundef %117, i64 noundef 0) #13
-  %119 = icmp eq ptr %118, inttoptr (i64 -1 to ptr)
-  br i1 %119, label %120, label %127
-
-120:                                              ; preds = %112
-  %121 = tail call ptr @__errno_location() #14
-  %122 = load i32, ptr %121, align 4, !tbaa !16
-  br label %136
-
-123:                                              ; preds = %127
-  %124 = tail call ptr @__errno_location() #14
-  %125 = load i32, ptr %124, align 4, !tbaa !16
-  %126 = call i32 @munmap(ptr noundef %118, i64 noundef %1) #13
-  br label %136
-
-127:                                              ; preds = %112
-  %128 = and i32 %2, 1
-  %129 = and i32 %2, 2
-  %130 = icmp eq i32 %129, 0
-  %131 = select i1 %130, i32 %128, i32 3
-  %132 = load i32, ptr %5, align 8, !tbaa !8
-  %133 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %131, i32 noundef 1, i32 noundef %132, i64 noundef 0) #13
-  %134 = icmp eq ptr %133, inttoptr (i64 -1 to ptr)
-  br i1 %134, label %123, label %135
-
-135:                                              ; preds = %127
-  store ptr %118, ptr %0, align 8, !tbaa !19
-  store ptr %133, ptr %6, align 8, !tbaa !21
+125:                                              ; preds = %129
+  %126 = tail call ptr @__errno_location() #14
+  %127 = load i32, ptr %126, align 4, !tbaa !16
+  %128 = call i32 @munmap(ptr noundef %119, i64 noundef %1) #13
   br label %139
 
-136:                                              ; preds = %123, %120
-  %137 = phi i32 [ %122, %120 ], [ %125, %123 ]
-  %138 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %137) #13, !range !17
-  br label %139
+129:                                              ; preds = %113
+  %130 = and i32 %2, 1
+  %131 = and i32 %2, 2
+  %132 = icmp eq i32 %131, 0
+  %133 = select i1 %132, i32 %130, i32 3
+  %134 = load i32, ptr %5, align 8, !tbaa !8
+  %135 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %133, i32 noundef 1, i32 noundef %134, i64 noundef 0) #13
+  %136 = inttoptr i64 -1 to ptr
+  %137 = icmp eq ptr %135, %136
+  br i1 %137, label %125, label %138
 
-139:                                              ; preds = %136, %135, %108, %95
-  %140 = phi i32 [ %111, %108 ], [ %102, %95 ], [ 0, %135 ], [ %138, %136 ]
-  %141 = load i32, ptr %97, align 4, !tbaa !18
-  store i32 0, ptr %97, align 4, !tbaa !18
-  switch i32 %141, label %159 [
-    i32 1, label %142
-    i32 2, label %149
+138:                                              ; preds = %129
+  store ptr %119, ptr %0, align 8, !tbaa !19
+  store ptr %135, ptr %6, align 8, !tbaa !21
+  br label %142
+
+139:                                              ; preds = %125, %122
+  %140 = phi i32 [ %124, %122 ], [ %127, %125 ]
+  %141 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %140) #13, !range !17
+  br label %142
+
+142:                                              ; preds = %139, %138, %109, %96
+  %143 = phi i32 [ %112, %109 ], [ %103, %96 ], [ 0, %138 ], [ %141, %139 ]
+  %144 = load i32, ptr %98, align 4, !tbaa !18
+  store i32 0, ptr %98, align 4, !tbaa !18
+  switch i32 %144, label %162 [
+    i32 1, label %145
+    i32 2, label %152
   ]
 
-142:                                              ; preds = %139
-  %143 = load i8, ptr %98, align 8, !tbaa !14
-  %144 = icmp ugt i8 %143, 30
-  %145 = load ptr, ptr %101, align 8
-  %146 = getelementptr inbounds i8, ptr %5, i64 9
-  %147 = select i1 %144, ptr %145, ptr %146
-  %148 = invoke i32 @shm_unlink(ptr noundef %147)
-          to label %159 unwind label %156
+145:                                              ; preds = %142
+  %146 = load i8, ptr %99, align 8, !tbaa !14
+  %147 = icmp ugt i8 %146, 30
+  %148 = load ptr, ptr %102, align 8
+  %149 = getelementptr inbounds i8, ptr %5, i64 9
+  %150 = select i1 %147, ptr %148, ptr %149
+  %151 = invoke i32 @shm_unlink(ptr noundef %150)
+          to label %162 unwind label %159
 
-149:                                              ; preds = %139
-  %150 = load i8, ptr %98, align 8, !tbaa !14
-  %151 = icmp ugt i8 %150, 30
-  %152 = load ptr, ptr %101, align 8
-  %153 = getelementptr inbounds i8, ptr %5, i64 9
-  %154 = select i1 %151, ptr %152, ptr %153
-  %155 = call i32 @unlink(ptr noundef %154) #13
-  br label %159
+152:                                              ; preds = %142
+  %153 = load i8, ptr %99, align 8, !tbaa !14
+  %154 = icmp ugt i8 %153, 30
+  %155 = load ptr, ptr %102, align 8
+  %156 = getelementptr inbounds i8, ptr %5, i64 9
+  %157 = select i1 %154, ptr %155, ptr %156
+  %158 = call i32 @unlink(ptr noundef %157) #13
+  br label %162
 
-156:                                              ; preds = %142
-  %157 = landingpad { ptr, i32 }
+159:                                              ; preds = %145
+  %160 = landingpad { ptr, i32 }
           catch ptr null
-  %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #15
+  %161 = extractvalue { ptr, i32 } %160, 0
+  call void @__clang_call_terminate(ptr %161) #15
   unreachable
 
-159:                                              ; preds = %149, %142, %139
-  %160 = load i32, ptr %5, align 8, !tbaa !8
-  %161 = icmp sgt i32 %160, -1
-  br i1 %161, label %162, label %168
-
-162:                                              ; preds = %159
-  %163 = invoke i32 @close(i32 noundef %160)
-          to label %164 unwind label %165
-
-164:                                              ; preds = %162
-  store i32 -1, ptr %5, align 8, !tbaa !8
-  br label %168
+162:                                              ; preds = %152, %145, %142
+  %163 = load i32, ptr %5, align 8, !tbaa !8
+  %164 = icmp sgt i32 %163, -1
+  br i1 %164, label %165, label %171
 
 165:                                              ; preds = %162
-  %166 = landingpad { ptr, i32 }
+  %166 = invoke i32 @close(i32 noundef %163)
+          to label %167 unwind label %168
+
+167:                                              ; preds = %165
+  store i32 -1, ptr %5, align 8, !tbaa !8
+  br label %171
+
+168:                                              ; preds = %165
+  %169 = landingpad { ptr, i32 }
           catch ptr null
-  %167 = extractvalue { ptr, i32 } %166, 0
-  call void @__clang_call_terminate(ptr %167) #15
+  %170 = extractvalue { ptr, i32 } %169, 0
+  call void @__clang_call_terminate(ptr %170) #15
   unreachable
 
-168:                                              ; preds = %164, %159
-  %169 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #13
+171:                                              ; preds = %167, %162
+  %172 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #13
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #13
-  br label %170
+  br label %173
 
-170:                                              ; preds = %168, %88, %8
-  %171 = phi i32 [ %10, %8 ], [ %140, %168 ], [ %60, %88 ]
-  ret i32 %171
+173:                                              ; preds = %171, %89, %8
+  %174 = phi i32 [ %10, %8 ], [ %143, %171 ], [ %61, %89 ]
+  ret i32 %174
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -635,29 +639,30 @@ define dso_local i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() local_unnamed_addr #
 define dso_local i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() local_unnamed_addr #0 {
   %1 = load atomic i32, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 seq_cst, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %12
+  br i1 %2, label %3, label %13
 
 3:                                                ; preds = %0
   %4 = tail call i32 @getpagesize() #14
   %5 = zext i32 %4 to i64
   %6 = tail call ptr @mmap(ptr noundef null, i64 noundef %5, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
-  %7 = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %10, label %8
+  %7 = inttoptr i64 -1 to ptr
+  %8 = icmp eq ptr %6, %7
+  br i1 %8, label %11, label %9
 
-8:                                                ; preds = %3
-  %9 = tail call i32 @munmap(ptr noundef %6, i64 noundef %5) #13
-  br label %10
+9:                                                ; preds = %3
+  %10 = tail call i32 @munmap(ptr noundef %6, i64 noundef %5) #13
+  br label %11
 
-10:                                               ; preds = %8, %3
-  %11 = phi i32 [ 1, %8 ], [ 2, %3 ]
-  store atomic i32 %11, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 seq_cst, align 4
-  br label %12
+11:                                               ; preds = %9, %3
+  %12 = phi i32 [ 1, %9 ], [ 2, %3 ]
+  store atomic i32 %12, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 seq_cst, align 4
+  br label %13
 
-12:                                               ; preds = %10, %0
-  %13 = phi i32 [ %11, %10 ], [ %1, %0 ]
-  %14 = icmp eq i32 %13, 2
-  %15 = zext i1 %14 to i32
-  ret i32 %15
+13:                                               ; preds = %11, %0
+  %14 = phi i32 [ %12, %11 ], [ %1, %0 ]
+  %15 = icmp eq i32 %14, 2
+  %16 = zext i1 %15 to i32
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

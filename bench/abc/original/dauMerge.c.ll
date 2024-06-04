@@ -1831,7 +1831,7 @@ define ptr @Dau_DsdMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 104:                                              ; preds = %103, %76
   store ptr @Dau_DsdMerge.pRes, ptr %8, align 8
-  br label %412
+  br label %418
 
 105:                                              ; preds = %68
   %106 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
@@ -1985,329 +1985,335 @@ define ptr @Dau_DsdMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %203 = add nsw i64 %202, %201
   store i64 %203, ptr @s_TimeComp, align 16
   store ptr @Dau_DsdMerge.pRes, ptr %8, align 8
-  br label %412
+  br label %418
 
 204:                                              ; preds = %164
   %205 = call i64 @Abc_Clock()
   %206 = load i64, ptr %38, align 8
   %207 = sub nsw i64 %205, %206
-  %208 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 3), align 8
-  %209 = add nsw i64 %208, %207
-  store i64 %209, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 3), align 8
-  %210 = getelementptr inbounds [12 x i32], ptr %22, i64 0, i64 0
-  %211 = load i32, ptr %28, align 4
-  %212 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
-  %213 = getelementptr inbounds [12 x i32], ptr %24, i64 0, i64 0
-  %214 = call i32 @Dau_DsdMergeCreateMaps(ptr noundef %210, i32 noundef %211, ptr noundef %212, ptr noundef %213)
-  store i32 %214, ptr %29, align 4
-  %215 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %216 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
-  %217 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
-  call void @Dau_DsdMergeReplace(ptr noundef %215, ptr noundef %216, ptr noundef %217)
-  %218 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %219 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
-  %220 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
-  call void @Dau_DsdMergeReplace(ptr noundef %218, ptr noundef %219, ptr noundef %220)
-  %221 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %222 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
-  %223 = load i32, ptr %28, align 4
-  %224 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
-  %225 = call i32 @Dau_DsdMergeStatus(ptr noundef %221, ptr noundef %222, i32 noundef %223, ptr noundef %224)
-  %226 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %227 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
-  %228 = load i32, ptr %28, align 4
-  %229 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
-  %230 = call i32 @Dau_DsdMergeStatus(ptr noundef %226, ptr noundef %227, i32 noundef %228, ptr noundef %229)
-  %231 = load i32, ptr %16, align 4
-  %232 = icmp ne i32 %231, 0
-  br i1 %232, label %233, label %235
+  %208 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 3
+  %209 = load i64, ptr %208, align 8
+  %210 = add nsw i64 %209, %207
+  %211 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 3
+  store i64 %210, ptr %211, align 8
+  %212 = getelementptr inbounds [12 x i32], ptr %22, i64 0, i64 0
+  %213 = load i32, ptr %28, align 4
+  %214 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
+  %215 = getelementptr inbounds [12 x i32], ptr %24, i64 0, i64 0
+  %216 = call i32 @Dau_DsdMergeCreateMaps(ptr noundef %212, i32 noundef %213, ptr noundef %214, ptr noundef %215)
+  store i32 %216, ptr %29, align 4
+  %217 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %218 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
+  %219 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
+  call void @Dau_DsdMergeReplace(ptr noundef %217, ptr noundef %218, ptr noundef %219)
+  %220 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %221 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
+  %222 = getelementptr inbounds [12 x i32], ptr %23, i64 0, i64 0
+  call void @Dau_DsdMergeReplace(ptr noundef %220, ptr noundef %221, ptr noundef %222)
+  %223 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %224 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
+  %225 = load i32, ptr %28, align 4
+  %226 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
+  %227 = call i32 @Dau_DsdMergeStatus(ptr noundef %223, ptr noundef %224, i32 noundef %225, ptr noundef %226)
+  %228 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %229 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
+  %230 = load i32, ptr %28, align 4
+  %231 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
+  %232 = call i32 @Dau_DsdMergeStatus(ptr noundef %228, ptr noundef %229, i32 noundef %230, ptr noundef %231)
+  %233 = load i32, ptr %16, align 4
+  %234 = icmp ne i32 %233, 0
+  br i1 %234, label %235, label %237
 
-233:                                              ; preds = %204
-  %234 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %235
+235:                                              ; preds = %204
+  %236 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  br label %237
 
-235:                                              ; preds = %233, %204
-  %236 = load i32, ptr %16, align 4
-  %237 = icmp ne i32 %236, 0
-  br i1 %237, label %238, label %241
+237:                                              ; preds = %235, %204
+  %238 = load i32, ptr %16, align 4
+  %239 = icmp ne i32 %238, 0
+  br i1 %239, label %240, label %243
 
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %240 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
-  call void @Dau_DsdMergePrintWithStatus(ptr noundef %239, ptr noundef %240)
-  br label %241
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %242 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
+  call void @Dau_DsdMergePrintWithStatus(ptr noundef %241, ptr noundef %242)
+  br label %243
 
-241:                                              ; preds = %238, %235
-  %242 = load i32, ptr %16, align 4
-  %243 = icmp ne i32 %242, 0
-  br i1 %243, label %244, label %247
+243:                                              ; preds = %240, %237
+  %244 = load i32, ptr %16, align 4
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %249
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %246 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
-  call void @Dau_DsdMergePrintWithStatus(ptr noundef %245, ptr noundef %246)
-  br label %247
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %248 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
+  call void @Dau_DsdMergePrintWithStatus(ptr noundef %247, ptr noundef %248)
+  br label %249
 
-247:                                              ; preds = %244, %241
-  %248 = load ptr, ptr %31, align 8
-  %249 = load i32, ptr %28, align 4
-  call void @Dau_DsdMergeStoreClean(ptr noundef %248, i32 noundef %249)
+249:                                              ; preds = %246, %243
   %250 = load ptr, ptr %31, align 8
-  call void @Dau_DsdMergeStoreCleanOutput(ptr noundef %250)
-  %251 = load ptr, ptr %31, align 8
-  %252 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %253 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
-  %254 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
-  call void @Dau_DsdMergeSubstitute(ptr noundef %251, ptr noundef %252, ptr noundef %253, ptr noundef %254)
-  %255 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %256 = load ptr, ptr %31, align 8
-  %257 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %256, i32 0, i32 1
-  %258 = getelementptr inbounds [4010 x i8], ptr %257, i64 0, i64 0
-  %259 = call ptr @strcpy(ptr noundef %255, ptr noundef %258) #4
-  %260 = load i32, ptr %16, align 4
-  %261 = icmp ne i32 %260, 0
-  br i1 %261, label %262, label %264
+  %251 = load i32, ptr %28, align 4
+  call void @Dau_DsdMergeStoreClean(ptr noundef %250, i32 noundef %251)
+  %252 = load ptr, ptr %31, align 8
+  call void @Dau_DsdMergeStoreCleanOutput(ptr noundef %252)
+  %253 = load ptr, ptr %31, align 8
+  %254 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %255 = getelementptr inbounds [2000 x i32], ptr %20, i64 0, i64 0
+  %256 = getelementptr inbounds [2000 x i32], ptr %25, i64 0, i64 0
+  call void @Dau_DsdMergeSubstitute(ptr noundef %253, ptr noundef %254, ptr noundef %255, ptr noundef %256)
+  %257 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %258 = load ptr, ptr %31, align 8
+  %259 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %258, i32 0, i32 1
+  %260 = getelementptr inbounds [4010 x i8], ptr %259, i64 0, i64 0
+  %261 = call ptr @strcpy(ptr noundef %257, ptr noundef %260) #4
+  %262 = load i32, ptr %16, align 4
+  %263 = icmp ne i32 %262, 0
+  br i1 %263, label %264, label %266
 
-262:                                              ; preds = %247
-  %263 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
-  br label %264
+264:                                              ; preds = %249
+  %265 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+  br label %266
 
-264:                                              ; preds = %262, %247
-  %265 = load i32, ptr %16, align 4
-  %266 = icmp ne i32 %265, 0
-  br i1 %266, label %267, label %270
+266:                                              ; preds = %264, %249
+  %267 = load i32, ptr %16, align 4
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %272
 
-267:                                              ; preds = %264
-  %268 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %269 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %268)
-  br label %270
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %271 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %270)
+  br label %272
 
-270:                                              ; preds = %267, %264
-  %271 = load ptr, ptr %31, align 8
-  call void @Dau_DsdMergeStoreCleanOutput(ptr noundef %271)
-  %272 = load ptr, ptr %31, align 8
-  %273 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %274 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
-  %275 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
-  call void @Dau_DsdMergeSubstitute(ptr noundef %272, ptr noundef %273, ptr noundef %274, ptr noundef %275)
-  %276 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %277 = load ptr, ptr %31, align 8
-  %278 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %277, i32 0, i32 1
-  %279 = getelementptr inbounds [4010 x i8], ptr %278, i64 0, i64 0
-  %280 = call ptr @strcpy(ptr noundef %276, ptr noundef %279) #4
-  %281 = load i32, ptr %16, align 4
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %286
+272:                                              ; preds = %269, %266
+  %273 = load ptr, ptr %31, align 8
+  call void @Dau_DsdMergeStoreCleanOutput(ptr noundef %273)
+  %274 = load ptr, ptr %31, align 8
+  %275 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %276 = getelementptr inbounds [2000 x i32], ptr %21, i64 0, i64 0
+  %277 = getelementptr inbounds [2000 x i32], ptr %26, i64 0, i64 0
+  call void @Dau_DsdMergeSubstitute(ptr noundef %274, ptr noundef %275, ptr noundef %276, ptr noundef %277)
+  %278 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %279 = load ptr, ptr %31, align 8
+  %280 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %279, i32 0, i32 1
+  %281 = getelementptr inbounds [4010 x i8], ptr %280, i64 0, i64 0
+  %282 = call ptr @strcpy(ptr noundef %278, ptr noundef %281) #4
+  %283 = load i32, ptr %16, align 4
+  %284 = icmp ne i32 %283, 0
+  br i1 %284, label %285, label %288
 
-283:                                              ; preds = %270
-  %284 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %285 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %284)
-  br label %286
+285:                                              ; preds = %272
+  %286 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %287 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %286)
+  br label %288
 
-286:                                              ; preds = %283, %270
-  %287 = load i32, ptr %16, align 4
-  %288 = icmp ne i32 %287, 0
-  br i1 %288, label %289, label %291
+288:                                              ; preds = %285, %272
+  %289 = load i32, ptr %16, align 4
+  %290 = icmp ne i32 %289, 0
+  br i1 %290, label %291, label %293
 
-289:                                              ; preds = %286
-  %290 = load ptr, ptr %31, align 8
-  call void @Dau_DsdMergeStorePrintDefs(ptr noundef %290)
-  br label %291
-
-291:                                              ; preds = %289, %286
+291:                                              ; preds = %288
   %292 = load ptr, ptr %31, align 8
-  %293 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %292, i32 0, i32 1
-  %294 = getelementptr inbounds [4010 x i8], ptr %293, i64 0, i64 0
-  %295 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
-  %296 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
-  %297 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %294, ptr noundef @.str.3, ptr noundef %295, ptr noundef %296) #4
-  %298 = load ptr, ptr %31, align 8
-  %299 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %298, i32 0, i32 1
-  %300 = getelementptr inbounds [4010 x i8], ptr %299, i64 0, i64 0
-  %301 = load i32, ptr %29, align 4
-  %302 = call ptr @Dau_DsdToTruth(ptr noundef %300, i32 noundef %301)
-  store ptr %302, ptr %32, align 8
-  %303 = load ptr, ptr %32, align 8
-  %304 = load i32, ptr %29, align 4
-  %305 = load ptr, ptr %31, align 8
-  %306 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %305, i32 0, i32 1
-  %307 = getelementptr inbounds [4010 x i8], ptr %306, i64 0, i64 0
-  %308 = call i32 @Dau_DsdDecompose(ptr noundef %303, i32 noundef %304, i32 noundef 0, i32 noundef 1, ptr noundef %307)
-  store i32 %308, ptr %37, align 4
-  %309 = load i32, ptr %37, align 4
-  %310 = icmp eq i32 %309, -1
-  br i1 %310, label %311, label %312
+  call void @Dau_DsdMergeStorePrintDefs(ptr noundef %292)
+  br label %293
 
-311:                                              ; preds = %291
+293:                                              ; preds = %291, %288
+  %294 = load ptr, ptr %31, align 8
+  %295 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %294, i32 0, i32 1
+  %296 = getelementptr inbounds [4010 x i8], ptr %295, i64 0, i64 0
+  %297 = getelementptr inbounds [2000 x i8], ptr %18, i64 0, i64 0
+  %298 = getelementptr inbounds [2000 x i8], ptr %19, i64 0, i64 0
+  %299 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %296, ptr noundef @.str.3, ptr noundef %297, ptr noundef %298) #4
+  %300 = load ptr, ptr %31, align 8
+  %301 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %300, i32 0, i32 1
+  %302 = getelementptr inbounds [4010 x i8], ptr %301, i64 0, i64 0
+  %303 = load i32, ptr %29, align 4
+  %304 = call ptr @Dau_DsdToTruth(ptr noundef %302, i32 noundef %303)
+  store ptr %304, ptr %32, align 8
+  %305 = load ptr, ptr %32, align 8
+  %306 = load i32, ptr %29, align 4
+  %307 = load ptr, ptr %31, align 8
+  %308 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %307, i32 0, i32 1
+  %309 = getelementptr inbounds [4010 x i8], ptr %308, i64 0, i64 0
+  %310 = call i32 @Dau_DsdDecompose(ptr noundef %305, i32 noundef %306, i32 noundef 0, i32 noundef 1, ptr noundef %309)
+  store i32 %310, ptr %37, align 4
+  %311 = load i32, ptr %37, align 4
+  %312 = icmp eq i32 %311, -1
+  br i1 %312, label %313, label %314
+
+313:                                              ; preds = %293
   store ptr null, ptr %8, align 8
-  br label %412
+  br label %418
 
-312:                                              ; preds = %291
-  %313 = load ptr, ptr %31, align 8
-  %314 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %313, i32 0, i32 1
-  %315 = getelementptr inbounds [4010 x i8], ptr %314, i64 0, i64 0
-  %316 = call i32 @Dau_DsdIsConst(ptr noundef %315)
-  %317 = icmp ne i32 %316, 0
-  br i1 %317, label %318, label %323
+314:                                              ; preds = %293
+  %315 = load ptr, ptr %31, align 8
+  %316 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %315, i32 0, i32 1
+  %317 = getelementptr inbounds [4010 x i8], ptr %316, i64 0, i64 0
+  %318 = call i32 @Dau_DsdIsConst(ptr noundef %317)
+  %319 = icmp ne i32 %318, 0
+  br i1 %319, label %320, label %325
 
-318:                                              ; preds = %312
-  %319 = load ptr, ptr %31, align 8
-  %320 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %319, i32 0, i32 1
-  %321 = getelementptr inbounds [4010 x i8], ptr %320, i64 0, i64 0
-  %322 = call ptr @strcpy(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %321) #4
+320:                                              ; preds = %314
+  %321 = load ptr, ptr %31, align 8
+  %322 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %321, i32 0, i32 1
+  %323 = getelementptr inbounds [4010 x i8], ptr %322, i64 0, i64 0
+  %324 = call ptr @strcpy(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %323) #4
   store ptr @Dau_DsdMerge.pRes, ptr %8, align 8
-  br label %412
+  br label %418
 
-323:                                              ; preds = %312
-  %324 = load i32, ptr %16, align 4
-  %325 = icmp ne i32 %324, 0
-  br i1 %325, label %326, label %328
+325:                                              ; preds = %314
+  %326 = load i32, ptr %16, align 4
+  %327 = icmp ne i32 %326, 0
+  br i1 %327, label %328, label %330
 
-326:                                              ; preds = %323
-  %327 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
-  br label %328
+328:                                              ; preds = %325
+  %329 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
+  br label %330
 
-328:                                              ; preds = %326, %323
-  %329 = load i32, ptr %16, align 4
-  %330 = icmp ne i32 %329, 0
-  br i1 %330, label %331, label %336
+330:                                              ; preds = %328, %325
+  %331 = load i32, ptr %16, align 4
+  %332 = icmp ne i32 %331, 0
+  br i1 %332, label %333, label %338
 
-331:                                              ; preds = %328
-  %332 = load ptr, ptr %31, align 8
-  %333 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %332, i32 0, i32 1
-  %334 = getelementptr inbounds [4010 x i8], ptr %333, i64 0, i64 0
-  %335 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %334)
-  br label %336
+333:                                              ; preds = %330
+  %334 = load ptr, ptr %31, align 8
+  %335 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %334, i32 0, i32 1
+  %336 = getelementptr inbounds [4010 x i8], ptr %335, i64 0, i64 0
+  %337 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %336)
+  br label %338
 
-336:                                              ; preds = %331, %328
-  %337 = load ptr, ptr %31, align 8
-  %338 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %337, i32 0, i32 1
-  %339 = getelementptr inbounds [4010 x i8], ptr %338, i64 0, i64 0
-  %340 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
-  call void @Dau_DsdMergeMatches(ptr noundef %339, ptr noundef %340)
-  %341 = load ptr, ptr %31, align 8
-  %342 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %341, i32 0, i32 1
-  %343 = getelementptr inbounds [4010 x i8], ptr %342, i64 0, i64 0
-  %344 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
-  %345 = load ptr, ptr %31, align 8
-  %346 = load i32, ptr %28, align 4
-  call void @Dau_DsdMergeInlineDefinitions(ptr noundef %343, ptr noundef %344, ptr noundef %345, ptr noundef @Dau_DsdMerge.pRes, i32 noundef %346)
-  %347 = load i32, ptr %16, align 4
-  %348 = icmp ne i32 %347, 0
-  br i1 %348, label %349, label %351
+338:                                              ; preds = %333, %330
+  %339 = load ptr, ptr %31, align 8
+  %340 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %339, i32 0, i32 1
+  %341 = getelementptr inbounds [4010 x i8], ptr %340, i64 0, i64 0
+  %342 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
+  call void @Dau_DsdMergeMatches(ptr noundef %341, ptr noundef %342)
+  %343 = load ptr, ptr %31, align 8
+  %344 = getelementptr inbounds %struct.Dau_Sto_t_, ptr %343, i32 0, i32 1
+  %345 = getelementptr inbounds [4010 x i8], ptr %344, i64 0, i64 0
+  %346 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
+  %347 = load ptr, ptr %31, align 8
+  %348 = load i32, ptr %28, align 4
+  call void @Dau_DsdMergeInlineDefinitions(ptr noundef %345, ptr noundef %346, ptr noundef %347, ptr noundef @Dau_DsdMerge.pRes, i32 noundef %348)
+  %349 = load i32, ptr %16, align 4
+  %350 = icmp ne i32 %349, 0
+  br i1 %350, label %351, label %353
 
-349:                                              ; preds = %336
-  %350 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
-  br label %351
+351:                                              ; preds = %338
+  %352 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
+  br label %353
 
-351:                                              ; preds = %349, %336
-  %352 = load i32, ptr %16, align 4
-  %353 = icmp ne i32 %352, 0
-  br i1 %353, label %354, label %356
+353:                                              ; preds = %351, %338
+  %354 = load i32, ptr %16, align 4
+  %355 = icmp ne i32 %354, 0
+  br i1 %355, label %356, label %358
 
-354:                                              ; preds = %351
-  %355 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
-  br label %356
+356:                                              ; preds = %353
+  %357 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
+  br label %358
 
-356:                                              ; preds = %354, %351
-  %357 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
-  call void @Dau_DsdMergeMatches(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %357)
-  %358 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
-  %359 = getelementptr inbounds [12 x i32], ptr %24, i64 0, i64 0
-  call void @Dau_DsdMergeReplace(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %358, ptr noundef %359)
+358:                                              ; preds = %356, %353
+  %359 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
+  call void @Dau_DsdMergeMatches(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %359)
   %360 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
-  call void @Dau_DsdRemoveBraces(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %360)
-  %361 = load i32, ptr %16, align 4
-  %362 = icmp ne i32 %361, 0
-  br i1 %362, label %363, label %365
+  %361 = getelementptr inbounds [12 x i32], ptr %24, i64 0, i64 0
+  call void @Dau_DsdMergeReplace(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %360, ptr noundef %361)
+  %362 = getelementptr inbounds [2000 x i32], ptr %27, i64 0, i64 0
+  call void @Dau_DsdRemoveBraces(ptr noundef @Dau_DsdMerge.pRes, ptr noundef %362)
+  %363 = load i32, ptr %16, align 4
+  %364 = icmp ne i32 %363, 0
+  br i1 %364, label %365, label %367
 
-363:                                              ; preds = %356
-  %364 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %365
+365:                                              ; preds = %358
+  %366 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+  br label %367
 
-365:                                              ; preds = %363, %356
-  %366 = load i32, ptr %16, align 4
-  %367 = icmp ne i32 %366, 0
-  br i1 %367, label %368, label %370
+367:                                              ; preds = %365, %358
+  %368 = load i32, ptr %16, align 4
+  %369 = icmp ne i32 %368, 0
+  br i1 %369, label %370, label %372
 
-368:                                              ; preds = %365
-  %369 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
-  br label %370
+370:                                              ; preds = %367
+  %371 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
+  br label %372
 
-370:                                              ; preds = %368, %365
+372:                                              ; preds = %370, %367
   call void @Dau_DsdNormalize(ptr noundef @Dau_DsdMerge.pRes)
-  %371 = load i32, ptr %16, align 4
-  %372 = icmp ne i32 %371, 0
-  br i1 %372, label %373, label %375
+  %373 = load i32, ptr %16, align 4
+  %374 = icmp ne i32 %373, 0
+  br i1 %374, label %375, label %377
 
-373:                                              ; preds = %370
-  %374 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  br label %375
+375:                                              ; preds = %372
+  %376 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  br label %377
 
-375:                                              ; preds = %373, %370
-  %376 = load i32, ptr %16, align 4
-  %377 = icmp ne i32 %376, 0
-  br i1 %377, label %378, label %380
+377:                                              ; preds = %375, %372
+  %378 = load i32, ptr %16, align 4
+  %379 = icmp ne i32 %378, 0
+  br i1 %379, label %380, label %382
 
-378:                                              ; preds = %375
-  %379 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
-  br label %380
+380:                                              ; preds = %377
+  %381 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef @Dau_DsdMerge.pRes)
+  br label %382
 
-380:                                              ; preds = %378, %375
-  %381 = load i32, ptr %17, align 4
-  %382 = icmp ne i32 %381, 0
-  br i1 %382, label %383, label %396
+382:                                              ; preds = %380, %377
+  %383 = load i32, ptr %17, align 4
+  %384 = icmp ne i32 %383, 0
+  br i1 %384, label %385, label %398
 
-383:                                              ; preds = %380
-  %384 = load i32, ptr %15, align 4
-  %385 = call ptr @Dau_DsdToTruth(ptr noundef @Dau_DsdMerge.pRes, i32 noundef %384)
-  store ptr %385, ptr %33, align 8
-  %386 = getelementptr inbounds [3 x [64 x i64]], ptr %36, i64 0, i64 2
-  %387 = getelementptr inbounds [64 x i64], ptr %386, i64 0, i64 0
-  %388 = load ptr, ptr %33, align 8
-  %389 = load i32, ptr %15, align 4
-  %390 = call i32 @Abc_TtWordNum(i32 noundef %389)
-  %391 = call i32 @Abc_TtEqual(ptr noundef %387, ptr noundef %388, i32 noundef %390)
-  %392 = icmp ne i32 %391, 0
-  br i1 %392, label %395, label %393
+385:                                              ; preds = %382
+  %386 = load i32, ptr %15, align 4
+  %387 = call ptr @Dau_DsdToTruth(ptr noundef @Dau_DsdMerge.pRes, i32 noundef %386)
+  store ptr %387, ptr %33, align 8
+  %388 = getelementptr inbounds [3 x [64 x i64]], ptr %36, i64 0, i64 2
+  %389 = getelementptr inbounds [64 x i64], ptr %388, i64 0, i64 0
+  %390 = load ptr, ptr %33, align 8
+  %391 = load i32, ptr %15, align 4
+  %392 = call i32 @Abc_TtWordNum(i32 noundef %391)
+  %393 = call i32 @Abc_TtEqual(ptr noundef %389, ptr noundef %390, i32 noundef %392)
+  %394 = icmp ne i32 %393, 0
+  br i1 %394, label %397, label %395
 
-393:                                              ; preds = %383
-  %394 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
-  br label %395
+395:                                              ; preds = %385
+  %396 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
+  br label %397
 
-395:                                              ; preds = %393, %383
-  br label %396
+397:                                              ; preds = %395, %385
+  br label %398
 
-396:                                              ; preds = %395, %380
-  %397 = load i32, ptr %37, align 4
-  %398 = icmp eq i32 %397, 0
-  br i1 %398, label %399, label %405
+398:                                              ; preds = %397, %382
+  %399 = load i32, ptr %37, align 4
+  %400 = icmp eq i32 %399, 0
+  br i1 %400, label %401, label %409
 
-399:                                              ; preds = %396
-  %400 = call i64 @Abc_Clock()
-  %401 = load i64, ptr %38, align 8
-  %402 = sub nsw i64 %400, %401
-  %403 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 1), align 8
-  %404 = add nsw i64 %403, %402
-  store i64 %404, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 1), align 8
-  br label %411
+401:                                              ; preds = %398
+  %402 = call i64 @Abc_Clock()
+  %403 = load i64, ptr %38, align 8
+  %404 = sub nsw i64 %402, %403
+  %405 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 1
+  %406 = load i64, ptr %405, align 8
+  %407 = add nsw i64 %406, %404
+  %408 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 1
+  store i64 %407, ptr %408, align 8
+  br label %417
 
-405:                                              ; preds = %396
-  %406 = call i64 @Abc_Clock()
-  %407 = load i64, ptr %38, align 8
-  %408 = sub nsw i64 %406, %407
-  %409 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 2), align 16
-  %410 = add nsw i64 %409, %408
-  store i64 %410, ptr getelementptr inbounds ([4 x i64], ptr @s_TimeComp, i64 0, i64 2), align 16
-  br label %411
+409:                                              ; preds = %398
+  %410 = call i64 @Abc_Clock()
+  %411 = load i64, ptr %38, align 8
+  %412 = sub nsw i64 %410, %411
+  %413 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 2
+  %414 = load i64, ptr %413, align 16
+  %415 = add nsw i64 %414, %412
+  %416 = getelementptr inbounds [4 x i64], ptr @s_TimeComp, i64 0, i64 2
+  store i64 %415, ptr %416, align 16
+  br label %417
 
-411:                                              ; preds = %405, %399
+417:                                              ; preds = %409, %401
   store ptr @Dau_DsdMerge.pRes, ptr %8, align 8
-  br label %412
+  br label %418
 
-412:                                              ; preds = %411, %318, %311, %198, %104
-  %413 = load ptr, ptr %8, align 8
-  ret ptr %413
+418:                                              ; preds = %417, %320, %313, %198, %104
+  %419 = load ptr, ptr %8, align 8
+  ret ptr %419
 }
 
 ; Function Attrs: nounwind uwtable

@@ -14977,7 +14977,7 @@ define internal zeroext i1 @star_inside(ptr noundef %0, double %1, double %2) #0
 21:                                               ; preds = %3
   store ptr null, ptr @star_inside.lastn, align 8
   store i1 false, ptr %4, align 1
-  br label %179
+  br label %180
 
 22:                                               ; preds = %3
   %23 = load ptr, ptr %6, align 8
@@ -15057,7 +15057,7 @@ define internal zeroext i1 @star_inside(ptr noundef %0, double %1, double %2) #0
 79:                                               ; preds = %77, %56, %48
   %80 = phi i1 [ false, %56 ], [ false, %48 ], [ %78, %77 ]
   store i1 %80, ptr %4, align 1
-  br label %179
+  br label %180
 
 81:                                               ; preds = %22
   %82 = load ptr, ptr %8, align 8
@@ -15141,11 +15141,11 @@ define internal zeroext i1 @star_inside(ptr noundef %0, double %1, double %2) #0
   store i64 0, ptr %16, align 8
   br label %133
 
-133:                                              ; preds = %175, %132
+133:                                              ; preds = %176, %132
   %134 = load i64, ptr %16, align 8
   %135 = load i64, ptr @star_inside.sides, align 8
   %136 = icmp ult i64 %134, %135
-  br i1 %136, label %137, label %178
+  br i1 %136, label %137, label %179
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr @star_inside.vertex, align 8
@@ -15168,50 +15168,51 @@ define internal zeroext i1 @star_inside(ptr noundef %0, double %1, double %2) #0
   %153 = getelementptr inbounds { double, double }, ptr %9, i32 0, i32 1
   %154 = load double, ptr %153, align 8
   %155 = load double, ptr @star_inside.O, align 8
-  %156 = load double, ptr getelementptr inbounds ({ double, double }, ptr @star_inside.O, i32 0, i32 1), align 8
-  %157 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 0
-  %158 = load double, ptr %157, align 8
-  %159 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 1
-  %160 = load double, ptr %159, align 8
-  %161 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 0
-  %162 = load double, ptr %161, align 8
-  %163 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 1
-  %164 = load double, ptr %163, align 8
-  %165 = call i32 @same_side(double %152, double %154, double %155, double %156, double %158, double %160, double %162, double %164)
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %170, label %167
+  %156 = getelementptr inbounds { double, double }, ptr @star_inside.O, i32 0, i32 1
+  %157 = load double, ptr %156, align 8
+  %158 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 0
+  %159 = load double, ptr %158, align 8
+  %160 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 1
+  %161 = load double, ptr %160, align 8
+  %162 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 0
+  %163 = load double, ptr %162, align 8
+  %164 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 1
+  %165 = load double, ptr %164, align 8
+  %166 = call i32 @same_side(double %152, double %154, double %155, double %157, double %159, double %161, double %163, double %165)
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %171, label %168
 
-167:                                              ; preds = %137
-  %168 = load i32, ptr %12, align 4
-  %169 = add nsw i32 %168, 1
-  store i32 %169, ptr %12, align 4
-  br label %170
+168:                                              ; preds = %137
+  %169 = load i32, ptr %12, align 4
+  %170 = add nsw i32 %169, 1
+  store i32 %170, ptr %12, align 4
+  br label %171
 
-170:                                              ; preds = %167, %137
-  %171 = load i32, ptr %12, align 4
-  %172 = icmp eq i32 %171, 2
-  br i1 %172, label %173, label %174
+171:                                              ; preds = %168, %137
+  %172 = load i32, ptr %12, align 4
+  %173 = icmp eq i32 %172, 2
+  br i1 %173, label %174, label %175
 
-173:                                              ; preds = %170
+174:                                              ; preds = %171
   store i1 false, ptr %4, align 1
-  br label %179
+  br label %180
 
-174:                                              ; preds = %170
-  br label %175
+175:                                              ; preds = %171
+  br label %176
 
-175:                                              ; preds = %174
-  %176 = load i64, ptr %16, align 8
-  %177 = add i64 %176, 2
-  store i64 %177, ptr %16, align 8
+176:                                              ; preds = %175
+  %177 = load i64, ptr %16, align 8
+  %178 = add i64 %177, 2
+  store i64 %178, ptr %16, align 8
   br label %133
 
-178:                                              ; preds = %133
+179:                                              ; preds = %133
   store i1 true, ptr %4, align 1
-  br label %179
+  br label %180
 
-179:                                              ; preds = %178, %173, %79, %21
-  %180 = load i1, ptr %4, align 1
-  ret i1 %180
+180:                                              ; preds = %179, %174, %79, %21
+  %181 = load i1, ptr %4, align 1
+  ret i1 %181
 }
 
 ; Function Attrs: nounwind
@@ -18961,306 +18962,307 @@ define internal void @point_gencode(ptr noundef %0, ptr noundef %1) #0 {
 77:                                               ; preds = %57
   %78 = load ptr, ptr %3, align 8
   call void @gvrender_set_style(ptr noundef %78, ptr noundef @point_style)
-  br label %81
+  br label %82
 
 79:                                               ; preds = %57
   %80 = load ptr, ptr %3, align 8
-  call void @gvrender_set_style(ptr noundef %80, ptr noundef getelementptr inbounds ([3 x ptr], ptr @point_style, i64 0, i64 1))
-  br label %81
+  %81 = getelementptr inbounds [3 x ptr], ptr @point_style, i64 0, i64 1
+  call void @gvrender_set_style(ptr noundef %80, ptr noundef %81)
+  br label %82
 
-81:                                               ; preds = %79, %77
-  %82 = load ptr, ptr @N_penwidth, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %89
+82:                                               ; preds = %79, %77
+  %83 = load ptr, ptr @N_penwidth, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %90
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %3, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = load ptr, ptr @N_penwidth, align 8
-  %88 = call double @late_double(ptr noundef %86, ptr noundef %87, double noundef 1.000000e+00, double noundef 0.000000e+00)
-  call void @gvrender_set_penwidth(ptr noundef %85, double noundef %88)
-  br label %89
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %3, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr @N_penwidth, align 8
+  %89 = call double @late_double(ptr noundef %87, ptr noundef %88, double noundef 1.000000e+00, double noundef 0.000000e+00)
+  call void @gvrender_set_penwidth(ptr noundef %86, double noundef %89)
+  br label %90
 
-89:                                               ; preds = %84, %81
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.Agobj_s, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %92, i32 0, i32 16
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = and i32 %95, 1
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %109
+90:                                               ; preds = %85, %82
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds %struct.Agobj_s, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %93, i32 0, i32 16
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %97 = and i32 %96, 1
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %110
 
-98:                                               ; preds = %89
-  %99 = load ptr, ptr %4, align 8
-  %100 = load ptr, ptr @N_activepencolor, align 8
-  %101 = call ptr @late_nnstring(ptr noundef %99, ptr noundef %100, ptr noundef @.str.82)
-  store ptr %101, ptr %11, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = load ptr, ptr %11, align 8
-  call void @gvrender_set_pencolor(ptr noundef %102, ptr noundef %103)
-  %104 = load ptr, ptr %4, align 8
-  %105 = load ptr, ptr @N_activefillcolor, align 8
-  %106 = call ptr @late_nnstring(ptr noundef %104, ptr noundef %105, ptr noundef @.str.83)
-  store ptr %106, ptr %11, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = load ptr, ptr %11, align 8
-  call void @gvrender_set_fillcolor(ptr noundef %107, ptr noundef %108)
+99:                                               ; preds = %90
+  %100 = load ptr, ptr %4, align 8
+  %101 = load ptr, ptr @N_activepencolor, align 8
+  %102 = call ptr @late_nnstring(ptr noundef %100, ptr noundef %101, ptr noundef @.str.82)
+  store ptr %102, ptr %11, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = load ptr, ptr %11, align 8
+  call void @gvrender_set_pencolor(ptr noundef %103, ptr noundef %104)
+  %105 = load ptr, ptr %4, align 8
+  %106 = load ptr, ptr @N_activefillcolor, align 8
+  %107 = call ptr @late_nnstring(ptr noundef %105, ptr noundef %106, ptr noundef @.str.83)
+  store ptr %107, ptr %11, align 8
+  %108 = load ptr, ptr %3, align 8
+  %109 = load ptr, ptr %11, align 8
+  call void @gvrender_set_fillcolor(ptr noundef %108, ptr noundef %109)
+  br label %181
+
+110:                                              ; preds = %90
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.Agobj_s, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %113, i32 0, i32 16
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = and i32 %116, 2
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %130
+
+119:                                              ; preds = %110
+  %120 = load ptr, ptr %4, align 8
+  %121 = load ptr, ptr @N_selectedpencolor, align 8
+  %122 = call ptr @late_nnstring(ptr noundef %120, ptr noundef %121, ptr noundef @.str.84)
+  store ptr %122, ptr %11, align 8
+  %123 = load ptr, ptr %3, align 8
+  %124 = load ptr, ptr %11, align 8
+  call void @gvrender_set_pencolor(ptr noundef %123, ptr noundef %124)
+  %125 = load ptr, ptr %4, align 8
+  %126 = load ptr, ptr @N_selectedfillcolor, align 8
+  %127 = call ptr @late_nnstring(ptr noundef %125, ptr noundef %126, ptr noundef @.str.85)
+  store ptr %127, ptr %11, align 8
+  %128 = load ptr, ptr %3, align 8
+  %129 = load ptr, ptr %11, align 8
+  call void @gvrender_set_fillcolor(ptr noundef %128, ptr noundef %129)
   br label %180
 
-109:                                              ; preds = %89
-  %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds %struct.Agobj_s, ptr %110, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %112, i32 0, i32 16
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = and i32 %115, 2
-  %117 = icmp ne i32 %116, 0
-  br i1 %117, label %118, label %129
+130:                                              ; preds = %110
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds %struct.Agobj_s, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %133, i32 0, i32 16
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  %137 = and i32 %136, 8
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %150
 
-118:                                              ; preds = %109
-  %119 = load ptr, ptr %4, align 8
-  %120 = load ptr, ptr @N_selectedpencolor, align 8
-  %121 = call ptr @late_nnstring(ptr noundef %119, ptr noundef %120, ptr noundef @.str.84)
-  store ptr %121, ptr %11, align 8
-  %122 = load ptr, ptr %3, align 8
-  %123 = load ptr, ptr %11, align 8
-  call void @gvrender_set_pencolor(ptr noundef %122, ptr noundef %123)
-  %124 = load ptr, ptr %4, align 8
-  %125 = load ptr, ptr @N_selectedfillcolor, align 8
-  %126 = call ptr @late_nnstring(ptr noundef %124, ptr noundef %125, ptr noundef @.str.85)
-  store ptr %126, ptr %11, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = load ptr, ptr %11, align 8
-  call void @gvrender_set_fillcolor(ptr noundef %127, ptr noundef %128)
+139:                                              ; preds = %130
+  %140 = load ptr, ptr %4, align 8
+  %141 = load ptr, ptr @N_deletedpencolor, align 8
+  %142 = call ptr @late_nnstring(ptr noundef %140, ptr noundef %141, ptr noundef @.str.86)
+  store ptr %142, ptr %11, align 8
+  %143 = load ptr, ptr %3, align 8
+  %144 = load ptr, ptr %11, align 8
+  call void @gvrender_set_pencolor(ptr noundef %143, ptr noundef %144)
+  %145 = load ptr, ptr %4, align 8
+  %146 = load ptr, ptr @N_deletedfillcolor, align 8
+  %147 = call ptr @late_nnstring(ptr noundef %145, ptr noundef %146, ptr noundef @.str.87)
+  store ptr %147, ptr %11, align 8
+  %148 = load ptr, ptr %3, align 8
+  %149 = load ptr, ptr %11, align 8
+  call void @gvrender_set_fillcolor(ptr noundef %148, ptr noundef %149)
   br label %179
 
-129:                                              ; preds = %109
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.Agobj_s, ptr %130, i32 0, i32 1
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %132, i32 0, i32 16
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = and i32 %135, 8
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %149
+150:                                              ; preds = %130
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds %struct.Agobj_s, ptr %151, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %153, i32 0, i32 16
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = and i32 %156, 4
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %170
 
-138:                                              ; preds = %129
-  %139 = load ptr, ptr %4, align 8
-  %140 = load ptr, ptr @N_deletedpencolor, align 8
-  %141 = call ptr @late_nnstring(ptr noundef %139, ptr noundef %140, ptr noundef @.str.86)
-  store ptr %141, ptr %11, align 8
-  %142 = load ptr, ptr %3, align 8
-  %143 = load ptr, ptr %11, align 8
-  call void @gvrender_set_pencolor(ptr noundef %142, ptr noundef %143)
-  %144 = load ptr, ptr %4, align 8
-  %145 = load ptr, ptr @N_deletedfillcolor, align 8
-  %146 = call ptr @late_nnstring(ptr noundef %144, ptr noundef %145, ptr noundef @.str.87)
-  store ptr %146, ptr %11, align 8
-  %147 = load ptr, ptr %3, align 8
-  %148 = load ptr, ptr %11, align 8
-  call void @gvrender_set_fillcolor(ptr noundef %147, ptr noundef %148)
+159:                                              ; preds = %150
+  %160 = load ptr, ptr %4, align 8
+  %161 = load ptr, ptr @N_visitedpencolor, align 8
+  %162 = call ptr @late_nnstring(ptr noundef %160, ptr noundef %161, ptr noundef @.str.88)
+  store ptr %162, ptr %11, align 8
+  %163 = load ptr, ptr %3, align 8
+  %164 = load ptr, ptr %11, align 8
+  call void @gvrender_set_pencolor(ptr noundef %163, ptr noundef %164)
+  %165 = load ptr, ptr %4, align 8
+  %166 = load ptr, ptr @N_visitedfillcolor, align 8
+  %167 = call ptr @late_nnstring(ptr noundef %165, ptr noundef %166, ptr noundef @.str.89)
+  store ptr %167, ptr %11, align 8
+  %168 = load ptr, ptr %3, align 8
+  %169 = load ptr, ptr %11, align 8
+  call void @gvrender_set_fillcolor(ptr noundef %168, ptr noundef %169)
   br label %178
 
-149:                                              ; preds = %129
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds %struct.Agobj_s, ptr %150, i32 0, i32 1
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %152, i32 0, i32 16
-  %154 = load i8, ptr %153, align 1
-  %155 = zext i8 %154 to i32
-  %156 = and i32 %155, 4
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %169
-
-158:                                              ; preds = %149
-  %159 = load ptr, ptr %4, align 8
-  %160 = load ptr, ptr @N_visitedpencolor, align 8
-  %161 = call ptr @late_nnstring(ptr noundef %159, ptr noundef %160, ptr noundef @.str.88)
-  store ptr %161, ptr %11, align 8
-  %162 = load ptr, ptr %3, align 8
-  %163 = load ptr, ptr %11, align 8
-  call void @gvrender_set_pencolor(ptr noundef %162, ptr noundef %163)
-  %164 = load ptr, ptr %4, align 8
-  %165 = load ptr, ptr @N_visitedfillcolor, align 8
-  %166 = call ptr @late_nnstring(ptr noundef %164, ptr noundef %165, ptr noundef @.str.89)
-  store ptr %166, ptr %11, align 8
-  %167 = load ptr, ptr %3, align 8
-  %168 = load ptr, ptr %11, align 8
-  call void @gvrender_set_fillcolor(ptr noundef %167, ptr noundef %168)
-  br label %177
-
-169:                                              ; preds = %149
-  %170 = load ptr, ptr %4, align 8
-  %171 = call ptr @findFillDflt(ptr noundef %170, ptr noundef @.str.90)
-  store ptr %171, ptr %11, align 8
-  %172 = load ptr, ptr %3, align 8
-  %173 = load ptr, ptr %11, align 8
-  call void @gvrender_set_fillcolor(ptr noundef %172, ptr noundef %173)
-  %174 = load ptr, ptr %3, align 8
-  %175 = load ptr, ptr %4, align 8
-  %176 = call ptr @penColor(ptr noundef %174, ptr noundef %175)
-  br label %177
-
-177:                                              ; preds = %169, %158
+170:                                              ; preds = %150
+  %171 = load ptr, ptr %4, align 8
+  %172 = call ptr @findFillDflt(ptr noundef %171, ptr noundef @.str.90)
+  store ptr %172, ptr %11, align 8
+  %173 = load ptr, ptr %3, align 8
+  %174 = load ptr, ptr %11, align 8
+  call void @gvrender_set_fillcolor(ptr noundef %173, ptr noundef %174)
+  %175 = load ptr, ptr %3, align 8
+  %176 = load ptr, ptr %4, align 8
+  %177 = call ptr @penColor(ptr noundef %175, ptr noundef %176)
   br label %178
 
-178:                                              ; preds = %177, %138
+178:                                              ; preds = %170, %159
   br label %179
 
-179:                                              ; preds = %178, %118
+179:                                              ; preds = %178, %139
   br label %180
 
-180:                                              ; preds = %179, %98
+180:                                              ; preds = %179, %119
+  br label %181
+
+181:                                              ; preds = %180, %99
   store i8 1, ptr %10, align 1
-  %181 = load i64, ptr %14, align 8
-  %182 = icmp eq i64 %181, 0
-  br i1 %182, label %183, label %192
+  %182 = load i64, ptr %14, align 8
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %184, label %193
 
-183:                                              ; preds = %180
+184:                                              ; preds = %181
   store i64 1, ptr %14, align 8
-  %184 = load ptr, ptr %11, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 0
-  %186 = load i8, ptr %185, align 1
-  %187 = icmp ne i8 %186, 0
-  br i1 %187, label %188, label %191
+  %185 = load ptr, ptr %11, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 0
+  %187 = load i8, ptr %186, align 1
+  %188 = icmp ne i8 %187, 0
+  br i1 %188, label %189, label %192
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %3, align 8
-  %190 = load ptr, ptr %11, align 8
-  call void @gvrender_set_pencolor(ptr noundef %189, ptr noundef %190)
-  br label %191
-
-191:                                              ; preds = %188, %183
+189:                                              ; preds = %184
+  %190 = load ptr, ptr %3, align 8
+  %191 = load ptr, ptr %11, align 8
+  call void @gvrender_set_pencolor(ptr noundef %190, ptr noundef %191)
   br label %192
 
-192:                                              ; preds = %191, %180
-  store i64 0, ptr %15, align 8
+192:                                              ; preds = %189, %184
   br label %193
 
-193:                                              ; preds = %247, %192
-  %194 = load i64, ptr %15, align 8
-  %195 = load i64, ptr %14, align 8
-  %196 = icmp ult i64 %194, %195
-  br i1 %196, label %197, label %250
+193:                                              ; preds = %192, %181
+  store i64 0, ptr %15, align 8
+  br label %194
 
-197:                                              ; preds = %193
+194:                                              ; preds = %248, %193
+  %195 = load i64, ptr %15, align 8
+  %196 = load i64, ptr %14, align 8
+  %197 = icmp ult i64 %195, %196
+  br i1 %197, label %198, label %251
+
+198:                                              ; preds = %194
   call void @llvm.memset.p0.i64(ptr align 16 %16, i8 0, i64 32, i1 false)
   store i64 0, ptr %17, align 8
-  br label %198
+  br label %199
 
-198:                                              ; preds = %238, %197
-  %199 = load i64, ptr %17, align 8
-  %200 = load i64, ptr %13, align 8
-  %201 = icmp ult i64 %199, %200
-  br i1 %201, label %202, label %241
+199:                                              ; preds = %239, %198
+  %200 = load i64, ptr %17, align 8
+  %201 = load i64, ptr %13, align 8
+  %202 = icmp ult i64 %200, %201
+  br i1 %202, label %203, label %242
 
-202:                                              ; preds = %198
-  %203 = load ptr, ptr %9, align 8
-  %204 = load i64, ptr %17, align 8
-  %205 = load i64, ptr %15, align 8
-  %206 = load i64, ptr %13, align 8
-  %207 = mul i64 %205, %206
-  %208 = add i64 %204, %207
-  %209 = getelementptr inbounds %struct.pointf_s, ptr %203, i64 %208
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %209, i64 16, i1 false)
-  %210 = load i64, ptr %17, align 8
-  %211 = icmp ult i64 %210, 2
-  br i1 %211, label %212, label %237
+203:                                              ; preds = %199
+  %204 = load ptr, ptr %9, align 8
+  %205 = load i64, ptr %17, align 8
+  %206 = load i64, ptr %15, align 8
+  %207 = load i64, ptr %13, align 8
+  %208 = mul i64 %206, %207
+  %209 = add i64 %205, %208
+  %210 = getelementptr inbounds %struct.pointf_s, ptr %204, i64 %209
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %210, i64 16, i1 false)
+  %211 = load i64, ptr %17, align 8
+  %212 = icmp ult i64 %211, 2
+  br i1 %212, label %213, label %238
 
-212:                                              ; preds = %202
-  %213 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
-  %214 = load double, ptr %213, align 8
-  %215 = load ptr, ptr %4, align 8
-  %216 = getelementptr inbounds %struct.Agobj_s, ptr %215, i32 0, i32 1
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %217, i32 0, i32 3
-  %219 = getelementptr inbounds %struct.pointf_s, ptr %218, i32 0, i32 0
-  %220 = load double, ptr %219, align 8
-  %221 = fadd double %214, %220
-  %222 = load i64, ptr %17, align 8
-  %223 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 %222
-  %224 = getelementptr inbounds %struct.pointf_s, ptr %223, i32 0, i32 0
-  store double %221, ptr %224, align 16
-  %225 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
-  %226 = load double, ptr %225, align 8
-  %227 = load ptr, ptr %4, align 8
-  %228 = getelementptr inbounds %struct.Agobj_s, ptr %227, i32 0, i32 1
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %229, i32 0, i32 3
-  %231 = getelementptr inbounds %struct.pointf_s, ptr %230, i32 0, i32 1
-  %232 = load double, ptr %231, align 8
-  %233 = fadd double %226, %232
-  %234 = load i64, ptr %17, align 8
-  %235 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 %234
-  %236 = getelementptr inbounds %struct.pointf_s, ptr %235, i32 0, i32 1
-  store double %233, ptr %236, align 8
-  br label %237
-
-237:                                              ; preds = %212, %202
+213:                                              ; preds = %203
+  %214 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
+  %215 = load double, ptr %214, align 8
+  %216 = load ptr, ptr %4, align 8
+  %217 = getelementptr inbounds %struct.Agobj_s, ptr %216, i32 0, i32 1
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %218, i32 0, i32 3
+  %220 = getelementptr inbounds %struct.pointf_s, ptr %219, i32 0, i32 0
+  %221 = load double, ptr %220, align 8
+  %222 = fadd double %215, %221
+  %223 = load i64, ptr %17, align 8
+  %224 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 %223
+  %225 = getelementptr inbounds %struct.pointf_s, ptr %224, i32 0, i32 0
+  store double %222, ptr %225, align 16
+  %226 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
+  %227 = load double, ptr %226, align 8
+  %228 = load ptr, ptr %4, align 8
+  %229 = getelementptr inbounds %struct.Agobj_s, ptr %228, i32 0, i32 1
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %230, i32 0, i32 3
+  %232 = getelementptr inbounds %struct.pointf_s, ptr %231, i32 0, i32 1
+  %233 = load double, ptr %232, align 8
+  %234 = fadd double %227, %233
+  %235 = load i64, ptr %17, align 8
+  %236 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 %235
+  %237 = getelementptr inbounds %struct.pointf_s, ptr %236, i32 0, i32 1
+  store double %234, ptr %237, align 8
   br label %238
 
-238:                                              ; preds = %237
-  %239 = load i64, ptr %17, align 8
-  %240 = add i64 %239, 1
-  store i64 %240, ptr %17, align 8
-  br label %198
+238:                                              ; preds = %213, %203
+  br label %239
 
-241:                                              ; preds = %198
-  %242 = load ptr, ptr %3, align 8
-  %243 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 0
-  %244 = load i8, ptr %10, align 1
-  %245 = trunc i8 %244 to i1
-  %246 = zext i1 %245 to i32
-  call void @gvrender_ellipse(ptr noundef %242, ptr noundef %243, i32 noundef %246)
+239:                                              ; preds = %238
+  %240 = load i64, ptr %17, align 8
+  %241 = add i64 %240, 1
+  store i64 %241, ptr %17, align 8
+  br label %199
+
+242:                                              ; preds = %199
+  %243 = load ptr, ptr %3, align 8
+  %244 = getelementptr inbounds [2 x %struct.pointf_s], ptr %16, i64 0, i64 0
+  %245 = load i8, ptr %10, align 1
+  %246 = trunc i8 %245 to i1
+  %247 = zext i1 %246 to i32
+  call void @gvrender_ellipse(ptr noundef %243, ptr noundef %244, i32 noundef %247)
   store i8 0, ptr %10, align 1
-  br label %247
+  br label %248
 
-247:                                              ; preds = %241
-  %248 = load i64, ptr %15, align 8
-  %249 = add i64 %248, 1
-  store i64 %249, ptr %15, align 8
-  br label %193
+248:                                              ; preds = %242
+  %249 = load i64, ptr %15, align 8
+  %250 = add i64 %249, 1
+  store i64 %250, ptr %15, align 8
+  br label %194
 
-250:                                              ; preds = %193
-  %251 = load i32, ptr %12, align 4
-  %252 = icmp ne i32 %251, 0
-  br i1 %252, label %253, label %275
+251:                                              ; preds = %194
+  %252 = load i32, ptr %12, align 4
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %254, label %276
 
-253:                                              ; preds = %250
-  %254 = load ptr, ptr %3, align 8
-  %255 = getelementptr inbounds %struct.GVJ_s, ptr %254, i32 0, i32 26
-  %256 = load i32, ptr %255, align 8
-  %257 = and i32 %256, 4
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %259, label %273
+254:                                              ; preds = %251
+  %255 = load ptr, ptr %3, align 8
+  %256 = getelementptr inbounds %struct.GVJ_s, ptr %255, i32 0, i32 26
+  %257 = load i32, ptr %256, align 8
+  %258 = and i32 %257, 4
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %274
 
-259:                                              ; preds = %253
-  %260 = load ptr, ptr %3, align 8
-  %261 = load ptr, ptr %5, align 8
-  %262 = getelementptr inbounds %struct.obj_state_s, ptr %261, i32 0, i32 20
-  %263 = load ptr, ptr %262, align 8
-  %264 = load ptr, ptr %5, align 8
-  %265 = getelementptr inbounds %struct.obj_state_s, ptr %264, i32 0, i32 25
-  %266 = load ptr, ptr %265, align 8
-  %267 = load ptr, ptr %5, align 8
-  %268 = getelementptr inbounds %struct.obj_state_s, ptr %267, i32 0, i32 29
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %5, align 8
-  %271 = getelementptr inbounds %struct.obj_state_s, ptr %270, i32 0, i32 21
-  %272 = load ptr, ptr %271, align 8
-  call void @gvrender_begin_anchor(ptr noundef %260, ptr noundef %263, ptr noundef %266, ptr noundef %269, ptr noundef %272)
-  br label %273
+260:                                              ; preds = %254
+  %261 = load ptr, ptr %3, align 8
+  %262 = load ptr, ptr %5, align 8
+  %263 = getelementptr inbounds %struct.obj_state_s, ptr %262, i32 0, i32 20
+  %264 = load ptr, ptr %263, align 8
+  %265 = load ptr, ptr %5, align 8
+  %266 = getelementptr inbounds %struct.obj_state_s, ptr %265, i32 0, i32 25
+  %267 = load ptr, ptr %266, align 8
+  %268 = load ptr, ptr %5, align 8
+  %269 = getelementptr inbounds %struct.obj_state_s, ptr %268, i32 0, i32 29
+  %270 = load ptr, ptr %269, align 8
+  %271 = load ptr, ptr %5, align 8
+  %272 = getelementptr inbounds %struct.obj_state_s, ptr %271, i32 0, i32 21
+  %273 = load ptr, ptr %272, align 8
+  call void @gvrender_begin_anchor(ptr noundef %261, ptr noundef %264, ptr noundef %267, ptr noundef %270, ptr noundef %273)
+  br label %274
 
-273:                                              ; preds = %259, %253
-  %274 = load ptr, ptr %3, align 8
-  call void @gvrender_end_anchor(ptr noundef %274)
-  br label %275
+274:                                              ; preds = %260, %254
+  %275 = load ptr, ptr %3, align 8
+  call void @gvrender_end_anchor(ptr noundef %275)
+  br label %276
 
-275:                                              ; preds = %273, %250
+276:                                              ; preds = %274, %251
   ret void
 }
 

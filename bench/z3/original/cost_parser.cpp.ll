@@ -194,72 +194,73 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN13simple_parserC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cost_parser, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11cost_parser, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_util = getelementptr inbounds %class.cost_parser, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %m_util, ptr noundef nonnull align 8 dereferenceable(976) %1)
+  %2 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %m_util, ptr noundef nonnull align 8 dereferenceable(976) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_vars = getelementptr inbounds %class.cost_parser, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN10ref_vectorI3var11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_vars, ptr noundef nonnull align 8 dereferenceable(976) %2)
+  %3 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN10ref_vectorI3var11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_vars, ptr noundef nonnull align 8 dereferenceable(976) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %m.addr, align 8
-  %call = invoke noundef i32 @_ZNK11ast_manager19get_basic_family_idEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
+  %4 = load ptr, ptr %m.addr, align 8
+  %call = invoke noundef i32 @_ZNK11ast_manager19get_basic_family_idEv(ptr noundef nonnull align 8 dereferenceable(976) %4)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   store i32 %call, ptr %fid, align 4
-  %4 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str, i32 noundef %4, i32 noundef 0)
+  %5 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str, i32 noundef %5, i32 noundef 0)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %5 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.1, i32 noundef %5, i32 noundef 1)
+  %6 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.1, i32 noundef %6, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  %6 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.2, i32 noundef %6, i32 noundef 8)
+  %7 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.2, i32 noundef %7, i32 noundef 8)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %7 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.3, i32 noundef %7, i32 noundef 5)
+  %8 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.3, i32 noundef %8, i32 noundef 5)
           to label %invoke.cont8 unwind label %lpad3
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  %8 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.4, i32 noundef %8, i32 noundef 9)
+  %9 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.4, i32 noundef %9, i32 noundef 9)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %9 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.5, i32 noundef %9, i32 noundef 6)
+  %10 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.5, i32 noundef %10, i32 noundef 6)
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %10 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.6, i32 noundef %10, i32 noundef 4)
+  %11 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.6, i32 noundef %11, i32 noundef 4)
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  %11 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.7, i32 noundef %11, i32 noundef 2)
+  %12 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.7, i32 noundef %12, i32 noundef 2)
           to label %invoke.cont12 unwind label %lpad3
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  %12 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.8, i32 noundef %12, i32 noundef 2)
+  %13 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.8, i32 noundef %13, i32 noundef 2)
           to label %invoke.cont13 unwind label %lpad3
 
 invoke.cont13:                                    ; preds = %invoke.cont12
-  %13 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.9, i32 noundef %13, i32 noundef 7)
+  %14 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.9, i32 noundef %14, i32 noundef 7)
           to label %invoke.cont14 unwind label %lpad3
 
 invoke.cont14:                                    ; preds = %invoke.cont13
@@ -269,64 +270,64 @@ invoke.cont14:                                    ; preds = %invoke.cont13
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   store i32 %call17, ptr %fid, align 4
-  %14 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.10, i32 noundef %14, i32 noundef 6)
+  %15 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.10, i32 noundef %15, i32 noundef 6)
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %15 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.11, i32 noundef %15, i32 noundef 9)
+  %16 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.11, i32 noundef %16, i32 noundef 9)
           to label %invoke.cont19 unwind label %lpad3
 
 invoke.cont19:                                    ; preds = %invoke.cont18
-  %16 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.12, i32 noundef %16, i32 noundef 7)
+  %17 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.12, i32 noundef %17, i32 noundef 7)
           to label %invoke.cont20 unwind label %lpad3
 
 invoke.cont20:                                    ; preds = %invoke.cont19
-  %17 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.13, i32 noundef %17, i32 noundef 10)
+  %18 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.13, i32 noundef %18, i32 noundef 10)
           to label %invoke.cont21 unwind label %lpad3
 
 invoke.cont21:                                    ; preds = %invoke.cont20
-  %18 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.14, i32 noundef %18, i32 noundef 2)
+  %19 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.14, i32 noundef %19, i32 noundef 2)
           to label %invoke.cont22 unwind label %lpad3
 
 invoke.cont22:                                    ; preds = %invoke.cont21
-  %19 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.15, i32 noundef %19, i32 noundef 3)
+  %20 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.15, i32 noundef %20, i32 noundef 3)
           to label %invoke.cont23 unwind label %lpad3
 
 invoke.cont23:                                    ; preds = %invoke.cont22
-  %20 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.16, i32 noundef %20, i32 noundef 4)
+  %21 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.16, i32 noundef %21, i32 noundef 4)
           to label %invoke.cont24 unwind label %lpad3
 
 invoke.cont24:                                    ; preds = %invoke.cont23
-  %21 = load i32, ptr %fid, align 4
-  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.17, i32 noundef %21, i32 noundef 5)
+  %22 = load i32, ptr %fid, align 4
+  invoke void @_ZN13simple_parser14add_builtin_opEPKcii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef @.str.17, i32 noundef %22, i32 noundef 5)
           to label %invoke.cont25 unwind label %lpad3
 
 invoke.cont25:                                    ; preds = %invoke.cont24
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont24, %invoke.cont23, %invoke.cont22, %invoke.cont21, %invoke.cont20, %invoke.cont19, %invoke.cont18, %invoke.cont16, %invoke.cont14, %invoke.cont13, %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont2
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN10ref_vectorI3var11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_vars) #3
   br label %ehcleanup
 
@@ -556,7 +557,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cost_parser, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11cost_parser, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vars = getelementptr inbounds %class.cost_parser, ptr %this1, i32 0, i32 2
   call void @_ZN10ref_vectorI3var11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_vars) #3
   call void @_ZN13simple_parserD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #3
@@ -1291,10 +1293,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -1304,7 +1307,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -1542,7 +1546,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

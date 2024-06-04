@@ -27,65 +27,68 @@ define void @task_initialize() #0 {
   %3 = alloca i32, align 4
   store ptr @g_child_pool, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1
+  store ptr %4, ptr %5, align 8
   store i32 0, ptr %3, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %16, %0
-  %6 = load i32, ptr %3, align 4
-  %7 = icmp slt i32 %6, 16
-  br i1 %7, label %8, label %19
+6:                                                ; preds = %17, %0
+  %7 = load i32, ptr %3, align 4
+  %8 = icmp slt i32 %7, 16
+  br i1 %8, label %9, label %20
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [16 x %struct.child_status_s], ptr @g_child_pool, i64 0, i64 %10
-  store ptr %11, ptr %1, align 8
-  %12 = load ptr, ptr %1, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.child_status_s, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %14, align 8
-  %15 = load ptr, ptr %1, align 8
-  store ptr %15, ptr %2, align 8
-  br label %16
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [16 x %struct.child_status_s], ptr @g_child_pool, i64 0, i64 %11
+  store ptr %12, ptr %1, align 8
+  %13 = load ptr, ptr %1, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.child_status_s, ptr %14, i32 0, i32 0
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %1, align 8
+  store ptr %16, ptr %2, align 8
+  br label %17
 
-16:                                               ; preds = %8
-  %17 = load i32, ptr %3, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %3, align 4
-  br label %5, !llvm.loop !6
+17:                                               ; preds = %9
+  %18 = load i32, ptr %3, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %3, align 4
+  br label %6, !llvm.loop !6
 
-19:                                               ; preds = %5
+20:                                               ; preds = %6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @group_alloc_child() #0 {
   %1 = alloca ptr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1), align 8
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %11
+  %2 = getelementptr inbounds %struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %1, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %13
 
-5:                                                ; preds = %0
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds %struct.child_status_s, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1), align 8
-  %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %struct.child_status_s, ptr %9, i32 0, i32 0
-  store ptr null, ptr %10, align 8
-  br label %13
+6:                                                ; preds = %0
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds %struct.child_status_s, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.child_status_s, ptr %11, i32 0, i32 0
+  store ptr null, ptr %12, align 8
+  br label %15
 
-11:                                               ; preds = %0
-  %12 = call noalias ptr @zalloc(i64 noundef 24) #2
-  store ptr %12, ptr %1, align 8
-  br label %13
+13:                                               ; preds = %0
+  %14 = call noalias ptr @zalloc(i64 noundef 24) #2
+  store ptr %14, ptr %1, align 8
+  br label %15
 
-13:                                               ; preds = %11, %5
-  %14 = load ptr, ptr %1, align 8
-  ret ptr %14
+15:                                               ; preds = %13, %6
+  %16 = load ptr, ptr %1, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: allocsize(0)
@@ -97,18 +100,20 @@ define void @group_free_child(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.child_status_s, ptr %7, i32 0, i32 0
-  store ptr %6, ptr %8, align 8
-  %9 = load ptr, ptr %2, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1), align 8
-  br label %10
+  %6 = getelementptr inbounds %struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds %struct.child_status_s, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds %struct.child_pool_s, ptr @g_child_pool, i32 0, i32 1
+  store ptr %10, ptr %11, align 8
+  br label %12
 
-10:                                               ; preds = %5, %1
+12:                                               ; preds = %5, %1
   ret void
 }
 

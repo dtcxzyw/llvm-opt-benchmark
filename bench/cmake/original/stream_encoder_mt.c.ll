@@ -143,402 +143,404 @@ define internal i32 @stream_encoder_mt_init(ptr noundef %0, ptr noundef %1, ptr 
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %20, i32 0, i32 2
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ne i64 ptrtoint (ptr @stream_encoder_mt_init to i64), %22
-  br i1 %23, label %24, label %27
+  %23 = ptrtoint ptr @stream_encoder_mt_init to i64
+  %24 = icmp ne i64 %23, %22
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %6, align 8
-  call void @lzma_next_end(ptr noundef %25, ptr noundef %26)
-  br label %27
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %6, align 8
+  call void @lzma_next_end(ptr noundef %26, ptr noundef %27)
+  br label %28
 
-27:                                               ; preds = %24, %19
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %28, i32 0, i32 2
-  store i64 ptrtoint (ptr @stream_encoder_mt_init to i64), ptr %29, align 8
-  br label %30
+28:                                               ; preds = %25, %19
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %29, i32 0, i32 2
+  %31 = ptrtoint ptr @stream_encoder_mt_init to i64
+  store i64 %31, ptr %30, align 8
+  br label %32
 
-30:                                               ; preds = %27
-  br label %31
+32:                                               ; preds = %28
+  br label %33
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 @get_options(ptr noundef %32, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  store i32 %33, ptr %12, align 4
-  %34 = load i32, ptr %12, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %7, align 8
+  %35 = call i32 @get_options(ptr noundef %34, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store i32 %35, ptr %12, align 4
+  %36 = load i32, ptr %12, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %12, align 4
-  store i32 %37, ptr %4, align 4
-  br label %264
+38:                                               ; preds = %33
+  %39 = load i32, ptr %12, align 4
+  store i32 %39, ptr %4, align 4
+  br label %266
 
-38:                                               ; preds = %31
-  br label %39
+40:                                               ; preds = %33
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %9, align 8
-  %41 = call i64 @lzma_raw_encoder_memusage(ptr noundef %40) #9
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %43, label %44
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %9, align 8
+  %43 = call i64 @lzma_raw_encoder_memusage(ptr noundef %42) #9
+  %44 = icmp eq i64 %43, -1
+  br i1 %44, label %45, label %46
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   store i32 8, ptr %4, align 4
-  br label %264
+  br label %266
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.lzma_mt, ptr %45, i32 0, i32 6
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ugt i32 %47, 15
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds %struct.lzma_mt, ptr %47, i32 0, i32 6
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ugt i32 %49, 15
+  br i1 %50, label %51, label %52
 
-49:                                               ; preds = %44
+51:                                               ; preds = %46
   store i32 11, ptr %4, align 4
-  br label %264
+  br label %266
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.lzma_mt, ptr %51, i32 0, i32 6
-  %53 = load i32, ptr %52, align 8
-  %54 = call zeroext i8 @lzma_check_is_supported(i32 noundef %53) #10
-  %55 = icmp ne i8 %54, 0
-  br i1 %55, label %57, label %56
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds %struct.lzma_mt, ptr %53, i32 0, i32 6
+  %55 = load i32, ptr %54, align 8
+  %56 = call zeroext i8 @lzma_check_is_supported(i32 noundef %55) #10
+  %57 = icmp ne i8 %56, 0
+  br i1 %57, label %59, label %58
 
-56:                                               ; preds = %50
+58:                                               ; preds = %52
   store i32 3, ptr %4, align 4
-  br label %264
+  br label %266
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %13, align 8
-  %61 = load ptr, ptr %13, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %118
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %13, align 8
+  %63 = load ptr, ptr %13, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %120
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %6, align 8
-  %65 = call noalias ptr @lzma_alloc(i64 noundef 448, ptr noundef %64)
-  store ptr %65, ptr %13, align 8
-  %66 = load ptr, ptr %13, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %69
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %6, align 8
+  %67 = call noalias ptr @lzma_alloc(i64 noundef 448, ptr noundef %66)
+  store ptr %67, ptr %13, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
 
-68:                                               ; preds = %63
+70:                                               ; preds = %65
   store i32 5, ptr %4, align 4
-  br label %264
+  br label %266
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %13, align 8
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %71, i32 0, i32 0
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %73, i32 0, i32 18
-  %75 = call i32 @mythread_mutex_init(ptr noundef %74)
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %82
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %13, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %73, i32 0, i32 0
+  store ptr %72, ptr %74, align 8
+  %75 = load ptr, ptr %13, align 8
+  %76 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %75, i32 0, i32 18
+  %77 = call i32 @mythread_mutex_init(ptr noundef %76)
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %84
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %13, align 8
-  %79 = load ptr, ptr %6, align 8
-  call void @lzma_free(ptr noundef %78, ptr noundef %79)
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %80, i32 0, i32 0
-  store ptr null, ptr %81, align 8
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %13, align 8
+  %81 = load ptr, ptr %6, align 8
+  call void @lzma_free(ptr noundef %80, ptr noundef %81)
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %82, i32 0, i32 0
+  store ptr null, ptr %83, align 8
   store i32 5, ptr %4, align 4
-  br label %264
+  br label %266
 
-82:                                               ; preds = %69
-  %83 = load ptr, ptr %13, align 8
-  %84 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %83, i32 0, i32 19
-  %85 = call i32 @mythread_cond_init(ptr noundef %84)
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %94
+84:                                               ; preds = %71
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %85, i32 0, i32 19
+  %87 = call i32 @mythread_cond_init(ptr noundef %86)
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %96
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %13, align 8
-  %89 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %88, i32 0, i32 18
-  call void @mythread_mutex_destroy(ptr noundef %89)
+89:                                               ; preds = %84
   %90 = load ptr, ptr %13, align 8
-  %91 = load ptr, ptr %6, align 8
-  call void @lzma_free(ptr noundef %90, ptr noundef %91)
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %92, i32 0, i32 0
-  store ptr null, ptr %93, align 8
+  %91 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %90, i32 0, i32 18
+  call void @mythread_mutex_destroy(ptr noundef %91)
+  %92 = load ptr, ptr %13, align 8
+  %93 = load ptr, ptr %6, align 8
+  call void @lzma_free(ptr noundef %92, ptr noundef %93)
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %94, i32 0, i32 0
+  store ptr null, ptr %95, align 8
   store i32 5, ptr %4, align 4
-  br label %264
+  br label %266
 
-94:                                               ; preds = %82
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %95, i32 0, i32 3
-  store ptr @stream_encode_mt, ptr %96, align 8
+96:                                               ; preds = %84
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %97, i32 0, i32 4
-  store ptr @stream_encoder_mt_end, ptr %98, align 8
+  %98 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %97, i32 0, i32 3
+  store ptr @stream_encode_mt, ptr %98, align 8
   %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %99, i32 0, i32 5
-  store ptr @get_progress, ptr %100, align 8
-  %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %101, i32 0, i32 2
-  %103 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %102, i64 0, i64 0
-  %104 = getelementptr inbounds %struct.lzma_filter, ptr %103, i32 0, i32 0
-  store i64 -1, ptr %104, align 8
-  %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %105, i32 0, i32 4
+  %100 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %99, i32 0, i32 4
+  store ptr @stream_encoder_mt_end, ptr %100, align 8
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %101, i32 0, i32 5
+  store ptr @get_progress, ptr %102, align 8
+  %103 = load ptr, ptr %13, align 8
+  %104 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %103, i32 0, i32 2
+  %105 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %104, i64 0, i64 0
+  %106 = getelementptr inbounds %struct.lzma_filter, ptr %105, i32 0, i32 0
+  store i64 -1, ptr %106, align 8
+  %107 = load ptr, ptr %13, align 8
+  %108 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %107, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 72, i1 false)
-  %107 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %14, i32 0, i32 1
-  store i64 -1, ptr %107, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 8 %14, i64 72, i1 false)
-  %108 = load ptr, ptr %13, align 8
-  %109 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %108, i32 0, i32 3
-  store ptr null, ptr %109, align 8
+  %109 = getelementptr inbounds %struct.lzma_next_coder_s, ptr %14, i32 0, i32 1
+  store i64 -1, ptr %109, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %108, ptr align 8 %14, i64 72, i1 false)
   %110 = load ptr, ptr %13, align 8
-  %111 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %110, i32 0, i32 8
-  call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 48, i1 false)
+  %111 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %110, i32 0, i32 3
+  store ptr null, ptr %111, align 8
   %112 = load ptr, ptr %13, align 8
-  %113 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %112, i32 0, i32 11
-  store ptr null, ptr %113, align 8
+  %113 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %112, i32 0, i32 8
+  call void @llvm.memset.p0.i64(ptr align 8 %113, i8 0, i64 48, i1 false)
   %114 = load ptr, ptr %13, align 8
-  %115 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %114, i32 0, i32 12
-  store i32 0, ptr %115, align 8
+  %115 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %114, i32 0, i32 11
+  store ptr null, ptr %115, align 8
   %116 = load ptr, ptr %13, align 8
-  %117 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %116, i32 0, i32 13
-  store i32 0, ptr %117, align 4
-  br label %118
+  %117 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %116, i32 0, i32 12
+  store i32 0, ptr %117, align 8
+  %118 = load ptr, ptr %13, align 8
+  %119 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %118, i32 0, i32 13
+  store i32 0, ptr %119, align 4
+  br label %120
 
-118:                                              ; preds = %94, %57
-  %119 = load ptr, ptr %13, align 8
-  %120 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %119, i32 0, i32 0
-  store i32 0, ptr %120, align 8
-  %121 = load i64, ptr %10, align 8
-  %122 = load ptr, ptr %13, align 8
-  %123 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %122, i32 0, i32 1
-  store i64 %121, ptr %123, align 8
+120:                                              ; preds = %96, %59
+  %121 = load ptr, ptr %13, align 8
+  %122 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %121, i32 0, i32 0
+  store i32 0, ptr %122, align 8
+  %123 = load i64, ptr %10, align 8
   %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %124, i32 0, i32 10
-  store i32 0, ptr %125, align 4
+  %125 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %124, i32 0, i32 1
+  store i64 %123, ptr %125, align 8
   %126 = load ptr, ptr %13, align 8
-  %127 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %126, i32 0, i32 15
-  store ptr null, ptr %127, align 8
+  %127 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %126, i32 0, i32 10
+  store i32 0, ptr %127, align 4
   %128 = load ptr, ptr %13, align 8
-  %129 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %128, i32 0, i32 12
-  %130 = load i32, ptr %129, align 8
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct.lzma_mt, ptr %131, i32 0, i32 1
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp ne i32 %130, %133
-  br i1 %134, label %135, label %166
+  %129 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %128, i32 0, i32 15
+  store ptr null, ptr %129, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %130, i32 0, i32 12
+  %132 = load i32, ptr %131, align 8
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct.lzma_mt, ptr %133, i32 0, i32 1
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp ne i32 %132, %135
+  br i1 %136, label %137, label %168
 
-135:                                              ; preds = %118
-  %136 = load ptr, ptr %13, align 8
-  %137 = load ptr, ptr %6, align 8
-  call void @threads_end(ptr noundef %136, ptr noundef %137)
+137:                                              ; preds = %120
   %138 = load ptr, ptr %13, align 8
-  %139 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %138, i32 0, i32 11
-  store ptr null, ptr %139, align 8
+  %139 = load ptr, ptr %6, align 8
+  call void @threads_end(ptr noundef %138, ptr noundef %139)
   %140 = load ptr, ptr %13, align 8
-  %141 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %140, i32 0, i32 12
-  store i32 0, ptr %141, align 8
+  %141 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %140, i32 0, i32 11
+  store ptr null, ptr %141, align 8
   %142 = load ptr, ptr %13, align 8
-  %143 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %142, i32 0, i32 13
-  store i32 0, ptr %143, align 4
+  %143 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %142, i32 0, i32 12
+  store i32 0, ptr %143, align 8
   %144 = load ptr, ptr %13, align 8
-  %145 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %144, i32 0, i32 14
-  store ptr null, ptr %145, align 8
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.lzma_mt, ptr %146, i32 0, i32 1
-  %148 = load i32, ptr %147, align 4
-  %149 = zext i32 %148 to i64
-  %150 = mul i64 %149, 448
-  %151 = load ptr, ptr %6, align 8
-  %152 = call noalias ptr @lzma_alloc(i64 noundef %150, ptr noundef %151)
-  %153 = load ptr, ptr %13, align 8
-  %154 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %153, i32 0, i32 11
-  store ptr %152, ptr %154, align 8
+  %145 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %144, i32 0, i32 13
+  store i32 0, ptr %145, align 4
+  %146 = load ptr, ptr %13, align 8
+  %147 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %146, i32 0, i32 14
+  store ptr null, ptr %147, align 8
+  %148 = load ptr, ptr %7, align 8
+  %149 = getelementptr inbounds %struct.lzma_mt, ptr %148, i32 0, i32 1
+  %150 = load i32, ptr %149, align 4
+  %151 = zext i32 %150 to i64
+  %152 = mul i64 %151, 448
+  %153 = load ptr, ptr %6, align 8
+  %154 = call noalias ptr @lzma_alloc(i64 noundef %152, ptr noundef %153)
   %155 = load ptr, ptr %13, align 8
   %156 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %155, i32 0, i32 11
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp eq ptr %157, null
-  br i1 %158, label %159, label %160
+  store ptr %154, ptr %156, align 8
+  %157 = load ptr, ptr %13, align 8
+  %158 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %157, i32 0, i32 11
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %162
 
-159:                                              ; preds = %135
+161:                                              ; preds = %137
   store i32 5, ptr %4, align 4
-  br label %264
+  br label %266
 
-160:                                              ; preds = %135
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.lzma_mt, ptr %161, i32 0, i32 1
-  %163 = load i32, ptr %162, align 4
-  %164 = load ptr, ptr %13, align 8
-  %165 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %164, i32 0, i32 12
-  store i32 %163, ptr %165, align 8
-  br label %168
+162:                                              ; preds = %137
+  %163 = load ptr, ptr %7, align 8
+  %164 = getelementptr inbounds %struct.lzma_mt, ptr %163, i32 0, i32 1
+  %165 = load i32, ptr %164, align 4
+  %166 = load ptr, ptr %13, align 8
+  %167 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %166, i32 0, i32 12
+  store i32 %165, ptr %167, align 8
+  br label %170
 
-166:                                              ; preds = %118
-  %167 = load ptr, ptr %13, align 8
-  call void @threads_stop(ptr noundef %167, i1 noundef zeroext true)
-  br label %168
+168:                                              ; preds = %120
+  %169 = load ptr, ptr %13, align 8
+  call void @threads_stop(ptr noundef %169, i1 noundef zeroext true)
+  br label %170
 
-168:                                              ; preds = %166, %160
-  br label %169
+170:                                              ; preds = %168, %162
+  br label %171
 
-169:                                              ; preds = %168
-  %170 = load ptr, ptr %13, align 8
-  %171 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %170, i32 0, i32 8
-  %172 = load ptr, ptr %6, align 8
-  %173 = load i64, ptr %11, align 8
-  %174 = load ptr, ptr %7, align 8
-  %175 = getelementptr inbounds %struct.lzma_mt, ptr %174, i32 0, i32 1
-  %176 = load i32, ptr %175, align 4
-  %177 = call i32 @lzma_outq_init(ptr noundef %171, ptr noundef %172, i64 noundef %173, i32 noundef %176)
-  store i32 %177, ptr %15, align 4
-  %178 = load i32, ptr %15, align 4
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %180, label %182
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %13, align 8
+  %173 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %172, i32 0, i32 8
+  %174 = load ptr, ptr %6, align 8
+  %175 = load i64, ptr %11, align 8
+  %176 = load ptr, ptr %7, align 8
+  %177 = getelementptr inbounds %struct.lzma_mt, ptr %176, i32 0, i32 1
+  %178 = load i32, ptr %177, align 4
+  %179 = call i32 @lzma_outq_init(ptr noundef %173, ptr noundef %174, i64 noundef %175, i32 noundef %178)
+  store i32 %179, ptr %15, align 4
+  %180 = load i32, ptr %15, align 4
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %184
 
-180:                                              ; preds = %169
-  %181 = load i32, ptr %15, align 4
-  store i32 %181, ptr %4, align 4
-  br label %264
+182:                                              ; preds = %171
+  %183 = load i32, ptr %15, align 4
+  store i32 %183, ptr %4, align 4
+  br label %266
 
-182:                                              ; preds = %169
-  br label %183
+184:                                              ; preds = %171
+  br label %185
 
-183:                                              ; preds = %182
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct.lzma_mt, ptr %184, i32 0, i32 3
-  %186 = load i32, ptr %185, align 8
-  %187 = load ptr, ptr %13, align 8
-  %188 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %187, i32 0, i32 9
-  store i32 %186, ptr %188, align 8
+185:                                              ; preds = %184
+  %186 = load ptr, ptr %7, align 8
+  %187 = getelementptr inbounds %struct.lzma_mt, ptr %186, i32 0, i32 3
+  %188 = load i32, ptr %187, align 8
+  %189 = load ptr, ptr %13, align 8
+  %190 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %189, i32 0, i32 9
+  store i32 %188, ptr %190, align 8
   store i64 0, ptr %16, align 8
-  br label %189
+  br label %191
 
-189:                                              ; preds = %205, %183
-  %190 = load ptr, ptr %13, align 8
-  %191 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %190, i32 0, i32 2
-  %192 = load i64, ptr %16, align 8
-  %193 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %191, i64 0, i64 %192
-  %194 = getelementptr inbounds %struct.lzma_filter, ptr %193, i32 0, i32 0
-  %195 = load i64, ptr %194, align 8
-  %196 = icmp ne i64 %195, -1
-  br i1 %196, label %197, label %208
+191:                                              ; preds = %207, %185
+  %192 = load ptr, ptr %13, align 8
+  %193 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %192, i32 0, i32 2
+  %194 = load i64, ptr %16, align 8
+  %195 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %193, i64 0, i64 %194
+  %196 = getelementptr inbounds %struct.lzma_filter, ptr %195, i32 0, i32 0
+  %197 = load i64, ptr %196, align 8
+  %198 = icmp ne i64 %197, -1
+  br i1 %198, label %199, label %210
 
-197:                                              ; preds = %189
-  %198 = load ptr, ptr %13, align 8
-  %199 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %198, i32 0, i32 2
-  %200 = load i64, ptr %16, align 8
-  %201 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %199, i64 0, i64 %200
-  %202 = getelementptr inbounds %struct.lzma_filter, ptr %201, i32 0, i32 1
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %6, align 8
-  call void @lzma_free(ptr noundef %203, ptr noundef %204)
-  br label %205
+199:                                              ; preds = %191
+  %200 = load ptr, ptr %13, align 8
+  %201 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %200, i32 0, i32 2
+  %202 = load i64, ptr %16, align 8
+  %203 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %201, i64 0, i64 %202
+  %204 = getelementptr inbounds %struct.lzma_filter, ptr %203, i32 0, i32 1
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr %6, align 8
+  call void @lzma_free(ptr noundef %205, ptr noundef %206)
+  br label %207
 
-205:                                              ; preds = %197
-  %206 = load i64, ptr %16, align 8
-  %207 = add i64 %206, 1
-  store i64 %207, ptr %16, align 8
-  br label %189, !llvm.loop !5
+207:                                              ; preds = %199
+  %208 = load i64, ptr %16, align 8
+  %209 = add i64 %208, 1
+  store i64 %209, ptr %16, align 8
+  br label %191, !llvm.loop !5
 
-208:                                              ; preds = %189
-  br label %209
+210:                                              ; preds = %191
+  br label %211
 
-209:                                              ; preds = %208
-  %210 = load ptr, ptr %9, align 8
-  %211 = load ptr, ptr %13, align 8
-  %212 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %211, i32 0, i32 2
-  %213 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %212, i64 0, i64 0
-  %214 = load ptr, ptr %6, align 8
-  %215 = call i32 @lzma_filters_copy(ptr noundef %210, ptr noundef %213, ptr noundef %214) #8
-  store i32 %215, ptr %17, align 4
-  %216 = load i32, ptr %17, align 4
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %218, label %220
+211:                                              ; preds = %210
+  %212 = load ptr, ptr %9, align 8
+  %213 = load ptr, ptr %13, align 8
+  %214 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %213, i32 0, i32 2
+  %215 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %214, i64 0, i64 0
+  %216 = load ptr, ptr %6, align 8
+  %217 = call i32 @lzma_filters_copy(ptr noundef %212, ptr noundef %215, ptr noundef %216) #8
+  store i32 %217, ptr %17, align 4
+  %218 = load i32, ptr %17, align 4
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %220, label %222
 
-218:                                              ; preds = %209
-  %219 = load i32, ptr %17, align 4
-  store i32 %219, ptr %4, align 4
-  br label %264
+220:                                              ; preds = %211
+  %221 = load i32, ptr %17, align 4
+  store i32 %221, ptr %4, align 4
+  br label %266
 
-220:                                              ; preds = %209
-  br label %221
+222:                                              ; preds = %211
+  br label %223
 
-221:                                              ; preds = %220
-  %222 = load ptr, ptr %13, align 8
-  %223 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %222, i32 0, i32 3
-  %224 = load ptr, ptr %223, align 8
-  %225 = load ptr, ptr %6, align 8
-  call void @lzma_index_end(ptr noundef %224, ptr noundef %225) #8
-  %226 = load ptr, ptr %6, align 8
-  %227 = call ptr @lzma_index_init(ptr noundef %226) #8
-  %228 = load ptr, ptr %13, align 8
-  %229 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %228, i32 0, i32 3
-  store ptr %227, ptr %229, align 8
+223:                                              ; preds = %222
+  %224 = load ptr, ptr %13, align 8
+  %225 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %224, i32 0, i32 3
+  %226 = load ptr, ptr %225, align 8
+  %227 = load ptr, ptr %6, align 8
+  call void @lzma_index_end(ptr noundef %226, ptr noundef %227) #8
+  %228 = load ptr, ptr %6, align 8
+  %229 = call ptr @lzma_index_init(ptr noundef %228) #8
   %230 = load ptr, ptr %13, align 8
   %231 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %230, i32 0, i32 3
-  %232 = load ptr, ptr %231, align 8
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %234, label %235
+  store ptr %229, ptr %231, align 8
+  %232 = load ptr, ptr %13, align 8
+  %233 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %232, i32 0, i32 3
+  %234 = load ptr, ptr %233, align 8
+  %235 = icmp eq ptr %234, null
+  br i1 %235, label %236, label %237
 
-234:                                              ; preds = %221
+236:                                              ; preds = %223
   store i32 5, ptr %4, align 4
-  br label %264
+  br label %266
 
-235:                                              ; preds = %221
-  %236 = load ptr, ptr %13, align 8
-  %237 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %236, i32 0, i32 5
-  %238 = getelementptr inbounds %struct.lzma_stream_flags, ptr %237, i32 0, i32 0
-  store i32 0, ptr %238, align 8
-  %239 = load ptr, ptr %7, align 8
-  %240 = getelementptr inbounds %struct.lzma_mt, ptr %239, i32 0, i32 6
-  %241 = load i32, ptr %240, align 8
-  %242 = load ptr, ptr %13, align 8
-  %243 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %242, i32 0, i32 5
-  %244 = getelementptr inbounds %struct.lzma_stream_flags, ptr %243, i32 0, i32 2
-  store i32 %241, ptr %244, align 8
-  br label %245
+237:                                              ; preds = %223
+  %238 = load ptr, ptr %13, align 8
+  %239 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %238, i32 0, i32 5
+  %240 = getelementptr inbounds %struct.lzma_stream_flags, ptr %239, i32 0, i32 0
+  store i32 0, ptr %240, align 8
+  %241 = load ptr, ptr %7, align 8
+  %242 = getelementptr inbounds %struct.lzma_mt, ptr %241, i32 0, i32 6
+  %243 = load i32, ptr %242, align 8
+  %244 = load ptr, ptr %13, align 8
+  %245 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %244, i32 0, i32 5
+  %246 = getelementptr inbounds %struct.lzma_stream_flags, ptr %245, i32 0, i32 2
+  store i32 %243, ptr %246, align 8
+  br label %247
 
-245:                                              ; preds = %235
-  %246 = load ptr, ptr %13, align 8
-  %247 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %246, i32 0, i32 5
+247:                                              ; preds = %237
   %248 = load ptr, ptr %13, align 8
-  %249 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %248, i32 0, i32 6
-  %250 = getelementptr inbounds [12 x i8], ptr %249, i64 0, i64 0
-  %251 = call i32 @lzma_stream_header_encode(ptr noundef %247, ptr noundef %250) #8
-  store i32 %251, ptr %18, align 4
-  %252 = load i32, ptr %18, align 4
-  %253 = icmp ne i32 %252, 0
-  br i1 %253, label %254, label %256
+  %249 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %248, i32 0, i32 5
+  %250 = load ptr, ptr %13, align 8
+  %251 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %250, i32 0, i32 6
+  %252 = getelementptr inbounds [12 x i8], ptr %251, i64 0, i64 0
+  %253 = call i32 @lzma_stream_header_encode(ptr noundef %249, ptr noundef %252) #8
+  store i32 %253, ptr %18, align 4
+  %254 = load i32, ptr %18, align 4
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %256, label %258
 
-254:                                              ; preds = %245
-  %255 = load i32, ptr %18, align 4
-  store i32 %255, ptr %4, align 4
-  br label %264
+256:                                              ; preds = %247
+  %257 = load i32, ptr %18, align 4
+  store i32 %257, ptr %4, align 4
+  br label %266
 
-256:                                              ; preds = %245
-  br label %257
+258:                                              ; preds = %247
+  br label %259
 
-257:                                              ; preds = %256
-  %258 = load ptr, ptr %13, align 8
-  %259 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %258, i32 0, i32 7
-  store i64 0, ptr %259, align 8
+259:                                              ; preds = %258
   %260 = load ptr, ptr %13, align 8
-  %261 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %260, i32 0, i32 16
+  %261 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %260, i32 0, i32 7
   store i64 0, ptr %261, align 8
   %262 = load ptr, ptr %13, align 8
-  %263 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %262, i32 0, i32 17
-  store i64 12, ptr %263, align 8
+  %263 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %262, i32 0, i32 16
+  store i64 0, ptr %263, align 8
+  %264 = load ptr, ptr %13, align 8
+  %265 = getelementptr inbounds %struct.lzma_stream_coder_s, ptr %264, i32 0, i32 17
+  store i64 12, ptr %265, align 8
   store i32 0, ptr %4, align 4
-  br label %264
+  br label %266
 
-264:                                              ; preds = %257, %254, %234, %218, %180, %159, %87, %77, %68, %56, %49, %43, %36
-  %265 = load i32, ptr %4, align 4
-  ret i32 %265
+266:                                              ; preds = %259, %256, %236, %220, %182, %161, %89, %79, %70, %58, %51, %45, %38
+  %267 = load i32, ptr %4, align 4
+  ret i32 %267
 }
 
 ; Function Attrs: nounwind

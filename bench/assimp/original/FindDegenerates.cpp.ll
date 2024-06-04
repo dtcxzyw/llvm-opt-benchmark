@@ -851,7 +851,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp22FindDegeneratesProcessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp22FindDegeneratesProcessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mConfigRemoveDegenerates = getelementptr inbounds %"class.Assimp::FindDegeneratesProcess", ptr %this1, i32 0, i32 1
   store i8 0, ptr %mConfigRemoveDegenerates, align 8
   %mConfigCheckAreaOfTriangle = getelementptr inbounds %"class.Assimp::FindDegeneratesProcess", ptr %this1, i32 0, i32 2

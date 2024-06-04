@@ -8455,7 +8455,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleJSONCommandERKSt6ve
 
 1209:                                             ; preds = %1208, %478, %268
   %1210 = load i32, ptr %16, align 4
-  %1211 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN12_GLOBAL__N_110json_errorE) #3
+  %1211 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN12_GLOBAL__N_110json_errorE) #3
   %1212 = icmp eq i32 %1210, %1211
   br i1 %1212, label %1213, label %1332
 
@@ -14153,9 +14153,10 @@ define internal void @_ZN12_GLOBAL__N_110json_errorC2ERKNSt7__cxx1112basic_strin
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110json_errorE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::json_error", ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %2, i64 24, i1 false)
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110json_errorE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %6, align 8
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::json_error", ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %2, i64 24, i1 false)
   ret void
 }
 
@@ -15467,9 +15468,6 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueixEi(ptr 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) #1
 
 declare noundef zeroext i1 @_ZNK4Json5ValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) #1
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNKSt8optionalIN12_GLOBAL__N_14ArgsEEcvbEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 align 2 {
@@ -17350,6 +17348,9 @@ define internal void @_GLOBAL__sub_I_cmStringCommand.cxx() #0 section ".text.sta
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

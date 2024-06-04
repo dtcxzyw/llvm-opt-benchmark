@@ -17,11 +17,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_get_default_
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local ptr @find_font(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 1), align 8
-  %3 = tail call i32 @strcmp(ptr noundef %2, ptr noundef %0) #3
-  %4 = icmp eq i32 %3, 0
-  %5 = select i1 %4, ptr @font_vga_8x16, ptr null
-  ret ptr %5
+  %2 = getelementptr inbounds %struct.font_desc, ptr @font_vga_8x16, i64 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %0) #3
+  %5 = icmp eq i32 %4, 0
+  %6 = select i1 %5, ptr @font_vga_8x16, ptr null
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -29,36 +30,39 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local ptr @get_default_font(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
-  %5 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 6), align 8
-  %6 = icmp slt i32 %1, 400
-  %7 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 3), align 4
-  %8 = icmp ugt i32 %7, 8
-  %9 = xor i1 %6, %8
-  %10 = add i32 %5, 1000
-  %11 = select i1 %9, i32 %10, i32 %5
-  %12 = load i32, ptr getelementptr inbounds (%struct.font_desc, ptr @font_vga_8x16, i64 0, i32 2), align 8
-  %13 = udiv i32 %0, %12
-  %14 = udiv i32 %1, %7
-  %15 = mul i32 %14, %13
-  %16 = icmp ugt i32 %15, 20999
-  %17 = udiv i32 %15, 1000
-  %18 = add i32 %11, 20
-  %19 = sub i32 %18, %17
-  %20 = add i32 %12, -1
-  %21 = shl nuw i32 1, %20
-  %22 = and i32 %21, %2
-  %23 = icmp eq i32 %22, 0
-  %24 = add i32 %7, -1
-  %25 = shl nuw i32 1, %24
-  %26 = and i32 %25, %3
-  %27 = icmp eq i32 %26, 0
-  %28 = select i1 %16, i32 %19, i32 %11
-  %29 = add i32 %28, 1000
-  %30 = select i1 %23, i1 true, i1 %27
-  %31 = select i1 %30, i32 %28, i32 %29
-  %32 = icmp sgt i32 %31, -10000
-  %33 = select i1 %32, ptr @font_vga_8x16, ptr null
-  ret ptr %33
+  %5 = getelementptr inbounds %struct.font_desc, ptr @font_vga_8x16, i64 0, i32 6
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp slt i32 %1, 400
+  %8 = getelementptr inbounds %struct.font_desc, ptr @font_vga_8x16, i64 0, i32 3
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ugt i32 %9, 8
+  %11 = xor i1 %7, %10
+  %12 = add i32 %6, 1000
+  %13 = select i1 %11, i32 %12, i32 %6
+  %14 = getelementptr inbounds %struct.font_desc, ptr @font_vga_8x16, i64 0, i32 2
+  %15 = load i32, ptr %14, align 8
+  %16 = udiv i32 %0, %15
+  %17 = udiv i32 %1, %9
+  %18 = mul i32 %17, %16
+  %19 = icmp ugt i32 %18, 20999
+  %20 = udiv i32 %18, 1000
+  %21 = add i32 %13, 20
+  %22 = sub i32 %21, %20
+  %23 = add i32 %15, -1
+  %24 = shl nuw i32 1, %23
+  %25 = and i32 %24, %2
+  %26 = icmp eq i32 %25, 0
+  %27 = add i32 %9, -1
+  %28 = shl nuw i32 1, %27
+  %29 = and i32 %28, %3
+  %30 = icmp eq i32 %29, 0
+  %31 = select i1 %19, i32 %22, i32 %13
+  %32 = add i32 %31, 1000
+  %33 = select i1 %26, i1 true, i1 %30
+  %34 = select i1 %33, i32 %31, i32 %32
+  %35 = icmp sgt i32 %34, -10000
+  %36 = select i1 %35, ptr @font_vga_8x16, ptr null
+  ret ptr %36
 }
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

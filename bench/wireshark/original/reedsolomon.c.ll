@@ -1470,131 +1470,137 @@ define internal void @generate_gf() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   store i32 1, ptr %2, align 4
-  store i32 0, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
+  %3 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
+  store i32 0, ptr %3, align 16
   store i32 0, ptr %1, align 4
-  br label %3
+  br label %4
 
-3:                                                ; preds = %30, %0
-  %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %4, 8
-  br i1 %5, label %6, label %33
+4:                                                ; preds = %33, %0
+  %5 = load i32, ptr %1, align 4
+  %6 = icmp slt i32 %5, 8
+  br i1 %6, label %7, label %36
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr %2, align 4
-  %8 = load i32, ptr %1, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %9
-  store i32 %7, ptr %10, align 4
-  %11 = load i32, ptr %1, align 4
+7:                                                ; preds = %4
+  %8 = load i32, ptr %2, align 4
+  %9 = load i32, ptr %1, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %10
+  store i32 %8, ptr %11, align 4
   %12 = load i32, ptr %1, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %16
-  store i32 %11, ptr %17, align 4
-  %18 = load i32, ptr %1, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr [9 x i32], ptr @Pp, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %27
+  %13 = load i32, ptr %1, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %17
+  store i32 %12, ptr %18, align 4
+  %19 = load i32, ptr %1, align 4
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr [9 x i32], ptr @Pp, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %30
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr %2, align 4
-  %25 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
-  %26 = xor i32 %25, %24
-  store i32 %26, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
-  br label %27
-
-27:                                               ; preds = %23, %6
-  %28 = load i32, ptr %2, align 4
-  %29 = shl i32 %28, 1
-  store i32 %29, ptr %2, align 4
+24:                                               ; preds = %7
+  %25 = load i32, ptr %2, align 4
+  %26 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
+  %27 = load i32, ptr %26, align 16
+  %28 = xor i32 %27, %25
+  %29 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
+  store i32 %28, ptr %29, align 16
   br label %30
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %1, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %1, align 4
-  br label %3, !llvm.loop !35
+30:                                               ; preds = %24, %7
+  %31 = load i32, ptr %2, align 4
+  %32 = shl i32 %31, 1
+  store i32 %32, ptr %2, align 4
+  br label %33
 
-33:                                               ; preds = %3
-  %34 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %35
-  store i32 8, ptr %36, align 4
-  %37 = load i32, ptr %2, align 4
-  %38 = ashr i32 %37, 1
-  store i32 %38, ptr %2, align 4
+33:                                               ; preds = %30
+  %34 = load i32, ptr %1, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %1, align 4
+  br label %4, !llvm.loop !35
+
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
+  %38 = load i32, ptr %37, align 16
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %39
+  store i32 8, ptr %40, align 4
+  %41 = load i32, ptr %2, align 4
+  %42 = ashr i32 %41, 1
+  store i32 %42, ptr %2, align 4
   store i32 9, ptr %1, align 4
-  br label %39
+  br label %43
 
-39:                                               ; preds = %82, %33
-  %40 = load i32, ptr %1, align 4
-  %41 = icmp slt i32 %40, 255
-  br i1 %41, label %42, label %85
+43:                                               ; preds = %87, %36
+  %44 = load i32, ptr %1, align 4
+  %45 = icmp slt i32 %44, 255
+  br i1 %45, label %46, label %90
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %1, align 4
-  %44 = sub i32 %43, 1
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %2, align 4
-  %49 = icmp sge i32 %47, %48
-  br i1 %49, label %50, label %64
+46:                                               ; preds = %43
+  %47 = load i32, ptr %1, align 4
+  %48 = sub i32 %47, 1
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = load i32, ptr %2, align 4
+  %53 = icmp sge i32 %51, %52
+  br i1 %53, label %54, label %69
 
-50:                                               ; preds = %42
-  %51 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
-  %52 = load i32, ptr %1, align 4
-  %53 = sub i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %54
-  %56 = load i32, ptr %55, align 4
-  %57 = load i32, ptr %2, align 4
-  %58 = xor i32 %56, %57
-  %59 = shl i32 %58, 1
-  %60 = xor i32 %51, %59
-  %61 = load i32, ptr %1, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %62
-  store i32 %60, ptr %63, align 4
-  br label %74
-
-64:                                               ; preds = %42
-  %65 = load i32, ptr %1, align 4
-  %66 = sub i32 %65, 1
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
+  %56 = load i32, ptr %55, align 16
+  %57 = load i32, ptr %1, align 4
+  %58 = sub i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %62 = load i32, ptr %2, align 4
+  %63 = xor i32 %61, %62
+  %64 = shl i32 %63, 1
+  %65 = xor i32 %56, %64
+  %66 = load i32, ptr %1, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = shl i32 %69, 1
-  %71 = load i32, ptr %1, align 4
+  store i32 %65, ptr %68, align 4
+  br label %79
+
+69:                                               ; preds = %46
+  %70 = load i32, ptr %1, align 4
+  %71 = sub i32 %70, 1
   %72 = sext i32 %71 to i64
   %73 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %72
-  store i32 %70, ptr %73, align 4
-  br label %74
-
-74:                                               ; preds = %64, %50
-  %75 = load i32, ptr %1, align 4
+  %74 = load i32, ptr %73, align 4
+  %75 = shl i32 %74, 1
   %76 = load i32, ptr %1, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %80
-  store i32 %75, ptr %81, align 4
-  br label %82
+  store i32 %75, ptr %78, align 4
+  br label %79
 
-82:                                               ; preds = %74
-  %83 = load i32, ptr %1, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %1, align 4
-  br label %39, !llvm.loop !36
+79:                                               ; preds = %69, %54
+  %80 = load i32, ptr %1, align 4
+  %81 = load i32, ptr %1, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %85
+  store i32 %80, ptr %86, align 4
+  br label %87
 
-85:                                               ; preds = %39
+87:                                               ; preds = %79
+  %88 = load i32, ptr %1, align 4
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %1, align 4
+  br label %43, !llvm.loop !36
+
+90:                                               ; preds = %43
   store i32 255, ptr @Index_of, align 16
-  store i32 0, ptr getelementptr inbounds ([256 x i32], ptr @Alpha_to, i64 0, i64 255), align 4
+  %91 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 255
+  store i32 0, ptr %91, align 4
   ret void
 }
 

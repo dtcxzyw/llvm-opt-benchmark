@@ -1451,57 +1451,58 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal void @output_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !74
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
-  %5 = load i32, ptr %4, align 8, !tbaa !82
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %41
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %6 = load i32, ptr %5, align 8, !tbaa !82
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %42
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 680
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = getelementptr inbounds i8, ptr %1, i64 704
-  %11 = load ptr, ptr %10, align 16, !tbaa !60
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !67
-  %14 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %13) #21
-  %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %41
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %1, i64 680
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = getelementptr inbounds i8, ptr %1, i64 704
+  %12 = load ptr, ptr %11, align 16, !tbaa !60
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %15 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %14) #21
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %17, label %42
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !69
-  %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds [7 x float], ptr %9, i64 0, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !6
-  tail call void @dt_bauhaus_slider_set(ptr noundef %18, float noundef %21) #21
-  %22 = load ptr, ptr %17, align 8, !tbaa !69
-  %23 = icmp eq i32 %14, 3
-  %24 = select i1 %23, float 1.000000e+00, float 0.000000e+00
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %22, float noundef %24) #21
-  %25 = getelementptr inbounds i8, ptr %11, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !70
-  %27 = getelementptr inbounds i8, ptr %9, i64 28
-  %28 = getelementptr inbounds [7 x float], ptr %27, i64 0, i64 %19
-  %29 = load float, ptr %28, align 4, !tbaa !6
-  tail call void @dt_bauhaus_slider_set(ptr noundef %26, float noundef %29) #21
-  %30 = load ptr, ptr %25, align 8, !tbaa !70
-  %31 = icmp eq i32 %14, 4
-  %32 = select i1 %31, float 1.000000e+00, float 0.000000e+00
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %30, float noundef %32) #21
-  %33 = getelementptr inbounds i8, ptr %11, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !71
-  %35 = getelementptr inbounds i8, ptr %9, i64 56
-  %36 = getelementptr inbounds [7 x float], ptr %35, i64 0, i64 %19
-  %37 = load float, ptr %36, align 4, !tbaa !6
-  tail call void @dt_bauhaus_slider_set(ptr noundef %34, float noundef %37) #21
-  %38 = load ptr, ptr %33, align 8, !tbaa !71
-  %39 = icmp eq i32 %14, 5
-  %40 = select i1 %39, float 1.000000e+00, float 0.000000e+00
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %38, float noundef %40) #21
-  br label %41
+17:                                               ; preds = %8
+  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %20 = zext nneg i32 %15 to i64
+  %21 = getelementptr inbounds [7 x float], ptr %10, i64 0, i64 %20
+  %22 = load float, ptr %21, align 4, !tbaa !6
+  tail call void @dt_bauhaus_slider_set(ptr noundef %19, float noundef %22) #21
+  %23 = load ptr, ptr %18, align 8, !tbaa !69
+  %24 = icmp eq i32 %15, 3
+  %25 = select i1 %24, float 1.000000e+00, float 0.000000e+00
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %23, float noundef %25) #21
+  %26 = getelementptr inbounds i8, ptr %12, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !70
+  %28 = getelementptr inbounds i8, ptr %10, i64 28
+  %29 = getelementptr inbounds [7 x float], ptr %28, i64 0, i64 %20
+  %30 = load float, ptr %29, align 4, !tbaa !6
+  tail call void @dt_bauhaus_slider_set(ptr noundef %27, float noundef %30) #21
+  %31 = load ptr, ptr %26, align 8, !tbaa !70
+  %32 = icmp eq i32 %15, 4
+  %33 = select i1 %32, float 1.000000e+00, float 0.000000e+00
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %31, float noundef %33) #21
+  %34 = getelementptr inbounds i8, ptr %12, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !71
+  %36 = getelementptr inbounds i8, ptr %10, i64 56
+  %37 = getelementptr inbounds [7 x float], ptr %36, i64 0, i64 %20
+  %38 = load float, ptr %37, align 4, !tbaa !6
+  tail call void @dt_bauhaus_slider_set(ptr noundef %35, float noundef %38) #21
+  %39 = load ptr, ptr %34, align 8, !tbaa !71
+  %40 = icmp eq i32 %15, 5
+  %41 = select i1 %40, float 1.000000e+00, float 0.000000e+00
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %39, float noundef %41) #21
+  br label %42
 
-41:                                               ; preds = %16, %7, %2
+42:                                               ; preds = %17, %8, %2
   ret void
 }
 
@@ -1511,114 +1512,120 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @red_callback(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !74
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
-  %5 = load i32, ptr %4, align 8, !tbaa !82
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %24
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %6 = load i32, ptr %5, align 8, !tbaa !82
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %26
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 680
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = getelementptr inbounds i8, ptr %1, i64 704
-  %11 = load ptr, ptr %10, align 16, !tbaa !60
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !67
-  %14 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %13) #21
-  %15 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
-  %16 = icmp sgt i32 %14, -1
-  br i1 %16, label %17, label %24
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %1, i64 680
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = getelementptr inbounds i8, ptr %1, i64 704
+  %12 = load ptr, ptr %11, align 16, !tbaa !60
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %15 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %14) #21
+  %16 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
+  %17 = icmp sgt i32 %15, -1
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %7
-  %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr inbounds [7 x float], ptr %9, i64 0, i64 %18
-  %20 = load float, ptr %19, align 4, !tbaa !6
-  %21 = fcmp reassoc nsz arcp contract afn une float %15, %20
-  br i1 %21, label %22, label %24
+18:                                               ; preds = %8
+  %19 = zext nneg i32 %15 to i64
+  %20 = getelementptr inbounds [7 x float], ptr %10, i64 0, i64 %19
+  %21 = load float, ptr %20, align 4, !tbaa !6
+  %22 = fcmp reassoc nsz arcp contract afn une float %16, %21
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %17
-  store float %15, ptr %19, align 4, !tbaa !6
-  %23 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
-  tail call void @dt_dev_add_history_item(ptr noundef %23, ptr noundef nonnull %1, i32 noundef 1) #21
-  br label %24
+23:                                               ; preds = %18
+  store float %16, ptr %20, align 4, !tbaa !6
+  %24 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %25 = load ptr, ptr %24, align 8, !tbaa !86
+  tail call void @dt_dev_add_history_item(ptr noundef %25, ptr noundef nonnull %1, i32 noundef 1) #21
+  br label %26
 
-24:                                               ; preds = %22, %17, %7, %2
+26:                                               ; preds = %23, %18, %8, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @green_callback(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !74
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
-  %5 = load i32, ptr %4, align 8, !tbaa !82
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %25
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %6 = load i32, ptr %5, align 8, !tbaa !82
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %27
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 680
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = getelementptr inbounds i8, ptr %1, i64 704
-  %11 = load ptr, ptr %10, align 16, !tbaa !60
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !67
-  %14 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %13) #21
-  %15 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
-  %16 = icmp sgt i32 %14, -1
-  br i1 %16, label %17, label %25
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %1, i64 680
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = getelementptr inbounds i8, ptr %1, i64 704
+  %12 = load ptr, ptr %11, align 16, !tbaa !60
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %15 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %14) #21
+  %16 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
+  %17 = icmp sgt i32 %15, -1
+  br i1 %17, label %18, label %27
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %9, i64 28
-  %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds [7 x float], ptr %18, i64 0, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !6
-  %22 = fcmp reassoc nsz arcp contract afn une float %15, %21
-  br i1 %22, label %23, label %25
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %10, i64 28
+  %20 = zext nneg i32 %15 to i64
+  %21 = getelementptr inbounds [7 x float], ptr %19, i64 0, i64 %20
+  %22 = load float, ptr %21, align 4, !tbaa !6
+  %23 = fcmp reassoc nsz arcp contract afn une float %16, %22
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %17
-  store float %15, ptr %20, align 4, !tbaa !6
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
-  tail call void @dt_dev_add_history_item(ptr noundef %24, ptr noundef nonnull %1, i32 noundef 1) #21
-  br label %25
+24:                                               ; preds = %18
+  store float %16, ptr %21, align 4, !tbaa !6
+  %25 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  tail call void @dt_dev_add_history_item(ptr noundef %26, ptr noundef nonnull %1, i32 noundef 1) #21
+  br label %27
 
-25:                                               ; preds = %23, %17, %7, %2
+27:                                               ; preds = %24, %18, %8, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @blue_callback(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !74
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
-  %5 = load i32, ptr %4, align 8, !tbaa !82
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %25
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %6 = load i32, ptr %5, align 8, !tbaa !82
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %27
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 680
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = getelementptr inbounds i8, ptr %1, i64 704
-  %11 = load ptr, ptr %10, align 16, !tbaa !60
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !67
-  %14 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %13) #21
-  %15 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
-  %16 = icmp sgt i32 %14, -1
-  br i1 %16, label %17, label %25
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %1, i64 680
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = getelementptr inbounds i8, ptr %1, i64 704
+  %12 = load ptr, ptr %11, align 16, !tbaa !60
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %15 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %14) #21
+  %16 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #21
+  %17 = icmp sgt i32 %15, -1
+  br i1 %17, label %18, label %27
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %9, i64 56
-  %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds [7 x float], ptr %18, i64 0, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !6
-  %22 = fcmp reassoc nsz arcp contract afn une float %15, %21
-  br i1 %22, label %23, label %25
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %10, i64 56
+  %20 = zext nneg i32 %15 to i64
+  %21 = getelementptr inbounds [7 x float], ptr %19, i64 0, i64 %20
+  %22 = load float, ptr %21, align 4, !tbaa !6
+  %23 = fcmp reassoc nsz arcp contract afn une float %16, %22
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %17
-  store float %15, ptr %20, align 4, !tbaa !6
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !86
-  tail call void @dt_dev_add_history_item(ptr noundef %24, ptr noundef nonnull %1, i32 noundef 1) #21
-  br label %25
+24:                                               ; preds = %18
+  store float %16, ptr %21, align 4, !tbaa !6
+  %25 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  tail call void @dt_dev_add_history_item(ptr noundef %26, ptr noundef nonnull %1, i32 noundef 1) #21
+  br label %27
 
-25:                                               ; preds = %23, %17, %7, %2
+27:                                               ; preds = %24, %18, %8, %2
   ret void
 }
 
@@ -1649,199 +1656,201 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %16 = alloca %struct.dt_iop_channelmixer_params_t, align 4
   %17 = alloca %struct.dt_iop_channelmixer_params_t, align 4
   %18 = alloca %struct.dt_iop_channelmixer_params_t, align 4
-  %19 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !87
-  tail call void @dt_database_start_transaction(ptr noundef %19) #21
-  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #21
-  %21 = getelementptr inbounds i8, ptr %0, i64 504
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
-  %24 = tail call i32 (...) %23() #21
+  %19 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %20 = load ptr, ptr %19, align 8, !tbaa !87
+  tail call void @dt_database_start_transaction(ptr noundef %20) #21
+  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #21
+  %22 = getelementptr inbounds i8, ptr %0, i64 504
+  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = load ptr, ptr %23, align 8, !tbaa !88
+  %25 = tail call i32 (...) %24() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @constinit.24, i64 28, i1 false), !tbaa.struct !89
-  %25 = getelementptr inbounds i8, ptr %2, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %25, ptr noundef nonnull align 4 dereferenceable(28) @constinit.25, i64 28, i1 false), !tbaa.struct !89
-  %26 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %26, ptr noundef nonnull align 4 dereferenceable(28) @constinit.23, i64 28, i1 false), !tbaa.struct !89
-  %27 = getelementptr inbounds i8, ptr %2, i64 84
-  store i32 1, ptr %27, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %20, ptr noundef nonnull %21, i32 noundef %24, ptr noundef nonnull %2, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %28 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #21
-  %29 = load ptr, ptr %22, align 8, !tbaa !88
-  %30 = call i32 (...) %29() #21
+  %26 = getelementptr inbounds i8, ptr %2, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %26, ptr noundef nonnull align 4 dereferenceable(28) @constinit.25, i64 28, i1 false), !tbaa.struct !89
+  %27 = getelementptr inbounds i8, ptr %2, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, ptr noundef nonnull align 4 dereferenceable(28) @constinit.23, i64 28, i1 false), !tbaa.struct !89
+  %28 = getelementptr inbounds i8, ptr %2, i64 84
+  store i32 1, ptr %28, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %21, ptr noundef nonnull %22, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %29 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #21
+  %30 = load ptr, ptr %23, align 8, !tbaa !88
+  %31 = call i32 (...) %30() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @constinit.23, i64 28, i1 false), !tbaa.struct !89
-  %31 = getelementptr inbounds i8, ptr %3, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %31, ptr noundef nonnull align 4 dereferenceable(28) @constinit.24, i64 28, i1 false), !tbaa.struct !89
-  %32 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %32, ptr noundef nonnull align 4 dereferenceable(28) @constinit.25, i64 28, i1 false), !tbaa.struct !89
-  %33 = getelementptr inbounds i8, ptr %3, i64 84
-  store i32 1, ptr %33, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %28, ptr noundef nonnull %21, i32 noundef %30, ptr noundef nonnull %3, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #21
-  %35 = load ptr, ptr %22, align 8, !tbaa !88
-  %36 = call i32 (...) %35() #21
+  %32 = getelementptr inbounds i8, ptr %3, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %32, ptr noundef nonnull align 4 dereferenceable(28) @constinit.24, i64 28, i1 false), !tbaa.struct !89
+  %33 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %33, ptr noundef nonnull align 4 dereferenceable(28) @constinit.25, i64 28, i1 false), !tbaa.struct !89
+  %34 = getelementptr inbounds i8, ptr %3, i64 84
+  store i32 1, ptr %34, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %29, ptr noundef nonnull %22, i32 noundef %31, ptr noundef nonnull %3, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %35 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #21
+  %36 = load ptr, ptr %23, align 8, !tbaa !88
+  %37 = call i32 (...) %36() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @constinit.27, i64 28, i1 false), !tbaa.struct !89
-  %37 = getelementptr inbounds i8, ptr %4, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %37, ptr noundef nonnull align 4 dereferenceable(28) @constinit.36, i64 28, i1 false), !tbaa.struct !89
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, ptr noundef nonnull align 4 dereferenceable(28) @constinit.33, i64 28, i1 false), !tbaa.struct !89
-  %39 = getelementptr inbounds i8, ptr %4, i64 84
-  store i32 1, ptr %39, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %34, ptr noundef nonnull %21, i32 noundef %36, ptr noundef nonnull %4, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %40 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #21
-  %41 = load ptr, ptr %22, align 8, !tbaa !88
-  %42 = call i32 (...) %41() #21
+  %38 = getelementptr inbounds i8, ptr %4, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, ptr noundef nonnull align 4 dereferenceable(28) @constinit.36, i64 28, i1 false), !tbaa.struct !89
+  %39 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %39, ptr noundef nonnull align 4 dereferenceable(28) @constinit.33, i64 28, i1 false), !tbaa.struct !89
+  %40 = getelementptr inbounds i8, ptr %4, i64 84
+  store i32 1, ptr %40, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %35, ptr noundef nonnull %22, i32 noundef %37, ptr noundef nonnull %4, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %41 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #21
+  %42 = load ptr, ptr %23, align 8, !tbaa !88
+  %43 = call i32 (...) %42() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) @constinit.35, i64 28, i1 false), !tbaa.struct !89
-  %43 = getelementptr inbounds i8, ptr %5, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %43, ptr noundef nonnull align 4 dereferenceable(28) @constinit.32, i64 28, i1 false), !tbaa.struct !89
-  %44 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %44, ptr noundef nonnull align 4 dereferenceable(28) @constinit.33, i64 28, i1 false), !tbaa.struct !89
-  %45 = getelementptr inbounds i8, ptr %5, i64 84
-  store i32 1, ptr %45, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %40, ptr noundef nonnull %21, i32 noundef %42, ptr noundef nonnull %5, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #21
-  %47 = load ptr, ptr %22, align 8, !tbaa !88
-  %48 = call i32 (...) %47() #21
+  %44 = getelementptr inbounds i8, ptr %5, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %44, ptr noundef nonnull align 4 dereferenceable(28) @constinit.32, i64 28, i1 false), !tbaa.struct !89
+  %45 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %45, ptr noundef nonnull align 4 dereferenceable(28) @constinit.33, i64 28, i1 false), !tbaa.struct !89
+  %46 = getelementptr inbounds i8, ptr %5, i64 84
+  store i32 1, ptr %46, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %41, ptr noundef nonnull %22, i32 noundef %43, ptr noundef nonnull %5, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %47 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #21
+  %48 = load ptr, ptr %23, align 8, !tbaa !88
+  %49 = call i32 (...) %48() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) @constinit.35, i64 28, i1 false), !tbaa.struct !89
-  %49 = getelementptr inbounds i8, ptr %6, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %49, ptr noundef nonnull align 4 dereferenceable(28) @constinit.36, i64 28, i1 false), !tbaa.struct !89
-  %50 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %50, ptr noundef nonnull align 4 dereferenceable(28) @constinit.37, i64 28, i1 false), !tbaa.struct !89
-  %51 = getelementptr inbounds i8, ptr %6, i64 84
-  store i32 1, ptr %51, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %46, ptr noundef nonnull %21, i32 noundef %48, ptr noundef nonnull %6, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #21
-  %53 = load ptr, ptr %22, align 8, !tbaa !88
-  %54 = call i32 (...) %53() #21
+  %50 = getelementptr inbounds i8, ptr %6, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %50, ptr noundef nonnull align 4 dereferenceable(28) @constinit.36, i64 28, i1 false), !tbaa.struct !89
+  %51 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %51, ptr noundef nonnull align 4 dereferenceable(28) @constinit.37, i64 28, i1 false), !tbaa.struct !89
+  %52 = getelementptr inbounds i8, ptr %6, i64 84
+  store i32 1, ptr %52, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %47, ptr noundef nonnull %22, i32 noundef %49, ptr noundef nonnull %6, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %53 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #21
+  %54 = load ptr, ptr %23, align 8, !tbaa !88
+  %55 = call i32 (...) %54() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) @constinit.55, i64 28, i1 false), !tbaa.struct !89
-  %55 = getelementptr inbounds i8, ptr %7, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, ptr noundef nonnull align 4 dereferenceable(28) @constinit.40, i64 28, i1 false), !tbaa.struct !89
-  %56 = getelementptr inbounds i8, ptr %7, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %56, ptr noundef nonnull align 4 dereferenceable(28) @constinit.41, i64 28, i1 false), !tbaa.struct !89
-  %57 = getelementptr inbounds i8, ptr %7, i64 84
-  store i32 1, ptr %57, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %52, ptr noundef nonnull %21, i32 noundef %54, ptr noundef nonnull %7, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #21
-  %59 = load ptr, ptr %22, align 8, !tbaa !88
-  %60 = call i32 (...) %59() #21
+  %56 = getelementptr inbounds i8, ptr %7, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %56, ptr noundef nonnull align 4 dereferenceable(28) @constinit.40, i64 28, i1 false), !tbaa.struct !89
+  %57 = getelementptr inbounds i8, ptr %7, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %57, ptr noundef nonnull align 4 dereferenceable(28) @constinit.41, i64 28, i1 false), !tbaa.struct !89
+  %58 = getelementptr inbounds i8, ptr %7, i64 84
+  store i32 1, ptr %58, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %53, ptr noundef nonnull %22, i32 noundef %55, ptr noundef nonnull %7, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %59 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #21
+  %60 = load ptr, ptr %23, align 8, !tbaa !88
+  %61 = call i32 (...) %60() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) @constinit.43, i64 28, i1 false), !tbaa.struct !89
-  %61 = getelementptr inbounds i8, ptr %8, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %61, ptr noundef nonnull align 4 dereferenceable(28) @constinit.44, i64 28, i1 false), !tbaa.struct !89
-  %62 = getelementptr inbounds i8, ptr %8, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %62, ptr noundef nonnull align 4 dereferenceable(28) @constinit.45, i64 28, i1 false), !tbaa.struct !89
-  %63 = getelementptr inbounds i8, ptr %8, i64 84
-  store i32 1, ptr %63, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %58, ptr noundef nonnull %21, i32 noundef %60, ptr noundef nonnull %8, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %64 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #21
-  %65 = load ptr, ptr %22, align 8, !tbaa !88
-  %66 = call i32 (...) %65() #21
+  %62 = getelementptr inbounds i8, ptr %8, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %62, ptr noundef nonnull align 4 dereferenceable(28) @constinit.44, i64 28, i1 false), !tbaa.struct !89
+  %63 = getelementptr inbounds i8, ptr %8, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %63, ptr noundef nonnull align 4 dereferenceable(28) @constinit.45, i64 28, i1 false), !tbaa.struct !89
+  %64 = getelementptr inbounds i8, ptr %8, i64 84
+  store i32 1, ptr %64, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %59, ptr noundef nonnull %22, i32 noundef %61, ptr noundef nonnull %8, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %65 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #21
+  %66 = load ptr, ptr %23, align 8, !tbaa !88
+  %67 = call i32 (...) %66() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) @constinit.47, i64 28, i1 false), !tbaa.struct !89
-  %67 = getelementptr inbounds i8, ptr %9, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %67, ptr noundef nonnull align 4 dereferenceable(28) @constinit.48, i64 28, i1 false), !tbaa.struct !89
-  %68 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %68, ptr noundef nonnull align 4 dereferenceable(28) @constinit.49, i64 28, i1 false), !tbaa.struct !89
-  %69 = getelementptr inbounds i8, ptr %9, i64 84
-  store i32 1, ptr %69, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %64, ptr noundef nonnull %21, i32 noundef %66, ptr noundef nonnull %9, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #21
-  %71 = load ptr, ptr %22, align 8, !tbaa !88
-  %72 = call i32 (...) %71() #21
+  %68 = getelementptr inbounds i8, ptr %9, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %68, ptr noundef nonnull align 4 dereferenceable(28) @constinit.48, i64 28, i1 false), !tbaa.struct !89
+  %69 = getelementptr inbounds i8, ptr %9, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, ptr noundef nonnull align 4 dereferenceable(28) @constinit.49, i64 28, i1 false), !tbaa.struct !89
+  %70 = getelementptr inbounds i8, ptr %9, i64 84
+  store i32 1, ptr %70, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %65, ptr noundef nonnull %22, i32 noundef %67, ptr noundef nonnull %9, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #21
+  %72 = load ptr, ptr %23, align 8, !tbaa !88
+  %73 = call i32 (...) %72() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) @constinit.51, i64 28, i1 false), !tbaa.struct !89
-  %73 = getelementptr inbounds i8, ptr %10, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %73, ptr noundef nonnull align 4 dereferenceable(28) @constinit.52, i64 28, i1 false), !tbaa.struct !89
-  %74 = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %74, ptr noundef nonnull align 4 dereferenceable(28) @constinit.53, i64 28, i1 false), !tbaa.struct !89
-  %75 = getelementptr inbounds i8, ptr %10, i64 84
-  store i32 1, ptr %75, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %70, ptr noundef nonnull %21, i32 noundef %72, ptr noundef nonnull %10, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #21
-  %77 = load ptr, ptr %22, align 8, !tbaa !88
-  %78 = call i32 (...) %77() #21
+  %74 = getelementptr inbounds i8, ptr %10, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %74, ptr noundef nonnull align 4 dereferenceable(28) @constinit.52, i64 28, i1 false), !tbaa.struct !89
+  %75 = getelementptr inbounds i8, ptr %10, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %75, ptr noundef nonnull align 4 dereferenceable(28) @constinit.53, i64 28, i1 false), !tbaa.struct !89
+  %76 = getelementptr inbounds i8, ptr %10, i64 84
+  store i32 1, ptr %76, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %71, ptr noundef nonnull %22, i32 noundef %73, ptr noundef nonnull %10, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #21
+  %78 = load ptr, ptr %23, align 8, !tbaa !88
+  %79 = call i32 (...) %78() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) @constinit.55, i64 28, i1 false), !tbaa.struct !89
-  %79 = getelementptr inbounds i8, ptr %11, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %79, ptr noundef nonnull align 4 dereferenceable(28) @constinit.56, i64 28, i1 false), !tbaa.struct !89
-  %80 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %80, ptr noundef nonnull align 4 dereferenceable(28) @constinit.81, i64 28, i1 false), !tbaa.struct !89
-  %81 = getelementptr inbounds i8, ptr %11, i64 84
-  store i32 1, ptr %81, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %76, ptr noundef nonnull %21, i32 noundef %78, ptr noundef nonnull %11, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #21
-  %83 = load ptr, ptr %22, align 8, !tbaa !88
-  %84 = call i32 (...) %83() #21
+  %80 = getelementptr inbounds i8, ptr %11, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %80, ptr noundef nonnull align 4 dereferenceable(28) @constinit.56, i64 28, i1 false), !tbaa.struct !89
+  %81 = getelementptr inbounds i8, ptr %11, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %81, ptr noundef nonnull align 4 dereferenceable(28) @constinit.81, i64 28, i1 false), !tbaa.struct !89
+  %82 = getelementptr inbounds i8, ptr %11, i64 84
+  store i32 1, ptr %82, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %77, ptr noundef nonnull %22, i32 noundef %79, ptr noundef nonnull %11, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #21
+  %84 = load ptr, ptr %23, align 8, !tbaa !88
+  %85 = call i32 (...) %84() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) @constinit.59, i64 28, i1 false), !tbaa.struct !89
-  %85 = getelementptr inbounds i8, ptr %12, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %85, ptr noundef nonnull align 4 dereferenceable(28) @constinit.80, i64 28, i1 false), !tbaa.struct !89
-  %86 = getelementptr inbounds i8, ptr %12, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %86, ptr noundef nonnull align 4 dereferenceable(28) @constinit.73, i64 28, i1 false), !tbaa.struct !89
-  %87 = getelementptr inbounds i8, ptr %12, i64 84
-  store i32 1, ptr %87, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %82, ptr noundef nonnull %21, i32 noundef %84, ptr noundef nonnull %12, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %88 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #21
-  %89 = load ptr, ptr %22, align 8, !tbaa !88
-  %90 = call i32 (...) %89() #21
+  %86 = getelementptr inbounds i8, ptr %12, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %86, ptr noundef nonnull align 4 dereferenceable(28) @constinit.80, i64 28, i1 false), !tbaa.struct !89
+  %87 = getelementptr inbounds i8, ptr %12, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %87, ptr noundef nonnull align 4 dereferenceable(28) @constinit.73, i64 28, i1 false), !tbaa.struct !89
+  %88 = getelementptr inbounds i8, ptr %12, i64 84
+  store i32 1, ptr %88, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %83, ptr noundef nonnull %22, i32 noundef %85, ptr noundef nonnull %12, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %89 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #21
+  %90 = load ptr, ptr %23, align 8, !tbaa !88
+  %91 = call i32 (...) %90() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %13, ptr noundef nonnull align 4 dereferenceable(28) @constinit.63, i64 28, i1 false), !tbaa.struct !89
-  %91 = getelementptr inbounds i8, ptr %13, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %91, ptr noundef nonnull align 4 dereferenceable(28) @constinit.64, i64 28, i1 false), !tbaa.struct !89
-  %92 = getelementptr inbounds i8, ptr %13, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %92, ptr noundef nonnull align 4 dereferenceable(28) @constinit.65, i64 28, i1 false), !tbaa.struct !89
-  %93 = getelementptr inbounds i8, ptr %13, i64 84
-  store i32 1, ptr %93, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %88, ptr noundef nonnull %21, i32 noundef %90, ptr noundef nonnull %13, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #21
-  %95 = load ptr, ptr %22, align 8, !tbaa !88
-  %96 = call i32 (...) %95() #21
+  %92 = getelementptr inbounds i8, ptr %13, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %92, ptr noundef nonnull align 4 dereferenceable(28) @constinit.64, i64 28, i1 false), !tbaa.struct !89
+  %93 = getelementptr inbounds i8, ptr %13, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %93, ptr noundef nonnull align 4 dereferenceable(28) @constinit.65, i64 28, i1 false), !tbaa.struct !89
+  %94 = getelementptr inbounds i8, ptr %13, i64 84
+  store i32 1, ptr %94, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %89, ptr noundef nonnull %22, i32 noundef %91, ptr noundef nonnull %13, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %95 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #21
+  %96 = load ptr, ptr %23, align 8, !tbaa !88
+  %97 = call i32 (...) %96() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, ptr noundef nonnull align 4 dereferenceable(28) @constinit.67, i64 28, i1 false), !tbaa.struct !89
-  %97 = getelementptr inbounds i8, ptr %14, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %97, ptr noundef nonnull align 4 dereferenceable(28) @constinit.76, i64 28, i1 false), !tbaa.struct !89
-  %98 = getelementptr inbounds i8, ptr %14, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %98, ptr noundef nonnull align 4 dereferenceable(28) @constinit.85, i64 28, i1 false), !tbaa.struct !89
-  %99 = getelementptr inbounds i8, ptr %14, i64 84
-  store i32 1, ptr %99, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %94, ptr noundef nonnull %21, i32 noundef %96, ptr noundef nonnull %14, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %100 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #21
-  %101 = load ptr, ptr %22, align 8, !tbaa !88
-  %102 = call i32 (...) %101() #21
+  %98 = getelementptr inbounds i8, ptr %14, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %98, ptr noundef nonnull align 4 dereferenceable(28) @constinit.76, i64 28, i1 false), !tbaa.struct !89
+  %99 = getelementptr inbounds i8, ptr %14, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %99, ptr noundef nonnull align 4 dereferenceable(28) @constinit.85, i64 28, i1 false), !tbaa.struct !89
+  %100 = getelementptr inbounds i8, ptr %14, i64 84
+  store i32 1, ptr %100, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %95, ptr noundef nonnull %22, i32 noundef %97, ptr noundef nonnull %14, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %101 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #21
+  %102 = load ptr, ptr %23, align 8, !tbaa !88
+  %103 = call i32 (...) %102() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, ptr noundef nonnull align 4 dereferenceable(28) @constinit.71, i64 28, i1 false), !tbaa.struct !89
-  %103 = getelementptr inbounds i8, ptr %15, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %103, ptr noundef nonnull align 4 dereferenceable(28) @constinit.72, i64 28, i1 false), !tbaa.struct !89
-  %104 = getelementptr inbounds i8, ptr %15, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %104, ptr noundef nonnull align 4 dereferenceable(28) @constinit.73, i64 28, i1 false), !tbaa.struct !89
-  %105 = getelementptr inbounds i8, ptr %15, i64 84
-  store i32 1, ptr %105, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %100, ptr noundef nonnull %21, i32 noundef %102, ptr noundef nonnull %15, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %106 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef 5) #21
-  %107 = load ptr, ptr %22, align 8, !tbaa !88
-  %108 = call i32 (...) %107() #21
+  %104 = getelementptr inbounds i8, ptr %15, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %104, ptr noundef nonnull align 4 dereferenceable(28) @constinit.72, i64 28, i1 false), !tbaa.struct !89
+  %105 = getelementptr inbounds i8, ptr %15, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %105, ptr noundef nonnull align 4 dereferenceable(28) @constinit.73, i64 28, i1 false), !tbaa.struct !89
+  %106 = getelementptr inbounds i8, ptr %15, i64 84
+  store i32 1, ptr %106, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %101, ptr noundef nonnull %22, i32 noundef %103, ptr noundef nonnull %15, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %107 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef 5) #21
+  %108 = load ptr, ptr %23, align 8, !tbaa !88
+  %109 = call i32 (...) %108() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %16, ptr noundef nonnull align 4 dereferenceable(28) @constinit.75, i64 28, i1 false), !tbaa.struct !89
-  %109 = getelementptr inbounds i8, ptr %16, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %109, ptr noundef nonnull align 4 dereferenceable(28) @constinit.76, i64 28, i1 false), !tbaa.struct !89
-  %110 = getelementptr inbounds i8, ptr %16, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %110, ptr noundef nonnull align 4 dereferenceable(28) @constinit.77, i64 28, i1 false), !tbaa.struct !89
-  %111 = getelementptr inbounds i8, ptr %16, i64 84
-  store i32 1, ptr %111, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %106, ptr noundef nonnull %21, i32 noundef %108, ptr noundef nonnull %16, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %112 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #21
-  %113 = load ptr, ptr %22, align 8, !tbaa !88
-  %114 = call i32 (...) %113() #21
+  %110 = getelementptr inbounds i8, ptr %16, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %110, ptr noundef nonnull align 4 dereferenceable(28) @constinit.76, i64 28, i1 false), !tbaa.struct !89
+  %111 = getelementptr inbounds i8, ptr %16, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %111, ptr noundef nonnull align 4 dereferenceable(28) @constinit.77, i64 28, i1 false), !tbaa.struct !89
+  %112 = getelementptr inbounds i8, ptr %16, i64 84
+  store i32 1, ptr %112, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %107, ptr noundef nonnull %22, i32 noundef %109, ptr noundef nonnull %16, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %113 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #21
+  %114 = load ptr, ptr %23, align 8, !tbaa !88
+  %115 = call i32 (...) %114() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %17, ptr noundef nonnull align 4 dereferenceable(28) @constinit.79, i64 28, i1 false), !tbaa.struct !89
-  %115 = getelementptr inbounds i8, ptr %17, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %115, ptr noundef nonnull align 4 dereferenceable(28) @constinit.80, i64 28, i1 false), !tbaa.struct !89
-  %116 = getelementptr inbounds i8, ptr %17, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %116, ptr noundef nonnull align 4 dereferenceable(28) @constinit.81, i64 28, i1 false), !tbaa.struct !89
-  %117 = getelementptr inbounds i8, ptr %17, i64 84
-  store i32 1, ptr %117, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %112, ptr noundef nonnull %21, i32 noundef %114, ptr noundef nonnull %17, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %118 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef 5) #21
-  %119 = load ptr, ptr %22, align 8, !tbaa !88
-  %120 = call i32 (...) %119() #21
+  %116 = getelementptr inbounds i8, ptr %17, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %116, ptr noundef nonnull align 4 dereferenceable(28) @constinit.80, i64 28, i1 false), !tbaa.struct !89
+  %117 = getelementptr inbounds i8, ptr %17, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %117, ptr noundef nonnull align 4 dereferenceable(28) @constinit.81, i64 28, i1 false), !tbaa.struct !89
+  %118 = getelementptr inbounds i8, ptr %17, i64 84
+  store i32 1, ptr %118, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %113, ptr noundef nonnull %22, i32 noundef %115, ptr noundef nonnull %17, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %119 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef 5) #21
+  %120 = load ptr, ptr %23, align 8, !tbaa !88
+  %121 = call i32 (...) %120() #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, ptr noundef nonnull align 4 dereferenceable(28) @constinit.83, i64 28, i1 false), !tbaa.struct !89
-  %121 = getelementptr inbounds i8, ptr %18, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %121, ptr noundef nonnull align 4 dereferenceable(28) @constinit.84, i64 28, i1 false), !tbaa.struct !89
-  %122 = getelementptr inbounds i8, ptr %18, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %122, ptr noundef nonnull align 4 dereferenceable(28) @constinit.85, i64 28, i1 false), !tbaa.struct !89
-  %123 = getelementptr inbounds i8, ptr %18, i64 84
-  store i32 1, ptr %123, align 4, !tbaa !58
-  call void @dt_gui_presets_add_generic(ptr noundef %118, ptr noundef nonnull %21, i32 noundef %120, ptr noundef nonnull %18, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
-  %124 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !87
-  call void @dt_database_release_transaction(ptr noundef %124) #21
+  %122 = getelementptr inbounds i8, ptr %18, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %122, ptr noundef nonnull align 4 dereferenceable(28) @constinit.84, i64 28, i1 false), !tbaa.struct !89
+  %123 = getelementptr inbounds i8, ptr %18, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %123, ptr noundef nonnull align 4 dereferenceable(28) @constinit.85, i64 28, i1 false), !tbaa.struct !89
+  %124 = getelementptr inbounds i8, ptr %18, i64 84
+  store i32 1, ptr %124, align 4, !tbaa !58
+  call void @dt_gui_presets_add_generic(ptr noundef %119, ptr noundef nonnull %22, i32 noundef %121, ptr noundef nonnull %18, i32 noundef 88, i32 noundef 1, i32 noundef 3) #21
+  %125 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %126 = load ptr, ptr %125, align 8, !tbaa !87
+  call void @dt_database_release_transaction(ptr noundef %126) #21
   ret void
 }
 
@@ -1870,25 +1879,36 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %6 = or i1 %5, %4
-  br i1 %6, label %8, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7), align 8, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7), align 16, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7), align 8, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7), align 16, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 7), align 8, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 0, i32 7), align 16, !tbaa !90
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 8, i32 0, i32 7), align 8, !tbaa !90
-  store ptr @introspection_init.f6, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 2), align 8, !tbaa !90
-  store ptr @introspection_init.f7, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 2), align 16, !tbaa !90
-  br label %8
+  %8 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7
+  store ptr %0, ptr %8, align 8, !tbaa !90
+  %9 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7
+  store ptr %0, ptr %9, align 16, !tbaa !90
+  %10 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 7
+  store ptr %0, ptr %10, align 8, !tbaa !90
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 7
+  store ptr %0, ptr %11, align 16, !tbaa !90
+  %12 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 7
+  store ptr %0, ptr %12, align 8, !tbaa !90
+  %13 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 7
+  store ptr %0, ptr %13, align 16, !tbaa !90
+  %14 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 7
+  store ptr %0, ptr %14, align 8, !tbaa !90
+  %15 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 0, i32 7
+  store ptr %0, ptr %15, align 16, !tbaa !90
+  %16 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 8, i32 0, i32 7
+  store ptr %0, ptr %16, align 8, !tbaa !90
+  %17 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 2
+  store ptr @introspection_init.f6, ptr %17, align 8, !tbaa !90
+  %18 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 7, i32 0, i32 2
+  store ptr @introspection_init.f7, ptr %18, align 16, !tbaa !90
+  br label %19
 
-8:                                                ; preds = %7, %2
-  %9 = phi i32 [ 0, %7 ], [ 1, %2 ]
-  ret i32 %9
+19:                                               ; preds = %7, %2
+  %20 = phi i32 [ 0, %7 ], [ 1, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -1957,42 +1977,48 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.89) #21
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %23, label %4
+  br i1 %3, label %29, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.11) #21
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %23, label %7
+  %7 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0
+  br i1 %6, label %29, label %8
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.90) #21
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %23, label %10
+8:                                                ; preds = %4
+  %9 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.90) #21
+  %10 = icmp eq i32 %9, 0
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0
+  br i1 %10, label %29, label %12
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.12) #21
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %23, label %13
+12:                                               ; preds = %8
+  %13 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.12) #21
+  %14 = icmp eq i32 %13, 0
+  %15 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0
+  br i1 %14, label %29, label %16
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.91) #21
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %23, label %16
-
-16:                                               ; preds = %13
-  %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.13) #21
+16:                                               ; preds = %12
+  %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.91) #21
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %23, label %19
+  %19 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0
+  br i1 %18, label %29, label %20
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.92) #21
-  %21 = icmp eq i32 %20, 0
-  %22 = select i1 %21, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 0), ptr null
-  br label %23
+20:                                               ; preds = %16
+  %21 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.13) #21
+  %22 = icmp eq i32 %21, 0
+  %23 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 0
+  br i1 %22, label %29, label %24
 
-23:                                               ; preds = %19, %16, %13, %10, %7, %4, %1
-  %24 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 0), %4 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 0, i32 0), %7 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 3, i32 0, i32 0, i32 0), %10 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 4, i32 0, i32 0, i32 0), %13 ], [ getelementptr inbounds (<{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 5, i32 0, i32 0, i32 0), %16 ], [ %22, %19 ]
-  ret ptr %24
+24:                                               ; preds = %20
+  %25 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.92) #21
+  %26 = icmp eq i32 %25, 0
+  %27 = getelementptr inbounds <{ { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_float_t, [8 x i8] }, { %struct.dt_introspection_type_array_t }, { %struct.dt_introspection_type_enum_t }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 6, i32 0, i32 0, i32 0
+  %28 = select i1 %26, ptr %27, ptr null
+  br label %29
+
+29:                                               ; preds = %24, %20, %16, %12, %8, %4, %1
+  %30 = phi ptr [ @introspection_linear, %1 ], [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %28, %24 ]
+  ret ptr %30
 }
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3

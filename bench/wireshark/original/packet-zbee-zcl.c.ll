@@ -2926,7 +2926,7 @@ define internal void @dissect_zcl_array_type(ptr noundef %0, ptr noundef %1, ptr
   store i32 %18, ptr %14, align 4
   br label %19
 
-19:                                               ; preds = %70, %6
+19:                                               ; preds = %71, %6
   %20 = load ptr, ptr %9, align 8
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %14, align 4
@@ -2941,7 +2941,7 @@ define internal void @dissect_zcl_array_type(ptr noundef %0, ptr noundef %1, ptr
 
 28:                                               ; preds = %24, %19
   %29 = phi i1 [ false, %19 ], [ %27, %24 ]
-  br i1 %29, label %30, label %75
+  br i1 %29, label %30, label %76
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %15, align 4
@@ -2960,53 +2960,54 @@ define internal void @dissect_zcl_array_type(ptr noundef %0, ptr noundef %1, ptr
   %42 = load i32, ptr %15, align 4
   %43 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 0, i32 noundef %41, ptr noundef null, ptr noundef @.str.829, i32 noundef %42)
   store ptr %43, ptr %13, align 8
-  br label %52
+  br label %53
 
 44:                                               ; preds = %30
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %9, align 8
   %48 = load i32, ptr %47, align 4
-  %49 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 15), align 4
-  %50 = load i32, ptr %15, align 4
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %46, i32 noundef %48, i32 noundef 0, i32 noundef %49, ptr noundef null, ptr noundef @.str.829, i32 noundef %50)
-  store ptr %51, ptr %13, align 8
-  br label %52
+  %49 = getelementptr inbounds [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 15
+  %50 = load i32, ptr %49, align 4
+  %51 = load i32, ptr %15, align 4
+  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %46, i32 noundef %48, i32 noundef 0, i32 noundef %50, ptr noundef null, ptr noundef @.str.829, i32 noundef %51)
+  store ptr %52, ptr %13, align 8
+  br label %53
 
-52:                                               ; preds = %44, %33
-  %53 = load ptr, ptr %9, align 8
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %16, align 4
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %13, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i8, ptr %10, align 1
-  %59 = zext i8 %58 to i32
-  %60 = load i32, ptr %12, align 4
-  call void @dissect_zcl_attr_data(ptr noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %59, i32 noundef %60)
-  %61 = load i32, ptr %16, align 4
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp uge i32 %61, %63
-  br i1 %64, label %65, label %70
+53:                                               ; preds = %44, %33
+  %54 = load ptr, ptr %9, align 8
+  %55 = load i32, ptr %54, align 4
+  store i32 %55, ptr %16, align 4
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr %13, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i8, ptr %10, align 1
+  %60 = zext i8 %59 to i32
+  %61 = load i32, ptr %12, align 4
+  call void @dissect_zcl_attr_data(ptr noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %60, i32 noundef %61)
+  %62 = load i32, ptr %16, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp uge i32 %62, %64
+  br i1 %65, label %66, label %71
 
-65:                                               ; preds = %52
-  %66 = load ptr, ptr %13, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = load i32, ptr %16, align 4
-  %69 = call ptr @proto_tree_add_expert(ptr noundef %66, ptr noundef null, ptr noundef @ei_zbee_zero_length_element, ptr noundef %67, i32 noundef %68, i32 noundef -1)
-  br label %75
+66:                                               ; preds = %53
+  %67 = load ptr, ptr %13, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %16, align 4
+  %70 = call ptr @proto_tree_add_expert(ptr noundef %67, ptr noundef null, ptr noundef @ei_zbee_zero_length_element, ptr noundef %68, i32 noundef %69, i32 noundef -1)
+  br label %76
 
-70:                                               ; preds = %52
-  %71 = load i16, ptr %11, align 2
-  %72 = add i16 %71, -1
-  store i16 %72, ptr %11, align 2
-  %73 = load i32, ptr %15, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %15, align 4
+71:                                               ; preds = %53
+  %72 = load i16, ptr %11, align 2
+  %73 = add i16 %72, -1
+  store i16 %73, ptr %11, align 2
+  %74 = load i32, ptr %15, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %15, align 4
   br label %19, !llvm.loop !10
 
-75:                                               ; preds = %65, %28
+76:                                               ; preds = %66, %28
   ret void
 }
 
@@ -3034,7 +3035,7 @@ define internal void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %18, ptr %14, align 4
   br label %19
 
-19:                                               ; preds = %68, %6
+19:                                               ; preds = %69, %6
   %20 = load ptr, ptr %9, align 8
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %14, align 4
@@ -3049,7 +3050,7 @@ define internal void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1, ptr n
 
 28:                                               ; preds = %24, %19
   %29 = phi i1 [ false, %19 ], [ %27, %24 ]
-  br i1 %29, label %30, label %73
+  br i1 %29, label %30, label %74
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %15, align 4
@@ -3067,52 +3068,53 @@ define internal void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1, ptr n
   %41 = load i32, ptr %40, align 4
   %42 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 0, i32 noundef %41, ptr noundef null, ptr noundef @.str.830)
   store ptr %42, ptr %13, align 8
-  br label %50
+  br label %51
 
 43:                                               ; preds = %30
   %44 = load ptr, ptr %8, align 8
   %45 = load ptr, ptr %7, align 8
   %46 = load ptr, ptr %9, align 8
   %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 15), align 4
-  %49 = call ptr @proto_tree_add_subtree(ptr noundef %44, ptr noundef %45, i32 noundef %47, i32 noundef 0, i32 noundef %48, ptr noundef null, ptr noundef @.str.830)
-  store ptr %49, ptr %13, align 8
-  br label %50
+  %48 = getelementptr inbounds [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 15
+  %49 = load i32, ptr %48, align 4
+  %50 = call ptr @proto_tree_add_subtree(ptr noundef %44, ptr noundef %45, i32 noundef %47, i32 noundef 0, i32 noundef %49, ptr noundef null, ptr noundef @.str.830)
+  store ptr %50, ptr %13, align 8
+  br label %51
 
-50:                                               ; preds = %43, %33
-  %51 = load ptr, ptr %9, align 8
-  %52 = load i32, ptr %51, align 4
-  store i32 %52, ptr %16, align 4
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = load i8, ptr %10, align 1
-  %57 = zext i8 %56 to i32
-  %58 = load i32, ptr %12, align 4
-  call void @dissect_zcl_attr_data(ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %57, i32 noundef %58)
-  %59 = load i32, ptr %16, align 4
-  %60 = load ptr, ptr %9, align 8
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp uge i32 %59, %61
-  br i1 %62, label %63, label %68
+51:                                               ; preds = %43, %33
+  %52 = load ptr, ptr %9, align 8
+  %53 = load i32, ptr %52, align 4
+  store i32 %53, ptr %16, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = load i8, ptr %10, align 1
+  %58 = zext i8 %57 to i32
+  %59 = load i32, ptr %12, align 4
+  call void @dissect_zcl_attr_data(ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef %59)
+  %60 = load i32, ptr %16, align 4
+  %61 = load ptr, ptr %9, align 8
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp uge i32 %60, %62
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %50
-  %64 = load ptr, ptr %13, align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = load i32, ptr %16, align 4
-  %67 = call ptr @proto_tree_add_expert(ptr noundef %64, ptr noundef null, ptr noundef @ei_zbee_zero_length_element, ptr noundef %65, i32 noundef %66, i32 noundef -1)
-  br label %73
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %13, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = load i32, ptr %16, align 4
+  %68 = call ptr @proto_tree_add_expert(ptr noundef %65, ptr noundef null, ptr noundef @ei_zbee_zero_length_element, ptr noundef %66, i32 noundef %67, i32 noundef -1)
+  br label %74
 
-68:                                               ; preds = %50
-  %69 = load i16, ptr %11, align 2
-  %70 = add i16 %69, -1
-  store i16 %70, ptr %11, align 2
-  %71 = load i32, ptr %15, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %15, align 4
+69:                                               ; preds = %51
+  %70 = load i16, ptr %11, align 2
+  %71 = add i16 %70, -1
+  store i16 %71, ptr %11, align 2
+  %72 = load i32, ptr %15, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %15, align 4
   br label %19, !llvm.loop !11
 
-73:                                               ; preds = %63, %28
+74:                                               ; preds = %64, %28
   ret void
 }
 

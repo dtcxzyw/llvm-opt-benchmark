@@ -1052,17 +1052,18 @@ entry:
   %1 = load ptr, ptr %element.addr, align 8
   %2 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8DeformerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8DeformerE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::Deformer", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #14
-  %3 = load ptr, ptr %element.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %4 = load ptr, ptr %element.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %sc, align 8
-  %4 = load ptr, ptr %element.addr, align 8
-  %call3 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 2)
+  %5 = load ptr, ptr %element.addr, align 8
+  %call3 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1071,15 +1072,15 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   store ptr %ref.tmp, ptr %classname, align 8
-  %5 = load ptr, ptr %doc.addr, align 8
-  %6 = load ptr, ptr %classname, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %6 = load ptr, ptr %doc.addr, align 8
+  %7 = load ptr, ptr %classname, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont4
-  %7 = load ptr, ptr %element.addr, align 8
-  %8 = load ptr, ptr %sc, align 8
-  invoke void @_ZN6Assimp3FBX4Util16GetPropertyTableERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ElementERKNS0_5ScopeEb(ptr sret(%"class.std::shared_ptr") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(336) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext true)
+  %8 = load ptr, ptr %element.addr, align 8
+  %9 = load ptr, ptr %sc, align 8
+  invoke void @_ZN6Assimp3FBX4Util16GetPropertyTableERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ElementERKNS0_5ScopeEb(ptr sret(%"class.std::shared_ptr") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(336) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(48) %9, i1 noundef zeroext true)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -1091,30 +1092,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad7:                                            ; preds = %invoke.cont4
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #14
   br label %ehcleanup
 
@@ -1275,7 +1276,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8DeformerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8DeformerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::Deformer", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #14
   call void @_ZN6Assimp3FBX6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #14
@@ -1345,7 +1347,8 @@ entry:
   %2 = load ptr, ptr %doc.addr, align 8
   %3 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX8DeformerC2EmRKNS0_7ElementERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX7ClusterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX7ClusterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %weights = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weights) #14
   %indices = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 2
@@ -1356,87 +1359,87 @@ entry:
   call void @_ZN12aiMatrix4x4tIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %transformLink) #14
   %node = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 5
   store ptr null, ptr %node, align 8
-  %4 = load ptr, ptr %element.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %5 = load ptr, ptr %element.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %sc, align 8
-  %5 = load ptr, ptr %sc, align 8
+  %6 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   store ptr %call7, ptr %Indexes, align 8
-  %6 = load ptr, ptr %sc, align 8
+  %7 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont6
-  %call14 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
+  %call14 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   store ptr %call14, ptr %Weights, align 8
-  %7 = load ptr, ptr %sc, align 8
+  %8 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont13
-  %8 = load ptr, ptr %element.addr, align 8
-  %call23 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %8)
+  %9 = load ptr, ptr %element.addr, align 8
+  %call23 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %9)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #14
   store ptr %call23, ptr %Transform, align 8
-  %9 = load ptr, ptr %sc, align 8
+  %10 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont22
-  %10 = load ptr, ptr %element.addr, align 8
-  %call32 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef %10)
+  %11 = load ptr, ptr %element.addr, align 8
+  %call32 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef %11)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
   store ptr %call32, ptr %TransformLink, align 8
-  %11 = load ptr, ptr %Transform, align 8
-  invoke void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr sret(%class.aiMatrix4x4t) align 4 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(40) %11)
+  %12 = load ptr, ptr %Transform, align 8
+  invoke void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr sret(%class.aiMatrix4x4t) align 4 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(40) %12)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont31
   %transform37 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %transform37, ptr align 4 %ref.tmp35, i64 64, i1 false)
-  %12 = load ptr, ptr %TransformLink, align 8
-  invoke void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr sret(%class.aiMatrix4x4t) align 4 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(40) %12)
+  %13 = load ptr, ptr %TransformLink, align 8
+  invoke void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr sret(%class.aiMatrix4x4t) align 4 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont36
   %transformLink40 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %transformLink40, ptr align 4 %ref.tmp38, i64 64, i1 false)
-  %13 = load ptr, ptr %Indexes, align 8
-  %tobool = icmp ne ptr %13, null
+  %14 = load ptr, ptr %Indexes, align 8
+  %tobool = icmp ne ptr %14, null
   %lnot = xor i1 %tobool, true
   %lnot41 = xor i1 %lnot, true
   %conv = zext i1 %lnot41 to i32
-  %14 = load ptr, ptr %Weights, align 8
-  %tobool42 = icmp ne ptr %14, null
+  %15 = load ptr, ptr %Weights, align 8
+  %tobool42 = icmp ne ptr %15, null
   %lnot43 = xor i1 %tobool42, true
   %lnot44 = xor i1 %lnot43, true
   %conv45 = zext i1 %lnot44 to i32
@@ -1449,38 +1452,38 @@ if.then:                                          ; preds = %invoke.cont39
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.then
-  %15 = load ptr, ptr %element.addr, align 8
-  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef %15) #16
+  %16 = load ptr, ptr %element.addr, align 8
+  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef %16) #16
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
   unreachable
 
 lpad:                                             ; preds = %invoke.cont77, %if.end75, %invoke.cont57, %if.then55, %invoke.cont36, %invoke.cont31, %entry
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup106
 
 lpad3:                                            ; preds = %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
@@ -1489,21 +1492,21 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
   br label %ehcleanup106
 
 lpad10:                                           ; preds = %invoke.cont6
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad12:                                           ; preds = %invoke.cont11
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #14
   br label %ehcleanup16
 
@@ -1512,21 +1515,21 @@ ehcleanup16:                                      ; preds = %lpad12, %lpad10
   br label %ehcleanup106
 
 lpad19:                                           ; preds = %invoke.cont13
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 lpad21:                                           ; preds = %invoke.cont20
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #14
   br label %ehcleanup25
 
@@ -1535,21 +1538,21 @@ ehcleanup25:                                      ; preds = %lpad21, %lpad19
   br label %ehcleanup106
 
 lpad28:                                           ; preds = %invoke.cont22
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad30:                                           ; preds = %invoke.cont29
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #14
   br label %ehcleanup34
 
@@ -1558,21 +1561,21 @@ ehcleanup34:                                      ; preds = %lpad30, %lpad28
   br label %ehcleanup106
 
 lpad48:                                           ; preds = %if.then
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup53
 
 lpad50:                                           ; preds = %invoke.cont49
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #14
   br label %ehcleanup53
 
@@ -1581,20 +1584,20 @@ ehcleanup53:                                      ; preds = %lpad50, %lpad48
   br label %ehcleanup106
 
 if.end:                                           ; preds = %invoke.cont39
-  %49 = load ptr, ptr %Indexes, align 8
-  %tobool54 = icmp ne ptr %49, null
+  %50 = load ptr, ptr %Indexes, align 8
+  %tobool54 = icmp ne ptr %50, null
   br i1 %tobool54, label %if.then55, label %if.end60
 
 if.then55:                                        ; preds = %if.end
   %indices56 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 2
-  %50 = load ptr, ptr %Indexes, align 8
-  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %indices56, ptr noundef nonnull align 8 dereferenceable(40) %50)
+  %51 = load ptr, ptr %Indexes, align 8
+  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %indices56, ptr noundef nonnull align 8 dereferenceable(40) %51)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %if.then55
   %weights58 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 1
-  %51 = load ptr, ptr %Weights, align 8
-  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %weights58, ptr noundef nonnull align 8 dereferenceable(40) %51)
+  %52 = load ptr, ptr %Weights, align 8
+  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %weights58, ptr noundef nonnull align 8 dereferenceable(40) %52)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -1614,29 +1617,29 @@ if.then66:                                        ; preds = %if.end60
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %if.then66
-  %52 = load ptr, ptr %element.addr, align 8
-  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef %52) #16
+  %53 = load ptr, ptr %element.addr, align 8
+  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef %53) #16
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
   unreachable
 
 lpad69:                                           ; preds = %if.then66
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   br label %ehcleanup74
 
 lpad71:                                           ; preds = %invoke.cont70
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #14
   br label %ehcleanup74
 
@@ -1645,24 +1648,24 @@ ehcleanup74:                                      ; preds = %lpad71, %lpad69
   br label %ehcleanup106
 
 if.end75:                                         ; preds = %if.end60
-  %59 = load ptr, ptr %doc.addr, align 8
+  %60 = load ptr, ptr %doc.addr, align 8
   %call78 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %if.end75
-  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(336) %59, i64 noundef %call78, ptr noundef @.str.7)
+  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(336) %60, i64 noundef %call78, ptr noundef @.str.7)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont77
   store ptr %ref.tmp76, ptr %conns, align 8
-  %60 = load ptr, ptr %conns, align 8
-  store ptr %60, ptr %__range2, align 8
-  %61 = load ptr, ptr %__range2, align 8
-  %call80 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #14
+  %61 = load ptr, ptr %conns, align 8
+  store ptr %61, ptr %__range2, align 8
+  %62 = load ptr, ptr %__range2, align 8
+  %call80 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call80, ptr %coerce.dive, align 8
-  %62 = load ptr, ptr %__range2, align 8
-  %call81 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
+  %63 = load ptr, ptr %__range2, align 8
+  %call81 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #14
   %coerce.dive82 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call81, ptr %coerce.dive82, align 8
   br label %for.cond
@@ -1673,32 +1676,32 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKN6Assimp3FBX10ConnectionESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #14
-  %63 = load ptr, ptr %call84, align 8
-  store ptr %63, ptr %con, align 8
-  %64 = load ptr, ptr %con, align 8
-  %65 = load ptr, ptr %element.addr, align 8
-  %call87 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_5ModelEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %64, i1 noundef zeroext false, ptr noundef @.str.8, ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef null)
+  %64 = load ptr, ptr %call84, align 8
+  store ptr %64, ptr %con, align 8
+  %65 = load ptr, ptr %con, align 8
+  %66 = load ptr, ptr %element.addr, align 8
+  %call87 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_5ModelEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %65, i1 noundef zeroext false, ptr noundef @.str.8, ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef null)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %for.body
   store ptr %call87, ptr %mod, align 8
-  %66 = load ptr, ptr %mod, align 8
-  %tobool88 = icmp ne ptr %66, null
+  %67 = load ptr, ptr %mod, align 8
+  %tobool88 = icmp ne ptr %67, null
   br i1 %tobool88, label %if.then89, label %if.end91
 
 if.then89:                                        ; preds = %invoke.cont86
-  %67 = load ptr, ptr %mod, align 8
+  %68 = load ptr, ptr %mod, align 8
   %node90 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 5
-  store ptr %67, ptr %node90, align 8
+  store ptr %68, ptr %node90, align 8
   br label %for.end
 
 lpad85:                                           ; preds = %for.body
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   br label %ehcleanup105
 
 if.end91:                                         ; preds = %invoke.cont86
@@ -1710,8 +1713,8 @@ for.inc:                                          ; preds = %if.end91
 
 for.end:                                          ; preds = %if.then89, %for.cond
   %node93 = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 5
-  %71 = load ptr, ptr %node93, align 8
-  %tobool94 = icmp ne ptr %71, null
+  %72 = load ptr, ptr %node93, align 8
+  %tobool94 = icmp ne ptr %72, null
   br i1 %tobool94, label %if.end104, label %if.then95
 
 if.then95:                                        ; preds = %for.end
@@ -1720,29 +1723,29 @@ if.then95:                                        ; preds = %for.end
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %if.then95
-  %72 = load ptr, ptr %element.addr, align 8
-  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, ptr noundef %72) #16
+  %73 = load ptr, ptr %element.addr, align 8
+  invoke void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, ptr noundef %73) #16
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont99
   unreachable
 
 lpad98:                                           ; preds = %if.then95
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   br label %ehcleanup103
 
 lpad100:                                          ; preds = %invoke.cont99
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #14
   br label %ehcleanup103
 
@@ -2503,7 +2506,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX7ClusterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX7ClusterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %indices = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %indices) #14
   %weights = getelementptr inbounds %"class.Assimp::FBX::Cluster", ptr %this1, i32 0, i32 1
@@ -2555,37 +2559,38 @@ entry:
   %2 = load ptr, ptr %doc.addr, align 8
   %3 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX8DeformerC2EmRKNS0_7ElementERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX4SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX4SkinE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %accuracy = getelementptr inbounds %"class.Assimp::FBX::Skin", ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %accuracy, align 8
   %clusters = getelementptr inbounds %"class.Assimp::FBX::Skin", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPKN6Assimp3FBX7ClusterESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %clusters) #14
-  %4 = load ptr, ptr %element.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %5 = load ptr, ptr %element.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %sc, align 8
-  %5 = load ptr, ptr %sc, align 8
+  %6 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   store ptr %call7, ptr %Link_DeformAcuracy, align 8
-  %6 = load ptr, ptr %Link_DeformAcuracy, align 8
-  %tobool = icmp ne ptr %6, null
+  %7 = load ptr, ptr %Link_DeformAcuracy, align 8
+  %tobool = icmp ne ptr %7, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
-  %7 = load ptr, ptr %Link_DeformAcuracy, align 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
+  %8 = load ptr, ptr %Link_DeformAcuracy, align 8
+  %call9 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 0)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then
@@ -2598,30 +2603,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont14, %if.end, %invoke.cont8, %if.then, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
@@ -2630,31 +2635,31 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
   br label %ehcleanup35
 
 if.end:                                           ; preds = %invoke.cont10, %invoke.cont6
-  %17 = load ptr, ptr %doc.addr, align 8
+  %18 = load ptr, ptr %doc.addr, align 8
   %call15 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end
-  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(336) %17, i64 noundef %call15, ptr noundef @.str.11)
+  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(336) %18, i64 noundef %call15, ptr noundef @.str.11)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   store ptr %ref.tmp13, ptr %conns, align 8
   %clusters17 = getelementptr inbounds %"class.Assimp::FBX::Skin", ptr %this1, i32 0, i32 2
-  %18 = load ptr, ptr %conns, align 8
-  %call18 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  %19 = load ptr, ptr %conns, align 8
+  %call18 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
   invoke void @_ZNSt6vectorIPKN6Assimp3FBX7ClusterESaIS4_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %clusters17, i64 noundef %call18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  %19 = load ptr, ptr %conns, align 8
-  store ptr %19, ptr %__range2, align 8
-  %20 = load ptr, ptr %__range2, align 8
-  %call21 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  %20 = load ptr, ptr %conns, align 8
+  store ptr %20, ptr %__range2, align 8
+  %21 = load ptr, ptr %__range2, align 8
+  %call21 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call21, ptr %coerce.dive, align 8
-  %21 = load ptr, ptr %__range2, align 8
-  %call22 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #14
+  %22 = load ptr, ptr %__range2, align 8
+  %call22 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
   %coerce.dive23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call22, ptr %coerce.dive23, align 8
   br label %for.cond
@@ -2665,17 +2670,17 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKN6Assimp3FBX10ConnectionESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #14
-  %22 = load ptr, ptr %call25, align 8
-  store ptr %22, ptr %con, align 8
-  %23 = load ptr, ptr %con, align 8
-  %24 = load ptr, ptr %element.addr, align 8
-  %call27 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_7ClusterEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %23, i1 noundef zeroext false, ptr noundef @.str.12, ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef null)
+  %23 = load ptr, ptr %call25, align 8
+  store ptr %23, ptr %con, align 8
+  %24 = load ptr, ptr %con, align 8
+  %25 = load ptr, ptr %element.addr, align 8
+  %call27 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_7ClusterEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %24, i1 noundef zeroext false, ptr noundef @.str.12, ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef null)
           to label %invoke.cont26 unwind label %lpad19
 
 invoke.cont26:                                    ; preds = %for.body
   store ptr %call27, ptr %cluster, align 8
-  %25 = load ptr, ptr %cluster, align 8
-  %tobool28 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %cluster, align 8
+  %tobool28 = icmp ne ptr %26, null
   br i1 %tobool28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %invoke.cont26
@@ -2687,12 +2692,12 @@ invoke.cont31:                                    ; preds = %if.then29
   br label %for.inc
 
 lpad19:                                           ; preds = %if.then29, %for.body, %invoke.cont16
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13) #14
   br label %ehcleanup35
 
@@ -3248,7 +3253,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX4SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX4SkinE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %clusters = getelementptr inbounds %"class.Assimp::FBX::Skin", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPKN6Assimp3FBX7ClusterESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %clusters) #14
   call void @_ZN6Assimp3FBX8DeformerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #14
@@ -3296,34 +3302,35 @@ entry:
   %2 = load ptr, ptr %doc.addr, align 8
   %3 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX8DeformerC2EmRKNS0_7ElementERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX10BlendShapeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX10BlendShapeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %blendShapeChannels = getelementptr inbounds %"class.Assimp::FBX::BlendShape", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX17BlendShapeChannelESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %blendShapeChannels) #14
-  %4 = load ptr, ptr %doc.addr, align 8
+  %5 = load ptr, ptr %doc.addr, align 8
   %call = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(336) %4, i64 noundef %call, ptr noundef @.str.11)
+  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(336) %5, i64 noundef %call, ptr noundef @.str.11)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %ref.tmp, ptr %conns, align 8
   %blendShapeChannels3 = getelementptr inbounds %"class.Assimp::FBX::BlendShape", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %conns, align 8
-  %call4 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = load ptr, ptr %conns, align 8
+  %call4 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   invoke void @_ZNSt13unordered_setIPKN6Assimp3FBX17BlendShapeChannelESt4hashIS4_ESt8equal_toIS4_ESaIS4_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(56) %blendShapeChannels3, i64 noundef %call4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont2
-  %6 = load ptr, ptr %conns, align 8
-  store ptr %6, ptr %__range2, align 8
-  %7 = load ptr, ptr %__range2, align 8
-  %call7 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %7 = load ptr, ptr %conns, align 8
+  store ptr %7, ptr %__range2, align 8
+  %8 = load ptr, ptr %__range2, align 8
+  %call7 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call7, ptr %coerce.dive, align 8
-  %8 = load ptr, ptr %__range2, align 8
-  %call8 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = load ptr, ptr %__range2, align 8
+  %call8 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive9, align 8
   br label %for.cond
@@ -3334,17 +3341,17 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKN6Assimp3FBX10ConnectionESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #14
-  %9 = load ptr, ptr %call11, align 8
-  store ptr %9, ptr %con, align 8
-  %10 = load ptr, ptr %con, align 8
-  %11 = load ptr, ptr %element.addr, align 8
-  %call13 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_17BlendShapeChannelEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %10, i1 noundef zeroext false, ptr noundef @.str.13, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef null)
+  %10 = load ptr, ptr %call11, align 8
+  store ptr %10, ptr %con, align 8
+  %11 = load ptr, ptr %con, align 8
+  %12 = load ptr, ptr %element.addr, align 8
+  %call13 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_17BlendShapeChannelEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %11, i1 noundef zeroext false, ptr noundef @.str.13, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef null)
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %for.body
   store ptr %call13, ptr %bspc, align 8
-  %12 = load ptr, ptr %bspc, align 8
-  %tobool = icmp ne ptr %12, null
+  %13 = load ptr, ptr %bspc, align 8
+  %tobool = icmp ne ptr %13, null
   br i1 %tobool, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %invoke.cont12
@@ -3353,20 +3360,20 @@ if.then:                                          ; preds = %invoke.cont12
           to label %invoke.cont15 unwind label %lpad5
 
 invoke.cont15:                                    ; preds = %if.then
-  %13 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 0
-  %14 = extractvalue { ptr, i8 } %call16, 0
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 1
-  %16 = extractvalue { ptr, i8 } %call16, 1
-  store i8 %16, ptr %15, align 8
+  %14 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 0
+  %15 = extractvalue { ptr, i8 } %call16, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 1
+  %17 = extractvalue { ptr, i8 } %call16, 1
+  store i8 %17, ptr %16, align 8
   %second = getelementptr inbounds %"struct.std::pair", ptr %pr, i32 0, i32 1
-  %17 = load i8, ptr %second, align 8
-  %tobool17 = trunc i8 %17 to i1
+  %18 = load i8, ptr %second, align 8
+  %tobool17 = trunc i8 %18 to i1
   br i1 %tobool17, label %if.end, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont15
-  %18 = load ptr, ptr %bspc, align 8
-  %call21 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  %19 = load ptr, ptr %bspc, align 8
+  %call21 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
           to label %invoke.cont20 unwind label %lpad5
 
 invoke.cont20:                                    ; preds = %if.then18
@@ -3378,21 +3385,21 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont20, %if.then18, %if.then, %for.body, %invoke.cont2
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #14
   br label %ehcleanup
 
@@ -3850,7 +3857,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX10BlendShapeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX10BlendShapeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %blendShapeChannels = getelementptr inbounds %"class.Assimp::FBX::BlendShape", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX17BlendShapeChannelESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %blendShapeChannels) #14
   call void @_ZN6Assimp3FBX8DeformerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #14
@@ -3905,37 +3913,38 @@ entry:
   %2 = load ptr, ptr %doc.addr, align 8
   %3 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX8DeformerC2EmRKNS0_7ElementERKNS0_8DocumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX17BlendShapeChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX17BlendShapeChannelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %fullWeights = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %fullWeights) #14
   %shapeGeometries = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX13ShapeGeometryESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %shapeGeometries) #14
-  %4 = load ptr, ptr %element.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %5 = load ptr, ptr %element.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %sc, align 8
-  %5 = load ptr, ptr %sc, align 8
+  %6 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call7 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   store ptr %call7, ptr %DeformPercent, align 8
-  %6 = load ptr, ptr %DeformPercent, align 8
-  %tobool = icmp ne ptr %6, null
+  %7 = load ptr, ptr %DeformPercent, align 8
+  %tobool = icmp ne ptr %7, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
-  %7 = load ptr, ptr %DeformPercent, align 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
+  %8 = load ptr, ptr %DeformPercent, align 8
+  %call9 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 0)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then
@@ -3948,30 +3957,30 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont27, %if.end25, %if.then22, %invoke.cont8, %if.then, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup56
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
@@ -3980,48 +3989,48 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
   br label %ehcleanup56
 
 if.end:                                           ; preds = %invoke.cont10, %invoke.cont6
-  %17 = load ptr, ptr %sc, align 8
+  %18 = load ptr, ptr %sc, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.end
-  %call18 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
+  %call18 = invoke noundef ptr @_ZNK6Assimp3FBX5ScopeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #14
   store ptr %call18, ptr %FullWeights, align 8
-  %18 = load ptr, ptr %FullWeights, align 8
-  %tobool21 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %FullWeights, align 8
+  %tobool21 = icmp ne ptr %19, null
   br i1 %tobool21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %invoke.cont17
   %fullWeights23 = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 2
-  %19 = load ptr, ptr %FullWeights, align 8
-  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %fullWeights23, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %20 = load ptr, ptr %FullWeights, align 8
+  invoke void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %fullWeights23, ptr noundef nonnull align 8 dereferenceable(40) %20)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.then22
   br label %if.end25
 
 lpad14:                                           ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup20
 
 lpad16:                                           ; preds = %invoke.cont15
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #14
   br label %ehcleanup20
 
@@ -4030,31 +4039,31 @@ ehcleanup20:                                      ; preds = %lpad16, %lpad14
   br label %ehcleanup56
 
 if.end25:                                         ; preds = %invoke.cont24, %invoke.cont17
-  %26 = load ptr, ptr %doc.addr, align 8
+  %27 = load ptr, ptr %doc.addr, align 8
   %call28 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %if.end25
-  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(336) %26, i64 noundef %call28, ptr noundef @.str.17)
+  invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr sret(%"class.std::vector.46") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(336) %27, i64 noundef %call28, ptr noundef @.str.17)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   store ptr %ref.tmp26, ptr %conns, align 8
   %shapeGeometries30 = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 3
-  %27 = load ptr, ptr %conns, align 8
-  %call31 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
+  %28 = load ptr, ptr %conns, align 8
+  %call31 = call noundef i64 @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
   invoke void @_ZNSt13unordered_setIPKN6Assimp3FBX13ShapeGeometryESt4hashIS4_ESt8equal_toIS4_ESaIS4_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(56) %shapeGeometries30, i64 noundef %call31)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  %28 = load ptr, ptr %conns, align 8
-  store ptr %28, ptr %__range2, align 8
-  %29 = load ptr, ptr %__range2, align 8
-  %call34 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  %29 = load ptr, ptr %conns, align 8
+  store ptr %29, ptr %__range2, align 8
+  %30 = load ptr, ptr %__range2, align 8
+  %call34 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call34, ptr %coerce.dive, align 8
-  %30 = load ptr, ptr %__range2, align 8
-  %call35 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
+  %31 = load ptr, ptr %__range2, align 8
+  %call35 = call ptr @_ZNKSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
   %coerce.dive36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call35, ptr %coerce.dive36, align 8
   br label %for.cond
@@ -4065,17 +4074,17 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
 
 for.body:                                         ; preds = %for.cond
   %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKN6Assimp3FBX10ConnectionESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #14
-  %31 = load ptr, ptr %call38, align 8
-  store ptr %31, ptr %con, align 8
-  %32 = load ptr, ptr %con, align 8
-  %33 = load ptr, ptr %element.addr, align 8
-  %call40 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_13ShapeGeometryEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %32, i1 noundef zeroext false, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef null)
+  %32 = load ptr, ptr %call38, align 8
+  store ptr %32, ptr %con, align 8
+  %33 = load ptr, ptr %con, align 8
+  %34 = load ptr, ptr %element.addr, align 8
+  %call40 = invoke noundef ptr @_ZN6Assimp3FBX4Util23ProcessSimpleConnectionINS0_13ShapeGeometryEEEPKT_RKNS0_10ConnectionEbPKcRKNS0_7ElementEPSB_(ptr noundef nonnull align 8 dereferenceable(64) %33, i1 noundef zeroext false, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef null)
           to label %invoke.cont39 unwind label %lpad32
 
 invoke.cont39:                                    ; preds = %for.body
   store ptr %call40, ptr %sg, align 8
-  %34 = load ptr, ptr %sg, align 8
-  %tobool41 = icmp ne ptr %34, null
+  %35 = load ptr, ptr %sg, align 8
+  %tobool41 = icmp ne ptr %35, null
   br i1 %tobool41, label %if.then42, label %if.end53
 
 if.then42:                                        ; preds = %invoke.cont39
@@ -4084,20 +4093,20 @@ if.then42:                                        ; preds = %invoke.cont39
           to label %invoke.cont44 unwind label %lpad32
 
 invoke.cont44:                                    ; preds = %if.then42
-  %35 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 0
-  %36 = extractvalue { ptr, i8 } %call45, 0
-  store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 1
-  %38 = extractvalue { ptr, i8 } %call45, 1
-  store i8 %38, ptr %37, align 8
+  %36 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 0
+  %37 = extractvalue { ptr, i8 } %call45, 0
+  store ptr %37, ptr %36, align 8
+  %38 = getelementptr inbounds { ptr, i8 }, ptr %pr, i32 0, i32 1
+  %39 = extractvalue { ptr, i8 } %call45, 1
+  store i8 %39, ptr %38, align 8
   %second = getelementptr inbounds %"struct.std::pair.82", ptr %pr, i32 0, i32 1
-  %39 = load i8, ptr %second, align 8
-  %tobool46 = trunc i8 %39 to i1
+  %40 = load i8, ptr %second, align 8
+  %tobool46 = trunc i8 %40 to i1
   br i1 %tobool46, label %if.end52, label %if.then47
 
 if.then47:                                        ; preds = %invoke.cont44
-  %40 = load ptr, ptr %sg, align 8
-  %call50 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %40)
+  %41 = load ptr, ptr %sg, align 8
+  %call50 = invoke noundef i64 @_ZNK6Assimp3FBX6Object2IDEv(ptr noundef nonnull align 8 dereferenceable(56) %41)
           to label %invoke.cont49 unwind label %lpad32
 
 invoke.cont49:                                    ; preds = %if.then47
@@ -4109,12 +4118,12 @@ invoke.cont51:                                    ; preds = %invoke.cont49
   br label %if.end52
 
 lpad32:                                           ; preds = %invoke.cont49, %if.then47, %if.then42, %for.body, %invoke.cont29
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp26) #14
   br label %ehcleanup56
 
@@ -4573,7 +4582,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX17BlendShapeChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX17BlendShapeChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %shapeGeometries = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX13ShapeGeometryESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %shapeGeometries) #14
   %fullWeights = getelementptr inbounds %"class.Assimp::FBX::BlendShapeChannel", ptr %this1, i32 0, i32 2
@@ -4893,7 +4903,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   ret void

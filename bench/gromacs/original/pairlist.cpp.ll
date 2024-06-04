@@ -4109,7 +4109,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4123,7 +4124,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9940,7 +9942,7 @@ define internal void @_ZN11PairlistSetC2ERK14PairlistParams.omp_outlined(ptr noa
 
 63:                                               ; preds = %59
   %64 = load i32, ptr %20, align 4
-  %65 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #12
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #12
   %66 = icmp eq i32 %64, %65
   br i1 %66, label %67, label %85
 
@@ -10061,9 +10063,6 @@ define linkonce_odr void @_ZNSt10unique_ptrI8t_nblistSt14default_deleteIS0_EED2E
   store ptr null, ptr %15, align 8
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) #4
@@ -16592,7 +16591,7 @@ define internal void @_ZN11PairlistSet18constructPairlistsEN3gmx19InteractionLoc
 
 120:                                              ; preds = %116
   %121 = load i32, ptr %49, align 4
-  %122 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #12
+  %122 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #12
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %124, label %237
 
@@ -21080,7 +21079,7 @@ define internal void @_ZN11PairlistSet18constructPairlistsEN3gmx19InteractionLoc
 
 61:                                               ; preds = %57
   %62 = load i32, ptr %19, align 4
-  %63 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #12
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #12
   %64 = icmp eq i32 %62, %63
   br i1 %64, label %65, label %83
 
@@ -24741,10 +24740,10 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(12) ptr @_ZN3gmx11Ba
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #14
+declare float @llvm.fmuladd.f32(float, float, float) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #14
+declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef float @_ZN3gmx6power3IfEET_S1_(float noundef %0) #1 comdat {
@@ -24929,7 +24928,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(48) ptr @_ZNSt14__ar
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.rint.f32(float) #14
+declare float @llvm.rint.f32(float) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
@@ -28009,7 +28008,7 @@ define internal void @_ZL22setExclusionsForIEntryRKN5Nbnxm7GridSetEP16NbnxnPairl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13make_fep_listN3gmx8ArrayRefIKiEEPK16nbnxn_atomdata_tP16NbnxnPairlistCpubffffRKN5Nbnxm4GridESB_P8t_nblist(ptr %0, ptr %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef nonnull align 8 dereferenceable(372) %9, ptr noundef nonnull align 8 dereferenceable(372) %10, ptr noundef %11) #15 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL13make_fep_listN3gmx8ArrayRefIKiEEPK16nbnxn_atomdata_tP16NbnxnPairlistCpubffffRKN5Nbnxm4GridESB_P8t_nblist(ptr %0, ptr %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef nonnull align 8 dereferenceable(372) %9, ptr noundef nonnull align 8 dereferenceable(372) %10, ptr noundef %11) #14 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"class.gmx::ArrayRef.181", align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -29589,7 +29588,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14__arr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #14
+declare float @llvm.fabs.f32(float) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx12ArrayRefIterIKN5Nbnxm11BoundingBoxEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
@@ -31831,7 +31830,7 @@ define linkonce_odr noundef ptr @_ZNSt6vectorIfSaIfEE4dataEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN5NbnxmL27clusterBoundingBoxDistance2ERKNS_11BoundingBoxES2_(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1) #16 {
+define internal noundef float @_ZN5NbnxmL27clusterBoundingBoxDistance2ERKNS_11BoundingBoxES2_(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1) #15 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -32055,7 +32054,7 @@ define linkonce_odr noundef ptr @_ZNKSt6vectorIfSaIfEE11_M_data_ptrIfEEPT_S4_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv() #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv() #15 {
   %1 = alloca <4 x float>, align 16
   %2 = alloca %"class.gmx::Simd4Float", align 16
   store <4 x float> zeroinitializer, ptr %1, align 16
@@ -32067,7 +32066,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv() #16 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN5NbnxmL21loadBoundingBoxCornerIN3gmx10Simd4FloatEEENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EES2_E4typeERKNS_11BoundingBox6CornerE(ptr noundef nonnull align 4 dereferenceable(16) %0) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN5NbnxmL21loadBoundingBoxCornerIN3gmx10Simd4FloatEEENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EES2_E4typeERKNS_11BoundingBox6CornerE(ptr noundef nonnull align 4 dereferenceable(16) %0) #15 {
   %2 = alloca %"class.gmx::Simd4Float", align 16
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -32082,7 +32081,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN5NbnxmL21loadBoundingBoxCornerI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxmiENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxmiENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #15 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -32108,7 +32107,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN3gmxmiENS_10Simd4FloatES0_(<4 x
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxL3maxENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxL3maxENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #15 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -32134,7 +32133,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN3gmxL3maxENS_10Simd4FloatES0_(<
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc noundef float @_ZN3gmxL10dotProductENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc noundef float @_ZN3gmxL10dotProductENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #15 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca <4 x float>, align 16
@@ -32182,7 +32181,7 @@ define internal x86_vectorcallcc noundef float @_ZN3gmxL10dotProductENS_10Simd4F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #16 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <4 x float>, align 16
   store ptr %0, ptr %3, align 8
@@ -32195,7 +32194,7 @@ define linkonce_odr void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %0) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %0) #15 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::Simd4Float", align 16
   %4 = alloca ptr, align 8
@@ -32220,7 +32219,7 @@ define linkonce_odr noundef ptr @_ZNK5Nbnxm11BoundingBox6Corner3ptrEv(ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #18
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx8ArrayRefIKN5Nbnxm11BoundingBoxEEC2IRKNS0_IS2_EEvEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
@@ -34288,7 +34287,7 @@ define linkonce_odr noundef i32 @_ZNK5Nbnxm4Grid7fepBitsEi(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN3gmxL5norm2IfEET_NS_11BasicVectorIS1_EE(<2 x float> %0, float %1) #15 {
+define internal noundef float @_ZN3gmxL5norm2IfEET_NS_11BasicVectorIS1_EE(<2 x float> %0, float %1) #14 {
   %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = alloca { <2 x float>, float }, align 4
   %5 = getelementptr inbounds { <2 x float>, float }, ptr %4, i32 0, i32 0
@@ -35579,7 +35578,7 @@ define linkonce_odr noundef ptr @_ZSt6fill_nIPmmmET_S1_T0_RKT1_(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayImLm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayImLm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -35588,7 +35587,7 @@ define linkonce_odr noundef ptr @_ZNSt5arrayImLm2EE5beginEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayImLm2EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayImLm2EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 2
@@ -35689,7 +35688,7 @@ define linkonce_odr void @_ZSt9__fill_a1IPmmEN9__gnu_cxx11__enable_ifIXsr11__is_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayImLm2EE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayImLm2EE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -38500,7 +38499,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10Simd4FloatC2Ef(ptr noundef nonnull align 16 dereferenceable(16) %0, float noundef %1) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10Simd4FloatC2Ef(ptr noundef nonnull align 16 dereferenceable(16) %0, float noundef %1) unnamed_addr #15 comdat align 2 {
   %3 = alloca float, align 4
   %4 = alloca <4 x float>, align 16
   %5 = alloca ptr, align 8
@@ -38526,7 +38525,7 @@ define linkonce_odr void @_ZN3gmx10Simd4FloatC2Ef(ptr noundef nonnull align 16 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc void @_ZN5NbnxmL44clusterBoundingBoxDistance2_xxxx_simd4_innerILi0EEEvPKfRKSt5arrayIN3gmx10Simd4FloatELm3EES8_Pf(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(48) %1, ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef %3) #16 {
+define internal x86_vectorcallcc void @_ZN5NbnxmL44clusterBoundingBoxDistance2_xxxx_simd4_innerILi0EEEvPKfRKSt5arrayIN3gmx10Simd4FloatELm3EES8_Pf(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(48) %1, ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef %3) #15 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -38814,7 +38813,7 @@ define internal x86_vectorcallcc void @_ZN5NbnxmL44clusterBoundingBoxDistance2_x
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc void @_ZN5NbnxmL44clusterBoundingBoxDistance2_xxxx_simd4_innerILi4EEEvPKfRKSt5arrayIN3gmx10Simd4FloatELm3EES8_Pf(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(48) %1, ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef %3) #16 {
+define internal x86_vectorcallcc void @_ZN5NbnxmL44clusterBoundingBoxDistance2_xxxx_simd4_innerILi4EEEvPKfRKSt5arrayIN3gmx10Simd4FloatELm3EES8_Pf(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(48) %1, ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef %3) #15 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -39107,7 +39106,7 @@ define internal x86_vectorcallcc void @_ZN3gmxL7setZeroEv() #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x float> @_ZNK3gmx16SimdSetZeroProxycvNS_10Simd4FloatEEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
+define linkonce_odr <4 x float> @_ZNK3gmx16SimdSetZeroProxycvNS_10Simd4FloatEEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #15 comdat align 2 {
   %2 = alloca %"class.gmx::Simd4Float", align 16
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -39133,7 +39132,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNKSt5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxmlENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxmlENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #15 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -39159,7 +39158,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN3gmxmlENS_10Simd4FloatES0_(<4 x
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxplENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxplENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #15 {
   %3 = alloca <4 x float>, align 16
   %4 = alloca <4 x float>, align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -39185,7 +39184,7 @@ define internal x86_vectorcallcc <4 x float> @_ZN3gmxplENS_10Simd4FloatES0_(<4 x
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc void @_ZN3gmxL6store4EPfNS_10Simd4FloatE(ptr noundef %0, <4 x float> %1) #16 {
+define internal x86_vectorcallcc void @_ZN3gmxL6store4EPfNS_10Simd4FloatE(ptr noundef %0, <4 x float> %1) #15 {
   %3 = alloca ptr, align 8
   %4 = alloca <4 x float>, align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
@@ -39217,7 +39216,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt14__a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL22clusterpairInRangeSimdILi8EN3gmx9SimdFloatENS0_9SimdFBoolEEbRK20NbnxnPairlistGpuWorkiiiPKff(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5) #20 {
+define internal noundef zeroext i1 @_ZL22clusterpairInRangeSimdILi8EN3gmx9SimdFloatENS0_9SimdFBoolEEbRK20NbnxnPairlistGpuWorkiiiPKff(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5) #19 {
   %7 = alloca i1, align 1
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -39725,7 +39724,7 @@ define internal noundef zeroext i1 @_ZL22clusterpairInRangeSimdILi8EN3gmx9SimdFl
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx9SimdFloatC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %0, float noundef %1) unnamed_addr #20 comdat align 2 {
+define linkonce_odr void @_ZN3gmx9SimdFloatC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %0, float noundef %1) unnamed_addr #19 comdat align 2 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca float, align 4
@@ -39804,7 +39803,7 @@ define linkonce_odr void @_ZNSt5arrayIN3gmx9SimdFloatELm1EEC2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal <8 x float> @_ZL8simdLoadIN3gmx9SimdFloatEET_NSt9enable_ifIXsr3stdE9is_same_vIS2_S1_EEPKfE4typeE(ptr noundef %0) #20 {
+define internal <8 x float> @_ZL8simdLoadIN3gmx9SimdFloatEET_NSt9enable_ifIXsr3stdE9is_same_vIS2_S1_EEPKfE4typeE(ptr noundef %0) #19 {
   %2 = alloca %"class.gmx::SimdFloat", align 32
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -39831,7 +39830,7 @@ define linkonce_odr noundef nonnull align 32 dereferenceable(32) ptr @_ZNSt5arra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxmiENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxmiENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #19 {
   %3 = alloca <8 x float>, align 32
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -39878,7 +39877,7 @@ define linkonce_odr void @_ZNSt5arrayIN3gmx9SimdFBoolELm1EEC2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxL5norm2ENS_9SimdFloatES0_S0_(<8 x float> %0, <8 x float> %1, <8 x float> %2) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxL5norm2ENS_9SimdFloatES0_S0_(<8 x float> %0, <8 x float> %1, <8 x float> %2) #19 {
   %4 = alloca %"class.gmx::SimdFloat", align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
   %6 = alloca %"class.gmx::SimdFloat", align 32
@@ -39955,7 +39954,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxL5norm2ENS_9SimdFloatES0_S0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxltENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxltENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #19 {
   %3 = alloca %"class.gmx::SimdFBool", align 32
   %4 = alloca %"class.gmx::SimdFloat", align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -39977,7 +39976,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxltENS_9SimdFloatES0_(<8 x f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxooENS_9SimdFBoolES0_(<8 x float> %0, <8 x float> %1) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxooENS_9SimdFBoolES0_(<8 x float> %0, <8 x float> %1) #19 {
   %3 = alloca <8 x float>, align 32
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFBool", align 32
@@ -40019,7 +40018,7 @@ define linkonce_odr noundef nonnull align 32 dereferenceable(32) ptr @_ZNSt5arra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc noundef zeroext i1 @_ZN3gmxL7anyTrueENS_9SimdFBoolE(<8 x float> %0) #20 {
+define internal x86_vectorcallcc noundef zeroext i1 @_ZN3gmxL7anyTrueENS_9SimdFBoolE(<8 x float> %0) #19 {
   %2 = alloca <8 x float>, align 32
   %3 = alloca %"class.gmx::SimdFBool", align 32
   %4 = getelementptr inbounds %"class.gmx::SimdFBool", ptr %3, i32 0, i32 0
@@ -40041,7 +40040,7 @@ define linkonce_odr void @_ZN3gmx9SimdFloatC2Ev(ptr noundef nonnull align 32 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloatTagE(ptr noundef %0) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloatTagE(ptr noundef %0) #19 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::SimdFloat", align 32
   %4 = alloca ptr, align 8
@@ -40057,7 +40056,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx9SimdFloatC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #21 comdat align 2 {
+define linkonce_odr void @_ZN3gmx9SimdFloatC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #20 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <8 x float>, align 32
   store ptr %0, ptr %3, align 8
@@ -40089,7 +40088,7 @@ define linkonce_odr void @_ZN3gmx9SimdFBoolC2Ev(ptr noundef nonnull align 32 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #19 {
   %3 = alloca <8 x float>, align 32
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -40115,7 +40114,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxplENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #20 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxplENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #19 {
   %3 = alloca <8 x float>, align 32
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -40141,7 +40140,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxplENS_9SimdFloatES0_(<8 x f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx9SimdFBoolC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #21 comdat align 2 {
+define linkonce_odr void @_ZN3gmx9SimdFBoolC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #20 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <8 x float>, align 32
   store ptr %0, ptr %3, align 8
@@ -40166,7 +40165,7 @@ define linkonce_odr noundef nonnull align 32 dereferenceable(32) ptr @_ZNSt14__a
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.movmsk.ps.256(<8 x float>) #18
+declare i32 @llvm.x86.avx.movmsk.ps.256(<8 x float>) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI17nbnxn_cj_packed_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 comdat align 2 {
@@ -41752,7 +41751,7 @@ define internal void @_ZL15combine_nblistsN3gmx8ArrayRefIK16NbnxnPairlistGpuEEPS
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %29, align 4
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #12
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #12
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %255
 
@@ -45238,7 +45237,7 @@ define internal void @_ZL17balance_fep_listsN3gmx8ArrayRefISt10unique_ptrI8t_nbl
 
 80:                                               ; preds = %76
   %81 = load i32, ptr %24, align 4
-  %82 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #12
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #12
   %83 = icmp eq i32 %81, %82
   br i1 %83, label %84, label %136
 
@@ -47684,6 +47683,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head
   ret ptr %4
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -47697,15 +47699,15 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { nounwind }
-attributes #13 = { nounwind memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #19 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { nounwind memory(none) }
 attributes #22 = { builtin allocsize(0) }
 attributes #23 = { builtin nounwind }
 attributes #24 = { noreturn nounwind }

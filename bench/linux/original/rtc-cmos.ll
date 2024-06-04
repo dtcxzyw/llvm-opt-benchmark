@@ -104,35 +104,36 @@ define internal i32 @cmos_init() #0 section ".init.text" align 16 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %11
+  %5 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %12
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @__platform_driver_probe(ptr noundef nonnull @cmos_platform_driver, ptr noundef nonnull @cmos_platform_probe, ptr noundef null) #9
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %11
+8:                                                ; preds = %4
+  %9 = tail call i32 @__platform_driver_probe(ptr noundef nonnull @cmos_platform_driver, ptr noundef nonnull @cmos_platform_probe, ptr noundef null) #9
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %7
+11:                                               ; preds = %8
   store i1 true, ptr @platform_driver_registered, align 1
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %7, %4
-  %12 = phi i32 [ %1, %4 ], [ 0, %10 ], [ %8, %7 ]
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %17, label %14
+12:                                               ; preds = %11, %8, %4
+  %13 = phi i32 [ %1, %4 ], [ 0, %11 ], [ %9, %8 ]
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = load i1, ptr @pnp_driver_registered, align 1
-  br i1 %15, label %16, label %17
+15:                                               ; preds = %12
+  %16 = load i1, ptr @pnp_driver_registered, align 1
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   tail call void @pnp_unregister_driver(ptr noundef nonnull @cmos_pnp_driver) #9
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %14, %11
-  %18 = phi i32 [ 0, %11 ], [ %12, %16 ], [ %12, %14 ]
-  ret i32 %18
+18:                                               ; preds = %17, %15, %12
+  %19 = phi i32 [ 0, %12 ], [ %13, %17 ], [ %13, %15 ]
+  ret i32 %19
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -197,414 +198,448 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) @__const.cmos_do_probe.nvmem_cfg, i64 152, i1 false)
-  %7 = load ptr, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1), align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %232
+  %7 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %266
 
-9:                                                ; preds = %3
-  %10 = icmp eq ptr %1, null
-  br i1 %10, label %232, label %11
+10:                                               ; preds = %3
+  %11 = icmp eq ptr %1, null
+  br i1 %11, label %266, label %12
 
-11:                                               ; preds = %9
-  %12 = load i64, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = sub i64 %14, %12
-  %16 = add i64 %15, 1
-  %17 = tail call ptr @__request_region(ptr noundef nonnull @ioport_resource, i64 noundef %12, i64 noundef %16, ptr noundef nonnull @driver_name, i32 noundef 0) #9
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %232, label %19
+12:                                               ; preds = %10
+  %13 = load i64, ptr %1, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = sub i64 %15, %13
+  %17 = add i64 %16, 1
+  %18 = tail call ptr @__request_region(ptr noundef nonnull @ioport_resource, i64 noundef %13, i64 noundef %17, ptr noundef nonnull @driver_name, i32 noundef 0) #9
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %266, label %20
 
-19:                                               ; preds = %11
-  store i32 %2, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 2), align 8
-  store ptr %17, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 3), align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %17, align 8
-  %23 = add i64 %22, 1
-  %24 = icmp ugt i64 %21, %23
-  %25 = select i1 %24, i32 256, i32 128
-  %26 = icmp eq ptr %6, null
-  br i1 %26, label %48, label %27
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 2
+  store i32 %2, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 3
+  store ptr %18, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = load i64, ptr %18, align 8
+  %26 = add i64 %25, 1
+  %27 = icmp ugt i64 %24, %26
+  %28 = select i1 %27, i32 256, i32 128
+  %29 = icmp eq ptr %6, null
+  br i1 %29, label %56, label %30
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 20
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  %33 = select i1 %32, i32 %25, i32 %31
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
-  %35 = load i8, ptr %34, align 8
-  store i8 %35, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  %36 = getelementptr inbounds i8, ptr %6, i64 25
-  %37 = load i8, ptr %36, align 1
-  store i8 %37, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  %38 = getelementptr inbounds i8, ptr %6, i64 26
-  %39 = load i8, ptr %38, align 2
-  store i8 %39, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11), align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %79, label %42
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %6, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 0
+  %36 = select i1 %35, i32 %28, i32 %34
+  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = load i8, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  store i8 %38, ptr %39, align 2
+  %40 = getelementptr inbounds i8, ptr %6, i64 25
+  %41 = load i8, ptr %40, align 1
+  %42 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  store i8 %41, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %6, i64 26
+  %44 = load i8, ptr %43, align 2
+  %45 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11
+  store i8 %44, ptr %45, align 4
+  %46 = load ptr, ptr %6, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %99, label %48
 
-42:                                               ; preds = %27
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %79, label %46
+48:                                               ; preds = %30
+  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %99, label %52
 
-46:                                               ; preds = %42
-  store ptr %40, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 5), align 8
-  %47 = load ptr, ptr %43, align 8
-  store ptr %47, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 6), align 8
-  br label %79
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 5
+  store ptr %46, ptr %53, align 8
+  %54 = load ptr, ptr %49, align 8
+  %55 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 6
+  store ptr %54, ptr %55, align 8
+  br label %99
 
-48:                                               ; preds = %19
-  %49 = load i32, ptr @acpi_disabled, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %79
+56:                                               ; preds = %20
+  %57 = load i32, ptr @acpi_disabled, align 4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %99
 
-51:                                               ; preds = %48
-  %52 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  switch i8 %52, label %63 [
-    i8 0, label %53
-    i8 2, label %56
-    i8 9, label %56
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %61 = load i8, ptr %60, align 1
+  switch i8 %61, label %72 [
+    i8 0, label %62
+    i8 2, label %65
+    i8 9, label %65
   ]
-
-53:                                               ; preds = %51
-  %54 = tail call i32 @dmi_get_bios_year() #9
-  %55 = icmp slt i32 %54, 2015
-  br i1 %55, label %63, label %59
-
-56:                                               ; preds = %51, %51
-  %57 = tail call i32 @dmi_get_bios_year() #9
-  %58 = icmp slt i32 %57, 2021
-  br i1 %58, label %63, label %59
-
-59:                                               ; preds = %56, %53
-  %60 = tail call i32 @is_hpet_enabled() #9
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %63, label %62
 
 62:                                               ; preds = %59
+  %63 = tail call i32 @dmi_get_bios_year() #9
+  %64 = icmp slt i32 %63, 2015
+  br i1 %64, label %72, label %68
+
+65:                                               ; preds = %59, %59
+  %66 = tail call i32 @dmi_get_bios_year() #9
+  %67 = icmp slt i32 %66, 2021
+  br i1 %67, label %72, label %68
+
+68:                                               ; preds = %65, %62
+  %69 = tail call i32 @is_hpet_enabled() #9
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %72, label %71
+
+71:                                               ; preds = %68
   store i8 1, ptr @use_acpi_alarm, align 1
-  br label %63
+  br label %72
 
-63:                                               ; preds = %62, %59, %56, %53, %51
-  store ptr @rtc_wake_on, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 5), align 8
-  store ptr @rtc_wake_off, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 6), align 8
-  %64 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34), align 1
-  %65 = icmp eq i8 %64, 0
-  %66 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 33), align 1
-  %67 = icmp ne i8 %66, 0
-  %68 = select i1 %65, i1 true, i1 %67
-  br i1 %68, label %70, label %69
+72:                                               ; preds = %71, %68, %65, %62, %59
+  %73 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 5
+  store ptr @rtc_wake_on, ptr %73, align 8
+  %74 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 6
+  store ptr @rtc_wake_off, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 0
+  %78 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 33
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp ne i8 %79, 0
+  %81 = select i1 %77, i1 true, i1 %80
+  br i1 %81, label %84, label %82
 
-69:                                               ; preds = %63
-  store i8 0, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34), align 1
-  br label %70
+82:                                               ; preds = %72
+  %83 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34
+  store i8 0, ptr %83, align 1
+  br label %84
 
-70:                                               ; preds = %69, %63
-  store i8 %66, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  %71 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34), align 1
-  store i8 %71, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  %72 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
-  store i8 %72, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11), align 4
-  %73 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
-  %74 = and i32 %73, 128
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %77, label %76
+84:                                               ; preds = %82, %72
+  %85 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  store i8 %79, ptr %85, align 2
+  %86 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 34
+  %87 = load i8, ptr %86, align 1
+  %88 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  store i8 %87, ptr %88, align 1
+  %89 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35
+  %90 = load i8, ptr %89, align 1
+  %91 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11
+  store i8 %90, ptr %91, align 4
+  %92 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38
+  %93 = load i32, ptr %92, align 1
+  %94 = and i32 %93, 128
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %97, label %96
 
-76:                                               ; preds = %70
+96:                                               ; preds = %84
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.12) #10
-  br label %77
+  br label %97
 
-77:                                               ; preds = %76, %70
+97:                                               ; preds = %96, %84
   tail call void @device_set_wakeup_capable(ptr noundef %0, i1 noundef zeroext true) #9
-  %78 = tail call i32 @device_wakeup_enable(ptr noundef %0) #9
-  br label %79
+  %98 = tail call i32 @device_wakeup_enable(ptr noundef %0) #9
+  br label %99
 
-79:                                               ; preds = %77, %48, %46, %42, %27
-  %80 = phi i32 [ %33, %46 ], [ %33, %42 ], [ %33, %27 ], [ %25, %48 ], [ %25, %77 ]
-  %81 = phi i32 [ %29, %46 ], [ %29, %42 ], [ %29, %27 ], [ 0, %48 ], [ 0, %77 ]
-  %82 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  %83 = icmp slt i8 %82, 0
-  br i1 %83, label %84, label %85
+99:                                               ; preds = %97, %56, %52, %48, %30
+  %100 = phi i32 [ %36, %52 ], [ %36, %48 ], [ %36, %30 ], [ %28, %56 ], [ %28, %97 ]
+  %101 = phi i32 [ %32, %52 ], [ %32, %48 ], [ %32, %30 ], [ 0, %56 ], [ 0, %97 ]
+  %102 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  %103 = load i8, ptr %102, align 2
+  %104 = icmp slt i8 %103, 0
+  br i1 %104, label %105, label %107
 
-84:                                               ; preds = %79
-  store i8 0, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  br label %85
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  store i8 0, ptr %106, align 2
+  br label %107
 
-85:                                               ; preds = %84, %79
-  %86 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  %87 = icmp slt i8 %86, 0
-  br i1 %87, label %88, label %89
+107:                                              ; preds = %105, %99
+  %108 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  %109 = load i8, ptr %108, align 1
+  %110 = icmp slt i8 %109, 0
+  br i1 %110, label %111, label %113
 
-88:                                               ; preds = %85
-  store i8 0, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  br label %89
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  store i8 0, ptr %112, align 1
+  br label %113
 
-89:                                               ; preds = %88, %85
-  %90 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11), align 4
-  %91 = icmp slt i8 %90, 0
-  br i1 %91, label %92, label %93
+113:                                              ; preds = %111, %107
+  %114 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11
+  %115 = load i8, ptr %114, align 4
+  %116 = icmp slt i8 %115, 0
+  br i1 %116, label %117, label %119
 
-92:                                               ; preds = %89
-  store i8 0, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11), align 4
-  br label %93
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11
+  store i8 0, ptr %118, align 4
+  br label %119
 
-93:                                               ; preds = %92, %89
-  store ptr %0, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1), align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @cmos_rtc, ptr %94, align 8
-  %95 = tail call ptr @devm_rtc_allocate_device(ptr noundef %0) #9
-  store ptr %95, ptr @cmos_rtc, align 8
-  %96 = icmp ugt ptr %95, inttoptr (i64 -4096 to ptr)
-  br i1 %96, label %97, label %100
+119:                                              ; preds = %117, %113
+  %120 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1
+  store ptr %0, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @cmos_rtc, ptr %121, align 8
+  %122 = tail call ptr @devm_rtc_allocate_device(ptr noundef %0) #9
+  store ptr %122, ptr @cmos_rtc, align 8
+  %123 = inttoptr i64 -4096 to ptr
+  %124 = icmp ugt ptr %122, %123
+  br i1 %124, label %125, label %128
 
-97:                                               ; preds = %93
-  %98 = ptrtoint ptr %95 to i64
-  %99 = trunc i64 %98 to i32
-  br label %226
+125:                                              ; preds = %119
+  %126 = ptrtoint ptr %122 to i64
+  %127 = trunc i64 %126 to i32
+  br label %260
 
-100:                                              ; preds = %93
-  %101 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  %102 = icmp eq i8 %101, 0
-  br i1 %102, label %105, label %103
+128:                                              ; preds = %119
+  %129 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  %130 = load i8, ptr %129, align 1
+  %131 = icmp eq i8 %130, 0
+  br i1 %131, label %134, label %132
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %95, i64 1232
-  store i64 31535999, ptr %104, align 8
-  br label %111
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds i8, ptr %122, i64 1232
+  store i64 31535999, ptr %133, align 8
+  br label %141
 
-105:                                              ; preds = %100
-  %106 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  %107 = icmp eq i8 %106, 0
-  %108 = getelementptr inbounds i8, ptr %95, i64 1232
-  br i1 %107, label %110, label %109
+134:                                              ; preds = %128
+  %135 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  %136 = load i8, ptr %135, align 2
+  %137 = icmp eq i8 %136, 0
+  %138 = getelementptr inbounds i8, ptr %122, i64 1232
+  br i1 %137, label %140, label %139
 
-109:                                              ; preds = %105
-  store i64 2419199, ptr %108, align 8
-  br label %111
+139:                                              ; preds = %134
+  store i64 2419199, ptr %138, align 8
+  br label %141
 
-110:                                              ; preds = %105
-  store i64 86399, ptr %108, align 8
-  br label %111
+140:                                              ; preds = %134
+  store i64 86399, ptr %138, align 8
+  br label %141
 
-111:                                              ; preds = %110, %109, %103
-  %112 = getelementptr inbounds i8, ptr %95, i64 80
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %117
+141:                                              ; preds = %140, %139, %132
+  %142 = getelementptr inbounds i8, ptr %122, i64 80
+  %143 = load ptr, ptr %142, align 8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %147
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %95, align 8
-  br label %117
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %122, align 8
+  br label %147
 
-117:                                              ; preds = %115, %111
-  %118 = phi ptr [ %116, %115 ], [ %113, %111 ]
-  %119 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %118, ptr %119, align 8
-  %120 = tail call zeroext i1 @mc146818_does_rtc_work() #9
-  br i1 %120, label %122, label %121
+147:                                              ; preds = %145, %141
+  %148 = phi ptr [ %146, %145 ], [ %143, %141 ]
+  %149 = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr %148, ptr %149, align 8
+  %150 = tail call zeroext i1 @mc146818_does_rtc_work() #9
+  br i1 %150, label %152, label %151
 
-121:                                              ; preds = %117
+151:                                              ; preds = %147
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.1) #10
-  br label %224
+  br label %257
 
-122:                                              ; preds = %117
+152:                                              ; preds = %147
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @rtc_lock) #9
-  %123 = and i32 %81, 1
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %140
+  %153 = and i32 %101, 1
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %170
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr @cmos_rtc, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 944
-  store i32 1024, ptr %127, align 8
-  %128 = tail call i32 @is_hpet_enabled() #9
-  %129 = icmp eq i32 %128, 0
-  %130 = load i8, ptr @use_acpi_alarm, align 1, !range !5
-  %131 = icmp ne i8 %130, 0
-  %132 = select i1 %129, i1 true, i1 %131
-  br i1 %132, label %139, label %133
+155:                                              ; preds = %152
+  %156 = load ptr, ptr @cmos_rtc, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 944
+  store i32 1024, ptr %157, align 8
+  %158 = tail call i32 @is_hpet_enabled() #9
+  %159 = icmp eq i32 %158, 0
+  %160 = load i8, ptr @use_acpi_alarm, align 1, !range !5
+  %161 = icmp ne i8 %160, 0
+  %162 = select i1 %159, i1 true, i1 %161
+  br i1 %162, label %169, label %163
 
-133:                                              ; preds = %125
-  %134 = load ptr, ptr @cmos_rtc, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 944
-  %136 = load i32, ptr %135, align 8
-  %137 = sext i32 %136 to i64
-  %138 = tail call i32 @hpet_set_periodic_freq(i64 noundef %137) #9
-  br label %139
+163:                                              ; preds = %155
+  %164 = load ptr, ptr @cmos_rtc, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 944
+  %166 = load i32, ptr %165, align 8
+  %167 = sext i32 %166 to i64
+  %168 = tail call i32 @hpet_set_periodic_freq(i64 noundef %167) #9
+  br label %169
 
-139:                                              ; preds = %133, %125
+169:                                              ; preds = %163, %155
   tail call void @rtc_cmos_write(i8 noundef zeroext 38, i8 noundef zeroext 10) #9
-  br label %140
+  br label %170
 
-140:                                              ; preds = %139, %122
-  %141 = icmp sgt i32 %2, 0
-  br i1 %141, label %142, label %143
+170:                                              ; preds = %169, %152
+  %171 = icmp sgt i32 %2, 0
+  br i1 %171, label %172, label %173
 
-142:                                              ; preds = %140
+172:                                              ; preds = %170
   tail call fastcc void @cmos_irq_disable(ptr noundef nonnull @cmos_rtc, i8 noundef zeroext 112)
-  br label %143
+  br label %173
 
-143:                                              ; preds = %142, %140
-  %144 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
+173:                                              ; preds = %172, %170
+  %174 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @rtc_lock) #9
-  %145 = and i8 %144, 2
-  %146 = icmp eq i8 %145, 0
-  %147 = select i1 %141, i1 %146, i1 false
-  br i1 %147, label %148, label %149
+  %175 = and i8 %174, 2
+  %176 = icmp eq i8 %175, 0
+  %177 = select i1 %171, i1 %176, i1 false
+  br i1 %177, label %178, label %179
 
-148:                                              ; preds = %143
+178:                                              ; preds = %173
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.2) #10
-  br label %224
+  br label %257
 
-149:                                              ; preds = %143
-  %150 = tail call i32 @is_hpet_enabled() #9
-  %151 = icmp eq i32 %150, 0
-  %152 = load i8, ptr @use_acpi_alarm, align 1, !range !5
-  %153 = icmp ne i8 %152, 0
-  %154 = select i1 %151, i1 true, i1 %153
-  br i1 %154, label %157, label %155
+179:                                              ; preds = %173
+  %180 = tail call i32 @is_hpet_enabled() #9
+  %181 = icmp eq i32 %180, 0
+  %182 = load i8, ptr @use_acpi_alarm, align 1, !range !5
+  %183 = icmp ne i8 %182, 0
+  %184 = select i1 %181, i1 true, i1 %183
+  br i1 %184, label %187, label %185
 
-155:                                              ; preds = %149
-  %156 = tail call i32 @hpet_rtc_timer_init() #9
-  br label %157
+185:                                              ; preds = %179
+  %186 = tail call i32 @hpet_rtc_timer_init() #9
+  br label %187
 
-157:                                              ; preds = %155, %149
-  br i1 %141, label %158, label %185
+187:                                              ; preds = %185, %179
+  br i1 %171, label %188, label %215
 
-158:                                              ; preds = %157
-  %159 = tail call i32 @is_hpet_enabled() #9
-  %160 = icmp eq i32 %159, 0
-  %161 = load i8, ptr @use_acpi_alarm, align 1, !range !5
-  %162 = icmp ne i8 %161, 0
-  %163 = select i1 %160, i1 true, i1 %162
-  br i1 %163, label %169, label %164
+188:                                              ; preds = %187
+  %189 = tail call i32 @is_hpet_enabled() #9
+  %190 = icmp eq i32 %189, 0
+  %191 = load i8, ptr @use_acpi_alarm, align 1, !range !5
+  %192 = icmp ne i8 %191, 0
+  %193 = select i1 %190, i1 true, i1 %192
+  br i1 %193, label %199, label %194
 
-164:                                              ; preds = %158
-  %165 = tail call i32 @hpet_register_irq_handler(ptr noundef nonnull @cmos_interrupt) #9
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %169, label %167
+194:                                              ; preds = %188
+  %195 = tail call i32 @hpet_register_irq_handler(ptr noundef nonnull @cmos_interrupt) #9
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %199, label %197
 
-167:                                              ; preds = %164
-  %168 = tail call i32 @hpet_mask_rtc_irq_bit(i64 noundef 112) #9
+197:                                              ; preds = %194
+  %198 = tail call i32 @hpet_mask_rtc_irq_bit(i64 noundef 112) #9
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.3) #10
-  br label %182
+  br label %212
 
-169:                                              ; preds = %164, %158
-  %170 = phi ptr [ @hpet_rtc_interrupt, %164 ], [ @cmos_interrupt, %158 ]
-  %171 = load ptr, ptr @cmos_rtc, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 80
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %177
+199:                                              ; preds = %194, %188
+  %200 = phi ptr [ @hpet_rtc_interrupt, %194 ], [ @cmos_interrupt, %188 ]
+  %201 = load ptr, ptr @cmos_rtc, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 80
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %207
 
-175:                                              ; preds = %169
-  %176 = load ptr, ptr %171, align 8
-  br label %177
+205:                                              ; preds = %199
+  %206 = load ptr, ptr %201, align 8
+  br label %207
 
-177:                                              ; preds = %175, %169
-  %178 = phi ptr [ %176, %175 ], [ %173, %169 ]
-  %179 = tail call i32 @request_threaded_irq(i32 noundef %2, ptr noundef nonnull %170, ptr noundef null, i64 noundef 0, ptr noundef %178, ptr noundef %171) #9
-  %180 = icmp slt i32 %179, 0
-  %181 = select i1 %180, i32 7, i32 0
-  br label %182
+207:                                              ; preds = %205, %199
+  %208 = phi ptr [ %206, %205 ], [ %203, %199 ]
+  %209 = tail call i32 @request_threaded_irq(i32 noundef %2, ptr noundef nonnull %200, ptr noundef null, i64 noundef 0, ptr noundef %208, ptr noundef %201) #9
+  %210 = icmp slt i32 %209, 0
+  %211 = select i1 %210, i32 7, i32 0
+  br label %212
 
-182:                                              ; preds = %177, %167
-  %183 = phi i32 [ %165, %167 ], [ %179, %177 ]
-  %184 = phi i32 [ 7, %167 ], [ %181, %177 ]
-  switch i32 %184, label %232 [
-    i32 0, label %188
-    i32 7, label %224
+212:                                              ; preds = %207, %197
+  %213 = phi i32 [ %195, %197 ], [ %209, %207 ]
+  %214 = phi i32 [ 7, %197 ], [ %211, %207 ]
+  switch i32 %214, label %266 [
+    i32 0, label %218
+    i32 7, label %257
   ]
 
-185:                                              ; preds = %157
-  %186 = load ptr, ptr @cmos_rtc, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 1208
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %187, i32 -2, ptr elementtype(i8) %187) #9, !srcloc !6
-  br label %188
+215:                                              ; preds = %187
+  %216 = load ptr, ptr @cmos_rtc, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 1208
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %217, i32 -2, ptr elementtype(i8) %217) #9, !srcloc !6
+  br label %218
 
-188:                                              ; preds = %185, %182
-  %189 = load ptr, ptr @cmos_rtc, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 744
-  store ptr @cmos_rtc_ops, ptr %190, align 8
-  %191 = tail call i32 @__devm_rtc_register_device(ptr noundef null, ptr noundef %189) #9
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %220
+218:                                              ; preds = %215, %212
+  %219 = load ptr, ptr @cmos_rtc, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 744
+  store ptr @cmos_rtc_ops, ptr %220, align 8
+  %221 = tail call i32 @__devm_rtc_register_device(ptr noundef null, ptr noundef %219) #9
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %253
 
-193:                                              ; preds = %188
-  %194 = load ptr, ptr @cmos_rtc, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 1200
-  store i64 500000000, ptr %195, align 8
-  %196 = add i32 %80, -14
-  %197 = getelementptr inbounds i8, ptr %4, i64 112
-  store i32 %196, ptr %197, align 8
-  %198 = call i32 @devm_rtc_nvmem_register(ptr noundef %194, ptr noundef nonnull %4) #9
-  br i1 %26, label %199, label %200
+223:                                              ; preds = %218
+  %224 = load ptr, ptr @cmos_rtc, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 1200
+  store i64 500000000, ptr %225, align 8
+  %226 = add i32 %100, -14
+  %227 = getelementptr inbounds i8, ptr %4, i64 112
+  store i32 %226, ptr %227, align 8
+  %228 = call i32 @devm_rtc_nvmem_register(ptr noundef %224, ptr noundef nonnull %4) #9
+  br i1 %29, label %229, label %230
 
-199:                                              ; preds = %193
+229:                                              ; preds = %223
   call fastcc void @acpi_rtc_event_setup(ptr noundef %0)
-  br label %200
+  br label %230
 
-200:                                              ; preds = %199, %193
-  br i1 %141, label %201, label %208
+230:                                              ; preds = %229, %223
+  br i1 %171, label %231, label %240
 
-201:                                              ; preds = %200
-  %202 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10), align 1
-  %203 = icmp eq i8 %202, 0
-  br i1 %203, label %204, label %208
+231:                                              ; preds = %230
+  %232 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 10
+  %233 = load i8, ptr %232, align 1
+  %234 = icmp eq i8 %233, 0
+  br i1 %234, label %235, label %240
 
-204:                                              ; preds = %201
-  %205 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9), align 2
-  %206 = icmp eq i8 %205, 0
-  %207 = select i1 %206, ptr @.str.8, ptr @.str.7
-  br label %208
+235:                                              ; preds = %231
+  %236 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 9
+  %237 = load i8, ptr %236, align 2
+  %238 = icmp eq i8 %237, 0
+  %239 = select i1 %238, ptr @.str.8, ptr @.str.7
+  br label %240
 
-208:                                              ; preds = %204, %201, %200
-  %209 = phi ptr [ @.str.5, %200 ], [ %207, %204 ], [ @.str.6, %201 ]
-  %210 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11), align 4
-  %211 = icmp eq i8 %210, 0
-  %212 = select i1 %211, ptr @.str.10, ptr @.str.9
-  %213 = load i32, ptr %197, align 8
-  %214 = call i32 @is_hpet_enabled() #9
-  %215 = icmp eq i32 %214, 0
-  %216 = load i8, ptr @use_acpi_alarm, align 1, !range !5
-  %217 = icmp ne i8 %216, 0
-  %218 = select i1 %215, i1 true, i1 %217
-  %219 = select i1 %218, ptr @.str.10, ptr @.str.11
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %209, ptr noundef nonnull %212, i32 noundef %213, ptr noundef nonnull %219) #10
-  br label %232
+240:                                              ; preds = %235, %231, %230
+  %241 = phi ptr [ @.str.5, %230 ], [ %239, %235 ], [ @.str.6, %231 ]
+  %242 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 11
+  %243 = load i8, ptr %242, align 4
+  %244 = icmp eq i8 %243, 0
+  %245 = select i1 %244, ptr @.str.10, ptr @.str.9
+  %246 = load i32, ptr %227, align 8
+  %247 = call i32 @is_hpet_enabled() #9
+  %248 = icmp eq i32 %247, 0
+  %249 = load i8, ptr @use_acpi_alarm, align 1, !range !5
+  %250 = icmp ne i8 %249, 0
+  %251 = select i1 %248, i1 true, i1 %250
+  %252 = select i1 %251, ptr @.str.10, ptr @.str.11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %241, ptr noundef nonnull %245, i32 noundef %246, ptr noundef nonnull %252) #10
+  br label %266
 
-220:                                              ; preds = %188
-  br i1 %141, label %221, label %224
+253:                                              ; preds = %218
+  br i1 %171, label %254, label %257
 
-221:                                              ; preds = %220
-  %222 = load ptr, ptr @cmos_rtc, align 8
-  %223 = tail call ptr @free_irq(i32 noundef %2, ptr noundef %222) #9
-  br label %224
+254:                                              ; preds = %253
+  %255 = load ptr, ptr @cmos_rtc, align 8
+  %256 = tail call ptr @free_irq(i32 noundef %2, ptr noundef %255) #9
+  br label %257
 
-224:                                              ; preds = %221, %220, %182, %148, %121
-  %225 = phi i32 [ %183, %182 ], [ %191, %221 ], [ %191, %220 ], [ -6, %148 ], [ -6, %121 ]
-  store ptr null, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1), align 8
-  br label %226
+257:                                              ; preds = %254, %253, %212, %178, %151
+  %258 = phi i32 [ %213, %212 ], [ %221, %254 ], [ %221, %253 ], [ -6, %178 ], [ -6, %151 ]
+  %259 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 1
+  store ptr null, ptr %259, align 8
+  br label %260
 
-226:                                              ; preds = %224, %97
-  %227 = phi i32 [ %99, %97 ], [ %225, %224 ]
-  %228 = load i64, ptr %17, align 8
-  %229 = load i64, ptr %20, align 8
-  %230 = sub i64 %229, %228
-  %231 = add i64 %230, 1
-  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %228, i64 noundef %231) #9
-  br label %232
+260:                                              ; preds = %257, %125
+  %261 = phi i32 [ %127, %125 ], [ %258, %257 ]
+  %262 = load i64, ptr %18, align 8
+  %263 = load i64, ptr %23, align 8
+  %264 = sub i64 %263, %262
+  %265 = add i64 %264, 1
+  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %262, i64 noundef %265) #9
+  br label %266
 
-232:                                              ; preds = %226, %208, %182, %11, %9, %3
-  %233 = phi i32 [ %227, %226 ], [ undef, %182 ], [ 0, %208 ], [ -16, %3 ], [ -19, %9 ], [ -16, %11 ]
+266:                                              ; preds = %260, %240, %212, %12, %10, %3
+  %267 = phi i32 [ %261, %260 ], [ undef, %212 ], [ 0, %240 ], [ -16, %3 ], [ -19, %10 ], [ -16, %12 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #9
-  ret i32 %233
+  ret i32 %267
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -831,52 +866,54 @@ define internal noundef i32 @cmos_interrupt(i32 noundef %0, ptr noundef %1) #3 a
   %9 = select i1 %6, i1 true, i1 %8
   %10 = trunc i32 %0 to i8
   %11 = select i1 %9, i8 %3, i8 %10
-  %12 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8), align 1
-  %13 = icmp eq i8 %12, 0
-  %14 = select i1 %13, i8 %4, i8 %12
-  %15 = and i8 %14, 112
-  %16 = or disjoint i8 %15, -128
-  %17 = and i8 %16, %11
-  %18 = and i8 %17, 32
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %32, label %20
+  %12 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  %15 = select i1 %14, i8 %4, i8 %13
+  %16 = and i8 %15, 112
+  %17 = or disjoint i8 %16, -128
+  %18 = and i8 %17, %11
+  %19 = and i8 %18, 32
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %34, label %21
 
-20:                                               ; preds = %2
-  %21 = and i8 %12, -33
-  store i8 %21, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8), align 1
-  %22 = and i8 %4, -33
-  tail call void @rtc_cmos_write(i8 noundef zeroext %22, i8 noundef zeroext 11) #9
-  %23 = tail call i32 @is_hpet_enabled() #9
-  %24 = icmp eq i32 %23, 0
-  %25 = load i8, ptr @use_acpi_alarm, align 1, !range !5
-  %26 = icmp ne i8 %25, 0
-  %27 = select i1 %24, i1 true, i1 %26
-  br i1 %27, label %30, label %28
+21:                                               ; preds = %2
+  %22 = and i8 %13, -33
+  %23 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8
+  store i8 %22, ptr %23, align 1
+  %24 = and i8 %4, -33
+  tail call void @rtc_cmos_write(i8 noundef zeroext %24, i8 noundef zeroext 11) #9
+  %25 = tail call i32 @is_hpet_enabled() #9
+  %26 = icmp eq i32 %25, 0
+  %27 = load i8, ptr @use_acpi_alarm, align 1, !range !5
+  %28 = icmp ne i8 %27, 0
+  %29 = select i1 %26, i1 true, i1 %28
+  br i1 %29, label %32, label %30
 
-28:                                               ; preds = %20
-  %29 = tail call i32 @hpet_mask_rtc_irq_bit(i64 noundef 32) #9
-  br label %30
-
-30:                                               ; preds = %28, %20
-  %31 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
+30:                                               ; preds = %21
+  %31 = tail call i32 @hpet_mask_rtc_irq_bit(i64 noundef 32) #9
   br label %32
 
-32:                                               ; preds = %30, %2
+32:                                               ; preds = %30, %21
+  %33 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
+  br label %34
+
+34:                                               ; preds = %32, %2
   tail call void @_raw_spin_unlock(ptr noundef nonnull @rtc_lock) #9
-  %33 = and i8 %15, %11
-  %34 = icmp sgt i8 %17, -1
-  %35 = icmp eq i8 %33, 0
-  %36 = or i1 %35, %34
-  br i1 %36, label %39, label %37
+  %35 = and i8 %16, %11
+  %36 = icmp sgt i8 %18, -1
+  %37 = icmp eq i8 %35, 0
+  %38 = or i1 %37, %36
+  br i1 %38, label %41, label %39
 
-37:                                               ; preds = %32
-  %38 = zext i8 %17 to i64
-  tail call void @rtc_update_irq(ptr noundef %1, i64 noundef 1, i64 noundef %38) #9
-  br label %39
+39:                                               ; preds = %34
+  %40 = zext i8 %18 to i64
+  tail call void @rtc_update_irq(ptr noundef %1, i64 noundef 1, i64 noundef %40) #9
+  br label %41
 
-39:                                               ; preds = %37, %32
-  %40 = phi i32 [ 1, %37 ], [ 0, %32 ]
-  ret i32 %40
+41:                                               ; preds = %39, %34
+  %42 = phi i32 [ 1, %39 ], [ 0, %34 ]
+  ret i32 %42
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1702,43 +1739,46 @@ define internal noundef i32 @rtc_handler(ptr noundef %0) #3 align 16 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
   %8 = tail call i32 @cmos_interrupt(i32 noundef 0, ptr noundef %7), !range !15
-  br label %26
+  br label %29
 
 9:                                                ; preds = %1
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #9
-  %11 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8), align 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %15, label %13
+  %11 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %9
-  %14 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
-  br label %15
+14:                                               ; preds = %9
+  %15 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
+  br label %16
 
-15:                                               ; preds = %13, %9
-  %16 = phi i8 [ %14, %13 ], [ 0, %9 ]
-  %17 = and i8 %16, 32
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %25, label %19
+16:                                               ; preds = %14, %9
+  %17 = phi i8 [ %15, %14 ], [ 0, %9 ]
+  %18 = and i8 %17, 32
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %28, label %20
 
-19:                                               ; preds = %15
-  %20 = load i8, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8), align 1
-  %21 = and i8 %20, -33
-  store i8 %21, ptr getelementptr inbounds (%struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8), align 1
-  tail call void @rtc_cmos_write(i8 noundef zeroext %16, i8 noundef zeroext 11) #9
-  %22 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
-  %23 = load ptr, ptr %3, align 8
-  %24 = zext i8 %22 to i64
-  tail call void @rtc_update_irq(ptr noundef %23, i64 noundef 1, i64 noundef %24) #9
-  br label %25
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8
+  %22 = load i8, ptr %21, align 1
+  %23 = and i8 %22, -33
+  %24 = getelementptr inbounds %struct.cmos_rtc, ptr @cmos_rtc, i64 0, i32 8
+  store i8 %23, ptr %24, align 1
+  tail call void @rtc_cmos_write(i8 noundef zeroext %17, i8 noundef zeroext 11) #9
+  %25 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
+  %26 = load ptr, ptr %3, align 8
+  %27 = zext i8 %25 to i64
+  tail call void @rtc_update_irq(ptr noundef %26, i64 noundef 1, i64 noundef %27) #9
+  br label %28
 
-25:                                               ; preds = %19, %15
+28:                                               ; preds = %20, %16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %10) #9
-  br label %26
+  br label %29
 
-26:                                               ; preds = %25, %6
+29:                                               ; preds = %28, %6
   tail call void @pm_wakeup_dev_event(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #9
-  %27 = tail call i32 @acpi_clear_event(i32 noundef 4) #9
-  %28 = tail call i32 @acpi_disable_event(i32 noundef 4, i32 noundef 0) #9
+  %30 = tail call i32 @acpi_clear_event(i32 noundef 4) #9
+  %31 = tail call i32 @acpi_disable_event(i32 noundef 4, i32 noundef 0) #9
   ret i32 1
 }
 
@@ -2187,7 +2227,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   store i8 0, ptr %65, align 1
   %67 = and i8 %66, 112
   %68 = icmp eq i8 %67, 0
-  br i1 %68, label %143, label %69
+  br i1 %68, label %144, label %69
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds i8, ptr %0, i64 220
@@ -2266,46 +2306,47 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   %121 = phi i8 [ %89, %99 ], [ %89, %109 ], [ %87, %114 ]
   %122 = and i8 %121, 32
   %123 = icmp eq i8 %122, 0
-  br i1 %123, label %143, label %124
+  br i1 %123, label %144, label %124
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !14
-  %126 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
-  %127 = and i32 %126, 64
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %142
+  %126 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38
+  %127 = load i32, ptr %126, align 1
+  %128 = and i32 %127, 64
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %143
 
-129:                                              ; preds = %124
-  %130 = call i32 @acpi_get_event_status(i32 noundef 4, ptr noundef nonnull %2) #9
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %133, label %132
+130:                                              ; preds = %124
+  %131 = call i32 @acpi_get_event_status(i32 noundef 4, ptr noundef nonnull %2) #9
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %134, label %133
 
-132:                                              ; preds = %129
+133:                                              ; preds = %130
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.22) #10
-  br label %142
-
-133:                                              ; preds = %129
-  %134 = load i32, ptr %2, align 4
-  %135 = and i32 %134, 4
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %142, label %137
-
-137:                                              ; preds = %133
-  %138 = and i8 %121, -33
-  call void @rtc_cmos_write(i8 noundef zeroext %138, i8 noundef zeroext 11) #9
-  %139 = call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
-  %140 = load ptr, ptr %125, align 8
-  %141 = zext i8 %139 to i64
-  call void @rtc_update_irq(ptr noundef %140, i64 noundef 1, i64 noundef %141) #9
-  br label %142
-
-142:                                              ; preds = %137, %133, %132, %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   br label %143
 
-143:                                              ; preds = %142, %120, %64
+134:                                              ; preds = %130
+  %135 = load i32, ptr %2, align 4
+  %136 = and i32 %135, 4
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %143, label %138
+
+138:                                              ; preds = %134
+  %139 = and i8 %121, -33
+  call void @rtc_cmos_write(i8 noundef zeroext %139, i8 noundef zeroext 11) #9
+  %140 = call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
+  %141 = load ptr, ptr %125, align 8
+  %142 = zext i8 %140 to i64
+  call void @rtc_update_irq(ptr noundef %141, i64 noundef 1, i64 noundef %142) #9
+  br label %143
+
+143:                                              ; preds = %138, %134, %133, %124
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  br label %144
+
+144:                                              ; preds = %143, %120, %64
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @rtc_lock) #9
   ret i32 0
 }

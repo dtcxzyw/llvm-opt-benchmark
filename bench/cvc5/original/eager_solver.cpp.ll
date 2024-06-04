@@ -481,16 +481,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_state = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %state.addr, align 8
-  store ptr %1, ptr %d_state, align 8
+  %2 = load ptr, ptr %state.addr, align 8
+  store ptr %2, ptr %d_state, align 8
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %treg.addr, align 8
-  store ptr %2, ptr %d_treg, align 8
+  %3 = load ptr, ptr %treg.addr, align 8
+  store ptr %3, ptr %d_treg, align 8
   %d_aent = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %env.addr, align 8
-  %call = invoke noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(576) %3)
+  %4 = load ptr, ptr %env.addr, align 8
+  %call = invoke noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(576) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -499,8 +500,8 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %d_rent = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %env.addr, align 8
-  %call5 = invoke noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(576) %4)
+  %5 = load ptr, ptr %env.addr, align 8
+  %call5 = invoke noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(576) %5)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -511,21 +512,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont2
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory7strings11ArithEntailD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_aent) #3
   br label %ehcleanup
 
@@ -576,7 +577,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_rent = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal6theory7strings12RegExpEntailD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_rent) #3
   %d_aent = getelementptr inbounds %"class.cvc5::internal::theory::strings::EagerSolver", ptr %this1, i32 0, i32 3

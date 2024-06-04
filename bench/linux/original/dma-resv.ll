@@ -59,12 +59,14 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dma_resv_des
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_resv_init(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ww_class, ptr @reservation_ww_class, i64 0, i32 4), align 8
-  tail call void @__mutex_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.ww_class, ptr @reservation_ww_class, i64 0, i32 3)) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  store volatile ptr null, ptr %4, align 8
+  %2 = getelementptr inbounds %struct.ww_class, ptr @reservation_ww_class, i64 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.ww_class, ptr @reservation_ww_class, i64 0, i32 3
+  tail call void @__mutex_init(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #9
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  store volatile ptr null, ptr %6, align 8
   ret void
 }
 

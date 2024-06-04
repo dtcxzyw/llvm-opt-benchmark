@@ -442,13 +442,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %callback.addr, align 8
   call void @_ZN8proxygen16ByteEventTrackerC2EPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen18HQByteEventTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN8proxygen18HQByteEventTrackerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %socket_ = getelementptr inbounds %"class.proxygen::HQByteEventTracker", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %socket.addr, align 8
-  store ptr %1, ptr %socket_, align 8
+  %2 = load ptr, ptr %socket.addr, align 8
+  store ptr %2, ptr %socket_, align 8
   %streamId_ = getelementptr inbounds %"class.proxygen::HQByteEventTracker", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %streamId.addr, align 8
-  store i64 %2, ptr %streamId_, align 8
+  %3 = load i64, ptr %streamId.addr, align 8
+  store i64 %3, ptr %streamId_, align 8
   ret void
 }
 
@@ -461,7 +462,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %callback, ptr %callback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen16ByteEventTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN8proxygen16ByteEventTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %bytesWritten_ = getelementptr inbounds %"class.proxygen::ByteEventTracker", ptr %this1, i32 0, i32 1
   store i64 0, ptr %bytesWritten_, align 8
   %byteEvents_ = getelementptr inbounds %"class.proxygen::ByteEventTracker", ptr %this1, i32 0, i32 2
@@ -469,8 +471,8 @@ entry:
   %this1.i = load ptr, ptr %this.addr.i, align 8
   call void @_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1.i)
   %callback_ = getelementptr inbounds %"class.proxygen::ByteEventTracker", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %callback.addr, align 8
-  store ptr %0, ptr %callback_, align 8
+  %1 = load ptr, ptr %callback.addr, align 8
+  store ptr %1, ptr %callback_, align 8
   ret void
 }
 
@@ -740,9 +742,11 @@ entry:
   call void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %this3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %3)
   %7 = getelementptr inbounds i8, ptr %this3, i64 72
   call void @_ZN4quic10QuicSocket17ByteEventCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120HQTransportByteEventE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %8 = getelementptr inbounds { [8 x ptr], [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120HQTransportByteEventE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 72
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120HQTransportByteEventE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %9 = getelementptr inbounds { [8 x ptr], [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120HQTransportByteEventE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %add.ptr, align 8
   ret void
 }
 
@@ -1018,35 +1022,36 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20TransactionByteEventE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen20TransactionByteEventE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::TransactionByteEvent", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %txn.addr, align 8
-  store ptr %2, ptr %txn_, align 8
+  %3 = load ptr, ptr %txn.addr, align 8
+  store ptr %3, ptr %txn_, align 8
   %txn_2 = getelementptr inbounds %"class.proxygen::TransactionByteEvent", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %txn_2, align 8
-  invoke void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %3)
+  %4 = load ptr, ptr %txn_2, align 8
+  invoke void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %4)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
   br label %eh.resume
 
@@ -1064,7 +1069,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4quic10QuicSocket17ByteEventCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4quic10QuicSocket17ByteEventCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1308,14 +1314,15 @@ entry:
   store i32 %eventType, ptr %eventType.addr, align 4
   store ptr %callback, ptr %callback.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %listHook = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 1
   call void @_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %listHook) #3
   %eventType_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %eventType.addr, align 4
-  %1 = zext i32 %0 to i64
+  %1 = load i32, ptr %eventType.addr, align 4
+  %2 = zext i32 %1 to i64
   %bf.load = load i64, ptr %eventType_, align 8
-  %bf.value = and i64 %1, 7
+  %bf.value = and i64 %2, 7
   %bf.clear = and i64 %bf.load, -8
   %bf.set = or i64 %bf.clear, %bf.value
   store i64 %bf.set, ptr %eventType_, align 8
@@ -1330,9 +1337,9 @@ entry:
   %bf.set7 = or i64 %bf.clear6, 0
   store i64 %bf.set7, ptr %timestampAck_, align 8
   %byteOffset_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %byteOffset.addr, align 8
+  %3 = load i64, ptr %byteOffset.addr, align 8
   %bf.load8 = load i64, ptr %byteOffset_, align 8
-  %bf.value9 = and i64 %2, 576460752303423487
+  %bf.value9 = and i64 %3, 576460752303423487
   %bf.shl = shl i64 %bf.value9, 5
   %bf.clear10 = and i64 %bf.load8, 31
   %bf.set11 = or i64 %bf.clear10, %bf.shl
@@ -1345,12 +1352,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %listHook) #3
   br label %eh.resume
 
@@ -1432,10 +1439,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20TransactionByteEventE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen20TransactionByteEventE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::TransactionByteEvent", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn_, align 8
-  invoke void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %0)
+  %1 = load ptr, ptr %txn_, align 8
+  invoke void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1443,10 +1451,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -1593,7 +1601,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 3
   call void @_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %callback_) #3
   %listHook = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this1, i32 0, i32 1

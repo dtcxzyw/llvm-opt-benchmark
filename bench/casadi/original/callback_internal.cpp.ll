@@ -607,16 +607,17 @@ define void @_ZN6casadi16CallbackInternalC2ERKNSt7__cxx1112basic_stringIcSt11cha
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi16CallbackInternalE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi16CallbackInternalE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 2
   call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 4
-  store i8 0, ptr %13, align 8
+  %13 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %7, i32 0, i32 4
+  store i8 0, ptr %14, align 8
   ret void
 }
 
@@ -636,23 +637,24 @@ define void @_ZN6casadi16CallbackInternalD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi16CallbackInternalE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [112 x ptr] }, ptr @_ZTVN6casadi16CallbackInternalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
-          to label %4 unwind label %7
+          to label %5 unwind label %8
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %3, i32 0, i32 2
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.casadi::CallbackInternal", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN6casadi16FunctionInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3) #3
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 }
 
@@ -951,7 +953,7 @@ define noundef i64 @_ZN6casadi16CallbackInternal8get_n_inEv(ptr noundef nonnull 
 
 104:                                              ; preds = %100, %91
   %105 = load i32, ptr %9, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %107 = icmp eq i32 %105, %106
   br i1 %107, label %108, label %188
 
@@ -1518,31 +1520,32 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1550,9 +1553,10 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -1593,9 +1597,6 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 declare void @__cxa_free_exception(ptr)
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -1685,7 +1686,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare void @__cxa_end_catch()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN6casadi16CallbackInternal9get_n_outEv(ptr noundef nonnull align 8 dereferenceable(1361) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1924,7 +1925,7 @@ define noundef i64 @_ZN6casadi16CallbackInternal9get_n_outEv(ptr noundef nonnull
 
 104:                                              ; preds = %100, %91
   %105 = load i32, ptr %9, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %107 = icmp eq i32 %105, %106
   br i1 %107, label %108, label %188
 
@@ -2407,7 +2408,7 @@ define void @_ZN6casadi16CallbackInternal15get_sparsity_inEx(ptr dead_on_unwind 
 
 108:                                              ; preds = %104, %95
   %109 = load i32, ptr %13, align 4
-  %110 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %192
 
@@ -2890,7 +2891,7 @@ define void @_ZN6casadi16CallbackInternal16get_sparsity_outEx(ptr dead_on_unwind
 
 108:                                              ; preds = %104, %95
   %109 = load i32, ptr %13, align 4
-  %110 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %192
 
@@ -3373,7 +3374,7 @@ define void @_ZN6casadi16CallbackInternal11get_name_inB5cxx11Ex(ptr dead_on_unwi
 
 108:                                              ; preds = %104, %95
   %109 = load i32, ptr %13, align 4
-  %110 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %192
 
@@ -3856,7 +3857,7 @@ define void @_ZN6casadi16CallbackInternal12get_name_outB5cxx11Ex(ptr dead_on_unw
 
 108:                                              ; preds = %104, %95
   %109 = load i32, ptr %13, align 4
-  %110 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %192
 
@@ -4334,7 +4335,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal15has_eval_bufferEv(ptr 
 
 104:                                              ; preds = %100, %91
   %105 = load i32, ptr %9, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %107 = icmp eq i32 %105, %106
   br i1 %107, label %108, label %188
 
@@ -4818,7 +4819,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal16has_jac_sparsityExx(pt
 
 110:                                              ; preds = %106, %95
   %111 = load i32, ptr %13, align 4
-  %112 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %112 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %114, label %194
 
@@ -5309,7 +5310,7 @@ define void @_ZNK6casadi16CallbackInternal16get_jac_sparsityExxb(ptr dead_on_unw
 
 116:                                              ; preds = %112, %100
   %117 = load i32, ptr %17, align 4
-  %118 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %120, label %200
 
@@ -6380,7 +6381,7 @@ define void @_ZNK6casadi16CallbackInternal7eval_dmERKSt6vectorINS_6MatrixIdEESaI
 
 108:                                              ; preds = %104, %95
   %109 = load i32, ptr %13, align 4
-  %110 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %192
 
@@ -6891,7 +6892,7 @@ define noundef i32 @_ZNK6casadi16CallbackInternal4evalEPPKdPPdPxS4_Pv(ptr nounde
 
 131:                                              ; preds = %127, %114
   %132 = load i32, ptr %20, align 4
-  %133 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %133 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %134 = icmp eq i32 %132, %133
   br i1 %134, label %135, label %218
 
@@ -7378,7 +7379,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11uses_outputEv(ptr noun
 
 104:                                              ; preds = %100, %91
   %105 = load i32, ptr %9, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %107 = icmp eq i32 %105, %106
   br i1 %107, label %108, label %188
 
@@ -7856,7 +7857,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal12has_jacobianEv(ptr nou
 
 104:                                              ; preds = %100, %91
   %105 = load i32, ptr %9, align 4
-  %106 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %107 = icmp eq i32 %105, %106
   br i1 %107, label %108, label %188
 
@@ -8348,7 +8349,7 @@ define void @_ZNK6casadi16CallbackInternal12get_jacobianERKNSt7__cxx1112basic_st
 
 117:                                              ; preds = %113, %101
   %118 = load i32, ptr %19, align 4
-  %119 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %119 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %120 = icmp eq i32 %118, %119
   br i1 %120, label %121, label %201
 
@@ -8843,7 +8844,7 @@ define void @_ZNK6casadi16CallbackInternal11get_forwardExRKNSt7__cxx1112basic_st
 
 120:                                              ; preds = %116, %103
   %121 = load i32, ptr %21, align 4
-  %122 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %122 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %124, label %204
 
@@ -9324,7 +9325,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11has_forwardEx(ptr noun
 
 107:                                              ; preds = %103, %93
   %108 = load i32, ptr %11, align 4
-  %109 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %111, label %191
 
@@ -9819,7 +9820,7 @@ define void @_ZNK6casadi16CallbackInternal11get_reverseExRKNSt7__cxx1112basic_st
 
 120:                                              ; preds = %116, %103
   %121 = load i32, ptr %21, align 4
-  %122 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %122 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %124, label %204
 
@@ -10300,7 +10301,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11has_reverseEx(ptr noun
 
 107:                                              ; preds = %103, %93
   %108 = load i32, ptr %11, align 4
-  %109 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %111, label %191
 
@@ -11250,7 +11251,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
@@ -11316,7 +11317,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11431,7 +11433,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN6casadi8SparsityESaIS1_EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #11
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal12sparsity_outEx(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef %1) #4 comdat align 2 {
@@ -11447,7 +11449,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi19ProtoFunctionMemoryC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
@@ -12083,7 +12085,7 @@ define linkonce_odr hidden void @_ZNSaIdEC2ERKS_(ptr noundef nonnull align 1 der
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIdEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
@@ -12285,10 +12287,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIdE8allocateEmPKv(
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #11
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #11
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIdED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
@@ -12590,7 +12592,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13853,13 +13855,16 @@ define linkonce_odr noundef ptr @_ZSt12__niter_baseIPxET_S1_(ptr noundef %0) #5 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_callback_internal.cpp() #0 section ".text.startup" {
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13869,12 +13874,12 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { builtin nounwind }
 attributes #16 = { noreturn }

@@ -354,7 +354,8 @@ entry:
   %coerce.dive4 = getelementptr inbounds %"class.sat::literal", ptr %agg.tmp, i32 0, i32 0
   %4 = load i32, ptr %coerce.dive4, align 4
   call void @_ZN2pb10constraintC2ENS_5tag_tEjN3sat7literalEjmj(ptr noundef nonnull align 8 dereferenceable(64) %this1, i32 noundef 1, i32 noundef %0, i32 %4, i32 noundef %call, i64 noundef %call3, i32 noundef %3)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN2pb3pbcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN2pb3pbcE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %m_slack = getelementptr inbounds %"class.pb::pbc", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_slack, align 8
   %m_num_watch = getelementptr inbounds %"class.pb::pbc", ptr %this1, i32 0, i32 2
@@ -365,58 +366,58 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i32, ptr %i, align 4
+  %6 = load i32, ptr %i, align 4
   %call5 = invoke noundef i32 @_ZNK2pb10constraint4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp ult i32 %5, %call5
+  %cmp = icmp ult i32 %6, %call5
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
-  %6 = load ptr, ptr %wlits.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %call7 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6vectorISt4pairIjN3sat7literalEELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
+  %7 = load ptr, ptr %wlits.addr, align 8
+  %8 = load i32, ptr %i, align 4
+  %call7 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6vectorISt4pairIjN3sat7literalEELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %for.body
   %m_wlits = getelementptr inbounds %"class.pb::pbc", ptr %this1, i32 0, i32 4
-  %8 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %idxprom
   %call9 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt4pairIjN3sat7literalEEaSERKS2_(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx, ptr noundef nonnull align 4 dereferenceable(8) %call7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %9 = load ptr, ptr %wlits.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %call11 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6vectorISt4pairIjN3sat7literalEELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
+  %10 = load ptr, ptr %wlits.addr, align 8
+  %11 = load i32, ptr %i, align 4
+  %call11 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6vectorISt4pairIjN3sat7literalEELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %11)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %first = getelementptr inbounds %"struct.std::pair", ptr %call11, i32 0, i32 0
-  %11 = load i32, ptr %first, align 4
-  %12 = load i32, ptr %k.addr, align 4
-  %cmp12 = icmp ugt i32 %11, %12
+  %12 = load i32, ptr %first, align 4
+  %13 = load i32, ptr %k.addr, align 4
+  %cmp12 = icmp ugt i32 %12, %13
   br i1 %cmp12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont10
-  %13 = load i32, ptr %k.addr, align 4
+  %14 = load i32, ptr %k.addr, align 4
   %m_wlits13 = getelementptr inbounds %"class.pb::pbc", ptr %this1, i32 0, i32 4
-  %14 = load i32, ptr %i, align 4
-  %idxprom14 = zext i32 %14 to i64
+  %15 = load i32, ptr %i, align 4
+  %idxprom14 = zext i32 %15 to i64
   %arrayidx15 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits13, i64 0, i64 %idxprom14
   %first16 = getelementptr inbounds %"struct.std::pair", ptr %arrayidx15, i32 0, i32 0
-  store i32 %13, ptr %first16, align 4
+  store i32 %14, ptr %first16, align 4
   br label %if.end
 
 lpad:                                             ; preds = %for.end, %invoke.cont8, %invoke.cont6, %for.body, %for.cond
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN2pb10constraintD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
   br label %eh.resume
 
@@ -424,8 +425,8 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %18 = load i32, ptr %i, align 4
-  %inc = add i32 %18, 1
+  %19 = load i32, ptr %i, align 4
+  %inc = add i32 %19, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -508,10 +509,11 @@ entry:
   store i64 %osz, ptr %osz.addr, align 8
   store i32 %k, ptr %k.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN2pb10constraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN2pb10constraintE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_tag = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %t.addr, align 4
-  store i32 %0, ptr %m_tag, align 8
+  %1 = load i32, ptr %t.addr, align 4
+  store i32 %1, ptr %m_tag, align 8
   %m_removed = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 2
   store i8 0, ptr %m_removed, align 4
   %m_lit = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 3
@@ -523,21 +525,21 @@ entry:
   %m_psm = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 6
   store i32 0, ptr %m_psm, align 4
   %m_size = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 7
-  %1 = load i32, ptr %sz.addr, align 4
-  store i32 %1, ptr %m_size, align 8
+  %2 = load i32, ptr %sz.addr, align 4
+  store i32 %2, ptr %m_size, align 8
   %m_obj_size = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 8
-  %2 = load i64, ptr %osz.addr, align 8
-  store i64 %2, ptr %m_obj_size, align 8
+  %3 = load i64, ptr %osz.addr, align 8
+  store i64 %3, ptr %m_obj_size, align 8
   %m_learned = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 9
   store i8 0, ptr %m_learned, align 8
   %m_id = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 10
-  %3 = load i32, ptr %id.addr, align 4
-  store i32 %3, ptr %m_id, align 4
+  %4 = load i32, ptr %id.addr, align 4
+  store i32 %4, ptr %m_id, align 4
   %m_pure = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 11
   store i8 0, ptr %m_pure, align 8
   %m_k = getelementptr inbounds %"class.pb::constraint", ptr %this1, i32 0, i32 12
-  %4 = load i32, ptr %k.addr, align 4
-  store i32 %4, ptr %m_k, align 4
+  %5 = load i32, ptr %k.addr, align 4
+  store i32 %5, ptr %m_k, align 4
   ret void
 }
 
@@ -842,10 +844,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -855,7 +858,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3376,7 +3380,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

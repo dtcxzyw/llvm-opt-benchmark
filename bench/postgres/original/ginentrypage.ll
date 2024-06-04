@@ -1621,7 +1621,7 @@ define internal void @entryExecPlaceToPage(ptr noundef %0, i32 noundef %1, ptr n
   %73 = load i8, ptr %72, align 2
   %74 = sext i8 %73 to i32
   %75 = icmp eq i32 %74, 112
-  br i1 %75, label %76, label %118
+  br i1 %75, label %76, label %119
 
 76:                                               ; preds = %65
   %77 = load i32, ptr @wal_level, align 4
@@ -1635,7 +1635,7 @@ define internal void @entryExecPlaceToPage(ptr noundef %0, i32 noundef %1, ptr n
   %83 = getelementptr inbounds %struct.RelationData, ptr %82, i32 0, i32 9
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %118
+  br i1 %85, label %86, label %119
 
 86:                                               ; preds = %79
   %87 = load ptr, ptr %7, align 8
@@ -1644,14 +1644,14 @@ define internal void @entryExecPlaceToPage(ptr noundef %0, i32 noundef %1, ptr n
   %90 = getelementptr inbounds %struct.RelationData, ptr %89, i32 0, i32 11
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %118
+  br i1 %92, label %93, label %119
 
 93:                                               ; preds = %86, %76
   %94 = load ptr, ptr %7, align 8
   %95 = getelementptr inbounds %struct.GinBtreeData, ptr %94, i32 0, i32 14
   %96 = load i8, ptr %95, align 1
   %97 = trunc i8 %96 to i1
-  br i1 %97, label %118, label %98
+  br i1 %97, label %119, label %98
 
 98:                                               ; preds = %93
   %99 = load ptr, ptr %13, align 8
@@ -1659,28 +1659,29 @@ define internal void @entryExecPlaceToPage(ptr noundef %0, i32 noundef %1, ptr n
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
   %103 = zext i1 %102 to i8
-  store i8 %103, ptr getelementptr inbounds (%struct.ginxlogInsertEntry, ptr @entryExecPlaceToPage.data, i32 0, i32 1), align 2
-  %104 = load i16, ptr %15, align 2
-  store i16 %104, ptr @entryExecPlaceToPage.data, align 2
-  %105 = load i32, ptr %8, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %105, i8 noundef zeroext 8)
+  %104 = getelementptr inbounds %struct.ginxlogInsertEntry, ptr @entryExecPlaceToPage.data, i32 0, i32 1
+  store i8 %103, ptr %104, align 2
+  %105 = load i16, ptr %15, align 2
+  store i16 %105, ptr @entryExecPlaceToPage.data, align 2
+  %106 = load i32, ptr %8, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %106, i8 noundef zeroext 8)
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef @entryExecPlaceToPage.data, i32 noundef 4)
-  %106 = load ptr, ptr %13, align 8
-  %107 = getelementptr inbounds %struct.GinBtreeEntryInsertData, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %13, align 8
-  %110 = getelementptr inbounds %struct.GinBtreeEntryInsertData, ptr %109, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct.IndexTupleData, ptr %111, i32 0, i32 1
-  %113 = load i16, ptr %112, align 2
-  %114 = zext i16 %113 to i32
-  %115 = and i32 %114, 8191
-  %116 = sext i32 %115 to i64
-  %117 = trunc i64 %116 to i32
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %108, i32 noundef %117)
-  br label %118
+  %107 = load ptr, ptr %13, align 8
+  %108 = getelementptr inbounds %struct.GinBtreeEntryInsertData, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %13, align 8
+  %111 = getelementptr inbounds %struct.GinBtreeEntryInsertData, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds %struct.IndexTupleData, ptr %112, i32 0, i32 1
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i32
+  %116 = and i32 %115, 8191
+  %117 = sext i32 %116 to i64
+  %118 = trunc i64 %117 to i32
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %109, i32 noundef %118)
+  br label %119
 
-118:                                              ; preds = %98, %93, %86, %79, %65
+119:                                              ; preds = %98, %93, %86, %79, %65
   ret void
 }
 

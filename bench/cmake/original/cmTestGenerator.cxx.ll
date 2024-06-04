@@ -715,92 +715,93 @@ define dso_local void @_ZN15cmTestGeneratorC2EP6cmTestRKSt6vectorINSt7__cxx1112b
   %12 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %13 unwind label %27
+          to label %13 unwind label %28
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %6, align 8
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %31
+          to label %15 unwind label %32
 
 15:                                               ; preds = %13
   invoke void @_ZN17cmScriptGeneratorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(105) %12, ptr noundef %7, ptr noundef %11)
-          to label %16 unwind label %35
+          to label %16 unwind label %36
 
 16:                                               ; preds = %15
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15cmTestGenerator, i32 0, i32 0, i32 2), ptr %12, align 8
-  %17 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %5, align 8
-  store ptr %18, ptr %17, align 8
+  %17 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV15cmTestGenerator, i32 0, i32 0, i32 2
+  store ptr %17, ptr %12, align 8
+  %18 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 3
   %19 = load ptr, ptr %5, align 8
-  %20 = invoke noundef zeroext i1 @_ZNK6cmTest11GetOldStyleEv(ptr noundef nonnull align 8 dereferenceable(148) %19)
-          to label %21 unwind label %41
+  store ptr %19, ptr %18, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = invoke noundef zeroext i1 @_ZNK6cmTest11GetOldStyleEv(ptr noundef nonnull align 8 dereferenceable(148) %20)
+          to label %22 unwind label %42
 
-21:                                               ; preds = %16
-  %22 = xor i1 %20, true
-  %23 = getelementptr inbounds %class.cmScriptGenerator, ptr %12, i32 0, i32 5
-  %24 = zext i1 %22 to i8
-  store i8 %24, ptr %23, align 8
-  %25 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 4
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 2
-  store ptr null, ptr %26, align 8
+22:                                               ; preds = %16
+  %23 = xor i1 %21, true
+  %24 = getelementptr inbounds %class.cmScriptGenerator, ptr %12, i32 0, i32 5
+  %25 = zext i1 %23 to i8
+  store i8 %25, ptr %24, align 8
+  %26 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 4
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 2
+  store ptr null, ptr %27, align 8
   ret void
 
-27:                                               ; preds = %3
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %3
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %9, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %10, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  br label %41
+
+32:                                               ; preds = %13
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %9, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %10, align 4
   br label %40
 
-31:                                               ; preds = %13
-  %32 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %9, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %10, align 4
-  br label %39
-
-35:                                               ; preds = %15
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %9, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %10, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %9, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %10, align 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   br label %40
 
-40:                                               ; preds = %39, %27
+40:                                               ; preds = %36, %32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %41
+
+41:                                               ; preds = %40, %28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  br label %45
+  br label %46
 
-41:                                               ; preds = %16
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %16
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %9, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %10, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %9, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %10, align 4
   call void @_ZN17cmScriptGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %12) #3
-  br label %45
+  br label %46
 
-45:                                               ; preds = %41, %40
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %10, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+46:                                               ; preds = %42, %41
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i32, ptr %10, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: nounwind

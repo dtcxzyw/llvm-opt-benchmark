@@ -591,7 +591,8 @@ entry:
   %hook = alloca ptr, align 8
   store ptr %fn, ptr %fn.addr, align 8
   store ptr %data, ptr %data.addr, align 8
-  %bf.load = load i32, ptr getelementptr inbounds (%struct._GHookList, ptr @abrt_hooks, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct._GHookList, ptr @abrt_hooks, i32 0, i32 1
+  %bf.load = load i32, ptr %0, align 8
   %bf.lshr = lshr i32 %bf.load, 16
   %bf.clear = and i32 %bf.lshr, 1
   %tobool = icmp ne i32 %bf.clear, 0
@@ -612,16 +613,16 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.then1, %if.end
   %call3 = call ptr @g_hook_alloc(ptr noundef @abrt_hooks)
   store ptr %call3, ptr %hook, align 8
-  %0 = load ptr, ptr %fn.addr, align 8
-  %1 = load ptr, ptr %hook, align 8
-  %func = getelementptr inbounds %struct._GHook, ptr %1, i32 0, i32 6
-  store ptr %0, ptr %func, align 8
-  %2 = load ptr, ptr %data.addr, align 8
-  %3 = load ptr, ptr %hook, align 8
-  %data4 = getelementptr inbounds %struct._GHook, ptr %3, i32 0, i32 0
-  store ptr %2, ptr %data4, align 8
+  %1 = load ptr, ptr %fn.addr, align 8
+  %2 = load ptr, ptr %hook, align 8
+  %func = getelementptr inbounds %struct._GHook, ptr %2, i32 0, i32 6
+  store ptr %1, ptr %func, align 8
+  %3 = load ptr, ptr %data.addr, align 8
   %4 = load ptr, ptr %hook, align 8
-  call void @g_hook_prepend(ptr noundef @abrt_hooks, ptr noundef %4)
+  %data4 = getelementptr inbounds %struct._GHook, ptr %4, i32 0, i32 0
+  store ptr %3, ptr %data4, align 8
+  %5 = load ptr, ptr %hook, align 8
+  call void @g_hook_prepend(ptr noundef @abrt_hooks, ptr noundef %5)
   ret void
 }
 
@@ -1097,14 +1098,14 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qtest_vqmp(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %response, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %response, align 8
   ret ptr %2
 }
@@ -1153,22 +1154,16 @@ entry:
   %s = alloca ptr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qtest_vinitf(ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call, ptr %s, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load ptr, ptr %s, align 8
   ret ptr %1
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_init_with_serial(ptr noundef %extra_args, ptr noundef %sock_fd) #0 {
@@ -1746,7 +1741,7 @@ entry:
   store i64 %fds_num, ptr %fds_num.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fds.addr, align 8
   %2 = load i64, ptr %fds_num.addr, align 8
@@ -1755,7 +1750,7 @@ entry:
   %call = call ptr @qtest_vqmp_fds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store ptr %call, ptr %response, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load ptr, ptr %response, align 8
   ret ptr %4
 }
@@ -1769,13 +1764,13 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @qtest_qmp_vsend(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -1788,7 +1783,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %0, i32 0, i32 1
   %1 = load i32, ptr %qmp_fd, align 4
@@ -1796,7 +1791,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @qmp_fd_vsend_raw(i32 noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -1913,7 +1908,7 @@ return:                                           ; preds = %while.end, %if.then
 declare ptr @g_list_delete_link(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #6
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_qmp_eventwait_ref(ptr noundef %s, ptr noundef %event) #0 {
@@ -2122,7 +2117,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare noalias ptr @g_strdup(ptr noundef) #1
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #7
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_hmp(ptr noundef %s, ptr noundef %fmt, ...) #0 {
@@ -2134,14 +2129,14 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qtest_vhmp(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %ret, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %ret, align 8
   ret ptr %2
 }
@@ -2185,7 +2180,7 @@ if.end7:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #6
+declare ptr @strrchr(ptr noundef, i32 noundef) #5
 
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
@@ -2193,7 +2188,7 @@ declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #6
+declare ptr @strstr(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qtest_has_accel(ptr noundef %accel_name) #0 {
@@ -2293,13 +2288,13 @@ return:                                           ; preds = %if.end16, %if.then1
 declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @access(ptr noundef, i32 noundef) #2
@@ -2365,13 +2360,13 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call, ptr %str, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load ptr, ptr %s.addr, align 8
   %ops = getelementptr inbounds %struct.QTestState, ptr %1, i32 0, i32 8
   %send = getelementptr inbounds %struct.QTestClientTransportOps, ptr %ops, i32 0, i32 0
@@ -3625,7 +3620,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #9
+declare noalias ptr @g_malloc(i64 noundef) #8
 
 ; Function Attrs: nounwind
 declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
@@ -4322,14 +4317,14 @@ entry:
   store ptr %qts, ptr %qts.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %qts.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qtest_vqmp_assert_failure_ref(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %response, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %response, align 8
   ret ptr %2
 }
@@ -4344,14 +4339,14 @@ entry:
   store ptr %qts, ptr %qts.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %qts.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qtest_vqmp_assert_success_ref(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %response, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %response, align 8
   ret ptr %2
 }
@@ -4365,13 +4360,13 @@ entry:
   store ptr %qts, ptr %qts.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %qts.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @qtest_vqmp_assert_success(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -4389,7 +4384,7 @@ entry:
   store i64 %nfds, ptr %nfds.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %qts.addr, align 8
   %1 = load ptr, ptr %fds.addr, align 8
   %2 = load i64, ptr %nfds.addr, align 8
@@ -4398,7 +4393,7 @@ entry:
   %call = call ptr @qtest_vqmp_fds_assert_success_ref(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store ptr %call, ptr %response, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load ptr, ptr %response, align 8
   ret ptr %4
 }
@@ -4416,7 +4411,7 @@ entry:
   store i64 %nfds, ptr %nfds.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %qts.addr, align 8
   %1 = load ptr, ptr %fds.addr, align 8
   %2 = load i64, ptr %nfds.addr, align 8
@@ -4424,7 +4419,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @qtest_vqmp_fds_assert_success(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -5610,13 +5605,13 @@ entry:
   store ptr %id, ptr %id.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @qdict_from_vjsonf_nofail(ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call, ptr %args, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -6052,7 +6047,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #10
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qtest_client_set_rx_handler(ptr noundef %s, ptr noundef %recv) #0 {
@@ -6566,7 +6561,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %call4 = call ptr @g_string_new(ptr noundef @.str.103)
   store ptr %call4, ptr %command, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %command, align 8
   %3 = load ptr, ptr %qemu_bin.addr, align 8
   %4 = load ptr, ptr %tracearg, align 8
@@ -6576,7 +6571,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @g_string_append_vprintf(ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay5)
   %arraydecay6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay6)
+  call void @llvm.va_end.p0(ptr %arraydecay6)
   %7 = load ptr, ptr %s, align 8
   call void @qtest_add_abrt_handler(ptr noundef @kill_qemu_hook_func, ptr noundef %7)
   %8 = load i8, ptr @silence_spawn_log, align 1
@@ -6757,7 +6752,7 @@ declare i32 @prctl(i32 noundef, ...) #2
 declare i32 @execlp(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #6
+declare ptr @strchr(ptr noundef, i32 noundef) #5
 
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
@@ -6919,12 +6914,12 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #10
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #9
 
 declare i64 @qlist_size(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() #3
@@ -6995,18 +6990,24 @@ if.end:                                           ; preds = %if.then
   ret i32 %5
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }
 attributes #14 = { noreturn nounwind }

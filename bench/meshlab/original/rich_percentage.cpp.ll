@@ -448,35 +448,36 @@ define void @_ZN14RichPercentageC2ERK7QStringfffS2_S2_bS2_(ptr noundef nonnull a
   %29 = trunc i8 %28 to i1
   %30 = load ptr, ptr %18, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %31 unwind label %36
+          to label %31 unwind label %37
 
 31:                                               ; preds = %9
   call void @_ZN10FloatValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %19) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14RichPercentage, i32 0, i32 0, i32 2), ptr %23, align 8
-  %32 = getelementptr inbounds %class.RichPercentage, ptr %23, i32 0, i32 1
-  %33 = load float, ptr %13, align 4
-  store float %33, ptr %32, align 8
-  %34 = getelementptr inbounds %class.RichPercentage, ptr %23, i32 0, i32 2
-  %35 = load float, ptr %14, align 4
-  store float %35, ptr %34, align 4
+  %32 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV14RichPercentage, i32 0, i32 0, i32 2
+  store ptr %32, ptr %23, align 8
+  %33 = getelementptr inbounds %class.RichPercentage, ptr %23, i32 0, i32 1
+  %34 = load float, ptr %13, align 4
+  store float %34, ptr %33, align 8
+  %35 = getelementptr inbounds %class.RichPercentage, ptr %23, i32 0, i32 2
+  %36 = load float, ptr %14, align 4
+  store float %36, ptr %35, align 4
   ret void
 
-36:                                               ; preds = %9
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %9
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %20, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %21, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %20, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %21, align 4
   call void @_ZN10FloatValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %19) #5
-  br label %40
+  br label %41
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %20, align 8
-  %42 = load i32, ptr %21, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %20, align 8
+  %43 = load i32, ptr %21, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 declare void @_ZN10FloatValueC1Ef(ptr noundef nonnull align 8 dereferenceable(12), float noundef) unnamed_addr #3
@@ -783,11 +784,12 @@ define linkonce_odr void @_ZN14RichPercentageC2ERKS_(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14RichPercentage, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.RichPercentage, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.RichPercentage, ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false)
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV14RichPercentage, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.RichPercentage, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.RichPercentage, ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 8, i1 false)
   ret void
 }
 

@@ -41,120 +41,122 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_unregist
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(872) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 872) #7
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %83, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(872) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 872) #7
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %85, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 784
-  store ptr %0, ptr %8, align 8
-  %9 = trunc i32 %1 to i8
-  %10 = getelementptr inbounds i8, ptr %5, i64 728
-  store i8 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
-  %14 = load i8, ptr %13, align 8
-  %15 = zext i8 %14 to i32
-  %16 = and i32 %1, 255
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef %15, i32 noundef %16) #8
-  %18 = getelementptr inbounds i8, ptr %5, i64 568
-  store i64 16777215, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 560
-  store ptr %18, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %21 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %82, label %23
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %6, i64 784
+  store ptr %0, ptr %9, align 8
+  %10 = trunc i32 %1 to i8
+  %11 = getelementptr inbounds i8, ptr %6, i64 728
+  store i8 %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = load i8, ptr %14, align 8
+  %16 = zext i8 %15 to i32
+  %17 = and i32 %1, 255
+  %18 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef %16, i32 noundef %17) #8
+  %19 = getelementptr inbounds i8, ptr %6, i64 568
+  store i64 16777215, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 560
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %22 = load ptr, ptr %21, align 16
+  %23 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 16) #7
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %84, label %25
 
-23:                                               ; preds = %7
-  %24 = load i8, ptr %2, align 1
-  store i8 %24, ptr %21, align 8
-  %25 = getelementptr i8, ptr %2, i64 1
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr i8, ptr %21, i64 1
-  store i8 %26, ptr %27, align 1
-  %28 = getelementptr i8, ptr %2, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = getelementptr i8, ptr %21, i64 2
-  store i8 %29, ptr %30, align 2
-  %31 = getelementptr i8, ptr %2, i64 3
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i64
-  %34 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = shl i8 %35, 5
-  %37 = and i8 %36, 32
-  %38 = add i8 %37, %32
-  %39 = getelementptr i8, ptr %21, i64 3
-  store i8 %38, ptr %39, align 1
-  %40 = getelementptr i8, ptr %2, i64 4
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = shl i8 %44, 5
-  %46 = and i8 %45, 32
-  %47 = add i8 %46, %41
-  %48 = getelementptr i8, ptr %21, i64 4
-  store i8 %47, ptr %48, align 4
-  %49 = getelementptr i8, ptr %2, i64 5
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i64
-  %52 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = shl i8 %53, 5
-  %55 = and i8 %54, 32
-  %56 = add i8 %55, %50
-  %57 = getelementptr i8, ptr %21, i64 5
-  store i8 %56, ptr %57, align 1
-  %58 = getelementptr i8, ptr %2, i64 6
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = shl i8 %62, 5
-  %64 = and i8 %63, 32
-  %65 = add i8 %64, %59
-  %66 = getelementptr i8, ptr %21, i64 6
-  store i8 %65, ptr %66, align 2
-  %67 = getelementptr i8, ptr %21, i64 7
-  store i8 0, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 792
-  %70 = load ptr, ptr %69, align 8
-  br label %71
+25:                                               ; preds = %8
+  %26 = load i8, ptr %2, align 1
+  store i8 %26, ptr %23, align 8
+  %27 = getelementptr i8, ptr %2, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = getelementptr i8, ptr %23, i64 1
+  store i8 %28, ptr %29, align 1
+  %30 = getelementptr i8, ptr %2, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = getelementptr i8, ptr %23, i64 2
+  store i8 %31, ptr %32, align 2
+  %33 = getelementptr i8, ptr %2, i64 3
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = shl i8 %37, 5
+  %39 = and i8 %38, 32
+  %40 = add i8 %39, %34
+  %41 = getelementptr i8, ptr %23, i64 3
+  store i8 %40, ptr %41, align 1
+  %42 = getelementptr i8, ptr %2, i64 4
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %44
+  %46 = load i8, ptr %45, align 1
+  %47 = shl i8 %46, 5
+  %48 = and i8 %47, 32
+  %49 = add i8 %48, %43
+  %50 = getelementptr i8, ptr %23, i64 4
+  store i8 %49, ptr %50, align 4
+  %51 = getelementptr i8, ptr %2, i64 5
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i64
+  %54 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = shl i8 %55, 5
+  %57 = and i8 %56, 32
+  %58 = add i8 %57, %52
+  %59 = getelementptr i8, ptr %23, i64 5
+  store i8 %58, ptr %59, align 1
+  %60 = getelementptr i8, ptr %2, i64 6
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = shl i8 %64, 5
+  %66 = and i8 %65, 32
+  %67 = add i8 %66, %61
+  %68 = getelementptr i8, ptr %23, i64 6
+  store i8 %67, ptr %68, align 2
+  %69 = getelementptr i8, ptr %23, i64 7
+  store i8 0, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr null, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 792
+  %72 = load ptr, ptr %71, align 8
+  br label %73
 
-71:                                               ; preds = %74, %23
-  %72 = phi ptr [ %70, %23 ], [ %76, %74 ]
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %80, label %74
+73:                                               ; preds = %76, %25
+  %74 = phi ptr [ %72, %25 ], [ %78, %76 ]
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %82, label %76
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %72, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %71, !llvm.loop !5
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %73, !llvm.loop !5
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %72, i64 8
-  br label %80
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %74, i64 8
+  br label %82
 
-80:                                               ; preds = %78, %71
-  %81 = phi ptr [ %79, %78 ], [ %69, %71 ]
-  store ptr %21, ptr %81, align 8
-  br i1 %22, label %82, label %83
+82:                                               ; preds = %80, %73
+  %83 = phi ptr [ %81, %80 ], [ %71, %73 ]
+  store ptr %23, ptr %83, align 8
+  br i1 %24, label %84, label %85
 
-82:                                               ; preds = %80, %7
-  tail call void @kfree(ptr noundef nonnull %5) #8
-  br label %83
+84:                                               ; preds = %82, %8
+  tail call void @kfree(ptr noundef nonnull %6) #8
+  br label %85
 
-83:                                               ; preds = %82, %80, %3
-  %84 = phi ptr [ null, %82 ], [ null, %3 ], [ %5, %80 ]
-  ret ptr %84
+85:                                               ; preds = %84, %82, %3
+  %86 = phi ptr [ null, %84 ], [ null, %3 ], [ %6, %82 ]
+  ret ptr %86
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -176,7 +178,7 @@ define dso_local i32 @pnp_add_card(ptr noundef %0) local_unnamed_addr #0 align 1
 6:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %4) #9
   tail call void @put_device(ptr noundef %0) #8
-  br label %41
+  br label %43
 
 7:                                                ; preds = %1
   %8 = tail call i32 @device_create_file(ptr noundef %0, ptr noundef nonnull @dev_attr_name) #8
@@ -195,52 +197,54 @@ define dso_local i32 @pnp_add_card(ptr noundef %0) local_unnamed_addr #0 align 1
 14:                                               ; preds = %13, %10, %7
   tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
   %15 = getelementptr inbounds i8, ptr %0, i64 736
-  %16 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_cards, i64 0, i32 1), align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_cards, i64 0, i32 1), align 8
+  %16 = getelementptr inbounds %struct.list_head, ptr @pnp_cards, i64 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.list_head, ptr @pnp_cards, i64 0, i32 1
+  store ptr %15, ptr %18, align 8
   store ptr @pnp_cards, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr %16, ptr %17, align 8
-  store volatile ptr %15, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 752
-  %19 = getelementptr inbounds i8, ptr %0, i64 784
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 808
-  %22 = getelementptr inbounds i8, ptr %20, i64 816
-  %23 = load ptr, ptr %22, align 8
-  store ptr %18, ptr %22, align 8
-  store ptr %21, ptr %18, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 760
-  store ptr %23, ptr %24, align 8
-  store volatile ptr %18, ptr %23, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 744
+  store ptr %17, ptr %19, align 8
+  store volatile ptr %15, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 752
+  %21 = getelementptr inbounds i8, ptr %0, i64 784
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 808
+  %24 = getelementptr inbounds i8, ptr %22, i64 816
+  %25 = load ptr, ptr %24, align 8
+  store ptr %20, ptr %24, align 8
+  store ptr %23, ptr %20, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 760
+  store ptr %25, ptr %26, align 8
+  store volatile ptr %20, ptr %25, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 768
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %25
-  br i1 %27, label %34, label %28
+  %27 = getelementptr inbounds i8, ptr %0, i64 768
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, %27
+  br i1 %29, label %36, label %30
 
-28:                                               ; preds = %28, %14
-  %29 = phi ptr [ %32, %28 ], [ %26, %14 ]
-  %30 = getelementptr i8, ptr %29, i64 -776
-  %31 = tail call i32 @__pnp_add_device(ptr noundef %30) #8
-  %32 = load ptr, ptr %29, align 8
-  %33 = icmp eq ptr %32, %25
-  br i1 %33, label %34, label %28, !llvm.loop !8
+30:                                               ; preds = %30, %14
+  %31 = phi ptr [ %34, %30 ], [ %28, %14 ]
+  %32 = getelementptr i8, ptr %31, i64 -776
+  %33 = tail call i32 @__pnp_add_device(ptr noundef %32) #8
+  %34 = load ptr, ptr %31, align 8
+  %35 = icmp eq ptr %34, %27
+  br i1 %35, label %36, label %30, !llvm.loop !8
 
-34:                                               ; preds = %28, %14
-  %35 = load ptr, ptr @pnp_card_drivers, align 8
-  %36 = icmp eq ptr %35, @pnp_card_drivers
-  br i1 %36, label %41, label %37
+36:                                               ; preds = %30, %14
+  %37 = load ptr, ptr @pnp_card_drivers, align 8
+  %38 = icmp eq ptr %37, @pnp_card_drivers
+  br i1 %38, label %43, label %39
 
-37:                                               ; preds = %37, %34
-  %38 = phi ptr [ %39, %37 ], [ %35, %34 ]
-  %39 = load ptr, ptr %38, align 8
-  tail call fastcc void @card_probe(ptr noundef %0, ptr noundef %38)
-  %40 = icmp eq ptr %39, @pnp_card_drivers
-  br i1 %40, label %41, label %37, !llvm.loop !9
+39:                                               ; preds = %39, %36
+  %40 = phi ptr [ %41, %39 ], [ %37, %36 ]
+  %41 = load ptr, ptr %40, align 8
+  tail call fastcc void @card_probe(ptr noundef %0, ptr noundef %40)
+  %42 = icmp eq ptr %41, @pnp_card_drivers
+  br i1 %42, label %43, label %39, !llvm.loop !9
 
-41:                                               ; preds = %37, %34, %6
-  %42 = phi i32 [ %4, %6 ], [ 0, %34 ], [ 0, %37 ]
-  ret i32 %42
+43:                                               ; preds = %39, %36, %6
+  %44 = phi i32 [ %4, %6 ], [ 0, %36 ], [ 0, %39 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -286,7 +290,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %88, label %6
+  br i1 %5, label %89, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -369,60 +373,61 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
 55:                                               ; preds = %50, %47, %6
   %56 = phi ptr [ null, %6 ], [ %45, %47 ], [ null, %50 ]
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %88, label %58
+  br i1 %57, label %89, label %58
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %60 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 3520, i64 noundef 32) #7
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %88, label %62
+  %59 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %60, i32 noundef 3520, i64 noundef 32) #7
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %89, label %63
 
-62:                                               ; preds = %58
-  store ptr %0, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
-  store i32 0, ptr %64, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = tail call i32 %65(ptr noundef nonnull %60, ptr noundef nonnull %56) #8
-  %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %88, label %68
+63:                                               ; preds = %58
+  store ptr %0, ptr %61, align 8
+  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  store i32 0, ptr %65, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = tail call i32 %66(ptr noundef nonnull %61, ptr noundef nonnull %56) #8
+  %68 = icmp sgt i32 %67, -1
+  br i1 %68, label %89, label %69
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 768
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %69
-  br i1 %71, label %87, label %72
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds i8, ptr %0, i64 768
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, %70
+  br i1 %72, label %88, label %73
 
-72:                                               ; preds = %84, %68
-  %73 = phi ptr [ %85, %84 ], [ %70, %68 ]
-  %74 = getelementptr i8, ptr %73, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, %60
-  br i1 %76, label %77, label %84
+73:                                               ; preds = %85, %69
+  %74 = phi ptr [ %86, %85 ], [ %71, %69 ]
+  %75 = getelementptr i8, ptr %74, i64 56
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, %61
+  br i1 %77, label %78, label %85
 
-77:                                               ; preds = %72
-  %78 = getelementptr i8, ptr %73, i64 -776
-  %79 = getelementptr i8, ptr %73, i64 56
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 104
-  store ptr @card_remove, ptr %83, align 8
-  tail call void @device_release_driver(ptr noundef %78) #8
-  store ptr @card_remove_first, ptr %83, align 8
-  br label %84
+78:                                               ; preds = %73
+  %79 = getelementptr i8, ptr %74, i64 -776
+  %80 = getelementptr i8, ptr %74, i64 56
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 104
+  store ptr @card_remove, ptr %84, align 8
+  tail call void @device_release_driver(ptr noundef %79) #8
+  store ptr @card_remove_first, ptr %84, align 8
+  br label %85
 
-84:                                               ; preds = %77, %72
-  %85 = load ptr, ptr %73, align 8
-  %86 = icmp eq ptr %85, %69
-  br i1 %86, label %87, label %72, !llvm.loop !14
+85:                                               ; preds = %78, %73
+  %86 = load ptr, ptr %74, align 8
+  %87 = icmp eq ptr %86, %70
+  br i1 %87, label %88, label %73, !llvm.loop !14
 
-87:                                               ; preds = %84, %68
-  tail call void @kfree(ptr noundef nonnull %60) #8
-  br label %88
+88:                                               ; preds = %85, %69
+  tail call void @kfree(ptr noundef nonnull %61) #8
+  br label %89
 
-88:                                               ; preds = %87, %62, %58, %55, %2
+89:                                               ; preds = %88, %63, %58, %55, %2
   ret void
 }
 
@@ -437,44 +442,50 @@ define dso_local void @pnp_remove_card(ptr noundef %0) local_unnamed_addr #0 ali
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 752
-  %8 = getelementptr inbounds i8, ptr %0, i64 760
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %9, ptr %11, align 8
-  store volatile ptr %10, ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
+  %7 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %7, ptr %2, align 8
+  %8 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %8, ptr %3, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 752
+  %10 = getelementptr inbounds i8, ptr %0, i64 760
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %11, ptr %13, align 8
+  store volatile ptr %12, ptr %11, align 8
+  %14 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %14, ptr %9, align 8
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %10, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 768
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %12
-  br i1 %14, label %25, label %15
-
-15:                                               ; preds = %15, %1
-  %16 = phi ptr [ %17, %15 ], [ %13, %1 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 768
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr i8, ptr %16, i64 -776
-  tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
-  %19 = getelementptr i8, ptr %16, i64 40
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr i8, ptr %16, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %21, ptr %23, align 8
-  store volatile ptr %22, ptr %21, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %16, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
-  tail call void @__pnp_remove_device(ptr noundef %18) #8
-  %24 = icmp eq ptr %17, %12
-  br i1 %24, label %25, label %15, !llvm.loop !15
+  %18 = icmp eq ptr %17, %16
+  br i1 %18, label %31, label %19
 
-25:                                               ; preds = %15, %1
+19:                                               ; preds = %19, %1
+  %20 = phi ptr [ %21, %19 ], [ %17, %1 ]
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr i8, ptr %20, i64 -776
+  tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
+  %23 = getelementptr i8, ptr %20, i64 40
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr i8, ptr %20, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %20, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %25, ptr %27, align 8
+  store volatile ptr %26, ptr %25, align 8
+  %28 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %28, ptr %20, align 8
+  %29 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %29, ptr %24, align 8
+  tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
+  tail call void @__pnp_remove_device(ptr noundef %22) #8
+  %30 = icmp eq ptr %21, %16
+  br i1 %30, label %31, label %19, !llvm.loop !15
+
+31:                                               ; preds = %19, %1
   ret void
 }
 
@@ -493,8 +504,10 @@ define dso_local void @pnp_remove_card_device(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %4, align 8
+  %8 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %8, ptr %3, align 8
+  %9 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %9, ptr %4, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
   tail call void @__pnp_remove_device(ptr noundef %0) #8
   ret void
@@ -541,7 +554,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %50
+  br i1 %6, label %7, label %51
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
@@ -558,7 +571,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds i8, ptr %2, i64 816
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %8
-  br i1 %17, label %18, label %50
+  br i1 %17, label %18, label %51
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %2, i64 776
@@ -569,7 +582,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
   %22 = getelementptr inbounds i8, ptr %8, i64 768
   %23 = load ptr, ptr %21, align 8
   %24 = icmp eq ptr %23, %22
-  br i1 %24, label %50, label %25
+  br i1 %24, label %51, label %25
 
 25:                                               ; preds = %35, %20
   %26 = phi ptr [ %36, %35 ], [ %23, %20 ]
@@ -588,7 +601,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
 35:                                               ; preds = %30, %25
   %36 = load ptr, ptr %26, align 8
   %37 = icmp eq ptr %36, %22
-  br i1 %37, label %50, label %25, !llvm.loop !16
+  br i1 %37, label %51, label %25, !llvm.loop !16
 
 38:                                               ; preds = %30
   %39 = getelementptr i8, ptr %26, i64 -776
@@ -597,24 +610,25 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
   %41 = getelementptr inbounds i8, ptr %10, i64 136
   %42 = getelementptr i8, ptr %26, i64 -672
   store ptr %41, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.bus_type, ptr @pnp_bus_type, i64 0, i32 7), align 8
-  %44 = tail call i32 %43(ptr noundef %39) #8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
+  %43 = getelementptr inbounds %struct.bus_type, ptr @pnp_bus_type, i64 0, i32 7
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 %44(ptr noundef %39) #8
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %38
-  %47 = tail call i32 @device_bind_driver(ptr noundef %39) #8
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %50, label %49
+47:                                               ; preds = %38
+  %48 = tail call i32 @device_bind_driver(ptr noundef %39) #8
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %51, label %50
 
-49:                                               ; preds = %46, %38
+50:                                               ; preds = %47, %38
   store ptr null, ptr %42, align 8
   store ptr null, ptr %40, align 8
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %46, %35, %20, %14, %3
-  %51 = phi ptr [ null, %49 ], [ null, %3 ], [ null, %14 ], [ %39, %46 ], [ null, %20 ], [ null, %35 ]
-  ret ptr %51
+51:                                               ; preds = %50, %47, %35, %20, %14, %3
+  %52 = phi ptr [ null, %50 ], [ null, %3 ], [ null, %14 ], [ %39, %47 ], [ null, %20 ], [ null, %35 ]
+  ret ptr %52
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -713,32 +727,34 @@ define dso_local i32 @pnp_register_card_driver(ptr noundef %0) #0 align 16 {
   store ptr %19, ptr %20, align 8
   %21 = tail call i32 @pnp_register_driver(ptr noundef %4) #8
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %33, label %23
+  br i1 %22, label %35, label %23
 
 23:                                               ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.list_head, ptr @pnp_card_drivers, i64 0, i32 1
+  store ptr %0, ptr %26, align 8
   store ptr @pnp_card_drivers, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
-  store volatile ptr %0, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %25, ptr %27, align 8
+  store volatile ptr %0, ptr %25, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
-  %26 = load ptr, ptr @pnp_cards, align 8
-  %27 = icmp eq ptr %26, @pnp_cards
-  br i1 %27, label %33, label %28
+  %28 = load ptr, ptr @pnp_cards, align 8
+  %29 = icmp eq ptr %28, @pnp_cards
+  br i1 %29, label %35, label %30
 
-28:                                               ; preds = %28, %23
-  %29 = phi ptr [ %30, %28 ], [ %26, %23 ]
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr i8, ptr %29, i64 -736
-  tail call fastcc void @card_probe(ptr noundef %31, ptr noundef %0)
-  %32 = icmp eq ptr %30, @pnp_cards
-  br i1 %32, label %33, label %28, !llvm.loop !17
+30:                                               ; preds = %30, %23
+  %31 = phi ptr [ %32, %30 ], [ %28, %23 ]
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr i8, ptr %31, i64 -736
+  tail call fastcc void @card_probe(ptr noundef %33, ptr noundef %0)
+  %34 = icmp eq ptr %32, @pnp_cards
+  br i1 %34, label %35, label %30, !llvm.loop !17
 
-33:                                               ; preds = %28, %23, %1
-  %34 = phi i32 [ %21, %1 ], [ 0, %23 ], [ 0, %28 ]
-  ret i32 %34
+35:                                               ; preds = %30, %23, %1
+  %36 = phi i32 [ %21, %1 ], [ 0, %23 ], [ 0, %30 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -798,11 +814,13 @@ define dso_local void @pnp_unregister_card_driver(ptr noundef %0) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
+  %6 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %6, ptr %0, align 8
+  %7 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %7, ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @pnp_unregister_driver(ptr noundef %6) #8
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @pnp_unregister_driver(ptr noundef %8) #8
   ret void
 }
 

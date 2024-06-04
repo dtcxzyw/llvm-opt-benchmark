@@ -742,40 +742,42 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 11), align 8
-  %10 = load ptr, ptr %metadata, align 8
-  %rehashing_node2 = getelementptr inbounds %struct.dbDictMetadata, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %rehashing_node2, align 8
-  call void @listDelNode(ptr noundef %9, ptr noundef %11)
-  %12 = load ptr, ptr %metadata, align 8
-  %rehashing_node3 = getelementptr inbounds %struct.dbDictMetadata, ptr %12, i32 0, i32 0
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 11
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %metadata, align 8
+  %rehashing_node2 = getelementptr inbounds %struct.dbDictMetadata, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %rehashing_node2, align 8
+  call void @listDelNode(ptr noundef %10, ptr noundef %12)
+  %13 = load ptr, ptr %metadata, align 8
+  %rehashing_node3 = getelementptr inbounds %struct.dbDictMetadata, ptr %13, i32 0, i32 0
   store ptr null, ptr %rehashing_node3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %13 = load ptr, ptr %db.addr, align 8
-  %expires = getelementptr inbounds %struct.redisDb, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %expires, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %15 to i64
-  %arrayidx5 = getelementptr inbounds ptr, ptr %14, i64 %idxprom4
-  %16 = load ptr, ptr %arrayidx5, align 8
-  %metadata6 = getelementptr inbounds %struct.dict, ptr %16, i32 0, i32 6
+  %14 = load ptr, ptr %db.addr, align 8
+  %expires = getelementptr inbounds %struct.redisDb, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %expires, align 8
+  %16 = load i32, ptr %i, align 4
+  %idxprom4 = sext i32 %16 to i64
+  %arrayidx5 = getelementptr inbounds ptr, ptr %15, i64 %idxprom4
+  %17 = load ptr, ptr %arrayidx5, align 8
+  %metadata6 = getelementptr inbounds %struct.dict, ptr %17, i32 0, i32 6
   store ptr %metadata6, ptr %metadata, align 8
-  %17 = load ptr, ptr %metadata, align 8
-  %rehashing_node7 = getelementptr inbounds %struct.dbDictMetadata, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %rehashing_node7, align 8
-  %tobool8 = icmp ne ptr %18, null
+  %18 = load ptr, ptr %metadata, align 8
+  %rehashing_node7 = getelementptr inbounds %struct.dbDictMetadata, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %rehashing_node7, align 8
+  %tobool8 = icmp ne ptr %19, null
   br i1 %tobool8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 11), align 8
-  %20 = load ptr, ptr %metadata, align 8
-  %rehashing_node10 = getelementptr inbounds %struct.dbDictMetadata, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %rehashing_node10, align 8
-  call void @listDelNode(ptr noundef %19, ptr noundef %21)
+  %20 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 11
+  %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %metadata, align 8
-  %rehashing_node11 = getelementptr inbounds %struct.dbDictMetadata, ptr %22, i32 0, i32 0
+  %rehashing_node10 = getelementptr inbounds %struct.dbDictMetadata, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %rehashing_node10, align 8
+  call void @listDelNode(ptr noundef %21, ptr noundef %23)
+  %24 = load ptr, ptr %metadata, align 8
+  %rehashing_node11 = getelementptr inbounds %struct.dbDictMetadata, ptr %24, i32 0, i32 0
   store ptr null, ptr %rehashing_node11, align 8
   br label %if.end12
 
@@ -783,51 +785,51 @@ if.end12:                                         ; preds = %if.then9, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
+  %25 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %25, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
-  %24 = load ptr, ptr %db.addr, align 8
-  %dict13 = getelementptr inbounds %struct.redisDb, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %dict13, align 8
-  store ptr %25, ptr %oldDict, align 8
   %26 = load ptr, ptr %db.addr, align 8
-  %expires14 = getelementptr inbounds %struct.redisDb, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %expires14, align 8
-  store ptr %27, ptr %oldExpires, align 8
+  %dict13 = getelementptr inbounds %struct.redisDb, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %dict13, align 8
+  store ptr %27, ptr %oldDict, align 8
   %28 = load ptr, ptr %db.addr, align 8
-  %call = call i64 @dbSize(ptr noundef %28, i32 noundef 0)
+  %expires14 = getelementptr inbounds %struct.redisDb, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %expires14, align 8
+  store ptr %29, ptr %oldExpires, align 8
+  %30 = load ptr, ptr %db.addr, align 8
+  %call = call i64 @dbSize(ptr noundef %30, i32 noundef 0)
   store i64 %call, ptr %.atomictmp, align 8
-  %29 = load i64, ptr %.atomictmp, align 8
-  %30 = atomicrmw add ptr @lazyfree_objects, i64 %29 monotonic, align 8
-  store i64 %30, ptr %atomic-temp, align 8
-  %31 = load ptr, ptr %db.addr, align 8
-  %dict_count15 = getelementptr inbounds %struct.redisDb, ptr %31, i32 0, i32 10
-  %32 = load i32, ptr %dict_count15, align 8
-  %call16 = call ptr @dictCreateMultiple(ptr noundef @dbDictType, i32 noundef %32)
+  %31 = load i64, ptr %.atomictmp, align 8
+  %32 = atomicrmw add ptr @lazyfree_objects, i64 %31 monotonic, align 8
+  store i64 %32, ptr %atomic-temp, align 8
   %33 = load ptr, ptr %db.addr, align 8
-  %dict17 = getelementptr inbounds %struct.redisDb, ptr %33, i32 0, i32 0
+  %dict_count15 = getelementptr inbounds %struct.redisDb, ptr %33, i32 0, i32 10
+  %34 = load i32, ptr %dict_count15, align 8
+  %call16 = call ptr @dictCreateMultiple(ptr noundef @dbDictType, i32 noundef %34)
+  %35 = load ptr, ptr %db.addr, align 8
+  %dict17 = getelementptr inbounds %struct.redisDb, ptr %35, i32 0, i32 0
   store ptr %call16, ptr %dict17, align 8
-  %34 = load ptr, ptr %db.addr, align 8
-  %dict_count18 = getelementptr inbounds %struct.redisDb, ptr %34, i32 0, i32 10
-  %35 = load i32, ptr %dict_count18, align 8
-  %call19 = call ptr @dictCreateMultiple(ptr noundef @dbExpiresDictType, i32 noundef %35)
   %36 = load ptr, ptr %db.addr, align 8
-  %expires20 = getelementptr inbounds %struct.redisDb, ptr %36, i32 0, i32 1
+  %dict_count18 = getelementptr inbounds %struct.redisDb, ptr %36, i32 0, i32 10
+  %37 = load i32, ptr %dict_count18, align 8
+  %call19 = call ptr @dictCreateMultiple(ptr noundef @dbExpiresDictType, i32 noundef %37)
+  %38 = load ptr, ptr %db.addr, align 8
+  %expires20 = getelementptr inbounds %struct.redisDb, ptr %38, i32 0, i32 1
   store ptr %call19, ptr %expires20, align 8
   %call21 = call noalias ptr @zmalloc(i64 noundef 4) #5
   store ptr %call21, ptr %count, align 8
-  %37 = load ptr, ptr %db.addr, align 8
-  %dict_count22 = getelementptr inbounds %struct.redisDb, ptr %37, i32 0, i32 10
-  %38 = load i32, ptr %dict_count22, align 8
-  %39 = load ptr, ptr %count, align 8
-  store i32 %38, ptr %39, align 4
-  %40 = load ptr, ptr %oldDict, align 8
-  %41 = load ptr, ptr %oldExpires, align 8
-  %42 = load ptr, ptr %count, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeDatabase, i32 noundef 3, ptr noundef %40, ptr noundef %41, ptr noundef %42)
+  %39 = load ptr, ptr %db.addr, align 8
+  %dict_count22 = getelementptr inbounds %struct.redisDb, ptr %39, i32 0, i32 10
+  %40 = load i32, ptr %dict_count22, align 8
+  %41 = load ptr, ptr %count, align 8
+  store i32 %40, ptr %41, align 4
+  %42 = load ptr, ptr %oldDict, align 8
+  %43 = load ptr, ptr %oldExpires, align 8
+  %44 = load ptr, ptr %count, align 8
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeDatabase, i32 noundef 3, ptr noundef %42, ptr noundef %43, ptr noundef %44)
   ret void
 }
 

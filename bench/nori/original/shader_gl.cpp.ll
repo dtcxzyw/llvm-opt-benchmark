@@ -484,448 +484,449 @@ define hidden void @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_s
   store i32 %5, ptr %12, align 4
   %43 = load ptr, ptr %7, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %43)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ShaderE, i32 0, i32 0, i32 2), ptr %43, align 8
-  %44 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %8, align 8
-  store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 3
-  %47 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47)
-          to label %48 unwind label %99
+  %44 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ShaderE, i32 0, i32 0, i32 2
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 2
+  %46 = load ptr, ptr %8, align 8
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 3
+  %48 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %49 unwind label %100
 
-48:                                               ; preds = %6
-  %49 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 4
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #11
-  %50 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 5
-  %51 = load i32, ptr %12, align 4
-  store i32 %51, ptr %50, align 8
-  %52 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 7
-  store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 8
-  store i8 0, ptr %54, align 4
-  %55 = load ptr, ptr %9, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = invoke noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(i32 noundef 35633, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %58 unwind label %103
+49:                                               ; preds = %6
+  %50 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 4
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %50) #11
+  %51 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 5
+  %52 = load i32, ptr %12, align 4
+  store i32 %52, ptr %51, align 8
+  %53 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  store i32 0, ptr %53, align 4
+  %54 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 7
+  store i32 0, ptr %54, align 8
+  %55 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 8
+  store i8 0, ptr %55, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = invoke noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(i32 noundef 35633, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %57)
+          to label %59 unwind label %104
 
-58:                                               ; preds = %48
-  store i32 %57, ptr %15, align 4
-  %59 = load ptr, ptr %9, align 8
-  %60 = load ptr, ptr %11, align 8
-  %61 = invoke noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(i32 noundef 35632, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60)
-          to label %62 unwind label %103
+59:                                               ; preds = %49
+  store i32 %58, ptr %15, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = invoke noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(i32 noundef 35632, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
+          to label %63 unwind label %104
 
-62:                                               ; preds = %58
-  store i32 %61, ptr %16, align 4
-  %63 = invoke i32 @glCreateProgram()
-          to label %64 unwind label %103
+63:                                               ; preds = %59
+  store i32 %62, ptr %16, align 4
+  %64 = invoke i32 @glCreateProgram()
+          to label %65 unwind label %104
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  store i32 %63, ptr %65, align 4
+65:                                               ; preds = %63
   %66 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %67 = load i32, ptr %66, align 4
-  %68 = load i32, ptr %15, align 4
-  invoke void @glAttachShader(i32 noundef %67, i32 noundef %68)
-          to label %69 unwind label %103
+  store i32 %64, ptr %66, align 4
+  %67 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %68 = load i32, ptr %67, align 4
+  %69 = load i32, ptr %15, align 4
+  invoke void @glAttachShader(i32 noundef %68, i32 noundef %69)
+          to label %70 unwind label %104
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %71 = load i32, ptr %70, align 4
-  %72 = load i32, ptr %16, align 4
-  invoke void @glAttachShader(i32 noundef %71, i32 noundef %72)
-          to label %73 unwind label %103
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %72 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %16, align 4
+  invoke void @glAttachShader(i32 noundef %72, i32 noundef %73)
+          to label %74 unwind label %104
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %75 = load i32, ptr %74, align 4
-  invoke void @glLinkProgram(i32 noundef %75)
-          to label %76 unwind label %103
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %76 = load i32, ptr %75, align 4
+  invoke void @glLinkProgram(i32 noundef %76)
+          to label %77 unwind label %104
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %15, align 4
-  invoke void @glDeleteShader(i32 noundef %77)
-          to label %78 unwind label %103
+77:                                               ; preds = %74
+  %78 = load i32, ptr %15, align 4
+  invoke void @glDeleteShader(i32 noundef %78)
+          to label %79 unwind label %104
 
-78:                                               ; preds = %76
-  %79 = load i32, ptr %16, align 4
-  invoke void @glDeleteShader(i32 noundef %79)
-          to label %80 unwind label %103
+79:                                               ; preds = %77
+  %80 = load i32, ptr %16, align 4
+  invoke void @glDeleteShader(i32 noundef %80)
+          to label %81 unwind label %104
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %82 = load i32, ptr %81, align 4
-  invoke void @glGetProgramiv(i32 noundef %82, i32 noundef 35714, ptr noundef %17)
-          to label %83 unwind label %103
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %83 = load i32, ptr %82, align 4
+  invoke void @glGetProgramiv(i32 noundef %83, i32 noundef 35714, ptr noundef %17)
+          to label %84 unwind label %104
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %17, align 4
-  %85 = icmp ne i32 %84, 1
-  br i1 %85, label %86, label %129
+84:                                               ; preds = %81
+  %85 = load i32, ptr %17, align 4
+  %86 = icmp ne i32 %85, 1
+  br i1 %86, label %87, label %130
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds [4096 x i8], ptr %18, i64 0, i64 0
-  invoke void @glGetProgramInfoLog(i32 noundef %88, i32 noundef 4096, ptr noundef null, ptr noundef %89)
-          to label %90 unwind label %103
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds [4096 x i8], ptr %18, i64 0, i64 0
+  invoke void @glGetProgramInfoLog(i32 noundef %89, i32 noundef 4096, ptr noundef null, ptr noundef %90)
+          to label %91 unwind label %104
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  store i32 0, ptr %91, align 4
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  store i32 0, ptr %92, align 4
   store i1 true, ptr %22, align 1
-  %92 = call ptr @__cxa_allocate_exception(i64 16) #11
-  %93 = load ptr, ptr %9, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %93)
-          to label %94 unwind label %107
+  %93 = call ptr @__cxa_allocate_exception(i64 16) #11
+  %94 = load ptr, ptr %9, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %94)
+          to label %95 unwind label %108
 
-94:                                               ; preds = %90
+95:                                               ; preds = %91
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.1)
-          to label %95 unwind label %111
+          to label %96 unwind label %112
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds [4096 x i8], ptr %18, i64 0, i64 0
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %96)
-          to label %97 unwind label %115
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds [4096 x i8], ptr %18, i64 0, i64 0
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %97)
+          to label %98 unwind label %116
 
-97:                                               ; preds = %95
-  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %98 unwind label %119
+98:                                               ; preds = %96
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %99 unwind label %120
 
-98:                                               ; preds = %97
+99:                                               ; preds = %98
   store i1 false, ptr %22, align 1
-  invoke void @__cxa_throw(ptr %92, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #12
-          to label %247 unwind label %119
+  invoke void @__cxa_throw(ptr %93, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #12
+          to label %248 unwind label %120
 
-99:                                               ; preds = %6
-  %100 = landingpad { ptr, i32 }
+100:                                              ; preds = %6
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %13, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %14, align 4
-  br label %241
-
-103:                                              ; preds = %206, %179, %174, %146, %141, %132, %129, %86, %80, %78, %76, %73, %69, %64, %62, %58, %48
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %13, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %14, align 4
-  br label %240
-
-107:                                              ; preds = %90
-  %108 = landingpad { ptr, i32 }
-          cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %13, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %14, align 4
-  br label %125
-
-111:                                              ; preds = %94
-  %112 = landingpad { ptr, i32 }
-          cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %13, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %14, align 4
-  br label %124
-
-115:                                              ; preds = %95
-  %116 = landingpad { ptr, i32 }
-          cleanup
-  %117 = extractvalue { ptr, i32 } %116, 0
-  store ptr %117, ptr %13, align 8
-  %118 = extractvalue { ptr, i32 } %116, 1
-  store i32 %118, ptr %14, align 4
-  br label %123
-
-119:                                              ; preds = %98, %97
-  %120 = landingpad { ptr, i32 }
-          cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %13, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #11
-  br label %123
-
-123:                                              ; preds = %119, %115
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #11
-  br label %124
-
-124:                                              ; preds = %123, %111
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #11
-  br label %125
-
-125:                                              ; preds = %124, %107
-  %126 = load i1, ptr %22, align 1
-  br i1 %126, label %127, label %128
-
-127:                                              ; preds = %125
-  call void @__cxa_free_exception(ptr %92) #11
-  br label %128
-
-128:                                              ; preds = %127, %125
-  br label %240
-
-129:                                              ; preds = %83
-  %130 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %131 = load i32, ptr %130, align 4
-  invoke void @glGetProgramiv(i32 noundef %131, i32 noundef 35721, ptr noundef %23)
-          to label %132 unwind label %103
-
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %134 = load i32, ptr %133, align 4
-  invoke void @glGetProgramiv(i32 noundef %134, i32 noundef 35718, ptr noundef %24)
-          to label %135 unwind label %103
-
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds %class.anon, ptr %25, i32 0, i32 0
-  store ptr %43, ptr %136, align 8
-  store i32 0, ptr %26, align 4
-  br label %137
-
-137:                                              ; preds = %157, %135
-  %138 = load i32, ptr %26, align 4
-  %139 = load i32, ptr %23, align 4
-  %140 = icmp slt i32 %138, %139
-  br i1 %140, label %141, label %169
-
-141:                                              ; preds = %137
-  store i32 0, ptr %28, align 4
-  store i32 0, ptr %29, align 4
-  %142 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %143 = load i32, ptr %142, align 4
-  %144 = load i32, ptr %26, align 4
-  %145 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
-  invoke void @glGetActiveAttrib(i32 noundef %143, i32 noundef %144, i32 noundef 128, ptr noundef null, ptr noundef %29, ptr noundef %28, ptr noundef %145)
-          to label %146 unwind label %103
-
-146:                                              ; preds = %141
-  %147 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
-  %150 = invoke i32 @glGetAttribLocation(i32 noundef %148, ptr noundef %149)
-          to label %151 unwind label %103
-
-151:                                              ; preds = %146
-  store i32 %150, ptr %30, align 4
-  %152 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %152, ptr noundef nonnull align 1 dereferenceable(1) %32)
-          to label %153 unwind label %160
-
-153:                                              ; preds = %151
-  %154 = load i32, ptr %30, align 4
-  %155 = load i32, ptr %28, align 4
-  invoke void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %154, i32 noundef %155)
-          to label %156 unwind label %164
-
-156:                                              ; preds = %153
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
-  br label %157
-
-157:                                              ; preds = %156
-  %158 = load i32, ptr %26, align 4
-  %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %26, align 4
-  br label %137, !llvm.loop !5
-
-160:                                              ; preds = %151
-  %161 = landingpad { ptr, i32 }
-          cleanup
-  %162 = extractvalue { ptr, i32 } %161, 0
-  store ptr %162, ptr %13, align 8
-  %163 = extractvalue { ptr, i32 } %161, 1
-  store i32 %163, ptr %14, align 4
-  br label %168
-
-164:                                              ; preds = %153
-  %165 = landingpad { ptr, i32 }
-          cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %13, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
-  br label %168
-
-168:                                              ; preds = %164, %160
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
-  br label %240
-
-169:                                              ; preds = %137
-  store i32 0, ptr %33, align 4
-  br label %170
-
-170:                                              ; preds = %190, %169
-  %171 = load i32, ptr %33, align 4
-  %172 = load i32, ptr %24, align 4
-  %173 = icmp slt i32 %171, %172
-  br i1 %173, label %174, label %202
-
-174:                                              ; preds = %170
-  store i32 0, ptr %35, align 4
-  store i32 0, ptr %36, align 4
-  %175 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %176 = load i32, ptr %175, align 4
-  %177 = load i32, ptr %33, align 4
-  %178 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
-  invoke void @glGetActiveUniform(i32 noundef %176, i32 noundef %177, i32 noundef 128, ptr noundef null, ptr noundef %36, ptr noundef %35, ptr noundef %178)
-          to label %179 unwind label %103
-
-179:                                              ; preds = %174
-  %180 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
-  %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
-  %183 = invoke i32 @glGetUniformLocation(i32 noundef %181, ptr noundef %182)
-          to label %184 unwind label %103
-
-184:                                              ; preds = %179
-  store i32 %183, ptr %37, align 4
-  %185 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef %185, ptr noundef nonnull align 1 dereferenceable(1) %39)
-          to label %186 unwind label %193
-
-186:                                              ; preds = %184
-  %187 = load i32, ptr %37, align 4
-  %188 = load i32, ptr %35, align 4
-  invoke void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef %187, i32 noundef %188)
-          to label %189 unwind label %197
-
-189:                                              ; preds = %186
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
-  br label %190
-
-190:                                              ; preds = %189
-  %191 = load i32, ptr %33, align 4
-  %192 = add nsw i32 %191, 1
-  store i32 %192, ptr %33, align 4
-  br label %170, !llvm.loop !7
-
-193:                                              ; preds = %184
-  %194 = landingpad { ptr, i32 }
-          cleanup
-  %195 = extractvalue { ptr, i32 } %194, 0
-  store ptr %195, ptr %13, align 8
-  %196 = extractvalue { ptr, i32 } %194, 1
-  store i32 %196, ptr %14, align 4
-  br label %201
-
-197:                                              ; preds = %186
-  %198 = landingpad { ptr, i32 }
-          cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %13, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #11
-  br label %201
-
-201:                                              ; preds = %197, %193
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
-  br label %240
-
-202:                                              ; preds = %170
-  %203 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %42)
-          to label %204 unwind label %231
-
-204:                                              ; preds = %202
-  %205 = invoke noundef nonnull align 8 dereferenceable(65) ptr @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(32) %41)
-          to label %206 unwind label %235
-
-206:                                              ; preds = %204
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
-  store ptr %205, ptr %40, align 8
-  %207 = load ptr, ptr %40, align 8
-  %208 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %207, i32 0, i32 3
-  store i32 -1, ptr %208, align 8
-  %209 = load ptr, ptr %40, align 8
-  %210 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %209, i32 0, i32 5
-  store i64 1, ptr %210, align 8
-  %211 = load ptr, ptr %40, align 8
-  %212 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %211, i32 0, i32 6
-  %213 = getelementptr inbounds [3 x i64], ptr %212, i64 0, i64 0
-  store i64 0, ptr %213, align 8
-  %214 = load ptr, ptr %40, align 8
-  %215 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %214, i32 0, i32 6
-  %216 = getelementptr inbounds [3 x i64], ptr %215, i64 0, i64 2
-  store i64 1, ptr %216, align 8
-  %217 = load ptr, ptr %40, align 8
-  %218 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %217, i32 0, i32 6
-  %219 = getelementptr inbounds [3 x i64], ptr %218, i64 0, i64 1
-  store i64 1, ptr %219, align 8
-  %220 = load ptr, ptr %40, align 8
-  %221 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %220, i32 0, i32 1
-  store i32 8, ptr %221, align 8
-  %222 = load ptr, ptr %40, align 8
-  %223 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %222, i32 0, i32 2
-  store i32 6, ptr %223, align 4
-  %224 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 7
-  invoke void @glGenVertexArrays(i32 noundef 1, ptr noundef %224)
-          to label %225 unwind label %103
-
-225:                                              ; preds = %206
-  %226 = load ptr, ptr %10, align 8
-  %227 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef @.str.3, i64 noundef 0) #11
-  %228 = icmp ne i64 %227, -1
-  %229 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 8
-  %230 = zext i1 %228 to i8
-  store i8 %230, ptr %229, align 4
-  ret void
-
-231:                                              ; preds = %202
-  %232 = landingpad { ptr, i32 }
-          cleanup
-  %233 = extractvalue { ptr, i32 } %232, 0
-  store ptr %233, ptr %13, align 8
-  %234 = extractvalue { ptr, i32 } %232, 1
-  store i32 %234, ptr %14, align 4
-  br label %239
-
-235:                                              ; preds = %204
-  %236 = landingpad { ptr, i32 }
-          cleanup
-  %237 = extractvalue { ptr, i32 } %236, 0
-  store ptr %237, ptr %13, align 8
-  %238 = extractvalue { ptr, i32 } %236, 1
-  store i32 %238, ptr %14, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #11
-  br label %239
-
-239:                                              ; preds = %235, %231
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
-  br label %240
-
-240:                                              ; preds = %239, %201, %168, %128, %103
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #11
-  br label %241
-
-241:                                              ; preds = %240, %99
-  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %43) #11
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %13, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %14, align 4
   br label %242
 
-242:                                              ; preds = %241
-  %243 = load ptr, ptr %13, align 8
-  %244 = load i32, ptr %14, align 4
-  %245 = insertvalue { ptr, i32 } poison, ptr %243, 0
-  %246 = insertvalue { ptr, i32 } %245, i32 %244, 1
-  resume { ptr, i32 } %246
+104:                                              ; preds = %207, %180, %175, %147, %142, %133, %130, %87, %81, %79, %77, %74, %70, %65, %63, %59, %49
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %13, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %14, align 4
+  br label %241
 
-247:                                              ; preds = %98
+108:                                              ; preds = %91
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %13, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %14, align 4
+  br label %126
+
+112:                                              ; preds = %95
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %13, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %14, align 4
+  br label %125
+
+116:                                              ; preds = %96
+  %117 = landingpad { ptr, i32 }
+          cleanup
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %13, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %14, align 4
+  br label %124
+
+120:                                              ; preds = %99, %98
+  %121 = landingpad { ptr, i32 }
+          cleanup
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %13, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #11
+  br label %124
+
+124:                                              ; preds = %120, %116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #11
+  br label %125
+
+125:                                              ; preds = %124, %112
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #11
+  br label %126
+
+126:                                              ; preds = %125, %108
+  %127 = load i1, ptr %22, align 1
+  br i1 %127, label %128, label %129
+
+128:                                              ; preds = %126
+  call void @__cxa_free_exception(ptr %93) #11
+  br label %129
+
+129:                                              ; preds = %128, %126
+  br label %241
+
+130:                                              ; preds = %84
+  %131 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %132 = load i32, ptr %131, align 4
+  invoke void @glGetProgramiv(i32 noundef %132, i32 noundef 35721, ptr noundef %23)
+          to label %133 unwind label %104
+
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %135 = load i32, ptr %134, align 4
+  invoke void @glGetProgramiv(i32 noundef %135, i32 noundef 35718, ptr noundef %24)
+          to label %136 unwind label %104
+
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds %class.anon, ptr %25, i32 0, i32 0
+  store ptr %43, ptr %137, align 8
+  store i32 0, ptr %26, align 4
+  br label %138
+
+138:                                              ; preds = %158, %136
+  %139 = load i32, ptr %26, align 4
+  %140 = load i32, ptr %23, align 4
+  %141 = icmp slt i32 %139, %140
+  br i1 %141, label %142, label %170
+
+142:                                              ; preds = %138
+  store i32 0, ptr %28, align 4
+  store i32 0, ptr %29, align 4
+  %143 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %144 = load i32, ptr %143, align 4
+  %145 = load i32, ptr %26, align 4
+  %146 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
+  invoke void @glGetActiveAttrib(i32 noundef %144, i32 noundef %145, i32 noundef 128, ptr noundef null, ptr noundef %29, ptr noundef %28, ptr noundef %146)
+          to label %147 unwind label %104
+
+147:                                              ; preds = %142
+  %148 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
+  %151 = invoke i32 @glGetAttribLocation(i32 noundef %149, ptr noundef %150)
+          to label %152 unwind label %104
+
+152:                                              ; preds = %147
+  store i32 %151, ptr %30, align 4
+  %153 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %153, ptr noundef nonnull align 1 dereferenceable(1) %32)
+          to label %154 unwind label %161
+
+154:                                              ; preds = %152
+  %155 = load i32, ptr %30, align 4
+  %156 = load i32, ptr %28, align 4
+  invoke void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %155, i32 noundef %156)
+          to label %157 unwind label %165
+
+157:                                              ; preds = %154
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
+  br label %158
+
+158:                                              ; preds = %157
+  %159 = load i32, ptr %26, align 4
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %26, align 4
+  br label %138, !llvm.loop !5
+
+161:                                              ; preds = %152
+  %162 = landingpad { ptr, i32 }
+          cleanup
+  %163 = extractvalue { ptr, i32 } %162, 0
+  store ptr %163, ptr %13, align 8
+  %164 = extractvalue { ptr, i32 } %162, 1
+  store i32 %164, ptr %14, align 4
+  br label %169
+
+165:                                              ; preds = %154
+  %166 = landingpad { ptr, i32 }
+          cleanup
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %13, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
+  br label %169
+
+169:                                              ; preds = %165, %161
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #11
+  br label %241
+
+170:                                              ; preds = %138
+  store i32 0, ptr %33, align 4
+  br label %171
+
+171:                                              ; preds = %191, %170
+  %172 = load i32, ptr %33, align 4
+  %173 = load i32, ptr %24, align 4
+  %174 = icmp slt i32 %172, %173
+  br i1 %174, label %175, label %203
+
+175:                                              ; preds = %171
+  store i32 0, ptr %35, align 4
+  store i32 0, ptr %36, align 4
+  %176 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %177 = load i32, ptr %176, align 4
+  %178 = load i32, ptr %33, align 4
+  %179 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
+  invoke void @glGetActiveUniform(i32 noundef %177, i32 noundef %178, i32 noundef 128, ptr noundef null, ptr noundef %36, ptr noundef %35, ptr noundef %179)
+          to label %180 unwind label %104
+
+180:                                              ; preds = %175
+  %181 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 6
+  %182 = load i32, ptr %181, align 4
+  %183 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
+  %184 = invoke i32 @glGetUniformLocation(i32 noundef %182, ptr noundef %183)
+          to label %185 unwind label %104
+
+185:                                              ; preds = %180
+  store i32 %184, ptr %37, align 4
+  %186 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef %186, ptr noundef nonnull align 1 dereferenceable(1) %39)
+          to label %187 unwind label %194
+
+187:                                              ; preds = %185
+  %188 = load i32, ptr %37, align 4
+  %189 = load i32, ptr %35, align 4
+  invoke void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef %188, i32 noundef %189)
+          to label %190 unwind label %198
+
+190:                                              ; preds = %187
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
+  br label %191
+
+191:                                              ; preds = %190
+  %192 = load i32, ptr %33, align 4
+  %193 = add nsw i32 %192, 1
+  store i32 %193, ptr %33, align 4
+  br label %171, !llvm.loop !7
+
+194:                                              ; preds = %185
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %13, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %14, align 4
+  br label %202
+
+198:                                              ; preds = %187
+  %199 = landingpad { ptr, i32 }
+          cleanup
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %13, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #11
+  br label %202
+
+202:                                              ; preds = %198, %194
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #11
+  br label %241
+
+203:                                              ; preds = %171
+  %204 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %42)
+          to label %205 unwind label %232
+
+205:                                              ; preds = %203
+  %206 = invoke noundef nonnull align 8 dereferenceable(65) ptr @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %204, ptr noundef nonnull align 8 dereferenceable(32) %41)
+          to label %207 unwind label %236
+
+207:                                              ; preds = %205
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
+  store ptr %206, ptr %40, align 8
+  %208 = load ptr, ptr %40, align 8
+  %209 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %208, i32 0, i32 3
+  store i32 -1, ptr %209, align 8
+  %210 = load ptr, ptr %40, align 8
+  %211 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %210, i32 0, i32 5
+  store i64 1, ptr %211, align 8
+  %212 = load ptr, ptr %40, align 8
+  %213 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %212, i32 0, i32 6
+  %214 = getelementptr inbounds [3 x i64], ptr %213, i64 0, i64 0
+  store i64 0, ptr %214, align 8
+  %215 = load ptr, ptr %40, align 8
+  %216 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %215, i32 0, i32 6
+  %217 = getelementptr inbounds [3 x i64], ptr %216, i64 0, i64 2
+  store i64 1, ptr %217, align 8
+  %218 = load ptr, ptr %40, align 8
+  %219 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %218, i32 0, i32 6
+  %220 = getelementptr inbounds [3 x i64], ptr %219, i64 0, i64 1
+  store i64 1, ptr %220, align 8
+  %221 = load ptr, ptr %40, align 8
+  %222 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %221, i32 0, i32 1
+  store i32 8, ptr %222, align 8
+  %223 = load ptr, ptr %40, align 8
+  %224 = getelementptr inbounds %"struct.nanogui::Shader::Buffer", ptr %223, i32 0, i32 2
+  store i32 6, ptr %224, align 4
+  %225 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 7
+  invoke void @glGenVertexArrays(i32 noundef 1, ptr noundef %225)
+          to label %226 unwind label %104
+
+226:                                              ; preds = %207
+  %227 = load ptr, ptr %10, align 8
+  %228 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef @.str.3, i64 noundef 0) #11
+  %229 = icmp ne i64 %228, -1
+  %230 = getelementptr inbounds %"class.nanogui::Shader", ptr %43, i32 0, i32 8
+  %231 = zext i1 %229 to i8
+  store i8 %231, ptr %230, align 4
+  ret void
+
+232:                                              ; preds = %203
+  %233 = landingpad { ptr, i32 }
+          cleanup
+  %234 = extractvalue { ptr, i32 } %233, 0
+  store ptr %234, ptr %13, align 8
+  %235 = extractvalue { ptr, i32 } %233, 1
+  store i32 %235, ptr %14, align 4
+  br label %240
+
+236:                                              ; preds = %205
+  %237 = landingpad { ptr, i32 }
+          cleanup
+  %238 = extractvalue { ptr, i32 } %237, 0
+  store ptr %238, ptr %13, align 8
+  %239 = extractvalue { ptr, i32 } %237, 1
+  store i32 %239, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #11
+  br label %240
+
+240:                                              ; preds = %236, %232
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #11
+  br label %241
+
+241:                                              ; preds = %240, %202, %169, %129, %104
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %50) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #11
+  br label %242
+
+242:                                              ; preds = %241, %100
+  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %43) #11
+  br label %243
+
+243:                                              ; preds = %242
+  %244 = load ptr, ptr %13, align 8
+  %245 = load i32, ptr %14, align 4
+  %246 = insertvalue { ptr, i32 } poison, ptr %244, 0
+  %247 = insertvalue { ptr, i32 } %246, i32 %245, 1
+  resume { ptr, i32 } %247
+
+248:                                              ; preds = %99
   unreachable
 }
 
@@ -934,9 +935,10 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #11
   ret void
 }
 
@@ -1890,30 +1892,31 @@ define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ShaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 6
-  %5 = load i32, ptr %4, align 4
-  invoke void @glDeleteProgram(i32 noundef %5)
-          to label %6 unwind label %11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ShaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 6
+  %6 = load i32, ptr %5, align 4
+  invoke void @glDeleteProgram(i32 noundef %6)
+          to label %7 unwind label %12
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 7
-  invoke void @glDeleteVertexArrays(i32 noundef 1, ptr noundef %7)
-          to label %8 unwind label %11
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 7
+  invoke void @glDeleteVertexArrays(i32 noundef 1, ptr noundef %8)
+          to label %9 unwind label %12
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 4
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #11
-  %10 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 4
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #11
+  %11 = getelementptr inbounds %"class.nanogui::Shader", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
   call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   ret void
 
-11:                                               ; preds = %6, %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7, %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #13
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #13
   unreachable
 }
 

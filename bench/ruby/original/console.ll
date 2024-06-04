@@ -129,11 +129,13 @@ define void @Init_console() #0 {
   %7 = call i64 @rb_intern(ptr noundef @.str.6)
   store i64 %7, ptr @rawmode_opt_ids, align 16
   %8 = call i64 @rb_intern(ptr noundef @.str.7)
-  store i64 %8, ptr getelementptr inbounds ([3 x i64], ptr @rawmode_opt_ids, i64 0, i64 1), align 8
-  %9 = call i64 @rb_intern(ptr noundef @.str.8)
-  store i64 %9, ptr getelementptr inbounds ([3 x i64], ptr @rawmode_opt_ids, i64 0, i64 2), align 16
-  %10 = call i64 @rb_intern(ptr noundef @.str.9)
-  store i64 %10, ptr @id___send__, align 8
+  %9 = getelementptr inbounds [3 x i64], ptr @rawmode_opt_ids, i64 0, i64 1
+  store i64 %8, ptr %9, align 8
+  %10 = call i64 @rb_intern(ptr noundef @.str.8)
+  %11 = getelementptr inbounds [3 x i64], ptr @rawmode_opt_ids, i64 0, i64 2
+  store i64 %10, ptr %11, align 16
+  %12 = call i64 @rb_intern(ptr noundef @.str.9)
+  store i64 %12, ptr @id___send__, align 8
   call void @InitVM_console()
   ret void
 }

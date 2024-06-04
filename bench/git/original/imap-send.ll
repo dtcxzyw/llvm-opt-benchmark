@@ -216,46 +216,53 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 3), align 8
-  %tobool2 = icmp ne i32 %3, 0
+  %3 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 3
+  %4 = load i32, ptr %3, align 8
+  %tobool2 = icmp ne i32 %4, 0
   br i1 %tobool2, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %4 = load i32, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 7), align 8
-  %tobool4 = icmp ne i32 %4, 0
+  %5 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 7
+  %6 = load i32, ptr %5, align 8
+  %tobool4 = icmp ne i32 %6, 0
   %cond = select i1 %tobool4, i32 993, i32 143
-  store i32 %cond, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 3), align 8
+  %7 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 3
+  store i32 %cond, ptr %7, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %5 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 4), align 8
-  %tobool6 = icmp ne ptr %5, null
+  %8 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %tobool6 = icmp ne ptr %9, null
   br i1 %tobool6, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %6 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.1)
+  %10 = load ptr, ptr @stderr, align 8
+  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.1)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %7 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
-  %tobool10 = icmp ne ptr %7, null
+  %11 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %tobool10 = icmp ne ptr %12, null
   br i1 %tobool10, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %8 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 1), align 8
-  %tobool12 = icmp ne ptr %8, null
+  %13 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %tobool12 = icmp ne ptr %14, null
   br i1 %tobool12, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
-  %9 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.2)
+  %15 = load ptr, ptr @stderr, align 8
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.2)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end15:                                         ; preds = %if.then11
-  store ptr @.str.3, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
+  %16 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  store ptr @.str.3, ptr %16, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %if.end9
@@ -272,60 +279,61 @@ if.then18:                                        ; preds = %if.end16
 
 if.end22:                                         ; preds = %if.end16
   %len = getelementptr inbounds %struct.strbuf, ptr %all_msgs, i32 0, i32 1
-  %10 = load i64, ptr %len, align 8
-  %cmp23 = icmp eq i64 %10, 0
+  %17 = load i64, ptr %len, align 8
+  %cmp23 = icmp eq i64 %17, 0
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end22
-  %11 = load ptr, ptr @stderr, align 8
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.5)
+  %18 = load ptr, ptr @stderr, align 8
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.5)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end26:                                         ; preds = %if.end22
   %call27 = call i32 @count_messages(ptr noundef %all_msgs)
   store i32 %call27, ptr %total, align 4
-  %12 = load i32, ptr %total, align 4
-  %tobool28 = icmp ne i32 %12, 0
+  %19 = load i32, ptr %total, align 4
+  %tobool28 = icmp ne i32 %19, 0
   br i1 %tobool28, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %13 = load ptr, ptr @stderr, align 8
-  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.6)
+  %20 = load ptr, ptr @stderr, align 8
+  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.6)
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.end31:                                         ; preds = %if.end26
-  %14 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 1), align 8
-  %tobool32 = icmp ne ptr %14, null
+  %21 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %tobool32 = icmp ne ptr %22, null
   br i1 %tobool32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end31
-  %15 = load i32, ptr %total, align 4
-  %call34 = call i32 @append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %15)
+  %23 = load i32, ptr %total, align 4
+  %call34 = call i32 @append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %23)
   store i32 %call34, ptr %retval, align 4
   br label %return
 
 if.end35:                                         ; preds = %if.end31
-  %16 = load i32, ptr @use_curl, align 4
-  %tobool36 = icmp ne i32 %16, 0
+  %24 = load i32, ptr @use_curl, align 4
+  %tobool36 = icmp ne i32 %24, 0
   br i1 %tobool36, label %if.then37, label %if.end39
 
 if.then37:                                        ; preds = %if.end35
-  %17 = load i32, ptr %total, align 4
-  %call38 = call i32 @curl_append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %17)
+  %25 = load i32, ptr %total, align 4
+  %call38 = call i32 @curl_append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %25)
   store i32 %call38, ptr %retval, align 4
   br label %return
 
 if.end39:                                         ; preds = %if.end35
-  %18 = load i32, ptr %total, align 4
-  %call40 = call i32 @append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %18)
+  %26 = load i32, ptr %total, align 4
+  %call40 = call i32 @append_msgs_to_imap(ptr noundef @server, ptr noundef %all_msgs, i32 noundef %26)
   store i32 %call40, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then37, %if.then33, %if.then29, %if.then24, %if.then18, %if.then13, %if.then7
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %27 = load i32, ptr %retval, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -356,176 +364,186 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %var.addr, align 8
   %2 = load ptr, ptr %val.addr, align 8
   %call1 = call i32 @git_config_bool(ptr noundef %1, ptr noundef %2)
-  store i32 %call1, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 8), align 4
+  %3 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 8
+  store i32 %call1, ptr %3, align 4
   br label %if.end71
 
 if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %var.addr, align 8
-  %call2 = call i32 @strcmp(ptr noundef @.str.8, ptr noundef %3) #9
+  %4 = load ptr, ptr %var.addr, align 8
+  %call2 = call i32 @strcmp(ptr noundef @.str.8, ptr noundef %4) #9
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.else6, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %4 = load ptr, ptr %var.addr, align 8
-  %5 = load ptr, ptr %val.addr, align 8
-  %call5 = call i32 @git_config_bool(ptr noundef %4, ptr noundef %5)
-  store i32 %call5, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 9), align 8
+  %5 = load ptr, ptr %var.addr, align 8
+  %6 = load ptr, ptr %val.addr, align 8
+  %call5 = call i32 @git_config_bool(ptr noundef %5, ptr noundef %6)
+  %7 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 9
+  store i32 %call5, ptr %7, align 8
   br label %if.end70
 
 if.else6:                                         ; preds = %if.else
-  %6 = load ptr, ptr %var.addr, align 8
-  %call7 = call i32 @strcmp(ptr noundef @.str.9, ptr noundef %6) #9
+  %8 = load ptr, ptr %var.addr, align 8
+  %call7 = call i32 @strcmp(ptr noundef @.str.9, ptr noundef %8) #9
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.else11, label %if.then9
 
 if.then9:                                         ; preds = %if.else6
-  %7 = load ptr, ptr %var.addr, align 8
-  %8 = load ptr, ptr %val.addr, align 8
-  %call10 = call i32 @git_config_string(ptr noundef getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 4), ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %var.addr, align 8
+  %10 = load ptr, ptr %val.addr, align 8
+  %11 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 4
+  %call10 = call i32 @git_config_string(ptr noundef %11, ptr noundef %9, ptr noundef %10)
   store i32 %call10, ptr %retval, align 4
   br label %return
 
 if.else11:                                        ; preds = %if.else6
-  %9 = load ptr, ptr %var.addr, align 8
-  %call12 = call i32 @strcmp(ptr noundef @.str.10, ptr noundef %9) #9
+  %12 = load ptr, ptr %var.addr, align 8
+  %call12 = call i32 @strcmp(ptr noundef @.str.10, ptr noundef %12) #9
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.else16, label %if.then14
 
 if.then14:                                        ; preds = %if.else11
-  %10 = load ptr, ptr %var.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %call15 = call i32 @git_config_string(ptr noundef getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 5), ptr noundef %10, ptr noundef %11)
+  %13 = load ptr, ptr %var.addr, align 8
+  %14 = load ptr, ptr %val.addr, align 8
+  %15 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 5
+  %call15 = call i32 @git_config_string(ptr noundef %15, ptr noundef %13, ptr noundef %14)
   store i32 %call15, ptr %retval, align 4
   br label %return
 
 if.else16:                                        ; preds = %if.else11
-  %12 = load ptr, ptr %var.addr, align 8
-  %call17 = call i32 @strcmp(ptr noundef @.str.11, ptr noundef %12) #9
+  %16 = load ptr, ptr %var.addr, align 8
+  %call17 = call i32 @strcmp(ptr noundef @.str.11, ptr noundef %16) #9
   %tobool18 = icmp ne i32 %call17, 0
   br i1 %tobool18, label %if.else21, label %if.then19
 
 if.then19:                                        ; preds = %if.else16
-  %13 = load ptr, ptr %var.addr, align 8
-  %14 = load ptr, ptr %val.addr, align 8
-  %call20 = call i32 @git_config_string(ptr noundef getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 6), ptr noundef %13, ptr noundef %14)
+  %17 = load ptr, ptr %var.addr, align 8
+  %18 = load ptr, ptr %val.addr, align 8
+  %19 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 6
+  %call20 = call i32 @git_config_string(ptr noundef %19, ptr noundef %17, ptr noundef %18)
   store i32 %call20, ptr %retval, align 4
   br label %return
 
 if.else21:                                        ; preds = %if.else16
-  %15 = load ptr, ptr %var.addr, align 8
-  %call22 = call i32 @strcmp(ptr noundef @.str.12, ptr noundef %15) #9
+  %20 = load ptr, ptr %var.addr, align 8
+  %call22 = call i32 @strcmp(ptr noundef @.str.12, ptr noundef %20) #9
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.else26, label %if.then24
 
 if.then24:                                        ; preds = %if.else21
-  %16 = load ptr, ptr %var.addr, align 8
-  %17 = load ptr, ptr %val.addr, align 8
-  %call25 = call i32 @git_config_string(ptr noundef getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 1), ptr noundef %16, ptr noundef %17)
+  %21 = load ptr, ptr %var.addr, align 8
+  %22 = load ptr, ptr %val.addr, align 8
+  %23 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 1
+  %call25 = call i32 @git_config_string(ptr noundef %23, ptr noundef %21, ptr noundef %22)
   store i32 %call25, ptr %retval, align 4
   br label %return
 
 if.else26:                                        ; preds = %if.else21
-  %18 = load ptr, ptr %var.addr, align 8
-  %call27 = call i32 @strcmp(ptr noundef @.str.13, ptr noundef %18) #9
+  %24 = load ptr, ptr %var.addr, align 8
+  %call27 = call i32 @strcmp(ptr noundef @.str.13, ptr noundef %24) #9
   %tobool28 = icmp ne i32 %call27, 0
   br i1 %tobool28, label %if.else31, label %if.then29
 
 if.then29:                                        ; preds = %if.else26
-  %19 = load ptr, ptr %var.addr, align 8
-  %20 = load ptr, ptr %val.addr, align 8
-  %call30 = call i32 @git_config_string(ptr noundef getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 10), ptr noundef %19, ptr noundef %20)
+  %25 = load ptr, ptr %var.addr, align 8
+  %26 = load ptr, ptr %val.addr, align 8
+  %27 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 10
+  %call30 = call i32 @git_config_string(ptr noundef %27, ptr noundef %25, ptr noundef %26)
   store i32 %call30, ptr %retval, align 4
   br label %return
 
 if.else31:                                        ; preds = %if.else26
-  %21 = load ptr, ptr %var.addr, align 8
-  %call32 = call i32 @strcmp(ptr noundef @.str.14, ptr noundef %21) #9
+  %28 = load ptr, ptr %var.addr, align 8
+  %call32 = call i32 @strcmp(ptr noundef @.str.14, ptr noundef %28) #9
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.else36, label %if.then34
 
 if.then34:                                        ; preds = %if.else31
-  %22 = load ptr, ptr %var.addr, align 8
-  %23 = load ptr, ptr %val.addr, align 8
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %kvi = getelementptr inbounds %struct.config_context, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %kvi, align 8
-  %call35 = call i32 @git_config_int(ptr noundef %22, ptr noundef %23, ptr noundef %25)
-  store i32 %call35, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 3), align 8
+  %29 = load ptr, ptr %var.addr, align 8
+  %30 = load ptr, ptr %val.addr, align 8
+  %31 = load ptr, ptr %ctx.addr, align 8
+  %kvi = getelementptr inbounds %struct.config_context, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %kvi, align 8
+  %call35 = call i32 @git_config_int(ptr noundef %29, ptr noundef %30, ptr noundef %32)
+  %33 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 3
+  store i32 %call35, ptr %33, align 8
   br label %if.end64
 
 if.else36:                                        ; preds = %if.else31
-  %26 = load ptr, ptr %var.addr, align 8
-  %call37 = call i32 @strcmp(ptr noundef @.str.15, ptr noundef %26) #9
+  %34 = load ptr, ptr %var.addr, align 8
+  %call37 = call i32 @strcmp(ptr noundef @.str.15, ptr noundef %34) #9
   %tobool38 = icmp ne i32 %call37, 0
   br i1 %tobool38, label %if.else61, label %if.then39
 
 if.then39:                                        ; preds = %if.else36
-  %27 = load ptr, ptr %val.addr, align 8
-  %tobool40 = icmp ne ptr %27, null
+  %35 = load ptr, ptr %val.addr, align 8
+  %tobool40 = icmp ne ptr %35, null
   br i1 %tobool40, label %if.else44, label %if.then41
 
 if.then41:                                        ; preds = %if.then39
-  %28 = load ptr, ptr %var.addr, align 8
-  %call42 = call i32 @config_error_nonbool(ptr noundef %28)
+  %36 = load ptr, ptr %var.addr, align 8
+  %call42 = call i32 @config_error_nonbool(ptr noundef %36)
   %call43 = call i32 @const_error()
   store i32 %call43, ptr %retval, align 4
   br label %return
 
 if.else44:                                        ; preds = %if.then39
-  %29 = load ptr, ptr %val.addr, align 8
-  %call45 = call i32 @starts_with(ptr noundef %29, ptr noundef @.str.16)
+  %37 = load ptr, ptr %val.addr, align 8
+  %call45 = call i32 @starts_with(ptr noundef %37, ptr noundef @.str.16)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %if.then47, label %if.else48
 
 if.then47:                                        ; preds = %if.else44
-  %30 = load ptr, ptr %val.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %30, i64 5
+  %38 = load ptr, ptr %val.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %38, i64 5
   store ptr %add.ptr, ptr %val.addr, align 8
   br label %if.end53
 
 if.else48:                                        ; preds = %if.else44
-  %31 = load ptr, ptr %val.addr, align 8
-  %call49 = call i32 @starts_with(ptr noundef %31, ptr noundef @.str.17)
+  %39 = load ptr, ptr %val.addr, align 8
+  %call49 = call i32 @starts_with(ptr noundef %39, ptr noundef @.str.17)
   %tobool50 = icmp ne i32 %call49, 0
   br i1 %tobool50, label %if.then51, label %if.end
 
 if.then51:                                        ; preds = %if.else48
-  %32 = load ptr, ptr %val.addr, align 8
-  %add.ptr52 = getelementptr inbounds i8, ptr %32, i64 6
+  %40 = load ptr, ptr %val.addr, align 8
+  %add.ptr52 = getelementptr inbounds i8, ptr %40, i64 6
   store ptr %add.ptr52, ptr %val.addr, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 7), align 8
+  %41 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 7
+  store i32 1, ptr %41, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then51, %if.else48
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end, %if.then47
-  %33 = load ptr, ptr %val.addr, align 8
-  %call54 = call i32 @starts_with(ptr noundef %33, ptr noundef @.str.18)
+  %42 = load ptr, ptr %val.addr, align 8
+  %call54 = call i32 @starts_with(ptr noundef %42, ptr noundef @.str.18)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.end53
-  %34 = load ptr, ptr %val.addr, align 8
-  %add.ptr57 = getelementptr inbounds i8, ptr %34, i64 2
+  %43 = load ptr, ptr %val.addr, align 8
+  %add.ptr57 = getelementptr inbounds i8, ptr %43, i64 2
   store ptr %add.ptr57, ptr %val.addr, align 8
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then56, %if.end53
-  %35 = load ptr, ptr %val.addr, align 8
-  %call59 = call ptr @xstrdup(ptr noundef %35)
-  store ptr %call59, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
+  %44 = load ptr, ptr %val.addr, align 8
+  %call59 = call ptr @xstrdup(ptr noundef %44)
+  %45 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  store ptr %call59, ptr %45, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end58
   br label %if.end63
 
 if.else61:                                        ; preds = %if.else36
-  %36 = load ptr, ptr %var.addr, align 8
-  %37 = load ptr, ptr %val.addr, align 8
-  %38 = load ptr, ptr %ctx.addr, align 8
-  %39 = load ptr, ptr %cb.addr, align 8
-  %call62 = call i32 @git_default_config(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  %46 = load ptr, ptr %var.addr, align 8
+  %47 = load ptr, ptr %val.addr, align 8
+  %48 = load ptr, ptr %ctx.addr, align 8
+  %49 = load ptr, ptr %cb.addr, align 8
+  %call62 = call i32 @git_default_config(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
   store i32 %call62, ptr %retval, align 4
   br label %return
 
@@ -558,8 +576,8 @@ if.end71:                                         ; preds = %if.end70, %if.then
   br label %return
 
 return:                                           ; preds = %if.end71, %if.else61, %if.then41, %if.then29, %if.then24, %if.then19, %if.then14, %if.then9
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
+  %50 = load i32, ptr %retval, align 4
+  ret i32 %50
 }
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
@@ -1884,12 +1902,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %msg.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
   %call = call i32 @vprintf(ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr @stdout, align 8
   %call3 = call i32 @fflush(ptr noundef %2)
   br label %if.end
@@ -2060,49 +2078,51 @@ if.end34:                                         ; preds = %if.end27
   %20 = load ptr, ptr %sock.addr, align 8
   %ssl35 = getelementptr inbounds %struct.imap_socket, ptr %20, i32 0, i32 1
   %21 = load ptr, ptr %ssl35, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
-  %call36 = call i64 @SSL_ctrl(ptr noundef %21, i32 noundef 55, i64 noundef 0, ptr noundef %22)
+  %22 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %call36 = call i64 @SSL_ctrl(ptr noundef %21, i32 noundef 55, i64 noundef 0, ptr noundef %23)
   %conv = trunc i64 %call36 to i32
   store i32 %conv, ptr %ret, align 4
-  %23 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %23, 1
+  %24 = load i32, ptr %ret, align 4
+  %cmp = icmp ne i32 %24, 1
   br i1 %cmp, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end34
-  %24 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
-  call void (ptr, ...) @warning(ptr noundef @.str.73, ptr noundef %24)
+  %25 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, ...) @warning(ptr noundef @.str.73, ptr noundef %26)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %if.end34
-  %25 = load ptr, ptr %sock.addr, align 8
-  %ssl40 = getelementptr inbounds %struct.imap_socket, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %ssl40, align 8
-  %call41 = call i32 @SSL_connect(ptr noundef %26)
+  %27 = load ptr, ptr %sock.addr, align 8
+  %ssl40 = getelementptr inbounds %struct.imap_socket, ptr %27, i32 0, i32 1
+  %28 = load ptr, ptr %ssl40, align 8
+  %call41 = call i32 @SSL_connect(ptr noundef %28)
   store i32 %call41, ptr %ret, align 4
-  %27 = load i32, ptr %ret, align 4
-  %cmp42 = icmp sle i32 %27, 0
+  %29 = load i32, ptr %ret, align 4
+  %cmp42 = icmp sle i32 %29, 0
   br i1 %cmp42, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end39
-  %28 = load ptr, ptr %sock.addr, align 8
-  %29 = load i32, ptr %ret, align 4
-  call void @socket_perror(ptr noundef @.str.74, ptr noundef %28, i32 noundef %29)
+  %30 = load ptr, ptr %sock.addr, align 8
+  %31 = load i32, ptr %ret, align 4
+  call void @socket_perror(ptr noundef @.str.74, ptr noundef %30, i32 noundef %31)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end45:                                         ; preds = %if.end39
-  %30 = load i32, ptr %verify.addr, align 4
-  %tobool46 = icmp ne i32 %30, 0
+  %32 = load i32, ptr %verify.addr, align 4
+  %tobool46 = icmp ne i32 %32, 0
   br i1 %tobool46, label %if.then47, label %if.end60
 
 if.then47:                                        ; preds = %if.end45
-  %31 = load ptr, ptr %sock.addr, align 8
-  %ssl48 = getelementptr inbounds %struct.imap_socket, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %ssl48, align 8
-  %call49 = call ptr @SSL_get1_peer_certificate(ptr noundef %32)
+  %33 = load ptr, ptr %sock.addr, align 8
+  %ssl48 = getelementptr inbounds %struct.imap_socket, ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %ssl48, align 8
+  %call49 = call ptr @SSL_get1_peer_certificate(ptr noundef %34)
   store ptr %call49, ptr %cert, align 8
-  %33 = load ptr, ptr %cert, align 8
-  %tobool50 = icmp ne ptr %33, null
+  %35 = load ptr, ptr %cert, align 8
+  %tobool50 = icmp ne ptr %35, null
   br i1 %tobool50, label %if.end54, label %if.then51
 
 if.then51:                                        ; preds = %if.then47
@@ -2112,9 +2132,10 @@ if.then51:                                        ; preds = %if.then47
   br label %return
 
 if.end54:                                         ; preds = %if.then47
-  %34 = load ptr, ptr %cert, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 2), align 8
-  %call55 = call i32 @verify_hostname(ptr noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %cert, align 8
+  %37 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %call55 = call i32 @verify_hostname(ptr noundef %36, ptr noundef %38)
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %if.then58, label %if.end59
 
@@ -2130,8 +2151,8 @@ if.end60:                                         ; preds = %if.end59, %if.end45
   br label %return
 
 return:                                           ; preds = %if.end60, %if.then58, %if.then51, %if.then44, %if.then33, %if.then26, %if.then21, %if.then16, %if.then5, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %39 = load i32, ptr %retval, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2756,7 +2777,7 @@ entry:
   store ptr %cb, ptr %cb.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %cb.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -2764,7 +2785,7 @@ entry:
   %call = call ptr @issue_imap_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   store ptr %call, ptr %cmdp, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load ptr, ptr %cmdp, align 8
   %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.end, label %if.then
@@ -2889,25 +2910,27 @@ entry:
   store ptr %ctx, ptr %ctx.addr, align 8
   store ptr %prompt, ptr %prompt.addr, align 8
   %0 = load ptr, ptr %prompt.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 5), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i32 0, i32 6), align 8
-  %call = call ptr @cram(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %1 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 5
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.imap_server_conf, ptr @server, i32 0, i32 6
+  %4 = load ptr, ptr %3, align 8
+  %call = call ptr @cram(ptr noundef %0, ptr noundef %2, ptr noundef %4)
   store ptr %call, ptr %response, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %imap = getelementptr inbounds %struct.imap_store, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %imap, align 8
-  %buf = getelementptr inbounds %struct.imap, ptr %4, i32 0, i32 8
+  %5 = load ptr, ptr %ctx.addr, align 8
+  %imap = getelementptr inbounds %struct.imap_store, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %imap, align 8
+  %buf = getelementptr inbounds %struct.imap, ptr %6, i32 0, i32 8
   %sock = getelementptr inbounds %struct.imap_buffer, ptr %buf, i32 0, i32 0
-  %5 = load ptr, ptr %response, align 8
-  %6 = load ptr, ptr %response, align 8
-  %call1 = call i64 @strlen(ptr noundef %6) #9
-  %conv = trunc i64 %call1 to i32
-  %call2 = call i32 @socket_write(ptr noundef %sock, ptr noundef %5, i32 noundef %conv)
-  store i32 %call2, ptr %ret, align 4
-  %7 = load i32, ptr %ret, align 4
-  %conv3 = sext i32 %7 to i64
+  %7 = load ptr, ptr %response, align 8
   %8 = load ptr, ptr %response, align 8
-  %call4 = call i64 @strlen(ptr noundef %8) #9
+  %call1 = call i64 @strlen(ptr noundef %8) #9
+  %conv = trunc i64 %call1 to i32
+  %call2 = call i32 @socket_write(ptr noundef %sock, ptr noundef %7, i32 noundef %conv)
+  store i32 %call2, ptr %ret, align 4
+  %9 = load i32, ptr %ret, align 4
+  %conv3 = sext i32 %9 to i64
+  %10 = load ptr, ptr %response, align 8
+  %call4 = call i64 @strlen(ptr noundef %10) #9
   %cmp = icmp ne i64 %conv3, %call4
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2918,14 +2941,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %9 = load ptr, ptr %response, align 8
-  call void @free(ptr noundef %9) #10
+  %11 = load ptr, ptr %response, align 8
+  call void @free(ptr noundef %11) #10
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2940,13 +2963,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr @stderr, align 8
   %2 = load ptr, ptr %msg.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
   %call = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2959,13 +2982,7 @@ declare void @credential_clear(ptr noundef) #2
 
 declare void @credential_reject(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @vprintf(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare i32 @fflush(ptr noundef) #2
 
@@ -4447,7 +4464,7 @@ entry:
   store i32 %blen, ptr %blen.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %blen.addr, align 4
   %cmp = icmp sle i32 %0, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4470,7 +4487,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   %5 = load i32, ptr %ret, align 4
   ret i32 %5
 }
@@ -5238,7 +5255,7 @@ entry:
   store ptr %cb, ptr %cb.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %cb.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -5246,7 +5263,7 @@ entry:
   %call = call ptr @issue_imap_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   store ptr %call, ptr %cmdp, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load ptr, ptr %cmdp, align 8
   %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.end, label %if.then
@@ -5545,6 +5562,12 @@ declare ptr @getenv(ptr noundef) #5
 declare void @http_trace_curl_no_data() #2
 
 declare void @setup_curl_trace(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

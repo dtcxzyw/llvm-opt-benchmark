@@ -108,41 +108,44 @@ define dso_local void @CheckpointerMain() #0 {
   store i32 %13, ptr %15, align 8
   %16 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
   %17 = call ptr @pqsignal(i32 noundef 2, ptr noundef @ReqCheckpointHandler)
-  %18 = call ptr @pqsignal(i32 noundef 15, ptr noundef inttoptr (i64 1 to ptr))
-  %19 = call ptr @pqsignal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
-  %20 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %21 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %22 = call ptr @pqsignal(i32 noundef 12, ptr noundef @SignalHandlerForShutdownRequest)
-  %23 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %24 = call i64 @time(ptr noundef null) #10
-  store i64 %24, ptr @last_xlog_switch_time, align 8
-  store i64 %24, ptr @last_checkpoint_time, align 8
+  %18 = inttoptr i64 1 to ptr
+  %19 = call ptr @pqsignal(i32 noundef 15, ptr noundef %18)
+  %20 = inttoptr i64 1 to ptr
+  %21 = call ptr @pqsignal(i32 noundef 14, ptr noundef %20)
+  %22 = inttoptr i64 1 to ptr
+  %23 = call ptr @pqsignal(i32 noundef 13, ptr noundef %22)
+  %24 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %25 = call ptr @pqsignal(i32 noundef 12, ptr noundef @SignalHandlerForShutdownRequest)
+  %26 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %27 = call i64 @time(ptr noundef null) #10
+  store i64 %27, ptr @last_xlog_switch_time, align 8
+  store i64 %27, ptr @last_checkpoint_time, align 8
   call void @before_shmem_exit(ptr noundef @pgstat_before_server_shutdown, i64 noundef 0)
-  br label %25
+  br label %28
 
-25:                                               ; preds = %0
-  br label %26
+28:                                               ; preds = %0
+  br label %29
 
-26:                                               ; preds = %25
+29:                                               ; preds = %28
   store i32 1, ptr %3, align 4
-  %27 = load ptr, ptr @TopMemoryContext, align 8
-  %28 = call ptr @AllocSetContextCreateInternal(ptr noundef %27, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %28, ptr %2, align 8
-  %29 = load ptr, ptr %2, align 8
-  %30 = call ptr @MemoryContextSwitchTo(ptr noundef %29)
-  %31 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
-  %32 = call i32 @__sigsetjmp(ptr noundef %31, i32 noundef 1) #11
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %74
+  %30 = load ptr, ptr @TopMemoryContext, align 8
+  %31 = call ptr @AllocSetContextCreateInternal(ptr noundef %30, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %31, ptr %2, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = call ptr @MemoryContextSwitchTo(ptr noundef %32)
+  %34 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
+  %35 = call i32 @__sigsetjmp(ptr noundef %34, i32 noundef 1) #11
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %77
 
-34:                                               ; preds = %26
+37:                                               ; preds = %29
   store ptr null, ptr @error_context_stack, align 8
-  %35 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %36 = add i32 %35, 1
-  store volatile i32 %36, ptr @InterruptHoldoffCount, align 4
+  %38 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %39 = add i32 %38, 1
+  store volatile i32 %39, ptr @InterruptHoldoffCount, align 4
   call void @EmitErrorReport()
   call void @LWLockReleaseAll()
-  %37 = call zeroext i1 @ConditionVariableCancelSleep()
+  %40 = call zeroext i1 @ConditionVariableCancelSleep()
   call void @pgstat_report_wait_end()
   call void @UnlockBuffers()
   call void @ReleaseAuxProcessResources(i1 noundef zeroext false)
@@ -150,486 +153,494 @@ define dso_local void @CheckpointerMain() #0 {
   call void @AtEOXact_SMgr()
   call void @AtEOXact_Files(i1 noundef zeroext false)
   call void @AtEOXact_HashTables(i1 noundef zeroext false)
-  %38 = load i8, ptr @ckpt_active, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %66
+  %41 = load i8, ptr @ckpt_active, align 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %69
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr @CheckpointerShmem, align 8
-  %42 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %41, i32 0, i32 1
-  %43 = call i32 @tas(ptr noundef %42)
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %49
+43:                                               ; preds = %37
+  %44 = load ptr, ptr @CheckpointerShmem, align 8
+  %45 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %44, i32 0, i32 1
+  %46 = call i32 @tas(ptr noundef %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %52
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr @CheckpointerShmem, align 8
-  %47 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %46, i32 0, i32 1
-  %48 = call i32 @s_lock(ptr noundef %47, ptr noundef @.str.1, i32 noundef 275, ptr noundef @__func__.CheckpointerMain)
-  br label %50
+48:                                               ; preds = %43
+  %49 = load ptr, ptr @CheckpointerShmem, align 8
+  %50 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %49, i32 0, i32 1
+  %51 = call i32 @s_lock(ptr noundef %50, ptr noundef @.str.1, i32 noundef 275, ptr noundef @__func__.CheckpointerMain)
+  br label %53
 
-49:                                               ; preds = %40
-  br label %50
+52:                                               ; preds = %43
+  br label %53
 
-50:                                               ; preds = %49, %45
-  %51 = load ptr, ptr @CheckpointerShmem, align 8
-  %52 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %51, i32 0, i32 4
-  %53 = load i32, ptr %52, align 8
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 8
-  %55 = load ptr, ptr @CheckpointerShmem, align 8
-  %56 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
+53:                                               ; preds = %52, %48
+  %54 = load ptr, ptr @CheckpointerShmem, align 8
+  %55 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %54, i32 0, i32 4
+  %56 = load i32, ptr %55, align 8
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %55, align 8
   %58 = load ptr, ptr @CheckpointerShmem, align 8
-  %59 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %58, i32 0, i32 3
-  store i32 %57, ptr %59, align 4
-  br label %60
-
-60:                                               ; preds = %50
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  %59 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %58, i32 0, i32 2
+  %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr @CheckpointerShmem, align 8
-  %62 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %61, i32 0, i32 1
-  store i8 0, ptr %62, align 4
+  %62 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %61, i32 0, i32 3
+  store i32 %60, ptr %62, align 4
   br label %63
 
-63:                                               ; preds = %60
+63:                                               ; preds = %53
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
   %64 = load ptr, ptr @CheckpointerShmem, align 8
-  %65 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %64, i32 0, i32 7
-  call void @ConditionVariableBroadcast(ptr noundef %65)
-  store i8 0, ptr @ckpt_active, align 1
+  %65 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %64, i32 0, i32 1
+  store i8 0, ptr %65, align 4
   br label %66
 
-66:                                               ; preds = %63, %34
-  %67 = load ptr, ptr %2, align 8
-  %68 = call ptr @MemoryContextSwitchTo(ptr noundef %67)
-  call void @FlushErrorState()
-  %69 = load ptr, ptr %2, align 8
-  call void @MemoryContextReset(ptr noundef %69)
-  br label %70
+66:                                               ; preds = %63
+  %67 = load ptr, ptr @CheckpointerShmem, align 8
+  %68 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %67, i32 0, i32 7
+  call void @ConditionVariableBroadcast(ptr noundef %68)
+  store i8 0, ptr @ckpt_active, align 1
+  br label %69
 
-70:                                               ; preds = %66
-  %71 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %72 = add i32 %71, -1
-  store volatile i32 %72, ptr @InterruptHoldoffCount, align 4
+69:                                               ; preds = %66, %37
+  %70 = load ptr, ptr %2, align 8
+  %71 = call ptr @MemoryContextSwitchTo(ptr noundef %70)
+  call void @FlushErrorState()
+  %72 = load ptr, ptr %2, align 8
+  call void @MemoryContextReset(ptr noundef %72)
   br label %73
 
-73:                                               ; preds = %70
+73:                                               ; preds = %69
+  %74 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %75 = add i32 %74, -1
+  store volatile i32 %75, ptr @InterruptHoldoffCount, align 4
+  br label %76
+
+76:                                               ; preds = %73
   call void @pg_usleep(i64 noundef 1000000)
-  br label %74
+  br label %77
 
-74:                                               ; preds = %73, %26
+77:                                               ; preds = %76, %29
   store ptr %1, ptr @PG_exception_stack, align 8
-  %75 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
+  %78 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
   call void @UpdateSharedMemoryConfig()
-  %76 = load ptr, ptr @MyProc, align 8
-  %77 = getelementptr inbounds %struct.PGPROC, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr @ProcGlobal, align 8
-  %79 = getelementptr inbounds %struct.PROC_HDR, ptr %78, i32 0, i32 12
-  store ptr %77, ptr %79, align 8
-  br label %80
+  %79 = load ptr, ptr @MyProc, align 8
+  %80 = getelementptr inbounds %struct.PGPROC, ptr %79, i32 0, i32 4
+  %81 = load ptr, ptr @ProcGlobal, align 8
+  %82 = getelementptr inbounds %struct.PROC_HDR, ptr %81, i32 0, i32 12
+  store ptr %80, ptr %82, align 8
+  br label %83
 
-80:                                               ; preds = %294, %279, %262, %252, %74
+83:                                               ; preds = %305, %290, %273, %263, %77
   store i8 0, ptr %4, align 1
   store i32 0, ptr %5, align 4
   store i8 0, ptr %9, align 1
   store i8 0, ptr %10, align 1
-  %81 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %81)
+  %84 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %84)
   call void @AbsorbSyncRequests()
   call void @HandleCheckpointerInterrupts()
-  %82 = load ptr, ptr @CheckpointerShmem, align 8
-  %83 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %82, i32 0, i32 5
-  %84 = load volatile i32, ptr %83, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %87
+  %85 = load ptr, ptr @CheckpointerShmem, align 8
+  %86 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %85, i32 0, i32 5
+  %87 = load volatile i32, ptr %86, align 4
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %90
 
-86:                                               ; preds = %80
+89:                                               ; preds = %83
   store i8 1, ptr %4, align 1
   store i8 1, ptr %9, align 1
-  br label %87
+  br label %90
 
-87:                                               ; preds = %86, %80
-  %88 = call i64 @time(ptr noundef null) #10
-  store i64 %88, ptr %6, align 8
-  %89 = load i64, ptr %6, align 8
-  %90 = load i64, ptr @last_checkpoint_time, align 8
-  %91 = sub i64 %89, %90
-  %92 = trunc i64 %91 to i32
-  store i32 %92, ptr %7, align 4
-  %93 = load i32, ptr %7, align 4
-  %94 = load i32, ptr @CheckPointTimeout, align 4
-  %95 = icmp sge i32 %93, %94
-  br i1 %95, label %96, label %103
+90:                                               ; preds = %89, %83
+  %91 = call i64 @time(ptr noundef null) #10
+  store i64 %91, ptr %6, align 8
+  %92 = load i64, ptr %6, align 8
+  %93 = load i64, ptr @last_checkpoint_time, align 8
+  %94 = sub i64 %92, %93
+  %95 = trunc i64 %94 to i32
+  store i32 %95, ptr %7, align 4
+  %96 = load i32, ptr %7, align 4
+  %97 = load i32, ptr @CheckPointTimeout, align 4
+  %98 = icmp sge i32 %96, %97
+  br i1 %98, label %99, label %106
 
-96:                                               ; preds = %87
-  %97 = load i8, ptr %4, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %100, label %99
+99:                                               ; preds = %90
+  %100 = load i8, ptr %4, align 1
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %103, label %102
 
-99:                                               ; preds = %96
+102:                                              ; preds = %99
   store i8 1, ptr %10, align 1
-  br label %100
-
-100:                                              ; preds = %99, %96
-  store i8 1, ptr %4, align 1
-  %101 = load i32, ptr %5, align 4
-  %102 = or i32 %101, 256
-  store i32 %102, ptr %5, align 4
   br label %103
 
-103:                                              ; preds = %100, %87
-  %104 = load i8, ptr %4, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %247
+103:                                              ; preds = %102, %99
+  store i8 1, ptr %4, align 1
+  %104 = load i32, ptr %5, align 4
+  %105 = or i32 %104, 256
+  store i32 %105, ptr %5, align 4
+  br label %106
 
-106:                                              ; preds = %103
+106:                                              ; preds = %103, %90
+  %107 = load i8, ptr %4, align 1
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %258
+
+109:                                              ; preds = %106
   store i8 0, ptr %11, align 1
-  %107 = call zeroext i1 @RecoveryInProgress()
-  %108 = zext i1 %107 to i8
-  store i8 %108, ptr %12, align 1
-  %109 = load ptr, ptr @CheckpointerShmem, align 8
-  %110 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %109, i32 0, i32 1
-  %111 = call i32 @tas(ptr noundef %110)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %117
+  %110 = call zeroext i1 @RecoveryInProgress()
+  %111 = zext i1 %110 to i8
+  store i8 %111, ptr %12, align 1
+  %112 = load ptr, ptr @CheckpointerShmem, align 8
+  %113 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %112, i32 0, i32 1
+  %114 = call i32 @tas(ptr noundef %113)
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %120
 
-113:                                              ; preds = %106
-  %114 = load ptr, ptr @CheckpointerShmem, align 8
-  %115 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %114, i32 0, i32 1
-  %116 = call i32 @s_lock(ptr noundef %115, ptr noundef @.str.1, i32 noundef 391, ptr noundef @__func__.CheckpointerMain)
-  br label %118
+116:                                              ; preds = %109
+  %117 = load ptr, ptr @CheckpointerShmem, align 8
+  %118 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %117, i32 0, i32 1
+  %119 = call i32 @s_lock(ptr noundef %118, ptr noundef @.str.1, i32 noundef 391, ptr noundef @__func__.CheckpointerMain)
+  br label %121
 
-117:                                              ; preds = %106
-  br label %118
+120:                                              ; preds = %109
+  br label %121
 
-118:                                              ; preds = %117, %113
-  %119 = load ptr, ptr @CheckpointerShmem, align 8
-  %120 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %119, i32 0, i32 5
-  %121 = load i32, ptr %120, align 4
-  %122 = load i32, ptr %5, align 4
-  %123 = or i32 %122, %121
-  store i32 %123, ptr %5, align 4
-  %124 = load ptr, ptr @CheckpointerShmem, align 8
-  %125 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %124, i32 0, i32 5
-  store i32 0, ptr %125, align 4
-  %126 = load ptr, ptr @CheckpointerShmem, align 8
-  %127 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %126, i32 0, i32 2
-  %128 = load i32, ptr %127, align 8
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %127, align 8
-  br label %130
-
-130:                                              ; preds = %118
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %131 = load ptr, ptr @CheckpointerShmem, align 8
-  %132 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %131, i32 0, i32 1
-  store i8 0, ptr %132, align 4
+121:                                              ; preds = %120, %116
+  %122 = load ptr, ptr @CheckpointerShmem, align 8
+  %123 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %122, i32 0, i32 5
+  %124 = load i32, ptr %123, align 4
+  %125 = load i32, ptr %5, align 4
+  %126 = or i32 %125, %124
+  store i32 %126, ptr %5, align 4
+  %127 = load ptr, ptr @CheckpointerShmem, align 8
+  %128 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %127, i32 0, i32 5
+  store i32 0, ptr %128, align 4
+  %129 = load ptr, ptr @CheckpointerShmem, align 8
+  %130 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 8
   br label %133
 
-133:                                              ; preds = %130
+133:                                              ; preds = %121
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %134 = load ptr, ptr @CheckpointerShmem, align 8
-  %135 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %134, i32 0, i32 6
-  call void @ConditionVariableBroadcast(ptr noundef %135)
-  %136 = load i32, ptr %5, align 4
-  %137 = and i32 %136, 2
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %140
+  %135 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %134, i32 0, i32 1
+  store i8 0, ptr %135, align 4
+  br label %136
 
-139:                                              ; preds = %133
+136:                                              ; preds = %133
+  %137 = load ptr, ptr @CheckpointerShmem, align 8
+  %138 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %137, i32 0, i32 6
+  call void @ConditionVariableBroadcast(ptr noundef %138)
+  %139 = load i32, ptr %5, align 4
+  %140 = and i32 %139, 2
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %143
+
+142:                                              ; preds = %136
   store i8 0, ptr %12, align 1
-  br label %140
+  br label %143
 
-140:                                              ; preds = %139, %133
-  %141 = load i8, ptr %10, align 1
-  %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %153
-
-143:                                              ; preds = %140
-  store i8 0, ptr %10, align 1
-  %144 = load i8, ptr %12, align 1
+143:                                              ; preds = %142, %136
+  %144 = load i8, ptr %10, align 1
   %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %149
+  br i1 %145, label %146, label %158
 
 146:                                              ; preds = %143
-  %147 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2), align 8
-  %148 = add i64 %147, 1
-  store i64 %148, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2), align 8
-  br label %152
+  store i8 0, ptr %10, align 1
+  %147 = load i8, ptr %12, align 1
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %149, label %154
 
-149:                                              ; preds = %143
-  %150 = load i64, ptr @PendingCheckpointerStats, align 8
-  %151 = add i64 %150, 1
-  store i64 %151, ptr @PendingCheckpointerStats, align 8
-  br label %152
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2
+  %151 = load i64, ptr %150, align 8
+  %152 = add i64 %151, 1
+  %153 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2
+  store i64 %152, ptr %153, align 8
+  br label %157
 
-152:                                              ; preds = %149, %146
-  br label %153
+154:                                              ; preds = %146
+  %155 = load i64, ptr @PendingCheckpointerStats, align 8
+  %156 = add i64 %155, 1
+  store i64 %156, ptr @PendingCheckpointerStats, align 8
+  br label %157
 
-153:                                              ; preds = %152, %140
-  %154 = load i8, ptr %9, align 1
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %166
+157:                                              ; preds = %154, %149
+  br label %158
 
-156:                                              ; preds = %153
+158:                                              ; preds = %157, %143
+  %159 = load i8, ptr %9, align 1
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %175
+
+161:                                              ; preds = %158
   store i8 0, ptr %9, align 1
-  %157 = load i8, ptr %12, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %162
+  %162 = load i8, ptr %12, align 1
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %169
 
-159:                                              ; preds = %156
-  %160 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3), align 8
-  %161 = add i64 %160, 1
-  store i64 %161, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3), align 8
-  br label %165
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3
+  %166 = load i64, ptr %165, align 8
+  %167 = add i64 %166, 1
+  %168 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3
+  store i64 %167, ptr %168, align 8
+  br label %174
 
-162:                                              ; preds = %156
-  %163 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1), align 8
-  %164 = add i64 %163, 1
-  store i64 %164, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1), align 8
-  br label %165
+169:                                              ; preds = %161
+  %170 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1
+  %171 = load i64, ptr %170, align 8
+  %172 = add i64 %171, 1
+  %173 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1
+  store i64 %172, ptr %173, align 8
+  br label %174
 
-165:                                              ; preds = %162, %159
-  br label %166
+174:                                              ; preds = %169, %164
+  br label %175
 
-166:                                              ; preds = %165, %153
-  %167 = load i8, ptr %12, align 1
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %191, label %169
+175:                                              ; preds = %174, %158
+  %176 = load i8, ptr %12, align 1
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %200, label %178
 
-169:                                              ; preds = %166
-  %170 = load i32, ptr %5, align 4
-  %171 = and i32 %170, 128
-  %172 = icmp ne i32 %171, 0
-  br i1 %172, label %173, label %191
+178:                                              ; preds = %175
+  %179 = load i32, ptr %5, align 4
+  %180 = and i32 %179, 128
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %200
 
-173:                                              ; preds = %169
-  %174 = load i32, ptr %7, align 4
-  %175 = load i32, ptr @CheckPointWarning, align 4
-  %176 = icmp slt i32 %174, %175
-  br i1 %176, label %177, label %191
+182:                                              ; preds = %178
+  %183 = load i32, ptr %7, align 4
+  %184 = load i32, ptr @CheckPointWarning, align 4
+  %185 = icmp slt i32 %183, %184
+  br i1 %185, label %186, label %200
 
-177:                                              ; preds = %173
-  br label %178
+186:                                              ; preds = %182
+  br label %187
 
-178:                                              ; preds = %177
-  br i1 false, label %179, label %181
+187:                                              ; preds = %186
+  br i1 false, label %188, label %190
 
-179:                                              ; preds = %178
-  %180 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #12
-  br i1 %180, label %183, label %189
+188:                                              ; preds = %187
+  %189 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #12
+  br i1 %189, label %192, label %198
 
-181:                                              ; preds = %178
-  %182 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %182, label %183, label %189
+190:                                              ; preds = %187
+  %191 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %191, label %192, label %198
 
-183:                                              ; preds = %181, %179
-  %184 = load i32, ptr %7, align 4
-  %185 = sext i32 %184 to i64
-  %186 = load i32, ptr %7, align 4
-  %187 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef @.str.2, ptr noundef @.str.3, i64 noundef %185, i32 noundef %186)
-  %188 = call i32 (ptr, ...) @errhint(ptr noundef @.str.4)
+192:                                              ; preds = %190, %188
+  %193 = load i32, ptr %7, align 4
+  %194 = sext i32 %193 to i64
+  %195 = load i32, ptr %7, align 4
+  %196 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef @.str.2, ptr noundef @.str.3, i64 noundef %194, i32 noundef %195)
+  %197 = call i32 (ptr, ...) @errhint(ptr noundef @.str.4)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 439, ptr noundef @__func__.CheckpointerMain)
-  br label %189
+  br label %198
 
-189:                                              ; preds = %183, %181, %179
-  br label %190
+198:                                              ; preds = %192, %190, %188
+  br label %199
 
-190:                                              ; preds = %189
-  br label %191
+199:                                              ; preds = %198
+  br label %200
 
-191:                                              ; preds = %190, %173, %169, %166
+200:                                              ; preds = %199, %182, %178, %175
   store i8 1, ptr @ckpt_active, align 1
-  %192 = load i8, ptr %12, align 1
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %194, label %196
+  %201 = load i8, ptr %12, align 1
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %203, label %205
 
-194:                                              ; preds = %191
-  %195 = call i64 @GetXLogReplayRecPtr(ptr noundef null)
-  store i64 %195, ptr @ckpt_start_recptr, align 8
-  br label %198
+203:                                              ; preds = %200
+  %204 = call i64 @GetXLogReplayRecPtr(ptr noundef null)
+  store i64 %204, ptr @ckpt_start_recptr, align 8
+  br label %207
 
-196:                                              ; preds = %191
-  %197 = call i64 @GetInsertRecPtr()
-  store i64 %197, ptr @ckpt_start_recptr, align 8
-  br label %198
+205:                                              ; preds = %200
+  %206 = call i64 @GetInsertRecPtr()
+  store i64 %206, ptr @ckpt_start_recptr, align 8
+  br label %207
 
-198:                                              ; preds = %196, %194
-  %199 = load i64, ptr %6, align 8
-  store i64 %199, ptr @ckpt_start_time, align 8
+207:                                              ; preds = %205, %203
+  %208 = load i64, ptr %6, align 8
+  store i64 %208, ptr @ckpt_start_time, align 8
   store double 0.000000e+00, ptr @ckpt_cached_elapsed, align 8
-  %200 = load i8, ptr %12, align 1
-  %201 = trunc i8 %200 to i1
-  br i1 %201, label %204, label %202
+  %209 = load i8, ptr %12, align 1
+  %210 = trunc i8 %209 to i1
+  br i1 %210, label %213, label %211
 
-202:                                              ; preds = %198
-  %203 = load i32, ptr %5, align 4
-  call void @CreateCheckPoint(i32 noundef %203)
+211:                                              ; preds = %207
+  %212 = load i32, ptr %5, align 4
+  call void @CreateCheckPoint(i32 noundef %212)
   store i8 1, ptr %11, align 1
-  br label %208
+  br label %217
 
-204:                                              ; preds = %198
-  %205 = load i32, ptr %5, align 4
-  %206 = call zeroext i1 @CreateRestartPoint(i32 noundef %205)
-  %207 = zext i1 %206 to i8
-  store i8 %207, ptr %11, align 1
-  br label %208
+213:                                              ; preds = %207
+  %214 = load i32, ptr %5, align 4
+  %215 = call zeroext i1 @CreateRestartPoint(i32 noundef %214)
+  %216 = zext i1 %215 to i8
+  store i8 %216, ptr %11, align 1
+  br label %217
 
-208:                                              ; preds = %204, %202
+217:                                              ; preds = %213, %211
   call void @smgrdestroyall()
-  %209 = load ptr, ptr @CheckpointerShmem, align 8
-  %210 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %209, i32 0, i32 1
-  %211 = call i32 @tas(ptr noundef %210)
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %217
+  %218 = load ptr, ptr @CheckpointerShmem, align 8
+  %219 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %218, i32 0, i32 1
+  %220 = call i32 @tas(ptr noundef %219)
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %226
 
-213:                                              ; preds = %208
-  %214 = load ptr, ptr @CheckpointerShmem, align 8
-  %215 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %214, i32 0, i32 1
-  %216 = call i32 @s_lock(ptr noundef %215, ptr noundef @.str.1, i32 noundef 475, ptr noundef @__func__.CheckpointerMain)
-  br label %218
-
-217:                                              ; preds = %208
-  br label %218
-
-218:                                              ; preds = %217, %213
-  %219 = load ptr, ptr @CheckpointerShmem, align 8
-  %220 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %219, i32 0, i32 2
-  %221 = load i32, ptr %220, align 8
-  %222 = load ptr, ptr @CheckpointerShmem, align 8
-  %223 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %222, i32 0, i32 3
-  store i32 %221, ptr %223, align 4
-  br label %224
-
-224:                                              ; preds = %218
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %225 = load ptr, ptr @CheckpointerShmem, align 8
-  %226 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %225, i32 0, i32 1
-  store i8 0, ptr %226, align 4
+222:                                              ; preds = %217
+  %223 = load ptr, ptr @CheckpointerShmem, align 8
+  %224 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %223, i32 0, i32 1
+  %225 = call i32 @s_lock(ptr noundef %224, ptr noundef @.str.1, i32 noundef 475, ptr noundef @__func__.CheckpointerMain)
   br label %227
 
-227:                                              ; preds = %224
+226:                                              ; preds = %217
+  br label %227
+
+227:                                              ; preds = %226, %222
   %228 = load ptr, ptr @CheckpointerShmem, align 8
-  %229 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %228, i32 0, i32 7
-  call void @ConditionVariableBroadcast(ptr noundef %229)
-  %230 = load i8, ptr %11, align 1
-  %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %240
+  %229 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %228, i32 0, i32 2
+  %230 = load i32, ptr %229, align 8
+  %231 = load ptr, ptr @CheckpointerShmem, align 8
+  %232 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %231, i32 0, i32 3
+  store i32 %230, ptr %232, align 4
+  br label %233
 
-232:                                              ; preds = %227
-  %233 = load i64, ptr %6, align 8
-  store i64 %233, ptr @last_checkpoint_time, align 8
-  %234 = load i8, ptr %12, align 1
-  %235 = trunc i8 %234 to i1
-  br i1 %235, label %236, label %239
+233:                                              ; preds = %227
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
+  %234 = load ptr, ptr @CheckpointerShmem, align 8
+  %235 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %234, i32 0, i32 1
+  store i8 0, ptr %235, align 4
+  br label %236
 
-236:                                              ; preds = %232
-  %237 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4), align 8
-  %238 = add i64 %237, 1
-  store i64 %238, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4), align 8
-  br label %239
+236:                                              ; preds = %233
+  %237 = load ptr, ptr @CheckpointerShmem, align 8
+  %238 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %237, i32 0, i32 7
+  call void @ConditionVariableBroadcast(ptr noundef %238)
+  %239 = load i8, ptr %11, align 1
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %251
 
-239:                                              ; preds = %236, %232
-  br label %246
+241:                                              ; preds = %236
+  %242 = load i64, ptr %6, align 8
+  store i64 %242, ptr @last_checkpoint_time, align 8
+  %243 = load i8, ptr %12, align 1
+  %244 = trunc i8 %243 to i1
+  br i1 %244, label %245, label %250
 
-240:                                              ; preds = %227
-  %241 = load i64, ptr %6, align 8
-  %242 = load i32, ptr @CheckPointTimeout, align 4
-  %243 = sext i32 %242 to i64
-  %244 = sub i64 %241, %243
-  %245 = add i64 %244, 15
-  store i64 %245, ptr @last_checkpoint_time, align 8
-  br label %246
+245:                                              ; preds = %241
+  %246 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4
+  %247 = load i64, ptr %246, align 8
+  %248 = add i64 %247, 1
+  %249 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4
+  store i64 %248, ptr %249, align 8
+  br label %250
 
-246:                                              ; preds = %240, %239
+250:                                              ; preds = %245, %241
+  br label %257
+
+251:                                              ; preds = %236
+  %252 = load i64, ptr %6, align 8
+  %253 = load i32, ptr @CheckPointTimeout, align 4
+  %254 = sext i32 %253 to i64
+  %255 = sub i64 %252, %254
+  %256 = add i64 %255, 15
+  store i64 %256, ptr @last_checkpoint_time, align 8
+  br label %257
+
+257:                                              ; preds = %251, %250
   store i8 0, ptr @ckpt_active, align 1
   call void @HandleCheckpointerInterrupts()
-  br label %247
+  br label %258
 
-247:                                              ; preds = %246, %103
+258:                                              ; preds = %257, %106
   call void @CheckArchiveTimeout()
   call void @pgstat_report_checkpointer()
   call void @pgstat_report_wal(i1 noundef zeroext true)
-  %248 = load ptr, ptr @CheckpointerShmem, align 8
-  %249 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %248, i32 0, i32 5
-  %250 = load volatile i32, ptr %249, align 4
-  %251 = icmp ne i32 %250, 0
-  br i1 %251, label %252, label %253
+  %259 = load ptr, ptr @CheckpointerShmem, align 8
+  %260 = getelementptr inbounds %struct.CheckpointerShmemStruct, ptr %259, i32 0, i32 5
+  %261 = load volatile i32, ptr %260, align 4
+  %262 = icmp ne i32 %261, 0
+  br i1 %262, label %263, label %264
 
-252:                                              ; preds = %247
-  br label %80
+263:                                              ; preds = %258
+  br label %83
 
-253:                                              ; preds = %247
-  %254 = call i64 @time(ptr noundef null) #10
-  store i64 %254, ptr %6, align 8
-  %255 = load i64, ptr %6, align 8
-  %256 = load i64, ptr @last_checkpoint_time, align 8
-  %257 = sub i64 %255, %256
-  %258 = trunc i64 %257 to i32
-  store i32 %258, ptr %7, align 4
-  %259 = load i32, ptr %7, align 4
-  %260 = load i32, ptr @CheckPointTimeout, align 4
-  %261 = icmp sge i32 %259, %260
-  br i1 %261, label %262, label %263
+264:                                              ; preds = %258
+  %265 = call i64 @time(ptr noundef null) #10
+  store i64 %265, ptr %6, align 8
+  %266 = load i64, ptr %6, align 8
+  %267 = load i64, ptr @last_checkpoint_time, align 8
+  %268 = sub i64 %266, %267
+  %269 = trunc i64 %268 to i32
+  store i32 %269, ptr %7, align 4
+  %270 = load i32, ptr %7, align 4
+  %271 = load i32, ptr @CheckPointTimeout, align 4
+  %272 = icmp sge i32 %270, %271
+  br i1 %272, label %273, label %274
 
-262:                                              ; preds = %253
-  br label %80
+273:                                              ; preds = %264
+  br label %83
 
-263:                                              ; preds = %253
-  %264 = load i32, ptr @CheckPointTimeout, align 4
-  %265 = load i32, ptr %7, align 4
-  %266 = sub i32 %264, %265
-  store i32 %266, ptr %8, align 4
-  %267 = load i32, ptr @XLogArchiveTimeout, align 4
-  %268 = icmp sgt i32 %267, 0
-  br i1 %268, label %269, label %294
-
-269:                                              ; preds = %263
-  %270 = call zeroext i1 @RecoveryInProgress()
-  br i1 %270, label %294, label %271
-
-271:                                              ; preds = %269
-  %272 = load i64, ptr %6, align 8
-  %273 = load i64, ptr @last_xlog_switch_time, align 8
-  %274 = sub i64 %272, %273
-  %275 = trunc i64 %274 to i32
-  store i32 %275, ptr %7, align 4
+274:                                              ; preds = %264
+  %275 = load i32, ptr @CheckPointTimeout, align 4
   %276 = load i32, ptr %7, align 4
-  %277 = load i32, ptr @XLogArchiveTimeout, align 4
-  %278 = icmp sge i32 %276, %277
-  br i1 %278, label %279, label %280
+  %277 = sub i32 %275, %276
+  store i32 %277, ptr %8, align 4
+  %278 = load i32, ptr @XLogArchiveTimeout, align 4
+  %279 = icmp sgt i32 %278, 0
+  br i1 %279, label %280, label %305
 
-279:                                              ; preds = %271
-  br label %80
+280:                                              ; preds = %274
+  %281 = call zeroext i1 @RecoveryInProgress()
+  br i1 %281, label %305, label %282
 
-280:                                              ; preds = %271
-  %281 = load i32, ptr %8, align 4
-  %282 = load i32, ptr @XLogArchiveTimeout, align 4
-  %283 = load i32, ptr %7, align 4
-  %284 = sub i32 %282, %283
-  %285 = icmp slt i32 %281, %284
-  br i1 %285, label %286, label %288
+282:                                              ; preds = %280
+  %283 = load i64, ptr %6, align 8
+  %284 = load i64, ptr @last_xlog_switch_time, align 8
+  %285 = sub i64 %283, %284
+  %286 = trunc i64 %285 to i32
+  store i32 %286, ptr %7, align 4
+  %287 = load i32, ptr %7, align 4
+  %288 = load i32, ptr @XLogArchiveTimeout, align 4
+  %289 = icmp sge i32 %287, %288
+  br i1 %289, label %290, label %291
 
-286:                                              ; preds = %280
-  %287 = load i32, ptr %8, align 4
-  br label %292
+290:                                              ; preds = %282
+  br label %83
 
-288:                                              ; preds = %280
-  %289 = load i32, ptr @XLogArchiveTimeout, align 4
-  %290 = load i32, ptr %7, align 4
-  %291 = sub i32 %289, %290
-  br label %292
+291:                                              ; preds = %282
+  %292 = load i32, ptr %8, align 4
+  %293 = load i32, ptr @XLogArchiveTimeout, align 4
+  %294 = load i32, ptr %7, align 4
+  %295 = sub i32 %293, %294
+  %296 = icmp slt i32 %292, %295
+  br i1 %296, label %297, label %299
 
-292:                                              ; preds = %288, %286
-  %293 = phi i32 [ %287, %286 ], [ %291, %288 ]
-  store i32 %293, ptr %8, align 4
-  br label %294
+297:                                              ; preds = %291
+  %298 = load i32, ptr %8, align 4
+  br label %303
 
-294:                                              ; preds = %292, %269, %263
-  %295 = load ptr, ptr @MyLatch, align 8
-  %296 = load i32, ptr %8, align 4
-  %297 = sext i32 %296 to i64
-  %298 = mul i64 %297, 1000
-  %299 = call i32 @WaitLatch(ptr noundef %295, i32 noundef 41, i64 noundef %298, i32 noundef 83886084)
-  br label %80
+299:                                              ; preds = %291
+  %300 = load i32, ptr @XLogArchiveTimeout, align 4
+  %301 = load i32, ptr %7, align 4
+  %302 = sub i32 %300, %301
+  br label %303
+
+303:                                              ; preds = %299, %297
+  %304 = phi i32 [ %298, %297 ], [ %302, %299 ]
+  store i32 %304, ptr %8, align 4
+  br label %305
+
+305:                                              ; preds = %303, %280, %274
+  %306 = load ptr, ptr @MyLatch, align 8
+  %307 = load i32, ptr %8, align 4
+  %308 = sext i32 %307 to i64
+  %309 = mul i64 %308, 1000
+  %310 = call i32 @WaitLatch(ptr noundef %306, i32 noundef 41, i64 noundef %309, i32 noundef 83886084)
+  br label %83
 }
 
 declare ptr @pqsignal(i32 noundef, ptr noundef) #1
@@ -883,29 +894,31 @@ define internal void @HandleCheckpointerInterrupts() #2 {
 8:                                                ; preds = %7, %4
   %9 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
   store i8 1, ptr @ExitOnAnyError, align 1
-  %12 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1), align 8
-  %13 = add i64 %12, 1
-  store i64 %13, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, 1
+  %15 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1
+  store i64 %14, ptr %15, align 8
   call void @ShutdownXLOG(i32 noundef 0, i64 noundef 0)
   call void @pgstat_report_checkpointer()
   call void @pgstat_report_wal(i1 noundef zeroext true)
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 
-14:                                               ; preds = %8
-  %15 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %18
+16:                                               ; preds = %8
+  %17 = load volatile i32, ptr @LogMemoryContextPending, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %16
   call void @ProcessLogMemoryContextInterrupt()
-  br label %18
+  br label %20
 
-18:                                               ; preds = %17, %14
+20:                                               ; preds = %19, %16
   ret void
 }
 

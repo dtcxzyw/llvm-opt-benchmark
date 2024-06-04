@@ -669,16 +669,17 @@ define dso_local void @intel_wakeref_auto_fini(ptr noundef %0) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_ref_tracker_show(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %4 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 10240, i64 noundef 4096) #7
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %7, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 10240, i64 noundef 4096) #7
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-6:                                                ; preds = %2
-  tail call void @kfree(ptr noundef nonnull %4) #6
-  br label %7
+7:                                                ; preds = %2
+  tail call void @kfree(ptr noundef nonnull %5) #6
+  br label %8
 
-7:                                                ; preds = %6, %2
+8:                                                ; preds = %7, %2
   ret void
 }
 

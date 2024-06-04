@@ -47,34 +47,36 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_io: ; .as
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @dm_io_client_create() #0 align 16 {
   %1 = tail call i32 @dm_get_reserved_bio_based_ios() #12
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(320) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 320) #13
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %17, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(320) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 320) #13
+  %5 = icmp eq ptr %4, null
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %19, label %7
 
-5:                                                ; preds = %0
-  %6 = load ptr, ptr @_dm_io_cache, align 8
-  %7 = tail call i32 @mempool_init(ptr noundef nonnull %3, i32 noundef %1, ptr noundef nonnull @mempool_alloc_slab, ptr noundef nonnull @mempool_free_slab, ptr noundef %6) #12
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %13
+7:                                                ; preds = %0
+  %8 = load ptr, ptr @_dm_io_cache, align 8
+  %9 = tail call i32 @mempool_init(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull @mempool_alloc_slab, ptr noundef nonnull @mempool_free_slab, ptr noundef %8) #12
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %15
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 72
-  %11 = tail call i32 @bioset_init(ptr noundef %10, i32 noundef %1, i32 noundef 0, i32 noundef 1) #12
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %17, label %13
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = tail call i32 @bioset_init(ptr noundef %12, i32 noundef %1, i32 noundef 0, i32 noundef 1) #12
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %19, label %15
 
-13:                                               ; preds = %9, %5
-  %14 = phi i32 [ %7, %5 ], [ %11, %9 ]
-  tail call void @mempool_exit(ptr noundef nonnull %3) #12
-  tail call void @kfree(ptr noundef nonnull %3) #12
-  %15 = sext i32 %14 to i64
-  %16 = inttoptr i64 %15 to ptr
-  br label %17
+15:                                               ; preds = %11, %7
+  %16 = phi i32 [ %9, %7 ], [ %13, %11 ]
+  tail call void @mempool_exit(ptr noundef nonnull %4) #12
+  tail call void @kfree(ptr noundef nonnull %4) #12
+  %17 = sext i32 %16 to i64
+  %18 = inttoptr i64 %17 to ptr
+  br label %19
 
-17:                                               ; preds = %13, %9, %0
-  %18 = phi ptr [ %16, %13 ], [ %3, %9 ], [ inttoptr (i64 -12 to ptr), %0 ]
-  ret ptr %18
+19:                                               ; preds = %15, %11, %0
+  %20 = phi ptr [ %18, %15 ], [ %4, %11 ], [ %6, %0 ]
+  ret ptr %20
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -531,22 +533,23 @@ define internal void @km_get_page(ptr nocapture noundef readonly %0, ptr nocaptu
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %9, 2147483648
-  %11 = icmp ugt ptr %8, inttoptr (i64 -2147483649 to ptr)
-  %12 = load i64, ptr @phys_base, align 8
-  %13 = load i64, ptr @page_offset_base, align 8
-  %14 = sub i64 -2147483648, %13
-  %15 = select i1 %11, i64 %12, i64 %14
-  %16 = add i64 %10, %15
-  %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %6, i64 %17
-  store ptr %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %3, align 4
-  %21 = load i32, ptr %19, align 8
-  %22 = zext i32 %21 to i64
-  %23 = sub nsw i64 4096, %22
-  store i64 %23, ptr %2, align 8
+  %11 = inttoptr i64 -2147483649 to ptr
+  %12 = icmp ugt ptr %8, %11
+  %13 = load i64, ptr @phys_base, align 8
+  %14 = load i64, ptr @page_offset_base, align 8
+  %15 = sub i64 -2147483648, %14
+  %16 = select i1 %12, i64 %13, i64 %15
+  %17 = add i64 %10, %16
+  %18 = lshr i64 %17, 12
+  %19 = getelementptr %struct.page, ptr %6, i64 %18
+  store ptr %19, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8
+  store i32 %21, ptr %3, align 4
+  %22 = load i32, ptr %20, align 8
+  %23 = zext i32 %22 to i64
+  %24 = sub nsw i64 4096, %23
+  store i64 %24, ptr %2, align 8
   ret void
 }
 

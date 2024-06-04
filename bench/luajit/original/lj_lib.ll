@@ -889,66 +889,67 @@ entry:
   %p3 = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 4
   store ptr %add.ptr, ptr %p3, align 8
   %pe = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 5
-  store ptr inttoptr (i64 -1 to ptr), ptr %pe, align 8
+  %8 = inttoptr i64 -1 to ptr
+  store ptr %8, ptr %pe, align 8
   %c = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 6
   store i32 -1, ptr %c, align 8
   %level = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 22
   store i32 2, ptr %level, align 4
-  %8 = load ptr, ptr %name, align 8
+  %9 = load ptr, ptr %name, align 8
   %chunkname = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 14
-  store ptr %8, ptr %chunkname, align 8
+  store ptr %9, ptr %chunkname, align 8
   %call4 = call ptr @lj_bcread_proto(ptr noundef %ls)
   store ptr %call4, ptr %pt, align 8
-  %9 = load ptr, ptr %pt, align 8
-  %firstline = getelementptr inbounds %struct.GCproto, ptr %9, i32 0, i32 17
+  %10 = load ptr, ptr %pt, align 8
+  %firstline = getelementptr inbounds %struct.GCproto, ptr %10, i32 0, i32 17
   store i32 -1, ptr %firstline, align 8
-  %10 = load ptr, ptr %L.addr, align 8
-  %11 = load ptr, ptr %pt, align 8
-  %12 = load ptr, ptr %L.addr, align 8
-  %env = getelementptr inbounds %struct.lua_State, ptr %12, i32 0, i32 12
+  %11 = load ptr, ptr %L.addr, align 8
+  %12 = load ptr, ptr %pt, align 8
+  %13 = load ptr, ptr %L.addr, align 8
+  %env = getelementptr inbounds %struct.lua_State, ptr %13, i32 0, i32 12
   %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %env, i32 0, i32 0
-  %13 = load i64, ptr %gcptr64, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %call5 = call ptr @lj_func_newL_empty(ptr noundef %10, ptr noundef %11, ptr noundef %14)
+  %14 = load i64, ptr %gcptr64, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %call5 = call ptr @lj_func_newL_empty(ptr noundef %11, ptr noundef %12, ptr noundef %15)
   store ptr %call5, ptr %fn, align 8
-  %15 = load ptr, ptr %L.addr, align 8
   %16 = load ptr, ptr %L.addr, align 8
-  %17 = load ptr, ptr %tab.addr, align 8
-  %18 = load ptr, ptr %name, align 8
-  %call6 = call ptr @lj_tab_setstr(ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %fn, align 8
-  store ptr %15, ptr %L.addr.i, align 8
+  %17 = load ptr, ptr %L.addr, align 8
+  %18 = load ptr, ptr %tab.addr, align 8
+  %19 = load ptr, ptr %name, align 8
+  %call6 = call ptr @lj_tab_setstr(ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  %20 = load ptr, ptr %fn, align 8
+  store ptr %16, ptr %L.addr.i, align 8
   store ptr %call6, ptr %o.addr.i, align 8
-  store ptr %19, ptr %v.addr.i, align 8
-  %20 = load ptr, ptr %L.addr.i, align 8
-  %21 = load ptr, ptr %o.addr.i, align 8
-  %22 = load ptr, ptr %v.addr.i, align 8
-  store ptr %20, ptr %L.addr.i8, align 8
-  store ptr %21, ptr %o.addr.i9, align 8
-  store ptr %22, ptr %v.addr.i10, align 8
+  store ptr %20, ptr %v.addr.i, align 8
+  %21 = load ptr, ptr %L.addr.i, align 8
+  %22 = load ptr, ptr %o.addr.i, align 8
+  %23 = load ptr, ptr %v.addr.i, align 8
+  store ptr %21, ptr %L.addr.i8, align 8
+  store ptr %22, ptr %o.addr.i9, align 8
+  store ptr %23, ptr %v.addr.i10, align 8
   store i32 -9, ptr %it.addr.i, align 4
-  %23 = load ptr, ptr %o.addr.i9, align 8
-  %24 = load ptr, ptr %v.addr.i10, align 8
-  %25 = load i32, ptr %it.addr.i, align 4
-  store ptr %23, ptr %o.addr.i11, align 8
-  store ptr %24, ptr %v.addr.i12, align 8
-  store i32 %25, ptr %itype.addr.i, align 4
-  %26 = load ptr, ptr %v.addr.i12, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = load i32, ptr %itype.addr.i, align 4
-  %conv.i = zext i32 %28 to i64
+  %24 = load ptr, ptr %o.addr.i9, align 8
+  %25 = load ptr, ptr %v.addr.i10, align 8
+  %26 = load i32, ptr %it.addr.i, align 4
+  store ptr %24, ptr %o.addr.i11, align 8
+  store ptr %25, ptr %v.addr.i12, align 8
+  store i32 %26, ptr %itype.addr.i, align 4
+  %27 = load ptr, ptr %v.addr.i12, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = load i32, ptr %itype.addr.i, align 4
+  %conv.i = zext i32 %29 to i64
   %shl.i = shl i64 %conv.i, 47
-  %or.i = or i64 %27, %shl.i
-  %29 = load ptr, ptr %o.addr.i11, align 8
-  store i64 %or.i, ptr %29, align 8
-  %30 = load ptr, ptr %L.addr.i8, align 8
-  %31 = load ptr, ptr %o.addr.i9, align 8
-  store ptr %30, ptr %L.addr.i13, align 8
-  store ptr %31, ptr %o.addr.i14, align 8
+  %or.i = or i64 %28, %shl.i
+  %30 = load ptr, ptr %o.addr.i11, align 8
+  store i64 %or.i, ptr %30, align 8
+  %31 = load ptr, ptr %L.addr.i8, align 8
+  %32 = load ptr, ptr %o.addr.i9, align 8
+  store ptr %31, ptr %L.addr.i13, align 8
+  store ptr %32, ptr %o.addr.i14, align 8
   store ptr @.str.2, ptr %msg.addr.i, align 8
   %p7 = getelementptr inbounds %struct.LexState, ptr %ls, i32 0, i32 4
-  %32 = load ptr, ptr %p7, align 8
-  ret ptr %32
+  %33 = load ptr, ptr %p7, align 8
+  ret ptr %33
 }
 
 declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) #1

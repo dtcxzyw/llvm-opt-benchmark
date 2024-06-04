@@ -197,7 +197,8 @@ sw.epilog:                                        ; preds = %sw.bb23, %sw.bb21, 
   store ptr %call35, ptr %data_, align 8
   %data_36 = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this1, i32 0, i32 1
   %30 = load ptr, ptr %data_36, align 8
-  %cmp37 = icmp eq ptr %30, inttoptr (i64 -1 to ptr)
+  %31 = inttoptr i64 -1 to ptr
+  %cmp37 = icmp eq ptr %30, %31
   br i1 %cmp37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %sw.epilog
@@ -205,18 +206,18 @@ if.then38:                                        ; preds = %sw.epilog
   br label %return
 
 if.end39:                                         ; preds = %sw.epilog
-  %31 = load i32, ptr %data_offset, align 4
+  %32 = load i32, ptr %data_offset, align 4
   %data_40 = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this1, i32 0, i32 1
-  %32 = load ptr, ptr %data_40, align 8
-  %idx.ext = sext i32 %31 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %32, i64 %idx.ext
+  %33 = load ptr, ptr %data_40, align 8
+  %idx.ext = sext i32 %32 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %33, i64 %idx.ext
   store ptr %add.ptr, ptr %data_40, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then38, %if.then16, %if.then3
-  %33 = load i1, ptr %retval, align 1
-  ret i1 %33
+  %34 = load i1, ptr %retval, align 1
+  ret i1 %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

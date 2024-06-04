@@ -1683,9 +1683,10 @@ if.end103:                                        ; preds = %if.then99, %if.end9
 if.end104:                                        ; preds = %if.end103, %if.end80
   %82 = load ptr, ptr %ret, align 8
   %hash_algo = getelementptr inbounds %struct.transport, ptr %82, i32 0, i32 14
-  store ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1), ptr %hash_algo, align 8
-  %83 = load ptr, ptr %ret, align 8
-  ret ptr %83
+  %83 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1
+  store ptr %83, ptr %hash_algo, align 8
+  %84 = load ptr, ptr %ret, align 8
+  ret ptr %84
 }
 
 ; Function Attrs: nounwind
@@ -2953,62 +2954,63 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %call11 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %7 = inttoptr i64 1 to ptr
+  %call11 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %7)
   call void @strbuf_init(ptr noundef %buf, i64 noundef 256)
-  %7 = load ptr, ptr %remote_refs.addr, align 8
-  store ptr %7, ptr %r, align 8
+  %8 = load ptr, ptr %remote_refs.addr, align 8
+  store ptr %8, ptr %r, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end10
-  %8 = load ptr, ptr %r, align 8
-  %tobool12 = icmp ne ptr %8, null
+  %9 = load ptr, ptr %r, align 8
+  %tobool12 = icmp ne ptr %9, null
   br i1 %tobool12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %r, align 8
-  %peer_ref = getelementptr inbounds %struct.ref, ptr %9, i32 0, i32 12
-  %10 = load ptr, ptr %peer_ref, align 8
-  %tobool13 = icmp ne ptr %10, null
+  %10 = load ptr, ptr %r, align 8
+  %peer_ref = getelementptr inbounds %struct.ref, ptr %10, i32 0, i32 12
+  %11 = load ptr, ptr %peer_ref, align 8
+  %tobool13 = icmp ne ptr %11, null
   br i1 %tobool13, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %for.body
   br label %for.inc
 
 if.end15:                                         ; preds = %for.body
-  %11 = load ptr, ptr %r, align 8
-  %status = getelementptr inbounds %struct.ref, ptr %11, i32 0, i32 9
-  %12 = load i32, ptr %status, align 4
-  %cmp = icmp eq i32 %12, 2
+  %12 = load ptr, ptr %r, align 8
+  %status = getelementptr inbounds %struct.ref, ptr %12, i32 0, i32 9
+  %13 = load i32, ptr %status, align 4
+  %cmp = icmp eq i32 %13, 2
   br i1 %cmp, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end15
   br label %for.inc
 
 if.end17:                                         ; preds = %if.end15
-  %13 = load ptr, ptr %r, align 8
-  %status18 = getelementptr inbounds %struct.ref, ptr %13, i32 0, i32 9
-  %14 = load i32, ptr %status18, align 4
-  %cmp19 = icmp eq i32 %14, 7
+  %14 = load ptr, ptr %r, align 8
+  %status18 = getelementptr inbounds %struct.ref, ptr %14, i32 0, i32 9
+  %15 = load i32, ptr %status18, align 4
+  %cmp19 = icmp eq i32 %15, 7
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
   br label %for.inc
 
 if.end21:                                         ; preds = %if.end17
-  %15 = load ptr, ptr %r, align 8
-  %status22 = getelementptr inbounds %struct.ref, ptr %15, i32 0, i32 9
-  %16 = load i32, ptr %status22, align 4
-  %cmp23 = icmp eq i32 %16, 9
+  %16 = load ptr, ptr %r, align 8
+  %status22 = getelementptr inbounds %struct.ref, ptr %16, i32 0, i32 9
+  %17 = load i32, ptr %status22, align 4
+  %cmp23 = icmp eq i32 %17, 9
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end21
   br label %for.inc
 
 if.end25:                                         ; preds = %if.end21
-  %17 = load ptr, ptr %r, align 8
-  %status26 = getelementptr inbounds %struct.ref, ptr %17, i32 0, i32 9
-  %18 = load i32, ptr %status26, align 4
-  %cmp27 = icmp eq i32 %18, 10
+  %18 = load ptr, ptr %r, align 8
+  %status26 = getelementptr inbounds %struct.ref, ptr %18, i32 0, i32 9
+  %19 = load i32, ptr %status26, align 4
+  %cmp27 = icmp eq i32 %19, 10
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end25
@@ -3016,35 +3018,35 @@ if.then28:                                        ; preds = %if.end25
 
 if.end29:                                         ; preds = %if.end25
   call void @strbuf_setlen(ptr noundef %buf, i64 noundef 0)
-  %19 = load ptr, ptr %r, align 8
-  %peer_ref30 = getelementptr inbounds %struct.ref, ptr %19, i32 0, i32 12
-  %20 = load ptr, ptr %peer_ref30, align 8
-  %name31 = getelementptr inbounds %struct.ref, ptr %20, i32 0, i32 13
+  %20 = load ptr, ptr %r, align 8
+  %peer_ref30 = getelementptr inbounds %struct.ref, ptr %20, i32 0, i32 12
+  %21 = load ptr, ptr %peer_ref30, align 8
+  %name31 = getelementptr inbounds %struct.ref, ptr %21, i32 0, i32 13
   %arraydecay = getelementptr inbounds [0 x i8], ptr %name31, i64 0, i64 0
-  %21 = load ptr, ptr %r, align 8
-  %new_oid = getelementptr inbounds %struct.ref, ptr %21, i32 0, i32 2
-  %call32 = call ptr @oid_to_hex(ptr noundef %new_oid)
   %22 = load ptr, ptr %r, align 8
-  %name33 = getelementptr inbounds %struct.ref, ptr %22, i32 0, i32 13
-  %arraydecay34 = getelementptr inbounds [0 x i8], ptr %name33, i64 0, i64 0
+  %new_oid = getelementptr inbounds %struct.ref, ptr %22, i32 0, i32 2
+  %call32 = call ptr @oid_to_hex(ptr noundef %new_oid)
   %23 = load ptr, ptr %r, align 8
-  %old_oid = getelementptr inbounds %struct.ref, ptr %23, i32 0, i32 1
+  %name33 = getelementptr inbounds %struct.ref, ptr %23, i32 0, i32 13
+  %arraydecay34 = getelementptr inbounds [0 x i8], ptr %name33, i64 0, i64 0
+  %24 = load ptr, ptr %r, align 8
+  %old_oid = getelementptr inbounds %struct.ref, ptr %24, i32 0, i32 1
   %call35 = call ptr @oid_to_hex(ptr noundef %old_oid)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %buf, ptr noundef @.str.114, ptr noundef %arraydecay, ptr noundef %call32, ptr noundef %arraydecay34, ptr noundef %call35)
   %in36 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %24 = load i32, ptr %in36, align 8
+  %25 = load i32, ptr %in36, align 8
   %buf37 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %25 = load ptr, ptr %buf37, align 8
+  %26 = load ptr, ptr %buf37, align 8
   %len = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 1
-  %26 = load i64, ptr %len, align 8
-  %call38 = call i64 @write_in_full(i32 noundef %24, ptr noundef %25, i64 noundef %26)
+  %27 = load i64, ptr %len, align 8
+  %call38 = call i64 @write_in_full(i32 noundef %25, ptr noundef %26, i64 noundef %27)
   %cmp39 = icmp slt i64 %call38, 0
   br i1 %cmp39, label %if.then40, label %if.end45
 
 if.then40:                                        ; preds = %if.end29
   %call41 = call ptr @__errno_location() #11
-  %27 = load i32, ptr %call41, align 4
-  %cmp42 = icmp ne i32 %27, 32
+  %28 = load i32, ptr %call41, align 4
+  %cmp42 = icmp ne i32 %28, 32
   br i1 %cmp42, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.then40
@@ -3058,48 +3060,48 @@ if.end45:                                         ; preds = %if.end29
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end45, %if.then28, %if.then24, %if.then20, %if.then16, %if.then14
-  %28 = load ptr, ptr %r, align 8
-  %next = getelementptr inbounds %struct.ref, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %next, align 8
-  store ptr %29, ptr %r, align 8
+  %29 = load ptr, ptr %r, align 8
+  %next = getelementptr inbounds %struct.ref, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %next, align 8
+  store ptr %30, ptr %r, align 8
   br label %for.cond, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end44, %for.cond
   call void @strbuf_release(ptr noundef %buf)
   %in46 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %30 = load i32, ptr %in46, align 8
-  %call47 = call i32 @close(i32 noundef %30)
+  %31 = load i32, ptr %in46, align 8
+  %call47 = call i32 @close(i32 noundef %31)
   store i32 %call47, ptr %x, align 4
-  %31 = load i32, ptr %ret, align 4
-  %tobool48 = icmp ne i32 %31, 0
+  %32 = load i32, ptr %ret, align 4
+  %tobool48 = icmp ne i32 %32, 0
   br i1 %tobool48, label %if.end50, label %if.then49
 
 if.then49:                                        ; preds = %for.end
-  %32 = load i32, ptr %x, align 4
-  store i32 %32, ptr %ret, align 4
+  %33 = load i32, ptr %x, align 4
+  store i32 %33, ptr %ret, align 4
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %for.end
   %call51 = call i32 @sigchain_pop(i32 noundef 13)
   %call52 = call i32 @finish_command(ptr noundef %proc)
   store i32 %call52, ptr %x, align 4
-  %33 = load i32, ptr %ret, align 4
-  %tobool53 = icmp ne i32 %33, 0
+  %34 = load i32, ptr %ret, align 4
+  %tobool53 = icmp ne i32 %34, 0
   br i1 %tobool53, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %if.end50
-  %34 = load i32, ptr %x, align 4
-  store i32 %34, ptr %ret, align 4
+  %35 = load i32, ptr %x, align 4
+  store i32 %35, ptr %ret, align 4
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then54, %if.end50
-  %35 = load i32, ptr %ret, align 4
-  store i32 %35, ptr %retval, align 4
+  %36 = load i32, ptr %ret, align 4
+  store i32 %36, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end55, %if.then8, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 declare i32 @is_bare_repository() #1

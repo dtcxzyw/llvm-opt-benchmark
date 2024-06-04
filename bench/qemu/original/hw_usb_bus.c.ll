@@ -254,18 +254,21 @@ do.body9:                                         ; preds = %do.end8
   %14 = load ptr, ptr %bus.addr, align 8
   %next = getelementptr inbounds %struct.USBBus, ptr %14, i32 0, i32 7
   store ptr null, ptr %next, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @busses, i32 0, i32 1), align 8
-  %16 = load ptr, ptr %bus.addr, align 8
-  %next10 = getelementptr inbounds %struct.USBBus, ptr %16, i32 0, i32 7
-  %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %next10, i32 0, i32 1
-  store ptr %15, ptr %tql_prev11, align 8
+  %15 = getelementptr inbounds %struct.QTailQLink, ptr @busses, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %bus.addr, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @busses, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %18, i32 0, i32 0
-  store ptr %17, ptr %tql_next, align 8
-  %19 = load ptr, ptr %bus.addr, align 8
-  %next12 = getelementptr inbounds %struct.USBBus, ptr %19, i32 0, i32 7
-  store ptr %next12, ptr getelementptr inbounds (%struct.QTailQLink, ptr @busses, i32 0, i32 1), align 8
+  %next10 = getelementptr inbounds %struct.USBBus, ptr %17, i32 0, i32 7
+  %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %next10, i32 0, i32 1
+  store ptr %16, ptr %tql_prev11, align 8
+  %18 = load ptr, ptr %bus.addr, align 8
+  %19 = getelementptr inbounds %struct.QTailQLink, ptr @busses, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
+  store ptr %18, ptr %tql_next, align 8
+  %21 = load ptr, ptr %bus.addr, align 8
+  %next12 = getelementptr inbounds %struct.USBBus, ptr %21, i32 0, i32 7
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @busses, i32 0, i32 1
+  store ptr %next12, ptr %22, align 8
   br label %do.end13
 
 do.end13:                                         ; preds = %do.body9
@@ -330,29 +333,30 @@ if.else7:                                         ; preds = %do.body
   %next8 = getelementptr inbounds %struct.USBBus, ptr %7, i32 0, i32 7
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %next8, i32 0, i32 1
   %8 = load ptr, ptr %tql_prev9, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.QTailQLink, ptr @busses, i32 0, i32 1), align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @busses, i32 0, i32 1
+  store ptr %8, ptr %9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else7, %if.then2
-  %9 = load ptr, ptr %bus.addr, align 8
-  %next11 = getelementptr inbounds %struct.USBBus, ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %next11, align 8
-  %11 = load ptr, ptr %bus.addr, align 8
-  %next12 = getelementptr inbounds %struct.USBBus, ptr %11, i32 0, i32 7
+  %10 = load ptr, ptr %bus.addr, align 8
+  %next11 = getelementptr inbounds %struct.USBBus, ptr %10, i32 0, i32 7
+  %11 = load ptr, ptr %next11, align 8
+  %12 = load ptr, ptr %bus.addr, align 8
+  %next12 = getelementptr inbounds %struct.USBBus, ptr %12, i32 0, i32 7
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 1
-  %12 = load ptr, ptr %tql_prev13, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
-  store ptr %10, ptr %tql_next, align 8
-  %13 = load ptr, ptr %bus.addr, align 8
-  %next14 = getelementptr inbounds %struct.USBBus, ptr %13, i32 0, i32 7
+  %13 = load ptr, ptr %tql_prev13, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
+  store ptr %11, ptr %tql_next, align 8
+  %14 = load ptr, ptr %bus.addr, align 8
+  %next14 = getelementptr inbounds %struct.USBBus, ptr %14, i32 0, i32 7
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %next14, i32 0, i32 1
   store ptr null, ptr %tql_prev15, align 8
-  %14 = load ptr, ptr %bus.addr, align 8
-  %next16 = getelementptr inbounds %struct.USBBus, ptr %14, i32 0, i32 7
+  %15 = load ptr, ptr %bus.addr, align 8
+  %next16 = getelementptr inbounds %struct.USBBus, ptr %15, i32 0, i32 7
   %tql_next17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 0
   store ptr null, ptr %tql_next17, align 8
-  %15 = load ptr, ptr %bus.addr, align 8
-  %next18 = getelementptr inbounds %struct.USBBus, ptr %15, i32 0, i32 7
+  %16 = load ptr, ptr %bus.addr, align 8
+  %next18 = getelementptr inbounds %struct.USBBus, ptr %16, i32 0, i32 7
   store ptr null, ptr %next18, align 8
   br label %do.end
 

@@ -11041,33 +11041,34 @@ define hidden void @proto_reg_handoff_ber() #0 {
   call void @ber_decode_as_foreach(ptr noundef @ber_add_syntax_name, ptr noundef %1)
   %2 = load i32, ptr %1, align 4
   %3 = icmp ugt i32 %2, 1
-  br i1 %3, label %4, label %8
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %0
   %5 = load i32, ptr %1, align 4
   %6 = sub i32 %5, 1
   %7 = zext i32 %6 to i64
-  call void @qsort(ptr noundef getelementptr inbounds ([129 x %struct._value_string], ptr @syntax_names, i64 0, i64 1), i64 noundef %7, i64 noundef 16, ptr noundef @cmp_value_string)
-  br label %8
+  %8 = getelementptr inbounds [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 1
+  call void @qsort(ptr noundef %8, i64 noundef %7, i64 noundef 16, ptr noundef @cmp_value_string)
+  br label %9
 
-8:                                                ; preds = %4, %0
-  %9 = load i32, ptr %1, align 4
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %10
-  %12 = getelementptr inbounds %struct._value_string, ptr %11, i32 0, i32 0
-  store i32 0, ptr %12, align 16
-  %13 = load i32, ptr %1, align 4
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %14
-  %16 = getelementptr inbounds %struct._value_string, ptr %15, i32 0, i32 1
-  store ptr null, ptr %16, align 8
-  %17 = load ptr, ptr @ber_handle, align 8
-  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.303, ptr noundef %17)
+9:                                                ; preds = %4, %0
+  %10 = load i32, ptr %1, align 4
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %11
+  %13 = getelementptr inbounds %struct._value_string, ptr %12, i32 0, i32 0
+  store i32 0, ptr %13, align 16
+  %14 = load i32, ptr %1, align 4
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %15
+  %17 = getelementptr inbounds %struct._value_string, ptr %16, i32 0, i32 1
+  store ptr null, ptr %17, align 8
   %18 = load ptr, ptr @ber_handle, align 8
-  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.304, ptr noundef %18)
+  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.303, ptr noundef %18)
+  %19 = load ptr, ptr @ber_handle, align 8
+  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.304, ptr noundef %19)
   call void @ber_update_oids()
-  %19 = load ptr, ptr @ber_file_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.305, i32 noundef 90, ptr noundef %19)
+  %20 = load ptr, ptr @ber_file_handle, align 8
+  call void @dissector_add_uint(ptr noundef @.str.305, i32 noundef 90, ptr noundef %20)
   ret void
 }
 

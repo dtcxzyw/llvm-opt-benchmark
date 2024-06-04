@@ -197,30 +197,32 @@ define zeroext i1 @check_corespec_cgroup_job_confinement() #0 {
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %22
 
 12:                                               ; preds = %6, %0
-  %13 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i32 0, i32 2), align 8
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %20
+  %13 = getelementptr inbounds %struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i32 0, i32 2
+  %14 = load i8, ptr %13, align 8
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 206), align 8
-  %17 = call ptr @xstrstr(ptr noundef %16, ptr noundef @.str.3)
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %20
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 206
+  %18 = load ptr, ptr %17, align 8
+  %19 = call ptr @xstrstr(ptr noundef %18, ptr noundef @.str.3)
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %22
 
-19:                                               ; preds = %15
+21:                                               ; preds = %16
   store i1 true, ptr %1, align 1
-  br label %21
+  br label %23
 
-20:                                               ; preds = %15, %12, %6
+22:                                               ; preds = %16, %12, %6
   store i1 false, ptr %1, align 1
-  br label %21
+  br label %23
 
-21:                                               ; preds = %20, %19
-  %22 = load i1, ptr %1, align 1
-  ret i1 %22
+23:                                               ; preds = %22, %21
+  %24 = load i1, ptr %1, align 1
+  ret i1 %24
 }
 
 declare ptr @xstrstr(ptr noundef, ptr noundef) #1

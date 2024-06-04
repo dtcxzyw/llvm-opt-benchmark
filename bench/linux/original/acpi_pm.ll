@@ -98,36 +98,38 @@ define internal noundef i32 @acpi_pm_good_setup(ptr nocapture readnone %0) #2 se
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_pm_check_blacklist(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i1, ptr @acpi_pm_good, align 4
-  br i1 %2, label %9, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i8, ptr %4, align 8
   %6 = icmp ult i8 %5, 3
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #7
   store ptr @acpi_pm_read_slow, ptr @clocksource_acpi_pm, align 8
-  store i32 120, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 10), align 8
-  br label %9
+  %9 = getelementptr inbounds %struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 10
+  store i32 120, ptr %9, align 8
+  br label %10
 
-9:                                                ; preds = %7, %3, %1
+10:                                               ; preds = %7, %3, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_pm_check_graylist(ptr nocapture readnone %0) #0 align 16 {
   %2 = load i1, ptr @acpi_pm_good, align 4
-  br i1 %2, label %5, label %3
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #7
   store ptr @acpi_pm_read_slow, ptr @clocksource_acpi_pm, align 8
-  store i32 120, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 10), align 8
-  br label %5
+  %5 = getelementptr inbounds %struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 10
+  store i32 120, ptr %5, align 8
+  br label %6
 
-5:                                                ; preds = %3, %1
+6:                                                ; preds = %3, %1
   ret void
 }
 
@@ -135,7 +137,7 @@ define internal void @acpi_pm_check_graylist(ptr nocapture readnone %0) #0 align
 define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16 {
   %1 = load i32, ptr @pmtmr_ioport, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %39, label %6
+  br i1 %2, label %41, label %6
 
 3:                                                ; preds = %27
   %4 = add nuw nsw i64 %7, 1
@@ -170,7 +172,7 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
 22:                                               ; preds = %18
   %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i64 noundef %10, i64 noundef %14) #7
   store i32 0, ptr @pmtmr_ioport, align 4
-  br label %39
+  br label %41
 
 24:                                               ; preds = %11
   %25 = add nuw nsw i32 %12, 1
@@ -185,25 +187,27 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
 30:                                               ; preds = %27
   %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %10) #7
   store i32 0, ptr @pmtmr_ioport, align 4
-  br label %39
+  br label %41
 
 32:                                               ; preds = %3
   %33 = tail call zeroext i1 @tsc_clocksource_watchdog_disabled() #6
-  br i1 %33, label %34, label %37
+  br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32
-  %35 = load i64, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 13), align 8
-  %36 = or i64 %35, 2
-  store i64 %36, ptr getelementptr inbounds (%struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 13), align 8
-  br label %37
-
-37:                                               ; preds = %34, %32
-  %38 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @clocksource_acpi_pm, i32 noundef 1, i32 noundef 3579545) #6
+  %35 = getelementptr inbounds %struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 13
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, 2
+  %38 = getelementptr inbounds %struct.clocksource, ptr @clocksource_acpi_pm, i64 0, i32 13
+  store i64 %37, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %37, %30, %22, %0
-  %40 = phi i32 [ -19, %30 ], [ -22, %22 ], [ %38, %37 ], [ -19, %0 ]
-  ret i32 %40
+39:                                               ; preds = %34, %32
+  %40 = tail call i32 @__clocksource_register_scale(ptr noundef nonnull @clocksource_acpi_pm, i32 noundef 1, i32 noundef 3579545) #6
+  br label %41
+
+41:                                               ; preds = %39, %30, %22, %0
+  %42 = phi i32 [ -19, %30 ], [ -22, %22 ], [ %40, %39 ], [ -19, %0 ]
+  ret i32 %42
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

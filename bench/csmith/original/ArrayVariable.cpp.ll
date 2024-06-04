@@ -1564,40 +1564,41 @@ define dso_local void @_ZN13ArrayVariableC2EP5BlockRKNSt7__cxx1112basic_stringIc
   %23 = load ptr, ptr %14, align 8
   %24 = load ptr, ptr %16, align 8
   call void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %19, align 8
-  %25 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 1
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 2
-  %27 = load ptr, ptr %10, align 8
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 3
-  %29 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %30 unwind label %33
+  %25 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2
+  store ptr %25, ptr %19, align 8
+  %26 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 1
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 2
+  %28 = load ptr, ptr %10, align 8
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 3
+  %30 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %31 unwind label %34
 
-30:                                               ; preds = %8
-  %31 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 4
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  %32 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 5
+31:                                               ; preds = %8
+  %32 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 4
   call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  %33 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 5
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
   ret void
 
-33:                                               ; preds = %8
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %8
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %17, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %18, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %17, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %18, align 4
   call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %19) #3
-  br label %37
+  br label %38
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %17, align 8
-  %39 = load i32, ptr %18, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %17, align 8
+  %40 = load i32, ptr %18, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 declare void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #1
@@ -1712,82 +1713,83 @@ define dso_local void @_ZN13ArrayVariableC2ERKS_(ptr noundef nonnull align 8 der
   %19 = getelementptr inbounds %class.Variable, ptr %18, i32 0, i32 11
   %20 = load ptr, ptr %19, align 8
   call void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %12, ptr noundef %15, ptr noundef %17, ptr noundef %20, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %7, align 8
-  %21 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %class.ArrayVariable, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %21, align 8
-  %25 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 2
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %class.ArrayVariable, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %25, align 8
-  %29 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 3
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %class.ArrayVariable, ptr %30, i32 0, i32 3
-  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %31)
-          to label %32 unwind label %41
+  %21 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2
+  store ptr %21, ptr %7, align 8
+  %22 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 1
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %class.ArrayVariable, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %22, align 8
+  %26 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 2
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %class.ArrayVariable, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %26, align 8
+  %30 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 3
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %class.ArrayVariable, ptr %31, i32 0, i32 3
+  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32)
+          to label %33 unwind label %42
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %class.ArrayVariable, ptr %34, i32 0, i32 4
-  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %35)
-          to label %36 unwind label %45
+33:                                               ; preds = %2
+  %34 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 4
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %class.ArrayVariable, ptr %35, i32 0, i32 4
+  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %36)
+          to label %37 unwind label %46
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 5
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %class.ArrayVariable, ptr %38, i32 0, i32 5
-  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %39)
-          to label %40 unwind label %49
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 5
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %class.ArrayVariable, ptr %39, i32 0, i32 5
+  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %40)
+          to label %41 unwind label %50
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   ret void
 
-41:                                               ; preds = %2
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %2
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %5, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %6, align 4
-  br label %54
-
-45:                                               ; preds = %32
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %53
-
-49:                                               ; preds = %36
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  br label %53
-
-53:                                               ; preds = %49, %45
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  br label %54
-
-54:                                               ; preds = %53, %41
-  call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #3
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %5, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %6, align 4
   br label %55
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %5, align 8
-  %57 = load i32, ptr %6, align 4
-  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
-  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
-  resume { ptr, i32 } %59
+46:                                               ; preds = %33
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %54
+
+50:                                               ; preds = %37
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  br label %55
+
+55:                                               ; preds = %54, %42
+  call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #3
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %6, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1898,59 +1900,60 @@ define dso_local void @_ZN13ArrayVariableD2Ev(ptr noundef nonnull align 8 derefe
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %30
+  %5 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %31
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   store i64 0, ptr %3, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %25, %8
-  %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
-  %12 = call noundef i64 @_ZNKSt6vectorIPK10ExpressionSaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %13 = icmp ult i64 %10, %12
-  br i1 %13, label %14, label %28
+10:                                               ; preds = %26, %9
+  %11 = load i64, ptr %3, align 8
+  %12 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
+  %13 = call noundef i64 @_ZNKSt6vectorIPK10ExpressionSaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %14 = icmp ult i64 %11, %13
+  br i1 %14, label %15, label %29
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
-  %16 = load i64, ptr %3, align 8
-  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %16) #3
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %24, label %20
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
+  %17 = load i64, ptr %3, align 8
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #3
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 1
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %24
-
-24:                                               ; preds = %20, %14
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 1
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i64, ptr %3, align 8
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %3, align 8
-  br label %9, !llvm.loop !9
+25:                                               ; preds = %21, %15
+  br label %26
 
-28:                                               ; preds = %9
-  %29 = getelementptr inbounds %class.Variable, ptr %4, i32 0, i32 4
-  store ptr null, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %25
+  %27 = load i64, ptr %3, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %3, align 8
+  br label %10, !llvm.loop !9
 
-30:                                               ; preds = %28, %1
-  %31 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 5
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  %32 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
+29:                                               ; preds = %10
+  %30 = getelementptr inbounds %class.Variable, ptr %4, i32 0, i32 4
+  store ptr null, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %29, %1
+  %32 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 5
   call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
-  %33 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 3
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
+  %33 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 4
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
+  %34 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 3
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
   call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #3
   ret void
 }

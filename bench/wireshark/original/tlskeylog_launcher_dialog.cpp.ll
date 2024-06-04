@@ -573,381 +573,383 @@ define void @_ZN15TLSKeylogDialogC2ER7QWidget(ptr noundef nonnull align 8 derefe
   %37 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %38 = load i32, ptr %37, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef %36, i32 %38)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 0, i32 2), ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 1, i32 2), ptr %39, align 8
-  %40 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 176) #15
-          to label %42 unwind label %144
-
-42:                                               ; preds = %2
+  %39 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 0, i32 2
+  store ptr %39, ptr %35, align 8
+  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  %41 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 1, i32 2
   store ptr %41, ptr %40, align 8
-  %43 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  invoke void @_ZN18Ui_TLSKeylogDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(176) %46, ptr noundef %35)
-          to label %47 unwind label %144
+  %42 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 176) #15
+          to label %44 unwind label %146
 
-47:                                               ; preds = %42
+44:                                               ; preds = %2
+  store ptr %43, ptr %42, align 8
+  %45 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  invoke void @_ZN18Ui_TLSKeylogDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(176) %48, ptr noundef %35)
+          to label %49 unwind label %146
+
+49:                                               ; preds = %44
   invoke void @_ZN15TLSKeylogDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %48 unwind label %144
+          to label %50 unwind label %146
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr @mainApp, align 8
+50:                                               ; preds = %49
+  %51 = load ptr, ptr @mainApp, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %49, ptr noundef %10)
-          to label %50 unwind label %148
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(216) %51, ptr noundef %10)
+          to label %52 unwind label %150
 
-50:                                               ; preds = %48
+52:                                               ; preds = %50
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %51 unwind label %152
+          to label %53 unwind label %154
 
-51:                                               ; preds = %50
+53:                                               ; preds = %52
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
-  %52 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %53, i32 0, i32 11
+  %54 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %55, i32 0, i32 11
+  %57 = load ptr, ptr %56, align 8
   invoke void @_ZN15TLSKeylogDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %56 unwind label %157
+          to label %58 unwind label %159
 
-56:                                               ; preds = %51
-  %57 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 3)
-          to label %58 unwind label %161
-
-58:                                               ; preds = %56
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  store ptr %57, ptr %11, align 8
-  %59 = load ptr, ptr %11, align 8
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %59, i1 noundef zeroext true)
-          to label %60 unwind label %157
+58:                                               ; preds = %53
+  %59 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 3)
+          to label %60 unwind label %163
 
 60:                                               ; preds = %58
-  %61 = load ptr, ptr %11, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %14, align 8
-  %62 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
-  %65 = load i64, ptr %64, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog18on_launchActivatedEv to i64), i64 0 }, ptr %15, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %61, i64 %63, i64 %65, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
-          to label %66 unwind label %157
-
-66:                                               ; preds = %60
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
-  %67 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %68, i32 0, i32 11
-  %70 = load ptr, ptr %69, align 8
-  invoke void @_ZN15TLSKeylogDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
-          to label %71 unwind label %157
-
-71:                                               ; preds = %66
-  %72 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 8)
-          to label %73 unwind label %165
-
-73:                                               ; preds = %71
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  store ptr %72, ptr %16, align 8
-  %74 = load ptr, ptr %16, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %19, align 8
-  %75 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
-  %78 = load i64, ptr %77, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog16on_saveActivatedEv to i64), i64 0 }, ptr %20, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %74, i64 %76, i64 %78, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
-          to label %79 unwind label %157
-
-79:                                               ; preds = %73
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
-  %80 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %81, i32 0, i32 11
-  %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %83, i32 noundef 67108864)
-          to label %85 unwind label %157
-
-85:                                               ; preds = %79
-  store ptr %84, ptr %21, align 8
-  %86 = load ptr, ptr %21, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %23, align 8
-  %87 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 0
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 1
-  %90 = load i64, ptr %89, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog17on_resetActivatedEv to i64), i64 0 }, ptr %24, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %22, ptr noundef %86, i64 %88, i64 %90, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %24, i32 noundef 0)
-          to label %91 unwind label %157
-
-91:                                               ; preds = %85
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #14
-  %92 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %93, i32 0, i32 4
-  %95 = load ptr, ptr %94, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %26, align 8
-  %96 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 0
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog19on_browseKeylogPathEv to i64), i64 0 }, ptr %27, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %25, ptr noundef %95, i64 %97, i64 %99, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %27, i32 noundef 0)
-          to label %100 unwind label %157
-
-100:                                              ; preds = %91
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
-  %101 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %102, i32 0, i32 9
-  %104 = load ptr, ptr %103, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %29, align 8
-  %105 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 0
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 1
-  %108 = load i64, ptr %107, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog20on_browseProgramPathEv to i64), i64 0 }, ptr %30, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %28, ptr noundef %104, i64 %106, i64 %108, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %30, i32 noundef 0)
-          to label %109 unwind label %157
-
-109:                                              ; preds = %100
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
-  %110 = invoke ptr @prefs_find_module(ptr noundef @.str.3)
-          to label %111 unwind label %157
-
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
-  store ptr %110, ptr %112, align 8
-  %113 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %175
-
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8
-  %119 = invoke ptr @prefs_find_preference(ptr noundef %118, ptr noundef @.str.4)
-          to label %120 unwind label %157
-
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
-  store ptr %119, ptr %121, align 8
-  %122 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %174
-
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
-  %127 = load ptr, ptr %126, align 8
-  %128 = invoke ptr @prefs_get_string_value(ptr noundef %127, i32 noundef 2)
-          to label %129 unwind label %157
-
-129:                                              ; preds = %125
-  store ptr %128, ptr %31, align 8
-  %130 = load ptr, ptr %31, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %173
-
-132:                                              ; preds = %129
-  %133 = load ptr, ptr %31, align 8
-  %134 = load i8, ptr %133, align 1
-  %135 = icmp ne i8 %134, 0
-  br i1 %135, label %136, label %173
-
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %138, i32 0, i32 3
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %31, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %141)
-          to label %142 unwind label %157
-
-142:                                              ; preds = %136
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %140, ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %143 unwind label %169
-
-143:                                              ; preds = %142
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
-  br label %173
-
-144:                                              ; preds = %47, %42, %2
-  %145 = landingpad { ptr, i32 }
-          cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %6, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %7, align 4
-  br label %214
-
-148:                                              ; preds = %48
-  %149 = landingpad { ptr, i32 }
-          cleanup
-  %150 = extractvalue { ptr, i32 } %149, 0
-  store ptr %150, ptr %6, align 8
-  %151 = extractvalue { ptr, i32 } %149, 1
-  store i32 %151, ptr %7, align 4
-  br label %156
-
-152:                                              ; preds = %50
-  %153 = landingpad { ptr, i32 }
-          cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %6, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
-  br label %156
-
-156:                                              ; preds = %152, %148
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
-  br label %213
-
-157:                                              ; preds = %200, %189, %181, %175, %136, %125, %116, %109, %100, %91, %85, %79, %73, %66, %60, %58, %51
-  %158 = landingpad { ptr, i32 }
-          cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %6, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %7, align 4
-  br label %213
-
-161:                                              ; preds = %56
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %6, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  br label %213
+  store ptr %59, ptr %11, align 8
+  %61 = load ptr, ptr %11, align 8
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %61, i1 noundef zeroext true)
+          to label %62 unwind label %159
 
-165:                                              ; preds = %71
-  %166 = landingpad { ptr, i32 }
-          cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %6, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %7, align 4
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %11, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %14, align 8
+  %64 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog18on_launchActivatedEv to i64), i64 0 }, ptr %15, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %63, i64 %65, i64 %67, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
+          to label %68 unwind label %159
+
+68:                                               ; preds = %62
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
+  %69 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %70, i32 0, i32 11
+  %72 = load ptr, ptr %71, align 8
+  invoke void @_ZN15TLSKeylogDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
+          to label %73 unwind label %159
+
+73:                                               ; preds = %68
+  %74 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 8)
+          to label %75 unwind label %167
+
+75:                                               ; preds = %73
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  br label %213
+  store ptr %74, ptr %16, align 8
+  %76 = load ptr, ptr %16, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %19, align 8
+  %77 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %80 = load i64, ptr %79, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog16on_saveActivatedEv to i64), i64 0 }, ptr %20, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %76, i64 %78, i64 %80, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
+          to label %81 unwind label %159
 
-169:                                              ; preds = %142
-  %170 = landingpad { ptr, i32 }
-          cleanup
-  %171 = extractvalue { ptr, i32 } %170, 0
-  store ptr %171, ptr %6, align 8
-  %172 = extractvalue { ptr, i32 } %170, 1
-  store i32 %172, ptr %7, align 4
+81:                                               ; preds = %75
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  %82 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %83, i32 0, i32 11
+  %85 = load ptr, ptr %84, align 8
+  %86 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %85, i32 noundef 67108864)
+          to label %87 unwind label %159
+
+87:                                               ; preds = %81
+  store ptr %86, ptr %21, align 8
+  %88 = load ptr, ptr %21, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %23, align 8
+  %89 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 0
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds { i64, i64 }, ptr %23, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog17on_resetActivatedEv to i64), i64 0 }, ptr %24, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %22, ptr noundef %88, i64 %90, i64 %92, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %24, i32 noundef 0)
+          to label %93 unwind label %159
+
+93:                                               ; preds = %87
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #14
+  %94 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %95, i32 0, i32 4
+  %97 = load ptr, ptr %96, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %26, align 8
+  %98 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 0
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr inbounds { i64, i64 }, ptr %26, i32 0, i32 1
+  %101 = load i64, ptr %100, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog19on_browseKeylogPathEv to i64), i64 0 }, ptr %27, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %25, ptr noundef %97, i64 %99, i64 %101, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %27, i32 noundef 0)
+          to label %102 unwind label %159
+
+102:                                              ; preds = %93
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
+  %103 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %104, i32 0, i32 9
+  %106 = load ptr, ptr %105, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %29, align 8
+  %107 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 0
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 1
+  %110 = load i64, ptr %109, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15TLSKeylogDialog20on_browseProgramPathEv to i64), i64 0 }, ptr %30, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15TLSKeylogDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %28, ptr noundef %106, i64 %108, i64 %110, ptr noundef %35, ptr noundef byval({ i64, i64 }) align 8 %30, i32 noundef 0)
+          to label %111 unwind label %159
+
+111:                                              ; preds = %102
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
+  %112 = invoke ptr @prefs_find_module(ptr noundef @.str.3)
+          to label %113 unwind label %159
+
+113:                                              ; preds = %111
+  %114 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
+  store ptr %112, ptr %114, align 8
+  %115 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %177
+
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 2
+  %120 = load ptr, ptr %119, align 8
+  %121 = invoke ptr @prefs_find_preference(ptr noundef %120, ptr noundef @.str.4)
+          to label %122 unwind label %159
+
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
+  store ptr %121, ptr %123, align 8
+  %124 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %127, label %176
+
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 3
+  %129 = load ptr, ptr %128, align 8
+  %130 = invoke ptr @prefs_get_string_value(ptr noundef %129, i32 noundef 2)
+          to label %131 unwind label %159
+
+131:                                              ; preds = %127
+  store ptr %130, ptr %31, align 8
+  %132 = load ptr, ptr %31, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %175
+
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %31, align 8
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp ne i8 %136, 0
+  br i1 %137, label %138, label %175
+
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %140, i32 0, i32 3
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %31, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %143)
+          to label %144 unwind label %159
+
+144:                                              ; preds = %138
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %142, ptr noundef nonnull align 8 dereferenceable(24) %32)
+          to label %145 unwind label %171
+
+145:                                              ; preds = %144
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
-  br label %213
-
-173:                                              ; preds = %143, %132, %129
-  br label %174
-
-174:                                              ; preds = %173, %120
   br label %175
 
-175:                                              ; preds = %174, %111
-  %176 = invoke ptr @prefs_find_module(ptr noundef @.str.5)
-          to label %177 unwind label %157
+146:                                              ; preds = %49, %44, %2
+  %147 = landingpad { ptr, i32 }
+          cleanup
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %6, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %7, align 4
+  br label %216
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 4
-  store ptr %176, ptr %178, align 8
-  br label %179
+150:                                              ; preds = %50
+  %151 = landingpad { ptr, i32 }
+          cleanup
+  %152 = extractvalue { ptr, i32 } %151, 0
+  store ptr %152, ptr %6, align 8
+  %153 = extractvalue { ptr, i32 } %151, 1
+  store i32 %153, ptr %7, align 4
+  br label %158
+
+154:                                              ; preds = %52
+  %155 = landingpad { ptr, i32 }
+          cleanup
+  %156 = extractvalue { ptr, i32 } %155, 0
+  store ptr %156, ptr %6, align 8
+  %157 = extractvalue { ptr, i32 } %155, 1
+  store i32 %157, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  br label %158
+
+158:                                              ; preds = %154, %150
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  br label %215
+
+159:                                              ; preds = %202, %191, %183, %177, %138, %127, %118, %111, %102, %93, %87, %81, %75, %68, %62, %60, %53
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %6, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %7, align 4
+  br label %215
+
+163:                                              ; preds = %58
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %6, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  br label %215
+
+167:                                              ; preds = %73
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %6, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  br label %215
+
+171:                                              ; preds = %144
+  %172 = landingpad { ptr, i32 }
+          cleanup
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %6, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
+  br label %215
+
+175:                                              ; preds = %145, %134, %131
+  br label %176
+
+176:                                              ; preds = %175, %122
+  br label %177
+
+177:                                              ; preds = %176, %113
+  %178 = invoke ptr @prefs_find_module(ptr noundef @.str.5)
+          to label %179 unwind label %159
 
 179:                                              ; preds = %177
-  br label %180
-
-180:                                              ; preds = %179
+  %180 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 4
+  store ptr %178, ptr %180, align 8
   br label %181
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 4
-  %183 = load ptr, ptr %182, align 8
-  %184 = invoke ptr @prefs_find_preference(ptr noundef %183, ptr noundef @.str.6)
-          to label %185 unwind label %157
+181:                                              ; preds = %179
+  br label %182
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
-  store ptr %184, ptr %186, align 8
-  br label %187
+182:                                              ; preds = %181
+  br label %183
 
-187:                                              ; preds = %185
-  br label %188
+183:                                              ; preds = %182
+  %184 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 4
+  %185 = load ptr, ptr %184, align 8
+  %186 = invoke ptr @prefs_find_preference(ptr noundef %185, ptr noundef @.str.6)
+          to label %187 unwind label %159
 
-188:                                              ; preds = %187
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
+  store ptr %186, ptr %188, align 8
   br label %189
 
-189:                                              ; preds = %188
-  %190 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
-  %191 = load ptr, ptr %190, align 8
-  %192 = invoke ptr @prefs_get_string_value(ptr noundef %191, i32 noundef 2)
-          to label %193 unwind label %157
+189:                                              ; preds = %187
+  br label %190
 
-193:                                              ; preds = %189
-  store ptr %192, ptr %33, align 8
-  %194 = load ptr, ptr %33, align 8
-  %195 = icmp ne ptr %194, null
-  br i1 %195, label %196, label %212
+190:                                              ; preds = %189
+  br label %191
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %33, align 8
-  %198 = load i8, ptr %197, align 1
-  %199 = icmp ne i8 %198, 0
-  br i1 %199, label %200, label %212
+191:                                              ; preds = %190
+  %192 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 5
+  %193 = load ptr, ptr %192, align 8
+  %194 = invoke ptr @prefs_get_string_value(ptr noundef %193, i32 noundef 2)
+          to label %195 unwind label %159
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %202, i32 0, i32 8
+195:                                              ; preds = %191
+  store ptr %194, ptr %33, align 8
+  %196 = load ptr, ptr %33, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %198, label %214
+
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %33, align 8
+  %200 = load i8, ptr %199, align 1
+  %201 = icmp ne i8 %200, 0
+  br i1 %201, label %202, label %214
+
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds %class.TLSKeylogDialog, ptr %35, i32 0, i32 1
   %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr %33, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %205)
-          to label %206 unwind label %157
+  %205 = getelementptr inbounds %class.Ui_TLSKeylogDialog, ptr %204, i32 0, i32 8
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %33, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %207)
+          to label %208 unwind label %159
 
-206:                                              ; preds = %200
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %204, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %207 unwind label %208
+208:                                              ; preds = %202
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %206, ptr noundef nonnull align 8 dereferenceable(24) %34)
+          to label %209 unwind label %210
 
-207:                                              ; preds = %206
+209:                                              ; preds = %208
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  br label %212
+  br label %214
 
-208:                                              ; preds = %206
-  %209 = landingpad { ptr, i32 }
+210:                                              ; preds = %208
+  %211 = landingpad { ptr, i32 }
           cleanup
-  %210 = extractvalue { ptr, i32 } %209, 0
-  store ptr %210, ptr %6, align 8
-  %211 = extractvalue { ptr, i32 } %209, 1
-  store i32 %211, ptr %7, align 4
+  %212 = extractvalue { ptr, i32 } %211, 0
+  store ptr %212, ptr %6, align 8
+  %213 = extractvalue { ptr, i32 } %211, 1
+  store i32 %213, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  br label %213
+  br label %215
 
-212:                                              ; preds = %207, %196, %193
+214:                                              ; preds = %209, %198, %195
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   ret void
 
-213:                                              ; preds = %208, %169, %165, %161, %157, %156
+215:                                              ; preds = %210, %171, %167, %163, %159, %158
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  br label %214
+  br label %216
 
-214:                                              ; preds = %213, %144
+216:                                              ; preds = %215, %146
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #14
-  br label %215
+  br label %217
 
-215:                                              ; preds = %214
-  %216 = load ptr, ptr %6, align 8
-  %217 = load i32, ptr %7, align 4
-  %218 = insertvalue { ptr, i32 } poison, ptr %216, 0
-  %219 = insertvalue { ptr, i32 } %218, i32 %217, 1
-  resume { ptr, i32 } %219
+217:                                              ; preds = %216
+  %218 = load ptr, ptr %6, align 8
+  %219 = load i32, ptr %7, align 4
+  %220 = insertvalue { ptr, i32 } poison, ptr %218, 0
+  %221 = insertvalue { ptr, i32 } %220, i32 %219, 1
+  resume { ptr, i32 } %221
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3216,19 +3218,21 @@ define void @_ZN15TLSKeylogDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.TLSKeylogDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15TLSKeylogDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.TLSKeylogDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #16
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #16
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   ret void
 }
@@ -3712,19 +3716,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.8, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #14
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #14
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #14
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #14
   ret void
 }
 
@@ -4402,9 +4407,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

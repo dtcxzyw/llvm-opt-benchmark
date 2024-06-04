@@ -1080,7 +1080,7 @@ define dso_local void @_ZN24cmInstallTargetGeneratorC2ENSt7__cxx1112basic_string
   %33 = load ptr, ptr %17, align 8
   %34 = load ptr, ptr %18, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %34)
-          to label %35 unwind label %54
+          to label %35 unwind label %55
 
 35:                                               ; preds = %11
   %36 = load i32, ptr %19, align 4
@@ -1088,67 +1088,68 @@ define dso_local void @_ZN24cmInstallTargetGeneratorC2ENSt7__cxx1112basic_string
   %38 = trunc i8 %37 to i1
   call void @_ZN19cmListFileBacktraceC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   invoke void @_ZN18cmInstallGeneratorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EES5_NS_12MessageLevelEbb19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(200) %31, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef %24, i32 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext false, ptr noundef %27)
-          to label %39 unwind label %58
+          to label %39 unwind label %59
 
 39:                                               ; preds = %35
   call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i32 0, i32 0, i32 2), ptr %31, align 8
-  %40 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  %41 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 2
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %43 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 6
-  %44 = load i8, ptr %15, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = zext i1 %45 to i8
-  store i8 %46, ptr %43, align 8
-  %47 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 7
-  %48 = load i8, ptr %21, align 1
-  %49 = trunc i8 %48 to i1
-  %50 = zext i1 %49 to i8
-  store i8 %50, ptr %47, align 1
-  %51 = getelementptr inbounds %class.cmScriptGenerator, ptr %31, i32 0, i32 5
-  store i8 1, ptr %51, align 8
-  %52 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 4
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 5
-  store i32 0, ptr %53, align 4
+  %40 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %40, ptr %31, align 8
+  %41 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %42 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 2
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %44 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 6
+  %45 = load i8, ptr %15, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr %44, align 8
+  %48 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 7
+  %49 = load i8, ptr %21, align 1
+  %50 = trunc i8 %49 to i1
+  %51 = zext i1 %50 to i8
+  store i8 %51, ptr %48, align 1
+  %52 = getelementptr inbounds %class.cmScriptGenerator, ptr %31, i32 0, i32 5
+  store i8 1, ptr %52, align 8
+  %53 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 4
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %31, i32 0, i32 5
+  store i32 0, ptr %54, align 4
   ret void
 
-54:                                               ; preds = %11
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %11
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %25, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %26, align 4
-  br label %62
-
-58:                                               ; preds = %35
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %25, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %26, align 4
-  call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
-  br label %62
-
-62:                                               ; preds = %58, %54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %25, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %26, align 4
   br label %63
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %25, align 8
-  %65 = load i32, ptr %26, align 4
-  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
-  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
-  resume { ptr, i32 } %67
+59:                                               ; preds = %35
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %25, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %26, align 4
+  call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #3
+  br label %63
+
+63:                                               ; preds = %59, %55
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %25, align 8
+  %66 = load i32, ptr %26, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -1186,11 +1187,12 @@ define dso_local void @_ZN24cmInstallTargetGeneratorD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %class.cmInstallTargetGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #3
   ret void
 }

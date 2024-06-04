@@ -431,7 +431,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf20ConformanceTestSuiteC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_resolver_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN6google8protobuf4util12TypeResolverESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %type_resolver_) #3
   %type_url_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 2
@@ -538,7 +539,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_url_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_url_) #3
   %type_resolver_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 1
@@ -556,7 +558,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %verbose_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 4
   store i8 0, ptr %verbose_, align 8
   %performance_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 5
@@ -589,12 +592,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_dir_) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_) #3
@@ -761,7 +764,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %skipped_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 15
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %skipped_) #3
   %unexpected_succeeding_tests_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 14

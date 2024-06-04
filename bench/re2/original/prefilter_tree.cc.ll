@@ -9255,7 +9255,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::debian2::hash_internal::HashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

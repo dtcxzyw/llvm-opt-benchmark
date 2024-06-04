@@ -215,7 +215,8 @@ entry:
   store ptr %penetrationDepthSolver, ptr %penetrationDepthSolver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17btGjkPairDetector, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17btGjkPairDetector, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cachedSeparatingAxis = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 1.000000e+00, ptr %ref.tmp2, align 4
@@ -225,47 +226,47 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %m_penetrationDepthSolver = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %penetrationDepthSolver.addr, align 8
-  store ptr %0, ptr %m_penetrationDepthSolver, align 8
+  %1 = load ptr, ptr %penetrationDepthSolver.addr, align 8
+  store ptr %1, ptr %m_penetrationDepthSolver, align 8
   %m_simplexSolver = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %simplexSolver.addr, align 8
-  store ptr %1, ptr %m_simplexSolver, align 8
+  %2 = load ptr, ptr %simplexSolver.addr, align 8
+  store ptr %2, ptr %m_simplexSolver, align 8
   %m_minkowskiA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %objectA.addr, align 8
-  store ptr %2, ptr %m_minkowskiA, align 8
+  %3 = load ptr, ptr %objectA.addr, align 8
+  store ptr %3, ptr %m_minkowskiA, align 8
   %m_minkowskiB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %objectB.addr, align 8
-  store ptr %3, ptr %m_minkowskiB, align 8
+  %4 = load ptr, ptr %objectB.addr, align 8
+  store ptr %4, ptr %m_minkowskiB, align 8
   %m_shapeTypeA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %objectA.addr, align 8
-  %call = invoke noundef i32 @_ZNK16btCollisionShape12getShapeTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %objectA.addr, align 8
+  %call = invoke noundef i32 @_ZNK16btCollisionShape12getShapeTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store i32 %call, ptr %m_shapeTypeA, align 8
   %m_shapeTypeB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 7
-  %5 = load ptr, ptr %objectB.addr, align 8
-  %call6 = invoke noundef i32 @_ZNK16btCollisionShape12getShapeTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %objectB.addr, align 8
+  %call6 = invoke noundef i32 @_ZNK16btCollisionShape12getShapeTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   store i32 %call6, ptr %m_shapeTypeB, align 4
   %m_marginA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %objectA.addr, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %objectA.addr, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %7 = load ptr, ptr %vfn, align 8
-  %call8 = invoke noundef float %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %8 = load ptr, ptr %vfn, align 8
+  %call8 = invoke noundef float %8(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   store float %call8, ptr %m_marginA, align 8
   %m_marginB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 9
-  %8 = load ptr, ptr %objectB.addr, align 8
-  %vtable9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %objectB.addr, align 8
+  %vtable9 = load ptr, ptr %9, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 12
-  %9 = load ptr, ptr %vfn10, align 8
-  %call12 = invoke noundef float %9(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %10 = load ptr, ptr %vfn10, align 8
+  %call12 = invoke noundef float %10(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -281,12 +282,12 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %invoke.cont7, %invoke.cont5, %invoke.cont4, %invoke.cont, %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -304,7 +305,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV36btDiscreteCollisionDetectorInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV36btDiscreteCollisionDetectorInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -382,7 +384,8 @@ entry:
   store ptr %penetrationDepthSolver, ptr %penetrationDepthSolver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17btGjkPairDetector, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17btGjkPairDetector, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cachedSeparatingAxis = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 1.000000e+00, ptr %ref.tmp2, align 4
@@ -392,29 +395,29 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %m_penetrationDepthSolver = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %penetrationDepthSolver.addr, align 8
-  store ptr %0, ptr %m_penetrationDepthSolver, align 8
+  %1 = load ptr, ptr %penetrationDepthSolver.addr, align 8
+  store ptr %1, ptr %m_penetrationDepthSolver, align 8
   %m_simplexSolver = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %simplexSolver.addr, align 8
-  store ptr %1, ptr %m_simplexSolver, align 8
+  %2 = load ptr, ptr %simplexSolver.addr, align 8
+  store ptr %2, ptr %m_simplexSolver, align 8
   %m_minkowskiA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %objectA.addr, align 8
-  store ptr %2, ptr %m_minkowskiA, align 8
+  %3 = load ptr, ptr %objectA.addr, align 8
+  store ptr %3, ptr %m_minkowskiA, align 8
   %m_minkowskiB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %objectB.addr, align 8
-  store ptr %3, ptr %m_minkowskiB, align 8
+  %4 = load ptr, ptr %objectB.addr, align 8
+  store ptr %4, ptr %m_minkowskiB, align 8
   %m_shapeTypeA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 6
-  %4 = load i32, ptr %shapeTypeA.addr, align 4
-  store i32 %4, ptr %m_shapeTypeA, align 8
+  %5 = load i32, ptr %shapeTypeA.addr, align 4
+  store i32 %5, ptr %m_shapeTypeA, align 8
   %m_shapeTypeB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 7
-  %5 = load i32, ptr %shapeTypeB.addr, align 4
-  store i32 %5, ptr %m_shapeTypeB, align 4
+  %6 = load i32, ptr %shapeTypeB.addr, align 4
+  store i32 %6, ptr %m_shapeTypeB, align 4
   %m_marginA = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 8
-  %6 = load float, ptr %marginA.addr, align 4
-  store float %6, ptr %m_marginA, align 8
+  %7 = load float, ptr %marginA.addr, align 4
+  store float %7, ptr %m_marginA, align 8
   %m_marginB = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 9
-  %7 = load float, ptr %marginB.addr, align 4
-  store float %7, ptr %m_marginB, align 4
+  %8 = load float, ptr %marginB.addr, align 4
+  store float %8, ptr %m_marginB, align 4
   %m_ignoreMargin = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 10
   store i8 0, ptr %m_ignoreMargin, align 8
   %m_lastUsedMethod = getelementptr inbounds %class.btGjkPairDetector, ptr %this1, i32 0, i32 13
@@ -426,12 +429,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 

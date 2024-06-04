@@ -48,180 +48,183 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef %1, i64 noundef 
   store i32 0, ptr %7, align 4
   %16 = call i32 @getpid() #6
   store i32 %16, ptr %8, align 4
-  store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
-  %17 = load ptr, ptr %4, align 8
-  call void @shmem_ds_reset(ptr noundef %17)
+  %17 = inttoptr i64 -1 to ptr
+  store ptr %17, ptr %9, align 8
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %18, i32 0, i32 5
-  %20 = getelementptr inbounds [4097 x i8], ptr %19, i64 0, i64 0
-  %21 = call i32 @opal_shmem_posix_shm_open(ptr noundef %20, i64 noundef 15)
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %22, i32 0, i32 2
-  store i32 %21, ptr %23, align 8
-  %24 = icmp eq i32 -1, %21
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %3
-  store i32 -1, ptr %7, align 4
-  br label %81
+  call void @shmem_ds_reset(ptr noundef %18)
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %19, i32 0, i32 5
+  %21 = getelementptr inbounds [4097 x i8], ptr %20, i64 0, i64 0
+  %22 = call i32 @opal_shmem_posix_shm_open(ptr noundef %21, i64 noundef 15)
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %23, i32 0, i32 2
+  store i32 %22, ptr %24, align 8
+  %25 = icmp eq i32 -1, %22
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %3
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %27, i32 0, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = load i64, ptr %6, align 8
-  %31 = call i32 @ftruncate(i32 noundef %29, i64 noundef %30) #6
-  %32 = icmp ne i32 0, %31
-  br i1 %32, label %33, label %43
-
-33:                                               ; preds = %26
-  %34 = call ptr @__errno_location() #7
-  %35 = load i32, ptr %34, align 4
-  store i32 %35, ptr %10, align 4
-  %36 = call ptr @opal_gethostname()
-  store ptr %36, ptr %11, align 8
-  %37 = load ptr, ptr @opal_show_help, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = call ptr @strerror(i32 noundef %39) #6
-  %41 = load i32, ptr %10, align 4
-  %42 = call i32 (ptr, ptr, i32, ...) %37(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %38, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef %40, i32 noundef %41)
   store i32 -1, ptr %7, align 4
-  br label %81
+  br label %83
 
-43:                                               ; preds = %26
-  %44 = load i64, ptr %6, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  %48 = call ptr @mmap(ptr noundef null, i64 noundef %44, i32 noundef 3, i32 noundef 1, i32 noundef %47, i64 noundef 0) #6
-  store ptr %48, ptr %9, align 8
-  %49 = icmp eq ptr inttoptr (i64 -1 to ptr), %48
-  br i1 %49, label %50, label %60
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  %31 = load i64, ptr %6, align 8
+  %32 = call i32 @ftruncate(i32 noundef %30, i64 noundef %31) #6
+  %33 = icmp ne i32 0, %32
+  br i1 %33, label %34, label %44
 
-50:                                               ; preds = %43
-  %51 = call ptr @__errno_location() #7
-  %52 = load i32, ptr %51, align 4
-  store i32 %52, ptr %12, align 4
-  %53 = call ptr @opal_gethostname()
-  store ptr %53, ptr %13, align 8
-  %54 = load ptr, ptr @opal_show_help, align 8
-  %55 = load ptr, ptr %13, align 8
-  %56 = load i32, ptr %12, align 4
-  %57 = call ptr @strerror(i32 noundef %56) #6
+34:                                               ; preds = %27
+  %35 = call ptr @__errno_location() #7
+  %36 = load i32, ptr %35, align 4
+  store i32 %36, ptr %10, align 4
+  %37 = call ptr @opal_gethostname()
+  store ptr %37, ptr %11, align 8
+  %38 = load ptr, ptr @opal_show_help, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = call ptr @strerror(i32 noundef %40) #6
+  %42 = load i32, ptr %10, align 4
+  %43 = call i32 (ptr, ptr, i32, ...) %38(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %39, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef %41, i32 noundef %42)
+  store i32 -1, ptr %7, align 4
+  br label %83
+
+44:                                               ; preds = %27
+  %45 = load i64, ptr %6, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8
+  %49 = call ptr @mmap(ptr noundef null, i64 noundef %45, i32 noundef 3, i32 noundef 1, i32 noundef %48, i64 noundef 0) #6
+  store ptr %49, ptr %9, align 8
+  %50 = inttoptr i64 -1 to ptr
+  %51 = icmp eq ptr %50, %49
+  br i1 %51, label %52, label %62
+
+52:                                               ; preds = %44
+  %53 = call ptr @__errno_location() #7
+  %54 = load i32, ptr %53, align 4
+  store i32 %54, ptr %12, align 4
+  %55 = call ptr @opal_gethostname()
+  store ptr %55, ptr %13, align 8
+  %56 = load ptr, ptr @opal_show_help, align 8
+  %57 = load ptr, ptr %13, align 8
   %58 = load i32, ptr %12, align 4
-  %59 = call i32 (ptr, ptr, i32, ...) %54(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %55, ptr noundef @.str.4, ptr noundef @.str.3, ptr noundef %57, i32 noundef %58)
+  %59 = call ptr @strerror(i32 noundef %58) #6
+  %60 = load i32, ptr %12, align 4
+  %61 = call i32 (ptr, ptr, i32, ...) %56(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %57, ptr noundef @.str.4, ptr noundef @.str.3, ptr noundef %59, i32 noundef %60)
   store i32 -1, ptr %7, align 4
-  br label %81
+  br label %83
 
-60:                                               ; preds = %43
-  %61 = load i32, ptr %8, align 4
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %62, i32 0, i32 0
-  store i32 %61, ptr %63, align 8
-  %64 = load i64, ptr %6, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %65, i32 0, i32 3
-  store i64 %64, ptr %66, align 8
-  %67 = load ptr, ptr %9, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %68, i32 0, i32 4
-  store ptr %67, ptr %69, align 8
-  br label %70
+62:                                               ; preds = %44
+  %63 = load i32, ptr %8, align 4
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %64, i32 0, i32 0
+  store i32 %63, ptr %65, align 8
+  %66 = load i64, ptr %6, align 8
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %67, i32 0, i32 3
+  store i64 %66, ptr %68, align 8
+  %69 = load ptr, ptr %9, align 8
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %70, i32 0, i32 4
+  store ptr %69, ptr %71, align 8
+  br label %72
 
-70:                                               ; preds = %60
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %71, i32 0, i32 1
-  %73 = load i8, ptr %72, align 4
-  %74 = zext i8 %73 to i32
-  %75 = or i32 %74, 1
-  %76 = trunc i32 %75 to i8
-  store i8 %76, ptr %72, align 4
-  br label %77
-
-77:                                               ; preds = %70
-  br label %78
-
-78:                                               ; preds = %77
+72:                                               ; preds = %62
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %73, i32 0, i32 1
+  %75 = load i8, ptr %74, align 4
+  %76 = zext i8 %75 to i32
+  %77 = or i32 %76, 1
+  %78 = trunc i32 %77 to i8
+  store i8 %78, ptr %74, align 4
   br label %79
 
-79:                                               ; preds = %78
+79:                                               ; preds = %72
   br label %80
 
 80:                                               ; preds = %79
   br label %81
 
-81:                                               ; preds = %80, %50, %33, %25
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %82, i32 0, i32 2
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp ne i32 -1, %84
-  br i1 %85, label %86, label %103
+81:                                               ; preds = %80
+  br label %82
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %87, i32 0, i32 2
-  %89 = load i32, ptr %88, align 8
-  %90 = call i32 @close(i32 noundef %89)
-  %91 = icmp ne i32 0, %90
-  br i1 %91, label %92, label %102
+82:                                               ; preds = %81
+  br label %83
 
-92:                                               ; preds = %86
-  %93 = call ptr @__errno_location() #7
-  %94 = load i32, ptr %93, align 4
-  store i32 %94, ptr %14, align 4
-  %95 = call ptr @opal_gethostname()
-  store ptr %95, ptr %15, align 8
-  %96 = load ptr, ptr @opal_show_help, align 8
-  %97 = load ptr, ptr %15, align 8
-  %98 = load i32, ptr %14, align 4
-  %99 = call ptr @strerror(i32 noundef %98) #6
+83:                                               ; preds = %82, %52, %34, %26
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %84, i32 0, i32 2
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp ne i32 -1, %86
+  br i1 %87, label %88, label %105
+
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %89, i32 0, i32 2
+  %91 = load i32, ptr %90, align 8
+  %92 = call i32 @close(i32 noundef %91)
+  %93 = icmp ne i32 0, %92
+  br i1 %93, label %94, label %104
+
+94:                                               ; preds = %88
+  %95 = call ptr @__errno_location() #7
+  %96 = load i32, ptr %95, align 4
+  store i32 %96, ptr %14, align 4
+  %97 = call ptr @opal_gethostname()
+  store ptr %97, ptr %15, align 8
+  %98 = load ptr, ptr @opal_show_help, align 8
+  %99 = load ptr, ptr %15, align 8
   %100 = load i32, ptr %14, align 4
-  %101 = call i32 (ptr, ptr, i32, ...) %96(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 1, ptr noundef %97, ptr noundef @.str.6, ptr noundef @.str.3, ptr noundef %99, i32 noundef %100)
+  %101 = call ptr @strerror(i32 noundef %100) #6
+  %102 = load i32, ptr %14, align 4
+  %103 = call i32 (ptr, ptr, i32, ...) %98(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 1, ptr noundef %99, ptr noundef @.str.6, ptr noundef @.str.3, ptr noundef %101, i32 noundef %102)
   store i32 -1, ptr %7, align 4
-  br label %102
+  br label %104
 
-102:                                              ; preds = %92, %86
-  br label %103
+104:                                              ; preds = %94, %88
+  br label %105
 
-103:                                              ; preds = %102, %81
-  %104 = load i32, ptr %7, align 4
-  %105 = icmp ne i32 0, %104
-  br i1 %105, label %106, label %125
+105:                                              ; preds = %104, %83
+  %106 = load i32, ptr %7, align 4
+  %107 = icmp ne i32 0, %106
+  br i1 %107, label %108, label %128
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %107, i32 0, i32 2
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp ne i32 -1, %109
-  br i1 %110, label %111, label %116
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %109, i32 0, i32 2
+  %111 = load i32, ptr %110, align 8
+  %112 = icmp ne i32 -1, %111
+  br i1 %112, label %113, label %118
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %112, i32 0, i32 5
-  %114 = getelementptr inbounds [4097 x i8], ptr %113, i64 0, i64 0
-  %115 = call i32 @shm_unlink(ptr noundef %114)
-  br label %116
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %114, i32 0, i32 5
+  %116 = getelementptr inbounds [4097 x i8], ptr %115, i64 0, i64 0
+  %117 = call i32 @shm_unlink(ptr noundef %116)
+  br label %118
 
-116:                                              ; preds = %111, %106
-  %117 = load ptr, ptr %9, align 8
-  %118 = icmp ne ptr inttoptr (i64 -1 to ptr), %117
-  br i1 %118, label %119, label %123
+118:                                              ; preds = %113, %108
+  %119 = load ptr, ptr %9, align 8
+  %120 = inttoptr i64 -1 to ptr
+  %121 = icmp ne ptr %120, %119
+  br i1 %121, label %122, label %126
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %9, align 8
-  %121 = load i64, ptr %6, align 8
-  %122 = call i32 @munmap(ptr noundef %120, i64 noundef %121) #6
-  br label %123
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %9, align 8
+  %124 = load i64, ptr %6, align 8
+  %125 = call i32 @munmap(ptr noundef %123, i64 noundef %124) #6
+  br label %126
 
-123:                                              ; preds = %119, %116
-  %124 = load ptr, ptr %4, align 8
-  call void @shmem_ds_reset(ptr noundef %124)
-  br label %125
+126:                                              ; preds = %122, %118
+  %127 = load ptr, ptr %4, align 8
+  call void @shmem_ds_reset(ptr noundef %127)
+  br label %128
 
-125:                                              ; preds = %123, %103
-  %126 = load i32, ptr %7, align 4
-  ret i32 %126
+128:                                              ; preds = %126, %105
+  %129 = load i32, ptr %7, align 4
+  ret i32 %129
 }
 
 ; Function Attrs: nounwind uwtable
@@ -255,7 +258,7 @@ define internal ptr @segment_attach(ptr noundef %0) #0 {
   %14 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %13, i32 0, i32 0
   %15 = load i32, ptr %14, align 8
   %16 = icmp ne i32 %12, %15
-  br i1 %16, label %17, label %79
+  br i1 %16, label %17, label %80
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr %3, align 8
@@ -281,7 +284,7 @@ define internal ptr @segment_attach(ptr noundef %0) #0 {
   %33 = load i32, ptr %5, align 4
   %34 = call i32 (ptr, ptr, i32, ...) %29(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %30, ptr noundef @.str.7, ptr noundef @.str.3, ptr noundef %32, i32 noundef %33)
   store ptr null, ptr %2, align 8
-  br label %83
+  br label %84
 
 35:                                               ; preds = %17
   %36 = load ptr, ptr %3, align 8
@@ -294,69 +297,70 @@ define internal ptr @segment_attach(ptr noundef %0) #0 {
   %43 = load ptr, ptr %3, align 8
   %44 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %43, i32 0, i32 4
   store ptr %42, ptr %44, align 8
-  %45 = icmp eq ptr inttoptr (i64 -1 to ptr), %42
-  br i1 %45, label %46, label %60
+  %45 = inttoptr i64 -1 to ptr
+  %46 = icmp eq ptr %45, %42
+  br i1 %46, label %47, label %61
 
-46:                                               ; preds = %35
-  %47 = call ptr @__errno_location() #7
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %7, align 4
-  %49 = call ptr @opal_gethostname()
-  store ptr %49, ptr %8, align 8
-  %50 = load ptr, ptr @opal_show_help, align 8
-  %51 = load ptr, ptr %8, align 8
-  %52 = load i32, ptr %7, align 4
-  %53 = call ptr @strerror(i32 noundef %52) #6
-  %54 = load i32, ptr %7, align 4
-  %55 = call i32 (ptr, ptr, i32, ...) %50(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %51, ptr noundef @.str.4, ptr noundef @.str.3, ptr noundef %53, i32 noundef %54)
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %56, i32 0, i32 5
-  %58 = getelementptr inbounds [4097 x i8], ptr %57, i64 0, i64 0
-  %59 = call i32 @shm_unlink(ptr noundef %58)
+47:                                               ; preds = %35
+  %48 = call ptr @__errno_location() #7
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %7, align 4
+  %50 = call ptr @opal_gethostname()
+  store ptr %50, ptr %8, align 8
+  %51 = load ptr, ptr @opal_show_help, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = call ptr @strerror(i32 noundef %53) #6
+  %55 = load i32, ptr %7, align 4
+  %56 = call i32 (ptr, ptr, i32, ...) %51(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef %52, ptr noundef @.str.4, ptr noundef @.str.3, ptr noundef %54, i32 noundef %55)
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %57, i32 0, i32 5
+  %59 = getelementptr inbounds [4097 x i8], ptr %58, i64 0, i64 0
+  %60 = call i32 @shm_unlink(ptr noundef %59)
   store ptr null, ptr %2, align 8
-  br label %83
+  br label %84
 
-60:                                               ; preds = %35
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %61, i32 0, i32 2
-  %63 = load i32, ptr %62, align 8
-  %64 = call i32 @close(i32 noundef %63)
-  %65 = icmp ne i32 0, %64
-  br i1 %65, label %66, label %76
+61:                                               ; preds = %35
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %62, i32 0, i32 2
+  %64 = load i32, ptr %63, align 8
+  %65 = call i32 @close(i32 noundef %64)
+  %66 = icmp ne i32 0, %65
+  br i1 %66, label %67, label %77
 
-66:                                               ; preds = %60
-  %67 = call ptr @__errno_location() #7
-  %68 = load i32, ptr %67, align 4
-  store i32 %68, ptr %9, align 4
-  %69 = call ptr @opal_gethostname()
-  store ptr %69, ptr %10, align 8
-  %70 = load ptr, ptr @opal_show_help, align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = load i32, ptr %9, align 4
-  %73 = call ptr @strerror(i32 noundef %72) #6
-  %74 = load i32, ptr %9, align 4
-  %75 = call i32 (ptr, ptr, i32, ...) %70(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 1, ptr noundef %71, ptr noundef @.str.6, ptr noundef @.str.3, ptr noundef %73, i32 noundef %74)
-  br label %76
-
-76:                                               ; preds = %66, %60
+67:                                               ; preds = %61
+  %68 = call ptr @__errno_location() #7
+  %69 = load i32, ptr %68, align 4
+  store i32 %69, ptr %9, align 4
+  %70 = call ptr @opal_gethostname()
+  store ptr %70, ptr %10, align 8
+  %71 = load ptr, ptr @opal_show_help, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i32, ptr %9, align 4
+  %74 = call ptr @strerror(i32 noundef %73) #6
+  %75 = load i32, ptr %9, align 4
+  %76 = call i32 (ptr, ptr, i32, ...) %71(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 1, ptr noundef %72, ptr noundef @.str.6, ptr noundef @.str.3, ptr noundef %74, i32 noundef %75)
   br label %77
 
-77:                                               ; preds = %76
+77:                                               ; preds = %67, %61
   br label %78
 
 78:                                               ; preds = %77
   br label %79
 
-79:                                               ; preds = %78, %1
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %80, i32 0, i32 4
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %2, align 8
-  br label %83
+79:                                               ; preds = %78
+  br label %80
 
-83:                                               ; preds = %79, %46, %25
-  %84 = load ptr, ptr %2, align 8
-  ret ptr %84
+80:                                               ; preds = %79, %1
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %81, i32 0, i32 4
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %2, align 8
+  br label %84
+
+84:                                               ; preds = %80, %47, %25
+  %85 = load ptr, ptr %2, align 8
+  ret ptr %85
 }
 
 ; Function Attrs: nounwind uwtable
@@ -495,7 +499,8 @@ define internal void @shmem_ds_reset(ptr noundef %0) #0 {
   call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 4097, i1 false)
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds %struct.opal_shmem_ds_t, ptr %16, i32 0, i32 4
-  store ptr inttoptr (i64 -1 to ptr), ptr %17, align 8
+  %18 = inttoptr i64 -1 to ptr
+  store ptr %18, ptr %17, align 8
   ret void
 }
 
@@ -509,17 +514,19 @@ declare ptr @__errno_location() #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_gethostname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %2 = icmp eq ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr null, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_init_gethostname()
-  br label %5
+4:                                                ; preds = %0
+  %5 = call i32 @opal_init_gethostname()
+  br label %6
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  ret ptr %6
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind

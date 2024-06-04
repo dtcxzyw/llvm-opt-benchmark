@@ -439,10 +439,11 @@ define { i64, ptr } @"_ZN95_$LT$core..ops..range..RangeFrom$LT$T$GT$$u20$as$u20$
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN95_$LT$core..ops..range..RangeFrom$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h13b39ccece0bc215E"(ptr align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr @anon.cd2f00229f3a5bb70df1711c5b125997.0, align 8, !range !6, !noundef !4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.cd2f00229f3a5bb70df1711c5b125997.0, i64 8), align 8
-  %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %3, 1
-  ret { i64, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.cd2f00229f3a5bb70df1711c5b125997.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { i64, ptr } poison, i64 %2, 0
+  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
+  ret { i64, ptr } %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

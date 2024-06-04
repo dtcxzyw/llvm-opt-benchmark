@@ -21063,454 +21063,456 @@ define internal i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %21, i32 0, i32 7
   store ptr null, ptr %45, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_smb2_fid.di, i32 0, i32 4), align 4
-  store ptr @dissect_smb2_fid.call_data, ptr getelementptr inbounds (%struct._dcerpc_info, ptr @dissect_smb2_fid.di, i32 0, i32 14), align 8
-  %46 = load i32, ptr %12, align 4
-  switch i32 %46, label %245 [
-    i32 0, label %47
-    i32 1, label %203
-    i32 2, label %237
-    i32 3, label %237
-    i32 4, label %237
+  %46 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_smb2_fid.di, i32 0, i32 4
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds %struct._dcerpc_info, ptr @dissect_smb2_fid.di, i32 0, i32 14
+  store ptr @dissect_smb2_fid.call_data, ptr %47, align 8
+  %48 = load i32, ptr %12, align 4
+  switch i32 %48, label %247 [
+    i32 0, label %49
+    i32 1, label %205
+    i32 2, label %239
+    i32 3, label %239
+    i32 4, label %239
   ]
 
-47:                                               ; preds = %6
-  %48 = load ptr, ptr %7, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = load ptr, ptr %8, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
-  %53 = load i32, ptr @hf_smb2_fid, align 4
-  %54 = call i32 @dissect_nt_guid_hnd(ptr noundef %48, i32 noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef @dissect_smb2_fid.di, ptr noundef %52, i32 noundef %53, ptr noundef %14, ptr noundef %16, i32 noundef 1, i32 noundef 0)
-  store i32 %54, ptr %10, align 4
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._frame_data, ptr %57, i32 0, i32 9
-  %59 = load i16, ptr %58, align 2
-  %60 = lshr i16 %59, 3
-  %61 = and i16 %60, 1
-  %62 = zext i16 %61 to i32
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %202, label %64
+49:                                               ; preds = %6
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %10, align 4
+  %52 = load ptr, ptr %8, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
+  %55 = load i32, ptr @hf_smb2_fid, align 4
+  %56 = call i32 @dissect_nt_guid_hnd(ptr noundef %50, i32 noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef @dissect_smb2_fid.di, ptr noundef %54, i32 noundef %55, ptr noundef %14, ptr noundef %16, i32 noundef 1, i32 noundef 0)
+  store i32 %56, ptr %10, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct._frame_data, ptr %59, i32 0, i32 9
+  %61 = load i16, ptr %60, align 2
+  %62 = lshr i16 %61, 3
+  %63 = and i16 %62, 1
+  %64 = zext i16 %63 to i32
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %204, label %66
 
-64:                                               ; preds = %47
-  %65 = call ptr @wmem_file_scope()
-  %66 = call noalias ptr @wmem_alloc(ptr noundef %65, i64 noundef 48)
-  store ptr %66, ptr %22, align 8
-  %67 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %21, i64 48, i1 false)
-  %68 = load ptr, ptr %22, align 8
-  %69 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %68, i32 0, i32 4
-  store i32 0, ptr %69, align 4
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct._smb2_info_t, ptr %70, i32 0, i32 9
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %80
+66:                                               ; preds = %49
+  %67 = call ptr @wmem_file_scope()
+  %68 = call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef 48)
+  store ptr %68, ptr %22, align 8
+  %69 = load ptr, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %21, i64 48, i1 false)
+  %70 = load ptr, ptr %22, align 8
+  %71 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %70, i32 0, i32 4
+  store i32 0, ptr %71, align 4
+  %72 = load ptr, ptr %11, align 8
+  %73 = getelementptr inbounds %struct._smb2_info_t, ptr %72, i32 0, i32 9
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %82
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct._smb2_info_t, ptr %75, i32 0, i32 9
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %77, i32 0, i32 3
-  %79 = load i32, ptr %78, align 8
-  br label %84
+76:                                               ; preds = %66
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds %struct._smb2_info_t, ptr %77, i32 0, i32 9
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %79, i32 0, i32 3
+  %81 = load i32, ptr %80, align 8
+  br label %86
 
-80:                                               ; preds = %64
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct._packet_info, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 4
-  br label %84
+82:                                               ; preds = %66
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 4
+  br label %86
 
-84:                                               ; preds = %80, %74
-  %85 = phi i32 [ %79, %74 ], [ %83, %80 ]
-  %86 = load ptr, ptr %22, align 8
-  %87 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %86, i32 0, i32 5
-  store i32 %85, ptr %87, align 8
+86:                                               ; preds = %82, %76
+  %87 = phi i32 [ %81, %76 ], [ %85, %82 ]
   %88 = load ptr, ptr %22, align 8
-  %89 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %88, i32 0, i32 6
-  store i32 -1, ptr %89, align 4
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds %struct._smb2_info_t, ptr %90, i32 0, i32 9
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %111
+  %89 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %88, i32 0, i32 5
+  store i32 %87, ptr %89, align 8
+  %90 = load ptr, ptr %22, align 8
+  %91 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %90, i32 0, i32 6
+  store i32 -1, ptr %91, align 4
+  %92 = load ptr, ptr %11, align 8
+  %93 = getelementptr inbounds %struct._smb2_info_t, ptr %92, i32 0, i32 9
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %113
 
-94:                                               ; preds = %84
-  %95 = load ptr, ptr %11, align 8
-  %96 = getelementptr inbounds %struct._smb2_info_t, ptr %95, i32 0, i32 9
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %97, i32 0, i32 14
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp eq i32 %99, 2
-  br i1 %100, label %101, label %111
+96:                                               ; preds = %86
+  %97 = load ptr, ptr %11, align 8
+  %98 = getelementptr inbounds %struct._smb2_info_t, ptr %97, i32 0, i32 9
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %99, i32 0, i32 14
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %103, label %113
 
-101:                                              ; preds = %94
-  %102 = call ptr @wmem_file_scope()
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds %struct._smb2_info_t, ptr %103, i32 0, i32 9
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %105, i32 0, i32 13
+103:                                              ; preds = %96
+  %104 = call ptr @wmem_file_scope()
+  %105 = load ptr, ptr %11, align 8
+  %106 = getelementptr inbounds %struct._smb2_info_t, ptr %105, i32 0, i32 9
   %107 = load ptr, ptr %106, align 8
-  %108 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %107)
-  %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %109, i32 0, i32 7
-  store ptr %108, ptr %110, align 8
-  br label %116
+  %108 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %107, i32 0, i32 13
+  %109 = load ptr, ptr %108, align 8
+  %110 = call noalias ptr @wmem_strdup(ptr noundef %104, ptr noundef %109)
+  %111 = load ptr, ptr %22, align 8
+  %112 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %111, i32 0, i32 7
+  store ptr %110, ptr %112, align 8
+  br label %118
 
-111:                                              ; preds = %94, %84
-  %112 = call ptr @wmem_file_scope()
-  %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %112, ptr noundef @.str.2119)
-  %114 = load ptr, ptr %22, align 8
-  %115 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %114, i32 0, i32 7
-  store ptr %113, ptr %115, align 8
-  br label %116
+113:                                              ; preds = %96, %86
+  %114 = call ptr @wmem_file_scope()
+  %115 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %114, ptr noundef @.str.2119)
+  %116 = load ptr, ptr %22, align 8
+  %117 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %116, i32 0, i32 7
+  store ptr %115, ptr %117, align 8
+  br label %118
 
-116:                                              ; preds = %111, %101
-  %117 = load ptr, ptr %11, align 8
-  %118 = getelementptr inbounds %struct._smb2_info_t, ptr %117, i32 0, i32 9
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp ne ptr %119, null
-  br i1 %120, label %121, label %136
+118:                                              ; preds = %113, %103
+  %119 = load ptr, ptr %11, align 8
+  %120 = getelementptr inbounds %struct._smb2_info_t, ptr %119, i32 0, i32 9
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %123, label %138
 
-121:                                              ; preds = %116
-  %122 = load ptr, ptr %11, align 8
-  %123 = getelementptr inbounds %struct._smb2_info_t, ptr %122, i32 0, i32 9
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %124, i32 0, i32 14
-  %126 = load i32, ptr %125, align 8
-  %127 = icmp eq i32 %126, 2
-  br i1 %127, label %128, label %136
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %11, align 8
+  %125 = getelementptr inbounds %struct._smb2_info_t, ptr %124, i32 0, i32 9
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %126, i32 0, i32 14
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp eq i32 %128, 2
+  br i1 %129, label %130, label %138
 
-128:                                              ; preds = %121
-  %129 = call ptr @wmem_file_scope()
-  %130 = load ptr, ptr %11, align 8
-  %131 = getelementptr inbounds %struct._smb2_info_t, ptr %130, i32 0, i32 9
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %132, i32 0, i32 13
+130:                                              ; preds = %123
+  %131 = call ptr @wmem_file_scope()
+  %132 = load ptr, ptr %11, align 8
+  %133 = getelementptr inbounds %struct._smb2_info_t, ptr %132, i32 0, i32 9
   %134 = load ptr, ptr %133, align 8
-  %135 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %129, ptr noundef @.str.2120, ptr noundef %134)
-  store ptr %135, ptr %17, align 8
-  br label %139
+  %135 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %134, i32 0, i32 13
+  %136 = load ptr, ptr %135, align 8
+  %137 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %131, ptr noundef @.str.2120, ptr noundef %136)
+  store ptr %137, ptr %17, align 8
+  br label %141
 
-136:                                              ; preds = %121, %116
-  %137 = call ptr @wmem_file_scope()
-  %138 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %137, ptr noundef @.str.2121)
-  store ptr %138, ptr %17, align 8
-  br label %139
+138:                                              ; preds = %123, %118
+  %139 = call ptr @wmem_file_scope()
+  %140 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %139, ptr noundef @.str.2121)
+  store ptr %140, ptr %17, align 8
+  br label %141
 
-139:                                              ; preds = %136, %128
-  %140 = load ptr, ptr %8, align 8
-  %141 = load ptr, ptr %17, align 8
-  call void @dcerpc_store_polhnd_name(ptr noundef %14, ptr noundef %140, ptr noundef %141)
-  %142 = load ptr, ptr %11, align 8
-  %143 = getelementptr inbounds %struct._smb2_info_t, ptr %142, i32 0, i32 11
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %144, i32 0, i32 13
+141:                                              ; preds = %138, %130
+  %142 = load ptr, ptr %8, align 8
+  %143 = load ptr, ptr %17, align 8
+  call void @dcerpc_store_polhnd_name(ptr noundef %14, ptr noundef %142, ptr noundef %143)
+  %144 = load ptr, ptr %11, align 8
+  %145 = getelementptr inbounds %struct._smb2_info_t, ptr %144, i32 0, i32 11
   %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %22, align 8
-  %148 = load ptr, ptr %22, align 8
-  %149 = call ptr @wmem_map_insert(ptr noundef %146, ptr noundef %147, ptr noundef %148)
+  %147 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %146, i32 0, i32 13
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %22, align 8
   %150 = load ptr, ptr %22, align 8
-  %151 = load ptr, ptr %11, align 8
-  %152 = getelementptr inbounds %struct._smb2_info_t, ptr %151, i32 0, i32 12
-  store ptr %150, ptr %152, align 8
+  %151 = call ptr @wmem_map_insert(ptr noundef %148, ptr noundef %149, ptr noundef %150)
+  %152 = load ptr, ptr %22, align 8
   %153 = load ptr, ptr %11, align 8
-  %154 = getelementptr inbounds %struct._smb2_info_t, ptr %153, i32 0, i32 9
-  %155 = load ptr, ptr %154, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %157, label %167
+  %154 = getelementptr inbounds %struct._smb2_info_t, ptr %153, i32 0, i32 12
+  store ptr %152, ptr %154, align 8
+  %155 = load ptr, ptr %11, align 8
+  %156 = getelementptr inbounds %struct._smb2_info_t, ptr %155, i32 0, i32 9
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %159, label %169
 
-157:                                              ; preds = %139
-  %158 = load ptr, ptr %22, align 8
-  %159 = load ptr, ptr %11, align 8
-  %160 = getelementptr inbounds %struct._smb2_info_t, ptr %159, i32 0, i32 9
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %161, i32 0, i32 8
-  store ptr %158, ptr %162, align 8
-  %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr inbounds %struct._smb2_info_t, ptr %163, i32 0, i32 9
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %165, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %166, ptr align 4 %14, i64 20, i1 false)
-  br label %167
+159:                                              ; preds = %141
+  %160 = load ptr, ptr %22, align 8
+  %161 = load ptr, ptr %11, align 8
+  %162 = getelementptr inbounds %struct._smb2_info_t, ptr %161, i32 0, i32 9
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %163, i32 0, i32 8
+  store ptr %160, ptr %164, align 8
+  %165 = load ptr, ptr %11, align 8
+  %166 = getelementptr inbounds %struct._smb2_info_t, ptr %165, i32 0, i32 9
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %167, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %168, ptr align 4 %14, i64 20, i1 false)
+  br label %169
 
-167:                                              ; preds = %157, %139
-  %168 = load ptr, ptr %11, align 8
-  %169 = getelementptr inbounds %struct._smb2_info_t, ptr %168, i32 0, i32 8
-  %170 = load ptr, ptr %169, align 8
-  %171 = icmp ne ptr %170, null
-  br i1 %171, label %172, label %201
+169:                                              ; preds = %159, %141
+  %170 = load ptr, ptr %11, align 8
+  %171 = getelementptr inbounds %struct._smb2_info_t, ptr %170, i32 0, i32 8
+  %172 = load ptr, ptr %171, align 8
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %203
 
-172:                                              ; preds = %167
-  %173 = load ptr, ptr %11, align 8
-  %174 = getelementptr inbounds %struct._smb2_info_t, ptr %173, i32 0, i32 11
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %175, i32 0, i32 14
+174:                                              ; preds = %169
+  %175 = load ptr, ptr %11, align 8
+  %176 = getelementptr inbounds %struct._smb2_info_t, ptr %175, i32 0, i32 11
   %177 = load ptr, ptr %176, align 8
-  %178 = call ptr @wmem_map_lookup(ptr noundef %177, ptr noundef %14)
-  store ptr %178, ptr %20, align 8
-  %179 = load ptr, ptr %20, align 8
-  %180 = icmp ne ptr %179, null
-  br i1 %180, label %197, label %181
+  %178 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %177, i32 0, i32 14
+  %179 = load ptr, ptr %178, align 8
+  %180 = call ptr @wmem_map_lookup(ptr noundef %179, ptr noundef %14)
+  store ptr %180, ptr %20, align 8
+  %181 = load ptr, ptr %20, align 8
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %199, label %183
 
-181:                                              ; preds = %172
-  %182 = call ptr @wmem_file_scope()
-  %183 = call noalias ptr @wmem_alloc(ptr noundef %182, i64 noundef 16)
-  store ptr %183, ptr %20, align 8
+183:                                              ; preds = %174
   %184 = call ptr @wmem_file_scope()
-  %185 = call noalias ptr @wmem_alloc(ptr noundef %184, i64 noundef 20)
-  store ptr %185, ptr %15, align 8
-  %186 = load ptr, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %186, ptr align 4 %14, i64 20, i1 false)
-  %187 = load ptr, ptr %20, align 8
-  %188 = getelementptr inbounds %struct._smb2_eo_file_info_t, ptr %187, i32 0, i32 1
-  store i64 0, ptr %188, align 8
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct._smb2_info_t, ptr %189, i32 0, i32 11
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %191, i32 0, i32 14
+  %185 = call noalias ptr @wmem_alloc(ptr noundef %184, i64 noundef 16)
+  store ptr %185, ptr %20, align 8
+  %186 = call ptr @wmem_file_scope()
+  %187 = call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef 20)
+  store ptr %187, ptr %15, align 8
+  %188 = load ptr, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %188, ptr align 4 %14, i64 20, i1 false)
+  %189 = load ptr, ptr %20, align 8
+  %190 = getelementptr inbounds %struct._smb2_eo_file_info_t, ptr %189, i32 0, i32 1
+  store i64 0, ptr %190, align 8
+  %191 = load ptr, ptr %11, align 8
+  %192 = getelementptr inbounds %struct._smb2_info_t, ptr %191, i32 0, i32 11
   %193 = load ptr, ptr %192, align 8
-  %194 = load ptr, ptr %15, align 8
-  %195 = load ptr, ptr %20, align 8
-  %196 = call ptr @wmem_map_insert(ptr noundef %193, ptr noundef %194, ptr noundef %195)
-  br label %197
+  %194 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %193, i32 0, i32 14
+  %195 = load ptr, ptr %194, align 8
+  %196 = load ptr, ptr %15, align 8
+  %197 = load ptr, ptr %20, align 8
+  %198 = call ptr @wmem_map_insert(ptr noundef %195, ptr noundef %196, ptr noundef %197)
+  br label %199
 
-197:                                              ; preds = %181, %172
-  %198 = load ptr, ptr %20, align 8
-  %199 = load ptr, ptr %11, align 8
-  %200 = getelementptr inbounds %struct._smb2_info_t, ptr %199, i32 0, i32 7
-  store ptr %198, ptr %200, align 8
-  br label %201
+199:                                              ; preds = %183, %174
+  %200 = load ptr, ptr %20, align 8
+  %201 = load ptr, ptr %11, align 8
+  %202 = getelementptr inbounds %struct._smb2_info_t, ptr %201, i32 0, i32 7
+  store ptr %200, ptr %202, align 8
+  br label %203
 
-201:                                              ; preds = %197, %167
-  br label %202
+203:                                              ; preds = %199, %169
+  br label %204
 
-202:                                              ; preds = %201, %47
-  br label %245
+204:                                              ; preds = %203, %49
+  br label %247
 
-203:                                              ; preds = %6
-  %204 = load ptr, ptr %8, align 8
-  %205 = getelementptr inbounds %struct._packet_info, ptr %204, i32 0, i32 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds %struct._frame_data, ptr %206, i32 0, i32 9
-  %208 = load i16, ptr %207, align 2
-  %209 = lshr i16 %208, 3
-  %210 = and i16 %209, 1
-  %211 = zext i16 %210 to i32
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %229, label %213
+205:                                              ; preds = %6
+  %206 = load ptr, ptr %8, align 8
+  %207 = getelementptr inbounds %struct._packet_info, ptr %206, i32 0, i32 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds %struct._frame_data, ptr %208, i32 0, i32 9
+  %210 = load i16, ptr %209, align 2
+  %211 = lshr i16 %210, 3
+  %212 = and i16 %211, 1
+  %213 = zext i16 %212 to i32
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %231, label %215
 
-213:                                              ; preds = %203
-  %214 = load ptr, ptr %11, align 8
-  %215 = getelementptr inbounds %struct._smb2_info_t, ptr %214, i32 0, i32 11
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %216, i32 0, i32 13
+215:                                              ; preds = %205
+  %216 = load ptr, ptr %11, align 8
+  %217 = getelementptr inbounds %struct._smb2_info_t, ptr %216, i32 0, i32 11
   %218 = load ptr, ptr %217, align 8
-  %219 = call ptr @wmem_map_lookup(ptr noundef %218, ptr noundef %21)
-  store ptr %219, ptr %23, align 8
-  %220 = load ptr, ptr %23, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %228
+  %219 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %218, i32 0, i32 13
+  %220 = load ptr, ptr %219, align 8
+  %221 = call ptr @wmem_map_lookup(ptr noundef %220, ptr noundef %21)
+  store ptr %221, ptr %23, align 8
+  %222 = load ptr, ptr %23, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %230
 
-222:                                              ; preds = %213
-  %223 = load ptr, ptr %8, align 8
-  %224 = getelementptr inbounds %struct._packet_info, ptr %223, i32 0, i32 3
-  %225 = load i32, ptr %224, align 4
-  %226 = load ptr, ptr %23, align 8
-  %227 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %226, i32 0, i32 6
-  store i32 %225, ptr %227, align 4
-  br label %228
+224:                                              ; preds = %215
+  %225 = load ptr, ptr %8, align 8
+  %226 = getelementptr inbounds %struct._packet_info, ptr %225, i32 0, i32 3
+  %227 = load i32, ptr %226, align 4
+  %228 = load ptr, ptr %23, align 8
+  %229 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %228, i32 0, i32 6
+  store i32 %227, ptr %229, align 4
+  br label %230
 
-228:                                              ; preds = %222, %213
-  br label %229
+230:                                              ; preds = %224, %215
+  br label %231
 
-229:                                              ; preds = %228, %203
-  %230 = load ptr, ptr %7, align 8
-  %231 = load i32, ptr %10, align 4
-  %232 = load ptr, ptr %8, align 8
-  %233 = load ptr, ptr %9, align 8
-  %234 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
-  %235 = load i32, ptr @hf_smb2_fid, align 4
-  %236 = call i32 @dissect_nt_guid_hnd(ptr noundef %230, i32 noundef %231, ptr noundef %232, ptr noundef %233, ptr noundef @dissect_smb2_fid.di, ptr noundef %234, i32 noundef %235, ptr noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 1)
-  store i32 %236, ptr %10, align 4
-  br label %245
+231:                                              ; preds = %230, %205
+  %232 = load ptr, ptr %7, align 8
+  %233 = load i32, ptr %10, align 4
+  %234 = load ptr, ptr %8, align 8
+  %235 = load ptr, ptr %9, align 8
+  %236 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
+  %237 = load i32, ptr @hf_smb2_fid, align 4
+  %238 = call i32 @dissect_nt_guid_hnd(ptr noundef %232, i32 noundef %233, ptr noundef %234, ptr noundef %235, ptr noundef @dissect_smb2_fid.di, ptr noundef %236, i32 noundef %237, ptr noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 1)
+  store i32 %238, ptr %10, align 4
+  br label %247
 
-237:                                              ; preds = %6, %6, %6
-  %238 = load ptr, ptr %7, align 8
-  %239 = load i32, ptr %10, align 4
-  %240 = load ptr, ptr %8, align 8
-  %241 = load ptr, ptr %9, align 8
-  %242 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
-  %243 = load i32, ptr @hf_smb2_fid, align 4
-  %244 = call i32 @dissect_nt_guid_hnd(ptr noundef %238, i32 noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef @dissect_smb2_fid.di, ptr noundef %242, i32 noundef %243, ptr noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 0)
-  store i32 %244, ptr %10, align 4
-  br label %245
+239:                                              ; preds = %6, %6, %6
+  %240 = load ptr, ptr %7, align 8
+  %241 = load i32, ptr %10, align 4
+  %242 = load ptr, ptr %8, align 8
+  %243 = load ptr, ptr %9, align 8
+  %244 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 0
+  %245 = load i32, ptr @hf_smb2_fid, align 4
+  %246 = call i32 @dissect_nt_guid_hnd(ptr noundef %240, i32 noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef @dissect_smb2_fid.di, ptr noundef %244, i32 noundef %245, ptr noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 0)
+  store i32 %246, ptr %10, align 4
+  br label %247
 
-245:                                              ; preds = %237, %229, %202, %6
-  %246 = load ptr, ptr %11, align 8
-  %247 = getelementptr inbounds %struct._smb2_info_t, ptr %246, i32 0, i32 11
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %248, i32 0, i32 13
+247:                                              ; preds = %239, %231, %204, %6
+  %248 = load ptr, ptr %11, align 8
+  %249 = getelementptr inbounds %struct._smb2_info_t, ptr %248, i32 0, i32 11
   %250 = load ptr, ptr %249, align 8
-  %251 = call ptr @wmem_map_lookup(ptr noundef %250, ptr noundef %21)
-  %252 = load ptr, ptr %11, align 8
-  %253 = getelementptr inbounds %struct._smb2_info_t, ptr %252, i32 0, i32 12
-  store ptr %251, ptr %253, align 8
+  %251 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %250, i32 0, i32 13
+  %252 = load ptr, ptr %251, align 8
+  %253 = call ptr @wmem_map_lookup(ptr noundef %252, ptr noundef %21)
   %254 = load ptr, ptr %11, align 8
   %255 = getelementptr inbounds %struct._smb2_info_t, ptr %254, i32 0, i32 12
-  %256 = load ptr, ptr %255, align 8
-  %257 = icmp ne ptr %256, null
-  br i1 %257, label %258, label %298
+  store ptr %253, ptr %255, align 8
+  %256 = load ptr, ptr %11, align 8
+  %257 = getelementptr inbounds %struct._smb2_info_t, ptr %256, i32 0, i32 12
+  %258 = load ptr, ptr %257, align 8
+  %259 = icmp ne ptr %258, null
+  br i1 %259, label %260, label %300
 
-258:                                              ; preds = %245
-  %259 = load ptr, ptr %11, align 8
-  %260 = getelementptr inbounds %struct._smb2_info_t, ptr %259, i32 0, i32 9
-  %261 = load ptr, ptr %260, align 8
-  %262 = icmp ne ptr %261, null
-  br i1 %262, label %263, label %271
+260:                                              ; preds = %247
+  %261 = load ptr, ptr %11, align 8
+  %262 = getelementptr inbounds %struct._smb2_info_t, ptr %261, i32 0, i32 9
+  %263 = load ptr, ptr %262, align 8
+  %264 = icmp ne ptr %263, null
+  br i1 %264, label %265, label %273
 
-263:                                              ; preds = %258
-  %264 = load ptr, ptr %11, align 8
-  %265 = getelementptr inbounds %struct._smb2_info_t, ptr %264, i32 0, i32 12
-  %266 = load ptr, ptr %265, align 8
-  %267 = load ptr, ptr %11, align 8
-  %268 = getelementptr inbounds %struct._smb2_info_t, ptr %267, i32 0, i32 9
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %269, i32 0, i32 8
-  store ptr %266, ptr %270, align 8
-  br label %271
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %11, align 8
+  %267 = getelementptr inbounds %struct._smb2_info_t, ptr %266, i32 0, i32 12
+  %268 = load ptr, ptr %267, align 8
+  %269 = load ptr, ptr %11, align 8
+  %270 = getelementptr inbounds %struct._smb2_info_t, ptr %269, i32 0, i32 9
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %271, i32 0, i32 8
+  store ptr %268, ptr %272, align 8
+  br label %273
 
-271:                                              ; preds = %263, %258
-  %272 = load ptr, ptr %11, align 8
-  %273 = getelementptr inbounds %struct._smb2_info_t, ptr %272, i32 0, i32 12
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %274, i32 0, i32 7
+273:                                              ; preds = %265, %260
+  %274 = load ptr, ptr %11, align 8
+  %275 = getelementptr inbounds %struct._smb2_info_t, ptr %274, i32 0, i32 12
   %276 = load ptr, ptr %275, align 8
-  %277 = icmp ne ptr %276, null
-  br i1 %277, label %278, label %297
+  %277 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %276, i32 0, i32 7
+  %278 = load ptr, ptr %277, align 8
+  %279 = icmp ne ptr %278, null
+  br i1 %279, label %280, label %299
 
-278:                                              ; preds = %271
-  %279 = load ptr, ptr %16, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %281, label %288
+280:                                              ; preds = %273
+  %281 = load ptr, ptr %16, align 8
+  %282 = icmp ne ptr %281, null
+  br i1 %282, label %283, label %290
 
-281:                                              ; preds = %278
-  %282 = load ptr, ptr %16, align 8
-  %283 = load ptr, ptr %11, align 8
-  %284 = getelementptr inbounds %struct._smb2_info_t, ptr %283, i32 0, i32 12
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %285, i32 0, i32 7
+283:                                              ; preds = %280
+  %284 = load ptr, ptr %16, align 8
+  %285 = load ptr, ptr %11, align 8
+  %286 = getelementptr inbounds %struct._smb2_info_t, ptr %285, i32 0, i32 12
   %287 = load ptr, ptr %286, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %282, ptr noundef @.str.2071, ptr noundef %287)
-  br label %288
+  %288 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %287, i32 0, i32 7
+  %289 = load ptr, ptr %288, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %284, ptr noundef @.str.2071, ptr noundef %289)
+  br label %290
 
-288:                                              ; preds = %281, %278
-  %289 = load ptr, ptr %8, align 8
-  %290 = getelementptr inbounds %struct._packet_info, ptr %289, i32 0, i32 1
-  %291 = load ptr, ptr %290, align 8
-  %292 = load ptr, ptr %11, align 8
-  %293 = getelementptr inbounds %struct._smb2_info_t, ptr %292, i32 0, i32 12
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %294, i32 0, i32 7
+290:                                              ; preds = %283, %280
+  %291 = load ptr, ptr %8, align 8
+  %292 = getelementptr inbounds %struct._packet_info, ptr %291, i32 0, i32 1
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %11, align 8
+  %295 = getelementptr inbounds %struct._smb2_info_t, ptr %294, i32 0, i32 12
   %296 = load ptr, ptr %295, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %291, i32 noundef 25, ptr noundef @.str.2071, ptr noundef %296)
-  br label %297
+  %297 = getelementptr inbounds %struct._smb2_fid_info_t, ptr %296, i32 0, i32 7
+  %298 = load ptr, ptr %297, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %293, i32 noundef 25, ptr noundef @.str.2071, ptr noundef %298)
+  br label %299
 
-297:                                              ; preds = %288, %271
-  br label %298
+299:                                              ; preds = %290, %273
+  br label %300
 
-298:                                              ; preds = %297, %245
-  %299 = load ptr, ptr %8, align 8
-  %300 = getelementptr inbounds %struct._packet_info, ptr %299, i32 0, i32 3
-  %301 = load i32, ptr %300, align 4
-  %302 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %14, ptr noundef %17, ptr noundef null, ptr noundef %18, ptr noundef %19, i32 noundef %301)
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %304, label %356
+300:                                              ; preds = %299, %247
+  %301 = load ptr, ptr %8, align 8
+  %302 = getelementptr inbounds %struct._packet_info, ptr %301, i32 0, i32 3
+  %303 = load i32, ptr %302, align 4
+  %304 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %14, ptr noundef %17, ptr noundef null, ptr noundef %18, ptr noundef %19, i32 noundef %303)
+  %305 = icmp ne i32 %304, 0
+  br i1 %305, label %306, label %358
 
-304:                                              ; preds = %298
-  %305 = load ptr, ptr %11, align 8
-  %306 = getelementptr inbounds %struct._smb2_info_t, ptr %305, i32 0, i32 7
-  %307 = load ptr, ptr %306, align 8
-  %308 = icmp ne ptr %307, null
-  br i1 %308, label %355, label %309
+306:                                              ; preds = %300
+  %307 = load ptr, ptr %11, align 8
+  %308 = getelementptr inbounds %struct._smb2_info_t, ptr %307, i32 0, i32 7
+  %309 = load ptr, ptr %308, align 8
+  %310 = icmp ne ptr %309, null
+  br i1 %310, label %357, label %311
 
-309:                                              ; preds = %304
-  %310 = load ptr, ptr %11, align 8
-  %311 = getelementptr inbounds %struct._smb2_info_t, ptr %310, i32 0, i32 9
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp ne ptr %312, null
-  br i1 %313, label %314, label %319
+311:                                              ; preds = %306
+  %312 = load ptr, ptr %11, align 8
+  %313 = getelementptr inbounds %struct._smb2_info_t, ptr %312, i32 0, i32 9
+  %314 = load ptr, ptr %313, align 8
+  %315 = icmp ne ptr %314, null
+  br i1 %315, label %316, label %321
 
-314:                                              ; preds = %309
-  %315 = load ptr, ptr %11, align 8
-  %316 = getelementptr inbounds %struct._smb2_info_t, ptr %315, i32 0, i32 9
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %317, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %318, ptr align 4 %14, i64 20, i1 false)
-  br label %319
+316:                                              ; preds = %311
+  %317 = load ptr, ptr %11, align 8
+  %318 = getelementptr inbounds %struct._smb2_info_t, ptr %317, i32 0, i32 9
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds %struct._smb2_saved_info_t, ptr %319, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %320, ptr align 4 %14, i64 20, i1 false)
+  br label %321
 
-319:                                              ; preds = %314, %309
-  %320 = load ptr, ptr %11, align 8
-  %321 = getelementptr inbounds %struct._smb2_info_t, ptr %320, i32 0, i32 8
-  %322 = load ptr, ptr %321, align 8
-  %323 = icmp ne ptr %322, null
-  br i1 %323, label %324, label %354
+321:                                              ; preds = %316, %311
+  %322 = load ptr, ptr %11, align 8
+  %323 = getelementptr inbounds %struct._smb2_info_t, ptr %322, i32 0, i32 8
+  %324 = load ptr, ptr %323, align 8
+  %325 = icmp ne ptr %324, null
+  br i1 %325, label %326, label %356
 
-324:                                              ; preds = %319
-  %325 = load ptr, ptr %11, align 8
-  %326 = getelementptr inbounds %struct._smb2_info_t, ptr %325, i32 0, i32 11
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %327, i32 0, i32 14
+326:                                              ; preds = %321
+  %327 = load ptr, ptr %11, align 8
+  %328 = getelementptr inbounds %struct._smb2_info_t, ptr %327, i32 0, i32 11
   %329 = load ptr, ptr %328, align 8
-  %330 = call ptr @wmem_map_lookup(ptr noundef %329, ptr noundef %14)
-  store ptr %330, ptr %20, align 8
-  %331 = load ptr, ptr %20, align 8
-  %332 = icmp ne ptr %331, null
-  br i1 %332, label %333, label %337
+  %330 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %329, i32 0, i32 14
+  %331 = load ptr, ptr %330, align 8
+  %332 = call ptr @wmem_map_lookup(ptr noundef %331, ptr noundef %14)
+  store ptr %332, ptr %20, align 8
+  %333 = load ptr, ptr %20, align 8
+  %334 = icmp ne ptr %333, null
+  br i1 %334, label %335, label %339
 
-333:                                              ; preds = %324
-  %334 = load ptr, ptr %20, align 8
-  %335 = load ptr, ptr %11, align 8
-  %336 = getelementptr inbounds %struct._smb2_info_t, ptr %335, i32 0, i32 7
-  store ptr %334, ptr %336, align 8
-  br label %353
-
-337:                                              ; preds = %324
-  %338 = call ptr @wmem_file_scope()
-  %339 = call noalias ptr @wmem_alloc(ptr noundef %338, i64 noundef 16)
-  store ptr %339, ptr %20, align 8
-  %340 = call ptr @wmem_file_scope()
-  %341 = call noalias ptr @wmem_alloc(ptr noundef %340, i64 noundef 20)
-  store ptr %341, ptr %15, align 8
-  %342 = load ptr, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %342, ptr align 4 %14, i64 20, i1 false)
-  %343 = load ptr, ptr %20, align 8
-  %344 = getelementptr inbounds %struct._smb2_eo_file_info_t, ptr %343, i32 0, i32 1
-  store i64 0, ptr %344, align 8
-  %345 = load ptr, ptr %11, align 8
-  %346 = getelementptr inbounds %struct._smb2_info_t, ptr %345, i32 0, i32 11
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %347, i32 0, i32 14
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %15, align 8
-  %351 = load ptr, ptr %20, align 8
-  %352 = call ptr @wmem_map_insert(ptr noundef %349, ptr noundef %350, ptr noundef %351)
-  br label %353
-
-353:                                              ; preds = %337, %333
-  br label %354
-
-354:                                              ; preds = %353, %319
+335:                                              ; preds = %326
+  %336 = load ptr, ptr %20, align 8
+  %337 = load ptr, ptr %11, align 8
+  %338 = getelementptr inbounds %struct._smb2_info_t, ptr %337, i32 0, i32 7
+  store ptr %336, ptr %338, align 8
   br label %355
 
-355:                                              ; preds = %354, %304
+339:                                              ; preds = %326
+  %340 = call ptr @wmem_file_scope()
+  %341 = call noalias ptr @wmem_alloc(ptr noundef %340, i64 noundef 16)
+  store ptr %341, ptr %20, align 8
+  %342 = call ptr @wmem_file_scope()
+  %343 = call noalias ptr @wmem_alloc(ptr noundef %342, i64 noundef 20)
+  store ptr %343, ptr %15, align 8
+  %344 = load ptr, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %344, ptr align 4 %14, i64 20, i1 false)
+  %345 = load ptr, ptr %20, align 8
+  %346 = getelementptr inbounds %struct._smb2_eo_file_info_t, ptr %345, i32 0, i32 1
+  store i64 0, ptr %346, align 8
+  %347 = load ptr, ptr %11, align 8
+  %348 = getelementptr inbounds %struct._smb2_info_t, ptr %347, i32 0, i32 11
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds %struct._smb2_sesid_info_t, ptr %349, i32 0, i32 14
+  %351 = load ptr, ptr %350, align 8
+  %352 = load ptr, ptr %15, align 8
+  %353 = load ptr, ptr %20, align 8
+  %354 = call ptr @wmem_map_insert(ptr noundef %351, ptr noundef %352, ptr noundef %353)
+  br label %355
+
+355:                                              ; preds = %339, %335
   br label %356
 
-356:                                              ; preds = %355, %298
-  %357 = load i32, ptr %10, align 4
-  ret i32 %357
+356:                                              ; preds = %355, %321
+  br label %357
+
+357:                                              ; preds = %356, %306
+  br label %358
+
+358:                                              ; preds = %357, %300
+  %359 = load i32, ptr %10, align 4
+  ret i32 %359
 }
 
 declare i32 @dissect_nt_guid_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1

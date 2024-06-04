@@ -48,8 +48,9 @@ define i32 @ompi_coll_base_agree_noft(ptr noundef %0, i32 noundef %1, ptr nounde
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %30, i32 0, i32 5
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %22(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %32)
-  ret i32 %33
+  %33 = inttoptr i64 1 to ptr
+  %34 = call i32 %22(ptr noundef %33, ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %32)
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -89,8 +90,9 @@ define i32 @ompi_coll_base_iagree_noft(ptr noundef %0, i32 noundef %1, ptr nound
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %33, i32 0, i32 39
   %35 = load ptr, ptr %34, align 8
-  %36 = call i32 %24(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %35)
-  ret i32 %36
+  %36 = inttoptr i64 1 to ptr
+  %37 = call i32 %24(ptr noundef %36, ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %35)
+  ret i32 %37
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

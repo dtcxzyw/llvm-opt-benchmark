@@ -969,89 +969,90 @@ define void @_ZN12DecodeAsItemC2EPKcPKv(ptr noundef nonnull align 8 dereferencea
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr @_ZL16DEFAULT_UI_TABLE, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 3
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 4
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef @.str)
-  %16 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 5
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 6
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef @.str.1)
-          to label %18 unwind label %25
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr @_ZL16DEFAULT_UI_TABLE, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 3
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 4
+  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str)
+  %17 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 5
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 6
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.1)
+          to label %19 unwind label %26
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 7
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef @.str.1)
-          to label %20 unwind label %29
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 7
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef @.str.1)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 8
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %33
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 8
+  store ptr null, ptr %22, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %34
 
-24:                                               ; preds = %20
-  br label %36
+25:                                               ; preds = %21
+  br label %37
 
-25:                                               ; preds = %3
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
-  br label %42
-
-29:                                               ; preds = %18
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
-  br label %41
-
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %6, align 8
-  invoke void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %34, ptr noundef %35)
-          to label %36 unwind label %37
-
-36:                                               ; preds = %33, %24
-  ret void
-
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  br label %41
-
-41:                                               ; preds = %37, %29
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  br label %42
-
-42:                                               ; preds = %41, %25
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %7, align 8
-  %45 = load i32, ptr %8, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  br label %42
+
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %6, align 8
+  invoke void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %35, ptr noundef %36)
+          to label %37 unwind label %38
+
+37:                                               ; preds = %34, %25
+  ret void
+
+38:                                               ; preds = %34
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  br label %42
+
+42:                                               ; preds = %38, %30
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  br label %43
+
+43:                                               ; preds = %42, %26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1299,91 +1300,92 @@ define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr @_ZL16DEFAULT_UI_TABLE, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 3
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 4
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef @.str)
-  %16 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 5
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 6
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef @.str.1)
-          to label %18 unwind label %25
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr @_ZL16DEFAULT_UI_TABLE, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 3
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 4
+  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @.str)
+  %17 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 5
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 6
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef @.str.1)
+          to label %19 unwind label %26
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 7
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef @.str.1)
-          to label %20 unwind label %29
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 7
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef @.str.1)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 8
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %33
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 8
+  store ptr null, ptr %22, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %34
 
-24:                                               ; preds = %20
-  br label %38
+25:                                               ; preds = %21
+  br label %39
 
-25:                                               ; preds = %3
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
-  br label %44
-
-29:                                               ; preds = %18
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
-  br label %43
-
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.decode_as_s, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %6, align 8
-  invoke void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %36, ptr noundef %37)
-          to label %38 unwind label %39
-
-38:                                               ; preds = %33, %24
-  ret void
-
-39:                                               ; preds = %33
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %7, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  br label %43
-
-43:                                               ; preds = %39, %29
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  br label %44
-
-44:                                               ; preds = %43, %25
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  br label %44
+
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds %struct.decode_as_s, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %6, align 8
+  invoke void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %37, ptr noundef %38)
+          to label %39 unwind label %40
+
+39:                                               ; preds = %34, %25
+  ret void
+
+40:                                               ; preds = %34
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %7, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  br label %44
+
+44:                                               ; preds = %40, %30
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  br label %45
+
+45:                                               ; preds = %44, %26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1391,13 +1393,14 @@ define void @_ZN12DecodeAsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 7
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  %5 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 6
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
-  %6 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 4
+  %6 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 6
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %7 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   ret void
 }
 
@@ -1859,16 +1862,17 @@ define void @_ZN13DecodeAsModelC2EP7QObjectP13_capture_file(ptr noundef nonnull 
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 2
-  call void @_ZN5QListIP12DecodeAsItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
-  %12 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 3
-  call void @_ZN5QListISt4pairIPKcjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
-  %13 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 4
-  call void @_ZN5QListISt4pairIPKcS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %9 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 2
+  call void @_ZN5QListIP12DecodeAsItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %13 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 3
+  call void @_ZN5QListISt4pairIPKcjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %14 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 4
+  call void @_ZN5QListISt4pairIPKcS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
   ret void
 }
 
@@ -1912,80 +1916,81 @@ define void @_ZN13DecodeAsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %8 unwind label %39
+  %7 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %9 unwind label %40
 
-8:                                                ; preds = %1
-  br label %9
+9:                                                ; preds = %1
+  br label %10
 
-9:                                                ; preds = %32, %8
-  %10 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
-  %11 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %11, i64 8, i1 false)
-  %12 = getelementptr inbounds %"class.QList<DecodeAsItem *>::const_iterator", ptr %4, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = invoke noundef zeroext i1 @_ZNK5QListIP12DecodeAsItemE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %13)
-          to label %15 unwind label %39
+10:                                               ; preds = %33, %9
+  %11 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
+  %12 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %12, i64 8, i1 false)
+  %13 = getelementptr inbounds %"class.QList<DecodeAsItem *>::const_iterator", ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = invoke noundef zeroext i1 @_ZNK5QListIP12DecodeAsItemE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr %14)
+          to label %16 unwind label %40
 
-15:                                               ; preds = %9
-  br i1 %14, label %17, label %16
+16:                                               ; preds = %10
+  br i1 %15, label %18, label %17
 
-16:                                               ; preds = %15
+17:                                               ; preds = %16
   call void @_ZN9QtPrivate17QForeachContainerI5QListIP12DecodeAsItemEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #14
-  br label %33
+  br label %34
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP12DecodeAsItemE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %20 unwind label %39
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP12DecodeAsItemE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %21 unwind label %40
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %19, align 8
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %28, label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %20, align 8
+  store ptr %22, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %29, label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 1
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(120) %22) #14
-  br label %28
-
-28:                                               ; preds = %24, %20
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %23, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 1
+  %28 = load ptr, ptr %27, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(120) %23) #14
   br label %29
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP12DecodeAsItemE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %32 unwind label %39
+29:                                               ; preds = %25, %21
+  br label %30
 
-32:                                               ; preds = %29
-  br label %9, !llvm.loop !4
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 1
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP12DecodeAsItemE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
+          to label %33 unwind label %40
 
-33:                                               ; preds = %16
-  %34 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
-  invoke void @_ZN5QListIP12DecodeAsItemE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %35 unwind label %39
+33:                                               ; preds = %30
+  br label %10, !llvm.loop !4
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 4
-  call void @_ZN5QListISt4pairIPKcS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #14
-  %37 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 3
-  call void @_ZN5QListISt4pairIPKcjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
-  %38 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
-  call void @_ZN5QListIP12DecodeAsItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+34:                                               ; preds = %17
+  %35 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
+  invoke void @_ZN5QListIP12DecodeAsItemE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %35)
+          to label %36 unwind label %40
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 4
+  call void @_ZN5QListISt4pairIPKcS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #14
+  %38 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 3
+  call void @_ZN5QListISt4pairIPKcjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
+  %39 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
+  call void @_ZN5QListIP12DecodeAsItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #14
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   ret void
 
-39:                                               ; preds = %33, %29, %17, %9, %1
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %34, %30, %18, %10, %1
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #17
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #17
   unreachable
 }
 

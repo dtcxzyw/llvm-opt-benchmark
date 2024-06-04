@@ -355,83 +355,84 @@ define void @_ZN5Ipopt22PardisoSolverInterfaceC2ENS_8SmartPtrINS_13LibraryLoader
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Ipopt30SparseSymLinearSolverInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt22PardisoSolverInterfaceE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 5
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 6
-  store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 15
-  store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 18
-  store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 19
-  store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 20
-  store i32 -2, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 24
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 25
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 28
-  invoke void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %17 unwind label %30
+  %8 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt22PardisoSolverInterfaceE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 5
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 6
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 15
+  store i8 0, ptr %11, align 4
+  %12 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 18
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 19
+  store i32 1, ptr %13, align 4
+  %14 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 20
+  store i32 -2, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 24
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 25
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 28
+  invoke void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %18 unwind label %31
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 29
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 30
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 29
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 31
-  store i8 0, ptr %20, align 8
-  %21 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 512) #14
-          to label %22 unwind label %34
+  %20 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 30
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 31
+  store i8 0, ptr %21, align 8
+  %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 512) #14
+          to label %23 unwind label %35
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 17
-  store ptr %21, ptr %23, align 8
-  %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 256) #14
-          to label %25 unwind label %34
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 17
+  store ptr %22, ptr %24, align 8
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 256) #14
+          to label %26 unwind label %35
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 22
-  store ptr %24, ptr %26, align 8
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 512) #14
-          to label %28 unwind label %34
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 22
+  store ptr %25, ptr %27, align 8
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 512) #14
+          to label %29 unwind label %35
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 23
-  store ptr %27, ptr %29, align 8
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %7, i32 0, i32 23
+  store ptr %28, ptr %30, align 8
   ret void
 
-30:                                               ; preds = %2
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %5, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %6, align 4
-  br label %38
-
-34:                                               ; preds = %25, %22, %17
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %5, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %6, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZN5Ipopt30SparseSymLinearSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #3
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+35:                                               ; preds = %26, %23, %18
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  br label %39
+
+39:                                               ; preds = %35, %31
+  call void @_ZN5Ipopt30SparseSymLinearSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #3
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %6, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -440,7 +441,8 @@ define linkonce_odr void @_ZN5Ipopt30SparseSymLinearSolverInterfaceC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt30SparseSymLinearSolverInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt30SparseSymLinearSolverInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -483,89 +485,90 @@ define void @_ZN5Ipopt22PardisoSolverInterfaceD2Ev(ptr noundef nonnull align 8 d
   %8 = alloca double, align 8
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt22PardisoSolverInterfaceE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 15
-  %11 = load i8, ptr %10, align 4
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %29
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt22PardisoSolverInterfaceE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 15
+  %12 = load i8, ptr %11, align 4
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %30
 
-13:                                               ; preds = %1
+14:                                               ; preds = %1
   store i32 -1, ptr %3, align 4
-  %14 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 2
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %4, align 4
+  %15 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %4, align 4
   store i32 0, ptr %5, align 4
   store i32 0, ptr %7, align 4
   store double 0.000000e+00, ptr %8, align 8
-  %16 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 30
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 17
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 18
-  %21 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 19
-  %22 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 20
-  %23 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 24
-  %26 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 23
-  %27 = load ptr, ptr %26, align 8
-  invoke void %17(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %3, ptr noundef %4, ptr noundef %8, ptr noundef %7, ptr noundef %7, ptr noundef %7, ptr noundef %5, ptr noundef %24, ptr noundef %25, ptr noundef %8, ptr noundef %8, ptr noundef %6, ptr noundef %27)
-          to label %28 unwind label %51
+  %17 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 30
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 17
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 18
+  %22 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 19
+  %23 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 20
+  %24 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 22
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 24
+  %27 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 23
+  %28 = load ptr, ptr %27, align 8
+  invoke void %18(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %3, ptr noundef %4, ptr noundef %8, ptr noundef %7, ptr noundef %7, ptr noundef %7, ptr noundef %5, ptr noundef %25, ptr noundef %26, ptr noundef %8, ptr noundef %8, ptr noundef %6, ptr noundef %28)
+          to label %29 unwind label %52
 
-28:                                               ; preds = %13
-  br label %29
+29:                                               ; preds = %14
+  br label %30
 
-29:                                               ; preds = %28, %1
-  %30 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 17
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %34, label %33
+30:                                               ; preds = %29, %1
+  %31 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 17
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %35, label %34
 
-33:                                               ; preds = %29
-  call void @_ZdaPv(ptr noundef %31) #15
-  br label %34
+34:                                               ; preds = %30
+  call void @_ZdaPv(ptr noundef %32) #15
+  br label %35
 
-34:                                               ; preds = %33, %29
-  %35 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 22
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %39, label %38
+35:                                               ; preds = %34, %30
+  %36 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 22
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %40, label %39
 
-38:                                               ; preds = %34
-  call void @_ZdaPv(ptr noundef %36) #15
-  br label %39
+39:                                               ; preds = %35
+  call void @_ZdaPv(ptr noundef %37) #15
+  br label %40
 
-39:                                               ; preds = %38, %34
-  %40 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 23
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %44, label %43
+40:                                               ; preds = %39, %35
+  %41 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 23
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %39
-  call void @_ZdaPv(ptr noundef %41) #15
-  br label %44
+44:                                               ; preds = %40
+  call void @_ZdaPv(ptr noundef %42) #15
+  br label %45
 
-44:                                               ; preds = %43, %39
-  %45 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 5
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %49, label %48
+45:                                               ; preds = %44, %40
+  %46 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 5
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %50, label %49
 
-48:                                               ; preds = %44
-  call void @_ZdaPv(ptr noundef %46) #15
-  br label %49
+49:                                               ; preds = %45
+  call void @_ZdaPv(ptr noundef %47) #15
+  br label %50
 
-49:                                               ; preds = %48, %44
-  %50 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 28
-  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #3
+50:                                               ; preds = %49, %45
+  %51 = getelementptr inbounds %"class.Ipopt::PardisoSolverInterface", ptr %9, i32 0, i32 28
+  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #3
   call void @_ZN5Ipopt30SparseSymLinearSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %9) #3
   ret void
 
-51:                                               ; preds = %13
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %14
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #16
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #16
   unreachable
 }
 
@@ -3016,7 +3019,7 @@ define noundef zeroext i1 @_ZN5Ipopt22PardisoSolverInterface14InitializeImplERKN
 
 152:                                              ; preds = %151, %139
   %153 = load i32, ptr %11, align 4
-  %154 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Ipopt23DYNAMIC_LIBRARY_FAILUREE) #3
+  %154 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Ipopt23DYNAMIC_LIBRARY_FAILUREE) #3
   %155 = icmp eq i32 %153, %154
   br i1 %155, label %156, label %659
 
@@ -4009,13 +4012,10 @@ define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_13LibraryLoaderEEptEv(pt
 
 declare noundef ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(32)) #1
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Ipopt23AlgorithmStrategyObject5JnlstEv(ptr noundef nonnull align 8 dereferenceable(49) %0) #4 comdat align 2 {
@@ -5112,7 +5112,7 @@ define noundef i32 @_ZN5Ipopt22PardisoSolverInterface19InitializeStructureEiiPKi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5Ipopt22PardisoSolverInterface21SymbolicFactorizationEPKiS2_(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %1, ptr noundef %2) #6 align 2 {
@@ -5759,86 +5759,87 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %7 unwind label %15
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %8 unwind label %16
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %19
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %20
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
-  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %11 unwind label %23
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 4
+  invoke void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %24
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
-  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %27
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 5
+  invoke void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %28
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
-  store i8 0, ptr %14, align 8
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %5, i32 0, i32 6
+  store i8 0, ptr %15, align 8
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  br label %33
-
-19:                                               ; preds = %7
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %32
-
-23:                                               ; preds = %9
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  br label %31
-
-27:                                               ; preds = %11
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %32
-
-32:                                               ; preds = %31, %19
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %33
-
-33:                                               ; preds = %32, %15
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %4, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %33
+
+24:                                               ; preds = %10
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %32
+
+28:                                               ; preds = %12
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %34
+
+34:                                               ; preds = %33, %16
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %4, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5865,9 +5866,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -5973,15 +5975,16 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
-  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
+  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -5999,7 +6002,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6229,7 +6233,7 @@ define linkonce_odr void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEE15R
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Ipopt8SmartPtrIKNS_10JournalistEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
@@ -6320,7 +6324,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #6 comdat align 2 {
@@ -6659,6 +6663,9 @@ define internal void @_GLOBAL__sub_I_IpPardisoSolverInterface.cpp() #0 section "
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6668,11 +6675,11 @@ attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { builtin allocsize(0) }
 attributes #15 = { builtin nounwind }
 attributes #16 = { noreturn nounwind }

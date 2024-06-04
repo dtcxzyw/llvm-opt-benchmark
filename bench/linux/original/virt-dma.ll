@@ -73,12 +73,14 @@ define dso_local noundef i32 @vchan_tx_desc_free(ptr noundef %0) #0 align 16 {
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
+  %11 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %11, ptr %6, align 8
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %7, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #6
-  %11 = getelementptr inbounds i8, ptr %3, i64 152
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %0) #6
+  %13 = getelementptr inbounds i8, ptr %3, i64 152
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef %0) #6
   ret i32 0
 }
 
@@ -112,52 +114,54 @@ define dso_local ptr @vchan_find_desc(ptr noundef readonly %0, i32 noundef %1) #
 define dso_local void @vchan_dma_desc_free_list(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
-  br i1 %4, label %30, label %5
+  br i1 %4, label %32, label %5
 
-5:                                                ; preds = %28, %2
-  %6 = phi ptr [ %7, %28 ], [ %3, %2 ]
+5:                                                ; preds = %30, %2
+  %6 = phi ptr [ %7, %30 ], [ %3, %2 ]
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %7, ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
-  %11 = getelementptr i8, ptr %6, i64 -80
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr i8, ptr %6, i64 -92
-  %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 64
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %24, label %17
+  %11 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %11, ptr %6, align 8
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr i8, ptr %6, i64 -80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr i8, ptr %6, i64 -92
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 64
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %26, label %19
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 160
-  %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %18) #6
-  %20 = getelementptr inbounds i8, ptr %12, i64 168
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %6, ptr %22, align 8
-  store ptr %21, ptr %6, align 8
-  %23 = getelementptr i8, ptr %6, i64 8
-  store ptr %20, ptr %23, align 8
-  store volatile ptr %6, ptr %20, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %19) #6
-  br label %28
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds i8, ptr %14, i64 160
+  %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %20) #6
+  %22 = getelementptr inbounds i8, ptr %14, i64 168
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %6, ptr %24, align 8
+  store ptr %23, ptr %6, align 8
+  %25 = getelementptr i8, ptr %6, i64 8
+  store ptr %22, ptr %25, align 8
+  store volatile ptr %6, ptr %22, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %20, i64 noundef %21) #6
+  br label %30
 
-24:                                               ; preds = %5
-  %25 = getelementptr i8, ptr %6, i64 -96
-  %26 = getelementptr inbounds i8, ptr %12, i64 152
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %25) #6
-  br label %28
+26:                                               ; preds = %5
+  %27 = getelementptr i8, ptr %6, i64 -96
+  %28 = getelementptr inbounds i8, ptr %14, i64 152
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef %27) #6
+  br label %30
 
-28:                                               ; preds = %24, %17
-  %29 = icmp eq ptr %7, %1
-  br i1 %29, label %30, label %5, !llvm.loop !8
+30:                                               ; preds = %26, %19
+  %31 = icmp eq ptr %7, %1
+  br i1 %31, label %32, label %5, !llvm.loop !8
 
-30:                                               ; preds = %28, %2
+32:                                               ; preds = %30, %2
   ret void
 }
 
@@ -282,10 +286,10 @@ define internal void @vchan_complete(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %39 = load ptr, ptr %4, align 8
   %40 = icmp eq ptr %39, %4
-  br i1 %40, label %81, label %41
+  br i1 %40, label %83, label %41
 
-41:                                               ; preds = %79, %38
-  %42 = phi ptr [ %44, %79 ], [ %39, %38 ]
+41:                                               ; preds = %81, %38
+  %42 = phi ptr [ %44, %81 ], [ %39, %38 ]
   %43 = getelementptr i8, ptr %42, i64 -96
   %44 = load ptr, ptr %42, align 8
   %45 = getelementptr i8, ptr %42, i64 -56
@@ -299,63 +303,65 @@ define internal void @vchan_complete(ptr noundef %0) #0 align 16 {
   %53 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %52, ptr %53, align 8
   store volatile ptr %44, ptr %52, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %42, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
+  %54 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %54, ptr %42, align 8
+  %55 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %55, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   store i64 0, ptr %2, align 8
-  %54 = icmp eq ptr %48, null
-  br i1 %54, label %59, label %55
+  %56 = icmp eq ptr %48, null
+  br i1 %56, label %61, label %57
 
-55:                                               ; preds = %41
-  %56 = getelementptr i8, ptr %42, i64 -8
-  %57 = icmp eq ptr %56, null
-  %58 = select i1 %57, ptr %2, ptr %56
-  call void %48(ptr noundef %50, ptr noundef nonnull %58) #6
-  br label %62
+57:                                               ; preds = %41
+  %58 = getelementptr i8, ptr %42, i64 -8
+  %59 = icmp eq ptr %58, null
+  %60 = select i1 %59, ptr %2, ptr %58
+  call void %48(ptr noundef %50, ptr noundef nonnull %60) #6
+  br label %64
 
-59:                                               ; preds = %41
-  %60 = icmp eq ptr %46, null
-  br i1 %60, label %62, label %61
+61:                                               ; preds = %41
+  %62 = icmp eq ptr %46, null
+  br i1 %62, label %64, label %63
 
-61:                                               ; preds = %59
+63:                                               ; preds = %61
   call void %46(ptr noundef %50) #6
-  br label %62
+  br label %64
 
-62:                                               ; preds = %61, %59, %55
+64:                                               ; preds = %63, %61, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  %63 = getelementptr i8, ptr %42, i64 -80
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i8, ptr %42, i64 -92
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 64
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %76, label %69
+  %65 = getelementptr i8, ptr %42, i64 -80
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr i8, ptr %42, i64 -92
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 64
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %78, label %71
 
-69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %64, i64 160
-  %71 = call i64 @_raw_spin_lock_irqsave(ptr noundef %70) #6
-  %72 = getelementptr inbounds i8, ptr %64, i64 168
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %42, ptr %74, align 8
-  store ptr %73, ptr %42, align 8
-  %75 = getelementptr i8, ptr %42, i64 8
-  store ptr %72, ptr %75, align 8
-  store volatile ptr %42, ptr %72, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %70, i64 noundef %71) #6
-  br label %79
+71:                                               ; preds = %64
+  %72 = getelementptr inbounds i8, ptr %66, i64 160
+  %73 = call i64 @_raw_spin_lock_irqsave(ptr noundef %72) #6
+  %74 = getelementptr inbounds i8, ptr %66, i64 168
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  store ptr %42, ptr %76, align 8
+  store ptr %75, ptr %42, align 8
+  %77 = getelementptr i8, ptr %42, i64 8
+  store ptr %74, ptr %77, align 8
+  store volatile ptr %42, ptr %74, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %72, i64 noundef %73) #6
+  br label %81
 
-76:                                               ; preds = %62
-  %77 = getelementptr inbounds i8, ptr %64, i64 152
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef %43) #6
-  br label %79
+78:                                               ; preds = %64
+  %79 = getelementptr inbounds i8, ptr %66, i64 152
+  %80 = load ptr, ptr %79, align 8
+  call void %80(ptr noundef %43) #6
+  br label %81
 
-79:                                               ; preds = %76, %69
-  %80 = icmp eq ptr %44, %4
-  br i1 %80, label %81, label %41, !llvm.loop !10
+81:                                               ; preds = %78, %71
+  %82 = icmp eq ptr %44, %4
+  br i1 %82, label %83, label %41, !llvm.loop !10
 
-81:                                               ; preds = %79, %38
+83:                                               ; preds = %81, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret void
 }

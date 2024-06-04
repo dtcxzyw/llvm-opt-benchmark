@@ -9329,16 +9329,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9349,16 +9350,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15786,7 +15788,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm12CrashManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15890,7 +15893,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6hermes2vm12CrashManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6hermes2vm12CrashManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15963,10 +15967,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -15976,7 +15981,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -17333,14 +17339,15 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %sourceURL_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #12
   %sourceHash_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %sourceHash_, ptr align 1 %sourceHash, i64 20, i1 false)
   %sourceIsBytecode_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %sourceIsBytecode.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %sourceIsBytecode.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %sourceIsBytecode_, align 4
   ret void
@@ -18390,7 +18397,8 @@ entry:
   store i64 %time.coerce, ptr %coerce.dive, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace6RecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace6RecordE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %time_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %time_, ptr align 8 %time, i64 8, i1 false)
   ret void
@@ -18476,7 +18484,8 @@ entry:
   %6 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp4, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace11ReturnMixinC2ENS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %5, i64 %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   ret void
 }
 
@@ -18682,10 +18691,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %tag_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tag.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %tag.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }
 
@@ -18873,10 +18883,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   ret void
 }
 
@@ -19086,10 +19097,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %maxMicrotasksHint_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %tasksHint.addr, align 4
-  store i32 %1, ptr %maxMicrotasksHint_, align 8
+  %2 = load i32, ptr %tasksHint.addr, align 4
+  store i32 %2, ptr %maxMicrotasksHint_, align 8
   ret void
 }
 
@@ -19281,16 +19293,17 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %method_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m.addr, align 4
-  store i32 %2, ptr %method_, align 8
+  %3 = load i32, ptr %m.addr, align 4
+  store i32 %3, ptr %method_, align 8
   %bits_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this1, i32 0, i32 3
-  %3 = load i64, ptr %bits.addr, align 8
-  store i64 %3, ptr %bits_, align 8
+  %4 = load i64, ptr %bits.addr, align 8
+  store i64 %4, ptr %bits_, align 8
   ret void
 }
 
@@ -19571,16 +19584,17 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %strID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %strID.addr, align 8
-  store i64 %1, ptr %strID_, align 8
+  %2 = load i64, ptr %strID.addr, align 8
+  store i64 %2, ptr %strID_, align 8
   %bigintID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %bigintID.addr, align 8
-  store i64 %2, ptr %bigintID_, align 8
+  %3 = load i64, ptr %bigintID.addr, align 8
+  store i64 %3, ptr %bigintID_, align 8
   %radix_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %radix.addr, align 4
-  store i32 %3, ptr %radix_, align 8
+  %4 = load i32, ptr %radix.addr, align 4
+  store i32 %4, ptr %radix_, align 8
   ret void
 }
 
@@ -19773,15 +19787,16 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %chars.addr, align 8
-  %3 = load i64, ptr %length.addr, align 8
+  %3 = load ptr, ptr %chars.addr, align 8
+  %4 = load i64, ptr %length.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %ascii_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 3
   store i8 1, ptr %ascii_, align 8
@@ -19930,15 +19945,16 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %chars.addr, align 8
-  %3 = load i64, ptr %length.addr, align 8
+  %3 = load ptr, ptr %chars.addr, align 8
+  %4 = load i64, ptr %length.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %ascii_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this1, i32 0, i32 3
   store i8 0, ptr %ascii_, align 8
@@ -20013,10 +20029,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %2 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %propNameID.addr, align 8
-  store i64 %3, ptr %propNameID_, align 8
+  %4 = load i64, ptr %propNameID.addr, align 8
+  store i64 %4, ptr %propNameID_, align 8
   %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #12
   %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 3
@@ -20168,24 +20185,25 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %propNameID.addr, align 8
-  store i64 %1, ptr %propNameID_, align 8
+  %2 = load i64, ptr %propNameID.addr, align 8
+  store i64 %2, ptr %propNameID_, align 8
   %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %chars.addr, align 8
-  %3 = load i64, ptr %length.addr, align 8
+  %3 = load ptr, ptr %chars.addr, align 8
+  %4 = load i64, ptr %length.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 3
   %call = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace10TraceValue20encodeUndefinedValueEv()
-  %4 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 0
-  %5 = extractvalue { i32, i64 } %call, 0
-  store i32 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 1
-  %7 = extractvalue { i32, i64 } %call, 1
-  store i64 %7, ptr %6, align 8
+  %5 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 0
+  %6 = extractvalue { i32, i64 } %call, 0
+  store i32 %6, ptr %5, align 8
+  %7 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 1
+  %8 = extractvalue { i32, i64 } %call, 1
+  store i64 %8, ptr %7, align 8
   %valueType_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 4
   store i32 0, ptr %valueType_, align 8
   ret void
@@ -20235,24 +20253,25 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %propNameID.addr, align 8
-  store i64 %1, ptr %propNameID_, align 8
+  %2 = load i64, ptr %propNameID.addr, align 8
+  store i64 %2, ptr %propNameID_, align 8
   %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %chars.addr, align 8
-  %3 = load i64, ptr %length.addr, align 8
+  %3 = load ptr, ptr %chars.addr, align 8
+  %4 = load i64, ptr %length.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 3
   %call = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace10TraceValue20encodeUndefinedValueEv()
-  %4 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 0
-  %5 = extractvalue { i32, i64 } %call, 0
-  store i32 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 1
-  %7 = extractvalue { i32, i64 } %call, 1
-  store i64 %7, ptr %6, align 8
+  %5 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 0
+  %6 = extractvalue { i32, i64 } %call, 0
+  store i32 %6, ptr %5, align 8
+  %7 = getelementptr inbounds { i32, i64 }, ptr %traceValue_, i32 0, i32 1
+  %8 = extractvalue { i32, i64 } %call, 1
+  store i64 %8, ptr %7, align 8
   %valueType_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this1, i32 0, i32 4
   store i32 1, ptr %valueType_, align 8
   ret void
@@ -20320,7 +20339,8 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %1, i32 0, i32 0
   %3 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 %3, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreateHostObjectRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreateHostObjectRecordE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -21230,14 +21250,15 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %1 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 %1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this1, i32 0, i32 1
-  %2 = load i64, ptr %propNameID.addr, align 8
-  %conv = trunc i64 %2 to i32
+  %3 = load i64, ptr %propNameID.addr, align 8
+  %conv = trunc i64 %3 to i32
   store i32 %conv, ptr %propNameID_, align 8
   %paramCount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %paramCount.addr, align 4
-  store i32 %3, ptr %paramCount_, align 4
+  %4 = load i32, ptr %paramCount.addr, align 4
+  store i32 %4, ptr %paramCount_, align 4
   ret void
 }
 
@@ -21433,7 +21454,8 @@ entry:
   %10 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %11 = load i64, ptr %10, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueES9_(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 %7, i64 noundef %6, i32 %9, i64 %11, ptr noundef byval(%"class.facebook::hermes::tracing::SynthTrace::TraceValue") align 8 %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17GetPropertyRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17GetPropertyRecordE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %this1, align 8
   ret void
 }
 
@@ -21579,10 +21601,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %2 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecordE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %objID.addr, align 8
-  store i64 %3, ptr %objID_, align 8
+  %4 = load i64, ptr %objID.addr, align 8
+  store i64 %4, ptr %objID_, align 8
   %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %propID_, ptr align 8 %propID, i64 16, i1 false)
   %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this1, i32 0, i32 3
@@ -22537,7 +22560,8 @@ entry:
   %10 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %11 = load i64, ptr %10, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueES9_(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 %7, i64 noundef %6, i32 %9, i64 %11, ptr noundef byval(%"class.facebook::hermes::tracing::SynthTrace::TraceValue") align 8 %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17SetPropertyRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17SetPropertyRecordE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %this1, align 8
   ret void
 }
 
@@ -22784,10 +22808,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %2 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %objID.addr, align 8
-  store i64 %3, ptr %objID_, align 8
+  %4 = load i64, ptr %objID.addr, align 8
+  store i64 %4, ptr %objID_, align 8
   %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %propID_, ptr align 8 %propID, i64 16, i1 false)
   ret void
@@ -22979,13 +23004,14 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %propNamesID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %propNamesID.addr, align 8
-  store i64 %2, ptr %propNamesID_, align 8
+  %3 = load i64, ptr %propNamesID.addr, align 8
+  store i64 %3, ptr %propNamesID_, align 8
   ret void
 }
 
@@ -23175,13 +23201,14 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %length_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %length.addr, align 8
-  store i64 %2, ptr %length_, align 8
+  %3 = load i64, ptr %length.addr, align 8
+  store i64 %3, ptr %length_, align 8
   ret void
 }
 
@@ -23380,7 +23407,8 @@ entry:
   %11 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmNS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(48) %this2, i64 %8, i64 noundef %6, i64 noundef %7, i32 %10, i64 %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15ArrayReadRecordE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15ArrayReadRecordE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %this2, align 8
   ret void
 }
 
@@ -23528,13 +23556,14 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %2 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecordE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %objID.addr, align 8
-  store i64 %3, ptr %objID_, align 8
+  %4 = load i64, ptr %objID.addr, align 8
+  store i64 %4, ptr %objID_, align 8
   %index_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this1, i32 0, i32 2
-  %4 = load i64, ptr %index.addr, align 8
-  store i64 %4, ptr %index_, align 8
+  %5 = load i64, ptr %index.addr, align 8
+  store i64 %5, ptr %index_, align 8
   %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value_, ptr align 8 %value, i64 16, i1 false)
   ret void
@@ -23712,7 +23741,8 @@ entry:
   %11 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmNS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(48) %this2, i64 %8, i64 noundef %6, i64 noundef %7, i32 %10, i64 %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace16ArrayWriteRecordE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace16ArrayWriteRecordE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %this2, align 8
   ret void
 }
 
@@ -23965,7 +23995,8 @@ entry:
   %11 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace10CallRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(64) %this2, i64 %8, i64 noundef %6, i32 %10, i64 %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %this2, align 8
   ret void
 }
 
@@ -24113,15 +24144,16 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %2 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %functionID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %functionID.addr, align 8
-  store i64 %3, ptr %functionID_, align 8
+  %4 = load i64, ptr %functionID.addr, align 8
+  store i64 %4, ptr %functionID_, align 8
   %thisArg_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %thisArg_, ptr align 8 %thisArg, i64 16, i1 false)
   %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %args.addr, align 8
-  call void @_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %args_, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %5 = load ptr, ptr %args.addr, align 8
+  call void @_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %args_, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
@@ -24743,7 +24775,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %args_) #12
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #12
@@ -27137,7 +27170,8 @@ entry:
   %11 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(64) %this2, i64 %8, i64 noundef %6, i32 %10, i64 %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %this2, align 8
   ret void
 }
 
@@ -27365,7 +27399,8 @@ entry:
   %6 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp3, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace11ReturnMixinC2ENS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %5, i64 %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   ret void
 }
 
@@ -27564,7 +27599,8 @@ entry:
   %6 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp3, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace11ReturnMixinC2ENS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %5, i64 %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   ret void
 }
 
@@ -27763,7 +27799,8 @@ entry:
   %11 = getelementptr inbounds { i32, i64 }, ptr %3, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace10CallRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(64) %this2, i64 %8, i64 noundef %6, i32 %10, i64 %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %this2, align 8
   ret void
 }
 
@@ -28035,7 +28072,8 @@ entry:
   %coerce.dive4 = getelementptr inbounds %"class.std::chrono::duration", ptr %3, i32 0, i32 0
   %7 = load i64, ptr %coerce.dive4, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this3, i64 %7, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this3, align 8
   ret void
 }
 
@@ -28180,16 +28218,17 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %hostObjectID.addr, align 8
-  store i64 %1, ptr %hostObjectID_, align 8
+  %2 = load i64, ptr %hostObjectID.addr, align 8
+  store i64 %2, ptr %hostObjectID_, align 8
   %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %propNameID.addr, align 8
-  store i64 %2, ptr %propNameID_, align 8
+  %3 = load i64, ptr %propNameID.addr, align 8
+  store i64 %3, ptr %propNameID_, align 8
   %propName_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %propName.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %propName.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_, ptr noundef nonnull align 8 dereferenceable(32) %4)
   ret void
 }
 
@@ -28267,7 +28306,8 @@ entry:
   %6 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp3, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace11ReturnMixinC2ENS2_10TraceValueE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %5, i64 %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   ret void
 }
 
@@ -28462,7 +28502,8 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %3 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this1, i64 %3, i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value_, ptr align 8 %value, i64 16, i1 false)
   ret void
@@ -28648,7 +28689,8 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %0, i32 0, i32 0
   %1 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -28913,10 +28955,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %hostObjectID.addr, align 8
-  store i64 %1, ptr %hostObjectID_, align 8
+  %2 = load i64, ptr %hostObjectID.addr, align 8
+  store i64 %2, ptr %hostObjectID_, align 8
   ret void
 }
 
@@ -29104,10 +29147,11 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %propNames_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %propNames.addr, align 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %propNames_, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %2 = load ptr, ptr %propNames.addr, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %propNames_, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -30537,13 +30581,14 @@ entry:
   %coerce.dive2 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6RecordC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %objID.addr, align 8
-  store i64 %1, ptr %objID_, align 8
+  %2 = load i64, ptr %objID.addr, align 8
+  store i64 %2, ptr %objID_, align 8
   %amount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %amount.addr, align 8
-  store i64 %2, ptr %amount_, align 8
+  %3 = load i64, ptr %amount.addr, align 8
+  store i64 %3, ptr %amount_, align 8
   ret void
 }
 

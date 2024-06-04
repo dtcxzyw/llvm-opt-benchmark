@@ -581,13 +581,14 @@ define dso_local void @_ZN15ExpressionCommaC2ERK10ExpressionS2_(ptr noundef nonn
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.ExpressionComma, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.ExpressionComma, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.ExpressionComma, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.ExpressionComma, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -598,33 +599,34 @@ define dso_local void @_ZN15ExpressionCommaD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ExpressionComma, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ExpressionComma, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %class.ExpressionComma, ptr %3, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %class.ExpressionComma, ptr %3, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 1
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 1
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  br label %20
 
-19:                                               ; preds = %15, %11
+20:                                               ; preds = %16, %12
   call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }

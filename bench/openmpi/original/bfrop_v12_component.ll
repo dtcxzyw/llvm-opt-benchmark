@@ -29,28 +29,35 @@ define internal i32 @component_open() #0 {
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4), align 8
-  %6 = icmp ne i32 %4, %5
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ne i32 %4, %6
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @pmix_class_initialize(ptr noundef @pmix_pointer_array_t_class)
-  br label %8
-
-8:                                                ; preds = %7, %3
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2), i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2), i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2), ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2))
   br label %9
 
-9:                                                ; preds = %8
-  br label %10
+9:                                                ; preds = %8, %3
+  %10 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2
+  %11 = getelementptr inbounds %struct.pmix_object_t, ptr %10, i32 0, i32 1
+  store ptr @pmix_pointer_array_t_class, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2
+  %13 = getelementptr inbounds %struct.pmix_object_t, ptr %12, i32 0, i32 2
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2
+  call void @pmix_obj_construct_tma(ptr noundef %14, ptr noundef null)
+  %15 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2
+  call void @pmix_obj_run_constructors(ptr noundef %15)
+  br label %16
 
-10:                                               ; preds = %9
-  br label %11
+16:                                               ; preds = %9
+  br label %17
 
-11:                                               ; preds = %10
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
   ret i32 0
 }
 
@@ -59,10 +66,11 @@ define internal i32 @component_close() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  call void @pmix_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2))
-  br label %2
+  %2 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 2
+  call void @pmix_obj_run_destructors(ptr noundef %2)
+  br label %3
 
-2:                                                ; preds = %1
+3:                                                ; preds = %1
   ret i32 0
 }
 
@@ -72,11 +80,12 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %4, align 8
-  store i32 %5, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr @pmix_bfrops_pmix12_module, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  store i32 %6, ptr %7, align 4
+  %8 = load ptr, ptr %3, align 8
+  store ptr @pmix_bfrops_pmix12_module, ptr %8, align 8
   ret i32 0
 }
 

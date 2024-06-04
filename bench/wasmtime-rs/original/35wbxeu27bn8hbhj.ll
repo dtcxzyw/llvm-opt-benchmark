@@ -298,26 +298,28 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatB
   %5 = alloca { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, align 8
   store i64 0, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %4, i32 0, i32 1
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 2
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 3
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 5
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %4, i64 24, i1 false)
-  %13 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 4
-  store i64 0, ptr %13, align 8
-  %14 = load i64, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.7, align 8, !range !6, !noundef !3
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.7, i64 8), align 8
-  store i64 %14, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %15, ptr %16, align 8
+  %7 = inttoptr i64 8 to ptr
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %4, i32 0, i32 1
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 2
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %2, ptr %10, align 8
+  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 3
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 5
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %4, i64 24, i1 false)
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] }, ptr %5, i32 0, i32 4
+  store i64 0, ptr %14, align 8
+  %15 = load i64, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.7, align 8, !range !6, !noundef !3
+  %16 = getelementptr inbounds i8, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.7, i64 8
+  %17 = load i64, ptr %16, align 8
+  store i64 %15, ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %17, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %5, i64 80, i1 false)
   ret void
 }
@@ -496,10 +498,11 @@ define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBu
 
 12:                                               ; preds = %8
   %13 = load i64, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.13, align 8, !range !6, !noundef !3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.13, i64 8), align 8
+  %14 = getelementptr inbounds i8, ptr @anon.bc5ffb19d43fbf04c42b20da892986ac.13, i64 8
+  %15 = load i64, ptr %14, align 8
   store i64 %13, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %15, ptr %16, align 8
   br label %6
 }
 

@@ -54,7 +54,7 @@ define internal fastcc i32 @__io_getxattr_prep(ptr nocapture noundef %0, ptr nou
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %44, !prof !6
+  br i1 %6, label %7, label %45, !prof !6
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -79,48 +79,49 @@ define internal fastcc i32 @__io_getxattr_prep(ptr nocapture noundef %0, ptr nou
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %22, ptr %23, align 8
   %24 = icmp eq i32 %22, 0
-  br i1 %24, label %25, label %44
+  br i1 %24, label %25, label %45
 
 25:                                               ; preds = %7
-  %26 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %27 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 256) #6
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %28, align 8
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %44, label %30
+  %26 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3264, i64 noundef 256) #6
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %28, ptr %29, align 8
+  %30 = icmp eq ptr %28, null
+  br i1 %30, label %45, label %31
 
-30:                                               ; preds = %25
-  %31 = tail call i64 @strncpy_from_user(ptr noundef nonnull %27, ptr noundef %13, i64 noundef 256) #5
-  %32 = trunc i64 %31 to i32
-  %33 = icmp eq i32 %32, 0
-  %34 = and i64 %31, 4294967295
-  %35 = icmp eq i64 %34, 256
-  %36 = or i1 %33, %35
-  %37 = select i1 %36, i32 -34, i32 %32
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %41
+31:                                               ; preds = %25
+  %32 = tail call i64 @strncpy_from_user(ptr noundef nonnull %28, ptr noundef %13, i64 noundef 256) #5
+  %33 = trunc i64 %32 to i32
+  %34 = icmp eq i32 %33, 0
+  %35 = and i64 %32, 4294967295
+  %36 = icmp eq i64 %35, 256
+  %37 = or i1 %34, %36
+  %38 = select i1 %37, i32 -34, i32 %33
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %28, align 8
-  tail call void @kfree(ptr noundef %40) #5
-  br label %44
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %29, align 8
+  tail call void @kfree(ptr noundef %41) #5
+  br label %45
 
-41:                                               ; preds = %30
-  %42 = load i32, ptr %3, align 4
-  %43 = or i32 %42, 8208
-  store i32 %43, ptr %3, align 4
-  br label %44
+42:                                               ; preds = %31
+  %43 = load i32, ptr %3, align 4
+  %44 = or i32 %43, 8208
+  store i32 %44, ptr %3, align 4
+  br label %45
 
-44:                                               ; preds = %41, %39, %25, %7, %2
-  %45 = phi i32 [ %37, %39 ], [ 0, %41 ], [ -9, %2 ], [ -22, %7 ], [ -12, %25 ]
-  ret i32 %45
+45:                                               ; preds = %42, %40, %25, %7, %2
+  %46 = phi i32 [ %38, %40 ], [ 0, %42 ], [ -9, %2 ], [ -22, %7 ], [ -12, %25 ]
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @io_getxattr_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call fastcc i32 @__io_getxattr_prep(ptr noundef %0, ptr noundef %1), !range !5
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %15
+  br i1 %4, label %5, label %16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 48
@@ -129,18 +130,19 @@ define dso_local i32 @io_getxattr_prep(ptr nocapture noundef %0, ptr noundef %1)
   %9 = tail call ptr @getname_flags(ptr noundef %8, i32 noundef 1, ptr noundef null) #5
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %9, ptr %10, align 8
-  %11 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %12, label %15
+  %11 = inttoptr i64 -4096 to ptr
+  %12 = icmp ugt ptr %9, %11
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %5
-  %13 = ptrtoint ptr %9 to i64
-  %14 = trunc i64 %13 to i32
+13:                                               ; preds = %5
+  %14 = ptrtoint ptr %9 to i64
+  %15 = trunc i64 %14 to i32
   store ptr null, ptr %10, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %12, %5, %2
-  %16 = phi i32 [ %3, %2 ], [ %14, %12 ], [ 0, %5 ]
-  ret i32 %16
+16:                                               ; preds = %13, %5, %2
+  %17 = phi i32 [ %3, %2 ], [ %15, %13 ], [ 0, %5 ]
+  ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -290,7 +292,7 @@ define dso_local i32 @io_setxattr_prep(ptr noundef %0, ptr noundef %1) local_unn
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %36, !prof !6
+  br i1 %6, label %7, label %37, !prof !6
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -313,54 +315,56 @@ define dso_local i32 @io_setxattr_prep(ptr noundef %0, ptr noundef %1) local_unn
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %24 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3264, i64 noundef 256) #6
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %24, ptr %25, align 8
-  %26 = icmp eq ptr %24, null
-  br i1 %26, label %36, label %27
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %24 = load ptr, ptr %23, align 16
+  %25 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 256) #6
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %25, ptr %26, align 8
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %37, label %28
 
-27:                                               ; preds = %7
-  %28 = inttoptr i64 %10 to ptr
-  %29 = tail call i32 @setxattr_copy(ptr noundef %28, ptr noundef %14) #5
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %33, label %31
+28:                                               ; preds = %7
+  %29 = inttoptr i64 %10 to ptr
+  %30 = tail call i32 @setxattr_copy(ptr noundef %29, ptr noundef %14) #5
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %25, align 8
-  tail call void @kfree(ptr noundef %32) #5
-  br label %36
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %26, align 8
+  tail call void @kfree(ptr noundef %33) #5
+  br label %37
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %3, align 4
-  %35 = or i32 %34, 8208
-  store i32 %35, ptr %3, align 4
-  br label %36
+34:                                               ; preds = %28
+  %35 = load i32, ptr %3, align 4
+  %36 = or i32 %35, 8208
+  store i32 %36, ptr %3, align 4
+  br label %37
 
-36:                                               ; preds = %33, %31, %7, %2
-  %37 = phi i32 [ %29, %31 ], [ 0, %33 ], [ -9, %2 ], [ -12, %7 ]
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %49
+37:                                               ; preds = %34, %32, %7, %2
+  %38 = phi i32 [ %30, %32 ], [ 0, %34 ], [ -9, %2 ], [ -12, %7 ]
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %51
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
-  %41 = load volatile i64, ptr %40, align 8
-  %42 = inttoptr i64 %41 to ptr
-  %43 = tail call ptr @getname_flags(ptr noundef %42, i32 noundef 1, ptr noundef null) #5
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %43, ptr %44, align 8
-  %45 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %45, label %46, label %49
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %42 = load volatile i64, ptr %41, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call ptr @getname_flags(ptr noundef %43, i32 noundef 1, ptr noundef null) #5
+  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %44, ptr %45, align 8
+  %46 = inttoptr i64 -4096 to ptr
+  %47 = icmp ugt ptr %44, %46
+  br i1 %47, label %48, label %51
 
-46:                                               ; preds = %39
-  %47 = ptrtoint ptr %43 to i64
-  %48 = trunc i64 %47 to i32
-  store ptr null, ptr %44, align 8
-  br label %49
+48:                                               ; preds = %40
+  %49 = ptrtoint ptr %44 to i64
+  %50 = trunc i64 %49 to i32
+  store ptr null, ptr %45, align 8
+  br label %51
 
-49:                                               ; preds = %46, %39, %36
-  %50 = phi i32 [ %37, %36 ], [ %48, %46 ], [ 0, %39 ]
-  ret i32 %50
+51:                                               ; preds = %48, %40, %37
+  %52 = phi i32 [ %38, %37 ], [ %50, %48 ], [ 0, %40 ]
+  ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -369,7 +373,7 @@ define dso_local i32 @io_fsetxattr_prep(ptr noundef %0, ptr noundef %1) local_un
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %36, !prof !6
+  br i1 %6, label %7, label %37, !prof !6
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -392,33 +396,34 @@ define dso_local i32 @io_fsetxattr_prep(ptr noundef %0, ptr noundef %1) local_un
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %21, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %24 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3264, i64 noundef 256) #6
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %24, ptr %25, align 8
-  %26 = icmp eq ptr %24, null
-  br i1 %26, label %36, label %27
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %24 = load ptr, ptr %23, align 16
+  %25 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 256) #6
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %25, ptr %26, align 8
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %37, label %28
 
-27:                                               ; preds = %7
-  %28 = inttoptr i64 %10 to ptr
-  %29 = tail call i32 @setxattr_copy(ptr noundef %28, ptr noundef %14) #5
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %33, label %31
+28:                                               ; preds = %7
+  %29 = inttoptr i64 %10 to ptr
+  %30 = tail call i32 @setxattr_copy(ptr noundef %29, ptr noundef %14) #5
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %25, align 8
-  tail call void @kfree(ptr noundef %32) #5
-  br label %36
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %26, align 8
+  tail call void @kfree(ptr noundef %33) #5
+  br label %37
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %3, align 4
-  %35 = or i32 %34, 8208
-  store i32 %35, ptr %3, align 4
-  br label %36
+34:                                               ; preds = %28
+  %35 = load i32, ptr %3, align 4
+  %36 = or i32 %35, 8208
+  store i32 %36, ptr %3, align 4
+  br label %37
 
-36:                                               ; preds = %33, %31, %7, %2
-  %37 = phi i32 [ %29, %31 ], [ 0, %33 ], [ -9, %2 ], [ -12, %7 ]
-  ret i32 %37
+37:                                               ; preds = %34, %32, %7, %2
+  %38 = phi i32 [ %30, %32 ], [ 0, %34 ], [ -9, %2 ], [ -12, %7 ]
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

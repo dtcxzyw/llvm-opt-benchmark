@@ -14,20 +14,22 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_vprotocol_pessimist_add_comm(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 4), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_pessimist_del_comm(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 5), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

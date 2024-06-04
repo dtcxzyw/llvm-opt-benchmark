@@ -2919,7 +2919,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb25TransactionDBMutexFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb29TransactionDBMutexFactoryImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb29TransactionDBMutexFactoryImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4856,9 +4857,11 @@ entry:
   call void @_ZN7rocksdb20RangeLockManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7rocksdb22RangeLockManagerHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %ltm_ = getelementptr inbounds %"class.rocksdb::RangeTreeLockManager", ptr %this1, i32 0, i32 2
   call void @_ZN4toku16locktree_managerC2Ev(ptr noundef nonnull align 8 dereferenceable(392) %ltm_) #3
   %barrier_func_ = getelementptr inbounds %"class.rocksdb::RangeTreeLockManager", ptr %this1, i32 0, i32 3
@@ -4898,49 +4901,49 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad4:                                            ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #20
   br label %ehcleanup12
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont7
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
   call void @_ZN7rocksdb23DeadlockInfoBufferTemplINS_17RangeDeadlockPathEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %dlock_buffer_) #3
   br label %ehcleanup
@@ -4958,8 +4961,8 @@ ehcleanup13:                                      ; preds = %ehcleanup12, %lpad
   call void @_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mutex_factory_) #3
   call void @_ZNSt8functionIFbRKN7rocksdb8EndpointES3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %barrier_func_) #3
   call void @_ZN4toku16locktree_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %ltm_) #3
-  %16 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7rocksdb22RangeLockManagerHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  %18 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7rocksdb22RangeLockManagerHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
   call void @_ZN7rocksdb20RangeLockManagerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -4978,7 +4981,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11LockManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb20RangeLockManagerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb20RangeLockManagerBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4989,7 +4993,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb17LockManagerHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22RangeLockManagerHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb22RangeLockManagerHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6252,9 +6257,11 @@ entry:
   %cache = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [26 x ptr], [12 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   invoke void @_ZN7rocksdb10autovectorIPvLm8EEC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %local_caches)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6266,13 +6273,13 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %local_caches, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  invoke void @_ZN7rocksdb10autovectorIPvLm8EE5beginEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %2 = load ptr, ptr %__range1, align 8
+  invoke void @_ZN7rocksdb10autovectorIPvLm8EE5beginEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %1 = load ptr, ptr %__range1, align 8
-  invoke void @_ZN7rocksdb10autovectorIPvLm8EE3endEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  %3 = load ptr, ptr %__range1, align 8
+  invoke void @_ZN7rocksdb10autovectorIPvLm8EE3endEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -6295,15 +6302,15 @@ for.body:                                         ; preds = %invoke.cont5
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %for.body
-  %2 = load ptr, ptr %call8, align 8
-  store ptr %2, ptr %cache, align 8
-  %3 = load ptr, ptr %cache, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %call8, align 8
+  store ptr %4, ptr %cache, align 8
+  %5 = load ptr, ptr %cache, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont7
-  call void @_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #20
+  call void @_ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  call void @_ZdlPv(ptr noundef %5) #20
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont7
@@ -6339,16 +6346,16 @@ invoke.cont11:                                    ; preds = %for.end
   call void @_ZNSt8functionIFbRKN7rocksdb8EndpointES3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %barrier_func_) #3
   %ltm_14 = getelementptr inbounds %"class.rocksdb::RangeTreeLockManager", ptr %this1, i32 0, i32 2
   call void @_ZN4toku16locktree_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %ltm_14) #3
-  %4 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7rocksdb22RangeLockManagerHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %6 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7rocksdb22RangeLockManagerHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7rocksdb20RangeLockManagerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %for.end, %for.inc, %for.body, %for.cond, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #18
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 }
 
@@ -8263,28 +8270,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8715,7 +8724,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb25TransactionDBMutexFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb25TransactionDBMutexFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10917,7 +10927,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb11LockManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb11LockManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10963,7 +10974,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb17LockManagerHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb17LockManagerHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15812,7 +15824,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18LockTrackerFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb27RangeTreeLockTrackerFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb27RangeTreeLockTrackerFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15838,7 +15851,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb18LockTrackerFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb18LockTrackerFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15909,7 +15923,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11LockTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb20RangeTreeLockTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %range_list_ = getelementptr inbounds %"class.rocksdb::RangeTreeLockTracker", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb13RangeLockListESt14default_deleteIS1_EEC2IS3_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %range_list_, ptr null) #3
   ret void
@@ -15921,7 +15936,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb11LockTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb11LockTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18544,10 +18560,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb29TransactionDBMutexFactoryImplELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb29TransactionDBMutexFactoryImplELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -18557,7 +18574,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -25866,14 +25884,15 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__d, i64 8, i1 false)
-  %1 = load ptr, ptr %__a.addr, align 8
+  %2 = load ptr, ptr %__a.addr, align 8
   %coerce.dive2 = getelementptr inbounds %class.anon.138, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive2, align 8
-  call void @"_ZNSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S5_RKS6_"(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %0, ptr %2, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %3 = load ptr, ptr %coerce.dive2, align 8
+  call void @"_ZNSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S5_RKS6_"(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %1, ptr %3, ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   ret void
 }
 

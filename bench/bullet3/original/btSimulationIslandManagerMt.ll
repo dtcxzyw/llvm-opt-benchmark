@@ -374,7 +374,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
           to label %invoke.cont unwind label %lpad
@@ -410,48 +411,48 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId) #10
   br label %ehcleanup
 
@@ -676,42 +677,43 @@ entry:
   %ref.tmp9 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
+  %1 = load i32, ptr %i, align 4
   %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
   %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp slt i32 %0, %call
+  %cmp = icmp slt i32 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
   %m_allocatedIslands2 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %i, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands2, i32 noundef %1)
+  %2 = load i32, ptr %i, align 4
+  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands2, i32 noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %for.body
-  %2 = load ptr, ptr %call4, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %call4, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont3
-  call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %2) #10
-  call void @_ZdlPv(ptr noundef %2) #12
+  call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %3) #10
+  call void @_ZdlPv(ptr noundef %3) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont3
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -746,10 +748,10 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont8, %invoke.cont6, %for.end, %for.body, %for.cond
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #11
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #11
   unreachable
 }
 
@@ -3843,13 +3845,14 @@ entry:
   store ptr %solverParams, ptr %solverParams.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_islandsPtr = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %islandsPtr.addr, align 8
-  store ptr %0, ptr %m_islandsPtr, align 8
+  %1 = load ptr, ptr %islandsPtr.addr, align 8
+  store ptr %1, ptr %m_islandsPtr, align 8
   %m_solverParams = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %solverParams.addr, align 8
-  store ptr %1, ptr %m_solverParams, align 8
+  %2 = load ptr, ptr %solverParams.addr, align 8
+  store ptr %2, ptr %m_solverParams, align 8
   ret void
 }
 
@@ -4250,7 +4253,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4810,7 +4814,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

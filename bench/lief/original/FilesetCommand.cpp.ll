@@ -57,15 +57,16 @@ define void @_ZN4LIEF5MachO14FilesetCommandC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
-  %5 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 2
-  store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
+  %6 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 4
-  store ptr null, ptr %7, align 8
+  %7 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 3
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 4
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -85,21 +86,22 @@ define void @_ZN4LIEF5MachO14FilesetCommandC2ERKNS0_7details21fileset_entry_comm
   %7 = getelementptr inbounds %"struct.LIEF::MachO::details::fileset_entry_command", ptr %6, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef 2147483701, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
-  %10 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::MachO::details::fileset_entry_command", ptr %11, i32 0, i32 2
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::fileset_entry_command", ptr %15, i32 0, i32 3
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 4
-  store ptr null, ptr %18, align 8
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #6
+  %11 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::MachO::details::fileset_entry_command", ptr %12, i32 0, i32 2
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::fileset_entry_command", ptr %16, i32 0, i32 3
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %5, i32 0, i32 4
+  store ptr null, ptr %19, align 8
   ret void
 }
 
@@ -160,9 +162,10 @@ define void @_ZN4LIEF5MachO14FilesetCommandD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #6
   ret void
 }
@@ -209,44 +212,45 @@ define void @_ZN4LIEF5MachO14FilesetCommandC2ERKS1_(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %22
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %23
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %14, i32 0, i32 2
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 3
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %18, i32 0, i32 3
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %17, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 4
-  store ptr null, ptr %21, align 8
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %15, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %19, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8
+  store i64 %21, ptr %18, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::FilesetCommand", ptr %7, i32 0, i32 4
+  store ptr null, ptr %22, align 8
   ret void
 
-22:                                               ; preds = %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #6
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1

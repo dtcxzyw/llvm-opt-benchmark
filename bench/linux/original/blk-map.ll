@@ -1477,13 +1477,13 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = load i32, ptr %11, align 8
   %13 = shl i32 %12, 9
   %14 = icmp ult i32 %13, %3
-  br i1 %14, label %174, label %15
+  br i1 %14, label %181, label %15
 
 15:                                               ; preds = %5
   %16 = icmp ne i32 %3, 0
   %17 = icmp ne ptr %2, null
   %18 = and i1 %17, %16
-  br i1 %18, label %19, label %174
+  br i1 %18, label %19, label %181
 
 19:                                               ; preds = %15
   %20 = icmp eq ptr %0, null
@@ -1505,7 +1505,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %32 = and i32 %28, %3
   %33 = icmp ne i32 %32, 0
   %34 = or i1 %33, %31
-  br i1 %34, label %108, label %35
+  br i1 %34, label %111, label %35
 
 35:                                               ; preds = %24
   %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !21
@@ -1516,7 +1516,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %41 = getelementptr i8, ptr %39, i64 16384
   %42 = icmp ule ptr %41, %2
   %43 = or i1 %40, %42
-  br i1 %43, label %44, label %108
+  br i1 %43, label %44, label %111
 
 44:                                               ; preds = %35
   %45 = zext i32 %3 to i64
@@ -1530,217 +1530,224 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %53 = trunc i64 %50 to i16
   %54 = tail call ptr @bio_kmalloc(i16 noundef zeroext %53, i32 noundef %4) #7
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %158, label %56
+  %56 = inttoptr i64 -12 to ptr
+  br i1 %55, label %164, label %57
 
-56:                                               ; preds = %44
-  %57 = getelementptr inbounds i8, ptr %54, i64 120
-  tail call void @bio_init(ptr noundef nonnull %54, ptr noundef null, ptr noundef %57, i16 noundef zeroext %53, i32 noundef 0) #7
-  br i1 %52, label %58, label %60
+57:                                               ; preds = %44
+  %58 = getelementptr inbounds i8, ptr %54, i64 120
+  tail call void @bio_init(ptr noundef nonnull %54, ptr noundef null, ptr noundef %58, i16 noundef zeroext %53, i32 noundef 0) #7
+  br i1 %52, label %59, label %61
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %54, i64 64
-  store ptr %2, ptr %59, align 8
-  br label %60
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds i8, ptr %54, i64 64
+  store ptr %2, ptr %60, align 8
+  br label %61
 
-60:                                               ; preds = %58, %56
-  %61 = icmp sgt i32 %51, 0
-  br i1 %61, label %62, label %106
+61:                                               ; preds = %59, %57
+  %62 = icmp sgt i32 %51, 0
+  br i1 %62, label %63, label %109
 
-62:                                               ; preds = %60
-  %63 = trunc i64 %10 to i32
-  %64 = and i32 %63, 4095
-  br label %65
+63:                                               ; preds = %61
+  %64 = trunc i64 %10 to i32
+  %65 = and i32 %64, 4095
+  br label %66
 
-65:                                               ; preds = %103, %62
-  %66 = phi i32 [ %104, %103 ], [ 0, %62 ]
-  %67 = phi i32 [ %101, %103 ], [ %64, %62 ]
-  %68 = phi ptr [ %100, %103 ], [ %2, %62 ]
-  %69 = phi i32 [ %99, %103 ], [ %3, %62 ]
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %98, label %71
+66:                                               ; preds = %106, %63
+  %67 = phi i32 [ %107, %106 ], [ 0, %63 ]
+  %68 = phi i32 [ %103, %106 ], [ %65, %63 ]
+  %69 = phi ptr [ %102, %106 ], [ %2, %63 ]
+  %70 = phi i32 [ %101, %106 ], [ %3, %63 ]
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %100, label %72
 
-71:                                               ; preds = %65
-  %72 = sub nuw nsw i32 4096, %67
-  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 %69)
-  br i1 %52, label %87, label %74
+72:                                               ; preds = %66
+  %73 = sub nuw nsw i32 4096, %68
+  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 %70)
+  br i1 %52, label %89, label %75
 
-74:                                               ; preds = %71
-  %75 = load i64, ptr @vmemmap_base, align 8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = ptrtoint ptr %68 to i64
-  %78 = add i64 %77, 2147483648
-  %79 = icmp ugt ptr %68, inttoptr (i64 -2147483649 to ptr)
-  %80 = load i64, ptr @phys_base, align 8
-  %81 = load i64, ptr @page_offset_base, align 8
-  %82 = sub i64 -2147483648, %81
-  %83 = select i1 %79, i64 %80, i64 %82
-  %84 = add i64 %78, %83
-  %85 = lshr i64 %84, 12
-  %86 = getelementptr %struct.page, ptr %76, i64 %85
-  br label %89
+75:                                               ; preds = %72
+  %76 = load i64, ptr @vmemmap_base, align 8
+  %77 = inttoptr i64 %76 to ptr
+  %78 = ptrtoint ptr %69 to i64
+  %79 = add i64 %78, 2147483648
+  %80 = inttoptr i64 -2147483649 to ptr
+  %81 = icmp ugt ptr %69, %80
+  %82 = load i64, ptr @phys_base, align 8
+  %83 = load i64, ptr @page_offset_base, align 8
+  %84 = sub i64 -2147483648, %83
+  %85 = select i1 %81, i64 %82, i64 %84
+  %86 = add i64 %79, %85
+  %87 = lshr i64 %86, 12
+  %88 = getelementptr %struct.page, ptr %77, i64 %87
+  br label %91
 
-87:                                               ; preds = %71
-  %88 = tail call ptr @vmalloc_to_page(ptr noundef %68) #7
-  br label %89
+89:                                               ; preds = %72
+  %90 = tail call ptr @vmalloc_to_page(ptr noundef %69) #7
+  br label %91
 
-89:                                               ; preds = %87, %74
-  %90 = phi ptr [ %88, %87 ], [ %86, %74 ]
-  %91 = tail call i32 @bio_add_pc_page(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %90, i32 noundef %73, i32 noundef %67) #7
-  %92 = icmp ult i32 %91, %73
-  br i1 %92, label %93, label %94
+91:                                               ; preds = %89, %75
+  %92 = phi ptr [ %90, %89 ], [ %88, %75 ]
+  %93 = tail call i32 @bio_add_pc_page(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %92, i32 noundef %74, i32 noundef %68) #7
+  %94 = icmp ult i32 %93, %74
+  br i1 %94, label %95, label %96
 
-93:                                               ; preds = %89
+95:                                               ; preds = %91
   tail call void @bio_uninit(ptr noundef nonnull %54) #7
   tail call void @kfree(ptr noundef nonnull %54) #7
-  br label %98
+  br label %100
 
-94:                                               ; preds = %89
-  %95 = zext nneg i32 %73 to i64
-  %96 = getelementptr i8, ptr %68, i64 %95
-  %97 = sub i32 %69, %73
-  br label %98
+96:                                               ; preds = %91
+  %97 = zext nneg i32 %74 to i64
+  %98 = getelementptr i8, ptr %69, i64 %97
+  %99 = sub i32 %70, %74
+  br label %100
 
-98:                                               ; preds = %94, %93, %65
-  %99 = phi i32 [ %69, %93 ], [ %97, %94 ], [ 0, %65 ]
-  %100 = phi ptr [ %68, %93 ], [ %96, %94 ], [ %68, %65 ]
-  %101 = phi i32 [ %67, %93 ], [ 0, %94 ], [ %67, %65 ]
-  %102 = phi i32 [ 1, %93 ], [ 0, %94 ], [ 2, %65 ]
-  switch i32 %102, label %158 [
-    i32 0, label %103
-    i32 2, label %106
+100:                                              ; preds = %96, %95, %66
+  %101 = phi i32 [ %70, %95 ], [ %99, %96 ], [ 0, %66 ]
+  %102 = phi ptr [ %69, %95 ], [ %98, %96 ], [ %69, %66 ]
+  %103 = phi i32 [ %68, %95 ], [ 0, %96 ], [ %68, %66 ]
+  %104 = phi i32 [ 1, %95 ], [ 0, %96 ], [ 2, %66 ]
+  %105 = inttoptr i64 -22 to ptr
+  switch i32 %104, label %164 [
+    i32 0, label %106
+    i32 2, label %109
   ]
 
-103:                                              ; preds = %98
-  %104 = add nuw nsw i32 %66, 1
-  %105 = icmp eq i32 %104, %51
-  br i1 %105, label %106, label %65, !llvm.loop !24
+106:                                              ; preds = %100
+  %107 = add nuw nsw i32 %67, 1
+  %108 = icmp eq i32 %107, %51
+  br i1 %108, label %109, label %66, !llvm.loop !24
 
-106:                                              ; preds = %103, %98, %60
-  %107 = getelementptr inbounds i8, ptr %54, i64 56
-  store ptr @bio_map_kern_endio, ptr %107, align 8
-  br label %158
+109:                                              ; preds = %106, %100, %61
+  %110 = getelementptr inbounds i8, ptr %54, i64 56
+  store ptr @bio_map_kern_endio, ptr %110, align 8
+  br label %164
 
-108:                                              ; preds = %35, %24
-  %109 = zext i32 %3 to i64
-  %110 = add i64 %10, 4095
-  %111 = add i64 %110, %109
-  %112 = lshr i64 %111, 12
-  %113 = lshr i64 %10, 12
-  %114 = icmp ult i64 %112, %113
-  br i1 %114, label %158, label %115
+111:                                              ; preds = %35, %24
+  %112 = zext i32 %3 to i64
+  %113 = add i64 %10, 4095
+  %114 = add i64 %113, %112
+  %115 = lshr i64 %114, 12
+  %116 = lshr i64 %10, 12
+  %117 = icmp ult i64 %115, %116
+  %118 = inttoptr i64 -22 to ptr
+  br i1 %117, label %164, label %119
 
-115:                                              ; preds = %108
-  %116 = sub nsw i64 %112, %113
-  %117 = trunc i64 %116 to i16
-  %118 = tail call ptr @bio_kmalloc(i16 noundef zeroext %117, i32 noundef %4) #7
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %158, label %120
+119:                                              ; preds = %111
+  %120 = sub nsw i64 %115, %116
+  %121 = trunc i64 %120 to i16
+  %122 = tail call ptr @bio_kmalloc(i16 noundef zeroext %121, i32 noundef %4) #7
+  %123 = icmp eq ptr %122, null
+  %124 = inttoptr i64 -12 to ptr
+  br i1 %123, label %164, label %125
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %118, i64 120
-  tail call void @bio_init(ptr noundef nonnull %118, ptr noundef null, ptr noundef %121, i16 noundef zeroext %117, i32 noundef 0) #7
-  %122 = or i32 %4, 3328
-  br label %123
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %122, i64 120
+  tail call void @bio_init(ptr noundef nonnull %122, ptr noundef null, ptr noundef %126, i16 noundef zeroext %121, i32 noundef 0) #7
+  %127 = or i32 %4, 3328
+  br label %128
 
-123:                                              ; preds = %148, %120
-  %124 = phi i32 [ %3, %120 ], [ %149, %148 ]
-  %125 = phi ptr [ %2, %120 ], [ %150, %148 ]
-  %126 = icmp eq i32 %124, 0
-  br i1 %126, label %152, label %127
+128:                                              ; preds = %153, %125
+  %129 = phi i32 [ %3, %125 ], [ %154, %153 ]
+  %130 = phi ptr [ %2, %125 ], [ %155, %153 ]
+  %131 = icmp eq i32 %129, 0
+  br i1 %131, label %157, label %132
 
-127:                                              ; preds = %123
-  %128 = tail call i32 @llvm.umin.i32(i32 %124, i32 4096)
-  %129 = tail call ptr @alloc_pages(i32 noundef %122, i32 noundef 0) #7
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %148, label %131
+132:                                              ; preds = %128
+  %133 = tail call i32 @llvm.umin.i32(i32 %129, i32 4096)
+  %134 = tail call ptr @alloc_pages(i32 noundef %127, i32 noundef 0) #7
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %153, label %136
 
-131:                                              ; preds = %127
-  br i1 %9, label %141, label %132
+136:                                              ; preds = %132
+  br i1 %9, label %146, label %137
 
-132:                                              ; preds = %131
-  %133 = load i64, ptr @vmemmap_base, align 8
-  %134 = ptrtoint ptr %129 to i64
-  %135 = sub i64 %134, %133
-  %136 = shl i64 %135, 6
-  %137 = load i64, ptr @page_offset_base, align 8
-  %138 = add i64 %136, %137
-  %139 = inttoptr i64 %138 to ptr
-  %140 = zext nneg i32 %128 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr align 1 %125, i64 %140, i1 false)
-  br label %141
+137:                                              ; preds = %136
+  %138 = load i64, ptr @vmemmap_base, align 8
+  %139 = ptrtoint ptr %134 to i64
+  %140 = sub i64 %139, %138
+  %141 = shl i64 %140, 6
+  %142 = load i64, ptr @page_offset_base, align 8
+  %143 = add i64 %141, %142
+  %144 = inttoptr i64 %143 to ptr
+  %145 = zext nneg i32 %133 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 1 %130, i64 %145, i1 false)
+  br label %146
 
-141:                                              ; preds = %132, %131
-  %142 = tail call i32 @bio_add_pc_page(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %129, i32 noundef %128, i32 noundef 0) #7
-  %143 = icmp ult i32 %142, %128
-  br i1 %143, label %148, label %144
+146:                                              ; preds = %137, %136
+  %147 = tail call i32 @bio_add_pc_page(ptr noundef %0, ptr noundef nonnull %122, ptr noundef nonnull %134, i32 noundef %133, i32 noundef 0) #7
+  %148 = icmp ult i32 %147, %133
+  br i1 %148, label %153, label %149
 
-144:                                              ; preds = %141
-  %145 = sub i32 %124, %128
-  %146 = zext nneg i32 %128 to i64
-  %147 = getelementptr i8, ptr %125, i64 %146
-  br label %148
+149:                                              ; preds = %146
+  %150 = sub i32 %129, %133
+  %151 = zext nneg i32 %133 to i64
+  %152 = getelementptr i8, ptr %130, i64 %151
+  br label %153
 
-148:                                              ; preds = %144, %141, %127
-  %149 = phi i32 [ %145, %144 ], [ %124, %127 ], [ %124, %141 ]
-  %150 = phi ptr [ %147, %144 ], [ %125, %127 ], [ %125, %141 ]
-  %151 = phi i32 [ 0, %144 ], [ 4, %127 ], [ 3, %141 ]
-  switch i32 %151, label %158 [
-    i32 0, label %123
-    i32 3, label %152
-    i32 4, label %157
+153:                                              ; preds = %149, %146, %132
+  %154 = phi i32 [ %150, %149 ], [ %129, %132 ], [ %129, %146 ]
+  %155 = phi ptr [ %152, %149 ], [ %130, %132 ], [ %130, %146 ]
+  %156 = phi i32 [ 0, %149 ], [ 4, %132 ], [ 3, %146 ]
+  switch i32 %156, label %164 [
+    i32 0, label %128
+    i32 3, label %157
+    i32 4, label %162
   ], !llvm.loop !25
 
-152:                                              ; preds = %148, %123
-  %153 = getelementptr inbounds i8, ptr %118, i64 56
-  br i1 %9, label %154, label %156
+157:                                              ; preds = %153, %128
+  %158 = getelementptr inbounds i8, ptr %122, i64 56
+  br i1 %9, label %159, label %161
 
-154:                                              ; preds = %152
-  store ptr @bio_copy_kern_endio_read, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %118, i64 64
-  store ptr %2, ptr %155, align 8
-  br label %158
+159:                                              ; preds = %157
+  store ptr @bio_copy_kern_endio_read, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %122, i64 64
+  store ptr %2, ptr %160, align 8
+  br label %164
 
-156:                                              ; preds = %152
-  store ptr @bio_copy_kern_endio, ptr %153, align 8
-  br label %158
+161:                                              ; preds = %157
+  store ptr @bio_copy_kern_endio, ptr %158, align 8
+  br label %164
 
-157:                                              ; preds = %148
-  tail call void @bio_free_pages(ptr noundef nonnull %118) #7
-  tail call void @bio_uninit(ptr noundef nonnull %118) #7
-  tail call void @kfree(ptr noundef nonnull %118) #7
-  br label %158
+162:                                              ; preds = %153
+  tail call void @bio_free_pages(ptr noundef nonnull %122) #7
+  tail call void @bio_uninit(ptr noundef nonnull %122) #7
+  tail call void @kfree(ptr noundef nonnull %122) #7
+  %163 = inttoptr i64 -12 to ptr
+  br label %164
 
-158:                                              ; preds = %157, %156, %154, %148, %115, %108, %106, %98, %44
-  %159 = phi ptr [ %54, %106 ], [ inttoptr (i64 -12 to ptr), %44 ], [ inttoptr (i64 -12 to ptr), %157 ], [ %118, %156 ], [ %118, %154 ], [ inttoptr (i64 -22 to ptr), %108 ], [ inttoptr (i64 -12 to ptr), %115 ], [ undef, %148 ], [ inttoptr (i64 -22 to ptr), %98 ]
-  %160 = icmp ugt ptr %159, inttoptr (i64 -4096 to ptr)
-  br i1 %160, label %161, label %164
+164:                                              ; preds = %162, %161, %159, %153, %119, %111, %109, %100, %44
+  %165 = phi ptr [ %54, %109 ], [ %56, %44 ], [ %163, %162 ], [ %122, %161 ], [ %122, %159 ], [ %118, %111 ], [ %124, %119 ], [ undef, %153 ], [ %105, %100 ]
+  %166 = inttoptr i64 -4096 to ptr
+  %167 = icmp ugt ptr %165, %166
+  br i1 %167, label %168, label %171
 
-161:                                              ; preds = %158
-  %162 = ptrtoint ptr %159 to i64
-  %163 = trunc i64 %162 to i32
-  br label %174
+168:                                              ; preds = %164
+  %169 = ptrtoint ptr %165 to i64
+  %170 = trunc i64 %169 to i32
+  br label %181
 
-164:                                              ; preds = %158
-  %165 = getelementptr inbounds i8, ptr %159, i64 16
-  %166 = load i32, ptr %165, align 8
-  %167 = and i32 %166, -256
-  store i32 %167, ptr %165, align 8
-  %168 = load i32, ptr %6, align 8
-  %169 = and i32 %168, 255
-  %170 = or disjoint i32 %169, %167
-  store i32 %170, ptr %165, align 8
-  %171 = tail call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef %159), !range !14
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %174, label %173, !prof !26
+171:                                              ; preds = %164
+  %172 = getelementptr inbounds i8, ptr %165, i64 16
+  %173 = load i32, ptr %172, align 8
+  %174 = and i32 %173, -256
+  store i32 %174, ptr %172, align 8
+  %175 = load i32, ptr %6, align 8
+  %176 = and i32 %175, 255
+  %177 = or disjoint i32 %176, %174
+  store i32 %177, ptr %172, align 8
+  %178 = tail call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef %165), !range !14
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %181, label %180, !prof !26
 
-173:                                              ; preds = %164
-  tail call void @bio_uninit(ptr noundef %159) #7
-  tail call void @kfree(ptr noundef %159) #7
-  br label %174
+180:                                              ; preds = %171
+  tail call void @bio_uninit(ptr noundef %165) #7
+  tail call void @kfree(ptr noundef %165) #7
+  br label %181
 
-174:                                              ; preds = %173, %164, %161, %15, %5
-  %175 = phi i32 [ %163, %161 ], [ -22, %5 ], [ -22, %15 ], [ %171, %173 ], [ %171, %164 ]
-  ret i32 %175
+181:                                              ; preds = %180, %171, %168, %15, %5
+  %182 = phi i32 [ %170, %168 ], [ -22, %5 ], [ -22, %15 ], [ %178, %180 ], [ %178, %171 ]
+  ret i32 %182
 }
 
 ; Function Attrs: null_pointer_is_valid

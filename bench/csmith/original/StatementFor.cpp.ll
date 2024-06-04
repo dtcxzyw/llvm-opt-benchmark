@@ -3894,19 +3894,20 @@ define dso_local void @_ZN12StatementForC2EP5BlockRK15StatementAssignRK10Express
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 2, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %9, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 2
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 3
-  %20 = load ptr, ptr %11, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 4
-  %22 = load ptr, ptr %12, align 8
-  store ptr %22, ptr %21, align 8
+  %15 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %9, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 2
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 3
+  %21 = load ptr, ptr %11, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 4
+  %23 = load ptr, ptr %12, align 8
+  store ptr %23, ptr %22, align 8
   ret void
 }
 
@@ -3917,59 +3918,60 @@ define dso_local void @_ZN12StatementForD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(136) %5) #3
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(136) %6) #3
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 1
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 1
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  br label %20
 
-19:                                               ; preds = %15, %11
-  %20 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %27, label %23
+20:                                               ; preds = %16, %12
+  %21 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %28, label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 1
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(136) %21) #3
-  br label %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %22, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 1
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(136) %22) #3
+  br label %28
 
-27:                                               ; preds = %23, %19
-  %28 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 4
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %35, label %31
+28:                                               ; preds = %24, %20
+  %29 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %36, label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 1
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(192) %29) #3
-  br label %35
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds ptr, ptr %33, i64 1
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(192) %30) #3
+  br label %36
 
-35:                                               ; preds = %31, %27
+36:                                               ; preds = %32, %28
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 }

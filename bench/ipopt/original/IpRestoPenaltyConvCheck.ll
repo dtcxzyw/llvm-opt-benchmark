@@ -73,9 +73,10 @@ define void @_ZN5Ipopt28RestoPenaltyConvergenceCheckC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt21RestoConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Ipopt28RestoPenaltyConvergenceCheckE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::RestoPenaltyConvergenceCheck", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Ipopt28RestoPenaltyConvergenceCheckE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::RestoPenaltyConvergenceCheck", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -86,7 +87,8 @@ define void @_ZN5Ipopt28RestoPenaltyConvergenceCheckD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Ipopt28RestoPenaltyConvergenceCheckE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5Ipopt28RestoPenaltyConvergenceCheckE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   call void @_ZN5Ipopt21RestoConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #3
   ret void
 }

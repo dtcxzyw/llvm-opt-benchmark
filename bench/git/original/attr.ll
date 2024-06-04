@@ -243,53 +243,62 @@ entry:
 do.body:                                          ; preds = %entry
   %0 = load i64, ptr @check_vector, align 8
   %add = add i64 %0, 1
-  %1 = load i64, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
-  %cmp = icmp ugt i64 %add, %1
+  %1 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ugt i64 %add, %2
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %do.body
-  %2 = load i64, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
-  %add1 = add i64 %2, 16
+  %3 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %add1 = add i64 %4, 16
   %mul = mul i64 %add1, 3
   %div = udiv i64 %mul, 2
-  %3 = load i64, ptr @check_vector, align 8
-  %add2 = add i64 %3, 1
+  %5 = load i64, ptr @check_vector, align 8
+  %add2 = add i64 %5, 1
   %cmp3 = icmp ult i64 %div, %add2
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %4 = load i64, ptr @check_vector, align 8
-  %add5 = add i64 %4, 1
-  store i64 %add5, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
+  %6 = load i64, ptr @check_vector, align 8
+  %add5 = add i64 %6, 1
+  %7 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  store i64 %add5, ptr %7, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %5 = load i64, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
-  %add6 = add i64 %5, 16
+  %8 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %add6 = add i64 %9, 16
   %mul7 = mul i64 %add6, 3
   %div8 = udiv i64 %mul7, 2
-  store i64 %div8, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
+  %10 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  store i64 %div8, ptr %10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 1), align 8
-  %call = call i64 @st_mult(i64 noundef 8, i64 noundef %7)
-  %call9 = call ptr @xrealloc(ptr noundef %6, i64 noundef %call)
-  store ptr %call9, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
+  %11 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %call = call i64 @st_mult(i64 noundef 8, i64 noundef %14)
+  %call9 = call ptr @xrealloc(ptr noundef %12, i64 noundef %call)
+  %15 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  store ptr %call9, ptr %15, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end10
-  %8 = load ptr, ptr %c.addr, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %10 = load i64, ptr @check_vector, align 8
-  %inc = add i64 %10, 1
+  %16 = load ptr, ptr %c.addr, align 8
+  %17 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i64, ptr @check_vector, align 8
+  %inc = add i64 %19, 1
   store i64 %inc, ptr @check_vector, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %10
-  store ptr %8, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %18, i64 %19
+  store ptr %16, ptr %arrayidx, align 8
   call void @vector_unlock()
   ret void
 }
@@ -305,7 +314,7 @@ entry:
   %attr12 = alloca ptr, align 8
   store ptr %one, ptr %one.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   store i32 1, ptr %cnt, align 4
   br label %for.cond
 
@@ -349,7 +358,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %vaarg.end
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %call = call ptr @attr_check_alloc()
   store ptr %call, ptr %check, align 8
   %5 = load i32, ptr %cnt, align 4
@@ -375,7 +384,7 @@ for.end:                                          ; preds = %vaarg.end
   %attr = getelementptr inbounds %struct.attr_check_item, ptr %arrayidx, i32 0, i32 0
   store ptr %call4, ptr %attr, align 8
   %arraydecay6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay6)
+  call void @llvm.va_start.p0(ptr %arraydecay6)
   store i32 1, ptr %cnt, align 4
   br label %for.cond7
 
@@ -458,19 +467,13 @@ for.inc33:                                        ; preds = %if.end29
 
 for.end35:                                        ; preds = %for.cond7
   %arraydecay36 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay36)
+  call void @llvm.va_end.p0(ptr %arraydecay36)
   %33 = load ptr, ptr %check, align 8
   ret ptr %33
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #4
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @attr_check_dup(ptr noundef %check) #0 {
@@ -750,7 +753,7 @@ do.end4:                                          ; preds = %do.body2
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @drop_attr_stack(ptr noundef %stack) #0 {
@@ -823,13 +826,14 @@ for.cond:                                         ; preds = %for.inc, %entry
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %5 = load ptr, ptr %check.addr, align 8
-  %cmp2 = icmp eq ptr %4, %5
+  %2 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %check.addr, align 8
+  %cmp2 = icmp eq ptr %5, %6
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -839,16 +843,16 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
+  %7 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %if.then, %for.cond
-  %7 = load i32, ptr %i, align 4
-  %conv4 = sext i32 %7 to i64
-  %8 = load i64, ptr @check_vector, align 8
-  %cmp5 = icmp uge i64 %conv4, %8
+  %8 = load i32, ptr %i, align 4
+  %conv4 = sext i32 %8 to i64
+  %9 = load i64, ptr @check_vector, align 8
+  %cmp5 = icmp uge i64 %conv4, %9
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %for.end
@@ -859,36 +863,38 @@ if.end8:                                          ; preds = %for.end
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.inc18, %if.end8
-  %9 = load i32, ptr %i, align 4
-  %conv10 = sext i32 %9 to i64
-  %10 = load i64, ptr @check_vector, align 8
-  %sub = sub i64 %10, 1
+  %10 = load i32, ptr %i, align 4
+  %conv10 = sext i32 %10 to i64
+  %11 = load i64, ptr @check_vector, align 8
+  %sub = sub i64 %11, 1
   %cmp11 = icmp ult i64 %conv10, %sub
   br i1 %cmp11, label %for.body13, label %for.end20
 
 for.body13:                                       ; preds = %for.cond9
-  %11 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %12 = load i32, ptr %i, align 4
-  %add = add nsw i32 %12, 1
+  %12 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %i, align 4
+  %add = add nsw i32 %14, 1
   %idxprom14 = sext i32 %add to i64
-  %arrayidx15 = getelementptr inbounds ptr, ptr %11, i64 %idxprom14
-  %13 = load ptr, ptr %arrayidx15, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom16 = sext i32 %15 to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %14, i64 %idxprom16
-  store ptr %13, ptr %arrayidx17, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %13, i64 %idxprom14
+  %15 = load ptr, ptr %arrayidx15, align 8
+  %16 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %i, align 4
+  %idxprom16 = sext i32 %18 to i64
+  %arrayidx17 = getelementptr inbounds ptr, ptr %17, i64 %idxprom16
+  store ptr %15, ptr %arrayidx17, align 8
   br label %for.inc18
 
 for.inc18:                                        ; preds = %for.body13
-  %16 = load i32, ptr %i, align 4
-  %inc19 = add nsw i32 %16, 1
+  %19 = load i32, ptr %i, align 4
+  %inc19 = add nsw i32 %19, 1
   store i32 %inc19, ptr %i, align 4
   br label %for.cond9, !llvm.loop !10
 
 for.end20:                                        ; preds = %for.cond9
-  %17 = load i64, ptr @check_vector, align 8
-  %dec = add i64 %17, -1
+  %20 = load i64, ptr @check_vector, align 8
+  %dec = add i64 %20, -1
   store i64 %dec, ptr @check_vector, align 8
   call void @vector_unlock()
   ret void
@@ -946,18 +952,19 @@ for.cond:                                         ; preds = %for.inc, %entry
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 2), align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %stack = getelementptr inbounds %struct.attr_check, ptr %4, i32 0, i32 5
+  %2 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  %stack = getelementptr inbounds %struct.attr_check, ptr %5, i32 0, i32 5
   call void @drop_attr_stack(ptr noundef %stack)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
+  %6 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
@@ -1412,13 +1419,15 @@ for.end:                                          ; preds = %for.cond
 ; Function Attrs: nounwind uwtable
 define dso_local void @attr_start() #0 {
 entry:
-  %call = call i32 @pthread_mutex_init(ptr noundef getelementptr inbounds (%struct.attr_hashmap, ptr @g_attr_hashmap, i32 0, i32 1), ptr noundef null) #10
-  %call1 = call i32 @pthread_mutex_init(ptr noundef getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 3), ptr noundef null) #10
+  %0 = getelementptr inbounds %struct.attr_hashmap, ptr @g_attr_hashmap, i32 0, i32 1
+  %call = call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #10
+  %1 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 3
+  %call1 = call i32 @pthread_mutex_init(ptr noundef %1, ptr noundef null) #10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #5
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @attr_name_valid(ptr noundef %name, i64 noundef %namelen) #0 {
@@ -1613,7 +1622,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @hashmap_get_size(ptr noundef %map) #0 {
@@ -1680,7 +1689,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #4
+declare void @die(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_(ptr noundef %msgid) #0 {
@@ -1730,7 +1739,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #5
+declare i32 @pthread_mutex_lock(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @hashmap_entry_init(ptr noundef %e, i32 noundef %hash) #0 {
@@ -1782,22 +1791,24 @@ declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) #2
 declare void @hashmap_add(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #5
+declare ptr @gettext(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #5
+declare i32 @pthread_mutex_unlock(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @vector_lock() #0 {
 entry:
-  %call = call i32 @pthread_mutex_lock(ptr noundef getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 3)) #10
+  %0 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 3
+  %call = call i32 @pthread_mutex_lock(ptr noundef %0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @vector_unlock() #0 {
 entry:
-  %call = call i32 @pthread_mutex_unlock(ptr noundef getelementptr inbounds (%struct.check_vector, ptr @check_vector, i32 0, i32 3)) #10
+  %0 = getelementptr inbounds %struct.check_vector, ptr @check_vector, i32 0, i32 3
+  %call = call i32 @pthread_mutex_unlock(ptr noundef %0) #10
   ret void
 }
 
@@ -2098,7 +2109,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #5
+declare ptr @getenv(ptr noundef) #4
 
 declare i32 @repo_get_oid_treeish(ptr noundef, ptr noundef, ptr noundef) #2
 
@@ -3760,7 +3771,7 @@ return:                                           ; preds = %fail_return, %for.e
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare i64 @strspn(ptr noundef, ptr noundef) #1
@@ -4027,7 +4038,7 @@ declare i32 @warn_on_fopen_errors(ptr noundef) #2
 declare ptr @xfdopen(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @fstat64(i32 noundef, ptr noundef) #5
+declare i32 @fstat64(i32 noundef, ptr noundef) #4
 
 declare void @warning_errno(ptr noundef, ...) #2
 
@@ -4825,10 +4836,10 @@ return:                                           ; preds = %if.end41, %if.else3
 }
 
 ; Function Attrs: nounwind
-declare i32 @lstat64(ptr noundef, ptr noundef) #5
+declare i32 @lstat64(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: noreturn
-declare void @die_errno(ptr noundef, ...) #4
+declare void @die_errno(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @canon_mode(i32 noundef %mode) #0 {
@@ -4952,7 +4963,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @attr_hash_entry_cmp(ptr noundef %cmp_data, ptr noundef %eptr, ptr noundef %entry_or_key, ptr noundef %keydata) #0 {
@@ -5002,14 +5013,20 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i32 %lor.ext
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind }

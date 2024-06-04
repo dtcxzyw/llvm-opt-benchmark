@@ -4461,10 +4461,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #5
 define internal void @__cxx_global_var_init.1() #3 section ".text.startup" {
 entry:
   call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 1), float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 2), float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 3), float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 4), float noundef 5.000000e-01, float noundef 5.000000e-01, float noundef 5.000000e-01)
+  %0 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 1
+  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  %1 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 2
+  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %1, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  %2 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 3
+  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %2, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+  %3 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE, i64 4
+  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef 5.000000e-01, float noundef 5.000000e-01, float noundef 5.000000e-01)
   ret void
 }
 
@@ -6087,22 +6091,26 @@ init7:                                            ; preds = %init.check5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %init7
-  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 1), float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  %5 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 1
+  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %5, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont10 unwind label %lpad8
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 2), float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  %6 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 2
+  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 3), float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+  %7 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 3
+  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %7, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
           to label %invoke.cont12 unwind label %lpad8
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  %5 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
-  %6 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
-  %7 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
-  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 4), float noundef %5, float noundef %6, float noundef %7)
+  %8 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
+  %9 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
+  %10 = load float, ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05, align 4
+  %11 = getelementptr inbounds %"class.Imath_2_5::Color3", ptr @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results, i64 4
+  invoke void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %11, float noundef %8, float noundef %9, float noundef %10)
           to label %invoke.cont13 unwind label %lpad8
 
 invoke.cont13:                                    ; preds = %invoke.cont12
@@ -6116,46 +6124,46 @@ init.end14:                                       ; preds = %invoke.cont13, %ini
   br i1 %tobool16, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %init.end14
-  %8 = load ptr, ptr %cs.addr, align 8
-  %name = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::CSInfo", ptr %8, i32 0, i32 0
+  %12 = load ptr, ptr %cs.addr, align 8
+  %name = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::CSInfo", ptr %12, i32 0, i32 0
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #5
   %srgb_alias18 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ColorConfig::Impl", ptr %this1, i32 0, i32 3
   %call19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %srgb_alias18) #5
   call void @_ZN18OpenImageIO_v2_6_04spanIKN9Imath_2_56Color3IfEELln1EEC2ILm5EEERAT__S4_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(60) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111test_colorsE)
   call void @_ZN18OpenImageIO_v2_6_04spanIKN9Imath_2_56Color3IfEELln1EEC2ILm5EEERAT__S4_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 4 dereferenceable(60) @_ZZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results)
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %call21 = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011ColorConfig4Impl22test_conversion_yieldsEPKcS3_NS_4spanIKN9Imath_2_56Color3IfEELln1EEES9_(ptr noundef nonnull align 8 dereferenceable(297) %this1, ptr noundef %call17, ptr noundef %call19, ptr %10, i64 %12, ptr noundef byval(%"class.OpenImageIO_v2_6_0::span") align 8 %agg.tmp20)
+  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %call21 = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011ColorConfig4Impl22test_conversion_yieldsEPKcS3_NS_4spanIKN9Imath_2_56Color3IfEELln1EEES9_(ptr noundef nonnull align 8 dereferenceable(297) %this1, ptr noundef %call17, ptr noundef %call19, ptr %14, i64 %16, ptr noundef byval(%"class.OpenImageIO_v2_6_0::span") align 8 %agg.tmp20)
   br i1 %call21, label %if.then22, label %if.end
 
 if.then22:                                        ; preds = %land.lhs.true
-  %13 = load ptr, ptr %cs.addr, align 8
+  %17 = load ptr, ptr %cs.addr, align 8
   %lin_srgb_alias = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ColorConfig::Impl", ptr %this1, i32 0, i32 2
-  call void @_ZN18OpenImageIO_v2_6_011ColorConfig4Impl7setflagERNS_6CSInfoEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(297) %this1, ptr noundef nonnull align 8 dereferenceable(80) %13, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(32) %lin_srgb_alias)
-  %14 = load ptr, ptr %cs.addr, align 8
-  %canonical = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::CSInfo", ptr %14, i32 0, i32 4
+  call void @_ZN18OpenImageIO_v2_6_011ColorConfig4Impl7setflagERNS_6CSInfoEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(297) %this1, ptr noundef nonnull align 8 dereferenceable(80) %17, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(32) %lin_srgb_alias)
+  %18 = load ptr, ptr %cs.addr, align 8
+  %canonical = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::CSInfo", ptr %18, i32 0, i32 4
   %call23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %canonical, ptr noundef @.str.11)
   br label %if.end
 
 lpad:                                             ; preds = %init
-  %15 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE6srgb05) #5
   br label %eh.resume
 
 lpad8:                                            ; preds = %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %init7
-  %18 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN18OpenImageIO_v2_6_011ColorConfig4Impl21reclassify_heuristicsERNS_6CSInfoEE24lin_srgb_to_srgb_results) #5
   br label %eh.resume
 
@@ -9751,7 +9759,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_020ColorProcessor_IdentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_020ColorProcessor_IdentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9788,7 +9797,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_029ColorProcessor_linear_to_sRGBE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_029ColorProcessor_linear_to_sRGBE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9812,7 +9822,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_029ColorProcessor_sRGB_to_linearE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_029ColorProcessor_sRGB_to_linearE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9836,7 +9847,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_031ColorProcessor_linear_to_Rec709E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_031ColorProcessor_linear_to_Rec709E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9860,7 +9872,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_031ColorProcessor_Rec709_to_linearE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_031ColorProcessor_Rec709_to_linearE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9900,10 +9913,11 @@ entry:
   store float %gamma, ptr %gamma.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_020ColorProcessor_gammaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_020ColorProcessor_gammaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_gamma = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ColorProcessor_gamma", ptr %this1, i32 0, i32 1
-  %0 = load float, ptr %gamma.addr, align 4
-  store float %0, ptr %m_gamma, align 8
+  %1 = load float, ptr %gamma.addr, align 4
+  store float %1, ptr %m_gamma, align 8
   ret void
 }
 
@@ -11962,69 +11976,70 @@ entry:
   store i8 %frombool, ptr %inverse.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021ColorProcessor_MatrixE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021ColorProcessor_MatrixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_M = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ColorProcessor_Matrix", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Matrix.addr, align 8
-  call void @_ZN18OpenImageIO_v2_6_011MatrixParamIfLi4EEC2IN9Imath_2_58Matrix44IfEETnNSt9enable_ifIXsr23has_double_subscript_RCIT_fL_ZNS1_4SizeEEL_ZNS1_4SizeEEEE5valueEiE4typeELi0EEERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(64) %0) #5
+  %1 = load ptr, ptr %Matrix.addr, align 8
+  call void @_ZN18OpenImageIO_v2_6_011MatrixParamIfLi4EEC2IN9Imath_2_58Matrix44IfEETnNSt9enable_ifIXsr23has_double_subscript_RCIT_fL_ZNS1_4SizeEEL_ZNS1_4SizeEEEE5valueEiE4typeELi0EEERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(64) %1) #5
   %coerce.dive = getelementptr inbounds %"class.OpenImageIO_v2_6_0::MatrixParam", ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive, align 8
-  store ptr %1, ptr %M.i, align 8
+  %2 = load ptr, ptr %coerce.dive, align 8
+  store ptr %2, ptr %M.i, align 8
   store ptr %m_M, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %call.i = call noundef ptr @_ZNK18OpenImageIO_v2_6_011MatrixParamIfLi4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(8) %M.i) #5
   store ptr %this1.i, ptr %this.addr.i38, align 8
   store ptr %call.i, ptr %f.addr.i, align 8
   %this1.i39 = load ptr, ptr %this.addr.i38, align 8
-  %2 = load ptr, ptr %f.addr.i, align 8
+  %3 = load ptr, ptr %f.addr.i, align 8
   store ptr %this1.i39, ptr %this.addr.i51, align 8
-  store ptr %2, ptr %values.addr.i52, align 8
+  store ptr %3, ptr %values.addr.i52, align 8
   %this1.i53 = load ptr, ptr %this.addr.i51, align 8
-  %3 = load ptr, ptr %values.addr.i52, align 8
-  store ptr %3, ptr %__p.addr.i.i50, align 8
-  %4 = load ptr, ptr %__p.addr.i.i50, align 8
-  %5 = load <4 x float>, ptr %4, align 1
-  store <4 x float> %5, ptr %this1.i53, align 16
+  %4 = load ptr, ptr %values.addr.i52, align 8
+  store ptr %4, ptr %__p.addr.i.i50, align 8
+  %5 = load ptr, ptr %__p.addr.i.i50, align 8
+  %6 = load <4 x float>, ptr %5, align 1
+  store <4 x float> %6, ptr %this1.i53, align 16
   %arrayidx2.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i39, i64 0, i64 1
-  %6 = load ptr, ptr %f.addr.i, align 8
-  %add.ptr3.i = getelementptr inbounds float, ptr %6, i64 4
+  %7 = load ptr, ptr %f.addr.i, align 8
+  %add.ptr3.i = getelementptr inbounds float, ptr %7, i64 4
   store ptr %arrayidx2.i, ptr %this.addr.i47, align 8
   store ptr %add.ptr3.i, ptr %values.addr.i48, align 8
   %this1.i49 = load ptr, ptr %this.addr.i47, align 8
-  %7 = load ptr, ptr %values.addr.i48, align 8
-  store ptr %7, ptr %__p.addr.i.i46, align 8
-  %8 = load ptr, ptr %__p.addr.i.i46, align 8
-  %9 = load <4 x float>, ptr %8, align 1
-  store <4 x float> %9, ptr %this1.i49, align 16
+  %8 = load ptr, ptr %values.addr.i48, align 8
+  store ptr %8, ptr %__p.addr.i.i46, align 8
+  %9 = load ptr, ptr %__p.addr.i.i46, align 8
+  %10 = load <4 x float>, ptr %9, align 1
+  store <4 x float> %10, ptr %this1.i49, align 16
   %arrayidx4.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i39, i64 0, i64 2
-  %10 = load ptr, ptr %f.addr.i, align 8
-  %add.ptr5.i = getelementptr inbounds float, ptr %10, i64 8
+  %11 = load ptr, ptr %f.addr.i, align 8
+  %add.ptr5.i = getelementptr inbounds float, ptr %11, i64 8
   store ptr %arrayidx4.i, ptr %this.addr.i43, align 8
   store ptr %add.ptr5.i, ptr %values.addr.i44, align 8
   %this1.i45 = load ptr, ptr %this.addr.i43, align 8
-  %11 = load ptr, ptr %values.addr.i44, align 8
-  store ptr %11, ptr %__p.addr.i.i42, align 8
-  %12 = load ptr, ptr %__p.addr.i.i42, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %this1.i45, align 16
+  %12 = load ptr, ptr %values.addr.i44, align 8
+  store ptr %12, ptr %__p.addr.i.i42, align 8
+  %13 = load ptr, ptr %__p.addr.i.i42, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %this1.i45, align 16
   %arrayidx6.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i39, i64 0, i64 3
-  %14 = load ptr, ptr %f.addr.i, align 8
-  %add.ptr7.i = getelementptr inbounds float, ptr %14, i64 12
+  %15 = load ptr, ptr %f.addr.i, align 8
+  %add.ptr7.i = getelementptr inbounds float, ptr %15, i64 12
   store ptr %arrayidx6.i, ptr %this.addr.i40, align 8
   store ptr %add.ptr7.i, ptr %values.addr.i, align 8
   %this1.i41 = load ptr, ptr %this.addr.i40, align 8
-  %15 = load ptr, ptr %values.addr.i, align 8
-  store ptr %15, ptr %__p.addr.i.i, align 8
-  %16 = load ptr, ptr %__p.addr.i.i, align 8
-  %17 = load <4 x float>, ptr %16, align 1
-  store <4 x float> %17, ptr %this1.i41, align 16
+  %16 = load ptr, ptr %values.addr.i, align 8
+  store ptr %16, ptr %__p.addr.i.i, align 8
+  %17 = load ptr, ptr %__p.addr.i.i, align 8
+  %18 = load <4 x float>, ptr %17, align 1
+  store <4 x float> %18, ptr %this1.i41, align 16
   br label %_ZN18OpenImageIO_v2_6_04simd8matrix44C2ENS_11MatrixParamIfLi4EEE.exit
 
 _ZN18OpenImageIO_v2_6_04simd8matrix44C2ENS_11MatrixParamIfLi4EEE.exit: ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2_6_04simd8matrix44C2ENS_11MatrixParamIfLi4EEE.exit
-  %18 = load i8, ptr %inverse.addr, align 1
-  %tobool = trunc i8 %18 to i1
+  %19 = load i8, ptr %inverse.addr, align 1
+  %tobool = trunc i8 %19 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -12047,72 +12062,72 @@ if.then:                                          ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr %zero.i, ptr %result.ptr.i54, align 8, !noalias !17
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i.i, align 16, !noalias !17
-  %19 = load <4 x float>, ptr %.compoundliteral.i.i, align 16, !noalias !17
-  store <4 x float> %19, ptr %ref.tmp.i55, align 16, !noalias !17
+  %20 = load <4 x float>, ptr %.compoundliteral.i.i, align 16, !noalias !17
+  store <4 x float> %20, ptr %ref.tmp.i55, align 16, !noalias !17
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %zero.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i55)
   br label %.noexc
 
 .noexc:                                           ; preds = %if.then
   %call.i9 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %zero.i)
-  %20 = load ptr, ptr %src.i, align 8, !noalias !14
+  %21 = load ptr, ptr %src.i, align 8, !noalias !14
   store <4 x float> %call.i9, ptr %__a.addr.i92, align 16
-  store ptr %20, ptr %__p.addr.i93, align 8
-  %21 = load ptr, ptr %__p.addr.i93, align 8
-  %22 = load <2 x float>, ptr %21, align 1
-  store <2 x float> %22, ptr %__b.i94, align 8
-  %23 = load <2 x float>, ptr %__b.i94, align 8
+  store ptr %21, ptr %__p.addr.i93, align 8
+  %22 = load ptr, ptr %__p.addr.i93, align 8
+  %23 = load <2 x float>, ptr %22, align 1
+  store <2 x float> %23, ptr %__b.i94, align 8
   %24 = load <2 x float>, ptr %__b.i94, align 8
-  %shuffle.i96 = shufflevector <2 x float> %23, <2 x float> %24, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %25 = load <2 x float>, ptr %__b.i94, align 8
+  %shuffle.i96 = shufflevector <2 x float> %24, <2 x float> %25, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i96, ptr %__bb.i95, align 16
-  %25 = load <4 x float>, ptr %__a.addr.i92, align 16
-  %26 = load <4 x float>, ptr %__bb.i95, align 16
-  %shuffle1.i97 = shufflevector <4 x float> %25, <4 x float> %26, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
-  %27 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr.i = getelementptr inbounds float, ptr %27, i64 4
+  %26 = load <4 x float>, ptr %__a.addr.i92, align 16
+  %27 = load <4 x float>, ptr %__bb.i95, align 16
+  %shuffle1.i97 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
+  %28 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr.i = getelementptr inbounds float, ptr %28, i64 4
   store <4 x float> %shuffle1.i97, ptr %__a.addr.i68, align 16
   store ptr %add.ptr.i, ptr %__p.addr.i69, align 8
-  %28 = load ptr, ptr %__p.addr.i69, align 8
-  %29 = load <2 x float>, ptr %28, align 1
-  store <2 x float> %29, ptr %__b.i70, align 8
-  %30 = load <2 x float>, ptr %__b.i70, align 8
+  %29 = load ptr, ptr %__p.addr.i69, align 8
+  %30 = load <2 x float>, ptr %29, align 1
+  store <2 x float> %30, ptr %__b.i70, align 8
   %31 = load <2 x float>, ptr %__b.i70, align 8
-  %shuffle.i72 = shufflevector <2 x float> %30, <2 x float> %31, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %32 = load <2 x float>, ptr %__b.i70, align 8
+  %shuffle.i72 = shufflevector <2 x float> %31, <2 x float> %32, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i72, ptr %__bb.i71, align 16
-  %32 = load <4 x float>, ptr %__a.addr.i68, align 16
-  %33 = load <4 x float>, ptr %__bb.i71, align 16
-  %shuffle1.i73 = shufflevector <4 x float> %32, <4 x float> %33, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %33 = load <4 x float>, ptr %__a.addr.i68, align 16
+  %34 = load <4 x float>, ptr %__bb.i71, align 16
+  %shuffle1.i73 = shufflevector <4 x float> %33, <4 x float> %34, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle1.i73, ptr %ref.tmp.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i)
   %call4.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp.i)
   %call7.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %zero.i)
-  %34 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr8.i = getelementptr inbounds float, ptr %34, i64 8
+  %35 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr8.i = getelementptr inbounds float, ptr %35, i64 8
   store <4 x float> %call7.i, ptr %__a.addr.i86, align 16
   store ptr %add.ptr8.i, ptr %__p.addr.i87, align 8
-  %35 = load ptr, ptr %__p.addr.i87, align 8
-  %36 = load <2 x float>, ptr %35, align 1
-  store <2 x float> %36, ptr %__b.i88, align 8
-  %37 = load <2 x float>, ptr %__b.i88, align 8
+  %36 = load ptr, ptr %__p.addr.i87, align 8
+  %37 = load <2 x float>, ptr %36, align 1
+  store <2 x float> %37, ptr %__b.i88, align 8
   %38 = load <2 x float>, ptr %__b.i88, align 8
-  %shuffle.i90 = shufflevector <2 x float> %37, <2 x float> %38, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %39 = load <2 x float>, ptr %__b.i88, align 8
+  %shuffle.i90 = shufflevector <2 x float> %38, <2 x float> %39, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i90, ptr %__bb.i89, align 16
-  %39 = load <4 x float>, ptr %__a.addr.i86, align 16
-  %40 = load <4 x float>, ptr %__bb.i89, align 16
-  %shuffle1.i91 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
-  %41 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr10.i = getelementptr inbounds float, ptr %41, i64 12
+  %40 = load <4 x float>, ptr %__a.addr.i86, align 16
+  %41 = load <4 x float>, ptr %__bb.i89, align 16
+  %shuffle1.i91 = shufflevector <4 x float> %40, <4 x float> %41, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
+  %42 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr10.i = getelementptr inbounds float, ptr %42, i64 12
   store <4 x float> %shuffle1.i91, ptr %__a.addr.i62, align 16
   store ptr %add.ptr10.i, ptr %__p.addr.i63, align 8
-  %42 = load ptr, ptr %__p.addr.i63, align 8
-  %43 = load <2 x float>, ptr %42, align 1
-  store <2 x float> %43, ptr %__b.i64, align 8
-  %44 = load <2 x float>, ptr %__b.i64, align 8
+  %43 = load ptr, ptr %__p.addr.i63, align 8
+  %44 = load <2 x float>, ptr %43, align 1
+  store <2 x float> %44, ptr %__b.i64, align 8
   %45 = load <2 x float>, ptr %__b.i64, align 8
-  %shuffle.i66 = shufflevector <2 x float> %44, <2 x float> %45, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %46 = load <2 x float>, ptr %__b.i64, align 8
+  %shuffle.i66 = shufflevector <2 x float> %45, <2 x float> %46, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i66, ptr %__bb.i65, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i62, align 16
-  %47 = load <4 x float>, ptr %__bb.i65, align 16
-  %shuffle1.i67 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %47 = load <4 x float>, ptr %__a.addr.i62, align 16
+  %48 = load <4 x float>, ptr %__bb.i65, align 16
+  %shuffle1.i67 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle1.i67, ptr %ref.tmp6.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp5.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp6.i)
   %call12.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %row1.i, ptr noundef %agg.tmp5.i)
@@ -12129,66 +12144,66 @@ if.then:                                          ; preds = %invoke.cont
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp18.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp19.i)
   %call23.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %row1.i, ptr noundef %agg.tmp18.i)
   %call26.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i)
-  %48 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr27.i = getelementptr inbounds float, ptr %48, i64 2
+  %49 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr27.i = getelementptr inbounds float, ptr %49, i64 2
   store <4 x float> %call26.i, ptr %__a.addr.i80, align 16
   store ptr %add.ptr27.i, ptr %__p.addr.i81, align 8
-  %49 = load ptr, ptr %__p.addr.i81, align 8
-  %50 = load <2 x float>, ptr %49, align 1
-  store <2 x float> %50, ptr %__b.i82, align 8
-  %51 = load <2 x float>, ptr %__b.i82, align 8
+  %50 = load ptr, ptr %__p.addr.i81, align 8
+  %51 = load <2 x float>, ptr %50, align 1
+  store <2 x float> %51, ptr %__b.i82, align 8
   %52 = load <2 x float>, ptr %__b.i82, align 8
-  %shuffle.i84 = shufflevector <2 x float> %51, <2 x float> %52, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %53 = load <2 x float>, ptr %__b.i82, align 8
+  %shuffle.i84 = shufflevector <2 x float> %52, <2 x float> %53, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i84, ptr %__bb.i83, align 16
-  %53 = load <4 x float>, ptr %__a.addr.i80, align 16
-  %54 = load <4 x float>, ptr %__bb.i83, align 16
-  %shuffle1.i85 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
-  %55 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr29.i = getelementptr inbounds float, ptr %55, i64 6
+  %54 = load <4 x float>, ptr %__a.addr.i80, align 16
+  %55 = load <4 x float>, ptr %__bb.i83, align 16
+  %shuffle1.i85 = shufflevector <4 x float> %54, <4 x float> %55, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
+  %56 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr29.i = getelementptr inbounds float, ptr %56, i64 6
   store <4 x float> %shuffle1.i85, ptr %__a.addr.i56, align 16
   store ptr %add.ptr29.i, ptr %__p.addr.i57, align 8
-  %56 = load ptr, ptr %__p.addr.i57, align 8
-  %57 = load <2 x float>, ptr %56, align 1
-  store <2 x float> %57, ptr %__b.i58, align 8
-  %58 = load <2 x float>, ptr %__b.i58, align 8
+  %57 = load ptr, ptr %__p.addr.i57, align 8
+  %58 = load <2 x float>, ptr %57, align 1
+  store <2 x float> %58, ptr %__b.i58, align 8
   %59 = load <2 x float>, ptr %__b.i58, align 8
-  %shuffle.i60 = shufflevector <2 x float> %58, <2 x float> %59, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %60 = load <2 x float>, ptr %__b.i58, align 8
+  %shuffle.i60 = shufflevector <2 x float> %59, <2 x float> %60, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i60, ptr %__bb.i59, align 16
-  %60 = load <4 x float>, ptr %__a.addr.i56, align 16
-  %61 = load <4 x float>, ptr %__bb.i59, align 16
-  %shuffle1.i61 = shufflevector <4 x float> %60, <4 x float> %61, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %61 = load <4 x float>, ptr %__a.addr.i56, align 16
+  %62 = load <4 x float>, ptr %__bb.i59, align 16
+  %shuffle1.i61 = shufflevector <4 x float> %61, <4 x float> %62, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle1.i61, ptr %ref.tmp25.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp24.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp25.i)
   %call31.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp24.i)
   %call34.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %zero.i)
-  %62 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr35.i = getelementptr inbounds float, ptr %62, i64 10
+  %63 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr35.i = getelementptr inbounds float, ptr %63, i64 10
   store <4 x float> %call34.i, ptr %__a.addr.i74, align 16
   store ptr %add.ptr35.i, ptr %__p.addr.i75, align 8
-  %63 = load ptr, ptr %__p.addr.i75, align 8
-  %64 = load <2 x float>, ptr %63, align 1
-  store <2 x float> %64, ptr %__b.i76, align 8
-  %65 = load <2 x float>, ptr %__b.i76, align 8
+  %64 = load ptr, ptr %__p.addr.i75, align 8
+  %65 = load <2 x float>, ptr %64, align 1
+  store <2 x float> %65, ptr %__b.i76, align 8
   %66 = load <2 x float>, ptr %__b.i76, align 8
-  %shuffle.i78 = shufflevector <2 x float> %65, <2 x float> %66, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %67 = load <2 x float>, ptr %__b.i76, align 8
+  %shuffle.i78 = shufflevector <2 x float> %66, <2 x float> %67, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i78, ptr %__bb.i77, align 16
-  %67 = load <4 x float>, ptr %__a.addr.i74, align 16
-  %68 = load <4 x float>, ptr %__bb.i77, align 16
-  %shuffle1.i79 = shufflevector <4 x float> %67, <4 x float> %68, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
-  %69 = load ptr, ptr %src.i, align 8, !noalias !14
-  %add.ptr37.i = getelementptr inbounds float, ptr %69, i64 14
+  %68 = load <4 x float>, ptr %__a.addr.i74, align 16
+  %69 = load <4 x float>, ptr %__bb.i77, align 16
+  %shuffle1.i79 = shufflevector <4 x float> %68, <4 x float> %69, <4 x i32> <i32 4, i32 5, i32 2, i32 3>
+  %70 = load ptr, ptr %src.i, align 8, !noalias !14
+  %add.ptr37.i = getelementptr inbounds float, ptr %70, i64 14
   store <4 x float> %shuffle1.i79, ptr %__a.addr.i, align 16
   store ptr %add.ptr37.i, ptr %__p.addr.i, align 8
-  %70 = load ptr, ptr %__p.addr.i, align 8
-  %71 = load <2 x float>, ptr %70, align 1
-  store <2 x float> %71, ptr %__b.i, align 8
-  %72 = load <2 x float>, ptr %__b.i, align 8
+  %71 = load ptr, ptr %__p.addr.i, align 8
+  %72 = load <2 x float>, ptr %71, align 1
+  store <2 x float> %72, ptr %__b.i, align 8
   %73 = load <2 x float>, ptr %__b.i, align 8
-  %shuffle.i = shufflevector <2 x float> %72, <2 x float> %73, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %74 = load <2 x float>, ptr %__b.i, align 8
+  %shuffle.i = shufflevector <2 x float> %73, <2 x float> %74, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x float> %shuffle.i, ptr %__bb.i, align 16
-  %74 = load <4 x float>, ptr %__a.addr.i, align 16
-  %75 = load <4 x float>, ptr %__bb.i, align 16
-  %shuffle1.i = shufflevector <4 x float> %74, <4 x float> %75, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %75 = load <4 x float>, ptr %__a.addr.i, align 16
+  %76 = load <4 x float>, ptr %__bb.i, align 16
+  %shuffle1.i = shufflevector <4 x float> %75, <4 x float> %76, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle1.i, ptr %ref.tmp33.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp32.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp33.i)
   %call39.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %row3.i, ptr noundef %agg.tmp32.i)
@@ -12208,35 +12223,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp52.i, ptr %result.ptr.i533.i, align 8, !noalias !23
   store ptr %row2.i, ptr %a.addr.i534.i, align 8, !noalias !23
   store ptr %row3.i, ptr %b.addr.i535.i, align 8, !noalias !23
-  %76 = load ptr, ptr %a.addr.i534.i, align 8, !noalias !23
-  %77 = load <4 x float>, ptr %76, align 16
-  %78 = load ptr, ptr %b.addr.i535.i, align 8, !noalias !23
-  %79 = load <4 x float>, ptr %78, align 16
-  store <4 x float> %77, ptr %__a.addr.i.i531.i, align 16, !noalias !23
-  store <4 x float> %79, ptr %__b.addr.i.i532.i, align 16, !noalias !23
-  %80 = load <4 x float>, ptr %__a.addr.i.i531.i, align 16, !noalias !23
-  %81 = load <4 x float>, ptr %__b.addr.i.i532.i, align 16, !noalias !23
-  %mul.i.i537.i = fmul <4 x float> %80, %81
+  %77 = load ptr, ptr %a.addr.i534.i, align 8, !noalias !23
+  %78 = load <4 x float>, ptr %77, align 16
+  %79 = load ptr, ptr %b.addr.i535.i, align 8, !noalias !23
+  %80 = load <4 x float>, ptr %79, align 16
+  store <4 x float> %78, ptr %__a.addr.i.i531.i, align 16, !noalias !23
+  store <4 x float> %80, ptr %__b.addr.i.i532.i, align 16, !noalias !23
+  %81 = load <4 x float>, ptr %__a.addr.i.i531.i, align 16, !noalias !23
+  %82 = load <4 x float>, ptr %__b.addr.i.i532.i, align 16, !noalias !23
+  %mul.i.i537.i = fmul <4 x float> %81, %82
   store <4 x float> %mul.i.i537.i, ptr %ref.tmp.i536.i, align 16, !noalias !23
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp52.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i536.i)
   %call53.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp52.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store ptr %agg.tmp54.i, ptr %result.ptr.i126, align 8, !noalias !24
   store ptr %tmp1.i, ptr %a.addr.i127, align 8, !noalias !24
-  %82 = load ptr, ptr %a.addr.i127, align 8, !noalias !24
-  %call.i129 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %82)
+  %83 = load ptr, ptr %a.addr.i127, align 8, !noalias !24
+  %call.i129 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %83)
   store <4 x float> %call.i129, ptr %a.addr.i230, align 16
-  %83 = load <4 x float>, ptr %a.addr.i230, align 16
-  store <4 x float> %83, ptr %__a.addr.i.i229, align 16
-  %84 = load <4 x float>, ptr %__a.addr.i.i229, align 16
-  %85 = bitcast <4 x float> %84 to <2 x i64>
-  %86 = bitcast <2 x i64> %85 to <4 x i32>
-  %permil.i = shufflevector <4 x i32> %86, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %87 = bitcast <4 x i32> %permil.i to <2 x i64>
-  store <2 x i64> %87, ptr %__a.addr.i2.i, align 16
-  %88 = load <2 x i64>, ptr %__a.addr.i2.i, align 16
-  %89 = bitcast <2 x i64> %88 to <4 x float>
-  store <4 x float> %89, ptr %ref.tmp.i128, align 16, !noalias !24
+  %84 = load <4 x float>, ptr %a.addr.i230, align 16
+  store <4 x float> %84, ptr %__a.addr.i.i229, align 16
+  %85 = load <4 x float>, ptr %__a.addr.i.i229, align 16
+  %86 = bitcast <4 x float> %85 to <2 x i64>
+  %87 = bitcast <2 x i64> %86 to <4 x i32>
+  %permil.i = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %88 = bitcast <4 x i32> %permil.i to <2 x i64>
+  store <2 x i64> %88, ptr %__a.addr.i2.i, align 16
+  %89 = load <2 x i64>, ptr %__a.addr.i2.i, align 16
+  %90 = bitcast <2 x i64> %89 to <4 x float>
+  store <4 x float> %90, ptr %ref.tmp.i128, align 16, !noalias !24
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp54.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i128)
   br label %.noexc10
 
@@ -12246,15 +12261,15 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp56.i, ptr %result.ptr.i526.i, align 8, !noalias !30
   store ptr %row1.i, ptr %a.addr.i527.i, align 8, !noalias !30
   store ptr %tmp1.i, ptr %b.addr.i528.i, align 8, !noalias !30
-  %90 = load ptr, ptr %a.addr.i527.i, align 8, !noalias !30
-  %91 = load <4 x float>, ptr %90, align 16
-  %92 = load ptr, ptr %b.addr.i528.i, align 8, !noalias !30
-  %93 = load <4 x float>, ptr %92, align 16
-  store <4 x float> %91, ptr %__a.addr.i.i524.i, align 16, !noalias !30
-  store <4 x float> %93, ptr %__b.addr.i.i525.i, align 16, !noalias !30
-  %94 = load <4 x float>, ptr %__a.addr.i.i524.i, align 16, !noalias !30
-  %95 = load <4 x float>, ptr %__b.addr.i.i525.i, align 16, !noalias !30
-  %mul.i.i530.i = fmul <4 x float> %94, %95
+  %91 = load ptr, ptr %a.addr.i527.i, align 8, !noalias !30
+  %92 = load <4 x float>, ptr %91, align 16
+  %93 = load ptr, ptr %b.addr.i528.i, align 8, !noalias !30
+  %94 = load <4 x float>, ptr %93, align 16
+  store <4 x float> %92, ptr %__a.addr.i.i524.i, align 16, !noalias !30
+  store <4 x float> %94, ptr %__b.addr.i.i525.i, align 16, !noalias !30
+  %95 = load <4 x float>, ptr %__a.addr.i.i524.i, align 16, !noalias !30
+  %96 = load <4 x float>, ptr %__b.addr.i.i525.i, align 16, !noalias !30
+  %mul.i.i530.i = fmul <4 x float> %95, %96
   store <4 x float> %mul.i.i530.i, ptr %ref.tmp.i529.i, align 16, !noalias !30
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp56.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i529.i)
   %call57.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp56.i)
@@ -12262,35 +12277,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp58.i, ptr %result.ptr.i519.i, align 8, !noalias !34
   store ptr %row0.i, ptr %a.addr.i520.i, align 8, !noalias !34
   store ptr %tmp1.i, ptr %b.addr.i521.i, align 8, !noalias !34
-  %96 = load ptr, ptr %a.addr.i520.i, align 8, !noalias !34
-  %97 = load <4 x float>, ptr %96, align 16
-  %98 = load ptr, ptr %b.addr.i521.i, align 8, !noalias !34
-  %99 = load <4 x float>, ptr %98, align 16
-  store <4 x float> %97, ptr %__a.addr.i.i517.i, align 16, !noalias !34
-  store <4 x float> %99, ptr %__b.addr.i.i518.i, align 16, !noalias !34
-  %100 = load <4 x float>, ptr %__a.addr.i.i517.i, align 16, !noalias !34
-  %101 = load <4 x float>, ptr %__b.addr.i.i518.i, align 16, !noalias !34
-  %mul.i.i523.i = fmul <4 x float> %100, %101
+  %97 = load ptr, ptr %a.addr.i520.i, align 8, !noalias !34
+  %98 = load <4 x float>, ptr %97, align 16
+  %99 = load ptr, ptr %b.addr.i521.i, align 8, !noalias !34
+  %100 = load <4 x float>, ptr %99, align 16
+  store <4 x float> %98, ptr %__a.addr.i.i517.i, align 16, !noalias !34
+  store <4 x float> %100, ptr %__b.addr.i.i518.i, align 16, !noalias !34
+  %101 = load <4 x float>, ptr %__a.addr.i.i517.i, align 16, !noalias !34
+  %102 = load <4 x float>, ptr %__b.addr.i.i518.i, align 16, !noalias !34
+  %mul.i.i523.i = fmul <4 x float> %101, %102
   store <4 x float> %mul.i.i523.i, ptr %ref.tmp.i522.i, align 16, !noalias !34
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp58.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i522.i)
   %call59.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp58.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   store ptr %agg.tmp60.i, ptr %result.ptr.i186, align 8, !noalias !35
   store ptr %tmp1.i, ptr %a.addr.i187, align 8, !noalias !35
-  %102 = load ptr, ptr %a.addr.i187, align 8, !noalias !35
-  %call.i189 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %102)
+  %103 = load ptr, ptr %a.addr.i187, align 8, !noalias !35
+  %call.i189 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %103)
   store <4 x float> %call.i189, ptr %a.addr.i257, align 16
-  %103 = load <4 x float>, ptr %a.addr.i257, align 16
-  store <4 x float> %103, ptr %__a.addr.i.i256, align 16
-  %104 = load <4 x float>, ptr %__a.addr.i.i256, align 16
-  %105 = bitcast <4 x float> %104 to <2 x i64>
-  %106 = bitcast <2 x i64> %105 to <4 x i32>
-  %permil.i258 = shufflevector <4 x i32> %106, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %107 = bitcast <4 x i32> %permil.i258 to <2 x i64>
-  store <2 x i64> %107, ptr %__a.addr.i2.i255, align 16
-  %108 = load <2 x i64>, ptr %__a.addr.i2.i255, align 16
-  %109 = bitcast <2 x i64> %108 to <4 x float>
-  store <4 x float> %109, ptr %ref.tmp.i188, align 16, !noalias !35
+  %104 = load <4 x float>, ptr %a.addr.i257, align 16
+  store <4 x float> %104, ptr %__a.addr.i.i256, align 16
+  %105 = load <4 x float>, ptr %__a.addr.i.i256, align 16
+  %106 = bitcast <4 x float> %105 to <2 x i64>
+  %107 = bitcast <2 x i64> %106 to <4 x i32>
+  %permil.i258 = shufflevector <4 x i32> %107, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %108 = bitcast <4 x i32> %permil.i258 to <2 x i64>
+  store <2 x i64> %108, ptr %__a.addr.i2.i255, align 16
+  %109 = load <2 x i64>, ptr %__a.addr.i2.i255, align 16
+  %110 = bitcast <2 x i64> %109 to <4 x float>
+  store <4 x float> %110, ptr %ref.tmp.i188, align 16, !noalias !35
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp60.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i188)
   br label %.noexc11
 
@@ -12300,30 +12315,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp63.i, ptr %result.ptr.i512.i, align 8, !noalias !41
   store ptr %row1.i, ptr %a.addr.i513.i, align 8, !noalias !41
   store ptr %tmp1.i, ptr %b.addr.i514.i, align 8, !noalias !41
-  %110 = load ptr, ptr %a.addr.i513.i, align 8, !noalias !41
-  %111 = load <4 x float>, ptr %110, align 16
-  %112 = load ptr, ptr %b.addr.i514.i, align 8, !noalias !41
-  %113 = load <4 x float>, ptr %112, align 16
-  store <4 x float> %111, ptr %__a.addr.i.i510.i, align 16, !noalias !41
-  store <4 x float> %113, ptr %__b.addr.i.i511.i, align 16, !noalias !41
-  %114 = load <4 x float>, ptr %__a.addr.i.i510.i, align 16, !noalias !41
-  %115 = load <4 x float>, ptr %__b.addr.i.i511.i, align 16, !noalias !41
-  %mul.i.i516.i = fmul <4 x float> %114, %115
+  %111 = load ptr, ptr %a.addr.i513.i, align 8, !noalias !41
+  %112 = load <4 x float>, ptr %111, align 16
+  %113 = load ptr, ptr %b.addr.i514.i, align 8, !noalias !41
+  %114 = load <4 x float>, ptr %113, align 16
+  store <4 x float> %112, ptr %__a.addr.i.i510.i, align 16, !noalias !41
+  store <4 x float> %114, ptr %__b.addr.i.i511.i, align 16, !noalias !41
+  %115 = load <4 x float>, ptr %__a.addr.i.i510.i, align 16, !noalias !41
+  %116 = load <4 x float>, ptr %__b.addr.i.i511.i, align 16, !noalias !41
+  %mul.i.i516.i = fmul <4 x float> %115, %116
   store <4 x float> %mul.i.i516.i, ptr %ref.tmp.i515.i, align 16, !noalias !41
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp63.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i515.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   store ptr %agg.tmp62.i, ptr %result.ptr.i255.i, align 8, !noalias !45
   store ptr %ref.tmp63.i, ptr %a.addr.i256.i, align 8, !noalias !45
   store ptr %minor0.i, ptr %b.addr.i257.i, align 8, !noalias !45
-  %116 = load ptr, ptr %a.addr.i256.i, align 8, !noalias !45
-  %117 = load <4 x float>, ptr %116, align 16
-  %118 = load ptr, ptr %b.addr.i257.i, align 8, !noalias !45
-  %119 = load <4 x float>, ptr %118, align 16
-  store <4 x float> %117, ptr %__a.addr.i.i, align 16, !noalias !14
-  store <4 x float> %119, ptr %__b.addr.i.i, align 16, !noalias !14
-  %120 = load <4 x float>, ptr %__a.addr.i.i, align 16, !noalias !14
-  %121 = load <4 x float>, ptr %__b.addr.i.i, align 16, !noalias !14
-  %sub.i.i = fsub <4 x float> %120, %121
+  %117 = load ptr, ptr %a.addr.i256.i, align 8, !noalias !45
+  %118 = load <4 x float>, ptr %117, align 16
+  %119 = load ptr, ptr %b.addr.i257.i, align 8, !noalias !45
+  %120 = load <4 x float>, ptr %119, align 16
+  store <4 x float> %118, ptr %__a.addr.i.i, align 16, !noalias !14
+  store <4 x float> %120, ptr %__b.addr.i.i, align 16, !noalias !14
+  %121 = load <4 x float>, ptr %__a.addr.i.i, align 16, !noalias !14
+  %122 = load <4 x float>, ptr %__b.addr.i.i, align 16, !noalias !14
+  %sub.i.i = fsub <4 x float> %121, %122
   store <4 x float> %sub.i.i, ptr %ref.tmp.i258.i, align 16, !noalias !45
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp62.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i258.i)
   %call64.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp62.i)
@@ -12331,50 +12346,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp66.i, ptr %result.ptr.i505.i, align 8, !noalias !49
   store ptr %row0.i, ptr %a.addr.i506.i, align 8, !noalias !49
   store ptr %tmp1.i, ptr %b.addr.i507.i, align 8, !noalias !49
-  %122 = load ptr, ptr %a.addr.i506.i, align 8, !noalias !49
-  %123 = load <4 x float>, ptr %122, align 16
-  %124 = load ptr, ptr %b.addr.i507.i, align 8, !noalias !49
-  %125 = load <4 x float>, ptr %124, align 16
-  store <4 x float> %123, ptr %__a.addr.i.i503.i, align 16, !noalias !49
-  store <4 x float> %125, ptr %__b.addr.i.i504.i, align 16, !noalias !49
-  %126 = load <4 x float>, ptr %__a.addr.i.i503.i, align 16, !noalias !49
-  %127 = load <4 x float>, ptr %__b.addr.i.i504.i, align 16, !noalias !49
-  %mul.i.i509.i = fmul <4 x float> %126, %127
+  %123 = load ptr, ptr %a.addr.i506.i, align 8, !noalias !49
+  %124 = load <4 x float>, ptr %123, align 16
+  %125 = load ptr, ptr %b.addr.i507.i, align 8, !noalias !49
+  %126 = load <4 x float>, ptr %125, align 16
+  store <4 x float> %124, ptr %__a.addr.i.i503.i, align 16, !noalias !49
+  store <4 x float> %126, ptr %__b.addr.i.i504.i, align 16, !noalias !49
+  %127 = load <4 x float>, ptr %__a.addr.i.i503.i, align 16, !noalias !49
+  %128 = load <4 x float>, ptr %__b.addr.i.i504.i, align 16, !noalias !49
+  %mul.i.i509.i = fmul <4 x float> %127, %128
   store <4 x float> %mul.i.i509.i, ptr %ref.tmp.i508.i, align 16, !noalias !49
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp66.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i508.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   store ptr %agg.tmp65.i, ptr %result.ptr.i250.i, align 8, !noalias !53
   store ptr %ref.tmp66.i, ptr %a.addr.i251.i, align 8, !noalias !53
   store ptr %minor1.i, ptr %b.addr.i252.i, align 8, !noalias !53
-  %128 = load ptr, ptr %a.addr.i251.i, align 8, !noalias !53
-  %129 = load <4 x float>, ptr %128, align 16
-  %130 = load ptr, ptr %b.addr.i252.i, align 8, !noalias !53
-  %131 = load <4 x float>, ptr %130, align 16
-  store <4 x float> %129, ptr %__a.addr.i260.i, align 16, !noalias !14
-  store <4 x float> %131, ptr %__b.addr.i261.i, align 16, !noalias !14
-  %132 = load <4 x float>, ptr %__a.addr.i260.i, align 16, !noalias !14
-  %133 = load <4 x float>, ptr %__b.addr.i261.i, align 16, !noalias !14
-  %sub.i262.i = fsub <4 x float> %132, %133
+  %129 = load ptr, ptr %a.addr.i251.i, align 8, !noalias !53
+  %130 = load <4 x float>, ptr %129, align 16
+  %131 = load ptr, ptr %b.addr.i252.i, align 8, !noalias !53
+  %132 = load <4 x float>, ptr %131, align 16
+  store <4 x float> %130, ptr %__a.addr.i260.i, align 16, !noalias !14
+  store <4 x float> %132, ptr %__b.addr.i261.i, align 16, !noalias !14
+  %133 = load <4 x float>, ptr %__a.addr.i260.i, align 16, !noalias !14
+  %134 = load <4 x float>, ptr %__b.addr.i261.i, align 16, !noalias !14
+  %sub.i262.i = fsub <4 x float> %133, %134
   store <4 x float> %sub.i262.i, ptr %ref.tmp.i253.i, align 16, !noalias !53
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp65.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i253.i)
   %call67.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp65.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   store ptr %agg.tmp68.i, ptr %result.ptr.i181, align 8, !noalias !54
   store ptr %minor1.i, ptr %a.addr.i182, align 8, !noalias !54
-  %134 = load ptr, ptr %a.addr.i182, align 8, !noalias !54
-  %call.i184 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %134)
+  %135 = load ptr, ptr %a.addr.i182, align 8, !noalias !54
+  %call.i184 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %135)
   store <4 x float> %call.i184, ptr %a.addr.i261, align 16
-  %135 = load <4 x float>, ptr %a.addr.i261, align 16
-  store <4 x float> %135, ptr %__a.addr.i.i260, align 16
-  %136 = load <4 x float>, ptr %__a.addr.i.i260, align 16
-  %137 = bitcast <4 x float> %136 to <2 x i64>
-  %138 = bitcast <2 x i64> %137 to <4 x i32>
-  %permil.i262 = shufflevector <4 x i32> %138, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %139 = bitcast <4 x i32> %permil.i262 to <2 x i64>
-  store <2 x i64> %139, ptr %__a.addr.i2.i259, align 16
-  %140 = load <2 x i64>, ptr %__a.addr.i2.i259, align 16
-  %141 = bitcast <2 x i64> %140 to <4 x float>
-  store <4 x float> %141, ptr %ref.tmp.i183, align 16, !noalias !54
+  %136 = load <4 x float>, ptr %a.addr.i261, align 16
+  store <4 x float> %136, ptr %__a.addr.i.i260, align 16
+  %137 = load <4 x float>, ptr %__a.addr.i.i260, align 16
+  %138 = bitcast <4 x float> %137 to <2 x i64>
+  %139 = bitcast <2 x i64> %138 to <4 x i32>
+  %permil.i262 = shufflevector <4 x i32> %139, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %140 = bitcast <4 x i32> %permil.i262 to <2 x i64>
+  store <2 x i64> %140, ptr %__a.addr.i2.i259, align 16
+  %141 = load <2 x i64>, ptr %__a.addr.i2.i259, align 16
+  %142 = bitcast <2 x i64> %141 to <4 x float>
+  store <4 x float> %142, ptr %ref.tmp.i183, align 16, !noalias !54
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp68.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i183)
   br label %.noexc12
 
@@ -12384,35 +12399,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp70.i, ptr %result.ptr.i498.i, align 8, !noalias !60
   store ptr %row1.i, ptr %a.addr.i499.i, align 8, !noalias !60
   store ptr %row2.i, ptr %b.addr.i500.i, align 8, !noalias !60
-  %142 = load ptr, ptr %a.addr.i499.i, align 8, !noalias !60
-  %143 = load <4 x float>, ptr %142, align 16
-  %144 = load ptr, ptr %b.addr.i500.i, align 8, !noalias !60
-  %145 = load <4 x float>, ptr %144, align 16
-  store <4 x float> %143, ptr %__a.addr.i.i496.i, align 16, !noalias !60
-  store <4 x float> %145, ptr %__b.addr.i.i497.i, align 16, !noalias !60
-  %146 = load <4 x float>, ptr %__a.addr.i.i496.i, align 16, !noalias !60
-  %147 = load <4 x float>, ptr %__b.addr.i.i497.i, align 16, !noalias !60
-  %mul.i.i502.i = fmul <4 x float> %146, %147
+  %143 = load ptr, ptr %a.addr.i499.i, align 8, !noalias !60
+  %144 = load <4 x float>, ptr %143, align 16
+  %145 = load ptr, ptr %b.addr.i500.i, align 8, !noalias !60
+  %146 = load <4 x float>, ptr %145, align 16
+  store <4 x float> %144, ptr %__a.addr.i.i496.i, align 16, !noalias !60
+  store <4 x float> %146, ptr %__b.addr.i.i497.i, align 16, !noalias !60
+  %147 = load <4 x float>, ptr %__a.addr.i.i496.i, align 16, !noalias !60
+  %148 = load <4 x float>, ptr %__b.addr.i.i497.i, align 16, !noalias !60
+  %mul.i.i502.i = fmul <4 x float> %147, %148
   store <4 x float> %mul.i.i502.i, ptr %ref.tmp.i501.i, align 16, !noalias !60
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp70.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i501.i)
   %call71.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp70.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   store ptr %agg.tmp72.i, ptr %result.ptr.i121, align 8, !noalias !61
   store ptr %tmp1.i, ptr %a.addr.i122, align 8, !noalias !61
-  %148 = load ptr, ptr %a.addr.i122, align 8, !noalias !61
-  %call.i124 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %148)
+  %149 = load ptr, ptr %a.addr.i122, align 8, !noalias !61
+  %call.i124 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %149)
   store <4 x float> %call.i124, ptr %a.addr.i233, align 16
-  %149 = load <4 x float>, ptr %a.addr.i233, align 16
-  store <4 x float> %149, ptr %__a.addr.i.i232, align 16
-  %150 = load <4 x float>, ptr %__a.addr.i.i232, align 16
-  %151 = bitcast <4 x float> %150 to <2 x i64>
-  %152 = bitcast <2 x i64> %151 to <4 x i32>
-  %permil.i234 = shufflevector <4 x i32> %152, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %153 = bitcast <4 x i32> %permil.i234 to <2 x i64>
-  store <2 x i64> %153, ptr %__a.addr.i2.i231, align 16
-  %154 = load <2 x i64>, ptr %__a.addr.i2.i231, align 16
-  %155 = bitcast <2 x i64> %154 to <4 x float>
-  store <4 x float> %155, ptr %ref.tmp.i123, align 16, !noalias !61
+  %150 = load <4 x float>, ptr %a.addr.i233, align 16
+  store <4 x float> %150, ptr %__a.addr.i.i232, align 16
+  %151 = load <4 x float>, ptr %__a.addr.i.i232, align 16
+  %152 = bitcast <4 x float> %151 to <2 x i64>
+  %153 = bitcast <2 x i64> %152 to <4 x i32>
+  %permil.i234 = shufflevector <4 x i32> %153, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %154 = bitcast <4 x i32> %permil.i234 to <2 x i64>
+  store <2 x i64> %154, ptr %__a.addr.i2.i231, align 16
+  %155 = load <2 x i64>, ptr %__a.addr.i2.i231, align 16
+  %156 = bitcast <2 x i64> %155 to <4 x float>
+  store <4 x float> %156, ptr %ref.tmp.i123, align 16, !noalias !61
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp72.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i123)
   br label %.noexc13
 
@@ -12422,30 +12437,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp75.i, ptr %result.ptr.i491.i, align 8, !noalias !67
   store ptr %row3.i, ptr %a.addr.i492.i, align 8, !noalias !67
   store ptr %tmp1.i, ptr %b.addr.i493.i, align 8, !noalias !67
-  %156 = load ptr, ptr %a.addr.i492.i, align 8, !noalias !67
-  %157 = load <4 x float>, ptr %156, align 16
-  %158 = load ptr, ptr %b.addr.i493.i, align 8, !noalias !67
-  %159 = load <4 x float>, ptr %158, align 16
-  store <4 x float> %157, ptr %__a.addr.i.i489.i, align 16, !noalias !67
-  store <4 x float> %159, ptr %__b.addr.i.i490.i, align 16, !noalias !67
-  %160 = load <4 x float>, ptr %__a.addr.i.i489.i, align 16, !noalias !67
-  %161 = load <4 x float>, ptr %__b.addr.i.i490.i, align 16, !noalias !67
-  %mul.i.i495.i = fmul <4 x float> %160, %161
+  %157 = load ptr, ptr %a.addr.i492.i, align 8, !noalias !67
+  %158 = load <4 x float>, ptr %157, align 16
+  %159 = load ptr, ptr %b.addr.i493.i, align 8, !noalias !67
+  %160 = load <4 x float>, ptr %159, align 16
+  store <4 x float> %158, ptr %__a.addr.i.i489.i, align 16, !noalias !67
+  store <4 x float> %160, ptr %__b.addr.i.i490.i, align 16, !noalias !67
+  %161 = load <4 x float>, ptr %__a.addr.i.i489.i, align 16, !noalias !67
+  %162 = load <4 x float>, ptr %__b.addr.i.i490.i, align 16, !noalias !67
+  %mul.i.i495.i = fmul <4 x float> %161, %162
   store <4 x float> %mul.i.i495.i, ptr %ref.tmp.i494.i, align 16, !noalias !67
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp75.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i494.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   store ptr %agg.tmp74.i, ptr %result.ptr.i572.i, align 8, !noalias !71
   store ptr %ref.tmp75.i, ptr %a.addr.i573.i, align 8, !noalias !71
   store ptr %minor0.i, ptr %b.addr.i574.i, align 8, !noalias !71
-  %162 = load ptr, ptr %a.addr.i573.i, align 8, !noalias !71
-  %163 = load <4 x float>, ptr %162, align 16
-  %164 = load ptr, ptr %b.addr.i574.i, align 8, !noalias !71
-  %165 = load <4 x float>, ptr %164, align 16
-  store <4 x float> %163, ptr %__a.addr.i577.i, align 16, !noalias !14
-  store <4 x float> %165, ptr %__b.addr.i578.i, align 16, !noalias !14
-  %166 = load <4 x float>, ptr %__a.addr.i577.i, align 16, !noalias !14
-  %167 = load <4 x float>, ptr %__b.addr.i578.i, align 16, !noalias !14
-  %add.i.i = fadd <4 x float> %166, %167
+  %163 = load ptr, ptr %a.addr.i573.i, align 8, !noalias !71
+  %164 = load <4 x float>, ptr %163, align 16
+  %165 = load ptr, ptr %b.addr.i574.i, align 8, !noalias !71
+  %166 = load <4 x float>, ptr %165, align 16
+  store <4 x float> %164, ptr %__a.addr.i577.i, align 16, !noalias !14
+  store <4 x float> %166, ptr %__b.addr.i578.i, align 16, !noalias !14
+  %167 = load <4 x float>, ptr %__a.addr.i577.i, align 16, !noalias !14
+  %168 = load <4 x float>, ptr %__b.addr.i578.i, align 16, !noalias !14
+  %add.i.i = fadd <4 x float> %167, %168
   store <4 x float> %add.i.i, ptr %ref.tmp.i575.i, align 16, !noalias !71
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp74.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i575.i)
   %call76.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp74.i)
@@ -12453,35 +12468,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp77.i, ptr %result.ptr.i484.i, align 8, !noalias !75
   store ptr %row0.i, ptr %a.addr.i485.i, align 8, !noalias !75
   store ptr %tmp1.i, ptr %b.addr.i486.i, align 8, !noalias !75
-  %168 = load ptr, ptr %a.addr.i485.i, align 8, !noalias !75
-  %169 = load <4 x float>, ptr %168, align 16
-  %170 = load ptr, ptr %b.addr.i486.i, align 8, !noalias !75
-  %171 = load <4 x float>, ptr %170, align 16
-  store <4 x float> %169, ptr %__a.addr.i.i482.i, align 16, !noalias !75
-  store <4 x float> %171, ptr %__b.addr.i.i483.i, align 16, !noalias !75
-  %172 = load <4 x float>, ptr %__a.addr.i.i482.i, align 16, !noalias !75
-  %173 = load <4 x float>, ptr %__b.addr.i.i483.i, align 16, !noalias !75
-  %mul.i.i488.i = fmul <4 x float> %172, %173
+  %169 = load ptr, ptr %a.addr.i485.i, align 8, !noalias !75
+  %170 = load <4 x float>, ptr %169, align 16
+  %171 = load ptr, ptr %b.addr.i486.i, align 8, !noalias !75
+  %172 = load <4 x float>, ptr %171, align 16
+  store <4 x float> %170, ptr %__a.addr.i.i482.i, align 16, !noalias !75
+  store <4 x float> %172, ptr %__b.addr.i.i483.i, align 16, !noalias !75
+  %173 = load <4 x float>, ptr %__a.addr.i.i482.i, align 16, !noalias !75
+  %174 = load <4 x float>, ptr %__b.addr.i.i483.i, align 16, !noalias !75
+  %mul.i.i488.i = fmul <4 x float> %173, %174
   store <4 x float> %mul.i.i488.i, ptr %ref.tmp.i487.i, align 16, !noalias !75
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp77.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i487.i)
   %call78.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp77.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   store ptr %agg.tmp79.i, ptr %result.ptr.i176, align 8, !noalias !76
   store ptr %tmp1.i, ptr %a.addr.i177, align 8, !noalias !76
-  %174 = load ptr, ptr %a.addr.i177, align 8, !noalias !76
-  %call.i179 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %174)
+  %175 = load ptr, ptr %a.addr.i177, align 8, !noalias !76
+  %call.i179 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %175)
   store <4 x float> %call.i179, ptr %a.addr.i265, align 16
-  %175 = load <4 x float>, ptr %a.addr.i265, align 16
-  store <4 x float> %175, ptr %__a.addr.i.i264, align 16
-  %176 = load <4 x float>, ptr %__a.addr.i.i264, align 16
-  %177 = bitcast <4 x float> %176 to <2 x i64>
-  %178 = bitcast <2 x i64> %177 to <4 x i32>
-  %permil.i266 = shufflevector <4 x i32> %178, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %179 = bitcast <4 x i32> %permil.i266 to <2 x i64>
-  store <2 x i64> %179, ptr %__a.addr.i2.i263, align 16
-  %180 = load <2 x i64>, ptr %__a.addr.i2.i263, align 16
-  %181 = bitcast <2 x i64> %180 to <4 x float>
-  store <4 x float> %181, ptr %ref.tmp.i178, align 16, !noalias !76
+  %176 = load <4 x float>, ptr %a.addr.i265, align 16
+  store <4 x float> %176, ptr %__a.addr.i.i264, align 16
+  %177 = load <4 x float>, ptr %__a.addr.i.i264, align 16
+  %178 = bitcast <4 x float> %177 to <2 x i64>
+  %179 = bitcast <2 x i64> %178 to <4 x i32>
+  %permil.i266 = shufflevector <4 x i32> %179, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %180 = bitcast <4 x i32> %permil.i266 to <2 x i64>
+  store <2 x i64> %180, ptr %__a.addr.i2.i263, align 16
+  %181 = load <2 x i64>, ptr %__a.addr.i2.i263, align 16
+  %182 = bitcast <2 x i64> %181 to <4 x float>
+  store <4 x float> %182, ptr %ref.tmp.i178, align 16, !noalias !76
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp79.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i178)
   br label %.noexc14
 
@@ -12491,30 +12506,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp82.i, ptr %result.ptr.i477.i, align 8, !noalias !82
   store ptr %row3.i, ptr %a.addr.i478.i, align 8, !noalias !82
   store ptr %tmp1.i, ptr %b.addr.i479.i, align 8, !noalias !82
-  %182 = load ptr, ptr %a.addr.i478.i, align 8, !noalias !82
-  %183 = load <4 x float>, ptr %182, align 16
-  %184 = load ptr, ptr %b.addr.i479.i, align 8, !noalias !82
-  %185 = load <4 x float>, ptr %184, align 16
-  store <4 x float> %183, ptr %__a.addr.i.i475.i, align 16, !noalias !82
-  store <4 x float> %185, ptr %__b.addr.i.i476.i, align 16, !noalias !82
-  %186 = load <4 x float>, ptr %__a.addr.i.i475.i, align 16, !noalias !82
-  %187 = load <4 x float>, ptr %__b.addr.i.i476.i, align 16, !noalias !82
-  %mul.i.i481.i = fmul <4 x float> %186, %187
+  %183 = load ptr, ptr %a.addr.i478.i, align 8, !noalias !82
+  %184 = load <4 x float>, ptr %183, align 16
+  %185 = load ptr, ptr %b.addr.i479.i, align 8, !noalias !82
+  %186 = load <4 x float>, ptr %185, align 16
+  store <4 x float> %184, ptr %__a.addr.i.i475.i, align 16, !noalias !82
+  store <4 x float> %186, ptr %__b.addr.i.i476.i, align 16, !noalias !82
+  %187 = load <4 x float>, ptr %__a.addr.i.i475.i, align 16, !noalias !82
+  %188 = load <4 x float>, ptr %__b.addr.i.i476.i, align 16, !noalias !82
+  %mul.i.i481.i = fmul <4 x float> %187, %188
   store <4 x float> %mul.i.i481.i, ptr %ref.tmp.i480.i, align 16, !noalias !82
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp82.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i480.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   store ptr %agg.tmp81.i, ptr %result.ptr.i245.i, align 8, !noalias !86
   store ptr %minor0.i, ptr %a.addr.i246.i, align 8, !noalias !86
   store ptr %ref.tmp82.i, ptr %b.addr.i247.i, align 8, !noalias !86
-  %188 = load ptr, ptr %a.addr.i246.i, align 8, !noalias !86
-  %189 = load <4 x float>, ptr %188, align 16
-  %190 = load ptr, ptr %b.addr.i247.i, align 8, !noalias !86
-  %191 = load <4 x float>, ptr %190, align 16
-  store <4 x float> %189, ptr %__a.addr.i263.i, align 16, !noalias !14
-  store <4 x float> %191, ptr %__b.addr.i264.i, align 16, !noalias !14
-  %192 = load <4 x float>, ptr %__a.addr.i263.i, align 16, !noalias !14
-  %193 = load <4 x float>, ptr %__b.addr.i264.i, align 16, !noalias !14
-  %sub.i265.i = fsub <4 x float> %192, %193
+  %189 = load ptr, ptr %a.addr.i246.i, align 8, !noalias !86
+  %190 = load <4 x float>, ptr %189, align 16
+  %191 = load ptr, ptr %b.addr.i247.i, align 8, !noalias !86
+  %192 = load <4 x float>, ptr %191, align 16
+  store <4 x float> %190, ptr %__a.addr.i263.i, align 16, !noalias !14
+  store <4 x float> %192, ptr %__b.addr.i264.i, align 16, !noalias !14
+  %193 = load <4 x float>, ptr %__a.addr.i263.i, align 16, !noalias !14
+  %194 = load <4 x float>, ptr %__b.addr.i264.i, align 16, !noalias !14
+  %sub.i265.i = fsub <4 x float> %193, %194
   store <4 x float> %sub.i265.i, ptr %ref.tmp.i248.i, align 16, !noalias !86
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp81.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i248.i)
   %call83.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp81.i)
@@ -12522,50 +12537,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp85.i, ptr %result.ptr.i470.i, align 8, !noalias !90
   store ptr %row0.i, ptr %a.addr.i471.i, align 8, !noalias !90
   store ptr %tmp1.i, ptr %b.addr.i472.i, align 8, !noalias !90
-  %194 = load ptr, ptr %a.addr.i471.i, align 8, !noalias !90
-  %195 = load <4 x float>, ptr %194, align 16
-  %196 = load ptr, ptr %b.addr.i472.i, align 8, !noalias !90
-  %197 = load <4 x float>, ptr %196, align 16
-  store <4 x float> %195, ptr %__a.addr.i.i468.i, align 16, !noalias !90
-  store <4 x float> %197, ptr %__b.addr.i.i469.i, align 16, !noalias !90
-  %198 = load <4 x float>, ptr %__a.addr.i.i468.i, align 16, !noalias !90
-  %199 = load <4 x float>, ptr %__b.addr.i.i469.i, align 16, !noalias !90
-  %mul.i.i474.i = fmul <4 x float> %198, %199
+  %195 = load ptr, ptr %a.addr.i471.i, align 8, !noalias !90
+  %196 = load <4 x float>, ptr %195, align 16
+  %197 = load ptr, ptr %b.addr.i472.i, align 8, !noalias !90
+  %198 = load <4 x float>, ptr %197, align 16
+  store <4 x float> %196, ptr %__a.addr.i.i468.i, align 16, !noalias !90
+  store <4 x float> %198, ptr %__b.addr.i.i469.i, align 16, !noalias !90
+  %199 = load <4 x float>, ptr %__a.addr.i.i468.i, align 16, !noalias !90
+  %200 = load <4 x float>, ptr %__b.addr.i.i469.i, align 16, !noalias !90
+  %mul.i.i474.i = fmul <4 x float> %199, %200
   store <4 x float> %mul.i.i474.i, ptr %ref.tmp.i473.i, align 16, !noalias !90
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp85.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i473.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   store ptr %agg.tmp84.i, ptr %result.ptr.i240.i, align 8, !noalias !94
   store ptr %ref.tmp85.i, ptr %a.addr.i241.i, align 8, !noalias !94
   store ptr %minor3.i, ptr %b.addr.i242.i, align 8, !noalias !94
-  %200 = load ptr, ptr %a.addr.i241.i, align 8, !noalias !94
-  %201 = load <4 x float>, ptr %200, align 16
-  %202 = load ptr, ptr %b.addr.i242.i, align 8, !noalias !94
-  %203 = load <4 x float>, ptr %202, align 16
-  store <4 x float> %201, ptr %__a.addr.i266.i, align 16, !noalias !14
-  store <4 x float> %203, ptr %__b.addr.i267.i, align 16, !noalias !14
-  %204 = load <4 x float>, ptr %__a.addr.i266.i, align 16, !noalias !14
-  %205 = load <4 x float>, ptr %__b.addr.i267.i, align 16, !noalias !14
-  %sub.i268.i = fsub <4 x float> %204, %205
+  %201 = load ptr, ptr %a.addr.i241.i, align 8, !noalias !94
+  %202 = load <4 x float>, ptr %201, align 16
+  %203 = load ptr, ptr %b.addr.i242.i, align 8, !noalias !94
+  %204 = load <4 x float>, ptr %203, align 16
+  store <4 x float> %202, ptr %__a.addr.i266.i, align 16, !noalias !14
+  store <4 x float> %204, ptr %__b.addr.i267.i, align 16, !noalias !14
+  %205 = load <4 x float>, ptr %__a.addr.i266.i, align 16, !noalias !14
+  %206 = load <4 x float>, ptr %__b.addr.i267.i, align 16, !noalias !14
+  %sub.i268.i = fsub <4 x float> %205, %206
   store <4 x float> %sub.i268.i, ptr %ref.tmp.i243.i, align 16, !noalias !94
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp84.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i243.i)
   %call86.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp84.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   store ptr %agg.tmp87.i, ptr %result.ptr.i171, align 8, !noalias !95
   store ptr %minor3.i, ptr %a.addr.i172, align 8, !noalias !95
-  %206 = load ptr, ptr %a.addr.i172, align 8, !noalias !95
-  %call.i174 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %206)
+  %207 = load ptr, ptr %a.addr.i172, align 8, !noalias !95
+  %call.i174 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %207)
   store <4 x float> %call.i174, ptr %a.addr.i269, align 16
-  %207 = load <4 x float>, ptr %a.addr.i269, align 16
-  store <4 x float> %207, ptr %__a.addr.i.i268, align 16
-  %208 = load <4 x float>, ptr %__a.addr.i.i268, align 16
-  %209 = bitcast <4 x float> %208 to <2 x i64>
-  %210 = bitcast <2 x i64> %209 to <4 x i32>
-  %permil.i270 = shufflevector <4 x i32> %210, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %211 = bitcast <4 x i32> %permil.i270 to <2 x i64>
-  store <2 x i64> %211, ptr %__a.addr.i2.i267, align 16
-  %212 = load <2 x i64>, ptr %__a.addr.i2.i267, align 16
-  %213 = bitcast <2 x i64> %212 to <4 x float>
-  store <4 x float> %213, ptr %ref.tmp.i173, align 16, !noalias !95
+  %208 = load <4 x float>, ptr %a.addr.i269, align 16
+  store <4 x float> %208, ptr %__a.addr.i.i268, align 16
+  %209 = load <4 x float>, ptr %__a.addr.i.i268, align 16
+  %210 = bitcast <4 x float> %209 to <2 x i64>
+  %211 = bitcast <2 x i64> %210 to <4 x i32>
+  %permil.i270 = shufflevector <4 x i32> %211, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %212 = bitcast <4 x i32> %permil.i270 to <2 x i64>
+  store <2 x i64> %212, ptr %__a.addr.i2.i267, align 16
+  %213 = load <2 x i64>, ptr %__a.addr.i2.i267, align 16
+  %214 = bitcast <2 x i64> %213 to <4 x float>
+  store <4 x float> %214, ptr %ref.tmp.i173, align 16, !noalias !95
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp87.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i173)
   br label %.noexc15
 
@@ -12574,20 +12589,20 @@ if.then:                                          ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   store ptr %ref.tmp90.i, ptr %result.ptr.i166, align 8, !noalias !98
   store ptr %row1.i, ptr %a.addr.i167, align 8, !noalias !98
-  %214 = load ptr, ptr %a.addr.i167, align 8, !noalias !98
-  %call.i169 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %214)
+  %215 = load ptr, ptr %a.addr.i167, align 8, !noalias !98
+  %call.i169 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %215)
   store <4 x float> %call.i169, ptr %a.addr.i273, align 16
-  %215 = load <4 x float>, ptr %a.addr.i273, align 16
-  store <4 x float> %215, ptr %__a.addr.i.i272, align 16
-  %216 = load <4 x float>, ptr %__a.addr.i.i272, align 16
-  %217 = bitcast <4 x float> %216 to <2 x i64>
-  %218 = bitcast <2 x i64> %217 to <4 x i32>
-  %permil.i274 = shufflevector <4 x i32> %218, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %219 = bitcast <4 x i32> %permil.i274 to <2 x i64>
-  store <2 x i64> %219, ptr %__a.addr.i2.i271, align 16
-  %220 = load <2 x i64>, ptr %__a.addr.i2.i271, align 16
-  %221 = bitcast <2 x i64> %220 to <4 x float>
-  store <4 x float> %221, ptr %ref.tmp.i168, align 16, !noalias !98
+  %216 = load <4 x float>, ptr %a.addr.i273, align 16
+  store <4 x float> %216, ptr %__a.addr.i.i272, align 16
+  %217 = load <4 x float>, ptr %__a.addr.i.i272, align 16
+  %218 = bitcast <4 x float> %217 to <2 x i64>
+  %219 = bitcast <2 x i64> %218 to <4 x i32>
+  %permil.i274 = shufflevector <4 x i32> %219, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %220 = bitcast <4 x i32> %permil.i274 to <2 x i64>
+  store <2 x i64> %220, ptr %__a.addr.i2.i271, align 16
+  %221 = load <2 x i64>, ptr %__a.addr.i2.i271, align 16
+  %222 = bitcast <2 x i64> %221 to <4 x float>
+  store <4 x float> %222, ptr %ref.tmp.i168, align 16, !noalias !98
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp90.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i168)
   br label %.noexc16
 
@@ -12596,35 +12611,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp89.i, ptr %result.ptr.i463.i, align 8, !noalias !104
   store ptr %ref.tmp90.i, ptr %a.addr.i464.i, align 8, !noalias !104
   store ptr %row3.i, ptr %b.addr.i465.i, align 8, !noalias !104
-  %222 = load ptr, ptr %a.addr.i464.i, align 8, !noalias !104
-  %223 = load <4 x float>, ptr %222, align 16
-  %224 = load ptr, ptr %b.addr.i465.i, align 8, !noalias !104
-  %225 = load <4 x float>, ptr %224, align 16
-  store <4 x float> %223, ptr %__a.addr.i.i461.i, align 16, !noalias !104
-  store <4 x float> %225, ptr %__b.addr.i.i462.i, align 16, !noalias !104
-  %226 = load <4 x float>, ptr %__a.addr.i.i461.i, align 16, !noalias !104
-  %227 = load <4 x float>, ptr %__b.addr.i.i462.i, align 16, !noalias !104
-  %mul.i.i467.i = fmul <4 x float> %226, %227
+  %223 = load ptr, ptr %a.addr.i464.i, align 8, !noalias !104
+  %224 = load <4 x float>, ptr %223, align 16
+  %225 = load ptr, ptr %b.addr.i465.i, align 8, !noalias !104
+  %226 = load <4 x float>, ptr %225, align 16
+  store <4 x float> %224, ptr %__a.addr.i.i461.i, align 16, !noalias !104
+  store <4 x float> %226, ptr %__b.addr.i.i462.i, align 16, !noalias !104
+  %227 = load <4 x float>, ptr %__a.addr.i.i461.i, align 16, !noalias !104
+  %228 = load <4 x float>, ptr %__b.addr.i.i462.i, align 16, !noalias !104
+  %mul.i.i467.i = fmul <4 x float> %227, %228
   store <4 x float> %mul.i.i467.i, ptr %ref.tmp.i466.i, align 16, !noalias !104
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp89.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i466.i)
   %call91.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp89.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   store ptr %agg.tmp92.i, ptr %result.ptr.i116, align 8, !noalias !105
   store ptr %tmp1.i, ptr %a.addr.i117, align 8, !noalias !105
-  %228 = load ptr, ptr %a.addr.i117, align 8, !noalias !105
-  %call.i119 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %228)
+  %229 = load ptr, ptr %a.addr.i117, align 8, !noalias !105
+  %call.i119 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %229)
   store <4 x float> %call.i119, ptr %a.addr.i237, align 16
-  %229 = load <4 x float>, ptr %a.addr.i237, align 16
-  store <4 x float> %229, ptr %__a.addr.i.i236, align 16
-  %230 = load <4 x float>, ptr %__a.addr.i.i236, align 16
-  %231 = bitcast <4 x float> %230 to <2 x i64>
-  %232 = bitcast <2 x i64> %231 to <4 x i32>
-  %permil.i238 = shufflevector <4 x i32> %232, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %233 = bitcast <4 x i32> %permil.i238 to <2 x i64>
-  store <2 x i64> %233, ptr %__a.addr.i2.i235, align 16
-  %234 = load <2 x i64>, ptr %__a.addr.i2.i235, align 16
-  %235 = bitcast <2 x i64> %234 to <4 x float>
-  store <4 x float> %235, ptr %ref.tmp.i118, align 16, !noalias !105
+  %230 = load <4 x float>, ptr %a.addr.i237, align 16
+  store <4 x float> %230, ptr %__a.addr.i.i236, align 16
+  %231 = load <4 x float>, ptr %__a.addr.i.i236, align 16
+  %232 = bitcast <4 x float> %231 to <2 x i64>
+  %233 = bitcast <2 x i64> %232 to <4 x i32>
+  %permil.i238 = shufflevector <4 x i32> %233, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %234 = bitcast <4 x i32> %permil.i238 to <2 x i64>
+  store <2 x i64> %234, ptr %__a.addr.i2.i235, align 16
+  %235 = load <2 x i64>, ptr %__a.addr.i2.i235, align 16
+  %236 = bitcast <2 x i64> %235 to <4 x float>
+  store <4 x float> %236, ptr %ref.tmp.i118, align 16, !noalias !105
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp92.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i118)
   br label %.noexc17
 
@@ -12633,20 +12648,20 @@ if.then:                                          ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   store ptr %agg.tmp94.i, ptr %result.ptr.i161, align 8, !noalias !108
   store ptr %row2.i, ptr %a.addr.i162, align 8, !noalias !108
-  %236 = load ptr, ptr %a.addr.i162, align 8, !noalias !108
-  %call.i164 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %236)
+  %237 = load ptr, ptr %a.addr.i162, align 8, !noalias !108
+  %call.i164 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %237)
   store <4 x float> %call.i164, ptr %a.addr.i277, align 16
-  %237 = load <4 x float>, ptr %a.addr.i277, align 16
-  store <4 x float> %237, ptr %__a.addr.i.i276, align 16
-  %238 = load <4 x float>, ptr %__a.addr.i.i276, align 16
-  %239 = bitcast <4 x float> %238 to <2 x i64>
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %permil.i278 = shufflevector <4 x i32> %240, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %241 = bitcast <4 x i32> %permil.i278 to <2 x i64>
-  store <2 x i64> %241, ptr %__a.addr.i2.i275, align 16
-  %242 = load <2 x i64>, ptr %__a.addr.i2.i275, align 16
-  %243 = bitcast <2 x i64> %242 to <4 x float>
-  store <4 x float> %243, ptr %ref.tmp.i163, align 16, !noalias !108
+  %238 = load <4 x float>, ptr %a.addr.i277, align 16
+  store <4 x float> %238, ptr %__a.addr.i.i276, align 16
+  %239 = load <4 x float>, ptr %__a.addr.i.i276, align 16
+  %240 = bitcast <4 x float> %239 to <2 x i64>
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %permil.i278 = shufflevector <4 x i32> %241, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %242 = bitcast <4 x i32> %permil.i278 to <2 x i64>
+  store <2 x i64> %242, ptr %__a.addr.i2.i275, align 16
+  %243 = load <2 x i64>, ptr %__a.addr.i2.i275, align 16
+  %244 = bitcast <2 x i64> %243 to <4 x float>
+  store <4 x float> %244, ptr %ref.tmp.i163, align 16, !noalias !108
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp94.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i163)
   br label %.noexc18
 
@@ -12656,30 +12671,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp97.i, ptr %result.ptr.i456.i, align 8, !noalias !114
   store ptr %row2.i, ptr %a.addr.i457.i, align 8, !noalias !114
   store ptr %tmp1.i, ptr %b.addr.i458.i, align 8, !noalias !114
-  %244 = load ptr, ptr %a.addr.i457.i, align 8, !noalias !114
-  %245 = load <4 x float>, ptr %244, align 16
-  %246 = load ptr, ptr %b.addr.i458.i, align 8, !noalias !114
-  %247 = load <4 x float>, ptr %246, align 16
-  store <4 x float> %245, ptr %__a.addr.i.i454.i, align 16, !noalias !114
-  store <4 x float> %247, ptr %__b.addr.i.i455.i, align 16, !noalias !114
-  %248 = load <4 x float>, ptr %__a.addr.i.i454.i, align 16, !noalias !114
-  %249 = load <4 x float>, ptr %__b.addr.i.i455.i, align 16, !noalias !114
-  %mul.i.i460.i = fmul <4 x float> %248, %249
+  %245 = load ptr, ptr %a.addr.i457.i, align 8, !noalias !114
+  %246 = load <4 x float>, ptr %245, align 16
+  %247 = load ptr, ptr %b.addr.i458.i, align 8, !noalias !114
+  %248 = load <4 x float>, ptr %247, align 16
+  store <4 x float> %246, ptr %__a.addr.i.i454.i, align 16, !noalias !114
+  store <4 x float> %248, ptr %__b.addr.i.i455.i, align 16, !noalias !114
+  %249 = load <4 x float>, ptr %__a.addr.i.i454.i, align 16, !noalias !114
+  %250 = load <4 x float>, ptr %__b.addr.i.i455.i, align 16, !noalias !114
+  %mul.i.i460.i = fmul <4 x float> %249, %250
   store <4 x float> %mul.i.i460.i, ptr %ref.tmp.i459.i, align 16, !noalias !114
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp97.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i459.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   store ptr %agg.tmp96.i, ptr %result.ptr.i567.i, align 8, !noalias !118
   store ptr %ref.tmp97.i, ptr %a.addr.i568.i, align 8, !noalias !118
   store ptr %minor0.i, ptr %b.addr.i569.i, align 8, !noalias !118
-  %250 = load ptr, ptr %a.addr.i568.i, align 8, !noalias !118
-  %251 = load <4 x float>, ptr %250, align 16
-  %252 = load ptr, ptr %b.addr.i569.i, align 8, !noalias !118
-  %253 = load <4 x float>, ptr %252, align 16
-  store <4 x float> %251, ptr %__a.addr.i579.i, align 16, !noalias !14
-  store <4 x float> %253, ptr %__b.addr.i580.i, align 16, !noalias !14
-  %254 = load <4 x float>, ptr %__a.addr.i579.i, align 16, !noalias !14
-  %255 = load <4 x float>, ptr %__b.addr.i580.i, align 16, !noalias !14
-  %add.i581.i = fadd <4 x float> %254, %255
+  %251 = load ptr, ptr %a.addr.i568.i, align 8, !noalias !118
+  %252 = load <4 x float>, ptr %251, align 16
+  %253 = load ptr, ptr %b.addr.i569.i, align 8, !noalias !118
+  %254 = load <4 x float>, ptr %253, align 16
+  store <4 x float> %252, ptr %__a.addr.i579.i, align 16, !noalias !14
+  store <4 x float> %254, ptr %__b.addr.i580.i, align 16, !noalias !14
+  %255 = load <4 x float>, ptr %__a.addr.i579.i, align 16, !noalias !14
+  %256 = load <4 x float>, ptr %__b.addr.i580.i, align 16, !noalias !14
+  %add.i581.i = fadd <4 x float> %255, %256
   store <4 x float> %add.i581.i, ptr %ref.tmp.i570.i, align 16, !noalias !118
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp96.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i570.i)
   %call98.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp96.i)
@@ -12687,35 +12702,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp99.i, ptr %result.ptr.i449.i, align 8, !noalias !122
   store ptr %row0.i, ptr %a.addr.i450.i, align 8, !noalias !122
   store ptr %tmp1.i, ptr %b.addr.i451.i, align 8, !noalias !122
-  %256 = load ptr, ptr %a.addr.i450.i, align 8, !noalias !122
-  %257 = load <4 x float>, ptr %256, align 16
-  %258 = load ptr, ptr %b.addr.i451.i, align 8, !noalias !122
-  %259 = load <4 x float>, ptr %258, align 16
-  store <4 x float> %257, ptr %__a.addr.i.i447.i, align 16, !noalias !122
-  store <4 x float> %259, ptr %__b.addr.i.i448.i, align 16, !noalias !122
-  %260 = load <4 x float>, ptr %__a.addr.i.i447.i, align 16, !noalias !122
-  %261 = load <4 x float>, ptr %__b.addr.i.i448.i, align 16, !noalias !122
-  %mul.i.i453.i = fmul <4 x float> %260, %261
+  %257 = load ptr, ptr %a.addr.i450.i, align 8, !noalias !122
+  %258 = load <4 x float>, ptr %257, align 16
+  %259 = load ptr, ptr %b.addr.i451.i, align 8, !noalias !122
+  %260 = load <4 x float>, ptr %259, align 16
+  store <4 x float> %258, ptr %__a.addr.i.i447.i, align 16, !noalias !122
+  store <4 x float> %260, ptr %__b.addr.i.i448.i, align 16, !noalias !122
+  %261 = load <4 x float>, ptr %__a.addr.i.i447.i, align 16, !noalias !122
+  %262 = load <4 x float>, ptr %__b.addr.i.i448.i, align 16, !noalias !122
+  %mul.i.i453.i = fmul <4 x float> %261, %262
   store <4 x float> %mul.i.i453.i, ptr %ref.tmp.i452.i, align 16, !noalias !122
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp99.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i452.i)
   %call100.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp99.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
   store ptr %agg.tmp101.i, ptr %result.ptr.i156, align 8, !noalias !123
   store ptr %tmp1.i, ptr %a.addr.i157, align 8, !noalias !123
-  %262 = load ptr, ptr %a.addr.i157, align 8, !noalias !123
-  %call.i159 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %262)
+  %263 = load ptr, ptr %a.addr.i157, align 8, !noalias !123
+  %call.i159 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %263)
   store <4 x float> %call.i159, ptr %a.addr.i281, align 16
-  %263 = load <4 x float>, ptr %a.addr.i281, align 16
-  store <4 x float> %263, ptr %__a.addr.i.i280, align 16
-  %264 = load <4 x float>, ptr %__a.addr.i.i280, align 16
-  %265 = bitcast <4 x float> %264 to <2 x i64>
-  %266 = bitcast <2 x i64> %265 to <4 x i32>
-  %permil.i282 = shufflevector <4 x i32> %266, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %267 = bitcast <4 x i32> %permil.i282 to <2 x i64>
-  store <2 x i64> %267, ptr %__a.addr.i2.i279, align 16
-  %268 = load <2 x i64>, ptr %__a.addr.i2.i279, align 16
-  %269 = bitcast <2 x i64> %268 to <4 x float>
-  store <4 x float> %269, ptr %ref.tmp.i158, align 16, !noalias !123
+  %264 = load <4 x float>, ptr %a.addr.i281, align 16
+  store <4 x float> %264, ptr %__a.addr.i.i280, align 16
+  %265 = load <4 x float>, ptr %__a.addr.i.i280, align 16
+  %266 = bitcast <4 x float> %265 to <2 x i64>
+  %267 = bitcast <2 x i64> %266 to <4 x i32>
+  %permil.i282 = shufflevector <4 x i32> %267, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %268 = bitcast <4 x i32> %permil.i282 to <2 x i64>
+  store <2 x i64> %268, ptr %__a.addr.i2.i279, align 16
+  %269 = load <2 x i64>, ptr %__a.addr.i2.i279, align 16
+  %270 = bitcast <2 x i64> %269 to <4 x float>
+  store <4 x float> %270, ptr %ref.tmp.i158, align 16, !noalias !123
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp101.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i158)
   br label %.noexc19
 
@@ -12725,30 +12740,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp104.i, ptr %result.ptr.i442.i, align 8, !noalias !129
   store ptr %row2.i, ptr %a.addr.i443.i, align 8, !noalias !129
   store ptr %tmp1.i, ptr %b.addr.i444.i, align 8, !noalias !129
-  %270 = load ptr, ptr %a.addr.i443.i, align 8, !noalias !129
-  %271 = load <4 x float>, ptr %270, align 16
-  %272 = load ptr, ptr %b.addr.i444.i, align 8, !noalias !129
-  %273 = load <4 x float>, ptr %272, align 16
-  store <4 x float> %271, ptr %__a.addr.i.i440.i, align 16, !noalias !129
-  store <4 x float> %273, ptr %__b.addr.i.i441.i, align 16, !noalias !129
-  %274 = load <4 x float>, ptr %__a.addr.i.i440.i, align 16, !noalias !129
-  %275 = load <4 x float>, ptr %__b.addr.i.i441.i, align 16, !noalias !129
-  %mul.i.i446.i = fmul <4 x float> %274, %275
+  %271 = load ptr, ptr %a.addr.i443.i, align 8, !noalias !129
+  %272 = load <4 x float>, ptr %271, align 16
+  %273 = load ptr, ptr %b.addr.i444.i, align 8, !noalias !129
+  %274 = load <4 x float>, ptr %273, align 16
+  store <4 x float> %272, ptr %__a.addr.i.i440.i, align 16, !noalias !129
+  store <4 x float> %274, ptr %__b.addr.i.i441.i, align 16, !noalias !129
+  %275 = load <4 x float>, ptr %__a.addr.i.i440.i, align 16, !noalias !129
+  %276 = load <4 x float>, ptr %__b.addr.i.i441.i, align 16, !noalias !129
+  %mul.i.i446.i = fmul <4 x float> %275, %276
   store <4 x float> %mul.i.i446.i, ptr %ref.tmp.i445.i, align 16, !noalias !129
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp104.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i445.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   store ptr %agg.tmp103.i, ptr %result.ptr.i235.i, align 8, !noalias !133
   store ptr %minor0.i, ptr %a.addr.i236.i, align 8, !noalias !133
   store ptr %ref.tmp104.i, ptr %b.addr.i237.i, align 8, !noalias !133
-  %276 = load ptr, ptr %a.addr.i236.i, align 8, !noalias !133
-  %277 = load <4 x float>, ptr %276, align 16
-  %278 = load ptr, ptr %b.addr.i237.i, align 8, !noalias !133
-  %279 = load <4 x float>, ptr %278, align 16
-  store <4 x float> %277, ptr %__a.addr.i269.i, align 16, !noalias !14
-  store <4 x float> %279, ptr %__b.addr.i270.i, align 16, !noalias !14
-  %280 = load <4 x float>, ptr %__a.addr.i269.i, align 16, !noalias !14
-  %281 = load <4 x float>, ptr %__b.addr.i270.i, align 16, !noalias !14
-  %sub.i271.i = fsub <4 x float> %280, %281
+  %277 = load ptr, ptr %a.addr.i236.i, align 8, !noalias !133
+  %278 = load <4 x float>, ptr %277, align 16
+  %279 = load ptr, ptr %b.addr.i237.i, align 8, !noalias !133
+  %280 = load <4 x float>, ptr %279, align 16
+  store <4 x float> %278, ptr %__a.addr.i269.i, align 16, !noalias !14
+  store <4 x float> %280, ptr %__b.addr.i270.i, align 16, !noalias !14
+  %281 = load <4 x float>, ptr %__a.addr.i269.i, align 16, !noalias !14
+  %282 = load <4 x float>, ptr %__b.addr.i270.i, align 16, !noalias !14
+  %sub.i271.i = fsub <4 x float> %281, %282
   store <4 x float> %sub.i271.i, ptr %ref.tmp.i238.i, align 16, !noalias !133
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp103.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i238.i)
   %call105.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor0.i, ptr noundef %agg.tmp103.i)
@@ -12756,50 +12771,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp107.i, ptr %result.ptr.i435.i, align 8, !noalias !137
   store ptr %row0.i, ptr %a.addr.i436.i, align 8, !noalias !137
   store ptr %tmp1.i, ptr %b.addr.i437.i, align 8, !noalias !137
-  %282 = load ptr, ptr %a.addr.i436.i, align 8, !noalias !137
-  %283 = load <4 x float>, ptr %282, align 16
-  %284 = load ptr, ptr %b.addr.i437.i, align 8, !noalias !137
-  %285 = load <4 x float>, ptr %284, align 16
-  store <4 x float> %283, ptr %__a.addr.i.i433.i, align 16, !noalias !137
-  store <4 x float> %285, ptr %__b.addr.i.i434.i, align 16, !noalias !137
-  %286 = load <4 x float>, ptr %__a.addr.i.i433.i, align 16, !noalias !137
-  %287 = load <4 x float>, ptr %__b.addr.i.i434.i, align 16, !noalias !137
-  %mul.i.i439.i = fmul <4 x float> %286, %287
+  %283 = load ptr, ptr %a.addr.i436.i, align 8, !noalias !137
+  %284 = load <4 x float>, ptr %283, align 16
+  %285 = load ptr, ptr %b.addr.i437.i, align 8, !noalias !137
+  %286 = load <4 x float>, ptr %285, align 16
+  store <4 x float> %284, ptr %__a.addr.i.i433.i, align 16, !noalias !137
+  store <4 x float> %286, ptr %__b.addr.i.i434.i, align 16, !noalias !137
+  %287 = load <4 x float>, ptr %__a.addr.i.i433.i, align 16, !noalias !137
+  %288 = load <4 x float>, ptr %__b.addr.i.i434.i, align 16, !noalias !137
+  %mul.i.i439.i = fmul <4 x float> %287, %288
   store <4 x float> %mul.i.i439.i, ptr %ref.tmp.i438.i, align 16, !noalias !137
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp107.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i438.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
   store ptr %agg.tmp106.i, ptr %result.ptr.i230.i, align 8, !noalias !141
   store ptr %ref.tmp107.i, ptr %a.addr.i231.i, align 8, !noalias !141
   store ptr %minor2.i, ptr %b.addr.i232.i, align 8, !noalias !141
-  %288 = load ptr, ptr %a.addr.i231.i, align 8, !noalias !141
-  %289 = load <4 x float>, ptr %288, align 16
-  %290 = load ptr, ptr %b.addr.i232.i, align 8, !noalias !141
-  %291 = load <4 x float>, ptr %290, align 16
-  store <4 x float> %289, ptr %__a.addr.i272.i, align 16, !noalias !14
-  store <4 x float> %291, ptr %__b.addr.i273.i, align 16, !noalias !14
-  %292 = load <4 x float>, ptr %__a.addr.i272.i, align 16, !noalias !14
-  %293 = load <4 x float>, ptr %__b.addr.i273.i, align 16, !noalias !14
-  %sub.i274.i = fsub <4 x float> %292, %293
+  %289 = load ptr, ptr %a.addr.i231.i, align 8, !noalias !141
+  %290 = load <4 x float>, ptr %289, align 16
+  %291 = load ptr, ptr %b.addr.i232.i, align 8, !noalias !141
+  %292 = load <4 x float>, ptr %291, align 16
+  store <4 x float> %290, ptr %__a.addr.i272.i, align 16, !noalias !14
+  store <4 x float> %292, ptr %__b.addr.i273.i, align 16, !noalias !14
+  %293 = load <4 x float>, ptr %__a.addr.i272.i, align 16, !noalias !14
+  %294 = load <4 x float>, ptr %__b.addr.i273.i, align 16, !noalias !14
+  %sub.i274.i = fsub <4 x float> %293, %294
   store <4 x float> %sub.i274.i, ptr %ref.tmp.i233.i, align 16, !noalias !141
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp106.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i233.i)
   %call108.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp106.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   store ptr %agg.tmp109.i, ptr %result.ptr.i151, align 8, !noalias !142
   store ptr %minor2.i, ptr %a.addr.i152, align 8, !noalias !142
-  %294 = load ptr, ptr %a.addr.i152, align 8, !noalias !142
-  %call.i154 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %294)
+  %295 = load ptr, ptr %a.addr.i152, align 8, !noalias !142
+  %call.i154 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %295)
   store <4 x float> %call.i154, ptr %a.addr.i285, align 16
-  %295 = load <4 x float>, ptr %a.addr.i285, align 16
-  store <4 x float> %295, ptr %__a.addr.i.i284, align 16
-  %296 = load <4 x float>, ptr %__a.addr.i.i284, align 16
-  %297 = bitcast <4 x float> %296 to <2 x i64>
-  %298 = bitcast <2 x i64> %297 to <4 x i32>
-  %permil.i286 = shufflevector <4 x i32> %298, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %299 = bitcast <4 x i32> %permil.i286 to <2 x i64>
-  store <2 x i64> %299, ptr %__a.addr.i2.i283, align 16
-  %300 = load <2 x i64>, ptr %__a.addr.i2.i283, align 16
-  %301 = bitcast <2 x i64> %300 to <4 x float>
-  store <4 x float> %301, ptr %ref.tmp.i153, align 16, !noalias !142
+  %296 = load <4 x float>, ptr %a.addr.i285, align 16
+  store <4 x float> %296, ptr %__a.addr.i.i284, align 16
+  %297 = load <4 x float>, ptr %__a.addr.i.i284, align 16
+  %298 = bitcast <4 x float> %297 to <2 x i64>
+  %299 = bitcast <2 x i64> %298 to <4 x i32>
+  %permil.i286 = shufflevector <4 x i32> %299, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %300 = bitcast <4 x i32> %permil.i286 to <2 x i64>
+  store <2 x i64> %300, ptr %__a.addr.i2.i283, align 16
+  %301 = load <2 x i64>, ptr %__a.addr.i2.i283, align 16
+  %302 = bitcast <2 x i64> %301 to <4 x float>
+  store <4 x float> %302, ptr %ref.tmp.i153, align 16, !noalias !142
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp109.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i153)
   br label %.noexc20
 
@@ -12809,35 +12824,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp111.i, ptr %result.ptr.i428.i, align 8, !noalias !148
   store ptr %row0.i, ptr %a.addr.i429.i, align 8, !noalias !148
   store ptr %row1.i, ptr %b.addr.i430.i, align 8, !noalias !148
-  %302 = load ptr, ptr %a.addr.i429.i, align 8, !noalias !148
-  %303 = load <4 x float>, ptr %302, align 16
-  %304 = load ptr, ptr %b.addr.i430.i, align 8, !noalias !148
-  %305 = load <4 x float>, ptr %304, align 16
-  store <4 x float> %303, ptr %__a.addr.i.i426.i, align 16, !noalias !148
-  store <4 x float> %305, ptr %__b.addr.i.i427.i, align 16, !noalias !148
-  %306 = load <4 x float>, ptr %__a.addr.i.i426.i, align 16, !noalias !148
-  %307 = load <4 x float>, ptr %__b.addr.i.i427.i, align 16, !noalias !148
-  %mul.i.i432.i = fmul <4 x float> %306, %307
+  %303 = load ptr, ptr %a.addr.i429.i, align 8, !noalias !148
+  %304 = load <4 x float>, ptr %303, align 16
+  %305 = load ptr, ptr %b.addr.i430.i, align 8, !noalias !148
+  %306 = load <4 x float>, ptr %305, align 16
+  store <4 x float> %304, ptr %__a.addr.i.i426.i, align 16, !noalias !148
+  store <4 x float> %306, ptr %__b.addr.i.i427.i, align 16, !noalias !148
+  %307 = load <4 x float>, ptr %__a.addr.i.i426.i, align 16, !noalias !148
+  %308 = load <4 x float>, ptr %__b.addr.i.i427.i, align 16, !noalias !148
+  %mul.i.i432.i = fmul <4 x float> %307, %308
   store <4 x float> %mul.i.i432.i, ptr %ref.tmp.i431.i, align 16, !noalias !148
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp111.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i431.i)
   %call112.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp111.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   store ptr %agg.tmp113.i, ptr %result.ptr.i111, align 8, !noalias !149
   store ptr %tmp1.i, ptr %a.addr.i112, align 8, !noalias !149
-  %308 = load ptr, ptr %a.addr.i112, align 8, !noalias !149
-  %call.i114 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %308)
+  %309 = load ptr, ptr %a.addr.i112, align 8, !noalias !149
+  %call.i114 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %309)
   store <4 x float> %call.i114, ptr %a.addr.i241, align 16
-  %309 = load <4 x float>, ptr %a.addr.i241, align 16
-  store <4 x float> %309, ptr %__a.addr.i.i240, align 16
-  %310 = load <4 x float>, ptr %__a.addr.i.i240, align 16
-  %311 = bitcast <4 x float> %310 to <2 x i64>
-  %312 = bitcast <2 x i64> %311 to <4 x i32>
-  %permil.i242 = shufflevector <4 x i32> %312, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %313 = bitcast <4 x i32> %permil.i242 to <2 x i64>
-  store <2 x i64> %313, ptr %__a.addr.i2.i239, align 16
-  %314 = load <2 x i64>, ptr %__a.addr.i2.i239, align 16
-  %315 = bitcast <2 x i64> %314 to <4 x float>
-  store <4 x float> %315, ptr %ref.tmp.i113, align 16, !noalias !149
+  %310 = load <4 x float>, ptr %a.addr.i241, align 16
+  store <4 x float> %310, ptr %__a.addr.i.i240, align 16
+  %311 = load <4 x float>, ptr %__a.addr.i.i240, align 16
+  %312 = bitcast <4 x float> %311 to <2 x i64>
+  %313 = bitcast <2 x i64> %312 to <4 x i32>
+  %permil.i242 = shufflevector <4 x i32> %313, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %314 = bitcast <4 x i32> %permil.i242 to <2 x i64>
+  store <2 x i64> %314, ptr %__a.addr.i2.i239, align 16
+  %315 = load <2 x i64>, ptr %__a.addr.i2.i239, align 16
+  %316 = bitcast <2 x i64> %315 to <4 x float>
+  store <4 x float> %316, ptr %ref.tmp.i113, align 16, !noalias !149
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp113.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i113)
   br label %.noexc21
 
@@ -12847,30 +12862,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp116.i, ptr %result.ptr.i421.i, align 8, !noalias !155
   store ptr %row3.i, ptr %a.addr.i422.i, align 8, !noalias !155
   store ptr %tmp1.i, ptr %b.addr.i423.i, align 8, !noalias !155
-  %316 = load ptr, ptr %a.addr.i422.i, align 8, !noalias !155
-  %317 = load <4 x float>, ptr %316, align 16
-  %318 = load ptr, ptr %b.addr.i423.i, align 8, !noalias !155
-  %319 = load <4 x float>, ptr %318, align 16
-  store <4 x float> %317, ptr %__a.addr.i.i419.i, align 16, !noalias !155
-  store <4 x float> %319, ptr %__b.addr.i.i420.i, align 16, !noalias !155
-  %320 = load <4 x float>, ptr %__a.addr.i.i419.i, align 16, !noalias !155
-  %321 = load <4 x float>, ptr %__b.addr.i.i420.i, align 16, !noalias !155
-  %mul.i.i425.i = fmul <4 x float> %320, %321
+  %317 = load ptr, ptr %a.addr.i422.i, align 8, !noalias !155
+  %318 = load <4 x float>, ptr %317, align 16
+  %319 = load ptr, ptr %b.addr.i423.i, align 8, !noalias !155
+  %320 = load <4 x float>, ptr %319, align 16
+  store <4 x float> %318, ptr %__a.addr.i.i419.i, align 16, !noalias !155
+  store <4 x float> %320, ptr %__b.addr.i.i420.i, align 16, !noalias !155
+  %321 = load <4 x float>, ptr %__a.addr.i.i419.i, align 16, !noalias !155
+  %322 = load <4 x float>, ptr %__b.addr.i.i420.i, align 16, !noalias !155
+  %mul.i.i425.i = fmul <4 x float> %321, %322
   store <4 x float> %mul.i.i425.i, ptr %ref.tmp.i424.i, align 16, !noalias !155
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp116.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i424.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
   store ptr %agg.tmp115.i, ptr %result.ptr.i562.i, align 8, !noalias !159
   store ptr %ref.tmp116.i, ptr %a.addr.i563.i, align 8, !noalias !159
   store ptr %minor2.i, ptr %b.addr.i564.i, align 8, !noalias !159
-  %322 = load ptr, ptr %a.addr.i563.i, align 8, !noalias !159
-  %323 = load <4 x float>, ptr %322, align 16
-  %324 = load ptr, ptr %b.addr.i564.i, align 8, !noalias !159
-  %325 = load <4 x float>, ptr %324, align 16
-  store <4 x float> %323, ptr %__a.addr.i582.i, align 16, !noalias !14
-  store <4 x float> %325, ptr %__b.addr.i583.i, align 16, !noalias !14
-  %326 = load <4 x float>, ptr %__a.addr.i582.i, align 16, !noalias !14
-  %327 = load <4 x float>, ptr %__b.addr.i583.i, align 16, !noalias !14
-  %add.i584.i = fadd <4 x float> %326, %327
+  %323 = load ptr, ptr %a.addr.i563.i, align 8, !noalias !159
+  %324 = load <4 x float>, ptr %323, align 16
+  %325 = load ptr, ptr %b.addr.i564.i, align 8, !noalias !159
+  %326 = load <4 x float>, ptr %325, align 16
+  store <4 x float> %324, ptr %__a.addr.i582.i, align 16, !noalias !14
+  store <4 x float> %326, ptr %__b.addr.i583.i, align 16, !noalias !14
+  %327 = load <4 x float>, ptr %__a.addr.i582.i, align 16, !noalias !14
+  %328 = load <4 x float>, ptr %__b.addr.i583.i, align 16, !noalias !14
+  %add.i584.i = fadd <4 x float> %327, %328
   store <4 x float> %add.i584.i, ptr %ref.tmp.i565.i, align 16, !noalias !159
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp115.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i565.i)
   %call117.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp115.i)
@@ -12878,50 +12893,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp119.i, ptr %result.ptr.i414.i, align 8, !noalias !163
   store ptr %row2.i, ptr %a.addr.i415.i, align 8, !noalias !163
   store ptr %tmp1.i, ptr %b.addr.i416.i, align 8, !noalias !163
-  %328 = load ptr, ptr %a.addr.i415.i, align 8, !noalias !163
-  %329 = load <4 x float>, ptr %328, align 16
-  %330 = load ptr, ptr %b.addr.i416.i, align 8, !noalias !163
-  %331 = load <4 x float>, ptr %330, align 16
-  store <4 x float> %329, ptr %__a.addr.i.i412.i, align 16, !noalias !163
-  store <4 x float> %331, ptr %__b.addr.i.i413.i, align 16, !noalias !163
-  %332 = load <4 x float>, ptr %__a.addr.i.i412.i, align 16, !noalias !163
-  %333 = load <4 x float>, ptr %__b.addr.i.i413.i, align 16, !noalias !163
-  %mul.i.i418.i = fmul <4 x float> %332, %333
+  %329 = load ptr, ptr %a.addr.i415.i, align 8, !noalias !163
+  %330 = load <4 x float>, ptr %329, align 16
+  %331 = load ptr, ptr %b.addr.i416.i, align 8, !noalias !163
+  %332 = load <4 x float>, ptr %331, align 16
+  store <4 x float> %330, ptr %__a.addr.i.i412.i, align 16, !noalias !163
+  store <4 x float> %332, ptr %__b.addr.i.i413.i, align 16, !noalias !163
+  %333 = load <4 x float>, ptr %__a.addr.i.i412.i, align 16, !noalias !163
+  %334 = load <4 x float>, ptr %__b.addr.i.i413.i, align 16, !noalias !163
+  %mul.i.i418.i = fmul <4 x float> %333, %334
   store <4 x float> %mul.i.i418.i, ptr %ref.tmp.i417.i, align 16, !noalias !163
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp119.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i417.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   store ptr %agg.tmp118.i, ptr %result.ptr.i225.i, align 8, !noalias !167
   store ptr %ref.tmp119.i, ptr %a.addr.i226.i, align 8, !noalias !167
   store ptr %minor3.i, ptr %b.addr.i227.i, align 8, !noalias !167
-  %334 = load ptr, ptr %a.addr.i226.i, align 8, !noalias !167
-  %335 = load <4 x float>, ptr %334, align 16
-  %336 = load ptr, ptr %b.addr.i227.i, align 8, !noalias !167
-  %337 = load <4 x float>, ptr %336, align 16
-  store <4 x float> %335, ptr %__a.addr.i275.i, align 16, !noalias !14
-  store <4 x float> %337, ptr %__b.addr.i276.i, align 16, !noalias !14
-  %338 = load <4 x float>, ptr %__a.addr.i275.i, align 16, !noalias !14
-  %339 = load <4 x float>, ptr %__b.addr.i276.i, align 16, !noalias !14
-  %sub.i277.i = fsub <4 x float> %338, %339
+  %335 = load ptr, ptr %a.addr.i226.i, align 8, !noalias !167
+  %336 = load <4 x float>, ptr %335, align 16
+  %337 = load ptr, ptr %b.addr.i227.i, align 8, !noalias !167
+  %338 = load <4 x float>, ptr %337, align 16
+  store <4 x float> %336, ptr %__a.addr.i275.i, align 16, !noalias !14
+  store <4 x float> %338, ptr %__b.addr.i276.i, align 16, !noalias !14
+  %339 = load <4 x float>, ptr %__a.addr.i275.i, align 16, !noalias !14
+  %340 = load <4 x float>, ptr %__b.addr.i276.i, align 16, !noalias !14
+  %sub.i277.i = fsub <4 x float> %339, %340
   store <4 x float> %sub.i277.i, ptr %ref.tmp.i228.i, align 16, !noalias !167
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp118.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i228.i)
   %call120.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp118.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   store ptr %agg.tmp121.i, ptr %result.ptr.i146, align 8, !noalias !168
   store ptr %tmp1.i, ptr %a.addr.i147, align 8, !noalias !168
-  %340 = load ptr, ptr %a.addr.i147, align 8, !noalias !168
-  %call.i149 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %340)
+  %341 = load ptr, ptr %a.addr.i147, align 8, !noalias !168
+  %call.i149 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %341)
   store <4 x float> %call.i149, ptr %a.addr.i289, align 16
-  %341 = load <4 x float>, ptr %a.addr.i289, align 16
-  store <4 x float> %341, ptr %__a.addr.i.i288, align 16
-  %342 = load <4 x float>, ptr %__a.addr.i.i288, align 16
-  %343 = bitcast <4 x float> %342 to <2 x i64>
-  %344 = bitcast <2 x i64> %343 to <4 x i32>
-  %permil.i290 = shufflevector <4 x i32> %344, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %345 = bitcast <4 x i32> %permil.i290 to <2 x i64>
-  store <2 x i64> %345, ptr %__a.addr.i2.i287, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i2.i287, align 16
-  %347 = bitcast <2 x i64> %346 to <4 x float>
-  store <4 x float> %347, ptr %ref.tmp.i148, align 16, !noalias !168
+  %342 = load <4 x float>, ptr %a.addr.i289, align 16
+  store <4 x float> %342, ptr %__a.addr.i.i288, align 16
+  %343 = load <4 x float>, ptr %__a.addr.i.i288, align 16
+  %344 = bitcast <4 x float> %343 to <2 x i64>
+  %345 = bitcast <2 x i64> %344 to <4 x i32>
+  %permil.i290 = shufflevector <4 x i32> %345, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %346 = bitcast <4 x i32> %permil.i290 to <2 x i64>
+  store <2 x i64> %346, ptr %__a.addr.i2.i287, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i2.i287, align 16
+  %348 = bitcast <2 x i64> %347 to <4 x float>
+  store <4 x float> %348, ptr %ref.tmp.i148, align 16, !noalias !168
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp121.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i148)
   br label %.noexc22
 
@@ -12931,30 +12946,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp124.i, ptr %result.ptr.i407.i, align 8, !noalias !174
   store ptr %row3.i, ptr %a.addr.i408.i, align 8, !noalias !174
   store ptr %tmp1.i, ptr %b.addr.i409.i, align 8, !noalias !174
-  %348 = load ptr, ptr %a.addr.i408.i, align 8, !noalias !174
-  %349 = load <4 x float>, ptr %348, align 16
-  %350 = load ptr, ptr %b.addr.i409.i, align 8, !noalias !174
-  %351 = load <4 x float>, ptr %350, align 16
-  store <4 x float> %349, ptr %__a.addr.i.i405.i, align 16, !noalias !174
-  store <4 x float> %351, ptr %__b.addr.i.i406.i, align 16, !noalias !174
-  %352 = load <4 x float>, ptr %__a.addr.i.i405.i, align 16, !noalias !174
-  %353 = load <4 x float>, ptr %__b.addr.i.i406.i, align 16, !noalias !174
-  %mul.i.i411.i = fmul <4 x float> %352, %353
+  %349 = load ptr, ptr %a.addr.i408.i, align 8, !noalias !174
+  %350 = load <4 x float>, ptr %349, align 16
+  %351 = load ptr, ptr %b.addr.i409.i, align 8, !noalias !174
+  %352 = load <4 x float>, ptr %351, align 16
+  store <4 x float> %350, ptr %__a.addr.i.i405.i, align 16, !noalias !174
+  store <4 x float> %352, ptr %__b.addr.i.i406.i, align 16, !noalias !174
+  %353 = load <4 x float>, ptr %__a.addr.i.i405.i, align 16, !noalias !174
+  %354 = load <4 x float>, ptr %__b.addr.i.i406.i, align 16, !noalias !174
+  %mul.i.i411.i = fmul <4 x float> %353, %354
   store <4 x float> %mul.i.i411.i, ptr %ref.tmp.i410.i, align 16, !noalias !174
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp124.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i410.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !175)
   store ptr %agg.tmp123.i, ptr %result.ptr.i220.i, align 8, !noalias !178
   store ptr %ref.tmp124.i, ptr %a.addr.i221.i, align 8, !noalias !178
   store ptr %minor2.i, ptr %b.addr.i222.i, align 8, !noalias !178
-  %354 = load ptr, ptr %a.addr.i221.i, align 8, !noalias !178
-  %355 = load <4 x float>, ptr %354, align 16
-  %356 = load ptr, ptr %b.addr.i222.i, align 8, !noalias !178
-  %357 = load <4 x float>, ptr %356, align 16
-  store <4 x float> %355, ptr %__a.addr.i278.i, align 16, !noalias !14
-  store <4 x float> %357, ptr %__b.addr.i279.i, align 16, !noalias !14
-  %358 = load <4 x float>, ptr %__a.addr.i278.i, align 16, !noalias !14
-  %359 = load <4 x float>, ptr %__b.addr.i279.i, align 16, !noalias !14
-  %sub.i280.i = fsub <4 x float> %358, %359
+  %355 = load ptr, ptr %a.addr.i221.i, align 8, !noalias !178
+  %356 = load <4 x float>, ptr %355, align 16
+  %357 = load ptr, ptr %b.addr.i222.i, align 8, !noalias !178
+  %358 = load <4 x float>, ptr %357, align 16
+  store <4 x float> %356, ptr %__a.addr.i278.i, align 16, !noalias !14
+  store <4 x float> %358, ptr %__b.addr.i279.i, align 16, !noalias !14
+  %359 = load <4 x float>, ptr %__a.addr.i278.i, align 16, !noalias !14
+  %360 = load <4 x float>, ptr %__b.addr.i279.i, align 16, !noalias !14
+  %sub.i280.i = fsub <4 x float> %359, %360
   store <4 x float> %sub.i280.i, ptr %ref.tmp.i223.i, align 16, !noalias !178
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp123.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i223.i)
   %call125.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp123.i)
@@ -12962,30 +12977,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp127.i, ptr %result.ptr.i400.i, align 8, !noalias !182
   store ptr %row2.i, ptr %a.addr.i401.i, align 8, !noalias !182
   store ptr %tmp1.i, ptr %b.addr.i402.i, align 8, !noalias !182
-  %360 = load ptr, ptr %a.addr.i401.i, align 8, !noalias !182
-  %361 = load <4 x float>, ptr %360, align 16
-  %362 = load ptr, ptr %b.addr.i402.i, align 8, !noalias !182
-  %363 = load <4 x float>, ptr %362, align 16
-  store <4 x float> %361, ptr %__a.addr.i.i398.i, align 16, !noalias !182
-  store <4 x float> %363, ptr %__b.addr.i.i399.i, align 16, !noalias !182
-  %364 = load <4 x float>, ptr %__a.addr.i.i398.i, align 16, !noalias !182
-  %365 = load <4 x float>, ptr %__b.addr.i.i399.i, align 16, !noalias !182
-  %mul.i.i404.i = fmul <4 x float> %364, %365
+  %361 = load ptr, ptr %a.addr.i401.i, align 8, !noalias !182
+  %362 = load <4 x float>, ptr %361, align 16
+  %363 = load ptr, ptr %b.addr.i402.i, align 8, !noalias !182
+  %364 = load <4 x float>, ptr %363, align 16
+  store <4 x float> %362, ptr %__a.addr.i.i398.i, align 16, !noalias !182
+  store <4 x float> %364, ptr %__b.addr.i.i399.i, align 16, !noalias !182
+  %365 = load <4 x float>, ptr %__a.addr.i.i398.i, align 16, !noalias !182
+  %366 = load <4 x float>, ptr %__b.addr.i.i399.i, align 16, !noalias !182
+  %mul.i.i404.i = fmul <4 x float> %365, %366
   store <4 x float> %mul.i.i404.i, ptr %ref.tmp.i403.i, align 16, !noalias !182
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp127.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i403.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
   store ptr %agg.tmp126.i, ptr %result.ptr.i215.i, align 8, !noalias !186
   store ptr %minor3.i, ptr %a.addr.i216.i, align 8, !noalias !186
   store ptr %ref.tmp127.i, ptr %b.addr.i217.i, align 8, !noalias !186
-  %366 = load ptr, ptr %a.addr.i216.i, align 8, !noalias !186
-  %367 = load <4 x float>, ptr %366, align 16
-  %368 = load ptr, ptr %b.addr.i217.i, align 8, !noalias !186
-  %369 = load <4 x float>, ptr %368, align 16
-  store <4 x float> %367, ptr %__a.addr.i281.i, align 16, !noalias !14
-  store <4 x float> %369, ptr %__b.addr.i282.i, align 16, !noalias !14
-  %370 = load <4 x float>, ptr %__a.addr.i281.i, align 16, !noalias !14
-  %371 = load <4 x float>, ptr %__b.addr.i282.i, align 16, !noalias !14
-  %sub.i283.i = fsub <4 x float> %370, %371
+  %367 = load ptr, ptr %a.addr.i216.i, align 8, !noalias !186
+  %368 = load <4 x float>, ptr %367, align 16
+  %369 = load ptr, ptr %b.addr.i217.i, align 8, !noalias !186
+  %370 = load <4 x float>, ptr %369, align 16
+  store <4 x float> %368, ptr %__a.addr.i281.i, align 16, !noalias !14
+  store <4 x float> %370, ptr %__b.addr.i282.i, align 16, !noalias !14
+  %371 = load <4 x float>, ptr %__a.addr.i281.i, align 16, !noalias !14
+  %372 = load <4 x float>, ptr %__b.addr.i282.i, align 16, !noalias !14
+  %sub.i283.i = fsub <4 x float> %371, %372
   store <4 x float> %sub.i283.i, ptr %ref.tmp.i218.i, align 16, !noalias !186
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp126.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i218.i)
   %call128.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp126.i)
@@ -12993,35 +13008,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp129.i, ptr %result.ptr.i393.i, align 8, !noalias !190
   store ptr %row0.i, ptr %a.addr.i394.i, align 8, !noalias !190
   store ptr %row3.i, ptr %b.addr.i395.i, align 8, !noalias !190
-  %372 = load ptr, ptr %a.addr.i394.i, align 8, !noalias !190
-  %373 = load <4 x float>, ptr %372, align 16
-  %374 = load ptr, ptr %b.addr.i395.i, align 8, !noalias !190
-  %375 = load <4 x float>, ptr %374, align 16
-  store <4 x float> %373, ptr %__a.addr.i.i391.i, align 16, !noalias !190
-  store <4 x float> %375, ptr %__b.addr.i.i392.i, align 16, !noalias !190
-  %376 = load <4 x float>, ptr %__a.addr.i.i391.i, align 16, !noalias !190
-  %377 = load <4 x float>, ptr %__b.addr.i.i392.i, align 16, !noalias !190
-  %mul.i.i397.i = fmul <4 x float> %376, %377
+  %373 = load ptr, ptr %a.addr.i394.i, align 8, !noalias !190
+  %374 = load <4 x float>, ptr %373, align 16
+  %375 = load ptr, ptr %b.addr.i395.i, align 8, !noalias !190
+  %376 = load <4 x float>, ptr %375, align 16
+  store <4 x float> %374, ptr %__a.addr.i.i391.i, align 16, !noalias !190
+  store <4 x float> %376, ptr %__b.addr.i.i392.i, align 16, !noalias !190
+  %377 = load <4 x float>, ptr %__a.addr.i.i391.i, align 16, !noalias !190
+  %378 = load <4 x float>, ptr %__b.addr.i.i392.i, align 16, !noalias !190
+  %mul.i.i397.i = fmul <4 x float> %377, %378
   store <4 x float> %mul.i.i397.i, ptr %ref.tmp.i396.i, align 16, !noalias !190
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp129.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i396.i)
   %call130.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp129.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   store ptr %agg.tmp131.i, ptr %result.ptr.i106, align 8, !noalias !191
   store ptr %tmp1.i, ptr %a.addr.i107, align 8, !noalias !191
-  %378 = load ptr, ptr %a.addr.i107, align 8, !noalias !191
-  %call.i109 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %378)
+  %379 = load ptr, ptr %a.addr.i107, align 8, !noalias !191
+  %call.i109 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %379)
   store <4 x float> %call.i109, ptr %a.addr.i245, align 16
-  %379 = load <4 x float>, ptr %a.addr.i245, align 16
-  store <4 x float> %379, ptr %__a.addr.i.i244, align 16
-  %380 = load <4 x float>, ptr %__a.addr.i.i244, align 16
-  %381 = bitcast <4 x float> %380 to <2 x i64>
-  %382 = bitcast <2 x i64> %381 to <4 x i32>
-  %permil.i246 = shufflevector <4 x i32> %382, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %383 = bitcast <4 x i32> %permil.i246 to <2 x i64>
-  store <2 x i64> %383, ptr %__a.addr.i2.i243, align 16
-  %384 = load <2 x i64>, ptr %__a.addr.i2.i243, align 16
-  %385 = bitcast <2 x i64> %384 to <4 x float>
-  store <4 x float> %385, ptr %ref.tmp.i108, align 16, !noalias !191
+  %380 = load <4 x float>, ptr %a.addr.i245, align 16
+  store <4 x float> %380, ptr %__a.addr.i.i244, align 16
+  %381 = load <4 x float>, ptr %__a.addr.i.i244, align 16
+  %382 = bitcast <4 x float> %381 to <2 x i64>
+  %383 = bitcast <2 x i64> %382 to <4 x i32>
+  %permil.i246 = shufflevector <4 x i32> %383, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %384 = bitcast <4 x i32> %permil.i246 to <2 x i64>
+  store <2 x i64> %384, ptr %__a.addr.i2.i243, align 16
+  %385 = load <2 x i64>, ptr %__a.addr.i2.i243, align 16
+  %386 = bitcast <2 x i64> %385 to <4 x float>
+  store <4 x float> %386, ptr %ref.tmp.i108, align 16, !noalias !191
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp131.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i108)
   br label %.noexc23
 
@@ -13031,30 +13046,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp134.i, ptr %result.ptr.i386.i, align 8, !noalias !197
   store ptr %row2.i, ptr %a.addr.i387.i, align 8, !noalias !197
   store ptr %tmp1.i, ptr %b.addr.i388.i, align 8, !noalias !197
-  %386 = load ptr, ptr %a.addr.i387.i, align 8, !noalias !197
-  %387 = load <4 x float>, ptr %386, align 16
-  %388 = load ptr, ptr %b.addr.i388.i, align 8, !noalias !197
-  %389 = load <4 x float>, ptr %388, align 16
-  store <4 x float> %387, ptr %__a.addr.i.i384.i, align 16, !noalias !197
-  store <4 x float> %389, ptr %__b.addr.i.i385.i, align 16, !noalias !197
-  %390 = load <4 x float>, ptr %__a.addr.i.i384.i, align 16, !noalias !197
-  %391 = load <4 x float>, ptr %__b.addr.i.i385.i, align 16, !noalias !197
-  %mul.i.i390.i = fmul <4 x float> %390, %391
+  %387 = load ptr, ptr %a.addr.i387.i, align 8, !noalias !197
+  %388 = load <4 x float>, ptr %387, align 16
+  %389 = load ptr, ptr %b.addr.i388.i, align 8, !noalias !197
+  %390 = load <4 x float>, ptr %389, align 16
+  store <4 x float> %388, ptr %__a.addr.i.i384.i, align 16, !noalias !197
+  store <4 x float> %390, ptr %__b.addr.i.i385.i, align 16, !noalias !197
+  %391 = load <4 x float>, ptr %__a.addr.i.i384.i, align 16, !noalias !197
+  %392 = load <4 x float>, ptr %__b.addr.i.i385.i, align 16, !noalias !197
+  %mul.i.i390.i = fmul <4 x float> %391, %392
   store <4 x float> %mul.i.i390.i, ptr %ref.tmp.i389.i, align 16, !noalias !197
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp134.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i389.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   store ptr %agg.tmp133.i, ptr %result.ptr.i210.i, align 8, !noalias !201
   store ptr %minor1.i, ptr %a.addr.i211.i, align 8, !noalias !201
   store ptr %ref.tmp134.i, ptr %b.addr.i212.i, align 8, !noalias !201
-  %392 = load ptr, ptr %a.addr.i211.i, align 8, !noalias !201
-  %393 = load <4 x float>, ptr %392, align 16
-  %394 = load ptr, ptr %b.addr.i212.i, align 8, !noalias !201
-  %395 = load <4 x float>, ptr %394, align 16
-  store <4 x float> %393, ptr %__a.addr.i284.i, align 16, !noalias !14
-  store <4 x float> %395, ptr %__b.addr.i285.i, align 16, !noalias !14
-  %396 = load <4 x float>, ptr %__a.addr.i284.i, align 16, !noalias !14
-  %397 = load <4 x float>, ptr %__b.addr.i285.i, align 16, !noalias !14
-  %sub.i286.i = fsub <4 x float> %396, %397
+  %393 = load ptr, ptr %a.addr.i211.i, align 8, !noalias !201
+  %394 = load <4 x float>, ptr %393, align 16
+  %395 = load ptr, ptr %b.addr.i212.i, align 8, !noalias !201
+  %396 = load <4 x float>, ptr %395, align 16
+  store <4 x float> %394, ptr %__a.addr.i284.i, align 16, !noalias !14
+  store <4 x float> %396, ptr %__b.addr.i285.i, align 16, !noalias !14
+  %397 = load <4 x float>, ptr %__a.addr.i284.i, align 16, !noalias !14
+  %398 = load <4 x float>, ptr %__b.addr.i285.i, align 16, !noalias !14
+  %sub.i286.i = fsub <4 x float> %397, %398
   store <4 x float> %sub.i286.i, ptr %ref.tmp.i213.i, align 16, !noalias !201
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp133.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i213.i)
   %call135.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp133.i)
@@ -13062,50 +13077,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp137.i, ptr %result.ptr.i379.i, align 8, !noalias !205
   store ptr %row1.i, ptr %a.addr.i380.i, align 8, !noalias !205
   store ptr %tmp1.i, ptr %b.addr.i381.i, align 8, !noalias !205
-  %398 = load ptr, ptr %a.addr.i380.i, align 8, !noalias !205
-  %399 = load <4 x float>, ptr %398, align 16
-  %400 = load ptr, ptr %b.addr.i381.i, align 8, !noalias !205
-  %401 = load <4 x float>, ptr %400, align 16
-  store <4 x float> %399, ptr %__a.addr.i.i377.i, align 16, !noalias !205
-  store <4 x float> %401, ptr %__b.addr.i.i378.i, align 16, !noalias !205
-  %402 = load <4 x float>, ptr %__a.addr.i.i377.i, align 16, !noalias !205
-  %403 = load <4 x float>, ptr %__b.addr.i.i378.i, align 16, !noalias !205
-  %mul.i.i383.i = fmul <4 x float> %402, %403
+  %399 = load ptr, ptr %a.addr.i380.i, align 8, !noalias !205
+  %400 = load <4 x float>, ptr %399, align 16
+  %401 = load ptr, ptr %b.addr.i381.i, align 8, !noalias !205
+  %402 = load <4 x float>, ptr %401, align 16
+  store <4 x float> %400, ptr %__a.addr.i.i377.i, align 16, !noalias !205
+  store <4 x float> %402, ptr %__b.addr.i.i378.i, align 16, !noalias !205
+  %403 = load <4 x float>, ptr %__a.addr.i.i377.i, align 16, !noalias !205
+  %404 = load <4 x float>, ptr %__b.addr.i.i378.i, align 16, !noalias !205
+  %mul.i.i383.i = fmul <4 x float> %403, %404
   store <4 x float> %mul.i.i383.i, ptr %ref.tmp.i382.i, align 16, !noalias !205
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp137.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i382.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   store ptr %agg.tmp136.i, ptr %result.ptr.i557.i, align 8, !noalias !209
   store ptr %ref.tmp137.i, ptr %a.addr.i558.i, align 8, !noalias !209
   store ptr %minor2.i, ptr %b.addr.i559.i, align 8, !noalias !209
-  %404 = load ptr, ptr %a.addr.i558.i, align 8, !noalias !209
-  %405 = load <4 x float>, ptr %404, align 16
-  %406 = load ptr, ptr %b.addr.i559.i, align 8, !noalias !209
-  %407 = load <4 x float>, ptr %406, align 16
-  store <4 x float> %405, ptr %__a.addr.i585.i, align 16, !noalias !14
-  store <4 x float> %407, ptr %__b.addr.i586.i, align 16, !noalias !14
-  %408 = load <4 x float>, ptr %__a.addr.i585.i, align 16, !noalias !14
-  %409 = load <4 x float>, ptr %__b.addr.i586.i, align 16, !noalias !14
-  %add.i587.i = fadd <4 x float> %408, %409
+  %405 = load ptr, ptr %a.addr.i558.i, align 8, !noalias !209
+  %406 = load <4 x float>, ptr %405, align 16
+  %407 = load ptr, ptr %b.addr.i559.i, align 8, !noalias !209
+  %408 = load <4 x float>, ptr %407, align 16
+  store <4 x float> %406, ptr %__a.addr.i585.i, align 16, !noalias !14
+  store <4 x float> %408, ptr %__b.addr.i586.i, align 16, !noalias !14
+  %409 = load <4 x float>, ptr %__a.addr.i585.i, align 16, !noalias !14
+  %410 = load <4 x float>, ptr %__b.addr.i586.i, align 16, !noalias !14
+  %add.i587.i = fadd <4 x float> %409, %410
   store <4 x float> %add.i587.i, ptr %ref.tmp.i560.i, align 16, !noalias !209
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp136.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i560.i)
   %call138.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp136.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   store ptr %agg.tmp139.i, ptr %result.ptr.i141, align 8, !noalias !210
   store ptr %tmp1.i, ptr %a.addr.i142, align 8, !noalias !210
-  %410 = load ptr, ptr %a.addr.i142, align 8, !noalias !210
-  %call.i144 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %410)
+  %411 = load ptr, ptr %a.addr.i142, align 8, !noalias !210
+  %call.i144 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %411)
   store <4 x float> %call.i144, ptr %a.addr.i293, align 16
-  %411 = load <4 x float>, ptr %a.addr.i293, align 16
-  store <4 x float> %411, ptr %__a.addr.i.i292, align 16
-  %412 = load <4 x float>, ptr %__a.addr.i.i292, align 16
-  %413 = bitcast <4 x float> %412 to <2 x i64>
-  %414 = bitcast <2 x i64> %413 to <4 x i32>
-  %permil.i294 = shufflevector <4 x i32> %414, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %415 = bitcast <4 x i32> %permil.i294 to <2 x i64>
-  store <2 x i64> %415, ptr %__a.addr.i2.i291, align 16
-  %416 = load <2 x i64>, ptr %__a.addr.i2.i291, align 16
-  %417 = bitcast <2 x i64> %416 to <4 x float>
-  store <4 x float> %417, ptr %ref.tmp.i143, align 16, !noalias !210
+  %412 = load <4 x float>, ptr %a.addr.i293, align 16
+  store <4 x float> %412, ptr %__a.addr.i.i292, align 16
+  %413 = load <4 x float>, ptr %__a.addr.i.i292, align 16
+  %414 = bitcast <4 x float> %413 to <2 x i64>
+  %415 = bitcast <2 x i64> %414 to <4 x i32>
+  %permil.i294 = shufflevector <4 x i32> %415, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %416 = bitcast <4 x i32> %permil.i294 to <2 x i64>
+  store <2 x i64> %416, ptr %__a.addr.i2.i291, align 16
+  %417 = load <2 x i64>, ptr %__a.addr.i2.i291, align 16
+  %418 = bitcast <2 x i64> %417 to <4 x float>
+  store <4 x float> %418, ptr %ref.tmp.i143, align 16, !noalias !210
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp139.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i143)
   br label %.noexc24
 
@@ -13115,30 +13130,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp142.i, ptr %result.ptr.i372.i, align 8, !noalias !216
   store ptr %row2.i, ptr %a.addr.i373.i, align 8, !noalias !216
   store ptr %tmp1.i, ptr %b.addr.i374.i, align 8, !noalias !216
-  %418 = load ptr, ptr %a.addr.i373.i, align 8, !noalias !216
-  %419 = load <4 x float>, ptr %418, align 16
-  %420 = load ptr, ptr %b.addr.i374.i, align 8, !noalias !216
-  %421 = load <4 x float>, ptr %420, align 16
-  store <4 x float> %419, ptr %__a.addr.i.i370.i, align 16, !noalias !216
-  store <4 x float> %421, ptr %__b.addr.i.i371.i, align 16, !noalias !216
-  %422 = load <4 x float>, ptr %__a.addr.i.i370.i, align 16, !noalias !216
-  %423 = load <4 x float>, ptr %__b.addr.i.i371.i, align 16, !noalias !216
-  %mul.i.i376.i = fmul <4 x float> %422, %423
+  %419 = load ptr, ptr %a.addr.i373.i, align 8, !noalias !216
+  %420 = load <4 x float>, ptr %419, align 16
+  %421 = load ptr, ptr %b.addr.i374.i, align 8, !noalias !216
+  %422 = load <4 x float>, ptr %421, align 16
+  store <4 x float> %420, ptr %__a.addr.i.i370.i, align 16, !noalias !216
+  store <4 x float> %422, ptr %__b.addr.i.i371.i, align 16, !noalias !216
+  %423 = load <4 x float>, ptr %__a.addr.i.i370.i, align 16, !noalias !216
+  %424 = load <4 x float>, ptr %__b.addr.i.i371.i, align 16, !noalias !216
+  %mul.i.i376.i = fmul <4 x float> %423, %424
   store <4 x float> %mul.i.i376.i, ptr %ref.tmp.i375.i, align 16, !noalias !216
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp142.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i375.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
   store ptr %agg.tmp141.i, ptr %result.ptr.i552.i, align 8, !noalias !220
   store ptr %ref.tmp142.i, ptr %a.addr.i553.i, align 8, !noalias !220
   store ptr %minor1.i, ptr %b.addr.i554.i, align 8, !noalias !220
-  %424 = load ptr, ptr %a.addr.i553.i, align 8, !noalias !220
-  %425 = load <4 x float>, ptr %424, align 16
-  %426 = load ptr, ptr %b.addr.i554.i, align 8, !noalias !220
-  %427 = load <4 x float>, ptr %426, align 16
-  store <4 x float> %425, ptr %__a.addr.i588.i, align 16, !noalias !14
-  store <4 x float> %427, ptr %__b.addr.i589.i, align 16, !noalias !14
-  %428 = load <4 x float>, ptr %__a.addr.i588.i, align 16, !noalias !14
-  %429 = load <4 x float>, ptr %__b.addr.i589.i, align 16, !noalias !14
-  %add.i590.i = fadd <4 x float> %428, %429
+  %425 = load ptr, ptr %a.addr.i553.i, align 8, !noalias !220
+  %426 = load <4 x float>, ptr %425, align 16
+  %427 = load ptr, ptr %b.addr.i554.i, align 8, !noalias !220
+  %428 = load <4 x float>, ptr %427, align 16
+  store <4 x float> %426, ptr %__a.addr.i588.i, align 16, !noalias !14
+  store <4 x float> %428, ptr %__b.addr.i589.i, align 16, !noalias !14
+  %429 = load <4 x float>, ptr %__a.addr.i588.i, align 16, !noalias !14
+  %430 = load <4 x float>, ptr %__b.addr.i589.i, align 16, !noalias !14
+  %add.i590.i = fadd <4 x float> %429, %430
   store <4 x float> %add.i590.i, ptr %ref.tmp.i555.i, align 16, !noalias !220
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp141.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i555.i)
   %call143.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp141.i)
@@ -13146,30 +13161,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp145.i, ptr %result.ptr.i365.i, align 8, !noalias !224
   store ptr %row1.i, ptr %a.addr.i366.i, align 8, !noalias !224
   store ptr %tmp1.i, ptr %b.addr.i367.i, align 8, !noalias !224
-  %430 = load ptr, ptr %a.addr.i366.i, align 8, !noalias !224
-  %431 = load <4 x float>, ptr %430, align 16
-  %432 = load ptr, ptr %b.addr.i367.i, align 8, !noalias !224
-  %433 = load <4 x float>, ptr %432, align 16
-  store <4 x float> %431, ptr %__a.addr.i.i363.i, align 16, !noalias !224
-  store <4 x float> %433, ptr %__b.addr.i.i364.i, align 16, !noalias !224
-  %434 = load <4 x float>, ptr %__a.addr.i.i363.i, align 16, !noalias !224
-  %435 = load <4 x float>, ptr %__b.addr.i.i364.i, align 16, !noalias !224
-  %mul.i.i369.i = fmul <4 x float> %434, %435
+  %431 = load ptr, ptr %a.addr.i366.i, align 8, !noalias !224
+  %432 = load <4 x float>, ptr %431, align 16
+  %433 = load ptr, ptr %b.addr.i367.i, align 8, !noalias !224
+  %434 = load <4 x float>, ptr %433, align 16
+  store <4 x float> %432, ptr %__a.addr.i.i363.i, align 16, !noalias !224
+  store <4 x float> %434, ptr %__b.addr.i.i364.i, align 16, !noalias !224
+  %435 = load <4 x float>, ptr %__a.addr.i.i363.i, align 16, !noalias !224
+  %436 = load <4 x float>, ptr %__b.addr.i.i364.i, align 16, !noalias !224
+  %mul.i.i369.i = fmul <4 x float> %435, %436
   store <4 x float> %mul.i.i369.i, ptr %ref.tmp.i368.i, align 16, !noalias !224
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp145.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i368.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   store ptr %agg.tmp144.i, ptr %result.ptr.i205.i, align 8, !noalias !228
   store ptr %minor2.i, ptr %a.addr.i206.i, align 8, !noalias !228
   store ptr %ref.tmp145.i, ptr %b.addr.i207.i, align 8, !noalias !228
-  %436 = load ptr, ptr %a.addr.i206.i, align 8, !noalias !228
-  %437 = load <4 x float>, ptr %436, align 16
-  %438 = load ptr, ptr %b.addr.i207.i, align 8, !noalias !228
-  %439 = load <4 x float>, ptr %438, align 16
-  store <4 x float> %437, ptr %__a.addr.i287.i, align 16, !noalias !14
-  store <4 x float> %439, ptr %__b.addr.i288.i, align 16, !noalias !14
-  %440 = load <4 x float>, ptr %__a.addr.i287.i, align 16, !noalias !14
-  %441 = load <4 x float>, ptr %__b.addr.i288.i, align 16, !noalias !14
-  %sub.i289.i = fsub <4 x float> %440, %441
+  %437 = load ptr, ptr %a.addr.i206.i, align 8, !noalias !228
+  %438 = load <4 x float>, ptr %437, align 16
+  %439 = load ptr, ptr %b.addr.i207.i, align 8, !noalias !228
+  %440 = load <4 x float>, ptr %439, align 16
+  store <4 x float> %438, ptr %__a.addr.i287.i, align 16, !noalias !14
+  store <4 x float> %440, ptr %__b.addr.i288.i, align 16, !noalias !14
+  %441 = load <4 x float>, ptr %__a.addr.i287.i, align 16, !noalias !14
+  %442 = load <4 x float>, ptr %__b.addr.i288.i, align 16, !noalias !14
+  %sub.i289.i = fsub <4 x float> %441, %442
   store <4 x float> %sub.i289.i, ptr %ref.tmp.i208.i, align 16, !noalias !228
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp144.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i208.i)
   %call146.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor2.i, ptr noundef %agg.tmp144.i)
@@ -13177,35 +13192,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp147.i, ptr %result.ptr.i358.i, align 8, !noalias !232
   store ptr %row0.i, ptr %a.addr.i359.i, align 8, !noalias !232
   store ptr %row2.i, ptr %b.addr.i360.i, align 8, !noalias !232
-  %442 = load ptr, ptr %a.addr.i359.i, align 8, !noalias !232
-  %443 = load <4 x float>, ptr %442, align 16
-  %444 = load ptr, ptr %b.addr.i360.i, align 8, !noalias !232
-  %445 = load <4 x float>, ptr %444, align 16
-  store <4 x float> %443, ptr %__a.addr.i.i356.i, align 16, !noalias !232
-  store <4 x float> %445, ptr %__b.addr.i.i357.i, align 16, !noalias !232
-  %446 = load <4 x float>, ptr %__a.addr.i.i356.i, align 16, !noalias !232
-  %447 = load <4 x float>, ptr %__b.addr.i.i357.i, align 16, !noalias !232
-  %mul.i.i362.i = fmul <4 x float> %446, %447
+  %443 = load ptr, ptr %a.addr.i359.i, align 8, !noalias !232
+  %444 = load <4 x float>, ptr %443, align 16
+  %445 = load ptr, ptr %b.addr.i360.i, align 8, !noalias !232
+  %446 = load <4 x float>, ptr %445, align 16
+  store <4 x float> %444, ptr %__a.addr.i.i356.i, align 16, !noalias !232
+  store <4 x float> %446, ptr %__b.addr.i.i357.i, align 16, !noalias !232
+  %447 = load <4 x float>, ptr %__a.addr.i.i356.i, align 16, !noalias !232
+  %448 = load <4 x float>, ptr %__b.addr.i.i357.i, align 16, !noalias !232
+  %mul.i.i362.i = fmul <4 x float> %447, %448
   store <4 x float> %mul.i.i362.i, ptr %ref.tmp.i361.i, align 16, !noalias !232
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp147.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i361.i)
   %call148.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp147.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
   store ptr %agg.tmp149.i, ptr %result.ptr.i101, align 8, !noalias !233
   store ptr %tmp1.i, ptr %a.addr.i102, align 8, !noalias !233
-  %448 = load ptr, ptr %a.addr.i102, align 8, !noalias !233
-  %call.i104 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %448)
+  %449 = load ptr, ptr %a.addr.i102, align 8, !noalias !233
+  %call.i104 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %449)
   store <4 x float> %call.i104, ptr %a.addr.i249, align 16
-  %449 = load <4 x float>, ptr %a.addr.i249, align 16
-  store <4 x float> %449, ptr %__a.addr.i.i248, align 16
-  %450 = load <4 x float>, ptr %__a.addr.i.i248, align 16
-  %451 = bitcast <4 x float> %450 to <2 x i64>
-  %452 = bitcast <2 x i64> %451 to <4 x i32>
-  %permil.i250 = shufflevector <4 x i32> %452, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %453 = bitcast <4 x i32> %permil.i250 to <2 x i64>
-  store <2 x i64> %453, ptr %__a.addr.i2.i247, align 16
-  %454 = load <2 x i64>, ptr %__a.addr.i2.i247, align 16
-  %455 = bitcast <2 x i64> %454 to <4 x float>
-  store <4 x float> %455, ptr %ref.tmp.i103, align 16, !noalias !233
+  %450 = load <4 x float>, ptr %a.addr.i249, align 16
+  store <4 x float> %450, ptr %__a.addr.i.i248, align 16
+  %451 = load <4 x float>, ptr %__a.addr.i.i248, align 16
+  %452 = bitcast <4 x float> %451 to <2 x i64>
+  %453 = bitcast <2 x i64> %452 to <4 x i32>
+  %permil.i250 = shufflevector <4 x i32> %453, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %454 = bitcast <4 x i32> %permil.i250 to <2 x i64>
+  store <2 x i64> %454, ptr %__a.addr.i2.i247, align 16
+  %455 = load <2 x i64>, ptr %__a.addr.i2.i247, align 16
+  %456 = bitcast <2 x i64> %455 to <4 x float>
+  store <4 x float> %456, ptr %ref.tmp.i103, align 16, !noalias !233
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp149.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i103)
   br label %.noexc25
 
@@ -13215,30 +13230,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp152.i, ptr %result.ptr.i351.i, align 8, !noalias !239
   store ptr %row3.i, ptr %a.addr.i352.i, align 8, !noalias !239
   store ptr %tmp1.i, ptr %b.addr.i353.i, align 8, !noalias !239
-  %456 = load ptr, ptr %a.addr.i352.i, align 8, !noalias !239
-  %457 = load <4 x float>, ptr %456, align 16
-  %458 = load ptr, ptr %b.addr.i353.i, align 8, !noalias !239
-  %459 = load <4 x float>, ptr %458, align 16
-  store <4 x float> %457, ptr %__a.addr.i.i349.i, align 16, !noalias !239
-  store <4 x float> %459, ptr %__b.addr.i.i350.i, align 16, !noalias !239
-  %460 = load <4 x float>, ptr %__a.addr.i.i349.i, align 16, !noalias !239
-  %461 = load <4 x float>, ptr %__b.addr.i.i350.i, align 16, !noalias !239
-  %mul.i.i355.i = fmul <4 x float> %460, %461
+  %457 = load ptr, ptr %a.addr.i352.i, align 8, !noalias !239
+  %458 = load <4 x float>, ptr %457, align 16
+  %459 = load ptr, ptr %b.addr.i353.i, align 8, !noalias !239
+  %460 = load <4 x float>, ptr %459, align 16
+  store <4 x float> %458, ptr %__a.addr.i.i349.i, align 16, !noalias !239
+  store <4 x float> %460, ptr %__b.addr.i.i350.i, align 16, !noalias !239
+  %461 = load <4 x float>, ptr %__a.addr.i.i349.i, align 16, !noalias !239
+  %462 = load <4 x float>, ptr %__b.addr.i.i350.i, align 16, !noalias !239
+  %mul.i.i355.i = fmul <4 x float> %461, %462
   store <4 x float> %mul.i.i355.i, ptr %ref.tmp.i354.i, align 16, !noalias !239
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp152.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i354.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   store ptr %agg.tmp151.i, ptr %result.ptr.i547.i, align 8, !noalias !243
   store ptr %ref.tmp152.i, ptr %a.addr.i548.i, align 8, !noalias !243
   store ptr %minor1.i, ptr %b.addr.i549.i, align 8, !noalias !243
-  %462 = load ptr, ptr %a.addr.i548.i, align 8, !noalias !243
-  %463 = load <4 x float>, ptr %462, align 16
-  %464 = load ptr, ptr %b.addr.i549.i, align 8, !noalias !243
-  %465 = load <4 x float>, ptr %464, align 16
-  store <4 x float> %463, ptr %__a.addr.i591.i, align 16, !noalias !14
-  store <4 x float> %465, ptr %__b.addr.i592.i, align 16, !noalias !14
-  %466 = load <4 x float>, ptr %__a.addr.i591.i, align 16, !noalias !14
-  %467 = load <4 x float>, ptr %__b.addr.i592.i, align 16, !noalias !14
-  %add.i593.i = fadd <4 x float> %466, %467
+  %463 = load ptr, ptr %a.addr.i548.i, align 8, !noalias !243
+  %464 = load <4 x float>, ptr %463, align 16
+  %465 = load ptr, ptr %b.addr.i549.i, align 8, !noalias !243
+  %466 = load <4 x float>, ptr %465, align 16
+  store <4 x float> %464, ptr %__a.addr.i591.i, align 16, !noalias !14
+  store <4 x float> %466, ptr %__b.addr.i592.i, align 16, !noalias !14
+  %467 = load <4 x float>, ptr %__a.addr.i591.i, align 16, !noalias !14
+  %468 = load <4 x float>, ptr %__b.addr.i592.i, align 16, !noalias !14
+  %add.i593.i = fadd <4 x float> %467, %468
   store <4 x float> %add.i593.i, ptr %ref.tmp.i550.i, align 16, !noalias !243
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp151.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i550.i)
   %call153.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp151.i)
@@ -13246,50 +13261,50 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp155.i, ptr %result.ptr.i344.i, align 8, !noalias !247
   store ptr %row1.i, ptr %a.addr.i345.i, align 8, !noalias !247
   store ptr %tmp1.i, ptr %b.addr.i346.i, align 8, !noalias !247
-  %468 = load ptr, ptr %a.addr.i345.i, align 8, !noalias !247
-  %469 = load <4 x float>, ptr %468, align 16
-  %470 = load ptr, ptr %b.addr.i346.i, align 8, !noalias !247
-  %471 = load <4 x float>, ptr %470, align 16
-  store <4 x float> %469, ptr %__a.addr.i.i342.i, align 16, !noalias !247
-  store <4 x float> %471, ptr %__b.addr.i.i343.i, align 16, !noalias !247
-  %472 = load <4 x float>, ptr %__a.addr.i.i342.i, align 16, !noalias !247
-  %473 = load <4 x float>, ptr %__b.addr.i.i343.i, align 16, !noalias !247
-  %mul.i.i348.i = fmul <4 x float> %472, %473
+  %469 = load ptr, ptr %a.addr.i345.i, align 8, !noalias !247
+  %470 = load <4 x float>, ptr %469, align 16
+  %471 = load ptr, ptr %b.addr.i346.i, align 8, !noalias !247
+  %472 = load <4 x float>, ptr %471, align 16
+  store <4 x float> %470, ptr %__a.addr.i.i342.i, align 16, !noalias !247
+  store <4 x float> %472, ptr %__b.addr.i.i343.i, align 16, !noalias !247
+  %473 = load <4 x float>, ptr %__a.addr.i.i342.i, align 16, !noalias !247
+  %474 = load <4 x float>, ptr %__b.addr.i.i343.i, align 16, !noalias !247
+  %mul.i.i348.i = fmul <4 x float> %473, %474
   store <4 x float> %mul.i.i348.i, ptr %ref.tmp.i347.i, align 16, !noalias !247
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp155.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i347.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !248)
   store ptr %agg.tmp154.i, ptr %result.ptr.i200.i, align 8, !noalias !251
   store ptr %minor3.i, ptr %a.addr.i201.i, align 8, !noalias !251
   store ptr %ref.tmp155.i, ptr %b.addr.i202.i, align 8, !noalias !251
-  %474 = load ptr, ptr %a.addr.i201.i, align 8, !noalias !251
-  %475 = load <4 x float>, ptr %474, align 16
-  %476 = load ptr, ptr %b.addr.i202.i, align 8, !noalias !251
-  %477 = load <4 x float>, ptr %476, align 16
-  store <4 x float> %475, ptr %__a.addr.i290.i, align 16, !noalias !14
-  store <4 x float> %477, ptr %__b.addr.i291.i, align 16, !noalias !14
-  %478 = load <4 x float>, ptr %__a.addr.i290.i, align 16, !noalias !14
-  %479 = load <4 x float>, ptr %__b.addr.i291.i, align 16, !noalias !14
-  %sub.i292.i = fsub <4 x float> %478, %479
+  %475 = load ptr, ptr %a.addr.i201.i, align 8, !noalias !251
+  %476 = load <4 x float>, ptr %475, align 16
+  %477 = load ptr, ptr %b.addr.i202.i, align 8, !noalias !251
+  %478 = load <4 x float>, ptr %477, align 16
+  store <4 x float> %476, ptr %__a.addr.i290.i, align 16, !noalias !14
+  store <4 x float> %478, ptr %__b.addr.i291.i, align 16, !noalias !14
+  %479 = load <4 x float>, ptr %__a.addr.i290.i, align 16, !noalias !14
+  %480 = load <4 x float>, ptr %__b.addr.i291.i, align 16, !noalias !14
+  %sub.i292.i = fsub <4 x float> %479, %480
   store <4 x float> %sub.i292.i, ptr %ref.tmp.i203.i, align 16, !noalias !251
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp154.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i203.i)
   %call156.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp154.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   store ptr %agg.tmp157.i, ptr %result.ptr.i136, align 8, !noalias !252
   store ptr %tmp1.i, ptr %a.addr.i137, align 8, !noalias !252
-  %480 = load ptr, ptr %a.addr.i137, align 8, !noalias !252
-  %call.i139 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %480)
+  %481 = load ptr, ptr %a.addr.i137, align 8, !noalias !252
+  %call.i139 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %481)
   store <4 x float> %call.i139, ptr %a.addr.i297, align 16
-  %481 = load <4 x float>, ptr %a.addr.i297, align 16
-  store <4 x float> %481, ptr %__a.addr.i.i296, align 16
-  %482 = load <4 x float>, ptr %__a.addr.i.i296, align 16
-  %483 = bitcast <4 x float> %482 to <2 x i64>
-  %484 = bitcast <2 x i64> %483 to <4 x i32>
-  %permil.i298 = shufflevector <4 x i32> %484, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %485 = bitcast <4 x i32> %permil.i298 to <2 x i64>
-  store <2 x i64> %485, ptr %__a.addr.i2.i295, align 16
-  %486 = load <2 x i64>, ptr %__a.addr.i2.i295, align 16
-  %487 = bitcast <2 x i64> %486 to <4 x float>
-  store <4 x float> %487, ptr %ref.tmp.i138, align 16, !noalias !252
+  %482 = load <4 x float>, ptr %a.addr.i297, align 16
+  store <4 x float> %482, ptr %__a.addr.i.i296, align 16
+  %483 = load <4 x float>, ptr %__a.addr.i.i296, align 16
+  %484 = bitcast <4 x float> %483 to <2 x i64>
+  %485 = bitcast <2 x i64> %484 to <4 x i32>
+  %permil.i298 = shufflevector <4 x i32> %485, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %486 = bitcast <4 x i32> %permil.i298 to <2 x i64>
+  store <2 x i64> %486, ptr %__a.addr.i2.i295, align 16
+  %487 = load <2 x i64>, ptr %__a.addr.i2.i295, align 16
+  %488 = bitcast <2 x i64> %487 to <4 x float>
+  store <4 x float> %488, ptr %ref.tmp.i138, align 16, !noalias !252
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp157.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i138)
   br label %.noexc26
 
@@ -13299,30 +13314,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp160.i, ptr %result.ptr.i337.i, align 8, !noalias !258
   store ptr %row3.i, ptr %a.addr.i338.i, align 8, !noalias !258
   store ptr %tmp1.i, ptr %b.addr.i339.i, align 8, !noalias !258
-  %488 = load ptr, ptr %a.addr.i338.i, align 8, !noalias !258
-  %489 = load <4 x float>, ptr %488, align 16
-  %490 = load ptr, ptr %b.addr.i339.i, align 8, !noalias !258
-  %491 = load <4 x float>, ptr %490, align 16
-  store <4 x float> %489, ptr %__a.addr.i.i335.i, align 16, !noalias !258
-  store <4 x float> %491, ptr %__b.addr.i.i336.i, align 16, !noalias !258
-  %492 = load <4 x float>, ptr %__a.addr.i.i335.i, align 16, !noalias !258
-  %493 = load <4 x float>, ptr %__b.addr.i.i336.i, align 16, !noalias !258
-  %mul.i.i341.i = fmul <4 x float> %492, %493
+  %489 = load ptr, ptr %a.addr.i338.i, align 8, !noalias !258
+  %490 = load <4 x float>, ptr %489, align 16
+  %491 = load ptr, ptr %b.addr.i339.i, align 8, !noalias !258
+  %492 = load <4 x float>, ptr %491, align 16
+  store <4 x float> %490, ptr %__a.addr.i.i335.i, align 16, !noalias !258
+  store <4 x float> %492, ptr %__b.addr.i.i336.i, align 16, !noalias !258
+  %493 = load <4 x float>, ptr %__a.addr.i.i335.i, align 16, !noalias !258
+  %494 = load <4 x float>, ptr %__b.addr.i.i336.i, align 16, !noalias !258
+  %mul.i.i341.i = fmul <4 x float> %493, %494
   store <4 x float> %mul.i.i341.i, ptr %ref.tmp.i340.i, align 16, !noalias !258
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp160.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i340.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
   store ptr %agg.tmp159.i, ptr %result.ptr.i.i, align 8, !noalias !262
   store ptr %minor1.i, ptr %a.addr.i.i, align 8, !noalias !262
   store ptr %ref.tmp160.i, ptr %b.addr.i.i, align 8, !noalias !262
-  %494 = load ptr, ptr %a.addr.i.i, align 8, !noalias !262
-  %495 = load <4 x float>, ptr %494, align 16
-  %496 = load ptr, ptr %b.addr.i.i, align 8, !noalias !262
-  %497 = load <4 x float>, ptr %496, align 16
-  store <4 x float> %495, ptr %__a.addr.i293.i, align 16, !noalias !14
-  store <4 x float> %497, ptr %__b.addr.i294.i, align 16, !noalias !14
-  %498 = load <4 x float>, ptr %__a.addr.i293.i, align 16, !noalias !14
-  %499 = load <4 x float>, ptr %__b.addr.i294.i, align 16, !noalias !14
-  %sub.i295.i = fsub <4 x float> %498, %499
+  %495 = load ptr, ptr %a.addr.i.i, align 8, !noalias !262
+  %496 = load <4 x float>, ptr %495, align 16
+  %497 = load ptr, ptr %b.addr.i.i, align 8, !noalias !262
+  %498 = load <4 x float>, ptr %497, align 16
+  store <4 x float> %496, ptr %__a.addr.i293.i, align 16, !noalias !14
+  store <4 x float> %498, ptr %__b.addr.i294.i, align 16, !noalias !14
+  %499 = load <4 x float>, ptr %__a.addr.i293.i, align 16, !noalias !14
+  %500 = load <4 x float>, ptr %__b.addr.i294.i, align 16, !noalias !14
+  %sub.i295.i = fsub <4 x float> %499, %500
   store <4 x float> %sub.i295.i, ptr %ref.tmp.i.i, align 16, !noalias !262
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp159.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i)
   %call161.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor1.i, ptr noundef %agg.tmp159.i)
@@ -13330,30 +13345,30 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %ref.tmp163.i, ptr %result.ptr.i330.i, align 8, !noalias !266
   store ptr %row1.i, ptr %a.addr.i331.i, align 8, !noalias !266
   store ptr %tmp1.i, ptr %b.addr.i332.i, align 8, !noalias !266
-  %500 = load ptr, ptr %a.addr.i331.i, align 8, !noalias !266
-  %501 = load <4 x float>, ptr %500, align 16
-  %502 = load ptr, ptr %b.addr.i332.i, align 8, !noalias !266
-  %503 = load <4 x float>, ptr %502, align 16
-  store <4 x float> %501, ptr %__a.addr.i.i328.i, align 16, !noalias !266
-  store <4 x float> %503, ptr %__b.addr.i.i329.i, align 16, !noalias !266
-  %504 = load <4 x float>, ptr %__a.addr.i.i328.i, align 16, !noalias !266
-  %505 = load <4 x float>, ptr %__b.addr.i.i329.i, align 16, !noalias !266
-  %mul.i.i334.i = fmul <4 x float> %504, %505
+  %501 = load ptr, ptr %a.addr.i331.i, align 8, !noalias !266
+  %502 = load <4 x float>, ptr %501, align 16
+  %503 = load ptr, ptr %b.addr.i332.i, align 8, !noalias !266
+  %504 = load <4 x float>, ptr %503, align 16
+  store <4 x float> %502, ptr %__a.addr.i.i328.i, align 16, !noalias !266
+  store <4 x float> %504, ptr %__b.addr.i.i329.i, align 16, !noalias !266
+  %505 = load <4 x float>, ptr %__a.addr.i.i328.i, align 16, !noalias !266
+  %506 = load <4 x float>, ptr %__b.addr.i.i329.i, align 16, !noalias !266
+  %mul.i.i334.i = fmul <4 x float> %505, %506
   store <4 x float> %mul.i.i334.i, ptr %ref.tmp.i333.i, align 16, !noalias !266
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp163.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i333.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
   store ptr %agg.tmp162.i, ptr %result.ptr.i542.i, align 8, !noalias !270
   store ptr %ref.tmp163.i, ptr %a.addr.i543.i, align 8, !noalias !270
   store ptr %minor3.i, ptr %b.addr.i544.i, align 8, !noalias !270
-  %506 = load ptr, ptr %a.addr.i543.i, align 8, !noalias !270
-  %507 = load <4 x float>, ptr %506, align 16
-  %508 = load ptr, ptr %b.addr.i544.i, align 8, !noalias !270
-  %509 = load <4 x float>, ptr %508, align 16
-  store <4 x float> %507, ptr %__a.addr.i594.i, align 16, !noalias !14
-  store <4 x float> %509, ptr %__b.addr.i595.i, align 16, !noalias !14
-  %510 = load <4 x float>, ptr %__a.addr.i594.i, align 16, !noalias !14
-  %511 = load <4 x float>, ptr %__b.addr.i595.i, align 16, !noalias !14
-  %add.i596.i = fadd <4 x float> %510, %511
+  %507 = load ptr, ptr %a.addr.i543.i, align 8, !noalias !270
+  %508 = load <4 x float>, ptr %507, align 16
+  %509 = load ptr, ptr %b.addr.i544.i, align 8, !noalias !270
+  %510 = load <4 x float>, ptr %509, align 16
+  store <4 x float> %508, ptr %__a.addr.i594.i, align 16, !noalias !14
+  store <4 x float> %510, ptr %__b.addr.i595.i, align 16, !noalias !14
+  %511 = load <4 x float>, ptr %__a.addr.i594.i, align 16, !noalias !14
+  %512 = load <4 x float>, ptr %__b.addr.i595.i, align 16, !noalias !14
+  %add.i596.i = fadd <4 x float> %511, %512
   store <4 x float> %add.i596.i, ptr %ref.tmp.i545.i, align 16, !noalias !270
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp162.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i545.i)
   %call164.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %minor3.i, ptr noundef %agg.tmp162.i)
@@ -13361,35 +13376,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp165.i, ptr %result.ptr.i323.i, align 8, !noalias !274
   store ptr %row0.i, ptr %a.addr.i324.i, align 8, !noalias !274
   store ptr %minor0.i, ptr %b.addr.i325.i, align 8, !noalias !274
-  %512 = load ptr, ptr %a.addr.i324.i, align 8, !noalias !274
-  %513 = load <4 x float>, ptr %512, align 16
-  %514 = load ptr, ptr %b.addr.i325.i, align 8, !noalias !274
-  %515 = load <4 x float>, ptr %514, align 16
-  store <4 x float> %513, ptr %__a.addr.i.i321.i, align 16, !noalias !274
-  store <4 x float> %515, ptr %__b.addr.i.i322.i, align 16, !noalias !274
-  %516 = load <4 x float>, ptr %__a.addr.i.i321.i, align 16, !noalias !274
-  %517 = load <4 x float>, ptr %__b.addr.i.i322.i, align 16, !noalias !274
-  %mul.i.i327.i = fmul <4 x float> %516, %517
+  %513 = load ptr, ptr %a.addr.i324.i, align 8, !noalias !274
+  %514 = load <4 x float>, ptr %513, align 16
+  %515 = load ptr, ptr %b.addr.i325.i, align 8, !noalias !274
+  %516 = load <4 x float>, ptr %515, align 16
+  store <4 x float> %514, ptr %__a.addr.i.i321.i, align 16, !noalias !274
+  store <4 x float> %516, ptr %__b.addr.i.i322.i, align 16, !noalias !274
+  %517 = load <4 x float>, ptr %__a.addr.i.i321.i, align 16, !noalias !274
+  %518 = load <4 x float>, ptr %__b.addr.i.i322.i, align 16, !noalias !274
+  %mul.i.i327.i = fmul <4 x float> %517, %518
   store <4 x float> %mul.i.i327.i, ptr %ref.tmp.i326.i, align 16, !noalias !274
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp165.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i326.i)
   %call166.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %det.i, ptr noundef %agg.tmp165.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
   store ptr %ref.tmp168.i, ptr %result.ptr.i131, align 8, !noalias !275
   store ptr %det.i, ptr %a.addr.i132, align 8, !noalias !275
-  %518 = load ptr, ptr %a.addr.i132, align 8, !noalias !275
-  %call.i134 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %518)
+  %519 = load ptr, ptr %a.addr.i132, align 8, !noalias !275
+  %call.i134 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %519)
   store <4 x float> %call.i134, ptr %a.addr.i301, align 16
-  %519 = load <4 x float>, ptr %a.addr.i301, align 16
-  store <4 x float> %519, ptr %__a.addr.i.i300, align 16
-  %520 = load <4 x float>, ptr %__a.addr.i.i300, align 16
-  %521 = bitcast <4 x float> %520 to <2 x i64>
-  %522 = bitcast <2 x i64> %521 to <4 x i32>
-  %permil.i302 = shufflevector <4 x i32> %522, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %523 = bitcast <4 x i32> %permil.i302 to <2 x i64>
-  store <2 x i64> %523, ptr %__a.addr.i2.i299, align 16
-  %524 = load <2 x i64>, ptr %__a.addr.i2.i299, align 16
-  %525 = bitcast <2 x i64> %524 to <4 x float>
-  store <4 x float> %525, ptr %ref.tmp.i133, align 16, !noalias !275
+  %520 = load <4 x float>, ptr %a.addr.i301, align 16
+  store <4 x float> %520, ptr %__a.addr.i.i300, align 16
+  %521 = load <4 x float>, ptr %__a.addr.i.i300, align 16
+  %522 = bitcast <4 x float> %521 to <2 x i64>
+  %523 = bitcast <2 x i64> %522 to <4 x i32>
+  %permil.i302 = shufflevector <4 x i32> %523, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %524 = bitcast <4 x i32> %permil.i302 to <2 x i64>
+  store <2 x i64> %524, ptr %__a.addr.i2.i299, align 16
+  %525 = load <2 x i64>, ptr %__a.addr.i2.i299, align 16
+  %526 = bitcast <2 x i64> %525 to <4 x float>
+  store <4 x float> %526, ptr %ref.tmp.i133, align 16, !noalias !275
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp168.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i133)
   br label %.noexc27
 
@@ -13398,35 +13413,35 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %agg.tmp167.i, ptr %result.ptr.i538.i, align 8, !noalias !281
   store ptr %ref.tmp168.i, ptr %a.addr.i539.i, align 8, !noalias !281
   store ptr %det.i, ptr %b.addr.i540.i, align 8, !noalias !281
-  %526 = load ptr, ptr %a.addr.i539.i, align 8, !noalias !281
-  %527 = load <4 x float>, ptr %526, align 16
-  %528 = load ptr, ptr %b.addr.i540.i, align 8, !noalias !281
-  %529 = load <4 x float>, ptr %528, align 16
-  store <4 x float> %527, ptr %__a.addr.i597.i, align 16, !noalias !14
-  store <4 x float> %529, ptr %__b.addr.i598.i, align 16, !noalias !14
-  %530 = load <4 x float>, ptr %__a.addr.i597.i, align 16, !noalias !14
-  %531 = load <4 x float>, ptr %__b.addr.i598.i, align 16, !noalias !14
-  %add.i599.i = fadd <4 x float> %530, %531
+  %527 = load ptr, ptr %a.addr.i539.i, align 8, !noalias !281
+  %528 = load <4 x float>, ptr %527, align 16
+  %529 = load ptr, ptr %b.addr.i540.i, align 8, !noalias !281
+  %530 = load <4 x float>, ptr %529, align 16
+  store <4 x float> %528, ptr %__a.addr.i597.i, align 16, !noalias !14
+  store <4 x float> %530, ptr %__b.addr.i598.i, align 16, !noalias !14
+  %531 = load <4 x float>, ptr %__a.addr.i597.i, align 16, !noalias !14
+  %532 = load <4 x float>, ptr %__b.addr.i598.i, align 16, !noalias !14
+  %add.i599.i = fadd <4 x float> %531, %532
   store <4 x float> %add.i599.i, ptr %ref.tmp.i541.i, align 16, !noalias !281
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp167.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i541.i)
   %call169.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %det.i, ptr noundef %agg.tmp167.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
   store ptr %ref.tmp172.i, ptr %result.ptr.i98, align 8, !noalias !282
   store ptr %det.i, ptr %a.addr.i, align 8, !noalias !282
-  %532 = load ptr, ptr %a.addr.i, align 8, !noalias !282
-  %call.i100 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %532)
+  %533 = load ptr, ptr %a.addr.i, align 8, !noalias !282
+  %call.i100 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %533)
   store <4 x float> %call.i100, ptr %a.addr.i253, align 16
-  %533 = load <4 x float>, ptr %a.addr.i253, align 16
-  store <4 x float> %533, ptr %__a.addr.i.i252, align 16
-  %534 = load <4 x float>, ptr %__a.addr.i.i252, align 16
-  %535 = bitcast <4 x float> %534 to <2 x i64>
-  %536 = bitcast <2 x i64> %535 to <4 x i32>
-  %permil.i254 = shufflevector <4 x i32> %536, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %537 = bitcast <4 x i32> %permil.i254 to <2 x i64>
-  store <2 x i64> %537, ptr %__a.addr.i2.i251, align 16
-  %538 = load <2 x i64>, ptr %__a.addr.i2.i251, align 16
-  %539 = bitcast <2 x i64> %538 to <4 x float>
-  store <4 x float> %539, ptr %ref.tmp.i99, align 16, !noalias !282
+  %534 = load <4 x float>, ptr %a.addr.i253, align 16
+  store <4 x float> %534, ptr %__a.addr.i.i252, align 16
+  %535 = load <4 x float>, ptr %__a.addr.i.i252, align 16
+  %536 = bitcast <4 x float> %535 to <2 x i64>
+  %537 = bitcast <2 x i64> %536 to <4 x i32>
+  %permil.i254 = shufflevector <4 x i32> %537, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %538 = bitcast <4 x i32> %permil.i254 to <2 x i64>
+  store <2 x i64> %538, ptr %__a.addr.i2.i251, align 16
+  %539 = load <2 x i64>, ptr %__a.addr.i2.i251, align 16
+  %540 = bitcast <2 x i64> %539 to <4 x float>
+  store <4 x float> %540, ptr %ref.tmp.i99, align 16, !noalias !282
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp172.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i99)
   br label %.noexc28
 
@@ -13435,98 +13450,98 @@ if.then:                                          ; preds = %invoke.cont
   %call174.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %det.i)
   store <4 x float> %call173.i, ptr %__a.addr.i192, align 16
   store <4 x float> %call174.i, ptr %__b.addr.i193, align 16
-  %540 = load <4 x float>, ptr %__b.addr.i193, align 16
-  %vecext.i194 = extractelement <4 x float> %540, i32 0
-  %541 = load <4 x float>, ptr %__a.addr.i192, align 16
-  %vecext1.i195 = extractelement <4 x float> %541, i32 0
-  %add.i196 = fadd float %vecext1.i195, %vecext.i194
+  %541 = load <4 x float>, ptr %__b.addr.i193, align 16
+  %vecext.i194 = extractelement <4 x float> %541, i32 0
   %542 = load <4 x float>, ptr %__a.addr.i192, align 16
-  %vecins.i197 = insertelement <4 x float> %542, float %add.i196, i32 0
-  store <4 x float> %vecins.i197, ptr %__a.addr.i192, align 16
+  %vecext1.i195 = extractelement <4 x float> %542, i32 0
+  %add.i196 = fadd float %vecext1.i195, %vecext.i194
   %543 = load <4 x float>, ptr %__a.addr.i192, align 16
-  store <4 x float> %543, ptr %ref.tmp171.i, align 16, !noalias !14
+  %vecins.i197 = insertelement <4 x float> %543, float %add.i196, i32 0
+  store <4 x float> %vecins.i197, ptr %__a.addr.i192, align 16
+  %544 = load <4 x float>, ptr %__a.addr.i192, align 16
+  store <4 x float> %544, ptr %ref.tmp171.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp170.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp171.i)
   %call176.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %det.i, ptr noundef %agg.tmp170.i)
   %call179.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %det.i)
   store <4 x float> %call179.i, ptr %__a.addr.i198, align 16
-  %544 = load <4 x float>, ptr %__a.addr.i198, align 16
-  %545 = call noundef <4 x float> @llvm.x86.sse.rcp.ss(<4 x float> %544)
-  store <4 x float> %545, ptr %ref.tmp178.i, align 16, !noalias !14
+  %545 = load <4 x float>, ptr %__a.addr.i198, align 16
+  %546 = call noundef <4 x float> @llvm.x86.sse.rcp.ss(<4 x float> %545)
+  store <4 x float> %546, ptr %ref.tmp178.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp177.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp178.i)
   %call181.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i, ptr noundef %agg.tmp177.i)
   %call184.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i)
   %call185.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i)
   store <4 x float> %call184.i, ptr %__a.addr.i191, align 16
   store <4 x float> %call185.i, ptr %__b.addr.i, align 16
-  %546 = load <4 x float>, ptr %__b.addr.i, align 16
-  %vecext.i = extractelement <4 x float> %546, i32 0
-  %547 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %vecext1.i = extractelement <4 x float> %547, i32 0
-  %add.i = fadd float %vecext1.i, %vecext.i
+  %547 = load <4 x float>, ptr %__b.addr.i, align 16
+  %vecext.i = extractelement <4 x float> %547, i32 0
   %548 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %vecins.i = insertelement <4 x float> %548, float %add.i, i32 0
-  store <4 x float> %vecins.i, ptr %__a.addr.i191, align 16
+  %vecext1.i = extractelement <4 x float> %548, i32 0
+  %add.i = fadd float %vecext1.i, %vecext.i
   %549 = load <4 x float>, ptr %__a.addr.i191, align 16
+  %vecins.i = insertelement <4 x float> %549, float %add.i, i32 0
+  store <4 x float> %vecins.i, ptr %__a.addr.i191, align 16
+  %550 = load <4 x float>, ptr %__a.addr.i191, align 16
   %call187.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %det.i)
   %call188.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i)
   %call189.i = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %tmp1.i)
   store <4 x float> %call188.i, ptr %__a.addr.i209, align 16
   store <4 x float> %call189.i, ptr %__b.addr.i210, align 16
-  %550 = load <4 x float>, ptr %__b.addr.i210, align 16
-  %vecext.i211 = extractelement <4 x float> %550, i32 0
-  %551 = load <4 x float>, ptr %__a.addr.i209, align 16
-  %vecext1.i212 = extractelement <4 x float> %551, i32 0
-  %mul.i213 = fmul float %vecext1.i212, %vecext.i211
+  %551 = load <4 x float>, ptr %__b.addr.i210, align 16
+  %vecext.i211 = extractelement <4 x float> %551, i32 0
   %552 = load <4 x float>, ptr %__a.addr.i209, align 16
-  %vecins.i214 = insertelement <4 x float> %552, float %mul.i213, i32 0
-  store <4 x float> %vecins.i214, ptr %__a.addr.i209, align 16
+  %vecext1.i212 = extractelement <4 x float> %552, i32 0
+  %mul.i213 = fmul float %vecext1.i212, %vecext.i211
   %553 = load <4 x float>, ptr %__a.addr.i209, align 16
+  %vecins.i214 = insertelement <4 x float> %553, float %mul.i213, i32 0
+  store <4 x float> %vecins.i214, ptr %__a.addr.i209, align 16
+  %554 = load <4 x float>, ptr %__a.addr.i209, align 16
   store <4 x float> %call187.i, ptr %__a.addr.i204, align 16
-  store <4 x float> %553, ptr %__b.addr.i205, align 16
-  %554 = load <4 x float>, ptr %__b.addr.i205, align 16
-  %vecext.i206 = extractelement <4 x float> %554, i32 0
-  %555 = load <4 x float>, ptr %__a.addr.i204, align 16
-  %vecext1.i207 = extractelement <4 x float> %555, i32 0
-  %mul.i = fmul float %vecext1.i207, %vecext.i206
+  store <4 x float> %554, ptr %__b.addr.i205, align 16
+  %555 = load <4 x float>, ptr %__b.addr.i205, align 16
+  %vecext.i206 = extractelement <4 x float> %555, i32 0
   %556 = load <4 x float>, ptr %__a.addr.i204, align 16
-  %vecins.i208 = insertelement <4 x float> %556, float %mul.i, i32 0
-  store <4 x float> %vecins.i208, ptr %__a.addr.i204, align 16
+  %vecext1.i207 = extractelement <4 x float> %556, i32 0
+  %mul.i = fmul float %vecext1.i207, %vecext.i206
   %557 = load <4 x float>, ptr %__a.addr.i204, align 16
-  store <4 x float> %549, ptr %__a.addr.i199, align 16
-  store <4 x float> %557, ptr %__b.addr.i200, align 16
-  %558 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %vecext.i201 = extractelement <4 x float> %558, i32 0
-  %559 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %vecext1.i202 = extractelement <4 x float> %559, i32 0
-  %sub.i = fsub float %vecext1.i202, %vecext.i201
+  %vecins.i208 = insertelement <4 x float> %557, float %mul.i, i32 0
+  store <4 x float> %vecins.i208, ptr %__a.addr.i204, align 16
+  %558 = load <4 x float>, ptr %__a.addr.i204, align 16
+  store <4 x float> %550, ptr %__a.addr.i199, align 16
+  store <4 x float> %558, ptr %__b.addr.i200, align 16
+  %559 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %vecext.i201 = extractelement <4 x float> %559, i32 0
   %560 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %vecins.i203 = insertelement <4 x float> %560, float %sub.i, i32 0
-  store <4 x float> %vecins.i203, ptr %__a.addr.i199, align 16
+  %vecext1.i202 = extractelement <4 x float> %560, i32 0
+  %sub.i = fsub float %vecext1.i202, %vecext.i201
   %561 = load <4 x float>, ptr %__a.addr.i199, align 16
-  store <4 x float> %561, ptr %ref.tmp183.i, align 16, !noalias !14
+  %vecins.i203 = insertelement <4 x float> %561, float %sub.i, i32 0
+  store <4 x float> %vecins.i203, ptr %__a.addr.i199, align 16
+  %562 = load <4 x float>, ptr %__a.addr.i199, align 16
+  store <4 x float> %562, ptr %ref.tmp183.i, align 16, !noalias !14
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp182.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp183.i)
   %call193.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %det.i, ptr noundef %agg.tmp182.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   store ptr %agg.tmp194.i, ptr %result.ptr.i215, align 8, !noalias !285
   store ptr %det.i, ptr %a.addr.i216, align 8, !noalias !285
-  %562 = load ptr, ptr %a.addr.i216, align 8, !noalias !285
+  %563 = load ptr, ptr %a.addr.i216, align 8, !noalias !285
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
   store ptr %agg.tmp194.i, ptr %result.ptr.i303, align 8, !noalias !288
-  store ptr %562, ptr %a.addr.i304, align 8, !noalias !288
-  %563 = load ptr, ptr %a.addr.i304, align 8, !noalias !288
-  %call.i306 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %563)
+  store ptr %563, ptr %a.addr.i304, align 8, !noalias !288
+  %564 = load ptr, ptr %a.addr.i304, align 8, !noalias !288
+  %call.i306 = call noundef <4 x float> @_ZNK18OpenImageIO_v2_6_04simd7vfloat4cvDv4_fEv(ptr noundef nonnull align 16 dereferenceable(16) %564)
   store <4 x float> %call.i306, ptr %a.addr.i309, align 16
-  %564 = load <4 x float>, ptr %a.addr.i309, align 16
-  store <4 x float> %564, ptr %__a.addr.i.i308, align 16
-  %565 = load <4 x float>, ptr %__a.addr.i.i308, align 16
-  %566 = bitcast <4 x float> %565 to <2 x i64>
-  %567 = bitcast <2 x i64> %566 to <4 x i32>
-  %permil.i310 = shufflevector <4 x i32> %567, <4 x i32> poison, <4 x i32> zeroinitializer
-  %568 = bitcast <4 x i32> %permil.i310 to <2 x i64>
-  store <2 x i64> %568, ptr %__a.addr.i2.i307, align 16
-  %569 = load <2 x i64>, ptr %__a.addr.i2.i307, align 16
-  %570 = bitcast <2 x i64> %569 to <4 x float>
-  store <4 x float> %570, ptr %ref.tmp.i305, align 16, !noalias !288
+  %565 = load <4 x float>, ptr %a.addr.i309, align 16
+  store <4 x float> %565, ptr %__a.addr.i.i308, align 16
+  %566 = load <4 x float>, ptr %__a.addr.i.i308, align 16
+  %567 = bitcast <4 x float> %566 to <2 x i64>
+  %568 = bitcast <2 x i64> %567 to <4 x i32>
+  %permil.i310 = shufflevector <4 x i32> %568, <4 x i32> poison, <4 x i32> zeroinitializer
+  %569 = bitcast <4 x i32> %permil.i310 to <2 x i64>
+  store <2 x i64> %569, ptr %__a.addr.i2.i307, align 16
+  %570 = load <2 x i64>, ptr %__a.addr.i2.i307, align 16
+  %571 = bitcast <2 x i64> %570 to <4 x float>
+  store <4 x float> %571, ptr %ref.tmp.i305, align 16, !noalias !288
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp194.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i305)
   br label %_ZN18OpenImageIO_v2_6_04simd7shuffleILi0EEENS0_7vfloat4ERKS2_.exit
 
@@ -13539,60 +13554,60 @@ _ZN18OpenImageIO_v2_6_04simd7shuffleILi0EEENS0_7vfloat4ERKS2_.exit: ; preds = %.
   store ptr %ref.tmp196.i, ptr %result.ptr.i316.i, align 8, !noalias !294
   store ptr %det.i, ptr %a.addr.i317.i, align 8, !noalias !294
   store ptr %minor0.i, ptr %b.addr.i318.i, align 8, !noalias !294
-  %571 = load ptr, ptr %a.addr.i317.i, align 8, !noalias !294
-  %572 = load <4 x float>, ptr %571, align 16
-  %573 = load ptr, ptr %b.addr.i318.i, align 8, !noalias !294
-  %574 = load <4 x float>, ptr %573, align 16
-  store <4 x float> %572, ptr %__a.addr.i.i314.i, align 16, !noalias !294
-  store <4 x float> %574, ptr %__b.addr.i.i315.i, align 16, !noalias !294
-  %575 = load <4 x float>, ptr %__a.addr.i.i314.i, align 16, !noalias !294
-  %576 = load <4 x float>, ptr %__b.addr.i.i315.i, align 16, !noalias !294
-  %mul.i.i320.i = fmul <4 x float> %575, %576
+  %572 = load ptr, ptr %a.addr.i317.i, align 8, !noalias !294
+  %573 = load <4 x float>, ptr %572, align 16
+  %574 = load ptr, ptr %b.addr.i318.i, align 8, !noalias !294
+  %575 = load <4 x float>, ptr %574, align 16
+  store <4 x float> %573, ptr %__a.addr.i.i314.i, align 16, !noalias !294
+  store <4 x float> %575, ptr %__b.addr.i.i315.i, align 16, !noalias !294
+  %576 = load <4 x float>, ptr %__a.addr.i.i314.i, align 16, !noalias !294
+  %577 = load <4 x float>, ptr %__b.addr.i.i315.i, align 16, !noalias !294
+  %mul.i.i320.i = fmul <4 x float> %576, %577
   store <4 x float> %mul.i.i320.i, ptr %ref.tmp.i319.i, align 16, !noalias !294
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp196.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i319.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   store ptr %ref.tmp197.i, ptr %result.ptr.i309.i, align 8, !noalias !298
   store ptr %det.i, ptr %a.addr.i310.i, align 8, !noalias !298
   store ptr %minor1.i, ptr %b.addr.i311.i, align 8, !noalias !298
-  %577 = load ptr, ptr %a.addr.i310.i, align 8, !noalias !298
-  %578 = load <4 x float>, ptr %577, align 16
-  %579 = load ptr, ptr %b.addr.i311.i, align 8, !noalias !298
-  %580 = load <4 x float>, ptr %579, align 16
-  store <4 x float> %578, ptr %__a.addr.i.i307.i, align 16, !noalias !298
-  store <4 x float> %580, ptr %__b.addr.i.i308.i, align 16, !noalias !298
-  %581 = load <4 x float>, ptr %__a.addr.i.i307.i, align 16, !noalias !298
-  %582 = load <4 x float>, ptr %__b.addr.i.i308.i, align 16, !noalias !298
-  %mul.i.i313.i = fmul <4 x float> %581, %582
+  %578 = load ptr, ptr %a.addr.i310.i, align 8, !noalias !298
+  %579 = load <4 x float>, ptr %578, align 16
+  %580 = load ptr, ptr %b.addr.i311.i, align 8, !noalias !298
+  %581 = load <4 x float>, ptr %580, align 16
+  store <4 x float> %579, ptr %__a.addr.i.i307.i, align 16, !noalias !298
+  store <4 x float> %581, ptr %__b.addr.i.i308.i, align 16, !noalias !298
+  %582 = load <4 x float>, ptr %__a.addr.i.i307.i, align 16, !noalias !298
+  %583 = load <4 x float>, ptr %__b.addr.i.i308.i, align 16, !noalias !298
+  %mul.i.i313.i = fmul <4 x float> %582, %583
   store <4 x float> %mul.i.i313.i, ptr %ref.tmp.i312.i, align 16, !noalias !298
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp197.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i312.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   store ptr %ref.tmp198.i, ptr %result.ptr.i302.i, align 8, !noalias !302
   store ptr %det.i, ptr %a.addr.i303.i, align 8, !noalias !302
   store ptr %minor2.i, ptr %b.addr.i304.i, align 8, !noalias !302
-  %583 = load ptr, ptr %a.addr.i303.i, align 8, !noalias !302
-  %584 = load <4 x float>, ptr %583, align 16
-  %585 = load ptr, ptr %b.addr.i304.i, align 8, !noalias !302
-  %586 = load <4 x float>, ptr %585, align 16
-  store <4 x float> %584, ptr %__a.addr.i.i300.i, align 16, !noalias !302
-  store <4 x float> %586, ptr %__b.addr.i.i301.i, align 16, !noalias !302
-  %587 = load <4 x float>, ptr %__a.addr.i.i300.i, align 16, !noalias !302
-  %588 = load <4 x float>, ptr %__b.addr.i.i301.i, align 16, !noalias !302
-  %mul.i.i306.i = fmul <4 x float> %587, %588
+  %584 = load ptr, ptr %a.addr.i303.i, align 8, !noalias !302
+  %585 = load <4 x float>, ptr %584, align 16
+  %586 = load ptr, ptr %b.addr.i304.i, align 8, !noalias !302
+  %587 = load <4 x float>, ptr %586, align 16
+  store <4 x float> %585, ptr %__a.addr.i.i300.i, align 16, !noalias !302
+  store <4 x float> %587, ptr %__b.addr.i.i301.i, align 16, !noalias !302
+  %588 = load <4 x float>, ptr %__a.addr.i.i300.i, align 16, !noalias !302
+  %589 = load <4 x float>, ptr %__b.addr.i.i301.i, align 16, !noalias !302
+  %mul.i.i306.i = fmul <4 x float> %588, %589
   store <4 x float> %mul.i.i306.i, ptr %ref.tmp.i305.i, align 16, !noalias !302
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp198.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i305.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
   store ptr %ref.tmp199.i, ptr %result.ptr.i296.i, align 8, !noalias !306
   store ptr %det.i, ptr %a.addr.i297.i, align 8, !noalias !306
   store ptr %minor3.i, ptr %b.addr.i298.i, align 8, !noalias !306
-  %589 = load ptr, ptr %a.addr.i297.i, align 8, !noalias !306
-  %590 = load <4 x float>, ptr %589, align 16
-  %591 = load ptr, ptr %b.addr.i298.i, align 8, !noalias !306
-  %592 = load <4 x float>, ptr %591, align 16
-  store <4 x float> %590, ptr %__a.addr.i.i.i, align 16, !noalias !306
-  store <4 x float> %592, ptr %__b.addr.i.i.i, align 16, !noalias !306
-  %593 = load <4 x float>, ptr %__a.addr.i.i.i, align 16, !noalias !306
-  %594 = load <4 x float>, ptr %__b.addr.i.i.i, align 16, !noalias !306
-  %mul.i.i.i = fmul <4 x float> %593, %594
+  %590 = load ptr, ptr %a.addr.i297.i, align 8, !noalias !306
+  %591 = load <4 x float>, ptr %590, align 16
+  %592 = load ptr, ptr %b.addr.i298.i, align 8, !noalias !306
+  %593 = load <4 x float>, ptr %592, align 16
+  store <4 x float> %591, ptr %__a.addr.i.i.i, align 16, !noalias !306
+  store <4 x float> %593, ptr %__b.addr.i.i.i, align 16, !noalias !306
+  %594 = load <4 x float>, ptr %__a.addr.i.i.i, align 16, !noalias !306
+  %595 = load <4 x float>, ptr %__b.addr.i.i.i, align 16, !noalias !306
+  %mul.i.i.i = fmul <4 x float> %594, %595
   store <4 x float> %mul.i.i.i, ptr %ref.tmp.i299.i, align 16, !noalias !306
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp199.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i299.i)
   store ptr %ref.tmp, ptr %this.addr.i218, align 8
@@ -13601,19 +13616,19 @@ _ZN18OpenImageIO_v2_6_04simd7shuffleILi0EEENS0_7vfloat4ERKS2_.exit: ; preds = %.
   store ptr %ref.tmp198.i, ptr %c.addr.i, align 8
   store ptr %ref.tmp199.i, ptr %d.addr.i, align 8
   %this1.i222 = load ptr, ptr %this.addr.i218, align 8
-  %595 = load ptr, ptr %a.addr.i219, align 8
-  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i220, ptr noundef nonnull align 16 dereferenceable(16) %595)
+  %596 = load ptr, ptr %a.addr.i219, align 8
+  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i220, ptr noundef nonnull align 16 dereferenceable(16) %596)
   %call.i223 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %this1.i222, ptr noundef %agg.tmp.i220)
-  %596 = load ptr, ptr %b.addr.i, align 8
-  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 16 dereferenceable(16) %596)
+  %597 = load ptr, ptr %b.addr.i, align 8
+  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 16 dereferenceable(16) %597)
   %arrayidx3.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i222, i64 0, i64 1
   %call4.i224 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, ptr noundef %agg.tmp2.i)
-  %597 = load ptr, ptr %c.addr.i, align 8
-  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp5.i221, ptr noundef nonnull align 16 dereferenceable(16) %597)
+  %598 = load ptr, ptr %c.addr.i, align 8
+  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp5.i221, ptr noundef nonnull align 16 dereferenceable(16) %598)
   %arrayidx6.i225 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i222, i64 0, i64 2
   %call7.i226 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i225, ptr noundef %agg.tmp5.i221)
-  %598 = load ptr, ptr %d.addr.i, align 8
-  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp8.i, ptr noundef nonnull align 16 dereferenceable(16) %598)
+  %599 = load ptr, ptr %d.addr.i, align 8
+  call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp8.i, ptr noundef nonnull align 16 dereferenceable(16) %599)
   %arrayidx9.i227 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i222, i64 0, i64 3
   %call10.i228 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i227, ptr noundef %agg.tmp8.i)
   br label %_ZNK18OpenImageIO_v2_6_04simd8matrix447inverseEv.exit
@@ -13626,41 +13641,41 @@ invoke.cont3:                                     ; preds = %_ZNK18OpenImageIO_v
   store ptr %m_M4, ptr %this.addr.i31, align 8
   store ptr %ref.tmp, ptr %m.addr.i, align 8
   %this1.i33 = load ptr, ptr %this.addr.i31, align 8
-  %599 = load ptr, ptr %m.addr.i, align 8
-  store ptr %599, ptr %this.addr.i323, align 8
+  %600 = load ptr, ptr %m.addr.i, align 8
+  store ptr %600, ptr %this.addr.i323, align 8
   store i32 0, ptr %i.addr.i324, align 4
   %this1.i325 = load ptr, ptr %this.addr.i323, align 8
-  %600 = load i32, ptr %i.addr.i324, align 4
-  %idxprom.i326 = sext i32 %600 to i64
+  %601 = load i32, ptr %i.addr.i324, align 4
+  %idxprom.i326 = sext i32 %601 to i64
   %arrayidx.i327 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i325, i64 0, i64 %idxprom.i326
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i32, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i327)
   %call2.i35 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %this1.i33, ptr noundef %agg.tmp.i32)
-  %601 = load ptr, ptr %m.addr.i, align 8
-  store ptr %601, ptr %this.addr.i318, align 8
+  %602 = load ptr, ptr %m.addr.i, align 8
+  store ptr %602, ptr %this.addr.i318, align 8
   store i32 1, ptr %i.addr.i319, align 4
   %this1.i320 = load ptr, ptr %this.addr.i318, align 8
-  %602 = load i32, ptr %i.addr.i319, align 4
-  %idxprom.i321 = sext i32 %602 to i64
+  %603 = load i32, ptr %i.addr.i319, align 4
+  %idxprom.i321 = sext i32 %603 to i64
   %arrayidx.i322 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i320, i64 0, i64 %idxprom.i321
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp3.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i322)
   %arrayidx5.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i33, i64 0, i64 1
   %call6.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i, ptr noundef %agg.tmp3.i)
-  %603 = load ptr, ptr %m.addr.i, align 8
-  store ptr %603, ptr %this.addr.i313, align 8
+  %604 = load ptr, ptr %m.addr.i, align 8
+  store ptr %604, ptr %this.addr.i313, align 8
   store i32 2, ptr %i.addr.i314, align 4
   %this1.i315 = load ptr, ptr %this.addr.i313, align 8
-  %604 = load i32, ptr %i.addr.i314, align 4
-  %idxprom.i316 = sext i32 %604 to i64
+  %605 = load i32, ptr %i.addr.i314, align 4
+  %idxprom.i316 = sext i32 %605 to i64
   %arrayidx.i317 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i315, i64 0, i64 %idxprom.i316
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp7.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i317)
   %arrayidx9.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i33, i64 0, i64 2
   %call10.i = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_04simd7vfloat4aSES1_(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i, ptr noundef %agg.tmp7.i)
-  %605 = load ptr, ptr %m.addr.i, align 8
-  store ptr %605, ptr %this.addr.i311, align 8
+  %606 = load ptr, ptr %m.addr.i, align 8
+  store ptr %606, ptr %this.addr.i311, align 8
   store i32 3, ptr %i.addr.i, align 4
   %this1.i312 = load ptr, ptr %this.addr.i311, align 8
-  %606 = load i32, ptr %i.addr.i, align 4
-  %idxprom.i = sext i32 %606 to i64
+  %607 = load i32, ptr %i.addr.i, align 4
+  %idxprom.i = sext i32 %607 to i64
   %arrayidx.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i312, i64 0, i64 %idxprom.i
   call void @_ZN18OpenImageIO_v2_6_04simd7vfloat4C2ERKS1_(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp11.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i)
   %arrayidx13.i = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %this1.i33, i64 0, i64 3
@@ -13671,12 +13686,12 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   br label %if.end
 
 lpad:                                             ; No predecessors!
-  %607 = landingpad { ptr, i32 }
+  %608 = landingpad { ptr, i32 }
           cleanup
-  %608 = extractvalue { ptr, i32 } %607, 0
-  store ptr %608, ptr %exn.slot, align 8
-  %609 = extractvalue { ptr, i32 } %607, 1
-  store i32 %609, ptr %ehselector.slot, align 4
+  %609 = extractvalue { ptr, i32 } %608, 0
+  store ptr %609, ptr %exn.slot, align 8
+  %610 = extractvalue { ptr, i32 } %608, 1
+  store i32 %610, ptr %ehselector.slot, align 4
   call void @_ZN18OpenImageIO_v2_6_014ColorProcessorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -21425,10 +21440,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #5
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #5
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #5
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #5
@@ -22000,16 +22016,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -22781,7 +22798,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %message.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27921,10 +27939,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #5
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.43", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #5
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #5
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.43", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #5
@@ -28062,16 +28081,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.44", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.44", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.44", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -43021,10 +43041,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #5
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.76", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #5
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #5
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.76", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 32) #5
@@ -43061,16 +43082,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.77", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.77", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.77", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -43855,21 +43877,22 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #5
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.76", ptr %this1, i32 0, i32 2
   call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #5
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #23
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #23
   unreachable
 }
 
@@ -64277,36 +64300,37 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
   br label %ehcleanup
 
@@ -69180,7 +69204,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014ColorProcessorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014ColorProcessorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -76368,7 +76393,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -76381,7 +76407,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -83581,10 +83608,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_020ColorProcessor_IdentELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_020ColorProcessor_IdentELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -83594,7 +83622,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -83932,10 +83961,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_029ColorProcessor_linear_to_sRGBELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_029ColorProcessor_linear_to_sRGBELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.193", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -84140,10 +84170,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_029ColorProcessor_sRGB_to_linearELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_029ColorProcessor_sRGB_to_linearELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.194", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -84348,10 +84379,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_031ColorProcessor_linear_to_Rec709ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_031ColorProcessor_linear_to_Rec709ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.195", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -84556,10 +84588,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_031ColorProcessor_Rec709_to_linearELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_031ColorProcessor_Rec709_to_linearELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.196", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -84764,10 +84797,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_020ColorProcessor_gammaELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_020ColorProcessor_gammaELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.197", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -85167,10 +85201,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_021ColorProcessor_MatrixELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN18OpenImageIO_v2_6_021ColorProcessor_MatrixELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.200", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -89807,10 +89842,11 @@ entry:
   store ptr %buf, ptr %buf.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN3fmt2v86detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN3fmt2v86detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.fmt::v8::detail::formatbuf", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf.addr, align 8
-  store ptr %0, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buf.addr, align 8
+  store ptr %1, ptr %buffer_, align 8
   ret void
 }
 

@@ -24,51 +24,53 @@ define ptr @mca_allocator_component_lookup(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %6, ptr %4, align 8
-  br label %7
+  %6 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12, i32 1, i32 1
+  %7 = load volatile ptr, ptr %6, align 8
+  store ptr %7, ptr %4, align 8
+  br label %8
 
-7:                                                ; preds = %24, %1
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12, i32 1)
-  br i1 %9, label %10, label %28
+8:                                                ; preds = %26, %1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_allocator_base_framework, i32 0, i32 12, i32 1
+  %11 = icmp ne ptr %9, %10
+  br i1 %11, label %12, label %30
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %15, i32 0, i32 11
-  %17 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %18 = load ptr, ptr %3, align 8
-  %19 = call i32 @strcmp(ptr noundef %17, ptr noundef %18) #2
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %17, i32 0, i32 11
+  %19 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 0
+  %20 = load ptr, ptr %3, align 8
+  %21 = call i32 @strcmp(ptr noundef %19, ptr noundef %20) #2
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %25
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %5, align 8
-  store ptr %22, ptr %2, align 8
-  br label %29
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %5, align 8
+  store ptr %24, ptr %2, align 8
+  br label %31
 
-23:                                               ; preds = %10
-  br label %24
+25:                                               ; preds = %12
+  br label %26
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.opal_list_item_t, ptr %25, i32 0, i32 1
-  %27 = load volatile ptr, ptr %26, align 8
-  store ptr %27, ptr %4, align 8
-  br label %7, !llvm.loop !4
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct.opal_list_item_t, ptr %27, i32 0, i32 1
+  %29 = load volatile ptr, ptr %28, align 8
+  store ptr %29, ptr %4, align 8
+  br label %8, !llvm.loop !4
 
-28:                                               ; preds = %7
+30:                                               ; preds = %8
   store ptr null, ptr %2, align 8
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %21
-  %30 = load ptr, ptr %2, align 8
-  ret ptr %30
+31:                                               ; preds = %30, %23
+  %32 = load ptr, ptr %2, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

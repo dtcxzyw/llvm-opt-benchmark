@@ -1731,38 +1731,39 @@ while.end:                                        ; preds = %land.end
   %61 = load ptr, ptr %win, align 8
   %base52 = getelementptr inbounds %struct.pack_window, ptr %61, i32 0, i32 1
   %62 = load ptr, ptr %base52, align 8
-  %cmp53 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
+  %63 = inttoptr i64 -1 to ptr
+  %cmp53 = icmp eq ptr %62, %63
   br i1 %cmp53, label %if.then54, label %if.end59
 
 if.then54:                                        ; preds = %while.end
   %call55 = call ptr @_(ptr noundef @.str.27)
-  %63 = load ptr, ptr %p.addr, align 8
-  %pack_name56 = getelementptr inbounds %struct.packed_git, ptr %63, i32 0, i32 22
+  %64 = load ptr, ptr %p.addr, align 8
+  %pack_name56 = getelementptr inbounds %struct.packed_git, ptr %64, i32 0, i32 22
   %arraydecay57 = getelementptr inbounds [0 x i8], ptr %pack_name56, i64 0, i64 0
   %call58 = call ptr @mmap_os_err()
   call void (ptr, ...) @die_errno(ptr noundef %call55, ptr noundef %arraydecay57, ptr noundef %call58) #9
   unreachable
 
 if.end59:                                         ; preds = %while.end
-  %64 = load ptr, ptr %win, align 8
-  %offset60 = getelementptr inbounds %struct.pack_window, ptr %64, i32 0, i32 2
-  %65 = load i64, ptr %offset60, align 8
-  %tobool61 = icmp ne i64 %65, 0
+  %65 = load ptr, ptr %win, align 8
+  %offset60 = getelementptr inbounds %struct.pack_window, ptr %65, i32 0, i32 2
+  %66 = load i64, ptr %offset60, align 8
+  %tobool61 = icmp ne i64 %66, 0
   br i1 %tobool61, label %if.end70, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end59
-  %66 = load ptr, ptr %win, align 8
-  %len63 = getelementptr inbounds %struct.pack_window, ptr %66, i32 0, i32 3
-  %67 = load i64, ptr %len63, align 8
-  %68 = load ptr, ptr %p.addr, align 8
-  %pack_size64 = getelementptr inbounds %struct.packed_git, ptr %68, i32 0, i32 4
-  %69 = load i64, ptr %pack_size64, align 8
-  %cmp65 = icmp eq i64 %67, %69
+  %67 = load ptr, ptr %win, align 8
+  %len63 = getelementptr inbounds %struct.pack_window, ptr %67, i32 0, i32 3
+  %68 = load i64, ptr %len63, align 8
+  %69 = load ptr, ptr %p.addr, align 8
+  %pack_size64 = getelementptr inbounds %struct.packed_git, ptr %69, i32 0, i32 4
+  %70 = load i64, ptr %pack_size64, align 8
+  %cmp65 = icmp eq i64 %68, %70
   br i1 %cmp65, label %land.lhs.true66, label %if.end70
 
 land.lhs.true66:                                  ; preds = %land.lhs.true62
-  %70 = load ptr, ptr %p.addr, align 8
-  %do_not_close = getelementptr inbounds %struct.packed_git, ptr %70, i32 0, i32 14
+  %71 = load ptr, ptr %p.addr, align 8
+  %do_not_close = getelementptr inbounds %struct.packed_git, ptr %71, i32 0, i32 14
   %bf.load = load i8, ptr %do_not_close, align 8
   %bf.lshr = lshr i8 %bf.load, 4
   %bf.clear = and i8 %bf.lshr, 1
@@ -1771,106 +1772,106 @@ land.lhs.true66:                                  ; preds = %land.lhs.true62
   br i1 %tobool67, label %if.end70, label %if.then68
 
 if.then68:                                        ; preds = %land.lhs.true66
-  %71 = load ptr, ptr %p.addr, align 8
-  %call69 = call i32 @close_pack_fd(ptr noundef %71)
+  %72 = load ptr, ptr %p.addr, align 8
+  %call69 = call i32 @close_pack_fd(ptr noundef %72)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then68, %land.lhs.true66, %land.lhs.true62, %if.end59
-  %72 = load i32, ptr @pack_mmap_calls, align 4
-  %inc = add i32 %72, 1
+  %73 = load i32, ptr @pack_mmap_calls, align 4
+  %inc = add i32 %73, 1
   store i32 %inc, ptr @pack_mmap_calls, align 4
-  %73 = load i32, ptr @pack_open_windows, align 4
-  %inc71 = add i32 %73, 1
+  %74 = load i32, ptr @pack_open_windows, align 4
+  %inc71 = add i32 %74, 1
   store i32 %inc71, ptr @pack_open_windows, align 4
-  %74 = load i64, ptr @pack_mapped, align 8
-  %75 = load i64, ptr @peak_pack_mapped, align 8
-  %cmp72 = icmp ugt i64 %74, %75
+  %75 = load i64, ptr @pack_mapped, align 8
+  %76 = load i64, ptr @peak_pack_mapped, align 8
+  %cmp72 = icmp ugt i64 %75, %76
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.end70
-  %76 = load i64, ptr @pack_mapped, align 8
-  store i64 %76, ptr @peak_pack_mapped, align 8
+  %77 = load i64, ptr @pack_mapped, align 8
+  store i64 %77, ptr @peak_pack_mapped, align 8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then73, %if.end70
-  %77 = load i32, ptr @pack_open_windows, align 4
-  %78 = load i32, ptr @peak_pack_open_windows, align 4
-  %cmp75 = icmp ugt i32 %77, %78
+  %78 = load i32, ptr @pack_open_windows, align 4
+  %79 = load i32, ptr @peak_pack_open_windows, align 4
+  %cmp75 = icmp ugt i32 %78, %79
   br i1 %cmp75, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %if.end74
-  %79 = load i32, ptr @pack_open_windows, align 4
-  store i32 %79, ptr @peak_pack_open_windows, align 4
+  %80 = load i32, ptr @pack_open_windows, align 4
+  store i32 %80, ptr @peak_pack_open_windows, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then76, %if.end74
-  %80 = load ptr, ptr %p.addr, align 8
-  %windows78 = getelementptr inbounds %struct.packed_git, ptr %80, i32 0, i32 3
-  %81 = load ptr, ptr %windows78, align 8
-  %82 = load ptr, ptr %win, align 8
-  %next79 = getelementptr inbounds %struct.pack_window, ptr %82, i32 0, i32 0
-  store ptr %81, ptr %next79, align 8
+  %81 = load ptr, ptr %p.addr, align 8
+  %windows78 = getelementptr inbounds %struct.packed_git, ptr %81, i32 0, i32 3
+  %82 = load ptr, ptr %windows78, align 8
   %83 = load ptr, ptr %win, align 8
-  %84 = load ptr, ptr %p.addr, align 8
-  %windows80 = getelementptr inbounds %struct.packed_git, ptr %84, i32 0, i32 3
-  store ptr %83, ptr %windows80, align 8
+  %next79 = getelementptr inbounds %struct.pack_window, ptr %83, i32 0, i32 0
+  store ptr %82, ptr %next79, align 8
+  %84 = load ptr, ptr %win, align 8
+  %85 = load ptr, ptr %p.addr, align 8
+  %windows80 = getelementptr inbounds %struct.packed_git, ptr %85, i32 0, i32 3
+  store ptr %84, ptr %windows80, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end77, %for.end
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end81, %lor.lhs.false
-  %85 = load ptr, ptr %win, align 8
-  %86 = load ptr, ptr %w_cursor.addr, align 8
-  %87 = load ptr, ptr %86, align 8
-  %cmp83 = icmp ne ptr %85, %87
+  %86 = load ptr, ptr %win, align 8
+  %87 = load ptr, ptr %w_cursor.addr, align 8
+  %88 = load ptr, ptr %87, align 8
+  %cmp83 = icmp ne ptr %86, %88
   br i1 %cmp83, label %if.then84, label %if.end88
 
 if.then84:                                        ; preds = %if.end82
-  %88 = load i32, ptr @pack_used_ctr, align 4
-  %inc85 = add i32 %88, 1
+  %89 = load i32, ptr @pack_used_ctr, align 4
+  %inc85 = add i32 %89, 1
   store i32 %inc85, ptr @pack_used_ctr, align 4
-  %89 = load ptr, ptr %win, align 8
-  %last_used = getelementptr inbounds %struct.pack_window, ptr %89, i32 0, i32 4
-  store i32 %88, ptr %last_used, align 8
   %90 = load ptr, ptr %win, align 8
-  %inuse_cnt86 = getelementptr inbounds %struct.pack_window, ptr %90, i32 0, i32 5
-  %91 = load i32, ptr %inuse_cnt86, align 4
-  %inc87 = add i32 %91, 1
+  %last_used = getelementptr inbounds %struct.pack_window, ptr %90, i32 0, i32 4
+  store i32 %89, ptr %last_used, align 8
+  %91 = load ptr, ptr %win, align 8
+  %inuse_cnt86 = getelementptr inbounds %struct.pack_window, ptr %91, i32 0, i32 5
+  %92 = load i32, ptr %inuse_cnt86, align 4
+  %inc87 = add i32 %92, 1
   store i32 %inc87, ptr %inuse_cnt86, align 4
-  %92 = load ptr, ptr %win, align 8
-  %93 = load ptr, ptr %w_cursor.addr, align 8
-  store ptr %92, ptr %93, align 8
+  %93 = load ptr, ptr %win, align 8
+  %94 = load ptr, ptr %w_cursor.addr, align 8
+  store ptr %93, ptr %94, align 8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then84, %if.end82
-  %94 = load ptr, ptr %win, align 8
-  %offset89 = getelementptr inbounds %struct.pack_window, ptr %94, i32 0, i32 2
-  %95 = load i64, ptr %offset89, align 8
-  %96 = load i64, ptr %offset.addr, align 8
-  %sub90 = sub nsw i64 %96, %95
+  %95 = load ptr, ptr %win, align 8
+  %offset89 = getelementptr inbounds %struct.pack_window, ptr %95, i32 0, i32 2
+  %96 = load i64, ptr %offset89, align 8
+  %97 = load i64, ptr %offset.addr, align 8
+  %sub90 = sub nsw i64 %97, %96
   store i64 %sub90, ptr %offset.addr, align 8
-  %97 = load ptr, ptr %left.addr, align 8
-  %tobool91 = icmp ne ptr %97, null
+  %98 = load ptr, ptr %left.addr, align 8
+  %tobool91 = icmp ne ptr %98, null
   br i1 %tobool91, label %if.then92, label %if.end96
 
 if.then92:                                        ; preds = %if.end88
-  %98 = load ptr, ptr %win, align 8
-  %len93 = getelementptr inbounds %struct.pack_window, ptr %98, i32 0, i32 3
-  %99 = load i64, ptr %len93, align 8
-  %100 = load i64, ptr %offset.addr, align 8
-  %call94 = call i64 @xsize_t(i64 noundef %100)
-  %sub95 = sub i64 %99, %call94
-  %101 = load ptr, ptr %left.addr, align 8
-  store i64 %sub95, ptr %101, align 8
+  %99 = load ptr, ptr %win, align 8
+  %len93 = getelementptr inbounds %struct.pack_window, ptr %99, i32 0, i32 3
+  %100 = load i64, ptr %len93, align 8
+  %101 = load i64, ptr %offset.addr, align 8
+  %call94 = call i64 @xsize_t(i64 noundef %101)
+  %sub95 = sub i64 %100, %call94
+  %102 = load ptr, ptr %left.addr, align 8
+  store i64 %sub95, ptr %102, align 8
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then92, %if.end88
-  %102 = load ptr, ptr %win, align 8
-  %base97 = getelementptr inbounds %struct.pack_window, ptr %102, i32 0, i32 1
-  %103 = load ptr, ptr %base97, align 8
-  %104 = load i64, ptr %offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %103, i64 %104
+  %103 = load ptr, ptr %win, align 8
+  %base97 = getelementptr inbounds %struct.pack_window, ptr %103, i32 0, i32 1
+  %104 = load ptr, ptr %base97, align 8
+  %105 = load i64, ptr %offset.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %104, i64 %105
   ret ptr %add.ptr
 }
 
@@ -5077,8 +5078,9 @@ entry:
   %key = alloca %struct.delta_base_cache_key, align 8
   store ptr %p, ptr %p.addr, align 8
   store i64 %base_offset, ptr %base_offset.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.hashmap, ptr @delta_base_cache, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -5086,25 +5088,25 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %base_offset.addr, align 8
-  %call = call i32 @pack_entry_hash(ptr noundef %1, i64 noundef %2)
+  %2 = load ptr, ptr %p.addr, align 8
+  %3 = load i64, ptr %base_offset.addr, align 8
+  %call = call i32 @pack_entry_hash(ptr noundef %2, i64 noundef %3)
   call void @hashmap_entry_init(ptr noundef %entry1, i32 noundef %call)
-  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %p.addr, align 8
   %p2 = getelementptr inbounds %struct.delta_base_cache_key, ptr %key, i32 0, i32 0
-  store ptr %3, ptr %p2, align 8
-  %4 = load i64, ptr %base_offset.addr, align 8
+  store ptr %4, ptr %p2, align 8
+  %5 = load i64, ptr %base_offset.addr, align 8
   %base_offset3 = getelementptr inbounds %struct.delta_base_cache_key, ptr %key, i32 0, i32 1
-  store i64 %4, ptr %base_offset3, align 8
+  store i64 %5, ptr %base_offset3, align 8
   %call4 = call ptr @hashmap_get(ptr noundef @delta_base_cache, ptr noundef %entry1, ptr noundef %key)
   store ptr %call4, ptr %e, align 8
-  %5 = load ptr, ptr %e, align 8
-  %tobool5 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %e, align 8
+  %tobool5 = icmp ne ptr %6, null
   br i1 %tobool5, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
-  %6 = load ptr, ptr %e, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 0
+  %7 = load ptr, ptr %e, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 0
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
@@ -5116,8 +5118,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5510,8 +5512,9 @@ for.end:                                          ; preds = %if.then2, %for.cond
   %26 = load ptr, ptr %ent, align 8
   %lru10 = getelementptr inbounds %struct.delta_base_cache_entry, ptr %26, i32 0, i32 2
   call void @list_add_tail(ptr noundef %lru10, ptr noundef @delta_base_cache_lru)
-  %27 = load ptr, ptr getelementptr inbounds (%struct.hashmap, ptr @delta_base_cache, i32 0, i32 1), align 8
-  %tobool11 = icmp ne ptr %27, null
+  %27 = getelementptr inbounds %struct.hashmap, ptr @delta_base_cache, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %tobool11 = icmp ne ptr %28, null
   br i1 %tobool11, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %for.end
@@ -5519,14 +5522,14 @@ if.then12:                                        ; preds = %for.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %for.end
-  %28 = load ptr, ptr %ent, align 8
-  %ent14 = getelementptr inbounds %struct.delta_base_cache_entry, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %p.addr, align 8
-  %30 = load i64, ptr %base_offset.addr, align 8
-  %call15 = call i32 @pack_entry_hash(ptr noundef %29, i64 noundef %30)
+  %29 = load ptr, ptr %ent, align 8
+  %ent14 = getelementptr inbounds %struct.delta_base_cache_entry, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %p.addr, align 8
+  %31 = load i64, ptr %base_offset.addr, align 8
+  %call15 = call i32 @pack_entry_hash(ptr noundef %30, i64 noundef %31)
   call void @hashmap_entry_init(ptr noundef %ent14, i32 noundef %call15)
-  %31 = load ptr, ptr %ent, align 8
-  %ent16 = getelementptr inbounds %struct.delta_base_cache_entry, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %ent, align 8
+  %ent16 = getelementptr inbounds %struct.delta_base_cache_entry, ptr %32, i32 0, i32 0
   call void @hashmap_add(ptr noundef @delta_base_cache, ptr noundef %ent16)
   br label %return
 
@@ -8813,7 +8816,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv

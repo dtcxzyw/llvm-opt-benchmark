@@ -43,7 +43,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %21 = load ptr, ptr %9, align 8
   store ptr @.str, ptr %21, align 8
   store i32 0, ptr %5, align 4
-  br label %84
+  br label %85
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %7, align 8
@@ -75,7 +75,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %44 = load ptr, ptr %9, align 8
   store ptr @.str.2, ptr %44, align 8
   store i32 0, ptr %5, align 4
-  br label %84
+  br label %85
 
 45:                                               ; preds = %22
   %46 = load ptr, ptr %10, align 8
@@ -92,7 +92,7 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %54 = getelementptr inbounds [38 x i8], ptr %11, i64 0, i64 0
   %55 = call i32 @shm_unlink(ptr noundef %54)
   store i32 0, ptr %5, align 4
-  br label %84
+  br label %85
 
 56:                                               ; preds = %45
   %57 = load i64, ptr %6, align 8
@@ -108,35 +108,36 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %66 = getelementptr inbounds %struct.zend_shared_segment_posix, ptr %65, i32 0, i32 0
   %67 = getelementptr inbounds %struct._zend_shared_segment, ptr %66, i32 0, i32 3
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
-  br i1 %69, label %70, label %74
+  %69 = inttoptr i64 -1 to ptr
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %56
-  %71 = load ptr, ptr %9, align 8
-  store ptr @.str.4, ptr %71, align 8
-  %72 = getelementptr inbounds [38 x i8], ptr %11, i64 0, i64 0
-  %73 = call i32 @shm_unlink(ptr noundef %72)
+71:                                               ; preds = %56
+  %72 = load ptr, ptr %9, align 8
+  store ptr @.str.4, ptr %72, align 8
+  %73 = getelementptr inbounds [38 x i8], ptr %11, i64 0, i64 0
+  %74 = call i32 @shm_unlink(ptr noundef %73)
   store i32 0, ptr %5, align 4
-  br label %84
+  br label %85
 
-74:                                               ; preds = %56
-  %75 = getelementptr inbounds [38 x i8], ptr %11, i64 0, i64 0
-  %76 = call i32 @shm_unlink(ptr noundef %75)
-  %77 = load ptr, ptr %10, align 8
-  %78 = getelementptr inbounds %struct.zend_shared_segment_posix, ptr %77, i32 0, i32 0
-  %79 = getelementptr inbounds %struct._zend_shared_segment, ptr %78, i32 0, i32 2
-  store i64 0, ptr %79, align 8
-  %80 = load i64, ptr %6, align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds %struct.zend_shared_segment_posix, ptr %81, i32 0, i32 0
-  %83 = getelementptr inbounds %struct._zend_shared_segment, ptr %82, i32 0, i32 0
-  store i64 %80, ptr %83, align 8
+75:                                               ; preds = %56
+  %76 = getelementptr inbounds [38 x i8], ptr %11, i64 0, i64 0
+  %77 = call i32 @shm_unlink(ptr noundef %76)
+  %78 = load ptr, ptr %10, align 8
+  %79 = getelementptr inbounds %struct.zend_shared_segment_posix, ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds %struct._zend_shared_segment, ptr %79, i32 0, i32 2
+  store i64 0, ptr %80, align 8
+  %81 = load i64, ptr %6, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds %struct.zend_shared_segment_posix, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds %struct._zend_shared_segment, ptr %83, i32 0, i32 0
+  store i64 %81, ptr %84, align 8
   store i32 1, ptr %5, align 4
-  br label %84
+  br label %85
 
-84:                                               ; preds = %74, %70, %52, %43, %20
-  %85 = load i32, ptr %5, align 4
-  ret i32 %85
+85:                                               ; preds = %75, %71, %52, %43, %20
+  %86 = load i32, ptr %5, align 4
+  ret i32 %86
 }
 
 ; Function Attrs: nounwind uwtable

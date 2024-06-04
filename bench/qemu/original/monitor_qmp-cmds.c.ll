@@ -628,7 +628,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   store ptr null, ptr @qmp_cap_negotiation_commands, align 8
-  store ptr @qmp_cap_negotiation_commands, ptr getelementptr inbounds (%struct.QTailQLink, ptr @qmp_cap_negotiation_commands, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.QTailQLink, ptr @qmp_cap_negotiation_commands, i32 0, i32 1
+  store ptr @qmp_cap_negotiation_commands, ptr %0, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body

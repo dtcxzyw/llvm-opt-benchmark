@@ -57,58 +57,70 @@ define void @stbte__init_gui() #0 {
 entry:
   %i = alloca i32, align 4
   %n = alloca i32, align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 13), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 13
+  store i32 1, ptr %0, align 4
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  store i32 1, ptr %1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 7
+  %2 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %2, 7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [7 x %struct.stbte__panel], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i64 0, i64 %idxprom
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %arrayidx = getelementptr inbounds [7 x %struct.stbte__panel], ptr %4, i64 0, i64 %idxprom
   %expanded = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx, i32 0, i32 0
   store i32 1, ptr %expanded, align 4
-  %2 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %2 to i64
-  %arrayidx2 = getelementptr inbounds [7 x %struct.stbte__panel], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i64 0, i64 %idxprom1
+  %5 = load i32, ptr %i, align 4
+  %idxprom1 = sext i32 %5 to i64
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %arrayidx2 = getelementptr inbounds [7 x %struct.stbte__panel], ptr %6, i64 0, i64 %idxprom1
   %delta_height = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx2, i32 0, i32 2
   store i32 0, ptr %delta_height, align 4
-  %3 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %3 to i64
-  %arrayidx4 = getelementptr inbounds [7 x %struct.stbte__panel], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i64 0, i64 %idxprom3
+  %7 = load i32, ptr %i, align 4
+  %idxprom3 = sext i32 %7 to i64
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %arrayidx4 = getelementptr inbounds [7 x %struct.stbte__panel], ptr %8, i64 0, i64 %idxprom3
   %side = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx4, i32 0, i32 3
   store i32 0, ptr %side, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %9 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  store i32 2, ptr getelementptr inbounds (%struct.stbte__panel, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i32 0, i32 3), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 1, i32 3), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
-  %cmp5 = icmp eq i32 %5, 0
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %11 = getelementptr inbounds %struct.stbte__panel, ptr %10, i32 0, i32 3
+  store i32 2, ptr %11, align 4
+  %12 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 1, i32 3
+  store i32 1, ptr %12, align 4
+  %13 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  %14 = load i32, ptr %13, align 4
+  %cmp5 = icmp eq i32 %14, 0
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  store i32 80, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
+  %15 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  store i32 80, ptr %15, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
-  %cmp6 = icmp eq i32 %6, 0
+  %16 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  %17 = load i32, ptr %16, align 8
+  %cmp6 = icmp eq i32 %17, 0
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  store i32 80, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  store i32 80, ptr %18, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end
@@ -117,30 +129,30 @@ if.end8:                                          ; preds = %if.then7, %if.end
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.inc17, %if.end8
-  %7 = load i32, ptr %i, align 4
-  %cmp10 = icmp slt i32 %7, 111
+  %19 = load i32, ptr %i, align 4
+  %cmp10 = icmp slt i32 %19, 111
   br i1 %cmp10, label %for.body11, label %for.end19
 
 for.body11:                                       ; preds = %for.cond9
-  %8 = load i32, ptr %n, align 4
-  %conv = trunc i32 %8 to i16
-  %9 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %9 to i64
+  %20 = load i32, ptr %n, align 4
+  %conv = trunc i32 %20 to i16
+  %21 = load i32, ptr %i, align 4
+  %idxprom12 = sext i32 %21 to i64
   %arrayidx13 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %idxprom12
   store i16 %conv, ptr %arrayidx13, align 2
-  %10 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %10 to i64
+  %22 = load i32, ptr %i, align 4
+  %idxprom14 = sext i32 %22 to i64
   %arrayidx15 = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %idxprom14
-  %11 = load i16, ptr %arrayidx15, align 2
-  %conv16 = sext i16 %11 to i32
-  %12 = load i32, ptr %n, align 4
-  %add = add nsw i32 %12, %conv16
+  %23 = load i16, ptr %arrayidx15, align 2
+  %conv16 = sext i16 %23 to i32
+  %24 = load i32, ptr %n, align 4
+  %add = add nsw i32 %24, %conv16
   store i32 %add, ptr %n, align 4
   br label %for.inc17
 
 for.inc17:                                        ; preds = %for.body11
-  %13 = load i32, ptr %i, align 4
-  %inc18 = add nsw i32 %13, 1
+  %25 = load i32, ptr %i, align 4
+  %inc18 = add nsw i32 %25, 1
   store i32 %inc18, ptr %i, align 4
   br label %for.cond9, !llvm.loop !6
 
@@ -200,8 +212,9 @@ if.then:                                          ; preds = %lor.lhs.false8, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false8
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 13), align 4
-  %tobool = icmp ne i32 %6, 0
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 13
+  %7 = load i32, ptr %6, align 4
+  %tobool = icmp ne i32 %7, 0
   br i1 %tobool, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
@@ -209,15 +222,15 @@ if.then10:                                        ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end
-  %7 = load i32, ptr %max_tiles.addr, align 4
-  %conv = sext i32 %7 to i64
+  %8 = load i32, ptr %max_tiles.addr, align 4
+  %conv = sext i32 %8 to i64
   %mul = mul i64 24, %conv
   %add = add i64 805168, %mul
   %add12 = add i64 %add, 16777216
   %call = call noalias ptr @malloc(i64 noundef %add12) #7
   store ptr %call, ptr %tm, align 8
-  %8 = load ptr, ptr %tm, align 8
-  %cmp13 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %tm, align 8
+  %cmp13 = icmp eq ptr %9, null
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end11
@@ -225,183 +238,183 @@ if.then15:                                        ; preds = %if.end11
   br label %return
 
 if.end16:                                         ; preds = %if.end11
-  %9 = load ptr, ptr %tm, align 8
-  %add.ptr = getelementptr inbounds %struct.stbte_tilemap, ptr %9, i64 1
   %10 = load ptr, ptr %tm, align 8
-  %tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 17
-  store ptr %add.ptr, ptr %tiles, align 8
+  %add.ptr = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i64 1
   %11 = load ptr, ptr %tm, align 8
-  %tiles17 = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 17
-  %12 = load ptr, ptr %tiles17, align 8
-  %13 = load i32, ptr %max_tiles.addr, align 4
-  %idx.ext = sext i32 %13 to i64
-  %add.ptr18 = getelementptr inbounds %struct.stbte__tileinfo, ptr %12, i64 %idx.ext
-  %14 = load ptr, ptr %tm, align 8
-  %undo_buffer = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 39
+  %tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 17
+  store ptr %add.ptr, ptr %tiles, align 8
+  %12 = load ptr, ptr %tm, align 8
+  %tiles17 = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 17
+  %13 = load ptr, ptr %tiles17, align 8
+  %14 = load i32, ptr %max_tiles.addr, align 4
+  %idx.ext = sext i32 %14 to i64
+  %add.ptr18 = getelementptr inbounds %struct.stbte__tileinfo, ptr %13, i64 %idx.ext
+  %15 = load ptr, ptr %tm, align 8
+  %undo_buffer = getelementptr inbounds %struct.stbte_tilemap, ptr %15, i32 0, i32 39
   store ptr %add.ptr18, ptr %undo_buffer, align 8
-  %15 = load i32, ptr %map_layers.addr, align 4
-  %16 = load ptr, ptr %tm, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 4
-  store i32 %15, ptr %num_layers, align 8
-  %17 = load i32, ptr %map_x.addr, align 4
-  %18 = load ptr, ptr %tm, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 2
-  store i32 %17, ptr %max_x, align 8
-  %19 = load i32, ptr %map_y.addr, align 4
-  %20 = load ptr, ptr %tm, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %20, i32 0, i32 3
-  store i32 %19, ptr %max_y, align 4
-  %21 = load i32, ptr %spacing_x.addr, align 4
-  %22 = load ptr, ptr %tm, align 8
-  %spacing_x19 = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 5
-  store i32 %21, ptr %spacing_x19, align 4
-  %23 = load i32, ptr %spacing_y.addr, align 4
-  %24 = load ptr, ptr %tm, align 8
-  %spacing_y20 = getelementptr inbounds %struct.stbte_tilemap, ptr %24, i32 0, i32 6
-  store i32 %23, ptr %spacing_y20, align 8
+  %16 = load i32, ptr %map_layers.addr, align 4
+  %17 = load ptr, ptr %tm, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %17, i32 0, i32 4
+  store i32 %16, ptr %num_layers, align 8
+  %18 = load i32, ptr %map_x.addr, align 4
+  %19 = load ptr, ptr %tm, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 2
+  store i32 %18, ptr %max_x, align 8
+  %20 = load i32, ptr %map_y.addr, align 4
+  %21 = load ptr, ptr %tm, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 3
+  store i32 %20, ptr %max_y, align 4
+  %22 = load i32, ptr %spacing_x.addr, align 4
+  %23 = load ptr, ptr %tm, align 8
+  %spacing_x19 = getelementptr inbounds %struct.stbte_tilemap, ptr %23, i32 0, i32 5
+  store i32 %22, ptr %spacing_x19, align 4
+  %24 = load i32, ptr %spacing_y.addr, align 4
   %25 = load ptr, ptr %tm, align 8
-  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %25, i32 0, i32 9
-  store i32 0, ptr %scroll_x, align 4
+  %spacing_y20 = getelementptr inbounds %struct.stbte_tilemap, ptr %25, i32 0, i32 6
+  store i32 %24, ptr %spacing_y20, align 8
   %26 = load ptr, ptr %tm, align 8
-  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 10
-  store i32 0, ptr %scroll_y, align 8
+  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 9
+  store i32 0, ptr %scroll_x, align 4
   %27 = load ptr, ptr %tm, align 8
-  %palette_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %27, i32 0, i32 26
+  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %27, i32 0, i32 10
+  store i32 0, ptr %scroll_y, align 8
+  %28 = load ptr, ptr %tm, align 8
+  %palette_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %28, i32 0, i32 26
   store i32 0, ptr %palette_scroll, align 4
-  %28 = load i32, ptr %spacing_x.addr, align 4
-  %add21 = add nsw i32 %28, 1
-  %29 = load ptr, ptr %tm, align 8
-  %palette_spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %29, i32 0, i32 7
+  %29 = load i32, ptr %spacing_x.addr, align 4
+  %add21 = add nsw i32 %29, 1
+  %30 = load ptr, ptr %tm, align 8
+  %palette_spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 7
   store i32 %add21, ptr %palette_spacing_x, align 4
-  %30 = load i32, ptr %spacing_y.addr, align 4
-  %add22 = add nsw i32 %30, 1
-  %31 = load ptr, ptr %tm, align 8
-  %palette_spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 8
-  store i32 %add22, ptr %palette_spacing_y, align 8
+  %31 = load i32, ptr %spacing_y.addr, align 4
+  %add22 = add nsw i32 %31, 1
   %32 = load ptr, ptr %tm, align 8
-  %cur_category = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 11
-  store i32 -1, ptr %cur_category, align 4
+  %palette_spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 8
+  store i32 %add22, ptr %palette_spacing_y, align 8
   %33 = load ptr, ptr %tm, align 8
-  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 12
-  store i32 0, ptr %cur_tile, align 8
+  %cur_category = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 11
+  store i32 -1, ptr %cur_category, align 4
   %34 = load ptr, ptr %tm, align 8
-  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 33
-  store i32 -1, ptr %solo_layer, align 8
+  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 12
+  store i32 0, ptr %cur_tile, align 8
   %35 = load ptr, ptr %tm, align 8
-  %undo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 35
-  store i32 0, ptr %undo_len, align 8
+  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 33
+  store i32 -1, ptr %solo_layer, align 8
   %36 = load ptr, ptr %tm, align 8
-  %redo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 36
-  store i32 0, ptr %redo_len, align 4
+  %undo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 35
+  store i32 0, ptr %undo_len, align 8
   %37 = load ptr, ptr %tm, align 8
-  %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %37, i32 0, i32 34
-  store i32 0, ptr %undo_pos, align 4
+  %redo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %37, i32 0, i32 36
+  store i32 0, ptr %redo_len, align 4
   %38 = load ptr, ptr %tm, align 8
-  %category_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 16
-  store i32 0, ptr %category_scroll, align 4
+  %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 34
+  store i32 0, ptr %undo_pos, align 4
   %39 = load ptr, ptr %tm, align 8
-  %layer_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 31
-  store i32 0, ptr %layer_scroll, align 8
+  %category_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 16
+  store i32 0, ptr %category_scroll, align 4
   %40 = load ptr, ptr %tm, align 8
-  %propmode = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 32
-  store i32 0, ptr %propmode, align 4
+  %layer_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 31
+  store i32 0, ptr %layer_scroll, align 8
   %41 = load ptr, ptr %tm, align 8
-  %has_layer_names = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 29
-  store i32 0, ptr %has_layer_names, align 8
+  %propmode = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 32
+  store i32 0, ptr %propmode, align 4
   %42 = load ptr, ptr %tm, align 8
-  %layername_width = getelementptr inbounds %struct.stbte_tilemap, ptr %42, i32 0, i32 30
-  store i32 0, ptr %layername_width, align 4
+  %has_layer_names = getelementptr inbounds %struct.stbte_tilemap, ptr %42, i32 0, i32 29
+  store i32 0, ptr %has_layer_names, align 8
   %43 = load ptr, ptr %tm, align 8
-  %undo_available_valid = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 21
+  %layername_width = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 30
+  store i32 0, ptr %layername_width, align 4
+  %44 = load ptr, ptr %tm, align 8
+  %undo_available_valid = getelementptr inbounds %struct.stbte_tilemap, ptr %44, i32 0, i32 21
   store i8 0, ptr %undo_available_valid, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end16
-  %44 = load i32, ptr %i, align 4
-  %45 = load ptr, ptr %tm, align 8
-  %num_layers23 = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 4
-  %46 = load i32, ptr %num_layers23, align 8
-  %cmp24 = icmp slt i32 %44, %46
+  %45 = load i32, ptr %i, align 4
+  %46 = load ptr, ptr %tm, align 8
+  %num_layers23 = getelementptr inbounds %struct.stbte_tilemap, ptr %46, i32 0, i32 4
+  %47 = load i32, ptr %num_layers23, align 8
+  %cmp24 = icmp slt i32 %45, %47
   br i1 %cmp24, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %47 = load ptr, ptr %tm, align 8
-  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %47, i32 0, i32 28
-  %48 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %48 to i64
+  %48 = load ptr, ptr %tm, align 8
+  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 28
+  %49 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %49 to i64
   %arrayidx = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %idxprom
   %hidden = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx, i32 0, i32 2
   store i32 0, ptr %hidden, align 4
-  %49 = load ptr, ptr %tm, align 8
-  %layerinfo26 = getelementptr inbounds %struct.stbte_tilemap, ptr %49, i32 0, i32 28
-  %50 = load i32, ptr %i, align 4
-  %idxprom27 = sext i32 %50 to i64
+  %50 = load ptr, ptr %tm, align 8
+  %layerinfo26 = getelementptr inbounds %struct.stbte_tilemap, ptr %50, i32 0, i32 28
+  %51 = load i32, ptr %i, align 4
+  %idxprom27 = sext i32 %51 to i64
   %arrayidx28 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo26, i64 0, i64 %idxprom27
   %locked = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx28, i32 0, i32 1
   store i32 0, ptr %locked, align 8
-  %51 = load ptr, ptr %tm, align 8
-  %layerinfo29 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 28
-  %52 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %52 to i64
+  %52 = load ptr, ptr %tm, align 8
+  %layerinfo29 = getelementptr inbounds %struct.stbte_tilemap, ptr %52, i32 0, i32 28
+  %53 = load i32, ptr %i, align 4
+  %idxprom30 = sext i32 %53 to i64
   %arrayidx31 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo29, i64 0, i64 %idxprom30
   %name = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx31, i32 0, i32 0
   store ptr null, ptr %name, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %53 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %53, 1
+  %54 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %54, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
-  %54 = load ptr, ptr %tm, align 8
-  %background_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %54, i32 0, i32 37
-  store i16 -1, ptr %background_tile, align 8
   %55 = load ptr, ptr %tm, align 8
-  call void @stbte_clear_map(ptr noundef %55)
-  %56 = load i32, ptr %max_tiles.addr, align 4
-  %57 = load ptr, ptr %tm, align 8
-  %max_tiles32 = getelementptr inbounds %struct.stbte_tilemap, ptr %57, i32 0, i32 19
-  store i32 %56, ptr %max_tiles32, align 4
+  %background_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %55, i32 0, i32 37
+  store i16 -1, ptr %background_tile, align 8
+  %56 = load ptr, ptr %tm, align 8
+  call void @stbte_clear_map(ptr noundef %56)
+  %57 = load i32, ptr %max_tiles.addr, align 4
   %58 = load ptr, ptr %tm, align 8
-  %num_tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %58, i32 0, i32 18
+  %max_tiles32 = getelementptr inbounds %struct.stbte_tilemap, ptr %58, i32 0, i32 19
+  store i32 %57, ptr %max_tiles32, align 4
+  %59 = load ptr, ptr %tm, align 8
+  %num_tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %59, i32 0, i32 18
   store i32 0, ptr %num_tiles, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond33
 
 for.cond33:                                       ; preds = %for.inc39, %for.end
-  %59 = load i32, ptr %i, align 4
-  %cmp34 = icmp slt i32 %59, 4096
+  %60 = load i32, ptr %i, align 4
+  %cmp34 = icmp slt i32 %60, 4096
   br i1 %cmp34, label %for.body36, label %for.end41
 
 for.body36:                                       ; preds = %for.cond33
-  %60 = load ptr, ptr %tm, align 8
-  %id_in_use = getelementptr inbounds %struct.stbte_tilemap, ptr %60, i32 0, i32 38
-  %61 = load i32, ptr %i, align 4
-  %idxprom37 = sext i32 %61 to i64
+  %61 = load ptr, ptr %tm, align 8
+  %id_in_use = getelementptr inbounds %struct.stbte_tilemap, ptr %61, i32 0, i32 38
+  %62 = load i32, ptr %i, align 4
+  %idxprom37 = sext i32 %62 to i64
   %arrayidx38 = getelementptr inbounds [4096 x i8], ptr %id_in_use, i64 0, i64 %idxprom37
   store i8 0, ptr %arrayidx38, align 1
   br label %for.inc39
 
 for.inc39:                                        ; preds = %for.body36
-  %62 = load i32, ptr %i, align 4
-  %inc40 = add nsw i32 %62, 1
+  %63 = load i32, ptr %i, align 4
+  %inc40 = add nsw i32 %63, 1
   store i32 %inc40, ptr %i, align 4
   br label %for.cond33, !llvm.loop !8
 
 for.end41:                                        ; preds = %for.cond33
-  %63 = load ptr, ptr %tm, align 8
-  %tileinfo_dirty = getelementptr inbounds %struct.stbte_tilemap, ptr %63, i32 0, i32 27
-  store i32 1, ptr %tileinfo_dirty, align 8
   %64 = load ptr, ptr %tm, align 8
-  store ptr %64, ptr %retval, align 8
+  %tileinfo_dirty = getelementptr inbounds %struct.stbte_tilemap, ptr %64, i32 0, i32 27
+  store i32 1, ptr %tileinfo_dirty, align 8
+  %65 = load ptr, ptr %tm, align 8
+  store ptr %65, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %for.end41, %if.then15, %if.then
-  %65 = load ptr, ptr %retval, align 8
-  ret ptr %65
+  %66 = load ptr, ptr %retval, align 8
+  ret ptr %66
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -615,9 +628,11 @@ entry:
   store i32 %left, ptr %left.addr, align 4
   store i32 %right, ptr %right.addr, align 4
   %0 = load i32, ptr %left.addr, align 4
-  store i32 %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
-  %1 = load i32, ptr %right.addr, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  store i32 %0, ptr %1, align 4
+  %2 = load i32, ptr %right.addr, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  store i32 %2, ptr %3, align 8
   ret void
 }
 
@@ -633,13 +648,17 @@ entry:
   store i32 %x1, ptr %x1.addr, align 4
   store i32 %y1, ptr %y1.addr, align 4
   %0 = load i32, ptr %x0.addr, align 4
-  store i32 %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %1 = load i32, ptr %y0.addr, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %2 = load i32, ptr %x1.addr, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %3 = load i32, ptr %y1.addr, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  store i32 %0, ptr %1, align 4
+  %2 = load i32, ptr %y0.addr, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  store i32 %2, ptr %3, align 8
+  %4 = load i32, ptr %x1.addr, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  store i32 %4, ptr %5, align 4
+  %6 = load i32, ptr %y1.addr, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  store i32 %6, ptr %7, align 8
   ret void
 }
 
@@ -1570,8 +1589,10 @@ entry:
   store i32 0, ptr %redo_len, align 4
   %1 = load ptr, ptr %tm.addr, align 8
   call void @stbte__write_undo(ptr noundef %1, i16 noundef signext -2)
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
-  store ptr null, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  store i32 1, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  store ptr null, ptr %3, align 8
   ret void
 }
 
@@ -1581,51 +1602,53 @@ entry:
   %tm.addr = alloca ptr, align 8
   %pos = alloca i32, align 4
   store ptr %tm, ptr %tm.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tm.addr, align 8
-  %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %1, i32 0, i32 34
-  %2 = load i32, ptr %undo_pos, align 4
-  %sub = sub nsw i32 %2, 1
+  %2 = load ptr, ptr %tm.addr, align 8
+  %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %2, i32 0, i32 34
+  %3 = load i32, ptr %undo_pos, align 4
+  %sub = sub nsw i32 %3, 1
   %and = and i32 %sub, 8388607
   store i32 %and, ptr %pos, align 4
-  %3 = load ptr, ptr %tm.addr, align 8
-  %undo_buffer = getelementptr inbounds %struct.stbte_tilemap, ptr %3, i32 0, i32 39
-  %4 = load ptr, ptr %undo_buffer, align 8
-  %5 = load i32, ptr %pos, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = sext i16 %6 to i32
+  %4 = load ptr, ptr %tm.addr, align 8
+  %undo_buffer = getelementptr inbounds %struct.stbte_tilemap, ptr %4, i32 0, i32 39
+  %5 = load ptr, ptr %undo_buffer, align 8
+  %6 = load i32, ptr %pos, align 4
+  %idxprom = sext i32 %6 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
+  %7 = load i16, ptr %arrayidx, align 2
+  %conv = sext i16 %7 to i32
   %cmp = icmp eq i32 %conv, -2
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %7 = load i32, ptr %pos, align 4
-  %8 = load ptr, ptr %tm.addr, align 8
-  %undo_pos3 = getelementptr inbounds %struct.stbte_tilemap, ptr %8, i32 0, i32 34
-  store i32 %7, ptr %undo_pos3, align 4
+  %8 = load i32, ptr %pos, align 4
   %9 = load ptr, ptr %tm.addr, align 8
-  %undo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %9, i32 0, i32 35
-  %10 = load i32, ptr %undo_len, align 8
-  %sub4 = sub nsw i32 %10, 1
+  %undo_pos3 = getelementptr inbounds %struct.stbte_tilemap, ptr %9, i32 0, i32 34
+  store i32 %8, ptr %undo_pos3, align 4
+  %10 = load ptr, ptr %tm.addr, align 8
+  %undo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 35
+  %11 = load i32, ptr %undo_len, align 8
+  %sub4 = sub nsw i32 %11, 1
   store i32 %sub4, ptr %undo_len, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %11 = load ptr, ptr %tm.addr, align 8
-  %undo_buffer5 = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 39
-  %12 = load ptr, ptr %undo_buffer5, align 8
-  %13 = load ptr, ptr %tm.addr, align 8
-  %undo_pos6 = getelementptr inbounds %struct.stbte_tilemap, ptr %13, i32 0, i32 34
-  %14 = load i32, ptr %undo_pos6, align 4
-  %idxprom7 = sext i32 %14 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %12, i64 %idxprom7
+  %12 = load ptr, ptr %tm.addr, align 8
+  %undo_buffer5 = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 39
+  %13 = load ptr, ptr %undo_buffer5, align 8
+  %14 = load ptr, ptr %tm.addr, align 8
+  %undo_pos6 = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 34
+  %15 = load i32, ptr %undo_pos6, align 4
+  %idxprom7 = sext i32 %15 to i64
+  %arrayidx8 = getelementptr inbounds i16, ptr %13, i64 %idxprom7
   store i16 -4, ptr %arrayidx8, align 2
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
+  %16 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  store i32 0, ptr %16, align 4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %entry
@@ -1645,27 +1668,28 @@ entry:
   store i32 %y, ptr %y.addr, align 4
   store i32 %i, ptr %i.addr, align 4
   store i32 %v, ptr %v.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tm.addr, align 8
-  %2 = load i32, ptr %v.addr, align 4
-  %conv = trunc i32 %2 to i16
-  call void @stbte__write_undo(ptr noundef %1, i16 noundef signext %conv)
-  %3 = load ptr, ptr %tm.addr, align 8
-  %4 = load i32, ptr %x.addr, align 4
-  %conv1 = trunc i32 %4 to i16
-  call void @stbte__write_undo(ptr noundef %3, i16 noundef signext %conv1)
-  %5 = load ptr, ptr %tm.addr, align 8
-  %6 = load i32, ptr %y.addr, align 4
-  %conv2 = trunc i32 %6 to i16
-  call void @stbte__write_undo(ptr noundef %5, i16 noundef signext %conv2)
-  %7 = load ptr, ptr %tm.addr, align 8
-  %8 = load i32, ptr %i.addr, align 4
-  %conv3 = trunc i32 %8 to i16
-  call void @stbte__write_undo(ptr noundef %7, i16 noundef signext %conv3)
+  %2 = load ptr, ptr %tm.addr, align 8
+  %3 = load i32, ptr %v.addr, align 4
+  %conv = trunc i32 %3 to i16
+  call void @stbte__write_undo(ptr noundef %2, i16 noundef signext %conv)
+  %4 = load ptr, ptr %tm.addr, align 8
+  %5 = load i32, ptr %x.addr, align 4
+  %conv1 = trunc i32 %5 to i16
+  call void @stbte__write_undo(ptr noundef %4, i16 noundef signext %conv1)
+  %6 = load ptr, ptr %tm.addr, align 8
+  %7 = load i32, ptr %y.addr, align 4
+  %conv2 = trunc i32 %7 to i16
+  call void @stbte__write_undo(ptr noundef %6, i16 noundef signext %conv2)
+  %8 = load ptr, ptr %tm.addr, align 8
+  %9 = load i32, ptr %i.addr, align 4
+  %conv3 = trunc i32 %9 to i16
+  call void @stbte__write_undo(ptr noundef %8, i16 noundef signext %conv3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1754,30 +1778,31 @@ entry:
   store i32 %i, ptr %i.addr, align 4
   store i16 %s0, ptr %s0.addr, align 2
   store i16 %s1, ptr %s1.addr, align 2
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tm.addr, align 8
-  %2 = load i16, ptr %s1.addr, align 2
-  call void @stbte__write_undo(ptr noundef %1, i16 noundef signext %2)
-  %3 = load ptr, ptr %tm.addr, align 8
-  %4 = load i16, ptr %s0.addr, align 2
-  call void @stbte__write_undo(ptr noundef %3, i16 noundef signext %4)
-  %5 = load ptr, ptr %tm.addr, align 8
-  %6 = load i32, ptr %x.addr, align 4
-  %conv = trunc i32 %6 to i16
-  call void @stbte__write_undo(ptr noundef %5, i16 noundef signext %conv)
-  %7 = load ptr, ptr %tm.addr, align 8
-  %8 = load i32, ptr %y.addr, align 4
-  %conv1 = trunc i32 %8 to i16
-  call void @stbte__write_undo(ptr noundef %7, i16 noundef signext %conv1)
-  %9 = load ptr, ptr %tm.addr, align 8
-  %10 = load i32, ptr %i.addr, align 4
-  %add = add nsw i32 256, %10
+  %2 = load ptr, ptr %tm.addr, align 8
+  %3 = load i16, ptr %s1.addr, align 2
+  call void @stbte__write_undo(ptr noundef %2, i16 noundef signext %3)
+  %4 = load ptr, ptr %tm.addr, align 8
+  %5 = load i16, ptr %s0.addr, align 2
+  call void @stbte__write_undo(ptr noundef %4, i16 noundef signext %5)
+  %6 = load ptr, ptr %tm.addr, align 8
+  %7 = load i32, ptr %x.addr, align 4
+  %conv = trunc i32 %7 to i16
+  call void @stbte__write_undo(ptr noundef %6, i16 noundef signext %conv)
+  %8 = load ptr, ptr %tm.addr, align 8
+  %9 = load i32, ptr %y.addr, align 4
+  %conv1 = trunc i32 %9 to i16
+  call void @stbte__write_undo(ptr noundef %8, i16 noundef signext %conv1)
+  %10 = load ptr, ptr %tm.addr, align 8
+  %11 = load i32, ptr %i.addr, align 4
+  %add = add nsw i32 256, %11
   %conv2 = trunc i32 %add to i16
-  call void @stbte__write_undo(ptr noundef %9, i16 noundef signext %conv2)
+  call void @stbte__write_undo(ptr noundef %10, i16 noundef signext %conv2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2972,31 +2997,35 @@ entry:
   store i32 %x1, ptr %x1.addr, align 4
   store i32 %y1, ptr %y1.addr, align 4
   store i32 %color, ptr %color.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16), align 8
-  %cmp = icmp slt i32 %0, 256
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp slt i32 %1, 256
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %x01 = getelementptr inbounds %struct.stbte__colorrect, ptr %r, i32 0, i32 0
-  %1 = load i32, ptr %x0.addr, align 4
-  store i32 %1, ptr %x01, align 4
+  %2 = load i32, ptr %x0.addr, align 4
+  store i32 %2, ptr %x01, align 4
   %y02 = getelementptr inbounds %struct.stbte__colorrect, ptr %r, i32 0, i32 1
-  %2 = load i32, ptr %y0.addr, align 4
-  store i32 %2, ptr %y02, align 4
+  %3 = load i32, ptr %y0.addr, align 4
+  store i32 %3, ptr %y02, align 4
   %x13 = getelementptr inbounds %struct.stbte__colorrect, ptr %r, i32 0, i32 2
-  %3 = load i32, ptr %x1.addr, align 4
-  store i32 %3, ptr %x13, align 4
+  %4 = load i32, ptr %x1.addr, align 4
+  store i32 %4, ptr %x13, align 4
   %y14 = getelementptr inbounds %struct.stbte__colorrect, ptr %r, i32 0, i32 3
-  %4 = load i32, ptr %y1.addr, align 4
-  store i32 %4, ptr %y14, align 4
+  %5 = load i32, ptr %y1.addr, align 4
+  store i32 %5, ptr %y14, align 4
   %color5 = getelementptr inbounds %struct.stbte__colorrect, ptr %r, i32 0, i32 4
-  %5 = load i32, ptr %color.addr, align 4
-  store i32 %5, ptr %color5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16), align 8
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16), align 8
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [256 x %struct.stbte__colorrect], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 15), i64 0, i64 %idxprom
+  %6 = load i32, ptr %color.addr, align 4
+  store i32 %6, ptr %color5, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16
+  %8 = load i32, ptr %7, align 8
+  %inc = add nsw i32 %8, 1
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16
+  store i32 %inc, ptr %9, align 8
+  %idxprom = sext i32 %8 to i64
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 15
+  %arrayidx = getelementptr inbounds [256 x %struct.stbte__colorrect], ptr %10, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx, ptr align 4 %r, i64 20, i1 false)
   br label %if.end
 
@@ -3012,46 +3041,49 @@ define void @stbte__flush_delay() #0 {
 entry:
   %r = alloca ptr, align 8
   %i = alloca i32, align 4
-  store ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 15), ptr %r, align 8
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 15
+  store ptr %0, ptr %r, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16), align 8
-  %cmp = icmp slt i32 %0, %1
+  %1 = load i32, ptr %i, align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16
+  %3 = load i32, ptr %2, align 8
+  %cmp = icmp slt i32 %1, %3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %r, align 8
-  %x0 = getelementptr inbounds %struct.stbte__colorrect, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %x0, align 4
   %4 = load ptr, ptr %r, align 8
-  %y0 = getelementptr inbounds %struct.stbte__colorrect, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %y0, align 4
+  %x0 = getelementptr inbounds %struct.stbte__colorrect, ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %x0, align 4
   %6 = load ptr, ptr %r, align 8
-  %x1 = getelementptr inbounds %struct.stbte__colorrect, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %x1, align 4
+  %y0 = getelementptr inbounds %struct.stbte__colorrect, ptr %6, i32 0, i32 1
+  %7 = load i32, ptr %y0, align 4
   %8 = load ptr, ptr %r, align 8
-  %y1 = getelementptr inbounds %struct.stbte__colorrect, ptr %8, i32 0, i32 3
-  %9 = load i32, ptr %y1, align 4
+  %x1 = getelementptr inbounds %struct.stbte__colorrect, ptr %8, i32 0, i32 2
+  %9 = load i32, ptr %x1, align 4
   %10 = load ptr, ptr %r, align 8
-  %color = getelementptr inbounds %struct.stbte__colorrect, ptr %10, i32 0, i32 4
-  %11 = load i32, ptr %color, align 4
-  call void @stbte__draw_frame(i32 noundef %3, i32 noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11)
+  %y1 = getelementptr inbounds %struct.stbte__colorrect, ptr %10, i32 0, i32 3
+  %11 = load i32, ptr %y1, align 4
+  %12 = load ptr, ptr %r, align 8
+  %color = getelementptr inbounds %struct.stbte__colorrect, ptr %12, i32 0, i32 4
+  %13 = load i32, ptr %color, align 4
+  call void @stbte__draw_frame(i32 noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
+  %14 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %i, align 4
-  %13 = load ptr, ptr %r, align 8
-  %incdec.ptr = getelementptr inbounds %struct.stbte__colorrect, ptr %13, i32 1
+  %15 = load ptr, ptr %r, align 8
+  %incdec.ptr = getelementptr inbounds %struct.stbte__colorrect, ptr %15, i32 1
   store ptr %incdec.ptr, ptr %r, align 8
   br label %for.cond, !llvm.loop !25
 
 for.end:                                          ; preds = %for.cond
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16), align 8
+  %16 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 16
+  store i32 0, ptr %16, align 8
   ret void
 }
 
@@ -3061,11 +3093,16 @@ entry:
   %id.addr = alloca i32, align 4
   store i32 %id, ptr %id.addr, align 4
   %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  store i32 %0, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %3 = load i32, ptr %2, align 4
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  store i32 %3, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  store i32 0, ptr %6, align 8
   ret void
 }
 
@@ -3083,50 +3120,56 @@ entry:
   store i32 %x1, ptr %x1.addr, align 4
   store i32 %y1, ptr %y1.addr, align 4
   store i32 %id, ptr %id.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %1 = load i32, ptr %x0.addr, align 4
-  %cmp = icmp sge i32 %0, %1
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %1 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %x0.addr, align 4
+  %cmp = icmp sge i32 %1, %2
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %3 = load i32, ptr %y0.addr, align 4
-  %cmp1 = icmp sge i32 %2, %3
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %4 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %y0.addr, align 4
+  %cmp1 = icmp sge i32 %4, %5
   br i1 %cmp1, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %5 = load i32, ptr %x1.addr, align 4
-  %cmp3 = icmp slt i32 %4, %5
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %7 = load i32, ptr %6, align 8
+  %8 = load i32, ptr %x1.addr, align 4
+  %cmp3 = icmp slt i32 %7, %8
   br i1 %cmp3, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true2
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %7 = load i32, ptr %y1.addr, align 4
-  %cmp4 = icmp slt i32 %6, %7
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %10 = load i32, ptr %9, align 4
+  %11 = load i32, ptr %y1.addr, align 4
+  %cmp4 = icmp slt i32 %10, %11
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true2, %land.lhs.true, %entry
-  %8 = phi i1 [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
+  %12 = phi i1 [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.rhs ]
+  %land.ext = zext i1 %12 to i32
   store i32 %land.ext, ptr %over, align 4
-  %9 = load i32, ptr %over, align 4
-  %tobool = icmp ne i32 %9, 0
+  %13 = load i32, ptr %over, align 4
+  %tobool = icmp ne i32 %13, 0
   br i1 %tobool, label %land.lhs.true5, label %if.end
 
 land.lhs.true5:                                   ; preds = %land.end
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp6 = icmp sge i32 %10, 1
+  %14 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %15 = load i32, ptr %14, align 4
+  %cmp6 = icmp sge i32 %15, 1
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true5
-  %11 = load i32, ptr %id.addr, align 4
-  store i32 %11, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4), align 8
+  %16 = load i32, ptr %id.addr, align 4
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4
+  store i32 %16, ptr %17, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true5, %land.end
-  %12 = load i32, ptr %over, align 4
-  ret i32 %12
+  %18 = load i32, ptr %over, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3135,8 +3178,9 @@ entry:
   %retval = alloca i32, align 4
   %id.addr = alloca i32, align 4
   store i32 %id, ptr %id.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %0, label %sw.epilog [
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %1 = load i32, ptr %0, align 4
+  switch i32 %1, label %sw.epilog [
     i32 4, label %sw.bb
     i32 5, label %sw.bb2
     i32 6, label %sw.bb8
@@ -3144,34 +3188,38 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %2 = load i32, ptr %id.addr, align 4
-  %cmp = icmp eq i32 %1, %2
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %3 = load i32, ptr %2, align 4
+  %4 = load i32, ptr %id.addr, align 4
+  %cmp = icmp eq i32 %3, %4
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp1 = icmp eq i32 %3, 0
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %6 = load i32, ptr %5, align 8
+  %cmp1 = icmp eq i32 %6, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %4)
+  %7 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.bb
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %6 = load i32, ptr %id.addr, align 4
-  %cmp3 = icmp eq i32 %5, %6
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8
+  %10 = load i32, ptr %id.addr, align 4
+  %cmp3 = icmp eq i32 %9, %10
   br i1 %cmp3, label %land.lhs.true4, label %if.end7
 
 land.lhs.true4:                                   ; preds = %sw.bb2
-  %7 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %8 = load i32, ptr %id.addr, align 4
-  %cmp5 = icmp eq i32 %7, %8
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %12 = load i32, ptr %11, align 4
+  %13 = load i32, ptr %id.addr, align 4
+  %cmp5 = icmp eq i32 %12, %13
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %land.lhs.true4
@@ -3183,34 +3231,38 @@ if.end7:                                          ; preds = %land.lhs.true4, %sw
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %10 = load i32, ptr %id.addr, align 4
-  %cmp9 = icmp eq i32 %9, %10
+  %14 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %15 = load i32, ptr %14, align 4
+  %16 = load i32, ptr %id.addr, align 4
+  %cmp9 = icmp eq i32 %15, %16
   br i1 %cmp9, label %land.lhs.true10, label %if.end13
 
 land.lhs.true10:                                  ; preds = %sw.bb8
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp11 = icmp eq i32 %11, 0
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8
+  %cmp11 = icmp eq i32 %18, 0
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %land.lhs.true10
-  %12 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %12)
+  %19 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %19)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %land.lhs.true10, %sw.bb8
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %13 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %14 = load i32, ptr %id.addr, align 4
-  %cmp15 = icmp eq i32 %13, %14
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8
+  %22 = load i32, ptr %id.addr, align 4
+  %cmp15 = icmp eq i32 %21, %22
   br i1 %cmp15, label %land.lhs.true16, label %if.end19
 
 land.lhs.true16:                                  ; preds = %sw.bb14
-  %15 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %16 = load i32, ptr %id.addr, align 4
-  %cmp17 = icmp eq i32 %15, %16
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %id.addr, align 4
+  %cmp17 = icmp eq i32 %24, %25
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %land.lhs.true16
@@ -3226,8 +3278,8 @@ sw.epilog:                                        ; preds = %if.end19, %if.end13
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then18, %if.then6
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3380,47 +3432,50 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %11, 0
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4
+  %cmp = icmp eq i32 %12, 0
   br i1 %cmp, label %if.then2, label %if.end14
 
 if.then2:                                         ; preds = %if.end
-  %12 = load i32, ptr %x0, align 4
-  %13 = load i32, ptr %y0, align 4
-  %14 = load i32, ptr %x1, align 4
-  %15 = load i32, ptr %y1, align 4
-  %16 = load ptr, ptr %label.addr, align 8
-  %17 = load i32, ptr %s, align 4
-  %18 = load i32, ptr %textoff.addr, align 4
-  %add3 = add nsw i32 %17, %18
-  %19 = load i32, ptr %s, align 4
-  %20 = load i32, ptr %colormode.addr, align 4
-  %21 = load i32, ptr %disabled.addr, align 4
-  %idxprom = sext i32 %21 to i64
+  %13 = load i32, ptr %x0, align 4
+  %14 = load i32, ptr %y0, align 4
+  %15 = load i32, ptr %x1, align 4
+  %16 = load i32, ptr %y1, align 4
+  %17 = load ptr, ptr %label.addr, align 8
+  %18 = load i32, ptr %s, align 4
+  %19 = load i32, ptr %textoff.addr, align 4
+  %add3 = add nsw i32 %18, %19
+  %20 = load i32, ptr %s, align 4
+  %21 = load i32, ptr %colormode.addr, align 4
+  %22 = load i32, ptr %disabled.addr, align 4
+  %idxprom = sext i32 %22 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x [2 x [2 x i8]]]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %22 = load i32, ptr %toggled.addr, align 4
-  %idxprom4 = sext i32 %22 to i64
+  %23 = load i32, ptr %toggled.addr, align 4
+  %idxprom4 = sext i32 %23 to i64
   %arrayidx5 = getelementptr inbounds [2 x [2 x [2 x i8]]], ptr %arrayidx, i64 0, i64 %idxprom4
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %24 = load i32, ptr %id.addr, align 4
-  %cmp6 = icmp eq i32 %23, %24
+  %24 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
+  %26 = load i32, ptr %id.addr, align 4
+  %cmp6 = icmp eq i32 %25, %26
   %conv = zext i1 %cmp6 to i32
   %idxprom7 = sext i32 %conv to i64
   %arrayidx8 = getelementptr inbounds [2 x [2 x i8]], ptr %arrayidx5, i64 0, i64 %idxprom7
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %26 = load i32, ptr %id.addr, align 4
-  %cmp9 = icmp eq i32 %25, %26
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4
+  %29 = load i32, ptr %id.addr, align 4
+  %cmp9 = icmp eq i32 %28, %29
   %conv10 = zext i1 %cmp9 to i32
   %idxprom11 = sext i32 %conv10 to i64
   %arrayidx12 = getelementptr inbounds [2 x i8], ptr %arrayidx8, i64 0, i64 %idxprom11
-  %27 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %27 to i32
-  call void @stbte__draw_textbox(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %add3, i32 noundef %19, i32 noundef %20, i32 noundef %conv13)
+  %30 = load i8, ptr %arrayidx12, align 1
+  %conv13 = zext i8 %30 to i32
+  call void @stbte__draw_textbox(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %add3, i32 noundef %20, i32 noundef %21, i32 noundef %conv13)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then2, %if.end
-  %28 = load i32, ptr %disabled.addr, align 4
-  %tobool15 = icmp ne i32 %28, 0
+  %31 = load i32, ptr %disabled.addr, align 4
+  %tobool15 = icmp ne i32 %31, 0
   br i1 %tobool15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
@@ -3428,16 +3483,16 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end17:                                         ; preds = %if.end14
-  %29 = load i32, ptr %id.addr, align 4
-  %call18 = call i32 @stbte__button_core(i32 noundef %29)
+  %32 = load i32, ptr %id.addr, align 4
+  %call18 = call i32 @stbte__button_core(i32 noundef %32)
   %cmp19 = icmp eq i32 %call18, 1
   %conv20 = zext i1 %cmp19 to i32
   store i32 %conv20, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end17, %if.then16
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3485,58 +3540,61 @@ entry:
   %8 = load i32, ptr %y1, align 4
   %9 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9)
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %10, 0
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4
+  %cmp = icmp eq i32 %11, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %arrayinit.begin = getelementptr inbounds [2 x i8], ptr %label, i64 0, i64 0
-  %11 = load i8, ptr %ch.addr, align 1
-  store i8 %11, ptr %arrayinit.begin, align 1
+  %12 = load i8, ptr %ch.addr, align 1
+  store i8 %12, ptr %arrayinit.begin, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %arrayinit.begin, i64 1
   store i8 0, ptr %arrayinit.element, align 1
-  %12 = load i8, ptr %ch.addr, align 1
-  %conv = sext i8 %12 to i32
+  %13 = load i8, ptr %ch.addr, align 1
+  %conv = sext i8 %13 to i32
   %call2 = call i32 @stbte__get_char_width(i32 noundef %conv)
   %sub = sub nsw i32 9, %call2
   %div = sdiv i32 %sub, 2
   store i32 %div, ptr %pad, align 4
-  %13 = load i32, ptr %x0, align 4
-  %14 = load i32, ptr %y0, align 4
-  %15 = load i32, ptr %x1, align 4
-  %16 = load i32, ptr %y1, align 4
+  %14 = load i32, ptr %x0, align 4
+  %15 = load i32, ptr %y0, align 4
+  %16 = load i32, ptr %x1, align 4
+  %17 = load i32, ptr %y1, align 4
   %arraydecay = getelementptr inbounds [2 x i8], ptr %label, i64 0, i64 0
-  %17 = load i32, ptr %s, align 4
-  %18 = load i32, ptr %pad, align 4
-  %add3 = add nsw i32 %17, %18
-  %19 = load i32, ptr %s, align 4
-  %20 = load i32, ptr %colormode.addr, align 4
-  %21 = load i32, ptr %disabled.addr, align 4
-  %idxprom = sext i32 %21 to i64
+  %18 = load i32, ptr %s, align 4
+  %19 = load i32, ptr %pad, align 4
+  %add3 = add nsw i32 %18, %19
+  %20 = load i32, ptr %s, align 4
+  %21 = load i32, ptr %colormode.addr, align 4
+  %22 = load i32, ptr %disabled.addr, align 4
+  %idxprom = sext i32 %22 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x [2 x [2 x i8]]]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %22 = load i32, ptr %toggled.addr, align 4
-  %idxprom4 = sext i32 %22 to i64
+  %23 = load i32, ptr %toggled.addr, align 4
+  %idxprom4 = sext i32 %23 to i64
   %arrayidx5 = getelementptr inbounds [2 x [2 x [2 x i8]]], ptr %arrayidx, i64 0, i64 %idxprom4
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %24 = load i32, ptr %id.addr, align 4
-  %cmp6 = icmp eq i32 %23, %24
+  %24 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
+  %26 = load i32, ptr %id.addr, align 4
+  %cmp6 = icmp eq i32 %25, %26
   %conv7 = zext i1 %cmp6 to i32
   %idxprom8 = sext i32 %conv7 to i64
   %arrayidx9 = getelementptr inbounds [2 x [2 x i8]], ptr %arrayidx5, i64 0, i64 %idxprom8
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %26 = load i32, ptr %id.addr, align 4
-  %cmp10 = icmp eq i32 %25, %26
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4
+  %29 = load i32, ptr %id.addr, align 4
+  %cmp10 = icmp eq i32 %28, %29
   %conv11 = zext i1 %cmp10 to i32
   %idxprom12 = sext i32 %conv11 to i64
   %arrayidx13 = getelementptr inbounds [2 x i8], ptr %arrayidx9, i64 0, i64 %idxprom12
-  %27 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %27 to i32
-  call void @stbte__draw_textbox(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %arraydecay, i32 noundef %add3, i32 noundef %19, i32 noundef %20, i32 noundef %conv14)
+  %30 = load i8, ptr %arrayidx13, align 1
+  %conv14 = zext i8 %30 to i32
+  call void @stbte__draw_textbox(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %arraydecay, i32 noundef %add3, i32 noundef %20, i32 noundef %21, i32 noundef %conv14)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %28 = load i32, ptr %disabled.addr, align 4
-  %tobool = icmp ne i32 %28, 0
+  %31 = load i32, ptr %disabled.addr, align 4
+  %tobool = icmp ne i32 %31, 0
   br i1 %tobool, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end
@@ -3544,16 +3602,16 @@ if.then15:                                        ; preds = %if.end
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  %29 = load i32, ptr %id.addr, align 4
-  %call17 = call i32 @stbte__button_core(i32 noundef %29)
+  %32 = load i32, ptr %id.addr, align 4
+  %call17 = call i32 @stbte__button_core(i32 noundef %32)
   %cmp18 = icmp eq i32 %call17, 1
   %conv19 = zext i1 %cmp18 to i32
   store i32 %conv19, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end16, %if.then15
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3590,43 +3648,46 @@ entry:
   %7 = load i32, ptr %y1, align 4
   %8 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %9, 0
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %10 = load i32, ptr %9, align 4
+  %cmp = icmp eq i32 %10, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %arrayinit.begin = getelementptr inbounds [2 x i8], ptr %str, i64 0, i64 0
-  %10 = load i32, ptr %ch.addr, align 4
-  %conv = trunc i32 %10 to i8
+  %11 = load i32, ptr %ch.addr, align 4
+  %conv = trunc i32 %11 to i8
   store i8 %conv, ptr %arrayinit.begin, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %arrayinit.begin, i64 1
   store i8 0, ptr %arrayinit.element, align 1
-  %11 = load i32, ptr %x0, align 4
-  %12 = load i32, ptr %y0, align 4
-  %13 = load i32, ptr %x1, align 4
-  %14 = load i32, ptr %y1, align 4
+  %12 = load i32, ptr %x0, align 4
+  %13 = load i32, ptr %y0, align 4
+  %14 = load i32, ptr %x1, align 4
+  %15 = load i32, ptr %y1, align 4
   %arraydecay = getelementptr inbounds [2 x i8], ptr %str, i64 0, i64 0
-  %15 = load i32, ptr %colormode.addr, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %17 = load i32, ptr %id.addr, align 4
-  %cmp2 = icmp eq i32 %16, %17
+  %16 = load i32, ptr %colormode.addr, align 4
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %id.addr, align 4
+  %cmp2 = icmp eq i32 %18, %19
   %conv3 = zext i1 %cmp2 to i32
   %idxprom = sext i32 %conv3 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %19 = load i32, ptr %id.addr, align 4
-  %cmp4 = icmp eq i32 %18, %19
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  %22 = load i32, ptr %id.addr, align 4
+  %cmp4 = icmp eq i32 %21, %22
   %conv5 = zext i1 %cmp4 to i32
   %idxprom6 = sext i32 %conv5 to i64
   %arrayidx7 = getelementptr inbounds [2 x i8], ptr %arrayidx, i64 0, i64 %idxprom6
-  %20 = load i8, ptr %arrayidx7, align 1
-  %conv8 = zext i8 %20 to i32
-  call void @stbte__draw_textbox(i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %arraydecay, i32 noundef 1, i32 noundef 0, i32 noundef %15, i32 noundef %conv8)
+  %23 = load i8, ptr %arrayidx7, align 1
+  %conv8 = zext i8 %23 to i32
+  call void @stbte__draw_textbox(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %arraydecay, i32 noundef 1, i32 noundef 0, i32 noundef %16, i32 noundef %conv8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %21 = load i32, ptr %id.addr, align 4
-  %call9 = call i32 @stbte__button_core(i32 noundef %21)
+  %24 = load i32, ptr %id.addr, align 4
+  %call9 = call i32 @stbte__button_core(i32 noundef %24)
   ret i32 %call9
 }
 
@@ -3678,56 +3739,59 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %10, 0
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4
+  %cmp = icmp eq i32 %11, 0
   br i1 %cmp, label %if.then2, label %if.end16
 
 if.then2:                                         ; preds = %if.end
   %arrayinit.begin = getelementptr inbounds [2 x i8], ptr %str, i64 0, i64 0
-  %11 = load i32, ptr %ch.addr, align 4
-  %conv = trunc i32 %11 to i8
+  %12 = load i32, ptr %ch.addr, align 4
+  %conv = trunc i32 %12 to i8
   store i8 %conv, ptr %arrayinit.begin, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %arrayinit.begin, i64 1
   store i8 0, ptr %arrayinit.element, align 1
-  %12 = load i32, ptr %ch.addr, align 4
-  %call3 = call i32 @stbte__get_char_width(i32 noundef %12)
+  %13 = load i32, ptr %ch.addr, align 4
+  %call3 = call i32 @stbte__get_char_width(i32 noundef %13)
   %sub = sub nsw i32 9, %call3
   %div = sdiv i32 %sub, 2
   store i32 %div, ptr %off, align 4
-  %13 = load i32, ptr %x0, align 4
-  %14 = load i32, ptr %y0, align 4
-  %15 = load i32, ptr %x1, align 4
-  %16 = load i32, ptr %y1, align 4
+  %14 = load i32, ptr %x0, align 4
+  %15 = load i32, ptr %y0, align 4
+  %16 = load i32, ptr %x1, align 4
+  %17 = load i32, ptr %y1, align 4
   %arraydecay = getelementptr inbounds [2 x i8], ptr %str, i64 0, i64 0
-  %17 = load i32, ptr %off, align 4
-  %add4 = add nsw i32 %17, 1
-  %18 = load i32, ptr %colormode.addr, align 4
-  %19 = load i32, ptr %disabled.addr, align 4
-  %idxprom = sext i32 %19 to i64
+  %18 = load i32, ptr %off, align 4
+  %add4 = add nsw i32 %18, 1
+  %19 = load i32, ptr %colormode.addr, align 4
+  %20 = load i32, ptr %disabled.addr, align 4
+  %idxprom = sext i32 %20 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x [2 x [2 x i8]]]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %20 = load i32, ptr %toggled.addr, align 4
-  %idxprom5 = sext i32 %20 to i64
+  %21 = load i32, ptr %toggled.addr, align 4
+  %idxprom5 = sext i32 %21 to i64
   %arrayidx6 = getelementptr inbounds [2 x [2 x [2 x i8]]], ptr %arrayidx, i64 0, i64 %idxprom5
-  %21 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %22 = load i32, ptr %id.addr, align 4
-  %cmp7 = icmp eq i32 %21, %22
+  %22 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8
+  %24 = load i32, ptr %id.addr, align 4
+  %cmp7 = icmp eq i32 %23, %24
   %conv8 = zext i1 %cmp7 to i32
   %idxprom9 = sext i32 %conv8 to i64
   %arrayidx10 = getelementptr inbounds [2 x [2 x i8]], ptr %arrayidx6, i64 0, i64 %idxprom9
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %24 = load i32, ptr %id.addr, align 4
-  %cmp11 = icmp eq i32 %23, %24
+  %25 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %26 = load i32, ptr %25, align 4
+  %27 = load i32, ptr %id.addr, align 4
+  %cmp11 = icmp eq i32 %26, %27
   %conv12 = zext i1 %cmp11 to i32
   %idxprom13 = sext i32 %conv12 to i64
   %arrayidx14 = getelementptr inbounds [2 x i8], ptr %arrayidx10, i64 0, i64 %idxprom13
-  %25 = load i8, ptr %arrayidx14, align 1
-  %conv15 = zext i8 %25 to i32
-  call void @stbte__draw_textbox(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %arraydecay, i32 noundef %add4, i32 noundef 2, i32 noundef %18, i32 noundef %conv15)
+  %28 = load i8, ptr %arrayidx14, align 1
+  %conv15 = zext i8 %28 to i32
+  call void @stbte__draw_textbox(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %arraydecay, i32 noundef %add4, i32 noundef 2, i32 noundef %19, i32 noundef %conv15)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then2, %if.end
-  %26 = load i32, ptr %disabled.addr, align 4
-  %tobool17 = icmp ne i32 %26, 0
+  %29 = load i32, ptr %disabled.addr, align 4
+  %tobool17 = icmp ne i32 %29, 0
   br i1 %tobool17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end16
@@ -3735,14 +3799,14 @@ if.then18:                                        ; preds = %if.end16
   br label %return
 
 if.end19:                                         ; preds = %if.end16
-  %27 = load i32, ptr %id.addr, align 4
-  %call20 = call i32 @stbte__button_core(i32 noundef %27)
+  %30 = load i32, ptr %id.addr, align 4
+  %call20 = call i32 @stbte__button_core(i32 noundef %30)
   store i32 %call20, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then18
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+  %31 = load i32, ptr %retval, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3780,36 +3844,39 @@ entry:
   %9 = load i32, ptr %y1, align 4
   %10 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10)
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %11, 0
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4
+  %cmp = icmp eq i32 %12, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %12 = load i32, ptr %x0, align 4
-  %13 = load i32, ptr %y0, align 4
-  %14 = load i32, ptr %x1, align 4
-  %15 = load i32, ptr %y1, align 4
-  %16 = load i32, ptr %colormode.addr, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %18 = load i32, ptr %id.addr, align 4
-  %cmp2 = icmp eq i32 %17, %18
+  %13 = load i32, ptr %x0, align 4
+  %14 = load i32, ptr %y0, align 4
+  %15 = load i32, ptr %x1, align 4
+  %16 = load i32, ptr %y1, align 4
+  %17 = load i32, ptr %colormode.addr, align 4
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8
+  %20 = load i32, ptr %id.addr, align 4
+  %cmp2 = icmp eq i32 %19, %20
   %conv = zext i1 %cmp2 to i32
   %idxprom = sext i32 %conv to i64
   %arrayidx = getelementptr inbounds [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %20 = load i32, ptr %id.addr, align 4
-  %cmp3 = icmp eq i32 %19, %20
+  %21 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %id.addr, align 4
+  %cmp3 = icmp eq i32 %22, %23
   %conv4 = zext i1 %cmp3 to i32
   %idxprom5 = sext i32 %conv4 to i64
   %arrayidx6 = getelementptr inbounds [2 x i8], ptr %arrayidx, i64 0, i64 %idxprom5
-  %21 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %21 to i32
-  call void @stbte__draw_box(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %conv7)
+  %24 = load i8, ptr %arrayidx6, align 1
+  %conv7 = zext i8 %24 to i32
+  call void @stbte__draw_box(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %conv7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %22 = load i32, ptr %id.addr, align 4
-  %call8 = call i32 @stbte__button_core(i32 noundef %22)
+  %25 = load i32, ptr %id.addr, align 4
+  %call8 = call i32 @stbte__button_core(i32 noundef %25)
   ret i32 %call8
 }
 
@@ -3849,8 +3916,9 @@ entry:
   %9 = load i32, ptr %y1, align 4
   %10 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10)
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %11, label %sw.default [
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4
+  switch i32 %12, label %sw.default [
     i32 0, label %sw.bb
     i32 4, label %sw.bb7
     i32 2, label %sw.bb12
@@ -3858,77 +3926,88 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %12 = load i32, ptr %x0, align 4
-  %13 = load i32, ptr %y0, align 4
-  %14 = load i32, ptr %x1, align 4
-  %15 = load i32, ptr %y1, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %17 = load i32, ptr %id.addr, align 4
-  %cmp = icmp eq i32 %16, %17
+  %13 = load i32, ptr %x0, align 4
+  %14 = load i32, ptr %y0, align 4
+  %15 = load i32, ptr %x1, align 4
+  %16 = load i32, ptr %y1, align 4
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %id.addr, align 4
+  %cmp = icmp eq i32 %18, %19
   %conv = zext i1 %cmp to i32
   %idxprom = sext i32 %conv to i64
   %arrayidx = getelementptr inbounds [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %19 = load i32, ptr %id.addr, align 4
-  %cmp2 = icmp eq i32 %18, %19
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  %22 = load i32, ptr %id.addr, align 4
+  %cmp2 = icmp eq i32 %21, %22
   %conv3 = zext i1 %cmp2 to i32
   %idxprom4 = sext i32 %conv3 to i64
   %arrayidx5 = getelementptr inbounds [2 x i8], ptr %arrayidx, i64 0, i64 %idxprom4
-  %20 = load i8, ptr %arrayidx5, align 1
-  %conv6 = zext i8 %20 to i32
-  call void @stbte__draw_box(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef %conv6)
+  %23 = load i8, ptr %arrayidx5, align 1
+  %conv6 = zext i8 %23 to i32
+  call void @stbte__draw_box(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef 0, i32 noundef %conv6)
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %21 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %22 = load i32, ptr %id.addr, align 4
-  %cmp8 = icmp eq i32 %21, %22
+  %24 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %id.addr, align 4
+  %cmp8 = icmp eq i32 %25, %26
   br i1 %cmp8, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %sw.bb7
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp10 = icmp eq i32 %23, 0
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8
+  %cmp10 = icmp eq i32 %28, 0
   br i1 %cmp10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %24 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %24)
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %26 = load ptr, ptr %pos.addr, align 8
-  %27 = load i32, ptr %26, align 4
-  %sub = sub nsw i32 %25, %27
-  store i32 %sub, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
+  %29 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %29)
+  %30 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %31 = load i32, ptr %30, align 8
+  %32 = load ptr, ptr %pos.addr, align 8
+  %33 = load i32, ptr %32, align 4
+  %sub = sub nsw i32 %31, %33
+  %34 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  store i32 %sub, ptr %34, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.bb7
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %28 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %29 = load i32, ptr %id.addr, align 4
-  %cmp13 = icmp eq i32 %28, %29
+  %35 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8
+  %37 = load i32, ptr %id.addr, align 4
+  %cmp13 = icmp eq i32 %36, %37
   br i1 %cmp13, label %land.lhs.true15, label %if.end20
 
 land.lhs.true15:                                  ; preds = %sw.bb12
-  %30 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %cmp16 = icmp eq i32 %30, 4
+  %38 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %cmp16 = icmp eq i32 %39, 4
   br i1 %cmp16, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %land.lhs.true15
-  %31 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %sub19 = sub nsw i32 %31, %32
-  %33 = load ptr, ptr %pos.addr, align 8
-  store i32 %sub19, ptr %33, align 4
+  %40 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %43 = load i32, ptr %42, align 4
+  %sub19 = sub nsw i32 %41, %43
+  %44 = load ptr, ptr %pos.addr, align 8
+  store i32 %sub19, ptr %44, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %land.lhs.true15, %sw.bb12
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %34 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %35 = load i32, ptr %id.addr, align 4
-  %cmp22 = icmp eq i32 %34, %35
+  %45 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8
+  %47 = load i32, ptr %id.addr, align 4
+  %cmp22 = icmp eq i32 %46, %47
   br i1 %cmp22, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %sw.bb21
@@ -3939,8 +4018,8 @@ if.end25:                                         ; preds = %if.then24, %sw.bb21
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %36 = load i32, ptr %id.addr, align 4
-  %call26 = call i32 @stbte__button_core(i32 noundef %36)
+  %48 = load i32, ptr %id.addr, align 4
+  %call26 = call i32 @stbte__button_core(i32 noundef %48)
   store i32 %call26, ptr %retval, align 4
   br label %return
 
@@ -3949,8 +4028,8 @@ sw.epilog:                                        ; preds = %if.end25, %if.end20
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.default
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3991,41 +4070,44 @@ entry:
   %8 = load i32, ptr %y1, align 4
   %9 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9)
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %10, 0
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4
+  %cmp = icmp eq i32 %11, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %11 = load i32, ptr %x0, align 4
-  %12 = load i32, ptr %y0, align 4
-  %13 = load i32, ptr %x1, align 4
-  %14 = load i32, ptr %y1, align 4
-  %15 = load ptr, ptr %label.addr, align 8
-  %16 = load i32, ptr %s, align 4
+  %12 = load i32, ptr %x0, align 4
+  %13 = load i32, ptr %y0, align 4
+  %14 = load i32, ptr %x1, align 4
+  %15 = load i32, ptr %y1, align 4
+  %16 = load ptr, ptr %label.addr, align 8
   %17 = load i32, ptr %s, align 4
-  %18 = load i32, ptr %toggled.addr, align 4
-  %idxprom = sext i32 %18 to i64
+  %18 = load i32, ptr %s, align 4
+  %19 = load i32, ptr %toggled.addr, align 4
+  %idxprom = sext i32 %19 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x [2 x i8]]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %20 = load i32, ptr %id.addr, align 4
-  %cmp2 = icmp eq i32 %19, %20
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8
+  %22 = load i32, ptr %id.addr, align 4
+  %cmp2 = icmp eq i32 %21, %22
   %conv = zext i1 %cmp2 to i32
   %idxprom3 = sext i32 %conv to i64
   %arrayidx4 = getelementptr inbounds [2 x [2 x i8]], ptr %arrayidx, i64 0, i64 %idxprom3
-  %21 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %22 = load i32, ptr %id.addr, align 4
-  %cmp5 = icmp eq i32 %21, %22
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %id.addr, align 4
+  %cmp5 = icmp eq i32 %24, %25
   %conv6 = zext i1 %cmp5 to i32
   %idxprom7 = sext i32 %conv6 to i64
   %arrayidx8 = getelementptr inbounds [2 x i8], ptr %arrayidx4, i64 0, i64 %idxprom7
-  %23 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %23 to i32
-  call void @stbte__draw_textbox(i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef 12, i32 noundef %conv9)
+  %26 = load i8, ptr %arrayidx8, align 1
+  %conv9 = zext i8 %26 to i32
+  call void @stbte__draw_textbox(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef 12, i32 noundef %conv9)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %24 = load i32, ptr %id.addr, align 4
-  %call10 = call i32 @stbte__button_core(i32 noundef %24)
+  %27 = load i32, ptr %id.addr, align 4
+  %call10 = call i32 @stbte__button_core(i32 noundef %27)
   %cmp11 = icmp eq i32 %call10, 1
   %conv12 = zext i1 %cmp11 to i32
   ret i32 %conv12
@@ -4072,8 +4154,9 @@ entry:
   %10 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %6, i32 noundef %sub, i32 noundef %8, i32 noundef %add2, i32 noundef %10)
   store i32 3, ptr %event_mouse_move, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %11, label %sw.epilog [
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4
+  switch i32 %12, label %sw.epilog [
     i32 0, label %sw.bb
     i32 4, label %sw.bb10
     i32 2, label %sw.bb12
@@ -4081,41 +4164,43 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %12 = load i32, ptr %x0.addr, align 4
-  %13 = load i32, ptr %y.addr, align 4
-  %14 = load i32, ptr %x1, align 4
-  %15 = load i32, ptr %y.addr, align 4
-  %add3 = add nsw i32 %15, 1
-  call void @stbte__draw_rect(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %add3, i32 noundef 8421504)
-  %16 = load i32, ptr %x0.addr, align 4
-  %17 = load i32, ptr %pos, align 4
-  %add4 = add nsw i32 %16, %17
+  %13 = load i32, ptr %x0.addr, align 4
+  %14 = load i32, ptr %y.addr, align 4
+  %15 = load i32, ptr %x1, align 4
+  %16 = load i32, ptr %y.addr, align 4
+  %add3 = add nsw i32 %16, 1
+  call void @stbte__draw_rect(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %add3, i32 noundef 8421504)
+  %17 = load i32, ptr %x0.addr, align 4
+  %18 = load i32, ptr %pos, align 4
+  %add4 = add nsw i32 %17, %18
   %sub5 = sub nsw i32 %add4, 1
-  %18 = load i32, ptr %y.addr, align 4
-  %sub6 = sub nsw i32 %18, 1
-  %19 = load i32, ptr %x0.addr, align 4
-  %20 = load i32, ptr %pos, align 4
-  %add7 = add nsw i32 %19, %20
+  %19 = load i32, ptr %y.addr, align 4
+  %sub6 = sub nsw i32 %19, 1
+  %20 = load i32, ptr %x0.addr, align 4
+  %21 = load i32, ptr %pos, align 4
+  %add7 = add nsw i32 %20, %21
   %add8 = add nsw i32 %add7, 2
-  %21 = load i32, ptr %y.addr, align 4
-  %add9 = add nsw i32 %21, 2
+  %22 = load i32, ptr %y.addr, align 4
+  %add9 = add nsw i32 %22, 2
   call void @stbte__draw_rect(i32 noundef %sub5, i32 noundef %sub6, i32 noundef %add8, i32 noundef %add9, i32 noundef 16777215)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %22 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %23 = load i32, ptr %id.addr, align 4
-  %cmp = icmp eq i32 %22, %23
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %id.addr, align 4
+  %cmp = icmp eq i32 %24, %25
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %sw.bb10
-  %24 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp11 = icmp eq i32 %24, 0
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8
+  %cmp11 = icmp eq i32 %27, 0
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %25 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %25)
+  %28 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %28)
   store i32 1, ptr %event_mouse_move, align 4
   br label %if.end
 
@@ -4123,23 +4208,25 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br label %sw.bb12
 
 sw.bb12:                                          ; preds = %if.end, %entry
-  %26 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %27 = load i32, ptr %id.addr, align 4
-  %cmp13 = icmp eq i32 %26, %27
+  %29 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  %31 = load i32, ptr %id.addr, align 4
+  %cmp13 = icmp eq i32 %30, %31
   br i1 %cmp13, label %if.then14, label %if.end25
 
 if.then14:                                        ; preds = %sw.bb12
-  %28 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %29 = load i32, ptr %x0.addr, align 4
-  %sub15 = sub nsw i32 %28, %29
-  %30 = load i32, ptr %range.addr, align 4
-  %add16 = add nsw i32 %30, 1
+  %32 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %33 = load i32, ptr %32, align 8
+  %34 = load i32, ptr %x0.addr, align 4
+  %sub15 = sub nsw i32 %33, %34
+  %35 = load i32, ptr %range.addr, align 4
+  %add16 = add nsw i32 %35, 1
   %mul17 = mul nsw i32 %sub15, %add16
-  %31 = load i32, ptr %w.addr, align 4
-  %div18 = sdiv i32 %mul17, %31
+  %36 = load i32, ptr %w.addr, align 4
+  %div18 = sdiv i32 %mul17, %36
   store i32 %div18, ptr %v, align 4
-  %32 = load i32, ptr %v, align 4
-  %cmp19 = icmp slt i32 %32, 0
+  %37 = load i32, ptr %v, align 4
+  %cmp19 = icmp slt i32 %37, 0
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.then14
@@ -4147,34 +4234,35 @@ if.then20:                                        ; preds = %if.then14
   br label %if.end24
 
 if.else:                                          ; preds = %if.then14
-  %33 = load i32, ptr %v, align 4
-  %34 = load i32, ptr %range.addr, align 4
-  %cmp21 = icmp sgt i32 %33, %34
+  %38 = load i32, ptr %v, align 4
+  %39 = load i32, ptr %range.addr, align 4
+  %cmp21 = icmp sgt i32 %38, %39
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.else
-  %35 = load i32, ptr %range.addr, align 4
-  store i32 %35, ptr %v, align 4
+  %40 = load i32, ptr %range.addr, align 4
+  store i32 %40, ptr %v, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.else
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end23, %if.then20
-  %36 = load i32, ptr %v, align 4
-  %37 = load ptr, ptr %value.addr, align 8
-  store i32 %36, ptr %37, align 4
-  %38 = load i32, ptr %event_mouse_move, align 4
-  store i32 %38, ptr %retval, align 4
+  %41 = load i32, ptr %v, align 4
+  %42 = load ptr, ptr %value.addr, align 8
+  store i32 %41, ptr %42, align 4
+  %43 = load i32, ptr %event_mouse_move, align 4
+  store i32 %43, ptr %retval, align 4
   br label %return
 
 if.end25:                                         ; preds = %sw.bb12
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %40 = load i32, ptr %id.addr, align 4
-  %cmp27 = icmp eq i32 %39, %40
+  %44 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %45 = load i32, ptr %44, align 8
+  %46 = load i32, ptr %id.addr, align 4
+  %cmp27 = icmp eq i32 %45, %46
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %sw.bb26
@@ -4190,8 +4278,8 @@ sw.epilog:                                        ; preds = %if.end29, %if.end25
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then28, %if.end24
-  %41 = load i32, ptr %retval, align 4
-  ret i32 %41
+  %47 = load i32, ptr %retval, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4238,8 +4326,9 @@ entry:
   %6 = load i32, ptr %y1, align 4
   %7 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %8 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %8, label %sw.epilog [
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %9 = load i32, ptr %8, align 4
+  switch i32 %9, label %sw.epilog [
     i32 0, label %sw.bb
     i32 4, label %sw.bb10
     i32 6, label %sw.bb10
@@ -4250,60 +4339,64 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %arraydecay = getelementptr inbounds [32 x i8], ptr %text, i64 0, i64 0
-  %9 = load ptr, ptr %fmt.addr, align 8
-  %tobool = icmp ne ptr %9, null
+  %10 = load ptr, ptr %fmt.addr, align 8
+  %tobool = icmp ne ptr %10, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.bb
-  %10 = load ptr, ptr %fmt.addr, align 8
+  %11 = load ptr, ptr %fmt.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %sw.bb
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %10, %cond.true ], [ @.str.1, %cond.false ]
-  %11 = load ptr, ptr %value.addr, align 8
-  %12 = load float, ptr %11, align 4
-  %conv = fpext float %12 to double
+  %cond = phi ptr [ %11, %cond.true ], [ @.str.1, %cond.false ]
+  %12 = load ptr, ptr %value.addr, align 8
+  %13 = load float, ptr %12, align 4
+  %conv = fpext float %13 to double
   %call2 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef %cond, double noundef %conv) #8
-  %13 = load i32, ptr %x0.addr, align 4
-  %14 = load i32, ptr %y0.addr, align 4
-  %15 = load i32, ptr %x1, align 4
-  %16 = load i32, ptr %y1, align 4
+  %14 = load i32, ptr %x0.addr, align 4
+  %15 = load i32, ptr %y0.addr, align 4
+  %16 = load i32, ptr %x1, align 4
+  %17 = load i32, ptr %y1, align 4
   %arraydecay3 = getelementptr inbounds [32 x i8], ptr %text, i64 0, i64 0
-  %17 = load i32, ptr %colormode.addr, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %19 = load i32, ptr %id.addr, align 4
-  %cmp = icmp eq i32 %18, %19
+  %18 = load i32, ptr %colormode.addr, align 4
+  %19 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %20 = load i32, ptr %19, align 8
+  %21 = load i32, ptr %id.addr, align 4
+  %cmp = icmp eq i32 %20, %21
   %conv4 = zext i1 %cmp to i32
   %idxprom = sext i32 %conv4 to i64
   %arrayidx = getelementptr inbounds [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %20 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %21 = load i32, ptr %id.addr, align 4
-  %cmp5 = icmp eq i32 %20, %21
+  %22 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %23 = load i32, ptr %22, align 4
+  %24 = load i32, ptr %id.addr, align 4
+  %cmp5 = icmp eq i32 %23, %24
   %conv6 = zext i1 %cmp5 to i32
   %idxprom7 = sext i32 %conv6 to i64
   %arrayidx8 = getelementptr inbounds [2 x i8], ptr %arrayidx, i64 0, i64 %idxprom7
-  %22 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %22 to i32
-  call void @stbte__draw_textbox(i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %arraydecay3, i32 noundef 1, i32 noundef 2, i32 noundef %17, i32 noundef %conv9)
+  %25 = load i8, ptr %arrayidx8, align 1
+  %conv9 = zext i8 %25 to i32
+  call void @stbte__draw_textbox(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %arraydecay3, i32 noundef 1, i32 noundef 2, i32 noundef %18, i32 noundef %conv9)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry, %entry
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %24 = load i32, ptr %id.addr, align 4
-  %cmp11 = icmp eq i32 %23, %24
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %id.addr, align 4
+  %cmp11 = icmp eq i32 %27, %28
   br i1 %cmp11, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %sw.bb10
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp13 = icmp eq i32 %25, 0
+  %29 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  %cmp13 = icmp eq i32 %30, 0
   br i1 %cmp13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %26 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %26)
+  %31 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %31)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.bb10
@@ -4311,9 +4404,10 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br label %return
 
 sw.bb15:                                          ; preds = %entry, %entry
-  %27 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %28 = load i32, ptr %id.addr, align 4
-  %cmp16 = icmp eq i32 %27, %28
+  %32 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %33 = load i32, ptr %32, align 8
+  %34 = load i32, ptr %id.addr, align 4
+  %cmp16 = icmp eq i32 %33, %34
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %sw.bb15
@@ -4325,55 +4419,64 @@ if.end19:                                         ; preds = %sw.bb15
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %29 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %30 = load i32, ptr %id.addr, align 4
-  %cmp21 = icmp eq i32 %29, %30
+  %35 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8
+  %37 = load i32, ptr %id.addr, align 4
+  %cmp21 = icmp eq i32 %36, %37
   br i1 %cmp21, label %if.then23, label %if.end64
 
 if.then23:                                        ; preds = %sw.bb20
-  %31 = load ptr, ptr %value.addr, align 8
-  %32 = load float, ptr %31, align 4
-  store float %32, ptr %v, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  %div = sdiv i32 %33, 4
+  %38 = load ptr, ptr %value.addr, align 8
+  %39 = load float, ptr %38, align 4
+  store float %39, ptr %v, align 4
+  %40 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  %41 = load i32, ptr %40, align 4
+  %div = sdiv i32 %41, 4
   store i32 %div, ptr %ax, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
-  %div24 = sdiv i32 %34, 4
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  %43 = load i32, ptr %42, align 8
+  %div24 = sdiv i32 %43, 4
   store i32 %div24, ptr %ay, align 4
-  %35 = load i32, ptr %ax, align 4
-  %mul = mul nsw i32 %35, 4
-  %36 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  %sub = sub nsw i32 %36, %mul
-  store i32 %sub, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  %37 = load i32, ptr %ay, align 4
-  %mul25 = mul nsw i32 %37, 4
-  %38 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
-  %sub26 = sub nsw i32 %38, %mul25
-  store i32 %sub26, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool27 = icmp ne i32 %39, 0
+  %44 = load i32, ptr %ax, align 4
+  %mul = mul nsw i32 %44, 4
+  %45 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  %46 = load i32, ptr %45, align 4
+  %sub = sub nsw i32 %46, %mul
+  %47 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  store i32 %sub, ptr %47, align 4
+  %48 = load i32, ptr %ay, align 4
+  %mul25 = mul nsw i32 %48, 4
+  %49 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  %50 = load i32, ptr %49, align 8
+  %sub26 = sub nsw i32 %50, %mul25
+  %51 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  store i32 %sub26, ptr %51, align 8
+  %52 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4
+  %tobool27 = icmp ne i32 %53, 0
   br i1 %tobool27, label %if.then28, label %if.else41
 
 if.then28:                                        ; preds = %if.then23
-  %40 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %cmp29 = icmp eq i32 %40, 4
+  %54 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4
+  %cmp29 = icmp eq i32 %55, 4
   br i1 %cmp29, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %if.then28
-  %41 = load i32, ptr %ax, align 4
-  %conv32 = sitofp i32 %41 to float
-  %42 = load i32, ptr %ay, align 4
-  %conv34 = sitofp i32 %42 to float
-  %43 = call float @llvm.fmuladd.f32(float %conv32, float 1.600000e+01, float %conv34)
-  store float %43, ptr %delta, align 4
+  %56 = load i32, ptr %ax, align 4
+  %conv32 = sitofp i32 %56 to float
+  %57 = load i32, ptr %ay, align 4
+  %conv34 = sitofp i32 %57 to float
+  %58 = call float @llvm.fmuladd.f32(float %conv32, float 1.600000e+01, float %conv34)
+  store float %58, ptr %delta, align 4
   br label %if.end40
 
 if.else:                                          ; preds = %if.then28
-  %44 = load i32, ptr %ax, align 4
-  %conv35 = sitofp i32 %44 to float
+  %59 = load i32, ptr %ax, align 4
+  %conv35 = sitofp i32 %59 to float
   %div36 = fdiv float %conv35, 1.600000e+01
-  %45 = load i32, ptr %ay, align 4
-  %conv37 = sitofp i32 %45 to float
+  %60 = load i32, ptr %ay, align 4
+  %conv37 = sitofp i32 %60 to float
   %div38 = fdiv float %conv37, 2.560000e+02
   %add39 = fadd float %div36, %div38
   store float %add39, ptr %delta, align 4
@@ -4383,63 +4486,64 @@ if.end40:                                         ; preds = %if.else, %if.then31
   br label %if.end54
 
 if.else41:                                        ; preds = %if.then23
-  %46 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %cmp42 = icmp eq i32 %46, 4
+  %61 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4
+  %cmp42 = icmp eq i32 %62, 4
   br i1 %cmp42, label %if.then44, label %if.else48
 
 if.then44:                                        ; preds = %if.else41
-  %47 = load i32, ptr %ax, align 4
-  %conv45 = sitofp i32 %47 to float
-  %48 = load i32, ptr %ay, align 4
-  %conv47 = sitofp i32 %48 to float
-  %49 = call float @llvm.fmuladd.f32(float %conv45, float 1.000000e+01, float %conv47)
-  store float %49, ptr %delta, align 4
+  %63 = load i32, ptr %ax, align 4
+  %conv45 = sitofp i32 %63 to float
+  %64 = load i32, ptr %ay, align 4
+  %conv47 = sitofp i32 %64 to float
+  %65 = call float @llvm.fmuladd.f32(float %conv45, float 1.000000e+01, float %conv47)
+  store float %65, ptr %delta, align 4
   br label %if.end53
 
 if.else48:                                        ; preds = %if.else41
-  %50 = load i32, ptr %ax, align 4
-  %conv49 = sitofp i32 %50 to float
-  %51 = load i32, ptr %ay, align 4
-  %conv51 = sitofp i32 %51 to float
+  %66 = load i32, ptr %ax, align 4
+  %conv49 = sitofp i32 %66 to float
+  %67 = load i32, ptr %ay, align 4
+  %conv51 = sitofp i32 %67 to float
   %mul52 = fmul float %conv51, 0x3F847AE140000000
-  %52 = call float @llvm.fmuladd.f32(float %conv49, float 0x3FB99999A0000000, float %mul52)
-  store float %52, ptr %delta, align 4
+  %68 = call float @llvm.fmuladd.f32(float %conv49, float 0x3FB99999A0000000, float %mul52)
+  store float %68, ptr %delta, align 4
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else48, %if.then44
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end53, %if.end40
-  %53 = load float, ptr %delta, align 4
-  %54 = load float, ptr %scale.addr, align 4
-  %55 = load float, ptr %v, align 4
-  %56 = call float @llvm.fmuladd.f32(float %53, float %54, float %55)
-  store float %56, ptr %v, align 4
-  %57 = load float, ptr %v, align 4
-  %58 = load float, ptr %minv.addr, align 4
-  %cmp56 = fcmp olt float %57, %58
+  %69 = load float, ptr %delta, align 4
+  %70 = load float, ptr %scale.addr, align 4
+  %71 = load float, ptr %v, align 4
+  %72 = call float @llvm.fmuladd.f32(float %69, float %70, float %71)
+  store float %72, ptr %v, align 4
+  %73 = load float, ptr %v, align 4
+  %74 = load float, ptr %minv.addr, align 4
+  %cmp56 = fcmp olt float %73, %74
   br i1 %cmp56, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %if.end54
-  %59 = load float, ptr %minv.addr, align 4
-  store float %59, ptr %v, align 4
+  %75 = load float, ptr %minv.addr, align 4
+  store float %75, ptr %v, align 4
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end54
-  %60 = load float, ptr %v, align 4
-  %61 = load float, ptr %maxv.addr, align 4
-  %cmp60 = fcmp ogt float %60, %61
+  %76 = load float, ptr %v, align 4
+  %77 = load float, ptr %maxv.addr, align 4
+  %cmp60 = fcmp ogt float %76, %77
   br i1 %cmp60, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end59
-  %62 = load float, ptr %maxv.addr, align 4
-  store float %62, ptr %v, align 4
+  %78 = load float, ptr %maxv.addr, align 4
+  store float %78, ptr %v, align 4
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then62, %if.end59
-  %63 = load float, ptr %v, align 4
-  %64 = load ptr, ptr %value.addr, align 8
-  store float %63, ptr %64, align 4
+  %79 = load float, ptr %v, align 4
+  %80 = load ptr, ptr %value.addr, align 8
+  store float %79, ptr %80, align 4
   store i32 3, ptr %retval, align 4
   br label %return
 
@@ -4451,8 +4555,8 @@ sw.epilog:                                        ; preds = %if.end64, %if.end19
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.end63, %if.then18, %if.end
-  %65 = load i32, ptr %retval, align 4
-  ret i32 %65
+  %81 = load i32, ptr %retval, align 4
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind
@@ -4539,8 +4643,9 @@ if.end11:                                         ; preds = %if.then10, %if.end8
   %20 = load i32, ptr %y1.addr, align 4
   %21 = load i32, ptr %id.addr, align 4
   %call = call i32 @stbte__hittest(i32 noundef %sub12, i32 noundef %18, i32 noundef %add13, i32 noundef %20, i32 noundef %21)
-  %22 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %22, label %sw.epilog [
+  %22 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %23 = load i32, ptr %22, align 4
+  switch i32 %23, label %sw.epilog [
     i32 0, label %sw.bb
     i32 4, label %sw.bb25
     i32 2, label %sw.bb41
@@ -4548,127 +4653,138 @@ if.end11:                                         ; preds = %if.then10, %if.end8
   ]
 
 sw.bb:                                            ; preds = %if.end11
-  %23 = load i32, ptr %x.addr, align 4
-  %24 = load i32, ptr %y0.addr, align 4
-  %25 = load i32, ptr %x.addr, align 4
-  %add14 = add nsw i32 %25, 1
-  %26 = load i32, ptr %y1.addr, align 4
-  %27 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 6, i64 2), align 8
-  call void @stbte__draw_rect(i32 noundef %23, i32 noundef %24, i32 noundef %add14, i32 noundef %26, i32 noundef %27)
-  %28 = load i32, ptr %x.addr, align 4
-  %sub15 = sub nsw i32 %28, 1
-  %29 = load i32, ptr %thumbpos, align 4
-  %sub16 = sub nsw i32 %29, 3
+  %24 = load i32, ptr %x.addr, align 4
+  %25 = load i32, ptr %y0.addr, align 4
+  %26 = load i32, ptr %x.addr, align 4
+  %add14 = add nsw i32 %26, 1
+  %27 = load i32, ptr %y1.addr, align 4
+  %28 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 6, i64 2
+  %29 = load i32, ptr %28, align 8
+  call void @stbte__draw_rect(i32 noundef %24, i32 noundef %25, i32 noundef %add14, i32 noundef %27, i32 noundef %29)
   %30 = load i32, ptr %x.addr, align 4
-  %add17 = add nsw i32 %30, 2
+  %sub15 = sub nsw i32 %30, 1
   %31 = load i32, ptr %thumbpos, align 4
-  %add18 = add nsw i32 %31, 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %33 = load i32, ptr %id.addr, align 4
-  %cmp19 = icmp eq i32 %32, %33
+  %sub16 = sub nsw i32 %31, 3
+  %32 = load i32, ptr %x.addr, align 4
+  %add17 = add nsw i32 %32, 2
+  %33 = load i32, ptr %thumbpos, align 4
+  %add18 = add nsw i32 %33, 4
+  %34 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %id.addr, align 4
+  %cmp19 = icmp eq i32 %35, %36
   %conv = zext i1 %cmp19 to i32
   %idxprom = sext i32 %conv to i64
   %arrayidx = getelementptr inbounds [2 x [2 x i8]], ptr @stbte__state_to_index, i64 0, i64 %idxprom
-  %34 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %35 = load i32, ptr %id.addr, align 4
-  %cmp20 = icmp eq i32 %34, %35
+  %37 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %id.addr, align 4
+  %cmp20 = icmp eq i32 %38, %39
   %conv21 = zext i1 %cmp20 to i32
   %idxprom22 = sext i32 %conv21 to i64
   %arrayidx23 = getelementptr inbounds [2 x i8], ptr %arrayidx, i64 0, i64 %idxprom22
-  %36 = load i8, ptr %arrayidx23, align 1
-  %conv24 = zext i8 %36 to i32
+  %40 = load i8, ptr %arrayidx23, align 1
+  %conv24 = zext i8 %40 to i32
   call void @stbte__draw_box(i32 noundef %sub15, i32 noundef %sub16, i32 noundef %add17, i32 noundef %add18, i32 noundef 6, i32 noundef %conv24)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end11
-  %37 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %38 = load i32, ptr %id.addr, align 4
-  %cmp26 = icmp eq i32 %37, %38
+  %41 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %42 = load i32, ptr %41, align 4
+  %43 = load i32, ptr %id.addr, align 4
+  %cmp26 = icmp eq i32 %42, %43
   br i1 %cmp26, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %sw.bb25
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp28 = icmp eq i32 %39, 0
+  %44 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %45 = load i32, ptr %44, align 8
+  %cmp28 = icmp eq i32 %45, 0
   br i1 %cmp28, label %if.then30, label %if.end40
 
 if.then30:                                        ; preds = %land.lhs.true
-  %40 = load i32, ptr %id.addr, align 4
-  call void @stbte__activate(i32 noundef %40)
-  %41 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %42 = load i32, ptr %y0.addr, align 4
-  %sub31 = sub nsw i32 %41, %42
-  %43 = load i32, ptr %v1.addr, align 4
-  %44 = load i32, ptr %v0.addr, align 4
-  %sub32 = sub nsw i32 %43, %44
-  %45 = load i32, ptr %num_vis.addr, align 4
-  %sub33 = sub nsw i32 %sub32, %45
+  %46 = load i32, ptr %id.addr, align 4
+  call void @stbte__activate(i32 noundef %46)
+  %47 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %48 = load i32, ptr %47, align 4
+  %49 = load i32, ptr %y0.addr, align 4
+  %sub31 = sub nsw i32 %48, %49
+  %50 = load i32, ptr %v1.addr, align 4
+  %51 = load i32, ptr %v0.addr, align 4
+  %sub32 = sub nsw i32 %50, %51
+  %52 = load i32, ptr %num_vis.addr, align 4
+  %sub33 = sub nsw i32 %sub32, %52
   %mul34 = mul nsw i32 %sub31, %sub33
-  %46 = load i32, ptr %y1.addr, align 4
-  %47 = load i32, ptr %y0.addr, align 4
-  %sub35 = sub nsw i32 %46, %47
+  %53 = load i32, ptr %y1.addr, align 4
+  %54 = load i32, ptr %y0.addr, align 4
+  %sub35 = sub nsw i32 %53, %54
   %div36 = sdiv i32 %sub35, 2
   %add37 = add nsw i32 %mul34, %div36
-  %48 = load i32, ptr %y1.addr, align 4
-  %49 = load i32, ptr %y0.addr, align 4
-  %sub38 = sub nsw i32 %48, %49
+  %55 = load i32, ptr %y1.addr, align 4
+  %56 = load i32, ptr %y0.addr, align 4
+  %sub38 = sub nsw i32 %55, %56
   %div39 = sdiv i32 %add37, %sub38
-  %50 = load ptr, ptr %val.addr, align 8
-  store i32 %div39, ptr %50, align 4
+  %57 = load ptr, ptr %val.addr, align 8
+  store i32 %div39, ptr %57, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then30, %land.lhs.true, %sw.bb25
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end11
-  %51 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %52 = load i32, ptr %id.addr, align 4
-  %cmp42 = icmp eq i32 %51, %52
+  %58 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %59 = load i32, ptr %58, align 8
+  %60 = load i32, ptr %id.addr, align 4
+  %cmp42 = icmp eq i32 %59, %60
   br i1 %cmp42, label %land.lhs.true44, label %if.end62
 
 land.lhs.true44:                                  ; preds = %sw.bb41
-  %53 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %54 = load i32, ptr %x.addr, align 4
-  %sub45 = sub nsw i32 %54, 15
-  %cmp46 = icmp sge i32 %53, %sub45
+  %61 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %62 = load i32, ptr %61, align 8
+  %63 = load i32, ptr %x.addr, align 4
+  %sub45 = sub nsw i32 %63, 15
+  %cmp46 = icmp sge i32 %62, %sub45
   br i1 %cmp46, label %land.lhs.true48, label %if.end62
 
 land.lhs.true48:                                  ; preds = %land.lhs.true44
-  %55 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %56 = load i32, ptr %x.addr, align 4
-  %add49 = add nsw i32 %56, 15
-  %cmp50 = icmp sle i32 %55, %add49
+  %64 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %65 = load i32, ptr %64, align 8
+  %66 = load i32, ptr %x.addr, align 4
+  %add49 = add nsw i32 %66, 15
+  %cmp50 = icmp sle i32 %65, %add49
   br i1 %cmp50, label %if.then52, label %if.end62
 
 if.then52:                                        ; preds = %land.lhs.true48
-  %57 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %58 = load i32, ptr %y0.addr, align 4
-  %sub53 = sub nsw i32 %57, %58
-  %59 = load i32, ptr %v1.addr, align 4
-  %60 = load i32, ptr %v0.addr, align 4
-  %sub54 = sub nsw i32 %59, %60
-  %61 = load i32, ptr %num_vis.addr, align 4
-  %sub55 = sub nsw i32 %sub54, %61
+  %67 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %68 = load i32, ptr %67, align 4
+  %69 = load i32, ptr %y0.addr, align 4
+  %sub53 = sub nsw i32 %68, %69
+  %70 = load i32, ptr %v1.addr, align 4
+  %71 = load i32, ptr %v0.addr, align 4
+  %sub54 = sub nsw i32 %70, %71
+  %72 = load i32, ptr %num_vis.addr, align 4
+  %sub55 = sub nsw i32 %sub54, %72
   %mul56 = mul nsw i32 %sub53, %sub55
-  %62 = load i32, ptr %y1.addr, align 4
-  %63 = load i32, ptr %y0.addr, align 4
-  %sub57 = sub nsw i32 %62, %63
+  %73 = load i32, ptr %y1.addr, align 4
+  %74 = load i32, ptr %y0.addr, align 4
+  %sub57 = sub nsw i32 %73, %74
   %div58 = sdiv i32 %sub57, 2
   %add59 = add nsw i32 %mul56, %div58
-  %64 = load i32, ptr %y1.addr, align 4
-  %65 = load i32, ptr %y0.addr, align 4
-  %sub60 = sub nsw i32 %64, %65
+  %75 = load i32, ptr %y1.addr, align 4
+  %76 = load i32, ptr %y0.addr, align 4
+  %sub60 = sub nsw i32 %75, %76
   %div61 = sdiv i32 %add59, %sub60
-  %66 = load ptr, ptr %val.addr, align 8
-  store i32 %div61, ptr %66, align 4
+  %77 = load ptr, ptr %val.addr, align 8
+  store i32 %div61, ptr %77, align 4
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then52, %land.lhs.true48, %land.lhs.true44, %sw.bb41
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end11
-  %67 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %68 = load i32, ptr %id.addr, align 4
-  %cmp64 = icmp eq i32 %67, %68
+  %78 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8
+  %80 = load i32, ptr %id.addr, align 4
+  %cmp64 = icmp eq i32 %79, %80
   br i1 %cmp64, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %sw.bb63
@@ -4679,33 +4795,33 @@ if.end67:                                         ; preds = %if.then66, %sw.bb63
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end67, %if.end62, %if.end40, %sw.bb, %if.end11
-  %69 = load ptr, ptr %val.addr, align 8
-  %70 = load i32, ptr %69, align 4
-  %71 = load i32, ptr %v1.addr, align 4
-  %72 = load i32, ptr %num_vis.addr, align 4
-  %sub68 = sub nsw i32 %71, %72
-  %cmp69 = icmp sge i32 %70, %sub68
+  %81 = load ptr, ptr %val.addr, align 8
+  %82 = load i32, ptr %81, align 4
+  %83 = load i32, ptr %v1.addr, align 4
+  %84 = load i32, ptr %num_vis.addr, align 4
+  %sub68 = sub nsw i32 %83, %84
+  %cmp69 = icmp sge i32 %82, %sub68
   br i1 %cmp69, label %if.then71, label %if.end73
 
 if.then71:                                        ; preds = %sw.epilog
-  %73 = load i32, ptr %v1.addr, align 4
-  %74 = load i32, ptr %num_vis.addr, align 4
-  %sub72 = sub nsw i32 %73, %74
-  %75 = load ptr, ptr %val.addr, align 8
-  store i32 %sub72, ptr %75, align 4
+  %85 = load i32, ptr %v1.addr, align 4
+  %86 = load i32, ptr %num_vis.addr, align 4
+  %sub72 = sub nsw i32 %85, %86
+  %87 = load ptr, ptr %val.addr, align 8
+  store i32 %sub72, ptr %87, align 4
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then71, %sw.epilog
-  %76 = load ptr, ptr %val.addr, align 8
-  %77 = load i32, ptr %76, align 4
-  %78 = load i32, ptr %v0.addr, align 4
-  %cmp74 = icmp sle i32 %77, %78
+  %88 = load ptr, ptr %val.addr, align 8
+  %89 = load i32, ptr %88, align 4
+  %90 = load i32, ptr %v0.addr, align 4
+  %cmp74 = icmp sle i32 %89, %90
   br i1 %cmp74, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %if.end73
-  %79 = load i32, ptr %v0.addr, align 4
-  %80 = load ptr, ptr %val.addr, align 8
-  store i32 %79, ptr %80, align 4
+  %91 = load i32, ptr %v0.addr, align 4
+  %92 = load ptr, ptr %val.addr, align 8
+  store i32 %91, ptr %92, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then76, %if.end73, %if.then
@@ -4772,25 +4888,30 @@ if.end11:                                         ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @stbte__is_single_selection() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %cmp = icmp eq i32 %1, %2
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %3 = load i32, ptr %2, align 4
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %5 = load i32, ptr %4, align 4
+  %cmp = icmp eq i32 %3, %5
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %cmp1 = icmp eq i32 %3, %4
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %9 = load i32, ptr %8, align 8
+  %cmp1 = icmp eq i32 %7, %9
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %5 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp1, %land.rhs ]
-  %land.ext = zext i1 %5 to i32
+  %10 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp1, %land.rhs ]
+  %land.ext = zext i1 %10 to i32
   ret i32 %land.ext
 }
 
@@ -4817,74 +4938,79 @@ entry:
   %anim = alloca i32, align 4
   %side206 = alloca i32, align 4
   store ptr %tm, ptr %tm.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %sub = sub nsw i32 %0, %1
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %1 = load i32, ptr %0, align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %3 = load i32, ptr %2, align 4
+  %sub = sub nsw i32 %1, %3
   store i32 %sub, ptr %window_width, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %sub1 = sub nsw i32 %2, %3
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %5 = load i32, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %7 = load i32, ptr %6, align 8
+  %sub1 = sub nsw i32 %5, %7
   store i32 %sub1, ptr %window_height, align 4
   call void @llvm.memset.p0.i64(ptr align 16 %min_width, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 %height, i8 0, i64 28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %panel_active, ptr align 16 @__const.stbte__compute_panel_locations.panel_active, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 %vpos, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), ptr %p, align 8
-  %4 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds %struct.stbte__panel, ptr %4, i64 0
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  store ptr %8, ptr %p, align 8
+  %9 = load ptr, ptr %p, align 8
+  %arrayidx = getelementptr inbounds %struct.stbte__panel, ptr %9, i64 0
   store ptr %arrayidx, ptr %pt, align 8
   store i32 0, ptr %props, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %5, 4
+  %10 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %10, 4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
+  %11 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %11 to i64
   %arrayidx2 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom
   %active = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx2, i32 0, i32 4
   store i32 0, ptr %active, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %7 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom3 = sext i32 %12 to i64
   %arrayidx4 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom3
   %width = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx4, i32 0, i32 0
   store i32 0, ptr %width, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %8 to i64
+  %13 = load i32, ptr %i, align 4
+  %idxprom5 = sext i32 %13 to i64
   %arrayidx6 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom5
   %height7 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx6, i32 0, i32 1
   store i32 0, ptr %height7, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
+  %14 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !26
 
 for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__compute_digits(ptr noundef %10)
-  %11 = load ptr, ptr %tm.addr, align 8
-  %num_categories = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 15
-  %12 = load i32, ptr %num_categories, align 8
-  %cmp8 = icmp ne i32 %12, 0
+  %15 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__compute_digits(ptr noundef %15)
+  %16 = load ptr, ptr %tm.addr, align 8
+  %num_categories = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 15
+  %17 = load i32, ptr %num_categories, align 8
+  %cmp8 = icmp ne i32 %17, 0
   %conv = zext i1 %cmp8 to i32
   %arrayidx9 = getelementptr inbounds [7 x i32], ptr %panel_active, i64 0, i64 5
   store i32 %conv, ptr %arrayidx9, align 4
-  %13 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %13, i32 0, i32 4
-  %14 = load i32, ptr %num_layers, align 8
-  %cmp10 = icmp sgt i32 %14, 1
+  %18 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 4
+  %19 = load i32, ptr %num_layers, align 8
+  %cmp10 = icmp sgt i32 %19, 1
   %conv11 = zext i1 %cmp10 to i32
   %arrayidx12 = getelementptr inbounds [7 x i32], ptr %panel_active, i64 0, i64 3
   store i32 %conv11, ptr %arrayidx12, align 4
-  %15 = load i32, ptr %props, align 4
-  %tobool = icmp ne i32 %15, 0
+  %20 = load i32, ptr %props, align 4
+  %tobool = icmp ne i32 %20, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.end
@@ -4893,14 +5019,14 @@ land.rhs:                                         ; preds = %for.end
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.end
-  %16 = phi i1 [ false, %for.end ], [ %tobool13, %land.rhs ]
-  %land.ext = zext i1 %16 to i32
+  %21 = phi i1 [ false, %for.end ], [ %tobool13, %land.rhs ]
+  %land.ext = zext i1 %21 to i32
   %arrayidx14 = getelementptr inbounds [7 x i32], ptr %panel_active, i64 0, i64 4
   store i32 %land.ext, ptr %arrayidx14, align 16
-  %17 = load ptr, ptr %tm.addr, align 8
-  %digits = getelementptr inbounds %struct.stbte_tilemap, ptr %17, i32 0, i32 20
-  %18 = load i32, ptr %digits, align 8
-  %mul = mul nsw i32 7, %18
+  %22 = load ptr, ptr %tm.addr, align 8
+  %digits = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 20
+  %23 = load i32, ptr %digits, align 8
+  %mul = mul nsw i32 7, %23
   %add = add nsw i32 19, %mul
   %add15 = add nsw i32 %add, 17
   %add16 = add nsw i32 %add15, 7
@@ -4908,19 +5034,19 @@ land.end:                                         ; preds = %land.rhs, %for.end
   store i32 %add16, ptr %arrayidx17, align 8
   %arrayidx18 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 1
   store i32 120, ptr %arrayidx18, align 4
-  %19 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 7
-  %20 = load i32, ptr %palette_spacing_x, align 4
-  %add19 = add nsw i32 4, %20
+  %24 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %24, i32 0, i32 7
+  %25 = load i32, ptr %palette_spacing_x, align 4
+  %add19 = add nsw i32 4, %25
   %add20 = add nsw i32 %add19, 5
   %arrayidx21 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 6
   store i32 %add20, ptr %arrayidx21, align 8
   %arrayidx22 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 5
   store i32 51, ptr %arrayidx22, align 4
-  %21 = load ptr, ptr %tm.addr, align 8
-  %has_layer_names = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 29
-  %22 = load i32, ptr %has_layer_names, align 8
-  %mul23 = mul nsw i32 30, %22
+  %26 = load ptr, ptr %tm.addr, align 8
+  %has_layer_names = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 29
+  %27 = load i32, ptr %has_layer_names, align 8
+  %mul23 = mul nsw i32 30, %27
   %add24 = add nsw i32 58, %mul23
   %arrayidx25 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 3
   store i32 %add24, ptr %arrayidx25, align 4
@@ -4928,60 +5054,64 @@ land.end:                                         ; preds = %land.rhs, %for.end
   store i32 42, ptr %arrayidx26, align 16
   %arrayidx27 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 4
   store i32 80, ptr %arrayidx27, align 16
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
-  store i32 %23, ptr @stbte__region, align 16
-  %24 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
-  store i32 %24, ptr getelementptr inbounds ([4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 1), align 8
+  %28 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr @stbte__region, align 16
+  %30 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 1
+  store i32 %31, ptr %32, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond28
 
 for.cond28:                                       ; preds = %for.inc55, %land.end
-  %25 = load i32, ptr %i, align 4
-  %cmp29 = icmp slt i32 %25, 7
+  %33 = load i32, ptr %i, align 4
+  %cmp29 = icmp slt i32 %33, 7
   br i1 %cmp29, label %for.body31, label %for.end57
 
 for.body31:                                       ; preds = %for.cond28
-  %26 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %26 to i64
+  %34 = load i32, ptr %i, align 4
+  %idxprom32 = sext i32 %34 to i64
   %arrayidx33 = getelementptr inbounds [7 x i32], ptr %panel_active, i64 0, i64 %idxprom32
-  %27 = load i32, ptr %arrayidx33, align 4
-  %tobool34 = icmp ne i32 %27, 0
+  %35 = load i32, ptr %arrayidx33, align 4
+  %tobool34 = icmp ne i32 %35, 0
   br i1 %tobool34, label %if.then, label %if.end54
 
 if.then:                                          ; preds = %for.body31
-  %28 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %28 to i64
-  %arrayidx36 = getelementptr inbounds [7 x %struct.stbte__panel], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i64 0, i64 %idxprom35
+  %36 = load i32, ptr %i, align 4
+  %idxprom35 = sext i32 %36 to i64
+  %37 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %arrayidx36 = getelementptr inbounds [7 x %struct.stbte__panel], ptr %37, i64 0, i64 %idxprom35
   %side37 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx36, i32 0, i32 3
-  %29 = load i32, ptr %side37, align 4
-  store i32 %29, ptr %side, align 4
-  %30 = load i32, ptr %i, align 4
-  %idxprom38 = sext i32 %30 to i64
+  %38 = load i32, ptr %side37, align 4
+  store i32 %38, ptr %side, align 4
+  %39 = load i32, ptr %i, align 4
+  %idxprom38 = sext i32 %39 to i64
   %arrayidx39 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 %idxprom38
-  %31 = load i32, ptr %arrayidx39, align 4
-  %32 = load i32, ptr %side, align 4
-  %idxprom40 = sext i32 %32 to i64
+  %40 = load i32, ptr %arrayidx39, align 4
+  %41 = load i32, ptr %side, align 4
+  %idxprom40 = sext i32 %41 to i64
   %arrayidx41 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom40
   %width42 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx41, i32 0, i32 0
-  %33 = load i32, ptr %width42, align 8
-  %cmp43 = icmp sgt i32 %31, %33
+  %42 = load i32, ptr %width42, align 8
+  %cmp43 = icmp sgt i32 %40, %42
   br i1 %cmp43, label %if.then45, label %if.end
 
 if.then45:                                        ; preds = %if.then
-  %34 = load i32, ptr %i, align 4
-  %idxprom46 = sext i32 %34 to i64
+  %43 = load i32, ptr %i, align 4
+  %idxprom46 = sext i32 %43 to i64
   %arrayidx47 = getelementptr inbounds [7 x i32], ptr %min_width, i64 0, i64 %idxprom46
-  %35 = load i32, ptr %arrayidx47, align 4
-  %36 = load i32, ptr %side, align 4
-  %idxprom48 = sext i32 %36 to i64
+  %44 = load i32, ptr %arrayidx47, align 4
+  %45 = load i32, ptr %side, align 4
+  %idxprom48 = sext i32 %45 to i64
   %arrayidx49 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom48
   %width50 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx49, i32 0, i32 0
-  store i32 %35, ptr %width50, align 8
+  store i32 %44, ptr %width50, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then45, %if.then
-  %37 = load i32, ptr %side, align 4
-  %idxprom51 = sext i32 %37 to i64
+  %46 = load i32, ptr %side, align 4
+  %idxprom51 = sext i32 %46 to i64
   %arrayidx52 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom51
   %active53 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx52, i32 0, i32 4
   store i32 1, ptr %active53, align 8
@@ -4991,55 +5121,58 @@ if.end54:                                         ; preds = %if.end, %for.body31
   br label %for.inc55
 
 for.inc55:                                        ; preds = %if.end54
-  %38 = load i32, ptr %i, align 4
-  %inc56 = add nsw i32 %38, 1
+  %47 = load i32, ptr %i, align 4
+  %inc56 = add nsw i32 %47, 1
   store i32 %inc56, ptr %i, align 4
   br label %for.cond28, !llvm.loop !27
 
 for.end57:                                        ; preds = %for.cond28
-  %39 = load i32, ptr getelementptr inbounds ([4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 2, i32 4), align 16
-  %tobool58 = icmp ne i32 %39, 0
+  %48 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 2, i32 4
+  %49 = load i32, ptr %48, align 16
+  %tobool58 = icmp ne i32 %49, 0
   br i1 %tobool58, label %if.then59, label %if.else
 
 if.then59:                                        ; preds = %for.end57
   store i32 15, ptr %height60, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %41 = load ptr, ptr %pt, align 8
-  %x0 = getelementptr inbounds %struct.stbte__panel, ptr %41, i32 0, i32 6
-  store i32 %40, ptr %x0, align 4
-  %42 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %43 = load ptr, ptr %pt, align 8
-  %y0 = getelementptr inbounds %struct.stbte__panel, ptr %43, i32 0, i32 7
-  store i32 %42, ptr %y0, align 4
-  %44 = load i32, ptr %window_width, align 4
-  %45 = load ptr, ptr %pt, align 8
-  %width61 = getelementptr inbounds %struct.stbte__panel, ptr %45, i32 0, i32 4
-  store i32 %44, ptr %width61, align 4
-  %46 = load i32, ptr %height60, align 4
-  %47 = load ptr, ptr %pt, align 8
-  %height62 = getelementptr inbounds %struct.stbte__panel, ptr %47, i32 0, i32 5
-  store i32 %46, ptr %height62, align 4
-  %48 = load i32, ptr %height60, align 4
+  %50 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %51 = load i32, ptr %50, align 4
+  %52 = load ptr, ptr %pt, align 8
+  %x0 = getelementptr inbounds %struct.stbte__panel, ptr %52, i32 0, i32 6
+  store i32 %51, ptr %x0, align 4
+  %53 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %54 = load i32, ptr %53, align 8
+  %55 = load ptr, ptr %pt, align 8
+  %y0 = getelementptr inbounds %struct.stbte__panel, ptr %55, i32 0, i32 7
+  store i32 %54, ptr %y0, align 4
+  %56 = load i32, ptr %window_width, align 4
+  %57 = load ptr, ptr %pt, align 8
+  %width61 = getelementptr inbounds %struct.stbte__panel, ptr %57, i32 0, i32 4
+  store i32 %56, ptr %width61, align 4
+  %58 = load i32, ptr %height60, align 4
+  %59 = load ptr, ptr %pt, align 8
+  %height62 = getelementptr inbounds %struct.stbte__panel, ptr %59, i32 0, i32 5
+  store i32 %58, ptr %height62, align 4
+  %60 = load i32, ptr %height60, align 4
   %arrayidx63 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 1
-  store i32 %48, ptr %arrayidx63, align 4
+  store i32 %60, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 0
-  store i32 %48, ptr %arrayidx64, align 16
+  store i32 %60, ptr %arrayidx64, align 16
   br label %if.end75
 
 if.else:                                          ; preds = %for.end57
-  %49 = load ptr, ptr %pt, align 8
-  %side65 = getelementptr inbounds %struct.stbte__panel, ptr %49, i32 0, i32 3
-  %50 = load i32, ptr %side65, align 4
-  %idxprom66 = sext i32 %50 to i64
+  %61 = load ptr, ptr %pt, align 8
+  %side65 = getelementptr inbounds %struct.stbte__panel, ptr %61, i32 0, i32 3
+  %62 = load i32, ptr %side65, align 4
+  %idxprom66 = sext i32 %62 to i64
   %arrayidx67 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom66
   %width68 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx67, i32 0, i32 0
-  %51 = load i32, ptr %width68, align 8
-  %sub69 = sub nsw i32 %51, 4
+  %63 = load i32, ptr %width68, align 8
+  %sub69 = sub nsw i32 %63, 4
   %div = sdiv i32 %sub69, 13
   %mul70 = mul nsw i32 11, %div
   store i32 %mul70, ptr %num_rows, align 4
-  %52 = load i32, ptr %num_rows, align 4
-  %mul71 = mul nsw i32 %52, 13
+  %64 = load i32, ptr %num_rows, align 4
+  %mul71 = mul nsw i32 %64, 13
   %add72 = add nsw i32 %mul71, 45
   %add73 = add nsw i32 %add72, 4
   %arrayidx74 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 0
@@ -5051,27 +5184,28 @@ if.end75:                                         ; preds = %if.else, %if.then59
   br label %for.cond76
 
 for.cond76:                                       ; preds = %for.inc85, %if.end75
-  %53 = load i32, ptr %i, align 4
-  %cmp77 = icmp slt i32 %53, 4
+  %65 = load i32, ptr %i, align 4
+  %cmp77 = icmp slt i32 %65, 4
   br i1 %cmp77, label %for.body79, label %for.end87
 
 for.body79:                                       ; preds = %for.cond76
-  %54 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom80 = sext i32 %55 to i64
+  %66 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %67 = load i32, ptr %66, align 8
+  %68 = load i32, ptr %i, align 4
+  %idxprom80 = sext i32 %68 to i64
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 %idxprom80
-  %56 = load i32, ptr %arrayidx81, align 4
-  %add82 = add nsw i32 %54, %56
-  %57 = load i32, ptr %i, align 4
-  %idxprom83 = sext i32 %57 to i64
+  %69 = load i32, ptr %arrayidx81, align 4
+  %add82 = add nsw i32 %67, %69
+  %70 = load i32, ptr %i, align 4
+  %idxprom83 = sext i32 %70 to i64
   %arrayidx84 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom83
   %y = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx84, i32 0, i32 3
   store i32 %add82, ptr %y, align 4
   br label %for.inc85
 
 for.inc85:                                        ; preds = %for.body79
-  %58 = load i32, ptr %i, align 4
-  %inc86 = add nsw i32 %58, 1
+  %71 = load i32, ptr %i, align 4
+  %inc86 = add nsw i32 %71, 1
   store i32 %inc86, ptr %i, align 4
   br label %for.cond76, !llvm.loop !28
 
@@ -5080,208 +5214,214 @@ for.end87:                                        ; preds = %for.cond76
   br label %for.cond88
 
 for.cond88:                                       ; preds = %for.inc110, %for.end87
-  %59 = load i32, ptr %i, align 4
-  %cmp89 = icmp slt i32 %59, 2
+  %72 = load i32, ptr %i, align 4
+  %cmp89 = icmp slt i32 %72, 2
   br i1 %cmp89, label %for.body91, label %for.end112
 
 for.body91:                                       ; preds = %for.cond88
-  %60 = load i32, ptr %i, align 4
-  %idxprom92 = sext i32 %60 to i64
+  %73 = load i32, ptr %i, align 4
+  %idxprom92 = sext i32 %73 to i64
   %arrayidx93 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom92
   %width94 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx93, i32 0, i32 0
-  %61 = load i32, ptr %width94, align 8
-  %conv95 = sitofp i32 %61 to float
-  %62 = load i32, ptr %i, align 4
-  %idxprom96 = sext i32 %62 to i64
+  %74 = load i32, ptr %width94, align 8
+  %conv95 = sitofp i32 %74 to float
+  %75 = load i32, ptr %i, align 4
+  %idxprom96 = sext i32 %75 to i64
   %arrayidx97 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom96
   %retracted = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx97, i32 0, i32 5
-  %63 = load float, ptr %retracted, align 4
-  %mul98 = fmul float %conv95, %63
+  %76 = load float, ptr %retracted, align 4
+  %mul98 = fmul float %conv95, %76
   %conv99 = fptosi float %mul98 to i32
   store i32 %conv99, ptr %anim, align 4
-  %64 = load i32, ptr %i, align 4
-  %cmp100 = icmp eq i32 %64, 0
+  %77 = load i32, ptr %i, align 4
+  %cmp100 = icmp eq i32 %77, 0
   br i1 %cmp100, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body91
-  %65 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %66 = load i32, ptr %anim, align 4
-  %sub102 = sub nsw i32 %65, %66
+  %78 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %79 = load i32, ptr %78, align 4
+  %80 = load i32, ptr %anim, align 4
+  %sub102 = sub nsw i32 %79, %80
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body91
-  %67 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %68 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %68 to i64
+  %81 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %82 = load i32, ptr %81, align 4
+  %83 = load i32, ptr %i, align 4
+  %idxprom103 = sext i32 %83 to i64
   %arrayidx104 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom103
   %width105 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx104, i32 0, i32 0
-  %69 = load i32, ptr %width105, align 8
-  %sub106 = sub nsw i32 %67, %69
-  %70 = load i32, ptr %anim, align 4
-  %add107 = add nsw i32 %sub106, %70
+  %84 = load i32, ptr %width105, align 8
+  %sub106 = sub nsw i32 %82, %84
+  %85 = load i32, ptr %anim, align 4
+  %add107 = add nsw i32 %sub106, %85
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %sub102, %cond.true ], [ %add107, %cond.false ]
-  %71 = load i32, ptr %i, align 4
-  %idxprom108 = sext i32 %71 to i64
+  %86 = load i32, ptr %i, align 4
+  %idxprom108 = sext i32 %86 to i64
   %arrayidx109 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom108
   %x = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx109, i32 0, i32 2
   store i32 %cond, ptr %x, align 8
   br label %for.inc110
 
 for.inc110:                                       ; preds = %cond.end
-  %72 = load i32, ptr %i, align 4
-  %inc111 = add nsw i32 %72, 1
+  %87 = load i32, ptr %i, align 4
+  %inc111 = add nsw i32 %87, 1
   store i32 %inc111, ptr %i, align 4
   br label %for.cond88, !llvm.loop !29
 
 for.end112:                                       ; preds = %for.cond88
   %arrayidx113 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 1
   store i32 300, ptr %arrayidx113, align 4
-  %73 = load ptr, ptr %p, align 8
-  %arrayidx114 = getelementptr inbounds %struct.stbte__panel, ptr %73, i64 2
+  %88 = load ptr, ptr %p, align 8
+  %arrayidx114 = getelementptr inbounds %struct.stbte__panel, ptr %88, i64 2
   %side115 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx114, i32 0, i32 3
-  %74 = load i32, ptr %side115, align 4
-  %idxprom116 = sext i32 %74 to i64
+  %89 = load i32, ptr %side115, align 4
+  %idxprom116 = sext i32 %89 to i64
   %arrayidx117 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom116
   %width118 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx117, i32 0, i32 0
-  %75 = load i32, ptr %width118, align 8
-  store i32 %75, ptr %w, align 4
-  %76 = load i32, ptr %w, align 4
-  %77 = load ptr, ptr %tm.addr, align 8
-  %digits119 = getelementptr inbounds %struct.stbte_tilemap, ptr %77, i32 0, i32 20
-  %78 = load i32, ptr %digits119, align 8
-  %mul120 = mul nsw i32 7, %78
+  %90 = load i32, ptr %width118, align 8
+  store i32 %90, ptr %w, align 4
+  %91 = load i32, ptr %w, align 4
+  %92 = load ptr, ptr %tm.addr, align 8
+  %digits119 = getelementptr inbounds %struct.stbte_tilemap, ptr %92, i32 0, i32 20
+  %93 = load i32, ptr %digits119, align 8
+  %mul120 = mul nsw i32 7, %93
   %add121 = add nsw i32 11, %mul120
   %add122 = add nsw i32 %add121, 17
   %mul123 = mul nsw i32 %add122, 2
   %add124 = add nsw i32 8, %mul123
   %add125 = add nsw i32 %add124, 4
-  %cmp126 = icmp sge i32 %76, %add125
+  %cmp126 = icmp sge i32 %91, %add125
   %conv127 = zext i1 %cmp126 to i32
-  %79 = load ptr, ptr %p, align 8
-  %arrayidx128 = getelementptr inbounds %struct.stbte__panel, ptr %79, i64 2
+  %94 = load ptr, ptr %p, align 8
+  %arrayidx128 = getelementptr inbounds %struct.stbte__panel, ptr %94, i64 2
   %mode = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx128, i32 0, i32 1
   store i32 %conv127, ptr %mode, align 4
-  %80 = load ptr, ptr %p, align 8
-  %arrayidx129 = getelementptr inbounds %struct.stbte__panel, ptr %80, i64 2
+  %95 = load ptr, ptr %p, align 8
+  %arrayidx129 = getelementptr inbounds %struct.stbte__panel, ptr %95, i64 2
   %mode130 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx129, i32 0, i32 1
-  %81 = load i32, ptr %mode130, align 4
-  %tobool131 = icmp ne i32 %81, 0
+  %96 = load i32, ptr %mode130, align 4
+  %tobool131 = icmp ne i32 %96, 0
   br i1 %tobool131, label %if.then132, label %if.else135
 
 if.then132:                                       ; preds = %for.end112
-  %82 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %82, i32 0, i32 8
-  %83 = load i32, ptr %palette_spacing_y, align 8
-  %add133 = add nsw i32 29, %83
+  %97 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %97, i32 0, i32 8
+  %98 = load i32, ptr %palette_spacing_y, align 8
+  %add133 = add nsw i32 29, %98
   %arrayidx134 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 2
   store i32 %add133, ptr %arrayidx134, align 8
   br label %if.end139
 
 if.else135:                                       ; preds = %for.end112
-  %84 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_y136 = getelementptr inbounds %struct.stbte_tilemap, ptr %84, i32 0, i32 8
-  %85 = load i32, ptr %palette_spacing_y136, align 8
-  %add137 = add nsw i32 51, %85
+  %99 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_y136 = getelementptr inbounds %struct.stbte_tilemap, ptr %99, i32 0, i32 8
+  %100 = load i32, ptr %palette_spacing_y136, align 8
+  %add137 = add nsw i32 51, %100
   %arrayidx138 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 2
   store i32 %add137, ptr %arrayidx138, align 8
   br label %if.end139
 
 if.end139:                                        ; preds = %if.else135, %if.then132
-  %86 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2), align 4
-  %add140 = add nsw i32 6, %86
+  %101 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2
+  %102 = load i32, ptr %101, align 4
+  %add140 = add nsw i32 6, %102
   store i32 %add140, ptr %limit, align 4
-  %87 = load ptr, ptr %tm.addr, align 8
-  %num_layers141 = getelementptr inbounds %struct.stbte_tilemap, ptr %87, i32 0, i32 4
-  %88 = load i32, ptr %num_layers141, align 8
-  %89 = load i32, ptr %limit, align 4
-  %cmp142 = icmp sgt i32 %88, %89
+  %103 = load ptr, ptr %tm.addr, align 8
+  %num_layers141 = getelementptr inbounds %struct.stbte_tilemap, ptr %103, i32 0, i32 4
+  %104 = load i32, ptr %num_layers141, align 8
+  %105 = load i32, ptr %limit, align 4
+  %cmp142 = icmp sgt i32 %104, %105
   br i1 %cmp142, label %cond.true144, label %cond.false145
 
 cond.true144:                                     ; preds = %if.end139
-  %90 = load i32, ptr %limit, align 4
+  %106 = load i32, ptr %limit, align 4
   br label %cond.end147
 
 cond.false145:                                    ; preds = %if.end139
-  %91 = load ptr, ptr %tm.addr, align 8
-  %num_layers146 = getelementptr inbounds %struct.stbte_tilemap, ptr %91, i32 0, i32 4
-  %92 = load i32, ptr %num_layers146, align 8
+  %107 = load ptr, ptr %tm.addr, align 8
+  %num_layers146 = getelementptr inbounds %struct.stbte_tilemap, ptr %107, i32 0, i32 4
+  %108 = load i32, ptr %num_layers146, align 8
   br label %cond.end147
 
 cond.end147:                                      ; preds = %cond.false145, %cond.true144
-  %cond148 = phi i32 [ %90, %cond.true144 ], [ %92, %cond.false145 ]
+  %cond148 = phi i32 [ %106, %cond.true144 ], [ %108, %cond.false145 ]
   %mul149 = mul nsw i32 %cond148, 15
   %add150 = add nsw i32 %mul149, 7
-  %93 = load ptr, ptr %tm.addr, align 8
-  %has_layer_names151 = getelementptr inbounds %struct.stbte_tilemap, ptr %93, i32 0, i32 29
-  %94 = load i32, ptr %has_layer_names151, align 8
-  %tobool152 = icmp ne i32 %94, 0
+  %109 = load ptr, ptr %tm.addr, align 8
+  %has_layer_names151 = getelementptr inbounds %struct.stbte_tilemap, ptr %109, i32 0, i32 29
+  %110 = load i32, ptr %has_layer_names151, align 8
+  %tobool152 = icmp ne i32 %110, 0
   %cond153 = select i1 %tobool152, i32 0, i32 11
   %add154 = add nsw i32 %add150, %cond153
-  %95 = load i32, ptr %props, align 4
-  %mul155 = mul nsw i32 %95, 13
+  %111 = load i32, ptr %props, align 4
+  %mul155 = mul nsw i32 %111, 13
   %add156 = add nsw i32 %add154, %mul155
   %arrayidx157 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 3
   store i32 %add156, ptr %arrayidx157, align 4
-  %96 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2), align 4
-  %add158 = add nsw i32 6, %96
+  %112 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2
+  %113 = load i32, ptr %112, align 4
+  %add158 = add nsw i32 6, %113
   store i32 %add158, ptr %limit, align 4
-  %97 = load ptr, ptr %tm.addr, align 8
-  %num_categories159 = getelementptr inbounds %struct.stbte_tilemap, ptr %97, i32 0, i32 15
-  %98 = load i32, ptr %num_categories159, align 8
-  %add160 = add nsw i32 %98, 1
-  %99 = load i32, ptr %limit, align 4
-  %cmp161 = icmp sgt i32 %add160, %99
+  %114 = load ptr, ptr %tm.addr, align 8
+  %num_categories159 = getelementptr inbounds %struct.stbte_tilemap, ptr %114, i32 0, i32 15
+  %115 = load i32, ptr %num_categories159, align 8
+  %add160 = add nsw i32 %115, 1
+  %116 = load i32, ptr %limit, align 4
+  %cmp161 = icmp sgt i32 %add160, %116
   br i1 %cmp161, label %cond.true163, label %cond.false164
 
 cond.true163:                                     ; preds = %cond.end147
-  %100 = load i32, ptr %limit, align 4
+  %117 = load i32, ptr %limit, align 4
   br label %cond.end167
 
 cond.false164:                                    ; preds = %cond.end147
-  %101 = load ptr, ptr %tm.addr, align 8
-  %num_categories165 = getelementptr inbounds %struct.stbte_tilemap, ptr %101, i32 0, i32 15
-  %102 = load i32, ptr %num_categories165, align 8
-  %add166 = add nsw i32 %102, 1
+  %118 = load ptr, ptr %tm.addr, align 8
+  %num_categories165 = getelementptr inbounds %struct.stbte_tilemap, ptr %118, i32 0, i32 15
+  %119 = load i32, ptr %num_categories165, align 8
+  %add166 = add nsw i32 %119, 1
   br label %cond.end167
 
 cond.end167:                                      ; preds = %cond.false164, %cond.true163
-  %cond168 = phi i32 [ %100, %cond.true163 ], [ %add166, %cond.false164 ]
+  %cond168 = phi i32 [ %117, %cond.true163 ], [ %add166, %cond.false164 ]
   %mul169 = mul nsw i32 %cond168, 11
   %add170 = add nsw i32 %mul169, 14
   %arrayidx171 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 5
   store i32 %add170, ptr %arrayidx171, align 4
-  %103 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3), align 4
-  %104 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3), align 4
-  %cmp172 = icmp eq i32 %103, %104
+  %120 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3
+  %123 = load i32, ptr %122, align 4
+  %cmp172 = icmp eq i32 %121, %123
   br i1 %cmp172, label %if.then174, label %if.end177
 
 if.then174:                                       ; preds = %cond.end167
   %arrayidx175 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 5
-  %105 = load i32, ptr %arrayidx175, align 4
-  %sub176 = sub nsw i32 %105, 4
+  %124 = load i32, ptr %arrayidx175, align 4
+  %sub176 = sub nsw i32 %124, 4
   store i32 %sub176, ptr %arrayidx175, align 4
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then174, %cond.end167
-  %106 = load ptr, ptr %p, align 8
-  %arrayidx178 = getelementptr inbounds %struct.stbte__panel, ptr %106, i64 6
+  %125 = load ptr, ptr %p, align 8
+  %arrayidx178 = getelementptr inbounds %struct.stbte__panel, ptr %125, i64 6
   %side179 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx178, i32 0, i32 3
-  %107 = load i32, ptr %side179, align 4
-  %idxprom180 = sext i32 %107 to i64
+  %126 = load i32, ptr %side179, align 4
+  %idxprom180 = sext i32 %126 to i64
   %arrayidx181 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom180
   %width182 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx181, i32 0, i32 0
-  %108 = load i32, ptr %width182, align 8
-  %sub183 = sub nsw i32 %108, 8
-  %109 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_x184 = getelementptr inbounds %struct.stbte_tilemap, ptr %109, i32 0, i32 7
-  %110 = load i32, ptr %palette_spacing_x184, align 4
-  %div185 = sdiv i32 %sub183, %110
+  %127 = load i32, ptr %width182, align 8
+  %sub183 = sub nsw i32 %127, 8
+  %128 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_x184 = getelementptr inbounds %struct.stbte_tilemap, ptr %128, i32 0, i32 7
+  %129 = load i32, ptr %palette_spacing_x184, align 4
+  %div185 = sdiv i32 %sub183, %129
   store i32 %div185, ptr %k, align 4
-  %111 = load i32, ptr %k, align 4
-  %cmp186 = icmp eq i32 %111, 0
+  %130 = load i32, ptr %k, align 4
+  %cmp186 = icmp eq i32 %130, 0
   br i1 %cmp186, label %if.then188, label %if.end189
 
 if.then188:                                       ; preds = %if.end177
@@ -5289,18 +5429,18 @@ if.then188:                                       ; preds = %if.end177
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then188, %if.end177
-  %112 = load ptr, ptr %tm.addr, align 8
-  %num_tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %112, i32 0, i32 18
-  %113 = load i32, ptr %num_tiles, align 8
-  %114 = load i32, ptr %k, align 4
-  %add190 = add nsw i32 %113, %114
+  %131 = load ptr, ptr %tm.addr, align 8
+  %num_tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %131, i32 0, i32 18
+  %132 = load i32, ptr %num_tiles, align 8
+  %133 = load i32, ptr %k, align 4
+  %add190 = add nsw i32 %132, %133
   %sub191 = sub nsw i32 %add190, 1
-  %115 = load i32, ptr %k, align 4
-  %div192 = sdiv i32 %sub191, %115
-  %116 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_y193 = getelementptr inbounds %struct.stbte_tilemap, ptr %116, i32 0, i32 8
-  %117 = load i32, ptr %palette_spacing_y193, align 8
-  %mul194 = mul nsw i32 %div192, %117
+  %134 = load i32, ptr %k, align 4
+  %div192 = sdiv i32 %sub191, %134
+  %135 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_y193 = getelementptr inbounds %struct.stbte_tilemap, ptr %135, i32 0, i32 8
+  %136 = load i32, ptr %palette_spacing_y193, align 8
+  %mul194 = mul nsw i32 %div192, %136
   %add195 = add nsw i32 %mul194, 8
   %arrayidx196 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 6
   store i32 %add195, ptr %arrayidx196, align 8
@@ -5310,116 +5450,118 @@ if.end189:                                        ; preds = %if.then188, %if.end
   br label %for.cond198
 
 for.cond198:                                      ; preds = %for.inc274, %if.end189
-  %118 = load i32, ptr %i, align 4
-  %cmp199 = icmp slt i32 %118, 7
+  %137 = load i32, ptr %i, align 4
+  %cmp199 = icmp slt i32 %137, 7
   br i1 %cmp199, label %for.body201, label %for.end276
 
 for.body201:                                      ; preds = %for.cond198
-  %119 = load i32, ptr %i, align 4
-  %idxprom202 = sext i32 %119 to i64
+  %138 = load i32, ptr %i, align 4
+  %idxprom202 = sext i32 %138 to i64
   %arrayidx203 = getelementptr inbounds [7 x i32], ptr %panel_active, i64 0, i64 %idxprom202
-  %120 = load i32, ptr %arrayidx203, align 4
-  %tobool204 = icmp ne i32 %120, 0
+  %139 = load i32, ptr %arrayidx203, align 4
+  %tobool204 = icmp ne i32 %139, 0
   br i1 %tobool204, label %if.then205, label %if.else260
 
 if.then205:                                       ; preds = %for.body201
-  %121 = load ptr, ptr %p, align 8
-  %122 = load i32, ptr %i, align 4
-  %idxprom207 = sext i32 %122 to i64
-  %arrayidx208 = getelementptr inbounds %struct.stbte__panel, ptr %121, i64 %idxprom207
+  %140 = load ptr, ptr %p, align 8
+  %141 = load i32, ptr %i, align 4
+  %idxprom207 = sext i32 %141 to i64
+  %arrayidx208 = getelementptr inbounds %struct.stbte__panel, ptr %140, i64 %idxprom207
   %side209 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx208, i32 0, i32 3
-  %123 = load i32, ptr %side209, align 4
-  store i32 %123, ptr %side206, align 4
-  %124 = load i32, ptr %side206, align 4
-  %cmp210 = icmp eq i32 %124, 0
+  %142 = load i32, ptr %side209, align 4
+  store i32 %142, ptr %side206, align 4
+  %143 = load i32, ptr %side206, align 4
+  %cmp210 = icmp eq i32 %143, 0
   br i1 %cmp210, label %if.then214, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then205
-  %125 = load i32, ptr %side206, align 4
-  %cmp212 = icmp eq i32 %125, 1
+  %144 = load i32, ptr %side206, align 4
+  %cmp212 = icmp eq i32 %144, 1
   br i1 %cmp212, label %if.then214, label %if.else258
 
 if.then214:                                       ; preds = %lor.lhs.false, %if.then205
-  %126 = load i32, ptr %side206, align 4
-  %idxprom215 = sext i32 %126 to i64
+  %145 = load i32, ptr %side206, align 4
+  %idxprom215 = sext i32 %145 to i64
   %arrayidx216 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom215
   %width217 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx216, i32 0, i32 0
-  %127 = load i32, ptr %width217, align 8
-  %128 = load ptr, ptr %p, align 8
-  %129 = load i32, ptr %i, align 4
-  %idxprom218 = sext i32 %129 to i64
-  %arrayidx219 = getelementptr inbounds %struct.stbte__panel, ptr %128, i64 %idxprom218
+  %146 = load i32, ptr %width217, align 8
+  %147 = load ptr, ptr %p, align 8
+  %148 = load i32, ptr %i, align 4
+  %idxprom218 = sext i32 %148 to i64
+  %arrayidx219 = getelementptr inbounds %struct.stbte__panel, ptr %147, i64 %idxprom218
   %width220 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx219, i32 0, i32 4
-  store i32 %127, ptr %width220, align 4
-  %130 = load i32, ptr %side206, align 4
-  %idxprom221 = sext i32 %130 to i64
+  store i32 %146, ptr %width220, align 4
+  %149 = load i32, ptr %side206, align 4
+  %idxprom221 = sext i32 %149 to i64
   %arrayidx222 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom221
   %x223 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx222, i32 0, i32 2
-  %131 = load i32, ptr %x223, align 8
-  %132 = load ptr, ptr %p, align 8
-  %133 = load i32, ptr %i, align 4
-  %idxprom224 = sext i32 %133 to i64
-  %arrayidx225 = getelementptr inbounds %struct.stbte__panel, ptr %132, i64 %idxprom224
+  %150 = load i32, ptr %x223, align 8
+  %151 = load ptr, ptr %p, align 8
+  %152 = load i32, ptr %i, align 4
+  %idxprom224 = sext i32 %152 to i64
+  %arrayidx225 = getelementptr inbounds %struct.stbte__panel, ptr %151, i64 %idxprom224
   %x0226 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx225, i32 0, i32 6
-  store i32 %131, ptr %x0226, align 4
-  %134 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %135 = load i32, ptr %side206, align 4
-  %idxprom227 = sext i32 %135 to i64
+  store i32 %150, ptr %x0226, align 4
+  %153 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %154 = load i32, ptr %153, align 8
+  %155 = load i32, ptr %side206, align 4
+  %idxprom227 = sext i32 %155 to i64
   %arrayidx228 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 %idxprom227
-  %136 = load i32, ptr %arrayidx228, align 4
-  %add229 = add nsw i32 %134, %136
-  %137 = load ptr, ptr %p, align 8
-  %138 = load i32, ptr %i, align 4
-  %idxprom230 = sext i32 %138 to i64
-  %arrayidx231 = getelementptr inbounds %struct.stbte__panel, ptr %137, i64 %idxprom230
+  %156 = load i32, ptr %arrayidx228, align 4
+  %add229 = add nsw i32 %154, %156
+  %157 = load ptr, ptr %p, align 8
+  %158 = load i32, ptr %i, align 4
+  %idxprom230 = sext i32 %158 to i64
+  %arrayidx231 = getelementptr inbounds %struct.stbte__panel, ptr %157, i64 %idxprom230
   %y0232 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx231, i32 0, i32 7
   store i32 %add229, ptr %y0232, align 4
-  %139 = load i32, ptr %i, align 4
-  %idxprom233 = sext i32 %139 to i64
+  %159 = load i32, ptr %i, align 4
+  %idxprom233 = sext i32 %159 to i64
   %arrayidx234 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 %idxprom233
-  %140 = load i32, ptr %arrayidx234, align 4
-  %141 = load ptr, ptr %p, align 8
-  %142 = load i32, ptr %i, align 4
-  %idxprom235 = sext i32 %142 to i64
-  %arrayidx236 = getelementptr inbounds %struct.stbte__panel, ptr %141, i64 %idxprom235
+  %160 = load i32, ptr %arrayidx234, align 4
+  %161 = load ptr, ptr %p, align 8
+  %162 = load i32, ptr %i, align 4
+  %idxprom235 = sext i32 %162 to i64
+  %arrayidx236 = getelementptr inbounds %struct.stbte__panel, ptr %161, i64 %idxprom235
   %height237 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx236, i32 0, i32 5
-  store i32 %140, ptr %height237, align 4
-  %143 = load i32, ptr %i, align 4
-  %idxprom238 = sext i32 %143 to i64
+  store i32 %160, ptr %height237, align 4
+  %163 = load i32, ptr %i, align 4
+  %idxprom238 = sext i32 %163 to i64
   %arrayidx239 = getelementptr inbounds [7 x i32], ptr %height, i64 0, i64 %idxprom238
-  %144 = load i32, ptr %arrayidx239, align 4
-  %145 = load i32, ptr %side206, align 4
-  %idxprom240 = sext i32 %145 to i64
+  %164 = load i32, ptr %arrayidx239, align 4
+  %165 = load i32, ptr %side206, align 4
+  %idxprom240 = sext i32 %165 to i64
   %arrayidx241 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 %idxprom240
-  %146 = load i32, ptr %arrayidx241, align 4
-  %add242 = add nsw i32 %146, %144
+  %166 = load i32, ptr %arrayidx241, align 4
+  %add242 = add nsw i32 %166, %164
   store i32 %add242, ptr %arrayidx241, align 4
-  %147 = load i32, ptr %side206, align 4
-  %idxprom243 = sext i32 %147 to i64
+  %167 = load i32, ptr %side206, align 4
+  %idxprom243 = sext i32 %167 to i64
   %arrayidx244 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 %idxprom243
-  %148 = load i32, ptr %arrayidx244, align 4
-  %149 = load i32, ptr %window_height, align 4
-  %cmp245 = icmp sgt i32 %148, %149
+  %168 = load i32, ptr %arrayidx244, align 4
+  %169 = load i32, ptr %window_height, align 4
+  %cmp245 = icmp sgt i32 %168, %169
   br i1 %cmp245, label %if.then247, label %if.end257
 
 if.then247:                                       ; preds = %if.then214
-  %150 = load i32, ptr %window_height, align 4
-  %151 = load i32, ptr %side206, align 4
-  %idxprom248 = sext i32 %151 to i64
+  %170 = load i32, ptr %window_height, align 4
+  %171 = load i32, ptr %side206, align 4
+  %idxprom248 = sext i32 %171 to i64
   %arrayidx249 = getelementptr inbounds [4 x i32], ptr %vpos, i64 0, i64 %idxprom248
-  store i32 %150, ptr %arrayidx249, align 4
-  %152 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %153 = load ptr, ptr %p, align 8
-  %154 = load i32, ptr %i, align 4
-  %idxprom250 = sext i32 %154 to i64
-  %arrayidx251 = getelementptr inbounds %struct.stbte__panel, ptr %153, i64 %idxprom250
+  store i32 %170, ptr %arrayidx249, align 4
+  %172 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %173 = load i32, ptr %172, align 8
+  %174 = load ptr, ptr %p, align 8
+  %175 = load i32, ptr %i, align 4
+  %idxprom250 = sext i32 %175 to i64
+  %arrayidx251 = getelementptr inbounds %struct.stbte__panel, ptr %174, i64 %idxprom250
   %y0252 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx251, i32 0, i32 7
-  %155 = load i32, ptr %y0252, align 4
-  %sub253 = sub nsw i32 %152, %155
-  %156 = load ptr, ptr %p, align 8
-  %157 = load i32, ptr %i, align 4
-  %idxprom254 = sext i32 %157 to i64
-  %arrayidx255 = getelementptr inbounds %struct.stbte__panel, ptr %156, i64 %idxprom254
+  %176 = load i32, ptr %y0252, align 4
+  %sub253 = sub nsw i32 %173, %176
+  %177 = load ptr, ptr %p, align 8
+  %178 = load i32, ptr %i, align 4
+  %idxprom254 = sext i32 %178 to i64
+  %arrayidx255 = getelementptr inbounds %struct.stbte__panel, ptr %177, i64 %idxprom254
   %height256 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx255, i32 0, i32 5
   store i32 %sub253, ptr %height256, align 4
   br label %if.end257
@@ -5434,40 +5576,42 @@ if.end259:                                        ; preds = %if.else258, %if.end
   br label %if.end273
 
 if.else260:                                       ; preds = %for.body201
-  %158 = load ptr, ptr %p, align 8
-  %159 = load i32, ptr %i, align 4
-  %idxprom261 = sext i32 %159 to i64
-  %arrayidx262 = getelementptr inbounds %struct.stbte__panel, ptr %158, i64 %idxprom261
+  %179 = load ptr, ptr %p, align 8
+  %180 = load i32, ptr %i, align 4
+  %idxprom261 = sext i32 %180 to i64
+  %arrayidx262 = getelementptr inbounds %struct.stbte__panel, ptr %179, i64 %idxprom261
   %height263 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx262, i32 0, i32 5
   store i32 0, ptr %height263, align 4
-  %160 = load ptr, ptr %p, align 8
-  %161 = load i32, ptr %i, align 4
-  %idxprom264 = sext i32 %161 to i64
-  %arrayidx265 = getelementptr inbounds %struct.stbte__panel, ptr %160, i64 %idxprom264
+  %181 = load ptr, ptr %p, align 8
+  %182 = load i32, ptr %i, align 4
+  %idxprom264 = sext i32 %182 to i64
+  %arrayidx265 = getelementptr inbounds %struct.stbte__panel, ptr %181, i64 %idxprom264
   %width266 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx265, i32 0, i32 4
   store i32 0, ptr %width266, align 4
-  %162 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %163 = load ptr, ptr %p, align 8
-  %164 = load i32, ptr %i, align 4
-  %idxprom267 = sext i32 %164 to i64
-  %arrayidx268 = getelementptr inbounds %struct.stbte__panel, ptr %163, i64 %idxprom267
+  %183 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %184 = load i32, ptr %183, align 4
+  %185 = load ptr, ptr %p, align 8
+  %186 = load i32, ptr %i, align 4
+  %idxprom267 = sext i32 %186 to i64
+  %arrayidx268 = getelementptr inbounds %struct.stbte__panel, ptr %185, i64 %idxprom267
   %x0269 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx268, i32 0, i32 6
-  store i32 %162, ptr %x0269, align 4
-  %165 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %166 = load ptr, ptr %p, align 8
-  %167 = load i32, ptr %i, align 4
-  %idxprom270 = sext i32 %167 to i64
-  %arrayidx271 = getelementptr inbounds %struct.stbte__panel, ptr %166, i64 %idxprom270
+  store i32 %184, ptr %x0269, align 4
+  %187 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %188 = load i32, ptr %187, align 8
+  %189 = load ptr, ptr %p, align 8
+  %190 = load i32, ptr %i, align 4
+  %idxprom270 = sext i32 %190 to i64
+  %arrayidx271 = getelementptr inbounds %struct.stbte__panel, ptr %189, i64 %idxprom270
   %y0272 = getelementptr inbounds %struct.stbte__panel, ptr %arrayidx271, i32 0, i32 7
-  store i32 %165, ptr %y0272, align 4
+  store i32 %188, ptr %y0272, align 4
   br label %if.end273
 
 if.end273:                                        ; preds = %if.else260, %if.end259
   br label %for.inc274
 
 for.inc274:                                       ; preds = %if.end273
-  %168 = load i32, ptr %i, align 4
-  %inc275 = add nsw i32 %168, 1
+  %191 = load i32, ptr %i, align 4
+  %inc275 = add nsw i32 %191, 1
   store i32 %inc275, ptr %i, align 4
   br label %for.cond198, !llvm.loop !30
 
@@ -5491,13 +5635,18 @@ entry:
   %add = add nsw i32 %shl, %1
   %shl1 = shl i32 %add, 7
   %add2 = add nsw i32 1, %shl1
-  store i32 %add2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %3 = load i32, ptr %x.addr, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %4 = load i32, ptr %y.addr, align 4
-  store i32 %4, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  store i32 %add2, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %4 = load i32, ptr %3, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  store i32 %4, ptr %5, align 4
+  %6 = load i32, ptr %x.addr, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  store i32 %6, ptr %7, align 4
+  %8 = load i32, ptr %y.addr, align 4
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  store i32 %8, ptr %9, align 8
   ret void
 }
 
@@ -5507,8 +5656,10 @@ entry:
   %msg.addr = alloca ptr, align 8
   store ptr %msg, ptr %msg.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
-  store float 3.000000e+00, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57), align 4
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  store ptr %0, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57
+  store float 3.000000e+00, ptr %2, align 4
   ret void
 }
 
@@ -7053,65 +7204,70 @@ entry:
   store ptr %tm, ptr %tm.addr, align 8
   store i32 %x, ptr %x.addr, align 4
   store i32 %y, ptr %y.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 20), align 8
-  %1 = load i32, ptr %x.addr, align 4
-  %cmp = icmp ne i32 %0, %1
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 20
+  %1 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %x.addr, align 4
+  %cmp = icmp ne i32 %1, %2
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 21), align 4
-  %3 = load i32, ptr %y.addr, align 4
-  %cmp1 = icmp ne i32 %2, %3
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 21
+  %4 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %y.addr, align 4
+  %cmp1 = icmp ne i32 %4, %5
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = load i32, ptr %x.addr, align 4
-  store i32 %4, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 20), align 8
-  %5 = load i32, ptr %y.addr, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 21), align 4
-  %6 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %6, i32 0, i32 4
-  %7 = load i32, ptr %num_layers, align 8
-  store i32 %7, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22), align 8
+  %6 = load i32, ptr %x.addr, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 20
+  store i32 %6, ptr %7, align 8
+  %8 = load i32, ptr %y.addr, align 4
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 21
+  store i32 %8, ptr %9, align 4
+  %10 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 4
+  %11 = load i32, ptr %num_layers, align 8
+  %12 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22
+  store i32 %11, ptr %12, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %8 = load ptr, ptr %tm.addr, align 8
-  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %8, i32 0, i32 13
-  %9 = load i32, ptr %cur_layer, align 4
-  store i32 %9, ptr %i, align 4
-  %10 = load ptr, ptr %tm.addr, align 8
-  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 33
-  %11 = load i32, ptr %solo_layer, align 8
-  %cmp2 = icmp sge i32 %11, 0
+  %13 = load ptr, ptr %tm.addr, align 8
+  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %13, i32 0, i32 13
+  %14 = load i32, ptr %cur_layer, align 4
+  store i32 %14, ptr %i, align 4
+  %15 = load ptr, ptr %tm.addr, align 8
+  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %15, i32 0, i32 33
+  %16 = load i32, ptr %solo_layer, align 8
+  %cmp2 = icmp sge i32 %16, 0
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %12 = load ptr, ptr %tm.addr, align 8
-  %solo_layer4 = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 33
-  %13 = load i32, ptr %solo_layer4, align 8
-  store i32 %13, ptr %i, align 4
+  %17 = load ptr, ptr %tm.addr, align 8
+  %solo_layer4 = getelementptr inbounds %struct.stbte_tilemap, ptr %17, i32 0, i32 33
+  %18 = load i32, ptr %solo_layer4, align 8
+  store i32 %18, ptr %i, align 4
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %14 = load i32, ptr %i, align 4
-  %cmp6 = icmp sge i32 %14, 0
+  %19 = load i32, ptr %i, align 4
+  %cmp6 = icmp sge i32 %19, 0
   br i1 %cmp6, label %if.then7, label %if.end24
 
 if.then7:                                         ; preds = %if.end5
-  %15 = load ptr, ptr %tm.addr, align 8
-  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %15, i32 0, i32 0
-  %16 = load i32, ptr %y.addr, align 4
-  %idxprom = sext i32 %16 to i64
+  %20 = load ptr, ptr %tm.addr, align 8
+  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %20, i32 0, i32 0
+  %21 = load i32, ptr %y.addr, align 4
+  %idxprom = sext i32 %21 to i64
   %arrayidx = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data, i64 0, i64 %idxprom
-  %17 = load i32, ptr %x.addr, align 4
-  %idxprom8 = sext i32 %17 to i64
+  %22 = load i32, ptr %x.addr, align 4
+  %idxprom8 = sext i32 %22 to i64
   %arrayidx9 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx, i64 0, i64 %idxprom8
-  %18 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %18 to i64
+  %23 = load i32, ptr %i, align 4
+  %idxprom10 = sext i32 %23 to i64
   %arrayidx11 = getelementptr inbounds [8 x i16], ptr %arrayidx9, i64 0, i64 %idxprom10
-  %19 = load i16, ptr %arrayidx11, align 2
-  %conv = sext i16 %19 to i32
+  %24 = load i16, ptr %arrayidx11, align 2
+  %conv = sext i16 %24 to i32
   %cmp12 = icmp eq i32 %conv, -1
   br i1 %cmp12, label %if.then14, label %if.end15
 
@@ -7119,83 +7275,84 @@ if.then14:                                        ; preds = %if.then7
   br label %for.end
 
 if.end15:                                         ; preds = %if.then7
-  %20 = load ptr, ptr %tm.addr, align 8
-  %21 = load ptr, ptr %tm.addr, align 8
-  %data16 = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %y.addr, align 4
-  %idxprom17 = sext i32 %22 to i64
-  %arrayidx18 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data16, i64 0, i64 %idxprom17
-  %23 = load i32, ptr %x.addr, align 4
-  %idxprom19 = sext i32 %23 to i64
-  %arrayidx20 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx18, i64 0, i64 %idxprom19
-  %24 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %24 to i64
-  %arrayidx22 = getelementptr inbounds [8 x i16], ptr %arrayidx20, i64 0, i64 %idxprom21
-  %25 = load i16, ptr %arrayidx22, align 2
-  %conv23 = sext i16 %25 to i32
-  %call = call i32 @stbte__find_tile(ptr noundef %20, i32 noundef %conv23)
+  %25 = load ptr, ptr %tm.addr, align 8
   %26 = load ptr, ptr %tm.addr, align 8
-  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 12
+  %data16 = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 0
+  %27 = load i32, ptr %y.addr, align 4
+  %idxprom17 = sext i32 %27 to i64
+  %arrayidx18 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data16, i64 0, i64 %idxprom17
+  %28 = load i32, ptr %x.addr, align 4
+  %idxprom19 = sext i32 %28 to i64
+  %arrayidx20 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx18, i64 0, i64 %idxprom19
+  %29 = load i32, ptr %i, align 4
+  %idxprom21 = sext i32 %29 to i64
+  %arrayidx22 = getelementptr inbounds [8 x i16], ptr %arrayidx20, i64 0, i64 %idxprom21
+  %30 = load i16, ptr %arrayidx22, align 2
+  %conv23 = sext i16 %30 to i32
+  %call = call i32 @stbte__find_tile(ptr noundef %25, i32 noundef %conv23)
+  %31 = load ptr, ptr %tm.addr, align 8
+  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 12
   store i32 %call, ptr %cur_tile, align 8
   br label %for.end
 
 if.end24:                                         ; preds = %if.end5
-  %27 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22), align 8
-  store i32 %27, ptr %i, align 4
+  %32 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22
+  %33 = load i32, ptr %32, align 8
+  store i32 %33, ptr %i, align 4
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end24
-  %28 = load i32, ptr %j, align 4
-  %29 = load ptr, ptr %tm.addr, align 8
-  %num_layers25 = getelementptr inbounds %struct.stbte_tilemap, ptr %29, i32 0, i32 4
-  %30 = load i32, ptr %num_layers25, align 8
-  %cmp26 = icmp slt i32 %28, %30
+  %34 = load i32, ptr %j, align 4
+  %35 = load ptr, ptr %tm.addr, align 8
+  %num_layers25 = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 4
+  %36 = load i32, ptr %num_layers25, align 8
+  %cmp26 = icmp slt i32 %34, %36
   br i1 %cmp26, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %31 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %31, -1
+  %37 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %37, -1
   store i32 %dec, ptr %i, align 4
   %cmp28 = icmp slt i32 %dec, 0
   br i1 %cmp28, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %for.body
-  %32 = load ptr, ptr %tm.addr, align 8
-  %num_layers31 = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 4
-  %33 = load i32, ptr %num_layers31, align 8
-  %sub = sub nsw i32 %33, 1
+  %38 = load ptr, ptr %tm.addr, align 8
+  %num_layers31 = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 4
+  %39 = load i32, ptr %num_layers31, align 8
+  %sub = sub nsw i32 %39, 1
   store i32 %sub, ptr %i, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %for.body
-  %34 = load ptr, ptr %tm.addr, align 8
-  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 28
-  %35 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %35 to i64
+  %40 = load ptr, ptr %tm.addr, align 8
+  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 28
+  %41 = load i32, ptr %i, align 4
+  %idxprom33 = sext i32 %41 to i64
   %arrayidx34 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %idxprom33
   %hidden = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx34, i32 0, i32 2
-  %36 = load i32, ptr %hidden, align 4
-  %tobool = icmp ne i32 %36, 0
+  %42 = load i32, ptr %hidden, align 4
+  %tobool = icmp ne i32 %42, 0
   br i1 %tobool, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end32
   br label %for.inc
 
 if.end36:                                         ; preds = %if.end32
-  %37 = load ptr, ptr %tm.addr, align 8
-  %data37 = getelementptr inbounds %struct.stbte_tilemap, ptr %37, i32 0, i32 0
-  %38 = load i32, ptr %y.addr, align 4
-  %idxprom38 = sext i32 %38 to i64
+  %43 = load ptr, ptr %tm.addr, align 8
+  %data37 = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 0
+  %44 = load i32, ptr %y.addr, align 4
+  %idxprom38 = sext i32 %44 to i64
   %arrayidx39 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data37, i64 0, i64 %idxprom38
-  %39 = load i32, ptr %x.addr, align 4
-  %idxprom40 = sext i32 %39 to i64
+  %45 = load i32, ptr %x.addr, align 4
+  %idxprom40 = sext i32 %45 to i64
   %arrayidx41 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx39, i64 0, i64 %idxprom40
-  %40 = load i32, ptr %i, align 4
-  %idxprom42 = sext i32 %40 to i64
+  %46 = load i32, ptr %i, align 4
+  %idxprom42 = sext i32 %46 to i64
   %arrayidx43 = getelementptr inbounds [8 x i16], ptr %arrayidx41, i64 0, i64 %idxprom42
-  %41 = load i16, ptr %arrayidx43, align 2
-  %conv44 = sext i16 %41 to i32
+  %47 = load i16, ptr %arrayidx43, align 2
+  %conv44 = sext i16 %47 to i32
   %cmp45 = icmp eq i32 %conv44, -1
   br i1 %cmp45, label %if.then47, label %if.end48
 
@@ -7203,31 +7360,32 @@ if.then47:                                        ; preds = %if.end36
   br label %for.inc
 
 if.end48:                                         ; preds = %if.end36
-  %42 = load i32, ptr %i, align 4
-  store i32 %42, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22), align 8
-  %43 = load ptr, ptr %tm.addr, align 8
-  %44 = load ptr, ptr %tm.addr, align 8
-  %data49 = getelementptr inbounds %struct.stbte_tilemap, ptr %44, i32 0, i32 0
-  %45 = load i32, ptr %y.addr, align 4
-  %idxprom50 = sext i32 %45 to i64
+  %48 = load i32, ptr %i, align 4
+  %49 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22
+  store i32 %48, ptr %49, align 8
+  %50 = load ptr, ptr %tm.addr, align 8
+  %51 = load ptr, ptr %tm.addr, align 8
+  %data49 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %y.addr, align 4
+  %idxprom50 = sext i32 %52 to i64
   %arrayidx51 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data49, i64 0, i64 %idxprom50
-  %46 = load i32, ptr %x.addr, align 4
-  %idxprom52 = sext i32 %46 to i64
+  %53 = load i32, ptr %x.addr, align 4
+  %idxprom52 = sext i32 %53 to i64
   %arrayidx53 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx51, i64 0, i64 %idxprom52
-  %47 = load i32, ptr %i, align 4
-  %idxprom54 = sext i32 %47 to i64
+  %54 = load i32, ptr %i, align 4
+  %idxprom54 = sext i32 %54 to i64
   %arrayidx55 = getelementptr inbounds [8 x i16], ptr %arrayidx53, i64 0, i64 %idxprom54
-  %48 = load i16, ptr %arrayidx55, align 2
-  %conv56 = sext i16 %48 to i32
-  %call57 = call i32 @stbte__find_tile(ptr noundef %43, i32 noundef %conv56)
-  %49 = load ptr, ptr %tm.addr, align 8
-  %cur_tile58 = getelementptr inbounds %struct.stbte_tilemap, ptr %49, i32 0, i32 12
+  %55 = load i16, ptr %arrayidx55, align 2
+  %conv56 = sext i16 %55 to i32
+  %call57 = call i32 @stbte__find_tile(ptr noundef %50, i32 noundef %conv56)
+  %56 = load ptr, ptr %tm.addr, align 8
+  %cur_tile58 = getelementptr inbounds %struct.stbte_tilemap, ptr %56, i32 0, i32 12
   store i32 %call57, ptr %cur_tile58, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %if.then47, %if.then35
-  %50 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %50, 1
+  %57 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %57, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !38
 
@@ -7890,7 +8048,8 @@ for.inc10:                                        ; preds = %for.end
 for.end12:                                        ; preds = %for.cond
   %26 = load ptr, ptr %tm.addr, align 8
   call void @stbte__end_undo(ptr noundef %26)
-  store ptr null, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  store ptr null, ptr %27, align 8
   ret void
 }
 
@@ -7907,71 +8066,76 @@ entry:
   store i32 %y0, ptr %y0.addr, align 4
   store i32 %x1, ptr %x1.addr, align 4
   store i32 %y1, ptr %y1.addr, align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %0 = load i32, ptr %x0.addr, align 4
-  %1 = load i32, ptr %x1.addr, align 4
-  %cmp = icmp slt i32 %0, %1
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  store i32 1, ptr %0, align 8
+  %1 = load i32, ptr %x0.addr, align 4
+  %2 = load i32, ptr %x1.addr, align 4
+  %cmp = icmp slt i32 %1, %2
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load i32, ptr %x0.addr, align 4
+  %3 = load i32, ptr %x0.addr, align 4
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %3 = load i32, ptr %x1.addr, align 4
+  %4 = load i32, ptr %x1.addr, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ %3, %cond.false ]
-  store i32 %cond, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %4 = load i32, ptr %x0.addr, align 4
-  %5 = load i32, ptr %x1.addr, align 4
-  %cmp1 = icmp slt i32 %4, %5
+  %cond = phi i32 [ %3, %cond.true ], [ %4, %cond.false ]
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  store i32 %cond, ptr %5, align 4
+  %6 = load i32, ptr %x0.addr, align 4
+  %7 = load i32, ptr %x1.addr, align 4
+  %cmp1 = icmp slt i32 %6, %7
   br i1 %cmp1, label %cond.true2, label %cond.false3
 
 cond.true2:                                       ; preds = %cond.end
-  %6 = load i32, ptr %x1.addr, align 4
+  %8 = load i32, ptr %x1.addr, align 4
   br label %cond.end4
 
 cond.false3:                                      ; preds = %cond.end
-  %7 = load i32, ptr %x0.addr, align 4
+  %9 = load i32, ptr %x0.addr, align 4
   br label %cond.end4
 
 cond.end4:                                        ; preds = %cond.false3, %cond.true2
-  %cond5 = phi i32 [ %6, %cond.true2 ], [ %7, %cond.false3 ]
-  store i32 %cond5, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %8 = load i32, ptr %y0.addr, align 4
-  %9 = load i32, ptr %y1.addr, align 4
-  %cmp6 = icmp slt i32 %8, %9
+  %cond5 = phi i32 [ %8, %cond.true2 ], [ %9, %cond.false3 ]
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  store i32 %cond5, ptr %10, align 4
+  %11 = load i32, ptr %y0.addr, align 4
+  %12 = load i32, ptr %y1.addr, align 4
+  %cmp6 = icmp slt i32 %11, %12
   br i1 %cmp6, label %cond.true7, label %cond.false8
 
 cond.true7:                                       ; preds = %cond.end4
-  %10 = load i32, ptr %y0.addr, align 4
+  %13 = load i32, ptr %y0.addr, align 4
   br label %cond.end9
 
 cond.false8:                                      ; preds = %cond.end4
-  %11 = load i32, ptr %y1.addr, align 4
+  %14 = load i32, ptr %y1.addr, align 4
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.false8, %cond.true7
-  %cond10 = phi i32 [ %10, %cond.true7 ], [ %11, %cond.false8 ]
-  store i32 %cond10, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %12 = load i32, ptr %y0.addr, align 4
-  %13 = load i32, ptr %y1.addr, align 4
-  %cmp11 = icmp slt i32 %12, %13
+  %cond10 = phi i32 [ %13, %cond.true7 ], [ %14, %cond.false8 ]
+  %15 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  store i32 %cond10, ptr %15, align 8
+  %16 = load i32, ptr %y0.addr, align 4
+  %17 = load i32, ptr %y1.addr, align 4
+  %cmp11 = icmp slt i32 %16, %17
   br i1 %cmp11, label %cond.true12, label %cond.false13
 
 cond.true12:                                      ; preds = %cond.end9
-  %14 = load i32, ptr %y1.addr, align 4
+  %18 = load i32, ptr %y1.addr, align 4
   br label %cond.end14
 
 cond.false13:                                     ; preds = %cond.end9
-  %15 = load i32, ptr %y0.addr, align 4
+  %19 = load i32, ptr %y0.addr, align 4
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.false13, %cond.true12
-  %cond15 = phi i32 [ %14, %cond.true12 ], [ %15, %cond.false13 ]
-  store i32 %cond15, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
+  %cond15 = phi i32 [ %18, %cond.true12 ], [ %19, %cond.false13 ]
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  store i32 %cond15, ptr %20, align 8
   ret void
 }
 
@@ -8032,28 +8196,33 @@ entry:
   %0 = load ptr, ptr %tm.addr, align 8
   %call = call i32 @stbte__should_copy_properties(ptr noundef %0)
   store i32 %call, ptr %copy_props, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %2 = load i32, ptr %1, align 8
+  %tobool = icmp ne i32 %2, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %sub = sub nsw i32 %2, %3
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %4 = load i32, ptr %3, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %6 = load i32, ptr %5, align 4
+  %sub = sub nsw i32 %4, %6
   %add = add nsw i32 %sub, 1
   store i32 %add, ptr %w, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %sub1 = sub nsw i32 %4, %5
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %10 = load i32, ptr %9, align 8
+  %sub1 = sub nsw i32 %8, %10
   %add2 = add nsw i32 %sub1, 1
   store i32 %add2, ptr %h, align 4
-  %6 = load i32, ptr %w, align 4
-  %div = sdiv i32 65536, %6
-  %7 = load i32, ptr %h, align 4
-  %cmp = icmp slt i32 %div, %7
+  %11 = load i32, ptr %w, align 4
+  %div = sdiv i32 65536, %11
+  %12 = load i32, ptr %h, align 4
+  %cmp = icmp slt i32 %div, %12
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -8065,11 +8234,11 @@ if.end4:                                          ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc11, %if.end4
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %w, align 4
-  %10 = load i32, ptr %h, align 4
-  %mul = mul nsw i32 %9, %10
-  %cmp5 = icmp slt i32 %8, %mul
+  %13 = load i32, ptr %i, align 4
+  %14 = load i32, ptr %w, align 4
+  %15 = load i32, ptr %h, align 4
+  %mul = mul nsw i32 %14, %15
+  %cmp5 = icmp slt i32 %13, %mul
   br i1 %cmp5, label %for.body, label %for.end13
 
 for.body:                                         ; preds = %for.cond
@@ -8077,26 +8246,27 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond6
 
 for.cond6:                                        ; preds = %for.inc, %for.body
-  %11 = load i32, ptr %n, align 4
-  %12 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 4
-  %13 = load i32, ptr %num_layers, align 8
-  %cmp7 = icmp slt i32 %11, %13
+  %16 = load i32, ptr %n, align 4
+  %17 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %17, i32 0, i32 4
+  %18 = load i32, ptr %num_layers, align 8
+  %cmp7 = icmp slt i32 %16, %18
   br i1 %cmp7, label %for.body8, label %for.end
 
 for.body8:                                        ; preds = %for.cond6
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds [65536 x [8 x i16]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61), i64 0, i64 %idxprom
-  %15 = load i32, ptr %n, align 4
-  %idxprom9 = sext i32 %15 to i64
+  %19 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %19 to i64
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61
+  %arrayidx = getelementptr inbounds [65536 x [8 x i16]], ptr %20, i64 0, i64 %idxprom
+  %21 = load i32, ptr %n, align 4
+  %idxprom9 = sext i32 %21 to i64
   %arrayidx10 = getelementptr inbounds [8 x i16], ptr %arrayidx, i64 0, i64 %idxprom9
   store i16 -1, ptr %arrayidx10, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body8
-  %16 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %16, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond6, !llvm.loop !45
 
@@ -8104,41 +8274,45 @@ for.end:                                          ; preds = %for.cond6
   br label %for.inc11
 
 for.inc11:                                        ; preds = %for.end
-  %17 = load i32, ptr %i, align 4
-  %inc12 = add nsw i32 %17, 1
+  %23 = load i32, ptr %i, align 4
+  %inc12 = add nsw i32 %23, 1
   store i32 %inc12, ptr %i, align 4
   br label %for.cond, !llvm.loop !46
 
 for.end13:                                        ; preds = %for.cond
-  %18 = load i32, ptr %cut.addr, align 4
-  %tobool14 = icmp ne i32 %18, 0
+  %24 = load i32, ptr %cut.addr, align 4
+  %tobool14 = icmp ne i32 %24, 0
   br i1 %tobool14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %for.end13
-  %19 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %19)
+  %25 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %25)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %for.end13
-  %20 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  store i32 %20, ptr %j, align 4
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %27 = load i32, ptr %26, align 8
+  store i32 %27, ptr %j, align 4
   br label %for.cond17
 
 for.cond17:                                       ; preds = %for.inc101, %if.end16
-  %21 = load i32, ptr %j, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %cmp18 = icmp sle i32 %21, %22
+  %28 = load i32, ptr %j, align 4
+  %29 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %30 = load i32, ptr %29, align 8
+  %cmp18 = icmp sle i32 %28, %30
   br i1 %cmp18, label %for.body19, label %for.end103
 
 for.body19:                                       ; preds = %for.cond17
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  store i32 %23, ptr %i, align 4
+  %31 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %32 = load i32, ptr %31, align 4
+  store i32 %32, ptr %i, align 4
   br label %for.cond20
 
 for.cond20:                                       ; preds = %for.inc98, %for.body19
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %cmp21 = icmp sle i32 %24, %25
+  %33 = load i32, ptr %i, align 4
+  %34 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %35 = load i32, ptr %34, align 4
+  %cmp21 = icmp sle i32 %33, %35
   br i1 %cmp21, label %for.body22, label %for.end100
 
 for.body22:                                       ; preds = %for.cond20
@@ -8146,26 +8320,26 @@ for.body22:                                       ; preds = %for.cond20
   br label %for.cond23
 
 for.cond23:                                       ; preds = %for.inc84, %for.body22
-  %26 = load i32, ptr %n, align 4
-  %27 = load ptr, ptr %tm.addr, align 8
-  %num_layers24 = getelementptr inbounds %struct.stbte_tilemap, ptr %27, i32 0, i32 4
-  %28 = load i32, ptr %num_layers24, align 8
-  %cmp25 = icmp slt i32 %26, %28
+  %36 = load i32, ptr %n, align 4
+  %37 = load ptr, ptr %tm.addr, align 8
+  %num_layers24 = getelementptr inbounds %struct.stbte_tilemap, ptr %37, i32 0, i32 4
+  %38 = load i32, ptr %num_layers24, align 8
+  %cmp25 = icmp slt i32 %36, %38
   br i1 %cmp25, label %for.body26, label %for.end86
 
 for.body26:                                       ; preds = %for.cond23
-  %29 = load ptr, ptr %tm.addr, align 8
-  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %29, i32 0, i32 33
-  %30 = load i32, ptr %solo_layer, align 8
-  %cmp27 = icmp sge i32 %30, 0
+  %39 = load ptr, ptr %tm.addr, align 8
+  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 33
+  %40 = load i32, ptr %solo_layer, align 8
+  %cmp27 = icmp sge i32 %40, 0
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %for.body26
-  %31 = load ptr, ptr %tm.addr, align 8
-  %solo_layer29 = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 33
-  %32 = load i32, ptr %solo_layer29, align 8
-  %33 = load i32, ptr %n, align 4
-  %cmp30 = icmp ne i32 %32, %33
+  %41 = load ptr, ptr %tm.addr, align 8
+  %solo_layer29 = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 33
+  %42 = load i32, ptr %solo_layer29, align 8
+  %43 = load i32, ptr %n, align 4
+  %cmp30 = icmp ne i32 %42, %43
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.then28
@@ -8175,18 +8349,18 @@ if.end32:                                         ; preds = %if.then28
   br label %if.end52
 
 if.else:                                          ; preds = %for.body26
-  %34 = load ptr, ptr %tm.addr, align 8
-  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 13
-  %35 = load i32, ptr %cur_layer, align 4
-  %cmp33 = icmp sge i32 %35, 0
+  %44 = load ptr, ptr %tm.addr, align 8
+  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %44, i32 0, i32 13
+  %45 = load i32, ptr %cur_layer, align 4
+  %cmp33 = icmp sge i32 %45, 0
   br i1 %cmp33, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.else
-  %36 = load ptr, ptr %tm.addr, align 8
-  %cur_layer35 = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 13
-  %37 = load i32, ptr %cur_layer35, align 4
-  %38 = load i32, ptr %n, align 4
-  %cmp36 = icmp ne i32 %37, %38
+  %46 = load ptr, ptr %tm.addr, align 8
+  %cur_layer35 = getelementptr inbounds %struct.stbte_tilemap, ptr %46, i32 0, i32 13
+  %47 = load i32, ptr %cur_layer35, align 4
+  %48 = load i32, ptr %n, align 4
+  %cmp36 = icmp ne i32 %47, %48
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.then34
@@ -8196,33 +8370,33 @@ if.end38:                                         ; preds = %if.then34
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end38, %if.else
-  %39 = load ptr, ptr %tm.addr, align 8
-  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 28
-  %40 = load i32, ptr %n, align 4
-  %idxprom40 = sext i32 %40 to i64
+  %49 = load ptr, ptr %tm.addr, align 8
+  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %49, i32 0, i32 28
+  %50 = load i32, ptr %n, align 4
+  %idxprom40 = sext i32 %50 to i64
   %arrayidx41 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %idxprom40
   %hidden = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx41, i32 0, i32 2
-  %41 = load i32, ptr %hidden, align 4
-  %tobool42 = icmp ne i32 %41, 0
+  %51 = load i32, ptr %hidden, align 4
+  %tobool42 = icmp ne i32 %51, 0
   br i1 %tobool42, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end39
   br label %for.inc84
 
 if.end44:                                         ; preds = %if.end39
-  %42 = load i32, ptr %cut.addr, align 4
-  %tobool45 = icmp ne i32 %42, 0
+  %52 = load i32, ptr %cut.addr, align 4
+  %tobool45 = icmp ne i32 %52, 0
   br i1 %tobool45, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.end44
-  %43 = load ptr, ptr %tm.addr, align 8
-  %layerinfo46 = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 28
-  %44 = load i32, ptr %n, align 4
-  %idxprom47 = sext i32 %44 to i64
+  %53 = load ptr, ptr %tm.addr, align 8
+  %layerinfo46 = getelementptr inbounds %struct.stbte_tilemap, ptr %53, i32 0, i32 28
+  %54 = load i32, ptr %n, align 4
+  %idxprom47 = sext i32 %54 to i64
   %arrayidx48 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo46, i64 0, i64 %idxprom47
   %locked = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx48, i32 0, i32 1
-  %45 = load i32, ptr %locked, align 8
-  %tobool49 = icmp ne i32 %45, 0
+  %55 = load i32, ptr %locked, align 8
+  %tobool49 = icmp ne i32 %55, 0
   br i1 %tobool49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %land.lhs.true
@@ -8232,57 +8406,58 @@ if.end51:                                         ; preds = %land.lhs.true, %if.
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end51, %if.end32
-  %46 = load ptr, ptr %tm.addr, align 8
-  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %j, align 4
-  %idxprom53 = sext i32 %47 to i64
+  %56 = load ptr, ptr %tm.addr, align 8
+  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %56, i32 0, i32 0
+  %57 = load i32, ptr %j, align 4
+  %idxprom53 = sext i32 %57 to i64
   %arrayidx54 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data, i64 0, i64 %idxprom53
-  %48 = load i32, ptr %i, align 4
-  %idxprom55 = sext i32 %48 to i64
+  %58 = load i32, ptr %i, align 4
+  %idxprom55 = sext i32 %58 to i64
   %arrayidx56 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx54, i64 0, i64 %idxprom55
-  %49 = load i32, ptr %n, align 4
-  %idxprom57 = sext i32 %49 to i64
+  %59 = load i32, ptr %n, align 4
+  %idxprom57 = sext i32 %59 to i64
   %arrayidx58 = getelementptr inbounds [8 x i16], ptr %arrayidx56, i64 0, i64 %idxprom57
-  %50 = load i16, ptr %arrayidx58, align 2
-  %51 = load i32, ptr %p, align 4
-  %idxprom59 = sext i32 %51 to i64
-  %arrayidx60 = getelementptr inbounds [65536 x [8 x i16]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61), i64 0, i64 %idxprom59
-  %52 = load i32, ptr %n, align 4
-  %idxprom61 = sext i32 %52 to i64
+  %60 = load i16, ptr %arrayidx58, align 2
+  %61 = load i32, ptr %p, align 4
+  %idxprom59 = sext i32 %61 to i64
+  %62 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61
+  %arrayidx60 = getelementptr inbounds [65536 x [8 x i16]], ptr %62, i64 0, i64 %idxprom59
+  %63 = load i32, ptr %n, align 4
+  %idxprom61 = sext i32 %63 to i64
   %arrayidx62 = getelementptr inbounds [8 x i16], ptr %arrayidx60, i64 0, i64 %idxprom61
-  store i16 %50, ptr %arrayidx62, align 2
-  %53 = load i32, ptr %cut.addr, align 4
-  %tobool63 = icmp ne i32 %53, 0
+  store i16 %60, ptr %arrayidx62, align 2
+  %64 = load i32, ptr %cut.addr, align 4
+  %tobool63 = icmp ne i32 %64, 0
   br i1 %tobool63, label %if.then64, label %if.end83
 
 if.then64:                                        ; preds = %if.end52
-  %54 = load ptr, ptr %tm.addr, align 8
-  %55 = load i32, ptr %i, align 4
-  %56 = load i32, ptr %j, align 4
-  %57 = load i32, ptr %n, align 4
-  %58 = load ptr, ptr %tm.addr, align 8
-  %data65 = getelementptr inbounds %struct.stbte_tilemap, ptr %58, i32 0, i32 0
-  %59 = load i32, ptr %j, align 4
-  %idxprom66 = sext i32 %59 to i64
+  %65 = load ptr, ptr %tm.addr, align 8
+  %66 = load i32, ptr %i, align 4
+  %67 = load i32, ptr %j, align 4
+  %68 = load i32, ptr %n, align 4
+  %69 = load ptr, ptr %tm.addr, align 8
+  %data65 = getelementptr inbounds %struct.stbte_tilemap, ptr %69, i32 0, i32 0
+  %70 = load i32, ptr %j, align 4
+  %idxprom66 = sext i32 %70 to i64
   %arrayidx67 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data65, i64 0, i64 %idxprom66
-  %60 = load i32, ptr %i, align 4
-  %idxprom68 = sext i32 %60 to i64
+  %71 = load i32, ptr %i, align 4
+  %idxprom68 = sext i32 %71 to i64
   %arrayidx69 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx67, i64 0, i64 %idxprom68
-  %61 = load i32, ptr %n, align 4
-  %idxprom70 = sext i32 %61 to i64
+  %72 = load i32, ptr %n, align 4
+  %idxprom70 = sext i32 %72 to i64
   %arrayidx71 = getelementptr inbounds [8 x i16], ptr %arrayidx69, i64 0, i64 %idxprom70
-  %62 = load i16, ptr %arrayidx71, align 2
-  %conv = sext i16 %62 to i32
-  call void @stbte__undo_record(ptr noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %conv)
-  %63 = load i32, ptr %n, align 4
-  %cmp72 = icmp eq i32 %63, 0
+  %73 = load i16, ptr %arrayidx71, align 2
+  %conv = sext i16 %73 to i32
+  call void @stbte__undo_record(ptr noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %conv)
+  %74 = load i32, ptr %n, align 4
+  %cmp72 = icmp eq i32 %74, 0
   br i1 %cmp72, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then64
-  %64 = load ptr, ptr %tm.addr, align 8
-  %background_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %64, i32 0, i32 37
-  %65 = load i16, ptr %background_tile, align 8
-  %conv74 = sext i16 %65 to i32
+  %75 = load ptr, ptr %tm.addr, align 8
+  %background_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %75, i32 0, i32 37
+  %76 = load i16, ptr %background_tile, align 8
+  %conv74 = sext i16 %76 to i32
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then64
@@ -8291,16 +8466,16 @@ cond.false:                                       ; preds = %if.then64
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %conv74, %cond.true ], [ -1, %cond.false ]
   %conv75 = trunc i32 %cond to i16
-  %66 = load ptr, ptr %tm.addr, align 8
-  %data76 = getelementptr inbounds %struct.stbte_tilemap, ptr %66, i32 0, i32 0
-  %67 = load i32, ptr %j, align 4
-  %idxprom77 = sext i32 %67 to i64
+  %77 = load ptr, ptr %tm.addr, align 8
+  %data76 = getelementptr inbounds %struct.stbte_tilemap, ptr %77, i32 0, i32 0
+  %78 = load i32, ptr %j, align 4
+  %idxprom77 = sext i32 %78 to i64
   %arrayidx78 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data76, i64 0, i64 %idxprom77
-  %68 = load i32, ptr %i, align 4
-  %idxprom79 = sext i32 %68 to i64
+  %79 = load i32, ptr %i, align 4
+  %idxprom79 = sext i32 %79 to i64
   %arrayidx80 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx78, i64 0, i64 %idxprom79
-  %69 = load i32, ptr %n, align 4
-  %idxprom81 = sext i32 %69 to i64
+  %80 = load i32, ptr %n, align 4
+  %idxprom81 = sext i32 %80 to i64
   %arrayidx82 = getelementptr inbounds [8 x i16], ptr %arrayidx80, i64 0, i64 %idxprom81
   store i16 %conv75, ptr %arrayidx82, align 2
   br label %if.end83
@@ -8309,42 +8484,43 @@ if.end83:                                         ; preds = %cond.end, %if.end52
   br label %for.inc84
 
 for.inc84:                                        ; preds = %if.end83, %if.then50, %if.then43, %if.then37, %if.then31
-  %70 = load i32, ptr %n, align 4
-  %inc85 = add nsw i32 %70, 1
+  %81 = load i32, ptr %n, align 4
+  %inc85 = add nsw i32 %81, 1
   store i32 %inc85, ptr %n, align 4
   br label %for.cond23, !llvm.loop !47
 
 for.end86:                                        ; preds = %for.cond23
-  %71 = load i32, ptr %copy_props, align 4
-  %tobool87 = icmp ne i32 %71, 0
+  %82 = load i32, ptr %copy_props, align 4
+  %tobool87 = icmp ne i32 %82, 0
   br i1 %tobool87, label %if.then88, label %if.end96
 
 if.then88:                                        ; preds = %for.end86
-  %72 = load i32, ptr %p, align 4
-  %idxprom89 = sext i32 %72 to i64
-  %arrayidx90 = getelementptr inbounds [65536 x [1 x float]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62), i64 0, i64 %idxprom89
+  %83 = load i32, ptr %p, align 4
+  %idxprom89 = sext i32 %83 to i64
+  %84 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62
+  %arrayidx90 = getelementptr inbounds [65536 x [1 x float]], ptr %84, i64 0, i64 %idxprom89
   %arraydecay = getelementptr inbounds [1 x float], ptr %arrayidx90, i64 0, i64 0
-  %73 = load ptr, ptr %tm.addr, align 8
-  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %73, i32 0, i32 1
-  %74 = load i32, ptr %j, align 4
-  %idxprom91 = sext i32 %74 to i64
+  %85 = load ptr, ptr %tm.addr, align 8
+  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %85, i32 0, i32 1
+  %86 = load i32, ptr %j, align 4
+  %idxprom91 = sext i32 %86 to i64
   %arrayidx92 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom91
-  %75 = load i32, ptr %i, align 4
-  %idxprom93 = sext i32 %75 to i64
+  %87 = load i32, ptr %i, align 4
+  %idxprom93 = sext i32 %87 to i64
   %arrayidx94 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx92, i64 0, i64 %idxprom93
   %arraydecay95 = getelementptr inbounds [1 x float], ptr %arrayidx94, i64 0, i64 0
   call void @stbte__copy_properties(ptr noundef %arraydecay, ptr noundef %arraydecay95)
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then88, %for.end86
-  %76 = load i32, ptr %p, align 4
-  %inc97 = add nsw i32 %76, 1
+  %88 = load i32, ptr %p, align 4
+  %inc97 = add nsw i32 %88, 1
   store i32 %inc97, ptr %p, align 4
   br label %for.inc98
 
 for.inc98:                                        ; preds = %if.end96
-  %77 = load i32, ptr %i, align 4
-  %inc99 = add nsw i32 %77, 1
+  %89 = load i32, ptr %i, align 4
+  %inc99 = add nsw i32 %89, 1
   store i32 %inc99, ptr %i, align 4
   br label %for.cond20, !llvm.loop !48
 
@@ -8352,35 +8528,44 @@ for.end100:                                       ; preds = %for.cond20
   br label %for.inc101
 
 for.inc101:                                       ; preds = %for.end100
-  %78 = load i32, ptr %j, align 4
-  %inc102 = add nsw i32 %78, 1
+  %90 = load i32, ptr %j, align 4
+  %inc102 = add nsw i32 %90, 1
   store i32 %inc102, ptr %j, align 4
   br label %for.cond17, !llvm.loop !49
 
 for.end103:                                       ; preds = %for.cond17
-  %79 = load i32, ptr %cut.addr, align 4
-  %tobool104 = icmp ne i32 %79, 0
+  %91 = load i32, ptr %cut.addr, align 4
+  %tobool104 = icmp ne i32 %91, 0
   br i1 %tobool104, label %if.then105, label %if.end106
 
 if.then105:                                       ; preds = %for.end103
-  %80 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %80)
+  %92 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %92)
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then105, %for.end103
-  %81 = load i32, ptr %w, align 4
-  store i32 %81, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66), align 8
-  %82 = load i32, ptr %h, align 4
-  store i32 %82, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68), align 8
-  %83 = load i32, ptr %copy_props, align 4
-  store i32 %83, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 69), align 4
-  %84 = load ptr, ptr %tm.addr, align 8
-  store ptr %84, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 65), align 8
-  %85 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  store i32 %85, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 63), align 4
-  %86 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  store i32 %86, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 64), align 8
+  %93 = load i32, ptr %w, align 4
+  %94 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66
+  store i32 %93, ptr %94, align 8
+  %95 = load i32, ptr %h, align 4
+  %96 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67
+  store i32 %95, ptr %96, align 4
+  %97 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68
+  store i32 1, ptr %97, align 8
+  %98 = load i32, ptr %copy_props, align 4
+  %99 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 69
+  store i32 %98, ptr %99, align 4
+  %100 = load ptr, ptr %tm.addr, align 8
+  %101 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 65
+  store ptr %100, ptr %101, align 8
+  %102 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %103 = load i32, ptr %102, align 4
+  %104 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 63
+  store i32 %103, ptr %104, align 4
+  %105 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %106 = load i32, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 64
+  store i32 %106, ptr %107, align 8
   br label %return
 
 return:                                           ; preds = %if.end106, %if.then3, %if.then
@@ -8454,52 +8639,56 @@ entry:
   store ptr %tm, ptr %tm.addr, align 8
   store i32 %mapx, ptr %mapx.addr, align 4
   store i32 %mapy, ptr %mapy.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66), align 8
-  store i32 %0, ptr %w, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67), align 4
-  store i32 %1, ptr %h, align 4
-  %2 = load i32, ptr %mapx.addr, align 4
-  %3 = load i32, ptr %w, align 4
-  %shr = ashr i32 %3, 1
-  %sub = sub nsw i32 %2, %shr
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66
+  %1 = load i32, ptr %0, align 8
+  store i32 %1, ptr %w, align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67
+  %3 = load i32, ptr %2, align 4
+  store i32 %3, ptr %h, align 4
+  %4 = load i32, ptr %mapx.addr, align 4
+  %5 = load i32, ptr %w, align 4
+  %shr = ashr i32 %5, 1
+  %sub = sub nsw i32 %4, %shr
   store i32 %sub, ptr %x, align 4
-  %4 = load i32, ptr %mapy.addr, align 4
-  %5 = load i32, ptr %h, align 4
-  %shr1 = ashr i32 %5, 1
-  %sub2 = sub nsw i32 %4, %shr1
+  %6 = load i32, ptr %mapy.addr, align 4
+  %7 = load i32, ptr %h, align 4
+  %shr1 = ashr i32 %7, 1
+  %sub2 = sub nsw i32 %6, %shr1
   store i32 %sub2, ptr %y, align 4
-  %6 = load ptr, ptr %tm.addr, align 8
-  %call = call i32 @stbte__should_copy_properties(ptr noundef %6)
+  %8 = load ptr, ptr %tm.addr, align 8
+  %call = call i32 @stbte__should_copy_properties(ptr noundef %8)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %7 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 69), align 4
-  %tobool3 = icmp ne i32 %7, 0
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 69
+  %10 = load i32, ptr %9, align 4
+  %tobool3 = icmp ne i32 %10, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %8 = phi i1 [ false, %entry ], [ %tobool3, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
+  %11 = phi i1 [ false, %entry ], [ %tobool3, %land.rhs ]
+  %land.ext = zext i1 %11 to i32
   store i32 %land.ext, ptr %copy_props, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68), align 8
-  %cmp = icmp eq i32 %9, 0
+  %12 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68
+  %13 = load i32, ptr %12, align 8
+  %cmp = icmp eq i32 %13, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.end
   br label %return
 
 if.end:                                           ; preds = %land.end
-  %10 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %10)
+  %14 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %14)
   store i32 0, ptr %p, align 4
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc132, %if.end
-  %11 = load i32, ptr %j, align 4
-  %12 = load i32, ptr %h, align 4
-  %cmp4 = icmp slt i32 %11, %12
+  %15 = load i32, ptr %j, align 4
+  %16 = load i32, ptr %h, align 4
+  %cmp4 = icmp slt i32 %15, %16
   br i1 %cmp4, label %for.body, label %for.end134
 
 for.body:                                         ; preds = %for.cond
@@ -8507,43 +8696,43 @@ for.body:                                         ; preds = %for.cond
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc129, %for.body
-  %13 = load i32, ptr %i, align 4
-  %14 = load i32, ptr %w, align 4
-  %cmp6 = icmp slt i32 %13, %14
+  %17 = load i32, ptr %i, align 4
+  %18 = load i32, ptr %w, align 4
+  %cmp6 = icmp slt i32 %17, %18
   br i1 %cmp6, label %for.body7, label %for.end131
 
 for.body7:                                        ; preds = %for.cond5
-  %15 = load i32, ptr %y, align 4
-  %16 = load i32, ptr %j, align 4
-  %add = add nsw i32 %15, %16
+  %19 = load i32, ptr %y, align 4
+  %20 = load i32, ptr %j, align 4
+  %add = add nsw i32 %19, %20
   %cmp8 = icmp sge i32 %add, 0
   br i1 %cmp8, label %land.lhs.true, label %if.end79
 
 land.lhs.true:                                    ; preds = %for.body7
-  %17 = load i32, ptr %y, align 4
-  %18 = load i32, ptr %j, align 4
-  %add9 = add nsw i32 %17, %18
-  %19 = load ptr, ptr %tm.addr, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %max_y, align 4
-  %cmp10 = icmp slt i32 %add9, %20
+  %21 = load i32, ptr %y, align 4
+  %22 = load i32, ptr %j, align 4
+  %add9 = add nsw i32 %21, %22
+  %23 = load ptr, ptr %tm.addr, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %23, i32 0, i32 3
+  %24 = load i32, ptr %max_y, align 4
+  %cmp10 = icmp slt i32 %add9, %24
   br i1 %cmp10, label %land.lhs.true11, label %if.end79
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %21 = load i32, ptr %x, align 4
-  %22 = load i32, ptr %i, align 4
-  %add12 = add nsw i32 %21, %22
+  %25 = load i32, ptr %x, align 4
+  %26 = load i32, ptr %i, align 4
+  %add12 = add nsw i32 %25, %26
   %cmp13 = icmp sge i32 %add12, 0
   br i1 %cmp13, label %land.lhs.true14, label %if.end79
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %23 = load i32, ptr %x, align 4
-  %24 = load i32, ptr %i, align 4
-  %add15 = add nsw i32 %23, %24
-  %25 = load ptr, ptr %tm.addr, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %25, i32 0, i32 2
-  %26 = load i32, ptr %max_x, align 8
-  %cmp16 = icmp slt i32 %add15, %26
+  %27 = load i32, ptr %x, align 4
+  %28 = load i32, ptr %i, align 4
+  %add15 = add nsw i32 %27, %28
+  %29 = load ptr, ptr %tm.addr, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %29, i32 0, i32 2
+  %30 = load i32, ptr %max_x, align 8
+  %cmp16 = icmp slt i32 %add15, %30
   br i1 %cmp16, label %if.then17, label %if.end79
 
 if.then17:                                        ; preds = %land.lhs.true14
@@ -8551,143 +8740,144 @@ if.then17:                                        ; preds = %land.lhs.true14
   br label %for.cond18
 
 for.cond18:                                       ; preds = %for.inc, %if.then17
-  %27 = load i32, ptr %k, align 4
-  %28 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %28, i32 0, i32 4
-  %29 = load i32, ptr %num_layers, align 8
-  %cmp19 = icmp slt i32 %27, %29
+  %31 = load i32, ptr %k, align 4
+  %32 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 4
+  %33 = load i32, ptr %num_layers, align 8
+  %cmp19 = icmp slt i32 %31, %33
   br i1 %cmp19, label %for.body20, label %for.end
 
 for.body20:                                       ; preds = %for.cond18
-  %30 = load ptr, ptr %tm.addr, align 8
-  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 0
-  %31 = load i32, ptr %y, align 4
-  %32 = load i32, ptr %j, align 4
-  %add21 = add nsw i32 %31, %32
+  %34 = load ptr, ptr %tm.addr, align 8
+  %data = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 0
+  %35 = load i32, ptr %y, align 4
+  %36 = load i32, ptr %j, align 4
+  %add21 = add nsw i32 %35, %36
   %idxprom = sext i32 %add21 to i64
   %arrayidx = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data, i64 0, i64 %idxprom
-  %33 = load i32, ptr %x, align 4
-  %34 = load i32, ptr %i, align 4
-  %add22 = add nsw i32 %33, %34
+  %37 = load i32, ptr %x, align 4
+  %38 = load i32, ptr %i, align 4
+  %add22 = add nsw i32 %37, %38
   %idxprom23 = sext i32 %add22 to i64
   %arrayidx24 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx, i64 0, i64 %idxprom23
-  %35 = load i32, ptr %k, align 4
-  %idxprom25 = sext i32 %35 to i64
+  %39 = load i32, ptr %k, align 4
+  %idxprom25 = sext i32 %39 to i64
   %arrayidx26 = getelementptr inbounds [8 x i16], ptr %arrayidx24, i64 0, i64 %idxprom25
-  %36 = load i16, ptr %arrayidx26, align 2
-  %37 = load i32, ptr %k, align 4
-  %idxprom27 = sext i32 %37 to i64
+  %40 = load i16, ptr %arrayidx26, align 2
+  %41 = load i32, ptr %k, align 4
+  %idxprom27 = sext i32 %41 to i64
   %arrayidx28 = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 %idxprom27
-  store i16 %36, ptr %arrayidx28, align 2
+  store i16 %40, ptr %arrayidx28, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body20
-  %38 = load i32, ptr %k, align 4
-  %inc = add nsw i32 %38, 1
+  %42 = load i32, ptr %k, align 4
+  %inc = add nsw i32 %42, 1
   store i32 %inc, ptr %k, align 4
   br label %for.cond18, !llvm.loop !50
 
 for.end:                                          ; preds = %for.cond18
-  %39 = load ptr, ptr %tm.addr, align 8
+  %43 = load ptr, ptr %tm.addr, align 8
   %arraydecay = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 0
   %arraydecay29 = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 0
-  %40 = load i32, ptr %p, align 4
-  %idxprom30 = sext i32 %40 to i64
-  %arrayidx31 = getelementptr inbounds [65536 x [8 x i16]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61), i64 0, i64 %idxprom30
+  %44 = load i32, ptr %p, align 4
+  %idxprom30 = sext i32 %44 to i64
+  %45 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61
+  %arrayidx31 = getelementptr inbounds [65536 x [8 x i16]], ptr %45, i64 0, i64 %idxprom30
   %arraydecay32 = getelementptr inbounds [8 x i16], ptr %arrayidx31, i64 0, i64 0
-  call void @stbte__paste_stack(ptr noundef %39, ptr noundef %arraydecay, ptr noundef %arraydecay29, ptr noundef %arraydecay32, i32 noundef 0)
+  call void @stbte__paste_stack(ptr noundef %43, ptr noundef %arraydecay, ptr noundef %arraydecay29, ptr noundef %arraydecay32, i32 noundef 0)
   store i32 0, ptr %k, align 4
   br label %for.cond33
 
 for.cond33:                                       ; preds = %for.inc76, %for.end
-  %41 = load i32, ptr %k, align 4
-  %42 = load ptr, ptr %tm.addr, align 8
-  %num_layers34 = getelementptr inbounds %struct.stbte_tilemap, ptr %42, i32 0, i32 4
-  %43 = load i32, ptr %num_layers34, align 8
-  %cmp35 = icmp slt i32 %41, %43
+  %46 = load i32, ptr %k, align 4
+  %47 = load ptr, ptr %tm.addr, align 8
+  %num_layers34 = getelementptr inbounds %struct.stbte_tilemap, ptr %47, i32 0, i32 4
+  %48 = load i32, ptr %num_layers34, align 8
+  %cmp35 = icmp slt i32 %46, %48
   br i1 %cmp35, label %for.body36, label %for.end78
 
 for.body36:                                       ; preds = %for.cond33
-  %44 = load i32, ptr %k, align 4
-  %idxprom37 = sext i32 %44 to i64
+  %49 = load i32, ptr %k, align 4
+  %idxprom37 = sext i32 %49 to i64
   %arrayidx38 = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 %idxprom37
-  %45 = load i16, ptr %arrayidx38, align 2
-  %conv = sext i16 %45 to i32
-  %46 = load ptr, ptr %tm.addr, align 8
-  %data39 = getelementptr inbounds %struct.stbte_tilemap, ptr %46, i32 0, i32 0
-  %47 = load i32, ptr %y, align 4
-  %48 = load i32, ptr %j, align 4
-  %add40 = add nsw i32 %47, %48
+  %50 = load i16, ptr %arrayidx38, align 2
+  %conv = sext i16 %50 to i32
+  %51 = load ptr, ptr %tm.addr, align 8
+  %data39 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %y, align 4
+  %53 = load i32, ptr %j, align 4
+  %add40 = add nsw i32 %52, %53
   %idxprom41 = sext i32 %add40 to i64
   %arrayidx42 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data39, i64 0, i64 %idxprom41
-  %49 = load i32, ptr %x, align 4
-  %50 = load i32, ptr %i, align 4
-  %add43 = add nsw i32 %49, %50
+  %54 = load i32, ptr %x, align 4
+  %55 = load i32, ptr %i, align 4
+  %add43 = add nsw i32 %54, %55
   %idxprom44 = sext i32 %add43 to i64
   %arrayidx45 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx42, i64 0, i64 %idxprom44
-  %51 = load i32, ptr %k, align 4
-  %idxprom46 = sext i32 %51 to i64
+  %56 = load i32, ptr %k, align 4
+  %idxprom46 = sext i32 %56 to i64
   %arrayidx47 = getelementptr inbounds [8 x i16], ptr %arrayidx45, i64 0, i64 %idxprom46
-  %52 = load i16, ptr %arrayidx47, align 2
-  %conv48 = sext i16 %52 to i32
+  %57 = load i16, ptr %arrayidx47, align 2
+  %conv48 = sext i16 %57 to i32
   %cmp49 = icmp ne i32 %conv, %conv48
   br i1 %cmp49, label %if.then51, label %if.end75
 
 if.then51:                                        ; preds = %for.body36
-  %53 = load ptr, ptr %tm.addr, align 8
-  %54 = load i32, ptr %x, align 4
-  %55 = load i32, ptr %i, align 4
-  %add52 = add nsw i32 %54, %55
-  %56 = load i32, ptr %y, align 4
-  %57 = load i32, ptr %j, align 4
-  %add53 = add nsw i32 %56, %57
-  %58 = load i32, ptr %k, align 4
-  %59 = load ptr, ptr %tm.addr, align 8
-  %data54 = getelementptr inbounds %struct.stbte_tilemap, ptr %59, i32 0, i32 0
-  %60 = load i32, ptr %y, align 4
-  %61 = load i32, ptr %j, align 4
-  %add55 = add nsw i32 %60, %61
+  %58 = load ptr, ptr %tm.addr, align 8
+  %59 = load i32, ptr %x, align 4
+  %60 = load i32, ptr %i, align 4
+  %add52 = add nsw i32 %59, %60
+  %61 = load i32, ptr %y, align 4
+  %62 = load i32, ptr %j, align 4
+  %add53 = add nsw i32 %61, %62
+  %63 = load i32, ptr %k, align 4
+  %64 = load ptr, ptr %tm.addr, align 8
+  %data54 = getelementptr inbounds %struct.stbte_tilemap, ptr %64, i32 0, i32 0
+  %65 = load i32, ptr %y, align 4
+  %66 = load i32, ptr %j, align 4
+  %add55 = add nsw i32 %65, %66
   %idxprom56 = sext i32 %add55 to i64
   %arrayidx57 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data54, i64 0, i64 %idxprom56
-  %62 = load i32, ptr %x, align 4
-  %63 = load i32, ptr %i, align 4
-  %add58 = add nsw i32 %62, %63
+  %67 = load i32, ptr %x, align 4
+  %68 = load i32, ptr %i, align 4
+  %add58 = add nsw i32 %67, %68
   %idxprom59 = sext i32 %add58 to i64
   %arrayidx60 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx57, i64 0, i64 %idxprom59
-  %64 = load i32, ptr %k, align 4
-  %idxprom61 = sext i32 %64 to i64
+  %69 = load i32, ptr %k, align 4
+  %idxprom61 = sext i32 %69 to i64
   %arrayidx62 = getelementptr inbounds [8 x i16], ptr %arrayidx60, i64 0, i64 %idxprom61
-  %65 = load i16, ptr %arrayidx62, align 2
-  %conv63 = sext i16 %65 to i32
-  call void @stbte__undo_record(ptr noundef %53, i32 noundef %add52, i32 noundef %add53, i32 noundef %58, i32 noundef %conv63)
-  %66 = load i32, ptr %k, align 4
-  %idxprom64 = sext i32 %66 to i64
+  %70 = load i16, ptr %arrayidx62, align 2
+  %conv63 = sext i16 %70 to i32
+  call void @stbte__undo_record(ptr noundef %58, i32 noundef %add52, i32 noundef %add53, i32 noundef %63, i32 noundef %conv63)
+  %71 = load i32, ptr %k, align 4
+  %idxprom64 = sext i32 %71 to i64
   %arrayidx65 = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 %idxprom64
-  %67 = load i16, ptr %arrayidx65, align 2
-  %68 = load ptr, ptr %tm.addr, align 8
-  %data66 = getelementptr inbounds %struct.stbte_tilemap, ptr %68, i32 0, i32 0
-  %69 = load i32, ptr %y, align 4
-  %70 = load i32, ptr %j, align 4
-  %add67 = add nsw i32 %69, %70
+  %72 = load i16, ptr %arrayidx65, align 2
+  %73 = load ptr, ptr %tm.addr, align 8
+  %data66 = getelementptr inbounds %struct.stbte_tilemap, ptr %73, i32 0, i32 0
+  %74 = load i32, ptr %y, align 4
+  %75 = load i32, ptr %j, align 4
+  %add67 = add nsw i32 %74, %75
   %idxprom68 = sext i32 %add67 to i64
   %arrayidx69 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data66, i64 0, i64 %idxprom68
-  %71 = load i32, ptr %x, align 4
-  %72 = load i32, ptr %i, align 4
-  %add70 = add nsw i32 %71, %72
+  %76 = load i32, ptr %x, align 4
+  %77 = load i32, ptr %i, align 4
+  %add70 = add nsw i32 %76, %77
   %idxprom71 = sext i32 %add70 to i64
   %arrayidx72 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx69, i64 0, i64 %idxprom71
-  %73 = load i32, ptr %k, align 4
-  %idxprom73 = sext i32 %73 to i64
+  %78 = load i32, ptr %k, align 4
+  %idxprom73 = sext i32 %78 to i64
   %arrayidx74 = getelementptr inbounds [8 x i16], ptr %arrayidx72, i64 0, i64 %idxprom73
-  store i16 %67, ptr %arrayidx74, align 2
+  store i16 %72, ptr %arrayidx74, align 2
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then51, %for.body36
   br label %for.inc76
 
 for.inc76:                                        ; preds = %if.end75
-  %74 = load i32, ptr %k, align 4
-  %inc77 = add nsw i32 %74, 1
+  %79 = load i32, ptr %k, align 4
+  %inc77 = add nsw i32 %79, 1
   store i32 %inc77, ptr %k, align 4
   br label %for.cond33, !llvm.loop !51
 
@@ -8695,8 +8885,8 @@ for.end78:                                        ; preds = %for.cond33
   br label %if.end79
 
 if.end79:                                         ; preds = %for.end78, %land.lhs.true14, %land.lhs.true11, %land.lhs.true, %for.body7
-  %75 = load i32, ptr %copy_props, align 4
-  %tobool80 = icmp ne i32 %75, 0
+  %80 = load i32, ptr %copy_props, align 4
+  %tobool80 = icmp ne i32 %80, 0
   br i1 %tobool80, label %if.then81, label %if.end127
 
 if.then81:                                        ; preds = %if.end79
@@ -8704,104 +8894,106 @@ if.then81:                                        ; preds = %if.end79
   br label %for.cond82
 
 for.cond82:                                       ; preds = %for.inc113, %if.then81
-  %76 = load i32, ptr %k, align 4
-  %cmp83 = icmp slt i32 %76, 1
+  %81 = load i32, ptr %k, align 4
+  %cmp83 = icmp slt i32 %81, 1
   br i1 %cmp83, label %for.body85, label %for.end115
 
 for.body85:                                       ; preds = %for.cond82
-  %77 = load ptr, ptr %tm.addr, align 8
-  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %77, i32 0, i32 1
-  %78 = load i32, ptr %y, align 4
-  %79 = load i32, ptr %j, align 4
-  %add86 = add nsw i32 %78, %79
+  %82 = load ptr, ptr %tm.addr, align 8
+  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %82, i32 0, i32 1
+  %83 = load i32, ptr %y, align 4
+  %84 = load i32, ptr %j, align 4
+  %add86 = add nsw i32 %83, %84
   %idxprom87 = sext i32 %add86 to i64
   %arrayidx88 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom87
-  %80 = load i32, ptr %x, align 4
-  %81 = load i32, ptr %i, align 4
-  %add89 = add nsw i32 %80, %81
+  %85 = load i32, ptr %x, align 4
+  %86 = load i32, ptr %i, align 4
+  %add89 = add nsw i32 %85, %86
   %idxprom90 = sext i32 %add89 to i64
   %arrayidx91 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx88, i64 0, i64 %idxprom90
-  %82 = load i32, ptr %k, align 4
-  %idxprom92 = sext i32 %82 to i64
+  %87 = load i32, ptr %k, align 4
+  %idxprom92 = sext i32 %87 to i64
   %arrayidx93 = getelementptr inbounds [1 x float], ptr %arrayidx91, i64 0, i64 %idxprom92
-  %83 = load float, ptr %arrayidx93, align 4
-  %84 = load i32, ptr %p, align 4
-  %idxprom94 = sext i32 %84 to i64
-  %arrayidx95 = getelementptr inbounds [65536 x [1 x float]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62), i64 0, i64 %idxprom94
-  %85 = load i32, ptr %k, align 4
-  %idxprom96 = sext i32 %85 to i64
+  %88 = load float, ptr %arrayidx93, align 4
+  %89 = load i32, ptr %p, align 4
+  %idxprom94 = sext i32 %89 to i64
+  %90 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62
+  %arrayidx95 = getelementptr inbounds [65536 x [1 x float]], ptr %90, i64 0, i64 %idxprom94
+  %91 = load i32, ptr %k, align 4
+  %idxprom96 = sext i32 %91 to i64
   %arrayidx97 = getelementptr inbounds [1 x float], ptr %arrayidx95, i64 0, i64 %idxprom96
-  %86 = load float, ptr %arrayidx97, align 4
-  %cmp98 = fcmp une float %83, %86
+  %92 = load float, ptr %arrayidx97, align 4
+  %cmp98 = fcmp une float %88, %92
   br i1 %cmp98, label %if.then100, label %if.end112
 
 if.then100:                                       ; preds = %for.body85
-  %87 = load ptr, ptr %tm.addr, align 8
-  %88 = load i32, ptr %x, align 4
-  %89 = load i32, ptr %i, align 4
-  %add101 = add nsw i32 %88, %89
-  %90 = load i32, ptr %y, align 4
-  %91 = load i32, ptr %j, align 4
-  %add102 = add nsw i32 %90, %91
-  %92 = load i32, ptr %k, align 4
   %93 = load ptr, ptr %tm.addr, align 8
-  %props103 = getelementptr inbounds %struct.stbte_tilemap, ptr %93, i32 0, i32 1
-  %94 = load i32, ptr %y, align 4
-  %95 = load i32, ptr %j, align 4
-  %add104 = add nsw i32 %94, %95
+  %94 = load i32, ptr %x, align 4
+  %95 = load i32, ptr %i, align 4
+  %add101 = add nsw i32 %94, %95
+  %96 = load i32, ptr %y, align 4
+  %97 = load i32, ptr %j, align 4
+  %add102 = add nsw i32 %96, %97
+  %98 = load i32, ptr %k, align 4
+  %99 = load ptr, ptr %tm.addr, align 8
+  %props103 = getelementptr inbounds %struct.stbte_tilemap, ptr %99, i32 0, i32 1
+  %100 = load i32, ptr %y, align 4
+  %101 = load i32, ptr %j, align 4
+  %add104 = add nsw i32 %100, %101
   %idxprom105 = sext i32 %add104 to i64
   %arrayidx106 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props103, i64 0, i64 %idxprom105
-  %96 = load i32, ptr %x, align 4
-  %97 = load i32, ptr %i, align 4
-  %add107 = add nsw i32 %96, %97
+  %102 = load i32, ptr %x, align 4
+  %103 = load i32, ptr %i, align 4
+  %add107 = add nsw i32 %102, %103
   %idxprom108 = sext i32 %add107 to i64
   %arrayidx109 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx106, i64 0, i64 %idxprom108
-  %98 = load i32, ptr %k, align 4
-  %idxprom110 = sext i32 %98 to i64
+  %104 = load i32, ptr %k, align 4
+  %idxprom110 = sext i32 %104 to i64
   %arrayidx111 = getelementptr inbounds [1 x float], ptr %arrayidx109, i64 0, i64 %idxprom110
-  %99 = load float, ptr %arrayidx111, align 4
-  call void @stbte__undo_record_prop_float(ptr noundef %87, i32 noundef %add101, i32 noundef %add102, i32 noundef %92, float noundef %99)
+  %105 = load float, ptr %arrayidx111, align 4
+  call void @stbte__undo_record_prop_float(ptr noundef %93, i32 noundef %add101, i32 noundef %add102, i32 noundef %98, float noundef %105)
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then100, %for.body85
   br label %for.inc113
 
 for.inc113:                                       ; preds = %if.end112
-  %100 = load i32, ptr %k, align 4
-  %inc114 = add nsw i32 %100, 1
+  %106 = load i32, ptr %k, align 4
+  %inc114 = add nsw i32 %106, 1
   store i32 %inc114, ptr %k, align 4
   br label %for.cond82, !llvm.loop !52
 
 for.end115:                                       ; preds = %for.cond82
-  %101 = load ptr, ptr %tm.addr, align 8
-  %props116 = getelementptr inbounds %struct.stbte_tilemap, ptr %101, i32 0, i32 1
-  %102 = load i32, ptr %y, align 4
-  %103 = load i32, ptr %j, align 4
-  %add117 = add nsw i32 %102, %103
+  %107 = load ptr, ptr %tm.addr, align 8
+  %props116 = getelementptr inbounds %struct.stbte_tilemap, ptr %107, i32 0, i32 1
+  %108 = load i32, ptr %y, align 4
+  %109 = load i32, ptr %j, align 4
+  %add117 = add nsw i32 %108, %109
   %idxprom118 = sext i32 %add117 to i64
   %arrayidx119 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props116, i64 0, i64 %idxprom118
-  %104 = load i32, ptr %x, align 4
-  %105 = load i32, ptr %i, align 4
-  %add120 = add nsw i32 %104, %105
+  %110 = load i32, ptr %x, align 4
+  %111 = load i32, ptr %i, align 4
+  %add120 = add nsw i32 %110, %111
   %idxprom121 = sext i32 %add120 to i64
   %arrayidx122 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx119, i64 0, i64 %idxprom121
   %arraydecay123 = getelementptr inbounds [1 x float], ptr %arrayidx122, i64 0, i64 0
-  %106 = load i32, ptr %p, align 4
-  %idxprom124 = sext i32 %106 to i64
-  %arrayidx125 = getelementptr inbounds [65536 x [1 x float]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62), i64 0, i64 %idxprom124
+  %112 = load i32, ptr %p, align 4
+  %idxprom124 = sext i32 %112 to i64
+  %113 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 62
+  %arrayidx125 = getelementptr inbounds [65536 x [1 x float]], ptr %113, i64 0, i64 %idxprom124
   %arraydecay126 = getelementptr inbounds [1 x float], ptr %arrayidx125, i64 0, i64 0
   call void @stbte__copy_properties(ptr noundef %arraydecay123, ptr noundef %arraydecay126)
   br label %if.end127
 
 if.end127:                                        ; preds = %for.end115, %if.end79
-  %107 = load i32, ptr %p, align 4
-  %inc128 = add nsw i32 %107, 1
+  %114 = load i32, ptr %p, align 4
+  %inc128 = add nsw i32 %114, 1
   store i32 %inc128, ptr %p, align 4
   br label %for.inc129
 
 for.inc129:                                       ; preds = %if.end127
-  %108 = load i32, ptr %i, align 4
-  %inc130 = add nsw i32 %108, 1
+  %115 = load i32, ptr %i, align 4
+  %inc130 = add nsw i32 %115, 1
   store i32 %inc130, ptr %i, align 4
   br label %for.cond5, !llvm.loop !53
 
@@ -8809,14 +9001,14 @@ for.end131:                                       ; preds = %for.cond5
   br label %for.inc132
 
 for.inc132:                                       ; preds = %for.end131
-  %109 = load i32, ptr %j, align 4
-  %inc133 = add nsw i32 %109, 1
+  %116 = load i32, ptr %j, align 4
+  %inc133 = add nsw i32 %116, 1
   store i32 %inc133, ptr %j, align 4
   br label %for.cond, !llvm.loop !54
 
 for.end134:                                       ; preds = %for.cond
-  %110 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %110)
+  %117 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %117)
   br label %return
 
 return:                                           ; preds = %for.end134, %if.then
@@ -8843,45 +9035,50 @@ entry:
   store i32 %mapx, ptr %mapx.addr, align 4
   store i32 %mapy, ptr %mapy.addr, align 4
   store i32 %copy_props, ptr %copy_props.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37), align 4
-  store i32 %0, ptr %w, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38), align 8
-  store i32 %1, ptr %h, align 4
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %w, align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38
+  %3 = load i32, ptr %2, align 8
+  store i32 %3, ptr %h, align 4
   store i32 0, ptr %deleted, align 4
   store i32 0, ptr %written, align 4
   store ptr null, ptr %data, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool = icmp ne i32 %2, 0
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %5 = load i32, ptr %4, align 4
+  %tobool = icmp ne i32 %5, 0
   br i1 %tobool, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %mapx.addr, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %sub = sub nsw i32 %3, %4
+  %6 = load i32, ptr %mapx.addr, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %8 = load i32, ptr %7, align 4
+  %sub = sub nsw i32 %6, %8
   store i32 %sub, ptr %ox, align 4
-  %5 = load i32, ptr %mapy.addr, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %sub1 = sub nsw i32 %5, %6
+  %9 = load i32, ptr %mapy.addr, align 4
+  %10 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %11 = load i32, ptr %10, align 8
+  %sub1 = sub nsw i32 %9, %11
   store i32 %sub1, ptr %oy, align 4
-  %7 = load i32, ptr %ox, align 4
-  %cmp = icmp sge i32 %7, 0
+  %12 = load i32, ptr %ox, align 4
+  %cmp = icmp sge i32 %12, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %8 = load i32, ptr %ox, align 4
-  %9 = load i32, ptr %w, align 4
-  %cmp2 = icmp slt i32 %8, %9
+  %13 = load i32, ptr %ox, align 4
+  %14 = load i32, ptr %w, align 4
+  %cmp2 = icmp slt i32 %13, %14
   br i1 %cmp2, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %10 = load i32, ptr %oy, align 4
-  %cmp4 = icmp sge i32 %10, 0
+  %15 = load i32, ptr %oy, align 4
+  %cmp4 = icmp sge i32 %15, 0
   br i1 %cmp4, label %land.lhs.true5, label %if.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true3
-  %11 = load i32, ptr %oy, align 4
-  %12 = load i32, ptr %h, align 4
-  %cmp6 = icmp slt i32 %11, %12
+  %16 = load i32, ptr %oy, align 4
+  %17 = load i32, ptr %h, align 4
+  %cmp6 = icmp slt i32 %16, %17
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %land.lhs.true5
@@ -8890,100 +9087,104 @@ if.then7:                                         ; preds = %land.lhs.true5
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then7
-  %13 = load i32, ptr %i, align 4
-  %14 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 4
-  %15 = load i32, ptr %num_layers, align 8
-  %cmp8 = icmp slt i32 %13, %15
+  %18 = load i32, ptr %i, align 4
+  %19 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 4
+  %20 = load i32, ptr %num_layers, align 8
+  %cmp8 = icmp slt i32 %18, %20
   br i1 %cmp8, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %tm.addr, align 8
-  %data9 = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr %mapy.addr, align 4
-  %idxprom = sext i32 %17 to i64
+  %21 = load ptr, ptr %tm.addr, align 8
+  %data9 = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 0
+  %22 = load i32, ptr %mapy.addr, align 4
+  %idxprom = sext i32 %22 to i64
   %arrayidx = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data9, i64 0, i64 %idxprom
-  %18 = load i32, ptr %mapx.addr, align 4
-  %idxprom10 = sext i32 %18 to i64
+  %23 = load i32, ptr %mapx.addr, align 4
+  %idxprom10 = sext i32 %23 to i64
   %arrayidx11 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx, i64 0, i64 %idxprom10
-  %19 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %19 to i64
+  %24 = load i32, ptr %i, align 4
+  %idxprom12 = sext i32 %24 to i64
   %arrayidx13 = getelementptr inbounds [8 x i16], ptr %arrayidx11, i64 0, i64 %idxprom12
-  %20 = load i16, ptr %arrayidx13, align 2
-  %21 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %21 to i64
+  %25 = load i16, ptr %arrayidx13, align 2
+  %26 = load i32, ptr %i, align 4
+  %idxprom14 = sext i32 %26 to i64
   %arrayidx15 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 %idxprom14
-  store i16 %20, ptr %arrayidx15, align 2
+  store i16 %25, ptr %arrayidx15, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
+  %27 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %27, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !55
 
 for.end:                                          ; preds = %for.cond
   %arraydecay = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
   store ptr %arraydecay, ptr %data, align 8
-  %23 = load ptr, ptr %tm.addr, align 8
-  %24 = load ptr, ptr %data, align 8
-  call void @stbte__clear_stack(ptr noundef %23, ptr noundef %24)
+  %28 = load ptr, ptr %tm.addr, align 8
+  %29 = load ptr, ptr %data, align 8
+  call void @stbte__clear_stack(ptr noundef %28, ptr noundef %29)
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %land.lhs.true5, %land.lhs.true3, %land.lhs.true, %if.then
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %entry
-  %25 = load i32, ptr %mapx.addr, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41), align 4
-  %sub17 = sub nsw i32 %25, %26
+  %30 = load i32, ptr %mapx.addr, align 4
+  %31 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41
+  %32 = load i32, ptr %31, align 4
+  %sub17 = sub nsw i32 %30, %32
   store i32 %sub17, ptr %ox, align 4
-  %27 = load i32, ptr %mapy.addr, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42), align 8
-  %sub18 = sub nsw i32 %27, %28
+  %33 = load i32, ptr %mapy.addr, align 4
+  %34 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42
+  %35 = load i32, ptr %34, align 8
+  %sub18 = sub nsw i32 %33, %35
   store i32 %sub18, ptr %oy, align 4
-  %29 = load i32, ptr %ox, align 4
-  %cmp19 = icmp sge i32 %29, 0
+  %36 = load i32, ptr %ox, align 4
+  %cmp19 = icmp sge i32 %36, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end110
 
 land.lhs.true20:                                  ; preds = %if.end16
-  %30 = load i32, ptr %ox, align 4
-  %31 = load i32, ptr %w, align 4
-  %cmp21 = icmp slt i32 %30, %31
+  %37 = load i32, ptr %ox, align 4
+  %38 = load i32, ptr %w, align 4
+  %cmp21 = icmp slt i32 %37, %38
   br i1 %cmp21, label %land.lhs.true22, label %if.end110
 
 land.lhs.true22:                                  ; preds = %land.lhs.true20
-  %32 = load i32, ptr %oy, align 4
-  %cmp23 = icmp sge i32 %32, 0
+  %39 = load i32, ptr %oy, align 4
+  %cmp23 = icmp sge i32 %39, 0
   br i1 %cmp23, label %land.lhs.true24, label %if.end110
 
 land.lhs.true24:                                  ; preds = %land.lhs.true22
-  %33 = load i32, ptr %oy, align 4
-  %34 = load i32, ptr %h, align 4
-  %cmp25 = icmp slt i32 %33, %34
+  %40 = load i32, ptr %oy, align 4
+  %41 = load i32, ptr %h, align 4
+  %cmp25 = icmp slt i32 %40, %41
   br i1 %cmp25, label %if.then26, label %if.end110
 
 if.then26:                                        ; preds = %land.lhs.true24
-  %35 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %36 = load i32, ptr %ox, align 4
-  %add = add nsw i32 %35, %36
-  %37 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %38 = load i32, ptr %oy, align 4
-  %add27 = add nsw i32 %37, %38
-  %39 = load ptr, ptr %tm.addr, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 2
-  %40 = load i32, ptr %max_x, align 8
-  %41 = load ptr, ptr %tm.addr, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 3
-  %42 = load i32, ptr %max_y, align 4
-  %call = call i32 @stbte__in_rect(i32 noundef %add, i32 noundef %add27, i32 noundef 0, i32 noundef 0, i32 noundef %40, i32 noundef %42)
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %43 = load i32, ptr %42, align 4
+  %44 = load i32, ptr %ox, align 4
+  %add = add nsw i32 %43, %44
+  %45 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %46 = load i32, ptr %45, align 8
+  %47 = load i32, ptr %oy, align 4
+  %add27 = add nsw i32 %46, %47
+  %48 = load ptr, ptr %tm.addr, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 2
+  %49 = load i32, ptr %max_x, align 8
+  %50 = load ptr, ptr %tm.addr, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %50, i32 0, i32 3
+  %51 = load i32, ptr %max_y, align 4
+  %call = call i32 @stbte__in_rect(i32 noundef %add, i32 noundef %add27, i32 noundef 0, i32 noundef 0, i32 noundef %49, i32 noundef %51)
   %tobool28 = icmp ne i32 %call, 0
   br i1 %tobool28, label %if.then29, label %if.end109
 
 if.then29:                                        ; preds = %if.then26
   store i32 1, ptr %written, align 4
-  %43 = load ptr, ptr %data, align 8
-  %cmp30 = icmp eq ptr %43, null
+  %52 = load ptr, ptr %data, align 8
+  %cmp30 = icmp eq ptr %52, null
   br i1 %cmp30, label %if.then31, label %if.end49
 
 if.then31:                                        ; preds = %if.then29
@@ -8991,35 +9192,35 @@ if.then31:                                        ; preds = %if.then29
   br label %for.cond32
 
 for.cond32:                                       ; preds = %for.inc45, %if.then31
-  %44 = load i32, ptr %i, align 4
-  %45 = load ptr, ptr %tm.addr, align 8
-  %num_layers33 = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 4
-  %46 = load i32, ptr %num_layers33, align 8
-  %cmp34 = icmp slt i32 %44, %46
+  %53 = load i32, ptr %i, align 4
+  %54 = load ptr, ptr %tm.addr, align 8
+  %num_layers33 = getelementptr inbounds %struct.stbte_tilemap, ptr %54, i32 0, i32 4
+  %55 = load i32, ptr %num_layers33, align 8
+  %cmp34 = icmp slt i32 %53, %55
   br i1 %cmp34, label %for.body35, label %for.end47
 
 for.body35:                                       ; preds = %for.cond32
-  %47 = load ptr, ptr %tm.addr, align 8
-  %data36 = getelementptr inbounds %struct.stbte_tilemap, ptr %47, i32 0, i32 0
-  %48 = load i32, ptr %mapy.addr, align 4
-  %idxprom37 = sext i32 %48 to i64
+  %56 = load ptr, ptr %tm.addr, align 8
+  %data36 = getelementptr inbounds %struct.stbte_tilemap, ptr %56, i32 0, i32 0
+  %57 = load i32, ptr %mapy.addr, align 4
+  %idxprom37 = sext i32 %57 to i64
   %arrayidx38 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data36, i64 0, i64 %idxprom37
-  %49 = load i32, ptr %mapx.addr, align 4
-  %idxprom39 = sext i32 %49 to i64
+  %58 = load i32, ptr %mapx.addr, align 4
+  %idxprom39 = sext i32 %58 to i64
   %arrayidx40 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx38, i64 0, i64 %idxprom39
-  %50 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %50 to i64
+  %59 = load i32, ptr %i, align 4
+  %idxprom41 = sext i32 %59 to i64
   %arrayidx42 = getelementptr inbounds [8 x i16], ptr %arrayidx40, i64 0, i64 %idxprom41
-  %51 = load i16, ptr %arrayidx42, align 2
-  %52 = load i32, ptr %i, align 4
-  %idxprom43 = sext i32 %52 to i64
+  %60 = load i16, ptr %arrayidx42, align 2
+  %61 = load i32, ptr %i, align 4
+  %idxprom43 = sext i32 %61 to i64
   %arrayidx44 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 %idxprom43
-  store i16 %51, ptr %arrayidx44, align 2
+  store i16 %60, ptr %arrayidx44, align 2
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.body35
-  %53 = load i32, ptr %i, align 4
-  %inc46 = add nsw i32 %53, 1
+  %62 = load i32, ptr %i, align 4
+  %inc46 = add nsw i32 %62, 1
   store i32 %inc46, ptr %i, align 4
   br label %for.cond32, !llvm.loop !56
 
@@ -9029,29 +9230,32 @@ for.end47:                                        ; preds = %for.cond32
   br label %if.end49
 
 if.end49:                                         ; preds = %for.end47, %if.then29
-  %54 = load ptr, ptr %tm.addr, align 8
-  %55 = load ptr, ptr %data, align 8
-  %56 = load ptr, ptr %data, align 8
-  %57 = load ptr, ptr %tm.addr, align 8
-  %data50 = getelementptr inbounds %struct.stbte_tilemap, ptr %57, i32 0, i32 0
-  %58 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %59 = load i32, ptr %oy, align 4
-  %add51 = add nsw i32 %58, %59
+  %63 = load ptr, ptr %tm.addr, align 8
+  %64 = load ptr, ptr %data, align 8
+  %65 = load ptr, ptr %data, align 8
+  %66 = load ptr, ptr %tm.addr, align 8
+  %data50 = getelementptr inbounds %struct.stbte_tilemap, ptr %66, i32 0, i32 0
+  %67 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %68 = load i32, ptr %67, align 8
+  %69 = load i32, ptr %oy, align 4
+  %add51 = add nsw i32 %68, %69
   %idxprom52 = sext i32 %add51 to i64
   %arrayidx53 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data50, i64 0, i64 %idxprom52
-  %60 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %61 = load i32, ptr %ox, align 4
-  %add54 = add nsw i32 %60, %61
+  %70 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %71 = load i32, ptr %70, align 4
+  %72 = load i32, ptr %ox, align 4
+  %add54 = add nsw i32 %71, %72
   %idxprom55 = sext i32 %add54 to i64
   %arrayidx56 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx53, i64 0, i64 %idxprom55
   %arraydecay57 = getelementptr inbounds [8 x i16], ptr %arrayidx56, i64 0, i64 0
-  %62 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool58 = icmp ne i32 %62, 0
+  %73 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %74 = load i32, ptr %73, align 4
+  %tobool58 = icmp ne i32 %74, 0
   %lnot = xor i1 %tobool58, true
   %lnot.ext = zext i1 %lnot to i32
-  call void @stbte__paste_stack(ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %arraydecay57, i32 noundef %lnot.ext)
-  %63 = load i32, ptr %copy_props.addr, align 4
-  %tobool59 = icmp ne i32 %63, 0
+  call void @stbte__paste_stack(ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %arraydecay57, i32 noundef %lnot.ext)
+  %75 = load i32, ptr %copy_props.addr, align 4
+  %tobool59 = icmp ne i32 %75, 0
   br i1 %tobool59, label %if.then60, label %if.end108
 
 if.then60:                                        ; preds = %if.end49
@@ -9059,96 +9263,100 @@ if.then60:                                        ; preds = %if.end49
   br label %for.cond61
 
 for.cond61:                                       ; preds = %for.inc105, %if.then60
-  %64 = load i32, ptr %i, align 4
-  %cmp62 = icmp slt i32 %64, 1
+  %76 = load i32, ptr %i, align 4
+  %cmp62 = icmp slt i32 %76, 1
   br i1 %cmp62, label %for.body63, label %for.end107
 
 for.body63:                                       ; preds = %for.cond61
-  %65 = load ptr, ptr %tm.addr, align 8
-  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %65, i32 0, i32 1
-  %66 = load i32, ptr %mapy.addr, align 4
-  %idxprom64 = sext i32 %66 to i64
+  %77 = load ptr, ptr %tm.addr, align 8
+  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %77, i32 0, i32 1
+  %78 = load i32, ptr %mapy.addr, align 4
+  %idxprom64 = sext i32 %78 to i64
   %arrayidx65 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom64
-  %67 = load i32, ptr %mapx.addr, align 4
-  %idxprom66 = sext i32 %67 to i64
+  %79 = load i32, ptr %mapx.addr, align 4
+  %idxprom66 = sext i32 %79 to i64
   %arrayidx67 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx65, i64 0, i64 %idxprom66
-  %68 = load i32, ptr %i, align 4
-  %idxprom68 = sext i32 %68 to i64
+  %80 = load i32, ptr %i, align 4
+  %idxprom68 = sext i32 %80 to i64
   %arrayidx69 = getelementptr inbounds [1 x float], ptr %arrayidx67, i64 0, i64 %idxprom68
-  %69 = load float, ptr %arrayidx69, align 4
-  %70 = load ptr, ptr %tm.addr, align 8
-  %props70 = getelementptr inbounds %struct.stbte_tilemap, ptr %70, i32 0, i32 1
-  %71 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %72 = load i32, ptr %oy, align 4
-  %add71 = add nsw i32 %71, %72
+  %81 = load float, ptr %arrayidx69, align 4
+  %82 = load ptr, ptr %tm.addr, align 8
+  %props70 = getelementptr inbounds %struct.stbte_tilemap, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %84 = load i32, ptr %83, align 8
+  %85 = load i32, ptr %oy, align 4
+  %add71 = add nsw i32 %84, %85
   %idxprom72 = sext i32 %add71 to i64
   %arrayidx73 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props70, i64 0, i64 %idxprom72
-  %73 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %74 = load i32, ptr %ox, align 4
-  %add74 = add nsw i32 %73, %74
+  %86 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %87 = load i32, ptr %86, align 4
+  %88 = load i32, ptr %ox, align 4
+  %add74 = add nsw i32 %87, %88
   %idxprom75 = sext i32 %add74 to i64
   %arrayidx76 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx73, i64 0, i64 %idxprom75
-  %75 = load i32, ptr %i, align 4
-  %idxprom77 = sext i32 %75 to i64
+  %89 = load i32, ptr %i, align 4
+  %idxprom77 = sext i32 %89 to i64
   %arrayidx78 = getelementptr inbounds [1 x float], ptr %arrayidx76, i64 0, i64 %idxprom77
-  %76 = load float, ptr %arrayidx78, align 4
-  %cmp79 = fcmp une float %69, %76
+  %90 = load float, ptr %arrayidx78, align 4
+  %cmp79 = fcmp une float %81, %90
   br i1 %cmp79, label %if.then80, label %if.end104
 
 if.then80:                                        ; preds = %for.body63
-  %77 = load ptr, ptr %tm.addr, align 8
-  %78 = load i32, ptr %mapx.addr, align 4
-  %79 = load i32, ptr %mapy.addr, align 4
-  %80 = load i32, ptr %i, align 4
-  %81 = load ptr, ptr %tm.addr, align 8
-  %props81 = getelementptr inbounds %struct.stbte_tilemap, ptr %81, i32 0, i32 1
-  %82 = load i32, ptr %mapy.addr, align 4
-  %idxprom82 = sext i32 %82 to i64
+  %91 = load ptr, ptr %tm.addr, align 8
+  %92 = load i32, ptr %mapx.addr, align 4
+  %93 = load i32, ptr %mapy.addr, align 4
+  %94 = load i32, ptr %i, align 4
+  %95 = load ptr, ptr %tm.addr, align 8
+  %props81 = getelementptr inbounds %struct.stbte_tilemap, ptr %95, i32 0, i32 1
+  %96 = load i32, ptr %mapy.addr, align 4
+  %idxprom82 = sext i32 %96 to i64
   %arrayidx83 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props81, i64 0, i64 %idxprom82
-  %83 = load i32, ptr %mapx.addr, align 4
-  %idxprom84 = sext i32 %83 to i64
+  %97 = load i32, ptr %mapx.addr, align 4
+  %idxprom84 = sext i32 %97 to i64
   %arrayidx85 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx83, i64 0, i64 %idxprom84
-  %84 = load i32, ptr %i, align 4
-  %idxprom86 = sext i32 %84 to i64
+  %98 = load i32, ptr %i, align 4
+  %idxprom86 = sext i32 %98 to i64
   %arrayidx87 = getelementptr inbounds [1 x float], ptr %arrayidx85, i64 0, i64 %idxprom86
-  %85 = load float, ptr %arrayidx87, align 4
-  call void @stbte__undo_record_prop_float(ptr noundef %77, i32 noundef %78, i32 noundef %79, i32 noundef %80, float noundef %85)
-  %86 = load ptr, ptr %tm.addr, align 8
-  %props88 = getelementptr inbounds %struct.stbte_tilemap, ptr %86, i32 0, i32 1
-  %87 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %88 = load i32, ptr %oy, align 4
-  %add89 = add nsw i32 %87, %88
+  %99 = load float, ptr %arrayidx87, align 4
+  call void @stbte__undo_record_prop_float(ptr noundef %91, i32 noundef %92, i32 noundef %93, i32 noundef %94, float noundef %99)
+  %100 = load ptr, ptr %tm.addr, align 8
+  %props88 = getelementptr inbounds %struct.stbte_tilemap, ptr %100, i32 0, i32 1
+  %101 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %102 = load i32, ptr %101, align 8
+  %103 = load i32, ptr %oy, align 4
+  %add89 = add nsw i32 %102, %103
   %idxprom90 = sext i32 %add89 to i64
   %arrayidx91 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props88, i64 0, i64 %idxprom90
-  %89 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %90 = load i32, ptr %ox, align 4
-  %add92 = add nsw i32 %89, %90
+  %104 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %105 = load i32, ptr %104, align 4
+  %106 = load i32, ptr %ox, align 4
+  %add92 = add nsw i32 %105, %106
   %idxprom93 = sext i32 %add92 to i64
   %arrayidx94 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx91, i64 0, i64 %idxprom93
-  %91 = load i32, ptr %i, align 4
-  %idxprom95 = sext i32 %91 to i64
+  %107 = load i32, ptr %i, align 4
+  %idxprom95 = sext i32 %107 to i64
   %arrayidx96 = getelementptr inbounds [1 x float], ptr %arrayidx94, i64 0, i64 %idxprom95
-  %92 = load float, ptr %arrayidx96, align 4
-  %93 = load ptr, ptr %tm.addr, align 8
-  %props97 = getelementptr inbounds %struct.stbte_tilemap, ptr %93, i32 0, i32 1
-  %94 = load i32, ptr %mapy.addr, align 4
-  %idxprom98 = sext i32 %94 to i64
+  %108 = load float, ptr %arrayidx96, align 4
+  %109 = load ptr, ptr %tm.addr, align 8
+  %props97 = getelementptr inbounds %struct.stbte_tilemap, ptr %109, i32 0, i32 1
+  %110 = load i32, ptr %mapy.addr, align 4
+  %idxprom98 = sext i32 %110 to i64
   %arrayidx99 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props97, i64 0, i64 %idxprom98
-  %95 = load i32, ptr %mapx.addr, align 4
-  %idxprom100 = sext i32 %95 to i64
+  %111 = load i32, ptr %mapx.addr, align 4
+  %idxprom100 = sext i32 %111 to i64
   %arrayidx101 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx99, i64 0, i64 %idxprom100
-  %96 = load i32, ptr %i, align 4
-  %idxprom102 = sext i32 %96 to i64
+  %112 = load i32, ptr %i, align 4
+  %idxprom102 = sext i32 %112 to i64
   %arrayidx103 = getelementptr inbounds [1 x float], ptr %arrayidx101, i64 0, i64 %idxprom102
-  store float %92, ptr %arrayidx103, align 4
+  store float %108, ptr %arrayidx103, align 4
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then80, %for.body63
   br label %for.inc105
 
 for.inc105:                                       ; preds = %if.end104
-  %97 = load i32, ptr %i, align 4
-  %inc106 = add nsw i32 %97, 1
+  %113 = load i32, ptr %i, align 4
+  %inc106 = add nsw i32 %113, 1
   store i32 %inc106, ptr %i, align 4
   br label %for.cond61, !llvm.loop !57
 
@@ -9162,8 +9370,8 @@ if.end109:                                        ; preds = %if.end108, %if.then
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end109, %land.lhs.true24, %land.lhs.true22, %land.lhs.true20, %if.end16
-  %98 = load ptr, ptr %data, align 8
-  %tobool111 = icmp ne ptr %98, null
+  %114 = load ptr, ptr %data, align 8
+  %tobool111 = icmp ne ptr %114, null
   br i1 %tobool111, label %if.then112, label %if.end151
 
 if.then112:                                       ; preds = %if.end110
@@ -9171,80 +9379,80 @@ if.then112:                                       ; preds = %if.end110
   br label %for.cond113
 
 for.cond113:                                      ; preds = %for.inc148, %if.then112
-  %99 = load i32, ptr %i, align 4
-  %100 = load ptr, ptr %tm.addr, align 8
-  %num_layers114 = getelementptr inbounds %struct.stbte_tilemap, ptr %100, i32 0, i32 4
-  %101 = load i32, ptr %num_layers114, align 8
-  %cmp115 = icmp slt i32 %99, %101
+  %115 = load i32, ptr %i, align 4
+  %116 = load ptr, ptr %tm.addr, align 8
+  %num_layers114 = getelementptr inbounds %struct.stbte_tilemap, ptr %116, i32 0, i32 4
+  %117 = load i32, ptr %num_layers114, align 8
+  %cmp115 = icmp slt i32 %115, %117
   br i1 %cmp115, label %for.body116, label %for.end150
 
 for.body116:                                      ; preds = %for.cond113
-  %102 = load ptr, ptr %tm.addr, align 8
-  %data117 = getelementptr inbounds %struct.stbte_tilemap, ptr %102, i32 0, i32 0
-  %103 = load i32, ptr %mapy.addr, align 4
-  %idxprom118 = sext i32 %103 to i64
+  %118 = load ptr, ptr %tm.addr, align 8
+  %data117 = getelementptr inbounds %struct.stbte_tilemap, ptr %118, i32 0, i32 0
+  %119 = load i32, ptr %mapy.addr, align 4
+  %idxprom118 = sext i32 %119 to i64
   %arrayidx119 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data117, i64 0, i64 %idxprom118
-  %104 = load i32, ptr %mapx.addr, align 4
-  %idxprom120 = sext i32 %104 to i64
+  %120 = load i32, ptr %mapx.addr, align 4
+  %idxprom120 = sext i32 %120 to i64
   %arrayidx121 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx119, i64 0, i64 %idxprom120
-  %105 = load i32, ptr %i, align 4
-  %idxprom122 = sext i32 %105 to i64
+  %121 = load i32, ptr %i, align 4
+  %idxprom122 = sext i32 %121 to i64
   %arrayidx123 = getelementptr inbounds [8 x i16], ptr %arrayidx121, i64 0, i64 %idxprom122
-  %106 = load i16, ptr %arrayidx123, align 2
-  %conv = sext i16 %106 to i32
-  %107 = load ptr, ptr %data, align 8
-  %108 = load i32, ptr %i, align 4
-  %idxprom124 = sext i32 %108 to i64
-  %arrayidx125 = getelementptr inbounds i16, ptr %107, i64 %idxprom124
-  %109 = load i16, ptr %arrayidx125, align 2
-  %conv126 = sext i16 %109 to i32
+  %122 = load i16, ptr %arrayidx123, align 2
+  %conv = sext i16 %122 to i32
+  %123 = load ptr, ptr %data, align 8
+  %124 = load i32, ptr %i, align 4
+  %idxprom124 = sext i32 %124 to i64
+  %arrayidx125 = getelementptr inbounds i16, ptr %123, i64 %idxprom124
+  %125 = load i16, ptr %arrayidx125, align 2
+  %conv126 = sext i16 %125 to i32
   %cmp127 = icmp ne i32 %conv, %conv126
   br i1 %cmp127, label %if.then129, label %if.end147
 
 if.then129:                                       ; preds = %for.body116
-  %110 = load ptr, ptr %tm.addr, align 8
-  %111 = load i32, ptr %mapx.addr, align 4
-  %112 = load i32, ptr %mapy.addr, align 4
-  %113 = load i32, ptr %i, align 4
-  %114 = load ptr, ptr %tm.addr, align 8
-  %data130 = getelementptr inbounds %struct.stbte_tilemap, ptr %114, i32 0, i32 0
-  %115 = load i32, ptr %mapy.addr, align 4
-  %idxprom131 = sext i32 %115 to i64
+  %126 = load ptr, ptr %tm.addr, align 8
+  %127 = load i32, ptr %mapx.addr, align 4
+  %128 = load i32, ptr %mapy.addr, align 4
+  %129 = load i32, ptr %i, align 4
+  %130 = load ptr, ptr %tm.addr, align 8
+  %data130 = getelementptr inbounds %struct.stbte_tilemap, ptr %130, i32 0, i32 0
+  %131 = load i32, ptr %mapy.addr, align 4
+  %idxprom131 = sext i32 %131 to i64
   %arrayidx132 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data130, i64 0, i64 %idxprom131
-  %116 = load i32, ptr %mapx.addr, align 4
-  %idxprom133 = sext i32 %116 to i64
+  %132 = load i32, ptr %mapx.addr, align 4
+  %idxprom133 = sext i32 %132 to i64
   %arrayidx134 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx132, i64 0, i64 %idxprom133
-  %117 = load i32, ptr %i, align 4
-  %idxprom135 = sext i32 %117 to i64
+  %133 = load i32, ptr %i, align 4
+  %idxprom135 = sext i32 %133 to i64
   %arrayidx136 = getelementptr inbounds [8 x i16], ptr %arrayidx134, i64 0, i64 %idxprom135
-  %118 = load i16, ptr %arrayidx136, align 2
-  %conv137 = sext i16 %118 to i32
-  call void @stbte__undo_record(ptr noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113, i32 noundef %conv137)
-  %119 = load ptr, ptr %data, align 8
-  %120 = load i32, ptr %i, align 4
-  %idxprom138 = sext i32 %120 to i64
-  %arrayidx139 = getelementptr inbounds i16, ptr %119, i64 %idxprom138
-  %121 = load i16, ptr %arrayidx139, align 2
-  %122 = load ptr, ptr %tm.addr, align 8
-  %data140 = getelementptr inbounds %struct.stbte_tilemap, ptr %122, i32 0, i32 0
-  %123 = load i32, ptr %mapy.addr, align 4
-  %idxprom141 = sext i32 %123 to i64
+  %134 = load i16, ptr %arrayidx136, align 2
+  %conv137 = sext i16 %134 to i32
+  call void @stbte__undo_record(ptr noundef %126, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %conv137)
+  %135 = load ptr, ptr %data, align 8
+  %136 = load i32, ptr %i, align 4
+  %idxprom138 = sext i32 %136 to i64
+  %arrayidx139 = getelementptr inbounds i16, ptr %135, i64 %idxprom138
+  %137 = load i16, ptr %arrayidx139, align 2
+  %138 = load ptr, ptr %tm.addr, align 8
+  %data140 = getelementptr inbounds %struct.stbte_tilemap, ptr %138, i32 0, i32 0
+  %139 = load i32, ptr %mapy.addr, align 4
+  %idxprom141 = sext i32 %139 to i64
   %arrayidx142 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data140, i64 0, i64 %idxprom141
-  %124 = load i32, ptr %mapx.addr, align 4
-  %idxprom143 = sext i32 %124 to i64
+  %140 = load i32, ptr %mapx.addr, align 4
+  %idxprom143 = sext i32 %140 to i64
   %arrayidx144 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx142, i64 0, i64 %idxprom143
-  %125 = load i32, ptr %i, align 4
-  %idxprom145 = sext i32 %125 to i64
+  %141 = load i32, ptr %i, align 4
+  %idxprom145 = sext i32 %141 to i64
   %arrayidx146 = getelementptr inbounds [8 x i16], ptr %arrayidx144, i64 0, i64 %idxprom145
-  store i16 %121, ptr %arrayidx146, align 2
+  store i16 %137, ptr %arrayidx146, align 2
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then129, %for.body116
   br label %for.inc148
 
 for.inc148:                                       ; preds = %if.end147
-  %126 = load i32, ptr %i, align 4
-  %inc149 = add nsw i32 %126, 1
+  %142 = load i32, ptr %i, align 4
+  %inc149 = add nsw i32 %142, 1
   store i32 %inc149, ptr %i, align 4
   br label %for.cond113, !llvm.loop !58
 
@@ -9272,80 +9480,84 @@ entry:
   %0 = load ptr, ptr %tm.addr, align 8
   %call = call i32 @stbte__should_copy_properties(ptr noundef %0)
   store i32 %call, ptr %copy_props, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %sub = sub nsw i32 %1, %2
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41
+  %2 = load i32, ptr %1, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %4 = load i32, ptr %3, align 4
+  %sub = sub nsw i32 %2, %4
   store i32 %sub, ptr %move_x, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %sub1 = sub nsw i32 %3, %4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %8 = load i32, ptr %7, align 8
+  %sub1 = sub nsw i32 %6, %8
   store i32 %sub1, ptr %move_y, align 4
-  %5 = load i32, ptr %move_x, align 4
-  %cmp = icmp eq i32 %5, 0
+  %9 = load i32, ptr %move_x, align 4
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %6 = load i32, ptr %move_y, align 4
-  %cmp2 = icmp eq i32 %6, 0
+  %10 = load i32, ptr %move_y, align 4
+  %cmp2 = icmp eq i32 %10, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %7 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %7)
-  %8 = load i32, ptr %move_y, align 4
-  %cmp3 = icmp sgt i32 %8, 0
+  %11 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %11)
+  %12 = load i32, ptr %move_y, align 4
+  %cmp3 = icmp sgt i32 %12, 0
   br i1 %cmp3, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %9 = load i32, ptr %move_y, align 4
-  %cmp4 = icmp eq i32 %9, 0
+  %13 = load i32, ptr %move_y, align 4
+  %cmp4 = icmp eq i32 %13, 0
   br i1 %cmp4, label %land.lhs.true5, label %if.else
 
 land.lhs.true5:                                   ; preds = %lor.lhs.false
-  %10 = load i32, ptr %move_x, align 4
-  %cmp6 = icmp sgt i32 %10, 0
+  %14 = load i32, ptr %move_x, align 4
+  %cmp6 = icmp sgt i32 %14, 0
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %land.lhs.true5, %if.end
-  %11 = load ptr, ptr %tm.addr, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 3
-  %12 = load i32, ptr %max_y, align 4
-  %sub8 = sub nsw i32 %12, 1
+  %15 = load ptr, ptr %tm.addr, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %15, i32 0, i32 3
+  %16 = load i32, ptr %max_y, align 4
+  %sub8 = sub nsw i32 %16, 1
   store i32 %sub8, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc14, %if.then7
-  %13 = load i32, ptr %j, align 4
-  %cmp9 = icmp sge i32 %13, 0
+  %17 = load i32, ptr %j, align 4
+  %cmp9 = icmp sge i32 %17, 0
   br i1 %cmp9, label %for.body, label %for.end16
 
 for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %tm.addr, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 2
-  %15 = load i32, ptr %max_x, align 8
-  %sub10 = sub nsw i32 %15, 1
+  %18 = load ptr, ptr %tm.addr, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 2
+  %19 = load i32, ptr %max_x, align 8
+  %sub10 = sub nsw i32 %19, 1
   store i32 %sub10, ptr %i, align 4
   br label %for.cond11
 
 for.cond11:                                       ; preds = %for.inc, %for.body
-  %16 = load i32, ptr %i, align 4
-  %cmp12 = icmp sge i32 %16, 0
+  %20 = load i32, ptr %i, align 4
+  %cmp12 = icmp sge i32 %20, 0
   br i1 %cmp12, label %for.body13, label %for.end
 
 for.body13:                                       ; preds = %for.cond11
-  %17 = load ptr, ptr %tm.addr, align 8
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %j, align 4
-  %20 = load i32, ptr %copy_props, align 4
-  call void @stbte__drag_update(ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20)
+  %21 = load ptr, ptr %tm.addr, align 8
+  %22 = load i32, ptr %i, align 4
+  %23 = load i32, ptr %j, align 4
+  %24 = load i32, ptr %copy_props, align 4
+  call void @stbte__drag_update(ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body13
-  %21 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %21, -1
+  %25 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %25, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond11, !llvm.loop !59
 
@@ -9353,8 +9565,8 @@ for.end:                                          ; preds = %for.cond11
   br label %for.inc14
 
 for.inc14:                                        ; preds = %for.end
-  %22 = load i32, ptr %j, align 4
-  %dec15 = add nsw i32 %22, -1
+  %26 = load i32, ptr %j, align 4
+  %dec15 = add nsw i32 %26, -1
   store i32 %dec15, ptr %j, align 4
   br label %for.cond, !llvm.loop !60
 
@@ -9366,11 +9578,11 @@ if.else:                                          ; preds = %land.lhs.true5, %lo
   br label %for.cond17
 
 for.cond17:                                       ; preds = %for.inc27, %if.else
-  %23 = load i32, ptr %j, align 4
-  %24 = load ptr, ptr %tm.addr, align 8
-  %max_y18 = getelementptr inbounds %struct.stbte_tilemap, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %max_y18, align 4
-  %cmp19 = icmp slt i32 %23, %25
+  %27 = load i32, ptr %j, align 4
+  %28 = load ptr, ptr %tm.addr, align 8
+  %max_y18 = getelementptr inbounds %struct.stbte_tilemap, ptr %28, i32 0, i32 3
+  %29 = load i32, ptr %max_y18, align 4
+  %cmp19 = icmp slt i32 %27, %29
   br i1 %cmp19, label %for.body20, label %for.end29
 
 for.body20:                                       ; preds = %for.cond17
@@ -9378,24 +9590,24 @@ for.body20:                                       ; preds = %for.cond17
   br label %for.cond21
 
 for.cond21:                                       ; preds = %for.inc25, %for.body20
-  %26 = load i32, ptr %i, align 4
-  %27 = load ptr, ptr %tm.addr, align 8
-  %max_x22 = getelementptr inbounds %struct.stbte_tilemap, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %max_x22, align 8
-  %cmp23 = icmp slt i32 %26, %28
+  %30 = load i32, ptr %i, align 4
+  %31 = load ptr, ptr %tm.addr, align 8
+  %max_x22 = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 2
+  %32 = load i32, ptr %max_x22, align 8
+  %cmp23 = icmp slt i32 %30, %32
   br i1 %cmp23, label %for.body24, label %for.end26
 
 for.body24:                                       ; preds = %for.cond21
-  %29 = load ptr, ptr %tm.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %31 = load i32, ptr %j, align 4
-  %32 = load i32, ptr %copy_props, align 4
-  call void @stbte__drag_update(ptr noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32)
+  %33 = load ptr, ptr %tm.addr, align 8
+  %34 = load i32, ptr %i, align 4
+  %35 = load i32, ptr %j, align 4
+  %36 = load i32, ptr %copy_props, align 4
+  call void @stbte__drag_update(ptr noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36)
   br label %for.inc25
 
 for.inc25:                                        ; preds = %for.body24
-  %33 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %33, 1
+  %37 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %37, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond21, !llvm.loop !61
 
@@ -9403,8 +9615,8 @@ for.end26:                                        ; preds = %for.cond21
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.end26
-  %34 = load i32, ptr %j, align 4
-  %inc28 = add nsw i32 %34, 1
+  %38 = load i32, ptr %j, align 4
+  %inc28 = add nsw i32 %38, 1
   store i32 %inc28, ptr %j, align 4
   br label %for.cond17, !llvm.loop !62
 
@@ -9412,23 +9624,34 @@ for.end29:                                        ; preds = %for.cond17
   br label %if.end30
 
 if.end30:                                         ; preds = %for.end29, %for.end16
-  %35 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %35)
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %36 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41), align 4
-  store i32 %36, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42), align 8
-  store i32 %37, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37), align 4
-  %add = add nsw i32 %38, %39
+  %39 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %39)
+  %40 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  store i32 1, ptr %40, align 8
+  %41 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  store i32 %42, ptr %43, align 4
+  %44 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  store i32 %45, ptr %46, align 8
+  %47 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37
+  %50 = load i32, ptr %49, align 4
+  %add = add nsw i32 %48, %50
   %sub31 = sub nsw i32 %add, 1
-  store i32 %sub31, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38), align 8
-  %add32 = add nsw i32 %40, %41
+  %51 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  store i32 %sub31, ptr %51, align 4
+  %52 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38
+  %55 = load i32, ptr %54, align 8
+  %add32 = add nsw i32 %53, %55
   %sub33 = sub nsw i32 %add32, 1
-  store i32 %sub33, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
+  %56 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  store i32 %sub33, ptr %56, align 8
   br label %return
 
 return:                                           ; preds = %if.end30, %if.then
@@ -9506,67 +9729,75 @@ entry:
   %arrayidx7 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx, i64 0, i64 %idxprom6
   %arraydecay = getelementptr inbounds [8 x i16], ptr %arrayidx7, i64 0, i64 0
   store ptr %arraydecay, ptr %data, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %and = and i32 %18, 127
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  %and = and i32 %19, 127
   %cmp = icmp eq i32 %and, 1
   br i1 %cmp, label %if.then, label %if.end144
 
 if.then:                                          ; preds = %entry
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool = icmp ne i32 %19, 0
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %21 = load i32, ptr %20, align 4
+  %tobool = icmp ne i32 %21, 0
   br i1 %tobool, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
-  %20 = load i32, ptr %mapx.addr, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 24), align 8
-  %sub = sub nsw i32 %20, %21
+  %22 = load i32, ptr %mapx.addr, align 4
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 24
+  %24 = load i32, ptr %23, align 8
+  %sub = sub nsw i32 %22, %24
   store i32 %sub, ptr %ox, align 4
-  %22 = load i32, ptr %mapy.addr, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 25), align 4
-  %sub9 = sub nsw i32 %22, %23
+  %25 = load i32, ptr %mapy.addr, align 4
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 25
+  %27 = load i32, ptr %26, align 4
+  %sub9 = sub nsw i32 %25, %27
   store i32 %sub9, ptr %oy, align 4
-  %24 = load i32, ptr %ox, align 4
-  %cmp10 = icmp sge i32 %24, 0
+  %28 = load i32, ptr %ox, align 4
+  %cmp10 = icmp sge i32 %28, 0
   br i1 %cmp10, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then8
-  %25 = load i32, ptr %ox, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66), align 8
-  %cmp11 = icmp slt i32 %25, %26
+  %29 = load i32, ptr %ox, align 4
+  %30 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66
+  %31 = load i32, ptr %30, align 8
+  %cmp11 = icmp slt i32 %29, %31
   br i1 %cmp11, label %land.lhs.true12, label %if.end
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %27 = load i32, ptr %oy, align 4
-  %cmp13 = icmp sge i32 %27, 0
+  %32 = load i32, ptr %oy, align 4
+  %cmp13 = icmp sge i32 %32, 0
   br i1 %cmp13, label %land.lhs.true14, label %if.end
 
 land.lhs.true14:                                  ; preds = %land.lhs.true12
-  %28 = load i32, ptr %oy, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67), align 4
-  %cmp15 = icmp slt i32 %28, %29
+  %33 = load i32, ptr %oy, align 4
+  %34 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67
+  %35 = load i32, ptr %34, align 4
+  %cmp15 = icmp slt i32 %33, %35
   br i1 %cmp15, label %if.then16, label %if.end
 
 if.then16:                                        ; preds = %land.lhs.true14
-  %30 = load ptr, ptr %tm.addr, align 8
+  %36 = load ptr, ptr %tm.addr, align 8
   %arraydecay17 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  %31 = load ptr, ptr %tm.addr, align 8
-  %data18 = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 0
-  %32 = load i32, ptr %mapy.addr, align 4
-  %idxprom19 = sext i32 %32 to i64
+  %37 = load ptr, ptr %tm.addr, align 8
+  %data18 = getelementptr inbounds %struct.stbte_tilemap, ptr %37, i32 0, i32 0
+  %38 = load i32, ptr %mapy.addr, align 4
+  %idxprom19 = sext i32 %38 to i64
   %arrayidx20 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data18, i64 0, i64 %idxprom19
-  %33 = load i32, ptr %mapx.addr, align 4
-  %idxprom21 = sext i32 %33 to i64
+  %39 = load i32, ptr %mapx.addr, align 4
+  %idxprom21 = sext i32 %39 to i64
   %arrayidx22 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx20, i64 0, i64 %idxprom21
   %arraydecay23 = getelementptr inbounds [8 x i16], ptr %arrayidx22, i64 0, i64 0
-  %34 = load i32, ptr %oy, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66), align 8
-  %mul = mul nsw i32 %34, %35
-  %36 = load i32, ptr %ox, align 4
-  %add24 = add nsw i32 %mul, %36
+  %40 = load i32, ptr %oy, align 4
+  %41 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66
+  %42 = load i32, ptr %41, align 8
+  %mul = mul nsw i32 %40, %42
+  %43 = load i32, ptr %ox, align 4
+  %add24 = add nsw i32 %mul, %43
   %idxprom25 = sext i32 %add24 to i64
-  %arrayidx26 = getelementptr inbounds [65536 x [8 x i16]], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61), i64 0, i64 %idxprom25
+  %44 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 61
+  %arrayidx26 = getelementptr inbounds [65536 x [8 x i16]], ptr %44, i64 0, i64 %idxprom25
   %arraydecay27 = getelementptr inbounds [8 x i16], ptr %arrayidx26, i64 0, i64 0
-  call void @stbte__paste_stack(ptr noundef %30, ptr noundef %arraydecay17, ptr noundef %arraydecay23, ptr noundef %arraydecay27, i32 noundef 0)
+  call void @stbte__paste_stack(ptr noundef %36, ptr noundef %arraydecay17, ptr noundef %arraydecay23, ptr noundef %arraydecay27, i32 noundef 0)
   %arraydecay28 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
   store ptr %arraydecay28, ptr %data, align 8
   br label %if.end
@@ -9575,8 +9806,9 @@ if.end:                                           ; preds = %if.then16, %land.lh
   br label %if.end143
 
 if.else:                                          ; preds = %if.then
-  %37 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  %tobool29 = icmp ne i32 %37, 0
+  %45 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  %46 = load i32, ptr %45, align 8
+  %tobool29 = icmp ne i32 %46, 0
   br i1 %tobool29, label %if.then30, label %if.else80
 
 if.then30:                                        ; preds = %if.else
@@ -9584,217 +9816,235 @@ if.then30:                                        ; preds = %if.else
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then30
-  %38 = load i32, ptr %i, align 4
-  %39 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 4
-  %40 = load i32, ptr %num_layers, align 8
-  %cmp33 = icmp slt i32 %38, %40
+  %47 = load i32, ptr %i, align 4
+  %48 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 4
+  %49 = load i32, ptr %num_layers, align 8
+  %cmp33 = icmp slt i32 %47, %49
   br i1 %cmp33, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %41 = load ptr, ptr %tm.addr, align 8
-  %data34 = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 0
-  %42 = load i32, ptr %mapy.addr, align 4
-  %idxprom35 = sext i32 %42 to i64
+  %50 = load ptr, ptr %tm.addr, align 8
+  %data34 = getelementptr inbounds %struct.stbte_tilemap, ptr %50, i32 0, i32 0
+  %51 = load i32, ptr %mapy.addr, align 4
+  %idxprom35 = sext i32 %51 to i64
   %arrayidx36 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data34, i64 0, i64 %idxprom35
-  %43 = load i32, ptr %mapx.addr, align 4
-  %idxprom37 = sext i32 %43 to i64
+  %52 = load i32, ptr %mapx.addr, align 4
+  %idxprom37 = sext i32 %52 to i64
   %arrayidx38 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx36, i64 0, i64 %idxprom37
-  %44 = load i32, ptr %i, align 4
-  %idxprom39 = sext i32 %44 to i64
+  %53 = load i32, ptr %i, align 4
+  %idxprom39 = sext i32 %53 to i64
   %arrayidx40 = getelementptr inbounds [8 x i16], ptr %arrayidx38, i64 0, i64 %idxprom39
-  %45 = load i16, ptr %arrayidx40, align 2
-  %46 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %46 to i64
+  %54 = load i16, ptr %arrayidx40, align 2
+  %55 = load i32, ptr %i, align 4
+  %idxprom41 = sext i32 %55 to i64
   %arrayidx42 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 %idxprom41
-  store i16 %45, ptr %arrayidx42, align 2
+  store i16 %54, ptr %arrayidx42, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %47 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %47, 1
+  %56 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %56, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !63
 
 for.end:                                          ; preds = %for.cond
   %arraydecay43 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
   store ptr %arraydecay43, ptr %data, align 8
-  %48 = load i32, ptr %mapx.addr, align 4
-  %49 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %sub44 = sub nsw i32 %48, %49
+  %57 = load i32, ptr %mapx.addr, align 4
+  %58 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %59 = load i32, ptr %58, align 4
+  %sub44 = sub nsw i32 %57, %59
   store i32 %sub44, ptr %ox31, align 4
-  %50 = load i32, ptr %mapy.addr, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %sub45 = sub nsw i32 %50, %51
+  %60 = load i32, ptr %mapy.addr, align 4
+  %61 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %62 = load i32, ptr %61, align 8
+  %sub45 = sub nsw i32 %60, %62
   store i32 %sub45, ptr %oy32, align 4
-  %52 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool46 = icmp ne i32 %52, 0
+  %63 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %64 = load i32, ptr %63, align 4
+  %tobool46 = icmp ne i32 %64, 0
   br i1 %tobool46, label %if.end57, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %for.end
-  %53 = load i32, ptr %ox31, align 4
-  %cmp48 = icmp sge i32 %53, 0
+  %65 = load i32, ptr %ox31, align 4
+  %cmp48 = icmp sge i32 %65, 0
   br i1 %cmp48, label %land.lhs.true49, label %if.end57
 
 land.lhs.true49:                                  ; preds = %land.lhs.true47
-  %54 = load i32, ptr %ox31, align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37), align 4
-  %cmp50 = icmp slt i32 %54, %55
+  %66 = load i32, ptr %ox31, align 4
+  %67 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37
+  %68 = load i32, ptr %67, align 4
+  %cmp50 = icmp slt i32 %66, %68
   br i1 %cmp50, label %land.lhs.true51, label %if.end57
 
 land.lhs.true51:                                  ; preds = %land.lhs.true49
-  %56 = load i32, ptr %oy32, align 4
-  %cmp52 = icmp sge i32 %56, 0
+  %69 = load i32, ptr %oy32, align 4
+  %cmp52 = icmp sge i32 %69, 0
   br i1 %cmp52, label %land.lhs.true53, label %if.end57
 
 land.lhs.true53:                                  ; preds = %land.lhs.true51
-  %57 = load i32, ptr %oy32, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38), align 8
-  %cmp54 = icmp slt i32 %57, %58
+  %70 = load i32, ptr %oy32, align 4
+  %71 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38
+  %72 = load i32, ptr %71, align 8
+  %cmp54 = icmp slt i32 %70, %72
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %land.lhs.true53
-  %59 = load ptr, ptr %tm.addr, align 8
+  %73 = load ptr, ptr %tm.addr, align 8
   %arraydecay56 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  call void @stbte__clear_stack(ptr noundef %59, ptr noundef %arraydecay56)
+  call void @stbte__clear_stack(ptr noundef %73, ptr noundef %arraydecay56)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then55, %land.lhs.true53, %land.lhs.true51, %land.lhs.true49, %land.lhs.true47, %for.end
-  %60 = load i32, ptr %mapx.addr, align 4
-  %61 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41), align 4
-  %sub58 = sub nsw i32 %60, %61
+  %74 = load i32, ptr %mapx.addr, align 4
+  %75 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41
+  %76 = load i32, ptr %75, align 4
+  %sub58 = sub nsw i32 %74, %76
   store i32 %sub58, ptr %ox31, align 4
-  %62 = load i32, ptr %mapy.addr, align 4
-  %63 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42), align 8
-  %sub59 = sub nsw i32 %62, %63
+  %77 = load i32, ptr %mapy.addr, align 4
+  %78 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42
+  %79 = load i32, ptr %78, align 8
+  %sub59 = sub nsw i32 %77, %79
   store i32 %sub59, ptr %oy32, align 4
-  %64 = load i32, ptr %ox31, align 4
-  %cmp60 = icmp sge i32 %64, 0
+  %80 = load i32, ptr %ox31, align 4
+  %cmp60 = icmp sge i32 %80, 0
   br i1 %cmp60, label %land.lhs.true61, label %if.end79
 
 land.lhs.true61:                                  ; preds = %if.end57
-  %65 = load i32, ptr %ox31, align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37), align 4
-  %cmp62 = icmp slt i32 %65, %66
+  %81 = load i32, ptr %ox31, align 4
+  %82 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37
+  %83 = load i32, ptr %82, align 4
+  %cmp62 = icmp slt i32 %81, %83
   br i1 %cmp62, label %land.lhs.true63, label %if.end79
 
 land.lhs.true63:                                  ; preds = %land.lhs.true61
-  %67 = load i32, ptr %oy32, align 4
-  %cmp64 = icmp sge i32 %67, 0
+  %84 = load i32, ptr %oy32, align 4
+  %cmp64 = icmp sge i32 %84, 0
   br i1 %cmp64, label %land.lhs.true65, label %if.end79
 
 land.lhs.true65:                                  ; preds = %land.lhs.true63
-  %68 = load i32, ptr %oy32, align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38), align 8
-  %cmp66 = icmp slt i32 %68, %69
+  %85 = load i32, ptr %oy32, align 4
+  %86 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38
+  %87 = load i32, ptr %86, align 8
+  %cmp66 = icmp slt i32 %85, %87
   br i1 %cmp66, label %if.then67, label %if.end79
 
 if.then67:                                        ; preds = %land.lhs.true65
-  %70 = load ptr, ptr %tm.addr, align 8
+  %88 = load ptr, ptr %tm.addr, align 8
   %arraydecay68 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
   %arraydecay69 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  %71 = load ptr, ptr %tm.addr, align 8
-  %data70 = getelementptr inbounds %struct.stbte_tilemap, ptr %71, i32 0, i32 0
-  %72 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %73 = load i32, ptr %oy32, align 4
-  %add71 = add nsw i32 %72, %73
+  %89 = load ptr, ptr %tm.addr, align 8
+  %data70 = getelementptr inbounds %struct.stbte_tilemap, ptr %89, i32 0, i32 0
+  %90 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  %91 = load i32, ptr %90, align 8
+  %92 = load i32, ptr %oy32, align 4
+  %add71 = add nsw i32 %91, %92
   %idxprom72 = sext i32 %add71 to i64
   %arrayidx73 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data70, i64 0, i64 %idxprom72
-  %74 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %75 = load i32, ptr %ox31, align 4
-  %add74 = add nsw i32 %74, %75
+  %93 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %ox31, align 4
+  %add74 = add nsw i32 %94, %95
   %idxprom75 = sext i32 %add74 to i64
   %arrayidx76 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx73, i64 0, i64 %idxprom75
   %arraydecay77 = getelementptr inbounds [8 x i16], ptr %arrayidx76, i64 0, i64 0
-  %76 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool78 = icmp ne i32 %76, 0
+  %96 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %97 = load i32, ptr %96, align 4
+  %tobool78 = icmp ne i32 %97, 0
   %lnot = xor i1 %tobool78, true
   %lnot.ext = zext i1 %lnot to i32
-  call void @stbte__paste_stack(ptr noundef %70, ptr noundef %arraydecay68, ptr noundef %arraydecay69, ptr noundef %arraydecay77, i32 noundef %lnot.ext)
+  call void @stbte__paste_stack(ptr noundef %88, ptr noundef %arraydecay68, ptr noundef %arraydecay69, ptr noundef %arraydecay77, i32 noundef %lnot.ext)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then67, %land.lhs.true65, %land.lhs.true63, %land.lhs.true61, %if.end57
   br label %if.end142
 
 if.else80:                                        ; preds = %if.else
-  %77 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and81 = and i32 %77, 127
+  %98 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %99 = load i32, ptr %98, align 8
+  %and81 = and i32 %99, 127
   %cmp82 = icmp eq i32 %and81, 1
   br i1 %cmp82, label %if.then83, label %if.end141
 
 if.then83:                                        ; preds = %if.else80
-  %78 = load i32, ptr @stbte__ui, align 8
-  %cmp84 = icmp eq i32 %78, 3
+  %100 = load i32, ptr @stbte__ui, align 8
+  %cmp84 = icmp eq i32 %100, 3
   br i1 %cmp84, label %if.then85, label %if.end140
 
 if.then85:                                        ; preds = %if.then83
-  %79 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10), align 8
-  %and86 = and i32 %79, 511
+  %101 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10
+  %102 = load i32, ptr %101, align 8
+  %and86 = and i32 %102, 511
   %cmp87 = icmp slt i32 %and86, 380
   br i1 %cmp87, label %if.then88, label %if.end139
 
 if.then88:                                        ; preds = %if.then85
-  %80 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr = ashr i32 %80, 19
+  %103 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %104 = load i32, ptr %103, align 4
+  %shr = ashr i32 %104, 19
   %and89 = and i32 %shr, 4095
   store i32 %and89, ptr %ex, align 4
-  %81 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr90 = ashr i32 %81, 7
+  %105 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %106 = load i32, ptr %105, align 4
+  %shr90 = ashr i32 %106, 7
   %and91 = and i32 %shr90, 4095
   store i32 %and91, ptr %ey, align 4
-  %82 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  store i32 %82, ptr %sx92, align 4
-  %83 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
-  store i32 %83, ptr %sy93, align 4
-  %84 = load i32, ptr %mapx.addr, align 4
-  %85 = load i32, ptr %sx92, align 4
-  %cmp94 = icmp sge i32 %84, %85
+  %107 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %108 = load i32, ptr %107, align 4
+  store i32 %108, ptr %sx92, align 4
+  %109 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  %110 = load i32, ptr %109, align 8
+  store i32 %110, ptr %sy93, align 4
+  %111 = load i32, ptr %mapx.addr, align 4
+  %112 = load i32, ptr %sx92, align 4
+  %cmp94 = icmp sge i32 %111, %112
   br i1 %cmp94, label %land.lhs.true95, label %lor.lhs.false
 
 land.lhs.true95:                                  ; preds = %if.then88
-  %86 = load i32, ptr %mapx.addr, align 4
-  %87 = load i32, ptr %ex, align 4
-  %add96 = add nsw i32 %87, 1
-  %cmp97 = icmp slt i32 %86, %add96
+  %113 = load i32, ptr %mapx.addr, align 4
+  %114 = load i32, ptr %ex, align 4
+  %add96 = add nsw i32 %114, 1
+  %cmp97 = icmp slt i32 %113, %add96
   br i1 %cmp97, label %land.lhs.true102, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true95, %if.then88
-  %88 = load i32, ptr %mapx.addr, align 4
-  %89 = load i32, ptr %ex, align 4
-  %cmp98 = icmp sge i32 %88, %89
+  %115 = load i32, ptr %mapx.addr, align 4
+  %116 = load i32, ptr %ex, align 4
+  %cmp98 = icmp sge i32 %115, %116
   br i1 %cmp98, label %land.lhs.true99, label %if.end138
 
 land.lhs.true99:                                  ; preds = %lor.lhs.false
-  %90 = load i32, ptr %mapx.addr, align 4
-  %91 = load i32, ptr %sx92, align 4
-  %add100 = add nsw i32 %91, 1
-  %cmp101 = icmp slt i32 %90, %add100
+  %117 = load i32, ptr %mapx.addr, align 4
+  %118 = load i32, ptr %sx92, align 4
+  %add100 = add nsw i32 %118, 1
+  %cmp101 = icmp slt i32 %117, %add100
   br i1 %cmp101, label %land.lhs.true102, label %if.end138
 
 land.lhs.true102:                                 ; preds = %land.lhs.true99, %land.lhs.true95
-  %92 = load i32, ptr %mapy.addr, align 4
-  %93 = load i32, ptr %sy93, align 4
-  %cmp103 = icmp sge i32 %92, %93
+  %119 = load i32, ptr %mapy.addr, align 4
+  %120 = load i32, ptr %sy93, align 4
+  %cmp103 = icmp sge i32 %119, %120
   br i1 %cmp103, label %land.lhs.true104, label %lor.lhs.false107
 
 land.lhs.true104:                                 ; preds = %land.lhs.true102
-  %94 = load i32, ptr %mapy.addr, align 4
-  %95 = load i32, ptr %ey, align 4
-  %add105 = add nsw i32 %95, 1
-  %cmp106 = icmp slt i32 %94, %add105
+  %121 = load i32, ptr %mapy.addr, align 4
+  %122 = load i32, ptr %ey, align 4
+  %add105 = add nsw i32 %122, 1
+  %cmp106 = icmp slt i32 %121, %add105
   br i1 %cmp106, label %if.then112, label %lor.lhs.false107
 
 lor.lhs.false107:                                 ; preds = %land.lhs.true104, %land.lhs.true102
-  %96 = load i32, ptr %mapy.addr, align 4
-  %97 = load i32, ptr %ey, align 4
-  %cmp108 = icmp sge i32 %96, %97
+  %123 = load i32, ptr %mapy.addr, align 4
+  %124 = load i32, ptr %ey, align 4
+  %cmp108 = icmp sge i32 %123, %124
   br i1 %cmp108, label %land.lhs.true109, label %if.end138
 
 land.lhs.true109:                                 ; preds = %lor.lhs.false107
-  %98 = load i32, ptr %mapy.addr, align 4
-  %99 = load i32, ptr %sy93, align 4
-  %add110 = add nsw i32 %99, 1
-  %cmp111 = icmp slt i32 %98, %add110
+  %125 = load i32, ptr %mapy.addr, align 4
+  %126 = load i32, ptr %sy93, align 4
+  %add110 = add nsw i32 %126, 1
+  %cmp111 = icmp slt i32 %125, %add110
   br i1 %cmp111, label %if.then112, label %if.end138
 
 if.then112:                                       ; preds = %land.lhs.true109, %land.lhs.true104
@@ -9802,55 +10052,56 @@ if.then112:                                       ; preds = %land.lhs.true109, %
   br label %for.cond114
 
 for.cond114:                                      ; preds = %for.inc127, %if.then112
-  %100 = load i32, ptr %i113, align 4
-  %101 = load ptr, ptr %tm.addr, align 8
-  %num_layers115 = getelementptr inbounds %struct.stbte_tilemap, ptr %101, i32 0, i32 4
-  %102 = load i32, ptr %num_layers115, align 8
-  %cmp116 = icmp slt i32 %100, %102
+  %127 = load i32, ptr %i113, align 4
+  %128 = load ptr, ptr %tm.addr, align 8
+  %num_layers115 = getelementptr inbounds %struct.stbte_tilemap, ptr %128, i32 0, i32 4
+  %129 = load i32, ptr %num_layers115, align 8
+  %cmp116 = icmp slt i32 %127, %129
   br i1 %cmp116, label %for.body117, label %for.end129
 
 for.body117:                                      ; preds = %for.cond114
-  %103 = load ptr, ptr %tm.addr, align 8
-  %data118 = getelementptr inbounds %struct.stbte_tilemap, ptr %103, i32 0, i32 0
-  %104 = load i32, ptr %mapy.addr, align 4
-  %idxprom119 = sext i32 %104 to i64
+  %130 = load ptr, ptr %tm.addr, align 8
+  %data118 = getelementptr inbounds %struct.stbte_tilemap, ptr %130, i32 0, i32 0
+  %131 = load i32, ptr %mapy.addr, align 4
+  %idxprom119 = sext i32 %131 to i64
   %arrayidx120 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data118, i64 0, i64 %idxprom119
-  %105 = load i32, ptr %mapx.addr, align 4
-  %idxprom121 = sext i32 %105 to i64
+  %132 = load i32, ptr %mapx.addr, align 4
+  %idxprom121 = sext i32 %132 to i64
   %arrayidx122 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx120, i64 0, i64 %idxprom121
-  %106 = load i32, ptr %i113, align 4
-  %idxprom123 = sext i32 %106 to i64
+  %133 = load i32, ptr %i113, align 4
+  %idxprom123 = sext i32 %133 to i64
   %arrayidx124 = getelementptr inbounds [8 x i16], ptr %arrayidx122, i64 0, i64 %idxprom123
-  %107 = load i16, ptr %arrayidx124, align 2
-  %108 = load i32, ptr %i113, align 4
-  %idxprom125 = sext i32 %108 to i64
+  %134 = load i16, ptr %arrayidx124, align 2
+  %135 = load i32, ptr %i113, align 4
+  %idxprom125 = sext i32 %135 to i64
   %arrayidx126 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 %idxprom125
-  store i16 %107, ptr %arrayidx126, align 2
+  store i16 %134, ptr %arrayidx126, align 2
   br label %for.inc127
 
 for.inc127:                                       ; preds = %for.body117
-  %109 = load i32, ptr %i113, align 4
-  %inc128 = add nsw i32 %109, 1
+  %136 = load i32, ptr %i113, align 4
+  %inc128 = add nsw i32 %136, 1
   store i32 %inc128, ptr %i113, align 4
   br label %for.cond114, !llvm.loop !64
 
 for.end129:                                       ; preds = %for.cond114
   %arraydecay130 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
   store ptr %arraydecay130, ptr %data, align 8
-  %110 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %cmp131 = icmp eq i32 %110, 4
+  %137 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  %138 = load i32, ptr %137, align 4
+  %cmp131 = icmp eq i32 %138, 4
   br i1 %cmp131, label %if.then132, label %if.else134
 
 if.then132:                                       ; preds = %for.end129
-  %111 = load ptr, ptr %tm.addr, align 8
+  %139 = load ptr, ptr %tm.addr, align 8
   %arraydecay133 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  call void @stbte__brush_predict(ptr noundef %111, ptr noundef %arraydecay133)
+  call void @stbte__brush_predict(ptr noundef %139, ptr noundef %arraydecay133)
   br label %if.end137
 
 if.else134:                                       ; preds = %for.end129
-  %112 = load ptr, ptr %tm.addr, align 8
+  %140 = load ptr, ptr %tm.addr, align 8
   %arraydecay135 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  %call136 = call i32 @stbte__erase_predict(ptr noundef %112, ptr noundef %arraydecay135, i32 noundef 1)
+  %call136 = call i32 @stbte__erase_predict(ptr noundef %140, ptr noundef %arraydecay135, i32 noundef 1)
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else134, %if.then132
@@ -9875,29 +10126,33 @@ if.end143:                                        ; preds = %if.end142, %if.end
   br label %if.end144
 
 if.end144:                                        ; preds = %if.end143, %entry
-  %113 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %114 = load i32, ptr %id, align 4
-  %cmp145 = icmp eq i32 %113, %114
+  %141 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %142 = load i32, ptr %141, align 4
+  %143 = load i32, ptr %id, align 4
+  %cmp145 = icmp eq i32 %142, %143
   br i1 %cmp145, label %land.lhs.true146, label %if.end176
 
 land.lhs.true146:                                 ; preds = %if.end144
-  %115 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp147 = icmp eq i32 %115, 0
+  %144 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %145 = load i32, ptr %144, align 8
+  %cmp147 = icmp eq i32 %145, 0
   br i1 %cmp147, label %land.lhs.true148, label %if.end176
 
 land.lhs.true148:                                 ; preds = %land.lhs.true146
-  %116 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool149 = icmp ne i32 %116, 0
+  %146 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %147 = load i32, ptr %146, align 4
+  %tobool149 = icmp ne i32 %147, 0
   br i1 %tobool149, label %if.end176, label %if.then150
 
 if.then150:                                       ; preds = %land.lhs.true148
-  %117 = load i32, ptr @stbte__ui, align 8
-  %cmp151 = icmp eq i32 %117, 1
+  %148 = load i32, ptr @stbte__ui, align 8
+  %cmp151 = icmp eq i32 %148, 1
   br i1 %cmp151, label %if.then152, label %if.end175
 
 if.then152:                                       ; preds = %if.then150
-  %118 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10), align 8
-  %and153 = and i32 %118, 511
+  %149 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10
+  %150 = load i32, ptr %149, align 8
+  %and153 = and i32 %150, 511
   %cmp154 = icmp slt i32 %and153, 300
   br i1 %cmp154, label %if.then155, label %if.end174
 
@@ -9908,42 +10163,42 @@ if.then155:                                       ; preds = %if.then152
   br label %for.cond157
 
 for.cond157:                                      ; preds = %for.inc170, %if.then155
-  %119 = load i32, ptr %i, align 4
-  %120 = load ptr, ptr %tm.addr, align 8
-  %num_layers158 = getelementptr inbounds %struct.stbte_tilemap, ptr %120, i32 0, i32 4
-  %121 = load i32, ptr %num_layers158, align 8
-  %cmp159 = icmp slt i32 %119, %121
+  %151 = load i32, ptr %i, align 4
+  %152 = load ptr, ptr %tm.addr, align 8
+  %num_layers158 = getelementptr inbounds %struct.stbte_tilemap, ptr %152, i32 0, i32 4
+  %153 = load i32, ptr %num_layers158, align 8
+  %cmp159 = icmp slt i32 %151, %153
   br i1 %cmp159, label %for.body160, label %for.end172
 
 for.body160:                                      ; preds = %for.cond157
-  %122 = load ptr, ptr %tm.addr, align 8
-  %data161 = getelementptr inbounds %struct.stbte_tilemap, ptr %122, i32 0, i32 0
-  %123 = load i32, ptr %mapy.addr, align 4
-  %idxprom162 = sext i32 %123 to i64
+  %154 = load ptr, ptr %tm.addr, align 8
+  %data161 = getelementptr inbounds %struct.stbte_tilemap, ptr %154, i32 0, i32 0
+  %155 = load i32, ptr %mapy.addr, align 4
+  %idxprom162 = sext i32 %155 to i64
   %arrayidx163 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data161, i64 0, i64 %idxprom162
-  %124 = load i32, ptr %mapx.addr, align 4
-  %idxprom164 = sext i32 %124 to i64
+  %156 = load i32, ptr %mapx.addr, align 4
+  %idxprom164 = sext i32 %156 to i64
   %arrayidx165 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx163, i64 0, i64 %idxprom164
-  %125 = load i32, ptr %i, align 4
-  %idxprom166 = sext i32 %125 to i64
+  %157 = load i32, ptr %i, align 4
+  %idxprom166 = sext i32 %157 to i64
   %arrayidx167 = getelementptr inbounds [8 x i16], ptr %arrayidx165, i64 0, i64 %idxprom166
-  %126 = load i16, ptr %arrayidx167, align 2
-  %127 = load i32, ptr %i, align 4
-  %idxprom168 = sext i32 %127 to i64
+  %158 = load i16, ptr %arrayidx167, align 2
+  %159 = load i32, ptr %i, align 4
+  %idxprom168 = sext i32 %159 to i64
   %arrayidx169 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 %idxprom168
-  store i16 %126, ptr %arrayidx169, align 2
+  store i16 %158, ptr %arrayidx169, align 2
   br label %for.inc170
 
 for.inc170:                                       ; preds = %for.body160
-  %128 = load i32, ptr %i, align 4
-  %inc171 = add nsw i32 %128, 1
+  %160 = load i32, ptr %i, align 4
+  %inc171 = add nsw i32 %160, 1
   store i32 %inc171, ptr %i, align 4
   br label %for.cond157, !llvm.loop !65
 
 for.end172:                                       ; preds = %for.cond157
-  %129 = load ptr, ptr %tm.addr, align 8
+  %161 = load ptr, ptr %tm.addr, align 8
   %arraydecay173 = getelementptr inbounds [8 x i16], ptr %temp, i64 0, i64 0
-  call void @stbte__brush_predict(ptr noundef %129, ptr noundef %arraydecay173)
+  call void @stbte__brush_predict(ptr noundef %161, ptr noundef %arraydecay173)
   br label %if.end174
 
 if.end174:                                        ; preds = %for.end172, %if.then152
@@ -9953,61 +10208,61 @@ if.end175:                                        ; preds = %if.end174, %if.then
   br label %if.end176
 
 if.end176:                                        ; preds = %if.end175, %land.lhs.true148, %land.lhs.true146, %if.end144
-  %130 = load i32, ptr %layer.addr, align 4
-  store i32 %130, ptr %i, align 4
-  %131 = load i32, ptr %i, align 4
-  %132 = load ptr, ptr %tm.addr, align 8
-  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %132, i32 0, i32 33
-  %133 = load i32, ptr %solo_layer, align 8
-  %cmp177 = icmp eq i32 %131, %133
+  %162 = load i32, ptr %layer.addr, align 4
+  store i32 %162, ptr %i, align 4
+  %163 = load i32, ptr %i, align 4
+  %164 = load ptr, ptr %tm.addr, align 8
+  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %164, i32 0, i32 33
+  %165 = load i32, ptr %solo_layer, align 8
+  %cmp177 = icmp eq i32 %163, %165
   br i1 %cmp177, label %if.then185, label %lor.lhs.false178
 
 lor.lhs.false178:                                 ; preds = %if.end176
-  %134 = load ptr, ptr %tm.addr, align 8
-  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %134, i32 0, i32 28
-  %135 = load i32, ptr %i, align 4
-  %idxprom179 = sext i32 %135 to i64
+  %166 = load ptr, ptr %tm.addr, align 8
+  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %166, i32 0, i32 28
+  %167 = load i32, ptr %i, align 4
+  %idxprom179 = sext i32 %167 to i64
   %arrayidx180 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %idxprom179
   %hidden = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx180, i32 0, i32 2
-  %136 = load i32, ptr %hidden, align 4
-  %tobool181 = icmp ne i32 %136, 0
+  %168 = load i32, ptr %hidden, align 4
+  %tobool181 = icmp ne i32 %168, 0
   br i1 %tobool181, label %if.end199, label %land.lhs.true182
 
 land.lhs.true182:                                 ; preds = %lor.lhs.false178
-  %137 = load ptr, ptr %tm.addr, align 8
-  %solo_layer183 = getelementptr inbounds %struct.stbte_tilemap, ptr %137, i32 0, i32 33
-  %138 = load i32, ptr %solo_layer183, align 8
-  %cmp184 = icmp slt i32 %138, 0
+  %169 = load ptr, ptr %tm.addr, align 8
+  %solo_layer183 = getelementptr inbounds %struct.stbte_tilemap, ptr %169, i32 0, i32 33
+  %170 = load i32, ptr %solo_layer183, align 8
+  %cmp184 = icmp slt i32 %170, 0
   br i1 %cmp184, label %if.then185, label %if.end199
 
 if.then185:                                       ; preds = %land.lhs.true182, %if.end176
-  %139 = load ptr, ptr %data, align 8
-  %140 = load i32, ptr %i, align 4
-  %idxprom186 = sext i32 %140 to i64
-  %arrayidx187 = getelementptr inbounds i16, ptr %139, i64 %idxprom186
-  %141 = load i16, ptr %arrayidx187, align 2
-  %conv = sext i16 %141 to i32
+  %171 = load ptr, ptr %data, align 8
+  %172 = load i32, ptr %i, align 4
+  %idxprom186 = sext i32 %172 to i64
+  %arrayidx187 = getelementptr inbounds i16, ptr %171, i64 %idxprom186
+  %173 = load i16, ptr %arrayidx187, align 2
+  %conv = sext i16 %173 to i32
   %cmp188 = icmp sge i32 %conv, 0
   br i1 %cmp188, label %if.then190, label %if.end198
 
 if.then190:                                       ; preds = %if.then185
-  %142 = load i32, ptr %sx.addr, align 4
-  %143 = load i32, ptr %sy.addr, align 4
-  %144 = load ptr, ptr %data, align 8
-  %145 = load i32, ptr %i, align 4
-  %idxprom191 = sext i32 %145 to i64
-  %arrayidx192 = getelementptr inbounds i16, ptr %144, i64 %idxprom191
-  %146 = load i16, ptr %arrayidx192, align 2
-  %147 = load ptr, ptr %tm.addr, align 8
-  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %147, i32 0, i32 1
-  %148 = load i32, ptr %mapy.addr, align 4
-  %idxprom193 = sext i32 %148 to i64
+  %174 = load i32, ptr %sx.addr, align 4
+  %175 = load i32, ptr %sy.addr, align 4
+  %176 = load ptr, ptr %data, align 8
+  %177 = load i32, ptr %i, align 4
+  %idxprom191 = sext i32 %177 to i64
+  %arrayidx192 = getelementptr inbounds i16, ptr %176, i64 %idxprom191
+  %178 = load i16, ptr %arrayidx192, align 2
+  %179 = load ptr, ptr %tm.addr, align 8
+  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %179, i32 0, i32 1
+  %180 = load i32, ptr %mapy.addr, align 4
+  %idxprom193 = sext i32 %180 to i64
   %arrayidx194 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom193
-  %149 = load i32, ptr %mapx.addr, align 4
-  %idxprom195 = sext i32 %149 to i64
+  %181 = load i32, ptr %mapx.addr, align 4
+  %idxprom195 = sext i32 %181 to i64
   %arrayidx196 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx194, i64 0, i64 %idxprom195
   %arraydecay197 = getelementptr inbounds [1 x float], ptr %arrayidx196, i64 0, i64 0
-  call void @STBTE_DRAW_TILE(i32 noundef %142, i32 noundef %143, i16 noundef zeroext %146, i32 noundef 0, ptr noundef %arraydecay197)
+  call void @STBTE_DRAW_TILE(i32 noundef %174, i32 noundef %175, i16 noundef zeroext %178, i32 noundef 0, ptr noundef %arraydecay197)
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then190, %if.then185
@@ -10076,37 +10331,43 @@ entry:
   %15 = load i32, ptr %id, align 4
   %call = call i32 @stbte__hittest(i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   store i32 %call, ptr %over, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %16, label %sw.epilog [
+  %16 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %17 = load i32, ptr %16, align 4
+  switch i32 %17, label %sw.epilog [
     i32 0, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %entry
-  %17 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool = icmp ne i32 %17, 0
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %19 = load i32, ptr %18, align 4
+  %tobool = icmp ne i32 %19, 0
   br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  %tobool5 = icmp ne i32 %18, 0
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  %21 = load i32, ptr %20, align 8
+  %tobool5 = icmp ne i32 %21, 0
   br i1 %tobool5, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26), align 8
-  %tobool7 = icmp ne i32 %19, 0
+  %22 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26
+  %23 = load i32, ptr %22, align 8
+  %tobool7 = icmp ne i32 %23, 0
   br i1 %tobool7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false6, %lor.lhs.false, %sw.bb
   br label %sw.epilog
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %20 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12), align 8
-  %tobool8 = icmp ne i32 %20, 0
+  %24 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12
+  %25 = load i32, ptr %24, align 8
+  %tobool8 = icmp ne i32 %25, 0
   br i1 %tobool8, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %21 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and = and i32 %21, 127
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8
+  %and = and i32 %27, 127
   %cmp = icmp eq i32 %and, 1
   br i1 %cmp, label %if.end10, label %if.then9
 
@@ -10114,151 +10375,157 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %sw.epilog
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
-  %22 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %23 = load i32, ptr %id, align 4
-  %cmp11 = icmp eq i32 %22, %23
+  %28 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %29 = load i32, ptr %28, align 4
+  %30 = load i32, ptr %id, align 4
+  %cmp11 = icmp eq i32 %29, %30
   br i1 %cmp11, label %land.lhs.true12, label %if.end53
 
 land.lhs.true12:                                  ; preds = %if.end10
-  %24 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and13 = and i32 %24, 127
+  %31 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %32 = load i32, ptr %31, align 8
+  %and13 = and i32 %32, 127
   %cmp14 = icmp eq i32 %and13, 1
   br i1 %cmp14, label %land.lhs.true15, label %if.end53
 
 land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %25 = load i32, ptr %tool, align 4
-  %cmp16 = icmp eq i32 %25, 3
+  %33 = load i32, ptr %tool, align 4
+  %cmp16 = icmp eq i32 %33, 3
   br i1 %cmp16, label %if.then19, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %land.lhs.true15
-  %26 = load i32, ptr %tool, align 4
-  %cmp18 = icmp eq i32 %26, 0
+  %34 = load i32, ptr %tool, align 4
+  %cmp18 = icmp eq i32 %34, 0
   br i1 %cmp18, label %if.then19, label %if.end53
 
 if.then19:                                        ; preds = %lor.lhs.false17, %land.lhs.true15
-  %27 = load i32, ptr %x0, align 4
-  %28 = load ptr, ptr %tm.addr, align 8
-  %spacing_x20 = getelementptr inbounds %struct.stbte_tilemap, ptr %28, i32 0, i32 5
-  %29 = load i32, ptr %spacing_x20, align 4
-  %div = sdiv i32 %29, 2
-  %add21 = add nsw i32 %27, %div
-  store i32 %add21, ptr %rx0, align 4
-  %30 = load i32, ptr %y0, align 4
-  %31 = load ptr, ptr %tm.addr, align 8
-  %spacing_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 6
-  %32 = load i32, ptr %spacing_y22, align 8
-  %div23 = sdiv i32 %32, 2
-  %add24 = add nsw i32 %30, %div23
-  store i32 %add24, ptr %ry0, align 4
-  %33 = load i32, ptr %rx0, align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %35 = load i32, ptr %mapx.addr, align 4
-  %sub = sub nsw i32 %34, %35
+  %35 = load i32, ptr %x0, align 4
   %36 = load ptr, ptr %tm.addr, align 8
-  %spacing_x25 = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 5
-  %37 = load i32, ptr %spacing_x25, align 4
-  %mul = mul nsw i32 %sub, %37
-  %add26 = add nsw i32 %33, %mul
+  %spacing_x20 = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 5
+  %37 = load i32, ptr %spacing_x20, align 4
+  %div = sdiv i32 %37, 2
+  %add21 = add nsw i32 %35, %div
+  store i32 %add21, ptr %rx0, align 4
+  %38 = load i32, ptr %y0, align 4
+  %39 = load ptr, ptr %tm.addr, align 8
+  %spacing_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 6
+  %40 = load i32, ptr %spacing_y22, align 8
+  %div23 = sdiv i32 %40, 2
+  %add24 = add nsw i32 %38, %div23
+  store i32 %add24, ptr %ry0, align 4
+  %41 = load i32, ptr %rx0, align 4
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %43 = load i32, ptr %42, align 4
+  %44 = load i32, ptr %mapx.addr, align 4
+  %sub = sub nsw i32 %43, %44
+  %45 = load ptr, ptr %tm.addr, align 8
+  %spacing_x25 = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 5
+  %46 = load i32, ptr %spacing_x25, align 4
+  %mul = mul nsw i32 %sub, %46
+  %add26 = add nsw i32 %41, %mul
   store i32 %add26, ptr %rx1, align 4
-  %38 = load i32, ptr %ry0, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
-  %40 = load i32, ptr %mapy.addr, align 4
-  %sub27 = sub nsw i32 %39, %40
-  %41 = load ptr, ptr %tm.addr, align 8
-  %spacing_y28 = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 6
-  %42 = load i32, ptr %spacing_y28, align 8
-  %mul29 = mul nsw i32 %sub27, %42
-  %add30 = add nsw i32 %38, %mul29
+  %47 = load i32, ptr %ry0, align 4
+  %48 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  %49 = load i32, ptr %48, align 8
+  %50 = load i32, ptr %mapy.addr, align 4
+  %sub27 = sub nsw i32 %49, %50
+  %51 = load ptr, ptr %tm.addr, align 8
+  %spacing_y28 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 6
+  %52 = load i32, ptr %spacing_y28, align 8
+  %mul29 = mul nsw i32 %sub27, %52
+  %add30 = add nsw i32 %47, %mul29
   store i32 %add30, ptr %ry1, align 4
-  %43 = load i32, ptr %rx0, align 4
-  %44 = load i32, ptr %rx1, align 4
-  %cmp31 = icmp sgt i32 %43, %44
+  %53 = load i32, ptr %rx0, align 4
+  %54 = load i32, ptr %rx1, align 4
+  %cmp31 = icmp sgt i32 %53, %54
   br i1 %cmp31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.then19
-  %45 = load i32, ptr %rx0, align 4
-  store i32 %45, ptr %t, align 4
-  %46 = load i32, ptr %rx1, align 4
-  store i32 %46, ptr %rx0, align 4
-  %47 = load i32, ptr %t, align 4
-  store i32 %47, ptr %rx1, align 4
+  %55 = load i32, ptr %rx0, align 4
+  store i32 %55, ptr %t, align 4
+  %56 = load i32, ptr %rx1, align 4
+  store i32 %56, ptr %rx0, align 4
+  %57 = load i32, ptr %t, align 4
+  store i32 %57, ptr %rx1, align 4
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.then19
-  %48 = load i32, ptr %ry0, align 4
-  %49 = load i32, ptr %ry1, align 4
-  %cmp34 = icmp sgt i32 %48, %49
+  %58 = load i32, ptr %ry0, align 4
+  %59 = load i32, ptr %ry1, align 4
+  %cmp34 = icmp sgt i32 %58, %59
   br i1 %cmp34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end33
-  %50 = load i32, ptr %ry0, align 4
-  store i32 %50, ptr %t, align 4
-  %51 = load i32, ptr %ry1, align 4
-  store i32 %51, ptr %ry0, align 4
-  %52 = load i32, ptr %t, align 4
-  store i32 %52, ptr %ry1, align 4
+  %60 = load i32, ptr %ry0, align 4
+  store i32 %60, ptr %t, align 4
+  %61 = load i32, ptr %ry1, align 4
+  store i32 %61, ptr %ry0, align 4
+  %62 = load i32, ptr %t, align 4
+  store i32 %62, ptr %ry1, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.end33
-  %53 = load ptr, ptr %tm.addr, align 8
-  %spacing_x37 = getelementptr inbounds %struct.stbte_tilemap, ptr %53, i32 0, i32 5
-  %54 = load i32, ptr %spacing_x37, align 4
-  %div38 = sdiv i32 %54, 2
-  %55 = load i32, ptr %rx0, align 4
-  %sub39 = sub nsw i32 %55, %div38
-  store i32 %sub39, ptr %rx0, align 4
-  %56 = load ptr, ptr %tm.addr, align 8
-  %spacing_y40 = getelementptr inbounds %struct.stbte_tilemap, ptr %56, i32 0, i32 6
-  %57 = load i32, ptr %spacing_y40, align 8
-  %div41 = sdiv i32 %57, 2
-  %58 = load i32, ptr %ry0, align 4
-  %sub42 = sub nsw i32 %58, %div41
-  store i32 %sub42, ptr %ry0, align 4
-  %59 = load ptr, ptr %tm.addr, align 8
-  %spacing_x43 = getelementptr inbounds %struct.stbte_tilemap, ptr %59, i32 0, i32 5
-  %60 = load i32, ptr %spacing_x43, align 4
-  %div44 = sdiv i32 %60, 2
-  %61 = load i32, ptr %rx1, align 4
-  %add45 = add nsw i32 %61, %div44
-  store i32 %add45, ptr %rx1, align 4
-  %62 = load ptr, ptr %tm.addr, align 8
-  %spacing_y46 = getelementptr inbounds %struct.stbte_tilemap, ptr %62, i32 0, i32 6
-  %63 = load i32, ptr %spacing_y46, align 8
-  %div47 = sdiv i32 %63, 2
-  %64 = load i32, ptr %ry1, align 4
-  %add48 = add nsw i32 %64, %div47
-  store i32 %add48, ptr %ry1, align 4
+  %63 = load ptr, ptr %tm.addr, align 8
+  %spacing_x37 = getelementptr inbounds %struct.stbte_tilemap, ptr %63, i32 0, i32 5
+  %64 = load i32, ptr %spacing_x37, align 4
+  %div38 = sdiv i32 %64, 2
   %65 = load i32, ptr %rx0, align 4
-  %sub49 = sub nsw i32 %65, 1
-  %66 = load i32, ptr %ry0, align 4
-  %sub50 = sub nsw i32 %66, 1
-  %67 = load i32, ptr %rx1, align 4
-  %add51 = add nsw i32 %67, 1
-  %68 = load i32, ptr %ry1, align 4
-  %add52 = add nsw i32 %68, 1
+  %sub39 = sub nsw i32 %65, %div38
+  store i32 %sub39, ptr %rx0, align 4
+  %66 = load ptr, ptr %tm.addr, align 8
+  %spacing_y40 = getelementptr inbounds %struct.stbte_tilemap, ptr %66, i32 0, i32 6
+  %67 = load i32, ptr %spacing_y40, align 8
+  %div41 = sdiv i32 %67, 2
+  %68 = load i32, ptr %ry0, align 4
+  %sub42 = sub nsw i32 %68, %div41
+  store i32 %sub42, ptr %ry0, align 4
+  %69 = load ptr, ptr %tm.addr, align 8
+  %spacing_x43 = getelementptr inbounds %struct.stbte_tilemap, ptr %69, i32 0, i32 5
+  %70 = load i32, ptr %spacing_x43, align 4
+  %div44 = sdiv i32 %70, 2
+  %71 = load i32, ptr %rx1, align 4
+  %add45 = add nsw i32 %71, %div44
+  store i32 %add45, ptr %rx1, align 4
+  %72 = load ptr, ptr %tm.addr, align 8
+  %spacing_y46 = getelementptr inbounds %struct.stbte_tilemap, ptr %72, i32 0, i32 6
+  %73 = load i32, ptr %spacing_y46, align 8
+  %div47 = sdiv i32 %73, 2
+  %74 = load i32, ptr %ry1, align 4
+  %add48 = add nsw i32 %74, %div47
+  store i32 %add48, ptr %ry1, align 4
+  %75 = load i32, ptr %rx0, align 4
+  %sub49 = sub nsw i32 %75, 1
+  %76 = load i32, ptr %ry0, align 4
+  %sub50 = sub nsw i32 %76, 1
+  %77 = load i32, ptr %rx1, align 4
+  %add51 = add nsw i32 %77, 1
+  %78 = load i32, ptr %ry1, align 4
+  %add52 = add nsw i32 %78, 1
   call void @stbte__draw_frame(i32 noundef %sub49, i32 noundef %sub50, i32 noundef %add51, i32 noundef %add52, i32 noundef 16777215)
   br label %sw.epilog
 
 if.end53:                                         ; preds = %lor.lhs.false17, %land.lhs.true12, %if.end10
-  %69 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %70 = load i32, ptr %id, align 4
-  %cmp54 = icmp eq i32 %69, %70
+  %79 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %80 = load i32, ptr %79, align 4
+  %81 = load i32, ptr %id, align 4
+  %cmp54 = icmp eq i32 %80, %81
   br i1 %cmp54, label %land.lhs.true55, label %if.end62
 
 land.lhs.true55:                                  ; preds = %if.end53
-  %71 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp56 = icmp eq i32 %71, 0
+  %82 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %83 = load i32, ptr %82, align 8
+  %cmp56 = icmp eq i32 %83, 0
   br i1 %cmp56, label %if.then57, label %if.end62
 
 if.then57:                                        ; preds = %land.lhs.true55
-  %72 = load i32, ptr %x0, align 4
-  %sub58 = sub nsw i32 %72, 1
-  %73 = load i32, ptr %y0, align 4
-  %sub59 = sub nsw i32 %73, 1
-  %74 = load i32, ptr %x1, align 4
-  %add60 = add nsw i32 %74, 1
-  %75 = load i32, ptr %y1, align 4
-  %add61 = add nsw i32 %75, 1
+  %84 = load i32, ptr %x0, align 4
+  %sub58 = sub nsw i32 %84, 1
+  %85 = load i32, ptr %y0, align 4
+  %sub59 = sub nsw i32 %85, 1
+  %86 = load i32, ptr %x1, align 4
+  %add60 = add nsw i32 %86, 1
+  %87 = load i32, ptr %y1, align 4
+  %add61 = add nsw i32 %87, 1
   call void @stbte__draw_frame(i32 noundef %sub58, i32 noundef %sub59, i32 noundef %add60, i32 noundef %add61, i32 noundef 16777215)
   br label %if.end62
 
@@ -10266,30 +10533,34 @@ if.end62:                                         ; preds = %if.then57, %land.lh
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end62, %if.end36, %if.then9, %if.then, %entry
-  %76 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool63 = icmp ne i32 %76, 0
+  %88 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %89 = load i32, ptr %88, align 4
+  %tobool63 = icmp ne i32 %89, 0
   br i1 %tobool63, label %if.then64, label %if.end75
 
 if.then64:                                        ; preds = %sw.epilog
-  %77 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %77, label %sw.epilog74 [
+  %90 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %91 = load i32, ptr %90, align 4
+  switch i32 %91, label %sw.epilog74 [
     i32 4, label %sw.bb65
     i32 5, label %sw.bb69
     i32 6, label %sw.bb70
   ]
 
 sw.bb65:                                          ; preds = %if.then64
-  %78 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %79 = load i32, ptr %id, align 4
-  %cmp66 = icmp eq i32 %78, %79
+  %92 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %93 = load i32, ptr %92, align 4
+  %94 = load i32, ptr %id, align 4
+  %cmp66 = icmp eq i32 %93, %94
   br i1 %cmp66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %sw.bb65
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %80 = load ptr, ptr %tm.addr, align 8
-  %81 = load i32, ptr %mapx.addr, align 4
-  %82 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__paste(ptr noundef %80, i32 noundef %81, i32 noundef %82)
+  %95 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  store i32 0, ptr %95, align 4
+  %96 = load ptr, ptr %tm.addr, align 8
+  %97 = load i32, ptr %mapx.addr, align 4
+  %98 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__paste(ptr noundef %96, i32 noundef %97, i32 noundef %98)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end68
 
@@ -10301,14 +10572,16 @@ sw.bb69:                                          ; preds = %if.then64
   br label %sw.epilog74
 
 sw.bb70:                                          ; preds = %if.then64
-  %83 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %84 = load i32, ptr %id, align 4
-  %cmp71 = icmp eq i32 %83, %84
+  %99 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %100 = load i32, ptr %99, align 4
+  %101 = load i32, ptr %id, align 4
+  %cmp71 = icmp eq i32 %100, %101
   br i1 %cmp71, label %if.then72, label %if.end73
 
 if.then72:                                        ; preds = %sw.bb70
   call void @stbte__activate(i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
+  %102 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  store i32 0, ptr %102, align 4
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then72, %sw.bb70
@@ -10318,78 +10591,98 @@ sw.epilog74:                                      ; preds = %if.end73, %sw.bb69,
   br label %sw.epilog224
 
 if.end75:                                         ; preds = %sw.epilog
-  %85 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26), align 8
-  %tobool76 = icmp ne i32 %85, 0
+  %103 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26
+  %104 = load i32, ptr %103, align 8
+  %tobool76 = icmp ne i32 %104, 0
   br i1 %tobool76, label %if.then77, label %if.end88
 
 if.then77:                                        ; preds = %if.end75
-  %86 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp78 = icmp eq i32 %86, 5
+  %105 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %106 = load i32, ptr %105, align 4
+  %cmp78 = icmp eq i32 %106, 5
   br i1 %cmp78, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.then77
   call void @stbte__activate(i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26), align 8
+  %107 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26
+  store i32 0, ptr %107, align 8
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then79, %if.then77
-  %87 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp81 = icmp eq i32 %87, 2
+  %108 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %109 = load i32, ptr %108, align 4
+  %cmp81 = icmp eq i32 %109, 2
   br i1 %cmp81, label %if.then82, label %if.end87
 
 if.then82:                                        ; preds = %if.end80
-  %88 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27), align 4
-  %89 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %sub83 = sub nsw i32 %88, %89
-  %90 = load ptr, ptr %tm.addr, align 8
-  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %90, i32 0, i32 9
-  %91 = load i32, ptr %scroll_x, align 4
-  %add84 = add nsw i32 %91, %sub83
+  %110 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %113 = load i32, ptr %112, align 8
+  %sub83 = sub nsw i32 %111, %113
+  %114 = load ptr, ptr %tm.addr, align 8
+  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %114, i32 0, i32 9
+  %115 = load i32, ptr %scroll_x, align 4
+  %add84 = add nsw i32 %115, %sub83
   store i32 %add84, ptr %scroll_x, align 4
-  %92 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28), align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %sub85 = sub nsw i32 %92, %93
-  %94 = load ptr, ptr %tm.addr, align 8
-  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %94, i32 0, i32 10
-  %95 = load i32, ptr %scroll_y, align 8
-  %add86 = add nsw i32 %95, %sub85
+  %116 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28
+  %117 = load i32, ptr %116, align 8
+  %118 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %119 = load i32, ptr %118, align 4
+  %sub85 = sub nsw i32 %117, %119
+  %120 = load ptr, ptr %tm.addr, align 8
+  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %120, i32 0, i32 10
+  %121 = load i32, ptr %scroll_y, align 8
+  %add86 = add nsw i32 %121, %sub85
   store i32 %add86, ptr %scroll_y, align 8
-  %96 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  store i32 %96, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27), align 4
-  %97 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  store i32 %97, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28), align 8
+  %122 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %123 = load i32, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27
+  store i32 %123, ptr %124, align 4
+  %125 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28
+  store i32 %126, ptr %127, align 8
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then82, %if.end80
   br label %sw.epilog224
 
 if.end88:                                         ; preds = %if.end75
-  %98 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %99 = load i32, ptr %id, align 4
-  %cmp89 = icmp eq i32 %98, %99
+  %128 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %129 = load i32, ptr %128, align 4
+  %130 = load i32, ptr %id, align 4
+  %cmp89 = icmp eq i32 %129, %130
   br i1 %cmp89, label %land.lhs.true90, label %if.end95
 
 land.lhs.true90:                                  ; preds = %if.end88
-  %100 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12), align 8
-  %tobool91 = icmp ne i32 %100, 0
+  %131 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12
+  %132 = load i32, ptr %131, align 8
+  %tobool91 = icmp ne i32 %132, 0
   br i1 %tobool91, label %land.lhs.true92, label %if.end95
 
 land.lhs.true92:                                  ; preds = %land.lhs.true90
-  %101 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp93 = icmp eq i32 %101, 4
+  %133 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %134 = load i32, ptr %133, align 4
+  %cmp93 = icmp eq i32 %134, 4
   br i1 %cmp93, label %if.then94, label %if.end95
 
 if.then94:                                        ; preds = %land.lhs.true92
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26), align 8
-  %102 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  store i32 %102, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27), align 4
-  %103 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  store i32 %103, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28), align 8
+  %135 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26
+  store i32 1, ptr %135, align 8
+  %136 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  %137 = load i32, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 27
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  %140 = load i32, ptr %139, align 4
+  %141 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 28
+  store i32 %140, ptr %141, align 8
   br label %sw.epilog224
 
 if.end95:                                         ; preds = %land.lhs.true92, %land.lhs.true90, %if.end88
-  %104 = load i32, ptr %tool, align 4
-  switch i32 %104, label %sw.epilog224 [
+  %142 = load i32, ptr %tool, align 4
+  switch i32 %142, label %sw.epilog224 [
     i32 1, label %sw.bb96
     i32 2, label %sw.bb134
     i32 0, label %sw.bb156
@@ -10398,8 +10691,9 @@ if.end95:                                         ; preds = %land.lhs.true92, %l
   ]
 
 sw.bb96:                                          ; preds = %if.end95
-  %105 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %105, label %sw.epilog133 [
+  %143 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %144 = load i32, ptr %143, align 4
+  switch i32 %144, label %sw.epilog133 [
     i32 2, label %sw.bb97
     i32 4, label %sw.bb111
     i32 6, label %sw.bb117
@@ -10408,45 +10702,50 @@ sw.bb96:                                          ; preds = %if.end95
   ]
 
 sw.bb97:                                          ; preds = %sw.bb96
-  %106 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and98 = and i32 %106, 127
+  %145 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %146 = load i32, ptr %145, align 8
+  %and98 = and i32 %146, 127
   %cmp99 = icmp eq i32 %and98, 1
   br i1 %cmp99, label %land.lhs.true100, label %if.end110
 
 land.lhs.true100:                                 ; preds = %sw.bb97
-  %107 = load i32, ptr %over, align 4
-  %tobool101 = icmp ne i32 %107, 0
+  %147 = load i32, ptr %over, align 4
+  %tobool101 = icmp ne i32 %147, 0
   br i1 %tobool101, label %if.then102, label %if.end110
 
 if.then102:                                       ; preds = %land.lhs.true100
-  %108 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %109 = load i32, ptr %id, align 4
-  %cmp103 = icmp eq i32 %108, %109
+  %148 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %149 = load i32, ptr %148, align 8
+  %150 = load i32, ptr %id, align 4
+  %cmp103 = icmp eq i32 %149, %150
   br i1 %cmp103, label %if.end109, label %if.then104
 
 if.then104:                                       ; preds = %if.then102
-  %110 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1), align 4
-  %cmp105 = icmp eq i32 %110, 4
+  %151 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 1
+  %152 = load i32, ptr %151, align 4
+  %cmp105 = icmp eq i32 %152, 4
   br i1 %cmp105, label %if.then106, label %if.else
 
 if.then106:                                       ; preds = %if.then104
-  %111 = load ptr, ptr %tm.addr, align 8
-  %112 = load i32, ptr %mapx.addr, align 4
-  %113 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__brush(ptr noundef %111, i32 noundef %112, i32 noundef %113)
+  %153 = load ptr, ptr %tm.addr, align 8
+  %154 = load i32, ptr %mapx.addr, align 4
+  %155 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__brush(ptr noundef %153, i32 noundef %154, i32 noundef %155)
   br label %if.end108
 
 if.else:                                          ; preds = %if.then104
-  %114 = load ptr, ptr %tm.addr, align 8
-  %115 = load i32, ptr %mapx.addr, align 4
-  %116 = load i32, ptr %mapy.addr, align 4
-  %117 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19), align 4
-  %call107 = call i32 @stbte__erase(ptr noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %117)
+  %156 = load ptr, ptr %tm.addr, align 8
+  %157 = load i32, ptr %mapx.addr, align 4
+  %158 = load i32, ptr %mapy.addr, align 4
+  %159 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19
+  %160 = load i32, ptr %159, align 4
+  %call107 = call i32 @stbte__erase(ptr noundef %156, i32 noundef %157, i32 noundef %158, i32 noundef %160)
   br label %if.end108
 
 if.end108:                                        ; preds = %if.else, %if.then106
-  %118 = load i32, ptr %id, align 4
-  store i32 %118, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
+  %161 = load i32, ptr %id, align 4
+  %162 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  store i32 %161, ptr %162, align 8
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end108, %if.then102
@@ -10456,59 +10755,65 @@ if.end110:                                        ; preds = %if.end109, %land.lh
   br label %sw.epilog133
 
 sw.bb111:                                         ; preds = %sw.bb96
-  %119 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %120 = load i32, ptr %id, align 4
-  %cmp112 = icmp eq i32 %119, %120
+  %163 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %164 = load i32, ptr %163, align 4
+  %165 = load i32, ptr %id, align 4
+  %cmp112 = icmp eq i32 %164, %165
   br i1 %cmp112, label %land.lhs.true113, label %if.end116
 
 land.lhs.true113:                                 ; preds = %sw.bb111
-  %121 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp114 = icmp eq i32 %121, 0
+  %166 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %167 = load i32, ptr %166, align 8
+  %cmp114 = icmp eq i32 %167, 0
   br i1 %cmp114, label %if.then115, label %if.end116
 
 if.then115:                                       ; preds = %land.lhs.true113
-  %122 = load i32, ptr %id, align 4
-  call void @stbte__activate(i32 noundef %122)
-  %123 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %123)
-  %124 = load ptr, ptr %tm.addr, align 8
-  %125 = load i32, ptr %mapx.addr, align 4
-  %126 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__brush(ptr noundef %124, i32 noundef %125, i32 noundef %126)
+  %168 = load i32, ptr %id, align 4
+  call void @stbte__activate(i32 noundef %168)
+  %169 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %169)
+  %170 = load ptr, ptr %tm.addr, align 8
+  %171 = load i32, ptr %mapx.addr, align 4
+  %172 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__brush(ptr noundef %170, i32 noundef %171, i32 noundef %172)
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then115, %land.lhs.true113, %sw.bb111
   br label %sw.epilog133
 
 sw.bb117:                                         ; preds = %sw.bb96
-  %127 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %128 = load i32, ptr %id, align 4
-  %cmp118 = icmp eq i32 %127, %128
+  %173 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %174 = load i32, ptr %173, align 4
+  %175 = load i32, ptr %id, align 4
+  %cmp118 = icmp eq i32 %174, %175
   br i1 %cmp118, label %land.lhs.true119, label %if.end127
 
 land.lhs.true119:                                 ; preds = %sw.bb117
-  %129 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp120 = icmp eq i32 %129, 0
+  %176 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %177 = load i32, ptr %176, align 8
+  %cmp120 = icmp eq i32 %177, 0
   br i1 %cmp120, label %if.then121, label %if.end127
 
 if.then121:                                       ; preds = %land.lhs.true119
-  %130 = load i32, ptr %id, align 4
-  call void @stbte__activate(i32 noundef %130)
-  %131 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %131)
-  %132 = load ptr, ptr %tm.addr, align 8
-  %133 = load i32, ptr %mapx.addr, align 4
-  %134 = load i32, ptr %mapy.addr, align 4
-  %call122 = call i32 @stbte__erase(ptr noundef %132, i32 noundef %133, i32 noundef %134, i32 noundef 1)
+  %178 = load i32, ptr %id, align 4
+  call void @stbte__activate(i32 noundef %178)
+  %179 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %179)
+  %180 = load ptr, ptr %tm.addr, align 8
+  %181 = load i32, ptr %mapx.addr, align 4
+  %182 = load i32, ptr %mapy.addr, align 4
+  %call122 = call i32 @stbte__erase(ptr noundef %180, i32 noundef %181, i32 noundef %182, i32 noundef 1)
   %cmp123 = icmp eq i32 %call122, 0
   br i1 %cmp123, label %if.then124, label %if.else125
 
 if.then124:                                       ; preds = %if.then121
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19), align 4
+  %183 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19
+  store i32 0, ptr %183, align 4
   br label %if.end126
 
 if.else125:                                       ; preds = %if.then121
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19), align 4
+  %184 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 19
+  store i32 1, ptr %184, align 4
   br label %if.end126
 
 if.end126:                                        ; preds = %if.else125, %if.then124
@@ -10518,14 +10823,15 @@ if.end127:                                        ; preds = %if.end126, %land.lh
   br label %sw.epilog133
 
 sw.bb128:                                         ; preds = %sw.bb96, %sw.bb96
-  %135 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and129 = and i32 %135, 127
+  %185 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %186 = load i32, ptr %185, align 8
+  %and129 = and i32 %186, 127
   %cmp130 = icmp eq i32 %and129, 1
   br i1 %cmp130, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %sw.bb128
-  %136 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %136)
+  %187 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %187)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end132
 
@@ -10536,68 +10842,73 @@ sw.epilog133:                                     ; preds = %if.end132, %if.end1
   br label %sw.epilog224
 
 sw.bb134:                                         ; preds = %if.end95
-  %137 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %137, label %sw.epilog155 [
+  %188 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %189 = load i32, ptr %188, align 4
+  switch i32 %189, label %sw.epilog155 [
     i32 2, label %sw.bb135
     i32 4, label %sw.bb143
     i32 5, label %sw.bb150
   ]
 
 sw.bb135:                                         ; preds = %sw.bb134
-  %138 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and136 = and i32 %138, 127
+  %190 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %191 = load i32, ptr %190, align 8
+  %and136 = and i32 %191, 127
   %cmp137 = icmp eq i32 %and136, 1
   br i1 %cmp137, label %land.lhs.true138, label %if.end142
 
 land.lhs.true138:                                 ; preds = %sw.bb135
-  %139 = load i32, ptr %over, align 4
-  %tobool139 = icmp ne i32 %139, 0
+  %192 = load i32, ptr %over, align 4
+  %tobool139 = icmp ne i32 %192, 0
   br i1 %tobool139, label %if.then140, label %if.end142
 
 if.then140:                                       ; preds = %land.lhs.true138
-  %140 = load ptr, ptr %tm.addr, align 8
-  %141 = load i32, ptr %mapx.addr, align 4
-  %142 = load i32, ptr %mapy.addr, align 4
-  %call141 = call i32 @stbte__erase(ptr noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef 2)
+  %193 = load ptr, ptr %tm.addr, align 8
+  %194 = load i32, ptr %mapx.addr, align 4
+  %195 = load i32, ptr %mapy.addr, align 4
+  %call141 = call i32 @stbte__erase(ptr noundef %193, i32 noundef %194, i32 noundef %195, i32 noundef 2)
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then140, %land.lhs.true138, %sw.bb135
   br label %sw.epilog155
 
 sw.bb143:                                         ; preds = %sw.bb134
-  %143 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %144 = load i32, ptr %id, align 4
-  %cmp144 = icmp eq i32 %143, %144
+  %196 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %197 = load i32, ptr %196, align 4
+  %198 = load i32, ptr %id, align 4
+  %cmp144 = icmp eq i32 %197, %198
   br i1 %cmp144, label %land.lhs.true145, label %if.end149
 
 land.lhs.true145:                                 ; preds = %sw.bb143
-  %145 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp146 = icmp eq i32 %145, 0
+  %199 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %200 = load i32, ptr %199, align 8
+  %cmp146 = icmp eq i32 %200, 0
   br i1 %cmp146, label %if.then147, label %if.end149
 
 if.then147:                                       ; preds = %land.lhs.true145
-  %146 = load i32, ptr %id, align 4
-  call void @stbte__activate(i32 noundef %146)
-  %147 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %147)
-  %148 = load ptr, ptr %tm.addr, align 8
-  %149 = load i32, ptr %mapx.addr, align 4
-  %150 = load i32, ptr %mapy.addr, align 4
-  %call148 = call i32 @stbte__erase(ptr noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef 2)
+  %201 = load i32, ptr %id, align 4
+  call void @stbte__activate(i32 noundef %201)
+  %202 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %202)
+  %203 = load ptr, ptr %tm.addr, align 8
+  %204 = load i32, ptr %mapx.addr, align 4
+  %205 = load i32, ptr %mapy.addr, align 4
+  %call148 = call i32 @stbte__erase(ptr noundef %203, i32 noundef %204, i32 noundef %205, i32 noundef 2)
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then147, %land.lhs.true145, %sw.bb143
   br label %sw.epilog155
 
 sw.bb150:                                         ; preds = %sw.bb134
-  %151 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and151 = and i32 %151, 127
+  %206 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %207 = load i32, ptr %206, align 8
+  %and151 = and i32 %207, 127
   %cmp152 = icmp eq i32 %and151, 1
   br i1 %cmp152, label %if.then153, label %if.end154
 
 if.then153:                                       ; preds = %sw.bb150
-  %152 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %152)
+  %208 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %208)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end154
 
@@ -10608,119 +10919,148 @@ sw.epilog155:                                     ; preds = %if.end154, %if.end1
   br label %sw.epilog224
 
 sw.bb156:                                         ; preds = %if.end95
-  %153 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %154 = load i32, ptr %id, align 4
-  %cmp157 = icmp eq i32 %153, %154
+  %209 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %210 = load i32, ptr %209, align 4
+  %211 = load i32, ptr %id, align 4
+  %cmp157 = icmp eq i32 %210, %211
   br i1 %cmp157, label %if.then158, label %if.end192
 
 if.then158:                                       ; preds = %sw.bb156
-  %155 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %155, label %sw.epilog191 [
+  %212 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %213 = load i32, ptr %212, align 4
+  switch i32 %213, label %sw.epilog191 [
     i32 4, label %sw.bb159
     i32 5, label %sw.bb181
     i32 6, label %sw.bb190
   ]
 
 sw.bb159:                                         ; preds = %if.then158
-  %156 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp160 = icmp eq i32 %156, 0
+  %214 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %215 = load i32, ptr %214, align 8
+  %cmp160 = icmp eq i32 %215, 0
   br i1 %cmp160, label %if.then161, label %if.end180
 
 if.then161:                                       ; preds = %sw.bb159
-  %157 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool162 = icmp ne i32 %157, 0
+  %216 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %217 = load i32, ptr %216, align 8
+  %tobool162 = icmp ne i32 %217, 0
   br i1 %tobool162, label %if.then163, label %if.end179
 
 if.then163:                                       ; preds = %if.then161
-  %158 = load i32, ptr %mapx.addr, align 4
-  %159 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %cmp164 = icmp sge i32 %158, %159
+  %218 = load i32, ptr %mapx.addr, align 4
+  %219 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %220 = load i32, ptr %219, align 4
+  %cmp164 = icmp sge i32 %218, %220
   br i1 %cmp164, label %land.lhs.true165, label %if.end178
 
 land.lhs.true165:                                 ; preds = %if.then163
-  %160 = load i32, ptr %mapx.addr, align 4
-  %161 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %cmp166 = icmp sle i32 %160, %161
+  %221 = load i32, ptr %mapx.addr, align 4
+  %222 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %223 = load i32, ptr %222, align 4
+  %cmp166 = icmp sle i32 %221, %223
   br i1 %cmp166, label %land.lhs.true167, label %if.end178
 
 land.lhs.true167:                                 ; preds = %land.lhs.true165
-  %162 = load i32, ptr %mapy.addr, align 4
-  %163 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %cmp168 = icmp sge i32 %162, %163
+  %224 = load i32, ptr %mapy.addr, align 4
+  %225 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %226 = load i32, ptr %225, align 8
+  %cmp168 = icmp sge i32 %224, %226
   br i1 %cmp168, label %land.lhs.true169, label %if.end178
 
 land.lhs.true169:                                 ; preds = %land.lhs.true167
-  %164 = load i32, ptr %mapy.addr, align 4
-  %165 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %cmp170 = icmp sle i32 %164, %165
+  %227 = load i32, ptr %mapy.addr, align 4
+  %228 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %229 = load i32, ptr %228, align 8
+  %cmp170 = icmp sle i32 %227, %229
   br i1 %cmp170, label %if.then171, label %if.end178
 
 if.then171:                                       ; preds = %land.lhs.true169
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  %166 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  store i32 %166, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35), align 4
-  %167 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  store i32 %167, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36), align 8
-  %168 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %169 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %sub172 = sub nsw i32 %168, %169
+  %230 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  store i32 1, ptr %230, align 8
+  %231 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %232 = load i32, ptr %231, align 4
+  %233 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 35
+  store i32 %232, ptr %233, align 4
+  %234 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %235 = load i32, ptr %234, align 8
+  %236 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 36
+  store i32 %235, ptr %236, align 8
+  %237 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %238 = load i32, ptr %237, align 4
+  %239 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %240 = load i32, ptr %239, align 4
+  %sub172 = sub nsw i32 %238, %240
   %add173 = add nsw i32 %sub172, 1
-  store i32 %add173, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37), align 4
-  %170 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %171 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %sub174 = sub nsw i32 %170, %171
+  %241 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 37
+  store i32 %add173, ptr %241, align 4
+  %242 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %243 = load i32, ptr %242, align 8
+  %244 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %245 = load i32, ptr %244, align 8
+  %sub174 = sub nsw i32 %243, %245
   %add175 = add nsw i32 %sub174, 1
-  store i32 %add175, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38), align 8
-  %172 = load i32, ptr %mapx.addr, align 4
-  %173 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %sub176 = sub nsw i32 %172, %173
-  store i32 %sub176, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 39), align 4
-  %174 = load i32, ptr %mapy.addr, align 4
-  %175 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %sub177 = sub nsw i32 %174, %175
-  store i32 %sub177, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 40), align 8
+  %246 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 38
+  store i32 %add175, ptr %246, align 8
+  %247 = load i32, ptr %mapx.addr, align 4
+  %248 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %249 = load i32, ptr %248, align 4
+  %sub176 = sub nsw i32 %247, %249
+  %250 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 39
+  store i32 %sub176, ptr %250, align 4
+  %251 = load i32, ptr %mapy.addr, align 4
+  %252 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %253 = load i32, ptr %252, align 8
+  %sub177 = sub nsw i32 %251, %253
+  %254 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 40
+  store i32 %sub177, ptr %254, align 8
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then171, %land.lhs.true169, %land.lhs.true167, %land.lhs.true165, %if.then163
   br label %if.end179
 
 if.end179:                                        ; preds = %if.end178, %if.then161
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %176 = load i32, ptr %mapx.addr, align 4
-  %177 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__activate_map(i32 noundef %176, i32 noundef %177)
+  %255 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  store i32 0, ptr %255, align 8
+  %256 = load i32, ptr %mapx.addr, align 4
+  %257 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__activate_map(i32 noundef %256, i32 noundef %257)
   br label %if.end180
 
 if.end180:                                        ; preds = %if.end179, %sw.bb159
   br label %sw.epilog191
 
 sw.bb181:                                         ; preds = %if.then158
-  %178 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and182 = and i32 %178, 127
+  %258 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %259 = load i32, ptr %258, align 8
+  %and182 = and i32 %259, 127
   %cmp183 = icmp eq i32 %and182, 1
   br i1 %cmp183, label %if.then184, label %if.end189
 
 if.then184:                                       ; preds = %sw.bb181
-  %179 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  %tobool185 = icmp ne i32 %179, 0
+  %260 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  %261 = load i32, ptr %260, align 8
+  %tobool185 = icmp ne i32 %261, 0
   br i1 %tobool185, label %if.then186, label %if.else187
 
 if.then186:                                       ; preds = %if.then184
-  %180 = load ptr, ptr %tm.addr, align 8
-  %181 = load i32, ptr %mapx.addr, align 4
-  %182 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__drag_place(ptr noundef %180, i32 noundef %181, i32 noundef %182)
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
+  %262 = load ptr, ptr %tm.addr, align 8
+  %263 = load i32, ptr %mapx.addr, align 4
+  %264 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__drag_place(ptr noundef %262, i32 noundef %263, i32 noundef %264)
+  %265 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  store i32 0, ptr %265, align 8
   call void @stbte__activate(i32 noundef 0)
   br label %if.end188
 
 if.else187:                                       ; preds = %if.then184
-  %183 = load ptr, ptr %tm.addr, align 8
-  %184 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %185 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
-  %186 = load i32, ptr %mapx.addr, align 4
-  %187 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__select_rect(ptr noundef %183, i32 noundef %184, i32 noundef %185, i32 noundef %186, i32 noundef %187)
+  %266 = load ptr, ptr %tm.addr, align 8
+  %267 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %268 = load i32, ptr %267, align 4
+  %269 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  %270 = load i32, ptr %269, align 8
+  %271 = load i32, ptr %mapx.addr, align 4
+  %272 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__select_rect(ptr noundef %266, i32 noundef %268, i32 noundef %270, i32 noundef %271, i32 noundef %272)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end188
 
@@ -10731,7 +11071,8 @@ if.end189:                                        ; preds = %if.end188, %sw.bb18
   br label %sw.epilog191
 
 sw.bb190:                                         ; preds = %if.then158
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
+  %273 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  store i32 0, ptr %273, align 8
   br label %sw.epilog191
 
 sw.epilog191:                                     ; preds = %sw.bb190, %if.end189, %if.end180, %if.then158
@@ -10741,14 +11082,16 @@ if.end192:                                        ; preds = %sw.epilog191, %sw.b
   br label %sw.epilog224
 
 sw.bb193:                                         ; preds = %if.end95
-  %188 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %189 = load i32, ptr %id, align 4
-  %cmp194 = icmp eq i32 %188, %189
+  %274 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %275 = load i32, ptr %274, align 4
+  %276 = load i32, ptr %id, align 4
+  %cmp194 = icmp eq i32 %275, %276
   br i1 %cmp194, label %if.then195, label %if.end215
 
 if.then195:                                       ; preds = %sw.bb193
-  %190 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %190, label %sw.epilog214 [
+  %277 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %278 = load i32, ptr %277, align 4
+  switch i32 %278, label %sw.epilog214 [
     i32 4, label %sw.bb196
     i32 5, label %sw.bb200
     i32 6, label %sw.bb205
@@ -10756,32 +11099,36 @@ if.then195:                                       ; preds = %sw.bb193
   ]
 
 sw.bb196:                                         ; preds = %if.then195
-  %191 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp197 = icmp eq i32 %191, 0
+  %279 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %280 = load i32, ptr %279, align 8
+  %cmp197 = icmp eq i32 %280, 0
   br i1 %cmp197, label %if.then198, label %if.end199
 
 if.then198:                                       ; preds = %sw.bb196
-  %192 = load i32, ptr %mapx.addr, align 4
-  %193 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__activate_map(i32 noundef %192, i32 noundef %193)
+  %281 = load i32, ptr %mapx.addr, align 4
+  %282 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__activate_map(i32 noundef %281, i32 noundef %282)
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then198, %sw.bb196
   br label %sw.epilog214
 
 sw.bb200:                                         ; preds = %if.then195
-  %194 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and201 = and i32 %194, 127
+  %283 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %284 = load i32, ptr %283, align 8
+  %and201 = and i32 %284, 127
   %cmp202 = icmp eq i32 %and201, 1
   br i1 %cmp202, label %if.then203, label %if.end204
 
 if.then203:                                       ; preds = %sw.bb200
-  %195 = load ptr, ptr %tm.addr, align 8
-  %196 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %197 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
-  %198 = load i32, ptr %mapx.addr, align 4
-  %199 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__fillrect(ptr noundef %195, i32 noundef %196, i32 noundef %197, i32 noundef %198, i32 noundef %199, i32 noundef 1)
+  %285 = load ptr, ptr %tm.addr, align 8
+  %286 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %287 = load i32, ptr %286, align 4
+  %288 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  %289 = load i32, ptr %288, align 8
+  %290 = load i32, ptr %mapx.addr, align 4
+  %291 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__fillrect(ptr noundef %285, i32 noundef %287, i32 noundef %289, i32 noundef %290, i32 noundef %291, i32 noundef 1)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end204
 
@@ -10789,32 +11136,36 @@ if.end204:                                        ; preds = %if.then203, %sw.bb2
   br label %sw.epilog214
 
 sw.bb205:                                         ; preds = %if.then195
-  %200 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp206 = icmp eq i32 %200, 0
+  %292 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %293 = load i32, ptr %292, align 8
+  %cmp206 = icmp eq i32 %293, 0
   br i1 %cmp206, label %if.then207, label %if.end208
 
 if.then207:                                       ; preds = %sw.bb205
-  %201 = load i32, ptr %mapx.addr, align 4
-  %202 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__activate_map(i32 noundef %201, i32 noundef %202)
+  %294 = load i32, ptr %mapx.addr, align 4
+  %295 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__activate_map(i32 noundef %294, i32 noundef %295)
   br label %if.end208
 
 if.end208:                                        ; preds = %if.then207, %sw.bb205
   br label %sw.epilog214
 
 sw.bb209:                                         ; preds = %if.then195
-  %203 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %and210 = and i32 %203, 127
+  %296 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %297 = load i32, ptr %296, align 8
+  %and210 = and i32 %297, 127
   %cmp211 = icmp eq i32 %and210, 1
   br i1 %cmp211, label %if.then212, label %if.end213
 
 if.then212:                                       ; preds = %sw.bb209
-  %204 = load ptr, ptr %tm.addr, align 8
-  %205 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49), align 4
-  %206 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50), align 8
-  %207 = load i32, ptr %mapx.addr, align 4
-  %208 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__fillrect(ptr noundef %204, i32 noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef 0)
+  %298 = load ptr, ptr %tm.addr, align 8
+  %299 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 49
+  %300 = load i32, ptr %299, align 4
+  %301 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 50
+  %302 = load i32, ptr %301, align 8
+  %303 = load i32, ptr %mapx.addr, align 4
+  %304 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__fillrect(ptr noundef %298, i32 noundef %300, i32 noundef %302, i32 noundef %303, i32 noundef %304, i32 noundef 0)
   call void @stbte__activate(i32 noundef 0)
   br label %if.end213
 
@@ -10828,27 +11179,30 @@ if.end215:                                        ; preds = %sw.epilog214, %sw.b
   br label %sw.epilog224
 
 sw.bb216:                                         ; preds = %if.end95
-  %209 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %209, label %sw.epilog223 [
+  %305 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %306 = load i32, ptr %305, align 4
+  switch i32 %306, label %sw.epilog223 [
     i32 4, label %sw.bb217
   ]
 
 sw.bb217:                                         ; preds = %sw.bb216
-  %210 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %211 = load i32, ptr %id, align 4
-  %cmp218 = icmp eq i32 %210, %211
+  %307 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %308 = load i32, ptr %307, align 4
+  %309 = load i32, ptr %id, align 4
+  %cmp218 = icmp eq i32 %308, %309
   br i1 %cmp218, label %land.lhs.true219, label %if.end222
 
 land.lhs.true219:                                 ; preds = %sw.bb217
-  %212 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %cmp220 = icmp eq i32 %212, 0
+  %310 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %311 = load i32, ptr %310, align 8
+  %cmp220 = icmp eq i32 %311, 0
   br i1 %cmp220, label %if.then221, label %if.end222
 
 if.then221:                                       ; preds = %land.lhs.true219
-  %213 = load ptr, ptr %tm.addr, align 8
-  %214 = load i32, ptr %mapx.addr, align 4
-  %215 = load i32, ptr %mapy.addr, align 4
-  call void @stbte__eyedrop(ptr noundef %213, i32 noundef %214, i32 noundef %215)
+  %312 = load ptr, ptr %tm.addr, align 8
+  %313 = load i32, ptr %mapx.addr, align 4
+  %314 = load i32, ptr %mapy.addr, align 4
+  call void @stbte__eyedrop(ptr noundef %312, i32 noundef %313, i32 noundef %314)
   br label %if.end222
 
 if.end222:                                        ; preds = %if.then221, %land.lhs.true219, %sw.bb217
@@ -10866,12 +11220,14 @@ define void @stbte__start_paste(ptr noundef %tm) #0 {
 entry:
   %tm.addr = alloca ptr, align 8
   store ptr %tm, ptr %tm.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  store i32 1, ptr %2, align 4
   call void @stbte__activate(i32 noundef 390)
   br label %if.end
 
@@ -10947,8 +11303,9 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   br i1 %cmp9, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
-  %tobool = icmp ne i32 %11, 0
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  %12 = load i32, ptr %11, align 4
+  %tobool = icmp ne i32 %12, 0
   br i1 %tobool, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %land.lhs.true
@@ -10956,13 +11313,14 @@ if.then11:                                        ; preds = %land.lhs.true
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %land.lhs.true, %if.end
-  %12 = load i32, ptr %i, align 4
-  %cmp13 = icmp eq i32 %12, 8
+  %13 = load i32, ptr %i, align 4
+  %cmp13 = icmp eq i32 %13, 8
   br i1 %cmp13, label %land.lhs.true15, label %if.end18
 
 land.lhs.true15:                                  ; preds = %if.end12
-  %13 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
-  %tobool16 = icmp ne i32 %13, 0
+  %14 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  %15 = load i32, ptr %14, align 8
+  %tobool16 = icmp ne i32 %15, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %land.lhs.true15
@@ -10970,21 +11328,21 @@ if.then17:                                        ; preds = %land.lhs.true15
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %land.lhs.true15, %if.end12
-  %14 = load i32, ptr %i, align 4
-  %cmp19 = icmp eq i32 %14, 5
+  %16 = load i32, ptr %i, align 4
+  %cmp19 = icmp eq i32 %16, 5
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end18
   br label %for.inc
 
 if.end22:                                         ; preds = %if.end18
-  %15 = load i32, ptr %i, align 4
-  %cmp23 = icmp eq i32 %15, 6
+  %17 = load i32, ptr %i, align 4
+  %cmp23 = icmp eq i32 %17, 6
   br i1 %cmp23, label %if.then28, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %if.end22
-  %16 = load i32, ptr %i, align 4
-  %cmp26 = icmp eq i32 %16, 8
+  %18 = load i32, ptr %i, align 4
+  %cmp26 = icmp eq i32 %18, 8
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %lor.lhs.false25, %if.end22
@@ -10992,13 +11350,13 @@ if.then28:                                        ; preds = %lor.lhs.false25, %i
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %lor.lhs.false25
-  %17 = load i32, ptr %i, align 4
-  %cmp30 = icmp eq i32 %17, 9
+  %19 = load i32, ptr %i, align 4
+  %cmp30 = icmp eq i32 %19, 9
   br i1 %cmp30, label %land.lhs.true32, label %if.end35
 
 land.lhs.true32:                                  ; preds = %if.end29
-  %18 = load ptr, ptr %tm.addr, align 8
-  %call = call i32 @stbte__undo_available(ptr noundef %18)
+  %20 = load ptr, ptr %tm.addr, align 8
+  %call = call i32 @stbte__undo_available(ptr noundef %20)
   %tobool33 = icmp ne i32 %call, 0
   br i1 %tobool33, label %if.end35, label %if.then34
 
@@ -11007,13 +11365,13 @@ if.then34:                                        ; preds = %land.lhs.true32
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %land.lhs.true32, %if.end29
-  %19 = load i32, ptr %i, align 4
-  %cmp36 = icmp eq i32 %19, 10
+  %21 = load i32, ptr %i, align 4
+  %cmp36 = icmp eq i32 %21, 10
   br i1 %cmp36, label %land.lhs.true38, label %if.end42
 
 land.lhs.true38:                                  ; preds = %if.end35
-  %20 = load ptr, ptr %tm.addr, align 8
-  %call39 = call i32 @stbte__redo_available(ptr noundef %20)
+  %22 = load ptr, ptr %tm.addr, align 8
+  %call39 = call i32 @stbte__redo_available(ptr noundef %22)
   %tobool40 = icmp ne i32 %call39, 0
   br i1 %tobool40, label %if.end42, label %if.then41
 
@@ -11022,25 +11380,25 @@ if.then41:                                        ; preds = %land.lhs.true38
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %land.lhs.true38, %if.end35
-  %21 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %21 to i64
+  %23 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %23 to i64
   %arrayidx = getelementptr inbounds [11 x i32], ptr @toolchar, i64 0, i64 %idxprom
-  %22 = load i32, ptr %arrayidx, align 4
-  %conv43 = trunc i32 %22 to i8
-  %23 = load i32, ptr %x, align 4
-  %24 = load i32, ptr %y, align 4
-  %25 = load i32, ptr %i, align 4
-  %shl = shl i32 %25, 7
+  %24 = load i32, ptr %arrayidx, align 4
+  %conv43 = trunc i32 %24 to i8
+  %25 = load i32, ptr %x, align 4
+  %26 = load i32, ptr %y, align 4
+  %27 = load i32, ptr %i, align 4
+  %shl = shl i32 %27, 7
   %add44 = add nsw i32 5, %shl
-  %26 = load i32, ptr %highlight, align 4
-  %27 = load i32, ptr %disable, align 4
-  %call45 = call i32 @stbte__button_icon(i32 noundef 2, i8 noundef signext %conv43, i32 noundef %23, i32 noundef %24, i32 noundef 13, i32 noundef %add44, i32 noundef %26, i32 noundef %27)
+  %28 = load i32, ptr %highlight, align 4
+  %29 = load i32, ptr %disable, align 4
+  %call45 = call i32 @stbte__button_icon(i32 noundef 2, i8 noundef signext %conv43, i32 noundef %25, i32 noundef %26, i32 noundef 13, i32 noundef %add44, i32 noundef %28, i32 noundef %29)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %if.then47, label %if.end54
 
 if.then47:                                        ; preds = %if.end42
-  %28 = load i32, ptr %i, align 4
-  switch i32 %28, label %sw.default [
+  %30 = load i32, ptr %i, align 4
+  switch i32 %30, label %sw.default [
     i32 4, label %sw.bb
     i32 8, label %sw.bb48
     i32 7, label %sw.bb50
@@ -11049,114 +11407,124 @@ if.then47:                                        ; preds = %if.end42
   ]
 
 sw.bb:                                            ; preds = %if.then47
-  %29 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %29, i32 0, i32 4
-  %30 = load i32, ptr %num_layers, align 8
-  store i32 %30, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22), align 8
+  %31 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 4
+  %32 = load i32, ptr %num_layers, align 8
+  %33 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 22
+  store i32 %32, ptr %33, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %sw.bb, %if.then47
-  %31 = load i32, ptr %i, align 4
-  store i32 %31, ptr @stbte__ui, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
+  %34 = load i32, ptr %i, align 4
+  store i32 %34, ptr @stbte__ui, align 8
+  %35 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  store i32 0, ptr %35, align 8
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.then47
-  %32 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
-  %tobool49 = icmp ne i32 %32, 0
+  %36 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  %37 = load i32, ptr %36, align 8
+  %tobool49 = icmp ne i32 %37, 0
   %lnot = xor i1 %tobool49, true
   %lnot.ext = zext i1 %lnot to i32
-  store i32 %lnot.ext, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
+  %38 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  store i32 %lnot.ext, ptr %38, align 8
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.then47
-  %33 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
-  %add51 = add nsw i32 %33, 1
+  %39 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  %40 = load i32, ptr %39, align 4
+  %add51 = add nsw i32 %40, 1
   %rem = srem i32 %add51, 3
-  store i32 %rem, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
+  %41 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  store i32 %rem, ptr %41, align 4
   br label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.then47
-  %34 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__undo(ptr noundef %34)
+  %42 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__undo(ptr noundef %42)
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.then47
-  %35 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__redo(ptr noundef %35)
+  %43 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__redo(ptr noundef %43)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb53, %sw.bb52, %sw.bb50, %sw.bb48, %sw.default
   br label %if.end54
 
 if.end54:                                         ; preds = %sw.epilog, %if.end42
-  %36 = load i32, ptr %x, align 4
-  %add55 = add nsw i32 %36, 13
+  %44 = load i32, ptr %x, align 4
+  %add55 = add nsw i32 %44, 13
   store i32 %add55, ptr %x, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end54, %if.then21
-  %37 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %37, 1
+  %45 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %45, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !66
 
 for.end:                                          ; preds = %for.cond
-  %38 = load i32, ptr %x, align 4
-  %add56 = add nsw i32 %38, 8
+  %46 = load i32, ptr %x, align 4
+  %add56 = add nsw i32 %46, 8
   store i32 %add56, ptr %x, align 4
-  %39 = load i32, ptr %x, align 4
-  %40 = load i32, ptr %y, align 4
-  %41 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool57 = icmp ne i32 %41, 0
+  %47 = load i32, ptr %x, align 4
+  %48 = load i32, ptr %y, align 4
+  %49 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %50 = load i32, ptr %49, align 8
+  %tobool57 = icmp ne i32 %50, 0
   %lnot58 = xor i1 %tobool57, true
   %lnot.ext59 = zext i1 %lnot58 to i32
-  %call60 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.4, i32 noundef %39, i32 noundef %40, i32 noundef 10, i32 noundef 40, i32 noundef 6, i32 noundef 0, i32 noundef %lnot.ext59)
+  %call60 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.4, i32 noundef %47, i32 noundef %48, i32 noundef 10, i32 noundef 40, i32 noundef 6, i32 noundef 0, i32 noundef %lnot.ext59)
   %tobool61 = icmp ne i32 %call60, 0
   br i1 %tobool61, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %for.end
-  %42 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__copy_cut(ptr noundef %42, i32 noundef 1)
+  %51 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__copy_cut(ptr noundef %51, i32 noundef 1)
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then62, %for.end
-  %43 = load i32, ptr %x, align 4
-  %add64 = add nsw i32 %43, 42
+  %52 = load i32, ptr %x, align 4
+  %add64 = add nsw i32 %52, 42
   store i32 %add64, ptr %x, align 4
-  %44 = load i32, ptr %x, align 4
-  %45 = load i32, ptr %y, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool65 = icmp ne i32 %46, 0
+  %53 = load i32, ptr %x, align 4
+  %54 = load i32, ptr %y, align 4
+  %55 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %56 = load i32, ptr %55, align 8
+  %tobool65 = icmp ne i32 %56, 0
   %lnot66 = xor i1 %tobool65, true
   %lnot.ext67 = zext i1 %lnot66 to i32
-  %call68 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.5, i32 noundef %44, i32 noundef %45, i32 noundef 5, i32 noundef 40, i32 noundef 134, i32 noundef 0, i32 noundef %lnot.ext67)
+  %call68 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.5, i32 noundef %53, i32 noundef %54, i32 noundef 5, i32 noundef 40, i32 noundef 134, i32 noundef 0, i32 noundef %lnot.ext67)
   %tobool69 = icmp ne i32 %call68, 0
   br i1 %tobool69, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %if.end63
-  %47 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__copy_cut(ptr noundef %47, i32 noundef 0)
+  %57 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__copy_cut(ptr noundef %57, i32 noundef 0)
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then70, %if.end63
-  %48 = load i32, ptr %x, align 4
-  %add72 = add nsw i32 %48, 42
+  %58 = load i32, ptr %x, align 4
+  %add72 = add nsw i32 %58, 42
   store i32 %add72, ptr %x, align 4
-  %49 = load i32, ptr %x, align 4
-  %50 = load i32, ptr %y, align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %52 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68), align 8
-  %tobool73 = icmp ne i32 %52, 0
+  %59 = load i32, ptr %x, align 4
+  %60 = load i32, ptr %y, align 4
+  %61 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 68
+  %64 = load i32, ptr %63, align 8
+  %tobool73 = icmp ne i32 %64, 0
   %lnot74 = xor i1 %tobool73, true
   %lnot.ext75 = zext i1 %lnot74 to i32
-  %call76 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.6, i32 noundef %49, i32 noundef %50, i32 noundef 0, i32 noundef 40, i32 noundef 262, i32 noundef %51, i32 noundef %lnot.ext75)
+  %call76 = call i32 @stbte__button(i32 noundef 2, ptr noundef @.str.6, i32 noundef %59, i32 noundef %60, i32 noundef 0, i32 noundef 40, i32 noundef 262, i32 noundef %62, i32 noundef %lnot.ext75)
   %tobool77 = icmp ne i32 %call76, 0
   br i1 %tobool77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.end71
-  %53 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__start_paste(ptr noundef %53)
+  %65 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__start_paste(ptr noundef %65)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %if.end71
@@ -11180,86 +11548,90 @@ entry:
   store i32 %val, ptr %val.addr, align 4
   store i32 %digits, ptr %digits.addr, align 4
   store i32 %id, ptr %id.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %label.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %2 to i32
+  %2 = load ptr, ptr %label.addr, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
+  %3 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %3 to i32
   %call = call i32 @stbte__get_char_width(i32 noundef %conv)
   %sub = sub nsw i32 9, %call
   store i32 %sub, ptr %off, align 4
   %arraydecay = getelementptr inbounds [16 x i8], ptr %text, i64 0, i64 0
-  %3 = load ptr, ptr %label.addr, align 8
-  %4 = load i32, ptr %digits.addr, align 4
-  %5 = load i32, ptr %val.addr, align 4
-  %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef %3, i32 noundef %4, i32 noundef %5) #8
-  %6 = load i32, ptr %x.addr, align 4
-  %7 = load i32, ptr %off, align 4
-  %add = add nsw i32 %6, %7
-  %8 = load i32, ptr %y.addr, align 4
+  %4 = load ptr, ptr %label.addr, align 8
+  %5 = load i32, ptr %digits.addr, align 4
+  %6 = load i32, ptr %val.addr, align 4
+  %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef %4, i32 noundef %5, i32 noundef %6) #8
+  %7 = load i32, ptr %x.addr, align 4
+  %8 = load i32, ptr %off, align 4
+  %add = add nsw i32 %7, %8
+  %9 = load i32, ptr %y.addr, align 4
   %arraydecay2 = getelementptr inbounds [16 x i8], ptr %text, i64 0, i64 0
-  %9 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text_core(i32 noundef %add, i32 noundef %8, ptr noundef %arraydecay2, i32 noundef 999, i32 noundef %9, i32 noundef 1)
+  %10 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %11 = load i32, ptr %10, align 4
+  call void @stbte__draw_text_core(i32 noundef %add, i32 noundef %9, ptr noundef %arraydecay2, i32 noundef 999, i32 noundef %11, i32 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %10 = load i32, ptr %id.addr, align 4
-  %tobool = icmp ne i32 %10, 0
+  %12 = load i32, ptr %id.addr, align 4
+  %tobool = icmp ne i32 %12, 0
   br i1 %tobool, label %if.then3, label %if.end31
 
 if.then3:                                         ; preds = %if.end
-  %11 = load i32, ptr %digits.addr, align 4
-  %mul = mul nsw i32 7, %11
+  %13 = load i32, ptr %digits.addr, align 4
+  %mul = mul nsw i32 7, %13
   %add4 = add nsw i32 9, %mul
   %add5 = add nsw i32 %add4, 4
-  %12 = load i32, ptr %x.addr, align 4
-  %add6 = add nsw i32 %12, %add5
+  %14 = load i32, ptr %x.addr, align 4
+  %add6 = add nsw i32 %14, %add5
   store i32 %add6, ptr %x.addr, align 4
-  %13 = load i32, ptr %x.addr, align 4
-  %14 = load i32, ptr %y.addr, align 4
-  %15 = load i32, ptr %id.addr, align 4
-  %add7 = add nsw i32 %15, 524288
-  %call8 = call i32 @stbte__minibutton(i32 noundef 7, i32 noundef %13, i32 noundef %14, i32 noundef 43, i32 noundef %add7)
+  %15 = load i32, ptr %x.addr, align 4
+  %16 = load i32, ptr %y.addr, align 4
+  %17 = load i32, ptr %id.addr, align 4
+  %add7 = add nsw i32 %17, 524288
+  %call8 = call i32 @stbte__minibutton(i32 noundef 7, i32 noundef %15, i32 noundef %16, i32 noundef 43, i32 noundef %add7)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.then3
-  %16 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool11 = icmp ne i32 %16, 0
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %19 = load i32, ptr %18, align 4
+  %tobool11 = icmp ne i32 %19, 0
   %cond = select i1 %tobool11, i32 10, i32 1
-  %17 = load i32, ptr %val.addr, align 4
-  %add12 = add nsw i32 %17, %cond
+  %20 = load i32, ptr %val.addr, align 4
+  %add12 = add nsw i32 %20, %cond
   store i32 %add12, ptr %val.addr, align 4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.then3
-  %18 = load i32, ptr %x.addr, align 4
-  %add14 = add nsw i32 %18, 9
+  %21 = load i32, ptr %x.addr, align 4
+  %add14 = add nsw i32 %21, 9
   store i32 %add14, ptr %x.addr, align 4
-  %19 = load i32, ptr %x.addr, align 4
-  %20 = load i32, ptr %y.addr, align 4
-  %21 = load i32, ptr %id.addr, align 4
-  %add15 = add nsw i32 %21, 1048576
-  %call16 = call i32 @stbte__minibutton(i32 noundef 7, i32 noundef %19, i32 noundef %20, i32 noundef 45, i32 noundef %add15)
+  %22 = load i32, ptr %x.addr, align 4
+  %23 = load i32, ptr %y.addr, align 4
+  %24 = load i32, ptr %id.addr, align 4
+  %add15 = add nsw i32 %24, 1048576
+  %call16 = call i32 @stbte__minibutton(i32 noundef 7, i32 noundef %22, i32 noundef %23, i32 noundef 45, i32 noundef %add15)
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end13
-  %22 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %tobool19 = icmp ne i32 %22, 0
+  %25 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  %26 = load i32, ptr %25, align 4
+  %tobool19 = icmp ne i32 %26, 0
   %cond20 = select i1 %tobool19, i32 10, i32 1
-  %23 = load i32, ptr %val.addr, align 4
-  %sub21 = sub nsw i32 %23, %cond20
+  %27 = load i32, ptr %val.addr, align 4
+  %sub21 = sub nsw i32 %27, %cond20
   store i32 %sub21, ptr %val.addr, align 4
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.end13
-  %24 = load i32, ptr %val.addr, align 4
-  %cmp23 = icmp slt i32 %24, 1
+  %28 = load i32, ptr %val.addr, align 4
+  %cmp23 = icmp slt i32 %28, 1
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end22
@@ -11267,8 +11639,8 @@ if.then25:                                        ; preds = %if.end22
   br label %if.end30
 
 if.else:                                          ; preds = %if.end22
-  %25 = load i32, ptr %val.addr, align 4
-  %cmp26 = icmp sgt i32 %25, 4096
+  %29 = load i32, ptr %val.addr, align 4
+  %cmp26 = icmp sgt i32 %29, 4096
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.else
@@ -11282,8 +11654,8 @@ if.end30:                                         ; preds = %if.end29, %if.then2
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end30, %if.end
-  %26 = load i32, ptr %val.addr, align 4
-  ret i32 %26
+  %30 = load i32, ptr %val.addr, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11304,149 +11676,154 @@ entry:
   store i32 %y0, ptr %y0.addr, align 4
   store i32 %w, ptr %w.addr, align 4
   store i32 %h, ptr %h.addr, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 2, i32 1), align 4
-  store i32 %0, ptr %mode, align 4
-  %1 = load ptr, ptr %tm.addr, align 8
-  %digits = getelementptr inbounds %struct.stbte_tilemap, ptr %1, i32 0, i32 20
-  %2 = load i32, ptr %digits, align 8
-  %mul = mul nsw i32 7, %2
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 2, i32 1
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %mode, align 4
+  %2 = load ptr, ptr %tm.addr, align 8
+  %digits = getelementptr inbounds %struct.stbte_tilemap, ptr %2, i32 0, i32 20
+  %3 = load i32, ptr %digits, align 8
+  %mul = mul nsw i32 7, %3
   %add = add nsw i32 11, %mul
   %add1 = add nsw i32 %add, 4
   %add2 = add nsw i32 %add1, 15
   store i32 %add2, ptr %s, align 4
-  %3 = load i32, ptr %x0.addr, align 4
-  %add3 = add nsw i32 %3, 2
+  %4 = load i32, ptr %x0.addr, align 4
+  %add3 = add nsw i32 %4, 2
   store i32 %add3, ptr %x, align 4
-  %4 = load i32, ptr %y0.addr, align 4
-  %add4 = add nsw i32 %4, 2
+  %5 = load i32, ptr %y0.addr, align 4
+  %add4 = add nsw i32 %5, 2
   store i32 %add4, ptr %y, align 4
-  %5 = load i32, ptr %x, align 4
-  %6 = load i32, ptr %y, align 4
-  %7 = load ptr, ptr %tm.addr, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %max_x, align 8
-  %9 = load ptr, ptr %tm.addr, align 8
-  %digits5 = getelementptr inbounds %struct.stbte_tilemap, ptr %9, i32 0, i32 20
-  %10 = load i32, ptr %digits5, align 8
-  %call = call i32 @stbte__info_value(ptr noundef @.str.7, i32 noundef %5, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef 4)
-  %11 = load ptr, ptr %tm.addr, align 8
-  %max_x6 = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 2
+  %6 = load i32, ptr %x, align 4
+  %7 = load i32, ptr %y, align 4
+  %8 = load ptr, ptr %tm.addr, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %8, i32 0, i32 2
+  %9 = load i32, ptr %max_x, align 8
+  %10 = load ptr, ptr %tm.addr, align 8
+  %digits5 = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 20
+  %11 = load i32, ptr %digits5, align 8
+  %call = call i32 @stbte__info_value(ptr noundef @.str.7, i32 noundef %6, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef 4)
+  %12 = load ptr, ptr %tm.addr, align 8
+  %max_x6 = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 2
   store i32 %call, ptr %max_x6, align 8
-  %12 = load i32, ptr %mode, align 4
-  %tobool = icmp ne i32 %12, 0
+  %13 = load i32, ptr %mode, align 4
+  %tobool = icmp ne i32 %13, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %13 = load i32, ptr %s, align 4
-  %14 = load i32, ptr %x, align 4
-  %add7 = add nsw i32 %14, %13
+  %14 = load i32, ptr %s, align 4
+  %15 = load i32, ptr %x, align 4
+  %add7 = add nsw i32 %15, %14
   store i32 %add7, ptr %x, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %15 = load i32, ptr %y, align 4
-  %add8 = add nsw i32 %15, 11
+  %16 = load i32, ptr %y, align 4
+  %add8 = add nsw i32 %16, 11
   store i32 %add8, ptr %y, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %16 = load i32, ptr %x, align 4
-  %17 = load i32, ptr %y, align 4
-  %18 = load ptr, ptr %tm.addr, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %max_y, align 4
-  %20 = load ptr, ptr %tm.addr, align 8
-  %digits9 = getelementptr inbounds %struct.stbte_tilemap, ptr %20, i32 0, i32 20
-  %21 = load i32, ptr %digits9, align 8
-  %call10 = call i32 @stbte__info_value(ptr noundef @.str.8, i32 noundef %16, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef 132)
-  %22 = load ptr, ptr %tm.addr, align 8
-  %max_y11 = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 3
+  %17 = load i32, ptr %x, align 4
+  %18 = load i32, ptr %y, align 4
+  %19 = load ptr, ptr %tm.addr, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 3
+  %20 = load i32, ptr %max_y, align 4
+  %21 = load ptr, ptr %tm.addr, align 8
+  %digits9 = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 20
+  %22 = load i32, ptr %digits9, align 8
+  %call10 = call i32 @stbte__info_value(ptr noundef @.str.8, i32 noundef %17, i32 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef 132)
+  %23 = load ptr, ptr %tm.addr, align 8
+  %max_y11 = getelementptr inbounds %struct.stbte_tilemap, ptr %23, i32 0, i32 3
   store i32 %call10, ptr %max_y11, align 4
-  %23 = load i32, ptr %x0.addr, align 4
-  %add12 = add nsw i32 %23, 2
+  %24 = load i32, ptr %x0.addr, align 4
+  %add12 = add nsw i32 %24, 2
   store i32 %add12, ptr %x, align 4
-  %24 = load i32, ptr %y, align 4
-  %add13 = add nsw i32 %24, 11
+  %25 = load i32, ptr %y, align 4
+  %add13 = add nsw i32 %25, 11
   store i32 %add13, ptr %y, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %and = and i32 %25, 127
+  %26 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4
+  %and = and i32 %27, 127
   %cmp = icmp eq i32 %and, 1
   %conv = zext i1 %cmp to i32
   store i32 %conv, ptr %in_region, align 4
-  %26 = load i32, ptr %in_region, align 4
-  %tobool14 = icmp ne i32 %26, 0
+  %28 = load i32, ptr %in_region, align 4
+  %tobool14 = icmp ne i32 %28, 0
   %cond = select i1 %tobool14, ptr @.str.9, ptr @.str.10
-  %27 = load i32, ptr %x, align 4
-  %28 = load i32, ptr %y, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr = ashr i32 %29, 19
+  %29 = load i32, ptr %x, align 4
+  %30 = load i32, ptr %y, align 4
+  %31 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %32 = load i32, ptr %31, align 4
+  %shr = ashr i32 %32, 19
   %and15 = and i32 %shr, 4095
-  %30 = load ptr, ptr %tm.addr, align 8
-  %digits16 = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 20
-  %31 = load i32, ptr %digits16, align 8
-  %call17 = call i32 @stbte__info_value(ptr noundef %cond, i32 noundef %27, i32 noundef %28, i32 noundef %and15, i32 noundef %31, i32 noundef 0)
-  %32 = load i32, ptr %mode, align 4
-  %tobool18 = icmp ne i32 %32, 0
+  %33 = load ptr, ptr %tm.addr, align 8
+  %digits16 = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 20
+  %34 = load i32, ptr %digits16, align 8
+  %call17 = call i32 @stbte__info_value(ptr noundef %cond, i32 noundef %29, i32 noundef %30, i32 noundef %and15, i32 noundef %34, i32 noundef 0)
+  %35 = load i32, ptr %mode, align 4
+  %tobool18 = icmp ne i32 %35, 0
   br i1 %tobool18, label %if.then19, label %if.else21
 
 if.then19:                                        ; preds = %if.end
-  %33 = load i32, ptr %s, align 4
-  %34 = load i32, ptr %x, align 4
-  %add20 = add nsw i32 %34, %33
+  %36 = load i32, ptr %s, align 4
+  %37 = load i32, ptr %x, align 4
+  %add20 = add nsw i32 %37, %36
   store i32 %add20, ptr %x, align 4
   br label %if.end23
 
 if.else21:                                        ; preds = %if.end
-  %35 = load i32, ptr %y, align 4
-  %add22 = add nsw i32 %35, 11
+  %38 = load i32, ptr %y, align 4
+  %add22 = add nsw i32 %38, 11
   store i32 %add22, ptr %y, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else21, %if.then19
-  %36 = load i32, ptr %in_region, align 4
-  %tobool24 = icmp ne i32 %36, 0
+  %39 = load i32, ptr %in_region, align 4
+  %tobool24 = icmp ne i32 %39, 0
   %cond25 = select i1 %tobool24, ptr @.str.11, ptr @.str.12
-  %37 = load i32, ptr %x, align 4
-  %38 = load i32, ptr %y, align 4
-  %39 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr26 = ashr i32 %39, 7
+  %40 = load i32, ptr %x, align 4
+  %41 = load i32, ptr %y, align 4
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %43 = load i32, ptr %42, align 4
+  %shr26 = ashr i32 %43, 7
   %and27 = and i32 %shr26, 4095
-  %40 = load ptr, ptr %tm.addr, align 8
-  %digits28 = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 20
-  %41 = load i32, ptr %digits28, align 8
-  %call29 = call i32 @stbte__info_value(ptr noundef %cond25, i32 noundef %37, i32 noundef %38, i32 noundef %and27, i32 noundef %41, i32 noundef 0)
-  %42 = load i32, ptr %y, align 4
-  %add30 = add nsw i32 %42, 15
+  %44 = load ptr, ptr %tm.addr, align 8
+  %digits28 = getelementptr inbounds %struct.stbte_tilemap, ptr %44, i32 0, i32 20
+  %45 = load i32, ptr %digits28, align 8
+  %call29 = call i32 @stbte__info_value(ptr noundef %cond25, i32 noundef %40, i32 noundef %41, i32 noundef %and27, i32 noundef %45, i32 noundef 0)
+  %46 = load i32, ptr %y, align 4
+  %add30 = add nsw i32 %46, 15
   store i32 %add30, ptr %y, align 4
-  %43 = load i32, ptr %x0.addr, align 4
-  %add31 = add nsw i32 %43, 2
+  %47 = load i32, ptr %x0.addr, align 4
+  %add31 = add nsw i32 %47, 2
   store i32 %add31, ptr %x, align 4
-  %44 = load i32, ptr %x, align 4
-  %45 = load i32, ptr %y, align 4
-  %46 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %44, i32 noundef %45, ptr noundef @.str.13, i32 noundef 40, i32 noundef %46)
-  %47 = load ptr, ptr %tm.addr, align 8
-  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %47, i32 0, i32 12
-  %48 = load i32, ptr %cur_tile, align 8
-  %cmp32 = icmp sge i32 %48, 0
+  %48 = load i32, ptr %x, align 4
+  %49 = load i32, ptr %y, align 4
+  %50 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %51 = load i32, ptr %50, align 4
+  call void @stbte__draw_text(i32 noundef %48, i32 noundef %49, ptr noundef @.str.13, i32 noundef 40, i32 noundef %51)
+  %52 = load ptr, ptr %tm.addr, align 8
+  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %52, i32 0, i32 12
+  %53 = load i32, ptr %cur_tile, align 8
+  %cmp32 = icmp sge i32 %53, 0
   br i1 %cmp32, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end23
-  %49 = load i32, ptr %x, align 4
-  %add35 = add nsw i32 %49, 43
-  %50 = load i32, ptr %y, align 4
-  %sub = sub nsw i32 %50, 3
-  %51 = load ptr, ptr %tm.addr, align 8
-  %tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 17
-  %52 = load ptr, ptr %tiles, align 8
-  %53 = load ptr, ptr %tm.addr, align 8
-  %cur_tile36 = getelementptr inbounds %struct.stbte_tilemap, ptr %53, i32 0, i32 12
-  %54 = load i32, ptr %cur_tile36, align 8
-  %idxprom = sext i32 %54 to i64
-  %arrayidx = getelementptr inbounds %struct.stbte__tileinfo, ptr %52, i64 %idxprom
+  %54 = load i32, ptr %x, align 4
+  %add35 = add nsw i32 %54, 43
+  %55 = load i32, ptr %y, align 4
+  %sub = sub nsw i32 %55, 3
+  %56 = load ptr, ptr %tm.addr, align 8
+  %tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %56, i32 0, i32 17
+  %57 = load ptr, ptr %tiles, align 8
+  %58 = load ptr, ptr %tm.addr, align 8
+  %cur_tile36 = getelementptr inbounds %struct.stbte_tilemap, ptr %58, i32 0, i32 12
+  %59 = load i32, ptr %cur_tile36, align 8
+  %idxprom = sext i32 %59 to i64
+  %arrayidx = getelementptr inbounds %struct.stbte__tileinfo, ptr %57, i64 %idxprom
   %id = getelementptr inbounds %struct.stbte__tileinfo, ptr %arrayidx, i32 0, i32 0
-  %55 = load i16, ptr %id, align 8
-  call void @STBTE_DRAW_TILE(i32 noundef %add35, i32 noundef %sub, i16 noundef zeroext %55, i32 noundef 1, ptr noundef null)
+  %60 = load i16, ptr %id, align 8
+  call void @STBTE_DRAW_TILE(i32 noundef %add35, i32 noundef %sub, i16 noundef zeroext %60, i32 noundef 1, ptr noundef null)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %if.end23
@@ -11497,330 +11874,333 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 3), align 4
-  store i32 %6, ptr %side, align 4
-  %7 = load i32, ptr %side, align 4
-  %idxprom = sext i32 %7 to i64
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 3
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %side, align 4
+  %8 = load i32, ptr %side, align 4
+  %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom
   %width = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx, i32 0, i32 0
-  %8 = load i32, ptr %width, align 8
-  %sub = sub nsw i32 %8, 42
+  %9 = load i32, ptr %width, align 8
+  %sub = sub nsw i32 %9, 42
   store i32 %sub, ptr %xoff, align 4
-  %9 = load i32, ptr %xoff, align 4
-  %10 = load ptr, ptr %tm.addr, align 8
-  %layername_width = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 30
-  %11 = load i32, ptr %layername_width, align 4
-  %add2 = add nsw i32 %11, 10
-  %cmp = icmp slt i32 %9, %add2
+  %10 = load i32, ptr %xoff, align 4
+  %11 = load ptr, ptr %tm.addr, align 8
+  %layername_width = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 30
+  %12 = load i32, ptr %layername_width, align 4
+  %add2 = add nsw i32 %12, 10
+  %cmp = icmp slt i32 %10, %add2
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
-  %12 = load i32, ptr %xoff, align 4
+  %13 = load i32, ptr %xoff, align 4
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %13 = load ptr, ptr %tm.addr, align 8
-  %layername_width3 = getelementptr inbounds %struct.stbte_tilemap, ptr %13, i32 0, i32 30
-  %14 = load i32, ptr %layername_width3, align 4
-  %add4 = add nsw i32 %14, 10
+  %14 = load ptr, ptr %tm.addr, align 8
+  %layername_width3 = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 30
+  %15 = load i32, ptr %layername_width3, align 4
+  %add4 = add nsw i32 %15, 10
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %12, %cond.true ], [ %add4, %cond.false ]
+  %cond = phi i32 [ %13, %cond.true ], [ %add4, %cond.false ]
   store i32 %cond, ptr %xoff, align 4
   br label %if.end
 
 if.end:                                           ; preds = %cond.end, %entry
-  %15 = load i32, ptr %x0.addr, align 4
-  %add5 = add nsw i32 %15, 2
+  %16 = load i32, ptr %x0.addr, align 4
+  %add5 = add nsw i32 %16, 2
   store i32 %add5, ptr %x0.addr, align 4
-  %16 = load i32, ptr %y0.addr, align 4
-  %add6 = add nsw i32 %16, 5
+  %17 = load i32, ptr %y0.addr, align 4
+  %add6 = add nsw i32 %17, 5
   store i32 %add6, ptr %y0.addr, align 4
-  %17 = load ptr, ptr %tm.addr, align 8
-  %has_layer_names7 = getelementptr inbounds %struct.stbte_tilemap, ptr %17, i32 0, i32 29
-  %18 = load i32, ptr %has_layer_names7, align 8
-  %tobool8 = icmp ne i32 %18, 0
+  %18 = load ptr, ptr %tm.addr, align 8
+  %has_layer_names7 = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 29
+  %19 = load i32, ptr %has_layer_names7, align 8
+  %tobool8 = icmp ne i32 %19, 0
   br i1 %tobool8, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp10 = icmp eq i32 %19, 0
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %21 = load i32, ptr %20, align 4
+  %cmp10 = icmp eq i32 %21, 0
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.then9
-  %20 = load i32, ptr %x0.addr, align 4
-  %21 = load i32, ptr %y0.addr, align 4
-  %22 = load i32, ptr %w.addr, align 4
-  %sub12 = sub nsw i32 %22, 4
-  %23 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %20, i32 noundef %21, ptr noundef @.str.17, i32 noundef %sub12, i32 noundef %23)
+  %22 = load i32, ptr %x0.addr, align 4
+  %23 = load i32, ptr %y0.addr, align 4
+  %24 = load i32, ptr %w.addr, align 4
+  %sub12 = sub nsw i32 %24, 4
+  %25 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %26 = load i32, ptr %25, align 4
+  call void @stbte__draw_text(i32 noundef %22, i32 noundef %23, ptr noundef @.str.17, i32 noundef %sub12, i32 noundef %26)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.then9
-  %24 = load i32, ptr %y0.addr, align 4
-  %add14 = add nsw i32 %24, 11
+  %27 = load i32, ptr %y0.addr, align 4
+  %add14 = add nsw i32 %27, 11
   store i32 %add14, ptr %y0.addr, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end13, %if.end
-  %25 = load i32, ptr %y1, align 4
-  %26 = load i32, ptr %y0.addr, align 4
-  %sub16 = sub nsw i32 %25, %26
+  %28 = load i32, ptr %y1, align 4
+  %29 = load i32, ptr %y0.addr, align 4
+  %sub16 = sub nsw i32 %28, %29
   %div = sdiv i32 %sub16, 15
   store i32 %div, ptr %num_rows, align 4
-  %27 = load i32, ptr %num_rows, align 4
-  %dec = add nsw i32 %27, -1
+  %30 = load i32, ptr %num_rows, align 4
+  %dec = add nsw i32 %30, -1
   store i32 %dec, ptr %num_rows, align 4
-  %28 = load i32, ptr %y0.addr, align 4
-  store i32 %28, ptr %y, align 4
+  %31 = load i32, ptr %y0.addr, align 4
+  store i32 %31, ptr %y, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end15
-  %29 = load i32, ptr %i, align 4
-  %30 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 4
-  %31 = load i32, ptr %num_layers, align 8
-  %cmp17 = icmp slt i32 %29, %31
+  %32 = load i32, ptr %i, align 4
+  %33 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 4
+  %34 = load i32, ptr %num_layers, align 8
+  %cmp17 = icmp slt i32 %32, %34
   br i1 %cmp17, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %32 = load ptr, ptr %tm.addr, align 8
-  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 28
-  %33 = load i32, ptr %i, align 4
-  %idxprom18 = sext i32 %33 to i64
+  %35 = load ptr, ptr %tm.addr, align 8
+  %layerinfo = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 28
+  %36 = load i32, ptr %i, align 4
+  %idxprom18 = sext i32 %36 to i64
   %arrayidx19 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %idxprom18
   %name = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx19, i32 0, i32 0
-  %34 = load ptr, ptr %name, align 8
-  store ptr %34, ptr %str, align 8
+  %37 = load ptr, ptr %name, align 8
+  store ptr %37, ptr %str, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %lockedchar, ptr align 1 @__const.stbte__layers.lockedchar, i64 3, i1 false)
-  %35 = load ptr, ptr %tm.addr, align 8
-  %layerinfo20 = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 28
-  %36 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %36 to i64
+  %38 = load ptr, ptr %tm.addr, align 8
+  %layerinfo20 = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 28
+  %39 = load i32, ptr %i, align 4
+  %idxprom21 = sext i32 %39 to i64
   %arrayidx22 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo20, i64 0, i64 %idxprom21
   %locked23 = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx22, i32 0, i32 1
-  %37 = load i32, ptr %locked23, align 8
-  store i32 %37, ptr %locked, align 4
-  %38 = load ptr, ptr %tm.addr, align 8
-  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 33
-  %39 = load i32, ptr %solo_layer, align 8
-  %cmp24 = icmp sge i32 %39, 0
+  %40 = load i32, ptr %locked23, align 8
+  store i32 %40, ptr %locked, align 4
+  %41 = load ptr, ptr %tm.addr, align 8
+  %solo_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 33
+  %42 = load i32, ptr %solo_layer, align 8
+  %cmp24 = icmp sge i32 %42, 0
   br i1 %cmp24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.body
-  %40 = load ptr, ptr %tm.addr, align 8
-  %solo_layer25 = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 33
-  %41 = load i32, ptr %solo_layer25, align 8
-  %42 = load i32, ptr %i, align 4
-  %cmp26 = icmp ne i32 %41, %42
+  %43 = load ptr, ptr %tm.addr, align 8
+  %solo_layer25 = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 33
+  %44 = load i32, ptr %solo_layer25, align 8
+  %45 = load i32, ptr %i, align 4
+  %cmp26 = icmp ne i32 %44, %45
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.body
-  %43 = phi i1 [ false, %for.body ], [ %cmp26, %land.rhs ]
-  %land.ext = zext i1 %43 to i32
+  %46 = phi i1 [ false, %for.body ], [ %cmp26, %land.rhs ]
+  %land.ext = zext i1 %46 to i32
   store i32 %land.ext, ptr %disabled, align 4
-  %44 = load i32, ptr %i, align 4
-  %45 = load ptr, ptr %tm.addr, align 8
-  %layer_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 31
-  %46 = load i32, ptr %layer_scroll, align 8
-  %sub27 = sub nsw i32 %44, %46
+  %47 = load i32, ptr %i, align 4
+  %48 = load ptr, ptr %tm.addr, align 8
+  %layer_scroll = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 31
+  %49 = load i32, ptr %layer_scroll, align 8
+  %sub27 = sub nsw i32 %47, %49
   %cmp28 = icmp sge i32 %sub27, 0
   br i1 %cmp28, label %land.lhs.true, label %if.end116
 
 land.lhs.true:                                    ; preds = %land.end
-  %47 = load i32, ptr %i, align 4
-  %48 = load ptr, ptr %tm.addr, align 8
-  %layer_scroll29 = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 31
-  %49 = load i32, ptr %layer_scroll29, align 8
-  %sub30 = sub nsw i32 %47, %49
-  %50 = load i32, ptr %num_rows, align 4
-  %cmp31 = icmp slt i32 %sub30, %50
+  %50 = load i32, ptr %i, align 4
+  %51 = load ptr, ptr %tm.addr, align 8
+  %layer_scroll29 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 31
+  %52 = load i32, ptr %layer_scroll29, align 8
+  %sub30 = sub nsw i32 %50, %52
+  %53 = load i32, ptr %num_rows, align 4
+  %cmp31 = icmp slt i32 %sub30, %53
   br i1 %cmp31, label %if.then32, label %if.end116
 
 if.then32:                                        ; preds = %land.lhs.true
-  %51 = load ptr, ptr %str, align 8
-  %cmp33 = icmp eq ptr %51, null
+  %54 = load ptr, ptr %str, align 8
+  %cmp33 = icmp eq ptr %54, null
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.then32
   %arraydecay = getelementptr inbounds [3 x i8], ptr %text, i64 0, i64 0
   store ptr %arraydecay, ptr %str, align 8
-  %52 = load i32, ptr %i, align 4
-  %add35 = add nsw i32 %52, 1
+  %55 = load i32, ptr %i, align 4
+  %add35 = add nsw i32 %55, 1
   %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef @.str.18, i32 noundef %add35) #8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.then32
-  %53 = load ptr, ptr %str, align 8
-  %54 = load i32, ptr %x0.addr, align 4
-  %55 = load i32, ptr %y, align 4
-  %56 = load i32, ptr %i, align 4
-  %add37 = add nsw i32 %56, 1
+  %56 = load ptr, ptr %str, align 8
+  %57 = load i32, ptr %x0.addr, align 4
+  %58 = load i32, ptr %y, align 4
+  %59 = load i32, ptr %i, align 4
+  %add37 = add nsw i32 %59, 1
   %cmp38 = icmp slt i32 %add37, 10
   %conv = zext i1 %cmp38 to i32
   %mul = mul nsw i32 %conv, 2
-  %57 = load i32, ptr %xoff, align 4
-  %sub39 = sub nsw i32 %57, 2
-  %58 = load i32, ptr %i, align 4
-  %shl = shl i32 %58, 7
-  %add40 = add nsw i32 9, %shl
-  %59 = load ptr, ptr %tm.addr, align 8
-  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %59, i32 0, i32 13
-  %60 = load i32, ptr %cur_layer, align 4
+  %60 = load i32, ptr %xoff, align 4
+  %sub39 = sub nsw i32 %60, 2
   %61 = load i32, ptr %i, align 4
-  %cmp41 = icmp eq i32 %60, %61
+  %shl = shl i32 %61, 7
+  %add40 = add nsw i32 9, %shl
+  %62 = load ptr, ptr %tm.addr, align 8
+  %cur_layer = getelementptr inbounds %struct.stbte_tilemap, ptr %62, i32 0, i32 13
+  %63 = load i32, ptr %cur_layer, align 4
+  %64 = load i32, ptr %i, align 4
+  %cmp41 = icmp eq i32 %63, %64
   %conv42 = zext i1 %cmp41 to i32
-  %call43 = call i32 @stbte__button(i32 noundef 8, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %mul, i32 noundef %sub39, i32 noundef %add40, i32 noundef %conv42, i32 noundef 0)
+  %call43 = call i32 @stbte__button(i32 noundef 8, ptr noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %mul, i32 noundef %sub39, i32 noundef %add40, i32 noundef %conv42, i32 noundef 0)
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.then45, label %if.end54
 
 if.then45:                                        ; preds = %if.end36
-  %62 = load ptr, ptr %tm.addr, align 8
-  %cur_layer46 = getelementptr inbounds %struct.stbte_tilemap, ptr %62, i32 0, i32 13
-  %63 = load i32, ptr %cur_layer46, align 4
-  %64 = load i32, ptr %i, align 4
-  %cmp47 = icmp eq i32 %63, %64
+  %65 = load ptr, ptr %tm.addr, align 8
+  %cur_layer46 = getelementptr inbounds %struct.stbte_tilemap, ptr %65, i32 0, i32 13
+  %66 = load i32, ptr %cur_layer46, align 4
+  %67 = load i32, ptr %i, align 4
+  %cmp47 = icmp eq i32 %66, %67
   br i1 %cmp47, label %cond.true49, label %cond.false50
 
 cond.true49:                                      ; preds = %if.then45
   br label %cond.end51
 
 cond.false50:                                     ; preds = %if.then45
-  %65 = load i32, ptr %i, align 4
+  %68 = load i32, ptr %i, align 4
   br label %cond.end51
 
 cond.end51:                                       ; preds = %cond.false50, %cond.true49
-  %cond52 = phi i32 [ -1, %cond.true49 ], [ %65, %cond.false50 ]
-  %66 = load ptr, ptr %tm.addr, align 8
-  %cur_layer53 = getelementptr inbounds %struct.stbte_tilemap, ptr %66, i32 0, i32 13
+  %cond52 = phi i32 [ -1, %cond.true49 ], [ %68, %cond.false50 ]
+  %69 = load ptr, ptr %tm.addr, align 8
+  %cur_layer53 = getelementptr inbounds %struct.stbte_tilemap, ptr %69, i32 0, i32 13
   store i32 %cond52, ptr %cur_layer53, align 4
   br label %if.end54
 
 if.end54:                                         ; preds = %cond.end51, %if.end36
-  %67 = load i32, ptr %x0.addr, align 4
-  %68 = load i32, ptr %xoff, align 4
-  %add55 = add nsw i32 %67, %68
+  %70 = load i32, ptr %x0.addr, align 4
+  %71 = load i32, ptr %xoff, align 4
+  %add55 = add nsw i32 %70, %71
   %add56 = add nsw i32 %add55, 0
-  %69 = load i32, ptr %y, align 4
-  %add57 = add nsw i32 %69, 1
-  %70 = load i32, ptr %i, align 4
-  %shl58 = shl i32 %70, 7
+  %72 = load i32, ptr %y, align 4
+  %add57 = add nsw i32 %72, 1
+  %73 = load i32, ptr %i, align 4
+  %shl58 = shl i32 %73, 7
   %add59 = add nsw i32 11, %shl58
-  %71 = load ptr, ptr %tm.addr, align 8
-  %layerinfo60 = getelementptr inbounds %struct.stbte_tilemap, ptr %71, i32 0, i32 28
-  %72 = load i32, ptr %i, align 4
-  %idxprom61 = sext i32 %72 to i64
+  %74 = load ptr, ptr %tm.addr, align 8
+  %layerinfo60 = getelementptr inbounds %struct.stbte_tilemap, ptr %74, i32 0, i32 28
+  %75 = load i32, ptr %i, align 4
+  %idxprom61 = sext i32 %75 to i64
   %arrayidx62 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo60, i64 0, i64 %idxprom61
   %hidden = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx62, i32 0, i32 2
-  %73 = load i32, ptr %hidden, align 4
-  %74 = load i32, ptr %disabled, align 4
-  %call63 = call i32 @stbte__layerbutton(i32 noundef %add56, i32 noundef %add57, i32 noundef 72, i32 noundef %add59, i32 noundef %73, i32 noundef %74, i32 noundef 9)
+  %76 = load i32, ptr %hidden, align 4
+  %77 = load i32, ptr %disabled, align 4
+  %call63 = call i32 @stbte__layerbutton(i32 noundef %add56, i32 noundef %add57, i32 noundef 72, i32 noundef %add59, i32 noundef %76, i32 noundef %77, i32 noundef 9)
   %tobool64 = icmp ne i32 %call63, 0
   br i1 %tobool64, label %if.then65, label %if.end75
 
 if.then65:                                        ; preds = %if.end54
-  %75 = load ptr, ptr %tm.addr, align 8
-  %layerinfo66 = getelementptr inbounds %struct.stbte_tilemap, ptr %75, i32 0, i32 28
-  %76 = load i32, ptr %i, align 4
-  %idxprom67 = sext i32 %76 to i64
+  %78 = load ptr, ptr %tm.addr, align 8
+  %layerinfo66 = getelementptr inbounds %struct.stbte_tilemap, ptr %78, i32 0, i32 28
+  %79 = load i32, ptr %i, align 4
+  %idxprom67 = sext i32 %79 to i64
   %arrayidx68 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo66, i64 0, i64 %idxprom67
   %hidden69 = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx68, i32 0, i32 2
-  %77 = load i32, ptr %hidden69, align 4
-  %tobool70 = icmp ne i32 %77, 0
+  %80 = load i32, ptr %hidden69, align 4
+  %tobool70 = icmp ne i32 %80, 0
   %lnot = xor i1 %tobool70, true
   %lnot.ext = zext i1 %lnot to i32
-  %78 = load ptr, ptr %tm.addr, align 8
-  %layerinfo71 = getelementptr inbounds %struct.stbte_tilemap, ptr %78, i32 0, i32 28
-  %79 = load i32, ptr %i, align 4
-  %idxprom72 = sext i32 %79 to i64
+  %81 = load ptr, ptr %tm.addr, align 8
+  %layerinfo71 = getelementptr inbounds %struct.stbte_tilemap, ptr %81, i32 0, i32 28
+  %82 = load i32, ptr %i, align 4
+  %idxprom72 = sext i32 %82 to i64
   %arrayidx73 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo71, i64 0, i64 %idxprom72
   %hidden74 = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx73, i32 0, i32 2
   store i32 %lnot.ext, ptr %hidden74, align 4
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then65, %if.end54
-  %80 = load i32, ptr %x0.addr, align 4
-  %81 = load i32, ptr %xoff, align 4
-  %add76 = add nsw i32 %80, %81
+  %83 = load i32, ptr %x0.addr, align 4
+  %84 = load i32, ptr %xoff, align 4
+  %add76 = add nsw i32 %83, %84
   %add77 = add nsw i32 %add76, 12
-  %82 = load i32, ptr %y, align 4
-  %add78 = add nsw i32 %82, 1
-  %83 = load i32, ptr %locked, align 4
-  %idxprom79 = sext i32 %83 to i64
-  %arrayidx80 = getelementptr inbounds [3 x i8], ptr %lockedchar, i64 0, i64 %idxprom79
-  %84 = load i8, ptr %arrayidx80, align 1
-  %conv81 = sext i8 %84 to i32
-  %85 = load i32, ptr %i, align 4
-  %shl82 = shl i32 %85, 7
-  %add83 = add nsw i32 12, %shl82
+  %85 = load i32, ptr %y, align 4
+  %add78 = add nsw i32 %85, 1
   %86 = load i32, ptr %locked, align 4
-  %cmp84 = icmp ne i32 %86, 0
+  %idxprom79 = sext i32 %86 to i64
+  %arrayidx80 = getelementptr inbounds [3 x i8], ptr %lockedchar, i64 0, i64 %idxprom79
+  %87 = load i8, ptr %arrayidx80, align 1
+  %conv81 = sext i8 %87 to i32
+  %88 = load i32, ptr %i, align 4
+  %shl82 = shl i32 %88, 7
+  %add83 = add nsw i32 12, %shl82
+  %89 = load i32, ptr %locked, align 4
+  %cmp84 = icmp ne i32 %89, 0
   %conv85 = zext i1 %cmp84 to i32
-  %87 = load i32, ptr %disabled, align 4
-  %call86 = call i32 @stbte__layerbutton(i32 noundef %add77, i32 noundef %add78, i32 noundef %conv81, i32 noundef %add83, i32 noundef %conv85, i32 noundef %87, i32 noundef 10)
+  %90 = load i32, ptr %disabled, align 4
+  %call86 = call i32 @stbte__layerbutton(i32 noundef %add77, i32 noundef %add78, i32 noundef %conv81, i32 noundef %add83, i32 noundef %conv85, i32 noundef %90, i32 noundef 10)
   %tobool87 = icmp ne i32 %call86, 0
   br i1 %tobool87, label %if.then88, label %if.end94
 
 if.then88:                                        ; preds = %if.end75
-  %88 = load i32, ptr %locked, align 4
-  %add89 = add nsw i32 %88, 1
+  %91 = load i32, ptr %locked, align 4
+  %add89 = add nsw i32 %91, 1
   %rem = srem i32 %add89, 3
-  %89 = load ptr, ptr %tm.addr, align 8
-  %layerinfo90 = getelementptr inbounds %struct.stbte_tilemap, ptr %89, i32 0, i32 28
-  %90 = load i32, ptr %i, align 4
-  %idxprom91 = sext i32 %90 to i64
+  %92 = load ptr, ptr %tm.addr, align 8
+  %layerinfo90 = getelementptr inbounds %struct.stbte_tilemap, ptr %92, i32 0, i32 28
+  %93 = load i32, ptr %i, align 4
+  %idxprom91 = sext i32 %93 to i64
   %arrayidx92 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo90, i64 0, i64 %idxprom91
   %locked93 = getelementptr inbounds %struct.stbte__layer, ptr %arrayidx92, i32 0, i32 1
   store i32 %rem, ptr %locked93, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then88, %if.end75
-  %91 = load i32, ptr %x0.addr, align 4
-  %92 = load i32, ptr %xoff, align 4
-  %add95 = add nsw i32 %91, %92
+  %94 = load i32, ptr %x0.addr, align 4
+  %95 = load i32, ptr %xoff, align 4
+  %add95 = add nsw i32 %94, %95
   %add96 = add nsw i32 %add95, 24
-  %93 = load i32, ptr %y, align 4
-  %add97 = add nsw i32 %93, 1
-  %94 = load i32, ptr %i, align 4
-  %shl98 = shl i32 %94, 7
-  %add99 = add nsw i32 10, %shl98
-  %95 = load ptr, ptr %tm.addr, align 8
-  %solo_layer100 = getelementptr inbounds %struct.stbte_tilemap, ptr %95, i32 0, i32 33
-  %96 = load i32, ptr %solo_layer100, align 8
+  %96 = load i32, ptr %y, align 4
+  %add97 = add nsw i32 %96, 1
   %97 = load i32, ptr %i, align 4
-  %cmp101 = icmp eq i32 %96, %97
+  %shl98 = shl i32 %97, 7
+  %add99 = add nsw i32 10, %shl98
+  %98 = load ptr, ptr %tm.addr, align 8
+  %solo_layer100 = getelementptr inbounds %struct.stbte_tilemap, ptr %98, i32 0, i32 33
+  %99 = load i32, ptr %solo_layer100, align 8
+  %100 = load i32, ptr %i, align 4
+  %cmp101 = icmp eq i32 %99, %100
   %conv102 = zext i1 %cmp101 to i32
   %call103 = call i32 @stbte__layerbutton(i32 noundef %add96, i32 noundef %add97, i32 noundef 83, i32 noundef %add99, i32 noundef %conv102, i32 noundef 0, i32 noundef 11)
   %tobool104 = icmp ne i32 %call103, 0
   br i1 %tobool104, label %if.then105, label %if.end114
 
 if.then105:                                       ; preds = %if.end94
-  %98 = load ptr, ptr %tm.addr, align 8
-  %solo_layer106 = getelementptr inbounds %struct.stbte_tilemap, ptr %98, i32 0, i32 33
-  %99 = load i32, ptr %solo_layer106, align 8
-  %100 = load i32, ptr %i, align 4
-  %cmp107 = icmp eq i32 %99, %100
+  %101 = load ptr, ptr %tm.addr, align 8
+  %solo_layer106 = getelementptr inbounds %struct.stbte_tilemap, ptr %101, i32 0, i32 33
+  %102 = load i32, ptr %solo_layer106, align 8
+  %103 = load i32, ptr %i, align 4
+  %cmp107 = icmp eq i32 %102, %103
   br i1 %cmp107, label %cond.true109, label %cond.false110
 
 cond.true109:                                     ; preds = %if.then105
   br label %cond.end111
 
 cond.false110:                                    ; preds = %if.then105
-  %101 = load i32, ptr %i, align 4
+  %104 = load i32, ptr %i, align 4
   br label %cond.end111
 
 cond.end111:                                      ; preds = %cond.false110, %cond.true109
-  %cond112 = phi i32 [ -1, %cond.true109 ], [ %101, %cond.false110 ]
-  %102 = load ptr, ptr %tm.addr, align 8
-  %solo_layer113 = getelementptr inbounds %struct.stbte_tilemap, ptr %102, i32 0, i32 33
+  %cond112 = phi i32 [ -1, %cond.true109 ], [ %104, %cond.false110 ]
+  %105 = load ptr, ptr %tm.addr, align 8
+  %solo_layer113 = getelementptr inbounds %struct.stbte_tilemap, ptr %105, i32 0, i32 33
   store i32 %cond112, ptr %solo_layer113, align 8
   br label %if.end114
 
 if.end114:                                        ; preds = %cond.end111, %if.end94
-  %103 = load i32, ptr %y, align 4
-  %add115 = add nsw i32 %103, 15
+  %106 = load i32, ptr %y, align 4
+  %add115 = add nsw i32 %106, 15
   store i32 %add115, ptr %y, align 4
   br label %if.end116
 
@@ -11828,40 +12208,41 @@ if.end116:                                        ; preds = %if.end114, %land.lh
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end116
-  %104 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %104, 1
+  %107 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %107, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !67
 
 for.end:                                          ; preds = %for.cond
-  %105 = load i32, ptr %x1, align 4
-  %sub117 = sub nsw i32 %105, 4
-  %106 = load i32, ptr %y0.addr, align 4
-  %107 = load i32, ptr %y, align 4
-  %sub118 = sub nsw i32 %107, 2
-  %108 = load ptr, ptr %tm.addr, align 8
-  %layer_scroll119 = getelementptr inbounds %struct.stbte_tilemap, ptr %108, i32 0, i32 31
-  %109 = load ptr, ptr %tm.addr, align 8
-  %num_layers120 = getelementptr inbounds %struct.stbte_tilemap, ptr %109, i32 0, i32 4
-  %110 = load i32, ptr %num_layers120, align 8
-  %111 = load i32, ptr %num_rows, align 4
-  call void @stbte__scrollbar(i32 noundef %sub117, i32 noundef %106, i32 noundef %sub118, ptr noundef %layer_scroll119, i32 noundef 0, i32 noundef %110, i32 noundef %111, i32 noundef 1168)
+  %108 = load i32, ptr %x1, align 4
+  %sub117 = sub nsw i32 %108, 4
+  %109 = load i32, ptr %y0.addr, align 4
+  %110 = load i32, ptr %y, align 4
+  %sub118 = sub nsw i32 %110, 2
+  %111 = load ptr, ptr %tm.addr, align 8
+  %layer_scroll119 = getelementptr inbounds %struct.stbte_tilemap, ptr %111, i32 0, i32 31
+  %112 = load ptr, ptr %tm.addr, align 8
+  %num_layers120 = getelementptr inbounds %struct.stbte_tilemap, ptr %112, i32 0, i32 4
+  %113 = load i32, ptr %num_layers120, align 8
+  %114 = load i32, ptr %num_rows, align 4
+  call void @stbte__scrollbar(i32 noundef %sub117, i32 noundef %109, i32 noundef %sub118, ptr noundef %layer_scroll119, i32 noundef 0, i32 noundef %113, i32 noundef %114, i32 noundef 1168)
   %call121 = call i32 @stbte__text_width(ptr noundef @.str.19)
   %add122 = add nsw i32 %call121, 2
   store i32 %add122, ptr %n, align 4
-  %112 = load i32, ptr %x0.addr, align 4
-  %113 = load i32, ptr %y, align 4
-  %add123 = add nsw i32 %113, 2
-  %114 = load i32, ptr %w.addr, align 4
-  %115 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %112, i32 noundef %add123, ptr noundef @.str.19, i32 noundef %114, i32 noundef %115)
-  %116 = load i32, ptr %w.addr, align 4
-  %117 = load i32, ptr %n, align 4
-  %sub124 = sub nsw i32 %116, %117
+  %115 = load i32, ptr %x0.addr, align 4
+  %116 = load i32, ptr %y, align 4
+  %add123 = add nsw i32 %116, 2
+  %117 = load i32, ptr %w.addr, align 4
+  %118 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %119 = load i32, ptr %118, align 4
+  call void @stbte__draw_text(i32 noundef %115, i32 noundef %add123, ptr noundef @.str.19, i32 noundef %117, i32 noundef %119)
+  %120 = load i32, ptr %w.addr, align 4
+  %121 = load i32, ptr %n, align 4
+  %sub124 = sub nsw i32 %120, %121
   %sub125 = sub nsw i32 %sub124, 4
   store i32 %sub125, ptr %i, align 4
-  %118 = load i32, ptr %i, align 4
-  %cmp126 = icmp sgt i32 %118, 50
+  %122 = load i32, ptr %i, align 4
+  %cmp126 = icmp sgt i32 %122, 50
   br i1 %cmp126, label %if.then128, label %if.end129
 
 if.then128:                                       ; preds = %for.end
@@ -11869,29 +12250,29 @@ if.then128:                                       ; preds = %for.end
   br label %if.end129
 
 if.end129:                                        ; preds = %if.then128, %for.end
-  %119 = load ptr, ptr %tm.addr, align 8
-  %propmode = getelementptr inbounds %struct.stbte_tilemap, ptr %119, i32 0, i32 32
-  %120 = load i32, ptr %propmode, align 4
-  %idxprom130 = sext i32 %120 to i64
+  %123 = load ptr, ptr %tm.addr, align 8
+  %propmode = getelementptr inbounds %struct.stbte_tilemap, ptr %123, i32 0, i32 32
+  %124 = load i32, ptr %propmode, align 4
+  %idxprom130 = sext i32 %124 to i64
   %arrayidx131 = getelementptr inbounds [3 x ptr], ptr %propmodes, i64 0, i64 %idxprom130
-  %121 = load ptr, ptr %arrayidx131, align 8
-  %122 = load i32, ptr %x0.addr, align 4
-  %123 = load i32, ptr %n, align 4
-  %add132 = add nsw i32 %122, %123
-  %124 = load i32, ptr %y, align 4
-  %125 = load i32, ptr %i, align 4
-  %call133 = call i32 @stbte__button(i32 noundef 8, ptr noundef %121, i32 noundef %add132, i32 noundef %124, i32 noundef 0, i32 noundef %125, i32 noundef 32777, i32 noundef 0, i32 noundef 0)
+  %125 = load ptr, ptr %arrayidx131, align 8
+  %126 = load i32, ptr %x0.addr, align 4
+  %127 = load i32, ptr %n, align 4
+  %add132 = add nsw i32 %126, %127
+  %128 = load i32, ptr %y, align 4
+  %129 = load i32, ptr %i, align 4
+  %call133 = call i32 @stbte__button(i32 noundef 8, ptr noundef %125, i32 noundef %add132, i32 noundef %128, i32 noundef 0, i32 noundef %129, i32 noundef 32777, i32 noundef 0, i32 noundef 0)
   %tobool134 = icmp ne i32 %call133, 0
   br i1 %tobool134, label %if.then135, label %if.end140
 
 if.then135:                                       ; preds = %if.end129
-  %126 = load ptr, ptr %tm.addr, align 8
-  %propmode136 = getelementptr inbounds %struct.stbte_tilemap, ptr %126, i32 0, i32 32
-  %127 = load i32, ptr %propmode136, align 4
-  %add137 = add nsw i32 %127, 1
+  %130 = load ptr, ptr %tm.addr, align 8
+  %propmode136 = getelementptr inbounds %struct.stbte_tilemap, ptr %130, i32 0, i32 32
+  %131 = load i32, ptr %propmode136, align 4
+  %add137 = add nsw i32 %131, 1
   %rem138 = srem i32 %add137, 3
-  %128 = load ptr, ptr %tm.addr, align 8
-  %propmode139 = getelementptr inbounds %struct.stbte_tilemap, ptr %128, i32 0, i32 32
+  %132 = load ptr, ptr %tm.addr, align 8
+  %propmode139 = getelementptr inbounds %struct.stbte_tilemap, ptr %132, i32 0, i32 32
   store i32 %rem138, ptr %propmode139, align 4
   br label %if.end140
 
@@ -12127,60 +12508,61 @@ entry:
   %15 = load i32, ptr %y1, align 4
   %16 = load i32, ptr %id, align 4
   %call = call i32 @stbte__hittest(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16)
-  %17 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  switch i32 %17, label %sw.default [
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %18 = load i32, ptr %17, align 4
+  switch i32 %18, label %sw.default [
     i32 0, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %entry
-  %18 = load i32, ptr %x.addr, align 4
-  %19 = load i32, ptr %y.addr, align 4
-  %20 = load i32, ptr %x.addr, align 4
-  %21 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_x3 = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 7
-  %22 = load i32, ptr %palette_spacing_x3, align 4
-  %add4 = add nsw i32 %20, %22
+  %19 = load i32, ptr %x.addr, align 4
+  %20 = load i32, ptr %y.addr, align 4
+  %21 = load i32, ptr %x.addr, align 4
+  %22 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_x3 = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 7
+  %23 = load i32, ptr %palette_spacing_x3, align 4
+  %add4 = add nsw i32 %21, %23
   %sub5 = sub nsw i32 %add4, 1
-  %23 = load i32, ptr %y.addr, align 4
-  %24 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_x6 = getelementptr inbounds %struct.stbte_tilemap, ptr %24, i32 0, i32 7
-  %25 = load i32, ptr %palette_spacing_x6, align 4
-  %add7 = add nsw i32 %23, %25
+  %24 = load i32, ptr %y.addr, align 4
+  %25 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_x6 = getelementptr inbounds %struct.stbte_tilemap, ptr %25, i32 0, i32 7
+  %26 = load i32, ptr %palette_spacing_x6, align 4
+  %add7 = add nsw i32 %24, %26
   %sub8 = sub nsw i32 %add7, 1
-  call void @stbte__draw_rect(i32 noundef %18, i32 noundef %19, i32 noundef %sub5, i32 noundef %sub8, i32 noundef 0)
-  %26 = load i32, ptr %x.addr, align 4
-  %27 = load i32, ptr %y.addr, align 4
-  %28 = load i32, ptr %id, align 4
-  %conv = trunc i32 %28 to i16
-  %29 = load i32, ptr %slot.addr, align 4
-  %30 = load ptr, ptr %tm.addr, align 8
-  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 12
-  %31 = load i32, ptr %cur_tile, align 8
-  %cmp = icmp eq i32 %29, %31
+  call void @stbte__draw_rect(i32 noundef %19, i32 noundef %20, i32 noundef %sub5, i32 noundef %sub8, i32 noundef 0)
+  %27 = load i32, ptr %x.addr, align 4
+  %28 = load i32, ptr %y.addr, align 4
+  %29 = load i32, ptr %id, align 4
+  %conv = trunc i32 %29 to i16
+  %30 = load i32, ptr %slot.addr, align 4
+  %31 = load ptr, ptr %tm.addr, align 8
+  %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 12
+  %32 = load i32, ptr %cur_tile, align 8
+  %cmp = icmp eq i32 %30, %32
   %conv9 = zext i1 %cmp to i32
-  call void @STBTE_DRAW_TILE(i32 noundef %26, i32 noundef %27, i16 noundef zeroext %conv, i32 noundef %conv9, ptr noundef null)
-  %32 = load i32, ptr %slot.addr, align 4
-  %33 = load ptr, ptr %tm.addr, align 8
-  %cur_tile10 = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 12
-  %34 = load i32, ptr %cur_tile10, align 8
-  %cmp11 = icmp eq i32 %32, %34
+  call void @STBTE_DRAW_TILE(i32 noundef %27, i32 noundef %28, i16 noundef zeroext %conv, i32 noundef %conv9, ptr noundef null)
+  %33 = load i32, ptr %slot.addr, align 4
+  %34 = load ptr, ptr %tm.addr, align 8
+  %cur_tile10 = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 12
+  %35 = load i32, ptr %cur_tile10, align 8
+  %cmp11 = icmp eq i32 %33, %35
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb
-  %35 = load i32, ptr %x.addr, align 4
-  %sub13 = sub nsw i32 %35, 1
-  %36 = load i32, ptr %y.addr, align 4
-  %sub14 = sub nsw i32 %36, 1
-  %37 = load i32, ptr %x.addr, align 4
-  %38 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 7
-  %39 = load i32, ptr %palette_spacing_x15, align 4
-  %add16 = add nsw i32 %37, %39
-  %40 = load i32, ptr %y.addr, align 4
-  %41 = load ptr, ptr %tm.addr, align 8
-  %palette_spacing_y17 = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 8
-  %42 = load i32, ptr %palette_spacing_y17, align 8
-  %add18 = add nsw i32 %40, %42
+  %36 = load i32, ptr %x.addr, align 4
+  %sub13 = sub nsw i32 %36, 1
+  %37 = load i32, ptr %y.addr, align 4
+  %sub14 = sub nsw i32 %37, 1
+  %38 = load i32, ptr %x.addr, align 4
+  %39 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 7
+  %40 = load i32, ptr %palette_spacing_x15, align 4
+  %add16 = add nsw i32 %38, %40
+  %41 = load i32, ptr %y.addr, align 4
+  %42 = load ptr, ptr %tm.addr, align 8
+  %palette_spacing_y17 = getelementptr inbounds %struct.stbte_tilemap, ptr %42, i32 0, i32 8
+  %43 = load i32, ptr %palette_spacing_y17, align 8
+  %add18 = add nsw i32 %41, %43
   call void @stbte__draw_frame_delayed(i32 noundef %sub13, i32 noundef %sub14, i32 noundef %add16, i32 noundef %add18, i32 noundef 16777215)
   br label %if.end
 
@@ -12188,16 +12570,16 @@ if.end:                                           ; preds = %if.then, %sw.bb
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %43 = load i32, ptr %id, align 4
-  %call19 = call i32 @stbte__button_core(i32 noundef %43)
+  %44 = load i32, ptr %id, align 4
+  %call19 = call i32 @stbte__button_core(i32 noundef %44)
   %tobool = icmp ne i32 %call19, 0
   br i1 %tobool, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %sw.default
-  %44 = load i32, ptr %slot.addr, align 4
-  %45 = load ptr, ptr %tm.addr, align 8
-  %cur_tile21 = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 12
-  store i32 %44, ptr %cur_tile21, align 8
+  %45 = load i32, ptr %slot.addr, align 4
+  %46 = load ptr, ptr %tm.addr, align 8
+  %cur_tile21 = getelementptr inbounds %struct.stbte_tilemap, ptr %46, i32 0, i32 12
+  store i32 %45, ptr %cur_tile21, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %sw.default
@@ -12454,27 +12836,29 @@ if.then:                                          ; preds = %entry
   br label %for.end
 
 if.end:                                           ; preds = %entry
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  store i32 %4, ptr %mx, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  store i32 %5, ptr %my, align 4
-  %6 = load ptr, ptr %tm.addr, align 8
-  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %my, align 4
-  %idxprom = sext i32 %7 to i64
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %5 = load i32, ptr %4, align 4
+  store i32 %5, ptr %mx, align 4
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %7 = load i32, ptr %6, align 8
+  store i32 %7, ptr %my, align 4
+  %8 = load ptr, ptr %tm.addr, align 8
+  %props = getelementptr inbounds %struct.stbte_tilemap, ptr %8, i32 0, i32 1
+  %9 = load i32, ptr %my, align 4
+  %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %props, i64 0, i64 %idxprom
-  %8 = load i32, ptr %mx, align 4
-  %idxprom3 = sext i32 %8 to i64
+  %10 = load i32, ptr %mx, align 4
+  %idxprom3 = sext i32 %10 to i64
   %arrayidx4 = getelementptr inbounds [200 x [1 x float]], ptr %arrayidx, i64 0, i64 %idxprom3
   %arraydecay = getelementptr inbounds [1 x float], ptr %arrayidx4, i64 0, i64 0
   store ptr %arraydecay, ptr %p, align 8
-  %9 = load ptr, ptr %tm.addr, align 8
-  %data5 = getelementptr inbounds %struct.stbte_tilemap, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %my, align 4
-  %idxprom6 = sext i32 %10 to i64
+  %11 = load ptr, ptr %tm.addr, align 8
+  %data5 = getelementptr inbounds %struct.stbte_tilemap, ptr %11, i32 0, i32 0
+  %12 = load i32, ptr %my, align 4
+  %idxprom6 = sext i32 %12 to i64
   %arrayidx7 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %data5, i64 0, i64 %idxprom6
-  %11 = load i32, ptr %mx, align 4
-  %idxprom8 = sext i32 %11 to i64
+  %13 = load i32, ptr %mx, align 4
+  %idxprom8 = sext i32 %13 to i64
   %arrayidx9 = getelementptr inbounds [200 x [8 x i16]], ptr %arrayidx7, i64 0, i64 %idxprom8
   %arraydecay10 = getelementptr inbounds [8 x i16], ptr %arrayidx9, i64 0, i64 0
   store ptr %arraydecay10, ptr %data, align 8
@@ -12482,20 +12866,20 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %12 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %12, 1
+  %14 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %14, 1
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   store i32 0, ptr %n, align 4
-  %13 = load i32, ptr %n, align 4
-  %tobool11 = icmp ne i32 %13, 0
+  %15 = load i32, ptr %n, align 4
+  %tobool11 = icmp ne i32 %15, 0
   br i1 %tobool11, label %if.then12, label %if.end148
 
 if.then12:                                        ; preds = %for.body
   store ptr @.str.21, ptr %s, align 8
-  %14 = load ptr, ptr %s, align 8
-  %cmp13 = icmp eq ptr %14, null
+  %16 = load ptr, ptr %s, align 8
+  %cmp13 = icmp eq ptr %16, null
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then12
@@ -12503,8 +12887,8 @@ if.then14:                                        ; preds = %if.then12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.then12
-  %15 = load i32, ptr %n, align 4
-  %and = and i32 %15, 3
+  %17 = load i32, ptr %n, align 4
+  %and = and i32 %17, 3
   switch i32 %and, label %sw.epilog147 [
     i32 3, label %sw.bb
     i32 1, label %sw.bb34
@@ -12512,108 +12896,109 @@ if.end15:                                         ; preds = %if.then14, %if.then
   ]
 
 sw.bb:                                            ; preds = %if.end15
-  %16 = load ptr, ptr %p, align 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom16 = sext i32 %17 to i64
-  %arrayidx17 = getelementptr inbounds float, ptr %16, i64 %idxprom16
-  %18 = load float, ptr %arrayidx17, align 4
-  %conv = fptosi float %18 to i32
+  %18 = load ptr, ptr %p, align 8
+  %19 = load i32, ptr %i, align 4
+  %idxprom16 = sext i32 %19 to i64
+  %arrayidx17 = getelementptr inbounds float, ptr %18, i64 %idxprom16
+  %20 = load float, ptr %arrayidx17, align 4
+  %conv = fptosi float %20 to i32
   store i32 %conv, ptr %flag, align 4
-  %19 = load i32, ptr %x, align 4
-  %20 = load i32, ptr %y, align 4
-  %21 = load i32, ptr %flag, align 4
-  %tobool18 = icmp ne i32 %21, 0
-  %cond = select i1 %tobool18, i32 120, i32 32
-  %22 = load i32, ptr %i, align 4
-  %shl = shl i32 %22, 7
-  %add19 = add nsw i32 18, %shl
+  %21 = load i32, ptr %x, align 4
+  %22 = load i32, ptr %y, align 4
   %23 = load i32, ptr %flag, align 4
-  %call20 = call i32 @stbte__layerbutton(i32 noundef %19, i32 noundef %20, i32 noundef %cond, i32 noundef %add19, i32 noundef %23, i32 noundef 0, i32 noundef 2)
+  %tobool18 = icmp ne i32 %23, 0
+  %cond = select i1 %tobool18, i32 120, i32 32
+  %24 = load i32, ptr %i, align 4
+  %shl = shl i32 %24, 7
+  %add19 = add nsw i32 18, %shl
+  %25 = load i32, ptr %flag, align 4
+  %call20 = call i32 @stbte__layerbutton(i32 noundef %21, i32 noundef %22, i32 noundef %cond, i32 noundef %add19, i32 noundef %25, i32 noundef 0, i32 noundef 2)
   %tobool21 = icmp ne i32 %call20, 0
   br i1 %tobool21, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %sw.bb
-  %24 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %24)
-  %25 = load ptr, ptr %tm.addr, align 8
-  %26 = load i32, ptr %mx, align 4
-  %27 = load i32, ptr %my, align 4
-  %28 = load i32, ptr %i, align 4
-  %29 = load i32, ptr %flag, align 4
-  %conv23 = sitofp i32 %29 to float
-  call void @stbte__undo_record_prop_float(ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, float noundef %conv23)
-  %30 = load i32, ptr %flag, align 4
-  %tobool24 = icmp ne i32 %30, 0
+  %26 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %26)
+  %27 = load ptr, ptr %tm.addr, align 8
+  %28 = load i32, ptr %mx, align 4
+  %29 = load i32, ptr %my, align 4
+  %30 = load i32, ptr %i, align 4
+  %31 = load i32, ptr %flag, align 4
+  %conv23 = sitofp i32 %31 to float
+  call void @stbte__undo_record_prop_float(ptr noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, float noundef %conv23)
+  %32 = load i32, ptr %flag, align 4
+  %tobool24 = icmp ne i32 %32, 0
   %lnot = xor i1 %tobool24, true
   %lnot.ext = zext i1 %lnot to i32
   %conv25 = sitofp i32 %lnot.ext to float
-  %31 = load ptr, ptr %p, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom26 = sext i32 %32 to i64
-  %arrayidx27 = getelementptr inbounds float, ptr %31, i64 %idxprom26
+  %33 = load ptr, ptr %p, align 8
+  %34 = load i32, ptr %i, align 4
+  %idxprom26 = sext i32 %34 to i64
+  %arrayidx27 = getelementptr inbounds float, ptr %33, i64 %idxprom26
   store float %conv25, ptr %arrayidx27, align 4
-  %33 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %33)
+  %35 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %35)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then22, %sw.bb
-  %34 = load i32, ptr %x, align 4
-  %add29 = add nsw i32 %34, 13
-  %35 = load i32, ptr %y, align 4
-  %add30 = add nsw i32 %35, 1
-  %36 = load ptr, ptr %s, align 8
-  %37 = load i32, ptr %x1, align 4
-  %38 = load i32, ptr %x, align 4
-  %add31 = add nsw i32 %38, 13
-  %sub = sub nsw i32 %37, %add31
+  %36 = load i32, ptr %x, align 4
+  %add29 = add nsw i32 %36, 13
+  %37 = load i32, ptr %y, align 4
+  %add30 = add nsw i32 %37, 1
+  %38 = load ptr, ptr %s, align 8
+  %39 = load i32, ptr %x1, align 4
+  %40 = load i32, ptr %x, align 4
+  %add31 = add nsw i32 %40, 13
+  %sub = sub nsw i32 %39, %add31
   %sub32 = sub nsw i32 %sub, 2
-  %39 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %add29, i32 noundef %add30, ptr noundef %36, i32 noundef %sub32, i32 noundef %39)
-  %40 = load i32, ptr %y, align 4
-  %add33 = add nsw i32 %40, 13
+  %41 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %42 = load i32, ptr %41, align 4
+  call void @stbte__draw_text(i32 noundef %add29, i32 noundef %add30, ptr noundef %38, i32 noundef %sub32, i32 noundef %42)
+  %43 = load i32, ptr %y, align 4
+  %add33 = add nsw i32 %43, 13
   store i32 %add33, ptr %y, align 4
   br label %sw.epilog147
 
 sw.bb34:                                          ; preds = %if.end15
   store i32 0, ptr %a, align 4
   store i32 100, ptr %b, align 4
-  %41 = load ptr, ptr %p, align 8
-  %42 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %42 to i64
-  %arrayidx36 = getelementptr inbounds float, ptr %41, i64 %idxprom35
-  %43 = load float, ptr %arrayidx36, align 4
-  %conv37 = fptosi float %43 to i32
-  %44 = load i32, ptr %a, align 4
-  %sub38 = sub nsw i32 %conv37, %44
+  %44 = load ptr, ptr %p, align 8
+  %45 = load i32, ptr %i, align 4
+  %idxprom35 = sext i32 %45 to i64
+  %arrayidx36 = getelementptr inbounds float, ptr %44, i64 %idxprom35
+  %46 = load float, ptr %arrayidx36, align 4
+  %conv37 = fptosi float %46 to i32
+  %47 = load i32, ptr %a, align 4
+  %sub38 = sub nsw i32 %conv37, %47
   store i32 %sub38, ptr %v, align 4
-  %45 = load i32, ptr %a, align 4
-  %46 = load i32, ptr %v, align 4
-  %add39 = add nsw i32 %45, %46
+  %48 = load i32, ptr %a, align 4
+  %49 = load i32, ptr %v, align 4
+  %add39 = add nsw i32 %48, %49
   %conv40 = sitofp i32 %add39 to float
-  %47 = load ptr, ptr %p, align 8
-  %48 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %48 to i64
-  %arrayidx42 = getelementptr inbounds float, ptr %47, i64 %idxprom41
-  %49 = load float, ptr %arrayidx42, align 4
-  %cmp43 = fcmp une float %conv40, %49
+  %50 = load ptr, ptr %p, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom41 = sext i32 %51 to i64
+  %arrayidx42 = getelementptr inbounds float, ptr %50, i64 %idxprom41
+  %52 = load float, ptr %arrayidx42, align 4
+  %cmp43 = fcmp une float %conv40, %52
   br i1 %cmp43, label %if.then51, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb34
-  %50 = load i32, ptr %v, align 4
-  %cmp45 = icmp slt i32 %50, 0
+  %53 = load i32, ptr %v, align 4
+  %cmp45 = icmp slt i32 %53, 0
   br i1 %cmp45, label %if.then51, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false
-  %51 = load i32, ptr %v, align 4
-  %52 = load i32, ptr %b, align 4
-  %53 = load i32, ptr %a, align 4
-  %sub48 = sub nsw i32 %52, %53
-  %cmp49 = icmp sgt i32 %51, %sub48
+  %54 = load i32, ptr %v, align 4
+  %55 = load i32, ptr %b, align 4
+  %56 = load i32, ptr %a, align 4
+  %sub48 = sub nsw i32 %55, %56
+  %cmp49 = icmp sgt i32 %54, %sub48
   br i1 %cmp49, label %if.then51, label %if.end66
 
 if.then51:                                        ; preds = %lor.lhs.false47, %lor.lhs.false, %sw.bb34
-  %54 = load i32, ptr %v, align 4
-  %cmp52 = icmp slt i32 %54, 0
+  %57 = load i32, ptr %v, align 4
+  %cmp52 = icmp slt i32 %57, 0
   br i1 %cmp52, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %if.then51
@@ -12621,44 +13006,44 @@ if.then54:                                        ; preds = %if.then51
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then54, %if.then51
-  %55 = load i32, ptr %v, align 4
-  %56 = load i32, ptr %b, align 4
-  %57 = load i32, ptr %a, align 4
-  %sub56 = sub nsw i32 %56, %57
-  %cmp57 = icmp sgt i32 %55, %sub56
+  %58 = load i32, ptr %v, align 4
+  %59 = load i32, ptr %b, align 4
+  %60 = load i32, ptr %a, align 4
+  %sub56 = sub nsw i32 %59, %60
+  %cmp57 = icmp sgt i32 %58, %sub56
   br i1 %cmp57, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end55
-  %58 = load i32, ptr %b, align 4
-  %59 = load i32, ptr %a, align 4
-  %sub60 = sub nsw i32 %58, %59
+  %61 = load i32, ptr %b, align 4
+  %62 = load i32, ptr %a, align 4
+  %sub60 = sub nsw i32 %61, %62
   store i32 %sub60, ptr %v, align 4
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.end55
-  %60 = load i32, ptr %a, align 4
-  %61 = load i32, ptr %v, align 4
-  %add62 = add nsw i32 %60, %61
+  %63 = load i32, ptr %a, align 4
+  %64 = load i32, ptr %v, align 4
+  %add62 = add nsw i32 %63, %64
   %conv63 = sitofp i32 %add62 to float
-  %62 = load ptr, ptr %p, align 8
-  %63 = load i32, ptr %i, align 4
-  %idxprom64 = sext i32 %63 to i64
-  %arrayidx65 = getelementptr inbounds float, ptr %62, i64 %idxprom64
+  %65 = load ptr, ptr %p, align 8
+  %66 = load i32, ptr %i, align 4
+  %idxprom64 = sext i32 %66 to i64
+  %arrayidx65 = getelementptr inbounds float, ptr %65, i64 %idxprom64
   store float %conv63, ptr %arrayidx65, align 4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end61, %lor.lhs.false47
-  %64 = load i32, ptr %x, align 4
-  %65 = load i32, ptr %slider_width, align 4
-  %66 = load i32, ptr %y, align 4
-  %add67 = add nsw i32 %66, 7
-  %67 = load i32, ptr %b, align 4
-  %68 = load i32, ptr %a, align 4
-  %sub68 = sub nsw i32 %67, %68
-  %69 = load i32, ptr %i, align 4
-  %shl69 = shl i32 %69, 7
+  %67 = load i32, ptr %x, align 4
+  %68 = load i32, ptr %slider_width, align 4
+  %69 = load i32, ptr %y, align 4
+  %add67 = add nsw i32 %69, 7
+  %70 = load i32, ptr %b, align 4
+  %71 = load i32, ptr %a, align 4
+  %sub68 = sub nsw i32 %70, %71
+  %72 = load i32, ptr %i, align 4
+  %shl69 = shl i32 %72, 7
   %add70 = add nsw i32 20, %shl69
-  %call71 = call i32 @stbte__slider(i32 noundef %64, i32 noundef %65, i32 noundef %add67, i32 noundef %sub68, ptr noundef %v, i32 noundef %add70)
+  %call71 = call i32 @stbte__slider(i32 noundef %67, i32 noundef %68, i32 noundef %add67, i32 noundef %sub68, ptr noundef %v, i32 noundef %add70)
   switch i32 %call71, label %sw.epilog [
     i32 1, label %sw.bb72
     i32 3, label %sw.bb75
@@ -12666,71 +13051,72 @@ if.end66:                                         ; preds = %if.end61, %lor.lhs.
   ]
 
 sw.bb72:                                          ; preds = %if.end66
-  %70 = load ptr, ptr %p, align 8
-  %71 = load i32, ptr %i, align 4
-  %idxprom73 = sext i32 %71 to i64
-  %arrayidx74 = getelementptr inbounds float, ptr %70, i64 %idxprom73
-  %72 = load float, ptr %arrayidx74, align 4
-  store float %72, ptr @stbte__saved, align 4
+  %73 = load ptr, ptr %p, align 8
+  %74 = load i32, ptr %i, align 4
+  %idxprom73 = sext i32 %74 to i64
+  %arrayidx74 = getelementptr inbounds float, ptr %73, i64 %idxprom73
+  %75 = load float, ptr %arrayidx74, align 4
+  store float %75, ptr @stbte__saved, align 4
   br label %sw.bb75
 
 sw.bb75:                                          ; preds = %sw.bb72, %if.end66
-  %73 = load i32, ptr %a, align 4
-  %74 = load i32, ptr %v, align 4
-  %add76 = add nsw i32 %73, %74
+  %76 = load i32, ptr %a, align 4
+  %77 = load i32, ptr %v, align 4
+  %add76 = add nsw i32 %76, %77
   %conv77 = sitofp i32 %add76 to float
-  %75 = load ptr, ptr %p, align 8
-  %76 = load i32, ptr %i, align 4
-  %idxprom78 = sext i32 %76 to i64
-  %arrayidx79 = getelementptr inbounds float, ptr %75, i64 %idxprom78
+  %78 = load ptr, ptr %p, align 8
+  %79 = load i32, ptr %i, align 4
+  %idxprom78 = sext i32 %79 to i64
+  %arrayidx79 = getelementptr inbounds float, ptr %78, i64 %idxprom78
   store float %conv77, ptr %arrayidx79, align 4
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %if.end66
-  %77 = load ptr, ptr %p, align 8
-  %78 = load i32, ptr %i, align 4
-  %idxprom81 = sext i32 %78 to i64
-  %arrayidx82 = getelementptr inbounds float, ptr %77, i64 %idxprom81
-  %79 = load float, ptr %arrayidx82, align 4
-  %80 = load float, ptr @stbte__saved, align 4
-  %cmp83 = fcmp une float %79, %80
+  %80 = load ptr, ptr %p, align 8
+  %81 = load i32, ptr %i, align 4
+  %idxprom81 = sext i32 %81 to i64
+  %arrayidx82 = getelementptr inbounds float, ptr %80, i64 %idxprom81
+  %82 = load float, ptr %arrayidx82, align 4
+  %83 = load float, ptr @stbte__saved, align 4
+  %cmp83 = fcmp une float %82, %83
   br i1 %cmp83, label %if.then85, label %if.end86
 
 if.then85:                                        ; preds = %sw.bb80
-  %81 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %81)
-  %82 = load ptr, ptr %tm.addr, align 8
-  %83 = load i32, ptr %mx, align 4
-  %84 = load i32, ptr %my, align 4
-  %85 = load i32, ptr %i, align 4
-  %86 = load float, ptr @stbte__saved, align 4
-  call void @stbte__undo_record_prop_float(ptr noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef %85, float noundef %86)
-  %87 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %87)
+  %84 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %84)
+  %85 = load ptr, ptr %tm.addr, align 8
+  %86 = load i32, ptr %mx, align 4
+  %87 = load i32, ptr %my, align 4
+  %88 = load i32, ptr %i, align 4
+  %89 = load float, ptr @stbte__saved, align 4
+  call void @stbte__undo_record_prop_float(ptr noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef %88, float noundef %89)
+  %90 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %90)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then85, %sw.bb80
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end86, %sw.bb75, %if.end66
-  %88 = load i32, ptr %x, align 4
-  %89 = load i32, ptr %slider_width, align 4
-  %add87 = add nsw i32 %88, %89
+  %91 = load i32, ptr %x, align 4
+  %92 = load i32, ptr %slider_width, align 4
+  %add87 = add nsw i32 %91, %92
   %add88 = add nsw i32 %add87, 2
-  %90 = load i32, ptr %y, align 4
-  %add89 = add nsw i32 %90, 2
-  %91 = load ptr, ptr %s, align 8
-  %92 = load i32, ptr %x1, align 4
-  %sub90 = sub nsw i32 %92, 1
-  %93 = load i32, ptr %x, align 4
-  %94 = load i32, ptr %slider_width, align 4
-  %add91 = add nsw i32 %93, %94
+  %93 = load i32, ptr %y, align 4
+  %add89 = add nsw i32 %93, 2
+  %94 = load ptr, ptr %s, align 8
+  %95 = load i32, ptr %x1, align 4
+  %sub90 = sub nsw i32 %95, 1
+  %96 = load i32, ptr %x, align 4
+  %97 = load i32, ptr %slider_width, align 4
+  %add91 = add nsw i32 %96, %97
   %add92 = add nsw i32 %add91, 2
   %sub93 = sub nsw i32 %sub90, %add92
-  %95 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %add88, i32 noundef %add89, ptr noundef %91, i32 noundef %sub93, i32 noundef %95)
-  %96 = load i32, ptr %y, align 4
-  %add94 = add nsw i32 %96, 12
+  %98 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %99 = load i32, ptr %98, align 4
+  call void @stbte__draw_text(i32 noundef %add88, i32 noundef %add89, ptr noundef %94, i32 noundef %sub93, i32 noundef %99)
+  %100 = load i32, ptr %y, align 4
+  %add94 = add nsw i32 %100, 12
   store i32 %add94, ptr %y, align 4
   br label %sw.epilog147
 
@@ -12738,137 +13124,138 @@ sw.bb95:                                          ; preds = %if.end15
   store float 0.000000e+00, ptr %a96, align 4
   store float 1.000000e+02, ptr %b97, align 4
   store float 1.000000e+00, ptr %c, align 4
-  %97 = load ptr, ptr %p, align 8
-  %98 = load i32, ptr %i, align 4
-  %idxprom98 = sext i32 %98 to i64
-  %arrayidx99 = getelementptr inbounds float, ptr %97, i64 %idxprom98
-  %99 = load float, ptr %arrayidx99, align 4
-  %100 = load float, ptr %a96, align 4
-  %cmp100 = fcmp olt float %99, %100
+  %101 = load ptr, ptr %p, align 8
+  %102 = load i32, ptr %i, align 4
+  %idxprom98 = sext i32 %102 to i64
+  %arrayidx99 = getelementptr inbounds float, ptr %101, i64 %idxprom98
+  %103 = load float, ptr %arrayidx99, align 4
+  %104 = load float, ptr %a96, align 4
+  %cmp100 = fcmp olt float %103, %104
   br i1 %cmp100, label %if.then107, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %sw.bb95
-  %101 = load ptr, ptr %p, align 8
-  %102 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %102 to i64
-  %arrayidx104 = getelementptr inbounds float, ptr %101, i64 %idxprom103
-  %103 = load float, ptr %arrayidx104, align 4
-  %104 = load float, ptr %b97, align 4
-  %cmp105 = fcmp ogt float %103, %104
+  %105 = load ptr, ptr %p, align 8
+  %106 = load i32, ptr %i, align 4
+  %idxprom103 = sext i32 %106 to i64
+  %arrayidx104 = getelementptr inbounds float, ptr %105, i64 %idxprom103
+  %107 = load float, ptr %arrayidx104, align 4
+  %108 = load float, ptr %b97, align 4
+  %cmp105 = fcmp ogt float %107, %108
   br i1 %cmp105, label %if.then107, label %if.end124
 
 if.then107:                                       ; preds = %lor.lhs.false102, %sw.bb95
-  %105 = load ptr, ptr %p, align 8
-  %106 = load i32, ptr %i, align 4
-  %idxprom108 = sext i32 %106 to i64
-  %arrayidx109 = getelementptr inbounds float, ptr %105, i64 %idxprom108
-  %107 = load float, ptr %arrayidx109, align 4
-  %108 = load float, ptr %a96, align 4
-  %cmp110 = fcmp olt float %107, %108
+  %109 = load ptr, ptr %p, align 8
+  %110 = load i32, ptr %i, align 4
+  %idxprom108 = sext i32 %110 to i64
+  %arrayidx109 = getelementptr inbounds float, ptr %109, i64 %idxprom108
+  %111 = load float, ptr %arrayidx109, align 4
+  %112 = load float, ptr %a96, align 4
+  %cmp110 = fcmp olt float %111, %112
   br i1 %cmp110, label %if.then112, label %if.end115
 
 if.then112:                                       ; preds = %if.then107
-  %109 = load float, ptr %a96, align 4
-  %110 = load ptr, ptr %p, align 8
-  %111 = load i32, ptr %i, align 4
-  %idxprom113 = sext i32 %111 to i64
-  %arrayidx114 = getelementptr inbounds float, ptr %110, i64 %idxprom113
-  store float %109, ptr %arrayidx114, align 4
+  %113 = load float, ptr %a96, align 4
+  %114 = load ptr, ptr %p, align 8
+  %115 = load i32, ptr %i, align 4
+  %idxprom113 = sext i32 %115 to i64
+  %arrayidx114 = getelementptr inbounds float, ptr %114, i64 %idxprom113
+  store float %113, ptr %arrayidx114, align 4
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.then107
-  %112 = load ptr, ptr %p, align 8
-  %113 = load i32, ptr %i, align 4
-  %idxprom116 = sext i32 %113 to i64
-  %arrayidx117 = getelementptr inbounds float, ptr %112, i64 %idxprom116
-  %114 = load float, ptr %arrayidx117, align 4
-  %115 = load float, ptr %b97, align 4
-  %cmp118 = fcmp ogt float %114, %115
+  %116 = load ptr, ptr %p, align 8
+  %117 = load i32, ptr %i, align 4
+  %idxprom116 = sext i32 %117 to i64
+  %arrayidx117 = getelementptr inbounds float, ptr %116, i64 %idxprom116
+  %118 = load float, ptr %arrayidx117, align 4
+  %119 = load float, ptr %b97, align 4
+  %cmp118 = fcmp ogt float %118, %119
   br i1 %cmp118, label %if.then120, label %if.end123
 
 if.then120:                                       ; preds = %if.end115
-  %116 = load float, ptr %b97, align 4
-  %117 = load ptr, ptr %p, align 8
-  %118 = load i32, ptr %i, align 4
-  %idxprom121 = sext i32 %118 to i64
-  %arrayidx122 = getelementptr inbounds float, ptr %117, i64 %idxprom121
-  store float %116, ptr %arrayidx122, align 4
+  %120 = load float, ptr %b97, align 4
+  %121 = load ptr, ptr %p, align 8
+  %122 = load i32, ptr %i, align 4
+  %idxprom121 = sext i32 %122 to i64
+  %arrayidx122 = getelementptr inbounds float, ptr %121, i64 %idxprom121
+  store float %120, ptr %arrayidx122, align 4
   br label %if.end123
 
 if.end123:                                        ; preds = %if.then120, %if.end115
   br label %if.end124
 
 if.end124:                                        ; preds = %if.end123, %lor.lhs.false102
-  %119 = load ptr, ptr %p, align 8
-  %120 = load i32, ptr %i, align 4
-  %idxprom125 = sext i32 %120 to i64
-  %arrayidx126 = getelementptr inbounds float, ptr %119, i64 %idxprom125
-  %121 = load float, ptr %arrayidx126, align 4
-  store float %121, ptr %old, align 4
-  %122 = load i32, ptr %x, align 4
-  %123 = load i32, ptr %y, align 4
-  %124 = load float, ptr %a96, align 4
-  %125 = load float, ptr %b97, align 4
-  %126 = load float, ptr %c, align 4
-  %127 = load ptr, ptr %p, align 8
-  %128 = load i32, ptr %i, align 4
-  %idxprom127 = sext i32 %128 to i64
-  %arrayidx128 = getelementptr inbounds float, ptr %127, i64 %idxprom127
-  %129 = load i32, ptr %i, align 4
-  %shl129 = shl i32 %129, 7
+  %123 = load ptr, ptr %p, align 8
+  %124 = load i32, ptr %i, align 4
+  %idxprom125 = sext i32 %124 to i64
+  %arrayidx126 = getelementptr inbounds float, ptr %123, i64 %idxprom125
+  %125 = load float, ptr %arrayidx126, align 4
+  store float %125, ptr %old, align 4
+  %126 = load i32, ptr %x, align 4
+  %127 = load i32, ptr %y, align 4
+  %128 = load float, ptr %a96, align 4
+  %129 = load float, ptr %b97, align 4
+  %130 = load float, ptr %c, align 4
+  %131 = load ptr, ptr %p, align 8
+  %132 = load i32, ptr %i, align 4
+  %idxprom127 = sext i32 %132 to i64
+  %arrayidx128 = getelementptr inbounds float, ptr %131, i64 %idxprom127
+  %133 = load i32, ptr %i, align 4
+  %shl129 = shl i32 %133, 7
   %add130 = add nsw i32 19, %shl129
-  %call131 = call i32 @stbte__float_control(i32 noundef %122, i32 noundef %123, i32 noundef 50, float noundef %124, float noundef %125, float noundef %126, ptr noundef @.str.22, ptr noundef %arrayidx128, i32 noundef 9, i32 noundef %add130)
+  %call131 = call i32 @stbte__float_control(i32 noundef %126, i32 noundef %127, i32 noundef 50, float noundef %128, float noundef %129, float noundef %130, ptr noundef @.str.22, ptr noundef %arrayidx128, i32 noundef 9, i32 noundef %add130)
   switch i32 %call131, label %sw.epilog140 [
     i32 1, label %sw.bb132
     i32 2, label %sw.bb133
   ]
 
 sw.bb132:                                         ; preds = %if.end124
-  %130 = load float, ptr %old, align 4
-  store float %130, ptr @stbte__saved, align 4
+  %134 = load float, ptr %old, align 4
+  store float %134, ptr @stbte__saved, align 4
   br label %sw.epilog140
 
 sw.bb133:                                         ; preds = %if.end124
-  %131 = load float, ptr @stbte__saved, align 4
-  %132 = load ptr, ptr %p, align 8
-  %133 = load i32, ptr %i, align 4
-  %idxprom134 = sext i32 %133 to i64
-  %arrayidx135 = getelementptr inbounds float, ptr %132, i64 %idxprom134
-  %134 = load float, ptr %arrayidx135, align 4
-  %cmp136 = fcmp une float %131, %134
+  %135 = load float, ptr @stbte__saved, align 4
+  %136 = load ptr, ptr %p, align 8
+  %137 = load i32, ptr %i, align 4
+  %idxprom134 = sext i32 %137 to i64
+  %arrayidx135 = getelementptr inbounds float, ptr %136, i64 %idxprom134
+  %138 = load float, ptr %arrayidx135, align 4
+  %cmp136 = fcmp une float %135, %138
   br i1 %cmp136, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %sw.bb133
-  %135 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__begin_undo(ptr noundef %135)
-  %136 = load ptr, ptr %tm.addr, align 8
-  %137 = load i32, ptr %mx, align 4
-  %138 = load i32, ptr %my, align 4
-  %139 = load i32, ptr %i, align 4
-  %140 = load float, ptr @stbte__saved, align 4
-  call void @stbte__undo_record_prop_float(ptr noundef %136, i32 noundef %137, i32 noundef %138, i32 noundef %139, float noundef %140)
-  %141 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %141)
+  %139 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__begin_undo(ptr noundef %139)
+  %140 = load ptr, ptr %tm.addr, align 8
+  %141 = load i32, ptr %mx, align 4
+  %142 = load i32, ptr %my, align 4
+  %143 = load i32, ptr %i, align 4
+  %144 = load float, ptr @stbte__saved, align 4
+  call void @stbte__undo_record_prop_float(ptr noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %143, float noundef %144)
+  %145 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %145)
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then138, %sw.bb133
   br label %sw.epilog140
 
 sw.epilog140:                                     ; preds = %if.end139, %sw.bb132, %if.end124
-  %142 = load i32, ptr %x, align 4
-  %add141 = add nsw i32 %142, 53
-  %143 = load i32, ptr %y, align 4
-  %add142 = add nsw i32 %143, 1
-  %144 = load ptr, ptr %s, align 8
-  %145 = load i32, ptr %x1, align 4
-  %sub143 = sub nsw i32 %145, 1
   %146 = load i32, ptr %x, align 4
-  %add144 = add nsw i32 %146, 53
+  %add141 = add nsw i32 %146, 53
+  %147 = load i32, ptr %y, align 4
+  %add142 = add nsw i32 %147, 1
+  %148 = load ptr, ptr %s, align 8
+  %149 = load i32, ptr %x1, align 4
+  %sub143 = sub nsw i32 %149, 1
+  %150 = load i32, ptr %x, align 4
+  %add144 = add nsw i32 %150, 53
   %sub145 = sub nsw i32 %sub143, %add144
-  %147 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
-  call void @stbte__draw_text(i32 noundef %add141, i32 noundef %add142, ptr noundef %144, i32 noundef %sub145, i32 noundef %147)
-  %148 = load i32, ptr %y, align 4
-  %add146 = add nsw i32 %148, 12
+  %151 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2
+  %152 = load i32, ptr %151, align 4
+  call void @stbte__draw_text(i32 noundef %add141, i32 noundef %add142, ptr noundef %148, i32 noundef %sub145, i32 noundef %152)
+  %153 = load i32, ptr %y, align 4
+  %add146 = add nsw i32 %153, 12
   store i32 %add146, ptr %y, align 4
   br label %sw.epilog147
 
@@ -12879,8 +13266,8 @@ if.end148:                                        ; preds = %sw.epilog147, %for.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end148
-  %149 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %149, 1
+  %154 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %154, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !70
 
@@ -12927,127 +13314,144 @@ if.then:                                          ; preds = %entry
   br label %if.end473
 
 if.end:                                           ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %cmp1 = icmp eq i32 %1, %2
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %2 = load i32, ptr %1, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %4 = load i32, ptr %3, align 4
+  %cmp1 = icmp eq i32 %2, %4
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %cmp2 = icmp eq i32 %3, %4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %8 = load i32, ptr %7, align 8
+  %cmp2 = icmp eq i32 %6, %8
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
   br label %if.end473
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__prepare_tileinfo(ptr noundef %5)
-  %6 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__compute_panel_locations(ptr noundef %6)
-  %7 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp5 = icmp eq i32 %7, 0
+  %9 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__prepare_tileinfo(ptr noundef %9)
+  %10 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__compute_panel_locations(ptr noundef %10)
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4
+  %cmp5 = icmp eq i32 %12, 0
   br i1 %cmp5, label %if.then6, label %if.end14
 
 if.then6:                                         ; preds = %if.end4
-  %8 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  call void @stbte__draw_rect(i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef 2109536)
-  %12 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %13 = load ptr, ptr %tm.addr, align 8
-  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %13, i32 0, i32 9
-  %14 = load i32, ptr %scroll_x, align 4
-  %sub = sub nsw i32 %12, %14
-  %15 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %16 = load ptr, ptr %tm.addr, align 8
-  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 10
-  %17 = load i32, ptr %scroll_y, align 8
-  %sub7 = sub nsw i32 %15, %17
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %19 = load ptr, ptr %tm.addr, align 8
-  %scroll_x8 = getelementptr inbounds %struct.stbte_tilemap, ptr %19, i32 0, i32 9
-  %20 = load i32, ptr %scroll_x8, align 4
-  %sub9 = sub nsw i32 %18, %20
-  %21 = load ptr, ptr %tm.addr, align 8
-  %spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %21, i32 0, i32 5
-  %22 = load i32, ptr %spacing_x, align 4
+  %13 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %20 = load i32, ptr %19, align 8
+  call void @stbte__draw_rect(i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef 2109536)
+  %21 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr %tm.addr, align 8
-  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %23, i32 0, i32 2
-  %24 = load i32, ptr %max_x, align 8
-  %mul = mul nsw i32 %22, %24
+  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %23, i32 0, i32 9
+  %24 = load i32, ptr %scroll_x, align 4
+  %sub = sub nsw i32 %22, %24
+  %25 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %26 = load i32, ptr %25, align 8
+  %27 = load ptr, ptr %tm.addr, align 8
+  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %27, i32 0, i32 10
+  %28 = load i32, ptr %scroll_y, align 8
+  %sub7 = sub nsw i32 %26, %28
+  %29 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %tm.addr, align 8
+  %scroll_x8 = getelementptr inbounds %struct.stbte_tilemap, ptr %31, i32 0, i32 9
+  %32 = load i32, ptr %scroll_x8, align 4
+  %sub9 = sub nsw i32 %30, %32
+  %33 = load ptr, ptr %tm.addr, align 8
+  %spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %33, i32 0, i32 5
+  %34 = load i32, ptr %spacing_x, align 4
+  %35 = load ptr, ptr %tm.addr, align 8
+  %max_x = getelementptr inbounds %struct.stbte_tilemap, ptr %35, i32 0, i32 2
+  %36 = load i32, ptr %max_x, align 8
+  %mul = mul nsw i32 %34, %36
   %add = add nsw i32 %sub9, %mul
-  %25 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %26 = load ptr, ptr %tm.addr, align 8
-  %scroll_y10 = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 10
-  %27 = load i32, ptr %scroll_y10, align 8
-  %sub11 = sub nsw i32 %25, %27
-  %28 = load ptr, ptr %tm.addr, align 8
-  %spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %28, i32 0, i32 6
-  %29 = load i32, ptr %spacing_y, align 8
-  %30 = load ptr, ptr %tm.addr, align 8
-  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %30, i32 0, i32 3
-  %31 = load i32, ptr %max_y, align 4
-  %mul12 = mul nsw i32 %29, %31
+  %37 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %38 = load i32, ptr %37, align 8
+  %39 = load ptr, ptr %tm.addr, align 8
+  %scroll_y10 = getelementptr inbounds %struct.stbte_tilemap, ptr %39, i32 0, i32 10
+  %40 = load i32, ptr %scroll_y10, align 8
+  %sub11 = sub nsw i32 %38, %40
+  %41 = load ptr, ptr %tm.addr, align 8
+  %spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %41, i32 0, i32 6
+  %42 = load i32, ptr %spacing_y, align 8
+  %43 = load ptr, ptr %tm.addr, align 8
+  %max_y = getelementptr inbounds %struct.stbte_tilemap, ptr %43, i32 0, i32 3
+  %44 = load i32, ptr %max_y, align 4
+  %mul12 = mul nsw i32 %42, %44
   %add13 = add nsw i32 %sub11, %mul12
   call void @stbte__draw_rect(i32 noundef %sub, i32 noundef %sub7, i32 noundef %add, i32 noundef %add13, i32 noundef 0)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then6, %if.end4
-  %32 = load ptr, ptr %tm.addr, align 8
-  %scroll_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %32, i32 0, i32 9
-  %33 = load i32, ptr %scroll_x15, align 4
-  %34 = load ptr, ptr %tm.addr, align 8
-  %spacing_x16 = getelementptr inbounds %struct.stbte_tilemap, ptr %34, i32 0, i32 5
-  %35 = load i32, ptr %spacing_x16, align 4
-  %sub17 = sub nsw i32 %33, %35
-  %36 = load ptr, ptr %tm.addr, align 8
-  %spacing_x18 = getelementptr inbounds %struct.stbte_tilemap, ptr %36, i32 0, i32 5
-  %37 = load i32, ptr %spacing_x18, align 4
-  %div = sdiv i32 %sub17, %37
+  %45 = load ptr, ptr %tm.addr, align 8
+  %scroll_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %45, i32 0, i32 9
+  %46 = load i32, ptr %scroll_x15, align 4
+  %47 = load ptr, ptr %tm.addr, align 8
+  %spacing_x16 = getelementptr inbounds %struct.stbte_tilemap, ptr %47, i32 0, i32 5
+  %48 = load i32, ptr %spacing_x16, align 4
+  %sub17 = sub nsw i32 %46, %48
+  %49 = load ptr, ptr %tm.addr, align 8
+  %spacing_x18 = getelementptr inbounds %struct.stbte_tilemap, ptr %49, i32 0, i32 5
+  %50 = load i32, ptr %spacing_x18, align 4
+  %div = sdiv i32 %sub17, %50
   store i32 %div, ptr %i0, align 4
-  %38 = load ptr, ptr %tm.addr, align 8
-  %scroll_y19 = getelementptr inbounds %struct.stbte_tilemap, ptr %38, i32 0, i32 10
-  %39 = load i32, ptr %scroll_y19, align 8
-  %40 = load ptr, ptr %tm.addr, align 8
-  %spacing_y20 = getelementptr inbounds %struct.stbte_tilemap, ptr %40, i32 0, i32 6
-  %41 = load i32, ptr %spacing_y20, align 8
-  %sub21 = sub nsw i32 %39, %41
-  %42 = load ptr, ptr %tm.addr, align 8
-  %spacing_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %42, i32 0, i32 6
-  %43 = load i32, ptr %spacing_y22, align 8
-  %div23 = sdiv i32 %sub21, %43
+  %51 = load ptr, ptr %tm.addr, align 8
+  %scroll_y19 = getelementptr inbounds %struct.stbte_tilemap, ptr %51, i32 0, i32 10
+  %52 = load i32, ptr %scroll_y19, align 8
+  %53 = load ptr, ptr %tm.addr, align 8
+  %spacing_y20 = getelementptr inbounds %struct.stbte_tilemap, ptr %53, i32 0, i32 6
+  %54 = load i32, ptr %spacing_y20, align 8
+  %sub21 = sub nsw i32 %52, %54
+  %55 = load ptr, ptr %tm.addr, align 8
+  %spacing_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %55, i32 0, i32 6
+  %56 = load i32, ptr %spacing_y22, align 8
+  %div23 = sdiv i32 %sub21, %56
   store i32 %div23, ptr %j0, align 4
-  %44 = load ptr, ptr %tm.addr, align 8
-  %scroll_x24 = getelementptr inbounds %struct.stbte_tilemap, ptr %44, i32 0, i32 9
-  %45 = load i32, ptr %scroll_x24, align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %add25 = add nsw i32 %45, %46
-  %47 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %sub26 = sub nsw i32 %add25, %47
-  %48 = load ptr, ptr %tm.addr, align 8
-  %spacing_x27 = getelementptr inbounds %struct.stbte_tilemap, ptr %48, i32 0, i32 5
-  %49 = load i32, ptr %spacing_x27, align 4
-  %div28 = sdiv i32 %sub26, %49
+  %57 = load ptr, ptr %tm.addr, align 8
+  %scroll_x24 = getelementptr inbounds %struct.stbte_tilemap, ptr %57, i32 0, i32 9
+  %58 = load i32, ptr %scroll_x24, align 4
+  %59 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %60 = load i32, ptr %59, align 4
+  %add25 = add nsw i32 %58, %60
+  %61 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %62 = load i32, ptr %61, align 4
+  %sub26 = sub nsw i32 %add25, %62
+  %63 = load ptr, ptr %tm.addr, align 8
+  %spacing_x27 = getelementptr inbounds %struct.stbte_tilemap, ptr %63, i32 0, i32 5
+  %64 = load i32, ptr %spacing_x27, align 4
+  %div28 = sdiv i32 %sub26, %64
   %add29 = add nsw i32 %div28, 1
   store i32 %add29, ptr %i1, align 4
-  %50 = load ptr, ptr %tm.addr, align 8
-  %scroll_y30 = getelementptr inbounds %struct.stbte_tilemap, ptr %50, i32 0, i32 10
-  %51 = load i32, ptr %scroll_y30, align 8
-  %52 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %add31 = add nsw i32 %51, %52
-  %53 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %sub32 = sub nsw i32 %add31, %53
-  %54 = load ptr, ptr %tm.addr, align 8
-  %spacing_y33 = getelementptr inbounds %struct.stbte_tilemap, ptr %54, i32 0, i32 6
-  %55 = load i32, ptr %spacing_y33, align 8
-  %div34 = sdiv i32 %sub32, %55
+  %65 = load ptr, ptr %tm.addr, align 8
+  %scroll_y30 = getelementptr inbounds %struct.stbte_tilemap, ptr %65, i32 0, i32 10
+  %66 = load i32, ptr %scroll_y30, align 8
+  %67 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %68 = load i32, ptr %67, align 8
+  %add31 = add nsw i32 %66, %68
+  %69 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %70 = load i32, ptr %69, align 8
+  %sub32 = sub nsw i32 %add31, %70
+  %71 = load ptr, ptr %tm.addr, align 8
+  %spacing_y33 = getelementptr inbounds %struct.stbte_tilemap, ptr %71, i32 0, i32 6
+  %72 = load i32, ptr %spacing_y33, align 8
+  %div34 = sdiv i32 %sub32, %72
   %add35 = add nsw i32 %div34, 1
   store i32 %add35, ptr %j1, align 4
-  %56 = load i32, ptr %i0, align 4
-  %cmp36 = icmp slt i32 %56, 0
+  %73 = load i32, ptr %i0, align 4
+  %cmp36 = icmp slt i32 %73, 0
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end14
@@ -13055,8 +13459,8 @@ if.then37:                                        ; preds = %if.end14
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end14
-  %57 = load i32, ptr %j0, align 4
-  %cmp39 = icmp slt i32 %57, 0
+  %74 = load i32, ptr %j0, align 4
+  %cmp39 = icmp slt i32 %74, 0
   br i1 %cmp39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %if.end38
@@ -13064,38 +13468,39 @@ if.then40:                                        ; preds = %if.end38
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end38
-  %58 = load i32, ptr %i1, align 4
-  %59 = load ptr, ptr %tm.addr, align 8
-  %max_x42 = getelementptr inbounds %struct.stbte_tilemap, ptr %59, i32 0, i32 2
-  %60 = load i32, ptr %max_x42, align 8
-  %cmp43 = icmp sgt i32 %58, %60
+  %75 = load i32, ptr %i1, align 4
+  %76 = load ptr, ptr %tm.addr, align 8
+  %max_x42 = getelementptr inbounds %struct.stbte_tilemap, ptr %76, i32 0, i32 2
+  %77 = load i32, ptr %max_x42, align 8
+  %cmp43 = icmp sgt i32 %75, %77
   br i1 %cmp43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end41
-  %61 = load ptr, ptr %tm.addr, align 8
-  %max_x45 = getelementptr inbounds %struct.stbte_tilemap, ptr %61, i32 0, i32 2
-  %62 = load i32, ptr %max_x45, align 8
-  store i32 %62, ptr %i1, align 4
+  %78 = load ptr, ptr %tm.addr, align 8
+  %max_x45 = getelementptr inbounds %struct.stbte_tilemap, ptr %78, i32 0, i32 2
+  %79 = load i32, ptr %max_x45, align 8
+  store i32 %79, ptr %i1, align 4
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end41
-  %63 = load i32, ptr %j1, align 4
-  %64 = load ptr, ptr %tm.addr, align 8
-  %max_y47 = getelementptr inbounds %struct.stbte_tilemap, ptr %64, i32 0, i32 3
-  %65 = load i32, ptr %max_y47, align 4
-  %cmp48 = icmp sgt i32 %63, %65
+  %80 = load i32, ptr %j1, align 4
+  %81 = load ptr, ptr %tm.addr, align 8
+  %max_y47 = getelementptr inbounds %struct.stbte_tilemap, ptr %81, i32 0, i32 3
+  %82 = load i32, ptr %max_y47, align 4
+  %cmp48 = icmp sgt i32 %80, %82
   br i1 %cmp48, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end46
-  %66 = load ptr, ptr %tm.addr, align 8
-  %max_y50 = getelementptr inbounds %struct.stbte_tilemap, ptr %66, i32 0, i32 3
-  %67 = load i32, ptr %max_y50, align 4
-  store i32 %67, ptr %j1, align 4
+  %83 = load ptr, ptr %tm.addr, align 8
+  %max_y50 = getelementptr inbounds %struct.stbte_tilemap, ptr %83, i32 0, i32 3
+  %84 = load i32, ptr %max_y50, align 4
+  store i32 %84, ptr %j1, align 4
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then49, %if.end46
-  %68 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp52 = icmp eq i32 %68, 0
+  %85 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %86 = load i32, ptr %85, align 4
+  %cmp52 = icmp eq i32 %86, 0
   br i1 %cmp52, label %if.then53, label %if.end115
 
 if.then53:                                        ; preds = %if.end51
@@ -13103,72 +13508,74 @@ if.then53:                                        ; preds = %if.end51
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc112, %if.then53
-  %69 = load i32, ptr %n, align 4
-  %70 = load ptr, ptr %tm.addr, align 8
-  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %70, i32 0, i32 4
-  %71 = load i32, ptr %num_layers, align 8
-  %cmp54 = icmp slt i32 %69, %71
+  %87 = load i32, ptr %n, align 4
+  %88 = load ptr, ptr %tm.addr, align 8
+  %num_layers = getelementptr inbounds %struct.stbte_tilemap, ptr %88, i32 0, i32 4
+  %89 = load i32, ptr %num_layers, align 8
+  %cmp54 = icmp slt i32 %87, %89
   br i1 %cmp54, label %for.body, label %for.end114
 
 for.body:                                         ; preds = %for.cond
-  %72 = load i32, ptr %j0, align 4
-  store i32 %72, ptr %j, align 4
+  %90 = load i32, ptr %j0, align 4
+  store i32 %90, ptr %j, align 4
   br label %for.cond55
 
 for.cond55:                                       ; preds = %for.inc71, %for.body
-  %73 = load i32, ptr %j, align 4
-  %74 = load i32, ptr %j1, align 4
-  %cmp56 = icmp slt i32 %73, %74
+  %91 = load i32, ptr %j, align 4
+  %92 = load i32, ptr %j1, align 4
+  %cmp56 = icmp slt i32 %91, %92
   br i1 %cmp56, label %for.body57, label %for.end73
 
 for.body57:                                       ; preds = %for.cond55
-  %75 = load i32, ptr %i0, align 4
-  store i32 %75, ptr %i, align 4
+  %93 = load i32, ptr %i0, align 4
+  store i32 %93, ptr %i, align 4
   br label %for.cond58
 
 for.cond58:                                       ; preds = %for.inc, %for.body57
-  %76 = load i32, ptr %i, align 4
-  %77 = load i32, ptr %i1, align 4
-  %cmp59 = icmp slt i32 %76, %77
+  %94 = load i32, ptr %i, align 4
+  %95 = load i32, ptr %i1, align 4
+  %cmp59 = icmp slt i32 %94, %95
   br i1 %cmp59, label %for.body60, label %for.end
 
 for.body60:                                       ; preds = %for.cond58
-  %78 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %79 = load i32, ptr %i, align 4
-  %80 = load ptr, ptr %tm.addr, align 8
-  %spacing_x61 = getelementptr inbounds %struct.stbte_tilemap, ptr %80, i32 0, i32 5
-  %81 = load i32, ptr %spacing_x61, align 4
-  %mul62 = mul nsw i32 %79, %81
-  %add63 = add nsw i32 %78, %mul62
-  %82 = load ptr, ptr %tm.addr, align 8
-  %scroll_x64 = getelementptr inbounds %struct.stbte_tilemap, ptr %82, i32 0, i32 9
-  %83 = load i32, ptr %scroll_x64, align 4
-  %sub65 = sub nsw i32 %add63, %83
+  %96 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %97 = load i32, ptr %96, align 4
+  %98 = load i32, ptr %i, align 4
+  %99 = load ptr, ptr %tm.addr, align 8
+  %spacing_x61 = getelementptr inbounds %struct.stbte_tilemap, ptr %99, i32 0, i32 5
+  %100 = load i32, ptr %spacing_x61, align 4
+  %mul62 = mul nsw i32 %98, %100
+  %add63 = add nsw i32 %97, %mul62
+  %101 = load ptr, ptr %tm.addr, align 8
+  %scroll_x64 = getelementptr inbounds %struct.stbte_tilemap, ptr %101, i32 0, i32 9
+  %102 = load i32, ptr %scroll_x64, align 4
+  %sub65 = sub nsw i32 %add63, %102
   store i32 %sub65, ptr %x, align 4
-  %84 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %85 = load i32, ptr %j, align 4
-  %86 = load ptr, ptr %tm.addr, align 8
-  %spacing_y66 = getelementptr inbounds %struct.stbte_tilemap, ptr %86, i32 0, i32 6
-  %87 = load i32, ptr %spacing_y66, align 8
-  %mul67 = mul nsw i32 %85, %87
-  %add68 = add nsw i32 %84, %mul67
-  %88 = load ptr, ptr %tm.addr, align 8
-  %scroll_y69 = getelementptr inbounds %struct.stbte_tilemap, ptr %88, i32 0, i32 10
-  %89 = load i32, ptr %scroll_y69, align 8
-  %sub70 = sub nsw i32 %add68, %89
+  %103 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %104 = load i32, ptr %103, align 8
+  %105 = load i32, ptr %j, align 4
+  %106 = load ptr, ptr %tm.addr, align 8
+  %spacing_y66 = getelementptr inbounds %struct.stbte_tilemap, ptr %106, i32 0, i32 6
+  %107 = load i32, ptr %spacing_y66, align 8
+  %mul67 = mul nsw i32 %105, %107
+  %add68 = add nsw i32 %104, %mul67
+  %108 = load ptr, ptr %tm.addr, align 8
+  %scroll_y69 = getelementptr inbounds %struct.stbte_tilemap, ptr %108, i32 0, i32 10
+  %109 = load i32, ptr %scroll_y69, align 8
+  %sub70 = sub nsw i32 %add68, %109
   store i32 %sub70, ptr %y, align 4
-  %90 = load ptr, ptr %tm.addr, align 8
-  %91 = load i32, ptr %x, align 4
-  %92 = load i32, ptr %y, align 4
-  %93 = load i32, ptr %i, align 4
-  %94 = load i32, ptr %j, align 4
-  %95 = load i32, ptr %n, align 4
-  call void @stbte__tile_paint(ptr noundef %90, i32 noundef %91, i32 noundef %92, i32 noundef %93, i32 noundef %94, i32 noundef %95)
+  %110 = load ptr, ptr %tm.addr, align 8
+  %111 = load i32, ptr %x, align 4
+  %112 = load i32, ptr %y, align 4
+  %113 = load i32, ptr %i, align 4
+  %114 = load i32, ptr %j, align 4
+  %115 = load i32, ptr %n, align 4
+  call void @stbte__tile_paint(ptr noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113, i32 noundef %114, i32 noundef %115)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body60
-  %96 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %96, 1
+  %116 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %116, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond58, !llvm.loop !71
 
@@ -13176,83 +13583,89 @@ for.end:                                          ; preds = %for.cond58
   br label %for.inc71
 
 for.inc71:                                        ; preds = %for.end
-  %97 = load i32, ptr %j, align 4
-  %inc72 = add nsw i32 %97, 1
+  %117 = load i32, ptr %j, align 4
+  %inc72 = add nsw i32 %117, 1
   store i32 %inc72, ptr %j, align 4
   br label %for.cond55, !llvm.loop !72
 
 for.end73:                                        ; preds = %for.cond55
-  %98 = load i32, ptr %n, align 4
-  %cmp74 = icmp eq i32 %98, 0
+  %118 = load i32, ptr %n, align 4
+  %cmp74 = icmp eq i32 %118, 0
   br i1 %cmp74, label %land.lhs.true, label %if.end111
 
 land.lhs.true:                                    ; preds = %for.end73
-  %99 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
-  %cmp75 = icmp eq i32 %99, 1
+  %119 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  %120 = load i32, ptr %119, align 4
+  %cmp75 = icmp eq i32 %120, 1
   br i1 %cmp75, label %if.then76, label %if.end111
 
 if.then76:                                        ; preds = %land.lhs.true
-  %100 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %101 = load i32, ptr %i0, align 4
-  %102 = load ptr, ptr %tm.addr, align 8
-  %spacing_x78 = getelementptr inbounds %struct.stbte_tilemap, ptr %102, i32 0, i32 5
-  %103 = load i32, ptr %spacing_x78, align 4
-  %mul79 = mul nsw i32 %101, %103
-  %add80 = add nsw i32 %100, %mul79
-  %104 = load ptr, ptr %tm.addr, align 8
-  %scroll_x81 = getelementptr inbounds %struct.stbte_tilemap, ptr %104, i32 0, i32 9
-  %105 = load i32, ptr %scroll_x81, align 4
-  %sub82 = sub nsw i32 %add80, %105
+  %121 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %122 = load i32, ptr %121, align 4
+  %123 = load i32, ptr %i0, align 4
+  %124 = load ptr, ptr %tm.addr, align 8
+  %spacing_x78 = getelementptr inbounds %struct.stbte_tilemap, ptr %124, i32 0, i32 5
+  %125 = load i32, ptr %spacing_x78, align 4
+  %mul79 = mul nsw i32 %123, %125
+  %add80 = add nsw i32 %122, %mul79
+  %126 = load ptr, ptr %tm.addr, align 8
+  %scroll_x81 = getelementptr inbounds %struct.stbte_tilemap, ptr %126, i32 0, i32 9
+  %127 = load i32, ptr %scroll_x81, align 4
+  %sub82 = sub nsw i32 %add80, %127
   store i32 %sub82, ptr %x77, align 4
-  %106 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %107 = load i32, ptr %j0, align 4
-  %108 = load ptr, ptr %tm.addr, align 8
-  %spacing_y84 = getelementptr inbounds %struct.stbte_tilemap, ptr %108, i32 0, i32 6
-  %109 = load i32, ptr %spacing_y84, align 8
-  %mul85 = mul nsw i32 %107, %109
-  %add86 = add nsw i32 %106, %mul85
-  %110 = load ptr, ptr %tm.addr, align 8
-  %scroll_y87 = getelementptr inbounds %struct.stbte_tilemap, ptr %110, i32 0, i32 10
-  %111 = load i32, ptr %scroll_y87, align 8
-  %sub88 = sub nsw i32 %add86, %111
+  %128 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %129 = load i32, ptr %128, align 8
+  %130 = load i32, ptr %j0, align 4
+  %131 = load ptr, ptr %tm.addr, align 8
+  %spacing_y84 = getelementptr inbounds %struct.stbte_tilemap, ptr %131, i32 0, i32 6
+  %132 = load i32, ptr %spacing_y84, align 8
+  %mul85 = mul nsw i32 %130, %132
+  %add86 = add nsw i32 %129, %mul85
+  %133 = load ptr, ptr %tm.addr, align 8
+  %scroll_y87 = getelementptr inbounds %struct.stbte_tilemap, ptr %133, i32 0, i32 10
+  %134 = load i32, ptr %scroll_y87, align 8
+  %sub88 = sub nsw i32 %add86, %134
   store i32 %sub88, ptr %y83, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond89
 
 for.cond89:                                       ; preds = %for.inc94, %if.then76
-  %112 = load i32, ptr %x77, align 4
-  %113 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %cmp90 = icmp slt i32 %112, %113
+  %135 = load i32, ptr %x77, align 4
+  %136 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %137 = load i32, ptr %136, align 4
+  %cmp90 = icmp slt i32 %135, %137
   br i1 %cmp90, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond89
-  %114 = load i32, ptr %i, align 4
-  %115 = load i32, ptr %i1, align 4
-  %cmp91 = icmp sle i32 %114, %115
+  %138 = load i32, ptr %i, align 4
+  %139 = load i32, ptr %i1, align 4
+  %cmp91 = icmp sle i32 %138, %139
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond89
-  %116 = phi i1 [ false, %for.cond89 ], [ %cmp91, %land.rhs ]
-  br i1 %116, label %for.body92, label %for.end98
+  %140 = phi i1 [ false, %for.cond89 ], [ %cmp91, %land.rhs ]
+  br i1 %140, label %for.body92, label %for.end98
 
 for.body92:                                       ; preds = %land.end
-  %117 = load i32, ptr %x77, align 4
-  %118 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %119 = load i32, ptr %x77, align 4
-  %add93 = add nsw i32 %119, 1
-  %120 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  call void @stbte__draw_rect(i32 noundef %117, i32 noundef %118, i32 noundef %add93, i32 noundef %120, i32 noundef 4210752)
+  %141 = load i32, ptr %x77, align 4
+  %142 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %143 = load i32, ptr %142, align 8
+  %144 = load i32, ptr %x77, align 4
+  %add93 = add nsw i32 %144, 1
+  %145 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %146 = load i32, ptr %145, align 8
+  call void @stbte__draw_rect(i32 noundef %141, i32 noundef %143, i32 noundef %add93, i32 noundef %146, i32 noundef 4210752)
   br label %for.inc94
 
 for.inc94:                                        ; preds = %for.body92
-  %121 = load i32, ptr %i, align 4
-  %inc95 = add nsw i32 %121, 1
+  %147 = load i32, ptr %i, align 4
+  %inc95 = add nsw i32 %147, 1
   store i32 %inc95, ptr %i, align 4
-  %122 = load ptr, ptr %tm.addr, align 8
-  %spacing_x96 = getelementptr inbounds %struct.stbte_tilemap, ptr %122, i32 0, i32 5
-  %123 = load i32, ptr %spacing_x96, align 4
-  %124 = load i32, ptr %x77, align 4
-  %add97 = add nsw i32 %124, %123
+  %148 = load ptr, ptr %tm.addr, align 8
+  %spacing_x96 = getelementptr inbounds %struct.stbte_tilemap, ptr %148, i32 0, i32 5
+  %149 = load i32, ptr %spacing_x96, align 4
+  %150 = load i32, ptr %x77, align 4
+  %add97 = add nsw i32 %150, %149
   store i32 %add97, ptr %x77, align 4
   br label %for.cond89, !llvm.loop !73
 
@@ -13261,39 +13674,42 @@ for.end98:                                        ; preds = %land.end
   br label %for.cond99
 
 for.cond99:                                       ; preds = %for.inc106, %for.end98
-  %125 = load i32, ptr %y83, align 4
-  %126 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %cmp100 = icmp slt i32 %125, %126
+  %151 = load i32, ptr %y83, align 4
+  %152 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %153 = load i32, ptr %152, align 8
+  %cmp100 = icmp slt i32 %151, %153
   br i1 %cmp100, label %land.rhs101, label %land.end103
 
 land.rhs101:                                      ; preds = %for.cond99
-  %127 = load i32, ptr %j, align 4
-  %128 = load i32, ptr %j1, align 4
-  %cmp102 = icmp sle i32 %127, %128
+  %154 = load i32, ptr %j, align 4
+  %155 = load i32, ptr %j1, align 4
+  %cmp102 = icmp sle i32 %154, %155
   br label %land.end103
 
 land.end103:                                      ; preds = %land.rhs101, %for.cond99
-  %129 = phi i1 [ false, %for.cond99 ], [ %cmp102, %land.rhs101 ]
-  br i1 %129, label %for.body104, label %for.end110
+  %156 = phi i1 [ false, %for.cond99 ], [ %cmp102, %land.rhs101 ]
+  br i1 %156, label %for.body104, label %for.end110
 
 for.body104:                                      ; preds = %land.end103
-  %130 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %131 = load i32, ptr %y83, align 4
-  %132 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %133 = load i32, ptr %y83, align 4
-  %add105 = add nsw i32 %133, 1
-  call void @stbte__draw_rect(i32 noundef %130, i32 noundef %131, i32 noundef %132, i32 noundef %add105, i32 noundef 4210752)
+  %157 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %158 = load i32, ptr %157, align 4
+  %159 = load i32, ptr %y83, align 4
+  %160 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %161 = load i32, ptr %160, align 4
+  %162 = load i32, ptr %y83, align 4
+  %add105 = add nsw i32 %162, 1
+  call void @stbte__draw_rect(i32 noundef %158, i32 noundef %159, i32 noundef %161, i32 noundef %add105, i32 noundef 4210752)
   br label %for.inc106
 
 for.inc106:                                       ; preds = %for.body104
-  %134 = load i32, ptr %j, align 4
-  %inc107 = add nsw i32 %134, 1
+  %163 = load i32, ptr %j, align 4
+  %inc107 = add nsw i32 %163, 1
   store i32 %inc107, ptr %j, align 4
-  %135 = load ptr, ptr %tm.addr, align 8
-  %spacing_y108 = getelementptr inbounds %struct.stbte_tilemap, ptr %135, i32 0, i32 6
-  %136 = load i32, ptr %spacing_y108, align 8
-  %137 = load i32, ptr %y83, align 4
-  %add109 = add nsw i32 %137, %136
+  %164 = load ptr, ptr %tm.addr, align 8
+  %spacing_y108 = getelementptr inbounds %struct.stbte_tilemap, ptr %164, i32 0, i32 6
+  %165 = load i32, ptr %spacing_y108, align 8
+  %166 = load i32, ptr %y83, align 4
+  %add109 = add nsw i32 %166, %165
   store i32 %add109, ptr %y83, align 4
   br label %for.cond99, !llvm.loop !74
 
@@ -13304,8 +13720,8 @@ if.end111:                                        ; preds = %for.end110, %land.l
   br label %for.inc112
 
 for.inc112:                                       ; preds = %if.end111
-  %138 = load i32, ptr %n, align 4
-  %inc113 = add nsw i32 %138, 1
+  %167 = load i32, ptr %n, align 4
+  %inc113 = add nsw i32 %167, 1
   store i32 %inc113, ptr %n, align 4
   br label %for.cond, !llvm.loop !75
 
@@ -13313,77 +13729,84 @@ for.end114:                                       ; preds = %for.cond
   br label %if.end115
 
 if.end115:                                        ; preds = %for.end114, %if.end51
-  %139 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp116 = icmp eq i32 %139, 0
+  %168 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %169 = load i32, ptr %168, align 4
+  %cmp116 = icmp eq i32 %169, 0
   br i1 %cmp116, label %if.then117, label %if.end157
 
 if.then117:                                       ; preds = %if.end115
-  %140 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
-  %cmp118 = icmp eq i32 %140, 2
+  %170 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  %171 = load i32, ptr %170, align 4
+  %cmp118 = icmp eq i32 %171, 2
   br i1 %cmp118, label %if.then119, label %if.end156
 
 if.then119:                                       ; preds = %if.then117
-  %141 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %142 = load i32, ptr %i0, align 4
-  %143 = load ptr, ptr %tm.addr, align 8
-  %spacing_x121 = getelementptr inbounds %struct.stbte_tilemap, ptr %143, i32 0, i32 5
-  %144 = load i32, ptr %spacing_x121, align 4
-  %mul122 = mul nsw i32 %142, %144
-  %add123 = add nsw i32 %141, %mul122
-  %145 = load ptr, ptr %tm.addr, align 8
-  %scroll_x124 = getelementptr inbounds %struct.stbte_tilemap, ptr %145, i32 0, i32 9
-  %146 = load i32, ptr %scroll_x124, align 4
-  %sub125 = sub nsw i32 %add123, %146
+  %172 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %173 = load i32, ptr %172, align 4
+  %174 = load i32, ptr %i0, align 4
+  %175 = load ptr, ptr %tm.addr, align 8
+  %spacing_x121 = getelementptr inbounds %struct.stbte_tilemap, ptr %175, i32 0, i32 5
+  %176 = load i32, ptr %spacing_x121, align 4
+  %mul122 = mul nsw i32 %174, %176
+  %add123 = add nsw i32 %173, %mul122
+  %177 = load ptr, ptr %tm.addr, align 8
+  %scroll_x124 = getelementptr inbounds %struct.stbte_tilemap, ptr %177, i32 0, i32 9
+  %178 = load i32, ptr %scroll_x124, align 4
+  %sub125 = sub nsw i32 %add123, %178
   store i32 %sub125, ptr %x120, align 4
-  %147 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %148 = load i32, ptr %j0, align 4
-  %149 = load ptr, ptr %tm.addr, align 8
-  %spacing_y127 = getelementptr inbounds %struct.stbte_tilemap, ptr %149, i32 0, i32 6
-  %150 = load i32, ptr %spacing_y127, align 8
-  %mul128 = mul nsw i32 %148, %150
-  %add129 = add nsw i32 %147, %mul128
-  %151 = load ptr, ptr %tm.addr, align 8
-  %scroll_y130 = getelementptr inbounds %struct.stbte_tilemap, ptr %151, i32 0, i32 10
-  %152 = load i32, ptr %scroll_y130, align 8
-  %sub131 = sub nsw i32 %add129, %152
+  %179 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %180 = load i32, ptr %179, align 8
+  %181 = load i32, ptr %j0, align 4
+  %182 = load ptr, ptr %tm.addr, align 8
+  %spacing_y127 = getelementptr inbounds %struct.stbte_tilemap, ptr %182, i32 0, i32 6
+  %183 = load i32, ptr %spacing_y127, align 8
+  %mul128 = mul nsw i32 %181, %183
+  %add129 = add nsw i32 %180, %mul128
+  %184 = load ptr, ptr %tm.addr, align 8
+  %scroll_y130 = getelementptr inbounds %struct.stbte_tilemap, ptr %184, i32 0, i32 10
+  %185 = load i32, ptr %scroll_y130, align 8
+  %sub131 = sub nsw i32 %add129, %185
   store i32 %sub131, ptr %y126, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond132
 
 for.cond132:                                      ; preds = %for.inc139, %if.then119
-  %153 = load i32, ptr %x120, align 4
-  %154 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %cmp133 = icmp slt i32 %153, %154
+  %186 = load i32, ptr %x120, align 4
+  %187 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %188 = load i32, ptr %187, align 4
+  %cmp133 = icmp slt i32 %186, %188
   br i1 %cmp133, label %land.rhs134, label %land.end136
 
 land.rhs134:                                      ; preds = %for.cond132
-  %155 = load i32, ptr %i, align 4
-  %156 = load i32, ptr %i1, align 4
-  %cmp135 = icmp sle i32 %155, %156
+  %189 = load i32, ptr %i, align 4
+  %190 = load i32, ptr %i1, align 4
+  %cmp135 = icmp sle i32 %189, %190
   br label %land.end136
 
 land.end136:                                      ; preds = %land.rhs134, %for.cond132
-  %157 = phi i1 [ false, %for.cond132 ], [ %cmp135, %land.rhs134 ]
-  br i1 %157, label %for.body137, label %for.end143
+  %191 = phi i1 [ false, %for.cond132 ], [ %cmp135, %land.rhs134 ]
+  br i1 %191, label %for.body137, label %for.end143
 
 for.body137:                                      ; preds = %land.end136
-  %158 = load i32, ptr %x120, align 4
-  %159 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %160 = load i32, ptr %x120, align 4
-  %add138 = add nsw i32 %160, 1
-  %161 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  call void @stbte__draw_rect(i32 noundef %158, i32 noundef %159, i32 noundef %add138, i32 noundef %161, i32 noundef 4210752)
+  %192 = load i32, ptr %x120, align 4
+  %193 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %194 = load i32, ptr %193, align 8
+  %195 = load i32, ptr %x120, align 4
+  %add138 = add nsw i32 %195, 1
+  %196 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %197 = load i32, ptr %196, align 8
+  call void @stbte__draw_rect(i32 noundef %192, i32 noundef %194, i32 noundef %add138, i32 noundef %197, i32 noundef 4210752)
   br label %for.inc139
 
 for.inc139:                                       ; preds = %for.body137
-  %162 = load i32, ptr %i, align 4
-  %inc140 = add nsw i32 %162, 1
+  %198 = load i32, ptr %i, align 4
+  %inc140 = add nsw i32 %198, 1
   store i32 %inc140, ptr %i, align 4
-  %163 = load ptr, ptr %tm.addr, align 8
-  %spacing_x141 = getelementptr inbounds %struct.stbte_tilemap, ptr %163, i32 0, i32 5
-  %164 = load i32, ptr %spacing_x141, align 4
-  %165 = load i32, ptr %x120, align 4
-  %add142 = add nsw i32 %165, %164
+  %199 = load ptr, ptr %tm.addr, align 8
+  %spacing_x141 = getelementptr inbounds %struct.stbte_tilemap, ptr %199, i32 0, i32 5
+  %200 = load i32, ptr %spacing_x141, align 4
+  %201 = load i32, ptr %x120, align 4
+  %add142 = add nsw i32 %201, %200
   store i32 %add142, ptr %x120, align 4
   br label %for.cond132, !llvm.loop !76
 
@@ -13392,39 +13815,42 @@ for.end143:                                       ; preds = %land.end136
   br label %for.cond144
 
 for.cond144:                                      ; preds = %for.inc151, %for.end143
-  %166 = load i32, ptr %y126, align 4
-  %167 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %cmp145 = icmp slt i32 %166, %167
+  %202 = load i32, ptr %y126, align 4
+  %203 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %204 = load i32, ptr %203, align 8
+  %cmp145 = icmp slt i32 %202, %204
   br i1 %cmp145, label %land.rhs146, label %land.end148
 
 land.rhs146:                                      ; preds = %for.cond144
-  %168 = load i32, ptr %j, align 4
-  %169 = load i32, ptr %j1, align 4
-  %cmp147 = icmp sle i32 %168, %169
+  %205 = load i32, ptr %j, align 4
+  %206 = load i32, ptr %j1, align 4
+  %cmp147 = icmp sle i32 %205, %206
   br label %land.end148
 
 land.end148:                                      ; preds = %land.rhs146, %for.cond144
-  %170 = phi i1 [ false, %for.cond144 ], [ %cmp147, %land.rhs146 ]
-  br i1 %170, label %for.body149, label %for.end155
+  %207 = phi i1 [ false, %for.cond144 ], [ %cmp147, %land.rhs146 ]
+  br i1 %207, label %for.body149, label %for.end155
 
 for.body149:                                      ; preds = %land.end148
-  %171 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %172 = load i32, ptr %y126, align 4
-  %173 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %174 = load i32, ptr %y126, align 4
-  %add150 = add nsw i32 %174, 1
-  call void @stbte__draw_rect(i32 noundef %171, i32 noundef %172, i32 noundef %173, i32 noundef %add150, i32 noundef 4210752)
+  %208 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %209 = load i32, ptr %208, align 4
+  %210 = load i32, ptr %y126, align 4
+  %211 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %212 = load i32, ptr %211, align 4
+  %213 = load i32, ptr %y126, align 4
+  %add150 = add nsw i32 %213, 1
+  call void @stbte__draw_rect(i32 noundef %209, i32 noundef %210, i32 noundef %212, i32 noundef %add150, i32 noundef 4210752)
   br label %for.inc151
 
 for.inc151:                                       ; preds = %for.body149
-  %175 = load i32, ptr %j, align 4
-  %inc152 = add nsw i32 %175, 1
+  %214 = load i32, ptr %j, align 4
+  %inc152 = add nsw i32 %214, 1
   store i32 %inc152, ptr %j, align 4
-  %176 = load ptr, ptr %tm.addr, align 8
-  %spacing_y153 = getelementptr inbounds %struct.stbte_tilemap, ptr %176, i32 0, i32 6
-  %177 = load i32, ptr %spacing_y153, align 8
-  %178 = load i32, ptr %y126, align 4
-  %add154 = add nsw i32 %178, %177
+  %215 = load ptr, ptr %tm.addr, align 8
+  %spacing_y153 = getelementptr inbounds %struct.stbte_tilemap, ptr %215, i32 0, i32 6
+  %216 = load i32, ptr %spacing_y153, align 8
+  %217 = load i32, ptr %y126, align 4
+  %add154 = add nsw i32 %217, %216
   store i32 %add154, ptr %y126, align 4
   br label %for.cond144, !llvm.loop !77
 
@@ -13435,63 +13861,65 @@ if.end156:                                        ; preds = %for.end155, %if.the
   br label %if.end157
 
 if.end157:                                        ; preds = %if.end156, %if.end115
-  %179 = load i32, ptr %j0, align 4
-  store i32 %179, ptr %j, align 4
+  %218 = load i32, ptr %j0, align 4
+  store i32 %218, ptr %j, align 4
   br label %for.cond158
 
 for.cond158:                                      ; preds = %for.inc179, %if.end157
-  %180 = load i32, ptr %j, align 4
-  %181 = load i32, ptr %j1, align 4
-  %cmp159 = icmp slt i32 %180, %181
+  %219 = load i32, ptr %j, align 4
+  %220 = load i32, ptr %j1, align 4
+  %cmp159 = icmp slt i32 %219, %220
   br i1 %cmp159, label %for.body160, label %for.end181
 
 for.body160:                                      ; preds = %for.cond158
-  %182 = load i32, ptr %i0, align 4
-  store i32 %182, ptr %i, align 4
+  %221 = load i32, ptr %i0, align 4
+  store i32 %221, ptr %i, align 4
   br label %for.cond161
 
 for.cond161:                                      ; preds = %for.inc176, %for.body160
-  %183 = load i32, ptr %i, align 4
-  %184 = load i32, ptr %i1, align 4
-  %cmp162 = icmp slt i32 %183, %184
+  %222 = load i32, ptr %i, align 4
+  %223 = load i32, ptr %i1, align 4
+  %cmp162 = icmp slt i32 %222, %223
   br i1 %cmp162, label %for.body163, label %for.end178
 
 for.body163:                                      ; preds = %for.cond161
-  %185 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %186 = load i32, ptr %i, align 4
-  %187 = load ptr, ptr %tm.addr, align 8
-  %spacing_x165 = getelementptr inbounds %struct.stbte_tilemap, ptr %187, i32 0, i32 5
-  %188 = load i32, ptr %spacing_x165, align 4
-  %mul166 = mul nsw i32 %186, %188
-  %add167 = add nsw i32 %185, %mul166
-  %189 = load ptr, ptr %tm.addr, align 8
-  %scroll_x168 = getelementptr inbounds %struct.stbte_tilemap, ptr %189, i32 0, i32 9
-  %190 = load i32, ptr %scroll_x168, align 4
-  %sub169 = sub nsw i32 %add167, %190
+  %224 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %225 = load i32, ptr %224, align 4
+  %226 = load i32, ptr %i, align 4
+  %227 = load ptr, ptr %tm.addr, align 8
+  %spacing_x165 = getelementptr inbounds %struct.stbte_tilemap, ptr %227, i32 0, i32 5
+  %228 = load i32, ptr %spacing_x165, align 4
+  %mul166 = mul nsw i32 %226, %228
+  %add167 = add nsw i32 %225, %mul166
+  %229 = load ptr, ptr %tm.addr, align 8
+  %scroll_x168 = getelementptr inbounds %struct.stbte_tilemap, ptr %229, i32 0, i32 9
+  %230 = load i32, ptr %scroll_x168, align 4
+  %sub169 = sub nsw i32 %add167, %230
   store i32 %sub169, ptr %x164, align 4
-  %191 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %192 = load i32, ptr %j, align 4
-  %193 = load ptr, ptr %tm.addr, align 8
-  %spacing_y171 = getelementptr inbounds %struct.stbte_tilemap, ptr %193, i32 0, i32 6
-  %194 = load i32, ptr %spacing_y171, align 8
-  %mul172 = mul nsw i32 %192, %194
-  %add173 = add nsw i32 %191, %mul172
-  %195 = load ptr, ptr %tm.addr, align 8
-  %scroll_y174 = getelementptr inbounds %struct.stbte_tilemap, ptr %195, i32 0, i32 10
-  %196 = load i32, ptr %scroll_y174, align 8
-  %sub175 = sub nsw i32 %add173, %196
+  %231 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %232 = load i32, ptr %231, align 8
+  %233 = load i32, ptr %j, align 4
+  %234 = load ptr, ptr %tm.addr, align 8
+  %spacing_y171 = getelementptr inbounds %struct.stbte_tilemap, ptr %234, i32 0, i32 6
+  %235 = load i32, ptr %spacing_y171, align 8
+  %mul172 = mul nsw i32 %233, %235
+  %add173 = add nsw i32 %232, %mul172
+  %236 = load ptr, ptr %tm.addr, align 8
+  %scroll_y174 = getelementptr inbounds %struct.stbte_tilemap, ptr %236, i32 0, i32 10
+  %237 = load i32, ptr %scroll_y174, align 8
+  %sub175 = sub nsw i32 %add173, %237
   store i32 %sub175, ptr %y170, align 4
-  %197 = load ptr, ptr %tm.addr, align 8
-  %198 = load i32, ptr %x164, align 4
-  %199 = load i32, ptr %y170, align 4
-  %200 = load i32, ptr %i, align 4
-  %201 = load i32, ptr %j, align 4
-  call void @stbte__tile(ptr noundef %197, i32 noundef %198, i32 noundef %199, i32 noundef %200, i32 noundef %201)
+  %238 = load ptr, ptr %tm.addr, align 8
+  %239 = load i32, ptr %x164, align 4
+  %240 = load i32, ptr %y170, align 4
+  %241 = load i32, ptr %i, align 4
+  %242 = load i32, ptr %j, align 4
+  call void @stbte__tile(ptr noundef %238, i32 noundef %239, i32 noundef %240, i32 noundef %241, i32 noundef %242)
   br label %for.inc176
 
 for.inc176:                                       ; preds = %for.body163
-  %202 = load i32, ptr %i, align 4
-  %inc177 = add nsw i32 %202, 1
+  %243 = load i32, ptr %i, align 4
+  %inc177 = add nsw i32 %243, 1
   store i32 %inc177, ptr %i, align 4
   br label %for.cond161, !llvm.loop !78
 
@@ -13499,83 +13927,94 @@ for.end178:                                       ; preds = %for.cond161
   br label %for.inc179
 
 for.inc179:                                       ; preds = %for.end178
-  %203 = load i32, ptr %j, align 4
-  %inc180 = add nsw i32 %203, 1
+  %244 = load i32, ptr %j, align 4
+  %inc180 = add nsw i32 %244, 1
   store i32 %inc180, ptr %j, align 4
   br label %for.cond158, !llvm.loop !79
 
 for.end181:                                       ; preds = %for.cond158
-  %204 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp182 = icmp eq i32 %204, 0
+  %245 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %246 = load i32, ptr %245, align 4
+  %cmp182 = icmp eq i32 %246, 0
   br i1 %cmp182, label %if.then183, label %if.end211
 
 if.then183:                                       ; preds = %for.end181
-  %205 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44), align 8
-  %tobool = icmp ne i32 %205, 0
+  %247 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 44
+  %248 = load i32, ptr %247, align 8
+  %tobool = icmp ne i32 %248, 0
   br i1 %tobool, label %if.then184, label %if.end210
 
 if.then184:                                       ; preds = %if.then183
-  %206 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %207 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45), align 4
-  %208 = load ptr, ptr %tm.addr, align 8
-  %spacing_x185 = getelementptr inbounds %struct.stbte_tilemap, ptr %208, i32 0, i32 5
-  %209 = load i32, ptr %spacing_x185, align 4
-  %mul186 = mul nsw i32 %207, %209
-  %add187 = add nsw i32 %206, %mul186
-  %210 = load ptr, ptr %tm.addr, align 8
-  %scroll_x188 = getelementptr inbounds %struct.stbte_tilemap, ptr %210, i32 0, i32 9
-  %211 = load i32, ptr %scroll_x188, align 4
-  %sub189 = sub nsw i32 %add187, %211
+  %249 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %250 = load i32, ptr %249, align 4
+  %251 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 45
+  %252 = load i32, ptr %251, align 4
+  %253 = load ptr, ptr %tm.addr, align 8
+  %spacing_x185 = getelementptr inbounds %struct.stbte_tilemap, ptr %253, i32 0, i32 5
+  %254 = load i32, ptr %spacing_x185, align 4
+  %mul186 = mul nsw i32 %252, %254
+  %add187 = add nsw i32 %250, %mul186
+  %255 = load ptr, ptr %tm.addr, align 8
+  %scroll_x188 = getelementptr inbounds %struct.stbte_tilemap, ptr %255, i32 0, i32 9
+  %256 = load i32, ptr %scroll_x188, align 4
+  %sub189 = sub nsw i32 %add187, %256
   store i32 %sub189, ptr %x0, align 4
-  %212 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %213 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46), align 8
-  %214 = load ptr, ptr %tm.addr, align 8
-  %spacing_y190 = getelementptr inbounds %struct.stbte_tilemap, ptr %214, i32 0, i32 6
-  %215 = load i32, ptr %spacing_y190, align 8
-  %mul191 = mul nsw i32 %213, %215
-  %add192 = add nsw i32 %212, %mul191
-  %216 = load ptr, ptr %tm.addr, align 8
-  %scroll_y193 = getelementptr inbounds %struct.stbte_tilemap, ptr %216, i32 0, i32 10
-  %217 = load i32, ptr %scroll_y193, align 8
-  %sub194 = sub nsw i32 %add192, %217
+  %257 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %258 = load i32, ptr %257, align 8
+  %259 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 46
+  %260 = load i32, ptr %259, align 8
+  %261 = load ptr, ptr %tm.addr, align 8
+  %spacing_y190 = getelementptr inbounds %struct.stbte_tilemap, ptr %261, i32 0, i32 6
+  %262 = load i32, ptr %spacing_y190, align 8
+  %mul191 = mul nsw i32 %260, %262
+  %add192 = add nsw i32 %258, %mul191
+  %263 = load ptr, ptr %tm.addr, align 8
+  %scroll_y193 = getelementptr inbounds %struct.stbte_tilemap, ptr %263, i32 0, i32 10
+  %264 = load i32, ptr %scroll_y193, align 8
+  %sub194 = sub nsw i32 %add192, %264
   store i32 %sub194, ptr %y0, align 4
-  %218 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %219 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47), align 4
-  %add195 = add nsw i32 %219, 1
-  %220 = load ptr, ptr %tm.addr, align 8
-  %spacing_x196 = getelementptr inbounds %struct.stbte_tilemap, ptr %220, i32 0, i32 5
-  %221 = load i32, ptr %spacing_x196, align 4
-  %mul197 = mul nsw i32 %add195, %221
-  %add198 = add nsw i32 %218, %mul197
-  %222 = load ptr, ptr %tm.addr, align 8
-  %scroll_x199 = getelementptr inbounds %struct.stbte_tilemap, ptr %222, i32 0, i32 9
-  %223 = load i32, ptr %scroll_x199, align 4
-  %sub200 = sub nsw i32 %add198, %223
+  %265 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %266 = load i32, ptr %265, align 4
+  %267 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 47
+  %268 = load i32, ptr %267, align 4
+  %add195 = add nsw i32 %268, 1
+  %269 = load ptr, ptr %tm.addr, align 8
+  %spacing_x196 = getelementptr inbounds %struct.stbte_tilemap, ptr %269, i32 0, i32 5
+  %270 = load i32, ptr %spacing_x196, align 4
+  %mul197 = mul nsw i32 %add195, %270
+  %add198 = add nsw i32 %266, %mul197
+  %271 = load ptr, ptr %tm.addr, align 8
+  %scroll_x199 = getelementptr inbounds %struct.stbte_tilemap, ptr %271, i32 0, i32 9
+  %272 = load i32, ptr %scroll_x199, align 4
+  %sub200 = sub nsw i32 %add198, %272
   %add201 = add nsw i32 %sub200, 1
   store i32 %add201, ptr %x1, align 4
-  %224 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %225 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48), align 8
-  %add202 = add nsw i32 %225, 1
-  %226 = load ptr, ptr %tm.addr, align 8
-  %spacing_y203 = getelementptr inbounds %struct.stbte_tilemap, ptr %226, i32 0, i32 6
-  %227 = load i32, ptr %spacing_y203, align 8
-  %mul204 = mul nsw i32 %add202, %227
-  %add205 = add nsw i32 %224, %mul204
-  %228 = load ptr, ptr %tm.addr, align 8
-  %scroll_y206 = getelementptr inbounds %struct.stbte_tilemap, ptr %228, i32 0, i32 10
-  %229 = load i32, ptr %scroll_y206, align 8
-  %sub207 = sub nsw i32 %add205, %229
+  %273 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %274 = load i32, ptr %273, align 8
+  %275 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 48
+  %276 = load i32, ptr %275, align 8
+  %add202 = add nsw i32 %276, 1
+  %277 = load ptr, ptr %tm.addr, align 8
+  %spacing_y203 = getelementptr inbounds %struct.stbte_tilemap, ptr %277, i32 0, i32 6
+  %278 = load i32, ptr %spacing_y203, align 8
+  %mul204 = mul nsw i32 %add202, %278
+  %add205 = add nsw i32 %274, %mul204
+  %279 = load ptr, ptr %tm.addr, align 8
+  %scroll_y206 = getelementptr inbounds %struct.stbte_tilemap, ptr %279, i32 0, i32 10
+  %280 = load i32, ptr %scroll_y206, align 8
+  %sub207 = sub nsw i32 %add205, %280
   %add208 = add nsw i32 %sub207, 1
   store i32 %add208, ptr %y1, align 4
-  %230 = load i32, ptr %x0, align 4
-  %231 = load i32, ptr %y0, align 4
-  %232 = load i32, ptr %x1, align 4
-  %233 = load i32, ptr %y1, align 4
-  %234 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10), align 8
-  %and = and i32 %234, 256
+  %281 = load i32, ptr %x0, align 4
+  %282 = load i32, ptr %y0, align 4
+  %283 = load i32, ptr %x1, align 4
+  %284 = load i32, ptr %y1, align 4
+  %285 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10
+  %286 = load i32, ptr %285, align 8
+  %and = and i32 %286, 256
   %tobool209 = icmp ne i32 %and, 0
   %cond = select i1 %tobool209, i32 14671839, i32 3158064
-  call void @stbte__draw_frame(i32 noundef %230, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %cond)
+  call void @stbte__draw_frame(i32 noundef %281, i32 noundef %282, i32 noundef %283, i32 noundef %284, i32 noundef %cond)
   br label %if.end210
 
 if.end210:                                        ; preds = %if.then184, %if.then183
@@ -13588,72 +14027,74 @@ if.end211:                                        ; preds = %if.end210, %for.end
   br label %for.cond212
 
 for.cond212:                                      ; preds = %for.inc326, %if.end211
-  %235 = load i32, ptr %i, align 4
-  %cmp213 = icmp slt i32 %235, 7
+  %287 = load i32, ptr %i, align 4
+  %cmp213 = icmp slt i32 %287, 7
   br i1 %cmp213, label %for.body214, label %for.end328
 
 for.body214:                                      ; preds = %for.cond212
-  %236 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %236 to i64
-  %arrayidx = getelementptr inbounds [7 x %struct.stbte__panel], ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60), i64 0, i64 %idxprom
+  %288 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %288 to i64
+  %289 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60
+  %arrayidx = getelementptr inbounds [7 x %struct.stbte__panel], ptr %289, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %p, align 8
-  %237 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp215 = icmp eq i32 %237, 0
+  %290 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %291 = load i32, ptr %290, align 4
+  %cmp215 = icmp eq i32 %291, 0
   br i1 %cmp215, label %if.then216, label %if.end223
 
 if.then216:                                       ; preds = %for.body214
-  %238 = load ptr, ptr %p, align 8
-  %x0217 = getelementptr inbounds %struct.stbte__panel, ptr %238, i32 0, i32 6
-  %239 = load i32, ptr %x0217, align 4
-  %240 = load ptr, ptr %p, align 8
-  %y0218 = getelementptr inbounds %struct.stbte__panel, ptr %240, i32 0, i32 7
-  %241 = load i32, ptr %y0218, align 4
-  %242 = load ptr, ptr %p, align 8
-  %x0219 = getelementptr inbounds %struct.stbte__panel, ptr %242, i32 0, i32 6
-  %243 = load i32, ptr %x0219, align 4
-  %244 = load ptr, ptr %p, align 8
-  %width = getelementptr inbounds %struct.stbte__panel, ptr %244, i32 0, i32 4
-  %245 = load i32, ptr %width, align 4
-  %add220 = add nsw i32 %243, %245
-  %246 = load ptr, ptr %p, align 8
-  %y0221 = getelementptr inbounds %struct.stbte__panel, ptr %246, i32 0, i32 7
-  %247 = load i32, ptr %y0221, align 4
-  %248 = load ptr, ptr %p, align 8
-  %height = getelementptr inbounds %struct.stbte__panel, ptr %248, i32 0, i32 5
-  %249 = load i32, ptr %height, align 4
-  %add222 = add nsw i32 %247, %249
-  call void @stbte__draw_box(i32 noundef %239, i32 noundef %241, i32 noundef %add220, i32 noundef %add222, i32 noundef 3, i32 noundef 0)
+  %292 = load ptr, ptr %p, align 8
+  %x0217 = getelementptr inbounds %struct.stbte__panel, ptr %292, i32 0, i32 6
+  %293 = load i32, ptr %x0217, align 4
+  %294 = load ptr, ptr %p, align 8
+  %y0218 = getelementptr inbounds %struct.stbte__panel, ptr %294, i32 0, i32 7
+  %295 = load i32, ptr %y0218, align 4
+  %296 = load ptr, ptr %p, align 8
+  %x0219 = getelementptr inbounds %struct.stbte__panel, ptr %296, i32 0, i32 6
+  %297 = load i32, ptr %x0219, align 4
+  %298 = load ptr, ptr %p, align 8
+  %width = getelementptr inbounds %struct.stbte__panel, ptr %298, i32 0, i32 4
+  %299 = load i32, ptr %width, align 4
+  %add220 = add nsw i32 %297, %299
+  %300 = load ptr, ptr %p, align 8
+  %y0221 = getelementptr inbounds %struct.stbte__panel, ptr %300, i32 0, i32 7
+  %301 = load i32, ptr %y0221, align 4
+  %302 = load ptr, ptr %p, align 8
+  %height = getelementptr inbounds %struct.stbte__panel, ptr %302, i32 0, i32 5
+  %303 = load i32, ptr %height, align 4
+  %add222 = add nsw i32 %301, %303
+  call void @stbte__draw_box(i32 noundef %293, i32 noundef %295, i32 noundef %add220, i32 noundef %add222, i32 noundef 3, i32 noundef 0)
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then216, %for.body214
-  %250 = load ptr, ptr %p, align 8
-  %x0224 = getelementptr inbounds %struct.stbte__panel, ptr %250, i32 0, i32 6
-  %251 = load i32, ptr %x0224, align 4
-  %252 = load ptr, ptr %p, align 8
-  %y0225 = getelementptr inbounds %struct.stbte__panel, ptr %252, i32 0, i32 7
-  %253 = load i32, ptr %y0225, align 4
-  %254 = load ptr, ptr %p, align 8
-  %x0226 = getelementptr inbounds %struct.stbte__panel, ptr %254, i32 0, i32 6
-  %255 = load i32, ptr %x0226, align 4
-  %256 = load ptr, ptr %p, align 8
-  %width227 = getelementptr inbounds %struct.stbte__panel, ptr %256, i32 0, i32 4
-  %257 = load i32, ptr %width227, align 4
-  %add228 = add nsw i32 %255, %257
-  %258 = load ptr, ptr %p, align 8
-  %y0229 = getelementptr inbounds %struct.stbte__panel, ptr %258, i32 0, i32 7
-  %259 = load i32, ptr %y0229, align 4
-  %260 = load ptr, ptr %p, align 8
-  %height230 = getelementptr inbounds %struct.stbte__panel, ptr %260, i32 0, i32 5
-  %261 = load i32, ptr %height230, align 4
-  %add231 = add nsw i32 %259, %261
-  %262 = load i32, ptr %i, align 4
-  %shl = shl i32 %262, 12
+  %304 = load ptr, ptr %p, align 8
+  %x0224 = getelementptr inbounds %struct.stbte__panel, ptr %304, i32 0, i32 6
+  %305 = load i32, ptr %x0224, align 4
+  %306 = load ptr, ptr %p, align 8
+  %y0225 = getelementptr inbounds %struct.stbte__panel, ptr %306, i32 0, i32 7
+  %307 = load i32, ptr %y0225, align 4
+  %308 = load ptr, ptr %p, align 8
+  %x0226 = getelementptr inbounds %struct.stbte__panel, ptr %308, i32 0, i32 6
+  %309 = load i32, ptr %x0226, align 4
+  %310 = load ptr, ptr %p, align 8
+  %width227 = getelementptr inbounds %struct.stbte__panel, ptr %310, i32 0, i32 4
+  %311 = load i32, ptr %width227, align 4
+  %add228 = add nsw i32 %309, %311
+  %312 = load ptr, ptr %p, align 8
+  %y0229 = getelementptr inbounds %struct.stbte__panel, ptr %312, i32 0, i32 7
+  %313 = load i32, ptr %y0229, align 4
+  %314 = load ptr, ptr %p, align 8
+  %height230 = getelementptr inbounds %struct.stbte__panel, ptr %314, i32 0, i32 5
+  %315 = load i32, ptr %height230, align 4
+  %add231 = add nsw i32 %313, %315
+  %316 = load i32, ptr %i, align 4
+  %shl = shl i32 %316, 12
   %add232 = add nsw i32 %shl, 0
   %shl233 = shl i32 %add232, 7
   %add234 = add nsw i32 3, %shl233
-  %call = call i32 @stbte__hittest(i32 noundef %251, i32 noundef %253, i32 noundef %add228, i32 noundef %add231, i32 noundef %add234)
-  %263 = load i32, ptr %i, align 4
-  switch i32 %263, label %sw.epilog [
+  %call = call i32 @stbte__hittest(i32 noundef %305, i32 noundef %307, i32 noundef %add228, i32 noundef %add231, i32 noundef %add234)
+  %317 = load i32, ptr %i, align 4
+  switch i32 %317, label %sw.epilog [
     i32 0, label %sw.bb
     i32 2, label %sw.bb250
     i32 3, label %sw.bb255
@@ -13664,176 +14105,181 @@ if.end223:                                        ; preds = %if.then216, %for.bo
   ]
 
 sw.bb:                                            ; preds = %if.end223
-  %264 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp235 = icmp eq i32 %264, 0
+  %318 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %319 = load i32, ptr %318, align 4
+  %cmp235 = icmp eq i32 %319, 0
   br i1 %cmp235, label %if.then236, label %if.end245
 
 if.then236:                                       ; preds = %sw.bb
-  %265 = load ptr, ptr %p, align 8
-  %x0237 = getelementptr inbounds %struct.stbte__panel, ptr %265, i32 0, i32 6
-  %266 = load i32, ptr %x0237, align 4
-  %267 = load ptr, ptr %p, align 8
-  %y0238 = getelementptr inbounds %struct.stbte__panel, ptr %267, i32 0, i32 7
-  %268 = load i32, ptr %y0238, align 4
-  %269 = load ptr, ptr %p, align 8
-  %x0239 = getelementptr inbounds %struct.stbte__panel, ptr %269, i32 0, i32 6
-  %270 = load i32, ptr %x0239, align 4
-  %271 = load ptr, ptr %p, align 8
-  %width240 = getelementptr inbounds %struct.stbte__panel, ptr %271, i32 0, i32 4
-  %272 = load i32, ptr %width240, align 4
-  %add241 = add nsw i32 %270, %272
-  %273 = load ptr, ptr %p, align 8
-  %y0242 = getelementptr inbounds %struct.stbte__panel, ptr %273, i32 0, i32 7
-  %274 = load i32, ptr %y0242, align 4
-  %275 = load ptr, ptr %p, align 8
-  %height243 = getelementptr inbounds %struct.stbte__panel, ptr %275, i32 0, i32 5
-  %276 = load i32, ptr %height243, align 4
-  %add244 = add nsw i32 %274, %276
-  %277 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 1), align 4
-  call void @stbte__draw_rect(i32 noundef %266, i32 noundef %268, i32 noundef %add241, i32 noundef %add244, i32 noundef %277)
+  %320 = load ptr, ptr %p, align 8
+  %x0237 = getelementptr inbounds %struct.stbte__panel, ptr %320, i32 0, i32 6
+  %321 = load i32, ptr %x0237, align 4
+  %322 = load ptr, ptr %p, align 8
+  %y0238 = getelementptr inbounds %struct.stbte__panel, ptr %322, i32 0, i32 7
+  %323 = load i32, ptr %y0238, align 4
+  %324 = load ptr, ptr %p, align 8
+  %x0239 = getelementptr inbounds %struct.stbte__panel, ptr %324, i32 0, i32 6
+  %325 = load i32, ptr %x0239, align 4
+  %326 = load ptr, ptr %p, align 8
+  %width240 = getelementptr inbounds %struct.stbte__panel, ptr %326, i32 0, i32 4
+  %327 = load i32, ptr %width240, align 4
+  %add241 = add nsw i32 %325, %327
+  %328 = load ptr, ptr %p, align 8
+  %y0242 = getelementptr inbounds %struct.stbte__panel, ptr %328, i32 0, i32 7
+  %329 = load i32, ptr %y0242, align 4
+  %330 = load ptr, ptr %p, align 8
+  %height243 = getelementptr inbounds %struct.stbte__panel, ptr %330, i32 0, i32 5
+  %331 = load i32, ptr %height243, align 4
+  %add244 = add nsw i32 %329, %331
+  %332 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 1
+  %333 = load i32, ptr %332, align 4
+  call void @stbte__draw_rect(i32 noundef %321, i32 noundef %323, i32 noundef %add241, i32 noundef %add244, i32 noundef %333)
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then236, %sw.bb
-  %278 = load ptr, ptr %tm.addr, align 8
-  %279 = load ptr, ptr %p, align 8
-  %x0246 = getelementptr inbounds %struct.stbte__panel, ptr %279, i32 0, i32 6
-  %280 = load i32, ptr %x0246, align 4
-  %281 = load ptr, ptr %p, align 8
-  %y0247 = getelementptr inbounds %struct.stbte__panel, ptr %281, i32 0, i32 7
-  %282 = load i32, ptr %y0247, align 4
-  %283 = load ptr, ptr %p, align 8
-  %width248 = getelementptr inbounds %struct.stbte__panel, ptr %283, i32 0, i32 4
-  %284 = load i32, ptr %width248, align 4
-  %285 = load ptr, ptr %p, align 8
-  %height249 = getelementptr inbounds %struct.stbte__panel, ptr %285, i32 0, i32 5
-  %286 = load i32, ptr %height249, align 4
-  call void @stbte__toolbar(ptr noundef %278, i32 noundef %280, i32 noundef %282, i32 noundef %284, i32 noundef %286)
+  %334 = load ptr, ptr %tm.addr, align 8
+  %335 = load ptr, ptr %p, align 8
+  %x0246 = getelementptr inbounds %struct.stbte__panel, ptr %335, i32 0, i32 6
+  %336 = load i32, ptr %x0246, align 4
+  %337 = load ptr, ptr %p, align 8
+  %y0247 = getelementptr inbounds %struct.stbte__panel, ptr %337, i32 0, i32 7
+  %338 = load i32, ptr %y0247, align 4
+  %339 = load ptr, ptr %p, align 8
+  %width248 = getelementptr inbounds %struct.stbte__panel, ptr %339, i32 0, i32 4
+  %340 = load i32, ptr %width248, align 4
+  %341 = load ptr, ptr %p, align 8
+  %height249 = getelementptr inbounds %struct.stbte__panel, ptr %341, i32 0, i32 5
+  %342 = load i32, ptr %height249, align 4
+  call void @stbte__toolbar(ptr noundef %334, i32 noundef %336, i32 noundef %338, i32 noundef %340, i32 noundef %342)
   br label %sw.epilog
 
 sw.bb250:                                         ; preds = %if.end223
-  %287 = load ptr, ptr %tm.addr, align 8
-  %288 = load ptr, ptr %p, align 8
-  %x0251 = getelementptr inbounds %struct.stbte__panel, ptr %288, i32 0, i32 6
-  %289 = load i32, ptr %x0251, align 4
-  %290 = load ptr, ptr %p, align 8
-  %y0252 = getelementptr inbounds %struct.stbte__panel, ptr %290, i32 0, i32 7
-  %291 = load i32, ptr %y0252, align 4
-  %292 = load ptr, ptr %p, align 8
-  %width253 = getelementptr inbounds %struct.stbte__panel, ptr %292, i32 0, i32 4
-  %293 = load i32, ptr %width253, align 4
-  %294 = load ptr, ptr %p, align 8
-  %height254 = getelementptr inbounds %struct.stbte__panel, ptr %294, i32 0, i32 5
-  %295 = load i32, ptr %height254, align 4
-  call void @stbte__info(ptr noundef %287, i32 noundef %289, i32 noundef %291, i32 noundef %293, i32 noundef %295)
+  %343 = load ptr, ptr %tm.addr, align 8
+  %344 = load ptr, ptr %p, align 8
+  %x0251 = getelementptr inbounds %struct.stbte__panel, ptr %344, i32 0, i32 6
+  %345 = load i32, ptr %x0251, align 4
+  %346 = load ptr, ptr %p, align 8
+  %y0252 = getelementptr inbounds %struct.stbte__panel, ptr %346, i32 0, i32 7
+  %347 = load i32, ptr %y0252, align 4
+  %348 = load ptr, ptr %p, align 8
+  %width253 = getelementptr inbounds %struct.stbte__panel, ptr %348, i32 0, i32 4
+  %349 = load i32, ptr %width253, align 4
+  %350 = load ptr, ptr %p, align 8
+  %height254 = getelementptr inbounds %struct.stbte__panel, ptr %350, i32 0, i32 5
+  %351 = load i32, ptr %height254, align 4
+  call void @stbte__info(ptr noundef %343, i32 noundef %345, i32 noundef %347, i32 noundef %349, i32 noundef %351)
   br label %sw.epilog
 
 sw.bb255:                                         ; preds = %if.end223
-  %296 = load ptr, ptr %tm.addr, align 8
-  %297 = load ptr, ptr %p, align 8
-  %x0256 = getelementptr inbounds %struct.stbte__panel, ptr %297, i32 0, i32 6
-  %298 = load i32, ptr %x0256, align 4
-  %299 = load ptr, ptr %p, align 8
-  %y0257 = getelementptr inbounds %struct.stbte__panel, ptr %299, i32 0, i32 7
-  %300 = load i32, ptr %y0257, align 4
-  %301 = load ptr, ptr %p, align 8
-  %width258 = getelementptr inbounds %struct.stbte__panel, ptr %301, i32 0, i32 4
-  %302 = load i32, ptr %width258, align 4
-  %303 = load ptr, ptr %p, align 8
-  %height259 = getelementptr inbounds %struct.stbte__panel, ptr %303, i32 0, i32 5
-  %304 = load i32, ptr %height259, align 4
-  call void @stbte__layers(ptr noundef %296, i32 noundef %298, i32 noundef %300, i32 noundef %302, i32 noundef %304)
+  %352 = load ptr, ptr %tm.addr, align 8
+  %353 = load ptr, ptr %p, align 8
+  %x0256 = getelementptr inbounds %struct.stbte__panel, ptr %353, i32 0, i32 6
+  %354 = load i32, ptr %x0256, align 4
+  %355 = load ptr, ptr %p, align 8
+  %y0257 = getelementptr inbounds %struct.stbte__panel, ptr %355, i32 0, i32 7
+  %356 = load i32, ptr %y0257, align 4
+  %357 = load ptr, ptr %p, align 8
+  %width258 = getelementptr inbounds %struct.stbte__panel, ptr %357, i32 0, i32 4
+  %358 = load i32, ptr %width258, align 4
+  %359 = load ptr, ptr %p, align 8
+  %height259 = getelementptr inbounds %struct.stbte__panel, ptr %359, i32 0, i32 5
+  %360 = load i32, ptr %height259, align 4
+  call void @stbte__layers(ptr noundef %352, i32 noundef %354, i32 noundef %356, i32 noundef %358, i32 noundef %360)
   br label %sw.epilog
 
 sw.bb260:                                         ; preds = %if.end223
-  %305 = load ptr, ptr %tm.addr, align 8
-  %306 = load ptr, ptr %p, align 8
-  %x0261 = getelementptr inbounds %struct.stbte__panel, ptr %306, i32 0, i32 6
-  %307 = load i32, ptr %x0261, align 4
-  %308 = load ptr, ptr %p, align 8
-  %y0262 = getelementptr inbounds %struct.stbte__panel, ptr %308, i32 0, i32 7
-  %309 = load i32, ptr %y0262, align 4
-  %310 = load ptr, ptr %p, align 8
-  %width263 = getelementptr inbounds %struct.stbte__panel, ptr %310, i32 0, i32 4
-  %311 = load i32, ptr %width263, align 4
-  %312 = load ptr, ptr %p, align 8
-  %height264 = getelementptr inbounds %struct.stbte__panel, ptr %312, i32 0, i32 5
-  %313 = load i32, ptr %height264, align 4
-  call void @stbte__categories(ptr noundef %305, i32 noundef %307, i32 noundef %309, i32 noundef %311, i32 noundef %313)
+  %361 = load ptr, ptr %tm.addr, align 8
+  %362 = load ptr, ptr %p, align 8
+  %x0261 = getelementptr inbounds %struct.stbte__panel, ptr %362, i32 0, i32 6
+  %363 = load i32, ptr %x0261, align 4
+  %364 = load ptr, ptr %p, align 8
+  %y0262 = getelementptr inbounds %struct.stbte__panel, ptr %364, i32 0, i32 7
+  %365 = load i32, ptr %y0262, align 4
+  %366 = load ptr, ptr %p, align 8
+  %width263 = getelementptr inbounds %struct.stbte__panel, ptr %366, i32 0, i32 4
+  %367 = load i32, ptr %width263, align 4
+  %368 = load ptr, ptr %p, align 8
+  %height264 = getelementptr inbounds %struct.stbte__panel, ptr %368, i32 0, i32 5
+  %369 = load i32, ptr %height264, align 4
+  call void @stbte__categories(ptr noundef %361, i32 noundef %363, i32 noundef %365, i32 noundef %367, i32 noundef %369)
   br label %sw.epilog
 
 sw.bb265:                                         ; preds = %if.end223
   br label %sw.epilog
 
 sw.bb266:                                         ; preds = %if.end223
-  %314 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp267 = icmp eq i32 %314, 0
+  %370 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %371 = load i32, ptr %370, align 4
+  %cmp267 = icmp eq i32 %371, 0
   br i1 %cmp267, label %land.lhs.true268, label %if.end281
 
 land.lhs.true268:                                 ; preds = %sw.bb266
-  %315 = load ptr, ptr %p, align 8
-  %side = getelementptr inbounds %struct.stbte__panel, ptr %315, i32 0, i32 3
-  %316 = load i32, ptr %side, align 4
-  %317 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3), align 4
-  %cmp269 = icmp eq i32 %316, %317
+  %372 = load ptr, ptr %p, align 8
+  %side = getelementptr inbounds %struct.stbte__panel, ptr %372, i32 0, i32 3
+  %373 = load i32, ptr %side, align 4
+  %374 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 3
+  %375 = load i32, ptr %374, align 4
+  %cmp269 = icmp eq i32 %373, %375
   br i1 %cmp269, label %if.then270, label %if.end281
 
 if.then270:                                       ; preds = %land.lhs.true268
-  %318 = load ptr, ptr %p, align 8
-  %x0271 = getelementptr inbounds %struct.stbte__panel, ptr %318, i32 0, i32 6
-  %319 = load i32, ptr %x0271, align 4
-  %add272 = add nsw i32 %319, 1
-  %320 = load ptr, ptr %p, align 8
-  %y0273 = getelementptr inbounds %struct.stbte__panel, ptr %320, i32 0, i32 7
-  %321 = load i32, ptr %y0273, align 4
-  %sub274 = sub nsw i32 %321, 1
-  %322 = load ptr, ptr %p, align 8
-  %x0275 = getelementptr inbounds %struct.stbte__panel, ptr %322, i32 0, i32 6
-  %323 = load i32, ptr %x0275, align 4
-  %324 = load ptr, ptr %p, align 8
-  %width276 = getelementptr inbounds %struct.stbte__panel, ptr %324, i32 0, i32 4
-  %325 = load i32, ptr %width276, align 4
-  %add277 = add nsw i32 %323, %325
+  %376 = load ptr, ptr %p, align 8
+  %x0271 = getelementptr inbounds %struct.stbte__panel, ptr %376, i32 0, i32 6
+  %377 = load i32, ptr %x0271, align 4
+  %add272 = add nsw i32 %377, 1
+  %378 = load ptr, ptr %p, align 8
+  %y0273 = getelementptr inbounds %struct.stbte__panel, ptr %378, i32 0, i32 7
+  %379 = load i32, ptr %y0273, align 4
+  %sub274 = sub nsw i32 %379, 1
+  %380 = load ptr, ptr %p, align 8
+  %x0275 = getelementptr inbounds %struct.stbte__panel, ptr %380, i32 0, i32 6
+  %381 = load i32, ptr %x0275, align 4
+  %382 = load ptr, ptr %p, align 8
+  %width276 = getelementptr inbounds %struct.stbte__panel, ptr %382, i32 0, i32 4
+  %383 = load i32, ptr %width276, align 4
+  %add277 = add nsw i32 %381, %383
   %sub278 = sub nsw i32 %add277, 1
-  %326 = load ptr, ptr %p, align 8
-  %y0279 = getelementptr inbounds %struct.stbte__panel, ptr %326, i32 0, i32 7
-  %327 = load i32, ptr %y0279, align 4
-  %add280 = add nsw i32 %327, 1
-  %328 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3), align 4
-  call void @stbte__draw_rect(i32 noundef %add272, i32 noundef %sub274, i32 noundef %sub278, i32 noundef %add280, i32 noundef %328)
+  %384 = load ptr, ptr %p, align 8
+  %y0279 = getelementptr inbounds %struct.stbte__panel, ptr %384, i32 0, i32 7
+  %385 = load i32, ptr %y0279, align 4
+  %add280 = add nsw i32 %385, 1
+  %386 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3
+  %387 = load i32, ptr %386, align 4
+  call void @stbte__draw_rect(i32 noundef %add272, i32 noundef %sub274, i32 noundef %sub278, i32 noundef %add280, i32 noundef %387)
   br label %if.end281
 
 if.end281:                                        ; preds = %if.then270, %land.lhs.true268, %sw.bb266
-  %329 = load ptr, ptr %tm.addr, align 8
-  %330 = load ptr, ptr %p, align 8
-  %x0282 = getelementptr inbounds %struct.stbte__panel, ptr %330, i32 0, i32 6
-  %331 = load i32, ptr %x0282, align 4
-  %332 = load ptr, ptr %p, align 8
-  %y0283 = getelementptr inbounds %struct.stbte__panel, ptr %332, i32 0, i32 7
-  %333 = load i32, ptr %y0283, align 4
-  %334 = load ptr, ptr %p, align 8
-  %width284 = getelementptr inbounds %struct.stbte__panel, ptr %334, i32 0, i32 4
-  %335 = load i32, ptr %width284, align 4
-  %336 = load ptr, ptr %p, align 8
-  %height285 = getelementptr inbounds %struct.stbte__panel, ptr %336, i32 0, i32 5
-  %337 = load i32, ptr %height285, align 4
-  call void @stbte__palette_of_tiles(ptr noundef %329, i32 noundef %331, i32 noundef %333, i32 noundef %335, i32 noundef %337)
+  %388 = load ptr, ptr %tm.addr, align 8
+  %389 = load ptr, ptr %p, align 8
+  %x0282 = getelementptr inbounds %struct.stbte__panel, ptr %389, i32 0, i32 6
+  %390 = load i32, ptr %x0282, align 4
+  %391 = load ptr, ptr %p, align 8
+  %y0283 = getelementptr inbounds %struct.stbte__panel, ptr %391, i32 0, i32 7
+  %392 = load i32, ptr %y0283, align 4
+  %393 = load ptr, ptr %p, align 8
+  %width284 = getelementptr inbounds %struct.stbte__panel, ptr %393, i32 0, i32 4
+  %394 = load i32, ptr %width284, align 4
+  %395 = load ptr, ptr %p, align 8
+  %height285 = getelementptr inbounds %struct.stbte__panel, ptr %395, i32 0, i32 5
+  %396 = load i32, ptr %height285, align 4
+  call void @stbte__palette_of_tiles(ptr noundef %388, i32 noundef %390, i32 noundef %392, i32 noundef %394, i32 noundef %396)
   br label %sw.epilog
 
 sw.bb286:                                         ; preds = %if.end223
-  %338 = load ptr, ptr %tm.addr, align 8
-  %339 = load ptr, ptr %p, align 8
-  %x0287 = getelementptr inbounds %struct.stbte__panel, ptr %339, i32 0, i32 6
-  %340 = load i32, ptr %x0287, align 4
-  %341 = load ptr, ptr %p, align 8
-  %y0288 = getelementptr inbounds %struct.stbte__panel, ptr %341, i32 0, i32 7
-  %342 = load i32, ptr %y0288, align 4
-  %343 = load ptr, ptr %p, align 8
-  %width289 = getelementptr inbounds %struct.stbte__panel, ptr %343, i32 0, i32 4
-  %344 = load i32, ptr %width289, align 4
-  %345 = load ptr, ptr %p, align 8
-  %height290 = getelementptr inbounds %struct.stbte__panel, ptr %345, i32 0, i32 5
-  %346 = load i32, ptr %height290, align 4
-  call void @stbte__props_panel(ptr noundef %338, i32 noundef %340, i32 noundef %342, i32 noundef %344, i32 noundef %346)
+  %397 = load ptr, ptr %tm.addr, align 8
+  %398 = load ptr, ptr %p, align 8
+  %x0287 = getelementptr inbounds %struct.stbte__panel, ptr %398, i32 0, i32 6
+  %399 = load i32, ptr %x0287, align 4
+  %400 = load ptr, ptr %p, align 8
+  %y0288 = getelementptr inbounds %struct.stbte__panel, ptr %400, i32 0, i32 7
+  %401 = load i32, ptr %y0288, align 4
+  %402 = load ptr, ptr %p, align 8
+  %width289 = getelementptr inbounds %struct.stbte__panel, ptr %402, i32 0, i32 4
+  %403 = load i32, ptr %width289, align 4
+  %404 = load ptr, ptr %p, align 8
+  %height290 = getelementptr inbounds %struct.stbte__panel, ptr %404, i32 0, i32 5
+  %405 = load i32, ptr %height290, align 4
+  call void @stbte__props_panel(ptr noundef %397, i32 noundef %399, i32 noundef %401, i32 noundef %403, i32 noundef %405)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb286, %if.end281, %sw.bb265, %sw.bb260, %sw.bb255, %sw.bb250, %if.end245, %if.end223
@@ -13841,72 +14287,72 @@ sw.epilog:                                        ; preds = %sw.bb286, %if.end28
   br label %for.cond291
 
 for.cond291:                                      ; preds = %for.inc323, %sw.epilog
-  %347 = load i32, ptr %j, align 4
-  %cmp292 = icmp slt i32 %347, 2
+  %406 = load i32, ptr %j, align 4
+  %cmp292 = icmp slt i32 %406, 2
   br i1 %cmp292, label %for.body293, label %for.end325
 
 for.body293:                                      ; preds = %for.cond291
-  %348 = load i32, ptr %i, align 4
-  %cmp294 = icmp eq i32 %348, 0
+  %407 = load i32, ptr %i, align 4
+  %cmp294 = icmp eq i32 %407, 0
   br i1 %cmp294, label %if.then295, label %if.end296
 
 if.then295:                                       ; preds = %for.body293
   br label %for.inc323
 
 if.end296:                                        ; preds = %for.body293
-  %349 = load ptr, ptr %p, align 8
-  %x0297 = getelementptr inbounds %struct.stbte__panel, ptr %349, i32 0, i32 6
-  %350 = load i32, ptr %x0297, align 4
-  %351 = load ptr, ptr %p, align 8
-  %width298 = getelementptr inbounds %struct.stbte__panel, ptr %351, i32 0, i32 4
-  %352 = load i32, ptr %width298, align 4
-  %add299 = add nsw i32 %350, %352
+  %408 = load ptr, ptr %p, align 8
+  %x0297 = getelementptr inbounds %struct.stbte__panel, ptr %408, i32 0, i32 6
+  %409 = load i32, ptr %x0297, align 4
+  %410 = load ptr, ptr %p, align 8
+  %width298 = getelementptr inbounds %struct.stbte__panel, ptr %410, i32 0, i32 4
+  %411 = load i32, ptr %width298, align 4
+  %add299 = add nsw i32 %409, %411
   %sub300 = sub nsw i32 %add299, 1
   %sub301 = sub nsw i32 %sub300, 8
-  %353 = load i32, ptr %j, align 4
-  %mul302 = mul nsw i32 4, %353
+  %412 = load i32, ptr %j, align 4
+  %mul302 = mul nsw i32 4, %412
   %add303 = add nsw i32 %sub301, %mul302
-  %354 = load ptr, ptr %p, align 8
-  %y0304 = getelementptr inbounds %struct.stbte__panel, ptr %354, i32 0, i32 7
-  %355 = load i32, ptr %y0304, align 4
-  %add305 = add nsw i32 %355, 2
-  %356 = load i32, ptr %i, align 4
-  %shl306 = shl i32 %356, 12
-  %357 = load i32, ptr %j, align 4
-  %add307 = add nsw i32 %357, 1
+  %413 = load ptr, ptr %p, align 8
+  %y0304 = getelementptr inbounds %struct.stbte__panel, ptr %413, i32 0, i32 7
+  %414 = load i32, ptr %y0304, align 4
+  %add305 = add nsw i32 %414, 2
+  %415 = load i32, ptr %i, align 4
+  %shl306 = shl i32 %415, 12
+  %416 = load i32, ptr %j, align 4
+  %add307 = add nsw i32 %416, 1
   %add308 = add nsw i32 %shl306, %add307
   %shl309 = shl i32 %add308, 7
   %add310 = add nsw i32 3, %shl309
-  %358 = load i32, ptr %j, align 4
-  %add311 = add nsw i32 4, %358
+  %417 = load i32, ptr %j, align 4
+  %add311 = add nsw i32 4, %417
   %call312 = call i32 @stbte__microbutton(i32 noundef %add303, i32 noundef %add305, i32 noundef 3, i32 noundef %add310, i32 noundef %add311)
   store i32 %call312, ptr %result, align 4
-  %359 = load i32, ptr %result, align 4
-  %tobool313 = icmp ne i32 %359, 0
+  %418 = load i32, ptr %result, align 4
+  %tobool313 = icmp ne i32 %418, 0
   br i1 %tobool313, label %if.then314, label %if.end322
 
 if.then314:                                       ; preds = %if.end296
-  %360 = load i32, ptr %j, align 4
-  switch i32 %360, label %sw.epilog321 [
+  %419 = load i32, ptr %j, align 4
+  switch i32 %419, label %sw.epilog321 [
     i32 0, label %sw.bb315
     i32 1, label %sw.bb319
   ]
 
 sw.bb315:                                         ; preds = %if.then314
-  %361 = load i32, ptr %result, align 4
-  %cmp316 = icmp sgt i32 %361, 0
+  %420 = load i32, ptr %result, align 4
+  %cmp316 = icmp sgt i32 %420, 0
   %cond317 = select i1 %cmp316, i32 0, i32 1
-  %362 = load ptr, ptr %p, align 8
-  %side318 = getelementptr inbounds %struct.stbte__panel, ptr %362, i32 0, i32 3
+  %421 = load ptr, ptr %p, align 8
+  %side318 = getelementptr inbounds %struct.stbte__panel, ptr %421, i32 0, i32 3
   store i32 %cond317, ptr %side318, align 4
   br label %sw.epilog321
 
 sw.bb319:                                         ; preds = %if.then314
-  %363 = load i32, ptr %result, align 4
-  %364 = load ptr, ptr %p, align 8
-  %delta_height = getelementptr inbounds %struct.stbte__panel, ptr %364, i32 0, i32 2
-  %365 = load i32, ptr %delta_height, align 4
-  %add320 = add nsw i32 %365, %363
+  %422 = load i32, ptr %result, align 4
+  %423 = load ptr, ptr %p, align 8
+  %delta_height = getelementptr inbounds %struct.stbte__panel, ptr %423, i32 0, i32 2
+  %424 = load i32, ptr %delta_height, align 4
+  %add320 = add nsw i32 %424, %422
   store i32 %add320, ptr %delta_height, align 4
   br label %sw.epilog321
 
@@ -13917,8 +14363,8 @@ if.end322:                                        ; preds = %sw.epilog321, %if.e
   br label %for.inc323
 
 for.inc323:                                       ; preds = %if.end322, %if.then295
-  %366 = load i32, ptr %j, align 4
-  %inc324 = add nsw i32 %366, 1
+  %425 = load i32, ptr %j, align 4
+  %inc324 = add nsw i32 %425, 1
   store i32 %inc324, ptr %j, align 4
   br label %for.cond291, !llvm.loop !80
 
@@ -13926,27 +14372,31 @@ for.end325:                                       ; preds = %for.cond291
   br label %for.inc326
 
 for.inc326:                                       ; preds = %for.end325
-  %367 = load i32, ptr %i, align 4
-  %inc327 = add nsw i32 %367, 1
+  %426 = load i32, ptr %i, align 4
+  %inc327 = add nsw i32 %426, 1
   store i32 %inc327, ptr %i, align 4
   br label %for.cond212, !llvm.loop !81
 
 for.end328:                                       ; preds = %for.cond212
-  %368 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2), align 4
-  %cmp329 = icmp slt i32 %368, -5
+  %427 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2
+  %428 = load i32, ptr %427, align 4
+  %cmp329 = icmp slt i32 %428, -5
   br i1 %cmp329, label %if.then330, label %if.end331
 
 if.then330:                                       ; preds = %for.end328
-  store i32 -5, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2), align 4
+  %429 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 5, i32 2
+  store i32 -5, ptr %429, align 4
   br label %if.end331
 
 if.end331:                                        ; preds = %if.then330, %for.end328
-  %369 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2), align 4
-  %cmp332 = icmp slt i32 %369, -5
+  %430 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2
+  %431 = load i32, ptr %430, align 4
+  %cmp332 = icmp slt i32 %431, -5
   br i1 %cmp332, label %if.then333, label %if.end334
 
 if.then333:                                       ; preds = %if.end331
-  store i32 -5, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2), align 4
+  %432 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 60, i64 3, i32 2
+  store i32 -5, ptr %432, align 4
   br label %if.end334
 
 if.end334:                                        ; preds = %if.then333, %if.end331
@@ -13954,89 +14404,91 @@ if.end334:                                        ; preds = %if.then333, %if.end
   br label %for.cond335
 
 for.cond335:                                      ; preds = %for.inc417, %if.end334
-  %370 = load i32, ptr %i, align 4
-  %cmp336 = icmp slt i32 %370, 2
+  %433 = load i32, ptr %i, align 4
+  %cmp336 = icmp slt i32 %433, 2
   br i1 %cmp336, label %for.body337, label %for.end419
 
 for.body337:                                      ; preds = %for.cond335
-  %371 = load i32, ptr %i, align 4
-  %idxprom338 = sext i32 %371 to i64
+  %434 = load i32, ptr %i, align 4
+  %idxprom338 = sext i32 %434 to i64
   %arrayidx339 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom338
   %active = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx339, i32 0, i32 4
-  %372 = load i32, ptr %active, align 8
-  %tobool340 = icmp ne i32 %372, 0
+  %435 = load i32, ptr %active, align 8
+  %tobool340 = icmp ne i32 %435, 0
   br i1 %tobool340, label %if.then341, label %if.end416
 
 if.then341:                                       ; preds = %for.body337
-  %373 = load i32, ptr %i, align 4
-  %idxprom343 = sext i32 %373 to i64
+  %436 = load i32, ptr %i, align 4
+  %idxprom343 = sext i32 %436 to i64
   %arrayidx344 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom343
   %x345 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx344, i32 0, i32 2
-  %374 = load i32, ptr %x345, align 8
-  store i32 %374, ptr %x342, align 4
-  %375 = load i32, ptr %i, align 4
-  %cmp347 = icmp eq i32 %375, 0
+  %437 = load i32, ptr %x345, align 8
+  store i32 %437, ptr %x342, align 4
+  %438 = load i32, ptr %i, align 4
+  %cmp347 = icmp eq i32 %438, 0
   br i1 %cmp347, label %if.then348, label %if.else
 
 if.then348:                                       ; preds = %if.then341
-  %376 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
-  store i32 %376, ptr %width346, align 4
-  %377 = load i32, ptr %i, align 4
-  %idxprom349 = sext i32 %377 to i64
+  %439 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  %440 = load i32, ptr %439, align 4
+  store i32 %440, ptr %width346, align 4
+  %441 = load i32, ptr %i, align 4
+  %idxprom349 = sext i32 %441 to i64
   %arrayidx350 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom349
   %width351 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx350, i32 0, i32 0
-  %378 = load i32, ptr %width351, align 8
-  %add352 = add nsw i32 %378, 1
-  %379 = load i32, ptr %x342, align 4
-  %add353 = add nsw i32 %379, %add352
+  %442 = load i32, ptr %width351, align 8
+  %add352 = add nsw i32 %442, 1
+  %443 = load i32, ptr %x342, align 4
+  %add353 = add nsw i32 %443, %add352
   store i32 %add353, ptr %x342, align 4
   br label %if.end356
 
 if.else:                                          ; preds = %if.then341
-  %380 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
-  %sub354 = sub nsw i32 0, %380
+  %444 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  %445 = load i32, ptr %444, align 8
+  %sub354 = sub nsw i32 0, %445
   store i32 %sub354, ptr %width346, align 4
-  %381 = load i32, ptr %x342, align 4
-  %sub355 = sub nsw i32 %381, 6
+  %446 = load i32, ptr %x342, align 4
+  %sub355 = sub nsw i32 %446, 6
   store i32 %sub355, ptr %x342, align 4
   br label %if.end356
 
 if.end356:                                        ; preds = %if.else, %if.then348
-  %382 = load i32, ptr %x342, align 4
-  %383 = load i32, ptr %i, align 4
-  %idxprom357 = sext i32 %383 to i64
+  %447 = load i32, ptr %x342, align 4
+  %448 = load i32, ptr %i, align 4
+  %idxprom357 = sext i32 %448 to i64
   %arrayidx358 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom357
   %y359 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx358, i32 0, i32 3
-  %384 = load i32, ptr %y359, align 4
-  %add360 = add nsw i32 %384, 2
-  %385 = load i32, ptr %i, align 4
-  %shl361 = shl i32 %385, 7
+  %449 = load i32, ptr %y359, align 4
+  %add360 = add nsw i32 %449, 2
+  %450 = load i32, ptr %i, align 4
+  %shl361 = shl i32 %450, 7
   %add362 = add nsw i32 2, %shl361
-  %call363 = call i32 @stbte__microbutton_dragger(i32 noundef %382, i32 noundef %add360, i32 noundef 5, i32 noundef %add362, ptr noundef %width346)
+  %call363 = call i32 @stbte__microbutton_dragger(i32 noundef %447, i32 noundef %add360, i32 noundef 5, i32 noundef %add362, ptr noundef %width346)
   %tobool364 = icmp ne i32 %call363, 0
   br i1 %tobool364, label %if.then365, label %if.end379
 
 if.then365:                                       ; preds = %if.end356
-  %386 = load i32, ptr %i, align 4
-  %idxprom366 = sext i32 %386 to i64
+  %451 = load i32, ptr %i, align 4
+  %idxprom366 = sext i32 %451 to i64
   %arrayidx367 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom366
   %retracted = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx367, i32 0, i32 5
-  %387 = load float, ptr %retracted, align 4
-  %conv = fpext float %387 to double
+  %452 = load float, ptr %retracted, align 4
+  %conv = fpext float %452 to double
   %cmp368 = fcmp oeq double %conv, 0.000000e+00
   br i1 %cmp368, label %if.then370, label %if.else374
 
 if.then370:                                       ; preds = %if.then365
-  %388 = load i32, ptr %i, align 4
-  %idxprom371 = sext i32 %388 to i64
+  %453 = load i32, ptr %i, align 4
+  %idxprom371 = sext i32 %453 to i64
   %arrayidx372 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom371
   %retracted373 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx372, i32 0, i32 5
   store float 0x3F847AE140000000, ptr %retracted373, align 4
   br label %if.end378
 
 if.else374:                                       ; preds = %if.then365
-  %389 = load i32, ptr %i, align 4
-  %idxprom375 = sext i32 %389 to i64
+  %454 = load i32, ptr %i, align 4
+  %idxprom375 = sext i32 %454 to i64
   %arrayidx376 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom375
   %retracted377 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx376, i32 0, i32 5
   store float 0.000000e+00, ptr %retracted377, align 4
@@ -14046,64 +14498,68 @@ if.end378:                                        ; preds = %if.else374, %if.the
   br label %if.end379
 
 if.end379:                                        ; preds = %if.end378, %if.end356
-  %390 = load i32, ptr %i, align 4
-  %cmp380 = icmp eq i32 %390, 0
+  %455 = load i32, ptr %i, align 4
+  %cmp380 = icmp eq i32 %455, 0
   br i1 %cmp380, label %if.then382, label %if.else383
 
 if.then382:                                       ; preds = %if.end379
-  %391 = load i32, ptr %width346, align 4
-  store i32 %391, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55), align 4
+  %456 = load i32, ptr %width346, align 4
+  %457 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 55
+  store i32 %456, ptr %457, align 4
   br label %if.end385
 
 if.else383:                                       ; preds = %if.end379
-  %392 = load i32, ptr %width346, align 4
-  %sub384 = sub nsw i32 0, %392
-  store i32 %sub384, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56), align 8
+  %458 = load i32, ptr %width346, align 4
+  %sub384 = sub nsw i32 0, %458
+  %459 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 56
+  store i32 %sub384, ptr %459, align 8
   br label %if.end385
 
 if.end385:                                        ; preds = %if.else383, %if.then382
-  %393 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp386 = icmp eq i32 %393, 1
+  %460 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %461 = load i32, ptr %460, align 4
+  %cmp386 = icmp eq i32 %461, 1
   br i1 %cmp386, label %if.then388, label %if.end415
 
 if.then388:                                       ; preds = %if.end385
-  %394 = load i32, ptr %i, align 4
-  %idxprom389 = sext i32 %394 to i64
+  %462 = load i32, ptr %i, align 4
+  %idxprom389 = sext i32 %462 to i64
   %arrayidx390 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom389
   %retracted391 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx390, i32 0, i32 5
-  %395 = load float, ptr %retracted391, align 4
-  %tobool392 = fcmp une float %395, 0.000000e+00
+  %463 = load float, ptr %retracted391, align 4
+  %tobool392 = fcmp une float %463, 0.000000e+00
   br i1 %tobool392, label %land.lhs.true393, label %if.end414
 
 land.lhs.true393:                                 ; preds = %if.then388
-  %396 = load i32, ptr %i, align 4
-  %idxprom394 = sext i32 %396 to i64
+  %464 = load i32, ptr %i, align 4
+  %idxprom394 = sext i32 %464 to i64
   %arrayidx395 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom394
   %retracted396 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx395, i32 0, i32 5
-  %397 = load float, ptr %retracted396, align 4
-  %cmp397 = fcmp olt float %397, 1.000000e+00
+  %465 = load float, ptr %retracted396, align 4
+  %cmp397 = fcmp olt float %465, 1.000000e+00
   br i1 %cmp397, label %if.then399, label %if.end414
 
 if.then399:                                       ; preds = %land.lhs.true393
-  %398 = load float, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59), align 8
-  %399 = load i32, ptr %i, align 4
-  %idxprom401 = sext i32 %399 to i64
+  %466 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59
+  %467 = load float, ptr %466, align 8
+  %468 = load i32, ptr %i, align 4
+  %idxprom401 = sext i32 %468 to i64
   %arrayidx402 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom401
   %retracted403 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx402, i32 0, i32 5
-  %400 = load float, ptr %retracted403, align 4
-  %401 = call float @llvm.fmuladd.f32(float %398, float 4.000000e+00, float %400)
-  store float %401, ptr %retracted403, align 4
-  %402 = load i32, ptr %i, align 4
-  %idxprom404 = sext i32 %402 to i64
+  %469 = load float, ptr %retracted403, align 4
+  %470 = call float @llvm.fmuladd.f32(float %467, float 4.000000e+00, float %469)
+  store float %470, ptr %retracted403, align 4
+  %471 = load i32, ptr %i, align 4
+  %idxprom404 = sext i32 %471 to i64
   %arrayidx405 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom404
   %retracted406 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx405, i32 0, i32 5
-  %403 = load float, ptr %retracted406, align 4
-  %cmp407 = fcmp ogt float %403, 1.000000e+00
+  %472 = load float, ptr %retracted406, align 4
+  %cmp407 = fcmp ogt float %472, 1.000000e+00
   br i1 %cmp407, label %if.then409, label %if.end413
 
 if.then409:                                       ; preds = %if.then399
-  %404 = load i32, ptr %i, align 4
-  %idxprom410 = sext i32 %404 to i64
+  %473 = load i32, ptr %i, align 4
+  %idxprom410 = sext i32 %473 to i64
   %arrayidx411 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %idxprom410
   %retracted412 = getelementptr inbounds %struct.stbte__region_t, ptr %arrayidx411, i32 0, i32 5
   store float 1.000000e+00, ptr %retracted412, align 4
@@ -14122,120 +14578,137 @@ if.end416:                                        ; preds = %if.end415, %for.bod
   br label %for.inc417
 
 for.inc417:                                       ; preds = %if.end416
-  %405 = load i32, ptr %i, align 4
-  %inc418 = add nsw i32 %405, 1
+  %474 = load i32, ptr %i, align 4
+  %inc418 = add nsw i32 %474, 1
   store i32 %inc418, ptr %i, align 4
   br label %for.cond335, !llvm.loop !82
 
 for.end419:                                       ; preds = %for.cond335
-  %406 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp420 = icmp eq i32 %406, 0
+  %475 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %476 = load i32, ptr %475, align 4
+  %cmp420 = icmp eq i32 %476, 0
   br i1 %cmp420, label %land.lhs.true422, label %if.end453
 
 land.lhs.true422:                                 ; preds = %for.end419
-  %407 = load ptr, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
-  %tobool423 = icmp ne ptr %407, null
+  %477 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  %478 = load ptr, ptr %477, align 8
+  %tobool423 = icmp ne ptr %478, null
   br i1 %tobool423, label %if.then424, label %if.end453
 
 if.then424:                                       ; preds = %land.lhs.true422
-  %408 = load ptr, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
-  %call425 = call i32 @stbte__text_width(ptr noundef %408)
+  %479 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  %480 = load ptr, ptr %479, align 8
+  %call425 = call i32 @stbte__text_width(ptr noundef %480)
   store i32 %call425, ptr %w, align 4
-  %409 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51), align 4
-  %410 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53), align 4
-  %add427 = add nsw i32 %409, %410
+  %481 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 51
+  %482 = load i32, ptr %481, align 4
+  %483 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 53
+  %484 = load i32, ptr %483, align 4
+  %add427 = add nsw i32 %482, %484
   %div428 = sdiv i32 %add427, 2
   store i32 %div428, ptr %x426, align 4
-  %411 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52), align 8
-  %412 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54), align 8
-  %add430 = add nsw i32 %411, %412
+  %485 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 52
+  %486 = load i32, ptr %485, align 8
+  %487 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 54
+  %488 = load i32, ptr %487, align 8
+  %add430 = add nsw i32 %486, %488
   %mul431 = mul nsw i32 %add430, 5
   %div432 = sdiv i32 %mul431, 6
   store i32 %div432, ptr %y429, align 4
-  %413 = load i32, ptr %x426, align 4
-  %414 = load i32, ptr %w, align 4
-  %div433 = sdiv i32 %414, 2
-  %sub434 = sub nsw i32 %413, %div433
+  %489 = load i32, ptr %x426, align 4
+  %490 = load i32, ptr %w, align 4
+  %div433 = sdiv i32 %490, 2
+  %sub434 = sub nsw i32 %489, %div433
   %sub435 = sub nsw i32 %sub434, 4
-  %415 = load i32, ptr %y429, align 4
-  %sub436 = sub nsw i32 %415, 8
-  %416 = load i32, ptr %x426, align 4
-  %417 = load i32, ptr %w, align 4
-  %div437 = sdiv i32 %417, 2
-  %add438 = add nsw i32 %416, %div437
+  %491 = load i32, ptr %y429, align 4
+  %sub436 = sub nsw i32 %491, 8
+  %492 = load i32, ptr %x426, align 4
+  %493 = load i32, ptr %w, align 4
+  %div437 = sdiv i32 %493, 2
+  %add438 = add nsw i32 %492, %div437
   %add439 = add nsw i32 %add438, 4
-  %418 = load i32, ptr %y429, align 4
-  %add440 = add nsw i32 %418, 8
+  %494 = load i32, ptr %y429, align 4
+  %add440 = add nsw i32 %494, 8
   call void @stbte__draw_rect(i32 noundef %sub435, i32 noundef %sub436, i32 noundef %add439, i32 noundef %add440, i32 noundef 6307872)
-  %419 = load i32, ptr %x426, align 4
-  %420 = load i32, ptr %w, align 4
-  %div441 = sdiv i32 %420, 2
-  %sub442 = sub nsw i32 %419, %div441
+  %495 = load i32, ptr %x426, align 4
+  %496 = load i32, ptr %w, align 4
+  %div441 = sdiv i32 %496, 2
+  %sub442 = sub nsw i32 %495, %div441
   %sub443 = sub nsw i32 %sub442, 4
-  %421 = load i32, ptr %y429, align 4
-  %sub444 = sub nsw i32 %421, 8
-  %422 = load i32, ptr %x426, align 4
-  %423 = load i32, ptr %w, align 4
-  %div445 = sdiv i32 %423, 2
-  %add446 = add nsw i32 %422, %div445
+  %497 = load i32, ptr %y429, align 4
+  %sub444 = sub nsw i32 %497, 8
+  %498 = load i32, ptr %x426, align 4
+  %499 = load i32, ptr %w, align 4
+  %div445 = sdiv i32 %499, 2
+  %add446 = add nsw i32 %498, %div445
   %add447 = add nsw i32 %add446, 4
-  %424 = load i32, ptr %y429, align 4
-  %add448 = add nsw i32 %424, 8
+  %500 = load i32, ptr %y429, align 4
+  %add448 = add nsw i32 %500, 8
   call void @stbte__draw_frame(i32 noundef %sub443, i32 noundef %sub444, i32 noundef %add447, i32 noundef %add448, i32 noundef 9461808)
-  %425 = load i32, ptr %x426, align 4
-  %426 = load i32, ptr %w, align 4
-  %div449 = sdiv i32 %426, 2
-  %sub450 = sub nsw i32 %425, %div449
-  %427 = load i32, ptr %y429, align 4
-  %sub451 = sub nsw i32 %427, 4
-  %428 = load ptr, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
-  %429 = load i32, ptr %w, align 4
-  %add452 = add nsw i32 %429, 1
-  call void @stbte__draw_text(i32 noundef %sub450, i32 noundef %sub451, ptr noundef %428, i32 noundef %add452, i32 noundef 16744512)
+  %501 = load i32, ptr %x426, align 4
+  %502 = load i32, ptr %w, align 4
+  %div449 = sdiv i32 %502, 2
+  %sub450 = sub nsw i32 %501, %div449
+  %503 = load i32, ptr %y429, align 4
+  %sub451 = sub nsw i32 %503, 4
+  %504 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  %505 = load ptr, ptr %504, align 8
+  %506 = load i32, ptr %w, align 4
+  %add452 = add nsw i32 %506, 1
+  call void @stbte__draw_text(i32 noundef %sub450, i32 noundef %sub451, ptr noundef %505, i32 noundef %add452, i32 noundef 16744512)
   br label %if.end453
 
 if.end453:                                        ; preds = %if.then424, %land.lhs.true422, %for.end419
-  %430 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp454 = icmp eq i32 %430, 1
+  %507 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %508 = load i32, ptr %507, align 4
+  %cmp454 = icmp eq i32 %508, 1
   br i1 %cmp454, label %land.lhs.true456, label %if.end464
 
 land.lhs.true456:                                 ; preds = %if.end453
-  %431 = load ptr, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
-  %tobool457 = icmp ne ptr %431, null
+  %509 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  %510 = load ptr, ptr %509, align 8
+  %tobool457 = icmp ne ptr %510, null
   br i1 %tobool457, label %if.then458, label %if.end464
 
 if.then458:                                       ; preds = %land.lhs.true456
-  %432 = load float, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59), align 8
-  %433 = load float, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57), align 4
-  %sub459 = fsub float %433, %432
-  store float %sub459, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57), align 4
-  %434 = load float, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57), align 4
-  %cmp460 = fcmp olt float %434, 0.000000e+00
+  %511 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59
+  %512 = load float, ptr %511, align 8
+  %513 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57
+  %514 = load float, ptr %513, align 4
+  %sub459 = fsub float %514, %512
+  %515 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57
+  store float %sub459, ptr %515, align 4
+  %516 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57
+  %517 = load float, ptr %516, align 4
+  %cmp460 = fcmp olt float %517, 0.000000e+00
   br i1 %cmp460, label %if.then462, label %if.end463
 
 if.then462:                                       ; preds = %if.then458
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57), align 4
-  store ptr null, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58), align 8
+  %518 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 57
+  store float 0.000000e+00, ptr %518, align 4
+  %519 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 58
+  store ptr null, ptr %519, align 8
   br label %if.end463
 
 if.end463:                                        ; preds = %if.then462, %if.then458
   br label %if.end464
 
 if.end464:                                        ; preds = %if.end463, %land.lhs.true456, %if.end453
-  %435 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp465 = icmp eq i32 %435, 0
+  %520 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %521 = load i32, ptr %520, align 4
+  %cmp465 = icmp eq i32 %521, 0
   br i1 %cmp465, label %if.then467, label %if.end473
 
 if.then467:                                       ; preds = %if.end464
-  %436 = load i32, ptr @stbte__save, align 4
-  %437 = load i32, ptr @stbte__cp_mode, align 4
-  %idxprom468 = sext i32 %437 to i64
+  %522 = load i32, ptr @stbte__save, align 4
+  %523 = load i32, ptr @stbte__cp_mode, align 4
+  %idxprom468 = sext i32 %523 to i64
   %arrayidx469 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom468
-  %438 = load i32, ptr @stbte__cp_aspect, align 4
-  %idxprom470 = sext i32 %438 to i64
+  %524 = load i32, ptr @stbte__cp_aspect, align 4
+  %idxprom470 = sext i32 %524 to i64
   %arrayidx471 = getelementptr inbounds [3 x [7 x i32]], ptr %arrayidx469, i64 0, i64 %idxprom470
   %arrayidx472 = getelementptr inbounds [7 x i32], ptr %arrayidx471, i64 0, i64 0
-  store i32 %436, ptr %arrayidx472, align 4
+  store i32 %522, ptr %arrayidx472, align 4
   store i32 0, ptr @stbte__cp_altered, align 4
   br label %if.end473
 
@@ -14248,45 +14721,56 @@ define void @stbte__do_event(ptr noundef %tm) #0 {
 entry:
   %tm.addr = alloca ptr, align 8
   store ptr %tm, ptr %tm.addr, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4), align 8
-  %0 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__editor_traverse(ptr noundef %0)
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4), align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2), align 8
-  %tobool = icmp ne i32 %2, 0
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4
+  store i32 0, ptr %0, align 8
+  %1 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__editor_traverse(ptr noundef %1)
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 4
+  %3 = load i32, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  store i32 %3, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 2
+  %6 = load i32, ptr %5, align 8
+  %tobool = icmp ne i32 %6, 0
   br i1 %tobool, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp = icmp eq i32 %3, 5
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %8 = load i32, ptr %7, align 4
+  %cmp = icmp eq i32 %8, 5
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %cmp1 = icmp eq i32 %4, 7
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  %10 = load i32, ptr %9, align 4
+  %cmp1 = icmp eq i32 %10, 7
   br i1 %cmp1, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.then
-  %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool3 = icmp ne i32 %5, 0
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %12 = load i32, ptr %11, align 4
+  %tobool3 = icmp ne i32 %12, 0
   br i1 %tobool3, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
   call void @stbte__activate(i32 noundef 0)
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43), align 4
-  %tobool5 = icmp ne i32 %6, 0
+  %13 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 43
+  %14 = load i32, ptr %13, align 4
+  %tobool5 = icmp ne i32 %14, 0
   br i1 %tobool5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then4
-  %7 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__end_undo(ptr noundef %7)
+  %15 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__end_undo(ptr noundef %15)
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then4
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 33), align 4
+  %16 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 26
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 33
+  store i32 0, ptr %18, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %if.then2
@@ -14296,60 +14780,76 @@ if.end8:                                          ; preds = %if.end7, %lor.lhs.f
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %entry
-  %8 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23), align 4
-  %tobool10 = icmp ne i32 %8, 0
+  %19 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 23
+  %20 = load i32, ptr %19, align 4
+  %tobool10 = icmp ne i32 %20, 0
   br i1 %tobool10, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %if.end9
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %and = and i32 %9, 127
+  %21 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %and = and i32 %22, 127
   %cmp12 = icmp eq i32 %and, 1
   br i1 %cmp12, label %if.then13, label %if.end20
 
 if.then13:                                        ; preds = %if.then11
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr = ashr i32 %10, 19
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %shr = ashr i32 %24, 19
   %and14 = and i32 %shr, 4095
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66), align 8
-  %shr15 = ashr i32 %11, 1
+  %25 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 66
+  %26 = load i32, ptr %25, align 8
+  %shr15 = ashr i32 %26, 1
   %sub = sub nsw i32 %and14, %shr15
-  store i32 %sub, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 24), align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr16 = ashr i32 %12, 7
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 24
+  store i32 %sub, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %29 = load i32, ptr %28, align 4
+  %shr16 = ashr i32 %29, 7
   %and17 = and i32 %shr16, 4095
-  %13 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67), align 4
-  %shr18 = ashr i32 %13, 1
+  %30 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 67
+  %31 = load i32, ptr %30, align 4
+  %shr18 = ashr i32 %31, 1
   %sub19 = sub nsw i32 %and17, %shr18
-  store i32 %sub19, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 25), align 4
+  %32 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 25
+  store i32 %sub19, ptr %32, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then13, %if.then11
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end20, %if.end9
-  %14 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34), align 8
-  %tobool22 = icmp ne i32 %14, 0
+  %33 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 34
+  %34 = load i32, ptr %33, align 8
+  %tobool22 = icmp ne i32 %34, 0
   br i1 %tobool22, label %if.then23, label %if.end34
 
 if.then23:                                        ; preds = %if.end21
-  %15 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %and24 = and i32 %15, 127
+  %35 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %36 = load i32, ptr %35, align 4
+  %and24 = and i32 %36, 127
   %cmp25 = icmp eq i32 %and24, 1
   br i1 %cmp25, label %if.then26, label %if.end33
 
 if.then26:                                        ; preds = %if.then23
-  %16 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr27 = ashr i32 %16, 19
+  %37 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %38 = load i32, ptr %37, align 4
+  %shr27 = ashr i32 %38, 19
   %and28 = and i32 %shr27, 4095
-  %17 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 39), align 4
-  %sub29 = sub nsw i32 %and28, %17
-  store i32 %sub29, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41), align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3), align 4
-  %shr30 = ashr i32 %18, 7
+  %39 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 39
+  %40 = load i32, ptr %39, align 4
+  %sub29 = sub nsw i32 %and28, %40
+  %41 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 41
+  store i32 %sub29, ptr %41, align 4
+  %42 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 3
+  %43 = load i32, ptr %42, align 4
+  %shr30 = ashr i32 %43, 7
   %and31 = and i32 %shr30, 4095
-  %19 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 40), align 8
-  %sub32 = sub nsw i32 %and31, %19
-  store i32 %sub32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42), align 8
+  %44 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 40
+  %45 = load i32, ptr %44, align 8
+  %sub32 = sub nsw i32 %and31, %45
+  %46 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 42
+  store i32 %sub32, ptr %46, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then26, %if.then23
@@ -14369,31 +14869,46 @@ entry:
   store i32 %x, ptr %x.addr, align 4
   store i32 %y, ptr %y.addr, align 4
   %0 = load i32, ptr %event.addr, align 4
-  store i32 %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %1 = load i32, ptr %x.addr, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6), align 8
-  %2 = load i32, ptr %y.addr, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7), align 4
-  %3 = load i32, ptr %x.addr, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 29), align 4
-  %sub = sub nsw i32 %3, %4
-  store i32 %sub, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 8), align 8
-  %5 = load i32, ptr %y.addr, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 30), align 8
-  %sub1 = sub nsw i32 %5, %6
-  store i32 %sub1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 9), align 4
-  %7 = load i32, ptr %x.addr, align 4
-  store i32 %7, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 29), align 4
-  %8 = load i32, ptr %y.addr, align 4
-  store i32 %8, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 30), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 8), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  %add = add nsw i32 %10, %9
-  store i32 %add, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31), align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 9), align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
-  %add2 = add nsw i32 %12, %11
-  store i32 %add2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32), align 8
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  store i32 %0, ptr %1, align 4
+  %2 = load i32, ptr %x.addr, align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 6
+  store i32 %2, ptr %3, align 8
+  %4 = load i32, ptr %y.addr, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 7
+  store i32 %4, ptr %5, align 4
+  %6 = load i32, ptr %x.addr, align 4
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 29
+  %8 = load i32, ptr %7, align 4
+  %sub = sub nsw i32 %6, %8
+  %9 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 8
+  store i32 %sub, ptr %9, align 8
+  %10 = load i32, ptr %y.addr, align 4
+  %11 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 30
+  %12 = load i32, ptr %11, align 8
+  %sub1 = sub nsw i32 %10, %12
+  %13 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 9
+  store i32 %sub1, ptr %13, align 4
+  %14 = load i32, ptr %x.addr, align 4
+  %15 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 29
+  store i32 %14, ptr %15, align 4
+  %16 = load i32, ptr %y.addr, align 4
+  %17 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 30
+  store i32 %16, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 8
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  %21 = load i32, ptr %20, align 4
+  %add = add nsw i32 %21, %19
+  %22 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 31
+  store i32 %add, ptr %22, align 4
+  %23 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 9
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  %26 = load i32, ptr %25, align 8
+  %add2 = add nsw i32 %26, %24
+  %27 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 32
+  store i32 %add2, ptr %27, align 8
   ret void
 }
 
@@ -14402,9 +14917,10 @@ define void @stbte_draw(ptr noundef %tm) #0 {
 entry:
   %tm.addr = alloca ptr, align 8
   store ptr %tm, ptr %tm.addr, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %0 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__editor_traverse(ptr noundef %0)
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  store i32 0, ptr %0, align 4
+  %1 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__editor_traverse(ptr noundef %1)
   ret void
 }
 
@@ -14425,11 +14941,13 @@ entry:
   %1 = load i32, ptr %y.addr, align 4
   call void @stbte__set_event(i32 noundef 2, i32 noundef %0, i32 noundef %1)
   %2 = load i32, ptr %shifted.addr, align 4
-  store i32 %2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %3 = load i32, ptr %scrollkey.addr, align 4
-  store i32 %3, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12), align 8
-  %4 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__do_event(ptr noundef %4)
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  store i32 %2, ptr %3, align 4
+  %4 = load i32, ptr %scrollkey.addr, align 4
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12
+  store i32 %4, ptr %5, align 8
+  %6 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__do_event(ptr noundef %6)
   ret void
 }
 
@@ -14463,11 +14981,13 @@ entry:
   %4 = load i32, ptr %y.addr, align 4
   call void @stbte__set_event(i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %5 = load i32, ptr %shifted.addr, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11), align 4
-  %6 = load i32, ptr %scrollkey.addr, align 4
-  store i32 %6, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12), align 8
-  %7 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__do_event(ptr noundef %7)
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 11
+  store i32 %5, ptr %6, align 4
+  %7 = load i32, ptr %scrollkey.addr, align 4
+  %8 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 12
+  store i32 %7, ptr %8, align 8
+  %9 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__do_event(ptr noundef %9)
   ret void
 }
 
@@ -14538,84 +15058,88 @@ sw.bb5:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
-  %add = add nsw i32 %1, 1
+  %1 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  %2 = load i32, ptr %1, align 4
+  %add = add nsw i32 %2, 1
   %rem = srem i32 %add, 3
-  store i32 %rem, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17), align 4
+  %3 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 17
+  store i32 %rem, ptr %3, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
-  %xor = xor i32 %2, 1
-  store i32 %xor, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18), align 8
+  %4 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  %5 = load i32, ptr %4, align 8
+  %xor = xor i32 %5, 1
+  %6 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 18
+  store i32 %xor, ptr %6, align 8
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %3 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__undo(ptr noundef %3)
+  %7 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__undo(ptr noundef %7)
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %4 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__redo(ptr noundef %4)
+  %8 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__redo(ptr noundef %8)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %5 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__copy_cut(ptr noundef %5, i32 noundef 1)
+  %9 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__copy_cut(ptr noundef %9, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %6 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__copy_cut(ptr noundef %6, i32 noundef 0)
+  %10 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__copy_cut(ptr noundef %10, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %7 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__start_paste(ptr noundef %7)
+  %11 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__start_paste(ptr noundef %11)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %8 = load ptr, ptr %tm.addr, align 8
-  %spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %8, i32 0, i32 5
-  %9 = load i32, ptr %spacing_x, align 4
-  %10 = load ptr, ptr %tm.addr, align 8
-  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %10, i32 0, i32 9
-  %11 = load i32, ptr %scroll_x, align 4
-  %sub = sub nsw i32 %11, %9
+  %12 = load ptr, ptr %tm.addr, align 8
+  %spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 5
+  %13 = load i32, ptr %spacing_x, align 4
+  %14 = load ptr, ptr %tm.addr, align 8
+  %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 9
+  %15 = load i32, ptr %scroll_x, align 4
+  %sub = sub nsw i32 %15, %13
   store i32 %sub, ptr %scroll_x, align 4
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %12 = load ptr, ptr %tm.addr, align 8
-  %spacing_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %12, i32 0, i32 5
-  %13 = load i32, ptr %spacing_x15, align 4
-  %14 = load ptr, ptr %tm.addr, align 8
-  %scroll_x16 = getelementptr inbounds %struct.stbte_tilemap, ptr %14, i32 0, i32 9
-  %15 = load i32, ptr %scroll_x16, align 4
-  %add17 = add nsw i32 %15, %13
+  %16 = load ptr, ptr %tm.addr, align 8
+  %spacing_x15 = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 5
+  %17 = load i32, ptr %spacing_x15, align 4
+  %18 = load ptr, ptr %tm.addr, align 8
+  %scroll_x16 = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 9
+  %19 = load i32, ptr %scroll_x16, align 4
+  %add17 = add nsw i32 %19, %17
   store i32 %add17, ptr %scroll_x16, align 4
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %16 = load ptr, ptr %tm.addr, align 8
-  %spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %16, i32 0, i32 6
-  %17 = load i32, ptr %spacing_y, align 8
-  %18 = load ptr, ptr %tm.addr, align 8
-  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %18, i32 0, i32 10
-  %19 = load i32, ptr %scroll_y, align 8
-  %sub19 = sub nsw i32 %19, %17
+  %20 = load ptr, ptr %tm.addr, align 8
+  %spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %20, i32 0, i32 6
+  %21 = load i32, ptr %spacing_y, align 8
+  %22 = load ptr, ptr %tm.addr, align 8
+  %scroll_y = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 10
+  %23 = load i32, ptr %scroll_y, align 8
+  %sub19 = sub nsw i32 %23, %21
   store i32 %sub19, ptr %scroll_y, align 8
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %20 = load ptr, ptr %tm.addr, align 8
-  %spacing_y21 = getelementptr inbounds %struct.stbte_tilemap, ptr %20, i32 0, i32 6
-  %21 = load i32, ptr %spacing_y21, align 8
-  %22 = load ptr, ptr %tm.addr, align 8
-  %scroll_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %22, i32 0, i32 10
-  %23 = load i32, ptr %scroll_y22, align 8
-  %add23 = add nsw i32 %23, %21
+  %24 = load ptr, ptr %tm.addr, align 8
+  %spacing_y21 = getelementptr inbounds %struct.stbte_tilemap, ptr %24, i32 0, i32 6
+  %25 = load i32, ptr %spacing_y21, align 8
+  %26 = load ptr, ptr %tm.addr, align 8
+  %scroll_y22 = getelementptr inbounds %struct.stbte_tilemap, ptr %26, i32 0, i32 10
+  %27 = load i32, ptr %scroll_y22, align 8
+  %add23 = add nsw i32 %27, %25
   store i32 %add23, ptr %scroll_y22, align 8
   br label %sw.epilog
 
@@ -14630,18 +15154,22 @@ entry:
   %dt.addr = alloca float, align 4
   store ptr %tm, ptr %tm.addr, align 8
   store float %dt, ptr %dt.addr, align 4
-  store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5), align 4
-  %0 = load float, ptr %dt.addr, align 4
-  store float %0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59), align 8
-  %1 = load ptr, ptr %tm.addr, align 8
-  call void @stbte__do_event(ptr noundef %1)
-  %2 = load float, ptr %dt.addr, align 4
-  %mul = fmul float %2, 1.024000e+03
+  %0 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 5
+  store i32 1, ptr %0, align 4
+  %1 = load float, ptr %dt.addr, align 4
+  %2 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 59
+  store float %1, ptr %2, align 8
+  %3 = load ptr, ptr %tm.addr, align 8
+  call void @stbte__do_event(ptr noundef %3)
+  %4 = load float, ptr %dt.addr, align 4
+  %mul = fmul float %4, 1.024000e+03
   %conv = fptosi float %mul to i32
   %add = add nsw i32 %conv, 1
-  %3 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10), align 8
-  %add1 = add nsw i32 %3, %add
-  store i32 %add1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10), align 8
+  %5 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10
+  %6 = load i32, ptr %5, align 8
+  %add1 = add nsw i32 %6, %add
+  %7 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i32 0, i32 10
+  store i32 %add1, ptr %7, align 8
   ret void
 }
 

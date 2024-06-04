@@ -2949,170 +2949,171 @@ define internal ptr @num_word(i64 noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
-  store ptr getelementptr (ptr, ptr @num_word.small, i64 18), ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = srem i64 %6, 100
-  %8 = trunc i64 %7 to i32
-  store i32 %8, ptr %5, align 4
-  %9 = load i64, ptr %3, align 8
-  %10 = icmp sle i64 %9, 20
-  br i1 %10, label %11, label %15
+  %6 = getelementptr ptr, ptr @num_word.small, i64 18
+  store ptr %6, ptr %4, align 8
+  %7 = load i64, ptr %3, align 8
+  %8 = srem i64 %7, 100
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %5, align 4
+  %10 = load i64, ptr %3, align 8
+  %11 = icmp sle i64 %10, 20
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %1
-  %12 = load i64, ptr %3, align 8
-  %13 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %2, align 8
-  br label %118
+12:                                               ; preds = %1
+  %13 = load i64, ptr %3, align 8
+  %14 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %2, align 8
+  br label %119
 
-15:                                               ; preds = %1
-  %16 = load i32, ptr %5, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %24, label %18
+16:                                               ; preds = %1
+  %17 = load i32, ptr %5, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %25, label %19
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr %3, align 8
-  %20 = sdiv i64 %19, 100
-  %21 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.52, ptr noundef %22)
+19:                                               ; preds = %16
+  %20 = load i64, ptr %3, align 8
+  %21 = sdiv i64 %20, 100
+  %22 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.52, ptr noundef %23)
   store ptr @num_word.buf, ptr %2, align 8
-  br label %118
+  br label %119
 
-24:                                               ; preds = %15
-  %25 = load i64, ptr %3, align 8
-  %26 = icmp sgt i64 %25, 99
-  br i1 %26, label %27, label %78
+25:                                               ; preds = %16
+  %26 = load i64, ptr %3, align 8
+  %27 = icmp sgt i64 %26, 99
+  br i1 %27, label %28, label %79
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr %3, align 8
-  %29 = srem i64 %28, 10
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %46
+28:                                               ; preds = %25
+  %29 = load i64, ptr %3, align 8
+  %30 = srem i64 %29, 10
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %47
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %5, align 4
-  %33 = icmp sgt i32 %32, 10
-  br i1 %33, label %34, label %46
+32:                                               ; preds = %28
+  %33 = load i32, ptr %5, align 4
+  %34 = icmp sgt i32 %33, 10
+  br i1 %34, label %35, label %47
 
-34:                                               ; preds = %31
-  %35 = load i64, ptr %3, align 8
-  %36 = sdiv i64 %35, 100
-  %37 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = sdiv i32 %40, 10
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr ptr, ptr %39, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.53, ptr noundef %38, ptr noundef %44)
+35:                                               ; preds = %32
+  %36 = load i64, ptr %3, align 8
+  %37 = sdiv i64 %36, 100
+  %38 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %4, align 8
+  %41 = load i32, ptr %5, align 4
+  %42 = sdiv i32 %41, 10
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr ptr, ptr %40, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.53, ptr noundef %39, ptr noundef %45)
+  br label %78
+
+47:                                               ; preds = %32, %28
+  %48 = load i32, ptr %5, align 4
+  %49 = icmp slt i32 %48, 20
+  br i1 %49, label %50, label %60
+
+50:                                               ; preds = %47
+  %51 = load i64, ptr %3, align 8
+  %52 = sdiv i64 %51, 100
+  %53 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %5, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.54, ptr noundef %54, ptr noundef %58)
   br label %77
 
-46:                                               ; preds = %31, %27
-  %47 = load i32, ptr %5, align 4
-  %48 = icmp slt i32 %47, 20
-  br i1 %48, label %49, label %59
-
-49:                                               ; preds = %46
-  %50 = load i64, ptr %3, align 8
-  %51 = sdiv i64 %50, 100
-  %52 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %5, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.54, ptr noundef %53, ptr noundef %57)
-  br label %76
-
-59:                                               ; preds = %46
-  %60 = load i64, ptr %3, align 8
-  %61 = sdiv i64 %60, 100
-  %62 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i32, ptr %5, align 4
-  %66 = sdiv i32 %65, 10
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr ptr, ptr %64, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %5, align 4
-  %71 = srem i32 %70, 10
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.55, ptr noundef %63, ptr noundef %69, ptr noundef %74)
-  br label %76
-
-76:                                               ; preds = %59, %49
+60:                                               ; preds = %47
+  %61 = load i64, ptr %3, align 8
+  %62 = sdiv i64 %61, 100
+  %63 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %62
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = load i32, ptr %5, align 4
+  %67 = sdiv i32 %66, 10
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr ptr, ptr %65, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %5, align 4
+  %72 = srem i32 %71, 10
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %73
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.55, ptr noundef %64, ptr noundef %70, ptr noundef %75)
   br label %77
 
-77:                                               ; preds = %76, %34
-  br label %117
+77:                                               ; preds = %60, %50
+  br label %78
 
-78:                                               ; preds = %24
-  %79 = load i64, ptr %3, align 8
-  %80 = srem i64 %79, 10
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %93
-
-82:                                               ; preds = %78
-  %83 = load i32, ptr %5, align 4
-  %84 = icmp sgt i32 %83, 10
-  br i1 %84, label %85, label %93
-
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %4, align 8
-  %87 = load i32, ptr %5, align 4
-  %88 = sdiv i32 %87, 10
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr ptr, ptr %86, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.56, ptr noundef %91)
-  br label %116
-
-93:                                               ; preds = %82, %78
-  %94 = load i32, ptr %5, align 4
-  %95 = icmp slt i32 %94, 20
-  br i1 %95, label %96, label %102
-
-96:                                               ; preds = %93
-  %97 = load i32, ptr %5, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %98
-  %100 = load ptr, ptr %99, align 8
-  %101 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.56, ptr noundef %100)
-  br label %115
-
-102:                                              ; preds = %93
-  %103 = load ptr, ptr %4, align 8
-  %104 = load i32, ptr %5, align 4
-  %105 = sdiv i32 %104, 10
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr ptr, ptr %103, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %5, align 4
-  %110 = srem i32 %109, 10
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.57, ptr noundef %108, ptr noundef %113)
-  br label %115
-
-115:                                              ; preds = %102, %96
-  br label %116
-
-116:                                              ; preds = %115, %85
-  br label %117
-
-117:                                              ; preds = %116, %77
-  store ptr @num_word.buf, ptr %2, align 8
+78:                                               ; preds = %77, %35
   br label %118
 
-118:                                              ; preds = %117, %18, %11
-  %119 = load ptr, ptr %2, align 8
-  ret ptr %119
+79:                                               ; preds = %25
+  %80 = load i64, ptr %3, align 8
+  %81 = srem i64 %80, 10
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %94
+
+83:                                               ; preds = %79
+  %84 = load i32, ptr %5, align 4
+  %85 = icmp sgt i32 %84, 10
+  br i1 %85, label %86, label %94
+
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %4, align 8
+  %88 = load i32, ptr %5, align 4
+  %89 = sdiv i32 %88, 10
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr ptr, ptr %87, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.56, ptr noundef %92)
+  br label %117
+
+94:                                               ; preds = %83, %79
+  %95 = load i32, ptr %5, align 4
+  %96 = icmp slt i32 %95, 20
+  br i1 %96, label %97, label %103
+
+97:                                               ; preds = %94
+  %98 = load i32, ptr %5, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %99
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.56, ptr noundef %101)
+  br label %116
+
+103:                                              ; preds = %94
+  %104 = load ptr, ptr %4, align 8
+  %105 = load i32, ptr %5, align 4
+  %106 = sdiv i32 %105, 10
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr ptr, ptr %104, i64 %107
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %5, align 4
+  %111 = srem i32 %110, 10
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef @num_word.buf, ptr noundef @.str.57, ptr noundef %109, ptr noundef %114)
+  br label %116
+
+116:                                              ; preds = %103, %97
+  br label %117
+
+117:                                              ; preds = %116, %86
+  br label %118
+
+118:                                              ; preds = %117, %78
+  store ptr @num_word.buf, ptr %2, align 8
+  br label %119
+
+119:                                              ; preds = %118, %19, %12
+  %120 = load ptr, ptr %2, align 8
+  ret ptr %120
 }
 
 declare zeroext i8 @pg_toupper(i8 noundef zeroext) #1

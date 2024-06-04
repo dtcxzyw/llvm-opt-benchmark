@@ -28,21 +28,22 @@ define double @PMPI_Wtime() #0 {
 12:                                               ; preds = %11, %0
   %13 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
   %14 = load i64, ptr %13, align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @ompi_wtime_time_origin, i32 0, i32 1), align 8
-  %16 = sub nsw i64 %14, %15
-  %17 = sitofp i64 %16 to double
-  %18 = fdiv double %17, 1.000000e+09
-  store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = load i64, ptr @ompi_wtime_time_origin, align 8
-  %22 = sub nsw i64 %20, %21
-  %23 = sitofp i64 %22 to double
-  %24 = load double, ptr %1, align 8
-  %25 = fadd double %24, %23
-  store double %25, ptr %1, align 8
-  %26 = load double, ptr %1, align 8
-  ret double %26
+  %15 = getelementptr inbounds %struct.timespec, ptr @ompi_wtime_time_origin, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = sub nsw i64 %14, %16
+  %18 = sitofp i64 %17 to double
+  %19 = fdiv double %18, 1.000000e+09
+  store double %19, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = load i64, ptr @ompi_wtime_time_origin, align 8
+  %23 = sub nsw i64 %21, %22
+  %24 = sitofp i64 %23 to double
+  %25 = load double, ptr %1, align 8
+  %26 = fadd double %25, %24
+  store double %26, ptr %1, align 8
+  %27 = load double, ptr %1, align 8
+  ret double %27
 }
 
 ; Function Attrs: nounwind uwtable

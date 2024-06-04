@@ -155,48 +155,52 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local ptr @mpi_read_from_buffer(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ult i32 %3, 2
-  br i1 %4, label %29, label %5
+  %5 = inttoptr i64 -22 to ptr
+  br i1 %4, label %33, label %6
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr %0, align 1
-  %7 = zext i8 %6 to i32
-  %8 = shl nuw nsw i32 %7, 8
-  %9 = getelementptr i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 16384
-  br i1 %13, label %14, label %16
+6:                                                ; preds = %2
+  %7 = load i8, ptr %0, align 1
+  %8 = zext i8 %7 to i32
+  %9 = shl nuw nsw i32 %8, 8
+  %10 = getelementptr i8, ptr %0, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = or disjoint i32 %9, %12
+  %14 = icmp ugt i32 %13, 16384
+  br i1 %14, label %15, label %18
 
-14:                                               ; preds = %5
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %12) #11
-  br label %29
+15:                                               ; preds = %6
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %13) #11
+  %17 = inttoptr i64 -22 to ptr
+  br label %33
 
-16:                                               ; preds = %5
-  %17 = add nuw nsw i32 %12, 7
-  %18 = lshr i32 %17, 3
-  %19 = add nuw nsw i32 %18, 2
-  %20 = icmp ugt i32 %19, %3
-  br i1 %20, label %21, label %23
+18:                                               ; preds = %6
+  %19 = add nuw nsw i32 %13, 7
+  %20 = lshr i32 %19, 3
+  %21 = add nuw nsw i32 %20, 2
+  %22 = icmp ugt i32 %21, %3
+  br i1 %22, label %23, label %26
 
-21:                                               ; preds = %16
-  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %18, i32 noundef %3) #11
-  br label %29
+23:                                               ; preds = %18
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %20, i32 noundef %3) #11
+  %25 = inttoptr i64 -22 to ptr
+  br label %33
 
-23:                                               ; preds = %16
-  %24 = getelementptr i8, ptr %0, i64 2
-  %25 = zext nneg i32 %18 to i64
-  %26 = tail call ptr @mpi_read_raw_data(ptr noundef %24, i64 noundef %25)
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %29, label %28
+26:                                               ; preds = %18
+  %27 = getelementptr i8, ptr %0, i64 2
+  %28 = zext nneg i32 %20 to i64
+  %29 = tail call ptr @mpi_read_raw_data(ptr noundef %27, i64 noundef %28)
+  %30 = icmp eq ptr %29, null
+  %31 = inttoptr i64 -12 to ptr
+  br i1 %30, label %33, label %32
 
-28:                                               ; preds = %23
-  store i32 %19, ptr %1, align 4
-  br label %29
+32:                                               ; preds = %26
+  store i32 %21, ptr %1, align 4
+  br label %33
 
-29:                                               ; preds = %28, %23, %21, %14, %2
-  %30 = phi ptr [ inttoptr (i64 -22 to ptr), %14 ], [ inttoptr (i64 -22 to ptr), %21 ], [ %26, %28 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -12 to ptr), %23 ]
-  ret ptr %30
+33:                                               ; preds = %32, %26, %23, %15, %2
+  %34 = phi ptr [ %17, %15 ], [ %25, %23 ], [ %29, %32 ], [ %5, %2 ], [ %31, %26 ]
+  ret ptr %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -81,11 +81,12 @@ define void @_ZN6casadi20SharedObjectInternalC2ERKS0_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %5, i32 0, i32 1
-  store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %5, i32 0, i32 1
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -104,11 +105,12 @@ define void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
   ret void
 }
 
@@ -117,40 +119,41 @@ define void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %16
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi20SharedObjectInternalE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %17
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_ZN6casadi7WeakRef4killEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %17
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  invoke void @_ZN6casadi7WeakRef4killEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %18
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %15, label %14
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds %"class.casadi::SharedObjectInternal", ptr %3, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %10
-  call void @_ZN6casadi7WeakRefD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  call void @_ZdlPv(ptr noundef %12) #11
-  br label %15
-
-15:                                               ; preds = %14, %10
+15:                                               ; preds = %11
+  call void @_ZN6casadi7WeakRefD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  call void @_ZdlPv(ptr noundef %13) #11
   br label %16
 
-16:                                               ; preds = %15, %1
+16:                                               ; preds = %15, %11
+  br label %17
+
+17:                                               ; preds = %16, %1
   ret void
 
-17:                                               ; preds = %7
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #12
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #12
   unreachable
 }
 
@@ -260,10 +263,11 @@ define void @_ZN6casadi15WeakRefInternalC2EPNS_20SharedObjectInternalE(ptr nound
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi15WeakRefInternalE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.casadi::WeakRefInternal", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6casadi15WeakRefInternalE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.casadi::WeakRefInternal", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

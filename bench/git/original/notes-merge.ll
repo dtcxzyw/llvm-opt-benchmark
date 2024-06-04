@@ -1245,7 +1245,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -1348,28 +1349,30 @@ do.end:                                           ; preds = %if.end
   %5 = load ptr, ptr %remote.addr, align 8
   call void @diff_tree_oid(ptr noundef %4, ptr noundef %5, ptr noundef @.str.32, ptr noundef %opt)
   call void @diffcore_std(ptr noundef %opt)
-  %6 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %conv = sext i32 %6 to i64
+  %6 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %conv = sext i32 %7 to i64
   %call3 = call ptr @xcalloc(i64 noundef %conv, i64 noundef 144)
   store ptr %call3, ptr %changes, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp = icmp slt i32 %7, %8
+  %8 = load i32, ptr %i, align 4
+  %9 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %10 = load i32, ptr %9, align 4
+  %cmp = icmp slt i32 %8, %10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr @diff_queued_diff, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %p, align 8
-  %12 = load ptr, ptr %p, align 8
-  %call5 = call i32 @verify_notes_filepair(ptr noundef %12, ptr noundef %obj)
+  %11 = load ptr, ptr @diff_queued_diff, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
+  %13 = load ptr, ptr %arrayidx, align 8
+  store ptr %13, ptr %p, align 8
+  %14 = load ptr, ptr %p, align 8
+  %call5 = call i32 @verify_notes_filepair(ptr noundef %14, ptr noundef %obj)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.end19
 
@@ -1382,26 +1385,26 @@ do.body8:                                         ; preds = %if.then7
   br i1 %tobool10, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %do.body8
-  %13 = load ptr, ptr %p, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %one, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %path, align 8
-  %16 = load ptr, ptr %p, align 8
-  %status = getelementptr inbounds %struct.diff_filepair, ptr %16, i32 0, i32 3
-  %17 = load i8, ptr %status, align 2
-  %conv12 = sext i8 %17 to i32
+  %15 = load ptr, ptr %p, align 8
+  %one = getelementptr inbounds %struct.diff_filepair, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %one, align 8
+  %path = getelementptr inbounds %struct.diff_filespec, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %path, align 8
   %18 = load ptr, ptr %p, align 8
-  %one13 = getelementptr inbounds %struct.diff_filepair, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %one13, align 8
-  %oid = getelementptr inbounds %struct.diff_filespec, ptr %19, i32 0, i32 0
-  %call14 = call ptr @oid_to_hex(ptr noundef %oid)
+  %status = getelementptr inbounds %struct.diff_filepair, ptr %18, i32 0, i32 3
+  %19 = load i8, ptr %status, align 2
+  %conv12 = sext i8 %19 to i32
   %20 = load ptr, ptr %p, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %two, align 8
-  %oid15 = getelementptr inbounds %struct.diff_filespec, ptr %21, i32 0, i32 0
+  %one13 = getelementptr inbounds %struct.diff_filepair, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %one13, align 8
+  %oid = getelementptr inbounds %struct.diff_filespec, ptr %21, i32 0, i32 0
+  %call14 = call ptr @oid_to_hex(ptr noundef %oid)
+  %22 = load ptr, ptr %p, align 8
+  %two = getelementptr inbounds %struct.diff_filepair, ptr %22, i32 0, i32 1
+  %23 = load ptr, ptr %two, align 8
+  %oid15 = getelementptr inbounds %struct.diff_filespec, ptr %23, i32 0, i32 0
   %call16 = call ptr @oid_to_hex(ptr noundef %oid15)
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 159, ptr noundef @trace_default_key, ptr noundef @.str.33, ptr noundef %15, i32 noundef %conv12, ptr noundef %call14, ptr noundef %call16)
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 159, ptr noundef @trace_default_key, ptr noundef @.str.33, ptr noundef %17, i32 noundef %conv12, ptr noundef %call14, ptr noundef %call16)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then11, %do.body8
@@ -1411,49 +1414,49 @@ do.end18:                                         ; preds = %if.end17
   br label %for.inc
 
 if.end19:                                         ; preds = %for.body
-  %22 = load ptr, ptr %changes, align 8
-  %23 = load i32, ptr %len, align 4
-  %call20 = call ptr @find_notes_merge_pair_pos(ptr noundef %22, i32 noundef %23, ptr noundef %obj, i32 noundef 1, ptr noundef %occupied)
+  %24 = load ptr, ptr %changes, align 8
+  %25 = load i32, ptr %len, align 4
+  %call20 = call ptr @find_notes_merge_pair_pos(ptr noundef %24, i32 noundef %25, ptr noundef %obj, i32 noundef 1, ptr noundef %occupied)
   store ptr %call20, ptr %mp, align 8
-  %24 = load i32, ptr %occupied, align 4
-  %tobool21 = icmp ne i32 %24, 0
+  %26 = load i32, ptr %occupied, align 4
+  %tobool21 = icmp ne i32 %26, 0
   br i1 %tobool21, label %if.then22, label %if.else42
 
 if.then22:                                        ; preds = %if.end19
-  %25 = load ptr, ptr %p, align 8
-  %one23 = getelementptr inbounds %struct.diff_filepair, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %one23, align 8
-  %oid24 = getelementptr inbounds %struct.diff_filespec, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %p, align 8
+  %one23 = getelementptr inbounds %struct.diff_filepair, ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %one23, align 8
+  %oid24 = getelementptr inbounds %struct.diff_filespec, ptr %28, i32 0, i32 0
   %call25 = call i32 @is_null_oid(ptr noundef %oid24)
   %tobool26 = icmp ne i32 %call25, 0
   br i1 %tobool26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.then22
-  %27 = load ptr, ptr %mp, align 8
-  %remote28 = getelementptr inbounds %struct.notes_merge_pair, ptr %27, i32 0, i32 3
-  %28 = load ptr, ptr %p, align 8
-  %two29 = getelementptr inbounds %struct.diff_filepair, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %two29, align 8
-  %oid30 = getelementptr inbounds %struct.diff_filespec, ptr %29, i32 0, i32 0
+  %29 = load ptr, ptr %mp, align 8
+  %remote28 = getelementptr inbounds %struct.notes_merge_pair, ptr %29, i32 0, i32 3
+  %30 = load ptr, ptr %p, align 8
+  %two29 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %two29, align 8
+  %oid30 = getelementptr inbounds %struct.diff_filespec, ptr %31, i32 0, i32 0
   call void @oidcpy(ptr noundef %remote28, ptr noundef %oid30)
   br label %if.end41
 
 if.else:                                          ; preds = %if.then22
-  %30 = load ptr, ptr %p, align 8
-  %two31 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %two31, align 8
-  %oid32 = getelementptr inbounds %struct.diff_filespec, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %p, align 8
+  %two31 = getelementptr inbounds %struct.diff_filepair, ptr %32, i32 0, i32 1
+  %33 = load ptr, ptr %two31, align 8
+  %oid32 = getelementptr inbounds %struct.diff_filespec, ptr %33, i32 0, i32 0
   %call33 = call i32 @is_null_oid(ptr noundef %oid32)
   %tobool34 = icmp ne i32 %call33, 0
   br i1 %tobool34, label %if.then35, label %if.else39
 
 if.then35:                                        ; preds = %if.else
-  %32 = load ptr, ptr %mp, align 8
-  %base36 = getelementptr inbounds %struct.notes_merge_pair, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %p, align 8
-  %one37 = getelementptr inbounds %struct.diff_filepair, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %one37, align 8
-  %oid38 = getelementptr inbounds %struct.diff_filespec, ptr %34, i32 0, i32 0
+  %34 = load ptr, ptr %mp, align 8
+  %base36 = getelementptr inbounds %struct.notes_merge_pair, ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %p, align 8
+  %one37 = getelementptr inbounds %struct.diff_filepair, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %one37, align 8
+  %oid38 = getelementptr inbounds %struct.diff_filespec, ptr %36, i32 0, i32 0
   call void @oidcpy(ptr noundef %base36, ptr noundef %oid38)
   br label %if.end40
 
@@ -1467,28 +1470,28 @@ if.end41:                                         ; preds = %if.end40, %if.then2
   br label %if.end50
 
 if.else42:                                        ; preds = %if.end19
-  %35 = load ptr, ptr %mp, align 8
-  %obj43 = getelementptr inbounds %struct.notes_merge_pair, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %mp, align 8
+  %obj43 = getelementptr inbounds %struct.notes_merge_pair, ptr %37, i32 0, i32 0
   call void @oidcpy(ptr noundef %obj43, ptr noundef %obj)
-  %36 = load ptr, ptr %mp, align 8
-  %base44 = getelementptr inbounds %struct.notes_merge_pair, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %p, align 8
-  %one45 = getelementptr inbounds %struct.diff_filepair, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %one45, align 8
-  %oid46 = getelementptr inbounds %struct.diff_filespec, ptr %38, i32 0, i32 0
+  %38 = load ptr, ptr %mp, align 8
+  %base44 = getelementptr inbounds %struct.notes_merge_pair, ptr %38, i32 0, i32 1
+  %39 = load ptr, ptr %p, align 8
+  %one45 = getelementptr inbounds %struct.diff_filepair, ptr %39, i32 0, i32 0
+  %40 = load ptr, ptr %one45, align 8
+  %oid46 = getelementptr inbounds %struct.diff_filespec, ptr %40, i32 0, i32 0
   call void @oidcpy(ptr noundef %base44, ptr noundef %oid46)
-  %39 = load ptr, ptr %mp, align 8
-  %local = getelementptr inbounds %struct.notes_merge_pair, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %mp, align 8
+  %local = getelementptr inbounds %struct.notes_merge_pair, ptr %41, i32 0, i32 2
   call void @oidcpy(ptr noundef %local, ptr noundef @uninitialized)
-  %40 = load ptr, ptr %mp, align 8
-  %remote47 = getelementptr inbounds %struct.notes_merge_pair, ptr %40, i32 0, i32 3
-  %41 = load ptr, ptr %p, align 8
-  %two48 = getelementptr inbounds %struct.diff_filepair, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %two48, align 8
-  %oid49 = getelementptr inbounds %struct.diff_filespec, ptr %42, i32 0, i32 0
+  %42 = load ptr, ptr %mp, align 8
+  %remote47 = getelementptr inbounds %struct.notes_merge_pair, ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %p, align 8
+  %two48 = getelementptr inbounds %struct.diff_filepair, ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %two48, align 8
+  %oid49 = getelementptr inbounds %struct.diff_filespec, ptr %44, i32 0, i32 0
   call void @oidcpy(ptr noundef %remote47, ptr noundef %oid49)
-  %43 = load i32, ptr %len, align 4
-  %inc = add nsw i32 %43, 1
+  %45 = load i32, ptr %len, align 4
+  %inc = add nsw i32 %45, 1
   store i32 %inc, ptr %len, align 4
   br label %if.end50
 
@@ -1501,14 +1504,14 @@ do.body51:                                        ; preds = %if.end50
   br i1 %tobool53, label %if.then54, label %if.end61
 
 if.then54:                                        ; preds = %do.body51
-  %44 = load ptr, ptr %mp, align 8
-  %obj55 = getelementptr inbounds %struct.notes_merge_pair, ptr %44, i32 0, i32 0
-  %call56 = call ptr @oid_to_hex(ptr noundef %obj55)
-  %45 = load ptr, ptr %mp, align 8
-  %base57 = getelementptr inbounds %struct.notes_merge_pair, ptr %45, i32 0, i32 1
-  %call58 = call ptr @oid_to_hex(ptr noundef %base57)
   %46 = load ptr, ptr %mp, align 8
-  %remote59 = getelementptr inbounds %struct.notes_merge_pair, ptr %46, i32 0, i32 3
+  %obj55 = getelementptr inbounds %struct.notes_merge_pair, ptr %46, i32 0, i32 0
+  %call56 = call ptr @oid_to_hex(ptr noundef %obj55)
+  %47 = load ptr, ptr %mp, align 8
+  %base57 = getelementptr inbounds %struct.notes_merge_pair, ptr %47, i32 0, i32 1
+  %call58 = call ptr @oid_to_hex(ptr noundef %base57)
+  %48 = load ptr, ptr %mp, align 8
+  %remote59 = getelementptr inbounds %struct.notes_merge_pair, ptr %48, i32 0, i32 3
   %call60 = call ptr @oid_to_hex(ptr noundef %remote59)
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 183, ptr noundef @trace_default_key, ptr noundef @.str.34, ptr noundef %call56, ptr noundef %call58, ptr noundef %call60)
   br label %if.end61
@@ -1520,18 +1523,18 @@ do.end62:                                         ; preds = %if.end61
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end62, %do.end18
-  %47 = load i32, ptr %i, align 4
-  %inc63 = add nsw i32 %47, 1
+  %49 = load i32, ptr %i, align 4
+  %inc63 = add nsw i32 %49, 1
   store i32 %inc63, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
   call void @diff_flush(ptr noundef %opt)
-  %48 = load i32, ptr %len, align 4
-  %49 = load ptr, ptr %num_changes.addr, align 8
-  store i32 %48, ptr %49, align 4
-  %50 = load ptr, ptr %changes, align 8
-  ret ptr %50
+  %50 = load i32, ptr %len, align 4
+  %51 = load ptr, ptr %num_changes.addr, align 8
+  store i32 %50, ptr %51, align 4
+  %52 = load ptr, ptr %changes, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1592,19 +1595,20 @@ do.end:                                           ; preds = %if.end
 
 for.cond:                                         ; preds = %for.inc, %do.end
   %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp = icmp slt i32 %7, %8
+  %8 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %9 = load i32, ptr %8, align 4
+  %cmp = icmp slt i32 %7, %9
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr @diff_queued_diff, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %p, align 8
-  %12 = load ptr, ptr %p, align 8
-  %call3 = call i32 @verify_notes_filepair(ptr noundef %12, ptr noundef %obj)
+  %10 = load ptr, ptr @diff_queued_diff, align 8
+  %11 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %11 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
+  %12 = load ptr, ptr %arrayidx, align 8
+  store ptr %12, ptr %p, align 8
+  %13 = load ptr, ptr %p, align 8
+  %call3 = call i32 @verify_notes_filepair(ptr noundef %13, ptr noundef %obj)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.then5, label %if.end16
 
@@ -1617,26 +1621,26 @@ do.body6:                                         ; preds = %if.then5
   br i1 %tobool8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %p, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %one, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %path, align 8
-  %16 = load ptr, ptr %p, align 8
-  %status = getelementptr inbounds %struct.diff_filepair, ptr %16, i32 0, i32 3
-  %17 = load i8, ptr %status, align 2
-  %conv = sext i8 %17 to i32
-  %18 = load ptr, ptr %p, align 8
-  %one10 = getelementptr inbounds %struct.diff_filepair, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %one10, align 8
-  %oid = getelementptr inbounds %struct.diff_filespec, ptr %19, i32 0, i32 0
+  %14 = load ptr, ptr %p, align 8
+  %one = getelementptr inbounds %struct.diff_filepair, ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %one, align 8
+  %path = getelementptr inbounds %struct.diff_filespec, ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %path, align 8
+  %17 = load ptr, ptr %p, align 8
+  %status = getelementptr inbounds %struct.diff_filepair, ptr %17, i32 0, i32 3
+  %18 = load i8, ptr %status, align 2
+  %conv = sext i8 %18 to i32
+  %19 = load ptr, ptr %p, align 8
+  %one10 = getelementptr inbounds %struct.diff_filepair, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %one10, align 8
+  %oid = getelementptr inbounds %struct.diff_filespec, ptr %20, i32 0, i32 0
   %call11 = call ptr @oid_to_hex(ptr noundef %oid)
-  %20 = load ptr, ptr %p, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %two, align 8
-  %oid12 = getelementptr inbounds %struct.diff_filespec, ptr %21, i32 0, i32 0
+  %21 = load ptr, ptr %p, align 8
+  %two = getelementptr inbounds %struct.diff_filepair, ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %two, align 8
+  %oid12 = getelementptr inbounds %struct.diff_filespec, ptr %22, i32 0, i32 0
   %call13 = call ptr @oid_to_hex(ptr noundef %oid12)
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 219, ptr noundef @trace_default_key, ptr noundef @.str.33, ptr noundef %15, i32 noundef %conv, ptr noundef %call11, ptr noundef %call13)
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 219, ptr noundef @trace_default_key, ptr noundef @.str.33, ptr noundef %16, i32 noundef %conv, ptr noundef %call11, ptr noundef %call13)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %do.body6
@@ -1646,12 +1650,12 @@ do.end15:                                         ; preds = %if.end14
   br label %for.inc
 
 if.end16:                                         ; preds = %for.body
-  %22 = load ptr, ptr %changes.addr, align 8
-  %23 = load i32, ptr %len.addr, align 4
-  %call17 = call ptr @find_notes_merge_pair_pos(ptr noundef %22, i32 noundef %23, ptr noundef %obj, i32 noundef 0, ptr noundef %match)
+  %23 = load ptr, ptr %changes.addr, align 8
+  %24 = load i32, ptr %len.addr, align 4
+  %call17 = call ptr @find_notes_merge_pair_pos(ptr noundef %23, i32 noundef %24, ptr noundef %obj, i32 noundef 0, ptr noundef %match)
   store ptr %call17, ptr %mp, align 8
-  %24 = load i32, ptr %match, align 4
-  %tobool18 = icmp ne i32 %24, 0
+  %25 = load i32, ptr %match, align 4
+  %tobool18 = icmp ne i32 %25, 0
   br i1 %tobool18, label %if.end33, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
@@ -1664,15 +1668,15 @@ do.body20:                                        ; preds = %if.then19
 
 if.then23:                                        ; preds = %do.body20
   %call24 = call ptr @oid_to_hex(ptr noundef %obj)
-  %25 = load ptr, ptr %p, align 8
-  %one25 = getelementptr inbounds %struct.diff_filepair, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %one25, align 8
-  %oid26 = getelementptr inbounds %struct.diff_filespec, ptr %26, i32 0, i32 0
+  %26 = load ptr, ptr %p, align 8
+  %one25 = getelementptr inbounds %struct.diff_filepair, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %one25, align 8
+  %oid26 = getelementptr inbounds %struct.diff_filespec, ptr %27, i32 0, i32 0
   %call27 = call ptr @oid_to_hex(ptr noundef %oid26)
-  %27 = load ptr, ptr %p, align 8
-  %two28 = getelementptr inbounds %struct.diff_filepair, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %two28, align 8
-  %oid29 = getelementptr inbounds %struct.diff_filespec, ptr %28, i32 0, i32 0
+  %28 = load ptr, ptr %p, align 8
+  %two28 = getelementptr inbounds %struct.diff_filepair, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %two28, align 8
+  %oid29 = getelementptr inbounds %struct.diff_filespec, ptr %29, i32 0, i32 0
   %call30 = call ptr @oid_to_hex(ptr noundef %oid29)
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 227, ptr noundef @trace_default_key, ptr noundef @.str.37, ptr noundef %call24, ptr noundef %call27, ptr noundef %call30)
   br label %if.end31
@@ -1684,24 +1688,24 @@ do.end32:                                         ; preds = %if.end31
   br label %for.inc
 
 if.end33:                                         ; preds = %if.end16
-  %29 = load ptr, ptr %p, align 8
-  %two34 = getelementptr inbounds %struct.diff_filepair, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %two34, align 8
-  %oid35 = getelementptr inbounds %struct.diff_filespec, ptr %30, i32 0, i32 0
+  %30 = load ptr, ptr %p, align 8
+  %two34 = getelementptr inbounds %struct.diff_filepair, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %two34, align 8
+  %oid35 = getelementptr inbounds %struct.diff_filespec, ptr %31, i32 0, i32 0
   %call36 = call i32 @is_null_oid(ptr noundef %oid35)
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end33
-  %31 = load ptr, ptr %mp, align 8
-  %local39 = getelementptr inbounds %struct.notes_merge_pair, ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %mp, align 8
+  %local39 = getelementptr inbounds %struct.notes_merge_pair, ptr %32, i32 0, i32 2
   %call40 = call i32 @oideq(ptr noundef %local39, ptr noundef @uninitialized)
   %tobool41 = icmp ne i32 %call40, 0
   br i1 %tobool41, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.then38
-  %32 = load ptr, ptr %mp, align 8
-  %local43 = getelementptr inbounds %struct.notes_merge_pair, ptr %32, i32 0, i32 2
+  %33 = load ptr, ptr %mp, align 8
+  %local43 = getelementptr inbounds %struct.notes_merge_pair, ptr %33, i32 0, i32 2
   call void @oidclr(ptr noundef %local43)
   br label %if.end44
 
@@ -1709,31 +1713,31 @@ if.end44:                                         ; preds = %if.then42, %if.then
   br label %if.end58
 
 if.else:                                          ; preds = %if.end33
-  %33 = load ptr, ptr %p, align 8
-  %one45 = getelementptr inbounds %struct.diff_filepair, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %one45, align 8
-  %oid46 = getelementptr inbounds %struct.diff_filespec, ptr %34, i32 0, i32 0
+  %34 = load ptr, ptr %p, align 8
+  %one45 = getelementptr inbounds %struct.diff_filepair, ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %one45, align 8
+  %oid46 = getelementptr inbounds %struct.diff_filespec, ptr %35, i32 0, i32 0
   %call47 = call i32 @is_null_oid(ptr noundef %oid46)
   %tobool48 = icmp ne i32 %call47, 0
   br i1 %tobool48, label %if.then49, label %if.else53
 
 if.then49:                                        ; preds = %if.else
-  %35 = load ptr, ptr %mp, align 8
-  %local50 = getelementptr inbounds %struct.notes_merge_pair, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %p, align 8
-  %two51 = getelementptr inbounds %struct.diff_filepair, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %two51, align 8
-  %oid52 = getelementptr inbounds %struct.diff_filespec, ptr %37, i32 0, i32 0
+  %36 = load ptr, ptr %mp, align 8
+  %local50 = getelementptr inbounds %struct.notes_merge_pair, ptr %36, i32 0, i32 2
+  %37 = load ptr, ptr %p, align 8
+  %two51 = getelementptr inbounds %struct.diff_filepair, ptr %37, i32 0, i32 1
+  %38 = load ptr, ptr %two51, align 8
+  %oid52 = getelementptr inbounds %struct.diff_filespec, ptr %38, i32 0, i32 0
   call void @oidcpy(ptr noundef %local50, ptr noundef %oid52)
   br label %if.end57
 
 if.else53:                                        ; preds = %if.else
-  %38 = load ptr, ptr %mp, align 8
-  %local54 = getelementptr inbounds %struct.notes_merge_pair, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %p, align 8
-  %two55 = getelementptr inbounds %struct.diff_filepair, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %two55, align 8
-  %oid56 = getelementptr inbounds %struct.diff_filespec, ptr %40, i32 0, i32 0
+  %39 = load ptr, ptr %mp, align 8
+  %local54 = getelementptr inbounds %struct.notes_merge_pair, ptr %39, i32 0, i32 2
+  %40 = load ptr, ptr %p, align 8
+  %two55 = getelementptr inbounds %struct.diff_filepair, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %two55, align 8
+  %oid56 = getelementptr inbounds %struct.diff_filespec, ptr %41, i32 0, i32 0
   call void @oidcpy(ptr noundef %local54, ptr noundef %oid56)
   br label %if.end57
 
@@ -1749,14 +1753,14 @@ do.body59:                                        ; preds = %if.end58
   br i1 %tobool61, label %if.then62, label %if.end69
 
 if.then62:                                        ; preds = %do.body59
-  %41 = load ptr, ptr %mp, align 8
-  %obj63 = getelementptr inbounds %struct.notes_merge_pair, ptr %41, i32 0, i32 0
-  %call64 = call ptr @oid_to_hex(ptr noundef %obj63)
   %42 = load ptr, ptr %mp, align 8
-  %base65 = getelementptr inbounds %struct.notes_merge_pair, ptr %42, i32 0, i32 1
-  %call66 = call ptr @oid_to_hex(ptr noundef %base65)
+  %obj63 = getelementptr inbounds %struct.notes_merge_pair, ptr %42, i32 0, i32 0
+  %call64 = call ptr @oid_to_hex(ptr noundef %obj63)
   %43 = load ptr, ptr %mp, align 8
-  %local67 = getelementptr inbounds %struct.notes_merge_pair, ptr %43, i32 0, i32 2
+  %base65 = getelementptr inbounds %struct.notes_merge_pair, ptr %43, i32 0, i32 1
+  %call66 = call ptr @oid_to_hex(ptr noundef %base65)
+  %44 = load ptr, ptr %mp, align 8
+  %local67 = getelementptr inbounds %struct.notes_merge_pair, ptr %44, i32 0, i32 2
   %call68 = call ptr @oid_to_hex(ptr noundef %local67)
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef @.str, i32 noundef 268, ptr noundef @trace_default_key, ptr noundef @.str.38, ptr noundef %call64, ptr noundef %call66, ptr noundef %call68)
   br label %if.end69
@@ -1768,8 +1772,8 @@ do.end70:                                         ; preds = %if.end69
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end70, %do.end32, %do.end15
-  %44 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %44, 1
+  %45 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %45, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 

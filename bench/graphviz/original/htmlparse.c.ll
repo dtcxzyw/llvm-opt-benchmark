@@ -116,7 +116,7 @@ define i32 @htmlparse() #0 {
   store i32 -2, ptr @htmlchar, align 4
   br label %29
 
-26:                                               ; preds = %614, %501, %193
+26:                                               ; preds = %623, %510, %193
   %27 = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds i8, ptr %27, i32 1
   store ptr %28, ptr %6, align 8
@@ -148,7 +148,7 @@ define i32 @htmlparse() #0 {
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %39
-  br label %620
+  br label %629
 
 49:                                               ; preds = %39
   %50 = load i64, ptr %3, align 8
@@ -175,7 +175,7 @@ define i32 @htmlparse() #0 {
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %55
-  br label %620
+  br label %629
 
 64:                                               ; preds = %55
   br label %65
@@ -252,7 +252,7 @@ define i32 @htmlparse() #0 {
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %98
-  br label %619
+  br label %628
 
 114:                                              ; preds = %98
   br label %115
@@ -263,7 +263,7 @@ define i32 @htmlparse() #0 {
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %115
-  br label %618
+  br label %627
 
 119:                                              ; preds = %115
   br label %120
@@ -310,7 +310,7 @@ define i32 @htmlparse() #0 {
 141:                                              ; preds = %138
   store i32 257, ptr @htmlchar, align 4
   store i32 1, ptr %12, align 4
-  br label %560
+  br label %569
 
 142:                                              ; preds = %138
   %143 = load i32, ptr @htmlchar, align 4
@@ -418,7 +418,7 @@ define i32 @htmlparse() #0 {
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %197
-  br label %503
+  br label %512
 
 206:                                              ; preds = %197
   br label %207
@@ -437,57 +437,57 @@ define i32 @htmlparse() #0 {
   %217 = getelementptr inbounds %union.HTMLSTYPE, ptr %213, i64 %216
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %217, i64 8, i1 false)
   %218 = load i32, ptr %10, align 4
-  switch i32 %218, label %445 [
+  switch i32 %218, label %454 [
     i32 2, label %219
     i32 3, label %224
     i32 4, label %229
     i32 5, label %230
     i32 8, label %232
-    i32 9, label %234
-    i32 18, label %238
-    i32 19, label %242
-    i32 20, label %243
-    i32 21, label %247
-    i32 22, label %248
-    i32 23, label %252
-    i32 24, label %253
-    i32 25, label %257
-    i32 26, label %258
-    i32 27, label %262
-    i32 28, label %263
-    i32 29, label %267
-    i32 30, label %268
-    i32 31, label %272
-    i32 32, label %273
-    i32 33, label %277
-    i32 34, label %278
-    i32 35, label %282
-    i32 38, label %286
-    i32 39, label %319
-    i32 40, label %331
-    i32 41, label %335
-    i32 42, label %339
-    i32 43, label %343
-    i32 44, label %347
-    i32 45, label %351
-    i32 48, label %355
-    i32 49, label %359
-    i32 50, label %363
-    i32 51, label %371
-    i32 52, label %373
-    i32 53, label %375
-    i32 54, label %379
-    i32 55, label %383
-    i32 56, label %395
-    i32 57, label %402
-    i32 58, label %406
-    i32 59, label %413
-    i32 60, label %417
-    i32 61, label %424
-    i32 62, label %428
-    i32 63, label %433
-    i32 64, label %437
-    i32 65, label %441
+    i32 9, label %235
+    i32 18, label %239
+    i32 19, label %243
+    i32 20, label %244
+    i32 21, label %248
+    i32 22, label %249
+    i32 23, label %253
+    i32 24, label %254
+    i32 25, label %258
+    i32 26, label %259
+    i32 27, label %263
+    i32 28, label %264
+    i32 29, label %268
+    i32 30, label %269
+    i32 31, label %273
+    i32 32, label %274
+    i32 33, label %278
+    i32 34, label %279
+    i32 35, label %283
+    i32 38, label %287
+    i32 39, label %324
+    i32 40, label %340
+    i32 41, label %344
+    i32 42, label %348
+    i32 43, label %352
+    i32 44, label %356
+    i32 45, label %360
+    i32 48, label %364
+    i32 49, label %368
+    i32 50, label %372
+    i32 51, label %380
+    i32 52, label %382
+    i32 53, label %384
+    i32 54, label %388
+    i32 55, label %392
+    i32 56, label %404
+    i32 57, label %411
+    i32 58, label %415
+    i32 59, label %422
+    i32 60, label %426
+    i32 61, label %433
+    i32 62, label %437
+    i32 63, label %442
+    i32 64, label %446
+    i32 65, label %450
   ]
 
 219:                                              ; preds = %207
@@ -496,7 +496,7 @@ define i32 @htmlparse() #0 {
   %222 = load ptr, ptr %221, align 8
   %223 = call ptr @mkLabel(ptr noundef %222, i8 noundef signext 2)
   store ptr %223, ptr @HTMLstate, align 8
-  br label %446
+  br label %455
 
 224:                                              ; preds = %207
   %225 = load ptr, ptr %9, align 8
@@ -504,763 +504,772 @@ define i32 @htmlparse() #0 {
   %227 = load ptr, ptr %226, align 8
   %228 = call ptr @mkLabel(ptr noundef %227, i8 noundef signext 1)
   store ptr %228, ptr @HTMLstate, align 8
-  br label %446
+  br label %455
 
 229:                                              ; preds = %207
   call void @cleanup()
-  br label %619
+  br label %628
 
 230:                                              ; preds = %207
   %231 = call ptr @mkText()
   store ptr %231, ptr %13, align 8
-  br label %446
+  br label %455
 
 232:                                              ; preds = %207
-  %233 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 4), align 8
-  call void @appendFItemList(ptr noundef %233)
-  br label %446
+  %233 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 4
+  %234 = load ptr, ptr %233, align 8
+  call void @appendFItemList(ptr noundef %234)
+  br label %455
 
-234:                                              ; preds = %207
-  %235 = load ptr, ptr %9, align 8
-  %236 = getelementptr inbounds %union.HTMLSTYPE, ptr %235, i64 0
-  %237 = load i32, ptr %236, align 8
-  call void @appendFLineList(i32 noundef %237)
-  br label %446
+235:                                              ; preds = %207
+  %236 = load ptr, ptr %9, align 8
+  %237 = getelementptr inbounds %union.HTMLSTYPE, ptr %236, i64 0
+  %238 = load i32, ptr %237, align 8
+  call void @appendFLineList(i32 noundef %238)
+  br label %455
 
-238:                                              ; preds = %207
-  %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds %union.HTMLSTYPE, ptr %239, i64 0
-  %241 = load ptr, ptr %240, align 8
-  call void @pushFont(ptr noundef %241)
-  br label %446
-
-242:                                              ; preds = %207
-  call void @popFont()
-  br label %446
+239:                                              ; preds = %207
+  %240 = load ptr, ptr %9, align 8
+  %241 = getelementptr inbounds %union.HTMLSTYPE, ptr %240, i64 0
+  %242 = load ptr, ptr %241, align 8
+  call void @pushFont(ptr noundef %242)
+  br label %455
 
 243:                                              ; preds = %207
-  %244 = load ptr, ptr %9, align 8
-  %245 = getelementptr inbounds %union.HTMLSTYPE, ptr %244, i64 0
-  %246 = load ptr, ptr %245, align 8
-  call void @pushFont(ptr noundef %246)
-  br label %446
-
-247:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+244:                                              ; preds = %207
+  %245 = load ptr, ptr %9, align 8
+  %246 = getelementptr inbounds %union.HTMLSTYPE, ptr %245, i64 0
+  %247 = load ptr, ptr %246, align 8
+  call void @pushFont(ptr noundef %247)
+  br label %455
 
 248:                                              ; preds = %207
-  %249 = load ptr, ptr %9, align 8
-  %250 = getelementptr inbounds %union.HTMLSTYPE, ptr %249, i64 0
-  %251 = load ptr, ptr %250, align 8
-  call void @pushFont(ptr noundef %251)
-  br label %446
-
-252:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+249:                                              ; preds = %207
+  %250 = load ptr, ptr %9, align 8
+  %251 = getelementptr inbounds %union.HTMLSTYPE, ptr %250, i64 0
+  %252 = load ptr, ptr %251, align 8
+  call void @pushFont(ptr noundef %252)
+  br label %455
 
 253:                                              ; preds = %207
-  %254 = load ptr, ptr %9, align 8
-  %255 = getelementptr inbounds %union.HTMLSTYPE, ptr %254, i64 0
-  %256 = load ptr, ptr %255, align 8
-  call void @pushFont(ptr noundef %256)
-  br label %446
-
-257:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+254:                                              ; preds = %207
+  %255 = load ptr, ptr %9, align 8
+  %256 = getelementptr inbounds %union.HTMLSTYPE, ptr %255, i64 0
+  %257 = load ptr, ptr %256, align 8
+  call void @pushFont(ptr noundef %257)
+  br label %455
 
 258:                                              ; preds = %207
-  %259 = load ptr, ptr %9, align 8
-  %260 = getelementptr inbounds %union.HTMLSTYPE, ptr %259, i64 0
-  %261 = load ptr, ptr %260, align 8
-  call void @pushFont(ptr noundef %261)
-  br label %446
-
-262:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+259:                                              ; preds = %207
+  %260 = load ptr, ptr %9, align 8
+  %261 = getelementptr inbounds %union.HTMLSTYPE, ptr %260, i64 0
+  %262 = load ptr, ptr %261, align 8
+  call void @pushFont(ptr noundef %262)
+  br label %455
 
 263:                                              ; preds = %207
-  %264 = load ptr, ptr %9, align 8
-  %265 = getelementptr inbounds %union.HTMLSTYPE, ptr %264, i64 0
-  %266 = load ptr, ptr %265, align 8
-  call void @pushFont(ptr noundef %266)
-  br label %446
-
-267:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+264:                                              ; preds = %207
+  %265 = load ptr, ptr %9, align 8
+  %266 = getelementptr inbounds %union.HTMLSTYPE, ptr %265, i64 0
+  %267 = load ptr, ptr %266, align 8
+  call void @pushFont(ptr noundef %267)
+  br label %455
 
 268:                                              ; preds = %207
-  %269 = load ptr, ptr %9, align 8
-  %270 = getelementptr inbounds %union.HTMLSTYPE, ptr %269, i64 0
-  %271 = load ptr, ptr %270, align 8
-  call void @pushFont(ptr noundef %271)
-  br label %446
-
-272:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+269:                                              ; preds = %207
+  %270 = load ptr, ptr %9, align 8
+  %271 = getelementptr inbounds %union.HTMLSTYPE, ptr %270, i64 0
+  %272 = load ptr, ptr %271, align 8
+  call void @pushFont(ptr noundef %272)
+  br label %455
 
 273:                                              ; preds = %207
-  %274 = load ptr, ptr %9, align 8
-  %275 = getelementptr inbounds %union.HTMLSTYPE, ptr %274, i64 0
-  %276 = load ptr, ptr %275, align 8
-  call void @pushFont(ptr noundef %276)
-  br label %446
-
-277:                                              ; preds = %207
   call void @popFont()
-  br label %446
+  br label %455
+
+274:                                              ; preds = %207
+  %275 = load ptr, ptr %9, align 8
+  %276 = getelementptr inbounds %union.HTMLSTYPE, ptr %275, i64 0
+  %277 = load ptr, ptr %276, align 8
+  call void @pushFont(ptr noundef %277)
+  br label %455
 
 278:                                              ; preds = %207
-  %279 = load ptr, ptr %9, align 8
-  %280 = getelementptr inbounds %union.HTMLSTYPE, ptr %279, i64 -1
-  %281 = load i32, ptr %280, align 8
-  store i32 %281, ptr %13, align 8
-  br label %446
+  call void @popFont()
+  br label %455
 
-282:                                              ; preds = %207
-  %283 = load ptr, ptr %9, align 8
-  %284 = getelementptr inbounds %union.HTMLSTYPE, ptr %283, i64 0
-  %285 = load i32, ptr %284, align 8
-  store i32 %285, ptr %13, align 8
-  br label %446
+279:                                              ; preds = %207
+  %280 = load ptr, ptr %9, align 8
+  %281 = getelementptr inbounds %union.HTMLSTYPE, ptr %280, i64 -1
+  %282 = load i32, ptr %281, align 8
+  store i32 %282, ptr %13, align 8
+  br label %455
 
-286:                                              ; preds = %207
-  %287 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 4), align 8
-  %288 = call ptr @agxbuse(ptr noundef %287)
-  %289 = call i32 @nonSpace(ptr noundef %288)
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %291, label %292
+283:                                              ; preds = %207
+  %284 = load ptr, ptr %9, align 8
+  %285 = getelementptr inbounds %union.HTMLSTYPE, ptr %284, i64 0
+  %286 = load i32, ptr %285, align 8
+  store i32 %286, ptr %13, align 8
+  br label %455
 
-291:                                              ; preds = %286
+287:                                              ; preds = %207
+  %288 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 4
+  %289 = load ptr, ptr %288, align 8
+  %290 = call ptr @agxbuse(ptr noundef %289)
+  %291 = call i32 @nonSpace(ptr noundef %290)
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %294
+
+293:                                              ; preds = %287
   call void @htmlerror(ptr noundef @.str)
   call void @cleanup()
-  br label %619
+  br label %628
 
-292:                                              ; preds = %286
-  %293 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  %294 = load ptr, ptr %9, align 8
-  %295 = getelementptr inbounds %union.HTMLSTYPE, ptr %294, i64 0
+294:                                              ; preds = %287
+  %295 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
   %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds %struct.htmltbl_t, ptr %296, i32 0, i32 1
-  %298 = getelementptr inbounds %struct.anon.1, ptr %297, i32 0, i32 0
-  store ptr %293, ptr %298, align 8
-  %299 = load ptr, ptr @Dtqueue, align 8
-  %300 = call ptr @dtopen(ptr noundef @rowDisc, ptr noundef %299)
-  %301 = load ptr, ptr %9, align 8
-  %302 = getelementptr inbounds %union.HTMLSTYPE, ptr %301, i64 0
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds %struct.htmltbl_t, ptr %303, i32 0, i32 1
-  %305 = getelementptr inbounds %struct.anon.1, ptr %304, i32 0, i32 1
-  store ptr %300, ptr %305, align 8
-  %306 = load ptr, ptr %9, align 8
-  %307 = getelementptr inbounds %union.HTMLSTYPE, ptr %306, i64 0
-  %308 = load ptr, ptr %307, align 8
-  store ptr %308, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  %309 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  %310 = getelementptr inbounds %struct.sfont_t, ptr %309, i32 0, i32 0
+  %297 = load ptr, ptr %9, align 8
+  %298 = getelementptr inbounds %union.HTMLSTYPE, ptr %297, i64 0
+  %299 = load ptr, ptr %298, align 8
+  %300 = getelementptr inbounds %struct.htmltbl_t, ptr %299, i32 0, i32 1
+  %301 = getelementptr inbounds %struct.anon.1, ptr %300, i32 0, i32 0
+  store ptr %296, ptr %301, align 8
+  %302 = load ptr, ptr @Dtqueue, align 8
+  %303 = call ptr @dtopen(ptr noundef @rowDisc, ptr noundef %302)
+  %304 = load ptr, ptr %9, align 8
+  %305 = getelementptr inbounds %union.HTMLSTYPE, ptr %304, i64 0
+  %306 = load ptr, ptr %305, align 8
+  %307 = getelementptr inbounds %struct.htmltbl_t, ptr %306, i32 0, i32 1
+  %308 = getelementptr inbounds %struct.anon.1, ptr %307, i32 0, i32 1
+  store ptr %303, ptr %308, align 8
+  %309 = load ptr, ptr %9, align 8
+  %310 = getelementptr inbounds %union.HTMLSTYPE, ptr %309, i64 0
   %311 = load ptr, ptr %310, align 8
-  %312 = load ptr, ptr %9, align 8
-  %313 = getelementptr inbounds %union.HTMLSTYPE, ptr %312, i64 0
+  %312 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  store ptr %311, ptr %312, align 8
+  %313 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.htmltbl_t, ptr %314, i32 0, i32 7
-  store ptr %311, ptr %315, align 8
-  %316 = load ptr, ptr %9, align 8
-  %317 = getelementptr inbounds %union.HTMLSTYPE, ptr %316, i64 0
-  %318 = load ptr, ptr %317, align 8
-  store ptr %318, ptr %13, align 8
-  br label %446
+  %315 = getelementptr inbounds %struct.sfont_t, ptr %314, i32 0, i32 0
+  %316 = load ptr, ptr %315, align 8
+  %317 = load ptr, ptr %9, align 8
+  %318 = getelementptr inbounds %union.HTMLSTYPE, ptr %317, i64 0
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds %struct.htmltbl_t, ptr %319, i32 0, i32 7
+  store ptr %316, ptr %320, align 8
+  %321 = load ptr, ptr %9, align 8
+  %322 = getelementptr inbounds %union.HTMLSTYPE, ptr %321, i64 0
+  %323 = load ptr, ptr %322, align 8
+  store ptr %323, ptr %13, align 8
+  br label %455
 
-319:                                              ; preds = %207
-  %320 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 4), align 8
-  %321 = call ptr @agxbuse(ptr noundef %320)
-  %322 = call i32 @nonSpace(ptr noundef %321)
-  %323 = icmp ne i32 %322, 0
-  br i1 %323, label %324, label %325
+324:                                              ; preds = %207
+  %325 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 4
+  %326 = load ptr, ptr %325, align 8
+  %327 = call ptr @agxbuse(ptr noundef %326)
+  %328 = call i32 @nonSpace(ptr noundef %327)
+  %329 = icmp ne i32 %328, 0
+  br i1 %329, label %330, label %331
 
-324:                                              ; preds = %319
+330:                                              ; preds = %324
   call void @htmlerror(ptr noundef @.str.1)
   call void @cleanup()
-  br label %619
+  br label %628
 
-325:                                              ; preds = %319
-  %326 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  store ptr %326, ptr %13, align 8
-  %327 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  %328 = getelementptr inbounds %struct.htmltbl_t, ptr %327, i32 0, i32 1
-  %329 = getelementptr inbounds %struct.anon.1, ptr %328, i32 0, i32 0
-  %330 = load ptr, ptr %329, align 8
-  store ptr %330, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  br label %446
-
-331:                                              ; preds = %207
-  %332 = load ptr, ptr %9, align 8
-  %333 = getelementptr inbounds %union.HTMLSTYPE, ptr %332, i64 0
-  %334 = load ptr, ptr %333, align 8
-  store ptr %334, ptr %13, align 8
-  br label %446
-
-335:                                              ; preds = %207
-  %336 = load ptr, ptr %9, align 8
-  %337 = getelementptr inbounds %union.HTMLSTYPE, ptr %336, i64 -1
+331:                                              ; preds = %324
+  %332 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %333 = load ptr, ptr %332, align 8
+  store ptr %333, ptr %13, align 8
+  %334 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds %struct.htmltbl_t, ptr %335, i32 0, i32 1
+  %337 = getelementptr inbounds %struct.anon.1, ptr %336, i32 0, i32 0
   %338 = load ptr, ptr %337, align 8
-  store ptr %338, ptr %13, align 8
-  br label %446
+  %339 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  store ptr %338, ptr %339, align 8
+  br label %455
 
-339:                                              ; preds = %207
-  %340 = load ptr, ptr %9, align 8
-  %341 = getelementptr inbounds %union.HTMLSTYPE, ptr %340, i64 -1
-  %342 = load ptr, ptr %341, align 8
-  store ptr %342, ptr %13, align 8
-  br label %446
+340:                                              ; preds = %207
+  %341 = load ptr, ptr %9, align 8
+  %342 = getelementptr inbounds %union.HTMLSTYPE, ptr %341, i64 0
+  %343 = load ptr, ptr %342, align 8
+  store ptr %343, ptr %13, align 8
+  br label %455
 
-343:                                              ; preds = %207
-  %344 = load ptr, ptr %9, align 8
-  %345 = getelementptr inbounds %union.HTMLSTYPE, ptr %344, i64 -1
-  %346 = load ptr, ptr %345, align 8
-  store ptr %346, ptr %13, align 8
-  br label %446
+344:                                              ; preds = %207
+  %345 = load ptr, ptr %9, align 8
+  %346 = getelementptr inbounds %union.HTMLSTYPE, ptr %345, i64 -1
+  %347 = load ptr, ptr %346, align 8
+  store ptr %347, ptr %13, align 8
+  br label %455
 
-347:                                              ; preds = %207
-  %348 = load ptr, ptr %9, align 8
-  %349 = getelementptr inbounds %union.HTMLSTYPE, ptr %348, i64 -1
-  %350 = load ptr, ptr %349, align 8
-  store ptr %350, ptr %13, align 8
-  br label %446
+348:                                              ; preds = %207
+  %349 = load ptr, ptr %9, align 8
+  %350 = getelementptr inbounds %union.HTMLSTYPE, ptr %349, i64 -1
+  %351 = load ptr, ptr %350, align 8
+  store ptr %351, ptr %13, align 8
+  br label %455
 
-351:                                              ; preds = %207
-  %352 = load ptr, ptr %9, align 8
-  %353 = getelementptr inbounds %union.HTMLSTYPE, ptr %352, i64 -1
-  %354 = load ptr, ptr %353, align 8
-  store ptr %354, ptr %13, align 8
-  br label %446
+352:                                              ; preds = %207
+  %353 = load ptr, ptr %9, align 8
+  %354 = getelementptr inbounds %union.HTMLSTYPE, ptr %353, i64 -1
+  %355 = load ptr, ptr %354, align 8
+  store ptr %355, ptr %13, align 8
+  br label %455
 
-355:                                              ; preds = %207
-  %356 = load ptr, ptr %9, align 8
-  %357 = getelementptr inbounds %union.HTMLSTYPE, ptr %356, i64 0
-  %358 = load ptr, ptr %357, align 8
-  store ptr %358, ptr %13, align 8
-  br label %446
+356:                                              ; preds = %207
+  %357 = load ptr, ptr %9, align 8
+  %358 = getelementptr inbounds %union.HTMLSTYPE, ptr %357, i64 -1
+  %359 = load ptr, ptr %358, align 8
+  store ptr %359, ptr %13, align 8
+  br label %455
 
-359:                                              ; preds = %207
-  %360 = load ptr, ptr %9, align 8
-  %361 = getelementptr inbounds %union.HTMLSTYPE, ptr %360, i64 0
-  %362 = load ptr, ptr %361, align 8
-  store ptr %362, ptr %13, align 8
-  br label %446
+360:                                              ; preds = %207
+  %361 = load ptr, ptr %9, align 8
+  %362 = getelementptr inbounds %union.HTMLSTYPE, ptr %361, i64 -1
+  %363 = load ptr, ptr %362, align 8
+  store ptr %363, ptr %13, align 8
+  br label %455
 
-363:                                              ; preds = %207
-  %364 = load ptr, ptr %9, align 8
-  %365 = getelementptr inbounds %union.HTMLSTYPE, ptr %364, i64 -2
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds %struct.pitem, ptr %366, i32 0, i32 2
-  store i8 1, ptr %367, align 8
-  %368 = load ptr, ptr %9, align 8
-  %369 = getelementptr inbounds %union.HTMLSTYPE, ptr %368, i64 0
-  %370 = load ptr, ptr %369, align 8
-  store ptr %370, ptr %13, align 8
-  br label %446
+364:                                              ; preds = %207
+  %365 = load ptr, ptr %9, align 8
+  %366 = getelementptr inbounds %union.HTMLSTYPE, ptr %365, i64 0
+  %367 = load ptr, ptr %366, align 8
+  store ptr %367, ptr %13, align 8
+  br label %455
 
-371:                                              ; preds = %207
-  %372 = call ptr @addRow()
-  br label %446
+368:                                              ; preds = %207
+  %369 = load ptr, ptr %9, align 8
+  %370 = getelementptr inbounds %union.HTMLSTYPE, ptr %369, i64 0
+  %371 = load ptr, ptr %370, align 8
+  store ptr %371, ptr %13, align 8
+  br label %455
 
-373:                                              ; preds = %207
-  %374 = call ptr @lastRow()
-  store ptr %374, ptr %13, align 8
-  br label %446
+372:                                              ; preds = %207
+  %373 = load ptr, ptr %9, align 8
+  %374 = getelementptr inbounds %union.HTMLSTYPE, ptr %373, i64 -2
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds %struct.pitem, ptr %375, i32 0, i32 2
+  store i8 1, ptr %376, align 8
+  %377 = load ptr, ptr %9, align 8
+  %378 = getelementptr inbounds %union.HTMLSTYPE, ptr %377, i64 0
+  %379 = load ptr, ptr %378, align 8
+  store ptr %379, ptr %13, align 8
+  br label %455
 
-375:                                              ; preds = %207
-  %376 = load ptr, ptr %9, align 8
-  %377 = getelementptr inbounds %union.HTMLSTYPE, ptr %376, i64 0
-  %378 = load ptr, ptr %377, align 8
-  store ptr %378, ptr %13, align 8
-  br label %446
+380:                                              ; preds = %207
+  %381 = call ptr @addRow()
+  br label %455
 
-379:                                              ; preds = %207
-  %380 = load ptr, ptr %9, align 8
-  %381 = getelementptr inbounds %union.HTMLSTYPE, ptr %380, i64 0
-  %382 = load ptr, ptr %381, align 8
-  store ptr %382, ptr %13, align 8
-  br label %446
+382:                                              ; preds = %207
+  %383 = call ptr @lastRow()
+  store ptr %383, ptr %13, align 8
+  br label %455
 
-383:                                              ; preds = %207
-  %384 = load ptr, ptr %9, align 8
-  %385 = getelementptr inbounds %union.HTMLSTYPE, ptr %384, i64 -2
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds %struct.htmlcell_t, ptr %386, i32 0, i32 7
-  %388 = load i8, ptr %387, align 8
-  %389 = zext i8 %388 to i32
-  %390 = or i32 %389, 1
-  %391 = trunc i32 %390 to i8
-  store i8 %391, ptr %387, align 8
-  %392 = load ptr, ptr %9, align 8
-  %393 = getelementptr inbounds %union.HTMLSTYPE, ptr %392, i64 0
-  %394 = load ptr, ptr %393, align 8
-  store ptr %394, ptr %13, align 8
-  br label %446
+384:                                              ; preds = %207
+  %385 = load ptr, ptr %9, align 8
+  %386 = getelementptr inbounds %union.HTMLSTYPE, ptr %385, i64 0
+  %387 = load ptr, ptr %386, align 8
+  store ptr %387, ptr %13, align 8
+  br label %455
 
-395:                                              ; preds = %207
-  %396 = load ptr, ptr %9, align 8
-  %397 = getelementptr inbounds %union.HTMLSTYPE, ptr %396, i64 -1
-  %398 = load ptr, ptr %397, align 8
-  %399 = load ptr, ptr %9, align 8
-  %400 = getelementptr inbounds %union.HTMLSTYPE, ptr %399, i64 0
-  %401 = load ptr, ptr %400, align 8
-  call void @setCell(ptr noundef %398, ptr noundef %401, i8 noundef signext 1)
-  br label %446
+388:                                              ; preds = %207
+  %389 = load ptr, ptr %9, align 8
+  %390 = getelementptr inbounds %union.HTMLSTYPE, ptr %389, i64 0
+  %391 = load ptr, ptr %390, align 8
+  store ptr %391, ptr %13, align 8
+  br label %455
 
-402:                                              ; preds = %207
-  %403 = load ptr, ptr %9, align 8
-  %404 = getelementptr inbounds %union.HTMLSTYPE, ptr %403, i64 -3
-  %405 = load ptr, ptr %404, align 8
-  store ptr %405, ptr %13, align 8
-  br label %446
+392:                                              ; preds = %207
+  %393 = load ptr, ptr %9, align 8
+  %394 = getelementptr inbounds %union.HTMLSTYPE, ptr %393, i64 -2
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds %struct.htmlcell_t, ptr %395, i32 0, i32 7
+  %397 = load i8, ptr %396, align 8
+  %398 = zext i8 %397 to i32
+  %399 = or i32 %398, 1
+  %400 = trunc i32 %399 to i8
+  store i8 %400, ptr %396, align 8
+  %401 = load ptr, ptr %9, align 8
+  %402 = getelementptr inbounds %union.HTMLSTYPE, ptr %401, i64 0
+  %403 = load ptr, ptr %402, align 8
+  store ptr %403, ptr %13, align 8
+  br label %455
 
-406:                                              ; preds = %207
-  %407 = load ptr, ptr %9, align 8
-  %408 = getelementptr inbounds %union.HTMLSTYPE, ptr %407, i64 -1
-  %409 = load ptr, ptr %408, align 8
-  %410 = load ptr, ptr %9, align 8
-  %411 = getelementptr inbounds %union.HTMLSTYPE, ptr %410, i64 0
-  %412 = load ptr, ptr %411, align 8
-  call void @setCell(ptr noundef %409, ptr noundef %412, i8 noundef signext 2)
-  br label %446
+404:                                              ; preds = %207
+  %405 = load ptr, ptr %9, align 8
+  %406 = getelementptr inbounds %union.HTMLSTYPE, ptr %405, i64 -1
+  %407 = load ptr, ptr %406, align 8
+  %408 = load ptr, ptr %9, align 8
+  %409 = getelementptr inbounds %union.HTMLSTYPE, ptr %408, i64 0
+  %410 = load ptr, ptr %409, align 8
+  call void @setCell(ptr noundef %407, ptr noundef %410, i8 noundef signext 1)
+  br label %455
 
-413:                                              ; preds = %207
-  %414 = load ptr, ptr %9, align 8
-  %415 = getelementptr inbounds %union.HTMLSTYPE, ptr %414, i64 -3
-  %416 = load ptr, ptr %415, align 8
-  store ptr %416, ptr %13, align 8
-  br label %446
+411:                                              ; preds = %207
+  %412 = load ptr, ptr %9, align 8
+  %413 = getelementptr inbounds %union.HTMLSTYPE, ptr %412, i64 -3
+  %414 = load ptr, ptr %413, align 8
+  store ptr %414, ptr %13, align 8
+  br label %455
 
-417:                                              ; preds = %207
-  %418 = load ptr, ptr %9, align 8
-  %419 = getelementptr inbounds %union.HTMLSTYPE, ptr %418, i64 -1
-  %420 = load ptr, ptr %419, align 8
-  %421 = load ptr, ptr %9, align 8
-  %422 = getelementptr inbounds %union.HTMLSTYPE, ptr %421, i64 0
-  %423 = load ptr, ptr %422, align 8
-  call void @setCell(ptr noundef %420, ptr noundef %423, i8 noundef signext 3)
-  br label %446
+415:                                              ; preds = %207
+  %416 = load ptr, ptr %9, align 8
+  %417 = getelementptr inbounds %union.HTMLSTYPE, ptr %416, i64 -1
+  %418 = load ptr, ptr %417, align 8
+  %419 = load ptr, ptr %9, align 8
+  %420 = getelementptr inbounds %union.HTMLSTYPE, ptr %419, i64 0
+  %421 = load ptr, ptr %420, align 8
+  call void @setCell(ptr noundef %418, ptr noundef %421, i8 noundef signext 2)
+  br label %455
 
-424:                                              ; preds = %207
-  %425 = load ptr, ptr %9, align 8
-  %426 = getelementptr inbounds %union.HTMLSTYPE, ptr %425, i64 -3
-  %427 = load ptr, ptr %426, align 8
-  store ptr %427, ptr %13, align 8
-  br label %446
+422:                                              ; preds = %207
+  %423 = load ptr, ptr %9, align 8
+  %424 = getelementptr inbounds %union.HTMLSTYPE, ptr %423, i64 -3
+  %425 = load ptr, ptr %424, align 8
+  store ptr %425, ptr %13, align 8
+  br label %455
 
-428:                                              ; preds = %207
-  %429 = load ptr, ptr %9, align 8
-  %430 = getelementptr inbounds %union.HTMLSTYPE, ptr %429, i64 0
-  %431 = load ptr, ptr %430, align 8
-  %432 = call ptr @mkText()
-  call void @setCell(ptr noundef %431, ptr noundef %432, i8 noundef signext 2)
-  br label %446
+426:                                              ; preds = %207
+  %427 = load ptr, ptr %9, align 8
+  %428 = getelementptr inbounds %union.HTMLSTYPE, ptr %427, i64 -1
+  %429 = load ptr, ptr %428, align 8
+  %430 = load ptr, ptr %9, align 8
+  %431 = getelementptr inbounds %union.HTMLSTYPE, ptr %430, i64 0
+  %432 = load ptr, ptr %431, align 8
+  call void @setCell(ptr noundef %429, ptr noundef %432, i8 noundef signext 3)
+  br label %455
 
 433:                                              ; preds = %207
   %434 = load ptr, ptr %9, align 8
-  %435 = getelementptr inbounds %union.HTMLSTYPE, ptr %434, i64 -2
+  %435 = getelementptr inbounds %union.HTMLSTYPE, ptr %434, i64 -3
   %436 = load ptr, ptr %435, align 8
   store ptr %436, ptr %13, align 8
-  br label %446
+  br label %455
 
 437:                                              ; preds = %207
   %438 = load ptr, ptr %9, align 8
-  %439 = getelementptr inbounds %union.HTMLSTYPE, ptr %438, i64 -1
+  %439 = getelementptr inbounds %union.HTMLSTYPE, ptr %438, i64 0
   %440 = load ptr, ptr %439, align 8
-  store ptr %440, ptr %13, align 8
-  br label %446
+  %441 = call ptr @mkText()
+  call void @setCell(ptr noundef %440, ptr noundef %441, i8 noundef signext 2)
+  br label %455
 
-441:                                              ; preds = %207
-  %442 = load ptr, ptr %9, align 8
-  %443 = getelementptr inbounds %union.HTMLSTYPE, ptr %442, i64 0
-  %444 = load ptr, ptr %443, align 8
-  store ptr %444, ptr %13, align 8
-  br label %446
+442:                                              ; preds = %207
+  %443 = load ptr, ptr %9, align 8
+  %444 = getelementptr inbounds %union.HTMLSTYPE, ptr %443, i64 -2
+  %445 = load ptr, ptr %444, align 8
+  store ptr %445, ptr %13, align 8
+  br label %455
 
-445:                                              ; preds = %207
-  br label %446
+446:                                              ; preds = %207
+  %447 = load ptr, ptr %9, align 8
+  %448 = getelementptr inbounds %union.HTMLSTYPE, ptr %447, i64 -1
+  %449 = load ptr, ptr %448, align 8
+  store ptr %449, ptr %13, align 8
+  br label %455
 
-446:                                              ; preds = %445, %441, %437, %433, %428, %424, %417, %413, %406, %402, %395, %383, %379, %375, %373, %371, %363, %359, %355, %351, %347, %343, %339, %335, %331, %325, %292, %282, %278, %277, %273, %272, %268, %267, %263, %262, %258, %257, %253, %252, %248, %247, %243, %242, %238, %234, %232, %230, %224, %219
-  %447 = load i32, ptr %14, align 4
-  %448 = load ptr, ptr %9, align 8
-  %449 = sext i32 %447 to i64
-  %450 = sub i64 0, %449
-  %451 = getelementptr inbounds %union.HTMLSTYPE, ptr %448, i64 %450
-  store ptr %451, ptr %9, align 8
-  %452 = load i32, ptr %14, align 4
-  %453 = load ptr, ptr %6, align 8
-  %454 = sext i32 %452 to i64
-  %455 = sub i64 0, %454
-  %456 = getelementptr inbounds i8, ptr %453, i64 %455
-  store ptr %456, ptr %6, align 8
-  store i32 0, ptr %14, align 4
+450:                                              ; preds = %207
+  %451 = load ptr, ptr %9, align 8
+  %452 = getelementptr inbounds %union.HTMLSTYPE, ptr %451, i64 0
+  %453 = load ptr, ptr %452, align 8
+  store ptr %453, ptr %13, align 8
+  br label %455
+
+454:                                              ; preds = %207
+  br label %455
+
+455:                                              ; preds = %454, %450, %446, %442, %437, %433, %426, %422, %415, %411, %404, %392, %388, %384, %382, %380, %372, %368, %364, %360, %356, %352, %348, %344, %340, %331, %294, %283, %279, %278, %274, %273, %269, %268, %264, %263, %259, %258, %254, %253, %249, %248, %244, %243, %239, %235, %232, %230, %224, %219
+  %456 = load i32, ptr %14, align 4
   %457 = load ptr, ptr %9, align 8
-  %458 = getelementptr inbounds %union.HTMLSTYPE, ptr %457, i32 1
-  store ptr %458, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %458, ptr align 8 %13, i64 8, i1 false)
-  %459 = load i32, ptr %10, align 4
-  %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %460
-  %462 = load i8, ptr %461, align 1
-  %463 = sext i8 %462 to i32
-  %464 = sub nsw i32 %463, 41
-  store i32 %464, ptr %20, align 4
-  %465 = load i32, ptr %20, align 4
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds [39 x i16], ptr @yypgoto, i64 0, i64 %466
-  %468 = load i16, ptr %467, align 2
-  %469 = sext i16 %468 to i32
-  %470 = load ptr, ptr %6, align 8
+  %458 = sext i32 %456 to i64
+  %459 = sub i64 0, %458
+  %460 = getelementptr inbounds %union.HTMLSTYPE, ptr %457, i64 %459
+  store ptr %460, ptr %9, align 8
+  %461 = load i32, ptr %14, align 4
+  %462 = load ptr, ptr %6, align 8
+  %463 = sext i32 %461 to i64
+  %464 = sub i64 0, %463
+  %465 = getelementptr inbounds i8, ptr %462, i64 %464
+  store ptr %465, ptr %6, align 8
+  store i32 0, ptr %14, align 4
+  %466 = load ptr, ptr %9, align 8
+  %467 = getelementptr inbounds %union.HTMLSTYPE, ptr %466, i32 1
+  store ptr %467, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %467, ptr align 8 %13, i64 8, i1 false)
+  %468 = load i32, ptr %10, align 4
+  %469 = sext i32 %468 to i64
+  %470 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %469
   %471 = load i8, ptr %470, align 1
   %472 = sext i8 %471 to i32
-  %473 = add nsw i32 %469, %472
-  store i32 %473, ptr %21, align 4
-  %474 = load i32, ptr %21, align 4
-  %475 = icmp sle i32 0, %474
-  br i1 %475, label %476, label %495
+  %473 = sub nsw i32 %472, 41
+  store i32 %473, ptr %20, align 4
+  %474 = load i32, ptr %20, align 4
+  %475 = sext i32 %474 to i64
+  %476 = getelementptr inbounds [39 x i16], ptr @yypgoto, i64 0, i64 %475
+  %477 = load i16, ptr %476, align 2
+  %478 = sext i16 %477 to i32
+  %479 = load ptr, ptr %6, align 8
+  %480 = load i8, ptr %479, align 1
+  %481 = sext i8 %480 to i32
+  %482 = add nsw i32 %478, %481
+  store i32 %482, ptr %21, align 4
+  %483 = load i32, ptr %21, align 4
+  %484 = icmp sle i32 0, %483
+  br i1 %484, label %485, label %504
 
-476:                                              ; preds = %446
-  %477 = load i32, ptr %21, align 4
-  %478 = icmp sle i32 %477, 271
-  br i1 %478, label %479, label %495
+485:                                              ; preds = %455
+  %486 = load i32, ptr %21, align 4
+  %487 = icmp sle i32 %486, 271
+  br i1 %487, label %488, label %504
 
-479:                                              ; preds = %476
-  %480 = load i32, ptr %21, align 4
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %481
-  %483 = load i8, ptr %482, align 1
-  %484 = sext i8 %483 to i32
-  %485 = load ptr, ptr %6, align 8
-  %486 = load i8, ptr %485, align 1
-  %487 = sext i8 %486 to i32
-  %488 = icmp eq i32 %484, %487
-  br i1 %488, label %489, label %495
+488:                                              ; preds = %485
+  %489 = load i32, ptr %21, align 4
+  %490 = sext i32 %489 to i64
+  %491 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %490
+  %492 = load i8, ptr %491, align 1
+  %493 = sext i8 %492 to i32
+  %494 = load ptr, ptr %6, align 8
+  %495 = load i8, ptr %494, align 1
+  %496 = sext i8 %495 to i32
+  %497 = icmp eq i32 %493, %496
+  br i1 %497, label %498, label %504
 
-489:                                              ; preds = %479
-  %490 = load i32, ptr %21, align 4
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %491
-  %493 = load i8, ptr %492, align 1
-  %494 = sext i8 %493 to i32
-  br label %501
+498:                                              ; preds = %488
+  %499 = load i32, ptr %21, align 4
+  %500 = sext i32 %499 to i64
+  %501 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %500
+  %502 = load i8, ptr %501, align 1
+  %503 = sext i8 %502 to i32
+  br label %510
 
-495:                                              ; preds = %479, %476, %446
-  %496 = load i32, ptr %20, align 4
-  %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds [39 x i8], ptr @yydefgoto, i64 0, i64 %497
-  %499 = load i8, ptr %498, align 1
-  %500 = sext i8 %499 to i32
-  br label %501
+504:                                              ; preds = %488, %485, %455
+  %505 = load i32, ptr %20, align 4
+  %506 = sext i32 %505 to i64
+  %507 = getelementptr inbounds [39 x i8], ptr @yydefgoto, i64 0, i64 %506
+  %508 = load i8, ptr %507, align 1
+  %509 = sext i8 %508 to i32
+  br label %510
 
-501:                                              ; preds = %495, %489
-  %502 = phi i32 [ %494, %489 ], [ %500, %495 ]
-  store i32 %502, ptr %1, align 4
+510:                                              ; preds = %504, %498
+  %511 = phi i32 [ %503, %498 ], [ %509, %504 ]
+  store i32 %511, ptr %1, align 4
   br label %26
 
-503:                                              ; preds = %205
-  %504 = load i32, ptr @htmlchar, align 4
-  %505 = icmp eq i32 %504, -2
-  br i1 %505, label %506, label %507
+512:                                              ; preds = %205
+  %513 = load i32, ptr @htmlchar, align 4
+  %514 = icmp eq i32 %513, -2
+  br i1 %514, label %515, label %516
 
-506:                                              ; preds = %503
-  br label %522
+515:                                              ; preds = %512
+  br label %531
 
-507:                                              ; preds = %503
-  %508 = load i32, ptr @htmlchar, align 4
-  %509 = icmp sle i32 0, %508
-  br i1 %509, label %510, label %519
+516:                                              ; preds = %512
+  %517 = load i32, ptr @htmlchar, align 4
+  %518 = icmp sle i32 0, %517
+  br i1 %518, label %519, label %528
 
-510:                                              ; preds = %507
-  %511 = load i32, ptr @htmlchar, align 4
-  %512 = icmp sle i32 %511, 295
-  br i1 %512, label %513, label %519
+519:                                              ; preds = %516
+  %520 = load i32, ptr @htmlchar, align 4
+  %521 = icmp sle i32 %520, 295
+  br i1 %521, label %522, label %528
 
-513:                                              ; preds = %510
-  %514 = load i32, ptr @htmlchar, align 4
-  %515 = sext i32 %514 to i64
-  %516 = getelementptr inbounds [296 x i8], ptr @yytranslate, i64 0, i64 %515
-  %517 = load i8, ptr %516, align 1
-  %518 = sext i8 %517 to i32
-  br label %520
-
-519:                                              ; preds = %510, %507
-  br label %520
-
-520:                                              ; preds = %519, %513
-  %521 = phi i32 [ %518, %513 ], [ 2, %519 ]
-  br label %522
-
-522:                                              ; preds = %520, %506
-  %523 = phi i32 [ -2, %506 ], [ %521, %520 ]
-  store i32 %523, ptr %12, align 4
-  %524 = load i32, ptr %2, align 4
-  %525 = icmp ne i32 %524, 0
-  br i1 %525, label %529, label %526
-
-526:                                              ; preds = %522
-  %527 = load i32, ptr @htmlnerrs, align 4
-  %528 = add nsw i32 %527, 1
-  store i32 %528, ptr @htmlnerrs, align 4
-  call void @htmlerror(ptr noundef @.str.2)
+522:                                              ; preds = %519
+  %523 = load i32, ptr @htmlchar, align 4
+  %524 = sext i32 %523 to i64
+  %525 = getelementptr inbounds [296 x i8], ptr @yytranslate, i64 0, i64 %524
+  %526 = load i8, ptr %525, align 1
+  %527 = sext i8 %526 to i32
   br label %529
 
-529:                                              ; preds = %526, %522
-  %530 = load i32, ptr %2, align 4
-  %531 = icmp eq i32 %530, 3
-  br i1 %531, label %532, label %543
+528:                                              ; preds = %519, %516
+  br label %529
 
-532:                                              ; preds = %529
-  %533 = load i32, ptr @htmlchar, align 4
-  %534 = icmp sle i32 %533, 0
-  br i1 %534, label %535, label %540
+529:                                              ; preds = %528, %522
+  %530 = phi i32 [ %527, %522 ], [ 2, %528 ]
+  br label %531
 
-535:                                              ; preds = %532
-  %536 = load i32, ptr @htmlchar, align 4
-  %537 = icmp eq i32 %536, 0
-  br i1 %537, label %538, label %539
+531:                                              ; preds = %529, %515
+  %532 = phi i32 [ -2, %515 ], [ %530, %529 ]
+  store i32 %532, ptr %12, align 4
+  %533 = load i32, ptr %2, align 4
+  %534 = icmp ne i32 %533, 0
+  br i1 %534, label %538, label %535
 
-538:                                              ; preds = %535
-  br label %619
+535:                                              ; preds = %531
+  %536 = load i32, ptr @htmlnerrs, align 4
+  %537 = add nsw i32 %536, 1
+  store i32 %537, ptr @htmlnerrs, align 4
+  call void @htmlerror(ptr noundef @.str.2)
+  br label %538
 
-539:                                              ; preds = %535
-  br label %542
+538:                                              ; preds = %535, %531
+  %539 = load i32, ptr %2, align 4
+  %540 = icmp eq i32 %539, 3
+  br i1 %540, label %541, label %552
 
-540:                                              ; preds = %532
-  %541 = load i32, ptr %12, align 4
-  call void @yydestruct(ptr noundef @.str.3, i32 noundef %541, ptr noundef @htmllval)
+541:                                              ; preds = %538
+  %542 = load i32, ptr @htmlchar, align 4
+  %543 = icmp sle i32 %542, 0
+  br i1 %543, label %544, label %549
+
+544:                                              ; preds = %541
+  %545 = load i32, ptr @htmlchar, align 4
+  %546 = icmp eq i32 %545, 0
+  br i1 %546, label %547, label %548
+
+547:                                              ; preds = %544
+  br label %628
+
+548:                                              ; preds = %544
+  br label %551
+
+549:                                              ; preds = %541
+  %550 = load i32, ptr %12, align 4
+  call void @yydestruct(ptr noundef @.str.3, i32 noundef %550, ptr noundef @htmllval)
   store i32 -2, ptr @htmlchar, align 4
-  br label %542
+  br label %551
 
-542:                                              ; preds = %540, %539
-  br label %543
+551:                                              ; preds = %549, %548
+  br label %552
 
-543:                                              ; preds = %542, %529
-  br label %560
+552:                                              ; preds = %551, %538
+  br label %569
 
-544:                                              ; No predecessors!
-  %545 = load i32, ptr @htmlnerrs, align 4
-  %546 = add nsw i32 %545, 1
-  store i32 %546, ptr @htmlnerrs, align 4
-  %547 = load i32, ptr %14, align 4
-  %548 = load ptr, ptr %9, align 8
-  %549 = sext i32 %547 to i64
-  %550 = sub i64 0, %549
-  %551 = getelementptr inbounds %union.HTMLSTYPE, ptr %548, i64 %550
-  store ptr %551, ptr %9, align 8
-  %552 = load i32, ptr %14, align 4
-  %553 = load ptr, ptr %6, align 8
-  %554 = sext i32 %552 to i64
-  %555 = sub i64 0, %554
-  %556 = getelementptr inbounds i8, ptr %553, i64 %555
-  store ptr %556, ptr %6, align 8
+553:                                              ; No predecessors!
+  %554 = load i32, ptr @htmlnerrs, align 4
+  %555 = add nsw i32 %554, 1
+  store i32 %555, ptr @htmlnerrs, align 4
+  %556 = load i32, ptr %14, align 4
+  %557 = load ptr, ptr %9, align 8
+  %558 = sext i32 %556 to i64
+  %559 = sub i64 0, %558
+  %560 = getelementptr inbounds %union.HTMLSTYPE, ptr %557, i64 %559
+  store ptr %560, ptr %9, align 8
+  %561 = load i32, ptr %14, align 4
+  %562 = load ptr, ptr %6, align 8
+  %563 = sext i32 %561 to i64
+  %564 = sub i64 0, %563
+  %565 = getelementptr inbounds i8, ptr %562, i64 %564
+  store ptr %565, ptr %6, align 8
   store i32 0, ptr %14, align 4
-  %557 = load ptr, ptr %6, align 8
-  %558 = load i8, ptr %557, align 1
-  %559 = sext i8 %558 to i32
-  store i32 %559, ptr %1, align 4
-  br label %560
+  %566 = load ptr, ptr %6, align 8
+  %567 = load i8, ptr %566, align 1
+  %568 = sext i8 %567 to i32
+  store i32 %568, ptr %1, align 4
+  br label %569
 
-560:                                              ; preds = %544, %543, %141
+569:                                              ; preds = %553, %552, %141
   store i32 3, ptr %2, align 4
-  br label %561
+  br label %570
 
-561:                                              ; preds = %600, %560
-  %562 = load i32, ptr %1, align 4
-  %563 = sext i32 %562 to i64
-  %564 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %563
-  %565 = load i16, ptr %564, align 2
-  %566 = sext i16 %565 to i32
-  store i32 %566, ptr %10, align 4
-  %567 = load i32, ptr %10, align 4
-  %568 = icmp eq i32 %567, -82
-  br i1 %568, label %595, label %569
+570:                                              ; preds = %609, %569
+  %571 = load i32, ptr %1, align 4
+  %572 = sext i32 %571 to i64
+  %573 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %572
+  %574 = load i16, ptr %573, align 2
+  %575 = sext i16 %574 to i32
+  store i32 %575, ptr %10, align 4
+  %576 = load i32, ptr %10, align 4
+  %577 = icmp eq i32 %576, -82
+  br i1 %577, label %604, label %578
 
-569:                                              ; preds = %561
-  %570 = load i32, ptr %10, align 4
-  %571 = add nsw i32 %570, 1
-  store i32 %571, ptr %10, align 4
-  %572 = load i32, ptr %10, align 4
-  %573 = icmp sle i32 0, %572
-  br i1 %573, label %574, label %594
+578:                                              ; preds = %570
+  %579 = load i32, ptr %10, align 4
+  %580 = add nsw i32 %579, 1
+  store i32 %580, ptr %10, align 4
+  %581 = load i32, ptr %10, align 4
+  %582 = icmp sle i32 0, %581
+  br i1 %582, label %583, label %603
 
-574:                                              ; preds = %569
-  %575 = load i32, ptr %10, align 4
-  %576 = icmp sle i32 %575, 271
-  br i1 %576, label %577, label %594
+583:                                              ; preds = %578
+  %584 = load i32, ptr %10, align 4
+  %585 = icmp sle i32 %584, 271
+  br i1 %585, label %586, label %603
 
-577:                                              ; preds = %574
-  %578 = load i32, ptr %10, align 4
-  %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %579
-  %581 = load i8, ptr %580, align 1
-  %582 = sext i8 %581 to i32
-  %583 = icmp eq i32 %582, 1
-  br i1 %583, label %584, label %594
+586:                                              ; preds = %583
+  %587 = load i32, ptr %10, align 4
+  %588 = sext i32 %587 to i64
+  %589 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %588
+  %590 = load i8, ptr %589, align 1
+  %591 = sext i8 %590 to i32
+  %592 = icmp eq i32 %591, 1
+  br i1 %592, label %593, label %603
 
-584:                                              ; preds = %577
-  %585 = load i32, ptr %10, align 4
-  %586 = sext i32 %585 to i64
-  %587 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %586
-  %588 = load i8, ptr %587, align 1
-  %589 = sext i8 %588 to i32
-  store i32 %589, ptr %10, align 4
-  %590 = load i32, ptr %10, align 4
-  %591 = icmp slt i32 0, %590
-  br i1 %591, label %592, label %593
+593:                                              ; preds = %586
+  %594 = load i32, ptr %10, align 4
+  %595 = sext i32 %594 to i64
+  %596 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %595
+  %597 = load i8, ptr %596, align 1
+  %598 = sext i8 %597 to i32
+  store i32 %598, ptr %10, align 4
+  %599 = load i32, ptr %10, align 4
+  %600 = icmp slt i32 0, %599
+  br i1 %600, label %601, label %602
 
-592:                                              ; preds = %584
-  br label %614
+601:                                              ; preds = %593
+  br label %623
 
-593:                                              ; preds = %584
-  br label %594
+602:                                              ; preds = %593
+  br label %603
 
-594:                                              ; preds = %593, %577, %574, %569
-  br label %595
+603:                                              ; preds = %602, %586, %583, %578
+  br label %604
 
-595:                                              ; preds = %594, %561
-  %596 = load ptr, ptr %6, align 8
-  %597 = load ptr, ptr %5, align 8
-  %598 = icmp eq ptr %596, %597
-  br i1 %598, label %599, label %600
+604:                                              ; preds = %603, %570
+  %605 = load ptr, ptr %6, align 8
+  %606 = load ptr, ptr %5, align 8
+  %607 = icmp eq ptr %605, %606
+  br i1 %607, label %608, label %609
 
-599:                                              ; preds = %595
-  br label %619
+608:                                              ; preds = %604
+  br label %628
 
-600:                                              ; preds = %595
-  %601 = load i32, ptr %1, align 4
-  %602 = sext i32 %601 to i64
-  %603 = getelementptr inbounds [116 x i8], ptr @yystos, i64 0, i64 %602
-  %604 = load i8, ptr %603, align 1
-  %605 = sext i8 %604 to i32
-  %606 = load ptr, ptr %9, align 8
-  call void @yydestruct(ptr noundef @.str.4, i32 noundef %605, ptr noundef %606)
-  %607 = load ptr, ptr %9, align 8
-  %608 = getelementptr inbounds %union.HTMLSTYPE, ptr %607, i64 -1
-  store ptr %608, ptr %9, align 8
-  %609 = load ptr, ptr %6, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 -1
-  store ptr %610, ptr %6, align 8
-  %611 = load ptr, ptr %6, align 8
-  %612 = load i8, ptr %611, align 1
-  %613 = sext i8 %612 to i32
-  store i32 %613, ptr %1, align 4
-  br label %561
-
-614:                                              ; preds = %592
+609:                                              ; preds = %604
+  %610 = load i32, ptr %1, align 4
+  %611 = sext i32 %610 to i64
+  %612 = getelementptr inbounds [116 x i8], ptr @yystos, i64 0, i64 %611
+  %613 = load i8, ptr %612, align 1
+  %614 = sext i8 %613 to i32
   %615 = load ptr, ptr %9, align 8
-  %616 = getelementptr inbounds %union.HTMLSTYPE, ptr %615, i32 1
-  store ptr %616, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %616, ptr align 8 @htmllval, i64 8, i1 false)
-  %617 = load i32, ptr %10, align 4
-  store i32 %617, ptr %1, align 4
+  call void @yydestruct(ptr noundef @.str.4, i32 noundef %614, ptr noundef %615)
+  %616 = load ptr, ptr %9, align 8
+  %617 = getelementptr inbounds %union.HTMLSTYPE, ptr %616, i64 -1
+  store ptr %617, ptr %9, align 8
+  %618 = load ptr, ptr %6, align 8
+  %619 = getelementptr inbounds i8, ptr %618, i64 -1
+  store ptr %619, ptr %6, align 8
+  %620 = load ptr, ptr %6, align 8
+  %621 = load i8, ptr %620, align 1
+  %622 = sext i8 %621 to i32
+  store i32 %622, ptr %1, align 4
+  br label %570
+
+623:                                              ; preds = %601
+  %624 = load ptr, ptr %9, align 8
+  %625 = getelementptr inbounds %union.HTMLSTYPE, ptr %624, i32 1
+  store ptr %625, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %625, ptr align 8 @htmllval, i64 8, i1 false)
+  %626 = load i32, ptr %10, align 4
+  store i32 %626, ptr %1, align 4
   br label %26
 
-618:                                              ; preds = %118
+627:                                              ; preds = %118
   store i32 0, ptr %11, align 4
-  br label %621
+  br label %630
 
-619:                                              ; preds = %599, %538, %324, %291, %229, %113
+628:                                              ; preds = %608, %547, %330, %293, %229, %113
   store i32 1, ptr %11, align 4
-  br label %621
+  br label %630
 
-620:                                              ; preds = %63, %48
+629:                                              ; preds = %63, %48
   call void @htmlerror(ptr noundef @.str.5)
   store i32 2, ptr %11, align 4
-  br label %621
+  br label %630
 
-621:                                              ; preds = %620, %619, %618
-  %622 = load i32, ptr @htmlchar, align 4
-  %623 = icmp ne i32 %622, -2
-  br i1 %623, label %624, label %640
-
-624:                                              ; preds = %621
-  %625 = load i32, ptr @htmlchar, align 4
-  %626 = icmp sle i32 0, %625
-  br i1 %626, label %627, label %636
-
-627:                                              ; preds = %624
-  %628 = load i32, ptr @htmlchar, align 4
-  %629 = icmp sle i32 %628, 295
-  br i1 %629, label %630, label %636
-
-630:                                              ; preds = %627
+630:                                              ; preds = %629, %628, %627
   %631 = load i32, ptr @htmlchar, align 4
-  %632 = sext i32 %631 to i64
-  %633 = getelementptr inbounds [296 x i8], ptr @yytranslate, i64 0, i64 %632
-  %634 = load i8, ptr %633, align 1
-  %635 = sext i8 %634 to i32
-  br label %637
+  %632 = icmp ne i32 %631, -2
+  br i1 %632, label %633, label %649
 
-636:                                              ; preds = %627, %624
-  br label %637
+633:                                              ; preds = %630
+  %634 = load i32, ptr @htmlchar, align 4
+  %635 = icmp sle i32 0, %634
+  br i1 %635, label %636, label %645
 
-637:                                              ; preds = %636, %630
-  %638 = phi i32 [ %635, %630 ], [ 2, %636 ]
-  store i32 %638, ptr %12, align 4
-  %639 = load i32, ptr %12, align 4
-  call void @yydestruct(ptr noundef @.str.6, i32 noundef %639, ptr noundef @htmllval)
-  br label %640
+636:                                              ; preds = %633
+  %637 = load i32, ptr @htmlchar, align 4
+  %638 = icmp sle i32 %637, 295
+  br i1 %638, label %639, label %645
 
-640:                                              ; preds = %637, %621
-  %641 = load i32, ptr %14, align 4
-  %642 = load ptr, ptr %9, align 8
-  %643 = sext i32 %641 to i64
-  %644 = sub i64 0, %643
-  %645 = getelementptr inbounds %union.HTMLSTYPE, ptr %642, i64 %644
-  store ptr %645, ptr %9, align 8
-  %646 = load i32, ptr %14, align 4
-  %647 = load ptr, ptr %6, align 8
-  %648 = sext i32 %646 to i64
-  %649 = sub i64 0, %648
-  %650 = getelementptr inbounds i8, ptr %647, i64 %649
-  store ptr %650, ptr %6, align 8
-  br label %651
+639:                                              ; preds = %636
+  %640 = load i32, ptr @htmlchar, align 4
+  %641 = sext i32 %640 to i64
+  %642 = getelementptr inbounds [296 x i8], ptr @yytranslate, i64 0, i64 %641
+  %643 = load i8, ptr %642, align 1
+  %644 = sext i8 %643 to i32
+  br label %646
 
-651:                                              ; preds = %655, %640
-  %652 = load ptr, ptr %6, align 8
-  %653 = load ptr, ptr %5, align 8
-  %654 = icmp ne ptr %652, %653
-  br i1 %654, label %655, label %668
+645:                                              ; preds = %636, %633
+  br label %646
 
-655:                                              ; preds = %651
+646:                                              ; preds = %645, %639
+  %647 = phi i32 [ %644, %639 ], [ 2, %645 ]
+  store i32 %647, ptr %12, align 4
+  %648 = load i32, ptr %12, align 4
+  call void @yydestruct(ptr noundef @.str.6, i32 noundef %648, ptr noundef @htmllval)
+  br label %649
+
+649:                                              ; preds = %646, %630
+  %650 = load i32, ptr %14, align 4
+  %651 = load ptr, ptr %9, align 8
+  %652 = sext i32 %650 to i64
+  %653 = sub i64 0, %652
+  %654 = getelementptr inbounds %union.HTMLSTYPE, ptr %651, i64 %653
+  store ptr %654, ptr %9, align 8
+  %655 = load i32, ptr %14, align 4
   %656 = load ptr, ptr %6, align 8
-  %657 = load i8, ptr %656, align 1
-  %658 = sext i8 %657 to i32
-  %659 = sext i32 %658 to i64
-  %660 = getelementptr inbounds [116 x i8], ptr @yystos, i64 0, i64 %659
-  %661 = load i8, ptr %660, align 1
-  %662 = sext i8 %661 to i32
-  %663 = load ptr, ptr %9, align 8
-  call void @yydestruct(ptr noundef @.str.7, i32 noundef %662, ptr noundef %663)
-  %664 = load ptr, ptr %9, align 8
-  %665 = getelementptr inbounds %union.HTMLSTYPE, ptr %664, i64 -1
-  store ptr %665, ptr %9, align 8
-  %666 = load ptr, ptr %6, align 8
-  %667 = getelementptr inbounds i8, ptr %666, i64 -1
-  store ptr %667, ptr %6, align 8
-  br label %651
+  %657 = sext i32 %655 to i64
+  %658 = sub i64 0, %657
+  %659 = getelementptr inbounds i8, ptr %656, i64 %658
+  store ptr %659, ptr %6, align 8
+  br label %660
 
-668:                                              ; preds = %651
-  %669 = load ptr, ptr %5, align 8
-  %670 = getelementptr inbounds [200 x i8], ptr %4, i64 0, i64 0
-  %671 = icmp ne ptr %669, %670
-  br i1 %671, label %672, label %674
+660:                                              ; preds = %664, %649
+  %661 = load ptr, ptr %6, align 8
+  %662 = load ptr, ptr %5, align 8
+  %663 = icmp ne ptr %661, %662
+  br i1 %663, label %664, label %677
 
-672:                                              ; preds = %668
-  %673 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %673) #12
-  br label %674
+664:                                              ; preds = %660
+  %665 = load ptr, ptr %6, align 8
+  %666 = load i8, ptr %665, align 1
+  %667 = sext i8 %666 to i32
+  %668 = sext i32 %667 to i64
+  %669 = getelementptr inbounds [116 x i8], ptr @yystos, i64 0, i64 %668
+  %670 = load i8, ptr %669, align 1
+  %671 = sext i8 %670 to i32
+  %672 = load ptr, ptr %9, align 8
+  call void @yydestruct(ptr noundef @.str.7, i32 noundef %671, ptr noundef %672)
+  %673 = load ptr, ptr %9, align 8
+  %674 = getelementptr inbounds %union.HTMLSTYPE, ptr %673, i64 -1
+  store ptr %674, ptr %9, align 8
+  %675 = load ptr, ptr %6, align 8
+  %676 = getelementptr inbounds i8, ptr %675, i64 -1
+  store ptr %676, ptr %6, align 8
+  br label %660
 
-674:                                              ; preds = %672, %668
-  %675 = load i32, ptr %11, align 4
-  ret i32 %675
+677:                                              ; preds = %660
+  %678 = load ptr, ptr %5, align 8
+  %679 = getelementptr inbounds [200 x i8], ptr %4, i64 0, i64 0
+  %680 = icmp ne ptr %678, %679
+  br i1 %680, label %681, label %683
+
+681:                                              ; preds = %677
+  %682 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %682) #12
+  br label %683
+
+683:                                              ; preds = %681, %677
+  %684 = load i32, ptr %11, align 4
+  ret i32 %684
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -1315,55 +1324,66 @@ define internal ptr @mkLabel(ptr noundef %0, i8 noundef signext %1) #0 {
 define internal void @cleanup() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr @HTMLstate, align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %8
+  %3 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %1, align 8
+  %5 = load ptr, ptr @HTMLstate, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %9
 
-6:                                                ; preds = %0
-  %7 = load ptr, ptr @HTMLstate, align 8
-  call void @free_html_label(ptr noundef %7, i32 noundef 1)
+7:                                                ; preds = %0
+  %8 = load ptr, ptr @HTMLstate, align 8
+  call void @free_html_label(ptr noundef %8, i32 noundef 1)
   store ptr null, ptr @HTMLstate, align 8
-  br label %8
-
-8:                                                ; preds = %6, %0
-  store ptr @free_citem, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @cellDisc, i32 0, i32 4), align 8
   br label %9
 
-9:                                                ; preds = %12, %8
-  %10 = load ptr, ptr %1, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %19
+9:                                                ; preds = %7, %0
+  %10 = getelementptr inbounds %struct._dtdisc_s, ptr @cellDisc, i32 0, i32 4
+  store ptr @free_citem, ptr %10, align 8
+  br label %11
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds %struct.htmltbl_t, ptr %13, i32 0, i32 1
-  %15 = getelementptr inbounds %struct.anon.1, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %2, align 8
-  %17 = load ptr, ptr %1, align 8
-  call void @cleanTbl(ptr noundef %17)
-  %18 = load ptr, ptr %2, align 8
-  store ptr %18, ptr %1, align 8
-  br label %9
+11:                                               ; preds = %14, %9
+  %12 = load ptr, ptr %1, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %21
 
-19:                                               ; preds = %9
-  store ptr @free_item, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @cellDisc, i32 0, i32 4), align 8
-  store ptr @free_fitem, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @fstrDisc, i32 0, i32 4), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %21 = getelementptr inbounds %struct._dt_s, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %24 = call ptr %22(ptr noundef %23, ptr noundef null, i32 noundef 64)
-  store ptr @free_item, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @fstrDisc, i32 0, i32 4), align 8
-  store ptr @free_fspan, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @fspanDisc, i32 0, i32 4), align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds %struct.htmltbl_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.anon.1, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %2, align 8
+  %19 = load ptr, ptr %1, align 8
+  call void @cleanTbl(ptr noundef %19)
+  %20 = load ptr, ptr %2, align 8
+  store ptr %20, ptr %1, align 8
+  br label %11
+
+21:                                               ; preds = %11
+  %22 = getelementptr inbounds %struct._dtdisc_s, ptr @cellDisc, i32 0, i32 4
+  store ptr @free_item, ptr %22, align 8
+  %23 = getelementptr inbounds %struct._dtdisc_s, ptr @fstrDisc, i32 0, i32 4
+  store ptr @free_fitem, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds %struct._dt_s, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  %29 = call ptr %27(ptr noundef %28, ptr noundef null, i32 noundef 64)
-  store ptr @free_item, ptr getelementptr inbounds (%struct._dtdisc_s, ptr @fspanDisc, i32 0, i32 4), align 8
+  %28 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr %27(ptr noundef %29, ptr noundef null, i32 noundef 64)
+  %31 = getelementptr inbounds %struct._dtdisc_s, ptr @fstrDisc, i32 0, i32 4
+  store ptr @free_item, ptr %31, align 8
+  %32 = getelementptr inbounds %struct._dtdisc_s, ptr @fspanDisc, i32 0, i32 4
+  store ptr @free_fspan, ptr %32, align 8
+  %33 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct._dt_s, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr %36(ptr noundef %38, ptr noundef null, i32 noundef 64)
+  %40 = getelementptr inbounds %struct._dtdisc_s, ptr @fspanDisc, i32 0, i32 4
+  store ptr @free_item, ptr %40, align 8
   call void @freeFontstack()
   ret void
 }
@@ -1375,88 +1395,90 @@ define internal ptr @mkText() #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  store ptr %6, ptr %1, align 8
-  %7 = call ptr @gv_alloc(i64 noundef 56)
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %9 = call i32 @dtsize(ptr noundef %8)
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %12
+  %6 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = call ptr @gv_alloc(i64 noundef 56)
+  store ptr %8, ptr %3, align 8
+  %9 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i32 @dtsize(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %14
 
-11:                                               ; preds = %0
+13:                                               ; preds = %0
   call void @appendFLineList(i32 noundef 0)
-  br label %12
+  br label %14
 
-12:                                               ; preds = %11, %0
-  %13 = load ptr, ptr %1, align 8
-  %14 = call i32 @dtsize(ptr noundef %13)
-  %15 = sext i32 %14 to i64
-  store i64 %15, ptr %4, align 8
-  %16 = load i64, ptr %4, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.htmltxt_t, ptr %17, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
-  %19 = load i64, ptr %4, align 8
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %53
+14:                                               ; preds = %13, %0
+  %15 = load ptr, ptr %1, align 8
+  %16 = call i32 @dtsize(ptr noundef %15)
+  %17 = sext i32 %16 to i64
+  store i64 %17, ptr %4, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.htmltxt_t, ptr %19, i32 0, i32 1
+  store i64 %18, ptr %20, align 8
+  %21 = load i64, ptr %4, align 8
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %55
 
-21:                                               ; preds = %12
+23:                                               ; preds = %14
   store i32 0, ptr %5, align 4
-  %22 = load i64, ptr %4, align 8
-  %23 = call ptr @gv_calloc(i64 noundef %22, i64 noundef 40)
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.htmltxt_t, ptr %24, i32 0, i32 0
-  store ptr %23, ptr %25, align 8
-  %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds %struct._dt_s, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %1, align 8
-  %30 = call ptr %28(ptr noundef %29, ptr noundef null, i32 noundef 128)
-  store ptr %30, ptr %2, align 8
-  br label %31
+  %24 = load i64, ptr %4, align 8
+  %25 = call ptr @gv_calloc(i64 noundef %24, i64 noundef 40)
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.htmltxt_t, ptr %26, i32 0, i32 0
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds %struct._dt_s, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %1, align 8
+  %32 = call ptr %30(ptr noundef %31, ptr noundef null, i32 noundef 128)
+  store ptr %32, ptr %2, align 8
+  br label %33
 
-31:                                               ; preds = %45, %21
-  %32 = load ptr, ptr %2, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %52
+33:                                               ; preds = %47, %23
+  %34 = load ptr, ptr %2, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %54
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.htmltxt_t, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.htextspan_t, ptr %37, i64 %39
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.fspan, ptr %41, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %42, i64 40, i1 false)
-  %43 = load i32, ptr %5, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %5, align 4
-  br label %45
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.htmltxt_t, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %struct.htextspan_t, ptr %39, i64 %41
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds %struct.fspan, ptr %43, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 40, i1 false)
+  %45 = load i32, ptr %5, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %5, align 4
+  br label %47
 
-45:                                               ; preds = %34
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds %struct._dt_s, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %1, align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = call ptr %48(ptr noundef %49, ptr noundef %50, i32 noundef 8)
-  store ptr %51, ptr %2, align 8
-  br label %31
+47:                                               ; preds = %36
+  %48 = load ptr, ptr %1, align 8
+  %49 = getelementptr inbounds %struct._dt_s, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %1, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = call ptr %50(ptr noundef %51, ptr noundef %52, i32 noundef 8)
+  store ptr %53, ptr %2, align 8
+  br label %33
 
-52:                                               ; preds = %31
-  br label %53
+54:                                               ; preds = %33
+  br label %55
 
-53:                                               ; preds = %52, %12
-  %54 = load ptr, ptr %1, align 8
-  %55 = getelementptr inbounds %struct._dt_s, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %1, align 8
-  %58 = call ptr %56(ptr noundef %57, ptr noundef null, i32 noundef 64)
-  %59 = load ptr, ptr %3, align 8
-  ret ptr %59
+55:                                               ; preds = %54, %14
+  %56 = load ptr, ptr %1, align 8
+  %57 = getelementptr inbounds %struct._dt_s, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %1, align 8
+  %60 = call ptr %58(ptr noundef %59, ptr noundef null, i32 noundef 64)
+  %61 = load ptr, ptr %3, align 8
+  ret ptr %61
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1472,19 +1494,22 @@ define internal void @appendFItemList(ptr noundef %0) #0 {
   %8 = getelementptr inbounds %struct.fitem, ptr %7, i32 0, i32 1
   %9 = getelementptr inbounds %struct.textspan_t, ptr %8, i32 0, i32 0
   store ptr %6, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  %11 = getelementptr inbounds %struct.sfont_t, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.fitem, ptr %13, i32 0, i32 1
-  %15 = getelementptr inbounds %struct.textspan_t, ptr %14, i32 0, i32 1
-  store ptr %12, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %17 = getelementptr inbounds %struct._dt_s, ptr %16, i32 0, i32 0
+  %10 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.sfont_t, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds %struct.fitem, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds %struct.textspan_t, ptr %15, i32 0, i32 1
+  store ptr %13, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = call ptr %18(ptr noundef %19, ptr noundef %20, i32 noundef 1)
+  %19 = getelementptr inbounds %struct._dt_s, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = call ptr %20(ptr noundef %22, ptr noundef %23, i32 noundef 1)
   ret void
 }
 
@@ -1499,113 +1524,117 @@ define internal void @appendFLineList(i32 noundef %0) #0 {
   store i32 %0, ptr %2, align 4
   %8 = call ptr @gv_alloc(i64 noundef 56)
   store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = call i32 @dtsize(ptr noundef %10)
-  %12 = sext i32 %11 to i64
-  store i64 %12, ptr %6, align 8
-  %13 = load i32, ptr %2, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.fspan, ptr %15, i32 0, i32 1
-  %17 = getelementptr inbounds %struct.htextspan_t, ptr %16, i32 0, i32 2
-  store i8 %14, ptr %17, align 8
-  %18 = load i64, ptr %6, align 8
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %52
+  %9 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call i32 @dtsize(ptr noundef %11)
+  %13 = sext i32 %12 to i64
+  store i64 %13, ptr %6, align 8
+  %14 = load i32, ptr %2, align 4
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds %struct.fspan, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds %struct.htextspan_t, ptr %17, i32 0, i32 2
+  store i8 %15, ptr %18, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %53
 
-20:                                               ; preds = %1
+21:                                               ; preds = %1
   store i32 0, ptr %7, align 4
-  %21 = load i64, ptr %6, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.fspan, ptr %22, i32 0, i32 1
-  %24 = getelementptr inbounds %struct.htextspan_t, ptr %23, i32 0, i32 1
-  store i64 %21, ptr %24, align 8
-  %25 = load i64, ptr %6, align 8
-  %26 = call ptr @gv_calloc(i64 noundef %25, i64 noundef 72)
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.fspan, ptr %27, i32 0, i32 1
-  %29 = getelementptr inbounds %struct.htextspan_t, ptr %28, i32 0, i32 0
-  store ptr %26, ptr %29, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = call ptr @dtflatten(ptr noundef %30)
-  store ptr %31, ptr %4, align 8
-  br label %32
+  %22 = load i64, ptr %6, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.fspan, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds %struct.htextspan_t, ptr %24, i32 0, i32 1
+  store i64 %22, ptr %25, align 8
+  %26 = load i64, ptr %6, align 8
+  %27 = call ptr @gv_calloc(i64 noundef %26, i64 noundef 72)
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.fspan, ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds %struct.htextspan_t, ptr %29, i32 0, i32 0
+  store ptr %27, ptr %30, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = call ptr @dtflatten(ptr noundef %31)
+  store ptr %32, ptr %4, align 8
+  br label %33
 
-32:                                               ; preds = %47, %20
-  %33 = load ptr, ptr %4, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %51
+33:                                               ; preds = %48, %21
+  %34 = load ptr, ptr %4, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %52
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.fspan, ptr %36, i32 0, i32 1
-  %38 = getelementptr inbounds %struct.htextspan_t, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %7, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.textspan_t, ptr %39, i64 %41
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.fitem, ptr %43, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 72, i1 false)
-  %45 = load i32, ptr %7, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %7, align 4
-  br label %47
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.fspan, ptr %37, i32 0, i32 1
+  %39 = getelementptr inbounds %struct.htextspan_t, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %7, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds %struct.textspan_t, ptr %40, i64 %42
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %struct.fitem, ptr %44, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %45, i64 72, i1 false)
+  %46 = load i32, ptr %7, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %7, align 4
+  br label %48
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct._dtlink_s, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %4, align 8
-  br label %32
+48:                                               ; preds = %36
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds %struct._dtlink_s, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %4, align 8
+  br label %33
 
-51:                                               ; preds = %32
-  br label %76
+52:                                               ; preds = %33
+  br label %78
 
-52:                                               ; preds = %1
-  %53 = call ptr @gv_alloc(i64 noundef 72)
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.fspan, ptr %54, i32 0, i32 1
-  %56 = getelementptr inbounds %struct.htextspan_t, ptr %55, i32 0, i32 0
-  store ptr %53, ptr %56, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.fspan, ptr %57, i32 0, i32 1
-  %59 = getelementptr inbounds %struct.htextspan_t, ptr %58, i32 0, i32 1
-  store i64 1, ptr %59, align 8
-  %60 = call ptr @gv_strdup(ptr noundef @.str.10)
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.fspan, ptr %61, i32 0, i32 1
-  %63 = getelementptr inbounds %struct.htextspan_t, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.textspan_t, ptr %64, i64 0
-  %66 = getelementptr inbounds %struct.textspan_t, ptr %65, i32 0, i32 0
-  store ptr %60, ptr %66, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  %68 = getelementptr inbounds %struct.sfont_t, ptr %67, i32 0, i32 0
+53:                                               ; preds = %1
+  %54 = call ptr @gv_alloc(i64 noundef 72)
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct.fspan, ptr %55, i32 0, i32 1
+  %57 = getelementptr inbounds %struct.htextspan_t, ptr %56, i32 0, i32 0
+  store ptr %54, ptr %57, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.fspan, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds %struct.htextspan_t, ptr %59, i32 0, i32 1
+  store i64 1, ptr %60, align 8
+  %61 = call ptr @gv_strdup(ptr noundef @.str.10)
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds %struct.fspan, ptr %62, i32 0, i32 1
+  %64 = getelementptr inbounds %struct.htextspan_t, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %struct.textspan_t, ptr %65, i64 0
+  %67 = getelementptr inbounds %struct.textspan_t, ptr %66, i32 0, i32 0
+  store ptr %61, ptr %67, align 8
+  %68 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.fspan, ptr %70, i32 0, i32 1
-  %72 = getelementptr inbounds %struct.htextspan_t, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.textspan_t, ptr %73, i64 0
-  %75 = getelementptr inbounds %struct.textspan_t, ptr %74, i32 0, i32 1
-  store ptr %69, ptr %75, align 8
-  br label %76
+  %70 = getelementptr inbounds %struct.sfont_t, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.fspan, ptr %72, i32 0, i32 1
+  %74 = getelementptr inbounds %struct.htextspan_t, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.textspan_t, ptr %75, i64 0
+  %77 = getelementptr inbounds %struct.textspan_t, ptr %76, i32 0, i32 1
+  store ptr %71, ptr %77, align 8
+  br label %78
 
-76:                                               ; preds = %52, %51
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds %struct._dt_s, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = call ptr %79(ptr noundef %80, ptr noundef null, i32 noundef 64)
-  %82 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  %83 = getelementptr inbounds %struct._dt_s, ptr %82, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  %86 = load ptr, ptr %3, align 8
-  %87 = call ptr %84(ptr noundef %85, ptr noundef %86, i32 noundef 1)
+78:                                               ; preds = %53, %52
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct._dt_s, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = call ptr %81(ptr noundef %82, ptr noundef null, i32 noundef 64)
+  %84 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds %struct._dt_s, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %3, align 8
+  %91 = call ptr %87(ptr noundef %89, ptr noundef %90, i32 noundef 1)
   ret void
 }
 
@@ -1618,125 +1647,130 @@ define internal void @pushFont(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %6 = call ptr @gv_alloc(i64 noundef 16)
   store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  %8 = getelementptr inbounds %struct.sfont_t, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %4, align 8
-  %10 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %10, i64 40, i1 false)
-  %11 = load ptr, ptr %4, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %75
+  %7 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.sfont_t, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %4, align 8
+  %11 = load ptr, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %11, i64 40, i1 false)
+  %12 = load ptr, ptr %4, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %76
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %27, label %17
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %28, label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.textfont_t, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %27
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.textfont_t, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.textfont_t, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 1
-  store ptr %25, ptr %26, align 8
-  br label %27
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %struct.textfont_t, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 1
+  store ptr %26, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %22, %17, %13
-  %28 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 3
-  %29 = load double, ptr %28, align 8
-  %30 = fcmp olt double %29, 0.000000e+00
-  br i1 %30, label %31, label %41
+28:                                               ; preds = %23, %18, %14
+  %29 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 3
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp olt double %30, 0.000000e+00
+  br i1 %31, label %32, label %42
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.textfont_t, ptr %32, i32 0, i32 3
-  %34 = load double, ptr %33, align 8
-  %35 = fcmp oge double %34, 0.000000e+00
-  br i1 %35, label %36, label %41
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.textfont_t, ptr %33, i32 0, i32 3
+  %35 = load double, ptr %34, align 8
+  %36 = fcmp oge double %35, 0.000000e+00
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.textfont_t, ptr %37, i32 0, i32 3
-  %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 3
-  store double %39, ptr %40, align 8
-  br label %41
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.textfont_t, ptr %38, i32 0, i32 3
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 3
+  store double %40, ptr %41, align 8
+  br label %42
 
-41:                                               ; preds = %36, %31, %27
-  %42 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %55, label %45
+42:                                               ; preds = %37, %32, %28
+  %43 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %56, label %46
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.textfont_t, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %55
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %struct.textfont_t, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.textfont_t, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 0
-  store ptr %53, ptr %54, align 8
-  br label %55
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %struct.textfont_t, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 0
+  store ptr %54, ptr %55, align 8
+  br label %56
 
-55:                                               ; preds = %50, %45, %41
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.textfont_t, ptr %56, i32 0, i32 4
-  %58 = load i32, ptr %57, align 8
-  %59 = and i32 %58, 127
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %74
+56:                                               ; preds = %51, %46, %42
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %struct.textfont_t, ptr %57, i32 0, i32 4
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, 127
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %75
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.textfont_t, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 127
-  %66 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 4
-  %67 = load i32, ptr %66, align 8
-  %68 = and i32 %67, 127
-  %69 = or i32 %68, %65
-  %70 = load i32, ptr %66, align 8
-  %71 = and i32 %69, 127
-  %72 = and i32 %70, -128
-  %73 = or i32 %72, %71
-  store i32 %73, ptr %66, align 8
-  br label %74
-
-74:                                               ; preds = %61, %55
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds %struct.textfont_t, ptr %63, i32 0, i32 4
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, 127
+  %67 = getelementptr inbounds %struct.textfont_t, ptr %5, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8
+  %69 = and i32 %68, 127
+  %70 = or i32 %69, %66
+  %71 = load i32, ptr %67, align 8
+  %72 = and i32 %70, 127
+  %73 = and i32 %71, -128
+  %74 = or i32 %73, %72
+  store i32 %74, ptr %67, align 8
   br label %75
 
-75:                                               ; preds = %74, %1
-  %76 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 6), align 8
-  %77 = getelementptr inbounds %struct.GVC_s, ptr %76, i32 0, i32 12
+75:                                               ; preds = %62, %56
+  br label %76
+
+76:                                               ; preds = %75, %1
+  %77 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 6
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._dt_s, ptr %78, i32 0, i32 0
+  %79 = getelementptr inbounds %struct.GVC_s, ptr %78, i32 0, i32 12
   %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 6), align 8
-  %82 = getelementptr inbounds %struct.GVC_s, ptr %81, i32 0, i32 12
-  %83 = load ptr, ptr %82, align 8
-  %84 = call ptr %80(ptr noundef %83, ptr noundef %5, i32 noundef 1)
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.sfont_t, ptr %85, i32 0, i32 0
-  store ptr %84, ptr %86, align 8
-  %87 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
+  %81 = getelementptr inbounds %struct._dt_s, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 6
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds %struct.GVC_s, ptr %84, i32 0, i32 12
+  %86 = load ptr, ptr %85, align 8
+  %87 = call ptr %82(ptr noundef %86, ptr noundef %5, i32 noundef 1)
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.sfont_t, ptr %88, i32 0, i32 1
+  %89 = getelementptr inbounds %struct.sfont_t, ptr %88, i32 0, i32 0
   store ptr %87, ptr %89, align 8
-  %90 = load ptr, ptr %3, align 8
-  store ptr %90, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
+  %90 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds %struct.sfont_t, ptr %92, i32 0, i32 1
+  store ptr %91, ptr %93, align 8
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  store ptr %94, ptr %95, align 8
   ret void
 }
 
@@ -1744,16 +1778,18 @@ define internal void @pushFont(ptr noundef %0) #0 {
 define internal void @popFont() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds %struct.sfont_t, ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %2, align 8
-  %7 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %7) #12
-  %8 = load ptr, ptr %2, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
+  %3 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds %struct.sfont_t, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %2, align 8
+  %8 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %8) #12
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  store ptr %9, ptr %10, align 8
   ret void
 }
 
@@ -1821,64 +1857,66 @@ define internal ptr @addRow() #0 {
   %4 = load ptr, ptr @Dtqueue, align 8
   %5 = call ptr @dtopen(ptr noundef @cellDisc, ptr noundef %4)
   store ptr %5, ptr %1, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  store ptr %6, ptr %2, align 8
-  %7 = call ptr @gv_alloc(i64 noundef 32)
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %1, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.pitem, ptr %9, i32 0, i32 1
-  store ptr %8, ptr %10, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.htmltbl_t, ptr %11, i32 0, i32 8
-  %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %19
+  %6 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %2, align 8
+  %8 = call ptr @gv_alloc(i64 noundef 32)
+  store ptr %8, ptr %3, align 8
+  %9 = load ptr, ptr %1, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %struct.pitem, ptr %10, i32 0, i32 1
+  store ptr %9, ptr %11, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.htmltbl_t, ptr %12, i32 0, i32 8
+  %14 = load i8, ptr %13, align 8
+  %15 = and i8 %14, 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %0
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.pitem, ptr %17, i32 0, i32 2
-  store i8 1, ptr %18, align 8
-  br label %19
+17:                                               ; preds = %0
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.pitem, ptr %18, i32 0, i32 2
+  store i8 1, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %16, %0
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.htmltbl_t, ptr %20, i32 0, i32 1
-  %22 = getelementptr inbounds %struct.anon.1, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct._dt_s, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.htmltbl_t, ptr %26, i32 0, i32 1
-  %28 = getelementptr inbounds %struct.anon.1, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = call ptr %25(ptr noundef %29, ptr noundef %30, i32 noundef 1)
-  %32 = load ptr, ptr %3, align 8
-  ret ptr %32
+20:                                               ; preds = %17, %0
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.htmltbl_t, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds %struct.anon.1, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct._dt_s, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.htmltbl_t, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds %struct.anon.1, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = call ptr %26(ptr noundef %30, ptr noundef %31, i32 noundef 1)
+  %33 = load ptr, ptr %3, align 8
+  ret ptr %33
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @lastRow() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds %struct.htmltbl_t, ptr %4, i32 0, i32 1
-  %6 = getelementptr inbounds %struct.anon.1, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct._dt_s, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds %struct.htmltbl_t, ptr %10, i32 0, i32 1
-  %12 = getelementptr inbounds %struct.anon.1, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr %9(ptr noundef %13, ptr noundef null, i32 noundef 256)
-  store ptr %14, ptr %2, align 8
-  %15 = load ptr, ptr %2, align 8
-  ret ptr %15
+  %3 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds %struct.htmltbl_t, ptr %5, i32 0, i32 1
+  %7 = getelementptr inbounds %struct.anon.1, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct._dt_s, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds %struct.htmltbl_t, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds %struct.anon.1, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr %10(ptr noundef %14, ptr noundef null, i32 noundef 256)
+  store ptr %15, ptr %2, align 8
+  %16 = load ptr, ptr %2, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1895,93 +1933,94 @@ define internal void @setCell(ptr noundef %0, ptr noundef %1, i8 noundef signext
   store i8 %2, ptr %6, align 1
   %11 = call ptr @gv_alloc(i64 noundef 32)
   store ptr %11, ptr %7, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
-  store ptr %12, ptr %8, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %struct.htmltbl_t, ptr %13, i32 0, i32 1
-  %15 = getelementptr inbounds %struct.anon.1, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct._dt_s, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.htmltbl_t, ptr %19, i32 0, i32 1
-  %21 = getelementptr inbounds %struct.anon.1, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = call ptr %18(ptr noundef %22, ptr noundef null, i32 noundef 256)
-  store ptr %23, ptr %9, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds %struct.pitem, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %10, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.pitem, ptr %28, i32 0, i32 1
-  store ptr %27, ptr %29, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct._dt_s, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = call ptr %32(ptr noundef %33, ptr noundef %34, i32 noundef 1)
-  %36 = load i8, ptr %6, align 1
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.htmlcell_t, ptr %37, i32 0, i32 5
-  %39 = getelementptr inbounds %struct.htmllabel_t, ptr %38, i32 0, i32 1
-  store i8 %36, ptr %39, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.htmltbl_t, ptr %40, i32 0, i32 8
-  %42 = load i8, ptr %41, align 8
-  %43 = lshr i8 %42, 1
-  %44 = and i8 %43, 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %49
+  %12 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %8, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds %struct.htmltbl_t, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds %struct.anon.1, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct._dt_s, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds %struct.htmltbl_t, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds %struct.anon.1, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = call ptr %19(ptr noundef %23, ptr noundef null, i32 noundef 256)
+  store ptr %24, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds %struct.pitem, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %10, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds %struct.pitem, ptr %29, i32 0, i32 1
+  store ptr %28, ptr %30, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds %struct._dt_s, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = call ptr %33(ptr noundef %34, ptr noundef %35, i32 noundef 1)
+  %37 = load i8, ptr %6, align 1
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %struct.htmlcell_t, ptr %38, i32 0, i32 5
+  %40 = getelementptr inbounds %struct.htmllabel_t, ptr %39, i32 0, i32 1
+  store i8 %37, ptr %40, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.htmltbl_t, ptr %41, i32 0, i32 8
+  %43 = load i8, ptr %42, align 8
+  %44 = lshr i8 %43, 1
+  %45 = and i8 %44, 1
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %3
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.htmlcell_t, ptr %47, i32 0, i32 7
-  store i8 1, ptr %48, align 8
-  br label %49
+47:                                               ; preds = %3
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.htmlcell_t, ptr %48, i32 0, i32 7
+  store i8 1, ptr %49, align 8
+  br label %50
 
-49:                                               ; preds = %46, %3
-  %50 = load i8, ptr %6, align 1
-  %51 = sext i8 %50 to i32
-  %52 = icmp eq i32 %51, 2
-  br i1 %52, label %53, label %58
+50:                                               ; preds = %47, %3
+  %51 = load i8, ptr %6, align 1
+  %52 = sext i8 %51 to i32
+  %53 = icmp eq i32 %52, 2
+  br i1 %53, label %54, label %59
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.htmlcell_t, ptr %55, i32 0, i32 5
-  %57 = getelementptr inbounds %struct.htmllabel_t, ptr %56, i32 0, i32 0
-  store ptr %54, ptr %57, align 8
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds %struct.htmlcell_t, ptr %56, i32 0, i32 5
+  %58 = getelementptr inbounds %struct.htmllabel_t, ptr %57, i32 0, i32 0
+  store ptr %55, ptr %58, align 8
+  br label %74
+
+59:                                               ; preds = %50
+  %60 = load i8, ptr %6, align 1
+  %61 = sext i8 %60 to i32
+  %62 = icmp eq i32 %61, 3
+  br i1 %62, label %63, label %68
+
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %5, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.htmlcell_t, ptr %65, i32 0, i32 5
+  %67 = getelementptr inbounds %struct.htmllabel_t, ptr %66, i32 0, i32 0
+  store ptr %64, ptr %67, align 8
   br label %73
 
-58:                                               ; preds = %49
-  %59 = load i8, ptr %6, align 1
-  %60 = sext i8 %59 to i32
-  %61 = icmp eq i32 %60, 3
-  br i1 %61, label %62, label %67
-
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %5, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.htmlcell_t, ptr %64, i32 0, i32 5
-  %66 = getelementptr inbounds %struct.htmllabel_t, ptr %65, i32 0, i32 0
-  store ptr %63, ptr %66, align 8
-  br label %72
-
-67:                                               ; preds = %58
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.htmlcell_t, ptr %69, i32 0, i32 5
-  %71 = getelementptr inbounds %struct.htmllabel_t, ptr %70, i32 0, i32 0
-  store ptr %68, ptr %71, align 8
-  br label %72
-
-72:                                               ; preds = %67, %62
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %5, align 8
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %struct.htmlcell_t, ptr %70, i32 0, i32 5
+  %72 = getelementptr inbounds %struct.htmllabel_t, ptr %71, i32 0, i32 0
+  store ptr %69, ptr %72, align 8
   br label %73
 
-73:                                               ; preds = %72, %53
+73:                                               ; preds = %68, %63
+  br label %74
+
+74:                                               ; preds = %73, %54
   ret void
 }
 
@@ -2021,56 +2060,67 @@ define ptr @parseHTML(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %struct.sfont_t, ptr %9, i32 0, i32 1
   store ptr null, ptr %11, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  store ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 1
+  store ptr null, ptr %13, align 8
   store ptr null, ptr @HTMLstate, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.htmlenv_t, ptr %12, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.Agobj_s, ptr %14, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds %struct.htmlenv_t, ptr %14, i32 0, i32 3
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.Agraphinfo_t, ptr %16, i32 0, i32 14
+  %17 = getelementptr inbounds %struct.Agobj_s, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 6), align 8
-  %19 = load ptr, ptr @Dtqueue, align 8
-  %20 = call ptr @dtopen(ptr noundef @fstrDisc, ptr noundef %19)
-  store ptr %20, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %21 = load ptr, ptr @Dtqueue, align 8
-  %22 = call ptr @dtopen(ptr noundef @fspanDisc, ptr noundef %21)
-  store ptr %22, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 4), align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @initHTMLlexer(ptr noundef %23, ptr noundef %7, ptr noundef %24)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %29
+  %19 = getelementptr inbounds %struct.Agraphinfo_t, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 6
+  store ptr %20, ptr %21, align 8
+  %22 = load ptr, ptr @Dtqueue, align 8
+  %23 = call ptr @dtopen(ptr noundef @fstrDisc, ptr noundef %22)
+  %24 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr @Dtqueue, align 8
+  %26 = call ptr @dtopen(ptr noundef @fspanDisc, ptr noundef %25)
+  %27 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  store ptr %26, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 4
+  store ptr %7, ptr %28, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %6, align 8
+  %31 = call i32 @initHTMLlexer(ptr noundef %29, ptr noundef %7, ptr noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr %5, align 8
-  store i32 2, ptr %28, align 4
+33:                                               ; preds = %3
+  %34 = load ptr, ptr %5, align 8
+  store i32 2, ptr %34, align 4
   store ptr null, ptr %8, align 8
-  br label %34
+  br label %40
 
-29:                                               ; preds = %3
-  %30 = call i32 @htmlparse()
-  %31 = call i32 @clearHTMLlexer()
-  %32 = load ptr, ptr %5, align 8
-  store i32 %31, ptr %32, align 4
-  %33 = load ptr, ptr @HTMLstate, align 8
-  store ptr %33, ptr %8, align 8
-  br label %34
+35:                                               ; preds = %3
+  %36 = call i32 @htmlparse()
+  %37 = call i32 @clearHTMLlexer()
+  %38 = load ptr, ptr %5, align 8
+  store i32 %37, ptr %38, align 4
+  %39 = load ptr, ptr @HTMLstate, align 8
+  store ptr %39, ptr %8, align 8
+  br label %40
 
-34:                                               ; preds = %29, %27
-  %35 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  %36 = call i32 @dtclose(ptr noundef %35)
-  %37 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  %38 = call i32 @dtclose(ptr noundef %37)
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 3), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
+40:                                               ; preds = %35, %33
+  %41 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 @dtclose(ptr noundef %42)
+  %44 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @dtclose(ptr noundef %45)
+  %47 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 2
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 3
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  store ptr null, ptr %49, align 8
   call void @agxbfree(ptr noundef %7)
-  %39 = load ptr, ptr %8, align 8
-  ret ptr %39
+  %50 = load ptr, ptr %8, align 8
+  ret ptr %50
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2320,29 +2370,30 @@ define internal void @free_fspan(ptr noundef %0, ptr noundef %1) #0 {
 define internal void @freeFontstack() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @HTMLstate, i32 0, i32 5), align 8
-  store ptr %3, ptr %1, align 8
-  br label %4
+  %3 = getelementptr inbounds %struct.anon, ptr @HTMLstate, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %1, align 8
+  br label %5
 
-4:                                                ; preds = %11, %0
-  %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds %struct.sfont_t, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %2, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+5:                                                ; preds = %12, %0
+  %6 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds %struct.sfont_t, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %2, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %10) #12
-  br label %11
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %11) #12
+  br label %12
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr %2, align 8
-  store ptr %12, ptr %1, align 8
-  br label %4
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %2, align 8
+  store ptr %13, ptr %1, align 8
+  br label %5
 
-13:                                               ; preds = %4
+14:                                               ; preds = %5
   ret void
 }
 

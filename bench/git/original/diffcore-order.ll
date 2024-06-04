@@ -326,61 +326,64 @@ for.body:                                         ; preds = %for.cond
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end6, %for.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i32 0, i32 2), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %tobool = icmp ne i8 %4, 0
+  %3 = getelementptr inbounds %struct.strbuf, ptr @match_order.p, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %4, i64 0
+  %5 = load i8, ptr %arrayidx, align 1
+  %tobool = icmp ne i8 %5, 0
   br i1 %tobool, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %5 = load ptr, ptr @order, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx1 = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx1, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i32 0, i32 2), align 8
-  %call = call i32 @wildmatch(ptr noundef %7, ptr noundef %8, i32 noundef 0)
+  %6 = load ptr, ptr @order, align 8
+  %7 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %7 to i64
+  %arrayidx1 = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %8 = load ptr, ptr %arrayidx1, align 8
+  %9 = getelementptr inbounds %struct.strbuf, ptr @match_order.p, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %call = call i32 @wildmatch(ptr noundef %8, ptr noundef %10, i32 noundef 0)
   %tobool2 = icmp ne i32 %call, 0
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %9 = load i32, ptr %i, align 4
-  store i32 %9, ptr %retval, align 4
+  %11 = load i32, ptr %i, align 4
+  store i32 %11, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %10 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @match_order.p, i32 0, i32 2), align 8
-  %call3 = call ptr @strrchr(ptr noundef %10, i32 noundef 47) #7
+  %12 = getelementptr inbounds %struct.strbuf, ptr @match_order.p, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %call3 = call ptr @strrchr(ptr noundef %13, i32 noundef 47) #7
   store ptr %call3, ptr %cp, align 8
-  %11 = load ptr, ptr %cp, align 8
-  %tobool4 = icmp ne ptr %11, null
+  %14 = load ptr, ptr %cp, align 8
+  %tobool4 = icmp ne ptr %14, null
   br i1 %tobool4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   br label %while.end
 
 if.end6:                                          ; preds = %if.end
-  %12 = load ptr, ptr %cp, align 8
-  store i8 0, ptr %12, align 1
+  %15 = load ptr, ptr %cp, align 8
+  store i8 0, ptr %15, align 1
   br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %if.then5, %while.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end
-  %13 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %13, 1
+  %16 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
-  %14 = load i32, ptr @order_cnt, align 4
-  store i32 %14, ptr %retval, align 4
+  %17 = load i32, ptr @order_cnt, align 4
+  store i32 %17, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %18 = load i32, ptr %retval, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

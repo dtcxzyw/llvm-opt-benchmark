@@ -6815,176 +6815,177 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitorC2ER9AstModuleR24V3DfgOp
   store ptr %2, ptr %6, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN9VNVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV15AstToDfgVisitor, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 1
-  invoke void @_ZN12VNUser1InUseC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %14 unwind label %49
+  %13 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV15AstToDfgVisitor, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 1
+  invoke void @_ZN12VNUser1InUseC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %15 unwind label %50
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 2
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #21
-          to label %17 unwind label %53
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 2
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #21
+          to label %18 unwind label %54
 
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   store i1 true, ptr %10, align 1
-  %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %5, align 8
-  invoke void @_ZNK13AstNodeModule4nameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(257) %19)
-          to label %20 unwind label %57
+  %20 = load ptr, ptr %5, align 8
+  invoke void @_ZNK13AstNodeModule4nameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(257) %20)
+          to label %21 unwind label %58
 
-20:                                               ; preds = %17
-  invoke void @_ZN8DfgGraphC1ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull align 8 dereferenceable(264) %18, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %21 unwind label %61
+21:                                               ; preds = %18
+  invoke void @_ZN8DfgGraphC1ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(264) %19, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %22 unwind label %62
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   store i1 false, ptr %10, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  store ptr %16, ptr %15, align 8
-  %22 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 3
-  %23 = load ptr, ptr %6, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 4
-  store i8 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 5
-  call void @_ZNSt6vectorIP9DfgVertexSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  %26 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 6
-  store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 7
-  call void @_ZNSt6vectorIP12DfgVarPackedSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  %28 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 8
-  call void @_ZNSt6vectorIP11DfgVarArraySaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = load ptr, ptr %5, align 8
-  invoke void @_ZN9VNVisitor15iterateChildrenEP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %29)
-          to label %30 unwind label %69
+  store ptr %17, ptr %16, align 8
+  %23 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 3
+  %24 = load ptr, ptr %6, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 4
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 5
+  call void @_ZNSt6vectorIP9DfgVertexSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+  %27 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 6
+  store i8 0, ptr %27, align 8
+  %28 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 7
+  call void @_ZNSt6vectorIP12DfgVarPackedSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  %29 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 8
+  call void @_ZNSt6vectorIP11DfgVarArraySaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = load ptr, ptr %5, align 8
+  invoke void @_ZN9VNVisitor15iterateChildrenEP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %30)
+          to label %31 unwind label %70
 
-30:                                               ; preds = %21
-  br label %31
+31:                                               ; preds = %22
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 5
-  %33 = call noundef zeroext i1 @_ZNKSt6vectorIP9DfgVertexSaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
-  %34 = xor i1 %33, true
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds %class.AstToDfgVisitor, ptr %12, i32 0, i32 5
+  %34 = call noundef zeroext i1 @_ZNKSt6vectorIP9DfgVertexSaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
   %35 = xor i1 %34, true
   %36 = xor i1 %35, true
-  br i1 %36, label %37, label %73
+  %37 = xor i1 %36, true
+  br i1 %37, label %38, label %74
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %5, align 8
   invoke void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 noundef zeroext 4)
-          to label %39 unwind label %69
+          to label %40 unwind label %70
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %class.V3ErrorCode, ptr %11, i32 0, i32 0
-  %41 = load i8, ptr %40, align 1
-  %42 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %41, ptr noundef @.str, i32 noundef 594, i1 noundef zeroext true)
-          to label %43 unwind label %69
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds %class.V3ErrorCode, ptr %11, i32 0, i32 0
+  %42 = load i8, ptr %41, align 1
+  %43 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %42, ptr noundef @.str, i32 noundef 594, i1 noundef zeroext true)
+          to label %44 unwind label %70
 
-43:                                               ; preds = %39
-  %44 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %45 unwind label %69
+44:                                               ; preds = %40
+  %45 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+          to label %46 unwind label %70
 
-45:                                               ; preds = %43
-  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef @.str.1)
-          to label %47 unwind label %69
+46:                                               ; preds = %44
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef @.str.1)
+          to label %48 unwind label %70
 
-47:                                               ; preds = %45
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %38, ptr noundef nonnull align 8 dereferenceable(112) %46) #22
-          to label %48 unwind label %69
+48:                                               ; preds = %46
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %39, ptr noundef nonnull align 8 dereferenceable(112) %47) #22
+          to label %49 unwind label %70
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   unreachable
 
-49:                                               ; preds = %3
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %3
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %7, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %8, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %7, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %8, align 4
+  br label %80
+
+54:                                               ; preds = %15
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %7, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %8, align 4
   br label %79
 
-53:                                               ; preds = %14
-  %54 = landingpad { ptr, i32 }
+58:                                               ; preds = %18
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %7, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %8, align 4
-  br label %78
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %7, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %8, align 4
+  br label %66
 
-57:                                               ; preds = %17
-  %58 = landingpad { ptr, i32 }
+62:                                               ; preds = %21
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %7, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %8, align 4
-  br label %65
-
-61:                                               ; preds = %20
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %7, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %8, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %7, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %8, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %65
+  br label %66
 
-65:                                               ; preds = %61, %57
-  %66 = load i1, ptr %10, align 1
-  br i1 %66, label %67, label %68
+66:                                               ; preds = %62, %58
+  %67 = load i1, ptr %10, align 1
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %65
-  call void @_ZdlPv(ptr noundef %16) #23
-  br label %68
+68:                                               ; preds = %66
+  call void @_ZdlPv(ptr noundef %17) #23
+  br label %69
 
-68:                                               ; preds = %67, %65
-  br label %78
+69:                                               ; preds = %68, %66
+  br label %79
 
-69:                                               ; preds = %76, %75, %47, %45, %43, %39, %37, %21
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %77, %76, %48, %46, %44, %40, %38, %22
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %7, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %8, align 4
-  call void @_ZNSt6vectorIP11DfgVarArraySaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  call void @_ZNSt6vectorIP12DfgVarPackedSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  call void @_ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %78
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %7, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %8, align 4
+  call void @_ZNSt6vectorIP11DfgVarArraySaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  call void @_ZNSt6vectorIP12DfgVarPackedSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  call void @_ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+  br label %79
 
-73:                                               ; preds = %31
-  br label %74
-
-74:                                               ; preds = %73
+74:                                               ; preds = %32
   br label %75
 
 75:                                               ; preds = %74
-  invoke void @_ZN15AstToDfgVisitor18canonicalizePackedEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
-          to label %76 unwind label %69
+  br label %76
 
 76:                                               ; preds = %75
-  invoke void @_ZN15AstToDfgVisitor17canonicalizeArrayEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
-          to label %77 unwind label %69
+  invoke void @_ZN15AstToDfgVisitor18canonicalizePackedEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
+          to label %77 unwind label %70
 
 77:                                               ; preds = %76
+  invoke void @_ZN15AstToDfgVisitor17canonicalizeArrayEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
+          to label %78 unwind label %70
+
+78:                                               ; preds = %77
   ret void
 
-78:                                               ; preds = %69, %68, %53
-  call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  br label %79
-
-79:                                               ; preds = %78, %49
-  call void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+79:                                               ; preds = %70, %69, %54
+  call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %7, align 8
-  %82 = load i32, ptr %8, align 4
-  %83 = insertvalue { ptr, i32 } poison, ptr %81, 0
-  %84 = insertvalue { ptr, i32 } %83, i32 %82, 1
-  resume { ptr, i32 } %84
+80:                                               ; preds = %79, %50
+  call void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = insertvalue { ptr, i32 } poison, ptr %82, 0
+  %85 = insertvalue { ptr, i32 } %84, i32 %83, 1
+  resume { ptr, i32 } %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7010,9 +7011,10 @@ define linkonce_odr dso_local void @_ZN9VNVisitorC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14VNVisitorConstC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV9VNVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.VNVisitor, ptr %3, i32 0, i32 1
-  call void @_ZN9VNDeleterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV9VNVisitor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.VNVisitor, ptr %3, i32 0, i32 1
+  call void @_ZN9VNDeleterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -33942,7 +33944,8 @@ define linkonce_odr dso_local void @_ZN14VNVisitorConstC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV14VNVisitorConst, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV14VNVisitorConst, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -33963,9 +33966,10 @@ define linkonce_odr dso_local void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV9VNVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.VNVisitor, ptr %3, i32 0, i32 1
-  call void @_ZN9VNDeleterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV9VNVisitor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.VNVisitor, ptr %3, i32 0, i32 1
+  call void @_ZN9VNDeleterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN14VNVisitorConstD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -35878,9 +35882,10 @@ define linkonce_odr dso_local void @_ZN6DfgSelC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSel, i32 0, i32 0, i32 2), ptr %10, align 8
-  %18 = getelementptr inbounds %class.DfgSel, ptr %10, i32 0, i32 1
-  store i32 0, ptr %18, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgSel, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
+  %19 = getelementptr inbounds %class.DfgSel, ptr %10, i32 0, i32 1
+  store i32 0, ptr %19, align 8
   ret void
 }
 
@@ -35963,7 +35968,8 @@ define linkonce_odr dso_local void @_ZN9DfgConcatC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgConcat, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgConcat, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -47054,7 +47060,8 @@ define linkonce_odr dso_local void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8F
   %17 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %18 = load i16, ptr %17, align 2
   call void @_ZN18DfgVertexWithArityILm1EEC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, i16 %18, ptr noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgVertexUnary, i32 0, i32 0, i32 2), ptr %13, align 8
+  %19 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgVertexUnary, i32 0, i32 0, i32 2
+  store ptr %19, ptr %13, align 8
   ret void
 }
 
@@ -47096,55 +47103,56 @@ define linkonce_odr dso_local void @_ZN18DfgVertexWithArityILm1EEC2ER8DfgGraph8V
   %20 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(104) %17, i16 %21, ptr noundef %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm1EE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %22 = getelementptr inbounds %class.DfgVertexWithArity, ptr %16, i32 0, i32 1
-  invoke void @_ZNSt5arrayI7DfgEdgeLm1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %35
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm1EE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %16, align 8
+  %23 = getelementptr inbounds %class.DfgVertexWithArity, ptr %16, i32 0, i32 1
+  invoke void @_ZNSt5arrayI7DfgEdgeLm1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %36
 
-23:                                               ; preds = %5
+24:                                               ; preds = %5
   store i64 0, ptr %14, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %32, %23
-  %25 = load i64, ptr %14, align 8
-  %26 = icmp ult i64 %25, 1
-  br i1 %26, label %27, label %39
+25:                                               ; preds = %33, %24
+  %26 = load i64, ptr %14, align 8
+  %27 = icmp ult i64 %26, 1
+  br i1 %27, label %28, label %40
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds %class.DfgVertexWithArity, ptr %16, i32 0, i32 1
-  %29 = load i64, ptr %14, align 8
-  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm1EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %29) #3
-  invoke void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %16)
-          to label %31 unwind label %35
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %class.DfgVertexWithArity, ptr %16, i32 0, i32 1
+  %30 = load i64, ptr %14, align 8
+  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm1EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef %30) #3
+  invoke void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %16)
+          to label %32 unwind label %36
 
-31:                                               ; preds = %27
-  br label %32
+32:                                               ; preds = %28
+  br label %33
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr %14, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %14, align 8
-  br label %24, !llvm.loop !43
+33:                                               ; preds = %32
+  %34 = load i64, ptr %14, align 8
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %14, align 8
+  br label %25, !llvm.loop !43
 
-35:                                               ; preds = %27, %5
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %28, %5
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %12, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %13, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %12, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %13, align 4
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
-  br label %40
+  br label %41
 
-39:                                               ; preds = %24
+40:                                               ; preds = %25
   ret void
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %12, align 8
-  %42 = load i32, ptr %13, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr %13, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47466,7 +47474,8 @@ define linkonce_odr dso_local void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8
   %17 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %18 = load i16, ptr %17, align 2
   call void @_ZN18DfgVertexWithArityILm2EEC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, i16 %18, ptr noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV15DfgVertexBinary, i32 0, i32 0, i32 2), ptr %13, align 8
+  %19 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV15DfgVertexBinary, i32 0, i32 0, i32 2
+  store ptr %19, ptr %13, align 8
   ret void
 }
 
@@ -47603,52 +47612,53 @@ define linkonce_odr dso_local void @_ZN18DfgVertexWithArityILm2EEC2ER8DfgGraph8V
   %20 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(104) %17, i16 %21, ptr noundef %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm2EE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %22 = getelementptr inbounds %class.DfgVertexWithArity.82, ptr %16, i32 0, i32 1
-  invoke void @_ZNSt5arrayI7DfgEdgeLm2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %22)
-          to label %23 unwind label %34
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm2EE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %16, align 8
+  %23 = getelementptr inbounds %class.DfgVertexWithArity.82, ptr %16, i32 0, i32 1
+  invoke void @_ZNSt5arrayI7DfgEdgeLm2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23)
+          to label %24 unwind label %35
 
-23:                                               ; preds = %5
+24:                                               ; preds = %5
   store i64 0, ptr %14, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %31, %23
-  %25 = load i64, ptr %14, align 8
-  %26 = icmp ult i64 %25, 2
-  br i1 %26, label %27, label %38
+25:                                               ; preds = %32, %24
+  %26 = load i64, ptr %14, align 8
+  %27 = icmp ult i64 %26, 2
+  br i1 %27, label %28, label %39
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds %class.DfgVertexWithArity.82, ptr %16, i32 0, i32 1
-  %29 = load i64, ptr %14, align 8
-  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm2EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %28, i64 noundef %29) #3
-  call void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %16)
-  br label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %class.DfgVertexWithArity.82, ptr %16, i32 0, i32 1
+  %30 = load i64, ptr %14, align 8
+  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm2EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %29, i64 noundef %30) #3
+  call void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %16)
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = load i64, ptr %14, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %14, align 8
-  br label %24, !llvm.loop !44
+32:                                               ; preds = %28
+  %33 = load i64, ptr %14, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %14, align 8
+  br label %25, !llvm.loop !44
 
-34:                                               ; preds = %5
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %12, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %13, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %12, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %13, align 4
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
-  br label %39
+  br label %40
 
-38:                                               ; preds = %24
+39:                                               ; preds = %25
   ret void
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %12, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i32, ptr %13, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -52919,75 +52929,76 @@ define linkonce_odr dso_local void @_ZN11DfgVarArrayC2ER8DfgGraphP6AstVar(ptr no
   %16 = getelementptr inbounds %class.VDfgType, ptr %7, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN12DfgVertexVarC2ER8DfgGraph8VDfgTypeP6AstVarj(ptr noundef nonnull align 8 dereferenceable(99) %11, ptr noundef nonnull align 8 dereferenceable(104) %12, i16 %17, ptr noundef %15, i32 noundef 4)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgVarArray, i32 0, i32 0, i32 2), ptr %11, align 8
-  %18 = getelementptr inbounds %class.DfgVarArray, ptr %11, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %19
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgVarArray, i32 0, i32 0, i32 2
+  store ptr %18, ptr %11, align 8
+  %19 = getelementptr inbounds %class.DfgVarArray, ptr %11, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  br label %20
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %6, align 8
-  %21 = invoke noundef ptr @_ZNK6AstVar13dtypeSkipRefpEv(ptr noundef nonnull align 8 dereferenceable(280) %20)
-          to label %22 unwind label %39
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %6, align 8
+  %22 = invoke noundef ptr @_ZNK6AstVar13dtypeSkipRefpEv(ptr noundef nonnull align 8 dereferenceable(280) %21)
+          to label %23 unwind label %40
 
-22:                                               ; preds = %19
-  %23 = call noundef zeroext i1 @_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_(ptr noundef %21)
-  %24 = xor i1 %23, true
+23:                                               ; preds = %20
+  %24 = call noundef zeroext i1 @_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_(ptr noundef %22)
   %25 = xor i1 %24, true
   %26 = xor i1 %25, true
-  br i1 %26, label %27, label %43
+  %27 = xor i1 %26, true
+  br i1 %27, label %28, label %44
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %6, align 8
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %6, align 8
   invoke void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %10, i8 noundef zeroext 4)
-          to label %29 unwind label %39
+          to label %30 unwind label %40
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %class.V3ErrorCode, ptr %10, i32 0, i32 0
-  %31 = load i8, ptr %30, align 1
-  %32 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %31, ptr noundef @.str.36, i32 noundef 182, i1 noundef zeroext true)
-          to label %33 unwind label %39
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %class.V3ErrorCode, ptr %10, i32 0, i32 0
+  %32 = load i8, ptr %31, align 1
+  %33 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %32, ptr noundef @.str.36, i32 noundef 182, i1 noundef zeroext true)
+          to label %34 unwind label %40
 
-33:                                               ; preds = %29
-  %34 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %35 unwind label %39
+34:                                               ; preds = %30
+  %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+          to label %36 unwind label %40
 
-35:                                               ; preds = %33
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef @.str.37)
-          to label %37 unwind label %39
+36:                                               ; preds = %34
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef @.str.37)
+          to label %38 unwind label %40
 
-37:                                               ; preds = %35
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %28, ptr noundef nonnull align 8 dereferenceable(112) %36) #22
-          to label %38 unwind label %39
+38:                                               ; preds = %36
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(112) %37) #22
+          to label %39 unwind label %40
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   unreachable
 
-39:                                               ; preds = %37, %35, %33, %29, %27, %19
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %38, %36, %34, %30, %28, %20
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %8, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %9, align 4
-  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %8, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %9, align 4
+  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
   call void @_ZN12DfgVertexVarD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %11) #3
-  br label %46
+  br label %47
 
-43:                                               ; preds = %22
-  br label %44
-
-44:                                               ; preds = %43
+44:                                               ; preds = %23
   br label %45
 
 45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
   ret void
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %8, align 8
-  %48 = load i32, ptr %9, align 4
-  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
-  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
-  resume { ptr, i32 } %50
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %8, align 8
+  %49 = load i32, ptr %9, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -53067,9 +53078,10 @@ define linkonce_odr dso_local void @_ZN12DfgVarPackedC2ER8DfgGraphP6AstVar(ptr n
   %13 = getelementptr inbounds %class.VDfgType, ptr %7, i32 0, i32 0
   %14 = load i16, ptr %13, align 2
   call void @_ZN12DfgVertexVarC2ER8DfgGraph8VDfgTypeP6AstVarj(ptr noundef nonnull align 8 dereferenceable(99) %8, ptr noundef nonnull align 8 dereferenceable(104) %9, i16 %14, ptr noundef %12, i32 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgVarPacked, i32 0, i32 0, i32 2), ptr %8, align 8
-  %15 = getelementptr inbounds %class.DfgVarPacked, ptr %8, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %15 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgVarPacked, i32 0, i32 0, i32 2
+  store ptr %15, ptr %8, align 8
+  %16 = getelementptr inbounds %class.DfgVarPacked, ptr %8, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
   ret void
 }
 
@@ -53209,16 +53221,17 @@ define linkonce_odr dso_local void @_ZN12DfgVertexVarC2ER8DfgGraph8VDfgTypeP6Ast
   %20 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   call void @_ZN17DfgVertexVariadicC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDTypej(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, i16 %21, ptr noundef %16, ptr noundef %18, i32 noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgVertexVar, i32 0, i32 0, i32 2), ptr %13, align 8
-  %22 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 1
-  %23 = load ptr, ptr %9, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 2
-  store i8 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 3
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 4
-  store i8 0, ptr %26, align 2
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgVertexVar, i32 0, i32 0, i32 2
+  store ptr %22, ptr %13, align 8
+  %23 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 1
+  %24 = load ptr, ptr %9, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 2
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 3
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr inbounds %class.DfgVertexVar, ptr %13, i32 0, i32 4
+  store i8 0, ptr %27, align 2
   ret void
 }
 
@@ -53477,38 +53490,39 @@ define linkonce_odr dso_local void @_ZN17DfgVertexVariadicC2ER8DfgGraph8VDfgType
   %21 = getelementptr inbounds %class.VDfgType, ptr %13, i32 0, i32 0
   %22 = load i16, ptr %21, align 2
   call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(104) %18, i16 %22, ptr noundef %19, ptr noundef %20)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2), ptr %17, align 8
-  %23 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 1
-  %24 = load i32, ptr %12, align 4
-  %25 = zext i32 %24 to i64
-  %26 = invoke noundef ptr @_ZN17DfgVertexVariadic12allocSourcesEm(ptr noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %25)
-          to label %27 unwind label %31
+  %23 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2
+  store ptr %23, ptr %17, align 8
+  %24 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 1
+  %25 = load i32, ptr %12, align 4
+  %26 = zext i32 %25 to i64
+  %27 = invoke noundef ptr @_ZN17DfgVertexVariadic12allocSourcesEm(ptr noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %26)
+          to label %28 unwind label %32
 
-27:                                               ; preds = %6
-  store ptr %26, ptr %23, align 8
-  %28 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 2
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 3
-  %30 = load i32, ptr %12, align 4
-  store i32 %30, ptr %29, align 4
+28:                                               ; preds = %6
+  store ptr %27, ptr %24, align 8
+  %29 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 2
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds %class.DfgVertexVariadic, ptr %17, i32 0, i32 3
+  %31 = load i32, ptr %12, align 4
+  store i32 %31, ptr %30, align 4
   ret void
 
-31:                                               ; preds = %6
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %6
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %14, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %15, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %14, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %15, align 4
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #3
-  br label %35
+  br label %36
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %14, align 8
-  %37 = load i32, ptr %15, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %14, align 8
+  %38 = load i32, ptr %15, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53579,49 +53593,50 @@ define linkonce_odr dso_local void @_ZN19AstUnpackArrayDTypeC2EP8FileLineP12AstN
   %14 = getelementptr inbounds %class.VNType, ptr %9, i32 0, i32 0
   %15 = load i16, ptr %14, align 2
   call void @_ZN17AstNodeArrayDTypeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(176) %12, i16 %15, ptr noundef %13)
-  store ptr getelementptr inbounds inrange(-16, 432) ({ [56 x ptr] }, ptr @_ZTV19AstUnpackArrayDType, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds %class.AstUnpackArrayDType, ptr %12, i32 0, i32 1
-  store i8 0, ptr %16, align 8
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZN19AstUnpackArrayDType6rangepEP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef %17)
-          to label %18 unwind label %25
+  %16 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV19AstUnpackArrayDType, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds %class.AstUnpackArrayDType, ptr %12, i32 0, i32 1
+  store i8 0, ptr %17, align 8
+  %18 = load ptr, ptr %8, align 8
+  invoke void @_ZN19AstUnpackArrayDType6rangepEP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef %18)
+          to label %19 unwind label %26
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  invoke void @_ZN17AstNodeArrayDType9refDTypepEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(176) %12, ptr noundef %19)
-          to label %20 unwind label %25
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8
+  invoke void @_ZN17AstNodeArrayDType9refDTypepEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(176) %12, ptr noundef %20)
+          to label %21 unwind label %26
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   invoke void @_ZN7AstNode6dtypepEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef %12)
-          to label %21 unwind label %25
+          to label %22 unwind label %26
 
-21:                                               ; preds = %20
-  %22 = invoke noundef ptr @_ZNK17AstNodeArrayDType9subDTypepEv(ptr noundef nonnull align 8 dereferenceable(176) %12)
-          to label %23 unwind label %25
+22:                                               ; preds = %21
+  %23 = invoke noundef ptr @_ZNK17AstNodeArrayDType9subDTypepEv(ptr noundef nonnull align 8 dereferenceable(176) %12)
+          to label %24 unwind label %26
 
-23:                                               ; preds = %21
-  invoke void @_ZN12AstNodeDType12widthFromSubEPKS_(ptr noundef nonnull align 8 dereferenceable(162) %12, ptr noundef %22)
-          to label %24 unwind label %25
+24:                                               ; preds = %22
+  invoke void @_ZN12AstNodeDType12widthFromSubEPKS_(ptr noundef nonnull align 8 dereferenceable(162) %12, ptr noundef %23)
+          to label %25 unwind label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   ret void
 
-25:                                               ; preds = %23, %21, %20, %18, %4
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %24, %22, %21, %19, %4
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %10, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %11, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %10, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %11, align 4
   call void @_ZN17AstNodeArrayDTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %12) #3
-  br label %29
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %10, align 8
-  %31 = load i32, ptr %11, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -53697,9 +53712,10 @@ define linkonce_odr dso_local void @_ZN17AstNodeArrayDTypeC2E6VNTypeP8FileLine(p
   %11 = getelementptr inbounds %class.VNType, ptr %7, i32 0, i32 0
   %12 = load i16, ptr %11, align 2
   call void @_ZN12AstNodeDTypeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(162) %9, i16 %12, ptr noundef %10)
-  store ptr getelementptr inbounds inrange(-16, 432) ({ [56 x ptr] }, ptr @_ZTV17AstNodeArrayDType, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds %class.AstNodeArrayDType, ptr %9, i32 0, i32 1
-  store ptr null, ptr %13, align 8
+  %13 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV17AstNodeArrayDType, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds %class.AstNodeArrayDType, ptr %9, i32 0, i32 1
+  store ptr null, ptr %14, align 8
   ret void
 }
 
@@ -53803,36 +53819,37 @@ define linkonce_odr dso_local void @_ZN12AstNodeDTypeC2E6VNTypeP8FileLine(ptr no
   %13 = getelementptr inbounds %class.VNType, ptr %7, i32 0, i32 0
   %14 = load i16, ptr %13, align 2
   call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %11, i16 %14, ptr noundef %12)
-  store ptr getelementptr inbounds inrange(-16, 432) ({ [56 x ptr] }, ptr @_ZTV12AstNodeDType, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 1
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 2
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 3
-  invoke void @_ZN8VSigningC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %18 unwind label %20
+  %15 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV12AstNodeDType, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 1
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 2
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 3
+  invoke void @_ZN8VSigningC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %19 unwind label %21
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 4
-  store i8 0, ptr %19, align 1
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds %class.AstNodeDType, ptr %11, i32 0, i32 4
+  store i8 0, ptr %20, align 1
   ret void
 
-20:                                               ; preds = %3
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
   call void @_ZN7AstNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %11) #3
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %9, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 declare void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152), i16, ptr noundef) unnamed_addr #1
@@ -53922,17 +53939,18 @@ define linkonce_odr dso_local void @_ZN17DfgVertexVariadicD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DfgVertexVariadic, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17DfgVertexVariadic, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DfgVertexVariadic, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #23
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #23
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -55418,7 +55436,8 @@ define linkonce_odr dso_local void @_ZN8DfgAcosDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAcosD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgAcosD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -56136,7 +56155,8 @@ define linkonce_odr dso_local void @_ZN9DfgAcoshDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAcoshD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgAcoshD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -56285,7 +56305,8 @@ define linkonce_odr dso_local void @_ZN6DfgAddC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgAdd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgAdd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -56434,7 +56455,8 @@ define linkonce_odr dso_local void @_ZN7DfgAddDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgAddD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgAddD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -56980,7 +57002,8 @@ define linkonce_odr dso_local void @_ZN7AstCondC2EP8FileLineP11AstNodeExprS3_S3_
   %17 = getelementptr inbounds %class.VNType, ptr %11, i32 0, i32 0
   %18 = load i16, ptr %17, align 2
   call void @_ZN11AstNodeCondC2E6VNTypeP8FileLineP11AstNodeExprS4_S4_(ptr noundef nonnull align 8 dereferenceable(160) %12, i16 %18, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds inrange(-16, 408) ({ [53 x ptr] }, ptr @_ZTV7AstCond, i32 0, i32 0, i32 2), ptr %12, align 8
+  %19 = getelementptr inbounds { [53 x ptr] }, ptr @_ZTV7AstCond, i32 0, i32 0, i32 2
+  store ptr %19, ptr %12, align 8
   ret void
 }
 
@@ -58244,7 +58267,8 @@ define linkonce_odr dso_local void @_ZN6DfgAndC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgAnd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgAnd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -58393,7 +58417,8 @@ define linkonce_odr dso_local void @_ZN11DfgArraySelC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgArraySel, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgArraySel, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -58542,7 +58567,8 @@ define linkonce_odr dso_local void @_ZN8DfgAsinDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAsinD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgAsinD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -58691,7 +58717,8 @@ define linkonce_odr dso_local void @_ZN9DfgAsinhDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAsinhD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgAsinhD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -58869,7 +58896,8 @@ define linkonce_odr dso_local void @_ZN11DfgAssocSelC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgAssocSel, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgAssocSel, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59018,7 +59046,8 @@ define linkonce_odr dso_local void @_ZN9DfgAtan2DC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAtan2D, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgAtan2D, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59167,7 +59196,8 @@ define linkonce_odr dso_local void @_ZN8DfgAtanDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgAtanD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgAtanD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59316,7 +59346,8 @@ define linkonce_odr dso_local void @_ZN9DfgAtanhDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgAtanhD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgAtanhD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59474,7 +59505,8 @@ define linkonce_odr dso_local void @_ZN14DfgBitsToRealDC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgBitsToRealD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgBitsToRealD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59623,7 +59655,8 @@ define linkonce_odr dso_local void @_ZN9DfgBufIf1C2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgBufIf1, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgBufIf1, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59772,7 +59805,8 @@ define linkonce_odr dso_local void @_ZN9DfgCAwaitC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgCAwait, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgCAwait, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -59930,7 +59964,8 @@ define linkonce_odr dso_local void @_ZN8DfgCLog2C2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCLog2, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgCLog2, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60079,7 +60114,8 @@ define linkonce_odr dso_local void @_ZN14DfgCastDynamicC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgCastDynamic, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgCastDynamic, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60228,7 +60264,8 @@ define linkonce_odr dso_local void @_ZN11DfgCastWrapC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgCastWrap, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgCastWrap, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60377,7 +60414,8 @@ define linkonce_odr dso_local void @_ZN8DfgCeilDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCeilD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgCeilD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60576,7 +60614,8 @@ define linkonce_odr dso_local void @_ZN10DfgConcatNC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgConcatN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgConcatN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60848,7 +60887,8 @@ define linkonce_odr dso_local void @_ZN7DfgCondC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgCond, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgCond, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -60883,7 +60923,8 @@ define linkonce_odr dso_local void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP
   %17 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %18 = load i16, ptr %17, align 2
   call void @_ZN18DfgVertexWithArityILm3EEC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, i16 %18, ptr noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV16DfgVertexTernary, i32 0, i32 0, i32 2), ptr %13, align 8
+  %19 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV16DfgVertexTernary, i32 0, i32 0, i32 2
+  store ptr %19, ptr %13, align 8
   ret void
 }
 
@@ -61020,52 +61061,53 @@ define linkonce_odr dso_local void @_ZN18DfgVertexWithArityILm3EEC2ER8DfgGraph8V
   %20 = getelementptr inbounds %class.VDfgType, ptr %11, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(104) %17, i16 %21, ptr noundef %18, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm3EE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %22 = getelementptr inbounds %class.DfgVertexWithArity.240, ptr %16, i32 0, i32 1
-  invoke void @_ZNSt5arrayI7DfgEdgeLm3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %22)
-          to label %23 unwind label %34
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18DfgVertexWithArityILm3EE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %16, align 8
+  %23 = getelementptr inbounds %class.DfgVertexWithArity.240, ptr %16, i32 0, i32 1
+  invoke void @_ZNSt5arrayI7DfgEdgeLm3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %23)
+          to label %24 unwind label %35
 
-23:                                               ; preds = %5
+24:                                               ; preds = %5
   store i64 0, ptr %14, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %31, %23
-  %25 = load i64, ptr %14, align 8
-  %26 = icmp ult i64 %25, 3
-  br i1 %26, label %27, label %38
+25:                                               ; preds = %32, %24
+  %26 = load i64, ptr %14, align 8
+  %27 = icmp ult i64 %26, 3
+  br i1 %27, label %28, label %39
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds %class.DfgVertexWithArity.240, ptr %16, i32 0, i32 1
-  %29 = load i64, ptr %14, align 8
-  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm3EEixEm(ptr noundef nonnull align 8 dereferenceable(96) %28, i64 noundef %29) #3
-  call void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %16)
-  br label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %class.DfgVertexWithArity.240, ptr %16, i32 0, i32 1
+  %30 = load i64, ptr %14, align 8
+  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt5arrayI7DfgEdgeLm3EEixEm(ptr noundef nonnull align 8 dereferenceable(96) %29, i64 noundef %30) #3
+  call void @_ZN7DfgEdge4initEP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %16)
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = load i64, ptr %14, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %14, align 8
-  br label %24, !llvm.loop !53
+32:                                               ; preds = %28
+  %33 = load i64, ptr %14, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %14, align 8
+  br label %25, !llvm.loop !53
 
-34:                                               ; preds = %5
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %12, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %13, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %12, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %13, align 4
   call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
-  br label %39
+  br label %40
 
-38:                                               ; preds = %24
+39:                                               ; preds = %25
   ret void
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %12, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i32, ptr %13, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -61239,7 +61281,8 @@ define linkonce_odr dso_local void @_ZN12DfgCondBoundC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgCondBound, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgCondBound, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -61360,31 +61403,32 @@ define linkonce_odr dso_local void @_ZN8DfgConstC2ER8DfgGraphP8FileLineRK8V3Numb
   %20 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(104) %13, i16 %21, ptr noundef %16, ptr noundef %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgConst, i32 0, i32 0, i32 2), ptr %12, align 8
-  %22 = getelementptr inbounds %class.DfgConst, ptr %12, i32 0, i32 1
-  %23 = load ptr, ptr %8, align 8
-  invoke void @_ZN8V3NumberC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %23)
-          to label %24 unwind label %25
-
-24:                                               ; preds = %4
-  ret void
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgConst, i32 0, i32 0, i32 2
+  store ptr %22, ptr %12, align 8
+  %23 = getelementptr inbounds %class.DfgConst, ptr %12, i32 0, i32 1
+  %24 = load ptr, ptr %8, align 8
+  invoke void @_ZN8V3NumberC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24)
+          to label %25 unwind label %26
 
 25:                                               ; preds = %4
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %10, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %11, align 4
-  call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #3
-  br label %29
+  ret void
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %10, align 8
-  %31 = load i32, ptr %11, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+26:                                               ; preds = %4
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %10, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %11, align 4
+  call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #3
+  br label %30
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62627,7 +62671,8 @@ define linkonce_odr dso_local void @_ZN7DfgCosDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgCosD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgCosD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -62776,7 +62821,8 @@ define linkonce_odr dso_local void @_ZN8DfgCoshDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgCoshD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgCoshD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -62925,7 +62971,8 @@ define linkonce_odr dso_local void @_ZN12DfgCountOnesC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgCountOnes, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgCountOnes, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63074,7 +63121,8 @@ define linkonce_odr dso_local void @_ZN16DfgCvtPackStringC2ER8DfgGraphP8FileLine
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV16DfgCvtPackString, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV16DfgCvtPackString, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63223,7 +63271,8 @@ define linkonce_odr dso_local void @_ZN16DfgDistChiSquareC2ER8DfgGraphP8FileLine
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV16DfgDistChiSquare, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV16DfgDistChiSquare, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63372,7 +63421,8 @@ define linkonce_odr dso_local void @_ZN13DfgDistErlangC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgDistErlang, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgDistErlang, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63521,7 +63571,8 @@ define linkonce_odr dso_local void @_ZN18DfgDistExponentialC2ER8DfgGraphP8FileLi
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV18DfgDistExponential, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV18DfgDistExponential, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63670,7 +63721,8 @@ define linkonce_odr dso_local void @_ZN13DfgDistNormalC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgDistNormal, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgDistNormal, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63819,7 +63871,8 @@ define linkonce_odr dso_local void @_ZN14DfgDistPoissonC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgDistPoisson, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgDistPoisson, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -63968,7 +64021,8 @@ define linkonce_odr dso_local void @_ZN8DfgDistTC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgDistT, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgDistT, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64117,7 +64171,8 @@ define linkonce_odr dso_local void @_ZN14DfgDistUniformC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgDistUniform, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgDistUniform, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64266,7 +64321,8 @@ define linkonce_odr dso_local void @_ZN6DfgDivC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgDiv, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgDiv, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64415,7 +64471,8 @@ define linkonce_odr dso_local void @_ZN7DfgDivDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgDivD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgDivD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64564,7 +64621,8 @@ define linkonce_odr dso_local void @_ZN7DfgDivSC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgDivS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgDivS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64713,7 +64771,8 @@ define linkonce_odr dso_local void @_ZN5DfgEqC2ER8DfgGraphP8FileLineP12AstNodeDT
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgEq, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV5DfgEq, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -64862,7 +64921,8 @@ define linkonce_odr dso_local void @_ZN9DfgEqCaseC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgEqCase, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgEqCase, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65011,7 +65071,8 @@ define linkonce_odr dso_local void @_ZN6DfgEqDC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgEqD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65160,7 +65221,8 @@ define linkonce_odr dso_local void @_ZN6DfgEqNC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgEqN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65309,7 +65371,8 @@ define linkonce_odr dso_local void @_ZN6DfgEqTC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgEqT, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgEqT, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65458,7 +65521,8 @@ define linkonce_odr dso_local void @_ZN9DfgEqWildC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgEqWild, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgEqWild, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65607,7 +65671,8 @@ define linkonce_odr dso_local void @_ZN7DfgExpDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgExpD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgExpD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65756,7 +65821,8 @@ define linkonce_odr dso_local void @_ZN9DfgExtendC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgExtend, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgExtend, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -65905,7 +65971,8 @@ define linkonce_odr dso_local void @_ZN10DfgExtendSC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgExtendS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgExtendS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66054,7 +66121,8 @@ define linkonce_odr dso_local void @_ZN7DfgFEofC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgFEof, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgFEof, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66203,7 +66271,8 @@ define linkonce_odr dso_local void @_ZN8DfgFGetCC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgFGetC, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgFGetC, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66352,7 +66421,8 @@ define linkonce_odr dso_local void @_ZN8DfgFGetSC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgFGetS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgFGetS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66501,7 +66571,8 @@ define linkonce_odr dso_local void @_ZN10DfgFUngetCC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgFUngetC, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgFUngetC, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66650,7 +66721,8 @@ define linkonce_odr dso_local void @_ZN9DfgFloorDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgFloorD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgFloorD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66799,7 +66871,8 @@ define linkonce_odr dso_local void @_ZN8DfgGetcNC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgGetcN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgGetcN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -66948,7 +67021,8 @@ define linkonce_odr dso_local void @_ZN11DfgGetcRefNC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgGetcRefN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgGetcRefN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67097,7 +67171,8 @@ define linkonce_odr dso_local void @_ZN5DfgGtC2ER8DfgGraphP8FileLineP12AstNodeDT
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgGt, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV5DfgGt, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67246,7 +67321,8 @@ define linkonce_odr dso_local void @_ZN6DfgGtDC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgGtD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67395,7 +67471,8 @@ define linkonce_odr dso_local void @_ZN6DfgGtNC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgGtN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67544,7 +67621,8 @@ define linkonce_odr dso_local void @_ZN6DfgGtSC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGtS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgGtS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67693,7 +67771,8 @@ define linkonce_odr dso_local void @_ZN6DfgGteC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgGte, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgGte, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67842,7 +67921,8 @@ define linkonce_odr dso_local void @_ZN7DfgGteDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgGteD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -67991,7 +68071,8 @@ define linkonce_odr dso_local void @_ZN7DfgGteNC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgGteN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68140,7 +68221,8 @@ define linkonce_odr dso_local void @_ZN7DfgGteSC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgGteS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgGteS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68289,7 +68371,8 @@ define linkonce_odr dso_local void @_ZN9DfgHypotDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgHypotD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgHypotD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68438,7 +68521,8 @@ define linkonce_odr dso_local void @_ZN9DfgISToRDC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgISToRD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgISToRD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68587,7 +68671,8 @@ define linkonce_odr dso_local void @_ZN8DfgIToRDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgIToRD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgIToRD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68736,7 +68821,8 @@ define linkonce_odr dso_local void @_ZN14DfgIsUnboundedC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgIsUnbounded, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgIsUnbounded, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -68885,7 +68971,8 @@ define linkonce_odr dso_local void @_ZN12DfgIsUnknownC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgIsUnknown, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgIsUnknown, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69034,7 +69121,8 @@ define linkonce_odr dso_local void @_ZN7DfgLenNC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLenN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgLenN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69183,7 +69271,8 @@ define linkonce_odr dso_local void @_ZN9DfgLog10DC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLog10D, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgLog10D, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69332,7 +69421,8 @@ define linkonce_odr dso_local void @_ZN9DfgLogAndC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLogAnd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgLogAnd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69481,7 +69571,8 @@ define linkonce_odr dso_local void @_ZN7DfgLogDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLogD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgLogD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69630,7 +69721,8 @@ define linkonce_odr dso_local void @_ZN8DfgLogEqC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogEq, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgLogEq, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69779,7 +69871,8 @@ define linkonce_odr dso_local void @_ZN8DfgLogIfC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogIf, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgLogIf, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -69928,7 +70021,8 @@ define linkonce_odr dso_local void @_ZN9DfgLogNotC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgLogNot, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgLogNot, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70077,7 +70171,8 @@ define linkonce_odr dso_local void @_ZN8DfgLogOrC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgLogOr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgLogOr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70226,7 +70321,8 @@ define linkonce_odr dso_local void @_ZN5DfgLtC2ER8DfgGraphP8FileLineP12AstNodeDT
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgLt, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV5DfgLt, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70375,7 +70471,8 @@ define linkonce_odr dso_local void @_ZN6DfgLtDC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgLtD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70524,7 +70621,8 @@ define linkonce_odr dso_local void @_ZN6DfgLtNC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgLtN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70673,7 +70771,8 @@ define linkonce_odr dso_local void @_ZN6DfgLtSC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLtS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgLtS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70822,7 +70921,8 @@ define linkonce_odr dso_local void @_ZN6DfgLteC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgLte, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgLte, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -70971,7 +71071,8 @@ define linkonce_odr dso_local void @_ZN7DfgLteDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgLteD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71120,7 +71221,8 @@ define linkonce_odr dso_local void @_ZN7DfgLteNC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgLteN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71269,7 +71371,8 @@ define linkonce_odr dso_local void @_ZN7DfgLteSC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgLteS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgLteS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71418,7 +71521,8 @@ define linkonce_odr dso_local void @_ZN9DfgModDivC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgModDiv, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgModDiv, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71567,7 +71671,8 @@ define linkonce_odr dso_local void @_ZN10DfgModDivSC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgModDivS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgModDivS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71716,7 +71821,8 @@ define linkonce_odr dso_local void @_ZN6DfgMulC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgMul, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgMul, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -71865,7 +71971,8 @@ define linkonce_odr dso_local void @_ZN7DfgMulDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgMulD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgMulD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72014,7 +72121,8 @@ define linkonce_odr dso_local void @_ZN7DfgMulSC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgMulS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgMulS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72163,7 +72271,8 @@ define linkonce_odr dso_local void @_ZN7DfgNToIC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNToI, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgNToI, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72312,7 +72421,8 @@ define linkonce_odr dso_local void @_ZN9DfgNegateC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgNegate, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgNegate, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72461,7 +72571,8 @@ define linkonce_odr dso_local void @_ZN10DfgNegateDC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNegateD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgNegateD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72610,7 +72721,8 @@ define linkonce_odr dso_local void @_ZN6DfgNeqC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgNeq, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgNeq, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72759,7 +72871,8 @@ define linkonce_odr dso_local void @_ZN10DfgNeqCaseC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNeqCase, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgNeqCase, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -72908,7 +73021,8 @@ define linkonce_odr dso_local void @_ZN7DfgNeqDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgNeqD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73057,7 +73171,8 @@ define linkonce_odr dso_local void @_ZN7DfgNeqNC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgNeqN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73206,7 +73321,8 @@ define linkonce_odr dso_local void @_ZN7DfgNeqTC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgNeqT, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgNeqT, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73355,7 +73471,8 @@ define linkonce_odr dso_local void @_ZN10DfgNeqWildC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgNeqWild, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgNeqWild, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73504,7 +73621,8 @@ define linkonce_odr dso_local void @_ZN6DfgNotC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgNot, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgNot, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73653,7 +73771,8 @@ define linkonce_odr dso_local void @_ZN12DfgNullCheckC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgNullCheck, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgNullCheck, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73802,7 +73921,8 @@ define linkonce_odr dso_local void @_ZN9DfgOneHotC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgOneHot, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgOneHot, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -73951,7 +74071,8 @@ define linkonce_odr dso_local void @_ZN10DfgOneHot0C2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgOneHot0, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgOneHot0, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74100,7 +74221,8 @@ define linkonce_odr dso_local void @_ZN5DfgOrC2ER8DfgGraphP8FileLineP12AstNodeDT
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV5DfgOr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV5DfgOr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74249,7 +74371,8 @@ define linkonce_odr dso_local void @_ZN10DfgPostAddC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgPostAdd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgPostAdd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74398,7 +74521,8 @@ define linkonce_odr dso_local void @_ZN10DfgPostSubC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgPostSub, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgPostSub, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74547,7 +74671,8 @@ define linkonce_odr dso_local void @_ZN6DfgPowC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgPow, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgPow, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74696,7 +74821,8 @@ define linkonce_odr dso_local void @_ZN7DfgPowDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgPowD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgPowD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74845,7 +74971,8 @@ define linkonce_odr dso_local void @_ZN8DfgPowSSC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowSS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgPowSS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -74994,7 +75121,8 @@ define linkonce_odr dso_local void @_ZN8DfgPowSUC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowSU, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgPowSU, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75143,7 +75271,8 @@ define linkonce_odr dso_local void @_ZN8DfgPowUSC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPowUS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgPowUS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75292,7 +75421,8 @@ define linkonce_odr dso_local void @_ZN9DfgPreAddC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgPreAdd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgPreAdd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75441,7 +75571,8 @@ define linkonce_odr dso_local void @_ZN9DfgPreSubC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgPreSub, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgPreSub, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75590,7 +75721,8 @@ define linkonce_odr dso_local void @_ZN8DfgPutcNC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgPutcN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgPutcN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75739,7 +75871,8 @@ define linkonce_odr dso_local void @_ZN13DfgRToIRoundSC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgRToIRoundS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgRToIRoundS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -75888,7 +76021,8 @@ define linkonce_odr dso_local void @_ZN8DfgRToISC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgRToIS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgRToIS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76037,7 +76171,8 @@ define linkonce_odr dso_local void @_ZN13DfgRealToBitsC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgRealToBits, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgRealToBits, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76186,7 +76321,8 @@ define linkonce_odr dso_local void @_ZN9DfgRedAndC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgRedAnd, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgRedAnd, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76335,7 +76471,8 @@ define linkonce_odr dso_local void @_ZN8DfgRedOrC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgRedOr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgRedOr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76484,7 +76621,8 @@ define linkonce_odr dso_local void @_ZN9DfgRedXorC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgRedXor, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgRedXor, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76633,7 +76771,8 @@ define linkonce_odr dso_local void @_ZN12DfgReplicateC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgReplicate, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgReplicate, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76782,7 +76921,8 @@ define linkonce_odr dso_local void @_ZN13DfgReplicateNC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgReplicateN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgReplicateN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -76931,7 +77071,8 @@ define linkonce_odr dso_local void @_ZN15DfgResizeLValueC2ER8DfgGraphP8FileLineP
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV15DfgResizeLValue, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV15DfgResizeLValue, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77039,7 +77180,8 @@ define linkonce_odr dso_local void @_ZN6DfgMuxC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgMux, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgMux, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77212,7 +77354,8 @@ define linkonce_odr dso_local void @_ZN9DfgShiftLC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgShiftL, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgShiftL, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77361,7 +77504,8 @@ define linkonce_odr dso_local void @_ZN12DfgShiftLOvrC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgShiftLOvr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgShiftLOvr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77510,7 +77654,8 @@ define linkonce_odr dso_local void @_ZN9DfgShiftRC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgShiftR, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgShiftR, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77659,7 +77804,8 @@ define linkonce_odr dso_local void @_ZN12DfgShiftROvrC2ER8DfgGraphP8FileLineP12A
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV12DfgShiftROvr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV12DfgShiftROvr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77808,7 +77954,8 @@ define linkonce_odr dso_local void @_ZN10DfgShiftRSC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgShiftRS, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgShiftRS, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -77957,7 +78104,8 @@ define linkonce_odr dso_local void @_ZN13DfgShiftRSOvrC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgShiftRSOvr, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgShiftRSOvr, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78106,7 +78254,8 @@ define linkonce_odr dso_local void @_ZN9DfgSignedC2ER8DfgGraphP8FileLineP12AstNo
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV9DfgSigned, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9DfgSigned, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78255,7 +78404,8 @@ define linkonce_odr dso_local void @_ZN7DfgSinDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgSinD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgSinD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78404,7 +78554,8 @@ define linkonce_odr dso_local void @_ZN8DfgSinhDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgSinhD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgSinhD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78562,7 +78713,8 @@ define linkonce_odr dso_local void @_ZN8DfgSqrtDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgSqrtD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgSqrtD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78711,7 +78863,8 @@ define linkonce_odr dso_local void @_ZN10DfgStreamLC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgStreamL, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgStreamL, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -78860,7 +79013,8 @@ define linkonce_odr dso_local void @_ZN10DfgStreamRC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgStreamR, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgStreamR, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79009,7 +79163,8 @@ define linkonce_odr dso_local void @_ZN6DfgSubC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgSub, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgSub, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79158,7 +79313,8 @@ define linkonce_odr dso_local void @_ZN7DfgSubDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgSubD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgSubD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79307,7 +79463,8 @@ define linkonce_odr dso_local void @_ZN10DfgSubstrNC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN16DfgVertexTernaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgSubstrN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgSubstrN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79456,7 +79613,8 @@ define linkonce_odr dso_local void @_ZN7DfgTanDC2ER8DfgGraphP8FileLineP12AstNode
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV7DfgTanD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7DfgTanD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79605,7 +79763,8 @@ define linkonce_odr dso_local void @_ZN8DfgTanhDC2ER8DfgGraphP8FileLineP12AstNod
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV8DfgTanhD, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8DfgTanhD, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79754,7 +79913,8 @@ define linkonce_odr dso_local void @_ZN13DfgTimeImportC2ER8DfgGraphP8FileLineP12
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV13DfgTimeImport, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DfgTimeImport, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -79903,7 +80063,8 @@ define linkonce_odr dso_local void @_ZN11DfgToLowerNC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgToLowerN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgToLowerN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80052,7 +80213,8 @@ define linkonce_odr dso_local void @_ZN11DfgToUpperNC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgToUpperN, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgToUpperN, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80201,7 +80363,8 @@ define linkonce_odr dso_local void @_ZN15DfgURandomRangeC2ER8DfgGraphP8FileLineP
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV15DfgURandomRange, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV15DfgURandomRange, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80350,7 +80513,8 @@ define linkonce_odr dso_local void @_ZN11DfgUnsignedC2ER8DfgGraphP8FileLineP12As
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN14DfgVertexUnaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV11DfgUnsigned, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11DfgUnsigned, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80678,7 +80842,8 @@ define linkonce_odr dso_local void @_ZN14DfgWildcardSelC2ER8DfgGraphP8FileLineP1
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV14DfgWildcardSel, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14DfgWildcardSel, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80827,7 +80992,8 @@ define linkonce_odr dso_local void @_ZN10DfgWordSelC2ER8DfgGraphP8FileLineP12Ast
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV10DfgWordSel, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10DfgWordSel, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 
@@ -80976,7 +81142,8 @@ define linkonce_odr dso_local void @_ZN6DfgXorC2ER8DfgGraphP8FileLineP12AstNodeD
   %16 = getelementptr inbounds %class.VDfgType, ptr %9, i32 0, i32 0
   %17 = load i16, ptr %16, align 2
   call void @_ZN15DfgVertexBinaryC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(104) %11, i16 %17, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV6DfgXor, i32 0, i32 0, i32 2), ptr %10, align 8
+  %18 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV6DfgXor, i32 0, i32 0, i32 2
+  store ptr %18, ptr %10, align 8
   ret void
 }
 

@@ -482,18 +482,15 @@ entry:
   store i32 %fd, ptr %fd.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %fd.addr, align 4
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @packet_write_fmt_1(i32 noundef %0, i32 noundef 0, ptr noundef @.str.7, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @packet_write_fmt_1(i32 noundef %fd, i32 noundef %gently, ptr noundef %prefix, ptr noundef %fmt, ptr noundef %args) #0 {
@@ -515,21 +512,23 @@ entry:
   %2 = load ptr, ptr %args.addr, align 8
   call void @format_packet(ptr noundef @packet_write_fmt_1.buf, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %3 = load i32, ptr %fd.addr, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i32 0, i32 2), align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_write_fmt_1.buf, i32 0, i32 1), align 8
-  %call = call i64 @write_in_full(i32 noundef %3, ptr noundef %4, i64 noundef %5)
+  %4 = getelementptr inbounds %struct.strbuf, ptr @packet_write_fmt_1.buf, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.strbuf, ptr @packet_write_fmt_1.buf, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %call = call i64 @write_in_full(i32 noundef %3, ptr noundef %5, i64 noundef %7)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %gently.addr, align 4
-  %tobool = icmp ne i32 %6, 0
+  %8 = load i32, ptr %gently.addr, align 4
+  %tobool = icmp ne i32 %8, 0
   br i1 %tobool, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   %call2 = call ptr @__errno_location() #12
-  %7 = load i32, ptr %call2, align 4
-  call void @check_pipe(i32 noundef %7)
+  %9 = load i32, ptr %call2, align 4
+  call void @check_pipe(i32 noundef %9)
   %call3 = call ptr @_(ptr noundef @.str.29)
   call void (ptr, ...) @die_errno(ptr noundef %call3) #9
   unreachable
@@ -546,12 +545,9 @@ if.end7:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @packet_write_fmt_gently(i32 noundef %fd, ptr noundef %fmt, ...) #0 {
@@ -563,14 +559,14 @@ entry:
   store i32 %fd, ptr %fd.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %fd.addr, align 4
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @packet_write_fmt_1(i32 noundef %0, i32 noundef 1, ptr noundef @.str.7, ptr noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %status, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %status, align 4
   ret i32 %2
 }
@@ -604,7 +600,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef %err) #0 {
@@ -733,16 +729,18 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @strbuf_setlen(ptr noundef @packet_fwrite_fmt.buf, i64 noundef 0)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @format_packet(ptr noundef @packet_fwrite_fmt.buf, ptr noundef @.str.7, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load ptr, ptr %fh.addr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i32 0, i32 2), align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @packet_fwrite_fmt.buf, i32 0, i32 1), align 8
-  call void @fwrite_or_die(ptr noundef %1, ptr noundef %2, i64 noundef %3)
+  %2 = getelementptr inbounds %struct.strbuf, ptr @packet_fwrite_fmt.buf, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.strbuf, ptr @packet_fwrite_fmt.buf, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  call void @fwrite_or_die(ptr noundef %1, ptr noundef %3, i64 noundef %5)
   ret void
 }
 
@@ -893,13 +891,13 @@ entry:
   store ptr %buf, ptr %buf.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %buf.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @format_packet(ptr noundef %0, ptr noundef @.str.7, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -973,7 +971,7 @@ declare ptr @xmalloc(i64 noundef) #1
 declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @packet_write_gently(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size) #0 {
@@ -1742,7 +1740,7 @@ declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) 
 declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 declare void @strbuf_release(ptr noundef) #1
 
@@ -2051,15 +2049,16 @@ entry:
   store ptr @.str.18, ptr %me, align 8
   %12 = load ptr, ptr %reader.addr, align 8
   %hash_algo = getelementptr inbounds %struct.packet_reader, ptr %12, i32 0, i32 12
-  store ptr getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1), ptr %hash_algo, align 8
-  %13 = load ptr, ptr %reader.addr, align 8
-  %scratch = getelementptr inbounds %struct.packet_reader, ptr %13, i32 0, i32 13
+  %13 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1
+  store ptr %13, ptr %hash_algo, align 8
+  %14 = load ptr, ptr %reader.addr, align 8
+  %scratch = getelementptr inbounds %struct.packet_reader, ptr %14, i32 0, i32 13
   call void @strbuf_init(ptr noundef %scratch, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare void @strbuf_init(ptr noundef, i64 noundef) #1
 
@@ -2284,7 +2283,7 @@ entry:
   store ptr %writer, ptr %writer.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %writer.addr, align 8
   %dest_fd = getelementptr inbounds %struct.packet_writer, ptr %0, i32 0, i32 0
   %1 = load i32, ptr %dest_fd, align 4
@@ -2299,7 +2298,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @packet_write_fmt_1(i32 noundef %1, i32 noundef 0, ptr noundef %cond, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -2312,7 +2311,7 @@ entry:
   store ptr %writer, ptr %writer.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %writer.addr, align 8
   %dest_fd = getelementptr inbounds %struct.packet_writer, ptr %0, i32 0, i32 0
   %1 = load i32, ptr %dest_fd, align 4
@@ -2327,7 +2326,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call = call i32 @packet_write_fmt_1(i32 noundef %1, i32 noundef 0, ptr noundef %cond, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -2534,12 +2533,12 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #5
+declare ptr @gettext(ptr noundef) #4
 
 declare void @check_pipe(i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_addstr(ptr noundef %sb, ptr noundef %s) #0 {
@@ -2557,7 +2556,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #5
+declare ptr @strerror(i32 noundef) #4
 
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -2566,23 +2565,29 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) #1
 declare i32 @error_errno(ptr noundef, ...) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strspn(ptr noundef, ptr noundef) #6
+declare i64 @strspn(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #6
+declare ptr @strstr(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #6
+declare ptr @strchr(ptr noundef, i32 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }

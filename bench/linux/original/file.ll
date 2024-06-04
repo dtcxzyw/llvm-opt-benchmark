@@ -98,84 +98,85 @@ define internal i64 @efivarfs_file_write(ptr nocapture noundef readonly %0, ptr 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #4
   store i8 0, ptr %7, align 1
   %14 = icmp ult i64 %2, 4
-  br i1 %14, label %56, label %15
+  br i1 %14, label %57, label %15
 
 15:                                               ; preds = %4
   %16 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 4) #4
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %56
+  br i1 %17, label %18, label %57
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %5, align 4
   %20 = icmp ult i32 %19, 128
-  br i1 %20, label %21, label %56
+  br i1 %20, label %21, label %57
 
 21:                                               ; preds = %18
   %22 = getelementptr i8, ptr %1, i64 4
   %23 = load i64, ptr %6, align 8
   %24 = call ptr @memdup_user(ptr noundef %22, i64 noundef %23) #4
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %28
+  %25 = inttoptr i64 -4096 to ptr
+  %26 = icmp ugt ptr %24, %25
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %21
-  %27 = ptrtoint ptr %24 to i64
-  br label %56
+27:                                               ; preds = %21
+  %28 = ptrtoint ptr %24 to i64
+  br label %57
 
-28:                                               ; preds = %21
-  %29 = load i32, ptr %5, align 4
-  %30 = call i32 @efivar_entry_set_get_size(ptr noundef %9, i32 noundef %29, ptr noundef nonnull %6, ptr noundef %24, ptr noundef nonnull %7) #4
-  %31 = load i8, ptr %7, align 1, !range !9, !noundef !10
-  %32 = icmp eq i8 %31, 0
-  %33 = icmp ne i32 %30, 0
-  %34 = select i1 %32, i1 %33, i1 false
-  %35 = icmp eq i32 %30, -2
-  br i1 %34, label %36, label %39
+29:                                               ; preds = %21
+  %30 = load i32, ptr %5, align 4
+  %31 = call i32 @efivar_entry_set_get_size(ptr noundef %9, i32 noundef %30, ptr noundef nonnull %6, ptr noundef %24, ptr noundef nonnull %7) #4
+  %32 = load i8, ptr %7, align 1, !range !9, !noundef !10
+  %33 = icmp eq i8 %32, 0
+  %34 = icmp ne i32 %31, 0
+  %35 = select i1 %33, i1 %34, i1 false
+  %36 = icmp eq i32 %31, -2
+  br i1 %35, label %37, label %40
 
-36:                                               ; preds = %28
-  %37 = select i1 %35, i32 -5, i32 %30
-  %38 = sext i32 %37 to i64
-  br label %54
+37:                                               ; preds = %29
+  %38 = select i1 %36, i32 -5, i32 %31
+  %39 = sext i32 %38 to i64
+  br label %55
 
-39:                                               ; preds = %28
-  br i1 %35, label %40, label %44
+40:                                               ; preds = %29
+  br i1 %36, label %41, label %45
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   call void @drop_nlink(ptr noundef %12) #4
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
-  %42 = load ptr, ptr %41, align 8
-  call void @d_delete(ptr noundef %42) #4
-  %43 = load ptr, ptr %41, align 8
-  call void @dput(ptr noundef %43) #4
-  br label %54
+  %42 = getelementptr inbounds i8, ptr %0, i64 160
+  %43 = load ptr, ptr %42, align 8
+  call void @d_delete(ptr noundef %43) #4
+  %44 = load ptr, ptr %42, align 8
+  call void @dput(ptr noundef %44) #4
+  br label %55
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %12, i64 160
-  call void @down_write(ptr noundef %45) #4
-  %46 = load i64, ptr %6, align 8
-  %47 = add i64 %46, 4
-  %48 = getelementptr inbounds i8, ptr %12, i64 80
-  store i64 %47, ptr %48, align 8
-  %49 = call { i64, i64 } @inode_set_ctime_current(ptr noundef %12) #4
-  %50 = extractvalue { i64, i64 } %49, 0
-  %51 = extractvalue { i64, i64 } %49, 1
-  %52 = getelementptr inbounds i8, ptr %12, i64 104
-  store i64 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %12, i64 112
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %12, i64 160
+  call void @down_write(ptr noundef %46) #4
+  %47 = load i64, ptr %6, align 8
+  %48 = add i64 %47, 4
+  %49 = getelementptr inbounds i8, ptr %12, i64 80
+  store i64 %48, ptr %49, align 8
+  %50 = call { i64, i64 } @inode_set_ctime_current(ptr noundef %12) #4
+  %51 = extractvalue { i64, i64 } %50, 0
+  %52 = extractvalue { i64, i64 } %50, 1
+  %53 = getelementptr inbounds i8, ptr %12, i64 104
   store i64 %51, ptr %53, align 8
-  call void @up_write(ptr noundef %45) #4
-  br label %54
+  %54 = getelementptr inbounds i8, ptr %12, i64 112
+  store i64 %52, ptr %54, align 8
+  call void @up_write(ptr noundef %46) #4
+  br label %55
 
-54:                                               ; preds = %44, %40, %36
-  %55 = phi i64 [ %38, %36 ], [ %2, %44 ], [ %2, %40 ]
+55:                                               ; preds = %45, %41, %37
+  %56 = phi i64 [ %39, %37 ], [ %2, %45 ], [ %2, %41 ]
   call void @kfree(ptr noundef %24) #4
-  br label %56
+  br label %57
 
-56:                                               ; preds = %54, %26, %18, %15, %4
-  %57 = phi i64 [ %27, %26 ], [ %55, %54 ], [ -22, %4 ], [ -14, %15 ], [ -22, %18 ]
+57:                                               ; preds = %55, %27, %18, %15, %4
+  %58 = phi i64 [ %28, %27 ], [ %56, %55 ], [ -22, %4 ], [ -14, %15 ], [ -22, %18 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  ret i64 %57
+  ret i64 %58
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -7888,31 +7888,32 @@ define internal ptr @get_geonw_name(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  store i32 %5, ptr %4, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %4, align 4
-  %8 = call ptr @geonw_name_lookup(ptr noundef %6, i32 noundef %7)
-  store ptr %8, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %15
+  %5 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  store i32 %6, ptr %4, align 4
+  %7 = load ptr, ptr %2, align 8
+  %8 = load i32, ptr %4, align 4
+  %9 = call ptr @geonw_name_lookup(ptr noundef %7, i32 noundef %8)
+  store ptr %9, ptr %3, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.hashgeonw, ptr %12, i32 0, i32 3
-  %14 = getelementptr inbounds [64 x i8], ptr %13, i64 0, i64 0
-  br label %19
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds %struct.hashgeonw, ptr %13, i32 0, i32 3
+  %15 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 0
+  br label %20
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.hashgeonw, ptr %16, i32 0, i32 2
-  %18 = getelementptr inbounds [28 x i8], ptr %17, i64 0, i64 0
-  br label %19
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds %struct.hashgeonw, ptr %17, i32 0, i32 2
+  %19 = getelementptr inbounds [28 x i8], ptr %18, i64 0, i64 0
+  br label %20
 
-19:                                               ; preds = %15, %11
-  %20 = phi ptr [ %14, %11 ], [ %18, %15 ]
-  ret ptr %20
+20:                                               ; preds = %16, %12
+  %21 = phi ptr [ %15, %12 ], [ %19, %16 ]
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable

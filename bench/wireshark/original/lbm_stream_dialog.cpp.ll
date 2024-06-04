@@ -3355,75 +3355,77 @@ define void @_ZN15LBMStreamDialogC2EP7QWidgetP13_capture_file(ptr noundef nonnul
   %12 = getelementptr inbounds %class.QFlags.9, ptr %7, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2), ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 1
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
-          to label %17 unwind label %30
-
-17:                                               ; preds = %3
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2
+  store ptr %14, ptr %10, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2
   store ptr %16, ptr %15, align 8
-  %18 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 2
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 3
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  invoke void @_ZN18Ui_LBMStreamDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef %10)
-          to label %23 unwind label %30
+  %17 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 1
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
+          to label %19 unwind label %32
 
-23:                                               ; preds = %17
-  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
-          to label %25 unwind label %30
+19:                                               ; preds = %3
+  store ptr %18, ptr %17, align 8
+  %20 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 2
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 3
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  invoke void @_ZN18Ui_LBMStreamDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef %10)
+          to label %25 unwind label %32
 
-25:                                               ; preds = %23
-  invoke void @_ZN19LBMStreamDialogInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %26 unwind label %34
+25:                                               ; preds = %19
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
+          to label %27 unwind label %32
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 2
-  store ptr %24, ptr %27, align 8
+27:                                               ; preds = %25
+  invoke void @_ZN19LBMStreamDialogInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %28 unwind label %36
+
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 2
+  store ptr %26, ptr %29, align 8
   invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 55, i1 noundef zeroext true)
-          to label %28 unwind label %30
+          to label %30 unwind label %32
 
-28:                                               ; preds = %26
+30:                                               ; preds = %28
   invoke void @_ZN15LBMStreamDialog8fillTreeEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
-          to label %29 unwind label %30
+          to label %31 unwind label %32
 
-29:                                               ; preds = %28
+31:                                               ; preds = %30
   ret void
 
-30:                                               ; preds = %28, %26, %23, %17, %3
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %30, %28, %25, %19, %3
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %8, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %9, align 4
-  br label %38
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %8, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %9, align 4
+  br label %40
 
-34:                                               ; preds = %25
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %27
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %8, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %9, align 4
-  call void @_ZdlPv(ptr noundef %24) #14
-  br label %38
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
+  call void @_ZdlPv(ptr noundef %26) #14
+  br label %40
 
-38:                                               ; preds = %34, %30
+40:                                               ; preds = %36, %32
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %8, align 8
-  %41 = load i32, ptr %9, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4276,39 +4278,41 @@ define void @_ZN15LBMStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #14
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #14
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %19
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %21
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %20, label %19
 
-17:                                               ; preds = %13
-  call void @_ZN19LBMStreamDialogInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #13
-  call void @_ZdlPv(ptr noundef %15) #14
-  br label %18
+19:                                               ; preds = %15
+  call void @_ZN19LBMStreamDialogInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #13
+  call void @_ZdlPv(ptr noundef %17) #14
+  br label %20
 
-18:                                               ; preds = %17, %13
-  br label %19
+20:                                               ; preds = %19, %15
+  br label %21
 
-19:                                               ; preds = %18, %9
+21:                                               ; preds = %20, %11
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   ret void
 }

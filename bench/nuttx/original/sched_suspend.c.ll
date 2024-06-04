@@ -31,7 +31,7 @@ define void @nxsched_suspend(ptr noundef %0) #0 {
   %11 = load i8, ptr %10, align 16
   %12 = zext i8 %11 to i32
   %13 = icmp sge i32 %12, 4
-  br i1 %13, label %14, label %45
+  br i1 %13, label %14, label %49
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %2, align 8
@@ -39,7 +39,7 @@ define void @nxsched_suspend(ptr noundef %0) #0 {
   %17 = load i8, ptr %16, align 16
   %18 = zext i8 %17 to i32
   %19 = icmp sle i32 %18, 9
-  br i1 %19, label %20, label %45
+  br i1 %19, label %20, label %49
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %2, align 8
@@ -58,98 +58,106 @@ define void @nxsched_suspend(ptr noundef %0) #0 {
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds %struct.dq_entry_s, ptr %28, i32 0, i32 0
   store ptr null, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.dq_entry_s, ptr %31, i32 0, i32 1
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr @g_stoppedtasks, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %38, label %35
+  %30 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.dq_entry_s, ptr %32, i32 0, i32 1
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr @g_stoppedtasks, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %40, label %36
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %5, align 8
-  store ptr %36, ptr @g_stoppedtasks, align 8
+36:                                               ; preds = %26
   %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  br label %43
+  store ptr %37, ptr @g_stoppedtasks, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  store ptr %38, ptr %39, align 8
+  br label %47
 
-38:                                               ; preds = %26
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  %41 = getelementptr inbounds %struct.dq_entry_s, ptr %40, i32 0, i32 0
-  store ptr %39, ptr %41, align 8
-  %42 = load ptr, ptr %5, align 8
-  store ptr %42, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  br label %43
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.dq_entry_s, ptr %43, i32 0, i32 0
+  store ptr %41, ptr %44, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  store ptr %45, ptr %46, align 8
+  br label %47
 
-43:                                               ; preds = %38, %35
-  br label %44
+47:                                               ; preds = %40, %36
+  br label %48
 
-44:                                               ; preds = %43
-  br label %77
+48:                                               ; preds = %47
+  br label %85
 
-45:                                               ; preds = %14, %1
-  %46 = load ptr, ptr @g_readytorun, align 8
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr %2, align 8
-  %48 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %47, i1 noundef zeroext true)
-  %49 = zext i1 %48 to i8
-  store i8 %49, ptr %4, align 1
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.tcb_s, ptr %50, i32 0, i32 8
-  store i8 9, ptr %51, align 16
-  br label %52
+49:                                               ; preds = %14, %1
+  %50 = load ptr, ptr @g_readytorun, align 8
+  store ptr %50, ptr %6, align 8
+  %51 = load ptr, ptr %2, align 8
+  %52 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %51, i1 noundef zeroext true)
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %4, align 1
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.tcb_s, ptr %54, i32 0, i32 8
+  store i8 9, ptr %55, align 16
+  br label %56
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %2, align 8
-  store ptr %53, ptr %7, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.dq_entry_s, ptr %54, i32 0, i32 0
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds %struct.dq_entry_s, ptr %57, i32 0, i32 1
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr @g_stoppedtasks, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %64, label %61
-
-61:                                               ; preds = %52
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %2, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = getelementptr inbounds %struct.dq_entry_s, ptr %58, i32 0, i32 0
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %7, align 8
-  store ptr %62, ptr @g_stoppedtasks, align 8
-  %63 = load ptr, ptr %7, align 8
-  store ptr %63, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  br label %69
+  %63 = getelementptr inbounds %struct.dq_entry_s, ptr %62, i32 0, i32 1
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr @g_stoppedtasks, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %70, label %66
 
-64:                                               ; preds = %52
-  %65 = load ptr, ptr %7, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  %67 = getelementptr inbounds %struct.dq_entry_s, ptr %66, i32 0, i32 0
-  store ptr %65, ptr %67, align 8
+66:                                               ; preds = %56
+  %67 = load ptr, ptr %7, align 8
+  store ptr %67, ptr @g_stoppedtasks, align 8
   %68 = load ptr, ptr %7, align 8
-  store ptr %68, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1), align 8
-  br label %69
-
-69:                                               ; preds = %64, %61
-  br label %70
-
-70:                                               ; preds = %69
-  %71 = load i8, ptr %4, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %76
-
-73:                                               ; preds = %70
-  %74 = load ptr, ptr @g_readytorun, align 8
-  %75 = load ptr, ptr %6, align 8
-  call void @up_switch_context(ptr noundef %74, ptr noundef %75)
-  br label %76
-
-76:                                               ; preds = %73, %70
+  %69 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  store ptr %68, ptr %69, align 8
   br label %77
 
-77:                                               ; preds = %76, %44
-  %78 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %78)
+70:                                               ; preds = %56
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.dq_entry_s, ptr %73, i32 0, i32 0
+  store ptr %71, ptr %74, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds %struct.dq_queue_s, ptr @g_stoppedtasks, i32 0, i32 1
+  store ptr %75, ptr %76, align 8
+  br label %77
+
+77:                                               ; preds = %70, %66
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load i8, ptr %4, align 1
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %84
+
+81:                                               ; preds = %78
+  %82 = load ptr, ptr @g_readytorun, align 8
+  %83 = load ptr, ptr %6, align 8
+  call void @up_switch_context(ptr noundef %82, ptr noundef %83)
+  br label %84
+
+84:                                               ; preds = %81, %78
+  br label %85
+
+85:                                               ; preds = %84, %48
+  %86 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %86)
   ret void
 }
 

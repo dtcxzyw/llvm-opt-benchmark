@@ -1619,10 +1619,11 @@ define dso_local void @_ZN20VariableSelectFilterC2ERK9CGContext(ptr noundef nonn
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.VariableSelectFilter, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.VariableSelectFilter, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

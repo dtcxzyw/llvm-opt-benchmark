@@ -512,7 +512,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
 
 28:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %370
+  br label %371
 
 29:                                               ; preds = %3
   %30 = load ptr, ptr %6, align 8
@@ -551,7 +551,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %57 = load ptr, ptr %5, align 8
   %58 = call i32 @tvb_captured_length(ptr noundef %57)
   store i32 %58, ptr %4, align 4
-  br label %370
+  br label %371
 
 59:                                               ; preds = %29
   %60 = load ptr, ptr %9, align 8
@@ -617,7 +617,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %96 = load ptr, ptr %5, align 8
   %97 = call i32 @tvb_captured_length(ptr noundef %96)
   store i32 %97, ptr %4, align 4
-  br label %370
+  br label %371
 
 98:                                               ; preds = %86
   %99 = getelementptr inbounds [107 x i8], ptr %16, i64 0, i64 0
@@ -634,7 +634,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %108 = load ptr, ptr %5, align 8
   %109 = call i32 @tvb_captured_length(ptr noundef %108)
   store i32 %109, ptr %4, align 4
-  br label %370
+  br label %371
 
 110:                                              ; preds = %98
   %111 = load ptr, ptr %9, align 8
@@ -664,7 +664,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %131 = load ptr, ptr %5, align 8
   %132 = call i32 @tvb_captured_length(ptr noundef %131)
   store i32 %132, ptr %4, align 4
-  br label %370
+  br label %371
 
 133:                                              ; preds = %110
   %134 = getelementptr inbounds [107 x i8], ptr %16, i64 0, i64 0
@@ -681,7 +681,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %143 = load ptr, ptr %5, align 8
   %144 = call i32 @tvb_captured_length(ptr noundef %143)
   store i32 %144, ptr %4, align 4
-  br label %370
+  br label %371
 
 145:                                              ; preds = %133
   %146 = load ptr, ptr %9, align 8
@@ -714,7 +714,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %167 = load ptr, ptr %5, align 8
   %168 = call i32 @tvb_captured_length(ptr noundef %167)
   store i32 %168, ptr %4, align 4
-  br label %370
+  br label %371
 
 169:                                              ; preds = %157
   %170 = getelementptr inbounds [107 x i8], ptr %16, i64 0, i64 0
@@ -731,7 +731,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %179 = load ptr, ptr %5, align 8
   %180 = call i32 @tvb_captured_length(ptr noundef %179)
   store i32 %180, ptr %4, align 4
-  br label %370
+  br label %371
 
 181:                                              ; preds = %169
   %182 = load ptr, ptr %9, align 8
@@ -760,7 +760,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %201 = load ptr, ptr %5, align 8
   %202 = call i32 @tvb_captured_length(ptr noundef %201)
   store i32 %202, ptr %4, align 4
-  br label %370
+  br label %371
 
 203:                                              ; preds = %181
   %204 = getelementptr inbounds [107 x i8], ptr %16, i64 0, i64 0
@@ -777,7 +777,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %213 = load ptr, ptr %5, align 8
   %214 = call i32 @tvb_captured_length(ptr noundef %213)
   store i32 %214, ptr %4, align 4
-  br label %370
+  br label %371
 
 215:                                              ; preds = %203
   %216 = load ptr, ptr %9, align 8
@@ -807,7 +807,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %236 = load ptr, ptr %5, align 8
   %237 = call i32 @tvb_captured_length(ptr noundef %236)
   store i32 %237, ptr %4, align 4
-  br label %370
+  br label %371
 
 238:                                              ; preds = %215, %145
   %239 = load ptr, ptr %5, align 8
@@ -824,7 +824,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %248 = load ptr, ptr %5, align 8
   %249 = call i32 @tvb_captured_length(ptr noundef %248)
   store i32 %249, ptr %4, align 4
-  br label %370
+  br label %371
 
 250:                                              ; preds = %238
   %251 = getelementptr inbounds [107 x i8], ptr %16, i64 0, i64 0
@@ -841,7 +841,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %260 = load ptr, ptr %5, align 8
   %261 = call i32 @tvb_captured_length(ptr noundef %260)
   store i32 %261, ptr %4, align 4
-  br label %370
+  br label %371
 
 262:                                              ; preds = %250
   %263 = load ptr, ptr %9, align 8
@@ -876,7 +876,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %288 = load ptr, ptr %5, align 8
   %289 = call i32 @tvb_captured_length(ptr noundef %288)
   store i32 %289, ptr %4, align 4
-  br label %370
+  br label %371
 
 290:                                              ; preds = %262
   %291 = load ptr, ptr %5, align 8
@@ -903,7 +903,7 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %309 = load ptr, ptr %5, align 8
   %310 = call i32 @tvb_captured_length(ptr noundef %309)
   store i32 %310, ptr %4, align 4
-  br label %370
+  br label %371
 
 311:                                              ; preds = %290
   %312 = load ptr, ptr %9, align 8
@@ -925,67 +925,68 @@ define internal i32 @dissect_proxy_v1_header(ptr noundef %0, ptr noundef %1, ptr
   %328 = getelementptr inbounds %struct._packet_info, ptr %327, i32 0, i32 50
   %329 = load ptr, ptr %328, align 8
   %330 = call ptr @address_to_str(ptr noundef %329, ptr noundef %22)
-  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %322, i32 noundef 25, ptr noundef @.str.103, ptr noundef %326, ptr noundef @.str.104, ptr noundef %330, ptr noundef @.str.105, ptr noundef inttoptr (i64 -1 to ptr))
-  %331 = load ptr, ptr %6, align 8
-  %332 = getelementptr inbounds %struct._packet_info, ptr %331, i32 0, i32 1
-  %333 = load ptr, ptr %332, align 8
-  %334 = load i16, ptr %14, align 2
-  %335 = load i16, ptr %15, align 2
-  call void @col_append_ports(ptr noundef %333, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %334, i16 noundef zeroext %335)
-  %336 = load ptr, ptr %6, align 8
-  %337 = call nonnull ptr @find_or_create_conversation(ptr noundef %336)
-  store ptr %337, ptr %23, align 8
-  %338 = load ptr, ptr %23, align 8
-  %339 = load i32, ptr @proto_proxy, align 4
-  %340 = call ptr @conversation_get_proto_data(ptr noundef %338, i32 noundef %339)
-  store ptr %340, ptr %24, align 8
-  %341 = load ptr, ptr %24, align 8
-  %342 = icmp eq ptr %341, null
-  br i1 %342, label %343, label %368
+  %331 = inttoptr i64 -1 to ptr
+  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %322, i32 noundef 25, ptr noundef @.str.103, ptr noundef %326, ptr noundef @.str.104, ptr noundef %330, ptr noundef @.str.105, ptr noundef %331)
+  %332 = load ptr, ptr %6, align 8
+  %333 = getelementptr inbounds %struct._packet_info, ptr %332, i32 0, i32 1
+  %334 = load ptr, ptr %333, align 8
+  %335 = load i16, ptr %14, align 2
+  %336 = load i16, ptr %15, align 2
+  call void @col_append_ports(ptr noundef %334, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %335, i16 noundef zeroext %336)
+  %337 = load ptr, ptr %6, align 8
+  %338 = call nonnull ptr @find_or_create_conversation(ptr noundef %337)
+  store ptr %338, ptr %23, align 8
+  %339 = load ptr, ptr %23, align 8
+  %340 = load i32, ptr @proto_proxy, align 4
+  %341 = call ptr @conversation_get_proto_data(ptr noundef %339, i32 noundef %340)
+  store ptr %341, ptr %24, align 8
+  %342 = load ptr, ptr %24, align 8
+  %343 = icmp eq ptr %342, null
+  br i1 %343, label %344, label %369
 
-343:                                              ; preds = %311
-  %344 = call ptr @wmem_file_scope()
-  %345 = call noalias ptr @wmem_alloc(ptr noundef %344, i64 noundef 64)
-  store ptr %345, ptr %24, align 8
-  %346 = call ptr @wmem_file_scope()
-  %347 = load ptr, ptr %24, align 8
-  %348 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %347, i32 0, i32 0
-  call void @copy_address_wmem(ptr noundef %346, ptr noundef %348, ptr noundef %21)
-  %349 = call ptr @wmem_file_scope()
-  %350 = load ptr, ptr %24, align 8
-  %351 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %350, i32 0, i32 1
-  call void @copy_address_wmem(ptr noundef %349, ptr noundef %351, ptr noundef %22)
-  %352 = load ptr, ptr %24, align 8
-  %353 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %352, i32 0, i32 2
-  store i32 2, ptr %353, align 8
-  %354 = load i16, ptr %14, align 2
-  %355 = load ptr, ptr %24, align 8
-  %356 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %355, i32 0, i32 3
-  store i16 %354, ptr %356, align 4
-  %357 = load i16, ptr %15, align 2
-  %358 = load ptr, ptr %24, align 8
-  %359 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %358, i32 0, i32 4
-  store i16 %357, ptr %359, align 2
-  %360 = load ptr, ptr %6, align 8
-  %361 = getelementptr inbounds %struct._packet_info, ptr %360, i32 0, i32 3
-  %362 = load i32, ptr %361, align 4
-  %363 = load ptr, ptr %24, align 8
-  %364 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %363, i32 0, i32 5
-  store i32 %362, ptr %364, align 8
-  %365 = load ptr, ptr %23, align 8
-  %366 = load i32, ptr @proto_proxy, align 4
-  %367 = load ptr, ptr %24, align 8
-  call void @conversation_add_proto_data(ptr noundef %365, i32 noundef %366, ptr noundef %367)
-  br label %368
+344:                                              ; preds = %311
+  %345 = call ptr @wmem_file_scope()
+  %346 = call noalias ptr @wmem_alloc(ptr noundef %345, i64 noundef 64)
+  store ptr %346, ptr %24, align 8
+  %347 = call ptr @wmem_file_scope()
+  %348 = load ptr, ptr %24, align 8
+  %349 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %348, i32 0, i32 0
+  call void @copy_address_wmem(ptr noundef %347, ptr noundef %349, ptr noundef %21)
+  %350 = call ptr @wmem_file_scope()
+  %351 = load ptr, ptr %24, align 8
+  %352 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %351, i32 0, i32 1
+  call void @copy_address_wmem(ptr noundef %350, ptr noundef %352, ptr noundef %22)
+  %353 = load ptr, ptr %24, align 8
+  %354 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %353, i32 0, i32 2
+  store i32 2, ptr %354, align 8
+  %355 = load i16, ptr %14, align 2
+  %356 = load ptr, ptr %24, align 8
+  %357 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %356, i32 0, i32 3
+  store i16 %355, ptr %357, align 4
+  %358 = load i16, ptr %15, align 2
+  %359 = load ptr, ptr %24, align 8
+  %360 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %359, i32 0, i32 4
+  store i16 %358, ptr %360, align 2
+  %361 = load ptr, ptr %6, align 8
+  %362 = getelementptr inbounds %struct._packet_info, ptr %361, i32 0, i32 3
+  %363 = load i32, ptr %362, align 4
+  %364 = load ptr, ptr %24, align 8
+  %365 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %364, i32 0, i32 5
+  store i32 %363, ptr %365, align 8
+  %366 = load ptr, ptr %23, align 8
+  %367 = load i32, ptr @proto_proxy, align 4
+  %368 = load ptr, ptr %24, align 8
+  call void @conversation_add_proto_data(ptr noundef %366, i32 noundef %367, ptr noundef %368)
+  br label %369
 
-368:                                              ; preds = %343, %311
-  %369 = load i32, ptr %11, align 4
-  store i32 %369, ptr %4, align 4
-  br label %370
+369:                                              ; preds = %344, %311
+  %370 = load i32, ptr %11, align 4
+  store i32 %370, ptr %4, align 4
+  br label %371
 
-370:                                              ; preds = %368, %302, %281, %253, %247, %226, %206, %200, %172, %166, %136, %130, %101, %95, %56, %28
-  %371 = load i32, ptr %4, align 4
-  ret i32 %371
+371:                                              ; preds = %369, %302, %281, %253, %247, %226, %206, %200, %172, %166, %136, %130, %101, %95, %56, %28
+  %372 = load i32, ptr %4, align 4
+  ret i32 %372
 }
 
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
@@ -1756,7 +1757,7 @@ define internal i32 @dissect_proxy_v2_header(ptr noundef %0, ptr noundef %1, ptr
 
 27:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %289
+  br label %290
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %6, align 8
@@ -1992,7 +1993,7 @@ define internal i32 @dissect_proxy_v2_header(ptr noundef %0, ptr noundef %1, ptr
   %207 = call ptr @proto_tree_add_expert(ptr noundef %203, ptr noundef %204, ptr noundef @ei_proxy_header_length_too_small, ptr noundef %205, i32 noundef %206, i32 noundef -1)
   %208 = load i32, ptr %12, align 4
   store i32 %208, ptr %4, align 4
-  br label %289
+  br label %290
 
 209:                                              ; preds = %198
   %210 = load i32, ptr %12, align 4
@@ -2014,7 +2015,7 @@ define internal i32 @dissect_proxy_v2_header(ptr noundef %0, ptr noundef %1, ptr
   %221 = getelementptr inbounds %struct._address, ptr %17, i32 0, i32 0
   %222 = load i32, ptr %221, align 8
   %223 = icmp ne i32 %222, 0
-  br i1 %223, label %224, label %287
+  br i1 %223, label %224, label %288
 
 224:                                              ; preds = %220
   %225 = load ptr, ptr %6, align 8
@@ -2028,87 +2029,88 @@ define internal i32 @dissect_proxy_v2_header(ptr noundef %0, ptr noundef %1, ptr
   %233 = getelementptr inbounds %struct._packet_info, ptr %232, i32 0, i32 50
   %234 = load ptr, ptr %233, align 8
   %235 = call ptr @address_to_str(ptr noundef %234, ptr noundef %18)
-  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %227, i32 noundef 25, ptr noundef @.str.103, ptr noundef %231, ptr noundef @.str.104, ptr noundef %235, ptr noundef @.str.105, ptr noundef inttoptr (i64 -1 to ptr))
-  %236 = load ptr, ptr %6, align 8
-  %237 = getelementptr inbounds %struct._packet_info, ptr %236, i32 0, i32 1
-  %238 = load ptr, ptr %237, align 8
-  %239 = load i32, ptr %21, align 4
-  %240 = load i32, ptr %19, align 4
-  %241 = trunc i32 %240 to i16
-  %242 = load i32, ptr %20, align 4
-  %243 = trunc i32 %242 to i16
-  call void @col_append_ports(ptr noundef %238, i32 noundef 25, i32 noundef %239, i16 noundef zeroext %241, i16 noundef zeroext %243)
-  %244 = load ptr, ptr %6, align 8
-  %245 = call nonnull ptr @find_or_create_conversation(ptr noundef %244)
-  store ptr %245, ptr %22, align 8
-  %246 = load ptr, ptr %22, align 8
-  %247 = load i32, ptr @proto_proxy, align 4
-  %248 = call ptr @conversation_get_proto_data(ptr noundef %246, i32 noundef %247)
-  store ptr %248, ptr %23, align 8
-  %249 = load ptr, ptr %23, align 8
-  %250 = icmp eq ptr %249, null
-  br i1 %250, label %251, label %286
+  %236 = inttoptr i64 -1 to ptr
+  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %227, i32 noundef 25, ptr noundef @.str.103, ptr noundef %231, ptr noundef @.str.104, ptr noundef %235, ptr noundef @.str.105, ptr noundef %236)
+  %237 = load ptr, ptr %6, align 8
+  %238 = getelementptr inbounds %struct._packet_info, ptr %237, i32 0, i32 1
+  %239 = load ptr, ptr %238, align 8
+  %240 = load i32, ptr %21, align 4
+  %241 = load i32, ptr %19, align 4
+  %242 = trunc i32 %241 to i16
+  %243 = load i32, ptr %20, align 4
+  %244 = trunc i32 %243 to i16
+  call void @col_append_ports(ptr noundef %239, i32 noundef 25, i32 noundef %240, i16 noundef zeroext %242, i16 noundef zeroext %244)
+  %245 = load ptr, ptr %6, align 8
+  %246 = call nonnull ptr @find_or_create_conversation(ptr noundef %245)
+  store ptr %246, ptr %22, align 8
+  %247 = load ptr, ptr %22, align 8
+  %248 = load i32, ptr @proto_proxy, align 4
+  %249 = call ptr @conversation_get_proto_data(ptr noundef %247, i32 noundef %248)
+  store ptr %249, ptr %23, align 8
+  %250 = load ptr, ptr %23, align 8
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %252, label %287
 
-251:                                              ; preds = %224
-  %252 = load ptr, ptr %6, align 8
-  %253 = getelementptr inbounds %struct._packet_info, ptr %252, i32 0, i32 22
-  %254 = load i32, ptr %253, align 8
-  %255 = icmp ne i32 %254, 3
-  br i1 %255, label %256, label %286
+252:                                              ; preds = %224
+  %253 = load ptr, ptr %6, align 8
+  %254 = getelementptr inbounds %struct._packet_info, ptr %253, i32 0, i32 22
+  %255 = load i32, ptr %254, align 8
+  %256 = icmp ne i32 %255, 3
+  br i1 %256, label %257, label %287
 
-256:                                              ; preds = %251
-  %257 = load i32, ptr %16, align 4
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %259, label %286
+257:                                              ; preds = %252
+  %258 = load i32, ptr %16, align 4
+  %259 = icmp ne i32 %258, 0
+  br i1 %259, label %260, label %287
 
-259:                                              ; preds = %256
-  %260 = call ptr @wmem_file_scope()
-  %261 = call noalias ptr @wmem_alloc(ptr noundef %260, i64 noundef 64)
-  store ptr %261, ptr %23, align 8
-  %262 = call ptr @wmem_file_scope()
-  %263 = load ptr, ptr %23, align 8
-  %264 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %263, i32 0, i32 0
-  call void @copy_address_wmem(ptr noundef %262, ptr noundef %264, ptr noundef %17)
-  %265 = call ptr @wmem_file_scope()
-  %266 = load ptr, ptr %23, align 8
-  %267 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %266, i32 0, i32 1
-  call void @copy_address_wmem(ptr noundef %265, ptr noundef %267, ptr noundef %18)
-  %268 = load ptr, ptr %23, align 8
-  %269 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %268, i32 0, i32 2
-  store i32 2, ptr %269, align 8
-  %270 = load i32, ptr %19, align 4
-  %271 = trunc i32 %270 to i16
-  %272 = load ptr, ptr %23, align 8
-  %273 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %272, i32 0, i32 3
-  store i16 %271, ptr %273, align 4
-  %274 = load i32, ptr %20, align 4
-  %275 = trunc i32 %274 to i16
-  %276 = load ptr, ptr %23, align 8
-  %277 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %276, i32 0, i32 4
-  store i16 %275, ptr %277, align 2
-  %278 = load ptr, ptr %6, align 8
-  %279 = getelementptr inbounds %struct._packet_info, ptr %278, i32 0, i32 3
-  %280 = load i32, ptr %279, align 4
-  %281 = load ptr, ptr %23, align 8
-  %282 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %281, i32 0, i32 5
-  store i32 %280, ptr %282, align 8
-  %283 = load ptr, ptr %22, align 8
-  %284 = load i32, ptr @proto_proxy, align 4
-  %285 = load ptr, ptr %23, align 8
-  call void @conversation_add_proto_data(ptr noundef %283, i32 noundef %284, ptr noundef %285)
-  br label %286
-
-286:                                              ; preds = %259, %256, %251, %224
+260:                                              ; preds = %257
+  %261 = call ptr @wmem_file_scope()
+  %262 = call noalias ptr @wmem_alloc(ptr noundef %261, i64 noundef 64)
+  store ptr %262, ptr %23, align 8
+  %263 = call ptr @wmem_file_scope()
+  %264 = load ptr, ptr %23, align 8
+  %265 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %264, i32 0, i32 0
+  call void @copy_address_wmem(ptr noundef %263, ptr noundef %265, ptr noundef %17)
+  %266 = call ptr @wmem_file_scope()
+  %267 = load ptr, ptr %23, align 8
+  %268 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %267, i32 0, i32 1
+  call void @copy_address_wmem(ptr noundef %266, ptr noundef %268, ptr noundef %18)
+  %269 = load ptr, ptr %23, align 8
+  %270 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %269, i32 0, i32 2
+  store i32 2, ptr %270, align 8
+  %271 = load i32, ptr %19, align 4
+  %272 = trunc i32 %271 to i16
+  %273 = load ptr, ptr %23, align 8
+  %274 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %273, i32 0, i32 3
+  store i16 %272, ptr %274, align 4
+  %275 = load i32, ptr %20, align 4
+  %276 = trunc i32 %275 to i16
+  %277 = load ptr, ptr %23, align 8
+  %278 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %277, i32 0, i32 4
+  store i16 %276, ptr %278, align 2
+  %279 = load ptr, ptr %6, align 8
+  %280 = getelementptr inbounds %struct._packet_info, ptr %279, i32 0, i32 3
+  %281 = load i32, ptr %280, align 4
+  %282 = load ptr, ptr %23, align 8
+  %283 = getelementptr inbounds %struct._proxy_conv_info_t, ptr %282, i32 0, i32 5
+  store i32 %281, ptr %283, align 8
+  %284 = load ptr, ptr %22, align 8
+  %285 = load i32, ptr @proto_proxy, align 4
+  %286 = load ptr, ptr %23, align 8
+  call void @conversation_add_proto_data(ptr noundef %284, i32 noundef %285, ptr noundef %286)
   br label %287
 
-287:                                              ; preds = %286, %220
-  %288 = load i32, ptr %12, align 4
-  store i32 %288, ptr %4, align 4
-  br label %289
+287:                                              ; preds = %260, %257, %252, %224
+  br label %288
 
-289:                                              ; preds = %287, %202, %27
-  %290 = load i32, ptr %4, align 4
-  ret i32 %290
+288:                                              ; preds = %287, %220
+  %289 = load i32, ptr %12, align 4
+  store i32 %289, ptr %4, align 4
+  br label %290
+
+290:                                              ; preds = %288, %202, %27
+  %291 = load i32, ptr %4, align 4
+  ret i32 %291
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

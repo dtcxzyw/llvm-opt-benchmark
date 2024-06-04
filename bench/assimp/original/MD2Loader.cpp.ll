@@ -667,7 +667,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp11MD2ImporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp11MD2ImporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %configFrameID = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 1
   store i32 0, ptr %configFrameID, align 8
   %m_pcHeader = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
@@ -758,48 +759,54 @@ entry:
   %2 = load i8, ptr @.str.3, align 1
   %conv = sext i8 %2 to i32
   %shl = shl i32 %conv, 24
-  %3 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 1), align 1
-  %conv2 = sext i8 %3 to i32
+  %3 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %conv2 = sext i8 %4 to i32
   %shl3 = shl i32 %conv2, 16
   %add = add nsw i32 %shl, %shl3
-  %4 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 2), align 1
-  %conv4 = sext i8 %4 to i32
+  %5 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 2
+  %6 = load i8, ptr %5, align 1
+  %conv4 = sext i8 %6 to i32
   %shl5 = shl i32 %conv4, 8
   %add6 = add nsw i32 %add, %shl5
-  %5 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.3, i64 0, i64 3), align 1
-  %conv7 = sext i8 %5 to i32
+  %7 = getelementptr inbounds [5 x i8], ptr @.str.3, i64 0, i64 3
+  %8 = load i8, ptr %7, align 1
+  %conv7 = sext i8 %8 to i32
   %add8 = add nsw i32 %add6, %conv7
   %cmp = icmp ne i32 %1, %add8
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %m_pcHeader9 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %m_pcHeader9, align 8
-  %magic10 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %magic10, align 1
-  %8 = load i8, ptr @.str.4, align 1
-  %conv11 = sext i8 %8 to i32
+  %9 = load ptr, ptr %m_pcHeader9, align 8
+  %magic10 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %9, i32 0, i32 0
+  %10 = load i32, ptr %magic10, align 1
+  %11 = load i8, ptr @.str.4, align 1
+  %conv11 = sext i8 %11 to i32
   %shl12 = shl i32 %conv11, 24
-  %9 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
-  %conv13 = sext i8 %9 to i32
+  %12 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %13 = load i8, ptr %12, align 1
+  %conv13 = sext i8 %13 to i32
   %shl14 = shl i32 %conv13, 16
   %add15 = add nsw i32 %shl12, %shl14
-  %10 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
-  %conv16 = sext i8 %10 to i32
+  %14 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %15 = load i8, ptr %14, align 1
+  %conv16 = sext i8 %15 to i32
   %shl17 = shl i32 %conv16, 8
   %add18 = add nsw i32 %add15, %shl17
-  %11 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %conv19 = sext i8 %11 to i32
+  %16 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %17 = load i8, ptr %16, align 1
+  %conv19 = sext i8 %17 to i32
   %add20 = add nsw i32 %add18, %conv19
-  %cmp21 = icmp ne i32 %7, %add20
+  %cmp21 = icmp ne i32 %10, %add20
   br i1 %cmp21, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   store i1 true, ptr %cleanup.isactive, align 1
   %exception = call ptr @__cxa_allocate_exception(i64 16) #14
   %m_pcHeader22 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %m_pcHeader22, align 8
-  %magic23 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %12, i32 0, i32 0
+  %18 = load ptr, ptr %m_pcHeader22, align 8
+  %magic23 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %18, i32 0, i32 0
   invoke void @_Z18ai_str_toprintableB5cxx11PKcic(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %magic23, i32 noundef 4, i8 noundef signext 63)
           to label %invoke.cont unwind label %lpad
 
@@ -813,21 +820,21 @@ invoke.cont25:                                    ; preds = %invoke.cont
           to label %unreachable unwind label %lpad24
 
 lpad:                                             ; preds = %if.then
-  %13 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad24:                                           ; preds = %invoke.cont25, %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
@@ -844,10 +851,10 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %m_pcHeader26 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %19 = load ptr, ptr %m_pcHeader26, align 8
-  %version = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %version, align 1
-  %cmp27 = icmp ne i32 %20, 8
+  %25 = load ptr, ptr %m_pcHeader26, align 8
+  %version = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %25, i32 0, i32 1
+  %26 = load i32, ptr %version, align 1
+  %cmp27 = icmp ne i32 %26, 8
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end
@@ -857,10 +864,10 @@ if.then28:                                        ; preds = %if.end
 
 if.end29:                                         ; preds = %if.then28, %if.end
   %m_pcHeader30 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %21 = load ptr, ptr %m_pcHeader30, align 8
-  %numFrames = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %21, i32 0, i32 10
-  %22 = load i32, ptr %numFrames, align 1
-  %cmp31 = icmp eq i32 0, %22
+  %27 = load ptr, ptr %m_pcHeader30, align 8
+  %numFrames = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %27, i32 0, i32 10
+  %28 = load i32, ptr %numFrames, align 1
+  %cmp31 = icmp eq i32 0, %28
   br i1 %cmp31, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %if.end29
@@ -873,23 +880,23 @@ invoke.cont35:                                    ; preds = %if.then32
   unreachable
 
 lpad34:                                           ; preds = %if.then32
-  %23 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception33) #14
   br label %eh.resume
 
 if.end37:                                         ; preds = %if.end29
   %m_pcHeader38 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %26 = load ptr, ptr %m_pcHeader38, align 8
-  %offsetEnd = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %26, i32 0, i32 16
-  %27 = load i32, ptr %offsetEnd, align 1
+  %32 = load ptr, ptr %m_pcHeader38, align 8
+  %offsetEnd = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %32, i32 0, i32 16
+  %33 = load i32, ptr %offsetEnd, align 1
   %fileSize = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %28 = load i32, ptr %fileSize, align 8
-  %cmp39 = icmp ugt i32 %27, %28
+  %34 = load i32, ptr %fileSize, align 8
+  %cmp39 = icmp ugt i32 %33, %34
   br i1 %cmp39, label %if.then40, label %if.end45
 
 if.then40:                                        ; preds = %if.end37
@@ -902,21 +909,21 @@ invoke.cont43:                                    ; preds = %if.then40
   unreachable
 
 lpad42:                                           ; preds = %if.then40
-  %29 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception41) #14
   br label %eh.resume
 
 if.end45:                                         ; preds = %if.end37
   %m_pcHeader46 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %32 = load ptr, ptr %m_pcHeader46, align 8
-  %numSkins = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %32, i32 0, i32 5
-  %33 = load i32, ptr %numSkins, align 1
-  %conv47 = zext i32 %33 to i64
+  %38 = load ptr, ptr %m_pcHeader46, align 8
+  %numSkins = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %38, i32 0, i32 5
+  %39 = load i32, ptr %numSkins, align 1
+  %conv47 = zext i32 %39 to i64
   %cmp48 = icmp ugt i64 %conv47, 4194304
   br i1 %cmp48, label %if.then49, label %if.end54
 
@@ -930,21 +937,21 @@ invoke.cont52:                                    ; preds = %if.then49
   unreachable
 
 lpad51:                                           ; preds = %if.then49
-  %34 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception50) #14
   br label %eh.resume
 
 if.end54:                                         ; preds = %if.end45
   %m_pcHeader55 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %37 = load ptr, ptr %m_pcHeader55, align 8
-  %numVertices = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %37, i32 0, i32 6
-  %38 = load i32, ptr %numVertices, align 1
-  %conv56 = zext i32 %38 to i64
+  %43 = load ptr, ptr %m_pcHeader55, align 8
+  %numVertices = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %43, i32 0, i32 6
+  %44 = load i32, ptr %numVertices, align 1
+  %conv56 = zext i32 %44 to i64
   %cmp57 = icmp ugt i64 %conv56, 67108864
   br i1 %cmp57, label %if.then58, label %if.end63
 
@@ -958,21 +965,21 @@ invoke.cont61:                                    ; preds = %if.then58
   unreachable
 
 lpad60:                                           ; preds = %if.then58
-  %39 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception59) #14
   br label %eh.resume
 
 if.end63:                                         ; preds = %if.end54
   %m_pcHeader64 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %42 = load ptr, ptr %m_pcHeader64, align 8
-  %numTexCoords = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %42, i32 0, i32 7
-  %43 = load i32, ptr %numTexCoords, align 1
-  %conv65 = zext i32 %43 to i64
+  %48 = load ptr, ptr %m_pcHeader64, align 8
+  %numTexCoords = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %48, i32 0, i32 7
+  %49 = load i32, ptr %numTexCoords, align 1
+  %conv65 = zext i32 %49 to i64
   %cmp66 = icmp ugt i64 %conv65, 67108864
   br i1 %cmp66, label %if.then67, label %if.end72
 
@@ -986,21 +993,21 @@ invoke.cont70:                                    ; preds = %if.then67
   unreachable
 
 lpad69:                                           ; preds = %if.then67
-  %44 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception68) #14
   br label %eh.resume
 
 if.end72:                                         ; preds = %if.end63
   %m_pcHeader73 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %47 = load ptr, ptr %m_pcHeader73, align 8
-  %numTriangles = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %47, i32 0, i32 8
-  %48 = load i32, ptr %numTriangles, align 1
-  %conv74 = zext i32 %48 to i64
+  %53 = load ptr, ptr %m_pcHeader73, align 8
+  %numTriangles = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %53, i32 0, i32 8
+  %54 = load i32, ptr %numTriangles, align 1
+  %conv74 = zext i32 %54 to i64
   %cmp75 = icmp ugt i64 %conv74, 22369621
   br i1 %cmp75, label %if.then76, label %if.end81
 
@@ -1014,21 +1021,21 @@ invoke.cont79:                                    ; preds = %if.then76
   unreachable
 
 lpad78:                                           ; preds = %if.then76
-  %49 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %exn.slot, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception77) #14
   br label %eh.resume
 
 if.end81:                                         ; preds = %if.end72
   %m_pcHeader82 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %52 = load ptr, ptr %m_pcHeader82, align 8
-  %numFrames83 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %52, i32 0, i32 10
-  %53 = load i32, ptr %numFrames83, align 1
-  %conv84 = zext i32 %53 to i64
+  %58 = load ptr, ptr %m_pcHeader82, align 8
+  %numFrames83 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %58, i32 0, i32 10
+  %59 = load i32, ptr %numFrames83, align 1
+  %conv84 = zext i32 %59 to i64
   %cmp85 = icmp ugt i64 %conv84, 6100805
   br i1 %cmp85, label %if.then86, label %if.end91
 
@@ -1042,107 +1049,107 @@ invoke.cont89:                                    ; preds = %if.then86
   unreachable
 
 lpad88:                                           ; preds = %if.then86
-  %54 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %exn.slot, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception87) #14
   br label %eh.resume
 
 if.end91:                                         ; preds = %if.end81
   %m_pcHeader92 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %57 = load ptr, ptr %m_pcHeader92, align 8
-  %numVertices93 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %57, i32 0, i32 6
-  %58 = load i32, ptr %numVertices93, align 1
-  %sub = sub i32 %58, 1
+  %63 = load ptr, ptr %m_pcHeader92, align 8
+  %numVertices93 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %63, i32 0, i32 6
+  %64 = load i32, ptr %numVertices93, align 1
+  %sub = sub i32 %64, 1
   %conv94 = zext i32 %sub to i64
   %mul = mul i64 %conv94, 4
   %add95 = add i64 44, %mul
   %conv96 = trunc i64 %add95 to i32
   store i32 %conv96, ptr %frameSize, align 4
   %m_pcHeader97 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %59 = load ptr, ptr %m_pcHeader97, align 8
-  %offsetSkins = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %59, i32 0, i32 11
-  %60 = load i32, ptr %offsetSkins, align 1
-  %conv98 = zext i32 %60 to i64
+  %65 = load ptr, ptr %m_pcHeader97, align 8
+  %offsetSkins = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %65, i32 0, i32 11
+  %66 = load i32, ptr %offsetSkins, align 1
+  %conv98 = zext i32 %66 to i64
   %m_pcHeader99 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %61 = load ptr, ptr %m_pcHeader99, align 8
-  %numSkins100 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %61, i32 0, i32 5
-  %62 = load i32, ptr %numSkins100, align 1
-  %conv101 = zext i32 %62 to i64
+  %67 = load ptr, ptr %m_pcHeader99, align 8
+  %numSkins100 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %67, i32 0, i32 5
+  %68 = load i32, ptr %numSkins100, align 1
+  %conv101 = zext i32 %68 to i64
   %mul102 = mul i64 %conv101, 64
   %add103 = add i64 %conv98, %mul102
   %fileSize104 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %63 = load i32, ptr %fileSize104, align 8
-  %conv105 = zext i32 %63 to i64
+  %69 = load i32, ptr %fileSize104, align 8
+  %conv105 = zext i32 %69 to i64
   %cmp106 = icmp uge i64 %add103, %conv105
   br i1 %cmp106, label %if.then141, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end91
   %m_pcHeader107 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %64 = load ptr, ptr %m_pcHeader107, align 8
-  %offsetTexCoords = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %64, i32 0, i32 12
-  %65 = load i32, ptr %offsetTexCoords, align 1
-  %conv108 = zext i32 %65 to i64
+  %70 = load ptr, ptr %m_pcHeader107, align 8
+  %offsetTexCoords = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %70, i32 0, i32 12
+  %71 = load i32, ptr %offsetTexCoords, align 1
+  %conv108 = zext i32 %71 to i64
   %m_pcHeader109 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %66 = load ptr, ptr %m_pcHeader109, align 8
-  %numTexCoords110 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %66, i32 0, i32 7
-  %67 = load i32, ptr %numTexCoords110, align 1
-  %conv111 = zext i32 %67 to i64
+  %72 = load ptr, ptr %m_pcHeader109, align 8
+  %numTexCoords110 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %72, i32 0, i32 7
+  %73 = load i32, ptr %numTexCoords110, align 1
+  %conv111 = zext i32 %73 to i64
   %mul112 = mul i64 %conv111, 4
   %add113 = add i64 %conv108, %mul112
   %fileSize114 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %68 = load i32, ptr %fileSize114, align 8
-  %conv115 = zext i32 %68 to i64
+  %74 = load i32, ptr %fileSize114, align 8
+  %conv115 = zext i32 %74 to i64
   %cmp116 = icmp uge i64 %add113, %conv115
   br i1 %cmp116, label %if.then141, label %lor.lhs.false117
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false
   %m_pcHeader118 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %69 = load ptr, ptr %m_pcHeader118, align 8
-  %offsetTriangles = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %69, i32 0, i32 13
-  %70 = load i32, ptr %offsetTriangles, align 1
-  %conv119 = zext i32 %70 to i64
+  %75 = load ptr, ptr %m_pcHeader118, align 8
+  %offsetTriangles = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %75, i32 0, i32 13
+  %76 = load i32, ptr %offsetTriangles, align 1
+  %conv119 = zext i32 %76 to i64
   %m_pcHeader120 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %71 = load ptr, ptr %m_pcHeader120, align 8
-  %numTriangles121 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %71, i32 0, i32 8
-  %72 = load i32, ptr %numTriangles121, align 1
-  %conv122 = zext i32 %72 to i64
+  %77 = load ptr, ptr %m_pcHeader120, align 8
+  %numTriangles121 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %77, i32 0, i32 8
+  %78 = load i32, ptr %numTriangles121, align 1
+  %conv122 = zext i32 %78 to i64
   %mul123 = mul i64 %conv122, 12
   %add124 = add i64 %conv119, %mul123
   %fileSize125 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %73 = load i32, ptr %fileSize125, align 8
-  %conv126 = zext i32 %73 to i64
+  %79 = load i32, ptr %fileSize125, align 8
+  %conv126 = zext i32 %79 to i64
   %cmp127 = icmp uge i64 %add124, %conv126
   br i1 %cmp127, label %if.then141, label %lor.lhs.false128
 
 lor.lhs.false128:                                 ; preds = %lor.lhs.false117
   %m_pcHeader129 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %74 = load ptr, ptr %m_pcHeader129, align 8
-  %offsetFrames = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %74, i32 0, i32 14
-  %75 = load i32, ptr %offsetFrames, align 1
+  %80 = load ptr, ptr %m_pcHeader129, align 8
+  %offsetFrames = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %80, i32 0, i32 14
+  %81 = load i32, ptr %offsetFrames, align 1
   %m_pcHeader130 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %76 = load ptr, ptr %m_pcHeader130, align 8
-  %numFrames131 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %76, i32 0, i32 10
-  %77 = load i32, ptr %numFrames131, align 1
-  %78 = load i32, ptr %frameSize, align 4
-  %mul132 = mul i32 %77, %78
-  %add133 = add i32 %75, %mul132
+  %82 = load ptr, ptr %m_pcHeader130, align 8
+  %numFrames131 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %82, i32 0, i32 10
+  %83 = load i32, ptr %numFrames131, align 1
+  %84 = load i32, ptr %frameSize, align 4
+  %mul132 = mul i32 %83, %84
+  %add133 = add i32 %81, %mul132
   %fileSize134 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %79 = load i32, ptr %fileSize134, align 8
-  %cmp135 = icmp uge i32 %add133, %79
+  %85 = load i32, ptr %fileSize134, align 8
+  %cmp135 = icmp uge i32 %add133, %85
   br i1 %cmp135, label %if.then141, label %lor.lhs.false136
 
 lor.lhs.false136:                                 ; preds = %lor.lhs.false128
   %m_pcHeader137 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %80 = load ptr, ptr %m_pcHeader137, align 8
-  %offsetEnd138 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %80, i32 0, i32 16
-  %81 = load i32, ptr %offsetEnd138, align 1
+  %86 = load ptr, ptr %m_pcHeader137, align 8
+  %offsetEnd138 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %86, i32 0, i32 16
+  %87 = load i32, ptr %offsetEnd138, align 1
   %fileSize139 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 5
-  %82 = load i32, ptr %fileSize139, align 8
-  %cmp140 = icmp ugt i32 %81, %82
+  %88 = load i32, ptr %fileSize139, align 8
+  %cmp140 = icmp ugt i32 %87, %88
   br i1 %cmp140, label %if.then141, label %if.end146
 
 if.then141:                                       ; preds = %lor.lhs.false136, %lor.lhs.false128, %lor.lhs.false117, %lor.lhs.false, %if.end91
@@ -1155,21 +1162,21 @@ invoke.cont144:                                   ; preds = %if.then141
   unreachable
 
 lpad143:                                          ; preds = %if.then141
-  %83 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %exn.slot, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception142) #14
   br label %eh.resume
 
 if.end146:                                        ; preds = %lor.lhs.false136
   %m_pcHeader147 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %86 = load ptr, ptr %m_pcHeader147, align 8
-  %numSkins148 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %86, i32 0, i32 5
-  %87 = load i32, ptr %numSkins148, align 1
-  %cmp149 = icmp ugt i32 %87, 32
+  %92 = load ptr, ptr %m_pcHeader147, align 8
+  %numSkins148 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %92, i32 0, i32 5
+  %93 = load i32, ptr %numSkins148, align 1
+  %cmp149 = icmp ugt i32 %93, 32
   br i1 %cmp149, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %if.end146
@@ -1179,10 +1186,10 @@ if.then150:                                       ; preds = %if.end146
 
 if.end152:                                        ; preds = %if.then150, %if.end146
   %m_pcHeader153 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %88 = load ptr, ptr %m_pcHeader153, align 8
-  %numFrames154 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %88, i32 0, i32 10
-  %89 = load i32, ptr %numFrames154, align 1
-  %cmp155 = icmp ugt i32 %89, 512
+  %94 = load ptr, ptr %m_pcHeader153, align 8
+  %numFrames154 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %94, i32 0, i32 10
+  %95 = load i32, ptr %numFrames154, align 1
+  %cmp155 = icmp ugt i32 %95, 512
   br i1 %cmp155, label %if.then156, label %if.end158
 
 if.then156:                                       ; preds = %if.end152
@@ -1192,10 +1199,10 @@ if.then156:                                       ; preds = %if.end152
 
 if.end158:                                        ; preds = %if.then156, %if.end152
   %m_pcHeader159 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %90 = load ptr, ptr %m_pcHeader159, align 8
-  %numVertices160 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %90, i32 0, i32 6
-  %91 = load i32, ptr %numVertices160, align 1
-  %cmp161 = icmp ugt i32 %91, 2048
+  %96 = load ptr, ptr %m_pcHeader159, align 8
+  %numVertices160 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %96, i32 0, i32 6
+  %97 = load i32, ptr %numVertices160, align 1
+  %cmp161 = icmp ugt i32 %97, 2048
   br i1 %cmp161, label %if.then162, label %if.end164
 
 if.then162:                                       ; preds = %if.end158
@@ -1205,12 +1212,12 @@ if.then162:                                       ; preds = %if.end158
 
 if.end164:                                        ; preds = %if.then162, %if.end158
   %m_pcHeader165 = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 3
-  %92 = load ptr, ptr %m_pcHeader165, align 8
-  %numFrames166 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %92, i32 0, i32 10
-  %93 = load i32, ptr %numFrames166, align 1
+  %98 = load ptr, ptr %m_pcHeader165, align 8
+  %numFrames166 = getelementptr inbounds %"struct.Assimp::MD2::Header", ptr %98, i32 0, i32 10
+  %99 = load i32, ptr %numFrames166, align 1
   %configFrameID = getelementptr inbounds %"class.Assimp::MD2Importer", ptr %this1, i32 0, i32 1
-  %94 = load i32, ptr %configFrameID, align 8
-  %cmp167 = icmp ule i32 %93, %94
+  %100 = load i32, ptr %configFrameID, align 8
+  %cmp167 = icmp ule i32 %99, %100
   br i1 %cmp167, label %if.then168, label %if.end174
 
 if.then168:                                       ; preds = %if.end164
@@ -1224,12 +1231,12 @@ invoke.cont172:                                   ; preds = %if.then168
   unreachable
 
 lpad171:                                          ; preds = %if.then168
-  %95 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %exn.slot, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %ehselector.slot, align 4
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %exn.slot, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception169) #14
   br label %eh.resume
 
@@ -1386,16 +1393,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -1441,16 +1449,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -1486,16 +1495,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -2750,16 +2760,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -3304,7 +3315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #14
   ret void

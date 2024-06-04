@@ -466,32 +466,33 @@ define available_externally { ptr, ptr } @_ZN3log6logger17h40c9ea145472b379E() u
   %1 = alloca { ptr, ptr }, align 8
   %2 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E.llvm.778753998846166598(ptr noundef @_ZN3log5STATE17ha079c5667def49c9E, i8 noundef 2)
   %3 = icmp ne i64 %2, 2
-  br i1 %3, label %9, label %4
+  br i1 %3, label %10, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, align 8, !nonnull !4, !align !5, !noundef !4
-  %6 = load ptr, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i32 0, i32 1), align 8, !nonnull !4, !align !6, !noundef !4
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
-  store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
-  store ptr %6, ptr %8, align 8
-  br label %12
+  %6 = getelementptr inbounds { ptr, ptr }, ptr @_ZN3log6LOGGER17h7df7beb1b06e255dE, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
+  %8 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
+  store ptr %7, ptr %9, align 8
+  br label %13
 
-9:                                                ; preds = %0
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
-  store ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr %10, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
-  store ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598, ptr %11, align 8
-  br label %12
+10:                                               ; preds = %0
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
+  store ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr %11, align 8
+  %12 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
+  store ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %9, %4
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !6, !noundef !4
-  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
-  ret { ptr, ptr } %18
+13:                                               ; preds = %10, %4
+  %14 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !5, !noundef !4
+  %16 = getelementptr inbounds { ptr, ptr }, ptr %1, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !6, !noundef !4
+  %18 = insertvalue { ptr, ptr } poison, ptr %15, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %17, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

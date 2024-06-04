@@ -11,76 +11,77 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #9
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %47, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 16) #9
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %48, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 568
-  store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store volatile ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 540
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %47, label %12
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 568
+  store ptr %4, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  store volatile ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 540
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %48, label %13
 
-12:                                               ; preds = %5
-  %13 = load i32, ptr %9, align 4
-  %14 = icmp ugt i32 %13, 1
-  br i1 %14, label %15, label %38
+13:                                               ; preds = %6
+  %14 = load i32, ptr %10, align 4
+  %15 = icmp ugt i32 %14, 1
+  br i1 %15, label %16, label %39
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 552
-  br label %17
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 552
+  br label %18
 
-17:                                               ; preds = %33, %15
-  %18 = phi i32 [ 0, %15 ], [ %34, %33 ]
-  %19 = phi i32 [ 1, %15 ], [ %35, %33 ]
-  %20 = load ptr, ptr %16, align 8
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr %struct.reg_default, ptr %20, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = add i32 %19, -1
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.reg_default, ptr %20, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, 1
-  %29 = icmp eq i32 %23, %28
-  br i1 %29, label %33, label %30
+18:                                               ; preds = %34, %16
+  %19 = phi i32 [ 0, %16 ], [ %35, %34 ]
+  %20 = phi i32 [ 1, %16 ], [ %36, %34 ]
+  %21 = load ptr, ptr %17, align 8
+  %22 = sext i32 %20 to i64
+  %23 = getelementptr %struct.reg_default, ptr %21, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = add i32 %20, -1
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr %struct.reg_default, ptr %21, i64 %26
+  %28 = load i32, ptr %27, align 4
+  %29 = add i32 %28, 1
+  %30 = icmp eq i32 %24, %29
+  br i1 %30, label %34, label %31
 
-30:                                               ; preds = %17
-  %31 = tail call fastcc i32 @regcache_maple_insert_block(ptr noundef %0, i32 noundef %18, i32 noundef %24)
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %44
+31:                                               ; preds = %18
+  %32 = tail call fastcc i32 @regcache_maple_insert_block(ptr noundef %0, i32 noundef %19, i32 noundef %25)
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %45
 
-33:                                               ; preds = %30, %17
-  %34 = phi i32 [ %18, %17 ], [ %19, %30 ]
-  %35 = add nuw i32 %19, 1
-  %36 = load i32, ptr %9, align 4
-  %37 = icmp ult i32 %35, %36
-  br i1 %37, label %17, label %38, !llvm.loop !5
+34:                                               ; preds = %31, %18
+  %35 = phi i32 [ %19, %18 ], [ %20, %31 ]
+  %36 = add nuw i32 %20, 1
+  %37 = load i32, ptr %10, align 4
+  %38 = icmp ult i32 %36, %37
+  br i1 %38, label %18, label %39, !llvm.loop !5
 
-38:                                               ; preds = %33, %12
-  %39 = phi i32 [ 0, %12 ], [ %34, %33 ]
-  %40 = phi i32 [ %13, %12 ], [ %36, %33 ]
-  %41 = add i32 %40, -1
-  %42 = tail call fastcc i32 @regcache_maple_insert_block(ptr noundef %0, i32 noundef %39, i32 noundef %41)
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %47, label %44
+39:                                               ; preds = %34, %13
+  %40 = phi i32 [ 0, %13 ], [ %35, %34 ]
+  %41 = phi i32 [ %14, %13 ], [ %37, %34 ]
+  %42 = add i32 %41, -1
+  %43 = tail call fastcc i32 @regcache_maple_insert_block(ptr noundef %0, i32 noundef %40, i32 noundef %42)
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %38, %30
-  %45 = phi i32 [ %42, %38 ], [ %31, %30 ]
-  %46 = tail call i32 @regcache_maple_exit(ptr noundef %0)
-  br label %47
+45:                                               ; preds = %39, %31
+  %46 = phi i32 [ %43, %39 ], [ %32, %31 ]
+  %47 = tail call i32 @regcache_maple_exit(ptr noundef %0)
+  br label %48
 
-47:                                               ; preds = %44, %38, %5, %1
-  %48 = phi i32 [ %45, %44 ], [ -12, %1 ], [ 0, %5 ], [ 0, %38 ]
-  ret i32 %48
+48:                                               ; preds = %45, %39, %6, %1
+  %49 = phi i32 [ %46, %45 ], [ -12, %1 ], [ 0, %6 ], [ 0, %39 ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

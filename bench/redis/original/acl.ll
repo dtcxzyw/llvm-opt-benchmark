@@ -1018,62 +1018,63 @@ entry:
   %call = call noalias ptr @zmalloc(i64 noundef 168) #10
   store ptr %call, ptr %selector, align 8
   %0 = load i32, ptr %flags.addr, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 398), align 8
-  %or = or i32 %0, %1
-  %2 = load ptr, ptr %selector, align 8
-  %flags1 = getelementptr inbounds %struct.aclSelector, ptr %2, i32 0, i32 0
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 398
+  %2 = load i32, ptr %1, align 8
+  %or = or i32 %0, %2
+  %3 = load ptr, ptr %selector, align 8
+  %flags1 = getelementptr inbounds %struct.aclSelector, ptr %3, i32 0, i32 0
   store i32 %or, ptr %flags1, align 8
   %call2 = call ptr @listCreate()
-  %3 = load ptr, ptr %selector, align 8
-  %patterns = getelementptr inbounds %struct.aclSelector, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %selector, align 8
+  %patterns = getelementptr inbounds %struct.aclSelector, ptr %4, i32 0, i32 3
   store ptr %call2, ptr %patterns, align 8
   %call3 = call ptr @listCreate()
-  %4 = load ptr, ptr %selector, align 8
-  %channels = getelementptr inbounds %struct.aclSelector, ptr %4, i32 0, i32 4
-  store ptr %call3, ptr %channels, align 8
   %5 = load ptr, ptr %selector, align 8
-  %allowed_firstargs = getelementptr inbounds %struct.aclSelector, ptr %5, i32 0, i32 2
+  %channels = getelementptr inbounds %struct.aclSelector, ptr %5, i32 0, i32 4
+  store ptr %call3, ptr %channels, align 8
+  %6 = load ptr, ptr %selector, align 8
+  %allowed_firstargs = getelementptr inbounds %struct.aclSelector, ptr %6, i32 0, i32 2
   store ptr null, ptr %allowed_firstargs, align 8
   %call4 = call ptr @sdsempty()
-  %6 = load ptr, ptr %selector, align 8
-  %command_rules = getelementptr inbounds %struct.aclSelector, ptr %6, i32 0, i32 5
-  store ptr %call4, ptr %command_rules, align 8
   %7 = load ptr, ptr %selector, align 8
-  %patterns5 = getelementptr inbounds %struct.aclSelector, ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %patterns5, align 8
-  %match = getelementptr inbounds %struct.list, ptr %8, i32 0, i32 4
+  %command_rules = getelementptr inbounds %struct.aclSelector, ptr %7, i32 0, i32 5
+  store ptr %call4, ptr %command_rules, align 8
+  %8 = load ptr, ptr %selector, align 8
+  %patterns5 = getelementptr inbounds %struct.aclSelector, ptr %8, i32 0, i32 3
+  %9 = load ptr, ptr %patterns5, align 8
+  %match = getelementptr inbounds %struct.list, ptr %9, i32 0, i32 4
   store ptr @ACLListMatchKeyPattern, ptr %match, align 8
-  %9 = load ptr, ptr %selector, align 8
-  %patterns6 = getelementptr inbounds %struct.aclSelector, ptr %9, i32 0, i32 3
-  %10 = load ptr, ptr %patterns6, align 8
-  %free = getelementptr inbounds %struct.list, ptr %10, i32 0, i32 3
+  %10 = load ptr, ptr %selector, align 8
+  %patterns6 = getelementptr inbounds %struct.aclSelector, ptr %10, i32 0, i32 3
+  %11 = load ptr, ptr %patterns6, align 8
+  %free = getelementptr inbounds %struct.list, ptr %11, i32 0, i32 3
   store ptr @ACLListFreeKeyPattern, ptr %free, align 8
-  %11 = load ptr, ptr %selector, align 8
-  %patterns7 = getelementptr inbounds %struct.aclSelector, ptr %11, i32 0, i32 3
-  %12 = load ptr, ptr %patterns7, align 8
-  %dup = getelementptr inbounds %struct.list, ptr %12, i32 0, i32 2
+  %12 = load ptr, ptr %selector, align 8
+  %patterns7 = getelementptr inbounds %struct.aclSelector, ptr %12, i32 0, i32 3
+  %13 = load ptr, ptr %patterns7, align 8
+  %dup = getelementptr inbounds %struct.list, ptr %13, i32 0, i32 2
   store ptr @ACLListDupKeyPattern, ptr %dup, align 8
-  %13 = load ptr, ptr %selector, align 8
-  %channels8 = getelementptr inbounds %struct.aclSelector, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %channels8, align 8
-  %match9 = getelementptr inbounds %struct.list, ptr %14, i32 0, i32 4
+  %14 = load ptr, ptr %selector, align 8
+  %channels8 = getelementptr inbounds %struct.aclSelector, ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %channels8, align 8
+  %match9 = getelementptr inbounds %struct.list, ptr %15, i32 0, i32 4
   store ptr @ACLListMatchSds, ptr %match9, align 8
-  %15 = load ptr, ptr %selector, align 8
-  %channels10 = getelementptr inbounds %struct.aclSelector, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %channels10, align 8
-  %free11 = getelementptr inbounds %struct.list, ptr %16, i32 0, i32 3
+  %16 = load ptr, ptr %selector, align 8
+  %channels10 = getelementptr inbounds %struct.aclSelector, ptr %16, i32 0, i32 4
+  %17 = load ptr, ptr %channels10, align 8
+  %free11 = getelementptr inbounds %struct.list, ptr %17, i32 0, i32 3
   store ptr @ACLListFreeSds, ptr %free11, align 8
-  %17 = load ptr, ptr %selector, align 8
-  %channels12 = getelementptr inbounds %struct.aclSelector, ptr %17, i32 0, i32 4
-  %18 = load ptr, ptr %channels12, align 8
-  %dup13 = getelementptr inbounds %struct.list, ptr %18, i32 0, i32 2
+  %18 = load ptr, ptr %selector, align 8
+  %channels12 = getelementptr inbounds %struct.aclSelector, ptr %18, i32 0, i32 4
+  %19 = load ptr, ptr %channels12, align 8
+  %dup13 = getelementptr inbounds %struct.list, ptr %19, i32 0, i32 2
   store ptr @ACLListDupSds, ptr %dup13, align 8
-  %19 = load ptr, ptr %selector, align 8
-  %allowed_commands = getelementptr inbounds %struct.aclSelector, ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %selector, align 8
+  %allowed_commands = getelementptr inbounds %struct.aclSelector, ptr %20, i32 0, i32 1
   %arraydecay = getelementptr inbounds [16 x i64], ptr %allowed_commands, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 128, i1 false)
-  %20 = load ptr, ptr %selector, align 8
-  ret ptr %20
+  %21 = load ptr, ptr %selector, align 8
+  ret ptr %21
 }
 
 declare ptr @listCreate() #1
@@ -1793,8 +1794,9 @@ entry:
   %ln = alloca ptr, align 8
   %c = alloca ptr, align 8
   store ptr %u, ptr %u.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 55), align 8
-  call void @listRewind(ptr noundef %0, ptr noundef %li)
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 55
+  %1 = load ptr, ptr %0, align 8
+  call void @listRewind(ptr noundef %1, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end5, %entry
@@ -1804,41 +1806,42 @@ while.cond:                                       ; preds = %if.end5, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %value, align 8
-  store ptr %2, ptr %c, align 8
-  %3 = load ptr, ptr %c, align 8
-  %user = getelementptr inbounds %struct.client, ptr %3, i32 0, i32 20
-  %4 = load ptr, ptr %user, align 8
-  %5 = load ptr, ptr %u.addr, align 8
-  %cmp1 = icmp eq ptr %4, %5
+  %2 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %value, align 8
+  store ptr %3, ptr %c, align 8
+  %4 = load ptr, ptr %c, align 8
+  %user = getelementptr inbounds %struct.client, ptr %4, i32 0, i32 20
+  %5 = load ptr, ptr %user, align 8
+  %6 = load ptr, ptr %u.addr, align 8
+  %cmp1 = icmp eq ptr %5, %6
   br i1 %cmp1, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %while.body
-  %6 = load ptr, ptr @DefaultUser, align 8
-  %7 = load ptr, ptr %c, align 8
-  %user2 = getelementptr inbounds %struct.client, ptr %7, i32 0, i32 20
-  store ptr %6, ptr %user2, align 8
+  %7 = load ptr, ptr @DefaultUser, align 8
   %8 = load ptr, ptr %c, align 8
-  %authenticated = getelementptr inbounds %struct.client, ptr %8, i32 0, i32 34
-  store i32 0, ptr %authenticated, align 8
+  %user2 = getelementptr inbounds %struct.client, ptr %8, i32 0, i32 20
+  store ptr %7, ptr %user2, align 8
   %9 = load ptr, ptr %c, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 61), align 8
-  %cmp3 = icmp eq ptr %9, %10
+  %authenticated = getelementptr inbounds %struct.client, ptr %9, i32 0, i32 34
+  store i32 0, ptr %authenticated, align 8
+  %10 = load ptr, ptr %c, align 8
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 61
+  %12 = load ptr, ptr %11, align 8
+  %cmp3 = icmp eq ptr %10, %12
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %11 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %11, i32 0, i32 1
-  %12 = load i64, ptr %flags, align 8
-  %or = or i64 %12, 1099511627776
+  %13 = load ptr, ptr %c, align 8
+  %flags = getelementptr inbounds %struct.client, ptr %13, i32 0, i32 1
+  %14 = load i64, ptr %flags, align 8
+  %or = or i64 %14, 1099511627776
   store i64 %or, ptr %flags, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %13 = load ptr, ptr %c, align 8
-  call void @freeClientAsync(ptr noundef %13)
+  %15 = load ptr, ptr %c, align 8
+  call void @freeClientAsync(ptr noundef %15)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
@@ -1848,8 +1851,8 @@ if.end5:                                          ; preds = %if.end, %while.body
   br label %while.cond, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond
-  %14 = load ptr, ptr %u.addr, align 8
-  call void @ACLFreeUser(ptr noundef %14)
+  %16 = load ptr, ptr %u.addr, align 8
+  call void @ACLFreeUser(ptr noundef %16)
   ret void
 }
 
@@ -3403,64 +3406,65 @@ if.else210:                                       ; preds = %if.end200
   br label %do.body
 
 do.body:                                          ; preds = %if.else210
-  %135 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp211 = icmp slt i32 3, %135
+  %135 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %136 = load i32, ptr %135, align 8
+  %cmp211 = icmp slt i32 3, %136
   br i1 %cmp211, label %if.then213, label %if.end214
 
 if.then213:                                       ; preds = %do.body
   br label %do.end
 
 if.end214:                                        ; preds = %do.body
-  %136 = load ptr, ptr %op.addr, align 8
-  %add.ptr215 = getelementptr inbounds i8, ptr %136, i64 1
+  %137 = load ptr, ptr %op.addr, align 8
+  %add.ptr215 = getelementptr inbounds i8, ptr %137, i64 1
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.66, ptr noundef %add.ptr215)
   br label %do.end
 
 do.end:                                           ; preds = %if.end214, %if.then213
-  %137 = load ptr, ptr %selector.addr, align 8
-  %138 = load ptr, ptr %cmd184, align 8
-  %id = getelementptr inbounds %struct.redisCommand, ptr %138, i32 0, i32 26
-  %139 = load i32, ptr %id, align 8
-  %conv216 = sext i32 %139 to i64
-  %140 = load ptr, ptr %sub181, align 8
-  call void @ACLAddAllowedFirstArg(ptr noundef %137, i64 noundef %conv216, ptr noundef %140)
+  %138 = load ptr, ptr %selector.addr, align 8
+  %139 = load ptr, ptr %cmd184, align 8
+  %id = getelementptr inbounds %struct.redisCommand, ptr %139, i32 0, i32 26
+  %140 = load i32, ptr %id, align 8
+  %conv216 = sext i32 %140 to i64
+  %141 = load ptr, ptr %sub181, align 8
+  call void @ACLAddAllowedFirstArg(ptr noundef %138, i64 noundef %conv216, ptr noundef %141)
   br label %if.end217
 
 if.end217:                                        ; preds = %do.end, %if.end209
-  %141 = load ptr, ptr %selector.addr, align 8
-  %142 = load ptr, ptr %op.addr, align 8
-  %add.ptr218 = getelementptr inbounds i8, ptr %142, i64 1
-  call void @ACLUpdateCommandRules(ptr noundef %141, ptr noundef %add.ptr218, i32 noundef 1)
-  %143 = load ptr, ptr %copy, align 8
-  call void @zfree(ptr noundef %143)
+  %142 = load ptr, ptr %selector.addr, align 8
+  %143 = load ptr, ptr %op.addr, align 8
+  %add.ptr218 = getelementptr inbounds i8, ptr %143, i64 1
+  call void @ACLUpdateCommandRules(ptr noundef %142, ptr noundef %add.ptr218, i32 noundef 1)
+  %144 = load ptr, ptr %copy, align 8
+  call void @zfree(ptr noundef %144)
   br label %if.end219
 
 if.end219:                                        ; preds = %if.end217, %if.end177
   br label %if.end271
 
 if.else220:                                       ; preds = %land.lhs.true161, %if.else156
-  %144 = load ptr, ptr %op.addr, align 8
-  %arrayidx221 = getelementptr inbounds i8, ptr %144, i64 0
-  %145 = load i8, ptr %arrayidx221, align 1
-  %conv222 = sext i8 %145 to i32
+  %145 = load ptr, ptr %op.addr, align 8
+  %arrayidx221 = getelementptr inbounds i8, ptr %145, i64 0
+  %146 = load i8, ptr %arrayidx221, align 1
+  %conv222 = sext i8 %146 to i32
   %cmp223 = icmp eq i32 %conv222, 45
   br i1 %cmp223, label %land.lhs.true225, label %if.else240
 
 land.lhs.true225:                                 ; preds = %if.else220
-  %146 = load ptr, ptr %op.addr, align 8
-  %arrayidx226 = getelementptr inbounds i8, ptr %146, i64 1
-  %147 = load i8, ptr %arrayidx226, align 1
-  %conv227 = sext i8 %147 to i32
+  %147 = load ptr, ptr %op.addr, align 8
+  %arrayidx226 = getelementptr inbounds i8, ptr %147, i64 1
+  %148 = load i8, ptr %arrayidx226, align 1
+  %conv227 = sext i8 %148 to i32
   %cmp228 = icmp ne i32 %conv227, 64
   br i1 %cmp228, label %if.then230, label %if.else240
 
 if.then230:                                       ; preds = %land.lhs.true225
-  %148 = load ptr, ptr %op.addr, align 8
-  %add.ptr232 = getelementptr inbounds i8, ptr %148, i64 1
+  %149 = load ptr, ptr %op.addr, align 8
+  %add.ptr232 = getelementptr inbounds i8, ptr %149, i64 1
   %call233 = call ptr @ACLLookupCommand(ptr noundef %add.ptr232)
   store ptr %call233, ptr %cmd231, align 8
-  %149 = load ptr, ptr %cmd231, align 8
-  %cmp234 = icmp eq ptr %149, null
+  %150 = load ptr, ptr %cmd231, align 8
+  %cmp234 = icmp eq ptr %150, null
   br i1 %cmp234, label %if.then236, label %if.end238
 
 if.then236:                                       ; preds = %if.then230
@@ -3470,53 +3474,53 @@ if.then236:                                       ; preds = %if.then230
   br label %return
 
 if.end238:                                        ; preds = %if.then230
-  %150 = load ptr, ptr %selector.addr, align 8
-  %151 = load ptr, ptr %cmd231, align 8
-  call void @ACLChangeSelectorPerm(ptr noundef %150, ptr noundef %151, i32 noundef 0)
-  %152 = load ptr, ptr %selector.addr, align 8
-  %153 = load ptr, ptr %cmd231, align 8
-  %fullname239 = getelementptr inbounds %struct.redisCommand, ptr %153, i32 0, i32 27
-  %154 = load ptr, ptr %fullname239, align 8
-  call void @ACLUpdateCommandRules(ptr noundef %152, ptr noundef %154, i32 noundef 0)
+  %151 = load ptr, ptr %selector.addr, align 8
+  %152 = load ptr, ptr %cmd231, align 8
+  call void @ACLChangeSelectorPerm(ptr noundef %151, ptr noundef %152, i32 noundef 0)
+  %153 = load ptr, ptr %selector.addr, align 8
+  %154 = load ptr, ptr %cmd231, align 8
+  %fullname239 = getelementptr inbounds %struct.redisCommand, ptr %154, i32 0, i32 27
+  %155 = load ptr, ptr %fullname239, align 8
+  call void @ACLUpdateCommandRules(ptr noundef %153, ptr noundef %155, i32 noundef 0)
   br label %if.end270
 
 if.else240:                                       ; preds = %land.lhs.true225, %if.else220
-  %155 = load ptr, ptr %op.addr, align 8
-  %arrayidx241 = getelementptr inbounds i8, ptr %155, i64 0
-  %156 = load i8, ptr %arrayidx241, align 1
-  %conv242 = sext i8 %156 to i32
+  %156 = load ptr, ptr %op.addr, align 8
+  %arrayidx241 = getelementptr inbounds i8, ptr %156, i64 0
+  %157 = load i8, ptr %arrayidx241, align 1
+  %conv242 = sext i8 %157 to i32
   %cmp243 = icmp eq i32 %conv242, 43
   br i1 %cmp243, label %land.lhs.true250, label %lor.lhs.false245
 
 lor.lhs.false245:                                 ; preds = %if.else240
-  %157 = load ptr, ptr %op.addr, align 8
-  %arrayidx246 = getelementptr inbounds i8, ptr %157, i64 0
-  %158 = load i8, ptr %arrayidx246, align 1
-  %conv247 = sext i8 %158 to i32
+  %158 = load ptr, ptr %op.addr, align 8
+  %arrayidx246 = getelementptr inbounds i8, ptr %158, i64 0
+  %159 = load i8, ptr %arrayidx246, align 1
+  %conv247 = sext i8 %159 to i32
   %cmp248 = icmp eq i32 %conv247, 45
   br i1 %cmp248, label %land.lhs.true250, label %if.else267
 
 land.lhs.true250:                                 ; preds = %lor.lhs.false245, %if.else240
-  %159 = load ptr, ptr %op.addr, align 8
-  %arrayidx251 = getelementptr inbounds i8, ptr %159, i64 1
-  %160 = load i8, ptr %arrayidx251, align 1
-  %conv252 = sext i8 %160 to i32
+  %160 = load ptr, ptr %op.addr, align 8
+  %arrayidx251 = getelementptr inbounds i8, ptr %160, i64 1
+  %161 = load i8, ptr %arrayidx251, align 1
+  %conv252 = sext i8 %161 to i32
   %cmp253 = icmp eq i32 %conv252, 64
   br i1 %cmp253, label %if.then255, label %if.else267
 
 if.then255:                                       ; preds = %land.lhs.true250
-  %161 = load ptr, ptr %op.addr, align 8
-  %arrayidx256 = getelementptr inbounds i8, ptr %161, i64 0
-  %162 = load i8, ptr %arrayidx256, align 1
-  %conv257 = sext i8 %162 to i32
+  %162 = load ptr, ptr %op.addr, align 8
+  %arrayidx256 = getelementptr inbounds i8, ptr %162, i64 0
+  %163 = load i8, ptr %arrayidx256, align 1
+  %conv257 = sext i8 %163 to i32
   %cmp258 = icmp eq i32 %conv257, 43
   %cond = select i1 %cmp258, i32 1, i32 0
   store i32 %cond, ptr %bitval, align 4
-  %163 = load ptr, ptr %selector.addr, align 8
-  %164 = load ptr, ptr %op.addr, align 8
-  %add.ptr260 = getelementptr inbounds i8, ptr %164, i64 1
-  %165 = load i32, ptr %bitval, align 4
-  %call261 = call i32 @ACLSetSelectorCategory(ptr noundef %163, ptr noundef %add.ptr260, i32 noundef %165)
+  %164 = load ptr, ptr %selector.addr, align 8
+  %165 = load ptr, ptr %op.addr, align 8
+  %add.ptr260 = getelementptr inbounds i8, ptr %165, i64 1
+  %166 = load i32, ptr %bitval, align 4
+  %call261 = call i32 @ACLSetSelectorCategory(ptr noundef %164, ptr noundef %add.ptr260, i32 noundef %166)
   %cmp262 = icmp eq i32 %call261, -1
   br i1 %cmp262, label %if.then264, label %if.end266
 
@@ -3570,8 +3574,8 @@ if.end279:                                        ; preds = %if.end278, %if.then
   br label %return
 
 return:                                           ; preds = %if.end279, %if.else267, %if.then264, %if.then236, %if.then207, %if.then198, %if.then192, %if.then188, %if.then175, %if.then137, %if.then130, %if.then101, %if.else92, %if.then56
-  %166 = load i32, ptr %retval, align 4
-  ret i32 %166
+  %167 = load i32, ptr %retval, align 4
+  ret i32 %167
 }
 
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) #1
@@ -3606,17 +3610,18 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %category.addr, align 8
   %4 = load i32, ptr %allow.addr, align 4
   call void @ACLUpdateCommandRules(ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 13), align 8
-  %6 = load ptr, ptr %selector.addr, align 8
-  %7 = load i64, ptr %cflag, align 8
-  %8 = load i32, ptr %allow.addr, align 4
-  call void @ACLSetSelectorCommandBitsForCategory(ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8)
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 13
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %selector.addr, align 8
+  %8 = load i64, ptr %cflag, align 8
+  %9 = load i32, ptr %allow.addr, align 4
+  call void @ACLSetSelectorCommandBitsForCategory(ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3742,18 +3747,19 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %on.addr, align 8
   store i64 0, ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 13), align 8
-  %5 = load ptr, ptr %selector.addr, align 8
-  %6 = load ptr, ptr %on.addr, align 8
-  %7 = load ptr, ptr %off.addr, align 8
-  %8 = load i64, ptr %cflag, align 8
-  call void @ACLCountCategoryBitsForCommands(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8)
+  %4 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 13
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %selector.addr, align 8
+  %7 = load ptr, ptr %on.addr, align 8
+  %8 = load ptr, ptr %off.addr, align 8
+  %9 = load i64, ptr %cflag, align 8
+  call void @ACLCountCategoryBitsForCommands(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3904,16 +3910,17 @@ if.then36:                                        ; preds = %if.end30
   br label %do.body
 
 do.body:                                          ; preds = %if.then36
-  %28 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp37 = icmp slt i32 3, %28
+  %28 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %29 = load i32, ptr %28, align 8
+  %cmp37 = icmp slt i32 3, %29
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %do.body
   br label %do.end
 
 if.end40:                                         ; preds = %do.body
-  %29 = load ptr, ptr %rules, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.51, ptr noundef %29)
+  %30 = load ptr, ptr %rules, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.51, ptr noundef %30)
   br label %do.end
 
 do.end:                                           ; preds = %if.end40, %if.then39
@@ -3922,10 +3929,10 @@ do.end:                                           ; preds = %if.end40, %if.then3
   unreachable
 
 if.end41:                                         ; preds = %if.end30
-  %30 = load ptr, ptr %fake_selector, align 8
-  call void @ACLFreeSelector(ptr noundef %30)
-  %31 = load ptr, ptr %rules, align 8
-  ret ptr %31
+  %31 = load ptr, ptr %fake_selector, align 8
+  call void @ACLFreeSelector(ptr noundef %31)
+  %32 = load ptr, ptr %rules, align 8
+  ret ptr %32
 }
 
 declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) #1
@@ -4244,14 +4251,15 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %call = call ptr @sdsnew(ptr noundef %0)
   store ptr %call, ptr %sdsname, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 13), align 8
-  %2 = load ptr, ptr %sdsname, align 8
-  %call1 = call ptr @lookupCommandBySdsLogic(ptr noundef %1, ptr noundef %2)
-  store ptr %call1, ptr %cmd, align 8
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 13
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %sdsname, align 8
-  call void @sdsfree(ptr noundef %3)
-  %4 = load ptr, ptr %cmd, align 8
-  ret ptr %4
+  %call1 = call ptr @lookupCommandBySdsLogic(ptr noundef %2, ptr noundef %3)
+  store ptr %call1, ptr %cmd, align 8
+  %4 = load ptr, ptr %sdsname, align 8
+  call void @sdsfree(ptr noundef %4)
+  %5 = load ptr, ptr %cmd, align 8
+  ret ptr %5
 }
 
 declare ptr @lookupCommandBySdsLogic(ptr noundef, ptr noundef) #1
@@ -4901,14 +4909,15 @@ cond.false197:                                    ; preds = %cond.end186
   br label %cond.end198
 
 cond.end198:                                      ; preds = %104, %cond.true196
-  %105 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 398), align 8
-  %and199 = and i32 %105, 8
+  %105 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 398
+  %106 = load i32, ptr %105, align 8
+  %and199 = and i32 %106, 8
   %tobool200 = icmp ne i32 %and199, 0
   br i1 %tobool200, label %if.then201, label %if.end214
 
 if.then201:                                       ; preds = %cond.end198
-  %106 = load ptr, ptr %u.addr, align 8
-  %call202 = call i32 @ACLSetUser(ptr noundef %106, ptr noundef @.str.29, i64 noundef -1)
+  %107 = load ptr, ptr %u.addr, align 8
+  %call202 = call i32 @ACLSetUser(ptr noundef %107, ptr noundef @.str.29, i64 noundef -1)
   %cmp203 = icmp eq i32 %call202, 0
   %lnot205 = xor i1 %cmp203, true
   %lnot207 = xor i1 %lnot205, true
@@ -4925,15 +4934,15 @@ cond.false212:                                    ; preds = %if.then201
   call void @abort() #11
   unreachable
 
-107:                                              ; No predecessors!
+108:                                              ; No predecessors!
   br label %cond.end213
 
-cond.end213:                                      ; preds = %107, %cond.true211
+cond.end213:                                      ; preds = %108, %cond.true211
   br label %if.end214
 
 if.end214:                                        ; preds = %cond.end213, %cond.end198
-  %108 = load ptr, ptr %u.addr, align 8
-  %call215 = call i32 @ACLSetUser(ptr noundef %108, ptr noundef @.str.24, i64 noundef -1)
+  %109 = load ptr, ptr %u.addr, align 8
+  %call215 = call i32 @ACLSetUser(ptr noundef %109, ptr noundef @.str.24, i64 noundef -1)
   %cmp216 = icmp eq i32 %call215, 0
   %lnot218 = xor i1 %cmp216, true
   %lnot220 = xor i1 %lnot218, true
@@ -4950,12 +4959,12 @@ cond.false225:                                    ; preds = %if.end214
   call void @abort() #11
   unreachable
 
-109:                                              ; No predecessors!
+110:                                              ; No predecessors!
   br label %cond.end226
 
-cond.end226:                                      ; preds = %109, %cond.true224
-  %110 = load ptr, ptr %u.addr, align 8
-  %call227 = call i32 @ACLSetUser(ptr noundef %110, ptr noundef @.str.27, i64 noundef -1)
+cond.end226:                                      ; preds = %110, %cond.true224
+  %111 = load ptr, ptr %u.addr, align 8
+  %call227 = call i32 @ACLSetUser(ptr noundef %111, ptr noundef @.str.27, i64 noundef -1)
   %cmp228 = icmp eq i32 %call227, 0
   %lnot230 = xor i1 %cmp228, true
   %lnot232 = xor i1 %lnot230, true
@@ -4972,12 +4981,12 @@ cond.false237:                                    ; preds = %cond.end226
   call void @abort() #11
   unreachable
 
-111:                                              ; No predecessors!
+112:                                              ; No predecessors!
   br label %cond.end238
 
-cond.end238:                                      ; preds = %111, %cond.true236
-  %112 = load ptr, ptr %u.addr, align 8
-  %call239 = call i32 @ACLSetUser(ptr noundef %112, ptr noundef @.str.68, i64 noundef -1)
+cond.end238:                                      ; preds = %112, %cond.true236
+  %113 = load ptr, ptr %u.addr, align 8
+  %call239 = call i32 @ACLSetUser(ptr noundef %113, ptr noundef @.str.68, i64 noundef -1)
   %cmp240 = icmp eq i32 %call239, 0
   %lnot242 = xor i1 %cmp240, true
   %lnot244 = xor i1 %lnot242, true
@@ -4994,12 +5003,12 @@ cond.false249:                                    ; preds = %cond.end238
   call void @abort() #11
   unreachable
 
-113:                                              ; No predecessors!
+114:                                              ; No predecessors!
   br label %cond.end250
 
-cond.end250:                                      ; preds = %113, %cond.true248
-  %114 = load ptr, ptr %u.addr, align 8
-  %call251 = call i32 @ACLSetUser(ptr noundef %114, ptr noundef @.str.47, i64 noundef -1)
+cond.end250:                                      ; preds = %114, %cond.true248
+  %115 = load ptr, ptr %u.addr, align 8
+  %call251 = call i32 @ACLSetUser(ptr noundef %115, ptr noundef @.str.47, i64 noundef -1)
   %cmp252 = icmp eq i32 %call251, 0
   %lnot254 = xor i1 %cmp252, true
   %lnot256 = xor i1 %lnot254, true
@@ -5016,20 +5025,20 @@ cond.false261:                                    ; preds = %cond.end250
   call void @abort() #11
   unreachable
 
-115:                                              ; No predecessors!
+116:                                              ; No predecessors!
   br label %cond.end262
 
-cond.end262:                                      ; preds = %115, %cond.true260
+cond.end262:                                      ; preds = %116, %cond.true260
   br label %if.end271
 
 if.else263:                                       ; preds = %if.else159
-  %116 = load ptr, ptr %u.addr, align 8
-  %call265 = call ptr @ACLUserGetRootSelector(ptr noundef %116)
+  %117 = load ptr, ptr %u.addr, align 8
+  %call265 = call ptr @ACLUserGetRootSelector(ptr noundef %117)
   store ptr %call265, ptr %selector264, align 8
-  %117 = load ptr, ptr %selector264, align 8
-  %118 = load ptr, ptr %op.addr, align 8
-  %119 = load i64, ptr %oplen.addr, align 8
-  %call266 = call i32 @ACLSetSelector(ptr noundef %117, ptr noundef %118, i64 noundef %119)
+  %118 = load ptr, ptr %selector264, align 8
+  %119 = load ptr, ptr %op.addr, align 8
+  %120 = load i64, ptr %oplen.addr, align 8
+  %call266 = call i32 @ACLSetSelector(ptr noundef %118, ptr noundef %119, i64 noundef %120)
   %cmp267 = icmp eq i32 %call266, -1
   br i1 %cmp267, label %if.then269, label %if.end270
 
@@ -5075,8 +5084,8 @@ if.end281:                                        ; preds = %if.end280, %if.then
   br label %return
 
 return:                                           ; preds = %if.end281, %if.then269, %while.end, %if.end143, %if.then142, %if.else126, %if.then113, %if.then69, %if.then6
-  %120 = load i32, ptr %retval, align 4
-  ret i32 %120
+  %121 = load i32, ptr %retval, align 4
+  ret i32 %121
 }
 
 declare void @listDelNode(ptr noundef, ptr noundef) #1
@@ -5620,42 +5629,44 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb2
   br label %if.end
 
 if.end:                                           ; preds = %sw.epilog, %if.then
-  %42 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 61), align 8
-  %tobool28 = icmp ne ptr %42, null
+  %42 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 61
+  %43 = load ptr, ptr %42, align 8
+  %tobool28 = icmp ne ptr %43, null
   br i1 %tobool28, label %cond.true29, label %cond.false30
 
 cond.true29:                                      ; preds = %if.end
-  %43 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 61), align 8
+  %44 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 61
+  %45 = load ptr, ptr %44, align 8
   br label %cond.end31
 
 cond.false30:                                     ; preds = %if.end
-  %44 = load ptr, ptr %c.addr, align 8
+  %46 = load ptr, ptr %c.addr, align 8
   br label %cond.end31
 
 cond.end31:                                       ; preds = %cond.false30, %cond.true29
-  %cond32 = phi ptr [ %43, %cond.true29 ], [ %44, %cond.false30 ]
+  %cond32 = phi ptr [ %45, %cond.true29 ], [ %46, %cond.false30 ]
   store ptr %cond32, ptr %realclient, align 8
   %call33 = call ptr @sdsempty()
-  %45 = load ptr, ptr %realclient, align 8
-  %call34 = call ptr @catClientInfoString(ptr noundef %call33, ptr noundef %45)
-  %46 = load ptr, ptr %le, align 8
-  %cinfo = getelementptr inbounds %struct.ACLLogEntry, ptr %46, i32 0, i32 6
-  store ptr %call34, ptr %cinfo, align 8
-  %47 = load i32, ptr %context.addr, align 4
+  %47 = load ptr, ptr %realclient, align 8
+  %call34 = call ptr @catClientInfoString(ptr noundef %call33, ptr noundef %47)
   %48 = load ptr, ptr %le, align 8
-  %context35 = getelementptr inbounds %struct.ACLLogEntry, ptr %48, i32 0, i32 2
-  store i32 %47, ptr %context35, align 4
+  %cinfo = getelementptr inbounds %struct.ACLLogEntry, ptr %48, i32 0, i32 6
+  store ptr %call34, ptr %cinfo, align 8
+  %49 = load i32, ptr %context.addr, align 4
+  %50 = load ptr, ptr %le, align 8
+  %context35 = getelementptr inbounds %struct.ACLLogEntry, ptr %50, i32 0, i32 2
+  store i32 %49, ptr %context35, align 4
   store i64 10, ptr %toscan, align 8
-  %49 = load ptr, ptr @ACLLog, align 8
-  call void @listRewind(ptr noundef %49, ptr noundef %li)
+  %51 = load ptr, ptr @ACLLog, align 8
+  call void @listRewind(ptr noundef %51, ptr noundef %li)
   store ptr null, ptr %match, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end42, %cond.end31
-  %50 = load i64, ptr %toscan, align 8
-  %dec = add nsw i64 %50, -1
+  %52 = load i64, ptr %toscan, align 8
+  %dec = add nsw i64 %52, -1
   store i64 %dec, ptr %toscan, align 8
-  %tobool36 = icmp ne i64 %50, 0
+  %tobool36 = icmp ne i64 %52, 0
   br i1 %tobool36, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
@@ -5665,99 +5676,100 @@ land.rhs:                                         ; preds = %while.cond
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %51 = phi i1 [ false, %while.cond ], [ %cmp, %land.rhs ]
-  br i1 %51, label %while.body, label %while.end
+  %53 = phi i1 [ false, %while.cond ], [ %cmp, %land.rhs ]
+  br i1 %53, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %52 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %52, i32 0, i32 2
-  %53 = load ptr, ptr %value, align 8
-  store ptr %53, ptr %current, align 8
-  %54 = load ptr, ptr %current, align 8
-  %55 = load ptr, ptr %le, align 8
-  %call38 = call i32 @ACLLogMatchEntry(ptr noundef %54, ptr noundef %55)
+  %54 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %54, i32 0, i32 2
+  %55 = load ptr, ptr %value, align 8
+  store ptr %55, ptr %current, align 8
+  %56 = load ptr, ptr %current, align 8
+  %57 = load ptr, ptr %le, align 8
+  %call38 = call i32 @ACLLogMatchEntry(ptr noundef %56, ptr noundef %57)
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %while.body
-  %56 = load ptr, ptr %current, align 8
-  store ptr %56, ptr %match, align 8
-  %57 = load ptr, ptr @ACLLog, align 8
-  %58 = load ptr, ptr %ln, align 8
-  call void @listDelNode(ptr noundef %57, ptr noundef %58)
+  %58 = load ptr, ptr %current, align 8
+  store ptr %58, ptr %match, align 8
   %59 = load ptr, ptr @ACLLog, align 8
-  %60 = load ptr, ptr %current, align 8
-  %call41 = call ptr @listAddNodeHead(ptr noundef %59, ptr noundef %60)
+  %60 = load ptr, ptr %ln, align 8
+  call void @listDelNode(ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr @ACLLog, align 8
+  %62 = load ptr, ptr %current, align 8
+  %call41 = call ptr @listAddNodeHead(ptr noundef %61, ptr noundef %62)
   br label %while.end
 
 if.end42:                                         ; preds = %while.body
   br label %while.cond, !llvm.loop !37
 
 while.end:                                        ; preds = %if.then40, %land.end
-  %61 = load ptr, ptr %match, align 8
-  %tobool43 = icmp ne ptr %61, null
+  %63 = load ptr, ptr %match, align 8
+  %tobool43 = icmp ne ptr %63, null
   br i1 %tobool43, label %if.then44, label %if.else52
 
 if.then44:                                        ; preds = %while.end
-  %62 = load ptr, ptr %match, align 8
-  %cinfo45 = getelementptr inbounds %struct.ACLLogEntry, ptr %62, i32 0, i32 6
-  %63 = load ptr, ptr %cinfo45, align 8
-  call void @sdsfree(ptr noundef %63)
-  %64 = load ptr, ptr %le, align 8
-  %cinfo46 = getelementptr inbounds %struct.ACLLogEntry, ptr %64, i32 0, i32 6
-  %65 = load ptr, ptr %cinfo46, align 8
-  %66 = load ptr, ptr %match, align 8
-  %cinfo47 = getelementptr inbounds %struct.ACLLogEntry, ptr %66, i32 0, i32 6
-  store ptr %65, ptr %cinfo47, align 8
-  %67 = load ptr, ptr %le, align 8
-  %ctime48 = getelementptr inbounds %struct.ACLLogEntry, ptr %67, i32 0, i32 5
-  %68 = load i64, ptr %ctime48, align 8
-  %69 = load ptr, ptr %match, align 8
-  %ctime49 = getelementptr inbounds %struct.ACLLogEntry, ptr %69, i32 0, i32 5
-  store i64 %68, ptr %ctime49, align 8
-  %70 = load ptr, ptr %match, align 8
-  %count50 = getelementptr inbounds %struct.ACLLogEntry, ptr %70, i32 0, i32 0
-  %71 = load i64, ptr %count50, align 8
-  %inc = add i64 %71, 1
+  %64 = load ptr, ptr %match, align 8
+  %cinfo45 = getelementptr inbounds %struct.ACLLogEntry, ptr %64, i32 0, i32 6
+  %65 = load ptr, ptr %cinfo45, align 8
+  call void @sdsfree(ptr noundef %65)
+  %66 = load ptr, ptr %le, align 8
+  %cinfo46 = getelementptr inbounds %struct.ACLLogEntry, ptr %66, i32 0, i32 6
+  %67 = load ptr, ptr %cinfo46, align 8
+  %68 = load ptr, ptr %match, align 8
+  %cinfo47 = getelementptr inbounds %struct.ACLLogEntry, ptr %68, i32 0, i32 6
+  store ptr %67, ptr %cinfo47, align 8
+  %69 = load ptr, ptr %le, align 8
+  %ctime48 = getelementptr inbounds %struct.ACLLogEntry, ptr %69, i32 0, i32 5
+  %70 = load i64, ptr %ctime48, align 8
+  %71 = load ptr, ptr %match, align 8
+  %ctime49 = getelementptr inbounds %struct.ACLLogEntry, ptr %71, i32 0, i32 5
+  store i64 %70, ptr %ctime49, align 8
+  %72 = load ptr, ptr %match, align 8
+  %count50 = getelementptr inbounds %struct.ACLLogEntry, ptr %72, i32 0, i32 0
+  %73 = load i64, ptr %count50, align 8
+  %inc = add i64 %73, 1
   store i64 %inc, ptr %count50, align 8
-  %72 = load ptr, ptr %le, align 8
-  %cinfo51 = getelementptr inbounds %struct.ACLLogEntry, ptr %72, i32 0, i32 6
+  %74 = load ptr, ptr %le, align 8
+  %cinfo51 = getelementptr inbounds %struct.ACLLogEntry, ptr %74, i32 0, i32 6
   store ptr null, ptr %cinfo51, align 8
-  %73 = load ptr, ptr %le, align 8
-  call void @ACLFreeLogEntry(ptr noundef %73)
+  %75 = load ptr, ptr %le, align 8
+  call void @ACLFreeLogEntry(ptr noundef %75)
   br label %if.end62
 
 if.else52:                                        ; preds = %while.end
-  %74 = load i64, ptr @ACLLogEntryCount, align 8
-  %inc53 = add nsw i64 %74, 1
+  %76 = load i64, ptr @ACLLogEntryCount, align 8
+  %inc53 = add nsw i64 %76, 1
   store i64 %inc53, ptr @ACLLogEntryCount, align 8
-  %75 = load ptr, ptr @ACLLog, align 8
-  %76 = load ptr, ptr %le, align 8
-  %call54 = call ptr @listAddNodeHead(ptr noundef %75, ptr noundef %76)
+  %77 = load ptr, ptr @ACLLog, align 8
+  %78 = load ptr, ptr %le, align 8
+  %call54 = call ptr @listAddNodeHead(ptr noundef %77, ptr noundef %78)
   br label %while.cond55
 
 while.cond55:                                     ; preds = %while.body57, %if.else52
-  %77 = load ptr, ptr @ACLLog, align 8
-  %len = getelementptr inbounds %struct.list, ptr %77, i32 0, i32 5
-  %78 = load i64, ptr %len, align 8
-  %79 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 396), align 8
-  %cmp56 = icmp ugt i64 %78, %79
+  %79 = load ptr, ptr @ACLLog, align 8
+  %len = getelementptr inbounds %struct.list, ptr %79, i32 0, i32 5
+  %80 = load i64, ptr %len, align 8
+  %81 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 396
+  %82 = load i64, ptr %81, align 8
+  %cmp56 = icmp ugt i64 %80, %82
   br i1 %cmp56, label %while.body57, label %while.end61
 
 while.body57:                                     ; preds = %while.cond55
-  %80 = load ptr, ptr @ACLLog, align 8
-  %tail = getelementptr inbounds %struct.list, ptr %80, i32 0, i32 1
-  %81 = load ptr, ptr %tail, align 8
-  store ptr %81, ptr %ln58, align 8
-  %82 = load ptr, ptr %ln58, align 8
-  %value60 = getelementptr inbounds %struct.listNode, ptr %82, i32 0, i32 2
-  %83 = load ptr, ptr %value60, align 8
-  store ptr %83, ptr %le59, align 8
-  %84 = load ptr, ptr %le59, align 8
-  call void @ACLFreeLogEntry(ptr noundef %84)
-  %85 = load ptr, ptr @ACLLog, align 8
-  %86 = load ptr, ptr %ln58, align 8
-  call void @listDelNode(ptr noundef %85, ptr noundef %86)
+  %83 = load ptr, ptr @ACLLog, align 8
+  %tail = getelementptr inbounds %struct.list, ptr %83, i32 0, i32 1
+  %84 = load ptr, ptr %tail, align 8
+  store ptr %84, ptr %ln58, align 8
+  %85 = load ptr, ptr %ln58, align 8
+  %value60 = getelementptr inbounds %struct.listNode, ptr %85, i32 0, i32 2
+  %86 = load ptr, ptr %value60, align 8
+  store ptr %86, ptr %le59, align 8
+  %87 = load ptr, ptr %le59, align 8
+  call void @ACLFreeLogEntry(ptr noundef %87)
+  %88 = load ptr, ptr @ACLLog, align 8
+  %89 = load ptr, ptr %ln58, align 8
+  call void @listDelNode(ptr noundef %88, ptr noundef %89)
   br label %while.cond55, !llvm.loop !38
 
 while.end61:                                      ; preds = %while.cond55
@@ -7080,41 +7092,47 @@ entry:
   %res125 = alloca i32, align 4
   store ptr %new, ptr %new.addr, align 8
   store ptr %original, ptr %original.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 358), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 2
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 358
+  %1 = load ptr, ptr %0, align 8
+  %ht_used = getelementptr inbounds %struct.dict, ptr %1, i32 0, i32 2
   %arrayidx = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 358), align 8
-  %ht_used1 = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 2
+  %2 = load i64, ptr %arrayidx, align 8
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 358
+  %4 = load ptr, ptr %3, align 8
+  %ht_used1 = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 2
   %arrayidx2 = getelementptr inbounds [2 x i64], ptr %ht_used1, i64 0, i64 1
-  %3 = load i64, ptr %arrayidx2, align 8
-  %add = add i64 %1, %3
+  %5 = load i64, ptr %arrayidx2, align 8
+  %add = add i64 %2, %5
   %tobool = icmp ne i64 %add, 0
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 357), align 8
-  %ht_used3 = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 2
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 357
+  %7 = load ptr, ptr %6, align 8
+  %ht_used3 = getelementptr inbounds %struct.dict, ptr %7, i32 0, i32 2
   %arrayidx4 = getelementptr inbounds [2 x i64], ptr %ht_used3, i64 0, i64 0
-  %5 = load i64, ptr %arrayidx4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 357), align 8
-  %ht_used5 = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 2
+  %8 = load i64, ptr %arrayidx4, align 8
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 357
+  %10 = load ptr, ptr %9, align 8
+  %ht_used5 = getelementptr inbounds %struct.dict, ptr %10, i32 0, i32 2
   %arrayidx6 = getelementptr inbounds [2 x i64], ptr %ht_used5, i64 0, i64 1
-  %7 = load i64, ptr %arrayidx6, align 8
-  %add7 = add i64 %5, %7
+  %11 = load i64, ptr %arrayidx6, align 8
+  %add7 = add i64 %8, %11
   %tobool8 = icmp ne i64 %add7, 0
   br i1 %tobool8, label %if.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 360), align 8
-  %ht_used10 = getelementptr inbounds %struct.dict, ptr %8, i32 0, i32 2
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 360
+  %13 = load ptr, ptr %12, align 8
+  %ht_used10 = getelementptr inbounds %struct.dict, ptr %13, i32 0, i32 2
   %arrayidx11 = getelementptr inbounds [2 x i64], ptr %ht_used10, i64 0, i64 0
-  %9 = load i64, ptr %arrayidx11, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 360), align 8
-  %ht_used12 = getelementptr inbounds %struct.dict, ptr %10, i32 0, i32 2
+  %14 = load i64, ptr %arrayidx11, align 8
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 360
+  %16 = load ptr, ptr %15, align 8
+  %ht_used12 = getelementptr inbounds %struct.dict, ptr %16, i32 0, i32 2
   %arrayidx13 = getelementptr inbounds [2 x i64], ptr %ht_used12, i64 0, i64 1
-  %11 = load i64, ptr %arrayidx13, align 8
-  %add14 = add i64 %9, %11
+  %17 = load i64, ptr %arrayidx13, align 8
+  %add14 = add i64 %14, %17
   %tobool15 = icmp ne i64 %add14, 0
   br i1 %tobool15, label %if.end, label %if.then
 
@@ -7123,10 +7141,10 @@ if.then:                                          ; preds = %land.lhs.true9
 
 if.end:                                           ; preds = %land.lhs.true9, %land.lhs.true, %entry
   store i32 0, ptr %kill, align 4
-  %12 = load ptr, ptr %new.addr, align 8
-  %selectors = getelementptr inbounds %struct.user, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %selectors, align 8
-  call void @listRewind(ptr noundef %13, ptr noundef %li)
+  %18 = load ptr, ptr %new.addr, align 8
+  %selectors = getelementptr inbounds %struct.user, ptr %18, i32 0, i32 3
+  %19 = load ptr, ptr %selectors, align 8
+  call void @listRewind(ptr noundef %19, ptr noundef %li)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end19, %if.end
@@ -7136,14 +7154,14 @@ while.cond:                                       ; preds = %if.end19, %if.end
   br i1 %tobool16, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %14 = load ptr, ptr %ln, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %value, align 8
-  store ptr %15, ptr %s, align 8
-  %16 = load ptr, ptr %s, align 8
-  %flags = getelementptr inbounds %struct.aclSelector, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr %flags, align 8
-  %and = and i32 %17, 8
+  %20 = load ptr, ptr %ln, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %value, align 8
+  store ptr %21, ptr %s, align 8
+  %22 = load ptr, ptr %s, align 8
+  %flags = getelementptr inbounds %struct.aclSelector, ptr %22, i32 0, i32 0
+  %23 = load i32, ptr %flags, align 8
+  %and = and i32 %23, 8
   %tobool17 = icmp ne i32 %and, 0
   br i1 %tobool17, label %if.then18, label %if.end19
 
@@ -7156,10 +7174,10 @@ if.end19:                                         ; preds = %while.body
 while.end:                                        ; preds = %while.cond
   %call20 = call ptr @listCreate()
   store ptr %call20, ptr %upcoming, align 8
-  %18 = load ptr, ptr %new.addr, align 8
-  %selectors21 = getelementptr inbounds %struct.user, ptr %18, i32 0, i32 3
-  %19 = load ptr, ptr %selectors21, align 8
-  call void @listRewind(ptr noundef %19, ptr noundef %li)
+  %24 = load ptr, ptr %new.addr, align 8
+  %selectors21 = getelementptr inbounds %struct.user, ptr %24, i32 0, i32 3
+  %25 = load ptr, ptr %selectors21, align 8
+  call void @listRewind(ptr noundef %25, ptr noundef %li)
   br label %while.cond22
 
 while.cond22:                                     ; preds = %while.end34, %while.end
@@ -7169,14 +7187,14 @@ while.cond22:                                     ; preds = %while.end34, %while
   br i1 %tobool24, label %while.body25, label %while.end35
 
 while.body25:                                     ; preds = %while.cond22
-  %20 = load ptr, ptr %ln, align 8
-  %value27 = getelementptr inbounds %struct.listNode, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %value27, align 8
-  store ptr %21, ptr %s26, align 8
-  %22 = load ptr, ptr %s26, align 8
-  %channels = getelementptr inbounds %struct.aclSelector, ptr %22, i32 0, i32 4
-  %23 = load ptr, ptr %channels, align 8
-  call void @listRewind(ptr noundef %23, ptr noundef %lpi)
+  %26 = load ptr, ptr %ln, align 8
+  %value27 = getelementptr inbounds %struct.listNode, ptr %26, i32 0, i32 2
+  %27 = load ptr, ptr %value27, align 8
+  store ptr %27, ptr %s26, align 8
+  %28 = load ptr, ptr %s26, align 8
+  %channels = getelementptr inbounds %struct.aclSelector, ptr %28, i32 0, i32 4
+  %29 = load ptr, ptr %channels, align 8
+  call void @listRewind(ptr noundef %29, ptr noundef %lpi)
   br label %while.cond28
 
 while.cond28:                                     ; preds = %while.body31, %while.body25
@@ -7186,11 +7204,11 @@ while.cond28:                                     ; preds = %while.body31, %whil
   br i1 %tobool30, label %while.body31, label %while.end34
 
 while.body31:                                     ; preds = %while.cond28
-  %24 = load ptr, ptr %upcoming, align 8
-  %25 = load ptr, ptr %lpn, align 8
-  %value32 = getelementptr inbounds %struct.listNode, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %value32, align 8
-  %call33 = call ptr @listAddNodeTail(ptr noundef %24, ptr noundef %26)
+  %30 = load ptr, ptr %upcoming, align 8
+  %31 = load ptr, ptr %lpn, align 8
+  %value32 = getelementptr inbounds %struct.listNode, ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %value32, align 8
+  %call33 = call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %32)
   br label %while.cond28, !llvm.loop !49
 
 while.end34:                                      ; preds = %while.cond28
@@ -7198,10 +7216,10 @@ while.end34:                                      ; preds = %while.cond28
 
 while.end35:                                      ; preds = %while.cond22
   store i32 1, ptr %match, align 4
-  %27 = load ptr, ptr %original.addr, align 8
-  %selectors36 = getelementptr inbounds %struct.user, ptr %27, i32 0, i32 3
-  %28 = load ptr, ptr %selectors36, align 8
-  call void @listRewind(ptr noundef %28, ptr noundef %li)
+  %33 = load ptr, ptr %original.addr, align 8
+  %selectors36 = getelementptr inbounds %struct.user, ptr %33, i32 0, i32 3
+  %34 = load ptr, ptr %selectors36, align 8
+  call void @listRewind(ptr noundef %34, ptr noundef %li)
   br label %while.cond37
 
 while.cond37:                                     ; preds = %while.end62, %while.end35
@@ -7211,23 +7229,23 @@ while.cond37:                                     ; preds = %while.end62, %while
   br i1 %tobool39, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond37
-  %29 = load i32, ptr %match, align 4
-  %tobool40 = icmp ne i32 %29, 0
+  %35 = load i32, ptr %match, align 4
+  %tobool40 = icmp ne i32 %35, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond37
-  %30 = phi i1 [ false, %while.cond37 ], [ %tobool40, %land.rhs ]
-  br i1 %30, label %while.body41, label %while.end63
+  %36 = phi i1 [ false, %while.cond37 ], [ %tobool40, %land.rhs ]
+  br i1 %36, label %while.body41, label %while.end63
 
 while.body41:                                     ; preds = %land.end
-  %31 = load ptr, ptr %ln, align 8
-  %value43 = getelementptr inbounds %struct.listNode, ptr %31, i32 0, i32 2
-  %32 = load ptr, ptr %value43, align 8
-  store ptr %32, ptr %s42, align 8
-  %33 = load ptr, ptr %s42, align 8
-  %flags44 = getelementptr inbounds %struct.aclSelector, ptr %33, i32 0, i32 0
-  %34 = load i32, ptr %flags44, align 8
-  %and45 = and i32 %34, 8
+  %37 = load ptr, ptr %ln, align 8
+  %value43 = getelementptr inbounds %struct.listNode, ptr %37, i32 0, i32 2
+  %38 = load ptr, ptr %value43, align 8
+  store ptr %38, ptr %s42, align 8
+  %39 = load ptr, ptr %s42, align 8
+  %flags44 = getelementptr inbounds %struct.aclSelector, ptr %39, i32 0, i32 0
+  %40 = load i32, ptr %flags44, align 8
+  %and45 = and i32 %40, 8
   %tobool46 = icmp ne i32 %and45, 0
   br i1 %tobool46, label %if.then47, label %if.end48
 
@@ -7236,10 +7254,10 @@ if.then47:                                        ; preds = %while.body41
   br label %while.end63
 
 if.end48:                                         ; preds = %while.body41
-  %35 = load ptr, ptr %s42, align 8
-  %channels49 = getelementptr inbounds %struct.aclSelector, ptr %35, i32 0, i32 4
-  %36 = load ptr, ptr %channels49, align 8
-  call void @listRewind(ptr noundef %36, ptr noundef %lpi)
+  %41 = load ptr, ptr %s42, align 8
+  %channels49 = getelementptr inbounds %struct.aclSelector, ptr %41, i32 0, i32 4
+  %42 = load ptr, ptr %channels49, align 8
+  call void @listRewind(ptr noundef %42, ptr noundef %lpi)
   br label %while.cond50
 
 while.cond50:                                     ; preds = %if.end61, %if.end48
@@ -7249,20 +7267,20 @@ while.cond50:                                     ; preds = %if.end61, %if.end48
   br i1 %tobool52, label %land.rhs53, label %land.end55
 
 land.rhs53:                                       ; preds = %while.cond50
-  %37 = load i32, ptr %match, align 4
-  %tobool54 = icmp ne i32 %37, 0
+  %43 = load i32, ptr %match, align 4
+  %tobool54 = icmp ne i32 %43, 0
   br label %land.end55
 
 land.end55:                                       ; preds = %land.rhs53, %while.cond50
-  %38 = phi i1 [ false, %while.cond50 ], [ %tobool54, %land.rhs53 ]
-  br i1 %38, label %while.body56, label %while.end62
+  %44 = phi i1 [ false, %while.cond50 ], [ %tobool54, %land.rhs53 ]
+  br i1 %44, label %while.body56, label %while.end62
 
 while.body56:                                     ; preds = %land.end55
-  %39 = load ptr, ptr %upcoming, align 8
-  %40 = load ptr, ptr %lpn, align 8
-  %value57 = getelementptr inbounds %struct.listNode, ptr %40, i32 0, i32 2
-  %41 = load ptr, ptr %value57, align 8
-  %call58 = call ptr @listSearchKey(ptr noundef %39, ptr noundef %41)
+  %45 = load ptr, ptr %upcoming, align 8
+  %46 = load ptr, ptr %lpn, align 8
+  %value57 = getelementptr inbounds %struct.listNode, ptr %46, i32 0, i32 2
+  %47 = load ptr, ptr %value57, align 8
+  %call58 = call ptr @listSearchKey(ptr noundef %45, ptr noundef %47)
   %tobool59 = icmp ne ptr %call58, null
   br i1 %tobool59, label %if.end61, label %if.then60
 
@@ -7277,18 +7295,19 @@ while.end62:                                      ; preds = %if.then60, %land.en
   br label %while.cond37, !llvm.loop !52
 
 while.end63:                                      ; preds = %if.then47, %land.end
-  %42 = load i32, ptr %match, align 4
-  %tobool64 = icmp ne i32 %42, 0
+  %48 = load i32, ptr %match, align 4
+  %tobool64 = icmp ne i32 %48, 0
   br i1 %tobool64, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %while.end63
-  %43 = load ptr, ptr %upcoming, align 8
-  call void @listRelease(ptr noundef %43)
+  %49 = load ptr, ptr %upcoming, align 8
+  call void @listRelease(ptr noundef %49)
   br label %return
 
 if.end66:                                         ; preds = %while.end63
-  %44 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 55), align 8
-  call void @listRewind(ptr noundef %44, ptr noundef %li)
+  %50 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 55
+  %51 = load ptr, ptr %50, align 8
+  call void @listRewind(ptr noundef %51, ptr noundef %li)
   br label %while.cond67
 
 while.cond67:                                     ; preds = %if.end138, %if.end66
@@ -7298,189 +7317,189 @@ while.cond67:                                     ; preds = %if.end138, %if.end6
   br i1 %cmp, label %while.body69, label %while.end139
 
 while.body69:                                     ; preds = %while.cond67
-  %45 = load ptr, ptr %ln, align 8
-  %value70 = getelementptr inbounds %struct.listNode, ptr %45, i32 0, i32 2
-  %46 = load ptr, ptr %value70, align 8
-  store ptr %46, ptr %c, align 8
+  %52 = load ptr, ptr %ln, align 8
+  %value70 = getelementptr inbounds %struct.listNode, ptr %52, i32 0, i32 2
+  %53 = load ptr, ptr %value70, align 8
+  store ptr %53, ptr %c, align 8
   store i32 0, ptr %kill, align 4
-  %47 = load ptr, ptr %c, align 8
-  %user = getelementptr inbounds %struct.client, ptr %47, i32 0, i32 20
-  %48 = load ptr, ptr %user, align 8
-  %49 = load ptr, ptr %original.addr, align 8
-  %cmp71 = icmp eq ptr %48, %49
+  %54 = load ptr, ptr %c, align 8
+  %user = getelementptr inbounds %struct.client, ptr %54, i32 0, i32 20
+  %55 = load ptr, ptr %user, align 8
+  %56 = load ptr, ptr %original.addr, align 8
+  %cmp71 = icmp eq ptr %55, %56
   br i1 %cmp71, label %land.lhs.true72, label %if.end138
 
 land.lhs.true72:                                  ; preds = %while.body69
-  %50 = load ptr, ptr %c, align 8
-  %call73 = call i32 @getClientType(ptr noundef %50)
+  %57 = load ptr, ptr %c, align 8
+  %call73 = call i32 @getClientType(ptr noundef %57)
   %cmp74 = icmp eq i32 %call73, 2
   br i1 %cmp74, label %if.then75, label %if.end138
 
 if.then75:                                        ; preds = %land.lhs.true72
-  %51 = load ptr, ptr %c, align 8
-  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %51, i32 0, i32 59
-  %52 = load ptr, ptr %pubsub_patterns, align 8
-  %call76 = call ptr @dictGetIterator(ptr noundef %52)
+  %58 = load ptr, ptr %c, align 8
+  %pubsub_patterns = getelementptr inbounds %struct.client, ptr %58, i32 0, i32 59
+  %59 = load ptr, ptr %pubsub_patterns, align 8
+  %call76 = call ptr @dictGetIterator(ptr noundef %59)
   store ptr %call76, ptr %di, align 8
   br label %while.cond77
 
 while.cond77:                                     ; preds = %while.body83, %if.then75
-  %53 = load i32, ptr %kill, align 4
-  %tobool78 = icmp ne i32 %53, 0
+  %60 = load i32, ptr %kill, align 4
+  %tobool78 = icmp ne i32 %60, 0
   br i1 %tobool78, label %land.end82, label %land.rhs79
 
 land.rhs79:                                       ; preds = %while.cond77
-  %54 = load ptr, ptr %di, align 8
-  %call80 = call ptr @dictNext(ptr noundef %54)
+  %61 = load ptr, ptr %di, align 8
+  %call80 = call ptr @dictNext(ptr noundef %61)
   store ptr %call80, ptr %de, align 8
   %cmp81 = icmp ne ptr %call80, null
   br label %land.end82
 
 land.end82:                                       ; preds = %land.rhs79, %while.cond77
-  %55 = phi i1 [ false, %while.cond77 ], [ %cmp81, %land.rhs79 ]
-  br i1 %55, label %while.body83, label %while.end90
+  %62 = phi i1 [ false, %while.cond77 ], [ %cmp81, %land.rhs79 ]
+  br i1 %62, label %while.body83, label %while.end90
 
 while.body83:                                     ; preds = %land.end82
-  %56 = load ptr, ptr %de, align 8
-  %call84 = call ptr @dictGetKey(ptr noundef %56)
+  %63 = load ptr, ptr %de, align 8
+  %call84 = call ptr @dictGetKey(ptr noundef %63)
   store ptr %call84, ptr %o, align 8
-  %57 = load ptr, ptr %upcoming, align 8
-  %58 = load ptr, ptr %o, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %58, i32 0, i32 2
-  %59 = load ptr, ptr %ptr, align 8
-  %60 = load ptr, ptr %o, align 8
-  %ptr85 = getelementptr inbounds %struct.redisObject, ptr %60, i32 0, i32 2
-  %61 = load ptr, ptr %ptr85, align 8
-  %call86 = call i64 @sdslen(ptr noundef %61)
+  %64 = load ptr, ptr %upcoming, align 8
+  %65 = load ptr, ptr %o, align 8
+  %ptr = getelementptr inbounds %struct.redisObject, ptr %65, i32 0, i32 2
+  %66 = load ptr, ptr %ptr, align 8
+  %67 = load ptr, ptr %o, align 8
+  %ptr85 = getelementptr inbounds %struct.redisObject, ptr %67, i32 0, i32 2
+  %68 = load ptr, ptr %ptr85, align 8
+  %call86 = call i64 @sdslen(ptr noundef %68)
   %conv = trunc i64 %call86 to i32
-  %call87 = call i32 @ACLCheckChannelAgainstList(ptr noundef %57, ptr noundef %59, i32 noundef %conv, i32 noundef 1)
+  %call87 = call i32 @ACLCheckChannelAgainstList(ptr noundef %64, ptr noundef %66, i32 noundef %conv, i32 noundef 1)
   store i32 %call87, ptr %res, align 4
-  %62 = load i32, ptr %res, align 4
-  %cmp88 = icmp eq i32 %62, 4
+  %69 = load i32, ptr %res, align 4
+  %cmp88 = icmp eq i32 %69, 4
   %conv89 = zext i1 %cmp88 to i32
   store i32 %conv89, ptr %kill, align 4
   br label %while.cond77, !llvm.loop !53
 
 while.end90:                                      ; preds = %land.end82
-  %63 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %63)
-  %64 = load i32, ptr %kill, align 4
-  %tobool91 = icmp ne i32 %64, 0
+  %70 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %70)
+  %71 = load i32, ptr %kill, align 4
+  %tobool91 = icmp ne i32 %71, 0
   br i1 %tobool91, label %if.end112, label %if.then92
 
 if.then92:                                        ; preds = %while.end90
-  %65 = load ptr, ptr %c, align 8
-  %pubsub_channels = getelementptr inbounds %struct.client, ptr %65, i32 0, i32 58
-  %66 = load ptr, ptr %pubsub_channels, align 8
-  %call93 = call ptr @dictGetIterator(ptr noundef %66)
+  %72 = load ptr, ptr %c, align 8
+  %pubsub_channels = getelementptr inbounds %struct.client, ptr %72, i32 0, i32 58
+  %73 = load ptr, ptr %pubsub_channels, align 8
+  %call93 = call ptr @dictGetIterator(ptr noundef %73)
   store ptr %call93, ptr %di, align 8
   br label %while.cond94
 
 while.cond94:                                     ; preds = %while.body101, %if.then92
-  %67 = load i32, ptr %kill, align 4
-  %tobool95 = icmp ne i32 %67, 0
+  %74 = load i32, ptr %kill, align 4
+  %tobool95 = icmp ne i32 %74, 0
   br i1 %tobool95, label %land.end100, label %land.rhs96
 
 land.rhs96:                                       ; preds = %while.cond94
-  %68 = load ptr, ptr %di, align 8
-  %call97 = call ptr @dictNext(ptr noundef %68)
+  %75 = load ptr, ptr %di, align 8
+  %call97 = call ptr @dictNext(ptr noundef %75)
   store ptr %call97, ptr %de, align 8
   %cmp98 = icmp ne ptr %call97, null
   br label %land.end100
 
 land.end100:                                      ; preds = %land.rhs96, %while.cond94
-  %69 = phi i1 [ false, %while.cond94 ], [ %cmp98, %land.rhs96 ]
-  br i1 %69, label %while.body101, label %while.end111
+  %76 = phi i1 [ false, %while.cond94 ], [ %cmp98, %land.rhs96 ]
+  br i1 %76, label %while.body101, label %while.end111
 
 while.body101:                                    ; preds = %land.end100
-  %70 = load ptr, ptr %de, align 8
-  %call102 = call ptr @dictGetKey(ptr noundef %70)
+  %77 = load ptr, ptr %de, align 8
+  %call102 = call ptr @dictGetKey(ptr noundef %77)
   store ptr %call102, ptr %o, align 8
-  %71 = load ptr, ptr %upcoming, align 8
-  %72 = load ptr, ptr %o, align 8
-  %ptr104 = getelementptr inbounds %struct.redisObject, ptr %72, i32 0, i32 2
-  %73 = load ptr, ptr %ptr104, align 8
-  %74 = load ptr, ptr %o, align 8
-  %ptr105 = getelementptr inbounds %struct.redisObject, ptr %74, i32 0, i32 2
-  %75 = load ptr, ptr %ptr105, align 8
-  %call106 = call i64 @sdslen(ptr noundef %75)
+  %78 = load ptr, ptr %upcoming, align 8
+  %79 = load ptr, ptr %o, align 8
+  %ptr104 = getelementptr inbounds %struct.redisObject, ptr %79, i32 0, i32 2
+  %80 = load ptr, ptr %ptr104, align 8
+  %81 = load ptr, ptr %o, align 8
+  %ptr105 = getelementptr inbounds %struct.redisObject, ptr %81, i32 0, i32 2
+  %82 = load ptr, ptr %ptr105, align 8
+  %call106 = call i64 @sdslen(ptr noundef %82)
   %conv107 = trunc i64 %call106 to i32
-  %call108 = call i32 @ACLCheckChannelAgainstList(ptr noundef %71, ptr noundef %73, i32 noundef %conv107, i32 noundef 0)
+  %call108 = call i32 @ACLCheckChannelAgainstList(ptr noundef %78, ptr noundef %80, i32 noundef %conv107, i32 noundef 0)
   store i32 %call108, ptr %res103, align 4
-  %76 = load i32, ptr %res103, align 4
-  %cmp109 = icmp eq i32 %76, 4
+  %83 = load i32, ptr %res103, align 4
+  %cmp109 = icmp eq i32 %83, 4
   %conv110 = zext i1 %cmp109 to i32
   store i32 %conv110, ptr %kill, align 4
   br label %while.cond94, !llvm.loop !54
 
 while.end111:                                     ; preds = %land.end100
-  %77 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %77)
+  %84 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %84)
   br label %if.end112
 
 if.end112:                                        ; preds = %while.end111, %while.end90
-  %78 = load i32, ptr %kill, align 4
-  %tobool113 = icmp ne i32 %78, 0
+  %85 = load i32, ptr %kill, align 4
+  %tobool113 = icmp ne i32 %85, 0
   br i1 %tobool113, label %if.end134, label %if.then114
 
 if.then114:                                       ; preds = %if.end112
-  %79 = load ptr, ptr %c, align 8
-  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %79, i32 0, i32 60
-  %80 = load ptr, ptr %pubsubshard_channels, align 8
-  %call115 = call ptr @dictGetIterator(ptr noundef %80)
+  %86 = load ptr, ptr %c, align 8
+  %pubsubshard_channels = getelementptr inbounds %struct.client, ptr %86, i32 0, i32 60
+  %87 = load ptr, ptr %pubsubshard_channels, align 8
+  %call115 = call ptr @dictGetIterator(ptr noundef %87)
   store ptr %call115, ptr %di, align 8
   br label %while.cond116
 
 while.cond116:                                    ; preds = %while.body123, %if.then114
-  %81 = load i32, ptr %kill, align 4
-  %tobool117 = icmp ne i32 %81, 0
+  %88 = load i32, ptr %kill, align 4
+  %tobool117 = icmp ne i32 %88, 0
   br i1 %tobool117, label %land.end122, label %land.rhs118
 
 land.rhs118:                                      ; preds = %while.cond116
-  %82 = load ptr, ptr %di, align 8
-  %call119 = call ptr @dictNext(ptr noundef %82)
+  %89 = load ptr, ptr %di, align 8
+  %call119 = call ptr @dictNext(ptr noundef %89)
   store ptr %call119, ptr %de, align 8
   %cmp120 = icmp ne ptr %call119, null
   br label %land.end122
 
 land.end122:                                      ; preds = %land.rhs118, %while.cond116
-  %83 = phi i1 [ false, %while.cond116 ], [ %cmp120, %land.rhs118 ]
-  br i1 %83, label %while.body123, label %while.end133
+  %90 = phi i1 [ false, %while.cond116 ], [ %cmp120, %land.rhs118 ]
+  br i1 %90, label %while.body123, label %while.end133
 
 while.body123:                                    ; preds = %land.end122
-  %84 = load ptr, ptr %de, align 8
-  %call124 = call ptr @dictGetKey(ptr noundef %84)
+  %91 = load ptr, ptr %de, align 8
+  %call124 = call ptr @dictGetKey(ptr noundef %91)
   store ptr %call124, ptr %o, align 8
-  %85 = load ptr, ptr %upcoming, align 8
-  %86 = load ptr, ptr %o, align 8
-  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %86, i32 0, i32 2
-  %87 = load ptr, ptr %ptr126, align 8
-  %88 = load ptr, ptr %o, align 8
-  %ptr127 = getelementptr inbounds %struct.redisObject, ptr %88, i32 0, i32 2
-  %89 = load ptr, ptr %ptr127, align 8
-  %call128 = call i64 @sdslen(ptr noundef %89)
+  %92 = load ptr, ptr %upcoming, align 8
+  %93 = load ptr, ptr %o, align 8
+  %ptr126 = getelementptr inbounds %struct.redisObject, ptr %93, i32 0, i32 2
+  %94 = load ptr, ptr %ptr126, align 8
+  %95 = load ptr, ptr %o, align 8
+  %ptr127 = getelementptr inbounds %struct.redisObject, ptr %95, i32 0, i32 2
+  %96 = load ptr, ptr %ptr127, align 8
+  %call128 = call i64 @sdslen(ptr noundef %96)
   %conv129 = trunc i64 %call128 to i32
-  %call130 = call i32 @ACLCheckChannelAgainstList(ptr noundef %85, ptr noundef %87, i32 noundef %conv129, i32 noundef 0)
+  %call130 = call i32 @ACLCheckChannelAgainstList(ptr noundef %92, ptr noundef %94, i32 noundef %conv129, i32 noundef 0)
   store i32 %call130, ptr %res125, align 4
-  %90 = load i32, ptr %res125, align 4
-  %cmp131 = icmp eq i32 %90, 4
+  %97 = load i32, ptr %res125, align 4
+  %cmp131 = icmp eq i32 %97, 4
   %conv132 = zext i1 %cmp131 to i32
   store i32 %conv132, ptr %kill, align 4
   br label %while.cond116, !llvm.loop !55
 
 while.end133:                                     ; preds = %land.end122
-  %91 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %91)
+  %98 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %98)
   br label %if.end134
 
 if.end134:                                        ; preds = %while.end133, %if.end112
-  %92 = load i32, ptr %kill, align 4
-  %tobool135 = icmp ne i32 %92, 0
+  %99 = load i32, ptr %kill, align 4
+  %tobool135 = icmp ne i32 %99, 0
   br i1 %tobool135, label %if.then136, label %if.end137
 
 if.then136:                                       ; preds = %if.end134
-  %93 = load ptr, ptr %c, align 8
-  call void @freeClient(ptr noundef %93)
+  %100 = load ptr, ptr %c, align 8
+  call void @freeClient(ptr noundef %100)
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then136, %if.end134
@@ -7490,8 +7509,8 @@ if.end138:                                        ; preds = %if.end137, %land.lh
   br label %while.cond67, !llvm.loop !56
 
 while.end139:                                     ; preds = %while.cond67
-  %94 = load ptr, ptr %upcoming, align 8
-  call void @listRelease(ptr noundef %94)
+  %101 = load ptr, ptr %upcoming, align 8
+  call void @listRelease(ptr noundef %101)
   br label %return
 
 return:                                           ; preds = %while.end139, %if.then65, %if.then18, %if.then
@@ -8242,8 +8261,9 @@ if.then:                                          ; preds = %while.body
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp5 = icmp slt i32 3, %9
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %10 = load i32, ptr %9, align 8
+  %cmp5 = icmp slt i32 3, %10
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %do.body
@@ -8258,18 +8278,18 @@ do.end:                                           ; preds = %if.end, %if.then6
   br label %return
 
 if.end7:                                          ; preds = %while.body
-  %10 = load ptr, ptr %username, align 8
   %11 = load ptr, ptr %username, align 8
-  %call8 = call i64 @sdslen(ptr noundef %11)
-  %call9 = call ptr @ACLCreateUser(ptr noundef %10, i64 noundef %call8)
+  %12 = load ptr, ptr %username, align 8
+  %call8 = call i64 @sdslen(ptr noundef %12)
+  %call9 = call ptr @ACLCreateUser(ptr noundef %11, i64 noundef %call8)
   store ptr %call9, ptr %u, align 8
-  %12 = load ptr, ptr %u, align 8
-  %tobool10 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %u, align 8
+  %tobool10 = icmp ne ptr %13, null
   br i1 %tobool10, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %13 = load ptr, ptr %username, align 8
-  %call12 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str.88) #13
+  %14 = load ptr, ptr %username, align 8
+  %call12 = call i32 @strcmp(ptr noundef %14, ptr noundef @.str.88) #13
   %tobool13 = icmp ne i32 %call12, 0
   %lnot = xor i1 %tobool13, true
   %lnot14 = xor i1 %lnot, true
@@ -8287,14 +8307,14 @@ cond.false:                                       ; preds = %if.then11
   call void @abort() #11
   unreachable
 
-14:                                               ; No predecessors!
+15:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %14, %cond.true
+cond.end:                                         ; preds = %15, %cond.true
   %call17 = call ptr @ACLGetUserByName(ptr noundef @.str.88, i64 noundef 7)
   store ptr %call17, ptr %u, align 8
-  %15 = load ptr, ptr %u, align 8
-  %call18 = call i32 @ACLSetUser(ptr noundef %15, ptr noundef @.str.70, i64 noundef -1)
+  %16 = load ptr, ptr %u, align 8
+  %call18 = call i32 @ACLSetUser(ptr noundef %16, ptr noundef @.str.70, i64 noundef -1)
   br label %if.end19
 
 if.end19:                                         ; preds = %cond.end, %if.end7
@@ -8302,28 +8322,28 @@ if.end19:                                         ; preds = %cond.end, %if.end7
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end19
-  %16 = load ptr, ptr %aclrules, align 8
-  %17 = load i32, ptr %j, align 4
-  %idxprom = sext i32 %17 to i64
-  %arrayidx20 = getelementptr inbounds ptr, ptr %16, i64 %idxprom
-  %18 = load ptr, ptr %arrayidx20, align 8
-  %tobool21 = icmp ne ptr %18, null
+  %17 = load ptr, ptr %aclrules, align 8
+  %18 = load i32, ptr %j, align 4
+  %idxprom = sext i32 %18 to i64
+  %arrayidx20 = getelementptr inbounds ptr, ptr %17, i64 %idxprom
+  %19 = load ptr, ptr %arrayidx20, align 8
+  %tobool21 = icmp ne ptr %19, null
   br i1 %tobool21, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %19 = load ptr, ptr %u, align 8
-  %20 = load ptr, ptr %aclrules, align 8
-  %21 = load i32, ptr %j, align 4
-  %idxprom22 = sext i32 %21 to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %20, i64 %idxprom22
-  %22 = load ptr, ptr %arrayidx23, align 8
-  %23 = load ptr, ptr %aclrules, align 8
-  %24 = load i32, ptr %j, align 4
-  %idxprom24 = sext i32 %24 to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %23, i64 %idxprom24
-  %25 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i64 @sdslen(ptr noundef %25)
-  %call27 = call i32 @ACLSetUser(ptr noundef %19, ptr noundef %22, i64 noundef %call26)
+  %20 = load ptr, ptr %u, align 8
+  %21 = load ptr, ptr %aclrules, align 8
+  %22 = load i32, ptr %j, align 4
+  %idxprom22 = sext i32 %22 to i64
+  %arrayidx23 = getelementptr inbounds ptr, ptr %21, i64 %idxprom22
+  %23 = load ptr, ptr %arrayidx23, align 8
+  %24 = load ptr, ptr %aclrules, align 8
+  %25 = load i32, ptr %j, align 4
+  %idxprom24 = sext i32 %25 to i64
+  %arrayidx25 = getelementptr inbounds ptr, ptr %24, i64 %idxprom24
+  %26 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i64 @sdslen(ptr noundef %26)
+  %call27 = call i32 @ACLSetUser(ptr noundef %20, ptr noundef %23, i64 noundef %call26)
   %cmp28 = icmp ne i32 %call27, 0
   br i1 %cmp28, label %if.then30, label %if.end41
 
@@ -8333,24 +8353,25 @@ if.then30:                                        ; preds = %for.body
   br label %do.body32
 
 do.body32:                                        ; preds = %if.then30
-  %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp33 = icmp slt i32 3, %26
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %28 = load i32, ptr %27, align 8
+  %cmp33 = icmp slt i32 3, %28
   br i1 %cmp33, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %do.body32
   br label %do.end40
 
 if.end36:                                         ; preds = %do.body32
-  %27 = load ptr, ptr %aclrules, align 8
-  %28 = load i32, ptr %j, align 4
-  %idxprom37 = sext i32 %28 to i64
-  %arrayidx38 = getelementptr inbounds ptr, ptr %27, i64 %idxprom37
-  %29 = load ptr, ptr %arrayidx38, align 8
-  %30 = load ptr, ptr %aclrules, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %30, i64 0
-  %31 = load ptr, ptr %arrayidx39, align 8
-  %32 = load ptr, ptr %errmsg, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.98, ptr noundef %29, ptr noundef %31, ptr noundef %32)
+  %29 = load ptr, ptr %aclrules, align 8
+  %30 = load i32, ptr %j, align 4
+  %idxprom37 = sext i32 %30 to i64
+  %arrayidx38 = getelementptr inbounds ptr, ptr %29, i64 %idxprom37
+  %31 = load ptr, ptr %arrayidx38, align 8
+  %32 = load ptr, ptr %aclrules, align 8
+  %arrayidx39 = getelementptr inbounds ptr, ptr %32, i64 0
+  %33 = load ptr, ptr %arrayidx39, align 8
+  %34 = load ptr, ptr %errmsg, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.98, ptr noundef %31, ptr noundef %33, ptr noundef %34)
   br label %do.end40
 
 do.end40:                                         ; preds = %if.end36, %if.then35
@@ -8361,16 +8382,16 @@ if.end41:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end41
-  %33 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %33, 1
+  %35 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %35, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !65
 
 for.end:                                          ; preds = %for.cond
-  %34 = load ptr, ptr %u, align 8
-  %flags = getelementptr inbounds %struct.user, ptr %34, i32 0, i32 1
-  %35 = load i32, ptr %flags, align 8
-  %and = and i32 %35, 2
+  %36 = load ptr, ptr %u, align 8
+  %flags = getelementptr inbounds %struct.user, ptr %36, i32 0, i32 1
+  %37 = load i32, ptr %flags, align 8
+  %and = and i32 %37, 2
   %tobool42 = icmp ne i32 %and, 0
   br i1 %tobool42, label %if.then43, label %if.end51
 
@@ -8378,18 +8399,19 @@ if.then43:                                        ; preds = %for.end
   br label %do.body44
 
 do.body44:                                        ; preds = %if.then43
-  %36 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp45 = icmp slt i32 2, %36
+  %38 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %39 = load i32, ptr %38, align 8
+  %cmp45 = icmp slt i32 2, %39
   br i1 %cmp45, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %do.body44
   br label %do.end50
 
 if.end48:                                         ; preds = %do.body44
-  %37 = load ptr, ptr %aclrules, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %37, i64 0
-  %38 = load ptr, ptr %arrayidx49, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.99, ptr noundef %38)
+  %40 = load ptr, ptr %aclrules, align 8
+  %arrayidx49 = getelementptr inbounds ptr, ptr %40, i64 0
+  %41 = load ptr, ptr %arrayidx49, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef @.str.99, ptr noundef %41)
   br label %do.end50
 
 do.end50:                                         ; preds = %if.end48, %if.then47
@@ -8403,8 +8425,8 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.end, %do.end40, %do.end
-  %39 = load i32, ptr %retval, align 4
-  ret i32 %39
+  %42 = load i32, ptr %retval, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -8547,116 +8569,120 @@ if.end26:                                         ; preds = %for.body
 
 if.then35:                                        ; preds = %if.end26
   %30 = load ptr, ptr %errors11, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %32 = load i32, ptr %linenum, align 4
-  %call36 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %30, ptr noundef @.str.104, ptr noundef %31, i32 noundef %32)
+  %31 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %linenum, align 4
+  %call36 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %30, ptr noundef @.str.104, ptr noundef %32, i32 noundef %33)
   store ptr %call36, ptr %errors11, align 8
   br label %for.inc120
 
 if.end37:                                         ; preds = %if.end26
-  %33 = load i32, ptr %argc, align 4
-  %cmp38 = icmp eq i32 %33, 0
+  %34 = load i32, ptr %argc, align 4
+  %cmp38 = icmp eq i32 %34, 0
   br i1 %cmp38, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %if.end37
-  %34 = load ptr, ptr %argv, align 8
-  %35 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %34, i32 noundef %35)
+  %35 = load ptr, ptr %argv, align 8
+  %36 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %35, i32 noundef %36)
   br label %for.inc120
 
 if.end41:                                         ; preds = %if.end37
-  %36 = load ptr, ptr %argv, align 8
-  %arrayidx42 = getelementptr inbounds ptr, ptr %36, i64 0
-  %37 = load ptr, ptr %arrayidx42, align 8
-  %call43 = call i32 @strcmp(ptr noundef %37, ptr noundef @.str.95) #13
+  %37 = load ptr, ptr %argv, align 8
+  %arrayidx42 = getelementptr inbounds ptr, ptr %37, i64 0
+  %38 = load ptr, ptr %arrayidx42, align 8
+  %call43 = call i32 @strcmp(ptr noundef %38, ptr noundef @.str.95) #13
   %tobool = icmp ne i32 %call43, 0
   br i1 %tobool, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end41
-  %38 = load i32, ptr %argc, align 4
-  %cmp44 = icmp slt i32 %38, 2
+  %39 = load i32, ptr %argc, align 4
+  %cmp44 = icmp slt i32 %39, 2
   br i1 %cmp44, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %lor.lhs.false, %if.end41
-  %39 = load ptr, ptr %errors11, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %41 = load i32, ptr %linenum, align 4
-  %call47 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %39, ptr noundef @.str.105, ptr noundef %40, i32 noundef %41)
+  %40 = load ptr, ptr %errors11, align 8
+  %41 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %linenum, align 4
+  %call47 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %40, ptr noundef @.str.105, ptr noundef %42, i32 noundef %43)
   store ptr %call47, ptr %errors11, align 8
-  %42 = load ptr, ptr %argv, align 8
-  %43 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %42, i32 noundef %43)
+  %44 = load ptr, ptr %argv, align 8
+  %45 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %44, i32 noundef %45)
   br label %for.inc120
 
 if.end48:                                         ; preds = %lor.lhs.false
-  %44 = load ptr, ptr %argv, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %44, i64 1
-  %45 = load ptr, ptr %arrayidx49, align 8
   %46 = load ptr, ptr %argv, align 8
-  %arrayidx50 = getelementptr inbounds ptr, ptr %46, i64 1
-  %47 = load ptr, ptr %arrayidx50, align 8
-  %call51 = call i64 @sdslen(ptr noundef %47)
-  %call52 = call i32 @ACLStringHasSpaces(ptr noundef %45, i64 noundef %call51)
+  %arrayidx49 = getelementptr inbounds ptr, ptr %46, i64 1
+  %47 = load ptr, ptr %arrayidx49, align 8
+  %48 = load ptr, ptr %argv, align 8
+  %arrayidx50 = getelementptr inbounds ptr, ptr %48, i64 1
+  %49 = load ptr, ptr %arrayidx50, align 8
+  %call51 = call i64 @sdslen(ptr noundef %49)
+  %call52 = call i32 @ACLStringHasSpaces(ptr noundef %47, i64 noundef %call51)
   %tobool53 = icmp ne i32 %call52, 0
   br i1 %tobool53, label %if.then54, label %if.end57
 
 if.then54:                                        ; preds = %if.end48
-  %48 = load ptr, ptr %errors11, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %50 = load i32, ptr %linenum, align 4
-  %51 = load ptr, ptr %argv, align 8
-  %arrayidx55 = getelementptr inbounds ptr, ptr %51, i64 1
-  %52 = load ptr, ptr %arrayidx55, align 8
-  %call56 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %48, ptr noundef @.str.106, ptr noundef %49, i32 noundef %50, ptr noundef %52)
+  %50 = load ptr, ptr %errors11, align 8
+  %51 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %linenum, align 4
+  %54 = load ptr, ptr %argv, align 8
+  %arrayidx55 = getelementptr inbounds ptr, ptr %54, i64 1
+  %55 = load ptr, ptr %arrayidx55, align 8
+  %call56 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %50, ptr noundef @.str.106, ptr noundef %52, i32 noundef %53, ptr noundef %55)
   store ptr %call56, ptr %errors11, align 8
-  %53 = load ptr, ptr %argv, align 8
-  %54 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %53, i32 noundef %54)
+  %56 = load ptr, ptr %argv, align 8
+  %57 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %56, i32 noundef %57)
   br label %for.inc120
 
 if.end57:                                         ; preds = %if.end48
-  %55 = load ptr, ptr %argv, align 8
-  %arrayidx58 = getelementptr inbounds ptr, ptr %55, i64 1
-  %56 = load ptr, ptr %arrayidx58, align 8
-  %57 = load ptr, ptr %argv, align 8
-  %arrayidx59 = getelementptr inbounds ptr, ptr %57, i64 1
-  %58 = load ptr, ptr %arrayidx59, align 8
-  %call60 = call i64 @sdslen(ptr noundef %58)
-  %call61 = call ptr @ACLCreateUser(ptr noundef %56, i64 noundef %call60)
+  %58 = load ptr, ptr %argv, align 8
+  %arrayidx58 = getelementptr inbounds ptr, ptr %58, i64 1
+  %59 = load ptr, ptr %arrayidx58, align 8
+  %60 = load ptr, ptr %argv, align 8
+  %arrayidx59 = getelementptr inbounds ptr, ptr %60, i64 1
+  %61 = load ptr, ptr %arrayidx59, align 8
+  %call60 = call i64 @sdslen(ptr noundef %61)
+  %call61 = call ptr @ACLCreateUser(ptr noundef %59, i64 noundef %call60)
   store ptr %call61, ptr %u, align 8
-  %59 = load ptr, ptr %u, align 8
-  %tobool62 = icmp ne ptr %59, null
+  %62 = load ptr, ptr %u, align 8
+  %tobool62 = icmp ne ptr %62, null
   br i1 %tobool62, label %if.end66, label %if.then63
 
 if.then63:                                        ; preds = %if.end57
-  %60 = load ptr, ptr %errors11, align 8
-  %61 = load ptr, ptr %argv, align 8
-  %arrayidx64 = getelementptr inbounds ptr, ptr %61, i64 1
-  %62 = load ptr, ptr %arrayidx64, align 8
-  %63 = load i32, ptr %linenum, align 4
-  %call65 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %60, ptr noundef @.str.107, ptr noundef %62, i32 noundef %63)
-  store ptr %call65, ptr %errors11, align 8
+  %63 = load ptr, ptr %errors11, align 8
   %64 = load ptr, ptr %argv, align 8
-  %65 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %64, i32 noundef %65)
+  %arrayidx64 = getelementptr inbounds ptr, ptr %64, i64 1
+  %65 = load ptr, ptr %arrayidx64, align 8
+  %66 = load i32, ptr %linenum, align 4
+  %call65 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %63, ptr noundef @.str.107, ptr noundef %65, i32 noundef %66)
+  store ptr %call65, ptr %errors11, align 8
+  %67 = load ptr, ptr %argv, align 8
+  %68 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %67, i32 noundef %68)
   br label %for.inc120
 
 if.end66:                                         ; preds = %if.end57
-  %66 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %66, i64 2
-  %67 = load i32, ptr %argc, align 4
-  %sub = sub nsw i32 %67, 2
+  %69 = load ptr, ptr %argv, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %69, i64 2
+  %70 = load i32, ptr %argc, align 4
+  %sub = sub nsw i32 %70, 2
   %call67 = call ptr @ACLMergeSelectorArguments(ptr noundef %add.ptr, i32 noundef %sub, ptr noundef %merged_argc, ptr noundef null)
   store ptr %call67, ptr %acl_args, align 8
-  %68 = load ptr, ptr %acl_args, align 8
-  %tobool68 = icmp ne ptr %68, null
+  %71 = load ptr, ptr %acl_args, align 8
+  %tobool68 = icmp ne ptr %71, null
   br i1 %tobool68, label %if.end71, label %if.then69
 
 if.then69:                                        ; preds = %if.end66
-  %69 = load ptr, ptr %errors11, align 8
-  %70 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %71 = load i32, ptr %linenum, align 4
-  %call70 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %69, ptr noundef @.str.108, ptr noundef %70, i32 noundef %71)
+  %72 = load ptr, ptr %errors11, align 8
+  %73 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i32, ptr %linenum, align 4
+  %call70 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %72, ptr noundef @.str.108, ptr noundef %74, i32 noundef %75)
   store ptr %call70, ptr %errors11, align 8
   br label %if.end71
 
@@ -8666,36 +8692,36 @@ if.end71:                                         ; preds = %if.then69, %if.end6
   br label %for.cond72
 
 for.cond72:                                       ; preds = %for.inc, %if.end71
-  %72 = load i32, ptr %j, align 4
-  %73 = load i32, ptr %merged_argc, align 4
-  %cmp73 = icmp slt i32 %72, %73
+  %76 = load i32, ptr %j, align 4
+  %77 = load i32, ptr %merged_argc, align 4
+  %cmp73 = icmp slt i32 %76, %77
   br i1 %cmp73, label %for.body75, label %for.end
 
 for.body75:                                       ; preds = %for.cond72
-  %74 = load ptr, ptr %acl_args, align 8
-  %75 = load i32, ptr %j, align 4
-  %idxprom76 = sext i32 %75 to i64
-  %arrayidx77 = getelementptr inbounds ptr, ptr %74, i64 %idxprom76
-  %76 = load ptr, ptr %arrayidx77, align 8
-  %call78 = call ptr @sdstrim(ptr noundef %76, ptr noundef @.str.109)
-  %77 = load ptr, ptr %acl_args, align 8
-  %78 = load i32, ptr %j, align 4
-  %idxprom79 = sext i32 %78 to i64
-  %arrayidx80 = getelementptr inbounds ptr, ptr %77, i64 %idxprom79
+  %78 = load ptr, ptr %acl_args, align 8
+  %79 = load i32, ptr %j, align 4
+  %idxprom76 = sext i32 %79 to i64
+  %arrayidx77 = getelementptr inbounds ptr, ptr %78, i64 %idxprom76
+  %80 = load ptr, ptr %arrayidx77, align 8
+  %call78 = call ptr @sdstrim(ptr noundef %80, ptr noundef @.str.109)
+  %81 = load ptr, ptr %acl_args, align 8
+  %82 = load i32, ptr %j, align 4
+  %idxprom79 = sext i32 %82 to i64
+  %arrayidx80 = getelementptr inbounds ptr, ptr %81, i64 %idxprom79
   store ptr %call78, ptr %arrayidx80, align 8
-  %79 = load ptr, ptr %u, align 8
-  %80 = load ptr, ptr %acl_args, align 8
-  %81 = load i32, ptr %j, align 4
-  %idxprom81 = sext i32 %81 to i64
-  %arrayidx82 = getelementptr inbounds ptr, ptr %80, i64 %idxprom81
-  %82 = load ptr, ptr %arrayidx82, align 8
-  %83 = load ptr, ptr %acl_args, align 8
-  %84 = load i32, ptr %j, align 4
-  %idxprom83 = sext i32 %84 to i64
-  %arrayidx84 = getelementptr inbounds ptr, ptr %83, i64 %idxprom83
-  %85 = load ptr, ptr %arrayidx84, align 8
-  %call85 = call i64 @sdslen(ptr noundef %85)
-  %call86 = call i32 @ACLSetUser(ptr noundef %79, ptr noundef %82, i64 noundef %call85)
+  %83 = load ptr, ptr %u, align 8
+  %84 = load ptr, ptr %acl_args, align 8
+  %85 = load i32, ptr %j, align 4
+  %idxprom81 = sext i32 %85 to i64
+  %arrayidx82 = getelementptr inbounds ptr, ptr %84, i64 %idxprom81
+  %86 = load ptr, ptr %arrayidx82, align 8
+  %87 = load ptr, ptr %acl_args, align 8
+  %88 = load i32, ptr %j, align 4
+  %idxprom83 = sext i32 %88 to i64
+  %arrayidx84 = getelementptr inbounds ptr, ptr %87, i64 %idxprom83
+  %89 = load ptr, ptr %arrayidx84, align 8
+  %call85 = call i64 @sdslen(ptr noundef %89)
+  %call86 = call i32 @ACLSetUser(ptr noundef %83, ptr noundef %86, i64 noundef %call85)
   %cmp87 = icmp ne i32 %call86, 0
   br i1 %cmp87, label %if.then89, label %if.end104
 
@@ -8703,35 +8729,37 @@ if.then89:                                        ; preds = %for.body75
   %call90 = call ptr @ACLSetUserStringError()
   store ptr %call90, ptr %errmsg, align 8
   %call91 = call ptr @__errno_location() #12
-  %86 = load i32, ptr %call91, align 4
-  %cmp92 = icmp eq i32 %86, 2
+  %90 = load i32, ptr %call91, align 4
+  %cmp92 = icmp eq i32 %90, 2
   br i1 %cmp92, label %if.then94, label %if.else
 
 if.then94:                                        ; preds = %if.then89
-  %87 = load ptr, ptr %errors11, align 8
-  %88 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %89 = load i32, ptr %linenum, align 4
-  %90 = load ptr, ptr %acl_args, align 8
-  %91 = load i32, ptr %j, align 4
-  %idxprom95 = sext i32 %91 to i64
-  %arrayidx96 = getelementptr inbounds ptr, ptr %90, i64 %idxprom95
-  %92 = load ptr, ptr %arrayidx96, align 8
-  %93 = load ptr, ptr %errmsg, align 8
-  %call97 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %87, ptr noundef @.str.110, ptr noundef %88, i32 noundef %89, ptr noundef %92, ptr noundef %93)
+  %91 = load ptr, ptr %errors11, align 8
+  %92 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i32, ptr %linenum, align 4
+  %95 = load ptr, ptr %acl_args, align 8
+  %96 = load i32, ptr %j, align 4
+  %idxprom95 = sext i32 %96 to i64
+  %arrayidx96 = getelementptr inbounds ptr, ptr %95, i64 %idxprom95
+  %97 = load ptr, ptr %arrayidx96, align 8
+  %98 = load ptr, ptr %errmsg, align 8
+  %call97 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %91, ptr noundef @.str.110, ptr noundef %93, i32 noundef %94, ptr noundef %97, ptr noundef %98)
   store ptr %call97, ptr %errors11, align 8
   br label %if.end103
 
 if.else:                                          ; preds = %if.then89
-  %94 = load i32, ptr %syntax_error, align 4
-  %cmp98 = icmp eq i32 %94, 0
+  %99 = load i32, ptr %syntax_error, align 4
+  %cmp98 = icmp eq i32 %99, 0
   br i1 %cmp98, label %if.then100, label %if.end102
 
 if.then100:                                       ; preds = %if.else
-  %95 = load ptr, ptr %errors11, align 8
-  %96 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %97 = load i32, ptr %linenum, align 4
-  %98 = load ptr, ptr %errmsg, align 8
-  %call101 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %95, ptr noundef @.str.111, ptr noundef %96, i32 noundef %97, ptr noundef %98)
+  %100 = load ptr, ptr %errors11, align 8
+  %101 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %102 = load ptr, ptr %101, align 8
+  %103 = load i32, ptr %linenum, align 4
+  %104 = load ptr, ptr %errmsg, align 8
+  %call101 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %100, ptr noundef @.str.111, ptr noundef %102, i32 noundef %103, ptr noundef %104)
   store ptr %call101, ptr %errors11, align 8
   store i32 1, ptr %syntax_error, align 4
   br label %if.end102
@@ -8746,8 +8774,8 @@ if.end104:                                        ; preds = %if.end103, %for.bod
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end104
-  %99 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %99, 1
+  %105 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %105, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond72, !llvm.loop !68
 
@@ -8756,66 +8784,66 @@ for.end:                                          ; preds = %for.cond72
   br label %for.cond106
 
 for.cond106:                                      ; preds = %for.inc112, %for.end
-  %100 = load i32, ptr %i105, align 4
-  %101 = load i32, ptr %merged_argc, align 4
-  %cmp107 = icmp slt i32 %100, %101
+  %106 = load i32, ptr %i105, align 4
+  %107 = load i32, ptr %merged_argc, align 4
+  %cmp107 = icmp slt i32 %106, %107
   br i1 %cmp107, label %for.body109, label %for.end114
 
 for.body109:                                      ; preds = %for.cond106
-  %102 = load ptr, ptr %acl_args, align 8
-  %103 = load i32, ptr %i105, align 4
-  %idxprom110 = sext i32 %103 to i64
-  %arrayidx111 = getelementptr inbounds ptr, ptr %102, i64 %idxprom110
-  %104 = load ptr, ptr %arrayidx111, align 8
-  call void @sdsfree(ptr noundef %104)
+  %108 = load ptr, ptr %acl_args, align 8
+  %109 = load i32, ptr %i105, align 4
+  %idxprom110 = sext i32 %109 to i64
+  %arrayidx111 = getelementptr inbounds ptr, ptr %108, i64 %idxprom110
+  %110 = load ptr, ptr %arrayidx111, align 8
+  call void @sdsfree(ptr noundef %110)
   br label %for.inc112
 
 for.inc112:                                       ; preds = %for.body109
-  %105 = load i32, ptr %i105, align 4
-  %inc113 = add nsw i32 %105, 1
+  %111 = load i32, ptr %i105, align 4
+  %inc113 = add nsw i32 %111, 1
   store i32 %inc113, ptr %i105, align 4
   br label %for.cond106, !llvm.loop !69
 
 for.end114:                                       ; preds = %for.cond106
-  %106 = load ptr, ptr %acl_args, align 8
-  call void @zfree(ptr noundef %106)
-  %107 = load ptr, ptr %errors11, align 8
-  %call115 = call i64 @sdslen(ptr noundef %107)
+  %112 = load ptr, ptr %acl_args, align 8
+  call void @zfree(ptr noundef %112)
+  %113 = load ptr, ptr %errors11, align 8
+  %call115 = call i64 @sdslen(ptr noundef %113)
   %cmp116 = icmp ne i64 %call115, 0
   br i1 %cmp116, label %if.then118, label %if.end119
 
 if.then118:                                       ; preds = %for.end114
-  %108 = load ptr, ptr %argv, align 8
-  %109 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %108, i32 noundef %109)
+  %114 = load ptr, ptr %argv, align 8
+  %115 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %114, i32 noundef %115)
   br label %for.inc120
 
 if.end119:                                        ; preds = %for.end114
-  %110 = load ptr, ptr %argv, align 8
-  %111 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef %110, i32 noundef %111)
+  %116 = load ptr, ptr %argv, align 8
+  %117 = load i32, ptr %argc, align 4
+  call void @sdsfreesplitres(ptr noundef %116, i32 noundef %117)
   br label %for.inc120
 
 for.inc120:                                       ; preds = %if.end119, %if.then118, %if.then63, %if.then54, %if.then46, %if.then40, %if.then35, %if.then25
-  %112 = load i32, ptr %i, align 4
-  %inc121 = add nsw i32 %112, 1
+  %118 = load i32, ptr %i, align 4
+  %inc121 = add nsw i32 %118, 1
   store i32 %inc121, ptr %i, align 4
   br label %for.cond, !llvm.loop !70
 
 for.end122:                                       ; preds = %for.cond
-  %113 = load ptr, ptr %lines, align 8
-  %114 = load i32, ptr %totlines, align 4
-  call void @sdsfreesplitres(ptr noundef %113, i32 noundef %114)
-  %115 = load ptr, ptr %errors11, align 8
-  %call123 = call i64 @sdslen(ptr noundef %115)
+  %119 = load ptr, ptr %lines, align 8
+  %120 = load i32, ptr %totlines, align 4
+  call void @sdsfreesplitres(ptr noundef %119, i32 noundef %120)
+  %121 = load ptr, ptr %errors11, align 8
+  %call123 = call i64 @sdslen(ptr noundef %121)
   %cmp124 = icmp eq i64 %call123, 0
   br i1 %cmp124, label %if.then126, label %if.else134
 
 if.then126:                                       ; preds = %for.end122
   %call127 = call ptr @ACLGetUserByName(ptr noundef @.str.88, i64 noundef 7)
   store ptr %call127, ptr %new_default, align 8
-  %116 = load ptr, ptr %new_default, align 8
-  %tobool128 = icmp ne ptr %116, null
+  %122 = load ptr, ptr %new_default, align 8
+  %tobool128 = icmp ne ptr %122, null
   br i1 %tobool128, label %if.end131, label %if.then129
 
 if.then129:                                       ; preds = %if.then126
@@ -8824,38 +8852,38 @@ if.then129:                                       ; preds = %if.then126
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %if.then126
-  %117 = load ptr, ptr @DefaultUser, align 8
-  %118 = load ptr, ptr %new_default, align 8
-  call void @ACLCopyUser(ptr noundef %117, ptr noundef %118)
-  %119 = load ptr, ptr %new_default, align 8
-  call void @ACLFreeUser(ptr noundef %119)
-  %120 = load ptr, ptr @Users, align 8
-  %121 = load ptr, ptr @DefaultUser, align 8
-  %call132 = call i32 @raxInsert(ptr noundef %120, ptr noundef @.str.88, i64 noundef 7, ptr noundef %121, ptr noundef null)
-  %122 = load ptr, ptr %old_users, align 8
-  %call133 = call i32 @raxRemove(ptr noundef %122, ptr noundef @.str.88, i64 noundef 7, ptr noundef null)
-  %123 = load ptr, ptr %old_users, align 8
-  call void @ACLFreeUsersSet(ptr noundef %123)
-  %124 = load ptr, ptr %errors11, align 8
-  call void @sdsfree(ptr noundef %124)
+  %123 = load ptr, ptr @DefaultUser, align 8
+  %124 = load ptr, ptr %new_default, align 8
+  call void @ACLCopyUser(ptr noundef %123, ptr noundef %124)
+  %125 = load ptr, ptr %new_default, align 8
+  call void @ACLFreeUser(ptr noundef %125)
+  %126 = load ptr, ptr @Users, align 8
+  %127 = load ptr, ptr @DefaultUser, align 8
+  %call132 = call i32 @raxInsert(ptr noundef %126, ptr noundef @.str.88, i64 noundef 7, ptr noundef %127, ptr noundef null)
+  %128 = load ptr, ptr %old_users, align 8
+  %call133 = call i32 @raxRemove(ptr noundef %128, ptr noundef @.str.88, i64 noundef 7, ptr noundef null)
+  %129 = load ptr, ptr %old_users, align 8
+  call void @ACLFreeUsersSet(ptr noundef %129)
+  %130 = load ptr, ptr %errors11, align 8
+  call void @sdsfree(ptr noundef %130)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.else134:                                       ; preds = %for.end122
-  %125 = load ptr, ptr @Users, align 8
-  call void @ACLFreeUsersSet(ptr noundef %125)
-  %126 = load ptr, ptr %old_users, align 8
-  store ptr %126, ptr @Users, align 8
-  %127 = load ptr, ptr %errors11, align 8
-  %call135 = call ptr @sdscat(ptr noundef %127, ptr noundef @.str.112)
+  %131 = load ptr, ptr @Users, align 8
+  call void @ACLFreeUsersSet(ptr noundef %131)
+  %132 = load ptr, ptr %old_users, align 8
+  store ptr %132, ptr @Users, align 8
+  %133 = load ptr, ptr %errors11, align 8
+  %call135 = call ptr @sdscat(ptr noundef %133, ptr noundef @.str.112)
   store ptr %call135, ptr %errors11, align 8
-  %128 = load ptr, ptr %errors11, align 8
-  store ptr %128, ptr %retval, align 8
+  %134 = load ptr, ptr %errors11, align 8
+  store ptr %134, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else134, %if.end131, %if.then
-  %129 = load ptr, ptr %retval, align 8
-  ret ptr %129
+  %135 = load ptr, ptr %retval, align 8
+  ret ptr %135
 }
 
 declare noalias ptr @fopen64(ptr noundef, ptr noundef) #1
@@ -8960,8 +8988,9 @@ if.then:                                          ; preds = %while.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp16 = icmp slt i32 3, %18
+  %18 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %19 = load i32, ptr %18, align 8
+  %cmp16 = icmp slt i32 3, %19
   br i1 %cmp16, label %if.then17, label %if.end
 
 if.then17:                                        ; preds = %do.body
@@ -8969,8 +8998,8 @@ if.then17:                                        ; preds = %do.body
 
 if.end:                                           ; preds = %do.body
   %call18 = call ptr @__errno_location() #12
-  %19 = load i32, ptr %call18, align 4
-  %call19 = call ptr @strerror(i32 noundef %19) #15
+  %20 = load i32, ptr %call18, align 4
+  %call19 = call ptr @strerror(i32 noundef %20) #15
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.115, ptr noundef %call19)
   br label %do.end
 
@@ -8982,31 +9011,31 @@ if.end20:                                         ; preds = %while.end
   br label %while.cond21
 
 while.cond21:                                     ; preds = %if.end40, %if.then31, %if.end20
-  %20 = load i64, ptr %offset, align 8
-  %21 = load ptr, ptr %acl, align 8
-  %call22 = call i64 @sdslen(ptr noundef %21)
-  %cmp23 = icmp ult i64 %20, %call22
+  %21 = load i64, ptr %offset, align 8
+  %22 = load ptr, ptr %acl, align 8
+  %call22 = call i64 @sdslen(ptr noundef %22)
+  %cmp23 = icmp ult i64 %21, %call22
   br i1 %cmp23, label %while.body24, label %while.end41
 
 while.body24:                                     ; preds = %while.cond21
-  %22 = load i32, ptr %fd, align 4
-  %23 = load ptr, ptr %acl, align 8
-  %24 = load i64, ptr %offset, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %23, i64 %24
-  %25 = load ptr, ptr %acl, align 8
-  %call25 = call i64 @sdslen(ptr noundef %25)
-  %26 = load i64, ptr %offset, align 8
-  %sub = sub i64 %call25, %26
-  %call26 = call i64 @write(i32 noundef %22, ptr noundef %add.ptr, i64 noundef %sub)
+  %23 = load i32, ptr %fd, align 4
+  %24 = load ptr, ptr %acl, align 8
+  %25 = load i64, ptr %offset, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %24, i64 %25
+  %26 = load ptr, ptr %acl, align 8
+  %call25 = call i64 @sdslen(ptr noundef %26)
+  %27 = load i64, ptr %offset, align 8
+  %sub = sub i64 %call25, %27
+  %call26 = call i64 @write(i32 noundef %23, ptr noundef %add.ptr, i64 noundef %sub)
   store i64 %call26, ptr %written_bytes, align 8
-  %27 = load i64, ptr %written_bytes, align 8
-  %cmp27 = icmp sle i64 %27, 0
+  %28 = load i64, ptr %written_bytes, align 8
+  %cmp27 = icmp sle i64 %28, 0
   br i1 %cmp27, label %if.then28, label %if.end40
 
 if.then28:                                        ; preds = %while.body24
   %call29 = call ptr @__errno_location() #12
-  %28 = load i32, ptr %call29, align 4
-  %cmp30 = icmp eq i32 %28, 4
+  %29 = load i32, ptr %call29, align 4
+  %cmp30 = icmp eq i32 %29, 4
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.then28
@@ -9016,8 +9045,9 @@ if.end32:                                         ; preds = %if.then28
   br label %do.body33
 
 do.body33:                                        ; preds = %if.end32
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp34 = icmp slt i32 3, %29
+  %30 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %31 = load i32, ptr %30, align 8
+  %cmp34 = icmp slt i32 3, %31
   br i1 %cmp34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %do.body33
@@ -9025,8 +9055,8 @@ if.then35:                                        ; preds = %do.body33
 
 if.end36:                                         ; preds = %do.body33
   %call37 = call ptr @__errno_location() #12
-  %30 = load i32, ptr %call37, align 4
-  %call38 = call ptr @strerror(i32 noundef %30) #15
+  %32 = load i32, ptr %call37, align 4
+  %call38 = call ptr @strerror(i32 noundef %32) #15
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.116, ptr noundef %call38)
   br label %do.end39
 
@@ -9034,15 +9064,15 @@ do.end39:                                         ; preds = %if.end36, %if.then3
   br label %cleanup
 
 if.end40:                                         ; preds = %while.body24
-  %31 = load i64, ptr %written_bytes, align 8
-  %32 = load i64, ptr %offset, align 8
-  %add = add i64 %32, %31
+  %33 = load i64, ptr %written_bytes, align 8
+  %34 = load i64, ptr %offset, align 8
+  %add = add i64 %34, %33
   store i64 %add, ptr %offset, align 8
   br label %while.cond21, !llvm.loop !72
 
 while.end41:                                      ; preds = %while.cond21
-  %33 = load i32, ptr %fd, align 4
-  %call42 = call i32 @fdatasync(i32 noundef %33)
+  %35 = load i32, ptr %fd, align 4
+  %call42 = call i32 @fdatasync(i32 noundef %35)
   %cmp43 = icmp eq i32 %call42, -1
   br i1 %cmp43, label %if.then44, label %if.end52
 
@@ -9050,8 +9080,9 @@ if.then44:                                        ; preds = %while.end41
   br label %do.body45
 
 do.body45:                                        ; preds = %if.then44
-  %34 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp46 = icmp slt i32 3, %34
+  %36 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %37 = load i32, ptr %36, align 8
+  %cmp46 = icmp slt i32 3, %37
   br i1 %cmp46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %do.body45
@@ -9059,8 +9090,8 @@ if.then47:                                        ; preds = %do.body45
 
 if.end48:                                         ; preds = %do.body45
   %call49 = call ptr @__errno_location() #12
-  %35 = load i32, ptr %call49, align 4
-  %call50 = call ptr @strerror(i32 noundef %35) #15
+  %38 = load i32, ptr %call49, align 4
+  %call50 = call ptr @strerror(i32 noundef %38) #15
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.117, ptr noundef %call50)
   br label %do.end51
 
@@ -9068,12 +9099,12 @@ do.end51:                                         ; preds = %if.end48, %if.then4
   br label %cleanup
 
 if.end52:                                         ; preds = %while.end41
-  %36 = load i32, ptr %fd, align 4
-  %call53 = call i32 @close(i32 noundef %36)
+  %39 = load i32, ptr %fd, align 4
+  %call53 = call i32 @close(i32 noundef %39)
   store i32 -1, ptr %fd, align 4
-  %37 = load ptr, ptr %tmpfilename, align 8
-  %38 = load ptr, ptr %filename.addr, align 8
-  %call54 = call i32 @rename(ptr noundef %37, ptr noundef %38) #15
+  %40 = load ptr, ptr %tmpfilename, align 8
+  %41 = load ptr, ptr %filename.addr, align 8
+  %call54 = call i32 @rename(ptr noundef %40, ptr noundef %41) #15
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %if.then56, label %if.end64
 
@@ -9081,8 +9112,9 @@ if.then56:                                        ; preds = %if.end52
   br label %do.body57
 
 do.body57:                                        ; preds = %if.then56
-  %39 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp58 = icmp slt i32 3, %39
+  %42 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %43 = load i32, ptr %42, align 8
+  %cmp58 = icmp slt i32 3, %43
   br i1 %cmp58, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %do.body57
@@ -9090,8 +9122,8 @@ if.then59:                                        ; preds = %do.body57
 
 if.end60:                                         ; preds = %do.body57
   %call61 = call ptr @__errno_location() #12
-  %40 = load i32, ptr %call61, align 4
-  %call62 = call ptr @strerror(i32 noundef %40) #15
+  %44 = load i32, ptr %call61, align 4
+  %call62 = call ptr @strerror(i32 noundef %44) #15
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.118, ptr noundef %call62)
   br label %do.end63
 
@@ -9099,8 +9131,8 @@ do.end63:                                         ; preds = %if.end60, %if.then5
   br label %cleanup
 
 if.end64:                                         ; preds = %if.end52
-  %41 = load ptr, ptr %filename.addr, align 8
-  %call65 = call i32 @fsyncFileDir(ptr noundef %41)
+  %45 = load ptr, ptr %filename.addr, align 8
+  %call65 = call i32 @fsyncFileDir(ptr noundef %45)
   %cmp66 = icmp eq i32 %call65, -1
   br i1 %cmp66, label %if.then67, label %if.end75
 
@@ -9108,8 +9140,9 @@ if.then67:                                        ; preds = %if.end64
   br label %do.body68
 
 do.body68:                                        ; preds = %if.then67
-  %42 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp69 = icmp slt i32 3, %42
+  %46 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %47 = load i32, ptr %46, align 8
+  %cmp69 = icmp slt i32 3, %47
   br i1 %cmp69, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %do.body68
@@ -9117,8 +9150,8 @@ if.then70:                                        ; preds = %do.body68
 
 if.end71:                                         ; preds = %do.body68
   %call72 = call ptr @__errno_location() #12
-  %43 = load i32, ptr %call72, align 4
-  %call73 = call ptr @strerror(i32 noundef %43) #15
+  %48 = load i32, ptr %call72, align 4
+  %call73 = call ptr @strerror(i32 noundef %48) #15
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.119, ptr noundef %call73)
   br label %do.end74
 
@@ -9126,39 +9159,39 @@ do.end74:                                         ; preds = %if.end71, %if.then7
   br label %cleanup
 
 if.end75:                                         ; preds = %if.end64
-  %44 = load ptr, ptr %tmpfilename, align 8
-  call void @sdsfree(ptr noundef %44)
+  %49 = load ptr, ptr %tmpfilename, align 8
+  call void @sdsfree(ptr noundef %49)
   store ptr null, ptr %tmpfilename, align 8
   store i32 0, ptr %retval1, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end75, %do.end74, %do.end63, %do.end51, %do.end39, %do.end
-  %45 = load i32, ptr %fd, align 4
-  %cmp76 = icmp ne i32 %45, -1
+  %50 = load i32, ptr %fd, align 4
+  %cmp76 = icmp ne i32 %50, -1
   br i1 %cmp76, label %if.then77, label %if.end79
 
 if.then77:                                        ; preds = %cleanup
-  %46 = load i32, ptr %fd, align 4
-  %call78 = call i32 @close(i32 noundef %46)
+  %51 = load i32, ptr %fd, align 4
+  %call78 = call i32 @close(i32 noundef %51)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then77, %cleanup
-  %47 = load ptr, ptr %tmpfilename, align 8
-  %tobool80 = icmp ne ptr %47, null
+  %52 = load ptr, ptr %tmpfilename, align 8
+  %tobool80 = icmp ne ptr %52, null
   br i1 %tobool80, label %if.then81, label %if.end83
 
 if.then81:                                        ; preds = %if.end79
-  %48 = load ptr, ptr %tmpfilename, align 8
-  %call82 = call i32 @unlink(ptr noundef %48) #15
+  %53 = load ptr, ptr %tmpfilename, align 8
+  %call82 = call i32 @unlink(ptr noundef %53) #15
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then81, %if.end79
-  %49 = load ptr, ptr %tmpfilename, align 8
-  call void @sdsfree(ptr noundef %49)
-  %50 = load ptr, ptr %acl, align 8
-  call void @sdsfree(ptr noundef %50)
-  %51 = load i32, ptr %retval1, align 4
-  ret i32 %51
+  %54 = load ptr, ptr %tmpfilename, align 8
+  call void @sdsfree(ptr noundef %54)
+  %55 = load ptr, ptr %acl, align 8
+  call void @sdsfree(ptr noundef %55)
+  %56 = load i32, ptr %retval1, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind
@@ -9186,26 +9219,28 @@ declare i32 @unlink(ptr noundef) #8
 define dso_local void @ACLLoadUsersAtStartup() #0 {
 entry:
   %errors = alloca ptr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 0
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %1 to i32
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
+  %2 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %2 to i32
   %cmp = icmp ne i32 %conv, 0
   br i1 %cmp, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr @UsersToLoad, align 8
-  %len = getelementptr inbounds %struct.list, ptr %2, i32 0, i32 5
-  %3 = load i64, ptr %len, align 8
-  %cmp2 = icmp ne i64 %3, 0
+  %3 = load ptr, ptr @UsersToLoad, align 8
+  %len = getelementptr inbounds %struct.list, ptr %3, i32 0, i32 5
+  %4 = load i64, ptr %len, align 8
+  %cmp2 = icmp ne i64 %4, 0
   br i1 %cmp2, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %land.lhs.true
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp4 = icmp slt i32 3, %4
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %6 = load i32, ptr %5, align 8
+  %cmp4 = icmp slt i32 3, %6
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %do.body
@@ -9228,8 +9263,9 @@ if.then10:                                        ; preds = %if.end7
   br label %do.body11
 
 do.body11:                                        ; preds = %if.then10
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp12 = icmp slt i32 3, %5
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %8 = load i32, ptr %7, align 8
+  %cmp12 = icmp slt i32 3, %8
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %do.body11
@@ -9244,40 +9280,43 @@ do.end16:                                         ; preds = %if.end15, %if.then1
   unreachable
 
 if.end17:                                         ; preds = %if.end7
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %6, i64 0
-  %7 = load i8, ptr %arrayidx18, align 1
-  %conv19 = sext i8 %7 to i32
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %10 = load ptr, ptr %9, align 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %10, i64 0
+  %11 = load i8, ptr %arrayidx18, align 1
+  %conv19 = sext i8 %11 to i32
   %cmp20 = icmp ne i32 %conv19, 0
   br i1 %cmp20, label %if.then22, label %if.end32
 
 if.then22:                                        ; preds = %if.end17
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %call23 = call ptr @ACLLoadFromFile(ptr noundef %8)
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %13 = load ptr, ptr %12, align 8
+  %call23 = call ptr @ACLLoadFromFile(ptr noundef %13)
   store ptr %call23, ptr %errors, align 8
-  %9 = load ptr, ptr %errors, align 8
-  %tobool = icmp ne ptr %9, null
+  %14 = load ptr, ptr %errors, align 8
+  %tobool = icmp ne ptr %14, null
   br i1 %tobool, label %if.then24, label %if.end31
 
 if.then24:                                        ; preds = %if.then22
   br label %do.body25
 
 do.body25:                                        ; preds = %if.then24
-  %10 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp26 = icmp slt i32 3, %10
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %16 = load i32, ptr %15, align 8
+  %cmp26 = icmp slt i32 3, %16
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %do.body25
   br label %do.end30
 
 if.end29:                                         ; preds = %do.body25
-  %11 = load ptr, ptr %errors, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.122, ptr noundef %11)
+  %17 = load ptr, ptr %errors, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.122, ptr noundef %17)
   br label %do.end30
 
 do.end30:                                         ; preds = %if.end29, %if.then28
-  %12 = load ptr, ptr %errors, align 8
-  call void @sdsfree(ptr noundef %12)
+  %18 = load ptr, ptr %errors, align 8
+  call void @sdsfree(ptr noundef %18)
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -9429,42 +9468,50 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399), align 8
-  %inc = add nsw i64 %1, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399), align 8
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399
+  %2 = load i64, ptr %1, align 8
+  %inc = add nsw i64 %2, 1
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399
+  store i64 %inc, ptr %3, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %reason.addr, align 4
-  %cmp1 = icmp eq i32 %2, 1
+  %4 = load i32, ptr %reason.addr, align 4
+  %cmp1 = icmp eq i32 %4, 1
   br i1 %cmp1, label %if.then2, label %if.else4
 
 if.then2:                                         ; preds = %if.else
-  %3 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 1), align 8
-  %inc3 = add nsw i64 %3, 1
-  store i64 %inc3, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 1), align 8
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 1
+  %6 = load i64, ptr %5, align 8
+  %inc3 = add nsw i64 %6, 1
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 1
+  store i64 %inc3, ptr %7, align 8
   br label %if.end14
 
 if.else4:                                         ; preds = %if.else
-  %4 = load i32, ptr %reason.addr, align 4
-  %cmp5 = icmp eq i32 %4, 2
+  %8 = load i32, ptr %reason.addr, align 4
+  %cmp5 = icmp eq i32 %8, 2
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.else4
-  %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 2), align 8
-  %inc7 = add nsw i64 %5, 1
-  store i64 %inc7, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 2), align 8
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 2
+  %10 = load i64, ptr %9, align 8
+  %inc7 = add nsw i64 %10, 1
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 2
+  store i64 %inc7, ptr %11, align 8
   br label %if.end13
 
 if.else8:                                         ; preds = %if.else4
-  %6 = load i32, ptr %reason.addr, align 4
-  %cmp9 = icmp eq i32 %6, 4
+  %12 = load i32, ptr %reason.addr, align 4
+  %cmp9 = icmp eq i32 %12, 4
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else8
-  %7 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 3), align 8
-  %inc11 = add nsw i64 %7, 1
-  store i64 %inc11, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 399, i32 3), align 8
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 3
+  %14 = load i64, ptr %13, align 8
+  %inc11 = add nsw i64 %14, 1
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 399, i32 3
+  store i64 %inc11, ptr %15, align 8
   br label %if.end
 
 if.else12:                                        ; preds = %if.else8
@@ -10511,247 +10558,251 @@ if.end212:                                        ; preds = %if.else211, %if.the
   br label %if.end492
 
 if.else213:                                       ; preds = %land.lhs.true198, %if.else195
-  %185 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %arrayidx214 = getelementptr inbounds i8, ptr %185, i64 0
-  %186 = load i8, ptr %arrayidx214, align 1
-  %conv215 = sext i8 %186 to i32
+  %185 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %186 = load ptr, ptr %185, align 8
+  %arrayidx214 = getelementptr inbounds i8, ptr %186, i64 0
+  %187 = load i8, ptr %arrayidx214, align 1
+  %conv215 = sext i8 %187 to i32
   %cmp216 = icmp eq i32 %conv215, 0
   br i1 %cmp216, label %land.lhs.true218, label %if.else225
 
 land.lhs.true218:                                 ; preds = %if.else213
-  %187 = load ptr, ptr %sub, align 8
-  %call219 = call i32 @strcasecmp(ptr noundef %187, ptr noundef @.str.144) #13
+  %188 = load ptr, ptr %sub, align 8
+  %call219 = call i32 @strcasecmp(ptr noundef %188, ptr noundef @.str.144) #13
   %tobool220 = icmp ne i32 %call219, 0
   br i1 %tobool220, label %lor.lhs.false221, label %if.then224
 
 lor.lhs.false221:                                 ; preds = %land.lhs.true218
-  %188 = load ptr, ptr %sub, align 8
-  %call222 = call i32 @strcasecmp(ptr noundef %188, ptr noundef @.str.145) #13
+  %189 = load ptr, ptr %sub, align 8
+  %call222 = call i32 @strcasecmp(ptr noundef %189, ptr noundef @.str.145) #13
   %tobool223 = icmp ne i32 %call222, 0
   br i1 %tobool223, label %if.else225, label %if.then224
 
 if.then224:                                       ; preds = %lor.lhs.false221, %land.lhs.true218
-  %189 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %189, ptr noundef @.str.146)
+  %190 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %190, ptr noundef @.str.146)
   br label %if.end496
 
 if.else225:                                       ; preds = %lor.lhs.false221, %if.else213
-  %190 = load ptr, ptr %sub, align 8
-  %call226 = call i32 @strcasecmp(ptr noundef %190, ptr noundef @.str.144) #13
+  %191 = load ptr, ptr %sub, align 8
+  %call226 = call i32 @strcasecmp(ptr noundef %191, ptr noundef @.str.144) #13
   %tobool227 = icmp ne i32 %call226, 0
   br i1 %tobool227, label %if.else239, label %land.lhs.true228
 
 land.lhs.true228:                                 ; preds = %if.else225
-  %191 = load ptr, ptr %c.addr, align 8
-  %argc229 = getelementptr inbounds %struct.client, ptr %191, i32 0, i32 11
-  %192 = load i32, ptr %argc229, align 8
-  %cmp230 = icmp eq i32 %192, 2
+  %192 = load ptr, ptr %c.addr, align 8
+  %argc229 = getelementptr inbounds %struct.client, ptr %192, i32 0, i32 11
+  %193 = load i32, ptr %argc229, align 8
+  %cmp230 = icmp eq i32 %193, 2
   br i1 %cmp230, label %if.then232, label %if.else239
 
 if.then232:                                       ; preds = %land.lhs.true228
-  %193 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %call233 = call ptr @ACLLoadFromFile(ptr noundef %193)
+  %194 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %195 = load ptr, ptr %194, align 8
+  %call233 = call ptr @ACLLoadFromFile(ptr noundef %195)
   store ptr %call233, ptr %errors, align 8
-  %194 = load ptr, ptr %errors, align 8
-  %cmp234 = icmp eq ptr %194, null
+  %196 = load ptr, ptr %errors, align 8
+  %cmp234 = icmp eq ptr %196, null
   br i1 %cmp234, label %if.then236, label %if.else237
 
 if.then236:                                       ; preds = %if.then232
-  %195 = load ptr, ptr %c.addr, align 8
-  %196 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %195, ptr noundef %196)
+  %197 = load ptr, ptr %c.addr, align 8
+  %198 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %197, ptr noundef %198)
   br label %if.end238
 
 if.else237:                                       ; preds = %if.then232
-  %197 = load ptr, ptr %c.addr, align 8
-  %198 = load ptr, ptr %errors, align 8
-  call void @addReplyError(ptr noundef %197, ptr noundef %198)
-  %199 = load ptr, ptr %errors, align 8
-  call void @sdsfree(ptr noundef %199)
+  %199 = load ptr, ptr %c.addr, align 8
+  %200 = load ptr, ptr %errors, align 8
+  call void @addReplyError(ptr noundef %199, ptr noundef %200)
+  %201 = load ptr, ptr %errors, align 8
+  call void @sdsfree(ptr noundef %201)
   br label %if.end238
 
 if.end238:                                        ; preds = %if.else237, %if.then236
   br label %if.end490
 
 if.else239:                                       ; preds = %land.lhs.true228, %if.else225
-  %200 = load ptr, ptr %sub, align 8
-  %call240 = call i32 @strcasecmp(ptr noundef %200, ptr noundef @.str.145) #13
+  %202 = load ptr, ptr %sub, align 8
+  %call240 = call i32 @strcasecmp(ptr noundef %202, ptr noundef @.str.145) #13
   %tobool241 = icmp ne i32 %call240, 0
   br i1 %tobool241, label %if.else253, label %land.lhs.true242
 
 land.lhs.true242:                                 ; preds = %if.else239
-  %201 = load ptr, ptr %c.addr, align 8
-  %argc243 = getelementptr inbounds %struct.client, ptr %201, i32 0, i32 11
-  %202 = load i32, ptr %argc243, align 8
-  %cmp244 = icmp eq i32 %202, 2
+  %203 = load ptr, ptr %c.addr, align 8
+  %argc243 = getelementptr inbounds %struct.client, ptr %203, i32 0, i32 11
+  %204 = load i32, ptr %argc243, align 8
+  %cmp244 = icmp eq i32 %204, 2
   br i1 %cmp244, label %if.then246, label %if.else253
 
 if.then246:                                       ; preds = %land.lhs.true242
-  %203 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 395), align 8
-  %call247 = call i32 @ACLSaveToFile(ptr noundef %203)
+  %205 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 395
+  %206 = load ptr, ptr %205, align 8
+  %call247 = call i32 @ACLSaveToFile(ptr noundef %206)
   %cmp248 = icmp eq i32 %call247, 0
   br i1 %cmp248, label %if.then250, label %if.else251
 
 if.then250:                                       ; preds = %if.then246
-  %204 = load ptr, ptr %c.addr, align 8
-  %205 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %204, ptr noundef %205)
+  %207 = load ptr, ptr %c.addr, align 8
+  %208 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %207, ptr noundef %208)
   br label %if.end252
 
 if.else251:                                       ; preds = %if.then246
-  %206 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %206, ptr noundef @.str.147)
+  %209 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %209, ptr noundef @.str.147)
   br label %if.end252
 
 if.end252:                                        ; preds = %if.else251, %if.then250
   br label %if.end489
 
 if.else253:                                       ; preds = %land.lhs.true242, %if.else239
-  %207 = load ptr, ptr %sub, align 8
-  %call254 = call i32 @strcasecmp(ptr noundef %207, ptr noundef @.str.148) #13
+  %210 = load ptr, ptr %sub, align 8
+  %call254 = call i32 @strcasecmp(ptr noundef %210, ptr noundef @.str.148) #13
   %tobool255 = icmp ne i32 %call254, 0
   br i1 %tobool255, label %if.else277, label %land.lhs.true256
 
 land.lhs.true256:                                 ; preds = %if.else253
-  %208 = load ptr, ptr %c.addr, align 8
-  %argc257 = getelementptr inbounds %struct.client, ptr %208, i32 0, i32 11
-  %209 = load i32, ptr %argc257, align 8
-  %cmp258 = icmp eq i32 %209, 2
+  %211 = load ptr, ptr %c.addr, align 8
+  %argc257 = getelementptr inbounds %struct.client, ptr %211, i32 0, i32 11
+  %212 = load i32, ptr %argc257, align 8
+  %cmp258 = icmp eq i32 %212, 2
   br i1 %cmp258, label %if.then260, label %if.else277
 
 if.then260:                                       ; preds = %land.lhs.true256
-  %210 = load ptr, ptr %c.addr, align 8
-  %call261 = call ptr @addReplyDeferredLen(ptr noundef %210)
+  %213 = load ptr, ptr %c.addr, align 8
+  %call261 = call ptr @addReplyDeferredLen(ptr noundef %213)
   store ptr %call261, ptr %dl, align 8
   store i32 0, ptr %j262, align 4
   br label %for.cond263
 
 for.cond263:                                      ; preds = %for.inc273, %if.then260
-  %211 = load ptr, ptr @ACLCommandCategories, align 8
-  %212 = load i32, ptr %j262, align 4
-  %idxprom264 = sext i32 %212 to i64
-  %arrayidx265 = getelementptr inbounds %struct.ACLCategoryItem, ptr %211, i64 %idxprom264
+  %214 = load ptr, ptr @ACLCommandCategories, align 8
+  %215 = load i32, ptr %j262, align 4
+  %idxprom264 = sext i32 %215 to i64
+  %arrayidx265 = getelementptr inbounds %struct.ACLCategoryItem, ptr %214, i64 %idxprom264
   %flag266 = getelementptr inbounds %struct.ACLCategoryItem, ptr %arrayidx265, i32 0, i32 1
-  %213 = load i64, ptr %flag266, align 8
-  %cmp267 = icmp ne i64 %213, 0
+  %216 = load i64, ptr %flag266, align 8
+  %cmp267 = icmp ne i64 %216, 0
   br i1 %cmp267, label %for.body269, label %for.end275
 
 for.body269:                                      ; preds = %for.cond263
-  %214 = load ptr, ptr %c.addr, align 8
-  %215 = load ptr, ptr @ACLCommandCategories, align 8
-  %216 = load i32, ptr %j262, align 4
-  %idxprom270 = sext i32 %216 to i64
-  %arrayidx271 = getelementptr inbounds %struct.ACLCategoryItem, ptr %215, i64 %idxprom270
+  %217 = load ptr, ptr %c.addr, align 8
+  %218 = load ptr, ptr @ACLCommandCategories, align 8
+  %219 = load i32, ptr %j262, align 4
+  %idxprom270 = sext i32 %219 to i64
+  %arrayidx271 = getelementptr inbounds %struct.ACLCategoryItem, ptr %218, i64 %idxprom270
   %name272 = getelementptr inbounds %struct.ACLCategoryItem, ptr %arrayidx271, i32 0, i32 0
-  %217 = load ptr, ptr %name272, align 8
-  call void @addReplyBulkCString(ptr noundef %214, ptr noundef %217)
+  %220 = load ptr, ptr %name272, align 8
+  call void @addReplyBulkCString(ptr noundef %217, ptr noundef %220)
   br label %for.inc273
 
 for.inc273:                                       ; preds = %for.body269
-  %218 = load i32, ptr %j262, align 4
-  %inc274 = add nsw i32 %218, 1
+  %221 = load i32, ptr %j262, align 4
+  %inc274 = add nsw i32 %221, 1
   store i32 %inc274, ptr %j262, align 4
   br label %for.cond263, !llvm.loop !85
 
 for.end275:                                       ; preds = %for.cond263
-  %219 = load ptr, ptr %c.addr, align 8
-  %220 = load ptr, ptr %dl, align 8
-  %221 = load i32, ptr %j262, align 4
-  %conv276 = sext i32 %221 to i64
-  call void @setDeferredArrayLen(ptr noundef %219, ptr noundef %220, i64 noundef %conv276)
+  %222 = load ptr, ptr %c.addr, align 8
+  %223 = load ptr, ptr %dl, align 8
+  %224 = load i32, ptr %j262, align 4
+  %conv276 = sext i32 %224 to i64
+  call void @setDeferredArrayLen(ptr noundef %222, ptr noundef %223, i64 noundef %conv276)
   br label %if.end488
 
 if.else277:                                       ; preds = %land.lhs.true256, %if.else253
-  %222 = load ptr, ptr %sub, align 8
-  %call278 = call i32 @strcasecmp(ptr noundef %222, ptr noundef @.str.148) #13
+  %225 = load ptr, ptr %sub, align 8
+  %call278 = call i32 @strcasecmp(ptr noundef %225, ptr noundef @.str.148) #13
   %tobool279 = icmp ne i32 %call278, 0
   br i1 %tobool279, label %if.else299, label %land.lhs.true280
 
 land.lhs.true280:                                 ; preds = %if.else277
-  %223 = load ptr, ptr %c.addr, align 8
-  %argc281 = getelementptr inbounds %struct.client, ptr %223, i32 0, i32 11
-  %224 = load i32, ptr %argc281, align 8
-  %cmp282 = icmp eq i32 %224, 3
+  %226 = load ptr, ptr %c.addr, align 8
+  %argc281 = getelementptr inbounds %struct.client, ptr %226, i32 0, i32 11
+  %227 = load i32, ptr %argc281, align 8
+  %cmp282 = icmp eq i32 %227, 3
   br i1 %cmp282, label %if.then284, label %if.else299
 
 if.then284:                                       ; preds = %land.lhs.true280
-  %225 = load ptr, ptr %c.addr, align 8
-  %argv285 = getelementptr inbounds %struct.client, ptr %225, i32 0, i32 12
-  %226 = load ptr, ptr %argv285, align 8
-  %arrayidx286 = getelementptr inbounds ptr, ptr %226, i64 2
-  %227 = load ptr, ptr %arrayidx286, align 8
-  %ptr287 = getelementptr inbounds %struct.redisObject, ptr %227, i32 0, i32 2
-  %228 = load ptr, ptr %ptr287, align 8
-  %call288 = call i64 @ACLGetCommandCategoryFlagByName(ptr noundef %228)
+  %228 = load ptr, ptr %c.addr, align 8
+  %argv285 = getelementptr inbounds %struct.client, ptr %228, i32 0, i32 12
+  %229 = load ptr, ptr %argv285, align 8
+  %arrayidx286 = getelementptr inbounds ptr, ptr %229, i64 2
+  %230 = load ptr, ptr %arrayidx286, align 8
+  %ptr287 = getelementptr inbounds %struct.redisObject, ptr %230, i32 0, i32 2
+  %231 = load ptr, ptr %ptr287, align 8
+  %call288 = call i64 @ACLGetCommandCategoryFlagByName(ptr noundef %231)
   store i64 %call288, ptr %cflag, align 8
-  %229 = load i64, ptr %cflag, align 8
-  %cmp289 = icmp eq i64 %229, 0
+  %232 = load i64, ptr %cflag, align 8
+  %cmp289 = icmp eq i64 %232, 0
   br i1 %cmp289, label %if.then291, label %if.end295
 
 if.then291:                                       ; preds = %if.then284
-  %230 = load ptr, ptr %c.addr, align 8
-  %231 = load ptr, ptr %c.addr, align 8
-  %argv292 = getelementptr inbounds %struct.client, ptr %231, i32 0, i32 12
-  %232 = load ptr, ptr %argv292, align 8
-  %arrayidx293 = getelementptr inbounds ptr, ptr %232, i64 2
-  %233 = load ptr, ptr %arrayidx293, align 8
-  %ptr294 = getelementptr inbounds %struct.redisObject, ptr %233, i32 0, i32 2
-  %234 = load ptr, ptr %ptr294, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %230, ptr noundef @.str.149, ptr noundef %234)
+  %233 = load ptr, ptr %c.addr, align 8
+  %234 = load ptr, ptr %c.addr, align 8
+  %argv292 = getelementptr inbounds %struct.client, ptr %234, i32 0, i32 12
+  %235 = load ptr, ptr %argv292, align 8
+  %arrayidx293 = getelementptr inbounds ptr, ptr %235, i64 2
+  %236 = load ptr, ptr %arrayidx293, align 8
+  %ptr294 = getelementptr inbounds %struct.redisObject, ptr %236, i32 0, i32 2
+  %237 = load ptr, ptr %ptr294, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %233, ptr noundef @.str.149, ptr noundef %237)
   br label %if.end496
 
 if.end295:                                        ; preds = %if.then284
   store i32 0, ptr %arraylen, align 4
-  %235 = load ptr, ptr %c.addr, align 8
-  %call297 = call ptr @addReplyDeferredLen(ptr noundef %235)
+  %238 = load ptr, ptr %c.addr, align 8
+  %call297 = call ptr @addReplyDeferredLen(ptr noundef %238)
   store ptr %call297, ptr %dl296, align 8
-  %236 = load ptr, ptr %c.addr, align 8
-  %237 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 13), align 8
-  %238 = load i64, ptr %cflag, align 8
-  call void @aclCatWithFlags(ptr noundef %236, ptr noundef %237, i64 noundef %238, ptr noundef %arraylen)
   %239 = load ptr, ptr %c.addr, align 8
-  %240 = load ptr, ptr %dl296, align 8
-  %241 = load i32, ptr %arraylen, align 4
-  %conv298 = sext i32 %241 to i64
-  call void @setDeferredArrayLen(ptr noundef %239, ptr noundef %240, i64 noundef %conv298)
+  %240 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 13
+  %241 = load ptr, ptr %240, align 8
+  %242 = load i64, ptr %cflag, align 8
+  call void @aclCatWithFlags(ptr noundef %239, ptr noundef %241, i64 noundef %242, ptr noundef %arraylen)
+  %243 = load ptr, ptr %c.addr, align 8
+  %244 = load ptr, ptr %dl296, align 8
+  %245 = load i32, ptr %arraylen, align 4
+  %conv298 = sext i32 %245 to i64
+  call void @setDeferredArrayLen(ptr noundef %243, ptr noundef %244, i64 noundef %conv298)
   br label %if.end487
 
 if.else299:                                       ; preds = %land.lhs.true280, %if.else277
-  %242 = load ptr, ptr %sub, align 8
-  %call300 = call i32 @strcasecmp(ptr noundef %242, ptr noundef @.str.150) #13
+  %246 = load ptr, ptr %sub, align 8
+  %call300 = call i32 @strcasecmp(ptr noundef %246, ptr noundef @.str.150) #13
   %tobool301 = icmp ne i32 %call300, 0
   br i1 %tobool301, label %if.else331, label %land.lhs.true302
 
 land.lhs.true302:                                 ; preds = %if.else299
-  %243 = load ptr, ptr %c.addr, align 8
-  %argc303 = getelementptr inbounds %struct.client, ptr %243, i32 0, i32 11
-  %244 = load i32, ptr %argc303, align 8
-  %cmp304 = icmp eq i32 %244, 2
+  %247 = load ptr, ptr %c.addr, align 8
+  %argc303 = getelementptr inbounds %struct.client, ptr %247, i32 0, i32 11
+  %248 = load i32, ptr %argc303, align 8
+  %cmp304 = icmp eq i32 %248, 2
   br i1 %cmp304, label %if.then310, label %lor.lhs.false306
 
 lor.lhs.false306:                                 ; preds = %land.lhs.true302
-  %245 = load ptr, ptr %c.addr, align 8
-  %argc307 = getelementptr inbounds %struct.client, ptr %245, i32 0, i32 11
-  %246 = load i32, ptr %argc307, align 8
-  %cmp308 = icmp eq i32 %246, 3
+  %249 = load ptr, ptr %c.addr, align 8
+  %argc307 = getelementptr inbounds %struct.client, ptr %249, i32 0, i32 11
+  %250 = load i32, ptr %argc307, align 8
+  %cmp308 = icmp eq i32 %250, 3
   br i1 %cmp308, label %if.then310, label %if.else331
 
 if.then310:                                       ; preds = %lor.lhs.false306, %land.lhs.true302
   store i64 256, ptr %bits, align 8
-  %247 = load ptr, ptr %c.addr, align 8
-  %argc311 = getelementptr inbounds %struct.client, ptr %247, i32 0, i32 11
-  %248 = load i32, ptr %argc311, align 8
-  %cmp312 = icmp eq i32 %248, 3
+  %251 = load ptr, ptr %c.addr, align 8
+  %argc311 = getelementptr inbounds %struct.client, ptr %251, i32 0, i32 11
+  %252 = load i32, ptr %argc311, align 8
+  %cmp312 = icmp eq i32 %252, 3
   br i1 %cmp312, label %land.lhs.true314, label %if.end321
 
 land.lhs.true314:                                 ; preds = %if.then310
-  %249 = load ptr, ptr %c.addr, align 8
-  %250 = load ptr, ptr %c.addr, align 8
-  %argv315 = getelementptr inbounds %struct.client, ptr %250, i32 0, i32 12
-  %251 = load ptr, ptr %argv315, align 8
-  %arrayidx316 = getelementptr inbounds ptr, ptr %251, i64 2
-  %252 = load ptr, ptr %arrayidx316, align 8
-  %call317 = call i32 @getLongFromObjectOrReply(ptr noundef %249, ptr noundef %252, ptr noundef %bits, ptr noundef null)
+  %253 = load ptr, ptr %c.addr, align 8
+  %254 = load ptr, ptr %c.addr, align 8
+  %argv315 = getelementptr inbounds %struct.client, ptr %254, i32 0, i32 12
+  %255 = load ptr, ptr %argv315, align 8
+  %arrayidx316 = getelementptr inbounds ptr, ptr %255, i64 2
+  %256 = load ptr, ptr %arrayidx316, align 8
+  %call317 = call i32 @getLongFromObjectOrReply(ptr noundef %253, ptr noundef %256, ptr noundef %bits, ptr noundef null)
   %cmp318 = icmp ne i32 %call317, 0
   br i1 %cmp318, label %if.then320, label %if.end321
 
@@ -10759,96 +10810,96 @@ if.then320:                                       ; preds = %land.lhs.true314
   br label %if.end496
 
 if.end321:                                        ; preds = %land.lhs.true314, %if.then310
-  %253 = load i64, ptr %bits, align 8
-  %cmp322 = icmp sle i64 %253, 0
+  %257 = load i64, ptr %bits, align 8
+  %cmp322 = icmp sle i64 %257, 0
   br i1 %cmp322, label %if.then327, label %lor.lhs.false324
 
 lor.lhs.false324:                                 ; preds = %if.end321
-  %254 = load i64, ptr %bits, align 8
-  %cmp325 = icmp sgt i64 %254, 4096
+  %258 = load i64, ptr %bits, align 8
+  %cmp325 = icmp sgt i64 %258, 4096
   br i1 %cmp325, label %if.then327, label %if.end328
 
 if.then327:                                       ; preds = %lor.lhs.false324, %if.end321
-  %255 = load ptr, ptr %c.addr, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %255, ptr noundef @.str.151, i32 noundef 4096)
+  %259 = load ptr, ptr %c.addr, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %259, ptr noundef @.str.151, i32 noundef 4096)
   br label %if.end496
 
 if.end328:                                        ; preds = %lor.lhs.false324
-  %256 = load i64, ptr %bits, align 8
-  %add329 = add nsw i64 %256, 3
+  %260 = load i64, ptr %bits, align 8
+  %add329 = add nsw i64 %260, 3
   %div = sdiv i64 %add329, 4
   store i64 %div, ptr %chars, align 8
   %arraydecay = getelementptr inbounds [1024 x i8], ptr %pass, i64 0, i64 0
-  %257 = load i64, ptr %chars, align 8
-  call void @getRandomHexChars(ptr noundef %arraydecay, i64 noundef %257)
-  %258 = load ptr, ptr %c.addr, align 8
+  %261 = load i64, ptr %chars, align 8
+  call void @getRandomHexChars(ptr noundef %arraydecay, i64 noundef %261)
+  %262 = load ptr, ptr %c.addr, align 8
   %arraydecay330 = getelementptr inbounds [1024 x i8], ptr %pass, i64 0, i64 0
-  %259 = load i64, ptr %chars, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %258, ptr noundef %arraydecay330, i64 noundef %259)
+  %263 = load i64, ptr %chars, align 8
+  call void @addReplyBulkCBuffer(ptr noundef %262, ptr noundef %arraydecay330, i64 noundef %263)
   br label %if.end486
 
 if.else331:                                       ; preds = %lor.lhs.false306, %if.else299
-  %260 = load ptr, ptr %sub, align 8
-  %call332 = call i32 @strcasecmp(ptr noundef %260, ptr noundef @.str.152) #13
+  %264 = load ptr, ptr %sub, align 8
+  %call332 = call i32 @strcasecmp(ptr noundef %264, ptr noundef @.str.152) #13
   %tobool333 = icmp ne i32 %call332, 0
   br i1 %tobool333, label %if.else406, label %land.lhs.true334
 
 land.lhs.true334:                                 ; preds = %if.else331
-  %261 = load ptr, ptr %c.addr, align 8
-  %argc335 = getelementptr inbounds %struct.client, ptr %261, i32 0, i32 11
-  %262 = load i32, ptr %argc335, align 8
-  %cmp336 = icmp eq i32 %262, 2
+  %265 = load ptr, ptr %c.addr, align 8
+  %argc335 = getelementptr inbounds %struct.client, ptr %265, i32 0, i32 11
+  %266 = load i32, ptr %argc335, align 8
+  %cmp336 = icmp eq i32 %266, 2
   br i1 %cmp336, label %if.then342, label %lor.lhs.false338
 
 lor.lhs.false338:                                 ; preds = %land.lhs.true334
-  %263 = load ptr, ptr %c.addr, align 8
-  %argc339 = getelementptr inbounds %struct.client, ptr %263, i32 0, i32 11
-  %264 = load i32, ptr %argc339, align 8
-  %cmp340 = icmp eq i32 %264, 3
+  %267 = load ptr, ptr %c.addr, align 8
+  %argc339 = getelementptr inbounds %struct.client, ptr %267, i32 0, i32 11
+  %268 = load i32, ptr %argc339, align 8
+  %cmp340 = icmp eq i32 %268, 3
   br i1 %cmp340, label %if.then342, label %if.else406
 
 if.then342:                                       ; preds = %lor.lhs.false338, %land.lhs.true334
   store i64 10, ptr %count, align 8
-  %265 = load ptr, ptr %c.addr, align 8
-  %argc343 = getelementptr inbounds %struct.client, ptr %265, i32 0, i32 11
-  %266 = load i32, ptr %argc343, align 8
-  %cmp344 = icmp eq i32 %266, 3
+  %269 = load ptr, ptr %c.addr, align 8
+  %argc343 = getelementptr inbounds %struct.client, ptr %269, i32 0, i32 11
+  %270 = load i32, ptr %argc343, align 8
+  %cmp344 = icmp eq i32 %270, 3
   br i1 %cmp344, label %if.then346, label %if.end367
 
 if.then346:                                       ; preds = %if.then342
-  %267 = load ptr, ptr %c.addr, align 8
-  %argv347 = getelementptr inbounds %struct.client, ptr %267, i32 0, i32 12
-  %268 = load ptr, ptr %argv347, align 8
-  %arrayidx348 = getelementptr inbounds ptr, ptr %268, i64 2
-  %269 = load ptr, ptr %arrayidx348, align 8
-  %ptr349 = getelementptr inbounds %struct.redisObject, ptr %269, i32 0, i32 2
-  %270 = load ptr, ptr %ptr349, align 8
-  %call350 = call i32 @strcasecmp(ptr noundef %270, ptr noundef @.str.70) #13
+  %271 = load ptr, ptr %c.addr, align 8
+  %argv347 = getelementptr inbounds %struct.client, ptr %271, i32 0, i32 12
+  %272 = load ptr, ptr %argv347, align 8
+  %arrayidx348 = getelementptr inbounds ptr, ptr %272, i64 2
+  %273 = load ptr, ptr %arrayidx348, align 8
+  %ptr349 = getelementptr inbounds %struct.redisObject, ptr %273, i32 0, i32 2
+  %274 = load ptr, ptr %ptr349, align 8
+  %call350 = call i32 @strcasecmp(ptr noundef %274, ptr noundef @.str.70) #13
   %tobool351 = icmp ne i32 %call350, 0
   br i1 %tobool351, label %if.else354, label %if.then352
 
 if.then352:                                       ; preds = %if.then346
-  %271 = load ptr, ptr @ACLLog, align 8
-  %free = getelementptr inbounds %struct.list, ptr %271, i32 0, i32 3
+  %275 = load ptr, ptr @ACLLog, align 8
+  %free = getelementptr inbounds %struct.list, ptr %275, i32 0, i32 3
   store ptr @ACLFreeLogEntry, ptr %free, align 8
-  %272 = load ptr, ptr @ACLLog, align 8
-  call void @listEmpty(ptr noundef %272)
-  %273 = load ptr, ptr @ACLLog, align 8
-  %free353 = getelementptr inbounds %struct.list, ptr %273, i32 0, i32 3
+  %276 = load ptr, ptr @ACLLog, align 8
+  call void @listEmpty(ptr noundef %276)
+  %277 = load ptr, ptr @ACLLog, align 8
+  %free353 = getelementptr inbounds %struct.list, ptr %277, i32 0, i32 3
   store ptr null, ptr %free353, align 8
-  %274 = load ptr, ptr %c.addr, align 8
-  %275 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %274, ptr noundef %275)
+  %278 = load ptr, ptr %c.addr, align 8
+  %279 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %278, ptr noundef %279)
   br label %if.end496
 
 if.else354:                                       ; preds = %if.then346
-  %276 = load ptr, ptr %c.addr, align 8
-  %277 = load ptr, ptr %c.addr, align 8
-  %argv355 = getelementptr inbounds %struct.client, ptr %277, i32 0, i32 12
-  %278 = load ptr, ptr %argv355, align 8
-  %arrayidx356 = getelementptr inbounds ptr, ptr %278, i64 2
-  %279 = load ptr, ptr %arrayidx356, align 8
-  %call357 = call i32 @getLongFromObjectOrReply(ptr noundef %276, ptr noundef %279, ptr noundef %count, ptr noundef null)
+  %280 = load ptr, ptr %c.addr, align 8
+  %281 = load ptr, ptr %c.addr, align 8
+  %argv355 = getelementptr inbounds %struct.client, ptr %281, i32 0, i32 12
+  %282 = load ptr, ptr %argv355, align 8
+  %arrayidx356 = getelementptr inbounds ptr, ptr %282, i64 2
+  %283 = load ptr, ptr %arrayidx356, align 8
+  %call357 = call i32 @getLongFromObjectOrReply(ptr noundef %280, ptr noundef %283, ptr noundef %count, ptr noundef null)
   %cmp358 = icmp ne i32 %call357, 0
   br i1 %cmp358, label %if.then360, label %if.end361
 
@@ -10859,8 +10910,8 @@ if.end361:                                        ; preds = %if.else354
   br label %if.end362
 
 if.end362:                                        ; preds = %if.end361
-  %280 = load i64, ptr %count, align 8
-  %cmp363 = icmp slt i64 %280, 0
+  %284 = load i64, ptr %count, align 8
+  %cmp363 = icmp slt i64 %284, 0
   br i1 %cmp363, label %if.then365, label %if.end366
 
 if.then365:                                       ; preds = %if.end362
@@ -10871,35 +10922,35 @@ if.end366:                                        ; preds = %if.then365, %if.end
   br label %if.end367
 
 if.end367:                                        ; preds = %if.end366, %if.then342
-  %281 = load i64, ptr %count, align 8
-  %282 = load ptr, ptr @ACLLog, align 8
-  %len368 = getelementptr inbounds %struct.list, ptr %282, i32 0, i32 5
-  %283 = load i64, ptr %len368, align 8
-  %cmp369 = icmp ugt i64 %281, %283
+  %285 = load i64, ptr %count, align 8
+  %286 = load ptr, ptr @ACLLog, align 8
+  %len368 = getelementptr inbounds %struct.list, ptr %286, i32 0, i32 5
+  %287 = load i64, ptr %len368, align 8
+  %cmp369 = icmp ugt i64 %285, %287
   br i1 %cmp369, label %if.then371, label %if.end373
 
 if.then371:                                       ; preds = %if.end367
-  %284 = load ptr, ptr @ACLLog, align 8
-  %len372 = getelementptr inbounds %struct.list, ptr %284, i32 0, i32 5
-  %285 = load i64, ptr %len372, align 8
-  store i64 %285, ptr %count, align 8
+  %288 = load ptr, ptr @ACLLog, align 8
+  %len372 = getelementptr inbounds %struct.list, ptr %288, i32 0, i32 5
+  %289 = load i64, ptr %len372, align 8
+  store i64 %289, ptr %count, align 8
   br label %if.end373
 
 if.end373:                                        ; preds = %if.then371, %if.end367
-  %286 = load ptr, ptr %c.addr, align 8
-  %287 = load i64, ptr %count, align 8
-  call void @addReplyArrayLen(ptr noundef %286, i64 noundef %287)
-  %288 = load ptr, ptr @ACLLog, align 8
-  call void @listRewind(ptr noundef %288, ptr noundef %li374)
+  %290 = load ptr, ptr %c.addr, align 8
+  %291 = load i64, ptr %count, align 8
+  call void @addReplyArrayLen(ptr noundef %290, i64 noundef %291)
+  %292 = load ptr, ptr @ACLLog, align 8
+  call void @listRewind(ptr noundef %292, ptr noundef %li374)
   %call376 = call i64 @commandTimeSnapshot()
   store i64 %call376, ptr %now, align 8
   br label %while.cond377
 
 while.cond377:                                    ; preds = %sw.epilog393, %if.end373
-  %289 = load i64, ptr %count, align 8
-  %dec = add nsw i64 %289, -1
+  %293 = load i64, ptr %count, align 8
+  %dec = add nsw i64 %293, -1
   store i64 %dec, ptr %count, align 8
-  %tobool378 = icmp ne i64 %289, 0
+  %tobool378 = icmp ne i64 %293, 0
   br i1 %tobool378, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond377
@@ -10909,29 +10960,29 @@ land.rhs:                                         ; preds = %while.cond377
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond377
-  %290 = phi i1 [ false, %while.cond377 ], [ %cmp380, %land.rhs ]
-  br i1 %290, label %while.body382, label %while.end405
+  %294 = phi i1 [ false, %while.cond377 ], [ %cmp380, %land.rhs ]
+  br i1 %294, label %while.body382, label %while.end405
 
 while.body382:                                    ; preds = %land.end
-  %291 = load ptr, ptr %ln375, align 8
-  %value383 = getelementptr inbounds %struct.listNode, ptr %291, i32 0, i32 2
-  %292 = load ptr, ptr %value383, align 8
-  store ptr %292, ptr %le, align 8
-  %293 = load ptr, ptr %c.addr, align 8
-  call void @addReplyMapLen(ptr noundef %293, i64 noundef 10)
-  %294 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %294, ptr noundef @.str.153)
-  %295 = load ptr, ptr %c.addr, align 8
-  %296 = load ptr, ptr %le, align 8
-  %count384 = getelementptr inbounds %struct.ACLLogEntry, ptr %296, i32 0, i32 0
-  %297 = load i64, ptr %count384, align 8
-  call void @addReplyLongLong(ptr noundef %295, i64 noundef %297)
+  %295 = load ptr, ptr %ln375, align 8
+  %value383 = getelementptr inbounds %struct.listNode, ptr %295, i32 0, i32 2
+  %296 = load ptr, ptr %value383, align 8
+  store ptr %296, ptr %le, align 8
+  %297 = load ptr, ptr %c.addr, align 8
+  call void @addReplyMapLen(ptr noundef %297, i64 noundef 10)
   %298 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %298, ptr noundef @.str.154)
-  %299 = load ptr, ptr %le, align 8
-  %reason = getelementptr inbounds %struct.ACLLogEntry, ptr %299, i32 0, i32 1
-  %300 = load i32, ptr %reason, align 8
-  switch i32 %300, label %sw.default [
+  call void @addReplyBulkCString(ptr noundef %298, ptr noundef @.str.153)
+  %299 = load ptr, ptr %c.addr, align 8
+  %300 = load ptr, ptr %le, align 8
+  %count384 = getelementptr inbounds %struct.ACLLogEntry, ptr %300, i32 0, i32 0
+  %301 = load i64, ptr %count384, align 8
+  call void @addReplyLongLong(ptr noundef %299, i64 noundef %301)
+  %302 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %302, ptr noundef @.str.154)
+  %303 = load ptr, ptr %le, align 8
+  %reason = getelementptr inbounds %struct.ACLLogEntry, ptr %303, i32 0, i32 1
+  %304 = load i32, ptr %reason, align 8
+  switch i32 %304, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb385
     i32 4, label %sw.bb386
@@ -10959,15 +11010,15 @@ sw.default:                                       ; preds = %while.body382
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb387, %sw.bb386, %sw.bb385, %sw.bb
-  %301 = load ptr, ptr %c.addr, align 8
-  %302 = load ptr, ptr %reasonstr, align 8
-  call void @addReplyBulkCString(ptr noundef %301, ptr noundef %302)
-  %303 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %303, ptr noundef @.str.160)
-  %304 = load ptr, ptr %le, align 8
-  %context = getelementptr inbounds %struct.ACLLogEntry, ptr %304, i32 0, i32 2
-  %305 = load i32, ptr %context, align 4
-  switch i32 %305, label %sw.default392 [
+  %305 = load ptr, ptr %c.addr, align 8
+  %306 = load ptr, ptr %reasonstr, align 8
+  call void @addReplyBulkCString(ptr noundef %305, ptr noundef %306)
+  %307 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %307, ptr noundef @.str.160)
+  %308 = load ptr, ptr %le, align 8
+  %context = getelementptr inbounds %struct.ACLLogEntry, ptr %308, i32 0, i32 2
+  %309 = load i32, ptr %context, align 4
+  switch i32 %309, label %sw.default392 [
     i32 0, label %sw.bb388
     i32 2, label %sw.bb389
     i32 1, label %sw.bb390
@@ -10995,259 +11046,259 @@ sw.default392:                                    ; preds = %sw.epilog
   br label %sw.epilog393
 
 sw.epilog393:                                     ; preds = %sw.default392, %sw.bb391, %sw.bb390, %sw.bb389, %sw.bb388
-  %306 = load ptr, ptr %c.addr, align 8
-  %307 = load ptr, ptr %ctxstr, align 8
-  call void @addReplyBulkCString(ptr noundef %306, ptr noundef %307)
-  %308 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %308, ptr noundef @.str.165)
-  %309 = load ptr, ptr %c.addr, align 8
-  %310 = load ptr, ptr %le, align 8
-  %object = getelementptr inbounds %struct.ACLLogEntry, ptr %310, i32 0, i32 3
-  %311 = load ptr, ptr %object, align 8
-  %312 = load ptr, ptr %le, align 8
-  %object394 = getelementptr inbounds %struct.ACLLogEntry, ptr %312, i32 0, i32 3
-  %313 = load ptr, ptr %object394, align 8
-  %call395 = call i64 @sdslen(ptr noundef %313)
-  call void @addReplyBulkCBuffer(ptr noundef %309, ptr noundef %311, i64 noundef %call395)
-  %314 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %314, ptr noundef @.str.166)
-  %315 = load ptr, ptr %c.addr, align 8
+  %310 = load ptr, ptr %c.addr, align 8
+  %311 = load ptr, ptr %ctxstr, align 8
+  call void @addReplyBulkCString(ptr noundef %310, ptr noundef %311)
+  %312 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %312, ptr noundef @.str.165)
+  %313 = load ptr, ptr %c.addr, align 8
+  %314 = load ptr, ptr %le, align 8
+  %object = getelementptr inbounds %struct.ACLLogEntry, ptr %314, i32 0, i32 3
+  %315 = load ptr, ptr %object, align 8
   %316 = load ptr, ptr %le, align 8
-  %username396 = getelementptr inbounds %struct.ACLLogEntry, ptr %316, i32 0, i32 4
-  %317 = load ptr, ptr %username396, align 8
-  %318 = load ptr, ptr %le, align 8
-  %username397 = getelementptr inbounds %struct.ACLLogEntry, ptr %318, i32 0, i32 4
-  %319 = load ptr, ptr %username397, align 8
-  %call398 = call i64 @sdslen(ptr noundef %319)
-  call void @addReplyBulkCBuffer(ptr noundef %315, ptr noundef %317, i64 noundef %call398)
-  %320 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %320, ptr noundef @.str.167)
-  %321 = load i64, ptr %now, align 8
+  %object394 = getelementptr inbounds %struct.ACLLogEntry, ptr %316, i32 0, i32 3
+  %317 = load ptr, ptr %object394, align 8
+  %call395 = call i64 @sdslen(ptr noundef %317)
+  call void @addReplyBulkCBuffer(ptr noundef %313, ptr noundef %315, i64 noundef %call395)
+  %318 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %318, ptr noundef @.str.166)
+  %319 = load ptr, ptr %c.addr, align 8
+  %320 = load ptr, ptr %le, align 8
+  %username396 = getelementptr inbounds %struct.ACLLogEntry, ptr %320, i32 0, i32 4
+  %321 = load ptr, ptr %username396, align 8
   %322 = load ptr, ptr %le, align 8
-  %ctime = getelementptr inbounds %struct.ACLLogEntry, ptr %322, i32 0, i32 5
-  %323 = load i64, ptr %ctime, align 8
-  %sub399 = sub nsw i64 %321, %323
+  %username397 = getelementptr inbounds %struct.ACLLogEntry, ptr %322, i32 0, i32 4
+  %323 = load ptr, ptr %username397, align 8
+  %call398 = call i64 @sdslen(ptr noundef %323)
+  call void @addReplyBulkCBuffer(ptr noundef %319, ptr noundef %321, i64 noundef %call398)
+  %324 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %324, ptr noundef @.str.167)
+  %325 = load i64, ptr %now, align 8
+  %326 = load ptr, ptr %le, align 8
+  %ctime = getelementptr inbounds %struct.ACLLogEntry, ptr %326, i32 0, i32 5
+  %327 = load i64, ptr %ctime, align 8
+  %sub399 = sub nsw i64 %325, %327
   %conv400 = sitofp i64 %sub399 to double
   %div401 = fdiv double %conv400, 1.000000e+03
   store double %div401, ptr %age, align 8
-  %324 = load ptr, ptr %c.addr, align 8
-  %325 = load double, ptr %age, align 8
-  call void @addReplyDouble(ptr noundef %324, double noundef %325)
-  %326 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %326, ptr noundef @.str.168)
-  %327 = load ptr, ptr %c.addr, align 8
-  %328 = load ptr, ptr %le, align 8
-  %cinfo = getelementptr inbounds %struct.ACLLogEntry, ptr %328, i32 0, i32 6
-  %329 = load ptr, ptr %cinfo, align 8
-  %330 = load ptr, ptr %le, align 8
-  %cinfo402 = getelementptr inbounds %struct.ACLLogEntry, ptr %330, i32 0, i32 6
-  %331 = load ptr, ptr %cinfo402, align 8
-  %call403 = call i64 @sdslen(ptr noundef %331)
-  call void @addReplyBulkCBuffer(ptr noundef %327, ptr noundef %329, i64 noundef %call403)
-  %332 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %332, ptr noundef @.str.169)
-  %333 = load ptr, ptr %c.addr, align 8
+  %328 = load ptr, ptr %c.addr, align 8
+  %329 = load double, ptr %age, align 8
+  call void @addReplyDouble(ptr noundef %328, double noundef %329)
+  %330 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %330, ptr noundef @.str.168)
+  %331 = load ptr, ptr %c.addr, align 8
+  %332 = load ptr, ptr %le, align 8
+  %cinfo = getelementptr inbounds %struct.ACLLogEntry, ptr %332, i32 0, i32 6
+  %333 = load ptr, ptr %cinfo, align 8
   %334 = load ptr, ptr %le, align 8
-  %entry_id = getelementptr inbounds %struct.ACLLogEntry, ptr %334, i32 0, i32 7
-  %335 = load i64, ptr %entry_id, align 8
-  call void @addReplyLongLong(ptr noundef %333, i64 noundef %335)
+  %cinfo402 = getelementptr inbounds %struct.ACLLogEntry, ptr %334, i32 0, i32 6
+  %335 = load ptr, ptr %cinfo402, align 8
+  %call403 = call i64 @sdslen(ptr noundef %335)
+  call void @addReplyBulkCBuffer(ptr noundef %331, ptr noundef %333, i64 noundef %call403)
   %336 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %336, ptr noundef @.str.170)
+  call void @addReplyBulkCString(ptr noundef %336, ptr noundef @.str.169)
   %337 = load ptr, ptr %c.addr, align 8
   %338 = load ptr, ptr %le, align 8
-  %timestamp_created = getelementptr inbounds %struct.ACLLogEntry, ptr %338, i32 0, i32 8
-  %339 = load i64, ptr %timestamp_created, align 8
+  %entry_id = getelementptr inbounds %struct.ACLLogEntry, ptr %338, i32 0, i32 7
+  %339 = load i64, ptr %entry_id, align 8
   call void @addReplyLongLong(ptr noundef %337, i64 noundef %339)
   %340 = load ptr, ptr %c.addr, align 8
-  call void @addReplyBulkCString(ptr noundef %340, ptr noundef @.str.171)
+  call void @addReplyBulkCString(ptr noundef %340, ptr noundef @.str.170)
   %341 = load ptr, ptr %c.addr, align 8
   %342 = load ptr, ptr %le, align 8
-  %ctime404 = getelementptr inbounds %struct.ACLLogEntry, ptr %342, i32 0, i32 5
-  %343 = load i64, ptr %ctime404, align 8
+  %timestamp_created = getelementptr inbounds %struct.ACLLogEntry, ptr %342, i32 0, i32 8
+  %343 = load i64, ptr %timestamp_created, align 8
   call void @addReplyLongLong(ptr noundef %341, i64 noundef %343)
+  %344 = load ptr, ptr %c.addr, align 8
+  call void @addReplyBulkCString(ptr noundef %344, ptr noundef @.str.171)
+  %345 = load ptr, ptr %c.addr, align 8
+  %346 = load ptr, ptr %le, align 8
+  %ctime404 = getelementptr inbounds %struct.ACLLogEntry, ptr %346, i32 0, i32 5
+  %347 = load i64, ptr %ctime404, align 8
+  call void @addReplyLongLong(ptr noundef %345, i64 noundef %347)
   br label %while.cond377, !llvm.loop !86
 
 while.end405:                                     ; preds = %land.end
   br label %if.end485
 
 if.else406:                                       ; preds = %lor.lhs.false338, %if.else331
-  %344 = load ptr, ptr %sub, align 8
-  %call407 = call i32 @strcasecmp(ptr noundef %344, ptr noundef @.str.172) #13
+  %348 = load ptr, ptr %sub, align 8
+  %call407 = call i32 @strcasecmp(ptr noundef %348, ptr noundef @.str.172) #13
   %tobool408 = icmp ne i32 %call407, 0
   br i1 %tobool408, label %if.else473, label %land.lhs.true409
 
 land.lhs.true409:                                 ; preds = %if.else406
-  %345 = load ptr, ptr %c.addr, align 8
-  %argc410 = getelementptr inbounds %struct.client, ptr %345, i32 0, i32 11
-  %346 = load i32, ptr %argc410, align 8
-  %cmp411 = icmp sge i32 %346, 4
+  %349 = load ptr, ptr %c.addr, align 8
+  %argc410 = getelementptr inbounds %struct.client, ptr %349, i32 0, i32 11
+  %350 = load i32, ptr %argc410, align 8
+  %cmp411 = icmp sge i32 %350, 4
   br i1 %cmp411, label %if.then413, label %if.else473
 
 if.then413:                                       ; preds = %land.lhs.true409
-  %347 = load ptr, ptr %c.addr, align 8
-  %argv415 = getelementptr inbounds %struct.client, ptr %347, i32 0, i32 12
-  %348 = load ptr, ptr %argv415, align 8
-  %arrayidx416 = getelementptr inbounds ptr, ptr %348, i64 2
-  %349 = load ptr, ptr %arrayidx416, align 8
-  %ptr417 = getelementptr inbounds %struct.redisObject, ptr %349, i32 0, i32 2
-  %350 = load ptr, ptr %ptr417, align 8
   %351 = load ptr, ptr %c.addr, align 8
-  %argv418 = getelementptr inbounds %struct.client, ptr %351, i32 0, i32 12
-  %352 = load ptr, ptr %argv418, align 8
-  %arrayidx419 = getelementptr inbounds ptr, ptr %352, i64 2
-  %353 = load ptr, ptr %arrayidx419, align 8
-  %ptr420 = getelementptr inbounds %struct.redisObject, ptr %353, i32 0, i32 2
-  %354 = load ptr, ptr %ptr420, align 8
-  %call421 = call i64 @sdslen(ptr noundef %354)
-  %call422 = call ptr @ACLGetUserByName(ptr noundef %350, i64 noundef %call421)
+  %argv415 = getelementptr inbounds %struct.client, ptr %351, i32 0, i32 12
+  %352 = load ptr, ptr %argv415, align 8
+  %arrayidx416 = getelementptr inbounds ptr, ptr %352, i64 2
+  %353 = load ptr, ptr %arrayidx416, align 8
+  %ptr417 = getelementptr inbounds %struct.redisObject, ptr %353, i32 0, i32 2
+  %354 = load ptr, ptr %ptr417, align 8
+  %355 = load ptr, ptr %c.addr, align 8
+  %argv418 = getelementptr inbounds %struct.client, ptr %355, i32 0, i32 12
+  %356 = load ptr, ptr %argv418, align 8
+  %arrayidx419 = getelementptr inbounds ptr, ptr %356, i64 2
+  %357 = load ptr, ptr %arrayidx419, align 8
+  %ptr420 = getelementptr inbounds %struct.redisObject, ptr %357, i32 0, i32 2
+  %358 = load ptr, ptr %ptr420, align 8
+  %call421 = call i64 @sdslen(ptr noundef %358)
+  %call422 = call ptr @ACLGetUserByName(ptr noundef %354, i64 noundef %call421)
   store ptr %call422, ptr %u414, align 8
-  %355 = load ptr, ptr %u414, align 8
-  %cmp423 = icmp eq ptr %355, null
+  %359 = load ptr, ptr %u414, align 8
+  %cmp423 = icmp eq ptr %359, null
   br i1 %cmp423, label %if.then425, label %if.end429
 
 if.then425:                                       ; preds = %if.then413
-  %356 = load ptr, ptr %c.addr, align 8
-  %357 = load ptr, ptr %c.addr, align 8
-  %argv426 = getelementptr inbounds %struct.client, ptr %357, i32 0, i32 12
-  %358 = load ptr, ptr %argv426, align 8
-  %arrayidx427 = getelementptr inbounds ptr, ptr %358, i64 2
-  %359 = load ptr, ptr %arrayidx427, align 8
-  %ptr428 = getelementptr inbounds %struct.redisObject, ptr %359, i32 0, i32 2
-  %360 = load ptr, ptr %ptr428, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %356, ptr noundef @.str.173, ptr noundef %360)
+  %360 = load ptr, ptr %c.addr, align 8
+  %361 = load ptr, ptr %c.addr, align 8
+  %argv426 = getelementptr inbounds %struct.client, ptr %361, i32 0, i32 12
+  %362 = load ptr, ptr %argv426, align 8
+  %arrayidx427 = getelementptr inbounds ptr, ptr %362, i64 2
+  %363 = load ptr, ptr %arrayidx427, align 8
+  %ptr428 = getelementptr inbounds %struct.redisObject, ptr %363, i32 0, i32 2
+  %364 = load ptr, ptr %ptr428, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %360, ptr noundef @.str.173, ptr noundef %364)
   br label %if.end496
 
 if.end429:                                        ; preds = %if.then413
-  %361 = load ptr, ptr %c.addr, align 8
-  %argv430 = getelementptr inbounds %struct.client, ptr %361, i32 0, i32 12
-  %362 = load ptr, ptr %argv430, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %362, i64 3
-  %363 = load ptr, ptr %c.addr, align 8
-  %argc431 = getelementptr inbounds %struct.client, ptr %363, i32 0, i32 11
-  %364 = load i32, ptr %argc431, align 8
-  %sub432 = sub nsw i32 %364, 3
+  %365 = load ptr, ptr %c.addr, align 8
+  %argv430 = getelementptr inbounds %struct.client, ptr %365, i32 0, i32 12
+  %366 = load ptr, ptr %argv430, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %366, i64 3
+  %367 = load ptr, ptr %c.addr, align 8
+  %argc431 = getelementptr inbounds %struct.client, ptr %367, i32 0, i32 11
+  %368 = load i32, ptr %argc431, align 8
+  %sub432 = sub nsw i32 %368, 3
   %call433 = call ptr @lookupCommand(ptr noundef %add.ptr, i32 noundef %sub432)
   store ptr %call433, ptr %cmd, align 8
   %cmp434 = icmp eq ptr %call433, null
   br i1 %cmp434, label %if.then436, label %if.end440
 
 if.then436:                                       ; preds = %if.end429
-  %365 = load ptr, ptr %c.addr, align 8
-  %366 = load ptr, ptr %c.addr, align 8
-  %argv437 = getelementptr inbounds %struct.client, ptr %366, i32 0, i32 12
-  %367 = load ptr, ptr %argv437, align 8
-  %arrayidx438 = getelementptr inbounds ptr, ptr %367, i64 3
-  %368 = load ptr, ptr %arrayidx438, align 8
-  %ptr439 = getelementptr inbounds %struct.redisObject, ptr %368, i32 0, i32 2
-  %369 = load ptr, ptr %ptr439, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %365, ptr noundef @.str.174, ptr noundef %369)
+  %369 = load ptr, ptr %c.addr, align 8
+  %370 = load ptr, ptr %c.addr, align 8
+  %argv437 = getelementptr inbounds %struct.client, ptr %370, i32 0, i32 12
+  %371 = load ptr, ptr %argv437, align 8
+  %arrayidx438 = getelementptr inbounds ptr, ptr %371, i64 3
+  %372 = load ptr, ptr %arrayidx438, align 8
+  %ptr439 = getelementptr inbounds %struct.redisObject, ptr %372, i32 0, i32 2
+  %373 = load ptr, ptr %ptr439, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %369, ptr noundef @.str.174, ptr noundef %373)
   br label %if.end496
 
 if.end440:                                        ; preds = %if.end429
-  %370 = load ptr, ptr %cmd, align 8
-  %arity = getelementptr inbounds %struct.redisCommand, ptr %370, i32 0, i32 13
-  %371 = load i32, ptr %arity, align 8
-  %cmp441 = icmp sgt i32 %371, 0
+  %374 = load ptr, ptr %cmd, align 8
+  %arity = getelementptr inbounds %struct.redisCommand, ptr %374, i32 0, i32 13
+  %375 = load i32, ptr %arity, align 8
+  %cmp441 = icmp sgt i32 %375, 0
   br i1 %cmp441, label %land.lhs.true443, label %lor.lhs.false449
 
 land.lhs.true443:                                 ; preds = %if.end440
-  %372 = load ptr, ptr %cmd, align 8
-  %arity444 = getelementptr inbounds %struct.redisCommand, ptr %372, i32 0, i32 13
-  %373 = load i32, ptr %arity444, align 8
-  %374 = load ptr, ptr %c.addr, align 8
-  %argc445 = getelementptr inbounds %struct.client, ptr %374, i32 0, i32 11
-  %375 = load i32, ptr %argc445, align 8
-  %sub446 = sub nsw i32 %375, 3
-  %cmp447 = icmp ne i32 %373, %sub446
+  %376 = load ptr, ptr %cmd, align 8
+  %arity444 = getelementptr inbounds %struct.redisCommand, ptr %376, i32 0, i32 13
+  %377 = load i32, ptr %arity444, align 8
+  %378 = load ptr, ptr %c.addr, align 8
+  %argc445 = getelementptr inbounds %struct.client, ptr %378, i32 0, i32 11
+  %379 = load i32, ptr %argc445, align 8
+  %sub446 = sub nsw i32 %379, 3
+  %cmp447 = icmp ne i32 %377, %sub446
   br i1 %cmp447, label %if.then456, label %lor.lhs.false449
 
 lor.lhs.false449:                                 ; preds = %land.lhs.true443, %if.end440
-  %376 = load ptr, ptr %c.addr, align 8
-  %argc450 = getelementptr inbounds %struct.client, ptr %376, i32 0, i32 11
-  %377 = load i32, ptr %argc450, align 8
-  %sub451 = sub nsw i32 %377, 3
-  %378 = load ptr, ptr %cmd, align 8
-  %arity452 = getelementptr inbounds %struct.redisCommand, ptr %378, i32 0, i32 13
-  %379 = load i32, ptr %arity452, align 8
-  %sub453 = sub nsw i32 0, %379
+  %380 = load ptr, ptr %c.addr, align 8
+  %argc450 = getelementptr inbounds %struct.client, ptr %380, i32 0, i32 11
+  %381 = load i32, ptr %argc450, align 8
+  %sub451 = sub nsw i32 %381, 3
+  %382 = load ptr, ptr %cmd, align 8
+  %arity452 = getelementptr inbounds %struct.redisCommand, ptr %382, i32 0, i32 13
+  %383 = load i32, ptr %arity452, align 8
+  %sub453 = sub nsw i32 0, %383
   %cmp454 = icmp slt i32 %sub451, %sub453
   br i1 %cmp454, label %if.then456, label %if.end457
 
 if.then456:                                       ; preds = %lor.lhs.false449, %land.lhs.true443
-  %380 = load ptr, ptr %c.addr, align 8
-  %381 = load ptr, ptr %cmd, align 8
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %381, i32 0, i32 27
-  %382 = load ptr, ptr %fullname, align 8
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %380, ptr noundef @.str.175, ptr noundef %382)
+  %384 = load ptr, ptr %c.addr, align 8
+  %385 = load ptr, ptr %cmd, align 8
+  %fullname = getelementptr inbounds %struct.redisCommand, ptr %385, i32 0, i32 27
+  %386 = load ptr, ptr %fullname, align 8
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %384, ptr noundef @.str.175, ptr noundef %386)
   br label %if.end496
 
 if.end457:                                        ; preds = %lor.lhs.false449
-  %383 = load ptr, ptr %u414, align 8
-  %384 = load ptr, ptr %cmd, align 8
-  %385 = load ptr, ptr %c.addr, align 8
-  %argv458 = getelementptr inbounds %struct.client, ptr %385, i32 0, i32 12
-  %386 = load ptr, ptr %argv458, align 8
-  %add.ptr459 = getelementptr inbounds ptr, ptr %386, i64 3
-  %387 = load ptr, ptr %c.addr, align 8
-  %argc460 = getelementptr inbounds %struct.client, ptr %387, i32 0, i32 11
-  %388 = load i32, ptr %argc460, align 8
-  %sub461 = sub nsw i32 %388, 3
-  %call462 = call i32 @ACLCheckAllUserCommandPerm(ptr noundef %383, ptr noundef %384, ptr noundef %add.ptr459, i32 noundef %sub461, ptr noundef %idx)
+  %387 = load ptr, ptr %u414, align 8
+  %388 = load ptr, ptr %cmd, align 8
+  %389 = load ptr, ptr %c.addr, align 8
+  %argv458 = getelementptr inbounds %struct.client, ptr %389, i32 0, i32 12
+  %390 = load ptr, ptr %argv458, align 8
+  %add.ptr459 = getelementptr inbounds ptr, ptr %390, i64 3
+  %391 = load ptr, ptr %c.addr, align 8
+  %argc460 = getelementptr inbounds %struct.client, ptr %391, i32 0, i32 11
+  %392 = load i32, ptr %argc460, align 8
+  %sub461 = sub nsw i32 %392, 3
+  %call462 = call i32 @ACLCheckAllUserCommandPerm(ptr noundef %387, ptr noundef %388, ptr noundef %add.ptr459, i32 noundef %sub461, ptr noundef %idx)
   store i32 %call462, ptr %result, align 4
-  %389 = load i32, ptr %result, align 4
-  %cmp463 = icmp ne i32 %389, 0
+  %393 = load i32, ptr %result, align 4
+  %cmp463 = icmp ne i32 %393, 0
   br i1 %cmp463, label %if.then465, label %if.end472
 
 if.then465:                                       ; preds = %if.end457
-  %390 = load i32, ptr %result, align 4
-  %391 = load ptr, ptr %u414, align 8
-  %392 = load ptr, ptr %cmd, align 8
-  %393 = load ptr, ptr %c.addr, align 8
-  %argv466 = getelementptr inbounds %struct.client, ptr %393, i32 0, i32 12
-  %394 = load ptr, ptr %argv466, align 8
-  %395 = load i32, ptr %idx, align 4
-  %add467 = add nsw i32 %395, 3
+  %394 = load i32, ptr %result, align 4
+  %395 = load ptr, ptr %u414, align 8
+  %396 = load ptr, ptr %cmd, align 8
+  %397 = load ptr, ptr %c.addr, align 8
+  %argv466 = getelementptr inbounds %struct.client, ptr %397, i32 0, i32 12
+  %398 = load ptr, ptr %argv466, align 8
+  %399 = load i32, ptr %idx, align 4
+  %add467 = add nsw i32 %399, 3
   %idxprom468 = sext i32 %add467 to i64
-  %arrayidx469 = getelementptr inbounds ptr, ptr %394, i64 %idxprom468
-  %396 = load ptr, ptr %arrayidx469, align 8
-  %ptr470 = getelementptr inbounds %struct.redisObject, ptr %396, i32 0, i32 2
-  %397 = load ptr, ptr %ptr470, align 8
-  %call471 = call ptr @getAclErrorMessage(i32 noundef %390, ptr noundef %391, ptr noundef %392, ptr noundef %397, i32 noundef 1)
+  %arrayidx469 = getelementptr inbounds ptr, ptr %398, i64 %idxprom468
+  %400 = load ptr, ptr %arrayidx469, align 8
+  %ptr470 = getelementptr inbounds %struct.redisObject, ptr %400, i32 0, i32 2
+  %401 = load ptr, ptr %ptr470, align 8
+  %call471 = call ptr @getAclErrorMessage(i32 noundef %394, ptr noundef %395, ptr noundef %396, ptr noundef %401, i32 noundef 1)
   store ptr %call471, ptr %err, align 8
-  %398 = load ptr, ptr %c.addr, align 8
-  %399 = load ptr, ptr %err, align 8
-  call void @addReplyBulkSds(ptr noundef %398, ptr noundef %399)
+  %402 = load ptr, ptr %c.addr, align 8
+  %403 = load ptr, ptr %err, align 8
+  call void @addReplyBulkSds(ptr noundef %402, ptr noundef %403)
   br label %if.end496
 
 if.end472:                                        ; preds = %if.end457
-  %400 = load ptr, ptr %c.addr, align 8
-  %401 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %400, ptr noundef %401)
+  %404 = load ptr, ptr %c.addr, align 8
+  %405 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %404, ptr noundef %405)
   br label %if.end484
 
 if.else473:                                       ; preds = %land.lhs.true409, %if.else406
-  %402 = load ptr, ptr %c.addr, align 8
-  %argc474 = getelementptr inbounds %struct.client, ptr %402, i32 0, i32 11
-  %403 = load i32, ptr %argc474, align 8
-  %cmp475 = icmp eq i32 %403, 2
+  %406 = load ptr, ptr %c.addr, align 8
+  %argc474 = getelementptr inbounds %struct.client, ptr %406, i32 0, i32 11
+  %407 = load i32, ptr %argc474, align 8
+  %cmp475 = icmp eq i32 %407, 2
   br i1 %cmp475, label %land.lhs.true477, label %if.else482
 
 land.lhs.true477:                                 ; preds = %if.else473
-  %404 = load ptr, ptr %sub, align 8
-  %call478 = call i32 @strcasecmp(ptr noundef %404, ptr noundef @.str.176) #13
+  %408 = load ptr, ptr %sub, align 8
+  %call478 = call i32 @strcasecmp(ptr noundef %408, ptr noundef @.str.176) #13
   %tobool479 = icmp ne i32 %call478, 0
   br i1 %tobool479, label %if.else482, label %if.then480
 
 if.then480:                                       ; preds = %land.lhs.true477
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %help, ptr align 16 @__const.aclCommand.help, i64 216, i1 false)
-  %405 = load ptr, ptr %c.addr, align 8
+  %409 = load ptr, ptr %c.addr, align 8
   %arraydecay481 = getelementptr inbounds [27 x ptr], ptr %help, i64 0, i64 0
-  call void @addReplyHelp(ptr noundef %405, ptr noundef %arraydecay481)
+  call void @addReplyHelp(ptr noundef %409, ptr noundef %arraydecay481)
   br label %if.end483
 
 if.else482:                                       ; preds = %land.lhs.true477, %if.else473
-  %406 = load ptr, ptr %c.addr, align 8
-  call void @addReplySubcommandSyntaxError(ptr noundef %406)
+  %410 = load ptr, ptr %c.addr, align 8
+  call void @addReplySubcommandSyntaxError(ptr noundef %410)
   br label %if.end483
 
 if.end483:                                        ; preds = %if.else482, %if.then480
@@ -11423,99 +11474,101 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %c.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 15), align 8
-  call void @addReplyErrorObject(ptr noundef %2, ptr noundef %3)
+  %3 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 15
+  %4 = load ptr, ptr %3, align 8
+  call void @addReplyErrorObject(ptr noundef %2, ptr noundef %4)
   br label %if.end20
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %c.addr, align 8
-  call void @redactClientCommandArgument(ptr noundef %4, i32 noundef 1)
   %5 = load ptr, ptr %c.addr, align 8
-  %argc1 = getelementptr inbounds %struct.client, ptr %5, i32 0, i32 11
-  %6 = load i32, ptr %argc1, align 8
-  %cmp2 = icmp eq i32 %6, 2
+  call void @redactClientCommandArgument(ptr noundef %5, i32 noundef 1)
+  %6 = load ptr, ptr %c.addr, align 8
+  %argc1 = getelementptr inbounds %struct.client, ptr %6, i32 0, i32 11
+  %7 = load i32, ptr %argc1, align 8
+  %cmp2 = icmp eq i32 %7, 2
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr @DefaultUser, align 8
-  %flags = getelementptr inbounds %struct.user, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 4
+  %8 = load ptr, ptr @DefaultUser, align 8
+  %flags = getelementptr inbounds %struct.user, ptr %8, i32 0, i32 1
+  %9 = load i32, ptr %flags, align 8
+  %and = and i32 %9, 4
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.then3
-  %9 = load ptr, ptr %c.addr, align 8
-  call void @addReplyError(ptr noundef %9, ptr noundef @.str.204)
+  %10 = load ptr, ptr %c.addr, align 8
+  call void @addReplyError(ptr noundef %10, ptr noundef @.str.204)
   br label %if.end20
 
 if.end5:                                          ; preds = %if.then3
-  %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i32 0, i32 80), align 8
-  store ptr %10, ptr %username, align 8
-  %11 = load ptr, ptr %c.addr, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %11, i32 0, i32 12
-  %12 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 1
-  %13 = load ptr, ptr %arrayidx, align 8
-  store ptr %13, ptr %password, align 8
+  %11 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i32 0, i32 80
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %username, align 8
+  %13 = load ptr, ptr %c.addr, align 8
+  %argv = getelementptr inbounds %struct.client, ptr %13, i32 0, i32 12
+  %14 = load ptr, ptr %argv, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %14, i64 1
+  %15 = load ptr, ptr %arrayidx, align 8
+  store ptr %15, ptr %password, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %if.end
-  %14 = load ptr, ptr %c.addr, align 8
-  %argv6 = getelementptr inbounds %struct.client, ptr %14, i32 0, i32 12
-  %15 = load ptr, ptr %argv6, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %15, i64 1
-  %16 = load ptr, ptr %arrayidx7, align 8
-  store ptr %16, ptr %username, align 8
-  %17 = load ptr, ptr %c.addr, align 8
-  %argv8 = getelementptr inbounds %struct.client, ptr %17, i32 0, i32 12
-  %18 = load ptr, ptr %argv8, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %18, i64 2
-  %19 = load ptr, ptr %arrayidx9, align 8
-  store ptr %19, ptr %password, align 8
-  %20 = load ptr, ptr %c.addr, align 8
-  call void @redactClientCommandArgument(ptr noundef %20, i32 noundef 2)
+  %16 = load ptr, ptr %c.addr, align 8
+  %argv6 = getelementptr inbounds %struct.client, ptr %16, i32 0, i32 12
+  %17 = load ptr, ptr %argv6, align 8
+  %arrayidx7 = getelementptr inbounds ptr, ptr %17, i64 1
+  %18 = load ptr, ptr %arrayidx7, align 8
+  store ptr %18, ptr %username, align 8
+  %19 = load ptr, ptr %c.addr, align 8
+  %argv8 = getelementptr inbounds %struct.client, ptr %19, i32 0, i32 12
+  %20 = load ptr, ptr %argv8, align 8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %20, i64 2
+  %21 = load ptr, ptr %arrayidx9, align 8
+  store ptr %21, ptr %password, align 8
+  %22 = load ptr, ptr %c.addr, align 8
+  call void @redactClientCommandArgument(ptr noundef %22, i32 noundef 2)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.end5
   store ptr null, ptr %err, align 8
-  %21 = load ptr, ptr %c.addr, align 8
-  %22 = load ptr, ptr %username, align 8
-  %23 = load ptr, ptr %password, align 8
-  %call = call i32 @ACLAuthenticateUser(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %err)
+  %23 = load ptr, ptr %c.addr, align 8
+  %24 = load ptr, ptr %username, align 8
+  %25 = load ptr, ptr %password, align 8
+  %call = call i32 @ACLAuthenticateUser(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %err)
   store i32 %call, ptr %result, align 4
-  %24 = load i32, ptr %result, align 4
-  %cmp11 = icmp eq i32 %24, 0
+  %26 = load i32, ptr %result, align 4
+  %cmp11 = icmp eq i32 %26, 0
   br i1 %cmp11, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %if.end10
-  %25 = load ptr, ptr %c.addr, align 8
-  %26 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %25, ptr noundef %26)
+  %27 = load ptr, ptr %c.addr, align 8
+  %28 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %27, ptr noundef %28)
   br label %if.end17
 
 if.else13:                                        ; preds = %if.end10
-  %27 = load i32, ptr %result, align 4
-  %cmp14 = icmp eq i32 %27, 1
+  %29 = load i32, ptr %result, align 4
+  %cmp14 = icmp eq i32 %29, 1
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else13
-  %28 = load ptr, ptr %c.addr, align 8
-  %29 = load ptr, ptr %err, align 8
-  call void @addAuthErrReply(ptr noundef %28, ptr noundef %29)
+  %30 = load ptr, ptr %c.addr, align 8
+  %31 = load ptr, ptr %err, align 8
+  call void @addAuthErrReply(ptr noundef %30, ptr noundef %31)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.else13
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end16, %if.then12
-  %30 = load ptr, ptr %err, align 8
-  %tobool18 = icmp ne ptr %30, null
+  %32 = load ptr, ptr %err, align 8
+  %tobool18 = icmp ne ptr %32, null
   br i1 %tobool18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end17
-  %31 = load ptr, ptr %err, align 8
-  call void @decrRefCount(ptr noundef %31)
+  %33 = load ptr, ptr %err, align 8
+  call void @decrRefCount(ptr noundef %33)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.end17, %if.then4, %if.then

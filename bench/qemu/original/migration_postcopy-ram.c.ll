@@ -598,24 +598,25 @@ do.end22:                                         ; preds = %do.cond21
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %12 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 2) monotonic, align 8
-  store i64 %12, ptr %_val5, align 8
+  %12 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 2
+  %13 = load atomic i64, ptr %12 monotonic, align 8
+  store i64 %13, ptr %_val5, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
-  %13 = load ptr, ptr %_val5, align 8
-  store ptr %13, ptr %tmp, align 8
-  %14 = load ptr, ptr %tmp, align 8
-  store ptr %14, ptr %block, align 8
+  %14 = load ptr, ptr %_val5, align 8
+  store ptr %14, ptr %tmp, align 8
+  %15 = load ptr, ptr %tmp, align 8
+  store ptr %15, ptr %block, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %while.end33, %while.end
-  %15 = load ptr, ptr %block, align 8
-  %tobool23 = icmp ne ptr %15, null
+  %16 = load ptr, ptr %block, align 8
+  %tobool23 = icmp ne ptr %16, null
   br i1 %tobool23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %block, align 8
-  %17 = load ptr, ptr %errp.addr, align 8
-  %call24 = call i32 @test_ramblock_postcopiable(ptr noundef %16, ptr noundef %17)
+  %17 = load ptr, ptr %block, align 8
+  %18 = load ptr, ptr %errp.addr, align 8
+  %call24 = call i32 @test_ramblock_postcopiable(ptr noundef %17, ptr noundef %18)
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.then26, label %if.end27
 
@@ -645,16 +646,16 @@ do.end32:                                         ; preds = %do.cond31
   br label %while.cond28
 
 while.end33:                                      ; preds = %while.cond28
-  %18 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %18, i32 0, i32 10
+  %19 = load ptr, ptr %block, align 8
+  %next = getelementptr inbounds %struct.RAMBlock, ptr %19, i32 0, i32 10
   %le_next = getelementptr inbounds %struct.anon.4, ptr %next, i32 0, i32 0
-  %19 = load atomic i64, ptr %le_next monotonic, align 8
-  store i64 %19, ptr %_val6, align 8
+  %20 = load atomic i64, ptr %le_next monotonic, align 8
+  store i64 %20, ptr %_val6, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
-  %20 = load ptr, ptr %_val6, align 8
-  store ptr %20, ptr %tmp34, align 8
-  %21 = load ptr, ptr %tmp34, align 8
-  store ptr %21, ptr %block, align 8
+  %21 = load ptr, ptr %_val6, align 8
+  store ptr %21, ptr %tmp34, align 8
+  %22 = load ptr, ptr %tmp34, align 8
+  store ptr %22, ptr %block, align 8
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
@@ -663,37 +664,38 @@ for.end:                                          ; preds = %for.cond
   br i1 %tobool36, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %for.end
-  %22 = load ptr, ptr %errp.addr, align 8
+  %23 = load ptr, ptr %errp.addr, align 8
   %call38 = call ptr @__errno_location() #10
-  %23 = load i32, ptr %call38, align 4
-  %call39 = call ptr @strerror(i32 noundef %23) #11
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %22, ptr noundef @.str, i32 noundef 432, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.3, ptr noundef %call39)
+  %24 = load i32, ptr %call38, align 4
+  %call39 = call ptr @strerror(i32 noundef %24) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %23, ptr noundef @.str, i32 noundef 432, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.3, ptr noundef %call39)
   br label %out
 
 if.end40:                                         ; preds = %for.end
-  %24 = load i64, ptr %pagesize, align 8
-  %call41 = call ptr @mmap64(ptr noundef null, i64 noundef %24, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
+  %25 = load i64, ptr %pagesize, align 8
+  %call41 = call ptr @mmap64(ptr noundef null, i64 noundef %25, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   store ptr %call41, ptr %testarea, align 8
-  %25 = load ptr, ptr %testarea, align 8
-  %cmp42 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = load ptr, ptr %testarea, align 8
+  %27 = inttoptr i64 -1 to ptr
+  %cmp42 = icmp eq ptr %26, %27
   br i1 %cmp42, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %if.end40
-  %26 = load ptr, ptr %errp.addr, align 8
+  %28 = load ptr, ptr %errp.addr, align 8
   %call44 = call ptr @__errno_location() #10
-  %27 = load i32, ptr %call44, align 4
-  %call45 = call ptr @strerror(i32 noundef %27) #11
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %26, ptr noundef @.str, i32 noundef 444, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.4, ptr noundef %call45)
+  %29 = load i32, ptr %call44, align 4
+  %call45 = call ptr @strerror(i32 noundef %29) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %28, ptr noundef @.str, i32 noundef 444, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.4, ptr noundef %call45)
   br label %out
 
 if.end46:                                         ; preds = %if.end40
   br label %do.body47
 
 do.body47:                                        ; preds = %if.end46
-  %28 = load ptr, ptr %testarea, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = load i64, ptr %pagesize, align 8
-  %rem = urem i64 %29, %30
+  %30 = load ptr, ptr %testarea, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = load i64, ptr %pagesize, align 8
+  %rem = urem i64 %31, %32
   %cmp48 = icmp eq i64 %rem, 0
   br i1 %cmp48, label %if.then49, label %if.else
 
@@ -711,69 +713,69 @@ do.cond51:                                        ; preds = %if.end50
   br label %do.end52
 
 do.end52:                                         ; preds = %do.cond51
-  %31 = load ptr, ptr %testarea, align 8
-  %32 = ptrtoint ptr %31 to i64
+  %33 = load ptr, ptr %testarea, align 8
+  %34 = ptrtoint ptr %33 to i64
   %range = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i32 0, i32 0
   %start = getelementptr inbounds %struct.uffdio_range, ptr %range, i32 0, i32 0
-  store i64 %32, ptr %start, align 8
-  %33 = load i64, ptr %pagesize, align 8
+  store i64 %34, ptr %start, align 8
+  %35 = load i64, ptr %pagesize, align 8
   %range53 = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i32 0, i32 0
   %len = getelementptr inbounds %struct.uffdio_range, ptr %range53, i32 0, i32 1
-  store i64 %33, ptr %len, align 8
+  store i64 %35, ptr %len, align 8
   %mode = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i32 0, i32 1
   store i64 1, ptr %mode, align 8
-  %34 = load i32, ptr %ufd, align 4
-  %call54 = call i32 (i32, i64, ...) @ioctl(i32 noundef %34, i64 noundef 3223366144, ptr noundef %reg_struct) #11
+  %36 = load i32, ptr %ufd, align 4
+  %call54 = call i32 (i32, i64, ...) @ioctl(i32 noundef %36, i64 noundef 3223366144, ptr noundef %reg_struct) #11
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %do.end52
-  %35 = load ptr, ptr %errp.addr, align 8
+  %37 = load ptr, ptr %errp.addr, align 8
   %call57 = call ptr @__errno_location() #10
-  %36 = load i32, ptr %call57, align 4
-  %call58 = call ptr @strerror(i32 noundef %36) #11
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %35, ptr noundef @.str, i32 noundef 454, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.6, ptr noundef %call58)
+  %38 = load i32, ptr %call57, align 4
+  %call58 = call ptr @strerror(i32 noundef %38) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %37, ptr noundef @.str, i32 noundef 454, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.6, ptr noundef %call58)
   br label %out
 
 if.end59:                                         ; preds = %do.end52
-  %37 = load ptr, ptr %testarea, align 8
-  %38 = ptrtoint ptr %37 to i64
+  %39 = load ptr, ptr %testarea, align 8
+  %40 = ptrtoint ptr %39 to i64
   %start60 = getelementptr inbounds %struct.uffdio_range, ptr %range_struct, i32 0, i32 0
-  store i64 %38, ptr %start60, align 8
-  %39 = load i64, ptr %pagesize, align 8
+  store i64 %40, ptr %start60, align 8
+  %41 = load i64, ptr %pagesize, align 8
   %len61 = getelementptr inbounds %struct.uffdio_range, ptr %range_struct, i32 0, i32 1
-  store i64 %39, ptr %len61, align 8
-  %40 = load i32, ptr %ufd, align 4
-  %call62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %40, i64 noundef 2148575745, ptr noundef %range_struct) #11
+  store i64 %41, ptr %len61, align 8
+  %42 = load i32, ptr %ufd, align 4
+  %call62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %42, i64 noundef 2148575745, ptr noundef %range_struct) #11
   %tobool63 = icmp ne i32 %call62, 0
   br i1 %tobool63, label %if.then64, label %if.end67
 
 if.then64:                                        ; preds = %if.end59
-  %41 = load ptr, ptr %errp.addr, align 8
+  %43 = load ptr, ptr %errp.addr, align 8
   %call65 = call ptr @__errno_location() #10
-  %42 = load i32, ptr %call65, align 4
-  %call66 = call ptr @strerror(i32 noundef %42) #11
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %41, ptr noundef @.str, i32 noundef 461, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.7, ptr noundef %call66)
+  %44 = load i32, ptr %call65, align 4
+  %call66 = call ptr @strerror(i32 noundef %44) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %43, ptr noundef @.str, i32 noundef 461, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.7, ptr noundef %call66)
   br label %out
 
 if.end67:                                         ; preds = %if.end59
   store i64 28, ptr %feature_mask, align 8
   %ioctls = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i32 0, i32 2
-  %43 = load i64, ptr %ioctls, align 8
-  %44 = load i64, ptr %feature_mask, align 8
-  %and = and i64 %43, %44
-  %45 = load i64, ptr %feature_mask, align 8
-  %cmp68 = icmp ne i64 %and, %45
+  %45 = load i64, ptr %ioctls, align 8
+  %46 = load i64, ptr %feature_mask, align 8
+  %and = and i64 %45, %46
+  %47 = load i64, ptr %feature_mask, align 8
+  %cmp68 = icmp ne i64 %and, %47
   br i1 %cmp68, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %if.end67
-  %46 = load ptr, ptr %errp.addr, align 8
+  %48 = load ptr, ptr %errp.addr, align 8
   %ioctls70 = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i32 0, i32 2
-  %47 = load i64, ptr %ioctls70, align 8
-  %not = xor i64 %47, -1
-  %48 = load i64, ptr %feature_mask, align 8
-  %and71 = and i64 %not, %48
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %46, ptr noundef @.str, i32 noundef 470, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.8, i64 noundef %and71)
+  %49 = load i64, ptr %ioctls70, align 8
+  %not = xor i64 %49, -1
+  %50 = load i64, ptr %feature_mask, align 8
+  %and71 = and i64 %not, %50
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %48, ptr noundef @.str, i32 noundef 470, ptr noundef @__func__.postcopy_ram_supported_by_host, ptr noundef @.str.8, i64 noundef %and71)
   br label %out
 
 if.end72:                                         ; preds = %if.end67
@@ -781,29 +783,29 @@ if.end72:                                         ; preds = %if.end67
   br label %out
 
 out:                                              ; preds = %if.end72, %if.then69, %if.then64, %if.then56, %if.then43, %if.then37, %if.then26, %if.then18, %if.then15, %if.then9, %if.then5
-  %49 = load ptr, ptr %testarea, align 8
-  %tobool73 = icmp ne ptr %49, null
+  %51 = load ptr, ptr %testarea, align 8
+  %tobool73 = icmp ne ptr %51, null
   br i1 %tobool73, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %out
-  %50 = load ptr, ptr %testarea, align 8
-  %51 = load i64, ptr %pagesize, align 8
-  %call75 = call i32 @munmap(ptr noundef %50, i64 noundef %51) #11
+  %52 = load ptr, ptr %testarea, align 8
+  %53 = load i64, ptr %pagesize, align 8
+  %call75 = call i32 @munmap(ptr noundef %52, i64 noundef %53) #11
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then74, %out
-  %52 = load i32, ptr %ufd, align 4
-  %cmp77 = icmp ne i32 %52, -1
+  %54 = load i32, ptr %ufd, align 4
+  %cmp77 = icmp ne i32 %54, -1
   br i1 %cmp77, label %if.then78, label %if.end80
 
 if.then78:                                        ; preds = %if.end76
-  %53 = load i32, ptr %ufd, align 4
-  %call79 = call i32 @close(i32 noundef %53)
+  %55 = load i32, ptr %ufd, align 4
+  %call79 = call i32 @close(i32 noundef %55)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then78, %if.end76
-  %54 = load i8, ptr %ret, align 1
-  %tobool81 = trunc i8 %54 to i1
+  %56 = load i8, ptr %ret, align 1
+  %tobool81 = trunc i8 %56 to i1
   call void @glib_auto_cleanup_ErrorPropagator(ptr noundef %_auto_errp_prop)
   ret i1 %tobool81
 }
@@ -2877,80 +2879,82 @@ for.body:                                         ; preds = %for.cond
   %call6 = call ptr @mmap64(ptr noundef null, i64 noundef %12, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   store ptr %call6, ptr %temp_page, align 8
   %13 = load ptr, ptr %temp_page, align 8
-  %cmp7 = icmp eq ptr %13, inttoptr (i64 -1 to ptr)
+  %14 = inttoptr i64 -1 to ptr
+  %cmp7 = icmp eq ptr %13, %14
   br i1 %cmp7, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %for.body
   %call10 = call ptr @__errno_location() #10
-  %14 = load i32, ptr %call10, align 4
-  store i32 %14, ptr %err, align 4
-  %15 = load i32, ptr %i, align 4
-  %16 = load i32, ptr %err, align 4
-  %call11 = call ptr @strerror(i32 noundef %16) #11
-  call void (ptr, ...) @error_report(ptr noundef @.str.88, ptr noundef @__func__.postcopy_temp_pages_setup, i32 noundef %15, ptr noundef %call11)
+  %15 = load i32, ptr %call10, align 4
+  store i32 %15, ptr %err, align 4
+  %16 = load i32, ptr %i, align 4
   %17 = load i32, ptr %err, align 4
-  %sub = sub i32 0, %17
+  %call11 = call ptr @strerror(i32 noundef %17) #11
+  call void (ptr, ...) @error_report(ptr noundef @.str.88, ptr noundef @__func__.postcopy_temp_pages_setup, i32 noundef %16, ptr noundef %call11)
+  %18 = load i32, ptr %err, align 4
+  %sub = sub i32 0, %18
   store i32 %sub, ptr %retval, align 4
   br label %return
 
 if.end12:                                         ; preds = %for.body
-  %18 = load ptr, ptr %temp_page, align 8
-  %19 = load ptr, ptr %tmp_page, align 8
-  %tmp_huge_page = getelementptr inbounds %struct.PostcopyTmpPage, ptr %19, i32 0, i32 0
-  store ptr %18, ptr %tmp_huge_page, align 8
+  %19 = load ptr, ptr %temp_page, align 8
   %20 = load ptr, ptr %tmp_page, align 8
-  call void @postcopy_temp_page_reset(ptr noundef %20)
+  %tmp_huge_page = getelementptr inbounds %struct.PostcopyTmpPage, ptr %20, i32 0, i32 0
+  store ptr %19, ptr %tmp_huge_page, align 8
+  %21 = load ptr, ptr %tmp_page, align 8
+  call void @postcopy_temp_page_reset(ptr noundef %21)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %21 = load i32, ptr %i, align 4
-  %inc = add i32 %21, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !15
 
 for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %mis.addr, align 8
-  %largest_page_size13 = getelementptr inbounds %struct.MigrationIncomingState, ptr %22, i32 0, i32 7
-  %23 = load i64, ptr %largest_page_size13, align 8
-  %call14 = call ptr @mmap64(ptr noundef null, i64 noundef %23, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
-  %24 = load ptr, ptr %mis.addr, align 8
-  %postcopy_tmp_zero_page = getelementptr inbounds %struct.MigrationIncomingState, ptr %24, i32 0, i32 25
-  store ptr %call14, ptr %postcopy_tmp_zero_page, align 8
+  %23 = load ptr, ptr %mis.addr, align 8
+  %largest_page_size13 = getelementptr inbounds %struct.MigrationIncomingState, ptr %23, i32 0, i32 7
+  %24 = load i64, ptr %largest_page_size13, align 8
+  %call14 = call ptr @mmap64(ptr noundef null, i64 noundef %24, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   %25 = load ptr, ptr %mis.addr, align 8
-  %postcopy_tmp_zero_page15 = getelementptr inbounds %struct.MigrationIncomingState, ptr %25, i32 0, i32 25
-  %26 = load ptr, ptr %postcopy_tmp_zero_page15, align 8
-  %cmp16 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  %postcopy_tmp_zero_page = getelementptr inbounds %struct.MigrationIncomingState, ptr %25, i32 0, i32 25
+  store ptr %call14, ptr %postcopy_tmp_zero_page, align 8
+  %26 = load ptr, ptr %mis.addr, align 8
+  %postcopy_tmp_zero_page15 = getelementptr inbounds %struct.MigrationIncomingState, ptr %26, i32 0, i32 25
+  %27 = load ptr, ptr %postcopy_tmp_zero_page15, align 8
+  %28 = inttoptr i64 -1 to ptr
+  %cmp16 = icmp eq ptr %27, %28
   br i1 %cmp16, label %if.then18, label %if.end23
 
 if.then18:                                        ; preds = %for.end
   %call19 = call ptr @__errno_location() #10
-  %27 = load i32, ptr %call19, align 4
-  store i32 %27, ptr %err, align 4
-  %28 = load ptr, ptr %mis.addr, align 8
-  %postcopy_tmp_zero_page20 = getelementptr inbounds %struct.MigrationIncomingState, ptr %28, i32 0, i32 25
+  %29 = load i32, ptr %call19, align 4
+  store i32 %29, ptr %err, align 4
+  %30 = load ptr, ptr %mis.addr, align 8
+  %postcopy_tmp_zero_page20 = getelementptr inbounds %struct.MigrationIncomingState, ptr %30, i32 0, i32 25
   store ptr null, ptr %postcopy_tmp_zero_page20, align 8
-  %29 = load i32, ptr %err, align 4
-  %call21 = call ptr @strerror(i32 noundef %29) #11
+  %31 = load i32, ptr %err, align 4
+  %call21 = call ptr @strerror(i32 noundef %31) #11
   call void (ptr, ...) @error_report(ptr noundef @.str.89, ptr noundef @__func__.postcopy_temp_pages_setup, ptr noundef %call21)
-  %30 = load i32, ptr %err, align 4
-  %sub22 = sub i32 0, %30
+  %32 = load i32, ptr %err, align 4
+  %sub22 = sub i32 0, %32
   store i32 %sub22, ptr %retval, align 4
   br label %return
 
 if.end23:                                         ; preds = %for.end
-  %31 = load ptr, ptr %mis.addr, align 8
-  %postcopy_tmp_zero_page24 = getelementptr inbounds %struct.MigrationIncomingState, ptr %31, i32 0, i32 25
-  %32 = load ptr, ptr %postcopy_tmp_zero_page24, align 8
   %33 = load ptr, ptr %mis.addr, align 8
-  %largest_page_size25 = getelementptr inbounds %struct.MigrationIncomingState, ptr %33, i32 0, i32 7
-  %34 = load i64, ptr %largest_page_size25, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %34, i1 false)
+  %postcopy_tmp_zero_page24 = getelementptr inbounds %struct.MigrationIncomingState, ptr %33, i32 0, i32 25
+  %34 = load ptr, ptr %postcopy_tmp_zero_page24, align 8
+  %35 = load ptr, ptr %mis.addr, align 8
+  %largest_page_size25 = getelementptr inbounds %struct.MigrationIncomingState, ptr %35, i32 0, i32 7
+  %36 = load i64, ptr %largest_page_size25, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %36, i1 false)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then18, %if.then9
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 declare zeroext i1 @migrate_postcopy_preempt() #1
@@ -3469,9 +3473,12 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   store ptr %0, ptr @pds, align 8
-  store i16 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
+  %1 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  store i16 0, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  store i32 0, ptr %3, align 4
   ret void
 }
 
@@ -3490,43 +3497,58 @@ entry:
   %0 = load i64, ptr %start.addr, align 8
   %1 = load i64, ptr %tp_size, align 8
   %mul = mul i64 %0, %1
-  %2 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %idxprom = zext i16 %2 to i64
-  %arrayidx = getelementptr [12 x i64], ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2), i64 0, i64 %idxprom
+  %2 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %3 = load i16, ptr %2, align 8
+  %idxprom = zext i16 %3 to i64
+  %4 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2
+  %arrayidx = getelementptr [12 x i64], ptr %4, i64 0, i64 %idxprom
   store i64 %mul, ptr %arrayidx, align 8
-  %3 = load i64, ptr %length.addr, align 8
-  %4 = load i64, ptr %tp_size, align 8
-  %mul1 = mul i64 %3, %4
-  %5 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %idxprom2 = zext i16 %5 to i64
-  %arrayidx3 = getelementptr [12 x i64], ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3), i64 0, i64 %idxprom2
+  %5 = load i64, ptr %length.addr, align 8
+  %6 = load i64, ptr %tp_size, align 8
+  %mul1 = mul i64 %5, %6
+  %7 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %8 = load i16, ptr %7, align 8
+  %idxprom2 = zext i16 %8 to i64
+  %9 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3
+  %arrayidx3 = getelementptr [12 x i64], ptr %9, i64 0, i64 %idxprom2
   store i64 %mul1, ptr %arrayidx3, align 8
-  %6 = load ptr, ptr @pds, align 8
-  %7 = load i64, ptr %start.addr, align 8
-  %8 = load i64, ptr %length.addr, align 8
-  call void @trace_postcopy_discard_send_range(ptr noundef %6, i64 noundef %7, i64 noundef %8)
-  %9 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %inc = add i16 %9, 1
-  store i16 %inc, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4), align 8
-  %inc4 = add i32 %10, 1
-  store i32 %inc4, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4), align 8
-  %11 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %conv = zext i16 %11 to i32
+  %10 = load ptr, ptr @pds, align 8
+  %11 = load i64, ptr %start.addr, align 8
+  %12 = load i64, ptr %length.addr, align 8
+  call void @trace_postcopy_discard_send_range(ptr noundef %10, i64 noundef %11, i64 noundef %12)
+  %13 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %14 = load i16, ptr %13, align 8
+  %inc = add i16 %14, 1
+  %15 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  store i16 %inc, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %inc4 = add i32 %17, 1
+  %18 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4
+  store i32 %inc4, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %20 = load i16, ptr %19, align 8
+  %conv = zext i16 %20 to i32
   %cmp = icmp eq i32 %conv, 12
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %12 = load ptr, ptr %ms.addr, align 8
-  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %to_dst_file, align 8
-  %14 = load ptr, ptr @pds, align 8
-  %15 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %13, ptr noundef %14, i16 noundef zeroext %15, ptr noundef getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2), ptr noundef getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3))
-  %16 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
-  %inc6 = add i32 %16, 1
-  store i32 %inc6, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
-  store i16 0, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
+  %21 = load ptr, ptr %ms.addr, align 8
+  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %21, i32 0, i32 4
+  %22 = load ptr, ptr %to_dst_file, align 8
+  %23 = load ptr, ptr @pds, align 8
+  %24 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %25 = load i16, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2
+  %27 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3
+  call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %22, ptr noundef %23, i16 noundef zeroext %25, ptr noundef %26, ptr noundef %27)
+  %28 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  %29 = load i32, ptr %28, align 4
+  %inc6 = add i32 %29, 1
+  %30 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  store i32 %inc6, ptr %30, align 4
+  %31 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  store i16 0, ptr %31, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3556,27 +3578,35 @@ define dso_local void @postcopy_discard_send_finish(ptr noundef %ms) #0 {
 entry:
   %ms.addr = alloca ptr, align 8
   store ptr %ms, ptr %ms.addr, align 8
-  %0 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  %tobool = icmp ne i16 %0, 0
+  %0 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %1 = load i16, ptr %0, align 8
+  %tobool = icmp ne i16 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %ms.addr, align 8
-  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %to_dst_file, align 8
-  %3 = load ptr, ptr @pds, align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1), align 8
-  call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2), ptr noundef getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3))
-  %5 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
-  %inc = add i32 %5, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
+  %2 = load ptr, ptr %ms.addr, align 8
+  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %2, i32 0, i32 4
+  %3 = load ptr, ptr %to_dst_file, align 8
+  %4 = load ptr, ptr @pds, align 8
+  %5 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 1
+  %6 = load i16, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 2
+  %8 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 3
+  call void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %3, ptr noundef %4, i16 noundef zeroext %6, ptr noundef %7, ptr noundef %8)
+  %9 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  %10 = load i32, ptr %9, align 4
+  %inc = add i32 %10, 1
+  %11 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  store i32 %inc, ptr %11, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr @pds, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5), align 4
-  call void @trace_postcopy_discard_send_finish(ptr noundef %6, i32 noundef %7, i32 noundef %8)
+  %12 = load ptr, ptr @pds, align 8
+  %13 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.PostcopyDiscardState, ptr @pds, i32 0, i32 5
+  %16 = load i32, ptr %15, align 4
+  call void @trace_postcopy_discard_send_finish(ptr noundef %12, i32 noundef %14, i32 noundef %16)
   ret void
 }
 

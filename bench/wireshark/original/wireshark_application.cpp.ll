@@ -312,104 +312,105 @@ define void @_ZN20WiresharkApplicationC2ERiPPc(ptr noundef nonnull align 8 deref
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %9, align 8
   call void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenceable(216) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2), ptr %15, align 8
+  %18 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2
+  store ptr %18, ptr %15, align 8
   store ptr %15, ptr @wsApp, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %3
-  %19 = invoke noundef i32 @_Z21qInitResources_wsiconv()
-          to label %20 unwind label %30
+19:                                               ; preds = %3
+  %20 = invoke noundef i32 @_Z21qInitResources_wsiconv()
+          to label %21 unwind label %31
 
-20:                                               ; preds = %18
-  br label %21
-
-21:                                               ; preds = %20
+21:                                               ; preds = %19
   br label %22
 
 22:                                               ; preds = %21
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str)
-          to label %23 unwind label %30
+  br label %23
 
 23:                                               ; preds = %22
-  invoke void @_ZN16QCoreApplication18setApplicationNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %24 unwind label %34
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str)
+          to label %24 unwind label %31
 
 24:                                               ; preds = %23
+  invoke void @_ZN16QCoreApplication18setApplicationNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %25 unwind label %35
+
+25:                                               ; preds = %24
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr %14, ptr %4, align 8, !noalias !4
   store ptr @.str.1, ptr %5, align 8, !noalias !4
-  %25 = load ptr, ptr %5, align 8, !noalias !4
-  store ptr %25, ptr %6, align 8, !noalias !4
-  %26 = load ptr, ptr %6, align 8, !noalias !4
-  call void @_ZN17QArrayDataPointerIDsEC2EP15QTypedArrayDataIDsEPDsx(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef null, ptr noundef %26, i64 noundef 23) #11
-  br label %27
+  %26 = load ptr, ptr %5, align 8, !noalias !4
+  store ptr %26, ptr %6, align 8, !noalias !4
+  %27 = load ptr, ptr %6, align 8, !noalias !4
+  call void @_ZN17QArrayDataPointerIDsEC2EP15QTypedArrayDataIDsEPDsx(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef null, ptr noundef %27, i64 noundef 23) #11
+  br label %28
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   invoke void @_ZN7QStringC2EO17QArrayDataPointerIDsE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %28 unwind label %38
-
-28:                                               ; preds = %27
-  invoke void @_ZN15QGuiApplication18setDesktopFileNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %29 unwind label %42
+          to label %29 unwind label %39
 
 29:                                               ; preds = %28
+  invoke void @_ZN15QGuiApplication18setDesktopFileNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %30 unwind label %43
+
+30:                                               ; preds = %29
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
   ret void
 
-30:                                               ; preds = %22, %18
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %23, %19
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %10, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %11, align 4
-  br label %47
-
-34:                                               ; preds = %23
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  br label %47
-
-38:                                               ; preds = %27
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %10, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %11, align 4
-  br label %46
-
-42:                                               ; preds = %28
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %10, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  br label %46
-
-46:                                               ; preds = %42, %38
-  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  br label %47
-
-47:                                               ; preds = %46, %34, %30
-  call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %15) #11
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %10, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %11, align 4
   br label %48
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %10, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
-  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
-  resume { ptr, i32 } %52
+35:                                               ; preds = %24
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %10, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  br label %48
+
+39:                                               ; preds = %28
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %10, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %11, align 4
+  br label %47
+
+43:                                               ; preds = %29
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %10, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
+  br label %48
+
+48:                                               ; preds = %47, %35, %31
+  call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %15) #11
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 declare void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) unnamed_addr #1
@@ -493,7 +494,8 @@ define void @_ZN20WiresharkApplicationD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   store ptr null, ptr @wsApp, align 8
   call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #11
   ret void

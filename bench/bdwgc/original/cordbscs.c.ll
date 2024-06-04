@@ -2225,49 +2225,50 @@ define internal void @CORD_init_min_len() #0 {
   store i64 1, ptr %3, align 8
   store i64 1, ptr @min_len, align 16
   store i64 2, ptr %2, align 8
-  store i64 2, ptr getelementptr inbounds ([48 x i64], ptr @min_len, i64 0, i64 1), align 8
+  %5 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 1
+  store i64 2, ptr %5, align 8
   store i32 2, ptr %1, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %24, %0
-  %6 = load i32, ptr %1, align 4
-  %7 = icmp slt i32 %6, 48
-  br i1 %7, label %8, label %27
+6:                                                ; preds = %25, %0
+  %7 = load i32, ptr %1, align 4
+  %8 = icmp slt i32 %7, 48
+  br i1 %8, label %9, label %28
 
-8:                                                ; preds = %5
-  %9 = load i64, ptr %2, align 8
-  %10 = load i64, ptr %3, align 8
-  %11 = add i64 %9, %10
-  store i64 %11, ptr %4, align 8
-  %12 = load i64, ptr %4, align 8
-  %13 = load i64, ptr %2, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %17
+9:                                                ; preds = %6
+  %10 = load i64, ptr %2, align 8
+  %11 = load i64, ptr %3, align 8
+  %12 = add i64 %10, %11
+  store i64 %12, ptr %4, align 8
+  %13 = load i64, ptr %4, align 8
+  %14 = load i64, ptr %2, align 8
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %8
-  %16 = load i64, ptr %2, align 8
-  store i64 %16, ptr %4, align 8
-  br label %17
+16:                                               ; preds = %9
+  %17 = load i64, ptr %2, align 8
+  store i64 %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %15, %8
-  %18 = load i64, ptr %4, align 8
-  %19 = load i32, ptr %1, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %20
-  store i64 %18, ptr %21, align 8
-  %22 = load i64, ptr %2, align 8
-  store i64 %22, ptr %3, align 8
-  %23 = load i64, ptr %4, align 8
-  store i64 %23, ptr %2, align 8
-  br label %24
+18:                                               ; preds = %16, %9
+  %19 = load i64, ptr %4, align 8
+  %20 = load i32, ptr %1, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %21
+  store i64 %19, ptr %22, align 8
+  %23 = load i64, ptr %2, align 8
+  store i64 %23, ptr %3, align 8
+  %24 = load i64, ptr %4, align 8
+  store i64 %24, ptr %2, align 8
+  br label %25
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr %1, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %1, align 4
-  br label %5, !llvm.loop !14
+25:                                               ; preds = %18
+  %26 = load i32, ptr %1, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %1, align 4
+  br label %6, !llvm.loop !14
 
-27:                                               ; preds = %5
+28:                                               ; preds = %6
   store i32 1, ptr @min_len_init, align 4
   ret void
 }

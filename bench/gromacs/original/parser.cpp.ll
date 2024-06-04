@@ -2208,7 +2208,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 744:                                              ; preds = %740
   %745 = load i32, ptr %27, align 4
-  %746 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %746 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %747 = icmp eq i32 %745, %746
   br i1 %747, label %748, label %4624
 
@@ -2348,7 +2348,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 802:                                              ; preds = %801, %784
   %803 = load i32, ptr %27, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %4624
 
@@ -2429,7 +2429,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 838:                                              ; preds = %834
   %839 = load i32, ptr %27, align 4
-  %840 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %840 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %841 = icmp eq i32 %839, %840
   br i1 %841, label %842, label %4624
 
@@ -2501,7 +2501,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 865:                                              ; preds = %861
   %866 = load i32, ptr %27, align 4
-  %867 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %867 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %868 = icmp eq i32 %866, %867
   br i1 %868, label %869, label %4624
 
@@ -2648,7 +2648,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 923:                                              ; preds = %922, %898
   %924 = load i32, ptr %27, align 4
-  %925 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %925 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %926 = icmp eq i32 %924, %925
   br i1 %926, label %927, label %4624
 
@@ -2807,7 +2807,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 987:                                              ; preds = %986
   %988 = load i32, ptr %27, align 4
-  %989 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %989 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %990 = icmp eq i32 %988, %989
   br i1 %990, label %991, label %4624
 
@@ -2914,7 +2914,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1031:                                             ; preds = %1030, %1018
   %1032 = load i32, ptr %27, align 4
-  %1033 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1033 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1034 = icmp eq i32 %1032, %1033
   br i1 %1034, label %1035, label %4624
 
@@ -3038,7 +3038,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1086:                                             ; preds = %1085
   %1087 = load i32, ptr %27, align 4
-  %1088 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1088 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1089 = icmp eq i32 %1087, %1088
   br i1 %1089, label %1090, label %4624
 
@@ -3162,7 +3162,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1141:                                             ; preds = %1140
   %1142 = load i32, ptr %27, align 4
-  %1143 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1144 = icmp eq i32 %1142, %1143
   br i1 %1144, label %1145, label %4624
 
@@ -3286,7 +3286,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1196:                                             ; preds = %1195
   %1197 = load i32, ptr %27, align 4
-  %1198 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1198 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1199 = icmp eq i32 %1197, %1198
   br i1 %1199, label %1200, label %4624
 
@@ -3410,7 +3410,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1251:                                             ; preds = %1250
   %1252 = load i32, ptr %27, align 4
-  %1253 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1253 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1254 = icmp eq i32 %1252, %1253
   br i1 %1254, label %1255, label %4624
 
@@ -3541,7 +3541,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1308:                                             ; preds = %1307, %1295
   %1309 = load i32, ptr %27, align 4
-  %1310 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1310 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1311 = icmp eq i32 %1309, %1310
   br i1 %1311, label %1312, label %4624
 
@@ -3704,7 +3704,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1382:                                             ; preds = %1381, %1364
   %1383 = load i32, ptr %27, align 4
-  %1384 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1384 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1385 = icmp eq i32 %1383, %1384
   br i1 %1385, label %1386, label %4624
 
@@ -3916,7 +3916,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1489:                                             ; preds = %1488, %1472
   %1490 = load i32, ptr %27, align 4
-  %1491 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1491 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1492 = icmp eq i32 %1490, %1491
   br i1 %1492, label %1493, label %4624
 
@@ -4079,7 +4079,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1560:                                             ; preds = %1559, %1538
   %1561 = load i32, ptr %27, align 4
-  %1562 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1562 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1563 = icmp eq i32 %1561, %1562
   br i1 %1563, label %1564, label %4624
 
@@ -4242,7 +4242,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1631:                                             ; preds = %1630, %1609
   %1632 = load i32, ptr %27, align 4
-  %1633 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1633 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1634 = icmp eq i32 %1632, %1633
   br i1 %1634, label %1635, label %4624
 
@@ -4429,7 +4429,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1714:                                             ; preds = %1713
   %1715 = load i32, ptr %27, align 4
-  %1716 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1716 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1717 = icmp eq i32 %1715, %1716
   br i1 %1717, label %1718, label %4624
 
@@ -4529,7 +4529,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1758:                                             ; preds = %1757
   %1759 = load i32, ptr %27, align 4
-  %1760 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1760 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1761 = icmp eq i32 %1759, %1760
   br i1 %1761, label %1762, label %4624
 
@@ -4617,7 +4617,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1796:                                             ; preds = %1792, %1788
   %1797 = load i32, ptr %27, align 4
-  %1798 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1798 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1799 = icmp eq i32 %1797, %1798
   br i1 %1799, label %1800, label %4624
 
@@ -4765,7 +4765,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1862:                                             ; preds = %1861
   %1863 = load i32, ptr %27, align 4
-  %1864 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1864 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1865 = icmp eq i32 %1863, %1864
   br i1 %1865, label %1866, label %4624
 
@@ -4939,7 +4939,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 1937:                                             ; preds = %1936
   %1938 = load i32, ptr %27, align 4
-  %1939 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %1939 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %1940 = icmp eq i32 %1938, %1939
   br i1 %1940, label %1941, label %4624
 
@@ -5103,7 +5103,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2013:                                             ; preds = %2012
   %2014 = load i32, ptr %27, align 4
-  %2015 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2015 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2016 = icmp eq i32 %2014, %2015
   br i1 %2016, label %2017, label %4624
 
@@ -5262,7 +5262,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2084:                                             ; preds = %2083
   %2085 = load i32, ptr %27, align 4
-  %2086 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2086 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2087 = icmp eq i32 %2085, %2086
   br i1 %2087, label %2088, label %4624
 
@@ -5421,7 +5421,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2155:                                             ; preds = %2154
   %2156 = load i32, ptr %27, align 4
-  %2157 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2157 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2158 = icmp eq i32 %2156, %2157
   br i1 %2158, label %2159, label %4624
 
@@ -5559,7 +5559,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2213:                                             ; preds = %2212, %2200, %2196
   %2214 = load i32, ptr %27, align 4
-  %2215 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2215 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2216 = icmp eq i32 %2214, %2215
   br i1 %2216, label %2217, label %4624
 
@@ -5697,7 +5697,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2271:                                             ; preds = %2270, %2258, %2254
   %2272 = load i32, ptr %27, align 4
-  %2273 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2273 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2274 = icmp eq i32 %2272, %2273
   br i1 %2274, label %2275, label %4624
 
@@ -5820,7 +5820,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2327:                                             ; preds = %2326
   %2328 = load i32, ptr %27, align 4
-  %2329 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2329 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2330 = icmp eq i32 %2328, %2329
   br i1 %2330, label %2331, label %4624
 
@@ -5994,7 +5994,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2402:                                             ; preds = %2401
   %2403 = load i32, ptr %27, align 4
-  %2404 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2404 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2405 = icmp eq i32 %2403, %2404
   br i1 %2405, label %2406, label %4624
 
@@ -6153,7 +6153,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2473:                                             ; preds = %2472
   %2474 = load i32, ptr %27, align 4
-  %2475 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2475 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2476 = icmp eq i32 %2474, %2475
   br i1 %2476, label %2477, label %4624
 
@@ -6284,7 +6284,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2528:                                             ; preds = %2527, %2510
   %2529 = load i32, ptr %27, align 4
-  %2530 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2530 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2531 = icmp eq i32 %2529, %2530
   br i1 %2531, label %2532, label %4624
 
@@ -6415,7 +6415,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2583:                                             ; preds = %2582, %2565
   %2584 = load i32, ptr %27, align 4
-  %2585 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2585 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2586 = icmp eq i32 %2584, %2585
   br i1 %2586, label %2587, label %4624
 
@@ -6546,7 +6546,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2638:                                             ; preds = %2637, %2620
   %2639 = load i32, ptr %27, align 4
-  %2640 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2640 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2641 = icmp eq i32 %2639, %2640
   br i1 %2641, label %2642, label %4624
 
@@ -6677,7 +6677,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2693:                                             ; preds = %2692, %2675
   %2694 = load i32, ptr %27, align 4
-  %2695 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2695 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2696 = icmp eq i32 %2694, %2695
   br i1 %2696, label %2697, label %4624
 
@@ -6787,7 +6787,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2737:                                             ; preds = %2736, %2724
   %2738 = load i32, ptr %27, align 4
-  %2739 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2739 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2740 = icmp eq i32 %2738, %2739
   br i1 %2740, label %2741, label %4624
 
@@ -6918,7 +6918,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2792:                                             ; preds = %2791, %2774
   %2793 = load i32, ptr %27, align 4
-  %2794 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2794 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2795 = icmp eq i32 %2793, %2794
   br i1 %2795, label %2796, label %4624
 
@@ -7065,7 +7065,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2856:                                             ; preds = %2855, %2843, %2839
   %2857 = load i32, ptr %27, align 4
-  %2858 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2858 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2859 = icmp eq i32 %2857, %2858
   br i1 %2859, label %2860, label %4624
 
@@ -7188,7 +7188,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2912:                                             ; preds = %2911
   %2913 = load i32, ptr %27, align 4
-  %2914 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2914 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2915 = icmp eq i32 %2913, %2914
   br i1 %2915, label %2916, label %4624
 
@@ -7301,7 +7301,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 2964:                                             ; preds = %2960, %2956
   %2965 = load i32, ptr %27, align 4
-  %2966 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %2966 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %2967 = icmp eq i32 %2965, %2966
   br i1 %2967, label %2968, label %4624
 
@@ -7437,7 +7437,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3026:                                             ; preds = %3025, %3013
   %3027 = load i32, ptr %27, align 4
-  %3028 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3028 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3029 = icmp eq i32 %3027, %3028
   br i1 %3029, label %3030, label %4624
 
@@ -7594,7 +7594,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3093:                                             ; preds = %3092
   %3094 = load i32, ptr %27, align 4
-  %3095 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3095 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3096 = icmp eq i32 %3094, %3095
   br i1 %3096, label %3097, label %4624
 
@@ -7701,7 +7701,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3137:                                             ; preds = %3136, %3124
   %3138 = load i32, ptr %27, align 4
-  %3139 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3139 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3140 = icmp eq i32 %3138, %3139
   br i1 %3140, label %3141, label %4624
 
@@ -7808,7 +7808,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3181:                                             ; preds = %3180, %3168
   %3182 = load i32, ptr %27, align 4
-  %3183 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3183 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3184 = icmp eq i32 %3182, %3183
   br i1 %3184, label %3185, label %4624
 
@@ -7915,7 +7915,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3225:                                             ; preds = %3224, %3212
   %3226 = load i32, ptr %27, align 4
-  %3227 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3227 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3228 = icmp eq i32 %3226, %3227
   br i1 %3228, label %3229, label %4624
 
@@ -8015,7 +8015,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3269:                                             ; preds = %3265, %3261
   %3270 = load i32, ptr %27, align 4
-  %3271 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3271 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3272 = icmp eq i32 %3270, %3271
   br i1 %3272, label %3273, label %4624
 
@@ -8144,7 +8144,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3323:                                             ; preds = %3322, %3306
   %3324 = load i32, ptr %27, align 4
-  %3325 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3325 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3326 = icmp eq i32 %3324, %3325
   br i1 %3326, label %3327, label %4624
 
@@ -8267,7 +8267,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3377:                                             ; preds = %3376
   %3378 = load i32, ptr %27, align 4
-  %3379 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3379 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3380 = icmp eq i32 %3378, %3379
   br i1 %3380, label %3381, label %4624
 
@@ -8367,7 +8367,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3421:                                             ; preds = %3417, %3413
   %3422 = load i32, ptr %27, align 4
-  %3423 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3423 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3424 = icmp eq i32 %3422, %3423
   br i1 %3424, label %3425, label %4624
 
@@ -8496,7 +8496,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3475:                                             ; preds = %3474, %3458
   %3476 = load i32, ptr %27, align 4
-  %3477 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3477 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3478 = icmp eq i32 %3476, %3477
   br i1 %3478, label %3479, label %4624
 
@@ -8625,7 +8625,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3529:                                             ; preds = %3528, %3512
   %3530 = load i32, ptr %27, align 4
-  %3531 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3531 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3532 = icmp eq i32 %3530, %3531
   br i1 %3532, label %3533, label %4624
 
@@ -8749,7 +8749,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3584:                                             ; preds = %3583, %3571
   %3585 = load i32, ptr %27, align 4
-  %3586 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3586 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3587 = icmp eq i32 %3585, %3586
   br i1 %3587, label %3588, label %4624
 
@@ -8878,7 +8878,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3638:                                             ; preds = %3637, %3621
   %3639 = load i32, ptr %27, align 4
-  %3640 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3640 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3641 = icmp eq i32 %3639, %3640
   br i1 %3641, label %3642, label %4624
 
@@ -9007,7 +9007,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3692:                                             ; preds = %3691, %3675
   %3693 = load i32, ptr %27, align 4
-  %3694 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3694 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3695 = icmp eq i32 %3693, %3694
   br i1 %3695, label %3696, label %4624
 
@@ -9113,7 +9113,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3735:                                             ; preds = %3734, %3722
   %3736 = load i32, ptr %27, align 4
-  %3737 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3737 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3738 = icmp eq i32 %3736, %3737
   br i1 %3738, label %3739, label %4624
 
@@ -9219,7 +9219,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3778:                                             ; preds = %3777, %3765
   %3779 = load i32, ptr %27, align 4
-  %3780 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3780 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3781 = icmp eq i32 %3779, %3780
   br i1 %3781, label %3782, label %4624
 
@@ -9325,7 +9325,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3821:                                             ; preds = %3820, %3808
   %3822 = load i32, ptr %27, align 4
-  %3823 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3823 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3824 = icmp eq i32 %3822, %3823
   br i1 %3824, label %3825, label %4624
 
@@ -9431,7 +9431,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3864:                                             ; preds = %3863, %3851
   %3865 = load i32, ptr %27, align 4
-  %3866 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3866 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3867 = icmp eq i32 %3865, %3866
   br i1 %3867, label %3868, label %4624
 
@@ -9527,7 +9527,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3907:                                             ; preds = %3903, %3899
   %3908 = load i32, ptr %27, align 4
-  %3909 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3909 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3910 = icmp eq i32 %3908, %3909
   br i1 %3910, label %3911, label %4624
 
@@ -9614,7 +9614,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3944:                                             ; preds = %3940, %3936
   %3945 = load i32, ptr %27, align 4
-  %3946 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3946 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3947 = icmp eq i32 %3945, %3946
   br i1 %3947, label %3948, label %4624
 
@@ -9713,7 +9713,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 3987:                                             ; preds = %3986
   %3988 = load i32, ptr %27, align 4
-  %3989 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %3989 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %3990 = icmp eq i32 %3988, %3989
   br i1 %3990, label %3991, label %4624
 
@@ -9814,7 +9814,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 4035:                                             ; preds = %4031, %4027
   %4036 = load i32, ptr %27, align 4
-  %4037 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %4037 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %4038 = icmp eq i32 %4036, %4037
   br i1 %4038, label %4039, label %4624
 
@@ -9907,7 +9907,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 4078:                                             ; preds = %4074, %4070
   %4079 = load i32, ptr %27, align 4
-  %4080 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %4080 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %4081 = icmp eq i32 %4079, %4080
   br i1 %4081, label %4082, label %4624
 
@@ -9999,7 +9999,7 @@ define noundef i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3g
 
 4120:                                             ; preds = %4116, %4112
   %4121 = load i32, ptr %27, align 4
-  %4122 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %4122 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %4123 = icmp eq i32 %4121, %4122
   br i1 %4123, label %4124, label %4624
 
@@ -10922,9 +10922,6 @@ define internal void @_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEE
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) #5
@@ -10953,7 +10950,7 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #14
   call void @_ZSt9terminatev() #17
   unreachable
@@ -11016,7 +11013,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 declare noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPv(ptr noundef) #7
 
 declare void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef) #5
 
@@ -11175,7 +11172,7 @@ define linkonce_odr void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionPar
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
 
 declare void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #5
 
@@ -12004,7 +12001,7 @@ define internal void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr n
 
 54:                                               ; preds = %53, %29
   %55 = load i32, ptr %9, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %57 = icmp eq i32 %55, %56
   br i1 %57, label %58, label %69
 
@@ -12901,7 +12898,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
@@ -13803,10 +13800,10 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeIN3gmx20S
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #11
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #11
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN3gmx20SelectionParserValueEEE9constructIS2_JRKS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(76) %2) #3 comdat align 2 {
@@ -13989,7 +13986,8 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorC2ERKNS_20ExceptionInitializ
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14045,7 +14043,8 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorC2ERKS0_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17InvalidInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14140,7 +14139,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
@@ -14399,7 +14398,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14432,9 +14432,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }
@@ -14462,7 +14463,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9_
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14705,7 +14706,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2ERKS0_(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14718,11 +14720,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2ERKS0_(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #14
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   ret void
 }
 
@@ -14733,7 +14736,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -15416,7 +15420,7 @@ define linkonce_odr void @_ZNSt10unique_ptrISt10shared_ptrIN3gmx20SelectionTreeE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #11
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataISt10shared_ptrIN3gmx20SelectionTreeElementEESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
@@ -16287,10 +16291,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -16304,11 +16309,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -17656,19 +17662,22 @@ define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN3gmx20Selection
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { nounwind memory(none) }
 attributes #13 = { nounwind allocsize(0) }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }

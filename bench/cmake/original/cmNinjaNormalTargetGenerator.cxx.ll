@@ -2993,107 +2993,108 @@ define dso_local void @_ZN28cmNinjaNormalTargetGeneratorC2EP17cmGeneratorTarget(
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN22cmNinjaTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28cmNinjaNormalTargetGenerator, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.cmNinjaNormalTargetGenerator, ptr %13, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = load ptr, ptr %4, align 8
-  %17 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2728) %16)
-          to label %18 unwind label %39
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV28cmNinjaNormalTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.cmNinjaNormalTargetGenerator, ptr %13, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  %17 = load ptr, ptr %4, align 8
+  %18 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2728) %17)
+          to label %19 unwind label %40
 
-18:                                               ; preds = %2
-  %19 = icmp ne i32 %17, 4
-  br i1 %19, label %20, label %48
+19:                                               ; preds = %2
+  %20 = icmp ne i32 %18, 4
+  br i1 %20, label %21, label %49
 
-20:                                               ; preds = %18
-  %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK23cmCommonTargetGenerator14GetConfigNamesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(120) %13)
-          to label %22 unwind label %39
+21:                                               ; preds = %19
+  %22 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK23cmCommonTargetGenerator14GetConfigNamesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(120) %13)
+          to label %23 unwind label %40
 
-22:                                               ; preds = %20
-  store ptr %21, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
-  store ptr %27, ptr %28, align 8
-  br label %29
+23:                                               ; preds = %21
+  store ptr %22, ptr %7, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  store ptr %28, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %37, %22
-  %30 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br i1 %30, label %31, label %47
+30:                                               ; preds = %38, %23
+  %31 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br i1 %31, label %32, label %48
 
-31:                                               ; preds = %29
-  %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr %10, align 8
-  invoke void @_ZNK17cmGeneratorTarget12GetDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums12ArtifactTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(2728) %33, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 0)
-          to label %35 unwind label %39
+32:                                               ; preds = %30
+  %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %10, align 8
+  invoke void @_ZNK17cmGeneratorTarget12GetDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums12ArtifactTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(2728) %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 0)
+          to label %36 unwind label %40
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   invoke void @_ZNK22cmNinjaTargetGenerator21EnsureDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %36 unwind label %43
-
-36:                                               ; preds = %35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %37
+          to label %37 unwind label %44
 
 37:                                               ; preds = %36
-  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %29
-
-39:                                               ; preds = %49, %48, %31, %20, %2
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
-  br label %56
-
-43:                                               ; preds = %35
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %5, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  br label %56
+  br label %38
 
-47:                                               ; preds = %29
-  br label %48
+38:                                               ; preds = %37
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %30
 
-48:                                               ; preds = %47, %18
-  invoke void @_ZSt11make_uniqueI20cmOSXBundleGeneratorJRP17cmGeneratorTargetEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %49 unwind label %39
-
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 1
-  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  call void @_ZNSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %52 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 1
-  %53 = call noundef ptr @_ZNKSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %52) #3
-  %54 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 2
-  invoke void @_ZN20cmOSXBundleGenerator20SetMacContentFoldersEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef %54)
-          to label %55 unwind label %39
-
-55:                                               ; preds = %49
-  ret void
-
-56:                                               ; preds = %43, %39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZN22cmNinjaTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %13) #3
+40:                                               ; preds = %50, %49, %32, %21, %2
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
   br label %57
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i32, ptr %6, align 4
-  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
-  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
-  resume { ptr, i32 } %61
+44:                                               ; preds = %36
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %57
+
+48:                                               ; preds = %30
+  br label %49
+
+49:                                               ; preds = %48, %19
+  invoke void @_ZSt11make_uniqueI20cmOSXBundleGeneratorJRP17cmGeneratorTargetEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %50 unwind label %40
+
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 1
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  call void @_ZNSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %53 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 1
+  %54 = call noundef ptr @_ZNKSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %53) #3
+  %55 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %13, i32 0, i32 2
+  invoke void @_ZN20cmOSXBundleGenerator20SetMacContentFoldersEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %55)
+          to label %56 unwind label %40
+
+56:                                               ; preds = %50
+  ret void
+
+57:                                               ; preds = %44, %40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZN22cmNinjaTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %13) #3
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i32, ptr %6, align 4
+  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
+  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
+  resume { ptr, i32 } %62
 }
 
 declare void @_ZN22cmNinjaTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef) unnamed_addr #1
@@ -3281,9 +3282,10 @@ define dso_local void @_ZN28cmNinjaNormalTargetGeneratorD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28cmNinjaNormalTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmNinjaNormalTargetGenerator, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV28cmNinjaNormalTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmNinjaNormalTargetGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN22cmNinjaTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %3) #3
   ret void
 }

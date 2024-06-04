@@ -903,8 +903,10 @@ if.then12:                                        ; preds = %do.body
   br label %do.body13
 
 do.body13:                                        ; preds = %if.then12
-  store ptr getelementptr (i8, ptr @.str, i64 129), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 129), i32 noundef 165, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %11 = getelementptr i8, ptr @.str, i64 129
+  store ptr %11, ptr %absl_raw_log_internal_basename, align 8
+  %12 = getelementptr i8, ptr @.str, i64 129
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %12, i32 noundef 165, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body14
 
 do.body14:                                        ; preds = %do.body13
@@ -921,28 +923,28 @@ if.end16:                                         ; preds = %do.end15, %do.body
 
 do.end17:                                         ; preds = %if.end16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp19, ptr align 8 %now, i64 16, i1 false)
-  %11 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp19, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp19, i32 0, i32 1
+  %13 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp19, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
-  %call20 = call { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64 %12, i64 %14) #9
+  %15 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp19, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %call20 = call { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64 %14, i64 %16) #9
   store { i64, i32 } %call20, ptr %tmp.coerce21, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp18, ptr align 8 %tmp.coerce21, i64 12, i1 false)
-  %15 = load i64, ptr %nanos, align 8
-  %call23 = call { i64, i32 } @_ZN4absl11NanosecondsIlTnNSt9enable_ifIXoosr3std11is_integralIT_EE5valuesr3std7is_enumIS2_EE5valueEiE4typeELi0EEENS_8DurationES2_(i64 noundef %15) #9
+  %17 = load i64, ptr %nanos, align 8
+  %call23 = call { i64, i32 } @_ZN4absl11NanosecondsIlTnNSt9enable_ifIXoosr3std11is_integralIT_EE5valuesr3std7is_enumIS2_EE5valueEiE4typeELi0EEENS_8DurationES2_(i64 noundef %17) #9
   store { i64, i32 } %call23, ptr %tmp.coerce24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp22, ptr align 8 %tmp.coerce24, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp18.coerce, ptr align 4 %agg.tmp18, i64 12, i1 false)
-  %16 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp18.coerce, i32 0, i32 0
-  %17 = load i64, ptr %16, align 4
-  %18 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp18.coerce, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
+  %18 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp18.coerce, i32 0, i32 0
+  %19 = load i64, ptr %18, align 4
+  %20 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp18.coerce, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp22.coerce, ptr align 4 %agg.tmp22, i64 12, i1 false)
-  %20 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp22.coerce, i32 0, i32 0
-  %21 = load i64, ptr %20, align 4
-  %22 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp22.coerce, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  %call25 = call { i64, i32 } @_ZN4abslplENS_8DurationES0_(i64 %17, i32 %19, i64 %21, i32 %23) #9
+  %22 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp22.coerce, i32 0, i32 0
+  %23 = load i64, ptr %22, align 4
+  %24 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp22.coerce, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %call25 = call { i64, i32 } @_ZN4abslplENS_8DurationES0_(i64 %19, i32 %21, i64 %23, i32 %25) #9
   store { i64, i32 } %call25, ptr %tmp.coerce26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %from_clock_epoch, ptr align 8 %tmp.coerce26, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp27, ptr align 4 %from_clock_epoch, i64 12, i1 false)
@@ -950,16 +952,16 @@ do.end17:                                         ; preds = %if.end16
   store { i64, i32 } %call29, ptr %tmp.coerce30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp28, ptr align 8 %tmp.coerce30, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp27.coerce, ptr align 4 %agg.tmp27, i64 12, i1 false)
-  %24 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp27.coerce, i32 0, i32 0
-  %25 = load i64, ptr %24, align 4
-  %26 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp27.coerce, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
+  %26 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp27.coerce, i32 0, i32 0
+  %27 = load i64, ptr %26, align 4
+  %28 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp27.coerce, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp28.coerce, ptr align 4 %agg.tmp28, i64 12, i1 false)
-  %28 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp28.coerce, i32 0, i32 0
-  %29 = load i64, ptr %28, align 4
-  %30 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp28.coerce, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
-  %call31 = call noundef zeroext i1 @_ZN4abslleENS_8DurationES0_(i64 %25, i32 %27, i64 %29, i32 %31) #9
+  %30 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp28.coerce, i32 0, i32 0
+  %31 = load i64, ptr %30, align 4
+  %32 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp28.coerce, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %call31 = call noundef zeroext i1 @_ZN4abslleENS_8DurationES0_(i64 %27, i32 %29, i64 %31, i32 %33) #9
   br i1 %call31, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %do.end17
@@ -967,38 +969,38 @@ if.then32:                                        ; preds = %do.end17
   store { i64, i32 } %call34, ptr %tmp.coerce35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp33, ptr align 8 %tmp.coerce35, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp33.coerce, ptr align 4 %agg.tmp33, i64 12, i1 false)
-  %32 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp33.coerce, i32 0, i32 0
-  %33 = load i64, ptr %32, align 4
-  %34 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp33.coerce, i32 0, i32 1
-  %35 = load i32, ptr %34, align 4
-  %call36 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %33, i32 %35) #9
-  %36 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %37 = extractvalue { i64, i64 } %call36, 0
-  store i64 %37, ptr %36, align 8
-  %38 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %39 = extractvalue { i64, i64 } %call36, 1
+  %34 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp33.coerce, i32 0, i32 0
+  %35 = load i64, ptr %34, align 4
+  %36 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp33.coerce, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4
+  %call36 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %35, i32 %37) #9
+  %38 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
+  %39 = extractvalue { i64, i64 } %call36, 0
   store i64 %39, ptr %38, align 8
+  %40 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
+  %41 = extractvalue { i64, i64 } %call36, 1
+  store i64 %41, ptr %40, align 8
   br label %return
 
 if.end37:                                         ; preds = %do.end17
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp38, ptr align 4 %from_clock_epoch, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp38.coerce, ptr align 4 %agg.tmp38, i64 12, i1 false)
-  %40 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp38.coerce, i32 0, i32 0
-  %41 = load i64, ptr %40, align 4
-  %42 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp38.coerce, i32 0, i32 1
-  %43 = load i32, ptr %42, align 4
-  %call39 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %41, i32 %43) #9
-  %44 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %45 = extractvalue { i64, i64 } %call39, 0
-  store i64 %45, ptr %44, align 8
-  %46 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %47 = extractvalue { i64, i64 } %call39, 1
+  %42 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp38.coerce, i32 0, i32 0
+  %43 = load i64, ptr %42, align 4
+  %44 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp38.coerce, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %call39 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %43, i32 %45) #9
+  %46 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
+  %47 = extractvalue { i64, i64 } %call39, 0
   store i64 %47, ptr %46, align 8
+  %48 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
+  %49 = extractvalue { i64, i64 } %call39, 1
+  store i64 %49, ptr %48, align 8
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then32, %if.then
-  %48 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %48
+  %50 = load { i64, i64 }, ptr %retval, align 8
+  ret { i64, i64 } %50
 }
 
 ; Function Attrs: nounwind

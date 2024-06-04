@@ -377,23 +377,26 @@ do.body7:                                         ; preds = %do.end6
   %16 = load ptr, ptr %blk, align 8
   %link = getelementptr inbounds %struct.BlockBackend, ptr %16, i32 0, i32 5
   store ptr null, ptr %link, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @block_backends, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %blk, align 8
-  %link8 = getelementptr inbounds %struct.BlockBackend, ptr %18, i32 0, i32 5
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link8, i32 0, i32 1
-  store ptr %17, ptr %tql_prev, align 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @block_backends, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %blk, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @block_backends, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %19, ptr %tql_next, align 8
-  %21 = load ptr, ptr %blk, align 8
-  %link9 = getelementptr inbounds %struct.BlockBackend, ptr %21, i32 0, i32 5
-  store ptr %link9, ptr getelementptr inbounds (%struct.QTailQLink, ptr @block_backends, i32 0, i32 1), align 8
+  %link8 = getelementptr inbounds %struct.BlockBackend, ptr %19, i32 0, i32 5
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link8, i32 0, i32 1
+  store ptr %18, ptr %tql_prev, align 8
+  %20 = load ptr, ptr %blk, align 8
+  %21 = getelementptr inbounds %struct.QTailQLink, ptr @block_backends, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next, align 8
+  %23 = load ptr, ptr %blk, align 8
+  %link9 = getelementptr inbounds %struct.BlockBackend, ptr %23, i32 0, i32 5
+  %24 = getelementptr inbounds %struct.QTailQLink, ptr @block_backends, i32 0, i32 1
+  store ptr %link9, ptr %24, align 8
   br label %do.end10
 
 do.end10:                                         ; preds = %do.body7
-  %22 = load ptr, ptr %blk, align 8
-  ret ptr %22
+  %25 = load ptr, ptr %blk, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -1306,42 +1309,43 @@ if.else43:                                        ; preds = %do.body
   %link44 = getelementptr inbounds %struct.BlockBackend, ptr %31, i32 0, i32 5
   %tql_prev45 = getelementptr inbounds %struct.QTailQLink, ptr %link44, i32 0, i32 1
   %32 = load ptr, ptr %tql_prev45, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.QTailQLink, ptr @block_backends, i32 0, i32 1), align 8
+  %33 = getelementptr inbounds %struct.QTailQLink, ptr @block_backends, i32 0, i32 1
+  store ptr %32, ptr %33, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.else43, %if.then38
-  %33 = load ptr, ptr %blk.addr, align 8
-  %link47 = getelementptr inbounds %struct.BlockBackend, ptr %33, i32 0, i32 5
-  %34 = load ptr, ptr %link47, align 8
-  %35 = load ptr, ptr %blk.addr, align 8
-  %link48 = getelementptr inbounds %struct.BlockBackend, ptr %35, i32 0, i32 5
+  %34 = load ptr, ptr %blk.addr, align 8
+  %link47 = getelementptr inbounds %struct.BlockBackend, ptr %34, i32 0, i32 5
+  %35 = load ptr, ptr %link47, align 8
+  %36 = load ptr, ptr %blk.addr, align 8
+  %link48 = getelementptr inbounds %struct.BlockBackend, ptr %36, i32 0, i32 5
   %tql_prev49 = getelementptr inbounds %struct.QTailQLink, ptr %link48, i32 0, i32 1
-  %36 = load ptr, ptr %tql_prev49, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %36, i32 0, i32 0
-  store ptr %34, ptr %tql_next, align 8
-  %37 = load ptr, ptr %blk.addr, align 8
-  %link50 = getelementptr inbounds %struct.BlockBackend, ptr %37, i32 0, i32 5
+  %37 = load ptr, ptr %tql_prev49, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %37, i32 0, i32 0
+  store ptr %35, ptr %tql_next, align 8
+  %38 = load ptr, ptr %blk.addr, align 8
+  %link50 = getelementptr inbounds %struct.BlockBackend, ptr %38, i32 0, i32 5
   %tql_prev51 = getelementptr inbounds %struct.QTailQLink, ptr %link50, i32 0, i32 1
   store ptr null, ptr %tql_prev51, align 8
-  %38 = load ptr, ptr %blk.addr, align 8
-  %link52 = getelementptr inbounds %struct.BlockBackend, ptr %38, i32 0, i32 5
+  %39 = load ptr, ptr %blk.addr, align 8
+  %link52 = getelementptr inbounds %struct.BlockBackend, ptr %39, i32 0, i32 5
   %tql_next53 = getelementptr inbounds %struct.QTailQLink, ptr %link52, i32 0, i32 0
   store ptr null, ptr %tql_next53, align 8
-  %39 = load ptr, ptr %blk.addr, align 8
-  %link54 = getelementptr inbounds %struct.BlockBackend, ptr %39, i32 0, i32 5
+  %40 = load ptr, ptr %blk.addr, align 8
+  %link54 = getelementptr inbounds %struct.BlockBackend, ptr %40, i32 0, i32 5
   store ptr null, ptr %link54, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end46
-  %40 = load ptr, ptr %blk.addr, align 8
-  %legacy_dinfo = getelementptr inbounds %struct.BlockBackend, ptr %40, i32 0, i32 4
-  %41 = load ptr, ptr %legacy_dinfo, align 8
-  call void @drive_info_del(ptr noundef %41)
-  %42 = load ptr, ptr %blk.addr, align 8
-  %stats = getelementptr inbounds %struct.BlockBackend, ptr %42, i32 0, i32 13
-  call void @block_acct_cleanup(ptr noundef %stats)
+  %41 = load ptr, ptr %blk.addr, align 8
+  %legacy_dinfo = getelementptr inbounds %struct.BlockBackend, ptr %41, i32 0, i32 4
+  %42 = load ptr, ptr %legacy_dinfo, align 8
+  call void @drive_info_del(ptr noundef %42)
   %43 = load ptr, ptr %blk.addr, align 8
-  call void @g_free(ptr noundef %43)
+  %stats = getelementptr inbounds %struct.BlockBackend, ptr %43, i32 0, i32 13
+  call void @block_acct_cleanup(ptr noundef %stats)
+  %44 = load ptr, ptr %blk.addr, align 8
+  call void @g_free(ptr noundef %44)
   ret void
 }
 
@@ -2190,18 +2194,21 @@ do.body23:                                        ; preds = %if.end20
   %15 = load ptr, ptr %blk.addr, align 8
   %monitor_link = getelementptr inbounds %struct.BlockBackend, ptr %15, i32 0, i32 6
   store ptr null, ptr %monitor_link, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1), align 8
-  %17 = load ptr, ptr %blk.addr, align 8
-  %monitor_link24 = getelementptr inbounds %struct.BlockBackend, ptr %17, i32 0, i32 6
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link24, i32 0, i32 1
-  store ptr %16, ptr %tql_prev, align 8
+  %16 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %blk.addr, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 0
-  store ptr %18, ptr %tql_next, align 8
-  %20 = load ptr, ptr %blk.addr, align 8
-  %monitor_link25 = getelementptr inbounds %struct.BlockBackend, ptr %20, i32 0, i32 6
-  store ptr %monitor_link25, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1), align 8
+  %monitor_link24 = getelementptr inbounds %struct.BlockBackend, ptr %18, i32 0, i32 6
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link24, i32 0, i32 1
+  store ptr %17, ptr %tql_prev, align 8
+  %19 = load ptr, ptr %blk.addr, align 8
+  %20 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %tql_next, align 8
+  %22 = load ptr, ptr %blk.addr, align 8
+  %monitor_link25 = getelementptr inbounds %struct.BlockBackend, ptr %22, i32 0, i32 6
+  %23 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1
+  store ptr %monitor_link25, ptr %23, align 8
   br label %do.end26
 
 do.end26:                                         ; preds = %do.body23
@@ -2209,8 +2216,8 @@ do.end26:                                         ; preds = %do.body23
   br label %return
 
 return:                                           ; preds = %do.end26, %if.then19, %if.then15, %if.then11
-  %21 = load i1, ptr %retval, align 1
-  ret i1 %21
+  %24 = load i1, ptr %retval, align 1
+  ret i1 %24
 }
 
 declare zeroext i1 @id_wellformed(ptr noundef) #1
@@ -2352,39 +2359,40 @@ if.else9:                                         ; preds = %do.body3
   %monitor_link10 = getelementptr inbounds %struct.BlockBackend, ptr %8, i32 0, i32 6
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link10, i32 0, i32 1
   %9 = load ptr, ptr %tql_prev11, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1), align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_block_backends, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else9, %if.then4
-  %10 = load ptr, ptr %blk.addr, align 8
-  %monitor_link13 = getelementptr inbounds %struct.BlockBackend, ptr %10, i32 0, i32 6
-  %11 = load ptr, ptr %monitor_link13, align 8
-  %12 = load ptr, ptr %blk.addr, align 8
-  %monitor_link14 = getelementptr inbounds %struct.BlockBackend, ptr %12, i32 0, i32 6
+  %11 = load ptr, ptr %blk.addr, align 8
+  %monitor_link13 = getelementptr inbounds %struct.BlockBackend, ptr %11, i32 0, i32 6
+  %12 = load ptr, ptr %monitor_link13, align 8
+  %13 = load ptr, ptr %blk.addr, align 8
+  %monitor_link14 = getelementptr inbounds %struct.BlockBackend, ptr %13, i32 0, i32 6
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link14, i32 0, i32 1
-  %13 = load ptr, ptr %tql_prev15, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
-  store ptr %11, ptr %tql_next, align 8
-  %14 = load ptr, ptr %blk.addr, align 8
-  %monitor_link16 = getelementptr inbounds %struct.BlockBackend, ptr %14, i32 0, i32 6
+  %14 = load ptr, ptr %tql_prev15, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
+  store ptr %12, ptr %tql_next, align 8
+  %15 = load ptr, ptr %blk.addr, align 8
+  %monitor_link16 = getelementptr inbounds %struct.BlockBackend, ptr %15, i32 0, i32 6
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link16, i32 0, i32 1
   store ptr null, ptr %tql_prev17, align 8
-  %15 = load ptr, ptr %blk.addr, align 8
-  %monitor_link18 = getelementptr inbounds %struct.BlockBackend, ptr %15, i32 0, i32 6
+  %16 = load ptr, ptr %blk.addr, align 8
+  %monitor_link18 = getelementptr inbounds %struct.BlockBackend, ptr %16, i32 0, i32 6
   %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_link18, i32 0, i32 0
   store ptr null, ptr %tql_next19, align 8
-  %16 = load ptr, ptr %blk.addr, align 8
-  %monitor_link20 = getelementptr inbounds %struct.BlockBackend, ptr %16, i32 0, i32 6
+  %17 = load ptr, ptr %blk.addr, align 8
+  %monitor_link20 = getelementptr inbounds %struct.BlockBackend, ptr %17, i32 0, i32 6
   store ptr null, ptr %monitor_link20, align 8
   br label %do.end21
 
 do.end21:                                         ; preds = %if.end12
-  %17 = load ptr, ptr %blk.addr, align 8
-  %name22 = getelementptr inbounds %struct.BlockBackend, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %name22, align 8
-  call void @g_free(ptr noundef %18)
-  %19 = load ptr, ptr %blk.addr, align 8
-  %name23 = getelementptr inbounds %struct.BlockBackend, ptr %19, i32 0, i32 0
+  %18 = load ptr, ptr %blk.addr, align 8
+  %name22 = getelementptr inbounds %struct.BlockBackend, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %name22, align 8
+  call void @g_free(ptr noundef %19)
+  %20 = load ptr, ptr %blk.addr, align 8
+  %name23 = getelementptr inbounds %struct.BlockBackend, ptr %20, i32 0, i32 0
   store ptr null, ptr %name23, align 8
   br label %return
 

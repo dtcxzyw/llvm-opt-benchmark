@@ -126,7 +126,7 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   %48 = getelementptr i8, ptr %27, i64 200
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %182
+  br i1 %50, label %51, label %184
 
 51:                                               ; preds = %47, %45, %32
   %52 = getelementptr i8, ptr %27, i64 80
@@ -179,7 +179,7 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   %86 = getelementptr i8, ptr %27, i64 144
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, @key_type_keyring
-  br i1 %88, label %185, label %89
+  br i1 %88, label %187, label %89
 
 89:                                               ; preds = %85, %81
   %90 = and i8 %82, 64
@@ -191,7 +191,7 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr @key_gc_dead_keytype, align 8
   %96 = icmp eq ptr %94, %95
-  br i1 %96, label %187, label %97
+  br i1 %96, label %189, label %97
 
 97:                                               ; preds = %92, %89, %41
   %98 = phi i64 [ %26, %41 ], [ %71, %92 ], [ %71, %89 ]
@@ -215,9 +215,9 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
   br label %112
 
-112:                                              ; preds = %196, %185, %182, %177, %109
-  %113 = phi i64 [ %26, %177 ], [ %110, %109 ], [ %26, %182 ], [ %71, %185 ], [ %71, %196 ]
-  %114 = phi ptr [ %29, %177 ], [ %111, %109 ], [ %29, %182 ], [ %29, %185 ], [ %29, %196 ]
+112:                                              ; preds = %198, %187, %184, %177, %109
+  %113 = phi i64 [ %26, %177 ], [ %110, %109 ], [ %26, %184 ], [ %71, %187 ], [ %71, %198 ]
+  %114 = phi ptr [ %29, %177 ], [ %111, %109 ], [ %29, %184 ], [ %29, %187 ], [ %29, %198 ]
   %115 = icmp eq ptr %114, null
   br i1 %115, label %118, label %116
 
@@ -331,51 +331,53 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
 177:                                              ; preds = %25
   tail call void @rb_erase(ptr noundef %27, ptr noundef nonnull @key_serial_tree) #4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
-  %178 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1), align 8
-  store ptr %27, ptr getelementptr inbounds (%struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1), align 8
+  %178 = getelementptr inbounds %struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds %struct.list_head, ptr @key_garbage_collector.graveyard, i64 0, i32 1
+  store ptr %27, ptr %180, align 8
   store ptr @key_garbage_collector.graveyard, ptr %27, align 8
-  %179 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %178, ptr %179, align 8
-  store volatile ptr %27, ptr %178, align 8
-  %180 = load i8, ptr @key_garbage_collector.gc_state, align 1
-  %181 = or i8 %180, 1
-  store i8 %181, ptr @key_garbage_collector.gc_state, align 1
+  %181 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %179, ptr %181, align 8
+  store volatile ptr %27, ptr %179, align 8
+  %182 = load i8, ptr @key_garbage_collector.gc_state, align 1
+  %183 = or i8 %182, 1
+  store i8 %183, ptr @key_garbage_collector.gc_state, align 1
   br label %112
 
-182:                                              ; preds = %47
-  %183 = getelementptr i8, ptr %27, i64 -8
+184:                                              ; preds = %47
+  %185 = getelementptr i8, ptr %27, i64 -8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
-  %184 = load ptr, ptr @key_gc_dead_keytype, align 8
-  tail call void @keyring_restriction_gc(ptr noundef %183, ptr noundef %184) #4
+  %186 = load ptr, ptr @key_gc_dead_keytype, align 8
+  tail call void @keyring_restriction_gc(ptr noundef %185, ptr noundef %186) #4
   br label %112
 
-185:                                              ; preds = %85
-  %186 = getelementptr i8, ptr %27, i64 -8
+187:                                              ; preds = %85
+  %188 = getelementptr i8, ptr %27, i64 -8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
-  tail call void @keyring_gc(ptr noundef %186, i64 noundef %2) #4
+  tail call void @keyring_gc(ptr noundef %188, i64 noundef %2) #4
   br label %112
 
-187:                                              ; preds = %92
-  %188 = getelementptr i8, ptr %27, i64 144
+189:                                              ; preds = %92
+  %190 = getelementptr i8, ptr %27, i64 144
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #4
-  %189 = getelementptr i8, ptr %27, i64 24
-  tail call void @down_write(ptr noundef %189) #4
-  store ptr @key_type_dead, ptr %188, align 8
-  %190 = load ptr, ptr @key_gc_dead_keytype, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 88
-  %192 = load ptr, ptr %191, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %196, label %194
+  %191 = getelementptr i8, ptr %27, i64 24
+  tail call void @down_write(ptr noundef %191) #4
+  store ptr @key_type_dead, ptr %190, align 8
+  %192 = load ptr, ptr @key_gc_dead_keytype, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 88
+  %194 = load ptr, ptr %193, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %198, label %196
 
-194:                                              ; preds = %187
-  %195 = getelementptr i8, ptr %27, i64 -8
-  tail call void %192(ptr noundef %195) #4
-  br label %196
+196:                                              ; preds = %189
+  %197 = getelementptr i8, ptr %27, i64 -8
+  tail call void %194(ptr noundef %197) #4
+  br label %198
 
-196:                                              ; preds = %194, %187
-  %197 = getelementptr i8, ptr %27, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %197, i8 -67, i64 32, i1 false)
-  tail call void @up_write(ptr noundef %189) #4
+198:                                              ; preds = %196, %189
+  %199 = getelementptr i8, ptr %27, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %199, i8 -67, i64 32, i1 false)
+  tail call void @up_write(ptr noundef %191) #4
   br label %112
 }
 
@@ -540,10 +542,10 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 define internal fastcc void @key_gc_unused_keys() unnamed_addr #0 align 16 {
   %1 = load volatile ptr, ptr @key_garbage_collector.graveyard, align 8
   %2 = icmp eq ptr %1, @key_garbage_collector.graveyard
-  br i1 %2, label %60, label %3
+  br i1 %2, label %62, label %3
 
-3:                                                ; preds = %50, %0
-  %4 = phi ptr [ %58, %50 ], [ %1, %0 ]
+3:                                                ; preds = %52, %0
+  %4 = phi ptr [ %60, %52 ], [ %1, %0 ]
   %5 = getelementptr i8, ptr %4, i64 -8
   %6 = getelementptr i8, ptr %4, i64 112
   %7 = load i16, ptr %6, align 8
@@ -553,86 +555,88 @@ define internal fastcc void @key_gc_unused_keys() unnamed_addr #0 align 16 {
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
-  %12 = icmp eq i16 %7, 1
-  br i1 %12, label %13, label %20
+  %12 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %12, ptr %4, align 8
+  %13 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %13, ptr %8, align 8
+  %14 = icmp eq i16 %7, 1
+  br i1 %14, label %15, label %22
 
-13:                                               ; preds = %3
-  %14 = getelementptr i8, ptr %4, i64 144
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+15:                                               ; preds = %3
+  %16 = getelementptr i8, ptr %4, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %20, label %19
+  %18 = getelementptr inbounds i8, ptr %17, i64 88
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %13
-  tail call void %17(ptr noundef %5) #4
-  br label %20
+21:                                               ; preds = %15
+  tail call void %19(ptr noundef %5) #4
+  br label %22
 
-20:                                               ; preds = %19, %13, %3
+22:                                               ; preds = %21, %15, %3
   tail call void @security_key_free(ptr noundef %5) #4
-  %21 = getelementptr i8, ptr %4, i64 120
-  %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %42, label %25
+  %23 = getelementptr i8, ptr %4, i64 120
+  %24 = load volatile i64, ptr %23, align 8
+  %25 = and i64 %24, 4
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %44, label %27
 
-25:                                               ; preds = %20
-  %26 = getelementptr i8, ptr %4, i64 64
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
-  tail call void @_raw_spin_lock(ptr noundef %28) #4
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 76
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, -1
-  store i32 %32, ptr %30, align 4
-  %33 = getelementptr i8, ptr %4, i64 108
-  %34 = load i16, ptr %33, align 4
-  %35 = zext i16 %34 to i32
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
-  %38 = load i32, ptr %37, align 8
-  %39 = sub i32 %38, %35
-  store i32 %39, ptr %37, align 8
-  %40 = load ptr, ptr %26, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
-  tail call void @_raw_spin_unlock(ptr noundef %41) #4
-  br label %42
+27:                                               ; preds = %22
+  %28 = getelementptr i8, ptr %4, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  tail call void @_raw_spin_lock(ptr noundef %30) #4
+  %31 = load ptr, ptr %28, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 76
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %32, align 4
+  %35 = getelementptr i8, ptr %4, i64 108
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  %38 = load ptr, ptr %28, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %40 = load i32, ptr %39, align 8
+  %41 = sub i32 %40, %37
+  store i32 %41, ptr %39, align 8
+  %42 = load ptr, ptr %28, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  tail call void @_raw_spin_unlock(ptr noundef %43) #4
+  br label %44
 
-42:                                               ; preds = %25, %20
-  %43 = getelementptr i8, ptr %4, i64 64
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #4, !srcloc !17
-  %46 = icmp eq i16 %7, 0
-  br i1 %46, label %50, label %47
+44:                                               ; preds = %27, %22
+  %45 = getelementptr i8, ptr %4, i64 64
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47, ptr elementtype(i32) %47) #4, !srcloc !17
+  %48 = icmp eq i16 %7, 0
+  br i1 %48, label %52, label %49
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49, ptr elementtype(i32) %49) #4, !srcloc !17
-  br label %50
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %45, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 68
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51, ptr elementtype(i32) %51) #4, !srcloc !17
+  br label %52
 
-50:                                               ; preds = %47, %42
-  %51 = load ptr, ptr %43, align 8
-  tail call void @key_user_put(ptr noundef %51) #4
-  %52 = getelementptr i8, ptr %4, i64 152
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call zeroext i1 @key_put_tag(ptr noundef %53) #4
-  %55 = getelementptr i8, ptr %4, i64 160
-  %56 = load ptr, ptr %55, align 8
-  tail call void @kfree(ptr noundef %56) #4
+52:                                               ; preds = %49, %44
+  %53 = load ptr, ptr %45, align 8
+  tail call void @key_user_put(ptr noundef %53) #4
+  %54 = getelementptr i8, ptr %4, i64 152
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call zeroext i1 @key_put_tag(ptr noundef %55) #4
+  %57 = getelementptr i8, ptr %4, i64 160
+  %58 = load ptr, ptr %57, align 8
+  tail call void @kfree(ptr noundef %58) #4
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(216) %5, i8 0, i64 216, i1 false)
   tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #4, !srcloc !18
-  %57 = load ptr, ptr @key_jar, align 8
-  tail call void @kmem_cache_free(ptr noundef %57, ptr noundef %5) #4
-  %58 = load volatile ptr, ptr @key_garbage_collector.graveyard, align 8
-  %59 = icmp eq ptr %58, @key_garbage_collector.graveyard
-  br i1 %59, label %60, label %3, !llvm.loop !19
+  %59 = load ptr, ptr @key_jar, align 8
+  tail call void @kmem_cache_free(ptr noundef %59, ptr noundef %5) #4
+  %60 = load volatile ptr, ptr @key_garbage_collector.graveyard, align 8
+  %61 = icmp eq ptr %60, @key_garbage_collector.graveyard
+  br i1 %61, label %62, label %3, !llvm.loop !19
 
-60:                                               ; preds = %50, %0
+62:                                               ; preds = %52, %0
   ret void
 }
 

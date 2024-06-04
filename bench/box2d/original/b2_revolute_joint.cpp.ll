@@ -199,20 +199,21 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15b2RevoluteJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15b2RevoluteJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %referenceAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %3, i32 0, i32 3
-  %4 = load float, ptr %referenceAngle, align 4
+  %4 = load ptr, ptr %def.addr, align 8
+  %referenceAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %4, i32 0, i32 3
+  %5 = load float, ptr %referenceAngle, align 4
   %m_referenceAngle = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 11
-  store float %4, ptr %m_referenceAngle, align 4
+  store float %5, ptr %m_referenceAngle, align 4
   %m_impulse4 = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 3
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_impulse4)
           to label %invoke.cont unwind label %lpad
@@ -226,37 +227,37 @@ invoke.cont:                                      ; preds = %entry
   store float 0.000000e+00, ptr %m_lowerImpulse, align 4
   %m_upperImpulse = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 6
   store float 0.000000e+00, ptr %m_upperImpulse, align 8
-  %5 = load ptr, ptr %def.addr, align 8
-  %lowerAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %5, i32 0, i32 5
-  %6 = load float, ptr %lowerAngle, align 4
+  %6 = load ptr, ptr %def.addr, align 8
+  %lowerAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %6, i32 0, i32 5
+  %7 = load float, ptr %lowerAngle, align 4
   %m_lowerAngle = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 12
-  store float %6, ptr %m_lowerAngle, align 8
-  %7 = load ptr, ptr %def.addr, align 8
-  %upperAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %7, i32 0, i32 6
-  %8 = load float, ptr %upperAngle, align 8
+  store float %7, ptr %m_lowerAngle, align 8
+  %8 = load ptr, ptr %def.addr, align 8
+  %upperAngle = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %8, i32 0, i32 6
+  %9 = load float, ptr %upperAngle, align 8
   %m_upperAngle = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 13
-  store float %8, ptr %m_upperAngle, align 4
-  %9 = load ptr, ptr %def.addr, align 8
-  %maxMotorTorque = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %9, i32 0, i32 9
-  %10 = load float, ptr %maxMotorTorque, align 4
+  store float %9, ptr %m_upperAngle, align 4
+  %10 = load ptr, ptr %def.addr, align 8
+  %maxMotorTorque = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %10, i32 0, i32 9
+  %11 = load float, ptr %maxMotorTorque, align 4
   %m_maxMotorTorque = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 8
-  store float %10, ptr %m_maxMotorTorque, align 8
-  %11 = load ptr, ptr %def.addr, align 8
-  %motorSpeed = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %11, i32 0, i32 8
-  %12 = load float, ptr %motorSpeed, align 8
+  store float %11, ptr %m_maxMotorTorque, align 8
+  %12 = load ptr, ptr %def.addr, align 8
+  %motorSpeed = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %12, i32 0, i32 8
+  %13 = load float, ptr %motorSpeed, align 8
   %m_motorSpeed = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 9
-  store float %12, ptr %m_motorSpeed, align 4
-  %13 = load ptr, ptr %def.addr, align 8
-  %enableLimit = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %13, i32 0, i32 4
-  %14 = load i8, ptr %enableLimit, align 8
-  %tobool = trunc i8 %14 to i1
+  store float %13, ptr %m_motorSpeed, align 4
+  %14 = load ptr, ptr %def.addr, align 8
+  %enableLimit = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %14, i32 0, i32 4
+  %15 = load i8, ptr %enableLimit, align 8
+  %tobool = trunc i8 %15 to i1
   %m_enableLimit = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 10
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %15 = load ptr, ptr %def.addr, align 8
-  %enableMotor = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %15, i32 0, i32 7
-  %16 = load i8, ptr %enableMotor, align 4
-  %tobool5 = trunc i8 %16 to i1
+  %16 = load ptr, ptr %def.addr, align 8
+  %enableMotor = getelementptr inbounds %struct.b2RevoluteJointDef, ptr %16, i32 0, i32 7
+  %17 = load i8, ptr %enableMotor, align 4
+  %tobool5 = trunc i8 %17 to i1
   %m_enableMotor = getelementptr inbounds %class.b2RevoluteJoint, ptr %this1, i32 0, i32 7
   %frombool6 = zext i1 %tobool5 to i8
   store i8 %frombool6, ptr %m_enableMotor, align 4
@@ -265,12 +266,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #9
   br label %eh.resume
 

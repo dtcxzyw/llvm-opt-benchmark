@@ -36,32 +36,33 @@ define internal void @mmap_init(ptr noundef %0, i64 noundef %1) #0 {
   %10 = call ptr @mmap(ptr noundef null, i64 noundef %9, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #3
   store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
-  br i1 %12, label %16, label %13
+  %12 = inttoptr i64 -1 to ptr
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %17, label %14
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %19, label %16
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %20, label %17
 
-16:                                               ; preds = %13, %2
-  br label %17
+17:                                               ; preds = %14, %2
+  br label %18
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.mmap_init, ptr noundef @.str.2, i32 noundef 32) #4
   unreachable
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %13
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vmem, ptr %21, i32 0, i32 0
-  store ptr %20, ptr %22, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.Vmem, ptr %23, i32 0, i32 1
-  store i64 0, ptr %24, align 8
+20:                                               ; preds = %19, %14
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.Vmem, ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.Vmem, ptr %24, i32 0, i32 1
+  store i64 0, ptr %25, align 8
   ret void
 }
 

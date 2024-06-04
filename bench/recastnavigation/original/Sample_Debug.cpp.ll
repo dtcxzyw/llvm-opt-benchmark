@@ -54,152 +54,153 @@ define dso_local void @_ZN12Sample_DebugC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 1
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 3
+  %9 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
   store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 3
+  store ptr null, ptr %10, align 8
   invoke void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
-          to label %10 unwind label %76
+          to label %11 unwind label %77
 
-10:                                               ; preds = %1
-  %11 = invoke noundef ptr @_Z17rcAllocContourSetv()
-          to label %12 unwind label %76
+11:                                               ; preds = %1
+  %12 = invoke noundef ptr @_Z17rcAllocContourSetv()
+          to label %13 unwind label %77
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  store ptr %11, ptr %13, align 8
+13:                                               ; preds = %11
   %14 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %88
+  store ptr %12, ptr %14, align 8
+  %15 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %89
 
-17:                                               ; preds = %12
+18:                                               ; preds = %13
   invoke void @_ZN6FileIOC1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5)
-          to label %18 unwind label %76
+          to label %19 unwind label %77
 
-18:                                               ; preds = %17
-  %19 = invoke noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef @.str)
-          to label %20 unwind label %80
+19:                                               ; preds = %18
+  %20 = invoke noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef @.str)
+          to label %21 unwind label %81
 
-20:                                               ; preds = %18
-  br i1 %19, label %21, label %84
+21:                                               ; preds = %19
+  br i1 %20, label %22, label %85
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = invoke noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr noundef nonnull align 8 dereferenceable(60) %23, ptr noundef %5)
-          to label %25 unwind label %80
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = invoke noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr noundef nonnull align 8 dereferenceable(60) %24, ptr noundef %5)
+          to label %26 unwind label %81
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.rcContourSet, ptr %27, i32 0, i32 2
-  %29 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 0
-  %30 = load float, ptr %29, align 4
-  %31 = fpext float %30 to double
-  %32 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.rcContourSet, ptr %33, i32 0, i32 2
-  %35 = getelementptr inbounds [3 x float], ptr %34, i64 0, i64 1
-  %36 = load float, ptr %35, align 4
-  %37 = fpext float %36 to double
-  %38 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.rcContourSet, ptr %39, i32 0, i32 2
-  %41 = getelementptr inbounds [3 x float], ptr %40, i64 0, i64 2
-  %42 = load float, ptr %41, align 4
-  %43 = fpext float %42 to double
-  %44 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.rcContourSet, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds [3 x float], ptr %46, i64 0, i64 0
-  %48 = load float, ptr %47, align 8
-  %49 = fpext float %48 to double
-  %50 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.rcContourSet, ptr %51, i32 0, i32 3
-  %53 = getelementptr inbounds [3 x float], ptr %52, i64 0, i64 1
-  %54 = load float, ptr %53, align 4
-  %55 = fpext float %54 to double
-  %56 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.rcContourSet, ptr %57, i32 0, i32 3
-  %59 = getelementptr inbounds [3 x float], ptr %58, i64 0, i64 2
-  %60 = load float, ptr %59, align 8
-  %61 = fpext float %60 to double
-  %62 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, double noundef %31, double noundef %37, double noundef %43, double noundef %49, double noundef %55, double noundef %61)
-          to label %63 unwind label %80
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.rcContourSet, ptr %28, i32 0, i32 2
+  %30 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 0
+  %31 = load float, ptr %30, align 4
+  %32 = fpext float %31 to double
+  %33 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.rcContourSet, ptr %34, i32 0, i32 2
+  %36 = getelementptr inbounds [3 x float], ptr %35, i64 0, i64 1
+  %37 = load float, ptr %36, align 4
+  %38 = fpext float %37 to double
+  %39 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.rcContourSet, ptr %40, i32 0, i32 2
+  %42 = getelementptr inbounds [3 x float], ptr %41, i64 0, i64 2
+  %43 = load float, ptr %42, align 4
+  %44 = fpext float %43 to double
+  %45 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct.rcContourSet, ptr %46, i32 0, i32 3
+  %48 = getelementptr inbounds [3 x float], ptr %47, i64 0, i64 0
+  %49 = load float, ptr %48, align 8
+  %50 = fpext float %49 to double
+  %51 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.rcContourSet, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds [3 x float], ptr %53, i64 0, i64 1
+  %55 = load float, ptr %54, align 4
+  %56 = fpext float %55 to double
+  %57 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct.rcContourSet, ptr %58, i32 0, i32 3
+  %60 = getelementptr inbounds [3 x float], ptr %59, i64 0, i64 2
+  %61 = load float, ptr %60, align 8
+  %62 = fpext float %61 to double
+  %63 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, double noundef %32, double noundef %38, double noundef %44, double noundef %50, double noundef %56, double noundef %62)
+          to label %64 unwind label %81
 
-63:                                               ; preds = %25
-  %64 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.rcContourSet, ptr %65, i32 0, i32 4
-  %67 = load float, ptr %66, align 4
-  %68 = fpext float %67 to double
-  %69 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.rcContourSet, ptr %70, i32 0, i32 5
-  %72 = load float, ptr %71, align 8
-  %73 = fpext float %72 to double
-  %74 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.2, double noundef %68, double noundef %73)
-          to label %75 unwind label %80
+64:                                               ; preds = %26
+  %65 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.rcContourSet, ptr %66, i32 0, i32 4
+  %68 = load float, ptr %67, align 4
+  %69 = fpext float %68 to double
+  %70 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %struct.rcContourSet, ptr %71, i32 0, i32 5
+  %73 = load float, ptr %72, align 8
+  %74 = fpext float %73 to double
+  %75 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.2, double noundef %69, double noundef %74)
+          to label %76 unwind label %81
 
-75:                                               ; preds = %63
-  br label %87
+76:                                               ; preds = %64
+  br label %88
 
-76:                                               ; preds = %88, %17, %10, %1
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %89, %18, %11, %1
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %3, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %4, align 4
-  br label %92
-
-80:                                               ; preds = %84, %63, %25, %21, %18
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %3, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %4, align 4
-  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #6
-  br label %92
-
-84:                                               ; preds = %20
-  %85 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.3)
-          to label %86 unwind label %80
-
-86:                                               ; preds = %84
-  br label %87
-
-87:                                               ; preds = %86, %75
-  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #6
-  br label %91
-
-88:                                               ; preds = %12
-  %89 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.4)
-          to label %90 unwind label %76
-
-90:                                               ; preds = %88
-  br label %91
-
-91:                                               ; preds = %90, %87
-  ret void
-
-92:                                               ; preds = %80, %76
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #6
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %3, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %4, align 4
   br label %93
 
-93:                                               ; preds = %92
-  %94 = load ptr, ptr %3, align 8
-  %95 = load i32, ptr %4, align 4
-  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
-  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
-  resume { ptr, i32 } %97
+81:                                               ; preds = %85, %64, %26, %22, %19
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %3, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %4, align 4
+  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #6
+  br label %93
+
+85:                                               ; preds = %21
+  %86 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.3)
+          to label %87 unwind label %81
+
+87:                                               ; preds = %85
+  br label %88
+
+88:                                               ; preds = %87, %76
+  call void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #6
+  br label %92
+
+89:                                               ; preds = %13
+  %90 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.4)
+          to label %91 unwind label %77
+
+91:                                               ; preds = %89
+  br label %92
+
+92:                                               ; preds = %91, %88
+  ret void
+
+93:                                               ; preds = %81, %77
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #6
+  br label %94
+
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %3, align 8
+  %96 = load i32, ptr %4, align 4
+  %97 = insertvalue { ptr, i32 } poison, ptr %95, 0
+  %98 = insertvalue { ptr, i32 } %97, i32 %96, 1
+  resume { ptr, i32 } %98
 }
 
 declare void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
@@ -229,33 +230,34 @@ define dso_local void @_ZN12Sample_DebugD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %5)
-          to label %6 unwind label %13
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %6)
+          to label %7 unwind label %14
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  invoke void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %8)
-          to label %9 unwind label %13
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %9)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 3
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %11)
-          to label %12 unwind label %13
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %12)
+          to label %13 unwind label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #6
   ret void
 
-13:                                               ; preds = %9, %6, %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10, %7, %1
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #7
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #7
   unreachable
 }
 

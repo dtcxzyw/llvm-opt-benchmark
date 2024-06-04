@@ -12233,68 +12233,69 @@ define internal void @_ZN12_GLOBAL__N_17SimPassC2Ev(ptr noundef nonnull align 8 
   %9 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %10 unwind label %13
+          to label %10 unwind label %14
 
 10:                                               ; preds = %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %11 unwind label %17
+          to label %11 unwind label %18
 
 11:                                               ; preds = %10
   invoke void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef %3, ptr noundef %7)
-          to label %12 unwind label %21
+          to label %12 unwind label %22
 
 12:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_17SimPassE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_17SimPassE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  br label %26
-
-17:                                               ; preds = %10
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %25
-
-21:                                               ; preds = %11
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  br label %26
-
-26:                                               ; preds = %25, %13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+18:                                               ; preds = %10
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %26
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  br label %27
+
+27:                                               ; preds = %26, %14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12326,68 +12327,69 @@ define internal void @_ZN12_GLOBAL__N_110Fst2TbPassC2Ev(ptr noundef nonnull alig
   %9 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.345, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %10 unwind label %13
+          to label %10 unwind label %14
 
 10:                                               ; preds = %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.346, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %11 unwind label %17
+          to label %11 unwind label %18
 
 11:                                               ; preds = %10
   invoke void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef %3, ptr noundef %7)
-          to label %12 unwind label %21
+          to label %12 unwind label %22
 
 12:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110Fst2TbPassE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110Fst2TbPassE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  br label %26
-
-17:                                               ; preds = %10
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %25
-
-21:                                               ; preds = %11
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  br label %26
-
-26:                                               ; preds = %25, %13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+18:                                               ; preds = %10
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %26
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  br label %27
+
+27:                                               ; preds = %26, %14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14672,49 +14674,50 @@ define internal void @_ZN12_GLOBAL__N_19VCDWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %9, i32 0, i32 1
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
-          to label %12 unwind label %16
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %9, i32 0, i32 1
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12)
+          to label %13 unwind label %17
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %9, i32 0, i32 1
-  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %13, ptr noundef %14, i32 noundef 16)
-          to label %15 unwind label %20
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %9, i32 0, i32 1
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef %15, i32 noundef 16)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12) #3
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14835,37 +14838,38 @@ define internal void @_ZN12_GLOBAL__N_19FSTWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 1
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 2
-  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %14 = invoke ptr @fstWriterCreate(ptr noundef %13, i32 noundef 1)
-          to label %15 unwind label %17
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 1
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 2
+  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %15 = invoke ptr @fstWriterCreate(ptr noundef %14, i32 noundef 1)
+          to label %16 unwind label %18
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 1
-  store ptr %14, ptr %16, align 8
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 1
+  store ptr %15, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
-  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14986,124 +14990,125 @@ define internal void @_ZN12_GLOBAL__N_19AIWWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 1
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
-          to label %12 unwind label %25
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 1
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12)
+          to label %13 unwind label %26
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 2
-  invoke void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13)
-          to label %14 unwind label %29
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 2
+  invoke void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14)
+          to label %15 unwind label %30
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 3
-  invoke void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15)
-          to label %16 unwind label %33
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 3
+  invoke void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %16)
+          to label %17 unwind label %34
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 4
-  invoke void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %17)
-          to label %18 unwind label %37
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 4
+  invoke void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %18)
+          to label %19 unwind label %38
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 5
-  invoke void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %19)
-          to label %20 unwind label %41
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 5
+  invoke void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %20)
+          to label %21 unwind label %42
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 6
-  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 1
-  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef %23, i32 noundef 16)
-          to label %24 unwind label %45
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 6
+  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  %23 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 1
+  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %23, ptr noundef %24, i32 noundef 16)
+          to label %25 unwind label %46
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   ret void
 
-25:                                               ; preds = %3
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
-  br label %53
-
-29:                                               ; preds = %12
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
-  br label %52
-
-33:                                               ; preds = %14
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %7, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %8, align 4
-  br label %51
-
-37:                                               ; preds = %16
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
-  br label %50
-
-41:                                               ; preds = %18
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %7, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %8, align 4
-  br label %49
-
-45:                                               ; preds = %20
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %7, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %8, align 4
-  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %19) #3
-  br label %49
-
-49:                                               ; preds = %45, %41
-  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %17) #3
-  br label %50
-
-50:                                               ; preds = %49, %37
-  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #3
-  br label %51
-
-51:                                               ; preds = %50, %33
-  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
-  br label %52
-
-52:                                               ; preds = %51, %29
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11) #3
-  br label %53
-
-53:                                               ; preds = %52, %25
-  call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
   br label %54
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr %8, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+30:                                               ; preds = %13
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  br label %53
+
+34:                                               ; preds = %15
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %7, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %8, align 4
+  br label %52
+
+38:                                               ; preds = %17
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
+  br label %51
+
+42:                                               ; preds = %19
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %7, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %8, align 4
+  br label %50
+
+46:                                               ; preds = %21
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %7, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %8, align 4
+  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #3
+  br label %50
+
+50:                                               ; preds = %46, %42
+  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %18) #3
+  br label %51
+
+51:                                               ; preds = %50, %38
+  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %16) #3
+  br label %52
+
+52:                                               ; preds = %51, %34
+  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #3
+  br label %53
+
+53:                                               ; preds = %52, %30
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12) #3
+  br label %54
+
+54:                                               ; preds = %53, %26
+  call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17145,7 +17150,7 @@ define internal void @_ZN12_GLOBAL__N_19SimWorker13run_cosim_fstEPN5Yosys5RTLIL6
 
 544:                                              ; preds = %540, %536
   %545 = load i32, ptr %9, align 4
-  %546 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Yosys25fst_end_of_data_exceptionE) #3
+  %546 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Yosys25fst_end_of_data_exceptionE) #3
   %547 = icmp eq i32 %545, %546
   br i1 %547, label %548, label %559
 
@@ -23722,10 +23727,11 @@ define internal void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noun
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112OutputWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.(anonymous namespace)::OutputWriter", ptr %5, i32 0, i32 1
-  store ptr %6, ptr %7, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112OutputWriterE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.(anonymous namespace)::OutputWriter", ptr %5, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   ret void
 }
 
@@ -23741,9 +23747,10 @@ define internal void @_ZN12_GLOBAL__N_19VCDWriterD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %3, i32 0, i32 1
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %3, i32 0, i32 1
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -24264,7 +24271,7 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
   store i1 false, ptr %5, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   invoke void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef %11, ptr noundef %12)
@@ -24274,7 +24281,7 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
   %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   store i1 true, ptr %5, align 1
   %16 = load i1, ptr %5, align 1
   br i1 %16, label %22, label %21
@@ -25976,9 +25983,6 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cx
   ret ptr %3
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
@@ -26001,14 +26005,14 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   store i8 0, ptr %16, align 16
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   %18 = load ptr, ptr %6, align 8
-  call void @llvm.va_copy(ptr %17, ptr %18)
+  call void @llvm.va_copy.p0(ptr %17, ptr %18)
   %19 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 0
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   %22 = call i32 @vsnprintf(ptr noundef %19, i64 noundef 128, ptr noundef %20, ptr noundef %21) #3
   store i32 %22, ptr %10, align 4
   %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %23)
+  call void @llvm.va_end.p0(ptr %23)
   %24 = load i32, ptr %10, align 4
   %25 = icmp slt i32 %24, 128
   br i1 %25, label %26, label %33
@@ -26097,12 +26101,6 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #13
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
@@ -36699,7 +36697,7 @@ define internal noundef nonnull align 8 dereferenceable(20) ptr @_ZNSt6vectorIN5
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
@@ -40233,23 +40231,24 @@ define internal void @_ZN12_GLOBAL__N_19FSTWriterD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  invoke void @fstWriterClose(ptr noundef %5)
-          to label %6 unwind label %8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  invoke void @fstWriterClose(ptr noundef %6)
+          to label %7 unwind label %9
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapIijSt4lessIiESaISt4pairIKijEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 }
 
@@ -44327,57 +44326,58 @@ define internal void @_ZN12_GLOBAL__N_19AIWWriterD2Ev(ptr noundef nonnull align 
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext 46)
-          to label %8 unwind label %17
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %7, i8 noundef signext 46)
+          to label %9 unwind label %18
 
-8:                                                ; preds = %1
-  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %7, i8 noundef signext 10)
-          to label %10 unwind label %17
+9:                                                ; preds = %1
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext 10)
+          to label %11 unwind label %18
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 6
-  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 5
-  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %12) #3
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 4
-  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 3
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 6
+  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 5
+  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 4
   call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #3
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 2
-  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #3
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %16) #3
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 3
+  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #3
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 2
+  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %16) #3
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %17) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 
-17:                                               ; preds = %8, %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %9, %1
+  %19 = landingpad { ptr, i32 }
           cleanup
           filter [0 x ptr] zeroinitializer
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  %21 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 6
-  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 5
-  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %22) #3
-  %23 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 4
-  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %23) #3
-  %24 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 3
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  %22 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 6
+  call void @_ZNSt3mapIPN5Yosys5RTLIL4WireEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  %23 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 5
+  call void @_ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %23) #3
+  %24 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 4
   call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %24) #3
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 2
-  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %25) #3
-  %26 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %26) #3
+  %25 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 3
+  call void @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %25) #3
+  %26 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 2
+  call void @_ZN5Yosys7hashlib4dictIiSt4pairINS_5RTLIL6SigBitEbENS0_8hash_opsIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %26) #3
+  %27 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %27) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  br label %27
+  br label %28
 
-27:                                               ; preds = %17
-  %28 = load ptr, ptr %3, align 8
-  call void @__cxa_call_unexpected(ptr %28) #23
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %3, align 8
+  call void @__cxa_call_unexpected(ptr %29) #23
   unreachable
 }
 
@@ -52425,7 +52425,7 @@ define linkonce_odr void @_ZSt19__iterator_categoryIN9__gnu_cxx17__normal_iterat
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #15
+declare i1 @llvm.is.constant.i64(i64) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIiSt3mapIiN5Yosys5RTLIL5ConstESt4lessIiESaIS1_IKiS5_EEEESt6vectorISC_SaISC_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
@@ -109373,7 +109373,7 @@ define internal void @_ZSt4swapIN12_GLOBAL__N_111SimInstance13print_state_tEENSt
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111SimInstance13print_state_tESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %0, ptr %1) #4 personality ptr @__gxx_personality_v0 {
@@ -149101,9 +149101,6 @@ define linkonce_odr void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 d
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #17
-
 ; Function Attrs: nounwind
 declare void @_ZN5Yosys7FstDataD1Ev(ptr noundef nonnull align 8 dereferenceable(440)) unnamed_addr #2
 
@@ -180506,7 +180503,7 @@ declare noundef zeroext i1 @_ZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112
 declare ptr @strerror(i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #18
+declare ptr @__errno_location() #16
 
 declare void @_ZN5Yosys10PrettyJson12begin_objectEv(ptr noundef nonnull align 8 dereferenceable(84)) #1
 
@@ -187525,7 +187522,7 @@ define internal void @_ZN12_GLOBAL__N_19SimWorker11generate_tbEPN5Yosys5RTLIL6Mo
 
 952:                                              ; preds = %948, %944
   %953 = load i32, ptr %11, align 4
-  %954 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5Yosys25fst_end_of_data_exceptionE) #3
+  %954 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5Yosys25fst_end_of_data_exceptionE) #3
   %955 = icmp eq i32 %953, %954
   br i1 %955, label %956, label %1194
 
@@ -192467,6 +192464,18 @@ define internal void @_GLOBAL__sub_I_sim.cc() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #17
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -192480,12 +192489,12 @@ attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind memory(none) }
-attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { builtin nounwind }
 attributes #21 = { builtin allocsize(0) }

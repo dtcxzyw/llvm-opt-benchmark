@@ -54,14 +54,15 @@ define dso_local ptr @get_cpu_entry_area(i32 noundef %0) #0 section ".noinstr.te
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @_cea_offset to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 4294967295
-  %9 = mul nuw nsw i64 %8, 241664
-  %10 = add nsw i64 %9, -2199023251456
-  %11 = inttoptr i64 %10 to ptr
-  ret ptr %11
+  %5 = ptrtoint ptr @_cea_offset to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %8, 4294967295
+  %10 = mul nuw nsw i64 %9, 241664
+  %11 = add nsw i64 %10, -2199023251456
+  %12 = inttoptr i64 %11 to ptr
+  ret ptr %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -77,14 +78,15 @@ define dso_local void @cea_set_pte(ptr noundef %0, i64 noundef %1, i64 %2) local
   %12 = select i1 %6, i64 -1, i64 %11
   %13 = and i64 %12, %2
   %14 = or i64 %13, %10
-  %15 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %16 = and i64 %15, 8192
-  %17 = icmp eq i64 %16, 0
-  %18 = select i1 %17, i1 true, i1 %6
-  %19 = or i64 %14, 256
-  %20 = select i1 %18, i64 %14, i64 %19
-  %21 = ptrtoint ptr %0 to i64
-  tail call void @set_pte_vaddr(i64 noundef %21, i64 %20) #4
+  %15 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %16 = load volatile i64, ptr %15, align 8
+  %17 = and i64 %16, 8192
+  %18 = icmp eq i64 %17, 0
+  %19 = select i1 %18, i1 true, i1 %6
+  %20 = or i64 %14, 256
+  %21 = select i1 %19, i64 %14, i64 %20
+  %22 = ptrtoint ptr %0 to i64
+  tail call void @set_pte_vaddr(i64 noundef %22, i64 %21) #4
   ret void
 }
 
@@ -130,136 +132,140 @@ define dso_local void @setup_cpu_entry_areas() local_unnamed_addr #3 section ".i
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14), align 1
-  %2 = and i8 %1, 2
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %26
+  %1 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14
+  %2 = load i8, ptr %1, align 1
+  %3 = and i8 %2, 2
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %28
 
-4:                                                ; preds = %19, %0
-  %5 = phi i64 [ %25, %19 ], [ 0, %0 ]
-  %6 = and i64 %5, 4294967295
-  %7 = icmp ugt i64 %6, 63
-  br i1 %7, label %15, label %8, !prof !5
+5:                                                ; preds = %20, %0
+  %6 = phi i64 [ %27, %20 ], [ 0, %0 ]
+  %7 = and i64 %6, 4294967295
+  %8 = icmp ugt i64 %7, 63
+  br i1 %8, label %16, label %9, !prof !5
 
-8:                                                ; preds = %4
-  %9 = load i64, ptr @__cpu_possible_mask, align 8
-  %10 = shl nsw i64 -1, %6
-  %11 = and i64 %9, %10
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %15, label %13
+9:                                                ; preds = %5
+  %10 = load i64, ptr @__cpu_possible_mask, align 8
+  %11 = shl nsw i64 -1, %7
+  %12 = and i64 %10, %11
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %8
-  %14 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #6, !srcloc !6
-  br label %15
+14:                                               ; preds = %9
+  %15 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %12) #6, !srcloc !6
+  br label %16
 
-15:                                               ; preds = %13, %8, %4
-  %16 = phi i64 [ 64, %4 ], [ %14, %13 ], [ 64, %8 ]
-  %17 = and i64 %16, 4294967232
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %88
+16:                                               ; preds = %14, %9, %5
+  %17 = phi i64 [ 64, %5 ], [ %15, %14 ], [ 64, %9 ]
+  %18 = and i64 %17, 4294967232
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %92
 
-19:                                               ; preds = %15
-  %20 = and i64 %16, 63
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, ptrtoint (ptr @_cea_offset to i64)
-  %24 = inttoptr i64 %23 to ptr
-  store i64 %20, ptr %24, align 8
-  %25 = add nuw nsw i64 %16, 1
-  br label %4, !llvm.loop !10
+20:                                               ; preds = %16
+  %21 = and i64 %17, 63
+  %22 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %21
+  %23 = load i64, ptr %22, align 8
+  %24 = ptrtoint ptr @_cea_offset to i64
+  %25 = add i64 %23, %24
+  %26 = inttoptr i64 %25 to ptr
+  store i64 %21, ptr %26, align 8
+  %27 = add nuw nsw i64 %17, 1
+  br label %5, !llvm.loop !10
 
-26:                                               ; preds = %80, %0
-  %27 = phi i64 [ %87, %80 ], [ 0, %0 ]
-  %28 = and i64 %27, 4294967295
-  %29 = icmp ugt i64 %28, 63
-  br i1 %29, label %37, label %30, !prof !5
+28:                                               ; preds = %83, %0
+  %29 = phi i64 [ %91, %83 ], [ 0, %0 ]
+  %30 = and i64 %29, 4294967295
+  %31 = icmp ugt i64 %30, 63
+  br i1 %31, label %39, label %32, !prof !5
 
-30:                                               ; preds = %26
-  %31 = load i64, ptr @__cpu_possible_mask, align 8
-  %32 = shl nsw i64 -1, %28
-  %33 = and i64 %31, %32
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %37, label %35
+32:                                               ; preds = %28
+  %33 = load i64, ptr @__cpu_possible_mask, align 8
+  %34 = shl nsw i64 -1, %30
+  %35 = and i64 %33, %34
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %39, label %37
 
-35:                                               ; preds = %30
-  %36 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %33) #6, !srcloc !6
-  br label %37
+37:                                               ; preds = %32
+  %38 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %35) #6, !srcloc !6
+  br label %39
 
-37:                                               ; preds = %35, %30, %26
-  %38 = phi i64 [ 64, %26 ], [ %36, %35 ], [ 64, %30 ]
-  %39 = trunc i64 %38 to i32
-  %40 = icmp ult i32 %39, 64
-  br i1 %40, label %41, label %88
+39:                                               ; preds = %37, %32, %28
+  %40 = phi i64 [ 64, %28 ], [ %38, %37 ], [ 64, %32 ]
+  %41 = trunc i64 %40 to i32
+  %42 = icmp ult i32 %41, 64
+  br i1 %42, label %43, label %92
 
-41:                                               ; preds = %51, %37
-  %42 = phi i32 [ %50, %51 ], [ undef, %37 ]
-  %43 = tail call i32 @get_random_u32() #4
-  %44 = zext i32 %43 to i64
-  %45 = mul nuw nsw i64 %44, 2274876
-  %46 = trunc i64 %45 to i32
-  %47 = icmp ult i32 %46, 1408
-  %48 = lshr i64 %45, 32
-  %49 = trunc i64 %48 to i32
-  %50 = select i1 %47, i32 %42, i32 %49, !prof !5
-  br i1 %47, label %51, label %52
+43:                                               ; preds = %53, %39
+  %44 = phi i32 [ %52, %53 ], [ undef, %39 ]
+  %45 = tail call i32 @get_random_u32() #4
+  %46 = zext i32 %45 to i64
+  %47 = mul nuw nsw i64 %46, 2274876
+  %48 = trunc i64 %47 to i32
+  %49 = icmp ult i32 %48, 1408
+  %50 = lshr i64 %47, 32
+  %51 = trunc i64 %50 to i32
+  %52 = select i1 %49, i32 %44, i32 %51, !prof !5
+  br i1 %49, label %53, label %54
 
-51:                                               ; preds = %68, %41
-  br label %41
+53:                                               ; preds = %70, %43
+  br label %43
 
-52:                                               ; preds = %41
-  %53 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %54
+54:                                               ; preds = %43
+  %55 = load i64, ptr @__cpu_possible_mask, align 8
+  br label %56
 
-54:                                               ; preds = %77, %52
-  %55 = phi i64 [ %79, %77 ], [ 0, %52 ]
-  %56 = and i64 %55, 4294967295
-  %57 = icmp ugt i64 %56, 63
-  br i1 %57, label %64, label %58, !prof !5
+56:                                               ; preds = %80, %54
+  %57 = phi i64 [ %82, %80 ], [ 0, %54 ]
+  %58 = and i64 %57, 4294967295
+  %59 = icmp ugt i64 %58, 63
+  br i1 %59, label %66, label %60, !prof !5
 
-58:                                               ; preds = %54
-  %59 = shl nsw i64 -1, %56
-  %60 = and i64 %53, %59
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %64, label %62
+60:                                               ; preds = %56
+  %61 = shl nsw i64 -1, %58
+  %62 = and i64 %55, %61
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %66, label %64
 
-62:                                               ; preds = %58
-  %63 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %60) #6, !srcloc !6
-  br label %64
+64:                                               ; preds = %60
+  %65 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %62) #6, !srcloc !6
+  br label %66
 
-64:                                               ; preds = %62, %58, %54
-  %65 = phi i64 [ 64, %54 ], [ %63, %62 ], [ 64, %58 ]
-  %66 = trunc i64 %65 to i32
-  %67 = icmp ult i32 %66, 64
-  br i1 %67, label %68, label %80
+66:                                               ; preds = %64, %60, %56
+  %67 = phi i64 [ 64, %56 ], [ %65, %64 ], [ 64, %60 ]
+  %68 = trunc i64 %67 to i32
+  %69 = icmp ult i32 %68, 64
+  br i1 %69, label %70, label %83
 
-68:                                               ; preds = %64
-  %69 = and i64 %65, 4294967295
-  %70 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %72 = add i64 %71, ptrtoint (ptr @_cea_offset to i64)
-  %73 = inttoptr i64 %72 to ptr
-  %74 = load i64, ptr %73, align 8
-  %75 = trunc i64 %74 to i32
-  %76 = icmp eq i32 %50, %75
-  br i1 %76, label %51, label %77
+70:                                               ; preds = %66
+  %71 = and i64 %67, 4294967295
+  %72 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %71
+  %73 = load i64, ptr %72, align 8
+  %74 = ptrtoint ptr @_cea_offset to i64
+  %75 = add i64 %73, %74
+  %76 = inttoptr i64 %75 to ptr
+  %77 = load i64, ptr %76, align 8
+  %78 = trunc i64 %77 to i32
+  %79 = icmp eq i32 %52, %78
+  br i1 %79, label %53, label %80
 
-77:                                               ; preds = %68
-  %78 = icmp eq i32 %39, %66
-  %79 = add i64 %65, 1
-  br i1 %78, label %80, label %54, !llvm.loop !11
+80:                                               ; preds = %70
+  %81 = icmp eq i32 %41, %68
+  %82 = add i64 %67, 1
+  br i1 %81, label %83, label %56, !llvm.loop !11
 
-80:                                               ; preds = %77, %64
-  %81 = zext i32 %50 to i64
-  %82 = and i64 %38, 4294967295
-  %83 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %84, ptrtoint (ptr @_cea_offset to i64)
-  %86 = inttoptr i64 %85 to ptr
-  store i64 %81, ptr %86, align 8
-  %87 = add i64 %38, 1
-  br label %26, !llvm.loop !12
+83:                                               ; preds = %80, %66
+  %84 = zext i32 %52 to i64
+  %85 = and i64 %40, 4294967295
+  %86 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %85
+  %87 = load i64, ptr %86, align 8
+  %88 = ptrtoint ptr @_cea_offset to i64
+  %89 = add i64 %87, %88
+  %90 = inttoptr i64 %89 to ptr
+  store i64 %84, ptr %90, align 8
+  %91 = add i64 %40, 1
+  br label %28, !llvm.loop !12
 
-88:                                               ; preds = %37, %15
+92:                                               ; preds = %39, %16
   ret void
 }
 
@@ -271,22 +277,25 @@ define internal fastcc void @setup_cpu_entry_area(i32 noundef %0) unnamed_addr #
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, ptrtoint (ptr @gdt_page to i64)
-  %9 = inttoptr i64 %8 to ptr
-  %10 = tail call i64 @per_cpu_ptr_to_phys(ptr noundef %9) #4
-  tail call void @cea_set_pte(ptr noundef %2, i64 noundef %10, i64 %4)
-  %11 = getelementptr inbounds i8, ptr %2, i64 4096
-  %12 = load i64, ptr %6, align 8
-  %13 = add i64 %12, ptrtoint (ptr @entry_stack_storage to i64)
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %16 = and i64 %15, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %11, ptr noundef %14, i32 noundef 1, i64 %16) #5
-  %17 = getelementptr inbounds i8, ptr %2, i64 8192
-  %18 = load i64, ptr %6, align 8
-  %19 = add i64 %18, ptrtoint (ptr @cpu_tss_rw to i64)
-  %20 = inttoptr i64 %19 to ptr
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %17, ptr noundef %20, i32 noundef 5, i64 %4) #5
+  %8 = ptrtoint ptr @gdt_page to i64
+  %9 = add i64 %7, %8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = tail call i64 @per_cpu_ptr_to_phys(ptr noundef %10) #4
+  tail call void @cea_set_pte(ptr noundef %2, i64 noundef %11, i64 %4)
+  %12 = getelementptr inbounds i8, ptr %2, i64 4096
+  %13 = load i64, ptr %6, align 8
+  %14 = ptrtoint ptr @entry_stack_storage to i64
+  %15 = add i64 %13, %14
+  %16 = inttoptr i64 %15 to ptr
+  %17 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %18 = and i64 %17, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %12, ptr noundef %16, i32 noundef 1, i64 %18) #5
+  %19 = getelementptr inbounds i8, ptr %2, i64 8192
+  %20 = load i64, ptr %6, align 8
+  %21 = ptrtoint ptr @cpu_tss_rw to i64
+  %22 = add i64 %20, %21
+  %23 = inttoptr i64 %22 to ptr
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %19, ptr noundef %23, i32 noundef 5, i64 %4) #5
   tail call fastcc void @percpu_setup_exception_stacks(i32 noundef %0) #5
   tail call fastcc void @percpu_setup_debug_store(i32 noundef %0) #5
   ret void
@@ -321,68 +330,73 @@ define internal fastcc void @percpu_setup_exception_stacks(i32 noundef %0) unnam
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @exception_stacks to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 28672
-  %9 = add i64 %4, ptrtoint (ptr @cea_exception_stacks to i64)
-  %10 = inttoptr i64 %9 to ptr
-  store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 32768
-  %12 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %13 = and i64 %12, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %11, ptr noundef %6, i32 noundef 2, i64 %13) #5
-  %14 = getelementptr inbounds i8, ptr %7, i64 45056
-  %15 = getelementptr inbounds i8, ptr %6, i64 8192
-  %16 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %17 = and i64 %16, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %14, ptr noundef %15, i32 noundef 2, i64 %17) #5
-  %18 = getelementptr inbounds i8, ptr %7, i64 57344
-  %19 = getelementptr inbounds i8, ptr %6, i64 16384
-  %20 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %21 = and i64 %20, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %18, ptr noundef %19, i32 noundef 2, i64 %21) #5
-  %22 = getelementptr inbounds i8, ptr %7, i64 69632
-  %23 = getelementptr inbounds i8, ptr %6, i64 24576
-  %24 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %25 = and i64 %24, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %22, ptr noundef %23, i32 noundef 2, i64 %25) #5
+  %5 = ptrtoint ptr @exception_stacks to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
+  %9 = getelementptr inbounds i8, ptr %8, i64 28672
+  %10 = ptrtoint ptr @cea_exception_stacks to i64
+  %11 = add i64 %4, %10
+  %12 = inttoptr i64 %11 to ptr
+  store ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 32768
+  %14 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %15 = and i64 %14, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %13, ptr noundef %7, i32 noundef 2, i64 %15) #5
+  %16 = getelementptr inbounds i8, ptr %8, i64 45056
+  %17 = getelementptr inbounds i8, ptr %7, i64 8192
+  %18 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %19 = and i64 %18, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %16, ptr noundef %17, i32 noundef 2, i64 %19) #5
+  %20 = getelementptr inbounds i8, ptr %8, i64 57344
+  %21 = getelementptr inbounds i8, ptr %7, i64 16384
+  %22 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %23 = and i64 %22, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %20, ptr noundef %21, i32 noundef 2, i64 %23) #5
+  %24 = getelementptr inbounds i8, ptr %8, i64 69632
+  %25 = getelementptr inbounds i8, ptr %7, i64 24576
+  %26 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %27 = and i64 %26, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %24, ptr noundef %25, i32 noundef 2, i64 %27) #5
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @percpu_setup_debug_store(i32 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
-  %2 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %24
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %27
 
-4:                                                ; preds = %1
-  %5 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 106496
-  %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %7
-  %9 = load i64, ptr %8, align 8
-  %10 = add i64 %9, ptrtoint (ptr @cpu_debug_store to i64)
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %13 = and i64 %12, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %6, ptr noundef %11, i32 noundef 1, i64 %13) #5
-  %14 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %15 = getelementptr inbounds i8, ptr %14, i64 110592
-  br label %16
+5:                                                ; preds = %1
+  %6 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
+  %7 = getelementptr inbounds i8, ptr %6, i64 106496
+  %8 = zext nneg i32 %0 to i64
+  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %10 = load i64, ptr %9, align 8
+  %11 = ptrtoint ptr @cpu_debug_store to i64
+  %12 = add i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  %14 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %15 = and i64 %14, -9223372036854775453
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef %7, ptr noundef %13, i32 noundef 1, i64 %15) #5
+  %16 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
+  %17 = getelementptr inbounds i8, ptr %16, i64 110592
+  br label %18
 
-16:                                               ; preds = %16, %4
-  %17 = phi i32 [ 32, %4 ], [ %21, %16 ]
-  %18 = phi ptr [ %15, %4 ], [ %22, %16 ]
-  %19 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0), align 8
-  %20 = ptrtoint ptr %18 to i64
-  tail call void @set_pte_vaddr(i64 noundef %20, i64 4503599627366688) #4
-  %21 = add nsw i32 %17, -1
-  %22 = getelementptr i8, ptr %18, i64 4096
-  %23 = icmp eq i32 %21, 0
-  br i1 %23, label %24, label %16, !llvm.loop !14
+18:                                               ; preds = %18, %5
+  %19 = phi i32 [ 32, %5 ], [ %24, %18 ]
+  %20 = phi ptr [ %17, %5 ], [ %25, %18 ]
+  %21 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 0
+  %22 = load volatile i64, ptr %21, align 8
+  %23 = ptrtoint ptr %20 to i64
+  tail call void @set_pte_vaddr(i64 noundef %23, i64 4503599627366688) #4
+  %24 = add nsw i32 %19, -1
+  %25 = getelementptr i8, ptr %20, i64 4096
+  %26 = icmp eq i32 %24, 0
+  br i1 %26, label %27, label %18, !llvm.loop !14
 
-24:                                               ; preds = %16, %1
+27:                                               ; preds = %18, %1
   ret void
 }
 

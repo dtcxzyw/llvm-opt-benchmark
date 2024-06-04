@@ -606,7 +606,7 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #4 {
   %22 = and i64 %21, 1
   %23 = trunc i64 %22 to i32
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %33, label %25
+  br i1 %24, label %34, label %25
 
 25:                                               ; preds = %2
   %26 = load ptr, ptr %4, align 8
@@ -616,11 +616,12 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #4 {
   %30 = getelementptr inbounds %struct.sigpipe_ignore, ptr %29, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %30, i64 152, i1 false)
   %31 = getelementptr inbounds %struct.sigaction, ptr %5, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %31, align 8
-  %32 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #9
-  br label %33
+  %32 = inttoptr i64 1 to ptr
+  store ptr %32, ptr %31, align 8
+  %33 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #9
+  br label %34
 
-33:                                               ; preds = %25, %2
+34:                                               ; preds = %25, %2
   ret void
 }
 
@@ -656,7 +657,7 @@ define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) #4 
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %10 = getelementptr inbounds %struct.__va_list_tag, ptr %9, i32 0, i32 0
   %11 = load i32, ptr %10, align 16
@@ -688,18 +689,12 @@ define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) #4 
   %28 = call i32 (ptr, i32, ...) @Curl_getinfo(ptr noundef %25, i32 noundef %26, ptr noundef %27)
   store i32 %28, ptr %7, align 4
   %29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %29)
+  call void @llvm.va_end.p0(ptr %29)
   %30 = load i32, ptr %7, align 4
   ret i32 %30
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare i32 @Curl_getinfo(ptr noundef, i32 noundef, ...) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @curl_easy_duphandle(ptr noundef %0) #4 {
@@ -1377,7 +1372,7 @@ define dso_local void @curl_easy_reset(ptr noundef %0) #4 {
 declare void @Curl_free_request_state(ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare i32 @Curl_init_userdefined(ptr noundef) #5
 
@@ -2101,7 +2096,7 @@ declare ptr @curl_multi_info_read(ptr noundef, ptr noundef) #5
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 declare void @Curl_mime_initpart(ptr noundef) #5
 
@@ -2206,15 +2201,21 @@ declare i32 @Curl_conn_keep_alive(ptr noundef, ptr noundef, i32 noundef) #5
 
 declare void @Curl_detach_connection(ptr noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

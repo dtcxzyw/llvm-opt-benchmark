@@ -1790,48 +1790,50 @@ define void @_ZN10TrafficTabC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 1
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
-  %12 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 2
-  call void @_ZN4QMapIiiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
-  %13 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 3
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 4
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 6
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 7
-  store i8 0, ptr %16, align 1
+  %10 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 1
+  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #9
+  %14 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 2
+  call void @_ZN4QMapIiiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
+  %15 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 3
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 4
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 6
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 7
+  store i8 0, ptr %18, align 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   invoke void @_ZN19DetachableTabWidget14setTabBasenameE7QString(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %5)
-          to label %17 unwind label %18
+          to label %19 unwind label %20
 
-17:                                               ; preds = %2
+19:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %6, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %7, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %6, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  call void @_ZN4QMapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
+  call void @_ZN4QMapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
+  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #9
   call void @_ZN19DetachableTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
-  br label %22
+  br label %24
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %7, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #2
@@ -1895,11 +1897,13 @@ define linkonce_odr void @_ZN19DetachableTabWidgetD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.DetachableTabWidget, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %4 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.DetachableTabWidget, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -1909,13 +1913,15 @@ define void @_ZN10TrafficTabD2Ev(ptr noundef nonnull align 8 dereferenceable(122
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 2
-  call void @_ZN4QMapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %6 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 1
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %4 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 2
+  call void @_ZN4QMapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
+  %8 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 1
+  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
   call void @_ZN19DetachableTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #9
   ret void
 }
@@ -7812,42 +7818,43 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJ5QList
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !21
+  br i1 %4, label %5, label %12, !prof !21
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #9
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperI5QListIiELb1EE14qt_metatype_idEv()
-          to label %10 unwind label %12
+          to label %10 unwind label %13
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, i64 1), align 4
+  %11 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t, i64 1
+  store i32 0, ptr %11, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #9
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %5, %0
+12:                                               ; preds = %10, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %1, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %2, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %1, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ5QListIiEEEELb1EE5typesEvE1t) #9
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -27,66 +27,69 @@ define void @exerror(ptr noundef %0, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %6 = getelementptr inbounds %struct.Expr_s, ptr %5, i32 0, i32 7
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Exdisc_s, ptr %7, i32 0, i32 12
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %41
+  %5 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.Expr_s, ptr %6, i32 0, i32 7
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.Exdisc_s, ptr %8, i32 0, i32 12
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %47
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %13 = getelementptr inbounds %struct.Expr_s, ptr %12, i32 0, i32 16
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %41, label %16
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.Expr_s, ptr %14, i32 0, i32 16
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %47, label %18
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %18 = getelementptr inbounds %struct.Expr_s, ptr %17, i32 0, i32 16
-  store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %19)
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  %22 = call ptr @make_msg(ptr noundef %20, ptr noundef %21)
-  store ptr %22, ptr %4, align 8
-  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %23)
-  %24 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %25 = getelementptr inbounds %struct.Expr_s, ptr %24, i32 0, i32 7
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.Exdisc_s, ptr %26, i32 0, i32 12
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.Expr_s, ptr %20, i32 0, i32 16
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %22)
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  %25 = call ptr @make_msg(ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %4, align 8
+  %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %26)
+  %27 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %31 = getelementptr inbounds %struct.Expr_s, ptr %30, i32 0, i32 7
+  %29 = getelementptr inbounds %struct.Expr_s, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.Exdisc_s, ptr %30, i32 0, i32 12
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %37
+  %33 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.Expr_s, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %43
 
-35:                                               ; preds = %16
-  %36 = load ptr, ptr %4, align 8
-  br label %38
+41:                                               ; preds = %18
+  %42 = load ptr, ptr %4, align 8
+  br label %44
 
-37:                                               ; preds = %16
-  br label %38
+43:                                               ; preds = %18
+  br label %44
 
-38:                                               ; preds = %37, %35
-  %39 = phi ptr [ %36, %35 ], [ @.str.1, %37 ]
-  call void (ptr, ptr, i32, ptr, ...) %28(ptr noundef %29, ptr noundef %32, i32 noundef 2, ptr noundef @.str, ptr noundef %39)
-  %40 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %40) #5
-  br label %41
+44:                                               ; preds = %43, %41
+  %45 = phi ptr [ %42, %41 ], [ @.str.1, %43 ]
+  call void (ptr, ptr, i32, ptr, ...) %32(ptr noundef %34, ptr noundef %38, i32 noundef 2, ptr noundef @.str, ptr noundef %45)
+  %46 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %46) #5
+  br label %47
 
-41:                                               ; preds = %38, %11, %1
+47:                                               ; preds = %44, %12, %1
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @make_msg(ptr noundef %0, ptr noundef %1) #0 {
@@ -101,80 +104,78 @@ define internal ptr @make_msg(ptr noundef %0, ptr noundef %1) #0 {
   %11 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %13 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %14 = call ptr @excontext(ptr noundef %12, ptr noundef %13, i32 noundef 64)
-  %15 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.2, ptr noundef %15) #5
-  %17 = sext i32 %16 to i64
-  store i64 %17, ptr %7, align 8
-  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  %19 = load ptr, ptr %5, align 8
-  call void @llvm.va_copy(ptr %18, ptr %19)
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  %22 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %20, ptr noundef %21) #5
-  store i32 %22, ptr %9, align 4
-  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %23)
-  %24 = load i32, ptr %9, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %28
+  %12 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
+  %15 = call ptr @excontext(ptr noundef %13, ptr noundef %14, i32 noundef 64)
+  %16 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.2, ptr noundef %16) #5
+  %18 = sext i32 %17 to i64
+  store i64 %18, ptr %7, align 8
+  %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  %20 = load ptr, ptr %5, align 8
+  call void @llvm.va_copy.p0(ptr %19, ptr %20)
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  %23 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %21, ptr noundef %22) #5
+  store i32 %23, ptr %9, align 4
+  %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %24)
+  %25 = load i32, ptr %9, align 4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %2
-  %27 = call noalias ptr @strdup(ptr noundef @.str.3) #5
-  store ptr %27, ptr %3, align 8
-  br label %56
+27:                                               ; preds = %2
+  %28 = call noalias ptr @strdup(ptr noundef @.str.3) #5
+  store ptr %28, ptr %3, align 8
+  br label %57
 
-28:                                               ; preds = %2
-  %29 = load i32, ptr %9, align 4
-  %30 = sext i32 %29 to i64
-  %31 = add i64 %30, 1
-  %32 = load i64, ptr %7, align 8
-  %33 = add i64 %32, %31
-  store i64 %33, ptr %7, align 8
-  %34 = load i64, ptr %7, align 8
-  %35 = call noalias ptr @malloc(i64 noundef %34) #6
-  store ptr %35, ptr %10, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %39
+29:                                               ; preds = %2
+  %30 = load i32, ptr %9, align 4
+  %31 = sext i32 %30 to i64
+  %32 = add i64 %31, 1
+  %33 = load i64, ptr %7, align 8
+  %34 = add i64 %33, %32
+  store i64 %34, ptr %7, align 8
+  %35 = load i64, ptr %7, align 8
+  %36 = call noalias ptr @malloc(i64 noundef %35) #6
+  store ptr %36, ptr %10, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %28
+39:                                               ; preds = %29
   store ptr null, ptr %3, align 8
-  br label %56
+  br label %57
 
-39:                                               ; preds = %28
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i64, ptr %7, align 8
-  %42 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %40, i64 noundef %41, ptr noundef @.str.2, ptr noundef %42) #5
-  store i32 %43, ptr %11, align 4
-  %44 = load ptr, ptr %10, align 8
-  %45 = load i32, ptr %11, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %44, i64 %46
-  %48 = load i64, ptr %7, align 8
-  %49 = load i32, ptr %11, align 4
-  %50 = sext i32 %49 to i64
-  %51 = sub i64 %48, %50
-  %52 = load ptr, ptr %4, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = call i32 @vsnprintf(ptr noundef %47, i64 noundef %51, ptr noundef %52, ptr noundef %53) #5
-  %55 = load ptr, ptr %10, align 8
-  store ptr %55, ptr %3, align 8
-  br label %56
+40:                                               ; preds = %29
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i64, ptr %7, align 8
+  %43 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 0
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %42, ptr noundef @.str.2, ptr noundef %43) #5
+  store i32 %44, ptr %11, align 4
+  %45 = load ptr, ptr %10, align 8
+  %46 = load i32, ptr %11, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %45, i64 %47
+  %49 = load i64, ptr %7, align 8
+  %50 = load i32, ptr %11, align 4
+  %51 = sext i32 %50 to i64
+  %52 = sub i64 %49, %51
+  %53 = load ptr, ptr %4, align 8
+  %54 = load ptr, ptr %5, align 8
+  %55 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %52, ptr noundef %53, ptr noundef %54) #5
+  %56 = load ptr, ptr %10, align 8
+  store ptr %56, ptr %3, align 8
+  br label %57
 
-56:                                               ; preds = %39, %38, %26
-  %57 = load ptr, ptr %3, align 8
-  ret ptr %57
+57:                                               ; preds = %40, %39, %27
+  %58 = load ptr, ptr %3, align 8
+  ret ptr %58
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define void @exwarn(ptr noundef %0, ...) #0 {
@@ -182,76 +183,86 @@ define void @exwarn(ptr noundef %0, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %6 = getelementptr inbounds %struct.Expr_s, ptr %5, i32 0, i32 7
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Exdisc_s, ptr %7, i32 0, i32 12
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %34
+  %5 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.Expr_s, ptr %6, i32 0, i32 7
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.Exdisc_s, ptr %8, i32 0, i32 12
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %38
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  %15 = call ptr @make_msg(ptr noundef %13, ptr noundef %14)
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
-  %17 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %18 = getelementptr inbounds %struct.Expr_s, ptr %17, i32 0, i32 7
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %13)
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  %16 = call ptr @make_msg(ptr noundef %14, ptr noundef %15)
+  store ptr %16, ptr %4, align 8
+  %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %17)
+  %18 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.Exdisc_s, ptr %19, i32 0, i32 12
+  %20 = getelementptr inbounds %struct.Expr_s, ptr %19, i32 0, i32 7
   %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %24 = getelementptr inbounds %struct.Expr_s, ptr %23, i32 0, i32 7
+  %22 = getelementptr inbounds %struct.Exdisc_s, ptr %21, i32 0, i32 12
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %30
+  %26 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.Expr_s, ptr %27, i32 0, i32 7
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %34
 
-28:                                               ; preds = %11
-  %29 = load ptr, ptr %4, align 8
-  br label %31
-
-30:                                               ; preds = %11
-  br label %31
-
-31:                                               ; preds = %30, %28
-  %32 = phi ptr [ %29, %28 ], [ @.str.1, %30 ]
-  call void (ptr, ptr, i32, ptr, ...) %21(ptr noundef %22, ptr noundef %25, i32 noundef 1, ptr noundef @.str, ptr noundef %32)
+32:                                               ; preds = %12
   %33 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %33) #5
-  br label %34
+  br label %35
 
-34:                                               ; preds = %31, %1
+34:                                               ; preds = %12
+  br label %35
+
+35:                                               ; preds = %34, %32
+  %36 = phi ptr [ %33, %32 ], [ @.str.1, %34 ]
+  call void (ptr, ptr, i32, ptr, ...) %23(ptr noundef %25, ptr noundef %29, i32 noundef 1, ptr noundef @.str, ptr noundef %36)
+  %37 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %37) #5
+  br label %38
+
+38:                                               ; preds = %35, %1
   ret void
 }
 
-declare ptr @excontext(ptr noundef, ptr noundef, i32 noundef) #3
+declare ptr @excontext(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #1
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #2
+declare noalias ptr @strdup(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 

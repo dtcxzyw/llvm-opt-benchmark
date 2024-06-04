@@ -1046,27 +1046,28 @@ define internal fastcc i32 @hash_by_src(ptr nocapture noundef readonly %0, ptr n
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %16, ptr %17, align 8
-  %18 = load i8, ptr getelementptr inbounds (%struct.nf_conntrack_zone, ptr @nf_ct_zone_dflt, i64 0, i32 2), align 1
-  %19 = icmp eq i8 %18, 3
-  br i1 %19, label %20, label %24
+  %18 = getelementptr inbounds %struct.nf_conntrack_zone, ptr @nf_ct_zone_dflt, i64 0, i32 2
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 3
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %9
-  %21 = load i16, ptr @nf_ct_zone_dflt, align 2
-  %22 = zext i16 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 %22, ptr %23, align 4
-  br label %24
+21:                                               ; preds = %9
+  %22 = load i16, ptr @nf_ct_zone_dflt, align 2
+  %23 = zext i16 %22 to i32
+  %24 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 %23, ptr %24, align 4
+  br label %25
 
-24:                                               ; preds = %20, %9
-  %25 = call i64 @__siphash_unaligned(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @nf_nat_hash_rnd) #13
-  %26 = load i32, ptr @nf_nat_htable_size, align 4
-  %27 = and i64 %25, 4294967295
-  %28 = zext i32 %26 to i64
-  %29 = mul nuw i64 %27, %28
-  %30 = lshr i64 %29, 32
-  %31 = trunc i64 %30 to i32
+25:                                               ; preds = %21, %9
+  %26 = call i64 @__siphash_unaligned(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @nf_nat_hash_rnd) #13
+  %27 = load i32, ptr @nf_nat_htable_size, align 4
+  %28 = and i64 %26, 4294967295
+  %29 = zext i32 %27 to i64
+  %30 = mul nuw i64 %28, %29
+  %31 = lshr i64 %30, 32
+  %32 = trunc i64 %31 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  ret i32 %31
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1408,7 +1409,7 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
   tail call void asm sideeffect "890: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 890b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 890) #13, !srcloc !34
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1088, i32 2307, i64 12) #13, !srcloc !35
   tail call void asm sideeffect "891: nop\0A\09.pushsection .discard.instr_end\0A\09.long 891b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 891) #13, !srcloc !36
-  br label %99
+  br label %100
 
 16:                                               ; preds = %5
   %17 = zext nneg i8 %1 to i64
@@ -1439,13 +1440,13 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
   tail call void asm sideeffect "892: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 892b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 892) #13, !srcloc !38
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1100, i32 2307, i64 12) #13, !srcloc !39
   tail call void asm sideeffect "893: nop\0A\09.pushsection .discard.instr_end\0A\09.long 893b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 893) #13, !srcloc !40
-  br label %99
+  br label %100
 
 34:                                               ; preds = %29
   tail call void @mutex_lock(ptr noundef nonnull @nf_nat_proto_mutex) #13
   %35 = load ptr, ptr %18, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %84
+  br i1 %36, label %37, label %85
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1468,108 +1469,109 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
 
 47:                                               ; preds = %42
   %48 = icmp eq i32 %4, 0
-  br i1 %48, label %70, label %50
+  br i1 %48, label %71, label %50
 
 49:                                               ; preds = %42
   tail call void @mutex_unlock(ptr noundef nonnull @nf_nat_proto_mutex) #13
-  br label %99
+  br label %100
 
-50:                                               ; preds = %55, %47
-  %51 = phi i32 [ %58, %55 ], [ 0, %47 ]
-  %52 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %53 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %52, i32 noundef 3520, i64 noundef 24) #15
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %60, label %55
+50:                                               ; preds = %56, %47
+  %51 = phi i32 [ %59, %56 ], [ 0, %47 ]
+  %52 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 3520, i64 noundef 24) #15
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %61, label %56
 
-55:                                               ; preds = %50
-  %56 = sext i32 %51 to i64
-  %57 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %56, i32 2
-  store ptr %53, ptr %57, align 8
-  %58 = add nuw i32 %51, 1
-  %59 = icmp eq i32 %58, %4
-  br i1 %59, label %70, label %50, !llvm.loop !44
+56:                                               ; preds = %50
+  %57 = sext i32 %51 to i64
+  %58 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %57, i32 2
+  store ptr %54, ptr %58, align 8
+  %59 = add nuw i32 %51, 1
+  %60 = icmp eq i32 %59, %4
+  br i1 %60, label %71, label %50, !llvm.loop !44
 
-60:                                               ; preds = %50
+61:                                               ; preds = %50
   tail call void @mutex_unlock(ptr noundef nonnull @nf_nat_proto_mutex) #13
-  %61 = icmp eq i32 %51, 0
-  br i1 %61, label %69, label %62
+  %62 = icmp eq i32 %51, 0
+  br i1 %62, label %70, label %63
 
-62:                                               ; preds = %62, %60
-  %63 = phi i32 [ %64, %62 ], [ %51, %60 ]
-  %64 = add i32 %63, -1
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %65, i32 2
-  %67 = load ptr, ptr %66, align 8
-  tail call void @kfree(ptr noundef %67) #13
-  %68 = icmp eq i32 %64, 0
-  br i1 %68, label %69, label %62, !llvm.loop !45
+63:                                               ; preds = %63, %61
+  %64 = phi i32 [ %65, %63 ], [ %51, %61 ]
+  %65 = add i32 %64, -1
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %66, i32 2
+  %68 = load ptr, ptr %67, align 8
+  tail call void @kfree(ptr noundef %68) #13
+  %69 = icmp eq i32 %65, 0
+  br i1 %69, label %70, label %63, !llvm.loop !45
 
-69:                                               ; preds = %62, %60
+70:                                               ; preds = %63, %61
   tail call void @kfree(ptr noundef nonnull %45) #13
-  br label %99
+  br label %100
 
-70:                                               ; preds = %55, %47
-  %71 = tail call i32 @nf_register_net_hooks(ptr noundef %0, ptr noundef nonnull %45, i32 noundef %4) #13
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %83
+71:                                               ; preds = %56, %47
+  %72 = tail call i32 @nf_register_net_hooks(ptr noundef %0, ptr noundef nonnull %45, i32 noundef %4) #13
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %84
 
-73:                                               ; preds = %70
+74:                                               ; preds = %71
   tail call void @mutex_unlock(ptr noundef nonnull @nf_nat_proto_mutex) #13
-  %74 = icmp eq i32 %4, 0
-  br i1 %74, label %82, label %75
+  %75 = icmp eq i32 %4, 0
+  br i1 %75, label %83, label %76
 
-75:                                               ; preds = %75, %73
-  %76 = phi i32 [ %80, %75 ], [ 0, %73 ]
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %77, i32 2
-  %79 = load ptr, ptr %78, align 8
-  tail call void @kfree(ptr noundef %79) #13
-  %80 = add nuw i32 %76, 1
-  %81 = icmp eq i32 %80, %4
-  br i1 %81, label %82, label %75, !llvm.loop !46
+76:                                               ; preds = %76, %74
+  %77 = phi i32 [ %81, %76 ], [ 0, %74 ]
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr %struct.nf_hook_ops, ptr %45, i64 %78, i32 2
+  %80 = load ptr, ptr %79, align 8
+  tail call void @kfree(ptr noundef %80) #13
+  %81 = add nuw i32 %77, 1
+  %82 = icmp eq i32 %81, %4
+  br i1 %82, label %83, label %76, !llvm.loop !46
 
-82:                                               ; preds = %75, %73
+83:                                               ; preds = %76, %74
   tail call void @kfree(ptr noundef nonnull %45) #13
-  br label %99
+  br label %100
 
-83:                                               ; preds = %70
+84:                                               ; preds = %71
   store ptr %45, ptr %18, align 8
-  br label %84
+  br label %85
 
-84:                                               ; preds = %83, %34
-  %85 = load ptr, ptr %18, align 8
-  %86 = zext i32 %31 to i64
-  %87 = getelementptr %struct.nf_hook_ops, ptr %85, i64 %86, i32 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %91, !prof !7
+85:                                               ; preds = %84, %34
+  %86 = load ptr, ptr %18, align 8
+  %87 = zext i32 %31 to i64
+  %88 = getelementptr %struct.nf_hook_ops, ptr %86, i64 %87, i32 2
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %92, !prof !7
 
-90:                                               ; preds = %84
+91:                                               ; preds = %85
   tail call void asm sideeffect "896: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 896b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 896) #13, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1140, i32 2307, i64 12) #13, !srcloc !48
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_end\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #13, !srcloc !49
   tail call void @mutex_unlock(ptr noundef nonnull @nf_nat_proto_mutex) #13
+  br label %100
+
+92:                                               ; preds = %85
+  %93 = tail call i32 @nf_hook_entries_insert_raw(ptr noundef nonnull %89, ptr noundef %2) #13
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %99
+
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %18, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %96, align 8
   br label %99
 
-91:                                               ; preds = %84
-  %92 = tail call i32 @nf_hook_entries_insert_raw(ptr noundef nonnull %88, ptr noundef %2) #13
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %98
-
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %18, i64 8
-  %96 = load i32, ptr %95, align 8
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %95, align 8
-  br label %98
-
-98:                                               ; preds = %94, %91
+99:                                               ; preds = %95, %92
   tail call void @mutex_unlock(ptr noundef nonnull @nf_nat_proto_mutex) #13
-  br label %99
+  br label %100
 
-99:                                               ; preds = %98, %90, %82, %69, %49, %33, %15
-  %100 = phi i32 [ -95, %90 ], [ %92, %98 ], [ -12, %69 ], [ %71, %82 ], [ -12, %49 ], [ -22, %15 ], [ -22, %33 ]
-  ret i32 %100
+100:                                              ; preds = %99, %91, %83, %70, %49, %33, %15
+  %101 = phi i32 [ -95, %91 ], [ %93, %99 ], [ -12, %70 ], [ %72, %83 ], [ -12, %49 ], [ -22, %15 ], [ -22, %33 ]
+  ret i32 %101
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1755,7 +1757,7 @@ define internal noundef i32 @nf_nat_proto_clean(ptr noundef %0, ptr nocapture no
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 48
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %44
+  br i1 %22, label %23, label %45
 
 23:                                               ; preds = %18, %14, %5
   %24 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1763,7 +1765,7 @@ define internal noundef i32 @nf_nat_proto_clean(ptr noundef %0, ptr nocapture no
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
-  br i1 %27, label %44, label %28
+  br i1 %27, label %45, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1788,13 +1790,14 @@ define internal noundef i32 @nf_nat_proto_clean(ptr noundef %0, ptr nocapture no
   br label %43
 
 43:                                               ; preds = %41, %28
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %38, align 8
+  %44 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %44, ptr %38, align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef %35) #13
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %23, %18
-  %45 = phi i32 [ 1, %18 ], [ 0, %43 ], [ 0, %23 ]
-  ret i32 %45
+45:                                               ; preds = %43, %23, %18
+  %46 = phi i32 [ 1, %18 ], [ 0, %43 ], [ 0, %23 ]
+  ret i32 %46
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2035,7 +2038,8 @@ define internal void @nf_nat_cleanup_conntrack(ptr noundef %0) #0 align 16 {
   br label %16
 
 16:                                               ; preds = %14, %1
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %11, align 8
+  %17 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %17, ptr %11, align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef %8) #13
   ret void
 }

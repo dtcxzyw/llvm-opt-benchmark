@@ -1120,9 +1120,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }
@@ -10119,19 +10120,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10157,19 +10159,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.8", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10192,19 +10195,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.9", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10227,19 +10231,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.10", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10262,19 +10267,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.11", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10297,19 +10303,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.12", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10332,19 +10339,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.13", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10367,19 +10375,20 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
   %15 = load i64, ptr %14, align 8
   %16 = mul i64 %15, 4
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i64 noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 1
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 16, i1 false)
-  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %9, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %23, align 8
+  %17 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %11, align 8
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 16, i1 false)
+  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 2
+  %21 = load i64, ptr %9, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ExtraDistanceComputer.14", ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 
@@ -10396,13 +10405,14 @@ define linkonce_odr void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr nounde
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -10573,7 +10583,8 @@ define linkonce_odr void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

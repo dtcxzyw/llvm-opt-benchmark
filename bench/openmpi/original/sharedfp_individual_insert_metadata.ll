@@ -55,128 +55,129 @@ define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef 
 17:                                               ; preds = %3
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str)
   store i32 -1, ptr %4, align 4
-  br label %92
+  br label %93
 
 18:                                               ; preds = %3
   %19 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
   %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %23, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef @.str.1, i32 noundef %25)
-  br label %26
+  %22 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %23 = load i32, ptr %22, align 4
+  %24 = load ptr, ptr %11, align 8
+  %25 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %23, ptr noundef @.str.1, i32 noundef %26)
+  br label %27
 
-26:                                               ; preds = %21, %18
-  %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 1024
-  br i1 %30, label %31, label %36
+27:                                               ; preds = %21, %18
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 1024
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef %32)
-  store i32 %33, ptr %8, align 4
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %34, i32 0, i32 10
-  store ptr null, ptr %35, align 8
-  br label %36
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %7, align 8
+  %34 = call i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef %33)
+  store i32 %34, ptr %8, align 4
+  %35 = load ptr, ptr %11, align 8
+  %36 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %35, i32 0, i32 10
+  store ptr null, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %31, %26
-  %37 = call noalias ptr @malloc(i64 noundef 40) #4
-  store ptr %37, ptr %9, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = icmp eq ptr null, %38
-  br i1 %39, label %40, label %41
+37:                                               ; preds = %32, %27
+  %38 = call noalias ptr @malloc(i64 noundef 40) #4
+  store ptr %38, ptr %9, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr null, %39
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2)
   store i32 -2, ptr %4, align 4
-  br label %92
+  br label %93
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %42, i32 0, i32 0
-  %44 = load i32, ptr %43, align 8
-  %45 = add nsw i32 %44, 1
-  %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %46, i32 0, i32 0
-  store i32 %45, ptr %47, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = sext i32 %48 to i64
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %50, i32 0, i32 0
-  store i64 %49, ptr %51, align 8
-  %52 = call double @mca_sharedfp_individual_gettime()
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %53, i32 0, i32 1
-  store double %52, ptr %54, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %55, i32 0, i32 2
-  %57 = load i64, ptr %56, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %58, i32 0, i32 2
-  store i64 %57, ptr %59, align 8
-  %60 = load i64, ptr %6, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %61, i32 0, i32 3
-  store i64 %60, ptr %62, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %63, i32 0, i32 4
-  store ptr null, ptr %64, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %65, i32 0, i32 10
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %73
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 8
+  %46 = add nsw i32 %45, 1
+  %47 = load ptr, ptr %11, align 8
+  %48 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %47, i32 0, i32 0
+  store i32 %46, ptr %48, align 8
+  %49 = load i32, ptr %5, align 4
+  %50 = sext i32 %49 to i64
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %51, i32 0, i32 0
+  store i64 %50, ptr %52, align 8
+  %53 = call double @mca_sharedfp_individual_gettime()
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %54, i32 0, i32 1
+  store double %53, ptr %55, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %56, i32 0, i32 2
+  %58 = load i64, ptr %57, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %59, i32 0, i32 2
+  store i64 %58, ptr %60, align 8
+  %61 = load i64, ptr %6, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %62, i32 0, i32 3
+  store i64 %61, ptr %63, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %64, i32 0, i32 4
+  store ptr null, ptr %65, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %66, i32 0, i32 10
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %74
 
-69:                                               ; preds = %41
-  %70 = load ptr, ptr %9, align 8
-  %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %71, i32 0, i32 10
-  store ptr %70, ptr %72, align 8
-  br label %90
+70:                                               ; preds = %42
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %72, i32 0, i32 10
+  store ptr %71, ptr %73, align 8
+  br label %91
 
-73:                                               ; preds = %41
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %74, i32 0, i32 10
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %10, align 8
-  br label %77
+74:                                               ; preds = %42
+  %75 = load ptr, ptr %11, align 8
+  %76 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %75, i32 0, i32 10
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %10, align 8
+  br label %78
 
-77:                                               ; preds = %82, %73
-  %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %78, i32 0, i32 4
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %86
+78:                                               ; preds = %83, %74
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %79, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %87
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %83, i32 0, i32 4
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %10, align 8
-  br label %77, !llvm.loop !4
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %10, align 8
+  %85 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %84, i32 0, i32 4
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %10, align 8
+  br label %78, !llvm.loop !4
 
-86:                                               ; preds = %77
-  %87 = load ptr, ptr %9, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %88, i32 0, i32 4
-  store ptr %87, ptr %89, align 8
-  br label %90
+87:                                               ; preds = %78
+  %88 = load ptr, ptr %9, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %89, i32 0, i32 4
+  store ptr %88, ptr %90, align 8
+  br label %91
 
-90:                                               ; preds = %86, %69
-  %91 = load i32, ptr %8, align 4
-  store i32 %91, ptr %4, align 4
-  br label %92
+91:                                               ; preds = %87, %70
+  %92 = load i32, ptr %8, align 4
+  store i32 %92, ptr %4, align 4
+  br label %93
 
-92:                                               ; preds = %90, %40, %17
-  %93 = load i32, ptr %4, align 4
-  ret i32 %93
+93:                                               ; preds = %91, %41, %17
+  %94 = load i32, ptr %4, align 4
+  ret i32 %94
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) #1
@@ -219,10 +220,10 @@ define i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef %0) #0 {
   store ptr %24, ptr %3, align 8
   br label %25
 
-25:                                               ; preds = %81, %21
+25:                                               ; preds = %86, %21
   %26 = load ptr, ptr %3, align 8
   %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %94
+  br i1 %27, label %28, label %99
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %3, align 8
@@ -247,83 +248,88 @@ define i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef %0) #0 {
   store i64 %43, ptr %44, align 8
   %45 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
   %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %61
+  br i1 %46, label %47, label %66
 
 47:                                               ; preds = %28
-  %48 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %49 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 0
-  %50 = load i64, ptr %49, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %48, ptr noundef @.str.3, i64 noundef %50)
-  %51 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %52 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 1
-  %53 = load double, ptr %52, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %51, ptr noundef @.str.4, double noundef %53)
-  %54 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %55 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 2
-  %56 = load i64, ptr %55, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %54, ptr noundef @.str.5, i64 noundef %56)
-  %57 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  %58 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 3
+  %48 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %49, ptr noundef @.str.3, i64 noundef %51)
+  %52 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 1
+  %55 = load double, ptr %54, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef @.str.4, double noundef %55)
+  %56 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 2
   %59 = load i64, ptr %58, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef @.str.6, i64 noundef %59)
-  %60 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %60, ptr noundef @.str.7, i64 noundef 32)
-  br label %61
+  call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef @.str.5, i64 noundef %59)
+  %60 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds %struct.mca_sharedfp_individual_record2, ptr %4, i32 0, i32 3
+  %63 = load i64, ptr %62, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %61, ptr noundef @.str.6, i64 noundef %63)
+  %64 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %65 = load i32, ptr %64, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %65, ptr noundef @.str.7, i64 noundef 32)
+  br label %66
 
-61:                                               ; preds = %47, %28
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %62, i32 0, i32 4
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %65, i32 0, i32 10
-  store ptr %64, ptr %66, align 8
+66:                                               ; preds = %47, %28
   %67 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %67) #5
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %68, i32 0, i32 10
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %3, align 8
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %71, i32 0, i32 5
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %74, i32 0, i32 3
-  %76 = load i64, ptr %75, align 8
-  %77 = call i32 @mca_common_ompio_file_write_at(ptr noundef %73, i64 noundef %76, ptr noundef %4, i32 noundef 32, ptr noundef @ompi_mpi_byte, ptr noundef %7)
-  store i32 %77, ptr %6, align 4
-  %78 = load i32, ptr %6, align 4
-  %79 = icmp ne i32 0, %78
-  br i1 %79, label %80, label %81
+  %68 = getelementptr inbounds %struct.mca_sharedfp_individual_metadata_node_s, ptr %67, i32 0, i32 4
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %70, i32 0, i32 10
+  store ptr %69, ptr %71, align 8
+  %72 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %72) #5
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %73, i32 0, i32 10
+  %75 = load ptr, ptr %74, align 8
+  store ptr %75, ptr %3, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %76, i32 0, i32 5
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %79, i32 0, i32 3
+  %81 = load i64, ptr %80, align 8
+  %82 = call i32 @mca_common_ompio_file_write_at(ptr noundef %78, i64 noundef %81, ptr noundef %4, i32 noundef 32, ptr noundef @ompi_mpi_byte, ptr noundef %7)
+  store i32 %82, ptr %6, align 4
+  %83 = load i32, ptr %6, align 4
+  %84 = icmp ne i32 0, %83
+  br i1 %84, label %85, label %86
 
-80:                                               ; preds = %61
-  br label %97
+85:                                               ; preds = %66
+  br label %102
 
-81:                                               ; preds = %61
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 4
-  %85 = add nsw i32 %84, 1
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %86, i32 0, i32 1
-  store i32 %85, ptr %87, align 4
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %88, i32 0, i32 3
-  %90 = load i64, ptr %89, align 8
-  %91 = add i64 %90, 32
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %92, i32 0, i32 3
-  store i64 %91, ptr %93, align 8
+86:                                               ; preds = %66
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  %90 = add nsw i32 %89, 1
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %91, i32 0, i32 1
+  store i32 %90, ptr %92, align 4
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %93, i32 0, i32 3
+  %95 = load i64, ptr %94, align 8
+  %96 = add i64 %95, 32
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %97, i32 0, i32 3
+  store i64 %96, ptr %98, align 8
   br label %25, !llvm.loop !6
 
-94:                                               ; preds = %25
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %95, i32 0, i32 0
-  store i32 0, ptr %96, align 8
-  br label %97
+99:                                               ; preds = %25
+  %100 = load ptr, ptr %5, align 8
+  %101 = getelementptr inbounds %struct.mca_sharedfp_individual_header_record_s, ptr %100, i32 0, i32 0
+  store i32 0, ptr %101, align 8
+  br label %102
 
-97:                                               ; preds = %94, %80
-  %98 = load i32, ptr %6, align 4
-  ret i32 %98
+102:                                              ; preds = %99, %85
+  %103 = load i32, ptr %6, align 4
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind allocsize(0)

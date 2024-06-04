@@ -689,10 +689,10 @@ define internal i32 @remove_event_hook(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %16, ptr %11, align 8
   br label %17
 
-17:                                               ; preds = %59, %4
+17:                                               ; preds = %60, %4
   %18 = load ptr, ptr %11, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %63
+  br i1 %19, label %20, label %64
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %7, align 8
@@ -705,7 +705,7 @@ define internal i32 @remove_event_hook(ptr noundef %0, ptr noundef %1, ptr nound
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %7, align 8
   %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %59
+  br i1 %28, label %29, label %60
 
 29:                                               ; preds = %23, %20
   %30 = load ptr, ptr %11, align 8
@@ -714,58 +714,59 @@ define internal i32 @remove_event_hook(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %6, align 8
   %35 = icmp eq ptr %33, %34
-  br i1 %35, label %39, label %36
+  br i1 %35, label %40, label %36
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %6, align 8
-  %38 = icmp eq ptr %37, inttoptr (i64 1 to ptr)
-  br i1 %38, label %39, label %58
+  %38 = inttoptr i64 1 to ptr
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %40, label %59
 
-39:                                               ; preds = %36, %29
-  %40 = load i64, ptr %8, align 8
-  %41 = call zeroext i1 @RB_UNDEF_P(i64 noundef %40) #23
-  br i1 %41, label %48, label %42
+40:                                               ; preds = %36, %29
+  %41 = load i64, ptr %8, align 8
+  %42 = call zeroext i1 @RB_UNDEF_P(i64 noundef %41) #23
+  br i1 %42, label %49, label %43
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %43, i32 0, i32 3
-  %45 = load i64, ptr %44, align 8
-  %46 = load i64, ptr %8, align 8
-  %47 = icmp eq i64 %45, %46
-  br i1 %47, label %48, label %57
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %11, align 8
+  %45 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %44, i32 0, i32 3
+  %46 = load i64, ptr %45, align 8
+  %47 = load i64, ptr %8, align 8
+  %48 = icmp eq i64 %46, %47
+  br i1 %48, label %49, label %58
 
-48:                                               ; preds = %42, %39
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = or i32 %51, 2
-  store i32 %52, ptr %50, align 8
-  %53 = load i32, ptr %10, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %10, align 4
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %55, i32 0, i32 3
-  store i8 1, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %48, %42
+49:                                               ; preds = %43, %40
+  %50 = load ptr, ptr %11, align 8
+  %51 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = or i32 %52, 2
+  store i32 %53, ptr %51, align 8
+  %54 = load i32, ptr %10, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %10, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %56, i32 0, i32 3
+  store i8 1, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %57, %36
+58:                                               ; preds = %49, %43
   br label %59
 
-59:                                               ; preds = %58, %23
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %60, i32 0, i32 4
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %11, align 8
+59:                                               ; preds = %58, %36
+  br label %60
+
+60:                                               ; preds = %59, %23
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds %struct.rb_event_hook_struct, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %11, align 8
   br label %17, !llvm.loop !11
 
-63:                                               ; preds = %17
-  %64 = load ptr, ptr %9, align 8
-  call void @clean_hooks_check(ptr noundef %64)
-  %65 = load i32, ptr %10, align 4
-  ret i32 %65
+64:                                               ; preds = %17
+  %65 = load ptr, ptr %9, align 8
+  call void @clean_hooks_check(ptr noundef %65)
+  %66 = load i32, ptr %10, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -807,7 +808,8 @@ define hidden void @rb_ec_clear_all_trace_func(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @rb_threadptr_remove_event_hook(ptr noundef %3, ptr noundef inttoptr (i64 1 to ptr), ptr noundef null, i64 noundef 36)
+  %4 = inttoptr i64 1 to ptr
+  %5 = call i32 @rb_threadptr_remove_event_hook(ptr noundef %3, ptr noundef %4, ptr noundef null, i64 noundef 36)
   ret void
 }
 

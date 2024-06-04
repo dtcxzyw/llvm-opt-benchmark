@@ -7882,10 +7882,10 @@ define internal void @BF_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 0, ptr %11, align 4
   br label %25
 
-25:                                               ; preds = %103, %4
+25:                                               ; preds = %104, %4
   %26 = load i32, ptr %11, align 4
   %27 = icmp ult i32 %26, 18
-  br i1 %27, label %28, label %106
+  br i1 %27, label %28, label %107
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
@@ -7982,54 +7982,55 @@ define internal void @BF_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 %85, ptr %89, align 4
   %90 = load i32, ptr %11, align 4
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds [18 x i32], ptr getelementptr inbounds (%struct.BF_ctx, ptr @BF_init_state, i32 0, i32 1), i64 0, i64 %91
-  %93 = load i32, ptr %92, align 4
-  %94 = load i32, ptr %10, align 4
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = xor i32 %93, %97
-  %99 = load ptr, ptr %7, align 8
-  %100 = load i32, ptr %11, align 4
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %99, i64 %101
-  store i32 %98, ptr %102, align 4
-  br label %103
+  %92 = getelementptr inbounds %struct.BF_ctx, ptr @BF_init_state, i32 0, i32 1
+  %93 = getelementptr inbounds [18 x i32], ptr %92, i64 0, i64 %91
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %10, align 4
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 %96
+  %98 = load i32, ptr %97, align 4
+  %99 = xor i32 %94, %98
+  %100 = load ptr, ptr %7, align 8
+  %101 = load i32, ptr %11, align 4
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds i32, ptr %100, i64 %102
+  store i32 %99, ptr %103, align 4
+  br label %104
 
-103:                                              ; preds = %74
-  %104 = load i32, ptr %11, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %11, align 4
+104:                                              ; preds = %74
+  %105 = load i32, ptr %11, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %11, align 4
   br label %25
 
-106:                                              ; preds = %25
-  %107 = load i32, ptr %15, align 4
-  %108 = lshr i32 %107, 16
-  %109 = load i32, ptr %15, align 4
-  %110 = or i32 %109, %108
-  store i32 %110, ptr %15, align 4
-  %111 = load i32, ptr %15, align 4
-  %112 = and i32 %111, 65535
-  store i32 %112, ptr %15, align 4
-  %113 = load i32, ptr %15, align 4
-  %114 = add i32 %113, 65535
-  store i32 %114, ptr %15, align 4
-  %115 = load i32, ptr %14, align 4
-  %116 = shl i32 %115, 9
-  store i32 %116, ptr %14, align 4
-  %117 = load i32, ptr %15, align 4
-  %118 = xor i32 %117, -1
-  %119 = load i32, ptr %13, align 4
-  %120 = and i32 %118, %119
-  %121 = load i32, ptr %14, align 4
-  %122 = and i32 %121, %120
-  store i32 %122, ptr %14, align 4
-  %123 = load i32, ptr %14, align 4
-  %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 0
-  %126 = load i32, ptr %125, align 4
-  %127 = xor i32 %126, %123
-  store i32 %127, ptr %125, align 4
+107:                                              ; preds = %25
+  %108 = load i32, ptr %15, align 4
+  %109 = lshr i32 %108, 16
+  %110 = load i32, ptr %15, align 4
+  %111 = or i32 %110, %109
+  store i32 %111, ptr %15, align 4
+  %112 = load i32, ptr %15, align 4
+  %113 = and i32 %112, 65535
+  store i32 %113, ptr %15, align 4
+  %114 = load i32, ptr %15, align 4
+  %115 = add i32 %114, 65535
+  store i32 %115, ptr %15, align 4
+  %116 = load i32, ptr %14, align 4
+  %117 = shl i32 %116, 9
+  store i32 %117, ptr %14, align 4
+  %118 = load i32, ptr %15, align 4
+  %119 = xor i32 %118, -1
+  %120 = load i32, ptr %13, align 4
+  %121 = and i32 %119, %120
+  %122 = load i32, ptr %14, align 4
+  %123 = and i32 %122, %121
+  store i32 %123, ptr %14, align 4
+  %124 = load i32, ptr %14, align 4
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds i32, ptr %125, i64 0
+  %127 = load i32, ptr %126, align 4
+  %128 = xor i32 %127, %124
+  store i32 %128, ptr %126, align 4
   ret void
 }
 

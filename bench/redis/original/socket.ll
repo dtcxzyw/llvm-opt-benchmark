@@ -302,19 +302,20 @@ if.end:                                           ; preds = %if.else, %if.then5
   br i1 %tobool8, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %16 = load ptr, ptr %conn, align 8
-  %fd10 = getelementptr inbounds %struct.connection, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %fd10, align 8
-  call void @aeDeleteFileEvent(ptr noundef %15, i32 noundef %17, i32 noundef 2)
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %conn, align 8
+  %fd10 = getelementptr inbounds %struct.connection, ptr %17, i32 0, i32 3
+  %18 = load i32, ptr %fd10, align 8
+  call void @aeDeleteFileEvent(ptr noundef %16, i32 noundef %18, i32 noundef 2)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end
-  %18 = load ptr, ptr %conn, align 8
   %19 = load ptr, ptr %conn, align 8
-  %conn_handler12 = getelementptr inbounds %struct.connection, ptr %19, i32 0, i32 8
-  %20 = load ptr, ptr %conn_handler12, align 8
-  %call13 = call i32 @callHandler(ptr noundef %18, ptr noundef %20)
+  %20 = load ptr, ptr %conn, align 8
+  %conn_handler12 = getelementptr inbounds %struct.connection, ptr %20, i32 0, i32 8
+  %21 = load ptr, ptr %conn_handler12, align 8
+  %call13 = call i32 @callHandler(ptr noundef %19, ptr noundef %21)
   %tobool14 = icmp ne i32 %call13, 0
   br i1 %tobool14, label %if.end16, label %if.then15
 
@@ -322,65 +323,65 @@ if.then15:                                        ; preds = %if.end11
   br label %if.end57
 
 if.end16:                                         ; preds = %if.end11
-  %21 = load ptr, ptr %conn, align 8
-  %conn_handler17 = getelementptr inbounds %struct.connection, ptr %21, i32 0, i32 8
+  %22 = load ptr, ptr %conn, align 8
+  %conn_handler17 = getelementptr inbounds %struct.connection, ptr %22, i32 0, i32 8
   store ptr null, ptr %conn_handler17, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end16, %land.lhs.true1, %land.lhs.true, %entry
-  %22 = load ptr, ptr %conn, align 8
-  %flags = getelementptr inbounds %struct.connection, ptr %22, i32 0, i32 4
-  %23 = load i16, ptr %flags, align 4
-  %conv = sext i16 %23 to i32
+  %23 = load ptr, ptr %conn, align 8
+  %flags = getelementptr inbounds %struct.connection, ptr %23, i32 0, i32 4
+  %24 = load i16, ptr %flags, align 4
+  %conv = sext i16 %24 to i32
   %and19 = and i32 %conv, 2
   store i32 %and19, ptr %invert, align 4
-  %24 = load i32, ptr %mask.addr, align 4
-  %and20 = and i32 %24, 2
+  %25 = load i32, ptr %mask.addr, align 4
+  %and20 = and i32 %25, 2
   %tobool21 = icmp ne i32 %and20, 0
   br i1 %tobool21, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end18
-  %25 = load ptr, ptr %conn, align 8
-  %write_handler22 = getelementptr inbounds %struct.connection, ptr %25, i32 0, i32 9
-  %26 = load ptr, ptr %write_handler22, align 8
-  %tobool23 = icmp ne ptr %26, null
+  %26 = load ptr, ptr %conn, align 8
+  %write_handler22 = getelementptr inbounds %struct.connection, ptr %26, i32 0, i32 9
+  %27 = load ptr, ptr %write_handler22, align 8
+  %tobool23 = icmp ne ptr %27, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end18
-  %27 = phi i1 [ false, %if.end18 ], [ %tobool23, %land.rhs ]
-  %land.ext = zext i1 %27 to i32
+  %28 = phi i1 [ false, %if.end18 ], [ %tobool23, %land.rhs ]
+  %land.ext = zext i1 %28 to i32
   store i32 %land.ext, ptr %call_write, align 4
-  %28 = load i32, ptr %mask.addr, align 4
-  %and24 = and i32 %28, 1
+  %29 = load i32, ptr %mask.addr, align 4
+  %and24 = and i32 %29, 1
   %tobool25 = icmp ne i32 %and24, 0
   br i1 %tobool25, label %land.rhs26, label %land.end28
 
 land.rhs26:                                       ; preds = %land.end
-  %29 = load ptr, ptr %conn, align 8
-  %read_handler = getelementptr inbounds %struct.connection, ptr %29, i32 0, i32 10
-  %30 = load ptr, ptr %read_handler, align 8
-  %tobool27 = icmp ne ptr %30, null
+  %30 = load ptr, ptr %conn, align 8
+  %read_handler = getelementptr inbounds %struct.connection, ptr %30, i32 0, i32 10
+  %31 = load ptr, ptr %read_handler, align 8
+  %tobool27 = icmp ne ptr %31, null
   br label %land.end28
 
 land.end28:                                       ; preds = %land.rhs26, %land.end
-  %31 = phi i1 [ false, %land.end ], [ %tobool27, %land.rhs26 ]
-  %land.ext29 = zext i1 %31 to i32
+  %32 = phi i1 [ false, %land.end ], [ %tobool27, %land.rhs26 ]
+  %land.ext29 = zext i1 %32 to i32
   store i32 %land.ext29, ptr %call_read, align 4
-  %32 = load i32, ptr %invert, align 4
-  %tobool30 = icmp ne i32 %32, 0
+  %33 = load i32, ptr %invert, align 4
+  %tobool30 = icmp ne i32 %33, 0
   br i1 %tobool30, label %if.end39, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %land.end28
-  %33 = load i32, ptr %call_read, align 4
-  %tobool32 = icmp ne i32 %33, 0
+  %34 = load i32, ptr %call_read, align 4
+  %tobool32 = icmp ne i32 %34, 0
   br i1 %tobool32, label %if.then33, label %if.end39
 
 if.then33:                                        ; preds = %land.lhs.true31
-  %34 = load ptr, ptr %conn, align 8
   %35 = load ptr, ptr %conn, align 8
-  %read_handler34 = getelementptr inbounds %struct.connection, ptr %35, i32 0, i32 10
-  %36 = load ptr, ptr %read_handler34, align 8
-  %call35 = call i32 @callHandler(ptr noundef %34, ptr noundef %36)
+  %36 = load ptr, ptr %conn, align 8
+  %read_handler34 = getelementptr inbounds %struct.connection, ptr %36, i32 0, i32 10
+  %37 = load ptr, ptr %read_handler34, align 8
+  %call35 = call i32 @callHandler(ptr noundef %35, ptr noundef %37)
   %tobool36 = icmp ne i32 %call35, 0
   br i1 %tobool36, label %if.end38, label %if.then37
 
@@ -391,16 +392,16 @@ if.end38:                                         ; preds = %if.then33
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end38, %land.lhs.true31, %land.end28
-  %37 = load i32, ptr %call_write, align 4
-  %tobool40 = icmp ne i32 %37, 0
+  %38 = load i32, ptr %call_write, align 4
+  %tobool40 = icmp ne i32 %38, 0
   br i1 %tobool40, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %if.end39
-  %38 = load ptr, ptr %conn, align 8
   %39 = load ptr, ptr %conn, align 8
-  %write_handler42 = getelementptr inbounds %struct.connection, ptr %39, i32 0, i32 9
-  %40 = load ptr, ptr %write_handler42, align 8
-  %call43 = call i32 @callHandler(ptr noundef %38, ptr noundef %40)
+  %40 = load ptr, ptr %conn, align 8
+  %write_handler42 = getelementptr inbounds %struct.connection, ptr %40, i32 0, i32 9
+  %41 = load ptr, ptr %write_handler42, align 8
+  %call43 = call i32 @callHandler(ptr noundef %39, ptr noundef %41)
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.end46, label %if.then45
 
@@ -411,21 +412,21 @@ if.end46:                                         ; preds = %if.then41
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end46, %if.end39
-  %41 = load i32, ptr %invert, align 4
-  %tobool48 = icmp ne i32 %41, 0
+  %42 = load i32, ptr %invert, align 4
+  %tobool48 = icmp ne i32 %42, 0
   br i1 %tobool48, label %land.lhs.true49, label %if.end57
 
 land.lhs.true49:                                  ; preds = %if.end47
-  %42 = load i32, ptr %call_read, align 4
-  %tobool50 = icmp ne i32 %42, 0
+  %43 = load i32, ptr %call_read, align 4
+  %tobool50 = icmp ne i32 %43, 0
   br i1 %tobool50, label %if.then51, label %if.end57
 
 if.then51:                                        ; preds = %land.lhs.true49
-  %43 = load ptr, ptr %conn, align 8
   %44 = load ptr, ptr %conn, align 8
-  %read_handler52 = getelementptr inbounds %struct.connection, ptr %44, i32 0, i32 10
-  %45 = load ptr, ptr %read_handler52, align 8
-  %call53 = call i32 @callHandler(ptr noundef %43, ptr noundef %45)
+  %45 = load ptr, ptr %conn, align 8
+  %read_handler52 = getelementptr inbounds %struct.connection, ptr %45, i32 0, i32 10
+  %46 = load ptr, ptr %read_handler52, align 8
+  %call53 = call i32 @callHandler(ptr noundef %44, ptr noundef %46)
   %tobool54 = icmp ne i32 %call53, 0
   br i1 %tobool54, label %if.end56, label %if.then55
 
@@ -467,31 +468,34 @@ while.cond:                                       ; preds = %do.end13, %entry
 while.body:                                       ; preds = %while.cond
   %1 = load i32, ptr %fd.addr, align 4
   %arraydecay = getelementptr inbounds [46 x i8], ptr %cip, i64 0, i64 0
-  %call = call i32 @anetTcpAccept(ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70), i32 noundef %1, ptr noundef %arraydecay, i64 noundef 46, ptr noundef %cport)
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  %call = call i32 @anetTcpAccept(ptr noundef %2, i32 noundef %1, ptr noundef %arraydecay, i64 noundef 46, ptr noundef %cport)
   store i32 %call, ptr %cfd, align 4
-  %2 = load i32, ptr %cfd, align 4
-  %cmp = icmp eq i32 %2, -1
+  %3 = load i32, ptr %cfd, align 4
+  %cmp = icmp eq i32 %3, -1
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %while.body
   %call1 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call1, align 4
-  %cmp2 = icmp ne i32 %3, 11
+  %4 = load i32, ptr %call1, align 4
+  %cmp2 = icmp ne i32 %4, 11
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.then
   br label %do.body
 
 do.body:                                          ; preds = %if.then3
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp4 = icmp slt i32 3, %4
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %6 = load i32, ptr %5, align 8
+  %cmp4 = icmp slt i32 3, %6
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %do.body
   br label %do.end
 
 if.end:                                           ; preds = %do.body
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.1, ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70))
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.1, ptr noundef %7)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then5
@@ -504,8 +508,9 @@ if.end7:                                          ; preds = %while.body
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end7
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp9 = icmp slt i32 1, %5
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %9 = load i32, ptr %8, align 8
+  %cmp9 = icmp slt i32 1, %9
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %do.body8
@@ -513,13 +518,13 @@ if.then10:                                        ; preds = %do.body8
 
 if.end11:                                         ; preds = %do.body8
   %arraydecay12 = getelementptr inbounds [46 x i8], ptr %cip, i64 0, i64 0
-  %6 = load i32, ptr %cport, align 4
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.2, ptr noundef %arraydecay12, i32 noundef %6)
+  %10 = load i32, ptr %cport, align 4
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.2, ptr noundef %arraydecay12, i32 noundef %10)
   br label %do.end13
 
 do.end13:                                         ; preds = %if.end11, %if.then10
-  %7 = load i32, ptr %cfd, align 4
-  %call14 = call ptr @connCreateAcceptedSocket(i32 noundef %7, ptr noundef null)
+  %11 = load i32, ptr %cfd, align 4
+  %call14 = call ptr @connCreateAcceptedSocket(i32 noundef %11, ptr noundef null)
   %arraydecay15 = getelementptr inbounds [46 x i8], ptr %cip, i64 0, i64 0
   call void @acceptCommonHandler(ptr noundef %call14, i32 noundef 0, ptr noundef %arraydecay15)
   br label %while.cond, !llvm.loop !5
@@ -700,39 +705,40 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %3 = load ptr, ptr %conn.addr, align 8
-  %fd1 = getelementptr inbounds %struct.connection, ptr %3, i32 0, i32 3
-  %4 = load i32, ptr %fd1, align 8
-  call void @aeDeleteFileEvent(ptr noundef %2, i32 noundef %4, i32 noundef 3)
-  %5 = load ptr, ptr %conn.addr, align 8
-  %fd2 = getelementptr inbounds %struct.connection, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %fd2, align 8
-  %call = call i32 @close(i32 noundef %6)
-  %7 = load ptr, ptr %conn.addr, align 8
-  %fd3 = getelementptr inbounds %struct.connection, ptr %7, i32 0, i32 3
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %conn.addr, align 8
+  %fd1 = getelementptr inbounds %struct.connection, ptr %4, i32 0, i32 3
+  %5 = load i32, ptr %fd1, align 8
+  call void @aeDeleteFileEvent(ptr noundef %3, i32 noundef %5, i32 noundef 3)
+  %6 = load ptr, ptr %conn.addr, align 8
+  %fd2 = getelementptr inbounds %struct.connection, ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %fd2, align 8
+  %call = call i32 @close(i32 noundef %7)
+  %8 = load ptr, ptr %conn.addr, align 8
+  %fd3 = getelementptr inbounds %struct.connection, ptr %8, i32 0, i32 3
   store i32 -1, ptr %fd3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %conn.addr, align 8
-  %call4 = call i32 @connHasRefs(ptr noundef %8)
+  %9 = load ptr, ptr %conn.addr, align 8
+  %call4 = call i32 @connHasRefs(ptr noundef %9)
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %conn.addr, align 8
-  %flags = getelementptr inbounds %struct.connection, ptr %9, i32 0, i32 4
-  %10 = load i16, ptr %flags, align 4
-  %conv = sext i16 %10 to i32
+  %10 = load ptr, ptr %conn.addr, align 8
+  %flags = getelementptr inbounds %struct.connection, ptr %10, i32 0, i32 4
+  %11 = load i16, ptr %flags, align 4
+  %conv = sext i16 %11 to i32
   %or = or i32 %conv, 1
   %conv6 = trunc i32 %or to i16
   store i16 %conv6, ptr %flags, align 4
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %11 = load ptr, ptr %conn.addr, align 8
-  call void @zfree(ptr noundef %11)
+  %12 = load ptr, ptr %conn.addr, align 8
+  call void @zfree(ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then5
@@ -787,23 +793,24 @@ if.end:                                           ; preds = %entry
   %11 = load ptr, ptr %conn.addr, align 8
   %conn_handler = getelementptr inbounds %struct.connection, ptr %11, i32 0, i32 8
   store ptr %10, ptr %conn_handler, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %13 = load ptr, ptr %conn.addr, align 8
-  %fd4 = getelementptr inbounds %struct.connection, ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %fd4, align 8
-  %15 = load ptr, ptr %conn.addr, align 8
-  %type = getelementptr inbounds %struct.connection, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %type, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %16, i32 0, i32 4
-  %17 = load ptr, ptr %ae_handler, align 8
-  %18 = load ptr, ptr %conn.addr, align 8
-  %call5 = call i32 @aeCreateFileEvent(ptr noundef %12, i32 noundef %14, i32 noundef 2, ptr noundef %17, ptr noundef %18)
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %conn.addr, align 8
+  %fd4 = getelementptr inbounds %struct.connection, ptr %14, i32 0, i32 3
+  %15 = load i32, ptr %fd4, align 8
+  %16 = load ptr, ptr %conn.addr, align 8
+  %type = getelementptr inbounds %struct.connection, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %type, align 8
+  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %17, i32 0, i32 4
+  %18 = load ptr, ptr %ae_handler, align 8
+  %19 = load ptr, ptr %conn.addr, align 8
+  %call5 = call i32 @aeCreateFileEvent(ptr noundef %13, i32 noundef %15, i32 noundef 2, ptr noundef %18, ptr noundef %19)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %20 = load i32, ptr %retval, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1172,25 +1179,27 @@ if.end7:                                          ; preds = %if.else, %if.then2
   br i1 %tobool9, label %if.else11, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %12 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %13 = load ptr, ptr %conn.addr, align 8
-  %fd = getelementptr inbounds %struct.connection, ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %fd, align 8
-  call void @aeDeleteFileEvent(ptr noundef %12, i32 noundef %14, i32 noundef 2)
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %conn.addr, align 8
+  %fd = getelementptr inbounds %struct.connection, ptr %14, i32 0, i32 3
+  %15 = load i32, ptr %fd, align 8
+  call void @aeDeleteFileEvent(ptr noundef %13, i32 noundef %15, i32 noundef 2)
   br label %if.end17
 
 if.else11:                                        ; preds = %if.end7
-  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %16 = load ptr, ptr %conn.addr, align 8
-  %fd12 = getelementptr inbounds %struct.connection, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %fd12, align 8
+  %16 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %conn.addr, align 8
-  %type = getelementptr inbounds %struct.connection, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %type, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %19, i32 0, i32 4
-  %20 = load ptr, ptr %ae_handler, align 8
-  %21 = load ptr, ptr %conn.addr, align 8
-  %call = call i32 @aeCreateFileEvent(ptr noundef %15, i32 noundef %17, i32 noundef 2, ptr noundef %20, ptr noundef %21)
+  %fd12 = getelementptr inbounds %struct.connection, ptr %18, i32 0, i32 3
+  %19 = load i32, ptr %fd12, align 8
+  %20 = load ptr, ptr %conn.addr, align 8
+  %type = getelementptr inbounds %struct.connection, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %type, align 8
+  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %21, i32 0, i32 4
+  %22 = load ptr, ptr %ae_handler, align 8
+  %23 = load ptr, ptr %conn.addr, align 8
+  %call = call i32 @aeCreateFileEvent(ptr noundef %17, i32 noundef %19, i32 noundef 2, ptr noundef %22, ptr noundef %23)
   %cmp13 = icmp eq i32 %call, -1
   br i1 %cmp13, label %if.then15, label %if.end16
 
@@ -1206,8 +1215,8 @@ if.end17:                                         ; preds = %if.end16, %if.then1
   br label %return
 
 return:                                           ; preds = %if.end17, %if.then15, %if.then
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+  %24 = load i32, ptr %retval, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1241,25 +1250,27 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %8 = load ptr, ptr %conn.addr, align 8
-  %fd = getelementptr inbounds %struct.connection, ptr %8, i32 0, i32 3
-  %9 = load i32, ptr %fd, align 8
-  call void @aeDeleteFileEvent(ptr noundef %7, i32 noundef %9, i32 noundef 1)
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %conn.addr, align 8
+  %fd = getelementptr inbounds %struct.connection, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %fd, align 8
+  call void @aeDeleteFileEvent(ptr noundef %8, i32 noundef %10, i32 noundef 1)
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 14), align 8
-  %11 = load ptr, ptr %conn.addr, align 8
-  %fd4 = getelementptr inbounds %struct.connection, ptr %11, i32 0, i32 3
-  %12 = load i32, ptr %fd4, align 8
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 14
+  %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %conn.addr, align 8
-  %type = getelementptr inbounds %struct.connection, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %type, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %14, i32 0, i32 4
-  %15 = load ptr, ptr %ae_handler, align 8
-  %16 = load ptr, ptr %conn.addr, align 8
-  %call = call i32 @aeCreateFileEvent(ptr noundef %10, i32 noundef %12, i32 noundef 1, ptr noundef %15, ptr noundef %16)
+  %fd4 = getelementptr inbounds %struct.connection, ptr %13, i32 0, i32 3
+  %14 = load i32, ptr %fd4, align 8
+  %15 = load ptr, ptr %conn.addr, align 8
+  %type = getelementptr inbounds %struct.connection, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %type, align 8
+  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %16, i32 0, i32 4
+  %17 = load ptr, ptr %ae_handler, align 8
+  %18 = load ptr, ptr %conn.addr, align 8
+  %call = call i32 @aeCreateFileEvent(ptr noundef %12, i32 noundef %14, i32 noundef 1, ptr noundef %17, ptr noundef %18)
   %cmp5 = icmp eq i32 %call, -1
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -1275,8 +1286,8 @@ if.end8:                                          ; preds = %if.end7, %if.then3
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then6, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %19 = load i32, ptr %retval, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable

@@ -205,10 +205,11 @@ entry:
   store i8 %frombool, ptr %patternHasDecimalSeparator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl17ValidationMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl32RequireDecimalSeparatorValidatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl32RequireDecimalSeparatorValidatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fPatternHasDecimalSeparator = getelementptr inbounds %"class.icu_75::numparse::impl::RequireDecimalSeparatorValidator", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %patternHasDecimalSeparator.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %patternHasDecimalSeparator.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %fPatternHasDecimalSeparator, align 8
   ret void
@@ -221,7 +222,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl17ValidationMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl17ValidationMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -319,7 +321,8 @@ entry:
   store ptr %multiplier, ptr %multiplier.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl17ValidationMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMultiplier = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_756number5ScaleC1EOS1_(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier, ptr noundef nonnull align 8 dereferenceable(20) %multiplier) #5
   ret void
@@ -489,7 +492,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMultiplier = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier) #5
   call void @_ZN6icu_758numparse4impl17ValidationMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
@@ -513,7 +517,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18NumberParseMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18NumberParseMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

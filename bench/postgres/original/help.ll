@@ -373,15 +373,16 @@ define dso_local void @usage(i16 noundef zeroext %0) #0 {
   %27 = load i16, ptr %2, align 2
   %28 = zext i16 %27 to i32
   %29 = icmp ne i32 %28, 0
-  %30 = select i1 %29, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %31 = call ptr @PageOutput(i32 noundef %26, ptr noundef %30)
-  store ptr %31, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @fputs(ptr noundef %33, ptr noundef %34)
-  %36 = load ptr, ptr %5, align 8
-  call void @ClosePager(ptr noundef %36)
+  %30 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %31 = select i1 %29, ptr %30, ptr null
+  %32 = call ptr @PageOutput(i32 noundef %26, ptr noundef %31)
+  store ptr %32, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 @fputs(ptr noundef %34, ptr noundef %35)
+  %37 = load ptr, ptr %5, align 8
+  call void @ClosePager(ptr noundef %37)
   call void @termPQExpBuffer(ptr noundef %3)
   ret void
 }
@@ -520,50 +521,57 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) #0 {
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.149)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.150)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.151)
-  %10 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), align 8
-  %11 = icmp eq i32 %10, 4
-  %12 = select i1 %11, ptr @.str.153, ptr @.str.154
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.152, ptr noundef %12)
+  %10 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 4
+  %13 = select i1 %12, ptr @.str.153, ptr @.str.154
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.152, ptr noundef %13)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.155)
-  %13 = load i8, ptr getelementptr inbounds (%struct.printTableOpt, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), i32 0, i32 7), align 8
-  %14 = trunc i8 %13 to i1
-  %15 = select i1 %14, ptr @.str.153, ptr @.str.154
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.156, ptr noundef %15)
+  %14 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %15 = getelementptr inbounds %struct.printTableOpt, ptr %14, i32 0, i32 7
+  %16 = load i8, ptr %15, align 8
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.153, ptr @.str.154
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.156, ptr noundef %18)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.157)
-  %16 = load i16, ptr getelementptr inbounds (%struct.printTableOpt, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), i32 0, i32 1), align 4
-  %17 = zext i16 %16 to i32
-  %18 = icmp eq i32 %17, 2
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %1
-  br label %25
-
-20:                                               ; preds = %1
-  %21 = load i16, ptr getelementptr inbounds (%struct.printTableOpt, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), i32 0, i32 1), align 4
+  %19 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %20 = getelementptr inbounds %struct.printTableOpt, ptr %19, i32 0, i32 1
+  %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i32
-  %23 = icmp ne i32 %22, 0
-  %24 = select i1 %23, ptr @.str.153, ptr @.str.154
-  br label %25
+  %23 = icmp eq i32 %22, 2
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %20, %19
-  %26 = phi ptr [ @.str.159, %19 ], [ %24, %20 ]
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.158, ptr noundef %26)
+24:                                               ; preds = %1
+  br label %32
+
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %27 = getelementptr inbounds %struct.printTableOpt, ptr %26, i32 0, i32 1
+  %28 = load i16, ptr %27, align 4
+  %29 = zext i16 %28 to i32
+  %30 = icmp ne i32 %29, 0
+  %31 = select i1 %30, ptr @.str.153, ptr @.str.154
+  br label %32
+
+32:                                               ; preds = %25, %24
+  %33 = phi ptr [ @.str.159, %24 ], [ %31, %25 ]
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.158, ptr noundef %33)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.63)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.160)
-  %27 = load ptr, ptr %6, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+  %34 = load ptr, ptr %6, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %38
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.161, ptr noundef %30)
-  br label %32
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.161, ptr noundef %37)
+  br label %39
 
-31:                                               ; preds = %25
+38:                                               ; preds = %32
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.162)
-  br label %32
+  br label %39
 
-32:                                               ; preds = %31, %29
+39:                                               ; preds = %38, %36
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.163)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.164)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.165)
@@ -572,10 +580,11 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) #0 {
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.167)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.168)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.169)
-  %33 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 26), align 8
-  %34 = trunc i8 %33 to i1
-  %35 = select i1 %34, ptr @.str.153, ptr @.str.154
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.170, ptr noundef %35)
+  %40 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 26
+  %41 = load i8, ptr %40, align 8
+  %42 = trunc i8 %41 to i1
+  %43 = select i1 %42, ptr @.str.153, ptr @.str.154
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %3, ptr noundef @.str.170, ptr noundef %43)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.171)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.63)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.172)
@@ -583,53 +592,54 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) #0 {
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.174)
   call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef @.str.175)
   store i32 0, ptr %4, align 4
-  %36 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %7, align 8
-  br label %38
+  %44 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %7, align 8
+  br label %46
 
-38:                                               ; preds = %51, %32
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp ne i8 %40, 0
-  br i1 %41, label %42, label %54
+46:                                               ; preds = %59, %39
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp ne i8 %48, 0
+  br i1 %49, label %50, label %62
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i8, ptr %43, align 1
-  %45 = sext i8 %44 to i32
-  %46 = icmp eq i32 %45, 10
-  br i1 %46, label %47, label %50
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i8, ptr %51, align 1
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %53, 10
+  br i1 %54, label %55, label %58
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %4, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %4, align 4
-  br label %50
+55:                                               ; preds = %50
+  %56 = load i32, ptr %4, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %4, align 4
+  br label %58
 
-50:                                               ; preds = %47, %42
-  br label %51
+58:                                               ; preds = %55, %50
+  br label %59
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr i8, ptr %52, i32 1
-  store ptr %53, ptr %7, align 8
-  br label %38, !llvm.loop !7
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr i8, ptr %60, i32 1
+  store ptr %61, ptr %7, align 8
+  br label %46, !llvm.loop !7
 
-54:                                               ; preds = %38
-  %55 = load i32, ptr %4, align 4
-  %56 = load i16, ptr %2, align 2
-  %57 = zext i16 %56 to i32
-  %58 = icmp ne i32 %57, 0
-  %59 = select i1 %58, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %60 = call ptr @PageOutput(i32 noundef %55, ptr noundef %59)
-  store ptr %60, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = call i32 @fputs(ptr noundef %62, ptr noundef %63)
-  %65 = load ptr, ptr %5, align 8
-  call void @ClosePager(ptr noundef %65)
+62:                                               ; preds = %46
+  %63 = load i32, ptr %4, align 4
+  %64 = load i16, ptr %2, align 2
+  %65 = zext i16 %64 to i32
+  %66 = icmp ne i32 %65, 0
+  %67 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %68 = select i1 %66, ptr %67, ptr null
+  %69 = call ptr @PageOutput(i32 noundef %63, ptr noundef %68)
+  store ptr %69, ptr %5, align 8
+  %70 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call i32 @fputs(ptr noundef %71, ptr noundef %72)
+  %74 = load ptr, ptr %5, align 8
+  call void @ClosePager(ptr noundef %74)
   call void @termPQExpBuffer(ptr noundef %3)
   ret void
 }
@@ -763,15 +773,16 @@ define dso_local void @helpVariables(i16 noundef zeroext %0) #0 {
   %27 = load i16, ptr %2, align 2
   %28 = zext i16 %27 to i32
   %29 = icmp ne i32 %28, 0
-  %30 = select i1 %29, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %31 = call ptr @PageOutput(i32 noundef %26, ptr noundef %30)
-  store ptr %31, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @fputs(ptr noundef %33, ptr noundef %34)
-  %36 = load ptr, ptr %5, align 8
-  call void @ClosePager(ptr noundef %36)
+  %30 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %31 = select i1 %29, ptr %30, ptr null
+  %32 = call ptr @PageOutput(i32 noundef %26, ptr noundef %31)
+  store ptr %32, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.PQExpBufferData, ptr %3, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 @fputs(ptr noundef %34, ptr noundef %35)
+  %37 = load ptr, ptr %5, align 8
+  call void @ClosePager(ptr noundef %37)
   call void @termPQExpBuffer(ptr noundef %3)
   ret void
 }
@@ -806,7 +817,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %24 = load ptr, ptr %3, align 8
   %25 = call i64 @strlen(ptr noundef %24) #4
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %144
+  br i1 %26, label %27, label %145
 
 27:                                               ; preds = %23, %2
   %28 = load ptr, ptr @stdout, align 8
@@ -856,457 +867,460 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %55 = load i16, ptr %4, align 2
   %56 = zext i16 %55 to i32
   %57 = icmp ne i32 %56, 0
-  %58 = select i1 %57, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %59 = call ptr @PageOutput(i32 noundef %54, ptr noundef %58)
-  store ptr %59, ptr %8, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = call i32 @fputs(ptr noundef @.str.252, ptr noundef %60)
+  %58 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %59 = select i1 %57, ptr %58, ptr null
+  %60 = call ptr @PageOutput(i32 noundef %54, ptr noundef %59)
+  store ptr %60, ptr %8, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = call i32 @fputs(ptr noundef @.str.252, ptr noundef %61)
   store i32 0, ptr %9, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %139, %46
-  %63 = load i32, ptr %9, align 4
-  %64 = load i32, ptr %7, align 4
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %66, label %142
+63:                                               ; preds = %140, %46
+  %64 = load i32, ptr %9, align 4
+  %65 = load i32, ptr %7, align 4
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %143
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %8, align 8
-  %68 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef @.str.253)
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %8, align 8
+  %69 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %68, ptr noundef @.str.253)
   store i32 0, ptr %10, align 4
-  br label %69
+  br label %70
 
-69:                                               ; preds = %100, %66
-  %70 = load i32, ptr %10, align 4
-  %71 = load i32, ptr %6, align 4
-  %72 = sub i32 %71, 1
-  %73 = icmp slt i32 %70, %72
-  br i1 %73, label %74, label %103
+70:                                               ; preds = %101, %67
+  %71 = load i32, ptr %10, align 4
+  %72 = load i32, ptr %6, align 4
+  %73 = sub i32 %72, 1
+  %74 = icmp slt i32 %71, %73
+  br i1 %74, label %75, label %104
 
-74:                                               ; preds = %69
-  %75 = load ptr, ptr %8, align 8
-  %76 = load i32, ptr %9, align 4
-  %77 = load i32, ptr %10, align 4
-  %78 = load i32, ptr %7, align 4
-  %79 = mul i32 %77, %78
-  %80 = add i32 %76, %79
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %81
-  %83 = getelementptr inbounds %struct._helpStruct, ptr %82, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %86, label %96
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr %9, align 4
+  %78 = load i32, ptr %10, align 4
+  %79 = load i32, ptr %7, align 4
+  %80 = mul i32 %78, %79
+  %81 = add i32 %77, %80
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %82
+  %84 = getelementptr inbounds %struct._helpStruct, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %97
 
-86:                                               ; preds = %74
-  %87 = load i32, ptr %9, align 4
-  %88 = load i32, ptr %10, align 4
-  %89 = load i32, ptr %7, align 4
-  %90 = mul i32 %88, %89
-  %91 = add i32 %87, %90
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %92
-  %94 = getelementptr inbounds %struct._helpStruct, ptr %93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  br label %97
+87:                                               ; preds = %75
+  %88 = load i32, ptr %9, align 4
+  %89 = load i32, ptr %10, align 4
+  %90 = load i32, ptr %7, align 4
+  %91 = mul i32 %89, %90
+  %92 = add i32 %88, %91
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %93
+  %95 = getelementptr inbounds %struct._helpStruct, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  br label %98
 
-96:                                               ; preds = %74
-  br label %97
+97:                                               ; preds = %75
+  br label %98
 
-97:                                               ; preds = %96, %86
-  %98 = phi ptr [ %95, %86 ], [ @.str.255, %96 ]
-  %99 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %75, ptr noundef @.str.254, i32 noundef 33, ptr noundef %98)
-  br label %100
+98:                                               ; preds = %97, %87
+  %99 = phi ptr [ %96, %87 ], [ @.str.255, %97 ]
+  %100 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %76, ptr noundef @.str.254, i32 noundef 33, ptr noundef %99)
+  br label %101
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr %10, align 4
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %10, align 4
-  br label %69, !llvm.loop !9
+101:                                              ; preds = %98
+  %102 = load i32, ptr %10, align 4
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %10, align 4
+  br label %70, !llvm.loop !9
 
-103:                                              ; preds = %69
-  %104 = load i32, ptr %9, align 4
-  %105 = load i32, ptr %10, align 4
-  %106 = load i32, ptr %7, align 4
-  %107 = mul i32 %105, %106
-  %108 = add i32 %104, %107
-  %109 = icmp slt i32 %108, 185
-  br i1 %109, label %110, label %136
+104:                                              ; preds = %70
+  %105 = load i32, ptr %9, align 4
+  %106 = load i32, ptr %10, align 4
+  %107 = load i32, ptr %7, align 4
+  %108 = mul i32 %106, %107
+  %109 = add i32 %105, %108
+  %110 = icmp slt i32 %109, 185
+  br i1 %110, label %111, label %137
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %8, align 8
-  %112 = load i32, ptr %9, align 4
-  %113 = load i32, ptr %10, align 4
-  %114 = load i32, ptr %7, align 4
-  %115 = mul i32 %113, %114
-  %116 = add i32 %112, %115
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %117
-  %119 = getelementptr inbounds %struct._helpStruct, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %132
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %8, align 8
+  %113 = load i32, ptr %9, align 4
+  %114 = load i32, ptr %10, align 4
+  %115 = load i32, ptr %7, align 4
+  %116 = mul i32 %114, %115
+  %117 = add i32 %113, %116
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %118
+  %120 = getelementptr inbounds %struct._helpStruct, ptr %119, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %123, label %133
 
-122:                                              ; preds = %110
-  %123 = load i32, ptr %9, align 4
-  %124 = load i32, ptr %10, align 4
-  %125 = load i32, ptr %7, align 4
-  %126 = mul i32 %124, %125
-  %127 = add i32 %123, %126
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %128
-  %130 = getelementptr inbounds %struct._helpStruct, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  br label %133
+123:                                              ; preds = %111
+  %124 = load i32, ptr %9, align 4
+  %125 = load i32, ptr %10, align 4
+  %126 = load i32, ptr %7, align 4
+  %127 = mul i32 %125, %126
+  %128 = add i32 %124, %127
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %129
+  %131 = getelementptr inbounds %struct._helpStruct, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  br label %134
 
-132:                                              ; preds = %110
-  br label %133
+133:                                              ; preds = %111
+  br label %134
 
-133:                                              ; preds = %132, %122
-  %134 = phi ptr [ %131, %122 ], [ @.str.255, %132 ]
-  %135 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %111, ptr noundef @.str.256, ptr noundef %134)
-  br label %136
+134:                                              ; preds = %133, %123
+  %135 = phi ptr [ %132, %123 ], [ @.str.255, %133 ]
+  %136 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %112, ptr noundef @.str.256, ptr noundef %135)
+  br label %137
 
-136:                                              ; preds = %133, %103
-  %137 = load ptr, ptr %8, align 8
-  %138 = call i32 @fputc(i32 noundef 10, ptr noundef %137)
-  br label %139
+137:                                              ; preds = %134, %104
+  %138 = load ptr, ptr %8, align 8
+  %139 = call i32 @fputc(i32 noundef 10, ptr noundef %138)
+  br label %140
 
-139:                                              ; preds = %136
-  %140 = load i32, ptr %9, align 4
-  %141 = add i32 %140, 1
-  store i32 %141, ptr %9, align 4
-  br label %62, !llvm.loop !10
+140:                                              ; preds = %137
+  %141 = load i32, ptr %9, align 4
+  %142 = add i32 %141, 1
+  store i32 %142, ptr %9, align 4
+  br label %63, !llvm.loop !10
 
-142:                                              ; preds = %62
-  %143 = load ptr, ptr %8, align 8
-  call void @ClosePager(ptr noundef %143)
-  br label %350
+143:                                              ; preds = %63
+  %144 = load ptr, ptr %8, align 8
+  call void @ClosePager(ptr noundef %144)
+  br label %353
 
-144:                                              ; preds = %23
+145:                                              ; preds = %23
   store ptr null, ptr %14, align 8
-  %145 = load ptr, ptr %3, align 8
-  %146 = call i64 @strlen(ptr noundef %145) #4
-  store i64 %146, ptr %15, align 8
+  %146 = load ptr, ptr %3, align 8
+  %147 = call i64 @strlen(ptr noundef %146) #4
+  store i64 %147, ptr %15, align 8
   store i32 1, ptr %13, align 4
-  br label %147
+  br label %148
 
-147:                                              ; preds = %333, %144
-  %148 = load i32, ptr %13, align 4
-  %149 = icmp sle i32 %148, 3
-  br i1 %149, label %150, label %336
+148:                                              ; preds = %335, %145
+  %149 = load i32, ptr %13, align 4
+  %150 = icmp sle i32 %149, 3
+  br i1 %150, label %151, label %338
 
-150:                                              ; preds = %147
-  %151 = load i32, ptr %13, align 4
-  %152 = icmp sgt i32 %151, 1
-  br i1 %152, label %153, label %206
+151:                                              ; preds = %148
+  %152 = load i32, ptr %13, align 4
+  %153 = icmp sgt i32 %152, 1
+  br i1 %153, label %154, label %207
 
-153:                                              ; preds = %150
+154:                                              ; preds = %151
   store i64 1, ptr %17, align 8
   store i64 1, ptr %16, align 8
-  br label %154
+  br label %155
 
-154:                                              ; preds = %168, %153
-  %155 = load i64, ptr %17, align 8
-  %156 = load i64, ptr %15, align 8
-  %157 = icmp ult i64 %155, %156
-  br i1 %157, label %158, label %166
+155:                                              ; preds = %169, %154
+  %156 = load i64, ptr %17, align 8
+  %157 = load i64, ptr %15, align 8
+  %158 = icmp ult i64 %156, %157
+  br i1 %158, label %159, label %167
 
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %3, align 8
-  %160 = load i64, ptr %17, align 8
-  %161 = add i64 %160, 1
-  store i64 %161, ptr %17, align 8
-  %162 = getelementptr i8, ptr %159, i64 %160
-  %163 = load i8, ptr %162, align 1
-  %164 = sext i8 %163 to i32
-  %165 = icmp ne i32 %164, 32
-  br label %166
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %3, align 8
+  %161 = load i64, ptr %17, align 8
+  %162 = add i64 %161, 1
+  store i64 %162, ptr %17, align 8
+  %163 = getelementptr i8, ptr %160, i64 %161
+  %164 = load i8, ptr %163, align 1
+  %165 = sext i8 %164 to i32
+  %166 = icmp ne i32 %165, 32
+  br label %167
 
-166:                                              ; preds = %158, %154
-  %167 = phi i1 [ false, %154 ], [ %165, %158 ]
-  br i1 %167, label %168, label %171
+167:                                              ; preds = %159, %155
+  %168 = phi i1 [ false, %155 ], [ %166, %159 ]
+  br i1 %168, label %169, label %172
 
-168:                                              ; preds = %166
-  %169 = load i64, ptr %16, align 8
-  %170 = add i64 %169, 1
-  store i64 %170, ptr %16, align 8
-  br label %154, !llvm.loop !11
+169:                                              ; preds = %167
+  %170 = load i64, ptr %16, align 8
+  %171 = add i64 %170, 1
+  store i64 %171, ptr %16, align 8
+  br label %155, !llvm.loop !11
 
-171:                                              ; preds = %166
-  %172 = load i32, ptr %13, align 4
-  %173 = icmp eq i32 %172, 2
-  br i1 %173, label %174, label %199
+172:                                              ; preds = %167
+  %173 = load i32, ptr %13, align 4
+  %174 = icmp eq i32 %173, 2
+  br i1 %174, label %175, label %200
 
-174:                                              ; preds = %171
-  %175 = load i64, ptr %17, align 8
-  %176 = load i64, ptr %15, align 8
-  %177 = icmp ult i64 %175, %176
-  br i1 %177, label %178, label %199
+175:                                              ; preds = %172
+  %176 = load i64, ptr %17, align 8
+  %177 = load i64, ptr %15, align 8
+  %178 = icmp ult i64 %176, %177
+  br i1 %178, label %179, label %200
 
-178:                                              ; preds = %174
-  %179 = load i64, ptr %16, align 8
-  %180 = add i64 %179, 1
-  store i64 %180, ptr %16, align 8
-  br label %181
+179:                                              ; preds = %175
+  %180 = load i64, ptr %16, align 8
+  %181 = add i64 %180, 1
+  store i64 %181, ptr %16, align 8
+  br label %182
 
-181:                                              ; preds = %195, %178
-  %182 = load i64, ptr %17, align 8
-  %183 = load i64, ptr %15, align 8
-  %184 = icmp ult i64 %182, %183
-  br i1 %184, label %185, label %193
+182:                                              ; preds = %196, %179
+  %183 = load i64, ptr %17, align 8
+  %184 = load i64, ptr %15, align 8
+  %185 = icmp ult i64 %183, %184
+  br i1 %185, label %186, label %194
 
-185:                                              ; preds = %181
-  %186 = load ptr, ptr %3, align 8
-  %187 = load i64, ptr %17, align 8
-  %188 = add i64 %187, 1
-  store i64 %188, ptr %17, align 8
-  %189 = getelementptr i8, ptr %186, i64 %187
-  %190 = load i8, ptr %189, align 1
-  %191 = sext i8 %190 to i32
-  %192 = icmp ne i32 %191, 32
-  br label %193
+186:                                              ; preds = %182
+  %187 = load ptr, ptr %3, align 8
+  %188 = load i64, ptr %17, align 8
+  %189 = add i64 %188, 1
+  store i64 %189, ptr %17, align 8
+  %190 = getelementptr i8, ptr %187, i64 %188
+  %191 = load i8, ptr %190, align 1
+  %192 = sext i8 %191 to i32
+  %193 = icmp ne i32 %192, 32
+  br label %194
 
-193:                                              ; preds = %185, %181
-  %194 = phi i1 [ false, %181 ], [ %192, %185 ]
-  br i1 %194, label %195, label %198
+194:                                              ; preds = %186, %182
+  %195 = phi i1 [ false, %182 ], [ %193, %186 ]
+  br i1 %195, label %196, label %199
 
-195:                                              ; preds = %193
-  %196 = load i64, ptr %16, align 8
-  %197 = add i64 %196, 1
-  store i64 %197, ptr %16, align 8
-  br label %181, !llvm.loop !12
+196:                                              ; preds = %194
+  %197 = load i64, ptr %16, align 8
+  %198 = add i64 %197, 1
+  store i64 %198, ptr %16, align 8
+  br label %182, !llvm.loop !12
 
-198:                                              ; preds = %193
-  br label %199
+199:                                              ; preds = %194
+  br label %200
 
-199:                                              ; preds = %198, %174, %171
-  %200 = load i64, ptr %16, align 8
-  %201 = load i64, ptr %15, align 8
-  %202 = icmp uge i64 %200, %201
-  br i1 %202, label %203, label %204
+200:                                              ; preds = %199, %175, %172
+  %201 = load i64, ptr %16, align 8
+  %202 = load i64, ptr %15, align 8
+  %203 = icmp uge i64 %201, %202
+  br i1 %203, label %204, label %205
 
-203:                                              ; preds = %199
-  br label %333
+204:                                              ; preds = %200
+  br label %335
 
-204:                                              ; preds = %199
-  %205 = load i64, ptr %16, align 8
-  store i64 %205, ptr %15, align 8
-  br label %206
-
-206:                                              ; preds = %204, %150
-  store i32 0, ptr %18, align 4
-  store i32 0, ptr %12, align 4
+205:                                              ; preds = %200
+  %206 = load i64, ptr %16, align 8
+  store i64 %206, ptr %15, align 8
   br label %207
 
-207:                                              ; preds = %248, %206
-  %208 = load i32, ptr %12, align 4
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %209
-  %211 = getelementptr inbounds %struct._helpStruct, ptr %210, i32 0, i32 0
-  %212 = load ptr, ptr %211, align 8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %251
+207:                                              ; preds = %205, %151
+  store i32 0, ptr %18, align 4
+  store i32 0, ptr %12, align 4
+  br label %208
 
-214:                                              ; preds = %207
-  %215 = load ptr, ptr %3, align 8
-  %216 = load i32, ptr %12, align 4
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %217
-  %219 = getelementptr inbounds %struct._helpStruct, ptr %218, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = load i64, ptr %15, align 8
-  %222 = call i32 @pg_strncasecmp(ptr noundef %215, ptr noundef %220, i64 noundef %221)
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %228, label %224
+208:                                              ; preds = %249, %207
+  %209 = load i32, ptr %12, align 4
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %210
+  %212 = getelementptr inbounds %struct._helpStruct, ptr %211, i32 0, i32 0
+  %213 = load ptr, ptr %212, align 8
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %252
 
-224:                                              ; preds = %214
-  %225 = load ptr, ptr %3, align 8
-  %226 = call i32 @strcmp(ptr noundef %225, ptr noundef @.str.257) #4
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %247
+215:                                              ; preds = %208
+  %216 = load ptr, ptr %3, align 8
+  %217 = load i32, ptr %12, align 4
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %218
+  %220 = getelementptr inbounds %struct._helpStruct, ptr %219, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = load i64, ptr %15, align 8
+  %223 = call i32 @pg_strncasecmp(ptr noundef %216, ptr noundef %221, i64 noundef %222)
+  %224 = icmp eq i32 %223, 0
+  br i1 %224, label %229, label %225
 
-228:                                              ; preds = %224, %214
-  %229 = load i32, ptr %12, align 4
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %230
-  %232 = getelementptr inbounds %struct._helpStruct, ptr %231, i32 0, i32 4
-  %233 = load i32, ptr %232, align 8
-  %234 = add i32 7, %233
-  %235 = load i32, ptr %18, align 4
-  %236 = add i32 %235, %234
-  store i32 %236, ptr %18, align 4
-  %237 = load ptr, ptr %3, align 8
-  %238 = load i32, ptr %12, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %239
-  %241 = getelementptr inbounds %struct._helpStruct, ptr %240, i32 0, i32 0
-  %242 = load ptr, ptr %241, align 8
-  %243 = call i32 @pg_strcasecmp(ptr noundef %237, ptr noundef %242)
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %246
+225:                                              ; preds = %215
+  %226 = load ptr, ptr %3, align 8
+  %227 = call i32 @strcmp(ptr noundef %226, ptr noundef @.str.257) #4
+  %228 = icmp eq i32 %227, 0
+  br i1 %228, label %229, label %248
 
-245:                                              ; preds = %228
-  br label %251
+229:                                              ; preds = %225, %215
+  %230 = load i32, ptr %12, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %231
+  %233 = getelementptr inbounds %struct._helpStruct, ptr %232, i32 0, i32 4
+  %234 = load i32, ptr %233, align 8
+  %235 = add i32 7, %234
+  %236 = load i32, ptr %18, align 4
+  %237 = add i32 %236, %235
+  store i32 %237, ptr %18, align 4
+  %238 = load ptr, ptr %3, align 8
+  %239 = load i32, ptr %12, align 4
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %240
+  %242 = getelementptr inbounds %struct._helpStruct, ptr %241, i32 0, i32 0
+  %243 = load ptr, ptr %242, align 8
+  %244 = call i32 @pg_strcasecmp(ptr noundef %238, ptr noundef %243)
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %247
 
-246:                                              ; preds = %228
-  br label %247
+246:                                              ; preds = %229
+  br label %252
 
-247:                                              ; preds = %246, %224
+247:                                              ; preds = %229
   br label %248
 
-248:                                              ; preds = %247
-  %249 = load i32, ptr %12, align 4
-  %250 = add i32 %249, 1
-  store i32 %250, ptr %12, align 4
-  br label %207, !llvm.loop !13
+248:                                              ; preds = %247, %225
+  br label %249
 
-251:                                              ; preds = %245, %207
-  %252 = load i32, ptr %18, align 4
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %254, label %255
+249:                                              ; preds = %248
+  %250 = load i32, ptr %12, align 4
+  %251 = add i32 %250, 1
+  store i32 %251, ptr %12, align 4
+  br label %208, !llvm.loop !13
 
-254:                                              ; preds = %251
-  br label %333
+252:                                              ; preds = %246, %208
+  %253 = load i32, ptr %18, align 4
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %256
 
-255:                                              ; preds = %251
-  %256 = load ptr, ptr %14, align 8
-  %257 = icmp ne ptr %256, null
-  br i1 %257, label %265, label %258
+255:                                              ; preds = %252
+  br label %335
 
-258:                                              ; preds = %255
-  %259 = load i32, ptr %18, align 4
-  %260 = load i16, ptr %4, align 2
-  %261 = zext i16 %260 to i32
-  %262 = icmp ne i32 %261, 0
-  %263 = select i1 %262, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %264 = call ptr @PageOutput(i32 noundef %259, ptr noundef %263)
-  store ptr %264, ptr %14, align 8
-  br label %265
+256:                                              ; preds = %252
+  %257 = load ptr, ptr %14, align 8
+  %258 = icmp ne ptr %257, null
+  br i1 %258, label %267, label %259
 
-265:                                              ; preds = %258, %255
+259:                                              ; preds = %256
+  %260 = load i32, ptr %18, align 4
+  %261 = load i16, ptr %4, align 2
+  %262 = zext i16 %261 to i32
+  %263 = icmp ne i32 %262, 0
+  %264 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %265 = select i1 %263, ptr %264, ptr null
+  %266 = call ptr @PageOutput(i32 noundef %260, ptr noundef %265)
+  store ptr %266, ptr %14, align 8
+  br label %267
+
+267:                                              ; preds = %259, %256
   store i32 0, ptr %12, align 4
-  br label %266
+  br label %268
 
-266:                                              ; preds = %329, %265
-  %267 = load i32, ptr %12, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %268
-  %270 = getelementptr inbounds %struct._helpStruct, ptr %269, i32 0, i32 0
-  %271 = load ptr, ptr %270, align 8
-  %272 = icmp ne ptr %271, null
-  br i1 %272, label %273, label %332
+268:                                              ; preds = %331, %267
+  %269 = load i32, ptr %12, align 4
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %270
+  %272 = getelementptr inbounds %struct._helpStruct, ptr %271, i32 0, i32 0
+  %273 = load ptr, ptr %272, align 8
+  %274 = icmp ne ptr %273, null
+  br i1 %274, label %275, label %334
 
-273:                                              ; preds = %266
-  %274 = load ptr, ptr %3, align 8
-  %275 = load i32, ptr %12, align 4
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %276
-  %278 = getelementptr inbounds %struct._helpStruct, ptr %277, i32 0, i32 0
-  %279 = load ptr, ptr %278, align 8
-  %280 = load i64, ptr %15, align 8
-  %281 = call i32 @pg_strncasecmp(ptr noundef %274, ptr noundef %279, i64 noundef %280)
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %287, label %283
+275:                                              ; preds = %268
+  %276 = load ptr, ptr %3, align 8
+  %277 = load i32, ptr %12, align 4
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %278
+  %280 = getelementptr inbounds %struct._helpStruct, ptr %279, i32 0, i32 0
+  %281 = load ptr, ptr %280, align 8
+  %282 = load i64, ptr %15, align 8
+  %283 = call i32 @pg_strncasecmp(ptr noundef %276, ptr noundef %281, i64 noundef %282)
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %289, label %285
 
-283:                                              ; preds = %273
-  %284 = load ptr, ptr %3, align 8
-  %285 = call i32 @strcmp(ptr noundef %284, ptr noundef @.str.257) #4
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %328
+285:                                              ; preds = %275
+  %286 = load ptr, ptr %3, align 8
+  %287 = call i32 @strcmp(ptr noundef %286, ptr noundef @.str.257) #4
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %330
 
-287:                                              ; preds = %283, %273
+289:                                              ; preds = %285, %275
   call void @initPQExpBuffer(ptr noundef %19)
-  %288 = load i32, ptr %12, align 4
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %289
-  %291 = getelementptr inbounds %struct._helpStruct, ptr %290, i32 0, i32 3
-  %292 = load ptr, ptr %291, align 8
-  call void %292(ptr noundef %19)
-  %293 = call ptr @strstr(ptr noundef @.str.259, ptr noundef @.str.260) #4
-  %294 = icmp ne ptr %293, null
-  %295 = select i1 %294, ptr @.str.260, ptr @.str.261
-  %296 = load i32, ptr %12, align 4
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %297
-  %299 = getelementptr inbounds %struct._helpStruct, ptr %298, i32 0, i32 2
-  %300 = load ptr, ptr %299, align 8
-  %301 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.258, ptr noundef %295, ptr noundef %300)
-  store ptr %301, ptr %20, align 8
-  %302 = load ptr, ptr %14, align 8
-  %303 = load i32, ptr %12, align 4
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %304
-  %306 = getelementptr inbounds %struct._helpStruct, ptr %305, i32 0, i32 0
-  %307 = load ptr, ptr %306, align 8
-  %308 = load i32, ptr %12, align 4
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %309
-  %311 = getelementptr inbounds %struct._helpStruct, ptr %310, i32 0, i32 1
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.PQExpBufferData, ptr %19, i32 0, i32 0
+  %290 = load i32, ptr %12, align 4
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %291
+  %293 = getelementptr inbounds %struct._helpStruct, ptr %292, i32 0, i32 3
+  %294 = load ptr, ptr %293, align 8
+  call void %294(ptr noundef %19)
+  %295 = call ptr @strstr(ptr noundef @.str.259, ptr noundef @.str.260) #4
+  %296 = icmp ne ptr %295, null
+  %297 = select i1 %296, ptr @.str.260, ptr @.str.261
+  %298 = load i32, ptr %12, align 4
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %299
+  %301 = getelementptr inbounds %struct._helpStruct, ptr %300, i32 0, i32 2
+  %302 = load ptr, ptr %301, align 8
+  %303 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.258, ptr noundef %297, ptr noundef %302)
+  store ptr %303, ptr %20, align 8
+  %304 = load ptr, ptr %14, align 8
+  %305 = load i32, ptr %12, align 4
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %306
+  %308 = getelementptr inbounds %struct._helpStruct, ptr %307, i32 0, i32 0
+  %309 = load ptr, ptr %308, align 8
+  %310 = load i32, ptr %12, align 4
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %311
+  %313 = getelementptr inbounds %struct._helpStruct, ptr %312, i32 0, i32 1
   %314 = load ptr, ptr %313, align 8
-  %315 = load ptr, ptr %20, align 8
-  %316 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %302, ptr noundef @.str.262, ptr noundef %307, ptr noundef %312, ptr noundef %314, ptr noundef %315)
+  %315 = getelementptr inbounds %struct.PQExpBufferData, ptr %19, i32 0, i32 0
+  %316 = load ptr, ptr %315, align 8
   %317 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %317) #5
+  %318 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %304, ptr noundef @.str.262, ptr noundef %309, ptr noundef %314, ptr noundef %316, ptr noundef %317)
+  %319 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %319) #5
   call void @termPQExpBuffer(ptr noundef %19)
-  %318 = load ptr, ptr %3, align 8
-  %319 = load i32, ptr %12, align 4
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %320
-  %322 = getelementptr inbounds %struct._helpStruct, ptr %321, i32 0, i32 0
-  %323 = load ptr, ptr %322, align 8
-  %324 = call i32 @pg_strcasecmp(ptr noundef %318, ptr noundef %323)
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %326, label %327
+  %320 = load ptr, ptr %3, align 8
+  %321 = load i32, ptr %12, align 4
+  %322 = sext i32 %321 to i64
+  %323 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %322
+  %324 = getelementptr inbounds %struct._helpStruct, ptr %323, i32 0, i32 0
+  %325 = load ptr, ptr %324, align 8
+  %326 = call i32 @pg_strcasecmp(ptr noundef %320, ptr noundef %325)
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %328, label %329
 
-326:                                              ; preds = %287
-  br label %332
+328:                                              ; preds = %289
+  br label %334
 
-327:                                              ; preds = %287
-  br label %328
+329:                                              ; preds = %289
+  br label %330
 
-328:                                              ; preds = %327, %283
-  br label %329
+330:                                              ; preds = %329, %285
+  br label %331
 
-329:                                              ; preds = %328
-  %330 = load i32, ptr %12, align 4
-  %331 = add i32 %330, 1
-  store i32 %331, ptr %12, align 4
-  br label %266, !llvm.loop !14
+331:                                              ; preds = %330
+  %332 = load i32, ptr %12, align 4
+  %333 = add i32 %332, 1
+  store i32 %333, ptr %12, align 4
+  br label %268, !llvm.loop !14
 
-332:                                              ; preds = %326, %266
-  br label %336
+334:                                              ; preds = %328, %268
+  br label %338
 
-333:                                              ; preds = %254, %203
-  %334 = load i32, ptr %13, align 4
-  %335 = add i32 %334, 1
-  store i32 %335, ptr %13, align 4
-  br label %147, !llvm.loop !15
+335:                                              ; preds = %255, %204
+  %336 = load i32, ptr %13, align 4
+  %337 = add i32 %336, 1
+  store i32 %337, ptr %13, align 4
+  br label %148, !llvm.loop !15
 
-336:                                              ; preds = %332, %147
-  %337 = load ptr, ptr %14, align 8
-  %338 = icmp ne ptr %337, null
-  br i1 %338, label %348, label %339
+338:                                              ; preds = %334, %148
+  %339 = load ptr, ptr %14, align 8
+  %340 = icmp ne ptr %339, null
+  br i1 %340, label %351, label %341
 
-339:                                              ; preds = %336
-  %340 = load i16, ptr %4, align 2
-  %341 = zext i16 %340 to i32
-  %342 = icmp ne i32 %341, 0
-  %343 = select i1 %342, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %344 = call ptr @PageOutput(i32 noundef 2, ptr noundef %343)
-  store ptr %344, ptr %14, align 8
-  %345 = load ptr, ptr %14, align 8
-  %346 = load ptr, ptr %3, align 8
-  %347 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %345, ptr noundef @.str.263, ptr noundef %346)
-  br label %348
+341:                                              ; preds = %338
+  %342 = load i16, ptr %4, align 2
+  %343 = zext i16 %342 to i32
+  %344 = icmp ne i32 %343, 0
+  %345 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %346 = select i1 %344, ptr %345, ptr null
+  %347 = call ptr @PageOutput(i32 noundef 2, ptr noundef %346)
+  store ptr %347, ptr %14, align 8
+  %348 = load ptr, ptr %14, align 8
+  %349 = load ptr, ptr %3, align 8
+  %350 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %348, ptr noundef @.str.263, ptr noundef %349)
+  br label %351
 
-348:                                              ; preds = %339, %336
-  %349 = load ptr, ptr %14, align 8
-  call void @ClosePager(ptr noundef %349)
-  br label %350
+351:                                              ; preds = %341, %338
+  %352 = load ptr, ptr %14, align 8
+  call void @ClosePager(ptr noundef %352)
+  br label %353
 
-350:                                              ; preds = %348, %142
+353:                                              ; preds = %351, %143
   ret void
 }
 

@@ -81,7 +81,7 @@ define internal i64 @tcp_init(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   store i64 4, ptr %14, align 8
   %15 = load i64, ptr @tcp_init.keyword_ids, align 16
   %16 = icmp ne i64 %15, 0
-  br i1 %16, label %24, label %17
+  br i1 %16, label %25, label %17
 
 17:                                               ; preds = %3
   br label %18
@@ -96,60 +96,61 @@ define internal i64 @tcp_init(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 21:                                               ; preds = %20
   %22 = call i64 @rbimpl_intern_const(ptr noundef @tcp_init.rbimpl_id.5, ptr noundef @.str.6) #8
-  store i64 %22, ptr getelementptr inbounds ([2 x i64], ptr @tcp_init.keyword_ids, i64 0, i64 1), align 8
-  br label %23
-
-23:                                               ; preds = %21
+  %23 = getelementptr inbounds [2 x i64], ptr @tcp_init.keyword_ids, i64 0, i64 1
+  store i64 %22, ptr %23, align 8
   br label %24
 
-24:                                               ; preds = %23, %3
-  %25 = load i32, ptr %4, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %25, ptr noundef %26, ptr noundef @.str.7, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %28 = load i64, ptr %11, align 8
-  %29 = call zeroext i1 @RB_NIL_P(i64 noundef %28) #9
-  br i1 %29, label %48, label %30
+24:                                               ; preds = %21
+  br label %25
 
-30:                                               ; preds = %24
-  %31 = load i64, ptr %11, align 8
-  %32 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %33 = call i32 @rb_get_kwargs(i64 noundef %31, ptr noundef @tcp_init.keyword_ids, i32 noundef 0, i32 noundef 2, ptr noundef %32)
-  %34 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %35 = load i64, ptr %34, align 16
-  %36 = icmp ne i64 %35, 36
-  br i1 %36, label %37, label %40
+25:                                               ; preds = %24, %3
+  %26 = load i32, ptr %4, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %26, ptr noundef %27, ptr noundef @.str.7, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %29 = load i64, ptr %11, align 8
+  %30 = call zeroext i1 @RB_NIL_P(i64 noundef %29) #9
+  br i1 %30, label %49, label %31
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %39 = load i64, ptr %38, align 16
-  store i64 %39, ptr %13, align 8
-  br label %40
+31:                                               ; preds = %25
+  %32 = load i64, ptr %11, align 8
+  %33 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %34 = call i32 @rb_get_kwargs(i64 noundef %32, ptr noundef @tcp_init.keyword_ids, i32 noundef 0, i32 noundef 2, ptr noundef %33)
+  %35 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %36 = load i64, ptr %35, align 16
+  %37 = icmp ne i64 %36, 36
+  br i1 %37, label %38, label %41
 
-40:                                               ; preds = %37, %30
-  %41 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp ne i64 %42, 36
-  br i1 %43, label %44, label %47
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %40 = load i64, ptr %39, align 16
+  store i64 %40, ptr %13, align 8
+  br label %41
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
-  %46 = load i64, ptr %45, align 8
-  store i64 %46, ptr %14, align 8
-  br label %47
+41:                                               ; preds = %38, %31
+  %42 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp ne i64 %43, 36
+  br i1 %44, label %45, label %48
 
-47:                                               ; preds = %44, %40
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %14, align 8
   br label %48
 
-48:                                               ; preds = %47, %24
-  %49 = load i64, ptr %6, align 8
-  %50 = load i64, ptr %7, align 8
-  %51 = load i64, ptr %8, align 8
-  %52 = load i64, ptr %9, align 8
-  %53 = load i64, ptr %10, align 8
-  %54 = load i64, ptr %13, align 8
-  %55 = load i64, ptr %14, align 8
-  %56 = call i64 @rsock_init_inetsock(i64 noundef %49, i64 noundef %50, i64 noundef %51, i64 noundef %52, i64 noundef %53, i32 noundef 0, i64 noundef %54, i64 noundef %55)
-  ret i64 %56
+48:                                               ; preds = %45, %41
+  br label %49
+
+49:                                               ; preds = %48, %25
+  %50 = load i64, ptr %6, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = load i64, ptr %8, align 8
+  %53 = load i64, ptr %9, align 8
+  %54 = load i64, ptr %10, align 8
+  %55 = load i64, ptr %13, align 8
+  %56 = load i64, ptr %14, align 8
+  %57 = call i64 @rsock_init_inetsock(i64 noundef %50, i64 noundef %51, i64 noundef %52, i64 noundef %53, i64 noundef %54, i32 noundef 0, i64 noundef %55, i64 noundef %56)
+  ret i64 %57
 }
 
 ; Function Attrs: cold

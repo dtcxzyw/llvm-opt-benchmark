@@ -645,24 +645,25 @@ if.then:                                          ; preds = %while.body
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i32 0, i32 2), align 8
-  %call1 = call i32 @is_absolute_path(ptr noundef %5)
+  %5 = getelementptr inbounds %struct.strbuf, ptr @resolve_symlink.link, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %call1 = call i32 @is_absolute_path(ptr noundef %6)
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %path.addr, align 8
-  call void @strbuf_setlen(ptr noundef %6, i64 noundef 0)
+  %7 = load ptr, ptr %path.addr, align 8
+  call void @strbuf_setlen(ptr noundef %7, i64 noundef 0)
   br label %if.end4
 
 if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %path.addr, align 8
-  call void @trim_last_path_component(ptr noundef %7)
+  %8 = load ptr, ptr %path.addr, align 8
+  call void @trim_last_path_component(ptr noundef %8)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else, %if.then3
-  %8 = load ptr, ptr %path.addr, align 8
-  call void @strbuf_addbuf(ptr noundef %8, ptr noundef @resolve_symlink.link)
+  %9 = load ptr, ptr %path.addr, align 8
+  call void @strbuf_addbuf(ptr noundef %9, ptr noundef @resolve_symlink.link)
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %if.then, %while.cond

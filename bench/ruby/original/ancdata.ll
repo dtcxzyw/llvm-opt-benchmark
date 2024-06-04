@@ -3308,9 +3308,10 @@ define internal i64 @rb_sendmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
   %12 = load i32, ptr %6, align 4
   %13 = getelementptr inbounds %struct.sendmsg_args_struct, ptr %7, i32 0, i32 1
   store i32 %12, ptr %13, align 4
-  %14 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_sendmsg_func, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %15 = ptrtoint ptr %14 to i64
-  ret i64 %15
+  %14 = inttoptr i64 -1 to ptr
+  %15 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_sendmsg_func, ptr noundef %7, ptr noundef %14, ptr noundef null)
+  %16 = ptrtoint ptr %15 to i64
+  ret i64 %16
 }
 
 declare i32 @rb_io_maybe_wait_writable(i32 noundef, i64 noundef, i64 noundef) #1
@@ -3871,9 +3872,10 @@ define internal i64 @rb_recvmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
   %12 = load i32, ptr %6, align 4
   %13 = getelementptr inbounds %struct.recvmsg_args_struct, ptr %7, i32 0, i32 1
   store i32 %12, ptr %13, align 4
-  %14 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_recvmsg_func, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %15 = ptrtoint ptr %14 to i64
-  ret i64 %15
+  %14 = inttoptr i64 -1 to ptr
+  %15 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_recvmsg_func, ptr noundef %7, ptr noundef %14, ptr noundef null)
+  %16 = ptrtoint ptr %15 to i64
+  ret i64 %16
 }
 
 declare i32 @rsock_is_dgram(ptr noundef) #1

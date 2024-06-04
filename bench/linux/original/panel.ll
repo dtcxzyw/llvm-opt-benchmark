@@ -49,81 +49,86 @@ define dso_local noundef ptr @drm_panel_bridge_add(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %6, !prof !5
+  br i1 %4, label %5, label %7, !prof !5
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #5, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 268, i32 2305, i64 12) #5, !srcloc !7
   tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #5, !srcloc !8
-  br label %22
+  %6 = inttoptr i64 -22 to ptr
+  br label %25
 
-6:                                                ; preds = %1
-  %7 = icmp eq ptr %0, null
-  br i1 %7, label %22, label %8
+7:                                                ; preds = %1
+  %8 = icmp eq ptr %0, null
+  %9 = inttoptr i64 -22 to ptr
+  br i1 %8, label %25, label %10
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %0, align 8
-  %10 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %9, i64 noundef 2232, i32 noundef 3520) #6
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %22, label %12
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %0, align 8
+  %12 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %11, i64 noundef 2232, i32 noundef 3520) #6
+  %13 = icmp eq ptr %12, null
+  %14 = inttoptr i64 -12 to ptr
+  br i1 %13, label %25, label %15
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 2224
-  store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 2216
-  store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 152
-  store ptr @panel_bridge_bridge_funcs, ptr %15, align 8
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 624
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 120
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 168
-  store i32 8, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 172
-  store i32 %3, ptr %21, align 4
-  tail call void @drm_bridge_add(ptr noundef nonnull %10) #5
-  br label %22
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %12, i64 2224
+  store i32 %3, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 2216
+  store ptr %0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 152
+  store ptr @panel_bridge_bridge_funcs, ptr %18, align 8
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 624
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %12, i64 120
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %12, i64 168
+  store i32 8, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 172
+  store i32 %3, ptr %24, align 4
+  tail call void @drm_bridge_add(ptr noundef nonnull %12) #5
+  br label %25
 
-22:                                               ; preds = %12, %8, %6, %5
-  %23 = phi ptr [ inttoptr (i64 -22 to ptr), %5 ], [ %10, %12 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -12 to ptr), %8 ]
-  ret ptr %23
+25:                                               ; preds = %15, %10, %7, %5
+  %26 = phi ptr [ %6, %5 ], [ %12, %15 ], [ %9, %7 ], [ %14, %10 ]
+  ret ptr %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_panel_bridge_add_typed(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %18, label %4
+  %4 = inttoptr i64 -22 to ptr
+  br i1 %3, label %20, label %5
 
-4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8
-  %6 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %5, i64 noundef 2232, i32 noundef 3520) #6
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %18, label %8
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %0, align 8
+  %7 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %6, i64 noundef 2232, i32 noundef 3520) #6
+  %8 = icmp eq ptr %7, null
+  %9 = inttoptr i64 -12 to ptr
+  br i1 %8, label %20, label %10
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 2224
-  store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 2216
-  store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 152
-  store ptr @panel_bridge_bridge_funcs, ptr %11, align 8
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 624
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 120
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 168
-  store i32 8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 172
-  store i32 %1, ptr %17, align 4
-  tail call void @drm_bridge_add(ptr noundef nonnull %6) #5
-  br label %18
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %7, i64 2224
+  store i32 %1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 2216
+  store ptr %0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 152
+  store ptr @panel_bridge_bridge_funcs, ptr %13, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 624
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 120
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 168
+  store i32 8, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 172
+  store i32 %1, ptr %19, align 4
+  tail call void @drm_bridge_add(ptr noundef nonnull %7) #5
+  br label %20
 
-18:                                               ; preds = %8, %4, %2
-  %19 = phi ptr [ %6, %8 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -12 to ptr), %4 ]
-  ret ptr %19
+20:                                               ; preds = %10, %5, %2
+  %21 = phi ptr [ %7, %10 ], [ %4, %2 ], [ %9, %5 ]
+  ret ptr %21
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -174,79 +179,84 @@ define dso_local noundef ptr @devm_drm_panel_bridge_add(ptr noundef %0, ptr noun
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %7, !prof !5
+  br i1 %5, label %6, label %8, !prof !5
 
 6:                                                ; preds = %2
   tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #5, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 378, i32 2305, i64 12) #5, !srcloc !10
   tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #5, !srcloc !11
-  br label %9
+  %7 = inttoptr i64 -22 to ptr
+  br label %10
 
-7:                                                ; preds = %2
-  %8 = tail call ptr @devm_drm_panel_bridge_add_typed(ptr noundef %0, ptr noundef %1, i32 noundef %4)
-  br label %9
+8:                                                ; preds = %2
+  %9 = tail call ptr @devm_drm_panel_bridge_add_typed(ptr noundef %0, ptr noundef %1, i32 noundef %4)
+  br label %10
 
-9:                                                ; preds = %7, %6
-  %10 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %8, %7 ]
-  ret ptr %10
+10:                                               ; preds = %8, %6
+  %11 = phi ptr [ %7, %6 ], [ %9, %8 ]
+  ret ptr %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @devm_drm_panel_bridge_add_typed(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_drm_panel_bridge_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.1) #5
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %30, label %6
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %34, label %7
 
-6:                                                ; preds = %3
-  %7 = icmp eq ptr %1, null
-  br i1 %7, label %22, label %8
+7:                                                ; preds = %3
+  %8 = icmp eq ptr %1, null
+  %9 = inttoptr i64 -22 to ptr
+  br i1 %8, label %25, label %10
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %1, align 8
-  %10 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %9, i64 noundef 2232, i32 noundef 3520) #6
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %22, label %12
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %1, align 8
+  %12 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %11, i64 noundef 2232, i32 noundef 3520) #6
+  %13 = icmp eq ptr %12, null
+  %14 = inttoptr i64 -12 to ptr
+  br i1 %13, label %25, label %15
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 2224
-  store i32 %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 2216
-  store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 152
-  store ptr @panel_bridge_bridge_funcs, ptr %15, align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 624
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 120
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 168
-  store i32 8, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 172
-  store i32 %2, ptr %21, align 4
-  tail call void @drm_bridge_add(ptr noundef nonnull %10) #5
-  br label %22
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %12, i64 2224
+  store i32 %2, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 2216
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 152
+  store ptr @panel_bridge_bridge_funcs, ptr %18, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 624
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %12, i64 120
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %12, i64 168
+  store i32 8, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 172
+  store i32 %2, ptr %24, align 4
+  tail call void @drm_bridge_add(ptr noundef nonnull %12) #5
+  br label %25
 
-22:                                               ; preds = %12, %8, %6
-  %23 = phi ptr [ %10, %12 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -12 to ptr), %8 ]
-  %24 = icmp ugt ptr %23, inttoptr (i64 -4096 to ptr)
-  br i1 %24, label %25, label %26
+25:                                               ; preds = %15, %10, %7
+  %26 = phi ptr [ %12, %15 ], [ %9, %7 ], [ %14, %10 ]
+  %27 = inttoptr i64 -4096 to ptr
+  %28 = icmp ugt ptr %26, %27
+  br i1 %28, label %29, label %30
 
-25:                                               ; preds = %22
+29:                                               ; preds = %25
   tail call void @devres_free(ptr noundef nonnull %4) #5
-  br label %30
+  br label %34
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 96
-  %28 = load i8, ptr %27, align 8, !range !12, !noundef !13
-  %29 = getelementptr inbounds i8, ptr %23, i64 177
-  store i8 %28, ptr %29, align 1
-  store ptr %23, ptr %4, align 8
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %1, i64 96
+  %32 = load i8, ptr %31, align 8, !range !12, !noundef !13
+  %33 = getelementptr inbounds i8, ptr %26, i64 177
+  store i8 %32, ptr %33, align 1
+  store ptr %26, ptr %4, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #5
-  br label %30
+  br label %34
 
-30:                                               ; preds = %26, %25, %3
-  %31 = phi ptr [ %23, %25 ], [ %23, %26 ], [ inttoptr (i64 -12 to ptr), %3 ]
-  ret ptr %31
+34:                                               ; preds = %30, %29, %3
+  %35 = phi ptr [ %26, %29 ], [ %26, %30 ], [ %6, %3 ]
+  ret ptr %35
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -287,58 +297,61 @@ define dso_local ptr @drmm_panel_bridge_add(ptr noundef %0, ptr noundef %1) #1 a
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %20, label %6
+  %6 = inttoptr i64 -22 to ptr
+  br i1 %5, label %22, label %7
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr %1, align 8
-  %8 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %7, i64 noundef 2232, i32 noundef 3520) #6
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %20, label %10
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %1, align 8
+  %9 = tail call noalias noundef dereferenceable_or_null(2232) ptr @devm_kmalloc(ptr noundef %8, i64 noundef 2232, i32 noundef 3520) #6
+  %10 = icmp eq ptr %9, null
+  %11 = inttoptr i64 -12 to ptr
+  br i1 %10, label %22, label %12
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 2224
-  store i32 %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 2216
-  store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 152
-  store ptr @panel_bridge_bridge_funcs, ptr %13, align 8
-  %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 624
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 120
-  store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 168
-  store i32 8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 172
-  store i32 %4, ptr %19, align 4
-  tail call void @drm_bridge_add(ptr noundef nonnull %8) #5
-  br label %20
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %9, i64 2224
+  store i32 %4, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 2216
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 152
+  store ptr @panel_bridge_bridge_funcs, ptr %15, align 8
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 624
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 120
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %9, i64 168
+  store i32 8, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %9, i64 172
+  store i32 %4, ptr %21, align 4
+  tail call void @drm_bridge_add(ptr noundef nonnull %9) #5
+  br label %22
 
-20:                                               ; preds = %10, %6, %2
-  %21 = phi ptr [ %8, %10 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -12 to ptr), %6 ]
-  %22 = icmp ugt ptr %21, inttoptr (i64 -4096 to ptr)
-  br i1 %22, label %33, label %23
+22:                                               ; preds = %12, %7, %2
+  %23 = phi ptr [ %9, %12 ], [ %6, %2 ], [ %11, %7 ]
+  %24 = inttoptr i64 -4096 to ptr
+  %25 = icmp ugt ptr %23, %24
+  br i1 %25, label %36, label %26
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef nonnull @drmm_drm_panel_bridge_release, ptr noundef nonnull %21, ptr noundef nonnull @.str.2) #5
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %26
+26:                                               ; preds = %22
+  %27 = tail call i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef nonnull @drmm_drm_panel_bridge_release, ptr noundef nonnull %23, ptr noundef nonnull @.str.2) #5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %32, label %29
 
-26:                                               ; preds = %23
-  %27 = sext i32 %24 to i64
-  %28 = inttoptr i64 %27 to ptr
-  br label %33
+29:                                               ; preds = %26
+  %30 = sext i32 %27 to i64
+  %31 = inttoptr i64 %30 to ptr
+  br label %36
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 96
-  %31 = load i8, ptr %30, align 8, !range !12, !noundef !13
-  %32 = getelementptr inbounds i8, ptr %21, i64 177
-  store i8 %31, ptr %32, align 1
-  br label %33
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %1, i64 96
+  %34 = load i8, ptr %33, align 8, !range !12, !noundef !13
+  %35 = getelementptr inbounds i8, ptr %23, i64 177
+  store i8 %34, ptr %35, align 1
+  br label %36
 
-33:                                               ; preds = %29, %26, %20
-  %34 = phi ptr [ %28, %26 ], [ %21, %29 ], [ %21, %20 ]
-  ret ptr %34
+36:                                               ; preds = %32, %29, %22
+  %37 = phi ptr [ %31, %29 ], [ %23, %32 ], [ %23, %22 ]
+  ret ptr %37
 }
 
 ; Function Attrs: null_pointer_is_valid

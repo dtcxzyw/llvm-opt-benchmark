@@ -224,10 +224,13 @@ entry:
   %args.addr = alloca ptr, align 8
   store ptr %self, ptr %self.addr, align 8
   store ptr %args, ptr %args.addr, align 8
-  store i64 0, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 2), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 1), align 4
-  %0 = load ptr, ptr %args.addr, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %0, ptr noundef @.str.17, ptr noundef @FmData, ptr noundef getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 1))
+  %0 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 2
+  store i64 0, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 1
+  store i32 0, ptr %1, align 4
+  %2 = load ptr, ptr %args.addr, align 8
+  %3 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 1
+  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %2, ptr noundef @.str.17, ptr noundef @FmData, ptr noundef %3)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -241,8 +244,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+  %4 = load ptr, ptr %retval, align 8
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -746,9 +749,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr @FmHook, align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 1))
-  call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 2))
-  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 3))
+  %1 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 1
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %1)
+  %2 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 2
+  call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 3
+  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -780,17 +786,23 @@ if.end:                                           ; preds = %entry
   store ptr @hook_frealloc, ptr %realloc, align 8
   %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 4
   store ptr @hook_ffree, ptr %free, align 8
-  call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 1))
-  call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 2))
-  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 3))
+  %1 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 1
+  call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef %1)
+  %2 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 2
+  call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 3
+  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %3)
   %ctx = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 1), ptr %ctx, align 8
+  %4 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 1
+  store ptr %4, ptr %ctx, align 8
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %alloc)
   %ctx1 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 2), ptr %ctx1, align 8
+  %5 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 2
+  store ptr %5, ptr %ctx1, align 8
   call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef %alloc)
   %ctx2 = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.anon, ptr @FmHook, i32 0, i32 3), ptr %ctx2, align 8
+  %6 = getelementptr inbounds %struct.anon, ptr @FmHook, i32 0, i32 3
+  store ptr %6, ptr %ctx2, align 8
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef %alloc)
   br label %return
 
@@ -939,25 +951,31 @@ declare void @PyMem_GetAllocator(i32 noundef, ptr noundef) #1
 define internal i32 @fm_nomemory() #0 {
 entry:
   %retval = alloca i32, align 4
-  %0 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 2), align 8
-  %inc = add i64 %0, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 2), align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 2), align 8
-  %2 = load i32, ptr @FmData, align 8
-  %conv = sext i32 %2 to i64
-  %cmp = icmp sgt i64 %1, %conv
+  %0 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 2
+  %1 = load i64, ptr %0, align 8
+  %inc = add i64 %1, 1
+  %2 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 2
+  store i64 %inc, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 2
+  %4 = load i64, ptr %3, align 8
+  %5 = load i32, ptr @FmData, align 8
+  %conv = sext i32 %5 to i64
+  %cmp = icmp sgt i64 %4, %conv
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 1), align 4
-  %cmp2 = icmp sle i32 %3, 0
+  %6 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4
+  %cmp2 = icmp sle i32 %7, 0
   br i1 %cmp2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %4 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 2), align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr @FmData, i32 0, i32 1), align 4
-  %conv4 = sext i32 %5 to i64
-  %cmp5 = icmp sle i64 %4, %conv4
+  %8 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 2
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.anon.0, ptr @FmData, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  %conv4 = sext i32 %11 to i64
+  %cmp5 = icmp sle i64 %9, %conv4
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
@@ -969,8 +987,8 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 declare ptr @PyMem_RawMalloc(i64 noundef) #1

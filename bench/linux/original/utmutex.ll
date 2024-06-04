@@ -49,7 +49,7 @@ define dso_local i32 @acpi_ut_mutex_initialize() local_unnamed_addr #0 align 16 
 16:                                               ; preds = %12, %7
   %17 = phi i32 [ 0, %7 ], [ %13, %12 ]
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %4, label %57
+  br i1 %18, label %4, label %60
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
@@ -60,78 +60,81 @@ define dso_local i32 @acpi_ut_mutex_initialize() local_unnamed_addr #0 align 16 
   %21 = and i64 %20, 512
   %22 = icmp eq i64 %21, 0
   %23 = select i1 %22, i32 2080, i32 3264
-  %24 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %25 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %24, i32 noundef %23, i64 noundef 4) #5
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %28, label %27
+  %24 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %25 = load ptr, ptr %24, align 8
+  %26 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %25, i32 noundef %23, i64 noundef 4) #5
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %19
-  store ptr %25, ptr @acpi_gbl_gpe_lock, align 8
-  store i32 0, ptr %25, align 8
-  br label %28
+28:                                               ; preds = %19
+  store ptr %26, ptr @acpi_gbl_gpe_lock, align 8
+  store i32 0, ptr %26, align 8
+  br label %29
 
-28:                                               ; preds = %27, %19
-  %29 = phi i32 [ 0, %27 ], [ 4, %19 ]
-  br i1 %26, label %57, label %30
+29:                                               ; preds = %28, %19
+  %30 = phi i32 [ 0, %28 ], [ 4, %19 ]
+  br i1 %27, label %60, label %31
 
-30:                                               ; preds = %28
+31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   store i64 0, ptr %2, align 8, !annotation !8
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #4, !srcloc !9
-  %31 = load i64, ptr %2, align 8
+  %32 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  %32 = and i64 %31, 512
-  %33 = icmp eq i64 %32, 0
-  %34 = select i1 %33, i32 2080, i32 3264
-  %35 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %36 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %35, i32 noundef %34, i64 noundef 4) #5
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %39, label %38
+  %33 = and i64 %32, 512
+  %34 = icmp eq i64 %33, 0
+  %35 = select i1 %34, i32 2080, i32 3264
+  %36 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %37, i32 noundef %35, i64 noundef 4) #5
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %41, label %40
 
-38:                                               ; preds = %30
-  store ptr %36, ptr @acpi_gbl_hardware_lock, align 8
-  store i32 0, ptr %36, align 8
-  br label %39
+40:                                               ; preds = %31
+  store ptr %38, ptr @acpi_gbl_hardware_lock, align 8
+  store i32 0, ptr %38, align 8
+  br label %41
 
-39:                                               ; preds = %38, %30
-  %40 = phi i32 [ 0, %38 ], [ 4, %30 ]
-  br i1 %37, label %57, label %41
+41:                                               ; preds = %40, %31
+  %42 = phi i32 [ 0, %40 ], [ 4, %31 ]
+  br i1 %39, label %60, label %43
 
-41:                                               ; preds = %39
+43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
   store i64 0, ptr %1, align 8, !annotation !8
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1) #4, !srcloc !9
-  %42 = load i64, ptr %1, align 8
+  %44 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
-  %43 = and i64 %42, 512
-  %44 = icmp eq i64 %43, 0
-  %45 = select i1 %44, i32 2080, i32 3264
-  %46 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %47 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %46, i32 noundef %45, i64 noundef 4) #5
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %50, label %49
+  %45 = and i64 %44, 512
+  %46 = icmp eq i64 %45, 0
+  %47 = select i1 %46, i32 2080, i32 3264
+  %48 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %49, i32 noundef %47, i64 noundef 4) #5
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %53, label %52
 
-49:                                               ; preds = %41
-  store ptr %47, ptr @acpi_gbl_reference_count_lock, align 8
-  store i32 0, ptr %47, align 8
-  br label %50
+52:                                               ; preds = %43
+  store ptr %50, ptr @acpi_gbl_reference_count_lock, align 8
+  store i32 0, ptr %50, align 8
+  br label %53
 
-50:                                               ; preds = %49, %41
-  %51 = phi i32 [ 0, %49 ], [ 4, %41 ]
-  br i1 %48, label %57, label %52
+53:                                               ; preds = %52, %43
+  %54 = phi i32 [ 0, %52 ], [ 4, %43 ]
+  br i1 %51, label %60, label %55
 
-52:                                               ; preds = %50
-  %53 = call i32 @acpi_os_create_semaphore(i32 noundef 1, i32 noundef 1, ptr noundef nonnull @acpi_gbl_osi_mutex) #4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %57
+55:                                               ; preds = %53
+  %56 = call i32 @acpi_os_create_semaphore(i32 noundef 1, i32 noundef 1, ptr noundef nonnull @acpi_gbl_osi_mutex) #4
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %60
 
-55:                                               ; preds = %52
-  %56 = call i32 @acpi_ut_create_rw_lock(ptr noundef nonnull @acpi_gbl_namespace_rw_lock) #4
-  br label %57
+58:                                               ; preds = %55
+  %59 = call i32 @acpi_ut_create_rw_lock(ptr noundef nonnull @acpi_gbl_namespace_rw_lock) #4
+  br label %60
 
-57:                                               ; preds = %55, %52, %50, %39, %28, %16
-  %58 = phi i32 [ %29, %28 ], [ %40, %39 ], [ %51, %50 ], [ %53, %52 ], [ %56, %55 ], [ %17, %16 ]
-  ret i32 %58
+60:                                               ; preds = %58, %55, %53, %41, %29, %16
+  %61 = phi i32 [ %30, %29 ], [ %42, %41 ], [ %54, %53 ], [ %56, %55 ], [ %59, %58 ], [ %17, %16 ]
+  ret i32 %61
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1012,7 +1012,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15ResolverFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121BinderResolverFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121BinderResolverFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1046,7 +1047,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core15ResolverFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN9grpc_core15ResolverFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3806,7 +3808,8 @@ entry:
   store ptr %args, ptr %args.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8ResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114BinderResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114BinderResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %result_handler_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinderResolver", ptr %this1, i32 0, i32 1
   %result_handler = getelementptr inbounds %"struct.grpc_core::ResolverArgs", ptr %args, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN9grpc_core8Resolver13ResultHandlerESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %result_handler_, ptr noundef nonnull align 8 dereferenceable(8) %result_handler) #3
@@ -4506,7 +4509,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114BinderResolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114BinderResolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %channel_args_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinderResolver", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_) #3
   %addresses_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinderResolver", ptr %this1, i32 0, i32 2

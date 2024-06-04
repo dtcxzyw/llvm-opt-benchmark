@@ -1652,10 +1652,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseC2EPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp13EnumGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp13EnumGeneratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::EnumGenerator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %descriptor.addr, align 8
-  store ptr %1, ptr %descriptor_, align 8
+  %2 = load ptr, ptr %descriptor.addr, align 8
+  store ptr %2, ptr %descriptor_, align 8
   ret void
 }
 
@@ -4429,7 +4430,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5972,7 +5974,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -15069,20 +15072,21 @@ entry:
   store i32 %value, ptr %value.addr, align 4
   %0 = load i32, ptr %value.addr, align 4
   %conv = zext i32 %0 to i64
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state.addr.i, align 8
+  %1 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %1, ptr %state.addr.i, align 8
   store i64 %conv, ptr %v.addr.i, align 8
-  %1 = load i64, ptr %state.addr.i, align 8
-  %2 = load i64, ptr %v.addr.i, align 8
-  %add.i = add i64 %1, %2
+  %2 = load i64, ptr %state.addr.i, align 8
+  %3 = load i64, ptr %v.addr.i, align 8
+  %add.i = add i64 %2, %3
   %conv.i = zext i64 %add.i to i128
   store i128 %conv.i, ptr %m.i, align 16
-  %3 = load i128, ptr %m.i, align 16
-  %mul.i = mul i128 %3, 11376068507788127593
-  store i128 %mul.i, ptr %m.i, align 16
   %4 = load i128, ptr %m.i, align 16
+  %mul.i = mul i128 %4, 11376068507788127593
+  store i128 %mul.i, ptr %m.i, align 16
   %5 = load i128, ptr %m.i, align 16
-  %shr.i = lshr i128 %5, 64
-  %xor.i = xor i128 %4, %shr.i
+  %6 = load i128, ptr %m.i, align 16
+  %shr.i = lshr i128 %6, 64
+  %xor.i = xor i128 %5, %shr.i
   %conv1.i = trunc i128 %xor.i to i64
   ret i64 %conv1.i
 }

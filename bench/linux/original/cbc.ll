@@ -38,45 +38,46 @@ define internal i32 @crypto_cbc_module_init() #0 section ".init.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_cbc_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = tail call ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr noundef %1) #7
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %8
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = ptrtoint ptr %3 to i64
-  %7 = trunc i64 %6 to i32
-  br label %25
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %3 to i64
+  %8 = trunc i64 %7 to i32
+  br label %26
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 108
-  %10 = load i32, ptr %9, align 4
-  %11 = tail call i32 @llvm.ctpop.i32(i32 %10), !range !5
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %22
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %3, i64 108
+  %11 = load i32, ptr %10, align 4
+  %12 = tail call i32 @llvm.ctpop.i32(i32 %11), !range !5
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %23
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %3, i64 64
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %22
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %3, i64 64
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @crypto_cbc_encrypt, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr @crypto_cbc_decrypt, ptr %19, align 8
-  %20 = tail call i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %3) #7
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %25, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @crypto_cbc_encrypt, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr @crypto_cbc_decrypt, ptr %20, align 8
+  %21 = tail call i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %3) #7
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %17, %13, %8
-  %23 = phi i32 [ -22, %13 ], [ %20, %17 ], [ -22, %8 ]
-  %24 = load ptr, ptr %3, align 8
-  tail call void %24(ptr noundef %3) #7
-  br label %25
+23:                                               ; preds = %18, %14, %9
+  %24 = phi i32 [ -22, %14 ], [ %21, %18 ], [ -22, %9 ]
+  %25 = load ptr, ptr %3, align 8
+  tail call void %25(ptr noundef %3) #7
+  br label %26
 
-25:                                               ; preds = %22, %17, %5
-  %26 = phi i32 [ %7, %5 ], [ %23, %22 ], [ 0, %17 ]
-  ret i32 %26
+26:                                               ; preds = %23, %18, %6
+  %27 = phi i32 [ %8, %6 ], [ %24, %23 ], [ 0, %18 ]
+  ret i32 %27
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

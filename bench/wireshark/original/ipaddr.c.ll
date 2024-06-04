@@ -90,7 +90,8 @@ define i32 @wireshark_load_module(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define internal void @plugin_register() #0 {
   store ptr @init, ptr @plugin_register.plug, align 8
-  store ptr @cleanup, ptr getelementptr inbounds (%struct.dfilter_plugin, ptr @plugin_register.plug, i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.dfilter_plugin, ptr @plugin_register.plug, i32 0, i32 1
+  store ptr @cleanup, ptr %1, align 8
   call void @dfilter_plugins_register(ptr noundef @plugin_register.plug)
   ret void
 }

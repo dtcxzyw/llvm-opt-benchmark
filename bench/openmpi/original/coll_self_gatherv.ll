@@ -33,48 +33,49 @@ define i32 @mca_coll_self_gatherv_intra(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %8, ptr %20, align 8
   store ptr %9, ptr %21, align 8
   %25 = load ptr, ptr %12, align 8
-  %26 = icmp eq ptr inttoptr (i64 1 to ptr), %25
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %10
-  store i32 0, ptr %11, align 4
-  br label %51
+  %26 = inttoptr i64 1 to ptr
+  %27 = icmp eq ptr %26, %25
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %10
-  %29 = load ptr, ptr %18, align 8
-  %30 = call i32 @ompi_datatype_get_extent(ptr noundef %29, ptr noundef %23, ptr noundef %24)
-  store i32 %30, ptr %22, align 4
-  %31 = load i32, ptr %22, align 4
-  %32 = icmp ne i32 0, %31
-  br i1 %32, label %33, label %34
+  store i32 0, ptr %11, align 4
+  br label %52
 
-33:                                               ; preds = %28
+29:                                               ; preds = %10
+  %30 = load ptr, ptr %18, align 8
+  %31 = call i32 @ompi_datatype_get_extent(ptr noundef %30, ptr noundef %23, ptr noundef %24)
+  store i32 %31, ptr %22, align 4
+  %32 = load i32, ptr %22, align 4
+  %33 = icmp ne i32 0, %32
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29
   store i32 -1, ptr %11, align 4
-  br label %51
+  br label %52
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %12, align 8
-  %36 = load i32, ptr %13, align 4
-  %37 = load ptr, ptr %14, align 8
-  %38 = load ptr, ptr %15, align 8
-  %39 = load ptr, ptr %17, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 0
-  %41 = load i32, ptr %40, align 4
-  %42 = sext i32 %41 to i64
-  %43 = load i64, ptr %24, align 8
-  %44 = mul nsw i64 %42, %43
-  %45 = getelementptr inbounds i8, ptr %38, i64 %44
-  %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr inbounds i32, ptr %46, i64 0
-  %48 = load i32, ptr %47, align 4
-  %49 = load ptr, ptr %18, align 8
-  %50 = call i32 @ompi_datatype_sndrcv(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %45, i32 noundef %48, ptr noundef %49)
-  store i32 %50, ptr %11, align 4
-  br label %51
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  %38 = load ptr, ptr %14, align 8
+  %39 = load ptr, ptr %15, align 8
+  %40 = load ptr, ptr %17, align 8
+  %41 = getelementptr inbounds i32, ptr %40, i64 0
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = load i64, ptr %24, align 8
+  %45 = mul nsw i64 %43, %44
+  %46 = getelementptr inbounds i8, ptr %39, i64 %45
+  %47 = load ptr, ptr %16, align 8
+  %48 = getelementptr inbounds i32, ptr %47, i64 0
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %18, align 8
+  %51 = call i32 @ompi_datatype_sndrcv(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %46, i32 noundef %49, ptr noundef %50)
+  store i32 %51, ptr %11, align 4
+  br label %52
 
-51:                                               ; preds = %34, %33, %27
-  %52 = load i32, ptr %11, align 4
-  ret i32 %52
+52:                                               ; preds = %35, %34, %28
+  %53 = load i32, ptr %11, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable

@@ -30,7 +30,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_apic: ; .asc
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal void @native_apic_mem_eoi() #0 align 16 {
-  %1 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501968 to ptr), i32 0, i32 0, ptr nonnull elementtype(i32) inttoptr (i64 -10501968 to ptr)) #9, !srcloc !5
+  %1 = inttoptr i64 -10501968 to ptr
+  %2 = inttoptr i64 -10501968 to ptr
+  %3 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1, i32 0, i32 0, ptr nonnull elementtype(i32) %2) #9, !srcloc !5
   ret void
 }
 
@@ -93,34 +95,35 @@ define internal void @flat_send_IPI_mask_allbutself(ptr nocapture noundef readon
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = load i64, ptr %0, align 8
   store i64 %5, ptr %4, align 8
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !10
-  %7 = icmp slt i32 %6, 64
-  br i1 %7, label %8, label %10
+  %6 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6) #10, !srcloc !10
+  %8 = icmp slt i32 %7, 64
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %2
-  %9 = sext i32 %6 to i64
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %9) #9, !srcloc !11
-  br label %10
+9:                                                ; preds = %2
+  %10 = sext i32 %7 to i64
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %10) #9, !srcloc !11
+  br label %11
 
-10:                                               ; preds = %8, %2
-  %11 = load i64, ptr %4, align 8
+11:                                               ; preds = %9, %2
+  %12 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !6
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #9, !srcloc !7
-  %12 = load i64, ptr %3, align 8
+  %13 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
-  %13 = trunc i64 %11 to i32
-  call void @__default_send_IPI_dest_field(i32 noundef %13, i32 noundef %1, i32 noundef 2048) #9
-  %14 = and i64 %12, 512
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %17, label %16
+  %14 = trunc i64 %12 to i32
+  call void @__default_send_IPI_dest_field(i32 noundef %14, i32 noundef %1, i32 noundef 2048) #9
+  %15 = and i64 %13, 512
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %10
+17:                                               ; preds = %11
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %10
+18:                                               ; preds = %17, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret void
 }
@@ -222,34 +225,36 @@ define internal noundef i32 @physflat_probe() #6 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @physflat_acpi_madt_oem_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %4 = icmp ugt i8 %3, 2
-  br i1 %4, label %5, label %9
+  %3 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp ugt i8 %4, 2
+  br i1 %5, label %6, label %11
 
-5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38), align 1
-  %7 = and i32 %6, 524288
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %15
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 38
+  %8 = load i32, ptr %7, align 1
+  %9 = and i32 %8, 524288
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %17
 
-9:                                                ; preds = %5, %2
-  %10 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 3) #9
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %18
+11:                                               ; preds = %6, %2
+  %12 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 3) #9
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %20
 
-12:                                               ; preds = %9
-  %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #9
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %18
+14:                                               ; preds = %11
+  %15 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #9
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
 
-15:                                               ; preds = %12, %5
-  %16 = phi ptr [ @.str.3, %5 ], [ @.str.6, %12 ]
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %16) #12
-  br label %18
+17:                                               ; preds = %14, %6
+  %18 = phi ptr [ @.str.3, %6 ], [ @.str.6, %14 ]
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %18) #12
+  br label %20
 
-18:                                               ; preds = %15, %12, %9
-  %19 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 1, %15 ]
-  ret i32 %19
+20:                                               ; preds = %17, %14, %11
+  %21 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 1, %17 ]
+  ret i32 %21
 }
 
 ; Function Attrs: cold null_pointer_is_valid

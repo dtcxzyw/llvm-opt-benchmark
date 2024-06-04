@@ -542,71 +542,77 @@ declare dso_local i64 @drm_format_info_min_pitch(ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_gem_fb_create_with_funcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 192) #9
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %14, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 192) #9
+  %8 = icmp eq ptr %7, null
+  %9 = inttoptr i64 -12 to ptr
+  br i1 %8, label %16, label %10
 
-8:                                                ; preds = %4
-  %9 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %14, label %11
+10:                                               ; preds = %4
+  %11 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %16, label %13
 
-11:                                               ; preds = %8
-  tail call void @kfree(ptr noundef nonnull %6) #7
-  %12 = sext i32 %9 to i64
-  %13 = inttoptr i64 %12 to ptr
-  br label %14
+13:                                               ; preds = %10
+  tail call void @kfree(ptr noundef nonnull %7) #7
+  %14 = sext i32 %11 to i64
+  %15 = inttoptr i64 %14 to ptr
+  br label %16
 
-14:                                               ; preds = %11, %8, %4
-  %15 = phi ptr [ %13, %11 ], [ %6, %8 ], [ inttoptr (i64 -12 to ptr), %4 ]
-  ret ptr %15
+16:                                               ; preds = %13, %10, %4
+  %17 = phi ptr [ %15, %13 ], [ %7, %10 ], [ %9, %4 ]
+  ret ptr %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_gem_fb_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 192) #9
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %13, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 192) #9
+  %7 = icmp eq ptr %6, null
+  %8 = inttoptr i64 -12 to ptr
+  br i1 %7, label %15, label %9
 
-7:                                                ; preds = %3
-  %8 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @drm_gem_fb_funcs)
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %10
+9:                                                ; preds = %3
+  %10 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @drm_gem_fb_funcs)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %15, label %12
 
-10:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #7
-  %11 = sext i32 %8 to i64
-  %12 = inttoptr i64 %11 to ptr
-  br label %13
+12:                                               ; preds = %9
+  tail call void @kfree(ptr noundef nonnull %6) #7
+  %13 = sext i32 %10 to i64
+  %14 = inttoptr i64 %13 to ptr
+  br label %15
 
-13:                                               ; preds = %10, %7, %3
-  %14 = phi ptr [ %12, %10 ], [ %5, %7 ], [ inttoptr (i64 -12 to ptr), %3 ]
-  ret ptr %14
+15:                                               ; preds = %12, %9, %3
+  %16 = phi ptr [ %14, %12 ], [ %6, %9 ], [ %8, %3 ]
+  ret ptr %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_gem_fb_create_with_dirty(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 192) #9
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %13, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 192) #9
+  %7 = icmp eq ptr %6, null
+  %8 = inttoptr i64 -12 to ptr
+  br i1 %7, label %15, label %9
 
-7:                                                ; preds = %3
-  %8 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @drm_gem_fb_funcs_dirtyfb)
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %10
+9:                                                ; preds = %3
+  %10 = tail call i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @drm_gem_fb_funcs_dirtyfb)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %15, label %12
 
-10:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #7
-  %11 = sext i32 %8 to i64
-  %12 = inttoptr i64 %11 to ptr
-  br label %13
+12:                                               ; preds = %9
+  tail call void @kfree(ptr noundef nonnull %6) #7
+  %13 = sext i32 %10 to i64
+  %14 = inttoptr i64 %13 to ptr
+  br label %15
 
-13:                                               ; preds = %10, %7, %3
-  %14 = phi ptr [ %12, %10 ], [ %5, %7 ], [ inttoptr (i64 -12 to ptr), %3 ]
-  ret ptr %14
+15:                                               ; preds = %12, %9, %3
+  %16 = phi ptr [ %14, %12 ], [ %6, %9 ], [ %8, %3 ]
+  ret ptr %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -114,190 +114,193 @@ define i32 @slurmd_script(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   store ptr %20, ptr %8, align 8
   %21 = load i8, ptr %7, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
-  %24 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 43), align 8
-  br label %27
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 43
+  %25 = load ptr, ptr %24, align 8
+  br label %29
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 138), align 8
-  br label %27
+26:                                               ; preds = %3
+  %27 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 138
+  %28 = load ptr, ptr %27, align 8
+  br label %29
 
-27:                                               ; preds = %25, %23
-  %28 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  store ptr %28, ptr %9, align 8
+29:                                               ; preds = %26, %23
+  %30 = phi ptr [ %25, %23 ], [ %28, %26 ]
+  store ptr %30, ptr %9, align 8
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  %29 = load i8, ptr %7, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %33
+  %31 = load i8, ptr %7, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
 
-31:                                               ; preds = %27
-  %32 = call zeroext i1 @spank_has_epilog()
-  br i1 %32, label %38, label %33
+33:                                               ; preds = %29
+  %34 = call zeroext i1 @spank_has_epilog()
+  br i1 %34, label %40, label %35
 
-33:                                               ; preds = %31, %27
-  %34 = load i8, ptr %7, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %54, label %36
+35:                                               ; preds = %33, %29
+  %36 = load i8, ptr %7, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %56, label %38
 
-36:                                               ; preds = %33
-  %37 = call zeroext i1 @spank_has_prolog()
-  br i1 %37, label %38, label %54
+38:                                               ; preds = %35
+  %39 = call zeroext i1 @spank_has_prolog()
+  br i1 %39, label %40, label %56
 
-38:                                               ; preds = %36, %31
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %47, label %41
+40:                                               ; preds = %38, %33
+  %41 = load ptr, ptr %10, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %49, label %43
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i8, ptr %7, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = call ptr @_build_env(ptr noundef %42, ptr noundef %43, i1 noundef zeroext %45)
-  store ptr %46, ptr %10, align 8
-  br label %47
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %5, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i8, ptr %7, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = call ptr @_build_env(ptr noundef %44, ptr noundef %45, i1 noundef zeroext %47)
+  store ptr %48, ptr %10, align 8
+  br label %49
 
-47:                                               ; preds = %41, %38
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.job_env_t, ptr %50, i32 0, i32 4
-  %52 = load i32, ptr %51, align 4
-  %53 = call i32 @_run_spank_job_script(ptr noundef %48, ptr noundef %49, i32 noundef %52)
-  store i32 %53, ptr %11, align 4
-  br label %54
+49:                                               ; preds = %43, %40
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds %struct.job_env_t, ptr %52, i32 0, i32 4
+  %54 = load i32, ptr %53, align 4
+  %55 = call i32 @_run_spank_job_script(ptr noundef %50, ptr noundef %51, i32 noundef %54)
+  store i32 %55, ptr %11, align 4
+  br label %56
 
-54:                                               ; preds = %47, %36, %33
-  %55 = load ptr, ptr %9, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %118
+56:                                               ; preds = %49, %38, %35
+  %57 = load ptr, ptr %9, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %121
 
-57:                                               ; preds = %54
+59:                                               ; preds = %56
   store i32 0, ptr %12, align 4
-  %58 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139), align 8
-  %59 = zext i16 %58 to i32
-  store i32 %59, ptr %13, align 4
+  %60 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139
+  %61 = load i16, ptr %60, align 8
+  %62 = zext i16 %61 to i32
+  store i32 %62, ptr %13, align 4
   call void @llvm.memset.p0.i64(ptr align 16 %14, i8 0, i64 16, i1 false)
-  %60 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 0
-  store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 1
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.job_env_t, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %61, align 8
-  %65 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 2
-  store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 3
-  store i8 0, ptr %66, align 8
-  %67 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 4
-  %68 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 0
-  store ptr %68, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 5
-  store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 6
-  %71 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 0
+  store ptr null, ptr %63, align 8
+  %64 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 1
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.job_env_t, ptr %65, i32 0, i32 4
+  %67 = load i32, ptr %66, align 4
+  store i32 %67, ptr %64, align 8
+  %68 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 2
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 3
+  store i8 0, ptr %69, align 8
+  %70 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 4
+  %71 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 0
   store ptr %71, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 7
-  store ptr %12, ptr %72, align 8
-  %73 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 8
-  store i64 0, ptr %73, align 8
-  %74 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 9
-  store ptr null, ptr %74, align 8
-  %75 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 10
-  store i8 0, ptr %75, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %84, label %78
+  %72 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 5
+  store ptr null, ptr %72, align 8
+  %73 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 6
+  %74 = load ptr, ptr %8, align 8
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 7
+  store ptr %12, ptr %75, align 8
+  %76 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 8
+  store i64 0, ptr %76, align 8
+  %77 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 9
+  store ptr null, ptr %77, align 8
+  %78 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 10
+  store i8 0, ptr %78, align 8
+  %79 = load ptr, ptr %10, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %87, label %81
 
-78:                                               ; preds = %57
-  %79 = load ptr, ptr %5, align 8
-  %80 = load ptr, ptr %6, align 8
-  %81 = load i8, ptr %7, align 1
-  %82 = trunc i8 %81 to i1
-  %83 = call ptr @_build_env(ptr noundef %79, ptr noundef %80, i1 noundef zeroext %82)
-  store ptr %83, ptr %10, align 8
-  br label %84
+81:                                               ; preds = %59
+  %82 = load ptr, ptr %5, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i8, ptr %7, align 1
+  %85 = trunc i8 %84 to i1
+  %86 = call ptr @_build_env(ptr noundef %82, ptr noundef %83, i1 noundef zeroext %85)
+  store ptr %86, ptr %10, align 8
+  br label %87
 
-84:                                               ; preds = %78, %57
-  %85 = load i32, ptr %13, align 4
-  %86 = icmp eq i32 %85, 65534
-  br i1 %86, label %87, label %88
+87:                                               ; preds = %81, %59
+  %88 = load i32, ptr %13, align 4
+  %89 = icmp eq i32 %88, 65534
+  br i1 %89, label %90, label %91
 
-87:                                               ; preds = %84
+90:                                               ; preds = %87
   store i32 -1, ptr %13, align 4
-  br label %91
+  br label %94
 
-88:                                               ; preds = %84
-  %89 = load i32, ptr %13, align 4
-  %90 = mul nsw i32 %89, 1000
-  store i32 %90, ptr %13, align 4
-  br label %91
+91:                                               ; preds = %87
+  %92 = load i32, ptr %13, align 4
+  %93 = mul nsw i32 %92, 1000
+  store i32 %93, ptr %13, align 4
+  br label %94
 
-91:                                               ; preds = %88, %87
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 0
-  store ptr %92, ptr %93, align 8
-  %94 = load i32, ptr %13, align 4
-  %95 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 2
-  store i32 %94, ptr %95, align 4
-  %96 = load ptr, ptr %9, align 8
-  %97 = call ptr @_script_list_create(ptr noundef %96)
-  store ptr %97, ptr %15, align 8
-  %98 = icmp ne ptr %97, null
-  br i1 %98, label %103, label %99
+94:                                               ; preds = %91, %90
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 0
+  store ptr %95, ptr %96, align 8
+  %97 = load i32, ptr %13, align 4
+  %98 = getelementptr inbounds %struct.run_command_args_t, ptr %16, i32 0, i32 2
+  store i32 %97, ptr %98, align 4
+  %99 = load ptr, ptr %9, align 8
+  %100 = call ptr @_script_list_create(ptr noundef %99)
+  store ptr %100, ptr %15, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %106, label %102
 
-99:                                               ; preds = %91
-  %100 = load ptr, ptr %8, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef %100, ptr noundef %101)
-  store i32 %102, ptr %4, align 4
-  br label %121
+102:                                              ; preds = %94
+  %103 = load ptr, ptr %8, align 8
+  %104 = load ptr, ptr %9, align 8
+  %105 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef %103, ptr noundef %104)
+  store i32 %105, ptr %4, align 4
+  br label %124
 
-103:                                              ; preds = %91
-  %104 = load ptr, ptr %15, align 8
-  %105 = call i32 @list_for_each(ptr noundef %104, ptr noundef @_run_subpath_command, ptr noundef %16)
-  br label %106
-
-106:                                              ; preds = %103
+106:                                              ; preds = %94
   %107 = load ptr, ptr %15, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %111
+  %108 = call i32 @list_for_each(ptr noundef %107, ptr noundef @_run_subpath_command, ptr noundef %16)
+  br label %109
 
 109:                                              ; preds = %106
   %110 = load ptr, ptr %15, align 8
-  call void @list_destroy(ptr noundef %110)
-  br label %111
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %114
 
-111:                                              ; preds = %109, %106
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %15, align 8
+  call void @list_destroy(ptr noundef %113)
+  br label %114
+
+114:                                              ; preds = %112, %109
   store ptr null, ptr %15, align 8
-  br label %112
+  br label %115
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %12, align 4
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %117
-
-115:                                              ; preds = %112
+115:                                              ; preds = %114
   %116 = load i32, ptr %12, align 4
-  store i32 %116, ptr %11, align 4
-  br label %117
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %120
 
-117:                                              ; preds = %115, %112
-  br label %118
+118:                                              ; preds = %115
+  %119 = load i32, ptr %12, align 4
+  store i32 %119, ptr %11, align 4
+  br label %120
 
-118:                                              ; preds = %117, %54
-  %119 = load ptr, ptr %10, align 8
-  call void @env_array_free(ptr noundef %119)
-  %120 = load i32, ptr %11, align 4
-  store i32 %120, ptr %4, align 4
+120:                                              ; preds = %118, %115
   br label %121
 
-121:                                              ; preds = %118, %99
-  %122 = load i32, ptr %4, align 4
-  ret i32 %122
+121:                                              ; preds = %120, %56
+  %122 = load ptr, ptr %10, align 8
+  call void @env_array_free(ptr noundef %122)
+  %123 = load i32, ptr %11, align 4
+  store i32 %123, ptr %4, align 4
+  br label %124
+
+124:                                              ; preds = %121, %102
+  %125 = load i32, ptr %4, align 4
+  ret i32 %125
 }
 
 declare zeroext i1 @spank_has_epilog() #1
@@ -384,488 +387,489 @@ define internal ptr @_build_env(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   %57 = getelementptr inbounds %struct.slurmd_config, ptr %56, i32 0, i32 39
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.13, ptr noundef @.str.12, ptr noundef %58)
-  %60 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %61 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.14, ptr noundef @.str.12, ptr noundef %60)
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.job_env_t, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 4
-  %65 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.15, ptr noundef @.str.16, i32 noundef %64)
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.job_env_t, ptr %66, i32 0, i32 11
-  %68 = load i32, ptr %67, align 4
-  %69 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.17, ptr noundef @.str.16, i32 noundef %68)
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.job_env_t, ptr %70, i32 0, i32 12
-  %72 = load i32, ptr %71, align 8
-  %73 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.18, ptr noundef @.str.16, i32 noundef %72)
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.job_env_t, ptr %74, i32 0, i32 13
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.19, ptr noundef @.str.12, ptr noundef %76)
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.job_env_t, ptr %78, i32 0, i32 4
-  %80 = load i32, ptr %79, align 4
-  %81 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.20, ptr noundef @.str.16, i32 noundef %80)
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.job_env_t, ptr %82, i32 0, i32 3
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %100
+  %60 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %61 = load ptr, ptr %60, align 8
+  %62 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.14, ptr noundef @.str.12, ptr noundef %61)
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds %struct.job_env_t, ptr %63, i32 0, i32 4
+  %65 = load i32, ptr %64, align 4
+  %66 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.15, ptr noundef @.str.16, i32 noundef %65)
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %struct.job_env_t, ptr %67, i32 0, i32 11
+  %69 = load i32, ptr %68, align 4
+  %70 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.17, ptr noundef @.str.16, i32 noundef %69)
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.job_env_t, ptr %71, i32 0, i32 12
+  %73 = load i32, ptr %72, align 8
+  %74 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.18, ptr noundef @.str.16, i32 noundef %73)
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.job_env_t, ptr %75, i32 0, i32 13
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.19, ptr noundef @.str.12, ptr noundef %77)
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.job_env_t, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 4
+  %82 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.20, ptr noundef @.str.16, i32 noundef %81)
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct.job_env_t, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %101
 
-86:                                               ; preds = %51
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.job_env_t, ptr %87, i32 0, i32 3
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp ne i32 %89, -2
-  br i1 %90, label %91, label %100
+87:                                               ; preds = %51
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds %struct.job_env_t, ptr %88, i32 0, i32 3
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp ne i32 %90, -2
+  br i1 %91, label %92, label %101
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.job_env_t, ptr %92, i32 0, i32 3
-  %94 = load i32, ptr %93, align 8
-  %95 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.21, ptr noundef @.str.16, i32 noundef %94)
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.job_env_t, ptr %96, i32 0, i32 3
-  %98 = load i32, ptr %97, align 8
-  %99 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.22, ptr noundef @.str.16, i32 noundef %98)
-  br label %100
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds %struct.job_env_t, ptr %93, i32 0, i32 3
+  %95 = load i32, ptr %94, align 8
+  %96 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.21, ptr noundef @.str.16, i32 noundef %95)
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds %struct.job_env_t, ptr %97, i32 0, i32 3
+  %99 = load i32, ptr %98, align 8
+  %100 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.22, ptr noundef @.str.16, i32 noundef %99)
+  br label %101
 
-100:                                              ; preds = %91, %86, %51
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.job_env_t, ptr %101, i32 0, i32 11
-  %103 = load i32, ptr %102, align 4
-  %104 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.23, ptr noundef @.str.16, i32 noundef %103)
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.job_env_t, ptr %105, i32 0, i32 7
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %118
+101:                                              ; preds = %92, %87, %51
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %struct.job_env_t, ptr %102, i32 0, i32 11
+  %104 = load i32, ptr %103, align 4
+  %105 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.23, ptr noundef @.str.16, i32 noundef %104)
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds %struct.job_env_t, ptr %106, i32 0, i32 7
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %119
 
-109:                                              ; preds = %100
-  %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds %struct.job_env_t, ptr %110, i32 0, i32 7
-  %112 = load ptr, ptr %111, align 8
-  %113 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.24, ptr noundef @.str.12, ptr noundef %112)
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.job_env_t, ptr %114, i32 0, i32 7
-  %116 = load ptr, ptr %115, align 8
-  %117 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.25, ptr noundef @.str.12, ptr noundef %116)
-  br label %118
+110:                                              ; preds = %101
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.job_env_t, ptr %111, i32 0, i32 7
+  %113 = load ptr, ptr %112, align 8
+  %114 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.24, ptr noundef @.str.12, ptr noundef %113)
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds %struct.job_env_t, ptr %115, i32 0, i32 7
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.25, ptr noundef @.str.12, ptr noundef %117)
+  br label %119
 
-118:                                              ; preds = %109, %100
-  %119 = load i8, ptr %6, align 1
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %121, label %123
+119:                                              ; preds = %110, %101
+  %120 = load i8, ptr %6, align 1
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %124
 
-121:                                              ; preds = %118
-  %122 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.26, ptr noundef @.str.27)
-  br label %125
+122:                                              ; preds = %119
+  %123 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.26, ptr noundef @.str.27)
+  br label %126
 
-123:                                              ; preds = %118
-  %124 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.26, ptr noundef @.str.28)
-  br label %125
+124:                                              ; preds = %119
+  %125 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.26, ptr noundef @.str.28)
+  br label %126
 
-125:                                              ; preds = %123, %121
-  %126 = load i8, ptr %6, align 1
-  %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %172
+126:                                              ; preds = %124, %122
+  %127 = load i8, ptr %6, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %173
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.job_env_t, ptr %129, i32 0, i32 1
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp ne i32 %131, -1
-  br i1 %132, label %133, label %172
+129:                                              ; preds = %126
+  %130 = load ptr, ptr %4, align 8
+  %131 = getelementptr inbounds %struct.job_env_t, ptr %130, i32 0, i32 1
+  %132 = load i32, ptr %131, align 4
+  %133 = icmp ne i32 %132, -1
+  br i1 %133, label %134, label %173
 
-133:                                              ; preds = %128
+134:                                              ; preds = %129
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.job_env_t, ptr %134, i32 0, i32 1
-  %136 = load i32, ptr %135, align 4
-  %137 = and i32 %136, 127
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %145
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds %struct.job_env_t, ptr %135, i32 0, i32 1
+  %137 = load i32, ptr %136, align 4
+  %138 = and i32 %137, 127
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %146
 
-139:                                              ; preds = %133
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct.job_env_t, ptr %140, i32 0, i32 1
-  %142 = load i32, ptr %141, align 4
-  %143 = and i32 %142, 65280
-  %144 = lshr i32 %143, 8
-  store i32 %144, ptr %9, align 4
-  br label %145
+140:                                              ; preds = %134
+  %141 = load ptr, ptr %4, align 8
+  %142 = getelementptr inbounds %struct.job_env_t, ptr %141, i32 0, i32 1
+  %143 = load i32, ptr %142, align 4
+  %144 = and i32 %143, 65280
+  %145 = lshr i32 %144, 8
+  store i32 %145, ptr %9, align 4
+  br label %146
 
-145:                                              ; preds = %139, %133
-  %146 = load ptr, ptr %4, align 8
-  %147 = getelementptr inbounds %struct.job_env_t, ptr %146, i32 0, i32 1
-  %148 = load i32, ptr %147, align 4
-  %149 = and i32 %148, 127
-  %150 = add i32 %149, 1
-  %151 = trunc i32 %150 to i8
-  %152 = sext i8 %151 to i32
-  %153 = ashr i32 %152, 1
-  %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %155, label %160
+146:                                              ; preds = %140, %134
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds %struct.job_env_t, ptr %147, i32 0, i32 1
+  %149 = load i32, ptr %148, align 4
+  %150 = and i32 %149, 127
+  %151 = add i32 %150, 1
+  %152 = trunc i32 %151 to i8
+  %153 = sext i8 %152 to i32
+  %154 = ashr i32 %153, 1
+  %155 = icmp sgt i32 %154, 0
+  br i1 %155, label %156, label %161
 
-155:                                              ; preds = %145
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds %struct.job_env_t, ptr %156, i32 0, i32 1
-  %158 = load i32, ptr %157, align 4
-  %159 = and i32 %158, 127
-  store i32 %159, ptr %10, align 4
-  br label %160
+156:                                              ; preds = %146
+  %157 = load ptr, ptr %4, align 8
+  %158 = getelementptr inbounds %struct.job_env_t, ptr %157, i32 0, i32 1
+  %159 = load i32, ptr %158, align 4
+  %160 = and i32 %159, 127
+  store i32 %160, ptr %10, align 4
+  br label %161
 
-160:                                              ; preds = %155, %145
-  %161 = load ptr, ptr %4, align 8
-  %162 = getelementptr inbounds %struct.job_env_t, ptr %161, i32 0, i32 0
-  %163 = load i32, ptr %162, align 8
-  %164 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.29, ptr noundef @.str.16, i32 noundef %163)
-  %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds %struct.job_env_t, ptr %165, i32 0, i32 1
-  %167 = load i32, ptr %166, align 4
-  %168 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.30, ptr noundef @.str.16, i32 noundef %167)
-  %169 = load i32, ptr %9, align 4
-  %170 = load i32, ptr %10, align 4
-  %171 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef %169, i32 noundef %170)
-  br label %172
+161:                                              ; preds = %156, %146
+  %162 = load ptr, ptr %4, align 8
+  %163 = getelementptr inbounds %struct.job_env_t, ptr %162, i32 0, i32 0
+  %164 = load i32, ptr %163, align 8
+  %165 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.29, ptr noundef @.str.16, i32 noundef %164)
+  %166 = load ptr, ptr %4, align 8
+  %167 = getelementptr inbounds %struct.job_env_t, ptr %166, i32 0, i32 1
+  %168 = load i32, ptr %167, align 4
+  %169 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.30, ptr noundef @.str.16, i32 noundef %168)
+  %170 = load i32, ptr %9, align 4
+  %171 = load i32, ptr %10, align 4
+  %172 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef %170, i32 noundef %171)
+  br label %173
 
-172:                                              ; preds = %160, %128, %125
-  %173 = load ptr, ptr %5, align 8
-  %174 = icmp ne ptr %173, null
-  br i1 %174, label %175, label %400
+173:                                              ; preds = %161, %129, %126
+  %174 = load ptr, ptr %5, align 8
+  %175 = icmp ne ptr %174, null
+  br i1 %175, label %176, label %401
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %5, align 8
-  %177 = call ptr @slurm_cred_get_args(ptr noundef %176)
-  store ptr %177, ptr %11, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %178, i32 0, i32 11
-  %180 = load ptr, ptr %179, align 8
-  %181 = icmp ne ptr %180, null
-  br i1 %181, label %182, label %187
+176:                                              ; preds = %173
+  %177 = load ptr, ptr %5, align 8
+  %178 = call ptr @slurm_cred_get_args(ptr noundef %177)
+  store ptr %178, ptr %11, align 8
+  %179 = load ptr, ptr %11, align 8
+  %180 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %179, i32 0, i32 11
+  %181 = load ptr, ptr %180, align 8
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %183, label %188
 
-182:                                              ; preds = %175
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %183, i32 0, i32 11
-  %185 = load ptr, ptr %184, align 8
-  %186 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.33, ptr noundef @.str.12, ptr noundef %185)
-  br label %187
+183:                                              ; preds = %176
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %184, i32 0, i32 11
+  %186 = load ptr, ptr %185, align 8
+  %187 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.33, ptr noundef @.str.12, ptr noundef %186)
+  br label %188
 
-187:                                              ; preds = %182, %175
-  %188 = load ptr, ptr %11, align 8
-  %189 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %188, i32 0, i32 13
-  %190 = load ptr, ptr %189, align 8
-  %191 = icmp ne ptr %190, null
-  br i1 %191, label %192, label %197
+188:                                              ; preds = %183, %176
+  %189 = load ptr, ptr %11, align 8
+  %190 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %189, i32 0, i32 13
+  %191 = load ptr, ptr %190, align 8
+  %192 = icmp ne ptr %191, null
+  br i1 %192, label %193, label %198
 
-192:                                              ; preds = %187
-  %193 = load ptr, ptr %11, align 8
-  %194 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %193, i32 0, i32 13
-  %195 = load ptr, ptr %194, align 8
-  %196 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.34, ptr noundef @.str.12, ptr noundef %195)
-  br label %197
+193:                                              ; preds = %188
+  %194 = load ptr, ptr %11, align 8
+  %195 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %194, i32 0, i32 13
+  %196 = load ptr, ptr %195, align 8
+  %197 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.34, ptr noundef @.str.12, ptr noundef %196)
+  br label %198
 
-197:                                              ; preds = %192, %187
-  %198 = load ptr, ptr %11, align 8
-  %199 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %198, i32 0, i32 16
-  %200 = load i16, ptr %199, align 8
-  %201 = zext i16 %200 to i32
-  %202 = icmp eq i32 %201, 65534
-  br i1 %202, label %203, label %206
+198:                                              ; preds = %193, %188
+  %199 = load ptr, ptr %11, align 8
+  %200 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %199, i32 0, i32 16
+  %201 = load i16, ptr %200, align 8
+  %202 = zext i16 %201 to i32
+  %203 = icmp eq i32 %202, 65534
+  br i1 %203, label %204, label %207
 
-203:                                              ; preds = %197
-  %204 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.36)
-  %205 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.38)
+204:                                              ; preds = %198
+  %205 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.36)
+  %206 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.38)
+  br label %230
+
+207:                                              ; preds = %198
+  %208 = load ptr, ptr %11, align 8
+  %209 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %208, i32 0, i32 16
+  %210 = load i16, ptr %209, align 8
+  %211 = zext i16 %210 to i32
+  %212 = and i32 %211, 32768
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %222
+
+214:                                              ; preds = %207
+  %215 = load ptr, ptr %11, align 8
+  %216 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %215, i32 0, i32 16
+  %217 = load i16, ptr %216, align 8
+  %218 = zext i16 %217 to i32
+  %219 = and i32 %218, -32769
+  %220 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.16, i32 noundef %219)
+  %221 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.39)
   br label %229
 
-206:                                              ; preds = %197
-  %207 = load ptr, ptr %11, align 8
-  %208 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %207, i32 0, i32 16
-  %209 = load i16, ptr %208, align 8
-  %210 = zext i16 %209 to i32
-  %211 = and i32 %210, 32768
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %221
-
-213:                                              ; preds = %206
-  %214 = load ptr, ptr %11, align 8
-  %215 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %214, i32 0, i32 16
-  %216 = load i16, ptr %215, align 8
-  %217 = zext i16 %216 to i32
-  %218 = and i32 %217, -32769
-  %219 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.16, i32 noundef %218)
-  %220 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.39)
-  br label %228
-
-221:                                              ; preds = %206
-  %222 = load ptr, ptr %11, align 8
-  %223 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %222, i32 0, i32 16
-  %224 = load i16, ptr %223, align 8
-  %225 = zext i16 %224 to i32
-  %226 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.16, i32 noundef %225)
-  %227 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.38)
-  br label %228
-
-228:                                              ; preds = %221, %213
+222:                                              ; preds = %207
+  %223 = load ptr, ptr %11, align 8
+  %224 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %223, i32 0, i32 16
+  %225 = load i16, ptr %224, align 8
+  %226 = zext i16 %225 to i32
+  %227 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.35, ptr noundef @.str.16, i32 noundef %226)
+  %228 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.37, ptr noundef @.str.38)
   br label %229
 
-229:                                              ; preds = %228, %203
-  %230 = load ptr, ptr %11, align 8
-  %231 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %230, i32 0, i32 14
-  %232 = load ptr, ptr %231, align 8
-  %233 = icmp ne ptr %232, null
-  br i1 %233, label %234, label %239
+229:                                              ; preds = %222, %214
+  br label %230
 
-234:                                              ; preds = %229
-  %235 = load ptr, ptr %11, align 8
-  %236 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %235, i32 0, i32 14
-  %237 = load ptr, ptr %236, align 8
-  %238 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.40, ptr noundef @.str.12, ptr noundef %237)
-  br label %239
+230:                                              ; preds = %229, %204
+  %231 = load ptr, ptr %11, align 8
+  %232 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %231, i32 0, i32 14
+  %233 = load ptr, ptr %232, align 8
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %240
 
-239:                                              ; preds = %234, %229
-  %240 = load ptr, ptr %11, align 8
-  %241 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %240, i32 0, i32 17
-  %242 = load i64, ptr %241, align 8
-  %243 = icmp ne i64 %242, 0
-  br i1 %243, label %244, label %249
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %11, align 8
+  %237 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %236, i32 0, i32 14
+  %238 = load ptr, ptr %237, align 8
+  %239 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.40, ptr noundef @.str.12, ptr noundef %238)
+  br label %240
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %11, align 8
-  %246 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %245, i32 0, i32 17
-  %247 = load i64, ptr %246, align 8
-  %248 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.41, ptr noundef @.str.42, i64 noundef %247)
-  br label %249
+240:                                              ; preds = %235, %230
+  %241 = load ptr, ptr %11, align 8
+  %242 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %241, i32 0, i32 17
+  %243 = load i64, ptr %242, align 8
+  %244 = icmp ne i64 %243, 0
+  br i1 %244, label %245, label %250
 
-249:                                              ; preds = %244, %239
-  %250 = load ptr, ptr %11, align 8
-  %251 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %250, i32 0, i32 18
-  %252 = load ptr, ptr %251, align 8
-  %253 = icmp ne ptr %252, null
-  br i1 %253, label %254, label %259
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %11, align 8
+  %247 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %246, i32 0, i32 17
+  %248 = load i64, ptr %247, align 8
+  %249 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.41, ptr noundef @.str.42, i64 noundef %248)
+  br label %250
 
-254:                                              ; preds = %249
-  %255 = load ptr, ptr %11, align 8
-  %256 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %255, i32 0, i32 18
-  %257 = load ptr, ptr %256, align 8
-  %258 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.43, ptr noundef @.str.12, ptr noundef %257)
-  br label %259
+250:                                              ; preds = %245, %240
+  %251 = load ptr, ptr %11, align 8
+  %252 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %251, i32 0, i32 18
+  %253 = load ptr, ptr %252, align 8
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %255, label %260
 
-259:                                              ; preds = %254, %249
-  %260 = load ptr, ptr %11, align 8
-  %261 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %260, i32 0, i32 8
-  %262 = load i32, ptr %261, align 8
-  %263 = icmp ne i32 %262, 0
-  br i1 %263, label %264, label %277
+255:                                              ; preds = %250
+  %256 = load ptr, ptr %11, align 8
+  %257 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %256, i32 0, i32 18
+  %258 = load ptr, ptr %257, align 8
+  %259 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.43, ptr noundef @.str.12, ptr noundef %258)
+  br label %260
 
-264:                                              ; preds = %259
-  %265 = load ptr, ptr %11, align 8
-  %266 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %265, i32 0, i32 8
-  %267 = load i32, ptr %266, align 8
-  %268 = load ptr, ptr %11, align 8
-  %269 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %268, i32 0, i32 9
-  %270 = load ptr, ptr %269, align 8
-  %271 = load ptr, ptr %11, align 8
-  %272 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %271, i32 0, i32 10
-  %273 = load ptr, ptr %272, align 8
-  %274 = call ptr @uint32_compressed_to_str(i32 noundef %267, ptr noundef %270, ptr noundef %273)
-  store ptr %274, ptr %12, align 8
-  %275 = load ptr, ptr %12, align 8
-  %276 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.44, ptr noundef @.str.12, ptr noundef %275)
+260:                                              ; preds = %255, %250
+  %261 = load ptr, ptr %11, align 8
+  %262 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %261, i32 0, i32 8
+  %263 = load i32, ptr %262, align 8
+  %264 = icmp ne i32 %263, 0
+  br i1 %264, label %265, label %278
+
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %11, align 8
+  %267 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %266, i32 0, i32 8
+  %268 = load i32, ptr %267, align 8
+  %269 = load ptr, ptr %11, align 8
+  %270 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %269, i32 0, i32 9
+  %271 = load ptr, ptr %270, align 8
+  %272 = load ptr, ptr %11, align 8
+  %273 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %272, i32 0, i32 10
+  %274 = load ptr, ptr %273, align 8
+  %275 = call ptr @uint32_compressed_to_str(i32 noundef %268, ptr noundef %271, ptr noundef %274)
+  store ptr %275, ptr %12, align 8
+  %276 = load ptr, ptr %12, align 8
+  %277 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.44, ptr noundef @.str.12, ptr noundef %276)
   call void @slurm_xfree(ptr noundef %12)
-  br label %277
+  br label %278
 
-277:                                              ; preds = %264, %259
-  %278 = load ptr, ptr %11, align 8
-  %279 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %278, i32 0, i32 20
-  %280 = load ptr, ptr %279, align 8
-  %281 = icmp ne ptr %280, null
-  br i1 %281, label %282, label %287
+278:                                              ; preds = %265, %260
+  %279 = load ptr, ptr %11, align 8
+  %280 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %279, i32 0, i32 20
+  %281 = load ptr, ptr %280, align 8
+  %282 = icmp ne ptr %281, null
+  br i1 %282, label %283, label %288
 
-282:                                              ; preds = %277
-  %283 = load ptr, ptr %11, align 8
-  %284 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %283, i32 0, i32 20
-  %285 = load ptr, ptr %284, align 8
-  %286 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.45, ptr noundef @.str.12, ptr noundef %285)
-  br label %287
+283:                                              ; preds = %278
+  %284 = load ptr, ptr %11, align 8
+  %285 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %284, i32 0, i32 20
+  %286 = load ptr, ptr %285, align 8
+  %287 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.45, ptr noundef @.str.12, ptr noundef %286)
+  br label %288
 
-287:                                              ; preds = %282, %277
-  %288 = load ptr, ptr %11, align 8
-  %289 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %288, i32 0, i32 26
-  %290 = load i32, ptr %289, align 8
-  %291 = icmp ne i32 %290, 0
-  br i1 %291, label %292, label %297
+288:                                              ; preds = %283, %278
+  %289 = load ptr, ptr %11, align 8
+  %290 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %289, i32 0, i32 26
+  %291 = load i32, ptr %290, align 8
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %298
 
-292:                                              ; preds = %287
-  %293 = load ptr, ptr %11, align 8
-  %294 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %293, i32 0, i32 26
-  %295 = load i32, ptr %294, align 8
-  %296 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.46, ptr noundef @.str.16, i32 noundef %295)
-  br label %297
+293:                                              ; preds = %288
+  %294 = load ptr, ptr %11, align 8
+  %295 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %294, i32 0, i32 26
+  %296 = load i32, ptr %295, align 8
+  %297 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.46, ptr noundef @.str.16, i32 noundef %296)
+  br label %298
 
-297:                                              ; preds = %292, %287
-  %298 = load ptr, ptr %11, align 8
-  %299 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %298, i32 0, i32 24
-  %300 = load i32, ptr %299, align 4
-  %301 = icmp ne i32 %300, 0
-  br i1 %301, label %302, label %307
+298:                                              ; preds = %293, %288
+  %299 = load ptr, ptr %11, align 8
+  %300 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %299, i32 0, i32 24
+  %301 = load i32, ptr %300, align 4
+  %302 = icmp ne i32 %301, 0
+  br i1 %302, label %303, label %308
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %11, align 8
-  %304 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %303, i32 0, i32 24
-  %305 = load i32, ptr %304, align 4
-  %306 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.47, ptr noundef @.str.16, i32 noundef %305)
-  br label %307
+303:                                              ; preds = %298
+  %304 = load ptr, ptr %11, align 8
+  %305 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %304, i32 0, i32 24
+  %306 = load i32, ptr %305, align 4
+  %307 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.47, ptr noundef @.str.16, i32 noundef %306)
+  br label %308
 
-307:                                              ; preds = %302, %297
-  %308 = load ptr, ptr %11, align 8
-  %309 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %308, i32 0, i32 27
-  %310 = load i16, ptr %309, align 4
-  %311 = call ptr @job_share_string(i16 noundef zeroext %310)
-  %312 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.48, ptr noundef @.str.12, ptr noundef %311)
-  %313 = load ptr, ptr %11, align 8
-  %314 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %313, i32 0, i32 29
-  %315 = load ptr, ptr %314, align 8
-  %316 = icmp ne ptr %315, null
-  br i1 %316, label %317, label %322
+308:                                              ; preds = %303, %298
+  %309 = load ptr, ptr %11, align 8
+  %310 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %309, i32 0, i32 27
+  %311 = load i16, ptr %310, align 4
+  %312 = call ptr @job_share_string(i16 noundef zeroext %311)
+  %313 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.48, ptr noundef @.str.12, ptr noundef %312)
+  %314 = load ptr, ptr %11, align 8
+  %315 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %314, i32 0, i32 29
+  %316 = load ptr, ptr %315, align 8
+  %317 = icmp ne ptr %316, null
+  br i1 %317, label %318, label %323
 
-317:                                              ; preds = %307
-  %318 = load ptr, ptr %11, align 8
-  %319 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %318, i32 0, i32 29
-  %320 = load ptr, ptr %319, align 8
-  %321 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.49, ptr noundef @.str.12, ptr noundef %320)
-  br label %322
+318:                                              ; preds = %308
+  %319 = load ptr, ptr %11, align 8
+  %320 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %319, i32 0, i32 29
+  %321 = load ptr, ptr %320, align 8
+  %322 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.49, ptr noundef @.str.12, ptr noundef %321)
+  br label %323
 
-322:                                              ; preds = %317, %307
-  %323 = load ptr, ptr %11, align 8
-  %324 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %323, i32 0, i32 30
-  %325 = load ptr, ptr %324, align 8
-  %326 = icmp ne ptr %325, null
-  br i1 %326, label %327, label %332
+323:                                              ; preds = %318, %308
+  %324 = load ptr, ptr %11, align 8
+  %325 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %324, i32 0, i32 30
+  %326 = load ptr, ptr %325, align 8
+  %327 = icmp ne ptr %326, null
+  br i1 %327, label %328, label %333
 
-327:                                              ; preds = %322
-  %328 = load ptr, ptr %11, align 8
-  %329 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %328, i32 0, i32 30
-  %330 = load ptr, ptr %329, align 8
-  %331 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.50, ptr noundef @.str.12, ptr noundef %330)
-  br label %332
+328:                                              ; preds = %323
+  %329 = load ptr, ptr %11, align 8
+  %330 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %329, i32 0, i32 30
+  %331 = load ptr, ptr %330, align 8
+  %332 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.50, ptr noundef @.str.12, ptr noundef %331)
+  br label %333
 
-332:                                              ; preds = %327, %322
-  %333 = load ptr, ptr %11, align 8
-  %334 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %333, i32 0, i32 31
-  %335 = load i16, ptr %334, align 8
-  %336 = zext i16 %335 to i32
-  %337 = icmp ne i32 %336, 65535
-  br i1 %337, label %338, label %344
+333:                                              ; preds = %328, %323
+  %334 = load ptr, ptr %11, align 8
+  %335 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %334, i32 0, i32 31
+  %336 = load i16, ptr %335, align 8
+  %337 = zext i16 %336 to i32
+  %338 = icmp ne i32 %337, 65535
+  br i1 %338, label %339, label %345
 
-338:                                              ; preds = %332
-  %339 = load ptr, ptr %11, align 8
-  %340 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %339, i32 0, i32 31
-  %341 = load i16, ptr %340, align 8
-  %342 = zext i16 %341 to i32
-  %343 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.51, ptr noundef @.str.16, i32 noundef %342)
-  br label %344
+339:                                              ; preds = %333
+  %340 = load ptr, ptr %11, align 8
+  %341 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %340, i32 0, i32 31
+  %342 = load i16, ptr %341, align 8
+  %343 = zext i16 %342 to i32
+  %344 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.51, ptr noundef @.str.16, i32 noundef %343)
+  br label %345
 
-344:                                              ; preds = %338, %332
-  %345 = load ptr, ptr %11, align 8
-  %346 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %345, i32 0, i32 33
-  %347 = load i64, ptr %346, align 8
-  %348 = icmp ne i64 %347, 0
-  br i1 %348, label %349, label %354
+345:                                              ; preds = %339, %333
+  %346 = load ptr, ptr %11, align 8
+  %347 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %346, i32 0, i32 33
+  %348 = load i64, ptr %347, align 8
+  %349 = icmp ne i64 %348, 0
+  br i1 %349, label %350, label %355
 
-349:                                              ; preds = %344
-  %350 = load ptr, ptr %11, align 8
-  %351 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %350, i32 0, i32 33
-  %352 = load i64, ptr %351, align 8
-  %353 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.52, ptr noundef @.str.42, i64 noundef %352)
-  br label %354
+350:                                              ; preds = %345
+  %351 = load ptr, ptr %11, align 8
+  %352 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %351, i32 0, i32 33
+  %353 = load i64, ptr %352, align 8
+  %354 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.52, ptr noundef @.str.42, i64 noundef %353)
+  br label %355
 
-354:                                              ; preds = %349, %344
-  %355 = load ptr, ptr %11, align 8
-  %356 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %355, i32 0, i32 34
-  %357 = load ptr, ptr %356, align 8
-  %358 = icmp ne ptr %357, null
-  br i1 %358, label %359, label %364
+355:                                              ; preds = %350, %345
+  %356 = load ptr, ptr %11, align 8
+  %357 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %356, i32 0, i32 34
+  %358 = load ptr, ptr %357, align 8
+  %359 = icmp ne ptr %358, null
+  br i1 %359, label %360, label %365
 
-359:                                              ; preds = %354
-  %360 = load ptr, ptr %11, align 8
-  %361 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %360, i32 0, i32 34
-  %362 = load ptr, ptr %361, align 8
-  %363 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.53, ptr noundef @.str.12, ptr noundef %362)
-  br label %364
+360:                                              ; preds = %355
+  %361 = load ptr, ptr %11, align 8
+  %362 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %361, i32 0, i32 34
+  %363 = load ptr, ptr %362, align 8
+  %364 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.53, ptr noundef @.str.12, ptr noundef %363)
+  br label %365
 
-364:                                              ; preds = %359, %354
-  %365 = load ptr, ptr %11, align 8
-  %366 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %365, i32 0, i32 35
-  %367 = load ptr, ptr %366, align 8
-  %368 = icmp ne ptr %367, null
-  br i1 %368, label %369, label %374
+365:                                              ; preds = %360, %355
+  %366 = load ptr, ptr %11, align 8
+  %367 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %366, i32 0, i32 35
+  %368 = load ptr, ptr %367, align 8
+  %369 = icmp ne ptr %368, null
+  br i1 %369, label %370, label %375
 
-369:                                              ; preds = %364
-  %370 = load ptr, ptr %11, align 8
-  %371 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %370, i32 0, i32 35
-  %372 = load ptr, ptr %371, align 8
-  %373 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.54, ptr noundef @.str.12, ptr noundef %372)
-  br label %374
+370:                                              ; preds = %365
+  %371 = load ptr, ptr %11, align 8
+  %372 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %371, i32 0, i32 35
+  %373 = load ptr, ptr %372, align 8
+  %374 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.54, ptr noundef @.str.12, ptr noundef %373)
+  br label %375
 
-374:                                              ; preds = %369, %364
-  %375 = load ptr, ptr %11, align 8
-  %376 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %375, i32 0, i32 36
-  %377 = load ptr, ptr %376, align 8
-  %378 = icmp ne ptr %377, null
-  br i1 %378, label %379, label %384
+375:                                              ; preds = %370, %365
+  %376 = load ptr, ptr %11, align 8
+  %377 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %376, i32 0, i32 36
+  %378 = load ptr, ptr %377, align 8
+  %379 = icmp ne ptr %378, null
+  br i1 %379, label %380, label %385
 
-379:                                              ; preds = %374
-  %380 = load ptr, ptr %11, align 8
-  %381 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %380, i32 0, i32 36
-  %382 = load ptr, ptr %381, align 8
-  %383 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.55, ptr noundef @.str.12, ptr noundef %382)
-  br label %384
+380:                                              ; preds = %375
+  %381 = load ptr, ptr %11, align 8
+  %382 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %381, i32 0, i32 36
+  %383 = load ptr, ptr %382, align 8
+  %384 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.55, ptr noundef @.str.12, ptr noundef %383)
+  br label %385
 
-384:                                              ; preds = %379, %374
-  %385 = load ptr, ptr %11, align 8
-  %386 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %385, i32 0, i32 3
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds %struct.identity_t, ptr %387, i32 0, i32 2
-  %389 = load ptr, ptr %388, align 8
-  %390 = icmp ne ptr %389, null
-  br i1 %390, label %391, label %398
+385:                                              ; preds = %380, %375
+  %386 = load ptr, ptr %11, align 8
+  %387 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %386, i32 0, i32 3
+  %388 = load ptr, ptr %387, align 8
+  %389 = getelementptr inbounds %struct.identity_t, ptr %388, i32 0, i32 2
+  %390 = load ptr, ptr %389, align 8
+  %391 = icmp ne ptr %390, null
+  br i1 %391, label %392, label %399
 
-391:                                              ; preds = %384
+392:                                              ; preds = %385
   store i8 1, ptr %8, align 1
-  %392 = load ptr, ptr %11, align 8
-  %393 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %392, i32 0, i32 3
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds %struct.identity_t, ptr %394, i32 0, i32 2
-  %396 = load ptr, ptr %395, align 8
-  %397 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.56, ptr noundef @.str.12, ptr noundef %396)
-  br label %398
+  %393 = load ptr, ptr %11, align 8
+  %394 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %393, i32 0, i32 3
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds %struct.identity_t, ptr %395, i32 0, i32 2
+  %397 = load ptr, ptr %396, align 8
+  %398 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.56, ptr noundef @.str.12, ptr noundef %397)
+  br label %399
 
-398:                                              ; preds = %391, %384
-  %399 = load ptr, ptr %5, align 8
-  call void @slurm_cred_unlock_args(ptr noundef %399)
-  br label %400
+399:                                              ; preds = %392, %385
+  %400 = load ptr, ptr %5, align 8
+  call void @slurm_cred_unlock_args(ptr noundef %400)
+  br label %401
 
-400:                                              ; preds = %398, %172
-  %401 = load i8, ptr %8, align 1
-  %402 = trunc i8 %401 to i1
-  br i1 %402, label %410, label %403
+401:                                              ; preds = %399, %173
+  %402 = load i8, ptr %8, align 1
+  %403 = trunc i8 %402 to i1
+  br i1 %403, label %411, label %404
 
-403:                                              ; preds = %400
-  %404 = load ptr, ptr %4, align 8
-  %405 = getelementptr inbounds %struct.job_env_t, ptr %404, i32 0, i32 11
-  %406 = load i32, ptr %405, align 4
-  %407 = call ptr @uid_to_string(i32 noundef %406)
-  store ptr %407, ptr %13, align 8
-  %408 = load ptr, ptr %13, align 8
-  %409 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.56, ptr noundef @.str.12, ptr noundef %408)
+404:                                              ; preds = %401
+  %405 = load ptr, ptr %4, align 8
+  %406 = getelementptr inbounds %struct.job_env_t, ptr %405, i32 0, i32 11
+  %407 = load i32, ptr %406, align 4
+  %408 = call ptr @uid_to_string(i32 noundef %407)
+  store ptr %408, ptr %13, align 8
+  %409 = load ptr, ptr %13, align 8
+  %410 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef %7, ptr noundef @.str.56, ptr noundef @.str.12, ptr noundef %409)
   call void @slurm_xfree(ptr noundef %13)
-  br label %410
+  br label %411
 
-410:                                              ; preds = %403, %400
-  %411 = load ptr, ptr %7, align 8
-  ret ptr %411
+411:                                              ; preds = %404, %401
+  %412 = load ptr, ptr %7, align 8
+  ret ptr %412
 }
 
 ; Function Attrs: nounwind uwtable
@@ -893,7 +897,7 @@ define internal i32 @_run_spank_job_script(ptr noundef %0, ptr noundef %1, i32 n
 17:                                               ; preds = %3
   %18 = call i32 (ptr, ...) @error(ptr noundef @.str.57, ptr noundef @__func__._run_spank_job_script)
   store i32 -1, ptr %4, align 4
-  br label %114
+  br label %116
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
@@ -933,7 +937,7 @@ define internal i32 @_run_spank_job_script(ptr noundef %0, ptr noundef %1, i32 n
   %37 = load ptr, ptr %5, align 8
   %38 = call i32 (ptr, ...) @error(ptr noundef @.str.59, ptr noundef @__func__._run_spank_job_script, ptr noundef %37)
   store i32 -1, ptr %4, align 4
-  br label %114
+  br label %116
 
 39:                                               ; preds = %33
   %40 = load i32, ptr %8, align 4
@@ -998,69 +1002,71 @@ define internal i32 @_run_spank_job_script(ptr noundef %0, ptr noundef %1, i32 n
   %79 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
   %80 = load i32, ptr %79, align 4
   %81 = call i32 @close(i32 noundef %80)
-  %82 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139), align 8
-  %83 = zext i16 %82 to i32
-  %84 = icmp eq i32 %83, 65534
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %78
-  store i32 -1, ptr %10, align 4
-  br label %90
+  %82 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139
+  %83 = load i16, ptr %82, align 8
+  %84 = zext i16 %83 to i32
+  %85 = icmp eq i32 %84, 65534
+  br i1 %85, label %86, label %87
 
 86:                                               ; preds = %78
-  %87 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139), align 8
-  %88 = zext i16 %87 to i32
-  %89 = mul nsw i32 %88, 1000
-  store i32 %89, ptr %10, align 4
-  br label %90
+  store i32 -1, ptr %10, align 4
+  br label %92
 
-90:                                               ; preds = %86, %85
-  %91 = load ptr, ptr %5, align 8
-  %92 = load i32, ptr %8, align 4
-  %93 = load i32, ptr %10, align 4
-  %94 = call i32 @run_command_waitpid_timeout(ptr noundef %91, i32 noundef %92, ptr noundef %9, i32 noundef %93, i32 noundef 0, i64 noundef 0, ptr noundef %12)
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %99
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 139
+  %89 = load i16, ptr %88, align 8
+  %90 = zext i16 %89 to i32
+  %91 = mul nsw i32 %90, 1000
+  store i32 %91, ptr %10, align 4
+  br label %92
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %5, align 8
-  %98 = call i32 (ptr, ...) @error(ptr noundef @.str.64, ptr noundef %97)
+92:                                               ; preds = %87, %86
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i32, ptr %8, align 4
+  %95 = load i32, ptr %10, align 4
+  %96 = call i32 @run_command_waitpid_timeout(ptr noundef %93, i32 noundef %94, ptr noundef %9, i32 noundef %95, i32 noundef 0, i64 noundef 0, ptr noundef %12)
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %98, label %101
+
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %5, align 8
+  %100 = call i32 (ptr, ...) @error(ptr noundef @.str.64, ptr noundef %99)
   store i32 -1, ptr %4, align 4
-  br label %114
+  br label %116
 
-99:                                               ; preds = %90
-  %100 = load i8, ptr %12, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %103
+101:                                              ; preds = %92
+  %102 = load i8, ptr %12, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %105
 
-102:                                              ; preds = %99
+104:                                              ; preds = %101
   store i32 -1, ptr %4, align 4
-  br label %114
+  br label %116
 
-103:                                              ; preds = %99
-  br label %104
+105:                                              ; preds = %101
+  br label %106
 
-104:                                              ; preds = %103
-  %105 = load i32, ptr %9, align 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %111
+106:                                              ; preds = %105
+  %107 = load i32, ptr %9, align 4
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %5, align 8
-  %109 = load i32, ptr %9, align 4
-  %110 = call i32 (ptr, ...) @error(ptr noundef @.str.65, ptr noundef %108, i32 noundef %109)
-  br label %111
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %5, align 8
+  %111 = load i32, ptr %9, align 4
+  %112 = call i32 (ptr, ...) @error(ptr noundef @.str.65, ptr noundef %110, i32 noundef %111)
+  br label %113
 
-111:                                              ; preds = %107, %104
-  %112 = load ptr, ptr %6, align 8
-  call void @spank_clear_remote_options_env(ptr noundef %112)
-  %113 = load i32, ptr %9, align 4
-  store i32 %113, ptr %4, align 4
-  br label %114
+113:                                              ; preds = %109, %106
+  %114 = load ptr, ptr %6, align 8
+  call void @spank_clear_remote_options_env(ptr noundef %114)
+  %115 = load i32, ptr %9, align 4
+  store i32 %115, ptr %4, align 4
+  br label %116
 
-114:                                              ; preds = %111, %102, %96, %36, %17
-  %115 = load i32, ptr %4, align 4
-  ret i32 %115
+116:                                              ; preds = %113, %104, %98, %36, %17
+  %117 = load i32, ptr %4, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

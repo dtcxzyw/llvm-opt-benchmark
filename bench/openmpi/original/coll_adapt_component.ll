@@ -73,39 +73,40 @@ define internal i32 @adapt_register() #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %6, i32 0, i32 1
   %8 = call i32 @mca_base_component_var_register(ptr noundef %5, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %7)
-  %9 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 10), align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %10, i32 0, i32 3
-  store i32 %9, ptr %11, align 8
-  %12 = load ptr, ptr %1, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %13, i32 0, i32 3
-  %15 = call i32 @mca_base_component_var_register(ptr noundef %12, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %14)
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %16, i32 0, i32 5
-  store i32 64, ptr %17, align 8
-  %18 = load ptr, ptr %1, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %19, i32 0, i32 5
-  %21 = call i32 @mca_base_component_var_register(ptr noundef %18, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %20)
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %22, i32 0, i32 4
-  store i32 1024, ptr %23, align 4
-  %24 = load ptr, ptr %1, align 8
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %25, i32 0, i32 4
-  %27 = call i32 @mca_base_component_var_register(ptr noundef %24, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %26)
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %28, i32 0, i32 6
-  store i32 32, ptr %29, align 4
-  %30 = load ptr, ptr %1, align 8
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %31, i32 0, i32 6
-  %33 = call i32 @mca_base_component_var_register(ptr noundef %30, ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %32)
-  %34 = call i32 @ompi_coll_adapt_ibcast_register()
-  %35 = call i32 @ompi_coll_adapt_ireduce_register()
-  %36 = call i32 @adapt_verify_mca_variables()
-  ret i32 %36
+  %9 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 10
+  %10 = load i32, ptr %9, align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %11, i32 0, i32 3
+  store i32 %10, ptr %12, align 8
+  %13 = load ptr, ptr %1, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %14, i32 0, i32 3
+  %16 = call i32 @mca_base_component_var_register(ptr noundef %13, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %15)
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %17, i32 0, i32 5
+  store i32 64, ptr %18, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %20, i32 0, i32 5
+  %22 = call i32 @mca_base_component_var_register(ptr noundef %19, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %21)
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %23, i32 0, i32 4
+  store i32 1024, ptr %24, align 4
+  %25 = load ptr, ptr %1, align 8
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %26, i32 0, i32 4
+  %28 = call i32 @mca_base_component_var_register(ptr noundef %25, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %27)
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %29, i32 0, i32 6
+  store i32 32, ptr %30, align 4
+  %31 = load ptr, ptr %1, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.mca_coll_adapt_component_t, ptr %32, i32 0, i32 6
+  %34 = call i32 @mca_base_component_var_register(ptr noundef %31, ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %33)
+  %35 = call i32 @ompi_coll_adapt_ibcast_register()
+  %36 = call i32 @ompi_coll_adapt_ireduce_register()
+  %37 = call i32 @adapt_verify_mca_variables()
+  ret i32 %37
 }
 
 declare i32 @ompi_coll_adapt_init_query(i1 noundef zeroext, i1 noundef zeroext) #1

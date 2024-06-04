@@ -130,7 +130,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
 
 8:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.2) #11
-  br label %104
+  br label %106
 
 9:                                                ; preds = %2
   store ptr %0, ptr %6, align 8
@@ -144,7 +144,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
 
 14:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.3) #11
-  br label %104
+  br label %106
 
 15:                                               ; preds = %9
   %16 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef 45) #9
@@ -153,7 +153,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
 
 18:                                               ; preds = %15
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.4) #11
-  br label %104
+  br label %106
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %6, i64 120
@@ -163,7 +163,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
   %23 = tail call i32 @mod_timer(ptr noundef %20, i64 noundef %22) #9
   %24 = and i64 %4, 1024
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %104, label %26
+  br i1 %25, label %106, label %26
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %11, align 8
@@ -207,99 +207,101 @@ define internal i32 @apple_probe(ptr noundef %0, ptr nocapture noundef readonly 
 
 54:                                               ; preds = %45, %31, %26
   %55 = phi i1 [ %30, %26 ], [ %35, %45 ], [ %33, %31 ]
-  br i1 %55, label %56, label %104
+  br i1 %55, label %56, label %106
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %58 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3264, i64 noundef 512) #12
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %104, label %60
+  %57 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %58, i32 noundef 3264, i64 noundef 512) #12
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %106, label %61
 
-60:                                               ; preds = %56
-  %61 = tail call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext -65, ptr noundef nonnull %58, i64 noundef 8, i32 noundef 2, i32 noundef 1) #9
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %64
+61:                                               ; preds = %56
+  %62 = tail call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext -65, ptr noundef nonnull %59, i64 noundef 8, i32 noundef 2, i32 noundef 1) #9
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %60
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.5, i32 noundef %61) #11
-  br label %103
+64:                                               ; preds = %61
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.5, i32 noundef %62) #11
+  br label %105
 
-64:                                               ; preds = %60
-  %65 = icmp slt i32 %61, 8
-  br i1 %65, label %70, label %66
+65:                                               ; preds = %61
+  %66 = icmp slt i32 %62, 8
+  br i1 %66, label %71, label %67
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %58, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp eq i8 %68, 1
-  br i1 %69, label %74, label %70
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds i8, ptr %59, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = icmp eq i8 %69, 1
+  br i1 %70, label %75, label %71
 
-70:                                               ; preds = %66, %64
-  %71 = getelementptr inbounds i8, ptr %58, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %73) #11
-  br label %103
+71:                                               ; preds = %67, %65
+  %72 = getelementptr inbounds i8, ptr %59, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %74) #11
+  br label %105
 
-74:                                               ; preds = %66
-  %75 = tail call noalias dereferenceable_or_null(424) ptr @devm_kmalloc(ptr noundef %5, i64 noundef 424, i32 noundef 3520) #10
-  %76 = getelementptr inbounds i8, ptr %27, i64 160
-  store ptr %75, ptr %76, align 8
-  %77 = icmp eq ptr %75, null
-  br i1 %77, label %103, label %78
+75:                                               ; preds = %67
+  %76 = tail call noalias dereferenceable_or_null(424) ptr @devm_kmalloc(ptr noundef %5, i64 noundef 424, i32 noundef 3520) #10
+  %77 = getelementptr inbounds i8, ptr %27, i64 160
+  store ptr %76, ptr %77, align 8
+  %78 = icmp eq ptr %76, null
+  br i1 %78, label %105, label %79
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %75, i64 408
-  store ptr %0, ptr %79, align 8
-  %80 = load ptr, ptr %76, align 8
-  store ptr @.str.7, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %58, i64 6
-  %82 = load i16, ptr %81, align 2
-  %83 = zext i16 %82 to i32
-  %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 12
-  store i32 %83, ptr %85, align 4
-  %86 = load ptr, ptr %76, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 40
-  store ptr @apple_backlight_led_set, ptr %87, align 8
-  %88 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %89 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %88, i32 noundef 3264, i64 noundef 6) #12
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %96, label %91
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %76, i64 408
+  store ptr %0, ptr %80, align 8
+  %81 = load ptr, ptr %77, align 8
+  store ptr @.str.7, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %59, i64 6
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %85 = load ptr, ptr %77, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  store i32 %84, ptr %86, align 4
+  %87 = load ptr, ptr %77, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  store ptr @apple_backlight_led_set, ptr %88, align 8
+  %89 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %90, i32 noundef 3264, i64 noundef 6) #12
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %98, label %93
 
-91:                                               ; preds = %78
-  store i8 -80, ptr %89, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 1
-  store i8 1, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %89, i64 2
-  store i16 0, ptr %93, align 2
-  %94 = getelementptr inbounds i8, ptr %89, i64 4
-  store i16 0, ptr %94, align 4
-  %95 = tail call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext -80, ptr noundef nonnull %89, i64 noundef 6, i32 noundef 1, i32 noundef 9) #9
-  tail call void @kfree(ptr noundef nonnull %89) #9
-  br label %96
+93:                                               ; preds = %79
+  store i8 -80, ptr %91, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 1
+  store i8 1, ptr %94, align 1
+  %95 = getelementptr inbounds i8, ptr %91, i64 2
+  store i16 0, ptr %95, align 2
+  %96 = getelementptr inbounds i8, ptr %91, i64 4
+  store i16 0, ptr %96, align 4
+  %97 = tail call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext -80, ptr noundef nonnull %91, i64 noundef 6, i32 noundef 1, i32 noundef 9) #9
+  tail call void @kfree(ptr noundef nonnull %91) #9
+  br label %98
 
-96:                                               ; preds = %91, %78
-  %97 = phi i32 [ %95, %91 ], [ -12, %78 ]
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %99, label %100
+98:                                               ; preds = %93, %79
+  %99 = phi i32 [ %97, %93 ], [ -12, %79 ]
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %101, label %102
 
-99:                                               ; preds = %96
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.8, i32 noundef %97) #11
-  br label %103
+101:                                              ; preds = %98
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.8, i32 noundef %99) #11
+  br label %105
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %76, align 8
-  %102 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %5, ptr noundef %101, ptr noundef null) #9
-  br label %103
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %77, align 8
+  %104 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %5, ptr noundef %103, ptr noundef null) #9
+  br label %105
 
-103:                                              ; preds = %100, %99, %74, %70, %63
-  tail call void @kfree(ptr noundef nonnull %58) #9
-  br label %104
+105:                                              ; preds = %102, %101, %75, %71, %64
+  tail call void @kfree(ptr noundef nonnull %59) #9
+  br label %106
 
-104:                                              ; preds = %103, %56, %54, %19, %18, %14, %8
-  %105 = phi i32 [ -12, %8 ], [ %12, %14 ], [ %16, %18 ], [ 0, %19 ], [ 0, %54 ], [ 0, %56 ], [ 0, %103 ]
-  ret i32 %105
+106:                                              ; preds = %105, %56, %54, %19, %18, %14, %8
+  %107 = phi i32 [ -12, %8 ], [ %12, %14 ], [ %16, %18 ], [ 0, %19 ], [ 0, %54 ], [ 0, %56 ], [ 0, %105 ]
+  ret i32 %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1266,27 +1268,28 @@ declare dso_local i32 @hid_hw_raw_request(ptr noundef, i8 noundef zeroext, ptr n
 define internal i32 @apple_backlight_led_set(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %6 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 6) #12
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %14, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 6) #12
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-8:                                                ; preds = %2
-  %9 = trunc i32 %1 to i16
-  store i8 -80, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
-  store i16 %9, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
-  store i16 0, ptr %12, align 4
-  %13 = tail call i32 @hid_hw_raw_request(ptr noundef %4, i8 noundef zeroext -80, ptr noundef nonnull %6, i64 noundef 6, i32 noundef 1, i32 noundef 9) #9
-  tail call void @kfree(ptr noundef nonnull %6) #9
-  br label %14
+9:                                                ; preds = %2
+  %10 = trunc i32 %1 to i16
+  store i8 -80, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 2
+  store i16 %10, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  store i16 0, ptr %13, align 4
+  %14 = tail call i32 @hid_hw_raw_request(ptr noundef %4, i8 noundef zeroext -80, ptr noundef nonnull %7, i64 noundef 6, i32 noundef 1, i32 noundef 9) #9
+  tail call void @kfree(ptr noundef nonnull %7) #9
+  br label %15
 
-14:                                               ; preds = %8, %2
-  %15 = phi i32 [ %13, %8 ], [ -12, %2 ]
-  ret i32 %15
+15:                                               ; preds = %9, %2
+  %16 = phi i32 [ %14, %9 ], [ -12, %2 ]
+  ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid

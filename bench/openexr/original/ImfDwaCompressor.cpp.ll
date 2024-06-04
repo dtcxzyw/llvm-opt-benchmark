@@ -2288,7 +2288,8 @@ entry:
   store i32 %width, ptr %width.addr, align 4
   store i32 %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_isNativeXdr = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 1
   store i8 0, ptr %_isNativeXdr, align 8
   %_packedAcCount = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 2
@@ -2296,23 +2297,23 @@ entry:
   %_packedDcCount = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 3
   store i32 0, ptr %_packedDcCount, align 8
   %_packedAc = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %packedAc.addr, align 8
-  store ptr %0, ptr %_packedAc, align 8
+  %1 = load ptr, ptr %packedAc.addr, align 8
+  store ptr %1, ptr %_packedAc, align 8
   %_packedAcEnd = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %packedAcEnd.addr, align 8
-  store ptr %1, ptr %_packedAcEnd, align 8
+  %2 = load ptr, ptr %packedAcEnd.addr, align 8
+  store ptr %2, ptr %_packedAcEnd, align 8
   %_packedDc = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %packedDc.addr, align 8
-  store ptr %2, ptr %_packedDc, align 8
+  %3 = load ptr, ptr %packedDc.addr, align 8
+  store ptr %3, ptr %_packedDc, align 8
   %_toLinear = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %toLinear.addr, align 8
-  store ptr %3, ptr %_toLinear, align 8
+  %4 = load ptr, ptr %toLinear.addr, align 8
+  store ptr %4, ptr %_toLinear, align 8
   %_width = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 8
-  %4 = load i32, ptr %width.addr, align 4
-  store i32 %4, ptr %_width, align 8
+  %5 = load i32, ptr %width.addr, align 4
+  store i32 %5, ptr %_width, align 8
   %_height = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 9
-  %5 = load i32, ptr %height.addr, align 4
-  store i32 %5, ptr %_height, align 4
+  %6 = load i32, ptr %height.addr, align 4
+  store i32 %6, ptr %_height, align 4
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
   call void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs) #3
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 11
@@ -2320,8 +2321,8 @@ entry:
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 12
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_toLinear2 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %_toLinear2, align 8
-  %cmp = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_toLinear2, align 8
+  %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2330,8 +2331,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %7 = load i8, ptr @_ZN7Imf_3_2L27GLOBAL_SYSTEM_LITTLE_ENDIANE, align 1
-  %tobool = trunc i8 %7 to i1
+  %8 = load i8, ptr @_ZN7Imf_3_2L27GLOBAL_SYSTEM_LITTLE_ENDIANE, align 1
+  %tobool = trunc i8 %8 to i1
   %_isNativeXdr4 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %_isNativeXdr4, align 8
@@ -2374,7 +2375,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 12
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 11
@@ -7197,19 +7199,20 @@ entry:
   store i32 %width, ptr %width.addr, align 4
   store i32 %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_quantBaseError = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 1
-  %0 = load float, ptr %quantBaseError.addr, align 4
-  store float %0, ptr %_quantBaseError, align 8
+  %1 = load float, ptr %quantBaseError.addr, align 4
+  store float %1, ptr %_quantBaseError, align 8
   %_width = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %width.addr, align 4
-  store i32 %1, ptr %_width, align 4
+  %2 = load i32, ptr %width.addr, align 4
+  store i32 %2, ptr %_width, align 4
   %_height = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %height.addr, align 4
-  store i32 %2, ptr %_height, align 8
+  %3 = load i32, ptr %height.addr, align 4
+  store i32 %3, ptr %_height, align 8
   %_toNonlinear = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %toNonlinear.addr, align 8
-  store ptr %3, ptr %_toNonlinear, align 8
+  %4 = load ptr, ptr %toNonlinear.addr, align 8
+  store ptr %4, ptr %_toNonlinear, align 8
   %_numAcComp = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 5
   store i32 0, ptr %_numAcComp, align 8
   %_numDcComp = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 6
@@ -7221,11 +7224,11 @@ entry:
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_packedAc = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 10
-  %4 = load ptr, ptr %packedAc.addr, align 8
-  store ptr %4, ptr %_packedAc, align 8
+  %5 = load ptr, ptr %packedAc.addr, align 8
+  store ptr %5, ptr %_packedAc, align 8
   %_packedDc = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 11
-  %5 = load ptr, ptr %packedDc.addr, align 8
-  store ptr %5, ptr %_packedDc, align 8
+  %6 = load ptr, ptr %packedDc.addr, align 8
+  store ptr %6, ptr %_packedDc, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %jpegQuantTableY, ptr align 16 @__const.LossyDctEncoderBase.jpegQuantTableY, i64 256, i1 false)
   store i32 10, ptr %jpegQuantTableYMin, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %jpegQuantTableCbCr, ptr align 16 @__const.LossyDctEncoderBase.jpegQuantTableCbCr, i64 256, i1 false)
@@ -7234,49 +7237,49 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %idx, align 4
-  %cmp = icmp slt i32 %6, 64
+  %7 = load i32, ptr %idx, align 4
+  %cmp = icmp slt i32 %7, 64
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load i32, ptr %idx, align 4
-  %idxprom = sext i32 %7 to i64
+  %8 = load i32, ptr %idx, align 4
+  %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds [64 x i32], ptr %jpegQuantTableY, i64 0, i64 %idxprom
-  %8 = load i32, ptr %arrayidx, align 4
-  %conv = sitofp i32 %8 to float
-  %9 = load i32, ptr %jpegQuantTableYMin, align 4
-  %conv2 = sitofp i32 %9 to float
+  %9 = load i32, ptr %arrayidx, align 4
+  %conv = sitofp i32 %9 to float
+  %10 = load i32, ptr %jpegQuantTableYMin, align 4
+  %conv2 = sitofp i32 %10 to float
   %div = fdiv float %conv, %conv2
   %_quantTableY = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 12
-  %10 = load i32, ptr %idx, align 4
-  %idxprom3 = sext i32 %10 to i64
+  %11 = load i32, ptr %idx, align 4
+  %idxprom3 = sext i32 %11 to i64
   %arrayidx4 = getelementptr inbounds [64 x float], ptr %_quantTableY, i64 0, i64 %idxprom3
   store float %div, ptr %arrayidx4, align 4
-  %11 = load i32, ptr %idx, align 4
-  %idxprom5 = sext i32 %11 to i64
+  %12 = load i32, ptr %idx, align 4
+  %idxprom5 = sext i32 %12 to i64
   %arrayidx6 = getelementptr inbounds [64 x i32], ptr %jpegQuantTableCbCr, i64 0, i64 %idxprom5
-  %12 = load i32, ptr %arrayidx6, align 4
-  %conv7 = sitofp i32 %12 to float
-  %13 = load i32, ptr %jpegQuantTableCbCrMin, align 4
-  %conv8 = sitofp i32 %13 to float
+  %13 = load i32, ptr %arrayidx6, align 4
+  %conv7 = sitofp i32 %13 to float
+  %14 = load i32, ptr %jpegQuantTableCbCrMin, align 4
+  %conv8 = sitofp i32 %14 to float
   %div9 = fdiv float %conv7, %conv8
   %_quantTableCbCr = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 13
-  %14 = load i32, ptr %idx, align 4
-  %idxprom10 = sext i32 %14 to i64
+  %15 = load i32, ptr %idx, align 4
+  %idxprom10 = sext i32 %15 to i64
   %arrayidx11 = getelementptr inbounds [64 x float], ptr %_quantTableCbCr, i64 0, i64 %idxprom10
   store float %div9, ptr %arrayidx11, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %15 = load i32, ptr %idx, align 4
-  %inc = add nsw i32 %15, 1
+  %16 = load i32, ptr %idx, align 4
+  %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !26
 
 for.end:                                          ; preds = %for.cond
   %_quantBaseError12 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 1
-  %16 = load float, ptr %_quantBaseError12, align 8
-  %cmp13 = fcmp olt float %16, 0.000000e+00
+  %17 = load float, ptr %_quantBaseError12, align 8
+  %cmp13 = fcmp olt float %17, 0.000000e+00
   br i1 %cmp13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
@@ -7303,7 +7306,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 8
@@ -9713,19 +9717,20 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_acCompression = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %acCompression.addr, align 4
-  store i32 %1, ptr %_acCompression, align 8
+  %2 = load i32, ptr %acCompression.addr, align 4
+  store i32 %2, ptr %_acCompression, align 8
   %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %maxScanLineSize.addr, align 4
-  store i32 %2, ptr %_maxScanLineSize, align 4
+  %3 = load i32, ptr %maxScanLineSize.addr, align 4
+  store i32 %3, ptr %_maxScanLineSize, align 4
   %_numScanLines = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %numScanLines.addr, align 4
-  store i32 %3, ptr %_numScanLines, align 8
+  %4 = load i32, ptr %numScanLines.addr, align 4
+  store i32 %4, ptr %_numScanLines, align 8
   %_channels = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %hdr.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %4)
+  %5 = load ptr, ptr %hdr.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -9758,106 +9763,106 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %_zip = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 20
   store ptr null, ptr %_zip, align 8
   %_zipLevel = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 21
-  %5 = load ptr, ptr %hdr.addr, align 8
-  %call5 = invoke noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %5)
+  %6 = load ptr, ptr %hdr.addr, align 8
+  %call5 = invoke noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %6)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   store i32 %call5, ptr %_zipLevel, align 8
   %_dwaCompressionLevel = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 22
-  %6 = load ptr, ptr %hdr.addr, align 8
-  %call7 = invoke noundef float @_ZNK7Imf_3_26Header19dwaCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %6)
+  %7 = load ptr, ptr %hdr.addr, align 8
+  %call7 = invoke noundef float @_ZNK7Imf_3_26Header19dwaCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %7)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   store float %call7, ptr %_dwaCompressionLevel, align 4
-  %7 = load ptr, ptr %hdr.addr, align 8
-  %call9 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %7)
+  %8 = load ptr, ptr %hdr.addr, align 8
+  %call9 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %8)
           to label %invoke.cont8 unwind label %lpad3
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %min = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call9, i32 0, i32 0
   %x = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min, i32 0, i32 0
-  %8 = load i32, ptr %x, align 4
+  %9 = load i32, ptr %x, align 4
   %_min = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 4
   %arrayidx = getelementptr inbounds [2 x i32], ptr %_min, i64 0, i64 0
-  store i32 %8, ptr %arrayidx, align 4
-  %9 = load ptr, ptr %hdr.addr, align 8
-  %call11 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %9)
+  store i32 %9, ptr %arrayidx, align 4
+  %10 = load ptr, ptr %hdr.addr, align 8
+  %call11 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %10)
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %min12 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call11, i32 0, i32 0
   %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min12, i32 0, i32 1
-  %10 = load i32, ptr %y, align 4
+  %11 = load i32, ptr %y, align 4
   %_min13 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 4
   %arrayidx14 = getelementptr inbounds [2 x i32], ptr %_min13, i64 0, i64 1
-  store i32 %10, ptr %arrayidx14, align 4
-  %11 = load ptr, ptr %hdr.addr, align 8
-  %call16 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %11)
+  store i32 %11, ptr %arrayidx14, align 4
+  %12 = load ptr, ptr %hdr.addr, align 8
+  %call16 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %12)
           to label %invoke.cont15 unwind label %lpad3
 
 invoke.cont15:                                    ; preds = %invoke.cont10
   %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call16, i32 0, i32 1
   %x17 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max, i32 0, i32 0
-  %12 = load i32, ptr %x17, align 4
+  %13 = load i32, ptr %x17, align 4
   %_max = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 5
   %arrayidx18 = getelementptr inbounds [2 x i32], ptr %_max, i64 0, i64 0
-  store i32 %12, ptr %arrayidx18, align 4
-  %13 = load ptr, ptr %hdr.addr, align 8
-  %call20 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %13)
+  store i32 %13, ptr %arrayidx18, align 4
+  %14 = load ptr, ptr %hdr.addr, align 8
+  %call20 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %14)
           to label %invoke.cont19 unwind label %lpad3
 
 invoke.cont19:                                    ; preds = %invoke.cont15
   %max21 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call20, i32 0, i32 1
   %y22 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max21, i32 0, i32 1
-  %14 = load i32, ptr %y22, align 4
+  %15 = load i32, ptr %y22, align 4
   %_max23 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 5
   %arrayidx24 = getelementptr inbounds [2 x i32], ptr %_max23, i64 0, i64 1
-  store i32 %14, ptr %arrayidx24, align 4
+  store i32 %15, ptr %arrayidx24, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont19
-  %15 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %15, 3
+  %16 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %16, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %_planarUncBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 18
-  %16 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %16 to i64
+  %17 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %17 to i64
   %arrayidx25 = getelementptr inbounds [3 x ptr], ptr %_planarUncBuffer, i64 0, i64 %idxprom
   store ptr null, ptr %arrayidx25, align 8
   %_planarUncBufferSize = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 19
-  %17 = load i32, ptr %i, align 4
-  %idxprom26 = sext i32 %17 to i64
+  %18 = load i32, ptr %i, align 4
+  %idxprom26 = sext i32 %18 to i64
   %arrayidx27 = getelementptr inbounds [3 x i64], ptr %_planarUncBufferSize, i64 0, i64 %idxprom26
   store i64 0, ptr %arrayidx27, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
+  %19 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !48
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont15, %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN7Imf_3_213DwaCompressor10ClassifierESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_channelRules) #3
   call void @_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_cscSets) #3
   call void @_ZNSt6vectorIN7Imf_3_213DwaCompressor11ChannelDataESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_channelData) #3
@@ -10039,55 +10044,56 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_packedAcBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %_packedAcBuffer, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_packedAcBuffer, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #20
+  call void @_ZdaPv(ptr noundef %1) #20
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %_packedDcBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 12
-  %1 = load ptr, ptr %_packedDcBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_packedDcBuffer, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %1) #20
+  call void @_ZdaPv(ptr noundef %2) #20
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %_rleBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 14
-  %2 = load ptr, ptr %_rleBuffer, align 8
-  %isnull5 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_rleBuffer, align 8
+  %isnull5 = icmp eq ptr %3, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end4
-  call void @_ZdaPv(ptr noundef %2) #20
+  call void @_ZdaPv(ptr noundef %3) #20
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 16
-  %3 = load ptr, ptr %_outBuffer, align 8
-  %isnull8 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_outBuffer, align 8
+  %isnull8 = icmp eq ptr %4, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
 
 delete.notnull9:                                  ; preds = %delete.end7
-  call void @_ZdaPv(ptr noundef %3) #20
+  call void @_ZdaPv(ptr noundef %4) #20
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %delete.end7
   %_zip = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 20
-  %4 = load ptr, ptr %_zip, align 8
-  %isnull11 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_zip, align 8
+  %isnull11 = icmp eq ptr %5, null
   br i1 %isnull11, label %delete.end13, label %delete.notnull12
 
 delete.notnull12:                                 ; preds = %delete.end10
-  call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #3
-  call void @_ZdlPv(ptr noundef %4) #20
+  call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #3
+  call void @_ZdlPv(ptr noundef %5) #20
   br label %delete.end13
 
 delete.end13:                                     ; preds = %delete.notnull12, %delete.end10
@@ -10095,29 +10101,29 @@ delete.end13:                                     ; preds = %delete.notnull12, %
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %delete.end13
-  %5 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %5, 3
+  %6 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %6, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %_planarUncBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 18
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
+  %7 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %_planarUncBuffer, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  %isnull14 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %arrayidx, align 8
+  %isnull14 = icmp eq ptr %8, null
   br i1 %isnull14, label %delete.end16, label %delete.notnull15
 
 delete.notnull15:                                 ; preds = %for.body
-  call void @_ZdaPv(ptr noundef %7) #20
+  call void @_ZdaPv(ptr noundef %8) #20
   br label %delete.end16
 
 delete.end16:                                     ; preds = %delete.notnull15, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end16
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
+  %9 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !49
 
@@ -15592,7 +15598,8 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr noundef nonnull align 8 dereferenceable(640) %this1, float noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 8
   invoke void @_ZNSt6vectorIN7Imf_3_29PixelTypeESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %_type, ptr noundef nonnull align 4 dereferenceable(4) %typeR.addr)
           to label %invoke.cont unwind label %lpad
@@ -15609,32 +15616,32 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %rowPtrsR.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %rowPtrsR.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   %_rowPtrs7 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %rowPtrsG.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs7, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %8 = load ptr, ptr %rowPtrsG.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %_rowPtrs9 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 7
-  %8 = load ptr, ptr %rowPtrsB.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %9 = load ptr, ptr %rowPtrsB.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs9, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont5, %invoke.cont3, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this1) #3
   br label %eh.resume
 
@@ -15727,10 +15734,11 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr noundef nonnull align 8 dereferenceable(640) %this1, float noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %rowPtrs.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %rowPtrs.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -15742,12 +15750,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this1) #3
   br label %eh.resume
 
@@ -18342,22 +18350,23 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %rowPtrsR.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %rowPtrsR.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_rowPtrs2 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
-  %7 = load ptr, ptr %rowPtrsG.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs2, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %8 = load ptr, ptr %rowPtrsG.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs2, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %_rowPtrs4 = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
-  %8 = load ptr, ptr %rowPtrsB.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs4, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %9 = load ptr, ptr %rowPtrsB.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs4, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -18379,12 +18388,12 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont5, %invoke.cont3, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this1) #3
   br label %eh.resume
 
@@ -18459,10 +18468,11 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
-  %6 = load ptr, ptr %rowPtrs.addr, align 8
-  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = load ptr, ptr %rowPtrs.addr, align 8
+  invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -18474,12 +18484,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this1) #3
   br label %eh.resume
 

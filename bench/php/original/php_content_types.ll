@@ -29,24 +29,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @php_default_post_reader() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1), align 8
-  %2 = call i32 @strcmp(ptr noundef %1, ptr noundef @.str) #3
-  %3 = icmp ne i32 %2, 0
-  br i1 %3, label %9, label %4
+  %1 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = call i32 @strcmp(ptr noundef %2, ptr noundef @.str) #3
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 11), align 8
-  %6 = icmp eq ptr null, %5
-  br i1 %6, label %7, label %8
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct._sapi_globals_struct, ptr @sapi_globals, i32 0, i32 1, i32 11
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr null, %7
+  br i1 %8, label %9, label %10
 
-7:                                                ; preds = %4
+9:                                                ; preds = %5
   call void @sapi_read_standard_form_data()
-  br label %8
+  br label %10
 
-8:                                                ; preds = %7, %4
-  br label %9
+10:                                               ; preds = %9, %5
+  br label %11
 
-9:                                                ; preds = %8, %0
+11:                                               ; preds = %10, %0
   ret void
 }
 

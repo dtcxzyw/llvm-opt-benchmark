@@ -409,11 +409,11 @@ define i32 @opal_finalize_util() #0 {
 
 8:                                                ; preds = %5
   store i32 -1, ptr %1, align 4
-  br label %15
+  br label %17
 
 9:                                                ; preds = %5
   store i32 0, ptr %1, align 4
-  br label %15
+  br label %17
 
 10:                                               ; preds = %0
   call void @opal_finalize_cleanup_domain(ptr noundef @opal_init_util_domain)
@@ -425,15 +425,17 @@ define i32 @opal_finalize_util() #0 {
 
 12:                                               ; preds = %11
   %13 = call i32 @opal_class_finalize()
-  %14 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  call void @free(ptr noundef %14) #4
-  store ptr null, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
+  %14 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %15) #4
+  %16 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  store ptr null, ptr %16, align 8
   store i32 0, ptr %1, align 4
-  br label %15
+  br label %17
 
-15:                                               ; preds = %12, %9, %8
-  %16 = load i32, ptr %1, align 4
-  ret i32 %16
+17:                                               ; preds = %12, %9, %8
+  %18 = load i32, ptr %1, align 4
+  ret i32 %18
 }
 
 declare i32 @opal_class_finalize() #2

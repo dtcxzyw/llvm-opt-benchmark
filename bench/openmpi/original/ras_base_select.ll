@@ -23,39 +23,44 @@ define i32 @prte_ras_base_select() #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11), align 4
-  %5 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %4, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 12), ptr noundef %3, ptr noundef %2, ptr noundef null)
-  %6 = icmp ne i32 0, %5
-  br i1 %6, label %7, label %8
+  %4 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 11
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ras_base_framework, i32 0, i32 12
+  %7 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  %8 = icmp ne i32 0, %7
+  br i1 %8, label %9, label %10
 
-7:                                                ; preds = %0
+9:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %25
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1), align 8
-  %11 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ne ptr null, %12
-  br i1 %13, label %14, label %19
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr null, %16
+  br i1 %17, label %18, label %24
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1), align 8
-  %16 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %17()
-  store i32 %18, ptr %1, align 4
-  br label %20
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds %struct.prte_ras_base_t, ptr @prte_ras_base, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.prte_ras_base_module_2_0_0_t, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call i32 %22()
+  store i32 %23, ptr %1, align 4
+  br label %25
 
-19:                                               ; preds = %8
+24:                                               ; preds = %10
   store i32 0, ptr %1, align 4
-  br label %20
+  br label %25
 
-20:                                               ; preds = %19, %14, %7
-  %21 = load i32, ptr %1, align 4
-  ret i32 %21
+25:                                               ; preds = %24, %18, %9
+  %26 = load i32, ptr %1, align 4
+  ret i32 %26
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

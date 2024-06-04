@@ -130,69 +130,73 @@ define dso_local void @serio_rescan(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef i32 @serio_queue_event(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @serio_event_list, i64 0, i32 1), align 8
-  %6 = icmp eq ptr %5, @serio_event_list
-  br i1 %6, label %20, label %7
+  %5 = getelementptr inbounds %struct.list_head, ptr @serio_event_list, i64 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, @serio_event_list
+  br i1 %7, label %21, label %8
 
-7:                                                ; preds = %16, %3
-  %8 = phi ptr [ %18, %16 ], [ %5, %3 ]
-  %9 = getelementptr i8, ptr %8, i64 -16
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %0
-  br i1 %11, label %12, label %16
+8:                                                ; preds = %17, %3
+  %9 = phi ptr [ %19, %17 ], [ %6, %3 ]
+  %10 = getelementptr i8, ptr %9, i64 -16
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, %0
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %7
-  %13 = getelementptr i8, ptr %8, i64 -24
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, %2
-  br i1 %15, label %38, label %20
+13:                                               ; preds = %8
+  %14 = getelementptr i8, ptr %9, i64 -24
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, %2
+  br i1 %16, label %42, label %21
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, @serio_event_list
-  br i1 %19, label %20, label %7, !llvm.loop !6
+17:                                               ; preds = %8
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, @serio_event_list
+  br i1 %20, label %21, label %8, !llvm.loop !6
 
-20:                                               ; preds = %16, %12, %3
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %22 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 2080, i64 noundef 40) #11
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %17, %13, %3
+  %22 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %23 = load ptr, ptr %22, align 16
+  %24 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 2080, i64 noundef 40) #11
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %28
 
-24:                                               ; preds = %20
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %2) #12
-  br label %38
+26:                                               ; preds = %21
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %2) #12
+  br label %42
 
-26:                                               ; preds = %20
-  %27 = tail call zeroext i1 @try_module_get(ptr noundef %1) #10
-  br i1 %27, label %30, label %28
+28:                                               ; preds = %21
+  %29 = tail call zeroext i1 @try_module_get(ptr noundef %1) #10
+  br i1 %29, label %32, label %30
 
-28:                                               ; preds = %26
-  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %2) #12
-  tail call void @kfree(ptr noundef nonnull %22) #10
-  br label %38
+30:                                               ; preds = %28
+  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %2) #12
+  tail call void @kfree(ptr noundef nonnull %24) #10
+  br label %42
 
-30:                                               ; preds = %26
-  store i32 %2, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %22, i64 24
-  %34 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @serio_event_list, i64 0, i32 1), align 8
-  store ptr %33, ptr getelementptr inbounds (%struct.list_head, ptr @serio_event_list, i64 0, i32 1), align 8
-  store ptr @serio_event_list, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr %34, ptr %35, align 8
-  store volatile ptr %33, ptr %34, align 8
-  %36 = load ptr, ptr @system_long_wq, align 8
-  %37 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %36, ptr noundef nonnull @serio_event_work) #10
-  br label %38
+32:                                               ; preds = %28
+  store i32 %2, ptr %24, align 8
+  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %1, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %24, i64 24
+  %36 = getelementptr inbounds %struct.list_head, ptr @serio_event_list, i64 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.list_head, ptr @serio_event_list, i64 0, i32 1
+  store ptr %35, ptr %38, align 8
+  store ptr @serio_event_list, ptr %35, align 8
+  %39 = getelementptr inbounds i8, ptr %24, i64 32
+  store ptr %37, ptr %39, align 8
+  store volatile ptr %35, ptr %37, align 8
+  %40 = load ptr, ptr @system_long_wq, align 8
+  %41 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %40, ptr noundef nonnull @serio_event_work) #10
+  br label %42
 
-38:                                               ; preds = %30, %28, %24, %12
-  %39 = phi i32 [ 0, %12 ], [ 0, %30 ], [ -22, %28 ], [ -12, %24 ]
+42:                                               ; preds = %32, %30, %26, %13
+  %43 = phi i32 [ 0, %13 ], [ 0, %32 ], [ -22, %30 ], [ -12, %26 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %4) #10
-  ret i32 %39
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1836,7 +1840,7 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   tail call void @mutex_lock(ptr noundef nonnull @serio_mutex) #10
   br label %2
 
-2:                                                ; preds = %148, %1
+2:                                                ; preds = %150, %1
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
   %4 = load volatile ptr, ptr @serio_event_list, align 8
   %5 = icmp eq ptr %4, @serio_event_list
@@ -1858,16 +1862,16 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   %13 = phi ptr [ null, %2 ], [ %7, %6 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %3) #10
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %151, label %15
+  br i1 %14, label %153, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %13, align 8
-  switch i32 %16, label %123 [
+  switch i32 %16, label %125 [
     i32 3, label %17
-    i32 1, label %46
-    i32 0, label %50
-    i32 2, label %85
-    i32 4, label %114
+    i32 1, label %48
+    i32 0, label %52
+    i32 2, label %87
+    i32 4, label %116
   ]
 
 17:                                               ; preds = %15
@@ -1895,202 +1899,204 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
 
 30:                                               ; preds = %23, %17
   %31 = getelementptr inbounds i8, ptr %19, i64 1072
-  %32 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @serio_list, i64 0, i32 1), align 8
-  store ptr %31, ptr getelementptr inbounds (%struct.list_head, ptr @serio_list, i64 0, i32 1), align 8
+  %32 = getelementptr inbounds %struct.list_head, ptr @serio_list, i64 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.list_head, ptr @serio_list, i64 0, i32 1
+  store ptr %31, ptr %34, align 8
   store ptr @serio_list, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %19, i64 1080
-  store ptr %32, ptr %33, align 8
-  store volatile ptr %31, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %19, i64 240
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %39, label %37
+  %35 = getelementptr inbounds i8, ptr %19, i64 1080
+  store ptr %33, ptr %35, align 8
+  store volatile ptr %31, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %19, i64 240
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %41, label %39
 
-37:                                               ; preds = %30
-  %38 = tail call i32 %35(ptr noundef %19) #10
-  br label %39
+39:                                               ; preds = %30
+  %40 = tail call i32 %37(ptr noundef %19) #10
+  br label %41
 
-39:                                               ; preds = %37, %30
-  %40 = getelementptr inbounds i8, ptr %19, i64 344
-  %41 = tail call i32 @device_add(ptr noundef %40) #10
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %123, label %43
+41:                                               ; preds = %39, %30
+  %42 = getelementptr inbounds i8, ptr %19, i64 344
+  %43 = tail call i32 @device_add(ptr noundef %42) #10
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %125, label %45
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %19, i64 40
-  %45 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.34, ptr noundef %44, ptr noundef %45, i32 noundef %41) #12
-  br label %123
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %19, i64 40
+  %47 = getelementptr inbounds i8, ptr %19, i64 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %42, ptr noundef nonnull @.str.34, ptr noundef %46, ptr noundef %47, i32 noundef %43) #12
+  br label %125
 
-46:                                               ; preds = %15
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %48)
-  br label %123
+48:                                               ; preds = %15
+  %49 = getelementptr inbounds i8, ptr %13, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %50)
+  br label %125
 
-50:                                               ; preds = %15
-  %51 = getelementptr inbounds i8, ptr %13, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 280
-  %54 = load volatile ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, %53
-  br i1 %55, label %74, label %56
+52:                                               ; preds = %15
+  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 280
+  %56 = load volatile ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, %55
+  br i1 %57, label %76, label %58
 
-56:                                               ; preds = %62, %50
-  %57 = phi ptr [ %63, %62 ], [ %52, %50 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 280
-  %59 = load volatile ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %58
-  %61 = getelementptr i8, ptr %59, i64 -264
-  br i1 %60, label %64, label %62
+58:                                               ; preds = %64, %52
+  %59 = phi ptr [ %65, %64 ], [ %54, %52 ]
+  %60 = getelementptr inbounds i8, ptr %59, i64 280
+  %61 = load volatile ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, %60
+  %63 = getelementptr i8, ptr %61, i64 -264
+  br i1 %62, label %66, label %64
 
-62:                                               ; preds = %70, %56
-  %63 = phi ptr [ %61, %56 ], [ %71, %70 ]
-  br label %56, !llvm.loop !10
+64:                                               ; preds = %72, %58
+  %65 = phi ptr [ %63, %58 ], [ %73, %72 ]
+  br label %58, !llvm.loop !10
 
-64:                                               ; preds = %56
-  %65 = icmp eq ptr %57, %52
-  br i1 %65, label %70, label %66
+66:                                               ; preds = %58
+  %67 = icmp eq ptr %59, %54
+  br i1 %67, label %72, label %68
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %57, i64 256
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %57, i64 344
-  tail call void @device_release_driver(ptr noundef %69) #10
-  tail call fastcc void @serio_destroy_port(ptr noundef %57)
-  br label %70
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %59, i64 256
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %59, i64 344
+  tail call void @device_release_driver(ptr noundef %71) #10
+  tail call fastcc void @serio_destroy_port(ptr noundef %59)
+  br label %72
 
-70:                                               ; preds = %66, %64
-  %71 = phi ptr [ %68, %66 ], [ %57, %64 ]
-  %72 = load volatile ptr, ptr %53, align 8
-  %73 = icmp eq ptr %72, %53
-  br i1 %73, label %74, label %62
+72:                                               ; preds = %68, %66
+  %73 = phi ptr [ %70, %68 ], [ %59, %66 ]
+  %74 = load volatile ptr, ptr %55, align 8
+  %75 = icmp eq ptr %74, %55
+  br i1 %75, label %76, label %64
 
-74:                                               ; preds = %70, %50
-  %75 = getelementptr inbounds i8, ptr %52, i64 344
-  tail call void @device_release_driver(ptr noundef %75) #10
-  %76 = load ptr, ptr %51, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 344
-  %78 = tail call i32 @device_attach(ptr noundef %77) #10
-  %79 = icmp slt i32 %78, 0
-  %80 = icmp ne i32 %78, -517
-  %81 = and i1 %79, %80
-  br i1 %81, label %82, label %123
+76:                                               ; preds = %72, %52
+  %77 = getelementptr inbounds i8, ptr %54, i64 344
+  tail call void @device_release_driver(ptr noundef %77) #10
+  %78 = load ptr, ptr %53, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 344
+  %80 = tail call i32 @device_attach(ptr noundef %79) #10
+  %81 = icmp slt i32 %80, 0
+  %82 = icmp ne i32 %80, -517
+  %83 = and i1 %81, %82
+  br i1 %83, label %84, label %125
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds i8, ptr %76, i64 40
-  %84 = getelementptr inbounds i8, ptr %76, i64 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %77, ptr noundef nonnull @.str.25, ptr noundef %83, ptr noundef %84, i32 noundef %78) #12
-  br label %123
+84:                                               ; preds = %76
+  %85 = getelementptr inbounds i8, ptr %78, i64 40
+  %86 = getelementptr inbounds i8, ptr %78, i64 8
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %79, ptr noundef nonnull @.str.25, ptr noundef %85, ptr noundef %86, i32 noundef %80) #12
+  br label %125
 
-85:                                               ; preds = %15
-  %86 = getelementptr inbounds i8, ptr %13, i64 8
-  %87 = load ptr, ptr %86, align 8
-  br label %88
+87:                                               ; preds = %15
+  %88 = getelementptr inbounds i8, ptr %13, i64 8
+  %89 = load ptr, ptr %88, align 8
+  br label %90
 
-88:                                               ; preds = %111, %85
-  %89 = phi ptr [ %87, %85 ], [ %112, %111 ]
-  %90 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %89)
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %93, label %92
+90:                                               ; preds = %113, %87
+  %91 = phi ptr [ %89, %87 ], [ %114, %113 ]
+  %92 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %91)
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %95, label %94
 
-92:                                               ; preds = %93, %88
-  br label %99
+94:                                               ; preds = %95, %90
+  br label %101
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %89, i64 280
-  %95 = load volatile ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, %94
-  br i1 %96, label %92, label %97
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds i8, ptr %91, i64 280
+  %97 = load volatile ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, %96
+  br i1 %98, label %94, label %99
 
-97:                                               ; preds = %93
-  %98 = getelementptr i8, ptr %95, i64 -264
-  br label %111
+99:                                               ; preds = %95
+  %100 = getelementptr i8, ptr %97, i64 -264
+  br label %113
 
-99:                                               ; preds = %102, %92
-  %100 = phi ptr [ %110, %102 ], [ %89, %92 ]
-  %101 = icmp eq ptr %100, %87
-  br i1 %101, label %111, label %102
+101:                                              ; preds = %104, %94
+  %102 = phi ptr [ %112, %104 ], [ %91, %94 ]
+  %103 = icmp eq ptr %102, %89
+  br i1 %103, label %113, label %104
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %100, i64 256
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %100, i64 264
-  %106 = getelementptr inbounds i8, ptr %104, i64 280
-  %107 = load ptr, ptr %105, align 8
-  %108 = icmp eq ptr %107, %106
-  %109 = getelementptr i8, ptr %107, i64 -264
-  %110 = select i1 %108, ptr %104, ptr %109
-  br i1 %108, label %99, label %111
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %102, i64 256
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %102, i64 264
+  %108 = getelementptr inbounds i8, ptr %106, i64 280
+  %109 = load ptr, ptr %107, align 8
+  %110 = icmp eq ptr %109, %108
+  %111 = getelementptr i8, ptr %109, i64 -264
+  %112 = select i1 %110, ptr %106, ptr %111
+  br i1 %110, label %101, label %113
 
-111:                                              ; preds = %102, %99, %97
-  %112 = phi ptr [ %98, %97 ], [ %110, %102 ], [ %100, %99 ]
-  %113 = icmp eq ptr %112, %87
-  br i1 %113, label %123, label %88, !llvm.loop !20
+113:                                              ; preds = %104, %101, %99
+  %114 = phi ptr [ %100, %99 ], [ %112, %104 ], [ %102, %101 ]
+  %115 = icmp eq ptr %114, %89
+  br i1 %115, label %125, label %90, !llvm.loop !20
 
-114:                                              ; preds = %15
-  %115 = getelementptr inbounds i8, ptr %13, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 80
-  %118 = tail call i32 @driver_attach(ptr noundef %117) #10
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %123, label %120
+116:                                              ; preds = %15
+  %117 = getelementptr inbounds i8, ptr %13, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 80
+  %120 = tail call i32 @driver_attach(ptr noundef %119) #10
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %125, label %122
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %117, align 8
-  %122 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %121, i32 noundef %118) #12
-  br label %123
+122:                                              ; preds = %116
+  %123 = load ptr, ptr %119, align 8
+  %124 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %123, i32 noundef %120) #12
+  br label %125
 
-123:                                              ; preds = %120, %114, %111, %82, %74, %46, %43, %39, %15
-  %124 = getelementptr inbounds i8, ptr %13, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %13, align 8
-  %127 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %128 = load ptr, ptr @serio_event_list, align 8
-  %129 = icmp eq ptr %128, @serio_event_list
-  br i1 %129, label %148, label %130
+125:                                              ; preds = %122, %116, %113, %84, %76, %48, %45, %41, %15
+  %126 = getelementptr inbounds i8, ptr %13, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = load i32, ptr %13, align 8
+  %129 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
+  %130 = load ptr, ptr @serio_event_list, align 8
+  %131 = icmp eq ptr %130, @serio_event_list
+  br i1 %131, label %150, label %132
 
-130:                                              ; preds = %146, %123
-  %131 = phi ptr [ %133, %146 ], [ %128, %123 ]
-  %132 = getelementptr i8, ptr %131, i64 -24
-  %133 = load ptr, ptr %131, align 8
-  %134 = getelementptr i8, ptr %131, i64 -16
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, %125
-  br i1 %136, label %137, label %146
+132:                                              ; preds = %148, %125
+  %133 = phi ptr [ %135, %148 ], [ %130, %125 ]
+  %134 = getelementptr i8, ptr %133, i64 -24
+  %135 = load ptr, ptr %133, align 8
+  %136 = getelementptr i8, ptr %133, i64 -16
+  %137 = load ptr, ptr %136, align 8
+  %138 = icmp eq ptr %137, %127
+  br i1 %138, label %139, label %148
 
-137:                                              ; preds = %130
-  %138 = load i32, ptr %132, align 8
-  %139 = icmp eq i32 %138, %126
-  br i1 %139, label %140, label %148
+139:                                              ; preds = %132
+  %140 = load i32, ptr %134, align 8
+  %141 = icmp eq i32 %140, %128
+  br i1 %141, label %142, label %150
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %131, i64 8
-  %142 = load ptr, ptr %141, align 8
+142:                                              ; preds = %139
   %143 = getelementptr inbounds i8, ptr %133, i64 8
-  store ptr %142, ptr %143, align 8
-  store volatile ptr %133, ptr %142, align 8
-  store volatile ptr %131, ptr %131, align 8
-  store volatile ptr %131, ptr %141, align 8
-  %144 = getelementptr i8, ptr %131, i64 -8
-  %145 = load ptr, ptr %144, align 8
-  tail call void @module_put(ptr noundef %145) #10
-  tail call void @kfree(ptr noundef %132) #10
-  br label %146
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %135, i64 8
+  store ptr %144, ptr %145, align 8
+  store volatile ptr %135, ptr %144, align 8
+  store volatile ptr %133, ptr %133, align 8
+  store volatile ptr %133, ptr %143, align 8
+  %146 = getelementptr i8, ptr %133, i64 -8
+  %147 = load ptr, ptr %146, align 8
+  tail call void @module_put(ptr noundef %147) #10
+  tail call void @kfree(ptr noundef %134) #10
+  br label %148
 
-146:                                              ; preds = %140, %130
-  %147 = icmp eq ptr %133, @serio_event_list
-  br i1 %147, label %148, label %130, !llvm.loop !21
+148:                                              ; preds = %142, %132
+  %149 = icmp eq ptr %135, @serio_event_list
+  br i1 %149, label %150, label %132, !llvm.loop !21
 
-148:                                              ; preds = %146, %137, %123
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %127) #10
-  %149 = getelementptr inbounds i8, ptr %13, i64 16
-  %150 = load ptr, ptr %149, align 8
-  tail call void @module_put(ptr noundef %150) #10
+150:                                              ; preds = %148, %139, %125
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %129) #10
+  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %152 = load ptr, ptr %151, align 8
+  tail call void @module_put(ptr noundef %152) #10
   tail call void @kfree(ptr noundef nonnull %13) #10
   br label %2, !llvm.loop !22
 
-151:                                              ; preds = %12
+153:                                              ; preds = %12
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
   ret void
 }

@@ -1868,16 +1868,17 @@ entry:
   store i32 %mode, ptr %mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %reset = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 1
   store ptr %reset, ptr %this.addr.i, align 8
   store ptr @.str, ptr %s.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %s.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
-  %size_.i = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i, i32 0, i32 1
   %1 = load ptr, ptr %s.addr.i, align 8
-  %call.i = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %1)
+  store ptr %1, ptr %this1.i, align 8
+  %size_.i = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i, i32 0, i32 1
+  %2 = load ptr, ptr %s.addr.i, align 8
+  %call.i = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %2)
   store i64 %call.i, ptr %size_.i, align 8
   br label %invoke.cont
 
@@ -1886,11 +1887,11 @@ invoke.cont:                                      ; preds = %entry
   store ptr %bold, ptr %this.addr.i91, align 8
   store ptr @.str.1, ptr %s.addr.i92, align 8
   %this1.i93 = load ptr, ptr %this.addr.i91, align 8
-  %2 = load ptr, ptr %s.addr.i92, align 8
-  store ptr %2, ptr %this1.i93, align 8
-  %size_.i94 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i93, i32 0, i32 1
   %3 = load ptr, ptr %s.addr.i92, align 8
-  %call.i95 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %3)
+  store ptr %3, ptr %this1.i93, align 8
+  %size_.i94 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i93, i32 0, i32 1
+  %4 = load ptr, ptr %s.addr.i92, align 8
+  %call.i95 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %4)
   store i64 %call.i95, ptr %size_.i94, align 8
   br label %invoke.cont2
 
@@ -1899,11 +1900,11 @@ invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %dark, ptr %this.addr.i96, align 8
   store ptr @.str.2, ptr %s.addr.i97, align 8
   %this1.i98 = load ptr, ptr %this.addr.i96, align 8
-  %4 = load ptr, ptr %s.addr.i97, align 8
-  store ptr %4, ptr %this1.i98, align 8
-  %size_.i99 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i98, i32 0, i32 1
   %5 = load ptr, ptr %s.addr.i97, align 8
-  %call.i100 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %5)
+  store ptr %5, ptr %this1.i98, align 8
+  %size_.i99 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i98, i32 0, i32 1
+  %6 = load ptr, ptr %s.addr.i97, align 8
+  %call.i100 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
   store i64 %call.i100, ptr %size_.i99, align 8
   br label %invoke.cont3
 
@@ -1912,11 +1913,11 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   store ptr %underline, ptr %this.addr.i101, align 8
   store ptr @.str.3, ptr %s.addr.i102, align 8
   %this1.i103 = load ptr, ptr %this.addr.i101, align 8
-  %6 = load ptr, ptr %s.addr.i102, align 8
-  store ptr %6, ptr %this1.i103, align 8
-  %size_.i104 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i103, i32 0, i32 1
   %7 = load ptr, ptr %s.addr.i102, align 8
-  %call.i105 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %7)
+  store ptr %7, ptr %this1.i103, align 8
+  %size_.i104 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i103, i32 0, i32 1
+  %8 = load ptr, ptr %s.addr.i102, align 8
+  %call.i105 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %8)
   store i64 %call.i105, ptr %size_.i104, align 8
   br label %invoke.cont4
 
@@ -1925,11 +1926,11 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   store ptr %blink, ptr %this.addr.i106, align 8
   store ptr @.str.4, ptr %s.addr.i107, align 8
   %this1.i108 = load ptr, ptr %this.addr.i106, align 8
-  %8 = load ptr, ptr %s.addr.i107, align 8
-  store ptr %8, ptr %this1.i108, align 8
-  %size_.i109 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i108, i32 0, i32 1
   %9 = load ptr, ptr %s.addr.i107, align 8
-  %call.i110 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %9)
+  store ptr %9, ptr %this1.i108, align 8
+  %size_.i109 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i108, i32 0, i32 1
+  %10 = load ptr, ptr %s.addr.i107, align 8
+  %call.i110 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %10)
   store i64 %call.i110, ptr %size_.i109, align 8
   br label %invoke.cont5
 
@@ -1938,11 +1939,11 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr %reverse, ptr %this.addr.i111, align 8
   store ptr @.str.5, ptr %s.addr.i112, align 8
   %this1.i113 = load ptr, ptr %this.addr.i111, align 8
-  %10 = load ptr, ptr %s.addr.i112, align 8
-  store ptr %10, ptr %this1.i113, align 8
-  %size_.i114 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i113, i32 0, i32 1
   %11 = load ptr, ptr %s.addr.i112, align 8
-  %call.i115 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %11)
+  store ptr %11, ptr %this1.i113, align 8
+  %size_.i114 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i113, i32 0, i32 1
+  %12 = load ptr, ptr %s.addr.i112, align 8
+  %call.i115 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   store i64 %call.i115, ptr %size_.i114, align 8
   br label %invoke.cont6
 
@@ -1951,11 +1952,11 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   store ptr %concealed, ptr %this.addr.i116, align 8
   store ptr @.str.6, ptr %s.addr.i117, align 8
   %this1.i118 = load ptr, ptr %this.addr.i116, align 8
-  %12 = load ptr, ptr %s.addr.i117, align 8
-  store ptr %12, ptr %this1.i118, align 8
-  %size_.i119 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i118, i32 0, i32 1
   %13 = load ptr, ptr %s.addr.i117, align 8
-  %call.i120 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %13)
+  store ptr %13, ptr %this1.i118, align 8
+  %size_.i119 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i118, i32 0, i32 1
+  %14 = load ptr, ptr %s.addr.i117, align 8
+  %call.i120 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %14)
   store i64 %call.i120, ptr %size_.i119, align 8
   br label %invoke.cont7
 
@@ -1964,11 +1965,11 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   store ptr %clear_line, ptr %this.addr.i121, align 8
   store ptr @.str.7, ptr %s.addr.i122, align 8
   %this1.i123 = load ptr, ptr %this.addr.i121, align 8
-  %14 = load ptr, ptr %s.addr.i122, align 8
-  store ptr %14, ptr %this1.i123, align 8
-  %size_.i124 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i123, i32 0, i32 1
   %15 = load ptr, ptr %s.addr.i122, align 8
-  %call.i125 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %15)
+  store ptr %15, ptr %this1.i123, align 8
+  %size_.i124 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i123, i32 0, i32 1
+  %16 = load ptr, ptr %s.addr.i122, align 8
+  %call.i125 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
   store i64 %call.i125, ptr %size_.i124, align 8
   br label %invoke.cont8
 
@@ -1977,11 +1978,11 @@ invoke.cont8:                                     ; preds = %invoke.cont7
   store ptr %black, ptr %this.addr.i126, align 8
   store ptr @.str.8, ptr %s.addr.i127, align 8
   %this1.i128 = load ptr, ptr %this.addr.i126, align 8
-  %16 = load ptr, ptr %s.addr.i127, align 8
-  store ptr %16, ptr %this1.i128, align 8
-  %size_.i129 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i128, i32 0, i32 1
   %17 = load ptr, ptr %s.addr.i127, align 8
-  %call.i130 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %17)
+  store ptr %17, ptr %this1.i128, align 8
+  %size_.i129 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i128, i32 0, i32 1
+  %18 = load ptr, ptr %s.addr.i127, align 8
+  %call.i130 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %18)
   store i64 %call.i130, ptr %size_.i129, align 8
   br label %invoke.cont9
 
@@ -1990,11 +1991,11 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   store ptr %red, ptr %this.addr.i131, align 8
   store ptr @.str.9, ptr %s.addr.i132, align 8
   %this1.i133 = load ptr, ptr %this.addr.i131, align 8
-  %18 = load ptr, ptr %s.addr.i132, align 8
-  store ptr %18, ptr %this1.i133, align 8
-  %size_.i134 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i133, i32 0, i32 1
   %19 = load ptr, ptr %s.addr.i132, align 8
-  %call.i135 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %19)
+  store ptr %19, ptr %this1.i133, align 8
+  %size_.i134 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i133, i32 0, i32 1
+  %20 = load ptr, ptr %s.addr.i132, align 8
+  %call.i135 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %20)
   store i64 %call.i135, ptr %size_.i134, align 8
   br label %invoke.cont10
 
@@ -2003,11 +2004,11 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   store ptr %green, ptr %this.addr.i136, align 8
   store ptr @.str.10, ptr %s.addr.i137, align 8
   %this1.i138 = load ptr, ptr %this.addr.i136, align 8
-  %20 = load ptr, ptr %s.addr.i137, align 8
-  store ptr %20, ptr %this1.i138, align 8
-  %size_.i139 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i138, i32 0, i32 1
   %21 = load ptr, ptr %s.addr.i137, align 8
-  %call.i140 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %21)
+  store ptr %21, ptr %this1.i138, align 8
+  %size_.i139 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i138, i32 0, i32 1
+  %22 = load ptr, ptr %s.addr.i137, align 8
+  %call.i140 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %22)
   store i64 %call.i140, ptr %size_.i139, align 8
   br label %invoke.cont11
 
@@ -2016,11 +2017,11 @@ invoke.cont11:                                    ; preds = %invoke.cont10
   store ptr %yellow, ptr %this.addr.i141, align 8
   store ptr @.str.11, ptr %s.addr.i142, align 8
   %this1.i143 = load ptr, ptr %this.addr.i141, align 8
-  %22 = load ptr, ptr %s.addr.i142, align 8
-  store ptr %22, ptr %this1.i143, align 8
-  %size_.i144 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i143, i32 0, i32 1
   %23 = load ptr, ptr %s.addr.i142, align 8
-  %call.i145 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %23)
+  store ptr %23, ptr %this1.i143, align 8
+  %size_.i144 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i143, i32 0, i32 1
+  %24 = load ptr, ptr %s.addr.i142, align 8
+  %call.i145 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
   store i64 %call.i145, ptr %size_.i144, align 8
   br label %invoke.cont12
 
@@ -2029,11 +2030,11 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   store ptr %blue, ptr %this.addr.i146, align 8
   store ptr @.str.12, ptr %s.addr.i147, align 8
   %this1.i148 = load ptr, ptr %this.addr.i146, align 8
-  %24 = load ptr, ptr %s.addr.i147, align 8
-  store ptr %24, ptr %this1.i148, align 8
-  %size_.i149 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i148, i32 0, i32 1
   %25 = load ptr, ptr %s.addr.i147, align 8
-  %call.i150 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %25)
+  store ptr %25, ptr %this1.i148, align 8
+  %size_.i149 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i148, i32 0, i32 1
+  %26 = load ptr, ptr %s.addr.i147, align 8
+  %call.i150 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %26)
   store i64 %call.i150, ptr %size_.i149, align 8
   br label %invoke.cont13
 
@@ -2042,11 +2043,11 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   store ptr %magenta, ptr %this.addr.i151, align 8
   store ptr @.str.13, ptr %s.addr.i152, align 8
   %this1.i153 = load ptr, ptr %this.addr.i151, align 8
-  %26 = load ptr, ptr %s.addr.i152, align 8
-  store ptr %26, ptr %this1.i153, align 8
-  %size_.i154 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i153, i32 0, i32 1
   %27 = load ptr, ptr %s.addr.i152, align 8
-  %call.i155 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %27)
+  store ptr %27, ptr %this1.i153, align 8
+  %size_.i154 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i153, i32 0, i32 1
+  %28 = load ptr, ptr %s.addr.i152, align 8
+  %call.i155 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %28)
   store i64 %call.i155, ptr %size_.i154, align 8
   br label %invoke.cont14
 
@@ -2055,11 +2056,11 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   store ptr %cyan, ptr %this.addr.i156, align 8
   store ptr @.str.14, ptr %s.addr.i157, align 8
   %this1.i158 = load ptr, ptr %this.addr.i156, align 8
-  %28 = load ptr, ptr %s.addr.i157, align 8
-  store ptr %28, ptr %this1.i158, align 8
-  %size_.i159 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i158, i32 0, i32 1
   %29 = load ptr, ptr %s.addr.i157, align 8
-  %call.i160 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %29)
+  store ptr %29, ptr %this1.i158, align 8
+  %size_.i159 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i158, i32 0, i32 1
+  %30 = load ptr, ptr %s.addr.i157, align 8
+  %call.i160 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %30)
   store i64 %call.i160, ptr %size_.i159, align 8
   br label %invoke.cont15
 
@@ -2068,11 +2069,11 @@ invoke.cont15:                                    ; preds = %invoke.cont14
   store ptr %white, ptr %this.addr.i161, align 8
   store ptr @.str.15, ptr %s.addr.i162, align 8
   %this1.i163 = load ptr, ptr %this.addr.i161, align 8
-  %30 = load ptr, ptr %s.addr.i162, align 8
-  store ptr %30, ptr %this1.i163, align 8
-  %size_.i164 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i163, i32 0, i32 1
   %31 = load ptr, ptr %s.addr.i162, align 8
-  %call.i165 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %31)
+  store ptr %31, ptr %this1.i163, align 8
+  %size_.i164 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i163, i32 0, i32 1
+  %32 = load ptr, ptr %s.addr.i162, align 8
+  %call.i165 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %32)
   store i64 %call.i165, ptr %size_.i164, align 8
   br label %invoke.cont16
 
@@ -2081,11 +2082,11 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   store ptr %on_black, ptr %this.addr.i166, align 8
   store ptr @.str.16, ptr %s.addr.i167, align 8
   %this1.i168 = load ptr, ptr %this.addr.i166, align 8
-  %32 = load ptr, ptr %s.addr.i167, align 8
-  store ptr %32, ptr %this1.i168, align 8
-  %size_.i169 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i168, i32 0, i32 1
   %33 = load ptr, ptr %s.addr.i167, align 8
-  %call.i170 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %33)
+  store ptr %33, ptr %this1.i168, align 8
+  %size_.i169 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i168, i32 0, i32 1
+  %34 = load ptr, ptr %s.addr.i167, align 8
+  %call.i170 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %34)
   store i64 %call.i170, ptr %size_.i169, align 8
   br label %invoke.cont17
 
@@ -2094,11 +2095,11 @@ invoke.cont17:                                    ; preds = %invoke.cont16
   store ptr %on_red, ptr %this.addr.i171, align 8
   store ptr @.str.17, ptr %s.addr.i172, align 8
   %this1.i173 = load ptr, ptr %this.addr.i171, align 8
-  %34 = load ptr, ptr %s.addr.i172, align 8
-  store ptr %34, ptr %this1.i173, align 8
-  %size_.i174 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i173, i32 0, i32 1
   %35 = load ptr, ptr %s.addr.i172, align 8
-  %call.i175 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %35)
+  store ptr %35, ptr %this1.i173, align 8
+  %size_.i174 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i173, i32 0, i32 1
+  %36 = load ptr, ptr %s.addr.i172, align 8
+  %call.i175 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %36)
   store i64 %call.i175, ptr %size_.i174, align 8
   br label %invoke.cont18
 
@@ -2107,11 +2108,11 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   store ptr %on_green, ptr %this.addr.i176, align 8
   store ptr @.str.18, ptr %s.addr.i177, align 8
   %this1.i178 = load ptr, ptr %this.addr.i176, align 8
-  %36 = load ptr, ptr %s.addr.i177, align 8
-  store ptr %36, ptr %this1.i178, align 8
-  %size_.i179 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i178, i32 0, i32 1
   %37 = load ptr, ptr %s.addr.i177, align 8
-  %call.i180 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %37)
+  store ptr %37, ptr %this1.i178, align 8
+  %size_.i179 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i178, i32 0, i32 1
+  %38 = load ptr, ptr %s.addr.i177, align 8
+  %call.i180 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %38)
   store i64 %call.i180, ptr %size_.i179, align 8
   br label %invoke.cont19
 
@@ -2120,11 +2121,11 @@ invoke.cont19:                                    ; preds = %invoke.cont18
   store ptr %on_yellow, ptr %this.addr.i181, align 8
   store ptr @.str.19, ptr %s.addr.i182, align 8
   %this1.i183 = load ptr, ptr %this.addr.i181, align 8
-  %38 = load ptr, ptr %s.addr.i182, align 8
-  store ptr %38, ptr %this1.i183, align 8
-  %size_.i184 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i183, i32 0, i32 1
   %39 = load ptr, ptr %s.addr.i182, align 8
-  %call.i185 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %39)
+  store ptr %39, ptr %this1.i183, align 8
+  %size_.i184 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i183, i32 0, i32 1
+  %40 = load ptr, ptr %s.addr.i182, align 8
+  %call.i185 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %40)
   store i64 %call.i185, ptr %size_.i184, align 8
   br label %invoke.cont20
 
@@ -2133,11 +2134,11 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   store ptr %on_blue, ptr %this.addr.i186, align 8
   store ptr @.str.20, ptr %s.addr.i187, align 8
   %this1.i188 = load ptr, ptr %this.addr.i186, align 8
-  %40 = load ptr, ptr %s.addr.i187, align 8
-  store ptr %40, ptr %this1.i188, align 8
-  %size_.i189 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i188, i32 0, i32 1
   %41 = load ptr, ptr %s.addr.i187, align 8
-  %call.i190 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %41)
+  store ptr %41, ptr %this1.i188, align 8
+  %size_.i189 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i188, i32 0, i32 1
+  %42 = load ptr, ptr %s.addr.i187, align 8
+  %call.i190 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %42)
   store i64 %call.i190, ptr %size_.i189, align 8
   br label %invoke.cont21
 
@@ -2146,11 +2147,11 @@ invoke.cont21:                                    ; preds = %invoke.cont20
   store ptr %on_magenta, ptr %this.addr.i191, align 8
   store ptr @.str.21, ptr %s.addr.i192, align 8
   %this1.i193 = load ptr, ptr %this.addr.i191, align 8
-  %42 = load ptr, ptr %s.addr.i192, align 8
-  store ptr %42, ptr %this1.i193, align 8
-  %size_.i194 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i193, i32 0, i32 1
   %43 = load ptr, ptr %s.addr.i192, align 8
-  %call.i195 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %43)
+  store ptr %43, ptr %this1.i193, align 8
+  %size_.i194 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i193, i32 0, i32 1
+  %44 = load ptr, ptr %s.addr.i192, align 8
+  %call.i195 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %44)
   store i64 %call.i195, ptr %size_.i194, align 8
   br label %invoke.cont22
 
@@ -2159,11 +2160,11 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   store ptr %on_cyan, ptr %this.addr.i196, align 8
   store ptr @.str.22, ptr %s.addr.i197, align 8
   %this1.i198 = load ptr, ptr %this.addr.i196, align 8
-  %44 = load ptr, ptr %s.addr.i197, align 8
-  store ptr %44, ptr %this1.i198, align 8
-  %size_.i199 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i198, i32 0, i32 1
   %45 = load ptr, ptr %s.addr.i197, align 8
-  %call.i200 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %45)
+  store ptr %45, ptr %this1.i198, align 8
+  %size_.i199 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i198, i32 0, i32 1
+  %46 = load ptr, ptr %s.addr.i197, align 8
+  %call.i200 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %46)
   store i64 %call.i200, ptr %size_.i199, align 8
   br label %invoke.cont23
 
@@ -2172,11 +2173,11 @@ invoke.cont23:                                    ; preds = %invoke.cont22
   store ptr %on_white, ptr %this.addr.i201, align 8
   store ptr @.str.23, ptr %s.addr.i202, align 8
   %this1.i203 = load ptr, ptr %this.addr.i201, align 8
-  %46 = load ptr, ptr %s.addr.i202, align 8
-  store ptr %46, ptr %this1.i203, align 8
-  %size_.i204 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i203, i32 0, i32 1
   %47 = load ptr, ptr %s.addr.i202, align 8
-  %call.i205 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %47)
+  store ptr %47, ptr %this1.i203, align 8
+  %size_.i204 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i203, i32 0, i32 1
+  %48 = load ptr, ptr %s.addr.i202, align 8
+  %call.i205 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %48)
   store i64 %call.i205, ptr %size_.i204, align 8
   br label %invoke.cont24
 
@@ -2185,11 +2186,11 @@ invoke.cont24:                                    ; preds = %invoke.cont23
   store ptr %yellow_bold, ptr %this.addr.i206, align 8
   store ptr @.str.24, ptr %s.addr.i207, align 8
   %this1.i208 = load ptr, ptr %this.addr.i206, align 8
-  %48 = load ptr, ptr %s.addr.i207, align 8
-  store ptr %48, ptr %this1.i208, align 8
-  %size_.i209 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i208, i32 0, i32 1
   %49 = load ptr, ptr %s.addr.i207, align 8
-  %call.i210 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %49)
+  store ptr %49, ptr %this1.i208, align 8
+  %size_.i209 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i208, i32 0, i32 1
+  %50 = load ptr, ptr %s.addr.i207, align 8
+  %call.i210 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %50)
   store i64 %call.i210, ptr %size_.i209, align 8
   br label %invoke.cont25
 
@@ -2198,11 +2199,11 @@ invoke.cont25:                                    ; preds = %invoke.cont24
   store ptr %red_bold, ptr %this.addr.i211, align 8
   store ptr @.str.25, ptr %s.addr.i212, align 8
   %this1.i213 = load ptr, ptr %this.addr.i211, align 8
-  %50 = load ptr, ptr %s.addr.i212, align 8
-  store ptr %50, ptr %this1.i213, align 8
-  %size_.i214 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i213, i32 0, i32 1
   %51 = load ptr, ptr %s.addr.i212, align 8
-  %call.i215 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %51)
+  store ptr %51, ptr %this1.i213, align 8
+  %size_.i214 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i213, i32 0, i32 1
+  %52 = load ptr, ptr %s.addr.i212, align 8
+  %call.i215 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %52)
   store i64 %call.i215, ptr %size_.i214, align 8
   br label %invoke.cont26
 
@@ -2211,18 +2212,18 @@ invoke.cont26:                                    ; preds = %invoke.cont25
   store ptr %bold_on_red, ptr %this.addr.i216, align 8
   store ptr @.str.26, ptr %s.addr.i217, align 8
   %this1.i218 = load ptr, ptr %this.addr.i216, align 8
-  %52 = load ptr, ptr %s.addr.i217, align 8
-  store ptr %52, ptr %this1.i218, align 8
-  %size_.i219 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i218, i32 0, i32 1
   %53 = load ptr, ptr %s.addr.i217, align 8
-  %call.i220 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %53)
+  store ptr %53, ptr %this1.i218, align 8
+  %size_.i219 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i218, i32 0, i32 1
+  %54 = load ptr, ptr %s.addr.i217, align 8
+  %call.i220 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %54)
   store i64 %call.i220, ptr %size_.i219, align 8
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %invoke.cont26
   %target_file_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 28
-  %54 = load ptr, ptr %target_file.addr, align 8
-  store ptr %54, ptr %target_file_, align 8
+  %55 = load ptr, ptr %target_file.addr, align 8
+  store ptr %55, ptr %target_file_, align 8
   %mutex_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 29
   %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details13console_mutex5mutexEv()
           to label %invoke.cont28 unwind label %lpad
@@ -2238,8 +2239,8 @@ invoke.cont29:                                    ; preds = %invoke.cont28
   call void @_ZNSt10unique_ptrIN6spdlog17pattern_formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #11
   %colors_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 32
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %colors_) #11
-  %55 = load i32, ptr %mode.addr, align 4
-  invoke void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, i32 noundef %55)
+  %56 = load i32, ptr %mode.addr, align 4
+  invoke void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, i32 noundef %56)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -2330,90 +2331,90 @@ invoke.cont85:                                    ; preds = %invoke.cont82
   ret void
 
 lpad:                                             ; preds = %invoke.cont28, %invoke.cont27
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup89
 
 lpad30:                                           ; preds = %invoke.cont77, %invoke.cont69, %invoke.cont61, %invoke.cont53, %invoke.cont45, %invoke.cont37, %invoke.cont31, %invoke.cont29
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad36:                                           ; preds = %invoke.cont34
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #11
   br label %ehcleanup
 
 lpad44:                                           ; preds = %invoke.cont42
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %exn.slot, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #11
   br label %ehcleanup
 
 lpad52:                                           ; preds = %invoke.cont50
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #11
   br label %ehcleanup
 
 lpad60:                                           ; preds = %invoke.cont58
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #11
   br label %ehcleanup
 
 lpad68:                                           ; preds = %invoke.cont66
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #11
   br label %ehcleanup
 
 lpad76:                                           ; preds = %invoke.cont74
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #11
   br label %ehcleanup
 
 lpad84:                                           ; preds = %invoke.cont82
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #11
   br label %ehcleanup
 
@@ -2440,7 +2441,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %level_ = getelementptr inbounds %"class.spdlog::sinks::sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %level_, i32 noundef 0) #11
   ret void
@@ -3066,10 +3068,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #11
   %store_ = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [250 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 250) #11
@@ -3550,16 +3553,17 @@ entry:
   store i32 %mode, ptr %mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %reset = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 1
   store ptr %reset, ptr %this.addr.i, align 8
   store ptr @.str, ptr %s.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %s.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
-  %size_.i = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i, i32 0, i32 1
   %1 = load ptr, ptr %s.addr.i, align 8
-  %call.i = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %1)
+  store ptr %1, ptr %this1.i, align 8
+  %size_.i = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i, i32 0, i32 1
+  %2 = load ptr, ptr %s.addr.i, align 8
+  %call.i = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %2)
   store i64 %call.i, ptr %size_.i, align 8
   br label %invoke.cont
 
@@ -3568,11 +3572,11 @@ invoke.cont:                                      ; preds = %entry
   store ptr %bold, ptr %this.addr.i91, align 8
   store ptr @.str.1, ptr %s.addr.i92, align 8
   %this1.i93 = load ptr, ptr %this.addr.i91, align 8
-  %2 = load ptr, ptr %s.addr.i92, align 8
-  store ptr %2, ptr %this1.i93, align 8
-  %size_.i94 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i93, i32 0, i32 1
   %3 = load ptr, ptr %s.addr.i92, align 8
-  %call.i95 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %3)
+  store ptr %3, ptr %this1.i93, align 8
+  %size_.i94 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i93, i32 0, i32 1
+  %4 = load ptr, ptr %s.addr.i92, align 8
+  %call.i95 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %4)
   store i64 %call.i95, ptr %size_.i94, align 8
   br label %invoke.cont2
 
@@ -3581,11 +3585,11 @@ invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %dark, ptr %this.addr.i96, align 8
   store ptr @.str.2, ptr %s.addr.i97, align 8
   %this1.i98 = load ptr, ptr %this.addr.i96, align 8
-  %4 = load ptr, ptr %s.addr.i97, align 8
-  store ptr %4, ptr %this1.i98, align 8
-  %size_.i99 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i98, i32 0, i32 1
   %5 = load ptr, ptr %s.addr.i97, align 8
-  %call.i100 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %5)
+  store ptr %5, ptr %this1.i98, align 8
+  %size_.i99 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i98, i32 0, i32 1
+  %6 = load ptr, ptr %s.addr.i97, align 8
+  %call.i100 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
   store i64 %call.i100, ptr %size_.i99, align 8
   br label %invoke.cont3
 
@@ -3594,11 +3598,11 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   store ptr %underline, ptr %this.addr.i101, align 8
   store ptr @.str.3, ptr %s.addr.i102, align 8
   %this1.i103 = load ptr, ptr %this.addr.i101, align 8
-  %6 = load ptr, ptr %s.addr.i102, align 8
-  store ptr %6, ptr %this1.i103, align 8
-  %size_.i104 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i103, i32 0, i32 1
   %7 = load ptr, ptr %s.addr.i102, align 8
-  %call.i105 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %7)
+  store ptr %7, ptr %this1.i103, align 8
+  %size_.i104 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i103, i32 0, i32 1
+  %8 = load ptr, ptr %s.addr.i102, align 8
+  %call.i105 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %8)
   store i64 %call.i105, ptr %size_.i104, align 8
   br label %invoke.cont4
 
@@ -3607,11 +3611,11 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   store ptr %blink, ptr %this.addr.i106, align 8
   store ptr @.str.4, ptr %s.addr.i107, align 8
   %this1.i108 = load ptr, ptr %this.addr.i106, align 8
-  %8 = load ptr, ptr %s.addr.i107, align 8
-  store ptr %8, ptr %this1.i108, align 8
-  %size_.i109 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i108, i32 0, i32 1
   %9 = load ptr, ptr %s.addr.i107, align 8
-  %call.i110 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %9)
+  store ptr %9, ptr %this1.i108, align 8
+  %size_.i109 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i108, i32 0, i32 1
+  %10 = load ptr, ptr %s.addr.i107, align 8
+  %call.i110 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %10)
   store i64 %call.i110, ptr %size_.i109, align 8
   br label %invoke.cont5
 
@@ -3620,11 +3624,11 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr %reverse, ptr %this.addr.i111, align 8
   store ptr @.str.5, ptr %s.addr.i112, align 8
   %this1.i113 = load ptr, ptr %this.addr.i111, align 8
-  %10 = load ptr, ptr %s.addr.i112, align 8
-  store ptr %10, ptr %this1.i113, align 8
-  %size_.i114 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i113, i32 0, i32 1
   %11 = load ptr, ptr %s.addr.i112, align 8
-  %call.i115 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %11)
+  store ptr %11, ptr %this1.i113, align 8
+  %size_.i114 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i113, i32 0, i32 1
+  %12 = load ptr, ptr %s.addr.i112, align 8
+  %call.i115 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   store i64 %call.i115, ptr %size_.i114, align 8
   br label %invoke.cont6
 
@@ -3633,11 +3637,11 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   store ptr %concealed, ptr %this.addr.i116, align 8
   store ptr @.str.6, ptr %s.addr.i117, align 8
   %this1.i118 = load ptr, ptr %this.addr.i116, align 8
-  %12 = load ptr, ptr %s.addr.i117, align 8
-  store ptr %12, ptr %this1.i118, align 8
-  %size_.i119 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i118, i32 0, i32 1
   %13 = load ptr, ptr %s.addr.i117, align 8
-  %call.i120 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %13)
+  store ptr %13, ptr %this1.i118, align 8
+  %size_.i119 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i118, i32 0, i32 1
+  %14 = load ptr, ptr %s.addr.i117, align 8
+  %call.i120 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %14)
   store i64 %call.i120, ptr %size_.i119, align 8
   br label %invoke.cont7
 
@@ -3646,11 +3650,11 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   store ptr %clear_line, ptr %this.addr.i121, align 8
   store ptr @.str.7, ptr %s.addr.i122, align 8
   %this1.i123 = load ptr, ptr %this.addr.i121, align 8
-  %14 = load ptr, ptr %s.addr.i122, align 8
-  store ptr %14, ptr %this1.i123, align 8
-  %size_.i124 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i123, i32 0, i32 1
   %15 = load ptr, ptr %s.addr.i122, align 8
-  %call.i125 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %15)
+  store ptr %15, ptr %this1.i123, align 8
+  %size_.i124 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i123, i32 0, i32 1
+  %16 = load ptr, ptr %s.addr.i122, align 8
+  %call.i125 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
   store i64 %call.i125, ptr %size_.i124, align 8
   br label %invoke.cont8
 
@@ -3659,11 +3663,11 @@ invoke.cont8:                                     ; preds = %invoke.cont7
   store ptr %black, ptr %this.addr.i126, align 8
   store ptr @.str.8, ptr %s.addr.i127, align 8
   %this1.i128 = load ptr, ptr %this.addr.i126, align 8
-  %16 = load ptr, ptr %s.addr.i127, align 8
-  store ptr %16, ptr %this1.i128, align 8
-  %size_.i129 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i128, i32 0, i32 1
   %17 = load ptr, ptr %s.addr.i127, align 8
-  %call.i130 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %17)
+  store ptr %17, ptr %this1.i128, align 8
+  %size_.i129 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i128, i32 0, i32 1
+  %18 = load ptr, ptr %s.addr.i127, align 8
+  %call.i130 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %18)
   store i64 %call.i130, ptr %size_.i129, align 8
   br label %invoke.cont9
 
@@ -3672,11 +3676,11 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   store ptr %red, ptr %this.addr.i131, align 8
   store ptr @.str.9, ptr %s.addr.i132, align 8
   %this1.i133 = load ptr, ptr %this.addr.i131, align 8
-  %18 = load ptr, ptr %s.addr.i132, align 8
-  store ptr %18, ptr %this1.i133, align 8
-  %size_.i134 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i133, i32 0, i32 1
   %19 = load ptr, ptr %s.addr.i132, align 8
-  %call.i135 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %19)
+  store ptr %19, ptr %this1.i133, align 8
+  %size_.i134 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i133, i32 0, i32 1
+  %20 = load ptr, ptr %s.addr.i132, align 8
+  %call.i135 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %20)
   store i64 %call.i135, ptr %size_.i134, align 8
   br label %invoke.cont10
 
@@ -3685,11 +3689,11 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   store ptr %green, ptr %this.addr.i136, align 8
   store ptr @.str.10, ptr %s.addr.i137, align 8
   %this1.i138 = load ptr, ptr %this.addr.i136, align 8
-  %20 = load ptr, ptr %s.addr.i137, align 8
-  store ptr %20, ptr %this1.i138, align 8
-  %size_.i139 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i138, i32 0, i32 1
   %21 = load ptr, ptr %s.addr.i137, align 8
-  %call.i140 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %21)
+  store ptr %21, ptr %this1.i138, align 8
+  %size_.i139 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i138, i32 0, i32 1
+  %22 = load ptr, ptr %s.addr.i137, align 8
+  %call.i140 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %22)
   store i64 %call.i140, ptr %size_.i139, align 8
   br label %invoke.cont11
 
@@ -3698,11 +3702,11 @@ invoke.cont11:                                    ; preds = %invoke.cont10
   store ptr %yellow, ptr %this.addr.i141, align 8
   store ptr @.str.11, ptr %s.addr.i142, align 8
   %this1.i143 = load ptr, ptr %this.addr.i141, align 8
-  %22 = load ptr, ptr %s.addr.i142, align 8
-  store ptr %22, ptr %this1.i143, align 8
-  %size_.i144 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i143, i32 0, i32 1
   %23 = load ptr, ptr %s.addr.i142, align 8
-  %call.i145 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %23)
+  store ptr %23, ptr %this1.i143, align 8
+  %size_.i144 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i143, i32 0, i32 1
+  %24 = load ptr, ptr %s.addr.i142, align 8
+  %call.i145 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
   store i64 %call.i145, ptr %size_.i144, align 8
   br label %invoke.cont12
 
@@ -3711,11 +3715,11 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   store ptr %blue, ptr %this.addr.i146, align 8
   store ptr @.str.12, ptr %s.addr.i147, align 8
   %this1.i148 = load ptr, ptr %this.addr.i146, align 8
-  %24 = load ptr, ptr %s.addr.i147, align 8
-  store ptr %24, ptr %this1.i148, align 8
-  %size_.i149 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i148, i32 0, i32 1
   %25 = load ptr, ptr %s.addr.i147, align 8
-  %call.i150 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %25)
+  store ptr %25, ptr %this1.i148, align 8
+  %size_.i149 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i148, i32 0, i32 1
+  %26 = load ptr, ptr %s.addr.i147, align 8
+  %call.i150 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %26)
   store i64 %call.i150, ptr %size_.i149, align 8
   br label %invoke.cont13
 
@@ -3724,11 +3728,11 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   store ptr %magenta, ptr %this.addr.i151, align 8
   store ptr @.str.13, ptr %s.addr.i152, align 8
   %this1.i153 = load ptr, ptr %this.addr.i151, align 8
-  %26 = load ptr, ptr %s.addr.i152, align 8
-  store ptr %26, ptr %this1.i153, align 8
-  %size_.i154 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i153, i32 0, i32 1
   %27 = load ptr, ptr %s.addr.i152, align 8
-  %call.i155 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %27)
+  store ptr %27, ptr %this1.i153, align 8
+  %size_.i154 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i153, i32 0, i32 1
+  %28 = load ptr, ptr %s.addr.i152, align 8
+  %call.i155 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %28)
   store i64 %call.i155, ptr %size_.i154, align 8
   br label %invoke.cont14
 
@@ -3737,11 +3741,11 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   store ptr %cyan, ptr %this.addr.i156, align 8
   store ptr @.str.14, ptr %s.addr.i157, align 8
   %this1.i158 = load ptr, ptr %this.addr.i156, align 8
-  %28 = load ptr, ptr %s.addr.i157, align 8
-  store ptr %28, ptr %this1.i158, align 8
-  %size_.i159 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i158, i32 0, i32 1
   %29 = load ptr, ptr %s.addr.i157, align 8
-  %call.i160 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %29)
+  store ptr %29, ptr %this1.i158, align 8
+  %size_.i159 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i158, i32 0, i32 1
+  %30 = load ptr, ptr %s.addr.i157, align 8
+  %call.i160 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %30)
   store i64 %call.i160, ptr %size_.i159, align 8
   br label %invoke.cont15
 
@@ -3750,11 +3754,11 @@ invoke.cont15:                                    ; preds = %invoke.cont14
   store ptr %white, ptr %this.addr.i161, align 8
   store ptr @.str.15, ptr %s.addr.i162, align 8
   %this1.i163 = load ptr, ptr %this.addr.i161, align 8
-  %30 = load ptr, ptr %s.addr.i162, align 8
-  store ptr %30, ptr %this1.i163, align 8
-  %size_.i164 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i163, i32 0, i32 1
   %31 = load ptr, ptr %s.addr.i162, align 8
-  %call.i165 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %31)
+  store ptr %31, ptr %this1.i163, align 8
+  %size_.i164 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i163, i32 0, i32 1
+  %32 = load ptr, ptr %s.addr.i162, align 8
+  %call.i165 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %32)
   store i64 %call.i165, ptr %size_.i164, align 8
   br label %invoke.cont16
 
@@ -3763,11 +3767,11 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   store ptr %on_black, ptr %this.addr.i166, align 8
   store ptr @.str.16, ptr %s.addr.i167, align 8
   %this1.i168 = load ptr, ptr %this.addr.i166, align 8
-  %32 = load ptr, ptr %s.addr.i167, align 8
-  store ptr %32, ptr %this1.i168, align 8
-  %size_.i169 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i168, i32 0, i32 1
   %33 = load ptr, ptr %s.addr.i167, align 8
-  %call.i170 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %33)
+  store ptr %33, ptr %this1.i168, align 8
+  %size_.i169 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i168, i32 0, i32 1
+  %34 = load ptr, ptr %s.addr.i167, align 8
+  %call.i170 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %34)
   store i64 %call.i170, ptr %size_.i169, align 8
   br label %invoke.cont17
 
@@ -3776,11 +3780,11 @@ invoke.cont17:                                    ; preds = %invoke.cont16
   store ptr %on_red, ptr %this.addr.i171, align 8
   store ptr @.str.17, ptr %s.addr.i172, align 8
   %this1.i173 = load ptr, ptr %this.addr.i171, align 8
-  %34 = load ptr, ptr %s.addr.i172, align 8
-  store ptr %34, ptr %this1.i173, align 8
-  %size_.i174 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i173, i32 0, i32 1
   %35 = load ptr, ptr %s.addr.i172, align 8
-  %call.i175 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %35)
+  store ptr %35, ptr %this1.i173, align 8
+  %size_.i174 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i173, i32 0, i32 1
+  %36 = load ptr, ptr %s.addr.i172, align 8
+  %call.i175 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %36)
   store i64 %call.i175, ptr %size_.i174, align 8
   br label %invoke.cont18
 
@@ -3789,11 +3793,11 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   store ptr %on_green, ptr %this.addr.i176, align 8
   store ptr @.str.18, ptr %s.addr.i177, align 8
   %this1.i178 = load ptr, ptr %this.addr.i176, align 8
-  %36 = load ptr, ptr %s.addr.i177, align 8
-  store ptr %36, ptr %this1.i178, align 8
-  %size_.i179 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i178, i32 0, i32 1
   %37 = load ptr, ptr %s.addr.i177, align 8
-  %call.i180 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %37)
+  store ptr %37, ptr %this1.i178, align 8
+  %size_.i179 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i178, i32 0, i32 1
+  %38 = load ptr, ptr %s.addr.i177, align 8
+  %call.i180 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %38)
   store i64 %call.i180, ptr %size_.i179, align 8
   br label %invoke.cont19
 
@@ -3802,11 +3806,11 @@ invoke.cont19:                                    ; preds = %invoke.cont18
   store ptr %on_yellow, ptr %this.addr.i181, align 8
   store ptr @.str.19, ptr %s.addr.i182, align 8
   %this1.i183 = load ptr, ptr %this.addr.i181, align 8
-  %38 = load ptr, ptr %s.addr.i182, align 8
-  store ptr %38, ptr %this1.i183, align 8
-  %size_.i184 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i183, i32 0, i32 1
   %39 = load ptr, ptr %s.addr.i182, align 8
-  %call.i185 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %39)
+  store ptr %39, ptr %this1.i183, align 8
+  %size_.i184 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i183, i32 0, i32 1
+  %40 = load ptr, ptr %s.addr.i182, align 8
+  %call.i185 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %40)
   store i64 %call.i185, ptr %size_.i184, align 8
   br label %invoke.cont20
 
@@ -3815,11 +3819,11 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   store ptr %on_blue, ptr %this.addr.i186, align 8
   store ptr @.str.20, ptr %s.addr.i187, align 8
   %this1.i188 = load ptr, ptr %this.addr.i186, align 8
-  %40 = load ptr, ptr %s.addr.i187, align 8
-  store ptr %40, ptr %this1.i188, align 8
-  %size_.i189 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i188, i32 0, i32 1
   %41 = load ptr, ptr %s.addr.i187, align 8
-  %call.i190 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %41)
+  store ptr %41, ptr %this1.i188, align 8
+  %size_.i189 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i188, i32 0, i32 1
+  %42 = load ptr, ptr %s.addr.i187, align 8
+  %call.i190 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %42)
   store i64 %call.i190, ptr %size_.i189, align 8
   br label %invoke.cont21
 
@@ -3828,11 +3832,11 @@ invoke.cont21:                                    ; preds = %invoke.cont20
   store ptr %on_magenta, ptr %this.addr.i191, align 8
   store ptr @.str.21, ptr %s.addr.i192, align 8
   %this1.i193 = load ptr, ptr %this.addr.i191, align 8
-  %42 = load ptr, ptr %s.addr.i192, align 8
-  store ptr %42, ptr %this1.i193, align 8
-  %size_.i194 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i193, i32 0, i32 1
   %43 = load ptr, ptr %s.addr.i192, align 8
-  %call.i195 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %43)
+  store ptr %43, ptr %this1.i193, align 8
+  %size_.i194 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i193, i32 0, i32 1
+  %44 = load ptr, ptr %s.addr.i192, align 8
+  %call.i195 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %44)
   store i64 %call.i195, ptr %size_.i194, align 8
   br label %invoke.cont22
 
@@ -3841,11 +3845,11 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   store ptr %on_cyan, ptr %this.addr.i196, align 8
   store ptr @.str.22, ptr %s.addr.i197, align 8
   %this1.i198 = load ptr, ptr %this.addr.i196, align 8
-  %44 = load ptr, ptr %s.addr.i197, align 8
-  store ptr %44, ptr %this1.i198, align 8
-  %size_.i199 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i198, i32 0, i32 1
   %45 = load ptr, ptr %s.addr.i197, align 8
-  %call.i200 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %45)
+  store ptr %45, ptr %this1.i198, align 8
+  %size_.i199 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i198, i32 0, i32 1
+  %46 = load ptr, ptr %s.addr.i197, align 8
+  %call.i200 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %46)
   store i64 %call.i200, ptr %size_.i199, align 8
   br label %invoke.cont23
 
@@ -3854,11 +3858,11 @@ invoke.cont23:                                    ; preds = %invoke.cont22
   store ptr %on_white, ptr %this.addr.i201, align 8
   store ptr @.str.23, ptr %s.addr.i202, align 8
   %this1.i203 = load ptr, ptr %this.addr.i201, align 8
-  %46 = load ptr, ptr %s.addr.i202, align 8
-  store ptr %46, ptr %this1.i203, align 8
-  %size_.i204 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i203, i32 0, i32 1
   %47 = load ptr, ptr %s.addr.i202, align 8
-  %call.i205 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %47)
+  store ptr %47, ptr %this1.i203, align 8
+  %size_.i204 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i203, i32 0, i32 1
+  %48 = load ptr, ptr %s.addr.i202, align 8
+  %call.i205 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %48)
   store i64 %call.i205, ptr %size_.i204, align 8
   br label %invoke.cont24
 
@@ -3867,11 +3871,11 @@ invoke.cont24:                                    ; preds = %invoke.cont23
   store ptr %yellow_bold, ptr %this.addr.i206, align 8
   store ptr @.str.24, ptr %s.addr.i207, align 8
   %this1.i208 = load ptr, ptr %this.addr.i206, align 8
-  %48 = load ptr, ptr %s.addr.i207, align 8
-  store ptr %48, ptr %this1.i208, align 8
-  %size_.i209 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i208, i32 0, i32 1
   %49 = load ptr, ptr %s.addr.i207, align 8
-  %call.i210 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %49)
+  store ptr %49, ptr %this1.i208, align 8
+  %size_.i209 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i208, i32 0, i32 1
+  %50 = load ptr, ptr %s.addr.i207, align 8
+  %call.i210 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %50)
   store i64 %call.i210, ptr %size_.i209, align 8
   br label %invoke.cont25
 
@@ -3880,11 +3884,11 @@ invoke.cont25:                                    ; preds = %invoke.cont24
   store ptr %red_bold, ptr %this.addr.i211, align 8
   store ptr @.str.25, ptr %s.addr.i212, align 8
   %this1.i213 = load ptr, ptr %this.addr.i211, align 8
-  %50 = load ptr, ptr %s.addr.i212, align 8
-  store ptr %50, ptr %this1.i213, align 8
-  %size_.i214 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i213, i32 0, i32 1
   %51 = load ptr, ptr %s.addr.i212, align 8
-  %call.i215 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %51)
+  store ptr %51, ptr %this1.i213, align 8
+  %size_.i214 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i213, i32 0, i32 1
+  %52 = load ptr, ptr %s.addr.i212, align 8
+  %call.i215 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %52)
   store i64 %call.i215, ptr %size_.i214, align 8
   br label %invoke.cont26
 
@@ -3893,18 +3897,18 @@ invoke.cont26:                                    ; preds = %invoke.cont25
   store ptr %bold_on_red, ptr %this.addr.i216, align 8
   store ptr @.str.26, ptr %s.addr.i217, align 8
   %this1.i218 = load ptr, ptr %this.addr.i216, align 8
-  %52 = load ptr, ptr %s.addr.i217, align 8
-  store ptr %52, ptr %this1.i218, align 8
-  %size_.i219 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i218, i32 0, i32 1
   %53 = load ptr, ptr %s.addr.i217, align 8
-  %call.i220 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %53)
+  store ptr %53, ptr %this1.i218, align 8
+  %size_.i219 = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %this1.i218, i32 0, i32 1
+  %54 = load ptr, ptr %s.addr.i217, align 8
+  %call.i220 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %54)
   store i64 %call.i220, ptr %size_.i219, align 8
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %invoke.cont26
   %target_file_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 28
-  %54 = load ptr, ptr %target_file.addr, align 8
-  store ptr %54, ptr %target_file_, align 8
+  %55 = load ptr, ptr %target_file.addr, align 8
+  store ptr %55, ptr %target_file_, align 8
   %mutex_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 29
   %call = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6spdlog7details17console_nullmutex5mutexEv()
           to label %invoke.cont28 unwind label %lpad
@@ -3920,8 +3924,8 @@ invoke.cont29:                                    ; preds = %invoke.cont28
   call void @_ZNSt10unique_ptrIN6spdlog17pattern_formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #11
   %colors_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 32
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %colors_) #11
-  %55 = load i32, ptr %mode.addr, align 4
-  invoke void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, i32 noundef %55)
+  %56 = load i32, ptr %mode.addr, align 4
+  invoke void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, i32 noundef %56)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -4012,90 +4016,90 @@ invoke.cont85:                                    ; preds = %invoke.cont82
   ret void
 
 lpad:                                             ; preds = %invoke.cont28, %invoke.cont27
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup89
 
 lpad30:                                           ; preds = %invoke.cont77, %invoke.cont69, %invoke.cont61, %invoke.cont53, %invoke.cont45, %invoke.cont37, %invoke.cont31, %invoke.cont29
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad36:                                           ; preds = %invoke.cont34
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #11
   br label %ehcleanup
 
 lpad44:                                           ; preds = %invoke.cont42
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %exn.slot, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #11
   br label %ehcleanup
 
 lpad52:                                           ; preds = %invoke.cont50
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #11
   br label %ehcleanup
 
 lpad60:                                           ; preds = %invoke.cont58
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #11
   br label %ehcleanup
 
 lpad68:                                           ; preds = %invoke.cont66
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #11
   br label %ehcleanup
 
 lpad76:                                           ; preds = %invoke.cont74
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #11
   br label %ehcleanup
 
 lpad84:                                           ; preds = %invoke.cont82
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #11
   br label %ehcleanup
 
@@ -4713,7 +4717,8 @@ entry:
   %0 = load ptr, ptr @stdout, align 8
   %1 = load i32, ptr %mode.addr, align 4
   call void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEC2EP8_IO_FILENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stdout_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stdout_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -4728,7 +4733,8 @@ entry:
   %0 = load ptr, ptr @stdout, align 8
   %1 = load i32, ptr %mode.addr, align 4
   call void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEC2EP8_IO_FILENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stdout_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stdout_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -4743,7 +4749,8 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr %mode.addr, align 4
   call void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEC2EP8_IO_FILENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stderr_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stderr_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -4758,7 +4765,8 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr %mode.addr, align 4
   call void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEC2EP8_IO_FILENS_10color_modeE(ptr noundef nonnull align 8 dereferenceable(704) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stderr_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks21ansicolor_stderr_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -6083,7 +6091,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %colors_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 32
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %colors_) #11
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink", ptr %this1, i32 0, i32 31
@@ -6109,7 +6118,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %colors_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 32
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %colors_) #11
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::ansicolor_sink.19", ptr %this1, i32 0, i32 31
@@ -7692,16 +7702,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -9407,24 +9418,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(704) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(720) %this1) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -9602,7 +9614,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -10204,25 +10217,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.110", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %this3) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
   br label %eh.resume
 
@@ -10840,14 +10854,15 @@ entry:
   store ptr %begin, ptr %begin.addr, align 8
   store ptr %end, ptr %end.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.spdlog::logger", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name) #11
   %sinks_ = getelementptr inbounds %"class.spdlog::logger", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %begin.addr, align 8
-  %1 = load ptr, ptr %end.addr, align 8
+  %1 = load ptr, ptr %begin.addr, align 8
+  %2 = load ptr, ptr %end.addr, align 8
   call void @_ZNSaISt10shared_ptrIN6spdlog5sinks4sinkEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
-  invoke void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EEC2IPKS4_vEET_SA_RKS5_(ptr noundef nonnull align 8 dereferenceable(24) %sinks_, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EEC2IPKS4_vEET_SA_RKS5_(ptr noundef nonnull align 8 dereferenceable(24) %sinks_, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -10863,12 +10878,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSaISt10shared_ptrIN6spdlog5sinks4sinkEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #11
   br label %eh.resume
@@ -12339,24 +12354,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.136", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(704) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(720) %this1) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -12907,25 +12923,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.110", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %this3) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
   br label %eh.resume
 
@@ -13286,24 +13303,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.145", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(704) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details13console_mutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(720) %this1) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -13854,25 +13872,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.110", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %this3) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
   br label %eh.resume
 
@@ -14233,24 +14252,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.154", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(704) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details17console_nullmutexEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(720) %this1) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEJRNS3_10color_modeEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -14801,25 +14821,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.110", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %this3) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
   br label %eh.resume
 
@@ -15342,25 +15363,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.161", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(224) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(240) %this3) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog7details11thread_poolEJRKmjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog7details11thread_poolEJRKmjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #11
   br label %eh.resume
 
@@ -16143,27 +16165,28 @@ entry:
   store ptr %__args5, ptr %__args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.183", ptr %this7, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(248) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(264) %this7) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details13console_mutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
   br label %eh.resume
 
@@ -16822,7 +16845,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracer_ = getelementptr inbounds %"class.spdlog::logger", ptr %this1, i32 0, i32 6
   call void @_ZN6spdlog7details10backtracerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %tracer_) #11
   %custom_err_handler_ = getelementptr inbounds %"class.spdlog::logger", ptr %this1, i32 0, i32 5
@@ -17677,27 +17701,28 @@ entry:
   store ptr %__args5, ptr %__args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.183", ptr %this7, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(248) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(264) %this7) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stdout_sinkINS3_7details17console_nullmutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
   br label %eh.resume
 
@@ -17986,27 +18011,28 @@ entry:
   store ptr %__args5, ptr %__args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.183", ptr %this7, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(248) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(264) %this7) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details13console_mutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
   br label %eh.resume
 
@@ -18295,27 +18321,28 @@ entry:
   store ptr %__args5, ptr %__args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.183", ptr %this7, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(248) %_M_impl) #11
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog12async_loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(264) %this7) #11
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog12async_loggerEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_5sinks21ansicolor_stderr_sinkINS3_7details17console_nullmutexEEEESB_INSE_11thread_poolEENS3_21async_overflow_policyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #11
   br label %eh.resume
 

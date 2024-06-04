@@ -135,116 +135,117 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 3
-  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %15) #6
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 3
+  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %16) #6
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %16 unwind label %45
+          to label %17 unwind label %46
 
-16:                                               ; preds = %3
+17:                                               ; preds = %3
   invoke void @_ZN8QPaletteC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10)
-          to label %17 unwind label %49
+          to label %18 unwind label %50
 
-17:                                               ; preds = %16
-  %18 = load i32, ptr %6, align 4
-  %19 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 2
-  store i32 %18, ptr %19, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %20, ptr noundef null, ptr noundef null)
-          to label %22 unwind label %53
+18:                                               ; preds = %17
+  %19 = load i32, ptr %6, align 4
+  %20 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 2
+  store i32 %19, ptr %20, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %21, ptr noundef null, ptr noundef null)
+          to label %23 unwind label %54
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
-  store ptr %21, ptr %23, align 8
+23:                                               ; preds = %18
   %24 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  invoke void @_ZNK20QCPAbstractPlottable3penEv(ptr dead_on_unwind writable sret(%class.QPen) align 8 %11, ptr noundef nonnull align 8 dereferenceable(184) %25)
-          to label %26 unwind label %53
+  store ptr %22, ptr %24, align 8
+  %25 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  invoke void @_ZNK20QCPAbstractPlottable3penEv(ptr dead_on_unwind writable sret(%class.QPen) align 8 %11, ptr noundef nonnull align 8 dereferenceable(184) %26)
+          to label %27 unwind label %54
 
-26:                                               ; preds = %22
-  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QPenaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
+27:                                               ; preds = %23
+  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QPenaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  %28 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 2
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %12, i32 noundef %29) #6
+  %29 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %12, i32 noundef %30) #6
   invoke void @_ZN4QPen8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(14) %12)
-          to label %30 unwind label %53
+          to label %31 unwind label %54
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   invoke void @_ZN4QPen9setWidthFEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 5.000000e-01)
-          to label %31 unwind label %53
+          to label %32 unwind label %54
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %33, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %34 unwind label %53
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  invoke void @_ZN20QCPAbstractPlottable6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(184) %34, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %35 unwind label %54
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  invoke void @_ZN20QCPAbstractPlottable13setSelectableEN3QCP13SelectionTypeE(ptr noundef nonnull align 8 dereferenceable(184) %36, i32 noundef 0)
-          to label %37 unwind label %53
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  invoke void @_ZN20QCPAbstractPlottable13setSelectableEN3QCP13SelectionTypeE(ptr noundef nonnull align 8 dereferenceable(184) %37, i32 noundef 0)
+          to label %38 unwind label %54
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %39)
-          to label %41 unwind label %53
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = invoke noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef nonnull align 8 dereferenceable(184) %40)
+          to label %42 unwind label %54
 
-41:                                               ; preds = %37
-  %42 = invoke noundef nonnull align 4 dereferenceable(14) ptr @_ZNK8QPalette5colorENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 12)
-          to label %43 unwind label %53
+42:                                               ; preds = %38
+  %43 = invoke noundef nonnull align 4 dereferenceable(14) ptr @_ZNK8QPalette5colorENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 12)
+          to label %44 unwind label %54
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %44, ptr align 4 %42, i64 14, i1 false)
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %45, ptr align 4 %43, i64 14, i1 false)
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #6
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   ret void
 
-45:                                               ; preds = %3
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %3
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %8, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %9, align 4
-  br label %58
-
-49:                                               ; preds = %16
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %8, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %9, align 4
-  br label %57
-
-53:                                               ; preds = %41, %37, %34, %31, %30, %26, %22, %17
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %8, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %9, align 4
-  call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #6
-  br label %57
-
-57:                                               ; preds = %53, %49
-  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
-  br label %58
-
-58:                                               ; preds = %57, %45
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #6
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %8, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %9, align 4
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i32, ptr %9, align 4
-  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
-  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
-  resume { ptr, i32 } %63
+50:                                               ; preds = %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %8, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %9, align 4
+  br label %58
+
+54:                                               ; preds = %42, %38, %35, %32, %31, %27, %23, %18
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %8, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %9, align 4
+  call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #6
+  br label %58
+
+58:                                               ; preds = %54, %50
+  call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
+  br label %59
+
+59:                                               ; preds = %58, %46
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #6
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %8, align 8
+  %62 = load i32, ptr %9, align 4
+  %63 = insertvalue { ptr, i32 } poison, ptr %61, 0
+  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
+  resume { ptr, i32 } %64
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

@@ -23,25 +23,26 @@ define dso_local void @_ZN7codecvtC2E16codecvt_Encoding(ptr noundef nonnull alig
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt7codecvtIcc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7codecvt, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
-  switch i32 %6, label %8 [
-    i32 4, label %7
-    i32 3, label %7
-    i32 1, label %7
-    i32 2, label %7
-    i32 0, label %7
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV7codecvt, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  switch i32 %7, label %9 [
+    i32 4, label %8
+    i32 3, label %8
+    i32 1, label %8
+    i32 2, label %8
+    i32 0, label %8
   ]
 
-7:                                                ; preds = %2, %2, %2, %2, %2
-  br label %8
+8:                                                ; preds = %2, %2, %2, %2, %2
+  br label %9
 
-8:                                                ; preds = %7, %2
-  %9 = getelementptr inbounds %class.codecvt, ptr %5, i32 0, i32 1
-  store i8 1, ptr %9, align 8
-  br label %10
+9:                                                ; preds = %8, %2
+  %10 = getelementptr inbounds %class.codecvt, ptr %5, i32 0, i32 1
+  store i8 1, ptr %10, align 8
+  br label %11
 
-10:                                               ; preds = %8
+11:                                               ; preds = %9
   ret void
 }
 

@@ -3720,85 +3720,86 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.else:                                          ; preds = %if.end
-  %7 = load i64, ptr getelementptr inbounds ([17 x i64], ptr @BUFFER_BLOCK_SIZE, i64 0, i64 16), align 16
-  store i64 %7, ptr %block_size, align 8
+  %7 = getelementptr inbounds [17 x i64], ptr @BUFFER_BLOCK_SIZE, i64 0, i64 16
+  %8 = load i64, ptr %7, align 16
+  store i64 %8, ptr %block_size, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.else, %if.then2
-  %8 = load ptr, ptr %buffer.addr, align 8
-  %max_length = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %max_length, align 8
-  %cmp4 = icmp sge i64 %9, 0
+  %9 = load ptr, ptr %buffer.addr, align 8
+  %max_length = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %9, i32 0, i32 2
+  %10 = load i64, ptr %max_length, align 8
+  %cmp4 = icmp sge i64 %10, 0
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  %10 = load ptr, ptr %buffer.addr, align 8
-  %max_length6 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %max_length6, align 8
-  %12 = load ptr, ptr %buffer.addr, align 8
-  %allocated = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %allocated, align 8
-  %sub = sub i64 %11, %13
+  %11 = load ptr, ptr %buffer.addr, align 8
+  %max_length6 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %11, i32 0, i32 2
+  %12 = load i64, ptr %max_length6, align 8
+  %13 = load ptr, ptr %buffer.addr, align 8
+  %allocated = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %13, i32 0, i32 1
+  %14 = load i64, ptr %allocated, align 8
+  %sub = sub i64 %12, %14
   store i64 %sub, ptr %rest, align 8
-  %14 = load i64, ptr %block_size, align 8
-  %15 = load i64, ptr %rest, align 8
-  %cmp7 = icmp sgt i64 %14, %15
+  %15 = load i64, ptr %block_size, align 8
+  %16 = load i64, ptr %rest, align 8
+  %cmp7 = icmp sgt i64 %15, %16
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.then5
-  %16 = load i64, ptr %rest, align 8
-  store i64 %16, ptr %block_size, align 8
+  %17 = load i64, ptr %rest, align 8
+  store i64 %17, ptr %block_size, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.then5
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %if.end3
-  %17 = load i64, ptr %block_size, align 8
-  %18 = load ptr, ptr %buffer.addr, align 8
-  %allocated11 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %allocated11, align 8
-  %sub12 = sub i64 9223372036854775807, %19
-  %cmp13 = icmp sgt i64 %17, %sub12
+  %18 = load i64, ptr %block_size, align 8
+  %19 = load ptr, ptr %buffer.addr, align 8
+  %allocated11 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %19, i32 0, i32 1
+  %20 = load i64, ptr %allocated11, align 8
+  %sub12 = sub i64 9223372036854775807, %20
+  %cmp13 = icmp sgt i64 %18, %sub12
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end10
-  %20 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %20, ptr noundef @unable_allocate_msg)
+  %21 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef @unable_allocate_msg)
   store i64 -1, ptr %retval, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end10
-  %21 = load i64, ptr %block_size, align 8
-  %call16 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %21)
+  %22 = load i64, ptr %block_size, align 8
+  %call16 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %22)
   store ptr %call16, ptr %b, align 8
-  %22 = load ptr, ptr %b, align 8
-  %cmp17 = icmp eq ptr %22, null
+  %23 = load ptr, ptr %b, align 8
+  %cmp17 = icmp eq ptr %23, null
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end15
-  %23 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %23, ptr noundef @unable_allocate_msg)
+  %24 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %24, ptr noundef @unable_allocate_msg)
   store i64 -1, ptr %retval, align 8
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %24 = load ptr, ptr %buffer.addr, align 8
-  %list20 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %list20, align 8
-  %26 = load ptr, ptr %b, align 8
-  %call21 = call i32 @PyList_Append(ptr noundef %25, ptr noundef %26)
+  %25 = load ptr, ptr %buffer.addr, align 8
+  %list20 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %25, i32 0, i32 0
+  %26 = load ptr, ptr %list20, align 8
+  %27 = load ptr, ptr %b, align 8
+  %call21 = call i32 @PyList_Append(ptr noundef %26, ptr noundef %27)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end19
-  %27 = load ptr, ptr %b, align 8
-  store ptr %27, ptr %op.addr.i27, align 8
-  %28 = load ptr, ptr %op.addr.i27, align 8
-  store ptr %28, ptr %op.addr.i36, align 8
-  %29 = load ptr, ptr %op.addr.i36, align 8
-  %30 = load i64, ptr %29, align 8
-  %conv.i = trunc i64 %30 to i32
+  %28 = load ptr, ptr %b, align 8
+  store ptr %28, ptr %op.addr.i27, align 8
+  %29 = load ptr, ptr %op.addr.i27, align 8
+  store ptr %29, ptr %op.addr.i36, align 8
+  %30 = load ptr, ptr %op.addr.i36, align 8
+  %31 = load i64, ptr %30, align 8
+  %conv.i = trunc i64 %31 to i32
   %cmp.i37 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i37 to i32
   %tobool.i29 = icmp ne i32 %conv1.i, 0
@@ -3808,16 +3809,16 @@ if.then.i34:                                      ; preds = %if.then23
   br label %Py_DECREF.exit35
 
 if.end.i30:                                       ; preds = %if.then23
-  %31 = load ptr, ptr %op.addr.i27, align 8
-  %32 = load i64, ptr %31, align 8
-  %dec.i31 = add i64 %32, -1
-  store i64 %dec.i31, ptr %31, align 8
+  %32 = load ptr, ptr %op.addr.i27, align 8
+  %33 = load i64, ptr %32, align 8
+  %dec.i31 = add i64 %33, -1
+  store i64 %dec.i31, ptr %32, align 8
   %cmp.i32 = icmp eq i64 %dec.i31, 0
   br i1 %cmp.i32, label %if.then1.i33, label %Py_DECREF.exit35
 
 if.then1.i33:                                     ; preds = %if.end.i30
-  %33 = load ptr, ptr %op.addr.i27, align 8
-  call void @_Py_Dealloc(ptr noundef %33) #6
+  %34 = load ptr, ptr %op.addr.i27, align 8
+  call void @_Py_Dealloc(ptr noundef %34) #6
   br label %Py_DECREF.exit35
 
 Py_DECREF.exit35:                                 ; preds = %if.then1.i33, %if.end.i30, %if.then.i34
@@ -3825,13 +3826,13 @@ Py_DECREF.exit35:                                 ; preds = %if.then1.i33, %if.e
   br label %return
 
 if.end24:                                         ; preds = %if.end19
-  %34 = load ptr, ptr %b, align 8
-  store ptr %34, ptr %op.addr.i, align 8
-  %35 = load ptr, ptr %op.addr.i, align 8
-  store ptr %35, ptr %op.addr.i38, align 8
-  %36 = load ptr, ptr %op.addr.i38, align 8
-  %37 = load i64, ptr %36, align 8
-  %conv.i39 = trunc i64 %37 to i32
+  %35 = load ptr, ptr %b, align 8
+  store ptr %35, ptr %op.addr.i, align 8
+  %36 = load ptr, ptr %op.addr.i, align 8
+  store ptr %36, ptr %op.addr.i38, align 8
+  %37 = load ptr, ptr %op.addr.i38, align 8
+  %38 = load i64, ptr %37, align 8
+  %conv.i39 = trunc i64 %38 to i32
   %cmp.i40 = icmp slt i32 %conv.i39, 0
   %conv1.i41 = zext i1 %cmp.i40 to i32
   %tobool.i = icmp ne i32 %conv1.i41, 0
@@ -3841,36 +3842,36 @@ if.then.i:                                        ; preds = %if.end24
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end24
-  %38 = load ptr, ptr %op.addr.i, align 8
-  %39 = load i64, ptr %38, align 8
-  %dec.i = add i64 %39, -1
-  store i64 %dec.i, ptr %38, align 8
+  %39 = load ptr, ptr %op.addr.i, align 8
+  %40 = load i64, ptr %39, align 8
+  %dec.i = add i64 %40, -1
+  store i64 %dec.i, ptr %39, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %40 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %40) #6
+  %41 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %41) #6
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  %41 = load i64, ptr %block_size, align 8
-  %42 = load ptr, ptr %buffer.addr, align 8
-  %allocated25 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %42, i32 0, i32 1
-  %43 = load i64, ptr %allocated25, align 8
-  %add = add i64 %43, %41
+  %42 = load i64, ptr %block_size, align 8
+  %43 = load ptr, ptr %buffer.addr, align 8
+  %allocated25 = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %43, i32 0, i32 1
+  %44 = load i64, ptr %allocated25, align 8
+  %add = add i64 %44, %42
   store i64 %add, ptr %allocated25, align 8
-  %44 = load ptr, ptr %b, align 8
-  %call26 = call ptr @PyBytes_AS_STRING(ptr noundef %44)
-  %45 = load ptr, ptr %next_out.addr, align 8
-  store ptr %call26, ptr %45, align 8
-  %46 = load i64, ptr %block_size, align 8
-  store i64 %46, ptr %retval, align 8
+  %45 = load ptr, ptr %b, align 8
+  %call26 = call ptr @PyBytes_AS_STRING(ptr noundef %45)
+  %46 = load ptr, ptr %next_out.addr, align 8
+  store ptr %call26, ptr %46, align 8
+  %47 = load i64, ptr %block_size, align 8
+  store i64 %47, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %Py_DECREF.exit, %Py_DECREF.exit35, %if.then18, %if.then14, %if.then
-  %47 = load i64, ptr %retval, align 8
-  ret i64 %47
+  %48 = load i64, ptr %retval, align 8
+  ret i64 %48
 }
 
 ; Function Attrs: nounwind uwtable

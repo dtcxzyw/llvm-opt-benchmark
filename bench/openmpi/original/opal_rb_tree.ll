@@ -46,39 +46,40 @@ define internal void @opal_rb_tree_construct(ptr noundef %0) #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %14, i32 0, i32 4
-  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %16, align 16
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %17, i32 0, i32 4
-  %19 = getelementptr inbounds %struct.opal_object_t, ptr %18, i32 0, i32 1
-  store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %20, i32 0, i32 4
-  call void @opal_obj_run_constructors(ptr noundef %21)
-  br label %22
-
-22:                                               ; preds = %13
+14:                                               ; preds = %13, %8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %15, i32 0, i32 4
+  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %17, align 16
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %18, i32 0, i32 4
+  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 1
+  store volatile i32 1, ptr %20, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %21, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %22)
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %24, i32 0, i32 4
-  %26 = load i32, ptr @opal_cache_line_size, align 4
-  %27 = sext i32 %26 to i64
-  %28 = load i32, ptr @opal_cache_line_size, align 4
-  %29 = sext i32 %28 to i64
-  %30 = call i32 @opal_free_list_init(ptr noundef %25, i64 noundef 104, i64 noundef %27, ptr noundef @opal_rb_tree_node_t_class, i64 noundef 0, i64 noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef 128, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+23:                                               ; preds = %14
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds %struct.opal_rb_tree_t, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr @opal_cache_line_size, align 4
+  %28 = sext i32 %27 to i64
+  %29 = load i32, ptr @opal_cache_line_size, align 4
+  %30 = sext i32 %29 to i64
+  %31 = call i32 @opal_free_list_init(ptr noundef %26, i64 noundef 104, i64 noundef %28, ptr noundef @opal_rb_tree_node_t_class, i64 noundef 0, i64 noundef %30, i32 noundef 0, i32 noundef -1, i32 noundef 128, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 

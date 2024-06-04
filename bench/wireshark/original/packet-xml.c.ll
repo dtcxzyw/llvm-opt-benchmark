@@ -508,45 +508,50 @@ define hidden void @proto_register_xml() #0 {
   call void @init_xml_names()
   %9 = load ptr, ptr @xml_ns, align 8
   %10 = call i32 @proto_register_protocol(ptr noundef @.str.24, ptr noundef @.str.25, ptr noundef %9)
-  store i32 %10, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %12 = load ptr, ptr @hf_arr, align 8
-  %13 = call ptr @wmem_array_get_raw(ptr noundef %12)
+  %11 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  store i32 %10, ptr %11, align 8
+  %12 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
   %14 = load ptr, ptr @hf_arr, align 8
-  %15 = call i32 @wmem_array_get_count(ptr noundef %14)
-  call void @proto_register_field_array(i32 noundef %11, ptr noundef %13, i32 noundef %15)
-  %16 = load ptr, ptr @ett_arr, align 8
-  %17 = getelementptr inbounds %struct._GArray, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr @ett_arr, align 8
-  %20 = getelementptr inbounds %struct._GArray, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
-  call void @proto_register_subtree_array(ptr noundef %18, i32 noundef %21)
-  %22 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %23 = call ptr @expert_register_protocol(i32 noundef %22)
-  store ptr %23, ptr %2, align 8
-  %24 = load ptr, ptr %2, align 8
-  call void @expert_register_field_array(ptr noundef %24, ptr noundef @proto_register_xml.ei, i32 noundef 3)
-  %25 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %26 = call ptr @prefs_register_protocol(i32 noundef %25, ptr noundef null)
-  store ptr %26, ptr %1, align 8
-  %27 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %27, ptr noundef @.str.26)
-  %28 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %28, ptr noundef @.str.27)
-  %29 = load ptr, ptr %1, align 8
-  call void @prefs_register_obsolete_preference(ptr noundef %29, ptr noundef @.str.28)
-  %30 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %30, ptr noundef @.str.29, ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @pref_heuristic_unicode)
+  %15 = call ptr @wmem_array_get_raw(ptr noundef %14)
+  %16 = load ptr, ptr @hf_arr, align 8
+  %17 = call i32 @wmem_array_get_count(ptr noundef %16)
+  call void @proto_register_field_array(i32 noundef %13, ptr noundef %15, i32 noundef %17)
+  %18 = load ptr, ptr @ett_arr, align 8
+  %19 = getelementptr inbounds %struct._GArray, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr @ett_arr, align 8
+  %22 = getelementptr inbounds %struct._GArray, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  call void @proto_register_subtree_array(ptr noundef %20, i32 noundef %23)
+  %24 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
+  %26 = call ptr @expert_register_protocol(i32 noundef %25)
+  store ptr %26, ptr %2, align 8
+  %27 = load ptr, ptr %2, align 8
+  call void @expert_register_field_array(ptr noundef %27, ptr noundef @proto_register_xml.ei, i32 noundef 3)
+  %28 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %29 = load i32, ptr %28, align 8
+  %30 = call ptr @prefs_register_protocol(i32 noundef %29, ptr noundef null)
+  store ptr %30, ptr %1, align 8
   %31 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %31, ptr noundef @.str.32, ptr noundef @.str.33, ptr noundef @.str.34, ptr noundef @pref_default_encoding, ptr noundef @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0)
-  %32 = load ptr, ptr @ett_arr, align 8
-  %33 = call ptr @g_array_free(ptr noundef %32, i32 noundef 1)
+  call void @prefs_register_obsolete_preference(ptr noundef %31, ptr noundef @.str.26)
+  %32 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %32, ptr noundef @.str.27)
+  %33 = load ptr, ptr %1, align 8
+  call void @prefs_register_obsolete_preference(ptr noundef %33, ptr noundef @.str.28)
+  %34 = load ptr, ptr %1, align 8
+  call void @prefs_register_bool_preference(ptr noundef %34, ptr noundef @.str.29, ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @pref_heuristic_unicode)
+  %35 = load ptr, ptr %1, align 8
+  call void @prefs_register_enum_preference(ptr noundef %35, ptr noundef @.str.32, ptr noundef @.str.33, ptr noundef @.str.34, ptr noundef @pref_default_encoding, ptr noundef @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0)
+  %36 = load ptr, ptr @ett_arr, align 8
+  %37 = call ptr @g_array_free(ptr noundef %36, i32 noundef 1)
   call void @register_init_routine(ptr noundef @xml_init_protocol)
   call void @register_cleanup_routine(ptr noundef @xml_cleanup_protocol)
-  %34 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %35 = call ptr @register_dissector(ptr noundef @.str.35, ptr noundef @dissect_xml, i32 noundef %34)
-  store ptr %35, ptr @xml_handle, align 8
+  %38 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %39 = load i32, ptr %38, align 8
+  %40 = call ptr @register_dissector(ptr noundef @.str.35, ptr noundef @dissect_xml, i32 noundef %39)
+  store ptr %40, ptr @xml_handle, align 8
   call void @init_xml_parser()
   ret void
 }
@@ -586,206 +591,210 @@ define internal void @init_xml_names() #0 {
   store ptr %17, ptr @media_types, align 8
   %18 = call ptr @wmem_epan_scope()
   %19 = call noalias ptr @wmem_map_new(ptr noundef %18, ptr noundef @g_str_hash, ptr noundef @g_str_equal)
-  store ptr %19, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6), align 8
-  store ptr %19, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @unknown_ns, i32 0, i32 6), align 8
-  %20 = call ptr @wmem_epan_scope()
-  %21 = call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef @g_str_hash, ptr noundef @g_str_equal)
-  store ptr %21, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 5), align 8
-  store ptr %21, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @unknown_ns, i32 0, i32 5), align 8
-  %22 = load ptr, ptr @xmpli_names, align 8
-  %23 = call ptr (ptr, ptr, ...) @xml_new_namespace(ptr noundef %22, ptr noundef @.str.35, ptr noundef @.str.62, ptr noundef @.str.63, ptr noundef @.str.64, ptr noundef null)
-  %24 = call ptr @get_persconffile_path(ptr noundef @.str.65, i1 noundef zeroext false)
-  store ptr %24, ptr %5, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @test_for_directory(ptr noundef %25)
-  %27 = icmp ne i32 %26, 21
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %0
+  %20 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds %struct._xml_ns_t, ptr @unknown_ns, i32 0, i32 6
+  store ptr %19, ptr %21, align 8
+  %22 = call ptr @wmem_epan_scope()
+  %23 = call noalias ptr @wmem_map_new(ptr noundef %22, ptr noundef @g_str_hash, ptr noundef @g_str_equal)
+  %24 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 5
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct._xml_ns_t, ptr @unknown_ns, i32 0, i32 5
+  store ptr %23, ptr %25, align 8
+  %26 = load ptr, ptr @xmpli_names, align 8
+  %27 = call ptr (ptr, ptr, ...) @xml_new_namespace(ptr noundef %26, ptr noundef @.str.35, ptr noundef @.str.62, ptr noundef @.str.63, ptr noundef @.str.64, ptr noundef null)
+  %28 = call ptr @get_persconffile_path(ptr noundef @.str.65, i1 noundef zeroext false)
+  store ptr %28, ptr %5, align 8
   %29 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %29)
-  %30 = call ptr @get_datafile_path(ptr noundef @.str.65)
-  store ptr %30, ptr %5, align 8
-  br label %31
+  %30 = call i32 @test_for_directory(ptr noundef %29)
+  %31 = icmp ne i32 %30, 21
+  br i1 %31, label %32, label %35
 
-31:                                               ; preds = %28, %0
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i32 @test_for_directory(ptr noundef %32)
-  %34 = icmp eq i32 %33, 21
-  br i1 %34, label %35, label %118
+32:                                               ; preds = %0
+  %33 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %33)
+  %34 = call ptr @get_datafile_path(ptr noundef @.str.65)
+  store ptr %34, ptr %5, align 8
+  br label %35
 
-35:                                               ; preds = %31
+35:                                               ; preds = %32, %0
   %36 = load ptr, ptr %5, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = call ptr @g_dir_open(ptr noundef %36, i32 noundef 0, ptr noundef %37)
-  store ptr %38, ptr %2, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %117
+  %37 = call i32 @test_for_directory(ptr noundef %36)
+  %38 = icmp eq i32 %37, 21
+  br i1 %38, label %39, label %122
 
-40:                                               ; preds = %35
-  %41 = call ptr @g_string_new(ptr noundef @.str.37)
-  store ptr %41, ptr %7, align 8
-  br label %42
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = call ptr @g_dir_open(ptr noundef %40, i32 noundef 0, ptr noundef %41)
+  store ptr %42, ptr %2, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %121
 
-42:                                               ; preds = %112, %105, %89, %72, %40
-  %43 = load ptr, ptr %2, align 8
-  %44 = call ptr @g_dir_read_name(ptr noundef %43)
-  store ptr %44, ptr %3, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %113
+44:                                               ; preds = %39
+  %45 = call ptr @g_string_new(ptr noundef @.str.37)
+  store ptr %45, ptr %7, align 8
+  br label %46
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %3, align 8
-  store ptr %47, ptr %4, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #4
-  %50 = trunc i64 %49 to i32
-  store i32 %50, ptr %8, align 4
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp ugt i32 %51, 4
-  br i1 %52, label %53, label %112
+46:                                               ; preds = %116, %109, %93, %76, %44
+  %47 = load ptr, ptr %2, align 8
+  %48 = call ptr @g_dir_read_name(ptr noundef %47)
+  store ptr %48, ptr %3, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %117
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %4, align 8
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %3, align 8
+  store ptr %51, ptr %4, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = call i64 @strlen(ptr noundef %52) #4
+  %54 = trunc i64 %53 to i32
+  store i32 %54, ptr %8, align 4
   %55 = load i32, ptr %8, align 4
-  %56 = sub i32 %55, 4
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr i8, ptr %54, i64 %57
-  %59 = call i32 @g_ascii_strcasecmp(ptr noundef %58, ptr noundef @.str.66)
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %112
+  %56 = icmp ugt i32 %55, 4
+  br i1 %56, label %57, label %116
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %7, align 8
-  %63 = call ptr @g_string_truncate(ptr noundef %62, i64 noundef 0)
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %4, align 8
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %4, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = sub i32 %59, 4
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr i8, ptr %58, i64 %61
+  %63 = call i32 @g_ascii_strcasecmp(ptr noundef %62, ptr noundef @.str.66)
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %116
+
+65:                                               ; preds = %57
   %66 = load ptr, ptr %7, align 8
-  %67 = call ptr @dtd_preparse(ptr noundef %64, ptr noundef %65, ptr noundef %66)
-  store ptr %67, ptr %9, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct._GString, ptr %68, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %78
+  %67 = call ptr @g_string_truncate(ptr noundef %66, i64 noundef 0)
+  %68 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = call ptr @dtd_preparse(ptr noundef %68, ptr noundef %69, ptr noundef %70)
+  store ptr %71, ptr %9, align 8
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds %struct._GString, ptr %72, i32 0, i32 1
+  %74 = load i64, ptr %73, align 8
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %82
 
-72:                                               ; preds = %61
-  %73 = load ptr, ptr %5, align 8
-  %74 = load ptr, ptr %4, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct._GString, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  call void (ptr, ...) @report_failure(ptr noundef @.str.67, ptr noundef %73, i32 noundef 47, ptr noundef %74, ptr noundef %77)
-  br label %42, !llvm.loop !8
+76:                                               ; preds = %65
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds %struct._GString, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.67, ptr noundef %77, i32 noundef 47, ptr noundef %78, ptr noundef %81)
+  br label %46, !llvm.loop !8
 
-78:                                               ; preds = %61
-  %79 = load ptr, ptr %9, align 8
-  %80 = call ptr @dtd_parse(ptr noundef %79)
-  store ptr %80, ptr %10, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = call ptr @g_string_free(ptr noundef %81, i32 noundef 1)
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct._dtd_build_data_t, ptr %83, i32 0, i32 7
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._GString, ptr %85, i32 0, i32 1
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp ne i64 %87, 0
-  br i1 %88, label %89, label %98
+82:                                               ; preds = %65
+  %83 = load ptr, ptr %9, align 8
+  %84 = call ptr @dtd_parse(ptr noundef %83)
+  store ptr %84, ptr %10, align 8
+  %85 = load ptr, ptr %9, align 8
+  %86 = call ptr @g_string_free(ptr noundef %85, i32 noundef 1)
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds %struct._dtd_build_data_t, ptr %87, i32 0, i32 7
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %struct._GString, ptr %89, i32 0, i32 1
+  %91 = load i64, ptr %90, align 8
+  %92 = icmp ne i64 %91, 0
+  br i1 %92, label %93, label %102
 
-89:                                               ; preds = %78
-  %90 = load ptr, ptr %5, align 8
-  %91 = load ptr, ptr %4, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct._dtd_build_data_t, ptr %92, i32 0, i32 7
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct._GString, ptr %94, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  call void (ptr, ...) @report_failure(ptr noundef @.str.68, ptr noundef %90, i32 noundef 47, ptr noundef %91, ptr noundef %96)
-  %97 = load ptr, ptr %10, align 8
-  call void @destroy_dtd_data(ptr noundef %97)
-  br label %42, !llvm.loop !8
+93:                                               ; preds = %82
+  %94 = load ptr, ptr %5, align 8
+  %95 = load ptr, ptr %4, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = getelementptr inbounds %struct._dtd_build_data_t, ptr %96, i32 0, i32 7
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds %struct._GString, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.68, ptr noundef %94, i32 noundef 47, ptr noundef %95, ptr noundef %100)
+  %101 = load ptr, ptr %10, align 8
+  call void @destroy_dtd_data(ptr noundef %101)
+  br label %46, !llvm.loop !8
 
-98:                                               ; preds = %78
-  %99 = load ptr, ptr %10, align 8
-  %100 = load ptr, ptr %7, align 8
-  call void @register_dtd(ptr noundef %99, ptr noundef %100)
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct._GString, ptr %101, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %104 = icmp ne i64 %103, 0
-  br i1 %104, label %105, label %111
+102:                                              ; preds = %82
+  %103 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr %7, align 8
+  call void @register_dtd(ptr noundef %103, ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds %struct._GString, ptr %105, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp ne i64 %107, 0
+  br i1 %108, label %109, label %115
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %5, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %struct._GString, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  call void (ptr, ...) @report_failure(ptr noundef @.str.69, ptr noundef %106, i32 noundef 47, ptr noundef %107, ptr noundef %110)
-  br label %42, !llvm.loop !8
+109:                                              ; preds = %102
+  %110 = load ptr, ptr %5, align 8
+  %111 = load ptr, ptr %4, align 8
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds %struct._GString, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.69, ptr noundef %110, i32 noundef 47, ptr noundef %111, ptr noundef %114)
+  br label %46, !llvm.loop !8
 
-111:                                              ; preds = %98
-  br label %112
+115:                                              ; preds = %102
+  br label %116
 
-112:                                              ; preds = %111, %53, %46
-  br label %42, !llvm.loop !8
+116:                                              ; preds = %115, %57, %50
+  br label %46, !llvm.loop !8
 
-113:                                              ; preds = %42
-  %114 = load ptr, ptr %7, align 8
-  %115 = call ptr @g_string_free(ptr noundef %114, i32 noundef 1)
-  %116 = load ptr, ptr %2, align 8
-  call void @g_dir_close(ptr noundef %116)
-  br label %117
+117:                                              ; preds = %46
+  %118 = load ptr, ptr %7, align 8
+  %119 = call ptr @g_string_free(ptr noundef %118, i32 noundef 1)
+  %120 = load ptr, ptr %2, align 8
+  call void @g_dir_close(ptr noundef %120)
+  br label %121
 
-117:                                              ; preds = %113, %35
-  br label %118
+121:                                              ; preds = %117, %39
+  br label %122
 
-118:                                              ; preds = %117, %31
-  %119 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %119)
+122:                                              ; preds = %121, %35
+  %123 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %123)
   store i32 0, ptr %1, align 4
-  br label %120
+  br label %124
 
-120:                                              ; preds = %140, %118
-  %121 = load i32, ptr %1, align 4
-  %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %122, 149
-  br i1 %123, label %124, label %143
+124:                                              ; preds = %144, %122
+  %125 = load i32, ptr %1, align 4
+  %126 = zext i32 %125 to i64
+  %127 = icmp ult i64 %126, 149
+  br i1 %127, label %128, label %147
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr @media_types, align 8
-  %126 = load i32, ptr %1, align 4
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %127
-  %129 = load ptr, ptr %128, align 8
-  %130 = call ptr @wmem_map_lookup(ptr noundef %125, ptr noundef %129)
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %139, label %132
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @media_types, align 8
+  %130 = load i32, ptr %1, align 4
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %131
+  %133 = load ptr, ptr %132, align 8
+  %134 = call ptr @wmem_map_lookup(ptr noundef %129, ptr noundef %133)
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %143, label %136
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr @media_types, align 8
-  %134 = load i32, ptr %1, align 4
-  %135 = zext i32 %134 to i64
-  %136 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %135
-  %137 = load ptr, ptr %136, align 8
-  %138 = call ptr @wmem_map_insert(ptr noundef %133, ptr noundef %137, ptr noundef @xml_ns)
-  br label %139
+136:                                              ; preds = %128
+  %137 = load ptr, ptr @media_types, align 8
+  %138 = load i32, ptr %1, align 4
+  %139 = zext i32 %138 to i64
+  %140 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %139
+  %141 = load ptr, ptr %140, align 8
+  %142 = call ptr @wmem_map_insert(ptr noundef %137, ptr noundef %141, ptr noundef @xml_ns)
+  br label %143
 
-139:                                              ; preds = %132, %124
-  br label %140
+143:                                              ; preds = %136, %128
+  br label %144
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %1, align 4
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %1, align 4
-  br label %120, !llvm.loop !9
+144:                                              ; preds = %143
+  %145 = load i32, ptr %1, align 4
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %1, align 4
+  br label %124, !llvm.loop !9
 
-143:                                              ; preds = %120
-  %144 = load ptr, ptr @xmpli_names, align 8
-  call void @wmem_map_foreach(ptr noundef %144, ptr noundef @add_xmlpi_namespace, ptr noundef @.str.1)
-  %145 = call ptr @wmem_epan_scope()
-  %146 = load ptr, ptr %6, align 8
-  call void @wmem_free(ptr noundef %145, ptr noundef %146)
+147:                                              ; preds = %124
+  %148 = load ptr, ptr @xmpli_names, align 8
+  call void @wmem_map_foreach(ptr noundef %148, ptr noundef @add_xmlpi_namespace, ptr noundef @.str.1)
+  %149 = call ptr @wmem_epan_scope()
+  %150 = load ptr, ptr %6, align 8
+  call void @wmem_free(ptr noundef %149, ptr noundef %150)
   ret void
 }
 
@@ -1107,12 +1116,13 @@ define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %201 = getelementptr inbounds %struct._packet_info, ptr %200, i32 0, i32 50
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %6, align 8
-  %204 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  %205 = load ptr, ptr %10, align 8
-  call void @p_add_proto_data(ptr noundef %202, ptr noundef %203, i32 noundef %204, i32 noundef 0, ptr noundef %205)
-  %206 = load ptr, ptr %5, align 8
-  %207 = call i32 @tvb_captured_length(ptr noundef %206)
-  ret i32 %207
+  %204 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %205 = load i32, ptr %204, align 8
+  %206 = load ptr, ptr %10, align 8
+  call void @p_add_proto_data(ptr noundef %202, ptr noundef %203, i32 noundef %205, i32 noundef 0, ptr noundef %206)
+  %207 = load ptr, ptr %5, align 8
+  %208 = call i32 @tvb_captured_length(ptr noundef %207)
+  ret i32 %208
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1261,20 +1271,26 @@ define hidden void @proto_reg_handoff_xml() #0 {
   call void @dissector_add_uint_range_with_preference(ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef %2)
   %3 = load ptr, ptr @xml_handle, align 8
   call void @dissector_add_uint_range_with_preference(ptr noundef @.str.38, ptr noundef @.str.39, ptr noundef %3)
-  %4 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.40, ptr noundef @dissect_xml_heur, ptr noundef @.str.41, ptr noundef @.str.42, i32 noundef %4, i32 noundef 0)
-  %5 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.43, ptr noundef @dissect_xml_heur, ptr noundef @.str.44, ptr noundef @.str.45, i32 noundef %5, i32 noundef 0)
-  %6 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.46, ptr noundef @dissect_xml_heur, ptr noundef @.str.47, ptr noundef @.str.48, i32 noundef %6, i32 noundef 0)
-  %7 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.49, ptr noundef @dissect_xml_heur, ptr noundef @.str.50, ptr noundef @.str.51, i32 noundef %7, i32 noundef 0)
-  %8 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.52, ptr noundef @dissect_xml_heur, ptr noundef @.str.53, ptr noundef @.str.54, i32 noundef %8, i32 noundef 0)
-  %9 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2), align 8
-  call void @heur_dissector_add(ptr noundef @.str.55, ptr noundef @dissect_xml_heur, ptr noundef @.str.56, ptr noundef @.str.57, i32 noundef %9, i32 noundef 1)
-  %10 = load ptr, ptr @xml_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.58, i32 noundef 5, ptr noundef %10)
+  %4 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8
+  call void @heur_dissector_add(ptr noundef @.str.40, ptr noundef @dissect_xml_heur, ptr noundef @.str.41, ptr noundef @.str.42, i32 noundef %5, i32 noundef 0)
+  %6 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8
+  call void @heur_dissector_add(ptr noundef @.str.43, ptr noundef @dissect_xml_heur, ptr noundef @.str.44, ptr noundef @.str.45, i32 noundef %7, i32 noundef 0)
+  %8 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8
+  call void @heur_dissector_add(ptr noundef @.str.46, ptr noundef @dissect_xml_heur, ptr noundef @.str.47, ptr noundef @.str.48, i32 noundef %9, i32 noundef 0)
+  %10 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %11 = load i32, ptr %10, align 8
+  call void @heur_dissector_add(ptr noundef @.str.49, ptr noundef @dissect_xml_heur, ptr noundef @.str.50, ptr noundef @.str.51, i32 noundef %11, i32 noundef 0)
+  %12 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  call void @heur_dissector_add(ptr noundef @.str.52, ptr noundef @dissect_xml_heur, ptr noundef @.str.53, ptr noundef @.str.54, i32 noundef %13, i32 noundef 0)
+  %14 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8
+  call void @heur_dissector_add(ptr noundef @.str.55, ptr noundef @dissect_xml_heur, ptr noundef @.str.56, ptr noundef @.str.57, i32 noundef %15, i32 noundef 1)
+  %16 = load ptr, ptr @xml_handle, align 8
+  call void @dissector_add_uint(ptr noundef @.str.58, i32 noundef 5, ptr noundef %16)
   ret void
 }
 
@@ -1472,7 +1488,7 @@ define internal ptr @xml_new_namespace(ptr noundef %0, ptr noundef %1, ...) #0 {
   %27 = getelementptr inbounds %struct._xml_ns_t, ptr %26, i32 0, i32 6
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %28)
+  call void @llvm.va_start.p0(ptr %28)
   br label %29
 
 29:                                               ; preds = %47, %2
@@ -1522,7 +1538,7 @@ define internal ptr @xml_new_namespace(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 59:                                               ; preds = %43
   %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %60)
+  call void @llvm.va_end.p0(ptr %60)
   %61 = load ptr, ptr %3, align 8
   %62 = load ptr, ptr %5, align 8
   %63 = getelementptr inbounds %struct._xml_ns_t, ptr %62, i32 0, i32 0
@@ -2308,19 +2324,20 @@ define internal void @register_dtd(ptr noundef %0, ptr noundef %1) #0 {
   br label %480
 
 480:                                              ; preds = %477, %401
-  %481 = load ptr, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6), align 8
-  %482 = load ptr, ptr %7, align 8
-  %483 = getelementptr inbounds %struct._xml_ns_t, ptr %482, i32 0, i32 0
-  %484 = load ptr, ptr %483, align 8
-  %485 = load ptr, ptr %7, align 8
-  %486 = call ptr @wmem_map_insert(ptr noundef %481, ptr noundef %484, ptr noundef %485)
-  %487 = load ptr, ptr %5, align 8
-  call void @wmem_map_foreach(ptr noundef %487, ptr noundef @free_elements, ptr noundef null)
-  %488 = load ptr, ptr %3, align 8
-  call void @destroy_dtd_data(ptr noundef %488)
-  %489 = call ptr @wmem_epan_scope()
-  %490 = load ptr, ptr %6, align 8
-  call void @wmem_free(ptr noundef %489, ptr noundef %490)
+  %481 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6
+  %482 = load ptr, ptr %481, align 8
+  %483 = load ptr, ptr %7, align 8
+  %484 = getelementptr inbounds %struct._xml_ns_t, ptr %483, i32 0, i32 0
+  %485 = load ptr, ptr %484, align 8
+  %486 = load ptr, ptr %7, align 8
+  %487 = call ptr @wmem_map_insert(ptr noundef %482, ptr noundef %485, ptr noundef %486)
+  %488 = load ptr, ptr %5, align 8
+  call void @wmem_map_foreach(ptr noundef %488, ptr noundef @free_elements, ptr noundef null)
+  %489 = load ptr, ptr %3, align 8
+  call void @destroy_dtd_data(ptr noundef %489)
+  %490 = call ptr @wmem_epan_scope()
+  %491 = load ptr, ptr %6, align 8
+  call void @wmem_free(ptr noundef %490, ptr noundef %491)
   ret void
 }
 
@@ -2378,12 +2395,6 @@ define internal void @add_xmlpi_namespace(ptr noundef %0, ptr noundef %1, ptr no
 declare void @wmem_free(ptr noundef, ptr noundef) #2
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 declare ptr @g_ptr_array_remove_index_fast(ptr noundef, i32 noundef) #2
 
@@ -3061,7 +3072,7 @@ define internal i32 @get_char_encoding(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = load ptr, ptr %10, align 8
   %31 = call i32 @g_match_info_matches(ptr noundef %30)
   %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %46
+  br i1 %32, label %33, label %47
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %10, align 8
@@ -3077,51 +3088,52 @@ define internal i32 @get_char_encoding(ptr noundef %0, ptr noundef %1, ptr nound
   %42 = load ptr, ptr %12, align 8
   call void @g_free(ptr noundef %42)
   %43 = load ptr, ptr %9, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct._value_string_ext, ptr @mibenum_vals_character_sets_ext, i32 0, i32 3), align 8
-  %45 = call i32 @str_to_val(ptr noundef %43, ptr noundef %44, i32 noundef 3)
-  store i32 %45, ptr %7, align 4
-  br label %53
+  %44 = getelementptr inbounds %struct._value_string_ext, ptr @mibenum_vals_character_sets_ext, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @str_to_val(ptr noundef %43, ptr noundef %45, i32 noundef 3)
+  store i32 %46, ptr %7, align 4
+  br label %54
 
-46:                                               ; preds = %24
-  %47 = load i32, ptr @pref_default_encoding, align 4
-  store i32 %47, ptr %7, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 50
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = call ptr @val_to_str_ext_wmem(ptr noundef %50, i32 noundef %51, ptr noundef @mibenum_vals_character_sets_ext, ptr noundef @.str.229)
-  store ptr %52, ptr %9, align 8
-  br label %53
+47:                                               ; preds = %24
+  %48 = load i32, ptr @pref_default_encoding, align 4
+  store i32 %48, ptr %7, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 50
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = call ptr @val_to_str_ext_wmem(ptr noundef %51, i32 noundef %52, ptr noundef @mibenum_vals_character_sets_ext, ptr noundef @.str.229)
+  store ptr %53, ptr %9, align 8
+  br label %54
 
-53:                                               ; preds = %46, %33
-  %54 = load ptr, ptr %10, align 8
-  call void @g_match_info_free(ptr noundef %54)
-  %55 = load i32, ptr %7, align 4
-  %56 = call i32 @mibenum_charset_to_encoding(i32 noundef %55)
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %8, align 4
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %65
+54:                                               ; preds = %47, %33
+  %55 = load ptr, ptr %10, align 8
+  call void @g_match_info_free(ptr noundef %55)
+  %56 = load i32, ptr %7, align 4
+  %57 = call i32 @mibenum_charset_to_encoding(i32 noundef %56)
+  store i32 %57, ptr %8, align 4
+  %58 = load i32, ptr %8, align 4
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %66
 
-59:                                               ; preds = %53
+60:                                               ; preds = %54
   store i32 2, ptr %8, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct._packet_info, ptr %60, i32 0, i32 50
-  %62 = load ptr, ptr %61, align 8
-  %63 = call noalias ptr @wmem_strdup(ptr noundef %62, ptr noundef @.str.230)
-  %64 = load ptr, ptr %6, align 8
-  store ptr %63, ptr %64, align 8
-  br label %68
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 50
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noalias ptr @wmem_strdup(ptr noundef %63, ptr noundef @.str.230)
+  %65 = load ptr, ptr %6, align 8
+  store ptr %64, ptr %65, align 8
+  br label %69
 
-65:                                               ; preds = %53
-  %66 = load ptr, ptr %9, align 8
-  %67 = load ptr, ptr %6, align 8
-  store ptr %66, ptr %67, align 8
-  br label %68
+66:                                               ; preds = %54
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %6, align 8
+  store ptr %67, ptr %68, align 8
+  br label %69
 
-68:                                               ; preds = %65, %59
-  %69 = load i32, ptr %8, align 4
-  ret i32 %69
+69:                                               ; preds = %66, %60
+  %70 = load i32, ptr %8, align 4
+  ret i32 %70
 }
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
@@ -3584,7 +3596,7 @@ define internal void @after_token(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %25 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %24, i32 0, i32 0
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, -1000
-  br i1 %27, label %28, label %43
+  br i1 %27, label %28, label %44
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %8, align 8
@@ -3599,137 +3611,139 @@ define internal void @after_token(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds %struct._xml_ns_t, ptr %36, i32 0, i32 3
   %38 = load i32, ptr %37, align 4
-  br label %41
+  br label %42
 
 39:                                               ; preds = %28
-  %40 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 3), align 4
-  br label %41
+  %40 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 3
+  %41 = load i32, ptr %40, align 4
+  br label %42
 
-41:                                               ; preds = %39, %33
-  %42 = phi i32 [ %38, %33 ], [ %40, %39 ]
-  store i32 %42, ptr %9, align 4
+42:                                               ; preds = %39, %33
+  %43 = phi i32 [ %38, %33 ], [ %41, %39 ]
+  store i32 %43, ptr %9, align 4
   store i32 1, ptr %10, align 4
-  br label %55
+  br label %57
 
-43:                                               ; preds = %3
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %48, label %52
+44:                                               ; preds = %3
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  store i32 %51, ptr %9, align 4
-  br label %54
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  store i32 %52, ptr %9, align 4
+  br label %56
 
-52:                                               ; preds = %43
-  %53 = load i32, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 3), align 4
-  store i32 %53, ptr %9, align 4
-  br label %54
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 3
+  %55 = load i32, ptr %54, align 4
+  store i32 %55, ptr %9, align 4
+  br label %56
 
-54:                                               ; preds = %52, %48
-  br label %55
+56:                                               ; preds = %53, %49
+  br label %57
 
-55:                                               ; preds = %54, %41
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct._xml_frame_t, ptr %56, i32 0, i32 9
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %9, align 4
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %63, i32 0, i32 3
-  %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %66, i32 0, i32 4
-  %68 = load i32, ptr %67, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef 2)
-  store ptr %69, ptr %11, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = call ptr @wmem_packet_scope()
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %75, i32 0, i32 3
-  %77 = load i32, ptr %76, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %78, i32 0, i32 4
-  %80 = load i32, ptr %79, align 4
-  %81 = call ptr @tvb_format_text(ptr noundef %71, ptr noundef %74, i32 noundef %77, i32 noundef %80)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %70, ptr noundef @.str.252, ptr noundef %81)
-  %82 = load i32, ptr %10, align 4
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %132
+57:                                               ; preds = %56, %42
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct._xml_frame_t, ptr %58, i32 0, i32 9
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %9, align 4
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %65, i32 0, i32 3
+  %67 = load i32, ptr %66, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %68, i32 0, i32 4
+  %70 = load i32, ptr %69, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %64, i32 noundef %67, i32 noundef %70, i32 noundef 2)
+  store ptr %71, ptr %11, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = call ptr @wmem_packet_scope()
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %74, i32 0, i32 2
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %77, i32 0, i32 3
+  %79 = load i32, ptr %78, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %80, i32 0, i32 4
+  %82 = load i32, ptr %81, align 4
+  %83 = call ptr @tvb_format_text(ptr noundef %73, ptr noundef %76, i32 noundef %79, i32 noundef %82)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %72, ptr noundef @.str.252, ptr noundef %83)
+  %84 = load i32, ptr %10, align 4
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %134
 
-84:                                               ; preds = %55
-  %85 = call ptr @wmem_packet_scope()
-  %86 = call noalias ptr @wmem_alloc(ptr noundef %85, i64 noundef 120)
-  store ptr %86, ptr %12, align 8
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds %struct._xml_frame_t, ptr %87, i32 0, i32 0
-  store i32 5, ptr %88, align 8
+86:                                               ; preds = %57
+  %87 = call ptr @wmem_packet_scope()
+  %88 = call noalias ptr @wmem_alloc(ptr noundef %87, i64 noundef 120)
+  store ptr %88, ptr %12, align 8
   %89 = load ptr, ptr %12, align 8
-  %90 = getelementptr inbounds %struct._xml_frame_t, ptr %89, i32 0, i32 6
-  store ptr null, ptr %90, align 8
+  %90 = getelementptr inbounds %struct._xml_frame_t, ptr %89, i32 0, i32 0
+  store i32 5, ptr %90, align 8
   %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds %struct._xml_frame_t, ptr %91, i32 0, i32 7
+  %92 = getelementptr inbounds %struct._xml_frame_t, ptr %91, i32 0, i32 6
   store ptr null, ptr %92, align 8
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %93, i32 0, i32 2
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %96, i32 0, i32 3
-  %98 = load i32, ptr %97, align 8
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %99, i32 0, i32 4
-  %101 = load i32, ptr %100, align 4
-  %102 = call ptr @tvb_new_subset_length(ptr noundef %95, i32 noundef %98, i32 noundef %101)
-  %103 = load ptr, ptr %12, align 8
-  %104 = getelementptr inbounds %struct._xml_frame_t, ptr %103, i32 0, i32 8
-  store ptr %102, ptr %104, align 8
-  %105 = load ptr, ptr %8, align 8
-  %106 = load ptr, ptr %12, align 8
-  call void @insert_xml_frame(ptr noundef %105, ptr noundef %106)
-  %107 = load ptr, ptr %11, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = getelementptr inbounds %struct._xml_frame_t, ptr %93, i32 0, i32 7
+  store ptr null, ptr %94, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %98, i32 0, i32 3
+  %100 = load i32, ptr %99, align 8
+  %101 = load ptr, ptr %6, align 8
+  %102 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %101, i32 0, i32 4
+  %103 = load i32, ptr %102, align 4
+  %104 = call ptr @tvb_new_subset_length(ptr noundef %97, i32 noundef %100, i32 noundef %103)
+  %105 = load ptr, ptr %12, align 8
+  %106 = getelementptr inbounds %struct._xml_frame_t, ptr %105, i32 0, i32 8
+  store ptr %104, ptr %106, align 8
+  %107 = load ptr, ptr %8, align 8
   %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds %struct._xml_frame_t, ptr %108, i32 0, i32 10
-  store ptr %107, ptr %109, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct._xml_frame_t, ptr %111, i32 0, i32 11
-  store ptr %110, ptr %112, align 8
+  call void @insert_xml_frame(ptr noundef %107, ptr noundef %108)
+  %109 = load ptr, ptr %11, align 8
+  %110 = load ptr, ptr %12, align 8
+  %111 = getelementptr inbounds %struct._xml_frame_t, ptr %110, i32 0, i32 10
+  store ptr %109, ptr %111, align 8
+  %112 = load ptr, ptr %11, align 8
   %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct._xml_frame_t, ptr %113, i32 0, i32 9
-  store ptr null, ptr %114, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %115, i32 0, i32 3
-  %117 = load i32, ptr %116, align 8
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds %struct._xml_frame_t, ptr %118, i32 0, i32 13
-  store i32 %117, ptr %119, align 8
-  %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %120, i32 0, i32 4
-  %122 = load i32, ptr %121, align 4
-  %123 = load ptr, ptr %12, align 8
-  %124 = getelementptr inbounds %struct._xml_frame_t, ptr %123, i32 0, i32 14
-  store i32 %122, ptr %124, align 4
+  %114 = getelementptr inbounds %struct._xml_frame_t, ptr %113, i32 0, i32 11
+  store ptr %112, ptr %114, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = getelementptr inbounds %struct._xml_frame_t, ptr %115, i32 0, i32 9
+  store ptr null, ptr %116, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %117, i32 0, i32 3
+  %119 = load i32, ptr %118, align 8
+  %120 = load ptr, ptr %12, align 8
+  %121 = getelementptr inbounds %struct._xml_frame_t, ptr %120, i32 0, i32 13
+  store i32 %119, ptr %121, align 8
+  %122 = load ptr, ptr %6, align 8
+  %123 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %122, i32 0, i32 4
+  %124 = load i32, ptr %123, align 4
   %125 = load ptr, ptr %12, align 8
-  %126 = getelementptr inbounds %struct._xml_frame_t, ptr %125, i32 0, i32 12
-  store ptr null, ptr %126, align 8
-  %127 = load ptr, ptr %8, align 8
-  %128 = getelementptr inbounds %struct._xml_frame_t, ptr %127, i32 0, i32 15
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %12, align 8
-  %131 = getelementptr inbounds %struct._xml_frame_t, ptr %130, i32 0, i32 15
-  store ptr %129, ptr %131, align 8
-  br label %132
+  %126 = getelementptr inbounds %struct._xml_frame_t, ptr %125, i32 0, i32 14
+  store i32 %124, ptr %126, align 4
+  %127 = load ptr, ptr %12, align 8
+  %128 = getelementptr inbounds %struct._xml_frame_t, ptr %127, i32 0, i32 12
+  store ptr null, ptr %128, align 8
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds %struct._xml_frame_t, ptr %129, i32 0, i32 15
+  %131 = load ptr, ptr %130, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds %struct._xml_frame_t, ptr %132, i32 0, i32 15
+  store ptr %131, ptr %133, align 8
+  br label %134
 
-132:                                              ; preds = %84, %55
+134:                                              ; preds = %86, %57
   ret void
 }
 
@@ -4268,7 +4282,7 @@ define internal void @before_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %39 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %38, i32 0, i32 0
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, -1001
-  br i1 %41, label %42, label %97
+  br i1 %41, label %42, label %98
 
 42:                                               ; preds = %3
   %43 = load ptr, ptr %9, align 8
@@ -4313,206 +4327,207 @@ define internal void @before_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   store ptr %78, ptr %11, align 8
   %79 = load ptr, ptr %11, align 8
   store ptr %79, ptr %12, align 8
-  %80 = load ptr, ptr getelementptr inbounds (%struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6), align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = call ptr @wmem_map_lookup(ptr noundef %80, ptr noundef %81)
-  store ptr %82, ptr %19, align 8
-  %83 = load ptr, ptr %19, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %95
+  %80 = getelementptr inbounds %struct._xml_ns_t, ptr @xml_ns, i32 0, i32 6
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = call ptr @wmem_map_lookup(ptr noundef %81, ptr noundef %82)
+  store ptr %83, ptr %19, align 8
+  %84 = load ptr, ptr %19, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %96
 
-85:                                               ; preds = %42
-  %86 = load ptr, ptr %19, align 8
-  %87 = getelementptr inbounds %struct._xml_ns_t, ptr %86, i32 0, i32 6
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %11, align 8
-  %90 = call ptr @wmem_map_lookup(ptr noundef %88, ptr noundef %89)
-  store ptr %90, ptr %13, align 8
-  %91 = load ptr, ptr %13, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %94, label %93
+86:                                               ; preds = %42
+  %87 = load ptr, ptr %19, align 8
+  %88 = getelementptr inbounds %struct._xml_ns_t, ptr %87, i32 0, i32 6
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = call ptr @wmem_map_lookup(ptr noundef %89, ptr noundef %90)
+  store ptr %91, ptr %13, align 8
+  %92 = load ptr, ptr %13, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %95, label %94
 
-93:                                               ; preds = %85
+94:                                               ; preds = %86
   store ptr @unknown_ns, ptr %13, align 8
-  br label %94
+  br label %95
 
-94:                                               ; preds = %93, %85
-  br label %96
+95:                                               ; preds = %94, %86
+  br label %97
 
-95:                                               ; preds = %42
+96:                                               ; preds = %42
   store ptr @unknown_ns, ptr %13, align 8
-  br label %96
+  br label %97
 
-96:                                               ; preds = %95, %94
-  br label %140
+97:                                               ; preds = %96, %95
+  br label %141
 
-97:                                               ; preds = %3
-  %98 = call ptr @wmem_packet_scope()
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %99, i32 0, i32 2
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %102, i32 0, i32 3
-  %104 = load i32, ptr %103, align 8
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %105, i32 0, i32 4
-  %107 = load i32, ptr %106, align 4
-  %108 = call ptr @tvb_get_string_enc(ptr noundef %98, ptr noundef %101, i32 noundef %104, i32 noundef %107, i32 noundef 0)
-  store ptr %108, ptr %11, align 8
-  %109 = call ptr @wmem_packet_scope()
-  %110 = load ptr, ptr %11, align 8
-  %111 = call noalias ptr @wmem_strdup(ptr noundef %109, ptr noundef %110)
-  store ptr %111, ptr %12, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = call ptr @ascii_strdown_inplace(ptr noundef %112)
-  %114 = load ptr, ptr %8, align 8
-  %115 = getelementptr inbounds %struct._xml_frame_t, ptr %114, i32 0, i32 12
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %138
+98:                                               ; preds = %3
+  %99 = call ptr @wmem_packet_scope()
+  %100 = load ptr, ptr %9, align 8
+  %101 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %100, i32 0, i32 2
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %103, i32 0, i32 3
+  %105 = load i32, ptr %104, align 8
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %106, i32 0, i32 4
+  %108 = load i32, ptr %107, align 4
+  %109 = call ptr @tvb_get_string_enc(ptr noundef %99, ptr noundef %102, i32 noundef %105, i32 noundef %108, i32 noundef 0)
+  store ptr %109, ptr %11, align 8
+  %110 = call ptr @wmem_packet_scope()
+  %111 = load ptr, ptr %11, align 8
+  %112 = call noalias ptr @wmem_strdup(ptr noundef %110, ptr noundef %111)
+  store ptr %112, ptr %12, align 8
+  %113 = load ptr, ptr %11, align 8
+  %114 = call ptr @ascii_strdown_inplace(ptr noundef %113)
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds %struct._xml_frame_t, ptr %115, i32 0, i32 12
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %139
 
-118:                                              ; preds = %97
-  %119 = load ptr, ptr %8, align 8
-  %120 = getelementptr inbounds %struct._xml_frame_t, ptr %119, i32 0, i32 12
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %struct._xml_ns_t, ptr %121, i32 0, i32 6
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %11, align 8
-  %125 = call ptr @wmem_map_lookup(ptr noundef %123, ptr noundef %124)
-  store ptr %125, ptr %13, align 8
-  %126 = load ptr, ptr %13, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %137, label %128
+119:                                              ; preds = %98
+  %120 = load ptr, ptr %8, align 8
+  %121 = getelementptr inbounds %struct._xml_frame_t, ptr %120, i32 0, i32 12
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct._xml_ns_t, ptr %122, i32 0, i32 6
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %11, align 8
+  %126 = call ptr @wmem_map_lookup(ptr noundef %124, ptr noundef %125)
+  store ptr %126, ptr %13, align 8
+  %127 = load ptr, ptr %13, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %138, label %129
 
-128:                                              ; preds = %118
-  %129 = load ptr, ptr @root_ns, align 8
-  %130 = getelementptr inbounds %struct._xml_ns_t, ptr %129, i32 0, i32 6
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %11, align 8
-  %133 = call ptr @wmem_map_lookup(ptr noundef %131, ptr noundef %132)
-  store ptr %133, ptr %13, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %136, label %135
+129:                                              ; preds = %119
+  %130 = load ptr, ptr @root_ns, align 8
+  %131 = getelementptr inbounds %struct._xml_ns_t, ptr %130, i32 0, i32 6
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %11, align 8
+  %134 = call ptr @wmem_map_lookup(ptr noundef %132, ptr noundef %133)
+  store ptr %134, ptr %13, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %137, label %136
 
-135:                                              ; preds = %128
+136:                                              ; preds = %129
   store ptr @unknown_ns, ptr %13, align 8
-  br label %136
-
-136:                                              ; preds = %135, %128
   br label %137
 
-137:                                              ; preds = %136, %118
-  br label %139
+137:                                              ; preds = %136, %129
+  br label %138
 
-138:                                              ; preds = %97
-  store ptr @unknown_ns, ptr %13, align 8
-  br label %139
-
-139:                                              ; preds = %138, %137
+138:                                              ; preds = %137, %119
   br label %140
 
-140:                                              ; preds = %139, %96
-  %141 = load ptr, ptr %8, align 8
-  %142 = getelementptr inbounds %struct._xml_frame_t, ptr %141, i32 0, i32 9
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %13, align 8
-  %145 = getelementptr inbounds %struct._xml_ns_t, ptr %144, i32 0, i32 2
-  %146 = load i32, ptr %145, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %147, i32 0, i32 2
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %150, i32 0, i32 3
-  %152 = load i32, ptr %151, align 8
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %153, i32 0, i32 4
-  %155 = load i32, ptr %154, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %146, ptr noundef %149, i32 noundef %152, i32 noundef %155, i32 noundef 2)
-  store ptr %156, ptr %15, align 8
-  %157 = load ptr, ptr %15, align 8
-  %158 = call ptr @wmem_packet_scope()
-  %159 = load ptr, ptr %6, align 8
-  %160 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %159, i32 0, i32 2
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %162, i32 0, i32 3
-  %164 = load i32, ptr %163, align 8
-  %165 = load ptr, ptr %9, align 8
-  %166 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %165, i32 0, i32 3
-  %167 = load i32, ptr %166, align 8
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %168, i32 0, i32 3
-  %170 = load i32, ptr %169, align 8
-  %171 = sub i32 %167, %170
-  %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %172, i32 0, i32 4
-  %174 = load i32, ptr %173, align 4
-  %175 = add i32 %171, %174
-  %176 = call ptr @tvb_format_text(ptr noundef %158, ptr noundef %161, i32 noundef %164, i32 noundef %175)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %157, ptr noundef @.str.252, ptr noundef %176)
-  %177 = load ptr, ptr %15, align 8
-  %178 = load ptr, ptr %13, align 8
-  %179 = getelementptr inbounds %struct._xml_ns_t, ptr %178, i32 0, i32 4
-  %180 = load i32, ptr %179, align 8
-  %181 = call ptr @proto_item_add_subtree(ptr noundef %177, i32 noundef %180)
-  store ptr %181, ptr %16, align 8
-  %182 = call ptr @wmem_packet_scope()
-  %183 = call noalias ptr @wmem_alloc(ptr noundef %182, i64 noundef 120)
-  store ptr %183, ptr %14, align 8
-  %184 = load ptr, ptr %14, align 8
-  %185 = getelementptr inbounds %struct._xml_frame_t, ptr %184, i32 0, i32 0
-  store i32 1, ptr %185, align 8
-  %186 = load ptr, ptr %11, align 8
-  %187 = load ptr, ptr %14, align 8
-  %188 = getelementptr inbounds %struct._xml_frame_t, ptr %187, i32 0, i32 6
-  store ptr %186, ptr %188, align 8
-  %189 = load ptr, ptr %12, align 8
-  %190 = load ptr, ptr %14, align 8
-  %191 = getelementptr inbounds %struct._xml_frame_t, ptr %190, i32 0, i32 7
-  store ptr %189, ptr %191, align 8
-  %192 = load ptr, ptr %14, align 8
-  %193 = getelementptr inbounds %struct._xml_frame_t, ptr %192, i32 0, i32 8
-  store ptr null, ptr %193, align 8
-  %194 = load ptr, ptr %8, align 8
-  %195 = load ptr, ptr %14, align 8
-  call void @insert_xml_frame(ptr noundef %194, ptr noundef %195)
-  %196 = load ptr, ptr %15, align 8
-  %197 = load ptr, ptr %14, align 8
-  %198 = getelementptr inbounds %struct._xml_frame_t, ptr %197, i32 0, i32 10
-  store ptr %196, ptr %198, align 8
-  %199 = load ptr, ptr %15, align 8
-  %200 = load ptr, ptr %14, align 8
-  %201 = getelementptr inbounds %struct._xml_frame_t, ptr %200, i32 0, i32 11
-  store ptr %199, ptr %201, align 8
-  %202 = load ptr, ptr %16, align 8
-  %203 = load ptr, ptr %14, align 8
-  %204 = getelementptr inbounds %struct._xml_frame_t, ptr %203, i32 0, i32 9
-  store ptr %202, ptr %204, align 8
-  %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %205, i32 0, i32 3
-  %207 = load i32, ptr %206, align 8
-  %208 = load ptr, ptr %14, align 8
-  %209 = getelementptr inbounds %struct._xml_frame_t, ptr %208, i32 0, i32 13
-  store i32 %207, ptr %209, align 8
-  %210 = load ptr, ptr %6, align 8
-  %211 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %210, i32 0, i32 4
-  %212 = load i32, ptr %211, align 4
-  %213 = load ptr, ptr %14, align 8
-  %214 = getelementptr inbounds %struct._xml_frame_t, ptr %213, i32 0, i32 14
-  store i32 %212, ptr %214, align 4
-  %215 = load ptr, ptr %13, align 8
-  %216 = load ptr, ptr %14, align 8
-  %217 = getelementptr inbounds %struct._xml_frame_t, ptr %216, i32 0, i32 12
-  store ptr %215, ptr %217, align 8
-  %218 = load ptr, ptr %8, align 8
-  %219 = getelementptr inbounds %struct._xml_frame_t, ptr %218, i32 0, i32 15
-  %220 = load ptr, ptr %219, align 8
-  %221 = load ptr, ptr %14, align 8
-  %222 = getelementptr inbounds %struct._xml_frame_t, ptr %221, i32 0, i32 15
-  store ptr %220, ptr %222, align 8
-  %223 = load ptr, ptr %7, align 8
-  %224 = load ptr, ptr %14, align 8
-  call void @g_ptr_array_add(ptr noundef %223, ptr noundef %224)
+139:                                              ; preds = %98
+  store ptr @unknown_ns, ptr %13, align 8
+  br label %140
+
+140:                                              ; preds = %139, %138
+  br label %141
+
+141:                                              ; preds = %140, %97
+  %142 = load ptr, ptr %8, align 8
+  %143 = getelementptr inbounds %struct._xml_frame_t, ptr %142, i32 0, i32 9
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %13, align 8
+  %146 = getelementptr inbounds %struct._xml_ns_t, ptr %145, i32 0, i32 2
+  %147 = load i32, ptr %146, align 8
+  %148 = load ptr, ptr %6, align 8
+  %149 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %148, i32 0, i32 2
+  %150 = load ptr, ptr %149, align 8
+  %151 = load ptr, ptr %6, align 8
+  %152 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %151, i32 0, i32 3
+  %153 = load i32, ptr %152, align 8
+  %154 = load ptr, ptr %6, align 8
+  %155 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %154, i32 0, i32 4
+  %156 = load i32, ptr %155, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %147, ptr noundef %150, i32 noundef %153, i32 noundef %156, i32 noundef 2)
+  store ptr %157, ptr %15, align 8
+  %158 = load ptr, ptr %15, align 8
+  %159 = call ptr @wmem_packet_scope()
+  %160 = load ptr, ptr %6, align 8
+  %161 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %6, align 8
+  %164 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %163, i32 0, i32 3
+  %165 = load i32, ptr %164, align 8
+  %166 = load ptr, ptr %9, align 8
+  %167 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %166, i32 0, i32 3
+  %168 = load i32, ptr %167, align 8
+  %169 = load ptr, ptr %6, align 8
+  %170 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %169, i32 0, i32 3
+  %171 = load i32, ptr %170, align 8
+  %172 = sub i32 %168, %171
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %173, i32 0, i32 4
+  %175 = load i32, ptr %174, align 4
+  %176 = add i32 %172, %175
+  %177 = call ptr @tvb_format_text(ptr noundef %159, ptr noundef %162, i32 noundef %165, i32 noundef %176)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %158, ptr noundef @.str.252, ptr noundef %177)
+  %178 = load ptr, ptr %15, align 8
+  %179 = load ptr, ptr %13, align 8
+  %180 = getelementptr inbounds %struct._xml_ns_t, ptr %179, i32 0, i32 4
+  %181 = load i32, ptr %180, align 8
+  %182 = call ptr @proto_item_add_subtree(ptr noundef %178, i32 noundef %181)
+  store ptr %182, ptr %16, align 8
+  %183 = call ptr @wmem_packet_scope()
+  %184 = call noalias ptr @wmem_alloc(ptr noundef %183, i64 noundef 120)
+  store ptr %184, ptr %14, align 8
+  %185 = load ptr, ptr %14, align 8
+  %186 = getelementptr inbounds %struct._xml_frame_t, ptr %185, i32 0, i32 0
+  store i32 1, ptr %186, align 8
+  %187 = load ptr, ptr %11, align 8
+  %188 = load ptr, ptr %14, align 8
+  %189 = getelementptr inbounds %struct._xml_frame_t, ptr %188, i32 0, i32 6
+  store ptr %187, ptr %189, align 8
+  %190 = load ptr, ptr %12, align 8
+  %191 = load ptr, ptr %14, align 8
+  %192 = getelementptr inbounds %struct._xml_frame_t, ptr %191, i32 0, i32 7
+  store ptr %190, ptr %192, align 8
+  %193 = load ptr, ptr %14, align 8
+  %194 = getelementptr inbounds %struct._xml_frame_t, ptr %193, i32 0, i32 8
+  store ptr null, ptr %194, align 8
+  %195 = load ptr, ptr %8, align 8
+  %196 = load ptr, ptr %14, align 8
+  call void @insert_xml_frame(ptr noundef %195, ptr noundef %196)
+  %197 = load ptr, ptr %15, align 8
+  %198 = load ptr, ptr %14, align 8
+  %199 = getelementptr inbounds %struct._xml_frame_t, ptr %198, i32 0, i32 10
+  store ptr %197, ptr %199, align 8
+  %200 = load ptr, ptr %15, align 8
+  %201 = load ptr, ptr %14, align 8
+  %202 = getelementptr inbounds %struct._xml_frame_t, ptr %201, i32 0, i32 11
+  store ptr %200, ptr %202, align 8
+  %203 = load ptr, ptr %16, align 8
+  %204 = load ptr, ptr %14, align 8
+  %205 = getelementptr inbounds %struct._xml_frame_t, ptr %204, i32 0, i32 9
+  store ptr %203, ptr %205, align 8
+  %206 = load ptr, ptr %6, align 8
+  %207 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %206, i32 0, i32 3
+  %208 = load i32, ptr %207, align 8
+  %209 = load ptr, ptr %14, align 8
+  %210 = getelementptr inbounds %struct._xml_frame_t, ptr %209, i32 0, i32 13
+  store i32 %208, ptr %210, align 8
+  %211 = load ptr, ptr %6, align 8
+  %212 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %211, i32 0, i32 4
+  %213 = load i32, ptr %212, align 4
+  %214 = load ptr, ptr %14, align 8
+  %215 = getelementptr inbounds %struct._xml_frame_t, ptr %214, i32 0, i32 14
+  store i32 %213, ptr %215, align 4
+  %216 = load ptr, ptr %13, align 8
+  %217 = load ptr, ptr %14, align 8
+  %218 = getelementptr inbounds %struct._xml_frame_t, ptr %217, i32 0, i32 12
+  store ptr %216, ptr %218, align 8
+  %219 = load ptr, ptr %8, align 8
+  %220 = getelementptr inbounds %struct._xml_frame_t, ptr %219, i32 0, i32 15
+  %221 = load ptr, ptr %220, align 8
+  %222 = load ptr, ptr %14, align 8
+  %223 = getelementptr inbounds %struct._xml_frame_t, ptr %222, i32 0, i32 15
+  store ptr %221, ptr %223, align 8
+  %224 = load ptr, ptr %7, align 8
+  %225 = load ptr, ptr %14, align 8
+  call void @g_ptr_array_add(ptr noundef %224, ptr noundef %225)
   ret void
 }
 
@@ -4653,6 +4668,12 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #2
 
 declare i32 @tvbparse_peek(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

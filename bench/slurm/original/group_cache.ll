@@ -771,7 +771,7 @@ define internal void @_init_or_reinit_entry(ptr noundef %0, ptr noundef %1) #0 {
   br label %50
 
 50:                                               ; preds = %44, %40
-  br label %155
+  br label %156
 
 51:                                               ; preds = %17
   %52 = load ptr, ptr %3, align 8
@@ -904,27 +904,28 @@ define internal void @_init_or_reinit_entry(ptr noundef %0, ptr noundef %1) #0 {
 
 140:                                              ; preds = %133, %123
   %141 = call i64 @time(ptr noundef null) #7
-  %142 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 55), align 8
-  %143 = zext i16 %142 to i64
-  %144 = add nsw i64 %141, %143
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds %struct.gids_cache, ptr %145, i32 0, i32 5
-  store i64 %144, ptr %146, align 8
-  %147 = load ptr, ptr %3, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp ne ptr %148, null
-  br i1 %149, label %155, label %150
+  %142 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 55
+  %143 = load i16, ptr %142, align 8
+  %144 = zext i16 %143 to i64
+  %145 = add nsw i64 %141, %144
+  %146 = load ptr, ptr %6, align 8
+  %147 = getelementptr inbounds %struct.gids_cache, ptr %146, i32 0, i32 5
+  store i64 %145, ptr %147, align 8
+  %148 = load ptr, ptr %3, align 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %156, label %151
 
-150:                                              ; preds = %140
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %3, align 8
-  store ptr %151, ptr %152, align 8
-  %153 = load ptr, ptr @gids_cache_list, align 8
-  %154 = load ptr, ptr %6, align 8
-  call void @list_prepend(ptr noundef %153, ptr noundef %154)
-  br label %155
+151:                                              ; preds = %140
+  %152 = load ptr, ptr %6, align 8
+  %153 = load ptr, ptr %3, align 8
+  store ptr %152, ptr %153, align 8
+  %154 = load ptr, ptr @gids_cache_list, align 8
+  %155 = load ptr, ptr %6, align 8
+  call void @list_prepend(ptr noundef %154, ptr noundef %155)
+  br label %156
 
-155:                                              ; preds = %150, %140, %50
+156:                                              ; preds = %151, %140, %50
   ret void
 }
 

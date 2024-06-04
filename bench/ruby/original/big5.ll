@@ -22,8 +22,9 @@ define weak i64 @ruby_abi_version() #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_big5() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.OnigEncodingTypeST, ptr @encoding_BIG5, i32 0, i32 1), align 8
-  %2 = call i32 @rb_enc_register(ptr noundef %1, ptr noundef @encoding_BIG5)
+  %1 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr @encoding_BIG5, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = call i32 @rb_enc_register(ptr noundef %2, ptr noundef @encoding_BIG5)
   ret void
 }
 
@@ -31,15 +32,17 @@ declare i32 @rb_enc_register(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Init_big5_hkscs() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.OnigEncodingTypeST, ptr @encoding_BIG5_HKSCS, i32 0, i32 1), align 8
-  %2 = call i32 @rb_enc_register(ptr noundef %1, ptr noundef @encoding_BIG5_HKSCS)
+  %1 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr @encoding_BIG5_HKSCS, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = call i32 @rb_enc_register(ptr noundef %2, ptr noundef @encoding_BIG5_HKSCS)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Init_big5_uao() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.OnigEncodingTypeST, ptr @encoding_BIG5_UAO, i32 0, i32 1), align 8
-  %2 = call i32 @rb_enc_register(ptr noundef %1, ptr noundef @encoding_BIG5_UAO)
+  %1 = getelementptr inbounds %struct.OnigEncodingTypeST, ptr @encoding_BIG5_UAO, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = call i32 @rb_enc_register(ptr noundef %2, ptr noundef @encoding_BIG5_UAO)
   ret void
 }
 

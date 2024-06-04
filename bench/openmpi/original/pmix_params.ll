@@ -109,7 +109,7 @@ define i32 @pmix_register_params() #0 {
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %51
+  br label %87
 
 6:                                                ; preds = %0
   store i8 1, ptr @pmix_register_done, align 1
@@ -123,66 +123,102 @@ define i32 @pmix_register_params() #0 {
 10:                                               ; preds = %6
   %11 = load i32, ptr %2, align 4
   store i32 %11, ptr %1, align 4
-  br label %51
+  br label %87
 
 12:                                               ; preds = %6
   %13 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef @pmix_event_caching_window)
   %14 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 7, ptr noundef @pmix_suppress_missing_data_warning)
-  %15 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 6))
-  %16 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 8))
-  %17 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 10))
-  %18 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 12))
-  %19 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 14))
-  %20 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.20, ptr noundef @.str.21, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 16))
-  %21 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.22, ptr noundef @.str.23, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 18))
-  %22 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.24, ptr noundef @.str.25, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 20))
-  %23 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.10, ptr noundef @.str.27, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 18))
-  %24 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.12, ptr noundef @.str.28, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 20))
-  %25 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.14, ptr noundef @.str.29, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 22))
-  %26 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.16, ptr noundef @.str.30, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 24))
-  %27 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.18, ptr noundef @.str.31, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 26))
-  %28 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.20, ptr noundef @.str.32, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 28))
-  %29 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.22, ptr noundef @.str.33, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 30))
-  %30 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.24, ptr noundef @.str.34, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 32))
-  %31 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.35, ptr noundef @.str.36, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 34))
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 16), align 8
-  %32 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.37, ptr noundef @.str.38, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 16))
-  store i64 2147483647, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 30), align 8
-  %33 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.40, ptr noundef @.str.41, i32 noundef 4, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 30))
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28), align 1
-  %34 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.42, ptr noundef @.str.43, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28))
-  %35 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28), align 1
-  %36 = trunc i8 %35 to i1
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27), align 8
-  %38 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.44, ptr noundef @.str.45, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27))
-  %39 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28), align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %42
+  %15 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 6
+  %16 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 0, ptr noundef %15)
+  %17 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 8
+  %18 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 0, ptr noundef %17)
+  %19 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 10
+  %20 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.14, ptr noundef @.str.15, i32 noundef 0, ptr noundef %19)
+  %21 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 12
+  %22 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 0, ptr noundef %21)
+  %23 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 14
+  %24 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 0, ptr noundef %23)
+  %25 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 16
+  %26 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.20, ptr noundef @.str.21, i32 noundef 0, ptr noundef %25)
+  %27 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 18
+  %28 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.22, ptr noundef @.str.23, i32 noundef 0, ptr noundef %27)
+  %29 = getelementptr inbounds %struct.pmix_client_globals_t, ptr @pmix_client_globals, i32 0, i32 20
+  %30 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.9, ptr noundef @.str.24, ptr noundef @.str.25, i32 noundef 0, ptr noundef %29)
+  %31 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 18
+  %32 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.10, ptr noundef @.str.27, i32 noundef 0, ptr noundef %31)
+  %33 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 20
+  %34 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.12, ptr noundef @.str.28, i32 noundef 0, ptr noundef %33)
+  %35 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 22
+  %36 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.14, ptr noundef @.str.29, i32 noundef 0, ptr noundef %35)
+  %37 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 24
+  %38 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.16, ptr noundef @.str.30, i32 noundef 0, ptr noundef %37)
+  %39 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 26
+  %40 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.18, ptr noundef @.str.31, i32 noundef 0, ptr noundef %39)
+  %41 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 28
+  %42 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.20, ptr noundef @.str.32, i32 noundef 0, ptr noundef %41)
+  %43 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 30
+  %44 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.22, ptr noundef @.str.33, i32 noundef 0, ptr noundef %43)
+  %45 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 32
+  %46 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.24, ptr noundef @.str.34, i32 noundef 0, ptr noundef %45)
+  %47 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 34
+  %48 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.35, ptr noundef @.str.36, i32 noundef 0, ptr noundef %47)
+  %49 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 16
+  store i8 1, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 16
+  %51 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.26, ptr noundef @.str.37, ptr noundef @.str.38, i32 noundef 7, ptr noundef %50)
+  %52 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 30
+  store i64 2147483647, ptr %52, align 8
+  %53 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 30
+  %54 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.40, ptr noundef @.str.41, i32 noundef 4, ptr noundef %53)
+  %55 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28
+  store i8 0, ptr %55, align 1
+  %56 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28
+  %57 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.42, ptr noundef @.str.43, i32 noundef 7, ptr noundef %56)
+  %58 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28
+  %59 = load i8, ptr %58, align 1
+  %60 = trunc i8 %59 to i1
+  %61 = zext i1 %60 to i8
+  %62 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27
+  store i8 %61, ptr %62, align 8
+  %63 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27
+  %64 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.44, ptr noundef @.str.45, i32 noundef 7, ptr noundef %63)
+  %65 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 28
+  %66 = load i8, ptr %65, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %70
 
-41:                                               ; preds = %12
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27), align 8
-  br label %42
+68:                                               ; preds = %12
+  %69 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 27
+  store i8 1, ptr %69, align 8
+  br label %70
 
-42:                                               ; preds = %41, %12
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 29), align 2
-  %43 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.46, ptr noundef @.str.47, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 29))
-  store i32 512, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 22), align 8
-  %44 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @.str.50, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 22))
-  store i32 120, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 23), align 4
-  %45 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.51, ptr noundef @.str.52, ptr noundef @.str.53, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 23))
-  store i64 1048576, ptr getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 12), align 8
-  %46 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.48, ptr noundef @.str.54, ptr noundef @.str.55, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 12))
-  %47 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.56, ptr noundef @.str.57, i32 noundef 5, ptr noundef @pmix_progress_thread_cpus)
-  %48 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.58, ptr noundef @.str.59, i32 noundef 7, ptr noundef @pmix_bind_progress_thread_reqd)
-  %49 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.60, ptr noundef @.str.61, i32 noundef 0, ptr noundef @pmix_maxfd)
-  %50 = call i32 @pmix_hwloc_register()
+70:                                               ; preds = %68, %12
+  %71 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 29
+  store i8 0, ptr %71, align 2
+  %72 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 29
+  %73 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.39, ptr noundef null, ptr noundef @.str.46, ptr noundef @.str.47, i32 noundef 7, ptr noundef %72)
+  %74 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 22
+  store i32 512, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 22
+  %76 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @.str.50, i32 noundef 0, ptr noundef %75)
+  %77 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 23
+  store i32 120, ptr %77, align 4
+  %78 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 23
+  %79 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.51, ptr noundef @.str.52, ptr noundef @.str.53, i32 noundef 0, ptr noundef %78)
+  %80 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 12
+  store i64 1048576, ptr %80, align 8
+  %81 = getelementptr inbounds %struct.pmix_server_globals_t, ptr @pmix_server_globals, i32 0, i32 12
+  %82 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef @.str.48, ptr noundef @.str.54, ptr noundef @.str.55, i32 noundef 0, ptr noundef %81)
+  %83 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.56, ptr noundef @.str.57, i32 noundef 5, ptr noundef @pmix_progress_thread_cpus)
+  %84 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.58, ptr noundef @.str.59, i32 noundef 7, ptr noundef @pmix_bind_progress_thread_reqd)
+  %85 = call i32 @pmix_mca_base_var_register(ptr noundef @.str.1, ptr noundef @.str.1, ptr noundef null, ptr noundef @.str.60, ptr noundef @.str.61, i32 noundef 0, ptr noundef @pmix_maxfd)
+  %86 = call i32 @pmix_hwloc_register()
   store i32 0, ptr %1, align 4
-  br label %51
+  br label %87
 
-51:                                               ; preds = %42, %10, %5
-  %52 = load i32, ptr %1, align 4
-  ret i32 %52
+87:                                               ; preds = %70, %10, %5
+  %88 = load i32, ptr %1, align 4
+  ret i32 %88
 }
 
 declare i32 @pmix_mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

@@ -115,50 +115,52 @@ define i32 @priority_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %28
+  br label %30
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %2, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 128), align 8
-  %20 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %19, ptr noundef @ops, ptr noundef @syms, i64 noundef 56)
-  store ptr %20, ptr @g_priority_context, align 8
-  %21 = load ptr, ptr @g_priority_context, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %27, label %23
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 128
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %20, ptr noundef @ops, ptr noundef @syms, i64 noundef 56)
+  store ptr %21, ptr @g_priority_context, align 8
+  %22 = load ptr, ptr @g_priority_context, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 128), align 8
-  %26 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %24, ptr noundef %25)
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 128
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %25, ptr noundef %27)
   store i32 -1, ptr %1, align 4
-  br label %28
+  br label %30
 
-27:                                               ; preds = %17
-  br label %28
+29:                                               ; preds = %17
+  br label %30
 
-28:                                               ; preds = %27, %23, %16
-  br label %29
+30:                                               ; preds = %29, %24, %16
+  br label %31
 
-29:                                               ; preds = %28
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef @g_priority_context_lock) #5
-  store i32 %30, ptr %4, align 4
-  %31 = load i32, ptr %4, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %30
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef @g_priority_context_lock) #5
+  store i32 %32, ptr %4, align 4
+  %33 = load i32, ptr %4, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %38
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %4, align 4
-  %35 = call ptr @__errno_location() #6
-  store i32 %34, ptr %35, align 4
+35:                                               ; preds = %31
+  %36 = load i32, ptr %4, align 4
+  %37 = call ptr @__errno_location() #6
+  store i32 %36, ptr %37, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 112, ptr noundef @__func__.priority_g_init) #7
   unreachable
 
-36:                                               ; preds = %29
-  br label %37
+38:                                               ; preds = %31
+  br label %39
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr %1, align 4
-  ret i32 %38
+39:                                               ; preds = %38
+  %40 = load i32, ptr %1, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind
@@ -223,10 +225,11 @@ define void @priority_g_reconfig(i1 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 1), align 8
-  %5 = load i8, ptr %2, align 1
-  %6 = trunc i8 %5 to i1
-  call void %4(i1 noundef zeroext %6)
+  %4 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i8, ptr %2, align 1
+  %7 = trunc i8 %6 to i1
+  call void %5(i1 noundef zeroext %7)
   ret void
 }
 
@@ -234,19 +237,21 @@ define void @priority_g_reconfig(i1 noundef zeroext %0) #0 {
 define i32 @priority_g_recover(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 6), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = call i32 %3(i32 noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 6
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = call i32 %4(i32 noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_set_assoc_usage(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 2), align 8
-  %4 = load ptr, ptr %2, align 8
-  call void %3(ptr noundef %4)
+  %3 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void %4(ptr noundef %5)
   ret void
 }
 
@@ -256,30 +261,33 @@ define double @priority_g_calc_fs_factor(x86_fp80 noundef %0, x86_fp80 noundef %
   %4 = alloca x86_fp80, align 16
   store x86_fp80 %0, ptr %3, align 16
   store x86_fp80 %1, ptr %4, align 16
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 3), align 8
-  %6 = load x86_fp80, ptr %3, align 16
-  %7 = load x86_fp80, ptr %4, align 16
-  %8 = call double %5(x86_fp80 noundef %6, x86_fp80 noundef %7)
-  ret double %8
+  %5 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = load x86_fp80, ptr %3, align 16
+  %8 = load x86_fp80, ptr %4, align 16
+  %9 = call double %6(x86_fp80 noundef %7, x86_fp80 noundef %8)
+  ret double %9
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @priority_g_get_priority_factors_list(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 4), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = call ptr %3(i32 noundef %4)
-  ret ptr %5
+  %3 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = call ptr %4(i32 noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_job_end(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_priority_ops, ptr @ops, i32 0, i32 5), align 8
-  %4 = load ptr, ptr %2, align 8
-  call void %3(ptr noundef %4)
+  %3 = getelementptr inbounds %struct.slurm_priority_ops, ptr @ops, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void %4(ptr noundef %5)
   ret void
 }
 

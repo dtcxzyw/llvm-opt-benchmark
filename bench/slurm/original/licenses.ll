@@ -536,113 +536,114 @@ define internal void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  br label %69
+  br label %70
 
 12:                                               ; preds = %3
-  %13 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %14 = and i64 %13, 1048576
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %12
-  br label %69
+  %13 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 1048576
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @list_iterator_create(ptr noundef %18)
-  store ptr %19, ptr %7, align 8
-  br label %20
+  br label %70
 
-20:                                               ; preds = %66, %17
-  %21 = load ptr, ptr %7, align 8
-  %22 = call ptr @list_next(ptr noundef %21)
-  store ptr %22, ptr %8, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %67
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %5, align 8
+  %20 = call ptr @list_iterator_create(ptr noundef %19)
+  store ptr %20, ptr %7, align 8
+  br label %21
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %46, label %27
+21:                                               ; preds = %67, %18
+  %22 = load ptr, ptr %7, align 8
+  %23 = call ptr @list_next(ptr noundef %22)
+  store ptr %23, ptr %8, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %68
 
-27:                                               ; preds = %24
-  br label %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %47, label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %25
   br label %29
 
 29:                                               ; preds = %28
-  %30 = call i32 @get_log_level()
-  %31 = icmp sge i32 %30, 3
-  br i1 %31, label %32, label %43
+  br label %30
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.licenses_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.licenses_t, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.licenses_t, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.37, ptr noundef %33, ptr noundef %36, i32 noundef %39, i32 noundef %42)
-  br label %43
+30:                                               ; preds = %29
+  %31 = call i32 @get_log_level()
+  %32 = icmp sge i32 %31, 3
+  br i1 %32, label %33, label %44
 
-43:                                               ; preds = %32, %29
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.licenses_t, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds %struct.licenses_t, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds %struct.licenses_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.37, ptr noundef %34, ptr noundef %37, i32 noundef %40, i32 noundef %43)
   br label %44
 
-44:                                               ; preds = %43
+44:                                               ; preds = %33, %30
   br label %45
 
 45:                                               ; preds = %44
-  br label %66
+  br label %46
 
-46:                                               ; preds = %24
-  br label %47
+46:                                               ; preds = %45
+  br label %67
 
-47:                                               ; preds = %46
+47:                                               ; preds = %25
   br label %48
 
 48:                                               ; preds = %47
-  %49 = call i32 @get_log_level()
-  %50 = icmp sge i32 %49, 3
-  br i1 %50, label %51, label %63
+  br label %49
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %4, align 8
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.licenses_t, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.licenses_t, ptr %57, i32 0, i32 1
-  %59 = load i32, ptr %58, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.licenses_t, ptr %60, i32 0, i32 2
-  %62 = load i32, ptr %61, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.38, ptr noundef %52, ptr noundef %55, ptr noundef %56, i32 noundef %59, i32 noundef %62)
-  br label %63
+49:                                               ; preds = %48
+  %50 = call i32 @get_log_level()
+  %51 = icmp sge i32 %50, 3
+  br i1 %51, label %52, label %64
 
-63:                                               ; preds = %51, %48
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %4, align 8
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.licenses_t, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct.licenses_t, ptr %58, i32 0, i32 1
+  %60 = load i32, ptr %59, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds %struct.licenses_t, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.38, ptr noundef %53, ptr noundef %56, ptr noundef %57, i32 noundef %60, i32 noundef %63)
   br label %64
 
-64:                                               ; preds = %63
+64:                                               ; preds = %52, %49
   br label %65
 
 65:                                               ; preds = %64
   br label %66
 
-66:                                               ; preds = %65, %45
-  br label %20, !llvm.loop !11
+66:                                               ; preds = %65
+  br label %67
 
-67:                                               ; preds = %20
-  %68 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %68)
-  br label %69
+67:                                               ; preds = %66, %46
+  br label %21, !llvm.loop !11
 
-69:                                               ; preds = %67, %16, %11
+68:                                               ; preds = %21
+  %69 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %69)
+  br label %70
+
+70:                                               ; preds = %68, %17, %11
   ret void
 }
 
@@ -2017,258 +2018,260 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 62:                                               ; preds = %56
   %63 = load ptr, ptr %15, align 8
   store ptr %63, ptr %6, align 8
-  br label %192
+  br label %194
 
 64:                                               ; preds = %56
   %65 = load i8, ptr @license_validate.first_run, align 1
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %68
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
   store i8 0, ptr @license_validate.first_run, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @license_validate.tres_req, i8 0, i64 48, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i32 0, i32 5), align 8
-  br label %68
-
-68:                                               ; preds = %67, %64
+  %68 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i32 0, i32 5
+  store ptr @.str.17, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %68
-  %70 = call i32 @pthread_mutex_lock(ptr noundef @license_mutex) #8
-  store i32 %70, ptr %18, align 4
-  %71 = load i32, ptr %18, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+69:                                               ; preds = %67, %64
+  br label %70
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %18, align 4
-  %75 = call ptr @__errno_location() #9
-  store i32 %74, ptr %75, align 4
+70:                                               ; preds = %69
+  %71 = call i32 @pthread_mutex_lock(ptr noundef @license_mutex) #8
+  store i32 %71, ptr %18, align 4
+  %72 = load i32, ptr %18, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
+
+74:                                               ; preds = %70
+  %75 = load i32, ptr %18, align 4
+  %76 = call ptr @__errno_location() #9
+  store i32 %75, ptr %76, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 584, ptr noundef @__func__.license_validate) #10
   unreachable
 
-76:                                               ; preds = %69
-  br label %77
+77:                                               ; preds = %70
+  br label %78
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %15, align 8
-  call void @_licenses_print(ptr noundef @.str.18, ptr noundef %78, ptr noundef null)
+78:                                               ; preds = %77
   %79 = load ptr, ptr %15, align 8
-  %80 = call ptr @list_iterator_create(ptr noundef %79)
-  store ptr %80, ptr %12, align 8
-  br label %81
+  call void @_licenses_print(ptr noundef @.str.18, ptr noundef %79, ptr noundef null)
+  %80 = load ptr, ptr %15, align 8
+  %81 = call ptr @list_iterator_create(ptr noundef %80)
+  store ptr %81, ptr %12, align 8
+  br label %82
 
-81:                                               ; preds = %167, %112, %77
-  %82 = load ptr, ptr %12, align 8
-  %83 = call ptr @list_next(ptr noundef %82)
-  store ptr %83, ptr %13, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %168
+82:                                               ; preds = %169, %113, %78
+  %83 = load ptr, ptr %12, align 8
+  %84 = call ptr @list_next(ptr noundef %83)
+  store ptr %84, ptr %13, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %170
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr @cluster_license_list, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %94
+86:                                               ; preds = %82
+  %87 = load ptr, ptr @cluster_license_list, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %95
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr @cluster_license_list, align 8
-  %90 = load ptr, ptr %13, align 8
-  %91 = getelementptr inbounds %struct.licenses_t, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @list_find_first(ptr noundef %89, ptr noundef @_license_find_rec, ptr noundef %92)
-  store ptr %93, ptr %14, align 8
-  br label %95
+89:                                               ; preds = %86
+  %90 = load ptr, ptr @cluster_license_list, align 8
+  %91 = load ptr, ptr %13, align 8
+  %92 = getelementptr inbounds %struct.licenses_t, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr @list_find_first(ptr noundef %90, ptr noundef @_license_find_rec, ptr noundef %93)
+  store ptr %94, ptr %14, align 8
+  br label %96
 
-94:                                               ; preds = %85
+95:                                               ; preds = %86
   store ptr null, ptr %14, align 8
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %88
-  %96 = load ptr, ptr %14, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %117, label %98
+96:                                               ; preds = %95, %89
+  %97 = load ptr, ptr %14, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %118, label %99
 
-98:                                               ; preds = %95
-  br label %99
-
-99:                                               ; preds = %98
+99:                                               ; preds = %96
   br label %100
 
 100:                                              ; preds = %99
-  %101 = call i32 @get_log_level()
-  %102 = icmp sge i32 %101, 5
-  br i1 %102, label %103, label %107
+  br label %101
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %13, align 8
-  %105 = getelementptr inbounds %struct.licenses_t, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.19, ptr noundef %106)
-  br label %107
+101:                                              ; preds = %100
+  %102 = call i32 @get_log_level()
+  %103 = icmp sge i32 %102, 5
+  br i1 %103, label %104, label %108
 
-107:                                              ; preds = %103, %100
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %13, align 8
+  %106 = getelementptr inbounds %struct.licenses_t, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.19, ptr noundef %107)
   br label %108
 
-108:                                              ; preds = %107
+108:                                              ; preds = %104, %101
   br label %109
 
 109:                                              ; preds = %108
-  %110 = load i8, ptr %9, align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %115, label %112
+  br label %110
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %12, align 8
-  %114 = call i32 @list_delete_item(ptr noundef %113)
-  br label %81, !llvm.loop !18
+110:                                              ; preds = %109
+  %111 = load i8, ptr %9, align 1
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %116, label %113
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %11, align 8
-  store i8 0, ptr %116, align 1
-  br label %168
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %12, align 8
+  %115 = call i32 @list_delete_item(ptr noundef %114)
+  br label %82, !llvm.loop !18
 
-117:                                              ; preds = %95
-  %118 = load i8, ptr %8, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %147
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %11, align 8
+  store i8 0, ptr %117, align 1
+  br label %170
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds %struct.licenses_t, ptr %121, i32 0, i32 1
-  %123 = load i32, ptr %122, align 8
-  %124 = load ptr, ptr %14, align 8
-  %125 = getelementptr inbounds %struct.licenses_t, ptr %124, i32 0, i32 1
-  %126 = load i32, ptr %125, align 8
-  %127 = icmp ugt i32 %123, %126
-  br i1 %127, label %128, label %147
+118:                                              ; preds = %96
+  %119 = load i8, ptr %8, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %148
 
-128:                                              ; preds = %120
-  br label %129
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %13, align 8
+  %123 = getelementptr inbounds %struct.licenses_t, ptr %122, i32 0, i32 1
+  %124 = load i32, ptr %123, align 8
+  %125 = load ptr, ptr %14, align 8
+  %126 = getelementptr inbounds %struct.licenses_t, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 8
+  %128 = icmp ugt i32 %124, %127
+  br i1 %128, label %129, label %148
 
-129:                                              ; preds = %128
+129:                                              ; preds = %121
   br label %130
 
 130:                                              ; preds = %129
-  %131 = call i32 @get_log_level()
-  %132 = icmp sge i32 %131, 5
-  br i1 %132, label %133, label %143
+  br label %131
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds %struct.licenses_t, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %13, align 8
-  %138 = getelementptr inbounds %struct.licenses_t, ptr %137, i32 0, i32 1
-  %139 = load i32, ptr %138, align 8
-  %140 = load ptr, ptr %14, align 8
-  %141 = getelementptr inbounds %struct.licenses_t, ptr %140, i32 0, i32 1
-  %142 = load i32, ptr %141, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.20, ptr noundef %136, i32 noundef %139, i32 noundef %142)
-  br label %143
+131:                                              ; preds = %130
+  %132 = call i32 @get_log_level()
+  %133 = icmp sge i32 %132, 5
+  br i1 %133, label %134, label %144
 
-143:                                              ; preds = %133, %130
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %14, align 8
+  %136 = getelementptr inbounds %struct.licenses_t, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %13, align 8
+  %139 = getelementptr inbounds %struct.licenses_t, ptr %138, i32 0, i32 1
+  %140 = load i32, ptr %139, align 8
+  %141 = load ptr, ptr %14, align 8
+  %142 = getelementptr inbounds %struct.licenses_t, ptr %141, i32 0, i32 1
+  %143 = load i32, ptr %142, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.20, ptr noundef %137, i32 noundef %140, i32 noundef %143)
   br label %144
 
-144:                                              ; preds = %143
+144:                                              ; preds = %134, %131
   br label %145
 
 145:                                              ; preds = %144
-  %146 = load ptr, ptr %11, align 8
-  store i8 0, ptr %146, align 1
-  br label %168
+  br label %146
 
-147:                                              ; preds = %120, %117
-  br label %148
-
-148:                                              ; preds = %147
-  %149 = load ptr, ptr %10, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %167
-
-151:                                              ; preds = %148
-  %152 = load ptr, ptr %13, align 8
-  %153 = getelementptr inbounds %struct.licenses_t, ptr %152, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i32 0, i32 4), align 8
-  %155 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @license_validate.tres_req, i1 noundef zeroext false)
-  store i32 %155, ptr %16, align 4
-  %156 = icmp ne i32 %155, -1
-  br i1 %156, label %157, label %166
-
-157:                                              ; preds = %151
-  %158 = load ptr, ptr %13, align 8
-  %159 = getelementptr inbounds %struct.licenses_t, ptr %158, i32 0, i32 1
-  %160 = load i32, ptr %159, align 8
-  %161 = zext i32 %160 to i64
-  %162 = load ptr, ptr %10, align 8
-  %163 = load i32, ptr %16, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i64, ptr %162, i64 %164
-  store i64 %161, ptr %165, align 8
-  br label %166
-
-166:                                              ; preds = %157, %151
-  br label %167
-
-167:                                              ; preds = %166, %148
-  br label %81, !llvm.loop !18
-
-168:                                              ; preds = %145, %115, %81
-  %169 = load ptr, ptr %12, align 8
-  call void @list_iterator_destroy(ptr noundef %169)
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %11, align 8
+  store i8 0, ptr %147, align 1
   br label %170
 
-170:                                              ; preds = %168
-  %171 = call i32 @pthread_mutex_unlock(ptr noundef @license_mutex) #8
-  store i32 %171, ptr %19, align 4
-  %172 = load i32, ptr %19, align 4
-  %173 = icmp ne i32 %172, 0
-  br i1 %173, label %174, label %177
+148:                                              ; preds = %121, %118
+  br label %149
 
-174:                                              ; preds = %170
-  %175 = load i32, ptr %19, align 4
-  %176 = call ptr @__errno_location() #9
-  store i32 %175, ptr %176, align 4
+149:                                              ; preds = %148
+  %150 = load ptr, ptr %10, align 8
+  %151 = icmp ne ptr %150, null
+  br i1 %151, label %152, label %169
+
+152:                                              ; preds = %149
+  %153 = load ptr, ptr %13, align 8
+  %154 = getelementptr inbounds %struct.licenses_t, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i32 0, i32 4
+  store ptr %155, ptr %156, align 8
+  %157 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @license_validate.tres_req, i1 noundef zeroext false)
+  store i32 %157, ptr %16, align 4
+  %158 = icmp ne i32 %157, -1
+  br i1 %158, label %159, label %168
+
+159:                                              ; preds = %152
+  %160 = load ptr, ptr %13, align 8
+  %161 = getelementptr inbounds %struct.licenses_t, ptr %160, i32 0, i32 1
+  %162 = load i32, ptr %161, align 8
+  %163 = zext i32 %162 to i64
+  %164 = load ptr, ptr %10, align 8
+  %165 = load i32, ptr %16, align 4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds i64, ptr %164, i64 %166
+  store i64 %163, ptr %167, align 8
+  br label %168
+
+168:                                              ; preds = %159, %152
+  br label %169
+
+169:                                              ; preds = %168, %149
+  br label %82, !llvm.loop !18
+
+170:                                              ; preds = %146, %116, %82
+  %171 = load ptr, ptr %12, align 8
+  call void @list_iterator_destroy(ptr noundef %171)
+  br label %172
+
+172:                                              ; preds = %170
+  %173 = call i32 @pthread_mutex_unlock(ptr noundef @license_mutex) #8
+  store i32 %173, ptr %19, align 4
+  %174 = load i32, ptr %19, align 4
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %179
+
+176:                                              ; preds = %172
+  %177 = load i32, ptr %19, align 4
+  %178 = call ptr @__errno_location() #9
+  store i32 %177, ptr %178, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.8, ptr noundef @.str.4, i32 noundef 621, ptr noundef @__func__.license_validate) #10
   unreachable
 
-177:                                              ; preds = %170
-  br label %178
+179:                                              ; preds = %172
+  br label %180
 
-178:                                              ; preds = %177
-  %179 = load ptr, ptr %11, align 8
-  %180 = load i8, ptr %179, align 1
-  %181 = trunc i8 %180 to i1
-  br i1 %181, label %190, label %182
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %11, align 8
+  %182 = load i8, ptr %181, align 1
+  %183 = trunc i8 %182 to i1
+  br i1 %183, label %192, label %184
 
-182:                                              ; preds = %178
-  br label %183
+184:                                              ; preds = %180
+  br label %185
 
-183:                                              ; preds = %182
-  %184 = load ptr, ptr %15, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %188
+185:                                              ; preds = %184
+  %186 = load ptr, ptr %15, align 8
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %188, label %190
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %15, align 8
-  call void @list_destroy(ptr noundef %187)
-  br label %188
-
-188:                                              ; preds = %186, %183
-  store ptr null, ptr %15, align 8
-  br label %189
-
-189:                                              ; preds = %188
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %15, align 8
+  call void @list_destroy(ptr noundef %189)
   br label %190
 
-190:                                              ; preds = %189, %178
-  %191 = load ptr, ptr %15, align 8
-  store ptr %191, ptr %6, align 8
+190:                                              ; preds = %188, %185
+  store ptr null, ptr %15, align 8
+  br label %191
+
+191:                                              ; preds = %190
   br label %192
 
-192:                                              ; preds = %190, %62
-  %193 = load ptr, ptr %6, align 8
-  ret ptr %193
+192:                                              ; preds = %191, %180
+  %193 = load ptr, ptr %15, align 8
+  store ptr %193, ptr %6, align 8
+  br label %194
+
+194:                                              ; preds = %192, %62
+  %195 = load ptr, ptr %6, align 8
+  ret ptr %195
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2875,7 +2878,7 @@ define dso_local i32 @license_job_return_to_list(ptr noundef %0, ptr noundef %1)
 16:                                               ; preds = %2
   %17 = load i32, ptr %9, align 4
   store i32 %17, ptr %3, align 4
-  br label %103
+  br label %104
 
 18:                                               ; preds = %2
   %19 = call i64 @time(ptr noundef null) #8
@@ -2883,157 +2886,158 @@ define dso_local i32 @license_job_return_to_list(ptr noundef %0, ptr noundef %1)
   br label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %22 = and i64 %21, 268435456
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %32
+  %21 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 268435456
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %20
-  br label %25
+25:                                               ; preds = %20
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = call i32 @get_log_level()
-  %27 = icmp sge i32 %26, 4
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %25
+  %27 = call i32 @get_log_level()
+  %28 = icmp sge i32 %27, 4
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.24, ptr noundef @__func__.license_job_return_to_list, ptr noundef %29)
-  br label %30
-
-30:                                               ; preds = %28, %25
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.24, ptr noundef @__func__.license_job_return_to_list, ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %29, %26
   br label %32
 
-32:                                               ; preds = %31, %20
+32:                                               ; preds = %31
   br label %33
 
-33:                                               ; preds = %32
+33:                                               ; preds = %32, %20
   br label %34
 
 34:                                               ; preds = %33
-  %35 = call i32 @pthread_mutex_lock(ptr noundef @license_mutex) #8
-  store i32 %35, ptr %10, align 4
-  %36 = load i32, ptr %10, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %41
+  br label %35
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %10, align 4
-  %40 = call ptr @__errno_location() #9
-  store i32 %39, ptr %40, align 4
+35:                                               ; preds = %34
+  %36 = call i32 @pthread_mutex_lock(ptr noundef @license_mutex) #8
+  store i32 %36, ptr %10, align 4
+  %37 = load i32, ptr %10, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = load i32, ptr %10, align 4
+  %41 = call ptr @__errno_location() #9
+  store i32 %40, ptr %41, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 803, ptr noundef @__func__.license_job_return_to_list) #10
   unreachable
 
-41:                                               ; preds = %34
-  br label %42
+42:                                               ; preds = %35
+  br label %43
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.job_record, ptr %43, i32 0, i32 64
-  %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @list_iterator_create(ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  br label %47
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds %struct.job_record, ptr %44, i32 0, i32 64
+  %46 = load ptr, ptr %45, align 8
+  %47 = call ptr @list_iterator_create(ptr noundef %46)
+  store ptr %47, ptr %6, align 8
+  br label %48
 
-47:                                               ; preds = %90, %42
-  %48 = load ptr, ptr %6, align 8
-  %49 = call ptr @list_next(ptr noundef %48)
-  store ptr %49, ptr %7, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %91
+48:                                               ; preds = %91, %43
+  %49 = load ptr, ptr %6, align 8
+  %50 = call ptr @list_next(ptr noundef %49)
+  store ptr %50, ptr %7, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %92
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %5, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.licenses_t, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr @list_find_first(ptr noundef %52, ptr noundef @_license_find_rec, ptr noundef %55)
-  store ptr %56, ptr %8, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %85
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct.licenses_t, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr @list_find_first(ptr noundef %53, ptr noundef @_license_find_rec, ptr noundef %56)
+  store ptr %57, ptr %8, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %86
 
-59:                                               ; preds = %51
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.licenses_t, ptr %60, i32 0, i32 2
-  %62 = load i32, ptr %61, align 4
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.licenses_t, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp uge i32 %62, %65
-  br i1 %66, label %67, label %75
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds %struct.licenses_t, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds %struct.licenses_t, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp uge i32 %63, %66
+  br i1 %67, label %68, label %76
 
-67:                                               ; preds = %59
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.licenses_t, ptr %68, i32 0, i32 1
-  %70 = load i32, ptr %69, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.licenses_t, ptr %71, i32 0, i32 2
-  %73 = load i32, ptr %72, align 4
-  %74 = sub i32 %73, %70
-  store i32 %74, ptr %72, align 4
-  br label %82
+68:                                               ; preds = %60
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct.licenses_t, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds %struct.licenses_t, ptr %72, i32 0, i32 2
+  %74 = load i32, ptr %73, align 4
+  %75 = sub i32 %74, %71
+  store i32 %75, ptr %73, align 4
+  br label %83
 
-75:                                               ; preds = %59
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.licenses_t, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 (ptr, ...) @error(ptr noundef @.str.25, ptr noundef @__func__.license_job_return_to_list, ptr noundef %78)
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.licenses_t, ptr %80, i32 0, i32 2
-  store i32 0, ptr %81, align 4
+76:                                               ; preds = %60
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds %struct.licenses_t, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  %80 = call i32 (ptr, ...) @error(ptr noundef @.str.25, ptr noundef @__func__.license_job_return_to_list, ptr noundef %79)
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds %struct.licenses_t, ptr %81, i32 0, i32 2
+  store i32 0, ptr %82, align 4
   store i32 -1, ptr %9, align 4
-  br label %82
+  br label %83
 
-82:                                               ; preds = %75, %67
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.licenses_t, ptr %83, i32 0, i32 2
-  store i32 0, ptr %84, align 4
-  br label %90
+83:                                               ; preds = %76, %68
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.licenses_t, ptr %84, i32 0, i32 2
+  store i32 0, ptr %85, align 4
+  br label %91
 
-85:                                               ; preds = %51
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.licenses_t, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.license_job_return_to_list, ptr noundef %88)
-  br label %90
+86:                                               ; preds = %52
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds %struct.licenses_t, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 (ptr, ...) @error(ptr noundef @.str.26, ptr noundef @__func__.license_job_return_to_list, ptr noundef %89)
+  br label %91
 
-90:                                               ; preds = %85, %82
-  br label %47, !llvm.loop !22
+91:                                               ; preds = %86, %83
+  br label %48, !llvm.loop !22
 
-91:                                               ; preds = %47
-  %92 = load ptr, ptr %6, align 8
-  call void @list_iterator_destroy(ptr noundef %92)
-  br label %93
+92:                                               ; preds = %48
+  %93 = load ptr, ptr %6, align 8
+  call void @list_iterator_destroy(ptr noundef %93)
+  br label %94
 
-93:                                               ; preds = %91
-  %94 = call i32 @pthread_mutex_unlock(ptr noundef @license_mutex) #8
-  store i32 %94, ptr %11, align 4
-  %95 = load i32, ptr %11, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %100
+94:                                               ; preds = %92
+  %95 = call i32 @pthread_mutex_unlock(ptr noundef @license_mutex) #8
+  store i32 %95, ptr %11, align 4
+  %96 = load i32, ptr %11, align 4
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %101
 
-97:                                               ; preds = %93
-  %98 = load i32, ptr %11, align 4
-  %99 = call ptr @__errno_location() #9
-  store i32 %98, ptr %99, align 4
+98:                                               ; preds = %94
+  %99 = load i32, ptr %11, align 4
+  %100 = call ptr @__errno_location() #9
+  store i32 %99, ptr %100, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.8, ptr noundef @.str.4, i32 noundef 825, ptr noundef @__func__.license_job_return_to_list) #10
   unreachable
 
-100:                                              ; preds = %93
-  br label %101
+101:                                              ; preds = %94
+  br label %102
 
-101:                                              ; preds = %100
-  %102 = load i32, ptr %9, align 4
-  store i32 %102, ptr %3, align 4
-  br label %103
+102:                                              ; preds = %101
+  %103 = load i32, ptr %9, align 4
+  store i32 %103, ptr %3, align 4
+  br label %104
 
-103:                                              ; preds = %101, %16
-  %104 = load i32, ptr %3, align 4
-  ret i32 %104
+104:                                              ; preds = %102, %16
+  %105 = load i32, ptr %3, align 4
+  ret i32 %105
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3472,83 +3476,85 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) #0 {
 
 11:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %52
+  br label %54
 
 12:                                               ; preds = %1
   %13 = load i8, ptr @licenses_2_tres_str.first_run, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %16
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
   store i8 0, ptr @licenses_2_tres_str.first_run, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @licenses_2_tres_str.tres_req, i8 0, i64 48, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i32 0, i32 5), align 8
-  br label %16
+  %16 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i32 0, i32 5
+  store ptr @.str.17, ptr %16, align 8
+  br label %17
 
-16:                                               ; preds = %15, %12
+17:                                               ; preds = %15, %12
   call void @assoc_mgr_lock(ptr noundef %8)
-  %17 = load ptr, ptr %3, align 8
-  %18 = call ptr @list_iterator_create(ptr noundef %17)
-  store ptr %18, ptr %4, align 8
-  br label %19
+  %18 = load ptr, ptr %3, align 8
+  %19 = call ptr @list_iterator_create(ptr noundef %18)
+  store ptr %19, ptr %4, align 8
+  br label %20
 
-19:                                               ; preds = %38, %37, %29, %16
-  %20 = load ptr, ptr %4, align 8
-  %21 = call ptr @list_next(ptr noundef %20)
-  store ptr %21, ptr %6, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %49
+20:                                               ; preds = %40, %39, %31, %17
+  %21 = load ptr, ptr %4, align 8
+  %22 = call ptr @list_next(ptr noundef %21)
+  store ptr %22, ptr %6, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %51
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.licenses_t, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i32 0, i32 4), align 8
-  %27 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @licenses_2_tres_str.tres_req)
-  store ptr %27, ptr %5, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %30, label %29
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct.licenses_t, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @licenses_2_tres_str.tres_req, i32 0, i32 4
+  store ptr %27, ptr %28, align 8
+  %29 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @licenses_2_tres_str.tres_req)
+  store ptr %29, ptr %5, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %32, label %31
 
-29:                                               ; preds = %23
-  br label %19, !llvm.loop !25
+31:                                               ; preds = %24
+  br label %20, !llvm.loop !25
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 8
-  %35 = call i64 @slurmdb_find_tres_count_in_string(ptr noundef %31, i32 noundef %34)
-  %36 = icmp ne i64 %35, -1
-  br i1 %36, label %37, label %38
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 8
+  %37 = call i64 @slurmdb_find_tres_count_in_string(ptr noundef %33, i32 noundef %36)
+  %38 = icmp ne i64 %37, -1
+  br i1 %38, label %39, label %40
 
-37:                                               ; preds = %30
-  br label %19, !llvm.loop !25
+39:                                               ; preds = %32
+  br label %20, !llvm.loop !25
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %7, align 8
-  %40 = icmp ne ptr %39, null
-  %41 = select i1 %40, ptr @.str.2, ptr @.str
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.licenses_t, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 8
-  %48 = zext i32 %47 to i64
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %7, ptr noundef @.str.30, ptr noundef %41, i32 noundef %44, i64 noundef %48)
-  br label %19, !llvm.loop !25
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %7, align 8
+  %42 = icmp ne ptr %41, null
+  %43 = select i1 %42, ptr @.str.2, ptr @.str
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.licenses_t, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8
+  %50 = zext i32 %49 to i64
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %7, ptr noundef @.str.30, ptr noundef %43, i32 noundef %46, i64 noundef %50)
+  br label %20, !llvm.loop !25
 
-49:                                               ; preds = %19
-  %50 = load ptr, ptr %4, align 8
-  call void @list_iterator_destroy(ptr noundef %50)
+51:                                               ; preds = %20
+  %52 = load ptr, ptr %4, align 8
+  call void @list_iterator_destroy(ptr noundef %52)
   call void @assoc_mgr_unlock(ptr noundef %8)
-  %51 = load ptr, ptr %7, align 8
-  store ptr %51, ptr %2, align 8
-  br label %52
+  %53 = load ptr, ptr %7, align 8
+  store ptr %53, ptr %2, align 8
+  br label %54
 
-52:                                               ; preds = %49, %11
-  %53 = load ptr, ptr %2, align 8
-  ret ptr %53
+54:                                               ; preds = %51, %11
+  %55 = load ptr, ptr %2, align 8
+  ret ptr %55
 }
 
 declare ptr @assoc_mgr_find_tres_rec(ptr noundef) #1
@@ -3571,88 +3577,90 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 @__const.license_set_job_tres_cnt.locks, i64 28, i1 false)
   %12 = load i8, ptr @license_set_job_tres_cnt.first_run, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %15
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
   store i8 0, ptr @license_set_job_tres_cnt.first_run, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @license_set_job_tres_cnt.tres_rec, i8 0, i64 48, i1 false)
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i32 0, i32 5), align 8
-  br label %15
+  %15 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i32 0, i32 5
+  store ptr @.str.17, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %14, %3
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %21
+16:                                               ; preds = %14, %3
+  %17 = load ptr, ptr %4, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %5, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %22, label %21
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %18, %15
-  br label %56
+22:                                               ; preds = %19, %16
+  br label %58
 
-22:                                               ; preds = %18
-  %23 = load i8, ptr %6, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %26, label %25
+23:                                               ; preds = %19
+  %24 = load i8, ptr %6, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   call void @assoc_mgr_lock(ptr noundef %10)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %22
-  %27 = load ptr, ptr %4, align 8
-  %28 = call ptr @list_iterator_create(ptr noundef %27)
-  store ptr %28, ptr %7, align 8
-  br label %29
+27:                                               ; preds = %26, %23
+  %28 = load ptr, ptr %4, align 8
+  %29 = call ptr @list_iterator_create(ptr noundef %28)
+  store ptr %29, ptr %7, align 8
+  br label %30
 
-29:                                               ; preds = %50, %26
-  %30 = load ptr, ptr %7, align 8
-  %31 = call ptr @list_next(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %51
+30:                                               ; preds = %52, %27
+  %31 = load ptr, ptr %7, align 8
+  %32 = call ptr @list_next(ptr noundef %31)
+  store ptr %32, ptr %8, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %53
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.licenses_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %37 = load i8, ptr %6, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @license_set_job_tres_cnt.tres_rec, i1 noundef zeroext %38)
-  store i32 %39, ptr %9, align 4
-  %40 = icmp ne i32 %39, -1
-  br i1 %40, label %41, label %50
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.licenses_t, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @license_set_job_tres_cnt.tres_rec, i32 0, i32 4
+  store ptr %37, ptr %38, align 8
+  %39 = load i8, ptr %6, align 1
+  %40 = trunc i8 %39 to i1
+  %41 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @license_set_job_tres_cnt.tres_rec, i1 noundef zeroext %40)
+  store i32 %41, ptr %9, align 4
+  %42 = icmp ne i32 %41, -1
+  br i1 %42, label %43, label %52
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.licenses_t, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = zext i32 %44 to i64
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i32, ptr %9, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %46, i64 %48
-  store i64 %45, ptr %49, align 8
-  br label %50
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct.licenses_t, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = zext i32 %46 to i64
+  %48 = load ptr, ptr %5, align 8
+  %49 = load i32, ptr %9, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i64, ptr %48, i64 %50
+  store i64 %47, ptr %51, align 8
+  br label %52
 
-50:                                               ; preds = %41, %33
-  br label %29, !llvm.loop !26
+52:                                               ; preds = %43, %34
+  br label %30, !llvm.loop !26
 
-51:                                               ; preds = %29
-  %52 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %52)
-  %53 = load i8, ptr %6, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %56, label %55
+53:                                               ; preds = %30
+  %54 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %54)
+  %55 = load i8, ptr %6, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %58, label %57
 
-55:                                               ; preds = %51
+57:                                               ; preds = %53
   call void @assoc_mgr_unlock(ptr noundef %10)
-  br label %56
+  br label %58
 
-56:                                               ; preds = %55, %51, %21
+58:                                               ; preds = %57, %53, %22
   ret void
 }
 

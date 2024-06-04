@@ -151,15 +151,15 @@ define i32 @opal_init_gethostname() #0 {
 
 12:                                               ; preds = %0
   store i32 -2, ptr %1, align 4
-  br label %79
+  br label %80
 
 13:                                               ; preds = %0
   br label %14
 
-14:                                               ; preds = %75, %13
+14:                                               ; preds = %76, %13
   %15 = load i32, ptr %5, align 4
   %16 = icmp slt i32 %15, 8
-  br i1 %16, label %17, label %77
+  br i1 %16, label %17, label %78
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %5, align 4
@@ -177,7 +177,7 @@ define i32 @opal_init_gethostname() #0 {
   store i8 0, ptr %27, align 1
   %28 = load i32, ptr %4, align 4
   %29 = icmp eq i32 0, %28
-  br i1 %29, label %30, label %54
+  br i1 %29, label %30, label %55
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr %7, align 8
@@ -185,98 +185,99 @@ define i32 @opal_init_gethostname() #0 {
   store i64 %32, ptr %2, align 8
   %33 = load i64, ptr %2, align 8
   %34 = icmp ugt i64 %33, 0
-  br i1 %34, label %35, label %42
+  br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
   %36 = load i64, ptr %2, align 8
   %37 = load i64, ptr %3, align 8
   %38 = sub i64 %37, 1
   %39 = icmp ult i64 %36, %38
-  br i1 %39, label %40, label %42
+  br i1 %39, label %40, label %43
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %7, align 8
-  store ptr %41, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
+  %42 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  store ptr %41, ptr %42, align 8
   store i32 0, ptr %1, align 4
-  br label %79
+  br label %80
 
-42:                                               ; preds = %35, %30
-  %43 = load i64, ptr %2, align 8
-  %44 = icmp eq i64 0, %43
-  br i1 %44, label %52, label %45
+43:                                               ; preds = %35, %30
+  %44 = load i64, ptr %2, align 8
+  %45 = icmp eq i64 0, %44
+  br i1 %45, label %53, label %46
 
-45:                                               ; preds = %42
-  %46 = load i64, ptr %2, align 8
-  %47 = load i64, ptr %3, align 8
-  %48 = sub i64 %47, 1
-  %49 = icmp eq i64 %46, %48
-  br i1 %49, label %52, label %50
+46:                                               ; preds = %43
+  %47 = load i64, ptr %2, align 8
+  %48 = load i64, ptr %3, align 8
+  %49 = sub i64 %48, 1
+  %50 = icmp eq i64 %47, %49
+  br i1 %50, label %53, label %51
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %51) #8
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %52) #8
   store i32 -11, ptr %1, align 4
-  br label %79
+  br label %80
 
-52:                                               ; preds = %45, %42
-  br label %53
+53:                                               ; preds = %46, %43
+  br label %54
 
-53:                                               ; preds = %52
-  br label %65
+54:                                               ; preds = %53
+  br label %66
 
-54:                                               ; preds = %17
-  %55 = call ptr @__errno_location() #10
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 22, %56
-  br i1 %57, label %64, label %58
+55:                                               ; preds = %17
+  %56 = call ptr @__errno_location() #10
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 22, %57
+  br i1 %58, label %65, label %59
 
-58:                                               ; preds = %54
-  %59 = call ptr @__errno_location() #10
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 36, %60
-  br i1 %61, label %64, label %62
+59:                                               ; preds = %55
+  %60 = call ptr @__errno_location() #10
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 36, %61
+  br i1 %62, label %65, label %63
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %63) #8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %64) #8
   store i32 -11, ptr %1, align 4
-  br label %79
+  br label %80
 
-64:                                               ; preds = %58, %54
-  br label %65
+65:                                               ; preds = %59, %55
+  br label %66
 
-65:                                               ; preds = %64, %53
-  %66 = load i64, ptr %3, align 8
-  %67 = mul i64 %66, 2
-  store i64 %67, ptr %3, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i64, ptr %3, align 8
-  %70 = call ptr @realloc(ptr noundef %68, i64 noundef %69) #11
-  store ptr %70, ptr %6, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = icmp eq ptr null, %71
-  br i1 %72, label %73, label %75
+66:                                               ; preds = %65, %54
+  %67 = load i64, ptr %3, align 8
+  %68 = mul i64 %67, 2
+  store i64 %68, ptr %3, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i64, ptr %3, align 8
+  %71 = call ptr @realloc(ptr noundef %69, i64 noundef %70) #11
+  store ptr %71, ptr %6, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = icmp eq ptr null, %72
+  br i1 %73, label %74, label %76
 
-73:                                               ; preds = %65
-  %74 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %74) #8
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %75) #8
   store i32 -2, ptr %1, align 4
-  br label %79
+  br label %80
 
-75:                                               ; preds = %65
-  %76 = load ptr, ptr %6, align 8
-  store ptr %76, ptr %7, align 8
+76:                                               ; preds = %66
+  %77 = load ptr, ptr %6, align 8
+  store ptr %77, ptr %7, align 8
   br label %14, !llvm.loop !4
 
-77:                                               ; preds = %14
-  %78 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %78) #8
+78:                                               ; preds = %14
+  %79 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %79) #8
   store i32 -13, ptr %1, align 4
-  br label %79
+  br label %80
 
-79:                                               ; preds = %77, %73, %62, %50, %40, %12
-  %80 = load i32, ptr %1, align 4
-  ret i32 %80
+80:                                               ; preds = %78, %74, %63, %51, %40, %12
+  %81 = load i32, ptr %1, align 4
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -318,14 +319,14 @@ define i32 @opal_init_util(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %10
   store i32 -1, ptr %3, align 4
-  br label %103
+  br label %105
 
 14:                                               ; preds = %10
   %15 = load i32, ptr @opal_util_initialized, align 4
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr @opal_util_initialized, align 4
   store i32 0, ptr %3, align 4
-  br label %103
+  br label %105
 
 17:                                               ; preds = %2
   br label %18
@@ -335,178 +336,180 @@ define i32 @opal_init_util(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %18
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_finalize_domain_t_class, i32 0, i32 4), align 8
-  %22 = icmp ne i32 %20, %21
-  br i1 %22, label %23, label %24
+  %21 = getelementptr inbounds %struct.opal_class_t, ptr @opal_finalize_domain_t_class, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %20, %22
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %19
+24:                                               ; preds = %19
   call void @opal_class_initialize(ptr noundef @opal_finalize_domain_t_class)
-  br label %24
-
-24:                                               ; preds = %23, %19
-  store ptr @opal_finalize_domain_t_class, ptr @opal_init_util_domain, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @opal_init_util_domain, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @opal_init_util_domain)
   br label %25
 
-25:                                               ; preds = %24
-  br label %26
+25:                                               ; preds = %24, %19
+  store ptr @opal_finalize_domain_t_class, ptr @opal_init_util_domain, align 8
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr @opal_init_util_domain, i32 0, i32 1
+  store volatile i32 1, ptr %26, align 8
+  call void @opal_obj_run_constructors(ptr noundef @opal_init_util_domain)
+  br label %27
 
-26:                                               ; preds = %25
+27:                                               ; preds = %25
+  br label %28
+
+28:                                               ; preds = %27
   call void @opal_finalize_domain_init(ptr noundef @opal_init_util_domain, ptr noundef @.str.2)
   call void @opal_finalize_set_domain(ptr noundef @opal_init_util_domain)
   call void @opal_thread_set_main()
-  %27 = call i32 @opal_init_gethostname()
-  store i32 %27, ptr %6, align 4
-  %28 = load i32, ptr %6, align 4
-  %29 = icmp ne i32 0, %28
-  br i1 %29, label %30, label %35
+  %29 = call i32 @opal_init_gethostname()
+  store i32 %29, ptr %6, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp ne i32 0, %30
+  br i1 %31, label %32, label %37
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 459, i32 noundef %32) #8
+32:                                               ; preds = %28
+  %33 = load ptr, ptr @stderr, align 8
   %34 = load i32, ptr %6, align 4
-  store i32 %34, ptr %3, align 4
-  br label %103
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 459, i32 noundef %34) #8
+  %36 = load i32, ptr %6, align 4
+  store i32 %36, ptr %3, align 4
+  br label %105
 
-35:                                               ; preds = %26
+37:                                               ; preds = %28
   call void @opal_malloc_init()
-  %36 = call zeroext i1 @opal_output_init()
-  %37 = call i32 @mca_base_framework_open(ptr noundef @opal_installdirs_base_framework, i32 noundef 0)
-  store i32 %37, ptr %6, align 4
-  %38 = icmp ne i32 0, %37
-  br i1 %38, label %39, label %44
+  %38 = call zeroext i1 @opal_output_init()
+  %39 = call i32 @mca_base_framework_open(ptr noundef @opal_installdirs_base_framework, i32 noundef 0)
+  store i32 %39, ptr %6, align 4
+  %40 = icmp ne i32 0, %39
+  br i1 %40, label %41, label %46
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 476, i32 noundef %41) #8
+41:                                               ; preds = %37
+  %42 = load ptr, ptr @stderr, align 8
   %43 = load i32, ptr %6, align 4
-  store i32 %43, ptr %3, align 4
-  br label %103
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 476, i32 noundef %43) #8
+  %45 = load i32, ptr %6, align 4
+  store i32 %45, ptr %3, align 4
+  br label %105
 
-44:                                               ; preds = %35
-  %45 = call i32 @opal_show_help_init()
-  %46 = call i32 @opal_error_register(ptr noundef @.str.6, i32 noundef 0, i32 noundef -100, ptr noundef @opal_err2str)
-  store i32 %46, ptr %6, align 4
-  %47 = icmp ne i32 0, %46
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %37
+  %47 = call i32 @opal_show_help_init()
+  %48 = call i32 @opal_error_register(ptr noundef @.str.6, i32 noundef 0, i32 noundef -100, ptr noundef @opal_err2str)
+  store i32 %48, ptr %6, align 4
+  %49 = icmp ne i32 0, %48
+  br i1 %49, label %50, label %53
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %6, align 4
-  %50 = call i32 @opal_init_error(ptr noundef @.str.7, i32 noundef %49)
-  store i32 %50, ptr %3, align 4
-  br label %103
+50:                                               ; preds = %46
+  %51 = load i32, ptr %6, align 4
+  %52 = call i32 @opal_init_error(ptr noundef @.str.7, i32 noundef %51)
+  store i32 %52, ptr %3, align 4
+  br label %105
 
-51:                                               ; preds = %44
-  %52 = call i32 @opal_util_keyval_parse_init()
-  store i32 %52, ptr %6, align 4
-  %53 = icmp ne i32 0, %52
-  br i1 %53, label %54, label %57
+53:                                               ; preds = %46
+  %54 = call i32 @opal_util_keyval_parse_init()
+  store i32 %54, ptr %6, align 4
+  %55 = icmp ne i32 0, %54
+  br i1 %55, label %56, label %59
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %6, align 4
-  %56 = call i32 @opal_init_error(ptr noundef @.str.8, i32 noundef %55)
-  store i32 %56, ptr %3, align 4
-  br label %103
+56:                                               ; preds = %53
+  %57 = load i32, ptr %6, align 4
+  %58 = call i32 @opal_init_error(ptr noundef @.str.8, i32 noundef %57)
+  store i32 %58, ptr %3, align 4
+  br label %105
 
-57:                                               ; preds = %51
-  %58 = call i32 @mca_base_var_init()
-  store i32 %58, ptr %6, align 4
-  %59 = icmp ne i32 0, %58
-  br i1 %59, label %60, label %63
+59:                                               ; preds = %53
+  %60 = call i32 @mca_base_var_init()
+  store i32 %60, ptr %6, align 4
+  %61 = icmp ne i32 0, %60
+  br i1 %61, label %62, label %65
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %6, align 4
-  %62 = call i32 @opal_init_error(ptr noundef @.str.9, i32 noundef %61)
-  store i32 %62, ptr %3, align 4
-  br label %103
+62:                                               ; preds = %59
+  %63 = load i32, ptr %6, align 4
+  %64 = call i32 @opal_init_error(ptr noundef @.str.9, i32 noundef %63)
+  store i32 %64, ptr %3, align 4
+  br label %105
 
-63:                                               ; preds = %57
-  %64 = call i32 @mca_base_var_cache_files(i1 noundef zeroext false)
-  store i32 %64, ptr %6, align 4
-  %65 = icmp ne i32 0, %64
-  br i1 %65, label %66, label %69
+65:                                               ; preds = %59
+  %66 = call i32 @mca_base_var_cache_files(i1 noundef zeroext false)
+  store i32 %66, ptr %6, align 4
+  %67 = icmp ne i32 0, %66
+  br i1 %67, label %68, label %71
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %6, align 4
-  %68 = call i32 @opal_init_error(ptr noundef @.str.10, i32 noundef %67)
-  store i32 %68, ptr %3, align 4
-  br label %103
+68:                                               ; preds = %65
+  %69 = load i32, ptr %6, align 4
+  %70 = call i32 @opal_init_error(ptr noundef @.str.10, i32 noundef %69)
+  store i32 %70, ptr %3, align 4
+  br label %105
 
-69:                                               ; preds = %63
-  %70 = call i32 @opal_register_util_params()
-  store i32 %70, ptr %6, align 4
-  %71 = icmp ne i32 0, %70
-  br i1 %71, label %72, label %75
+71:                                               ; preds = %65
+  %72 = call i32 @opal_register_util_params()
+  store i32 %72, ptr %6, align 4
+  %73 = icmp ne i32 0, %72
+  br i1 %73, label %74, label %77
 
-72:                                               ; preds = %69
-  %73 = load i32, ptr %6, align 4
-  %74 = call i32 @opal_init_error(ptr noundef @.str.11, i32 noundef %73)
-  store i32 %74, ptr %3, align 4
-  br label %103
+74:                                               ; preds = %71
+  %75 = load i32, ptr %6, align 4
+  %76 = call i32 @opal_init_error(ptr noundef @.str.11, i32 noundef %75)
+  store i32 %76, ptr %3, align 4
+  br label %105
 
-75:                                               ; preds = %69
-  %76 = call i32 @opal_util_register_stackhandlers()
-  store i32 %76, ptr %6, align 4
-  %77 = icmp ne i32 0, %76
-  br i1 %77, label %78, label %81
+77:                                               ; preds = %71
+  %78 = call i32 @opal_util_register_stackhandlers()
+  store i32 %78, ptr %6, align 4
+  %79 = icmp ne i32 0, %78
+  br i1 %79, label %80, label %83
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %6, align 4
-  %80 = call i32 @opal_init_error(ptr noundef @.str.12, i32 noundef %79)
-  store i32 %80, ptr %3, align 4
-  br label %103
+80:                                               ; preds = %77
+  %81 = load i32, ptr %6, align 4
+  %82 = call i32 @opal_init_error(ptr noundef @.str.12, i32 noundef %81)
+  store i32 %82, ptr %3, align 4
+  br label %105
 
-81:                                               ; preds = %75
-  %82 = call i32 @opal_util_init_sys_limits(ptr noundef %7)
-  store i32 %82, ptr %6, align 4
-  %83 = icmp ne i32 0, %82
-  br i1 %83, label %84, label %88
+83:                                               ; preds = %77
+  %84 = call i32 @opal_util_init_sys_limits(ptr noundef %7)
+  store i32 %84, ptr %6, align 4
+  %85 = icmp ne i32 0, %84
+  br i1 %85, label %86, label %90
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr @opal_show_help, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = call i32 (ptr, ptr, i32, ...) %85(ptr noundef @.str, ptr noundef @.str.13, i32 noundef 0, ptr noundef %86)
+86:                                               ; preds = %83
+  %87 = load ptr, ptr @opal_show_help, align 8
+  %88 = load ptr, ptr %7, align 8
+  %89 = call i32 (ptr, ptr, i32, ...) %87(ptr noundef @.str, ptr noundef @.str.13, i32 noundef 0, ptr noundef %88)
   store i32 -43, ptr %3, align 4
-  br label %103
+  br label %105
 
-88:                                               ; preds = %81
-  %89 = call i32 @opal_arch_init()
-  store i32 %89, ptr %6, align 4
-  %90 = icmp ne i32 0, %89
-  br i1 %90, label %91, label %94
+90:                                               ; preds = %83
+  %91 = call i32 @opal_arch_init()
+  store i32 %91, ptr %6, align 4
+  %92 = icmp ne i32 0, %91
+  br i1 %92, label %93, label %96
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %6, align 4
-  %93 = call i32 @opal_init_error(ptr noundef @.str.14, i32 noundef %92)
-  store i32 %93, ptr %3, align 4
-  br label %103
+93:                                               ; preds = %90
+  %94 = load i32, ptr %6, align 4
+  %95 = call i32 @opal_init_error(ptr noundef @.str.14, i32 noundef %94)
+  store i32 %95, ptr %3, align 4
+  br label %105
 
-94:                                               ; preds = %88
-  %95 = call i32 @mca_base_open()
-  store i32 %95, ptr %6, align 4
-  %96 = icmp ne i32 0, %95
-  br i1 %96, label %97, label %100
+96:                                               ; preds = %90
+  %97 = call i32 @mca_base_open()
+  store i32 %97, ptr %6, align 4
+  %98 = icmp ne i32 0, %97
+  br i1 %98, label %99, label %102
 
-97:                                               ; preds = %94
-  %98 = load i32, ptr %6, align 4
-  %99 = call i32 @opal_init_error(ptr noundef @.str.15, i32 noundef %98)
-  store i32 %99, ptr %3, align 4
-  br label %103
+99:                                               ; preds = %96
+  %100 = load i32, ptr %6, align 4
+  %101 = call i32 @opal_init_error(ptr noundef @.str.15, i32 noundef %100)
+  store i32 %101, ptr %3, align 4
+  br label %105
 
-100:                                              ; preds = %94
+102:                                              ; preds = %96
   call void @opal_finalize_append_cleanup(ptr noundef @mca_base_framework_close_list, ptr noundef @.str.16, ptr noundef @opal_init_util_frameworks)
-  %101 = load i32, ptr @opal_util_initialized, align 4
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr @opal_util_initialized, align 4
+  %103 = load i32, ptr @opal_util_initialized, align 4
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr @opal_util_initialized, align 4
   store i32 0, ptr %3, align 4
-  br label %103
+  br label %105
 
-103:                                              ; preds = %100, %97, %91, %84, %78, %72, %66, %60, %54, %48, %39, %30, %14, %13
-  %104 = load i32, ptr %3, align 4
-  ret i32 %104
+105:                                              ; preds = %102, %99, %93, %86, %80, %74, %68, %62, %56, %50, %41, %32, %14, %13
+  %106 = load i32, ptr %3, align 4
+  ret i32 %106
 }
 
 declare void @opal_class_initialize(ptr noundef) #6

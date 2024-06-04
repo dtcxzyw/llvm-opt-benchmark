@@ -44,7 +44,7 @@ define dso_local noundef i32 @early_dbgp_init(ptr noundef %0) local_unnamed_addr
   store ptr null, ptr %5, align 8, !annotation !5
   %6 = tail call i32 @early_pci_allowed() #7
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %59, label %8
+  br i1 %7, label %60, label %8
 
 8:                                                ; preds = %1
   %9 = load i8, ptr %0, align 1
@@ -60,7 +60,7 @@ define dso_local noundef i32 @early_dbgp_init(ptr noundef %0) local_unnamed_addr
   %15 = phi i32 [ %13, %11 ], [ 0, %8 ]
   %16 = call fastcc i32 @find_dbgp(i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %59, label %18
+  br i1 %17, label %60, label %18
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %2, align 4
@@ -75,14 +75,14 @@ define dso_local noundef i32 @early_dbgp_init(ptr noundef %0) local_unnamed_addr
   %28 = and i32 %27, 4095
   %29 = and i32 %26, -536870912
   %30 = icmp eq i32 %29, 536870912
-  br i1 %30, label %31, label %59
+  br i1 %30, label %31, label %60
 
 31:                                               ; preds = %18
   %32 = call i32 @read_pci_config(i8 noundef zeroext %20, i8 noundef zeroext %22, i8 noundef zeroext %24, i8 noundef zeroext 16) #7
   %33 = zext i32 %32 to i64
   %34 = and i64 %33, 15
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %59
+  br i1 %35, label %36, label %60
 
 36:                                               ; preds = %31
   %37 = call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %20, i8 noundef zeroext %22, i8 noundef zeroext %24, i8 noundef zeroext 4) #7
@@ -103,35 +103,36 @@ define dso_local noundef i32 @early_dbgp_init(ptr noundef %0) local_unnamed_addr
   %47 = and i64 %45, %46
   call void @native_set_fixmap(i32 noundef 512, i64 noundef %43, i64 %47) #7
   %48 = and i64 %33, 4080
-  %49 = getelementptr i8, ptr inttoptr (i64 -10489856 to ptr), i64 %48
-  store ptr %49, ptr @ehci_caps, align 8
-  %50 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49) #7, !srcloc !6
-  %51 = and i32 %50, 255
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr i8, ptr %49, i64 %52
-  store ptr %53, ptr @ehci_regs, align 8
-  %54 = zext nneg i32 %28 to i64
-  %55 = getelementptr i8, ptr %49, i64 %54
-  store ptr %55, ptr @ehci_debug, align 8
+  %49 = inttoptr i64 -10489856 to ptr
+  %50 = getelementptr i8, ptr %49, i64 %48
+  store ptr %50, ptr @ehci_caps, align 8
+  %51 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #7, !srcloc !6
+  %52 = and i32 %51, 255
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr i8, ptr %50, i64 %53
+  store ptr %54, ptr @ehci_regs, align 8
+  %55 = zext nneg i32 %28 to i64
+  %56 = getelementptr i8, ptr %50, i64 %55
+  store ptr %56, ptr @ehci_debug, align 8
   store i32 %19, ptr @ehci_dev.0, align 4
   store i32 %21, ptr @ehci_dev.1, align 4
   store i32 %23, ptr @ehci_dev.2, align 4
   call fastcc void @detect_set_debug_port() #8
-  %56 = call fastcc i32 @ehci_setup() #8, !range !7
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %58, label %59
+  %57 = call fastcc i32 @ehci_setup() #8, !range !7
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %42
+59:                                               ; preds = %42
   store ptr null, ptr @ehci_debug, align 8
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %42, %31, %18, %14, %1
-  %60 = phi i32 [ -1, %58 ], [ -1, %1 ], [ -1, %14 ], [ -1, %18 ], [ -1, %31 ], [ 0, %42 ]
+60:                                               ; preds = %59, %42, %31, %18, %14, %1
+  %61 = phi i32 [ -1, %59 ], [ -1, %1 ], [ -1, %14 ], [ -1, %18 ], [ -1, %31 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  ret i32 %60
+  ret i32 %61
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

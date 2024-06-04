@@ -4337,107 +4337,112 @@ define internal void @check_for_storm_count(ptr noundef %0, ptr noundef %1, ptr 
   %13 = load i32, ptr @proto_arp, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef 0)
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %23
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %3
   %17 = call ptr @wmem_file_scope()
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr @proto_arp, align 4
   %20 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0)
-  %21 = icmp eq ptr %20, inttoptr (i64 1 to ptr)
-  %22 = zext i1 %21 to i32
-  store i32 %22, ptr %7, align 4
-  br label %70
+  %21 = inttoptr i64 1 to ptr
+  %22 = icmp eq ptr %20, %21
+  %23 = zext i1 %22 to i32
+  store i32 %23, ptr %7, align 4
+  br label %75
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 4
-  %26 = getelementptr inbounds %struct.nstime_t, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  %28 = load i64, ptr @time_at_start_of_count, align 8
-  %29 = sub i64 %27, %28
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %8, align 4
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 4
-  %33 = getelementptr inbounds %struct.nstime_t, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct.nstime_t, ptr @time_at_start_of_count, i32 0, i32 1), align 8
-  %36 = sub i32 %34, %35
-  store i32 %36, ptr %9, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = mul i32 %37, 1000
-  %39 = load i32, ptr %9, align 4
-  %40 = sdiv i32 %39, 1000000
-  %41 = add i32 %38, %40
-  store i32 %41, ptr %10, align 4
-  %42 = load i32, ptr %10, align 4
-  %43 = load i32, ptr @global_arp_detect_request_storm_period, align 4
-  %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %48, label %45
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds %struct.nstime_t, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  %29 = load i64, ptr @time_at_start_of_count, align 8
+  %30 = sub i64 %28, %29
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %8, align 4
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 4
+  %34 = getelementptr inbounds %struct.nstime_t, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds %struct.nstime_t, ptr @time_at_start_of_count, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = sub i32 %35, %37
+  store i32 %38, ptr %9, align 4
+  %39 = load i32, ptr %8, align 4
+  %40 = mul i32 %39, 1000
+  %41 = load i32, ptr %9, align 4
+  %42 = sdiv i32 %41, 1000000
+  %43 = add i32 %40, %42
+  store i32 %43, ptr %10, align 4
+  %44 = load i32, ptr %10, align 4
+  %45 = load i32, ptr @global_arp_detect_request_storm_period, align 4
+  %46 = icmp sgt i32 %44, %45
+  br i1 %46, label %50, label %47
 
-45:                                               ; preds = %23
-  %46 = load i32, ptr %10, align 4
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %54
+47:                                               ; preds = %24
+  %48 = load i32, ptr %10, align 4
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %57
 
-48:                                               ; preds = %45, %23
+50:                                               ; preds = %47, %24
   store i32 1, ptr @arp_request_count, align 4
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @time_at_start_of_count, ptr align 8 %50, i64 16, i1 false)
-  %51 = call ptr @wmem_file_scope()
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i32, ptr @proto_arp, align 4
-  call void @p_add_proto_data(ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 0, ptr noundef inttoptr (i64 2 to ptr))
-  br label %80
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @time_at_start_of_count, ptr align 8 %52, i64 16, i1 false)
+  %53 = call ptr @wmem_file_scope()
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr @proto_arp, align 4
+  %56 = inttoptr i64 2 to ptr
+  call void @p_add_proto_data(ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 0, ptr noundef %56)
+  br label %85
 
-54:                                               ; preds = %45
-  %55 = load i32, ptr @arp_request_count, align 4
-  %56 = load i32, ptr @global_arp_detect_request_storm_packets, align 4
-  %57 = icmp ugt i32 %55, %56
-  br i1 %57, label %58, label %64
+57:                                               ; preds = %47
+  %58 = load i32, ptr @arp_request_count, align 4
+  %59 = load i32, ptr @global_arp_detect_request_storm_packets, align 4
+  %60 = icmp ugt i32 %58, %59
+  br i1 %60, label %61, label %68
 
-58:                                               ; preds = %54
+61:                                               ; preds = %57
   store i32 1, ptr %7, align 4
-  %59 = call ptr @wmem_file_scope()
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr @proto_arp, align 4
-  call void @p_add_proto_data(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 0, ptr noundef inttoptr (i64 1 to ptr))
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @time_at_start_of_count, ptr align 8 %63, i64 16, i1 false)
-  br label %68
-
-64:                                               ; preds = %54
-  %65 = call ptr @wmem_file_scope()
+  %62 = call ptr @wmem_file_scope()
+  %63 = load ptr, ptr %5, align 8
+  %64 = load i32, ptr @proto_arp, align 4
+  %65 = inttoptr i64 1 to ptr
+  call void @p_add_proto_data(ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 0, ptr noundef %65)
   %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr @proto_arp, align 4
-  call void @p_add_proto_data(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 0, ptr noundef inttoptr (i64 2 to ptr))
-  br label %68
+  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @time_at_start_of_count, ptr align 8 %67, i64 16, i1 false)
+  br label %73
 
-68:                                               ; preds = %64, %58
-  br label %69
+68:                                               ; preds = %57
+  %69 = call ptr @wmem_file_scope()
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i32, ptr @proto_arp, align 4
+  %72 = inttoptr i64 2 to ptr
+  call void @p_add_proto_data(ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 0, ptr noundef %72)
+  br label %73
 
-69:                                               ; preds = %68
-  br label %70
+73:                                               ; preds = %68, %61
+  br label %74
 
-70:                                               ; preds = %69, %16
-  %71 = load i32, ptr %7, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %80
+74:                                               ; preds = %73
+  br label %75
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %6, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = load i32, ptr @global_arp_detect_request_storm_packets, align 4
-  %78 = load i32, ptr @global_arp_detect_request_storm_period, align 4
-  %79 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %74, ptr noundef %75, ptr noundef @ei_seq_arp_storm, ptr noundef %76, i32 noundef 0, i32 noundef 0, ptr noundef @.str.294, i32 noundef %77, i32 noundef %78)
+75:                                               ; preds = %74, %16
+  %76 = load i32, ptr %7, align 4
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %85
+
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %6, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = load i32, ptr @global_arp_detect_request_storm_packets, align 4
+  %83 = load i32, ptr @global_arp_detect_request_storm_period, align 4
+  %84 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %79, ptr noundef %80, ptr noundef @ei_seq_arp_storm, ptr noundef %81, i32 noundef 0, i32 noundef 0, ptr noundef @.str.294, i32 noundef %82, i32 noundef %83)
   store i32 0, ptr @arp_request_count, align 4
-  br label %80
+  br label %85
 
-80:                                               ; preds = %73, %70, %48
+85:                                               ; preds = %78, %75, %50
   ret void
 }
 

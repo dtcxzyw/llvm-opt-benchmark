@@ -508,9 +508,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 4), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 5), align 4
-  store i32 1, ptr getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 6), align 8
+  %1 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 4
+  store i32 1, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 5
+  store i32 1, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 6
+  store i32 1, ptr %3, align 8
   call void @git_config(ptr noundef @git_trailer_default_config, ptr noundef null)
   call void @git_config(ptr noundef @git_trailer_config, ptr noundef null)
   store i32 1, ptr @configured, align 4
@@ -2855,85 +2858,88 @@ if.then2:                                         ; preds = %if.end
 
 if.then5:                                         ; preds = %if.then2
   %4 = load ptr, ptr %value.addr, align 8
-  %call6 = call i32 @trailer_set_where(ptr noundef getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 4), ptr noundef %4)
+  %5 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 4
+  %call6 = call i32 @trailer_set_where(ptr noundef %5, ptr noundef %4)
   %cmp = icmp slt i32 %call6, 0
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
   %call8 = call ptr @_(ptr noundef @.str.13)
-  %5 = load ptr, ptr %value.addr, align 8
-  %6 = load ptr, ptr %conf_key.addr, align 8
-  call void (ptr, ...) @warning(ptr noundef %call8, ptr noundef %5, ptr noundef %6)
+  %6 = load ptr, ptr %value.addr, align 8
+  %7 = load ptr, ptr %conf_key.addr, align 8
+  call void (ptr, ...) @warning(ptr noundef %call8, ptr noundef %6, ptr noundef %7)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.then5
   br label %if.end40
 
 if.else:                                          ; preds = %if.then2
-  %7 = load ptr, ptr %trailer_item, align 8
-  %call10 = call i32 @strcmp(ptr noundef %7, ptr noundef @.str.14) #7
+  %8 = load ptr, ptr %trailer_item, align 8
+  %call10 = call i32 @strcmp(ptr noundef %8, ptr noundef @.str.14) #7
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.else18, label %if.then12
 
 if.then12:                                        ; preds = %if.else
-  %8 = load ptr, ptr %value.addr, align 8
-  %call13 = call i32 @trailer_set_if_exists(ptr noundef getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 5), ptr noundef %8)
+  %9 = load ptr, ptr %value.addr, align 8
+  %10 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 5
+  %call13 = call i32 @trailer_set_if_exists(ptr noundef %10, ptr noundef %9)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.then12
   %call16 = call ptr @_(ptr noundef @.str.13)
-  %9 = load ptr, ptr %value.addr, align 8
-  %10 = load ptr, ptr %conf_key.addr, align 8
-  call void (ptr, ...) @warning(ptr noundef %call16, ptr noundef %9, ptr noundef %10)
+  %11 = load ptr, ptr %value.addr, align 8
+  %12 = load ptr, ptr %conf_key.addr, align 8
+  call void (ptr, ...) @warning(ptr noundef %call16, ptr noundef %11, ptr noundef %12)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.then12
   br label %if.end39
 
 if.else18:                                        ; preds = %if.else
-  %11 = load ptr, ptr %trailer_item, align 8
-  %call19 = call i32 @strcmp(ptr noundef %11, ptr noundef @.str.15) #7
+  %13 = load ptr, ptr %trailer_item, align 8
+  %call19 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str.15) #7
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %if.else27, label %if.then21
 
 if.then21:                                        ; preds = %if.else18
-  %12 = load ptr, ptr %value.addr, align 8
-  %call22 = call i32 @trailer_set_if_missing(ptr noundef getelementptr inbounds (%struct.conf_info, ptr @default_conf_info, i32 0, i32 6), ptr noundef %12)
+  %14 = load ptr, ptr %value.addr, align 8
+  %15 = getelementptr inbounds %struct.conf_info, ptr @default_conf_info, i32 0, i32 6
+  %call22 = call i32 @trailer_set_if_missing(ptr noundef %15, ptr noundef %14)
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.then21
   %call25 = call ptr @_(ptr noundef @.str.13)
-  %13 = load ptr, ptr %value.addr, align 8
-  %14 = load ptr, ptr %conf_key.addr, align 8
-  call void (ptr, ...) @warning(ptr noundef %call25, ptr noundef %13, ptr noundef %14)
+  %16 = load ptr, ptr %value.addr, align 8
+  %17 = load ptr, ptr %conf_key.addr, align 8
+  call void (ptr, ...) @warning(ptr noundef %call25, ptr noundef %16, ptr noundef %17)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.then21
   br label %if.end38
 
 if.else27:                                        ; preds = %if.else18
-  %15 = load ptr, ptr %trailer_item, align 8
-  %call28 = call i32 @strcmp(ptr noundef %15, ptr noundef @.str.16) #7
+  %18 = load ptr, ptr %trailer_item, align 8
+  %call28 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.16) #7
   %tobool29 = icmp ne i32 %call28, 0
   br i1 %tobool29, label %if.end37, label %if.then30
 
 if.then30:                                        ; preds = %if.else27
-  %16 = load ptr, ptr %value.addr, align 8
-  %tobool31 = icmp ne ptr %16, null
+  %19 = load ptr, ptr %value.addr, align 8
+  %tobool31 = icmp ne ptr %19, null
   br i1 %tobool31, label %if.end35, label %if.then32
 
 if.then32:                                        ; preds = %if.then30
-  %17 = load ptr, ptr %conf_key.addr, align 8
-  %call33 = call i32 @config_error_nonbool(ptr noundef %17)
+  %20 = load ptr, ptr %conf_key.addr, align 8
+  %call33 = call i32 @config_error_nonbool(ptr noundef %20)
   %call34 = call i32 @const_error()
   store i32 %call34, ptr %retval, align 4
   br label %return
 
 if.end35:                                         ; preds = %if.then30
-  %18 = load ptr, ptr %value.addr, align 8
-  %call36 = call ptr @xstrdup(ptr noundef %18)
+  %21 = load ptr, ptr %value.addr, align 8
+  %call36 = call ptr @xstrdup(ptr noundef %21)
   store ptr %call36, ptr @separators, align 8
   br label %if.end37
 
@@ -2954,8 +2960,8 @@ if.end41:                                         ; preds = %if.end40, %if.end
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then32, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %22 = load i32, ptr %retval, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable

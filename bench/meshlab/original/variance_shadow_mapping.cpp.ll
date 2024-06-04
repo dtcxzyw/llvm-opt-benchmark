@@ -6584,15 +6584,16 @@ define void @_ZN21VarianceShadowMappingC2Ef(ptr noundef nonnull align 8 derefere
   %5 = load ptr, ptr %3, align 8
   %6 = load float, ptr %4, align 4
   call void @_ZN13ShadowMappingC2Ef(ptr noundef nonnull align 8 dereferenceable(44) %5, float noundef %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 1
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 3
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 1
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 4
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 2
+  %9 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 3
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 4
   store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %class.VarianceShadowMapping, ptr %5, i32 0, i32 2
+  store i32 0, ptr %11, align 8
   ret void
 }
 
@@ -6603,60 +6604,61 @@ define void @_ZN21VarianceShadowMappingD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr @__glewDetachShader, align 8
-  %5 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 3
-  %8 = load i32, ptr %7, align 4
-  invoke void %4(i32 noundef %6, i32 noundef %8)
-          to label %9 unwind label %31
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr @__glewDetachShader, align 8
+  %6 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 3
+  %9 = load i32, ptr %8, align 4
+  invoke void %5(i32 noundef %7, i32 noundef %9)
+          to label %10 unwind label %32
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr @__glewDetachShader, align 8
-  %11 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 4
-  %14 = load i32, ptr %13, align 8
-  invoke void %10(i32 noundef %12, i32 noundef %14)
-          to label %15 unwind label %31
+10:                                               ; preds = %1
+  %11 = load ptr, ptr @__glewDetachShader, align 8
+  %12 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8
+  invoke void %11(i32 noundef %13, i32 noundef %15)
+          to label %16 unwind label %32
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr @__glewDeleteShader, align 8
-  %17 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 3
-  %18 = load i32, ptr %17, align 4
-  invoke void %16(i32 noundef %18)
-          to label %19 unwind label %31
+16:                                               ; preds = %10
+  %17 = load ptr, ptr @__glewDeleteShader, align 8
+  %18 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  invoke void %17(i32 noundef %19)
+          to label %20 unwind label %32
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr @__glewDeleteShader, align 8
-  %21 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 4
-  %22 = load i32, ptr %21, align 8
-  invoke void %20(i32 noundef %22)
-          to label %23 unwind label %31
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @__glewDeleteShader, align 8
+  %22 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 4
+  %23 = load i32, ptr %22, align 8
+  invoke void %21(i32 noundef %23)
+          to label %24 unwind label %32
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr @__glewDeleteProgram, align 8
-  %25 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
-  %26 = load i32, ptr %25, align 8
-  invoke void %24(i32 noundef %26)
-          to label %27 unwind label %31
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @__glewDeleteProgram, align 8
+  %26 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8
+  invoke void %25(i32 noundef %27)
+          to label %28 unwind label %32
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr @__glewDeleteRenderbuffers, align 8
-  %29 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 1
-  invoke void %28(i32 noundef 1, ptr noundef %29)
-          to label %30 unwind label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr @__glewDeleteRenderbuffers, align 8
+  %30 = getelementptr inbounds %class.VarianceShadowMapping, ptr %3, i32 0, i32 1
+  invoke void %29(i32 noundef 1, ptr noundef %30)
+          to label %31 unwind label %32
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   call void @_ZN13ShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #5
   ret void
 
-31:                                               ; preds = %27, %23, %19, %15, %9, %1
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %28, %24, %20, %16, %10, %1
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #19
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #19
   unreachable
 }
 
@@ -8724,34 +8726,35 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionC2EPKc(ptr noun
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -8761,9 +8764,10 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -8775,7 +8779,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -196,12 +196,12 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef %0, ...) #0 personality 
   %6 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   call void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind writable sret(%"class.nanobind::builtin_exception") align 8 %4, i32 noundef 0, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   %11 = call ptr @__cxa_allocate_exception(i64 24) #14
   call void @_ZN8nanobind17builtin_exceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %4) #14
   invoke void @__cxa_throw(ptr %11, ptr @_ZTIN8nanobind17builtin_exceptionE, ptr @_ZN8nanobind17builtin_exceptionD1Ev) #15
@@ -228,11 +228,8 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef %0, ...) #0 personality 
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.nanobind::builtin_exception") align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.nanobind::builtin_exception") align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -249,14 +246,14 @@ define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_type
   store ptr %3, ptr %8, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %8, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 0
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %20 = call i32 @vsnprintf(ptr noundef %17, i64 noundef 512, ptr noundef %18, ptr noundef %19) #14
   store i32 %20, ptr %11, align 4
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %21)
+  call void @llvm.va_end.p0(ptr %21)
   %22 = load i32, ptr %11, align 4
   %23 = icmp slt i32 %22, 512
   br i1 %23, label %24, label %27
@@ -274,7 +271,7 @@ define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_type
   call void @_ZN8nanobind6detail15scoped_pymallocIcEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %30)
   %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %32 = load ptr, ptr %8, align 8
-  call void @llvm.va_copy(ptr %31, ptr %32)
+  call void @llvm.va_copy.p0(ptr %31, ptr %32)
   %33 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %34 unwind label %46
 
@@ -286,7 +283,7 @@ define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_type
   %39 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %40 = call i32 @vsnprintf(ptr noundef %33, i64 noundef %37, ptr noundef %38, ptr noundef %39) #14
   %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %41)
+  call void @llvm.va_end.p0(ptr %41)
   %42 = load i32, ptr %6, align 4
   %43 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %44 unwind label %46
@@ -320,13 +317,10 @@ define internal void @_ZN8nanobind6detailL16create_exceptionENS_14exception_type
   resume { ptr, i32 } %55
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 declare ptr @__cxa_allocate_exception(i64)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8nanobind17builtin_exceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN8nanobind17builtin_exceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -334,17 +328,18 @@ define linkonce_odr void @_ZN8nanobind17builtin_exceptionC2EOS0_(ptr noundef non
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN8nanobind17builtin_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #4
+declare void @_ZN8nanobind17builtin_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #3
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
@@ -359,12 +354,12 @@ define void @_ZN8nanobind6detail16raise_type_errorEPKcz(ptr noundef %0, ...) #0 
   %6 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   call void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind writable sret(%"class.nanobind::builtin_exception") align 8 %4, i32 noundef 5, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   %11 = call ptr @__cxa_allocate_exception(i64 24) #14
   call void @_ZN8nanobind17builtin_exceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %4) #14
   invoke void @__cxa_throw(ptr %11, ptr @_ZTIN8nanobind17builtin_exceptionE, ptr @_ZN8nanobind17builtin_exceptionD1Ev) #15
@@ -392,20 +387,20 @@ define void @_ZN8nanobind6detail16raise_type_errorEPKcz(ptr noundef %0, ...) #0 
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define void @_ZN8nanobind6detail4failEPKcz(ptr noundef %0, ...) #5 {
+define void @_ZN8nanobind6detail4failEPKcz(ptr noundef %0, ...) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr @stderr, align 8
   %5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str) #14
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %10 = call i32 @vfprintf(ptr noundef %7, ptr noundef %8, ptr noundef %9) #14
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %11)
+  call void @llvm.va_end.p0(ptr %11)
   %12 = load ptr, ptr @stderr, align 8
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.1) #14
   call void @abort() #16
@@ -413,16 +408,16 @@ define void @_ZN8nanobind6detail4failEPKcz(ptr noundef %0, ...) #5 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #6
+declare void @abort() #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvE(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvE(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -478,17 +473,17 @@ define noundef ptr @_ZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvE(ptr noundef 
   unreachable
 }
 
-declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) #7
+declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0cvPFvP7_objectEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 align 2 {
+define internal noundef ptr @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0cvPFvP7_objectEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret ptr @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEEN3$_08__invokeEP7_object"
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #14
   call void @_ZSt9terminatev() #16
   unreachable
@@ -499,9 +494,9 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: noreturn nounwind
-declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #6
+declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #5
 
-declare i32 @PyCapsule_SetContext(ptr noundef, ptr noundef) #7
+declare i32 @PyCapsule_SetContext(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN8nanobind6detail18raise_python_errorEv() #0 personality ptr @__gxx_personality_v0 {
@@ -543,17 +538,17 @@ define void @_ZN8nanobind6detail18raise_python_errorEv() #0 personality ptr @__g
   resume { ptr, i32 } %18
 }
 
-declare ptr @PyErr_Occurred() #7
+declare ptr @PyErr_Occurred() #6
 
-declare void @_ZN8nanobind12python_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #7
+declare void @_ZN8nanobind12python_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 declare void @__cxa_free_exception(ptr)
 
 ; Function Attrs: nounwind
-declare void @_ZN8nanobind12python_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
+declare void @_ZN8nanobind12python_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -594,7 +589,7 @@ define void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %0)
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind13next_overloadEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::builtin_exception") align 8 %0, ptr noundef %1) #2 comdat {
+define linkonce_odr hidden void @_ZN8nanobind13next_overloadEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::builtin_exception") align 8 %0, ptr noundef %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -613,20 +608,21 @@ define void @_ZN8nanobind6detail16raise_cast_errorEv() #0 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8bad_castC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZNSt8bad_castC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt8bad_cast, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt8bad_cast, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8bad_castD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZNSt8bad_castD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -686,7 +682,7 @@ define void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #2 {
+define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -710,10 +706,10 @@ define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #3 align 2 {
+define void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -768,13 +764,13 @@ define void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #9
+declare noalias ptr @malloc(i64 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail10module_newEPKcP11PyModuleDef(ptr noundef %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail10module_newEPKcP11PyModuleDef(ptr noundef %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -817,12 +813,12 @@ define noundef ptr @_ZN8nanobind6detail10module_newEPKcP11PyModuleDef(ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
-declare ptr @PyModule_Create2(ptr noundef, i32 noundef) #7
+declare ptr @PyModule_Create2(ptr noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -866,10 +862,10 @@ define noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %0) #2 pe
   resume { ptr, i32 } %23
 }
 
-declare ptr @PyImport_ImportModule(ptr noundef) #7
+declare ptr @PyImport_ImportModule(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail20module_new_submoduleEP7_objectPKcS4_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail20module_new_submoduleEP7_objectPKcS4_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1023,18 +1019,18 @@ define noundef ptr @_ZN8nanobind6detail20module_new_submoduleEP7_objectPKcS4_(pt
   unreachable
 }
 
-declare ptr @PyModule_GetNameObject(ptr noundef) #7
+declare ptr @PyModule_GetNameObject(ptr noundef) #6
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) #7
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) #6
 
-declare ptr @PyImport_AddModuleObject(ptr noundef) #7
+declare ptr @PyImport_AddModuleObject(ptr noundef) #6
 
-declare ptr @PyUnicode_FromString(ptr noundef) #7
+declare ptr @PyUnicode_FromString(ptr noundef) #6
 
-declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #3 {
+define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1045,10 +1041,10 @@ define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #3 {
   ret void
 }
 
-declare i32 @PyModule_AddObject(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @PyModule_AddObject(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8nanobind6detail7obj_lenEP7_object(ptr noundef %0) #2 {
+define noundef i64 @_ZN8nanobind6detail7obj_lenEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -1068,10 +1064,10 @@ define noundef i64 @_ZN8nanobind6detail7obj_lenEP7_object(ptr noundef %0) #2 {
   ret i64 %10
 }
 
-declare i64 @PyObject_Size(ptr noundef) #7
+declare i64 @PyObject_Size(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8nanobind6detail12obj_len_hintEP7_object(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8nanobind6detail12obj_len_hintEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -1105,12 +1101,12 @@ define noundef i64 @_ZN8nanobind6detail12obj_len_hintEP7_object(ptr noundef %0) 
   unreachable
 }
 
-declare i64 @PyObject_LengthHint(ptr noundef, i64 noundef) #7
+declare i64 @PyObject_LengthHint(ptr noundef, i64 noundef) #6
 
-declare void @PyErr_Clear() #7
+declare void @PyErr_Clear() #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_reprEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail8obj_reprEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1130,10 +1126,10 @@ define noundef ptr @_ZN8nanobind6detail8obj_reprEP7_object(ptr noundef %0) #2 {
   ret ptr %10
 }
 
-declare ptr @PyObject_Repr(ptr noundef) #7
+declare ptr @PyObject_Repr(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8obj_compEP7_objectS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+define noundef zeroext i1 @_ZN8nanobind6detail8obj_compEP7_objectS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1160,10 +1156,10 @@ define noundef zeroext i1 @_ZN8nanobind6detail8obj_compEP7_objectS2_i(ptr nounde
   ret i1 %17
 }
 
-declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) #7
+declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef %0, ptr noundef %1) #2 {
+define noundef ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1187,7 +1183,7 @@ define noundef ptr @_ZN8nanobind6detail8obj_op_1EP7_objectPFS2_S2_E(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define noundef ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1214,7 +1210,7 @@ define noundef ptr @_ZN8nanobind6detail8obj_op_2EP7_objectS2_PFS2_S2_S2_E(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #2 {
+define noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -1375,7 +1371,7 @@ define noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZL18PyVectorcall_NARGSm(i64 noundef %0) #3 {
+define internal noundef i64 @_ZL18PyVectorcall_NARGSm(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1383,12 +1379,12 @@ define internal noundef i64 @_ZL18PyVectorcall_NARGSm(i64 noundef %0) #3 {
   ret i64 %4
 }
 
-declare i32 @PyGILState_Check() #7
+declare i32 @PyGILState_Check() #6
 
-declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #7
+declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL19PyObject_VectorcallP7_objectPKS0_mS0_(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #2 {
+define internal noundef ptr @_ZL19PyObject_VectorcallP7_objectPKS0_mS0_(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1410,7 +1406,7 @@ define internal noundef ptr @_ZL19PyObject_VectorcallP7_objectPKS0_mS0_(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #2 {
+define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1427,7 +1423,7 @@ define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8obj_iterEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail8obj_iterEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1447,10 +1443,10 @@ define noundef ptr @_ZN8nanobind6detail8obj_iterEP7_object(ptr noundef %0) #2 {
   ret ptr %10
 }
 
-declare ptr @PyObject_GetIter(ptr noundef) #7
+declare ptr @PyObject_GetIter(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13obj_iter_nextEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail13obj_iter_nextEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1475,10 +1471,10 @@ define noundef ptr @_ZN8nanobind6detail13obj_iter_nextEP7_object(ptr noundef %0)
   ret ptr %13
 }
 
-declare ptr @PyIter_Next(ptr noundef) #7
+declare ptr @PyIter_Next(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) #2 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1501,10 +1497,10 @@ define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKc(ptr noundef %0, ptr
   ret ptr %13
 }
 
-declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) #7
+declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) #2 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1527,10 +1523,10 @@ define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef %0, ptr
   ret ptr %13
 }
 
-declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) #7
+declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1582,7 +1578,7 @@ define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL11_Py_XINCREFP7_object(ptr noundef %0) #3 {
+define internal void @_ZL11_Py_XINCREFP7_object(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1599,7 +1595,7 @@ define internal void @_ZL11_Py_XINCREFP7_object(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1651,7 +1647,7 @@ define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_S2_(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1691,7 +1687,7 @@ define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectS2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectS2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1731,7 +1727,7 @@ define void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectS2_PS2_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7setattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail7setattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1757,7 +1753,7 @@ define void @_ZN8nanobind6detail7setattrEP7_objectPKcS2_(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7setattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail7setattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1782,10 +1778,10 @@ define void @_ZN8nanobind6detail7setattrEP7_objectS2_S2_(ptr noundef %0, ptr nou
   ret void
 }
 
-declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7delattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) #2 {
+define void @_ZN8nanobind6detail7delattrEP7_objectPKc(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1808,7 +1804,7 @@ define void @_ZN8nanobind6detail7delattrEP7_objectPKc(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7delattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) #2 {
+define void @_ZN8nanobind6detail7delattrEP7_objectS2_(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1831,7 +1827,7 @@ define void @_ZN8nanobind6detail7delattrEP7_objectS2_(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectlPS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectlPS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1870,10 +1866,10 @@ define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectlPS2_(ptr noundef %0
   ret void
 }
 
-declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) #7
+declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectPKcPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectPKcPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1927,10 +1923,10 @@ define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectPKcPS2_(ptr noundef 
   ret void
 }
 
-declare ptr @PyObject_GetItem(ptr noundef, ptr noundef) #7
+declare ptr @PyObject_GetItem(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectS2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectS2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1970,7 +1966,7 @@ define void @_ZN8nanobind6detail16getitem_or_raiseEP7_objectS2_PS2_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7setitemEP7_objectlS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail7setitemEP7_objectlS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1995,10 +1991,10 @@ define void @_ZN8nanobind6detail7setitemEP7_objectlS2_(ptr noundef %0, i64 nound
   ret void
 }
 
-declare i32 @PySequence_SetItem(ptr noundef, i64 noundef, ptr noundef) #7
+declare i32 @PySequence_SetItem(ptr noundef, i64 noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7setitemEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail7setitemEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2038,10 +2034,10 @@ define void @_ZN8nanobind6detail7setitemEP7_objectPKcS2_(ptr noundef %0, ptr nou
   ret void
 }
 
-declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7setitemEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail7setitemEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2067,7 +2063,7 @@ define void @_ZN8nanobind6detail7setitemEP7_objectS2_S2_(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7delitemEP7_objectl(ptr noundef %0, i64 noundef %1) #2 {
+define void @_ZN8nanobind6detail7delitemEP7_objectl(ptr noundef %0, i64 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2104,12 +2100,12 @@ define void @_ZN8nanobind6detail7delitemEP7_objectl(ptr noundef %0, i64 noundef 
   ret void
 }
 
-declare ptr @PyLong_FromSsize_t(i64 noundef) #7
+declare ptr @PyLong_FromSsize_t(i64 noundef) #6
 
-declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) #7
+declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7delitemEP7_objectPKc(ptr noundef %0, ptr noundef %1) #2 {
+define void @_ZN8nanobind6detail7delitemEP7_objectPKc(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2147,7 +2143,7 @@ define void @_ZN8nanobind6detail7delitemEP7_objectPKc(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail7delitemEP7_objectS2_(ptr noundef %0, ptr noundef %1) #2 {
+define void @_ZN8nanobind6detail7delitemEP7_objectS2_(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2170,7 +2166,7 @@ define void @_ZN8nanobind6detail7delitemEP7_objectS2_(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2190,10 +2186,10 @@ define noundef ptr @_ZN8nanobind6detail12str_from_objEP7_object(ptr noundef %0) 
   ret ptr %10
 }
 
-declare ptr @PyObject_Str(ptr noundef) #7
+declare ptr @PyObject_Str(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2214,7 +2210,7 @@ define noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) #2 {
+define noundef ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2237,10 +2233,10 @@ define noundef ptr @_ZN8nanobind6detail22str_from_cstr_and_sizeEPKcm(ptr noundef
   ret ptr %13
 }
 
-declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) #7
+declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2260,10 +2256,10 @@ define noundef ptr @_ZN8nanobind6detail14bytes_from_objEP7_object(ptr noundef %0
   ret ptr %10
 }
 
-declare ptr @PyBytes_FromObject(ptr noundef) #7
+declare ptr @PyBytes_FromObject(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2283,10 +2279,10 @@ define noundef ptr @_ZN8nanobind6detail15bytes_from_cstrEPKc(ptr noundef %0) #2 
   ret ptr %10
 }
 
-declare ptr @PyBytes_FromString(ptr noundef) #7
+declare ptr @PyBytes_FromString(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail24bytes_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) #2 {
+define noundef ptr @_ZN8nanobind6detail24bytes_from_cstr_and_sizeEPKcm(ptr noundef %0, i64 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2309,10 +2305,10 @@ define noundef ptr @_ZN8nanobind6detail24bytes_from_cstr_and_sizeEPKcm(ptr nound
   ret ptr %13
 }
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #7
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13bool_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail13bool_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
@@ -2334,10 +2330,10 @@ define noundef ptr @_ZN8nanobind6detail13bool_from_objEP7_object(ptr noundef %0)
   ret ptr %12
 }
 
-declare i32 @PyObject_IsTrue(ptr noundef) #7
+declare i32 @PyObject_IsTrue(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2357,10 +2353,10 @@ define noundef ptr @_ZN8nanobind6detail12int_from_objEP7_object(ptr noundef %0) 
   ret ptr %10
 }
 
-declare ptr @PyNumber_Long(ptr noundef) #7
+declare ptr @PyNumber_Long(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2380,10 +2376,10 @@ define noundef ptr @_ZN8nanobind6detail14float_from_objEP7_object(ptr noundef %0
   ret ptr %10
 }
 
-declare ptr @PyNumber_Float(ptr noundef) #7
+declare ptr @PyNumber_Float(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2403,10 +2399,10 @@ define noundef ptr @_ZN8nanobind6detail14tuple_from_objEP7_object(ptr noundef %0
   ret ptr %10
 }
 
-declare ptr @PySequence_Tuple(ptr noundef) #7
+declare ptr @PySequence_Tuple(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail13list_from_objEP7_object(ptr noundef %0) #2 {
+define noundef ptr @_ZN8nanobind6detail13list_from_objEP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2426,10 +2422,10 @@ define noundef ptr @_ZN8nanobind6detail13list_from_objEP7_object(ptr noundef %0)
   ret ptr %10
 }
 
-declare ptr @PySequence_List(ptr noundef) #7
+declare ptr @PySequence_List(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2445,7 +2441,7 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %11, ptr noundef @PyUnicode_Type)
-          to label %13 unwind label %83
+          to label %13 unwind label %85
 
 13:                                               ; preds = %3
   %14 = icmp ne i32 %12, 0
@@ -2454,7 +2450,7 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %5, align 8
   %17 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %16, ptr noundef @PyBytes_Type)
-          to label %18 unwind label %83
+          to label %18 unwind label %85
 
 18:                                               ; preds = %15
   %19 = icmp ne i32 %17, 0
@@ -2466,16 +2462,16 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   %22 = load ptr, ptr %7, align 8
   store ptr null, ptr %22, align 8
   store ptr null, ptr %4, align 8
-  br label %81
+  br label %83
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %5, align 8
   %25 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %24, ptr noundef @PyTuple_Type)
-          to label %26 unwind label %83
+          to label %26 unwind label %85
 
 26:                                               ; preds = %23
   %27 = icmp ne i32 %25, 0
-  br i1 %27, label %28, label %39
+  br i1 %27, label %28, label %40
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %5, align 8
@@ -2488,112 +2484,114 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   store ptr %34, ptr %10, align 8
   %35 = load i64, ptr %9, align 8
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %38
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %28
-  store ptr inttoptr (i64 1 to ptr), ptr %10, align 8
-  br label %38
+  %38 = inttoptr i64 1 to ptr
+  store ptr %38, ptr %10, align 8
+  br label %39
 
-38:                                               ; preds = %37, %28
-  br label %75
+39:                                               ; preds = %37, %28
+  br label %77
 
-39:                                               ; preds = %26
-  %40 = load ptr, ptr %5, align 8
-  %41 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %40, ptr noundef @PyList_Type)
-          to label %42 unwind label %83
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %5, align 8
+  %42 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %41, ptr noundef @PyList_Type)
+          to label %43 unwind label %85
 
-42:                                               ; preds = %39
-  %43 = icmp ne i32 %41, 0
-  br i1 %43, label %44, label %55
+43:                                               ; preds = %40
+  %44 = icmp ne i32 %42, 0
+  br i1 %44, label %45, label %57
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.PyVarObject, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  store i64 %47, ptr %9, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.PyListObject, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %10, align 8
-  %51 = load i64, ptr %9, align 8
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %54
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.PyVarObject, ptr %46, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %9, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct.PyListObject, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %10, align 8
+  %52 = load i64, ptr %9, align 8
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %44
-  store ptr inttoptr (i64 1 to ptr), ptr %10, align 8
-  br label %54
+54:                                               ; preds = %45
+  %55 = inttoptr i64 1 to ptr
+  store ptr %55, ptr %10, align 8
+  br label %56
 
-54:                                               ; preds = %53, %44
+56:                                               ; preds = %54, %45
+  br label %76
+
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %5, align 8
+  %59 = invoke i32 @PySequence_Check(ptr noundef %58)
+          to label %60 unwind label %85
+
+60:                                               ; preds = %57
+  %61 = icmp ne i32 %59, 0
+  br i1 %61, label %62, label %75
+
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %5, align 8
+  %64 = invoke ptr @PySequence_Fast(ptr noundef %63, ptr noundef @.str.9)
+          to label %65 unwind label %85
+
+65:                                               ; preds = %62
+  store ptr %64, ptr %8, align 8
+  %66 = load ptr, ptr %8, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %72
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %8, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = call noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %69, ptr noundef %9, ptr noundef %70) #14
+  store ptr %71, ptr %10, align 8
   br label %74
 
-55:                                               ; preds = %42
-  %56 = load ptr, ptr %5, align 8
-  %57 = invoke i32 @PySequence_Check(ptr noundef %56)
-          to label %58 unwind label %83
-
-58:                                               ; preds = %55
-  %59 = icmp ne i32 %57, 0
-  br i1 %59, label %60, label %73
-
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %5, align 8
-  %62 = invoke ptr @PySequence_Fast(ptr noundef %61, ptr noundef @.str.9)
-          to label %63 unwind label %83
-
-63:                                               ; preds = %60
-  store ptr %62, ptr %8, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %70
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = call noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %67, ptr noundef %9, ptr noundef %68) #14
-  store ptr %69, ptr %10, align 8
-  br label %72
-
-70:                                               ; preds = %63
+72:                                               ; preds = %65
   invoke void @PyErr_Clear()
-          to label %71 unwind label %83
+          to label %73 unwind label %85
 
-71:                                               ; preds = %70
-  br label %72
-
-72:                                               ; preds = %71, %66
-  br label %73
-
-73:                                               ; preds = %72, %58
+73:                                               ; preds = %72
   br label %74
 
-74:                                               ; preds = %73, %54
+74:                                               ; preds = %73, %68
   br label %75
 
-75:                                               ; preds = %74, %38
-  %76 = load ptr, ptr %8, align 8
-  %77 = load ptr, ptr %7, align 8
-  store ptr %76, ptr %77, align 8
-  %78 = load i64, ptr %9, align 8
-  %79 = load ptr, ptr %6, align 8
-  store i64 %78, ptr %79, align 8
-  %80 = load ptr, ptr %10, align 8
-  store ptr %80, ptr %4, align 8
-  br label %81
+75:                                               ; preds = %74, %60
+  br label %76
 
-81:                                               ; preds = %75, %20
-  %82 = load ptr, ptr %4, align 8
-  ret ptr %82
+76:                                               ; preds = %75, %56
+  br label %77
 
-83:                                               ; preds = %70, %60, %55, %39, %23, %15, %3
-  %84 = landingpad { ptr, i32 }
+77:                                               ; preds = %76, %39
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %7, align 8
+  store ptr %78, ptr %79, align 8
+  %80 = load i64, ptr %9, align 8
+  %81 = load ptr, ptr %6, align 8
+  store i64 %80, ptr %81, align 8
+  %82 = load ptr, ptr %10, align 8
+  store ptr %82, ptr %4, align 8
+  br label %83
+
+83:                                               ; preds = %77, %20
+  %84 = load ptr, ptr %4, align 8
+  ret ptr %84
+
+85:                                               ; preds = %72, %62, %57, %40, %23, %15, %3
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #16
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %0, ptr noundef %1) #3 {
+define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -2607,12 +2605,12 @@ define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr nound
   ret i32 %10
 }
 
-declare i32 @PySequence_Check(ptr noundef) #7
+declare i32 @PySequence_Check(ptr noundef) #6
 
-declare ptr @PySequence_Fast(ptr noundef, ptr noundef) #7
+declare ptr @PySequence_Fast(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -2625,11 +2623,11 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %9, ptr noundef @PyTuple_Type)
-          to label %11 unwind label %73
+          to label %11 unwind label %75
 
 11:                                               ; preds = %3
   %12 = icmp ne i32 %10, 0
-  br i1 %12, label %13, label %28
+  br i1 %12, label %13, label %29
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %5, align 8
@@ -2637,7 +2635,7 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
   %16 = getelementptr inbounds %struct.PyVarObject, ptr %15, i32 0, i32 1
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %14, %17
-  br i1 %18, label %19, label %27
+  br i1 %18, label %19, label %28
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %4, align 8
@@ -2646,115 +2644,117 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
   store ptr %22, ptr %8, align 8
   %23 = load i64, ptr %5, align 8
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8
-  br label %26
-
-26:                                               ; preds = %25, %19
+  %26 = inttoptr i64 1 to ptr
+  store ptr %26, ptr %8, align 8
   br label %27
 
-27:                                               ; preds = %26, %13
-  br label %69
+27:                                               ; preds = %25, %19
+  br label %28
 
-28:                                               ; preds = %11
-  %29 = load ptr, ptr %4, align 8
-  %30 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %29, ptr noundef @PyList_Type)
-          to label %31 unwind label %73
+28:                                               ; preds = %27, %13
+  br label %71
 
-31:                                               ; preds = %28
-  %32 = icmp ne i32 %30, 0
-  br i1 %32, label %33, label %48
+29:                                               ; preds = %11
+  %30 = load ptr, ptr %4, align 8
+  %31 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %30, ptr noundef @PyList_Type)
+          to label %32 unwind label %75
 
-33:                                               ; preds = %31
-  %34 = load i64, ptr %5, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.PyVarObject, ptr %35, i32 0, i32 1
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %34, %37
-  br i1 %38, label %39, label %47
+32:                                               ; preds = %29
+  %33 = icmp ne i32 %31, 0
+  br i1 %33, label %34, label %50
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.PyListObject, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %8, align 8
-  %43 = load i64, ptr %5, align 8
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %46
+34:                                               ; preds = %32
+  %35 = load i64, ptr %5, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.PyVarObject, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %35, %38
+  br i1 %39, label %40, label %49
 
-45:                                               ; preds = %39
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8
-  br label %46
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.PyListObject, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %8, align 8
+  %44 = load i64, ptr %5, align 8
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %48
 
-46:                                               ; preds = %45, %39
-  br label %47
+46:                                               ; preds = %40
+  %47 = inttoptr i64 1 to ptr
+  store ptr %47, ptr %8, align 8
+  br label %48
 
-47:                                               ; preds = %46, %33
+48:                                               ; preds = %46, %40
+  br label %49
+
+49:                                               ; preds = %48, %34
+  br label %70
+
+50:                                               ; preds = %32
+  %51 = load ptr, ptr %4, align 8
+  %52 = invoke i32 @PySequence_Check(ptr noundef %51)
+          to label %53 unwind label %75
+
+53:                                               ; preds = %50
+  %54 = icmp ne i32 %52, 0
+  br i1 %54, label %55, label %69
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %4, align 8
+  %57 = invoke ptr @PySequence_Fast(ptr noundef %56, ptr noundef @.str.9)
+          to label %58 unwind label %75
+
+58:                                               ; preds = %55
+  store ptr %57, ptr %7, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %66
+
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i64, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = call noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr noundef %62, i64 noundef %63, ptr noundef %64) #14
+  store ptr %65, ptr %8, align 8
   br label %68
 
-48:                                               ; preds = %31
-  %49 = load ptr, ptr %4, align 8
-  %50 = invoke i32 @PySequence_Check(ptr noundef %49)
-          to label %51 unwind label %73
-
-51:                                               ; preds = %48
-  %52 = icmp ne i32 %50, 0
-  br i1 %52, label %53, label %67
-
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %4, align 8
-  %55 = invoke ptr @PySequence_Fast(ptr noundef %54, ptr noundef @.str.9)
-          to label %56 unwind label %73
-
-56:                                               ; preds = %53
-  store ptr %55, ptr %7, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %64
-
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %7, align 8
-  %61 = load i64, ptr %5, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = call noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr noundef %60, i64 noundef %61, ptr noundef %62) #14
-  store ptr %63, ptr %8, align 8
-  br label %66
-
-64:                                               ; preds = %56
+66:                                               ; preds = %58
   invoke void @PyErr_Clear()
-          to label %65 unwind label %73
+          to label %67 unwind label %75
 
-65:                                               ; preds = %64
-  br label %66
-
-66:                                               ; preds = %65, %59
-  br label %67
-
-67:                                               ; preds = %66, %51
+67:                                               ; preds = %66
   br label %68
 
-68:                                               ; preds = %67, %47
+68:                                               ; preds = %67, %61
   br label %69
 
-69:                                               ; preds = %68, %27
-  %70 = load ptr, ptr %7, align 8
-  %71 = load ptr, ptr %6, align 8
-  store ptr %70, ptr %71, align 8
-  %72 = load ptr, ptr %8, align 8
-  ret ptr %72
+69:                                               ; preds = %68, %53
+  br label %70
 
-73:                                               ; preds = %64, %53, %48, %28, %3
-  %74 = landingpad { ptr, i32 }
+70:                                               ; preds = %69, %49
+  br label %71
+
+71:                                               ; preds = %70, %28
+  %72 = load ptr, ptr %7, align 8
+  %73 = load ptr, ptr %6, align 8
+  store ptr %72, ptr %73, align 8
+  %74 = load ptr, ptr %8, align 8
+  ret ptr %74
+
+75:                                               ; preds = %66, %55, %50, %29, %3
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #16
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail16property_installEP7_objectPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail16property_installEP7_objectPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2782,7 +2782,7 @@ define void @_ZN8nanobind6detail16property_installEP7_objectPKcS2_S2_(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL21property_install_implEP11_typeobjectP7_objectPKcS4_S4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8nanobind6detailL21property_install_implEP11_typeobjectP7_objectPKcS4_S4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3038,7 +3038,7 @@ define internal void @_ZN8nanobind6detailL21property_install_implEP11_typeobject
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail23property_install_staticEP7_objectPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail23property_install_staticEP7_objectPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3067,10 +3067,10 @@ define void @_ZN8nanobind6detail23property_install_staticEP7_objectPKcS2_S2_(ptr
 }
 
 ; Function Attrs: nounwind
-declare hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() #4
+declare hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail11tuple_checkEP7_objectm(ptr noundef %0, i64 noundef %1) #2 {
+define void @_ZN8nanobind6detail11tuple_checkEP7_objectm(ptr noundef %0, i64 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3112,7 +3112,7 @@ define void @_ZN8nanobind6detail11tuple_checkEP7_objectm(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail5printEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define void @_ZN8nanobind6detail5printEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3173,14 +3173,14 @@ define void @_ZN8nanobind6detail5printEP7_objectS2_S2_(ptr noundef %0, ptr nound
   ret void
 }
 
-declare ptr @PySys_GetObject(ptr noundef) #7
+declare ptr @PySys_GetObject(ptr noundef) #6
 
-declare i32 @PyFile_WriteObject(ptr noundef, ptr noundef, i32 noundef) #7
+declare i32 @PyFile_WriteObject(ptr noundef, ptr noundef, i32 noundef) #6
 
-declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) #7
+declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_f64EP7_objecthPd(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_f64EP7_objecthPd(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -3276,10 +3276,10 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f64EP7_objecthPd(ptr noundef
   unreachable
 }
 
-declare double @PyFloat_AsDouble(ptr noundef) #7
+declare double @PyFloat_AsDouble(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -3378,7 +3378,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -3715,7 +3715,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -4031,7 +4031,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -4365,7 +4365,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -4681,7 +4681,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -5015,7 +5015,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -5331,7 +5331,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -5631,7 +5631,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i1, align 1
@@ -5899,7 +5899,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail14incref_checkedEP7_object(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail14incref_checkedEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -5938,7 +5938,7 @@ define void @_ZN8nanobind6detail14incref_checkedEP7_object(ptr noundef %0) #3 pe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail14decref_checkedEP7_object(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail14decref_checkedEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -5977,7 +5977,7 @@ define void @_ZN8nanobind6detail14decref_checkedEP7_object(ptr noundef %0) #3 pe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail17set_leak_warningsEb(i1 noundef zeroext %0) #3 {
+define void @_ZN8nanobind6detail17set_leak_warningsEb(i1 noundef zeroext %0) #2 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
@@ -5991,7 +5991,7 @@ define void @_ZN8nanobind6detail17set_leak_warningsEb(i1 noundef zeroext %0) #3 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail26set_implicit_cast_warningsEb(i1 noundef zeroext %0) #3 {
+define void @_ZN8nanobind6detail26set_implicit_cast_warningsEb(i1 noundef zeroext %0) #2 {
   %2 = alloca i8, align 1
   %3 = zext i1 %0 to i8
   store i8 %3, ptr %2, align 1
@@ -6005,7 +6005,7 @@ define void @_ZN8nanobind6detail26set_implicit_cast_warningsEb(i1 noundef zeroex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail13slice_computeEP7_objectlRlS3_S3_Rm(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #2 {
+define void @_ZN8nanobind6detail13slice_computeEP7_objectlRlS3_S3_Rm(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -6045,12 +6045,12 @@ define void @_ZN8nanobind6detail13slice_computeEP7_objectlRlS3_S3_Rm(ptr noundef
   ret void
 }
 
-declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) #7
+declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8nanobind6detail14iterable_checkEP7_object(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8nanobind6detail14iterable_checkEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6083,7 +6083,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail14iterable_checkEP7_object(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail9repr_listEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail9repr_listEP7_object(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -6596,10 +6596,10 @@ define noundef ptr @_ZN8nanobind6detail9repr_listEP7_object(ptr noundef %0) #2 p
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef) #4
+declare noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind3strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind3strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6622,7 +6622,7 @@ define linkonce_odr hidden void @_ZN8nanobind3strC2EPKc(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6631,7 +6631,7 @@ define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixImTnNSt9enable_ifIXsr3stdE15is_arithmetic_vIT_EEiE4typeELi1EEENS0_8accessorINS0_8num_itemEEES6_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixImTnNSt9enable_ifIXsr3stdE15is_arithmetic_vIT_EEiE4typeELi1EEENS0_8accessorINS0_8num_itemEEES6_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) #1 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -6652,7 +6652,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixImTnNSt9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6673,7 +6673,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.nanobind::handle", align 8
@@ -6695,7 +6695,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6704,7 +6704,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail8repr_mapEP7_object(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail8repr_mapEP7_object(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -7562,7 +7562,7 @@ define noundef ptr @_ZN8nanobind6detail8repr_mapEP7_object(ptr noundef %0) #2 pe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor.14") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor.14") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) #1 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7580,7 +7580,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7717,7 +7717,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7738,7 +7738,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE5beginEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE5beginEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7771,7 +7771,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE5beginEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE3endEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE3endEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -7781,7 +7781,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE3endEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobindneERKNS_8iteratorES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat {
+define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobindneERKNS_8iteratorES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7803,7 +7803,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobindneERKNS_8iteratorES2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK8nanobind8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+define linkonce_odr hidden ptr @_ZNK8nanobind8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -7870,7 +7870,7 @@ define linkonce_odr hidden ptr @_ZNK8nanobind8iteratordeEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixIiTnNSt9enable_ifIXsr3stdE15is_arithmetic_vIT_EEiE4typeELi1EEENS0_8accessorINS0_8num_itemEEES6_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixIiTnNSt9enable_ifIXsr3stdE15is_arithmetic_vIT_EEiE4typeELi1EEENS0_8accessorINS0_8num_itemEEES6_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) #1 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -7892,7 +7892,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEixIiTnNSt9
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8nanobind8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8nanobind8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -7926,7 +7926,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7936,16 +7936,13 @@ define linkonce_odr hidden void @_ZN8nanobind8iteratorD2Ev(ptr noundef nonnull a
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #1
-
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
-declare void @_ZN8nanobind17builtin_exceptionC1ENS_14exception_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20), i32 noundef, ptr noundef) unnamed_addr #7
+declare void @_ZN8nanobind17builtin_exceptionC1ENS_14exception_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20), i32 noundef, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
@@ -7973,7 +7970,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcEC2Em(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail15scoped_pymallocIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail15scoped_pymallocIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7983,7 +7980,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail15scoped_pymallocIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8003,15 +8000,15 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIcED2Ev(ptr
   unreachable
 }
 
-declare ptr @PyMem_Malloc(i64 noundef) #7
+declare ptr @PyMem_Malloc(i64 noundef) #6
 
-declare void @PyMem_Free(ptr noundef) #7
+declare void @PyMem_Free(ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
+declare void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEEN3$_08__invokeEP7_object"(ptr noundef %0) #2 align 2 {
+define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEEN3$_08__invokeEP7_object"(ptr noundef %0) #1 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.anon, align 1
   store ptr %0, ptr %2, align 8
@@ -8021,7 +8018,7 @@ define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEEN3$_08__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 align 2 {
+define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8047,27 +8044,28 @@ define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0cl
   ret void
 }
 
-declare ptr @PyCapsule_GetContext(ptr noundef) #7
+declare ptr @PyCapsule_GetContext(ptr noundef) #6
 
-declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) #7
+declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) #6
 
-declare ptr @PyCapsule_GetName(ptr noundef) #7
+declare ptr @PyCapsule_GetName(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
-declare void @_Py_Dealloc(ptr noundef) #7
+declare void @_Py_Dealloc(ptr noundef) #6
 
-declare ptr @PyThreadState_Get() #7
+declare ptr @PyThreadState_Get() #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL26_PyObject_VectorcallTstateP3_tsP7_objectPKS2_mS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal noundef ptr @_ZL26_PyObject_VectorcallTstateP3_tsP7_objectPKS2_mS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -8123,7 +8121,7 @@ define internal noundef ptr @_ZL26_PyObject_VectorcallTstateP3_tsP7_objectPKS2_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL21PyVectorcall_FunctionP7_object(ptr noundef %0) #2 {
+define internal noundef ptr @_ZL21PyVectorcall_FunctionP7_object(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -8161,12 +8159,12 @@ define internal noundef ptr @_ZL21PyVectorcall_FunctionP7_object(ptr noundef %0)
   ret ptr %23
 }
 
-declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #7
+declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #6
 
-declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL17PyType_HasFeatureP11_typeobjectm(ptr noundef %0, i64 noundef %1) #3 {
+define internal noundef i32 @_ZL17PyType_HasFeatureP11_typeobjectm(ptr noundef %0, i64 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -8185,7 +8183,7 @@ define internal noundef i32 @_ZL17PyType_HasFeatureP11_typeobjectm(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4noneEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0) #2 comdat {
+define linkonce_odr hidden void @_ZN8nanobind4noneEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0) #1 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca %"class.nanobind::handle", align 8
@@ -8211,7 +8209,7 @@ define linkonce_odr hidden void @_ZN8nanobind4noneEv(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8250,7 +8248,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8n
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEclILNS_9rv_policyE1EJS2_S2_S2_RNS_6objectEEEES6_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEclILNS_9rv_policyE1EJS2_S2_S2_RNS_6objectEEEES6_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #1 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -8374,7 +8372,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEEclILNS_9rv
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSINS_6objectEEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSINS_6objectEEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8434,7 +8432,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
@@ -8447,7 +8445,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8bor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8458,7 +8456,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8479,7 +8477,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -8496,7 +8494,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -8513,7 +8511,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8521,7 +8519,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #2 comdat {
+define linkonce_odr hidden void @_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #1 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8567,7 +8565,7 @@ define linkonce_odr hidden void @_ZN8nanobind4castINS_6objectEEES1_OT_NS_9rv_pol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -8595,17 +8593,17 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-declare ptr @PyNumber_InPlaceAdd(ptr noundef, ptr noundef) #7
+declare ptr @PyNumber_InPlaceAdd(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK8nanobind8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.nanobind::handle", align 8
   store ptr %0, ptr %2, align 8
@@ -8618,7 +8616,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8nanobind8iteratorptEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
@@ -8630,7 +8628,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7ste
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEEC2IRPKcEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEEC2IRPKcEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.nanobind::handle", align 8
   %6 = alloca ptr, align 8
@@ -8654,10 +8652,10 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEEC2I
   ret void
 }
 
-declare i64 @PyLong_AsUnsignedLong(ptr noundef) #7
+declare i64 @PyLong_AsUnsignedLong(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19_PyObject_TypeCheckP7_objectP11_typeobject(ptr noundef %0, ptr noundef %1) #2 {
+define internal noundef i32 @_ZL19_PyObject_TypeCheckP7_objectP11_typeobject(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -8684,7 +8682,7 @@ define internal noundef i32 @_ZL19_PyObject_TypeCheckP7_objectP11_typeobject(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt3absl(i64 noundef %0) #3 comdat {
+define linkonce_odr noundef i64 @_ZSt3absl(i64 noundef %0) #2 comdat {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -8693,14 +8691,14 @@ define linkonce_odr noundef i64 @_ZSt3absl(i64 noundef %0) #3 comdat {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #12
+declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
-declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) #7
+declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) #6
 
-declare i64 @PyLong_AsLong(ptr noundef) #7
+declare i64 @PyLong_AsLong(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEEC2IlEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEEC2IlEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.nanobind::handle", align 8
   %6 = alloca ptr, align 8
@@ -8725,7 +8723,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8num_itemEEC2I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8num_itemEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8num_itemEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8733,17 +8731,17 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-declare ptr @PyUnicode_InternFromString(ptr noundef) #7
+declare ptr @PyUnicode_InternFromString(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4iterENS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr %1) #2 comdat {
+define linkonce_odr hidden void @_ZN8nanobind4iterENS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0, ptr %1) #1 comdat {
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.nanobind::handle", align 8
@@ -8787,7 +8785,7 @@ define linkonce_odr hidden void @_ZN8nanobind4iterENS_6handleE(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8796,7 +8794,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8806,7 +8804,7 @@ define linkonce_odr hidden void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind8iterator8sentinelEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0) #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind8iterator8sentinelEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::iterator") align 8 %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -8819,25 +8817,34 @@ define linkonce_odr hidden void @_ZN8nanobind8iterator8sentinelEv(ptr dead_on_un
   ret void
 }
 
-declare ptr @PyNumber_Add(ptr noundef, ptr noundef) #7
+declare ptr @PyNumber_Add(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
 
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn }
 attributes #16 = { noreturn nounwind }

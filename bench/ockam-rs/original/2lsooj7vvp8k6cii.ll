@@ -20513,11 +20513,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hc74718c4f83eaa6bE"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %3 = inttoptr i64 8 to ptr
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i32 0, i32 1
   store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 
@@ -21258,21 +21259,22 @@ define available_externally hidden noundef align 8 ptr @"_ZN9once_cell4sync17Onc
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds { { { i64, [11 x i64] } }, { ptr } }, ptr %0, i32 0, i32 1
   %4 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17hfa6f24f5030e66ffE.llvm.3062767651664570529(ptr noundef %3, i8 noundef 2)
-  %5 = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %9
+  %5 = inttoptr i64 2 to ptr
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  %8 = call noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h96e1ac214bc5209cE"(ptr noundef nonnull align 8 %0)
-  store ptr %8, ptr %2, align 8
-  br label %9
+  store ptr null, ptr %2, align 8
+  br label %10
 
-9:                                                ; preds = %7, %6
-  %10 = load ptr, ptr %2, align 8, !align !4, !noundef !5
-  ret ptr %10
+8:                                                ; preds = %1
+  %9 = call noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h96e1ac214bc5209cE"(ptr noundef nonnull align 8 %0)
+  store ptr %9, ptr %2, align 8
+  br label %10
+
+10:                                               ; preds = %8, %7
+  %11 = load ptr, ptr %2, align 8, !align !4, !noundef !5
+  ret ptr %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

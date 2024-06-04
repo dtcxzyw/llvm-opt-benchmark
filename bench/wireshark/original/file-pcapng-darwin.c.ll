@@ -58,11 +58,15 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_pcapng_darwin_process_info() #0 {
   store ptr @.str.15, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, align 8
-  store ptr @dissect_darwin_process_data, ptr getelementptr inbounds (%struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 1), align 8
-  %1 = load i32, ptr @hf_pcapng_option_code_darwin_process_info, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 2), align 8
-  store ptr @option_code_darwin_process_info_vals, ptr getelementptr inbounds (%struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 3), align 8
-  store ptr @dissect_darwin_process_info_option, ptr getelementptr inbounds (%struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 1
+  store ptr @dissect_darwin_process_data, ptr %1, align 8
+  %2 = load i32, ptr @hf_pcapng_option_code_darwin_process_info, align 4
+  %3 = getelementptr inbounds %struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 2
+  store i32 %2, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 3
+  store ptr @option_code_darwin_process_info_vals, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.local_block_callback_info_t, ptr @proto_reg_handoff_pcapng_darwin_process_info.dissector_info, i32 0, i32 4
+  store ptr @dissect_darwin_process_info_option, ptr %5, align 8
   call void @register_pcapng_local_block_dissector(i32 noundef -2147483647, ptr noundef @proto_reg_handoff_pcapng_darwin_process_info.dissector_info)
   ret void
 }

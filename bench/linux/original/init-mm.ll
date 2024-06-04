@@ -47,13 +47,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @setup_initial_init_mm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = ptrtoint ptr %0 to i64
-  store i64 %5, ptr getelementptr inbounds ({ %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 30), align 64
-  %6 = ptrtoint ptr %1 to i64
-  store i64 %6, ptr getelementptr inbounds ({ %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 31), align 8
-  %7 = ptrtoint ptr %2 to i64
-  store i64 %7, ptr getelementptr inbounds ({ %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 33), align 8
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr getelementptr inbounds ({ %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 35), align 8
+  %6 = getelementptr inbounds { %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 30
+  store i64 %5, ptr %6, align 64
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds { %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 31
+  store i64 %7, ptr %8, align 8
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds { %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 33
+  store i64 %9, ptr %10, align 8
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds { %struct.anon.4, [1 x i64] }, ptr @init_mm, i64 0, i32 0, i32 35
+  store i64 %11, ptr %12, align 8
   ret void
 }
 

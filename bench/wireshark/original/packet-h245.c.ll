@@ -6316,46 +6316,47 @@ define hidden void @proto_register_h245() #0 {
   %6 = call ptr @wmem_epan_scope()
   %7 = call ptr @wmem_file_scope()
   %8 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %6, ptr noundef %7, ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
-  store ptr %8, ptr getelementptr inbounds ([2 x ptr], ptr @h223_pending_olc_reqs, i64 0, i64 1), align 8
-  %9 = call ptr @wmem_epan_scope()
-  %10 = call ptr @wmem_file_scope()
-  %11 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %9, ptr noundef %10, ptr noundef @wmem_str_hash, ptr noundef @g_str_equal)
-  store ptr %11, ptr @h245_pending_olc_reqs, align 8
+  %9 = getelementptr inbounds [2 x ptr], ptr @h223_pending_olc_reqs, i64 0, i64 1
+  store ptr %8, ptr %9, align 8
+  %10 = call ptr @wmem_epan_scope()
+  %11 = call ptr @wmem_file_scope()
+  %12 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %10, ptr noundef %11, ptr noundef @wmem_str_hash, ptr noundef @g_str_equal)
+  store ptr %12, ptr @h245_pending_olc_reqs, align 8
   call void @register_init_routine(ptr noundef @h223_lc_init)
-  %12 = load i32, ptr @proto_h245, align 4
-  call void @proto_register_field_array(i32 noundef %12, ptr noundef @proto_register_h245.hf, i32 noundef 1406)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_h245.ett, i32 noundef 493)
   %13 = load i32, ptr @proto_h245, align 4
-  %14 = call ptr @prefs_register_protocol(i32 noundef %13, ptr noundef null)
-  store ptr %14, ptr %1, align 8
-  %15 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %15, ptr noundef @.str.2764, ptr noundef @.str.2765, ptr noundef @.str.2766, ptr noundef @h245_reassembly)
+  call void @proto_register_field_array(i32 noundef %13, ptr noundef @proto_register_h245.hf, i32 noundef 1406)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_h245.ett, i32 noundef 493)
+  %14 = load i32, ptr @proto_h245, align 4
+  %15 = call ptr @prefs_register_protocol(i32 noundef %14, ptr noundef null)
+  store ptr %15, ptr %1, align 8
   %16 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.2767, ptr noundef @.str.2768, ptr noundef @.str.2769, ptr noundef @h245_shorttypes)
+  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.2764, ptr noundef @.str.2765, ptr noundef @.str.2766, ptr noundef @h245_reassembly)
   %17 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %17, ptr noundef @.str.2770, ptr noundef @.str.2771, ptr noundef @.str.2772, ptr noundef @info_col_fmt_prepend)
-  %18 = load i32, ptr @proto_h245, align 4
-  %19 = call ptr @register_dissector(ptr noundef @.str.2773, ptr noundef @dissect_h245_h245, i32 noundef %18)
-  store ptr %19, ptr @MultimediaSystemControlMessage_handle, align 8
-  %20 = load i32, ptr @proto_h245, align 4
-  %21 = call ptr @register_dissector(ptr noundef @.str.2763, ptr noundef @dissect_h245, i32 noundef %20)
-  store ptr %21, ptr @h245_handle, align 8
-  %22 = load i32, ptr @proto_h245, align 4
-  %23 = call ptr @register_dissector_table(ptr noundef @.str.2774, ptr noundef @.str.2775, i32 noundef %22, i32 noundef 26, i32 noundef 0)
-  store ptr %23, ptr @nsp_object_dissector_table, align 8
-  %24 = load i32, ptr @proto_h245, align 4
-  %25 = call ptr @register_dissector_table(ptr noundef @.str.2776, ptr noundef @.str.2777, i32 noundef %24, i32 noundef 7, i32 noundef 2)
-  store ptr %25, ptr @nsp_h221_dissector_table, align 8
-  %26 = load i32, ptr @proto_h245, align 4
-  %27 = call ptr @register_dissector_table(ptr noundef @.str.2778, ptr noundef @.str.2779, i32 noundef %26, i32 noundef 26, i32 noundef 0)
-  store ptr %27, ptr @gef_name_dissector_table, align 8
-  %28 = load i32, ptr @proto_h245, align 4
-  %29 = call ptr @register_dissector_table(ptr noundef @.str.2780, ptr noundef @.str.2781, i32 noundef %28, i32 noundef 26, i32 noundef 0)
-  store ptr %29, ptr @gef_content_dissector_table, align 8
-  %30 = call i32 @register_tap(ptr noundef @.str.2763)
-  store i32 %30, ptr @h245_tap, align 4
-  %31 = call i32 @register_tap(ptr noundef @.str.2773)
-  store i32 %31, ptr @h245dg_tap, align 4
+  call void @prefs_register_bool_preference(ptr noundef %17, ptr noundef @.str.2767, ptr noundef @.str.2768, ptr noundef @.str.2769, ptr noundef @h245_shorttypes)
+  %18 = load ptr, ptr %1, align 8
+  call void @prefs_register_bool_preference(ptr noundef %18, ptr noundef @.str.2770, ptr noundef @.str.2771, ptr noundef @.str.2772, ptr noundef @info_col_fmt_prepend)
+  %19 = load i32, ptr @proto_h245, align 4
+  %20 = call ptr @register_dissector(ptr noundef @.str.2773, ptr noundef @dissect_h245_h245, i32 noundef %19)
+  store ptr %20, ptr @MultimediaSystemControlMessage_handle, align 8
+  %21 = load i32, ptr @proto_h245, align 4
+  %22 = call ptr @register_dissector(ptr noundef @.str.2763, ptr noundef @dissect_h245, i32 noundef %21)
+  store ptr %22, ptr @h245_handle, align 8
+  %23 = load i32, ptr @proto_h245, align 4
+  %24 = call ptr @register_dissector_table(ptr noundef @.str.2774, ptr noundef @.str.2775, i32 noundef %23, i32 noundef 26, i32 noundef 0)
+  store ptr %24, ptr @nsp_object_dissector_table, align 8
+  %25 = load i32, ptr @proto_h245, align 4
+  %26 = call ptr @register_dissector_table(ptr noundef @.str.2776, ptr noundef @.str.2777, i32 noundef %25, i32 noundef 7, i32 noundef 2)
+  store ptr %26, ptr @nsp_h221_dissector_table, align 8
+  %27 = load i32, ptr @proto_h245, align 4
+  %28 = call ptr @register_dissector_table(ptr noundef @.str.2778, ptr noundef @.str.2779, i32 noundef %27, i32 noundef 26, i32 noundef 0)
+  store ptr %28, ptr @gef_name_dissector_table, align 8
+  %29 = load i32, ptr @proto_h245, align 4
+  %30 = call ptr @register_dissector_table(ptr noundef @.str.2780, ptr noundef @.str.2781, i32 noundef %29, i32 noundef 26, i32 noundef 0)
+  store ptr %30, ptr @gef_content_dissector_table, align 8
+  %31 = call i32 @register_tap(ptr noundef @.str.2763)
+  store i32 %31, ptr @h245_tap, align 4
+  %32 = call i32 @register_tap(ptr noundef @.str.2773)
+  store i32 %32, ptr @h245dg_tap, align 4
   call void @oid_add_from_string(ptr noundef @.str.2782, ptr noundef @.str.2783)
   call void @oid_add_from_string(ptr noundef @.str.2784, ptr noundef @.str.2785)
   call void @oid_add_from_string(ptr noundef @.str.2786, ptr noundef @.str.2787)

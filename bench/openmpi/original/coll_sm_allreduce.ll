@@ -32,76 +32,77 @@ define i32 @mca_coll_sm_allreduce_intra(ptr noundef %0, ptr noundef %1, i32 noun
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
-  %18 = icmp eq ptr inttoptr (i64 1 to ptr), %17
-  br i1 %18, label %19, label %42
+  %18 = inttoptr i64 1 to ptr
+  %19 = icmp eq ptr %18, %17
+  br i1 %19, label %20, label %43
 
-19:                                               ; preds = %7
-  %20 = load ptr, ptr %13, align 8
-  %21 = call i32 @ompi_comm_rank(ptr noundef %20)
-  store i32 %21, ptr %16, align 4
-  %22 = load i32, ptr %16, align 4
-  %23 = icmp eq i32 0, %22
-  br i1 %23, label %24, label %33
+20:                                               ; preds = %7
+  %21 = load ptr, ptr %13, align 8
+  %22 = call i32 @ompi_comm_rank(ptr noundef %21)
+  store i32 %22, ptr %16, align 4
+  %23 = load i32, ptr %16, align 4
+  %24 = icmp eq i32 0, %23
+  br i1 %24, label %25, label %34
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %8, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = load ptr, ptr %11, align 8
-  %29 = load ptr, ptr %12, align 8
-  %30 = load ptr, ptr %13, align 8
-  %31 = load ptr, ptr %14, align 8
-  %32 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef 0, ptr noundef %30, ptr noundef %31)
-  store i32 %32, ptr %15, align 4
-  br label %41
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load ptr, ptr %14, align 8
+  %33 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef 0, ptr noundef %31, ptr noundef %32)
+  store i32 %33, ptr %15, align 4
+  br label %42
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr %9, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = load ptr, ptr %13, align 8
-  %39 = load ptr, ptr %14, align 8
-  %40 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %34, ptr noundef null, i32 noundef %35, ptr noundef %36, ptr noundef %37, i32 noundef 0, ptr noundef %38, ptr noundef %39)
-  store i32 %40, ptr %15, align 4
-  br label %41
+34:                                               ; preds = %20
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load ptr, ptr %13, align 8
+  %40 = load ptr, ptr %14, align 8
+  %41 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %35, ptr noundef null, i32 noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef 0, ptr noundef %39, ptr noundef %40)
+  store i32 %41, ptr %15, align 4
+  br label %42
 
-41:                                               ; preds = %33, %24
-  br label %51
+42:                                               ; preds = %34, %25
+  br label %52
 
-42:                                               ; preds = %7
-  %43 = load ptr, ptr %8, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = load ptr, ptr %11, align 8
-  %47 = load ptr, ptr %12, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %43, ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49)
-  store i32 %50, ptr %15, align 4
-  br label %51
+43:                                               ; preds = %7
+  %44 = load ptr, ptr %8, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = load i32, ptr %10, align 4
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load ptr, ptr %13, align 8
+  %50 = load ptr, ptr %14, align 8
+  %51 = call i32 @mca_coll_sm_reduce_intra(ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef 0, ptr noundef %49, ptr noundef %50)
+  store i32 %51, ptr %15, align 4
+  br label %52
 
-51:                                               ; preds = %42, %41
-  %52 = load i32, ptr %15, align 4
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %61
+52:                                               ; preds = %43, %42
+  %53 = load i32, ptr %15, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %62
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %9, align 8
-  %56 = load i32, ptr %10, align 4
-  %57 = load ptr, ptr %11, align 8
-  %58 = load ptr, ptr %13, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = call i32 @mca_coll_sm_bcast_intra(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef 0, ptr noundef %58, ptr noundef %59)
-  br label %63
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %9, align 8
+  %57 = load i32, ptr %10, align 4
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = call i32 @mca_coll_sm_bcast_intra(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef 0, ptr noundef %59, ptr noundef %60)
+  br label %64
 
-61:                                               ; preds = %51
-  %62 = load i32, ptr %15, align 4
-  br label %63
+62:                                               ; preds = %52
+  %63 = load i32, ptr %15, align 4
+  br label %64
 
-63:                                               ; preds = %61, %54
-  %64 = phi i32 [ %60, %54 ], [ %62, %61 ]
-  ret i32 %64
+64:                                               ; preds = %62, %55
+  %65 = phi i32 [ %61, %55 ], [ %63, %62 ]
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable

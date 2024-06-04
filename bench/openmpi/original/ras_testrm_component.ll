@@ -17,38 +17,41 @@ define internal i32 @ras_testrm_component_query(ptr noundef %0, ptr noundef %1) 
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1), align 8
-  %7 = icmp ne ptr null, %6
-  br i1 %7, label %8, label %11
+  %6 = getelementptr inbounds %struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr null, %7
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
-  store ptr @prte_ras_testrm_module, ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  store i32 1000, ptr %10, align 4
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  store ptr @prte_ras_testrm_module, ptr %10, align 8
+  %11 = load ptr, ptr %5, align 8
+  store i32 1000, ptr %11, align 4
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  store i32 0, ptr %13, align 4
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8
+  store ptr null, ptr %13, align 8
+  %14 = load ptr, ptr %5, align 8
+  store i32 0, ptr %14, align 4
   store i32 -1, ptr %3, align 4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %11, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %12, %9
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ras_testrm_register() #0 {
   %1 = alloca ptr, align 8
   store ptr @prte_mca_ras_testrm_component, ptr %1, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %1, align 8
-  %3 = call i32 @pmix_mca_base_component_var_register(ptr noundef %2, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 5, ptr noundef getelementptr inbounds (%struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1))
+  %2 = getelementptr inbounds %struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1
+  store ptr null, ptr %2, align 8
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds %struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1
+  %5 = call i32 @pmix_mca_base_component_var_register(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 5, ptr noundef %4)
   ret i32 0
 }
 

@@ -246,24 +246,26 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
   %23 = load ptr, ptr %1, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 20
   store i32 %22, ptr %24, align 4
-  %25 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %26 = icmp ugt i8 %25, 2
-  %27 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
-  %28 = icmp ne i8 %27, 0
-  %29 = select i1 %26, i1 %28, i1 false
-  br i1 %29, label %30, label %32
+  %25 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp ugt i8 %26, 2
+  %28 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp ne i8 %29, 0
+  %31 = select i1 %27, i1 %30, i1 false
+  br i1 %31, label %32, label %34
 
-30:                                               ; preds = %2
-  %31 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext %27) #6
-  br label %32
+32:                                               ; preds = %2
+  %33 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext %29) #6
+  br label %34
 
-32:                                               ; preds = %30, %2
-  %33 = phi i8 [ %31, %30 ], [ 0, %2 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 9
-  store i8 %33, ptr %34, align 1
-  %35 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  store i8 %35, ptr %36, align 8
+34:                                               ; preds = %32, %2
+  %35 = phi i8 [ %33, %32 ], [ 0, %2 ]
+  %36 = getelementptr inbounds i8, ptr %1, i64 9
+  store i8 %35, ptr %36, align 1
+  %37 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i8 %37, ptr %38, align 8
   ret void
 }
 
@@ -285,95 +287,100 @@ define dso_local noundef i32 @mc146818_set_time(ptr nocapture noundef readonly %
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 4
   %14 = icmp ugt i32 %3, 255
-  br i1 %14, label %65, label %15
+  br i1 %14, label %70, label %15
 
 15:                                               ; preds = %1
-  %16 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %17 = icmp ugt i8 %16, 2
-  %18 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
-  %19 = icmp ne i8 %18, 0
-  %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %21, label %25
+  %16 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp ugt i8 %17, 2
+  %19 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp ne i8 %20, 0
+  %22 = select i1 %18, i1 %21, i1 false
+  br i1 %22, label %23, label %27
 
-21:                                               ; preds = %15
-  %22 = add nuw nsw i32 %3, 1900
-  %23 = udiv i32 %22, 100
-  %24 = urem i32 %3, 100
-  br label %25
+23:                                               ; preds = %15
+  %24 = add nuw nsw i32 %3, 1900
+  %25 = udiv i32 %24, 100
+  %26 = urem i32 %3, 100
+  br label %27
 
-25:                                               ; preds = %21, %15
-  %26 = phi i32 [ %24, %21 ], [ %3, %15 ]
-  %27 = phi i32 [ %23, %21 ], [ 0, %15 ]
-  %28 = icmp ugt i32 %26, 169
-  br i1 %28, label %65, label %29
+27:                                               ; preds = %23, %15
+  %28 = phi i32 [ %26, %23 ], [ %3, %15 ]
+  %29 = phi i32 [ %25, %23 ], [ 0, %15 ]
+  %30 = icmp ugt i32 %28, 169
+  br i1 %30, label %70, label %31
 
-29:                                               ; preds = %25
-  %30 = icmp ugt i32 %26, 99
-  %31 = add nsw i32 %26, -100
-  %32 = select i1 %30, i32 %31, i32 %26
-  %33 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #6
-  %34 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %33) #6
-  %35 = and i32 %13, 255
-  %36 = tail call zeroext i8 @_bin2bcd(i32 noundef %35) #8
-  %37 = and i32 %12, 255
+31:                                               ; preds = %27
+  %32 = icmp ugt i32 %28, 99
+  %33 = add nsw i32 %28, -100
+  %34 = select i1 %32, i32 %33, i32 %28
+  %35 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #6
+  %36 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %35) #6
+  %37 = and i32 %13, 255
   %38 = tail call zeroext i8 @_bin2bcd(i32 noundef %37) #8
-  %39 = and i32 %10, 255
+  %39 = and i32 %12, 255
   %40 = tail call zeroext i8 @_bin2bcd(i32 noundef %39) #8
-  %41 = and i32 %8, 255
+  %41 = and i32 %10, 255
   %42 = tail call zeroext i8 @_bin2bcd(i32 noundef %41) #8
-  %43 = and i32 %6, 255
+  %43 = and i32 %8, 255
   %44 = tail call zeroext i8 @_bin2bcd(i32 noundef %43) #8
-  %45 = tail call zeroext i8 @_bin2bcd(i32 noundef %32) #8
-  %46 = tail call zeroext i8 @_bin2bcd(i32 noundef %27) #8
-  %47 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #6
-  %48 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
-  %49 = or i8 %48, -128
-  tail call void @rtc_cmos_write(i8 noundef zeroext %49, i8 noundef zeroext 11) #6
-  %50 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 10) #6
-  %51 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  switch i8 %51, label %54 [
-    i8 9, label %52
-    i8 2, label %52
+  %45 = and i32 %6, 255
+  %46 = tail call zeroext i8 @_bin2bcd(i32 noundef %45) #8
+  %47 = tail call zeroext i8 @_bin2bcd(i32 noundef %34) #8
+  %48 = tail call zeroext i8 @_bin2bcd(i32 noundef %29) #8
+  %49 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #6
+  %50 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
+  %51 = or i8 %50, -128
+  tail call void @rtc_cmos_write(i8 noundef zeroext %51, i8 noundef zeroext 11) #6
+  %52 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 10) #6
+  %53 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %54 = load i8, ptr %53, align 1
+  switch i8 %54, label %57 [
+    i8 9, label %55
+    i8 2, label %55
   ]
 
-52:                                               ; preds = %29, %29
-  %53 = and i8 %50, -17
-  br label %56
+55:                                               ; preds = %31, %31
+  %56 = and i8 %52, -17
+  br label %59
 
-54:                                               ; preds = %29
-  %55 = or i8 %50, 112
-  br label %56
+57:                                               ; preds = %31
+  %58 = or i8 %52, 112
+  br label %59
 
-56:                                               ; preds = %54, %52
-  %57 = phi i8 [ %55, %54 ], [ %53, %52 ]
-  tail call void @rtc_cmos_write(i8 noundef zeroext %57, i8 noundef zeroext 10) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %45, i8 noundef zeroext 9) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %44, i8 noundef zeroext 8) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %42, i8 noundef zeroext 7) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %40, i8 noundef zeroext 4) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %38, i8 noundef zeroext 2) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %36, i8 noundef zeroext 0) #6
-  %58 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2), align 1
-  %59 = icmp ugt i8 %58, 2
-  %60 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35), align 1
-  %61 = icmp ne i8 %60, 0
-  %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %63, label %64
+59:                                               ; preds = %57, %55
+  %60 = phi i8 [ %58, %57 ], [ %56, %55 ]
+  tail call void @rtc_cmos_write(i8 noundef zeroext %60, i8 noundef zeroext 10) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %47, i8 noundef zeroext 9) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %46, i8 noundef zeroext 8) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %44, i8 noundef zeroext 7) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %42, i8 noundef zeroext 4) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %40, i8 noundef zeroext 2) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %38, i8 noundef zeroext 0) #6
+  %61 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 0, i32 2
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp ugt i8 %62, 2
+  %64 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 35
+  %65 = load i8, ptr %64, align 1
+  %66 = icmp ne i8 %65, 0
+  %67 = select i1 %63, i1 %66, i1 false
+  br i1 %67, label %68, label %69
 
-63:                                               ; preds = %56
-  tail call void @rtc_cmos_write(i8 noundef zeroext %46, i8 noundef zeroext %60) #6
-  br label %64
+68:                                               ; preds = %59
+  tail call void @rtc_cmos_write(i8 noundef zeroext %48, i8 noundef zeroext %65) #6
+  br label %69
 
-64:                                               ; preds = %63, %56
-  tail call void @rtc_cmos_write(i8 noundef zeroext %48, i8 noundef zeroext 11) #6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %50, i8 noundef zeroext 10) #6
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %47) #6
-  br label %65
+69:                                               ; preds = %68, %59
+  tail call void @rtc_cmos_write(i8 noundef zeroext %50, i8 noundef zeroext 11) #6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %52, i8 noundef zeroext 10) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %49) #6
+  br label %70
 
-65:                                               ; preds = %64, %25, %1
-  %66 = phi i32 [ 0, %64 ], [ -22, %1 ], [ -22, %25 ]
-  ret i32 %66
+70:                                               ; preds = %69, %27, %1
+  %71 = phi i32 [ 0, %69 ], [ -22, %1 ], [ -22, %27 ]
+  ret i32 %71
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)

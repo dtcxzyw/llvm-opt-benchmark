@@ -90,11 +90,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  store ptr getelementptr inbounds (%struct.anon, ptr @global_state, i32 0, i32 1), ptr %state, align 8
-  %3 = load ptr, ptr %state, align 8
-  call void @clear_state(ptr noundef %3)
+  %3 = getelementptr inbounds %struct.anon, ptr @global_state, i32 0, i32 1
+  store ptr %3, ptr %state, align 8
   %4 = load ptr, ptr %state, align 8
-  %call4 = call i32 @init_state(ptr noundef %4)
+  call void @clear_state(ptr noundef %4)
+  %5 = load ptr, ptr %state, align 8
+  %call4 = call i32 @init_state(ptr noundef %5)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end10
 
@@ -103,23 +104,23 @@ if.then6:                                         ; preds = %if.end3
 
 do.body:                                          ; preds = %if.then6
   store ptr %module, ptr %_tmp_op_ptr, align 8
-  %5 = load ptr, ptr %_tmp_op_ptr, align 8
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %_tmp_old_op, align 8
-  %7 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp7 = icmp ne ptr %7, null
+  %6 = load ptr, ptr %_tmp_op_ptr, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %_tmp_old_op, align 8
+  %8 = load ptr, ptr %_tmp_old_op, align 8
+  %cmp7 = icmp ne ptr %8, null
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.body
-  %8 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %8, align 8
-  %9 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %9, ptr %op.addr.i22, align 8
-  %10 = load ptr, ptr %op.addr.i22, align 8
-  store ptr %10, ptr %op.addr.i31, align 8
-  %11 = load ptr, ptr %op.addr.i31, align 8
-  %12 = load i64, ptr %11, align 8
-  %conv.i = trunc i64 %12 to i32
+  %9 = load ptr, ptr %_tmp_op_ptr, align 8
+  store ptr null, ptr %9, align 8
+  %10 = load ptr, ptr %_tmp_old_op, align 8
+  store ptr %10, ptr %op.addr.i22, align 8
+  %11 = load ptr, ptr %op.addr.i22, align 8
+  store ptr %11, ptr %op.addr.i31, align 8
+  %12 = load ptr, ptr %op.addr.i31, align 8
+  %13 = load i64, ptr %12, align 8
+  %conv.i = trunc i64 %13 to i32
   %cmp.i32 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i32 to i32
   %tobool.i24 = icmp ne i32 %conv1.i, 0
@@ -129,16 +130,16 @@ if.then.i29:                                      ; preds = %if.then8
   br label %Py_DECREF.exit30
 
 if.end.i25:                                       ; preds = %if.then8
-  %13 = load ptr, ptr %op.addr.i22, align 8
-  %14 = load i64, ptr %13, align 8
-  %dec.i26 = add i64 %14, -1
-  store i64 %dec.i26, ptr %13, align 8
+  %14 = load ptr, ptr %op.addr.i22, align 8
+  %15 = load i64, ptr %14, align 8
+  %dec.i26 = add i64 %15, -1
+  store i64 %dec.i26, ptr %14, align 8
   %cmp.i27 = icmp eq i64 %dec.i26, 0
   br i1 %cmp.i27, label %if.then1.i28, label %Py_DECREF.exit30
 
 if.then1.i28:                                     ; preds = %if.end.i25
-  %15 = load ptr, ptr %op.addr.i22, align 8
-  call void @_Py_Dealloc(ptr noundef %15) #3
+  %16 = load ptr, ptr %op.addr.i22, align 8
+  call void @_Py_Dealloc(ptr noundef %16) #3
   br label %Py_DECREF.exit30
 
 Py_DECREF.exit30:                                 ; preds = %if.then1.i28, %if.end.i25, %if.then.i29
@@ -152,9 +153,9 @@ do.end:                                           ; preds = %if.end9
   br label %return
 
 if.end10:                                         ; preds = %if.end3
-  %16 = load ptr, ptr %module, align 8
-  %17 = load ptr, ptr %state, align 8
-  %call11 = call i32 @init_module(ptr noundef %16, ptr noundef %17)
+  %17 = load ptr, ptr %module, align 8
+  %18 = load ptr, ptr %state, align 8
+  %call11 = call i32 @init_module(ptr noundef %17, ptr noundef %18)
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end21
 
@@ -163,23 +164,23 @@ if.then13:                                        ; preds = %if.end10
 
 do.body14:                                        ; preds = %if.then13
   store ptr %module, ptr %_tmp_op_ptr15, align 8
-  %18 = load ptr, ptr %_tmp_op_ptr15, align 8
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %_tmp_old_op16, align 8
-  %20 = load ptr, ptr %_tmp_old_op16, align 8
-  %cmp17 = icmp ne ptr %20, null
+  %19 = load ptr, ptr %_tmp_op_ptr15, align 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %_tmp_old_op16, align 8
+  %21 = load ptr, ptr %_tmp_old_op16, align 8
+  %cmp17 = icmp ne ptr %21, null
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %do.body14
-  %21 = load ptr, ptr %_tmp_op_ptr15, align 8
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %_tmp_old_op16, align 8
-  store ptr %22, ptr %op.addr.i, align 8
-  %23 = load ptr, ptr %op.addr.i, align 8
-  store ptr %23, ptr %op.addr.i33, align 8
-  %24 = load ptr, ptr %op.addr.i33, align 8
-  %25 = load i64, ptr %24, align 8
-  %conv.i34 = trunc i64 %25 to i32
+  %22 = load ptr, ptr %_tmp_op_ptr15, align 8
+  store ptr null, ptr %22, align 8
+  %23 = load ptr, ptr %_tmp_old_op16, align 8
+  store ptr %23, ptr %op.addr.i, align 8
+  %24 = load ptr, ptr %op.addr.i, align 8
+  store ptr %24, ptr %op.addr.i33, align 8
+  %25 = load ptr, ptr %op.addr.i33, align 8
+  %26 = load i64, ptr %25, align 8
+  %conv.i34 = trunc i64 %26 to i32
   %cmp.i35 = icmp slt i32 %conv.i34, 0
   %conv1.i36 = zext i1 %cmp.i35 to i32
   %tobool.i = icmp ne i32 %conv1.i36, 0
@@ -189,16 +190,16 @@ if.then.i:                                        ; preds = %if.then18
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then18
-  %26 = load ptr, ptr %op.addr.i, align 8
-  %27 = load i64, ptr %26, align 8
-  %dec.i = add i64 %27, -1
-  store i64 %dec.i, ptr %26, align 8
+  %27 = load ptr, ptr %op.addr.i, align 8
+  %28 = load i64, ptr %27, align 8
+  %dec.i = add i64 %28, -1
+  store i64 %dec.i, ptr %27, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %28 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %28) #3
+  %29 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %29) #3
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -211,19 +212,19 @@ do.end20:                                         ; preds = %if.end19
   br label %finally
 
 if.end21:                                         ; preds = %if.end10
-  %29 = load i32, ptr @global_state, align 8
-  %inc = add i32 %29, 1
+  %30 = load i32, ptr @global_state, align 8
+  %inc = add i32 %30, 1
   store i32 %inc, ptr @global_state, align 8
   br label %finally
 
 finally:                                          ; preds = %if.end21, %do.end20
-  %30 = load ptr, ptr %module, align 8
-  store ptr %30, ptr %retval, align 8
+  %31 = load ptr, ptr %module, align 8
+  store ptr %31, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %finally, %do.end, %if.then2
-  %31 = load ptr, ptr %retval, align 8
-  ret ptr %31
+  %32 = load ptr, ptr %retval, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -899,14 +900,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (%struct.anon, ptr @global_state, i32 0, i32 1), ptr %retval, align 8
+  %3 = getelementptr inbounds %struct.anon, ptr @global_state, i32 0, i32 1
+  store ptr %3, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %def, align 8
-  %m_size1 = getelementptr inbounds %struct.PyModuleDef, ptr %3, i32 0, i32 3
-  %4 = load i64, ptr %m_size1, align 8
-  %cmp2 = icmp eq i64 %4, 0
+  %4 = load ptr, ptr %def, align 8
+  %m_size1 = getelementptr inbounds %struct.PyModuleDef, ptr %4, i32 0, i32 3
+  %5 = load i64, ptr %m_size1, align 8
+  %cmp2 = icmp eq i64 %5, 0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -914,16 +916,16 @@ if.then3:                                         ; preds = %if.else
   br label %return
 
 if.else4:                                         ; preds = %if.else
-  %5 = load ptr, ptr %module.addr, align 8
-  %call5 = call ptr @PyModule_GetState(ptr noundef %5)
+  %6 = load ptr, ptr %module.addr, align 8
+  %call5 = call ptr @PyModule_GetState(ptr noundef %6)
   store ptr %call5, ptr %state, align 8
-  %6 = load ptr, ptr %state, align 8
-  store ptr %6, ptr %retval, align 8
+  %7 = load ptr, ptr %state, align 8
+  store ptr %7, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else4, %if.then3, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1103,7 +1105,8 @@ declare ptr @PyFloat_FromDouble(double noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @clear_global_state() #0 {
 entry:
-  call void @clear_state(ptr noundef getelementptr inbounds (%struct.anon, ptr @global_state, i32 0, i32 1))
+  %0 = getelementptr inbounds %struct.anon, ptr @global_state, i32 0, i32 1
+  call void @clear_state(ptr noundef %0)
   store i32 -1, ptr @global_state, align 8
   ret void
 }

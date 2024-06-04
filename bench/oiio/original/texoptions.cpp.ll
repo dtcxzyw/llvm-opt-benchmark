@@ -139,54 +139,68 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 1), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 1), ptr noundef @.str.2)
+  %0 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 1
+  store ptr %0, ptr %arrayinit.endOfInit, align 8
+  %1 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 1
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef @.str.2)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 2), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 2), ptr noundef @.str.3)
+  %2 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 2
+  store ptr %2, ptr %arrayinit.endOfInit, align 8
+  %3 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 2
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef @.str.3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 3), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 3), ptr noundef @.str.4)
+  %4 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 3
+  store ptr %4, ptr %arrayinit.endOfInit, align 8
+  %5 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 3
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 4), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 4), ptr noundef @.str.5)
+  %6 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 4
+  store ptr %6, ptr %arrayinit.endOfInit, align 8
+  %7 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 4
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.5)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 5), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 5), ptr noundef @.str.6)
+  %8 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 5
+  store ptr %8, ptr %arrayinit.endOfInit, align 8
+  %9 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 5
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef @.str.6)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 6), ptr %arrayinit.endOfInit, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 6), ptr noundef @.str.7)
+  %10 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 6
+  store ptr %10, ptr %arrayinit.endOfInit, align 8
+  %11 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 6
+  invoke void @_ZN18OpenImageIO_v2_6_07ustringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef @.str.7)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 7), ptr %arrayinit.endOfInit, align 8
-  call void @_ZN18OpenImageIO_v2_6_07ustringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 7)) #3
-  %0 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %12 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 7
+  store ptr %12, ptr %arrayinit.endOfInit, align 8
+  %13 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 7
+  call void @_ZN18OpenImageIO_v2_6_07ustringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont1, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %4 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, %4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
+  %18 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, %18
   br i1 %arraydestroy.isempty, label %arraydestroy.done7, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
-  %arraydestroy.elementPast = phi ptr [ %4, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %18, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN18OpenImageIO_v2_6_07ustringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE
@@ -258,10 +272,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"class.OpenImageIO_v2_6_0::ustring", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 8), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ustring", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN18OpenImageIO_v2_6_07ustringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE

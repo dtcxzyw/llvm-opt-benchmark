@@ -1772,46 +1772,47 @@ define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr noundef
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 8, i1 false)
   %6 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
   store i32 -1, ptr %6, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1), align 8
-  %8 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 1
-  store i32 %7, ptr %8, align 4
-  %9 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %16
+  %7 = getelementptr inbounds %struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 1
+  store i32 %8, ptr %9, align 4
+  %10 = load ptr, ptr @MyClientConnectionInfo, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %17
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #12
-  %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
-  store i32 %14, ptr %15, align 4
-  br label %16
+12:                                               ; preds = %2
+  %13 = load ptr, ptr @MyClientConnectionInfo, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #12
+  %15 = trunc i64 %14 to i32
+  %16 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
+  store i32 %15, ptr %16, align 4
+  br label %17
 
-16:                                               ; preds = %11, %2
-  %17 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 4 %5, i64 8, i1 false)
-  %18 = load i64, ptr %3, align 8
-  %19 = sub i64 %18, 8
-  store i64 %19, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr i8, ptr %20, i64 8
-  store ptr %21, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp sge i32 %23, 0
-  br i1 %24, label %25, label %32
+17:                                               ; preds = %12, %2
+  %18 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 4 %5, i64 8, i1 false)
+  %19 = load i64, ptr %3, align 8
+  %20 = sub i64 %19, 8
+  store i64 %20, ptr %3, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr i8, ptr %21, i64 8
+  store ptr %22, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sge i32 %24, 0
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %16
-  %26 = load ptr, ptr %4, align 8
-  %27 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %28 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
-  %29 = load i32, ptr %28, align 4
-  %30 = add i32 %29, 1
-  %31 = sext i32 %30 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %27, i64 %31, i1 false)
-  br label %32
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr @MyClientConnectionInfo, align 8
+  %29 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %5, i32 0, i32 0
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 1
+  %32 = sext i32 %31 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %32, i1 false)
+  br label %33
 
-32:                                               ; preds = %25, %16
+33:                                               ; preds = %26, %17
   ret void
 }
 
@@ -1832,23 +1833,24 @@ define dso_local void @RestoreClientConnectionInfo(ptr noundef %0) #0 {
   store ptr null, ptr @MyClientConnectionInfo, align 8
   %6 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %3, i32 0, i32 1
   %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1), align 8
-  %8 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %3, i32 0, i32 0
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp sge i32 %9, 0
-  br i1 %10, label %11, label %17
+  %8 = getelementptr inbounds %struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1
+  store i32 %7, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.SerializedClientConnectionInfo, ptr %3, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp sge i32 %10, 0
+  br i1 %11, label %12, label %18
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr i8, ptr %12, i64 8
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr @TopMemoryContext, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = call ptr @MemoryContextStrdup(ptr noundef %14, ptr noundef %15)
-  store ptr %16, ptr @MyClientConnectionInfo, align 8
-  br label %17
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr i8, ptr %13, i64 8
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr @TopMemoryContext, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = call ptr @MemoryContextStrdup(ptr noundef %15, ptr noundef %16)
+  store ptr %17, ptr @MyClientConnectionInfo, align 8
+  br label %18
 
-17:                                               ; preds = %11, %1
+18:                                               ; preds = %12, %1
   ret void
 }
 

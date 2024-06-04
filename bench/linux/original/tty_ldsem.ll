@@ -38,7 +38,7 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
   %4 = tail call i32 @__SCT__might_resched() #6
   %5 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 1, ptr elementtype(i64) %0) #6, !srcloc !5
   %6 = icmp ugt i64 %5, 9223372036854775806
-  br i1 %6, label %7, label %101
+  br i1 %6, label %7, label %103
 
 7:                                                ; preds = %2
   %8 = add i64 %5, 1
@@ -111,7 +111,7 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 
 47:                                               ; preds = %45
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #6
-  br label %98
+  br label %100
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds i8, ptr %0, i64 32
@@ -159,13 +159,13 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 75:                                               ; preds = %67, %60
   %76 = phi i1 [ %65, %60 ], [ %73, %67 ]
   store volatile i32 0, ptr %61, align 8
-  br i1 %76, label %98, label %77
+  br i1 %76, label %100, label %77
 
 77:                                               ; preds = %75
   call void @_raw_spin_lock_irq(ptr noundef %9) #6
   %78 = load ptr, ptr %32, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %97, label %80
+  br i1 %79, label %99, label %80
 
 80:                                               ; preds = %77
   %81 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 4294967296, ptr elementtype(i64) %0) #6, !srcloc !5
@@ -177,50 +177,52 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   store ptr %84, ptr %86, align 8
   store volatile ptr %85, ptr %84, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %26, align 8
+  %87 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %87, ptr %3, align 8
+  %88 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %88, ptr %26, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %9) #6
-  %87 = load ptr, ptr %32, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
-  %89 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #6, !srcloc !17
-  %90 = icmp eq i32 %89, 1
-  br i1 %90, label %91, label %92
+  %89 = load ptr, ptr %32, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %91 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 -1, ptr elementtype(i32) %90) #6, !srcloc !17
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %93, label %94
 
-91:                                               ; preds = %80
+93:                                               ; preds = %80
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !18
-  br label %95
+  br label %97
 
-92:                                               ; preds = %80
-  %93 = icmp sgt i32 %89, 0
-  br i1 %93, label %95, label %94, !prof !11
+94:                                               ; preds = %80
+  %95 = icmp sgt i32 %91, 0
+  br i1 %95, label %97, label %96, !prof !11
 
-94:                                               ; preds = %92
-  call void @refcount_warn_saturate(ptr noundef %88, i32 noundef 3) #6
-  br label %95
+96:                                               ; preds = %94
+  call void @refcount_warn_saturate(ptr noundef %90, i32 noundef 3) #6
+  br label %97
 
-95:                                               ; preds = %94, %92, %91
-  br i1 %90, label %96, label %98
+97:                                               ; preds = %96, %94, %93
+  br i1 %92, label %98, label %100
 
-96:                                               ; preds = %95
-  call void @__put_task_struct(ptr noundef %87) #6
-  br label %98
+98:                                               ; preds = %97
+  call void @__put_task_struct(ptr noundef %89) #6
+  br label %100
 
-97:                                               ; preds = %77
+99:                                               ; preds = %77
   call void @_raw_spin_unlock_irq(ptr noundef %9) #6
-  br label %98
+  br label %100
 
-98:                                               ; preds = %97, %96, %95, %75, %47
-  %99 = phi ptr [ %0, %47 ], [ %0, %97 ], [ %0, %75 ], [ null, %95 ], [ null, %96 ]
+100:                                              ; preds = %99, %98, %97, %75, %47
+  %101 = phi ptr [ %0, %47 ], [ %0, %99 ], [ %0, %75 ], [ null, %97 ], [ null, %98 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %102, label %101
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %104, label %103
 
-101:                                              ; preds = %98, %2
-  br label %102
+103:                                              ; preds = %100, %2
+  br label %104
 
-102:                                              ; preds = %101, %98
-  %103 = phi i32 [ 1, %101 ], [ 0, %98 ]
-  ret i32 %103
+104:                                              ; preds = %103, %100
+  %105 = phi i32 [ 1, %103 ], [ 0, %100 ]
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -269,7 +271,7 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
   %6 = add i64 %5, -4294967295
   %7 = and i64 %6, 4294967295
   %8 = icmp eq i64 %7, 1
-  br i1 %8, label %78, label %9
+  br i1 %8, label %82, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
@@ -303,7 +305,7 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
 
 25:                                               ; preds = %22
   tail call void @_raw_spin_unlock_irq(ptr noundef %10) #6
-  br label %75
+  br label %79
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %0, i64 32
@@ -362,7 +364,7 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
   br i1 %59, label %37, label %60, !llvm.loop !25
 
 60:                                               ; preds = %57
-  br i1 %46, label %61, label %69
+  br i1 %46, label %61, label %71
 
 61:                                               ; preds = %60, %26
   %62 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 4294967296, ptr elementtype(i64) %0) #6, !srcloc !5
@@ -371,44 +373,48 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr %63, ptr %65, align 8
   store volatile ptr %64, ptr %63, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %30, align 8
-  %66 = load volatile ptr, ptr %27, align 8
-  %67 = icmp eq ptr %66, %27
-  br i1 %67, label %68, label %73
+  %66 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %66, ptr %3, align 8
+  %67 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %67, ptr %30, align 8
+  %68 = load volatile ptr, ptr %27, align 8
+  %69 = icmp eq ptr %68, %27
+  br i1 %69, label %70, label %77
 
-68:                                               ; preds = %61
+70:                                               ; preds = %61
   call fastcc void @__ldsem_wake_readers(ptr noundef %0)
-  br label %73
+  br label %77
 
-69:                                               ; preds = %60
-  %70 = load ptr, ptr %30, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %70, ptr %72, align 8
-  store volatile ptr %71, ptr %70, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %30, align 8
-  br label %73
+71:                                               ; preds = %60
+  %72 = load ptr, ptr %30, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  store ptr %72, ptr %74, align 8
+  store volatile ptr %73, ptr %72, align 8
+  %75 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %75, ptr %3, align 8
+  %76 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %76, ptr %30, align 8
+  br label %77
 
-73:                                               ; preds = %69, %68, %61
-  %74 = phi ptr [ %0, %69 ], [ null, %68 ], [ null, %61 ]
+77:                                               ; preds = %71, %70, %61
+  %78 = phi ptr [ %0, %71 ], [ null, %70 ], [ null, %61 ]
   call void @_raw_spin_unlock_irq(ptr noundef %10) #6
   store volatile i32 0, ptr %34, align 8
-  br label %75
-
-75:                                               ; preds = %73, %25
-  %76 = phi ptr [ %0, %25 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %79, label %78
-
-78:                                               ; preds = %75, %2
   br label %79
 
-79:                                               ; preds = %78, %75
-  %80 = phi i32 [ 1, %78 ], [ 0, %75 ]
-  ret i32 %80
+79:                                               ; preds = %77, %25
+  %80 = phi ptr [ %0, %25 ], [ %78, %77 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %83, label %82
+
+82:                                               ; preds = %79, %2
+  br label %83
+
+83:                                               ; preds = %82, %79
+  %84 = phi i32 [ 1, %82 ], [ 0, %79 ]
+  ret i32 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

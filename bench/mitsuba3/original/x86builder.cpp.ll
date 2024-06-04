@@ -40,28 +40,29 @@ $_ZTIN6asmjit9_abi_1_103x8616EmitterImplicitTINS1_7BuilderEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_103x867BuilderC2EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #7
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x867BuilderE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 6, ptr %3, align 8, !tbaa !6
+  %3 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_103x867BuilderE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 6, ptr %4, align 8, !tbaa !6
   invoke void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef nonnull %0)
-          to label %4 unwind label %9
+          to label %5 unwind label %10
 
-4:                                                ; preds = %2
-  %5 = icmp eq ptr %1, null
-  br i1 %5, label %8, label %6
+5:                                                ; preds = %2
+  %6 = icmp eq ptr %1, null
+  br i1 %6, label %9, label %7
 
-6:                                                ; preds = %4
-  %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder6attachEPNS0_11BaseEmitterE(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull %0) #7
-  br label %8
+7:                                                ; preds = %5
+  %8 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder6attachEPNS0_11BaseEmitterE(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull %0) #7
+  br label %9
 
-8:                                                ; preds = %6, %4
+9:                                                ; preds = %7, %5
   ret void
 
-9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #8
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #8
   unreachable
 }
 

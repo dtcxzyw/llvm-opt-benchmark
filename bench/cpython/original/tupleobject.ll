@@ -987,7 +987,9 @@ return:                                           ; preds = %for.end, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @tuple_get_empty() #0 {
 entry:
-  ret ptr getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 5)
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %1 = getelementptr inbounds %struct.anon.44, ptr %0, i32 0, i32 5
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1559,7 +1561,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load i64, ptr %n.addr, align 8
   %call1 = call ptr @tuple_alloc(i64 noundef %1)
   store ptr %call1, ptr %result, align 8
@@ -1569,7 +1571,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   store ptr null, ptr %retval, align 8
   br label %return
 
@@ -1629,7 +1631,7 @@ for.inc:                                          ; preds = %vaarg.end
 
 for.end:                                          ; preds = %for.cond
   %arraydecay10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay10)
+  call void @llvm.va_end.p0(ptr %arraydecay10)
   %14 = load ptr, ptr %result, align 8
   call void @_PyObject_GC_TRACK(ptr noundef %14)
   %15 = load ptr, ptr %result, align 8
@@ -1640,12 +1642,6 @@ return:                                           ; preds = %for.end, %if.then3,
   %16 = load ptr, ptr %retval, align 8
   ret ptr %16
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_Py_NewRef(ptr noundef %obj) #0 {
@@ -2029,7 +2025,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %op.addr, align 8
-  %cmp1 = icmp eq ptr %1, getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 5)
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %3 = getelementptr inbounds %struct.anon.44, ptr %2, i32 0, i32 5
+  %cmp1 = icmp eq ptr %1, %3
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -2039,23 +2037,23 @@ if.end:                                           ; preds = %if.then
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %entry
-  %2 = load ptr, ptr %op.addr, align 8
-  call void @PyObject_GC_UnTrack(ptr noundef %2)
+  %4 = load ptr, ptr %op.addr, align 8
+  call void @PyObject_GC_UnTrack(ptr noundef %4)
   br label %do.body
 
 do.body:                                          ; preds = %if.end3
   store ptr null, ptr %_tstate, align 8
-  %3 = load ptr, ptr %op.addr, align 8
-  %call4 = call i32 @_PyTrash_cond(ptr noundef %3, ptr noundef @tupledealloc)
+  %5 = load ptr, ptr %op.addr, align 8
+  %call4 = call i32 @_PyTrash_cond(ptr noundef %5, ptr noundef @tupledealloc)
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %do.body
   %call6 = call ptr @PyThreadState_GetUnchecked()
   store ptr %call6, ptr %_tstate, align 8
-  %4 = load ptr, ptr %_tstate, align 8
-  %5 = load ptr, ptr %op.addr, align 8
-  %call7 = call i32 @_PyTrash_begin(ptr noundef %4, ptr noundef %5)
+  %6 = load ptr, ptr %_tstate, align 8
+  %7 = load ptr, ptr %op.addr, align 8
+  %call7 = call i32 @_PyTrash_begin(ptr noundef %6, ptr noundef %7)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.then9, label %if.end10
 
@@ -2066,50 +2064,50 @@ if.end10:                                         ; preds = %if.then5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end10, %do.body
-  %6 = load ptr, ptr %op.addr, align 8
-  %call12 = call i64 @Py_SIZE(ptr noundef %6)
+  %8 = load ptr, ptr %op.addr, align 8
+  %call12 = call i64 @Py_SIZE(ptr noundef %8)
   store i64 %call12, ptr %i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end11
-  %7 = load i64, ptr %i, align 8
-  %dec = add i64 %7, -1
+  %9 = load i64, ptr %i, align 8
+  %dec = add i64 %9, -1
   store i64 %dec, ptr %i, align 8
   %cmp13 = icmp sge i64 %dec, 0
   br i1 %cmp13, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %8 = load ptr, ptr %op.addr, align 8
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %9
-  %10 = load ptr, ptr %arrayidx, align 8
-  call void @Py_XDECREF(ptr noundef %10)
+  %10 = load ptr, ptr %op.addr, align 8
+  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %10, i32 0, i32 1
+  %11 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %11
+  %12 = load ptr, ptr %arrayidx, align 8
+  call void @Py_XDECREF(ptr noundef %12)
   br label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
-  %11 = load ptr, ptr %op.addr, align 8
-  %call14 = call i32 @maybe_freelist_push(ptr noundef %11)
+  %13 = load ptr, ptr %op.addr, align 8
+  %call14 = call i32 @maybe_freelist_push(ptr noundef %13)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %while.end
-  %12 = load ptr, ptr %op.addr, align 8
-  %call17 = call ptr @Py_TYPE(ptr noundef %12)
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %call17, i32 0, i32 38
-  %13 = load ptr, ptr %tp_free, align 8
   %14 = load ptr, ptr %op.addr, align 8
-  call void %13(ptr noundef %14)
+  %call17 = call ptr @Py_TYPE(ptr noundef %14)
+  %tp_free = getelementptr inbounds %struct._typeobject, ptr %call17, i32 0, i32 38
+  %15 = load ptr, ptr %tp_free, align 8
+  %16 = load ptr, ptr %op.addr, align 8
+  call void %15(ptr noundef %16)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %while.end
-  %15 = load ptr, ptr %_tstate, align 8
-  %tobool19 = icmp ne ptr %15, null
+  %17 = load ptr, ptr %_tstate, align 8
+  %tobool19 = icmp ne ptr %17, null
   br i1 %tobool19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end18
-  %16 = load ptr, ptr %_tstate, align 8
-  call void @_PyTrash_end(ptr noundef %16)
+  %18 = load ptr, ptr %_tstate, align 8
+  call void @_PyTrash_end(ptr noundef %18)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end18
@@ -3304,7 +3302,7 @@ declare ptr @_PyObject_GC_Resize(ptr noundef, i64 noundef) #1
 declare void @_Py_NewReferenceNoTotal(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTuple_Fini(ptr noundef %interp) #0 {
@@ -4502,7 +4500,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) #1
 
@@ -5360,35 +5358,37 @@ entry:
   %iter = alloca ptr, align 8
   store ptr %it, ptr %it.addr, align 8
   store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %call = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %1 = getelementptr inbounds %struct.anon.44, ptr %0, i32 0, i32 3, i32 1, i32 434
+  %call = call ptr @_PyEval_GetBuiltin(ptr noundef %1)
   store ptr %call, ptr %iter, align 8
-  %0 = load ptr, ptr %it.addr, align 8
-  %it_seq = getelementptr inbounds %struct._PyTupleIterObject, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %it_seq, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %it.addr, align 8
+  %it_seq = getelementptr inbounds %struct._PyTupleIterObject, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %it_seq, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %iter, align 8
-  %3 = load ptr, ptr %it.addr, align 8
-  %it_seq1 = getelementptr inbounds %struct._PyTupleIterObject, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %it_seq1, align 8
+  %4 = load ptr, ptr %iter, align 8
   %5 = load ptr, ptr %it.addr, align 8
-  %it_index = getelementptr inbounds %struct._PyTupleIterObject, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %it_index, align 8
-  %call2 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.22, ptr noundef %2, ptr noundef %4, i64 noundef %6)
+  %it_seq1 = getelementptr inbounds %struct._PyTupleIterObject, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %it_seq1, align 8
+  %7 = load ptr, ptr %it.addr, align 8
+  %it_index = getelementptr inbounds %struct._PyTupleIterObject, ptr %7, i32 0, i32 1
+  %8 = load i64, ptr %it_index, align 8
+  %call2 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.22, ptr noundef %4, ptr noundef %6, i64 noundef %8)
   store ptr %call2, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %7 = load ptr, ptr %iter, align 8
-  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.23, ptr noundef %7)
+  %9 = load ptr, ptr %iter, align 8
+  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.23, ptr noundef %9)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5483,14 +5483,20 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

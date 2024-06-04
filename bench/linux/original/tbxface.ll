@@ -28,10 +28,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_remove_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_allocate_root_table(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  store i32 %0, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %2 = tail call i32 @acpi_tb_resize_root_table_list() #6
-  ret i32 %2
+  %2 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2
+  store i32 %0, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  store i8 2, ptr %3, align 8
+  %4 = tail call i32 @acpi_tb_resize_root_table_list() #6
+  ret i32 %4
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -40,38 +42,42 @@ declare dso_local i32 @acpi_tb_resize_root_table_list() local_unnamed_addr #1
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @acpi_initialize_tables(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 section ".init.text" align 16 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %5, label %8
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  store i32 %1, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2), align 4
-  store i8 2, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %6 = tail call i32 @acpi_tb_resize_root_table_list() #6
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %13, label %18
+  %6 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2
+  store i32 %1, ptr %6, align 4
+  %7 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  store i8 2, ptr %7, align 8
+  %8 = tail call i32 @acpi_tb_resize_root_table_list() #6
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %17, label %22
 
-8:                                                ; preds = %3
-  %9 = zext i32 %1 to i64
-  %10 = shl nuw nsw i64 %9, 5
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %10, i1 false)
+10:                                               ; preds = %3
+  %11 = zext i32 %1 to i64
+  %12 = shl nuw nsw i64 %11, 5
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %12, i1 false)
   store ptr %0, ptr @acpi_gbl_root_table_list, align 8
-  store i32 %1, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2), align 4
-  %11 = icmp eq i8 %2, 0
-  %12 = select i1 %11, i8 0, i8 2
-  store i8 %12, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  br label %13
+  %13 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 2
+  store i32 %1, ptr %13, align 4
+  %14 = icmp eq i8 %2, 0
+  %15 = select i1 %14, i8 0, i8 2
+  %16 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  store i8 %15, ptr %16, align 8
+  br label %17
 
-13:                                               ; preds = %8, %5
-  %14 = tail call i64 @acpi_os_get_root_pointer() #6
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %18, label %16
+17:                                               ; preds = %10, %5
+  %18 = tail call i64 @acpi_os_get_root_pointer() #6
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %22, label %20
 
-16:                                               ; preds = %13
-  %17 = tail call i32 @acpi_tb_parse_root_table(i64 noundef %14) #6
-  br label %18
+20:                                               ; preds = %17
+  %21 = tail call i32 @acpi_tb_parse_root_table(i64 noundef %18) #6
+  br label %22
 
-18:                                               ; preds = %16, %13, %5
-  %19 = phi i32 [ %17, %16 ], [ %6, %5 ], [ 5, %13 ]
-  ret i32 %19
+22:                                               ; preds = %20, %17, %5
+  %23 = phi i32 [ %21, %20 ], [ %8, %5 ], [ 5, %17 ]
+  ret i32 %23
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -94,93 +100,102 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
   store i32 0, ptr %1, align 4, !annotation !5
-  %2 = load i8, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
-  %6 = icmp ne i8 %5, 0
-  %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %56, label %8
+  %2 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  %3 = load i8, ptr %2, align 8
+  %4 = and i8 %3, 1
+  %5 = icmp ne i8 %4, 0
+  %6 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
+  %7 = icmp ne i8 %6, 0
+  %8 = select i1 %5, i1 %7, i1 false
+  br i1 %8, label %65, label %9
 
-8:                                                ; preds = %0
-  %9 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
-  %10 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %26, label %12
+9:                                                ; preds = %0
+  %10 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
+  %11 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %29, label %14
 
-12:                                               ; preds = %21, %8
-  %13 = phi i64 [ %22, %21 ], [ 0, %8 ]
-  %14 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %15 = getelementptr %struct.acpi_table_desc, ptr %14, i64 %13
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %21, label %19
+14:                                               ; preds = %23, %9
+  %15 = phi i64 [ %24, %23 ], [ 0, %9 ]
+  %16 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %17 = getelementptr %struct.acpi_table_desc, ptr %16, i64 %15
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %23, label %21
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %15, i64 20
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef %20) #6
-  br label %21
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %17, i64 20
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef %22) #6
+  br label %23
 
-21:                                               ; preds = %19, %12
-  %22 = add nuw nsw i64 %13, 1
-  %23 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %12, label %26, !llvm.loop !6
+23:                                               ; preds = %21, %14
+  %24 = add nuw nsw i64 %15, 1
+  %25 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %24, %27
+  br i1 %28, label %14, label %29, !llvm.loop !6
 
-26:                                               ; preds = %21, %8
-  %27 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %49
+29:                                               ; preds = %23, %9
+  %30 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %32, label %54
 
-29:                                               ; preds = %26
+32:                                               ; preds = %29
   store i8 1, ptr @acpi_gbl_enable_table_validation, align 1
-  %30 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %49, label %32
+  %33 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %54, label %36
 
-32:                                               ; preds = %44, %29
-  %33 = phi i64 [ %45, %44 ], [ 0, %29 ]
-  %34 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %35 = getelementptr %struct.acpi_table_desc, ptr %34, i64 %33
-  %36 = getelementptr inbounds i8, ptr %35, i64 26
-  %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 4
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %44
+36:                                               ; preds = %48, %32
+  %37 = phi i64 [ %49, %48 ], [ 0, %32 ]
+  %38 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %39 = getelementptr %struct.acpi_table_desc, ptr %38, i64 %37
+  %40 = getelementptr inbounds i8, ptr %39, i64 26
+  %41 = load i8, ptr %40, align 2
+  %42 = and i8 %41, 4
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %48
 
-40:                                               ; preds = %32
-  %41 = call i32 @acpi_tb_verify_temp_table(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1) #6
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %44, label %43
+44:                                               ; preds = %36
+  %45 = call i32 @acpi_tb_verify_temp_table(ptr noundef %39, ptr noundef null, ptr noundef nonnull %1) #6
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %48, label %47
 
-43:                                               ; preds = %40
-  call void @acpi_tb_uninstall_table(ptr noundef %35) #6
-  br label %44
+47:                                               ; preds = %44
+  call void @acpi_tb_uninstall_table(ptr noundef %39) #6
+  br label %48
 
-44:                                               ; preds = %43, %40, %32
-  %45 = add nuw nsw i64 %33, 1
-  %46 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %45, %47
-  br i1 %48, label %32, label %49, !llvm.loop !9
+48:                                               ; preds = %47, %44, %36
+  %49 = add nuw nsw i64 %37, 1
+  %50 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  %52 = zext i32 %51 to i64
+  %53 = icmp ult i64 %49, %52
+  br i1 %53, label %36, label %54, !llvm.loop !9
 
-49:                                               ; preds = %44, %29, %26
-  %50 = load i8, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %51 = or i8 %50, 2
-  store i8 %51, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %52 = call i32 @acpi_tb_resize_root_table_list() #6
-  %53 = load i8, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %54 = or i8 %53, 1
-  store i8 %54, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
-  %55 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
-  br label %56
+54:                                               ; preds = %48, %32, %29
+  %55 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  %56 = load i8, ptr %55, align 8
+  %57 = or i8 %56, 2
+  %58 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  store i8 %57, ptr %58, align 8
+  %59 = call i32 @acpi_tb_resize_root_table_list() #6
+  %60 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  %61 = load i8, ptr %60, align 8
+  %62 = or i8 %61, 1
+  %63 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3
+  store i8 %62, ptr %63, align 8
+  %64 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
+  br label %65
 
-56:                                               ; preds = %49, %0
-  %57 = phi i32 [ %52, %49 ], [ 15, %0 ]
+65:                                               ; preds = %54, %0
+  %66 = phi i32 [ %59, %54 ], [ 15, %0 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
-  ret i32 %57
+  ret i32 %66
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -203,70 +218,71 @@ define dso_local noundef i32 @acpi_get_table_header(ptr noundef readonly %0, i32
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %43
+  br i1 %6, label %7, label %44
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %43, label %10
+  %8 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %44, label %11
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %12 = load i32, ptr %0, align 4
-  %13 = zext i32 %8 to i64
-  br label %14
+11:                                               ; preds = %7
+  %12 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %13 = load i32, ptr %0, align 4
+  %14 = zext i32 %9 to i64
+  br label %15
 
-14:                                               ; preds = %39, %10
-  %15 = phi i64 [ 0, %10 ], [ %41, %39 ]
-  %16 = phi i32 [ 0, %10 ], [ %40, %39 ]
-  %17 = getelementptr %struct.acpi_table_desc, ptr %11, i64 %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, %12
-  br i1 %20, label %21, label %39
+15:                                               ; preds = %40, %11
+  %16 = phi i64 [ 0, %11 ], [ %42, %40 ]
+  %17 = phi i32 [ 0, %11 ], [ %41, %40 ]
+  %18 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %16
+  %19 = getelementptr inbounds i8, ptr %18, i64 20
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, %13
+  br i1 %21, label %22, label %40
 
-21:                                               ; preds = %14
-  %22 = add i32 %16, 1
-  %23 = icmp ult i32 %22, %1
-  br i1 %23, label %39, label %24
+22:                                               ; preds = %15
+  %23 = add i32 %17, 1
+  %24 = icmp ult i32 %23, %1
+  br i1 %24, label %40, label %25
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %38
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %17, i64 26
-  %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 3
-  %32 = icmp eq i8 %31, 1
-  br i1 %32, label %33, label %43
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %18, i64 26
+  %31 = load i8, ptr %30, align 2
+  %32 = and i8 %31, 3
+  %33 = icmp eq i8 %32, 1
+  br i1 %33, label %34, label %44
 
-33:                                               ; preds = %28
-  %34 = load i64, ptr %17, align 8
-  %35 = tail call ptr @acpi_os_map_memory(i64 noundef %34, i64 noundef 36) #6
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %43, label %37
+34:                                               ; preds = %29
+  %35 = load i64, ptr %18, align 8
+  %36 = tail call ptr @acpi_os_map_memory(i64 noundef %35, i64 noundef 36) #6
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %44, label %38
 
-37:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %2, ptr noundef nonnull align 1 dereferenceable(36) %35, i64 36, i1 false)
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %35, i64 noundef 36) #6
-  br label %43
+38:                                               ; preds = %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %2, ptr noundef nonnull align 1 dereferenceable(36) %36, i64 36, i1 false)
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %36, i64 noundef 36) #6
+  br label %44
 
-38:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %2, ptr noundef nonnull align 1 dereferenceable(36) %26, i64 36, i1 false)
-  br label %43
+39:                                               ; preds = %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %2, ptr noundef nonnull align 1 dereferenceable(36) %27, i64 36, i1 false)
+  br label %44
 
-39:                                               ; preds = %21, %14
-  %40 = phi i32 [ %22, %21 ], [ %16, %14 ]
-  %41 = add nuw nsw i64 %15, 1
-  %42 = icmp eq i64 %41, %13
-  br i1 %42, label %43, label %14, !llvm.loop !10
+40:                                               ; preds = %22, %15
+  %41 = phi i32 [ %23, %22 ], [ %17, %15 ]
+  %42 = add nuw nsw i64 %16, 1
+  %43 = icmp eq i64 %42, %14
+  br i1 %43, label %44, label %15, !llvm.loop !10
 
-43:                                               ; preds = %39, %38, %37, %33, %28, %7, %3
-  %44 = phi i32 [ 4097, %3 ], [ 4, %33 ], [ 5, %28 ], [ 0, %38 ], [ 0, %37 ], [ 5, %7 ], [ 5, %39 ]
-  ret i32 %44
+44:                                               ; preds = %40, %39, %38, %34, %29, %7, %3
+  %45 = phi i32 [ 4097, %3 ], [ 4, %34 ], [ 5, %29 ], [ 0, %39 ], [ 0, %38 ], [ 5, %7 ], [ 5, %40 ]
+  ret i32 %45
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -283,53 +299,54 @@ define dso_local i32 @acpi_get_table(ptr noundef readonly %0, i32 noundef %1, pt
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %34
+  br i1 %6, label %7, label %35
 
 7:                                                ; preds = %3
   store ptr null, ptr %2, align 8
   %8 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
-  %9 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %31, label %11
+  %9 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %32, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %13 = load i32, ptr %0, align 4
-  %14 = zext i32 %9 to i64
-  br label %15
+12:                                               ; preds = %7
+  %13 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %14 = load i32, ptr %0, align 4
+  %15 = zext i32 %10 to i64
+  br label %16
 
-15:                                               ; preds = %27, %11
-  %16 = phi i64 [ 0, %11 ], [ %29, %27 ]
-  %17 = phi i32 [ 0, %11 ], [ %28, %27 ]
-  %18 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %16
-  %19 = getelementptr inbounds i8, ptr %18, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, %13
-  br i1 %21, label %22, label %27
+16:                                               ; preds = %28, %12
+  %17 = phi i64 [ 0, %12 ], [ %30, %28 ]
+  %18 = phi i32 [ 0, %12 ], [ %29, %28 ]
+  %19 = getelementptr %struct.acpi_table_desc, ptr %13, i64 %17
+  %20 = getelementptr inbounds i8, ptr %19, i64 20
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, %14
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %15
-  %23 = add i32 %17, 1
-  %24 = icmp ult i32 %23, %1
-  br i1 %24, label %27, label %25
+23:                                               ; preds = %16
+  %24 = add i32 %18, 1
+  %25 = icmp ult i32 %24, %1
+  br i1 %25, label %28, label %26
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @acpi_tb_get_table(ptr noundef %18, ptr noundef nonnull %2) #6
-  br label %31
+26:                                               ; preds = %23
+  %27 = tail call i32 @acpi_tb_get_table(ptr noundef %19, ptr noundef nonnull %2) #6
+  br label %32
 
-27:                                               ; preds = %22, %15
-  %28 = phi i32 [ %23, %22 ], [ %17, %15 ]
-  %29 = add nuw nsw i64 %16, 1
-  %30 = icmp eq i64 %29, %14
-  br i1 %30, label %31, label %15, !llvm.loop !11
+28:                                               ; preds = %23, %16
+  %29 = phi i32 [ %24, %23 ], [ %18, %16 ]
+  %30 = add nuw nsw i64 %17, 1
+  %31 = icmp eq i64 %30, %15
+  br i1 %31, label %32, label %16, !llvm.loop !11
 
-31:                                               ; preds = %27, %25, %7
-  %32 = phi i32 [ %26, %25 ], [ 5, %7 ], [ 5, %27 ]
-  %33 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
-  br label %34
+32:                                               ; preds = %28, %26, %7
+  %33 = phi i32 [ %27, %26 ], [ 5, %7 ], [ 5, %28 ]
+  %34 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
+  br label %35
 
-34:                                               ; preds = %31, %3
-  %35 = phi i32 [ %32, %31 ], [ 4097, %3 ]
-  ret i32 %35
+35:                                               ; preds = %32, %3
+  %36 = phi i32 [ %33, %32 ], [ 4097, %3 ]
+  ret i32 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -338,41 +355,42 @@ declare dso_local i32 @acpi_tb_get_table(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_put_table(ptr noundef readnone %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %22, label %3
+  br i1 %2, label %23, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
-  %5 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %20, label %7
+  %5 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %21, label %8
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  br label %12
+8:                                                ; preds = %3
+  %9 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  br label %13
 
-9:                                                ; preds = %12
-  %10 = add nuw i32 %13, 1
-  %11 = icmp eq i32 %10, %5
-  br i1 %11, label %20, label %12, !llvm.loop !12
+10:                                               ; preds = %13
+  %11 = add nuw i32 %14, 1
+  %12 = icmp eq i32 %11, %6
+  br i1 %12, label %21, label %13, !llvm.loop !12
 
-12:                                               ; preds = %9, %7
-  %13 = phi i32 [ 0, %7 ], [ %10, %9 ]
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct.acpi_table_desc, ptr %8, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %0
-  br i1 %18, label %19, label %9
+13:                                               ; preds = %10, %8
+  %14 = phi i32 [ 0, %8 ], [ %11, %10 ]
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr %struct.acpi_table_desc, ptr %9, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, %0
+  br i1 %19, label %20, label %10
 
-19:                                               ; preds = %12
-  tail call void @acpi_tb_put_table(ptr noundef %15) #6
-  br label %20
+20:                                               ; preds = %13
+  tail call void @acpi_tb_put_table(ptr noundef %16) #6
+  br label %21
 
-20:                                               ; preds = %19, %9, %3
-  %21 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
-  br label %22
+21:                                               ; preds = %20, %10, %3
+  %22 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
+  br label %23
 
-22:                                               ; preds = %20, %1
+23:                                               ; preds = %21, %1
   ret void
 }
 
@@ -382,30 +400,31 @@ declare dso_local void @acpi_tb_put_table(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_get_table_by_index(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %2
   store ptr null, ptr %1, align 8
   %5 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
-  %6 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
-  %7 = icmp ugt i32 %6, %0
-  br i1 %7, label %8, label %13
+  %6 = getelementptr inbounds %struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ugt i32 %7, %0
+  br i1 %8, label %9, label %14
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %10 = zext i32 %0 to i64
-  %11 = getelementptr %struct.acpi_table_desc, ptr %9, i64 %10
-  %12 = tail call i32 @acpi_tb_get_table(ptr noundef %11, ptr noundef nonnull %1) #6
-  br label %13
+9:                                                ; preds = %4
+  %10 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %11 = zext i32 %0 to i64
+  %12 = getelementptr %struct.acpi_table_desc, ptr %10, i64 %11
+  %13 = tail call i32 @acpi_tb_get_table(ptr noundef %12, ptr noundef nonnull %1) #6
+  br label %14
 
-13:                                               ; preds = %8, %4
-  %14 = phi i32 [ %12, %8 ], [ 4097, %4 ]
-  %15 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
-  br label %16
+14:                                               ; preds = %9, %4
+  %15 = phi i32 [ %13, %9 ], [ 4097, %4 ]
+  %16 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
+  br label %17
 
-16:                                               ; preds = %13, %2
-  %17 = phi i32 [ %14, %13 ], [ 4097, %2 ]
-  ret i32 %17
+17:                                               ; preds = %14, %2
+  %18 = phi i32 [ %15, %14 ], [ 4097, %2 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

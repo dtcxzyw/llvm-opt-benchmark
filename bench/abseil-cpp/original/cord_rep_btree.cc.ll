@@ -3607,8 +3607,10 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 443, ptr noundef @.str.4, ptr noundef @.str.5)
+  %1 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %2, i32 noundef 443, ptr noundef @.str.4, ptr noundef @.str.5)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -3616,16 +3618,18 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %tree.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %3 = load ptr, ptr %tree.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   br i1 %call, label %if.end5, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then1
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename3, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 444, ptr noundef @.str.4, ptr noundef @.str.6)
+  %4 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %4, ptr %absl_raw_log_internal_basename3, align 8
+  %5 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %5, i32 noundef 444, ptr noundef @.str.4, ptr noundef @.str.6)
   br label %do.end4
 
 do.end4:                                          ; preds = %do.body2
@@ -3633,8 +3637,8 @@ do.end4:                                          ; preds = %do.body2
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tree.addr, align 8
-  %call6 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %6 = load ptr, ptr %tree.addr, align 8
+  %call6 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
   %cmp7 = icmp sle i32 %call6, 11
   br i1 %cmp7, label %if.end12, label %if.then8
 
@@ -3642,8 +3646,10 @@ if.then8:                                         ; preds = %if.end5
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then8
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename10, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 445, ptr noundef @.str.4, ptr noundef @.str.7)
+  %7 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %7, ptr %absl_raw_log_internal_basename10, align 8
+  %8 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %8, i32 noundef 445, ptr noundef @.str.4, ptr noundef @.str.7)
   br label %do.end11
 
 do.end11:                                         ; preds = %do.body9
@@ -3651,10 +3657,10 @@ do.end11:                                         ; preds = %do.body9
   br label %return
 
 if.end12:                                         ; preds = %if.end5
-  %3 = load ptr, ptr %tree.addr, align 8
-  %call13 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %4 = load ptr, ptr %tree.addr, align 8
-  %call14 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %9 = load ptr, ptr %tree.addr, align 8
+  %call13 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %10 = load ptr, ptr %tree.addr, align 8
+  %call14 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
   %cmp15 = icmp ult i64 %call13, %call14
   br i1 %cmp15, label %if.end20, label %if.then16
 
@@ -3662,8 +3668,10 @@ if.then16:                                        ; preds = %if.end12
   br label %do.body17
 
 do.body17:                                        ; preds = %if.then16
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename18, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 446, ptr noundef @.str.4, ptr noundef @.str.8)
+  %11 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %11, ptr %absl_raw_log_internal_basename18, align 8
+  %12 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %12, i32 noundef 446, ptr noundef @.str.4, ptr noundef @.str.8)
   br label %do.end19
 
 do.end19:                                         ; preds = %do.body17
@@ -3671,10 +3679,10 @@ do.end19:                                         ; preds = %do.body17
   br label %return
 
 if.end20:                                         ; preds = %if.end12
-  %5 = load ptr, ptr %tree.addr, align 8
-  %call21 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %6 = load ptr, ptr %tree.addr, align 8
-  %call22 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
+  %13 = load ptr, ptr %tree.addr, align 8
+  %call21 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %14 = load ptr, ptr %tree.addr, align 8
+  %call22 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
   %cmp23 = icmp ule i64 %call21, %call22
   br i1 %cmp23, label %if.end28, label %if.then24
 
@@ -3682,8 +3690,10 @@ if.then24:                                        ; preds = %if.end20
   br label %do.body25
 
 do.body25:                                        ; preds = %if.then24
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename26, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 447, ptr noundef @.str.4, ptr noundef @.str.9)
+  %15 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %15, ptr %absl_raw_log_internal_basename26, align 8
+  %16 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %16, i32 noundef 447, ptr noundef @.str.4, ptr noundef @.str.9)
   br label %do.end27
 
 do.end27:                                         ; preds = %do.body25
@@ -3691,10 +3701,10 @@ do.end27:                                         ; preds = %do.body25
   br label %return
 
 if.end28:                                         ; preds = %if.end20
-  %7 = load ptr, ptr %tree.addr, align 8
-  %call29 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-  %8 = load ptr, ptr %tree.addr, align 8
-  %call30 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  %17 = load ptr, ptr %tree.addr, align 8
+  %call29 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree5beginEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = load ptr, ptr %tree.addr, align 8
+  %call30 = call noundef i64 @_ZNK4absl13cord_internal12CordRepBtree3endEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
   %cmp31 = icmp ule i64 %call29, %call30
   br i1 %cmp31, label %if.end36, label %if.then32
 
@@ -3702,8 +3712,10 @@ if.then32:                                        ; preds = %if.end28
   br label %do.body33
 
 do.body33:                                        ; preds = %if.then32
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename34, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 448, ptr noundef @.str.4, ptr noundef @.str.10)
+  %19 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %19, ptr %absl_raw_log_internal_basename34, align 8
+  %20 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %20, i32 noundef 448, ptr noundef @.str.4, ptr noundef @.str.10)
   br label %do.end35
 
 do.end35:                                         ; preds = %do.body33
@@ -3712,43 +3724,45 @@ do.end35:                                         ; preds = %do.body33
 
 if.end36:                                         ; preds = %if.end28
   store i64 0, ptr %child_length, align 8
-  %9 = load ptr, ptr %tree.addr, align 8
-  %call37 = call { ptr, i64 } @_ZNK4absl13cord_internal12CordRepBtree5EdgesEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %11 = extractvalue { ptr, i64 } %call37, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %13 = extractvalue { ptr, i64 } %call37, 1
-  store i64 %13, ptr %12, align 8
+  %21 = load ptr, ptr %tree.addr, align 8
+  %call37 = call { ptr, i64 } @_ZNK4absl13cord_internal12CordRepBtree5EdgesEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
+  %22 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %23 = extractvalue { ptr, i64 } %call37, 0
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %25 = extractvalue { ptr, i64 } %call37, 1
+  store i64 %25, ptr %24, align 8
   store ptr %ref.tmp, ptr %__range2, align 8
-  %14 = load ptr, ptr %__range2, align 8
-  %call38 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  %26 = load ptr, ptr %__range2, align 8
+  %call38 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
   store ptr %call38, ptr %__begin2, align 8
-  %15 = load ptr, ptr %__range2, align 8
-  %call39 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
+  %27 = load ptr, ptr %__range2, align 8
+  %call39 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
   store ptr %call39, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end36
-  %16 = load ptr, ptr %__begin2, align 8
-  %17 = load ptr, ptr %__end2, align 8
-  %cmp40 = icmp ne ptr %16, %17
+  %28 = load ptr, ptr %__begin2, align 8
+  %29 = load ptr, ptr %__end2, align 8
+  %cmp40 = icmp ne ptr %28, %29
   br i1 %cmp40, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %18 = load ptr, ptr %__begin2, align 8
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %edge, align 8
-  %20 = load ptr, ptr %edge, align 8
-  %cmp41 = icmp ne ptr %20, null
+  %30 = load ptr, ptr %__begin2, align 8
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %edge, align 8
+  %32 = load ptr, ptr %edge, align 8
+  %cmp41 = icmp ne ptr %32, null
   br i1 %cmp41, label %if.end46, label %if.then42
 
 if.then42:                                        ; preds = %for.body
   br label %do.body43
 
 do.body43:                                        ; preds = %if.then42
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename44, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 451, ptr noundef @.str.4, ptr noundef @.str.11)
+  %33 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %33, ptr %absl_raw_log_internal_basename44, align 8
+  %34 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %34, i32 noundef 451, ptr noundef @.str.4, ptr noundef @.str.11)
   br label %do.end45
 
 do.end45:                                         ; preds = %do.body43
@@ -3756,22 +3770,24 @@ do.end45:                                         ; preds = %do.body43
   br label %return
 
 if.end46:                                         ; preds = %for.body
-  %21 = load ptr, ptr %tree.addr, align 8
-  %call47 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
+  %35 = load ptr, ptr %tree.addr, align 8
+  %call47 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %35)
   %cmp48 = icmp sgt i32 %call47, 0
   br i1 %cmp48, label %if.then49, label %if.else
 
 if.then49:                                        ; preds = %if.end46
-  %22 = load ptr, ptr %edge, align 8
-  %call50 = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %36 = load ptr, ptr %edge, align 8
+  %call50 = call noundef zeroext i1 @_ZNK4absl13cord_internal7CordRep7IsBtreeEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
   br i1 %call50, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %if.then49
   br label %do.body52
 
 do.body52:                                        ; preds = %if.then51
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename53, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 453, ptr noundef @.str.4, ptr noundef @.str.12)
+  %37 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %37, ptr %absl_raw_log_internal_basename53, align 8
+  %38 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %38, i32 noundef 453, ptr noundef @.str.4, ptr noundef @.str.12)
   br label %do.end54
 
 do.end54:                                         ; preds = %do.body52
@@ -3779,11 +3795,11 @@ do.end54:                                         ; preds = %do.body52
   br label %return
 
 if.end55:                                         ; preds = %if.then49
-  %23 = load ptr, ptr %edge, align 8
-  %call56 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %39 = load ptr, ptr %edge, align 8
+  %call56 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
   %call57 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %call56)
-  %24 = load ptr, ptr %tree.addr, align 8
-  %call58 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %40 = load ptr, ptr %tree.addr, align 8
+  %call58 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %40)
   %sub = sub nsw i32 %call58, 1
   %cmp59 = icmp eq i32 %call57, %sub
   br i1 %cmp59, label %if.end64, label %if.then60
@@ -3792,8 +3808,10 @@ if.then60:                                        ; preds = %if.end55
   br label %do.body61
 
 do.body61:                                        ; preds = %if.then60
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename62, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 454, ptr noundef @.str.4, ptr noundef @.str.13)
+  %41 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %41, ptr %absl_raw_log_internal_basename62, align 8
+  %42 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %42, i32 noundef 454, ptr noundef @.str.4, ptr noundef @.str.13)
   br label %do.end63
 
 do.end63:                                         ; preds = %do.body61
@@ -3804,16 +3822,18 @@ if.end64:                                         ; preds = %if.end55
   br label %if.end71
 
 if.else:                                          ; preds = %if.end46
-  %25 = load ptr, ptr %edge, align 8
-  %call65 = call noundef zeroext i1 @_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE(ptr noundef %25)
+  %43 = load ptr, ptr %edge, align 8
+  %call65 = call noundef zeroext i1 @_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE(ptr noundef %43)
   br i1 %call65, label %if.end70, label %if.then66
 
 if.then66:                                        ; preds = %if.else
   br label %do.body67
 
 do.body67:                                        ; preds = %if.then66
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename68, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 456, ptr noundef @.str.4, ptr noundef @.str.14)
+  %44 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %44, ptr %absl_raw_log_internal_basename68, align 8
+  %45 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %45, i32 noundef 456, ptr noundef @.str.4, ptr noundef @.str.14)
   br label %do.end69
 
 do.end69:                                         ; preds = %do.body67
@@ -3824,41 +3844,42 @@ if.end70:                                         ; preds = %if.else
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end70, %if.end64
-  %26 = load ptr, ptr %edge, align 8
-  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %26, i32 0, i32 0
-  %27 = load i64, ptr %length, align 8
-  %28 = load i64, ptr %child_length, align 8
-  %add = add i64 %28, %27
+  %46 = load ptr, ptr %edge, align 8
+  %length = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %46, i32 0, i32 0
+  %47 = load i64, ptr %length, align 8
+  %48 = load i64, ptr %child_length, align 8
+  %add = add i64 %48, %47
   store i64 %add, ptr %child_length, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end71
-  %29 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %29, i32 1
+  %49 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %49, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %30 = load i64, ptr %child_length, align 8
-  %31 = load ptr, ptr %tree.addr, align 8
-  %length72 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %31, i32 0, i32 0
-  %32 = load i64, ptr %length72, align 8
-  %cmp73 = icmp ne i64 %30, %32
+  %50 = load i64, ptr %child_length, align 8
+  %51 = load ptr, ptr %tree.addr, align 8
+  %length72 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %51, i32 0, i32 0
+  %52 = load i64, ptr %length72, align 8
+  %cmp73 = icmp ne i64 %50, %52
   br i1 %cmp73, label %if.then74, label %if.end88
 
 if.then74:                                        ; preds = %for.end
   br label %do.body75
 
 do.body75:                                        ; preds = %if.then74
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename76, align 8
-  %33 = load i64, ptr %child_length, align 8
-  call void @_ZN4absl8AlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp78, i64 noundef %33)
+  %53 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %53, ptr %absl_raw_log_internal_basename76, align 8
+  %54 = load i64, ptr %child_length, align 8
+  call void @_ZN4absl8AlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp78, i64 noundef %54)
   call void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp78)
   %call79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #3
-  %34 = load ptr, ptr %tree.addr, align 8
-  %length82 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %34, i32 0, i32 0
-  %35 = load i64, ptr %length82, align 8
-  invoke void @_ZN4absl8AlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp81, i64 noundef %35)
+  %55 = load ptr, ptr %tree.addr, align 8
+  %length82 = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %55, i32 0, i32 0
+  %56 = load i64, ptr %length82, align 8
+  invoke void @_ZN4absl8AlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp81, i64 noundef %56)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body75
@@ -3867,7 +3888,8 @@ invoke.cont:                                      ; preds = %do.body75
 
 invoke.cont83:                                    ; preds = %invoke.cont
   %call84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #3
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 460, ptr noundef @.str.15, ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef %call79, ptr noundef %call84)
+  %57 = getelementptr i8, ptr @.str.3, i64 121
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %57, i32 noundef 460, ptr noundef @.str.15, ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef %call79, ptr noundef %call84)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont83
@@ -3880,21 +3902,21 @@ do.end87:                                         ; preds = %invoke.cont86
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %do.body75
-  %36 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %exn.slot, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad85:                                           ; preds = %invoke.cont83
-  %39 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %exn.slot, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #3
   br label %ehcleanup
 
@@ -3903,8 +3925,8 @@ ehcleanup:                                        ; preds = %lpad85, %lpad
   br label %eh.resume
 
 if.end88:                                         ; preds = %for.end
-  %42 = load i8, ptr %shallow.addr, align 1
-  %tobool = trunc i8 %42 to i1
+  %64 = load i8, ptr %shallow.addr, align 1
+  %tobool = trunc i8 %64 to i1
   br i1 %tobool, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.end88
@@ -3912,43 +3934,43 @@ lor.lhs.false:                                    ; preds = %if.end88
   br i1 %call89, label %land.lhs.true, label %if.end109
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end88
-  %43 = load ptr, ptr %tree.addr, align 8
-  %call90 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %43)
+  %65 = load ptr, ptr %tree.addr, align 8
+  %call90 = call noundef i32 @_ZNK4absl13cord_internal12CordRepBtree6heightEv(ptr noundef nonnull align 8 dereferenceable(64) %65)
   %cmp91 = icmp sgt i32 %call90, 0
   br i1 %cmp91, label %if.then92, label %if.end109
 
 if.then92:                                        ; preds = %land.lhs.true
-  %44 = load ptr, ptr %tree.addr, align 8
-  %call94 = call { ptr, i64 } @_ZNK4absl13cord_internal12CordRepBtree5EdgesEv(ptr noundef nonnull align 8 dereferenceable(64) %44)
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp93, i32 0, i32 0
-  %46 = extractvalue { ptr, i64 } %call94, 0
-  store ptr %46, ptr %45, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp93, i32 0, i32 1
-  %48 = extractvalue { ptr, i64 } %call94, 1
-  store i64 %48, ptr %47, align 8
+  %66 = load ptr, ptr %tree.addr, align 8
+  %call94 = call { ptr, i64 } @_ZNK4absl13cord_internal12CordRepBtree5EdgesEv(ptr noundef nonnull align 8 dereferenceable(64) %66)
+  %67 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp93, i32 0, i32 0
+  %68 = extractvalue { ptr, i64 } %call94, 0
+  store ptr %68, ptr %67, align 8
+  %69 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp93, i32 0, i32 1
+  %70 = extractvalue { ptr, i64 } %call94, 1
+  store i64 %70, ptr %69, align 8
   store ptr %ref.tmp93, ptr %__range3, align 8
-  %49 = load ptr, ptr %__range3, align 8
-  %call95 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+  %71 = load ptr, ptr %__range3, align 8
+  %call95 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #3
   store ptr %call95, ptr %__begin3, align 8
-  %50 = load ptr, ptr %__range3, align 8
-  %call96 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #3
+  %72 = load ptr, ptr %__range3, align 8
+  %call96 = call noundef ptr @_ZNK4absl4SpanIKPNS_13cord_internal7CordRepEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #3
   store ptr %call96, ptr %__end3, align 8
   br label %for.cond97
 
 for.cond97:                                       ; preds = %for.inc106, %if.then92
-  %51 = load ptr, ptr %__begin3, align 8
-  %52 = load ptr, ptr %__end3, align 8
-  %cmp98 = icmp ne ptr %51, %52
+  %73 = load ptr, ptr %__begin3, align 8
+  %74 = load ptr, ptr %__end3, align 8
+  %cmp98 = icmp ne ptr %73, %74
   br i1 %cmp98, label %for.body99, label %for.end108
 
 for.body99:                                       ; preds = %for.cond97
-  %53 = load ptr, ptr %__begin3, align 8
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %edge100, align 8
-  %55 = load ptr, ptr %edge100, align 8
-  %call101 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
-  %56 = load i8, ptr %shallow.addr, align 1
-  %tobool102 = trunc i8 %56 to i1
+  %75 = load ptr, ptr %__begin3, align 8
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %edge100, align 8
+  %77 = load ptr, ptr %edge100, align 8
+  %call101 = call noundef ptr @_ZN4absl13cord_internal7CordRep5btreeEv(ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %78 = load i8, ptr %shallow.addr, align 1
+  %tobool102 = trunc i8 %78 to i1
   %call103 = call noundef zeroext i1 @_ZN4absl13cord_internal12CordRepBtree7IsValidEPKS1_b(ptr noundef %call101, i1 noundef zeroext %tobool102)
   br i1 %call103, label %if.end105, label %if.then104
 
@@ -3960,8 +3982,8 @@ if.end105:                                        ; preds = %for.body99
   br label %for.inc106
 
 for.inc106:                                       ; preds = %if.end105
-  %57 = load ptr, ptr %__begin3, align 8
-  %incdec.ptr107 = getelementptr inbounds ptr, ptr %57, i32 1
+  %79 = load ptr, ptr %__begin3, align 8
+  %incdec.ptr107 = getelementptr inbounds ptr, ptr %79, i32 1
   store ptr %incdec.ptr107, ptr %__begin3, align 8
   br label %for.cond97
 
@@ -3973,8 +3995,8 @@ if.end109:                                        ; preds = %for.end108, %land.l
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then104, %do.end87, %do.end69, %do.end63, %do.end54, %do.end45, %do.end35, %do.end27, %do.end19, %do.end11, %do.end4, %do.end
-  %58 = load i1, ptr %retval, align 1
-  ret i1 %58
+  %80 = load i1, ptr %retval, align 1
+  ret i1 %80
 
 eh.resume:                                        ; preds = %ehcleanup
   %exn = load ptr, ptr %exn.slot, align 8
@@ -10286,8 +10308,10 @@ if.then6:                                         ; preds = %do.body
   br label %do.body7
 
 do.body7:                                         ; preds = %if.then6
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 280, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43)
+  %8 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %8, ptr %absl_raw_log_internal_basename, align 8
+  %9 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 280, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43)
   br label %do.body8
 
 do.body8:                                         ; preds = %do.body7
@@ -10306,19 +10330,19 @@ do.end10:                                         ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %do.end10, %sw.bb
-  %8 = load ptr, ptr %tree.addr, align 8
-  store ptr %8, ptr %retval, align 8
+  %10 = load ptr, ptr %tree.addr, align 8
+  store ptr %10, ptr %retval, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %9 = load ptr, ptr %tree.addr, align 8
-  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %9)
+  %11 = load ptr, ptr %tree.addr, align 8
+  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %11)
   br label %sw.bb13
 
 sw.bb13:                                          ; preds = %sw.bb12, %entry
   %tree14 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtree::OpResult", ptr %result, i32 0, i32 0
-  %10 = load ptr, ptr %tree14, align 8
-  store ptr %10, ptr %retval, align 8
+  %12 = load ptr, ptr %tree14, align 8
+  store ptr %12, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -10329,13 +10353,13 @@ do.body15:                                        ; preds = %sw.epilog
 
 do.end16:                                         ; No predecessors!
   %tree17 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtree::OpResult", ptr %result, i32 0, i32 0
-  %11 = load ptr, ptr %tree17, align 8
-  store ptr %11, ptr %retval, align 8
+  %13 = load ptr, ptr %tree17, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end16, %sw.bb13, %if.end11
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10447,8 +10471,10 @@ if.then6:                                         ; preds = %do.body
   br label %do.body7
 
 do.body7:                                         ; preds = %if.then6
-  store ptr getelementptr (i8, ptr @.str.3, i64 121), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.3, i64 121), i32 noundef 280, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43)
+  %8 = getelementptr i8, ptr @.str.3, i64 121
+  store ptr %8, ptr %absl_raw_log_internal_basename, align 8
+  %9 = getelementptr i8, ptr @.str.3, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %9, i32 noundef 280, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef @.str.43)
   br label %do.body8
 
 do.body8:                                         ; preds = %do.body7
@@ -10467,19 +10493,19 @@ do.end10:                                         ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %do.end10, %sw.bb
-  %8 = load ptr, ptr %tree.addr, align 8
-  store ptr %8, ptr %retval, align 8
+  %10 = load ptr, ptr %tree.addr, align 8
+  store ptr %10, ptr %retval, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %9 = load ptr, ptr %tree.addr, align 8
-  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %9)
+  %11 = load ptr, ptr %tree.addr, align 8
+  call void @_ZN4absl13cord_internal7CordRep5UnrefEPS1_(ptr noundef %11)
   br label %sw.bb13
 
 sw.bb13:                                          ; preds = %sw.bb12, %entry
   %tree14 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtree::OpResult", ptr %result, i32 0, i32 0
-  %10 = load ptr, ptr %tree14, align 8
-  store ptr %10, ptr %retval, align 8
+  %12 = load ptr, ptr %tree14, align 8
+  store ptr %12, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -10490,13 +10516,13 @@ do.body15:                                        ; preds = %sw.epilog
 
 do.end16:                                         ; No predecessors!
   %tree17 = getelementptr inbounds %"struct.absl::cord_internal::CordRepBtree::OpResult", ptr %result, i32 0, i32 0
-  %11 = load ptr, ptr %tree17, align 8
-  store ptr %11, ptr %retval, align 8
+  %13 = load ptr, ptr %tree17, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end16, %sw.bb13, %if.end11
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable

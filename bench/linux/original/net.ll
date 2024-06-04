@@ -3861,7 +3861,7 @@ define dso_local i32 @io_accept(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 32
   %17 = icmp eq i16 %16, 0
-  br i1 %17, label %18, label %84
+  br i1 %17, label %18, label %85
 
 18:                                               ; preds = %11, %2
   %19 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3875,8 +3875,8 @@ define dso_local i32 @io_accept(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %27 = icmp ne i32 %26, 0
   br label %28
 
-28:                                               ; preds = %79, %18
-  %29 = phi i32 [ %36, %79 ], [ 0, %18 ]
+28:                                               ; preds = %80, %18
+  %29 = phi i32 [ %36, %80 ], [ 0, %18 ]
   br i1 %8, label %30, label %35
 
 30:                                               ; preds = %28
@@ -3884,7 +3884,7 @@ define dso_local i32 @io_accept(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %32 = load i64, ptr %20, align 8
   %33 = tail call i32 @__get_unused_fd_flags(i32 noundef %31, i64 noundef %32) #11
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %84, label %35, !prof !10
+  br i1 %34, label %85, label %35, !prof !10
 
 35:                                               ; preds = %30, %28
   %36 = phi i32 [ %29, %28 ], [ %33, %30 ]
@@ -3893,86 +3893,87 @@ define dso_local i32 @io_accept(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %39 = load ptr, ptr %22, align 8
   %40 = load i32, ptr %23, align 8
   %41 = tail call ptr @do_accept(ptr noundef %37, i32 noundef %5, ptr noundef %38, ptr noundef %39, i32 noundef %40) #11
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %43, label %64
+  %42 = inttoptr i64 -4096 to ptr
+  %43 = icmp ugt ptr %41, %42
+  br i1 %43, label %44, label %65
 
-43:                                               ; preds = %35
-  br i1 %8, label %44, label %45
+44:                                               ; preds = %35
+  br i1 %8, label %45, label %46
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   tail call void @put_unused_fd(i32 noundef %36) #11
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %43
-  %46 = ptrtoint ptr %41 to i64
-  %47 = trunc i64 %46 to i32
-  %48 = icmp ne i32 %47, -11
-  %49 = or i1 %3, %48
-  br i1 %49, label %54, label %50
+46:                                               ; preds = %45, %44
+  %47 = ptrtoint ptr %41 to i64
+  %48 = trunc i64 %47 to i32
+  %49 = icmp ne i32 %48, -11
+  %50 = or i1 %3, %49
+  br i1 %50, label %55, label %51
 
-50:                                               ; preds = %45
-  %51 = and i32 %1, 4
-  %52 = icmp eq i32 %51, 0
-  %53 = select i1 %52, i32 -11, i32 -529
-  br label %84
+51:                                               ; preds = %46
+  %52 = and i32 %1, 4
+  %53 = icmp eq i32 %52, 0
+  %54 = select i1 %53, i32 -11, i32 -529
+  br label %85
 
-54:                                               ; preds = %45
-  %55 = icmp eq i32 %47, -512
-  %56 = select i1 %55, i32 -4, i32 %47
-  %57 = load i32, ptr %24, align 4
-  %58 = or i32 %57, 256
-  %59 = and i32 %57, 64
-  %60 = icmp eq i32 %59, 0
-  %61 = and i32 %58, -4194369
-  %62 = or disjoint i32 %61, 4194304
-  %63 = select i1 %60, i32 %58, i32 %62
-  store i32 %63, ptr %24, align 4
-  br label %69
+55:                                               ; preds = %46
+  %56 = icmp eq i32 %48, -512
+  %57 = select i1 %56, i32 -4, i32 %48
+  %58 = load i32, ptr %24, align 4
+  %59 = or i32 %58, 256
+  %60 = and i32 %58, 64
+  %61 = icmp eq i32 %60, 0
+  %62 = and i32 %59, -4194369
+  %63 = or disjoint i32 %62, 4194304
+  %64 = select i1 %61, i32 %59, i32 %63
+  store i32 %64, ptr %24, align 4
+  br label %70
 
-64:                                               ; preds = %35
-  br i1 %8, label %65, label %66
+65:                                               ; preds = %35
+  br i1 %8, label %66, label %67
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   tail call void @fd_install(i32 noundef %36, ptr noundef %41) #11
-  br label %69
+  br label %70
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr %6, align 4
-  %68 = tail call i32 @io_fixed_fd_install(ptr noundef %0, i32 noundef %1, ptr noundef %41, i32 noundef %67) #11
-  br label %69
+67:                                               ; preds = %65
+  %68 = load i32, ptr %6, align 4
+  %69 = tail call i32 @io_fixed_fd_install(ptr noundef %0, i32 noundef %1, ptr noundef %41, i32 noundef %68) #11
+  br label %70
 
-69:                                               ; preds = %66, %65, %54
-  %70 = phi i32 [ %56, %54 ], [ %68, %66 ], [ %36, %65 ]
-  %71 = load i32, ptr %25, align 4
-  %72 = and i32 %71, 67108864
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %77
+70:                                               ; preds = %67, %66, %55
+  %71 = phi i32 [ %57, %55 ], [ %69, %67 ], [ %36, %66 ]
+  %72 = load i32, ptr %25, align 4
+  %73 = and i32 %72, 67108864
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %78
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %70, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %76, align 4
-  br label %84
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %71, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %77, align 4
+  br label %85
 
-77:                                               ; preds = %69
-  %78 = icmp slt i32 %70, 0
-  br i1 %78, label %84, label %79
+78:                                               ; preds = %70
+  %79 = icmp slt i32 %71, 0
+  br i1 %79, label %85, label %80
 
-79:                                               ; preds = %77
-  %80 = tail call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %27, i32 noundef %70, i32 noundef 2) #11
-  br i1 %80, label %28, label %81
+80:                                               ; preds = %78
+  %81 = tail call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %27, i32 noundef %71, i32 noundef 2) #11
+  br i1 %81, label %28, label %82
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %70, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %83, align 4
-  br label %84
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %71, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %84, align 4
+  br label %85
 
-84:                                               ; preds = %81, %77, %74, %50, %30, %11
-  %85 = phi i32 [ -125, %81 ], [ 0, %74 ], [ -11, %11 ], [ %53, %50 ], [ %33, %30 ], [ %70, %77 ]
-  ret i32 %85
+85:                                               ; preds = %82, %78, %75, %51, %30, %11
+  %86 = phi i32 [ -125, %82 ], [ 0, %75 ], [ -11, %11 ], [ %54, %51 ], [ %33, %30 ], [ %71, %78 ]
+  ret i32 %86
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4072,7 +4073,7 @@ define dso_local i32 @io_socket(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @__get_unused_fd_flags(i32 noundef %8, i64 noundef %10) #11
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %51, label %13, !prof !10
+  br i1 %12, label %52, label %13, !prof !10
 
 13:                                               ; preds = %6, %2
   %14 = phi i32 [ 0, %2 ], [ %11, %6 ]
@@ -4083,61 +4084,62 @@ define dso_local i32 @io_socket(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = tail call ptr @__sys_socket_file(i32 noundef %16, i32 noundef %18, i32 noundef %20) #11
-  %22 = icmp ugt ptr %21, inttoptr (i64 -4096 to ptr)
-  br i1 %22, label %23, label %42
+  %22 = inttoptr i64 -4096 to ptr
+  %23 = icmp ugt ptr %21, %22
+  br i1 %23, label %24, label %43
 
-23:                                               ; preds = %13
-  br i1 %5, label %24, label %25
+24:                                               ; preds = %13
+  br i1 %5, label %25, label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @put_unused_fd(i32 noundef %14) #11
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %23
-  %26 = ptrtoint ptr %21 to i64
-  %27 = trunc i64 %26 to i32
-  %28 = icmp ne i32 %27, -11
-  %29 = icmp sgt i32 %1, -1
-  %30 = or i1 %29, %28
-  br i1 %30, label %31, label %51
+26:                                               ; preds = %25, %24
+  %27 = ptrtoint ptr %21 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = icmp ne i32 %28, -11
+  %30 = icmp sgt i32 %1, -1
+  %31 = or i1 %30, %29
+  br i1 %31, label %32, label %52
 
-31:                                               ; preds = %25
-  %32 = icmp eq i32 %27, -512
-  %33 = select i1 %32, i32 -4, i32 %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 68
-  %35 = load i32, ptr %34, align 4
-  %36 = or i32 %35, 256
-  %37 = and i32 %35, 64
-  %38 = icmp eq i32 %37, 0
-  %39 = and i32 %36, -4194369
-  %40 = or disjoint i32 %39, 4194304
-  %41 = select i1 %38, i32 %36, i32 %40
-  store i32 %41, ptr %34, align 4
-  br label %47
+32:                                               ; preds = %26
+  %33 = icmp eq i32 %28, -512
+  %34 = select i1 %33, i32 -4, i32 %28
+  %35 = getelementptr inbounds i8, ptr %0, i64 68
+  %36 = load i32, ptr %35, align 4
+  %37 = or i32 %36, 256
+  %38 = and i32 %36, 64
+  %39 = icmp eq i32 %38, 0
+  %40 = and i32 %37, -4194369
+  %41 = or disjoint i32 %40, 4194304
+  %42 = select i1 %39, i32 %37, i32 %41
+  store i32 %42, ptr %35, align 4
+  br label %48
 
-42:                                               ; preds = %13
-  br i1 %5, label %43, label %44
+43:                                               ; preds = %13
+  br i1 %5, label %44, label %45
 
-43:                                               ; preds = %42
+44:                                               ; preds = %43
   tail call void @fd_install(i32 noundef %14, ptr noundef %21) #11
-  br label %47
+  br label %48
 
-44:                                               ; preds = %42
-  %45 = load i32, ptr %3, align 8
-  %46 = tail call i32 @io_fixed_fd_install(ptr noundef %0, i32 noundef %1, ptr noundef %21, i32 noundef %45) #11
-  br label %47
+45:                                               ; preds = %43
+  %46 = load i32, ptr %3, align 8
+  %47 = tail call i32 @io_fixed_fd_install(ptr noundef %0, i32 noundef %1, ptr noundef %21, i32 noundef %46) #11
+  br label %48
 
-47:                                               ; preds = %44, %43, %31
-  %48 = phi i32 [ %33, %31 ], [ %46, %44 ], [ %14, %43 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %50, align 4
-  br label %51
+48:                                               ; preds = %45, %44, %32
+  %49 = phi i32 [ %34, %32 ], [ %47, %45 ], [ %14, %44 ]
+  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %51, align 4
+  br label %52
 
-51:                                               ; preds = %47, %25, %6
-  %52 = phi i32 [ 0, %47 ], [ %11, %6 ], [ -11, %25 ]
-  ret i32 %52
+52:                                               ; preds = %48, %26, %6
+  %53 = phi i32 [ 0, %48 ], [ %11, %6 ], [ -11, %26 ]
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid

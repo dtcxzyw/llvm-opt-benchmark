@@ -6112,13 +6112,14 @@ invoke.cont36:                                    ; preds = %if.end35
   %call38 = call ptr @mmap(ptr noundef null, i64 noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef %15, i64 noundef 0) #7
   store ptr %call38, ptr %mapping, align 8
   %16 = load ptr, ptr %mapping, align 8
-  %cmp = icmp ne ptr %16, inttoptr (i64 -1 to ptr)
+  %17 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %16, %17
   br i1 %cmp, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %invoke.cont36
-  %17 = load ptr, ptr %mapping, align 8
-  %18 = load i64, ptr %pagesize, align 8
-  %call40 = call i32 @mprotect(ptr noundef %17, i64 noundef %18, i32 noundef 5) #7
+  %18 = load ptr, ptr %mapping, align 8
+  %19 = load i64, ptr %pagesize, align 8
+  %call40 = call i32 @mprotect(ptr noundef %18, i64 noundef %19, i32 noundef 5) #7
   %cmp41 = icmp eq i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end43
 
@@ -6127,17 +6128,17 @@ if.then42:                                        ; preds = %if.then39
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.then39
-  %19 = load ptr, ptr %mapping, align 8
-  %20 = load i64, ptr %pagesize, align 8
-  %call44 = call i32 @munmap(ptr noundef %19, i64 noundef %20) #7
+  %20 = load ptr, ptr %mapping, align 8
+  %21 = load i64, ptr %pagesize, align 8
+  %call44 = call i32 @munmap(ptr noundef %20, i64 noundef %21) #7
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end43, %invoke.cont36
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end45, %invoke.cont7
-  %21 = load i8, ptr %result, align 1
-  %tobool = trunc i8 %21 to i1
+  %22 = load i8, ptr %result, align 1
+  %tobool = trunc i8 %22 to i1
   call void @_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd) #7
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #7
   ret i1 %tobool

@@ -27,17 +27,20 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   store ptr @jenkins_hash, ptr @hash, align 8
-  store ptr @.str, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 40), align 8
+  %1 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 40
+  store ptr @.str, ptr %1, align 8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr @MurmurHash3_x86_32, ptr @hash, align 8
-  store ptr @.str.1, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 40), align 8
+  %2 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 40
+  store ptr @.str.1, ptr %2, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   store ptr @XXH3_hash, ptr @hash, align 8
-  store ptr @.str.2, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 40), align 8
+  %3 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 40
+  store ptr @.str.2, ptr %3, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -49,8 +52,8 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb1, %s
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.default
-  %1 = load i32, ptr %retval, align 4
-  ret i32 %1
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 declare i32 @jenkins_hash(ptr noundef, i64 noundef) #1

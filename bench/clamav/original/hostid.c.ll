@@ -17,7 +17,7 @@ define i32 @is_valid_hostid() #0 {
 
 6:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %47
+  br label %51
 
 7:                                                ; preds = %0
   store i32 0, ptr %2, align 4
@@ -60,43 +60,47 @@ define i32 @is_valid_hostid() #0 {
 
 28:                                               ; preds = %25
   store i32 0, ptr %1, align 4
-  br label %47
+  br label %51
 
 29:                                               ; preds = %25
-  %30 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 8), align 8
-  %31 = sext i8 %30 to i32
-  %32 = icmp ne i32 %31, 45
-  br i1 %32, label %45, label %33
+  %30 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 8
+  %31 = load i8, ptr %30, align 8
+  %32 = sext i8 %31 to i32
+  %33 = icmp ne i32 %32, 45
+  br i1 %33, label %49, label %34
 
-33:                                               ; preds = %29
-  %34 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 13), align 1
-  %35 = sext i8 %34 to i32
-  %36 = icmp ne i32 %35, 45
-  br i1 %36, label %45, label %37
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 13
+  %36 = load i8, ptr %35, align 1
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %37, 45
+  br i1 %38, label %49, label %39
 
-37:                                               ; preds = %33
-  %38 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 18), align 2
-  %39 = sext i8 %38 to i32
-  %40 = icmp ne i32 %39, 45
-  br i1 %40, label %45, label %41
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 18
+  %41 = load i8, ptr %40, align 2
+  %42 = sext i8 %41 to i32
+  %43 = icmp ne i32 %42, 45
+  br i1 %43, label %49, label %44
 
-41:                                               ; preds = %37
-  %42 = load i8, ptr getelementptr inbounds ([37 x i8], ptr @hostid, i64 0, i64 23), align 1
-  %43 = sext i8 %42 to i32
-  %44 = icmp ne i32 %43, 45
-  br i1 %44, label %45, label %46
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 23
+  %46 = load i8, ptr %45, align 1
+  %47 = sext i8 %46 to i32
+  %48 = icmp ne i32 %47, 45
+  br i1 %48, label %49, label %50
 
-45:                                               ; preds = %41, %37, %33, %29
+49:                                               ; preds = %44, %39, %34, %29
   store i32 0, ptr %1, align 4
-  br label %47
+  br label %51
 
-46:                                               ; preds = %41
+50:                                               ; preds = %44
   store i32 1, ptr %1, align 4
-  br label %47
+  br label %51
 
-47:                                               ; preds = %46, %45, %28, %6
-  %48 = load i32, ptr %1, align 4
-  ret i32 %48
+51:                                               ; preds = %50, %49, %28, %6
+  %52 = load i32, ptr %1, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -46,59 +46,62 @@ define internal noundef i32 @parse_nopv(ptr nocapture readnone %0) #0 section ".
 define dso_local void @init_hypervisor_platform() local_unnamed_addr #1 section ".init.text" align 16 {
   %1 = tail call fastcc ptr @detect_hypervisor_vendor() #5
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %31, label %3
+  br i1 %2, label %34, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   br label %5
 
-5:                                                ; preds = %12, %3
-  %6 = phi i64 [ 0, %3 ], [ %13, %12 ]
+5:                                                ; preds = %13, %3
+  %6 = phi i64 [ 0, %3 ], [ %14, %13 ]
   %7 = getelementptr ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %12, label %10
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 8), i64 %6
-  store ptr %8, ptr %11, align 8
-  br label %12
+  %11 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 8
+  %12 = getelementptr ptr, ptr %11, i64 %6
+  store ptr %8, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %10, %5
-  %13 = add nuw nsw i64 %6, 1
-  %14 = icmp eq i64 %13, 6
-  br i1 %14, label %15, label %5, !llvm.loop !5
+13:                                               ; preds = %10, %5
+  %14 = add nuw nsw i64 %6, 1
+  %15 = icmp eq i64 %14, 6
+  br i1 %15, label %16, label %5, !llvm.loop !5
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
-  br label %17
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  br label %18
 
-17:                                               ; preds = %24, %15
-  %18 = phi i64 [ 0, %15 ], [ %25, %24 ]
-  %19 = getelementptr ptr, ptr %16, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %24, label %22
+18:                                               ; preds = %26, %16
+  %19 = phi i64 [ 0, %16 ], [ %27, %26 ]
+  %20 = getelementptr ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %17
-  %23 = getelementptr ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 15), i64 %18
-  store ptr %20, ptr %23, align 8
-  br label %24
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 15
+  %25 = getelementptr ptr, ptr %24, i64 %19
+  store ptr %21, ptr %25, align 8
+  br label %26
 
-24:                                               ; preds = %22, %17
-  %25 = add nuw nsw i64 %18, 1
-  %26 = icmp eq i64 %25, 4
-  br i1 %26, label %27, label %17, !llvm.loop !5
+26:                                               ; preds = %23, %18
+  %27 = add nuw nsw i64 %19, 1
+  %28 = icmp eq i64 %27, 4
+  br i1 %28, label %29, label %18, !llvm.loop !5
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  store i32 %29, ptr @x86_hyper_type, align 4
-  %30 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 8), align 8
-  tail call void %30() #6
-  br label %31
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  store i32 %31, ptr @x86_hyper_type, align 4
+  %32 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33() #6
+  br label %34
 
-31:                                               ; preds = %27, %0
+34:                                               ; preds = %29, %0
   ret void
 }
 
@@ -135,19 +138,20 @@ define internal fastcc ptr @detect_hypervisor_vendor() unnamed_addr #2 section "
   %21 = phi i32 [ %3, %7 ], [ %18, %12 ]
   %22 = phi ptr [ %2, %7 ], [ %19, %12 ]
   %23 = getelementptr i8, ptr %4, i64 8
-  %24 = icmp ult ptr %23, getelementptr inbounds ([3 x ptr], ptr @hypervisors, i64 1, i64 0)
-  br i1 %24, label %1, label %25, !llvm.loop !11
+  %24 = getelementptr inbounds [3 x ptr], ptr @hypervisors, i64 1, i64 0
+  %25 = icmp ult ptr %23, %24
+  br i1 %25, label %1, label %26, !llvm.loop !11
 
-25:                                               ; preds = %20
-  %26 = icmp eq ptr %22, null
-  br i1 %26, label %30, label %27
+26:                                               ; preds = %20
+  %27 = icmp eq ptr %22, null
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %22, align 8
-  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %28) #7
-  br label %30
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %22, align 8
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %29) #7
+  br label %31
 
-30:                                               ; preds = %27, %25
+31:                                               ; preds = %28, %26
   ret ptr %22
 }
 

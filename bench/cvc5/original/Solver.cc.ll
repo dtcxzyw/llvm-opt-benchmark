@@ -1622,12 +1622,13 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.142)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %range = getelementptr inbounds %"class.cvc5::internal::Minisat::DoubleOption", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %range, ptr align 8 %r, i64 24, i1 false)
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::DoubleOption", ptr %this1, i32 0, i32 2
-  %3 = load double, ptr %def.addr, align 8
-  store double %3, ptr %value, align 8
+  %4 = load double, ptr %def.addr, align 8
+  store double %4, ptr %value, align 8
   ret void
 }
 
@@ -1725,12 +1726,13 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.148)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %range = getelementptr inbounds %"class.cvc5::internal::Minisat::IntOption", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %range, ptr align 4 %r, i64 8, i1 false)
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::IntOption", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %def.addr, align 4
-  store i32 %3, ptr %value, align 8
+  %4 = load i32, ptr %def.addr, align 4
+  store i32 %4, ptr %value, align 8
   ret void
 }
 
@@ -1784,10 +1786,11 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.155)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::BoolOption", ptr %this1, i32 0, i32 1
-  %3 = load i8, ptr %v.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %v.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %value, align 8
   ret void
@@ -1873,20 +1876,21 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6SolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6SolverE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_proxy = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %proxy.addr, align 8
-  store ptr %1, ptr %d_proxy, align 8
+  %2 = load ptr, ptr %proxy.addr, align 8
+  store ptr %2, ptr %d_proxy, align 8
   %d_context = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %context.addr, align 8
-  store ptr %2, ptr %d_context, align 8
+  %3 = load ptr, ptr %context.addr, align 8
+  store ptr %3, ptr %d_context, align 8
   %assertionLevel = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 3
   store i32 0, ptr %assertionLevel, align 8
   %d_pfManager = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop15SatProofManagerESt14default_deleteIS3_EEC2IS5_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %d_pfManager, ptr null) #3
   %d_enable_incremental = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 8
-  %3 = load i8, ptr %enableIncremental.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %enableIncremental.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %d_enable_incremental, align 8
   %lemmas = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 10
@@ -1918,36 +1922,36 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %4 = load double, ptr %call, align 8
-  store double %4, ptr %var_decay, align 8
+  %5 = load double, ptr %call, align 8
+  store double %5, ptr %var_decay, align 8
   %clause_decay = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 20
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN4cvc58internal7MinisatL16opt_clause_decayE)
           to label %invoke.cont11 unwind label %lpad9
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  %5 = load double, ptr %call12, align 8
-  store double %5, ptr %clause_decay, align 8
+  %6 = load double, ptr %call12, align 8
+  store double %6, ptr %clause_decay, align 8
   %random_var_freq = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 21
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN4cvc58internal7MinisatL19opt_random_var_freqE)
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %6 = load double, ptr %call14, align 8
-  store double %6, ptr %random_var_freq, align 8
+  %7 = load double, ptr %call14, align 8
+  store double %7, ptr %random_var_freq, align 8
   %random_seed = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 22
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN4cvc58internal7MinisatL15opt_random_seedE)
           to label %invoke.cont15 unwind label %lpad9
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %7 = load double, ptr %call16, align 8
-  store double %7, ptr %random_seed, align 8
+  %8 = load double, ptr %call16, align 8
+  store double %8, ptr %random_seed, align 8
   %luby_restart = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 23
   %call18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4cvc58internal7Minisat10BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN4cvc58internal7MinisatL16opt_luby_restartE)
           to label %invoke.cont17 unwind label %lpad9
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %8 = load i8, ptr %call18, align 1
-  %tobool19 = trunc i8 %8 to i1
+  %9 = load i8, ptr %call18, align 1
+  %tobool19 = trunc i8 %9 to i1
   %frombool20 = zext i1 %tobool19 to i8
   store i8 %frombool20, ptr %luby_restart, align 8
   %ccmin_mode = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 25
@@ -1955,15 +1959,15 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %invoke.cont21 unwind label %lpad9
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %9 = load i32, ptr %call22, align 4
-  store i32 %9, ptr %ccmin_mode, align 4
+  %10 = load i32, ptr %call22, align 4
+  store i32 %10, ptr %ccmin_mode, align 4
   %phase_saving = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 26
   %call24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN4cvc58internal7MinisatL16opt_phase_savingE)
           to label %invoke.cont23 unwind label %lpad9
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  %10 = load i32, ptr %call24, align 4
-  store i32 %10, ptr %phase_saving, align 8
+  %11 = load i32, ptr %call24, align 4
+  store i32 %11, ptr %phase_saving, align 8
   %rnd_pol = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 27
   store i8 0, ptr %rnd_pol, align 4
   %rnd_init_act = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 28
@@ -1971,8 +1975,8 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont25 unwind label %lpad9
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  %11 = load i8, ptr %call26, align 1
-  %tobool27 = trunc i8 %11 to i1
+  %12 = load i8, ptr %call26, align 1
+  %tobool27 = trunc i8 %12 to i1
   %frombool28 = zext i1 %tobool27 to i8
   store i8 %frombool28, ptr %rnd_init_act, align 1
   %garbage_frac = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 30
@@ -1980,22 +1984,22 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont29 unwind label %lpad9
 
 invoke.cont29:                                    ; preds = %invoke.cont25
-  %12 = load double, ptr %call30, align 8
-  store double %12, ptr %garbage_frac, align 8
+  %13 = load double, ptr %call30, align 8
+  store double %13, ptr %garbage_frac, align 8
   %restart_first = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 31
   %call32 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN4cvc58internal7MinisatL17opt_restart_firstE)
           to label %invoke.cont31 unwind label %lpad9
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %13 = load i32, ptr %call32, align 4
-  store i32 %13, ptr %restart_first, align 8
+  %14 = load i32, ptr %call32, align 4
+  store i32 %14, ptr %restart_first, align 8
   %restart_inc = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 33
   %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7Minisat12DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN4cvc58internal7MinisatL15opt_restart_incE)
           to label %invoke.cont33 unwind label %lpad9
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %14 = load double, ptr %call34, align 8
-  store double %14, ptr %restart_inc, align 8
+  %15 = load double, ptr %call34, align 8
+  store double %15, ptr %restart_inc, align 8
   %learntsize_factor = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 34
   store double 1.000000e+00, ptr %learntsize_factor, align 8
   %learntsize_inc = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 35
@@ -2128,8 +2132,8 @@ invoke.cont67:                                    ; preds = %invoke.cont66
   %progress_estimate = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 73
   store double 0.000000e+00, ptr %progress_estimate, align 8
   %remove_satisfied = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 74
-  %15 = load i8, ptr %enableIncremental.addr, align 1
-  %tobool68 = trunc i8 %15 to i1
+  %16 = load i8, ptr %enableIncremental.addr, align 1
+  %tobool68 = trunc i8 %16 to i1
   %lnot = xor i1 %tobool68, true
   %frombool69 = zext i1 %lnot to i8
   store i8 %frombool69, ptr %remove_satisfied, align 8
@@ -2169,8 +2173,8 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   store i64 -1, ptr %propagation_budget, align 8
   %asynch_interrupt = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 88
   store i8 0, ptr %asynch_interrupt, align 8
-  %16 = load ptr, ptr %pnm.addr, align 8
-  %tobool83 = icmp ne ptr %16, null
+  %17 = load ptr, ptr %pnm.addr, align 8
+  %tobool83 = icmp ne ptr %17, null
   br i1 %tobool83, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont82
@@ -2179,13 +2183,13 @@ if.then:                                          ; preds = %invoke.cont82
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %if.then
-  %17 = load ptr, ptr %env.addr, align 8
-  %18 = load ptr, ptr %proxy.addr, align 8
-  %call90 = invoke noundef ptr @_ZNK4cvc58internal4prop11TheoryProxy12getCnfStreamEv(ptr noundef nonnull align 8 dereferenceable(521) %18)
+  %18 = load ptr, ptr %env.addr, align 8
+  %19 = load ptr, ptr %proxy.addr, align 8
+  %call90 = invoke noundef ptr @_ZNK4cvc58internal4prop11TheoryProxy12getCnfStreamEv(ptr noundef nonnull align 8 dereferenceable(521) %19)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont86
-  invoke void @_ZN4cvc58internal4prop15SatProofManagerC1ERNS0_3EnvEPNS0_7Minisat6SolverEPNS1_9CnfStreamE(ptr noundef nonnull align 8 dereferenceable(1128) %call87, ptr noundef nonnull align 8 dereferenceable(576) %17, ptr noundef %this1, ptr noundef %call90)
+  invoke void @_ZN4cvc58internal4prop15SatProofManagerC1ERNS0_3EnvEPNS0_7Minisat6SolverEPNS1_9CnfStreamE(ptr noundef nonnull align 8 dereferenceable(1128) %call87, ptr noundef nonnull align 8 dereferenceable(576) %18, ptr noundef %this1, ptr noundef %call90)
           to label %invoke.cont91 unwind label %lpad88
 
 invoke.cont91:                                    ; preds = %invoke.cont89
@@ -2193,246 +2197,246 @@ invoke.cont91:                                    ; preds = %invoke.cont89
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup132
 
 lpad3:                                            ; preds = %invoke.cont
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup131
 
 lpad5:                                            ; preds = %invoke.cont4
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup130
 
 lpad7:                                            ; preds = %invoke.cont6
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup129
 
 lpad9:                                            ; preds = %invoke.cont33, %invoke.cont31, %invoke.cont29, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont10, %invoke.cont8
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup128
 
 lpad36:                                           ; preds = %invoke.cont35
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup127
 
 lpad38:                                           ; preds = %invoke.cont37
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup126
 
 lpad40:                                           ; preds = %invoke.cont41, %invoke.cont39
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup125
 
 lpad43:                                           ; preds = %invoke.cont42
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup124
 
 lpad45:                                           ; preds = %invoke.cont44
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup123
 
 lpad47:                                           ; preds = %invoke.cont46
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   br label %ehcleanup122
 
 lpad49:                                           ; preds = %invoke.cont48
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup121
 
 lpad51:                                           ; preds = %invoke.cont50
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   br label %ehcleanup120
 
 lpad53:                                           ; preds = %invoke.cont52
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup119
 
 lpad55:                                           ; preds = %invoke.cont54
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   br label %ehcleanup118
 
 lpad57:                                           ; preds = %invoke.cont56
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   br label %ehcleanup117
 
 lpad59:                                           ; preds = %invoke.cont58
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %exn.slot, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %ehselector.slot, align 4
   br label %ehcleanup116
 
 lpad61:                                           ; preds = %invoke.cont60
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %exn.slot, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %ehselector.slot, align 4
   br label %ehcleanup115
 
 lpad65:                                           ; preds = %invoke.cont66, %invoke.cont62
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   br label %ehcleanup114
 
 lpad71:                                           ; preds = %invoke.cont67
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   br label %ehcleanup113
 
 lpad73:                                           ; preds = %invoke.cont72
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %exn.slot, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %ehselector.slot, align 4
   br label %ehcleanup112
 
 lpad75:                                           ; preds = %invoke.cont74
-  %82 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %exn.slot, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %ehselector.slot, align 4
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %exn.slot, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %ehselector.slot, align 4
   br label %ehcleanup111
 
 lpad77:                                           ; preds = %invoke.cont76
-  %85 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %exn.slot, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %ehselector.slot, align 4
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %exn.slot, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %ehselector.slot, align 4
   br label %ehcleanup110
 
 lpad79:                                           ; preds = %invoke.cont78
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %exn.slot, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %ehselector.slot, align 4
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %exn.slot, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %ehselector.slot, align 4
   br label %ehcleanup109
 
 lpad81:                                           ; preds = %invoke.cont80
-  %91 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %exn.slot, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %ehselector.slot, align 4
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %exn.slot, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %ehselector.slot, align 4
   br label %ehcleanup108
 
 lpad85:                                           ; preds = %invoke.cont103, %invoke.cont100, %invoke.cont97, %invoke.cont94, %invoke.cont92, %if.end, %if.then
-  %94 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %exn.slot, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %ehselector.slot, align 4
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %exn.slot, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad88:                                           ; preds = %invoke.cont89, %invoke.cont86
-  %97 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %exn.slot, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %ehselector.slot, align 4
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %exn.slot, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call87) #19
   br label %ehcleanup
 
@@ -2450,30 +2454,30 @@ invoke.cont94:                                    ; preds = %invoke.cont92
   %varFalse = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 5
   store i32 %call95, ptr %varFalse, align 8
   %varTrue96 = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 4
-  %100 = load i32, ptr %varTrue96, align 4
-  %call98 = invoke i32 @_ZN4cvc58internal7Minisat5mkLitEib(i32 noundef %100, i1 noundef zeroext false)
+  %101 = load i32, ptr %varTrue96, align 4
+  %call98 = invoke i32 @_ZN4cvc58internal7Minisat5mkLitEib(i32 noundef %101, i1 noundef zeroext false)
           to label %invoke.cont97 unwind label %lpad85
 
 invoke.cont97:                                    ; preds = %invoke.cont94
   %coerce.dive = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %agg.tmp, i32 0, i32 0
   store i32 %call98, ptr %coerce.dive, align 4
   %coerce.dive99 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %agg.tmp, i32 0, i32 0
-  %101 = load i32, ptr %coerce.dive99, align 4
-  invoke void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %this1, i32 %101, i32 noundef -1)
+  %102 = load i32, ptr %coerce.dive99, align 4
+  invoke void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %this1, i32 %102, i32 noundef -1)
           to label %invoke.cont100 unwind label %lpad85
 
 invoke.cont100:                                   ; preds = %invoke.cont97
   %varFalse102 = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 5
-  %102 = load i32, ptr %varFalse102, align 8
-  %call104 = invoke i32 @_ZN4cvc58internal7Minisat5mkLitEib(i32 noundef %102, i1 noundef zeroext true)
+  %103 = load i32, ptr %varFalse102, align 8
+  %call104 = invoke i32 @_ZN4cvc58internal7Minisat5mkLitEib(i32 noundef %103, i1 noundef zeroext true)
           to label %invoke.cont103 unwind label %lpad85
 
 invoke.cont103:                                   ; preds = %invoke.cont100
   %coerce.dive105 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %agg.tmp101, i32 0, i32 0
   store i32 %call104, ptr %coerce.dive105, align 4
   %coerce.dive106 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %agg.tmp101, i32 0, i32 0
-  %103 = load i32, ptr %coerce.dive106, align 4
-  invoke void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %this1, i32 %103, i32 noundef -1)
+  %104 = load i32, ptr %coerce.dive106, align 4
+  invoke void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %this1, i32 %104, i32 noundef -1)
           to label %invoke.cont107 unwind label %lpad85
 
 invoke.cont107:                                   ; preds = %invoke.cont103
@@ -3685,7 +3689,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6SolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6SolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add_tmp = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 81
   call void @_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add_tmp) #3
   %analyze_toclear = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this1, i32 0, i32 80
@@ -22673,19 +22678,20 @@ entry:
   store ptr %cate_, ptr %cate_.addr, align 8
   store ptr %type_, ptr %type_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name = getelementptr inbounds %"class.cvc5::internal::Minisat::Option", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name_.addr, align 8
-  store ptr %0, ptr %name, align 8
+  %1 = load ptr, ptr %name_.addr, align 8
+  store ptr %1, ptr %name, align 8
   %description = getelementptr inbounds %"class.cvc5::internal::Minisat::Option", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %desc_.addr, align 8
-  store ptr %1, ptr %description, align 8
+  %2 = load ptr, ptr %desc_.addr, align 8
+  store ptr %2, ptr %description, align 8
   %category = getelementptr inbounds %"class.cvc5::internal::Minisat::Option", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %cate_.addr, align 8
-  store ptr %2, ptr %category, align 8
+  %3 = load ptr, ptr %cate_.addr, align 8
+  store ptr %3, ptr %category, align 8
   %type_name = getelementptr inbounds %"class.cvc5::internal::Minisat::Option", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %type_.addr, align 8
-  store ptr %3, ptr %type_name, align 8
+  %4 = load ptr, ptr %type_.addr, align 8
+  store ptr %4, ptr %type_name, align 8
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Minisat6Option13getOptionListEv()
   store ptr %this1, ptr %ref.tmp, align 8
   call void @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)

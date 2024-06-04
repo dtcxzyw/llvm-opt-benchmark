@@ -1690,12 +1690,13 @@ define dso_local void @_ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_tra
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 2
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %7, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8
+  store ptr %9, ptr %8, align 8
   ret void
 }
 
@@ -1716,11 +1717,12 @@ define dso_local void @_ZN16DefaultOutputMgrC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
   ret void
 }
 
@@ -1732,90 +1734,91 @@ define dso_local void @_ZN16DefaultOutputMgrD2Ev(ptr noundef nonnull align 8 der
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %6, align 8
+  %7 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %7 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
-  %8 = call ptr @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
+  %8 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
+  %9 = call ptr @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %27, %1
-  %11 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
-  %12 = call ptr @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %12, ptr %13, align 8
-  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %14, label %15, label %29
+11:                                               ; preds = %28, %1
+  %12 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
+  %13 = call ptr @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %15, label %16, label %30
 
-15:                                               ; preds = %10
-  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %17 = load ptr, ptr %16, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %17)
-          to label %18 unwind label %48
+16:                                               ; preds = %11
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %18)
+          to label %19 unwind label %49
 
-18:                                               ; preds = %15
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+19:                                               ; preds = %16
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 1
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(248) %20) #3
-  br label %26
-
-26:                                               ; preds = %22, %18
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 1
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(248) %21) #3
   br label %27
 
-27:                                               ; preds = %26
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %10, !llvm.loop !11
+27:                                               ; preds = %23, %19
+  br label %28
 
-29:                                               ; preds = %10
-  %30 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
-  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  %31 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %38
+28:                                               ; preds = %27
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %11, !llvm.loop !11
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %36)
-          to label %37 unwind label %48
+30:                                               ; preds = %11
+  %31 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
+  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  %32 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %39
 
-37:                                               ; preds = %34
-  br label %38
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %37)
+          to label %38 unwind label %49
 
-38:                                               ; preds = %37, %29
-  %39 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %46, label %42
+38:                                               ; preds = %35
+  br label %39
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 1
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(248) %40) #3
-  br label %46
+39:                                               ; preds = %38, %30
+  %40 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %47, label %43
 
-46:                                               ; preds = %42, %38
-  %47 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
-  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #3
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %41, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 1
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(248) %41) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  %48 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
+  call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #3
   call void @_ZN9OutputMgrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   ret void
 
-48:                                               ; preds = %34, %15
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %35, %16
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #13
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #13
   unreachable
 }
 

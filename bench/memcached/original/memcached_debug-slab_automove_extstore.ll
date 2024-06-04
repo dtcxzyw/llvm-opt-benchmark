@@ -654,7 +654,8 @@ if.end:                                           ; preds = %if.then, %for.end
   %17 = load ptr, ptr %a.addr, align 8
   %global_pool_watermark15 = getelementptr inbounds %struct.slab_automove, ptr %17, i32 0, i32 8
   %18 = load i32, ptr %global_pool_watermark15, align 4
-  store i32 %18, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 70), align 4
+  %19 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 70
+  store i32 %18, ptr %19, align 4
   ret void
 }
 

@@ -20549,7 +20549,7 @@ define internal void @"_ZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shar
   %20 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %19, i32 0, i32 0
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %92, label %23
+  br i1 %22, label %94, label %23
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds %class.cmQtAutoGenInitializer, ptr %17, i32 0, i32 6
@@ -20563,143 +20563,145 @@ define internal void @"_ZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shar
   %30 = getelementptr inbounds %"struct.cmQtAutoGen::IntegerVersion", ptr %29, i32 0, i32 0
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 6
-  br i1 %32, label %33, label %88
+  br i1 %32, label %33, label %90
 
 33:                                               ; preds = %28, %23
   %34 = load atomic i8, ptr @"_ZGVZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11" acquire, align 8
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %43, !prof !8
+  br i1 %35, label %36, label %45, !prof !8
 
 36:                                               ; preds = %33
   %37 = call i32 @__cxa_guard_acquire(ptr @"_ZGVZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
   %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %45
 
 39:                                               ; preds = %36
   store i1 true, ptr %10, align 1
   store ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", ptr noundef @.str.184, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %40 unwind label %64
+          to label %40 unwind label %66
 
 40:                                               ; preds = %39
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 1), ptr %5, align 8
+  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 1
+  store ptr %41, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 1), ptr noundef @.str.185, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %41 unwind label %68
+  %42 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef @.str.185, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %43 unwind label %70
 
-41:                                               ; preds = %40
+43:                                               ; preds = %40
   store i1 false, ptr %10, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  %42 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EED2Ev, ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", ptr @__dso_handle) #3
+  %44 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EED2Ev, ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", ptr @__dso_handle) #3
   call void @__cxa_guard_release(ptr @"_ZGVZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
-  br label %43
+  br label %45
 
-43:                                               ; preds = %41, %36, %33
+45:                                               ; preds = %43, %36, %33
   store ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", ptr %11, align 8
-  %44 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(64) @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
-  store ptr %44, ptr %12, align 8
-  %45 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE3endEv(ptr noundef nonnull align 8 dereferenceable(64) @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
-  store ptr %45, ptr %13, align 8
-  br label %46
+  %46 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE5beginEv(ptr noundef nonnull align 8 dereferenceable(64) @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
+  store ptr %46, ptr %12, align 8
+  %47 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE3endEv(ptr noundef nonnull align 8 dereferenceable(64) @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
+  store ptr %47, ptr %13, align 8
+  br label %48
 
-46:                                               ; preds = %84, %43
-  %47 = load ptr, ptr %12, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = icmp ne ptr %47, %48
-  br i1 %49, label %50, label %87
+48:                                               ; preds = %86, %45
+  %49 = load ptr, ptr %12, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = icmp ne ptr %49, %50
+  br i1 %51, label %52, label %89
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %12, align 8
-  store ptr %51, ptr %14, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %52) #3
-  %54 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %14, align 8
-  %56 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef 0) #3
-  %57 = icmp ne i64 %56, -1
-  br i1 %57, label %58, label %83
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %12, align 8
+  store ptr %53, ptr %14, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %54) #3
+  %56 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %14, align 8
+  %58 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef 0) #3
+  %59 = icmp ne i64 %58, -1
+  br i1 %59, label %60, label %85
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %4, align 8
-  %60 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %59) #3
-  %61 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %14, align 8
-  %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(32) %62)
-  br label %87
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %4, align 8
+  %62 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %61) #3
+  %63 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %14, align 8
+  %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  br label %89
 
-64:                                               ; preds = %39
-  %65 = landingpad { ptr, i32 }
+66:                                               ; preds = %39
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %7, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %8, align 4
-  br label %72
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %7, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %8, align 4
+  br label %74
 
-68:                                               ; preds = %40
-  %69 = landingpad { ptr, i32 }
+70:                                               ; preds = %40
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %7, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %8, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %7, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %8, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %72
+  br label %74
 
-72:                                               ; preds = %68, %64
+74:                                               ; preds = %70, %66
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  %73 = load i1, ptr %10, align 1
-  br i1 %73, label %74, label %82
+  %75 = load i1, ptr %10, align 1
+  br i1 %75, label %76, label %84
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %5, align 8
-  %76 = icmp eq ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", %75
-  br i1 %76, label %81, label %77
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %5, align 8
+  %78 = icmp eq ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", %77
+  br i1 %78, label %83, label %79
 
-77:                                               ; preds = %77, %74
-  %78 = phi ptr [ %75, %74 ], [ %79, %77 ]
-  %79 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %78, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #3
-  %80 = icmp eq ptr %79, @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11"
-  br i1 %80, label %81, label %77
+79:                                               ; preds = %79, %76
+  %80 = phi ptr [ %77, %76 ], [ %81, %79 ]
+  %81 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %80, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #3
+  %82 = icmp eq ptr %81, @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11"
+  br i1 %82, label %83, label %79
 
-81:                                               ; preds = %77, %74
-  br label %82
-
-82:                                               ; preds = %81, %72
-  call void @__cxa_guard_abort(ptr @"_ZGVZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
-  br label %93
-
-83:                                               ; preds = %50
+83:                                               ; preds = %79, %76
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %12, align 8
-  %86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %85, i32 1
-  store ptr %86, ptr %12, align 8
-  br label %46
+84:                                               ; preds = %83, %74
+  call void @__cxa_guard_abort(ptr @"_ZGVZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11") #3
+  br label %95
 
-87:                                               ; preds = %58, %46
-  br label %88
+85:                                               ; preds = %52
+  br label %86
 
-88:                                               ; preds = %87, %28
-  %89 = load ptr, ptr %4, align 8
-  %90 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %89) #3
-  %91 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %90, i32 0, i32 0
-  store i8 1, ptr %91, align 8
-  br label %92
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i32 1
+  store ptr %88, ptr %12, align 8
+  br label %48
 
-92:                                               ; preds = %88, %2
+89:                                               ; preds = %60, %48
+  br label %90
+
+90:                                               ; preds = %89, %28
+  %91 = load ptr, ptr %4, align 8
+  %92 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %91) #3
+  %93 = getelementptr inbounds %"class.cmQtAutoGen::CompilerFeatures", ptr %92, i32 0, i32 0
+  store i8 1, ptr %93, align 8
+  br label %94
+
+94:                                               ; preds = %90, %2
   ret void
 
-93:                                               ; preds = %82
-  %94 = load ptr, ptr %7, align 8
-  %95 = load i32, ptr %8, align 4
-  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
-  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
-  resume { ptr, i32 } %97
+95:                                               ; preds = %84
+  %96 = load ptr, ptr %7, align 8
+  %97 = load i32, ptr %8, align 4
+  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
+  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
+  resume { ptr, i32 } %99
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -84958,11 +84960,12 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGe
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(64) %5) #3
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN11cmQtAutoGen16CompilerFeaturesEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #3
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN11cmQtAutoGen16CompilerFeaturesEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #3
   ret void
 }
 
@@ -85121,11 +85124,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

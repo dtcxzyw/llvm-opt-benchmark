@@ -1963,87 +1963,88 @@ entry:
   %0 = load ptr, ptr %ctl_arena.addr, align 8
   %nthreads = getelementptr inbounds %struct.ctl_arena_s, ptr %0, i32 0, i32 3
   store i32 0, ptr %nthreads, align 8
-  %1 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @dss_prec_names, i64 0, i64 3), align 8
-  %2 = load ptr, ptr %ctl_arena.addr, align 8
-  %dss = getelementptr inbounds %struct.ctl_arena_s, ptr %2, i32 0, i32 4
-  store ptr %1, ptr %dss, align 8
+  %1 = getelementptr inbounds [0 x ptr], ptr @dss_prec_names, i64 0, i64 3
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %ctl_arena.addr, align 8
-  %dirty_decay_ms = getelementptr inbounds %struct.ctl_arena_s, ptr %3, i32 0, i32 5
-  store i64 -1, ptr %dirty_decay_ms, align 8
+  %dss = getelementptr inbounds %struct.ctl_arena_s, ptr %3, i32 0, i32 4
+  store ptr %2, ptr %dss, align 8
   %4 = load ptr, ptr %ctl_arena.addr, align 8
-  %muzzy_decay_ms = getelementptr inbounds %struct.ctl_arena_s, ptr %4, i32 0, i32 6
-  store i64 -1, ptr %muzzy_decay_ms, align 8
+  %dirty_decay_ms = getelementptr inbounds %struct.ctl_arena_s, ptr %4, i32 0, i32 5
+  store i64 -1, ptr %dirty_decay_ms, align 8
   %5 = load ptr, ptr %ctl_arena.addr, align 8
-  %pactive = getelementptr inbounds %struct.ctl_arena_s, ptr %5, i32 0, i32 7
-  store i64 0, ptr %pactive, align 8
+  %muzzy_decay_ms = getelementptr inbounds %struct.ctl_arena_s, ptr %5, i32 0, i32 6
+  store i64 -1, ptr %muzzy_decay_ms, align 8
   %6 = load ptr, ptr %ctl_arena.addr, align 8
-  %pdirty = getelementptr inbounds %struct.ctl_arena_s, ptr %6, i32 0, i32 8
-  store i64 0, ptr %pdirty, align 8
+  %pactive = getelementptr inbounds %struct.ctl_arena_s, ptr %6, i32 0, i32 7
+  store i64 0, ptr %pactive, align 8
   %7 = load ptr, ptr %ctl_arena.addr, align 8
-  %pmuzzy = getelementptr inbounds %struct.ctl_arena_s, ptr %7, i32 0, i32 9
-  store i64 0, ptr %pmuzzy, align 8
+  %pdirty = getelementptr inbounds %struct.ctl_arena_s, ptr %7, i32 0, i32 8
+  store i64 0, ptr %pdirty, align 8
   %8 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats = getelementptr inbounds %struct.ctl_arena_s, ptr %8, i32 0, i32 10
-  %9 = load ptr, ptr %astats, align 8
-  %astats1 = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %9, i32 0, i32 0
+  %pmuzzy = getelementptr inbounds %struct.ctl_arena_s, ptr %8, i32 0, i32 9
+  store i64 0, ptr %pmuzzy, align 8
+  %9 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats = getelementptr inbounds %struct.ctl_arena_s, ptr %9, i32 0, i32 10
+  %10 = load ptr, ptr %astats, align 8
+  %astats1 = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %10, i32 0, i32 0
   call void @llvm.memset.p0.i64(ptr align 8 %astats1, i8 0, i64 10368, i1 false)
-  %10 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats2 = getelementptr inbounds %struct.ctl_arena_s, ptr %10, i32 0, i32 10
-  %11 = load ptr, ptr %astats2, align 8
-  %allocated_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %11, i32 0, i32 1
+  %11 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats2 = getelementptr inbounds %struct.ctl_arena_s, ptr %11, i32 0, i32 10
+  %12 = load ptr, ptr %astats2, align 8
+  %allocated_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %12, i32 0, i32 1
   store i64 0, ptr %allocated_small, align 8
-  %12 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats3 = getelementptr inbounds %struct.ctl_arena_s, ptr %12, i32 0, i32 10
-  %13 = load ptr, ptr %astats3, align 8
-  %nmalloc_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %13, i32 0, i32 2
+  %13 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats3 = getelementptr inbounds %struct.ctl_arena_s, ptr %13, i32 0, i32 10
+  %14 = load ptr, ptr %astats3, align 8
+  %nmalloc_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %14, i32 0, i32 2
   store i64 0, ptr %nmalloc_small, align 8
-  %14 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats4 = getelementptr inbounds %struct.ctl_arena_s, ptr %14, i32 0, i32 10
-  %15 = load ptr, ptr %astats4, align 8
-  %ndalloc_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %15, i32 0, i32 3
+  %15 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats4 = getelementptr inbounds %struct.ctl_arena_s, ptr %15, i32 0, i32 10
+  %16 = load ptr, ptr %astats4, align 8
+  %ndalloc_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %16, i32 0, i32 3
   store i64 0, ptr %ndalloc_small, align 8
-  %16 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats5 = getelementptr inbounds %struct.ctl_arena_s, ptr %16, i32 0, i32 10
-  %17 = load ptr, ptr %astats5, align 8
-  %nrequests_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %17, i32 0, i32 4
+  %17 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats5 = getelementptr inbounds %struct.ctl_arena_s, ptr %17, i32 0, i32 10
+  %18 = load ptr, ptr %astats5, align 8
+  %nrequests_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %18, i32 0, i32 4
   store i64 0, ptr %nrequests_small, align 8
-  %18 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats6 = getelementptr inbounds %struct.ctl_arena_s, ptr %18, i32 0, i32 10
-  %19 = load ptr, ptr %astats6, align 8
-  %nfills_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %19, i32 0, i32 5
+  %19 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats6 = getelementptr inbounds %struct.ctl_arena_s, ptr %19, i32 0, i32 10
+  %20 = load ptr, ptr %astats6, align 8
+  %nfills_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %20, i32 0, i32 5
   store i64 0, ptr %nfills_small, align 8
-  %20 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats7 = getelementptr inbounds %struct.ctl_arena_s, ptr %20, i32 0, i32 10
-  %21 = load ptr, ptr %astats7, align 8
-  %nflushes_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %21, i32 0, i32 6
+  %21 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats7 = getelementptr inbounds %struct.ctl_arena_s, ptr %21, i32 0, i32 10
+  %22 = load ptr, ptr %astats7, align 8
+  %nflushes_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %22, i32 0, i32 6
   store i64 0, ptr %nflushes_small, align 8
-  %22 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats8 = getelementptr inbounds %struct.ctl_arena_s, ptr %22, i32 0, i32 10
-  %23 = load ptr, ptr %astats8, align 8
-  %bstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %23, i32 0, i32 7
+  %23 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats8 = getelementptr inbounds %struct.ctl_arena_s, ptr %23, i32 0, i32 10
+  %24 = load ptr, ptr %astats8, align 8
+  %bstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %24, i32 0, i32 7
   %arraydecay = getelementptr inbounds [39 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 5616, i1 false)
-  %24 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats9 = getelementptr inbounds %struct.ctl_arena_s, ptr %24, i32 0, i32 10
-  %25 = load ptr, ptr %astats9, align 8
-  %lstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %25, i32 0, i32 8
+  %25 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats9 = getelementptr inbounds %struct.ctl_arena_s, ptr %25, i32 0, i32 10
+  %26 = load ptr, ptr %astats9, align 8
+  %lstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %26, i32 0, i32 8
   %arraydecay10 = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay10, i8 0, i64 9408, i1 false)
-  %26 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats11 = getelementptr inbounds %struct.ctl_arena_s, ptr %26, i32 0, i32 10
-  %27 = load ptr, ptr %astats11, align 8
-  %estats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %27, i32 0, i32 9
+  %27 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats11 = getelementptr inbounds %struct.ctl_arena_s, ptr %27, i32 0, i32 10
+  %28 = load ptr, ptr %astats11, align 8
+  %estats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %28, i32 0, i32 9
   %arraydecay12 = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay12, i8 0, i64 9552, i1 false)
-  %28 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats13 = getelementptr inbounds %struct.ctl_arena_s, ptr %28, i32 0, i32 10
-  %29 = load ptr, ptr %astats13, align 8
-  %hpastats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %29, i32 0, i32 10
+  %29 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats13 = getelementptr inbounds %struct.ctl_arena_s, ptr %29, i32 0, i32 10
+  %30 = load ptr, ptr %astats13, align 8
+  %hpastats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %30, i32 0, i32 10
   call void @llvm.memset.p0.i64(ptr align 8 %hpastats, i8 0, i64 3200, i1 false)
-  %30 = load ptr, ptr %ctl_arena.addr, align 8
-  %astats14 = getelementptr inbounds %struct.ctl_arena_s, ptr %30, i32 0, i32 10
-  %31 = load ptr, ptr %astats14, align 8
-  %secstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %31, i32 0, i32 11
+  %31 = load ptr, ptr %ctl_arena.addr, align 8
+  %astats14 = getelementptr inbounds %struct.ctl_arena_s, ptr %31, i32 0, i32 10
+  %32 = load ptr, ptr %astats14, align 8
+  %secstats = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %32, i32 0, i32 11
   call void @llvm.memset.p0.i64(ptr align 8 %secstats, i8 0, i64 8, i1 false)
   ret void
 }
@@ -10338,56 +10339,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 1), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -10398,8 +10400,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10442,56 +10444,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 4), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -10502,8 +10505,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10546,56 +10549,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 5), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 5
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -10606,8 +10610,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10650,56 +10654,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i32, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 2), align 8
-  store i32 %2, ptr %oldval, align 4
+  %2 = getelementptr inbounds %struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i32 0, i32 2
+  %3 = load i32, ptr %2, align 8
+  store i32 %3, ptr %oldval, align 4
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 4
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 4
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 4, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 4, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 4, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 4, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i32, ptr %oldval, align 4
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i32 %15, ptr %16, align 4
+  %16 = load i32, ptr %oldval, align 4
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i32 %16, ptr %17, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -10710,8 +10715,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10858,56 +10863,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 1), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -10918,8 +10924,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10962,56 +10968,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 2), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 2
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -11022,8 +11029,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11066,56 +11073,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 3), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 3
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -11126,8 +11134,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11170,56 +11178,57 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %2 = load i64, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 4), align 8
-  store i64 %2, ptr %oldval, align 8
+  %2 = getelementptr inbounds %struct.sec_opts_s, ptr @opt_hpa_sec_opts, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %oldval, align 8
   br label %do.body2
 
 do.body2:                                         ; preds = %do.end
-  %3 = load ptr, ptr %oldp.addr, align 8
-  %cmp3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %oldp.addr, align 8
+  %cmp3 = icmp ne ptr %4, null
   br i1 %cmp3, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %oldlenp.addr, align 8
-  %cmp4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %oldlenp.addr, align 8
+  %cmp4 = icmp ne ptr %5, null
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %oldlenp.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %cmp6 = icmp ne i64 %6, 8
+  %6 = load ptr, ptr %oldlenp.addr, align 8
+  %7 = load i64, ptr %6, align 8
+  %cmp6 = icmp ne i64 %7, 8
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %oldlenp.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp8 = icmp ule i64 8, %8
+  %8 = load ptr, ptr %oldlenp.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp8 = icmp ule i64 8, %9
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then7
-  %9 = load ptr, ptr %oldlenp.addr, align 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load ptr, ptr %oldlenp.addr, align 8
+  %11 = load i64, ptr %10, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 8, %cond.true ], [ %10, %cond.false ]
+  %cond = phi i64 [ 8, %cond.true ], [ %11, %cond.false ]
   store i64 %cond, ptr %copylen, align 8
-  %11 = load ptr, ptr %oldp.addr, align 8
-  %12 = load i64, ptr %copylen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %oldval, i64 %12, i1 false)
+  %12 = load ptr, ptr %oldp.addr, align 8
   %13 = load i64, ptr %copylen, align 8
-  %14 = load ptr, ptr %oldlenp.addr, align 8
-  store i64 %13, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %oldval, i64 %13, i1 false)
+  %14 = load i64, ptr %copylen, align 8
+  %15 = load ptr, ptr %oldlenp.addr, align 8
+  store i64 %14, ptr %15, align 8
   store i32 22, ptr %ret, align 4
   br label %label_return
 
 if.end9:                                          ; preds = %if.then5
-  %15 = load i64, ptr %oldval, align 8
-  %16 = load ptr, ptr %oldp.addr, align 8
-  store i64 %15, ptr %16, align 8
+  %16 = load i64, ptr %oldval, align 8
+  %17 = load ptr, ptr %oldp.addr, align 8
+  store i64 %16, ptr %17, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %land.lhs.true, %do.body2
@@ -11230,8 +11239,8 @@ do.end11:                                         ; preds = %if.end10
   br label %label_return
 
 label_return:                                     ; preds = %do.end11, %cond.end, %if.then
-  %17 = load i32, ptr %ret, align 4
-  ret i32 %17
+  %18 = load i32, ptr %ret, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

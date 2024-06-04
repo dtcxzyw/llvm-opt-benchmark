@@ -16524,17 +16524,18 @@ invoke.cont316:                                   ; preds = %invoke.cont313
   %call324 = call noundef ptr @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE3endEv(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E) #4
   %call325 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIP7Align64iEbT_S2_T0_PKcz(ptr noundef %call323, ptr noundef %call324, i32 noundef 0, ptr noundef @.str, i32 noundef 5, i32 noundef -1)
   %call326 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call325, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 220, ptr noundef @.str.46)
-  %rem = urem i64 ptrtoint (ptr @_ZN12_GLOBAL__N_13a64E to i64), 64
+  %35 = ptrtoint ptr @_ZN12_GLOBAL__N_13a64E to i64
+  %rem = urem i64 %35, 64
   %cmp327 = icmp eq i64 %rem, 0
   %call328 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp327, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 221, ptr noundef @.str.47)
   %call329 = call noundef ptr @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E) #4
-  %35 = ptrtoint ptr %call329 to i64
-  %rem330 = urem i64 %35, 64
+  %36 = ptrtoint ptr %call329 to i64
+  %rem330 = urem i64 %36, 64
   %cmp331 = icmp eq i64 %rem330, 0
   %call332 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp331, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 222, ptr noundef @.str.48)
   %call333 = call noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm3ELm64ELm0ELb1E15CustomAllocatorEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_14vA64E, i64 noundef 0)
-  %36 = ptrtoint ptr %call333 to i64
-  %rem334 = urem i64 %36, 64
+  %37 = ptrtoint ptr %call333 to i64
+  %rem334 = urem i64 %37, 64
   %cmp335 = icmp eq i64 %rem334, 0
   %call336 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp335, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 223, ptr noundef @.str.49)
   %call337 = call noundef i64 @_ZNK5eastl12fixed_vectorI7Align64Lm3ELb1E15CustomAllocatorE8max_sizeEv(ptr noundef nonnull align 64 dereferenceable(256) @_ZN12_GLOBAL__N_14vA64E)
@@ -16550,13 +16551,13 @@ invoke.cont316:                                   ; preds = %invoke.cont313
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont316
-  %37 = load i32, ptr %i, align 4
-  %cmp344 = icmp slt i32 %37, 100
+  %38 = load i32, ptr %i, align 4
+  %cmp344 = icmp slt i32 %38, 100
   br i1 %cmp344, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %38 = load ptr, ptr %p, align 8
-  store ptr %38, ptr %ref.tmp345, align 8
+  %39 = load ptr, ptr %p, align 8
+  store ptr %39, ptr %ref.tmp345, align 8
   invoke void @_ZN5eastl12fixed_vectorIPvLm160ELb0ENS_15dummy_allocatorEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(1304) %v342, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp345)
           to label %invoke.cont347 unwind label %lpad346
 
@@ -16564,120 +16565,120 @@ invoke.cont347:                                   ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont347
-  %39 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %39, 1
+  %40 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %40, 1
   store i32 %inc, ptr %i, align 4
-  %40 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %40, i32 1
+  %41 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %41, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
   br label %for.cond, !llvm.loop !5
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont5, %invoke.cont, %entry
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup283
 
 lpad13:                                           ; preds = %invoke.cont18, %invoke.cont14, %invoke.cont10
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   br label %ehcleanup282
 
 lpad23:                                           ; preds = %invoke.cont28, %invoke.cont24, %invoke.cont20
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   br label %ehcleanup281
 
 lpad33:                                           ; preds = %invoke.cont38, %invoke.cont34, %invoke.cont30
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   br label %ehcleanup280
 
 lpad43:                                           ; preds = %invoke.cont56, %land.end, %land.rhs, %invoke.cont48, %invoke.cont44, %invoke.cont40
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   br label %ehcleanup279
 
 lpad61:                                           ; preds = %invoke.cont76, %land.end75, %land.rhs71, %invoke.cont66, %invoke.cont62, %invoke.cont58
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup278
 
 lpad83:                                           ; preds = %invoke.cont130, %invoke.cont126, %invoke.cont123, %invoke.cont121, %invoke.cont118, %invoke.cont116, %invoke.cont112, %invoke.cont109, %invoke.cont107, %invoke.cont103, %invoke.cont100, %invoke.cont98, %land.end97, %land.rhs93, %invoke.cont88, %invoke.cont84, %invoke.cont80
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   br label %ehcleanup277
 
 lpad134:                                          ; preds = %invoke.cont144, %invoke.cont140, %invoke.cont136, %invoke.cont135, %invoke.cont132
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   br label %ehcleanup276
 
 lpad149:                                          ; preds = %invoke.cont145
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %exn.slot, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %ehselector.slot, align 4
   br label %ehcleanup275
 
 lpad151:                                          ; preds = %invoke.cont208, %land.end207, %land.rhs203, %invoke.cont198, %invoke.cont194, %land.end193, %land.rhs189, %invoke.cont184, %invoke.cont181, %invoke.cont179, %land.end178, %land.rhs174, %invoke.cont169, %invoke.cont165, %land.end164, %land.rhs160, %invoke.cont155, %invoke.cont152, %invoke.cont150
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   br label %ehcleanup274
 
 lpad211:                                          ; preds = %invoke.cont210
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad214:                                          ; preds = %invoke.cont269, %invoke.cont266, %invoke.cont263, %invoke.cont261, %invoke.cont259, %invoke.cont257, %invoke.cont255, %invoke.cont253, %invoke.cont251, %invoke.cont249, %invoke.cont247, %invoke.cont244, %invoke.cont240, %invoke.cont237, %invoke.cont233, %invoke.cont229, %invoke.cont226, %invoke.cont224, %invoke.cont222, %invoke.cont221, %invoke.cont218, %invoke.cont216, %invoke.cont215, %invoke.cont212
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIaLm4ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %fvo6) #4
   br label %ehcleanup
 
@@ -16726,31 +16727,31 @@ ehcleanup283:                                     ; preds = %ehcleanup282, %lpad
   br label %eh.resume
 
 lpad287:                                          ; preds = %invoke.cont294, %invoke.cont292, %invoke.cont288, %invoke.cont272
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIiLm1ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %v284) #4
   br label %eh.resume
 
 lpad301:                                          ; preds = %invoke.cont297
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   br label %ehcleanup319
 
 lpad306:                                          ; preds = %invoke.cont313, %invoke.cont311, %invoke.cont307, %invoke.cont302
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %exn.slot, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %ehselector.slot, align 4
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %to) #4
   br label %ehcleanup319
 
@@ -16759,12 +16760,12 @@ ehcleanup319:                                     ; preds = %lpad306, %lpad301
   br label %eh.resume
 
 lpad346:                                          ; preds = %invoke.cont382, %invoke.cont378, %invoke.cont374, %invoke.cont372, %invoke.cont368, %invoke.cont364, %invoke.cont358, %invoke.cont354, %invoke.cont350, %for.end, %for.body
-  %86 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %exn.slot, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %ehselector.slot, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %exn.slot, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIPvLm160ELb0ENS_15dummy_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %v342) #4
   br label %eh.resume
 
@@ -16789,32 +16790,32 @@ invoke.cont354:                                   ; preds = %invoke.cont350
 invoke.cont358:                                   ; preds = %invoke.cont354
   %call360 = call noundef ptr @_ZN5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %v342) #4
   %call361 = call noundef ptr @_ZN5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %v342) #4
-  %89 = load ptr, ptr %p, align 8
-  %add.ptr363 = getelementptr inbounds i32, ptr %89, i64 -30
+  %90 = load ptr, ptr %p, align 8
+  %add.ptr363 = getelementptr inbounds i32, ptr %90, i64 -30
   store ptr %add.ptr363, ptr %ref.tmp362, align 8
   %call365 = invoke noundef ptr @_ZN5eastl11lower_boundIPPvPiEET_S4_S4_RKT0_(ptr noundef %call360, ptr noundef %call361, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp362)
           to label %invoke.cont364 unwind label %lpad346
 
 invoke.cont364:                                   ; preds = %invoke.cont358
   store ptr %call365, ptr %it, align 8
-  %90 = load ptr, ptr %it, align 8
-  %call366 = call noundef i32 @_ZNK5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE17validate_iteratorEPKS1_(ptr noundef nonnull align 8 dereferenceable(24) %v342, ptr noundef %90) #4
+  %91 = load ptr, ptr %it, align 8
+  %call366 = call noundef i32 @_ZNK5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE17validate_iteratorEPKS1_(ptr noundef nonnull align 8 dereferenceable(24) %v342, ptr noundef %91) #4
   %cmp367 = icmp eq i32 %call366, 7
   %call369 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp367, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 243, ptr noundef @.str.54)
           to label %invoke.cont368 unwind label %lpad346
 
 invoke.cont368:                                   ; preds = %invoke.cont364
-  %91 = load ptr, ptr %it, align 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %p, align 8
-  %add.ptr370 = getelementptr inbounds i32, ptr %93, i64 -30
-  %cmp371 = icmp eq ptr %92, %add.ptr370
+  %92 = load ptr, ptr %it, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %p, align 8
+  %add.ptr370 = getelementptr inbounds i32, ptr %94, i64 -30
+  %cmp371 = icmp eq ptr %93, %add.ptr370
   %call373 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp371, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 244, ptr noundef @.str.55)
           to label %invoke.cont372 unwind label %lpad346
 
 invoke.cont372:                                   ; preds = %invoke.cont368
-  %94 = load ptr, ptr %it, align 8
-  %call375 = invoke noundef ptr @_ZN5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE5eraseEPKS1_(ptr noundef nonnull align 8 dereferenceable(24) %v342, ptr noundef %94)
+  %95 = load ptr, ptr %it, align 8
+  %call375 = invoke noundef ptr @_ZN5eastl6vectorIPvNS_22fixed_vector_allocatorILm8ELm160ELm8ELm0ELb0ENS_15dummy_allocatorEEEE5eraseEPKS1_(ptr noundef nonnull align 8 dereferenceable(24) %v342, ptr noundef %95)
           to label %invoke.cont374 unwind label %lpad346
 
 invoke.cont374:                                   ; preds = %invoke.cont372
@@ -16867,17 +16868,17 @@ invoke.cont395:                                   ; preds = %invoke.cont394
   br label %for.cond398
 
 for.cond398:                                      ; preds = %for.inc406, %invoke.cont395
-  %95 = load ptr, ptr %it396, align 8
+  %96 = load ptr, ptr %it396, align 8
   %call399 = call noundef ptr @_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm4ELm64ELm0ELb1E15CustomAllocatorEEE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %fv) #4
-  %cmp400 = icmp ne ptr %95, %call399
+  %cmp400 = icmp ne ptr %96, %call399
   br i1 %cmp400, label %for.body401, label %for.end408
 
 for.body401:                                      ; preds = %for.cond398
-  %96 = load ptr, ptr %it396, align 8
-  store ptr %96, ptr %ptr, align 8
-  %97 = load ptr, ptr %ptr, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %rem402 = urem i64 %98, 64
+  %97 = load ptr, ptr %it396, align 8
+  store ptr %97, ptr %ptr, align 8
+  %98 = load ptr, ptr %ptr, align 8
+  %99 = ptrtoint ptr %98 to i64
+  %rem402 = urem i64 %99, 64
   %cmp403 = icmp eq i64 %rem402, 0
   %call405 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp403, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 267, ptr noundef @.str.57)
           to label %invoke.cont404 unwind label %lpad389
@@ -16886,18 +16887,18 @@ invoke.cont404:                                   ; preds = %for.body401
   br label %for.inc406
 
 for.inc406:                                       ; preds = %invoke.cont404
-  %99 = load ptr, ptr %it396, align 8
-  %incdec.ptr407 = getelementptr inbounds %struct.Align64, ptr %99, i32 1
+  %100 = load ptr, ptr %it396, align 8
+  %incdec.ptr407 = getelementptr inbounds %struct.Align64, ptr %100, i32 1
   store ptr %incdec.ptr407, ptr %it396, align 8
   br label %for.cond398, !llvm.loop !7
 
 lpad389:                                          ; preds = %for.body401, %invoke.cont394, %invoke.cont393, %invoke.cont392, %invoke.cont391, %invoke.cont390, %invoke.cont386
-  %100 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %exn.slot, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %ehselector.slot, align 4
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %exn.slot, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI7Align64Lm4ELb1E15CustomAllocatorED2Ev(ptr noundef nonnull align 64 dereferenceable(320) %fv) #4
   br label %eh.resume
 
@@ -16919,8 +16920,8 @@ invoke.cont415:                                   ; preds = %invoke.cont412
           to label %invoke.cont417 unwind label %lpad411
 
 invoke.cont417:                                   ; preds = %invoke.cont415
-  %103 = load i8, ptr %call418, align 1
-  %conv = sext i8 %103 to i32
+  %104 = load i8, ptr %call418, align 1
+  %conv = sext i8 %104 to i32
   %cmp419 = icmp eq i32 %conv, 97
   %call421 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp419, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 278, ptr noundef @.str.59)
           to label %invoke.cont420 unwind label %lpad411
@@ -16939,8 +16940,8 @@ invoke.cont423:                                   ; preds = %invoke.cont422
           to label %invoke.cont425 unwind label %lpad411
 
 invoke.cont425:                                   ; preds = %invoke.cont423
-  %104 = load i8, ptr %call426, align 1
-  %conv427 = sext i8 %104 to i32
+  %105 = load i8, ptr %call426, align 1
+  %conv427 = sext i8 %105 to i32
   %cmp428 = icmp eq i32 %conv427, 97
   %call430 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp428, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 282, ptr noundef @.str.59)
           to label %invoke.cont429 unwind label %lpad411
@@ -16950,8 +16951,8 @@ invoke.cont429:                                   ; preds = %invoke.cont425
           to label %invoke.cont431 unwind label %lpad411
 
 invoke.cont431:                                   ; preds = %invoke.cont429
-  %105 = load i8, ptr %call432, align 1
-  %conv433 = sext i8 %105 to i32
+  %106 = load i8, ptr %call432, align 1
+  %conv433 = sext i8 %106 to i32
   %cmp434 = icmp eq i32 %conv433, 98
   %call436 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp434, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 283, ptr noundef @.str.60)
           to label %invoke.cont435 unwind label %lpad411
@@ -16989,8 +16990,8 @@ invoke.cont451:                                   ; preds = %invoke.cont448
           to label %invoke.cont453 unwind label %lpad411
 
 invoke.cont453:                                   ; preds = %invoke.cont451
-  %106 = load i8, ptr %call454, align 1
-  %conv455 = sext i8 %106 to i32
+  %107 = load i8, ptr %call454, align 1
+  %conv455 = sext i8 %107 to i32
   %cmp456 = icmp eq i32 %conv455, 97
   %call458 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp456, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 292, ptr noundef @.str.59)
           to label %invoke.cont457 unwind label %lpad411
@@ -17014,8 +17015,8 @@ invoke.cont463:                                   ; preds = %invoke.cont462
           to label %invoke.cont465 unwind label %lpad411
 
 invoke.cont465:                                   ; preds = %invoke.cont463
-  %107 = load i8, ptr %call466, align 1
-  %conv467 = sext i8 %107 to i32
+  %108 = load i8, ptr %call466, align 1
+  %conv467 = sext i8 %108 to i32
   %cmp468 = icmp eq i32 %conv467, 97
   %call470 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp468, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 297, ptr noundef @.str.59)
           to label %invoke.cont469 unwind label %lpad411
@@ -17025,8 +17026,8 @@ invoke.cont469:                                   ; preds = %invoke.cont465
           to label %invoke.cont471 unwind label %lpad411
 
 invoke.cont471:                                   ; preds = %invoke.cont469
-  %108 = load i8, ptr %call472, align 1
-  %conv473 = sext i8 %108 to i32
+  %109 = load i8, ptr %call472, align 1
+  %conv473 = sext i8 %109 to i32
   %cmp474 = icmp eq i32 %conv473, 98
   %call476 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp474, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 298, ptr noundef @.str.64)
           to label %invoke.cont475 unwind label %lpad411
@@ -17082,8 +17083,8 @@ invoke.cont497:                                   ; preds = %invoke.cont495
   br label %for.cond502
 
 for.cond502:                                      ; preds = %for.inc508, %invoke.cont497
-  %109 = load i32, ptr %i501, align 4
-  %conv503 = zext i32 %109 to i64
+  %110 = load i32, ptr %i501, align 4
+  %conv503 = zext i32 %110 to i64
   %cmp504 = icmp ult i64 %conv503, 5
   br i1 %cmp504, label %for.body505, label %for.end510
 
@@ -17095,36 +17096,36 @@ invoke.cont507:                                   ; preds = %for.body505
   br label %for.inc508
 
 for.inc508:                                       ; preds = %invoke.cont507
-  %110 = load i32, ptr %i501, align 4
-  %inc509 = add nsw i32 %110, 1
+  %111 = load i32, ptr %i501, align 4
+  %inc509 = add nsw i32 %111, 1
   store i32 %inc509, ptr %i501, align 4
   br label %for.cond502, !llvm.loop !8
 
 lpad411:                                          ; preds = %invoke.cont495, %invoke.cont493, %invoke.cont491, %invoke.cont489, %invoke.cont486, %invoke.cont484, %invoke.cont482, %invoke.cont479, %invoke.cont475, %invoke.cont471, %invoke.cont469, %invoke.cont465, %invoke.cont463, %invoke.cont462, %invoke.cont460, %invoke.cont457, %invoke.cont453, %invoke.cont451, %invoke.cont448, %invoke.cont445, %invoke.cont442, %invoke.cont439, %invoke.cont435, %invoke.cont431, %invoke.cont429, %invoke.cont425, %invoke.cont423, %invoke.cont422, %invoke.cont420, %invoke.cont417, %invoke.cont415, %invoke.cont412, %for.end408
-  %111 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %exn.slot, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIcLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %fs) #4
   br label %eh.resume
 
 lpad506:                                          ; preds = %invoke.cont530, %invoke.cont527, %invoke.cont526, %invoke.cont523, %invoke.cont519, %invoke.cont516, %invoke.cont514, %for.end510, %for.body505
-  %114 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %exn.slot, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %ehselector.slot, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %exn.slot, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIiLm4ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %fv500) #4
   br label %eh.resume
 
 for.end510:                                       ; preds = %for.cond502
   %call512 = call noundef i64 @_ZNK5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm4ELm4ELm0ELb1ENS_9allocatorEEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(40) %fv500) #4
   store i64 %call512, ptr %capacity511, align 8
-  %117 = load i64, ptr %capacity511, align 8
-  %cmp513 = icmp uge i64 %117, 5
+  %118 = load i64, ptr %capacity511, align 8
+  %cmp513 = icmp uge i64 %118, 5
   %call515 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp513, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 323, ptr noundef @.str.66)
           to label %invoke.cont514 unwind label %lpad506
 
@@ -17140,8 +17141,8 @@ invoke.cont516:                                   ; preds = %invoke.cont514
 
 invoke.cont519:                                   ; preds = %invoke.cont516
   %call521 = call noundef i64 @_ZNK5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm4ELm4ELm0ELb1ENS_9allocatorEEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(40) %fv500) #4
-  %118 = load i64, ptr %capacity511, align 8
-  %cmp522 = icmp eq i64 %call521, %118
+  %119 = load i64, ptr %capacity511, align 8
+  %cmp522 = icmp eq i64 %call521, %119
   %call524 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp522, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 326, ptr noundef @.str.68)
           to label %invoke.cont523 unwind label %lpad506
 
@@ -17444,12 +17445,12 @@ invoke.cont687:                                   ; preds = %invoke.cont685
 
 invoke.cont690:                                   ; preds = %invoke.cont687
   call void @_ZN5eastl12fixed_vectorIiLm5ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %vInt5609) #4
-  %119 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %119, ptr %toCount0, align 8
-  call void @_ZN5eastl12fixed_vectorI10TestObjectLm32ELb0ENS_15dummy_allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(792) %vTO1)
   %120 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %121 = load i64, ptr %toCount0, align 8
-  %cmp693 = icmp eq i64 %120, %121
+  store i64 %120, ptr %toCount0, align 8
+  call void @_ZN5eastl12fixed_vectorI10TestObjectLm32ELb0ENS_15dummy_allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(792) %vTO1)
+  %121 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %122 = load i64, ptr %toCount0, align 8
+  %cmp693 = icmp eq i64 %121, %122
   %call696 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp693, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 421, ptr noundef @.str.81)
           to label %invoke.cont695 unwind label %lpad694
 
@@ -17458,8 +17459,8 @@ invoke.cont695:                                   ; preds = %invoke.cont690
   br label %for.cond698
 
 for.cond698:                                      ; preds = %for.inc722, %invoke.cont695
-  %122 = load i32, ptr %i697, align 4
-  %cmp699 = icmp slt i32 %122, 25
+  %123 = load i32, ptr %i697, align 4
+  %cmp699 = icmp slt i32 %123, 25
   br i1 %cmp699, label %for.body700, label %for.end724
 
 for.body700:                                      ; preds = %for.cond698
@@ -17468,29 +17469,29 @@ for.body700:                                      ; preds = %for.cond698
 
 invoke.cont701:                                   ; preds = %for.body700
   store ptr %call702, ptr %pTO1, align 8
-  %123 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %124 = load i64, ptr %toCount0, align 8
-  %125 = load i32, ptr %i697, align 4
-  %conv703 = sext i32 %125 to i64
-  %add = add nsw i64 %124, %conv703
-  %cmp704 = icmp eq i64 %123, %add
+  %124 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %125 = load i64, ptr %toCount0, align 8
+  %126 = load i32, ptr %i697, align 4
+  %conv703 = sext i32 %126 to i64
+  %add = add nsw i64 %125, %conv703
+  %cmp704 = icmp eq i64 %124, %add
   %call706 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp704, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 426, ptr noundef @.str.82)
           to label %invoke.cont705 unwind label %lpad694
 
 invoke.cont705:                                   ; preds = %invoke.cont701
-  %126 = load ptr, ptr %pTO1, align 8
-  %127 = load i32, ptr %i697, align 4
-  invoke void @_ZN10TestObjectC2Eib(ptr noundef nonnull align 8 dereferenceable(20) %126, i32 noundef %127, i1 noundef zeroext false)
+  %127 = load ptr, ptr %pTO1, align 8
+  %128 = load i32, ptr %i697, align 4
+  invoke void @_ZN10TestObjectC2Eib(ptr noundef nonnull align 8 dereferenceable(20) %127, i32 noundef %128, i1 noundef zeroext false)
           to label %invoke.cont707 unwind label %lpad694
 
 invoke.cont707:                                   ; preds = %invoke.cont705
-  %128 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %129 = load i64, ptr %toCount0, align 8
-  %130 = load i32, ptr %i697, align 4
-  %conv708 = sext i32 %130 to i64
-  %add709 = add nsw i64 %129, %conv708
+  %129 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %130 = load i64, ptr %toCount0, align 8
+  %131 = load i32, ptr %i697, align 4
+  %conv708 = sext i32 %131 to i64
+  %add709 = add nsw i64 %130, %conv708
   %add710 = add nsw i64 %add709, 1
-  %cmp711 = icmp eq i64 %128, %add710
+  %cmp711 = icmp eq i64 %129, %add710
   %call713 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp711, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 429, ptr noundef @.str.83)
           to label %invoke.cont712 unwind label %lpad694
 
@@ -17500,9 +17501,9 @@ invoke.cont712:                                   ; preds = %invoke.cont707
 
 invoke.cont714:                                   ; preds = %invoke.cont712
   %mX = getelementptr inbounds %struct.TestObject, ptr %call715, i32 0, i32 0
-  %131 = load i32, ptr %mX, align 8
-  %132 = load i32, ptr %i697, align 4
-  %cmp716 = icmp eq i32 %131, %132
+  %132 = load i32, ptr %mX, align 8
+  %133 = load i32, ptr %i697, align 4
+  %cmp716 = icmp eq i32 %132, %133
   %call718 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp716, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 430, ptr noundef @.str.84)
           to label %invoke.cont717 unwind label %lpad694
 
@@ -17515,49 +17516,49 @@ invoke.cont720:                                   ; preds = %invoke.cont717
   br label %for.inc722
 
 for.inc722:                                       ; preds = %invoke.cont720
-  %133 = load i32, ptr %i697, align 4
-  %inc723 = add nsw i32 %133, 1
+  %134 = load i32, ptr %i697, align 4
+  %inc723 = add nsw i32 %134, 1
   store i32 %inc723, ptr %i697, align 4
   br label %for.cond698, !llvm.loop !9
 
 lpad537:                                          ; preds = %invoke.cont603, %invoke.cont600, %invoke.cont598, %invoke.cont594, %invoke.cont591, %invoke.cont589, %invoke.cont586, %invoke.cont584, %invoke.cont580, %invoke.cont577, %invoke.cont575, %invoke.cont572, %invoke.cont569, %invoke.cont567, %invoke.cont563, %invoke.cont560, %invoke.cont558, %invoke.cont556, %invoke.cont553, %invoke.cont550, %invoke.cont548, %invoke.cont545, %invoke.cont541, %invoke.cont538, %invoke.cont534
-  %134 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
-  %135 = extractvalue { ptr, i32 } %134, 0
-  store ptr %135, ptr %exn.slot, align 8
-  %136 = extractvalue { ptr, i32 } %134, 1
-  store i32 %136, ptr %ehselector.slot, align 4
+  %136 = extractvalue { ptr, i32 } %135, 0
+  store ptr %136, ptr %exn.slot, align 8
+  %137 = extractvalue { ptr, i32 } %135, 1
+  store i32 %137, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIiLm5ELb0ENS_15dummy_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vInt5) #4
   br label %eh.resume
 
 lpad610:                                          ; preds = %invoke.cont687, %invoke.cont685, %invoke.cont683, %invoke.cont680, %invoke.cont676, %invoke.cont674, %invoke.cont672, %invoke.cont668, %invoke.cont665, %invoke.cont662, %invoke.cont659, %invoke.cont657, %invoke.cont653, %invoke.cont650, %invoke.cont648, %invoke.cont645, %invoke.cont642, %invoke.cont640, %invoke.cont636, %invoke.cont633, %invoke.cont631, %invoke.cont629, %invoke.cont626, %invoke.cont623, %invoke.cont621, %invoke.cont618, %invoke.cont614, %invoke.cont611, %invoke.cont606
-  %137 = landingpad { ptr, i32 }
+  %138 = landingpad { ptr, i32 }
           cleanup
-  %138 = extractvalue { ptr, i32 } %137, 0
-  store ptr %138, ptr %exn.slot, align 8
-  %139 = extractvalue { ptr, i32 } %137, 1
-  store i32 %139, ptr %ehselector.slot, align 4
+  %139 = extractvalue { ptr, i32 } %138, 0
+  store ptr %139, ptr %exn.slot, align 8
+  %140 = extractvalue { ptr, i32 } %138, 1
+  store i32 %140, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIiLm5ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %vInt5609) #4
   br label %eh.resume
 
 lpad694:                                          ; preds = %invoke.cont717, %invoke.cont714, %invoke.cont712, %invoke.cont707, %invoke.cont705, %invoke.cont701, %for.body700, %invoke.cont690
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           cleanup
-  %141 = extractvalue { ptr, i32 } %140, 0
-  store ptr %141, ptr %exn.slot, align 8
-  %142 = extractvalue { ptr, i32 } %140, 1
-  store i32 %142, ptr %ehselector.slot, align 4
+  %142 = extractvalue { ptr, i32 } %141, 0
+  store ptr %142, ptr %exn.slot, align 8
+  %143 = extractvalue { ptr, i32 } %141, 1
+  store i32 %143, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm32ELb0ENS_15dummy_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(792) %vTO1) #4
   br label %eh.resume
 
 for.end724:                                       ; preds = %for.cond698
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm32ELb0ENS_15dummy_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(792) %vTO1) #4
-  %143 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %143, ptr %toCount0726, align 8
-  call void @_ZN5eastl12fixed_vectorI10TestObjectLm15ELb1ENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %vTO2)
   %144 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %145 = load i64, ptr %toCount0726, align 8
-  %cmp727 = icmp eq i64 %144, %145
+  store i64 %144, ptr %toCount0726, align 8
+  call void @_ZN5eastl12fixed_vectorI10TestObjectLm15ELb1ENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %vTO2)
+  %145 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %146 = load i64, ptr %toCount0726, align 8
+  %cmp727 = icmp eq i64 %145, %146
   %call730 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp727, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 441, ptr noundef @.str.81)
           to label %invoke.cont729 unwind label %lpad728
 
@@ -17566,8 +17567,8 @@ invoke.cont729:                                   ; preds = %for.end724
   br label %for.cond732
 
 for.cond732:                                      ; preds = %for.inc758, %invoke.cont729
-  %146 = load i32, ptr %i731, align 4
-  %cmp733 = icmp slt i32 %146, 25
+  %147 = load i32, ptr %i731, align 4
+  %cmp733 = icmp slt i32 %147, 25
   br i1 %cmp733, label %for.body734, label %for.end760
 
 for.body734:                                      ; preds = %for.cond732
@@ -17576,29 +17577,29 @@ for.body734:                                      ; preds = %for.cond732
 
 invoke.cont735:                                   ; preds = %for.body734
   store ptr %call736, ptr %pTO2, align 8
-  %147 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %148 = load i64, ptr %toCount0726, align 8
-  %149 = load i32, ptr %i731, align 4
-  %conv737 = sext i32 %149 to i64
-  %add738 = add nsw i64 %148, %conv737
-  %cmp739 = icmp eq i64 %147, %add738
+  %148 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %149 = load i64, ptr %toCount0726, align 8
+  %150 = load i32, ptr %i731, align 4
+  %conv737 = sext i32 %150 to i64
+  %add738 = add nsw i64 %149, %conv737
+  %cmp739 = icmp eq i64 %148, %add738
   %call741 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp739, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 446, ptr noundef @.str.82)
           to label %invoke.cont740 unwind label %lpad728
 
 invoke.cont740:                                   ; preds = %invoke.cont735
-  %150 = load ptr, ptr %pTO2, align 8
-  %151 = load i32, ptr %i731, align 4
-  invoke void @_ZN10TestObjectC2Eib(ptr noundef nonnull align 8 dereferenceable(20) %150, i32 noundef %151, i1 noundef zeroext false)
+  %151 = load ptr, ptr %pTO2, align 8
+  %152 = load i32, ptr %i731, align 4
+  invoke void @_ZN10TestObjectC2Eib(ptr noundef nonnull align 8 dereferenceable(20) %151, i32 noundef %152, i1 noundef zeroext false)
           to label %invoke.cont742 unwind label %lpad728
 
 invoke.cont742:                                   ; preds = %invoke.cont740
-  %152 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %153 = load i64, ptr %toCount0726, align 8
-  %154 = load i32, ptr %i731, align 4
-  %conv743 = sext i32 %154 to i64
-  %add744 = add nsw i64 %153, %conv743
+  %153 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %154 = load i64, ptr %toCount0726, align 8
+  %155 = load i32, ptr %i731, align 4
+  %conv743 = sext i32 %155 to i64
+  %add744 = add nsw i64 %154, %conv743
   %add745 = add nsw i64 %add744, 1
-  %cmp746 = icmp eq i64 %152, %add745
+  %cmp746 = icmp eq i64 %153, %add745
   %call748 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp746, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 449, ptr noundef @.str.83)
           to label %invoke.cont747 unwind label %lpad728
 
@@ -17608,9 +17609,9 @@ invoke.cont747:                                   ; preds = %invoke.cont742
 
 invoke.cont749:                                   ; preds = %invoke.cont747
   %mX751 = getelementptr inbounds %struct.TestObject, ptr %call750, i32 0, i32 0
-  %155 = load i32, ptr %mX751, align 8
-  %156 = load i32, ptr %i731, align 4
-  %cmp752 = icmp eq i32 %155, %156
+  %156 = load i32, ptr %mX751, align 8
+  %157 = load i32, ptr %i731, align 4
+  %cmp752 = icmp eq i32 %156, %157
   %call754 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp752, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 450, ptr noundef @.str.86)
           to label %invoke.cont753 unwind label %lpad728
 
@@ -17623,18 +17624,18 @@ invoke.cont756:                                   ; preds = %invoke.cont753
   br label %for.inc758
 
 for.inc758:                                       ; preds = %invoke.cont756
-  %157 = load i32, ptr %i731, align 4
-  %inc759 = add nsw i32 %157, 1
+  %158 = load i32, ptr %i731, align 4
+  %inc759 = add nsw i32 %158, 1
   store i32 %inc759, ptr %i731, align 4
   br label %for.cond732, !llvm.loop !10
 
 lpad728:                                          ; preds = %invoke.cont753, %invoke.cont749, %invoke.cont747, %invoke.cont742, %invoke.cont740, %invoke.cont735, %for.body734, %for.end724
-  %158 = landingpad { ptr, i32 }
+  %159 = landingpad { ptr, i32 }
           cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %exn.slot, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %ehselector.slot, align 4
+  %160 = extractvalue { ptr, i32 } %159, 0
+  store ptr %160, ptr %exn.slot, align 8
+  %161 = extractvalue { ptr, i32 } %159, 1
+  store i32 %161, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm15ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %vTO2) #4
   br label %eh.resume
 
@@ -17711,14 +17712,14 @@ invoke.cont784:                                   ; preds = %invoke.cont782
 invoke.cont796:                                   ; preds = %invoke.cont784
   %call797 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl12fixed_vectorIiLm64ELb1E15MallocAllocatorE22get_overflow_allocatorEv(ptr noundef nonnull align 8 dereferenceable(304) %c) #4
   %mAllocCount = getelementptr inbounds %class.MallocAllocator, ptr %call797, i32 0, i32 0
-  %161 = load i32, ptr %mAllocCount, align 8
-  %cmp798 = icmp eq i32 %161, 2
+  %162 = load i32, ptr %mAllocCount, align 8
+  %cmp798 = icmp eq i32 %162, 2
   %call800 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp798, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 482, ptr noundef @.str.88)
           to label %invoke.cont799 unwind label %lpad795
 
 invoke.cont799:                                   ; preds = %invoke.cont796
-  %162 = load ptr, ptr %p793, align 8
-  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %overflowAllocator, ptr noundef %162, i64 noundef 1)
+  %163 = load ptr, ptr %p793, align 8
+  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %overflowAllocator, ptr noundef %163, i64 noundef 1)
           to label %invoke.cont801 unwind label %lpad795
 
 invoke.cont801:                                   ; preds = %invoke.cont799
@@ -17795,8 +17796,8 @@ invoke.cont840:                                   ; preds = %invoke.cont836
   br label %for.cond842
 
 for.cond842:                                      ; preds = %for.inc851, %invoke.cont840
-  %163 = load i32, ptr %i841, align 4
-  %cmp843 = icmp ult i32 %163, 100
+  %164 = load i32, ptr %i841, align 4
+  %cmp843 = icmp ult i32 %164, 100
   br i1 %cmp843, label %for.body844, label %for.end853
 
 for.body844:                                      ; preds = %for.cond842
@@ -17812,81 +17813,81 @@ invoke.cont849:                                   ; preds = %invoke.cont847
   br label %for.inc851
 
 for.inc851:                                       ; preds = %invoke.cont849
-  %164 = load i32, ptr %i841, align 4
-  %inc852 = add i32 %164, 1
+  %165 = load i32, ptr %i841, align 4
+  %inc852 = add i32 %165, 1
   store i32 %inc852, ptr %i841, align 4
   br label %for.cond842, !llvm.loop !11
 
 lpad762:                                          ; preds = %for.end760
-  %165 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %exn.slot, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %ehselector.slot, align 4
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %exn.slot, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %ehselector.slot, align 4
   br label %ehcleanup792
 
 lpad764:                                          ; preds = %invoke.cont763
-  %168 = landingpad { ptr, i32 }
+  %169 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %exn.slot, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %ehselector.slot, align 4
+  %170 = extractvalue { ptr, i32 } %169, 0
+  store ptr %170, ptr %exn.slot, align 8
+  %171 = extractvalue { ptr, i32 } %169, 1
+  store i32 %171, ptr %ehselector.slot, align 4
   br label %ehcleanup791
 
 lpad766:                                          ; preds = %invoke.cont765
-  %171 = landingpad { ptr, i32 }
+  %172 = landingpad { ptr, i32 }
           cleanup
-  %172 = extractvalue { ptr, i32 } %171, 0
-  store ptr %172, ptr %exn.slot, align 8
-  %173 = extractvalue { ptr, i32 } %171, 1
-  store i32 %173, ptr %ehselector.slot, align 4
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %exn.slot, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %ehselector.slot, align 4
   br label %ehcleanup790
 
 lpad768:                                          ; preds = %invoke.cont767
-  %174 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
-  %175 = extractvalue { ptr, i32 } %174, 0
-  store ptr %175, ptr %exn.slot, align 8
-  %176 = extractvalue { ptr, i32 } %174, 1
-  store i32 %176, ptr %ehselector.slot, align 4
+  %176 = extractvalue { ptr, i32 } %175, 0
+  store ptr %176, ptr %exn.slot, align 8
+  %177 = extractvalue { ptr, i32 } %175, 1
+  store i32 %177, ptr %ehselector.slot, align 4
   br label %ehcleanup789
 
 lpad770:                                          ; preds = %invoke.cont769
-  %177 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %exn.slot, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %ehselector.slot, align 4
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %exn.slot, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %ehselector.slot, align 4
   br label %ehcleanup788
 
 lpad772:                                          ; preds = %invoke.cont771
-  %180 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %exn.slot, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %ehselector.slot, align 4
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %exn.slot, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %ehselector.slot, align 4
   br label %ehcleanup787
 
 lpad774:                                          ; preds = %invoke.cont773
-  %183 = landingpad { ptr, i32 }
+  %184 = landingpad { ptr, i32 }
           cleanup
-  %184 = extractvalue { ptr, i32 } %183, 0
-  store ptr %184, ptr %exn.slot, align 8
-  %185 = extractvalue { ptr, i32 } %183, 1
-  store i32 %185, ptr %ehselector.slot, align 4
+  %185 = extractvalue { ptr, i32 } %184, 0
+  store ptr %185, ptr %exn.slot, align 8
+  %186 = extractvalue { ptr, i32 } %184, 1
+  store i32 %186, ptr %ehselector.slot, align 4
   br label %ehcleanup786
 
 lpad777:                                          ; preds = %invoke.cont782, %invoke.cont780, %invoke.cont778, %invoke.cont775
-  %186 = landingpad { ptr, i32 }
+  %187 = landingpad { ptr, i32 }
           cleanup
-  %187 = extractvalue { ptr, i32 } %186, 0
-  store ptr %187, ptr %exn.slot, align 8
-  %188 = extractvalue { ptr, i32 } %186, 1
-  store i32 %188, ptr %ehselector.slot, align 4
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %exn.slot, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm10ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %fvomt) #4
   br label %ehcleanup786
 
@@ -17919,50 +17920,50 @@ ehcleanup792:                                     ; preds = %ehcleanup791, %lpad
   br label %eh.resume
 
 lpad795:                                          ; preds = %invoke.cont799, %invoke.cont796, %invoke.cont784
-  %189 = landingpad { ptr, i32 }
+  %190 = landingpad { ptr, i32 }
           cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %exn.slot, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %ehselector.slot, align 4
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %exn.slot, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIiLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %c) #4
   br label %eh.resume
 
 lpad806:                                          ; preds = %invoke.cont833, %invoke.cont830, %invoke.cont828, %invoke.cont825, %invoke.cont822, %invoke.cont820, %invoke.cont815, %invoke.cont813, %invoke.cont809, %invoke.cont807, %invoke.cont801
-  %192 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
-  %193 = extractvalue { ptr, i32 } %192, 0
-  store ptr %193, ptr %exn.slot, align 8
-  %194 = extractvalue { ptr, i32 } %192, 1
-  store i32 %194, ptr %ehselector.slot, align 4
+  %194 = extractvalue { ptr, i32 } %193, 0
+  store ptr %194, ptr %exn.slot, align 8
+  %195 = extractvalue { ptr, i32 } %193, 1
+  store i32 %195, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorIPvLm1ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %test) #4
   br label %eh.resume
 
 lpad839:                                          ; preds = %invoke.cont836
-  %195 = landingpad { ptr, i32 }
+  %196 = landingpad { ptr, i32 }
           cleanup
-  %196 = extractvalue { ptr, i32 } %195, 0
-  store ptr %196, ptr %exn.slot, align 8
-  %197 = extractvalue { ptr, i32 } %195, 1
-  store i32 %197, ptr %ehselector.slot, align 4
+  %197 = extractvalue { ptr, i32 } %196, 0
+  store ptr %197, ptr %exn.slot, align 8
+  %198 = extractvalue { ptr, i32 } %196, 1
+  store i32 %198, ptr %ehselector.slot, align 4
   br label %ehcleanup942
 
 lpad846:                                          ; preds = %invoke.cont909, %invoke.cont906, %for.end904, %invoke.cont896, %invoke.cont893, %invoke.cont890, %invoke.cont888, %for.body886, %invoke.cont880, %for.end878, %invoke.cont871, %invoke.cont869, %invoke.cont866, %invoke.cont862, %for.body860, %for.end853, %for.body844
-  %198 = landingpad { ptr, i32 }
+  %199 = landingpad { ptr, i32 }
           cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %exn.slot, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %ehselector.slot, align 4
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %exn.slot, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %ehselector.slot, align 4
   br label %ehcleanup941
 
 lpad848:                                          ; preds = %invoke.cont847
-  %201 = landingpad { ptr, i32 }
+  %202 = landingpad { ptr, i32 }
           cleanup
-  %202 = extractvalue { ptr, i32 } %201, 0
-  store ptr %202, ptr %exn.slot, align 8
-  %203 = extractvalue { ptr, i32 } %201, 1
-  store i32 %203, ptr %ehselector.slot, align 4
+  %203 = extractvalue { ptr, i32 } %202, 0
+  store ptr %203, ptr %exn.slot, align 8
+  %204 = extractvalue { ptr, i32 } %202, 1
+  store i32 %204, ptr %ehselector.slot, align 4
   call void @_ZN5eastl10unique_ptrIjNS_14default_deleteIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp845) #4
   br label %ehcleanup941
 
@@ -17976,13 +17977,13 @@ invoke.cont855:                                   ; preds = %for.end853
   br label %for.cond858
 
 for.cond858:                                      ; preds = %for.inc876, %invoke.cont855
-  %204 = load i32, ptr %i857, align 4
-  %cmp859 = icmp ult i32 %204, 100
+  %205 = load i32, ptr %i857, align 4
+  %cmp859 = icmp ult i32 %205, 100
   br i1 %cmp859, label %for.body860, label %for.end878
 
 for.body860:                                      ; preds = %for.cond858
-  %205 = load i32, ptr %i857, align 4
-  %conv861 = zext i32 %205 to i64
+  %206 = load i32, ptr %i857, align 4
+  %conv861 = zext i32 %206 to i64
   %call863 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fvmv1, i64 noundef %conv861)
           to label %invoke.cont862 unwind label %lpad846
 
@@ -17993,8 +17994,8 @@ invoke.cont862:                                   ; preds = %for.body860
           to label %invoke.cont866 unwind label %lpad846
 
 invoke.cont866:                                   ; preds = %invoke.cont862
-  %206 = load i32, ptr %i857, align 4
-  %conv868 = zext i32 %206 to i64
+  %207 = load i32, ptr %i857, align 4
+  %conv868 = zext i32 %207 to i64
   %call870 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fvmv2, i64 noundef %conv868)
           to label %invoke.cont869 unwind label %lpad846
 
@@ -18003,9 +18004,9 @@ invoke.cont869:                                   ; preds = %invoke.cont866
           to label %invoke.cont871 unwind label %lpad846
 
 invoke.cont871:                                   ; preds = %invoke.cont869
-  %207 = load i32, ptr %call872, align 4
-  %208 = load i32, ptr %i857, align 4
-  %cmp873 = icmp eq i32 %207, %208
+  %208 = load i32, ptr %call872, align 4
+  %209 = load i32, ptr %i857, align 4
+  %cmp873 = icmp eq i32 %208, %209
   %call875 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp873, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 519, ptr noundef @.str.94)
           to label %invoke.cont874 unwind label %lpad846
 
@@ -18013,8 +18014,8 @@ invoke.cont874:                                   ; preds = %invoke.cont871
   br label %for.inc876
 
 for.inc876:                                       ; preds = %invoke.cont874
-  %209 = load i32, ptr %i857, align 4
-  %inc877 = add i32 %209, 1
+  %210 = load i32, ptr %i857, align 4
+  %inc877 = add i32 %210, 1
   store i32 %inc877, ptr %i857, align 4
   br label %for.cond858, !llvm.loop !12
 
@@ -18032,13 +18033,13 @@ invoke.cont882:                                   ; preds = %invoke.cont880
   br label %for.cond884
 
 for.cond884:                                      ; preds = %for.inc902, %invoke.cont882
-  %210 = load i32, ptr %i883, align 4
-  %cmp885 = icmp ult i32 %210, 100
+  %211 = load i32, ptr %i883, align 4
+  %cmp885 = icmp ult i32 %211, 100
   br i1 %cmp885, label %for.body886, label %for.end904
 
 for.body886:                                      ; preds = %for.cond884
-  %211 = load i32, ptr %i883, align 4
-  %conv887 = zext i32 %211 to i64
+  %212 = load i32, ptr %i883, align 4
+  %conv887 = zext i32 %212 to i64
   %call889 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fvmv1, i64 noundef %conv887)
           to label %invoke.cont888 unwind label %lpad846
 
@@ -18047,15 +18048,15 @@ invoke.cont888:                                   ; preds = %for.body886
           to label %invoke.cont890 unwind label %lpad846
 
 invoke.cont890:                                   ; preds = %invoke.cont888
-  %212 = load i32, ptr %call891, align 4
-  %213 = load i32, ptr %i883, align 4
-  %cmp892 = icmp eq i32 %212, %213
+  %213 = load i32, ptr %call891, align 4
+  %214 = load i32, ptr %i883, align 4
+  %cmp892 = icmp eq i32 %213, %214
   %call894 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp892, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 526, ptr noundef @.str.96)
           to label %invoke.cont893 unwind label %lpad846
 
 invoke.cont893:                                   ; preds = %invoke.cont890
-  %214 = load i32, ptr %i883, align 4
-  %conv895 = zext i32 %214 to i64
+  %215 = load i32, ptr %i883, align 4
+  %conv895 = zext i32 %215 to i64
   %call897 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fvmv2, i64 noundef %conv895)
           to label %invoke.cont896 unwind label %lpad846
 
@@ -18069,8 +18070,8 @@ invoke.cont900:                                   ; preds = %invoke.cont896
   br label %for.inc902
 
 for.inc902:                                       ; preds = %invoke.cont900
-  %215 = load i32, ptr %i883, align 4
-  %inc903 = add i32 %215, 1
+  %216 = load i32, ptr %i883, align 4
+  %inc903 = add i32 %216, 1
   store i32 %inc903, ptr %i883, align 4
   br label %for.cond884, !llvm.loop !13
 
@@ -18094,13 +18095,13 @@ invoke.cont913:                                   ; preds = %invoke.cont909
   br label %for.cond915
 
 for.cond915:                                      ; preds = %for.inc934, %invoke.cont913
-  %216 = load i32, ptr %i914, align 4
-  %cmp916 = icmp ult i32 %216, 100
+  %217 = load i32, ptr %i914, align 4
+  %cmp916 = icmp ult i32 %217, 100
   br i1 %cmp916, label %for.body917, label %for.end936
 
 for.body917:                                      ; preds = %for.cond915
-  %217 = load i32, ptr %i914, align 4
-  %conv918 = zext i32 %217 to i64
+  %218 = load i32, ptr %i914, align 4
+  %conv918 = zext i32 %218 to i64
   %call921 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fvmv1, i64 noundef %conv918)
           to label %invoke.cont920 unwind label %lpad919
 
@@ -18111,8 +18112,8 @@ invoke.cont920:                                   ; preds = %for.body917
           to label %invoke.cont924 unwind label %lpad919
 
 invoke.cont924:                                   ; preds = %invoke.cont920
-  %218 = load i32, ptr %i914, align 4
-  %conv926 = zext i32 %218 to i64
+  %219 = load i32, ptr %i914, align 4
+  %conv926 = zext i32 %219 to i64
   %call928 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl6vectorINS_10unique_ptrIjNS_14default_deleteIjEEEENS_22fixed_vector_allocatorILm8ELm100ELm8ELm0ELb1ENS_9allocatorEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %fv911, i64 noundef %conv926)
           to label %invoke.cont927 unwind label %lpad919
 
@@ -18121,9 +18122,9 @@ invoke.cont927:                                   ; preds = %invoke.cont924
           to label %invoke.cont929 unwind label %lpad919
 
 invoke.cont929:                                   ; preds = %invoke.cont927
-  %219 = load i32, ptr %call930, align 4
-  %220 = load i32, ptr %i914, align 4
-  %cmp931 = icmp eq i32 %219, %220
+  %220 = load i32, ptr %call930, align 4
+  %221 = load i32, ptr %i914, align 4
+  %cmp931 = icmp eq i32 %220, %221
   %call933 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp931, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 536, ptr noundef @.str.99)
           to label %invoke.cont932 unwind label %lpad919
 
@@ -18131,18 +18132,18 @@ invoke.cont932:                                   ; preds = %invoke.cont929
   br label %for.inc934
 
 for.inc934:                                       ; preds = %invoke.cont932
-  %221 = load i32, ptr %i914, align 4
-  %inc935 = add i32 %221, 1
+  %222 = load i32, ptr %i914, align 4
+  %inc935 = add i32 %222, 1
   store i32 %inc935, ptr %i914, align 4
   br label %for.cond915, !llvm.loop !14
 
 lpad919:                                          ; preds = %for.end936, %invoke.cont929, %invoke.cont927, %invoke.cont924, %invoke.cont920, %for.body917
-  %222 = landingpad { ptr, i32 }
+  %223 = landingpad { ptr, i32 }
           cleanup
-  %223 = extractvalue { ptr, i32 } %222, 0
-  store ptr %223, ptr %exn.slot, align 8
-  %224 = extractvalue { ptr, i32 } %222, 1
-  store i32 %224, ptr %ehselector.slot, align 4
+  %224 = extractvalue { ptr, i32 } %223, 0
+  store ptr %224, ptr %exn.slot, align 8
+  %225 = extractvalue { ptr, i32 } %223, 1
+  store i32 %225, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorINS_10unique_ptrIjNS_14default_deleteIjEEEELm100ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(840) %fv911) #4
   br label %ehcleanup941
 
@@ -18174,30 +18175,30 @@ invoke.cont951:                                   ; preds = %invoke.cont948
 
 invoke.cont953:                                   ; preds = %invoke.cont951
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp950) #4
-  %225 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  store i64 %225, ptr %copyCtorCount0, align 8
-  %226 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  store i64 %226, ptr %moveCtorCount0, align 8
+  %226 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  store i64 %226, ptr %copyCtorCount0, align 8
+  %227 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  store i64 %227, ptr %moveCtorCount0, align 8
   %call956 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5eastl4moveIRNS_12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 8 dereferenceable(64) %fv1943) #4
   invoke void @_ZN5eastl12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(64) %fv2955, ptr noundef nonnull align 8 dereferenceable(64) %call956)
           to label %invoke.cont957 unwind label %lpad945
 
 invoke.cont957:                                   ; preds = %invoke.cont953
-  %227 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %228 = load i64, ptr %copyCtorCount0, align 8
-  %cmp958 = icmp eq i64 %227, %228
+  %228 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %229 = load i64, ptr %copyCtorCount0, align 8
+  %cmp958 = icmp eq i64 %228, %229
   br i1 %cmp958, label %land.rhs959, label %land.end962
 
 land.rhs959:                                      ; preds = %invoke.cont957
-  %229 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %230 = load i64, ptr %moveCtorCount0, align 8
-  %add960 = add nsw i64 %230, 2
-  %cmp961 = icmp eq i64 %229, %add960
+  %230 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %231 = load i64, ptr %moveCtorCount0, align 8
+  %add960 = add nsw i64 %231, 2
+  %cmp961 = icmp eq i64 %230, %add960
   br label %land.end962
 
 land.end962:                                      ; preds = %land.rhs959, %invoke.cont957
-  %231 = phi i1 [ false, %invoke.cont957 ], [ %cmp961, %land.rhs959 ]
-  %call965 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %231, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 547, ptr noundef @.str.101)
+  %232 = phi i1 [ false, %invoke.cont957 ], [ %cmp961, %land.rhs959 ]
+  %call965 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %232, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 547, ptr noundef @.str.101)
           to label %invoke.cont964 unwind label %lpad963
 
 invoke.cont964:                                   ; preds = %land.end962
@@ -18222,10 +18223,10 @@ invoke.cont976:                                   ; preds = %invoke.cont973
 
 invoke.cont978:                                   ; preds = %invoke.cont976
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp975) #4
-  %232 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  store i64 %232, ptr %copyCtorCount0980, align 8
-  %233 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  store i64 %233, ptr %moveCtorCount0981, align 8
+  %233 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  store i64 %233, ptr %copyCtorCount0980, align 8
+  %234 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  store i64 %234, ptr %moveCtorCount0981, align 8
   %call983 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5eastl4moveIRNS_12fixed_vectorI10TestObjectLm1ELb1EZ15TestFixedVectorvE7MyAllocEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 8 dereferenceable(64) %fv1968) #4
   invoke void @_ZZ15TestFixedVectorvEN7MyAllocC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp984, i32 noundef 123)
           to label %invoke.cont985 unwind label %lpad970
@@ -18235,21 +18236,21 @@ invoke.cont985:                                   ; preds = %invoke.cont978
           to label %invoke.cont986 unwind label %lpad970
 
 invoke.cont986:                                   ; preds = %invoke.cont985
-  %234 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %235 = load i64, ptr %copyCtorCount0980, align 8
-  %cmp987 = icmp eq i64 %234, %235
+  %235 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %236 = load i64, ptr %copyCtorCount0980, align 8
+  %cmp987 = icmp eq i64 %235, %236
   br i1 %cmp987, label %land.rhs988, label %land.end991
 
 land.rhs988:                                      ; preds = %invoke.cont986
-  %236 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %237 = load i64, ptr %moveCtorCount0981, align 8
-  %add989 = add nsw i64 %237, 2
-  %cmp990 = icmp eq i64 %236, %add989
+  %237 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %238 = load i64, ptr %moveCtorCount0981, align 8
+  %add989 = add nsw i64 %238, 2
+  %cmp990 = icmp eq i64 %237, %add989
   br label %land.end991
 
 land.end991:                                      ; preds = %land.rhs988, %invoke.cont986
-  %238 = phi i1 [ false, %invoke.cont986 ], [ %cmp990, %land.rhs988 ]
-  %call994 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %238, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 561, ptr noundef @.str.101)
+  %239 = phi i1 [ false, %invoke.cont986 ], [ %cmp990, %land.rhs988 ]
+  %call994 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %239, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.2, i32 noundef 561, ptr noundef @.str.101)
           to label %invoke.cont993 unwind label %lpad992
 
 invoke.cont993:                                   ; preds = %land.end991
@@ -18263,8 +18264,8 @@ invoke.cont993:                                   ; preds = %land.end991
 invoke.cont1000:                                  ; preds = %invoke.cont993
   call void @_ZN5eastl12fixed_vectorISt7variantIJiEELm4ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %b) #4
   call void @_ZN5eastl12fixed_vectorISt7variantIJiEELm4ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %v997) #4
-  %239 = load i32, ptr %nErrorCount, align 4
-  ret i32 %239
+  %240 = load i32, ptr %nErrorCount, align 4
+  ret i32 %240
 
 ehcleanup941:                                     ; preds = %lpad919, %lpad848, %lpad846
   call void @_ZN5eastl12fixed_vectorINS_10unique_ptrIjNS_14default_deleteIjEEEELm100ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(840) %fvmv2) #4
@@ -18275,41 +18276,41 @@ ehcleanup942:                                     ; preds = %ehcleanup941, %lpad
   br label %eh.resume
 
 lpad945:                                          ; preds = %invoke.cont953, %invoke.cont948, %invoke.cont938
-  %240 = landingpad { ptr, i32 }
+  %241 = landingpad { ptr, i32 }
           cleanup
-  %241 = extractvalue { ptr, i32 } %240, 0
-  store ptr %241, ptr %exn.slot, align 8
-  %242 = extractvalue { ptr, i32 } %240, 1
-  store i32 %242, ptr %ehselector.slot, align 4
+  %242 = extractvalue { ptr, i32 } %241, 0
+  store ptr %242, ptr %exn.slot, align 8
+  %243 = extractvalue { ptr, i32 } %241, 1
+  store i32 %243, ptr %ehselector.slot, align 4
   br label %ehcleanup967
 
 lpad947:                                          ; preds = %invoke.cont946
-  %243 = landingpad { ptr, i32 }
+  %244 = landingpad { ptr, i32 }
           cleanup
-  %244 = extractvalue { ptr, i32 } %243, 0
-  store ptr %244, ptr %exn.slot, align 8
-  %245 = extractvalue { ptr, i32 } %243, 1
-  store i32 %245, ptr %ehselector.slot, align 4
+  %245 = extractvalue { ptr, i32 } %244, 0
+  store ptr %245, ptr %exn.slot, align 8
+  %246 = extractvalue { ptr, i32 } %244, 1
+  store i32 %246, ptr %ehselector.slot, align 4
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp944) #4
   br label %ehcleanup967
 
 lpad952:                                          ; preds = %invoke.cont951
-  %246 = landingpad { ptr, i32 }
+  %247 = landingpad { ptr, i32 }
           cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %exn.slot, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %ehselector.slot, align 4
+  %248 = extractvalue { ptr, i32 } %247, 0
+  store ptr %248, ptr %exn.slot, align 8
+  %249 = extractvalue { ptr, i32 } %247, 1
+  store i32 %249, ptr %ehselector.slot, align 4
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp950) #4
   br label %ehcleanup967
 
 lpad963:                                          ; preds = %land.end962
-  %249 = landingpad { ptr, i32 }
+  %250 = landingpad { ptr, i32 }
           cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %exn.slot, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %ehselector.slot, align 4
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %exn.slot, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm1ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fv2955) #4
   br label %ehcleanup967
 
@@ -18318,41 +18319,41 @@ ehcleanup967:                                     ; preds = %lpad963, %lpad952, 
   br label %eh.resume
 
 lpad970:                                          ; preds = %invoke.cont985, %invoke.cont978, %invoke.cont973, %invoke.cont964
-  %252 = landingpad { ptr, i32 }
+  %253 = landingpad { ptr, i32 }
           cleanup
-  %253 = extractvalue { ptr, i32 } %252, 0
-  store ptr %253, ptr %exn.slot, align 8
-  %254 = extractvalue { ptr, i32 } %252, 1
-  store i32 %254, ptr %ehselector.slot, align 4
+  %254 = extractvalue { ptr, i32 } %253, 0
+  store ptr %254, ptr %exn.slot, align 8
+  %255 = extractvalue { ptr, i32 } %253, 1
+  store i32 %255, ptr %ehselector.slot, align 4
   br label %ehcleanup996
 
 lpad972:                                          ; preds = %invoke.cont971
-  %255 = landingpad { ptr, i32 }
+  %256 = landingpad { ptr, i32 }
           cleanup
-  %256 = extractvalue { ptr, i32 } %255, 0
-  store ptr %256, ptr %exn.slot, align 8
-  %257 = extractvalue { ptr, i32 } %255, 1
-  store i32 %257, ptr %ehselector.slot, align 4
+  %257 = extractvalue { ptr, i32 } %256, 0
+  store ptr %257, ptr %exn.slot, align 8
+  %258 = extractvalue { ptr, i32 } %256, 1
+  store i32 %258, ptr %ehselector.slot, align 4
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp969) #4
   br label %ehcleanup996
 
 lpad977:                                          ; preds = %invoke.cont976
-  %258 = landingpad { ptr, i32 }
+  %259 = landingpad { ptr, i32 }
           cleanup
-  %259 = extractvalue { ptr, i32 } %258, 0
-  store ptr %259, ptr %exn.slot, align 8
-  %260 = extractvalue { ptr, i32 } %258, 1
-  store i32 %260, ptr %ehselector.slot, align 4
+  %260 = extractvalue { ptr, i32 } %259, 0
+  store ptr %260, ptr %exn.slot, align 8
+  %261 = extractvalue { ptr, i32 } %259, 1
+  store i32 %261, ptr %ehselector.slot, align 4
   call void @_ZN10TestObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp975) #4
   br label %ehcleanup996
 
 lpad992:                                          ; preds = %land.end991
-  %261 = landingpad { ptr, i32 }
+  %262 = landingpad { ptr, i32 }
           cleanup
-  %262 = extractvalue { ptr, i32 } %261, 0
-  store ptr %262, ptr %exn.slot, align 8
-  %263 = extractvalue { ptr, i32 } %261, 1
-  store i32 %263, ptr %ehselector.slot, align 4
+  %263 = extractvalue { ptr, i32 } %262, 0
+  store ptr %263, ptr %exn.slot, align 8
+  %264 = extractvalue { ptr, i32 } %262, 1
+  store i32 %264, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorI10TestObjectLm1ELb1EZ15TestFixedVectorvE7MyAllocED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fv2982) #4
   br label %ehcleanup996
 
@@ -18361,12 +18362,12 @@ ehcleanup996:                                     ; preds = %lpad992, %lpad977, 
   br label %eh.resume
 
 lpad999:                                          ; preds = %invoke.cont993
-  %264 = landingpad { ptr, i32 }
+  %265 = landingpad { ptr, i32 }
           cleanup
-  %265 = extractvalue { ptr, i32 } %264, 0
-  store ptr %265, ptr %exn.slot, align 8
-  %266 = extractvalue { ptr, i32 } %264, 1
-  store i32 %266, ptr %ehselector.slot, align 4
+  %266 = extractvalue { ptr, i32 } %265, 0
+  store ptr %266, ptr %exn.slot, align 8
+  %267 = extractvalue { ptr, i32 } %265, 1
+  store i32 %267, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12fixed_vectorISt7variantIJiEELm4ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %v997) #4
   br label %eh.resume
 
@@ -18445,7 +18446,7 @@ entry:
   store i32 0, ptr %seqIndex, align 4
   store i8 1, ptr %bReturnValue, align 1
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -18649,7 +18650,7 @@ if.end48:                                         ; preds = %if.end47, %vaarg.en
 
 if.end49:                                         ; preds = %if.end48, %for.end13
   %arraydecay50 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay50)
+  call void @llvm.va_end.p0(ptr %arraydecay50)
   %40 = load i8, ptr %bReturnValue, align 1
   %tobool51 = trunc i8 %40 to i1
   ret i1 %tobool51
@@ -20089,7 +20090,7 @@ entry:
   store i32 0, ptr %seqIndex, align 4
   store i8 1, ptr %bReturnValue, align 1
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -20328,7 +20329,7 @@ if.end51:                                         ; preds = %if.end50, %vaarg.en
 
 if.end52:                                         ; preds = %if.end51, %for.end15
   %arraydecay53 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay53)
+  call void @llvm.va_end.p0(ptr %arraydecay53)
   %43 = load i8, ptr %bReturnValue, align 1
   %tobool54 = trunc i8 %43 to i1
   ret i1 %tobool54
@@ -20454,7 +20455,7 @@ entry:
   store i32 0, ptr %seqIndex, align 4
   store i8 1, ptr %bReturnValue, align 1
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -20663,7 +20664,7 @@ if.end48:                                         ; preds = %if.end47, %vaarg.en
 
 if.end49:                                         ; preds = %if.end48, %for.end12
   %arraydecay50 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay50)
+  call void @llvm.va_end.p0(ptr %arraydecay50)
   %40 = load i8, ptr %bReturnValue, align 1
   %tobool51 = trunc i8 %40 to i1
   ret i1 %tobool51
@@ -39792,13 +39793,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEC2EPv(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0) unnamed_addr #1 comdat align 2 {
@@ -51621,7 +51616,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRjEEOT_RNS_16remove_referenceIS2_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %x) #1 comdat {
@@ -55472,6 +55467,12 @@ entry:
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -55481,8 +55482,8 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { builtin allocsize(0) }
 attributes #13 = { builtin nounwind }

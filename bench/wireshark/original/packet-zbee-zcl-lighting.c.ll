@@ -390,15 +390,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_color_control() #0 {
   store ptr @ett_zbee_zcl_color_control, ptr @proto_register_zbee_zcl_color_control.ett, align 16
-  store ptr @ett_zbee_zcl_color_control_color_capabilities, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_color_control_color_loop_settings, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 2), align 16
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.131, ptr noundef @.str.132, ptr noundef @.str.133)
-  store i32 %1, ptr @proto_zbee_zcl_color_control, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_color_control, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_color_control.hf, i32 noundef 86)
+  %1 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_color_control_color_capabilities, ptr %1, align 8
+  %2 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_color_control.ett, i64 0, i64 2
+  store ptr @ett_zbee_zcl_color_control_color_loop_settings, ptr %2, align 16
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.131, ptr noundef @.str.132, ptr noundef @.str.133)
+  store i32 %3, ptr @proto_zbee_zcl_color_control, align 4
+  %4 = load i32, ptr @proto_zbee_zcl_color_control, align 4
+  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_zbee_zcl_color_control.hf, i32 noundef 86)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_color_control.ett, i32 noundef 3)
-  %3 = load i32, ptr @proto_zbee_zcl_color_control, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.133, ptr noundef @dissect_zbee_zcl_color_control, i32 noundef %3)
+  %5 = load i32, ptr @proto_zbee_zcl_color_control, align 4
+  %6 = call ptr @register_dissector(ptr noundef @.str.133, ptr noundef @dissect_zbee_zcl_color_control, i32 noundef %5)
   ret void
 }
 
@@ -1454,15 +1456,17 @@ define internal void @dissect_zcl_color_control_attr_data(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_ballast_configuration() #0 {
   store ptr @ett_zbee_zcl_ballast_configuration, ptr @proto_register_zbee_zcl_ballast_configuration.ett, align 16
-  store ptr @ett_zbee_zcl_ballast_configuration_status, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_ballast_configuration_lamp_alarm_mode, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 2), align 16
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.145, ptr noundef @.str.146, ptr noundef @.str.147)
-  store i32 %1, ptr @proto_zbee_zcl_ballast_configuration, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_ballast_configuration, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_ballast_configuration.hf, i32 noundef 6)
+  %1 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_ballast_configuration_status, ptr %1, align 8
+  %2 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_ballast_configuration.ett, i64 0, i64 2
+  store ptr @ett_zbee_zcl_ballast_configuration_lamp_alarm_mode, ptr %2, align 16
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.145, ptr noundef @.str.146, ptr noundef @.str.147)
+  store i32 %3, ptr @proto_zbee_zcl_ballast_configuration, align 4
+  %4 = load i32, ptr @proto_zbee_zcl_ballast_configuration, align 4
+  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_zbee_zcl_ballast_configuration.hf, i32 noundef 6)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_ballast_configuration.ett, i32 noundef 3)
-  %3 = load i32, ptr @proto_zbee_zcl_ballast_configuration, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.147, ptr noundef @dissect_zbee_zcl_ballast_configuration, i32 noundef %3)
+  %5 = load i32, ptr @proto_zbee_zcl_ballast_configuration, align 4
+  %6 = call ptr @register_dissector(ptr noundef @.str.147, ptr noundef @dissect_zbee_zcl_ballast_configuration, i32 noundef %5)
   ret void
 }
 

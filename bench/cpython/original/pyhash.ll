@@ -778,10 +778,11 @@ entry:
   store ptr %src, ptr %src.addr, align 8
   store i64 %src_sz, ptr %src_sz.addr, align 8
   %0 = load i64, ptr @_Py_HashSecret, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @_Py_HashSecret, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  %3 = load i64, ptr %src_sz.addr, align 8
-  %call = call i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3)
+  %1 = getelementptr inbounds %struct.anon.0, ptr @_Py_HashSecret, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %3 = load ptr, ptr %src.addr, align 8
+  %4 = load i64, ptr %src_sz.addr, align 8
+  %call = call i64 @siphash13(i64 noundef %0, i64 noundef %2, ptr noundef %3, i64 noundef %4)
   ret i64 %call
 }
 

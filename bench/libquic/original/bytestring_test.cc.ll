@@ -1954,47 +1954,48 @@ entry:
   %cleanup.dest.slot = alloca i32, align 4
   store ptr @_ZL20kImplicitStringTests, ptr %__range1, align 8
   store ptr @_ZL20kImplicitStringTests, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.ImplicitStringTest, ptr @_ZL20kImplicitStringTests, i64 6), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.ImplicitStringTest, ptr @_ZL20kImplicitStringTests, i64 6
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %test, align 8
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %test, align 8
   store ptr null, ptr %storage, align 8
-  %3 = load ptr, ptr %test, align 8
-  %in1 = getelementptr inbounds %struct.ImplicitStringTest, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %in1, align 8
-  %5 = load ptr, ptr %test, align 8
-  %in_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %in_len, align 8
-  call void @CBS_init(ptr noundef %in, ptr noundef %4, i64 noundef %6)
+  %4 = load ptr, ptr %test, align 8
+  %in1 = getelementptr inbounds %struct.ImplicitStringTest, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %in1, align 8
+  %6 = load ptr, ptr %test, align 8
+  %in_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %6, i32 0, i32 1
+  %7 = load i64, ptr %in_len, align 8
+  call void @CBS_init(ptr noundef %in, ptr noundef %5, i64 noundef %7)
   %call = call i32 @CBS_get_asn1_implicit_string(ptr noundef %in, ptr noundef %out, ptr noundef %storage, i32 noundef 128, i32 noundef 4)
   store i32 %call, ptr %ok, align 4
-  %7 = load ptr, ptr %storage, align 8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %scoper, ptr noundef %7) #12
-  %8 = load i32, ptr %ok, align 4
-  %tobool = icmp ne i32 %8, 0
+  %8 = load ptr, ptr %storage, align 8
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %scoper, ptr noundef %8) #12
+  %9 = load i32, ptr %ok, align 4
+  %tobool = icmp ne i32 %9, 0
   %conv = zext i1 %tobool to i32
-  %9 = load ptr, ptr %test, align 8
-  %ok2 = getelementptr inbounds %struct.ImplicitStringTest, ptr %9, i32 0, i32 2
-  %10 = load i8, ptr %ok2, align 8
-  %tobool3 = trunc i8 %10 to i1
+  %10 = load ptr, ptr %test, align 8
+  %ok2 = getelementptr inbounds %struct.ImplicitStringTest, ptr %10, i32 0, i32 2
+  %11 = load i8, ptr %ok2, align 8
+  %tobool3 = trunc i8 %11 to i1
   %conv4 = zext i1 %tobool3 to i32
   %cmp5 = icmp ne i32 %conv, %conv4
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = load i32, ptr %ok, align 4
-  %tobool6 = icmp ne i32 %12, 0
+  %12 = load ptr, ptr @stderr, align 8
+  %13 = load i32, ptr %ok, align 4
+  %tobool6 = icmp ne i32 %13, 0
   %cond = select i1 %tobool6, ptr @.str.21, ptr @.str.22
-  %call7 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.20, ptr noundef %cond)
+  %call7 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.20, ptr noundef %cond)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -2003,18 +2004,18 @@ invoke.cont:                                      ; preds = %if.then
   br label %cleanup
 
 lpad:                                             ; preds = %if.then18, %lor.lhs.false, %land.lhs.true, %if.then
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %scoper) #12
   br label %eh.resume
 
 if.end:                                           ; preds = %for.body
-  %16 = load i32, ptr %ok, align 4
-  %tobool8 = icmp ne i32 %16, 0
+  %17 = load i32, ptr %ok, align 4
+  %tobool8 = icmp ne i32 %17, 0
   br i1 %tobool8, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %if.end
@@ -2022,10 +2023,10 @@ land.lhs.true:                                    ; preds = %if.end
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %land.lhs.true
-  %17 = load ptr, ptr %test, align 8
-  %out_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %17, i32 0, i32 4
-  %18 = load i64, ptr %out_len, align 8
-  %cmp11 = icmp ne i64 %call10, %18
+  %18 = load ptr, ptr %test, align 8
+  %out_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %18, i32 0, i32 4
+  %19 = load i64, ptr %out_len, align 8
+  %cmp11 = icmp ne i64 %call10, %19
   br i1 %cmp11, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
@@ -2033,19 +2034,19 @@ lor.lhs.false:                                    ; preds = %invoke.cont9
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %lor.lhs.false
-  %19 = load ptr, ptr %test, align 8
-  %out14 = getelementptr inbounds %struct.ImplicitStringTest, ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %out14, align 8
-  %21 = load ptr, ptr %test, align 8
-  %out_len15 = getelementptr inbounds %struct.ImplicitStringTest, ptr %21, i32 0, i32 4
-  %22 = load i64, ptr %out_len15, align 8
-  %call16 = call i32 @memcmp(ptr noundef %call13, ptr noundef %20, i64 noundef %22) #11
+  %20 = load ptr, ptr %test, align 8
+  %out14 = getelementptr inbounds %struct.ImplicitStringTest, ptr %20, i32 0, i32 3
+  %21 = load ptr, ptr %out14, align 8
+  %22 = load ptr, ptr %test, align 8
+  %out_len15 = getelementptr inbounds %struct.ImplicitStringTest, ptr %22, i32 0, i32 4
+  %23 = load i64, ptr %out_len15, align 8
+  %call16 = call i32 @memcmp(ptr noundef %call13, ptr noundef %21, i64 noundef %23) #11
   %cmp17 = icmp ne i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %invoke.cont12, %invoke.cont9
-  %23 = load ptr, ptr @stderr, align 8
-  %call20 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.23)
+  %24 = load ptr, ptr @stderr, align 8
+  %call20 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.23)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.then18
@@ -2069,8 +2070,8 @@ cleanup.cont:                                     ; preds = %cleanup
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup.cont
-  %24 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.ImplicitStringTest, ptr %24, i32 1
+  %25 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.ImplicitStringTest, ptr %25, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -2079,8 +2080,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %cleanup
-  %25 = load i1, ptr %retval, align 1
-  ret i1 %25
+  %26 = load i1, ptr %retval, align 1
+  ret i1 %26
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

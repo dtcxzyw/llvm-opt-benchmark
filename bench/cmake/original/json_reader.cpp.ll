@@ -13327,48 +13327,49 @@ define dso_local void @_ZN4Json17CharReaderBuilderC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4Json10CharReader7FactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %5, i32 0, i32 1
-  invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0)
-          to label %7 unwind label %10
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %5, i32 0, i32 1
+  invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
+          to label %8 unwind label %11
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %5, i32 0, i32 1
-  invoke void @_ZN4Json17CharReaderBuilder11setDefaultsEPNS_5ValueE(ptr noundef %8)
-          to label %9 unwind label %14
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %5, i32 0, i32 1
+  invoke void @_ZN4Json17CharReaderBuilder11setDefaultsEPNS_5ValueE(ptr noundef %9)
+          to label %10 unwind label %15
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  br label %18
-
-14:                                               ; preds = %7
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %3, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %4, align 4
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
-  br label %18
-
-18:                                               ; preds = %14, %10
-  call void @_ZN4Json10CharReader7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %3, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %4, align 4
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  br label %19
+
+19:                                               ; preds = %15, %11
+  call void @_ZN4Json10CharReader7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13376,7 +13377,8 @@ define linkonce_odr dso_local void @_ZN4Json10CharReader7FactoryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReader7FactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json10CharReader7FactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13629,9 +13631,10 @@ define dso_local void @_ZN4Json17CharReaderBuilderD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %3, i32 0, i32 1
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %3, i32 0, i32 1
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
   call void @_ZN4Json10CharReader7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -13779,36 +13782,37 @@ define linkonce_odr dso_local void @_ZN4Json13OurCharReaderC2EbRKNS_11OurFeature
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN4Json10CharReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Json::OurCharReader", ptr %10, i32 0, i32 1
-  %12 = load i8, ptr %5, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 8
-  %15 = getelementptr inbounds %"class.Json::OurCharReader", ptr %10, i32 0, i32 3
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZN4Json9OurReaderC1ERKNS_11OurFeaturesE(ptr noundef nonnull align 8 dereferenceable(297) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Json::OurCharReader", ptr %10, i32 0, i32 1
+  %13 = load i8, ptr %5, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.Json::OurCharReader", ptr %10, i32 0, i32 3
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZN4Json9OurReaderC1ERKNS_11OurFeaturesE(ptr noundef nonnull align 8 dereferenceable(297) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %19
 
 18:                                               ; preds = %3
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %7, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %8, align 4
-  call void @_ZN4Json10CharReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %22
+  ret void
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+19:                                               ; preds = %3
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %7, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %8, align 4
+  call void @_ZN4Json10CharReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17028,7 +17032,8 @@ define linkonce_odr dso_local void @_ZN4Json10CharReaderC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json10CharReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17037,9 +17042,10 @@ define linkonce_odr dso_local void @_ZN4Json13OurCharReaderD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Json::OurCharReader", ptr %3, i32 0, i32 3
-  call void @_ZN4Json9OurReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Json::OurCharReader", ptr %3, i32 0, i32 3
+  call void @_ZN4Json9OurReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %5) #3
   call void @_ZN4Json10CharReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

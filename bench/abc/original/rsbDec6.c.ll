@@ -4613,74 +4613,79 @@ define void @Rsb_ManPerformResub6Test() #0 {
   %15 = alloca i64, align 8
   %16 = load i64, ptr @s_Truths6, align 16
   store i64 %16, ptr %4, align 8
-  %17 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  store i64 %17, ptr %5, align 8
-  %18 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  store i64 %18, ptr %6, align 8
-  %19 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  store i64 %19, ptr %7, align 8
-  %20 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  store i64 %20, ptr %8, align 8
-  %21 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  store i64 %21, ptr %9, align 8
-  %22 = load i64, ptr %4, align 8
-  %23 = load i64, ptr %5, align 8
-  %24 = and i64 %22, %23
-  store i64 %24, ptr %10, align 8
-  %25 = load i64, ptr %6, align 8
-  %26 = load i64, ptr %7, align 8
-  %27 = and i64 %25, %26
-  store i64 %27, ptr %11, align 8
-  %28 = load i64, ptr %8, align 8
-  %29 = load i64, ptr %9, align 8
-  %30 = and i64 %28, %29
-  store i64 %30, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = load i64, ptr %11, align 8
-  %33 = or i64 %31, %32
-  %34 = load i64, ptr %12, align 8
-  %35 = or i64 %33, %34
-  store i64 %35, ptr %13, align 8
-  %36 = call ptr @Vec_WrdAlloc(i32 noundef 100)
-  store ptr %36, ptr %2, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = load i64, ptr %4, align 8
-  call void @Vec_WrdPush(ptr noundef %37, i64 noundef %38)
-  %39 = load ptr, ptr %2, align 8
-  %40 = load i64, ptr %5, align 8
-  call void @Vec_WrdPush(ptr noundef %39, i64 noundef %40)
-  %41 = load ptr, ptr %2, align 8
-  %42 = load i64, ptr %6, align 8
-  call void @Vec_WrdPush(ptr noundef %41, i64 noundef %42)
-  %43 = load ptr, ptr %2, align 8
-  %44 = load i64, ptr %7, align 8
-  call void @Vec_WrdPush(ptr noundef %43, i64 noundef %44)
-  %45 = load ptr, ptr %2, align 8
-  %46 = load i64, ptr %8, align 8
-  call void @Vec_WrdPush(ptr noundef %45, i64 noundef %46)
-  %47 = load ptr, ptr %2, align 8
-  %48 = load i64, ptr %9, align 8
-  call void @Vec_WrdPush(ptr noundef %47, i64 noundef %48)
-  %49 = load ptr, ptr %2, align 8
-  %50 = load i64, ptr %10, align 8
-  call void @Vec_WrdPush(ptr noundef %49, i64 noundef %50)
-  %51 = load ptr, ptr %2, align 8
-  %52 = load i64, ptr %11, align 8
-  call void @Vec_WrdPush(ptr noundef %51, i64 noundef %52)
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i64, ptr %12, align 8
-  call void @Vec_WrdPush(ptr noundef %53, i64 noundef %54)
-  %55 = call ptr @Rsb_ManAlloc(i32 noundef 6, i32 noundef 64, i32 noundef 4, i32 noundef 1)
-  store ptr %55, ptr %1, align 8
-  %56 = load ptr, ptr %1, align 8
-  %57 = load i64, ptr %13, align 8
+  %17 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %5, align 8
+  %19 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %20 = load i64, ptr %19, align 16
+  store i64 %20, ptr %6, align 8
+  %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %7, align 8
+  %23 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %24 = load i64, ptr %23, align 16
+  store i64 %24, ptr %8, align 8
+  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %9, align 8
+  %27 = load i64, ptr %4, align 8
+  %28 = load i64, ptr %5, align 8
+  %29 = and i64 %27, %28
+  store i64 %29, ptr %10, align 8
+  %30 = load i64, ptr %6, align 8
+  %31 = load i64, ptr %7, align 8
+  %32 = and i64 %30, %31
+  store i64 %32, ptr %11, align 8
+  %33 = load i64, ptr %8, align 8
+  %34 = load i64, ptr %9, align 8
+  %35 = and i64 %33, %34
+  store i64 %35, ptr %12, align 8
+  %36 = load i64, ptr %10, align 8
+  %37 = load i64, ptr %11, align 8
+  %38 = or i64 %36, %37
+  %39 = load i64, ptr %12, align 8
+  %40 = or i64 %38, %39
+  store i64 %40, ptr %13, align 8
+  %41 = call ptr @Vec_WrdAlloc(i32 noundef 100)
+  store ptr %41, ptr %2, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = load i64, ptr %4, align 8
+  call void @Vec_WrdPush(ptr noundef %42, i64 noundef %43)
+  %44 = load ptr, ptr %2, align 8
+  %45 = load i64, ptr %5, align 8
+  call void @Vec_WrdPush(ptr noundef %44, i64 noundef %45)
+  %46 = load ptr, ptr %2, align 8
+  %47 = load i64, ptr %6, align 8
+  call void @Vec_WrdPush(ptr noundef %46, i64 noundef %47)
+  %48 = load ptr, ptr %2, align 8
+  %49 = load i64, ptr %7, align 8
+  call void @Vec_WrdPush(ptr noundef %48, i64 noundef %49)
+  %50 = load ptr, ptr %2, align 8
+  %51 = load i64, ptr %8, align 8
+  call void @Vec_WrdPush(ptr noundef %50, i64 noundef %51)
+  %52 = load ptr, ptr %2, align 8
+  %53 = load i64, ptr %9, align 8
+  call void @Vec_WrdPush(ptr noundef %52, i64 noundef %53)
+  %54 = load ptr, ptr %2, align 8
+  %55 = load i64, ptr %10, align 8
+  call void @Vec_WrdPush(ptr noundef %54, i64 noundef %55)
+  %56 = load ptr, ptr %2, align 8
+  %57 = load i64, ptr %11, align 8
+  call void @Vec_WrdPush(ptr noundef %56, i64 noundef %57)
   %58 = load ptr, ptr %2, align 8
-  %59 = call i32 @Rsb_ManPerformResub6(ptr noundef %56, i32 noundef 6, i64 noundef %57, ptr noundef %58, ptr noundef %14, ptr noundef %15, i32 noundef 1)
-  store i32 %59, ptr %3, align 4
-  %60 = load ptr, ptr %1, align 8
-  call void @Rsb_ManFree(ptr noundef %60)
-  %61 = load ptr, ptr %2, align 8
-  call void @Vec_WrdFree(ptr noundef %61)
+  %59 = load i64, ptr %12, align 8
+  call void @Vec_WrdPush(ptr noundef %58, i64 noundef %59)
+  %60 = call ptr @Rsb_ManAlloc(i32 noundef 6, i32 noundef 64, i32 noundef 4, i32 noundef 1)
+  store ptr %60, ptr %1, align 8
+  %61 = load ptr, ptr %1, align 8
+  %62 = load i64, ptr %13, align 8
+  %63 = load ptr, ptr %2, align 8
+  %64 = call i32 @Rsb_ManPerformResub6(ptr noundef %61, i32 noundef 6, i64 noundef %62, ptr noundef %63, ptr noundef %14, ptr noundef %15, i32 noundef 1)
+  store i32 %64, ptr %3, align 4
+  %65 = load ptr, ptr %1, align 8
+  call void @Rsb_ManFree(ptr noundef %65)
+  %66 = load ptr, ptr %2, align 8
+  call void @Vec_WrdFree(ptr noundef %66)
   ret void
 }
 

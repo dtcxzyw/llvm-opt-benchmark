@@ -499,66 +499,68 @@ define dso_local i32 @perf_kprobe_init(ptr noundef %0, i1 noundef zeroext %1) lo
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %4 to ptr
   %8 = tail call ptr @strndup_user(ptr noundef nonnull %7, i64 noundef 512) #4
-  %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
-  br i1 %9, label %10, label %15
+  %9 = inttoptr i64 -4096 to ptr
+  %10 = icmp ugt ptr %8, %9
+  br i1 %10, label %11, label %16
 
-10:                                               ; preds = %6
-  %11 = ptrtoint ptr %8 to i64
-  %12 = trunc i64 %11 to i32
-  %13 = icmp eq i32 %12, -22
-  %14 = select i1 %13, i32 -7, i32 %12
-  br label %36
+11:                                               ; preds = %6
+  %12 = ptrtoint ptr %8 to i64
+  %13 = trunc i64 %12 to i32
+  %14 = icmp eq i32 %13, -22
+  %15 = select i1 %14, i32 -7, i32 %13
+  br label %38
 
-15:                                               ; preds = %6
-  %16 = load i8, ptr %8, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %19
+16:                                               ; preds = %6
+  %17 = load i8, ptr %8, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   tail call void @kfree(ptr noundef %8) #4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %15, %2
-  %20 = phi ptr [ null, %18 ], [ %8, %15 ], [ null, %2 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 280
-  %22 = load i64, ptr %21, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @create_local_trace_kprobe(ptr noundef %20, ptr noundef %23, i64 noundef %22, i1 noundef zeroext %1) #4
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %29
+20:                                               ; preds = %19, %16, %2
+  %21 = phi ptr [ null, %19 ], [ %8, %16 ], [ null, %2 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %23 = load i64, ptr %22, align 8
+  %24 = inttoptr i64 %23 to ptr
+  %25 = tail call ptr @create_local_trace_kprobe(ptr noundef %21, ptr noundef %24, i64 noundef %23, i1 noundef zeroext %1) #4
+  %26 = inttoptr i64 -4096 to ptr
+  %27 = icmp ugt ptr %25, %26
+  br i1 %27, label %28, label %31
 
-26:                                               ; preds = %19
-  %27 = ptrtoint ptr %24 to i64
-  %28 = trunc i64 %27 to i32
-  br label %34
-
-29:                                               ; preds = %19
-  tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #4
-  %30 = tail call fastcc i32 @perf_trace_event_init(ptr noundef %24, ptr noundef %0)
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %33, label %32
-
-32:                                               ; preds = %29
-  tail call void @destroy_local_trace_kprobe(ptr noundef %24) #4
-  br label %33
-
-33:                                               ; preds = %32, %29
-  tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #4
-  br label %34
-
-34:                                               ; preds = %33, %26
-  %35 = phi i32 [ %28, %26 ], [ %30, %33 ]
-  tail call void @kfree(ptr noundef %20) #4
+28:                                               ; preds = %20
+  %29 = ptrtoint ptr %25 to i64
+  %30 = trunc i64 %29 to i32
   br label %36
 
-36:                                               ; preds = %34, %10
-  %37 = phi i32 [ %14, %10 ], [ %35, %34 ]
-  ret i32 %37
+31:                                               ; preds = %20
+  tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #4
+  %32 = tail call fastcc i32 @perf_trace_event_init(ptr noundef %25, ptr noundef %0)
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %31
+  tail call void @destroy_local_trace_kprobe(ptr noundef %25) #4
+  br label %35
+
+35:                                               ; preds = %34, %31
+  tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #4
+  br label %36
+
+36:                                               ; preds = %35, %28
+  %37 = phi i32 [ %30, %28 ], [ %32, %35 ]
+  tail call void @kfree(ptr noundef %21) #4
+  br label %38
+
+38:                                               ; preds = %36, %11
+  %39 = phi i32 [ %15, %11 ], [ %37, %36 ]
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -649,60 +651,62 @@ define dso_local i32 @perf_uprobe_init(ptr noundef %0, i64 noundef %1, i1 nounde
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %34, label %7
+  br i1 %6, label %36, label %7
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %5 to ptr
   %9 = tail call ptr @strndup_user(ptr noundef nonnull %8, i64 noundef 4096) #4
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %16
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %12, label %17
 
-11:                                               ; preds = %7
-  %12 = ptrtoint ptr %9 to i64
-  %13 = trunc i64 %12 to i32
-  %14 = icmp eq i32 %13, -22
-  %15 = select i1 %14, i32 -7, i32 %13
+12:                                               ; preds = %7
+  %13 = ptrtoint ptr %9 to i64
+  %14 = trunc i64 %13 to i32
+  %15 = icmp eq i32 %14, -22
+  %16 = select i1 %15, i32 -7, i32 %14
+  br label %36
+
+17:                                               ; preds = %7
+  %18 = load i8, ptr %9, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %34, label %20
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %0, i64 280
+  %22 = load i64, ptr %21, align 8
+  %23 = tail call ptr @create_local_trace_uprobe(ptr noundef %9, i64 noundef %22, i64 noundef %1, i1 noundef zeroext %2) #4
+  %24 = inttoptr i64 -4096 to ptr
+  %25 = icmp ugt ptr %23, %24
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %20
+  %27 = ptrtoint ptr %23 to i64
+  %28 = trunc i64 %27 to i32
   br label %34
 
-16:                                               ; preds = %7
-  %17 = load i8, ptr %9, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %32, label %19
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
-  %21 = load i64, ptr %20, align 8
-  %22 = tail call ptr @create_local_trace_uprobe(ptr noundef %9, i64 noundef %21, i64 noundef %1, i1 noundef zeroext %2) #4
-  %23 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %19
-  %25 = ptrtoint ptr %22 to i64
-  %26 = trunc i64 %25 to i32
-  br label %32
-
-27:                                               ; preds = %19
+29:                                               ; preds = %20
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #4
-  %28 = tail call fastcc i32 @perf_trace_event_init(ptr noundef %22, ptr noundef %0)
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %31, label %30
+  %30 = tail call fastcc i32 @perf_trace_event_init(ptr noundef %23, ptr noundef %0)
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %33, label %32
 
-30:                                               ; preds = %27
-  tail call void @destroy_local_trace_uprobe(ptr noundef %22) #4
-  br label %31
+32:                                               ; preds = %29
+  tail call void @destroy_local_trace_uprobe(ptr noundef %23) #4
+  br label %33
 
-31:                                               ; preds = %30, %27
+33:                                               ; preds = %32, %29
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #4
-  br label %32
-
-32:                                               ; preds = %31, %24, %16
-  %33 = phi i32 [ %26, %24 ], [ %28, %31 ], [ -22, %16 ]
-  tail call void @kfree(ptr noundef %9) #4
   br label %34
 
-34:                                               ; preds = %32, %11, %3
-  %35 = phi i32 [ %15, %11 ], [ %33, %32 ], [ -22, %3 ]
-  ret i32 %35
+34:                                               ; preds = %33, %26, %17
+  %35 = phi i32 [ %28, %26 ], [ %30, %33 ], [ -22, %17 ]
+  tail call void @kfree(ptr noundef %9) #4
+  br label %36
+
+36:                                               ; preds = %34, %12, %3
+  %37 = phi i32 [ %16, %12 ], [ %35, %34 ], [ -22, %3 ]
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -849,7 +853,7 @@ define dso_local void @perf_trace_del(ptr noundef %0, i32 noundef %1) local_unna
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, i32 noundef 7, ptr noundef %0) #4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %20
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 96
@@ -866,10 +870,11 @@ define dso_local void @perf_trace_del(ptr noundef %0, i32 noundef %1) local_unna
   br label %19
 
 19:                                               ; preds = %17, %11
-  store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
-  br label %20
+  %20 = inttoptr i64 -2401263026318606046 to ptr
+  store volatile ptr %20, ptr %14, align 8
+  br label %21
 
-20:                                               ; preds = %19, %2
+21:                                               ; preds = %19, %2
   ret void
 }
 

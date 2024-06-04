@@ -354,7 +354,7 @@ define i32 @ompi_op_init() #0 {
 
 6:                                                ; preds = %0
   store i32 -1, ptr %1, align 4
-  br label %66
+  br label %127
 
 7:                                                ; preds = %0
   store i32 0, ptr %2, align 4
@@ -379,156 +379,217 @@ define i32 @ompi_op_init() #0 {
   br label %8, !llvm.loop !7
 
 18:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 1), align 4
-  store i32 1, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 2), align 8
-  store i32 2, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 3), align 4
-  store i32 3, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 4), align 16
-  store i32 4, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 5), align 4
-  store i32 5, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 6), align 8
-  store i32 6, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 7), align 4
-  store i32 7, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 8), align 16
-  store i32 15, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 9), align 4
-  store i32 16, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 10), align 8
-  store i32 23, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 11), align 4
-  store i32 27, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 13), align 4
-  store i32 28, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 14), align 8
-  store i32 29, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 15), align 4
-  store i32 42, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 16), align 16
-  store i32 25, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 18), align 8
-  store i32 24, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 19), align 4
-  store i32 1, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 20), align 16
-  store i32 8, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 21), align 4
-  store i32 17, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 22), align 8
-  store i32 22, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 23), align 4
-  store i32 27, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 24), align 16
-  store i32 28, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 25), align 4
-  store i32 29, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 26), align 8
-  store i32 37, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 27), align 4
-  store i32 33, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 28), align 16
-  store i32 31, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 29), align 4
-  store i32 32, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 30), align 8
-  store i32 -1, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 31), align 4
-  store i32 -1, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 32), align 16
-  store i32 34, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 33), align 4
-  store i32 35, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 34), align 8
-  store i32 39, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 35), align 4
-  store i32 36, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 36), align 16
-  store i32 38, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 37), align 4
-  store i32 6, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 38), align 8
-  store i32 7, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 39), align 4
-  store i32 25, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 40), align 16
-  store i32 27, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 41), align 4
-  store i32 27, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 42), align 8
-  store i32 28, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 43), align 4
-  store i32 29, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 44), align 16
-  store i32 6, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 47), align 4
-  store i32 14, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 48), align 16
-  store i32 26, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 49), align 4
-  store i32 40, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 50), align 8
-  store i32 41, ptr getelementptr inbounds ([52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 51), align 4
-  %19 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_null, i32 noundef 0, i32 noundef 113, ptr noundef @.str.1)
-  %20 = icmp ne i32 0, %19
-  br i1 %20, label %63, label %21
+  %19 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 1
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 2
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 3
+  store i32 2, ptr %21, align 4
+  %22 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 4
+  store i32 3, ptr %22, align 16
+  %23 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 5
+  store i32 4, ptr %23, align 4
+  %24 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 6
+  store i32 5, ptr %24, align 8
+  %25 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 7
+  store i32 6, ptr %25, align 4
+  %26 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 8
+  store i32 7, ptr %26, align 16
+  %27 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 9
+  store i32 15, ptr %27, align 4
+  %28 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 10
+  store i32 16, ptr %28, align 8
+  %29 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 11
+  store i32 23, ptr %29, align 4
+  %30 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 13
+  store i32 27, ptr %30, align 4
+  %31 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 14
+  store i32 28, ptr %31, align 8
+  %32 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 15
+  store i32 29, ptr %32, align 4
+  %33 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 16
+  store i32 42, ptr %33, align 16
+  %34 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 18
+  store i32 25, ptr %34, align 8
+  %35 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 19
+  store i32 24, ptr %35, align 4
+  %36 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 20
+  store i32 1, ptr %36, align 16
+  %37 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 21
+  store i32 8, ptr %37, align 4
+  %38 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 22
+  store i32 17, ptr %38, align 8
+  %39 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 23
+  store i32 22, ptr %39, align 4
+  %40 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 24
+  store i32 27, ptr %40, align 16
+  %41 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 25
+  store i32 28, ptr %41, align 4
+  %42 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 26
+  store i32 29, ptr %42, align 8
+  %43 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 27
+  store i32 37, ptr %43, align 4
+  %44 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 28
+  store i32 33, ptr %44, align 16
+  %45 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 29
+  store i32 31, ptr %45, align 4
+  %46 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 30
+  store i32 32, ptr %46, align 8
+  %47 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 31
+  store i32 -1, ptr %47, align 4
+  %48 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 32
+  store i32 -1, ptr %48, align 16
+  %49 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 33
+  store i32 34, ptr %49, align 4
+  %50 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 34
+  store i32 35, ptr %50, align 8
+  %51 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 35
+  store i32 39, ptr %51, align 4
+  %52 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 36
+  store i32 36, ptr %52, align 16
+  %53 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 37
+  store i32 38, ptr %53, align 4
+  %54 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 38
+  store i32 6, ptr %54, align 8
+  %55 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 39
+  store i32 7, ptr %55, align 4
+  %56 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 40
+  store i32 25, ptr %56, align 16
+  %57 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 41
+  store i32 27, ptr %57, align 4
+  %58 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 42
+  store i32 27, ptr %58, align 8
+  %59 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 43
+  store i32 28, ptr %59, align 4
+  %60 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 44
+  store i32 29, ptr %60, align 16
+  %61 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 47
+  store i32 6, ptr %61, align 4
+  %62 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 48
+  store i32 14, ptr %62, align 16
+  %63 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 49
+  store i32 26, ptr %63, align 4
+  %64 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 50
+  store i32 40, ptr %64, align 8
+  %65 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 51
+  store i32 41, ptr %65, align 4
+  %66 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_null, i32 noundef 0, i32 noundef 113, ptr noundef @.str.1)
+  %67 = icmp ne i32 0, %66
+  br i1 %67, label %110, label %68
 
-21:                                               ; preds = %18
-  %22 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_max, i32 noundef 1, i32 noundef 113, ptr noundef @.str.2)
-  %23 = icmp ne i32 0, %22
-  br i1 %23, label %63, label %24
+68:                                               ; preds = %18
+  %69 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_max, i32 noundef 1, i32 noundef 113, ptr noundef @.str.2)
+  %70 = icmp ne i32 0, %69
+  br i1 %70, label %110, label %71
 
-24:                                               ; preds = %21
-  %25 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_min, i32 noundef 2, i32 noundef 113, ptr noundef @.str.3)
-  %26 = icmp ne i32 0, %25
-  br i1 %26, label %63, label %27
+71:                                               ; preds = %68
+  %72 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_min, i32 noundef 2, i32 noundef 113, ptr noundef @.str.3)
+  %73 = icmp ne i32 0, %72
+  br i1 %73, label %110, label %74
 
-27:                                               ; preds = %24
-  %28 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_sum, i32 noundef 3, i32 noundef 81, ptr noundef @.str.4)
-  %29 = icmp ne i32 0, %28
-  br i1 %29, label %63, label %30
+74:                                               ; preds = %71
+  %75 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_sum, i32 noundef 3, i32 noundef 81, ptr noundef @.str.4)
+  %76 = icmp ne i32 0, %75
+  br i1 %76, label %110, label %77
 
-30:                                               ; preds = %27
-  %31 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_prod, i32 noundef 4, i32 noundef 81, ptr noundef @.str.5)
-  %32 = icmp ne i32 0, %31
-  br i1 %32, label %63, label %33
+77:                                               ; preds = %74
+  %78 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_prod, i32 noundef 4, i32 noundef 81, ptr noundef @.str.5)
+  %79 = icmp ne i32 0, %78
+  br i1 %79, label %110, label %80
 
-33:                                               ; preds = %30
-  %34 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_land, i32 noundef 5, i32 noundef 113, ptr noundef @.str.6)
-  %35 = icmp ne i32 0, %34
-  br i1 %35, label %63, label %36
+80:                                               ; preds = %77
+  %81 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_land, i32 noundef 5, i32 noundef 113, ptr noundef @.str.6)
+  %82 = icmp ne i32 0, %81
+  br i1 %82, label %110, label %83
 
-36:                                               ; preds = %33
-  %37 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_band, i32 noundef 6, i32 noundef 113, ptr noundef @.str.7)
-  %38 = icmp ne i32 0, %37
-  br i1 %38, label %63, label %39
+83:                                               ; preds = %80
+  %84 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_band, i32 noundef 6, i32 noundef 113, ptr noundef @.str.7)
+  %85 = icmp ne i32 0, %84
+  br i1 %85, label %110, label %86
 
-39:                                               ; preds = %36
-  %40 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_lor, i32 noundef 7, i32 noundef 113, ptr noundef @.str.8)
-  %41 = icmp ne i32 0, %40
-  br i1 %41, label %63, label %42
+86:                                               ; preds = %83
+  %87 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_lor, i32 noundef 7, i32 noundef 113, ptr noundef @.str.8)
+  %88 = icmp ne i32 0, %87
+  br i1 %88, label %110, label %89
 
-42:                                               ; preds = %39
-  %43 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_bor, i32 noundef 8, i32 noundef 113, ptr noundef @.str.9)
-  %44 = icmp ne i32 0, %43
-  br i1 %44, label %63, label %45
+89:                                               ; preds = %86
+  %90 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_bor, i32 noundef 8, i32 noundef 113, ptr noundef @.str.9)
+  %91 = icmp ne i32 0, %90
+  br i1 %91, label %110, label %92
 
-45:                                               ; preds = %42
-  %46 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_lxor, i32 noundef 9, i32 noundef 113, ptr noundef @.str.10)
-  %47 = icmp ne i32 0, %46
-  br i1 %47, label %63, label %48
+92:                                               ; preds = %89
+  %93 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_lxor, i32 noundef 9, i32 noundef 113, ptr noundef @.str.10)
+  %94 = icmp ne i32 0, %93
+  br i1 %94, label %110, label %95
 
-48:                                               ; preds = %45
-  %49 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_bxor, i32 noundef 10, i32 noundef 113, ptr noundef @.str.11)
-  %50 = icmp ne i32 0, %49
-  br i1 %50, label %63, label %51
+95:                                               ; preds = %92
+  %96 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_bxor, i32 noundef 10, i32 noundef 113, ptr noundef @.str.11)
+  %97 = icmp ne i32 0, %96
+  br i1 %97, label %110, label %98
 
-51:                                               ; preds = %48
-  %52 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_maxloc, i32 noundef 11, i32 noundef 113, ptr noundef @.str.12)
-  %53 = icmp ne i32 0, %52
-  br i1 %53, label %63, label %54
+98:                                               ; preds = %95
+  %99 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_maxloc, i32 noundef 11, i32 noundef 113, ptr noundef @.str.12)
+  %100 = icmp ne i32 0, %99
+  br i1 %100, label %110, label %101
 
-54:                                               ; preds = %51
-  %55 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_minloc, i32 noundef 12, i32 noundef 113, ptr noundef @.str.13)
-  %56 = icmp ne i32 0, %55
-  br i1 %56, label %63, label %57
+101:                                              ; preds = %98
+  %102 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_minloc, i32 noundef 12, i32 noundef 113, ptr noundef @.str.13)
+  %103 = icmp ne i32 0, %102
+  br i1 %103, label %110, label %104
 
-57:                                               ; preds = %54
-  %58 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_replace, i32 noundef 13, i32 noundef 113, ptr noundef @.str.14)
-  %59 = icmp ne i32 0, %58
-  br i1 %59, label %63, label %60
+104:                                              ; preds = %101
+  %105 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_replace, i32 noundef 13, i32 noundef 113, ptr noundef @.str.14)
+  %106 = icmp ne i32 0, %105
+  br i1 %106, label %110, label %107
 
-60:                                               ; preds = %57
-  %61 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_no_op, i32 noundef 14, i32 noundef 113, ptr noundef @.str.15)
-  %62 = icmp ne i32 0, %61
-  br i1 %62, label %63, label %64
+107:                                              ; preds = %104
+  %108 = call i32 @add_intrinsic(ptr noundef @ompi_mpi_op_no_op, i32 noundef 14, i32 noundef 113, ptr noundef @.str.15)
+  %109 = icmp ne i32 0, %108
+  br i1 %109, label %110, label %111
 
-63:                                               ; preds = %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18
+110:                                              ; preds = %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %18
   store i32 -1, ptr %1, align 4
-  br label %66
+  br label %127
 
-64:                                               ; preds = %60
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_null, i32 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_max, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_min, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_sum, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_prod, i32 0, i32 2), align 8
-  store i32 5, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_land, i32 0, i32 2), align 8
-  store i32 6, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_band, i32 0, i32 2), align 8
-  store i32 7, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_lor, i32 0, i32 2), align 8
-  store i32 8, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_bor, i32 0, i32 2), align 8
-  store i32 9, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_lxor, i32 0, i32 2), align 8
-  store i32 10, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_bxor, i32 0, i32 2), align 8
-  store i32 11, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_maxloc, i32 0, i32 2), align 8
-  store i32 12, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_minloc, i32 0, i32 2), align 8
-  store i32 13, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_replace, i32 0, i32 2), align 8
-  br label %65
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_null, i32 0, i32 2
+  store i32 0, ptr %112, align 8
+  %113 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_max, i32 0, i32 2
+  store i32 1, ptr %113, align 8
+  %114 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_min, i32 0, i32 2
+  store i32 2, ptr %114, align 8
+  %115 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_sum, i32 0, i32 2
+  store i32 3, ptr %115, align 8
+  %116 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_prod, i32 0, i32 2
+  store i32 4, ptr %116, align 8
+  %117 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_land, i32 0, i32 2
+  store i32 5, ptr %117, align 8
+  %118 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_band, i32 0, i32 2
+  store i32 6, ptr %118, align 8
+  %119 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_lor, i32 0, i32 2
+  store i32 7, ptr %119, align 8
+  %120 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_bor, i32 0, i32 2
+  store i32 8, ptr %120, align 8
+  %121 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_lxor, i32 0, i32 2
+  store i32 9, ptr %121, align 8
+  %122 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_bxor, i32 0, i32 2
+  store i32 10, ptr %122, align 8
+  %123 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_maxloc, i32 0, i32 2
+  store i32 11, ptr %123, align 8
+  %124 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_minloc, i32 0, i32 2
+  store i32 12, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_replace, i32 0, i32 2
+  store i32 13, ptr %125, align 8
+  br label %126
 
-65:                                               ; preds = %64
+126:                                              ; preds = %111
   call void @opal_finalize_append_cleanup(ptr noundef @ompi_op_finalize, ptr noundef @.str.16, ptr noundef null)
   store i32 0, ptr %1, align 4
-  br label %66
+  br label %127
 
-66:                                               ; preds = %65, %63, %6
-  %67 = load i32, ptr %1, align 4
-  ret i32 %67
+127:                                              ; preds = %126, %110, %6
+  %128 = load i32, ptr %1, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: nounwind uwtable
@@ -593,87 +654,88 @@ define internal i32 @add_intrinsic(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 11:                                               ; preds = %10
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_op_t_class, i32 0, i32 4), align 8
-  %14 = icmp ne i32 %12, %13
-  br i1 %14, label %15, label %16
+  %13 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_op_t_class, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ne i32 %12, %14
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %11
+16:                                               ; preds = %11
   call void @opal_class_initialize(ptr noundef @ompi_op_t_class)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %11
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 0
-  store ptr @ompi_op_t_class, ptr %18, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 1
-  store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr %6, align 8
-  call void @opal_obj_run_constructors(ptr noundef %21)
-  br label %22
-
-22:                                               ; preds = %16
+17:                                               ; preds = %16, %11
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds %struct.opal_object_t, ptr %18, i32 0, i32 0
+  store ptr @ompi_op_t_class, ptr %19, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds %struct.opal_object_t, ptr %20, i32 0, i32 1
+  store volatile i32 1, ptr %21, align 8
+  %22 = load ptr, ptr %6, align 8
+  call void @opal_obj_run_constructors(ptr noundef %22)
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.ompi_op_t, ptr %24, i32 0, i32 4
-  %26 = load i32, ptr %25, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = icmp ne i32 %26, %27
-  br i1 %28, label %29, label %30
+23:                                               ; preds = %17
+  br label %24
 
-29:                                               ; preds = %23
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct.ompi_op_t, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = icmp ne i32 %27, %28
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %24
   store i32 -1, ptr %5, align 4
-  br label %59
+  br label %60
 
-30:                                               ; preds = %23
-  %31 = load i32, ptr %8, align 4
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.ompi_op_t, ptr %32, i32 0, i32 3
-  store i32 %31, ptr %33, align 4
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.ompi_op_t, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 0
-  %37 = load ptr, ptr %9, align 8
-  call void @opal_string_copy(ptr noundef %36, ptr noundef %37, i64 noundef 64)
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.ompi_op_t, ptr %38, i32 0, i32 1
-  %40 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 63
-  store i8 0, ptr %40, align 1
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.ompi_op_t, ptr %41, i32 0, i32 4
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ne i32 0, %43
-  br i1 %44, label %45, label %58
+31:                                               ; preds = %24
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds %struct.ompi_op_t, ptr %33, i32 0, i32 3
+  store i32 %32, ptr %34, align 4
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %struct.ompi_op_t, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds [64 x i8], ptr %36, i64 0, i64 0
+  %38 = load ptr, ptr %9, align 8
+  call void @opal_string_copy(ptr noundef %37, ptr noundef %38, i64 noundef 64)
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct.ompi_op_t, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 63
+  store i8 0, ptr %41, align 1
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct.ompi_op_t, ptr %42, i32 0, i32 4
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ne i32 0, %44
+  br i1 %45, label %46, label %59
 
-45:                                               ; preds = %30
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.ompi_op_t, ptr %46, i32 0, i32 4
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ne i32 13, %48
-  br i1 %49, label %50, label %58
+46:                                               ; preds = %31
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.ompi_op_t, ptr %47, i32 0, i32 4
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ne i32 13, %49
+  br i1 %50, label %51, label %59
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.ompi_op_t, ptr %51, i32 0, i32 4
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp ne i32 14, %53
-  br i1 %54, label %55, label %58
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds %struct.ompi_op_t, ptr %52, i32 0, i32 4
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ne i32 14, %54
+  br i1 %55, label %56, label %59
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %6, align 8
-  %57 = call i32 @ompi_op_base_op_select(ptr noundef %56)
-  store i32 %57, ptr %5, align 4
-  br label %59
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %6, align 8
+  %58 = call i32 @ompi_op_base_op_select(ptr noundef %57)
+  store i32 %58, ptr %5, align 4
+  br label %60
 
-58:                                               ; preds = %50, %45, %30
+59:                                               ; preds = %51, %46, %31
   store i32 0, ptr %5, align 4
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %55, %29
-  %60 = load i32, ptr %5, align 4
-  ret i32 %60
+60:                                               ; preds = %59, %56, %30
+  %61 = load i32, ptr %5, align 4
+  ret i32 %61
 }
 
 declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef) #1

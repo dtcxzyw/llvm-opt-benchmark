@@ -209,7 +209,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %promised_by_url_ = getelementptr inbounds %"class.net::QuicClientPushPromiseIndex", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net22QuicClientPromisedInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %promised_by_url_) #7
   ret void
@@ -232,7 +233,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %promised_by_url_ = getelementptr inbounds %"class.net::QuicClientPushPromiseIndex", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net22QuicClientPromisedInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %promised_by_url_) #7
   ret void

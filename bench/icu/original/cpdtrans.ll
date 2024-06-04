@@ -124,48 +124,50 @@ entry:
   store i32 %transliteratorCount, ptr %transliteratorCount.addr, align 4
   store ptr %adoptedFilter, ptr %adoptedFilter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %transliterators.addr, align 8
-  %1 = load i32, ptr %transliteratorCount.addr, align 4
-  call void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef %0, i32 noundef %1)
-  %2 = load ptr, ptr %adoptedFilter.addr, align 8
-  invoke void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %2)
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %transliterators.addr, align 8
+  %2 = load i32, ptr %transliteratorCount.addr, align 4
+  call void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef %1, i32 noundef %2)
+  %3 = load ptr, ptr %adoptedFilter.addr, align 8
+  invoke void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %count = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 2
   store i32 0, ptr %count, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %numAnonymousRBTs, align 4
-  %3 = load ptr, ptr %transliterators.addr, align 8
-  %4 = load i32, ptr %transliteratorCount.addr, align 4
-  invoke void @_ZN6icu_7522CompoundTransliterator18setTransliteratorsEPKPNS_14TransliteratorEi(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef %3, i32 noundef %4)
+  %5 = load ptr, ptr %transliterators.addr, align 8
+  %6 = load i32, ptr %transliteratorCount.addr, align 4
+  invoke void @_ZN6icu_7522CompoundTransliterator18setTransliteratorsEPKPNS_14TransliteratorEi(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef %5, i32 noundef %6)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -429,27 +431,28 @@ entry:
   %1 = load ptr, ptr %id.addr, align 8
   %2 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %numAnonymousRBTs, align 4
-  %3 = load ptr, ptr %id.addr, align 8
-  %4 = load i32, ptr %direction.addr, align 4
-  %5 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522CompoundTransliterator4initERKNS_13UnicodeStringE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %4, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %4 = load ptr, ptr %id.addr, align 8
+  %5 = load i32, ptr %direction.addr, align 4
+  %6 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7522CompoundTransliterator4initERKNS_13UnicodeStringE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %5, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -614,26 +617,27 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %id.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %numAnonymousRBTs, align 4
-  %2 = load ptr, ptr %id.addr, align 8
-  %3 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522CompoundTransliterator4initERKNS_13UnicodeStringE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef 0, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %3 = load ptr, ptr %id.addr, align 8
+  %4 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7522CompoundTransliterator4initERKNS_13UnicodeStringE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -668,27 +672,28 @@ entry:
   %1 = load ptr, ptr %newID.addr, align 8
   %2 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %anonymousRBTs.addr, align 4
-  store i32 %3, ptr %numAnonymousRBTs, align 4
-  %4 = load ptr, ptr %list.addr, align 8
-  %5 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %4 = load i32, ptr %anonymousRBTs.addr, align 4
+  store i32 %4, ptr %numAnonymousRBTs, align 4
+  %5 = load ptr, ptr %list.addr, align 8
+  %6 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -928,36 +933,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %numAnonymousRBTs, align 4
-  %1 = load ptr, ptr %list.addr, align 8
-  %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %2 = load ptr, ptr %list.addr, align 8
+  %3 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -976,7 +982,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1006,37 +1013,38 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %anonymousRBTs.addr, align 4
-  store i32 %1, ptr %numAnonymousRBTs, align 4
-  %2 = load ptr, ptr %list.addr, align 8
-  %3 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %2 = load i32, ptr %anonymousRBTs.addr, align 4
+  store i32 %2, ptr %numAnonymousRBTs, align 4
+  %3 = load ptr, ptr %list.addr, align 8
+  %4 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7522CompoundTransliterator4initERNS_7UVectorE15UTransDirectionaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -1217,27 +1225,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(84) %0)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %count = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 2
   store i32 0, ptr %count, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
   store i32 -1, ptr %numAnonymousRBTs, align 4
-  %1 = load ptr, ptr %t.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7522CompoundTransliteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  %2 = load ptr, ptr %t.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7522CompoundTransliteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #6
   br label %eh.resume
 
@@ -1490,7 +1499,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN6icu_7522CompoundTransliterator19freeTransliteratorsEv(ptr noundef nonnull align 8 dereferenceable(104) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1499,10 +1509,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #8
   unreachable
 }
 
@@ -2642,7 +2652,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2652,7 +2663,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

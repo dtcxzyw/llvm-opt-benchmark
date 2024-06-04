@@ -496,14 +496,15 @@ define hidden void @_ZN5osgeo4proj4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj4FileE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %8 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
-  %9 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 3
-  store i8 0, ptr %9, align 8
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj4FileE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
+  %10 = getelementptr inbounds %"class.osgeo::proj::File", ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 8
   ret void
 }
 
@@ -517,11 +518,12 @@ define void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj4FileE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::File", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::File", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj4FileE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::File", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::File", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   ret void
 }
 
@@ -875,21 +877,22 @@ define hidden void @_ZN5osgeo4proj9FileStdioD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj9FileStdioE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = invoke i32 @fclose(ptr noundef %5)
-          to label %7 unwind label %8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj9FileStdioE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = invoke i32 @fclose(ptr noundef %6)
+          to label %8 unwind label %9
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   call void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #8
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 }
 
@@ -1187,13 +1190,14 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9FileStdioC2ERKNSt7__cxx1112basic
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN5osgeo4proj4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj9FileStdioE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %7, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %9, i32 0, i32 2
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %13, align 8
+  %11 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj9FileStdioE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::FileStdio", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 }
 
@@ -1228,33 +1232,34 @@ define hidden void @_ZN5osgeo4proj14FileApiAdapterD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj14FileApiAdapterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.pj_ctx, ptr %5, i32 0, i32 21
-  %7 = getelementptr inbounds %struct.projFileApiCallbackAndData, ptr %6, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.pj_ctx, ptr %14, i32 0, i32 21
-  %16 = getelementptr inbounds %struct.projFileApiCallbackAndData, ptr %15, i32 0, i32 10
-  %17 = load ptr, ptr %16, align 8
-  invoke void %8(ptr noundef %10, ptr noundef %12, ptr noundef %17)
-          to label %18 unwind label %19
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj14FileApiAdapterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.pj_ctx, ptr %6, i32 0, i32 21
+  %8 = getelementptr inbounds %struct.projFileApiCallbackAndData, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %3, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.pj_ctx, ptr %15, i32 0, i32 21
+  %17 = getelementptr inbounds %struct.projFileApiCallbackAndData, ptr %16, i32 0, i32 10
+  %18 = load ptr, ptr %17, align 8
+  invoke void %9(ptr noundef %11, ptr noundef %13, ptr noundef %18)
+          to label %19 unwind label %20
 
-18:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #8
   ret void
 
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #15
   unreachable
 }
 
@@ -1551,13 +1556,14 @@ define linkonce_odr hidden void @_ZN5osgeo4proj14FileApiAdapterC2ERKNSt7__cxx111
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN5osgeo4proj4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj14FileApiAdapterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %7, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %9, i32 0, i32 2
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %13, align 8
+  %11 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj14FileApiAdapterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::FileApiAdapter", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 }
 
@@ -4180,7 +4186,7 @@ define hidden void @_ZN5osgeo4proj11FileManager18open_resource_fileEP6pj_ctxPKcP
 
 158:                                              ; preds = %154, %153
   %159 = load i32, ptr %14, align 4
-  %160 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %160 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %161 = icmp eq i32 %159, %160
   br i1 %161, label %162, label %193
 
@@ -4485,7 +4491,7 @@ define hidden void @_ZN5osgeo4proj11FileManager18open_resource_fileEP6pj_ctxPKcP
 
 282:                                              ; preds = %278, %277
   %283 = load i32, ptr %14, align 4
-  %284 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %284 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %285 = icmp eq i32 %283, %284
   br i1 %285, label %286, label %313
 
@@ -5204,7 +5210,7 @@ define internal noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2
 
 194:                                              ; preds = %190
   %195 = load i32, ptr %19, align 4
-  %196 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %196 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %197 = icmp eq i32 %195, %196
   br i1 %197, label %198, label %459
 
@@ -5815,7 +5821,7 @@ define internal noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2
 
 460:                                              ; preds = %459
   %461 = load i32, ptr %19, align 4
-  %462 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %463 = icmp eq i32 %461, %462
   br i1 %463, label %464, label %478
 
@@ -6054,7 +6060,7 @@ define internal void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias writa
 
 23:                                               ; preds = %19, %15
   %24 = load i32, ptr %7, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %44
 
@@ -6158,9 +6164,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrIN5osgeo4proj4F
 }
 
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
 
 declare void @__cxa_end_catch()
 
@@ -6510,7 +6513,7 @@ define void @proj_context_set_search_paths(ptr noundef %0, i32 noundef %1, ptr n
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %10, align 4
-  %40 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %49
 
@@ -6673,7 +6676,7 @@ define void @proj_context_set_ca_bundle_path(ptr noundef %0, ptr noundef %1) #0 
 
 39:                                               ; preds = %38
   %40 = load i32, ptr %8, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %47
 
@@ -6769,7 +6772,7 @@ declare i64 @strlen(ptr noundef) #9
 declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN5osgeo4proj4FileESt14default_deleteIS2_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
@@ -7367,7 +7370,7 @@ define linkonce_odr noundef i64 @_ZNSt6vectorIcSaIcEE11_S_max_sizeERKS0_(ptr nou
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
@@ -7534,10 +7537,10 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIcE8allocateEmPKv(ptr nou
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #12
+declare void @_ZSt17__throw_bad_allocv() #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
@@ -8162,7 +8165,7 @@ define internal noundef zeroext i1 @_ZL33get_path_from_relative_share_projP6pj_c
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #13
+declare ptr @__errno_location() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
@@ -8897,7 +8900,7 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN5os
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) #2
@@ -10194,6 +10197,9 @@ define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11
   resume { ptr, i32 } %22
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10204,11 +10210,11 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind memory(none) }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { builtin nounwind }
 attributes #17 = { builtin allocsize(0) }

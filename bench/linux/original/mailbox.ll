@@ -555,7 +555,8 @@ define dso_local noundef nonnull ptr @mbox_request_channel(ptr nocapture noundef
   br label %10
 
 10:                                               ; preds = %9, %5, %2
-  ret ptr inttoptr (i64 -19 to ptr)
+  %11 = inttoptr i64 -19 to ptr
+  ret ptr %11
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -569,7 +570,8 @@ define dso_local noundef nonnull ptr @mbox_request_channel_byname(ptr nocapture 
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, ptr @.str.5, ptr @.str.7
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull @__func__.mbox_request_channel_byname) #6
-  ret ptr inttoptr (i64 -22 to ptr)
+  %8 = inttoptr i64 -22 to ptr
+  ret ptr %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -635,24 +637,24 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @mbox_controller_register(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %60, label %3
+  br i1 %2, label %62, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %60, label %6
+  br i1 %5, label %62, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %60, label %10
+  br i1 %9, label %62, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %60, label %14
+  br i1 %13, label %62, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 28
@@ -680,7 +682,7 @@ define dso_local noundef i32 @mbox_controller_register(ptr noundef %0) #0 align 
 
 30:                                               ; preds = %26
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.9) #6
-  br label %60
+  br label %62
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %0, i64 48
@@ -730,18 +732,20 @@ define dso_local noundef i32 @mbox_controller_register(ptr noundef %0) #0 align 
 56:                                               ; preds = %55, %51
   tail call void @mutex_lock(ptr noundef nonnull @con_mutex) #5
   %57 = getelementptr inbounds i8, ptr %0, i64 120
-  %58 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @mbox_cons, i64 0, i32 1), align 8
-  store ptr %57, ptr getelementptr inbounds (%struct.list_head, ptr @mbox_cons, i64 0, i32 1), align 8
+  %58 = getelementptr inbounds %struct.list_head, ptr @mbox_cons, i64 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.list_head, ptr @mbox_cons, i64 0, i32 1
+  store ptr %57, ptr %60, align 8
   store ptr @mbox_cons, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %58, ptr %59, align 8
-  store volatile ptr %57, ptr %58, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %59, ptr %61, align 8
+  store volatile ptr %57, ptr %59, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @con_mutex) #5
-  br label %60
+  br label %62
 
-60:                                               ; preds = %56, %30, %10, %6, %3, %1
-  %61 = phi i32 [ 0, %56 ], [ -22, %30 ], [ -22, %10 ], [ -22, %6 ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %61
+62:                                               ; preds = %56, %30, %10, %6, %3, %1
+  %63 = phi i32 [ 0, %56 ], [ -22, %30 ], [ -22, %10 ], [ -22, %6 ], [ -22, %3 ], [ -22, %1 ]
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -867,24 +871,25 @@ define internal ptr @of_mbox_index_xlate(ptr nocapture noundef readonly %0, ptr 
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %4, %6
-  br i1 %7, label %8, label %13
+  %8 = inttoptr i64 -22 to ptr
+  br i1 %7, label %9, label %14
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = sext i32 %4 to i64
-  %12 = getelementptr %struct.mbox_chan, ptr %10, i64 %11
-  br label %13
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = sext i32 %4 to i64
+  %13 = getelementptr %struct.mbox_chan, ptr %11, i64 %12
+  br label %14
 
-13:                                               ; preds = %8, %2
-  %14 = phi ptr [ %12, %8 ], [ inttoptr (i64 -22 to ptr), %2 ]
-  ret ptr %14
+14:                                               ; preds = %9, %2
+  %15 = phi ptr [ %13, %9 ], [ %8, %2 ]
+  ret ptr %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mbox_controller_unregister(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %59, label %3
+  br i1 %2, label %61, label %3
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @con_mutex) #5
@@ -895,92 +900,94 @@ define dso_local void @mbox_controller_unregister(ptr noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %51
+  %9 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %9, ptr %4, align 8
+  %10 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %10, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %14, label %53
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %14
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %16
 
-14:                                               ; preds = %46, %12
-  %15 = phi i64 [ 0, %12 ], [ %47, %46 ]
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr %struct.mbox_chan, ptr %16, i64 %15
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %46, label %19
+16:                                               ; preds = %48, %14
+  %17 = phi i64 [ 0, %14 ], [ %49, %48 ]
+  %18 = load ptr, ptr %15, align 8
+  %19 = getelementptr %struct.mbox_chan, ptr %18, i64 %17
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %48, label %21
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %46, label %23
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %48, label %25
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %19, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %31, label %30
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %33, label %32
 
-30:                                               ; preds = %23
-  tail call void %28(ptr noundef nonnull %17) #5
-  br label %31
+32:                                               ; preds = %25
+  tail call void %30(ptr noundef nonnull %19) #5
+  br label %33
 
-31:                                               ; preds = %30, %23
-  %32 = getelementptr inbounds i8, ptr %17, i64 232
-  %33 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %32) #5
-  store ptr null, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %17, i64 56
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 4
-  br i1 %37, label %38, label %39
+33:                                               ; preds = %32, %25
+  %34 = getelementptr inbounds i8, ptr %19, i64 232
+  %35 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %34) #5
+  store ptr null, ptr %22, align 8
+  %36 = getelementptr inbounds i8, ptr %19, i64 56
+  store ptr null, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %19, i64 8
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp eq i32 %38, 4
+  br i1 %39, label %40, label %41
 
-38:                                               ; preds = %31
-  store i32 2, ptr %35, align 8
-  br label %39
+40:                                               ; preds = %33
+  store i32 2, ptr %37, align 8
+  br label %41
 
-39:                                               ; preds = %38, %31
-  %40 = load ptr, ptr %17, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 104
+41:                                               ; preds = %40, %33
+  %42 = load ptr, ptr %19, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds i8, ptr %43, i64 104
   %45 = load ptr, ptr %44, align 8
-  tail call void @module_put(ptr noundef %45) #5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #5
-  br label %46
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  tail call void @module_put(ptr noundef %47) #5
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %34, i64 noundef %35) #5
+  br label %48
 
-46:                                               ; preds = %39, %19, %14
-  %47 = add nuw nsw i64 %15, 1
-  %48 = load i32, ptr %9, align 8
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %47, %49
-  br i1 %50, label %14, label %51, !llvm.loop !12
+48:                                               ; preds = %41, %21, %16
+  %49 = add nuw nsw i64 %17, 1
+  %50 = load i32, ptr %11, align 8
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %49, %51
+  br i1 %52, label %16, label %53, !llvm.loop !12
 
-51:                                               ; preds = %46, %3
-  %52 = getelementptr inbounds i8, ptr %0, i64 29
-  %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %58, label %55
+53:                                               ; preds = %48, %3
+  %54 = getelementptr inbounds i8, ptr %0, i64 29
+  %55 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %56 = icmp eq i8 %55, 0
+  br i1 %56, label %60, label %57
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
-  %57 = tail call i32 @hrtimer_cancel(ptr noundef %56) #5
-  br label %58
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = tail call i32 @hrtimer_cancel(ptr noundef %58) #5
+  br label %60
 
-58:                                               ; preds = %55, %51
+60:                                               ; preds = %57, %53
   tail call void @mutex_unlock(ptr noundef nonnull @con_mutex) #5
-  br label %59
+  br label %61
 
-59:                                               ; preds = %58, %1
+61:                                               ; preds = %60, %1
   ret void
 }
 

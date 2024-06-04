@@ -5024,55 +5024,56 @@ entry:
   br i1 %tobool, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_end, ptr null), label %if.then, label %if.end11
+  %2 = icmp ne ptr @ZSTD_trace_decompress_end, null
+  br i1 %2, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr align 8 %trace, i8 0, i64 64, i1 false)
   %version = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 0
   store i32 10505, ptr %version, align 8
-  %2 = load i32, ptr %streaming.addr, align 4
+  %3 = load i32, ptr %streaming.addr, align 4
   %streaming1 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 1
-  store i32 %2, ptr %streaming1, align 4
-  %3 = load ptr, ptr %dctx.addr, align 8
-  %ddict = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %3, i32 0, i32 31
-  %4 = load ptr, ptr %ddict, align 8
-  %tobool2 = icmp ne ptr %4, null
+  store i32 %3, ptr %streaming1, align 4
+  %4 = load ptr, ptr %dctx.addr, align 8
+  %ddict = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %4, i32 0, i32 31
+  %5 = load ptr, ptr %ddict, align 8
+  %tobool2 = icmp ne ptr %5, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %5 = load ptr, ptr %dctx.addr, align 8
-  %ddict4 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %5, i32 0, i32 31
-  %6 = load ptr, ptr %ddict4, align 8
-  %call = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %6)
+  %6 = load ptr, ptr %dctx.addr, align 8
+  %ddict4 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %6, i32 0, i32 31
+  %7 = load ptr, ptr %ddict4, align 8
+  %call = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %7)
   %dictionaryID = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 2
   store i32 %call, ptr %dictionaryID, align 8
-  %7 = load ptr, ptr %dctx.addr, align 8
-  %ddict5 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %7, i32 0, i32 31
-  %8 = load ptr, ptr %ddict5, align 8
-  %call6 = call i64 @ZSTD_DDict_dictSize(ptr noundef %8)
+  %8 = load ptr, ptr %dctx.addr, align 8
+  %ddict5 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %8, i32 0, i32 31
+  %9 = load ptr, ptr %ddict5, align 8
+  %call6 = call i64 @ZSTD_DDict_dictSize(ptr noundef %9)
   %dictionarySize = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 4
   store i64 %call6, ptr %dictionarySize, align 8
-  %9 = load ptr, ptr %dctx.addr, align 8
-  %ddictIsCold = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %9, i32 0, i32 33
-  %10 = load i32, ptr %ddictIsCold, align 4
+  %10 = load ptr, ptr %dctx.addr, align 8
+  %ddictIsCold = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %10, i32 0, i32 33
+  %11 = load i32, ptr %ddictIsCold, align 4
   %dictionaryIsCold = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 3
-  store i32 %10, ptr %dictionaryIsCold, align 4
+  store i32 %11, ptr %dictionaryIsCold, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %11 = load i64, ptr %uncompressedSize.addr, align 8
+  %12 = load i64, ptr %uncompressedSize.addr, align 8
   %uncompressedSize7 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 5
-  store i64 %11, ptr %uncompressedSize7, align 8
-  %12 = load i64, ptr %compressedSize.addr, align 8
+  store i64 %12, ptr %uncompressedSize7, align 8
+  %13 = load i64, ptr %compressedSize.addr, align 8
   %compressedSize8 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 6
-  store i64 %12, ptr %compressedSize8, align 8
-  %13 = load ptr, ptr %dctx.addr, align 8
-  %dctx9 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 9
-  store ptr %13, ptr %dctx9, align 8
+  store i64 %13, ptr %compressedSize8, align 8
   %14 = load ptr, ptr %dctx.addr, align 8
-  %traceCtx10 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %14, i32 0, i32 62
-  %15 = load i64, ptr %traceCtx10, align 8
-  call void @ZSTD_trace_decompress_end(i64 noundef %15, ptr noundef %trace)
+  %dctx9 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i32 0, i32 9
+  store ptr %14, ptr %dctx9, align 8
+  %15 = load ptr, ptr %dctx.addr, align 8
+  %traceCtx10 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %15, i32 0, i32 62
+  %16 = load i64, ptr %traceCtx10, align 8
+  call void @ZSTD_trace_decompress_end(i64 noundef %16, ptr noundef %trace)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %land.lhs.true, %entry
@@ -5795,11 +5796,12 @@ define i64 @ZSTD_decompressBegin(ptr noundef %dctx) #0 {
 entry:
   %dctx.addr = alloca ptr, align 8
   store ptr %dctx, ptr %dctx.addr, align 8
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true, label %cond.false
+  %0 = icmp ne ptr @ZSTD_trace_decompress_begin, null
+  br i1 %0, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %0 = load ptr, ptr %dctx.addr, align 8
-  %call = call i64 @ZSTD_trace_decompress_begin(ptr noundef %0)
+  %1 = load ptr, ptr %dctx.addr, align 8
+  %call = call i64 @ZSTD_trace_decompress_begin(ptr noundef %1)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -5807,89 +5809,89 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %call, %cond.true ], [ 0, %cond.false ]
-  %1 = load ptr, ptr %dctx.addr, align 8
-  %traceCtx = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %1, i32 0, i32 62
-  store i64 %cond, ptr %traceCtx, align 8
   %2 = load ptr, ptr %dctx.addr, align 8
-  %format = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %2, i32 0, i32 20
-  %3 = load i32, ptr %format, align 8
-  %call1 = call i64 @ZSTD_startingInputLength(i32 noundef %3)
-  %4 = load ptr, ptr %dctx.addr, align 8
-  %expected = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %4, i32 0, i32 10
-  store i64 %call1, ptr %expected, align 8
+  %traceCtx = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %2, i32 0, i32 62
+  store i64 %cond, ptr %traceCtx, align 8
+  %3 = load ptr, ptr %dctx.addr, align 8
+  %format = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %3, i32 0, i32 20
+  %4 = load i32, ptr %format, align 8
+  %call1 = call i64 @ZSTD_startingInputLength(i32 noundef %4)
   %5 = load ptr, ptr %dctx.addr, align 8
-  %stage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %5, i32 0, i32 15
-  store i32 0, ptr %stage, align 4
+  %expected = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %5, i32 0, i32 10
+  store i64 %call1, ptr %expected, align 8
   %6 = load ptr, ptr %dctx.addr, align 8
-  %processedCSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %6, i32 0, i32 12
-  store i64 0, ptr %processedCSize, align 8
+  %stage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %6, i32 0, i32 15
+  store i32 0, ptr %stage, align 4
   %7 = load ptr, ptr %dctx.addr, align 8
-  %decodedSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %7, i32 0, i32 13
-  store i64 0, ptr %decodedSize, align 8
+  %processedCSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %7, i32 0, i32 12
+  store i64 0, ptr %processedCSize, align 8
   %8 = load ptr, ptr %dctx.addr, align 8
-  %previousDstEnd = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %8, i32 0, i32 6
-  store ptr null, ptr %previousDstEnd, align 8
+  %decodedSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %8, i32 0, i32 13
+  store i64 0, ptr %decodedSize, align 8
   %9 = load ptr, ptr %dctx.addr, align 8
-  %prefixStart = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %9, i32 0, i32 7
-  store ptr null, ptr %prefixStart, align 8
+  %previousDstEnd = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %9, i32 0, i32 6
+  store ptr null, ptr %previousDstEnd, align 8
   %10 = load ptr, ptr %dctx.addr, align 8
-  %virtualStart = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %10, i32 0, i32 8
-  store ptr null, ptr %virtualStart, align 8
+  %prefixStart = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %10, i32 0, i32 7
+  store ptr null, ptr %prefixStart, align 8
   %11 = load ptr, ptr %dctx.addr, align 8
-  %dictEnd = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %11, i32 0, i32 9
-  store ptr null, ptr %dictEnd, align 8
+  %virtualStart = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %11, i32 0, i32 8
+  store ptr null, ptr %virtualStart, align 8
   %12 = load ptr, ptr %dctx.addr, align 8
-  %entropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %12, i32 0, i32 4
+  %dictEnd = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %12, i32 0, i32 9
+  store ptr null, ptr %dictEnd, align 8
+  %13 = load ptr, ptr %dctx.addr, align 8
+  %entropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %13, i32 0, i32 4
   %hufTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy, i32 0, i32 3
   %arrayidx = getelementptr inbounds [4097 x i32], ptr %hufTable, i64 0, i64 0
   store i32 201326604, ptr %arrayidx, align 8
-  %13 = load ptr, ptr %dctx.addr, align 8
-  %fseEntropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %13, i32 0, i32 17
-  store i32 0, ptr %fseEntropy, align 4
   %14 = load ptr, ptr %dctx.addr, align 8
-  %litEntropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %14, i32 0, i32 16
-  store i32 0, ptr %litEntropy, align 8
+  %fseEntropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %14, i32 0, i32 17
+  store i32 0, ptr %fseEntropy, align 4
   %15 = load ptr, ptr %dctx.addr, align 8
-  %dictID = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %15, i32 0, i32 32
-  store i32 0, ptr %dictID, align 8
+  %litEntropy = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %15, i32 0, i32 16
+  store i32 0, ptr %litEntropy, align 8
   %16 = load ptr, ptr %dctx.addr, align 8
-  %bType = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %16, i32 0, i32 14
-  store i32 3, ptr %bType, align 8
+  %dictID = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %16, i32 0, i32 32
+  store i32 0, ptr %dictID, align 8
   %17 = load ptr, ptr %dctx.addr, align 8
-  %isFrameDecompression = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %17, i32 0, i32 28
-  store i32 1, ptr %isFrameDecompression, align 8
+  %bType = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %17, i32 0, i32 14
+  store i32 3, ptr %bType, align 8
   %18 = load ptr, ptr %dctx.addr, align 8
-  %entropy2 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %18, i32 0, i32 4
+  %isFrameDecompression = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %18, i32 0, i32 28
+  store i32 1, ptr %isFrameDecompression, align 8
+  %19 = load ptr, ptr %dctx.addr, align 8
+  %entropy2 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %19, i32 0, i32 4
   %rep = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy2, i32 0, i32 4
   %arraydecay = getelementptr inbounds [3 x i32], ptr %rep, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 4 @repStartValue, i64 12, i1 false)
-  %19 = load ptr, ptr %dctx.addr, align 8
-  %entropy3 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %19, i32 0, i32 4
+  %20 = load ptr, ptr %dctx.addr, align 8
+  %entropy3 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %20, i32 0, i32 4
   %LLTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy3, i32 0, i32 0
   %arraydecay4 = getelementptr inbounds [513 x %struct.ZSTD_seqSymbol], ptr %LLTable, i64 0, i64 0
-  %20 = load ptr, ptr %dctx.addr, align 8
-  %LLTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %20, i32 0, i32 0
-  store ptr %arraydecay4, ptr %LLTptr, align 8
   %21 = load ptr, ptr %dctx.addr, align 8
-  %entropy5 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %21, i32 0, i32 4
+  %LLTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %21, i32 0, i32 0
+  store ptr %arraydecay4, ptr %LLTptr, align 8
+  %22 = load ptr, ptr %dctx.addr, align 8
+  %entropy5 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %22, i32 0, i32 4
   %MLTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy5, i32 0, i32 2
   %arraydecay6 = getelementptr inbounds [513 x %struct.ZSTD_seqSymbol], ptr %MLTable, i64 0, i64 0
-  %22 = load ptr, ptr %dctx.addr, align 8
-  %MLTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %22, i32 0, i32 1
-  store ptr %arraydecay6, ptr %MLTptr, align 8
   %23 = load ptr, ptr %dctx.addr, align 8
-  %entropy7 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %23, i32 0, i32 4
+  %MLTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %23, i32 0, i32 1
+  store ptr %arraydecay6, ptr %MLTptr, align 8
+  %24 = load ptr, ptr %dctx.addr, align 8
+  %entropy7 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %24, i32 0, i32 4
   %OFTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy7, i32 0, i32 1
   %arraydecay8 = getelementptr inbounds [257 x %struct.ZSTD_seqSymbol], ptr %OFTable, i64 0, i64 0
-  %24 = load ptr, ptr %dctx.addr, align 8
-  %OFTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %24, i32 0, i32 2
-  store ptr %arraydecay8, ptr %OFTptr, align 8
   %25 = load ptr, ptr %dctx.addr, align 8
-  %entropy9 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %25, i32 0, i32 4
+  %OFTptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %25, i32 0, i32 2
+  store ptr %arraydecay8, ptr %OFTptr, align 8
+  %26 = load ptr, ptr %dctx.addr, align 8
+  %entropy9 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %26, i32 0, i32 4
   %hufTable10 = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy9, i32 0, i32 3
   %arraydecay11 = getelementptr inbounds [4097 x i32], ptr %hufTable10, i64 0, i64 0
-  %26 = load ptr, ptr %dctx.addr, align 8
-  %HUFptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %26, i32 0, i32 3
+  %27 = load ptr, ptr %dctx.addr, align 8
+  %HUFptr = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %27, i32 0, i32 3
   store ptr %arraydecay11, ptr %HUFptr, align 8
   ret i64 0
 }

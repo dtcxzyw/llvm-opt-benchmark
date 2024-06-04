@@ -288,20 +288,21 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
   %1 = load i32, ptr @time_status, align 4
   %2 = and i32 %1, 64
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %11
+  br i1 %3, label %4, label %12
 
 4:                                                ; preds = %0
-  %5 = load volatile i8, ptr getelementptr inbounds (%struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 4), align 8
-  %6 = and i8 %5, 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %11
+  %5 = getelementptr inbounds %struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 4
+  %6 = load volatile i8, ptr %5, align 8
+  %7 = and i8 %6, 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @system_freezable_power_efficient_wq, align 8
-  %10 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %9, ptr noundef nonnull @sync_work) #10
-  br label %11
+9:                                                ; preds = %4
+  %10 = load ptr, ptr @system_freezable_power_efficient_wq, align 8
+  %11 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %10, ptr noundef nonnull @sync_work) #10
+  br label %12
 
-11:                                               ; preds = %8, %4, %0
+12:                                               ; preds = %9, %4, %0
   ret void
 }
 
@@ -830,7 +831,8 @@ define internal i32 @ntp_tick_adj_setup(ptr noundef %0) #5 section ".init.text" 
 define dso_local void @ntp_init() local_unnamed_addr #5 section ".init.text" align 16 {
   tail call void @ntp_clear()
   tail call void @hrtimer_init(ptr noundef nonnull @sync_hrtimer, i32 noundef 0, i32 noundef 0) #10
-  store ptr @sync_timer_callback, ptr getelementptr inbounds (%struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 2
+  store ptr @sync_timer_callback, ptr %1, align 8
   ret void
 }
 
@@ -847,119 +849,120 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
   %5 = load i32, ptr @time_status, align 4
   %6 = and i32 %5, 64
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %76
+  br i1 %7, label %8, label %77
 
 8:                                                ; preds = %1
-  %9 = load volatile i8, ptr getelementptr inbounds (%struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 4), align 8
-  %10 = and i8 %9, 1
-  %11 = icmp eq i8 %10, 0
-  br i1 %11, label %12, label %76
+  %9 = getelementptr inbounds %struct.hrtimer, ptr @sync_hrtimer, i64 0, i32 4
+  %10 = load volatile i8, ptr %9, align 8
+  %11 = and i8 %10, 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %77
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @ktime_get_real_ts64(ptr noundef nonnull %4) #10
-  %13 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
-  %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = load i64, ptr %15, align 8
+  %14 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
+  %15 = load i64, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
-  %17 = add i64 %14, -1
-  %18 = add i64 %16, %13
-  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %17, i64 noundef %18) #10
-  %19 = load i64, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = load i64, ptr %20, align 8
+  %18 = add i64 %15, -1
+  %19 = add i64 %17, %14
+  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %18, i64 noundef %19) #10
+  %20 = load i64, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %22 = icmp ult i64 %21, 5000000
-  br i1 %22, label %27, label %23
+  %23 = icmp ult i64 %22, 5000000
+  br i1 %23, label %28, label %24
 
-23:                                               ; preds = %12
-  %24 = icmp ugt i64 %21, 995000000
-  br i1 %24, label %25, label %27
+24:                                               ; preds = %13
+  %25 = icmp ugt i64 %22, 995000000
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %23
-  %26 = add i64 %19, 1
-  br label %27
+26:                                               ; preds = %24
+  %27 = add i64 %20, 1
+  br label %28
 
-27:                                               ; preds = %25, %23, %12
-  %28 = phi i64 [ %26, %25 ], [ %19, %23 ], [ %19, %12 ]
-  %29 = phi i64 [ 0, %25 ], [ %21, %23 ], [ 0, %12 ]
-  %30 = phi i1 [ true, %25 ], [ false, %23 ], [ true, %12 ]
-  br i1 %30, label %31, label %65
+28:                                               ; preds = %26, %24, %13
+  %29 = phi i64 [ %27, %26 ], [ %20, %24 ], [ %20, %13 ]
+  %30 = phi i64 [ 0, %26 ], [ %22, %24 ], [ 0, %13 ]
+  %31 = phi i1 [ true, %26 ], [ false, %24 ], [ true, %13 ]
+  br i1 %31, label %32, label %66
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr @persistent_clock_is_local, align 4
-  %33 = icmp eq i32 %32, 0
-  %34 = load i32, ptr @sys_tz, align 4
-  %35 = mul i32 %34, 60
-  %36 = select i1 %33, i32 0, i32 %35
-  %37 = sext i32 %36 to i64
-  %38 = sub i64 %28, %37
-  %39 = call i32 @update_persistent_clock64(i64 %38, i64 %29)
-  %40 = icmp eq i32 %39, -19
-  br i1 %40, label %41, label %65
+32:                                               ; preds = %28
+  %33 = load i32, ptr @persistent_clock_is_local, align 4
+  %34 = icmp eq i32 %33, 0
+  %35 = load i32, ptr @sys_tz, align 4
+  %36 = mul i32 %35, 60
+  %37 = select i1 %34, i32 0, i32 %36
+  %38 = sext i32 %37 to i64
+  %39 = sub i64 %29, %38
+  %40 = call i32 @update_persistent_clock64(i64 %39, i64 %30)
+  %41 = icmp eq i32 %40, -19
+  br i1 %41, label %42, label %66
 
-41:                                               ; preds = %31
+42:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !7
-  %42 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #10
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %62, label %44
+  %43 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #10
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %63, label %45
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %42, i64 744
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %60, label %48
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %43, i64 744
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %61, label %49
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %60, label %52
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %61, label %53
 
-52:                                               ; preds = %48
-  %53 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 1200
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp eq i64 %53, %55
-  br i1 %56, label %57, label %59
+53:                                               ; preds = %49
+  %54 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
+  %55 = getelementptr inbounds i8, ptr %43, i64 1200
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp eq i64 %54, %56
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %52
-  call void @rtc_time64_to_tm(i64 noundef %38, ptr noundef nonnull %2) #10
-  %58 = call i32 @rtc_set_time(ptr noundef nonnull %42, ptr noundef nonnull %2) #10
-  br label %60
+58:                                               ; preds = %53
+  call void @rtc_time64_to_tm(i64 noundef %39, ptr noundef nonnull %2) #10
+  %59 = call i32 @rtc_set_time(ptr noundef nonnull %43, ptr noundef nonnull %2) #10
+  br label %61
 
-59:                                               ; preds = %52
-  store i64 %55, ptr @sync_hw_clock.offset_nsec, align 8
-  br label %60
+60:                                               ; preds = %53
+  store i64 %56, ptr @sync_hw_clock.offset_nsec, align 8
+  br label %61
 
-60:                                               ; preds = %59, %57, %48, %44
-  %61 = phi i32 [ %58, %57 ], [ -11, %59 ], [ -19, %48 ], [ -19, %44 ]
-  call void @rtc_class_close(ptr noundef nonnull %42) #10
-  br label %62
+61:                                               ; preds = %60, %58, %49, %45
+  %62 = phi i32 [ %59, %58 ], [ -11, %60 ], [ -19, %49 ], [ -19, %45 ]
+  call void @rtc_class_close(ptr noundef nonnull %43) #10
+  br label %63
 
-62:                                               ; preds = %60, %41
-  %63 = phi i32 [ %61, %60 ], [ -19, %41 ]
+63:                                               ; preds = %61, %42
+  %64 = phi i32 [ %62, %61 ], [ -19, %42 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #10
-  %64 = icmp eq i32 %63, -19
-  br i1 %64, label %76, label %65
+  %65 = icmp eq i32 %64, -19
+  br i1 %65, label %77, label %66
 
-65:                                               ; preds = %62, %31, %27
-  %66 = phi i32 [ %39, %31 ], [ %63, %62 ], [ -11, %27 ]
-  %67 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
-  %68 = icmp eq i32 %66, 0
-  %69 = call i64 @ktime_get_real_seconds() #10
-  %70 = icmp sgt i64 %69, 9223372035
-  %71 = mul i64 %69, 1000000000
-  %72 = select i1 %70, i64 9223372036854775807, i64 %71, !prof !5
-  %73 = select i1 %68, i64 660000000000, i64 2000000000
-  %74 = sub i64 %73, %67
-  %75 = add i64 %74, %72
-  call void @hrtimer_start_range_ns(ptr noundef nonnull @sync_hrtimer, i64 noundef %75, i64 noundef 0, i32 noundef 0) #10
-  br label %76
+66:                                               ; preds = %63, %32, %28
+  %67 = phi i32 [ %40, %32 ], [ %64, %63 ], [ -11, %28 ]
+  %68 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
+  %69 = icmp eq i32 %67, 0
+  %70 = call i64 @ktime_get_real_seconds() #10
+  %71 = icmp sgt i64 %70, 9223372035
+  %72 = mul i64 %70, 1000000000
+  %73 = select i1 %71, i64 9223372036854775807, i64 %72, !prof !5
+  %74 = select i1 %69, i64 660000000000, i64 2000000000
+  %75 = sub i64 %74, %68
+  %76 = add i64 %75, %73
+  call void @hrtimer_start_range_ns(ptr noundef nonnull @sync_hrtimer, i64 noundef %76, i64 noundef 0, i32 noundef 0) #10
+  br label %77
 
-76:                                               ; preds = %65, %62, %8, %1
+77:                                               ; preds = %66, %63, %8, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret void
 }
